@@ -142,7 +142,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				if (i_4_ == 19) {
 					if (i_3_ == 0) {
 						Class120_Sub14_Sub5.anInt3479 = 1;
-						Class120_Sub12_Sub20.method1302(Class173.anInt1729, i_1_, i_2_);
+						Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
 					} else if (i_3_ == 1) {
 						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(204);
 						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_2_ + Class181.currentBaseZ);
@@ -280,13 +280,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				if (i_4_ == 47) {
 					if (i_3_ == 0) {
 						Class120_Sub12_Sub33.anInt3401 = 1;
-						Class120_Sub12_Sub20.method1302(Class173.anInt1729, i_1_, i_2_);
+						Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
 					} else if (Class86.anInt821 <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
 						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(85);
 						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(GameEntity.currentBaseX - -i_1_);
 						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class181.currentBaseZ - -i_2_);
 					} else {
-						Class108.method930((byte) -120, GameEntity.currentBaseX + i_1_, Class181.currentBaseZ + i_2_, Class173.anInt1729);
+						Class108.method930((byte) -120, GameEntity.currentBaseX + i_1_, Class181.currentBaseZ + i_2_, Class173.gameLevel);
 					}
 				}
 				if (i_4_ == 59) {
@@ -449,11 +449,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(63);//14
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -111, 0, i_1_);
 								} else {
-									Class108.method930((byte) -120, i_1_ + GameEntity.currentBaseX, i_2_ + Class181.currentBaseZ, Class173.anInt1729);
+									Class108.method930((byte) -120, i_1_ + GameEntity.currentBaseX, i_2_ + Class181.currentBaseZ, Class173.gameLevel);
 								}
 							}
 						} else {
-							Class120_Sub12_Sub20.method1302(Class173.anInt1729, i_1_, i_2_);
+							Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
 						}
 					}
 					if (i_4_ == 9) {

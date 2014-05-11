@@ -161,7 +161,7 @@ final class Class120_Sub9 extends Node {
 			final GL gl = HDToolkit.gl;
 			if (this.anInt2520 == -1 || bool) {
 				HDToolkit.method514(-1);
-				Class120_Sub14_Sub13.method1532(0, 0, -111);
+				Class120_Sub14_Sub13.method1532(0, 0);
 			} else {
 				Rasterizer.anInterface5_973.method25(64, this.anInt2520);
 			}
@@ -175,7 +175,7 @@ final class Class120_Sub9 extends Node {
 				}
 				gl.glTexCoordPointer(2, 5126, i, 28L);
 				if (aBoolean2511) {
-					gl.glClientActiveTexture(Class18.method164());
+					gl.glClientActiveTexture(WaterShader.method164());
 					gl.glTexCoordPointer(1, 5126, i, 36L);
 					gl.glClientActiveTexture(33984);
 				}
@@ -194,7 +194,7 @@ final class Class120_Sub9 extends Node {
 				aByteBuffer2528.position(28);
 				gl.glTexCoordPointer(2, 5126, i, aByteBuffer2528);
 				if (aBoolean2511) {
-					gl.glClientActiveTexture(Class18.method164());
+					gl.glClientActiveTexture(WaterShader.method164());
 					aByteBuffer2528.position(36);
 					gl.glTexCoordPointer(1, 5126, i, aByteBuffer2528);
 					gl.glClientActiveTexture(33984);

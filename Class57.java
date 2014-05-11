@@ -32,10 +32,10 @@ abstract class Class57 {
 			final int i_0_ = Class24.method207();
 			if (i_0_ != 0) {
 				if (i_0_ != 1) {
-					Class184.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
+					LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
 					IsaacCipher.method905(16448, 2);
 				} else {
-					Class184.method2465((byte) 0, true);
+					LocType.method2465((byte) 0, true);
 					IsaacCipher.method905(16448, 512);
 					if (Class114.aByteArrayArrayArray1095 != null) {
 						Class120_Sub14_Sub6.method1447(false);
@@ -45,7 +45,7 @@ abstract class Class57 {
 				Class9.aByteArrayArrayArray70 = null;
 				IsaacCipher.method905(16448, 0);
 			}
-			Class153.anInt1436 = Class173.anInt1729;
+			Class153.anInt1436 = Class173.gameLevel;
 			if (i <= 93) {
 				aBooleanArray503 = null;
 			}

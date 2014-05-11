@@ -22,8 +22,8 @@ final class Class53_Sub1 extends Class53 {
 	private int anInt2221 = 0;
 	private boolean aBoolean2222;
 	private boolean aBoolean2223;
-	private Class105 aClass105_2224 = new Class105();
-	private Class105 aClass105_2225;
+	private Deque aClass105_2224 = new Deque();
+	private Deque aClass105_2225;
 	private long aLong2226 = 0L;
 	private final boolean aBoolean2227;
 
@@ -39,7 +39,7 @@ final class Class53_Sub1 extends Class53 {
 			if (i != 1) {
 				return -10;
 			}
-			final Node node = aClass105_2225.method893(1253231568);
+			final Node node = aClass105_2225.getFront();
 			if (node == null) {
 				return 0;
 			}
@@ -167,14 +167,14 @@ final class Class53_Sub1 extends Class53 {
 				method471(16);
 			}
 			if (aClass51_2209 != null) {
-				for (Node node = aClass105_2224.method893(1253231568); node != null; node = aClass105_2224.method899(64)) {
+				for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
 					if ((i ^ 0xffffffffffffffffL) == (node.uid ^ 0xffffffffffffffffL)) {
 						return;
 					}
 				}
 				final Node node = new Node();
 				node.uid = i;
-				aClass105_2224.method895((byte) -99, node);
+				aClass105_2224.addLast(node);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wb.B(").append(i).append(',').append(i_8_).append(')').toString());
@@ -196,9 +196,9 @@ final class Class53_Sub1 extends Class53 {
 	final void method469(final boolean bool) {
 		try {
 			if (aClass105_2225 != null && method462() != null) {
-				Node node = aClass105_2224.method893(1253231568);
+				Node node = aClass105_2224.getFront();
 				if (!bool) {
-					for (/**/; node != null; node = aClass105_2224.method899(29)) {
+					for (/**/; node != null; node = aClass105_2224.getNext()) {
 						final int i = (int) node.uid;
 						if (i < 0 || aClass52_2216.anInt484 <= i || aClass52_2216.anIntArray475[i] == 0) {
 							node.unlink();
@@ -239,7 +239,7 @@ final class Class53_Sub1 extends Class53 {
 			if (aClass51_2209 != null) {
 				aBoolean2223 = true;
 				if (aClass105_2225 == null) {
-					aClass105_2225 = new Class105();
+					aClass105_2225 = new Deque();
 				}
 				if (i != -94271416) {
 					method469(false);
@@ -250,7 +250,7 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	static final boolean method472(final int i, final int i_9_, final int i_10_, final long l) {
+	static final boolean bitPackedMatch(final int i, final int i_9_, final int i_10_, final long l) {//TODO think of new name
 		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_9_][i_10_];
 		if (class120_sub18 == null) {
 			return false;
@@ -472,7 +472,7 @@ final class Class53_Sub1 extends Class53 {
 							aClass105_2225 = null;
 						} else {
 							boolean bool = true;
-							for (Node node = aClass105_2225.method893(1253231568); node != null; node = aClass105_2225.method899(84)) {
+							for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
 								final int i_24_ = (int) node.uid;
 								if (aByteArray2215[i_24_] != 1) {
 									method475(-1, i_24_, 2);
@@ -498,7 +498,7 @@ final class Class53_Sub1 extends Class53 {
 										bool = false;
 										final Node node = new Node();
 										node.uid = anInt2221;
-										aClass105_2225.method895((byte) 15, node);
+										aClass105_2225.addLast(node);
 									}
 									anInt2221++;
 								}
@@ -510,7 +510,7 @@ final class Class53_Sub1 extends Class53 {
 						}
 					} else {
 						boolean bool = true;
-						for (Node node = aClass105_2225.method893(i ^ ~0x4ab2cbd1); node != null; node = aClass105_2225.method899(54)) {
+						for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
 							final int i_25_ = (int) node.uid;
 							if (aByteArray2215[i_25_] == 0) {
 								method475(-1, i_25_, 1);
@@ -536,7 +536,7 @@ final class Class53_Sub1 extends Class53 {
 									bool = false;
 									final Node node = new Node();
 									node.uid = anInt2221;
-									aClass105_2225.method895((byte) 88, node);
+									aClass105_2225.addLast(node);
 								}
 								anInt2221++;
 							}
@@ -575,7 +575,7 @@ final class Class53_Sub1 extends Class53 {
 			aBoolean2222 = false;
 		} else {
 			aBoolean2222 = true;
-			aClass105_2225 = new Class105();
+			aClass105_2225 = new Deque();
 		}
 		anInt2220 = i_28_;
 		aBoolean2227 = bool;

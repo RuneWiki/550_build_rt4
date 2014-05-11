@@ -170,7 +170,7 @@ final class LightManager {
 	static final void method1863(final int i, final int i_37_, final Class120_Sub18[][][] class120_sub18s) {
 		if (Class120_Sub12_Sub6.highLightingDetail) {
 			final GL gl = HDToolkit.gl;
-			Class120_Sub14_Sub13.method1532(0, 0, -86);
+			Class120_Sub14_Sub13.method1532(0, 0);
 			HDToolkit.method511(0);
 			HDToolkit.method509();
 			HDToolkit.method514(HDToolkit.anInt507);

@@ -16,7 +16,7 @@ final class Class30 {
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_234;
 	private int anInt235 = -1;
 	static int anInt236;
-	private Class105 aClass105_237 = new Class105();
+	private Deque aClass105_237 = new Deque();
 	boolean aBoolean238 = false;
 	static int[] anIntArray239;
 
@@ -62,7 +62,7 @@ final class Class30 {
 							class120_sub19 = new Class120_Sub19(i, anInt228);
 							anInt228++;
 						} else {
-							final Class120_Sub19 class120_sub19_2_ = (Class120_Sub19) aClass105_237.method896((byte) 113);
+							final Class120_Sub19 class120_sub19_2_ = (Class120_Sub19) aClass105_237.getLast();
 							class120_sub19 = new Class120_Sub19(i, class120_sub19_2_.anInt2654);
 							aClass120_Sub19Array227[class120_sub19_2_.anInt2656] = null;
 							class120_sub19_2_.unlink();
@@ -71,7 +71,7 @@ final class Class30 {
 					} else {
 						this.aBoolean238 = false;
 					}
-					aClass105_237.method890(class120_sub19, (byte) -98);
+					aClass105_237.addFront(class120_sub19);
 					return anIntArrayArray230[class120_sub19.anInt2654];
 				}
 				this.aBoolean238 = i != anInt235;
@@ -176,7 +176,7 @@ final class Class30 {
 			}
 			anIntArrayArray230 = null;
 			aClass120_Sub19Array227 = null;
-			aClass105_237.method889(1986850152);
+			aClass105_237.clear();
 			aClass105_237 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("da.A(").append(i).append(')').toString());

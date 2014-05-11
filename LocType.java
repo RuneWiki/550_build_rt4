@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class184 {
+final class LocType {
 	private short[] aShortArray1815;
 	private int anInt1816;
 	private int[] anIntArray1817;
@@ -13,7 +13,7 @@ final class Class184 {
 	boolean aBoolean1822;
 	boolean aBoolean1823;
 	private int anInt1824;
-	int anInt1825 = -1;
+	int cursor1op = -1;
 	int anInt1826;
 	int anInt1827;
 	private short[] aShortArray1828;
@@ -30,17 +30,17 @@ final class Class184 {
 	int anInt1839;
 	int anInt1840;
 	int anInt1841;
-	int anInt1842;
+	int cursor2;
 	private int anInt1843;
 	boolean aBoolean1844;
 	int anInt1845;
 	private int anInt1846;
-	int anInt1847;
-	String aString1848;
-	String[] aStringArray1849;
+	int cursor2op;
+	String name;
+	String[] actions;
 	private int[] anIntArray1850;
 	boolean aBoolean1851;
-	int[] anIntArray1852;
+	int[] childrenIDs;
 	boolean aBoolean1853;
 	private int anInt1854;
 	private int anInt1855;
@@ -62,10 +62,10 @@ final class Class184 {
 	private byte[] aByteArray1871;
 	boolean aBoolean1872;
 	private int anInt1873;
-	int anInt1874;
+	int cursor1;
 	private int anInt1875;
 	boolean aBoolean1876;
-	int anInt1877;
+	int myId;
 	boolean aBoolean1878;
 	int anInt1879;
 	boolean aBoolean1880;
@@ -126,9 +126,9 @@ final class Class184 {
 			if (!HDToolkit.glEnabled) {
 				long l;
 				if (anIntArray1817 == null) {
-					l = i_8_ + (this.anInt1877 << 10);
+					l = i_8_ + (this.myId << 10);
 				} else {
-					l = (this.anInt1877 << 10) - (-(i_4_ << 3) - i_8_);
+					l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
 				}
 				boolean bool_11_;
 				if (!bool || !aBoolean1830) {
@@ -173,9 +173,9 @@ final class Class184 {
 			}
 			long l;
 			if (anIntArray1817 != null) {
-				l = i_8_ + (this.anInt1877 << 10) + (i_4_ << 3);
+				l = i_8_ + (this.myId << 10) + (i_4_ << 3);
 			} else {
-				l = (this.anInt1877 << 10) + i_8_;
+				l = (this.myId << 10) + i_8_;
 			}
 			Class88 class88_12_ = (Class88) Class167.aClass21_1618.method193(l, (byte) 63);
 			Class180_Sub7_Sub2 class180_sub7_sub2;
@@ -360,32 +360,21 @@ final class Class184 {
 		return class180_sub2;
 	}
 
-	final Class184 method2456(final int i) {
-		Class184 class184_33_;
-		try {
-			int i_34_ = -1;
-			if (i != 0) {
+	final LocType handleVarp() {
+		int i_34_ = -1;
+		if (anInt1854 != -1) {
+			i_34_ = Class173.method2226((byte) -118, anInt1854);
+		} else if (anInt1846 != -1) {
+			i_34_ = Class2.permanentVariable[anInt1846];
+		}
+		if (i_34_ < 0 || this.childrenIDs.length + -1 <= i_34_ || this.childrenIDs[i_34_] == -1) {
+			final int i_35_ = this.childrenIDs[-1 + this.childrenIDs.length];
+			if (i_35_ == -1) {
 				return null;
 			}
-			if (anInt1854 == -1) {
-				if ((anInt1846 ^ 0xffffffff) != 0) {
-					i_34_ = Class2.permanentVariable[anInt1846];
-				}
-			} else {
-				i_34_ = Class173.method2226((byte) -118, anInt1854);
-			}
-			if (i_34_ < 0 || this.anIntArray1852.length + -1 <= i_34_ || this.anIntArray1852[i_34_] == -1) {
-				final int i_35_ = this.anIntArray1852[-1 + this.anIntArray1852.length];
-				if (i_35_ == -1) {
-					return null;
-				}
-				return Class120_Sub1.method1035(i_35_, 0);
-			}
-			class184_33_ = Class120_Sub1.method1035(this.anIntArray1852[i_34_], 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.T(").append(i).append(')').toString());
+			return LocType.list(i_35_);
 		}
-		return class184_33_;
+		return LocType.list(this.childrenIDs[i_34_]);
 	}
 
 	final void method2457(final int i, final Buffer class120_sub7) {
@@ -576,9 +565,9 @@ final class Class184 {
 			if (HDToolkit.glEnabled) {
 				long l;
 				if (anIntArray1817 == null) {
-					l = (this.anInt1877 << 10) + i_62_;
+					l = (this.myId << 10) + i_62_;
 				} else {
-					l = i_62_ + (i_63_ << 3) + (this.anInt1877 << 10);
+					l = i_62_ + (i_63_ << 3) + (this.myId << 10);
 				}
 				Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) Class116.aClass21_1117.method193(l, (byte) 84);
 				if (class180_sub7_sub2 == null) {
@@ -620,9 +609,9 @@ final class Class184 {
 			}
 			long l;
 			if (anIntArray1817 != null) {
-				l = i_62_ + (i_63_ << 3) + (this.anInt1877 << 10);
+				l = i_62_ + (i_63_ << 3) + (this.myId << 10);
 			} else {
-				l = (this.anInt1877 << 10) + i_62_;
+				l = (this.myId << 10) + i_62_;
 			}
 			Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) Class116.aClass21_1117.method193(l, (byte) 99);
 			if (class180_sub7_sub1 == null) {
@@ -678,7 +667,7 @@ final class Class184 {
 		int i_70_;
 		try {
 			if (i != -1) {
-				this.anIntArray1852 = null;
+				this.childrenIDs = null;
 			}
 			if (this.anIntArray1881 != null) {
 				int i_71_ = (int) (anInt1816 * Math.random());
@@ -699,7 +688,7 @@ final class Class184 {
 		try {
 			if (i != 1) {
 				if (i == 2) {
-					this.aString1848 = class120_sub7.getJString();
+					this.name = class120_sub7.getJString();
 				} else if (i != 5) {
 					if (i != 14) {
 						if (i != 15) {
@@ -726,9 +715,9 @@ final class Class184 {
 											if (i == 39) {
 												anInt1824 = 5 * class120_sub7.getByte();
 											} else if (i >= 30 && i < 35) {
-												this.aStringArray1849[-30 + i] = class120_sub7.getJString();
-												if (this.aStringArray1849[i + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-													this.aStringArray1849[i - 30] = null;
+												this.actions[-30 + i] = class120_sub7.getJString();
+												if (this.actions[i + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+													this.actions[i - 30] = null;
 												}
 											} else if (i != 40) {
 												if (i != 41) {
@@ -788,8 +777,8 @@ final class Class184 {
 																											} else if (i != 98) {
 																												if (i != 99) {
 																													if (i == 100) {
-																														this.anInt1847 = class120_sub7.getUByte();
-																														this.anInt1842 = class120_sub7.getUShort();
+																														this.cursor2op = class120_sub7.getUByte();
+																														this.cursor2 = class120_sub7.getUShort();
 																													} else if (i != 101) {
 																														if (i != 102) {
 																															if (i == 103) {
@@ -811,9 +800,9 @@ final class Class184 {
 																															} else if (i == 107) {
 																																this.anInt1840 = class120_sub7.getUShort();
 																															} else if (i >= 150 && i < 155) {
-																																this.aStringArray1849[-150 + i] = class120_sub7.getJString();
-																																if (!Class69_Sub2.aBoolean2234 || this.aStringArray1849[-150 + i].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-																																	this.aStringArray1849[i - 150] = null;
+																																this.actions[-150 + i] = class120_sub7.getJString();
+																																if (!Class69_Sub2.aBoolean2234 || this.actions[-150 + i].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+																																	this.actions[i - 150] = null;
 																																}
 																															} else if (i == 249) {
 																																final int i_81_ = class120_sub7.getUByte();
@@ -840,8 +829,8 @@ final class Class184 {
 																														this.anInt1869 = class120_sub7.getUByte();
 																													}
 																												} else {
-																													this.anInt1825 = class120_sub7.getUByte();
-																													this.anInt1874 = class120_sub7.getUShort();
+																													this.cursor1op = class120_sub7.getUByte();
+																													this.cursor1 = class120_sub7.getUShort();
 																												}
 																											} else {
 																												this.aBoolean1863 = true;
@@ -882,14 +871,14 @@ final class Class184 {
 																						}
 																					}
 																					final int i_86_ = class120_sub7.getUByte();
-																					this.anIntArray1852 = new int[2 + i_86_];
+																					this.childrenIDs = new int[2 + i_86_];
 																					for (int i_87_ = 0; i_86_ >= i_87_; i_87_++) {
-																						this.anIntArray1852[i_87_] = class120_sub7.getUShort();
-																						if (-65536 == (this.anIntArray1852[i_87_] ^ 0xffffffff)) {
-																							this.anIntArray1852[i_87_] = -1;
+																						this.childrenIDs[i_87_] = class120_sub7.getUShort();
+																						if (-65536 == (this.childrenIDs[i_87_] ^ 0xffffffff)) {
+																							this.childrenIDs[i_87_] = -1;
 																						}
 																					}
-																					this.anIntArray1852[i_86_ - -1] = i_85_;
+																					this.childrenIDs[i_86_ - -1] = i_85_;
 																				}
 																			} else {
 																				this.aBoolean1880 = true;
@@ -1008,15 +997,15 @@ final class Class184 {
 	final boolean method2466(final int i) {
 		boolean bool;
 		try {
-			if (this.anIntArray1852 == null) {
+			if (this.childrenIDs == null) {
 				if (this.anInt1833 == -1 && this.anIntArray1870 == null) {
 					return false;
 				}
 				return true;
 			}
-			for (final int element : this.anIntArray1852) {
+			for (final int element : this.childrenIDs) {
 				if ((element ^ 0xffffffff) != 0) {
-					final Class184 class184_100_ = Class120_Sub1.method1035(element, 0);
+					final LocType class184_100_ = LocType.list(element);
 					if (class184_100_.anInt1833 != -1 || class184_100_.anIntArray1870 != null) {
 						return true;
 					}
@@ -1073,7 +1062,7 @@ final class Class184 {
 						i_109_ += is[i_103_++];
 						final Class189 class189_110_ = Class74.method650(68, i_109_);
 						final int i_111_ = is[i_103_++];
-						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).aBoolean1555 || Class120_Sub12_Sub37.aBoolean3432)) {
+						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.aBoolean3432)) {
 							for (int i_112_ = 0; class189_110_.anIntArray1978.length > i_112_; i_112_++) {
 								if (class189_110_.anIntArray1978[i_112_] == i_111_ + 1) {
 									i_108_ += class189_110_.anIntArray1983[i_112_];
@@ -1105,7 +1094,7 @@ final class Class184 {
 						i_114_ += is[i_103_++];
 						final Class189 class189_115_ = Class74.method650(55, i_114_);
 						final int i_116_ = is[i_103_++];
-						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).aBoolean1555 || Class120_Sub12_Sub37.aBoolean3432)) {
+						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.aBoolean3432)) {
 							for (int i_117_ = 0; class189_115_.anIntArray1978.length > i_117_; i_117_++) {
 								if (1 + i_116_ == class189_115_.anIntArray1978[i_117_]) {
 									i_108_ = 999999999;
@@ -1199,7 +1188,7 @@ final class Class184 {
 					this.anInt1835 = 1;
 				}
 				for (int i_123_ = 0; i_123_ < 5; i_123_++) {
-					if (this.aStringArray1849[i_123_] != null) {
+					if (this.actions[i_123_] != null) {
 						this.anInt1835 = 1;
 						break;
 					}
@@ -1236,7 +1225,30 @@ final class Class184 {
 		return string_125_;
 	}
 
-	public Class184() {
+	static final LocType list(final int id) {
+		LocType class184_1_ = (LocType) Class56.aClass21_494.method193(id, (byte) -124);
+		if (class184_1_ != null) {
+			return class184_1_;
+		}
+		final byte[] is = Class120_Sub6.aClass50_2450.method442(Class53_Sub1.method465(114, id), (byte) 120, Class120_Sub18.method1667(true, id));
+		class184_1_ = new LocType();
+		class184_1_.myId = id;
+		if (is != null) {
+			class184_1_.method2457(-1, new Buffer(is));
+		}
+		class184_1_.method2469(125);
+		if (!Class69_Sub2.aBoolean2234 && class184_1_.aBoolean1851) {
+			class184_1_.actions = null;
+		}
+		if (class184_1_.aBoolean1880) {
+			class184_1_.anInt1821 = 0;
+			class184_1_.aBoolean1844 = false;
+		}
+		Class56.aClass21_494.method185(-126, class184_1_, id);
+		return class184_1_;
+	}
+
+	public LocType() {
 		anInt1824 = 0;
 		aByte1820 = (byte) 0;
 		this.aBoolean1823 = true;
@@ -1246,8 +1258,8 @@ final class Class184 {
 		this.anInt1845 = 0;
 		this.aBoolean1851 = false;
 		this.anInt1857 = 0;
-		this.anInt1847 = -1;
-		this.aStringArray1849 = new String[5];
+		this.cursor2op = -1;
+		this.actions = new String[5];
 		this.anInt1841 = 1;
 		this.anInt1831 = -1;
 		anInt1838 = 0;
@@ -1256,14 +1268,14 @@ final class Class184 {
 		this.anInt1821 = 2;
 		anInt1854 = -1;
 		this.aBoolean1858 = true;
-		this.anInt1842 = -1;
+		this.cursor2 = -1;
 		this.aBoolean1844 = true;
 		this.aBoolean1862 = false;
 		this.anInt1840 = -1;
 		anInt1855 = 0;
 		aShort1867 = (short) -1;
 		this.aBoolean1864 = true;
-		this.aString1848 = "null";
+		this.name = "null";
 		anIntArray1829 = null;
 		this.aBoolean1822 = false;
 		this.anInt1836 = -1;
@@ -1272,7 +1284,7 @@ final class Class184 {
 		this.anInt1839 = 255;
 		this.aBoolean1872 = false;
 		this.anInt1869 = 0;
-		this.anInt1874 = -1;
+		this.cursor1 = -1;
 		this.anInt1835 = -1;
 		aBoolean1868 = false;
 		this.anInt1826 = -1;

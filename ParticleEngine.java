@@ -28,7 +28,7 @@ final class ParticleEngine extends Class108 {
 	static int runningParticleCount;
 	static int anInt2364;
 	private int anInt2365 = 0;
-	Class105 aClass105_2366 = new Class105();
+	Deque aClass105_2366 = new Deque();
 	int anInt2367;
 	int anInt2368;
 	int anInt2369;
@@ -345,7 +345,7 @@ final class ParticleEngine extends Class108 {
 
 	final void method953() {
 		this.aBoolean2356 = true;
-		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method893(1253231568); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method899(32)) {
+		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
 			if (class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt266 == 1) {
 				class120_sub14_sub24.unlinkSub();
 			}
@@ -354,7 +354,7 @@ final class ParticleEngine extends Class108 {
 		this.anInt2348 = 0;
 		aClass174_2357 = new Class174();
 		anInt2365 = 0;
-		this.aClass105_2366 = new Class105();
+		this.aClass105_2366 = new Deque();
 		anInt2385 = 0;
 		unlink();
 	}
@@ -386,7 +386,7 @@ final class ParticleEngine extends Class108 {
 	}
 
 	private final void method955(final int i, final int i_55_) {
-		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method893(1253231568); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method899(16)) {
+		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
 			class120_sub14_sub24.anInt3667 = class120_sub14_sub24.anInt3656 + this.anInt2379;
 			class120_sub14_sub24.anInt3662 = class120_sub14_sub24.anInt3657 + this.anInt2372;
 			class120_sub14_sub24.anInt3660 = class120_sub14_sub24.anInt3663 + this.anInt2368;
@@ -409,7 +409,7 @@ final class ParticleEngine extends Class108 {
 			gl.glTexEnvi(34913, 34914, 1);
 		}
 		gl.glDepthMask(false);
-		Class120_Sub14_Sub13.method1532(0, 0, -85);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		gl.glColorMaterial(1028, 4609);
 		gl.glMaterialfv(1028, 4608, Class120_Sub12_Sub17.aFloatArray3269, 0);
 		if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -469,7 +469,7 @@ final class ParticleEngine extends Class108 {
 		for (int i = 0; i < 8; i++) {
 			aBooleanArray2383[i] = false;
 		}
-		while_118_: for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method893(1253231568); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method899(97)) {
+		while_118_: for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
 			if (class169s != null) {
 				for (int i = 0; i < class169s.length; i++) {
 					if (class120_sub14_sub24.aClass169_3659 == class169s[i]) {
@@ -499,12 +499,12 @@ final class ParticleEngine extends Class108 {
 					if (class120_sub14_sub24 == null) {
 						class120_sub14_sub24 = new Class120_Sub14_Sub24(class169s[i], this);
 					}
-					this.aClass105_2366.method895((byte) -90, class120_sub14_sub24);
+					this.aClass105_2366.addLast(class120_sub14_sub24);
 					anInt2385++;
 					aBooleanArray2383[i] = true;
 				}
 			}
-			for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method893(1253231568); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.method899(71)) {
+			for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
 				for (int i = 0; i < class169s.length; i++) {
 					if (aBooleanArray2383[i] && class169s[i] == class120_sub14_sub24.aClass169_3659) {
 						class120_sub14_sub24.method1650(-30263, is_62_[class120_sub14_sub24.aClass169_3659.anInt1647], is_61_[class120_sub14_sub24.aClass169_3659.anInt1647], is[class120_sub14_sub24.aClass169_3659.anInt1647]);

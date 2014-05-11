@@ -290,18 +290,18 @@ final class Class32 {
 			}
 			if (HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
-				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_23_ + i_48_, Class173.anInt1729) || Class22.method197(i_51_ + i_20_, true, i_49_ + i_23_, Class173.anInt1729) != i_19_) {
+				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_23_ + i_48_, Class173.gameLevel) || Class22.method197(i_51_ + i_20_, true, i_49_ + i_23_, Class173.gameLevel) != i_19_) {
 					for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
-						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.method197(i_20_ + class180_sub7_sub2.anIntArray3845[i_52_], true, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], Class173.anInt1729) + -i_19_;
+						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.method197(i_20_ + class180_sub7_sub2.anIntArray3845[i_52_], true, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], Class173.gameLevel) + -i_19_;
 					}
 					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
 					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 				}
 			} else {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
-				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_48_ + i_23_, Class173.anInt1729) || i_19_ != Class22.method197(i_51_ + i_20_, true, i_23_ - -i_49_, Class173.anInt1729)) {
+				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_48_ + i_23_, Class173.gameLevel) || i_19_ != Class22.method197(i_51_ + i_20_, true, i_23_ - -i_49_, Class173.gameLevel)) {
 					for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
-						class180_sub7_sub1.yVertices[i_53_] += Class22.method197(class180_sub7_sub1.zVertices[i_53_] + i_20_, true, class180_sub7_sub1.xVertices[i_53_] - -i_23_, Class173.anInt1729) - i_19_;
+						class180_sub7_sub1.yVertices[i_53_] += Class22.method197(class180_sub7_sub1.zVertices[i_53_] + i_20_, true, class180_sub7_sub1.xVertices[i_53_] - -i_23_, Class173.gameLevel) - i_19_;
 					}
 					class180_sub7_sub1.boundsCalculated = false;
 				}

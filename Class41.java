@@ -132,7 +132,7 @@ final class Class41 {
 	private final void method335(final int i) {
 		if (anInt350 != i) {
 			anInt350 = i;
-			int i_29_ = Class105.method888(i, (byte) 99);
+			int i_29_ = Deque.method888(i, (byte) 99);
 			if (i_29_ > 512) {
 				i_29_ = 512;
 			}

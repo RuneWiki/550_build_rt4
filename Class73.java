@@ -28,7 +28,7 @@ final class Class73 {
 	private int anInt650;
 	int anInt651;
 	int anInt652;
-	static Class105 aClass105_653;
+	static Deque aClass105_653;
 	private int anInt654;
 	int anInt655;
 	int anInt656;

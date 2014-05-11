@@ -98,7 +98,7 @@ final class Class28 {
 	static final void method247(final int i) {
 		try {
 			if (i == -17442) {
-				Class120_Sub26.aClass105_2746 = new Class105();
+				Class120_Sub26.aClass105_2746 = new Deque();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.B(").append(i).append(')').toString());

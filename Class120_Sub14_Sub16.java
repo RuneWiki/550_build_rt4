@@ -84,9 +84,9 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			gl.glTranslatef(-i, -i_0_, -i_1_);
 			if (bool) {
 				Class120_Sub12_Sub25.method1331();
-				Class120_Sub14_Sub13.method1532(3, -1, -102);
+				Class120_Sub14_Sub13.method1532(3, -1);
 				Class120_Sub14_Sub11.aBoolean3545 = true;
-				Class18.method165();
+				WaterShader.method165();
 				Class120_Sub12_Sub19.anInt3281 = -1;
 				Class120_Sub14_Sub18.anInt3612 = -1;
 				for (int i_14_ = 0; i_14_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[0].length; i_14_++) {
@@ -99,7 +99,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 					}
 					class120_sub9.method1162(Class120_Sub1.aClass120_Sub18ArrayArrayArray2411, f, false);
 				}
-				Class18.method163();
+				WaterShader.method163();
 			} else {
 				for (int i_15_ = Class190.anInt2101; i_15_ < Class142.anInt1361; i_15_++) {
 					for (int i_16_ = 0; i_16_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_].length; i_16_++) {

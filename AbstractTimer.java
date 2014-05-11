@@ -4,7 +4,7 @@
 import java.io.IOException;
 
 abstract class AbstractTimer {
-	static Class105 aClass105_824 = new Class105();
+	static Deque aClass105_824 = new Deque();
 	static Class46 aClass46_825;
 
 	abstract int sleep(int i, int i_1_);
@@ -662,14 +662,14 @@ abstract class AbstractTimer {
 				Class28.anInt176 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
 				for (int i_104_ = Class32.anInt254; i_104_ < Class32.anInt254 + 8; i_104_++) {
 					for (int i_105_ = Class28.anInt176; i_105_ < 8 + Class28.anInt176; i_105_++) {
-						if (Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[Class173.anInt1729][i_104_][i_105_] != null) {
-							Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[Class173.anInt1729][i_104_][i_105_] = null;
+						if (Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_104_][i_105_] != null) {
+							Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_104_][i_105_] = null;
 							Class5.method97(i_104_, i_105_, -14327);
 						}
 					}
 				}
-				for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method893(1253231568); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method899(i ^ 0x15)) {
-					if (Class32.anInt254 <= class120_sub24.anInt2731 && class120_sub24.anInt2731 < 8 + Class32.anInt254 && Class28.anInt176 <= class120_sub24.anInt2725 && 8 + Class28.anInt176 > class120_sub24.anInt2725 && Class173.anInt1729 == class120_sub24.anInt2722) {
+				for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
+					if (Class32.anInt254 <= class120_sub24.anInt2731 && class120_sub24.anInt2731 < 8 + Class32.anInt254 && Class28.anInt176 <= class120_sub24.anInt2725 && 8 + Class28.anInt176 > class120_sub24.anInt2725 && Class173.gameLevel == class120_sub24.anInt2722) {
 						class120_sub24.anInt2720 = 0;
 					}
 				}
@@ -746,8 +746,8 @@ abstract class AbstractTimer {
 					if (class189.aBoolean2041) {
 						Class120_Sub12_Sub27.method1342(i_119_, i_116_, i + -128, i_117_);
 						final ObjType objType = ObjType.list(i_117_);
-						Class40.method325(objType.anInt1558, objType.anInt1521, objType.anInt1545, i_116_, (byte) 92);
-						Class120_Sub12_Sub37.method1394((byte) -48, objType.anInt1561, objType.anInt1526, objType.anInt1528, i_116_);
+						Class40.method325(objType.yan2d, objType.zoom2d, objType.xan2d, i_116_, (byte) 92);
+						Class120_Sub12_Sub37.method1394((byte) -48, objType.yof2d, objType.zan2d, objType.xof2d, i_116_);
 					} else {
 						if (i_117_ == -1) {
 							class189.anInt2031 = 0;
@@ -755,11 +755,11 @@ abstract class AbstractTimer {
 							return true;
 						}
 						final ObjType objType = ObjType.list(i_117_);
-						class189.anInt2091 = objType.anInt1558;
+						class189.anInt2091 = objType.yan2d;
 						class189.anInt2031 = 4;
 						class189.anInt1961 = i_117_;
-						class189.anInt2047 = objType.anInt1545;
-						class189.anInt2005 = objType.anInt1521 * 100 / i_119_;
+						class189.anInt2047 = objType.xan2d;
+						class189.anInt2005 = objType.zoom2d * 100 / i_119_;
 						InterfaceClickMask.redrawInterface(class189);
 					}
 				}
@@ -922,7 +922,7 @@ abstract class AbstractTimer {
 				final int i_152_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
 				final int i_153_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
 				final int i_154_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				Class173.anInt1729 = i_154_ >> 1;
+				Class173.gameLevel = i_154_ >> 1;
 				Class100.selfPlayer.method2343(i_152_, (i_154_ & 0x1) == 1, i_153_);
 				Class23.anInt138 = -1;
 				return true;
@@ -1304,7 +1304,7 @@ abstract class AbstractTimer {
 						i_217_ = 64 + i_217_ * 128;
 						i_216_ = 64 + 128 * i_216_;
 						final Class180_Sub3 class180_sub3 = new Class180_Sub3(i_211_, i_215_, i_216_, i_217_, -i_213_ + Class22.method197(i_217_, true, i_216_, i_215_), i_212_, Class101_Sub2.loopCycle);
-						Class120_Sub12_Sub7.aClass105_3177.method895((byte) -116, new Class120_Sub14_Sub4(class180_sub3));
+						Class120_Sub12_Sub7.aClass105_3177.addLast(new Class120_Sub14_Sub4(class180_sub3));
 					}
 				} else if (i_214_ >> 29 == 0) {
 					if (i_214_ >> 28 != 0) {

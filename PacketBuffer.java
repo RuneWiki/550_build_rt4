@@ -277,13 +277,13 @@ final class PacketBuffer extends Buffer {
 		anInt3121 += i;
 		int i_15_ = 0;
 		for (/**/; i > i_13_; i_13_ = 8) {
-			i_15_ += (this.buf[i_14_++] & Class120_Sub14_Sub21.anIntArray3631[i_13_]) << -i_13_ + i;
+			i_15_ += (this.buf[i_14_++] & GroundObject.anIntArray3631[i_13_]) << -i_13_ + i;
 			i -= i_13_;
 		}
 		if (i_13_ != i) {
-			i_15_ += this.buf[i_14_] >> -i + i_13_ & Class120_Sub14_Sub21.anIntArray3631[i];
+			i_15_ += this.buf[i_14_] >> -i + i_13_ & GroundObject.anIntArray3631[i];
 		} else {
-			i_15_ += Class120_Sub14_Sub21.anIntArray3631[i_13_] & this.buf[i_14_];
+			i_15_ += GroundObject.anIntArray3631[i_13_] & this.buf[i_14_];
 		}
 		return i_15_;
 	}

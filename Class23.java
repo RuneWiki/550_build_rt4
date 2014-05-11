@@ -113,7 +113,7 @@ final class Class23 {
 				final Class120_Sub10 class120_sub10 = new Class120_Sub10();
 				class120_sub10.anObjectArray2537 = class189.anObjectArray2089;
 				class120_sub10.aClass189_2534 = class189;
-				Class88.aClass105_829.method895((byte) -117, class120_sub10);
+				Class88.aClass105_829.addLast(class120_sub10);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ce.A(").append(bool).append(',').append(i).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_11_).append(',').append(i_12_).append(')').toString());

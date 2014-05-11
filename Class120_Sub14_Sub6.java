@@ -45,7 +45,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 					final int i_12_ = -i_8_ + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] - i_9_ + i_7_;
 					fs[i_5_] = i_9_ + (i_10_ + (i_11_ + i_12_ * f) * f) * f;
 				}
-				Class120_Sub14_Sub21.anInt3626 = -(128 * Class181.currentBaseZ) + (int) fs[2];
+				GroundObject.anInt3626 = -(128 * Class181.currentBaseZ) + (int) fs[2];
 				Class120_Sub12_Sub10.anInt3200 = -1 * (int) fs[1];
 				final float[] fs_13_ = new float[3];
 				Class83.anInt792 = (int) fs[0] + -(128 * GameEntity.currentBaseX);

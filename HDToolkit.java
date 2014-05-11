@@ -122,7 +122,7 @@ final class HDToolkit {
 	}
 
 	static final void method499() {
-		Class120_Sub14_Sub13.method1532(0, 0, -102);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		method515();
 		method514(-1);
 		method524(false);
@@ -157,7 +157,7 @@ final class HDToolkit {
 	}
 
 	static final void method504() {
-		Class120_Sub14_Sub13.method1532(0, 0, -116);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		method515();
 		method511(0);
 		method521(0);
@@ -267,7 +267,7 @@ final class HDToolkit {
 	}
 
 	static final void method510() {
-		Class120_Sub14_Sub13.method1532(0, 0, -124);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		method515();
 		method511(1);
 		method521(1);
@@ -741,7 +741,7 @@ final class HDToolkit {
 	}
 
 	static final void method539() {
-		Class120_Sub14_Sub13.method1532(0, 0, -61);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		method515();
 		method511(0);
 		method521(0);

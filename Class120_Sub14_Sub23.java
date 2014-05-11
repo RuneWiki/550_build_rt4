@@ -43,8 +43,8 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 			NpcType.anInt1660 = i;
 			if (bool && Class120_Sub17.anInt2621 >= 100) {
 				Class83.anInt792 = 128 * Class99.anInt951 + 64;
-				Class120_Sub14_Sub21.anInt3626 = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.anInt3200 = Class22.method197(Class120_Sub14_Sub21.anInt3626, true, Class83.anInt792, Class173.anInt1729) - SpotAnimType.anInt986;
+				GroundObject.anInt3626 = 64 + 128 * Class134.anInt1280;
+				Class120_Sub12_Sub10.anInt3200 = Class22.method197(GroundObject.anInt3626, true, Class83.anInt792, Class173.gameLevel) - SpotAnimType.anInt986;
 			}
 			client.anInt2200 = 2;
 		} catch (final RuntimeException runtimeexception) {

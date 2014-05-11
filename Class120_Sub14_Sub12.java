@@ -6,7 +6,7 @@ final class Class120_Sub14_Sub12 extends NodeSub {
 	int anInt3546;
 	int anInt3547;
 	int[] anIntArray3548;
-	static Class105[][][] aClass105ArrayArrayArray3549;
+	static Deque[][][] groundObjects;
 	int[] anIntArray3550;
 	String[] aStringArray3551;
 	Class75[] aClass75Array3552;
@@ -51,7 +51,7 @@ final class Class120_Sub14_Sub12 extends NodeSub {
 			if (i != 37) {
 				anInt3556 = -109;
 			}
-			aClass105ArrayArrayArray3549 = null;
+			groundObjects = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jl.A(").append(i).append(')').toString());
 		}

@@ -189,13 +189,13 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						}
 						if (class180_sub5_sub1.anObject3047 == null || Class101_Sub2.loopCycle < class180_sub5_sub1.anInt3042 || class180_sub5_sub1.anInt3012 <= Class101_Sub2.loopCycle) {
 							class180_sub5_sub1.aBoolean2992 = false;
-							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.anInt1729);
-							Class120_Sub12_Sub5.method1218(Class173.anInt1729, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.aBoolean3002);
+							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.gameLevel);
+							Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.aBoolean3002);
 						} else {
 							class180_sub5_sub1.playerLimitReached = false;
 							class180_sub5_sub1.aBoolean2992 = false;
-							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.anInt1729);
-							Class26.method230(Class173.anInt1729, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041,
+							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.gameLevel);
+							Class26.method230(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041,
 									class180_sub5_sub1.anInt3038);
 						}
 					}

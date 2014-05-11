@@ -130,7 +130,7 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 				Class120_Sub12.anIntArray2565[i_18_++] = i_7_;
 				int i_19_ = 0;
 				boolean bool_20_ = false;
-				final int[][] is = Class182.aClass25Array1802[Class173.anInt1729].anIntArrayArray152;
+				final int[][] is = Class182.aClass25Array1802[Class173.gameLevel].anIntArrayArray152;
 				while_92_: while (i_19_ != i_18_) {
 					i_17_ = Class120_Sub12.anIntArray2565[i_19_];
 					i_16_ = Class150.anIntArray1412[i_19_];
@@ -140,8 +140,8 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 						break;
 					}
 					if (i != 0) {
-						if (i >= 5 && i != 10 || !Class182.aClass25Array1802[Class173.anInt1729].method220(i_10_, i_13_, i_17_, i_16_, (byte) -43, i_4_, i_12_, -1 + i)) {
-							if (i < 10 && Class182.aClass25Array1802[Class173.anInt1729].method223(i_4_, i_16_, i_10_, i_8_ ^ 0x61fd, i_17_, -1 + i, i_13_, i_12_)) {
+						if (i >= 5 && i != 10 || !Class182.aClass25Array1802[Class173.gameLevel].method220(i_10_, i_13_, i_17_, i_16_, (byte) -43, i_4_, i_12_, -1 + i)) {
+							if (i < 10 && Class182.aClass25Array1802[Class173.gameLevel].method223(i_4_, i_16_, i_10_, i_8_ ^ 0x61fd, i_17_, -1 + i, i_13_, i_12_)) {
 								bool_20_ = true;
 								break;
 							}
@@ -150,7 +150,7 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 							break;
 						}
 					}
-					if (i_6_ != 0 && i_9_ != 0 && Class182.aClass25Array1802[Class173.anInt1729].method216(i_17_, i_8_ ^ ~0x65fd, i_11_, i_12_, i_10_, i_4_, i_9_, i_6_, i_16_)) {
+					if (i_6_ != 0 && i_9_ != 0 && Class182.aClass25Array1802[Class173.gameLevel].method216(i_17_, i_8_ ^ ~0x65fd, i_11_, i_12_, i_10_, i_4_, i_9_, i_6_, i_16_)) {
 						bool_20_ = true;
 						break;
 					}

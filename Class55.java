@@ -39,7 +39,7 @@ final class Class55 {
 					class120_sub7.getUByte());
 			final int i_5_ = class120_sub7.getUByte();
 			for (int i_6_ = 0; i_5_ > i_6_; i_6_++) {
-				class120_sub14_sub22_4_.aClass105_3641.method895((byte) -92, new Class120_Sub4(class120_sub7.getUByte(), class120_sub7.getUByte(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(),
+				class120_sub14_sub22_4_.aClass105_3641.addLast(new Class120_Sub4(class120_sub7.getUByte(), class120_sub7.getUByte(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(),
 						class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort()));
 			}
 			class120_sub14_sub22_4_.method1636(12800);

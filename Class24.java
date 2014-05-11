@@ -80,18 +80,18 @@ final class Class24 {
 				Class120_Sub12_Sub11.npcList[i_3_] = null;
 			}
 			Class100.selfPlayer = Class118.playersList[2047] = new Player();
-			Class120_Sub14_Sub14_Sub1.aClass105_3928.method889(1986850152);
-			Class120_Sub12_Sub7.aClass105_3177.method889(1986850152);
-			if (Class120_Sub14_Sub12.aClass105ArrayArrayArray3549 != null) {
+			Class120_Sub14_Sub14_Sub1.aClass105_3928.clear();
+			Class120_Sub12_Sub7.aClass105_3177.clear();
+			if (Class120_Sub14_Sub12.groundObjects != null) {
 				for (int i_4_ = 0; i_4_ < 4; i_4_++) {
 					for (int i_5_ = 0; i_5_ < 104; i_5_++) {
 						for (int i_6_ = 0; i_6_ < 104; i_6_++) {
-							Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[i_4_][i_5_][i_6_] = null;
+							Class120_Sub14_Sub12.groundObjects[i_4_][i_5_][i_6_] = null;
 						}
 					}
 				}
 			}
-			Class120_Sub4.aClass105_2439 = new Class105();
+			Class120_Sub4.aClass105_2439 = new Deque();
 			Class183.anInt1805 = 0;
 			ProducingGraphicsBuffer.anInt2799 = 0;
 			Class33.method275((byte) -5);
@@ -151,7 +151,7 @@ final class Class24 {
 			Class118.aBoolean1134 = true;
 			Class120_Sub14_Sub20.interfaceCounter = 0;
 			Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
-			Class184.method2450(i);
+			LocType.method2450(i);
 			Class186.aBoolean1899 = false;
 			Class120_Sub14_Sub11.method1521(false);
 		} catch (final RuntimeException runtimeexception) {

@@ -300,7 +300,7 @@ class Class79 {
 		}
 	}
 
-	static final Class105 method679() {
+	static final Deque method679() {
 		final int i = anInt714 - anInt716;
 		final int i_65_ = anInt701 - anInt704;
 		final int i_66_ = (anInt709 - anInt708 << 16) / i;
@@ -513,16 +513,16 @@ class Class79 {
 								if ((i_117_ & 0x4) == 4) {
 									int i_120_ = class120_sub7.getUShort();
 									final int i_121_ = class120_sub7.getUByte();
-									Class184 class184 = Class120_Sub1.method1035(--i_120_, 0);
-									if (class184.anIntArray1852 != null) {
-										class184 = class184.method2456(0);
-										if (class184 == null || class184.anInt1840 == -1) {
+									LocType locType = LocType.list(--i_120_);
+									if (locType.childrenIDs != null) {
+										locType = locType.handleVarp();
+										if (locType == null || locType.anInt1840 == -1) {
 											continue;
 										}
 									}
-									if ((!class184.aBoolean1851 || bool) && class184.anInt1840 != -1) {
+									if ((!locType.aBoolean1851 || bool) && locType.anInt1840 != -1) {
 										final Class120_Sub14_Sub5 class120_sub14_sub5 = new Class120_Sub14_Sub5();
-										class120_sub14_sub5.anInt3473 = class184.anInt1840;
+										class120_sub14_sub5.anInt3473 = locType.anInt1840;
 										class120_sub14_sub5.anInt3474 = i_121_;
 										class120_sub14_sub5.anInt3480 = i_113_ * 64 + i_115_;
 										class120_sub14_sub5.anInt3481 = i_114_ * 64 + 64 - i_116_;
@@ -1063,11 +1063,11 @@ class Class79 {
 		}
 	}
 
-	private static final Class105 method692(final int i, final int i_215_, final int i_216_, final int i_217_) {
-		final Class105 class105 = new Class105();
+	private static final Deque method692(final int i, final int i_215_, final int i_216_, final int i_217_) {
+		final Deque deque = new Deque();
 		for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) aClass177_690.peekNext()) {
 			method686(class120_sub14_sub5, i, i_215_, i_216_, i_217_);
-			class105.method895((byte) 117, class120_sub14_sub5);
+			deque.addLast(class120_sub14_sub5);
 		}
 		final int[] is = new int[3];
 		for (int i_218_ = 0; i_218_ < aClass137_693.anInt1325; i_218_++) {
@@ -1077,9 +1077,9 @@ class Class79 {
 				class120_sub14_sub5.anInt3480 = is[1] - anInt695;
 				class120_sub14_sub5.anInt3481 = anInt692 - 1 - (is[2] - anInt694);
 				method686(class120_sub14_sub5, i, i_215_, i_216_, i_217_);
-				class105.method895((byte) -118, class120_sub14_sub5);
+				deque.addLast(class120_sub14_sub5);
 			}
 		}
-		return class105;
+		return deque;
 	}
 }

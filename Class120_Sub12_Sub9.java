@@ -63,9 +63,9 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 											Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), Class101.aString963, (short) 50, Class150.anInt1417);
 										}
 									} else {
-										String[] strings = objType.aStringArray1554;
-										if (MouseHandler.aBoolean1142) {
-											strings = Class120_Sub12_Sub36.method1391(-6, strings);
+										String[] strings = objType.inventoryOptions;
+										if (MouseHandler.showNumbersOnActions) {
+											strings = Class120_Sub12_Sub36.addNumbers(strings);
 										}
 										if (class120_sub20.method1694(500)) {
 											for (int i_7_ = 4; i_7_ >= 3; i_7_--) {
@@ -101,8 +101,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 											}
 										}
 										strings = class189.aStringArray2056;
-										if (MouseHandler.aBoolean1142) {
-											strings = Class120_Sub12_Sub36.method1391(-6, strings);
+										if (MouseHandler.showNumbersOnActions) {
+											strings = Class120_Sub12_Sub36.addNumbers(strings);
 										}
 										if (strings != null) {
 											for (int i_11_ = 4; i_11_ >= 0; i_11_--) {

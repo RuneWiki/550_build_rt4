@@ -133,7 +133,7 @@ final class Class47 {
 		HDToolkit.method521(1);
 		HDToolkit.method509();
 		HDToolkit.method524(false);
-		Class120_Sub14_Sub13.method1532(0, 0, -54);
+		Class120_Sub14_Sub13.method1532(0, 0);
 		gl.glDepthMask(false);
 		for (int i_58_ = 0; i_58_ < anInt431; i_58_++) {
 			for (int i_59_ = 0; i_59_ < anInt434; i_59_++) {

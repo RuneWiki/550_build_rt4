@@ -151,7 +151,7 @@ final class Class172 {
 					}
 				}
 			}
-			Class120_Sub11.method1176(Class173.anInt1729, 78, Class100.selfPlayer.z, Class100.selfPlayer.x, Class120_Sub12_Sub22.anInt3301);
+			Class120_Sub11.method1176(Class173.gameLevel, 78, Class100.selfPlayer.z, Class100.selfPlayer.x, Class120_Sub12_Sub22.anInt3301);
 			Class120_Sub12_Sub22.anInt3301 = 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ud.D(").append(l).append(',').append(i).append(')').toString());

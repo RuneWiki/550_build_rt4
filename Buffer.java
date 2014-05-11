@@ -229,17 +229,17 @@ class Buffer extends Node {
 		}
 	}
 
-	static final void method1094(final int i, final int i_17_, final int i_18_, final int i_19_, final Class184 class184, final byte i_20_, final int i_21_, final int i_22_, final int i_23_) {
+	static final void method1094(final int i, final int i_17_, final int i_18_, final int i_19_, final LocType locType, final byte i_20_, final int i_21_, final int i_22_, final int i_23_) {
 		try {
 			final int i_24_ = 0x3 & i_18_;
 			int i_25_;
 			int i_26_;
 			if (i_24_ != 1 && i_24_ != 3) {
-				i_25_ = class184.anInt1841;
-				i_26_ = class184.anInt1827;
+				i_25_ = locType.anInt1841;
+				i_26_ = locType.anInt1827;
 			} else {
-				i_25_ = class184.anInt1827;
-				i_26_ = class184.anInt1841;
+				i_25_ = locType.anInt1827;
+				i_26_ = locType.anInt1841;
 			}
 			int i_27_;
 			int i_28_;
@@ -275,11 +275,11 @@ class Buffer extends Node {
 			if (i_19_ < 3) {
 				is_36_ = Class120_Sub26.anIntArrayArrayArray2741[i_19_ - -1];
 			}
-			final Class88 class88 = class184.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, i_20_ ^ ~0x2d, null);
+			final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, i_20_ ^ ~0x2d, null);
 			Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("fd.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(class184 != null ? "{...}" : "null").append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_)
+					new StringBuilder("fd.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_)
 							.append(')').toString());
 		}
 	}

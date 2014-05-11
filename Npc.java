@@ -247,10 +247,10 @@ final class Npc extends GameEntity {
 						final int i_35_ = 0x3f & i_28_;
 						final int i_36_ = i_23_ + i_35_;
 						if (i_34_ > 0 && i_36_ > 0 && i_34_ < 103 && i_36_ < 103) {
-							final Class184 class184 = Class120_Sub1.method1035(i_26_, 0);
-							if (i_33_ != 22 || Class75.showGroundDecorations || class184.anInt1835 != 0 || class184.anInt1821 == 1 || class184.aBoolean1853) {
+							final LocType locType = LocType.list(i_26_);
+							if (i_33_ != 22 || Class75.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
 								bool_29_ = true;
-								if (!class184.method2452(true)) {
+								if (!locType.method2452(true)) {
 									bool_25_ = false;
 									Class181.anInt1791++;
 								}

@@ -130,11 +130,11 @@ abstract class Class167 {
 			if (i_9_ == 11) {
 				i_9_ = 10;
 			}
-			final Class184 class184 = Class120_Sub1.method1035(i, 0);
+			final LocType locType = LocType.list(i);
 			if (i_9_ >= 5 && i_9_ <= 8) {
 				i_9_ = 4;
 			}
-			bool = class184.method2460(i_9_, 23428);
+			bool = locType.method2460(i_9_, 23428);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.H(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}

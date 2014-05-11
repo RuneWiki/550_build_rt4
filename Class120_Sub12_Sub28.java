@@ -35,25 +35,9 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 						}
 					}
 				}
-				Class120_Sub12_Sub27.anInt3350 += -2 + (int) (Math.random() * 5.0);
-				Class120_Sub14_Sub3_Sub1.anInt3918 += -2 + (int) (Math.random() * 5.0);
-				if (Class120_Sub12_Sub27.anInt3350 < -8) {
-					Class120_Sub12_Sub27.anInt3350 = -8;
-				}
-				if (Class120_Sub12_Sub27.anInt3350 > 8) {
-					Class120_Sub12_Sub27.anInt3350 = 8;
-				}
-				if (Class120_Sub14_Sub3_Sub1.anInt3918 < -16) {
-					Class120_Sub14_Sub3_Sub1.anInt3918 = -16;
-				}
-				if (Class120_Sub14_Sub3_Sub1.anInt3918 > 16) {
-					Class120_Sub14_Sub3_Sub1.anInt3918 = 16;
-				}
 			}
 			if (i == 71) {
-				final int i_5_ = Class120_Sub12_Sub27.anInt3350 >> 2 << 10;
 				final int[][] is_6_ = new int[104][104];
-				final int i_7_ = Class120_Sub14_Sub3_Sub1.anInt3918 >> 1;
 				final int[][] is_8_ = new int[104][104];
 				for (int i_9_ = 0; i_0_ > i_9_; i_9_++) {
 					final byte[][] is_10_ = Npc.aByteArrayArrayArray3754[i_9_];
@@ -62,7 +46,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							for (int i_11_ = 1; i_11_ < 103; i_11_++) {
 								for (int i_12_ = 1; i_12_ < 103; i_12_++) {
 									final int i_14_ = (is_10_[i_12_][i_11_ + -1] >> 2) + (is_10_[i_12_ + 1][i_11_] >> 3) + (is_10_[-1 + i_12_][i_11_] >> 2) + (is_10_[i_12_][1 + i_11_] >> 3) + (is_10_[i_12_][i_11_] >> 1);
-									is_8_[i_12_][i_11_] = -i_14_ + 74;
+									is_8_[i_12_][i_11_] = 74 - i_14_;
 								}
 							}
 						} else {
@@ -199,13 +183,13 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 										i_67_ = 0;
 									} else {
 										i_66_ = is_6_[i_57_][i_58_];
-										int i_68_ = (0x7f & i_66_) - -i_7_;
+										int i_68_ = (0x7f & i_66_);
 										if (i_68_ < 0) {
 											i_68_ = 0;
 										} else if (i_68_ > 127) {
 											i_68_ = 127;
 										}
-										final int i_69_ = (0xfc00 & i_66_ - -i_5_) + (i_66_ & 0x380) - -i_68_;
+										final int i_69_ = (0xfc00 & i_66_) + (i_66_ & 0x380) - -i_68_;
 										i_67_ = Rasterizer.anIntArray969[Class178.method2256(true, i_69_, 96)];
 									}
 									final int i_70_ = is_8_[1 + i_57_][i_58_];
@@ -273,7 +257,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											i_85_ = -2;
 										} else {
 											i_85_ = class124.anInt1197;
-											int i_86_ = (0x7f & i_85_) + i_7_;
+											int i_86_ = (0x7f & i_85_);
 											if (i_86_ >= 0) {
 												if (i_86_ > 127) {
 													i_86_ = 127;
@@ -281,12 +265,12 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											} else {
 												i_86_ = 0;
 											}
-											final int i_87_ = i_86_ + (0xfc00 & i_85_ + i_5_) + (0x380 & i_85_);
+											final int i_87_ = i_86_ + (0xfc00 & i_85_) + (0x380 & i_85_);
 											i_84_ = Rasterizer.anIntArray969[Class96.method789((byte) -77, i_87_, 96)];
 										}
 										if (class124.anInt1198 >= 0) {
 											final int i_88_ = class124.anInt1198;
-											int i_89_ = i_7_ + (0x7f & i_88_);
+											int i_89_ = (0x7f & i_88_);
 											if (i_89_ >= 0) {
 												if (i_89_ > 127) {
 													i_89_ = 127;
@@ -294,7 +278,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											} else {
 												i_89_ = 0;
 											}
-											final int i_90_ = (0xfc00 & i_88_ + i_5_) + (0x380 & i_88_) - -i_89_;
+											final int i_90_ = (0xfc00 & i_88_) + (0x380 & i_88_) - -i_89_;
 											i_84_ = Rasterizer.anIntArray969[Class96.method789((byte) -77, i_90_, 96)];
 										}
 										Class120_Sub12.method1191(i_9_, i_57_, i_58_, i_77_, i_78_, i_83_, i_61_, i_62_, i_63_, i_64_, Class178.method2256(true, i_66_, i_73_), Class178.method2256(true, i_66_, i_70_), Class178.method2256(true, i_66_, i_71_), Class178.method2256(true, i_66_, i_72_),

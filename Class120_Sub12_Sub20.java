@@ -308,10 +308,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 							null,
 							0,
 							new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:")
-									.append(Class120_Sub26.anIntArrayArrayArray2741[Class173.anInt1729][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+									.append(Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 				if (string.equalsIgnoreCase("::getheight")) {
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(Class120_Sub26.anIntArrayArrayArray2741[Class173.anInt1729][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 			}
 			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(216);

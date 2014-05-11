@@ -80,12 +80,12 @@ final class Class120_Sub11 extends Node {
 
 	static final void method1176(final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {
 		try {
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method899(63)) {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getNext()) {
 				Class30.method259(false, i, i_7_, i_8_, class120_sub8, i_6_);
 			}
-			Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method893(1253231568);
+			Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront();
 			if (i_5_ > 72) {
-				for (/**/; class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method899(56)) {
+				for (/**/; class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
 					int i_9_ = 1;
 					final Class29 class29 = class120_sub8.aClass180_Sub5_Sub2_2492.method2336((byte) 124);
 					if (class120_sub8.aClass180_Sub5_Sub2_2492.anInt3004 == class29.anInt218) {

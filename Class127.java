@@ -31,8 +31,8 @@ final class Class127 {
 			for (int i_4_ = 0; class120_sub17.anIntArray2618.length > i_4_; i_4_++) {
 				if (class120_sub17.anIntArray2618[i_4_] >= 0 && Node.anInt1143 > class120_sub17.anIntArray2618[i_4_]) {
 					final ObjType objType = ObjType.list(class120_sub17.anIntArray2618[i_4_]);
-					if (objType.aClass75_1522 != null) {
-						final Class120_Sub32 class120_sub32 = (Class120_Sub32) objType.aClass75_1522.method659(i, -127);
+					if (objType.params != null) {
+						final Class120_Sub32 class120_sub32 = (Class120_Sub32) objType.params.method659(i, -127);
 						if (class120_sub32 != null) {
 							if (!bool) {
 								i_3_ += class120_sub32.anInt2790;
@@ -129,11 +129,11 @@ final class Class127 {
 			for (/**/; OutputStream_Sub1.aFloat28 < 0.0F; OutputStream_Sub1.aFloat28 += 2048.0F) {
 				/* empty */
 			}
-			final int i_12_ = Class22.method197(Class120_Sub10.anInt2545, true, Class69_Sub3_Sub1.anInt3083, Class173.anInt1729);
+			final int i_12_ = Class22.method197(Class120_Sub10.anInt2545, true, Class69_Sub3_Sub1.anInt3083, Class173.gameLevel);
 			if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
 				for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
 					for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {
-						int i_15_ = Class173.anInt1729;
+						int i_15_ = Class173.gameLevel;
 						if (i_15_ < 3 && (Class114.aByteArrayArrayArray1095[1][i_13_][i_14_] & 0x2) == 2) {
 							i_15_++;
 						}

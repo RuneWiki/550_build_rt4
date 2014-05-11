@@ -180,7 +180,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			}
 			for (int i_14_ = 0; Node.anInt1143 > i_14_; i_14_++) {
 				final ObjType objType = ObjType.list(i_14_);
-				if ((!bool || objType.aBoolean1525) && objType.anInt1552 == -1 && (objType.anInt1541 ^ 0xffffffff) == 0 && objType.anInt1519 == 0 && objType.name.toLowerCase().indexOf(string) != -1) {
+				if ((!bool || objType.stockmarket) && objType.certtemplate == -1 && (objType.lenttemplate ^ 0xffffffff) == 0 && objType.dummyitem == 0 && objType.name.toLowerCase().indexOf(string) != -1) {
 					if (i_13_ >= 250) {
 						Buffer.anInt2474 = -1;
 						Class120_Sub12_Sub37.aShortArray3430 = null;

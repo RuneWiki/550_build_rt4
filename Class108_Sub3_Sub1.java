@@ -90,7 +90,7 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 					final long l_19_ = class80.anInt741 * i_18_ * i;
 					anInt3100 -= anInt3100 * l_19_ >> 28;
 				}
-				final Node node = class108_sub2.aClass105_2366.aClass120_1008;
+				final Node node = class108_sub2.aClass105_2366.head;
 				for (Node class120_20_ = node.next; class120_20_ != node; class120_20_ = class120_20_.next) {
 					final Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) class120_20_;
 					final Class32 class32 = class120_sub14_sub24.aClass169_3659.aClass32_1650;

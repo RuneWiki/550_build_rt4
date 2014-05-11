@@ -21,13 +21,13 @@ final class Class7 {
 		}
 	}
 
-	static final void method106(final int i, final Class184 class184, final int i_0_, final Npc class180_sub5_sub2, final int i_1_, final Player class180_sub5_sub1, final int i_2_, final int i_3_) {
+	static final void method106(final int i, final LocType locType, final int i_0_, final Npc class180_sub5_sub2, final int i_1_, final Player class180_sub5_sub1, final int i_2_, final int i_3_) {
 		try {
 			final Class120_Sub8 class120_sub8 = new Class120_Sub8();
 			class120_sub8.anInt2498 = i_3_;
 			class120_sub8.anInt2483 = i_1_ * 128;
 			class120_sub8.anInt2494 = i_0_ * i;
-			if (class184 == null) {
+			if (locType == null) {
 				if (class180_sub5_sub2 == null) {
 					if (class180_sub5_sub1 != null) {
 						class120_sub8.aClass180_Sub5_Sub1_2495 = class180_sub5_sub1;
@@ -52,36 +52,36 @@ final class Class7 {
 						class120_sub8.anInt2499 = npcType.anInt1658;
 						class120_sub8.anInt2493 = 128 * npcType.anInt1677;
 					}
-					Class120_Sub12_Sub10.aClass105_3201.method895((byte) -101, class120_sub8);
+					Class120_Sub12_Sub10.aClass105_3201.addLast(class120_sub8);
 				}
 			} else {
-				class120_sub8.anInt2486 = class184.anInt1845;
-				class120_sub8.anInt2489 = class184.anInt1879;
-				class120_sub8.anIntArray2482 = class184.anIntArray1870;
-				class120_sub8.anInt2499 = class184.anInt1839;
-				int i_4_ = class184.anInt1841;
-				class120_sub8.anInt2493 = class184.anInt1832 * 128;
-				class120_sub8.aClass184_2497 = class184;
-				int i_5_ = class184.anInt1827;
+				class120_sub8.anInt2486 = locType.anInt1845;
+				class120_sub8.anInt2489 = locType.anInt1879;
+				class120_sub8.anIntArray2482 = locType.anIntArray1870;
+				class120_sub8.anInt2499 = locType.anInt1839;
+				int i_4_ = locType.anInt1841;
+				class120_sub8.anInt2493 = locType.anInt1832 * 128;
+				class120_sub8.aClass184_2497 = locType;
+				int i_5_ = locType.anInt1827;
 				if (i_2_ == 1 || i_2_ == 3) {
-					i_4_ = class184.anInt1827;
-					i_5_ = class184.anInt1841;
+					i_4_ = locType.anInt1827;
+					i_5_ = locType.anInt1841;
 				}
 				class120_sub8.anInt2487 = 128 * (i_4_ + i_0_);
-				class120_sub8.anInt2485 = class184.anInt1833;
+				class120_sub8.anInt2485 = locType.anInt1833;
 				class120_sub8.anInt2481 = 128 * (i_5_ + i_1_);
-				if (class184.anIntArray1852 != null) {
+				if (locType.childrenIDs != null) {
 					class120_sub8.aBoolean2491 = true;
 					class120_sub8.method1156(-110);
 				}
 				if (class120_sub8.anIntArray2482 != null) {
 					class120_sub8.anInt2496 = (int) ((-class120_sub8.anInt2489 + class120_sub8.anInt2486) * Math.random()) + class120_sub8.anInt2489;
 				}
-				Class101_Sub1.aClass105_2266.method895((byte) 51, class120_sub8);
+				Class101_Sub1.aClass105_2266.addLast(class120_sub8);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("ah.D(").append(i).append(',').append(class184 != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null")
+					new StringBuilder("ah.D(").append(i).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null")
 							.append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 	}

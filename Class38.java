@@ -121,13 +121,13 @@ final class Class38 {
 							l = Class189.method2502(i_9_, i_17_ - 0, i_18_ + 0);
 						}
 						if ((l ^ 0xffffffffffffffffL) != -1L) {
-							final Class184 class184 = Class120_Sub1.method1035(0x7fffffff & (int) (l >>> 32), 0);
-							if (!class184.aBoolean1851 || Class120_Sub12_Sub37.aBoolean3432) {
-								int i_19_ = class184.anInt1840;
-								if (class184.anIntArray1852 != null) {
-									for (int i_20_ = 0; i_20_ < class184.anIntArray1852.length; i_20_++) {
-										if ((class184.anIntArray1852[i_20_] ^ 0xffffffff) != 0) {
-											final Class184 class184_21_ = Class120_Sub1.method1035(class184.anIntArray1852[i_20_], i + -10);
+							final LocType locType = LocType.list(0x7fffffff & (int) (l >>> 32));
+							if (!locType.aBoolean1851 || Class120_Sub12_Sub37.aBoolean3432) {
+								int i_19_ = locType.anInt1840;
+								if (locType.childrenIDs != null) {
+									for (int i_20_ = 0; i_20_ < locType.childrenIDs.length; i_20_++) {
+										if ((locType.childrenIDs[i_20_] ^ 0xffffffff) != 0) {
+											final LocType class184_21_ = LocType.list(locType.childrenIDs[i_20_]);
 											if (class184_21_.anInt1840 >= 0) {
 												i_19_ = class184_21_.anInt1840;
 											}
@@ -160,7 +160,7 @@ final class Class38 {
 											}
 										}
 									}
-									Class7.anIntArray62[Class120_Sub24.anInt2718] = class184.anInt1877;
+									Class7.anIntArray62[Class120_Sub24.anInt2718] = locType.myId;
 									Class73.anIntArray661[Class120_Sub24.anInt2718] = i_23_ + 0;
 									Class69_Sub2.anIntArray2235[Class120_Sub24.anInt2718] = 0 + i_24_;
 									Class120_Sub24.anInt2718++;
@@ -232,7 +232,7 @@ final class Class38 {
 	static final void method317(final int i, final int i_34_, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final byte i_39_, final int i_40_, final int i_41_, final int i_42_) {
 		try {
 			Class120_Sub24 class120_sub24 = null;
-			for (Class120_Sub24 class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.method893(1253231568); class120_sub24_43_ != null; class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.method899(69)) {
+			for (Class120_Sub24 class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24_43_ != null; class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
 				if (i_34_ == class120_sub24_43_.anInt2722 && i_36_ == class120_sub24_43_.anInt2731 && class120_sub24_43_.anInt2725 == i_38_ && i_41_ == class120_sub24_43_.anInt2721) {
 					class120_sub24 = class120_sub24_43_;
 					break;
@@ -245,7 +245,7 @@ final class Class38 {
 				class120_sub24.anInt2721 = i_41_;
 				class120_sub24.anInt2731 = i_36_;
 				Class53.method457(class120_sub24, (byte) -112);
-				Class120_Sub4.aClass105_2439.method895((byte) 59, class120_sub24);
+				Class120_Sub4.aClass105_2439.addLast(class120_sub24);
 			}
 			class120_sub24.anInt2732 = i_42_;
 			class120_sub24.anInt2719 = i;

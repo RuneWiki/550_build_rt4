@@ -78,7 +78,7 @@ final class Class92 {
 					if (i_14_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 					}
-					Class173.anInt1729 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(2);
+					Class173.gameLevel = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(2);
 					final int i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(7);
 					Class100.selfPlayer.method2343(i_12_, i_13_ == 1, i_15_);
 				}

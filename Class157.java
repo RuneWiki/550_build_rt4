@@ -9,7 +9,7 @@ final class Class157 {
 	static String aString1462 = "Cancel";
 	int anInt1463;
 	int anInt1464;
-	static Interface2[] anInterface2Array1465;
+	static ShaderInterface[] shaders;
 	static int anInt1466 = -1;
 	int anInt1467;
 	byte[] aByteArray1468;
@@ -107,7 +107,7 @@ final class Class157 {
 		try {
 			anIntArray1461 = null;
 			if (i >= 50) {
-				anInterface2Array1465 = null;
+				shaders = null;
 				aString1462 = null;
 				aClass120_Sub14_Sub19_1474 = null;
 				aClass120_Sub14_Sub19_1472 = null;

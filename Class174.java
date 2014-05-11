@@ -126,9 +126,9 @@ final class Class174 {
 	static final void method2236(final int i) {
 		try {
 			if (i == 60) {
-				for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.method893(1253231568); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.method899(115)) {
+				for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
 					final Class180_Sub3 class180_sub3 = class120_sub14_sub4.aClass180_Sub3_3467;
-					if (class180_sub3.anInt2908 == Class173.anInt1729 && !class180_sub3.aBoolean2920) {
+					if (class180_sub3.anInt2908 == Class173.gameLevel && !class180_sub3.aBoolean2920) {
 						if (Class101_Sub2.loopCycle >= class180_sub3.anInt2917) {
 							class180_sub3.method2311(Class120_Sub12_Sub22.anInt3301, (byte) -46);
 							if (!class180_sub3.aBoolean2920) {

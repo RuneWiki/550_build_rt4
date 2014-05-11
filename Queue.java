@@ -59,11 +59,11 @@ final class Queue {
 		for (;;) {
 			final NodeSub node = this.head.nextSub;
 			if (node == this.head) {
-				current = null;
-				return;
+				break;
 			}
 			node.unlinkSub();
 		}
+		current = null;
 	}
 
 	static final int method2253(final int i, int i_3_, final int i_4_, final int i_5_) {

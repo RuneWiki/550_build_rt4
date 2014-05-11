@@ -37,16 +37,16 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 			final int i_3_ = 0x1f & (int) l >> 14;
 			final int i_4_ = 0x7fffffff & (int) (l >>> 32);
 			if (i_3_ == 10 || i_3_ == 11 || i_3_ == 22) {
-				final Class184 class184 = Class120_Sub1.method1035(i_4_, 0);
-				int i_5_ = class184.anInt1857;
+				final LocType locType = LocType.list(i_4_);
+				int i_5_ = locType.anInt1857;
 				int i_6_;
 				int i_7_;
 				if (i_2_ != 0 && i_2_ != 2) {
-					i_7_ = class184.anInt1827;
-					i_6_ = class184.anInt1841;
+					i_7_ = locType.anInt1827;
+					i_6_ = locType.anInt1841;
 				} else {
-					i_6_ = class184.anInt1827;
-					i_7_ = class184.anInt1841;
+					i_6_ = locType.anInt1827;
+					i_7_ = locType.anInt1841;
 				}
 				if (i_2_ != 0) {
 					i_5_ = (i_5_ << i_2_ & 0xf) + (i_5_ >> 4 + -i_2_);

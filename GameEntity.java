@@ -498,7 +498,7 @@ abstract class GameEntity extends Class180 {
 				final int i_54_ = i_51_ * i_53_ - i_52_ * i_50_ >> 16;
 				final int i_55_ = i_51_ * i_52_ + i_53_ * i_50_ >> 16;
 				final int i_56_ = -i_49_ / 2;
-				final int i_57_ = Class22.method197(i_54_ + this.z, true, i_55_ + this.x, Class173.anInt1729);
+				final int i_57_ = Class22.method197(i_54_ + this.z, true, i_55_ + this.x, Class173.gameLevel);
 				final int i_58_ = i_48_ / 2;
 				final int i_59_ = -i_48_ / 2;
 				final int i_60_ = i_50_ * i_56_ - -(i_58_ * i_51_) >> 16;
@@ -506,13 +506,13 @@ abstract class GameEntity extends Class180 {
 				final int i_62_ = i_51_ * i_61_ - i_50_ * i_59_ >> 16;
 				final int i_63_ = i_51_ * i_56_ - i_50_ * i_58_ >> 16;
 				final int i_64_ = i_59_ * i_51_ + i_50_ * i_61_ >> 16;
-				final int i_65_ = Class22.method197(i_63_ + this.z, true, i_60_ + this.x, Class173.anInt1729);
-				final int i_66_ = Class22.method197(i_62_ + this.z, true, this.x - -i_64_, Class173.anInt1729);
+				final int i_65_ = Class22.method197(i_63_ + this.z, true, i_60_ + this.x, Class173.gameLevel);
+				final int i_66_ = Class22.method197(i_62_ + this.z, true, this.x - -i_64_, Class173.gameLevel);
 				final int i_67_ = i_48_ / 2;
 				final int i_68_ = i_49_ / 2;
 				final int i_69_ = i_50_ * i_68_ - -(i_67_ * i_51_) >> 16;
 				final int i_70_ = -(i_50_ * i_67_) + i_51_ * i_68_ >> 16;
-				final int i_71_ = Class22.method197(this.z - -i_70_, true, i_69_ + this.x, Class173.anInt1729);
+				final int i_71_ = Class22.method197(this.z - -i_70_, true, i_69_ + this.x, Class173.gameLevel);
 				final int i_72_ = i_71_ > i_66_ ? i_66_ : i_71_;
 				final int i_73_ = i_66_ > i_57_ ? i_57_ : i_66_;
 				final int i_74_ = i_57_ < i_65_ ? i_57_ : i_65_;

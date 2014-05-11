@@ -8,7 +8,7 @@ final class FileSystem {
 	static int[] anIntArray453 = { 76, 8, 137, 4, 0, 1, 38, 2, 19 };
 	private Class193 aClass193_454 = null;
 	static int anInt455;
-	static Class105 aClass105_456;
+	static Deque aClass105_456;
 	static int anInt457;
 	static Class40[] aClass40Array458;
 	static int anInt459 = 0;
@@ -22,7 +22,7 @@ final class FileSystem {
 		anInt455 = 0;
 		haveInternetExplorer6 = false;
 		aClass40Array458 = new Class40[14];
-		aClass105_456 = new Class105();
+		aClass105_456 = new Deque();
 	}
 
 	static final int method443(final int i, final int i_0_, final int i_1_, final int i_2_) {

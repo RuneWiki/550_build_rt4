@@ -64,7 +64,7 @@ final class Class31 {
 					}
 					class180_sub5_sub2.method2323((byte) 124, Class100.selfPlayer.anIntArray3040[0] - -i_1_, class180_sub5_sub2.getSize(), i_3_ + Class100.selfPlayer.anIntArray2958[0], i_5_ == 1);
 					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class7.method106(128, null, class180_sub5_sub2.anIntArray2958[0], class180_sub5_sub2, class180_sub5_sub2.anIntArray3040[0], null, 0, Class173.anInt1729);
+						Class7.method106(128, null, class180_sub5_sub2.anIntArray2958[0], class180_sub5_sub2, class180_sub5_sub2.anIntArray3040[0], null, 0, Class173.gameLevel);
 					}
 				}
 				Canvas_Sub1.aClass120_Sub7_Sub1_16.method1146();

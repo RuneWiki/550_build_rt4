@@ -76,7 +76,7 @@ final class Class48 {
 		try {
 			if (Class111.anInt1061 != 0 && i_18_ != 0 && Class150.anInt1407 < 50 && i_17_ != -1) {
 				Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_17_;
-				Class184.anIntArray1834[Class150.anInt1407] = i_18_;
+				LocType.anIntArray1834[Class150.anInt1407] = i_18_;
 				Class81.anIntArray779[Class150.anInt1407] = i_16_;
 				Class109.aClass6Array1047[Class150.anInt1407] = null;
 				Class174.anIntArray1731[Class150.anInt1407] = 0;

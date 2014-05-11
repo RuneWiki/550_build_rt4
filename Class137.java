@@ -70,10 +70,10 @@ final class Class137 {
 				Class120_Sub12_Sub38.anInt3434 = -1;
 				Class120_Sub15.anInt2588 = -1;
 			} else {
-				int i_11_ = -i_5_ + Class22.method197(i_8_, true, i_7_, Class173.anInt1729);
+				int i_11_ = -i_5_ + Class22.method197(i_8_, true, i_7_, Class173.gameLevel);
 				i_7_ -= Class83.anInt792;
 				i_11_ -= Class120_Sub12_Sub10.anInt3200;
-				i_8_ -= Class120_Sub14_Sub21.anInt3626;
+				i_8_ -= GroundObject.anInt3626;
 				final int i_12_ = Rasterizer.sineTable[Class128.anInt1223];
 				final int i_13_ = Rasterizer.cosineTable[Class128.anInt1223];
 				final int i_14_ = Rasterizer.sineTable[Class180_Sub3.anInt2909];

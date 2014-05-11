@@ -146,7 +146,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 				i_23_ = i_24_ * i_28_ >> 16;
 				i_24_ = i_24_ * i_27_ >> 16;
 			}
-			Class120_Sub14_Sub21.anInt3626 = i_15_ - i_24_;
+			GroundObject.anInt3626 = i_15_ - i_24_;
 			Class120_Sub12_Sub10.anInt3200 = i_12_ - i_21_;
 			Class83.anInt792 = -i_23_ + i_17_;
 			if (i != 57) {

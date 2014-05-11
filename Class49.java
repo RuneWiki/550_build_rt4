@@ -33,7 +33,7 @@ final class Class49 {
 			if (Class173.anInt1724 == 0) {
 				return 0;
 			}
-			i_0_ = Class157.anInterface2Array1465[Class173.anInt1724].method4();
+			i_0_ = Class157.shaders[Class173.anInt1724].method4();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ff.B(").append(i).append(')').toString());
 		}

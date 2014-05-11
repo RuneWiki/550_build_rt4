@@ -12,7 +12,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	boolean aBoolean3638 = true;
 	static short[] aShortArray3639;
 	static Class50 aClass50_3640;
-	Class105 aClass105_3641;
+	Deque aClass105_3641;
 	int anInt3642;
 	int anInt3643;
 	int anInt3644 = 0;
@@ -103,7 +103,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 			if (i_3_ != -1) {
 				return true;
 			}
-			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.method893(1253231568); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.method899(i_3_ + 61)) {
+			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.getFront(); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.getNext()) {
 				if (class120_sub4.method1061((byte) -21, i_5_, i, i_4_)) {
 					class120_sub4.method1064(i, i_5_, (byte) 94, is);
 					return true;
@@ -119,11 +119,11 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	final boolean method1631(final int i, final int i_6_, final int i_7_) {
 		boolean bool;
 		try {
-			Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.method893(1253231568);
+			Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.getFront();
 			if (i != -129) {
 				method1637(false);
 			}
-			for (/**/; class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.method899(i ^ ~0xc5)) {
+			for (/**/; class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.getNext()) {
 				if (class120_sub4.method1063(i_7_, (byte) 33, i_6_)) {
 					return true;
 				}
@@ -138,7 +138,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	final boolean method1632(final int[] is, final int i, final byte i_8_, final int i_9_) {
 		boolean bool;
 		try {
-			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.method893(1253231568); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.method899(56)) {
+			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.getFront(); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.getNext()) {
 				if (class120_sub4.method1063(i, (byte) 33, i_9_)) {
 					class120_sub4.method1064(i, i_9_, (byte) -123, is);
 					return true;
@@ -280,7 +280,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	final boolean method1635(final int i, final int i_48_, final byte i_49_, final int[] is) {
 		boolean bool;
 		try {
-			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.method893(1253231568); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.method899(122)) {
+			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.getFront(); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.getNext()) {
 				if (class120_sub4.method1062(i, i_48_, 0)) {
 					class120_sub4.method1066(i_48_, i, is, -128);
 					return true;
@@ -302,7 +302,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 			this.anInt3644 = 0;
 			this.anInt3642 = 0;
 			this.anInt3632 = i;
-			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.method893(1253231568); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.method899(i + -12697)) {
+			for (Class120_Sub4 class120_sub4 = (Class120_Sub4) this.aClass105_3641.getFront(); class120_sub4 != null; class120_sub4 = (Class120_Sub4) this.aClass105_3641.getNext()) {
 				if (this.anInt3642 < class120_sub4.anInt2431) {
 					this.anInt3642 = class120_sub4.anInt2431;
 				}
@@ -347,6 +347,6 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 		if (this.anInt3643 == 255) {
 			this.anInt3643 = 0;
 		}
-		this.aClass105_3641 = new Class105();
+		this.aClass105_3641 = new Deque();
 	}
 }

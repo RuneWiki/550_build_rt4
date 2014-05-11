@@ -4,7 +4,7 @@
 
 final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	static short[][] aShortArrayArray3668;
-	Class105 aClass105_3669 = new Class105();
+	Deque aClass105_3669 = new Deque();
 	private final Class120_Sub30_Sub2 aClass120_Sub30_Sub2_3670;
 	static int anInt3671 = 2;
 	static int anInt3672;
@@ -23,7 +23,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 			if (class120_sub8 != null) {
 				class120_sub8.method1156(-77);
 			} else {
-				Class7.method106(128, null, class180_sub5_sub1.anIntArray2958[0], null, class180_sub5_sub1.anIntArray3040[0], class180_sub5_sub1, 0, Class173.anInt1729);
+				Class7.method106(128, null, class180_sub5_sub1.anIntArray2958[0], null, class180_sub5_sub1.anIntArray3040[0], class180_sub5_sub1, 0, Class173.gameLevel);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bn.I(").append(i).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(')').toString());
@@ -80,8 +80,8 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	final void method1731(final int i) {
 		try {
 			this.aClass120_Sub30_Sub3_3675.method1731(i);
-			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.method893(1253231568);
-			while_211_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.method899(22)) {
+			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.getFront();
+			while_211_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.getNext()) {
 				if (!aClass120_Sub30_Sub2_3670.method1760(37, class120_sub6)) {
 					int i_0_ = i;
 					while_209_: do {
@@ -154,7 +154,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	final Class120_Sub30 method1736() {
 		Class120_Sub30 class120_sub30;
 		try {
-			final Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.method893(1253231568);
+			final Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.getFront();
 			if (class120_sub6 == null) {
 				return null;
 			}
@@ -174,7 +174,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		try {
 			Class120_Sub6 class120_sub6;
 			do {
-				class120_sub6 = (Class120_Sub6) this.aClass105_3669.method899(13);
+				class120_sub6 = (Class120_Sub6) this.aClass105_3669.getNext();
 				if (class120_sub6 == null) {
 					return null;
 				}
@@ -190,8 +190,8 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	final void method1734(final int[] is, final int i, final int i_8_) {
 		try {
 			this.aClass120_Sub30_Sub3_3675.method1734(is, i, i_8_);
-			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.method893(1253231568);
-			while_213_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.method899(108)) {
+			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.getFront();
+			while_213_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.getNext()) {
 				if (!aClass120_Sub30_Sub2_3670.method1760(102, class120_sub6)) {
 					int i_9_ = i;
 					int i_10_ = i_8_;

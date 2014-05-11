@@ -124,7 +124,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
 					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
 					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class7.method106(i ^ 0x80, null, class180_sub5_sub2.anIntArray2958[0], class180_sub5_sub2, class180_sub5_sub2.anIntArray3040[0], null, 0, Class173.anInt1729);
+						Class7.method106(i ^ 0x80, null, class180_sub5_sub2.anIntArray2958[0], class180_sub5_sub2, class180_sub5_sub2.anIntArray3040[0], null, 0, Class173.gameLevel);
 					}
 				}
 				if ((i_9_ & 0x200) != 0) {
@@ -199,24 +199,15 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		return i_24_;
 	}
 
-	static final String[] method1391(final int i, final String[] strings) {
-		String[] strings_25_;
-		try {
-			if (i != -6) {
-				method1389(66);
+	static final String[] addNumbers(final String[] strings) {
+		final String[] strings_26_ = new String[5];
+		for (int i_27_ = 0; i_27_ < 5; i_27_++) {
+			strings_26_[i_27_] = new StringBuilder(String.valueOf(i_27_)).append(": ").toString();
+			if (strings != null && strings[i_27_] != null) {
+				strings_26_[i_27_] = new StringBuilder(strings_26_[i_27_]).append(strings[i_27_]).toString();
 			}
-			final String[] strings_26_ = new String[5];
-			for (int i_27_ = 0; i_27_ < 5; i_27_++) {
-				strings_26_[i_27_] = new StringBuilder(String.valueOf(i_27_)).append(": ").toString();
-				if (strings != null && strings[i_27_] != null) {
-					strings_26_[i_27_] = new StringBuilder(strings_26_[i_27_]).append(strings[i_27_]).toString();
-				}
-			}
-			strings_25_ = strings_26_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uc.R(").append(i).append(',').append(strings != null ? "{...}" : "null").append(')').toString());
 		}
-		return strings_25_;
+		return strings_26_;
 	}
 
 	@Override

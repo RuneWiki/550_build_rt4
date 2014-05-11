@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 	static int anInt3200;
-	static Class105 aClass105_3201 = new Class105();
+	static Deque aClass105_3201 = new Deque();
 	static AbstractSprite aClass120_Sub14_Sub19_3202;
 	static boolean manyIdleAnimations = true;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_3204;
@@ -37,9 +37,9 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 					final int i_15_ = i_14_ >> 2;
 					final int i_16_ = i_14_ & 0x3;
 					if (i_13_ == i_4_ && i_3_ <= i_11_ && 8 + i_3_ > i_11_ && i_2_ <= i_12_ && i_2_ - -8 > i_12_) {
-						final Class184 class184 = Class120_Sub1.method1035(i_7_, 0);
-						final int i_17_ = Class132.method1928(class184.anInt1841, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, class184.anInt1827) + i_0_;
-						final int i_18_ = i_6_ - -Class120_Sub14_Sub14.method1539(i_5_ + -10525, 0x7 & i_11_, class184.anInt1827, class184.anInt1841, i_1_, 0x7 & i_12_, i_16_);
+						final LocType locType = LocType.list(i_7_);
+						final int i_17_ = Class132.method1928(locType.anInt1841, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, locType.anInt1827) + i_0_;
+						final int i_18_ = i_6_ - -Class120_Sub14_Sub14.method1539(i_5_ + -10525, 0x7 & i_11_, locType.anInt1827, locType.anInt1841, i_1_, 0x7 & i_12_, i_16_);
 						if (i_17_ > 0 && i_18_ > 0 && i_17_ < 103 && i_18_ < 103) {
 							Class25 class25 = null;
 							if (!bool) {

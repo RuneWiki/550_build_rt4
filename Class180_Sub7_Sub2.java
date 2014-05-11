@@ -1551,7 +1551,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 				final int i_422_ = aShortArray3855[i_420_];
 				if (i_422_ == -1) {
 					HDToolkit.method514(-1);
-					Class120_Sub14_Sub13.method1532(0, 0, -51);
+					Class120_Sub14_Sub13.method1532(0, 0);
 				} else {
 					Rasterizer.anInterface5_973.method25(64, i_422_ & 0xffff);
 				}

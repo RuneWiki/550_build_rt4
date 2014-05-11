@@ -86,7 +86,7 @@ final class Class115 {
 			Class120_Sub14_Sub16.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);
 			if (HDToolkit.glEnabled) {
 				Class120_Sub14_Sub11.aBoolean3545 = false;
-				Class120_Sub14_Sub13.method1532(0, 0, -68);
+				Class120_Sub14_Sub13.method1532(0, 0);
 				Class117.method1011(null);
 				LightManager.method1859();
 			}

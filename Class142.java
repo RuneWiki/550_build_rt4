@@ -593,7 +593,7 @@ final class Class142 {
 													if (string == null) {
 														string = "null";
 													}
-													if ((objType.anInt1540 == 1 || class189.anInt2075 != 1) && (class189.anInt2075 ^ 0xffffffff) != 0) {
+													if ((objType.stackable == 1 || class189.anInt2075 != 1) && (class189.anInt2075 ^ 0xffffffff) != 0) {
 														string = new StringBuilder("<col=ff9040>").append(string).append("</col> x").append(Node.method1033((byte) 126, class189.anInt2075)).toString();
 													}
 												}
@@ -838,7 +838,7 @@ final class Class142 {
 														if (class189.anIntArray1978[i_101_] > 0) {
 															final ObjType objType = ObjType.list(class189.anIntArray1978[i_101_] + -1);
 															String string;
-															if (objType.anInt1540 != 1 && class189.anIntArray1983[i_101_] == 1) {
+															if (objType.stackable != 1 && class189.anIntArray1983[i_101_] == 1) {
 																string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col>").toString();
 															} else {
 																string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.method1033((byte) 126, class189.anIntArray1983[i_101_])).toString();

@@ -39,17 +39,17 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 			}
 			if (!HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_6_;
-				if (i_3_ != Class22.method197(i_0_ - -i_9_, true, i_7_ + i_4_, Class173.anInt1729) || Class22.method197(i_10_ + i_0_, true, i_8_ + i_4_, Class173.anInt1729) != i_3_) {
+				if (i_3_ != Class22.method197(i_0_ - -i_9_, true, i_7_ + i_4_, Class173.gameLevel) || Class22.method197(i_10_ + i_0_, true, i_8_ + i_4_, Class173.gameLevel) != i_3_) {
 					for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
-						class180_sub7_sub1.yVertices[i_11_] += Class22.method197(class180_sub7_sub1.zVertices[i_11_] + i_0_, true, i_4_ + class180_sub7_sub1.xVertices[i_11_], Class173.anInt1729) + -i_3_;
+						class180_sub7_sub1.yVertices[i_11_] += Class22.method197(class180_sub7_sub1.zVertices[i_11_] + i_0_, true, i_4_ + class180_sub7_sub1.xVertices[i_11_], Class173.gameLevel) + -i_3_;
 					}
 					class180_sub7_sub1.boundsCalculated = false;
 				}
 			} else {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_6_;
-				if (Class22.method197(i_0_ + i_9_, true, i_4_ - -i_7_, Class173.anInt1729) != i_3_ || i_3_ != Class22.method197(i_0_ - -i_10_, true, i_8_ + i_4_, Class173.anInt1729)) {
+				if (Class22.method197(i_0_ + i_9_, true, i_4_ - -i_7_, Class173.gameLevel) != i_3_ || i_3_ != Class22.method197(i_0_ - -i_10_, true, i_8_ + i_4_, Class173.gameLevel)) {
 					for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
-						class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.method197(i_0_ + class180_sub7_sub2.anIntArray3845[i_12_], true, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], Class173.anInt1729);
+						class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.method197(i_0_ + class180_sub7_sub2.anIntArray3845[i_12_], true, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], Class173.gameLevel);
 					}
 					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;

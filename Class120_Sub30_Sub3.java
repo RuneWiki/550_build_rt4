@@ -3,8 +3,8 @@
  */
 
 final class Class120_Sub30_Sub3 extends Class120_Sub30 {
-	private final Class105 aClass105_3711 = new Class105();
-	private final Class105 aClass105_3712 = new Class105();
+	private final Deque aClass105_3711 = new Deque();
+	private final Deque aClass105_3712 = new Deque();
 	private int anInt3713 = 0;
 	private int anInt3714 = -1;
 
@@ -26,7 +26,7 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 			i_0_ -= i_1_;
 			anInt3713 += i_1_;
 			method1782();
-			final Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.method893(1253231568);
+			final Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.getFront();
 			synchronized (class120_sub33) {
 				final int i_2_ = class120_sub33.method1835(this);
 				if (i_2_ < 0) {
@@ -43,8 +43,8 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 	private final void method1781(final Class120_Sub33 class120_sub33) {
 		class120_sub33.unlink();
 		class120_sub33.method1834();
-		final Node node = aClass105_3712.aClass120_1008.next;
-		if (node == aClass105_3712.aClass120_1008) {
+		final Node node = aClass105_3712.head.next;
+		if (node == aClass105_3712.head) {
 			anInt3714 = -1;
 		} else {
 			anInt3714 = ((Class120_Sub33) node).anInt2794;
@@ -53,7 +53,7 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 
 	private final void method1782() {
 		if (anInt3713 > 0) {
-			for (Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.method893(1253231568); class120_sub33 != null; class120_sub33 = (Class120_Sub33) aClass105_3712.method899(92)) {
+			for (Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.getFront(); class120_sub33 != null; class120_sub33 = (Class120_Sub33) aClass105_3712.getNext()) {
 				class120_sub33.anInt2794 -= anInt3713;
 			}
 			anInt3714 -= anInt3713;
@@ -82,7 +82,7 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 			i -= i_3_;
 			anInt3713 += i_3_;
 			method1782();
-			final Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.method893(1253231568);
+			final Class120_Sub33 class120_sub33 = (Class120_Sub33) aClass105_3712.getFront();
 			synchronized (class120_sub33) {
 				final int i_4_ = class120_sub33.method1835(this);
 				if (i_4_ < 0) {
@@ -97,22 +97,22 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 	}
 
 	private final void method1784(final int i) {
-		for (Class120_Sub30 class120_sub30 = (Class120_Sub30) aClass105_3711.method893(1253231568); class120_sub30 != null; class120_sub30 = (Class120_Sub30) aClass105_3711.method899(96)) {
+		for (Class120_Sub30 class120_sub30 = (Class120_Sub30) aClass105_3711.getFront(); class120_sub30 != null; class120_sub30 = (Class120_Sub30) aClass105_3711.getNext()) {
 			class120_sub30.method1731(i);
 		}
 	}
 
 	@Override
 	final Class120_Sub30 method1735() {
-		return (Class120_Sub30) aClass105_3711.method899(39);
+		return (Class120_Sub30) aClass105_3711.getNext();
 	}
 
 	private final void method1785(Node node, final Class120_Sub33 class120_sub33) {
-		for (/**/; node != aClass105_3712.aClass120_1008 && ((Class120_Sub33) node).anInt2794 <= class120_sub33.anInt2794; node = node.next) {
+		for (/**/; node != aClass105_3712.head && ((Class120_Sub33) node).anInt2794 <= class120_sub33.anInt2794; node = node.next) {
 			/* empty */
 		}
 		InterfaceClickMask.method1679(node, (byte) -123, class120_sub33);
-		anInt3714 = ((Class120_Sub33) aClass105_3712.aClass120_1008.next).anInt2794;
+		anInt3714 = ((Class120_Sub33) aClass105_3712.head.next).anInt2794;
 	}
 
 	@Override
@@ -121,18 +121,18 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 	}
 
 	private final void method1786(final int[] is, final int i, final int i_5_) {
-		for (Class120_Sub30 class120_sub30 = (Class120_Sub30) aClass105_3711.method893(1253231568); class120_sub30 != null; class120_sub30 = (Class120_Sub30) aClass105_3711.method899(95)) {
+		for (Class120_Sub30 class120_sub30 = (Class120_Sub30) aClass105_3711.getFront(); class120_sub30 != null; class120_sub30 = (Class120_Sub30) aClass105_3711.getNext()) {
 			class120_sub30.method1737(is, i, i_5_);
 		}
 	}
 
 	@Override
 	final Class120_Sub30 method1736() {
-		return (Class120_Sub30) aClass105_3711.method893(1253231568);
+		return (Class120_Sub30) aClass105_3711.getFront();
 	}
 
 	final synchronized void method1787(final Class120_Sub30 class120_sub30) {
-		aClass105_3711.method890(class120_sub30, (byte) -76);
+		aClass105_3711.addFront(class120_sub30);
 	}
 
 	public Class120_Sub30_Sub3() {

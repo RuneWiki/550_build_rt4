@@ -3,7 +3,7 @@
  */
 import javax.media.opengl.GL;
 
-final class Class5 implements Interface2 {
+final class Class5 implements ShaderInterface {
 	private boolean aBoolean2151 = false;
 	static short[] aShortArray2152;
 	static String aString2153 = "Close";
@@ -21,18 +21,18 @@ final class Class5 implements Interface2 {
 	static final void method97(final int i, final int i_0_, final int i_1_) {
 		try {
 			if (i_1_ == -14327) {
-				final Class105 class105 = Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[Class173.anInt1729][i][i_0_];
-				if (class105 == null) {
-					Class180_Sub6.method2356(Class173.anInt1729, i, i_0_);
+				final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i][i_0_];
+				if (deque == null) {
+					Class180_Sub6.method2356(Class173.gameLevel, i, i_0_);
 				} else {
 					int i_2_ = -99999999;
-					Class120_Sub14_Sub21 class120_sub14_sub21 = (Class120_Sub14_Sub21) class105.method893(1253231568);
-					Class120_Sub14_Sub21 class120_sub14_sub21_3_ = null;
-					for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (Class120_Sub14_Sub21) class105.method899(48)) {
-						final ObjType objType = ObjType.list(class120_sub14_sub21.aClass180_Sub1_3630.anInt2846);
-						int i_4_ = objType.anInt1565;
-						if (objType.anInt1540 == 1) {
-							i_4_ *= class120_sub14_sub21.aClass180_Sub1_3630.anInt2845 - -1;
+					GroundObject class120_sub14_sub21 = (GroundObject) deque.getFront();
+					GroundObject class120_sub14_sub21_3_ = null;
+					for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObject) deque.getNext()) {
+						final ObjType objType = ObjType.list(class120_sub14_sub21.aClass180_Sub1_3630.id);
+						int i_4_ = objType.cost;
+						if (objType.stackable == 1) {
+							i_4_ *= class120_sub14_sub21.aClass180_Sub1_3630.amount - -1;
 						}
 						if (i_4_ > i_2_) {
 							i_2_ = i_4_;
@@ -40,25 +40,25 @@ final class Class5 implements Interface2 {
 						}
 					}
 					if (class120_sub14_sub21_3_ == null) {
-						Class180_Sub6.method2356(Class173.anInt1729, i, i_0_);
+						Class180_Sub6.method2356(Class173.gameLevel, i, i_0_);
 					} else {
-						class105.method890(class120_sub14_sub21_3_, (byte) -113);
-						class120_sub14_sub21 = (Class120_Sub14_Sub21) class105.method893(1253231568);
+						deque.addFront(class120_sub14_sub21_3_);
+						class120_sub14_sub21 = (GroundObject) deque.getFront();
 						Class180_Sub1 class180_sub1 = null;
 						Class180_Sub1 class180_sub1_5_ = null;
-						for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (Class120_Sub14_Sub21) class105.method899(i_1_ + 14431)) {
+						for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObject) deque.getNext()) {
 							final Class180_Sub1 class180_sub1_6_ = class120_sub14_sub21.aClass180_Sub1_3630;
-							if (class120_sub14_sub21_3_.aClass180_Sub1_3630.anInt2846 != class180_sub1_6_.anInt2846) {
+							if (class120_sub14_sub21_3_.aClass180_Sub1_3630.id != class180_sub1_6_.id) {
 								if (class180_sub1_5_ == null) {
 									class180_sub1_5_ = class180_sub1_6_;
 								}
-								if (class180_sub1_5_.anInt2846 != class180_sub1_6_.anInt2846 && class180_sub1 == null) {
+								if (class180_sub1_5_.id != class180_sub1_6_.id && class180_sub1 == null) {
 									class180_sub1 = class180_sub1_6_;
 								}
 							}
 						}
 						final long l = 1610612736 + i + (i_0_ << 7);
-						Class136.method1978(Class173.anInt1729, i, i_0_, Class22.method197(64 + 128 * i_0_, true, 64 + i * 128, Class173.anInt1729), class120_sub14_sub21_3_.aClass180_Sub1_3630, l, class180_sub1_5_, class180_sub1);
+						Class136.method1978(Class173.gameLevel, i, i_0_, Class22.method197(64 + 128 * i_0_, true, 64 + i * 128, Class173.gameLevel), class120_sub14_sub21_3_.aClass180_Sub1_3630, l, class180_sub1_5_, class180_sub1);
 					}
 				}
 			}

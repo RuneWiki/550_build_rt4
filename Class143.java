@@ -45,7 +45,7 @@ class Class143 implements Interface3 {
 			if (i_8_ != -1) {
 				aString2183 = null;
 			}
-			final int[][] is = Class182.aClass25Array1802[Class173.anInt1729].anIntArrayArray152;
+			final int[][] is = Class182.aClass25Array1802[Class173.gameLevel].anIntArrayArray152;
 			while (i_17_ != i_16_) {
 				i_15_ = Class150.anIntArray1412[i_16_];
 				i_14_ = Class120_Sub12.anIntArray2565[i_16_];
@@ -55,16 +55,16 @@ class Class143 implements Interface3 {
 					break;
 				}
 				if (i_5_ != 0) {
-					if ((i_5_ < 5 || i_5_ == 10) && Class182.aClass25Array1802[Class173.anInt1729].method220(i_7_, i_9_, i_14_, i_15_, (byte) -93, i, 2, i_5_ + -1)) {
+					if ((i_5_ < 5 || i_5_ == 10) && Class182.aClass25Array1802[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, (byte) -93, i, 2, i_5_ + -1)) {
 						bool_18_ = true;
 						break;
 					}
-					if (i_5_ < 10 && Class182.aClass25Array1802[Class173.anInt1729].method223(i, i_15_, i_7_, 1024, i_14_, i_5_ - 1, i_9_, 2)) {
+					if (i_5_ < 10 && Class182.aClass25Array1802[Class173.gameLevel].method223(i, i_15_, i_7_, 1024, i_14_, i_5_ - 1, i_9_, 2)) {
 						bool_18_ = true;
 						break;
 					}
 				}
-				if (i_3_ != 0 && i_11_ != 0 && Class182.aClass25Array1802[Class173.anInt1729].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
+				if (i_3_ != 0 && i_11_ != 0 && Class182.aClass25Array1802[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
 					bool_18_ = true;
 					break;
 				}

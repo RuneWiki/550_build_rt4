@@ -18,8 +18,8 @@ final class Class190 {
 				final int i_7_ = 0x3 & (int) l >> 20;
 				final int i_8_ = ((int) l & 0x7e0cc) >> 14;
 				final int i_9_ = 0x7fffffff & (int) (l >>> 32);
-				final Class184 class184 = Class120_Sub1.method1035(i_9_, 0);
-				if (class184.anInt1826 == -1) {
+				final LocType locType = LocType.list(i_9_);
+				if (locType.anInt1826 == -1) {
 					int i_10_ = i;
 					final int[] is = GraphicsLD.pixels;
 					final int i_11_ = 24624 - (-(i_5_ * 4) + -((52736 + -(i_4_ * 512)) * 4));
@@ -97,7 +97,7 @@ final class Class190 {
 							is[1536 + i_11_] = i_10_;
 						}
 					}
-				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, class184, 4, i_5_, i_1_, i_7_)) {
+				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_7_)) {
 					return false;
 				}
 			}
@@ -106,8 +106,8 @@ final class Class190 {
 				final int i_12_ = ((int) l & 0x35e805) >> 20;
 				final int i_13_ = 0x7fffffff & (int) (l >>> 32);
 				final int i_14_ = ((int) l & 0x7da9b) >> 14;
-				final Class184 class184 = Class120_Sub1.method1035(i_13_, 0);
-				if (class184.anInt1826 == -1) {
+				final LocType locType = LocType.list(i_13_);
+				if (locType.anInt1826 == -1) {
 					if (i_14_ == 9) {
 						int i_15_ = 15658734;
 						final int[] is = GraphicsLD.pixels;
@@ -127,7 +127,7 @@ final class Class190 {
 							is[3 + i_16_ + 1536] = i_15_;
 						}
 					}
-				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, class184, 4, i_5_, i_1_, i_12_)) {
+				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_12_)) {
 					return false;
 				}
 			}
@@ -135,8 +135,8 @@ final class Class190 {
 			if (0L != l) {
 				final int i_17_ = (int) (l >>> 32) & 0x7fffffff;
 				final int i_18_ = (0x389bda & (int) l) >> 20;
-				final Class184 class184 = Class120_Sub1.method1035(i_17_, 0);
-				if ((class184.anInt1826 ^ 0xffffffff) != 0 && !Class120_Sub14_Sub18.method1583(i_2_, i_4_, class184, 4, i_5_, i_1_, i_18_)) {
+				final LocType locType = LocType.list(i_17_);
+				if ((locType.anInt1826 ^ 0xffffffff) != 0 && !Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_18_)) {
 					return false;
 				}
 			}

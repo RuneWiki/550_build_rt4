@@ -23,38 +23,6 @@ final class Class120_Sub1 extends Node {
 		anInt2414 = 0;
 	}
 
-	static final Class184 method1035(final int i, final int i_0_) {
-		Class184 class184;
-		try {
-			if (i_0_ != 0) {
-				method1037((byte) -2);
-			}
-			Class184 class184_1_ = (Class184) Class56.aClass21_494.method193(i, (byte) -124);
-			if (class184_1_ != null) {
-				return class184_1_;
-			}
-			final byte[] is = Class120_Sub6.aClass50_2450.method442(Class53_Sub1.method465(114, i), (byte) 120, Class120_Sub18.method1667(true, i));
-			class184_1_ = new Class184();
-			class184_1_.anInt1877 = i;
-			if (is != null) {
-				class184_1_.method2457(-1, new Buffer(is));
-			}
-			class184_1_.method2469(125);
-			if (!Class69_Sub2.aBoolean2234 && class184_1_.aBoolean1851) {
-				class184_1_.aStringArray1849 = null;
-			}
-			if (class184_1_.aBoolean1880) {
-				class184_1_.anInt1821 = 0;
-				class184_1_.aBoolean1844 = false;
-			}
-			Class56.aClass21_494.method185(-126, class184_1_, i);
-			class184 = class184_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("af.E(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-		return class184;
-	}
-
 	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final int i_7_) {
 		try {
 			if (i_5_ != 84) {

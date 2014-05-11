@@ -62,7 +62,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 				anInt3410 = -79;
 			}
 			for (int i_7_ = 0; i_7_ < class189.anIntArray2038.length; i_7_++) {
-				final int i_8_ = Class184.method2467(i_7_, (byte) -81, class189);
+				final int i_8_ = LocType.method2467(i_7_, (byte) -81, class189);
 				final int i_9_ = class189.anIntArray2071[i_7_];
 				if (class189.anIntArray2038[i_7_] != 2) {
 					if (class189.anIntArray2038[i_7_] == 3) {
@@ -126,14 +126,14 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 
 	static final void method1385(final byte i) {
 		try {
-			if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.anInt1729) {
-				Class2.method76(false, 121, Class116.anInt1118, false, Class100.selfPlayer.anIntArray3040[0], Class100.selfPlayer.anIntArray2958[0], Class3.anInt53, Class173.anInt1729);
+			if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.gameLevel) {
+				Class2.method76(false, 121, Class116.anInt1118, false, Class100.selfPlayer.anIntArray3040[0], Class100.selfPlayer.anIntArray2958[0], Class3.anInt53, Class173.gameLevel);
 			} else {
 				if (i >= -70) {
 					method1385((byte) -86);
 				}
 				Class120_Sub12_Sub5.method1219((byte) -111);
-				if (Class173.anInt1729 != Class153.anInt1436) {
+				if (Class173.gameLevel != Class153.anInt1436) {
 					Class57.method492(108);
 				}
 			}

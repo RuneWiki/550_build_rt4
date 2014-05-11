@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class14 implements Interface2 {
+final class Class14 implements ShaderInterface {
 	private int anInt2159 = -1;
 	private int anInt2160 = -1;
 	private int anInt2161 = -1;

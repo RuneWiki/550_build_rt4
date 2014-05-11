@@ -9,7 +9,7 @@ final class Class173 {
 	static int anInt1726;
 	static int anInt1727;
 	static int anInt1728 = 0;
-	static int anInt1729;
+	static int gameLevel;
 	static int[] anIntArray1730;
 
 	static {
@@ -176,7 +176,7 @@ final class Class173 {
 		try {
 			Class22.aClass21_131.method186((byte) 86);
 			if (i != 27114) {
-				anInt1729 = -88;
+				gameLevel = -88;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uf.C(").append(i).append(')').toString());

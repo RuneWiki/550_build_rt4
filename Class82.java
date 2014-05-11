@@ -99,7 +99,7 @@ final class Class82 implements Runnable {
 				}
 				Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1478(Class36.aString313, i_6_, i_7_ - -20, 16777215, -1);
 			} else {
-				Class120_Sub14_Sub21.anInt3628 = (int) (i * 2 / Class79.aFloat696);
+				GroundObject.anInt3628 = (int) (i * 2 / Class79.aFloat696);
 				Class120_Sub18.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
 				Class120_Sub14_Sub11.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
 				Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
@@ -113,8 +113,8 @@ final class Class82 implements Runnable {
 				if (!HDToolkit.glEnabled) {
 					Class79.method683(i_8_, i_9_, i_10_, i_11_, i_3_, i_2_, i_4_ + i_3_, 1 + i + i_2_);
 					Class79.method685();
-					final Class105 class105 = Class79.method679();
-					Class101_Sub1.method842(class105, 0, 5938, 0);
+					final Deque deque = Class79.method679();
+					Class101_Sub1.method842(deque, 0, 5938, 0);
 				} else {
 					if (Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 == null || i_4_ != Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.width || Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.height != i) {
 						Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
@@ -123,8 +123,8 @@ final class Class82 implements Runnable {
 					GraphicsLD.init2dCanvas(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_4_, i);
 					Class79.method683(i_8_, i_9_, i_10_, i_11_, 0, 0, i_4_, 1 + i);
 					Class79.method685();
-					final Class105 class105 = Class79.method679();
-					Class101_Sub1.method842(class105, i_3_, 5938, i_2_);
+					final Deque deque = Class79.method679();
+					Class101_Sub1.method842(deque, i_3_, 5938, i_2_);
 					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();
 					GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_3_, i_2_, i_4_, i);
 					GraphicsLD.pixels = null;

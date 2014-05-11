@@ -407,36 +407,30 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		System.out.println(new StringBuilder("Error: ").append(Class180_Sub6.method2358(string, "\n", "%0a")).toString());
 	}
 
-	static final void method1532(int i, int i_73_, final int i_74_) {
-		try {
-			if (i_74_ <= -41) {
-				if (i == 8) {
-					i = 4;
+	static final void method1532(int i, int i_73_) {
+		if (i == 8) {
+			i = 4;
+		}
+		if (i == 4 && !PacketBuffer.highWaterDetail) {
+			i = 2;
+			i_73_ = 2;
+		}
+		if (Class173.anInt1724 != i) {
+			if (!Class120_Sub14_Sub11.aBoolean3545) {
+				if (Class173.anInt1724 != 0) {
+					Class157.shaders[Class173.anInt1724].method2();
 				}
-				if (i == 4 && !PacketBuffer.highWaterDetail) {
-					i = 2;
-					i_73_ = 2;
+				if (i != 0) {
+					final ShaderInterface shaderInterface = Class157.shaders[i];
+					shaderInterface.method3();
+					shaderInterface.method5(i_73_);
 				}
-				if (Class173.anInt1724 != i) {
-					if (!Class120_Sub14_Sub11.aBoolean3545) {
-						if (Class173.anInt1724 != 0) {
-							Class157.anInterface2Array1465[Class173.anInt1724].method2();
-						}
-						if (i != 0) {
-							final Interface2 interface2 = Class157.anInterface2Array1465[i];
-							interface2.method3();
-							interface2.method5(i_73_);
-						}
-						Class101_Sub1.anInt2275 = i_73_;
-						Class173.anInt1724 = i;
-					}
-				} else if (i != 0 && Class101_Sub1.anInt2275 != i_73_) {
-					Class157.anInterface2Array1465[i].method5(i_73_);
-					Class101_Sub1.anInt2275 = i_73_;
-				}
+				Class101_Sub1.anInt2275 = i_73_;
+				Class173.anInt1724 = i;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.K(").append(i).append(',').append(i_73_).append(',').append(i_74_).append(')').toString());
+		} else if (i != 0 && Class101_Sub1.anInt2275 != i_73_) {
+			Class157.shaders[i].method5(i_73_);
+			Class101_Sub1.anInt2275 = i_73_;
 		}
 	}
 

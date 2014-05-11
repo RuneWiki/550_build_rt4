@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub21 extends NodeSub {
+final class GroundObject extends NodeSub {
 	static int anInt3626;
 	static volatile int anInt3627;
 	static int anInt3628;
@@ -21,12 +21,8 @@ final class Class120_Sub14_Sub21 extends NodeSub {
 		}
 	}
 
-	Class120_Sub14_Sub21(Class180_Sub1 class180_sub1) {
-		try {
-			((Class120_Sub14_Sub21) this).aClass180_Sub1_3630 = class180_sub1;
-		} catch (RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, ("w.<init>(" + (class180_sub1 != null ? "{...}" : "null") + ')'));
-		}
+	GroundObject(Class180_Sub1 class180_sub1) {
+		aClass180_Sub1_3630 = class180_sub1;
 	}
 
 	static final void method1627(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_5_, int i_6_) {

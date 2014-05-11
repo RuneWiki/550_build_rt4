@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-interface Interface2 {
+interface ShaderInterface {
 	public void method2();
 
 	public void method3();

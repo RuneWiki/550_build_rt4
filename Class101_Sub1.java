@@ -3,7 +3,7 @@
  */
 
 final class Class101_Sub1 extends Class101 {
-	static Class105 aClass105_2266 = new Class105();
+	static Deque aClass105_2266 = new Deque();
 	private int anInt2267;
 	private final int anInt2268;
 	private final int anInt2269;
@@ -67,14 +67,14 @@ final class Class101_Sub1 extends Class101 {
 		return i_8_;
 	}
 
-	static final void method842(final Class105 class105, final int i, final int i_9_, final int i_10_) {
+	static final void method842(final Deque deque, final int i, final int i_9_, final int i_10_) {
 		try {
-			Class73.aClass105_653.method889(1986850152);
+			Class73.aClass105_653.clear();
 			if (i_9_ != 5938) {
 				aClass22_2273 = null;
 			}
 			if (!Class120_Sub12_Sub27.aBoolean3348) {
-				for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) class105.method893(1253231568); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) class105.method899(81)) {
+				for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getFront(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getNext()) {
 					final Class73 class73 = Class92.method769(true, class120_sub14_sub5.anInt3473);
 					if (Class9.method116(class73, -1)) {
 						Class180.method2271(i, false, class120_sub14_sub5, i_10_, class73);
@@ -85,7 +85,7 @@ final class Class101_Sub1 extends Class101 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.I(").append(class105 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.I(").append(deque != null ? "{...}" : "null").append(',').append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 	}
 

@@ -467,7 +467,7 @@ final class Class120_Sub21 extends Node {
 								}
 							}
 							Class111.aBoolean1058 = false;
-							Class184.aClass189_1818 = null;
+							LocType.aClass189_1818 = null;
 							ObjType.anInt1551 = 0;
 							final Class189 class189 = CursorType.aClass189_1243;
 							CursorType.aClass189_1243 = null;
@@ -487,7 +487,7 @@ final class Class120_Sub21 extends Node {
 								Class116.method1009((byte) -107);
 							}
 							for (;;) {
-								final Class120_Sub10 class120_sub10 = (Class120_Sub10) Class120_Sub4.aClass105_2435.method891(false);
+								final Class120_Sub10 class120_sub10 = (Class120_Sub10) Class120_Sub4.aClass105_2435.removeFront();
 								if (class120_sub10 == null) {
 									break;
 								}
@@ -501,7 +501,7 @@ final class Class120_Sub21 extends Node {
 								Class88.method744(true, class120_sub10);
 							}
 							for (;;) {
-								final Class120_Sub10 class120_sub10 = (Class120_Sub10) FileSystem.aClass105_456.method891(false);
+								final Class120_Sub10 class120_sub10 = (Class120_Sub10) FileSystem.aClass105_456.removeFront();
 								if (class120_sub10 == null) {
 									break;
 								}
@@ -515,7 +515,7 @@ final class Class120_Sub21 extends Node {
 								Class88.method744(true, class120_sub10);
 							}
 							for (;;) {
-								final Class120_Sub10 class120_sub10 = (Class120_Sub10) Class88.aClass105_829.method891(false);
+								final Class120_Sub10 class120_sub10 = (Class120_Sub10) Class88.aClass105_829.removeFront();
 								if (class120_sub10 == null) {
 									break;
 								}
@@ -535,7 +535,7 @@ final class Class120_Sub21 extends Node {
 								Class120_Sub14_Sub3_Sub1.method1435(-2);
 							}
 							if (Class86.anInt821 > 0 && Class35.aBooleanArray299[82] && Class35.aBooleanArray299[81] && Class66.anInt598 != 0) {
-								int i_42_ = -Class66.anInt598 + Class173.anInt1729;
+								int i_42_ = -Class66.anInt598 + Class173.gameLevel;
 								if (i_42_ < 0) {
 									i_42_ = 0;
 								} else if (i_42_ > 3) {
@@ -584,7 +584,7 @@ final class Class120_Sub21 extends Node {
 								}
 							} else {
 								if (Class21.anInt122 != -1) {
-									Class108.method930((byte) -120, Class21.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.anInt1729);
+									Class108.method930((byte) -120, Class21.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
 								}
 								Class120_Sub14_Sub5.anInt3479 = Class120_Sub12_Sub33.anInt3401 = 0;
 							}
@@ -698,7 +698,7 @@ final class Class120_Sub21 extends Node {
 								Class158.anInt1477++;
 							}
 							if (Class30.interfaceCounterUpdated) {
-								Class120_Sub14_Sub21.method1628();
+								GroundObject.method1628();
 								Class30.interfaceCounterUpdated = false;
 							}
 							try {

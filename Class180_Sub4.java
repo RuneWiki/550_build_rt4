@@ -116,7 +116,7 @@ final class Class180_Sub4 extends Class180 {
 			}
 			Class114.aByteArrayArrayArray1095 = new byte[4][104][104];
 			Class9.aByteArrayArrayArray70 = new byte[4][104][104];
-			Class120_Sub14_Sub12.aClass105ArrayArrayArray3549 = new Class105[4][104][104];
+			Class120_Sub14_Sub12.groundObjects = new Deque[4][104][104];
 			if (HDToolkit.glEnabled) {
 				LightManager.method1856(4, 104, 104);
 				Class47.method382(104, 104);

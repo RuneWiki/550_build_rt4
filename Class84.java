@@ -48,9 +48,9 @@ final class Class84 {
 			if (i != -12) {
 				aString799 = null;
 			}
-			for (Class120_Sub14_Sub1 class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.method893(1253231568); class120_sub14_sub1 != null; class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.method899(i + 112)) {
+			for (Class120_Sub14_Sub1 class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.getFront(); class120_sub14_sub1 != null; class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.getNext()) {
 				final Class180_Sub4 class180_sub4 = class120_sub14_sub1.aClass180_Sub4_3446;
-				if (class180_sub4.anInt2934 != Class173.anInt1729 || Class101_Sub2.loopCycle > class180_sub4.anInt2922) {
+				if (class180_sub4.anInt2934 != Class173.gameLevel || Class101_Sub2.loopCycle > class180_sub4.anInt2922) {
 					class120_sub14_sub1.unlink();
 				} else if (class180_sub4.anInt2939 <= Class101_Sub2.loopCycle) {
 					if (class180_sub4.anInt2929 > 0) {
@@ -72,7 +72,7 @@ final class Class84 {
 						}
 					}
 					class180_sub4.method2317(Class120_Sub12_Sub22.anInt3301, 1);
-					Class120_Sub12_Sub5.method1218(Class173.anInt1729, (int) class180_sub4.aDouble2949, (int) class180_sub4.aDouble2953, (int) class180_sub4.aDouble2937, 60, class180_sub4, class180_sub4.anInt2944, -1L, false);
+					Class120_Sub12_Sub5.method1218(Class173.gameLevel, (int) class180_sub4.aDouble2949, (int) class180_sub4.aDouble2953, (int) class180_sub4.aDouble2937, 60, class180_sub4, class180_sub4.anInt2944, -1L, false);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

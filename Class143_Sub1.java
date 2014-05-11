@@ -314,7 +314,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	@Override
 	public final void method28(final byte i, final int i_31_, final int i_32_) {
 		try {
-			Class120_Sub14_Sub13.method1532(method8(i_32_, (byte) -37).aByte1103 & 0xff, 0xff & method8(i_32_, (byte) 117).aByte1104, -107);
+			Class120_Sub14_Sub13.method1532(method8(i_32_, (byte) -37).aByte1103 & 0xff, 0xff & method8(i_32_, (byte) 117).aByte1104);
 			if (i >= -86) {
 				method29(51, 122);
 			}

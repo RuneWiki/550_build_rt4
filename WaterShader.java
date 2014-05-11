@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class18 implements Interface2 {
+final class WaterShader implements ShaderInterface {
 	private int anInt2164 = -1;
 	private static boolean aBoolean2165 = false;
 	private int anInt2166 = -1;
@@ -155,22 +155,22 @@ final class Class18 implements Interface2 {
 		gl.glActiveTexture(33984);
 	}
 
-	public Class18() {
+	public WaterShader() {
 		if (HDToolkit.anInt526 >= 2) {
-			final int[] is = new int[1];
+			final int[] textures = new int[1];
 			final byte[] is_0_ = new byte[8];
 			int i = 0;
 			while (i < 8) {
 				is_0_[i] = (byte) (96 + ++i * 159 / 8);
 			}
 			final GL gl = HDToolkit.gl;
-			gl.glGenTextures(1, is, 0);
-			gl.glBindTexture(3552, is[0]);
+			gl.glGenTextures(1, textures, 0);
+			gl.glBindTexture(3552, textures[0]);
 			gl.glTexImage1D(3552, 0, 6406, 8, 0, 6406, 5121, ByteBuffer.wrap(is_0_));
 			gl.glTexParameteri(3552, 10241, 9729);
 			gl.glTexParameteri(3552, 10240, 9729);
 			gl.glTexParameteri(3552, 10242, 33071);
-			anInt2166 = is[0];
+			anInt2166 = textures[0];
 			aBoolean2165 = HDToolkit.anInt526 > 2 && HDToolkit.aBoolean537;
 			method166();
 		}

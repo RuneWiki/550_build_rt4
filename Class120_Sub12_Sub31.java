@@ -22,8 +22,8 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 				method1366(-33);
 			}
 			if (Class173.anInt1724 == i && i != 0) {
-				final Interface2 interface2 = Class157.anInterface2Array1465[i];
-				interface2.method5(Class101_Sub1.anInt2275);
+				final ShaderInterface shaderInterface = Class157.shaders[i];
+				shaderInterface.method5(Class101_Sub1.anInt2275);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.U(").append(bool).append(',').append(i).append(')').toString());

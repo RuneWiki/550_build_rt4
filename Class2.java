@@ -88,7 +88,7 @@ final class Class2 {
 					i_16_ = 103;
 				}
 				int i_19_ = 0;
-				Class173.anInt1729 = i_5_;
+				Class173.gameLevel = i_5_;
 				int i_20_ = 104;
 				Class100.selfPlayer.method2343(i_2_, false, i_3_);
 				int i_21_ = 1;
@@ -103,14 +103,14 @@ final class Class2 {
 						final int i_25_ = i_23_ - -i_8_;
 						for (int i_26_ = 0; i_26_ < 4; i_26_++) {
 							if (i_24_ >= 0 && i_25_ >= 0 && i_24_ < 104 && i_25_ < 104) {
-								Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[i_26_][i_22_][i_23_] = Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[i_26_][i_24_][i_25_];
+								Class120_Sub14_Sub12.groundObjects[i_26_][i_22_][i_23_] = Class120_Sub14_Sub12.groundObjects[i_26_][i_24_][i_25_];
 							} else {
-								Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[i_26_][i_22_][i_23_] = null;
+								Class120_Sub14_Sub12.groundObjects[i_26_][i_22_][i_23_] = null;
 							}
 						}
 					}
 				}
-				for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method893(1253231568); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method899(117)) {
+				for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
 					class120_sub24.anInt2725 -= i_8_;
 					class120_sub24.anInt2731 -= i_9_;
 					if (class120_sub24.anInt2731 < 0 || class120_sub24.anInt2725 < 0 || class120_sub24.anInt2731 >= 104 || class120_sub24.anInt2725 >= 104) {
@@ -124,7 +124,7 @@ final class Class2 {
 				if (!bool) {
 					client.anInt2200 = 1;
 				} else {
-					Class120_Sub14_Sub21.anInt3626 -= 128 * i_8_;
+					GroundObject.anInt3626 -= 128 * i_8_;
 					Class99.anInt951 -= i_9_;
 					Class120_Sub10.anInt2546 -= i_8_;
 					Class109.anInt1042 -= i_9_;
@@ -136,8 +136,8 @@ final class Class2 {
 					Class120_Sub8.method1159();
 				}
 				Class132_Sub2.method1937((byte) 84);
-				Class120_Sub12_Sub7.aClass105_3177.method889(1986850152);
-				Class120_Sub14_Sub14_Sub1.aClass105_3928.method889(1986850152);
+				Class120_Sub12_Sub7.aClass105_3177.clear();
+				Class120_Sub14_Sub14_Sub1.aClass105_3928.clear();
 				ParticleEngine.method958();
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -148,7 +148,7 @@ final class Class2 {
 
 	static final void method77(final int i) {
 		try {
-			Class157.anInterface2Array1465 = null;
+			Class157.shaders = null;
 			Class78.method673();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aa.A(").append(i).append(')').toString());

@@ -56,7 +56,7 @@ final class Player extends GameEntity {
 					if (-32769 >= (i_7_ ^ 0xffffffff)) {
 						i_7_ = KeyboardHandler.anIntArray1506[i_7_ - 32768];
 						is[i_4_] = Class191.method2512(1073741824, i_7_);
-						final int i_8_ = ObjType.list(i_7_).anInt1562;
+						final int i_8_ = ObjType.list(i_7_).team;
 						if (i_8_ != 0) {
 							this.anInt3744 = i_8_;
 						}
@@ -217,7 +217,7 @@ final class Player extends GameEntity {
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 					SpotAnimType.method880(127);
 				}
-				if (Class184.modeWhat != 0 && i_35_ < 50) {
+				if (LocType.modeWhat != 0 && i_35_ < 50) {
 					int i_36_;
 					for (i_36_ = 50 - i_35_; Class120_Sub14_Sub20.anInt3624 < i_36_; Class120_Sub14_Sub20.anInt3624++) {
 						Class120_Sub12_Sub25.aByteArrayArray3318[Class120_Sub14_Sub20.anInt3624] = new byte[102400];

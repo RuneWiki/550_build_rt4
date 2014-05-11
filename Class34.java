@@ -9,7 +9,7 @@ final class Class34 {
 	private static int anInt281;
 	private static int anInt282 = -1;
 	private static int anInt283;
-	private static Class105 aClass105_284;
+	private static Deque aClass105_284;
 	private static boolean aBoolean285;
 	private static boolean aBoolean286;
 	private static boolean aBoolean287;
@@ -25,7 +25,7 @@ final class Class34 {
 	static {
 		anInt281 = -1;
 		anInt283 = -1;
-		aClass105_284 = new Class105();
+		aClass105_284 = new Deque();
 		aBoolean290 = false;
 		aBoolean286 = false;
 		aBoolean287 = false;
@@ -43,7 +43,7 @@ final class Class34 {
 		int i_0_ = 0;
 		boolean bool = true;
 		boolean bool_1_ = false;
-		for (Class120_Sub2 class120_sub2 = (Class120_Sub2) aClass105_284.method893(1253231568); class120_sub2 != null; class120_sub2 = (Class120_Sub2) aClass105_284.method899(89)) {
+		for (Class120_Sub2 class120_sub2 = (Class120_Sub2) aClass105_284.getFront(); class120_sub2 != null; class120_sub2 = (Class120_Sub2) aClass105_284.getNext()) {
 			final int i_2_ = class120_sub2.method1041();
 			if (i_2_ > i) {
 				i = i_2_;
@@ -99,7 +99,7 @@ final class Class34 {
 				gl.glGenTextures(2, anIntArray292, 0);
 				anInt282 = Class12.method134();
 			}
-			for (Node node = aClass105_284.method893(1253231568); node != null; node = aClass105_284.method899(5)) {
+			for (Node node = aClass105_284.getFront(); node != null; node = aClass105_284.getNext()) {
 				final Class120_Sub2 class120_sub2 = (Class120_Sub2) node;
 				if (!class120_sub2.method1049()) {
 					class120_sub2.unlink();
@@ -122,7 +122,7 @@ final class Class34 {
 	}
 
 	static final boolean method283(final int i, final int i_6_, final int i_7_, final int i_8_) {
-		if (anInt282 == -1 || aClass105_284.method892(-29937)) {
+		if (anInt282 == -1 || aClass105_284.isEmpty()) {
 			aBoolean286 = false;
 			return false;
 		}
@@ -132,7 +132,7 @@ final class Class34 {
 		if (anInt283 != i_7_ || anInt281 != i_8_) {
 			anInt283 = i_7_;
 			anInt281 = i_8_;
-			for (Node node = aClass105_284.method893(1253231568); node != aClass105_284.aClass120_1008; node = node.next) {
+			for (Node node = aClass105_284.getFront(); node != aClass105_284.head; node = node.next) {
 				((Class120_Sub2) node).method1052(anInt283, anInt281);
 			}
 			aBoolean288 = true;
@@ -219,7 +219,7 @@ final class Class34 {
 					class120_sub2.method1052(anInt283, anInt281);
 				}
 				class120_sub2.aBoolean2418 = true;
-				aClass105_284.method895((byte) -12, class120_sub2);
+				aClass105_284.addLast(class120_sub2);
 				method279();
 				return true;
 			}
@@ -268,8 +268,8 @@ final class Class34 {
 			int i = 0;
 			int i_9_ = 1;
 			Class120_Sub2 class120_sub2;
-			for (Class120_Sub2 class120_sub2_10_ = (Class120_Sub2) aClass105_284.method893(1253231568); class120_sub2_10_ != null; class120_sub2_10_ = class120_sub2) {
-				class120_sub2 = (Class120_Sub2) aClass105_284.method899(110);
+			for (Class120_Sub2 class120_sub2_10_ = (Class120_Sub2) aClass105_284.getFront(); class120_sub2_10_ != null; class120_sub2_10_ = class120_sub2) {
+				class120_sub2 = (Class120_Sub2) aClass105_284.getNext();
 				final int i_11_ = class120_sub2_10_.method1040((byte) -103);
 				for (int i_12_ = 0; i_12_ < i_11_; i_12_++) {
 					class120_sub2_10_.method1048(i_12_, anInt283, anInt281, anIntArray292[i], anInt294);
@@ -343,8 +343,8 @@ final class Class34 {
 			}
 			anInt294 = -1;
 		}
-		if (!aClass105_284.method892(-29937)) {
-			for (Node node = aClass105_284.method893(1253231568); node != aClass105_284.aClass120_1008; node = node.next) {
+		if (!aClass105_284.isEmpty()) {
+			for (Node node = aClass105_284.getFront(); node != aClass105_284.head; node = node.next) {
 				((Class120_Sub2) node).method1047();
 			}
 		}

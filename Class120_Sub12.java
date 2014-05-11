@@ -140,19 +140,19 @@ abstract class Class120_Sub12 extends Node {
 					class120_sub28.anIntArray2763[i_7_] = -5;
 				}
 			}
-			Class120_Sub26.aClass105_2746.method895((byte) -124, class120_sub28);
+			Class120_Sub26.aClass105_2746.addLast(class120_sub28);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jo.P(").append(signlink != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
-	static final void method1183(final int i, final Class184 class184, final int i_17_, final int i_18_, final int i_19_) {
+	static final void method1183(final int i, final LocType locType, final int i_17_, final int i_18_, final int i_19_) {
 		try {
 			if (i_18_ != 16157) {
 				aFloat2569 = 1.1516114F;
 			}
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method899(30)) {
-				if (class120_sub8.anInt2498 == i_17_ && class120_sub8.anInt2494 == i_19_ * 128 && class120_sub8.anInt2483 == i * 128 && class184.anInt1877 == class120_sub8.aClass184_2497.anInt1877) {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getNext()) {
+				if (class120_sub8.anInt2498 == i_17_ && class120_sub8.anInt2494 == i_19_ * 128 && class120_sub8.anInt2483 == i * 128 && locType.myId == class120_sub8.aClass184_2497.myId) {
 					if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 						class120_sub8.aClass120_Sub30_Sub4_2488 = null;
@@ -166,7 +166,7 @@ abstract class Class120_Sub12 extends Node {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jo.L(").append(i).append(',').append(class184 != null ? "{...}" : "null").append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jo.L(").append(i).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
 		}
 	}
 
@@ -185,7 +185,7 @@ abstract class Class120_Sub12 extends Node {
 
 	static final void method1185(final int i) {
 		try {
-			for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method893(i ^ 0x4ab2cbd3); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method899(46)) {
+			for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
 				if (class120_sub24.anInt2720 > 0) {
 					class120_sub24.anInt2720--;
 				}

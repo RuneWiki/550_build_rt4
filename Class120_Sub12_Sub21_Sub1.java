@@ -144,7 +144,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				aString3910 = null;
 			}
 			for (;;) {
-				final Class120_Sub29 class120_sub29 = (Class120_Sub29) Class120_Sub14_Sub15.aClass105_3584.method891(false);
+				final Class120_Sub29 class120_sub29 = (Class120_Sub29) Class120_Sub14_Sub15.aClass105_3584.removeFront();
 				if (class120_sub29 == null) {
 					break;
 				}
@@ -161,24 +161,24 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					class180_sub5 = Class120_Sub12_Sub11.npcList[i_24_];
 				}
 				if (class180_sub5 != null) {
-					final Class184 class184 = Class120_Sub1.method1035(class120_sub29.anInt2776, i + 1122255295);
-					if (Class173.anInt1729 != 0) {
+					final LocType locType = LocType.list(class120_sub29.anInt2776);
+					if (Class173.gameLevel != 0) {
 						/* empty */
 					}
 					int i_25_;
 					int i_26_;
 					if (class120_sub29.anInt2775 != 1 && class120_sub29.anInt2775 != 3) {
-						i_26_ = class184.anInt1827;
-						i_25_ = class184.anInt1841;
+						i_26_ = locType.anInt1827;
+						i_25_ = locType.anInt1841;
 					} else {
-						i_25_ = class184.anInt1827;
-						i_26_ = class184.anInt1841;
+						i_25_ = locType.anInt1827;
+						i_26_ = locType.anInt1841;
 					}
 					final int i_27_ = class120_sub29.anInt2780 + (i_25_ + 1 >> 1);
 					final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);
 					final int i_29_ = class120_sub29.anInt2765 - -(i_26_ >> 1);
 					final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
-					final int[][] is = Class120_Sub26.anIntArrayArrayArray2741[Class173.anInt1729];
+					final int[][] is = Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel];
 					final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
 					Class180 class180 = null;
 					final int i_32_ = Class25.anIntArray153[class120_sub29.anInt2772];
@@ -186,31 +186,31 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 						if (i_32_ != 1) {
 							if (i_32_ != 2) {
 								if (i_32_ == 3) {
-									final Class36 class36 = Class23.method202(Class173.anInt1729, class120_sub29.anInt2780, class120_sub29.anInt2765);
+									final Class36 class36 = Class23.method202(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 									if (class36 != null) {
 										class180 = class36.aClass180_309;
 									}
 								}
 							} else {
-								final Class28 class28 = Class180_Sub3.method2315(Class173.anInt1729, class120_sub29.anInt2780, class120_sub29.anInt2765);
+								final Class28 class28 = Class180_Sub3.method2315(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 								if (class28 != null) {
 									class180 = class28.aClass180_174;
 								}
 							}
 						} else {
-							final Class186 class186 = ObjType.method2108(Class173.anInt1729, class120_sub29.anInt2780, class120_sub29.anInt2765);
+							final Class186 class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 							if (class186 != null) {
 								class180 = class186.aClass180_1901;
 							}
 						}
 					} else {
-						final Class182 class182 = Class105.method894(Class173.anInt1729, class120_sub29.anInt2780, class120_sub29.anInt2765);
+						final Class182 class182 = Deque.method894(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 						if (class182 != null) {
 							class180 = class182.aClass180_1800;
 						}
 					}
 					if (class180 != null) {
-						Class38.method317(-1, Class173.anInt1729, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
+						Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
 						class180_sub5.anInt3028 = class120_sub29.anInt2765 * 128 + i_26_ * 64;
 						int i_33_ = class120_sub29.anInt2766;
 						int i_34_ = class120_sub29.anInt2767;
@@ -245,11 +245,11 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 
 	static final void method1316(final int i) {
 		try {
-			Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method893(1253231568);
+			Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront();
 			if (i < 72) {
 				method1317(false, null, 69, -113);
 			}
-			for (/**/; class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.method899(122)) {
+			for (/**/; class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
 				if ((class120_sub24.anInt2720 ^ 0xffffffff) != 0) {
 					class120_sub24.unlink();
 				} else {

@@ -59,7 +59,7 @@ final class InputStream_Sub1 extends InputStream {
 		for (int i = 0; i < 4; i++) {
 			for (int i_1_ = 0; i_1_ < 104; i_1_++) {
 				for (int i_2_ = 0; i_2_ < 104; i_2_++) {
-					Class120_Sub14_Sub12.aClass105ArrayArrayArray3549[i][i_1_][i_2_] = null;
+					Class120_Sub14_Sub12.groundObjects[i][i_1_][i_2_] = null;
 				}
 			}
 		}
@@ -109,35 +109,35 @@ final class InputStream_Sub1 extends InputStream {
 					if ((i_4_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_4_)).append(Class73.method644(Class184.method2467(0, (byte) -31, class189), 999999999)).append(string.substring(2 + i_4_)).toString();
+					string = new StringBuilder(string.substring(0, i_4_)).append(Class73.method644(LocType.method2467(0, (byte) -31, class189), 999999999)).append(string.substring(2 + i_4_)).toString();
 				}
 				for (;;) {
 					final int i_5_ = string.indexOf("%2");
 					if ((i_5_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_5_)).append(Class73.method644(Class184.method2467(1, (byte) -86, class189), 999999999)).append(string.substring(i_5_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_5_)).append(Class73.method644(LocType.method2467(1, (byte) -86, class189), 999999999)).append(string.substring(i_5_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_6_ = string.indexOf("%3");
 					if (i_6_ == -1) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_6_)).append(Class73.method644(Class184.method2467(2, (byte) -37, class189), i ^ 0x3b9ac9fd)).append(string.substring(i_6_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_6_)).append(Class73.method644(LocType.method2467(2, (byte) -37, class189), i ^ 0x3b9ac9fd)).append(string.substring(i_6_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_7_ = string.indexOf("%4");
 					if ((i_7_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_7_)).append(Class73.method644(Class184.method2467(3, (byte) -59, class189), 999999999)).append(string.substring(i_7_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_7_)).append(Class73.method644(LocType.method2467(3, (byte) -59, class189), 999999999)).append(string.substring(i_7_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_8_ = string.indexOf("%5");
 					if (i_8_ == -1) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_8_)).append(Class73.method644(Class184.method2467(4, (byte) -107, class189), 999999999)).append(string.substring(2 + i_8_)).toString();
+					string = new StringBuilder(string.substring(0, i_8_)).append(Class73.method644(LocType.method2467(4, (byte) -107, class189), 999999999)).append(string.substring(2 + i_8_)).toString();
 				}
 				for (;;) {
 					final int i_9_ = string.indexOf("%dns");

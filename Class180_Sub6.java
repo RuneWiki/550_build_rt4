@@ -78,11 +78,11 @@ final class Class180_Sub6 extends Class180 {
 		Class180 class180;
 		try {
 			final boolean bool_12_ = Class120_Sub26.anIntArrayArrayArray2741 != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
-			Class184 class184 = Class120_Sub1.method1035(anInt3064, 0);
-			if (class184.anIntArray1852 != null) {
-				class184 = class184.method2456(i ^ 0x18bf);
+			LocType locType = LocType.list(anInt3064);
+			if (locType.childrenIDs != null) {
+				locType = locType.handleVarp();
 			}
-			if (class184 == null) {
+			if (locType == null) {
 				if (HDToolkit.glEnabled && !bool_12_) {
 					method2354(-61);
 				}
@@ -90,7 +90,7 @@ final class Class180_Sub6 extends Class180 {
 				anInt3050 = -1;
 				return null;
 			}
-			if (!aBoolean3054 && class184.anInt1877 != anInt3050) {
+			if (!aBoolean3054 && locType.myId != anInt3050) {
 				method2352(-1, -1);
 			}
 			final int i_13_ = 0x3 & anInt3055;
@@ -100,21 +100,21 @@ final class Class180_Sub6 extends Class180 {
 			int i_14_;
 			int i_15_;
 			if (i_13_ != 1 && i_13_ != 3) {
-				i_14_ = class184.anInt1841;
-				i_15_ = class184.anInt1827;
+				i_14_ = locType.anInt1841;
+				i_15_ = locType.anInt1827;
 			} else {
-				i_14_ = class184.anInt1827;
-				i_15_ = class184.anInt1841;
+				i_14_ = locType.anInt1827;
+				i_15_ = locType.anInt1841;
 			}
 			final int i_16_ = (i_15_ >> 1) + anInt3069;
 			final int i_17_ = anInt3049 + (1 + i_14_ >> 1);
 			final int i_18_ = anInt3049 + (i_14_ >> 1);
 			final int i_19_ = anInt3069 - -(1 + i_15_ >> 1);
 			method2353(128 * i_16_, -127, 128 * i_18_);
-			final boolean bool_20_ = !bool_12_ && class184.aBoolean1823 && (anInt3050 != class184.anInt1877 || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.aBoolean1586) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
+			final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.aBoolean1586) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
 			if (bool && !bool_20_) {
 				anInt3072 = anInt3052;
-				anInt3050 = class184.anInt1877;
+				anInt3050 = locType.myId;
 				return null;
 			}
 			final int i_21_ = (i_14_ << 6) + (anInt3049 << 7);
@@ -135,13 +135,13 @@ final class Class180_Sub6 extends Class180 {
 			final boolean bool_25_ = aClass107_Sub1_3065 == null;
 			Class88 class88;
 			if (aClass40_3070 != null) {
-				class88 = class184.method2461(i_21_, is_23_, anInt3052, i ^ 0x70ac, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
+				class88 = locType.method2461(i_21_, is_23_, anInt3052, i ^ 0x70ac, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
 			} else {
-				class88 = class184.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, -115, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
+				class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, -115, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
 			}
 			if (class88 == null) {
 				anInt3072 = anInt3052;
-				anInt3050 = class184.anInt1877;
+				anInt3050 = locType.myId;
 				return null;
 			}
 			if (HDToolkit.glEnabled && bool_20_) {
@@ -168,7 +168,7 @@ final class Class180_Sub6 extends Class180 {
 					anInt3059 = i_21_;
 				}
 			}
-			anInt3050 = class184.anInt1877;
+			anInt3050 = locType.myId;
 			anInt3072 = anInt3052;
 			class180 = class88.aClass180_826;
 		} catch (final RuntimeException runtimeexception) {
@@ -198,28 +198,28 @@ final class Class180_Sub6 extends Class180 {
 			int i_29_ = i_28_;
 			boolean bool = false;
 			if (i_29_ == -1) {
-				Class184 class184 = Class120_Sub1.method1035(anInt3064, i ^ 0xffffffff);
-				Class184 class184_30_ = class184;
-				if (class184.anIntArray1852 != null) {
-					class184 = class184.method2456(i ^ 0xffffffff);
+				LocType locType = LocType.list(anInt3064);
+				LocType class184_30_ = locType;
+				if (locType.childrenIDs != null) {
+					locType = locType.handleVarp();
 				}
-				if (class184 == null) {
+				if (locType == null) {
 					return;
 				}
-				if (class184 == class184_30_) {
+				if (locType == class184_30_) {
 					class184_30_ = null;
 				}
-				if (class184.anIntArray1881 != null) {
-					if (aClass40_3070 != null && class184.method2468((byte) 54, aClass40_3070.anInt326)) {
+				if (locType.anIntArray1881 != null) {
+					if (aClass40_3070 != null && locType.method2468((byte) 54, aClass40_3070.anInt326)) {
 						return;
 					}
-					i_29_ = class184.method2463(-1);
-					if (anInt3050 != class184.anInt1877) {
-						bool = class184.aBoolean1864;
+					i_29_ = locType.method2463(-1);
+					if (anInt3050 != locType.myId) {
+						bool = locType.aBoolean1864;
 					}
-				} else if ((class184.anInt1836 ^ 0xffffffff) == 0) {
+				} else if ((locType.anInt1836 ^ 0xffffffff) == 0) {
 					if (class184_30_ == null || class184_30_.anIntArray1881 == null) {
-						if (class184_30_ != null && (class184_30_.anInt1836 ^ 0xffffffff) != 0 && anInt3050 != class184_30_.anInt1877) {
+						if (class184_30_ != null && (class184_30_.anInt1836 ^ 0xffffffff) != 0 && anInt3050 != class184_30_.myId) {
 							bool = class184_30_.aBoolean1864;
 							i_29_ = class184_30_.anInt1836;
 						}
@@ -228,13 +228,13 @@ final class Class180_Sub6 extends Class180 {
 							return;
 						}
 						i_29_ = class184_30_.method2463(-1);
-						if (class184_30_.anInt1877 != anInt3050) {
+						if (class184_30_.myId != anInt3050) {
 							bool = class184_30_.aBoolean1864;
 						}
 					}
-				} else if (anInt3050 != class184.anInt1877) {
-					bool = class184.aBoolean1864;
-					i_29_ = class184.anInt1836;
+				} else if (anInt3050 != locType.myId) {
+					bool = locType.aBoolean1864;
+					i_29_ = locType.anInt1836;
 				}
 			}
 			if (i == i_29_) {
@@ -345,7 +345,7 @@ final class Class180_Sub6 extends Class180 {
 
 	static final void method2355(final boolean bool, final int i) {
 		try {
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method893(i + 1253216855); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method899(83)) {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getNext()) {
 				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 					class120_sub8.aClass120_Sub30_Sub4_2488 = null;
@@ -357,7 +357,7 @@ final class Class180_Sub6 extends Class180 {
 				class120_sub8.unlink();
 			}
 			if (bool) {
-				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method899(37)) {
+				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
 					if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 						class120_sub8.aClass120_Sub30_Sub4_2488 = null;
@@ -426,12 +426,12 @@ final class Class180_Sub6 extends Class180 {
 			if (!HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
-					Class184 class184 = Class120_Sub1.method1035(anInt3064, 0);
-					if (class184.anIntArray1852 != null) {
-						class184 = class184.method2456(0);
+					LocType locType = LocType.list(anInt3064);
+					if (locType.childrenIDs != null) {
+						locType = locType.handleVarp();
 					}
-					if (class184 != null) {
-						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, class184.anInt1841, class184.anInt1827);
+					if (locType != null) {
+						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.anInt1841, locType.anInt1827);
 					}
 				}
 				if (aClass108_Sub2_3058 != null) {
@@ -440,12 +440,12 @@ final class Class180_Sub6 extends Class180 {
 			} else {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
-					Class184 class184 = Class120_Sub1.method1035(anInt3064, 0);
-					if (class184.anIntArray1852 != null) {
-						class184 = class184.method2456(0);
+					LocType locType = LocType.list(anInt3064);
+					if (locType.childrenIDs != null) {
+						locType = locType.handleVarp();
 					}
-					if (class184 != null) {
-						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, class184.anInt1841, class184.anInt1827);
+					if (locType != null) {
+						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.anInt1841, locType.anInt1827);
 					}
 				}
 				if (aClass108_Sub2_3058 != null) {
@@ -489,12 +489,12 @@ final class Class180_Sub6 extends Class180 {
 			aBoolean3054 = true;
 			if (!(class180 instanceof Class180_Sub6)) {
 				if (HDToolkit.glEnabled) {
-					Class184 class184 = Class120_Sub1.method1035(anInt3064, 0);
-					if (class184.anIntArray1852 != null) {
-						class184 = class184.method2456(0);
+					LocType locType = LocType.list(anInt3064);
+					if (locType.childrenIDs != null) {
+						locType = locType.handleVarp();
 					}
-					if (class184 != null) {
-						Buffer.method1094(anInt3049, 0, anInt3055, anInt3060, class184, (byte) 93, 0, anInt3069, anInt3051);
+					if (locType != null) {
+						Buffer.method1094(anInt3049, 0, anInt3055, anInt3060, locType, (byte) 93, 0, anInt3069, anInt3051);
 					}
 				}
 			} else {

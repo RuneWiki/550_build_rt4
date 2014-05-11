@@ -84,7 +84,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 					for (int i_4_ = i_3_; i_4_ < Class150.anInt1407; i_4_++) {
 						Class120_Sub12_Sub16.anIntArray3255[i_4_] = Class120_Sub12_Sub16.anIntArray3255[i_4_ + 1];
 						Class109.aClass6Array1047[i_4_] = Class109.aClass6Array1047[1 + i_4_];
-						Class184.anIntArray1834[i_4_] = Class184.anIntArray1834[i_4_ + 1];
+						LocType.anIntArray1834[i_4_] = LocType.anIntArray1834[i_4_ + 1];
 						Class81.anIntArray779[i_4_] = Class81.anIntArray779[1 + i_4_];
 						Class174.anIntArray1731[i_4_] = Class174.anIntArray1731[i_4_ + 1];
 						Class120_Sub14_Sub14_Sub1.anIntArray3926[i_4_] = Class120_Sub14_Sub14_Sub1.anIntArray3926[i_4_ + 1];
@@ -129,7 +129,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 						if (i_5_ > 0) {
 							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(Class183.aClass172_1809);
 							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_5_);
-							class120_sub30_sub4.method1795(-1 + Class184.anIntArray1834[i_3_]);
+							class120_sub30_sub4.method1795(-1 + LocType.anIntArray1834[i_3_]);
 							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
 						}
 						Class81.anIntArray779[i_3_] = -100;

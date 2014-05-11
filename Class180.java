@@ -135,7 +135,7 @@ abstract class Class180 {
 					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[0], (short) 1012, -1);
 				}
 			}
-			Class73.aClass105_653.method895((byte) -121, class120_sub16);
+			Class73.aClass105_653.addLast(class120_sub16);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.TC(").append(i).append(',').append(bool).append(',').append(class120_sub14_sub5 != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(class73 != null ? "{...}" : "null").append(')')
 					.toString());

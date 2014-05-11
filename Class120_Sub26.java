@@ -20,13 +20,13 @@ final class Class120_Sub26 extends Node {
 	static int[] anIntArray2743 = { 2047, 16383, 65535 };
 	int anInt2744;
 	int anInt2745;
-	static Class105 aClass105_2746;
+	static Deque aClass105_2746;
 	static int anInt2747;
 
 	static {
 		anInt2740 = 0;
 		anInt2747 = 10;
-		aClass105_2746 = new Class105();
+		aClass105_2746 = new Deque();
 	}
 
 	static final void method1722(final PacketBuffer class120_sub7_sub1, final boolean bool, final int i) {
@@ -35,7 +35,7 @@ final class Class120_Sub26 extends Node {
 				aClass105_2746 = null;
 			}
 			for (;;) {
-				final Class120_Sub28 class120_sub28 = (Class120_Sub28) aClass105_2746.method893(1253231568);
+				final Class120_Sub28 class120_sub28 = (Class120_Sub28) aClass105_2746.getFront();
 				if (class120_sub28 == null) {
 					break;
 				}

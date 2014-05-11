@@ -43,7 +43,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 					}
 				} else if (CursorType.anInt1242 != 0) {
 					Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_4_;
-					Class184.anIntArray1834[Class150.anInt1407] = i_5_;
+					LocType.anIntArray1834[Class150.anInt1407] = i_5_;
 					final int i_8_ = (-64 + i) / 128;
 					Class81.anIntArray779[Class150.anInt1407] = 0;
 					Class109.aClass6Array1047[Class150.anInt1407] = null;

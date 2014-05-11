@@ -11,7 +11,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	private int anInt3581 = -1;
 	static volatile int anInt3582;
 	static int anInt3583;
-	static Class105 aClass105_3584;
+	static Deque aClass105_3584;
 	static String aString3585;
 	private final int anInt3586;
 
@@ -23,7 +23,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		}
 		anInt3582 = 0;
 		aString3585 = null;
-		aClass105_3584 = new Class105();
+		aClass105_3584 = new Deque();
 	}
 
 	static final void method1554(final byte i, final int i_1_) {

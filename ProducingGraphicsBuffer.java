@@ -552,7 +552,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		try {
 			if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
 				if (i_70_ == 0) {
-					final Class182 class182 = Class105.method894(i_68_, i_66_, i_69_);
+					final Class182 class182 = Deque.method894(i_68_, i_66_, i_69_);
 					if (class182 != null) {
 						final int i_73_ = (int) (class182.aLong1794 >>> 32) & 0x7fffffff;
 						if (i_72_ == 2) {

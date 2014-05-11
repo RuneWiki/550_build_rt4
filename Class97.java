@@ -113,7 +113,7 @@ final class Class97 {
 		gl.glEnableClientState(32886);
 		HDToolkit.method524(false);
 		if (anInt929 != 0) {
-			Class120_Sub14_Sub13.method1532(0, 0, -63);
+			Class120_Sub14_Sub13.method1532(0, 0);
 			HDToolkit.method511(1);
 			HDToolkit.method521(0);
 			HDToolkit.method514(anInt942);
@@ -352,7 +352,7 @@ final class Class97 {
 			aClass120_Sub14_Sub19_Sub2_920 = null;
 			return false;
 		}
-		int i_68_ = Class105.method888(anInt925, (byte) 115);
+		int i_68_ = Deque.method888(anInt925, (byte) 115);
 		if (i_68_ > 512) {
 			i_68_ = 512;
 		}

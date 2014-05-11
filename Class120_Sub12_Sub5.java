@@ -56,9 +56,9 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 
 	static final void method1219(final byte i) {
 		try {
-			if (Class120_Sub12_Sub15.anInt3243 != Class173.anInt1729) {
-				if (Class38.method315(10, Class173.anInt1729)) {
-					Class120_Sub12_Sub15.anInt3243 = Class173.anInt1729;
+			if (Class120_Sub12_Sub15.anInt3243 != Class173.gameLevel) {
+				if (Class38.method315(10, Class173.gameLevel)) {
+					Class120_Sub12_Sub15.anInt3243 = Class173.gameLevel;
 				}
 				if (i > -38) {
 					method1217(true, '\uffff');

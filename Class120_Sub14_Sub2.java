@@ -136,7 +136,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 				Class120_Sub14_Sub6.method1445((byte) 114);
 			} else {
 				Class83.anInt792 = Class99.anInt951 << 7;
-				Class120_Sub14_Sub21.anInt3626 = Class134.anInt1280 << 7;
+				GroundObject.anInt3626 = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {
 				Class120_Sub8.method1159();

@@ -117,7 +117,7 @@ final class Class186 {
 					Class116.aClass120_Sub14_Sub19_1114.method1591(i_6_, i_7_);
 					final int i_11_ = Class173.anInt1726 * i_8_ / Class79.anInt700;
 					final int i_12_ = i_7_ + i_9_ * Class120_Sub18.anInt2627 / Class79.anInt692;
-					final int i_13_ = Class120_Sub14_Sub21.anInt3628 * i_9_ / Class79.anInt692;
+					final int i_13_ = GroundObject.anInt3628 * i_9_ / Class79.anInt692;
 					if (Buffer.gameId == 1) {
 						i_10_ = 16777215;
 					}

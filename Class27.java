@@ -87,7 +87,7 @@ final class Class27 {
 	static final void method240(final boolean bool, final int i) {
 		try {
 			int i_2_ = Class83.anInt792;
-			int i_3_ = Class120_Sub14_Sub21.anInt3626;
+			int i_3_ = GroundObject.anInt3626;
 			int i_4_ = Class120_Sub12_Sub10.anInt3200;
 			int i_5_ = (int) Class120_Sub12_Sub21.aFloat3293;
 			int i_6_ = Class180_Sub3.anInt2909;
@@ -99,24 +99,24 @@ final class Class27 {
 				i_5_ = Class181.anIntArray1790[4] + 128;
 			}
 			final int i_8_ = 0x7ff & (int) OutputStream_Sub1.aFloat28 + Class120_Sub14_Sub1.anInt3447;
-			Class120_Sub12_Sub30.method1363(57, i_8_, Class22.method197(Class100.selfPlayer.z, bool, Class100.selfPlayer.x, Class173.anInt1729) + -50, i_5_, 3 * i_5_ + 600, Class120_Sub10.anInt2545, i, Class69_Sub3_Sub1.anInt3083);
-			if (Class83.anInt792 == i_2_ && i_4_ == Class120_Sub12_Sub10.anInt3200 && i_3_ == Class120_Sub14_Sub21.anInt3626 && Class128.anInt1223 == i_7_ && Class180_Sub3.anInt2909 == i_6_) {
+			Class120_Sub12_Sub30.method1363(57, i_8_, Class22.method197(Class100.selfPlayer.z, bool, Class100.selfPlayer.x, Class173.gameLevel) + -50, i_5_, 3 * i_5_ + 600, Class120_Sub10.anInt2545, i, Class69_Sub3_Sub1.anInt3083);
+			if (Class83.anInt792 == i_2_ && i_4_ == Class120_Sub12_Sub10.anInt3200 && i_3_ == GroundObject.anInt3626 && Class128.anInt1223 == i_7_ && Class180_Sub3.anInt2909 == i_6_) {
 				client.anInt2200 = 1;
 			} else {
 				Class120_Sub12_Sub31.anInt3384 = 10;
 				NpcType.anInt1660 = 10;
 				Class120_Sub17.anInt2621 = 10;
 				int i_9_ = Class180_Sub3.anInt2909 + -i_6_;
-				if (i_3_ < Class120_Sub14_Sub21.anInt3626) {
-					i_3_ += NpcType.anInt1660 + (-i_3_ + Class120_Sub14_Sub21.anInt3626) * Class120_Sub17.anInt2621 / 1000;
-					if (i_3_ < Class120_Sub14_Sub21.anInt3626) {
-						Class120_Sub14_Sub21.anInt3626 = i_3_;
+				if (i_3_ < GroundObject.anInt3626) {
+					i_3_ += NpcType.anInt1660 + (-i_3_ + GroundObject.anInt3626) * Class120_Sub17.anInt2621 / 1000;
+					if (i_3_ < GroundObject.anInt3626) {
+						GroundObject.anInt3626 = i_3_;
 					}
 				}
-				if (Class120_Sub14_Sub21.anInt3626 < i_3_) {
-					i_3_ -= NpcType.anInt1660 - -((-Class120_Sub14_Sub21.anInt3626 + i_3_) * Class120_Sub17.anInt2621 / 1000);
-					if (Class120_Sub14_Sub21.anInt3626 < i_3_) {
-						Class120_Sub14_Sub21.anInt3626 = i_3_;
+				if (GroundObject.anInt3626 < i_3_) {
+					i_3_ -= NpcType.anInt1660 - -((-GroundObject.anInt3626 + i_3_) * Class120_Sub17.anInt2621 / 1000);
+					if (GroundObject.anInt3626 < i_3_) {
+						GroundObject.anInt3626 = i_3_;
 					}
 				}
 				if (i_9_ > 1024) {

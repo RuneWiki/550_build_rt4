@@ -3,64 +3,64 @@
  */
 
 final class ObjType {
-	int anInt1509 = -1;
-	private int anInt1510;
-	private int anInt1511;
+	int cursor2op = -1;
+	private int resizey;
+	private int manwearyoff;
 	private int anInt1512;
-	private int anInt1513;
-	private int anInt1514;
-	private byte[] aByteArray1515;
-	private int anInt1516;
+	private int contrast;
+	private int womanwearyoff;
+	private byte[] recol_d_palette;
+	private int manhead2;
 	static Class50 aClass50_1517;
-	private int anInt1518;
-	int anInt1519 = 0;
+	private int modelId;
+	int dummyitem = 0;
 	static int[] anIntArray1520 = { 0, 1, 2, 3, 4, 5, 6, 14 };
-	int anInt1521;
-	Class75 aClass75_1522;
-	private int anInt1523;
-	int anInt1524;
-	boolean aBoolean1525;
-	int anInt1526;
-	private int anInt1527;
-	int anInt1528;
+	int zoom2d;
+	Class75 params;
+	private int ambient;
+	int cursor2;
+	boolean stockmarket;
+	int zan2d;
+	private int womanwearzoff;
+	int xof2d;
 	int anInt1529;
-	int anInt1530;
-	private int anInt1531;
+	int lentlink;
+	private int resizez;
 	String name;
-	private short[] aShortArray1533;
+	private short[] recol_d;
 	private int anInt1534;
 	private int anInt1535;
 	static char aChar1536;
-	int anInt1537;
-	int[] anIntArray1538;
-	private short[] aShortArray1539;
-	int anInt1540;
-	int anInt1541;
-	private int anInt1542;
-	private int anInt1543;
-	private short[] aShortArray1544;
-	int anInt1545;
+	int cursor1;
+	int[] countco;
+	private short[] retex_s;
+	int stackable;
+	int lenttemplate;
+	private int manhead;
+	private int manwearzoff;
+	private short[] recol_s;
+	int xan2d;
 	int anInt1546;
-	private int anInt1547;
-	private int anInt1548;
-	private int anInt1549;
-	int anInt1550;
+	private int womanhead;
+	private int manwearxoff;
+	private int womanhead2;
+	int cursor1op;
 	static int anInt1551 = 0;
-	int anInt1552;
+	int certtemplate;
 	int anInt1553;
-	String[] aStringArray1554;
-	boolean aBoolean1555;
-	private int anInt1556;
-	private int anInt1557;
-	int anInt1558;
+	String[] inventoryOptions;
+	boolean members;
+	private int womanwearxoff;
+	private int resizex;
+	int yan2d;
 	private int anInt1559;
-	private short[] aShortArray1560;
-	int anInt1561;
-	int anInt1562;
-	int anInt1563;
-	String[] aStringArray1564;
-	int anInt1565;
-	int[] anIntArray1566;
+	private short[] retex_d;
+	int yof2d;
+	int team;
+	int certlink;
+	String[] options;
+	int cost;
+	int[] countobj;
 
 	final void method2102(final Buffer class120_sub7, final byte i) {
 		try {
@@ -108,20 +108,20 @@ final class ObjType {
 					class180_sub2_4_ = new Class180_Sub2(class180_sub2s, 3);
 				}
 			}
-			if (!bool && (anInt1548 != 0 || anInt1511 != 0 || anInt1543 != 0)) {
-				class180_sub2_4_.method2282(anInt1548, anInt1511, anInt1543);
+			if (!bool && (manwearxoff != 0 || manwearyoff != 0 || manwearzoff != 0)) {
+				class180_sub2_4_.method2282(manwearxoff, manwearyoff, manwearzoff);
 			}
-			if (bool && (anInt1556 != 0 || anInt1514 != 0 || anInt1527 != 0)) {
-				class180_sub2_4_.method2282(anInt1556, anInt1514, anInt1527);
+			if (bool && (womanwearxoff != 0 || womanwearyoff != 0 || womanwearzoff != 0)) {
+				class180_sub2_4_.method2282(womanwearxoff, womanwearyoff, womanwearzoff);
 			}
-			if (aShortArray1544 != null) {
-				for (int i_7_ = 0; i_7_ < aShortArray1544.length; i_7_++) {
-					class180_sub2_4_.method2307(aShortArray1544[i_7_], aShortArray1533[i_7_]);
+			if (recol_s != null) {
+				for (int i_7_ = 0; i_7_ < recol_s.length; i_7_++) {
+					class180_sub2_4_.method2307(recol_s[i_7_], recol_d[i_7_]);
 				}
 			}
-			if (aShortArray1539 != null) {
-				for (int i_8_ = 0; i_8_ < aShortArray1539.length; i_8_++) {
-					class180_sub2_4_.method2292(aShortArray1539[i_8_], aShortArray1560[i_8_]);
+			if (retex_s != null) {
+				for (int i_8_ = 0; i_8_ < retex_s.length; i_8_++) {
+					class180_sub2_4_.method2292(retex_s[i_8_], retex_d[i_8_]);
 				}
 			}
 			class180_sub2 = class180_sub2_4_;
@@ -133,23 +133,23 @@ final class ObjType {
 
 	final void method2104(final ObjType class162_9_, final ObjType class162_10_, final int i) {
 		try {
-			this.anInt1565 = class162_9_.anInt1565;
-			aByteArray1515 = class162_10_.aByteArray1515;
-			aShortArray1533 = class162_10_.aShortArray1533;
-			aShortArray1539 = class162_10_.aShortArray1539;
-			this.anInt1558 = class162_10_.anInt1558;
-			this.anInt1545 = class162_10_.anInt1545;
-			this.anInt1528 = class162_10_.anInt1528;
-			aShortArray1544 = class162_10_.aShortArray1544;
+			this.cost = class162_9_.cost;
+			recol_d_palette = class162_10_.recol_d_palette;
+			recol_d = class162_10_.recol_d;
+			retex_s = class162_10_.retex_s;
+			this.yan2d = class162_10_.yan2d;
+			this.xan2d = class162_10_.xan2d;
+			this.xof2d = class162_10_.xof2d;
+			recol_s = class162_10_.recol_s;
 			if (i == 65536) {
-				anInt1518 = class162_10_.anInt1518;
+				modelId = class162_10_.modelId;
 				this.name = class162_9_.name;
-				this.anInt1540 = 1;
-				this.anInt1526 = class162_10_.anInt1526;
-				this.aBoolean1555 = class162_9_.aBoolean1555;
-				this.anInt1561 = class162_10_.anInt1561;
-				this.anInt1521 = class162_10_.anInt1521;
-				aShortArray1560 = class162_10_.aShortArray1560;
+				this.stackable = 1;
+				this.zan2d = class162_10_.zan2d;
+				this.members = class162_9_.members;
+				this.yof2d = class162_10_.yof2d;
+				this.zoom2d = class162_10_.zoom2d;
+				retex_d = class162_10_.retex_d;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.B(").append(class162_9_ != null ? "{...}" : "null").append(',').append(class162_10_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
@@ -159,11 +159,11 @@ final class ObjType {
 	final Class180_Sub7 method2105(final int i, final int i_11_, final int i_12_, final int i_13_, final PlayerAppearance playerAppearance, final Class40 class40, final int i_14_) {
 		Class180_Sub7 class180_sub7;
 		try {
-			if (this.anIntArray1566 != null && i_11_ > 1) {
+			if (this.countobj != null && i_11_ > 1) {
 				int i_15_ = -1;
 				for (int i_16_ = 0; i_16_ < 10; i_16_++) {
-					if (i_11_ >= this.anIntArray1538[i_16_] && this.anIntArray1538[i_16_] != 0) {
-						i_15_ = this.anIntArray1566[i_16_];
+					if (i_11_ >= this.countco[i_16_] && this.countco[i_16_] != 0) {
+						i_15_ = this.countobj[i_16_];
 					}
 				}
 				if ((i_15_ ^ 0xffffffff) != 0) {
@@ -172,22 +172,22 @@ final class ObjType {
 			}
 			Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.method193(this.anInt1529, (byte) 17);
 			if (class180_sub7_17_ == null) {
-				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, anInt1518, 0);
+				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
 				if (class180_sub2 == null) {
 					return null;
 				}
-				if (aShortArray1544 != null) {
-					for (int i_18_ = 0; aShortArray1544.length > i_18_; i_18_++) {
-						if (aByteArray1515 == null || i_18_ >= aByteArray1515.length) {
-							class180_sub2.method2307(aShortArray1544[i_18_], aShortArray1533[i_18_]);
+				if (recol_s != null) {
+					for (int i_18_ = 0; recol_s.length > i_18_; i_18_++) {
+						if (recol_d_palette == null || i_18_ >= recol_d_palette.length) {
+							class180_sub2.method2307(recol_s[i_18_], recol_d[i_18_]);
 						} else {
-							class180_sub2.method2307(aShortArray1544[i_18_], NodeSub.aShortArray2584[aByteArray1515[i_18_] & 0xff]);
+							class180_sub2.method2307(recol_s[i_18_], NodeSub.aShortArray2584[recol_d_palette[i_18_] & 0xff]);
 						}
 					}
 				}
-				if (aShortArray1539 != null) {
-					for (int i_19_ = 0; i_19_ < aShortArray1539.length; i_19_++) {
-						class180_sub2.method2292(aShortArray1539[i_19_], aShortArray1560[i_19_]);
+				if (retex_s != null) {
+					for (int i_19_ = 0; i_19_ < retex_s.length; i_19_++) {
+						class180_sub2.method2292(retex_s[i_19_], retex_d[i_19_]);
 					}
 				}
 				if (playerAppearance != null) {
@@ -200,9 +200,9 @@ final class ObjType {
 						}
 					}
 				}
-				class180_sub7_17_ = class180_sub2.method2300(64 - -anInt1523, anInt1513 + 768, -50, -10, -50);
-				if (anInt1557 != 128 || anInt1510 != 128 || anInt1531 != 128) {
-					class180_sub7_17_.method2369(anInt1557, anInt1510, anInt1531);
+				class180_sub7_17_ = class180_sub2.method2300(64 - -ambient, contrast + 768, -50, -10, -50);
+				if (resizex != 128 || resizey != 128 || resizez != 128) {
+					class180_sub7_17_.method2369(resizex, resizey, resizez);
 				}
 				class180_sub7_17_.haveActions = true;
 				if (HDToolkit.glEnabled) {
@@ -225,13 +225,13 @@ final class ObjType {
 		ObjType class162_21_;
 		try {
 			if (!bool) {
-				anInt1548 = 115;
+				manwearxoff = 115;
 			}
-			if (this.anIntArray1566 != null && i > 1) {
+			if (this.countobj != null && i > 1) {
 				int i_22_ = -1;
 				for (int i_23_ = 0; i_23_ < 10; i_23_++) {
-					if (this.anIntArray1538[i_23_] <= i && this.anIntArray1538[i_23_] != 0) {
-						i_22_ = this.anIntArray1566[i_23_];
+					if (this.countco[i_23_] <= i && this.countco[i_23_] != 0) {
+						i_22_ = this.countobj[i_23_];
 					}
 				}
 				if (i_22_ != -1) {
@@ -251,11 +251,11 @@ final class ObjType {
 			if (i != -20152) {
 				return null;
 			}
-			int i_24_ = anInt1516;
-			int i_25_ = anInt1542;
+			int i_24_ = manhead2;
+			int i_25_ = manhead;
 			if (bool) {
-				i_25_ = anInt1547;
-				i_24_ = anInt1549;
+				i_25_ = womanhead;
+				i_24_ = womanhead2;
 			}
 			if ((i_25_ ^ 0xffffffff) == 0) {
 				return null;
@@ -266,14 +266,14 @@ final class ObjType {
 				final Class180_Sub2[] class180_sub2s = { class180_sub2_26_, class180_sub2_27_ };
 				class180_sub2_26_ = new Class180_Sub2(class180_sub2s, 2);
 			}
-			if (aShortArray1544 != null) {
-				for (int i_28_ = 0; i_28_ < aShortArray1544.length; i_28_++) {
-					class180_sub2_26_.method2307(aShortArray1544[i_28_], aShortArray1533[i_28_]);
+			if (recol_s != null) {
+				for (int i_28_ = 0; i_28_ < recol_s.length; i_28_++) {
+					class180_sub2_26_.method2307(recol_s[i_28_], recol_d[i_28_]);
 				}
 			}
-			if (aShortArray1539 != null) {
-				for (int i_29_ = 0; i_29_ < aShortArray1539.length; i_29_++) {
-					class180_sub2_26_.method2292(aShortArray1539[i_29_], aShortArray1560[i_29_]);
+			if (retex_s != null) {
+				for (int i_29_ = 0; i_29_ < retex_s.length; i_29_++) {
+					class180_sub2_26_.method2292(retex_s[i_29_], retex_d[i_29_]);
 				}
 			}
 			class180_sub2 = class180_sub2_26_;
@@ -332,13 +332,13 @@ final class ObjType {
 	final String method2111(final int i, final String string, final int i_37_) {
 		String string_38_;
 		try {
-			if (this.aClass75_1522 == null) {
+			if (this.params == null) {
 				return string;
 			}
 			if (i != 0) {
 				method2119(-28);
 			}
-			final StringNode class120_sub25 = (StringNode) this.aClass75_1522.method659(i_37_, -122);
+			final StringNode class120_sub25 = (StringNode) this.params.method659(i_37_, -122);
 			if (class120_sub25 == null) {
 				return string;
 			}
@@ -352,46 +352,46 @@ final class ObjType {
 	final void method2112(final int i, final ObjType class162_39_, final ObjType class162_40_) {
 		try {
 			this.anInt1553 = class162_39_.anInt1553;
-			anInt1516 = class162_39_.anInt1516;
-			anInt1542 = class162_39_.anInt1542;
+			manhead2 = class162_39_.manhead2;
+			manhead = class162_39_.manhead;
 			anInt1534 = class162_39_.anInt1534;
 			anInt1535 = class162_39_.anInt1535;
-			this.anInt1528 = class162_40_.anInt1528;
-			anInt1514 = class162_39_.anInt1514;
+			this.xof2d = class162_40_.xof2d;
+			womanwearyoff = class162_39_.womanwearyoff;
 			anInt1512 = class162_39_.anInt1512;
-			this.aClass75_1522 = class162_39_.aClass75_1522;
-			aShortArray1544 = class162_39_.aShortArray1544;
-			this.anInt1526 = class162_40_.anInt1526;
-			anInt1549 = class162_39_.anInt1549;
-			anInt1511 = class162_39_.anInt1511;
-			anInt1543 = class162_39_.anInt1543;
-			this.anInt1562 = class162_39_.anInt1562;
-			this.anInt1558 = class162_40_.anInt1558;
-			anInt1548 = class162_39_.anInt1548;
-			anInt1518 = class162_40_.anInt1518;
-			this.aStringArray1554 = new String[5];
-			this.aBoolean1555 = class162_39_.aBoolean1555;
-			aShortArray1533 = class162_39_.aShortArray1533;
-			anInt1527 = class162_39_.anInt1527;
-			this.anInt1561 = class162_40_.anInt1561;
-			aShortArray1560 = class162_39_.aShortArray1560;
-			this.anInt1545 = class162_40_.anInt1545;
+			this.params = class162_39_.params;
+			recol_s = class162_39_.recol_s;
+			this.zan2d = class162_40_.zan2d;
+			womanhead2 = class162_39_.womanhead2;
+			manwearyoff = class162_39_.manwearyoff;
+			manwearzoff = class162_39_.manwearzoff;
+			this.team = class162_39_.team;
+			this.yan2d = class162_40_.yan2d;
+			manwearxoff = class162_39_.manwearxoff;
+			modelId = class162_40_.modelId;
+			this.inventoryOptions = new String[5];
+			this.members = class162_39_.members;
+			recol_d = class162_39_.recol_d;
+			womanwearzoff = class162_39_.womanwearzoff;
+			this.yof2d = class162_40_.yof2d;
+			retex_d = class162_39_.retex_d;
+			this.xan2d = class162_40_.xan2d;
 			this.anInt1546 = class162_39_.anInt1546;
-			aShortArray1539 = class162_39_.aShortArray1539;
-			anInt1556 = class162_39_.anInt1556;
-			anInt1547 = class162_39_.anInt1547;
-			this.anInt1521 = class162_40_.anInt1521;
+			retex_s = class162_39_.retex_s;
+			womanwearxoff = class162_39_.womanwearxoff;
+			womanhead = class162_39_.womanhead;
+			this.zoom2d = class162_40_.zoom2d;
 			anInt1559 = class162_39_.anInt1559;
-			this.aStringArray1564 = class162_39_.aStringArray1564;
+			this.options = class162_39_.options;
 			this.name = class162_39_.name;
-			this.anInt1565 = 0;
-			aByteArray1515 = class162_39_.aByteArray1515;
-			if (class162_39_.aStringArray1554 != null) {
+			this.cost = 0;
+			recol_d_palette = class162_39_.recol_d_palette;
+			if (class162_39_.inventoryOptions != null) {
 				for (int i_41_ = 0; i_41_ < 4; i_41_++) {
-					this.aStringArray1554[i_41_] = class162_39_.aStringArray1554[i_41_];
+					this.inventoryOptions[i_41_] = class162_39_.inventoryOptions[i_41_];
 				}
 			}
-			this.aStringArray1554[4] = Class8.aString64;
+			this.inventoryOptions[4] = Class8.aString64;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.N(").append(i).append(',').append(class162_39_ != null ? "{...}" : "null").append(',').append(class162_40_ != null ? "{...}" : "null").append(')').toString());
 		}
@@ -435,10 +435,10 @@ final class ObjType {
 			if (i_43_ != 0) {
 				method2110((byte) -52, true);
 			}
-			if (this.aClass75_1522 == null) {
+			if (this.params == null) {
 				return i_44_;
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) this.aClass75_1522.method659(i, i_43_ ^ 0x4c);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) this.params.method659(i, i_43_ ^ 0x4c);
 			if (class120_sub32 == null) {
 				return i_44_;
 			}
@@ -452,11 +452,11 @@ final class ObjType {
 	final boolean method2116(final boolean bool, final int i) {
 		boolean bool_46_;
 		try {
-			int i_47_ = anInt1542;
-			int i_48_ = anInt1516;
+			int i_47_ = manhead;
+			int i_48_ = manhead2;
 			if (bool) {
-				i_47_ = anInt1547;
-				i_48_ = anInt1549;
+				i_47_ = womanhead;
+				i_48_ = womanhead2;
 			}
 			if (i_47_ == -1) {
 				return true;
@@ -478,22 +478,22 @@ final class ObjType {
 	final Class180_Sub7_Sub1 method2117(final PlayerAppearance playerAppearance, final int i) {
 		Class180_Sub7_Sub1 class180_sub7_sub1;
 		try {
-			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, anInt1518, 0);
+			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
 			if (class180_sub2 == null) {
 				return null;
 			}
-			if (aShortArray1544 != null) {
-				for (int i_50_ = 0; i_50_ < aShortArray1544.length; i_50_++) {
-					if (aByteArray1515 != null && aByteArray1515.length > i_50_) {
-						class180_sub2.method2307(aShortArray1544[i_50_], NodeSub.aShortArray2584[0xff & aByteArray1515[i_50_]]);
+			if (recol_s != null) {
+				for (int i_50_ = 0; i_50_ < recol_s.length; i_50_++) {
+					if (recol_d_palette != null && recol_d_palette.length > i_50_) {
+						class180_sub2.method2307(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
 					} else {
-						class180_sub2.method2307(aShortArray1544[i_50_], aShortArray1533[i_50_]);
+						class180_sub2.method2307(recol_s[i_50_], recol_d[i_50_]);
 					}
 				}
 			}
-			if (aShortArray1539 != null) {
-				for (int i_51_ = 0; i_51_ < aShortArray1539.length; i_51_++) {
-					class180_sub2.method2292(aShortArray1539[i_51_], aShortArray1560[i_51_]);
+			if (retex_s != null) {
+				for (int i_51_ = 0; i_51_ < retex_s.length; i_51_++) {
+					class180_sub2.method2292(retex_s[i_51_], retex_d[i_51_]);
 				}
 			}
 			if (playerAppearance != null) {
@@ -506,9 +506,9 @@ final class ObjType {
 					}
 				}
 			}
-			final Class180_Sub7_Sub1 class180_sub7_sub1_53_ = class180_sub2.method2298(anInt1523 + 64, anInt1513 + 768, -50, -10, -50);
-			if (anInt1557 != 128 || anInt1510 != 128 || anInt1531 != 128) {
-				class180_sub7_sub1_53_.method2369(anInt1557, anInt1510, anInt1531);
+			final Class180_Sub7_Sub1 class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
+			if (resizex != 128 || resizey != 128 || resizez != 128) {
+				class180_sub7_sub1_53_.method2369(resizex, resizey, resizez);
 			}
 			if (i != 23) {
 				return null;
@@ -523,25 +523,25 @@ final class ObjType {
 	private final void method2118(final int i, final int i_54_, final Buffer class120_sub7) {
 		try {
 			if (i == 1) {
-				anInt1518 = class120_sub7.getUShort();
+				modelId = class120_sub7.getUShort();
 			} else if (i != 2) {
 				if (i == 4) {
-					this.anInt1521 = class120_sub7.getUShort();
+					this.zoom2d = class120_sub7.getUShort();
 				} else if (i == 5) {
-					this.anInt1545 = class120_sub7.getUShort();
+					this.xan2d = class120_sub7.getUShort();
 				} else if (i == 6) {
-					this.anInt1558 = class120_sub7.getUShort();
+					this.yan2d = class120_sub7.getUShort();
 				} else if (i != 7) {
 					if (i == 8) {
-						this.anInt1561 = class120_sub7.getUShort();
-						if (this.anInt1561 > 32767) {
-							this.anInt1561 -= 65536;
+						this.yof2d = class120_sub7.getUShort();
+						if (this.yof2d > 32767) {
+							this.yof2d -= 65536;
 						}
 					} else if (i != 11) {
 						if (i == 12) {
-							this.anInt1565 = class120_sub7.getInt();
+							this.cost = class120_sub7.getInt();
 						} else if (i == 16) {
-							this.aBoolean1555 = true;
+							this.members = true;
 						} else if (i == 23) {
 							this.anInt1546 = class120_sub7.getUShort();
 						} else if (i != 24) {
@@ -549,15 +549,15 @@ final class ObjType {
 								if (i != 26) {
 									if (i < 30 || i >= 35) {
 										if (i >= 35 && i < 40) {
-											this.aStringArray1554[i + -35] = class120_sub7.getJString();
+											this.inventoryOptions[i + -35] = class120_sub7.getJString();
 										} else if (i != 40) {
 											if (i == 41) {
 												final int i_55_ = class120_sub7.getUByte();
-												aShortArray1560 = new short[i_55_];
-												aShortArray1539 = new short[i_55_];
+												retex_d = new short[i_55_];
+												retex_s = new short[i_55_];
 												for (int i_56_ = 0; i_56_ < i_55_; i_56_++) {
-													aShortArray1539[i_56_] = (short) class120_sub7.getUShort();
-													aShortArray1560[i_56_] = (short) class120_sub7.getUShort();
+													retex_s[i_56_] = (short) class120_sub7.getUShort();
+													retex_d[i_56_] = (short) class120_sub7.getUShort();
 												}
 											} else if (i != 42) {
 												if (i != 65) {
@@ -565,56 +565,56 @@ final class ObjType {
 														anInt1535 = class120_sub7.getUShort();
 													} else if (i != 79) {
 														if (i == 90) {
-															anInt1542 = class120_sub7.getUShort();
+															manhead = class120_sub7.getUShort();
 														} else if (i == 91) {
-															anInt1547 = class120_sub7.getUShort();
+															womanhead = class120_sub7.getUShort();
 														} else if (i == 92) {
-															anInt1516 = class120_sub7.getUShort();
+															manhead2 = class120_sub7.getUShort();
 														} else if (i != 93) {
 															if (i != 95) {
 																if (i != 96) {
 																	if (i != 97) {
 																		if (i == 98) {
-																			this.anInt1552 = class120_sub7.getUShort();
+																			this.certtemplate = class120_sub7.getUShort();
 																		} else if (i >= 100 && i < 110) {
-																			if (this.anIntArray1566 == null) {
-																				this.anIntArray1538 = new int[10];
-																				this.anIntArray1566 = new int[10];
+																			if (this.countobj == null) {
+																				this.countco = new int[10];
+																				this.countobj = new int[10];
 																			}
-																			this.anIntArray1566[-100 + i] = class120_sub7.getUShort();
-																			this.anIntArray1538[-100 + i] = class120_sub7.getUShort();
+																			this.countobj[-100 + i] = class120_sub7.getUShort();
+																			this.countco[-100 + i] = class120_sub7.getUShort();
 																		} else if (i == 110) {
-																			anInt1557 = class120_sub7.getUShort();
+																			resizex = class120_sub7.getUShort();
 																		} else if (i != 111) {
 																			if (i != 112) {
 																				if (i == 113) {
-																					anInt1523 = class120_sub7.getByte();
+																					ambient = class120_sub7.getByte();
 																				} else if (i != 114) {
 																					if (i != 115) {
 																						if (i != 121) {
 																							if (i == 122) {
-																								this.anInt1541 = class120_sub7.getUShort();
+																								this.lenttemplate = class120_sub7.getUShort();
 																							} else if (i == 125) {
-																								anInt1548 = class120_sub7.getByte();
-																								anInt1511 = class120_sub7.getByte();
-																								anInt1543 = class120_sub7.getByte();
+																								manwearxoff = class120_sub7.getByte();
+																								manwearyoff = class120_sub7.getByte();
+																								manwearzoff = class120_sub7.getByte();
 																							} else if (i == 126) {
-																								anInt1556 = class120_sub7.getByte();
-																								anInt1514 = class120_sub7.getByte();
-																								anInt1527 = class120_sub7.getByte();
+																								womanwearxoff = class120_sub7.getByte();
+																								womanwearyoff = class120_sub7.getByte();
+																								womanwearzoff = class120_sub7.getByte();
 																							} else if (i != 127) {
 																								if (i == 128) {
-																									this.anInt1509 = class120_sub7.getUByte();
-																									this.anInt1524 = class120_sub7.getUShort();
+																									this.cursor2op = class120_sub7.getUByte();
+																									this.cursor2 = class120_sub7.getUShort();
 																								} else if (i == 129) {
-																									class120_sub7.getUByte();
-																									class120_sub7.getUShort();
+																									int cursor1iop = class120_sub7.getUByte();
+																									int icursor1 = class120_sub7.getUShort();
 																								} else if (i != 130) {
 																									if (i == 249) {
 																										final int i_57_ = class120_sub7.getUByte();
-																										if (this.aClass75_1522 == null) {
+																										if (this.params == null) {
 																											final int i_58_ = Class120_Sub12_Sub17.method1283(i_57_, (byte) -99);
-																											this.aClass75_1522 = new Class75(i_58_);
+																											this.params = new Class75(i_58_);
 																										}
 																										for (int i_59_ = 0; i_59_ < i_57_; i_59_++) {
 																											final boolean bool = class120_sub7.getUByte() == 1;
@@ -625,70 +625,70 @@ final class ObjType {
 																											} else {
 																												node = new StringNode(class120_sub7.getJString());
 																											}
-																											this.aClass75_1522.method655(node, 104, i_60_);
+																											this.params.method655(node, 104, i_60_);
 																										}
 																									}
 																								} else {
-																									class120_sub7.getUByte();
-																									class120_sub7.getUShort();
+																									int cursor2iop = class120_sub7.getUByte();
+																									int icursor2 = class120_sub7.getUShort();
 																								}
 																							} else {
-																								this.anInt1550 = class120_sub7.getUByte();
-																								this.anInt1537 = class120_sub7.getUShort();
+																								this.cursor1op = class120_sub7.getUByte();
+																								this.cursor1 = class120_sub7.getUShort();
 																							}
 																						} else {
-																							this.anInt1530 = class120_sub7.getUShort();
+																							this.lentlink = class120_sub7.getUShort();
 																						}
 																					} else {
-																						this.anInt1562 = class120_sub7.getUByte();
+																						this.team = class120_sub7.getUByte();
 																					}
 																				} else {
-																					anInt1513 = class120_sub7.getByte() * 5;
+																					contrast = class120_sub7.getByte() * 5;
 																				}
 																			} else {
-																				anInt1531 = class120_sub7.getUShort();
+																				resizez = class120_sub7.getUShort();
 																			}
 																		} else {
-																			anInt1510 = class120_sub7.getUShort();
+																			resizey = class120_sub7.getUShort();
 																		}
 																	} else {
-																		this.anInt1563 = class120_sub7.getUShort();
+																		this.certlink = class120_sub7.getUShort();
 																	}
 																} else {
-																	this.anInt1519 = class120_sub7.getUByte();
+																	this.dummyitem = class120_sub7.getUByte();
 																}
 															} else {
-																this.anInt1526 = class120_sub7.getUShort();
+																this.zan2d = class120_sub7.getUShort();
 															}
 														} else {
-															anInt1549 = class120_sub7.getUShort();
+															womanhead2 = class120_sub7.getUShort();
 														}
 													} else {
 														anInt1559 = class120_sub7.getUShort();
 													}
 												} else {
-													this.aBoolean1525 = true;
+													this.stockmarket = true;
 												}
 											} else {
 												final int i_61_ = class120_sub7.getUByte();
-												aByteArray1515 = new byte[i_61_];
+												recol_d_palette = new byte[i_61_];
 												for (int i_62_ = 0; i_62_ < i_61_; i_62_++) {
-													aByteArray1515[i_62_] = class120_sub7.getByte();
+													recol_d_palette[i_62_] = class120_sub7.getByte();
 												}
 											}
 										} else {
 											final int i_63_ = class120_sub7.getUByte();
-											aShortArray1544 = new short[i_63_];
-											aShortArray1533 = new short[i_63_];
+											recol_s = new short[i_63_];
+											recol_d = new short[i_63_];
 											for (int i_64_ = 0; i_63_ > i_64_; i_64_++) {
-												aShortArray1544[i_64_] = (short) class120_sub7.getUShort();
-												aShortArray1533[i_64_] = (short) class120_sub7.getUShort();
+												recol_s[i_64_] = (short) class120_sub7.getUShort();
+												recol_d[i_64_] = (short) class120_sub7.getUShort();
 											}
 										}
 									} else {
-										this.aStringArray1564[-30 + i] = class120_sub7.getJString();
-										if (this.aStringArray1564[i + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-											this.aStringArray1564[i + -30] = null;
+										this.options[-30 + i] = class120_sub7.getJString();
+										if (this.options[i + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+											this.options[i + -30] = null;
 										}
 									}
 								} else {
@@ -701,12 +701,12 @@ final class ObjType {
 							anInt1512 = class120_sub7.getUShort();
 						}
 					} else {
-						this.anInt1540 = 1;
+						this.stackable = 1;
 					}
 				} else {
-					this.anInt1528 = class120_sub7.getUShort();
-					if (this.anInt1528 > 32767) {
-						this.anInt1528 -= 65536;
+					this.xof2d = class120_sub7.getUShort();
+					if (this.xof2d > 32767) {
+						this.xof2d -= 65536;
 					}
 				}
 			} else {
@@ -732,18 +732,18 @@ final class ObjType {
 			class162_12_.method2102(new Buffer(is), (byte) 121);
 		}
 		class162_12_.method2109(104);
-		if ((class162_12_.anInt1552 ^ 0xffffffff) != 0) {
-			class162_12_.method2104(list(class162_12_.anInt1563), list(class162_12_.anInt1552), 65536);
+		if ((class162_12_.certtemplate ^ 0xffffffff) != 0) {
+			class162_12_.method2104(list(class162_12_.certlink), list(class162_12_.certtemplate), 65536);
 		}
-		if ((class162_12_.anInt1541 ^ 0xffffffff) != 0) {
-			class162_12_.method2112(119, list(class162_12_.anInt1530), list(class162_12_.anInt1541));
+		if ((class162_12_.lenttemplate ^ 0xffffffff) != 0) {
+			class162_12_.method2112(119, list(class162_12_.lentlink), list(class162_12_.lenttemplate));
 		}
-		if (!Class120_Sub14_Sub3.aBoolean3463 && class162_12_.aBoolean1555) {
+		if (!Class120_Sub14_Sub3.aBoolean3463 && class162_12_.members) {
 			class162_12_.name = InputStream_Sub1.aString25;
-			class162_12_.aStringArray1564 = Class120_Sub12_Sub32.aStringArray3387;
-			class162_12_.aStringArray1554 = Class120_Sub12_Sub29.aStringArray3363;
-			class162_12_.anInt1562 = 0;
-			class162_12_.aBoolean1525 = false;
+			class162_12_.options = Class120_Sub12_Sub32.aStringArray3387;
+			class162_12_.inventoryOptions = Class120_Sub12_Sub29.aStringArray3363;
+			class162_12_.team = 0;
+			class162_12_.stockmarket = false;
 		}
 		Canvas_Sub1.aClass21_14.method185(-126, class162_12_, i);
 		return class162_12_;
@@ -762,47 +762,47 @@ final class ObjType {
 	}
 
 	public ObjType() {
-		anInt1516 = -1;
-		this.anInt1537 = -1;
+		manhead2 = -1;
+		this.cursor1 = -1;
 		anInt1512 = -1;
-		anInt1523 = 0;
+		ambient = 0;
 		anInt1534 = -1;
-		this.anInt1521 = 2000;
-		anInt1531 = 128;
-		anInt1510 = 128;
-		anInt1527 = 0;
-		anInt1511 = 0;
-		this.anInt1540 = 0;
-		this.anInt1528 = 0;
+		this.zoom2d = 2000;
+		resizez = 128;
+		resizey = 128;
+		womanwearzoff = 0;
+		manwearyoff = 0;
+		this.stackable = 0;
+		this.xof2d = 0;
 		this.name = "null";
-		anInt1513 = 0;
-		anInt1542 = -1;
-		anInt1547 = -1;
-		anInt1549 = -1;
-		this.anInt1545 = 0;
+		contrast = 0;
+		manhead = -1;
+		womanhead = -1;
+		womanhead2 = -1;
+		this.xan2d = 0;
 		this.anInt1553 = -1;
-		this.anInt1530 = -1;
+		this.lentlink = -1;
 		anInt1535 = -1;
-		this.anInt1541 = -1;
-		this.anInt1552 = -1;
-		anInt1548 = 0;
-		anInt1556 = 0;
-		anInt1543 = 0;
-		this.aBoolean1525 = false;
-		this.anInt1563 = -1;
-		this.anInt1526 = 0;
-		this.anInt1558 = 0;
-		this.aStringArray1554 = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
-		this.aBoolean1555 = false;
+		this.lenttemplate = -1;
+		this.certtemplate = -1;
+		manwearxoff = 0;
+		womanwearxoff = 0;
+		manwearzoff = 0;
+		this.stockmarket = false;
+		this.certlink = -1;
+		this.zan2d = 0;
+		this.yan2d = 0;
+		this.inventoryOptions = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
+		this.members = false;
 		this.anInt1546 = -1;
-		this.anInt1562 = 0;
-		this.anInt1561 = 0;
-		this.anInt1550 = -1;
-		anInt1514 = 0;
-		anInt1557 = 128;
-		this.anInt1524 = -1;
-		this.anInt1565 = 1;
-		this.aStringArray1564 = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };
+		this.team = 0;
+		this.yof2d = 0;
+		this.cursor1op = -1;
+		womanwearyoff = 0;
+		resizex = 128;
+		this.cursor2 = -1;
+		this.cost = 1;
+		this.options = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };
 		anInt1559 = -1;
 	}
 }

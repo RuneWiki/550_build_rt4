@@ -10,7 +10,7 @@ import java.awt.event.MouseMotionListener;
 final class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
 	static int anInt1140;
 	static byte aByte1141;
-	static boolean aBoolean1142 = false;
+	static boolean showNumbersOnActions = false;
 
 	static {
 		anInt1140 = 0;
@@ -128,7 +128,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 				class120_sub17.anIntArray2618 = is;
 			}
 			if (i != 14378) {
-				aBoolean1142 = true;
+				showNumbersOnActions = true;
 			}
 			class120_sub17.anIntArray2618[i_2_] = i_3_;
 			class120_sub17.anIntArray2619[i_2_] = i_4_;
@@ -171,10 +171,10 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 					Class80.anInt751 = mouseevent.getY();
 					Class186.aLong1897 = TimeUtil.getSafeTime();
 					if (mouseevent.isMetaDown()) {
-						Class120_Sub14_Sub21.anInt3627 = 2;
+						GroundObject.anInt3627 = 2;
 						Class42.anInt362 = 2;
 					} else {
-						Class120_Sub14_Sub21.anInt3627 = 1;
+						GroundObject.anInt3627 = 1;
 						Class42.anInt362 = 1;
 					}
 					final int i = mouseevent.getModifiers();
@@ -195,7 +195,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 		try {
 			if (!Class154.aBoolean1439) {
 				if (i < 20) {
-					aBoolean1142 = true;
+					showNumbersOnActions = true;
 				}
 				Class154.aBoolean1439 = true;
 				Class118.aBoolean1134 = true;

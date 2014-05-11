@@ -58,7 +58,7 @@ final class Class116 {
 				Class120_Sub12_Sub9.anInt3195 = -1;
 			}
 			if (Class80.aBoolean742 && Class73.aClass105_653 != null) {
-				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) Class73.aClass105_653.method893(1253231568); class120_sub16 != null; class120_sub16 = (Class120_Sub16) Class73.aClass105_653.method899(9)) {
+				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getNext()) {
 					final Class73 class73 = Class92.method769(true, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
 					if (Class120_Sub14_Sub2.anInt3450 != 0 || !class120_sub16.method1656(Queue.anInt1767, -108, Class191.anInt2113)) {
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {

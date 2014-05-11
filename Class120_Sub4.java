@@ -9,11 +9,11 @@ final class Class120_Sub4 extends Node {
 	int anInt2432;
 	private final int anInt2433;
 	private final int anInt2434;
-	static Class105 aClass105_2435 = new Class105();
+	static Deque aClass105_2435 = new Deque();
 	private final int anInt2436;
 	private final int anInt2437;
 	int anInt2438;
-	static Class105 aClass105_2439 = new Class105();
+	static Deque aClass105_2439 = new Deque();
 	private final int anInt2440;
 	static byte[][][] aByteArrayArrayArray2441;
 

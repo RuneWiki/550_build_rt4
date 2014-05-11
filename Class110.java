@@ -18,7 +18,7 @@ final class Class110 {
 		try {
 			Class156.method2085(-93);
 			Class173.method2228(i ^ ~0x7458);
-			Class184.method2451((byte) 22);
+			LocType.method2451((byte) 22);
 			Class120_Sub12_Sub25.method1334(-102);
 			Class35.method297(i + 7670);
 			Class120_Sub12_Sub18.method1291(256);
@@ -35,7 +35,7 @@ final class Class110 {
 			DisplayModeInfo.method2214(false);
 			AbstractMouseWheelHandler.method160(-114);
 			Class120_Sub12_Sub26.method1337((byte) 96);
-			if (Class184.modeWhat != 0) {
+			if (LocType.modeWhat != 0) {
 				for (int i_0_ = 0; Class120_Sub12_Sub25.aByteArrayArray3318.length > i_0_; i_0_++) {
 					Class120_Sub12_Sub25.aByteArrayArray3318[i_0_] = null;
 				}

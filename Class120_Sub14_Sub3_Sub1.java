@@ -8,11 +8,9 @@ final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
 	static int anInt3915 = 0;
 	static int[] anIntArray3916;
 	private final Object anObject3917;
-	static int anInt3918;
 
 	static {
 		aClass75_3914 = new Class75(512);
-		anInt3918 = -16 + (int) (33.0 * Math.random());
 	}
 
 	public static void method1433(final int i) {
@@ -128,18 +126,18 @@ final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
 					} else {
 						if (Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947 != null) {
 							final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-							class120_sub10.aClass189_2532 = Class184.aClass189_1818;
+							class120_sub10.aClass189_2532 = LocType.aClass189_1818;
 							class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.aClass189_3156;
 							class120_sub10.anInt2543 = i_7_;
 							class120_sub10.anInt2540 = i_8_;
 							class120_sub10.anObjectArray2537 = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947;
 							Class88.method744(true, class120_sub10);
 						}
-						if (Class184.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
+						if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
 							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(0);
 							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) 93, Class120_Sub12_Sub4.aClass189_3156.anInt1999);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, Class184.aClass189_1818.anInt1999);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class184.aClass189_1818.anInt2083);
+							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, LocType.aClass189_1818.anInt1999);
+							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, LocType.aClass189_1818.anInt2083);
 							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.anInt2083);
 						}
 					}

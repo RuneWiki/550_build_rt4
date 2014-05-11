@@ -9,8 +9,8 @@ final class Class180_Sub1 extends Class180 {
 	private int anInt2842 = -32768;
 	static int anInt2843;
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
-	int anInt2845;
-	int anInt2846;
+	int amount;
+	int id;
 	static String aString2847 = "Loaded wordpack";
 	static boolean aBoolean2848;
 	static String aString2849;
@@ -23,26 +23,15 @@ final class Class180_Sub1 extends Class180 {
 
 	@Override
 	final int getMaxY() {
-		int i;
-		try {
-			i = anInt2842;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "he.MA()");
-		}
-		return i;
+		return anInt2842;
 	}
 
 	@Override
 	final void method2265(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
-		try {
-			final Class180_Sub7 class180_sub7 = ObjType.list(this.anInt2846).method2105(0, this.anInt2845, -113, -1, null, null, 0);
-			if (class180_sub7 != null) {
-				class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
-				anInt2842 = class180_sub7.getMaxY();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("he.T(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',')
-					.append(l).append(',').append(i_7_).append(',').append(class108_sub2 != null ? "{...}" : "null").append(')').toString());
+		final Class180_Sub7 class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -113, -1, null, null, 0);
+		if (class180_sub7 != null) {
+			class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
+			anInt2842 = class180_sub7.getMaxY();
 		}
 	}
 

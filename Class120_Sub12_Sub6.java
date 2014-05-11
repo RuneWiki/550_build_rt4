@@ -22,11 +22,11 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		LDSprite class120_sub14_sub19_sub2;
 		try {
 			ObjType objType = ObjType.list(i_4_);
-			if (i_0_ > 1 && objType.anIntArray1566 != null) {
+			if (i_0_ > 1 && objType.countobj != null) {
 				int i_6_ = -1;
 				for (int i_7_ = 0; i_7_ < 10; i_7_++) {
-					if (objType.anIntArray1538[i_7_] <= i_0_ && objType.anIntArray1538[i_7_] != 0) {
-						i_6_ = objType.anIntArray1566[i_7_];
+					if (objType.countco[i_7_] <= i_0_ && objType.countco[i_7_] != 0) {
+						i_6_ = objType.countobj[i_7_];
 					}
 				}
 				if ((i_6_ ^ 0xffffffff) != 0) {
@@ -38,15 +38,15 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 				return null;
 			}
 			LDSprite class120_sub14_sub19_sub2_8_ = null;
-			if (objType.anInt1552 == -1) {
-				if ((objType.anInt1541 ^ 0xffffffff) != 0) {
-					class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(i, false, i_0_, false, playerAppearance, -101, i_3_, objType.anInt1530, true);
+			if (objType.certtemplate == -1) {
+				if ((objType.lenttemplate ^ 0xffffffff) != 0) {
+					class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(i, false, i_0_, false, playerAppearance, -101, i_3_, objType.lentlink, true);
 					if (class120_sub14_sub19_sub2_8_ == null) {
 						return null;
 					}
 				}
 			} else {
-				class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(1, false, 10, true, playerAppearance, -93, 0, objType.anInt1563, true);
+				class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(1, false, 10, true, playerAppearance, -93, 0, objType.certlink, true);
 				if (class120_sub14_sub19_sub2_8_ == null) {
 					return null;
 				}
@@ -61,7 +61,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			Rasterizer.method874();
 			Rasterizer.method869(16, 16);
 			Rasterizer.aBoolean971 = false;
-			int i_13_ = objType.anInt1521;
+			int i_13_ = objType.zoom2d;
 			if (!bool_1_) {
 				if (i == 2) {
 					i_13_ *= 1.04;
@@ -69,9 +69,9 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			} else {
 				i_13_ = (int) (1.5 * i_13_);
 			}
-			final int i_14_ = i_13_ * Rasterizer.cosineTable[objType.anInt1545] >> 16;
-			final int i_15_ = Rasterizer.sineTable[objType.anInt1545] * i_13_ >> 16;
-			class180_sub7_sub1.method2367(0, objType.anInt1558, objType.anInt1526, objType.anInt1545, objType.anInt1528, i_15_ - class180_sub7_sub1.getMaxY() / 2 + objType.anInt1561, objType.anInt1561 + i_14_, -1L);
+			final int i_14_ = i_13_ * Rasterizer.cosineTable[objType.xan2d] >> 16;
+			final int i_15_ = Rasterizer.sineTable[objType.xan2d] * i_13_ >> 16;
+			class180_sub7_sub1.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - class180_sub7_sub1.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
 			if (i >= 1) {
 				class120_sub14_sub19_sub2_12_.method1613(1);
 				if (i >= 2) {
@@ -82,8 +82,8 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			if (i_3_ != 0) {
 				class120_sub14_sub19_sub2_12_.method1607(i_3_);
 			}
-			if (objType.anInt1552 == -1) {
-				if (objType.anInt1541 != -1) {
+			if (objType.certtemplate == -1) {
+				if (objType.lenttemplate != -1) {
 					GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_8_.pixels, 36, 32);
 					class120_sub14_sub19_sub2_12_.method1587(0, 0);
 					class120_sub14_sub19_sub2_12_ = class120_sub14_sub19_sub2_8_;
@@ -91,7 +91,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			} else {
 				class120_sub14_sub19_sub2_8_.method1587(0, 0);
 			}
-			if (bool && (objType.anInt1540 == 1 || i_0_ != 1) && i_0_ != -1) {
+			if (bool && (objType.stackable == 1 || i_0_ != 1) && i_0_ != -1) {
 				Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(Class35.method305(-41, i_0_), 0, 9, 16776960, 1);
 			}
 			GraphicsLD.init2dCanvas(is, i_11_, i_9_);
@@ -154,7 +154,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 				class120_sub29.anInt2765 = i_26_;
 				class120_sub29.anInt2764 = i_17_;
 				class120_sub29.anInt2775 = i_25_;
-				Class120_Sub14_Sub15.aClass105_3584.method895((byte) -112, class120_sub29);
+				Class120_Sub14_Sub15.aClass105_3584.addLast(class120_sub29);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dn.S(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',')
@@ -203,19 +203,15 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void method1227(final int i) {
-		try {
-			Class78.method670();
-			Class157.anInterface2Array1465 = new Interface2[i];
-			Class157.anInterface2Array1465[1] = new Class72();
-			Class157.anInterface2Array1465[2] = new Class60();
-			Class157.anInterface2Array1465[3] = new Class18();
-			Class157.anInterface2Array1465[4] = new Class14();
-			Class157.anInterface2Array1465[5] = new Class20();
-			Class157.anInterface2Array1465[6] = new Class138();
-			Class157.anInterface2Array1465[7] = new Class5();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dn.U(").append(i).append(')').toString());
-		}
+		Class78.method670();
+		Class157.shaders = new ShaderInterface[i];
+		Class157.shaders[1] = new Class72();
+		Class157.shaders[2] = new Class60();
+		Class157.shaders[3] = new WaterShader();
+		Class157.shaders[4] = new Class14();
+		Class157.shaders[5] = new Class20();
+		Class157.shaders[6] = new Class138();
+		Class157.shaders[7] = new Class5();
 	}
 
 	public static void method1228(final int i) {

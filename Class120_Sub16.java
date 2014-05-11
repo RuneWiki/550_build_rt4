@@ -191,7 +191,7 @@ final class Class120_Sub16 extends Node {
 	static final void method1664(final byte i, final Npc class180_sub5_sub2) {
 		try {
 			if (i > 39) {
-				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method899(14)) {
+				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
 					if (class180_sub5_sub2 == class120_sub8.aClass180_Sub5_Sub2_2492) {
 						if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);

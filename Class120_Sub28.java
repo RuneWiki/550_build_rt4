@@ -39,7 +39,7 @@ final class Class120_Sub28 extends Node {
 
 	static final void method1725(final boolean bool) {
 		try {
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method899(118)) {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getNext()) {
 				if (class120_sub8.aBoolean2491) {
 					class120_sub8.method1156(-123);
 				}
@@ -47,7 +47,7 @@ final class Class120_Sub28 extends Node {
 			if (bool) {
 				aStringArray2759 = null;
 			}
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method899(65)) {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
 				if (class120_sub8.aBoolean2491) {
 					class120_sub8.method1156(-121);
 				}

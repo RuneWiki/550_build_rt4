@@ -7,7 +7,7 @@ import java.nio.FloatBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class60 implements Interface2 {
+final class Class60 implements ShaderInterface {
 	private int anInt2175 = -1;
 	private int anInt2176;
 	private FloatBuffer aFloatBuffer2177;
@@ -116,7 +116,7 @@ final class Class60 implements Interface2 {
 			gl.glActiveTexture(33985);
 			gl.glMatrixMode(5890);
 			gl.glTranslatef(Class180_Sub4.anInt2955, Class120_Sub12_Sub27.anInt3353, Class69_Sub1.anInt2229);
-			gl.glRotatef(-(Class145.anInt1382 * 360.0F) / 2048.0F, 0.0F, 1.0F, 0.0F);
+			gl.glRotatef(-(Class145.anInt1382 * 360.0F) / 2047.0F, 0.0F, 1.0F, 0.0F);
 			gl.glRotatef(-(Class120_Sub14_Sub13.anInt3571 * 360.0F) / 2048.0F, 1.0F, 0.0F, 0.0F);
 			gl.glRotatef(-180.0F, 1.0F, 0.0F, 0.0F);
 			gl.glMatrixMode(5888);

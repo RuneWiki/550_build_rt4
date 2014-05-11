@@ -22,7 +22,7 @@ final class Class120_Sub8 extends Node {
 	int anInt2494;
 	Player aClass180_Sub5_Sub1_2495;
 	int anInt2496;
-	Class184 aClass184_2497;
+	LocType aClass184_2497;
 	int anInt2498;
 	int anInt2499;
 
@@ -150,8 +150,8 @@ final class Class120_Sub8 extends Node {
 					this.anInt2499 = this.aClass180_Sub5_Sub1_2495.anInt3739;
 				}
 			} else {
-				final Class184 class184 = this.aClass184_2497.method2456(0);
-				if (class184 == null) {
+				final LocType locType = this.aClass184_2497.handleVarp();
+				if (locType == null) {
 					this.anInt2489 = 0;
 					this.anInt2493 = 0;
 					this.anIntArray2482 = null;
@@ -159,12 +159,12 @@ final class Class120_Sub8 extends Node {
 					this.anInt2485 = -1;
 					this.anInt2486 = 0;
 				} else {
-					this.anInt2485 = class184.anInt1833;
-					this.anInt2489 = class184.anInt1879;
-					this.anInt2486 = class184.anInt1845;
-					this.anInt2493 = 128 * class184.anInt1832;
-					this.anInt2499 = class184.anInt1839;
-					this.anIntArray2482 = class184.anIntArray1870;
+					this.anInt2485 = locType.anInt1833;
+					this.anInt2489 = locType.anInt1879;
+					this.anInt2486 = locType.anInt1845;
+					this.anInt2493 = 128 * locType.anInt1832;
+					this.anInt2499 = locType.anInt1839;
+					this.anIntArray2482 = locType.anIntArray1870;
 				}
 			}
 			if (this.anInt2485 != i_0_ && this.aClass120_Sub30_Sub4_2488 != null) {

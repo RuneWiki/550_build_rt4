@@ -5,7 +5,7 @@ import java.awt.FontMetrics;
 
 import javax.media.opengl.GL;
 
-final class Class20 implements Interface2 {
+final class Class20 implements ShaderInterface {
 	static long aLong2168;
 	static Class50 aClass50_2169;
 	private float[] aFloatArray2170 = new float[4];

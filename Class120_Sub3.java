@@ -13,10 +13,10 @@ final class Class120_Sub3 extends Node {
 		boolean bool_3_;
 		try {
 			final byte i_4_ = bool_1_ ? (byte) 1 : (byte) (0xff & InterfaceChangeNode.anInt3490);
-			if (Class9.aByteArrayArrayArray70[Class173.anInt1729][i_0_][i_2_] == i_4_) {
+			if (Class9.aByteArrayArrayArray70[Class173.gameLevel][i_0_][i_2_] == i_4_) {
 				return false;
 			}
-			if ((0x4 & Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_0_][i_2_]) == 0) {
+			if ((0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_0_][i_2_]) == 0) {
 				return false;
 			}
 			int i_5_ = 0;
@@ -26,7 +26,7 @@ final class Class120_Sub3 extends Node {
 			}
 			int i_6_ = 0;
 			Class120_Sub12.anIntArray2565[i_5_++] = i_2_;
-			Class9.aByteArrayArrayArray70[Class173.anInt1729][i_0_][i_2_] = i_4_;
+			Class9.aByteArrayArrayArray70[Class173.gameLevel][i_0_][i_2_] = i_4_;
 			while (i_5_ != i_6_) {
 				final int i_7_ = 0xffff & Class150.anIntArray1412[i_6_];
 				final int i_8_ = 0xff & Class150.anIntArray1412[i_6_] >> 16;
@@ -36,10 +36,10 @@ final class Class120_Sub3 extends Node {
 				int i_12_ = Class120_Sub12.anIntArray2565[i_6_] & 0xffff;
 				boolean bool_13_ = false;
 				i_6_ = i_6_ - -1 & 0xfff;
-				if ((Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_][i_12_] & 0x4) == 0) {
+				if ((Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0) {
 					bool_11_ = true;
 				}
-				while_127_: for (int i_14_ = Class173.anInt1729 - -1; i_14_ <= 3; i_14_++) {
+				while_127_: for (int i_14_ = Class173.gameLevel - -1; i_14_ <= 3; i_14_++) {
 					if ((0x8 & Class114.aByteArrayArrayArray1095[i_14_][i_7_][i_12_]) == 0) {
 						if (bool_11_ && class120_sub18s[i_14_][i_7_][i_12_] != null) {
 							if (class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628 != null) {
@@ -92,8 +92,8 @@ final class Class120_Sub3 extends Node {
 					}
 				}
 				if (bool_13_) {
-					if (Class134.anIntArray1284[i] < Class120_Sub26.anIntArrayArrayArray2741[Class173.anInt1729 - -1][i_7_][i_12_]) {
-						Class134.anIntArray1284[i] = Class120_Sub26.anIntArrayArrayArray2741[Class173.anInt1729 + 1][i_7_][i_12_];
+					if (Class134.anIntArray1284[i] < Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel - -1][i_7_][i_12_]) {
+						Class134.anIntArray1284[i] = Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel + 1][i_7_][i_12_];
 					}
 					final int i_25_ = i_7_ << 7;
 					final int i_26_ = i_12_ << 7;
@@ -113,57 +113,57 @@ final class Class120_Sub3 extends Node {
 					}
 				}
 				if (!bool_11_) {
-					if (i_7_ >= 1 && Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ + -1][i_12_] != i_4_) {
+					if (i_7_ >= 1 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + -1][i_12_] != i_4_) {
 						Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(1179648, i_7_ - 1), -754974720);
 						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(1245184, i_12_);
 						i_5_ = 0xfff & 1 + i_5_;
-						Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ + -1][i_12_] = i_4_;
+						Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + -1][i_12_] = i_4_;
 					}
 					if (++i_12_ < 104) {
-						if (i_7_ - 1 >= 0 && i_4_ != Class9.aByteArrayArrayArray70[Class173.anInt1729][-1 + i_7_][i_12_] && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][-1 + i_7_][i_12_ - 1] & 0x4) == 0) {
+						if (i_7_ - 1 >= 0 && i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][-1 + i_7_][i_12_ - 1] & 0x4) == 0) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(1375731712, Class191.method2512(-1 + i_7_, 1179648));
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 1245184);
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][-1 + i_7_][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] = i_4_;
 							i_5_ = 0xfff & 1 + i_5_;
 						}
-						if (i_4_ != Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_][i_12_]) {
+						if (i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_]) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(i_7_, 5373952), 318767104);
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 5439488);
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_] = i_4_;
 							i_5_ = i_5_ - -1 & 0xfff;
 						}
-						if (1 + i_7_ < 104 && i_4_ != Class9.aByteArrayArrayArray70[Class173.anInt1729][1 + i_7_][i_12_] && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][1 + i_7_][-1 + i_12_] & 0x4) == 0) {
+						if (1 + i_7_ < 104 && i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][1 + i_7_][-1 + i_12_] & 0x4) == 0) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(5373952, i_7_ + 1), -1845493760);
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(5439488, i_12_);
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][1 + i_7_][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] = i_4_;
 							i_5_ = i_5_ - -1 & 0xfff;
 						}
 					}
 					i_12_--;
-					if (i_7_ + 1 < 104 && Class9.aByteArrayArrayArray70[Class173.anInt1729][1 + i_7_][i_12_] != i_4_) {
+					if (i_7_ + 1 < 104 && Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] != i_4_) {
 						Class150.anIntArray1412[i_5_] = Class191.method2512(1392508928, Class191.method2512(1 + i_7_, 9568256));
 						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 9633792);
 						i_5_ = 0xfff & 1 + i_5_;
-						Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ - -1][i_12_] = i_4_;
+						Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ - -1][i_12_] = i_4_;
 					}
 					if (--i_12_ >= 0) {
-						if (-1 + i_7_ >= 0 && Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ - 1][i_12_] != i_4_ && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_][i_12_] & 0x4) == 0 && (0x4 & Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_ - 1][1 + i_12_]) == 0) {
+						if (-1 + i_7_ >= 0 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ - 1][i_12_] != i_4_ && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_ - 1][1 + i_12_]) == 0) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(301989888, Class191.method2512(13762560, i_7_ - 1));
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(13828096, i_12_);
 							i_5_ = 1 + i_5_ & 0xfff;
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][-1 + i_7_][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] = i_4_;
 						}
-						if (i_4_ != Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_][i_12_]) {
+						if (i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_]) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(-1828716544, Class191.method2512(13762560, i_7_));
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(13828096, i_12_);
 							i_5_ = 0xfff & i_5_ + 1;
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_] = i_4_;
 						}
-						if (i_7_ - -1 < 104 && Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ + 1][i_12_] != i_4_ && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.anInt1729][1 + i_7_][i_12_ - -1] & 0x4) == 0) {
+						if (i_7_ - -1 < 104 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + 1][i_12_] != i_4_ && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.aByteArrayArrayArray1095[Class173.gameLevel][1 + i_7_][i_12_ - -1] & 0x4) == 0) {
 							Class150.anIntArray1412[i_5_] = Class191.method2512(-771751936, Class191.method2512(1 + i_7_, 9568256));
 							Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 9633792);
 							i_5_ = 0xfff & 1 + i_5_;
-							Class9.aByteArrayArrayArray70[Class173.anInt1729][i_7_ + 1][i_12_] = i_4_;
+							Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + 1][i_12_] = i_4_;
 						}
 					}
 				}

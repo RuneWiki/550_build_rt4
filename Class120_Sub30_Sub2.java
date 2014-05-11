@@ -155,7 +155,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	private final void method1750(final byte i, final int i_20_) {
 		try {
 			if ((0x4 & this.anIntArray3692[i_20_]) != 0) {
-				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method893(1253231568); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method899(16)) {
+				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
 					if (class120_sub6.anInt2465 == i_20_) {
 						class120_sub6.anInt2458 = 0;
 					}
@@ -172,7 +172,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 				method1756(99, 40, 70);
 			}
 			if ((this.anIntArray3692[i] & 0x2) != 0) {
-				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method893(i_21_ + 1253231685); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method899(37)) {
+				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
 					if (i == class120_sub6.anInt2465 && aClass120_Sub6ArrayArray3700[i][class120_sub6.anInt2460] == null && class120_sub6.anInt2453 < 0) {
 						class120_sub6.anInt2453 = 0;
 					}
@@ -245,7 +245,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		try {
 			method1755(-199, 64, i_28_, i_27_);
 			if ((this.anIntArray3692[i_27_] & 0x2) != 0) {
-				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method896((byte) -17); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method898(false)) {
+				for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getLast(); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getPrevious()) {
 					if (class120_sub6.anInt2465 == i_27_ && class120_sub6.anInt2453 < 0) {
 						aClass120_Sub6ArrayArray3700[i_27_][class120_sub6.anInt2460] = null;
 						aClass120_Sub6ArrayArray3700[i_27_][i_28_] = class120_sub6;
@@ -297,7 +297,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 						}
 						aClass120_Sub6ArrayArray3685[i_27_][class120_sub6.anInt2445] = class120_sub6;
 					}
-					aClass120_Sub30_Sub1_3707.aClass105_3669.method895((byte) -114, class120_sub6);
+					aClass120_Sub30_Sub1_3707.aClass105_3669.addLast(class120_sub6);
 					aClass120_Sub6ArrayArray3700[i_27_][i_28_] = class120_sub6;
 				}
 			}
@@ -315,7 +315,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 					aString3679 = null;
 				}
 				if ((0x2 & this.anIntArray3692[i_33_]) != 0) {
-					for (Class120_Sub6 class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method893(i + 1253231767); class120_sub6_34_ != null; class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method899(57)) {
+					for (Class120_Sub6 class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6_34_ != null; class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
 						if (class120_sub6_34_.anInt2465 == class120_sub6.anInt2465 && class120_sub6_34_.anInt2453 < 0 && class120_sub6 != class120_sub6_34_) {
 							class120_sub6.anInt2453 = 0;
 							break;
@@ -357,11 +357,11 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	private final void method1758(final byte i, final int i_37_) {
 		try {
-			Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method893(1253231568);
+			Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront();
 			if (i < 80) {
 				anInt3686 = -3;
 			}
-			for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method899(75)) {
+			for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
 				if (i_37_ < 0 || i_37_ == class120_sub6.anInt2465) {
 					if (class120_sub6.aClass120_Sub30_Sub4_2446 != null) {
 						class120_sub6.aClass120_Sub30_Sub4_2446.method1796(Class178.anInt1771 / 100);
@@ -614,7 +614,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	private final void method1764(final int i, final int i_66_) {
 		try {
-			for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method893(1253231568); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.method899(20)) {
+			for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
 				if ((i_66_ < 0 || class120_sub6.anInt2465 == i_66_) && class120_sub6.anInt2453 < 0) {
 					aClass120_Sub6ArrayArray3700[class120_sub6.anInt2465][class120_sub6.anInt2460] = null;
 					class120_sub6.anInt2453 = 0;

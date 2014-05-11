@@ -3,7 +3,7 @@
  */
 
 final class Class109 {
-	private Class105 aClass105_1036;
+	private Deque aClass105_1036;
 	static int[] anIntArray1037;
 	static String aString1038 = "Loaded input handler";
 	private Class120_Sub15[] aClass120_Sub15Array1039;
@@ -34,7 +34,7 @@ final class Class109 {
 				}
 				anIntArrayArrayArray1043 = null;
 				aClass120_Sub15Array1039 = null;
-				aClass105_1036.method889(1986850152);
+				aClass105_1036.clear();
 				aClass105_1036 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -81,7 +81,7 @@ final class Class109 {
 					if (class120_sub15 == null) {
 						this.aBoolean1049 = true;
 						if (anInt1048 <= anInt1041) {
-							final Class120_Sub15 class120_sub15_3_ = (Class120_Sub15) aClass105_1036.method896((byte) 116);
+							final Class120_Sub15 class120_sub15_3_ = (Class120_Sub15) aClass105_1036.getLast();
 							class120_sub15 = new Class120_Sub15(i, class120_sub15_3_.anInt2592);
 							aClass120_Sub15Array1039[class120_sub15_3_.anInt2593] = null;
 							class120_sub15_3_.unlink();
@@ -93,7 +93,7 @@ final class Class109 {
 					} else {
 						this.aBoolean1049 = false;
 					}
-					aClass105_1036.method890(class120_sub15, (byte) -110);
+					aClass105_1036.addFront(class120_sub15);
 					return anIntArrayArrayArray1043[class120_sub15.anInt2592];
 				}
 				this.aBoolean1049 = i != anInt1045;
@@ -111,7 +111,7 @@ final class Class109 {
 
 	Class109(final int i, final int i_4_, final int i_5_) {
 		anInt1041 = 0;
-		aClass105_1036 = new Class105();
+		aClass105_1036 = new Deque();
 		this.aBoolean1049 = false;
 		anInt1048 = i;
 		anInt1040 = i_4_;

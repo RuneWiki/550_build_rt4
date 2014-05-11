@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub7 extends Class120_Sub12 {
-	static Class105 aClass105_3177;
+	static Deque aClass105_3177;
 	static int anInt3178;
 	static int crossIndex = 0;
 	static int anInt3180;
@@ -14,7 +14,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 	static int frameWidth;
 
 	static {
-		aClass105_3177 = new Class105();
+		aClass105_3177 = new Deque();
 		anInt3184 = 0;
 	}
 

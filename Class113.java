@@ -8,40 +8,40 @@ final class Class113 {
 	static int anInt1082 = 0;
 	static int anInt1083;
 	private static long aLong1084 = 0L;
-	private static Class105 aClass105_1085;
+	private static Deque aClass105_1085;
 	static int anInt1086 = 0;
-	private static Class105 aClass105_1087;
-	private static Class105 aClass105_1088;
-	private static Class105 aClass105_1089;
-	private static Class105 aClass105_1090;
-	private static Class105 aClass105_1091;
+	private static Deque aClass105_1087;
+	private static Deque aClass105_1088;
+	private static Deque aClass105_1089;
+	private static Deque aClass105_1090;
+	private static Deque aClass105_1091;
 	private static int[] anIntArray1092;
 
 	static {
 		anInt1083 = 0;
-		aClass105_1085 = new Class105();
-		aClass105_1087 = new Class105();
-		aClass105_1088 = new Class105();
-		aClass105_1089 = new Class105();
-		aClass105_1090 = new Class105();
-		aClass105_1091 = new Class105();
+		aClass105_1085 = new Deque();
+		aClass105_1087 = new Deque();
+		aClass105_1088 = new Deque();
+		aClass105_1089 = new Deque();
+		aClass105_1090 = new Deque();
+		aClass105_1091 = new Deque();
 		anIntArray1092 = new int[1000];
 	}
 
 	static final synchronized void method994(final int i, final Class37[] class37s, final int i_0_) {
 		if (i_0_ == anInt1083) {
-			aClass105_1090.method895((byte) 16, new Class120_Sub27(i, class37s));
+			aClass105_1090.addLast(new Class120_Sub27(i, class37s));
 		}
 	}
 
 	static final synchronized void method995() {
 		anInt1083++;
-		aClass105_1085.method889(1986850152);
-		aClass105_1087.method889(1986850152);
-		aClass105_1088.method889(1986850152);
-		aClass105_1089.method889(1986850152);
-		aClass105_1090.method889(1986850152);
-		aClass105_1091.method889(1986850152);
+		aClass105_1085.clear();
+		aClass105_1087.clear();
+		aClass105_1088.clear();
+		aClass105_1089.clear();
+		aClass105_1090.clear();
+		aClass105_1091.clear();
 		anInt1082 = 0;
 		anInt1086 = 0;
 		anInt1081 = 0;
@@ -51,7 +51,7 @@ final class Class113 {
 		if (i_1_ == anInt1083) {
 			final Class120_Sub32 class120_sub32 = new Class120_Sub32();
 			class120_sub32.uid = i;
-			aClass105_1089.method895((byte) -107, class120_sub32);
+			aClass105_1089.addLast(class120_sub32);
 		}
 	}
 
@@ -69,7 +69,7 @@ final class Class113 {
 		final GL gl = HDToolkit.gl;
 		int i = 0;
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1085.method891(false);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1085.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -85,7 +85,7 @@ final class Class113 {
 			i = 0;
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1087.method891(false);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1087.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -97,7 +97,7 @@ final class Class113 {
 			}
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1088.method891(false);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1088.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -112,7 +112,7 @@ final class Class113 {
 			gl.glDeleteTextures(i, anIntArray1092, 0);
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1089.method891(false);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1089.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -120,7 +120,7 @@ final class Class113 {
 			gl.glDeleteLists(i_2_, 1);
 		}
 		for (;;) {
-			final Class120_Sub27 class120_sub27 = (Class120_Sub27) aClass105_1090.method891(false);
+			final Class120_Sub27 class120_sub27 = (Class120_Sub27) aClass105_1090.removeFront();
 			if (class120_sub27 == null) {
 				break;
 			}
@@ -130,7 +130,7 @@ final class Class113 {
 			gl.glDeleteObjectARB(class120_sub27.anInt2749);
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1091.method891(false);
+			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1091.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -147,7 +147,7 @@ final class Class113 {
 		if (i_6_ == anInt1083) {
 			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_5_);
 			class120_sub32.uid = i;
-			aClass105_1088.method895((byte) -102, class120_sub32);
+			aClass105_1088.addLast(class120_sub32);
 		}
 	}
 
@@ -155,7 +155,7 @@ final class Class113 {
 		if (i_8_ == anInt1083) {
 			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_7_);
 			class120_sub32.uid = i;
-			aClass105_1085.method895((byte) 119, class120_sub32);
+			aClass105_1085.addLast(class120_sub32);
 		}
 	}
 
@@ -163,7 +163,7 @@ final class Class113 {
 		if (i_10_ == anInt1083) {
 			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_9_);
 			class120_sub32.uid = i;
-			aClass105_1087.method895((byte) -99, class120_sub32);
+			aClass105_1087.addLast(class120_sub32);
 		}
 	}
 
@@ -171,7 +171,7 @@ final class Class113 {
 		if (i_11_ == anInt1083) {
 			final Class120_Sub32 class120_sub32 = new Class120_Sub32();
 			class120_sub32.uid = i;
-			aClass105_1091.method895((byte) 107, class120_sub32);
+			aClass105_1091.addLast(class120_sub32);
 		}
 	}
 }

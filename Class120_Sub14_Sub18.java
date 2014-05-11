@@ -107,7 +107,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 	}
 
 	Class120_Sub14_Sub18(final Class50 class50, final Class50 class50_4_, final int i, final boolean bool) {
-		final Class105 class105 = new Class105();
+		final Deque deque = new Deque();
 		final int i_5_ = class50.method441(i, 1);
 		this.aClass1Array3610 = new Class1[i_5_];
 		final int[] is = class50.method433(true, i);
@@ -115,7 +115,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 			final byte[] is_7_ = class50.method442(i, (byte) 114, is[i_6_]);
 			Class120_Sub1 class120_sub1 = null;
 			final int i_8_ = (is_7_[0] & 0xff) << 8 | 0xff & is_7_[1];
-			for (Class120_Sub1 class120_sub1_9_ = (Class120_Sub1) class105.method893(1253231568); class120_sub1_9_ != null; class120_sub1_9_ = (Class120_Sub1) class105.method899(20)) {
+			for (Class120_Sub1 class120_sub1_9_ = (Class120_Sub1) deque.getFront(); class120_sub1_9_ != null; class120_sub1_9_ = (Class120_Sub1) deque.getNext()) {
 				if (i_8_ == class120_sub1_9_.anInt2408) {
 					class120_sub1 = class120_sub1_9_;
 					break;
@@ -129,7 +129,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					is_10_ = class50_4_.method420(false, 0, i_8_);
 				}
 				class120_sub1 = new Class120_Sub1(i_8_, is_10_);
-				class105.method895((byte) -110, class120_sub1);
+				deque.addLast(class120_sub1);
 			}
 			this.aClass1Array3610[is[i_6_]] = new Class1(is_7_, class120_sub1);
 		}
@@ -158,8 +158,8 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 							}
 						} else {
 							String[] strings = npcType.aStringArray1703;
-							if (MouseHandler.aBoolean1142) {
-								strings = Class120_Sub12_Sub36.method1391(-6, strings);
+							if (MouseHandler.showNumbersOnActions) {
+								strings = Class120_Sub12_Sub36.addNumbers(strings);
 							}
 							if (strings != null) {
 								for (int i_15_ = 4; i_15_ >= 0; i_15_--) {
@@ -260,7 +260,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 			if (i_25_ != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != f_26_ || Class132_Sub2.aFloat2821 != f_27_ || Light.anInt379 != i_28_ || i_29_ != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204
 					|| Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Class70.aFloat622 != f_31_) {
 				Class132.anInt1248 = Class9.anInt72;
-				Class156.anInt1453 = Class105.anInt1007;
+				Class156.anInt1453 = Deque.anInt1007;
 				Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
 				Class91.aFloat856 = Class66.aFloat600;
 				Class120_Sub12_Sub1.aFloat3124 = Class108.aFloat1034;
@@ -294,7 +294,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					Class25.anInt151 = Class43.anInt368;
 					Class108.aFloat1034 = Class120_Sub2.aFloat2417;
 					Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
-					Class105.anInt1007 = Light.anInt379;
+					Deque.anInt1007 = Light.anInt379;
 					Class57.anInt500 = 65536;
 					Class84.aClass120_Sub14_Sub9_798 = null;
 					Class147.aFloat1395 = Class132_Sub2.aFloat2821;
@@ -310,7 +310,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					Class147.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
 					Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
 					Class66.aFloat600 = f_34_ * Class125.aFloat2149 + Class91.aFloat856 * f_36_;
-					Class105.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
+					Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
 					Class101.aFloat962 = f_36_ * Class73.aFloat632 + Class70.aFloat622 * f_34_;
 					Class108.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
 					if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != Class84.aClass120_Sub14_Sub9_798) {
@@ -322,7 +322,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					}
 				}
 			}
-			i_24_ = Class105.anInt1007;
+			i_24_ = Deque.anInt1007;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("te.C(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',').append(bool).append(')').toString());
 		}
@@ -340,31 +340,31 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 		}
 	}
 
-	static final boolean method1583(final int i, final int i_37_, final Class184 class184, final int i_38_, final int i_39_, final int i_40_, int i_41_) {
+	static final boolean method1583(final int i, final int i_37_, final LocType locType, final int i_38_, final int i_39_, final int i_40_, int i_41_) {
 		boolean bool;
 		try {
-			final Class142 class142 = Class120_Sub12_Sub8.method1240((byte) 1, class184.anInt1826);
+			final Class142 class142 = Class120_Sub12_Sub8.method1240((byte) 1, locType.anInt1826);
 			if (class142.anInt1363 == -1) {
 				return true;
 			}
-			if (!class184.aBoolean1862) {
+			if (!locType.aBoolean1862) {
 				i_41_ = 0;
 			} else {
-				i_41_ += class184.anInt1869;
+				i_41_ += locType.anInt1869;
 				i_41_ &= 0x3;
 			}
 			if (i_38_ != 4) {
 				return true;
 			}
-			final Class107_Sub1 class107_sub1 = class142.method2011(-1, class184.aBoolean1872, i_41_);
+			final Class107_Sub1 class107_sub1 = class142.method2011(-1, locType.aBoolean1872, i_41_);
 			if (class107_sub1 == null) {
 				return false;
 			}
-			int i_42_ = class184.anInt1841;
-			int i_43_ = class184.anInt1827;
+			int i_42_ = locType.anInt1841;
+			int i_43_ = locType.anInt1827;
 			if ((i_41_ & 0x1) == 1) {
-				i_42_ = class184.anInt1827;
-				i_43_ = class184.anInt1841;
+				i_42_ = locType.anInt1827;
+				i_43_ = locType.anInt1841;
 			}
 			int i_44_ = class107_sub1.anInt1029;
 			int i_45_ = class107_sub1.anInt1028;
@@ -380,7 +380,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("te.G(").append(i).append(',').append(i_37_).append(',').append(class184 != null ? "{...}" : "null").append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(i_41_).append(')').toString());
+					new StringBuilder("te.G(").append(i).append(',').append(i_37_).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(i_41_).append(')').toString());
 		}
 		return bool;
 	}

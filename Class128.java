@@ -75,7 +75,7 @@ final class Class128 {
 		try {
 			Class180_Sub4.method2318((byte) 25, Class140.anInt1343);
 			final int i_7_ = (Class83.anInt792 >> 10) + (GameEntity.currentBaseX >> 3);
-			final int i_8_ = (Class181.currentBaseZ >> 3) + (Class120_Sub14_Sub21.anInt3626 >> 10);
+			final int i_8_ = (Class181.currentBaseZ >> 3) + (GroundObject.anInt3626 >> 10);
 			int i_11_ = 18;
 			RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_11_][];
 			Class56.anIntArray495 = new int[i_11_];

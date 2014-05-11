@@ -76,7 +76,7 @@ final class Class81 {
 					Class79.anInt692 = -Class79.anInt694 + (Class79.aClass120_Sub14_Sub22_691.anInt3644 >> 6 << 6) - -64;
 					int i_3_ = -1;
 					int i_4_ = -1;
-					if (Class79.aClass120_Sub14_Sub22_691.method1630(Class181.currentBaseZ + (Class100.selfPlayer.z >> 7), -1, Class173.anInt1729, is, (Class100.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
+					if (Class79.aClass120_Sub14_Sub22_691.method1630(Class181.currentBaseZ + (Class100.selfPlayer.z >> 7), -1, Class173.gameLevel, is, (Class100.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
 						i_4_ = is[1] - Class79.anInt695;
 						i_3_ = -is[2] + Class79.anInt694 + -1 + Class79.anInt692;
 					}
@@ -128,11 +128,8 @@ final class Class81 {
 					Class79.anIntArrayArrayArray713 = new int[i_5_][i_6_][];
 					Class79.aByteArrayArrayArray703 = new byte[i_5_][i_6_][];
 					Class79.aByteArrayArrayArray711 = new byte[i_5_][i_6_][];
-					Class73.aClass105_653 = new Class105();
+					Class73.aClass105_653 = new Deque();
 					Class22.aClass127_130 = new Class127();
-					final int i_7_ = Class120_Sub14_Sub3_Sub1.anInt3918 >> 1;
-					final int i_8_ = Class120_Sub12_Sub27.anInt3350 >> 2 << 10;
-					Class79.method690(i_8_, i_7_);
 					Class43.method338(1024, 256, -87);
 					Class52.method453(256, (byte) 104);
 					Class90.anInt848 = 20;
