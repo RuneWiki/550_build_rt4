@@ -125,7 +125,7 @@ final class Class133 {
 				return class120_sub32.anInt2790;
 			}
 		}
-		final int i_5_ = light.anInt374;
+		final int i_5_ = light.color;
 		float f_6_ = light.anInt395 - i;
 		float f_7_ = light.anInt375 - i_1_;
 		float f_8_ = light.anInt373 - i_2_;

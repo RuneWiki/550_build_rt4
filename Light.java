@@ -8,7 +8,7 @@ final class Light {
 	boolean aBoolean371;
 	short[] aShortArray372;
 	int anInt373;
-	int anInt374;
+	int color;
 	int anInt375;
 	int anInt376;
 	float[] aFloatArray377;
@@ -230,55 +230,31 @@ final class Light {
 		}
 	}
 
-	final void method350(final boolean bool, final int i) {
-		final int i_7_ = 0x7ff & anInt390 - -(anInt386 * i / 50);
+	final void method350(boolean bool, final int i) {
+		final int i_7_ = 0x7ff & anInt390 + (anInt386 * i / 50);
 		final int i_8_ = anInt378;
-		int i_9_;
-		while_34_: do {
-			while_33_: do {
-				while_32_: do {
-					while_31_: do {
-						do {
-							if (i_8_ != 1) {
-								if (i_8_ != 3) {
-									if (i_8_ != 4) {
-										if (i_8_ != 2) {
-											if (i_8_ == 5) {
-												break while_32_;
-											}
-											break while_33_;
-										}
-									} else {
-										break;
-									}
-									break while_31_;
-								}
-							} else {
-								i_9_ = 1024 + (Rasterizer.sineTable[i_7_] >> 6);
-								break while_34_;
-							}
-							i_9_ = Class120_Sub14_Sub3_Sub1.anIntArray3916[i_7_] >> 1;
-							break while_34_;
-						} while (false);
-						i_9_ = i_7_ >> 10 << 11;
-						break while_34_;
-					} while (false);
-					i_9_ = i_7_;
-					break while_34_;
-				} while (false);
-				i_9_ = (i_7_ < 1024 ? i_7_ : -i_7_ + 2048) << 1;
-				break while_34_;
-			} while (false);
+		int i_9_ = 0;
+		if(i_8_ == 1) {
+			i_9_ = 1024 + (Rasterizer.sineTable[i_7_] >> 6);
+		} else if(i_8_ == 2) {
+			i_9_ = i_7_;
+		} else if(i_8_ == 3) {
+			i_9_ = Class120_Sub14_Sub3_Sub1.anIntArray3916[i_7_] >> 1;
+		} else if(i_8_ == 4) {
+			i_9_ = i_7_ >> 10 << 11;
+		} else if(i_8_ == 5) {
+			i_9_ = (i_7_ < 1024 ? i_7_ : -i_7_ + 2048) << 1;
+		} else {
 			i_9_ = 2048;
-		} while (false);
+		}
 		if (bool) {
 			i_9_ = 2048;
 		}
 		this.aFloat394 = ((i_9_ * anInt389 >> 11) + anInt388) / 2048.0F;
-		final float f = this.aFloat394 / 255.0F;
-		this.aFloatArray377[2] = f * Class120_Sub12_Sub3.method1207(255, this.anInt374);
-		this.aFloatArray377[0] = Class120_Sub12_Sub3.method1207(255, this.anInt374 >> 16) * f;
-		this.aFloatArray377[1] = (Class120_Sub12_Sub3.method1207(65354, this.anInt374) >> 8) * f;
+		float f = this.aFloat394 / 255.0F;
+		this.aFloatArray377[0] = (0xff & this.color >> 16) * f;
+		this.aFloatArray377[1] = (0xff & this.color >> 8) * f;
+		this.aFloatArray377[2] = (0xff & this.color) * f;
 	}
 
 	static final boolean method351(final boolean bool, final String string) {
@@ -367,7 +343,7 @@ final class Light {
 		for (int i = 0; i < this.aShortArray372.length; i++) {
 			this.aShortArray372[i] = (short) class120_sub7.getUShort();
 		}
-		this.anInt374 = Rasterizer.anIntArray969[class120_sub7.getUShort()];
+		this.color = Rasterizer.anIntArray969[class120_sub7.getUShort()];
 		final int i = class120_sub7.getUByte();
 		this.anInt376 = 0x1f & i;
 		anInt390 = 0x700 & i << 3;
