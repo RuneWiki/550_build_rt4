@@ -1,0 +1,793 @@
+import java.util.Arrays;
+
+/* Class50 - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+
+final class Class50 {
+	private boolean aBoolean446;
+	private boolean aBoolean447;
+	private Object[][] anObjectArrayArray448;
+	static int anInt449 = 0;
+	private Class53 aClass53_450;
+	private Object[] anObjectArray451;
+	private Class52 aClass52_452 = null;
+
+	final boolean method410(String string, final byte i, String string_0_) {
+		boolean bool;
+		try {
+			if (!method418()) {
+				return false;
+			}
+			string = string.toLowerCase();
+			string_0_ = string_0_.toLowerCase();
+			final int i_1_ = aClass52_452.aClass56_473.method487(-76, Class120_Sub14_Sub13.method1524(string, 0));
+			if (!method436(i_1_, -112)) {
+				return false;
+			}
+			if (i != -99) {
+				method426(true, false, (byte) 79);
+			}
+			final int i_2_ = aClass52_452.aClass56Array479[i_1_].method487(-84, Class120_Sub14_Sub13.method1524(string_0_, 0));
+			bool = method440(i_1_, true, i_2_);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.T(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(string_0_ != null ? "{...}" : "null").append(')').toString());
+		}
+		return bool;
+	}
+
+	private final void method411(final int i, final int i_3_) {
+		try {
+			if (i == 0) {
+				aClass53_450.method459(i_3_, -6);
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.G(").append(i).append(',').append(i_3_).append(')').toString());
+		}
+	}
+
+	final int method412(String string, final byte i) {
+		int i_4_;
+		try {
+			if (i != -11) {
+				aClass52_452 = null;
+			}
+			if (!method418()) {
+				return 0;
+			}
+			string = string.toLowerCase();
+			final int i_5_ = aClass52_452.aClass56_473.method487(-107, Class120_Sub14_Sub13.method1524(string, i + 11));
+			i_4_ = method416(i_5_, -12826);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.EA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		}
+		return i_4_;
+	}
+
+	final byte[] method413(final int i, final boolean bool) {
+		try {
+			if (!bool) {
+				aClass52_452 = null;
+			}
+			if (!method418()) {
+				return null;
+			}
+			if (aClass52_452.anIntArray465.length == 1) {
+				return method442(0, (byte) 118, i);
+			}
+			if (!method436(i, -120)) {
+				return null;
+			}
+			if (aClass52_452.anIntArray465[i] == 1) {
+				return method442(i, (byte) 111, 0);
+			}
+			throw new RuntimeException();
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.A(").append(i).append(',').append(bool).append(')').toString());
+		}
+	}
+
+	final boolean method414(String string, final int i) {
+		boolean bool;
+		try {
+			if (i != -2) {
+				return true;
+			}
+			if (!method418()) {
+				return false;
+			}
+			string = string.toLowerCase();
+			final int i_6_ = aClass52_452.aClass56_473.method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
+			if (i_6_ < 0) {
+				return false;
+			}
+			bool = true;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.J(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		}
+		return bool;
+	}
+
+	final int method415(final int i) {
+		int i_7_;
+		try {
+			if (!method418()) {
+				return 0;
+			}
+			int i_8_ = 0;
+			int i_9_ = 0;
+			for (int i_10_ = 0; anObjectArray451.length > i_10_; i_10_++) {
+				if (aClass52_452.anIntArray475[i_10_] > 0) {
+					i_9_ += method416(i_10_, -12826);
+					i_8_ += 100;
+				}
+			}
+			if (i > -106) {
+				aBoolean447 = false;
+			}
+			if (i_8_ == 0) {
+				return 100;
+			}
+			final int i_11_ = i_9_ * 100 / i_8_;
+			i_7_ = i_11_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.K(").append(i).append(')').toString());
+		}
+		return i_7_;
+	}
+
+	private final int method416(final int i, final int i_12_) {
+		int i_13_;
+		try {
+			if (i_12_ != -12826) {
+				return -42;
+			}
+			if (!method436(i, -123)) {
+				return 0;
+			}
+			if (anObjectArray451[i] != null) {
+				return 100;
+			}
+			i_13_ = aClass53_450.method458(i, -1);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.V(").append(i).append(',').append(i_12_).append(')').toString());
+		}
+		return i_13_;
+	}
+
+	static final Buffer method417() {
+		final Buffer class120_sub7_14_ = new Buffer(34);
+		class120_sub7_14_.putByte(11);
+		class120_sub7_14_.putByte(Class120_Sub14_Sub14_Sub1.brightness);
+		class120_sub7_14_.putByte(Class61.aBoolean566 ? 1 : 0);
+		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
+		class120_sub7_14_.putByte(Class75.showGroundDecorations ? 1 : 0);
+		class120_sub7_14_.putByte(Class108_Sub3.highDetailTextures ? 1 : 0);
+		class120_sub7_14_.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
+		class120_sub7_14_.putByte(Class191.flickeringEffectsOn ? 1 : 0);
+		class120_sub7_14_.putByte(Class120_Sub30_Sub1.manyGroundTextures ? 1 : 0);
+		class120_sub7_14_.putByte(Class120_Sub6.characterShadowsOn ? 1 : 0);
+		class120_sub7_14_.putByte(Class74.sceneryShadowsType);
+		class120_sub7_14_.putByte(Class120_Sub12_Sub6.highLightingDetail ? 1 : 0);
+		class120_sub7_14_.putByte(PacketBuffer.highWaterDetail ? 1 : 0);
+		class120_sub7_14_.putByte(Class172.fogEnabled ? 1 : 0);
+		class120_sub7_14_.putByte(AbstractMouseWheelHandler.anInt117);
+		class120_sub7_14_.putByte(Class167.aBoolean1619 ? 1 : 0);
+		class120_sub7_14_.putByte(Class111.anInt1061);
+		class120_sub7_14_.putByte(RuntimeException_Sub1.anInt2142);
+		class120_sub7_14_.putByte(CursorType.anInt1242);
+		class120_sub7_14_.putShort(Class120_Sub12_Sub18.lastFullscreenWidth);
+		class120_sub7_14_.putShort(Class120_Sub12_Sub12.lastFullscreenHeight);
+		class120_sub7_14_.putByte(ParticleEngine.method949());
+		class120_sub7_14_.putInt(Class120_Sub19.anInt2657);
+		class120_sub7_14_.putByte(Class120_Sub12_Sub19.anInt3282);
+		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
+		class120_sub7_14_.putByte(Class134.aBoolean1277 ? 1 : 0);
+		class120_sub7_14_.putByte(Class140.anInt1343);
+		class120_sub7_14_.putByte(Class186.aBoolean1902 ? 1 : 0);
+		class120_sub7_14_.putByte(Class38.cursorsEnabled ? 1 : 0);
+		return class120_sub7_14_;
+	}
+
+	private final boolean method418() {
+		if (aClass52_452 == null) {
+			aClass52_452 = aClass53_450.method462();
+			if (aClass52_452 == null) {
+				return false;
+			}
+			anObjectArray451 = new Object[aClass52_452.anInt484];
+			anObjectArrayArray448 = new Object[aClass52_452.anInt484][];
+		}
+		return true;
+	}
+
+	final void method419(final int i) {
+		try {
+			if (anObjectArrayArray448 != null) {
+				for (int i_15_ = 0; anObjectArrayArray448.length > i_15_; i_15_++) {
+					anObjectArrayArray448[i_15_] = null;
+				}
+			}
+			if (i != 0) {
+				aClass53_450 = null;
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.JA(").append(i).append(')').toString());
+		}
+	}
+
+	final byte[] method420(final boolean bool, final int i, final int i_16_) {
+		byte[] is;
+		try {
+			if (!method423(i, 57, i_16_)) {
+				return null;
+			}
+			if (anObjectArrayArray448[i_16_] == null || anObjectArrayArray448[i_16_][i] == null) {
+				boolean bool_17_ = method424(0, null, i_16_);
+				if (!bool_17_) {
+					method422(1, i_16_);
+					bool_17_ = method424(0, null, i_16_);
+					if (!bool_17_) {
+						return null;
+					}
+				}
+			}
+			final byte[] is_18_ = Class139.method1988(19138, bool, anObjectArrayArray448[i_16_][i]);
+			is = is_18_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.I(").append(bool).append(',').append(i).append(',').append(i_16_).append(')').toString());
+		}
+		return is;
+	}
+
+	final int method421(final int i) {
+		int i_19_;
+		try {
+			if (i >= -31) {
+				method432(true, null);
+			}
+			if (!method418()) {
+				return -1;
+			}
+			i_19_ = aClass52_452.anIntArray465.length;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.W(").append(i).append(')').toString());
+		}
+		return i_19_;
+	}
+
+	private final void method422(final int i, final int i_20_) {
+		try {
+			if (i != 1) {
+				aBoolean446 = false;
+			}
+			if (!aBoolean446) {
+				anObjectArray451[i_20_] = Class143_Sub1.method2026(aClass53_450.method460(-94271416, i_20_), false, 136);
+			} else {
+				anObjectArray451[i_20_] = aClass53_450.method460(-94271416, i_20_);
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.FA(").append(i).append(',').append(i_20_).append(')').toString());
+		}
+	}
+
+	private final boolean method423(final int i, final int i_21_, final int i_22_) {
+		boolean bool;
+		try {
+			if (!method418()) {
+				return false;
+			}
+			if (i_22_ < 0 || i < 0 || aClass52_452.anIntArray465.length <= i_22_ || i >= aClass52_452.anIntArray465[i_22_]) {
+				if (Class90.aBoolean845) {
+					throw new IllegalArgumentException(new StringBuilder(String.valueOf(i_22_)).append(",").append(i).toString());
+				}
+				return false;
+			}
+			bool = true;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.R(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
+		}
+		return bool;
+	}
+
+	private final boolean method424(final int i, final int[] is, final int i_23_) {
+		boolean bool;
+		try {
+			if (!method436(i_23_, -106)) {
+				return false;
+			}
+			if (anObjectArray451[i_23_] == null) {
+				return false;
+			}
+			final int[] is_24_ = aClass52_452.anIntArrayArray468[i_23_];
+			final int i_25_ = aClass52_452.anIntArray475[i_23_];
+			boolean bool_26_ = true;
+			if (anObjectArrayArray448[i_23_] == null) {
+				anObjectArrayArray448[i_23_] = new Object[aClass52_452.anIntArray465[i_23_]];
+			}
+			final Object[] objects = anObjectArrayArray448[i_23_];
+			for (int i_27_ = i; i_27_ < i_25_; i_27_++) {
+				int i_28_;
+				if (is_24_ == null) {
+					i_28_ = i_27_;
+				} else {
+					i_28_ = is_24_[i_27_];
+				}
+				if (objects[i_28_] == null) {
+					bool_26_ = false;
+					break;
+				}
+			}
+			if (bool_26_) {
+				return true;
+			}
+			byte[] is_29_;
+			if (is != null && (is[0] != 0 || is[1] != 0 || is[2] != 0 || is[3] != 0)) {
+				is_29_ = Class139.method1988(19138, true, anObjectArray451[i_23_]);
+				final Buffer class120_sub7 = new Buffer(is_29_);
+				class120_sub7.method1109(is, 5, true, class120_sub7.buf.length);
+			} else {
+				is_29_ = Class139.method1988(i ^ 0x4ac2, false, anObjectArray451[i_23_]);
+			}
+			byte[] is_30_;
+			try {
+				is_30_ = Class71.method639(true, is_29_);
+			} catch (final RuntimeException runtimeexception) {
+				throw Class120_Sub14_Sub2.method1428(runtimeexception,
+						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(Class120_Sub14_Sub3.method1431(is_29_.length, i + 0, is_29_)).append(",").append(Class120_Sub14_Sub3.method1431(is_29_.length + -2, 0, is_29_))
+								.append(",").append(aClass52_452.anIntArray470[i_23_]).append(",").append(aClass52_452.anInt481).toString());
+			}
+			if (aBoolean446) {
+				anObjectArray451[i_23_] = null;
+			}
+			if (i_25_ > 1) {
+				int i_31_ = is_30_.length;
+				final int[] is_32_ = new int[i_25_];
+				final int i_33_ = is_30_[--i_31_] & 0xff;
+				final Buffer class120_sub7 = new Buffer(is_30_);
+				i_31_ -= i_25_ * i_33_ * 4;
+				class120_sub7.pos = i_31_;
+				for (int i_34_ = 0; i_34_ < i_33_; i_34_++) {
+					int i_35_ = 0;
+					for (int i_36_ = 0; i_36_ < i_25_; i_36_++) {
+						i_35_ += class120_sub7.getInt();
+						is_32_[i_36_] += i_35_;
+					}
+				}
+				final byte[][] is_37_ = new byte[i_25_][];
+				for (int i_38_ = 0; i_25_ > i_38_; i_38_++) {
+					is_37_[i_38_] = new byte[is_32_[i_38_]];
+					is_32_[i_38_] = 0;
+				}
+				class120_sub7.pos = i_31_;
+				int i_39_ = 0;
+				for (int i_40_ = 0; i_40_ < i_33_; i_40_++) {
+					int i_41_ = 0;
+					for (int i_42_ = 0; i_25_ > i_42_; i_42_++) {
+						i_41_ += class120_sub7.getInt();
+						Class4.method96(is_30_, i_39_, is_37_[i_42_], is_32_[i_42_], i_41_);
+						i_39_ += i_41_;
+						is_32_[i_42_] += i_41_;
+					}
+				}
+				for (int i_43_ = 0; i_25_ > i_43_; i_43_++) {
+					int i_44_;
+					if (is_24_ == null) {
+						i_44_ = i_43_;
+					} else {
+						i_44_ = is_24_[i_43_];
+					}
+					if (aBoolean447) {
+						objects[i_44_] = is_37_[i_43_];
+					} else {
+						objects[i_44_] = Class143_Sub1.method2026(is_37_[i_43_], false, 136);
+					}
+				}
+			} else {
+				int i_45_;
+				if (is_24_ == null) {
+					i_45_ = 0;
+				} else {
+					i_45_ = is_24_[0];
+				}
+				if (aBoolean447) {
+					objects[i_45_] = is_30_;
+				} else {
+					objects[i_45_] = Class143_Sub1.method2026(is_30_, false, 136);
+				}
+			}
+			bool = true;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.U(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_23_).append(')').toString());
+		}
+		return bool;
+	}
+
+	private final boolean method425(final int i, final byte i_46_) {
+		boolean bool;
+		try {
+			if (i_46_ != -73) {
+				return true;
+			}
+			if (!method436(i, -108)) {
+				return false;
+			}
+			if (anObjectArray451[i] != null) {
+				return true;
+			}
+			method422(1, i);
+			if (anObjectArray451[i] != null) {
+				return true;
+			}
+			bool = false;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.M(").append(i).append(',').append(i_46_).append(')').toString());
+		}
+		return bool;
+	}
+
+	final void method426(final boolean bool, final boolean bool_47_, final byte i) {
+		try {
+			if (i != -20) {
+				aClass52_452 = null;
+			}
+			if (method418()) {
+				if (bool_47_) {
+					aClass52_452.aClass56Array479 = null;
+					aClass52_452.anIntArrayArray474 = null;
+				}
+				if (bool) {
+					aClass52_452.anIntArray480 = null;
+					aClass52_452.aClass56_473 = null;
+				}
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.S(").append(bool).append(',').append(bool_47_).append(',').append(i).append(')').toString());
+		}
+	}
+
+	final void method427(final int i, String string) {
+		try {
+			if (i <= 6) {
+				method431(86, 36, null, -78);
+			}
+			if (method418()) {
+				string = string.toLowerCase();
+				final int i_48_ = aClass52_452.aClass56_473.method487(-75, Class120_Sub14_Sub13.method1524(string, 0));
+				method411(0, i_48_);
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.C(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+		}
+	}
+
+	final byte[] method428(final int i, String string, String string_49_) {
+		byte[] is;
+		try {
+			if (!method418()) {
+				return null;
+			}
+			string_49_ = string_49_.toLowerCase();
+			if (i < 62) {
+				return null;
+			}
+			string = string.toLowerCase();
+			final int i_50_ = aClass52_452.aClass56_473.method487(-92, Class120_Sub14_Sub13.method1524(string_49_, 0));
+			if (!method436(i_50_, -117)) {
+				return null;
+			}
+			final int i_51_ = aClass52_452.aClass56Array479[i_50_].method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
+			is = method442(i_50_, (byte) 110, i_51_);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.H(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(string_49_ != null ? "{...}" : "null").append(')').toString());
+		}
+		return is;
+	}
+
+	final boolean method429(final int i, final int i_52_) {
+		try {
+			if (!method418()) {
+				return false;
+			}
+			if (aClass52_452.anIntArray465.length == 1) {
+				return method440(0, true, i);
+			}
+			if (!method436(i, -126)) {
+				return false;
+			}
+			if (i_52_ <= 59) {
+				method434(-43, -94);
+			}
+			if (aClass52_452.anIntArray465[i] == 1) {
+				return method440(i, true, 0);
+			}
+			throw new RuntimeException();
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.HA(").append(i).append(',').append(i_52_).append(')').toString());
+		}
+	}
+
+	final boolean method430(final boolean bool) {
+		boolean bool_53_;
+		try {
+			if (!method418()) {
+				return false;
+			}
+			boolean bool_54_ = bool;
+			for (final int i_55_ : aClass52_452.anIntArray482) {
+				if (anObjectArray451[i_55_] == null) {
+					method422(1, i_55_);
+					if (anObjectArray451[i_55_] == null) {
+						bool_54_ = false;
+					}
+				}
+			}
+			bool_53_ = bool_54_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.DA(").append(bool).append(')').toString());
+		}
+		return bool_53_;
+	}
+
+	final byte[] method431(final int i, final int i_56_, final int[] is, final int i_57_) {
+		byte[] is_58_;
+		try {
+			if (!method423(i, i_57_ ^ 0xa, i_56_)) {
+				return null;
+			}
+			if (anObjectArrayArray448[i_56_] == null || anObjectArrayArray448[i_56_][i] == null) {
+				boolean bool = method424(0, is, i_56_);
+				if (!bool) {
+					method422(1, i_56_);
+					bool = method424(0, is, i_56_);
+					if (!bool) {
+						return null;
+					}
+				}
+			}
+			final byte[] is_59_ = Class139.method1988(i_57_ + 19138, false, anObjectArrayArray448[i_56_][i]);
+			if (i_57_ != 0) {
+				return null;
+			}
+			if (aBoolean447) {
+				anObjectArrayArray448[i_56_][i] = null;
+				if (aClass52_452.anIntArray465[i_56_] == 1) {
+					anObjectArrayArray448[i_56_] = null;
+				}
+			}
+			is_58_ = is_59_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.Q(").append(i).append(',').append(i_56_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_57_).append(')').toString());
+		}
+		return is_58_;
+	}
+
+	final int method432(final boolean bool, String string) {
+		int i;
+		try {
+			if (!method418()) {
+				return -1;
+			}
+			string = string.toLowerCase();
+			final int i_60_ = aClass52_452.aClass56_473.method487(-98, Class120_Sub14_Sub13.method1524(string, 0));
+			if (bool) {
+				aClass52_452 = null;
+			}
+			if (!method436(i_60_, -126)) {
+				return -1;
+			}
+			i = i_60_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.E(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+		}
+		return i;
+	}
+
+	final int[] method433(final boolean bool, final int i) {
+		int[] is;
+		try {
+			if (!bool) {
+				method432(true, null);
+			}
+			if (!method436(i, -112)) {
+				return null;
+			}
+			int[] is_61_ = aClass52_452.anIntArrayArray468[i];
+			if (is_61_ == null) {
+				is_61_ = new int[aClass52_452.anIntArray475[i]];
+				for (int i_62_ = 0; i_62_ < is_61_.length; i_62_++) {
+					is_61_[i_62_] = i_62_;
+				}
+			}
+			is = is_61_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.AA(").append(bool).append(',').append(i).append(')').toString());
+		}
+		return is;
+	}
+
+	static final boolean method434(final int i, final int i_63_) {
+		boolean bool;
+		try {
+			if (Class57.aBooleanArray503[i_63_]) {
+				return true;
+			}
+			if (!Class101_Sub4.aClass50_2301.method425(i_63_, (byte) -73)) {
+				return false;
+			}
+			if (i >= -24) {
+				return false;
+			}
+			final int i_64_ = Class101_Sub4.aClass50_2301.method441(i_63_, 1);
+			if (i_64_ == 0) {
+				Class57.aBooleanArray503[i_63_] = true;
+				return true;
+			}
+			if (Node.aClass189ArrayArray1150[i_63_] == null) {
+				Node.aClass189ArrayArray1150[i_63_] = new Class189[i_64_];
+			}
+			for (int i_65_ = 0; i_64_ > i_65_; i_65_++) {
+				if (Node.aClass189ArrayArray1150[i_63_][i_65_] == null) {
+					final byte[] is = Class101_Sub4.aClass50_2301.method442(i_63_, (byte) 116, i_65_);
+					if (is != null) {
+						final Class189 class189 = Node.aClass189ArrayArray1150[i_63_][i_65_] = new Class189();
+						class189.anInt1999 = (i_63_ << 16) - -i_65_;
+						if (is[0] == -1) {
+							class189.method2495(-14625, new Buffer(is));
+						} else {
+							class189.method2491(new Buffer(is), 78);
+						}
+					}
+				}
+			}
+			Class57.aBooleanArray503[i_63_] = true;
+			bool = true;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.F(").append(i).append(',').append(i_63_).append(')').toString());
+		}
+		return bool;
+	}
+
+	final boolean method435(String string, final int i) {
+		boolean bool;
+		try {
+			if (!method418()) {
+				return false;
+			}
+			string = string.toLowerCase();
+			if (i != 2) {
+				method415(-68);
+			}
+			final int i_66_ = aClass52_452.aClass56_473.method487(-72, Class120_Sub14_Sub13.method1524(string, 0));
+			bool = method425(i_66_, (byte) -73);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.CA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		}
+		return bool;
+	}
+
+	private final boolean method436(final int i, final int i_67_) {
+		boolean bool;
+		try {
+			if (!method418()) {
+				return false;
+			}
+			if (i < 0 || aClass52_452.anIntArray465.length <= i || aClass52_452.anIntArray465[i] == 0) {
+				if (!Class90.aBoolean845) {
+					return false;
+				}
+				throw new IllegalArgumentException(Integer.toString(i));
+			}
+			if (i_67_ >= -105) {
+				method437(114, (byte) -119);
+			}
+			bool = true;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.N(").append(i).append(',').append(i_67_).append(')').toString());
+		}
+		return bool;
+	}
+
+	final int method437(final int i, final byte i_68_) {
+		int i_69_;
+		try {
+			if (!method418()) {
+				return -1;
+			}
+			final int i_70_ = aClass52_452.aClass56_473.method487(-91, i);
+			if (!method436(i_70_, -110)) {
+				return -1;
+			}
+			if (i_68_ != -115) {
+				return -24;
+			}
+			i_69_ = i_70_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.L(").append(i).append(',').append(i_68_).append(')').toString());
+		}
+		return i_69_;
+	}
+
+	final void method438(final boolean bool, final int i) {
+		try {
+			if (method436(i, -119)) {
+				if (bool) {
+					aClass52_452 = null;
+				}
+				if (anObjectArrayArray448 != null) {
+					anObjectArrayArray448[i] = null;
+				}
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.GA(").append(bool).append(',').append(i).append(')').toString());
+		}
+	}
+
+	final int method439() {
+		if (!method418()) {
+			throw new IllegalStateException("");
+		}
+		return aClass52_452.anInt481;
+	}
+
+	final boolean method440(final int i, final boolean bool, final int i_72_) {
+		boolean bool_73_;
+		try {
+			if (!method423(i_72_, -35, i)) {
+				return false;
+			}
+			if (anObjectArrayArray448[i] != null && anObjectArrayArray448[i][i_72_] != null) {
+				return true;
+			}
+			if (!bool) {
+				method410(null, (byte) -61, null);
+			}
+			if (anObjectArray451[i] != null) {
+				return true;
+			}
+			method422(1, i);
+			if (anObjectArray451[i] != null) {
+				return true;
+			}
+			bool_73_ = false;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.B(").append(i).append(',').append(bool).append(',').append(i_72_).append(')').toString());
+		}
+		return bool_73_;
+	}
+
+	final int method441(final int i, final int i_74_) {
+		int i_75_;
+		try {
+			if (i_74_ != 1) {
+				return 77;
+			}
+			if (!method436(i, i_74_ ^ ~0x71)) {
+				return 0;
+			}
+			i_75_ = aClass52_452.anIntArray465[i];
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.IA(").append(i).append(',').append(i_74_).append(')').toString());
+		}
+		return i_75_;
+	}
+
+	final byte[] method442(final int i, final byte i_76_, final int i_77_) {
+		byte[] is;
+		try {
+			if (i_76_ < 108) {
+				aClass53_450 = null;
+			}
+			is = method431(i_77_, i, null, 0);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.D(").append(i).append(',').append(i_76_).append(',').append(i_77_).append(')').toString());
+		}
+		return is;
+	}
+
+	Class50(final Class53 class53, final boolean bool, final boolean bool_78_) {
+		aBoolean447 = bool_78_;
+		aClass53_450 = class53;
+		aBoolean446 = bool;
+	}
+}

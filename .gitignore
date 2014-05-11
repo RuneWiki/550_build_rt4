@@ -1,0 +1,16 @@
+﻿# Eclipse Project #
+.buildpath
+.classpath
+.project
+/.settings
+
+# Binary files #
+*.class
+*.jar
+
+# Class Folder #
+/bin
+
+# Others #
+/libs
+/src/com/Address.java

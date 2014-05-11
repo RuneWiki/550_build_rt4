@@ -1,0 +1,63 @@
+/* Class120_Sub28 - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+
+final class Class120_Sub28 extends Node {
+	byte[][][] aByteArrayArrayArray2750;
+	static int anInt2751 = 0;
+	int[] anIntArray2752;
+	int anInt2753;
+	static Class120_Sub13[] aClass120_Sub13Array2754;
+	SignlinkNode[] aClass185Array2755;
+	int[] anIntArray2756;
+	int anInt2757;
+	static int leftMargin;
+	static String[] aStringArray2759 = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	SignlinkNode[] aClass185Array2760;
+	static int[] anIntArray2761;
+	static int anInt2762;
+	int[] anIntArray2763;
+
+	static {
+		leftMargin = 0;
+		anInt2762 = 0;
+		anIntArray2761 = new int[14];
+	}
+
+	public static void method1724(final int i) {
+		try {
+			aStringArray2759 = null;
+			aClass120_Sub13Array2754 = null;
+			if (i != 0) {
+				method1724(19);
+			}
+			anIntArray2761 = null;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sj.A(").append(i).append(')').toString());
+		}
+	}
+
+	static final void method1725(final boolean bool) {
+		try {
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.method899(118)) {
+				if (class120_sub8.aBoolean2491) {
+					class120_sub8.method1156(-123);
+				}
+			}
+			if (bool) {
+				aStringArray2759 = null;
+			}
+			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method893(1253231568); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.method899(65)) {
+				if (class120_sub8.aBoolean2491) {
+					class120_sub8.method1156(-121);
+				}
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sj.B(").append(bool).append(')').toString());
+		}
+	}
+
+	public Class120_Sub28() {
+		/* empty */
+	}
+}

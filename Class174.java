@@ -1,0 +1,164 @@
+/* Class174 - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+
+final class Class174 {
+	static int[] anIntArray1731 = new int[50];
+	Class108 head = new Class108();
+	static String aString1733 = "skill: ";
+	private Class108 next;
+	static int currentCursorId = -1;
+	
+	final Class108 peekFirst() {
+		final Class108 node = this.head.next;
+		if (this.head == node) {
+			next = null;
+			return null;
+		}
+		next = node.next;
+		return node;
+	}
+
+	final Class108 peekNext() {
+		final Class108 node = next;
+		if (this.head == node) {
+			next = null;
+			return null;
+		}
+		next = node.next;
+		return node;
+	}
+
+	final int getCount() {
+		int count = 0;
+		Class108 next = this.head.next;
+		while (this.head != next) {
+			next = next.next;
+			count++;
+		}
+		return count;
+	}
+
+	public static void method2232(final int i) {
+		try {
+			anIntArray1731 = null;
+			if (i != 0) {
+				method2232(70);
+			}
+			aString1733 = null;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
+		}
+	}
+
+	static final void method2233(final byte i) {
+		try {
+			if (i >= 0) {
+				method2234(50, -9L);
+			}
+			while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.anInt118, 8) >= 11) {
+				final int i_3_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(11);
+				if (i_3_ == 2047) {
+					break;
+				}
+				boolean bool = false;
+				if (Class118.playersList[i_3_] == null) {
+					bool = true;
+					Class118.playersList[i_3_] = new Player();
+					if (StringNode.aClass120_Sub7Array2737[i_3_] != null) {
+						Class118.playersList[i_3_].method2339(StringNode.aClass120_Sub7Array2737[i_3_], (byte) 71);
+					}
+				}
+				Class112.playerIndices[Class83.localPlayerCount++] = i_3_;
+				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+				class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
+				final int i_4_ = Class15.anIntArray101[Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3)];
+				if (bool) {
+					class180_sub5_sub1.anInt3019 = class180_sub5_sub1.anInt3032 = i_4_;
+				}
+				int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
+				if (i_5_ > 15) {
+					i_5_ -= 32;
+				}
+				final int i_6_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+				final int i_7_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+				if (i_7_ == 1) {
+					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+				}
+				int i_8_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
+				if (i_8_ > 15) {
+					i_8_ -= 32;
+				}
+				class180_sub5_sub1.method2343(Class100.selfPlayer.anIntArray3040[0] + i_8_, i_6_ == 1, Class100.selfPlayer.anIntArray2958[0] + i_5_);
+			}
+			Canvas_Sub1.aClass120_Sub7_Sub1_16.method1146();
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.F(").append(i).append(')').toString());
+		}
+	}
+
+	static final String method2234(final int i, long l) {
+		String string;
+		try {
+			if ((l ^ 0xffffffffffffffffL) >= -1L || (l ^ 0xffffffffffffffffL) <= -6582952005840035282L) {
+				return null;
+			}
+			if (l % 37L == 0L) {
+				return null;
+			}
+			int i_9_ = i;
+			for (long l_10_ = l; l_10_ != 0L; l_10_ /= 37L) {
+				i_9_++;
+			}
+			final StringBuffer stringbuffer = new StringBuffer(i_9_);
+			while ((l ^ 0xffffffffffffffffL) != -1L) {
+				final long l_11_ = l;
+				l /= 37L;
+				stringbuffer.append(Class120_Sub12_Sub16.aCharArray3254[(int) (l_11_ + -(l * 37L))]);
+			}
+			string = stringbuffer.reverse().toString();
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.G(").append(i).append(',').append(l).append(')').toString());
+		}
+		return string;
+	}
+
+	static final void method2236(final int i) {
+		try {
+			if (i == 60) {
+				for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.method893(1253231568); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.method899(115)) {
+					final Class180_Sub3 class180_sub3 = class120_sub14_sub4.aClass180_Sub3_3467;
+					if (class180_sub3.anInt2908 == Class173.anInt1729 && !class180_sub3.aBoolean2920) {
+						if (Class101_Sub2.loopCycle >= class180_sub3.anInt2917) {
+							class180_sub3.method2311(Class120_Sub12_Sub22.anInt3301, (byte) -46);
+							if (!class180_sub3.aBoolean2920) {
+								Class120_Sub12_Sub5.method1218(class180_sub3.anInt2908, class180_sub3.anInt2904, class180_sub3.anInt2907, class180_sub3.anInt2905, 60, class180_sub3, 0, -1L, false);
+							} else {
+								class120_sub14_sub4.unlink();
+							}
+						}
+					} else {
+						class120_sub14_sub4.unlink();
+					}
+				}
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.C(").append(i).append(')').toString());
+		}
+	}
+
+	final void insertLast(final Class108 class108) {
+		if (class108.previous != null) {
+			class108.unlink();
+		}
+		class108.next = this.head;
+		class108.previous = this.head.previous;
+		class108.previous.next = class108;
+		class108.next.previous = class108;
+	}
+
+	public Class174() {
+		this.head.previous = this.head;
+		this.head.next = this.head;
+	}
+}

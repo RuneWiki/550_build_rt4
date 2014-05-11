@@ -1,0 +1,302 @@
+/* Class120_Sub12_Sub5 - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+
+final class Class120_Sub12_Sub5 extends Class120_Sub12 {
+	private int anInt3160;
+	private int anInt3161 = 3216;
+	private int anInt3162;
+	static boolean aBoolean3163 = false;
+	static FileSystem aClass51_3164;
+	static int canvasHeight;
+	private final int[] anIntArray3166;
+	static AbstractSprite[] aClass120_Sub14_Sub19Array3167;
+
+	static final boolean method1217(final boolean bool, final char c) {
+		boolean bool_0_;
+		try {
+			if (!bool) {
+				aClass120_Sub14_Sub19Array3167 = null;
+			}
+			bool_0_ = c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.U(").append(bool).append(',').append(c).append(')').toString());
+		}
+		return bool_0_;
+	}
+
+	static final boolean method1218(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final Class180 class180, final int i_5_, final long l, final boolean bool) {
+		if (class180 == null) {
+			return true;
+		}
+		int i_6_ = i_1_ - i_4_;
+		int i_7_ = i_2_ - i_4_;
+		int i_8_ = i_1_ + i_4_;
+		int i_9_ = i_2_ + i_4_;
+		if (bool) {
+			if (i_5_ > 640 && i_5_ < 1408) {
+				i_9_ += 128;
+			}
+			if (i_5_ > 1152 && i_5_ < 1920) {
+				i_8_ += 128;
+			}
+			if (i_5_ > 1664 || i_5_ < 384) {
+				i_7_ -= 128;
+			}
+			if (i_5_ > 128 && i_5_ < 896) {
+				i_6_ -= 128;
+			}
+		}
+		i_6_ /= 128;
+		i_7_ /= 128;
+		i_8_ /= 128;
+		i_9_ /= 128;
+		return Class120_Sub13.method1403(i, i_6_, i_7_, i_8_ - i_6_ + 1, i_9_ - i_7_ + 1, i_1_, i_2_, i_3_, class180, i_5_, true, l);
+	}
+
+	static final void method1219(final byte i) {
+		try {
+			if (Class120_Sub12_Sub15.anInt3243 != Class173.anInt1729) {
+				if (Class38.method315(10, Class173.anInt1729)) {
+					Class120_Sub12_Sub15.anInt3243 = Class173.anInt1729;
+				}
+				if (i > -38) {
+					method1217(true, '\uffff');
+				}
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.T(").append(i).append(')').toString());
+		}
+	}
+
+	static final boolean method1220(final byte i) {
+		boolean bool;
+		try {
+			do {
+				boolean bool_10_;
+				try {
+					if (Class120_Sub12_Sub25.anInt3312 != 2) {
+						break;
+					}
+					if (Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 == null) {
+						Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = Class120_Sub31.method1830(Class52.aClass50_476, Class120_Sub14_Sub23.anInt3649, Class40.anInt349);
+						if (Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 == null) {
+							return false;
+						}
+					}
+					if (Class26.aClass90_163 == null) {
+						Class26.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, Class52.aClass50_469);
+					}
+					if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, 0, Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
+						break;
+					}
+					Class30.aClass120_Sub30_Sub2_234.method1778((byte) 15);
+					Class30.aClass120_Sub30_Sub2_234.method1748(128, Class120_Sub14_Sub14_Sub2.anInt3940);
+					Class30.aClass120_Sub30_Sub2_234.method1773(StringNode.aBoolean2734, Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941, (byte) 119);
+					Class26.aClass90_163 = null;
+					Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = null;
+					Class52.aClass50_476 = null;
+					Class120_Sub12_Sub25.anInt3312 = 0;
+					bool_10_ = true;
+				} catch (final Exception exception) {
+					exception.printStackTrace();
+					Class30.aClass120_Sub30_Sub2_234.method1770(21229);
+					Class26.aClass90_163 = null;
+					Class120_Sub12_Sub25.anInt3312 = 0;
+					Class52.aClass50_476 = null;
+					Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = null;
+					break;
+				}
+				return bool_10_;
+			} while (false);
+			if (i <= 125) {
+				return false;
+			}
+			bool = false;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.S(").append(i).append(')').toString());
+		}
+		return bool;
+	}
+
+	public Class120_Sub12_Sub5() {
+		super(1, true);
+		anInt3160 = 3216;
+		anInt3162 = 4096;
+		anIntArray3166 = new int[3];
+	}
+
+	@Override
+	final void method1180(final byte i, final Buffer class120_sub7, final int i_11_) {
+		try {
+			final int i_12_ = i_11_;
+			while_120_: do {
+				do {
+					if (i_12_ != 0) {
+						if (i_12_ != 1) {
+							if (i_12_ == 2) {
+								break;
+							}
+							break while_120_;
+						}
+					} else {
+						anInt3162 = class120_sub7.getUShort();
+						break while_120_;
+					}
+					anInt3161 = class120_sub7.getUShort();
+					break while_120_;
+				} while (false);
+				anInt3160 = class120_sub7.getUShort();
+			} while (false);
+			if (i != -43) {
+				method1221(16);
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_11_).append(')').toString());
+		}
+	}
+
+	public static void method1221(final int i) {
+		try {
+			aClass120_Sub14_Sub19Array3167 = null;
+			if (i == -23112) {
+				aClass51_3164 = null;
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.R(").append(i).append(')').toString());
+		}
+	}
+
+	@Override
+	final void method1193(final byte i) {
+		try {
+			method1223((byte) -92);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.O(").append(i).append(')').toString());
+		}
+	}
+
+	@Override
+	final int[] method1187(final int i, final int i_13_) {
+		int[] is;
+		try {
+			final int[] is_14_ = this.aClass30_2563.method258(i_13_, -81);
+			if (i != -1735) {
+				anInt3162 = -70;
+			}
+			if (this.aClass30_2563.aBoolean238) {
+				final int i_15_ = Class120_Sub12_Sub26.anInt3331 * anInt3162 >> 12;
+				final int[] is_16_ = method1192(i ^ 0x1895, i_13_ + -1 & Class120_Sub29.anInt2774, 0);
+				final int[] is_17_ = method1192(i + -6029, i_13_, 0);
+				final int[] is_18_ = method1192(i + -6029, Class120_Sub29.anInt2774 & i_13_ - -1, 0);
+				for (int i_19_ = 0; i_19_ < Class120_Sub12_Sub7.anInt3178; i_19_++) {
+					final int i_20_ = i_15_ * (is_17_[Class32.anInt259 & i_19_ + -1] + -is_17_[Class32.anInt259 & i_19_ + 1]) >> 12;
+					int i_21_ = i_20_ >> 4;
+					final int i_22_ = (is_18_[i_19_] + -is_16_[i_19_]) * i_15_ >> 12;
+					if (i_21_ < 0) {
+						i_21_ = -i_21_;
+					}
+					int i_23_ = i_22_ >> 4;
+					if (i_23_ < 0) {
+						i_23_ = -i_23_;
+					}
+					if (i_23_ > 255) {
+						i_23_ = 255;
+					}
+					if (i_21_ > 255) {
+						i_21_ = 255;
+					}
+					final int i_24_ = 0xff & Class15.aByteArray100[i_21_ - -((i_23_ - -1) * i_23_ >> 1)];
+					int i_25_ = i_20_ * i_24_ >> 8;
+					int i_26_ = i_24_ * i_22_ >> 8;
+					i_25_ = anIntArray3166[0] * i_25_ >> 12;
+					int i_27_ = i_24_ * 4096 >> 8;
+					i_26_ = anIntArray3166[1] * i_26_ >> 12;
+					i_27_ = anIntArray3166[2] * i_27_ >> 12;
+					is_14_[i_19_] = i_27_ + i_26_ + i_25_;
+				}
+			}
+			is = is_14_;
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.D(").append(i).append(',').append(i_13_).append(')').toString());
+		}
+		return is;
+	}
+
+	static final void method1222(final int i, final long l) {
+		try {
+			if (!Class134.aBoolean1277) {
+				Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
+				OutputStream_Sub1.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
+			}
+			if (i != 0) {
+				method1217(false, '\035');
+			}
+			final int i_28_ = Class100.selfPlayer.z - -Class29.anInt195;
+			final int i_29_ = Class23.anInt136 + Class100.selfPlayer.x;
+			if (Class69_Sub3_Sub1.anInt3083 + -i_29_ < -500 || -i_29_ + Class69_Sub3_Sub1.anInt3083 > 500 || Class120_Sub10.anInt2545 - i_28_ < -500 || Class120_Sub10.anInt2545 - i_28_ > 500) {
+				Class120_Sub10.anInt2545 = i_28_;
+				Class69_Sub3_Sub1.anInt3083 = i_29_;
+			}
+			if (Class69_Sub3_Sub1.anInt3083 != i_29_) {
+				final int i_30_ = i_29_ + -Class69_Sub3_Sub1.anInt3083;
+				int i_31_ = (int) (l * i_30_ / 320L);
+				if (i_30_ <= 0) {
+					if (i_31_ != 0) {
+						if (i_31_ < i_30_) {
+							i_31_ = i_30_;
+						}
+					} else {
+						i_31_ = -1;
+					}
+				} else if (i_31_ == 0) {
+					i_31_ = 1;
+				} else if (i_31_ > i_30_) {
+					i_31_ = i_30_;
+				}
+				Class69_Sub3_Sub1.anInt3083 += i_31_;
+			}
+			if (Class120_Sub10.anInt2545 != i_28_) {
+				final int i_32_ = i_28_ - Class120_Sub10.anInt2545;
+				int i_33_ = (int) (l * i_32_ / 320L);
+				if (i_32_ > 0) {
+					if (i_33_ != 0) {
+						if (i_33_ > i_32_) {
+							i_33_ = i_32_;
+						}
+					} else {
+						i_33_ = 1;
+					}
+				} else if (i_33_ == 0) {
+					i_33_ = -1;
+				} else if (i_32_ > i_33_) {
+					i_33_ = i_32_;
+				}
+				Class120_Sub10.anInt2545 += i_33_;
+			}
+			Class127.method1892((byte) 35);
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.V(").append(i).append(',').append(l).append(')').toString());
+		}
+	}
+
+	private final void method1223(final byte i) {
+		try {
+			final double d = Math.cos(anInt3160 / 4096.0F);
+			anIntArray3166[0] = (int) (4096.0 * (Math.sin(anInt3161 / 4096.0F) * d));
+			anIntArray3166[1] = (int) (Math.cos(anInt3161 / 4096.0F) * d * 4096.0);
+			anIntArray3166[2] = (int) (4096.0 * Math.sin(anInt3160 / 4096.0F));
+			final int i_34_ = anIntArray3166[0] * anIntArray3166[0] >> 12;
+			final int i_35_ = anIntArray3166[2] * anIntArray3166[2] >> 12;
+			final int i_36_ = anIntArray3166[1] * anIntArray3166[1] >> 12;
+			final int i_37_ = (int) (4096.0 * Math.sqrt(i_35_ + i_34_ + i_36_ >> 12));
+			if (i == -92 && i_37_ != 0) {
+				anIntArray3166[0] = (anIntArray3166[0] << 12) / i_37_;
+				anIntArray3166[2] = (anIntArray3166[2] << 12) / i_37_;
+				anIntArray3166[1] = (anIntArray3166[1] << 12) / i_37_;
+			}
+		} catch (final RuntimeException runtimeexception) {
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.W(").append(i).append(')').toString());
+		}
+	}
+}
