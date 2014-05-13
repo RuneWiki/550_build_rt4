@@ -43,8 +43,8 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 			NpcType.anInt1660 = i;
 			if (bool && Class120_Sub17.anInt2621 >= 100) {
 				Class83.anInt792 = 128 * Class99.anInt951 + 64;
-				GroundObject.anInt3626 = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.anInt3200 = Class22.method197(GroundObject.anInt3626, true, Class83.anInt792, Class173.gameLevel) - SpotAnimType.anInt986;
+				GroundObjectNode.anInt3626 = 64 + 128 * Class134.anInt1280;
+				Class120_Sub12_Sub10.anInt3200 = Class22.method197(Class173.gameLevel, Class83.anInt792, GroundObjectNode.anInt3626) - SpotAnimType.anInt986;
 			}
 			client.anInt2200 = 2;
 		} catch (final RuntimeException runtimeexception) {
@@ -87,20 +87,20 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 	static final Class29 method1642(final int i, final int i_8_) {
 		Class29 class29;
 		try {
-			Class29 class29_9_ = (Class29) Class120_Sub12_Sub31.aClass21_3378.method193(i_8_, (byte) -96);
+			Class29 class29_9_ = (Class29) Class120_Sub12_Sub31.aClass21_3378.get(i_8_);
 			if (class29_9_ != null) {
 				return class29_9_;
 			}
 			if (i != -16596) {
 				return null;
 			}
-			final byte[] is = CanvasWrapper.aClass50_18.method442(32, (byte) 116, i_8_);
+			final byte[] is = CanvasWrapper.aClass50_18.getFile(32, i_8_);
 			class29_9_ = new Class29();
 			if (is != null) {
 				class29_9_.method248(new Buffer(is), (byte) 70);
 			}
 			class29_9_.method253(63);
-			Class120_Sub12_Sub31.aClass21_3378.method185(-127, class29_9_, i_8_);
+			Class120_Sub12_Sub31.aClass21_3378.put(class29_9_, i_8_);
 			class29 = class29_9_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.H(").append(i).append(',').append(i_8_).append(')').toString());

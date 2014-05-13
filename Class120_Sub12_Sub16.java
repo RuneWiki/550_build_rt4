@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 	static short aShort3250 = 1;
-	static Class21 aClass21_3251 = new Class21(64);
+	static Cache aClass21_3251 = new Cache(64);
 	static int[] anIntArray3252 = new int[200];
 	static int anInt3253;
 	static char[] aCharArray3254 = { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -97,10 +97,10 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			if (Class101_Sub1.anInt2272 >= 100) {
 				final int i_12_ = Class109.anInt1042 * 128 + 64;
 				final int i_13_ = 64 + 128 * Class120_Sub10.anInt2546;
-				final int i_14_ = Class22.method197(i_13_, true, i_12_, Class173.gameLevel) + -Class121.anInt1154;
+				final int i_14_ = Class22.method197(Class173.gameLevel, i_12_, i_13_) + -Class121.anInt1154;
 				final int i_15_ = i_12_ - Class83.anInt792;
 				final int i_16_ = -Class120_Sub12_Sub10.anInt3200 + i_14_;
-				final int i_17_ = i_13_ + -GroundObject.anInt3626;
+				final int i_17_ = i_13_ + -GroundObjectNode.anInt3626;
 				final int i_18_ = (int) Math.sqrt(i_17_ * i_17_ + i_15_ * i_15_);
 				Class128.anInt1223 = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
 				Class180_Sub3.anInt2909 = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
@@ -170,16 +170,16 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			if (i == 24594) {
 				int i_28_ = Class99.anInt951 * 128 + 64;
 				int i_29_ = 64 + 128 * Class134.anInt1280;
-				int i_30_ = Class22.method197(i_29_, true, i_28_, Class173.gameLevel) + -SpotAnimType.anInt986;
+				int i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) + -SpotAnimType.anInt986;
 				if (Class120_Sub17.anInt2621 >= 100) {
-					GroundObject.anInt3626 = 64 + 128 * Class134.anInt1280;
+					GroundObjectNode.anInt3626 = 64 + 128 * Class134.anInt1280;
 					Class83.anInt792 = Class99.anInt951 * 128 + 64;
-					Class120_Sub12_Sub10.anInt3200 = Class22.method197(GroundObject.anInt3626, true, Class83.anInt792, Class173.gameLevel) + -SpotAnimType.anInt986;
+					Class120_Sub12_Sub10.anInt3200 = Class22.method197(Class173.gameLevel, Class83.anInt792, GroundObjectNode.anInt3626) + -SpotAnimType.anInt986;
 				} else {
-					if (GroundObject.anInt3626 < i_29_) {
-						GroundObject.anInt3626 += NpcType.anInt1660 - -((i_29_ + -GroundObject.anInt3626) * Class120_Sub17.anInt2621 / 1000);
-						if (GroundObject.anInt3626 > i_29_) {
-							GroundObject.anInt3626 = i_29_;
+					if (GroundObjectNode.anInt3626 < i_29_) {
+						GroundObjectNode.anInt3626 += NpcType.anInt1660 - -((i_29_ + -GroundObjectNode.anInt3626) * Class120_Sub17.anInt2621 / 1000);
+						if (GroundObjectNode.anInt3626 > i_29_) {
+							GroundObjectNode.anInt3626 = i_29_;
 						}
 					}
 					if (i_28_ > Class83.anInt792) {
@@ -200,10 +200,10 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 							Class120_Sub12_Sub10.anInt3200 = i_30_;
 						}
 					}
-					if (i_29_ < GroundObject.anInt3626) {
-						GroundObject.anInt3626 -= (GroundObject.anInt3626 - i_29_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (GroundObject.anInt3626 < i_29_) {
-							GroundObject.anInt3626 = i_29_;
+					if (i_29_ < GroundObjectNode.anInt3626) {
+						GroundObjectNode.anInt3626 -= (GroundObjectNode.anInt3626 - i_29_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+						if (GroundObjectNode.anInt3626 < i_29_) {
+							GroundObjectNode.anInt3626 = i_29_;
 						}
 					}
 					if (i_30_ < Class120_Sub12_Sub10.anInt3200) {
@@ -215,8 +215,8 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				}
 				i_29_ = 128 * Class120_Sub10.anInt2546 + 64;
 				i_28_ = 64 + Class109.anInt1042 * 128;
-				i_30_ = Class22.method197(i_29_, true, i_28_, Class173.gameLevel) - Class121.anInt1154;
-				final int i_31_ = -GroundObject.anInt3626 + i_29_;
+				i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) - Class121.anInt1154;
+				final int i_31_ = -GroundObjectNode.anInt3626 + i_29_;
 				final int i_32_ = -Class120_Sub12_Sub10.anInt3200 + i_30_;
 				final int i_33_ = i_28_ + -Class83.anInt792;
 				final int i_34_ = (int) Math.sqrt(i_31_ * i_31_ + i_33_ * i_33_);

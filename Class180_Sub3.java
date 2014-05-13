@@ -4,10 +4,10 @@
 import java.io.DataInputStream;
 import java.net.URL;
 
-final class Class180_Sub3 extends Class180 {
+final class Class180_Sub3 extends SceneGraphNode {
 	int anInt2904;
 	int anInt2905;
-	static Class21 aClass21_2906;
+	static Cache aClass21_2906;
 	int anInt2907;
 	int anInt2908;
 	static int anInt2909;
@@ -24,7 +24,7 @@ final class Class180_Sub3 extends Class180 {
 	static int[] anIntArray2921;
 
 	static {
-		aClass21_2906 = new Class21(100);
+		aClass21_2906 = new Cache(100);
 	}
 
 	static final void method2309(final byte i) {
@@ -204,12 +204,12 @@ final class Class180_Sub3 extends Class180 {
 
 	static final void method2314(final int i, final int i_15_) {
 		try {
-			Class73.aClass21_635.method192((byte) -102, i);
-			Class11.aClass21_80.method192((byte) 105, i);
+			Class73.aClass21_635.method192(i);
+			Class11.aClass21_80.method192(i);
 			if (i_15_ != 3) {
 				anIntArray2921 = null;
 			}
-			Class180_Sub4.aClass21_2931.method192((byte) -99, i);
+			Class180_Sub4.aClass21_2931.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.B(").append(i).append(',').append(i_15_).append(')').toString());
 		}
@@ -249,13 +249,13 @@ final class Class180_Sub3 extends Class180 {
 	}
 
 	static final Class28 method2315(final int i, final int i_28_, final int i_29_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_28_][i_29_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_28_][i_29_];
 		if (class120_sub18 == null) {
 			return null;
 		}
 		for (int i_30_ = 0; i_30_ < class120_sub18.anInt2638; i_30_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_30_];
-			if ((class28.aLong186 >> 29 & 0x3L) == 2L && class28.anInt180 == i_28_ && class28.anInt184 == i_29_) {
+			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i_28_ && class28.anInt184 == i_29_) {
 				return class28;
 			}
 		}

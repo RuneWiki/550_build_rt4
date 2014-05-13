@@ -54,7 +54,7 @@ final class Class120_Sub16 extends Node {
 
 	static final void method1657(final boolean bool) {
 		try {
-			Class120_Sub14_Sub11.aClass21_3541.method186((byte) 86);
+			Class120_Sub14_Sub11.aClass21_3541.clear();
 			if (!bool) {
 				messageCount = 79;
 			}
@@ -65,11 +65,11 @@ final class Class120_Sub16 extends Node {
 
 	static final void method1658(final int i) {
 		try {
-			Class120_Sub12_Sub14.aClass21_3238.method186((byte) 86);
+			Class120_Sub12_Sub14.aClass21_3238.clear();
 			if (i > -22) {
 				method1658(44);
 			}
-			Class82.aClass21_786.method186((byte) 86);
+			Class82.aClass21_786.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.B(").append(i).append(')').toString());
 		}
@@ -133,22 +133,16 @@ final class Class120_Sub16 extends Node {
 		return i_12_;
 	}
 
-	static final void method1662(final boolean bool, final int i) {
-		try {
-			Class186.anInt1906--;
-			if (Class186.anInt1906 != i) {
-				Class4.method89(Class120_Sub12_Sub33.aStringArray3394, 1 + i, Class120_Sub12_Sub33.aStringArray3394, i, -i + Class186.anInt1906);
-				Class4.method89(Class120_Sub12_Sub29.aStringArray3369, i - -1, Class120_Sub12_Sub29.aStringArray3369, i, Class186.anInt1906 - i);
-				if (!bool) {
-					Class4.method90(InterfaceChangeNode.menuOptionsCursorId, i - -1, InterfaceChangeNode.menuOptionsCursorId, i, -i + Class186.anInt1906);
-					Class4.method94(Class120_Sub29.aShortArray2777, i - -1, Class120_Sub29.aShortArray2777, i, -i + Class186.anInt1906);
-					Class4.method95(Class120_Sub12.aLongArray2562, 1 + i, Class120_Sub12.aLongArray2562, i, -i + Class186.anInt1906);
-					Class4.method90(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.anInt1906 - i);
-					Class4.method90(Class120_Sub29.anIntArray2769, 1 + i, Class120_Sub29.anIntArray2769, i, -i + Class186.anInt1906);
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.G(").append(bool).append(',').append(i).append(')').toString());
+	static final void method1662(final int i) {
+		Class186.anInt1906--;
+		if (Class186.anInt1906 != i) {
+			Class4.method89(Class120_Sub12_Sub33.aStringArray3394, 1 + i, Class120_Sub12_Sub33.aStringArray3394, i, -i + Class186.anInt1906);
+			Class4.method89(Class120_Sub12_Sub29.aStringArray3369, i - -1, Class120_Sub12_Sub29.aStringArray3369, i, Class186.anInt1906 - i);
+			Class4.method90(InterfaceChangeNode.menuOptionsCursorId, i - -1, InterfaceChangeNode.menuOptionsCursorId, i, -i + Class186.anInt1906);
+			Class4.method94(Class120_Sub29.aShortArray2777, i - -1, Class120_Sub29.aShortArray2777, i, -i + Class186.anInt1906);
+			Class4.method95(Class120_Sub12.aLongArray2562, 1 + i, Class120_Sub12.aLongArray2562, i, -i + Class186.anInt1906);
+			Class4.method90(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.anInt1906 - i);
+			Class4.method90(Class120_Sub29.anIntArray2769, 1 + i, Class120_Sub29.anIntArray2769, i, -i + Class186.anInt1906);
 		}
 	}
 
@@ -156,15 +150,15 @@ final class Class120_Sub16 extends Node {
 		try {
 			Class15.menuOpen = false;
 			Class186.anInt1906 = 0;
-			Class23.anInt138 = -1;
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
+			Class23.packetType = -1;
+			Class120_Sub12_Sub11.outputStream.pos = 0;
 			Class114.anInt1093 = -1;
 			Class73.anInt639 = -1;
 			Class40.anInt333 = -1;
 			Class88.anInt827 = 0;
 			Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
 			Class120_Sub22.anInt2675 = 0;
-			AbstractMouseWheelHandler.anInt118 = 0;
+			AbstractMouseWheelHandler.packetSize = 0;
 			Class8.method111((byte) 0);
 			for (int i_14_ = 0; i_14_ < Class118.playersList.length; i_14_++) {
 				if (Class118.playersList[i_14_] != null) {

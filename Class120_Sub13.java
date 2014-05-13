@@ -15,7 +15,7 @@ final class Class120_Sub13 extends Node {
 	String aString2580;
 	static Class193[] aClass193Array2581 = new Class193[29];
 
-	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final Class180 class180, final int i_7_, final boolean bool, final long l) {
+	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
 		final boolean bool_8_ = Class120_Sub26.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
@@ -23,19 +23,19 @@ final class Class120_Sub13 extends Node {
 				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= Class186.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
 					return false;
 				}
-				final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_10_][i_11_];
+				final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_10_][i_11_];
 				if (class120_sub18 != null && class120_sub18.anInt2638 >= 5) {
 					return false;
 				}
 			}
 		}
 		final Class28 class28 = new Class28();
-		class28.aLong186 = l;
+		class28.bitPacked = l;
 		class28.anInt177 = i;
 		class28.anInt178 = i_4_;
 		class28.anInt185 = i_5_;
 		class28.anInt179 = i_6_;
-		class28.aClass180_174 = class180;
+		class28.aClass180_174 = sceneGraphNode;
 		class28.anInt172 = i_7_;
 		class28.anInt180 = i_0_;
 		class28.anInt184 = i_1_;
@@ -57,11 +57,11 @@ final class Class120_Sub13 extends Node {
 					i_14_ += 2;
 				}
 				for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-					if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_15_][i_12_][i_13_] == null) {
-						Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_15_][i_12_][i_13_] = new Class120_Sub18(i_15_, i_12_, i_13_);
+					if (Class120_Sub1.groundTiles[i_15_][i_12_][i_13_] == null) {
+						Class120_Sub1.groundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
 					}
 				}
-				final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_12_][i_13_];
+				final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_12_][i_13_];
 				class120_sub18.aClass28Array2625[class120_sub18.anInt2638] = class28;
 				class120_sub18.anIntArray2641[class120_sub18.anInt2638] = i_14_;
 				class120_sub18.anInt2635 |= i_14_;
@@ -86,10 +86,10 @@ final class Class120_Sub13 extends Node {
 		return true;
 	}
 
-	static final Class189 method1404(final int i, final byte i_18_, final int i_19_) {
-		Class189 class189;
+	static final JagexInterface method1404(final int i, final byte i_18_, final int i_19_) {
+		JagexInterface jagexInterface;
 		try {
-			final Class189 class189_20_ = Class74.method650(i_18_ + -40, i);
+			final JagexInterface class189_20_ = Class74.getJagexInterface(i);
 			if (i_18_ != 82) {
 				fullscreenGraphics = null;
 			}
@@ -99,11 +99,11 @@ final class Class120_Sub13 extends Node {
 			if (class189_20_ == null || class189_20_.aClass189Array2072 == null || i_19_ >= class189_20_.aClass189Array2072.length) {
 				return null;
 			}
-			class189 = class189_20_.aClass189Array2072[i_19_];
+			jagexInterface = class189_20_.aClass189Array2072[i_19_];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("l.A(").append(i).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
 		}
-		return class189;
+		return jagexInterface;
 	}
 
 	static final int method1405(int i, final boolean bool, int i_21_) {

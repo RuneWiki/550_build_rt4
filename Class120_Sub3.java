@@ -9,7 +9,7 @@ final class Class120_Sub3 extends Node {
 	static Class160[] aClass160Array2427 = new Class160[6];
 	static String aString2428 = "Loading config - ";
 
-	static final boolean method1055(final int i, final int i_0_, final boolean bool, final boolean bool_1_, final int i_2_, final Class120_Sub18[][][] class120_sub18s) {
+	static final boolean method1055(final int i, final int i_0_, final boolean bool, final boolean bool_1_, final int i_2_, final GroundTile[][][] class120_sub18s) {
 		boolean bool_3_;
 		try {
 			final byte i_4_ = bool_1_ ? (byte) 1 : (byte) (0xff & InterfaceChangeNode.anInt3490);
@@ -62,8 +62,8 @@ final class Class120_Sub3 extends Node {
 							}
 							if (class120_sub18s[i_14_][i_7_][i_12_].aClass28Array2625 != null) {
 								for (int i_18_ = 0; class120_sub18s[i_14_][i_7_][i_12_].anInt2638 > i_18_; i_18_++) {
-									int i_19_ = (int) (0x3fL & class120_sub18s[i_14_][i_7_][i_12_].aClass28Array2625[i_18_].aLong186 >> 14);
-									final int i_20_ = (int) (0x3L & class120_sub18s[i_14_][i_7_][i_12_].aClass28Array2625[i_18_].aLong186 >> 20);
+									int i_19_ = (int) (0x3fL & class120_sub18s[i_14_][i_7_][i_12_].aClass28Array2625[i_18_].bitPacked >> 14);
+									final int i_20_ = (int) (0x3L & class120_sub18s[i_14_][i_7_][i_12_].aClass28Array2625[i_18_].bitPacked >> 20);
 									if (i_19_ == 21) {
 										i_19_ = 19;
 									}
@@ -75,7 +75,7 @@ final class Class120_Sub3 extends Node {
 							}
 						}
 						bool_13_ = true;
-						final Class120_Sub18 class120_sub18 = class120_sub18s[i_14_][i_7_][i_12_];
+						final GroundTile class120_sub18 = class120_sub18s[i_14_][i_7_][i_12_];
 						if (class120_sub18 != null && class120_sub18.anInt2638 > 0) {
 							for (int i_22_ = 0; i_22_ < class120_sub18.anInt2638; i_22_++) {
 								final Class28 class28 = class120_sub18.aClass28Array2625[i_22_];
@@ -98,8 +98,8 @@ final class Class120_Sub3 extends Node {
 					final int i_25_ = i_7_ << 7;
 					final int i_26_ = i_12_ << 7;
 					if (Class54.anIntArray488[i] <= i_25_) {
-						if (i_25_ > Class120_Sub32.anIntArray2787[i]) {
-							Class120_Sub32.anIntArray2787[i] = i_25_;
+						if (i_25_ > IntegerNode.anIntArray2787[i]) {
+							IntegerNode.anIntArray2787[i] = i_25_;
 						}
 					} else {
 						Class54.anIntArray488[i] = i_25_;
@@ -171,7 +171,7 @@ final class Class120_Sub3 extends Node {
 			if (-1000000 != Class134.anIntArray1284[i]) {
 				Class134.anIntArray1284[i] += 10;
 				Class54.anIntArray488[i] -= 50;
-				Class120_Sub32.anIntArray2787[i] += 50;
+				IntegerNode.anIntArray2787[i] += 50;
 				Class180_Sub6.anIntArray3075[i] += 50;
 				StringNode.anIntArray2735[i] -= 50;
 			}

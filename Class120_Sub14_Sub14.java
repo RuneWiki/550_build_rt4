@@ -303,7 +303,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 				return null;
 			}
 			for (int i_67_ = 0; Class93.spriteAmount > i_67_; i_67_++) {
-				class107_sub1s_66_[i_67_] = new Class107_Sub1(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_67_], Class120_Sub18.spriteYOffsets[i_67_], Class120_Sub12_Sub11.spriteWidths[i_67_], Class120_Sub12_Sub39.spriteHeights[i_67_],
+				class107_sub1s_66_[i_67_] = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_67_], GroundTile.spriteYOffsets[i_67_], Class120_Sub12_Sub11.spriteWidths[i_67_], Class120_Sub12_Sub39.spriteHeights[i_67_],
 						Class145.spritePaletteIndicators[i_67_], Class132_Sub1.spritePalette);
 			}
 			Class53_Sub1.resetSpriteInfo();

@@ -8,7 +8,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	static int anInt3561;
 	private final Class120_Sub12 aClass120_Sub12_3562;
 	static int anInt3563;
-	static Class21 aClass21_3564 = new Class21(4);
+	static Cache aClass21_3564 = new Cache(4);
 	private final Class120_Sub12[] aClass120_Sub12Array3565;
 	private final Class120_Sub12 aClass120_Sub12_3566;
 	static int maxMemory = 64;

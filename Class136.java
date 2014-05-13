@@ -23,7 +23,7 @@ final class Class136 {
 		String string;
 		try {
 			if (bool) {
-				method1978(0, 92, 4, -71, null, -105L, null, null);
+				addObjectPile(0, 92, 4, -71, null, -105L, null, null);
 			}
 			if (-1L <= (l ^ 0xffffffffffffffffL) || -6582952005840035282L >= (l ^ 0xffffffffffffffffL)) {
 				return null;
@@ -56,40 +56,40 @@ final class Class136 {
 		return string;
 	}
 
-	static final void method1978(final int i, final int i_3_, final int i_4_, final int i_5_, final Class180 class180, final long l, final Class180 class180_6_, final Class180 class180_7_) {
-		final Class183 class183 = new Class183();
-		class183.aClass180_1810 = class180;
-		class183.anInt1803 = i_3_ * 128 + 64;
-		class183.anInt1814 = i_4_ * 128 + 64;
-		class183.anInt1813 = i_5_;
-		class183.aLong1806 = l;
-		class183.aClass180_1812 = class180_6_;
-		class183.aClass180_1807 = class180_7_;
-		int i_8_ = 0;
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_3_][i_4_];
-		if (class120_sub18 != null) {
-			for (int i_9_ = 0; i_9_ < class120_sub18.anInt2638; i_9_++) {
-				final Class28 class28 = class120_sub18.aClass28Array2625[i_9_];
-				if ((class28.aLong186 & 0x400000L) == 4194304L) {
-					final int i_10_ = class28.aClass180_174.getMaxY();
-					if (i_10_ != -32768 && i_10_ < i_8_) {
-						i_8_ = i_10_;
+	static final void addObjectPile(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final long l, final SceneGraphNode class180_6_, final SceneGraphNode class180_7_) {
+		final ObjectPile objectPile = new ObjectPile();
+		objectPile.mainItemModel = sceneGraphNode;
+		objectPile.renderX = x * 128 + 64;
+		objectPile.renderZ = z * 128 + 64;
+		objectPile.renderY = y;
+		objectPile.bitPacked = l;
+		objectPile.secondItemModel = class180_6_;
+		objectPile.thirdItemModel = class180_7_;
+		int locHeight = 0;
+		final GroundTile groundTile = Class120_Sub1.groundTiles[level][x][z];
+		if (groundTile != null) {
+			for (int i_9_ = 0; i_9_ < groundTile.anInt2638; i_9_++) {
+				final Class28 class28 = groundTile.aClass28Array2625[i_9_];
+				if ((class28.bitPacked & 0x400000L) == 4194304L) {
+					final int maxY = class28.aClass180_174.getMaxY();
+					if (maxY != -32768 && maxY < locHeight) {
+						locHeight = maxY;
 					}
 				}
 			}
 		}
-		class183.anInt1811 = -i_8_;
-		if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_3_][i_4_] == null) {
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_3_][i_4_] = new Class120_Sub18(i, i_3_, i_4_);
+		objectPile.yLocationModifier = -locHeight;
+		if (Class120_Sub1.groundTiles[level][x][z] == null) {
+			Class120_Sub1.groundTiles[level][x][z] = new GroundTile(level, x, z);
 		}
-		Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_3_][i_4_].aClass183_2634 = class183;
+		Class120_Sub1.groundTiles[level][x][z].objectPile = objectPile;
 	}
 
 	public static void method1979(final int i) {
 		try {
 			aString1316 = null;
 			if (i != 64) {
-				method1978(-90, -53, -118, 99, null, -12L, null, null);
+				addObjectPile(-90, -53, -118, 99, null, -12L, null, null);
 			}
 			aRandom1319 = null;
 			anIntArray1315 = null;

@@ -12,9 +12,9 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 	static int anInt3456;
 	private String aString3457 = "null";
 	char aChar3458;
-	private Class75 aClass75_3459;
+	private Hashtable aClass75_3459;
 	static Class112 aClass112_3460;
-	Class75 aClass75_3461;
+	Hashtable aClass75_3461;
 	static long aLong3462;
 
 	static {
@@ -28,14 +28,14 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 			if (this.aClass75_3461 == null) {
 				return anInt3452;
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) this.aClass75_3461.method659(i_0_, -127);
+			final IntegerNode class120_sub32 = (IntegerNode) this.aClass75_3461.get(i_0_);
 			if (class120_sub32 == null) {
 				return anInt3452;
 			}
 			if (i != 0) {
 				return 46;
 			}
-			i_1_ = class120_sub32.anInt2790;
+			i_1_ = class120_sub32.value;
 		} catch (final RuntimeException runtimeexception) {
 			throw method1428(runtimeexception, new StringBuilder("cj.L(").append(i).append(',').append(i_0_).append(')').toString());
 		}
@@ -44,11 +44,11 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 
 	private final void method1418(final int i) {
 		try {
-			aClass75_3459 = new Class75(this.aClass75_3461.method654(0));
+			aClass75_3459 = new Hashtable(this.aClass75_3461.getCapacity());
 			if (i == 14) {
-				for (StringNode class120_sub25 = (StringNode) this.aClass75_3461.method657(i ^ 0x33e2); class120_sub25 != null; class120_sub25 = (StringNode) this.aClass75_3461.method658((byte) -116)) {
+				for (StringNode class120_sub25 = (StringNode) this.aClass75_3461.getFirst(); class120_sub25 != null; class120_sub25 = (StringNode) this.aClass75_3461.getNext()) {
 					final Class120_Sub21 class120_sub21 = new Class120_Sub21(class120_sub25.value, (int) class120_sub25.uid);
-					aClass75_3459.method655(class120_sub21, 103, IsaacCipher.method907((byte) 121, class120_sub25.value));
+					aClass75_3459.put(class120_sub21, IsaacCipher.method907((byte) 121, class120_sub25.value));
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -69,16 +69,16 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 					anInt3452 = class120_sub7.getInt();
 				} else if (i_2_ == 5 || i_2_ == 6) {
 					final int i_3_ = class120_sub7.getUShort();
-					this.aClass75_3461 = new Class75(Class120_Sub12_Sub17.method1283(i_3_, (byte) 96));
+					this.aClass75_3461 = new Hashtable(Class120_Sub12_Sub17.method1283(i_3_, (byte) 96));
 					for (int i_4_ = 0; i_3_ > i_4_; i_4_++) {
 						final int i_5_ = class120_sub7.getInt();
 						Node node;
 						if (i_2_ == 5) {
 							node = new StringNode(class120_sub7.getJString());
 						} else {
-							node = new Class120_Sub32(class120_sub7.getInt());
+							node = new IntegerNode(class120_sub7.getInt());
 						}
-						this.aClass75_3461.method655(node, 95, i_5_);
+						this.aClass75_3461.put(node, i_5_);
 					}
 				}
 			}
@@ -99,7 +99,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 			if (i != -3) {
 				method1417(26, 103);
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_3459.method659(i_6_, 20);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_3459.get(i_6_);
 			if (class120_sub32 == null) {
 				return false;
 			}
@@ -113,18 +113,18 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 	static final void method1421(final boolean bool) {
 		if (bool) {
 			if ((Class69.anInt616 ^ 0xffffffff) != 0) {
-				Class120_Sub12_Sub32.method1372(-1, Class69.anInt616);
+				Class120_Sub12_Sub32.method1372(Class69.anInt616);
 			}
-			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method657(13292); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method658((byte) -65)) {
+			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
 				Class120_Sub19.method1675(class120_sub26, true);
 			}
 			Class69.anInt616 = -1;
-			Class120_Sub12_Sub13.aClass75_3234 = new Class75(8);
+			Class120_Sub12_Sub13.aClass75_3234 = new Hashtable(8);
 			Class43.method342(-6086);
 			Class69.anInt616 = GameShell.anInt3;
 			Class101_Sub2.method846((byte) 44, false);
 			Class132_Sub1.method1931(121);
-			Class46.method376(true, Class69.anInt616);
+			JagexSocket.method376(true, Class69.anInt616);
 		}
 		Class192.anInt2123 = -1;
 		Class120_Sub12_Sub6.method1225(Class107.defaultCursorId, -77);
@@ -136,7 +136,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 				Class120_Sub14_Sub6.method1445((byte) 114);
 			} else {
 				Class83.anInt792 = Class99.anInt951 << 7;
-				GroundObject.anInt3626 = Class134.anInt1280 << 7;
+				GroundObjectNode.anInt3626 = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {
 				Class120_Sub8.method1159();
@@ -153,7 +153,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 		if (this.aClass75_3461 == null) {
 			return aString3457;
 		}
-		final StringNode class120_sub25 = (StringNode) this.aClass75_3461.method659(i, -33);
+		final StringNode class120_sub25 = (StringNode) this.aClass75_3461.get(i);
 		if (class120_sub25 == null) {
 			return aString3457;
 		}
@@ -162,11 +162,11 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 
 	private final void method1423(final int i) {
 		try {
-			aClass75_3459 = new Class75(this.aClass75_3461.method654(0));
+			aClass75_3459 = new Hashtable(this.aClass75_3461.getCapacity());
 			if (i == 1740484738) {
-				for (Class120_Sub32 class120_sub32 = (Class120_Sub32) this.aClass75_3461.method657(13292); class120_sub32 != null; class120_sub32 = (Class120_Sub32) this.aClass75_3461.method658((byte) -87)) {
-					final Class120_Sub32 class120_sub32_8_ = new Class120_Sub32((int) class120_sub32.uid);
-					aClass75_3459.method655(class120_sub32_8_, 122, class120_sub32.anInt2790);
+				for (IntegerNode class120_sub32 = (IntegerNode) this.aClass75_3461.getFirst(); class120_sub32 != null; class120_sub32 = (IntegerNode) this.aClass75_3461.getNext()) {
+					final IntegerNode class120_sub32_8_ = new IntegerNode((int) class120_sub32.uid);
+					aClass75_3459.put(class120_sub32_8_, class120_sub32.value);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -244,7 +244,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 			if (aClass75_3459 == null) {
 				method1418(i ^ 0x64bc);
 			}
-			for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.method659(IsaacCipher.method907((byte) 75, string), 114); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.method661((byte) 102)) {
+			for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.get(IsaacCipher.method907((byte) 75, string)); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.poll()) {
 				if (class120_sub21.aString2666.equals(string)) {
 					return true;
 				}

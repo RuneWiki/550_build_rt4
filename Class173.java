@@ -28,7 +28,7 @@ final class Class173 {
 				}
 			}
 		}
-		Class180_Sub1.aClass120_Sub9ArrayArray2844 = null;
+		SceneGroundObject.aClass120_Sub9ArrayArray2844 = null;
 		if (Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 != null) {
 			for (int i = 0; i < Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437.length; i++) {
 				for (int i_2_ = 0; i_2_ < Class186.anInt1900; i_2_++) {
@@ -38,11 +38,11 @@ final class Class173 {
 				}
 			}
 		}
-		Class120_Sub32.aClass120_Sub9ArrayArray2789 = null;
+		IntegerNode.aClass120_Sub9ArrayArray2789 = null;
 		Class49.anInt438 = 0;
-		if (Class180.aClass188Array1782 != null) {
+		if (SceneGraphNode.aClass188Array1782 != null) {
 			for (int i = 0; i < Class49.anInt438; i++) {
-				Class180.aClass188Array1782[i] = null;
+				SceneGraphNode.aClass188Array1782[i] = null;
 			}
 		}
 		if (Class111.aClass28Array1057 != null) {
@@ -80,7 +80,7 @@ final class Class173 {
 		InterfaceClickMask.aString2660 = "Carregando fontes - ";
 		Class120_Sub19.aString2653 = "M";
 		InputStream_Sub1.aString25 = "Objeto para membros";
-		Class180_Sub1.aString2849 = "Remova ";
+		SceneGroundObject.aString2849 = "Remova ";
 		Class91.aString853 = "Alocando mem\u00f3ria";
 		Class120_Sub12_Sub30.aString3371 = "Carregando /secure/libs_v4s/RCras - ";
 		Class108_Sub3.aString2396 = "Mechscape carregando. Aguarde...";
@@ -142,7 +142,7 @@ final class Class173 {
 		Class167_Sub1.aString2837 = "Biblioteca 3D iniciada";
 		Class96.aString915 = "tremor:";
 		Class120_Sub12_Sub28.aString3360 = "Ok";
-		Class180_Sub1.aString2847 = "Pacote de palavras carregado";
+		SceneGroundObject.aString2847 = "Pacote de palavras carregado";
 		Class156.aString1457 = "brilho2:";
 		Class112.aString1079 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de ignorados.";
 		Class120_Sub24.aString2726 = "Sprites carregados";
@@ -163,7 +163,7 @@ final class Class173 {
 		Class120_Sub12_Sub15.aString3244 = "Oculto";
 		Class120_Sub21.aString2669 = " entrou no jogo.";
 		Class120_Sub3.aString2428 = "Carregando config - ";
-		Class120_Sub32.aString2788 = "Carregando interfaces - ";
+		IntegerNode.aString2788 = "Carregando interfaces - ";
 		Class53_Sub1.aString2206 = "flash2:";
 		Class61.aString568 = "deseja negociar com voc\u00ea.";
 		Class53_Sub1.aString2213 = "vermelho:";
@@ -174,7 +174,7 @@ final class Class173 {
 
 	static final void method2228(final int i) {
 		try {
-			Class22.aClass21_131.method186((byte) 86);
+			Class22.aClass21_131.clear();
 			if (i != 27114) {
 				gameLevel = -88;
 			}

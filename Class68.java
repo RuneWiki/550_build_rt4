@@ -23,12 +23,12 @@ final class Class68 {
 			int i_3_ = anInt609;
 			final int i_4_ = anInt610;
 			if (is != null) {
-				final int i_5_ = i_4_ - GraphicsHD.anInt605;
-				if (i_2_ < is[i_5_] + GraphicsHD.anInt602) {
-					i_2_ = is[i_5_] + GraphicsHD.anInt602;
+				final int i_5_ = i_4_ - GraphicsHD.startY;
+				if (i_2_ < is[i_5_] + GraphicsHD.startX) {
+					i_2_ = is[i_5_] + GraphicsHD.startX;
 				}
-				if (i_3_ > is[i_5_] + is_1_[i_5_] + GraphicsHD.anInt602) {
-					i_3_ = is[i_5_] + is_1_[i_5_] + GraphicsHD.anInt602;
+				if (i_3_ > is[i_5_] + is_1_[i_5_] + GraphicsHD.startX) {
+					i_3_ = is[i_5_] + is_1_[i_5_] + GraphicsHD.startX;
 				}
 				if (i_2_ >= i_3_) {
 					continue;
@@ -92,7 +92,7 @@ final class Class68 {
 	}
 
 	private static final void method606(final int[] is, final int i, final int i_18_, final int i_19_, final int i_20_, final int[] is_21_, final int[] is_22_) {
-		if (is_21_ != null && GraphicsHD.anInt601 - GraphicsHD.anInt605 != is_21_.length) {
+		if (is_21_ != null && GraphicsHD.endY - GraphicsHD.startY != is_21_.length) {
 			throw new IllegalStateException();
 		}
 		method610();
@@ -141,8 +141,8 @@ final class Class68 {
 		} else {
 			method607(0, anInt613);
 			int i = anIntArray608[1];
-			if (i < GraphicsHD.anInt605) {
-				i = GraphicsHD.anInt605;
+			if (i < GraphicsHD.startY) {
+				i = GraphicsHD.startY;
 			}
 			int i_34_;
 			for (i_34_ = 0; i_34_ < anInt613; i_34_ += 4) {
@@ -176,7 +176,7 @@ final class Class68 {
 		int i_43_;
 		for (/**/; i_41_ >= i; i_41_ = i_43_) {
 			anInt610 = ++i_42_;
-			if (i_42_ >= GraphicsHD.anInt601) {
+			if (i_42_ >= GraphicsHD.endY) {
 				return false;
 			}
 			i_43_ = anInt606;

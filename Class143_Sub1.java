@@ -119,7 +119,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (class120_sub14_sub17_9_ != null) {
 				return class120_sub14_sub17_9_;
 			}
-			final byte[] is = aClass50_2194.method442(i, (byte) 127, 0);
+			final byte[] is = aClass50_2194.getFile(i, 0);
 			if (is == null) {
 				return null;
 			}
@@ -205,7 +205,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (!bool) {
 				return is;
 			}
-			is_13_ = Class183.method2448(is, 112);
+			is_13_ = ObjectPile.method2448(is, 112);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.F(").append(is != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
 		}
@@ -469,18 +469,18 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		return i_43_;
 	}
 
-	static final void method2032(final Class189 class189, final int i) {
+	static final void method2032(final JagexInterface jagexInterface, final int i) {
 		try {
-			final int i_44_ = class189.anInt1975;
+			final int i_44_ = jagexInterface.anInt1975;
 			if (i_44_ == 324) {
 				if ((Class120_Sub12_Sub15.anInt3241 ^ 0xffffffff) == 0) {
-					Class169.anInt1643 = class189.anInt2012;
-					Class120_Sub12_Sub15.anInt3241 = class189.anInt2055;
+					Class169.anInt1643 = jagexInterface.anInt2012;
+					Class120_Sub12_Sub15.anInt3241 = jagexInterface.anInt2055;
 				}
 				if (!Class26.aClass144_159.aBoolean1371) {
-					class189.anInt2055 = Class169.anInt1643;
+					jagexInterface.anInt2055 = Class169.anInt1643;
 				} else {
-					class189.anInt2055 = Class120_Sub12_Sub15.anInt3241;
+					jagexInterface.anInt2055 = Class120_Sub12_Sub15.anInt3241;
 				}
 			} else {
 				if (i <= 21) {
@@ -488,36 +488,36 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				}
 				if (i_44_ == 325) {
 					if (Class120_Sub12_Sub15.anInt3241 == -1) {
-						Class120_Sub12_Sub15.anInt3241 = class189.anInt2055;
-						Class169.anInt1643 = class189.anInt2012;
+						Class120_Sub12_Sub15.anInt3241 = jagexInterface.anInt2055;
+						Class169.anInt1643 = jagexInterface.anInt2012;
 					}
 					if (!Class26.aClass144_159.aBoolean1371) {
-						class189.anInt2055 = Class120_Sub12_Sub15.anInt3241;
+						jagexInterface.anInt2055 = Class120_Sub12_Sub15.anInt3241;
 					} else {
-						class189.anInt2055 = Class169.anInt1643;
+						jagexInterface.anInt2055 = Class169.anInt1643;
 					}
 				} else if (i_44_ == 327) {
-					class189.anInt2047 = 150;
-					class189.anInt2091 = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
-					class189.anInt1961 = -1;
-					class189.anInt2031 = 5;
+					jagexInterface.anInt2047 = 150;
+					jagexInterface.anInt2091 = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
+					jagexInterface.anInt1961 = -1;
+					jagexInterface.anInt2031 = 5;
 				} else if (i_44_ == 328) {
 					if (Class100.selfPlayer.aString3745 == null) {
-						class189.anInt1961 = 0;
+						jagexInterface.anInt1961 = 0;
 					} else {
-						class189.anInt2047 = 150;
-						class189.anInt2091 = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
-						class189.anInt2031 = 5;
-						class189.anInt1961 = 2047 + ((int) Class70.method636(-121, Class100.selfPlayer.aString3745) << 11);
-						class189.anInt1946 = Class100.selfPlayer.anInt3046;
-						class189.anInt1945 = Class100.selfPlayer.anInt3004;
-						class189.anInt2098 = Class100.selfPlayer.anInt3021;
-						class189.anInt1965 = 0;
+						jagexInterface.anInt2047 = 150;
+						jagexInterface.anInt2091 = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
+						jagexInterface.anInt2031 = 5;
+						jagexInterface.anInt1961 = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.aString3745) << 11);
+						jagexInterface.anInt1946 = Class100.selfPlayer.anInt3046;
+						jagexInterface.anInt1945 = Class100.selfPlayer.anInt3004;
+						jagexInterface.anInt2098 = Class100.selfPlayer.anInt3021;
+						jagexInterface.anInt1965 = 0;
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.FA(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.FA(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

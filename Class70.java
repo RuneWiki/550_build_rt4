@@ -8,7 +8,7 @@ final class Class70 {
 	static float aFloat622;
 	static int anInt623 = 2301979;
 
-	static final void method632(final byte i, final Class189 class189, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
+	static final void method632(final byte i, final JagexInterface jagexInterface, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
 		try {
 			if (Class136.aBoolean1317) {
 				DisplayModeInfo.anInt1715 = 32;
@@ -18,8 +18,8 @@ final class Class70 {
 			Class136.aBoolean1317 = false;
 			if (InterfaceChangeNode.anInt3483 != 0) {
 				if (i_1_ <= i_2_ && 16 + i_1_ > i_2_ && i_0_ >= i_4_ && i_0_ < i_4_ + 16) {
-					class189.anInt2021 -= 4;
-					InterfaceClickMask.redrawInterface(class189);
+					jagexInterface.anInt2021 -= 4;
+					InterfaceClickMask.redrawInterface(jagexInterface);
 				} else if (i_1_ > i_2_ || 16 + i_1_ <= i_2_ || -16 + i_5_ + i_4_ > i_0_ || i_4_ + i_5_ <= i_0_) {
 					if (-DisplayModeInfo.anInt1715 + i_1_ <= i_2_ && i_2_ < i_1_ - -16 - -DisplayModeInfo.anInt1715 && i_0_ >= 16 + i_4_ && i_0_ < -16 + i_5_ + i_4_) {
 						int i_6_ = (-32 + i_5_) * i_5_ / i_3_;
@@ -28,24 +28,24 @@ final class Class70 {
 						}
 						final int i_7_ = i_0_ - i_4_ - 16 - i_6_ / 2;
 						final int i_8_ = -32 + i_5_ - i_6_;
-						class189.anInt2021 = i_7_ * (i_3_ + -i_5_) / i_8_;
-						InterfaceClickMask.redrawInterface(class189);
+						jagexInterface.anInt2021 = i_7_ * (i_3_ + -i_5_) / i_8_;
+						InterfaceClickMask.redrawInterface(jagexInterface);
 						Class136.aBoolean1317 = true;
 					}
 				} else {
-					class189.anInt2021 += 4;
-					InterfaceClickMask.redrawInterface(class189);
+					jagexInterface.anInt2021 += 4;
+					InterfaceClickMask.redrawInterface(jagexInterface);
 				}
 			}
 			if (Class66.anInt598 != 0) {
-				final int i_9_ = class189.anInt1948;
+				final int i_9_ = jagexInterface.anInt1948;
 				if (-i_9_ + i_1_ <= i_2_ && i_4_ <= i_0_ && i_2_ < i_1_ + 16 && i_0_ <= i_5_ + i_4_) {
-					class189.anInt2021 += Class66.anInt598 * 45;
-					InterfaceClickMask.redrawInterface(class189);
+					jagexInterface.anInt2021 += Class66.anInt598 * 45;
+					InterfaceClickMask.redrawInterface(jagexInterface);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hi.C(").append(i).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',')
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hi.C(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',')
 					.append(i_5_).append(')').toString());
 		}
 	}
@@ -93,40 +93,31 @@ final class Class70 {
 		}
 	}
 
-	static final long method636(final int i, final String string) {
-		long l;
-		try {
-			long l_18_ = 0L;
-			if (i >= -116) {
-				return 71L;
-			}
-			final int i_19_ = string.length();
-			for (int i_20_ = 0; i_20_ < i_19_; i_20_++) {
-				l_18_ *= 37L;
-				final int i_21_ = string.charAt(i_20_);
-				if (i_21_ < 65 || i_21_ > 90) {
-					if (i_21_ < 97 || i_21_ > 122) {
-						if (i_21_ >= 48 && i_21_ <= 57) {
-							l_18_ += 27 - -i_21_ + -48;
-						}
-					} else {
-						l_18_ += 1 - (-i_21_ - -97);
+	static final long stringToLong(final String string) {
+		long l_18_ = 0L;
+		final int i_19_ = string.length();
+		for (int i_20_ = 0; i_20_ < i_19_; i_20_++) {
+			l_18_ *= 37L;
+			final int i_21_ = string.charAt(i_20_);
+			if (i_21_ < 65 || i_21_ > 90) {
+				if (i_21_ < 97 || i_21_ > 122) {
+					if (i_21_ >= 48 && i_21_ <= 57) {
+						l_18_ += 27 - -i_21_ + -48;
 					}
 				} else {
-					l_18_ += i_21_ + 1 - 65;
+					l_18_ += 1 - (-i_21_ - -97);
 				}
-				if (l_18_ >= 177917621779460413L) {
-					break;
-				}
+			} else {
+				l_18_ += i_21_ + 1 - 65;
 			}
-			for (/**/; -1L == (l_18_ % 37L ^ 0xffffffffffffffffL) && 0L != l_18_; l_18_ /= 37L) {
-				/* empty */
+			if (l_18_ >= 177917621779460413L) {
+				break;
 			}
-			l = l_18_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hi.D(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
-		return l;
+		for (/**/; -1L == (l_18_ % 37L ^ 0xffffffffffffffffL) && 0L != l_18_; l_18_ /= 37L) {
+			/* empty */
+		}
+		return l_18_;
 	}
 
 	public Class70() {

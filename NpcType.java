@@ -12,7 +12,7 @@ final class NpcType {
 	int anInt1658;
 	private int[][] anIntArrayArray1659;
 	static int anInt1660;
-	private Class75 aClass75_1661;
+	private Hashtable aClass75_1661;
 	short aShort1662;
 	private int varbitId;
 	int headIcon;
@@ -134,7 +134,7 @@ final class NpcType {
 			if (aClass75_1661 == null) {
 				return string;
 			}
-			final StringNode class120_sub25 = (StringNode) aClass75_1661.method659(i_6_, -124);
+			final StringNode class120_sub25 = (StringNode) aClass75_1661.get(i_6_);
 			if (class120_sub25 == null) {
 				return string;
 			}
@@ -272,7 +272,7 @@ final class NpcType {
 																									final int i_16_ = class120_sub7.getUByte();
 																									if (aClass75_1661 == null) {
 																										final int i_17_ = Class120_Sub12_Sub17.method1283(i_16_, (byte) 93);
-																										aClass75_1661 = new Class75(i_17_);
+																										aClass75_1661 = new Hashtable(i_17_);
 																									}
 																									for (int i_18_ = 0; i_18_ < i_16_; i_18_++) {
 																										final boolean bool = class120_sub7.getUByte() == 1;
@@ -281,9 +281,9 @@ final class NpcType {
 																										if (bool) {
 																											node = new StringNode(class120_sub7.getJString());
 																										} else {
-																											node = new Class120_Sub32(class120_sub7.getInt());
+																											node = new IntegerNode(class120_sub7.getInt());
 																										}
-																										aClass75_1661.method655(node, 114, i_19_);
+																										aClass75_1661.put(node, i_19_);
 																									}
 																								}
 																							} else {
@@ -421,11 +421,11 @@ final class NpcType {
 			if (aClass75_1661 == null) {
 				return i_31_;
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_1661.method659(i_32_, i + 8938);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_1661.get(i_32_);
 			if (class120_sub32 == null) {
 				return i_31_;
 			}
-			i_33_ = class120_sub32.anInt2790;
+			i_33_ = class120_sub32.value;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.M(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());
 		}
@@ -483,7 +483,7 @@ final class NpcType {
 			if (anIntArray1669 == null) {
 				return null;
 			}
-			Class180_Sub7 class180_sub7_42_ = (Class180_Sub7) Class180_Sub4.aClass21_2931.method193(this.anInt1686, (byte) 106);
+			Class180_Sub7 class180_sub7_42_ = (Class180_Sub7) Class180_Sub4.aClass21_2931.get(this.anInt1686);
 			if (class180_sub7_42_ == null) {
 				boolean bool = false;
 				for (int i_43_ = 0; anIntArray1669.length > i_43_; i_43_++) {
@@ -519,7 +519,7 @@ final class NpcType {
 					}
 				}
 				class180_sub7_42_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class180_Sub4.aClass21_2931.method185(-126, class180_sub7_42_, this.anInt1686);
+				Class180_Sub4.aClass21_2931.put(class180_sub7_42_, this.anInt1686);
 			}
 			if (class40 != null) {
 				class180_sub7_42_ = class40.method323(false, i_39_, i, class180_sub7_42_, i_40_);
@@ -549,7 +549,7 @@ final class NpcType {
 				}
 				return class170_54_.method2212(i, i_47_, -104, class40, class40_49_, i_50_, class150s, i_51_, i_52_, i_53_);
 			}
-			Class180_Sub7 class180_sub7_55_ = (Class180_Sub7) Class11.aClass21_80.method193(this.anInt1686, (byte) -100);
+			Class180_Sub7 class180_sub7_55_ = (Class180_Sub7) Class11.aClass21_80.get(this.anInt1686);
 			if (class180_sub7_55_ == null) {
 				boolean bool = false;
 				for (int i_56_ = 0; i_56_ < anIntArray1678.length; i_56_++) {
@@ -651,7 +651,7 @@ final class NpcType {
 				if (HDToolkit.glEnabled) {
 					((Class180_Sub7_Sub2) class180_sub7_55_).method2432(false, false, false, true, false, false, true);
 				}
-				Class11.aClass21_80.method185(-125, class180_sub7_55_, this.anInt1686);
+				Class11.aClass21_80.put(class180_sub7_55_, this.anInt1686);
 			}
 			boolean bool = false;
 			boolean bool_75_ = false;
@@ -677,7 +677,7 @@ final class NpcType {
 						}
 						if ((class40_80_.aBoolean332 || Class164.aBoolean1586) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.anIntArray342.length) {
 							Class120_Sub28.anIntArray2761[i_79_] = class40_80_.anIntArray338[i_81_];
-							Class21.anIntArray124[i_79_] = class150s[i_79_].anInt1410;
+							Cache.anIntArray124[i_79_] = class150s[i_79_].anInt1410;
 							int i_84_ = class40_80_.anIntArray342[i_82_];
 							OutputStream_Sub1.aClass120_Sub14_Sub18Array31[i_79_] = Class120_Sub12_Sub31.method1367(i_84_ >>> 16, -1);
 							i_84_ &= 0xffff;
@@ -688,7 +688,7 @@ final class NpcType {
 							}
 						} else {
 							Class120_Sub28.anIntArray2761[i_79_] = 0;
-							Class21.anIntArray124[i_79_] = 0;
+							Cache.anIntArray124[i_79_] = 0;
 							OutputStream_Sub1.aClass120_Sub14_Sub18Array31[i_79_] = null;
 							Class120_Sub12.anIntArray2567[i_79_] = -1;
 						}
@@ -771,7 +771,7 @@ final class NpcType {
 			}
 			for (int i_101_ = 0; i_101_ < i_78_; i_101_++) {
 				if (Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_101_] != null) {
-					class180_sub7_99_.method2384(Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_101_], Class180_Sub3.anIntArray2918[i_101_], OutputStream_Sub1.aClass120_Sub14_Sub18Array31[i_101_], Class120_Sub12.anIntArray2567[i_101_], Class21.anIntArray124[i_101_] - 1,
+					class180_sub7_99_.method2384(Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_101_], Class180_Sub3.anIntArray2918[i_101_], OutputStream_Sub1.aClass120_Sub14_Sub18Array31[i_101_], Class120_Sub12.anIntArray2567[i_101_], Cache.anIntArray124[i_101_] - 1,
 							Class120_Sub28.anIntArray2761[i_101_], i_100_, FileSystem.aClass40Array458[i_101_].aBoolean341, anIntArrayArray1659[i_101_]);
 				}
 				i_100_ <<= 1;
@@ -802,18 +802,18 @@ final class NpcType {
 	}
 
 	static final NpcType list(final int i_1_) {
-		NpcType class170_2_ = (NpcType) Class73.aClass21_635.method193(i_1_, (byte) -121);
+		NpcType class170_2_ = (NpcType) Class73.aClass21_635.get(i_1_);
 		if (class170_2_ != null) {
 			return class170_2_;
 		}
-		final byte[] is = Class190.aClass50_2099.method442(Class120_Sub12_Sub18.method1290(i_1_), (byte) 116, Class120_Sub15.method1652(i_1_));
+		final byte[] is = Class190.aClass50_2099.getFile(Class120_Sub12_Sub18.method1290(i_1_), Class120_Sub15.method1652(i_1_));
 		class170_2_ = new NpcType();
 		class170_2_.anInt1686 = i_1_;
 		if (is != null) {
 			class170_2_.method2207(new Buffer(is), (byte) -92);
 		}
 		class170_2_.method2205(0);
-		Class73.aClass21_635.method185(-126, class170_2_, i_1_);
+		Class73.aClass21_635.put(class170_2_, i_1_);
 		return class170_2_;
 	}
 

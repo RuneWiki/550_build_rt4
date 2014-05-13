@@ -20,14 +20,14 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				method1321(96, 45, 101, 59, -98, 60);
 			}
 			final long l = i_1_;
-			Class180_Sub7 class180_sub7_6_ = (Class180_Sub7) Class120_Sub14_Sub13.aClass21_3564.method193(l, (byte) -98);
+			Class180_Sub7 class180_sub7_6_ = (Class180_Sub7) Class120_Sub14_Sub13.aClass21_3564.get(l);
 			if (class180_sub7_6_ == null) {
 				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
 				if (class180_sub2 == null) {
 					return null;
 				}
 				class180_sub7_6_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class120_Sub14_Sub13.aClass21_3564.method185(-125, class180_sub7_6_, l);
+				Class120_Sub14_Sub13.aClass21_3564.put(class180_sub7_6_, l);
 			}
 			final int i_7_ = class180_sub7.method2374();
 			final int i_8_ = class180_sub7.method2383();
@@ -39,17 +39,17 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 			}
 			if (!HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_6_;
-				if (i_3_ != Class22.method197(i_0_ - -i_9_, true, i_7_ + i_4_, Class173.gameLevel) || Class22.method197(i_10_ + i_0_, true, i_8_ + i_4_, Class173.gameLevel) != i_3_) {
+				if (i_3_ != Class22.method197(Class173.gameLevel, i_7_ + i_4_, i_0_ - -i_9_) || Class22.method197(Class173.gameLevel, i_8_ + i_4_, i_10_ + i_0_) != i_3_) {
 					for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
-						class180_sub7_sub1.yVertices[i_11_] += Class22.method197(class180_sub7_sub1.zVertices[i_11_] + i_0_, true, i_4_ + class180_sub7_sub1.xVertices[i_11_], Class173.gameLevel) + -i_3_;
+						class180_sub7_sub1.yVertices[i_11_] += Class22.method197(Class173.gameLevel, i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_) + -i_3_;
 					}
 					class180_sub7_sub1.boundsCalculated = false;
 				}
 			} else {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_6_;
-				if (Class22.method197(i_0_ + i_9_, true, i_4_ - -i_7_, Class173.gameLevel) != i_3_ || i_3_ != Class22.method197(i_0_ - -i_10_, true, i_8_ + i_4_, Class173.gameLevel)) {
+				if (Class22.method197(Class173.gameLevel, i_4_ - -i_7_, i_0_ + i_9_) != i_3_ || i_3_ != Class22.method197(Class173.gameLevel, i_8_ + i_4_, i_0_ - -i_10_)) {
 					for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
-						class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.method197(i_0_ + class180_sub7_sub2.anIntArray3845[i_12_], true, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], Class173.gameLevel);
+						class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.method197(Class173.gameLevel, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_]);
 					}
 					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;

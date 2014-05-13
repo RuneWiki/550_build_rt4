@@ -45,21 +45,21 @@ abstract class AbstractGraphicsBuffer {
 		aString1176 = "Use";
 	}
 
-	static final Class120_Sub9 method1840(final Class75 class75, final Class124 class124, final byte i) {
+	static final Class120_Sub9 method1840(final Hashtable hashtable, final Class124 class124, final byte i) {
 		Class120_Sub9 class120_sub9;
 		try {
 			final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.anInt1202 + (1 + class124.anInt1203 << 16);
 			if (i < 86) {
 				return null;
 			}
-			Class120_Sub9 class120_sub9_0_ = (Class120_Sub9) class75.method659(l, 77);
+			Class120_Sub9 class120_sub9_0_ = (Class120_Sub9) hashtable.get(l);
 			if (class120_sub9_0_ == null) {
 				class120_sub9_0_ = new Class120_Sub9(class124.anInt1203, class124.anInt1202, true, false, class124.anInt1200);
-				class75.method655(class120_sub9_0_, 108, l);
+				hashtable.put(class120_sub9_0_, l);
 			}
 			class120_sub9 = class120_sub9_0_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.B(").append(class75 != null ? "{...}" : "null").append(',').append(class124 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.B(").append(hashtable != null ? "{...}" : "null").append(',').append(class124 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return class120_sub9;
 	}
@@ -69,7 +69,7 @@ abstract class AbstractGraphicsBuffer {
 	static final void method1842(final int i) {
 		try {
 			anInt1175 = 0;
-			Class180_Sub1.aBoolean2848 = false;
+			SceneGroundObject.aBoolean2848 = false;
 			Class65.anInt592 = 0;
 			Class120_Sub12_Sub15.anInt3243 = -1;
 			Class120_Sub12_Sub26.anInt3327 = 0;
@@ -146,8 +146,8 @@ abstract class AbstractGraphicsBuffer {
 			if (i != -22845) {
 				method1848(-16);
 			}
-			if (Class50.method434(i ^ 0x5940, i_17_)) {
-				Class139.method1991(Node.aClass189ArrayArray1150[i_17_], (byte) -23, -1);
+			if (Class50.loadInterface(i_17_)) {
+				Class139.method1991(Node.interfaceCache[i_17_], (byte) -23, -1);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.F(").append(i).append(',').append(i_17_).append(')').toString());

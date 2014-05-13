@@ -16,7 +16,7 @@ final class ObjType {
 	int dummyitem = 0;
 	static int[] anIntArray1520 = { 0, 1, 2, 3, 4, 5, 6, 14 };
 	int zoom2d;
-	Class75 params;
+	Hashtable params;
 	private int ambient;
 	int cursor2;
 	boolean stockmarket;
@@ -72,7 +72,7 @@ final class ObjType {
 				method2118(i_0_, 42, class120_sub7);
 			}
 			if (i < 33) {
-				method2111(119, null, -21);
+				getStringParam(null, -21);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.O(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
@@ -170,7 +170,7 @@ final class ObjType {
 					return ObjType.list(i_15_).method2105(i, 1, 53, i_13_, playerAppearance, class40, i_14_);
 				}
 			}
-			Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.method193(this.anInt1529, (byte) 17);
+			Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.get(this.anInt1529);
 			if (class180_sub7_17_ == null) {
 				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
 				if (class180_sub2 == null) {
@@ -208,7 +208,7 @@ final class ObjType {
 				if (HDToolkit.glEnabled) {
 					((Class180_Sub7_Sub2) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
 				}
-				Class33.aClass21_273.method185(-128, class180_sub7_17_, this.anInt1529);
+				Class33.aClass21_273.put(class180_sub7_17_, this.anInt1529);
 			}
 			if (class40 != null) {
 				class180_sub7_17_ = class40.method323(false, i_14_, i_13_, class180_sub7_17_, i);
@@ -284,7 +284,7 @@ final class ObjType {
 	}
 
 	static final Class186 method2108(final int i, final int i_30_, final int i_31_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_30_][i_31_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_30_][i_31_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -329,24 +329,15 @@ final class ObjType {
 		return bool_32_;
 	}
 
-	final String method2111(final int i, final String string, final int i_37_) {
-		String string_38_;
-		try {
-			if (this.params == null) {
-				return string;
-			}
-			if (i != 0) {
-				method2119(-28);
-			}
-			final StringNode class120_sub25 = (StringNode) this.params.method659(i_37_, -122);
-			if (class120_sub25 == null) {
-				return string;
-			}
-			string_38_ = class120_sub25.value;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.H(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_37_).append(')').toString());
+	final String getStringParam(final String string, final int i_37_) {
+		if (this.params == null) {
+			return string;
 		}
-		return string_38_;
+		final StringNode class120_sub25 = (StringNode) this.params.get(i_37_);
+		if (class120_sub25 == null) {
+			return string;
+		}
+		return class120_sub25.value;
 	}
 
 	final void method2112(final int i, final ObjType class162_39_, final ObjType class162_40_) {
@@ -415,38 +406,22 @@ final class ObjType {
 		return bool;
 	}
 
-	static final void method2114(final boolean bool, final int i) {
-		try {
-			if (!Class69_Sub2.aBoolean2234 == bool) {
-				if (i != -10) {
-					method2113(null, 65, 1);
-				}
-				Class69_Sub2.aBoolean2234 = bool;
-				Class120_Sub12_Sub25.method1334(-111);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.A(").append(bool).append(',').append(i).append(')').toString());
+	static final void method2114(final boolean bool) {
+		if (!Class69_Sub2.aBoolean2234 == bool) {
+			Class69_Sub2.aBoolean2234 = bool;
+			Class120_Sub12_Sub25.method1334(-111);
 		}
 	}
 
-	final int method2115(final int i, final int i_43_, final int i_44_) {
-		int i_45_;
-		try {
-			if (i_43_ != 0) {
-				method2110((byte) -52, true);
-			}
-			if (this.params == null) {
-				return i_44_;
-			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) this.params.method659(i, i_43_ ^ 0x4c);
-			if (class120_sub32 == null) {
-				return i_44_;
-			}
-			i_45_ = class120_sub32.anInt2790;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.L(").append(i).append(',').append(i_43_).append(',').append(i_44_).append(')').toString());
+	final int getIntegerParam(final int i_44_, final int i) {
+		if (this.params == null) {
+			return i_44_;
 		}
-		return i_45_;
+		final IntegerNode class120_sub32 = (IntegerNode) this.params.get(i);
+		if (class120_sub32 == null) {
+			return i_44_;
+		}
+		return class120_sub32.value;
 	}
 
 	final boolean method2116(final boolean bool, final int i) {
@@ -614,18 +589,18 @@ final class ObjType {
 																										final int i_57_ = class120_sub7.getUByte();
 																										if (this.params == null) {
 																											final int i_58_ = Class120_Sub12_Sub17.method1283(i_57_, (byte) -99);
-																											this.params = new Class75(i_58_);
+																											this.params = new Hashtable(i_58_);
 																										}
 																										for (int i_59_ = 0; i_59_ < i_57_; i_59_++) {
 																											final boolean bool = class120_sub7.getUByte() == 1;
 																											final int i_60_ = class120_sub7.getTriByte();
 																											Node node;
 																											if (!bool) {
-																												node = new Class120_Sub32(class120_sub7.getInt());
+																												node = new IntegerNode(class120_sub7.getInt());
 																											} else {
 																												node = new StringNode(class120_sub7.getJString());
 																											}
-																											this.params.method655(node, 104, i_60_);
+																											this.params.put(node, i_60_);
 																										}
 																									}
 																								} else {
@@ -721,11 +696,11 @@ final class ObjType {
 	}
 
 	static final ObjType list(final int i) {
-		ObjType class162_12_ = (ObjType) Canvas_Sub1.aClass21_14.method193(i, (byte) 24);
+		ObjType class162_12_ = (ObjType) Canvas_Sub1.aClass21_14.get(i);
 		if (class162_12_ != null) {
 			return class162_12_;
 		}
-		final byte[] is = Class120_Sub12_Sub23.aClass50_3305.method442(Class20.method177(522353736, i), (byte) 122, Class120_Sub12_Sub33.method1377(123, i));
+		final byte[] is = Class120_Sub12_Sub23.aClass50_3305.getFile(Class20.method177(522353736, i), Class120_Sub12_Sub33.method1377(123, i));
 		class162_12_ = new ObjType();
 		class162_12_.anInt1529 = i;
 		if (is != null) {
@@ -738,14 +713,14 @@ final class ObjType {
 		if ((class162_12_.lenttemplate ^ 0xffffffff) != 0) {
 			class162_12_.method2112(119, list(class162_12_.lentlink), list(class162_12_.lenttemplate));
 		}
-		if (!Class120_Sub14_Sub3.aBoolean3463 && class162_12_.members) {
+		if (!AbstractObject.aBoolean3463 && class162_12_.members) {
 			class162_12_.name = InputStream_Sub1.aString25;
 			class162_12_.options = Class120_Sub12_Sub32.aStringArray3387;
 			class162_12_.inventoryOptions = Class120_Sub12_Sub29.aStringArray3363;
 			class162_12_.team = 0;
 			class162_12_.stockmarket = false;
 		}
-		Canvas_Sub1.aClass21_14.method185(-126, class162_12_, i);
+		Canvas_Sub1.aClass21_14.put(class162_12_, i);
 		return class162_12_;
 	}
 

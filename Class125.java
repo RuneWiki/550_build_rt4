@@ -74,7 +74,7 @@ final class Class125 implements Interface1 {
 	static final void method1881(final Class50 class50, final int i) {
 		try {
 			Class101_Sub4.aClass50_2297 = class50;
-			Buffer.anInt2471 = Class101_Sub4.aClass50_2297.method441(4, 1);
+			Buffer.anInt2471 = Class101_Sub4.aClass50_2297.getFileAmount(4);
 			if (i < 26) {
 				aClass57_2147 = null;
 			}

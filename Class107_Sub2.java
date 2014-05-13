@@ -139,10 +139,10 @@ final class Class107_Sub2 extends Class107 {
 			gl.glBindTexture(3553, class120_sub14_sub19_sub1.anInt3942);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
-			final float f = (float) (i - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1.anInt3945;
-			final float f_13_ = (float) (i_12_ - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1.anInt3948;
-			final float f_14_ = (float) (i + this.anInt1026 - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1.anInt3945;
-			final float f_15_ = (float) (i_12_ + this.anInt1030 - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1.anInt3948;
+			final float f = (float) (i - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
+			final float f_13_ = (float) (i_12_ - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
+			final float f_14_ = (float) (i + this.anInt1026 - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
+			final float f_15_ = (float) (i_12_ + this.anInt1030 - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
 			i += this.anInt1020;
 			i_12_ += this.anInt1021;
 			gl.glBegin(6);

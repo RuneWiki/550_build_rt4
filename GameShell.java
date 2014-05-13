@@ -59,19 +59,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(52);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
+						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+						Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -89, class180_sub5_sub1.getSize(), i_1_);
 					}
 				}
 				if (i_4_ == 17) {
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(95);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(95);
+					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.method1086((byte) 21, i_2_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
 					Class69_Sub2.anInt2236 = 0;
-					Class32.aClass189_256 = Class74.method650(127, i_2_);
+					Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 					Class126.anInt1204 = i_1_;
 				}
 				if (i_4_ == 33) {
@@ -81,12 +81,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub14_Sub22.crossState = 2;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 						Class120_Sub12_Sub7.crossIndex = 0;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(160);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(!Class35.aBooleanArray299[82] ? 0 : 1, (byte) 10);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) -91, Class141.anInt1355);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class108_Sub1.anInt2319);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(Class120_Sub14_Sub1.anInt3448);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(160);
+						Class120_Sub12_Sub11.outputStream.method1080(!Class35.aBooleanArray299[82] ? 0 : 1, (byte) 10);
+						Class120_Sub12_Sub11.outputStream.method1126((byte) -91, Class141.anInt1355);
+						Class120_Sub12_Sub11.outputStream.method1115(255, i_3_);
+						Class120_Sub12_Sub11.outputStream.putShort(Class108_Sub1.anInt2319);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub14_Sub1.anInt3448);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -114, class180_sub5_sub2.getSize(), i_1_);
 					}
 				}
@@ -95,11 +95,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub35.crossX = Class50.anInt449;
 					Class120_Sub12_Sub7.crossIndex = 0;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(134);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, 0x7fffffff & (int) (l >>> 32));
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class181.currentBaseZ + i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(GameEntity.currentBaseX + i_1_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(134);
+					Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.method1116(-2076007248, 0x7fffffff & (int) (l >>> 32));
+					Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class181.currentBaseZ + i_2_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
 					Class120_Sub14_Sub4.method1437(i_2_, l, 0, i_1_);
 				}
 				if (i_4_ == 46) {
@@ -107,11 +107,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub35.crossX = Class50.anInt449;
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(227);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_1_ + GameEntity.currentBaseX);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class181.currentBaseZ + i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(227);
+					Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
+					Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -112, 0, i_1_);
 				}
 				if (i_4_ == 21) {
@@ -121,12 +121,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub7.crossIndex = 0;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(123);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(Class141.anInt1355);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class108_Sub1.anInt2319);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(Class120_Sub14_Sub1.anInt3448);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(123);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.putInt(Class141.anInt1355);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class108_Sub1.anInt2319);
+						Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub14_Sub1.anInt3448);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -112, class180_sub5_sub1.getSize(), i_1_);
 					}
 				}
@@ -136,19 +136,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub35.crossX = Class50.anInt449;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(72);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(72);
+					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 				}
 				if (i_4_ == 19) {
 					if (i_3_ == 0) {
 						Class120_Sub14_Sub5.anInt3479 = 1;
 						Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
 					} else if (i_3_ == 1) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(204);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_2_ + Class181.currentBaseZ);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class46.anInt420);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_ + GameEntity.currentBaseX);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_2_ + Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, JagexSocket.anInt420);
+						Class120_Sub12_Sub11.outputStream.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
+						Class120_Sub12_Sub11.outputStream.method1115(255, i_1_ + GameEntity.currentBaseX);
 					}
 				}
 				if (i_4_ == 28) {
@@ -156,14 +156,14 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub35.crossX = Class50.anInt449;
 					Class120_Sub12_Sub7.crossIndex = 0;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(119);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, Class141.anInt1355);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class181.currentBaseZ + i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class120_Sub14_Sub1.anInt3448);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class108_Sub1.anInt2319);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, GameEntity.currentBaseX + i_1_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(119);
+					Class120_Sub12_Sub11.outputStream.method1086((byte) 21, Class141.anInt1355);
+					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+					Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class120_Sub14_Sub1.anInt3448);
+					Class120_Sub12_Sub11.outputStream.method1115(255, Class108_Sub1.anInt2319);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.method1115(i + 159, GameEntity.currentBaseX + i_1_);
+					Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -106, 0, i_1_);
 				}
 				if (i_4_ == 36) {
@@ -173,9 +173,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(37);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(37);
+						Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -90, class180_sub5_sub2.getSize(), i_1_);
 					}
 				}
@@ -186,19 +186,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(4);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_3_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(4);
+						Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_3_);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -98, class180_sub5_sub1.getSize(), i_1_);
 					}
 				}
 				if (i_4_ == 10) {
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(102);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i + -2076007344, i_1_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(102);
+					Class120_Sub12_Sub11.outputStream.putInt(i_2_);
+					Class120_Sub12_Sub11.outputStream.method1116(i + -2076007344, i_1_);
+					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 					Class69_Sub2.anInt2236 = 0;
-					Class32.aClass189_256 = Class74.method650(-126, i_2_);
+					Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 					Class126.anInt1204 = i_1_;
 				}
 				if (i_4_ == 25) {
@@ -208,9 +208,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(33);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(Class35.aBooleanArray299[82] ? 1 : 0, -112);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(33);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.method1113(Class35.aBooleanArray299[82] ? 1 : 0, -112);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -110, class180_sub5_sub2.getSize(), i_1_);
 					}
 				}
@@ -219,21 +219,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 					Class120_Sub14_Sub22.crossState = 2;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(176);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(176);
+					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 				}
 				if (i_4_ == 4) {
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = Class50.anInt449;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(89);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort((int) (l >>> 32) & 0x7fffffff);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(GameEntity.currentBaseX + i_1_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class46.anInt420);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class181.currentBaseZ + i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(89);
+					Class120_Sub12_Sub11.outputStream.putShort((int) (l >>> 32) & 0x7fffffff);
+					Class120_Sub12_Sub11.outputStream.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
+					Class120_Sub12_Sub11.outputStream.method1115(255, JagexSocket.anInt420);
+					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+					Class120_Sub12_Sub11.outputStream.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
 					Class120_Sub14_Sub4.method1437(i_2_, l, 0, i_1_);
 				}
 				if (i_4_ == 6) {
@@ -241,11 +241,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(232);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_2_ - -Class181.currentBaseZ);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(Class35.aBooleanArray299[82] ? 1 : 0, -93);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_ + GameEntity.currentBaseX);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(232);
+					Class120_Sub12_Sub11.outputStream.method1115(255, i_2_ - -Class181.currentBaseZ);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.method1113(Class35.aBooleanArray299[82] ? 1 : 0, -93);
+					Class120_Sub12_Sub11.outputStream.method1115(255, i_1_ + GameEntity.currentBaseX);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -119, 0, i_1_);
 				}
 				if (i_4_ == 42) {
@@ -255,11 +255,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 						Class120_Sub14_Sub22.crossState = 2;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(155);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class46.anInt420);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(155);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_3_);
+						Class120_Sub12_Sub11.outputStream.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
+						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
+						Class120_Sub12_Sub11.outputStream.method1086((byte) 21, AbstractMouseWheelHandler.anInt119);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -113, class180_sub5_sub2.getSize(), i_1_);
 					}
 				}
@@ -271,9 +271,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						Class120_Sub14_Sub22.crossState = 2;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(105);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
+						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+						Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -104, class180_sub5_sub1.getSize(), i_1_);
 					}
 				}
@@ -282,9 +282,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub33.anInt3401 = 1;
 						Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
 					} else if (Class86.anInt821 <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(85);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(GameEntity.currentBaseX - -i_1_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class181.currentBaseZ - -i_2_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX - -i_1_);
+						Class120_Sub12_Sub11.outputStream.method1115(255, Class181.currentBaseZ - -i_2_);
 					} else {
 						Class108.method930((byte) -120, GameEntity.currentBaseX + i_1_, Class181.currentBaseZ + i_2_, Class173.gameLevel);
 					}
@@ -296,42 +296,42 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = Class50.anInt449;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub14_Sub22.crossState = 2;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(53);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(53);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -103, class180_sub5_sub2.getSize(), i_1_);
 					}
 				}
 				if (i_4_ == 51) {
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(88);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(-100, i_2_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(88);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
 					Class69_Sub2.anInt2236 = 0;
-					Class32.aClass189_256 = Class74.method650(i + 31, i_2_);
+					Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 					Class126.anInt1204 = i_1_;
 				}
 				if (i_4_ == 13) {
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(242);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(-100, i_2_);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(242);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
 					Class69_Sub2.anInt2236 = 0;
-					Class32.aClass189_256 = Class74.method650(-123, i_2_);
+					Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 					Class126.anInt1204 = i_1_;
 				}
 				if (i == 96) {
 					if (i_4_ == 3 && Class156.aClass189_1454 == null) {
-						Class189.method2499((byte) 68, i_1_, i_2_);
+						JagexInterface.method2499((byte) 68, i_1_, i_2_);
 						Class156.aClass189_1454 = Class120_Sub13.method1404(i_2_, (byte) 82, i_1_);
 						InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
 					}
 					if (i_4_ == 1) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(40);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(i + -190, i_2_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class46.anInt420);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(AbstractMouseWheelHandler.anInt119);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(40);
+						Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
+						Class120_Sub12_Sub11.outputStream.method1115(255, i_1_);
+						Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.anInt119);
 					}
 					if (i_4_ == 29) {
 						final Player class180_sub5_sub1 = Class118.playersList[i_3_];
@@ -340,21 +340,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 							Class120_Sub12_Sub35.crossX = Class50.anInt449;
 							Class120_Sub14_Sub22.crossState = 2;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(148);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i + -2076007344, i_3_);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(!Class35.aBooleanArray299[82] ? 0 : 1, -103);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(148);
+							Class120_Sub12_Sub11.outputStream.method1116(i + -2076007344, i_3_);
+							Class120_Sub12_Sub11.outputStream.method1113(!Class35.aBooleanArray299[82] ? 0 : 1, -103);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -100, class180_sub5_sub1.getSize(), i_1_);
 						}
 					}
 					if (i_4_ == 11) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(158);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_2_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
+						Class120_Sub12_Sub11.outputStream.putInt(i_2_);
 						Class150.anInt1409++;
-						final Class189 class189 = Class74.method650(i + -41, i_2_);
-						if (class189.anIntArrayArray1970 != null && class189.anIntArrayArray1970[0][0] == 5) {
-							final int i_5_ = class189.anIntArrayArray1970[0][1];
-							if (class189.anIntArray2071[0] != Class2.permanentVariable[i_5_]) {
-								Class2.permanentVariable[i_5_] = class189.anIntArray2071[0];
+						final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+						if (jagexInterface.anIntArrayArray1970 != null && jagexInterface.anIntArrayArray1970[0][0] == 5) {
+							final int i_5_ = jagexInterface.anIntArrayArray1970[0][1];
+							if (jagexInterface.anIntArray2071[0] != Class2.permanentVariable[i_5_]) {
+								Class2.permanentVariable[i_5_] = jagexInterface.anIntArray2071[0];
 								Class120_Sub14_Sub15.method1554((byte) 121, i_5_);
 							}
 						}
@@ -364,11 +364,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(159);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_ - -GameEntity.currentBaseX);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class181.currentBaseZ + i_2_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA((int) (l >>> 32) & 0x7fffffff);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(159);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
+						Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+						Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
 						Class120_Sub14_Sub4.method1437(i_2_, l, i ^ 0x60, i_1_);
 					}
 					if (i_4_ == 39) {
@@ -378,43 +378,43 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub14_Sub22.crossState = 2;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(245);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(245);
+							Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+							Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -117, class180_sub5_sub2.getSize(), i_1_);
 						}
 					}
 					if (i_4_ == 15) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(58);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, i_2_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class108_Sub1.anInt2319);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_1_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class120_Sub14_Sub1.anInt3448);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, Class141.anInt1355);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(58);
+						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+						Class120_Sub12_Sub11.outputStream.method1086((byte) 21, i_2_);
+						Class120_Sub12_Sub11.outputStream.putShort(Class108_Sub1.anInt2319);
+						Class120_Sub12_Sub11.outputStream.putShort(i_1_);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class120_Sub14_Sub1.anInt3448);
+						Class120_Sub12_Sub11.outputStream.method1086((byte) 21, Class141.anInt1355);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.method650(i + -193, i_2_);
+						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 						Class126.anInt1204 = i_1_;
 					}
 					if (i_4_ == 57) {
-						final Class189 class189 = Class74.method650(-103, i_2_);
+						final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 						boolean bool = true;
-						if (class189.anInt1975 > 0) {
-							bool = Class120_Sub32.method1833((byte) -101, class189);
+						if (jagexInterface.anInt1975 > 0) {
+							bool = IntegerNode.method1833((byte) -101, jagexInterface);
 						}
 						if (bool) {
 							Class150.anInt1409++;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(158);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_2_);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
+							Class120_Sub12_Sub11.outputStream.putInt(i_2_);
 						}
 					}
 					if (i_4_ == 30) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(81);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, i_1_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) 110, i_2_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(81);
+						Class120_Sub12_Sub11.outputStream.method1115(i + 159, i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.method1126((byte) 110, i_2_);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.method650(-110, i_2_);
+						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 						Class126.anInt1204 = i_1_;
 					}
 					if (i_4_ == 14) {
@@ -425,9 +425,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class22.anInt132++;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub12_Sub35.crossX = Class50.anInt449;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(77);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_3_);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
+							Class120_Sub12_Sub11.outputStream.method1115(255, i_3_);
+							Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -108, class180_sub5_sub1.getSize(), i_1_);
 						}
 					}
@@ -436,17 +436,17 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							if (i_3_ == 1) {
 								if (Class86.anInt821 <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
 									Class53_Sub1.method464(i_1_, 1, i_2_);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(FileSystem.anInt457);//1
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class53_Sub1.anInt2219);//2
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort((int) OutputStream_Sub1.aFloat28);//4
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(57);//5
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class164.anInt1590);//6
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class154.anInt1442);//7
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(89);//8
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class100.selfPlayer.x);//10
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class100.selfPlayer.z);//12
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class101_Sub2.anInt2276);//13
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(63);//14
+									Class120_Sub12_Sub11.outputStream.putByte(FileSystem.anInt457);//1
+									Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.anInt2219);//2
+									Class120_Sub12_Sub11.outputStream.putShort((int) OutputStream_Sub1.aFloat28);//4
+									Class120_Sub12_Sub11.outputStream.putByte(57);//5
+									Class120_Sub12_Sub11.outputStream.putByte(Class164.anInt1590);//6
+									Class120_Sub12_Sub11.outputStream.putByte(Class154.anInt1442);//7
+									Class120_Sub12_Sub11.outputStream.putByte(89);//8
+									Class120_Sub12_Sub11.outputStream.putShort(Class100.selfPlayer.x);//10
+									Class120_Sub12_Sub11.outputStream.putShort(Class100.selfPlayer.z);//12
+									Class120_Sub12_Sub11.outputStream.putByte(Class101_Sub2.anInt2276);//13
+									Class120_Sub12_Sub11.outputStream.putByte(63);//14
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -111, 0, i_1_);
 								} else {
 									Class108.method930((byte) -120, i_1_ + GameEntity.currentBaseX, i_2_ + Class181.currentBaseZ, Class173.gameLevel);
@@ -458,12 +458,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					}
 					if (i_4_ == 9) {
 						Node.method1029((byte) 126);
-						final Class189 class189 = Class74.method650(65, i_2_);
+						final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 						Class108_Sub1.anInt2319 = i_1_;
 						Light.anInt393 = 1;
 						Class141.anInt1355 = i_2_;
 						Class120_Sub14_Sub1.anInt3448 = i_3_;
-						InterfaceClickMask.redrawInterface(class189);
+						InterfaceClickMask.redrawInterface(jagexInterface);
 						Class192.aString2124 = new StringBuilder("<col=ff9040>").append(ObjType.list(i_3_).name).append("<col=ffffff>").toString();
 						if (Class192.aString2124 == null) {
 							Class192.aString2124 = "null";
@@ -477,13 +477,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(28);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_2_ + Class181.currentBaseZ);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(AbstractMouseWheelHandler.anInt119);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, Class46.anInt420);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_ - -GameEntity.currentBaseX);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(28);
+							Class120_Sub12_Sub11.outputStream.putLEShortA(i_2_ + Class181.currentBaseZ);
+							Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.anInt119);
+							Class120_Sub12_Sub11.outputStream.method1115(i + 159, JagexSocket.anInt420);
+							Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+							Class120_Sub12_Sub11.outputStream.method1115(255, i_1_ - -GameEntity.currentBaseX);
+							Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -100, 0, i_1_);
 						}
 						if (i_4_ == 5) {
@@ -493,11 +493,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 								Class120_Sub12_Sub7.crossIndex = 0;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(224);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i ^ ~0x7bbd5b2f, i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class46.anInt420);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) 93, AbstractMouseWheelHandler.anInt119);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(224);
+								Class120_Sub12_Sub11.outputStream.method1116(i ^ ~0x7bbd5b2f, i_3_);
+								Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
+								Class120_Sub12_Sub11.outputStream.method1126((byte) 93, AbstractMouseWheelHandler.anInt119);
+								Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
 								Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -98, class180_sub5_sub1.getSize(), i_1_);
 							}
 						}
@@ -506,47 +506,47 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub14_Sub22.crossState = 2;
 							IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 							Class120_Sub12_Sub35.crossX = Class50.anInt449;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(48);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(GameEntity.currentBaseX + i_1_);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, (int) (l >>> 32) & 0x7fffffff);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class181.currentBaseZ + i_2_);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(48);
+							Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
+							Class120_Sub12_Sub11.outputStream.method1116(-2076007248, (int) (l >>> 32) & 0x7fffffff);
+							Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+							Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
 							Class120_Sub14_Sub4.method1437(i_2_, l, i + -96, i_1_);
 						}
 						if (i_4_ == 34) {
-							final Class189 class189 = Class120_Sub13.method1404(i_2_, (byte) 82, i_1_);
-							if (class189 != null) {
+							final JagexInterface jagexInterface = Class120_Sub13.method1404(i_2_, (byte) 82, i_1_);
+							if (jagexInterface != null) {
 								Node.method1029((byte) 126);
-								final InterfaceClickMask class120_sub20 = client.method54(class189);
-								Class91.method763(class120_sub20.method1685(1105924391), class120_sub20.anInt2661, class189.cursorId, i_1_, class189.anInt2020, i_2_);
+								final InterfaceClickMask class120_sub20 = client.method54(jagexInterface);
+								Class91.method763(class120_sub20.method1685(1105924391), class120_sub20.anInt2661, jagexInterface.cursorId, i_1_, jagexInterface.anInt2020, i_2_);
 								Light.anInt393 = 0;
-								Class101.aString963 = Class33.method277((byte) 124, class189);
+								Class101.aString963 = Class33.method277((byte) 124, jagexInterface);
 								if (Class101.aString963 == null) {
 									Class101.aString963 = "Null";
 								}
-								if (!class189.aBoolean2041) {
-									Light.aString369 = new StringBuilder("<col=00ff00>").append(class189.aString1979).append("<col=ffffff>").toString();
+								if (!jagexInterface.aBoolean2041) {
+									Light.aString369 = new StringBuilder("<col=00ff00>").append(jagexInterface.aString1979).append("<col=ffffff>").toString();
 								} else {
-									Light.aString369 = new StringBuilder(class189.aString1964).append("<col=ffffff>").toString();
+									Light.aString369 = new StringBuilder(jagexInterface.aString1964).append("<col=ffffff>").toString();
 								}
 							}
 						} else {
 							if (i_4_ == 49) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(145);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_3_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(145);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_1_);
+								Class120_Sub12_Sub11.outputStream.method1086((byte) 21, i_2_);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_3_);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(-101, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 58) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(214);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i + -2076007344, i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_2_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(214);
+								Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
+								Class120_Sub12_Sub11.outputStream.method1116(i + -2076007344, i_3_);
+								Class120_Sub12_Sub11.outputStream.putInt(i_2_);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(26, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 8) {
@@ -556,19 +556,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 									Class120_Sub14_Sub22.crossState = 2;
 									Class120_Sub12_Sub7.crossIndex = 0;
 									IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(12);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, i_3_);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(12);
+									Class120_Sub12_Sub11.outputStream.method1115(i + 159, i_3_);
+									Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -95, class180_sub5_sub2.getSize(), i_1_);
 								}
 							}
 							if (i_4_ == 35) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(103);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(-106, i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(103);
+								Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+								Class120_Sub12_Sub11.outputStream.method1115(255, i_1_);
+								Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(125, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 43) {
@@ -579,9 +579,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 									Class120_Sub12_Sub7.crossIndex = 0;
 									Class120_Sub14_Sub22.crossState = 2;
 									Class40.anInt330++;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(212);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i ^ ~0x7bbd5b2f, i_3_);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(Class35.aBooleanArray299[82] ? 1 : 0, i + -1);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
+									Class120_Sub12_Sub11.outputStream.method1116(i ^ ~0x7bbd5b2f, i_3_);
+									Class120_Sub12_Sub11.outputStream.method1113(Class35.aBooleanArray299[82] ? 1 : 0, i + -1);
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -120, class180_sub5_sub1.getSize(), i_1_);
 								}
 							}
@@ -590,14 +590,14 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub14_Sub22.crossState = 2;
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								Class120_Sub12_Sub7.crossIndex = 0;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(116);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class108_Sub1.anInt2319);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_ - -GameEntity.currentBaseX);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA((int) (l >>> 32) & 0x7fffffff);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) 113, Class141.anInt1355);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(!Class35.aBooleanArray299[82] ? 0 : 1, (byte) 10);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, Class181.currentBaseZ + i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class120_Sub14_Sub1.anInt3448);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(116);
+								Class120_Sub12_Sub11.outputStream.putShort(Class108_Sub1.anInt2319);
+								Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
+								Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
+								Class120_Sub12_Sub11.outputStream.method1126((byte) 113, Class141.anInt1355);
+								Class120_Sub12_Sub11.outputStream.method1080(!Class35.aBooleanArray299[82] ? 0 : 1, (byte) 10);
+								Class120_Sub12_Sub11.outputStream.method1115(i + 159, Class181.currentBaseZ + i_2_);
+								Class120_Sub12_Sub11.outputStream.method1115(255, Class120_Sub14_Sub1.anInt3448);
 								Class120_Sub14_Sub4.method1437(i_2_, l, 0, i_1_);
 							}
 							if (i_4_ == 44) {
@@ -605,11 +605,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								Class120_Sub12_Sub7.crossIndex = 0;
 								Class120_Sub14_Sub22.crossState = 2;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(3);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class181.currentBaseZ + i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_1_ + GameEntity.currentBaseX);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(3);
+								Class120_Sub12_Sub11.outputStream.method1080(Class35.aBooleanArray299[82] ? 1 : 0, (byte) 10);
+								Class120_Sub12_Sub11.outputStream.method1115(255, Class181.currentBaseZ + i_2_);
+								Class120_Sub12_Sub11.outputStream.method1115(255, i_3_);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_1_ + GameEntity.currentBaseX);
 								Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -100, 0, i_1_);
 							}
 							if (i_4_ == 23 || i_4_ == 1009) {
@@ -627,8 +627,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 										npcType = npcType.handleVarp();
 									}
 									if (npcType != null) {
-										Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(65);
-										Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(i + 159, npcType.anInt1686);
+										Class120_Sub12_Sub11.outputStream.putByteIsaac(65);
+										Class120_Sub12_Sub11.outputStream.method1115(i + 159, npcType.anInt1686);
 									}
 								}
 							}
@@ -640,11 +640,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub14_Sub22.crossState = 2;
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								Class120_Sub12_Sub7.crossIndex = 0;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(60);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_2_ + Class181.currentBaseZ);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, (int) (l >>> 32) & 0x7fffffff);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, GameEntity.currentBaseX + i_1_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(60);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_2_ + Class181.currentBaseZ);
+								Class120_Sub12_Sub11.outputStream.method1115(255, (int) (l >>> 32) & 0x7fffffff);
+								Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+								Class120_Sub12_Sub11.outputStream.method1115(255, GameEntity.currentBaseX + i_1_);
 								Class120_Sub14_Sub4.method1437(i_2_, l, 0, i_1_);
 							}
 							if (i_4_ == 41) {
@@ -652,40 +652,40 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub12_Sub7.crossIndex = 0;
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(92);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, (int) (l >>> 32) & 0x7fffffff);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_1_ + GameEntity.currentBaseX);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(i ^ ~0x7bbd5b2f, i_2_ - -Class181.currentBaseZ);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(92);
+								Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+								Class120_Sub12_Sub11.outputStream.method1115(255, (int) (l >>> 32) & 0x7fffffff);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_1_ + GameEntity.currentBaseX);
+								Class120_Sub12_Sub11.outputStream.method1116(i ^ ~0x7bbd5b2f, i_2_ - -Class181.currentBaseZ);
 								Class120_Sub14_Sub4.method1437(i_2_, l, 0, i_1_);
 							}
 							if (i_4_ == 50) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(177);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(-128, i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) -50, AbstractMouseWheelHandler.anInt119);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class46.anInt420);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(177);
+								Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+								Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+								Class120_Sub12_Sub11.outputStream.method1126((byte) -50, AbstractMouseWheelHandler.anInt119);
+								Class120_Sub12_Sub11.outputStream.method1115(255, i_1_);
+								Class120_Sub12_Sub11.outputStream.method1115(255, JagexSocket.anInt420);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(62, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 20) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(124);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) -76, i_2_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(124);
+								Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
+								Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+								Class120_Sub12_Sub11.outputStream.method1126((byte) -76, i_2_);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(i ^ ~0x3e, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 2) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(205);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1093(-97, i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, i_3_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(205);
+								Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+								Class120_Sub12_Sub11.outputStream.method1115(255, i_1_);
+								Class120_Sub12_Sub11.outputStream.method1116(-2076007248, i_3_);
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(-128, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 45) {
@@ -693,11 +693,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
 								IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 								Class120_Sub12_Sub7.crossIndex = 0;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(54);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class181.currentBaseZ + i_2_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_1_ + GameEntity.currentBaseX);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(54);
+								Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+								Class120_Sub12_Sub11.outputStream.method1115(255, Class181.currentBaseZ + i_2_);
+								Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+								Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
 								Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -112, 0, i_1_);
 							}
 							if (i_4_ == 22) {
@@ -708,9 +708,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 									Class120_Sub12_Sub35.crossX = Class50.anInt449;
 									PacketBuffer.anInt3122++;
 									Class120_Sub12_Sub7.crossIndex = 0;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(96);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(!Class35.aBooleanArray299[82] ? 0 : 1, i + -224);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
+									Class120_Sub12_Sub11.outputStream.method1113(!Class35.aBooleanArray299[82] ? 0 : 1, i + -224);
+									Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -100, class180_sub5_sub1.getSize(), i_1_);
 								}
 							}
@@ -721,32 +721,32 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 									Class120_Sub12_Sub7.crossIndex = 0;
 									Class120_Sub12_Sub35.crossX = Class50.anInt449;
 									IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(223);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(223);
+									Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+									Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 									Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -118, class180_sub5_sub1.getSize(), i_1_);
 								}
 							}
 							if (i_4_ == 1001) {
-								final Class189 class189 = Class74.method650(96, i_2_);
-								if (class189 == null || 100000 > class189.anIntArray1983[i_1_]) {
+								final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+								if (jagexInterface == null || 100000 > jagexInterface.anIntArray1983[i_1_]) {
 									Class120_Sub17.anInt2613++;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(72);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_3_);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(72);
+									Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 								} else {
-									Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(String.valueOf(class189.anIntArray1983[i_1_])).append(" x ").append(ObjType.list(i_3_).name).toString());
+									Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(String.valueOf(jagexInterface.anIntArray1983[i_1_])).append(" x ").append(ObjType.list(i_3_).name).toString());
 								}
 								Class69_Sub2.anInt2236 = 0;
-								Class32.aClass189_256 = Class74.method650(122, i_2_);
+								Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
 								Class126.anInt1204 = i_1_;
 							}
 							if (i_4_ == 18) {
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(158);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_2_);
-								final Class189 class189 = Class74.method650(112, i_2_);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
+								Class120_Sub12_Sub11.outputStream.putInt(i_2_);
+								final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 								Class150.anInt1409++;
-								if (class189.anIntArrayArray1970 != null && class189.anIntArrayArray1970[0][0] == 5) {
-									final int i_6_ = class189.anIntArrayArray1970[0][1];
+								if (jagexInterface.anIntArrayArray1970 != null && jagexInterface.anIntArrayArray1970[0][0] == 5) {
+									final int i_6_ = jagexInterface.anIntArrayArray1970[0][1];
 									Class2.permanentVariable[i_6_] = -Class2.permanentVariable[i_6_] + 1;
 									Class120_Sub14_Sub15.method1554((byte) 95, i_6_);
 								}
@@ -756,16 +756,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 								Class120_Sub14_Sub22.crossState = 2;
 								IsaacCipher.crossY = Class120_Sub12_Sub36.anInt3424;
 								Class120_Sub12_Sub35.crossX = Class50.anInt449;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(8);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(i_3_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_2_ + Class181.currentBaseZ);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(GameEntity.currentBaseX + i_1_);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(Class35.aBooleanArray299[82] ? 1 : 0, i ^ ~0xc);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(8);
+								Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+								Class120_Sub12_Sub11.outputStream.putShort(i_2_ + Class181.currentBaseZ);
+								Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
+								Class120_Sub12_Sub11.outputStream.method1113(Class35.aBooleanArray299[82] ? 1 : 0, i ^ ~0xc);
 								Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -118, 0, i_1_);
 							}
 							if (Light.anInt393 != 0) {
 								Light.anInt393 = 0;
-								InterfaceClickMask.redrawInterface(Class74.method650(88, Class141.anInt1355));
+								InterfaceClickMask.redrawInterface(Class74.getJagexInterface(Class141.anInt1355));
 							}
 							if (Class88.aBoolean828) {
 								Node.method1029((byte) 126);
@@ -825,7 +825,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.method2191(Class73.anInt665, class50, 8693, 0);
 			Class118.aClass107Array1138 = Class120_Sub12_Sub3.method1209(class50, Class134.anInt1278, -124, 0);
 			Class82.aClass107Array785 = Class120_Sub12_Sub3.method1209(class50, Class81.anInt778, -116, 0);
-			Class21.aClass120_Sub14_Sub8_121.method1474(Class82.aClass107Array785, null);
+			Cache.aClass120_Sub14_Sub8_121.method1474(Class82.aClass107Array785, null);
 			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1474(Class82.aClass107Array785, null);
 			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1474(Class82.aClass107Array785, null);
 			if (HDToolkit.glEnabled) {
@@ -1002,7 +1002,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	@Override
 	public final void start() {
 		if (Class31.gameApplet == this && !client.shutdown) {
-			Class120_Sub32.killtime = 0L;
+			IntegerNode.killtime = 0L;
 		}
 	}
 
@@ -1044,7 +1044,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	@Override
 	public final void stop() {
 		if (Class31.gameApplet == this && !client.shutdown) {
-			Class120_Sub32.killtime = TimeUtil.getSafeTime() - -4000L;
+			IntegerNode.killtime = TimeUtil.getSafeTime() - -4000L;
 		}
 	}
 
@@ -1104,7 +1104,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	static final void method43(final int i, final int i_12_) {
-		final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i_12_, i);
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_12_, i);
 		class120_sub14_sub7.method1453((byte) -104);
 	}
 
@@ -1130,9 +1130,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			PlayerAppearance.frameHeight = Class120_Sub12_Sub5.canvasHeight = height;
 			final String string = getParameter("openwinjs");
 			if (string != null && string.equals("1")) {
-				Class99.aBoolean953 = true;
+				Class99.openwinjsEnabled = true;
 			} else {
-				Class99.aBoolean953 = false;
+				Class99.openwinjsEnabled = false;
 			}
 			if (NpcType.gameSignlink == null) {
 				Class120_Sub12_Sub18.errorSignlink = NpcType.gameSignlink = new Signlink(this, i_13_, null, 0);
@@ -1141,7 +1141,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			while (signlinkNode.status == 0) {
 				PacketBuffer.sleepWrapper(10L);
 			}
-			Class189.gameShellThread = (Thread) signlinkNode.value;
+			JagexInterface.gameShellThread = (Thread) signlinkNode.value;
 		} catch (final Exception exception) {
 			Class180_Sub3.method2312(exception, null);
 			error("crash");
@@ -1196,7 +1196,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			mainInit();
 			Class101_Sub2.gameShellTimer = Class52.constructTimer();
 			loadJagmisc();
-			while (Class120_Sub32.killtime == 0L || TimeUtil.getSafeTime() < Class120_Sub32.killtime) {
+			while (IntegerNode.killtime == 0L || TimeUtil.getSafeTime() < IntegerNode.killtime) {
 				Class112.gameLoopCount = Class101_Sub2.gameShellTimer.sleep(Class145.sleepModifier1, Class120_Sub12_Sub1.sleepModifier2);
 				for (int i = 0; i < Class112.gameLoopCount; i++) {
 					mainLoopWrapper();
@@ -1233,7 +1233,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			while (signlinkNode.status == 0) {
 				PacketBuffer.sleepWrapper(10L);
 			}
-			Class189.gameShellThread = (Thread) signlinkNode.value;
+			JagexInterface.gameShellThread = (Thread) signlinkNode.value;
 		} catch (final Exception exception) {
 			Class180_Sub3.method2312(exception, null);
 		}
@@ -1244,7 +1244,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			if (bool) {
 				method32(false);
 			}
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(5, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ue.W(").append(i).append(',').append(bool).append(')').toString());
@@ -1291,7 +1291,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	public final void destroy() {
 		try {
 			if (this == Class31.gameApplet && !client.shutdown) {
-				Class120_Sub32.killtime = TimeUtil.getSafeTime();
+				IntegerNode.killtime = TimeUtil.getSafeTime();
 				PacketBuffer.sleepWrapper(5000L);
 				Class120_Sub12_Sub18.errorSignlink = null;
 				shutdownApplet(false);

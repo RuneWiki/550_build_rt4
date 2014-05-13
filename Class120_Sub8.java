@@ -55,7 +55,7 @@ final class Class120_Sub8 extends Node {
 		Class120_Sub12_Sub1.aString3132 = "Atteindre";
 		Class120_Sub15.aString2594 = "Liste des mises \u00e0 jour charg\u00e9e";
 		Class8.aString64 = "Jeter";
-		Class180_Sub1.aString2849 = "Veuillez commencer par supprimer ";
+		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
 		Class120_Sub14_Sub14.aString3575 = "violet:";
 		Class142.aString1358 = "Textures charg\u00e9es";
 		CursorType.aString1238 = "K";
@@ -96,7 +96,7 @@ final class Class120_Sub8 extends Node {
 		Class53_Sub1.aString2213 = "rouge:";
 		Class107.aString1025 = "Moteur son pr\u00e9par\u00e9";
 		Class120_Sub24.aString2726 = "Sprites charg\u00e9s";
-		Class120_Sub32.aString2788 = "Chargement des interfaces - ";
+		IntegerNode.aString2788 = "Chargement des interfaces - ";
 		Class69.aString618 = "vert:";
 		Class132.aString1250 = " s'est d\u00e9connect\u00e9.";
 		Class158.aString1483 = "cyan:";
@@ -105,7 +105,7 @@ final class Class120_Sub8 extends Node {
 		Class120_Sub3.aString2428 = "Chargement des fichiers config - ";
 		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
 		Class109.aString1046 = "Continuer";
-		Class180_Sub1.aString2847 = "Module texte charg\u00e9";
+		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
 		Class143.aString2183 = "S\u00e9lectionner";
 		Class54.aString489 = " de votre liste d'amis.";
 		Class120_Sub13.aString2574 = "blanc:";

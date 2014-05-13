@@ -16,9 +16,9 @@ final class Class84 {
 			if (i != -22773) {
 				aString799 = null;
 			}
-			Class180_Sub6.aClass21_3071.method190(false);
-			Class120_Sub1.aClass21_2406.method190(false);
-			Class120_Sub12_Sub2.aClass21_3143.method190(false);
+			Class180_Sub6.aClass21_3071.clearSoftReference();
+			Class120_Sub1.aClass21_2406.clearSoftReference();
+			Class120_Sub12_Sub2.aClass21_3143.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.D(").append(i).append(')').toString());
 		}
@@ -56,7 +56,7 @@ final class Class84 {
 					if (class180_sub4.anInt2929 > 0) {
 						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[-1 + class180_sub4.anInt2929];
 						if (class180_sub5_sub2 != null && class180_sub5_sub2.x >= 0 && class180_sub5_sub2.x < 13312 && class180_sub5_sub2.z >= 0 && class180_sub5_sub2.z < 13312) {
-							class180_sub4.method2319(-108, Class22.method197(class180_sub5_sub2.z, true, class180_sub5_sub2.x, class180_sub4.anInt2934) - class180_sub4.anInt2943, class180_sub5_sub2.x, Class101_Sub2.loopCycle, class180_sub5_sub2.z);
+							class180_sub4.method2319(-108, Class22.method197(class180_sub4.anInt2934, class180_sub5_sub2.x, class180_sub5_sub2.z) - class180_sub4.anInt2943, class180_sub5_sub2.x, Class101_Sub2.loopCycle, class180_sub5_sub2.z);
 						}
 					}
 					if (class180_sub4.anInt2929 < 0) {
@@ -68,7 +68,7 @@ final class Class84 {
 							class180_sub5_sub1 = Class118.playersList[i_3_];
 						}
 						if (class180_sub5_sub1 != null && class180_sub5_sub1.x >= 0 && class180_sub5_sub1.x < 13312 && class180_sub5_sub1.z >= 0 && class180_sub5_sub1.z < 13312) {
-							class180_sub4.method2319(-60, Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, class180_sub4.anInt2934) + -class180_sub4.anInt2943, class180_sub5_sub1.x, Class101_Sub2.loopCycle, class180_sub5_sub1.z);
+							class180_sub4.method2319(-60, Class22.method197(class180_sub4.anInt2934, class180_sub5_sub1.x, class180_sub5_sub1.z) + -class180_sub4.anInt2943, class180_sub5_sub1.x, Class101_Sub2.loopCycle, class180_sub5_sub1.z);
 						}
 					}
 					class180_sub4.method2317(Class120_Sub12_Sub22.anInt3301, 1);

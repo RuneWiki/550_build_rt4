@@ -2,11 +2,11 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub32 extends Node {
+final class IntegerNode extends Node {
 	static int[] anIntArray2787;
 	static String aString2788 = "Loading interfaces - ";
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2789;
-	int anInt2790;
+	int value;
 	static int[] anIntArray2791 = { 160, 192, 80, 96, 0, 144, 80, 48, 160 };
 	static int anInt2792;
 	static long killtime;
@@ -18,13 +18,13 @@ final class Class120_Sub32 extends Node {
 
 	static final void method1831(final int i) {
 		try {
-			Class56.aClass21_494.method190(false);
-			InterfaceClickMask.aClass21_2663.method190(false);
+			Class56.aClass21_494.clearSoftReference();
+			InterfaceClickMask.aClass21_2663.clearSoftReference();
 			if (i != 18786) {
 				killtime = 81L;
 			}
-			Class167.aClass21_1618.method190(false);
-			Class116.aClass21_1117.method190(false);
+			Class167.aClass21_1618.clearSoftReference();
+			Class116.aClass21_1117.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.A(").append(i).append(')').toString());
 		}
@@ -44,28 +44,28 @@ final class Class120_Sub32 extends Node {
 		}
 	}
 
-	static final boolean method1833(final byte i, final Class189 class189) {
+	static final boolean method1833(final byte i, final JagexInterface jagexInterface) {
 		boolean bool;
 		try {
 			if (i != -101) {
 				method1833((byte) 8, null);
 			}
-			if (class189.anInt1975 == 205) {
+			if (jagexInterface.anInt1975 == 205) {
 				Class31.anInt244 = 250;
 				return true;
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.B(").append(i).append(',').append(class189 != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool;
 	}
 
-	public Class120_Sub32() {
+	public IntegerNode() {
 		/* empty */
 	}
 
-	Class120_Sub32(final int i) {
-		this.anInt2790 = i;
+	IntegerNode(final int i) {
+		this.value = i;
 	}
 }

@@ -2,19 +2,19 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class183 {
-	int anInt1803;
+final class ObjectPile {
+	int renderX;
 	static short[] aShortArray1804;
 	static int anInt1805 = 0;
-	long aLong1806;
-	Class180 aClass180_1807;
+	long bitPacked;
+	SceneGraphNode thirdItemModel;
 	static int anInt1808;
-	static Class172 aClass172_1809;
-	Class180 aClass180_1810;
-	int anInt1811;
-	Class180 aClass180_1812;
-	int anInt1813;
-	int anInt1814;
+	static Decimator aClass172_1809;
+	SceneGraphNode mainItemModel;
+	int yLocationModifier;
+	SceneGraphNode secondItemModel;
+	int renderY;
+	int renderZ;
 
 	static {
 		aShortArray1804 = new short[] { 6798, 8741, 25238, 4626, 4550 };
@@ -62,7 +62,7 @@ final class Class183 {
 		}
 	}
 
-	public Class183() {
+	public ObjectPile() {
 		/* empty */
 	}
 }

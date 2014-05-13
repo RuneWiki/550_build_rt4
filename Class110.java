@@ -45,7 +45,7 @@ final class Class110 {
 			Class143.method2015(i + 2534);
 			Class11.method125((byte) 113);
 			Class142.method2009(255);
-			Class15.aClass21_95.method186((byte) 86);
+			Class15.aClass21_95.clear();
 			if (!HDToolkit.glEnabled) {
 				((Class143_Sub1) Rasterizer.anInterface5_973).method2025(-45);
 			}
@@ -61,7 +61,7 @@ final class Class110 {
 			Class108_Sub3.aClass50_2400.method419(0);
 			Class120_Sub10.aClass50_2544.method419(0);
 			IsaacCipher.aClass50_1019.method419(0);
-			Class120_Sub12_Sub2.aClass21_3144.method186((byte) 86);
+			Class120_Sub12_Sub2.aClass21_3144.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.A(").append(i).append(')').toString());
 		}

@@ -43,16 +43,7 @@ abstract class Class120_Sub2 extends Node {
 	}
 
 	final boolean method1042(final int i) {
-		boolean bool;
-		try {
-			if (i < 41) {
-				anInt2419 = -121;
-			}
-			bool = this.aBoolean2418;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.H(").append(i).append(')').toString());
-		}
-		return bool;
+		return this.aBoolean2418;
 	}
 
 	abstract void method1043(int i);
@@ -121,7 +112,7 @@ abstract class Class120_Sub2 extends Node {
 		if (i_21_ > i_18_ && i_25_ > i_18_) {
 			return false;
 		}
-		if (i_23_ < Class120_Sub32.anInt2792 && i_27_ < Class120_Sub32.anInt2792) {
+		if (i_23_ < IntegerNode.anInt2792 && i_27_ < IntegerNode.anInt2792) {
 			return false;
 		}
 		if (i_23_ > Class120_Sub12_Sub16.anInt3253 && i_27_ > Class120_Sub12_Sub16.anInt3253) {

@@ -2,10 +2,10 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub1 extends Class180 {
+final class SceneGroundObject extends SceneGraphNode {
 	static Class50 aClass50_2839;
 	static int spriteTrimHeight;
-	static Class21 aClass21_2841;
+	static Cache aClass21_2841;
 	private int anInt2842 = -32768;
 	static int anInt2843;
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
@@ -16,7 +16,7 @@ final class Class180_Sub1 extends Class180 {
 	static String aString2849;
 
 	static {
-		aClass21_2841 = new Class21(64);
+		aClass21_2841 = new Cache(64);
 		aBoolean2848 = true;
 		aString2849 = "Please remove ";
 	}
@@ -40,7 +40,7 @@ final class Class180_Sub1 extends Class180 {
 			if (i != 29) {
 				method2276(43);
 			}
-			Class154.aClass21_1438.method190(false);
+			Class154.aClass21_1438.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("he.B(").append(i).append(')').toString());
 		}
@@ -106,7 +106,7 @@ final class Class180_Sub1 extends Class180 {
 	static final void method2278(final int i, final byte i_13_) {
 		try {
 			if (i_13_ == -123) {
-				Class120_Sub14_Sub11.aClass21_3541.method192((byte) 37, i);
+				Class120_Sub14_Sub11.aClass21_3541.method192(i);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("he.A(").append(i).append(',').append(i_13_).append(')').toString());

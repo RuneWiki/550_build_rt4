@@ -2,15 +2,15 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
+final class JavaObject extends AbstractObject {
 	static int anInt3913 = 0;
-	static Class75 aClass75_3914;
+	static Hashtable aClass75_3914;
 	static int anInt3915 = 0;
 	static int[] anIntArray3916;
-	private final Object anObject3917;
+	private final Object value;
 
 	static {
-		aClass75_3914 = new Class75(512);
+		aClass75_3914 = new Hashtable(512);
 	}
 
 	public static void method1433(final int i) {
@@ -42,43 +42,25 @@ final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
 	}
 
 	@Override
-	final boolean method1430(final int i) {
-		boolean bool;
-		try {
-			if (i != -1249071392) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ei.C(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean isSoftReference() {
+		return false;
 	}
 
 	@Override
-	final Object method1429(final boolean bool) {
-		Object object;
-		try {
-			if (bool) {
-				method1435(-89);
-			}
-			object = anObject3917;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ei.A(").append(bool).append(')').toString());
-		}
-		return object;
+	final Object get() {
+		return value;
 	}
 
-	Class120_Sub14_Sub3_Sub1(final Object object) {
-		anObject3917 = object;
+	JavaObject(final Object object) {
+		value = object;
 	}
 
 	static final void method1435(final int i) {
 		try {
 			InterfaceClickMask.redrawInterface(Class120_Sub12_Sub4.aClass189_3156);
-			Class180_Sub1.anInt2843++;
+			SceneGroundObject.anInt2843++;
 			if (!Class151.aBoolean1419 || !Class111.aBoolean1058) {
-				if (Class180_Sub1.anInt2843 > 1) {
+				if (SceneGroundObject.anInt2843 > 1) {
 					Class120_Sub12_Sub4.aClass189_3156 = null;
 				}
 			} else {
@@ -101,7 +83,7 @@ final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
 				}
 				final int i_5_ = i_3_ - Class9.anInt77;
 				final int i_6_ = Class120_Sub12_Sub4.aClass189_3156.anInt1962;
-				if (Class180_Sub1.anInt2843 > Class120_Sub12_Sub4.aClass189_3156.anInt2066 && (i_4_ > i_6_ || i_4_ < -i_6_ || i_5_ > i_6_ || i_5_ < -i_6_)) {
+				if (SceneGroundObject.anInt2843 > Class120_Sub12_Sub4.aClass189_3156.anInt2066 && (i_4_ > i_6_ || i_4_ < -i_6_ || i_5_ > i_6_ || i_5_ < -i_6_)) {
 					Class120_Sub11.aBoolean2551 = true;
 				}
 				final int i_7_ = Class26.aClass189_161.anInt2023 + i_2_ - Class120_Sub12_Sub7.anInt3183;
@@ -134,11 +116,11 @@ final class Class120_Sub14_Sub3_Sub1 extends Class120_Sub14_Sub3 {
 							Class88.method744(true, class120_sub10);
 						}
 						if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(0);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1126((byte) 93, Class120_Sub12_Sub4.aClass189_3156.anInt1999);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1086((byte) 21, LocType.aClass189_1818.anInt1999);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, LocType.aClass189_1818.anInt2083);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.anInt2083);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(0);
+							Class120_Sub12_Sub11.outputStream.method1126((byte) 93, Class120_Sub12_Sub4.aClass189_3156.bitPacked);
+							Class120_Sub12_Sub11.outputStream.method1086((byte) 21, LocType.aClass189_1818.bitPacked);
+							Class120_Sub12_Sub11.outputStream.method1116(-2076007248, LocType.aClass189_1818.anInt2083);
+							Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.anInt2083);
 						}
 					}
 					Class120_Sub12_Sub4.aClass189_3156 = null;

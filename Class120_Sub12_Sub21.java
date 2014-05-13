@@ -59,7 +59,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			if (class120_sub14_sub16_2_ != null) {
 				return class120_sub14_sub16_2_;
 			}
-			final byte[] is = Class40.aClass50_331.method442(26, (byte) 109, i_1_);
+			final byte[] is = Class40.aClass50_331.getFile(26, i_1_);
 			class120_sub14_sub16_2_ = new Class120_Sub14_Sub16();
 			if (is != null) {
 				class120_sub14_sub16_2_.method1565(new Buffer(is), 0);
@@ -127,7 +127,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 							i_5_ = Class120_Sub14_Sub14_Sub1.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
 						}
 						if (i_5_ > 0) {
-							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(Class183.aClass172_1809);
+							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_5_);
 							class120_sub30_sub4.method1795(-1 + LocType.anIntArray1834[i_3_]);
 							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
@@ -138,8 +138,8 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			}
 			if (!Class120_Sub12_Sub15.aBoolean3247 || Class167_Sub1.method2193(81)) {
 				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !Class167_Sub1.method2193(18)) {
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(250);
-					Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(Class157.anInt1466);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(250);
+					Class120_Sub12_Sub11.outputStream.putInt(Class157.anInt1466);
 					Class157.anInt1466 = -1;
 				}
 			} else {
@@ -155,10 +155,10 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 
 	private static final void method1307(final byte i) {
 		try {
-			Class73.aClass21_635.method190(false);
+			Class73.aClass21_635.clearSoftReference();
 			if (i == -71) {
-				Class11.aClass21_80.method190(false);
-				Class180_Sub4.aClass21_2931.method190(false);
+				Class11.aClass21_80.clearSoftReference();
+				Class180_Sub4.aClass21_2931.clearSoftReference();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("og.AA(").append(i).append(')').toString());
@@ -186,7 +186,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			if (i != 0) {
 				actions = null;
 			}
-			Class120_Sub10.aClass21_2542.method190(false);
+			Class120_Sub10.aClass21_2542.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("og.R(").append(i).append(')').toString());
 		}
@@ -233,7 +233,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			method1309(0);
 			Class127.method1898((byte) 48);
 			Class128.method1907((byte) 105);
-			Class120_Sub32.method1831(i + 18722);
+			IntegerNode.method1831(i + 18722);
 			method1307((byte) -71);
 			Class120_Sub12_Sub4.method1214((byte) 99);
 			Class83.b(i + -22970);
@@ -253,9 +253,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			}
 			Class84.method716(i + -22837);
 			Class43.method340(-119);
-			Class180_Sub1.method2275((byte) 29);
-			Class120_Sub12_Sub2.aClass21_3144.method190(false);
-			Class15.aClass21_95.method190(false);
+			SceneGroundObject.method2275((byte) 29);
+			Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
+			Class15.aClass21_95.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("og.V(").append(i).append(')').toString());
 		}

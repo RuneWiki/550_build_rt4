@@ -208,7 +208,7 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 						class80.anIntArray757 = new int[class80.anIntArray743.length];
 						for (int i_44_ = 0; i_44_ < class80.anIntArray743.length; i_44_++) {
 							Class120_Sub12_Sub35.method1384(class80.anIntArray743[i_44_], 2);
-							class80.anIntArray757[i_44_] = ((Class120_Sub32) Class120_Sub18.aClass75_2643.method659(class80.anIntArray743[i_44_], -122)).anInt2790;
+							class80.anIntArray757[i_44_] = ((IntegerNode) GroundTile.aClass75_2643.get(class80.anIntArray743[i_44_])).value;
 						}
 					}
 					int[] is;
@@ -287,9 +287,9 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 							method969();
 							return;
 						}
-						Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_52_][i_48_][i_49_];
+						GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_52_][i_48_][i_49_];
 						if (class120_sub18 == null) {
-							class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_52_][i_48_][i_49_] = new Class120_Sub18(i_52_, i_48_, i_49_);
+							class120_sub18 = Class120_Sub1.groundTiles[i_52_][i_48_][i_49_] = new GroundTile(i_52_, i_48_, i_49_);
 						}
 						if (class120_sub18.aClass100_2645 == null) {
 							class120_sub18.aClass100_2645 = new Class100();

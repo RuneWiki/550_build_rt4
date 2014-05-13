@@ -2,13 +2,13 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class Class180 {
+abstract class SceneGraphNode {
 	static Class137 aClass137_1780;
-	static Class21 aClass21_1781 = new Class21(100);
+	static Cache aClass21_1781 = new Cache(100);
 	static Class188[] aClass188Array1782;
 	static int[] anIntArray1783 = new int[25];
 
-	public Class180() {
+	public SceneGraphNode() {
 		/* empty */
 	}
 
@@ -16,7 +16,7 @@ abstract class Class180 {
 
 	abstract void method2266(int i, int i_8_, int i_9_, int i_10_, int i_11_);
 
-	void method2267(final Class180 class180_12_, final int i, final int i_13_, final int i_14_, final boolean bool) {
+	void method2267(final SceneGraphNode class180_12_, final int i, final int i_13_, final int i_14_, final boolean bool) {
 		/* empty */
 	}
 
@@ -30,8 +30,8 @@ abstract class Class180 {
 		return bool;
 	}
 
-	Class180 method2269(final int i, final int i_15_, final int i_16_) {
-		Class180 class180_17_;
+	SceneGraphNode method2269(final int i, final int i_15_, final int i_16_) {
+		SceneGraphNode class180_17_;
 		try {
 			class180_17_ = this;
 		} catch (final RuntimeException runtimeexception) {
@@ -142,52 +142,52 @@ abstract class Class180 {
 		}
 	}
 
-	static final void method2272(final int i, final int i_27_, final Class189 class189, final int i_28_) {
+	static final void method2272(final int i, final int i_27_, final JagexInterface jagexInterface, final int i_28_) {
 		try {
-			if (class189.aByte2051 == 0) {
-				class189.anInt2073 = class189.anInt2015;
-			} else if (class189.aByte2051 != 1) {
-				if (class189.aByte2051 == 2) {
-					class189.anInt2073 = -class189.anInt2015 + -class189.anInt1948 + i;
-				} else if (class189.aByte2051 == 3) {
-					class189.anInt2073 = class189.anInt2015 * i >> 14;
-				} else if (class189.aByte2051 != 4) {
-					class189.anInt2073 = -(i * class189.anInt2015 >> 14) + -class189.anInt1948 + i;
+			if (jagexInterface.aByte2051 == 0) {
+				jagexInterface.anInt2073 = jagexInterface.anInt2015;
+			} else if (jagexInterface.aByte2051 != 1) {
+				if (jagexInterface.aByte2051 == 2) {
+					jagexInterface.anInt2073 = -jagexInterface.anInt2015 + -jagexInterface.anInt1948 + i;
+				} else if (jagexInterface.aByte2051 == 3) {
+					jagexInterface.anInt2073 = jagexInterface.anInt2015 * i >> 14;
+				} else if (jagexInterface.aByte2051 != 4) {
+					jagexInterface.anInt2073 = -(i * jagexInterface.anInt2015 >> 14) + -jagexInterface.anInt1948 + i;
 				} else {
-					class189.anInt2073 = (class189.anInt2015 * i >> 14) + (i - class189.anInt1948) / 2;
+					jagexInterface.anInt2073 = (jagexInterface.anInt2015 * i >> 14) + (i - jagexInterface.anInt1948) / 2;
 				}
 			} else {
-				class189.anInt2073 = class189.anInt2015 + (-class189.anInt1948 + i) / 2;
+				jagexInterface.anInt2073 = jagexInterface.anInt2015 + (-jagexInterface.anInt1948 + i) / 2;
 			}
-			if (class189.aByte2017 != 0) {
-				if (class189.aByte2017 == 1) {
-					class189.anInt1938 = class189.anInt2061 + (-class189.anInt2059 + i_27_) / 2;
-				} else if (class189.aByte2017 == 2) {
-					class189.anInt1938 = i_27_ + -class189.anInt2059 - class189.anInt2061;
-				} else if (class189.aByte2017 == 3) {
-					class189.anInt1938 = i_27_ * class189.anInt2061 >> 14;
-				} else if (class189.aByte2017 != 4) {
-					class189.anInt1938 = -(class189.anInt2061 * i_27_ >> 14) + i_27_ + -class189.anInt2059;
+			if (jagexInterface.aByte2017 != 0) {
+				if (jagexInterface.aByte2017 == 1) {
+					jagexInterface.anInt1938 = jagexInterface.anInt2061 + (-jagexInterface.anInt2059 + i_27_) / 2;
+				} else if (jagexInterface.aByte2017 == 2) {
+					jagexInterface.anInt1938 = i_27_ + -jagexInterface.anInt2059 - jagexInterface.anInt2061;
+				} else if (jagexInterface.aByte2017 == 3) {
+					jagexInterface.anInt1938 = i_27_ * jagexInterface.anInt2061 >> 14;
+				} else if (jagexInterface.aByte2017 != 4) {
+					jagexInterface.anInt1938 = -(jagexInterface.anInt2061 * i_27_ >> 14) + i_27_ + -jagexInterface.anInt2059;
 				} else {
-					class189.anInt1938 = (class189.anInt2061 * i_27_ >> 14) + (i_27_ - class189.anInt2059) / 2;
+					jagexInterface.anInt1938 = (jagexInterface.anInt2061 * i_27_ >> 14) + (i_27_ - jagexInterface.anInt2059) / 2;
 				}
 			} else {
-				class189.anInt1938 = class189.anInt2061;
+				jagexInterface.anInt1938 = jagexInterface.anInt2061;
 			}
-			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.method54(class189).anInt2662 != 0 || class189.anInt1995 == 0)) {
-				if (class189.anInt1938 < 0) {
-					class189.anInt1938 = 0;
-				} else if (class189.anInt2059 + class189.anInt1938 > i_27_) {
-					class189.anInt1938 = -class189.anInt2059 + i_27_;
+			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.method54(jagexInterface).anInt2662 != 0 || jagexInterface.anInt1995 == 0)) {
+				if (jagexInterface.anInt1938 < 0) {
+					jagexInterface.anInt1938 = 0;
+				} else if (jagexInterface.anInt2059 + jagexInterface.anInt1938 > i_27_) {
+					jagexInterface.anInt1938 = -jagexInterface.anInt2059 + i_27_;
 				}
-				if (class189.anInt2073 < 0) {
-					class189.anInt2073 = 0;
-				} else if (i < class189.anInt2073 - -class189.anInt1948) {
-					class189.anInt2073 = i + -class189.anInt1948;
+				if (jagexInterface.anInt2073 < 0) {
+					jagexInterface.anInt2073 = 0;
+				} else if (i < jagexInterface.anInt2073 - -jagexInterface.anInt1948) {
+					jagexInterface.anInt2073 = i + -jagexInterface.anInt1948;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.QC(").append(i).append(',').append(i_27_).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.QC(").append(i).append(',').append(i_27_).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
 		}
 	}
 

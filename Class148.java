@@ -45,7 +45,7 @@ final class Class148 {
 	static final void method2058(final int i) {
 		try {
 			if (i == 1) {
-				Class120_Sub12_Sub35.aClass21_3411.method186((byte) 86);
+				Class120_Sub12_Sub35.aClass21_3411.clear();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.A(").append(i).append(')').toString());
@@ -83,14 +83,14 @@ final class Class148 {
 	static final Class120_Sub14_Sub8_Sub2 method2061(final int i, final int i_9_) {
 		Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2;
 		try {
-			Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_10_ = (Class120_Sub14_Sub8_Sub2) Class15.aClass21_95.method193(i_9_, (byte) 76);
+			Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_10_ = (Class120_Sub14_Sub8_Sub2) Class15.aClass21_95.get(i_9_);
 			if (class120_sub14_sub8_sub2_10_ != null) {
 				return class120_sub14_sub8_sub2_10_;
 			}
-			final byte[] is = Class120_Sub13.aClass50_2576.method442(i_9_, (byte) 115, 0);
+			final byte[] is = Class120_Sub13.aClass50_2576.getFile(i_9_, 0);
 			class120_sub14_sub8_sub2_10_ = new Class120_Sub14_Sub8_Sub2(is);
 			class120_sub14_sub8_sub2_10_.method1474(Class82.aClass107Array785, null);
-			Class15.aClass21_95.method185(-125, class120_sub14_sub8_sub2_10_, i_9_);
+			Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
 			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_10_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.C(").append(i).append(',').append(i_9_).append(')').toString());

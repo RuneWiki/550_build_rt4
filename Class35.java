@@ -10,7 +10,7 @@ final class Class35 {
 	static int anInt301;
 	private final Queue aClass177_302 = new Queue();
 	static Class50 aClass50_303;
-	private final Class75 aClass75_304;
+	private final Hashtable aClass75_304;
 	private int anInt305;
 	private final int anInt306;
 
@@ -22,9 +22,9 @@ final class Class35 {
 
 	static final void method297(final int i) {
 		try {
-			Class73.aClass21_635.method186((byte) 86);
-			Class11.aClass21_80.method186((byte) 86);
-			Class180_Sub4.aClass21_2931.method186((byte) 86);
+			Class73.aClass21_635.clear();
+			Class11.aClass21_80.clear();
+			Class180_Sub4.aClass21_2931.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.D(").append(i).append(')').toString());
 		}
@@ -49,7 +49,7 @@ final class Class35 {
 			if (i < 11) {
 				removeMouse(null);
 			}
-			node = aClass75_304.method657(13292);
+			node = aClass75_304.getFirst();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.G(").append(i).append(')').toString());
 		}
@@ -87,7 +87,7 @@ final class Class35 {
 					class120_sub14_1_.unlinkSub();
 				}
 			}
-			aClass75_304.method655(class120_sub14, 89, l);
+			aClass75_304.put(class120_sub14, l);
 			if (i > 28) {
 				aClass177_302.insertLast(class120_sub14);
 			}
@@ -102,7 +102,7 @@ final class Class35 {
 			if (i != 17301) {
 				return null;
 			}
-			final NodeSub class120_sub14_2_ = (NodeSub) aClass75_304.method659(l, i + -17420);
+			final NodeSub class120_sub14_2_ = (NodeSub) aClass75_304.get(l);
 			if (class120_sub14_2_ != null) {
 				aClass177_302.insertLast(class120_sub14_2_);
 			}
@@ -119,7 +119,7 @@ final class Class35 {
 			if (i != -91) {
 				method299(16);
 			}
-			node = aClass75_304.method658((byte) -65);
+			node = aClass75_304.getNext();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.A(").append(i).append(')').toString());
 		}
@@ -155,7 +155,7 @@ final class Class35 {
 	final void method306(final byte i) {
 		try {
 			aClass177_302.clear();
-			aClass75_304.method662((byte) -127);
+			aClass75_304.clear();
 			aClass120_Sub14_298 = new NodeSub();
 			anInt305 = anInt306;
 		} catch (final RuntimeException runtimeexception) {
@@ -170,6 +170,6 @@ final class Class35 {
 			/* empty */
 		}
 		anInt306 = i;
-		aClass75_304 = new Class75(i_4_);
+		aClass75_304 = new Hashtable(i_4_);
 	}
 }

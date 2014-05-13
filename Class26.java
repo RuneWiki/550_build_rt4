@@ -10,7 +10,7 @@ final class Class26 {
 	static Class35 aClass35_158 = new Class35(64);
 	static PlayerAppearance aClass144_159 = new PlayerAppearance();
 	int anInt160;
-	static Class189 aClass189_161 = null;
+	static JagexInterface aClass189_161 = null;
 	static int anInt162 = 0;
 	static Class90 aClass90_163;
 
@@ -30,11 +30,11 @@ final class Class26 {
 		return class120_sub14_sub19;
 	}
 
-	static final boolean method230(final int i, final int i_1_, final int i_2_, final int i_3_, final Class180 class180, final int i_4_, final long l, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {
-		if (class180 == null) {
+	static final boolean method230(final int i, final int i_1_, final int i_2_, final int i_3_, final SceneGraphNode sceneGraphNode, final int i_4_, final long l, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {
+		if (sceneGraphNode == null) {
 			return true;
 		}
-		return Class120_Sub13.method1403(i, i_5_, i_6_, i_7_ - i_5_ + 1, i_8_ - i_6_ + 1, i_1_, i_2_, i_3_, class180, i_4_, true, l);
+		return Class120_Sub13.method1403(i, i_5_, i_6_, i_7_ - i_5_ + 1, i_8_ - i_6_ + 1, i_1_, i_2_, i_3_, sceneGraphNode, i_4_, true, l);
 	}
 
 	public static void method231(final byte i) {
@@ -50,8 +50,8 @@ final class Class26 {
 
 	static final void method232(final byte i, final int i_9_) {
 		try {
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.method192((byte) -63, i_9_);
-			Class132.aClass21_1255.method192((byte) 39, i_9_);
+			Class120_Sub14_Sub14_Sub2.aClass21_3937.method192(i_9_);
+			Class132.aClass21_1255.method192(i_9_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.G(").append(i).append(',').append(i_9_).append(')').toString());
 		}
@@ -64,14 +64,14 @@ final class Class26 {
 				InterfaceChangeNode.anInt3483 = Class42.anInt362;
 				Queue.anInt1767 = Class160.anInt1492;
 				Class191.anInt2113 = Class120_Sub12_Sub27.anInt3351;
-				Class156.anInt1455 = GroundObject.anInt3627;
+				Class156.anInt1455 = GroundObjectNode.anInt3627;
 				Class50.anInt449 = Class192.anInt2122;
 				if (i != -1) {
 					method233(-127);
 				}
 				Class120_Sub12_Sub36.anInt3424 = Class80.anInt751;
 				Class120_Sub12_Sub2.aLong3146 = Class186.aLong1897;
-				GroundObject.anInt3627 = 0;
+				GroundObjectNode.anInt3627 = 0;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.B(").append(i).append(')').toString());

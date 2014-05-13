@@ -150,18 +150,18 @@ final class SpotAnimType {
 					aBooleanArrayArray992 = null;
 				}
 				if (!Class93.aBoolean870) {
-					final Class120_Sub18[][][] class120_sub18s = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411;
-					Class120_Sub18[][][] class120_sub18s_10_;
+					final GroundTile[][][] class120_sub18s = Class120_Sub1.groundTiles;
+					GroundTile[][][] class120_sub18s_10_;
 					final int i_9_ = (class120_sub18s_10_ = class120_sub18s).length;
 					for (int i_11_ = 0; i_11_ < i_9_; i_11_++) {
-						final Class120_Sub18[][] class120_sub18s_12_ = class120_sub18s_10_[i_11_];
-						for (final Class120_Sub18[] element : class120_sub18s_12_) {
+						final GroundTile[][] class120_sub18s_12_ = class120_sub18s_10_[i_11_];
+						for (final GroundTile[] element : class120_sub18s_12_) {
 							for (int i_14_ = 0; element.length > i_14_; i_14_++) {
-								final Class120_Sub18 class120_sub18 = element[i_14_];
+								final GroundTile class120_sub18 = element[i_14_];
 								if (class120_sub18 != null) {
 									if (class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309 instanceof Class180_Sub7_Sub2) {
 										final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass36_2650.aClass180_309;
-										if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass36_2650.aLong308)) {
+										if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass36_2650.bitPacked)) {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										} else {
 											class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
@@ -170,7 +170,7 @@ final class SpotAnimType {
 									if (class120_sub18.aClass186_2639 != null) {
 										if (class120_sub18.aClass186_2639.aClass180_1901 instanceof Class180_Sub7_Sub2) {
 											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass186_2639.aClass180_1901;
-											if ((class120_sub18.aClass186_2639.aLong1904 & ~0x7fffffffffffffffL) != 0L) {
+											if ((class120_sub18.aClass186_2639.bitPacked & ~0x7fffffffffffffffL) != 0L) {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 											} else {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
@@ -178,7 +178,7 @@ final class SpotAnimType {
 										}
 										if (class120_sub18.aClass186_2639.aClass180_1898 instanceof Class180_Sub7_Sub2) {
 											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass186_2639.aClass180_1898;
-											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass186_2639.aLong1904)) {
+											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass186_2639.bitPacked)) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
@@ -188,7 +188,7 @@ final class SpotAnimType {
 									if (class120_sub18.aClass182_2628 != null) {
 										if (class120_sub18.aClass182_2628.aClass180_1800 instanceof Class180_Sub7_Sub2) {
 											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass182_2628.aClass180_1800;
-											if ((~0x7fffffffffffffffL & class120_sub18.aClass182_2628.aLong1794) == 0L) {
+											if ((~0x7fffffffffffffffL & class120_sub18.aClass182_2628.bitPacked) == 0L) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
@@ -196,7 +196,7 @@ final class SpotAnimType {
 										}
 										if (class120_sub18.aClass182_2628.aClass180_1796 instanceof Class180_Sub7_Sub2) {
 											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass182_2628.aClass180_1796;
-											if (-1L != (class120_sub18.aClass182_2628.aLong1794 & ~0x7fffffffffffffffL ^ 0xffffffffffffffffL)) {
+											if (-1L != (class120_sub18.aClass182_2628.bitPacked & ~0x7fffffffffffffffL ^ 0xffffffffffffffffL)) {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 											} else {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
@@ -206,7 +206,7 @@ final class SpotAnimType {
 									for (int i_15_ = 0; class120_sub18.anInt2638 > i_15_; i_15_++) {
 										if (class120_sub18.aClass28Array2625[i_15_].aClass180_174 instanceof Class180_Sub7_Sub2) {
 											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass28Array2625[i_15_].aClass180_174;
-											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass28Array2625[i_15_].aLong186)) {
+											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass28Array2625[i_15_].bitPacked)) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
@@ -245,7 +245,7 @@ final class SpotAnimType {
 	final Class180_Sub7 method882(final int i, final int i_16_, final int i_17_, final byte i_18_) {
 		Class180_Sub7 class180_sub7;
 		try {
-			Class180_Sub7 class180_sub7_19_ = (Class180_Sub7) Class182.aClass21_1798.method193(this.anInt997, (byte) -97);
+			Class180_Sub7 class180_sub7_19_ = (Class180_Sub7) Class182.aClass21_1798.get(this.anInt997);
 			if (class180_sub7_19_ == null) {
 				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class90.aClass50_843, anInt995, 0);
 				if (class180_sub2 == null) {
@@ -262,7 +262,7 @@ final class SpotAnimType {
 					}
 				}
 				class180_sub7_19_ = class180_sub2.method2300(anInt985 + 64, 850 + anInt988, -30, -50, -30);
-				Class182.aClass21_1798.method185(-127, class180_sub7_19_, this.anInt997);
+				Class182.aClass21_1798.put(class180_sub7_19_, this.anInt997);
 			}
 			Class180_Sub7 class180_sub7_22_;
 			if ((this.anInt991 ^ 0xffffffff) == 0 || (i_17_ ^ 0xffffffff) == 0) {
@@ -295,17 +295,17 @@ final class SpotAnimType {
 	}
 
 	static final SpotAnimType list(final int i_18_) {
-		SpotAnimType class103_19_ = (SpotAnimType) Class141.aClass21_1350.method193(i_18_, (byte) 99);
+		SpotAnimType class103_19_ = (SpotAnimType) Class141.aClass21_1350.get(i_18_);
 		if (class103_19_ != null) {
 			return class103_19_;
 		}
-		final byte[] is = Class154.aClass50_1443.method442(Class127.method1897(i_18_, 101), (byte) 123, Class76.method663(i_18_, (byte) -67));
+		final byte[] is = Class154.aClass50_1443.getFile(Class127.method1897(i_18_, 101), Class76.method663(i_18_, (byte) -67));
 		class103_19_ = new SpotAnimType();
 		class103_19_.anInt997 = i_18_;
 		if (is != null) {
 			class103_19_.method881(new Buffer(is), false);
 		}
-		Class141.aClass21_1350.method185(-128, class103_19_, i_18_);
+		Class141.aClass21_1350.put(class103_19_, i_18_);
 		return class103_19_;
 	}
 

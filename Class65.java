@@ -5,7 +5,7 @@
 final class Class65 {
 	static String aString591;
 	static int anInt592;
-	static int anInt593 = 0;
+	static int pingTimer = 0;
 	static int[][] anIntArrayArray594;
 	static DisplayModeInfo[] aClass171Array595;
 	static int loadAttempts;

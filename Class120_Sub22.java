@@ -18,7 +18,7 @@ final class Class120_Sub22 extends Node {
 	static final void method1701(final int i, final int i_0_, final int i_1_, final Player class180_sub5_sub1) {
 		try {
 			if ((0x1 & i_0_) != 0) {
-				final int i_2_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1081((byte) 98);
+				final int i_2_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUSmart();
 				final int i_3_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
 				class180_sub5_sub1.method2326(Class101_Sub2.loopCycle, 0, i_3_, i_2_);
 				class180_sub5_sub1.anInt2989 = 300 + Class101_Sub2.loopCycle;
@@ -81,7 +81,7 @@ final class Class120_Sub22 extends Node {
 				final int i_14_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
 				final int i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.pos;
 				if (class180_sub5_sub1.aString3745 != null && class180_sub5_sub1.appearance != null) {
-					final long l = Class70.method636(-123, class180_sub5_sub1.aString3745);
+					final long l = Class70.stringToLong(class180_sub5_sub1.aString3745);
 					boolean bool_16_ = false;
 					if (i_13_ <= 1) {
 						if (!bool && (Class27.aBoolean167 && !Class128.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
@@ -173,7 +173,7 @@ final class Class120_Sub22 extends Node {
 				class180_sub5_sub1.anInt3031 = 0;
 			}
 			if ((0x400 & i_0_) != 0) {
-				final int i_22_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1081((byte) 98);
+				final int i_22_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUSmart();
 				final int i_23_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
 				class180_sub5_sub1.method2326(Class101_Sub2.loopCycle, 0, i_23_, i_22_);
 			}

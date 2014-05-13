@@ -170,10 +170,10 @@ class HDSprite extends AbstractSprite {
 			gl.glBindTexture(3553, class120_sub14_sub19_sub1_27_.anInt3942);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
-			final float f = (float) (i - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1_27_.anInt3945;
-			final float f_28_ = (float) (i_26_ - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1_27_.anInt3948;
-			final float f_29_ = (float) (i + this.width - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1_27_.anInt3945;
-			final float f_30_ = (float) (i_26_ + this.height - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1_27_.anInt3948;
+			final float f = (float) (i - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1_27_.anInt3945;
+			final float f_28_ = (float) (i_26_ - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1_27_.anInt3948;
+			final float f_29_ = (float) (i + this.width - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1_27_.anInt3945;
+			final float f_30_ = (float) (i_26_ + this.height - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1_27_.anInt3948;
 			i += this.offsetX;
 			i_26_ += this.offsetY;
 			gl.glBegin(6);

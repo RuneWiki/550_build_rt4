@@ -217,7 +217,7 @@ final class IsaacCipher {
 			StringNode.anIntArray2735 = new int[i_13_];
 			Class134.anIntArray1284 = new int[i_13_];
 			if (i == 16448) {
-				Class120_Sub32.anIntArray2787 = new int[i_13_];
+				IntegerNode.anIntArray2787 = new int[i_13_];
 				Class180_Sub6.anIntArray3075 = new int[i_13_];
 			}
 		} catch (final RuntimeException runtimeexception) {

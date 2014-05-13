@@ -12,13 +12,13 @@ final class Class186 {
 	int anInt1895;
 	int anInt1896;
 	static volatile long aLong1897 = 0L;
-	Class180 aClass180_1898;
+	SceneGraphNode aClass180_1898;
 	static boolean aBoolean1899;
 	static int anInt1900;
-	Class180 aClass180_1901;
+	SceneGraphNode aClass180_1901;
 	static boolean aBoolean1902;
 	static String aString1903;
-	long aLong1904 = 0L;
+	long bitPacked = 0L;
 	int anInt1905;
 	static int anInt1906;
 
@@ -48,8 +48,8 @@ final class Class186 {
 					Class120_Sub12_Sub11.npcList[i_1_] = null;
 				}
 			}
-			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.anInt118) {
-				throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.anInt118).toString());
+			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.packetSize) {
+				throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 			}
 			for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
 				if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_2_]] == null) {
@@ -64,9 +64,9 @@ final class Class186 {
 	static final void method2472(final int i, final Class50 class50, final Class50 class50_3_) {
 		try {
 			if (i == -12879) {
-				Class180_Sub1.aClass50_2839 = class50;
+				SceneGroundObject.aClass50_2839 = class50;
 				Class147.aClass50_1394 = class50_3_;
-				Class7.anInt61 = Class147.aClass50_1394.method441(3, 1);
+				Class7.anInt61 = Class147.aClass50_1394.getFileAmount(3);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vl.C(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(')').toString());
@@ -76,10 +76,10 @@ final class Class186 {
 	static final void method2473(final int i, final int i_4_, final int i_5_, int i_6_, int i_7_) {
 		try {
 			if (HDToolkit.glEnabled) {
-				GraphicsHD.method592(i_6_, i_7_, i_5_ + i_6_, i + i_7_);
+				GraphicsHD.clipRect(i_6_, i_7_, i_5_ + i_6_, i + i_7_);
 				GraphicsHD.fillRect(i_6_, i_7_, i_5_, i, 0);
 			} else {
-				GraphicsLD.method2155(i_6_, i_7_, i_6_ + i_5_, i_7_ + i);
+				GraphicsLD.clipRect(i_6_, i_7_, i_6_ + i_5_, i_7_ + i);
 				GraphicsLD.fillRect(i_6_, i_7_, i_5_, i, 0);
 			}
 			if (Class90.anInt848 >= 100) {
@@ -116,8 +116,8 @@ final class Class186 {
 					int i_10_ = 16711680;
 					Class116.aClass120_Sub14_Sub19_1114.method1591(i_6_, i_7_);
 					final int i_11_ = Class173.anInt1726 * i_8_ / Class79.anInt700;
-					final int i_12_ = i_7_ + i_9_ * Class120_Sub18.anInt2627 / Class79.anInt692;
-					final int i_13_ = GroundObject.anInt3628 * i_9_ / Class79.anInt692;
+					final int i_12_ = i_7_ + i_9_ * GroundTile.anInt2627 / Class79.anInt692;
+					final int i_13_ = GroundObjectNode.anInt3628 * i_9_ / Class79.anInt692;
 					if (Buffer.gameId == 1) {
 						i_10_ = 16777215;
 					}
@@ -137,7 +137,7 @@ final class Class186 {
 							i_15_ = Class136.anInt1321 * 5;
 						}
 						for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekNext()) {
-							final Class73 class73 = Class92.method769(true, class120_sub14_sub5.anInt3473);
+							final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
 							if (Class9.method116(class73, -1)) {
 								if (class120_sub14_sub5.anInt3473 == Class127.anInt1215) {
 									final int i_16_ = i_8_ * class120_sub14_sub5.anInt3480 / Class79.anInt700 + i_6_;

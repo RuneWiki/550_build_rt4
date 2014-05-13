@@ -3,7 +3,7 @@
  */
 
 final class Class159 {
-	static Class21 aClass21_1486 = new Class21(16);
+	static Cache aClass21_1486 = new Cache(16);
 	static boolean aBoolean1487 = false;
 	static int anInt1488 = 0;
 	static short[][] aShortArrayArray1489;
@@ -12,9 +12,9 @@ final class Class159 {
 	static final synchronized byte[] method2092(final int i, final int i_0_) {
 		byte[] is;
 		try {
-			if (i_0_ == 100 && Class120_Sub14_Sub3_Sub1.anInt3913 > 0) {
-				final byte[] is_1_ = Class101_Sub2.aByteArrayArray2278[--Class120_Sub14_Sub3_Sub1.anInt3913];
-				Class101_Sub2.aByteArrayArray2278[Class120_Sub14_Sub3_Sub1.anInt3913] = null;
+			if (i_0_ == 100 && JavaObject.anInt3913 > 0) {
+				final byte[] is_1_ = Class101_Sub2.aByteArrayArray2278[--JavaObject.anInt3913];
+				Class101_Sub2.aByteArrayArray2278[JavaObject.anInt3913] = null;
 				return is_1_;
 			}
 			if (i < 88) {
@@ -54,7 +54,7 @@ final class Class159 {
 			if (i != 2260) {
 				anInt1488 = 84;
 			}
-			Class120_Sub14_Sub13.aClass21_3564.method192((byte) 68, i_4_);
+			Class120_Sub14_Sub13.aClass21_3564.method192(i_4_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sm.E(").append(i).append(',').append(i_4_).append(')').toString());
 		}

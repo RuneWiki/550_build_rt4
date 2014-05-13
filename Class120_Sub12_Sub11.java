@@ -6,17 +6,17 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	static int[] spriteWidths;
 	private int anInt3207;
 	private int anInt3208;
-	static PacketBuffer aClass120_Sub7_Sub1_3209;
+	static PacketBuffer outputStream;
 	private int anInt3210;
 	static int anInt3211 = -1;
 	static Npc[] npcList;
 	static Class50 aClass50_3213;
 	static int anInt3214;
-	static Class46 aClass46_3215;
+	static JagexSocket aClass46_3215;
 	static short aShort3216;
 
 	static {
-		aClass120_Sub7_Sub1_3209 = new PacketBuffer(5000);
+		outputStream = new PacketBuffer(5000);
 		anInt3214 = 0;
 		npcList = new Npc[32768];
 		aShort3216 = (short) 256;
@@ -46,7 +46,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 			if (!bool) {
 				npcList = null;
 			}
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(6, i_2_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i_2_);
 			class120_sub14_sub7.method1454((byte) -99);
 			class120_sub14_sub7.anInt3484 = i;
 		} catch (final RuntimeException runtimeexception) {
@@ -99,7 +99,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	public static void method1252(final int i) {
 		try {
 			npcList = null;
-			aClass120_Sub7_Sub1_3209 = null;
+			outputStream = null;
 			aClass46_3215 = null;
 			aClass50_3213 = null;
 			spriteWidths = null;

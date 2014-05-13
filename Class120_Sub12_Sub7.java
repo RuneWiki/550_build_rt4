@@ -113,11 +113,11 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 
 	static final void method1234(final byte i) {
 		try {
-			Class141.aClass21_1350.method190(false);
+			Class141.aClass21_1350.clearSoftReference();
 			if (i != 59) {
 				method1235(false);
 			}
-			Class182.aClass21_1798.method190(false);
+			Class182.aClass21_1798.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fa.R(").append(i).append(')').toString());
 		}

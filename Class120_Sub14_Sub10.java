@@ -10,7 +10,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	boolean aBoolean3531 = true;
 	static LDSprite aClass120_Sub14_Sub19_Sub2_3532;
 	static int[] anIntArray3533 = new int[14];
-	static Class75 aClass75_3534 = new Class75(16);
+	static Hashtable aClass75_3534 = new Hashtable(16);
 	int[] anIntArray3535;
 	private String[] aStringArray3536;
 	static int anInt3537;
@@ -18,7 +18,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	static final void method1499(final Class28 class28) {
 		for (int i = class28.anInt180; i <= class28.anInt182; i++) {
 			for (int i_0_ = class28.anInt184; i_0_ <= class28.anInt175; i_0_++) {
-				final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[class28.anInt177][i][i_0_];
+				final GroundTile class120_sub18 = Class120_Sub1.groundTiles[class28.anInt177][i][i_0_];
 				if (class120_sub18 != null) {
 					for (int i_1_ = 0; i_1_ < class120_sub18.anInt2638; i_1_++) {
 						if (class120_sub18.aClass28Array2625[i_1_] == class28) {

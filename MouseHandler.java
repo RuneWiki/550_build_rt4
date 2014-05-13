@@ -86,11 +86,11 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 	static final Class128 method1026(final int i, final boolean bool) {
 		Class128 class128;
 		try {
-			Class128 class128_0_ = (Class128) Class22.aClass21_131.method193(i, (byte) -85);
+			Class128 class128_0_ = (Class128) Class22.aClass21_131.get(i);
 			if (class128_0_ != null) {
 				return class128_0_;
 			}
-			final byte[] is = Class3.aClass50_55.method442(1, (byte) 124, i);
+			final byte[] is = Class3.aClass50_55.getFile(1, i);
 			class128_0_ = new Class128();
 			if (is != null) {
 				class128_0_.method1904(new Buffer(is), 0, i);
@@ -98,7 +98,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 			if (!bool) {
 				method1028(-25);
 			}
-			Class22.aClass21_131.method185(-126, class128_0_, i);
+			Class22.aClass21_131.put(class128_0_, i);
 			class128 = class128_0_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.C(").append(i).append(',').append(bool).append(')').toString());
@@ -108,10 +108,10 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	static final void method1027(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
 		try {
-			Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i_1_, -128);
+			Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_1_);
 			if (class120_sub17 == null) {
 				class120_sub17 = new Class120_Sub17();
-				Canvas_Sub1.aClass75_15.method655(class120_sub17, 121, i_1_);
+				Canvas_Sub1.aClass75_15.put(class120_sub17, i_1_);
 			}
 			if (class120_sub17.anIntArray2618.length <= i_2_) {
 				final int[] is = new int[1 + i_2_];
@@ -171,10 +171,10 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 					Class80.anInt751 = mouseevent.getY();
 					Class186.aLong1897 = TimeUtil.getSafeTime();
 					if (mouseevent.isMetaDown()) {
-						GroundObject.anInt3627 = 2;
+						GroundObjectNode.anInt3627 = 2;
 						Class42.anInt362 = 2;
 					} else {
-						GroundObject.anInt3627 = 1;
+						GroundObjectNode.anInt3627 = 1;
 						Class42.anInt362 = 1;
 					}
 					final int i = mouseevent.getModifiers();

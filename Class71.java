@@ -30,7 +30,7 @@ final class Class71 {
 			if (!bool) {
 				anInt625 = -85;
 			}
-			if (i_1_ < 0 || Class189.anInt2068 != 0 && Class189.anInt2068 < i_1_) {
+			if (i_1_ < 0 || JagexInterface.anInt2068 != 0 && JagexInterface.anInt2068 < i_1_) {
 				throw new RuntimeException();
 			}
 			if (i == 0) {
@@ -39,7 +39,7 @@ final class Class71 {
 				return is_2_;
 			}
 			final int i_3_ = class120_sub7.getInt();
-			if (i_3_ < 0 || i_3_ >= 200000000 || Class189.anInt2068 != 0 && Class189.anInt2068 < i_3_) {
+			if (i_3_ < 0 || i_3_ >= 200000000 || JagexInterface.anInt2068 != 0 && JagexInterface.anInt2068 < i_3_) {
 				return new byte[100];
 			//if (i_3_ < 0 || Class189.anInt2068 != 0 && Class189.anInt2068 < i_3_) {
 			//	throw new RuntimeException();

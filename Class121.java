@@ -26,9 +26,9 @@ final class Class121 {
 			}
 			byte[] is;
 			if (32768 > i) {
-				is = Class24.aClass50_143.method442(1, (byte) 115, i);
+				is = Class24.aClass50_143.getFile(1, i);
 			} else {
-				is = IsaacCipher.aClass50_1011.method442(1, (byte) 112, i & 0x7fff);
+				is = IsaacCipher.aClass50_1011.getFile(1, i & 0x7fff);
 			}
 			class120_sub14_sub10_0_ = new Class120_Sub14_Sub10();
 			if (is != null) {
@@ -66,9 +66,9 @@ final class Class121 {
 
 	static final void method1839(final int i) {
 		try {
-			Class120_Sub12_Sub14.aClass21_3238.method190(false);
+			Class120_Sub12_Sub14.aClass21_3238.clearSoftReference();
 			if (i == -14307) {
-				Class82.aClass21_786.method190(false);
+				Class82.aClass21_786.clearSoftReference();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nl.A(").append(i).append(')').toString());

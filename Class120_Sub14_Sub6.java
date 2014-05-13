@@ -18,7 +18,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 	static final void method1445(final byte i) {
 		try {
 			if (AbstractGraphicsBuffer.anInt1157 != -1 && Class120_Sub12_Sub15.anInt3248 != -1) {
-				final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -Class189.anInt2053) * Class32.anInt272 >> 16) + Class189.anInt2053;
+				final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * Class32.anInt272 >> 16) + JagexInterface.anInt2053;
 				final float[] fs = new float[3];
 				Class32.anInt272 += i_3_;
 				if (65535 > Class32.anInt272) {
@@ -45,7 +45,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 					final int i_12_ = -i_8_ + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] - i_9_ + i_7_;
 					fs[i_5_] = i_9_ + (i_10_ + (i_11_ + i_12_ * f) * f) * f;
 				}
-				GroundObject.anInt3626 = -(128 * Class181.currentBaseZ) + (int) fs[2];
+				GroundObjectNode.anInt3626 = -(128 * Class181.currentBaseZ) + (int) fs[2];
 				Class120_Sub12_Sub10.anInt3200 = -1 * (int) fs[1];
 				final float[] fs_13_ = new float[3];
 				Class83.anInt792 = (int) fs[0] + -(128 * GameEntity.currentBaseX);
@@ -95,7 +95,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 			}
 			for (int i_31_ = 0; i_31_ < 104; i_31_++) {
 				for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-					if (Class120_Sub3.method1055(i, i_31_, false, true, i_32_, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411)) {
+					if (Class120_Sub3.method1055(i, i_31_, false, true, i_32_, Class120_Sub1.groundTiles)) {
 						i++;
 					}
 					if (i >= 512) {

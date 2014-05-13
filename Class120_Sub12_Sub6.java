@@ -52,7 +52,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 				}
 			}
 			final int[] is = GraphicsLD.pixels;
-			final int i_9_ = GraphicsLD.anInt1606;
+			final int i_9_ = GraphicsLD.height;
 			final int[] is_10_ = new int[4];
 			final int i_11_ = GraphicsLD.width;
 			GraphicsLD.method2169(is_10_);
@@ -261,7 +261,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void method1229(final int[] is, int i, final int i_43_, final int i_44_, final int i_45_, final int i_46_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_44_][i_45_][i_46_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_44_][i_45_][i_46_];
 		if (class120_sub18 != null) {
 			final Class141 class141 = class120_sub18.aClass141_2626;
 			if (class141 != null) {

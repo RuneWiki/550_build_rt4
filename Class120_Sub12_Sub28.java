@@ -473,7 +473,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 
 	static final void method1345(final String string, final int i, final byte i_140_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(2, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
 			class120_sub14_sub7.method1454((byte) -93);
 			class120_sub14_sub7.aString3493 = string;
 			if (i_140_ != 108) {
@@ -484,11 +484,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1346(final Class107 class107, final int i, final Class189 class189, final byte i_141_, final int i_142_, final int i_143_, final int i_144_) {
+	static final void method1346(final Class107 class107, final int i, final JagexInterface jagexInterface, final byte i_141_, final int i_142_, final int i_143_, final int i_144_) {
 		try {
 			if (class107 != null) {
 				final int i_145_ = Class164.anInt1590 + (int) OutputStream_Sub1.aFloat28 & 0x7ff;
-				final int i_146_ = 10 + Math.max(class189.anInt1948 / 2, class189.anInt2059 / 2);
+				final int i_146_ = 10 + Math.max(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2);
 				if (i_141_ > -46) {
 					method1348(-32);
 				}
@@ -501,14 +501,14 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					final int i_150_ = i_149_ * i_142_ + i_143_ * i_148_ >> 16;
 					final int i_151_ = -(i_142_ * i_148_) + i_143_ * i_149_ >> 16;
 					if (HDToolkit.glEnabled) {
-						((Class107_Sub2) class107).method928(-(class107.anInt1029 / 2) + i_150_ + class189.anInt1948 / 2 + i, class189.anInt2059 / 2 + i_144_ + -i_151_ - class107.anInt1028 / 2, (HDSprite) class189.method2492(false, (byte) -18));
+						((Class107_Sub2) class107).method928(-(class107.anInt1029 / 2) + i_150_ + jagexInterface.anInt1948 / 2 + i, jagexInterface.anInt2059 / 2 + i_144_ + -i_151_ - class107.anInt1028 / 2, (HDSprite) jagexInterface.method2492(false, (byte) -18));
 					} else {
-						((Class107_Sub1) class107).method924(i_150_ + i + class189.anInt1948 / 2 - class107.anInt1029 / 2, -i_151_ + i_144_ - (-(class189.anInt2059 / 2) - -(class107.anInt1028 / 2)), class189.anIntArray2079, class189.anIntArray1949);
+						((Class107_Sub1) class107).method924(i_150_ + i + jagexInterface.anInt1948 / 2 - class107.anInt1029 / 2, -i_151_ + i_144_ - (-(jagexInterface.anInt2059 / 2) - -(class107.anInt1028 / 2)), jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rm.R(").append(class107 != null ? "{...}" : "null").append(',').append(i).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_141_).append(',').append(i_142_).append(',').append(i_143_)
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rm.R(").append(class107 != null ? "{...}" : "null").append(',').append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_141_).append(',').append(i_142_).append(',').append(i_143_)
 					.append(',').append(i_144_).append(')').toString());
 		}
 	}

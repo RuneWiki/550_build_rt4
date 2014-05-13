@@ -34,6 +34,7 @@ public class ClientLoader extends Applet {
 			jp.setPreferredSize(new Dimension(765, 503));
 			frame.getContentPane().add(jp, "Center");
 			frame.pack();
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setVisible(true);
 			props.put("worldid", world);
 			props.put("members", "1");

@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 	static int anInt3434 = -1;
 	private int anInt3435;
 	private int anInt3436 = 1;
-	static Class120_Sub18[][][] aClass120_Sub18ArrayArrayArray3437;
+	static GroundTile[][][] aClass120_Sub18ArrayArrayArray3437;
 	static int anInt3438;
 	static int[] anIntArray3439 = new int[25];
 	static int anInt3440;

@@ -8,12 +8,12 @@ abstract class AbstractMouseWheelHandler {
 	static Class50 aClass50_115;
 	static int anInt116 = -1;
 	static int anInt117 = 0;
-	static int anInt118;
+	static int packetSize;
 	static int anInt119;
 
 	static {
 		aClass177_114 = new Queue();
-		anInt118 = 0;
+		packetSize = 0;
 	}
 
 	abstract void removeListener(Component component);
@@ -45,7 +45,7 @@ abstract class AbstractMouseWheelHandler {
 			int i_11_ = i_7_;
 			final int i_12_ = i_3_ + -i_7_;
 			if (!bool) {
-				anInt118 = -62;
+				packetSize = -62;
 			}
 			Class120_Sub8.method1160((byte) 115, is, i_0_, -i_1_ + i_3_, i_12_);
 			final int i_13_ = i_7_ + i_3_;
@@ -392,8 +392,8 @@ abstract class AbstractMouseWheelHandler {
 			if (i >= -95) {
 				method158(103, 21, true, 60, 24, -11, 8);
 			}
-			Class43.aClass21_367.method186((byte) 86);
-			Class90.aClass21_840.method186((byte) 86);
+			Class43.aClass21_367.clear();
+			Class90.aClass21_840.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bh.D(").append(i).append(')').toString());
 		}

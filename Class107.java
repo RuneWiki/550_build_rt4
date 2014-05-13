@@ -8,7 +8,7 @@ import java.awt.Insets;
 abstract class Class107 {
 	int anInt1020;
 	int anInt1021;
-	static Class189[] aClass189Array1022;
+	static JagexInterface[] aClass189Array1022;
 	static int modeWhere = 0;
 	static int defaultCursorId;
 	static String aString1025;
@@ -138,7 +138,7 @@ abstract class Class107 {
 			} else {
 				if (displayMode <= 0 || i_1_ != 0) {
 					if (displayMode == 0 && i_1_ > 0) {
-						Class189.gameShellThread.setPriority(1);
+						JagexInterface.gameShellThread.setPriority(1);
 						Class120_Sub13.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 						Class180_Sub7_Sub1.method2395();
 						ParticleEngine.method946();
@@ -158,10 +158,10 @@ abstract class Class107 {
 							}
 						}
 						Class120_Sub9.method1163();
-						LocType.method2450(0);
+						LocType.method2450();
 					}
 				} else {
-					Class189.gameShellThread.setPriority(5);
+					JagexInterface.gameShellThread.setPriority(5);
 					Class120_Sub13.fullscreenGraphics = null;
 					Class180_Sub7_Sub1.method2404();
 					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200, (byte) -111);
@@ -173,12 +173,12 @@ abstract class Class107 {
 					}
 					LightManager.method1856(4, 104, 104);
 					Class47.method382(104, 104);
-					LocType.method2450(0);
+					LocType.method2450();
 				}
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (bool_4_) {
-					Class21.method191(11650);
+					Cache.method191(11650);
 				}
 				if (displayMode < 2) {
 					Class91.frameResizable = false;
@@ -188,7 +188,7 @@ abstract class Class107 {
 				if (Class69.anInt616 != -1) {
 					Class101_Sub2.method846((byte) 71, true);
 				}
-				if (AbstractTimer.aClass46_825 != null && (Class109.gameState == 30 || Class109.gameState == 25)) {
+				if (AbstractTimer.worldConnection != null && (Class109.gameState == 30 || Class109.gameState == 25)) {
 					Class120_Sub14_Sub11.method1521(false);
 				}
 				for (int i_5_ = 0; i_5_ < 100; i_5_++) {

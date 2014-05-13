@@ -71,7 +71,7 @@ abstract class AbstractSprite extends NodeSub {
 		if (i_21_ == 3 || i_25_ == 3) {
 			bool = true;
 		}
-		if (Signlink.aString1305.startsWith("mac") && i_21_ > 0) {
+		if (Signlink.osName.startsWith("mac") && i_21_ > 0) {
 			bool = true;
 		}
 		if (bool && i_21_ > 0) {

@@ -2,12 +2,12 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class GroundObject extends NodeSub {
+final class GroundObjectNode extends NodeSub {
 	static int anInt3626;
 	static volatile int anInt3627;
 	static int anInt3628;
 	static int[] anIntArray3629 = { -1, -1, 1, 1 };
-	Class180_Sub1 aClass180_Sub1_3630;
+	SceneGroundObject aClass180_Sub1_3630;
 	static int[] anIntArray3631;
 
 	public static void method1626(int i) {
@@ -21,7 +21,7 @@ final class GroundObject extends NodeSub {
 		}
 	}
 
-	GroundObject(Class180_Sub1 class180_sub1) {
+	GroundObjectNode(SceneGroundObject class180_sub1) {
 		aClass180_Sub1_3630 = class180_sub1;
 	}
 
@@ -39,8 +39,8 @@ final class GroundObject extends NodeSub {
 	}
 
 	static final void method1628() {
-		Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(156);
-		Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class120_Sub14_Sub20.interfaceCounter);
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(156);
+		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub14_Sub20.interfaceCounter);
 	}
 
 	static {

@@ -22,7 +22,7 @@ final class Class31 {
 	static final void method262(final int i) {
 		try {
 			if (i < -114) {
-				while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.anInt118, 8) >= 27) {
+				while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 27) {
 					final int i_0_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(15);
 					if (i_0_ == 32767) {
 						break;
@@ -81,8 +81,8 @@ final class Class31 {
 				return 58;
 			}
 			final long l = TimeUtil.getSafeTime();
-			for (Class120_Sub3 class120_sub3 = bool ? (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.method657(i + 11231) : (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.method658((byte) -67); class120_sub3 != null; class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079
-					.method658((byte) -105)) {
+			for (Class120_Sub3 class120_sub3 = bool ? (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.getFirst() : (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.getNext(); class120_sub3 != null; class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079
+					.getNext()) {
 				if (l > (0x3fffffffffffffffL & class120_sub3.aLong2425)) {
 					if ((class120_sub3.aLong2425 & 0x4000000000000000L ^ 0xffffffffffffffffL) == -1L) {
 						class120_sub3.unlink();
@@ -119,10 +119,10 @@ final class Class31 {
 				}
 				Class88.method743((byte) -116, i_8_, i_16_, i_10_, Class182.aClass25Array1802[i_8_], i_11_, i_13_);
 				if (i_12_ >= 0) {
-					final boolean bool = Class75.showGroundDecorations;
-					Class75.showGroundDecorations = true;
+					final boolean bool = Hashtable.showGroundDecorations;
+					Hashtable.showGroundDecorations = true;
 					Class93.method771(i_9_, i_8_, i_12_, i_16_, i_13_, 4, false, i_10_, Class182.aClass25Array1802[i_8_], false, i_14_);
-					Class75.showGroundDecorations = bool;
+					Hashtable.showGroundDecorations = bool;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -162,7 +162,7 @@ final class Class31 {
 			if (i != 15) {
 				advertSuppressed = false;
 			}
-			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method659(Class70.method636(i + -138, class180_sub5_sub1.aString3745), -128);
+			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.aString3745));
 			if (class120_sub8 != null) {
 				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);

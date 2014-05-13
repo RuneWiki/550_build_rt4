@@ -14,7 +14,7 @@ final class Class32 {
 	private int anInt253;
 	static int anInt254;
 	int anInt255;
-	static Class189 aClass189_256;
+	static JagexInterface aClass189_256;
 	int anInt257;
 	int anInt258;
 	static int anInt259;
@@ -184,7 +184,7 @@ final class Class32 {
 		Class180_Sub7 class180_sub7_24_;
 		try {
 			final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + i_16_ - -((long) i << 48);
-			Class180_Sub7 class180_sub7_25_ = (Class180_Sub7) Class154.aClass21_1438.method193(l, (byte) -95);
+			Class180_Sub7 class180_sub7_25_ = (Class180_Sub7) Class154.aClass21_1438.get(l);
 			if (class180_sub7_25_ == null) {
 				int i_26_;
 				if (i_16_ == 1) {
@@ -229,7 +229,7 @@ final class Class32 {
 					}
 				}
 				class180_sub7_25_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class154.aClass21_1438.method185(-128, class180_sub7_25_, l);
+				Class154.aClass21_1438.put(class180_sub7_25_, l);
 			}
 			final int i_43_ = 64 * i_16_ - 1;
 			int i_44_ = -i_43_;
@@ -290,18 +290,18 @@ final class Class32 {
 			}
 			if (HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
-				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_23_ + i_48_, Class173.gameLevel) || Class22.method197(i_51_ + i_20_, true, i_49_ + i_23_, Class173.gameLevel) != i_19_) {
+				if (i_19_ != Class22.method197(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.method197(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
 					for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
-						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.method197(i_20_ + class180_sub7_sub2.anIntArray3845[i_52_], true, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], Class173.gameLevel) + -i_19_;
+						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.method197(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
 					}
 					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
 					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 				}
 			} else {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
-				if (i_19_ != Class22.method197(i_50_ + i_20_, true, i_48_ + i_23_, Class173.gameLevel) || i_19_ != Class22.method197(i_51_ + i_20_, true, i_23_ - -i_49_, Class173.gameLevel)) {
+				if (i_19_ != Class22.method197(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.method197(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
 					for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
-						class180_sub7_sub1.yVertices[i_53_] += Class22.method197(class180_sub7_sub1.zVertices[i_53_] + i_20_, true, class180_sub7_sub1.xVertices[i_53_] - -i_23_, Class173.gameLevel) - i_19_;
+						class180_sub7_sub1.yVertices[i_53_] += Class22.method197(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
 					}
 					class180_sub7_sub1.boundsCalculated = false;
 				}

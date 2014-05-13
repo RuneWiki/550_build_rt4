@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub2 extends Class180 {
+final class Class180_Sub2 extends SceneGraphNode {
 	short[] aShortArray2850;
 	byte[] aByteArray2851;
 	short[] aShortArray2852;
@@ -238,7 +238,7 @@ final class Class180_Sub2 extends Class180 {
 	}
 
 	@Override
-	final Class180 method2269(final int i, final int i_60_, final int i_61_) {
+	final SceneGraphNode method2269(final int i, final int i_60_, final int i_61_) {
 		return method2300(this.aShort2894, this.aShort2866, i, i_60_, i_61_);
 	}
 
@@ -570,7 +570,7 @@ final class Class180_Sub2 extends Class180 {
 	}
 
 	static final Class180_Sub2 method2291(final Class50 class50, final int i, final int i_115_) {
-		final byte[] is = class50.method442(i, (byte) 114, i_115_);
+		final byte[] is = class50.getFile(i, i_115_);
 		if (is == null) {
 			return null;
 		}
@@ -1007,8 +1007,8 @@ final class Class180_Sub2 extends Class180 {
 	}
 
 	@Override
-	final void method2267(final Class180 class180, final int i, final int i_216_, final int i_217_, final boolean bool) {
-		final Class180_Sub2 class180_sub2_218_ = (Class180_Sub2) class180;
+	final void method2267(final SceneGraphNode sceneGraphNode, final int i, final int i_216_, final int i_217_, final boolean bool) {
+		final Class180_Sub2 class180_sub2_218_ = (Class180_Sub2) sceneGraphNode;
 		class180_sub2_218_.method2304();
 		class180_sub2_218_.method2303();
 		anInt2862++;

@@ -10,7 +10,7 @@ final class CursorType {
 	private int graphic;
 	int hotSpotX;
 	static int anInt1242;
-	static Class189 aClass189_1243;
+	static JagexInterface aClass189_1243;
 
 	static {
 		aString1238 = "K";
@@ -19,7 +19,7 @@ final class CursorType {
 
 	static final void method1914(final int i, final int i_0_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(1, i_0_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i_0_);
 			class120_sub14_sub7.method1453((byte) -104);
 			if (i != -9626) {
 				aString1238 = null;
@@ -83,15 +83,15 @@ final class CursorType {
 						if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
 							final int i_7_ = Class120_Sub29.anIntArray2769[Class186.anInt1906 - 1];
 							final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.anInt1906 - 1];
-							final Class189 class189 = Class74.method650(34, i_7_);
-							final InterfaceClickMask class120_sub20 = client.method54(class189);
+							final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
+							final InterfaceClickMask class120_sub20 = client.method54(jagexInterface);
 							if (class120_sub20.method1681(-9617) || class120_sub20.method1691(-104)) {
-								Class120_Sub14_Sub3_Sub1.anInt3915 = 0;
+								JavaObject.anInt3915 = 0;
 								Class126.aBoolean1207 = false;
 								if (Class180_Sub4.aClass189_2954 != null) {
 									InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
 								}
-								Class180_Sub4.aClass189_2954 = Class74.method650(i + -125, i_7_);
+								Class180_Sub4.aClass189_2954 = Class74.getJagexInterface(i_7_);
 								Class23.anInt134 = Class50.anInt449;
 								Class5.anInt2154 = i_8_;
 								Class27.anInt166 = Class120_Sub12_Sub36.anInt3424;
@@ -156,29 +156,29 @@ final class CursorType {
 	}
 
 	final LDSprite getCursor() {
-		LDSprite class120_sub14_sub19_sub2_20_ = (LDSprite) Class120_Sub12_Sub27.aClass21_3342.method193(graphic, (byte) 95);
+		LDSprite class120_sub14_sub19_sub2_20_ = (LDSprite) Class120_Sub12_Sub27.aClass21_3342.get(graphic);
 		if (class120_sub14_sub19_sub2_20_ != null) {
 			return class120_sub14_sub19_sub2_20_;
 		}
 		class120_sub14_sub19_sub2_20_ = Class120_Sub12_Sub26.method1340(Class83.aClass50_794, graphic, 0);
 		if (class120_sub14_sub19_sub2_20_ != null) {
-			Class120_Sub12_Sub27.aClass21_3342.method185(-126, class120_sub14_sub19_sub2_20_, graphic);
+			Class120_Sub12_Sub27.aClass21_3342.put(class120_sub14_sub19_sub2_20_, graphic);
 		}
 		return class120_sub14_sub19_sub2_20_;
 	}
 
 	static final CursorType list(final int i_110_) {
-		CursorType class130_111_ = (CursorType) OutputStream_Sub1.aClass21_30.method193(i_110_, (byte) -127);
+		CursorType class130_111_ = (CursorType) OutputStream_Sub1.aClass21_30.get(i_110_);
 		if (class130_111_ != null) {
 			return class130_111_;
 		}
-		System.out.println(Class120_Sub1.aClass50_2413.method441(33, 1));
-		final byte[] is = Class120_Sub1.aClass50_2413.method442(33, (byte) 111, i_110_);
+		System.out.println(Class120_Sub1.aClass50_2413.getFileAmount(33));
+		final byte[] is = Class120_Sub1.aClass50_2413.getFile(33, i_110_);
 		class130_111_ = new CursorType();
 		if (is != null) {
 			class130_111_.method1916(-24927, i_110_, new Buffer(is));
 		}
-		OutputStream_Sub1.aClass21_30.method185(-128, class130_111_, i_110_);
+		OutputStream_Sub1.aClass21_30.put(class130_111_, i_110_);
 		return class130_111_;
 	}
 }

@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	static int anInt3339 = 0;
 	private int anInt3340;
 	private int anInt3341;
-	static Class21 aClass21_3342;
+	static Cache aClass21_3342;
 	private short[] aShortArray3343 = new short[512];
 	private int anInt3344;
 	private int anInt3345;
@@ -23,7 +23,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 
 	static {
 		aString3338 = "Checking for updates - ";
-		aClass21_3342 = new Class21(2);
+		aClass21_3342 = new Cache(2);
 		anIntArray3349 = new int[] { 7, 8, 9, 10, 11, 12, 13, 15 };
 		anInt3351 = -1;
 	}
@@ -194,7 +194,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 
 	static final void method1342(final int i, final int i_19_, final int i_20_, final int i_21_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(9, i_19_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(9, i_19_);
 			class120_sub14_sub7.method1454((byte) -115);
 			class120_sub14_sub7.anInt3492 = i;
 			class120_sub14_sub7.anInt3484 = i_21_;

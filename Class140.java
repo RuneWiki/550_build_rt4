@@ -7,7 +7,7 @@ final class Class140 {
 	private int anInt1339 = 0;
 	static boolean aBoolean1340;
 	static int[] anIntArray1341 = { 1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0 };
-	private final Class75 aClass75_1342;
+	private final Hashtable aClass75_1342;
 	static int anInt1343 = 0;
 	private Node aClass120_1344;
 	static int anInt1345;
@@ -48,16 +48,16 @@ final class Class140 {
 		Class120_Sub12_Sub11.spriteWidths = new int[Class93.spriteAmount];
 		Class145.spritePaletteIndicators = new byte[Class93.spriteAmount][];
 		Class120_Sub12_Sub39.spriteHeights = new int[Class93.spriteAmount];
-		Class120_Sub18.spriteYOffsets = new int[Class93.spriteAmount];
+		GroundTile.spriteYOffsets = new int[Class93.spriteAmount];
 		buffer.pos = data.length - 7 - (8 * Class93.spriteAmount);
 		Class31.spriteTrimWidth = buffer.getUShort();
-		Class180_Sub1.spriteTrimHeight = buffer.getUShort();
+		SceneGroundObject.spriteTrimHeight = buffer.getUShort();
 		final int paletteSize = (0xff & buffer.getUByte()) + 1;
 		for (int i_3_ = 0; i_3_ < Class93.spriteAmount; i_3_++) {
 			Class180_Sub4.spriteXOffsets[i_3_] = buffer.getUShort();
 		}
 		for (int i_4_ = 0; i_4_ < Class93.spriteAmount; i_4_++) {
-			Class120_Sub18.spriteYOffsets[i_4_] = buffer.getUShort();
+			GroundTile.spriteYOffsets[i_4_] = buffer.getUShort();
 		}
 		for (int i_5_ = 0; i_5_ < Class93.spriteAmount; i_5_++) {
 			Class120_Sub12_Sub11.spriteWidths[i_5_] = buffer.getUShort();
@@ -119,10 +119,10 @@ final class Class140 {
 				method2000(92, null);
 			}
 			Class2.permanentVariable[i] = i_22_;
-			Class120_Sub3 class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.method659(i, 118);
+			Class120_Sub3 class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.get(i);
 			if (class120_sub3 == null) {
 				class120_sub3 = new Class120_Sub3(TimeUtil.getSafeTime() - -500L);
-				Class69_Sub3_Sub1.aClass75_3079.method655(class120_sub3, 97, i);
+				Class69_Sub3_Sub1.aClass75_3079.put(class120_sub3, i);
 			} else {
 				class120_sub3.aLong2425 = 500L + TimeUtil.getSafeTime();
 			}
@@ -134,14 +134,14 @@ final class Class140 {
 	final Node method1998(final byte i) {
 		Node node;
 		try {
-			if (anInt1339 > 0 && aClass75_1342.aClass120Array672[-1 + anInt1339] != aClass120_1344) {
+			if (anInt1339 > 0 && aClass75_1342.table[-1 + anInt1339] != aClass120_1344) {
 				final Node class120_23_ = aClass120_1344;
 				aClass120_1344 = class120_23_.next;
 				return class120_23_;
 			}
-			while (anInt1339 < aClass75_1342.anInt673) {
-				final Node class120_24_ = aClass75_1342.aClass120Array672[anInt1339++].next;
-				if (aClass75_1342.aClass120Array672[anInt1339 + -1] != class120_24_) {
+			while (anInt1339 < aClass75_1342.capacity) {
+				final Node class120_24_ = aClass75_1342.table[anInt1339++].next;
+				if (aClass75_1342.table[anInt1339 + -1] != class120_24_) {
 					aClass120_1344 = class120_24_.next;
 					return class120_24_;
 				}
@@ -164,14 +164,14 @@ final class Class140 {
 		}
 	}
 
-	Class140(final Class75 class75) {
-		aClass75_1342 = class75;
+	Class140(final Hashtable hashtable) {
+		aClass75_1342 = hashtable;
 	}
 
 	static final void method2000(final int i, final Buffer class120_sub7) {
 		try {
 			for (int i_25_ = i; Class57.anInt502 > i_25_; i_25_++) {
-				final int i_26_ = class120_sub7.method1081((byte) 98);
+				final int i_26_ = class120_sub7.getUSmart();
 				int i_27_ = class120_sub7.getUShort();
 				if (65535 == i_27_) {
 					i_27_ = -1;

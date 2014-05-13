@@ -4,8 +4,8 @@
 import javax.media.opengl.GL;
 
 final class Class120_Sub14_Sub16 extends NodeSub {
-	private Class75 aClass75_3587;
-	static Class189 aClass189_3588;
+	private Hashtable aClass75_3587;
+	static JagexInterface aClass189_3588;
 	static int anInt3589 = -1;
 	static int anInt3590 = -1;
 
@@ -28,10 +28,10 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 		final int i_8_ = i_5_ - 16;
 		final int i_9_ = i_5_ + 16;
 		for (int i_10_ = Class190.anInt2101; i_10_ < Class142.anInt1361; i_10_++) {
-			final Class120_Sub18[][] class120_sub18s = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_10_];
+			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_10_];
 			for (int i_11_ = Class160.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
 				for (int i_12_ = Class31.anInt248; i_12_ < Class45.anInt396; i_12_++) {
-					final Class120_Sub18 class120_sub18 = class120_sub18s[i_11_][i_12_];
+					final GroundTile class120_sub18 = class120_sub18s[i_11_][i_12_];
 					if (class120_sub18 != null) {
 						if (!SpotAnimType.aBooleanArrayArray992[i_11_ - Class120_Sub12_Sub26.anInt3332 + Class120_Sub14_Sub13.anInt3563][i_12_ - Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563] || is != null && i_10_ >= i_2_ && is[i_10_][i_11_][i_12_] == i_3_) {
 							class120_sub18.aBoolean2647 = false;
@@ -97,7 +97,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						Class69.method614(class120_sub9.anInt2505, 65535);
 						Class117.method1011(Class29.method251(72));
 					}
-					class120_sub9.method1162(Class120_Sub1.aClass120_Sub18ArrayArrayArray2411, f, false);
+					class120_sub9.method1162(Class120_Sub1.groundTiles, f, false);
 				}
 				WaterShader.method163();
 			} else {
@@ -108,19 +108,19 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -106) && PacketBuffer.highWaterDetail) {
 							Class69.method614(class120_sub9.anInt2505, 65535);
 						}
-						class120_sub9.method1162(Class120_Sub1.aClass120_Sub18ArrayArrayArray2411, f, false);
+						class120_sub9.method1162(Class120_Sub1.groundTiles, f, false);
 					}
 					if (i_15_ == 0 && Class74.sceneryShadowsType > 0) {
 						HDToolkit.method527(101.5F);
 						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, Class120_Sub26.anIntArrayArrayArray2741[0]);
 					}
 				}
-				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub1.groundTiles);
 			}
 			gl.glPopMatrix();
 		}
 		for (int i_17_ = Class190.anInt2101; i_17_ < Class142.anInt1361; i_17_++) {
-			final Class120_Sub18[][] class120_sub18s = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_17_];
+			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_17_];
 			for (int i_18_ = -Class120_Sub14_Sub13.anInt3563; i_18_ <= 0; i_18_++) {
 				final int i_19_ = Class120_Sub12_Sub26.anInt3332 + i_18_;
 				final int i_20_ = Class120_Sub12_Sub26.anInt3332 - i_18_;
@@ -130,13 +130,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						final int i_23_ = Class112.anInt1080 - i_21_;
 						if (i_19_ >= Class160.anInt1493) {
 							if (i_22_ >= Class31.anInt248) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_19_][i_22_];
+								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Class45.anInt396) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_19_][i_23_];
+								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, true);
 								}
@@ -144,13 +144,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						}
 						if (i_20_ < Class53.anInt487) {
 							if (i_22_ >= Class31.anInt248) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_20_][i_22_];
+								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Class45.anInt396) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_20_][i_23_];
+								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, true);
 								}
@@ -167,7 +167,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			}
 		}
 		for (int i_24_ = Class190.anInt2101; i_24_ < Class142.anInt1361; i_24_++) {
-			final Class120_Sub18[][] class120_sub18s = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_24_];
+			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_24_];
 			for (int i_25_ = -Class120_Sub14_Sub13.anInt3563; i_25_ <= 0; i_25_++) {
 				final int i_26_ = Class120_Sub12_Sub26.anInt3332 + i_25_;
 				final int i_27_ = Class120_Sub12_Sub26.anInt3332 - i_25_;
@@ -177,13 +177,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						final int i_30_ = Class112.anInt1080 - i_28_;
 						if (i_26_ >= Class160.anInt1493) {
 							if (i_29_ >= Class31.anInt248) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_26_][i_29_];
+								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Class45.anInt396) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_26_][i_30_];
+								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, false);
 								}
@@ -191,13 +191,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						}
 						if (i_27_ < Class53.anInt487) {
 							if (i_29_ >= Class31.anInt248) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_27_][i_29_];
+								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Class45.anInt396) {
-								final Class120_Sub18 class120_sub18 = class120_sub18s[i_27_][i_30_];
+								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									Class139.method1989(class120_sub18, false);
 								}
@@ -226,7 +226,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class81.method706(5, -128);
 			Class157.method2087(5, (byte) -86);
 			Class101_Sub1.method840(i ^ 0x15, 5);
-			Class180_Sub1.method2278(5, (byte) -123);
+			SceneGroundObject.method2278(5, (byte) -123);
 			OutputStream_Sub1.method73((byte) 125, 5);
 			InterfaceClickMask.method1680((byte) 126, 5);
 			Class26.method232((byte) 114, 5);
@@ -234,7 +234,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class120_Sub12_Sub25.method1329(5, -79);
 			Class166.method2181(5, i + 55);
 			Class43.method341(5, i ^ ~0x17);
-			Class189.method2490(5, 69);
+			JagexInterface.method2490(5, 69);
 			Class120_Sub12_Sub30.method1360(-99, 5);
 			if (i != 23) {
 				anInt3590 = -94;
@@ -242,8 +242,8 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class101_Sub4.method851(false, 50);
 			Class159.method2094(2260, 5);
 			Class124.method1873(i + -24, 5);
-			Class120_Sub12_Sub2.aClass21_3144.method192((byte) -75, 5);
-			Class15.aClass21_95.method192((byte) -124, 5);
+			Class120_Sub12_Sub2.aClass21_3144.method192(5);
+			Class15.aClass21_95.method192(5);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.H(").append(i).append(')').toString());
 		}
@@ -255,7 +255,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 				final int i_32_ = class120_sub7.getUByte();
 				if (aClass75_3587 == null) {
 					final int i_33_ = Class120_Sub12_Sub17.method1283(i_32_, (byte) -44);
-					aClass75_3587 = new Class75(i_33_);
+					aClass75_3587 = new Hashtable(i_33_);
 				}
 				for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
 					final boolean bool = class120_sub7.getUByte() == 1;
@@ -264,9 +264,9 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 					if (bool) {
 						node = new StringNode(class120_sub7.getJString());
 					} else {
-						node = new Class120_Sub32(class120_sub7.getInt());
+						node = new IntegerNode(class120_sub7.getInt());
 					}
-					aClass75_3587.method655(node, 88, i_35_);
+					aClass75_3587.put(node, i_35_);
 				}
 			}
 			if (i < 122) {
@@ -283,14 +283,14 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			if (aClass75_3587 == null) {
 				return i;
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_3587.method659(i_36_, i_37_ + 17005);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_3587.get(i_36_);
 			if (i_37_ != -16959) {
 				return -123;
 			}
 			if (class120_sub32 == null) {
 				return i;
 			}
-			i_38_ = class120_sub32.anInt2790;
+			i_38_ = class120_sub32.value;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.C(").append(i).append(',').append(i_36_).append(',').append(i_37_).append(')').toString());
 		}
@@ -379,7 +379,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			if (aClass75_3587 == null) {
 				return string;
 			}
-			final StringNode class120_sub25 = (StringNode) aClass75_3587.method659(i, -122);
+			final StringNode class120_sub25 = (StringNode) aClass75_3587.get(i);
 			if (class120_sub25 == null) {
 				return string;
 			}

@@ -35,7 +35,7 @@ final class DisplayModeInfo {
 			Class92.method767(-2);
 			Class179.method2262(-16097);
 			Class174.method2233((byte) -54);
-			Class172.method2223(-12937);
+			Decimator.method2223(-12937);
 			for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {
 				final int i_3_ = Class43.anIntArray366[i_2_];
 				if (Class101_Sub2.loopCycle != Class118.playersList[i_3_].anInt2985) {
@@ -45,8 +45,8 @@ final class DisplayModeInfo {
 					Class118.playersList[i_3_] = null;
 				}
 			}
-			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.anInt118) {
-				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.anInt118).toString());
+			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.packetSize) {
+				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 			}
 			for (int i_4_ = 0; Class83.localPlayerCount > i_4_; i_4_++) {
 				if (Class118.playersList[Class112.playerIndices[i_4_]] == null) {
@@ -60,8 +60,8 @@ final class DisplayModeInfo {
 
 	static final void method2214(final boolean bool) {
 		try {
-			OutputStream_Sub1.aClass21_30.method186((byte) 86);
-			Class120_Sub12_Sub27.aClass21_3342.method186((byte) 86);
+			OutputStream_Sub1.aClass21_30.clear();
+			Class120_Sub12_Sub27.aClass21_3342.clear();
 			if (bool) {
 				anInt1715 = 98;
 			}
@@ -70,32 +70,23 @@ final class DisplayModeInfo {
 		}
 	}
 
-	static final String method2215(final int i, final byte[] is, final boolean bool, final int i_5_) {
-		String string;
-		try {
-			final char[] cs = new char[i_5_];
-			if (bool) {
-				method2216(true);
-			}
-			int i_6_ = 0;
-			for (int i_7_ = 0; i_5_ > i_7_; i_7_++) {
-				int i_8_ = 0xff & is[i - -i_7_];
-				if (i_8_ != 0) {
-					if (i_8_ >= 128 && i_8_ < 160) {
-						int i_9_ = Class120_Sub12_Sub32.aCharArray3385[-128 + i_8_];
-						if (i_9_ == 0) {
-							i_9_ = 63;
-						}
-						i_8_ = i_9_;
+	static final String method2215(final byte[] buf, final int off, final int len) {
+		final char[] charSequence = new char[len];
+		int charAmount = 0;
+		for (int id = 0; id < len; id++) {
+			int c = buf[off + id] & 0xff;
+			if (c != 0) {
+				if (c >= 128 && c < 160) {
+					int i_9_ = Class120_Sub12_Sub32.aCharArray3385[c - 128];
+					if (i_9_ == 0) {
+						i_9_ = 63;
 					}
-					cs[i_6_++] = (char) i_8_;
+					c = i_9_;
 				}
+				charSequence[charAmount++] = (char) c;
 			}
-			string = new String(cs, 0, i_6_);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ub.B(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(bool).append(',').append(i_5_).append(')').toString());
 		}
-		return string;
+		return new String(charSequence, 0, charAmount);
 	}
 
 	public DisplayModeInfo() {

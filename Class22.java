@@ -6,7 +6,7 @@ final class Class22 {
 	Class120_Sub14_Sub10 aClass120_Sub14_Sub10_128;
 	int anInt129;
 	static Class127 aClass127_130;
-	static Class21 aClass21_131 = new Class21(64);
+	static Cache aClass21_131 = new Cache(64);
 	static int anInt132;
 	int[] anIntArray133;
 
@@ -216,33 +216,24 @@ final class Class22 {
 		}
 	}
 
-	static final int method197(final int i, final boolean bool, final int i_39_, final int i_40_) {
-		int i_41_;
-		try {
-			if (Class120_Sub26.anIntArrayArrayArray2741 == null) {
-				return 0;
-			}
-			final int i_42_ = i_39_ >> 7;
-			final int i_43_ = i >> 7;
-			if (i_42_ < 0 || i_43_ < 0 || i_42_ > 103 || i_43_ > 103) {
-				return 0;
-			}
-			int i_44_ = i_40_;
-			if (i_44_ < 3 && (0x2 & Class114.aByteArrayArrayArray1095[1][i_42_][i_43_]) == 2) {
-				i_44_++;
-			}
-			final int i_45_ = i & 0x7f;
-			if (!bool) {
-				return 126;
-			}
-			final int i_46_ = i_39_ & 0x7f;
-			final int i_47_ = Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_]) >> 7;
-			final int i_48_ = Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_][1 + i_43_] >> 7;
-			i_41_ = i_48_ * i_45_ + i_47_ * (128 + -i_45_) >> 7;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cd.B(").append(i).append(',').append(bool).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
+	static final int method197(final int i_40_, final int i_39_, final int i) {
+		if (Class120_Sub26.anIntArrayArrayArray2741 == null) {
+			return 0;
 		}
-		return i_41_;
+		final int i_42_ = i_39_ >> 7;
+		final int i_43_ = i >> 7;
+		if (i_42_ < 0 || i_43_ < 0 || i_42_ > 103 || i_43_ > 103) {
+			return 0;
+		}
+		int i_44_ = i_40_;
+		if (i_44_ < 3 && (0x2 & Class114.aByteArrayArrayArray1095[1][i_42_][i_43_]) == 2) {
+			i_44_++;
+		}
+		final int i_45_ = i & 0x7f;
+		final int i_46_ = i_39_ & 0x7f;
+		final int i_47_ = Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_]) >> 7;
+		final int i_48_ = Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * Class120_Sub26.anIntArrayArrayArray2741[i_44_][i_42_][1 + i_43_] >> 7;
+		return i_48_ * i_45_ + i_47_ * (128 + -i_45_) >> 7;
 	}
 
 	static final char method198(final int i, final int i_49_, final char c) {

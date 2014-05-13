@@ -36,7 +36,7 @@ final class Class7 {
 						class120_sub8.anInt2485 = Class20.method179(class180_sub5_sub1, (byte) -94);
 						class120_sub8.anInt2499 = class180_sub5_sub1.anInt3739;
 						class120_sub8.anInt2493 = class180_sub5_sub1.anInt3735 * 128;
-						Npc.aClass75_3750.method655(class120_sub8, 111, Class70.method636(-118, class180_sub5_sub1.aString3745));
+						Npc.aClass75_3750.put(class120_sub8, Class70.stringToLong(class180_sub5_sub1.aString3745));
 					}
 				} else {
 					class120_sub8.aClass180_Sub5_Sub2_2492 = class180_sub5_sub2;
@@ -101,7 +101,7 @@ final class Class7 {
 
 	static final void method108(final int i, final int i_6_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i_6_, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_6_, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ah.A(").append(i).append(',').append(i_6_).append(')').toString());

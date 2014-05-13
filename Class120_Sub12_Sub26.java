@@ -48,9 +48,9 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 
 	static final void method1337(final byte i) {
 		try {
-			Class180_Sub6.aClass21_3071.method186((byte) 86);
-			Class120_Sub1.aClass21_2406.method186((byte) 86);
-			Class120_Sub12_Sub2.aClass21_3143.method186((byte) 86);
+			Class180_Sub6.aClass21_3071.clear();
+			Class120_Sub1.aClass21_2406.clear();
+			Class120_Sub12_Sub2.aClass21_3143.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rg.U(").append(i).append(')').toString());
 		}

@@ -15,7 +15,7 @@ final class Light {
 	private int anInt378;
 	static int anInt379;
 	Class133 aClass133_380;
-	static Class46 aClass46_381;
+	static JagexSocket aClass46_381;
 	boolean aBoolean382;
 	static Class35 aClass35_383;
 	int anInt384;
@@ -239,7 +239,7 @@ final class Light {
 		} else if(i_8_ == 2) {
 			i_9_ = i_7_;
 		} else if(i_8_ == 3) {
-			i_9_ = Class120_Sub14_Sub3_Sub1.anIntArray3916[i_7_] >> 1;
+			i_9_ = JavaObject.anIntArray3916[i_7_] >> 1;
 		} else if(i_8_ == 4) {
 			i_9_ = i_7_ >> 10 << 11;
 		} else if(i_8_ == 5) {
@@ -318,7 +318,7 @@ final class Light {
 	protected Light() {
 		this.aFloatArray377 = new float[4];
 		this.aBoolean385 = false;
-		if (Class120_Sub14_Sub3_Sub1.anIntArray3916 == null) {
+		if (JavaObject.anIntArray3916 == null) {
 			Class120_Sub14_Sub14_Sub2.method1550(1);
 		}
 		method348(-40);
@@ -327,7 +327,7 @@ final class Light {
 	Light(final Buffer class120_sub7) {
 		this.aFloatArray377 = new float[4];
 		this.aBoolean385 = false;
-		if (Class120_Sub14_Sub3_Sub1.anIntArray3916 == null) {
+		if (JavaObject.anIntArray3916 == null) {
 			Class120_Sub14_Sub14_Sub2.method1550(1);
 		}
 		this.anInt384 = class120_sub7.getUByte();

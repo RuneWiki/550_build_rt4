@@ -7,7 +7,7 @@ abstract class Class57 {
 	static int anInt500 = 0;
 	static Class84 aClass84_501;
 	static int anInt502;
-	static boolean[] aBooleanArray503;
+	static boolean[] interfaceLoaded;
 	static int anInt504 = 0;
 
 	static {
@@ -21,7 +21,7 @@ abstract class Class57 {
 			}
 			aClass84_501 = null;
 			aClass50_499 = null;
-			aBooleanArray503 = null;
+			interfaceLoaded = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.D(").append(i).append(')').toString());
 		}
@@ -47,14 +47,14 @@ abstract class Class57 {
 			}
 			Class153.anInt1436 = Class173.gameLevel;
 			if (i <= 93) {
-				aBooleanArray503 = null;
+				interfaceLoaded = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.C(").append(i).append(')').toString());
 		}
 	}
 
-	abstract Class120_Sub14_Sub3 method493(int i, Class120_Sub14_Sub3 class120_sub14_sub3);
+	abstract AbstractObject method493(int i, AbstractObject class120_sub14_sub3);
 
 	static final void method494(final int i, final int i_1_) {
 		Class120_Sub30_Sub2.anInt3688 = Class139.aClass191ArrayArray1337[i][i_1_].anInt2110;

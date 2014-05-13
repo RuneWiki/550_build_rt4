@@ -167,7 +167,7 @@ final class LightManager {
 		}
 	}
 
-	static final void method1863(final int i, final int i_37_, final Class120_Sub18[][][] class120_sub18s) {
+	static final void method1863(final int i, final int i_37_, final GroundTile[][][] class120_sub18s) {
 		if (Class120_Sub12_Sub6.highLightingDetail) {
 			final GL gl = HDToolkit.gl;
 			Class120_Sub14_Sub13.method1532(0, 0);
@@ -208,7 +208,7 @@ final class LightManager {
 							i_46_ = Class53.anInt487 - 1;
 						}
 						for (int i_47_ = i_45_; i_47_ <= i_46_; i_47_++) {
-							Class120_Sub18 class120_sub18 = null;
+							GroundTile class120_sub18 = null;
 							if (i_39_ >= 0) {
 								class120_sub18 = class120_sub18s[i_39_][i_47_][i_43_];
 							}

@@ -13,14 +13,8 @@ final class PacketBuffer extends Buffer {
 		super(i);
 	}
 
-	final void method1141(final int[] is, final int i) {
-		try {
-			if (i == -1) {
-				aClass106_3119 = new IsaacCipher(is);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.FC(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	final void method1141(final int[] is) {
+		aClass106_3119 = new IsaacCipher(is);
 	}
 
 	static final void sleepWrapper(final long millis) {
@@ -50,7 +44,7 @@ final class PacketBuffer extends Buffer {
 	final void method1144(final int i) {
 		try {
 			if (i != -2) {
-				putPacket(-35);
+				putByteIsaac(-35);
 			}
 			anInt3121 = 8 * this.pos;
 		} catch (final RuntimeException runtimeexception) {
@@ -104,7 +98,7 @@ final class PacketBuffer extends Buffer {
 						}
 						GameShell.method32(class120_sub7.getUByte() == 1);
 						Class120_Sub12.aBoolean2564 = class120_sub7.getUByte() == 1;
-						Class75.showGroundDecorations = class120_sub7.getUByte() == 1;
+						Hashtable.showGroundDecorations = class120_sub7.getUByte() == 1;
 						Class108_Sub3.highDetailTextures = class120_sub7.getUByte() == 1;
 						Class120_Sub12_Sub10.manyIdleAnimations = class120_sub7.getUByte() == 1;
 						Class191.flickeringEffectsOn = class120_sub7.getUByte() == 1;
@@ -121,7 +115,7 @@ final class PacketBuffer extends Buffer {
 							Class120_Sub12_Sub6.highLightingDetail = class120_sub7.getUByte() == 1;
 						}
 						highWaterDetail = class120_sub7.getUByte() == 1;
-						Class172.fogEnabled = class120_sub7.getUByte() == 1;
+						Decimator.fogEnabled = class120_sub7.getUByte() == 1;
 						AbstractMouseWheelHandler.anInt117 = class120_sub7.getUByte();
 						if (AbstractMouseWheelHandler.anInt117 > 2) {
 							AbstractMouseWheelHandler.anInt117 = 2;
@@ -206,30 +200,13 @@ final class PacketBuffer extends Buffer {
 		}
 	}
 
-	final int method1148(final boolean bool) {
-		int i;
-		try {
-			if (bool) {
-				return -109;
-			}
-			i = 0xff & this.buf[this.pos++] - aClass106_3119.method903();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.MC(").append(bool).append(')').toString());
-		}
-		return i;
+	final int getUByteIsaac() {
+		return 0xff & this.buf[this.pos++] - aClass106_3119.method903();
 	}
 
-	final void method1149(final int i, final byte[] is, final int i_5_, final int i_6_) {
-		try {
-			int i_7_ = 0;
-			if (i != 1) {
-				method1151(-123);
-			}
-			for (/**/; i_7_ < i_5_; i_7_++) {
-				is[i_7_ - -i_6_] = (byte) (this.buf[this.pos++] + -aClass106_3119.method903());
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.IC(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+	final void getBytesIsaac(final byte[] buf, final int off, final int len) {
+		for (int id = 0; id < len; id++) {
+			buf[id + off] = (byte) (this.buf[this.pos++] - aClass106_3119.method903());
 		}
 	}
 
@@ -247,14 +224,14 @@ final class PacketBuffer extends Buffer {
 	static final void method1151(final int i) {
 		try {
 			if (i == 32) {
-				Class120_Sub12_Sub9.aClass21_3196.method186((byte) 86);
+				Class120_Sub12_Sub9.aClass21_3196.clear();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.CC(").append(i).append(')').toString());
 		}
 	}
 
-	final void putPacket(final int i_8_) {
+	final void putByteIsaac(final int i_8_) {
 		this.buf[this.pos++] = (byte) (aClass106_3119.method903() + i_8_);
 	}
 
@@ -277,13 +254,13 @@ final class PacketBuffer extends Buffer {
 		anInt3121 += i;
 		int i_15_ = 0;
 		for (/**/; i > i_13_; i_13_ = 8) {
-			i_15_ += (this.buf[i_14_++] & GroundObject.anIntArray3631[i_13_]) << -i_13_ + i;
+			i_15_ += (this.buf[i_14_++] & GroundObjectNode.anIntArray3631[i_13_]) << -i_13_ + i;
 			i -= i_13_;
 		}
 		if (i_13_ != i) {
-			i_15_ += this.buf[i_14_] >> -i + i_13_ & GroundObject.anIntArray3631[i];
+			i_15_ += this.buf[i_14_] >> -i + i_13_ & GroundObjectNode.anIntArray3631[i];
 		} else {
-			i_15_ += GroundObject.anIntArray3631[i_13_] & this.buf[i_14_];
+			i_15_ += GroundObjectNode.anIntArray3631[i_13_] & this.buf[i_14_];
 		}
 		return i_15_;
 	}

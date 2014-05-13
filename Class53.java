@@ -29,7 +29,7 @@ abstract class Class53 {
 			}
 			if (i < -83) {
 				if (class120_sub24.anInt2721 == 1) {
-					l = Class189.method2502(class120_sub24.anInt2722, class120_sub24.anInt2731, class120_sub24.anInt2725);
+					l = JagexInterface.method2502(class120_sub24.anInt2722, class120_sub24.anInt2731, class120_sub24.anInt2725);
 				}
 				int i_2_ = 0;
 				if (class120_sub24.anInt2721 == 2) {
@@ -67,7 +67,7 @@ abstract class Class53 {
 			if (i > -59) {
 				return null;
 			}
-			final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_6_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, Class120_Sub18.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+			final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_6_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_6_;
 		} catch (final RuntimeException runtimeexception) {

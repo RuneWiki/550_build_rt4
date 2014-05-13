@@ -72,7 +72,7 @@ final class Deque {
 	}
 
 	static final Class182 method894(final int i, final int i_5_, final int i_6_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_5_][i_6_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_5_][i_6_];
 		if (class120_sub18 == null) {
 			return null;
 		}

@@ -50,7 +50,7 @@ final class Class153 {
 	}
 
 	static final Class186 method2072(final int i, final int i_1_, final int i_2_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_1_][i_2_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_1_][i_2_];
 		if (class120_sub18 == null) {
 			return null;
 		}

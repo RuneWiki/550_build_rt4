@@ -16,13 +16,13 @@ final class Class50 {
 	final boolean method410(String string, final byte i, String string_0_) {
 		boolean bool;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			string = string.toLowerCase();
 			string_0_ = string_0_.toLowerCase();
 			final int i_1_ = aClass52_452.aClass56_473.method487(-76, Class120_Sub14_Sub13.method1524(string, 0));
-			if (!method436(i_1_, -112)) {
+			if (!method436(i_1_)) {
 				return false;
 			}
 			if (i != -99) {
@@ -52,7 +52,7 @@ final class Class50 {
 			if (i != -11) {
 				aClass52_452 = null;
 			}
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return 0;
 			}
 			string = string.toLowerCase();
@@ -69,17 +69,17 @@ final class Class50 {
 			if (!bool) {
 				aClass52_452 = null;
 			}
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return null;
 			}
 			if (aClass52_452.anIntArray465.length == 1) {
-				return method442(0, (byte) 118, i);
+				return getFile(0, i);
 			}
-			if (!method436(i, -120)) {
+			if (!method436(i)) {
 				return null;
 			}
 			if (aClass52_452.anIntArray465[i] == 1) {
-				return method442(i, (byte) 111, 0);
+				return getFile(i, 0);
 			}
 			throw new RuntimeException();
 		} catch (final RuntimeException runtimeexception) {
@@ -93,7 +93,7 @@ final class Class50 {
 			if (i != -2) {
 				return true;
 			}
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			string = string.toLowerCase();
@@ -111,7 +111,7 @@ final class Class50 {
 	final int method415(final int i) {
 		int i_7_;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return 0;
 			}
 			int i_8_ = 0;
@@ -142,7 +142,7 @@ final class Class50 {
 			if (i_12_ != -12826) {
 				return -42;
 			}
-			if (!method436(i, -123)) {
+			if (!method436(i)) {
 				return 0;
 			}
 			if (anObjectArray451[i] != null) {
@@ -161,7 +161,7 @@ final class Class50 {
 		class120_sub7_14_.putByte(Class120_Sub14_Sub14_Sub1.brightness);
 		class120_sub7_14_.putByte(Class61.aBoolean566 ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
-		class120_sub7_14_.putByte(Class75.showGroundDecorations ? 1 : 0);
+		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
 		class120_sub7_14_.putByte(Class108_Sub3.highDetailTextures ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
 		class120_sub7_14_.putByte(Class191.flickeringEffectsOn ? 1 : 0);
@@ -170,7 +170,7 @@ final class Class50 {
 		class120_sub7_14_.putByte(Class74.sceneryShadowsType);
 		class120_sub7_14_.putByte(Class120_Sub12_Sub6.highLightingDetail ? 1 : 0);
 		class120_sub7_14_.putByte(PacketBuffer.highWaterDetail ? 1 : 0);
-		class120_sub7_14_.putByte(Class172.fogEnabled ? 1 : 0);
+		class120_sub7_14_.putByte(Decimator.fogEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(AbstractMouseWheelHandler.anInt117);
 		class120_sub7_14_.putByte(Class167.aBoolean1619 ? 1 : 0);
 		class120_sub7_14_.putByte(Class111.anInt1061);
@@ -189,7 +189,7 @@ final class Class50 {
 		return class120_sub7_14_;
 	}
 
-	private final boolean method418() {
+	private final boolean informationLoaded() {
 		if (aClass52_452 == null) {
 			aClass52_452 = aClass53_450.method462();
 			if (aClass52_452 == null) {
@@ -246,7 +246,7 @@ final class Class50 {
 			if (i >= -31) {
 				method432(true, null);
 			}
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return -1;
 			}
 			i_19_ = aClass52_452.anIntArray465.length;
@@ -274,7 +274,7 @@ final class Class50 {
 	private final boolean method423(final int i, final int i_21_, final int i_22_) {
 		boolean bool;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			if (i_22_ < 0 || i < 0 || aClass52_452.anIntArray465.length <= i_22_ || i >= aClass52_452.anIntArray465[i_22_]) {
@@ -293,7 +293,7 @@ final class Class50 {
 	private final boolean method424(final int i, final int[] is, final int i_23_) {
 		boolean bool;
 		try {
-			if (!method436(i_23_, -106)) {
+			if (!method436(i_23_)) {
 				return false;
 			}
 			if (anObjectArray451[i_23_] == null) {
@@ -334,8 +334,8 @@ final class Class50 {
 				is_30_ = Class71.method639(true, is_29_);
 			} catch (final RuntimeException runtimeexception) {
 				throw Class120_Sub14_Sub2.method1428(runtimeexception,
-						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(Class120_Sub14_Sub3.method1431(is_29_.length, i + 0, is_29_)).append(",").append(Class120_Sub14_Sub3.method1431(is_29_.length + -2, 0, is_29_))
-								.append(",").append(aClass52_452.anIntArray470[i_23_]).append(",").append(aClass52_452.anInt481).toString());
+						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.method1431(is_29_.length, i + 0, is_29_)).append(",").append(AbstractObject.method1431(is_29_.length + -2, 0, is_29_))
+								.append(",").append(aClass52_452.anIntArray470[i_23_]).append(",").append(aClass52_452.indexCrc).toString());
 			}
 			if (aBoolean446) {
 				anObjectArray451[i_23_] = null;
@@ -403,27 +403,18 @@ final class Class50 {
 		return bool;
 	}
 
-	private final boolean method425(final int i, final byte i_46_) {
-		boolean bool;
-		try {
-			if (i_46_ != -73) {
-				return true;
-			}
-			if (!method436(i, -108)) {
-				return false;
-			}
-			if (anObjectArray451[i] != null) {
-				return true;
-			}
-			method422(1, i);
-			if (anObjectArray451[i] != null) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.M(").append(i).append(',').append(i_46_).append(')').toString());
+	private final boolean allFilesComplete(final int i) {
+		if (!method436(i)) {
+			return false;
 		}
-		return bool;
+		if (anObjectArray451[i] != null) {
+			return true;
+		}
+		method422(1, i);
+		if (anObjectArray451[i] != null) {
+			return true;
+		}
+		return false;
 	}
 
 	final void method426(final boolean bool, final boolean bool_47_, final byte i) {
@@ -431,7 +422,7 @@ final class Class50 {
 			if (i != -20) {
 				aClass52_452 = null;
 			}
-			if (method418()) {
+			if (informationLoaded()) {
 				if (bool_47_) {
 					aClass52_452.aClass56Array479 = null;
 					aClass52_452.anIntArrayArray474 = null;
@@ -451,7 +442,7 @@ final class Class50 {
 			if (i <= 6) {
 				method431(86, 36, null, -78);
 			}
-			if (method418()) {
+			if (informationLoaded()) {
 				string = string.toLowerCase();
 				final int i_48_ = aClass52_452.aClass56_473.method487(-75, Class120_Sub14_Sub13.method1524(string, 0));
 				method411(0, i_48_);
@@ -464,7 +455,7 @@ final class Class50 {
 	final byte[] method428(final int i, String string, String string_49_) {
 		byte[] is;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return null;
 			}
 			string_49_ = string_49_.toLowerCase();
@@ -473,11 +464,11 @@ final class Class50 {
 			}
 			string = string.toLowerCase();
 			final int i_50_ = aClass52_452.aClass56_473.method487(-92, Class120_Sub14_Sub13.method1524(string_49_, 0));
-			if (!method436(i_50_, -117)) {
+			if (!method436(i_50_)) {
 				return null;
 			}
 			final int i_51_ = aClass52_452.aClass56Array479[i_50_].method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
-			is = method442(i_50_, (byte) 110, i_51_);
+			is = getFile(i_50_, i_51_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.H(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(string_49_ != null ? "{...}" : "null").append(')').toString());
 		}
@@ -486,17 +477,17 @@ final class Class50 {
 
 	final boolean method429(final int i, final int i_52_) {
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			if (aClass52_452.anIntArray465.length == 1) {
 				return method440(0, true, i);
 			}
-			if (!method436(i, -126)) {
+			if (!method436(i)) {
 				return false;
 			}
 			if (i_52_ <= 59) {
-				method434(-43, -94);
+				loadInterface(-94);
 			}
 			if (aClass52_452.anIntArray465[i] == 1) {
 				return method440(i, true, 0);
@@ -510,7 +501,7 @@ final class Class50 {
 	final boolean method430(final boolean bool) {
 		boolean bool_53_;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			boolean bool_54_ = bool;
@@ -565,7 +556,7 @@ final class Class50 {
 	final int method432(final boolean bool, String string) {
 		int i;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return -1;
 			}
 			string = string.toLowerCase();
@@ -573,7 +564,7 @@ final class Class50 {
 			if (bool) {
 				aClass52_452 = null;
 			}
-			if (!method436(i_60_, -126)) {
+			if (!method436(i_60_)) {
 				return -1;
 			}
 			i = i_60_;
@@ -589,7 +580,7 @@ final class Class50 {
 			if (!bool) {
 				method432(true, null);
 			}
-			if (!method436(i, -112)) {
+			if (!method436(i)) {
 				return null;
 			}
 			int[] is_61_ = aClass52_452.anIntArrayArray468[i];
@@ -606,52 +597,43 @@ final class Class50 {
 		return is;
 	}
 
-	static final boolean method434(final int i, final int i_63_) {
-		boolean bool;
-		try {
-			if (Class57.aBooleanArray503[i_63_]) {
-				return true;
-			}
-			if (!Class101_Sub4.aClass50_2301.method425(i_63_, (byte) -73)) {
-				return false;
-			}
-			if (i >= -24) {
-				return false;
-			}
-			final int i_64_ = Class101_Sub4.aClass50_2301.method441(i_63_, 1);
-			if (i_64_ == 0) {
-				Class57.aBooleanArray503[i_63_] = true;
-				return true;
-			}
-			if (Node.aClass189ArrayArray1150[i_63_] == null) {
-				Node.aClass189ArrayArray1150[i_63_] = new Class189[i_64_];
-			}
-			for (int i_65_ = 0; i_64_ > i_65_; i_65_++) {
-				if (Node.aClass189ArrayArray1150[i_63_][i_65_] == null) {
-					final byte[] is = Class101_Sub4.aClass50_2301.method442(i_63_, (byte) 116, i_65_);
-					if (is != null) {
-						final Class189 class189 = Node.aClass189ArrayArray1150[i_63_][i_65_] = new Class189();
-						class189.anInt1999 = (i_63_ << 16) - -i_65_;
-						if (is[0] == -1) {
-							class189.method2495(-14625, new Buffer(is));
-						} else {
-							class189.method2491(new Buffer(is), 78);
-						}
+	static final boolean loadInterface(final int group) {
+		if (Class57.interfaceLoaded[group]) {
+			return true;
+		}
+		if (!Class101_Sub4.interfaceJs5.allFilesComplete(group)) {
+			return false;
+		}
+		final int fileAmount = Class101_Sub4.interfaceJs5.getFileAmount(group);
+		if (fileAmount == 0) {
+			Class57.interfaceLoaded[group] = true;
+			return true;
+		}
+		if (Node.interfaceCache[group] == null) {
+			Node.interfaceCache[group] = new JagexInterface[fileAmount];
+		}
+		for (int file = 0; file < fileAmount; file++) {
+			if (Node.interfaceCache[group][file] == null) {
+				final byte[] data = Class101_Sub4.interfaceJs5.getFile(group, file);
+				if (data != null) {
+					final JagexInterface jagexInterface = Node.interfaceCache[group][file] = new JagexInterface();
+					jagexInterface.bitPacked = (group << 16) + file;
+					if (data[0] == -1) {
+						jagexInterface.decodeNew(new Buffer(data));
+					} else {
+						jagexInterface.decodeOld(new Buffer(data));
 					}
 				}
 			}
-			Class57.aBooleanArray503[i_63_] = true;
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.F(").append(i).append(',').append(i_63_).append(')').toString());
 		}
-		return bool;
+		Class57.interfaceLoaded[group] = true;
+		return true;
 	}
 
 	final boolean method435(String string, final int i) {
 		boolean bool;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return false;
 			}
 			string = string.toLowerCase();
@@ -659,43 +641,34 @@ final class Class50 {
 				method415(-68);
 			}
 			final int i_66_ = aClass52_452.aClass56_473.method487(-72, Class120_Sub14_Sub13.method1524(string, 0));
-			bool = method425(i_66_, (byte) -73);
+			bool = allFilesComplete(i_66_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.CA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return bool;
 	}
 
-	private final boolean method436(final int i, final int i_67_) {
-		boolean bool;
-		try {
-			if (!method418()) {
+	private final boolean method436(final int i) {
+		if (!informationLoaded()) {
+			return false;
+		}
+		if (i < 0 || aClass52_452.anIntArray465.length <= i || aClass52_452.anIntArray465[i] == 0) {
+			if (!Class90.aBoolean845) {
 				return false;
 			}
-			if (i < 0 || aClass52_452.anIntArray465.length <= i || aClass52_452.anIntArray465[i] == 0) {
-				if (!Class90.aBoolean845) {
-					return false;
-				}
-				throw new IllegalArgumentException(Integer.toString(i));
-			}
-			if (i_67_ >= -105) {
-				method437(114, (byte) -119);
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.N(").append(i).append(',').append(i_67_).append(')').toString());
+			throw new IllegalArgumentException(Integer.toString(i));
 		}
-		return bool;
+		return true;
 	}
 
 	final int method437(final int i, final byte i_68_) {
 		int i_69_;
 		try {
-			if (!method418()) {
+			if (!informationLoaded()) {
 				return -1;
 			}
 			final int i_70_ = aClass52_452.aClass56_473.method487(-91, i);
-			if (!method436(i_70_, -110)) {
+			if (!method436(i_70_)) {
 				return -1;
 			}
 			if (i_68_ != -115) {
@@ -710,7 +683,7 @@ final class Class50 {
 
 	final void method438(final boolean bool, final int i) {
 		try {
-			if (method436(i, -119)) {
+			if (method436(i)) {
 				if (bool) {
 					aClass52_452 = null;
 				}
@@ -723,11 +696,11 @@ final class Class50 {
 		}
 	}
 
-	final int method439() {
-		if (!method418()) {
+	final int getIndexCrc() {
+		if (!informationLoaded()) {
 			throw new IllegalStateException("");
 		}
-		return aClass52_452.anInt481;
+		return aClass52_452.indexCrc;
 	}
 
 	final boolean method440(final int i, final boolean bool, final int i_72_) {
@@ -756,33 +729,15 @@ final class Class50 {
 		return bool_73_;
 	}
 
-	final int method441(final int i, final int i_74_) {
-		int i_75_;
-		try {
-			if (i_74_ != 1) {
-				return 77;
-			}
-			if (!method436(i, i_74_ ^ ~0x71)) {
-				return 0;
-			}
-			i_75_ = aClass52_452.anIntArray465[i];
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.IA(").append(i).append(',').append(i_74_).append(')').toString());
+	final int getFileAmount(final int i) {
+		if (!method436(i)) {
+			return 0;
 		}
-		return i_75_;
+		return aClass52_452.anIntArray465[i];
 	}
 
-	final byte[] method442(final int i, final byte i_76_, final int i_77_) {
-		byte[] is;
-		try {
-			if (i_76_ < 108) {
-				aClass53_450 = null;
-			}
-			is = method431(i_77_, i, null, 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.D(").append(i).append(',').append(i_76_).append(',').append(i_77_).append(')').toString());
-		}
-		return is;
+	final byte[] getFile(final int i, final int i_77_) {
+		return method431(i_77_, i, null, 0);
 	}
 
 	Class50(final Class53 class53, final boolean bool, final boolean bool_78_) {

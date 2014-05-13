@@ -11,7 +11,7 @@ final class Class101_Sub4 extends Class101 {
 	private final int anInt2298;
 	private int anInt2299;
 	private final int anInt2300;
-	static Class50 aClass50_2301;
+	static Class50 interfaceJs5;
 	private final int anInt2302;
 	private final int anInt2303;
 	static int[] anIntArray2304 = new int[32];
@@ -29,11 +29,11 @@ final class Class101_Sub4 extends Class101 {
 	public static void method850(final byte i) {
 		try {
 			aClass50_2297 = null;
-			aClass50_2301 = null;
+			interfaceJs5 = null;
 			anIntArray2296 = null;
 			anIntArray2304 = null;
 			if (i > -21) {
-				aClass50_2301 = null;
+				interfaceJs5 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("in.H(").append(i).append(')').toString());
@@ -78,9 +78,9 @@ final class Class101_Sub4 extends Class101 {
 
 	static final void method851(final boolean bool, final int i) {
 		try {
-			Class180_Sub6.aClass21_3071.method192((byte) -64, i);
-			Class120_Sub1.aClass21_2406.method192((byte) 33, i);
-			Class120_Sub12_Sub2.aClass21_3143.method192((byte) -84, i);
+			Class180_Sub6.aClass21_3071.method192(i);
+			Class120_Sub1.aClass21_2406.method192(i);
+			Class120_Sub12_Sub2.aClass21_3143.method192(i);
 			if (bool) {
 				aClass50_2297 = null;
 			}

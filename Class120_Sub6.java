@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub6 extends Node {
-	static Class21 aClass21_2443;
+	static Cache aClass21_2443;
 	static String aString2444 = "Loaded world list data";
 	int anInt2445;
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2446;
@@ -30,7 +30,7 @@ final class Class120_Sub6 extends Node {
 	int anInt2467;
 
 	static {
-		aClass21_2443 = new Class21(4);
+		aClass21_2443 = new Cache(4);
 	}
 
 	static final String method1068(final String string, final int i) {
@@ -39,7 +39,7 @@ final class Class120_Sub6 extends Node {
 			if (i != -8251) {
 				aString2444 = null;
 			}
-			String string_1_ = Class174.method2234(0, Class70.method636(i + 8125, string));
+			String string_1_ = Class174.method2234(0, Class70.stringToLong(string));
 			if (string_1_ == null) {
 				string_1_ = "";
 			}
@@ -126,8 +126,8 @@ final class Class120_Sub6 extends Node {
 
 	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
 		try {
-			if (Class50.method434(-111, i) && i_9_ < -28) {
-				client.method60(Node.aClass189ArrayArray1150[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
+			if (Class50.loadInterface(i) && i_9_ < -28) {
+				client.method60(Node.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.C(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')')

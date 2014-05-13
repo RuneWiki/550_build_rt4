@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	private int anInt3160;
 	private int anInt3161 = 3216;
 	private int anInt3162;
-	static boolean aBoolean3163 = false;
+	static boolean errorPinging = false;
 	static FileSystem aClass51_3164;
 	static int canvasHeight;
 	private final int[] anIntArray3166;
@@ -25,8 +25,8 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		return bool_0_;
 	}
 
-	static final boolean method1218(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final Class180 class180, final int i_5_, final long l, final boolean bool) {
-		if (class180 == null) {
+	static final boolean method1218(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final SceneGraphNode sceneGraphNode, final int i_5_, final long l, final boolean bool) {
+		if (sceneGraphNode == null) {
 			return true;
 		}
 		int i_6_ = i_1_ - i_4_;
@@ -51,7 +51,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		i_7_ /= 128;
 		i_8_ /= 128;
 		i_9_ /= 128;
-		return Class120_Sub13.method1403(i, i_6_, i_7_, i_8_ - i_6_ + 1, i_9_ - i_7_ + 1, i_1_, i_2_, i_3_, class180, i_5_, true, l);
+		return Class120_Sub13.method1403(i, i_6_, i_7_, i_8_ - i_6_ + 1, i_9_ - i_7_ + 1, i_1_, i_2_, i_3_, sceneGraphNode, i_5_, true, l);
 	}
 
 	static final void method1219(final byte i) {

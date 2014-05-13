@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub31 extends Class120_Sub12 {
-	static Class21 aClass21_3378;
+	static Cache aClass21_3378;
 	private int anInt3379 = 4096;
 	static int anInt3380;
 	static AbstractMouseWheelHandler mouseWheelHandler;
@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 
 	static {
 		anInt3380 = 0;
-		aClass21_3378 = new Class21(64);
+		aClass21_3378 = new Cache(64);
 	}
 
 	static final void method1364(final boolean bool, final int i) {
@@ -68,17 +68,17 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 	static final Class80 method1365(final int i, final int i_14_) {
 		Class80 class80;
 		try {
-			Class80 class80_15_ = (Class80) Class120_Sub12_Sub16.aClass21_3251.method193(i_14_, (byte) -87);
+			Class80 class80_15_ = (Class80) Class120_Sub12_Sub16.aClass21_3251.get(i_14_);
 			if (class80_15_ != null) {
 				return class80_15_;
 			}
-			final byte[] is = Class69.aClass50_619.method442(i, (byte) 113, i_14_);
+			final byte[] is = Class69.aClass50_619.getFile(i, i_14_);
 			class80_15_ = new Class80();
 			if (is != null) {
 				class80_15_.method698(new Buffer(is), (byte) 63);
 			}
 			class80_15_.method702((byte) -87);
-			Class120_Sub12_Sub16.aClass21_3251.method185(-128, class80_15_, i_14_);
+			Class120_Sub12_Sub16.aClass21_3251.put(class80_15_, i_14_);
 			class80 = class80_15_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.S(").append(i).append(',').append(i_14_).append(')').toString());
@@ -104,13 +104,13 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 			if (i_16_ != -1) {
 				method1368(null, -29, (byte) -45);
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18_17_ = (Class120_Sub14_Sub18) Class180.aClass21_1781.method193(i, (byte) 26);
+			Class120_Sub14_Sub18 class120_sub14_sub18_17_ = (Class120_Sub14_Sub18) SceneGraphNode.aClass21_1781.get(i);
 			if (class120_sub14_sub18_17_ != null) {
 				return class120_sub14_sub18_17_;
 			}
 			class120_sub14_sub18_17_ = Class120_Sub14_Sub22.method1633((byte) 62, i, Class132_Sub1.aClass50_2813, Class179.aClass50_1778, false);
 			if (class120_sub14_sub18_17_ != null) {
-				Class180.aClass21_1781.method185(-127, class120_sub14_sub18_17_, i);
+				SceneGraphNode.aClass21_1781.put(class120_sub14_sub18_17_, i);
 			}
 			class120_sub14_sub18 = class120_sub14_sub18_17_;
 		} catch (final RuntimeException runtimeexception) {
@@ -119,15 +119,15 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		return class120_sub14_sub18;
 	}
 
-	static final int method1368(final Class189 class189, final int i, final byte i_18_) {
+	static final int method1368(final JagexInterface jagexInterface, final int i, final byte i_18_) {
 		int i_19_;
 		try {
-			if (!client.method54(class189).method1678(i, 68) && class189.anObjectArray2006 == null) {
+			if (!client.method54(jagexInterface).method1678(i, 68) && jagexInterface.anObjectArray2006 == null) {
 				return -1;
 			}
-			i_19_ = class189.anIntArray1992 == null || class189.anIntArray1992.length <= i ? -1 : class189.anIntArray1992[i];
+			i_19_ = jagexInterface.anIntArray1992 == null || jagexInterface.anIntArray1992.length <= i ? -1 : jagexInterface.anIntArray1992[i];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.R(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_18_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.R(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_18_).append(')').toString());
 		}
 		return i_19_;
 	}

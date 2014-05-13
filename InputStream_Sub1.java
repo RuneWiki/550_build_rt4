@@ -7,7 +7,7 @@ final class InputStream_Sub1 extends InputStream {
 	static boolean focus;
 	static int[] anIntArray24;
 	static String aString25 = "Members object";
-	static Class189 aClass189_26;
+	static JagexInterface aClass189_26;
 
 	static {
 		anIntArray24 = new int[] { 2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1 };
@@ -24,9 +24,9 @@ final class InputStream_Sub1 extends InputStream {
 	}
 
 	static final void logout() {
-		if (AbstractTimer.aClass46_825 != null) {
-			AbstractTimer.aClass46_825.method377(-19055);
-			AbstractTimer.aClass46_825 = null;
+		if (AbstractTimer.worldConnection != null) {
+			AbstractTimer.worldConnection.method377();
+			AbstractTimer.worldConnection = null;
 		}
 		Class110.method976(-7603);
 		Class173.method2225();
@@ -97,7 +97,7 @@ final class InputStream_Sub1 extends InputStream {
 		}
 	}
 
-	static final String method71(final Class189 class189, final int i, String string) {
+	static final String method71(final JagexInterface jagexInterface, final int i, String string) {
 		String string_3_;
 		try {
 			if (i != 2) {
@@ -109,35 +109,35 @@ final class InputStream_Sub1 extends InputStream {
 					if ((i_4_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_4_)).append(Class73.method644(LocType.method2467(0, (byte) -31, class189), 999999999)).append(string.substring(2 + i_4_)).toString();
+					string = new StringBuilder(string.substring(0, i_4_)).append(Class73.method644(LocType.method2467(0, (byte) -31, jagexInterface), 999999999)).append(string.substring(2 + i_4_)).toString();
 				}
 				for (;;) {
 					final int i_5_ = string.indexOf("%2");
 					if ((i_5_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_5_)).append(Class73.method644(LocType.method2467(1, (byte) -86, class189), 999999999)).append(string.substring(i_5_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_5_)).append(Class73.method644(LocType.method2467(1, (byte) -86, jagexInterface), 999999999)).append(string.substring(i_5_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_6_ = string.indexOf("%3");
 					if (i_6_ == -1) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_6_)).append(Class73.method644(LocType.method2467(2, (byte) -37, class189), i ^ 0x3b9ac9fd)).append(string.substring(i_6_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_6_)).append(Class73.method644(LocType.method2467(2, (byte) -37, jagexInterface), i ^ 0x3b9ac9fd)).append(string.substring(i_6_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_7_ = string.indexOf("%4");
 					if ((i_7_ ^ 0xffffffff) == 0) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_7_)).append(Class73.method644(LocType.method2467(3, (byte) -59, class189), 999999999)).append(string.substring(i_7_ + 2)).toString();
+					string = new StringBuilder(string.substring(0, i_7_)).append(Class73.method644(LocType.method2467(3, (byte) -59, jagexInterface), 999999999)).append(string.substring(i_7_ + 2)).toString();
 				}
 				for (;;) {
 					final int i_8_ = string.indexOf("%5");
 					if (i_8_ == -1) {
 						break;
 					}
-					string = new StringBuilder(string.substring(0, i_8_)).append(Class73.method644(LocType.method2467(4, (byte) -107, class189), 999999999)).append(string.substring(2 + i_8_)).toString();
+					string = new StringBuilder(string.substring(0, i_8_)).append(Class73.method644(LocType.method2467(4, (byte) -107, jagexInterface), 999999999)).append(string.substring(2 + i_8_)).toString();
 				}
 				for (;;) {
 					final int i_9_ = string.indexOf("%dns");
@@ -157,7 +157,7 @@ final class InputStream_Sub1 extends InputStream {
 			}
 			string_3_ = string;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ia.C(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ia.C(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return string_3_;
 	}

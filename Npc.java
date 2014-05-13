@@ -3,7 +3,7 @@
  */
 
 final class Npc extends GameEntity {
-	static Class75 aClass75_3750 = new Class75(16);
+	static Hashtable aClass75_3750 = new Hashtable(16);
 	NpcType npcType;
 	static String aString3752;
 	static Class50 aClass50_3753;
@@ -230,13 +230,13 @@ final class Npc extends GameEntity {
 				boolean bool_29_ = false;
 				for (;;) {
 					if (bool_29_) {
-						final int i_30_ = class120_sub7.method1081((byte) 98);
+						final int i_30_ = class120_sub7.getUSmart();
 						if (i_30_ == 0) {
 							break;
 						}
 						class120_sub7.getUByte();
 					} else {
-						final int i_31_ = class120_sub7.method1081((byte) 98);
+						final int i_31_ = class120_sub7.getUSmart();
 						if (i_31_ == 0) {
 							break;
 						}
@@ -248,7 +248,7 @@ final class Npc extends GameEntity {
 						final int i_36_ = i_23_ + i_35_;
 						if (i_34_ > 0 && i_36_ > 0 && i_34_ < 103 && i_36_ < 103) {
 							final LocType locType = LocType.list(i_26_);
-							if (i_33_ != 22 || Class75.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
+							if (i_33_ != 22 || Hashtable.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
 								bool_29_ = true;
 								if (!locType.method2452(true)) {
 									bool_25_ = false;

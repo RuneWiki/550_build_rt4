@@ -66,10 +66,10 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 			gl.glBindTexture(3553, class120_sub14_sub19_sub1.anInt3942);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
-			final float f_21_ = (float) (i_13_ - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1.anInt3945;
-			final float f_22_ = (float) (i_14_ - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1.anInt3948;
-			final float f_23_ = (float) (i_13_ + i_15_ - GraphicsHD.anInt602) / (float) class120_sub14_sub19_sub1.anInt3945;
-			final float f_24_ = (float) (i_14_ + i_16_ - GraphicsHD.anInt605) / (float) class120_sub14_sub19_sub1.anInt3948;
+			final float f_21_ = (float) (i_13_ - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
+			final float f_22_ = (float) (i_14_ - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
+			final float f_23_ = (float) (i_13_ + i_15_ - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
+			final float f_24_ = (float) (i_14_ + i_16_ - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
 			gl.glBegin(6);
 			gl.glMultiTexCoord2f(33985, f_23_, f_22_);
 			gl.glTexCoord2f(f_19_, f_18_);

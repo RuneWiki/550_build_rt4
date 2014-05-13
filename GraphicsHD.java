@@ -6,17 +6,17 @@ import java.nio.IntBuffer;
 import javax.media.opengl.GL;
 
 final class GraphicsHD {
-	static int anInt601;
-	static int anInt602;
+	static int endY;
+	static int startX;
 	static HDSprite aClass120_Sub14_Sub19_Sub1_603 = null;
-	private static int anInt604;
-	static int anInt605;
+	private static int endX;
+	static int startY;
 
 	static {
-		anInt601 = 0;
-		anInt602 = 0;
-		anInt605 = 0;
-		anInt604 = 0;
+		endY = 0;
+		startX = 0;
+		startY = 0;
+		endX = 0;
 	}
 
 	static final void method582(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
@@ -63,10 +63,10 @@ final class GraphicsHD {
 	}
 
 	static final void method585(final int[] is) {
-		is[0] = anInt602;
-		is[1] = anInt605;
-		is[2] = anInt604;
-		is[3] = anInt601;
+		is[0] = startX;
+		is[1] = startY;
+		is[2] = endX;
+		is[3] = endY;
 	}
 
 	static final void method586(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_) {
@@ -90,7 +90,7 @@ final class GraphicsHD {
 	}
 
 	static final void method588(final int i, final int i_31_, final int i_32_, final int i_33_, final int i_34_, final int i_35_, final HDSprite class120_sub14_sub19_sub1) {
-		if (anInt601 - anInt605 != class120_sub14_sub19_sub1.height) {
+		if (endY - startY != class120_sub14_sub19_sub1.height) {
 			throw new IllegalStateException();
 		}
 		HDToolkit.method499();
@@ -105,9 +105,9 @@ final class GraphicsHD {
 		gl.glTexEnvi(8960, 34176, 34168);
 		gl.glBegin(2);
 		gl.glColor4ub((byte) (i_34_ >> 16), (byte) (i_34_ >> 8), (byte) i_34_, i_35_ > 255 ? (byte) -1 : (byte) i_35_);
-		gl.glTexCoord2f((f - anInt602) / class120_sub14_sub19_sub1.anInt3945, (HDToolkit.canvasHeight - f_37_ - anInt605) / class120_sub14_sub19_sub1.anInt3948);
+		gl.glTexCoord2f((f - startX) / class120_sub14_sub19_sub1.anInt3945, (HDToolkit.canvasHeight - f_37_ - startY) / class120_sub14_sub19_sub1.anInt3948);
 		gl.glVertex2f(f, f_37_);
-		gl.glTexCoord2f((f_36_ - anInt602) / class120_sub14_sub19_sub1.anInt3945, (HDToolkit.canvasHeight - f_38_ - anInt605) / class120_sub14_sub19_sub1.anInt3948);
+		gl.glTexCoord2f((f_36_ - startX) / class120_sub14_sub19_sub1.anInt3945, (HDToolkit.canvasHeight - f_38_ - startY) / class120_sub14_sub19_sub1.anInt3948);
 		gl.glVertex2f(f_36_, f_38_);
 		gl.glEnd();
 		gl.glTexEnvi(8960, 34176, 5890);
@@ -146,29 +146,29 @@ final class GraphicsHD {
 	}
 
 	static final void method591(final int i, final int i_54_, final int i_55_, final int i_56_) {
-		if (anInt602 < i) {
-			anInt602 = i;
+		if (startX < i) {
+			startX = i;
 		}
-		if (anInt605 < i_54_) {
-			anInt605 = i_54_;
+		if (startY < i_54_) {
+			startY = i_54_;
 		}
-		if (anInt604 > i_55_) {
-			anInt604 = i_55_;
+		if (endX > i_55_) {
+			endX = i_55_;
 		}
-		if (anInt601 > i_56_) {
-			anInt601 = i_56_;
+		if (endY > i_56_) {
+			endY = i_56_;
 		}
 		final GL gl = HDToolkit.gl;
 		gl.glEnable(3089);
-		if (anInt602 > anInt604 || anInt605 > anInt601) {
+		if (startX > endX || startY > endY) {
 			gl.glScissor(0, 0, 0, 0);
 		} else {
-			gl.glScissor(HDToolkit.anInt543 + anInt602, HDToolkit.anInt516 + HDToolkit.canvasHeight - anInt601, anInt604 - anInt602, anInt601 - anInt605);
+			gl.glScissor(HDToolkit.anInt543 + startX, HDToolkit.anInt516 + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
 		}
 		method601();
 	}
 
-	static final void method592(int i, int i_57_, int i_58_, int i_59_) {
+	static final void clipRect(int i, int i_57_, int i_58_, int i_59_) {
 		if (i < 0) {
 			i = 0;
 		}
@@ -181,16 +181,16 @@ final class GraphicsHD {
 		if (i_59_ > HDToolkit.canvasHeight) {
 			i_59_ = HDToolkit.canvasHeight;
 		}
-		anInt602 = i;
-		anInt605 = i_57_;
-		anInt604 = i_58_;
-		anInt601 = i_59_;
+		startX = i;
+		startY = i_57_;
+		endX = i_58_;
+		endY = i_59_;
 		final GL gl = HDToolkit.gl;
 		gl.glEnable(3089);
-		if (anInt602 > anInt604 || anInt605 > anInt601) {
+		if (startX > endX || startY > endY) {
 			gl.glScissor(0, 0, 0, 0);
 		} else {
-			gl.glScissor(HDToolkit.anInt543 + anInt602, HDToolkit.anInt516 + HDToolkit.canvasHeight - anInt601, anInt604 - anInt602, anInt601 - anInt605);
+			gl.glScissor(HDToolkit.anInt543 + startX, HDToolkit.anInt516 + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
 		}
 		method601();
 	}
@@ -200,11 +200,11 @@ final class GraphicsHD {
 	}
 
 	static final void method594(final int[] is) {
-		method592(is[0], is[1], is[2], is[3]);
+		clipRect(is[0], is[1], is[2], is[3]);
 	}
 
 	static final void method595(final HDSprite class120_sub14_sub19_sub1) {
-		if (class120_sub14_sub19_sub1.height != anInt601 - anInt605) {
+		if (class120_sub14_sub19_sub1.height != endY - startY) {
 			throw new IllegalArgumentException();
 		}
 		aClass120_Sub14_Sub19_Sub1_603 = class120_sub14_sub19_sub1;
@@ -222,10 +222,10 @@ final class GraphicsHD {
 	}
 
 	static final void method597() {
-		anInt602 = 0;
-		anInt605 = 0;
-		anInt604 = HDToolkit.canvasWidth;
-		anInt601 = HDToolkit.canvasHeight;
+		startX = 0;
+		startY = 0;
+		endX = HDToolkit.canvasWidth;
+		endY = HDToolkit.canvasHeight;
 		final GL gl = HDToolkit.gl;
 		gl.glDisable(3089);
 		method601();

@@ -32,15 +32,15 @@ final class Class178 {
 
 	static final void method2257(final boolean bool) {
 		if (bool) {
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411 = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
+			Class120_Sub1.groundTiles = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
 			Class120_Sub26.anIntArrayArrayArray2741 = Class24.anIntArrayArrayArray140;
-			Canvas_Sub1.aClass120_Sub9ArrayArray17 = Class120_Sub32.aClass120_Sub9ArrayArray2789;
+			Canvas_Sub1.aClass120_Sub9ArrayArray17 = IntegerNode.aClass120_Sub9ArrayArray2789;
 		} else {
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411 = Class86.aClass120_Sub18ArrayArrayArray820;
+			Class120_Sub1.groundTiles = Class86.aClass120_Sub18ArrayArrayArray820;
 			Class120_Sub26.anIntArrayArrayArray2741 = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
-			Canvas_Sub1.aClass120_Sub9ArrayArray17 = Class180_Sub1.aClass120_Sub9ArrayArray2844;
+			Canvas_Sub1.aClass120_Sub9ArrayArray17 = SceneGroundObject.aClass120_Sub9ArrayArray2844;
 		}
-		Class142.anInt1361 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411.length;
+		Class142.anInt1361 = Class120_Sub1.groundTiles.length;
 	}
 
 	public static void method2258(final byte i) {

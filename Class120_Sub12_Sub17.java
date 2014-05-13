@@ -22,13 +22,13 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	}
 
 	static final Class28 method1281(final int i, final int i_0_, final int i_1_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null) {
 			return null;
 		}
 		for (int i_2_ = 0; i_2_ < class120_sub18.anInt2638; i_2_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_2_];
-			if ((class28.aLong186 >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
+			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
 				Class120_Sub14_Sub10.method1499(class28);
 				return class28;
 			}
@@ -199,24 +199,24 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		}
 	}
 
-	static final String method1285(final int i, final Class189 class189, final byte i_28_) {
+	static final String method1285(final int i, final JagexInterface jagexInterface, final byte i_28_) {
 		String string;
 		try {
 			if (i_28_ <= 27) {
 				method1283(84, (byte) 81);
 			}
-			if (!client.method54(class189).method1678(i, 58) && class189.anObjectArray2006 == null) {
+			if (!client.method54(jagexInterface).method1678(i, 58) && jagexInterface.anObjectArray2006 == null) {
 				return null;
 			}
-			if (class189.aStringArray2052 == null || i >= class189.aStringArray2052.length || class189.aStringArray2052[i] == null || class189.aStringArray2052[i].trim().length() == 0) {
+			if (jagexInterface.aStringArray2052 == null || i >= jagexInterface.aStringArray2052.length || jagexInterface.aStringArray2052[i] == null || jagexInterface.aStringArray2052[i].trim().length() == 0) {
 				if (Class120_Sub30_Sub1.aBoolean3673) {
 					return new StringBuilder("Hidden-").append(i).toString();
 				}
 				return null;
 			}
-			string = class189.aStringArray2052[i];
+			string = jagexInterface.aStringArray2052[i];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lj.V(").append(i).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lj.V(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
 		}
 		return string;
 	}

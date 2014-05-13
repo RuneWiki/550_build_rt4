@@ -31,7 +31,7 @@ final class Class2 {
 					method78((byte) -62);
 				}
 				Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = Class79.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
-				Class180.aClass137_1780 = null;
+				SceneGraphNode.aClass137_1780 = null;
 				final int i_8_ = Class181.currentBaseZ - i_7_;
 				final int i_9_ = -i_6_ + GameEntity.currentBaseX;
 				i_6_ = GameEntity.currentBaseX;
@@ -124,7 +124,7 @@ final class Class2 {
 				if (!bool) {
 					client.anInt2200 = 1;
 				} else {
-					GroundObject.anInt3626 -= 128 * i_8_;
+					GroundObjectNode.anInt3626 -= 128 * i_8_;
 					Class99.anInt951 -= i_9_;
 					Class120_Sub10.anInt2546 -= i_8_;
 					Class109.anInt1042 -= i_9_;

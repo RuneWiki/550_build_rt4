@@ -67,7 +67,7 @@ final class Class176 {
 				int i_9_ = 0;
 				int i_10_ = 0;
 				if (class73.aString649 != null) {
-					i_8_ = Class21.aClass120_Sub14_Sub8_121.method1486(class73.aString649, null, Class125.aStringArray2148);
+					i_8_ = Cache.aClass120_Sub14_Sub8_121.method1486(class73.aString649, null, Class125.aStringArray2148);
 					for (int i_11_ = 0; i_11_ < i_8_; i_11_++) {
 						String string = Class125.aStringArray2148[i_11_];
 						if (i_8_ - 1 > i_11_) {

@@ -7,7 +7,7 @@ final class Class28 {
 	int anInt171;
 	int anInt172;
 	int anInt173;
-	Class180 aClass180_174;
+	SceneGraphNode aClass180_174;
 	int anInt175;
 	static int anInt176;
 	int anInt177;
@@ -19,7 +19,7 @@ final class Class28 {
 	static int[] anIntArray183;
 	int anInt184;
 	int anInt185;
-	long aLong186 = 0L;
+	long bitPacked = 0L;
 
 	static final void method242(final short[] is, final int i, final String[] strings) {
 		try {
@@ -34,7 +34,7 @@ final class Class28 {
 			if (!bool) {
 				method243(false);
 			}
-			Canvas_Sub1.aClass75_15 = new Class75(32);
+			Canvas_Sub1.aClass75_15 = new Hashtable(32);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.A(").append(bool).append(')').toString());
 		}
@@ -79,13 +79,13 @@ final class Class28 {
 			if (class120_sub14_sub12_4_ != null) {
 				return class120_sub14_sub12_4_;
 			}
-			final byte[] is = IsaacCipher.aClass50_1019.method442(i, (byte) 123, 0);
+			final byte[] is = IsaacCipher.aClass50_1019.getFile(i, 0);
 			if (is == null || is.length <= 1) {
 				return null;
 			}
 			class120_sub14_sub12_4_ = Class120_Sub19.method1676((byte) 63, is);
 			if (bool) {
-				method247(84);
+				method247();
 			}
 			Class128.aClass35_1219.method301(i, 45, class120_sub14_sub12_4_);
 			class120_sub14_sub12 = class120_sub14_sub12_4_;
@@ -95,14 +95,8 @@ final class Class28 {
 		return class120_sub14_sub12;
 	}
 
-	static final void method247(final int i) {
-		try {
-			if (i == -17442) {
-				Class120_Sub26.aClass105_2746 = new Deque();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.B(").append(i).append(')').toString());
-		}
+	static final void method247() {
+		Class120_Sub26.aClass105_2746 = new Deque();
 	}
 
 	public Class28() {

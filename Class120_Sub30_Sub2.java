@@ -21,7 +21,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	int[] anIntArray3692;
 	private int[] anIntArray3693;
 	private final int[] anIntArray3694;
-	private final Class75 aClass75_3695;
+	private final Hashtable aClass75_3695;
 	private final int[] anIntArray3696;
 	private int[] anIntArray3697;
 	private final int anInt3698;
@@ -205,11 +205,11 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	final synchronized void method1753(final byte i) {
 		try {
-			Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.method657(13292);
+			Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst();
 			if (i <= 58) {
 				method1734(null, -33, -87);
 			}
-			for (/**/; class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.method658((byte) -115)) {
+			for (/**/; class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
 				class120_sub22.unlink();
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -258,7 +258,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 					}
 				}
 			}
-			final Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.method659(anIntArray3691[i_27_], -118);
+			final Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.get(anIntArray3691[i_27_]);
 			if (class120_sub22 != null) {
 				final Class120_Sub5_Sub1 class120_sub5_sub1 = class120_sub22.aClass120_Sub5_Sub1Array2673[i_28_];
 				if (class120_sub5_sub1 != null) {
@@ -590,11 +590,11 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	static final Class40 method1763(final int i, final int i_64_) {
 		Class40 class40;
 		try {
-			Class40 class40_65_ = (Class40) KeyboardHandler.aClass21_1504.method193(i, (byte) -125);
+			Class40 class40_65_ = (Class40) KeyboardHandler.aClass21_1504.get(i);
 			if (class40_65_ != null) {
 				return class40_65_;
 			}
-			final byte[] is = Class101_Sub3.aClass50_2286.method442(Class120_Sub12_Sub8.method1237(i, 16711680), (byte) 118, Class120_Sub12_Sub36.method1390(true, i));
+			final byte[] is = Class101_Sub3.aClass50_2286.getFile(Class120_Sub12_Sub8.method1237(i, 16711680), Class120_Sub12_Sub36.method1390(true, i));
 			class40_65_ = new Class40();
 			if (i_64_ < 117) {
 				return null;
@@ -604,7 +604,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 				class40_65_.method322(new Buffer(is), false);
 			}
 			class40_65_.method328((byte) 89);
-			KeyboardHandler.aClass21_1504.method185(-126, class40_65_, i);
+			KeyboardHandler.aClass21_1504.put(class40_65_, i);
 			class40 = class40_65_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ld.BA(").append(i).append(',').append(i_64_).append(')').toString());
@@ -999,7 +999,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	final synchronized void method1778(final byte i) {
 		try {
-			for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.method657(13292); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.method658((byte) -81)) {
+			for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst(); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
 				class120_sub22.method1706(true);
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -1029,16 +1029,16 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 			if (i_92_ != 0) {
 				method1757(false);
 			}
-			for (Class120_Sub11 class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.method657(13292); class120_sub11 != null; class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.method658((byte) -75)) {
+			for (Class120_Sub11 class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getFirst(); class120_sub11 != null; class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getNext()) {
 				final int i_94_ = (int) class120_sub11.uid;
-				Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.method659(i_94_, i_92_ ^ ~0x77);
+				Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.get(i_94_);
 				if (class120_sub22 == null) {
 					class120_sub22 = Class35.method300(i_94_, class50, i_92_ ^ 0x70);
 					if (class120_sub22 == null) {
 						bool_93_ = false;
 						continue;
 					}
-					aClass75_3695.method655(class120_sub22, 92, i_94_);
+					aClass75_3695.put(class120_sub22, i_94_);
 				}
 				if (!class120_sub22.method1702(is, class90, i_92_ + -34, class120_sub11.aByteArray2555)) {
 					bool_93_ = false;
@@ -1076,7 +1076,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		aClass120_Sub6ArrayArray3700 = new Class120_Sub6[16][128];
 		aClass62_3701 = new Class62();
 		aClass120_Sub30_Sub1_3707 = new Class120_Sub30_Sub1(this);
-		aClass75_3695 = new Class75(128);
+		aClass75_3695 = new Hashtable(128);
 		method1747(-1, 256, -128);
 		method1768(0, true);
 	}

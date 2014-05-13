@@ -16,9 +16,9 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1379(final Class189 class189, final byte i) {
+	static final void method1379(final JagexInterface jagexInterface, final byte i) {
 		try {
-			final Class189 class189_0_ = Class120_Sub17.method1665(72, class189);
+			final JagexInterface class189_0_ = Class120_Sub17.method1665(72, jagexInterface);
 			int i_1_;
 			int i_2_;
 			if (class189_0_ != null) {
@@ -28,10 +28,10 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 				i_1_ = Class120_Sub12_Sub5.canvasHeight;
 				i_2_ = Class69_Sub1.canvasWidth;
 			}
-			Class23.method201(false, i_2_, class189, i_1_, -4);
-			Class180.method2272(i_2_, i_1_, class189, 125);
+			Class23.method201(false, i_2_, jagexInterface, i_1_, -4);
+			SceneGraphNode.method2272(i_2_, i_1_, jagexInterface, 125);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tc.R(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tc.R(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 

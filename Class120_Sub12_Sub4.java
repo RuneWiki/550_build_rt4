@@ -5,7 +5,7 @@
 final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	static float aFloat3154;
 	private int anInt3155 = 0;
-	static Class189 aClass189_3156;
+	static JagexInterface aClass189_3156;
 	static int[][] anIntArrayArray3157 = { { 0, 128, 0, 0, 128, 0, 128, 128 }, { 0, 128, 0, 0, 128, 0 }, { 0, 0, 64, 128, 0, 128 }, { 128, 128, 64, 128, 128, 0 }, { 0, 0, 128, 0, 128, 128, 64, 128 }, { 0, 128, 0, 0, 128, 0, 64, 128 }, { 64, 128, 0, 128, 0, 0, 64, 0 }, { 0, 0, 64, 0, 0, 64 },
 			{ 128, 0, 128, 128, 0, 128, 0, 64, 64, 0 }, { 0, 128, 0, 0, 32, 64, 64, 96, 128, 128 }, { 0, 0, 128, 0, 128, 128, 64, 96, 32, 64 }, { 0, 0, 128, 0, 96, 32, 32, 32 } };
 	static long aLong3158;
@@ -98,12 +98,12 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static final void method1214(final byte i) {
 		try {
-			Canvas_Sub1.aClass21_14.method190(false);
+			Canvas_Sub1.aClass21_14.clearSoftReference();
 			if (i != 99) {
 				aLong3158 = -25L;
 			}
-			Class33.aClass21_273.method190(false);
-			Class180_Sub3.aClass21_2906.method190(false);
+			Class33.aClass21_273.clearSoftReference();
+			Class180_Sub3.aClass21_2906.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cf.T(").append(i).append(')').toString());
 		}

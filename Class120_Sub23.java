@@ -246,7 +246,7 @@ final class Class120_Sub23 extends Node {
 
 	private static final boolean method1708(final Class50 class50) {
 		if (!aBoolean2699) {
-			final byte[] is = class50.method442(0, (byte) 118, 0);
+			final byte[] is = class50.getFile(0, 0);
 			if (is == null) {
 				return false;
 			}
@@ -447,7 +447,7 @@ final class Class120_Sub23 extends Node {
 			class50.method440(i, true, i_106_);
 			return null;
 		}
-		final byte[] is = class50.method442(i, (byte) 125, i_106_);
+		final byte[] is = class50.getFile(i, i_106_);
 		if (is == null) {
 			return null;
 		}

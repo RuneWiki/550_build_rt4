@@ -30,7 +30,7 @@ final class Class85 {
 			for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
 				is_1_[i_2_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(is[i_2_], 255)];
 			}
-			final LDSprite class120_sub14_sub19_sub2_3_ = new LDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0],
+			final LDSprite class120_sub14_sub19_sub2_3_ = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0],
 					is_1_);
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub19_sub2 = class120_sub14_sub19_sub2_3_;
@@ -55,7 +55,7 @@ final class Class85 {
 		}
 		for (int i_11_ = i_4_; i_11_ <= i_5_; i_11_++) {
 			for (int i_12_ = i_6_; i_12_ <= i_7_; i_12_++) {
-				if (Class46.anIntArrayArrayArray419[i][i_11_][i_12_] == -Class120_Sub12_Sub9.anInt3193) {
+				if (JagexSocket.anIntArrayArrayArray419[i][i_11_][i_12_] == -Class120_Sub12_Sub9.anInt3193) {
 					return false;
 				}
 			}
@@ -82,7 +82,7 @@ final class Class85 {
 
 	static final void method725(final byte i, final Class50 class50) {
 		try {
-			Class46.aClass107_Sub1Array426 = Class191.method2514(class50, Class120_Sub14_Sub13.anInt3561, (byte) -118);
+			JagexSocket.aClass107_Sub1Array426 = Class191.method2514(class50, Class120_Sub14_Sub13.anInt3561, (byte) -118);
 			Class76.anIntArray679 = new int[256];
 			for (int i_20_ = 0; i_20_ < 3; i_20_++) {
 				float f = Class191.anIntArray2119[i_20_] >> 16 & 0xff;

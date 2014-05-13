@@ -3,7 +3,7 @@
  */
 
 final class Class56 {
-	static Class21 aClass21_494 = new Class21(64);
+	static Cache aClass21_494 = new Cache(64);
 	static int[] anIntArray495;
 	private final int[] anIntArray496;
 	static int anInt497 = -1;
@@ -62,7 +62,7 @@ final class Class56 {
 
 	static final void method489(final byte i) {
 		try {
-			Class120_Sub14_Sub10.aClass75_3534.method662((byte) -104);
+			Class120_Sub14_Sub10.aClass75_3534.clear();
 			AbstractMouseWheelHandler.aClass177_114.clear();
 			if (i != -44) {
 				method490(125);

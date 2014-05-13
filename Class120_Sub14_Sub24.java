@@ -35,7 +35,7 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 
 	static final void method1647(final int i, final int i_0_, final int i_1_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i, i_0_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i, i_0_);
 			class120_sub14_sub7.method1454((byte) -121);
 			class120_sub14_sub7.anInt3484 = i_1_;
 		} catch (final RuntimeException runtimeexception) {
@@ -79,19 +79,19 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 		}
 	}
 
-	static final void method1649(final int i, final int i_8_, final int i_9_, final int i_10_, final Class180 class180, final long l, final boolean bool) {
-		if (class180 != null) {
+	static final void method1649(final int i, final int i_8_, final int i_9_, final int i_10_, final SceneGraphNode sceneGraphNode, final long l, final boolean bool) {
+		if (sceneGraphNode != null) {
 			final Class36 class36 = new Class36();
-			class36.aClass180_309 = class180;
+			class36.aClass180_309 = sceneGraphNode;
 			class36.anInt311 = i_8_ * 128 + 64;
 			class36.anInt310 = i_9_ * 128 + 64;
 			class36.anInt312 = i_10_;
-			class36.aLong308 = l;
+			class36.bitPacked = l;
 			class36.aBoolean314 = bool;
-			if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_8_][i_9_] == null) {
-				Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_8_][i_9_] = new Class120_Sub18(i, i_8_, i_9_);
+			if (Class120_Sub1.groundTiles[i][i_8_][i_9_] == null) {
+				Class120_Sub1.groundTiles[i][i_8_][i_9_] = new GroundTile(i, i_8_, i_9_);
 			}
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_8_][i_9_].aClass36_2650 = class36;
+			Class120_Sub1.groundTiles[i][i_8_][i_9_].aClass36_2650 = class36;
 		}
 	}
 

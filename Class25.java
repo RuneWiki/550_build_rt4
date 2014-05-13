@@ -986,7 +986,7 @@ final class Class25 {
 				i_84_ += i_85_;
 				int i_86_ = 0;
 				for (;;) {
-					final int i_87_ = class120_sub7.method1081((byte) 98);
+					final int i_87_ = class120_sub7.getUSmart();
 					if (i_87_ == 0) {
 						break;
 					}

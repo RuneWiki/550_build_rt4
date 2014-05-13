@@ -89,16 +89,16 @@ final class CanvasWrapper extends Canvas {
 				final Buffer class120_sub7 = new Buffer(128);
 				class120_sub7.putByte(10);
 				class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
-				class120_sub7.putLong(Class70.method636(-117, Class74.aString666));
+				class120_sub7.putLong(Class70.stringToLong(Class74.aString666));
 				class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
 				class120_sub7.putJString(Class40.aString345);
 				class120_sub7.putInt((int) (Math.random() * 9.9999999E7));
-				class120_sub7.encryptRsa(Class46.aBigInteger415, KeyboardHandler.aBigInteger1505);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(24);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(class120_sub7.pos + 2);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(550);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putBuffer(class120_sub7.buf, 0, class120_sub7.pos);
+				class120_sub7.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
+				Class120_Sub12_Sub11.outputStream.pos = 0;
+				Class120_Sub12_Sub11.outputStream.putByte(24);
+				Class120_Sub12_Sub11.outputStream.putByte(class120_sub7.pos + 2);
+				Class120_Sub12_Sub11.outputStream.putShort(550);
+				Class120_Sub12_Sub11.outputStream.putBuffer(class120_sub7.buf, 0, class120_sub7.pos);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ql.A(").append(string != null ? "{...}" : "null").append(',').append(string_9_ != null ? "{...}" : "null").append(',').append(i).append(',').append(i_10_).append(')').toString());

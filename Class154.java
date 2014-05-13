@@ -4,7 +4,7 @@
 
 final class Class154 {
 	static Class32[] aClass32Array1437 = new Class32[8];
-	static Class21 aClass21_1438;
+	static Cache aClass21_1438;
 	static boolean aBoolean1439 = false;
 	static int anInt1440;
 	static int anInt1441;
@@ -12,7 +12,7 @@ final class Class154 {
 	static Class50 aClass50_1443;
 
 	static {
-		aClass21_1438 = new Class21(32);
+		aClass21_1438 = new Cache(32);
 		anInt1441 = 0;
 		anInt1440 = 0;
 		anInt1442 = 0;
@@ -45,8 +45,8 @@ final class Class154 {
 							Class84.aStringArray801[Class120_Sub12_Sub26.anInt3335] = Class143.method2018(117, l);
 							Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.anInt3335++] = bool;
 							Class61.anInt563 = Class160.anInt1494;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(197);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(l);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
+							Class120_Sub12_Sub11.outputStream.putLong(l);
 							if (i <= 33) {
 								break;
 							}

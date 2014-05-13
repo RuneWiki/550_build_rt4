@@ -214,8 +214,8 @@ final class Class83 implements Runnable {
 			if (i != -22906) {
 				localPlayerCount = -27;
 			}
-			KeyboardHandler.aClass21_1504.method190(false);
-			Class180.aClass21_1781.method190(false);
+			KeyboardHandler.aClass21_1504.clearSoftReference();
+			SceneGraphNode.aClass21_1781.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.C(").append(i).append(')').toString());
 		}

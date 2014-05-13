@@ -6,13 +6,13 @@ import java.io.IOException;
 final class Class182 {
 	int anInt1792;
 	static String[] aStringArray1793;
-	long aLong1794 = 0L;
+	long bitPacked = 0L;
 	int anInt1795;
-	Class180 aClass180_1796;
+	SceneGraphNode aClass180_1796;
 	int anInt1797;
-	static Class21 aClass21_1798 = new Class21(30);
+	static Cache aClass21_1798 = new Cache(30);
 	int anInt1799;
-	Class180 aClass180_1800;
+	SceneGraphNode aClass180_1800;
 	int anInt1801;
 	static Class25[] aClass25Array1802 = new Class25[4];
 
@@ -73,9 +73,9 @@ final class Class182 {
 					Class100.method825((byte) -18);
 					return true;
 				} catch (final Exception exception) {
-					String string = new StringBuilder("T2 - ").append(Class23.anInt138).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.anInt118).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0])
+					String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0])
 							.append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
-					for (int i_11_ = 0; AbstractMouseWheelHandler.anInt118 > i_11_ && i_11_ < 50; i_11_++) {
+					for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
 						string = new StringBuilder(string).append(Canvas_Sub1.aClass120_Sub7_Sub1_16.buf[i_11_]).append(",").toString();
 					}
 					Class180_Sub3.method2312(exception, string);

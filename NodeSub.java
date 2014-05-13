@@ -54,7 +54,7 @@ class NodeSub extends Node {
 			if (bool) {
 				aString2585 = null;
 			}
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(2, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lh.IA(").append(i).append(',').append(bool).append(')').toString());

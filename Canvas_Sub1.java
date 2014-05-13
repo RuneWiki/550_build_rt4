@@ -7,8 +7,8 @@ final class Canvas_Sub1 {
 	static int anInt11;
 	static int anInt12;
 	static int anInt13;
-	static Class21 aClass21_14 = new Class21(64);
-	static Class75 aClass75_15 = new Class75(32);
+	static Cache aClass21_14 = new Cache(64);
+	static Hashtable aClass75_15 = new Hashtable(32);
 	static PacketBuffer aClass120_Sub7_Sub1_16 = new PacketBuffer(5000);
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray17;
 

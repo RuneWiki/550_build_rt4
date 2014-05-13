@@ -78,11 +78,11 @@ final class Class114 {
 	}
 
 	static final long method1005(final int i, final int i_7_, final int i_8_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_7_][i_8_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_7_][i_8_];
 		if (class120_sub18 == null || class120_sub18.aClass182_2628 == null) {
 			return 0L;
 		}
-		return class120_sub18.aClass182_2628.aLong1794;
+		return class120_sub18.aClass182_2628.bitPacked;
 	}
 
 	static final AbstractGraphicsBuffer constructGraphicsBuffer(final Component component, final int width, final int height) {

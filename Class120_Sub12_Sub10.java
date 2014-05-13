@@ -25,7 +25,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 				i_7_ += i_8_;
 				int i_9_ = 0;
 				for (;;) {
-					final int i_10_ = class120_sub7.method1081((byte) 98);
+					final int i_10_ = class120_sub7.getUSmart();
 					if (i_10_ == 0) {
 						break;
 					}

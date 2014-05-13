@@ -49,7 +49,7 @@ final class Class113 {
 
 	static final synchronized void method996(final int i, final int i_1_) {
 		if (i_1_ == anInt1083) {
-			final Class120_Sub32 class120_sub32 = new Class120_Sub32();
+			final IntegerNode class120_sub32 = new IntegerNode();
 			class120_sub32.uid = i;
 			aClass105_1089.addLast(class120_sub32);
 		}
@@ -69,12 +69,12 @@ final class Class113 {
 		final GL gl = HDToolkit.gl;
 		int i = 0;
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1085.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1085.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1082 -= class120_sub32.anInt2790;
+			anInt1082 -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteBuffersARB(i, anIntArray1092, 0);
 				i = 0;
@@ -85,24 +85,24 @@ final class Class113 {
 			i = 0;
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1087.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1087.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1086 -= class120_sub32.anInt2790;
+			anInt1086 -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteTextures(i, anIntArray1092, 0);
 				i = 0;
 			}
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1088.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1088.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1081 -= class120_sub32.anInt2790;
+			anInt1081 -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteTextures(i, anIntArray1092, 0);
 				i = 0;
@@ -112,7 +112,7 @@ final class Class113 {
 			gl.glDeleteTextures(i, anIntArray1092, 0);
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1089.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1089.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -130,7 +130,7 @@ final class Class113 {
 			gl.glDeleteObjectARB(class120_sub27.anInt2749);
 		}
 		for (;;) {
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass105_1091.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1091.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -145,7 +145,7 @@ final class Class113 {
 
 	static final synchronized void method999(final int i, final int i_5_, final int i_6_) {
 		if (i_6_ == anInt1083) {
-			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_5_);
+			final IntegerNode class120_sub32 = new IntegerNode(i_5_);
 			class120_sub32.uid = i;
 			aClass105_1088.addLast(class120_sub32);
 		}
@@ -153,7 +153,7 @@ final class Class113 {
 
 	static final synchronized void method1000(final int i, final int i_7_, final int i_8_) {
 		if (i_8_ == anInt1083) {
-			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_7_);
+			final IntegerNode class120_sub32 = new IntegerNode(i_7_);
 			class120_sub32.uid = i;
 			aClass105_1085.addLast(class120_sub32);
 		}
@@ -161,7 +161,7 @@ final class Class113 {
 
 	static final synchronized void method1001(final int i, final int i_9_, final int i_10_) {
 		if (i_10_ == anInt1083) {
-			final Class120_Sub32 class120_sub32 = new Class120_Sub32(i_9_);
+			final IntegerNode class120_sub32 = new IntegerNode(i_9_);
 			class120_sub32.uid = i;
 			aClass105_1087.addLast(class120_sub32);
 		}
@@ -169,7 +169,7 @@ final class Class113 {
 
 	static final synchronized void method1002(final int i, final int i_11_) {
 		if (i_11_ == anInt1083) {
-			final Class120_Sub32 class120_sub32 = new Class120_Sub32();
+			final IntegerNode class120_sub32 = new IntegerNode();
 			class120_sub32.uid = i;
 			aClass105_1091.addLast(class120_sub32);
 		}

@@ -180,7 +180,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
 					final int[][] is = Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel];
 					final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
-					Class180 class180 = null;
+					SceneGraphNode sceneGraphNode = null;
 					final int i_32_ = Class25.anIntArray153[class120_sub29.anInt2772];
 					if (i_32_ != 0) {
 						if (i_32_ != 1) {
@@ -188,28 +188,28 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 								if (i_32_ == 3) {
 									final Class36 class36 = Class23.method202(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 									if (class36 != null) {
-										class180 = class36.aClass180_309;
+										sceneGraphNode = class36.aClass180_309;
 									}
 								}
 							} else {
 								final Class28 class28 = Class180_Sub3.method2315(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 								if (class28 != null) {
-									class180 = class28.aClass180_174;
+									sceneGraphNode = class28.aClass180_174;
 								}
 							}
 						} else {
 							final Class186 class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 							if (class186 != null) {
-								class180 = class186.aClass180_1901;
+								sceneGraphNode = class186.aClass180_1901;
 							}
 						}
 					} else {
 						final Class182 class182 = Deque.method894(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 						if (class182 != null) {
-							class180 = class182.aClass180_1800;
+							sceneGraphNode = class182.aClass180_1800;
 						}
 					}
-					if (class180 != null) {
+					if (sceneGraphNode != null) {
 						Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
 						class180_sub5.anInt3028 = class120_sub29.anInt2765 * 128 + i_26_ * 64;
 						int i_33_ = class120_sub29.anInt2766;
@@ -218,7 +218,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 						class180_sub5.anInt2970 = i_31_;
 						class180_sub5.anInt3042 = class120_sub29.anInt2771 - -Class101_Sub2.loopCycle;
 						int i_35_ = class120_sub29.anInt2778;
-						class180_sub5.anObject3047 = class180;
+						class180_sub5.anObject3047 = sceneGraphNode;
 						class180_sub5.anInt3012 = class120_sub29.anInt2773 + Class101_Sub2.loopCycle;
 						if (i_35_ < i_34_) {
 							final int i_36_ = i_34_;

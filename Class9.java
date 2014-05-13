@@ -101,10 +101,10 @@ final class Class9 {
 			if (!class73.method647(i)) {
 				return false;
 			}
-			if (Class86.aClass75_823.method659(class73.anInt658, 77) != null) {
+			if (Class86.aClass75_823.get(class73.anInt658) != null) {
 				return false;
 			}
-			if (Class81.aClass75_777.method659(class73.anInt652, i ^ 0x7a) != null) {
+			if (Class81.aClass75_777.get(class73.anInt652) != null) {
 				return false;
 			}
 			bool = true;
@@ -123,7 +123,7 @@ final class Class9 {
 			if (!Class10.method121(class50, i_6_, i_7_)) {
 				return null;
 			}
-			class120_sub14_sub8 = Class108_Sub1.method937(-11537, class50_5_.method442(i_6_, (byte) 110, i_7_));
+			class120_sub14_sub8 = Class108_Sub1.method937(-11537, class50_5_.getFile(i_6_, i_7_));
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ak.C(").append(class50 != null ? "{...}" : "null").append(',').append(class50_5_ != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
 		}

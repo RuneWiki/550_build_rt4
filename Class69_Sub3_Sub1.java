@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.net.Socket;
 
 final class Class69_Sub3_Sub1 extends Class69_Sub3 {
-	static Class75 aClass75_3079 = new Class75(16);
-	static Class189 aClass189_3080 = null;
+	static Hashtable aClass75_3079 = new Hashtable(16);
+	static JagexInterface aClass189_3080 = null;
 	static int[] anIntArray3081 = new int[100];
 	static int[] anIntArray3082;
 	static int anInt3083;
@@ -45,9 +45,9 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 				if (Class154.anInt1440 != 0) {
 					try {
 						if (++Class120_Sub14_Sub4.anInt3466 > 2000) {
-							if (AbstractTimer.aClass46_825 != null) {
-								AbstractTimer.aClass46_825.method377(-19055);
-								AbstractTimer.aClass46_825 = null;
+							if (AbstractTimer.worldConnection != null) {
+								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection = null;
 							}
 							if (Class107.anInt1027 < 1) {
 								Class120_Sub14_Sub4.anInt3466 = 0;
@@ -65,7 +65,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							}
 						}
 						if (Class154.anInt1440 == 1) {
-							Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.method1976(19, Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+							Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
 							Class154.anInt1440 = 2;
 						}
 						if (Class154.anInt1440 == 2) {
@@ -75,53 +75,53 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							if (Class53_Sub1.aClass185_2217.status != 1) {
 								break;
 							}
-							AbstractTimer.aClass46_825 = new Class46((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
+							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
 							Class53_Sub1.aClass185_2217 = null;
-							AbstractTimer.aClass46_825.method381(0, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.buf, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos, 30000);
+							AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131(2);
+								Class120_Sub12_Sub3.aClass164_3150.method2131();
 							}
 							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131(2);
+								Class120_Sub12_Sub29.aClass164_3366.method2131();
 							}
-							final int i_1_ = AbstractTimer.aClass46_825.read();
+							final int i_1_ = AbstractTimer.worldConnection.read();
 							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131(2);
+								Class120_Sub12_Sub3.aClass164_3150.method2131();
 							}
 							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131(2);
+								Class120_Sub12_Sub29.aClass164_3366.method2131();
 							}
 							if (i_1_ != 21) {
 								Class120_Sub12_Sub35.anInt3410 = i_1_;
 								Class154.anInt1440 = 0;
-								AbstractTimer.aClass46_825.method377(-19055);
-								AbstractTimer.aClass46_825 = null;
+								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection = null;
 								break;
 							}
 							Class154.anInt1440 = 3;
 						}
 						if (Class154.anInt1440 == 3) {
-							if (AbstractTimer.aClass46_825.method375((byte) 96) < 1) {
+							if (AbstractTimer.worldConnection.getAvailable() < 1) {
 								break;
 							}
-							Class45.aStringArray399 = new String[AbstractTimer.aClass46_825.read()];
+							Class45.aStringArray399 = new String[AbstractTimer.worldConnection.read()];
 							Class154.anInt1440 = 4;
 						}
-						if (Class154.anInt1440 == 4 && AbstractTimer.aClass46_825.method375((byte) 81) >= 8 * Class45.aStringArray399.length) {
+						if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Class45.aStringArray399.length) {
 							Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-							AbstractTimer.aClass46_825.method373(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, Class45.aStringArray399.length * 8, (byte) 77);
+							AbstractTimer.worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, Class45.aStringArray399.length * 8);
 							for (int i_2_ = 0; i_2_ < Class45.aStringArray399.length; i_2_++) {
-								Class45.aStringArray399[i_2_] = Class174.method2234(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.method1124((byte) 114));
+								Class45.aStringArray399[i_2_] = Class174.method2234(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong());
 							}
 							Class154.anInt1440 = 0;
 							Class120_Sub12_Sub35.anInt3410 = 21;
-							AbstractTimer.aClass46_825.method377(-19055);
-							AbstractTimer.aClass46_825 = null;
+							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection = null;
 						}
 					} catch (final IOException ioexception) {
-						if (AbstractTimer.aClass46_825 != null) {
-							AbstractTimer.aClass46_825.method377(-19055);
-							AbstractTimer.aClass46_825 = null;
+						if (AbstractTimer.worldConnection != null) {
+							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection = null;
 						}
 						if (Class107.anInt1027 >= 1) {
 							Class154.anInt1440 = 0;

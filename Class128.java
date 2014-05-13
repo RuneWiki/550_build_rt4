@@ -75,7 +75,7 @@ final class Class128 {
 		try {
 			Class180_Sub4.method2318((byte) 25, Class140.anInt1343);
 			final int i_7_ = (Class83.anInt792 >> 10) + (GameEntity.currentBaseX >> 3);
-			final int i_8_ = (Class181.currentBaseZ >> 3) + (GroundObject.anInt3626 >> 10);
+			final int i_8_ = (Class181.currentBaseZ >> 3) + (GroundObjectNode.anInt3626 >> 10);
 			int i_11_ = 18;
 			RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_11_][];
 			Class56.anIntArray495 = new int[i_11_];
@@ -224,7 +224,7 @@ final class Class128 {
 	static final void method1907(final byte i) {
 		do {
 			try {
-				Class120_Sub12_Sub37.aClass21_3427.method190(false);
+				Class120_Sub12_Sub37.aClass21_3427.clearSoftReference();
 				if (i < 86) {
 					break;
 				}

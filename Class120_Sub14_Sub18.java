@@ -19,13 +19,13 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 			Class120_Sub12.aBoolean2564 = true;
 			CursorType.anInt1242 = 127;
 			Class120_Sub30_Sub1.manyGroundTextures = true;
-			Class75.showGroundDecorations = true;
+			Hashtable.showGroundDecorations = true;
 			Class120_Sub12_Sub6.highLightingDetail = true;
 			Class191.flickeringEffectsOn = true;
 			PacketBuffer.highWaterDetail = true;
 			Class167.aBoolean1619 = true;
 			Class120_Sub12_Sub18.lastFullscreenWidth = 0;
-			Class172.fogEnabled = true;
+			Decimator.fogEnabled = true;
 			Class74.sceneryShadowsType = 2;
 			if (i == -7134) {
 				Class111.anInt1061 = 127;
@@ -108,11 +108,11 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 
 	Class120_Sub14_Sub18(final Class50 class50, final Class50 class50_4_, final int i, final boolean bool) {
 		final Deque deque = new Deque();
-		final int i_5_ = class50.method441(i, 1);
+		final int i_5_ = class50.getFileAmount(i);
 		this.aClass1Array3610 = new Class1[i_5_];
 		final int[] is = class50.method433(true, i);
 		for (int i_6_ = 0; i_6_ < is.length; i_6_++) {
-			final byte[] is_7_ = class50.method442(i, (byte) 114, is[i_6_]);
+			final byte[] is_7_ = class50.getFile(i, is[i_6_]);
 			Class120_Sub1 class120_sub1 = null;
 			final int i_8_ = (is_7_[0] & 0xff) << 8 | 0xff & is_7_[1];
 			for (Class120_Sub1 class120_sub1_9_ = (Class120_Sub1) deque.getFront(); class120_sub1_9_ != null; class120_sub1_9_ = (Class120_Sub1) deque.getNext()) {
@@ -153,7 +153,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					if (Light.anInt393 != 1) {
 						if (Class88.aBoolean828) {
 							final Class120_Sub14_Sub11 class120_sub14_sub11 = Class139.anInt1330 != -1 ? Class74.method652(Class139.anInt1330, (byte) -88) : null;
-							if ((0x2 & Class120_Sub18.anInt2652) != 0 && (class120_sub14_sub11 == null || npcType.method2206(-9059, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
+							if ((0x2 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || npcType.method2206(-9059, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 								Class120_Sub14_Sub6.addMenuOption(i_12_, i_13_, i_11_, new StringBuilder(Light.aString369).append(" -> <col=ffff00>").append(string).toString(), Class101.aString963, (short) 42, Class150.anInt1417);
 							}
 						} else {
@@ -250,7 +250,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 				aClass120_Sub14_Sub19_3611 = null;
 			}
 			int i_29_ = class191.anInt2118;
-			if (!Class172.fogEnabled) {
+			if (!Decimator.fogEnabled) {
 				i_29_ = 0;
 			}
 			final Class120_Sub14_Sub9 class120_sub14_sub9 = class191.aClass120_Sub14_Sub9_2117;

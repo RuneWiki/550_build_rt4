@@ -3,14 +3,14 @@
  */
 
 final class Class86 {
-	static Class21 aClass21_816 = new Class21(64);
+	static Cache aClass21_816 = new Cache(64);
 	static Class167_Sub1[] aClass167_Sub1Array817 = new Class167_Sub1[0];
 	static int anInt818;
 	static int anInt819 = 0;
-	static Class120_Sub18[][][] aClass120_Sub18ArrayArrayArray820;
+	static GroundTile[][][] aClass120_Sub18ArrayArrayArray820;
 	static int anInt821 = 0;
 	static Class193 aClass193_822;
-	static Class75 aClass75_823;
+	static Hashtable aClass75_823;
 
 	static {
 		anInt818 = -1;
@@ -35,24 +35,24 @@ final class Class86 {
 		}
 	}
 
-	static final void method728(final int i, final boolean bool, final Class189 class189, final int i_0_) {
+	static final void method728(final int i, final boolean bool, final JagexInterface jagexInterface, final int i_0_) {
 		try {
 			if (!bool && (Class186.anInt1906 >= 2 || Light.anInt393 != 0 || Class88.aBoolean828)) {
 				final String string = Class176.method2243(!bool);
-				if (class189 == null) {
+				if (jagexInterface == null) {
 					final int i_1_ = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, Class52.anInt478);
 					Class120_Sub12_Sub1.method1195(i_1_ + Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1459(string), 15, 4 + i, i_0_);
 				} else {
-					Class120_Sub14_Sub8 class120_sub14_sub8 = class189.method2497((byte) 54, Class82.aClass107Array785);
+					Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
 					if (class120_sub14_sub8 == null) {
 						class120_sub14_sub8 = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303;
 					}
-					class120_sub14_sub8.method1476(string, i, i_0_, class189.anInt1948, class189.anInt2059, class189.anInt2025, class189.anInt2026, class189.anInt2011, class189.anInt2009, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
+					class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2025, jagexInterface.anInt2026, jagexInterface.anInt2011, jagexInterface.anInt2009, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
 					Class120_Sub12_Sub1.method1195(Class173.anIntArray1730[2], Class173.anIntArray1730[3], Class173.anIntArray1730[0], Class173.anIntArray1730[1]);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("je.F(").append(i).append(',').append(bool).append(',').append(class189 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("je.F(").append(i).append(',').append(bool).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -115,7 +115,7 @@ final class Class86 {
 			if (i != 255) {
 				method729(false, 126);
 			}
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i_16_, -124);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_16_);
 			if (class120_sub17 != null) {
 				class120_sub17.unlink();
 			}

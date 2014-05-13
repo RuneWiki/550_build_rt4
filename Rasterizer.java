@@ -1772,7 +1772,7 @@ final class Rasterizer {
 	static final void method868() {
 		anInt967 = anInt983 / 2;
 		anInt970 = anInt978 / 2;
-		Class120_Sub32.anInt2792 = -anInt967;
+		IntegerNode.anInt2792 = -anInt967;
 		Class120_Sub12_Sub16.anInt3253 = anInt983 - anInt967;
 		Class190.anInt2100 = -anInt970;
 		Class120_Sub30_Sub1.anInt3672 = anInt978 - anInt970;
@@ -1784,7 +1784,7 @@ final class Rasterizer {
 		final int i_137_ = i_135_ - i_136_ * GraphicsLD.width;
 		anInt967 = i - i_137_;
 		anInt970 = i_134_ - i_136_;
-		Class120_Sub32.anInt2792 = -anInt967;
+		IntegerNode.anInt2792 = -anInt967;
 		Class120_Sub12_Sub16.anInt3253 = anInt983 - anInt967;
 		Class190.anInt2100 = -anInt970;
 		Class120_Sub30_Sub1.anInt3672 = anInt978 - anInt970;

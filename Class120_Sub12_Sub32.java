@@ -380,29 +380,25 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1372(final int i, final int i_36_) {
-		try {
-			if (i_36_ != i && Class57.aBooleanArray503[i_36_]) {
-				Class101_Sub4.aClass50_2301.method438(false, i_36_);
-				if (Node.aClass189ArrayArray1150[i_36_] != null) {
-					boolean bool = true;
-					for (int i_37_ = 0; i_37_ < Node.aClass189ArrayArray1150[i_36_].length; i_37_++) {
-						if (Node.aClass189ArrayArray1150[i_36_][i_37_] != null) {
-							if (Node.aClass189ArrayArray1150[i_36_][i_37_].anInt1995 == 2) {
-								bool = false;
-							} else {
-								Node.aClass189ArrayArray1150[i_36_][i_37_] = null;
-							}
+	static final void method1372(final int i_36_) {
+		if (i_36_ != -1 && Class57.interfaceLoaded[i_36_]) {
+			Class101_Sub4.interfaceJs5.method438(false, i_36_);
+			if (Node.interfaceCache[i_36_] != null) {
+				boolean bool = true;
+				for (int i_37_ = 0; i_37_ < Node.interfaceCache[i_36_].length; i_37_++) {
+					if (Node.interfaceCache[i_36_][i_37_] != null) {
+						if (Node.interfaceCache[i_36_][i_37_].anInt1995 == 2) {
+							bool = false;
+						} else {
+							Node.interfaceCache[i_36_][i_37_] = null;
 						}
 					}
-					if (bool) {
-						Node.aClass189ArrayArray1150[i_36_] = null;
-					}
-					Class57.aBooleanArray503[i_36_] = false;
 				}
+				if (bool) {
+					Node.interfaceCache[i_36_] = null;
+				}
+				Class57.interfaceLoaded[i_36_] = false;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sl.V(").append(i).append(',').append(i_36_).append(')').toString());
 		}
 	}
 
@@ -411,7 +407,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 			if (i_38_ != 881) {
 				aStringArray3387 = null;
 			}
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(7, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sl.R(").append(i).append(',').append(i_38_).append(')').toString());

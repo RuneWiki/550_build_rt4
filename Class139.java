@@ -56,7 +56,7 @@ final class Class139 {
 			if (Light.anInt393 == 1) {
 				Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder(Class192.aString2124).append(" -> <col=ffffff>").append(string).toString(), AbstractGraphicsBuffer.aString1176, (short) 21, Class120_Sub12_Sub10.anInt3205);
 			} else if (Class88.aBoolean828) {
-				if ((0x8 & Class120_Sub18.anInt2652) != 0) {
+				if ((0x8 & GroundTile.anInt2652) != 0) {
 						Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder(Light.aString369).append(" -> <col=ffffff>").append(string).toString(), Class101.aString963, (short) 5, Class150.anInt1417);
 					}
 				} else {
@@ -77,7 +77,7 @@ final class Class139 {
 							} else if (Class120_Sub10.playerOptionsOnTop[i_8_]) {
 								i_9_ = (short) 2000;
 							}
-							short i_10_ = Class189.aShortArray2042[i_8_];
+							short i_10_ = JagexInterface.aShortArray2042[i_8_];
 							i_10_ += i_9_;
 							Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder("<col=ffffff>").append(string).toString(), Buffer.playerOptions[i_8_], i_10_, Class120_Sub14_Sub14.playerOptionsIcon[i_8_]);
 						}
@@ -102,7 +102,7 @@ final class Class139 {
 			}
 			for (int i_13_ = 0; i_13_ < 5; i_13_++) {
 				if ((anIntArray1335[i_13_] ^ 0xffffffff) != 0) {
-					class180_sub2s[i_12_++] = Class180_Sub2.method2291(Class180_Sub1.aClass50_2839, anIntArray1335[i_13_], 0);
+					class180_sub2s[i_12_++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, anIntArray1335[i_13_], 0);
 				}
 			}
 			final Class180_Sub2 class180_sub2_14_ = new Class180_Sub2(class180_sub2s, i_12_);
@@ -134,7 +134,7 @@ final class Class139 {
 				method1987(-112, null, true);
 			}
 			for (int i_17_ = 0; anIntArray1333.length > i_17_; i_17_++) {
-				class180_sub2s[i_17_] = Class180_Sub2.method2291(Class180_Sub1.aClass50_2839, anIntArray1333[i_17_], 0);
+				class180_sub2s[i_17_] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, anIntArray1333[i_17_], 0);
 			}
 			Class180_Sub2 class180_sub2_18_;
 			if (class180_sub2s.length != 1) {
@@ -215,7 +215,7 @@ final class Class139 {
 			if (object instanceof byte[]) {
 				final byte[] is = (byte[]) object;
 				if (bool) {
-					return Class183.method2448(is, -98);
+					return ObjectPile.method2448(is, -98);
 				}
 				return is;
 			}
@@ -229,10 +229,10 @@ final class Class139 {
 		}
 	}
 
-	static final void method1989(final Class120_Sub18 class120_sub18, boolean bool) {
+	static final void method1989(final GroundTile class120_sub18, boolean bool) {
 		AbstractTimer.aClass105_824.addLast(class120_sub18);
 		for (;;) {
-			final Class120_Sub18 class120_sub18_27_ = (Class120_Sub18) AbstractTimer.aClass105_824.removeFront();
+			final GroundTile class120_sub18_27_ = (GroundTile) AbstractTimer.aClass105_824.removeFront();
 			if (class120_sub18_27_ == null) {
 				break;
 			}
@@ -241,7 +241,7 @@ final class Class139 {
 				final int i_28_ = class120_sub18_27_.anInt2629;
 				final int i_29_ = class120_sub18_27_.anInt2636;
 				final int i_30_ = class120_sub18_27_.anInt2642;
-				final Class120_Sub18[][] class120_sub18s = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_29_];
+				final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_29_];
 				float f = 0.0F;
 				if (HDToolkit.glEnabled) {
 					if (Class24.anIntArrayArrayArray140 == Class120_Sub26.anIntArrayArrayArray2741) {
@@ -269,31 +269,31 @@ final class Class139 {
 				if (class120_sub18_27_.aBoolean2647) {
 					if (bool) {
 						if (i_29_ > 0) {
-							final Class120_Sub18 class120_sub18_35_ = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_29_ - 1][i][i_28_];
+							final GroundTile class120_sub18_35_ = Class120_Sub1.groundTiles[i_29_ - 1][i][i_28_];
 							if (class120_sub18_35_ != null && class120_sub18_35_.aBoolean2624) {
 								continue;
 							}
 						}
 						if (i <= Class120_Sub12_Sub26.anInt3332 && i > Class160.anInt1493) {
-							final Class120_Sub18 class120_sub18_36_ = class120_sub18s[i - 1][i_28_];
+							final GroundTile class120_sub18_36_ = class120_sub18s[i - 1][i_28_];
 							if (class120_sub18_36_ != null && class120_sub18_36_.aBoolean2624 && (class120_sub18_36_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x1) == 0)) {
 								continue;
 							}
 						}
 						if (i >= Class120_Sub12_Sub26.anInt3332 && i < Class53.anInt487 - 1) {
-							final Class120_Sub18 class120_sub18_37_ = class120_sub18s[i + 1][i_28_];
+							final GroundTile class120_sub18_37_ = class120_sub18s[i + 1][i_28_];
 							if (class120_sub18_37_ != null && class120_sub18_37_.aBoolean2624 && (class120_sub18_37_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x4) == 0)) {
 								continue;
 							}
 						}
 						if (i_28_ <= Class112.anInt1080 && i_28_ > Class31.anInt248) {
-							final Class120_Sub18 class120_sub18_38_ = class120_sub18s[i][i_28_ - 1];
+							final GroundTile class120_sub18_38_ = class120_sub18s[i][i_28_ - 1];
 							if (class120_sub18_38_ != null && class120_sub18_38_.aBoolean2624 && (class120_sub18_38_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x8) == 0)) {
 								continue;
 							}
 						}
 						if (i_28_ >= Class112.anInt1080 && i_28_ < Class45.anInt396 - 1) {
-							final Class120_Sub18 class120_sub18_39_ = class120_sub18s[i][i_28_ + 1];
+							final GroundTile class120_sub18_39_ = class120_sub18s[i][i_28_ + 1];
 							if (class120_sub18_39_ != null && class120_sub18_39_.aBoolean2624 && (class120_sub18_39_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x2) == 0)) {
 								continue;
 							}
@@ -303,7 +303,7 @@ final class Class139 {
 					}
 					class120_sub18_27_.aBoolean2647 = false;
 					if (class120_sub18_27_.aClass120_Sub18_2644 != null) {
-						final Class120_Sub18 class120_sub18_40_ = class120_sub18_27_.aClass120_Sub18_2644;
+						final GroundTile class120_sub18_40_ = class120_sub18_27_.aClass120_Sub18_2644;
 						if (HDToolkit.glEnabled) {
 							HDToolkit.method527(201.5F - 50.0F * (class120_sub18_40_.anInt2642 + 1));
 						}
@@ -330,7 +330,7 @@ final class Class139 {
 								}
 							}
 							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.aLong1794, i_29_, null);
+									class182.bitPacked, i_29_, null);
 						}
 						for (int i_41_ = 0; i_41_ < class120_sub18_40_.anInt2638; i_41_++) {
 							final Class28 class28 = class120_sub18_40_.aClass28Array2625[i_41_];
@@ -339,7 +339,7 @@ final class Class139 {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
-										class28.aLong186, i_29_, null);
+										class28.bitPacked, i_29_, null);
 							}
 						}
 						if (HDToolkit.glEnabled) {
@@ -366,14 +366,14 @@ final class Class139 {
 					}
 					if (bool_42_) {
 						final Class36 class36 = class120_sub18_27_.aClass36_2650;
-						if (class36 != null && (class36.aLong308 & 0x80000000L) != 0L) {
+						if (class36 != null && (class36.bitPacked & 0x80000000L) != 0L) {
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.aLong308,
+							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
@@ -399,7 +399,7 @@ final class Class139 {
 						class120_sub18_27_.anInt2646 = FileSystem.anIntArray453[i_43_];
 					}
 					if (class182 != null) {
-						if ((class182.anInt1799 & Class120_Sub32.anIntArray2791[i_43_]) != 0) {
+						if ((class182.anInt1799 & IntegerNode.anIntArray2791[i_43_]) != 0) {
 							if (class182.anInt1799 == 16) {
 								class120_sub18_27_.anInt2633 = 3;
 								class120_sub18_27_.anInt2637 = Class157.anIntArray1461[i_43_];
@@ -425,14 +425,14 @@ final class Class139 {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
 							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.aLong1794, i_29_, null);
+									class182.bitPacked, i_29_, null);
 						}
 						if ((class182.anInt1792 & i_44_) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
 							class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.aLong1794, i_29_, null);
+									class182.bitPacked, i_29_, null);
 						}
 					}
 					if (class186 != null && !Class45.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
@@ -444,7 +444,7 @@ final class Class139 {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
 							class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
-									- Class145.anInt1381 + class186.anInt1892, class186.aLong1904, i_29_, null);
+									- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 						} else if (class186.anInt1895 == 256) {
 							final int i_45_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
 							final int i_46_ = class186.anInt1894 - PlayerAppearance.anInt1367;
@@ -466,12 +466,12 @@ final class Class139 {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_ + class186.anInt1905, i_46_, i_47_ + class186.anInt1892, class186.aLong1904, i_29_, null);
+								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_ + class186.anInt1905, i_46_, i_47_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.aClass180_1898 != null) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_, i_46_, i_47_, class186.aLong1904, i_29_, null);
+								class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_, i_46_, i_47_, class186.bitPacked, i_29_, null);
 							}
 						}
 						if (HDToolkit.glEnabled) {
@@ -480,60 +480,60 @@ final class Class139 {
 					}
 					if (bool_42_) {
 						final Class36 class36 = class120_sub18_27_.aClass36_2650;
-						if (class36 != null && (class36.aLong308 & 0x80000000L) == 0L) {
+						if (class36 != null && (class36.bitPacked & 0x80000000L) == 0L) {
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.aLong308,
+							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
 							}
 						}
-						final Class183 class183 = class120_sub18_27_.aClass183_2634;
-						if (class183 != null && class183.anInt1811 == 0) {
+						final ObjectPile objectPile = class120_sub18_27_.objectPile;
+						if (objectPile != null && objectPile.yLocationModifier == 0) {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							if (class183.aClass180_1812 != null) {
-								class183.aClass180_1812.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367, class183.anInt1814 - Class145.anInt1381,
-										class183.aLong1806, i_29_, null);
+							if (objectPile.secondItemModel != null) {
+								objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+										objectPile.bitPacked, i_29_, null);
 							}
-							if (class183.aClass180_1807 != null) {
-								class183.aClass180_1807.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367, class183.anInt1814 - Class145.anInt1381,
-										class183.aLong1806, i_29_, null);
+							if (objectPile.thirdItemModel != null) {
+								objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+										objectPile.bitPacked, i_29_, null);
 							}
-							if (class183.aClass180_1810 != null) {
-								class183.aClass180_1810.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367, class183.anInt1814 - Class145.anInt1381,
-										class183.aLong1806, i_29_, null);
+							if (objectPile.mainItemModel != null) {
+								objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+										objectPile.bitPacked, i_29_, null);
 							}
 						}
 					}
 					final int i_51_ = class120_sub18_27_.anInt2635;
 					if (i_51_ != 0) {
 						if (i < Class120_Sub12_Sub26.anInt3332 && (i_51_ & 0x4) != 0) {
-							final Class120_Sub18 class120_sub18_52_ = class120_sub18s[i + 1][i_28_];
+							final GroundTile class120_sub18_52_ = class120_sub18s[i + 1][i_28_];
 							if (class120_sub18_52_ != null && class120_sub18_52_.aBoolean2624) {
 								AbstractTimer.aClass105_824.addLast(class120_sub18_52_);
 							}
 						}
 						if (i_28_ < Class112.anInt1080 && (i_51_ & 0x2) != 0) {
-							final Class120_Sub18 class120_sub18_53_ = class120_sub18s[i][i_28_ + 1];
+							final GroundTile class120_sub18_53_ = class120_sub18s[i][i_28_ + 1];
 							if (class120_sub18_53_ != null && class120_sub18_53_.aBoolean2624) {
 								AbstractTimer.aClass105_824.addLast(class120_sub18_53_);
 							}
 						}
 						if (i > Class120_Sub12_Sub26.anInt3332 && (i_51_ & 0x1) != 0) {
-							final Class120_Sub18 class120_sub18_54_ = class120_sub18s[i - 1][i_28_];
+							final GroundTile class120_sub18_54_ = class120_sub18s[i - 1][i_28_];
 							if (class120_sub18_54_ != null && class120_sub18_54_.aBoolean2624) {
 								AbstractTimer.aClass105_824.addLast(class120_sub18_54_);
 							}
 						}
 						if (i_28_ > Class112.anInt1080 && (i_51_ & 0x8) != 0) {
-							final Class120_Sub18 class120_sub18_55_ = class120_sub18s[i][i_28_ - 1];
+							final GroundTile class120_sub18_55_ = class120_sub18s[i][i_28_ - 1];
 							if (class120_sub18_55_ != null && class120_sub18_55_.aBoolean2624) {
 								AbstractTimer.aClass105_824.addLast(class120_sub18_55_);
 							}
@@ -553,10 +553,10 @@ final class Class139 {
 						if (!GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 							do {
 								if (HDToolkit.glEnabled) {
-									if ((class182.aLong1794 & 0xfc000L) == 16384L) {
+									if ((class182.bitPacked & 0xfc000L) == 16384L) {
 										int i_58_ = class182.anInt1797 - DisplayModeInfo.anInt1713;
 										int i_59_ = class182.anInt1795 - Class145.anInt1381;
-										final int i_60_ = (int) (class182.aLong1794 >> 20 & 0x3L);
+										final int i_60_ = (int) (class182.bitPacked >> 20 & 0x3L);
 										if (i_60_ == 0) {
 											i_58_ -= 64;
 											i_59_ += 64;
@@ -591,7 +591,7 @@ final class Class139 {
 								}
 							} while (false);
 							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.aLong1794, i_29_, null);
+									class182.bitPacked, i_29_, null);
 						}
 						class120_sub18_27_.anInt2633 = 0;
 					}
@@ -606,7 +606,7 @@ final class Class139 {
 							if (class28.anInt173 != Class120_Sub12_Sub9.anInt3193) {
 								for (int i_64_ = class28.anInt180; i_64_ <= class28.anInt182; i_64_++) {
 									for (int i_65_ = class28.anInt184; i_65_ <= class28.anInt175; i_65_++) {
-										final Class120_Sub18 class120_sub18_66_ = class120_sub18s[i_64_][i_65_];
+										final GroundTile class120_sub18_66_ = class120_sub18s[i_64_][i_65_];
 										if (class120_sub18_66_.aBoolean2647) {
 											class120_sub18_27_.aBoolean2631 = true;
 											continue while_84_;
@@ -674,11 +674,11 @@ final class Class139 {
 							class28.anInt173 = Class120_Sub12_Sub9.anInt3193;
 							if (!Class85.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.aClass180_174.getMaxY())) {
 								if (HDToolkit.glEnabled) {
-									if ((class28.aLong186 & 0xfc000L) == 147456L) {
+									if ((class28.bitPacked & 0xfc000L) == 147456L) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 										final int i_79_ = class28.anInt178 - DisplayModeInfo.anInt1713;
 										final int i_80_ = class28.anInt185 - Class145.anInt1381;
-										final int i_81_ = (int) (class28.aLong186 >> 20 & 0x3L);
+										final int i_81_ = (int) (class28.bitPacked >> 20 & 0x3L);
 										if (i_81_ == 1 || i_81_ == 3) {
 											if (i_80_ > -i_79_) {
 												LightManager.method1864(i_29_, i, i_28_ - 1, i - 1, i_28_);
@@ -695,11 +695,11 @@ final class Class139 {
 									}
 								}
 								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
-										class28.aLong186, i_29_, null);
+										class28.bitPacked, i_29_, null);
 							}
 							for (int i_82_ = class28.anInt180; i_82_ <= class28.anInt182; i_82_++) {
 								for (int i_83_ = class28.anInt184; i_83_ <= class28.anInt175; i_83_++) {
-									final Class120_Sub18 class120_sub18_84_ = class120_sub18s[i_82_][i_83_];
+									final GroundTile class120_sub18_84_ = class120_sub18s[i_82_][i_83_];
 									if (class120_sub18_84_.anInt2633 != 0) {
 										AbstractTimer.aClass105_824.addLast(class120_sub18_84_);
 									} else if ((i_82_ != i || i_83_ != i_28_) && class120_sub18_84_.aBoolean2624) {
@@ -854,47 +854,47 @@ final class Class139 {
 				}
 				if (class120_sub18_27_.aBoolean2624 && class120_sub18_27_.anInt2633 == 0) {
 					if (i <= Class120_Sub12_Sub26.anInt3332 && i > Class160.anInt1493) {
-						final Class120_Sub18 class120_sub18_115_ = class120_sub18s[i - 1][i_28_];
+						final GroundTile class120_sub18_115_ = class120_sub18s[i - 1][i_28_];
 						if (class120_sub18_115_ != null && class120_sub18_115_.aBoolean2624) {
 							continue;
 						}
 					}
 					if (i >= Class120_Sub12_Sub26.anInt3332 && i < Class53.anInt487 - 1) {
-						final Class120_Sub18 class120_sub18_116_ = class120_sub18s[i + 1][i_28_];
+						final GroundTile class120_sub18_116_ = class120_sub18s[i + 1][i_28_];
 						if (class120_sub18_116_ != null && class120_sub18_116_.aBoolean2624) {
 							continue;
 						}
 					}
 					if (i_28_ <= Class112.anInt1080 && i_28_ > Class31.anInt248) {
-						final Class120_Sub18 class120_sub18_117_ = class120_sub18s[i][i_28_ - 1];
+						final GroundTile class120_sub18_117_ = class120_sub18s[i][i_28_ - 1];
 						if (class120_sub18_117_ != null && class120_sub18_117_.aBoolean2624) {
 							continue;
 						}
 					}
 					if (i_28_ >= Class112.anInt1080 && i_28_ < Class45.anInt396 - 1) {
-						final Class120_Sub18 class120_sub18_118_ = class120_sub18s[i][i_28_ + 1];
+						final GroundTile class120_sub18_118_ = class120_sub18s[i][i_28_ + 1];
 						if (class120_sub18_118_ != null && class120_sub18_118_.aBoolean2624) {
 							continue;
 						}
 					}
 					class120_sub18_27_.aBoolean2624 = false;
 					Class120_Sub17.anInt2615--;
-					final Class183 class183 = class120_sub18_27_.aClass183_2634;
-					if (class183 != null && class183.anInt1811 != 0) {
+					final ObjectPile objectPile = class120_sub18_27_.objectPile;
+					if (objectPile != null && objectPile.yLocationModifier != 0) {
 						if (HDToolkit.glEnabled) {
 							LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 						}
-						if (class183.aClass180_1812 != null) {
-							class183.aClass180_1812.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367 - class183.anInt1811, class183.anInt1814
-									- Class145.anInt1381, class183.aLong1806, i_29_, null);
+						if (objectPile.secondItemModel != null) {
+							objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
-						if (class183.aClass180_1807 != null) {
-							class183.aClass180_1807.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367 - class183.anInt1811, class183.anInt1814
-									- Class145.anInt1381, class183.aLong1806, i_29_, null);
+						if (objectPile.thirdItemModel != null) {
+							objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
-						if (class183.aClass180_1810 != null) {
-							class183.aClass180_1810.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class183.anInt1803 - DisplayModeInfo.anInt1713, class183.anInt1813 - PlayerAppearance.anInt1367 - class183.anInt1811, class183.anInt1814
-									- Class145.anInt1381, class183.aLong1806, i_29_, null);
+						if (objectPile.mainItemModel != null) {
+							objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 					}
 					if (class120_sub18_27_.anInt2646 != 0) {
@@ -905,7 +905,7 @@ final class Class139 {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
-										- Class145.anInt1381 + class186.anInt1892, class186.aLong1904, i_29_, null);
+										- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.anInt1895 == 256) {
 								final int i_119_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
 								final int i_120_ = class186.anInt1894 - PlayerAppearance.anInt1367;
@@ -927,12 +927,12 @@ final class Class139 {
 									if (HDToolkit.glEnabled) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 									}
-									class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_ + class186.anInt1905, i_120_, i_121_ + class186.anInt1892, class186.aLong1904, i_29_, null);
+									class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_ + class186.anInt1905, i_120_, i_121_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 								} else if (class186.aClass180_1898 != null) {
 									if (HDToolkit.glEnabled) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 									}
-									class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_, i_120_, i_121_, class186.aLong1904, i_29_, null);
+									class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_, i_120_, i_121_, class186.bitPacked, i_29_, null);
 								}
 							}
 						}
@@ -943,43 +943,43 @@ final class Class139 {
 									LightManager.method1866(class182.anInt1792, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
 								class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-										class182.aLong1794, i_29_, null);
+										class182.bitPacked, i_29_, null);
 							}
 							if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
 								class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-										class182.aLong1794, i_29_, null);
+										class182.bitPacked, i_29_, null);
 							}
 						}
 					}
 					if (i_29_ < Class142.anInt1361 - 1) {
-						final Class120_Sub18 class120_sub18_125_ = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_29_ + 1][i][i_28_];
+						final GroundTile class120_sub18_125_ = Class120_Sub1.groundTiles[i_29_ + 1][i][i_28_];
 						if (class120_sub18_125_ != null && class120_sub18_125_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_125_);
 						}
 					}
 					if (i < Class120_Sub12_Sub26.anInt3332) {
-						final Class120_Sub18 class120_sub18_126_ = class120_sub18s[i + 1][i_28_];
+						final GroundTile class120_sub18_126_ = class120_sub18s[i + 1][i_28_];
 						if (class120_sub18_126_ != null && class120_sub18_126_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_126_);
 						}
 					}
 					if (i_28_ < Class112.anInt1080) {
-						final Class120_Sub18 class120_sub18_127_ = class120_sub18s[i][i_28_ + 1];
+						final GroundTile class120_sub18_127_ = class120_sub18s[i][i_28_ + 1];
 						if (class120_sub18_127_ != null && class120_sub18_127_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_127_);
 						}
 					}
 					if (i > Class120_Sub12_Sub26.anInt3332) {
-						final Class120_Sub18 class120_sub18_128_ = class120_sub18s[i - 1][i_28_];
+						final GroundTile class120_sub18_128_ = class120_sub18s[i - 1][i_28_];
 						if (class120_sub18_128_ != null && class120_sub18_128_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_128_);
 						}
 					}
 					if (i_28_ > Class112.anInt1080) {
-						final Class120_Sub18 class120_sub18_129_ = class120_sub18s[i][i_28_ - 1];
+						final GroundTile class120_sub18_129_ = class120_sub18s[i][i_28_ - 1];
 						if (class120_sub18_129_ != null && class120_sub18_129_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_129_);
 						}
@@ -1000,7 +1000,7 @@ final class Class139 {
 				method1989(null, false);
 			}
 			for (int i_131_ = 0; i_131_ < anIntArray1333.length; i_131_++) {
-				if (!Class180_Sub1.aClass50_2839.method440(anIntArray1333[i_131_], true, 0)) {
+				if (!SceneGroundObject.aClass50_2839.method440(anIntArray1333[i_131_], true, 0)) {
 					bool_130_ = false;
 				}
 			}
@@ -1011,66 +1011,66 @@ final class Class139 {
 		return bool;
 	}
 
-	static final void method1991(final Class189[] class189s, final byte i, final int i_132_) {
+	static final void method1991(final JagexInterface[] class189s, final byte i, final int i_132_) {
 		try {
-			for (final Class189 class1892 : class189s) {
-				final Class189 class189 = class1892;
-				if (class189 != null && class189.anInt2029 == i_132_ && (!class189.aBoolean2041 || !client.method59(class189))) {
-					if (class189.anInt1995 == 0) {
-						if (!class189.aBoolean2041 && client.method59(class189) && CursorType.aClass189_1243 != class189) {
+			for (final JagexInterface class1892 : class189s) {
+				final JagexInterface jagexInterface = class1892;
+				if (jagexInterface != null && jagexInterface.anInt2029 == i_132_ && (!jagexInterface.aBoolean2041 || !client.method59(jagexInterface))) {
+					if (jagexInterface.anInt1995 == 0) {
+						if (!jagexInterface.aBoolean2041 && client.method59(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
 							continue;
 						}
-						method1991(class189s, (byte) -23, class189.anInt1999);
-						if (class189.aClass189Array2072 != null) {
-							method1991(class189.aClass189Array2072, (byte) -23, class189.anInt1999);
+						method1991(class189s, (byte) -23, jagexInterface.bitPacked);
+						if (jagexInterface.aClass189Array2072 != null) {
+							method1991(jagexInterface.aClass189Array2072, (byte) -23, jagexInterface.bitPacked);
 						}
-						final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method659(class189.anInt1999, -128);
+						final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(jagexInterface.bitPacked);
 						if (class120_sub26 != null) {
 							AbstractGraphicsBuffer.method1846(-22845, class120_sub26.anInt2745);
 						}
 					}
-					if (class189.anInt1995 == 6) {
-						if ((class189.anInt1945 ^ 0xffffffff) != 0 || (class189.anInt1990 ^ 0xffffffff) != 0) {
-							final boolean bool = Class120_Sub12_Sub35.method1382(class189, (byte) -122);
+					if (jagexInterface.anInt1995 == 6) {
+						if ((jagexInterface.anInt1945 ^ 0xffffffff) != 0 || (jagexInterface.anInt1990 ^ 0xffffffff) != 0) {
+							final boolean bool = Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -122);
 							int i_134_;
 							if (bool) {
-								i_134_ = class189.anInt1990;
+								i_134_ = jagexInterface.anInt1990;
 							} else {
-								i_134_ = class189.anInt1945;
+								i_134_ = jagexInterface.anInt1945;
 							}
 							if ((i_134_ ^ 0xffffffff) != 0) {
 								final Class40 class40 = Class120_Sub30_Sub2.method1763(i_134_, i + 149);
 								if (class40 != null) {
-									class189.anInt1965 += Class120_Sub12_Sub22.anInt3301;
-									while (class40.anIntArray338[class189.anInt1946] < class189.anInt1965) {
-										class189.anInt1965 -= class40.anIntArray338[class189.anInt1946];
-										class189.anInt1946++;
-										if (class189.anInt1946 >= class40.anIntArray342.length) {
-											class189.anInt1946 -= class40.anInt346;
-											if (class189.anInt1946 < 0 || class40.anIntArray342.length <= class189.anInt1946) {
-												class189.anInt1946 = 0;
+									jagexInterface.anInt1965 += Class120_Sub12_Sub22.anInt3301;
+									while (class40.anIntArray338[jagexInterface.anInt1946] < jagexInterface.anInt1965) {
+										jagexInterface.anInt1965 -= class40.anIntArray338[jagexInterface.anInt1946];
+										jagexInterface.anInt1946++;
+										if (jagexInterface.anInt1946 >= class40.anIntArray342.length) {
+											jagexInterface.anInt1946 -= class40.anInt346;
+											if (jagexInterface.anInt1946 < 0 || class40.anIntArray342.length <= jagexInterface.anInt1946) {
+												jagexInterface.anInt1946 = 0;
 											}
 										}
-										class189.anInt2098 = class189.anInt1946 + 1;
-										if (class40.anIntArray342.length <= class189.anInt2098) {
-											class189.anInt2098 -= class40.anInt346;
-											if (class189.anInt2098 < 0 || class40.anIntArray342.length <= class189.anInt2098) {
-												class189.anInt2098 = -1;
+										jagexInterface.anInt2098 = jagexInterface.anInt1946 + 1;
+										if (class40.anIntArray342.length <= jagexInterface.anInt2098) {
+											jagexInterface.anInt2098 -= class40.anInt346;
+											if (jagexInterface.anInt2098 < 0 || class40.anIntArray342.length <= jagexInterface.anInt2098) {
+												jagexInterface.anInt2098 = -1;
 											}
 										}
-										InterfaceClickMask.redrawInterface(class189);
+										InterfaceClickMask.redrawInterface(jagexInterface);
 									}
 								}
 							}
 						}
-						if (class189.anInt1969 != 0 && !class189.aBoolean2041) {
-							int i_135_ = class189.anInt1969 >> 16;
+						if (jagexInterface.anInt1969 != 0 && !jagexInterface.aBoolean2041) {
+							int i_135_ = jagexInterface.anInt1969 >> 16;
 							i_135_ *= Class120_Sub12_Sub22.anInt3301;
-							int i_136_ = class189.anInt1969 << 16 >> 16;
-							class189.anInt2047 = i_135_ + class189.anInt2047 & 0x7ff;
+							int i_136_ = jagexInterface.anInt1969 << 16 >> 16;
+							jagexInterface.anInt2047 = i_135_ + jagexInterface.anInt2047 & 0x7ff;
 							i_136_ *= Class120_Sub12_Sub22.anInt3301;
-							class189.anInt2091 = i_136_ + class189.anInt2091 & 0x7ff;
-							InterfaceClickMask.redrawInterface(class189);
+							jagexInterface.anInt2091 = i_136_ + jagexInterface.anInt2091 & 0x7ff;
+							InterfaceClickMask.redrawInterface(jagexInterface);
 						}
 					}
 				}
@@ -1110,7 +1110,7 @@ final class Class139 {
 			}
 			boolean bool_137_ = true;
 			for (int i_138_ = 0; i_138_ < 5; i_138_++) {
-				if (anIntArray1335[i_138_] != -1 && !Class180_Sub1.aClass50_2839.method440(anIntArray1335[i_138_], true, 0)) {
+				if (anIntArray1335[i_138_] != -1 && !SceneGroundObject.aClass50_2839.method440(anIntArray1335[i_138_], true, 0)) {
 					bool_137_ = false;
 				}
 			}

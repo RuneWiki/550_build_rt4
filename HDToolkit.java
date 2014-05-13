@@ -100,7 +100,7 @@ final class HDToolkit {
 			gl.glRotatef(f_5_, 0.0F, 1.0F, 0.0F);
 		}
 		aBoolean528 = false;
-		Class120_Sub32.anInt2792 = i_8_;
+		IntegerNode.anInt2792 = i_8_;
 		Class120_Sub12_Sub16.anInt3253 = i_9_;
 		Class190.anInt2100 = i_10_;
 		Class120_Sub30_Sub1.anInt3672 = i_11_;

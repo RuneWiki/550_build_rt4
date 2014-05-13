@@ -6,7 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 final class Class11 {
-	static Class21 aClass21_80 = new Class21(50);
+	static Cache aClass21_80 = new Cache(50);
 	static String aString81 = "Examine";
 	static String aString82 = "Connected to update server";
 
@@ -32,7 +32,7 @@ final class Class11 {
 			if (i != 113) {
 				aString82 = null;
 			}
-			Class120_Sub12_Sub16.aClass21_3251.method186((byte) 86);
+			Class120_Sub12_Sub16.aClass21_3251.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.B(").append(i).append(')').toString());
 		}
@@ -101,25 +101,25 @@ final class Class11 {
 		} while (false);
 	}
 
-	static final void method127(final int i, final int i_6_, final int i_7_, final int i_8_, final Class180 class180, final Class180 class180_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final long l) {
-		if (class180 != null) {
+	static final void method127(final int i, final int i_6_, final int i_7_, final int i_8_, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final long l) {
+		if (sceneGraphNode != null) {
 			final Class186 class186 = new Class186();
-			class186.aLong1904 = l;
+			class186.bitPacked = l;
 			class186.anInt1893 = i_6_ * 128 + 64;
 			class186.anInt1891 = i_7_ * 128 + 64;
 			class186.anInt1894 = i_8_;
-			class186.aClass180_1901 = class180;
+			class186.aClass180_1901 = sceneGraphNode;
 			class186.aClass180_1898 = class180_9_;
 			class186.anInt1895 = i_10_;
 			class186.anInt1896 = i_11_;
 			class186.anInt1905 = i_12_;
 			class186.anInt1892 = i_13_;
 			for (int i_14_ = i; i_14_ >= 0; i_14_--) {
-				if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_14_][i_6_][i_7_] == null) {
-					Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_14_][i_6_][i_7_] = new Class120_Sub18(i_14_, i_6_, i_7_);
+				if (Class120_Sub1.groundTiles[i_14_][i_6_][i_7_] == null) {
+					Class120_Sub1.groundTiles[i_14_][i_6_][i_7_] = new GroundTile(i_14_, i_6_, i_7_);
 				}
 			}
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_6_][i_7_].aClass186_2639 = class186;
+			Class120_Sub1.groundTiles[i][i_6_][i_7_].aClass186_2639 = class186;
 		}
 	}
 
@@ -131,10 +131,10 @@ final class Class11 {
 			}
 			Class107 class107_15_;
 			if (HDToolkit.glEnabled) {
-				class107_15_ = new Class107_Sub2(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
+				class107_15_ = new Class107_Sub2(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
 						Class132_Sub1.spritePalette);
 			} else {
-				class107_15_ = new Class107_Sub1(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
+				class107_15_ = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
 						Class132_Sub1.spritePalette);
 			}
 			Class53_Sub1.resetSpriteInfo();

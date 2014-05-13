@@ -62,7 +62,7 @@ final class Class6 {
 	}
 
 	static final Class6 method103(final Class50 class50, final int i, final int i_10_) {
-		final byte[] is = class50.method442(i, (byte) 119, i_10_);
+		final byte[] is = class50.getFile(i, i_10_);
 		if (is == null) {
 			return null;
 		}

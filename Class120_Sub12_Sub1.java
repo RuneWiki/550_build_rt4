@@ -341,7 +341,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 			if (bool) {
 				return 42;
 			}
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i, -120);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i);
 			if (class120_sub17 == null) {
 				return -1;
 			}

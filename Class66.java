@@ -9,7 +9,7 @@ abstract class Class66 {
 
 	static final void method579(final int i, final byte i_0_) {
 		try {
-			Class120_Sub10.aClass21_2542.method192((byte) -68, i);
+			Class120_Sub10.aClass21_2542.method192(i);
 			if (i_0_ != -23) {
 				aFloat600 = 0.5809334F;
 			}

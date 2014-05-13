@@ -31,7 +31,7 @@ final class Class48 {
 
 	static final void method401(final int i, final int i_10_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(10, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(10, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fc.E(").append(i).append(',').append(i_10_).append(')').toString());
@@ -52,7 +52,7 @@ final class Class48 {
 	static final int method403(final int i, final byte i_11_, final int i_12_) {
 		int i_13_;
 		try {
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i_12_, -119);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_12_);
 			if (class120_sub17 == null) {
 				return 0;
 			}
@@ -91,17 +91,8 @@ final class Class48 {
 		}
 	}
 
-	static final int method405(final byte i) {
-		int i_20_;
-		try {
-			if (i < 59) {
-				return 63;
-			}
-			i_20_ = Class43.aClass21_367.method184(false);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fc.C(").append(i).append(')').toString());
-		}
-		return i_20_;
+	static final int method405() {
+		return Class43.aClass21_367.getCount();
 	}
 
 	static final void method406(final int i, final long l) {
@@ -119,7 +110,7 @@ final class Class48 {
 					}
 					for (int i_22_ = 0; i_22_ < Class120_Sub12_Sub26.anInt3335; i_22_++) {
 						if ((l ^ 0xffffffffffffffffL) == (Class85.aLongArray806[i_22_] ^ 0xffffffffffffffffL)) {
-							Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(Class180_Sub1.aString2849).append(string).append(Class120_Sub13.aString2578).toString());
+							Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(string).append(Class120_Sub13.aString2578).toString());
 							return;
 						}
 					}
@@ -134,8 +125,8 @@ final class Class48 {
 						Class120_Sub12_Sub9.aBooleanArray3194[ProducingGraphicsBuffer.anInt2799] = false;
 						ProducingGraphicsBuffer.anInt2799++;
 						Class61.anInt563 = Class160.anInt1494;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(26);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(l);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(26);
+						Class120_Sub12_Sub11.outputStream.putLong(l);
 					}
 				}
 			}

@@ -56,9 +56,9 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 
 	static final void method1360(final int i, final int i_6_) {
 		try {
-			Class43.aClass21_367.method192((byte) 30, i_6_);
+			Class43.aClass21_367.method192(i_6_);
 			if (i < -59) {
-				Class90.aClass21_840.method192((byte) 108, i_6_);
+				Class90.aClass21_840.method192(i_6_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.U(").append(i).append(',').append(i_6_).append(')').toString());
@@ -146,7 +146,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 				i_23_ = i_24_ * i_28_ >> 16;
 				i_24_ = i_24_ * i_27_ >> 16;
 			}
-			GroundObject.anInt3626 = i_15_ - i_24_;
+			GroundObjectNode.anInt3626 = i_15_ - i_24_;
 			Class120_Sub12_Sub10.anInt3200 = i_12_ - i_21_;
 			Class83.anInt792 = -i_23_ + i_17_;
 			if (i != 57) {

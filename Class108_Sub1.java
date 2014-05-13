@@ -66,7 +66,7 @@ final class Class108_Sub1 extends Class108 {
 
 	static final void method934(final byte i) {
 		try {
-			Class120_Sub14_Sub13.aClass21_3564.method186((byte) 86);
+			Class120_Sub14_Sub13.aClass21_3564.clear();
 			if (i <= 26) {
 				method937(7, null);
 			}
@@ -112,9 +112,9 @@ final class Class108_Sub1 extends Class108 {
 			}
 			Class120_Sub14_Sub8 class120_sub14_sub8_8_;
 			if (HDToolkit.glEnabled) {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub1(is, Class180_Sub4.spriteXOffsets, Class120_Sub18.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub1(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			} else {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, Class120_Sub18.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			}
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8 = class120_sub14_sub8_8_;
@@ -309,8 +309,8 @@ final class Class108_Sub1 extends Class108 {
 							Class120_Sub12_Sub9.aBooleanArray3194[i_52_] = Class120_Sub12_Sub9.aBooleanArray3194[i_52_ + 1];
 						}
 						Class61.anInt563 = Class160.anInt1494;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(172);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(l);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
+						Class120_Sub12_Sub11.outputStream.putLong(l);
 						break;
 					}
 				}

@@ -122,19 +122,19 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	static final Class142 method1240(final byte i, final int i_18_) {
 		Class142 class142;
 		try {
-			Class142 class142_19_ = (Class142) Class120_Sub14_Sub14_Sub2.aClass21_3937.method193(i_18_, (byte) -103);
+			Class142 class142_19_ = (Class142) Class120_Sub14_Sub14_Sub2.aClass21_3937.get(i_18_);
 			if (class142_19_ != null) {
 				return class142_19_;
 			}
 			if (i != 1) {
 				anIntArray3190 = null;
 			}
-			final byte[] is = Class30.aClass50_233.method442(34, (byte) 125, i_18_);
+			final byte[] is = Class30.aClass50_233.getFile(34, i_18_);
 			class142_19_ = new Class142();
 			if (is != null) {
 				class142_19_.method2010(i_18_, false, new Buffer(is));
 			}
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.method185(-126, class142_19_, i_18_);
+			Class120_Sub14_Sub14_Sub2.aClass21_3937.put(class142_19_, i_18_);
 			class142 = class142_19_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.R(").append(i).append(',').append(i_18_).append(')').toString());
@@ -142,21 +142,21 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return class142;
 	}
 
-	static final void method1241(final Class189 class189, final int i, final int i_20_, final byte i_21_) {
+	static final void method1241(final JagexInterface jagexInterface, final int i, final int i_20_, final byte i_21_) {
 		try {
-			if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && class189 != null && method1243(class189, 26) != null) {
-				Class120_Sub12_Sub4.aClass189_3156 = class189;
-				Class26.aClass189_161 = method1243(class189, 26);
+			if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface, 26) != null) {
+				Class120_Sub12_Sub4.aClass189_3156 = jagexInterface;
+				Class26.aClass189_161 = method1243(jagexInterface, 26);
 				Class120_Sub11.aBoolean2551 = false;
 				if (i_21_ <= 47) {
 					anIntArray3190 = null;
 				}
-				Class180_Sub1.anInt2843 = 0;
+				SceneGroundObject.anInt2843 = 0;
 				AbstractGraphicsBuffer.anInt1173 = i;
 				client.anInt2203 = i_20_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.W(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_20_).append(',').append(i_21_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.W(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_20_).append(',').append(i_21_).append(')').toString());
 		}
 	}
 
@@ -233,19 +233,19 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		}
 	}
 
-	private static final Class189 method1243(final Class189 class189, final int i) {
-		Class189 class189_24_;
+	private static final JagexInterface method1243(final JagexInterface jagexInterface, final int i) {
+		JagexInterface class189_24_;
 		try {
-			Class189 class189_25_ = client.method58(class189);
+			JagexInterface class189_25_ = client.method58(jagexInterface);
 			if (i != 26) {
 				anIntArray3187 = null;
 			}
 			if (class189_25_ == null) {
-				class189_25_ = class189.aClass189_1931;
+				class189_25_ = jagexInterface.aClass189_1931;
 			}
 			class189_24_ = class189_25_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.AA(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.AA(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return class189_24_;
 	}

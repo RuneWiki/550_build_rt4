@@ -5,7 +5,6 @@
 final class Class158 {
 	static int anInt1475 = -1;
 	int anInt1476;
-	static int anInt1477;
 	static boolean aBoolean1478 = true;
 	static int anInt1479;
 	Class80 aClass80_1480;

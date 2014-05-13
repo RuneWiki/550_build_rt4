@@ -15,7 +15,7 @@ final class Class92 {
 			aBooleanArrayArray865 = null;
 			aClass120_Sub14_Sub19_Sub2_862 = null;
 			if (i >= -107) {
-				method769(true, 5);
+				Class73.list(5);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("k.E(").append(i).append(')').toString());
@@ -117,29 +117,5 @@ final class Class92 {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("k.B(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(')')
 					.toString());
 		}
-	}
-
-	static final Class73 method769(final boolean bool, final int i) {
-		Class73 class73;
-		try {
-			Class73 class73_34_ = (Class73) Class120_Sub12_Sub14.aClass21_3238.method193(i, (byte) 78);
-			if (class73_34_ != null) {
-				return class73_34_;
-			}
-			if (!bool) {
-				return null;
-			}
-			final byte[] is = Class31.aClass50_241.method442(36, (byte) 118, i);
-			class73_34_ = new Class73();
-			class73_34_.anInt658 = i;
-			if (is != null) {
-				class73_34_.method643(new Buffer(is), 0);
-			}
-			Class120_Sub12_Sub14.aClass21_3238.method185(-125, class73_34_, i);
-			class73 = class73_34_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("k.D(").append(bool).append(',').append(i).append(')').toString());
-		}
-		return class73;
 	}
 }

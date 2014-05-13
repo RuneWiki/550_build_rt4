@@ -233,7 +233,7 @@ final class Class40 {
 
 	static final void method325(final int i, final int i_30_, final int i_31_, final int i_32_, final byte i_33_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(8, i_32_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_32_);
 			class120_sub14_sub7.method1454((byte) -106);
 			class120_sub14_sub7.anInt3492 = i;
 			if (i_33_ == 92) {

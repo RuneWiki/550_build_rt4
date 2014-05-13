@@ -554,7 +554,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				if (i_70_ == 0) {
 					final Class182 class182 = Deque.method894(i_68_, i_66_, i_69_);
 					if (class182 != null) {
-						final int i_73_ = (int) (class182.aLong1794 >>> 32) & 0x7fffffff;
+						final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
 						if (i_72_ == 2) {
 							class182.aClass180_1800 = new Class180_Sub6(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
 							class182.aClass180_1796 = new Class180_Sub6(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
@@ -566,7 +566,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				if (i_70_ == 1) {
 					final Class186 class186 = ObjType.method2108(i_68_, i_66_, i_69_);
 					if (class186 != null) {
-						final int i_74_ = 0x7fffffff & (int) (class186.aLong1904 >>> 32);
+						final int i_74_ = 0x7fffffff & (int) (class186.bitPacked >>> 32);
 						if (i_72_ != 4 && i_72_ != 5) {
 							if (i_72_ != 6) {
 								if (i_72_ == 7) {
@@ -589,13 +589,13 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 					}
 					final Class28 class28 = Class180_Sub3.method2315(i_68_, i_66_, i_69_);
 					if (class28 != null) {
-						class28.aClass180_174 = new Class180_Sub6((int) (class28.aLong186 >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
+						class28.aClass180_174 = new Class180_Sub6((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
 					}
 				}
 				if (i_70_ == 3) {
 					final Class36 class36 = Class23.method202(i_68_, i_66_, i_69_);
 					if (class36 != null) {
-						class36.aClass180_309 = new Class180_Sub6(0x7fffffff & (int) (class36.aLong308 >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
+						class36.aClass180_309 = new Class180_Sub6(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
 					}
 				}
 			}
@@ -607,22 +607,22 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		}
 	}
 
-	static final void method1854(final boolean bool, final boolean bool_75_, final Class189 class189) {
+	static final void method1854(final boolean bool, final boolean bool_75_, final JagexInterface jagexInterface) {
 		try {
-			final int i = class189.anInt1930 != 0 ? class189.anInt1930 : class189.anInt1948;
-			final int i_76_ = class189.anInt1937 == 0 ? class189.anInt2059 : class189.anInt1937;
-			Class151.method2065(Node.aClass189ArrayArray1150[class189.anInt1999 >> 16], bool, i, class189.anInt1999, i_76_, -120);
+			final int i = jagexInterface.anInt1930 != 0 ? jagexInterface.anInt1930 : jagexInterface.anInt1948;
+			final int i_76_ = jagexInterface.anInt1937 == 0 ? jagexInterface.anInt2059 : jagexInterface.anInt1937;
+			Class151.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_, -120);
 			if (!bool_75_) {
-				if (class189.aClass189Array2072 != null) {
-					Class151.method2065(class189.aClass189Array2072, bool, i, class189.anInt1999, i_76_, -106);
+				if (jagexInterface.aClass189Array2072 != null) {
+					Class151.method2065(jagexInterface.aClass189Array2072, bool, i, jagexInterface.bitPacked, i_76_, -106);
 				}
-				final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method659(class189.anInt1999, 1);
+				final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(jagexInterface.bitPacked);
 				if (class120_sub26 != null) {
 					Class120_Sub12_Sub12.method1258(bool, -6090, i, class120_sub26.anInt2745, i_76_);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.K(").append(bool).append(',').append(bool_75_).append(',').append(class189 != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.K(").append(bool).append(',').append(bool_75_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

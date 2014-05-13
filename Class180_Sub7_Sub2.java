@@ -76,7 +76,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 	}
 
 	@Override
-	final Class180 method2269(final int i, final int i_0_, final int i_1_) {
+	final SceneGraphNode method2269(final int i, final int i_0_, final int i_1_) {
 		this.aBoolean3880 = false;
 		if (aClass152_3859 != null) {
 			aShortArray3873 = aClass152_3859.aShortArray1425;
@@ -161,7 +161,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 				if (i_22_ < 3584) {
 					final int i_23_ = i_14_ * i_10_ + i_12_ * i_11_ >> 16;
 					final int i_24_ = i_23_ + i_16_ << 9;
-					if (i_24_ / i_21_ > Class120_Sub32.anInt2792) {
+					if (i_24_ / i_21_ > IntegerNode.anInt2792) {
 						final int i_25_ = i_23_ - i_16_ << 9;
 						if (i_25_ / i_21_ < Class120_Sub12_Sub16.anInt3253) {
 							final int i_26_ = i_13_ * i_9_ - i_19_ * i_8_ >> 16;
@@ -1703,8 +1703,8 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 	}
 
 	@Override
-	final void method2267(final Class180 class180, final int i, final int i_485_, final int i_486_, final boolean bool) {
-		final Class180_Sub7_Sub2 class180_sub7_sub2_487_ = (Class180_Sub7_Sub2) class180;
+	final void method2267(final SceneGraphNode sceneGraphNode, final int i, final int i_485_, final int i_486_, final boolean bool) {
+		final Class180_Sub7_Sub2 class180_sub7_sub2_487_ = (Class180_Sub7_Sub2) sceneGraphNode;
 		if (anInt3867 != 0 && class180_sub7_sub2_487_.anInt3867 != 0) {
 			final int i_488_ = class180_sub7_sub2_487_.anInt3861;
 			final int[] is = class180_sub7_sub2_487_.anIntArray3878;

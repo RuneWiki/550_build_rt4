@@ -61,15 +61,15 @@ class Class108 {
 	static final void method932(final boolean bool, final int i, final int i_3_, final int i_4_, final int i_5_) {
 		try {
 			Class120_Sub30_Sub1.method1739(false, (byte) -93);
-			Class46.aBoolean423 = bool;
+			JagexSocket.aBoolean423 = bool;
 			Class120_Sub12_Sub33.anInt3407 = i_3_;
 			if (i_5_ != 27712) {
 				method932(false, -77, -74, -1, -82);
 			}
 			Class86.anInt818 = i;
 			Class79.method684(i_4_);
-			Class86.aClass75_823 = new Class75(8);
-			Class81.aClass75_777 = new Class75(8);
+			Class86.aClass75_823 = new Hashtable(8);
+			Class81.aClass75_777 = new Hashtable(8);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mb.C(").append(bool).append(',').append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}

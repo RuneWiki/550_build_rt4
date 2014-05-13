@@ -9,7 +9,7 @@ final class Class120_Sub14_Sub12 extends NodeSub {
 	static Deque[][][] groundObjects;
 	int[] anIntArray3550;
 	String[] aStringArray3551;
-	Class75[] aClass75Array3552;
+	Hashtable[] aClass75Array3552;
 	int anInt3553;
 	String aString3554;
 	int anInt3555;

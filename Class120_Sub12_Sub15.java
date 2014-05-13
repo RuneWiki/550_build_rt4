@@ -46,8 +46,8 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 
 	static final void method1276(final boolean bool, final byte i) {
 		try {
-			if (!bool == Class120_Sub14_Sub3.aBoolean3463) {
-				Class120_Sub14_Sub3.aBoolean3463 = bool;
+			if (!bool == AbstractObject.aBoolean3463) {
+				AbstractObject.aBoolean3463 = bool;
 				Class120_Sub12_Sub18.method1291(256);
 			}
 		} catch (final RuntimeException runtimeexception) {

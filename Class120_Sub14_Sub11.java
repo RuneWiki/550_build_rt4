@@ -5,15 +5,15 @@
 final class Class120_Sub14_Sub11 extends NodeSub {
 	static int anInt3538;
 	String aString3539;
-	static Class189 aClass189_3540;
-	static Class21 aClass21_3541;
+	static JagexInterface aClass189_3540;
+	static Cache aClass21_3541;
 	int anInt3542;
 	private char aChar3543;
 	static int anInt3544 = 100;
 	static boolean aBoolean3545;
 
 	static {
-		aClass21_3541 = new Class21(64);
+		aClass21_3541 = new Cache(64);
 		aBoolean3545 = false;
 	}
 
@@ -57,7 +57,7 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 
 	static final void method1514(final int i, final int i_1_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i, i_1_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i, i_1_);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jc.C(").append(i).append(',').append(i_1_).append(')').toString());
@@ -303,7 +303,7 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 						return;
 					}
 				}
-				Class180_Sub1.aBoolean2848 = false;
+				SceneGroundObject.aBoolean2848 = false;
 				Class65.anInt592 = i_17_;
 				Class120_Sub12_Sub26.anInt3327 = i_16_;
 			}
@@ -349,9 +349,9 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 					is_41_[i_42_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, is[i_42_])];
 				}
 				if (!HDToolkit.glEnabled) {
-					class120_sub14_sub19s_38_[i_39_] = new LDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_39_], Class120_Sub18.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], is_41_);
+					class120_sub14_sub19s_38_[i_39_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_39_], GroundTile.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], is_41_);
 				} else {
-					class120_sub14_sub19s_38_[i_39_] = new HDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_39_], Class120_Sub18.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], is_41_);
+					class120_sub14_sub19s_38_[i_39_] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_39_], GroundTile.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], is_41_);
 				}
 			}
 			Class53_Sub1.resetSpriteInfo();
@@ -364,12 +364,12 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 
 	static final void method1521(final boolean bool) {
 		try {
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(86);
+			Class120_Sub12_Sub11.outputStream.putByteIsaac(86);
 			if (!bool) {
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class120_Sub12_Sub4.getDisplayType());
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class69_Sub1.canvasWidth);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class120_Sub12_Sub5.canvasHeight);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(Class36.antiAliasingSamples);
+				Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.getDisplayType());
+				Class120_Sub12_Sub11.outputStream.putShort(Class69_Sub1.canvasWidth);
+				Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub12_Sub5.canvasHeight);
+				Class120_Sub12_Sub11.outputStream.putByte(Class36.antiAliasingSamples);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jc.F(").append(bool).append(')').toString());

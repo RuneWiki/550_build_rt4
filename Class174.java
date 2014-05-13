@@ -56,7 +56,7 @@ final class Class174 {
 			if (i >= 0) {
 				method2234(50, -9L);
 			}
-			while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.anInt118, 8) >= 11) {
+			while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 11) {
 				final int i_3_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(11);
 				if (i_3_ == 2047) {
 					break;

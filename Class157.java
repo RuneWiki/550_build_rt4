@@ -30,8 +30,8 @@ final class Class157 {
 			if (i_0_ != -86) {
 				aClass120_Sub14_Sub19_1474 = null;
 			}
-			KeyboardHandler.aClass21_1504.method192((byte) 123, i);
-			Class180.aClass21_1781.method192((byte) 56, i);
+			KeyboardHandler.aClass21_1504.method192(i);
+			SceneGraphNode.aClass21_1781.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("si.B(").append(i).append(',').append(i_0_).append(')').toString());
 		}
@@ -74,7 +74,7 @@ final class Class157 {
 			final int i_21_ = Class168.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
 				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
-					Class21.anInt122 = i_4_;
+					Cache.anInt122 = i_4_;
 					Class20.anInt2174 = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {

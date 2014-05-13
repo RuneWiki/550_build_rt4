@@ -26,11 +26,11 @@ final class Class188 {
 
 	static final void method2480(final boolean bool, final int i) {
 		try {
-			Class120_Sub12_Sub14.aClass21_3238.method192((byte) 91, i);
+			Class120_Sub12_Sub14.aClass21_3238.method192(i);
 			if (!bool) {
 				aBoolean1925 = true;
 			}
-			Class82.aClass21_786.method192((byte) -128, i);
+			Class82.aClass21_786.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.B(").append(bool).append(',').append(i).append(')').toString());
 		}
@@ -49,41 +49,34 @@ final class Class188 {
 		}
 	}
 
-	static final void method2482(final int i, final String string, final boolean bool) {
-		try {
-			if (bool) {
-				do {
-					if (HDToolkit.glEnabled && Class99.aBoolean953) {
-						try {
-							Class77.method667(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
-						} catch (final Throwable throwable) {
-							break;
-						}
-						return;
+	static final void method2482(final String string, final boolean bool) {
+		if (bool) {
+			do {
+				if (HDToolkit.glEnabled && Class99.openwinjsEnabled) {
+					try {
+						Class77.method667(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
+					} catch (final Throwable throwable) {
+						break;
 					}
-				} while (false);
-				try {
-					Class31.gameApplet.getAppletContext().showDocument(new URL(Class31.gameApplet.getCodeBase(), string), "_blank");
-				} catch (final Exception exception) {
-					/* empty */
+					return;
 				}
-			} else {
-				try {
-					Class77.method666(NpcType.gameSignlink.gameApplet, "loggedout");
-				} catch (final Throwable throwable) {
-					/* empty */
-				}
-				try {
-					Class31.gameApplet.getAppletContext().showDocument(new URL(Class31.gameApplet.getCodeBase(), string), "_top");
-				} catch (final Exception exception) {
-					/* empty */
-				}
+			} while (false);
+			try {
+				Class31.gameApplet.getAppletContext().showDocument(new URL(Class31.gameApplet.getCodeBase(), string), "_blank");
+			} catch (final Exception exception) {
+				/* empty */
 			}
-			if (i < 91) {
-				method2481(-41);
+		} else {
+			try {
+				Class77.method666(NpcType.gameSignlink.gameApplet, "loggedout");
+			} catch (final Throwable throwable) {
+				/* empty */
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.A(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			try {
+				Class31.gameApplet.getAppletContext().showDocument(new URL(Class31.gameApplet.getCodeBase(), string), "_top");
+			} catch (final Exception exception) {
+				/* empty */
+			}
 		}
 	}
 
@@ -151,21 +144,21 @@ final class Class188 {
 						for (int i_6_ = 0; i_6_ < 2; i_6_++) {
 							Class134.anIntArray1284[i_6_] = -1000000;
 							Class54.anIntArray488[i_6_] = 1000000;
-							Class120_Sub32.anIntArray2787[i_6_] = 0;
+							IntegerNode.anIntArray2787[i_6_] = 0;
 							StringNode.anIntArray2735[i_6_] = 1000000;
 							Class180_Sub6.anIntArray3075[i_6_] = 0;
 						}
 						if (client.anInt2200 != 1) {
-							final int i_7_ = Class22.method197(GroundObject.anInt3626, true, Class83.anInt792, Class173.gameLevel);
-							if (-Class120_Sub12_Sub10.anInt3200 + i_7_ < 800 && (0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][Class83.anInt792 >> 7][GroundObject.anInt3626 >> 7]) != 0) {
-								Class120_Sub3.method1055(1, Class83.anInt792 >> 7, false, false, GroundObject.anInt3626 >> 7, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+							final int i_7_ = Class22.method197(Class173.gameLevel, Class83.anInt792, GroundObjectNode.anInt3626);
+							if (-Class120_Sub12_Sub10.anInt3200 + i_7_ < 800 && (0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][Class83.anInt792 >> 7][GroundObjectNode.anInt3626 >> 7]) != 0) {
+								Class120_Sub3.method1055(1, Class83.anInt792 >> 7, false, false, GroundObjectNode.anInt3626 >> 7, Class120_Sub1.groundTiles);
 							}
 						} else {
 							if ((0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]) != 0) {
-								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, Class120_Sub1.groundTiles);
 							}
 							if (Class128.anInt1223 < 310) {
-								int i_8_ = GroundObject.anInt3626 >> 7;
+								int i_8_ = GroundObjectNode.anInt3626 >> 7;
 								int i_9_ = Class83.anInt792 >> 7;
 								final int i_10_ = Class100.selfPlayer.z >> 7;
 								int i_11_;
@@ -198,7 +191,7 @@ final class Class188 {
 											i_8_++;
 										}
 										if ((Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
-											Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+											Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.groundTiles);
 											break while_177_;
 										}
 										i_14_ += i_15_;
@@ -214,7 +207,7 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+									Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.groundTiles);
 								} else {
 									final int i_16_ = 65536 * i_11_ / i_13_;
 									int i_17_ = 32768;
@@ -230,7 +223,7 @@ final class Class188 {
 											i_9_++;
 										}
 										if ((0x4 & Class114.aByteArrayArrayArray1095[Class173.gameLevel][i_9_][i_8_]) != 0) {
-											Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+											Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.groundTiles);
 											break while_177_;
 										}
 										i_17_ += i_16_;
@@ -246,7 +239,7 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.aClass120_Sub18ArrayArrayArray2411);
+									Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.groundTiles);
 								}
 							}
 						}

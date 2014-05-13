@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub4 extends Class180 {
+final class Class180_Sub4 extends SceneGraphNode {
 	int anInt2922;
 	static int[] spriteXOffsets;
 	private ParticleEngine aClass108_Sub2_2924;
@@ -12,7 +12,7 @@ final class Class180_Sub4 extends Class180 {
 	private boolean aBoolean2928;
 	int anInt2929;
 	private double aDouble2930;
-	static Class21 aClass21_2931;
+	static Cache aClass21_2931;
 	private final int anInt2932;
 	static int anInt2933 = 0;
 	int anInt2934;
@@ -35,11 +35,11 @@ final class Class180_Sub4 extends Class180 {
 	private final int anInt2951;
 	private int anInt2952;
 	double aDouble2953;
-	static Class189 aClass189_2954;
+	static JagexInterface aClass189_2954;
 	static int anInt2955;
 
 	static {
-		aClass21_2931 = new Class21(5);
+		aClass21_2931 = new Cache(5);
 	}
 
 	final void method2317(final int i, final int i_0_) {

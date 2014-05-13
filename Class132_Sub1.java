@@ -69,16 +69,16 @@ class Class132_Sub1 extends Class132 {
 			if (i > -105) {
 				method1933((byte) 102, 66);
 			}
-			Class70 class70_3_ = (Class70) Class86.aClass21_816.method193(i_2_, (byte) 64);
+			Class70 class70_3_ = (Class70) Class86.aClass21_816.get(i_2_);
 			if (class70_3_ != null) {
 				return class70_3_;
 			}
-			final byte[] is = ObjType.aClass50_1517.method442(16, (byte) 110, i_2_);
+			final byte[] is = ObjType.aClass50_1517.getFile(16, i_2_);
 			class70_3_ = new Class70();
 			if (is != null) {
 				class70_3_.method637(new Buffer(is), 40);
 			}
-			Class86.aClass21_816.method185(-125, class70_3_, i_2_);
+			Class86.aClass21_816.put(class70_3_, i_2_);
 			class70 = class70_3_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.B(").append(i).append(',').append(i_2_).append(')').toString());
@@ -90,7 +90,7 @@ class Class132_Sub1 extends Class132 {
 		Class41 class41;
 		try {
 			final long l = 0xffffL & i_6_ | (0xffffL & i) << 48 | (0xffffL & i_5_) << 32 | (i_7_ & 0xffffL) << 16;
-			Class41 class41_8_ = (Class41) Class120_Sub6.aClass21_2443.method193(l, (byte) 33);
+			Class41 class41_8_ = (Class41) Class120_Sub6.aClass21_2443.get(l);
 			if (class41_8_ != null) {
 				return class41_8_;
 			}
@@ -99,12 +99,12 @@ class Class132_Sub1 extends Class132 {
 			if (class145.anIntArray1383 != null) {
 				class97s = new Class97[class145.anIntArray1383.length];
 				for (int i_9_ = 0; i_9_ < class97s.length; i_9_++) {
-					final Class153 class153 = Class189.method2494((byte) -10, class145.anIntArray1383[i_9_]);
+					final Class153 class153 = JagexInterface.method2494((byte) -10, class145.anIntArray1383[i_9_]);
 					class97s[i_9_] = new Class97(class153.anInt1434, class153.anInt1429, class153.anInt1427, class153.anInt1428, class153.anInt1431, class153.anInt1435, class153.anInt1432, class153.aBoolean1430);
 				}
 			}
 			class41_8_ = new Class41(class145.anInt1384, class97s, class145.anInt1380, i, i_5_, i_7_);
-			Class120_Sub6.aClass21_2443.method185(-127, class41_8_, l);
+			Class120_Sub6.aClass21_2443.put(class41_8_, l);
 			class41 = class41_8_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());

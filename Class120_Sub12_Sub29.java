@@ -15,7 +15,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 
 	static final void method1351(final int i) {
 		try {
-			Class120_Sub14_Sub11.aClass21_3541.method190(false);
+			Class120_Sub14_Sub11.aClass21_3541.clearSoftReference();
 			if (i > -7) {
 				method1355(93, (byte) -60);
 			}
@@ -51,28 +51,23 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		return is;
 	}
 
-	static final void method1352(final int i, final boolean bool) {
-		try {
-			Class120_Sub2.method1050();
-			if (Class109.gameState == 30 || Class109.gameState == 25) {
-				Class65.anInt593++;
-				if (Class65.anInt593 >= 50 || bool) {
-					Class65.anInt593 = i;
-					if (!Class120_Sub12_Sub5.aBoolean3163 && AbstractTimer.aClass46_825 != null) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(137);
-						Class158.anInt1477++;
-						try {
-							AbstractTimer.aClass46_825.method381(0, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.buf, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos, 30000);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
-						} catch (final IOException ioexception) {
-							Class120_Sub12_Sub5.aBoolean3163 = true;
-						}
+	static final void ping(final boolean forceSend) {
+		Class120_Sub2.method1050();
+		if (Class109.gameState == 30 || Class109.gameState == 25) {
+			Class65.pingTimer++;
+			if (Class65.pingTimer >= 50 || forceSend) {
+				Class65.pingTimer = 0;
+				if (!Class120_Sub12_Sub5.errorPinging && AbstractTimer.worldConnection != null) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(137);
+					try {
+						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
+						Class120_Sub12_Sub11.outputStream.pos = 0;
+					} catch (final IOException ioexception) {
+						Class120_Sub12_Sub5.errorPinging = true;
 					}
-					Class120_Sub2.method1050();
 				}
+				Class120_Sub2.method1050();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sc.W(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 

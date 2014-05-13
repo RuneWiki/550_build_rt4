@@ -181,7 +181,7 @@ class Class132_Sub2 extends Class132 {
 						Rasterizer.anInt975 = 0;
 						if ((i_33_ - i_35_) * (i_32_ - i_36_) - (i_34_ - i_36_) * (i_31_ - i_35_) > 0) {
 							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
-								Class21.anInt122 = i_14_;
+								Cache.anInt122 = i_14_;
 								Class20.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {
@@ -207,7 +207,7 @@ class Class132_Sub2 extends Class132 {
 						}
 						if ((i_29_ - i_31_) * (i_36_ - i_32_) - (i_30_ - i_32_) * (i_35_ - i_31_) > 0) {
 							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
-								Class21.anInt122 = i_14_;
+								Cache.anInt122 = i_14_;
 								Class20.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {

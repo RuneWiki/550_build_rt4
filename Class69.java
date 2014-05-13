@@ -121,11 +121,11 @@ class Class69 {
 						i_16_ = entity.method2328();
 					} else {
 						final Npc class180_sub5_sub2 = (Npc) entity;
-						AbstractSprite[] class120_sub14_sub19s = (AbstractSprite[]) Class120_Sub12_Sub2.aClass21_3144.method193(class180_sub5_sub2.npcType.anInt1666, (byte) 121);
+						AbstractSprite[] class120_sub14_sub19s = (AbstractSprite[]) Class120_Sub12_Sub2.aClass21_3144.get(class180_sub5_sub2.npcType.anInt1666);
 						if (class120_sub14_sub19s == null) {
 							class120_sub14_sub19s = Class125.method1878(Class7.aClass50_63, (byte) 110, 0, class180_sub5_sub2.npcType.anInt1666);
 							if (class120_sub14_sub19s != null) {
-								Class120_Sub12_Sub2.aClass21_3144.method185(-127, class120_sub14_sub19s, class180_sub5_sub2.npcType.anInt1666);
+								Class120_Sub12_Sub2.aClass21_3144.put(class120_sub14_sub19s, class180_sub5_sub2.npcType.anInt1666);
 							}
 						}
 						if (class120_sub14_sub19s != null && class120_sub14_sub19s.length == 2) {
@@ -153,9 +153,9 @@ class Class69 {
 						}
 						class120_sub14_sub19_15_.method1587(i_17_, i_18_);
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.method592(i, i_4_, i_3_ + i, i_1_ + i_4_);
+							GraphicsHD.clipRect(i, i_4_, i_3_ + i, i_1_ + i_4_);
 						} else {
-							GraphicsLD.method2155(i, i_4_, i_3_ + i, i_1_ + i_4_);
+							GraphicsLD.clipRect(i, i_4_, i_3_ + i, i_1_ + i_4_);
 						}
 					}
 				}
@@ -187,7 +187,7 @@ class Class69 {
 								Class120_Sub15.anInt2588 -= 10;
 							}
 							Class69_Sub2.aClass120_Sub14_Sub19Array2238[entity.anIntArray2991[i_21_]].method1587(Class120_Sub12_Sub38.anInt3434 + i - 12, i_4_ - (-Class120_Sub15.anInt2588 + 12));
-							Class21.aClass120_Sub14_Sub8_121.method1478(Integer.toString(entity.anIntArray2968[i_21_]), i - -Class120_Sub12_Sub38.anInt3434 + -1, 3 + i_4_ - -Class120_Sub15.anInt2588, 16777215, 0);
+							Cache.aClass120_Sub14_Sub8_121.method1478(Integer.toString(entity.anIntArray2968[i_21_]), i - -Class120_Sub12_Sub38.anInt3434 + -1, 3 + i_4_ - -Class120_Sub15.anInt2588, 16777215, 0);
 						}
 					}
 				}
@@ -286,9 +286,9 @@ class Class69 {
 					}
 					Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1466(string, -i_32_ + Class120_Sub12_Sub38.anInt3434 + i - -50, i_4_ - -Class120_Sub15.anInt2588, i_28_, 0);
 					if (!HDToolkit.glEnabled) {
-						GraphicsLD.method2155(i, i_4_, i + i_3_, i_4_ - -i_1_);
+						GraphicsLD.clipRect(i, i_4_, i + i_3_, i_4_ - -i_1_);
 					} else {
-						GraphicsHD.method592(i, i_4_, i_3_ + i, i_4_ - -i_1_);
+						GraphicsHD.clipRect(i, i_4_, i_3_ + i, i_4_ - -i_1_);
 					}
 				}
 				if (AbstractGraphicsBuffer.anIntArray1156[i_23_] == 5) {
@@ -308,9 +308,9 @@ class Class69 {
 					}
 					Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1478(string, Class120_Sub12_Sub38.anInt3434 + i, i_33_ + Class120_Sub15.anInt2588 + i_4_, i_28_, 0);
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method592(i, i_4_, i + i_3_, i_4_ - -i_1_);
+						GraphicsHD.clipRect(i, i_4_, i + i_3_, i_4_ - -i_1_);
 					} else {
-						GraphicsLD.method2155(i, i_4_, i - -i_3_, i_4_ + i_1_);
+						GraphicsLD.clipRect(i, i_4_, i - -i_3_, i_4_ + i_1_);
 					}
 				}
 			}

@@ -8,11 +8,11 @@ final class Class8 {
 
 	static final void method109(final Class50 class50, final Class50 class50_0_, final byte i) {
 		try {
-			Class21.aClass120_Sub14_Sub8_121 = Class9.method117(class50, class50_0_, 18265, Class32.anInt270, 0);
+			Cache.aClass120_Sub14_Sub8_121 = Class9.method117(class50, class50_0_, 18265, Class32.anInt270, 0);
 			if (HDToolkit.glEnabled) {
 				Class33.aClass120_Sub14_Sub8_Sub2_274 = Class93.method772(0, class50_0_, Class32.anInt270, class50, 1);
 			} else {
-				Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Class21.aClass120_Sub14_Sub8_121;
+				Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Cache.aClass120_Sub14_Sub8_121;
 			}
 			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286 = Class9.method117(class50, class50_0_, 18265, Class191.anInt2115, 0);
 			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303 = Class9.method117(class50, class50_0_, 18265, Class110.anInt1051, 0);
@@ -50,7 +50,7 @@ final class Class8 {
 			client.aByte2201 = i;
 			Class65.anInt592 = 0;
 			Class120_Sub12_Sub26.anInt3327 = 0;
-			Class180_Sub1.aBoolean2848 = false;
+			SceneGroundObject.aBoolean2848 = false;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aj.C(").append(i).append(')').toString());
 		}

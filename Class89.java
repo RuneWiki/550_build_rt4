@@ -9,7 +9,7 @@ final class Class89 {
 
 	static final void method746(final int i, final int i_0_, final byte i_1_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(13, i_0_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(13, i_0_);
 			class120_sub14_sub7.method1454((byte) -106);
 			class120_sub14_sub7.anInt3484 = i;
 			if (i_1_ != -56) {

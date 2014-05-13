@@ -7,18 +7,18 @@ final class Class120_Sub1 extends Node {
 	static SignlinkNode aClass185_2403;
 	int anInt2404;
 	int[] anIntArray2405;
-	static Class21 aClass21_2406;
+	static Cache aClass21_2406;
 	boolean[] aBooleanArray2407;
 	int anInt2408;
 	static int[] anIntArray2409 = new int[5];
 	int[][] anIntArrayArray2410;
-	static Class120_Sub18[][][] aClass120_Sub18ArrayArrayArray2411;
+	static GroundTile[][][] groundTiles;
 	static int[] anIntArray2412;
 	static Class50 aClass50_2413;
 	static int anInt2414;
 
 	static {
-		aClass21_2406 = new Class21(50);
+		aClass21_2406 = new Cache(50);
 		anIntArray2412 = new int[5];
 		anInt2414 = 0;
 	}
@@ -42,7 +42,7 @@ final class Class120_Sub1 extends Node {
 		try {
 			Class57.anInt504 = 0;
 			Class86.anInt819 = 1;
-			Class120_Sub12_Sub5.aBoolean3163 = false;
+			Class120_Sub12_Sub5.errorPinging = false;
 			if (i == -120) {
 				Class121.anInt1153 = 0;
 				Class150.anInt1408 = 0;
@@ -62,7 +62,7 @@ final class Class120_Sub1 extends Node {
 			aClass21_2406 = null;
 			anIntArray2412 = null;
 			anIntArray2409 = null;
-			aClass120_Sub18ArrayArrayArray2411 = null;
+			groundTiles = null;
 			aClass185_2403 = null;
 			aClass50_2413 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -81,7 +81,7 @@ final class Class120_Sub1 extends Node {
 				for (int i_12_ = 0; i_10_ > i_12_; i_12_++) {
 					is[i_12_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, is_11_[i_12_])];
 				}
-				class120_sub14_sub19_sub2s_8_[i_9_] = new LDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_9_], Class120_Sub18.spriteYOffsets[i_9_], Class120_Sub12_Sub11.spriteWidths[i_9_], Class120_Sub12_Sub39.spriteHeights[i_9_], is);
+				class120_sub14_sub19_sub2s_8_[i_9_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_9_], GroundTile.spriteYOffsets[i_9_], Class120_Sub12_Sub11.spriteWidths[i_9_], Class120_Sub12_Sub39.spriteHeights[i_9_], is);
 			}
 			if (i != 5325) {
 				method1038(-127);

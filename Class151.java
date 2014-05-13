@@ -9,27 +9,27 @@ final class Class151 {
 	static String aString1421;
 	String aString1422;
 
-	static final void method2065(final Class189[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_, final int i_2_) {
+	static final void method2065(final JagexInterface[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_, final int i_2_) {
 		try {
-			for (final Class189 class1892 : class189s) {
-				final Class189 class189 = class1892;
-				if (class189 != null && class189.anInt2029 == i_0_) {
-					Class23.method201(bool, i, class189, i_1_, -4);
-					Class180.method2272(i, i_1_, class189, 97);
-					if (class189.anInt2021 > -class189.anInt2059 + class189.anInt1937) {
-						class189.anInt2021 = -class189.anInt2059 + class189.anInt1937;
+			for (final JagexInterface class1892 : class189s) {
+				final JagexInterface jagexInterface = class1892;
+				if (jagexInterface != null && jagexInterface.anInt2029 == i_0_) {
+					Class23.method201(bool, i, jagexInterface, i_1_, -4);
+					SceneGraphNode.method2272(i, i_1_, jagexInterface, 97);
+					if (jagexInterface.anInt2021 > -jagexInterface.anInt2059 + jagexInterface.anInt1937) {
+						jagexInterface.anInt2021 = -jagexInterface.anInt2059 + jagexInterface.anInt1937;
 					}
-					if (class189.anInt2023 > class189.anInt1930 + -class189.anInt1948) {
-						class189.anInt2023 = class189.anInt1930 + -class189.anInt1948;
+					if (jagexInterface.anInt2023 > jagexInterface.anInt1930 + -jagexInterface.anInt1948) {
+						jagexInterface.anInt2023 = jagexInterface.anInt1930 + -jagexInterface.anInt1948;
 					}
-					if (class189.anInt2021 < 0) {
-						class189.anInt2021 = 0;
+					if (jagexInterface.anInt2021 < 0) {
+						jagexInterface.anInt2021 = 0;
 					}
-					if (class189.anInt2023 < 0) {
-						class189.anInt2023 = 0;
+					if (jagexInterface.anInt2023 < 0) {
+						jagexInterface.anInt2023 = 0;
 					}
-					if (class189.anInt1995 == 0) {
-						ProducingGraphicsBuffer.method1854(bool, false, class189);
+					if (jagexInterface.anInt1995 == 0) {
+						ProducingGraphicsBuffer.method1854(bool, false, jagexInterface);
 					}
 				}
 			}

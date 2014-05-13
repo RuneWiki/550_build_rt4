@@ -22,7 +22,7 @@ class Class69_Sub3 extends Class69 {
 			if (i < 76) {
 				isInTutIsland = -33;
 			}
-			Class11.aClass21_80.method186((byte) 86);
+			Class11.aClass21_80.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.M(").append(i).append(')').toString());
 		}

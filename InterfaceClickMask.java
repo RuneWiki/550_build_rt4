@@ -7,7 +7,7 @@ final class InterfaceClickMask extends Node {
 	static String aString2660 = "Loading fonts - ";
 	int anInt2661;
 	int anInt2662;
-	static Class21 aClass21_2663 = new Class21(500);
+	static Cache aClass21_2663 = new Cache(500);
 
 	final boolean method1677(final byte i) {
 		boolean bool;
@@ -50,7 +50,7 @@ final class InterfaceClickMask extends Node {
 
 	static final void method1680(final byte i, final int i_2_) {
 		try {
-			Class120_Sub12_Sub31.aClass21_3378.method192((byte) 35, i_2_);
+			Class120_Sub12_Sub31.aClass21_3378.method192(i_2_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.M(").append(i).append(',').append(i_2_).append(')').toString());
 		}
@@ -60,7 +60,7 @@ final class InterfaceClickMask extends Node {
 		boolean bool;
 		try {
 			if (i != -9617) {
-				method1689(-102, 76, (byte) -19);
+				method1689(76, -102);
 			}
 			bool = (this.anInt2662 & 0x107da4ce) >> 28 != 0;
 		} catch (final RuntimeException runtimeexception) {
@@ -69,9 +69,9 @@ final class InterfaceClickMask extends Node {
 		return bool;
 	}
 
-	static final void redrawInterface(final Class189 class189) {
-		if (class189.anInt1968 == Class84.anInt796) {
-			Class52.aBooleanArray467[class189.anInt2082] = true;
+	static final void redrawInterface(final JagexInterface jagexInterface) {
+		if (jagexInterface.anInt1968 == Class84.anInt796) {
+			Class52.aBooleanArray467[jagexInterface.anInt2082] = true;
 		}
 	}
 
@@ -219,22 +219,18 @@ final class InterfaceClickMask extends Node {
 		return i_6_;
 	}
 
-	static final void method1689(final int i, final int i_17_, final byte i_18_) {
-		try {
-			if (i_18_ >= 48 && Class50.method434(-49, i)) {
-				Class137.method1980(true, Node.aClass189ArrayArray1150[i], i_17_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.I(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(')').toString());
+	static final void method1689(final int i_17_, final int i) {
+		if (Class50.loadInterface(i)) {
+			Class137.method1980(true, Node.interfaceCache[i], i_17_);
 		}
 	}
 
 	static final void method1690(final int i, final int i_19_) {
 		try {
-			Class56.aClass21_494.method192((byte) -84, i_19_);
-			aClass21_2663.method192((byte) 89, i_19_);
-			Class167.aClass21_1618.method192((byte) 63, i_19_);
-			Class116.aClass21_1117.method192((byte) -82, i_19_);
+			Class56.aClass21_494.method192(i_19_);
+			aClass21_2663.method192(i_19_);
+			Class167.aClass21_1618.method192(i_19_);
+			Class116.aClass21_1117.method192(i_19_);
 			if (i != 23) {
 				method1680((byte) 59, 102);
 			}
@@ -274,8 +270,8 @@ final class InterfaceClickMask extends Node {
 			if (i != -15681) {
 				redrawInterface(null);
 			}
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.method186((byte) 86);
-			Class132.aClass21_1255.method186((byte) 86);
+			Class120_Sub14_Sub14_Sub2.aClass21_3937.clear();
+			Class132.aClass21_1255.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.A(").append(i).append(')').toString());
 		}

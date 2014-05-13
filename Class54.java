@@ -46,7 +46,7 @@ final class Class54 {
 			}
 			int i_5_ = 0;
 			while (class137_3_.anInt1325 > i_4_) {
-				final Buffer class120_sub7 = new Buffer(class50.method442(i_2_, (byte) 117, is[i_5_++]));
+				final Buffer class120_sub7 = new Buffer(class50.getFile(i_2_, is[i_5_++]));
 				final int i_6_ = class120_sub7.getInt();
 				final int i_7_ = class120_sub7.getUShort();
 				final int i_8_ = class120_sub7.getUByte();
@@ -78,7 +78,7 @@ final class Class54 {
 			Class120_Sub14_Sub14_Sub1.prayerIconSprites = null;
 			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303 = null;
 			aClass120_Sub14_Sub19Array490 = null;
-			Class21.aClass120_Sub14_Sub8_121 = null;
+			Cache.aClass120_Sub14_Sub8_121 = null;
 			Class157.aClass120_Sub14_Sub19_1474 = null;
 			Class40.aClass120_Sub14_Sub19Array335 = null;
 			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;

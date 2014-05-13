@@ -10,14 +10,14 @@ final class Class73 {
 	static float aFloat632;
 	boolean aBoolean633;
 	int anInt634;
-	static Class21 aClass21_635;
+	static Cache aClass21_635;
 	private int anInt636 = -1;
 	static int anInt637;
 	int[] anIntArray638;
 	static int anInt639 = 0;
 	int anInt640;
 	private int anInt641;
-	boolean aBoolean642;
+	boolean randomizePosition;
 	private int anInt643;
 	int anInt644;
 	String aString645;
@@ -43,7 +43,7 @@ final class Class73 {
 	static int anInt665;
 
 	static {
-		aClass21_635 = new Class21(64);
+		aClass21_635 = new Cache(64);
 		fps = 0;
 		anIntArray661 = new int[1000];
 		anIntArray664 = new int[14];
@@ -96,7 +96,7 @@ final class Class73 {
 			if (i >= -100) {
 				method646(104, -75, null);
 			}
-			Class107_Sub1 class107_sub1_2_ = (Class107_Sub1) Class82.aClass21_786.method193(anInt647 | 0x20000, (byte) 71);
+			Class107_Sub1 class107_sub1_2_ = (Class107_Sub1) Class82.aClass21_786.get(anInt647 | 0x20000);
 			if (class107_sub1_2_ != null) {
 				return class107_sub1_2_;
 			}
@@ -107,7 +107,7 @@ final class Class73 {
 				class107_sub1_2_.anInt1020 = 0;
 				class107_sub1_2_.anInt1028 = class107_sub1_2_.anInt1030;
 				class107_sub1_2_.anInt1021 = 0;
-				Class82.aClass21_786.method185(-125, class107_sub1_2_, 0x20000 | anInt647);
+				Class82.aClass21_786.put(class107_sub1_2_, 0x20000 | anInt647);
 			}
 			class107_sub1 = class107_sub1_2_;
 		} catch (final RuntimeException runtimeexception) {
@@ -131,7 +131,7 @@ final class Class73 {
 					this.anInt634 = class120_sub7.getUByte();
 				} else if (i_3_ != 7) {
 					if (i_3_ == 8) {
-						this.aBoolean642 = class120_sub7.getUByte() == 1;
+						this.randomizePosition = class120_sub7.getUByte() == 1;
 					} else if (i_3_ == 9) {
 						anInt650 = class120_sub7.getUShort();
 						if (anInt650 == 65535) {
@@ -248,7 +248,7 @@ final class Class73 {
 				method647(-42);
 			}
 			final int i = bool ? this.anInt657 : this.anInt644;
-			Class107 class107_10_ = (Class107) Class82.aClass21_786.method193(i | (bool ? 65536 : 0), (byte) -102);
+			Class107 class107_10_ = (Class107) Class82.aClass21_786.get(i | (bool ? 65536 : 0));
 			if (class107_10_ != null) {
 				return class107_10_;
 			}
@@ -266,13 +266,28 @@ final class Class73 {
 				class107_10_.anInt1021 = 0;
 				class107_10_.anInt1029 = class107_10_.anInt1026;
 				class107_10_.anInt1020 = 0;
-				Class82.aClass21_786.method185(-125, class107_10_, (bool ? 65536 : 0) | i);
+				Class82.aClass21_786.put(class107_10_, (bool ? 65536 : 0) | i);
 			}
 			class107 = class107_10_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ho.C(").append(bool).append(',').append(bool_8_).append(',').append(bool_9_).append(')').toString());
 		}
 		return class107;
+	}
+
+	static final Class73 list(int i) {
+		Class73 class73_34_ = (Class73) Class120_Sub12_Sub14.aClass21_3238.get(i);
+		if (class73_34_ != null) {
+			return class73_34_;
+		}
+		final byte[] is = Class31.aClass50_241.getFile(36, i);
+		class73_34_ = new Class73();
+		class73_34_.anInt658 = i;
+		if (is != null) {
+			class73_34_.method643(new Buffer(is), 0);
+		}
+		Class120_Sub12_Sub14.aClass21_3238.put(class73_34_, i);
+		return class73_34_;
 	}
 
 	public static void method649(final byte i) {
@@ -294,7 +309,7 @@ final class Class73 {
 		this.anInt634 = 0;
 		this.aBoolean633 = false;
 		this.anInt644 = -1;
-		this.aBoolean642 = true;
+		this.randomizePosition = true;
 		this.aStringArray646 = new String[5];
 		this.anInt652 = -1;
 		anInt650 = -1;

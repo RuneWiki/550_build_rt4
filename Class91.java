@@ -62,21 +62,21 @@ final class Class91 implements Runnable {
 	}
 
 	static final void method763(final int i, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
-		final Class189 class189 = Class120_Sub13.method1404(i_10_, (byte) 82, i_8_);
-		if (class189 != null && class189.anObjectArray1980 != null) {
+		final JagexInterface jagexInterface = Class120_Sub13.method1404(i_10_, (byte) 82, i_8_);
+		if (jagexInterface != null && jagexInterface.anObjectArray1980 != null) {
 			final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-			class120_sub10.anObjectArray2537 = class189.anObjectArray1980;
-			class120_sub10.aClass189_2534 = class189;
+			class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray1980;
+			class120_sub10.aClass189_2534 = jagexInterface;
 			Class88.method744(true, class120_sub10);
 		}
 		Class88.aBoolean828 = true;
 		Class192.anInt2123 = i_7_;
 		Class139.anInt1330 = i_6_;
-		Class46.anInt420 = i_8_;
+		JagexSocket.anInt420 = i_8_;
 		Class150.anInt1417 = i_9_;
 		AbstractMouseWheelHandler.anInt119 = i_10_;
-		Class120_Sub18.anInt2652 = i;
-		InterfaceClickMask.redrawInterface(class189);
+		GroundTile.anInt2652 = i;
+		InterfaceClickMask.redrawInterface(jagexInterface);
 	}
 
 	static final void method764(final int i, final int i_12_) {
@@ -84,7 +84,7 @@ final class Class91 implements Runnable {
 			if (i_12_ != 3) {
 				method762((byte) 113);
 			}
-			Class120_Sub12_Sub37.aClass21_3427.method192((byte) 32, i);
+			Class120_Sub12_Sub37.aClass21_3427.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jm.A(").append(i).append(',').append(i_12_).append(')').toString());
 		}

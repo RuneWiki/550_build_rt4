@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub6 extends Class180 {
+final class Class180_Sub6 extends SceneGraphNode {
 	private int anInt3048;
 	private final int anInt3049;
 	private int anInt3050;
@@ -26,7 +26,7 @@ final class Class180_Sub6 extends Class180 {
 	private int anInt3068;
 	private final int anInt3069;
 	private Class40 aClass40_3070;
-	static Class21 aClass21_3071 = new Class21(200);
+	static Cache aClass21_3071 = new Cache(200);
 	private int anInt3072;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array3073;
 	static int anInt3074 = 0;
@@ -36,20 +36,20 @@ final class Class180_Sub6 extends Class180 {
 	@Override
 	final void method2266(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
 		try {
-			Class180 class180 = null;
+			SceneGraphNode sceneGraphNode = null;
 			if (HDToolkit.glEnabled) {
-				class180 = method2350(true, 6335);
+				sceneGraphNode = method2350(true, 6335);
 			} else {
 				method2353(i_3_, -127, i_2_);
 			}
 			if (!aBoolean3063) {
-				if (class180 == null) {
-					class180 = method2357(-67);
+				if (sceneGraphNode == null) {
+					sceneGraphNode = method2357(-67);
 				}
-				if (class180 == null) {
+				if (sceneGraphNode == null) {
 					return;
 				}
-				method2359(true, class180);
+				method2359(true, sceneGraphNode);
 			}
 			if (aClass108_Sub2_3058 != null) {
 				aClass108_Sub2_3058.method944(i, i_0_, i_2_, i_1_, i_3_);
@@ -62,10 +62,10 @@ final class Class180_Sub6 extends Class180 {
 	@Override
 	final void method2265(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final long l, final int i_11_, final ParticleEngine class108_sub2) {
 		try {
-			final Class180 class180 = method2357(-104);
-			if (class180 != null) {
-				method2359(true, class180);
-				class180.method2265(i, i_4_, i_5_, i_6_, i_7_, i_8_, i_9_, i_10_, l, i_11_, aClass108_Sub2_3058);
+			final SceneGraphNode sceneGraphNode = method2357(-104);
+			if (sceneGraphNode != null) {
+				method2359(true, sceneGraphNode);
+				sceneGraphNode.method2265(i, i_4_, i_5_, i_6_, i_7_, i_8_, i_9_, i_10_, l, i_11_, aClass108_Sub2_3058);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception,
@@ -74,8 +74,8 @@ final class Class180_Sub6 extends Class180 {
 		}
 	}
 
-	private final Class180 method2350(final boolean bool, final int i) {
-		Class180 class180;
+	private final SceneGraphNode method2350(final boolean bool, final int i) {
+		SceneGraphNode sceneGraphNode;
 		try {
 			final boolean bool_12_ = Class120_Sub26.anIntArrayArrayArray2741 != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			LocType locType = LocType.list(anInt3064);
@@ -170,11 +170,11 @@ final class Class180_Sub6 extends Class180 {
 			}
 			anInt3050 = locType.myId;
 			anInt3072 = anInt3052;
-			class180 = class88.aClass180_826;
+			sceneGraphNode = class88.aClass180_826;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ri.B(").append(bool).append(',').append(i).append(')').toString());
 		}
-		return class180;
+		return sceneGraphNode;
 	}
 
 	public static void method2351(final int i) {
@@ -364,7 +364,7 @@ final class Class180_Sub6 extends Class180 {
 					}
 					class120_sub8.unlink();
 				}
-				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method657(13292); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method658((byte) -113)) {
+				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.getFirst(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.getNext()) {
 					if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 						class120_sub8.aClass120_Sub30_Sub4_2488 = null;
@@ -380,27 +380,27 @@ final class Class180_Sub6 extends Class180 {
 		}
 	}
 
-	static final Class183 method2356(final int i, final int i_37_, final int i_38_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_37_][i_38_];
-		if (class120_sub18 == null) {
+	static final ObjectPile resetObjectPile(final int level, final int x, final int z) {
+		final GroundTile groundTile = Class120_Sub1.groundTiles[level][x][z];
+		if (groundTile == null) {
 			return null;
 		}
-		final Class183 class183 = class120_sub18.aClass183_2634;
-		class120_sub18.aClass183_2634 = null;
-		return class183;
+		final ObjectPile objectPile = groundTile.objectPile;
+		groundTile.objectPile = null;
+		return objectPile;
 	}
 
-	final Class180 method2357(final int i) {
-		Class180 class180;
+	final SceneGraphNode method2357(final int i) {
+		SceneGraphNode sceneGraphNode;
 		try {
 			if (i >= -65) {
 				method2351(-126);
 			}
-			class180 = method2350(false, 6335);
+			sceneGraphNode = method2350(false, 6335);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ri.G(").append(i).append(')').toString());
 		}
-		return class180;
+		return sceneGraphNode;
 	}
 
 	static final String method2358(String string, final String string_39_, final String string_40_) {
@@ -421,10 +421,10 @@ final class Class180_Sub6 extends Class180 {
 		return i;
 	}
 
-	private final void method2359(final boolean bool, final Class180 class180) {
+	private final void method2359(final boolean bool, final SceneGraphNode sceneGraphNode) {
 		try {
 			if (!HDToolkit.glEnabled) {
-				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180;
+				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) sceneGraphNode;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
 					LocType locType = LocType.list(anInt3064);
 					if (locType.childrenIDs != null) {
@@ -438,7 +438,7 @@ final class Class180_Sub6 extends Class180 {
 					aClass108_Sub2_3058.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
 				}
 			} else {
-				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180;
+				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) sceneGraphNode;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
 					LocType locType = LocType.list(anInt3064);
 					if (locType.childrenIDs != null) {
@@ -454,7 +454,7 @@ final class Class180_Sub6 extends Class180 {
 			}
 			aBoolean3063 = bool;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ri.J(").append(bool).append(',').append(class180 != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ri.J(").append(bool).append(',').append(sceneGraphNode != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -469,7 +469,7 @@ final class Class180_Sub6 extends Class180 {
 		}
 	}
 
-	Class180_Sub6(final int i, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final boolean bool, final Class180 class180) {
+	Class180_Sub6(final int i, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final boolean bool, final SceneGraphNode sceneGraphNode) {
 		anInt3053 = -32768;
 		anInt3059 = 0;
 		anInt3061 = 0;
@@ -485,9 +485,9 @@ final class Class180_Sub6 extends Class180 {
 		anInt3060 = i_44_;
 		anInt3055 = i_43_;
 		anInt3064 = i;
-		if (class180 != null) {
+		if (sceneGraphNode != null) {
 			aBoolean3054 = true;
-			if (!(class180 instanceof Class180_Sub6)) {
+			if (!(sceneGraphNode instanceof Class180_Sub6)) {
 				if (HDToolkit.glEnabled) {
 					LocType locType = LocType.list(anInt3064);
 					if (locType.childrenIDs != null) {
@@ -498,7 +498,7 @@ final class Class180_Sub6 extends Class180 {
 					}
 				}
 			} else {
-				final Class180_Sub6 class180_sub6_48_ = (Class180_Sub6) class180;
+				final Class180_Sub6 class180_sub6_48_ = (Class180_Sub6) sceneGraphNode;
 				if (HDToolkit.glEnabled) {
 					class180_sub6_48_.method2354(124);
 				}
@@ -512,7 +512,7 @@ final class Class180_Sub6 extends Class180 {
 		if (aBoolean3054) {
 			method2352(-1, i_47_);
 		}
-		if (HDToolkit.glEnabled && class180 != null) {
+		if (HDToolkit.glEnabled && sceneGraphNode != null) {
 			method2350(true, 6335);
 		}
 	}

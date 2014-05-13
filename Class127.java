@@ -20,7 +20,7 @@ final class Class127 {
 	static final int method1888(final int i, final byte i_0_, final int i_1_, final boolean bool) {
 		int i_2_;
 		try {
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i_1_, -124);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_1_);
 			if (class120_sub17 == null) {
 				return 0;
 			}
@@ -32,12 +32,12 @@ final class Class127 {
 				if (class120_sub17.anIntArray2618[i_4_] >= 0 && Node.anInt1143 > class120_sub17.anIntArray2618[i_4_]) {
 					final ObjType objType = ObjType.list(class120_sub17.anIntArray2618[i_4_]);
 					if (objType.params != null) {
-						final Class120_Sub32 class120_sub32 = (Class120_Sub32) objType.params.method659(i, -127);
+						final IntegerNode class120_sub32 = (IntegerNode) objType.params.get(i);
 						if (class120_sub32 != null) {
 							if (!bool) {
-								i_3_ += class120_sub32.anInt2790;
+								i_3_ += class120_sub32.value;
 							} else {
-								i_3_ += class120_sub32.anInt2790 * class120_sub17.anIntArray2619[i_4_];
+								i_3_ += class120_sub32.value * class120_sub17.anIntArray2619[i_4_];
 							}
 						}
 					}
@@ -129,7 +129,7 @@ final class Class127 {
 			for (/**/; OutputStream_Sub1.aFloat28 < 0.0F; OutputStream_Sub1.aFloat28 += 2048.0F) {
 				/* empty */
 			}
-			final int i_12_ = Class22.method197(Class120_Sub10.anInt2545, true, Class69_Sub3_Sub1.anInt3083, Class173.gameLevel);
+			final int i_12_ = Class22.method197(Class173.gameLevel, Class69_Sub3_Sub1.anInt3083, Class120_Sub10.anInt2545);
 			if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
 				for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
 					for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {
@@ -162,24 +162,24 @@ final class Class127 {
 	}
 
 	static final void method1893(final int i, final int i_18_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[0][i][i_18_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[0][i][i_18_];
 		for (int i_19_ = 0; i_19_ < 3; i_19_++) {
-			final Class120_Sub18 class120_sub18_20_ = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_19_][i][i_18_] = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_19_ + 1][i][i_18_];
+			final GroundTile class120_sub18_20_ = Class120_Sub1.groundTiles[i_19_][i][i_18_] = Class120_Sub1.groundTiles[i_19_ + 1][i][i_18_];
 			if (class120_sub18_20_ != null) {
 				class120_sub18_20_.anInt2636--;
 				for (int i_21_ = 0; i_21_ < class120_sub18_20_.anInt2638; i_21_++) {
 					final Class28 class28 = class120_sub18_20_.aClass28Array2625[i_21_];
-					if ((class28.aLong186 >> 29 & 0x3L) == 2L && class28.anInt180 == i && class28.anInt184 == i_18_) {
+					if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i && class28.anInt184 == i_18_) {
 						class28.anInt177--;
 					}
 				}
 			}
 		}
-		if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[0][i][i_18_] == null) {
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[0][i][i_18_] = new Class120_Sub18(0, i, i_18_);
+		if (Class120_Sub1.groundTiles[0][i][i_18_] == null) {
+			Class120_Sub1.groundTiles[0][i][i_18_] = new GroundTile(0, i, i_18_);
 		}
-		Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[0][i][i_18_].aClass120_Sub18_2644 = class120_sub18;
-		Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[3][i][i_18_] = null;
+		Class120_Sub1.groundTiles[0][i][i_18_].aClass120_Sub18_2644 = class120_sub18;
+		Class120_Sub1.groundTiles[3][i][i_18_] = null;
 	}
 
 	public static void method1894(final byte i) {
@@ -241,7 +241,7 @@ final class Class127 {
 			if (i != 48) {
 				aShortArray1214 = null;
 			}
-			Class22.aClass21_131.method190(false);
+			Class22.aClass21_131.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("om.B(").append(i).append(')').toString());
 		}

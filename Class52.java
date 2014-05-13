@@ -19,7 +19,7 @@ final class Class52 {
 	static int anInt478;
 	Class56[] aClass56Array479;
 	int[] anIntArray480;
-	int anInt481;
+	int indexCrc;
 	int[] anIntArray482;
 	int[] anIntArray483;
 	int anInt484;
@@ -46,8 +46,8 @@ final class Class52 {
 
 	static final void method453(final int i, final byte i_1_) {
 		if (i_1_ >= 103) {
-			Class120_Sub14_Sub11.aClass21_3541.method186((byte) 86);
-			Class120_Sub14_Sub11.aClass21_3541 = new Class21(i);
+			Class120_Sub14_Sub11.aClass21_3541.clear();
+			Class120_Sub14_Sub11.aClass21_3541 = new Cache(i);
 		}
 	}
 
@@ -152,8 +152,8 @@ final class Class52 {
 	}
 
 	Class52(final byte[] is, final int i) {
-		this.anInt481 = Class120_Sub14_Sub3.method1431(is.length, 0, is);
-		if (this.anInt481 != i) {
+		this.indexCrc = AbstractObject.method1431(is.length, 0, is);
+		if (this.indexCrc != i) {
 			throw new RuntimeException();
 		}
 		method455(is, -113);

@@ -21,14 +21,14 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 
 	static final void method1413(final int i, final int i_0_) {
 		try {
-			if (Class50.method434(-115, i_0_)) {
-				final Class189[] class189s = Node.aClass189ArrayArray1150[i_0_];
-				for (final Class189 class1892 : class189s) {
-					final Class189 class189 = class1892;
-					if (class189 != null) {
-						class189.anInt2098 = 1;
-						class189.anInt1946 = 0;
-						class189.anInt1965 = 0;
+			if (Class50.loadInterface(i_0_)) {
+				final JagexInterface[] class189s = Node.interfaceCache[i_0_];
+				for (final JagexInterface class1892 : class189s) {
+					final JagexInterface jagexInterface = class1892;
+					if (jagexInterface != null) {
+						jagexInterface.anInt2098 = 1;
+						jagexInterface.anInt1946 = 0;
+						jagexInterface.anInt1965 = 0;
 					}
 				}
 			}
@@ -71,7 +71,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				Class120_Sub1.method1037((byte) -120);
 			}
 			if (state != 40 && Light.aClass46_381 != null) {
-				Light.aClass46_381.method377(-19055);
+				Light.aClass46_381.method377();
 				Light.aClass46_381 = null;
 			}
 			if (state == 25 || state == 28) {

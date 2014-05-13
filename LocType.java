@@ -6,7 +6,7 @@ final class LocType {
 	private short[] aShortArray1815;
 	private int anInt1816;
 	private int[] anIntArray1817;
-	static Class189 aClass189_1818 = null;
+	static JagexInterface aClass189_1818 = null;
 	int anInt1819;
 	private byte aByte1820;
 	int anInt1821;
@@ -39,7 +39,7 @@ final class LocType {
 	String name;
 	String[] actions;
 	private int[] anIntArray1850;
-	boolean aBoolean1851;
+	boolean members;
 	int[] childrenIDs;
 	boolean aBoolean1853;
 	private int anInt1854;
@@ -53,7 +53,7 @@ final class LocType {
 	boolean aBoolean1862;
 	boolean aBoolean1863;
 	boolean aBoolean1864;
-	private Class75 aClass75_1865;
+	private Hashtable aClass75_1865;
 	int anInt1866;
 	private short aShort1867;
 	private boolean aBoolean1868;
@@ -71,24 +71,17 @@ final class LocType {
 	boolean aBoolean1880;
 	int[] anIntArray1881;
 
-	static final void method2450(final int i) {
-		try {
-			Class173.aClass120_Sub14_Sub19_1725 = null;
-			Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = null;
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
-			Class157.aClass120_Sub14_Sub19_1472 = null;
-			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
-			if (i != 0) {
-				method2458();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.N(").append(i).append(')').toString());
-		}
+	static final void method2450() {
+		Class173.aClass120_Sub14_Sub19_1725 = null;
+		Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = null;
+		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
+		Class157.aClass120_Sub14_Sub19_1472 = null;
+		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
 	}
 
 	static final void method2451(final byte i) {
 		try {
-			Class120_Sub12_Sub37.aClass21_3427.method186((byte) 86);
+			Class120_Sub12_Sub37.aClass21_3427.clear();
 			if (i != 22) {
 				method2451((byte) 92);
 			}
@@ -121,7 +114,7 @@ final class LocType {
 		Class88 class88;
 		try {
 			if (i_10_ > -112) {
-				method2450(62);
+				method2450();
 			}
 			if (!HDToolkit.glEnabled) {
 				long l;
@@ -137,8 +130,8 @@ final class LocType {
 					l |= ~0x7fffffffffffffffL;
 					bool_11_ = true;
 				}
-				Class180 class180 = (Class180) Class167.aClass21_1618.method193(l, (byte) 71);
-				if (class180 == null) {
+				SceneGraphNode sceneGraphNode = (SceneGraphNode) Class167.aClass21_1618.get(l);
+				if (sceneGraphNode == null) {
 					final Class180_Sub2 class180_sub2 = method2455(i_8_, (byte) -46, i_4_);
 					if (class180_sub2 == null) {
 						Class82.aClass88_783.aClass180_826 = null;
@@ -149,26 +142,26 @@ final class LocType {
 						class180_sub2.method2279(256);
 					}
 					if (!bool_11_) {
-						class180 = new Class180_Sub7_Sub1(class180_sub2, 64 - -anInt1843, anInt1824 * 5 + 768, -50, -10, -50);
+						sceneGraphNode = new Class180_Sub7_Sub1(class180_sub2, 64 - -anInt1843, anInt1824 * 5 + 768, -50, -10, -50);
 					} else {
 						class180_sub2.aShort2894 = (short) (anInt1843 + 64);
 						class180_sub2.aShort2866 = (short) (5 * anInt1824 + 768);
-						class180 = class180_sub2;
+						sceneGraphNode = class180_sub2;
 						class180_sub2.method2303();
 					}
-					Class167.aClass21_1618.method185(-126, class180, l);
+					Class167.aClass21_1618.put(sceneGraphNode, l);
 				}
 				if (bool_11_) {
-					class180 = ((Class180_Sub2) class180).method2288();
+					sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2288();
 				}
 				if (aByte1820 != 0) {
-					if (class180 instanceof Class180_Sub7_Sub1) {
-						class180 = ((Class180_Sub7_Sub1) class180).method2399(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true);
-					} else if (class180 instanceof Class180_Sub2) {
-						class180 = ((Class180_Sub2) class180).method2305(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true, false);
+					if (sceneGraphNode instanceof Class180_Sub7_Sub1) {
+						sceneGraphNode = ((Class180_Sub7_Sub1) sceneGraphNode).method2399(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true);
+					} else if (sceneGraphNode instanceof Class180_Sub2) {
+						sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2305(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true, false);
 					}
 				}
-				Class82.aClass88_783.aClass180_826 = class180;
+				Class82.aClass88_783.aClass180_826 = sceneGraphNode;
 				return Class82.aClass88_783;
 			}
 			long l;
@@ -177,7 +170,7 @@ final class LocType {
 			} else {
 				l = (this.myId << 10) + i_8_;
 			}
-			Class88 class88_12_ = (Class88) Class167.aClass21_1618.method193(l, (byte) 63);
+			Class88 class88_12_ = (Class88) Class167.aClass21_1618.get(l);
 			Class180_Sub7_Sub2 class180_sub7_sub2;
 			Class107_Sub1 class107_sub1_13_;
 			if (class88_12_ != null) {
@@ -201,7 +194,7 @@ final class LocType {
 				class88_12_ = new Class88();
 				class88_12_.aClass180_826 = class180_sub7_sub2;
 				class88_12_.aClass107_Sub1_830 = class107_sub1_13_;
-				Class167.aClass21_1618.method185(-127, class88_12_, l);
+				Class167.aClass21_1618.put(class88_12_, l);
 			}
 			final boolean bool_14_ = bool & aBoolean1830;
 			final Class180_Sub7_Sub2 class180_sub7_sub2_15_ = class180_sub7_sub2.method2412(aByte1820 != 3, aByte1820 == 0, true, true, true, true, !bool_14_, true, true, true, true);
@@ -229,11 +222,11 @@ final class LocType {
 			if (aClass75_1865 == null) {
 				return i_16_;
 			}
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_1865.method659(i_17_, i + -192);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_1865.get(i_17_);
 			if (class120_sub32 == null) {
 				return i_16_;
 			}
-			i_18_ = class120_sub32.anInt2790;
+			i_18_ = class120_sub32.value;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.K(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(')').toString());
 		}
@@ -261,7 +254,7 @@ final class LocType {
 					if (bool) {
 						i_24_ += 65536;
 					}
-					class180_sub2_21_ = (Class180_Sub2) InterfaceClickMask.aClass21_2663.method193(i_24_, (byte) 100);
+					class180_sub2_21_ = (Class180_Sub2) InterfaceClickMask.aClass21_2663.get(i_24_);
 					if (class180_sub2_21_ == null) {
 						class180_sub2_21_ = Class180_Sub2.method2291(Class120_Sub12_Sub36.aClass50_3418, i_24_ & 0xffff, 0);
 						if (class180_sub2_21_ == null) {
@@ -270,7 +263,7 @@ final class LocType {
 						if (bool) {
 							class180_sub2_21_.method2287();
 						}
-						InterfaceClickMask.aClass21_2663.method185(-126, class180_sub2_21_, i_24_);
+						InterfaceClickMask.aClass21_2663.put(class180_sub2_21_, i_24_);
 					}
 					if (i_22_ > 1) {
 						Class120_Sub14_Sub14.aClass180_Sub2Array3574[i_23_] = class180_sub2_21_;
@@ -294,7 +287,7 @@ final class LocType {
 				if (bool) {
 					i_27_ += 65536;
 				}
-				class180_sub2_21_ = (Class180_Sub2) InterfaceClickMask.aClass21_2663.method193(i_27_, (byte) -90);
+				class180_sub2_21_ = (Class180_Sub2) InterfaceClickMask.aClass21_2663.get(i_27_);
 				if (class180_sub2_21_ == null) {
 					class180_sub2_21_ = Class180_Sub2.method2291(Class120_Sub12_Sub36.aClass50_3418, i_27_ & 0xffff, 0);
 					if (class180_sub2_21_ == null) {
@@ -303,7 +296,7 @@ final class LocType {
 					if (bool) {
 						class180_sub2_21_.method2287();
 					}
-					InterfaceClickMask.aClass21_2663.method185(-126, class180_sub2_21_, i_27_);
+					InterfaceClickMask.aClass21_2663.put(class180_sub2_21_, i_27_);
 				}
 			}
 			boolean bool_28_;
@@ -427,7 +420,7 @@ final class LocType {
 				if (bool) {
 					l ^= 0xffffffffffffffffL;
 				}
-				class180_sub7_sub2_41_ = (Class180_Sub7_Sub2) InterfaceClickMask.aClass21_2663.method193(l, (byte) -101);
+				class180_sub7_sub2_41_ = (Class180_Sub7_Sub2) InterfaceClickMask.aClass21_2663.get(l);
 				if (class180_sub7_sub2_41_ == null) {
 					Class180_Sub2 class180_sub2 = null;
 					for (int i_44_ = 0; i_42_ > i_44_; i_44_++) {
@@ -443,7 +436,7 @@ final class LocType {
 						class180_sub2 = new Class180_Sub2(Class120_Sub14_Sub14.aClass180_Sub2Array3574, i_42_);
 					}
 					class180_sub7_sub2_41_ = new Class180_Sub7_Sub2(class180_sub2, i_39_, i_40_, bool);
-					InterfaceClickMask.aClass21_2663.method185(-125, class180_sub7_sub2_41_, l);
+					InterfaceClickMask.aClass21_2663.put(class180_sub7_sub2_41_, l);
 				}
 			} else {
 				int i_45_ = -1;
@@ -460,14 +453,14 @@ final class LocType {
 				if (bool) {
 					i_47_ += 65536;
 				}
-				class180_sub7_sub2_41_ = (Class180_Sub7_Sub2) InterfaceClickMask.aClass21_2663.method193(i_47_, (byte) -123);
+				class180_sub7_sub2_41_ = (Class180_Sub7_Sub2) InterfaceClickMask.aClass21_2663.get(i_47_);
 				if (class180_sub7_sub2_41_ == null) {
 					final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub36.aClass50_3418, 0xffff & i_47_, 0);
 					if (class180_sub2 == null) {
 						return null;
 					}
 					class180_sub7_sub2_41_ = new Class180_Sub7_Sub2(class180_sub2, i_39_, i_40_, bool);
-					InterfaceClickMask.aClass21_2663.method185(-127, class180_sub7_sub2_41_, i_47_);
+					InterfaceClickMask.aClass21_2663.put(class180_sub7_sub2_41_, i_47_);
 				}
 			}
 			boolean bool_48_ = aBoolean1868;
@@ -569,7 +562,7 @@ final class LocType {
 				} else {
 					l = i_62_ + (i_63_ << 3) + (this.myId << 10);
 				}
-				Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) Class116.aClass21_1117.method193(l, (byte) 84);
+				Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) Class116.aClass21_1117.get(l);
 				if (class180_sub7_sub2 == null) {
 					class180_sub7_sub2 = method2459(i_63_, true, i_62_, false);
 					if (class180_sub7_sub2 == null) {
@@ -577,7 +570,7 @@ final class LocType {
 					}
 					class180_sub7_sub2.method2426();
 					class180_sub7_sub2.method2432(false, false, false, true, false, false, true);
-					Class116.aClass21_1117.method185(-127, class180_sub7_sub2, l);
+					Class116.aClass21_1117.put(class180_sub7_sub2, l);
 				}
 				Class180_Sub7_Sub2 class180_sub7_sub2_67_ = class180_sub7_sub2;
 				boolean bool_68_ = false;
@@ -613,14 +606,14 @@ final class LocType {
 			} else {
 				l = (this.myId << 10) + i_62_;
 			}
-			Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) Class116.aClass21_1117.method193(l, (byte) 99);
+			Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) Class116.aClass21_1117.get(l);
 			if (class180_sub7_sub1 == null) {
 				final Class180_Sub2 class180_sub2 = method2455(i_62_, (byte) -87, i_63_);
 				if (class180_sub2 == null) {
 					return null;
 				}
 				class180_sub7_sub1 = new Class180_Sub7_Sub1(class180_sub2, anInt1843 + 64, 5 * anInt1824 + 768, -50, -10, -50);
-				Class116.aClass21_1117.method185(-127, class180_sub7_sub1, l);
+				Class116.aClass21_1117.put(class180_sub7_sub1, l);
 			}
 			boolean bool_69_ = false;
 			if (class40 != null) {
@@ -764,7 +757,7 @@ final class LocType {
 																									if (i == 90) {
 																										this.aBoolean1822 = true;
 																									} else if (i == 91) {
-																										this.aBoolean1851 = true;
+																										this.members = true;
 																									} else if (i == 93) {
 																										aByte1820 = (byte) 3;
 																										aShort1867 = (short) class120_sub7.getUShort();
@@ -808,7 +801,7 @@ final class LocType {
 																																final int i_81_ = class120_sub7.getUByte();
 																																if (aClass75_1865 == null) {
 																																	final int i_82_ = Class120_Sub12_Sub17.method1283(i_81_, (byte) -11);
-																																	aClass75_1865 = new Class75(i_82_);
+																																	aClass75_1865 = new Hashtable(i_82_);
 																																}
 																																for (int i_83_ = 0; i_81_ > i_83_; i_83_++) {
 																																	final boolean bool = class120_sub7.getUByte() == 1;
@@ -817,9 +810,9 @@ final class LocType {
 																																	if (bool) {
 																																		node = new StringNode(class120_sub7.getJString());
 																																	} else {
-																																		node = new Class120_Sub32(class120_sub7.getInt());
+																																		node = new IntegerNode(class120_sub7.getInt());
 																																	}
-																																	aClass75_1865.method655(node, 83, i_84_);
+																																	aClass75_1865.put(node, i_84_);
 																																}
 																															}
 																														} else {
@@ -1018,17 +1011,17 @@ final class LocType {
 		return bool;
 	}
 
-	static final int method2467(final int i, final byte i_101_, final Class189 class189) {
+	static final int method2467(final int i, final byte i_101_, final JagexInterface jagexInterface) {
 		int i_102_;
 		try {
-			if (class189.anIntArrayArray1970 == null || i >= class189.anIntArrayArray1970.length) {
+			if (jagexInterface.anIntArrayArray1970 == null || i >= jagexInterface.anIntArrayArray1970.length) {
 				return -2;
 			}
 			try {
 				if (i_101_ >= -11) {
 					modeWhat = -7;
 				}
-				final int[] is = class189.anIntArrayArray1970[i];
+				final int[] is = jagexInterface.anIntArrayArray1970[i];
 				int i_103_ = 0;
 				int i_104_ = 0;
 				int i_105_ = 0;
@@ -1040,7 +1033,7 @@ final class LocType {
 						return i_104_;
 					}
 					if (i_107_ == 1) {
-						i_108_ = Class180.anIntArray1783[is[i_103_++]];
+						i_108_ = SceneGraphNode.anIntArray1783[is[i_103_++]];
 					}
 					if (i_107_ == 15) {
 						i_106_ = 1;
@@ -1052,7 +1045,7 @@ final class LocType {
 						i_106_ = 3;
 					}
 					if (i_107_ == 2) {
-						i_108_ = Class172.anIntArray1720[is[i_103_++]];
+						i_108_ = Decimator.anIntArray1720[is[i_103_++]];
 					}
 					if (i_107_ == 3) {
 						i_108_ = Class120_Sub12_Sub38.anIntArray3439[is[i_103_++]];
@@ -1060,9 +1053,9 @@ final class LocType {
 					if (i_107_ == 4) {
 						int i_109_ = is[i_103_++] << 16;
 						i_109_ += is[i_103_++];
-						final Class189 class189_110_ = Class74.method650(68, i_109_);
+						final JagexInterface class189_110_ = Class74.getJagexInterface(i_109_);
 						final int i_111_ = is[i_103_++];
-						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.aBoolean3432)) {
+						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.membersClient)) {
 							for (int i_112_ = 0; class189_110_.anIntArray1978.length > i_112_; i_112_++) {
 								if (class189_110_.anIntArray1978[i_112_] == i_111_ + 1) {
 									i_108_ += class189_110_.anIntArray1983[i_112_];
@@ -1074,7 +1067,7 @@ final class LocType {
 						i_108_ = Class2.permanentVariable[is[i_103_++]];
 					}
 					if (i_107_ == 6) {
-						i_108_ = Class55.anIntArray492[Class172.anIntArray1720[is[i_103_++]] - 1];
+						i_108_ = Class55.anIntArray492[Decimator.anIntArray1720[is[i_103_++]] - 1];
 					}
 					if (i_107_ == 7) {
 						i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
@@ -1085,16 +1078,16 @@ final class LocType {
 					if (i_107_ == 9) {
 						for (int i_113_ = 0; i_113_ < 25; i_113_++) {
 							if (Class173.aBooleanArray1723[i_113_]) {
-								i_108_ += Class172.anIntArray1720[i_113_];
+								i_108_ += Decimator.anIntArray1720[i_113_];
 							}
 						}
 					}
 					if (i_107_ == 10) {
 						int i_114_ = is[i_103_++] << 16;
 						i_114_ += is[i_103_++];
-						final Class189 class189_115_ = Class74.method650(55, i_114_);
+						final JagexInterface class189_115_ = Class74.getJagexInterface(i_114_);
 						final int i_116_ = is[i_103_++];
-						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.aBoolean3432)) {
+						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.membersClient)) {
 							for (int i_117_ = 0; class189_115_.anIntArray1978.length > i_117_; i_117_++) {
 								if (1 + i_116_ == class189_115_.anIntArray1978[i_117_]) {
 									i_108_ = 999999999;
@@ -1149,7 +1142,7 @@ final class LocType {
 				i_102_ = -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.M(").append(i).append(',').append(i_101_).append(',').append(class189 != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.M(").append(i).append(',').append(i_101_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 		return i_102_;
 	}
@@ -1214,7 +1207,7 @@ final class LocType {
 			if (i_124_ != -108) {
 				return null;
 			}
-			final StringNode class120_sub25 = (StringNode) aClass75_1865.method659(i, i_124_ + 118);
+			final StringNode class120_sub25 = (StringNode) aClass75_1865.get(i);
 			if (class120_sub25 == null) {
 				return string;
 			}
@@ -1226,25 +1219,25 @@ final class LocType {
 	}
 
 	static final LocType list(final int id) {
-		LocType class184_1_ = (LocType) Class56.aClass21_494.method193(id, (byte) -124);
+		LocType class184_1_ = (LocType) Class56.aClass21_494.get(id);
 		if (class184_1_ != null) {
 			return class184_1_;
 		}
-		final byte[] is = Class120_Sub6.aClass50_2450.method442(Class53_Sub1.method465(114, id), (byte) 120, Class120_Sub18.method1667(true, id));
+		final byte[] is = Class120_Sub6.aClass50_2450.getFile(Class53_Sub1.method465(114, id), GroundTile.method1667(true, id));
 		class184_1_ = new LocType();
 		class184_1_.myId = id;
 		if (is != null) {
 			class184_1_.method2457(-1, new Buffer(is));
 		}
 		class184_1_.method2469(125);
-		if (!Class69_Sub2.aBoolean2234 && class184_1_.aBoolean1851) {
+		if (!Class69_Sub2.aBoolean2234 && class184_1_.members) {
 			class184_1_.actions = null;
 		}
 		if (class184_1_.aBoolean1880) {
 			class184_1_.anInt1821 = 0;
 			class184_1_.aBoolean1844 = false;
 		}
-		Class56.aClass21_494.method185(-126, class184_1_, id);
+		Class56.aClass21_494.put(class184_1_, id);
 		return class184_1_;
 	}
 
@@ -1256,7 +1249,7 @@ final class LocType {
 		this.anInt1832 = 0;
 		this.anInt1827 = 1;
 		this.anInt1845 = 0;
-		this.aBoolean1851 = false;
+		this.members = false;
 		this.anInt1857 = 0;
 		this.cursor2op = -1;
 		this.actions = new String[5];

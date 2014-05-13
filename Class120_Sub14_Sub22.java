@@ -22,73 +22,73 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 
 	static final void method1629(final int i, final int i_0_, final int i_1_, final int i_2_, final String string) {
 		try {
-			final Class189 class189 = Class120_Sub13.method1404(i, (byte) 82, i_0_);
-			if (class189 != null) {
-				if (class189.anObjectArray2006 != null) {
+			final JagexInterface jagexInterface = Class120_Sub13.method1404(i, (byte) 82, i_0_);
+			if (jagexInterface != null) {
+				if (jagexInterface.anObjectArray2006 != null) {
 					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
 					class120_sub10.anInt2541 = i_1_;
-					class120_sub10.aClass189_2534 = class189;
+					class120_sub10.aClass189_2534 = jagexInterface;
 					class120_sub10.aString2539 = string;
-					class120_sub10.anObjectArray2537 = class189.anObjectArray2006;
+					class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2006;
 					Class88.method744(true, class120_sub10);
 				}
 				boolean bool = true;
-				if (class189.anInt1975 > 0) {
-					bool = Class120_Sub32.method1833((byte) -101, class189);
+				if (jagexInterface.anInt1975 > 0) {
+					bool = IntegerNode.method1833((byte) -101, jagexInterface);
 				}
-				if (bool && client.method54(class189).method1678(-1 + i_1_, 26)) {
+				if (bool && client.method54(jagexInterface).method1678(-1 + i_1_, 26)) {
 					if (i_1_ == 1) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(94);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(94);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 2) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(201);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(201);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 3) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(30);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(30);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 4) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(61);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(61);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_2_ > -59) {
 						crossState = 108;
 					}
 					if (i_1_ == 5) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(66);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(66);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 6) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(7);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(7);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 7) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(108);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(108);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 8) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(255);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(255);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 9) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(97);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(97);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 					if (i_1_ == 10) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(10);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_0_);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(10);
+						Class120_Sub12_Sub11.outputStream.putInt(i);
+						Class120_Sub12_Sub11.outputStream.putShort(i_0_);
 					}
 				}
 			}

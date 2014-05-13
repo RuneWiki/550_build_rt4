@@ -23,7 +23,7 @@ final class PlayerAppearance {
 			if (i >= -55) {
 				frameHeight = -59;
 			}
-			Class120_Sub12_Sub31.aClass21_3378.method186((byte) 86);
+			Class120_Sub12_Sub31.aClass21_3378.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qk.A(").append(i).append(')').toString());
 		}
@@ -108,7 +108,7 @@ final class PlayerAppearance {
 			}
 			aLong1365 = ls[(int) (0xffL & (aLong1365 ^ (!this.aBoolean1371 ? 0 : 1)))] ^ aLong1365 >>> 8;
 			if (l != 0L && aLong1365 != l) {
-				Class43.aClass21_367.method187(l, 882);
+				Class43.aClass21_367.remove(l);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qk.K(").append(i).append(')').toString());
@@ -126,7 +126,7 @@ final class PlayerAppearance {
 			final int i_16_ = i_14_ * (-32 + i - i_15_) / (-i + i_12_);
 			if (!HDToolkit.glEnabled) {
 				GraphicsLD.fillRect(i_11_, i_13_ - -16, 16, i + -32, Class70.anInt623);
-				GraphicsLD.fillRect(i_11_, 16 + i_13_ - -i_16_, 16, i_15_, Class46.anInt414);
+				GraphicsLD.fillRect(i_11_, 16 + i_13_ - -i_16_, 16, i_15_, JagexSocket.anInt414);
 				GraphicsLD.method2158(i_11_, i_16_ + i_13_ - -16, i_15_, Class39.anInt322);
 				GraphicsLD.method2158(1 + i_11_, 16 + i_13_ + i_16_, i_15_, Class39.anInt322);
 				GraphicsLD.method2160(i_11_, 16 + i_13_ - -i_16_, 16, Class39.anInt322);
@@ -137,7 +137,7 @@ final class PlayerAppearance {
 				GraphicsLD.method2160(i_11_ + 1, i_16_ + i_13_ + 14 - -i_15_, 15, Class120_Sub19.anInt2655);
 			} else {
 				GraphicsHD.fillRect(i_11_, 16 + i_13_, 16, i - 32, Class70.anInt623);
-				GraphicsHD.fillRect(i_11_, i_13_ - (-16 + -i_16_), 16, i_15_, Class46.anInt414);
+				GraphicsHD.fillRect(i_11_, i_13_ - (-16 + -i_16_), 16, i_15_, JagexSocket.anInt414);
 				GraphicsHD.method587(i_11_, i_16_ + 16 + i_13_, i_15_, Class39.anInt322);
 				GraphicsHD.method587(1 + i_11_, 16 + i_13_ + i_16_, i_15_, Class39.anInt322);
 				GraphicsHD.method598(i_11_, 16 + i_13_ - -i_16_, 16, Class39.anInt322);
@@ -187,7 +187,7 @@ final class PlayerAppearance {
 					}
 				}
 			}
-			Class180_Sub7 class180_sub7_26_ = (Class180_Sub7) Class43.aClass21_367.method193(l, (byte) -101);
+			Class180_Sub7 class180_sub7_26_ = (Class180_Sub7) Class43.aClass21_367.get(l);
 			if (class180_sub7_26_ == null) {
 				boolean bool_27_ = false;
 				for (int i_28_ = 0; i_28_ < 12; i_28_++) {
@@ -202,7 +202,7 @@ final class PlayerAppearance {
 				}
 				if (bool_27_) {
 					if (aLong1374 != -1L) {
-						class180_sub7_26_ = (Class180_Sub7) Class43.aClass21_367.method193(aLong1374, (byte) 37);
+						class180_sub7_26_ = (Class180_Sub7) Class43.aClass21_367.get(aLong1374);
 					}
 					if (class180_sub7_26_ == null) {
 						return null;
@@ -296,7 +296,7 @@ final class PlayerAppearance {
 						((Class180_Sub7_Sub2) class180_sub7_26_).method2432(false, false, true, true, false, false, true);
 					}
 					if (bool_23_) {
-						Class43.aClass21_367.method185(-128, class180_sub7_26_, l);
+						Class43.aClass21_367.put(class180_sub7_26_, l);
 						aLong1374 = l;
 					}
 				}
@@ -311,7 +311,7 @@ final class PlayerAppearance {
 					final Class40 class40_55_ = Class120_Sub30_Sub2.method1763(class150s[i_54_].anInt1406, 124);
 					if (class40_55_.anIntArray342 != null) {
 						bool_49_ = true;
-						Class120_Sub18.aClass40Array2649[i_54_] = class40_55_;
+						GroundTile.aClass40Array2649[i_54_] = class40_55_;
 						final int i_56_ = class150s[i_54_].anInt1413;
 						final int i_57_ = class150s[i_54_].anInt1414;
 						int i_58_ = class40_55_.anIntArray342[i_56_];
@@ -417,7 +417,7 @@ final class PlayerAppearance {
 			while (i_53_ > i_74_) {
 				if (Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_] != null) {
 					class180_sub7_73_.method2384(Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_], Class73.anIntArray664[i_74_], Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_74_], Class120_Sub14_Sub10.anIntArray3533[i_74_], -1 + Class71.anIntArray627[i_74_],
-							Class120_Sub12_Sub26.anIntArray3325[i_74_], i_75_, Class120_Sub18.aClass40Array2649[i_74_].aBoolean341, anIntArrayArray1377[i_74_]);
+							Class120_Sub12_Sub26.anIntArray3325[i_74_], i_75_, GroundTile.aClass40Array2649[i_74_].aBoolean341, anIntArrayArray1377[i_74_]);
 				}
 				i_74_++;
 				i_75_ <<= 1;
@@ -434,7 +434,7 @@ final class PlayerAppearance {
 			for (i_74_ = 0; i_74_ < i_53_; i_74_++) {
 				Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_] = null;
 				Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_74_] = null;
-				Class120_Sub18.aClass40Array2649[i_74_] = null;
+				GroundTile.aClass40Array2649[i_74_] = null;
 			}
 			class180_sub7 = class180_sub7_73_;
 		} catch (final RuntimeException runtimeexception) {
@@ -448,7 +448,7 @@ final class PlayerAppearance {
 		Class180_Sub7 class180_sub7;
 		try {
 			final long l = (long) i_77_ << 32 | i_76_ << 16 | i_80_;
-			Class180_Sub7 class180_sub7_82_ = (Class180_Sub7) Class90.aClass21_840.method193(l, (byte) 36);
+			Class180_Sub7 class180_sub7_82_ = (Class180_Sub7) Class90.aClass21_840.get(l);
 			if (class180_sub7_82_ == null) {
 				int i_83_ = 0;
 				final Class180_Sub2[] class180_sub2s = new Class180_Sub2[3];
@@ -477,7 +477,7 @@ final class PlayerAppearance {
 					}
 				}
 				class180_sub7_82_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class90.aClass21_840.method185(-128, class180_sub7_82_, l);
+				Class90.aClass21_840.put(class180_sub7_82_, l);
 			}
 			if (class40 != null) {
 				class180_sub7_82_ = class40.method323(false, i_79_, i_81_, class180_sub7_82_, i_78_);
@@ -544,7 +544,7 @@ final class PlayerAppearance {
 			if ((this.npcId ^ 0xffffffff) != 0) {
 				return NpcType.list(this.npcId).method2210(i_91_, class40, (byte) -12, i, i_93_);
 			}
-			Class180_Sub7 class180_sub7_94_ = (Class180_Sub7) Class90.aClass21_840.method193(aLong1365, (byte) 35);
+			Class180_Sub7 class180_sub7_94_ = (Class180_Sub7) Class90.aClass21_840.get(aLong1365);
 			if (class180_sub7_94_ == null) {
 				boolean bool = false;
 				for (int i_95_ = 0; i_95_ < 12; i_95_++) {
@@ -586,7 +586,7 @@ final class PlayerAppearance {
 					}
 				}
 				class180_sub7_94_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class90.aClass21_840.method185(-128, class180_sub7_94_, aLong1365);
+				Class90.aClass21_840.put(class180_sub7_94_, aLong1365);
 			}
 			if (class40 != null) {
 				class180_sub7_94_ = class40.method323(false, i, i_91_, class180_sub7_94_, i_93_);

@@ -18,52 +18,44 @@ final class Class5 implements ShaderInterface {
 		aBoolean2158 = false;
 	}
 
-	static final void method97(final int i, final int i_0_, final int i_1_) {
-		try {
-			if (i_1_ == -14327) {
-				final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i][i_0_];
-				if (deque == null) {
-					Class180_Sub6.method2356(Class173.gameLevel, i, i_0_);
-				} else {
-					int i_2_ = -99999999;
-					GroundObject class120_sub14_sub21 = (GroundObject) deque.getFront();
-					GroundObject class120_sub14_sub21_3_ = null;
-					for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObject) deque.getNext()) {
-						final ObjType objType = ObjType.list(class120_sub14_sub21.aClass180_Sub1_3630.id);
-						int i_4_ = objType.cost;
-						if (objType.stackable == 1) {
-							i_4_ *= class120_sub14_sub21.aClass180_Sub1_3630.amount - -1;
-						}
-						if (i_4_ > i_2_) {
-							i_2_ = i_4_;
-							class120_sub14_sub21_3_ = class120_sub14_sub21;
-						}
-					}
-					if (class120_sub14_sub21_3_ == null) {
-						Class180_Sub6.method2356(Class173.gameLevel, i, i_0_);
-					} else {
-						deque.addFront(class120_sub14_sub21_3_);
-						class120_sub14_sub21 = (GroundObject) deque.getFront();
-						Class180_Sub1 class180_sub1 = null;
-						Class180_Sub1 class180_sub1_5_ = null;
-						for (/**/; class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObject) deque.getNext()) {
-							final Class180_Sub1 class180_sub1_6_ = class120_sub14_sub21.aClass180_Sub1_3630;
-							if (class120_sub14_sub21_3_.aClass180_Sub1_3630.id != class180_sub1_6_.id) {
-								if (class180_sub1_5_ == null) {
-									class180_sub1_5_ = class180_sub1_6_;
-								}
-								if (class180_sub1_5_.id != class180_sub1_6_.id && class180_sub1 == null) {
-									class180_sub1 = class180_sub1_6_;
-								}
-							}
-						}
-						final long l = 1610612736 + i + (i_0_ << 7);
-						Class136.method1978(Class173.gameLevel, i, i_0_, Class22.method197(64 + 128 * i_0_, true, 64 + i * 128, Class173.gameLevel), class120_sub14_sub21_3_.aClass180_Sub1_3630, l, class180_sub1_5_, class180_sub1);
-					}
+	static final void spawnGroundObject(final int x, final int z) {
+		final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][x][z];
+		if (deque == null) {
+			Class180_Sub6.resetObjectPile(Class173.gameLevel, x, z);
+		} else {
+			int highestValue = -99999999;
+			GroundObjectNode mainObject = null;
+			for (GroundObjectNode object = (GroundObjectNode) deque.getFront(); object != null; object = (GroundObjectNode) deque.getNext()) {
+				final ObjType objType = ObjType.list(object.aClass180_Sub1_3630.id);
+				int cost = objType.cost;
+				if (objType.stackable == 1) {
+					cost *= object.aClass180_Sub1_3630.amount - -1;
+				}
+				if (highestValue< cost) {
+					highestValue = cost;
+					mainObject = object;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ae.G(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			if (mainObject == null) {
+				Class180_Sub6.resetObjectPile(Class173.gameLevel, x, z);
+			} else {
+				deque.addFront(mainObject);
+				SceneGroundObject thirdObject = null;
+				SceneGroundObject secondObject = null;
+				for (GroundObjectNode object = (GroundObjectNode) deque.getFront(); object != null; object = (GroundObjectNode) deque.getNext()) {
+					final SceneGroundObject class180_sub1_6_ = object.aClass180_Sub1_3630;
+					if (mainObject.aClass180_Sub1_3630.id != class180_sub1_6_.id) {
+						if (secondObject == null) {
+							secondObject = class180_sub1_6_;
+						}
+						if (secondObject.id != class180_sub1_6_.id && thirdObject == null) {
+							thirdObject = class180_sub1_6_;
+						}
+					}
+				}
+				final long bitPacked = 0x60000000 + x + (z << 7);
+				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.method197(Class173.gameLevel, 64 + x * 128, 64 + 128 * z), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
+			}
 		}
 	}
 
@@ -71,8 +63,8 @@ final class Class5 implements ShaderInterface {
 		Class190.anInt2101 = i;
 		for (int i_7_ = 0; i_7_ < Class186.anInt1900; i_7_++) {
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.anInt3440; i_8_++) {
-				if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_7_][i_8_] == null) {
-					Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_7_][i_8_] = new Class120_Sub18(i, i_7_, i_8_);
+				if (Class120_Sub1.groundTiles[i][i_7_][i_8_] == null) {
+					Class120_Sub1.groundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
 				}
 			}
 		}
@@ -140,8 +132,8 @@ final class Class5 implements ShaderInterface {
 			if (i != 1610612736) {
 				method100(-79);
 			}
-			OutputStream_Sub1.aClass21_30.method190(false);
-			Class120_Sub12_Sub27.aClass21_3342.method190(false);
+			OutputStream_Sub1.aClass21_30.clearSoftReference();
+			Class120_Sub12_Sub27.aClass21_3342.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ae.H(").append(i).append(')').toString());
 		}

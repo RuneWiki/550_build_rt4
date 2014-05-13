@@ -80,7 +80,7 @@ final class Class115 {
 		Class180_Sub3.anIntArray2921 = is_6_;
 		IsaacCipher.anIntArray1015 = is_7_;
 		Class89.anIntArray838 = is_8_;
-		Class189.method2500();
+		JagexInterface.method2500();
 		if (Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 != null) {
 			Class178.method2257(true);
 			Class120_Sub14_Sub16.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);

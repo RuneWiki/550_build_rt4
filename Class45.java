@@ -16,7 +16,7 @@ final class Class45 {
 	private int anInt405;
 	private final Buffer aClass120_Sub7_406 = new Buffer(4);
 	private long aLong407;
-	private Class46 aClass46_408;
+	private JagexSocket aClass46_408;
 	private Buffer aClass120_Sub7_409;
 	volatile int anInt410 = 0;
 	volatile int anInt411 = 0;
@@ -41,10 +41,10 @@ final class Class45 {
 						aClass120_Sub7_406.pos = 0;
 						aClass120_Sub7_406.putByte(7);
 						aClass120_Sub7_406.method1104((byte) 9, 0);
-						aClass46_408.method381(i, aClass120_Sub7_406.buf, 4, 30000);
+						aClass46_408.put(aClass120_Sub7_406.buf, i, 4);
 					} catch (final IOException ioexception) {
 						try {
-							aClass46_408.method377(-19055);
+							aClass46_408.method377();
 						} catch (final Exception exception) {
 							/* empty */
 						}
@@ -215,17 +215,17 @@ final class Class45 {
 		}
 	}
 
-	final void method361(final int i, final Class46 class46, final boolean bool) {
+	final void method361(final int i, final JagexSocket jagexSocket, final boolean bool) {
 		try {
 			if (aClass46_408 != null) {
 				try {
-					aClass46_408.method377(-19055);
+					aClass46_408.method377();
 				} catch (final Exception exception) {
 					/* empty */
 				}
 				aClass46_408 = null;
 			}
-			aClass46_408 = class46;
+			aClass46_408 = jagexSocket;
 			method370((byte) 22);
 			method367((byte) 122, bool);
 			aClass120_Sub14_Sub14_Sub2_413 = null;
@@ -250,10 +250,10 @@ final class Class45 {
 					aClass120_Sub7_406.putByte(4);
 					aClass120_Sub7_406.putByte(aByte412);
 					aClass120_Sub7_406.putShort(0);
-					aClass46_408.method381(0, aClass120_Sub7_406.buf, 4, 30000);
+					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
 				} catch (final IOException ioexception) {
 					try {
-						aClass46_408.method377(-19055);
+						aClass46_408.method377();
 					} catch (final Exception exception) {
 						/* empty */
 					}
@@ -265,7 +265,7 @@ final class Class45 {
 			anInt405 = 0;
 			aLong407 = TimeUtil.getSafeTime();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.H(").append(i).append(',').append(class46 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.H(").append(i).append(',').append(jagexSocket != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -317,7 +317,7 @@ final class Class45 {
 				aClass120_Sub7_409 = null;
 			}
 			if (aClass46_408 != null) {
-				aClass46_408.method377(-19055);
+				aClass46_408.method377();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.A(").append(i).append(')').toString());
@@ -327,7 +327,7 @@ final class Class45 {
 	final void method365(final int i) {
 		try {
 			try {
-				aClass46_408.method377(-19055);
+				aClass46_408.method377();
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -366,10 +366,10 @@ final class Class45 {
 						}
 						aClass120_Sub7_406.putByte(bool ? 2 : 3);
 						aClass120_Sub7_406.method1104((byte) 9, 0);
-						aClass46_408.method381(0, aClass120_Sub7_406.buf, 4, 30000);
+						aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
 					} catch (final IOException ioexception) {
 						try {
-							aClass46_408.method377(-19055);
+							aClass46_408.method377();
 						} catch (final Exception exception) {
 							/* empty */
 						}
@@ -451,10 +451,10 @@ final class Class45 {
 								}
 								final Class28 class28 = Class180_Sub3.method2315(i_51_, i_62_, i_58_);
 								if (class28 != null) {
-									final int i_69_ = (int) (class28.aLong186 >> 14) & 0x3f;
+									final int i_69_ = (int) (class28.bitPacked >> 14) & 0x3f;
 									if (i_69_ == 9) {
 										int[] is_70_ = null;
-										final int i_71_ = 0x3 & (int) (class28.aLong186 >> 20);
+										final int i_71_ = 0x3 & (int) (class28.bitPacked >> 20);
 										if ((i_71_ & 0x1) == 0) {
 											boolean bool_72_ = i_62_ + -1 >= i_60_;
 											if (!bool_72_ && i_56_ >= 1 + i_58_) {
@@ -569,10 +569,10 @@ final class Class45 {
 								}
 								final Class28 class28 = Class180_Sub3.method2315(i_51_, i_95_, i_91_);
 								if (class28 != null) {
-									final int i_100_ = 0x3f & (int) (class28.aLong186 >> 14);
+									final int i_100_ = 0x3f & (int) (class28.bitPacked >> 14);
 									if (i_100_ == 9) {
 										int[] is_101_ = null;
-										final int i_102_ = (int) (class28.aLong186 >> 20) & 0x3;
+										final int i_102_ = (int) (class28.bitPacked >> 20) & 0x3;
 										if ((0x1 & i_102_) == 0) {
 											boolean bool_103_ = i_93_ <= i_95_ + -1;
 											boolean bool_104_ = 1 + i_95_ <= i_94_;
@@ -683,11 +683,11 @@ final class Class45 {
 						aClass120_Sub7_406.putByte(6);
 						if (i > 3) {
 							aClass120_Sub7_406.method1104((byte) 9, 3);
-							aClass46_408.method381(0, aClass120_Sub7_406.buf, 4, 30000);
+							aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
 						}
 					} catch (final IOException ioexception) {
 						try {
-							aClass46_408.method377(-19055);
+							aClass46_408.method377();
 						} catch (final Exception exception) {
 							/* empty */
 						}
@@ -717,7 +717,7 @@ final class Class45 {
 				anInt405 += i_120_;
 				if (anInt405 > 30000) {
 					try {
-						aClass46_408.method377(-19055);
+						aClass46_408.method377();
 					} catch (final Exception exception) {
 						/* empty */
 					}
@@ -737,7 +737,7 @@ final class Class45 {
 					aClass120_Sub7_406.pos = 0;
 					aClass120_Sub7_406.putByte(1);
 					aClass120_Sub7_406.method1104((byte) 9, (int) class120_sub14_sub14_sub2.subUid);
-					aClass46_408.method381(0, aClass120_Sub7_406.buf, 4, i ^ ~0x1cb9);
+					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
 					aClass177_402.insertLast(class120_sub14_sub14_sub2);
 				}
 				if (i != -27018) {
@@ -747,11 +747,11 @@ final class Class45 {
 					aClass120_Sub7_406.pos = 0;
 					aClass120_Sub7_406.putByte(0);
 					aClass120_Sub7_406.method1104((byte) 9, (int) class120_sub14_sub14_sub2.subUid);
-					aClass46_408.method381(0, aClass120_Sub7_406.buf, 4, 30000);
+					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
 					aClass177_404.insertLast(class120_sub14_sub14_sub2);
 				}
 				for (int i_122_ = 0; i_122_ < 100; i_122_++) {
-					final int i_123_ = aClass46_408.method375((byte) -68);
+					final int i_123_ = aClass46_408.getAvailable();
 					if (i_123_ < 0) {
 						throw new IOException();
 					}
@@ -776,7 +776,7 @@ final class Class45 {
 						if (i_123_ < i_125_) {
 							i_125_ = i_123_;
 						}
-						aClass46_408.method373(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, i_125_, (byte) 86);
+						aClass46_408.read(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, i_125_);
 						if (aByte412 != 0) {
 							for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
 								aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_
@@ -797,7 +797,7 @@ final class Class45 {
 						if (i_128_ > i_123_) {
 							i_128_ = i_123_;
 						}
-						aClass46_408.method373(aClass120_Sub7_409.pos, aClass120_Sub7_409.buf, i_128_, (byte) 108);
+						aClass46_408.read(aClass120_Sub7_409.pos, aClass120_Sub7_409.buf, i_128_);
 						if (aByte412 != 0) {
 							for (int i_129_ = 0; i_128_ > i_129_; i_129_++) {
 								aClass120_Sub7_409.buf[aClass120_Sub7_409.pos - -i_129_] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub7_409.buf[aClass120_Sub7_409.pos + i_129_], aByte412);
@@ -852,7 +852,7 @@ final class Class45 {
 				bool_121_ = true;
 			} catch (final IOException ioexception) {
 				try {
-					aClass46_408.method377(-19055);
+					aClass46_408.method377();
 				} catch (final Exception exception) {
 					/* empty */
 				}

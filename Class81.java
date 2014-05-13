@@ -3,7 +3,7 @@
  */
 
 final class Class81 {
-	static Class75 aClass75_777;
+	static Hashtable aClass75_777;
 	static int anInt778;
 	static int[] anIntArray779 = new int[50];
 
@@ -80,7 +80,7 @@ final class Class81 {
 						i_4_ = is[1] - Class79.anInt695;
 						i_3_ = -is[2] + Class79.anInt694 + -1 + Class79.anInt692;
 					}
-					if (!Class46.aBoolean423 && i_4_ >= 0 && Class79.anInt700 > i_4_ && i_3_ >= 0 && Class79.anInt692 > i_3_) {
+					if (!JagexSocket.aBoolean423 && i_4_ >= 0 && Class79.anInt700 > i_4_ && i_3_ >= 0 && Class79.anInt692 > i_3_) {
 						i_3_ += (int) (Math.random() * 10.0) - 5;
 						Class169.anInt1646 = i_3_;
 						i_4_ += -5 + (int) (Math.random() * 10.0);
@@ -88,7 +88,7 @@ final class Class81 {
 					} else if ((Class120_Sub12_Sub33.anInt3407 ^ 0xffffffff) != 0 && (Class86.anInt818 ^ 0xffffffff) != 0) {
 						Class79.aClass120_Sub14_Sub22_691.method1632(is, Class86.anInt818, (byte) -84, Class120_Sub12_Sub33.anInt3407);
 						Class120_Sub12_Sub33.anInt3407 = Class86.anInt818 = -1;
-						Class46.aBoolean423 = false;
+						JagexSocket.aBoolean423 = false;
 						if (is != null) {
 							Class169.anInt1646 = -1 + Class79.anInt692 - is[2] - -Class79.anInt694;
 							Class108_Sub1.anInt2336 = is[1] + -Class79.anInt695;
@@ -136,7 +136,7 @@ final class Class81 {
 				} else if (Class90.anInt848 == 20) {
 					Class118.method1024(i ^ ~0x1cf1, new Buffer(Class79.aClass50_689.method428(108, "underlay", Class79.aClass120_Sub14_Sub22_691.aString3645)));
 					Class90.anInt848 = 30;
-					Class120_Sub12_Sub29.method1352(0, true);
+					Class120_Sub12_Sub29.ping(true);
 					Class69.method613((byte) 53);
 				} else if (Class90.anInt848 == 30) {
 					Class79.method680(new Buffer(Class79.aClass50_689.method428(108, "overlay", Class79.aClass120_Sub14_Sub22_691.aString3645)));
@@ -147,9 +147,9 @@ final class Class81 {
 					Class90.anInt848 = 50;
 					Class69.method613((byte) 53);
 				} else if (Class90.anInt848 == 50) {
-					Class79.method689(new Buffer(Class79.aClass50_689.method428(111, "loc", Class79.aClass120_Sub14_Sub22_691.aString3645)), Class120_Sub12_Sub37.aBoolean3432);
+					Class79.method689(new Buffer(Class79.aClass50_689.method428(111, "loc", Class79.aClass120_Sub14_Sub22_691.aString3645)), Class120_Sub12_Sub37.membersClient);
 					Class90.anInt848 = 60;
-					Class120_Sub12_Sub29.method1352(i ^ ~0x26, true);
+					Class120_Sub12_Sub29.ping(true);
 					Class69.method613((byte) 53);
 				} else if (i == -39) {
 					if (Class90.anInt848 == 60) {
@@ -159,7 +159,7 @@ final class Class81 {
 							if (!Class79.aClass50_689.method435(new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString(), 2)) {
 								return;
 							}
-							Class79.aClass137_693 = Class54.method478(Class79.aClass50_689, -2, new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString(), Class120_Sub12_Sub37.aBoolean3432);
+							Class79.aClass137_693 = Class54.method478(Class79.aClass50_689, -2, new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString(), Class120_Sub12_Sub37.membersClient);
 						}
 						Class79.method682();
 						Class90.anInt848 = 70;
@@ -167,42 +167,42 @@ final class Class81 {
 					} else if (Class90.anInt848 == 70) {
 						PlayerAppearance.aClass98_1373 = new Class98(11, true, Node.canvas);
 						Class90.anInt848 = 73;
-						Class120_Sub12_Sub29.method1352(i ^ ~0x26, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 73) {
 						Class92.aClass98_863 = new Class98(12, true, Node.canvas);
 						Class90.anInt848 = 76;
-						Class120_Sub12_Sub29.method1352(i ^ ~0x26, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 76) {
 						Class112.aClass98_1070 = new Class98(14, true, Node.canvas);
 						Class90.anInt848 = 79;
-						Class120_Sub12_Sub29.method1352(i ^ ~0x26, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 79) {
 						Class110.aClass98_1052 = new Class98(17, true, Node.canvas);
 						Class90.anInt848 = 82;
-						Class120_Sub12_Sub29.method1352(0, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 82) {
 						Class120_Sub14_Sub14_Sub1.aClass98_3929 = new Class98(19, true, Node.canvas);
 						Class90.anInt848 = 85;
-						Class120_Sub12_Sub29.method1352(i + 39, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 85) {
 						Class167_Sub1.aClass98_2833 = new Class98(22, true, Node.canvas);
 						Class90.anInt848 = 88;
-						Class120_Sub12_Sub29.method1352(0, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 88) {
 						Class124.aClass98_1201 = new Class98(26, true, Node.canvas);
 						Class90.anInt848 = 91;
-						Class120_Sub12_Sub29.method1352(0, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else {
 						Class120_Sub26.aClass98_2739 = new Class98(30, true, Node.canvas);
 						Class90.anInt848 = 100;
-						Class120_Sub12_Sub29.method1352(0, true);
+						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 						System.gc();
 					}
@@ -215,12 +215,12 @@ final class Class81 {
 
 	static final void method706(final int i, final int i_9_) {
 		try {
-			Canvas_Sub1.aClass21_14.method192((byte) 79, i);
+			Canvas_Sub1.aClass21_14.method192(i);
 			if (i_9_ != -128) {
 				anInt778 = 46;
 			}
-			Class33.aClass21_273.method192((byte) -91, i);
-			Class180_Sub3.aClass21_2906.method192((byte) -85, i);
+			Class33.aClass21_273.method192(i);
+			Class180_Sub3.aClass21_2906.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.F(").append(i).append(',').append(i_9_).append(')').toString());
 		}
@@ -248,7 +248,7 @@ final class Class81 {
 	static final void method708(final int i) {
 		do {
 			try {
-				Class120_Sub12_Sub9.aClass21_3196.method190(false);
+				Class120_Sub12_Sub9.aClass21_3196.clearSoftReference();
 				if (i != -11) {
 					break;
 				}

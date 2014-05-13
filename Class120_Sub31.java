@@ -4,11 +4,11 @@
 
 final class Class120_Sub31 extends Node {
 	byte[] aByteArray2785;
-	Class75 aClass75_2786;
+	Hashtable aClass75_2786;
 
 	final void method1828() {
 		if (this.aClass75_2786 == null) {
-			this.aClass75_2786 = new Class75(16);
+			this.aClass75_2786 = new Hashtable(16);
 			final int[] is = new int[16];
 			final int[] is_0_ = new int[16];
 			is[9] = is_0_[9] = 128;
@@ -56,10 +56,10 @@ final class Class120_Sub31 extends Node {
 						final int i_13_ = i_4_ >> 16 & 0x7f;
 						if (i_13_ > 0) {
 							final int i_14_ = is_0_[i_11_];
-							Class120_Sub11 class120_sub11 = (Class120_Sub11) this.aClass75_2786.method659(i_14_, 78);
+							Class120_Sub11 class120_sub11 = (Class120_Sub11) this.aClass75_2786.get(i_14_);
 							if (class120_sub11 == null) {
 								class120_sub11 = new Class120_Sub11(new byte[128]);
-								this.aClass75_2786.method655(class120_sub11, 83, i_14_);
+								this.aClass75_2786.put(class120_sub11, i_14_);
 							}
 							class120_sub11.aByteArray2555[i_12_] = (byte) 1;
 						}
@@ -360,7 +360,7 @@ final class Class120_Sub31 extends Node {
 	}
 
 	static final Class120_Sub31 method1830(final Class50 class50, final int i, final int i_82_) {
-		final byte[] is = class50.method442(i, (byte) 112, i_82_);
+		final byte[] is = class50.getFile(i, i_82_);
 		if (is == null) {
 			return null;
 		}

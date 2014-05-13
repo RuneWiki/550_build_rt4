@@ -42,14 +42,14 @@ final class Class187 {
 			final int i_4_ = i;
 			final int i_5_ = (!bool ? 0 : 65536) + i_2_ - -(i_0_ << 17) - -(i_3_ << 19);
 			final long l = 3147483667L * i_4_ - -(3849834839L * i_5_);
-			AbstractSprite class120_sub14_sub19_6_ = (AbstractSprite) Class180_Sub3.aClass21_2906.method193(l, (byte) 53);
+			AbstractSprite class120_sub14_sub19_6_ = (AbstractSprite) Class180_Sub3.aClass21_2906.get(l);
 			if (class120_sub14_sub19_6_ != null) {
 				return class120_sub14_sub19_6_;
 			}
 			Rasterizer.aBoolean974 = false;
 			class120_sub14_sub19_6_ = Class120_Sub12_Sub6.method1224(i_0_, bool, i, false, playerAppearance, -98, i_3_, i_2_, false);
 			if (class120_sub14_sub19_6_ != null && !Rasterizer.aBoolean974) {
-				Class180_Sub3.aClass21_2906.method185(-127, class120_sub14_sub19_6_, l);
+				Class180_Sub3.aClass21_2906.put(class120_sub14_sub19_6_, l);
 			}
 			class120_sub14_sub19 = class120_sub14_sub19_6_;
 		} catch (final RuntimeException runtimeexception) {
@@ -79,7 +79,7 @@ final class Class187 {
 
 	static final void method2479(final int i, final int i_8_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i_8_, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_8_, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wc.A(").append(i).append(',').append(i_8_).append(')').toString());

@@ -27,8 +27,8 @@ final class StringNode extends Node {
 			if (i != -19674) {
 				method1720(32);
 			}
-			Class141.aClass21_1350.method186((byte) 86);
-			Class182.aClass21_1798.method186((byte) 86);
+			Class141.aClass21_1350.clear();
+			Class182.aClass21_1798.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rk.A(").append(i).append(')').toString());
 		}
@@ -86,10 +86,10 @@ final class StringNode extends Node {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
 				i_6_ = Class181.anIntArray1790[4] + 128;
 			}
-			Class120_Sub12_Sub30.method1363(57, i_7_, -50 + Class22.method197(Class100.selfPlayer.z, true, Class100.selfPlayer.x, Class173.gameLevel), i_6_, 3 * i_6_ + 600, Class120_Sub10.anInt2545, height, Class69_Sub3_Sub1.anInt3083);
+			Class120_Sub12_Sub30.method1363(57, i_7_, -50 + Class22.method197(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z), i_6_, 3 * i_6_ + 600, Class120_Sub10.anInt2545, height, Class69_Sub3_Sub1.anInt3083);
 		}
 		final int i_8_ = Class83.anInt792;
-		final int i_9_ = GroundObject.anInt3626;
+		final int i_9_ = GroundObjectNode.anInt3626;
 		final int i_10_ = Class128.anInt1223;
 		final int i_11_ = Class120_Sub12_Sub10.anInt3200;
 		final int i_12_ = Class180_Sub3.anInt2909;
@@ -112,7 +112,7 @@ final class StringNode extends Node {
 					Class180_Sub3.anInt2909 = 0x7ff & Class180_Sub3.anInt2909 + i_14_;
 				}
 				if (i_13_ == 2) {
-					GroundObject.anInt3626 += i_14_;
+					GroundObjectNode.anInt3626 += i_14_;
 				}
 				if (i_13_ == 0) {
 					Class83.anInt792 += i_14_;
@@ -121,7 +121,7 @@ final class StringNode extends Node {
 		}
 		Class188.method2484(false);
 		if (!HDToolkit.glEnabled) {
-			GraphicsLD.method2155(x, y, width + x, y + height);
+			GraphicsLD.clipRect(x, y, width + x, y + height);
 			Rasterizer.method874();
 			if (Class158.anInt1475 >= 0) {
 				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 127, Class143_Sub1.anInt2197, Class158.anInt1475, Class141.anInt1356);
@@ -130,7 +130,7 @@ final class StringNode extends Node {
 				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
 		} else {
-			GraphicsHD.method592(x, y, x + width, height + y);
+			GraphicsHD.clipRect(x, y, x + width, height + y);
 			float f = Class128.anInt1223 * 0.17578125F;
 			float f_15_ = Class180_Sub3.anInt2909 * 0.17578125F;
 			if (client.anInt2200 == 3) {
@@ -139,7 +139,7 @@ final class StringNode extends Node {
 			}
 			int i_16_;
 			if (Class109.gameState == 10) {
-				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObject.anInt3626 >> 10, Class120_Sub12_Sub22.anInt3301, Class83.anInt792 >> 10, true);
+				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObjectNode.anInt3626 >> 10, Class120_Sub12_Sub22.anInt3301, Class83.anInt792 >> 10, true);
 			} else {
 				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, Class100.selfPlayer.anIntArray3040[0] >> 3, Class120_Sub12_Sub22.anInt3301, Class100.selfPlayer.anIntArray2958[0] >> 3, true);
 			}
@@ -165,23 +165,23 @@ final class StringNode extends Node {
 			final int i_17_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_18_ = Class120_Sub30_Sub1.anInt3672;
 			final int i_19_ = Class190.anInt2100;
-			final int i_20_ = Class120_Sub32.anInt2792;
+			final int i_20_ = IntegerNode.anInt2792;
 			Class173.anInt1728 = i_20_ + (-i_20_ + i_17_) * (Class115.anInt1110 + -x) / width;
 			Class2.anInt49 = i_19_ + (-y + Class120_Sub12_Sub21.anInt3298) * (-i_19_ + i_18_) / height;
 		}
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;
 		if (!HDToolkit.glEnabled) {
-			Class115.method1007(Class83.anInt792, Class120_Sub12_Sub10.anInt3200, GroundObject.anInt3626, Class128.anInt1223, Class180_Sub3.anInt2909, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, Class120_Sub32.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
+			Class115.method1007(Class83.anInt792, Class120_Sub12_Sub10.anInt3200, GroundObjectNode.anInt3626, Class128.anInt1223, Class180_Sub3.anInt2909, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
 			Class120_Sub2.method1050();
 			Class120_Sub12_Sub13.method1264();
 			Class69.method612(x, 256, height, 256, width, y);
 			Class143_Sub1.method2027(y, -8967, 256, height, 256, width, x);
 		} else {
 			LightManager.method1858(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
-			Class91.method760(Class180_Sub3.anInt2909, Class128.anInt1223, Class120_Sub12_Sub10.anInt3200, GroundObject.anInt3626, 85, Class83.anInt792);
+			Class91.method760(Class180_Sub3.anInt2909, Class128.anInt1223, Class120_Sub12_Sub10.anInt3200, GroundObjectNode.anInt3626, 85, Class83.anInt792);
 			HDToolkit.anInt542 = Class101_Sub2.loopCycle;
-			Class115.method1007(Class83.anInt792, Class120_Sub12_Sub10.anInt3200, GroundObject.anInt3626, Class128.anInt1223, Class180_Sub3.anInt2909, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, Class120_Sub32.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
+			Class115.method1007(Class83.anInt792, Class120_Sub12_Sub10.anInt3200, GroundObjectNode.anInt3626, Class128.anInt1223, Class180_Sub3.anInt2909, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
 			Class167.aBoolean1620 = true;
 			LightManager.method1859();
 			Class91.method760(0, 0, 0, 0, 91, 0);
@@ -196,7 +196,7 @@ final class StringNode extends Node {
 		Class120_Sub12_Sub10.anInt3200 = i_11_;
 		Class180_Sub3.anInt2909 = i_12_;
 		Class128.anInt1223 = i_10_;
-		GroundObject.anInt3626 = i_9_;
+		GroundObjectNode.anInt3626 = i_9_;
 		if (Class69.aBoolean615 && Class178.aClass45_1772.method366(false) == 0) {
 			Class69.aBoolean615 = false;
 		}

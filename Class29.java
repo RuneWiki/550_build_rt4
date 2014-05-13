@@ -88,7 +88,7 @@ final class Class29 {
 
 	static final void method250(final int i, final int i_7_, final int i_8_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(12, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(12, i);
 			if (i_8_ != 6703) {
 				anInt195 = -25;
 			}
@@ -250,7 +250,7 @@ final class Class29 {
 	static final void method254(final byte i, final int i_17_, final int i_18_, final int i_19_) {
 		try {
 			if (i <= -87) {
-				final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(11, i_17_);
+				final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(11, i_17_);
 				class120_sub14_sub7.method1454((byte) -100);
 				class120_sub14_sub7.anInt3484 = i_18_;
 				class120_sub14_sub7.anInt3492 = i_19_;

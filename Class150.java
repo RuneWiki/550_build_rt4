@@ -50,29 +50,20 @@ final class Class150 {
 		frame.dispose();
 	}
 
-	static final boolean method2064(final int i, final short i_0_) {
-		boolean bool;
-		try {
-			if (i_0_ == 58 || i_0_ == 35 || i_0_ == 17 || i_0_ == 10 || i_0_ == 51 || i_0_ == 9 || i_0_ == 15 || i_0_ == 50) {
-				return true;
-			}
-			if (i_0_ == 23 || i_0_ == 1 || i_0_ == 1001 || i_0_ == 1009) {
-				return true;
-			}
-			if (i < 69) {
-				revertFrame(null, null);
-			}
-			if (i_0_ == 30 || i_0_ == 20 || i_0_ == 13 || i_0_ == 2 || i_0_ == 49) {
-				return true;
-			}
-			if (i_0_ == 57 || i_0_ == 34 || i_0_ == 7 || i_0_ == 18 || i_0_ == 11 || i_0_ == 3) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("re.C(").append(i).append(',').append(i_0_).append(')').toString());
+	static final boolean method2064(final short i_0_) {
+		if (i_0_ == 58 || i_0_ == 35 || i_0_ == 17 || i_0_ == 10 || i_0_ == 51 || i_0_ == 9 || i_0_ == 15 || i_0_ == 50) {
+			return true;
 		}
-		return bool;
+		if (i_0_ == 23 || i_0_ == 1 || i_0_ == 1001 || i_0_ == 1009) {
+			return true;
+		}
+		if (i_0_ == 30 || i_0_ == 20 || i_0_ == 13 || i_0_ == 2 || i_0_ == 49) {
+			return true;
+		}
+		if (i_0_ == 57 || i_0_ == 34 || i_0_ == 7 || i_0_ == 18 || i_0_ == 11 || i_0_ == 3) {
+			return true;
+		}
+		return false;
 	}
 
 	public Class150() {

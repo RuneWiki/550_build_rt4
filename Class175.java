@@ -77,16 +77,16 @@ final class Class175 {
 			aClass63_1736.method572(class120_sub7);
 		}
 		for (int i_0_ = 0; i_0_ < 10; i_0_++) {
-			final int i_1_ = class120_sub7.method1081((byte) 98);
+			final int i_1_ = class120_sub7.getUSmart();
 			if (i_1_ == 0) {
 				break;
 			}
 			anIntArray1750[i_0_] = i_1_;
 			anIntArray1749[i_0_] = class120_sub7.getSmart();
-			anIntArray1752[i_0_] = class120_sub7.method1081((byte) 98);
+			anIntArray1752[i_0_] = class120_sub7.getUSmart();
 		}
-		anInt1743 = class120_sub7.method1081((byte) 98);
-		anInt1744 = class120_sub7.method1081((byte) 98);
+		anInt1743 = class120_sub7.getUSmart();
+		anInt1744 = class120_sub7.getUSmart();
 		this.anInt1739 = class120_sub7.getUShort();
 		this.anInt1745 = class120_sub7.getUShort();
 		aClass146_1751 = new Class146();

@@ -88,13 +88,13 @@ final class Queue {
 
 	static final void method2254(final boolean bool, final int i, final int i_7_, final int i_8_, final int i_9_) {
 		try {
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(20);
+			Class120_Sub12_Sub11.outputStream.pos = 0;
+			Class120_Sub12_Sub11.outputStream.putByte(20);
 			if (!bool) {
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(i_9_);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(i_8_);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i);
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(i_7_);
+				Class120_Sub12_Sub11.outputStream.putByte(i_9_);
+				Class120_Sub12_Sub11.outputStream.putByte(i_8_);
+				Class120_Sub12_Sub11.outputStream.putShort(i);
+				Class120_Sub12_Sub11.outputStream.putShort(i_7_);
 				Class120_Sub14_Sub4.anInt3466 = 0;
 				Class154.anInt1440 = 1;
 				Class120_Sub12_Sub35.anInt3410 = -3;

@@ -16,8 +16,8 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			if (i != -114) {
 				method1300(-8);
 			}
-			KeyboardHandler.aClass21_1504.method186((byte) 86);
-			Class180.aClass21_1781.method186((byte) 86);
+			KeyboardHandler.aClass21_1504.clear();
+			SceneGraphNode.aClass21_1781.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("of.V(").append(i).append(')').toString());
 		}
@@ -204,22 +204,22 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					}
 					final Runtime runtime = Runtime.getRuntime();
 					int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Memory before cleanup=").append(i_43_).append("k").toString());
+					Class120_Sub14_Sub14.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
 					SpotAnimType.method880(124);
 					Class120_Sub12_Sub21.method1311((byte) 64);
 					for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 						System.gc();
 					}
 					i_43_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Memory after cleanup=").append(i_43_).append("k").toString());
+					Class120_Sub14_Sub14.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
 				}
 				if (string.equalsIgnoreCase("::pcachesize")) {
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Number of player models in cache:").append(Class48.method405((byte) 127)).toString());
+					Class120_Sub14_Sub14.method1540(null, 0, "Number of player models in cache:" + Class48.method405());
 				}
 				if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
-					System.out.println(new StringBuilder("oncard_geometry:").append(Class113.anInt1082).toString());
-					System.out.println(new StringBuilder("oncard_2d:").append(Class113.anInt1086).toString());
-					System.out.println(new StringBuilder("oncard_texture:").append(Class113.anInt1081).toString());
+					System.out.println("oncard_geometry:" + Class113.anInt1082);
+					System.out.println("oncard_2d:" + Class113.anInt1086);
+					System.out.println("oncard_texture:" + Class113.anInt1081);
 				}
 				if (string.equalsIgnoreCase("::clientdrop")) {
 					Class100.method825((byte) -68);
@@ -232,7 +232,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 				if (string.equalsIgnoreCase("::breakcon")) {
 					NpcType.gameSignlink.method1963(5000);
-					AbstractTimer.aClass46_825.method378((byte) 52);
+					AbstractTimer.worldConnection.method378((byte) 52);
 					Class178.aClass45_1772.method360((byte) -127);
 				}
 				if (string.equalsIgnoreCase("::replacecanvas")) {
@@ -269,7 +269,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub6.savePreferences(NpcType.gameSignlink);
 					Class120_Sub14_Sub5.aBoolean3471 = false;
 				}
-				if (string.startsWith("::fps ") && Class107.modeWhere != 0) {
+				if (string.startsWith("::fps ")) {
 					Class190.method2506(Class31.method265(true, string.substring(6)), -27143);
 				}
 				if (string.equalsIgnoreCase("::errortest")) {
@@ -314,9 +314,9 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 			}
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(216);
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(string.length() - 1);
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putJString(string.substring(2));
+			Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
+			Class120_Sub12_Sub11.outputStream.putByte(string.length() - 1);
+			Class120_Sub12_Sub11.outputStream.putJString(string.substring(2));
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("of.U(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
@@ -362,7 +362,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		Class180_Sub4.anInt2933 = i;
 		Class108_Sub1.anInt2320 = i_47_;
 		Class187.anInt1908 = i_48_;
-		Class21.anInt122 = -1;
+		Cache.anInt122 = -1;
 		Class20.anInt2174 = -1;
 	}
 
@@ -373,7 +373,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	static final Class107_Sub1 method1303(final boolean bool) {
 		Class107_Sub1 class107_sub1;
 		try {
-			final Class107_Sub1 class107_sub1_49_ = new Class107_Sub1(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
+			final Class107_Sub1 class107_sub1_49_ = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
 					Class132_Sub1.spritePalette);
 			Class53_Sub1.resetSpriteInfo();
 			if (!bool) {

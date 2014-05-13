@@ -7,7 +7,7 @@ final class Class141 {
 	int anInt1347;
 	int anInt1348;
 	int anInt1349;
-	static Class21 aClass21_1350 = new Class21(64);
+	static Cache aClass21_1350 = new Cache(64);
 	int anInt1351;
 	boolean aBoolean1352 = true;
 	int anInt1353;

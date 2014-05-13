@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	private Class101[] aClass101Array3237;
-	static Class21 aClass21_3238 = new Class21(128);
+	static Cache aClass21_3238 = new Cache(128);
 	static int[] anIntArray3239;
 	static int anInt3240 = 0;
 
@@ -189,12 +189,12 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						}
 						if (class180_sub5_sub1.anObject3047 == null || Class101_Sub2.loopCycle < class180_sub5_sub1.anInt3042 || class180_sub5_sub1.anInt3012 <= Class101_Sub2.loopCycle) {
 							class180_sub5_sub1.aBoolean2992 = false;
-							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.gameLevel);
+							class180_sub5_sub1.anInt3005 = Class22.method197(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z);
 							Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.aBoolean3002);
 						} else {
 							class180_sub5_sub1.playerLimitReached = false;
 							class180_sub5_sub1.aBoolean2992 = false;
-							class180_sub5_sub1.anInt3005 = Class22.method197(class180_sub5_sub1.z, true, class180_sub5_sub1.x, Class173.gameLevel);
+							class180_sub5_sub1.anInt3005 = Class22.method197(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z);
 							Class26.method230(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041,
 									class180_sub5_sub1.anInt3038);
 						}
@@ -326,7 +326,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					}
 				}
 			}
-			final Class75 class75 = new Class75(128);
+			final Hashtable hashtable = new Hashtable(128);
 			for (int i_62_ = 1; i_62_ <= 102; i_62_++) {
 				for (int i_63_ = 1; i_63_ <= 102; i_63_++) {
 					if (is_54_[i_62_][i_63_] != 0) {
@@ -352,36 +352,36 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						final long l_71_ = (long) i_70_ << 32 | i_67_;
 						final long l_72_ = (long) i_68_ << 32 | i_67_;
 						final int i_73_ = is_64_.length / 2;
-						Class120_Sub9 class120_sub9 = (Class120_Sub9) class75.method659(l, 94);
+						Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.get(l);
 						if (class120_sub9 == null) {
 							class120_sub9 = new Class120_Sub9((i_65_ >> 16) - 1, i_65_ & 0xffff, false, is_52_ != null, i_67_);
-							class75.method655(class120_sub9, 96, l);
+							hashtable.put(class120_sub9, l);
 						}
 						class120_sub9.anInt2507 += i_73_;
 						class120_sub9.anInt2519++;
 						if ((l_69_ ^ 0xffffffffffffffffL) != (l ^ 0xffffffffffffffffL)) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_69_, 80);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_69_);
 							if (class120_sub9 == null) {
 								class120_sub9 = new Class120_Sub9(-1 + (i_66_ >> 16), 0xffff & i_66_, false, is_52_ != null, i_67_);
-								class75.method655(class120_sub9, 107, l_69_);
+								hashtable.put(class120_sub9, l_69_);
 							}
 							class120_sub9.anInt2507 += i_73_;
 							class120_sub9.anInt2519++;
 						}
 						if ((l_72_ ^ 0xffffffffffffffffL) != (l ^ 0xffffffffffffffffL) && l_72_ != l_69_) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_72_, 47);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_72_);
 							if (class120_sub9 == null) {
 								class120_sub9 = new Class120_Sub9(-1 + (i_68_ >> 16), i_68_ & 0xffff, false, is_52_ != null, i_67_);
-								class75.method655(class120_sub9, 112, l_72_);
+								hashtable.put(class120_sub9, l_72_);
 							}
 							class120_sub9.anInt2519++;
 							class120_sub9.anInt2507 += i_73_;
 						}
 						if ((l ^ 0xffffffffffffffffL) != (l_71_ ^ 0xffffffffffffffffL) && l_69_ != l_71_ && (l_71_ ^ 0xffffffffffffffffL) != (l_72_ ^ 0xffffffffffffffffL)) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_71_, 126);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_71_);
 							if (class120_sub9 == null) {
 								class120_sub9 = new Class120_Sub9((i_70_ >> 16) + -1, 0xffff & i_70_, false, is_52_ != null, i_67_);
-								class75.method655(class120_sub9, 109, l_71_);
+								hashtable.put(class120_sub9, l_71_);
 							}
 							class120_sub9.anInt2507 += i_73_;
 							class120_sub9.anInt2519++;
@@ -389,7 +389,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					}
 				}
 			}
-			for (Class120_Sub9 class120_sub9 = (Class120_Sub9) class75.method657(13292); class120_sub9 != null; class120_sub9 = (Class120_Sub9) class75.method658((byte) -120)) {
+			for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
 				class120_sub9.method1167();
 			}
 			for (int i_74_ = 1; i_74_ <= 102; i_74_++) {
@@ -490,38 +490,38 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						final int i_103_ = (i_88_ >> 16) + -1;
 						final int i_104_ = (i_91_ >> 16) + -1;
 						final int i_105_ = (i_90_ >> 16) - 1;
-						Class120_Sub9 class120_sub9 = (Class120_Sub9) class75.method659(l, -32);
+						Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.get(l);
 						final int i_106_ = -1 + (i_89_ >> 16);
 						Class96.method786(i_88_ <= i_91_, i_75_, i_88_ <= i_89_, fs_47_, fs_51_, class120_sub9, (byte) -39, is_55_, FileSystem.method443(i_102_, i_103_, 13080, i_99_), FileSystem.method443(i_101_, i_103_, 13080, i_97_), i_81_, i_78_, i_88_ <= i_90_, i_79_, fs,
 								FileSystem.method443(i_100_, i_103_, 13080, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_103_, 13080, i_95_), is_80_, i_88_ <= i_88_);
 						if (l_94_ != l) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_94_, -27);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_94_);
 							Class96.method786(i_91_ >= i_89_, i_75_, i_89_ >= i_89_, fs_47_, fs_51_, class120_sub9, (byte) -39, is_55_, FileSystem.method443(i_102_, i_106_, 13080, i_99_), FileSystem.method443(i_101_, i_106_, 13080, i_97_), i_81_, i_78_, i_89_ <= i_90_, i_79_, fs,
 									FileSystem.method443(i_100_, i_106_, 13080, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_106_, 13080, i_95_), is_80_, i_89_ <= i_88_);
 						}
 						if (l != l_92_ && (l_92_ ^ 0xffffffffffffffffL) != (l_94_ ^ 0xffffffffffffffffL)) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_92_, 115);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_92_);
 							Class96.method786(i_90_ <= i_91_, i_75_, i_90_ <= i_89_, fs_47_, fs_51_, class120_sub9, (byte) -39, is_55_, FileSystem.method443(i_102_, i_105_, 13080, i_99_), FileSystem.method443(i_101_, i_105_, 13080, i_97_), i_81_, i_78_, i_90_ <= i_90_, i_79_, fs,
 									FileSystem.method443(i_100_, i_105_, 13080, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_105_, 13080, i_95_), is_80_, i_90_ <= i_88_);
 						}
 						if (l_93_ != l && l_93_ != l_94_ && (l_92_ ^ 0xffffffffffffffffL) != (l_93_ ^ 0xffffffffffffffffL)) {
-							class120_sub9 = (Class120_Sub9) class75.method659(l_93_, -117);
+							class120_sub9 = (Class120_Sub9) hashtable.get(l_93_);
 							Class96.method786(i_91_ <= i_91_, i_75_, i_89_ >= i_91_, fs_47_, fs_51_, class120_sub9, (byte) -39, is_55_, FileSystem.method443(i_102_, i_104_, 13080, i_99_), FileSystem.method443(i_101_, i_104_, 13080, i_97_), i_81_, i_78_, i_91_ <= i_90_, i_79_, fs,
 									FileSystem.method443(i_100_, i_104_, 13080, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_104_, 13080, i_95_), is_80_, i_91_ <= i_88_);
 						}
 					}
 				}
 			}
-			for (Class120_Sub9 class120_sub9 = (Class120_Sub9) class75.method657(13292); class120_sub9 != null; class120_sub9 = (Class120_Sub9) class75.method658((byte) -122)) {
+			for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
 				if (class120_sub9.anInt2527 == 0) {
 					class120_sub9.unlink();
 				} else {
 					class120_sub9.method1161();
 				}
 			}
-			final int i_107_ = class75.method656(0);
+			final int i_107_ = hashtable.getCount();
 			final Class120_Sub9[] class120_sub9s_108_ = new Class120_Sub9[i_107_];
-			class75.method660(0, class120_sub9s_108_);
+			hashtable.method660(class120_sub9s_108_);
 			final long[] ls = new long[i_107_];
 			for (int i_109_ = 0; i_109_ < i_107_; i_109_++) {
 				ls[i_109_] = class120_sub9s_108_[i_109_].uid;

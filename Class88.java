@@ -3,7 +3,7 @@
  */
 
 final class Class88 {
-	Class180 aClass180_826;
+	SceneGraphNode aClass180_826;
 	static int anInt827;
 	static boolean aBoolean828 = false;
 	static Deque aClass105_829;
@@ -32,7 +32,7 @@ final class Class88 {
 			if (i_3_ == 0) {
 				l = Class114.method1005(i_0_, i_4_, i_2_);
 			} else if (i_3_ == 1) {
-				l = Class189.method2502(i_0_, i_4_, i_2_);
+				l = JagexInterface.method2502(i_0_, i_4_, i_2_);
 			} else if (i_3_ != 2) {
 				if (i_3_ == 3) {
 					l = Class79_Sub1.method696(i_0_, i_4_, i_2_);
@@ -48,13 +48,13 @@ final class Class88 {
 				Class120_Sub12.method1183(i_2_, locType, i_0_, 16157, i_4_);
 			}
 			if ((l ^ 0xffffffffffffffffL) != -1L) {
-				Class180 class180 = null;
-				Class180 class180_8_ = null;
+				SceneGraphNode sceneGraphNode = null;
+				SceneGraphNode class180_8_ = null;
 				if (i_3_ == 0) {
 					final Class182 class182 = Class99.method821(i_0_, i_4_, i_2_);
 					if (class182 != null) {
 						class180_8_ = class182.aClass180_1796;
-						class180 = class182.aClass180_1800;
+						sceneGraphNode = class182.aClass180_1800;
 					}
 					if (locType.anInt1821 != 0) {
 						class25.method215(i_7_, !locType.aBoolean1880, i_4_, i_6_, locType.aBoolean1844, 123, i_2_);
@@ -62,13 +62,13 @@ final class Class88 {
 				} else if (i_3_ == 1) {
 					final Class186 class186 = Class153.method2072(i_0_, i_4_, i_2_);
 					if (class186 != null) {
-						class180 = class186.aClass180_1901;
+						sceneGraphNode = class186.aClass180_1901;
 						class180_8_ = class186.aClass180_1898;
 					}
 				} else if (i_3_ == 2) {
 					final Class28 class28 = Class120_Sub12_Sub17.method1281(i_0_, i_4_, i_2_);
 					if (class28 != null) {
-						class180 = class28.aClass180_174;
+						sceneGraphNode = class28.aClass180_174;
 					}
 					if (locType.anInt1821 != 0 && i_4_ + locType.anInt1841 < 104 && locType.anInt1841 + i_2_ < 104 && i_4_ + locType.anInt1827 < 104 && locType.anInt1827 + i_2_ < 104) {
 						class25.method214(i_7_, i_2_, locType.anInt1827, 3, locType.aBoolean1844, i_4_, locType.anInt1841, !locType.aBoolean1880);
@@ -76,7 +76,7 @@ final class Class88 {
 				} else if (i_3_ == 3) {
 					final Class36 class36 = Class118.method1022(i_0_, i_4_, i_2_);
 					if (class36 != null) {
-						class180 = class36.aClass180_309;
+						sceneGraphNode = class36.aClass180_309;
 					}
 					if (locType.anInt1821 == 1) {
 						class25.method228(33, i_4_, i_2_);
@@ -89,49 +89,49 @@ final class Class88 {
 					if (i_6_ != 2) {
 						if (i_6_ != 5) {
 							if (i_6_ == 6) {
-								if (!(class180 instanceof Class180_Sub6)) {
-									Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, i_7_ + 4, i_1_, locType, (byte) 93, GroundObject.anIntArray3629[i_7_] * 8, i_2_, 4);
+								if (!(sceneGraphNode instanceof Class180_Sub6)) {
+									Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, i_7_ + 4, i_1_, locType, (byte) 93, GroundObjectNode.anIntArray3629[i_7_] * 8, i_2_, 4);
 								} else {
-									((Class180_Sub6) class180).method2354(-70);
+									((Class180_Sub6) sceneGraphNode).method2354(-70);
 								}
 							} else if (i_6_ != 7) {
 								if (i_6_ != 8) {
 									if (i_6_ != 11) {
-										if (!(class180 instanceof Class180_Sub6)) {
+										if (!(sceneGraphNode instanceof Class180_Sub6)) {
 											Buffer.method1094(i_4_, 0, i_7_, i_1_, locType, (byte) 93, 0, i_2_, i_6_);
 										} else {
-											((Class180_Sub6) class180).method2354(-71);
+											((Class180_Sub6) sceneGraphNode).method2354(-71);
 										}
-									} else if (class180 instanceof Class180_Sub6) {
-										((Class180_Sub6) class180).method2354(-58);
+									} else if (sceneGraphNode instanceof Class180_Sub6) {
+										((Class180_Sub6) sceneGraphNode).method2354(-58);
 									} else {
 										Buffer.method1094(i_4_, 0, i_7_ + 4, i_1_, locType, (byte) 93, 0, i_2_, 10);
 									}
 								} else {
-									if (class180 instanceof Class180_Sub6) {
-										((Class180_Sub6) class180).method2354(52);
+									if (sceneGraphNode instanceof Class180_Sub6) {
+										((Class180_Sub6) sceneGraphNode).method2354(52);
 									} else {
-										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + i_7_, i_1_, locType, (byte) 93, 8 * GroundObject.anIntArray3629[i_7_], i_2_, 4);
+										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + i_7_, i_1_, locType, (byte) 93, 8 * GroundObjectNode.anIntArray3629[i_7_], i_2_, 4);
 									}
 									if (class180_8_ instanceof Class180_Sub6) {
 										((Class180_Sub6) class180_8_).method2354(-122);
 									} else {
-										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + (0x3 & i_7_ + 2), i_1_, locType, (byte) 93, GroundObject.anIntArray3629[i_7_] * 8, i_2_, 4);
+										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + (0x3 & i_7_ + 2), i_1_, locType, (byte) 93, GroundObjectNode.anIntArray3629[i_7_] * 8, i_2_, 4);
 									}
 								}
-							} else if (class180 instanceof Class180_Sub6) {
-								((Class180_Sub6) class180).method2354(111);
+							} else if (sceneGraphNode instanceof Class180_Sub6) {
+								((Class180_Sub6) sceneGraphNode).method2354(111);
 							} else {
 								Buffer.method1094(i_4_, 0, (0x3 & 2 + i_7_) + 4, i_1_, locType, (byte) 93, 0, i_2_, 4);
 							}
-						} else if (!(class180 instanceof Class180_Sub6)) {
+						} else if (!(sceneGraphNode instanceof Class180_Sub6)) {
 							Buffer.method1094(i_4_, 8 * Class109.anIntArray1037[i_7_], i_7_, i_1_, locType, (byte) 93, Class147.anIntArray1396[i_7_] * 8, i_2_, 4);
 						} else {
-							((Class180_Sub6) class180).method2354(-64);
+							((Class180_Sub6) sceneGraphNode).method2354(-64);
 						}
 					} else {
-						if (class180 instanceof Class180_Sub6) {
-							((Class180_Sub6) class180).method2354(-125);
+						if (sceneGraphNode instanceof Class180_Sub6) {
+							((Class180_Sub6) sceneGraphNode).method2354(-125);
 						} else {
 							Buffer.method1094(i_4_, 0, i_7_ + 4, i_1_, locType, (byte) 93, 0, i_2_, i_6_);
 						}
@@ -151,7 +151,7 @@ final class Class88 {
 
 	static final void method744(final boolean bool, final Class120_Sub10 class120_sub10) {
 		try {
-			Class21.method194(class120_sub10, !bool, 200000);
+			Cache.method194(class120_sub10, !bool, 200000);
 			if (!bool) {
 				method744(false, null);
 			}

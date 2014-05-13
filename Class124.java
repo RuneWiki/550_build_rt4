@@ -17,7 +17,7 @@ final class Class124 {
 
 	static final void method1873(final int i, final int i_0_) {
 		try {
-			Class154.aClass21_1438.method192((byte) -94, i_0_);
+			Class154.aClass21_1438.method192(i_0_);
 			if (i != -1) {
 				method1876((byte) 36);
 			}

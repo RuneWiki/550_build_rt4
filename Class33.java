@@ -3,7 +3,7 @@
  */
 
 final class Class33 {
-	static Class21 aClass21_273 = new Class21(50);
+	static Cache aClass21_273 = new Cache(50);
 	static Class120_Sub14_Sub8_Sub2 aClass120_Sub14_Sub8_Sub2_274;
 	static Class50 aClass50_275;
 	static String aString276 = "green:";
@@ -20,7 +20,7 @@ final class Class33 {
 						Class2.permanentVariable[i_0_] = 0;
 					}
 				}
-				Class69_Sub3_Sub1.aClass75_3079 = new Class75(16);
+				Class69_Sub3_Sub1.aClass75_3079 = new Hashtable(16);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("df.C(").append(i).append(')').toString());
@@ -29,7 +29,7 @@ final class Class33 {
 
 	static final void method276(final int i, final int i_1_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(4, i_1_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(4, i_1_);
 			if (i != 0) {
 				aStringArray277 = null;
 			}
@@ -39,13 +39,13 @@ final class Class33 {
 		}
 	}
 
-	static final String method277(final byte i, final Class189 class189) {
+	static final String method277(final byte i, final JagexInterface jagexInterface) {
 		String string;
 		try {
-			if (client.method54(class189).method1685(1105924391) == 0) {
+			if (client.method54(jagexInterface).method1685(1105924391) == 0) {
 				return null;
 			}
-			if (class189.aString2095 == null || class189.aString2095.trim().length() == 0) {
+			if (jagexInterface.aString2095 == null || jagexInterface.aString2095.trim().length() == 0) {
 				if (Class120_Sub30_Sub1.aBoolean3673) {
 					return "Hidden-use";
 				}
@@ -54,9 +54,9 @@ final class Class33 {
 			if (i <= 114) {
 				return null;
 			}
-			string = class189.aString2095;
+			string = jagexInterface.aString2095;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("df.B(").append(i).append(',').append(class189 != null ? "{...}" : "null").append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("df.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 		return string;
 	}

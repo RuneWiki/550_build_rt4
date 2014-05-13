@@ -32,7 +32,7 @@ final class Class120_Sub29 extends Node {
 			if (i < 0) {
 				return 0;
 			}
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i, i_0_ ^ ~0x26);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i);
 			if (i_0_ != -38) {
 				method1729(-64);
 			}
@@ -73,7 +73,7 @@ final class Class120_Sub29 extends Node {
 				}
 			}
 			Canvas_Sub1.aClass120_Sub7_Sub1_16.method1146();
-			int i_11_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.anInt118) / 16;
+			int i_11_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.packetSize) / 16;
 			Class125.anIntArrayArray2150 = new int[i_11_][4];
 			for (int i_12_ = 0; i_11_ > i_12_; i_12_++) {
 				for (int i_13_ = 0; i_13_ < 4; i_13_++) {
@@ -127,7 +127,7 @@ final class Class120_Sub29 extends Node {
 		} else {
 			final boolean bool_27_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS());
 			final int i_28_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-			int i_29_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.anInt118) / 16;
+			int i_29_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.packetSize) / 16;
 			Class125.anIntArrayArray2150 = new int[i_29_][4];
 			for (int i_30_ = 0; i_30_ < i_29_; i_30_++) {
 				for (int i_31_ = 0; i_31_ < 4; i_31_++) {
@@ -208,7 +208,7 @@ final class Class120_Sub29 extends Node {
 			if (!bool) {
 				method1730(true, 77);
 			}
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(6, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ta.B(").append(bool).append(',').append(i).append(')').toString());

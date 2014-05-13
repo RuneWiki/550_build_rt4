@@ -24,7 +24,7 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 
 	static final void method1256(final byte i) {
 		try {
-			Class120_Sub12_Sub31.aClass21_3378.method190(false);
+			Class120_Sub12_Sub31.aClass21_3378.clearSoftReference();
 			if (i > -83) {
 				method1258(true, -88, -44, -12, 106);
 			}
@@ -128,8 +128,8 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 			if (i != -6090) {
 				method1258(false, -114, 21, 64, -40);
 			}
-			if (Class50.method434(-116, i_5_)) {
-				Class151.method2065(Node.aClass189ArrayArray1150[i_5_], bool, i_4_, -1, i_6_, -105);
+			if (Class50.loadInterface(i_5_)) {
+				Class151.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_, -105);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jj.AA(").append(bool).append(',').append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());

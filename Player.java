@@ -74,7 +74,7 @@ final class Player extends GameEntity {
 				is_9_[i_10_] = i_11_;
 			}
 			this.anInt2982 = class120_sub7.getUShort();
-			final long l = class120_sub7.method1124((byte) 114);
+			final long l = class120_sub7.getLong();
 			this.aString3745 = Class136.method1977(false, l);
 			this.anInt3747 = class120_sub7.getUByte();
 			if (!bool) {
@@ -163,12 +163,12 @@ final class Player extends GameEntity {
 		try {
 			Class111.aClass50_1064 = class50_24_;
 			Class120_Sub12_Sub23.aClass50_3305 = class50;
-			Class120_Sub14_Sub3.aBoolean3463 = bool;
+			AbstractObject.aBoolean3463 = bool;
 			final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421(-99) - 1;
 			if (i != -8659) {
 				method2340(null, null, 100, false, null);
 			}
-			Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.method441(i_25_, 1);
+			Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_);
 			Class15.aClass120_Sub14_Sub8_Sub2_99 = class120_sub14_sub8_sub2;
 			Class120_Sub12_Sub29.aStringArray3363 = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
 			Class120_Sub12_Sub32.aStringArray3387 = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };
@@ -197,8 +197,8 @@ final class Player extends GameEntity {
 			if (i != -31352) {
 				method2345(0, 111, (byte) -128);
 			}
-			Class43.aClass21_367.method190(false);
-			Class90.aClass21_840.method190(false);
+			Class43.aClass21_367.clearSoftReference();
+			Class90.aClass21_840.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.V(").append(i).append(')').toString());
 		}
@@ -213,7 +213,7 @@ final class Player extends GameEntity {
 				final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
 				final Class40 class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) -115).anInt218 || class40 == null) ? Class120_Sub30_Sub2.method1763(this.anInt3004, 121) : null;
 				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, class40, true, this.anInt3044);
-				final int i_35_ = Class48.method405((byte) 100);
+				final int i_35_ = Class48.method405();
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 					SpotAnimType.method880(127);
 				}
@@ -445,13 +445,13 @@ final class Player extends GameEntity {
 			}
 			final int i_73_ = i >> 16;
 			final int i_74_ = 0xffff & i;
-			if (Node.aClass189ArrayArray1150[i_73_] == null || Node.aClass189ArrayArray1150[i_73_][i_74_] == null) {
+			if (Node.interfaceCache[i_73_] == null || Node.interfaceCache[i_73_][i_74_] == null) {
 				return false;
 			}
-			final Class189 class189 = Node.aClass189ArrayArray1150[i_73_][i_74_];
-			if (i_71_ != -1 || class189.anInt1995 != 0) {
+			final JagexInterface jagexInterface = Node.interfaceCache[i_73_][i_74_];
+			if (i_71_ != -1 || jagexInterface.anInt1995 != 0) {
 				for (int i_75_ = 0; i_75_ < Class186.anInt1906; i_75_++) {
-					if (Class120_Sub12_Sub7.anIntArray3182[i_75_] == i_71_ && class189.anInt1999 == Class120_Sub29.anIntArray2769[i_75_]
+					if (Class120_Sub12_Sub7.anIntArray3182[i_75_] == i_71_ && jagexInterface.bitPacked == Class120_Sub29.anIntArray2769[i_75_]
 							&& (Class120_Sub29.aShortArray2777[i_75_] == 1 || Class120_Sub29.aShortArray2777[i_75_] == 1009 || Class120_Sub29.aShortArray2777[i_75_] == 34 || Class120_Sub29.aShortArray2777[i_75_] == 23 || Class120_Sub29.aShortArray2777[i_75_] == 3)) {
 						return true;
 					}
@@ -459,8 +459,8 @@ final class Player extends GameEntity {
 			} else {
 				for (int i_76_ = 0; i_76_ < Class186.anInt1906; i_76_++) {
 					if (Class120_Sub29.aShortArray2777[i_76_] == 1 || Class120_Sub29.aShortArray2777[i_76_] == 1009 || Class120_Sub29.aShortArray2777[i_76_] == 34 || Class120_Sub29.aShortArray2777[i_76_] == 23 || Class120_Sub29.aShortArray2777[i_76_] == 3) {
-						for (Class189 class189_77_ = Class74.method650(49, Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = Class120_Sub17.method1665(89, class189_77_)) {
-							if (class189_77_.anInt1999 == class189.anInt1999) {
+						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = Class120_Sub17.method1665(89, class189_77_)) {
+							if (class189_77_.bitPacked == jagexInterface.bitPacked) {
 								return true;
 							}
 						}

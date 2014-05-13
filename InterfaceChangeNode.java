@@ -46,20 +46,20 @@ final class InterfaceChangeNode extends NodeSub {
 
 	static final void build3dScreenMenu(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_7_) {
 		if (Light.anInt393 == 0) {//TODO refactor this
-			final int i_8_ = Class120_Sub32.anInt2792;
+			final int i_8_ = IntegerNode.anInt2792;
 			final int i_9_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_10_ = Class190.anInt2100;
 			final int i_11_ = (i_9_ - i_8_) * (i_2_ - i_4_) / i_5_ + i_8_;
 			final int i_12_ = Class120_Sub30_Sub1.anInt3672;
 			final int i_13_ = i_10_ + (i_12_ + -i_10_) * (-i_3_ + i_7_) / i;
-			if (!Class88.aBoolean828 || (0x40 & Class120_Sub18.anInt2652) == 0) {
+			if (!Class88.aBoolean828 || (0x40 & GroundTile.anInt2652) == 0) {
 				if (Buffer.gameId == 1) {
 					Class120_Sub14_Sub6.addMenuOption(0L, i_11_, i_13_, "", Class82.aString787, (short) 47, -1);
 				}
 				Class120_Sub14_Sub6.addMenuOption(0L, i_11_, i_13_, "", Npc.aString3752, (short) 26, -1);
 			} else {
-				final Class189 class189 = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, Class46.anInt420);
-				if (class189 == null) {
+				final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, JagexSocket.anInt420);
+				if (jagexInterface == null) {
 					Node.method1029((byte) 126);
 				} else {
 					Class120_Sub14_Sub6.addMenuOption(0L, i_11_, i_13_, " ->", Class101.aString963, (short) 19, Class150.anInt1417);
@@ -87,7 +87,7 @@ final class InterfaceChangeNode extends NodeSub {
 						Class120_Sub14_Sub6.addMenuOption(bitPacked, x, z, new StringBuilder(Class192.aString2124).append(" -> <col=00ffff>").append(locType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 16, Class120_Sub12_Sub10.anInt3205);
 					} else if (Class88.aBoolean828) {
 						final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class74.method652(Class139.anInt1330, (byte) -114);
-						if ((0x4 & Class120_Sub18.anInt2652) != 0 && (class120_sub14_sub11 == null || locType.method2454((byte) 75, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
+						if ((0x4 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || locType.method2454((byte) 75, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 							Class120_Sub14_Sub6.addMenuOption(bitPacked, x, z, new StringBuilder(Light.aString369).append(" -> <col=00ffff>").append(locType.name).toString(), Class101.aString963, (short) 4, Class150.anInt1417);
 						}
 					} else {
@@ -199,13 +199,13 @@ final class InterfaceChangeNode extends NodeSub {
 				if (type == 3) {
 					final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][x][z];
 					if (deque != null) {
-						for (GroundObject groundObject = (GroundObject) deque.getLast(); groundObject != null; groundObject = (GroundObject) deque.getPrevious()) {
-							final int objectId = groundObject.aClass180_Sub1_3630.id;
+						for (GroundObjectNode groundObjectNode = (GroundObjectNode) deque.getLast(); groundObjectNode != null; groundObjectNode = (GroundObjectNode) deque.getPrevious()) {
+							final int objectId = groundObjectNode.aClass180_Sub1_3630.id;
 							final ObjType objType = ObjType.list(objectId);
 							if (Light.anInt393 != 1) {
 								if (Class88.aBoolean828) {
 									final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class74.method652(Class139.anInt1330, (byte) -71);
-									if ((0x1 & Class120_Sub18.anInt2652) != 0 && (class120_sub14_sub11 == null || objType.method2115(Class139.anInt1330, 0, class120_sub14_sub11.anInt3542) != class120_sub14_sub11.anInt3542)) {
+									if ((0x1 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParam(class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 										Class120_Sub14_Sub6.addMenuOption(objectId, x, z, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), Class101.aString963, (short) 48, Class150.anInt1417);
 									}
 								} else {
@@ -284,10 +284,10 @@ final class InterfaceChangeNode extends NodeSub {
 		IsaacCipher.aClass50_1011 = class50;
 		Class120_Sub21.anInterface1_2668 = interface1;
 		if (Class24.aClass50_143 != null) {
-			Class32.anInt269 = Class24.aClass50_143.method441(1, 1);
+			Class32.anInt269 = Class24.aClass50_143.getFileAmount(1);
 		}
 		if (IsaacCipher.aClass50_1011 != null) {
-			Class192.anInt2120 = IsaacCipher.aClass50_1011.method441(1, 1);
+			Class192.anInt2120 = IsaacCipher.aClass50_1011.getFileAmount(1);
 		}
 	}
 
@@ -305,7 +305,7 @@ final class InterfaceChangeNode extends NodeSub {
 	}
 
 	static final void method761(final String string, final int i_5_) {
-		final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(3, i_5_);
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(3, i_5_);
 		class120_sub14_sub7.method1454((byte) -86);
 		class120_sub14_sub7.aString3493 = string;
 	}

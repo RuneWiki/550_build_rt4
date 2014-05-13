@@ -15,7 +15,7 @@ final class Class3 {
 			final int i_2_ = (int) (Math.random() * 41.0) - 20;
 			Class120_Sub14_Sub22.aClass50_3640 = class50;
 			final int i_3_ = (int) (Math.random() * 21.0) - 10;
-			Class30.aClass50_233.method441(34, 1);
+			Class30.aClass50_233.getFileAmount(34);
 			final int i_4_ = (int) (21.0 * Math.random()) + -10;
 			Class158.anInt1481 = i_2_ + i_3_;
 			GameEntity.anInt2957 = i_1_ - -i_2_;
@@ -54,35 +54,35 @@ final class Class3 {
 					bool = true;
 					if (i == 1) {
 						Class40.anInt330++;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(212);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1116(-2076007248, Class112.playerIndices[i_7_]);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(0, -42);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
+						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class112.playerIndices[i_7_]);
+						Class120_Sub12_Sub11.outputStream.method1113(0, -42);
 					} else if (i != 4) {
 						if (i != 5) {
 							if (i != 6) {
 								if (i == 7) {
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(52);
+									Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
 									GameEntity.anInt3023++;
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class112.playerIndices[i_7_]);
-									Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(0);
+									Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
+									Class120_Sub12_Sub11.outputStream.putByte(0);
 								}
 							} else {
 								Class22.anInt132++;
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(77);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1115(255, Class112.playerIndices[i_7_]);
-								Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByteS(0);
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
+								Class120_Sub12_Sub11.outputStream.method1115(255, Class112.playerIndices[i_7_]);
+								Class120_Sub12_Sub11.outputStream.putByteS(0);
 							}
 						} else {
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(96);
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1113(0, 82);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
+							Class120_Sub12_Sub11.outputStream.method1113(0, 82);
 							PacketBuffer.anInt3122++;
-							Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class112.playerIndices[i_7_]);
+							Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
 						}
 					} else {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(105);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putShort(Class112.playerIndices[i_7_]);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
+						Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
 						Class193.anInt2131++;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(0);
+						Class120_Sub12_Sub11.outputStream.putByte(0);
 					}
 					break;
 				}
@@ -126,30 +126,30 @@ final class Class3 {
 		Class186.anInt1900 = i_14_;
 		Class120_Sub12_Sub38.anInt3440 = i_15_;
 		Class120_Sub14_Sub13.anInt3563 = i_16_;
-		Class86.aClass120_Sub18ArrayArrayArray820 = new Class120_Sub18[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class86.aClass120_Sub18ArrayArrayArray820 = new GroundTile[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 		Class120_Sub12_Sub33.anIntArrayArrayArray3388 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		if (HDToolkit.glEnabled) {
-			Class180_Sub1.aClass120_Sub9ArrayArray2844 = new Class120_Sub9[4][];
+			SceneGroundObject.aClass120_Sub9ArrayArray2844 = new Class120_Sub9[4][];
 		}
 		if (bool) {
-			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new Class120_Sub18[1][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
+			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new GroundTile[1][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 			Class35.anIntArrayArray300 = new int[Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 			Class24.anIntArrayArrayArray140 = new int[1][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 			if (HDToolkit.glEnabled) {
-				Class120_Sub32.aClass120_Sub9ArrayArray2789 = new Class120_Sub9[1][];
+				IntegerNode.aClass120_Sub9ArrayArray2789 = new Class120_Sub9[1][];
 			}
 		} else {
 			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = null;
 			Class35.anIntArrayArray300 = null;
 			Class24.anIntArrayArrayArray140 = null;
-			Class120_Sub32.aClass120_Sub9ArrayArray2789 = null;
+			IntegerNode.aClass120_Sub9ArrayArray2789 = null;
 		}
 		Class178.method2257(false);
-		Class180.aClass188Array1782 = new Class188[500];
+		SceneGraphNode.aClass188Array1782 = new Class188[500];
 		Class49.anInt438 = 0;
 		Class180_Sub6.aClass188Array3076 = new Class188[500];
 		CursorType.anInt1237 = 0;
-		Class46.anIntArrayArrayArray419 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		JagexSocket.anIntArrayArrayArray419 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		Class111.aClass28Array1057 = new Class28[5000];
 		Class120_Sub14_Sub12.anInt3556 = 0;
 		Class39.aClass28Array323 = new Class28[100];
@@ -202,9 +202,9 @@ final class Class3 {
 
 	static final void method87(final int i, final long l) {
 		try {
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(21);
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(l);
+			Class120_Sub12_Sub11.outputStream.pos = 0;
+			Class120_Sub12_Sub11.outputStream.putByte(21);
+			Class120_Sub12_Sub11.outputStream.putLong(l);
 			if (i != 19536) {
 				method83(-67, -6, -68, 36);
 			}

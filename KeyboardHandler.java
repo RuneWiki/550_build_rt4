@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 final class KeyboardHandler implements KeyListener, FocusListener {
 	static int[] anIntArray1503;
-	static Class21 aClass21_1504 = new Class21(64);
+	static Cache aClass21_1504 = new Cache(64);
 	static BigInteger aBigInteger1505 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
 	static int[] anIntArray1506;
 	static int anInt1507 = 0;

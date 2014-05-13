@@ -5,12 +5,12 @@
 final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 	static int[] anIntArray3425 = new int[5];
 	private int anInt3426;
-	static Class21 aClass21_3427 = new Class21(64);
+	static Cache aClass21_3427 = new Cache(64);
 	private int anInt3428 = 0;
 	static short[] aShortArray3429;
 	static short[] aShortArray3430;
 	static int anInt3431;
-	static boolean aBoolean3432 = false;
+	static boolean membersClient = false;
 	private int anInt3433;
 
 	static {
@@ -114,7 +114,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 
 	static final void method1394(final byte i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(10, i_14_);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(10, i_14_);
 			class120_sub14_sub7.method1454((byte) -120);
 			if (i == -48) {
 				class120_sub14_sub7.anInt3492 = i_11_;

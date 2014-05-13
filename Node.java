@@ -11,22 +11,22 @@ class Node {
 	long uid;
 	static String aString1148 = "purple:";
 	static Canvas canvas;
-	static Class189[][] aClass189ArrayArray1150;
+	static JagexInterface[][] interfaceCache;
 	static int[] anIntArray1151 = { 1, 4 };
 
 	static final void method1029(final byte i) {
 		try {
 			if (Class88.aBoolean828 && i == 126) {
-				final Class189 class189 = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, Class46.anInt420);
-				if (class189 != null && class189.anObjectArray2000 != null) {
+				final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, JagexSocket.anInt420);
+				if (jagexInterface != null && jagexInterface.anObjectArray2000 != null) {
 					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-					class120_sub10.anObjectArray2537 = class189.anObjectArray2000;
-					class120_sub10.aClass189_2534 = class189;
+					class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2000;
+					class120_sub10.aClass189_2534 = jagexInterface;
 					Class88.method744(true, class120_sub10);
 				}
 				Class88.aBoolean828 = false;
 				Class192.anInt2123 = -1;
-				InterfaceClickMask.redrawInterface(class189);
+				InterfaceClickMask.redrawInterface(jagexInterface);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.VA(").append(i).append(')').toString());
@@ -37,7 +37,7 @@ class Node {
 		try {
 			aString1148 = null;
 			canvas = null;
-			aClass189ArrayArray1150 = null;
+			interfaceCache = null;
 			anIntArray1151 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.TA(").append(i).append(')').toString());

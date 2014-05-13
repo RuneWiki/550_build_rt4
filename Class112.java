@@ -204,7 +204,7 @@ final class Class112 {
 				method990(null, 18);
 			}
 			for (Class120_Sub14_Sub5 class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890(20389); class120_sub14_sub5_22_ != null; class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890(20389)) {
-				final Class73 class73 = Class92.method769(true, class120_sub14_sub5_22_.anInt3473);
+				final Class73 class73 = Class73.list(class120_sub14_sub5_22_.anInt3473);
 				if (class73 != null && class73.aBoolean659 && class73.method647(i ^ ~0x800)) {
 					return class120_sub14_sub5_22_;
 				}

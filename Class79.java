@@ -3,7 +3,7 @@
  */
 
 class Class79 {
-	private static Class75 aClass75_688 = new Class75(16);
+	private static Hashtable aClass75_688 = new Hashtable(16);
 	static Class50 aClass50_689;
 	static Queue aClass177_690;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_691;
@@ -39,19 +39,19 @@ class Class79 {
 
 	static final void method675(final Class50 class50) {
 		aClass50_689 = class50;
-		aClass75_688.method662((byte) -94);
+		aClass75_688.clear();
 		final int i = aClass50_689.method432(false, "details");
 		final int[] is = aClass50_689.method433(true, i);
 		int[] is_1_;
 		final int i_0_ = (is_1_ = is).length;
 		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
 			final int i_3_ = is_1_[i_2_];
-			aClass75_688.method655(Class55.method485(i_3_, 2951, new Buffer(aClass50_689.method442(i, (byte) 119, i_3_))), 90, i_3_);
+			aClass75_688.put(Class55.method485(i_3_, 2951, new Buffer(aClass50_689.getFile(i, i_3_))), i_3_);
 		}
 	}
 
 	static final Class120_Sub14_Sub22 method676(final int i, final int i_4_) {
-		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.method657(13292); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.method658((byte) -101)) {
+		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getFirst(); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getNext()) {
 			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(-129, i, i_4_)) {
 				return class120_sub14_sub22;
 			}
@@ -61,7 +61,7 @@ class Class79 {
 
 	static final Queue method677(final int i, final int i_5_) {
 		final Queue queue = new Queue();
-		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.method657(13292); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.method658((byte) -66)) {
+		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getFirst(); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getNext()) {
 			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(-129, i, i_5_)) {
 				queue.insertLast(class120_sub14_sub22);
 			}
@@ -390,7 +390,7 @@ class Class79 {
 	}
 
 	static final void method684(final int i) {
-		aClass120_Sub14_Sub22_691 = (Class120_Sub14_Sub22) aClass75_688.method659(i, -118);
+		aClass120_Sub14_Sub22_691 = (Class120_Sub14_Sub22) aClass75_688.get(i);
 	}
 
 	static final void method685() {
@@ -404,7 +404,7 @@ class Class79 {
 	private static final void method686(final Class120_Sub14_Sub5 class120_sub14_sub5, final int i, final int i_91_, final int i_92_, final int i_93_) {
 		class120_sub14_sub5.anInt3478 = anInt708 + (i_92_ + i * (class120_sub14_sub5.anInt3480 - anInt716) >> 16);
 		class120_sub14_sub5.anInt3475 = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.anInt3481 - anInt704) >> 16);
-		final Class73 class73 = Class92.method769(true, class120_sub14_sub5.anInt3473);
+		final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
 		if (class73.anInt644 != -1) {
 			final Class107 class107 = class73.method648(false, false, true);
 			if (class107 != null) {
@@ -425,7 +425,7 @@ class Class79 {
 	}
 
 	static final Class120_Sub14_Sub22 method687(final int i) {
-		return (Class120_Sub14_Sub22) aClass75_688.method659(i, -29);
+		return (Class120_Sub14_Sub22) aClass75_688.get(i);
 	}
 
 	static final void method688(final Buffer class120_sub7) {
@@ -520,7 +520,7 @@ class Class79 {
 											continue;
 										}
 									}
-									if ((!locType.aBoolean1851 || bool) && locType.anInt1840 != -1) {
+									if ((!locType.members || bool) && locType.anInt1840 != -1) {
 										final Class120_Sub14_Sub5 class120_sub14_sub5 = new Class120_Sub14_Sub5();
 										class120_sub14_sub5.anInt3473 = locType.anInt1840;
 										class120_sub14_sub5.anInt3474 = i_121_;

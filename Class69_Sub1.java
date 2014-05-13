@@ -21,7 +21,7 @@ final class Class69_Sub1 extends Class69 {
 	}
 
 	static final boolean method618(final int i, final int i_0_, final int i_1_) {
-		final int i_2_ = Class46.anIntArrayArrayArray419[i][i_0_][i_1_];
+		final int i_2_ = JagexSocket.anIntArrayArrayArray419[i][i_0_][i_1_];
 		if (i_2_ == -Class120_Sub12_Sub9.anInt3193) {
 			return false;
 		}
@@ -32,10 +32,10 @@ final class Class69_Sub1 extends Class69 {
 		final int i_4_ = i_1_ << 7;
 		if (Class120_Sub12_Sub34.method1380(i_3_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_], i_4_ + 1) && Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_], i_4_ + 1)
 				&& Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1], i_4_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_3_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1], i_4_ + 128 - 1)) {
-			Class46.anIntArrayArrayArray419[i][i_0_][i_1_] = Class120_Sub12_Sub9.anInt3193;
+			JagexSocket.anIntArrayArrayArray419[i][i_0_][i_1_] = Class120_Sub12_Sub9.anInt3193;
 			return true;
 		}
-		Class46.anIntArrayArrayArray419[i][i_0_][i_1_] = -Class120_Sub12_Sub9.anInt3193;
+		JagexSocket.anIntArrayArrayArray419[i][i_0_][i_1_] = -Class120_Sub12_Sub9.anInt3193;
 		return false;
 	}
 }

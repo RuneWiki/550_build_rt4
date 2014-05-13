@@ -31,7 +31,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			}
 			Class22.aClass127_130.method1896(-16646, Class79.aClass177_690);
 			final Class120_Sub14_Sub5 class120_sub14_sub5_0_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1895((byte) -79);
-			final Class73 class73 = Class92.method769(true, class120_sub14_sub5_0_.anInt3473);
+			final Class73 class73 = Class73.list(class120_sub14_sub5_0_.anInt3473);
 			if (class73 != null && class73.aBoolean659 && class73.method647(-1)) {
 				return class120_sub14_sub5_0_;
 			}
@@ -89,19 +89,19 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	static final Class181 method1208(final int i, final byte i_5_) {
 		Class181 class181;
 		try {
-			Class181 class181_6_ = (Class181) Class120_Sub12_Sub35.aClass21_3411.method193(i, (byte) -121);
+			Class181 class181_6_ = (Class181) Class120_Sub12_Sub35.aClass21_3411.get(i);
 			if (class181_6_ != null) {
 				return class181_6_;
 			}
 			if (i_5_ >= -46) {
 				return null;
 			}
-			final byte[] is = Class101.aClass50_966.method442(31, (byte) 120, i);
+			final byte[] is = Class101.aClass50_966.getFile(31, i);
 			class181_6_ = new Class181();
 			if (is != null) {
 				class181_6_.method2441(true, new Buffer(is), i);
 			}
-			Class120_Sub12_Sub35.aClass21_3411.method185(-127, class181_6_, i);
+			Class120_Sub12_Sub35.aClass21_3411.put(class181_6_, i);
 			class181 = class181_6_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.S(").append(i).append(',').append(i_5_).append(')').toString());

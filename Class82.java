@@ -11,7 +11,7 @@ final class Class82 implements Runnable {
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
 	static Class107[] aClass107Array785;
-	static Class21 aClass21_786 = new Class21(64);
+	static Cache aClass21_786 = new Cache(64);
 	static String aString787 = "Face here";
 
 	static final void addKeyboard(final Component component) {
@@ -76,83 +76,79 @@ final class Class82 implements Runnable {
 	}
 
 	static final void method711(final int i, final byte i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		try {
-			if (Class90.anInt848 < 100) {
-				Class81.method705((byte) -39);
-			}
+		if (Class90.anInt848 < 100) {
+			Class81.method705((byte) -39);
+		}
+		if (HDToolkit.glEnabled) {
+			GraphicsHD.clipRect(i_3_, i_2_, i_3_ + i_4_, i + i_2_);
+		} else {
+			GraphicsLD.clipRect(i_3_, i_2_, i_3_ + i_4_, i + i_2_);
+		}
+		if (Class90.anInt848 < 100) {
+			final int i_6_ = i_4_ / 2 + i_3_;
+			final int i_7_ = -38 + i_2_ - -(i / 2);
 			if (HDToolkit.glEnabled) {
-				GraphicsHD.method592(i_3_, i_2_, i_3_ - -i_4_, i + i_2_);
+				GraphicsHD.fillRect(i_3_, i_2_, i_4_, i, 0);
+				GraphicsHD.drawRect(-152 + i_6_, i_7_, 304, 34, 9179409);
+				GraphicsHD.fillRect(i_6_ - 150, i_7_ - -2, Class90.anInt848 * 3, 30, 9179409);
 			} else {
-				GraphicsLD.method2155(i_3_, i_2_, i_4_ + i_3_, i_2_ + i);
+				GraphicsLD.fillRect(i_3_, i_2_, i_4_, i, 0);
+				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
+				GraphicsLD.fillRect(-150 + i_6_, i_7_ + 2, Class90.anInt848 * 3, 30, 9179409);
 			}
-			if (Class90.anInt848 < 100) {
-				final int i_6_ = i_4_ / 2 + i_3_;
-				final int i_7_ = -38 + i_2_ - -(i / 2);
-				if (HDToolkit.glEnabled) {
-					GraphicsHD.fillRect(i_3_, i_2_, i_4_, i, 0);
-					GraphicsHD.drawRect(-152 + i_6_, i_7_, 304, 34, 9179409);
-					GraphicsHD.fillRect(i_6_ - 150, i_7_ - -2, Class90.anInt848 * 3, 30, 9179409);
-				} else {
-					GraphicsLD.fillRect(i_3_, i_2_, i_4_, i, 0);
-					GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
-					GraphicsLD.fillRect(-150 + i_6_, i_7_ + 2, Class90.anInt848 * 3, 30, 9179409);
-				}
-				Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1478(Class36.aString313, i_6_, i_7_ - -20, 16777215, -1);
+			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1478(Class36.aString313, i_6_, i_7_ + 20, 16777215, -1);
+		} else {
+			GroundObjectNode.anInt3628 = (int) (i * 2 / Class79.aFloat696);
+			GroundTile.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
+			Class120_Sub14_Sub11.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
+			final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			final int i_9_ = Class169.anInt1646 - (int) (i / Class79.aFloat696);
+			if (i_1_ >= -111) {
+				method714((byte) -76);
+			}
+			final int i_10_ = (int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			final int i_11_ = (int) (i / Class79.aFloat696) + Class169.anInt1646;
+			if (!HDToolkit.glEnabled) {
+				Class79.method683(i_8_, i_9_, i_10_, i_11_, i_3_, i_2_, i_4_ + i_3_, 1 + i + i_2_);
+				Class79.method685();
+				final Deque deque = Class79.method679();
+				Class101_Sub1.method842(deque, 0, 5938, 0);
 			} else {
-				GroundObject.anInt3628 = (int) (i * 2 / Class79.aFloat696);
-				Class120_Sub18.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
-				Class120_Sub14_Sub11.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
-				Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
-				final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
-				final int i_9_ = Class169.anInt1646 - (int) (i / Class79.aFloat696);
-				if (i_1_ >= -111) {
-					method714((byte) -76);
+				if (Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 == null || i_4_ != Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.width || Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.height != i) {
+					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
+					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = new LDSprite(i_4_, i);
 				}
-				final int i_10_ = (int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
-				final int i_11_ = (int) (i / Class79.aFloat696) + Class169.anInt1646;
-				if (!HDToolkit.glEnabled) {
-					Class79.method683(i_8_, i_9_, i_10_, i_11_, i_3_, i_2_, i_4_ + i_3_, 1 + i + i_2_);
-					Class79.method685();
-					final Deque deque = Class79.method679();
-					Class101_Sub1.method842(deque, 0, 5938, 0);
-				} else {
-					if (Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 == null || i_4_ != Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.width || Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.height != i) {
-						Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
-						Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = new LDSprite(i_4_, i);
-					}
-					GraphicsLD.init2dCanvas(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_4_, i);
-					Class79.method683(i_8_, i_9_, i_10_, i_11_, 0, 0, i_4_, 1 + i);
-					Class79.method685();
-					final Deque deque = Class79.method679();
-					Class101_Sub1.method842(deque, i_3_, 5938, i_2_);
-					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();
-					GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_3_, i_2_, i_4_, i);
-					GraphicsLD.pixels = null;
-				}
-				if (Class96.anInt919 > 0) {
-					Class136.anInt1321--;
-					if (Class136.anInt1321 == 0) {
-						Class136.anInt1321 = 20;
-						Class96.anInt919--;
-					}
-				}
-				if (Class85.showFps) {
-					final int i_12_ = i_4_ + i_3_ - 5;
-					int i_13_ = 16776960;
-					int i_14_ = i_2_ + i + -8;
-					Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_12_, i_14_, 16776960, -1);
-					final Runtime runtime = Runtime.getRuntime();
-					i_14_ -= 15;
-					final int i_15_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					if (-65537 > (i_15_ ^ 0xffffffff)) {
-						i_13_ = 16711680;
-					}
-					Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Mem:").append(i_15_).append("k").toString(), i_12_, i_14_, i_13_, -1);
-					i_14_ -= 15;
+				GraphicsLD.init2dCanvas(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_4_, i);
+				Class79.method683(i_8_, i_9_, i_10_, i_11_, 0, 0, i_4_, 1 + i);
+				Class79.method685();
+				final Deque deque = Class79.method679();
+				Class101_Sub1.method842(deque, i_3_, 5938, i_2_);
+				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();
+				GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_3_, i_2_, i_4_, i);
+				GraphicsLD.pixels = null;
+			}
+			if (Class96.anInt919 > 0) {
+				Class136.anInt1321--;
+				if (Class136.anInt1321 == 0) {
+					Class136.anInt1321 = 20;
+					Class96.anInt919--;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			if (Class85.showFps) {
+				final int i_12_ = i_4_ + i_3_ - 5;
+				int i_13_ = 16776960;
+				int i_14_ = i_2_ + i + -8;
+				Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_12_, i_14_, 16776960, -1);
+				final Runtime runtime = Runtime.getRuntime();
+				i_14_ -= 15;
+				final int i_15_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				if (-65537 > (i_15_ ^ 0xffffffff)) {
+					i_13_ = 16711680;
+				}
+				Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Mem:").append(i_15_).append("k").toString(), i_12_, i_14_, i_13_, -1);
+				i_14_ -= 15;
+			}
 		}
 	}
 
@@ -194,7 +190,7 @@ final class Class82 implements Runnable {
 		try {
 			if (Class100.selfPlayer != null && Class100.selfPlayer.x - (64 * Class100.selfPlayer.getSize() + -64) >> 7 == Class120_Sub12_Sub26.anInt3327
 					&& Class100.selfPlayer.z + -(Class100.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.anInt592) {
-				Class180_Sub1.aBoolean2848 = false;
+				SceneGroundObject.aBoolean2848 = false;
 				Class120_Sub12_Sub26.anInt3327 = 0;
 			}
 			for (int i_19_ = 0; i_19_ < 104; i_19_++) {

@@ -642,7 +642,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		if (i_109_ > 50 && i_110_ < 3500) {
 			final int i_114_ = i_105_ * i_101_ + i_103_ * i_102_ >> 16;
 			final int i_115_ = i_114_ + aShort3763 << 9;
-			if (i_115_ / i_109_ > Class120_Sub32.anInt2792) {
+			if (i_115_ / i_109_ > IntegerNode.anInt2792) {
 				final int i_116_ = i_114_ - aShort3763 << 9;
 				if (i_116_ / i_109_ < Class120_Sub12_Sub16.anInt3253) {
 					final int i_117_ = i_104_ * i_100_ - i_107_ * i_99_ >> 16;

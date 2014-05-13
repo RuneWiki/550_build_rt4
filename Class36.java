@@ -4,8 +4,8 @@
 
 final class Class36 {
 	static int antiAliasingSamples = 0;
-	long aLong308;
-	Class180 aClass180_309;
+	long bitPacked;
+	SceneGraphNode aClass180_309;
 	int anInt310;
 	int anInt311;
 	int anInt312;
@@ -221,8 +221,8 @@ final class Class36 {
 			if (i != -14865) {
 				method308(-76);
 			}
-			Class159.aClass21_1486.method186((byte) 86);
-			Class120_Sub6.aClass21_2443.method186((byte) 86);
+			Class159.aClass21_1486.clear();
+			Class120_Sub6.aClass21_2443.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dm.A(").append(i).append(')').toString());
 		}

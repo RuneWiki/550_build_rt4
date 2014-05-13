@@ -21,7 +21,7 @@ final class Class69_Sub2_Sub1 extends Class69_Sub2 {
 
 	static final void method622(final int i) {
 		try {
-			Class86.aClass21_816.method190(false);
+			Class86.aClass21_816.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hm.I(").append(i).append(')').toString());
 		}

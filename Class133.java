@@ -19,7 +19,7 @@ final class Class133 {
 	private Class104 aClass104_1270;
 	int anInt1271;
 	private int[] anIntArray1272;
-	private Class75 aClass75_1273;
+	private Hashtable aClass75_1273;
 	private byte[] aByteArray1274;
 	private int[] anIntArray1275;
 
@@ -39,7 +39,7 @@ final class Class133 {
 		aByteArray1264 = new byte[this.anInt1260];
 		aByteArray1265 = new byte[this.anInt1260];
 		aByteArray1274 = new byte[this.anInt1260];
-		aClass75_1273 = new Class75(Class120_Sub12_Sub17.method1283(this.anInt1260, (byte) 88));
+		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt1260, (byte) 88));
 	}
 
 	final void method1946() {
@@ -120,9 +120,9 @@ final class Class133 {
 		long l = 0L;
 		if ((i & 0x7f) == 0 || (i_2_ & 0x7f) == 0) {
 			l = i + (i_2_ << 16);
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_1273.method659(l, -118);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_1273.get(l);
 			if (class120_sub32 != null) {
-				return class120_sub32.anInt2790;
+				return class120_sub32.value;
 			}
 		}
 		final int i_5_ = light.color;
@@ -165,7 +165,7 @@ final class Class133 {
 		anIntArray1275[this.anInt1267] = i;
 		anIntArray1272[this.anInt1267] = i_1_;
 		anIntArray1268[this.anInt1267] = i_2_;
-		aClass75_1273.method655(new Class120_Sub32(this.anInt1267), 97, l);
+		aClass75_1273.put(new IntegerNode(this.anInt1267), l);
 		return this.anInt1267++;
 	}
 

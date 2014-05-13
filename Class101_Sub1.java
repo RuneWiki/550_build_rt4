@@ -44,8 +44,8 @@ final class Class101_Sub1 extends Class101 {
 
 	static final void method840(final int i, final int i_6_) {
 		try {
-			Class141.aClass21_1350.method192((byte) 51, i_6_);
-			Class182.aClass21_1798.method192((byte) 112, i_6_);
+			Class141.aClass21_1350.method192(i_6_);
+			Class182.aClass21_1798.method192(i_6_);
 			if (i != 2) {
 				anInt2275 = 21;
 			}
@@ -75,9 +75,9 @@ final class Class101_Sub1 extends Class101 {
 			}
 			if (!Class120_Sub12_Sub27.aBoolean3348) {
 				for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getFront(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getNext()) {
-					final Class73 class73 = Class92.method769(true, class120_sub14_sub5.anInt3473);
+					final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
 					if (Class9.method116(class73, -1)) {
-						Class180.method2271(i, false, class120_sub14_sub5, i_10_, class73);
+						SceneGraphNode.method2271(i, false, class120_sub14_sub5, i_10_, class73);
 						if (class120_sub14_sub5.aBoolean3476) {
 							Class176.method2244(10, class120_sub14_sub5, class73);
 						}
@@ -113,11 +113,11 @@ final class Class101_Sub1 extends Class101 {
 		anInt2267 = i_19_;
 	}
 
-	static final void method843(final int i, final String string, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final Class120_Sub14_Sub8 class120_sub14_sub8, final Class189 class189) {
+	static final void method843(final int i, final String string, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final Class120_Sub14_Sub8 class120_sub14_sub8, final JagexInterface jagexInterface) {
 		try {
 			final int i_29_ = i_27_ * i_27_ - -(i_25_ * i_25_);
 			final int i_30_ = (int) OutputStream_Sub1.aFloat28 + Class164.anInt1590 & 0x7ff;
-			final int i_31_ = Math.max(class189.anInt1948 / 2, class189.anInt2059 / 2) - -10;
+			final int i_31_ = Math.max(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2) - -10;
 			if (i_31_ * i_31_ >= i_29_) {
 				int i_32_ = Rasterizer.cosineTable[i_30_];
 				i_32_ = i_32_ * 256 / (256 + Class154.anInt1442);
@@ -131,13 +131,13 @@ final class Class101_Sub1 extends Class101 {
 					method842(null, -86, -41, -86);
 				}
 				i_34_ -= i_35_ / 2;
-				if (-class189.anInt1948 <= i_34_ && i_34_ <= class189.anInt1948 && -class189.anInt2059 <= i_37_ && i_37_ <= class189.anInt2059) {
+				if (-jagexInterface.anInt1948 <= i_34_ && i_34_ <= jagexInterface.anInt1948 && -jagexInterface.anInt2059 <= i_37_ && i_37_ <= jagexInterface.anInt2059) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method595((HDSprite) class189.method2492(false, (byte) -18));
+						GraphicsHD.method595((HDSprite) jagexInterface.method2492(false, (byte) -18));
 					} else {
-						GraphicsLD.method2164(class189.anIntArray2079, class189.anIntArray1949);
+						GraphicsLD.method2164(jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					}
-					class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(class189.anInt1948 / 2)), i_24_ + class189.anInt2059 / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
+					class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(jagexInterface.anInt1948 / 2)), i_24_ + jagexInterface.anInt2059 / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
 					if (!HDToolkit.glEnabled) {
 						GraphicsLD.method2174();
 					} else {
@@ -147,7 +147,7 @@ final class Class101_Sub1 extends Class101 {
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.K(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_23_).append(',').append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',').append(i_27_).append(',')
-					.append(i_28_).append(',').append(class120_sub14_sub8 != null ? "{...}" : "null").append(',').append(class189 != null ? "{...}" : "null").append(')').toString());
+					.append(i_28_).append(',').append(class120_sub14_sub8 != null ? "{...}" : "null").append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

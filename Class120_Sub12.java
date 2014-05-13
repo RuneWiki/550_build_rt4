@@ -293,27 +293,27 @@ abstract class Class120_Sub12 extends Node {
 		if (i_37_ == 0) {
 			final Class141 class141 = new Class141(i_44_, i_45_, i_46_, i_47_, -1, i_52_, false);
 			for (int i_54_ = i; i_54_ >= 0; i_54_--) {
-				if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_54_][i_35_][i_36_] == null) {
-					Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_54_][i_35_][i_36_] = new Class120_Sub18(i_54_, i_35_, i_36_);
+				if (Class120_Sub1.groundTiles[i_54_][i_35_][i_36_] == null) {
+					Class120_Sub1.groundTiles[i_54_][i_35_][i_36_] = new GroundTile(i_54_, i_35_, i_36_);
 				}
 			}
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_35_][i_36_].aClass141_2626 = class141;
+			Class120_Sub1.groundTiles[i][i_35_][i_36_].aClass141_2626 = class141;
 		} else if (i_37_ == 1) {
 			final Class141 class141 = new Class141(i_48_, i_49_, i_50_, i_51_, i_39_, i_53_, i_40_ == i_41_ && i_40_ == i_42_ && i_40_ == i_43_);
 			for (int i_55_ = i; i_55_ >= 0; i_55_--) {
-				if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_55_][i_35_][i_36_] == null) {
-					Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_55_][i_35_][i_36_] = new Class120_Sub18(i_55_, i_35_, i_36_);
+				if (Class120_Sub1.groundTiles[i_55_][i_35_][i_36_] == null) {
+					Class120_Sub1.groundTiles[i_55_][i_35_][i_36_] = new GroundTile(i_55_, i_35_, i_36_);
 				}
 			}
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_35_][i_36_].aClass141_2626 = class141;
+			Class120_Sub1.groundTiles[i][i_35_][i_36_].aClass141_2626 = class141;
 		} else {
 			final Class168 class168 = new Class168(i_37_, i_38_, i_39_, i_35_, i_36_, i_40_, i_41_, i_42_, i_43_, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, i_52_, i_53_);
 			for (int i_56_ = i; i_56_ >= 0; i_56_--) {
-				if (Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_56_][i_35_][i_36_] == null) {
-					Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_56_][i_35_][i_36_] = new Class120_Sub18(i_56_, i_35_, i_36_);
+				if (Class120_Sub1.groundTiles[i_56_][i_35_][i_36_] == null) {
+					Class120_Sub1.groundTiles[i_56_][i_35_][i_36_] = new GroundTile(i_56_, i_35_, i_36_);
 				}
 			}
-			Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_35_][i_36_].aClass168_2640 = class168;
+			Class120_Sub1.groundTiles[i][i_35_][i_36_].aClass168_2640 = class168;
 		}
 	}
 

@@ -177,7 +177,7 @@ final class Class20 implements ShaderInterface {
 	}
 
 	static final void method180(final int i, final int i_9_, final int i_10_) {
-		final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(1, i);
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i);
 		class120_sub14_sub7.method1454((byte) -127);
 		class120_sub14_sub7.anInt3484 = i_9_;
 	}

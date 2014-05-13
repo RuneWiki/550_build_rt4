@@ -7,7 +7,7 @@ final class Class49 {
 	static int anInt438;
 	boolean aBoolean439 = false;
 	static Class50 aClass50_440;
-	static Class189 aClass189_441;
+	static JagexInterface aClass189_441;
 	int anInt442;
 	ByteBuffer aByteBuffer443;
 	int anInt444 = 0;

@@ -20,14 +20,14 @@ final class Class120_Sub11 extends Node {
 	}
 
 	static final long method1173(final int i, final int i_0_, final int i_1_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null) {
 			return 0L;
 		}
 		for (int i_2_ = 0; i_2_ < class120_sub18.anInt2638; i_2_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_2_];
-			if ((class28.aLong186 >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
-				return class28.aLong186;
+			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
+				return class28.bitPacked;
 			}
 		}
 		return 0L;
@@ -42,9 +42,9 @@ final class Class120_Sub11 extends Node {
 			}
 			byte[] is;
 			if (i >= 32768) {
-				is = Class101_Sub2.aClass50_2277.method442(0, (byte) 112, 0x7fff & i);
+				is = Class101_Sub2.aClass50_2277.getFile(0, 0x7fff & i);
 			} else {
-				is = Class156.aClass50_1456.method442(0, (byte) 116, i);
+				is = Class156.aClass50_1456.getFile(0, i);
 			}
 			class120_sub14_sub23_4_ = new Class120_Sub14_Sub23();
 			if (i_3_ != 29898) {
@@ -114,7 +114,7 @@ final class Class120_Sub11 extends Node {
 					class120_sub8.anInt2481 = class120_sub8.aClass180_Sub5_Sub2_2492.z - -(64 * class120_sub8.aClass180_Sub5_Sub2_2492.getSize());
 					Class30.method259(false, i, i_7_, i_8_, class120_sub8, i_6_);
 				}
-				for (class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method657(13292); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method658((byte) -94)) {
+				for (class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.getFirst(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.getNext()) {
 					int i_11_ = 1;
 					final Class29 class29 = class120_sub8.aClass180_Sub5_Sub1_2495.method2336((byte) -77);
 					if (class29.anInt218 != class120_sub8.aClass180_Sub5_Sub1_2495.anInt3004) {

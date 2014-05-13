@@ -23,7 +23,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 
 	static final void method1387(final byte i) {
 		try {
-			Class120_Sub12_Sub35.aClass21_3411.method190(false);
+			Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uc.U(").append(i).append(')').toString());
 		}

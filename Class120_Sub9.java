@@ -32,7 +32,7 @@ final class Class120_Sub9 extends Node {
 	private boolean[] aBooleanArray2522;
 	private int[][] anIntArrayArray2523;
 	private int[] anIntArray2524;
-	private Class75 aClass75_2525;
+	private Hashtable aClass75_2525;
 	private int[][] anIntArrayArray2526;
 	int anInt2527;
 	private ByteBuffer aByteBuffer2528;
@@ -91,7 +91,7 @@ final class Class120_Sub9 extends Node {
 		aFloatArray2530 = null;
 	}
 
-	final void method1162(final Class120_Sub18[][][] class120_sub18s, final float f, final boolean bool) {
+	final void method1162(final GroundTile[][][] class120_sub18s, final float f, final boolean bool) {
 		if (aClass120_Sub7_2509 == null || aClass120_Sub7_2509.buf.length < anInt2508 * 4) {
 			aClass120_Sub7_2509 = new Buffer(anInt2508 * 4);
 		} else {
@@ -104,7 +104,7 @@ final class Class120_Sub9 extends Node {
 		}
 		if (HDToolkit.isBigEndian) {
 			for (int i = 0; i < anInt2502; i++) {
-				final Class120_Sub18 class120_sub18 = class120_sub18s[anIntArray2504[i]][anIntArray2514[i]][anIntArray2524[i]];
+				final GroundTile class120_sub18 = class120_sub18s[anIntArray2504[i]][anIntArray2514[i]][anIntArray2524[i]];
 				if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 					final int[] is = anIntArrayArray2523[i];
 					Buffer class120_sub7;
@@ -131,7 +131,7 @@ final class Class120_Sub9 extends Node {
 			}
 		} else {
 			for (int i = 0; i < anInt2502; i++) {
-				final Class120_Sub18 class120_sub18 = class120_sub18s[anIntArray2504[i]][anIntArray2514[i]][anIntArray2524[i]];
+				final GroundTile class120_sub18 = class120_sub18s[anIntArray2504[i]][anIntArray2514[i]][anIntArray2524[i]];
 				if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 					final int[] is = anIntArrayArray2523[i];
 					Buffer class120_sub7;
@@ -270,12 +270,12 @@ final class Class120_Sub9 extends Node {
 		long l = 0L;
 		if ((i & 0x7f) == 0 || (i_16_ & 0x7f) == 0) {
 			l = i + (i_16_ << 16) + ((long) i_19_ << 32);
-			final Class120_Sub32 class120_sub32 = (Class120_Sub32) aClass75_2525.method659(l, 116);
+			final IntegerNode class120_sub32 = (IntegerNode) aClass75_2525.get(l);
 			if (class120_sub32 != null) {
-				if (i_15_ < anIntArray2531[class120_sub32.anInt2790]) {
-					anIntArray2531[class120_sub32.anInt2790] = i_15_;
+				if (i_15_ < anIntArray2531[class120_sub32.value]) {
+					anIntArray2531[class120_sub32.value] = i_15_;
 				}
-				return class120_sub32.anInt2790;
+				return class120_sub32.value;
 			}
 		}
 		anIntArray2506[this.anInt2527] = i;
@@ -289,7 +289,7 @@ final class Class120_Sub9 extends Node {
 		aFloatArray2503[this.anInt2527] = f_18_;
 		anIntArray2500[this.anInt2527] = i_19_;
 		if (l != 0L) {
-			aClass75_2525.method655(new Class120_Sub32(this.anInt2527), 89, l);
+			aClass75_2525.put(new IntegerNode(this.anInt2527), l);
 		}
 		return this.anInt2527++;
 	}
@@ -309,7 +309,7 @@ final class Class120_Sub9 extends Node {
 		anIntArray2524 = new int[this.anInt2519];
 		anIntArray2504 = new int[this.anInt2519];
 		anIntArrayArray2523 = new int[this.anInt2519][];
-		aClass75_2525 = new Class75(Class120_Sub12_Sub17.method1283(this.anInt2507, (byte) -17));
+		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt2507, (byte) -17));
 		if (this.aBoolean2516) {
 			anIntArrayArray2526 = new int[this.anInt2519][];
 			aBooleanArray2522 = new boolean[this.anInt2519];

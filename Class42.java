@@ -77,9 +77,9 @@ final class Class42 {
 			}
 			AbstractSprite class120_sub14_sub19_15_;
 			if (HDToolkit.glEnabled) {
-				class120_sub14_sub19_15_ = new HDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
+				class120_sub14_sub19_15_ = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
 			} else {
-				class120_sub14_sub19_15_ = new LDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], Class120_Sub18.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
+				class120_sub14_sub19_15_ = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
 			}
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub19 = class120_sub14_sub19_15_;

@@ -62,7 +62,7 @@ final class Class166 {
 			if (i_3_ < 10) {
 				aClass50_1613 = null;
 			}
-			Class120_Sub12_Sub9.aClass21_3196.method192((byte) 70, i);
+			Class120_Sub12_Sub9.aClass21_3196.method192(i);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tl.B(").append(i).append(',').append(i_3_).append(')').toString());
 		}
@@ -72,14 +72,14 @@ final class Class166 {
 		try {
 			if (i == 6137 && Class120_Sub28.aClass120_Sub13Array2754 != null) {
 				int i_4_ = 0;
-				final long l = Class70.method636(-127, string);
+				final long l = Class70.stringToLong(string);
 				if (0L != l) {
 					for (/**/; Class120_Sub28.aClass120_Sub13Array2754.length > i_4_ && l != Class120_Sub28.aClass120_Sub13Array2754[i_4_].uid; i_4_++) {
 						/* empty */
 					}
 					if (Class120_Sub28.aClass120_Sub13Array2754.length > i_4_ && Class120_Sub28.aClass120_Sub13Array2754[i_4_] != null) {
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(75);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(Class120_Sub28.aClass120_Sub13Array2754[i_4_].uid);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(75);
+						Class120_Sub12_Sub11.outputStream.putLong(Class120_Sub28.aClass120_Sub13Array2754[i_4_].uid);
 					}
 				}
 			}

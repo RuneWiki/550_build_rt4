@@ -19,9 +19,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	}
 
 	static final int method1288() {
-		return ((CursorType.anInt1242 != 0 ? 1 : 0) << 22) + ((RuntimeException_Sub1.anInt2142 == 0 ? 0 : 1) << 21) + ((Class111.anInt1061 != 0 ? 1 : 0) << 20) + ((!Class172.fogEnabled ? 0 : 1) << 16) + ((Class120_Sub12_Sub6.highLightingDetail ? 1 : 0) << 13) + (0x1800 & Class74.sceneryShadowsType << 11)
+		return ((CursorType.anInt1242 != 0 ? 1 : 0) << 22) + ((RuntimeException_Sub1.anInt2142 == 0 ? 0 : 1) << 21) + ((Class111.anInt1061 != 0 ? 1 : 0) << 20) + ((!Decimator.fogEnabled ? 0 : 1) << 16) + ((Class120_Sub12_Sub6.highLightingDetail ? 1 : 0) << 13) + (0x1800 & Class74.sceneryShadowsType << 11)
 				+ ((!Class120_Sub30_Sub1.manyGroundTextures ? 0 : 1) << 9) + ((Class191.flickeringEffectsOn ? 1 : 0) << 8) + ((!Class120_Sub12_Sub10.manyIdleAnimations ? 0 : 1) << 7) + ((Class120_Sub12.aBoolean2564 ? 1 : 0) << 4) + ((!Class61.aBoolean566 ? 0 : 1) << 3) + (0x7 & Class120_Sub14_Sub14_Sub1.brightness)
-				- -((!Class75.showGroundDecorations ? 0 : 1) << 5) + ((Class108_Sub3.highDetailTextures ? 1 : 0) << 6) + ((Class120_Sub6.characterShadowsOn ? 1 : 0) << 10) + ((PacketBuffer.highWaterDetail ? 1 : 0) << 15) - (-(Class140.anInt1343 << 17) - ((!Class167.aBoolean1619 ? 0 : 1) << 19))
+				- -((!Hashtable.showGroundDecorations ? 0 : 1) << 5) + ((Class108_Sub3.highDetailTextures ? 1 : 0) << 6) + ((Class120_Sub6.characterShadowsOn ? 1 : 0) << 10) + ((PacketBuffer.highWaterDetail ? 1 : 0) << 15) - (-(Class140.anInt1343 << 17) - ((!Class167.aBoolean1619 ? 0 : 1) << 19))
 				+ (ParticleEngine.method949() << 23);
 	}
 
@@ -112,9 +112,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 
 	static final void method1291(final int i) {
 		if (i == 256) {
-			Canvas_Sub1.aClass21_14.method186((byte) 86);
-			Class33.aClass21_273.method186((byte) 86);
-			Class180_Sub3.aClass21_2906.method186((byte) 86);
+			Canvas_Sub1.aClass21_14.clear();
+			Class33.aClass21_273.clear();
+			Class180_Sub3.aClass21_2906.clear();
 		}
 	}
 

@@ -7,7 +7,7 @@ final class Class116 {
 	static AbstractSprite aClass120_Sub14_Sub19_1114;
 	static int anInt1115;
 	static String aString1116 = "Connection lost.";
-	static Class21 aClass21_1117 = new Class21(50);
+	static Cache aClass21_1117 = new Cache(50);
 	static int anInt1118;
 	static int[][] anIntArrayArray1119 = { new int[16], { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 },
 			{ 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1 },
@@ -59,7 +59,7 @@ final class Class116 {
 			}
 			if (Class80.aBoolean742 && Class73.aClass105_653 != null) {
 				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getNext()) {
-					final Class73 class73 = Class92.method769(true, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
+					final Class73 class73 = Class73.list(class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
 					if (Class120_Sub14_Sub2.anInt3450 != 0 || !class120_sub16.method1656(Queue.anInt1767, -108, Class191.anInt2113)) {
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
 							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = false;

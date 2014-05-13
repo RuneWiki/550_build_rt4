@@ -3,7 +3,7 @@
  */
 
 final class Class15 {
-	static Class21 aClass21_95;
+	static Cache aClass21_95;
 	static int anInt96 = 0;
 	static boolean menuOpen;
 	static long aLong98;
@@ -12,7 +12,7 @@ final class Class15 {
 	static int[] anIntArray101;
 
 	static {
-		aClass21_95 = new Class21(4);
+		aClass21_95 = new Cache(4);
 		menuOpen = false;
 		aLong98 = 0L;
 		aByteArray100 = new byte[32896];
@@ -31,7 +31,7 @@ final class Class15 {
 				method145(null, 7);
 			}
 			ObjType.aClass50_1517 = class50;
-			Class120_Sub12_Sub22.anInt3302 = ObjType.aClass50_1517.method441(16, 1);
+			Class120_Sub12_Sub22.anInt3302 = ObjType.aClass50_1517.getFileAmount(16);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("be.A(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
@@ -61,7 +61,7 @@ final class Class15 {
 			if (class120_sub14_sub6_3_ != null) {
 				return class120_sub14_sub6_3_;
 			}
-			final byte[] is = Class166.aClass50_1613.method442(5, (byte) 122, i);
+			final byte[] is = Class166.aClass50_1613.getFile(5, i);
 			class120_sub14_sub6_3_ = new Class120_Sub14_Sub6();
 			if (is != null) {
 				class120_sub14_sub6_3_.method1448(0, new Buffer(is));

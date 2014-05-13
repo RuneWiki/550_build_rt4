@@ -34,7 +34,7 @@ final class Class101_Sub3 extends Class101 {
 			if (i_1_ >= -108) {
 				method833(-60, -28, (byte) 83);
 			}
-			GroundObject.method1627(i_2_, this.anInt964, this.anInt960, this.anInt959, i_5_, i_4_, 4194303, i_3_);
+			GroundObjectNode.method1627(i_2_, this.anInt964, this.anInt960, this.anInt959, i_5_, i_4_, 4194303, i_3_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gg.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}

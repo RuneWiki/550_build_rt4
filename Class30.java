@@ -23,7 +23,7 @@ final class Class30 {
 	static {
 		anIntArray224 = new int[4096];
 		for (int i = 0; i < 4096; i++) {
-			anIntArray224[i] = Class120_Sub18.method1670(i, 14005);
+			anIntArray224[i] = GroundTile.method1670(i, 14005);
 		}
 		interfaceCounterUpdated = false;
 		anInt236 = 0;
@@ -122,7 +122,7 @@ final class Class30 {
 					} else if (class120_sub8.anInt2485 >= 0) {
 						final Class6 class6 = Class6.method103(Class159.aClass50_1490, class120_sub8.anInt2485, 0);
 						if (class6 != null) {
-							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(Class183.aClass172_1809);
+							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);
 							class120_sub30_sub4.method1795(-1);
 							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
@@ -134,7 +134,7 @@ final class Class30 {
 							final int i_9_ = (int) (class120_sub8.anIntArray2482.length * Math.random());
 							final Class6 class6 = Class6.method103(Class159.aClass50_1490, class120_sub8.anIntArray2482[i_9_], 0);
 							if (class6 != null) {
-								final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(Class183.aClass172_1809);
+								final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 								final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);
 								class120_sub30_sub4.method1795(0);
 								Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);

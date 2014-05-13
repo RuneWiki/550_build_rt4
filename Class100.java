@@ -26,8 +26,8 @@ final class Class100 {
 				if (Class31.anInt244 > 0) {
 					InputStream_Sub1.logout();
 				} else {
-					Light.aClass46_381 = AbstractTimer.aClass46_825;
-					AbstractTimer.aClass46_825 = null;
+					Light.aClass46_381 = AbstractTimer.worldConnection;
+					AbstractTimer.worldConnection = null;
 					Class120_Sub14_Sub1.setGameState(40);
 				}
 			}
@@ -42,10 +42,10 @@ final class Class100 {
 			final Class107[] class107s_0_ = new Class107[Class93.spriteAmount];
 			for (int i_1_ = i; Class93.spriteAmount > i_1_; i_1_++) {
 				if (HDToolkit.glEnabled) {
-					class107s_0_[i_1_] = new Class107_Sub2(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], Class120_Sub18.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
+					class107s_0_[i_1_] = new Class107_Sub2(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], GroundTile.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
 							Class132_Sub1.spritePalette);
 				} else {
-					class107s_0_[i_1_] = new Class107_Sub1(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], Class120_Sub18.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
+					class107s_0_[i_1_] = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], GroundTile.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
 							Class132_Sub1.spritePalette);
 				}
 			}

@@ -46,7 +46,7 @@ final class Class179 {
 
 	static final void method2261(final int i, final int i_0_) {
 		try {
-			final InterfaceChangeNode class120_sub14_sub7 = Class120_Sub14_Sub3.putInterfaceChange(i_0_, i);
+			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_0_, i);
 			class120_sub14_sub7.method1453((byte) -104);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.B(").append(i).append(',').append(i_0_).append(')').toString());
@@ -117,7 +117,7 @@ final class Class179 {
 
 	static final void method2263(final int i, final int i_13_) {
 		try {
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.method659(i_13_, 85);
+			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_13_);
 			if (class120_sub17 != null) {
 				if (i <= 79) {
 					method2261(37, -50);

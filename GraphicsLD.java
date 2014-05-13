@@ -6,7 +6,7 @@ final class GraphicsLD {
 	static int startY = 0;
 	static int[] anIntArray1604;
 	static int[] anIntArray1605;
-	static int anInt1606;
+	static int height;
 	static int startX;
 	static int endX = 0;
 	static int[] pixels;
@@ -298,7 +298,7 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2155(int i, int i_83_, int i_84_, int i_85_) {
+	static final void clipRect(int i, int i_83_, int i_84_, int i_85_) {
 		if (i < 0) {
 			i = 0;
 		}
@@ -308,8 +308,8 @@ final class GraphicsLD {
 		if (i_84_ > width) {
 			i_84_ = width;
 		}
-		if (i_85_ > anInt1606) {
-			i_85_ = anInt1606;
+		if (i_85_ > height) {
+			i_85_ = height;
 		}
 		startX = i;
 		startY = i_83_;
@@ -619,8 +619,8 @@ final class GraphicsLD {
 	static final void init2dCanvas(final int[] is, final int i, final int i_191_) {
 		pixels = is;
 		width = i;
-		anInt1606 = i_191_;
-		method2155(0, 0, i, i_191_);
+		height = i_191_;
+		clipRect(0, 0, i, i_191_);
 	}
 
 	static final void method2171(int i, final int i_192_, int i_193_, final int i_194_, final int i_195_) {
@@ -657,7 +657,7 @@ final class GraphicsLD {
 
 	static final void method2173() {
 		int i = 0;
-		int i_206_ = width * anInt1606 - 7;
+		int i_206_ = width * height - 7;
 		while (i < i_206_) {
 			pixels[i++] = 0;
 			pixels[i++] = 0;
@@ -683,7 +683,7 @@ final class GraphicsLD {
 		startX = 0;
 		startY = 0;
 		endX = width;
-		endY = anInt1606;
+		endY = height;
 		method2174();
 	}
 

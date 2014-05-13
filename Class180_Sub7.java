@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class Class180_Sub7 extends Class180 {
+abstract class Class180_Sub7 extends SceneGraphNode {
 	boolean haveActions = false;
 
 	abstract void method2360(int i);

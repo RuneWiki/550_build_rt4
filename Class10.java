@@ -92,7 +92,7 @@ final class Class10 {
 	}
 
 	static final boolean method121(final Class50 class50, final int i_12_, final int i_13_) {
-		final byte[] is = class50.method442(i_12_, (byte) 114, i_13_);
+		final byte[] is = class50.getFile(i_12_, i_13_);
 		if (is == null) {
 			return false;
 		}
@@ -105,7 +105,7 @@ final class Class10 {
 			if (i != 15575) {
 				method121(null, 57, 97);
 			}
-			Class180_Sub3.aClass21_2906.method186((byte) 86);
+			Class180_Sub3.aClass21_2906.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("an.D(").append(i).append(')').toString());
 		}

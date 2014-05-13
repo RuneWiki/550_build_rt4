@@ -29,7 +29,7 @@ final class Class120_Sub15 extends Node {
 			if (i != 42) {
 				method1652(76);
 			}
-			for (Node node = Class120_Sub14_Sub3_Sub1.aClass75_3914.method657(13292); node != null; node = Class120_Sub14_Sub3_Sub1.aClass75_3914.method658((byte) -117)) {
+			for (Node node = JavaObject.aClass75_3914.getFirst(); node != null; node = JavaObject.aClass75_3914.getNext()) {
 				if ((0xffffL & node.uid >> 48) == i_0_) {
 					node.unlink();
 				}

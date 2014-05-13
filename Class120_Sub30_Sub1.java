@@ -19,7 +19,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 
 	static final void method1738(final int i, final Player class180_sub5_sub1) {
 		try {
-			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.method659(Class70.method636(-121, class180_sub5_sub1.aString3745), 58);
+			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.aString3745));
 			if (class120_sub8 != null) {
 				class120_sub8.method1156(-77);
 			} else {

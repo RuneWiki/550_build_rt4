@@ -165,7 +165,7 @@ class Class143 implements Interface3 {
 					return;
 				}
 			}
-			Class180_Sub1.aBoolean2848 = false;
+			SceneGroundObject.aBoolean2848 = false;
 			Class120_Sub12_Sub26.anInt3327 = i_15_;
 			Class65.anInt592 = i_14_;
 		} catch (final RuntimeException runtimeexception) {
@@ -197,7 +197,7 @@ class Class143 implements Interface3 {
 	static final void method2015(final int i) {
 		do {
 			try {
-				Class154.aClass21_1438.method186((byte) 86);
+				Class154.aClass21_1438.clear();
 				if (i != -5069) {
 					break;
 				}
@@ -306,7 +306,7 @@ class Class143 implements Interface3 {
 		Class53_Sub1.aString2213 = "rot:";
 		Class91.aString853 = "Speicher wird zugewiesen.";
 		Class120_Sub11.aString2553 = " weitere Optionen";
-		Class180_Sub1.aString2847 = "Wordpack geladen.";
+		SceneGroundObject.aString2847 = "Wordpack geladen.";
 		CursorType.aString1239 = "Titelbild geladen.";
 		Class120_Sub12_Sub1.aString3137 = "Standardinstellungen geladen";
 		aString2183 = "Ausw\u00e4hlen";
@@ -329,7 +329,7 @@ class Class143 implements Interface3 {
 		Class143_Sub1.aString2192 = "Deine Ignorieren-Liste ist voll, du kannst nur 100 Spieler darauf eintragen.";
 		Class120_Sub12_Sub28.aString3360 = "Okay";
 		Class96.aString915 = "sch\u00fctteln:";
-		Class120_Sub32.aString2788 = "Lade Benutzeroberfl\u00e4che - ";
+		IntegerNode.aString2788 = "Lade Benutzeroberfl\u00e4che - ";
 		Class120_Sub11.aString2554 = "Lade Standardeinstellungen - ";
 		Class69_Sub2_Sub1.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
 		Class167_Sub1.aString2837 = "3D-Softwarebibliothek gestartet.";
@@ -381,7 +381,7 @@ class Class143 implements Interface3 {
 		Class112.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
 		Class120_Sub10.aString2538 = "gleiten:";
 		Class120_Sub12_Sub21_Sub1.aString3910 = " steht bereits auf deiner Freunde-Liste!";
-		Class180_Sub1.aString2849 = "Bitte entferne ";
+		SceneGroundObject.aString2849 = "Bitte entferne ";
 		Class53_Sub1.aString2206 = "blinken2:";
 		Class108_Sub3.aString2396 = "Mechscape wird geladen - bitte warten...";
 		NodeSub.aString2585 = "Konfig geladen.";
@@ -397,7 +397,7 @@ class Class143 implements Interface3 {
 	Class143(final Class50 class50, final Class50 class50_36_, final Class50 class50_37_) {
 		aClass50_2184 = class50_36_;
 		aClass50_2187 = class50_37_;
-		final Buffer class120_sub7 = new Buffer(class50.method442(0, (byte) 114, 0));
+		final Buffer class120_sub7 = new Buffer(class50.getFile(0, 0));
 		final int i = class120_sub7.getUShort();
 		aClass114Array2186 = new Class114[i];
 		for (int i_38_ = 0; i > i_38_; i_38_++) {

@@ -5,9 +5,9 @@ import java.awt.Container;
 import java.awt.Insets;
 
 final class Class120_Sub10 extends Node {
-	Class189 aClass189_2532;
+	JagexInterface aClass189_2532;
 	int anInt2533;
-	Class189 aClass189_2534;
+	JagexInterface aClass189_2534;
 	int anInt2535;
 	boolean aBoolean2536;
 	Object[] anObjectArray2537;
@@ -15,7 +15,7 @@ final class Class120_Sub10 extends Node {
 	String aString2539;
 	int anInt2540;
 	int anInt2541;
-	static Class21 aClass21_2542 = new Class21(64);
+	static Cache aClass21_2542 = new Cache(64);
 	int anInt2543;
 	static Class50 aClass50_2544;
 	static int anInt2545;
@@ -92,7 +92,7 @@ final class Class120_Sub10 extends Node {
 		}
 	}
 
-	static final void method1170(final Class180 class180, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
+	static final void method1170(final SceneGraphNode sceneGraphNode, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
 		boolean bool = true;
 		int i_4_ = i_0_;
 		final int i_5_ = i_0_ + i_2_;
@@ -104,17 +104,17 @@ final class Class120_Sub10 extends Node {
 					if (i_9_ >= 0 && i_9_ < Class186.anInt1900) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
-								final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i_8_][i_9_][i_10_];
+								final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
 									final int i_11_ = (Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_][i_10_] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_][i_10_ + 1] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_ + 1])
 											/ 4 - (Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1]) / 4;
 									final Class182 class182 = class120_sub18.aClass182_2628;
 									if (class182 != null) {
 										if (class182.aClass180_1800.method2268()) {
-											class180.method2267(class182.aClass180_1800, (i_9_ - i_0_) * 128 + (1 - i_2_) * 64, i_11_, (i_10_ - i_1_) * 128 + (1 - i_3_) * 64, bool);
+											sceneGraphNode.method2267(class182.aClass180_1800, (i_9_ - i_0_) * 128 + (1 - i_2_) * 64, i_11_, (i_10_ - i_1_) * 128 + (1 - i_3_) * 64, bool);
 										}
 										if (class182.aClass180_1796 != null && class182.aClass180_1796.method2268()) {
-											class180.method2267(class182.aClass180_1796, (i_9_ - i_0_) * 128 + (1 - i_2_) * 64, i_11_, (i_10_ - i_1_) * 128 + (1 - i_3_) * 64, bool);
+											sceneGraphNode.method2267(class182.aClass180_1796, (i_9_ - i_0_) * 128 + (1 - i_2_) * 64, i_11_, (i_10_ - i_1_) * 128 + (1 - i_3_) * 64, bool);
 										}
 									}
 									for (int i_12_ = 0; i_12_ < class120_sub18.anInt2638; i_12_++) {
@@ -122,7 +122,7 @@ final class Class120_Sub10 extends Node {
 										if (class28 != null && class28.aClass180_174.method2268() && (i_9_ == class28.anInt180 || i_9_ == i_4_) && (i_10_ == class28.anInt184 || i_10_ == i_6_)) {
 											final int i_13_ = class28.anInt182 - class28.anInt180 + 1;
 											final int i_14_ = class28.anInt175 - class28.anInt184 + 1;
-											class180.method2267(class28.aClass180_174, (class28.anInt180 - i_0_) * 128 + (i_13_ - i_2_) * 64, i_11_, (class28.anInt184 - i_1_) * 128 + (i_14_ - i_3_) * 64, bool);
+											sceneGraphNode.method2267(class28.aClass180_174, (class28.anInt180 - i_0_) * 128 + (i_13_ - i_2_) * 64, i_11_, (class28.anInt184 - i_1_) * 128 + (i_14_ - i_3_) * 64, bool);
 										}
 									}
 								}

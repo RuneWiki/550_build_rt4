@@ -16,7 +16,7 @@ final class Class101_Sub2 extends Class101 {
 	static final void method844(final int i, final boolean bool) {
 		try {
 			if (bool) {
-				Class22.aClass21_131.method192((byte) -81, i);
+				Class22.aClass21_131.method192(i);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("de.J(").append(i).append(',').append(bool).append(')').toString());

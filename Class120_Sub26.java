@@ -61,7 +61,7 @@ final class Class120_Sub26 extends Node {
 				if (bool_0_) {
 					break;
 				}
-				class120_sub7_sub1.putPacket(i);
+				class120_sub7_sub1.putByteIsaac(i);
 				class120_sub7_sub1.putByte(0);
 				final int i_2_ = class120_sub7_sub1.pos;
 				class120_sub7_sub1.putInt(class120_sub28.anInt2757);

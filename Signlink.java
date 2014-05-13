@@ -21,11 +21,11 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 public class Signlink implements Runnable {
-	public static String aString1288;
+	public static String osArch;
 	private boolean closed;
 	public static String javaVendor;
 	public static String javaVersion;
-	private static String aString1292;
+	private static String userHome;
 	private Mouseimp mouseImp;
 	private SignlinkNode current;
 	public FileOnDisk aClass95_1295 = null;
@@ -34,11 +34,11 @@ public class Signlink implements Runnable {
 	private final Thread aThread1298;
 	public Applet gameApplet = null;
 	private final String aString1300;
-	public static String aString1301;
+	public static String osNameRaw;
 	private final int anInt1302;
-	public static String aString1303;
+	public static String osVersion;
 	public FileOnDisk aClass95_1304;
-	public static String aString1305;
+	public static String osName;
 	private SignlinkNode next;
 	public FileOnDisk[] aClass95Array1307;
 	private Fullscreenimp14 fsimp14;
@@ -118,171 +118,150 @@ public class Signlink implements Runnable {
 			}
 			try {
 				final int type = currentNode.type;
-				if (type != 1) {
-					if (type != 2) {
-						if (type == 4) {
-							if ((TimeUtil.getSafeTime() ^ 0xffffffffffffffffL) > (aLong1313 ^ 0xffffffffffffffffL)) {
-								throw new IOException();
-							}
-							currentNode.value = new DataInputStream(((URL) currentNode.objectData).openStream());
-						} else if (type != 8) {
-							if (type == 9) {
-								final Object[] objects = (Object[]) currentNode.objectData;
-								if (((Class) objects[0]).getClassLoader() == null) {
-									throw new SecurityException();
-								}
-								currentNode.value = ((Class) objects[0]).getDeclaredField((String) objects[1]);
-							} else if (type != 18) {
-								if (type == 19) {
-									final Transferable transferable = (Transferable) currentNode.objectData;
-									final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-									clipboard.setContents(transferable, null);
-								} else if (type == 3) {
-									if ((TimeUtil.getSafeTime() ^ 0xffffffffffffffffL) > (aLong1313 ^ 0xffffffffffffffffL)) {
-										throw new IOException();
-									}
-									final String string = new StringBuilder(String.valueOf(0xff & currentNode.integerData >> 24)).append(".").append(0xff & currentNode.integerData >> 16).append(".").append(currentNode.integerData >> 8 & 0xff).append(".").append(0xff & currentNode.integerData).toString();
-									currentNode.value = InetAddress.getByName(string).getHostName();
-								} else if (type == 5) {
-									currentNode.value = fsimp14.getDisplayModesInfo();
-								} else if (type == 6) {
-									final Frame frame = new Frame("Jagex Full Screen");
-									currentNode.value = frame;
-									frame.setResizable(false);
-									fsimp14.setDisplayMode(frame, 0xffff & currentNode.integerData, currentNode.integerData >>> 16, currentNode.integerData2 >> 16, currentNode.integerData2 & 0xffff);
-								} else if (type == 7) {
-									fsimp14.revert();
-								} else if (type != 10) {
-									if (type != 11) {
-										if (type != 12) {
-											if (type == 14) {
-												final int i_6_ = currentNode.integerData;
-												final int i_7_ = currentNode.integerData2;
-												mouseImp.moveMouse(i_6_, i_7_);
-											} else if (type != 15) {
-												if (type != 17) {
-													if (type == 16) {
-														try {
-															if (!aString1305.startsWith("win")) {
-																throw new Exception();
-															}
-															final String string = (String) currentNode.objectData;
-															if (!string.startsWith("http://") && !string.startsWith("https://")) {
-																throw new Exception();
-															}
-															for (int i_9_ = 0; string.length() > i_9_; i_9_++) {
-																if (("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(string.charAt(i_9_)) ^ 0xffffffff) == 0) {
-																	throw new Exception();
-																}
-															}
-															Runtime.getRuntime().exec(new StringBuilder("cmd /c start \"j\" \"").append(string).append("\"").toString());
-															currentNode.value = null;
-														} catch (final Exception exception) {
-															currentNode.value = exception;
-														}
-													} else {
-														if (type != 20) {
-															throw new Exception();
-														}
-														try {
-															final Class[] var_classes = { Class.forName("java.lang.Class"), Class.forName("java.lang.String") };
-															final Runtime runtime = Runtime.getRuntime();
-															final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var_classes);
-															method.setAccessible(true);
-															if (aString1305.startsWith("win")) {
-																if (!aString1288.startsWith("amd64") && !aString1288.startsWith("x86_64")) {
-																	method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc.dll", anInt1302, aString1300, true).toString() });
-																} else {
-																	method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc64.dll", anInt1302, aString1300, true).toString() });
-																}
-															}
-															method.setAccessible(false);
-														} catch (final Throwable throwable) {
-															currentNode.value = throwable;
-														}
-													}
-												} else {
-													final Object[] objects = (Object[]) currentNode.objectData;
-													mouseImp.setCursor((Point) objects[2], (Component) objects[0], currentNode.integerData, currentNode.integerData2, (int[]) objects[1]);
-												}
-											} else {
-												final Component component = (Component) currentNode.objectData;
-												final boolean bool = currentNode.integerData != 0;
-												mouseImp.method2081(component, bool);
-											}
-										} else {
-											final String string = (String) currentNode.objectData;
-											final FileOnDisk fileOnDisk = getPreferencesFile(string);
-											currentNode.value = fileOnDisk;
-										}
-									} else {
-										final Field field = Class.forName("java.lang.ClassLoader").getDeclaredField("nativeLibraries");
-										field.setAccessible(true);
-										final Vector vector = (Vector) field.get(((Class) currentNode.objectData).getClassLoader());
-										for (int i_10_ = 0; i_10_ < vector.size(); i_10_++) {
-											final Object object = vector.elementAt(i_10_);
-											final Method method = object.getClass().getDeclaredMethod("finalize", new Class[0]);
-											method.setAccessible(true);
-											method.invoke(object, new Object[0]);
-											method.setAccessible(false);
-											final Field field_11_ = object.getClass().getDeclaredField("handle");
-											field_11_.setAccessible(true);
-											field_11_.set(object, new Integer(0));
-											field_11_.setAccessible(false);
-										}
-										field.setAccessible(false);
-									}
-								} else {
-									final Class[] var_classes = { Class.forName("java.lang.Class"), Class.forName("java.lang.String") };
-									final Runtime runtime = Runtime.getRuntime();
-									if (!aString1305.startsWith("mac")) {
-										final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("loadLibrary0", var_classes);
-										method.setAccessible(true);
-										method.invoke(runtime, new Object[] { currentNode.objectData, "jawt" });
-										method.setAccessible(false);
-									}
-									final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var_classes);
-									method.setAccessible(true);
-									if (aString1305.startsWith("linux") || aString1305.startsWith("sunos")) {
-										method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl_dri.so", anInt1302, aString1300, true).toString() });
-										final Class var_class = ((Class) currentNode.objectData).getClassLoader().loadClass("com.sun.opengl.impl.x11.DRIHack");
-										var_class.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
-										method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.so", anInt1302, aString1300, true).toString() });
-										var_class.getMethod("end", new Class[0]).invoke(null, new Object[0]);
-									} else if (!aString1305.startsWith("mac")) {
-										if (aString1305.startsWith("win")) {
-											method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jaggl.dll", anInt1302, aString1300, true).toString() });
-										} else {
-											throw new Exception();
-										}
-									} else {
-										method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.jnilib", anInt1302, aString1300, true).toString() });
-									}
-									method.setAccessible(false);
-								}
-							} else {
-								final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-								currentNode.value = clipboard.getContents(null);
-							}
-						} else {
-							final Object[] objects = (Object[]) currentNode.objectData;
-							if (((Class) objects[0]).getClassLoader() == null) {
-								throw new SecurityException();
-							}
-							currentNode.value = ((Class) objects[0]).getDeclaredMethod((String) objects[1], (Class[]) objects[2]);
-						}
-					} else {
-						final Thread thread = new Thread((Runnable) currentNode.objectData);
-						thread.setDaemon(true);
-						thread.start();
-						thread.setPriority(currentNode.integerData);
-						currentNode.value = thread;
-					}
-				} else {
+				if (type == 1) {
 					if (aLong1313 > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					currentNode.value = new Socket(InetAddress.getByName((String) currentNode.objectData), currentNode.integerData);
+				} else if (type == 2) {
+					final Thread thread = new Thread((Runnable) currentNode.objectData);
+					thread.setDaemon(true);
+					thread.start();
+					thread.setPriority(currentNode.integerData);
+					currentNode.value = thread;
+				} else if (type == 3) {
+					if (aLong1313 > TimeUtil.getSafeTime()) {
+						throw new IOException();
+					}
+					final String string = new StringBuilder(String.valueOf(0xff & currentNode.integerData >> 24)).append(".").append(0xff & currentNode.integerData >> 16).append(".").append(currentNode.integerData >> 8 & 0xff).append(".").append(0xff & currentNode.integerData).toString();
+					currentNode.value = InetAddress.getByName(string).getHostName();
+				} else if (type == 4) {
+					if (aLong1313 > TimeUtil.getSafeTime()) {
+						throw new IOException();
+					}
+					currentNode.value = new DataInputStream(((URL) currentNode.objectData).openStream());
+				} else if (type == 5) {
+					currentNode.value = fsimp14.getDisplayModesInfo();
+				} else if (type == 6) {
+					final Frame frame = new Frame("Jagex Full Screen");
+					currentNode.value = frame;
+					frame.setResizable(false);
+					fsimp14.setDisplayMode(frame, 0xffff & currentNode.integerData, currentNode.integerData >>> 16, currentNode.integerData2 >> 16, currentNode.integerData2 & 0xffff);
+				} else if (type == 7) {
+					fsimp14.revert();
+				} else if (type == 8) {
+					final Object[] objects = (Object[]) currentNode.objectData;
+					if (((Class) objects[0]).getClassLoader() == null) {
+						throw new SecurityException();
+					}
+					currentNode.value = ((Class) objects[0]).getDeclaredMethod((String) objects[1], (Class[]) objects[2]);
+				} else if (type == 9) {
+					final Object[] objects = (Object[]) currentNode.objectData;
+					if (((Class) objects[0]).getClassLoader() == null) {
+						throw new SecurityException();
+					}
+					currentNode.value = ((Class) objects[0]).getDeclaredField((String) objects[1]);
+				} else if (type == 10) {
+					final Class[] var_classes = { Class.forName("java.lang.Class"), Class.forName("java.lang.String") };
+					final Runtime runtime = Runtime.getRuntime();
+					if (!osName.startsWith("mac")) {
+						final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("loadLibrary0", var_classes);
+						method.setAccessible(true);
+						method.invoke(runtime, new Object[] { currentNode.objectData, "jawt" });
+						method.setAccessible(false);
+					}
+					final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var_classes);
+					method.setAccessible(true);
+					if (osName.startsWith("linux") || osName.startsWith("sunos")) {
+						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl_dri.so", anInt1302, aString1300, true).toString() });
+						final Class var_class = ((Class) currentNode.objectData).getClassLoader().loadClass("com.sun.opengl.impl.x11.DRIHack");
+						var_class.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
+						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.so", anInt1302, aString1300, true).toString() });
+						var_class.getMethod("end", new Class[0]).invoke(null, new Object[0]);
+					} else if (!osName.startsWith("mac")) {
+						if (osName.startsWith("win")) {
+							method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jaggl.dll", anInt1302, aString1300, true).toString() });
+						} else {
+							throw new Exception();
+						}
+					} else {
+						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.jnilib", anInt1302, aString1300, true).toString() });
+					}
+					method.setAccessible(false);
+				} else if (type == 11) {
+					final Field field = Class.forName("java.lang.ClassLoader").getDeclaredField("nativeLibraries");
+					field.setAccessible(true);
+					final Vector vector = (Vector) field.get(((Class) currentNode.objectData).getClassLoader());
+					for (int i_10_ = 0; i_10_ < vector.size(); i_10_++) {
+						final Object object = vector.elementAt(i_10_);
+						final Method method = object.getClass().getDeclaredMethod("finalize", new Class[0]);
+						method.setAccessible(true);
+						method.invoke(object, new Object[0]);
+						method.setAccessible(false);
+						final Field field_11_ = object.getClass().getDeclaredField("handle");
+						field_11_.setAccessible(true);
+						field_11_.set(object, new Integer(0));
+						field_11_.setAccessible(false);
+					}
+					field.setAccessible(false);
+				} else if (type == 12) {
+					final String string = (String) currentNode.objectData;
+					final FileOnDisk fileOnDisk = getPreferencesFile(string);
+					currentNode.value = fileOnDisk;
+				} else if (type == 14) {
+					final int i_6_ = currentNode.integerData;
+					final int i_7_ = currentNode.integerData2;
+					mouseImp.moveMouse(i_6_, i_7_);
+				} else if (type == 15) {
+					final Component component = (Component) currentNode.objectData;
+					final boolean bool = currentNode.integerData != 0;
+					mouseImp.method2081(component, bool);
+				} else if (type == 16) {
+					try {
+						if (!osName.startsWith("win")) {
+							throw new Exception();
+						}
+						final String string = (String) currentNode.objectData;
+						if (!string.startsWith("http://") && !string.startsWith("https://")) {
+							throw new Exception();
+						}
+						for (int i_9_ = 0; string.length() > i_9_; i_9_++) {
+							if (("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(string.charAt(i_9_)) ^ 0xffffffff) == 0) {
+								throw new Exception();
+							}
+						}
+						Runtime.getRuntime().exec(new StringBuilder("cmd /c start \"j\" \"").append(string).append("\"").toString());
+						currentNode.value = null;
+					} catch (final Exception exception) {
+						currentNode.value = exception;
+					}
+				} else if (type == 17) {
+					final Object[] objects = (Object[]) currentNode.objectData;
+					mouseImp.setCursor((Point) objects[2], (Component) objects[0], currentNode.integerData, currentNode.integerData2, (int[]) objects[1]);
+				} else if (type == 18) {
+					final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+					currentNode.value = clipboard.getContents(null);
+				} else if (type == 19) {
+					final Transferable transferable = (Transferable) currentNode.objectData;
+					final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+					clipboard.setContents(transferable, null);
+				} else if (type == 20) {
+					try {
+						final Class[] var_classes = { Class.forName("java.lang.Class"), Class.forName("java.lang.String") };
+						final Runtime runtime = Runtime.getRuntime();
+						final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var_classes);
+						method.setAccessible(true);
+						if (osName.startsWith("win")) {
+							if (!osArch.startsWith("amd64") && !osArch.startsWith("x86_64")) {
+								method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc.dll", anInt1302, aString1300, true).toString() });
+							} else {
+								method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc64.dll", anInt1302, aString1300, true).toString() });
+							}
+						}
+						method.setAccessible(false);
+					} catch (final Throwable throwable) {
+						currentNode.value = throwable;
+					}
 				}
 				currentNode.status = 1;
 			} catch (final ThreadDeath threaddeath) {
@@ -294,7 +273,7 @@ public class Signlink implements Runnable {
 	}
 
 	private static final FileOnDisk getPreferencesFile(final String game) {
-		final String[] strings = { "c:/rscache/", "/rscache/", aString1292, "c:/windows/", "c:/winnt/", "c:/", "/tmp/", "" };
+		final String[] strings = { "c:/rscache/", "/rscache/", userHome, "c:/windows/", "c:/winnt/", "c:/", "/tmp/", "" };
 		for (int i_14_ = 0; i_14_ < strings.length; i_14_++) {
 			final String string_15_ = strings[i_14_];
 			if (string_15_.length() <= 0 || new File(string_15_).exists()) {
@@ -481,33 +460,33 @@ public class Signlink implements Runnable {
 			/* empty */
 		}
 		try {
-			aString1301 = System.getProperty("os.name");
+			osNameRaw = System.getProperty("os.name");
 		} catch (final Exception exception) {
-			aString1301 = "Unknown";
+			osNameRaw = "Unknown";
 		}
-		aString1305 = aString1301.toLowerCase();
+		osName = osNameRaw.toLowerCase();
 		try {
-			aString1288 = System.getProperty("os.arch").toLowerCase();
+			osArch = System.getProperty("os.arch").toLowerCase();
 		} catch (final Exception exception) {
-			aString1288 = "";
-		}
-		try {
-			aString1303 = System.getProperty("os.version").toLowerCase();
-		} catch (final Exception exception) {
-			aString1303 = "";
+			osArch = "";
 		}
 		try {
-			aString1292 = System.getProperty("user.home");
-			if (aString1292 != null) {
-				final String string_34_ = aString1292;
+			osVersion = System.getProperty("os.version").toLowerCase();
+		} catch (final Exception exception) {
+			osVersion = "";
+		}
+		try {
+			userHome = System.getProperty("user.home");
+			if (userHome != null) {
+				final String string_34_ = userHome;
 				final StringBuilder stringbuilder = new StringBuilder(string_34_);
-				aString1292 = stringbuilder.append("/").toString();
+				userHome = stringbuilder.append("/").toString();
 			}
 		} catch (final Exception exception) {
 			/* empty */
 		}
-		if (aString1292 == null) {
-			aString1292 = "~/";
+		if (userHome == null) {
+			userHome = "~/";
 		}
 		try {
 			if (applet != null) {
@@ -565,10 +544,7 @@ public class Signlink implements Runnable {
 		aThread1298.start();
 	}
 
-	public final SignlinkNode method1976(final int i, final String string, final int i_40_) {
-		if (i != 19) {
-			aClass95_1295 = null;
-		}
+	public final SignlinkNode openConnection(final String string, final int i_40_) {
 		return putNode(1, 0, string, i_40_);
 	}
 }

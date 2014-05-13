@@ -8,17 +8,17 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	private int anInt3231 = 0;
 	private int anInt3232;
 	static int anInt3233;
-	static Class75 aClass75_3234 = new Class75(8);
+	static Hashtable aClass75_3234 = new Hashtable(8);
 	private int anInt3235;
 	private int anInt3236;
 
 	static final void method1263(final int i) {
 		try {
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.method190(false);
+			Class120_Sub14_Sub14_Sub2.aClass21_3937.clearSoftReference();
 			if (i != 14834) {
 				method1265((byte) -20);
 			}
-			Class132.aClass21_1255.method190(false);
+			Class132.aClass21_1255.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kl.S(").append(i).append(')').toString());
 		}

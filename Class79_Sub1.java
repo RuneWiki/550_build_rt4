@@ -46,7 +46,7 @@ final class Class79_Sub1 extends Class79 {
 	static final void method695(final boolean bool) {
 		do {
 			try {
-				Class33.aClass21_273.method186((byte) 86);
+				Class33.aClass21_273.clear();
 				if (!bool) {
 					break;
 				}
@@ -57,10 +57,10 @@ final class Class79_Sub1 extends Class79 {
 	}
 
 	static final long method696(final int i, final int i_0_, final int i_1_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null || class120_sub18.aClass36_2650 == null) {
 			return 0L;
 		}
-		return class120_sub18.aClass36_2650.aLong308;
+		return class120_sub18.aClass36_2650.bitPacked;
 	}
 }

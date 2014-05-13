@@ -115,74 +115,74 @@ final class Class96 {
 			do {
 				int i_37_;
 				try {
-					if (Class172.anInt1716 == 0) {
+					if (Decimator.anInt1716 == 0) {
 						if (TimeUtil.getSafeTime() - 5000L < Class158.aLong1482) {
 							return 0;
 						}
-						Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.method1976(19, Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+						Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
 						GameShell.aLong4 = TimeUtil.getSafeTime();
-						Class172.anInt1716 = 1;
+						Decimator.anInt1716 = 1;
 					}
 					if ((TimeUtil.getSafeTime() ^ 0xffffffffffffffffL) < (GameShell.aLong4 + 30000L ^ 0xffffffffffffffffL)) {
 						return OutputStream_Sub1.method72((byte) 9, 1000);
 					}
-					if (Class172.anInt1716 == 1) {
+					if (Decimator.anInt1716 == 1) {
 						if (Class53_Sub1.aClass185_2217.status == 2) {
 							return OutputStream_Sub1.method72((byte) 9, 1001);
 						}
 						if (Class53_Sub1.aClass185_2217.status != 1) {
 							return -1;
 						}
-						AbstractTimer.aClass46_825 = new Class46((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
+						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
 						Class53_Sub1.aClass185_2217 = null;
 						int i_38_ = 0;
 						if (Class159.aBoolean1487) {
 							i_38_ = anInt900;
 						}
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos = 0;
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putByte(23);
-						Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putInt(i_38_);
-						AbstractTimer.aClass46_825.method381(0, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.buf, Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.pos, 30000);
+						Class120_Sub12_Sub11.outputStream.pos = 0;
+						Class120_Sub12_Sub11.outputStream.putByte(23);
+						Class120_Sub12_Sub11.outputStream.putInt(i_38_);
+						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-							Class120_Sub12_Sub3.aClass164_3150.method2131(2);
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
 						}
 						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-							Class120_Sub12_Sub29.aClass164_3366.method2131(2);
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
-						final int i_39_ = AbstractTimer.aClass46_825.read();
+						final int i_39_ = AbstractTimer.worldConnection.read();
 						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-							Class120_Sub12_Sub3.aClass164_3150.method2131(2);
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
 						}
 						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-							Class120_Sub12_Sub29.aClass164_3366.method2131(2);
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
 						if (i_39_ != 0) {
 							return OutputStream_Sub1.method72((byte) 9, i_39_);
 						}
-						Class172.anInt1716 = 2;
+						Decimator.anInt1716 = 2;
 					}
-					if (Class172.anInt1716 == 2) {
-						if (AbstractTimer.aClass46_825.method375((byte) 93) < 2) {
+					if (Decimator.anInt1716 == 2) {
+						if (AbstractTimer.worldConnection.getAvailable() < 2) {
 							return -1;
 						}
-						Class120_Sub26.anInt2740 = AbstractTimer.aClass46_825.read();
+						Class120_Sub26.anInt2740 = AbstractTimer.worldConnection.read();
 						Class120_Sub26.anInt2740 <<= 8;
-						Class120_Sub26.anInt2740 += AbstractTimer.aClass46_825.read();
+						Class120_Sub26.anInt2740 += AbstractTimer.worldConnection.read();
 						Class39.aByteArray324 = new byte[Class120_Sub26.anInt2740];
 						Class132_Sub1.anInt2816 = 0;
-						Class172.anInt1716 = 3;
+						Decimator.anInt1716 = 3;
 					}
-					if (Class172.anInt1716 != 3) {
+					if (Decimator.anInt1716 != 3) {
 						break;
 					}
-					int i_40_ = AbstractTimer.aClass46_825.method375((byte) 82);
+					int i_40_ = AbstractTimer.worldConnection.getAvailable();
 					if (i_40_ < 1) {
 						return -1;
 					}
 					if (i_40_ > Class120_Sub26.anInt2740 + -Class132_Sub1.anInt2816) {
 						i_40_ = -Class132_Sub1.anInt2816 + Class120_Sub26.anInt2740;
 					}
-					AbstractTimer.aClass46_825.method373(Class132_Sub1.anInt2816, Class39.aByteArray324, i_40_, (byte) 71);
+					AbstractTimer.worldConnection.read(Class132_Sub1.anInt2816, Class39.aByteArray324, i_40_);
 					Class132_Sub1.anInt2816 += i_40_;
 					if (Class132_Sub1.anInt2816 < Class120_Sub26.anInt2740) {
 						return -1;
@@ -198,11 +198,11 @@ final class Class96 {
 							Class86.aClass167_Sub1Array817[i_41_++] = class167_sub1;
 						}
 					}
-					AbstractTimer.aClass46_825.method377(-19055);
+					AbstractTimer.worldConnection.method377();
 					Class39.aByteArray324 = null;
-					Class172.anInt1716 = 0;
+					Decimator.anInt1716 = 0;
 					Class120_Sub26.anInt2742 = 0;
-					AbstractTimer.aClass46_825 = null;
+					AbstractTimer.worldConnection = null;
 					Class158.aLong1482 = TimeUtil.getSafeTime();
 					i_37_ = 0;
 				} catch (final IOException ioexception) {

@@ -8,13 +8,13 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	private int anInt3140 = 4096;
 	private final int[] anIntArray3141;
 	private int anInt3142 = 4096;
-	static Class21 aClass21_3143 = new Class21(20);
-	static Class21 aClass21_3144 = new Class21(4);
+	static Cache aClass21_3143 = new Cache(20);
+	static Cache aClass21_3144 = new Cache(4);
 	static int anInt3145;
 	static long aLong3146 = 0L;
 
 	static final void method1201(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		final Class120_Sub18 class120_sub18 = Class120_Sub1.aClass120_Sub18ArrayArrayArray2411[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 != null) {
 			final Class186 class186 = class120_sub18.aClass186_2639;
 			if (class186 != null) {

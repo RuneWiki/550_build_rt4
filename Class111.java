@@ -32,7 +32,7 @@ final class Class111 {
 			if (InterfaceChangeNode.anIntArray3485.length < OutputStream_Sub1.anInt32) {
 				OutputStream_Sub1.anInt32 -= InterfaceChangeNode.anIntArray3485.length;
 				final int i_2_ = (int) (Math.random() * 12.0);
-				Class96.method787(-69, Class46.aClass107_Sub1Array426[i_2_]);
+				Class96.method787(-69, JagexSocket.aClass107_Sub1Array426[i_2_]);
 			}
 			int i_3_ = 0;
 			final int i_4_ = 128 * i;

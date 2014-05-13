@@ -7,60 +7,60 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	static int anInt3193;
 	static boolean[] aBooleanArray3194 = new boolean[200];
 	static int anInt3195 = -1;
-	static Class21 aClass21_3196 = new Class21(16);
+	static Cache aClass21_3196 = new Cache(16);
 	private boolean aBoolean3197 = true;
 	static int anInt3198;
 	static int anInt3199 = 0;
 
-	static final void method1244(final Class189 class189, final int i, final int i_0_, final int i_1_) {
+	static final void method1244(final JagexInterface jagexInterface, final int i, final int i_0_, final int i_1_) {
 		try {
-			if (class189.anInt1996 == 1) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, class189.anInt1999, "", class189.aString1934, (short) 57, -1);
+			if (jagexInterface.anInt1996 == 1) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 57, -1);
 			}
-			if (class189.anInt1996 == 2 && !Class88.aBoolean828) {
-				final String string = Class33.method277((byte) 117, class189);
+			if (jagexInterface.anInt1996 == 2 && !Class88.aBoolean828) {
+				final String string = Class33.method277((byte) 117, jagexInterface);
 				if (string != null) {
-					Class120_Sub14_Sub6.addMenuOption(0L, -1, class189.anInt1999, new StringBuilder("<col=00ff00>").append(class189.aString1979).toString(), string, (short) 34, -1);
+					Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, new StringBuilder("<col=00ff00>").append(jagexInterface.aString1979).toString(), string, (short) 34, -1);
 					Class118.anInt1139++;
 				}
 			}
-			if (class189.anInt1996 == 3) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, class189.anInt1999, "", Class5.aString2153, (short) 7, -1);
+			if (jagexInterface.anInt1996 == 3) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", Class5.aString2153, (short) 7, -1);
 			}
 			if (i <= 78) {
 				method1245(-53, 52, null);
 			}
-			if (class189.anInt1996 == 4) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, class189.anInt1999, "", class189.aString1934, (short) 18, -1);
+			if (jagexInterface.anInt1996 == 4) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 18, -1);
 			}
-			if (class189.anInt1996 == 5) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, class189.anInt1999, "", class189.aString1934, (short) 11, -1);
+			if (jagexInterface.anInt1996 == 5) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 11, -1);
 			}
-			if (class189.anInt1996 == 6 && Class156.aClass189_1454 == null) {
-				Class120_Sub14_Sub6.addMenuOption(0L, -1, class189.anInt1999, "", class189.aString1934, (short) 3, -1);
+			if (jagexInterface.anInt1996 == 6 && Class156.aClass189_1454 == null) {
+				Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 3, -1);
 				Class31.anInt242++;
 			}
-			if (class189.anInt1995 == 2) {
+			if (jagexInterface.anInt1995 == 2) {
 				int i_2_ = 0;
-				for (int i_3_ = 0; class189.anInt2060 > i_3_; i_3_++) {
-					for (int i_4_ = 0; i_4_ < class189.anInt2014; i_4_++) {
-						int i_5_ = i_4_ * (32 + class189.anInt2044);
-						int i_6_ = i_3_ * (32 - -class189.anInt2077);
+				for (int i_3_ = 0; jagexInterface.anInt2060 > i_3_; i_3_++) {
+					for (int i_4_ = 0; i_4_ < jagexInterface.anInt2014; i_4_++) {
+						int i_5_ = i_4_ * (32 + jagexInterface.anInt2044);
+						int i_6_ = i_3_ * (32 - -jagexInterface.anInt2077);
 						if (i_2_ < 20) {
-							i_6_ += class189.anIntArray1986[i_2_];
-							i_5_ += class189.anIntArray1988[i_2_];
+							i_6_ += jagexInterface.anIntArray1986[i_2_];
+							i_5_ += jagexInterface.anIntArray1988[i_2_];
 						}
 						if (i_1_ >= i_5_ && i_0_ >= i_6_ && i_5_ + 32 > i_1_ && i_0_ < 32 + i_6_) {
 							Class120_Sub13.anInt2572 = i_2_;
-							Class120_Sub14_Sub16.aClass189_3588 = class189;
-							if (class189.anIntArray1978[i_2_] > 0) {
-								final InterfaceClickMask class120_sub20 = client.method54(class189);
-								final ObjType objType = ObjType.list(-1 + class189.anIntArray1978[i_2_]);
+							Class120_Sub14_Sub16.aClass189_3588 = jagexInterface;
+							if (jagexInterface.anIntArray1978[i_2_] > 0) {
+								final InterfaceClickMask class120_sub20 = client.method54(jagexInterface);
+								final ObjType objType = ObjType.list(-1 + jagexInterface.anIntArray1978[i_2_]);
 								if (Light.anInt393 != 1 || !class120_sub20.method1694(500)) {
 									if (Class88.aBoolean828 && class120_sub20.method1694(500)) {
 										final Class120_Sub14_Sub11 class120_sub14_sub11 = Class139.anInt1330 == -1 ? null : Class74.method652(Class139.anInt1330, (byte) -124);
-										if ((0x10 & Class120_Sub18.anInt2652) != 0 && (class120_sub14_sub11 == null || objType.method2115(Class139.anInt1330, 0, class120_sub14_sub11.anInt3542) != class120_sub14_sub11.anInt3542)) {
-											Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), Class101.aString963, (short) 50, Class150.anInt1417);
+										if ((0x10 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParam(class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
+											Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), Class101.aString963, (short) 50, Class150.anInt1417);
 										}
 									} else {
 										String[] strings = objType.inventoryOptions;
@@ -76,12 +76,12 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 													} else {
 														i_8_ = (short) 51;
 													}
-													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_7_], i_8_, -1);
+													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_7_], i_8_, -1);
 												}
 											}
 										}
 										if (class120_sub20.method1687(119)) {
-											Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder("<col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 9, Class120_Sub12_Sub10.anInt3205);
+											Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder("<col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 9, Class120_Sub12_Sub10.anInt3205);
 										}
 										if (class120_sub20.method1694(500) && strings != null) {
 											for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
@@ -96,11 +96,11 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 													if (i_9_ == 2) {
 														i_10_ = (short) 17;
 													}
-													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_9_], i_10_, -1);
+													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_9_], i_10_, -1);
 												}
 											}
 										}
-										strings = class189.aStringArray2056;
+										strings = jagexInterface.aStringArray2056;
 										if (MouseHandler.showNumbersOnActions) {
 											strings = Class120_Sub12_Sub36.addNumbers(strings);
 										}
@@ -123,14 +123,14 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 													if (i_11_ == 4) {
 														i_12_ = (short) 49;
 													}
-													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_11_], i_12_, -1);
+													Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder("<col=ff9040>").append(objType.name).toString(), strings[i_11_], i_12_, -1);
 												}
 											}
 										}
-										Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder("<col=ff9040>").append(objType.name).toString(), Class11.aString81, (short) 1001, Class120_Sub12_Sub11.anInt3211);
+										Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder("<col=ff9040>").append(objType.name).toString(), Class11.aString81, (short) 1001, Class120_Sub12_Sub11.anInt3211);
 									}
-								} else if (Class141.anInt1355 != class189.anInt1999 || Class108_Sub1.anInt2319 != i_2_) {
-									Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, class189.anInt1999, new StringBuilder(Class192.aString2124).append(" -> <col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 15, -1);
+								} else if (Class141.anInt1355 != jagexInterface.bitPacked || Class108_Sub1.anInt2319 != i_2_) {
+									Class120_Sub14_Sub6.addMenuOption(objType.anInt1529, i_2_, jagexInterface.bitPacked, new StringBuilder(Class192.aString2124).append(" -> <col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 15, -1);
 								}
 							}
 						}
@@ -138,43 +138,43 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					}
 				}
 			}
-			if (class189.aBoolean2041) {
+			if (jagexInterface.aBoolean2041) {
 				if (Class88.aBoolean828) {
-					if (client.method54(class189).method1692(false) && (0x20 & Class120_Sub18.anInt2652) != 0) {
-						Class120_Sub14_Sub6.addMenuOption(0L, class189.anInt2083, class189.anInt1999, new StringBuilder(Light.aString369).append(" -> ").append(class189.aString1964).toString(), Class101.aString963, (short) 1, Class150.anInt1417);
+					if (client.method54(jagexInterface).method1692(false) && (0x20 & GroundTile.anInt2652) != 0) {
+						Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, new StringBuilder(Light.aString369).append(" -> ").append(jagexInterface.aString1964).toString(), Class101.aString963, (short) 1, Class150.anInt1417);
 					}
 				} else {
 					for (int i_13_ = 9; i_13_ >= 5; i_13_--) {
-						final String string = Class120_Sub12_Sub17.method1285(i_13_, class189, (byte) 35);
+						final String string = Class120_Sub12_Sub17.method1285(i_13_, jagexInterface, (byte) 35);
 						if (string != null) {
-							Class120_Sub14_Sub6.addMenuOption(1 + i_13_, class189.anInt2083, class189.anInt1999, class189.aString1964, string, (short) 1009, Class120_Sub12_Sub31.method1368(class189, i_13_, (byte) -25));
+							Class120_Sub14_Sub6.addMenuOption(1 + i_13_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string, (short) 1009, Class120_Sub12_Sub31.method1368(jagexInterface, i_13_, (byte) -25));
 							Class24.anInt141++;
 						}
 					}
-					final String string = Class33.method277((byte) 126, class189);
+					final String string = Class33.method277((byte) 126, jagexInterface);
 					if (string != null) {
-						Class120_Sub14_Sub6.addMenuOption(0L, class189.anInt2083, class189.anInt1999, class189.aString1964, string, (short) 34, -1);
+						Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string, (short) 34, -1);
 						Class118.anInt1139++;
 					}
 					for (int i_14_ = 4; i_14_ >= 0; i_14_--) {
-						final String string_15_ = Class120_Sub12_Sub17.method1285(i_14_, class189, (byte) 120);
+						final String string_15_ = Class120_Sub12_Sub17.method1285(i_14_, jagexInterface, (byte) 120);
 						if (string_15_ != null) {
-							Class120_Sub14_Sub6.addMenuOption(1 + i_14_, class189.anInt2083, class189.anInt1999, class189.aString1964, string_15_, (short) 23, Class120_Sub12_Sub31.method1368(class189, i_14_, (byte) -35));
+							Class120_Sub14_Sub6.addMenuOption(1 + i_14_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string_15_, (short) 23, Class120_Sub12_Sub31.method1368(jagexInterface, i_14_, (byte) -35));
 							Class24.anInt141++;
 						}
 					}
-					if (client.method54(class189).method1686((byte) -101)) {
-						if (class189.aString1994 != null) {
-							Class120_Sub14_Sub6.addMenuOption(0L, class189.anInt2083, class189.anInt1999, "", class189.aString1994, (short) 3, -1);
+					if (client.method54(jagexInterface).method1686((byte) -101)) {
+						if (jagexInterface.aString1994 != null) {
+							Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, "", jagexInterface.aString1994, (short) 3, -1);
 						} else {
-							Class120_Sub14_Sub6.addMenuOption(0L, class189.anInt2083, class189.anInt1999, "", Class109.aString1046, (short) 3, -1);
+							Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, "", Class109.aString1046, (short) 3, -1);
 						}
 						Class31.anInt242++;
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fj.R(").append(class189 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fj.R(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 

@@ -34,7 +34,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			if (i_2_ != 0) {
 				final int i_3_ = Class2.permanentVariable[i_1_];
 				if (i_2_ == 9) {
-					Class189.anInt2027 = i_3_;
+					JagexInterface.anInt2027 = i_3_;
 				}
 				if (i_2_ == 5) {
 					Class69.anInt617 = i_3_;
@@ -126,13 +126,13 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 					if (!bool) {
 						anInt3583 = -42;
 					}
-					int i_17_ = class120_sub7.method1081((byte) 98);
+					int i_17_ = class120_sub7.getUSmart();
 					if (i < i_17_) {
 						i_17_ = i;
 					}
 					final byte[] is = new byte[i_17_];
 					class120_sub7.pos += Class39.aClass126_321.method1886(0, class120_sub7.pos, 125, class120_sub7.buf, is, i_17_);
-					final String string_18_ = DisplayModeInfo.method2215(0, is, false, i_17_);
+					final String string_18_ = DisplayModeInfo.method2215(is, 0, i_17_);
 					string_16_ = string_18_;
 				} catch (final Exception exception) {
 					string = "Cabbage";

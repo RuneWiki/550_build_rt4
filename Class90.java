@@ -6,9 +6,9 @@ import java.util.TimeZone;
 
 final class Class90 {
 	private Class50 aClass50_839;
-	static Class21 aClass21_840 = new Class21(5);
+	static Cache aClass21_840 = new Cache(5);
 	private final Class50 aClass50_841;
-	private final Class75 aClass75_842 = new Class75(256);
+	private final Hashtable aClass75_842 = new Hashtable(256);
 	static Class50 aClass50_843;
 	static Calendar aCalendar844;
 	static boolean aBoolean845 = false;
@@ -17,7 +17,7 @@ final class Class90 {
 	static int anInt848;
 	static int[] anIntArray849;
 	static Class82 aClass82_850;
-	private final Class75 aClass75_851 = new Class75(256);
+	private final Hashtable aClass75_851 = new Hashtable(256);
 
 	static {
 		aCalendar844 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
@@ -45,7 +45,7 @@ final class Class90 {
 		if (class120_sub14_sub2_1_ != null) {
 			return class120_sub14_sub2_1_;
 		}
-		final byte[] is = Class24.aClass50_145.method442(Class65.method576(i_0_, (byte) 70), (byte) 120, Class120_Sub6.method1070(-123, i_0_));
+		final byte[] is = Class24.aClass50_145.getFile(Class65.method576(i_0_, (byte) 70), Class120_Sub6.method1070(-123, i_0_));
 		class120_sub14_sub2_1_ = new Class120_Sub14_Sub2();
 		if (is != null) {
 			class120_sub14_sub2_1_.method1425(false, new Buffer(is));
@@ -63,7 +63,7 @@ final class Class90 {
 			int i_4_ = i_2_ ^ (i >>> 12 | (0x30000fff & i) << 4);
 			i_4_ |= i << 16;
 			final long l = i_4_;
-			Class120_Sub5_Sub1 class120_sub5_sub1_5_ = (Class120_Sub5_Sub1) aClass75_851.method659(l, 79);
+			Class120_Sub5_Sub1 class120_sub5_sub1_5_ = (Class120_Sub5_Sub1) aClass75_851.get(l);
 			if (class120_sub5_sub1_5_ != null) {
 				return class120_sub5_sub1_5_;
 			}
@@ -75,7 +75,7 @@ final class Class90 {
 				return null;
 			}
 			class120_sub5_sub1_5_ = class6.method104();
-			aClass75_851.method655(class120_sub5_sub1_5_, 88, l);
+			aClass75_851.put(class120_sub5_sub1_5_, l);
 			if (is != null) {
 				is[0] -= class120_sub5_sub1_5_.aByteArray3114.length;
 			}
@@ -91,7 +91,7 @@ final class Class90 {
 			if (aClass50_839.method421(-61) == 1) {
 				return method754(i_6_, -111, 0, is);
 			}
-			if (aClass50_839.method441(i_6_, 1) == 1) {
+			if (aClass50_839.getFileAmount(i_6_) == 1) {
 				return method754(0, 73, i_6_, is);
 			}
 			throw new RuntimeException();
@@ -106,27 +106,27 @@ final class Class90 {
 			int i_9_ = i ^ ((i_8_ & 0x60000fff) << 4 | i_8_ >>> 12);
 			i_9_ |= i_8_ << 16;
 			final long l = 0x100000000L ^ i_9_;
-			Class120_Sub5_Sub1 class120_sub5_sub1_10_ = (Class120_Sub5_Sub1) aClass75_851.method659(l, 0);
+			Class120_Sub5_Sub1 class120_sub5_sub1_10_ = (Class120_Sub5_Sub1) aClass75_851.get(l);
 			if (class120_sub5_sub1_10_ != null) {
 				return class120_sub5_sub1_10_;
 			}
 			if (is != null && is[0] <= 0) {
 				return null;
 			}
-			Class120_Sub23 class120_sub23 = (Class120_Sub23) aClass75_842.method659(l, -120);
+			Class120_Sub23 class120_sub23 = (Class120_Sub23) aClass75_842.get(l);
 			if (class120_sub23 == null) {
 				class120_sub23 = Class120_Sub23.method1716(aClass50_839, i_8_, i);
 				if (class120_sub23 == null) {
 					return null;
 				}
-				aClass75_842.method655(class120_sub23, 116, l);
+				aClass75_842.put(class120_sub23, l);
 			}
 			class120_sub5_sub1_10_ = class120_sub23.method1715(is);
 			if (class120_sub5_sub1_10_ == null) {
 				return null;
 			}
 			class120_sub23.unlink();
-			aClass75_851.method655(class120_sub5_sub1_10_, 125, l);
+			aClass75_851.put(class120_sub5_sub1_10_, l);
 			class120_sub5_sub1 = class120_sub5_sub1_10_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.H(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
@@ -136,9 +136,9 @@ final class Class90 {
 
 	static final void method755(final int i, final int i_11_, final String string) {
 		try {
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(i);
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putLong(Class70.method636(-120, string));
-			Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.method1080(i_11_, (byte) 10);
+			Class120_Sub12_Sub11.outputStream.putByteIsaac(i);
+			Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(string));
+			Class120_Sub12_Sub11.outputStream.method1080(i_11_, (byte) 10);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.J(").append(i).append(',').append(i_11_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
@@ -149,7 +149,7 @@ final class Class90 {
 			if (aClass50_841.method421(-78) == 1) {
 				return method752(0, is, i_12_, -1656949328);
 			}
-			if (aClass50_841.method441(i_12_, 1) == 1) {
+			if (aClass50_841.getFileAmount(i_12_) == 1) {
 				return method752(i_12_, is, 0, -1656949328);
 			}
 			if (i != 3414) {
@@ -163,25 +163,25 @@ final class Class90 {
 
 	static final void method757(final byte i) {
 		try {
-			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method657(13292); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method658((byte) -116)) {
+			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
 				final int i_13_ = class120_sub26.anInt2745;
-				if (Class50.method434(-67, i_13_)) {
+				if (Class50.loadInterface(i_13_)) {
 					boolean bool = true;
-					final Class189[] class189s = Node.aClass189ArrayArray1150[i_13_];
-					Class189[] class189s_15_;
+					final JagexInterface[] class189s = Node.interfaceCache[i_13_];
+					JagexInterface[] class189s_15_;
 					final int i_14_ = (class189s_15_ = class189s).length;
 					for (int i_16_ = 0; i_16_ < i_14_; i_16_++) {
-						final Class189 class189 = class189s_15_[i_16_];
-						if (class189 != null) {
-							bool = class189.aBoolean2041;
+						final JagexInterface jagexInterface = class189s_15_[i_16_];
+						if (jagexInterface != null) {
+							bool = jagexInterface.aBoolean2041;
 							break;
 						}
 					}
 					if (!bool) {
 						final int i_17_ = (int) class120_sub26.uid;
-						final Class189 class189 = Class74.method650(-108, i_17_);
-						if (class189 != null) {
-							InterfaceClickMask.redrawInterface(class189);
+						final JagexInterface jagexInterface = Class74.getJagexInterface(i_17_);
+						if (jagexInterface != null) {
+							InterfaceClickMask.redrawInterface(jagexInterface);
 						}
 					}
 				}
@@ -194,8 +194,8 @@ final class Class90 {
 	static final void method758(final int i) {
 		do {
 			try {
-				Class120_Sub12_Sub11.aClass120_Sub7_Sub1_3209.putPacket(189);
-				for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method657(13292); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.method658((byte) -115)) {
+				Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
+				for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
 					if (class120_sub26.anInt2744 == 0) {
 						Class120_Sub19.method1675(class120_sub26, true);
 					}
@@ -224,9 +224,9 @@ final class Class90 {
 					pixels[pixelId] = Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff];
 				}
 				if (!HDToolkit.glEnabled) {
-					sprites[spriteId] = new LDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], Class120_Sub18.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				} else {
-					sprites[spriteId] = new HDSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], Class120_Sub18.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				}
 			} else {
 				final byte[] alphas = Class120_Sub12.spriteAlphas[spriteId];
@@ -235,9 +235,9 @@ final class Class90 {
 					pixels[pixelId] = Class191.method2512(Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff], Class120_Sub12_Sub3.method1207(-16777216, alphas[pixelId] << 24));
 				}
 				if (HDToolkit.glEnabled) {
-					sprites[spriteId] = new HDTransparentSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], Class120_Sub18.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new HDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				} else {
-					sprites[spriteId] = new LDTransparentSprite(Class31.spriteTrimWidth, Class180_Sub1.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], Class120_Sub18.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				}
 			}
 		}
