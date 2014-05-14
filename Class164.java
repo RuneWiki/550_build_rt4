@@ -6,7 +6,7 @@ import java.awt.Component;
 class Class164 {
 	private Class120_Sub30 aClass120_Sub30_1583;
 	private long aLong1584;
-	static boolean aBoolean1586;
+	static boolean forceTween;
 	int[] anIntArray1587;
 	static long aLong1588 = 0L;
 	private boolean aBoolean1589 = false;
@@ -25,7 +25,7 @@ class Class164 {
 	private boolean aBoolean1602;
 
 	static {
-		aBoolean1586 = false;
+		forceTween = false;
 	}
 
 	private final void method2129(final int i, final Class120_Sub30 class120_sub30, final byte i_0_) {
@@ -272,7 +272,7 @@ class Class164 {
 					for (int i_16_ = 0; i_16_ < 4; i_16_++) {
 						for (int i_17_ = 0; i_17_ < 104; i_17_++) {
 							for (int i_18_ = 0; i_18_ < 104; i_18_++) {
-								Class114.aByteArrayArrayArray1095[i_16_][i_17_][i_18_] = (byte) 0;
+								Class114.tileSettings[i_16_][i_17_][i_18_] = (byte) 0;
 							}
 						}
 					}
@@ -361,7 +361,7 @@ class Class164 {
 					if (HDToolkit.glEnabled) {
 						for (int i_26_ = 0; i_26_ < 13; i_26_++) {
 							for (int i_27_ = 0; i_27_ < 13; i_27_++) {
-								Class47.aClass94ArrayArray433[i_26_][i_27_].method778(Class120_Sub26.anIntArrayArrayArray2741[0], 8 * i_26_, i_27_ * 8);
+								Class47.aClass94ArrayArray433[i_26_][i_27_].method778(OverridedJInterface.anIntArrayArrayArray2741[0], 8 * i_26_, i_27_ * 8);
 							}
 						}
 					}
@@ -376,7 +376,8 @@ class Class164 {
 					Class110.method976(-7603);
 					Class93.aBoolean870 = false;
 					if (HDToolkit.glEnabled) {
-						Class101.method835(i + -3466, true);
+						System.out.println("a");
+					//	Class101.method835(i + -3466, true);
 					}
 					if (Class112.frame != null && AbstractTimer.worldConnection != null && Class109.gameState == 25) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(236);
@@ -483,19 +484,15 @@ class Class164 {
 		/* empty */
 	}
 
-	static final void method2142(final int i) {
-		try {
-			if (!Class188.aBoolean1925) {
-				Class118.aBoolean1134 = true;
-				if (!Class134.aBoolean1277) {
-					Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + -24.0F) / 2.0F;
-				} else {
-					OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 - 65 & ~0x7f;
-				}
-				Class188.aBoolean1925 = true;
+	static final void method2142() {
+		if (!Class188.aBoolean1925) {
+			Class118.aBoolean1134 = true;
+			if (!Class134.aBoolean1277) {
+				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + -24.0F) / 2.0F;
+			} else {
+				OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 - 65 & ~0x7f;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tj.E(").append(i).append(')').toString());
+			Class188.aBoolean1925 = true;
 		}
 	}
 
@@ -615,7 +612,7 @@ class Class164 {
 						final int i_61_ = class180_sub5_sub1.x / 32 + -(Class100.selfPlayer.x / 32);
 						boolean bool = false;
 						final int i_62_ = class180_sub5_sub1.z / 32 + -(Class100.selfPlayer.z / 32);
-						final long l = Class70.stringToLong(class180_sub5_sub1.aString3745);
+						final long l = Class70.stringToLong(class180_sub5_sub1.name);
 						for (int i_63_ = 0; ProducingGraphicsBuffer.anInt2799 > i_63_; i_63_++) {
 							if (l == AbstractSprite.aLongArray3617[i_63_] && Class120_Sub12_Sub16.anIntArray3252[i_63_] != 0) {
 								bool = true;
@@ -699,7 +696,7 @@ class Class164 {
 		if (Class90.aBoolean846) {
 			i_76_ <<= 1;
 		}
-		Class4.method92(is, 0, i_76_);
+		ArrayUtils.resetArray(is, 0, i_76_);
 		anInt1592 -= i;
 		if (aClass120_Sub30_1583 != null && anInt1592 <= 0) {
 			anInt1592 += Class178.anInt1771 >> 4;

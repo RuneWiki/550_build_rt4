@@ -54,15 +54,9 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		return i_4_;
 	}
 
-	static final void method1360(final int i, final int i_6_) {
-		try {
-			Class43.aClass21_367.method192(i_6_);
-			if (i < -59) {
-				Class90.aClass21_840.method192(i_6_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.U(").append(i).append(',').append(i_6_).append(')').toString());
-		}
+	static final void method1360(final int i_6_) {
+		Class43.playerModelsCache.method192(i_6_);
+		Class90.playerHeadModelsCache.method192(i_6_);
 	}
 
 	@Override
@@ -103,7 +97,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		Class101_Sub4 class101_sub4;
 		try {
 			if (!bool) {
-				method1360(-25, 107);
+				method1360(107);
 			}
 			class101_sub4 = new Class101_Sub4(class120_sub7.method1078(true), class120_sub7.method1078(bool), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(bool),
 					class120_sub7.method1078(true), class120_sub7.getTriByte(), class120_sub7.getUByte());
@@ -117,46 +111,36 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		super(0, true);
 	}
 
-	static final void method1363(final int i, final int i_11_, final int i_12_, final int i_13_, int i_14_, final int i_15_, final int i_16_, final int i_17_) {
-		try {
-			int i_18_ = i_16_ - 334;
-			if (i_18_ >= 0) {
-				if (i_18_ > 100) {
-					i_18_ = 100;
-				}
-			} else {
-				i_18_ = 0;
-			}
-			final int i_19_ = i_18_ * (-Class120_Sub12_Sub11.aShort3216 + Class61.aShort565) / 100 + Class120_Sub12_Sub11.aShort3216;
-			i_14_ = i_14_ * i_19_ >> 8;
-			final int i_20_ = 0x7ff & 2048 - i_11_;
-			int i_21_ = 0;
-			final int i_22_ = 2048 + -i_13_ & 0x7ff;
-			int i_23_ = 0;
-			int i_24_ = i_14_;
-			if (i_22_ != 0) {
-				final int i_25_ = Rasterizer.sineTable[i_22_];
-				final int i_26_ = Rasterizer.cosineTable[i_22_];
-				i_21_ = -i_24_ * i_25_ >> 16;
-				i_24_ = i_24_ * i_26_ >> 16;
-			}
-			if (i_20_ != 0) {
-				final int i_27_ = Rasterizer.cosineTable[i_20_];
-				final int i_28_ = Rasterizer.sineTable[i_20_];
-				i_23_ = i_24_ * i_28_ >> 16;
-				i_24_ = i_24_ * i_27_ >> 16;
-			}
-			GroundObjectNode.anInt3626 = i_15_ - i_24_;
-			Class120_Sub12_Sub10.anInt3200 = i_12_ - i_21_;
-			Class83.anInt792 = -i_23_ + i_17_;
-			if (i != 57) {
-				aString3372 = null;
-			}
-			Class180_Sub3.anInt2909 = i_11_;
-			Class128.anInt1223 = i_13_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.V(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(',').append(i_17_).append(')')
-					.toString());
+	static final void method1363(final int i, final int yaw, final int tileHeight, final int pitch, int zoom, final int pRenderZ, final int screenHeight, final int pRenderX) {
+		int delta = screenHeight - 334;
+		if (delta < 0) {
+			delta = 0;
+		} else if (delta > 100) {
+			delta = 100;
 		}
+		final int zoomModifier = delta * (Class61.aShort565 - Class120_Sub12_Sub11.aShort3216) / 100 + Class120_Sub12_Sub11.aShort3216;
+		zoom = zoom * zoomModifier >> 8;
+		final int yawDelta = 2048 - yaw & 0x7ff;
+		int i_21_ = 0;
+		final int pitchDelta = 2048 - pitch & 0x7ff;
+		int i_23_ = 0;
+		int i_24_ = zoom;
+		if (pitchDelta != 0) {
+			final int i_25_ = Rasterizer.sineTable[pitchDelta];
+			final int i_26_ = Rasterizer.cosineTable[pitchDelta];
+			i_21_ = -i_24_ * i_25_ >> 16;
+			i_24_ = i_24_ * i_26_ >> 16;
+		}
+		if (yawDelta != 0) {
+			final int i_27_ = Rasterizer.cosineTable[yawDelta];
+			final int i_28_ = Rasterizer.sineTable[yawDelta];
+			i_23_ = i_24_ * i_28_ >> 16;
+			i_24_ = i_24_ * i_27_ >> 16;
+		}
+		GroundObjectNode.renderZ = pRenderZ - i_24_;
+		Class120_Sub12_Sub10.renderY = tileHeight - i_21_;
+		Class83.renderX = pRenderX - i_23_;
+		Class180_Sub3.renderYaw = yaw;
+		Class128.renderPitch = pitch;
 	}
 }

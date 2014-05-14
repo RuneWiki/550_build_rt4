@@ -112,52 +112,48 @@ final class Class127 {
 		}
 	}
 
-	static final void method1892(final byte i) {
-		try {
-			if (Class120_Sub12_Sub21.aFloat3293 < 128.0F) {
-				Class120_Sub12_Sub21.aFloat3293 = 128.0F;
-			}
-			final int i_9_ = Class69_Sub3_Sub1.anInt3083 >> 7;
-			if (383.0F < Class120_Sub12_Sub21.aFloat3293) {
-				Class120_Sub12_Sub21.aFloat3293 = 383.0F;
-			}
-			for (/**/; 2048.0F <= OutputStream_Sub1.aFloat28; OutputStream_Sub1.aFloat28 -= 2048.0F) {
-				/* empty */
-			}
-			final int i_10_ = Class120_Sub10.anInt2545 >> 7;
-			int i_11_ = 0;
-			for (/**/; OutputStream_Sub1.aFloat28 < 0.0F; OutputStream_Sub1.aFloat28 += 2048.0F) {
-				/* empty */
-			}
-			final int i_12_ = Class22.method197(Class173.gameLevel, Class69_Sub3_Sub1.anInt3083, Class120_Sub10.anInt2545);
-			if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
-				for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
-					for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {
-						int i_15_ = Class173.gameLevel;
-						if (i_15_ < 3 && (Class114.aByteArrayArrayArray1095[1][i_13_][i_14_] & 0x2) == 2) {
-							i_15_++;
-						}
-						final int i_16_ = i_12_ - (Class120_Sub26.anIntArrayArrayArray2741[i_15_][i_13_][i_14_] - 8 * (Class114.aByteArrayArrayArray1094[i_15_][i_13_][i_14_] & 0xff));
-						if (i_16_ > i_11_) {
-							i_11_ = i_16_;
-						}
+	static final void method1892() {
+		if (Class120_Sub12_Sub21.aFloat3293 < 128.0F) {
+			Class120_Sub12_Sub21.aFloat3293 = 128.0F;
+		}
+		final int i_9_ = Class69_Sub3_Sub1.playerRenderX >> 7;
+		if (383.0F < Class120_Sub12_Sub21.aFloat3293) {
+			Class120_Sub12_Sub21.aFloat3293 = 383.0F;
+		}
+		for (/**/; 2048.0F <= OutputStream_Sub1.aFloat28; OutputStream_Sub1.aFloat28 -= 2048.0F) {
+			/* empty */
+		}
+		final int i_10_ = Class120_Sub10.playerRenderZ >> 7;
+		int i_11_ = 0;
+		for (/**/; OutputStream_Sub1.aFloat28 < 0.0F; OutputStream_Sub1.aFloat28 += 2048.0F) {
+			/* empty */
+		}
+		final int i_12_ = Class22.method197(Class173.gameLevel, Class69_Sub3_Sub1.playerRenderX, Class120_Sub10.playerRenderZ);
+		if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
+			for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
+				for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {
+					int i_15_ = Class173.gameLevel;
+					if (i_15_ < 3 && (Class114.tileSettings[1][i_13_][i_14_] & 0x2) == 2) {
+						i_15_++;
+					}
+					final int i_16_ = i_12_ - (OverridedJInterface.anIntArrayArrayArray2741[i_15_][i_13_][i_14_] - 8 * (Class114.aByteArrayArrayArray1094[i_15_][i_13_][i_14_] & 0xff));
+					if (i_16_ > i_11_) {
+						i_11_ = i_16_;
 					}
 				}
 			}
-			int i_17_ = 192 * i_11_;
-			if ((i_17_ ^ 0xffffffff) < -98049) {
-				i_17_ = 98048;
-			}
-			if (-32769 < (i_17_ ^ 0xffffffff)) {
-				i_17_ = 32768;
-			}
-			if (i_17_ > Class26.anInt162) {
-				Class26.anInt162 += (i_17_ + -Class26.anInt162) / 24;
-			} else if (Class26.anInt162 > i_17_) {
-				Class26.anInt162 += (i_17_ + -Class26.anInt162) / 80;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("om.H(").append(i).append(')').toString());
+		}
+		int i_17_ = 192 * i_11_;
+		if ((i_17_ ^ 0xffffffff) < -98049) {
+			i_17_ = 98048;
+		}
+		if (-32769 < (i_17_ ^ 0xffffffff)) {
+			i_17_ = 32768;
+		}
+		if (i_17_ > Class26.anInt162) {
+			Class26.anInt162 += (i_17_ + -Class26.anInt162) / 24;
+		} else if (Class26.anInt162 > i_17_) {
+			Class26.anInt162 += (i_17_ + -Class26.anInt162) / 80;
 		}
 	}
 

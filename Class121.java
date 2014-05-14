@@ -35,7 +35,7 @@ final class Class121 {
 				class120_sub14_sub10_0_.method1505(new Buffer(is), 0);
 			}
 			if (!bool) {
-				method1838((byte) 59, -17);
+				getMenuOptionName(-17);
 			}
 			if (i >= 32768) {
 				class120_sub14_sub10_0_.method1507(90);
@@ -48,20 +48,11 @@ final class Class121 {
 		return class120_sub14_sub10;
 	}
 
-	static final String method1838(final byte i, final int i_1_) {
-		String string;
-		try {
-			if (i < 74) {
-				method1836(-68);
-			}
-			if (Class120_Sub12_Sub29.aStringArray3369[i_1_].length() <= 0) {
-				return Class120_Sub12_Sub33.aStringArray3394[i_1_];
-			}
-			string = new StringBuilder(Class120_Sub12_Sub33.aStringArray3394[i_1_]).append(Class29.aString196).append(Class120_Sub12_Sub29.aStringArray3369[i_1_]).toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nl.C(").append(i).append(',').append(i_1_).append(')').toString());
+	static final String getMenuOptionName(final int option) {
+		if (Class120_Sub12_Sub29.aStringArray3369[option].length() <= 0) {
+			return Class120_Sub12_Sub33.menuOptionName[option];
 		}
-		return string;
+		return Class120_Sub12_Sub33.menuOptionName[option] + Class29.aString196 + Class120_Sub12_Sub29.aStringArray3369[option];
 	}
 
 	static final void method1839(final int i) {

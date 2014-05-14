@@ -33,7 +33,7 @@ final class Class110 {
 			PacketBuffer.method1151(32);
 			Class148.method2058(1);
 			DisplayModeInfo.method2214(false);
-			AbstractMouseWheelHandler.method160(-114);
+			AbstractMouseWheelHandler.method160();
 			Class120_Sub12_Sub26.method1337((byte) 96);
 			if (LocType.modeWhat != 0) {
 				for (int i_0_ = 0; Class120_Sub12_Sub25.aByteArrayArray3318.length > i_0_; i_0_++) {

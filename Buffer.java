@@ -135,17 +135,11 @@ class Buffer extends Node {
 		return ((this.buf[-1 + this.pos] & 0xff) << 16) + (~0xffffff & this.buf[this.pos + -2] << 24) - -(this.buf[-4 + this.pos] << 8 & 0xff00) + (0xff & this.buf[-3 + this.pos]);
 	}
 
-	final void method1086(final byte i, final int i_9_) {
-		try {
-			if (i == 21) {
-				this.buf[this.pos++] = (byte) (i_9_ >> 16);
-				this.buf[this.pos++] = (byte) (i_9_ >> 24);
-				this.buf[this.pos++] = (byte) i_9_;
-				this.buf[this.pos++] = (byte) (i_9_ >> 8);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.B(").append(i).append(',').append(i_9_).append(')').toString());
-		}
+	final void putInt2(final int i_9_) {
+		this.buf[this.pos++] = (byte) (i_9_ >> 16);
+		this.buf[this.pos++] = (byte) (i_9_ >> 24);
+		this.buf[this.pos++] = (byte) i_9_;
+		this.buf[this.pos++] = (byte) (i_9_ >> 8);
 	}
 
 	final int method1087(final boolean bool) {
@@ -245,7 +239,7 @@ class Buffer extends Node {
 				i_30_ = i_22_;
 			}
 			final int i_31_ = (i_26_ << 6) + (i_22_ << 7);
-			final int[][] is = Class120_Sub26.anIntArrayArrayArray2741[i_19_];
+			final int[][] is = OverridedJInterface.anIntArrayArrayArray2741[i_19_];
 			final int i_32_ = (i << 7) - -(i_25_ << 6);
 			final int i_33_ = is[i_28_][i_29_] + is[i_27_][i_30_] + is[i_28_][i_30_] - -is[i_27_][i_29_] >> 2;
 			int i_34_ = 0;
@@ -253,12 +247,12 @@ class Buffer extends Node {
 				anInt2474 = 36;
 			}
 			if (i_19_ != 0) {
-				final int[][] is_35_ = Class120_Sub26.anIntArrayArrayArray2741[0];
+				final int[][] is_35_ = OverridedJInterface.anIntArrayArrayArray2741[0];
 				i_34_ = -(is_35_[i_28_][i_29_] + is_35_[i_28_][i_30_] - (-is_35_[i_27_][i_30_] + -is_35_[i_27_][i_29_]) >> 2) + i_33_;
 			}
 			int[][] is_36_ = null;
 			if (i_19_ < 3) {
-				is_36_ = Class120_Sub26.anIntArrayArrayArray2741[i_19_ - -1];
+				is_36_ = OverridedJInterface.anIntArrayArrayArray2741[i_19_ - -1];
 			}
 			final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, i_20_ ^ ~0x2d, null);
 			Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
@@ -497,16 +491,9 @@ class Buffer extends Node {
 		}
 	}
 
-	final void method1115(final int i, final int i_76_) {
-		try {
-			if (i != 255) {
-				this.buf = null;
-			}
-			this.buf[this.pos++] = (byte) i_76_;
-			this.buf[this.pos++] = (byte) (i_76_ >> 8);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.SA(").append(i).append(',').append(i_76_).append(')').toString());
-		}
+	final void putLEShort(final int i_76_) {
+		this.buf[this.pos++] = (byte) i_76_;
+		this.buf[this.pos++] = (byte) (i_76_ >> 8);
 	}
 
 	final void method1116(final int i, final int i_77_) {

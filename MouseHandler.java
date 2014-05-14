@@ -96,7 +96,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 				class128_0_.method1904(new Buffer(is), 0, i);
 			}
 			if (!bool) {
-				method1028(-25);
+				method1028();
 			}
 			Class22.aClass21_131.put(class128_0_, i);
 			class128 = class128_0_;
@@ -191,22 +191,15 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 		}
 	}
 
-	static final void method1028(final int i) {
-		try {
-			if (!Class154.aBoolean1439) {
-				if (i < 20) {
-					showNumbersOnActions = true;
-				}
-				Class154.aBoolean1439 = true;
-				Class118.aBoolean1134 = true;
-				if (!Class134.aBoolean1277) {
-					Class120_Sub12_Sub4.aFloat3154 += (-Class120_Sub12_Sub4.aFloat3154 + -12.0F) / 2.0F;
-				} else {
-					Class120_Sub12_Sub21.aFloat3293 = -17 + (int) Class120_Sub12_Sub21.aFloat3293 & ~0xf;
-				}
+	static final void method1028() {
+		if (!Class154.aBoolean1439) {
+			Class154.aBoolean1439 = true;
+			Class118.aBoolean1134 = true;
+			if (!Class134.aBoolean1277) {
+				Class120_Sub12_Sub4.aFloat3154 += (-Class120_Sub12_Sub4.aFloat3154 + -12.0F) / 2.0F;
+			} else {
+				Class120_Sub12_Sub21.aFloat3293 = -17 + (int) Class120_Sub12_Sub21.aFloat3293 & ~0xf;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.A(").append(i).append(')').toString());
 		}
 	}
 

@@ -12,128 +12,115 @@ final class Player extends GameEntity {
 	int anInt3738;
 	int anInt3739;
 	int anInt3740;
-	private byte aByte3741;
+	private byte titleId;
 	int anInt3742;
 	boolean playerLimitReached;
 	int anInt3744;
-	String aString3745;
+	String name;
 	int anInt3746;
 	int anInt3747;
 	static int anInt3748 = 0;
 	PlayerAppearance appearance;
 
-	final void method2339(final Buffer class120_sub7, final byte i) {
-		try {
-			class120_sub7.pos = 0;
-			if (i != 71) {
-				this.anInt3735 = 41;
-			}
-			int i_0_ = -1;
-			final int i_1_ = class120_sub7.getUByte();
-			final boolean bool = (0x4 & i_1_) != 0;
-			final int i_2_ = i_1_ & 0x1;
-			final int i_3_ = super.getSize();
-			method2338(i + 23680, 1 + ((0x3e & i_1_) >> 3));
-			aByte3741 = (byte) (i_1_ >> 6 & 0x3);
-			final int[] is = new int[12];
-			this.x += (getSize() - i_3_) * 64;
-			this.z += (getSize() - i_3_) * 64;
-			this.anInt3732 = class120_sub7.getByte();
-			this.anInt3746 = class120_sub7.getByte();
-			this.anInt3744 = 0;
-			for (int i_4_ = 0; i_4_ < 12; i_4_++) {
-				final int i_5_ = class120_sub7.getUByte();
-				if (i_5_ == 0) {
-					is[i_4_] = 0;
-				} else {
-					final int i_6_ = class120_sub7.getUByte();
-					int i_7_ = (i_5_ << 8) - -i_6_;
-					if (i_4_ == 0 && 65535 == i_7_) {
-						i_0_ = class120_sub7.getUShort();
-						this.anInt3744 = class120_sub7.getUByte();
-						break;
-					}
-					if (-32769 >= (i_7_ ^ 0xffffffff)) {
-						i_7_ = KeyboardHandler.anIntArray1506[i_7_ - 32768];
-						is[i_4_] = Class191.method2512(1073741824, i_7_);
-						final int i_8_ = ObjType.list(i_7_).team;
-						if (i_8_ != 0) {
-							this.anInt3744 = i_8_;
-						}
-					} else {
-						is[i_4_] = Class191.method2512(-2147483648, i_7_ - 256);
-					}
-				}
-			}
-			final int[] is_9_ = new int[5];
-			for (int i_10_ = 0; i_10_ < 5; i_10_++) {
-				int i_11_ = class120_sub7.getUByte();
-				if (i_11_ < 0 || Class159.aShortArrayArray1489[i_10_].length <= i_11_) {
-					i_11_ = 0;
-				}
-				is_9_[i_10_] = i_11_;
-			}
-			this.anInt2982 = class120_sub7.getUShort();
-			final long l = class120_sub7.getLong();
-			this.aString3745 = Class136.method1977(false, l);
-			this.anInt3747 = class120_sub7.getUByte();
-			if (!bool) {
-				this.anInt3737 = 0;
-				this.anInt3733 = class120_sub7.getUByte();
-				this.anInt3738 = class120_sub7.getUByte();
-				if (this.anInt3738 == 255) {
-					this.anInt3738 = -1;
-				}
+	final void decodeAppearance(final Buffer buffer) {
+		buffer.pos = 0;
+		int i_0_ = -1;
+		final int i_1_ = buffer.getUByte();
+		final boolean bool = (0x4 & i_1_) != 0;
+		final int i_2_ = i_1_ & 0x1;
+		final int i_3_ = super.getSize();
+		setSize(1 + ((0x3e & i_1_) >> 3));
+		titleId = (byte) (i_1_ >> 6 & 0x3);
+		final int[] is = new int[12];
+		this.x += (getSize() - i_3_) * 64;
+		this.z += (getSize() - i_3_) * 64;
+		this.anInt3732 = buffer.getByte();
+		this.anInt3746 = buffer.getByte();
+		this.anInt3744 = 0;
+		for (int i_4_ = 0; i_4_ < 12; i_4_++) {
+			final int i_5_ = buffer.getUByte();
+			if (i_5_ == 0) {
+				is[i_4_] = 0;
 			} else {
-				this.anInt3737 = class120_sub7.getUShort();
-				this.anInt3733 = this.anInt3747;
+				final int i_6_ = buffer.getUByte();
+				int i_7_ = (i_5_ << 8) - -i_6_;
+				if (i_4_ == 0 && 65535 == i_7_) {
+					i_0_ = buffer.getUShort();
+					this.anInt3744 = buffer.getUByte();
+					break;
+				}
+				if (-32769 >= (i_7_ ^ 0xffffffff)) {
+					i_7_ = KeyboardHandler.anIntArray1506[i_7_ - 32768];
+					is[i_4_] = Class191.method2512(1073741824, i_7_);
+					final int i_8_ = ObjType.list(i_7_).team;
+					if (i_8_ != 0) {
+						this.anInt3744 = i_8_;
+					}
+				} else {
+					is[i_4_] = Class191.method2512(-2147483648, i_7_ - 256);
+				}
+			}
+		}
+		final int[] is_9_ = new int[5];
+		for (int i_10_ = 0; i_10_ < 5; i_10_++) {
+			int i_11_ = buffer.getUByte();
+			if (i_11_ < 0 || Class159.aShortArrayArray1489[i_10_].length <= i_11_) {
+				i_11_ = 0;
+			}
+			is_9_[i_10_] = i_11_;
+		}
+		this.anInt2982 = buffer.getUShort();
+		final long l = buffer.getLong();
+		this.name = Class136.longToString(l);
+		this.anInt3747 = buffer.getUByte();
+		if (!bool) {
+			this.anInt3737 = 0;
+			this.anInt3733 = buffer.getUByte();
+			this.anInt3738 = buffer.getUByte();
+			if (this.anInt3738 == 255) {
 				this.anInt3738 = -1;
 			}
-			final int i_12_ = this.anInt3735;
-			this.anInt3735 = class120_sub7.getUByte();
-			if (this.anInt3735 != 0) {
-				final int i_13_ = this.anInt3736;
-				final int i_14_ = this.anInt3740;
-				final int i_15_ = this.anInt3734;
-				final int i_16_ = this.anInt3742;
-				final int i_17_ = this.anInt3739;
-				this.anInt3740 = class120_sub7.getUShort();
-				this.anInt3736 = class120_sub7.getUShort();
-				this.anInt3734 = class120_sub7.getUShort();
-				this.anInt3742 = class120_sub7.getUShort();
-				this.anInt3739 = class120_sub7.getUByte();
-				if (this.anInt3735 != i_12_ || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.anInt3739 != i_17_) {
-					Class120_Sub30_Sub1.method1738(-86, this);
-				}
-			} else {
-				Class31.method267(15, this);
+		} else {
+			this.anInt3737 = buffer.getUShort();
+			this.anInt3733 = this.anInt3747;
+			this.anInt3738 = -1;
+		}
+		final int i_12_ = this.anInt3735;
+		this.anInt3735 = buffer.getUByte();
+		if (this.anInt3735 != 0) {
+			final int i_13_ = this.anInt3736;
+			final int i_14_ = this.anInt3740;
+			final int i_15_ = this.anInt3734;
+			final int i_16_ = this.anInt3742;
+			final int i_17_ = this.anInt3739;
+			this.anInt3740 = buffer.getUShort();
+			this.anInt3736 = buffer.getUShort();
+			this.anInt3734 = buffer.getUShort();
+			this.anInt3742 = buffer.getUShort();
+			this.anInt3739 = buffer.getUByte();
+			if (this.anInt3735 != i_12_ || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.anInt3739 != i_17_) {
+				Class120_Sub30_Sub1.method1738(-86, this);
 			}
-			if (this.appearance == null) {
-				this.appearance = new PlayerAppearance();
-			}
-			final int i_18_ = this.appearance.npcId;
-			this.appearance.method2042(i + -71, i_0_, is, this.anInt2982, is_9_, i_2_ == 1);
-			if (i_0_ != i_18_) {
-				this.x = this.anIntArray2958[0] * 128 - -(64 * getSize());
-				this.z = 128 * this.anIntArray3040[0] + 64 * getSize();
-			}
-			if (this.aClass108_Sub2_2988 != null) {
-				this.aClass108_Sub2_2988.method947();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.R(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		} else {
+			Class31.method267(15, this);
+		}
+		if (this.appearance == null) {
+			this.appearance = new PlayerAppearance();
+		}
+		final int i_18_ = this.appearance.npcId;
+		this.appearance.method2042(i_0_, is, this.anInt2982, is_9_, i_2_ == 1);
+		if (i_0_ != i_18_) {
+			this.x = this.anIntArray2958[0] * 128 + (64 * getSize());
+			this.z = this.anIntArray3040[0] * 128 + (64 * getSize());
+		}
+		if (this.aClass108_Sub2_2988 != null) {
+			this.aClass108_Sub2_2988.method947();
 		}
 	}
 
 	@Override
 	final int getMaxY() {
-		int i;
-		try {
-			i = this.anInt3018;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "f.MA()");
-		}
-		return i;
+		return this.anInt3018;
 	}
 
 	@Override
@@ -159,23 +146,15 @@ final class Player extends GameEntity {
 		}
 	}
 
-	static final void method2340(final Class50 class50, final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2, final int i, final boolean bool, final Class50 class50_24_) {
-		try {
-			Class111.aClass50_1064 = class50_24_;
-			Class120_Sub12_Sub23.aClass50_3305 = class50;
-			AbstractObject.aBoolean3463 = bool;
-			final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421(-99) - 1;
-			if (i != -8659) {
-				method2340(null, null, 100, false, null);
-			}
-			Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_);
-			Class15.aClass120_Sub14_Sub8_Sub2_99 = class120_sub14_sub8_sub2;
-			Class120_Sub12_Sub29.aStringArray3363 = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
-			Class120_Sub12_Sub32.aStringArray3387 = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("f.U(").append(class50 != null ? "{...}" : "null").append(',').append(class120_sub14_sub8_sub2 != null ? "{...}" : "null").append(',').append(i).append(',').append(bool).append(',').append(class50_24_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method2340(final Class50 class50, final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2, final boolean bool, final Class50 class50_24_) {
+		Class111.aClass50_1064 = class50_24_;
+		Class120_Sub12_Sub23.aClass50_3305 = class50;
+		AbstractObject.aBoolean3463 = bool;
+		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
+		Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_);
+		Class15.aClass120_Sub14_Sub8_Sub2_99 = class120_sub14_sub8_sub2;
+		Class120_Sub12_Sub29.aStringArray3363 = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
+		Class120_Sub12_Sub32.aStringArray3387 = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };
 	}
 
 	@Override
@@ -197,8 +176,8 @@ final class Player extends GameEntity {
 			if (i != -31352) {
 				method2345(0, 111, (byte) -128);
 			}
-			Class43.aClass21_367.clearSoftReference();
-			Class90.aClass21_840.clearSoftReference();
+			Class43.playerModelsCache.clearSoftReference();
+			Class90.playerHeadModelsCache.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.V(").append(i).append(')').toString());
 		}
@@ -213,7 +192,7 @@ final class Player extends GameEntity {
 				final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
 				final Class40 class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) -115).anInt218 || class40 == null) ? Class120_Sub30_Sub2.method1763(this.anInt3004, 121) : null;
 				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, class40, true, this.anInt3044);
-				final int i_35_ = Class48.method405();
+				final int i_35_ = Class48.getPlayersCacheSize();
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 					SpotAnimType.method880(127);
 				}
@@ -366,24 +345,15 @@ final class Player extends GameEntity {
 		return true;
 	}
 
-	final String method2342(final byte i) {
-		String string;
-		try {
-			if (i != -122) {
-				anInt3748 = 43;
-			}
-			String string_50_ = this.aString3745;
-			if (Class182.aStringArray1793 != null) {
-				string_50_ = new StringBuilder(Class182.aStringArray1793[aByte3741]).append(string_50_).toString();
-			}
-			if (Class53.aStringArray486 != null) {
-				string_50_ = new StringBuilder(string_50_).append(Class53.aStringArray486[aByte3741]).toString();
-			}
-			string = string_50_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.W(").append(i).append(')').toString());
+	final String getTitledName() {
+		String name = this.name;
+		if (Class182.prefixTitles != null) {
+			name = Class182.prefixTitles[titleId] + name;
 		}
-		return string;
+		if (Class53.suffixTitles != null) {
+			name = name + Class53.suffixTitles[titleId];
+		}
+		return name;
 	}
 
 	@Override
@@ -449,15 +419,15 @@ final class Player extends GameEntity {
 				return false;
 			}
 			final JagexInterface jagexInterface = Node.interfaceCache[i_73_][i_74_];
-			if (i_71_ != -1 || jagexInterface.anInt1995 != 0) {
-				for (int i_75_ = 0; i_75_ < Class186.anInt1906; i_75_++) {
+			if (i_71_ != -1 || jagexInterface.type != 0) {
+				for (int i_75_ = 0; i_75_ < Class186.menuOptionCount; i_75_++) {
 					if (Class120_Sub12_Sub7.anIntArray3182[i_75_] == i_71_ && jagexInterface.bitPacked == Class120_Sub29.anIntArray2769[i_75_]
 							&& (Class120_Sub29.aShortArray2777[i_75_] == 1 || Class120_Sub29.aShortArray2777[i_75_] == 1009 || Class120_Sub29.aShortArray2777[i_75_] == 34 || Class120_Sub29.aShortArray2777[i_75_] == 23 || Class120_Sub29.aShortArray2777[i_75_] == 3)) {
 						return true;
 					}
 				}
 			} else {
-				for (int i_76_ = 0; i_76_ < Class186.anInt1906; i_76_++) {
+				for (int i_76_ = 0; i_76_ < Class186.menuOptionCount; i_76_++) {
 					if (Class120_Sub29.aShortArray2777[i_76_] == 1 || Class120_Sub29.aShortArray2777[i_76_] == 1009 || Class120_Sub29.aShortArray2777[i_76_] == 34 || Class120_Sub29.aShortArray2777[i_76_] == 23 || Class120_Sub29.aShortArray2777[i_76_] == 3) {
 						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = Class120_Sub17.method1665(89, class189_77_)) {
 							if (class189_77_.bitPacked == jagexInterface.bitPacked) {
@@ -485,7 +455,7 @@ final class Player extends GameEntity {
 		this.anInt3739 = 255;
 		this.anInt3736 = -1;
 		this.anInt3744 = 0;
-		aByte3741 = (byte) 0;
+		titleId = (byte) 0;
 		this.anInt3742 = -1;
 		this.anInt3740 = -1;
 		this.playerLimitReached = false;

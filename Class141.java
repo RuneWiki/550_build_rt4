@@ -12,7 +12,7 @@ final class Class141 {
 	boolean aBoolean1352 = true;
 	int anInt1353;
 	static boolean[] spriteHasAlpha;
-	static int anInt1355;
+	static int selectedObjInterface;
 	static int anInt1356;
 	static int anInt1357 = 0;
 

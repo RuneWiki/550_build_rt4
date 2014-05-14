@@ -5,7 +5,6 @@
 final class Class120_Sub15 extends Node {
 	static int anInt2588;
 	static String aString2589;
-	static int anInt2590;
 	static int[] anIntArray2591 = { 19, 55, 38, 155, 255, 110, 137, 205, 76 };
 	int anInt2592;
 	int anInt2593;
@@ -24,18 +23,11 @@ final class Class120_Sub15 extends Node {
 		anInt2588 = -1;
 	}
 
-	static final void method1651(final byte i, final int i_0_) {
-		try {
-			if (i != 42) {
-				method1652(76);
+	static final void clearClickMasks(final int id) {
+		for (Node node = JavaObject.clickMaskCache.getFirst(); node != null; node = JavaObject.clickMaskCache.getNext()) {
+			if ((0xffffL & node.uid >> 48) == id) {
+				node.unlink();
 			}
-			for (Node node = JavaObject.aClass75_3914.getFirst(); node != null; node = JavaObject.aClass75_3914.getNext()) {
-				if ((0xffffL & node.uid >> 48) == i_0_) {
-					node.unlink();
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mc.C(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 

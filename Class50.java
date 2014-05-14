@@ -180,7 +180,7 @@ final class Class50 {
 		class120_sub7_14_.putShort(Class120_Sub12_Sub12.lastFullscreenHeight);
 		class120_sub7_14_.putByte(ParticleEngine.method949());
 		class120_sub7_14_.putInt(Class120_Sub19.anInt2657);
-		class120_sub7_14_.putByte(Class120_Sub12_Sub19.anInt3282);
+		class120_sub7_14_.putByte(Class120_Sub12_Sub19.currentDisplayMode);
 		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class134.aBoolean1277 ? 1 : 0);
 		class120_sub7_14_.putByte(Class140.anInt1343);
@@ -240,20 +240,11 @@ final class Class50 {
 		return is;
 	}
 
-	final int method421(final int i) {
-		int i_19_;
-		try {
-			if (i >= -31) {
-				method432(true, null);
-			}
-			if (!informationLoaded()) {
-				return -1;
-			}
-			i_19_ = aClass52_452.anIntArray465.length;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.W(").append(i).append(')').toString());
+	final int method421() {
+		if (!informationLoaded()) {
+			return -1;
 		}
-		return i_19_;
+		return aClass52_452.anIntArray465.length;
 	}
 
 	private final void method422(final int i, final int i_20_) {
@@ -365,7 +356,7 @@ final class Class50 {
 					int i_41_ = 0;
 					for (int i_42_ = 0; i_25_ > i_42_; i_42_++) {
 						i_41_ += class120_sub7.getInt();
-						Class4.method96(is_30_, i_39_, is_37_[i_42_], is_32_[i_42_], i_41_);
+						ArrayUtils.arrayCopy(is_30_, i_39_, is_37_[i_42_], is_32_[i_42_], i_41_);
 						i_39_ += i_41_;
 						is_32_[i_42_] += i_41_;
 					}
@@ -475,27 +466,20 @@ final class Class50 {
 		return is;
 	}
 
-	final boolean method429(final int i, final int i_52_) {
-		try {
-			if (!informationLoaded()) {
-				return false;
-			}
-			if (aClass52_452.anIntArray465.length == 1) {
-				return method440(0, true, i);
-			}
-			if (!method436(i)) {
-				return false;
-			}
-			if (i_52_ <= 59) {
-				loadInterface(-94);
-			}
-			if (aClass52_452.anIntArray465[i] == 1) {
-				return method440(i, true, 0);
-			}
-			throw new RuntimeException();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.HA(").append(i).append(',').append(i_52_).append(')').toString());
+	final boolean method429(final int i) {
+		if (!informationLoaded()) {
+			return false;
 		}
+		if (aClass52_452.anIntArray465.length == 1) {
+			return method440(0, true, i);
+		}
+		if (!method436(i)) {
+			return false;
+		}
+		if (aClass52_452.anIntArray465[i] == 1) {
+			return method440(i, true, 0);
+		}
+		throw new RuntimeException();
 	}
 
 	final boolean method430(final boolean bool) {
@@ -681,18 +665,11 @@ final class Class50 {
 		return i_69_;
 	}
 
-	final void method438(final boolean bool, final int i) {
-		try {
-			if (method436(i)) {
-				if (bool) {
-					aClass52_452 = null;
-				}
-				if (anObjectArrayArray448 != null) {
-					anObjectArrayArray448[i] = null;
-				}
+	final void clearFiles(final int group) {
+		if (method436(group)) {
+			if (anObjectArrayArray448 != null) {
+				anObjectArrayArray448[group] = null;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fh.GA(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 

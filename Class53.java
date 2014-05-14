@@ -4,12 +4,12 @@
 
 abstract class Class53 {
 	static int[] anIntArray485 = { 1, 2, 4, 8 };
-	static String[] aStringArray486;
+	static String[] suffixTitles;
 	static int anInt487;
 
 	public static void method456(final byte i) {
 		try {
-			aStringArray486 = null;
+			suffixTitles = null;
 			anIntArray485 = null;
 			if (i != 126) {
 				method457(null, (byte) -77);

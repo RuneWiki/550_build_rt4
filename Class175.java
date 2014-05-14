@@ -106,7 +106,7 @@ final class Class175 {
 	}
 
 	final int[] method2240(final int i, final int i_2_) {
-		Class4.method92(anIntArray1747, 0, i);
+		ArrayUtils.resetArray(anIntArray1747, 0, i);
 		if (i_2_ < 10) {
 			return anIntArray1747;
 		}

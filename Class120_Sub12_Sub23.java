@@ -140,7 +140,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			if (!bool) {
 				anIntArray3304 = null;
 			}
-			String string_30_ = Class136.method1977(false, Class70.stringToLong(string));
+			String string_30_ = Class136.longToString(Class70.stringToLong(string));
 			if (string_30_ == null) {
 				string_30_ = "";
 			}

@@ -214,7 +214,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub14_Sub14.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
 				}
 				if (string.equalsIgnoreCase("::pcachesize")) {
-					Class120_Sub14_Sub14.method1540(null, 0, "Number of player models in cache:" + Class48.method405());
+					Class120_Sub14_Sub14.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
 				}
 				if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
 					System.out.println("oncard_geometry:" + Class113.anInt1082);
@@ -286,11 +286,11 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub14_Sub14.method1540(null, 0, "Failed to enable hdr");
 				}
 				if (string.equalsIgnoreCase("::tween")) {
-					if (Class164.aBoolean1586) {
-						Class164.aBoolean1586 = false;
+					if (Class164.forceTween) {
+						Class164.forceTween = false;
 						Class120_Sub14_Sub14.method1540(null, 0, "Forced tweening disabled.");
 					} else {
-						Class164.aBoolean1586 = true;
+						Class164.forceTween = true;
 						Class120_Sub14_Sub14.method1540(null, 0, "Forced tweening ENABLED!");
 					}
 				}
@@ -308,10 +308,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 							null,
 							0,
 							new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:")
-									.append(Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+									.append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 				if (string.equalsIgnoreCase("::getheight")) {
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(Class120_Sub26.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 			}
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(216);

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 final class Class182 {
 	int anInt1792;
-	static String[] aStringArray1793;
+	static String[] prefixTitles;
 	long bitPacked = 0L;
 	int anInt1795;
 	SceneGraphNode aClass180_1796;
@@ -21,7 +21,7 @@ final class Class182 {
 			aClass21_1798 = null;
 			if (i >= 8) {
 				aClass25Array1802 = null;
-				aStringArray1793 = null;
+				prefixTitles = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ve.D(").append(i).append(')').toString());
@@ -60,35 +60,20 @@ final class Class182 {
 
 	static final boolean method2445(final int i) {
 		boolean bool;
-		do {
-			boolean bool_9_;
-			try {
-				if (i != 0) {
-					aStringArray1793 = null;
-				}
-				boolean bool_10_;
-				try {
-					bool_10_ = AbstractTimer.method737(i + 0);
-				} catch (final IOException ioexception) {
-					Class100.method825((byte) -18);
-					return true;
-				} catch (final Exception exception) {
-					String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0])
-							.append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
-					for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
-						string = new StringBuilder(string).append(Canvas_Sub1.aClass120_Sub7_Sub1_16.buf[i_11_]).append(",").toString();
-					}
-					Class180_Sub3.method2312(exception, string);
-					InputStream_Sub1.logout();
-					bool = true;
-					break;
-				}
-				bool_9_ = bool_10_;
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ve.C(").append(i).append(')').toString());
+		try {
+			bool = AbstractTimer.method737(i + 0);
+		} catch (final IOException ioexception) {
+			Class100.method825((byte) -18);
+			return true;
+		} catch (final Exception exception) {
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
+			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
+				string = new StringBuilder(string).append(Canvas_Sub1.aClass120_Sub7_Sub1_16.buf[i_11_]).append(",").toString();
 			}
-			return bool_9_;
-		} while (false);
+			Class180_Sub3.method2312(exception, string);
+			InputStream_Sub1.logout();
+			return true;
+		}
 		return bool;
 	}
 

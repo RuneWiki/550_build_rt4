@@ -6,7 +6,6 @@ final class PacketBuffer extends Buffer {
 	private IsaacCipher aClass106_3119;
 	static int[] anIntArray3120;
 	private int anInt3121;
-	static int anInt3122;
 	static boolean highWaterDetail = true;
 
 	PacketBuffer(final int i) {
@@ -149,7 +148,7 @@ final class PacketBuffer extends Buffer {
 							Class120_Sub19.anInt2657 = class120_sub7.getInt();
 						}
 						if (i_1_ >= 6) {
-							Class120_Sub12_Sub19.anInt3282 = class120_sub7.getUByte();
+							Class120_Sub12_Sub19.currentDisplayMode = class120_sub7.getUByte();
 						}
 						if (i_1_ >= 7) {
 							InterfaceClickMask.safeModeEnabled = class120_sub7.getUByte() == 1;

@@ -118,7 +118,7 @@ abstract class SceneGraphNode {
 					Class120_Sub19.method1673(class120_sub14_sub5, i, 0, i_18_, true, 0, class120_sub16, class73);
 				}
 			}
-			if (class120_sub16.method1656(Queue.anInt1767, -101, Class191.anInt2113) && class73.aStringArray646 != null) {
+			if (class120_sub16.method1656(Queue.lastMouseX, -101, Class191.lastMouseY) && class73.aStringArray646 != null) {
 				if (class73.aStringArray646[4] != null) {
 					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[4], (short) 1011, -1);
 				}
@@ -174,7 +174,7 @@ abstract class SceneGraphNode {
 			} else {
 				jagexInterface.anInt1938 = jagexInterface.anInt2061;
 			}
-			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.method54(jagexInterface).anInt2662 != 0 || jagexInterface.anInt1995 == 0)) {
+			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).anInt2662 != 0 || jagexInterface.type == 0)) {
 				if (jagexInterface.anInt1938 < 0) {
 					jagexInterface.anInt1938 = 0;
 				} else if (jagexInterface.anInt2059 + jagexInterface.anInt1938 > i_27_) {

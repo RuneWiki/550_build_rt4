@@ -49,8 +49,8 @@ final class SceneGroundObject extends SceneGraphNode {
 	static final void method2276(final int i) {
 		try {
 			ParticleEngine.method959(Class101_Sub2.loopCycle);
-			if (Class69.anInt616 != -1) {
-				AbstractGraphicsBuffer.method1846(-22845, Class69.anInt616);
+			if (Class69.rootInterfaceId != -1) {
+				AbstractGraphicsBuffer.method1846(-22845, Class69.rootInterfaceId);
 			}
 			for (int i_8_ = 0; i_8_ < Class120_Sub1.anInt2414; i_8_++) {
 				if (Class52.aBooleanArray467[i_8_]) {
@@ -69,9 +69,9 @@ final class SceneGroundObject extends SceneGraphNode {
 				Class167.aBoolean1620 = true;
 			}
 			Class120_Sub14_Sub16.anInt3590 = -1;
-			if ((Class69.anInt616 ^ 0xffffffff) != 0) {
+			if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
 				Class120_Sub1.anInt2414 = 0;
-				Class56.method486((byte) 105);
+				Class56.method486();
 			}
 			if (HDToolkit.glEnabled) {
 				GraphicsHD.method597();

@@ -11,7 +11,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	private int anInt3300 = 32768;
 	static int anInt3301 = 0;
 	static int anInt3302;
-	static Class120_Sub14_Sub8 aClass120_Sub14_Sub8_3303;
+	static Class120_Sub14_Sub8 boldFont;
 
 	static final Class180_Sub7 method1319(final int i, final Class180_Sub7 class180_sub7, final int i_0_, final int i_1_, final byte i_2_, final int i_3_, final int i_4_) {
 		Class180_Sub7 class180_sub7_5_;
@@ -69,7 +69,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				anInt3302 = 63;
 			}
 			aClass120_Sub30_Sub3_3299 = null;
-			aClass120_Sub14_Sub8_3303 = null;
+			boldFont = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ph.U(").append(i).append(')').toString());
 		}
@@ -116,7 +116,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	static final void method1321(final int i, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_) {
 		try {
 			if (i_27_ != 2453) {
-				aClass120_Sub14_Sub8_3303 = null;
+				boldFont = null;
 			}
 			if (Class32.anInt260 > i || i_26_ > Class120_Sub14_Sub11.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > Class139.anInt1334) {
 				Class120_Sub12.method1194(i, i_26_, i_28_, i_27_ + -2449, i_29_, i_25_);
@@ -223,7 +223,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				}
 			}
 			if (i_38_ != -29869) {
-				aClass120_Sub14_Sub8_3303 = null;
+				boldFont = null;
 			}
 			is = is_39_;
 		} catch (final RuntimeException runtimeexception) {

@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub10 extends Class120_Sub12 {
-	static int anInt3200;
+	static int renderY;
 	static Deque aClass105_3201 = new Deque();
 	static AbstractSprite aClass120_Sub14_Sub19_3202;
 	static boolean manyIdleAnimations = true;
@@ -15,7 +15,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 			final Buffer class120_sub7 = new Buffer(is);
 			int i_7_ = -1;
 			if (i_5_ != 1) {
-				anInt3200 = 16;
+				renderY = 16;
 			}
 			for (;;) {
 				final int i_8_ = class120_sub7.method1100(118);
@@ -44,7 +44,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 							Class25 class25 = null;
 							if (!bool) {
 								int i_19_ = i;
-								if ((Class114.aByteArrayArrayArray1095[1][i_17_][i_18_] & 0x2) == 2) {
+								if ((Class114.tileSettings[1][i_17_][i_18_] & 0x2) == 2) {
 									i_19_--;
 								}
 								if (i_19_ >= 0) {
@@ -107,7 +107,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 	static final void method1249(final Class50 class50, final int i, final Class50 class50_27_) {
 		try {
 			if (i != -26193) {
-				anInt3200 = 12;
+				renderY = 12;
 			}
 			Class101_Sub2.aClass50_2277 = class50_27_;
 			Class156.aClass50_1456 = class50;

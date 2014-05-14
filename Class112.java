@@ -146,8 +146,8 @@ final class Class112 {
 						i_15_ = Class142.aClass189_1362.anInt2073;
 						i_16_ = Class142.aClass189_1362.anInt1938;
 					}
-					Class100.anIntArray956[1] = Class191.anInt2113 + -i_16_;
-					Class100.anIntArray956[0] = -i_15_ + Queue.anInt1767;
+					Class100.anIntArray956[1] = Class191.lastMouseY + -i_16_;
+					Class100.anIntArray956[0] = -i_15_ + Queue.lastMouseX;
 				}
 				Class167_Sub1.method2194(200000, 1006199388, class120_sub14_sub12);
 			}

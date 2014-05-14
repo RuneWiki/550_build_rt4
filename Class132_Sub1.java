@@ -26,13 +26,9 @@ class Class132_Sub1 extends Class132 {
 		anInt2814 = 1;
 	}
 
-	static final void method1931(final int i) {
-		try {
-			for (int i_0_ = 0; i_0_ < 100; i_0_++) {
-				Class52.aBooleanArray467[i_0_] = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.A(").append(i).append(')').toString());
+	static final void method1931() {
+		for (int i_0_ = 0; i_0_ < 100; i_0_++) {
+			Class52.aBooleanArray467[i_0_] = true;
 		}
 	}
 

@@ -1003,7 +1003,7 @@ final class Class25 {
 						Class25 class25 = null;
 						if (!bool) {
 							int i_96_ = i_95_;
-							if ((0x2 & Class114.aByteArrayArrayArray1095[1][i_93_][i_94_]) == 2) {
+							if ((0x2 & Class114.tileSettings[1][i_93_][i_94_]) == 2) {
 								i_96_--;
 							}
 							if (i_96_ >= 0) {

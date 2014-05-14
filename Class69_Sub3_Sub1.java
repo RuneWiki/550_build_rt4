@@ -9,7 +9,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 	static JagexInterface aClass189_3080 = null;
 	static int[] anIntArray3081 = new int[100];
 	static int[] anIntArray3082;
-	static int anInt3083;
+	static int playerRenderX;
 	static int anInt3084 = 0;
 	static short[] aShortArray3085;
 

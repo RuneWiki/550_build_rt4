@@ -9,7 +9,6 @@ final class Class118 {
 	static short[][] aShortArrayArray1136;
 	static String aString1137;
 	static Class107[] aClass107Array1138;
-	static int anInt1139;
 
 	static {
 		aBoolean1134 = true;

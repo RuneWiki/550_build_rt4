@@ -55,8 +55,8 @@ final class Class23 {
 			} else if (jagexInterface.aByte2092 != 1) {
 				if (jagexInterface.aByte2092 != 2) {
 					if (jagexInterface.aByte2092 == 3) {
-						if (jagexInterface.anInt1995 != 2) {
-							if (jagexInterface.anInt1995 == 7) {
+						if (jagexInterface.type != 2) {
+							if (jagexInterface.type == 7) {
 								jagexInterface.anInt2059 = jagexInterface.anInt2060 * 12 - -((-1 + jagexInterface.anInt2060) * jagexInterface.anInt2077);
 							}
 						} else {
@@ -76,8 +76,8 @@ final class Class23 {
 				jagexInterface.anInt1948 = i + -jagexInterface.anInt2014;
 			} else if (jagexInterface.aByte1963 != 2) {
 				if (jagexInterface.aByte1963 == 3) {
-					if (jagexInterface.anInt1995 != 2) {
-						if (jagexInterface.anInt1995 == 7) {
+					if (jagexInterface.type != 2) {
+						if (jagexInterface.type == 7) {
 							jagexInterface.anInt1948 = 115 * jagexInterface.anInt2014 - -(jagexInterface.anInt2044 * (-1 + jagexInterface.anInt2014));
 						}
 					} else {
@@ -93,7 +93,7 @@ final class Class23 {
 			if (jagexInterface.aByte2092 == 4) {
 				jagexInterface.anInt2059 = jagexInterface.anInt2085 * jagexInterface.anInt1948 / jagexInterface.anInt1982;
 			}
-			if (Class120_Sub30_Sub1.aBoolean3673 && (client.method54(jagexInterface).anInt2662 != 0 || jagexInterface.anInt1995 == 0)) {
+			if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).anInt2662 != 0 || jagexInterface.type == 0)) {
 				if (jagexInterface.anInt2059 >= 5 || jagexInterface.anInt1948 >= 5) {
 					if (jagexInterface.anInt2059 <= 0) {
 						jagexInterface.anInt2059 = 5;
@@ -106,7 +106,7 @@ final class Class23 {
 					jagexInterface.anInt1948 = 5;
 				}
 			}
-			if (jagexInterface.anInt1975 == 1337) {
+			if (jagexInterface.clientCode == 1337) {
 				InputStream_Sub1.aClass189_26 = jagexInterface;
 			}
 			if (bool && jagexInterface.anObjectArray2089 != null && (i_14_ != jagexInterface.anInt1948 || i_13_ != jagexInterface.anInt2059)) {

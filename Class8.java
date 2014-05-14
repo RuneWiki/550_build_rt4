@@ -15,7 +15,7 @@ final class Class8 {
 				Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Cache.aClass120_Sub14_Sub8_121;
 			}
 			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286 = Class9.method117(class50, class50_0_, 18265, Class191.anInt2115, 0);
-			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303 = Class9.method117(class50, class50_0_, 18265, Class110.anInt1051, 0);
+			Class120_Sub12_Sub22.boldFont = Class9.method117(class50, class50_0_, 18265, Class110.anInt1051, 0);
 			if (i < 68) {
 				aByteArrayArrayArray65 = null;
 			}

@@ -20,7 +20,7 @@ final class Class186 {
 	static String aString1903;
 	long bitPacked = 0L;
 	int anInt1905;
-	static int anInt1906;
+	static int menuOptionCount;
 
 	static {
 		topMargin = 0;
@@ -28,7 +28,7 @@ final class Class186 {
 		aBoolean1899 = false;
 		actionsLen = 0;
 		aBoolean1902 = false;
-		anInt1906 = 0;
+		menuOptionCount = 0;
 	}
 
 	static final void method2471(final int i) {
@@ -42,9 +42,9 @@ final class Class186 {
 				final int i_1_ = Class43.anIntArray366[i_0_];
 				if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].anInt2985) {
 					if (Class120_Sub12_Sub11.npcList[i_1_].npcType.method2204(0)) {
-						Class120_Sub16.method1664((byte) 117, Class120_Sub12_Sub11.npcList[i_1_]);
+						Class120_Sub16.method1664(Class120_Sub12_Sub11.npcList[i_1_]);
 					}
-					Class120_Sub12_Sub11.npcList[i_1_].method2346((byte) -98, null);
+					Class120_Sub12_Sub11.npcList[i_1_].setNpcType(null);
 					Class120_Sub12_Sub11.npcList[i_1_] = null;
 				}
 			}

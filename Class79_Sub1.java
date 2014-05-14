@@ -43,17 +43,8 @@ final class Class79_Sub1 extends Class79 {
 		}
 	}
 
-	static final void method695(final boolean bool) {
-		do {
-			try {
-				Class33.aClass21_273.clear();
-				if (!bool) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kn.C(").append(bool).append(')').toString());
-			}
-		} while (false);
+	static final void method695() {
+		Class33.aClass21_273.clear();
 	}
 
 	static final long method696(final int i, final int i_0_, final int i_1_) {

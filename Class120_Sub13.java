@@ -16,7 +16,7 @@ final class Class120_Sub13 extends Node {
 	static Class193[] aClass193Array2581 = new Class193[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
-		final boolean bool_8_ = Class120_Sub26.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
+		final boolean bool_8_ = OverridedJInterface.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {
@@ -86,24 +86,15 @@ final class Class120_Sub13 extends Node {
 		return true;
 	}
 
-	static final JagexInterface method1404(final int i, final byte i_18_, final int i_19_) {
-		JagexInterface jagexInterface;
-		try {
-			final JagexInterface class189_20_ = Class74.getJagexInterface(i);
-			if (i_18_ != 82) {
-				fullscreenGraphics = null;
-			}
-			if (i_19_ == -1) {
-				return class189_20_;
-			}
-			if (class189_20_ == null || class189_20_.aClass189Array2072 == null || i_19_ >= class189_20_.aClass189Array2072.length) {
-				return null;
-			}
-			jagexInterface = class189_20_.aClass189Array2072[i_19_];
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("l.A(").append(i).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
+	static final JagexInterface method1404(final int i, final int i_19_) {
+		final JagexInterface class189_20_ = Class74.getJagexInterface(i);
+		if (i_19_ == -1) {
+			return class189_20_;
 		}
-		return jagexInterface;
+		if (class189_20_ == null || class189_20_.aClass189Array2072 == null || i_19_ >= class189_20_.aClass189Array2072.length) {
+			return null;
+		}
+		return class189_20_.aClass189Array2072[i_19_];
 	}
 
 	static final int method1405(int i, final boolean bool, int i_21_) {
@@ -129,7 +120,7 @@ final class Class120_Sub13 extends Node {
 			aClass50_2576 = null;
 			aBooleanArrayArray2573 = null;
 			if (i != -31470) {
-				method1404(-57, (byte) 85, 16);
+				method1404(-57, 16);
 			}
 			fullscreenGraphics = null;
 			aString2574 = null;

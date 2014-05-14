@@ -182,9 +182,9 @@ abstract class AbstractTimer {
 				final int i_23_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
 				final int i_24_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_22_)) {
-					final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(i_23_);
+					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_23_);
 					if (class120_sub26 != null) {
-						Class120_Sub19.method1675(class120_sub26, i_24_ != class120_sub26.anInt2745);
+						Class120_Sub19.removeOverridedInterface(class120_sub26, i_24_ != class120_sub26.interfaceId);
 					}
 					RuntimeException_Sub1.method2528(i_24_, i_21_, (byte) 117, i_23_);
 				}
@@ -339,11 +339,11 @@ abstract class AbstractTimer {
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_56_)) {
 					for (int i_57_ = i_55_; i_54_ >= i_57_; i_57_++) {
 						final long l = ((long) i_53_ << 32) + (long) i_57_;
-						final InterfaceClickMask class120_sub20 = (InterfaceClickMask) JavaObject.aClass75_3914.get(l);
+						final InterfaceClickMask class120_sub20 = (InterfaceClickMask) JavaObject.clickMaskCache.get(l);
 						InterfaceClickMask class120_sub20_58_;
 						if (class120_sub20 == null) {
 							if ((i_57_ ^ 0xffffffff) == 0) {
-								class120_sub20_58_ = new InterfaceClickMask(i_52_, Class74.getJagexInterface(i_53_).aClass120_Sub20_1933.anInt2661);
+								class120_sub20_58_ = new InterfaceClickMask(i_52_, Class74.getJagexInterface(i_53_).clickMask.anInt2661);
 							} else {
 								class120_sub20_58_ = new InterfaceClickMask(i_52_, -1);
 							}
@@ -351,7 +351,7 @@ abstract class AbstractTimer {
 							class120_sub20_58_ = new InterfaceClickMask(i_52_, class120_sub20.anInt2661);
 							class120_sub20.unlink();
 						}
-						JavaObject.aClass75_3914.put(class120_sub20_58_, l);
+						JavaObject.clickMaskCache.put(class120_sub20_58_, l);
 					}
 				}
 				Class23.packetType = -1;
@@ -449,8 +449,8 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 96) {
-				if ((Class69.anInt616 ^ 0xffffffff) != 0) {
-					InterfaceClickMask.method1689(0, Class69.anInt616);
+				if (Class69.rootInterfaceId != -1) {
+					InterfaceClickMask.method1689(0, Class69.rootInterfaceId);
 				}
 				Class23.packetType = -1;
 				return true;
@@ -505,11 +505,11 @@ abstract class AbstractTimer {
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_81_)) {
 					for (int i_84_ = i_83_; i_82_ >= i_84_; i_84_++) {
 						final long l = ((long) i_79_ << 32) + i_84_;
-						final InterfaceClickMask class120_sub20 = (InterfaceClickMask) JavaObject.aClass75_3914.get(l);
+						final InterfaceClickMask class120_sub20 = (InterfaceClickMask) JavaObject.clickMaskCache.get(l);
 						InterfaceClickMask class120_sub20_85_;
 						if (class120_sub20 == null) {
 							if (i_84_ == -1) {
-								class120_sub20_85_ = new InterfaceClickMask(Class74.getJagexInterface(i_79_).aClass120_Sub20_1933.anInt2662, i_80_);
+								class120_sub20_85_ = new InterfaceClickMask(Class74.getJagexInterface(i_79_).clickMask.anInt2662, i_80_);
 							} else {
 								class120_sub20_85_ = new InterfaceClickMask(0, i_80_);
 							}
@@ -517,7 +517,7 @@ abstract class AbstractTimer {
 							class120_sub20_85_ = new InterfaceClickMask(class120_sub20.anInt2662, i_80_);
 							class120_sub20.unlink();
 						}
-						JavaObject.aClass75_3914.put(class120_sub20_85_, l);
+						JavaObject.clickMaskCache.put(class120_sub20_85_, l);
 					}
 				}
 				Class23.packetType = -1;
@@ -597,7 +597,7 @@ abstract class AbstractTimer {
 			if (Class23.packetType == 104) {
 				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
 				final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
-				Class120_Sub14_Sub14.method1540(Class136.method1977(false, l), 6, string);
+				Class120_Sub14_Sub14.method1540(Class136.longToString(l), 6, string);
 				Class23.packetType = -1;
 				return true;
 			}
@@ -642,7 +642,7 @@ abstract class AbstractTimer {
 			}
 			if (Class23.packetType == 30) {
 				if (Class120_Sub14_Sub10.fullscreenFrame != null) {
-					AbstractSprite.method1593(false, Class120_Sub12_Sub19.anInt3282, -1, -1);
+					AbstractSprite.method1593(false, Class120_Sub12_Sub19.currentDisplayMode, -1, -1);
 				}
 				final byte[] is = new byte[AbstractMouseWheelHandler.packetSize];
 				Canvas_Sub1.aClass120_Sub7_Sub1_16.getBytesIsaac(is, 0, AbstractMouseWheelHandler.packetSize);
@@ -821,11 +821,11 @@ abstract class AbstractTimer {
 					Class24.anInt147 = (Class24.anInt147 - -1) % 100;
 					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(i + 32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
 					if (i_132_ == 2 || i_132_ == 3) {
-						Class120_Sub14_Sub14.method1540(new StringBuilder("<img=1>").append(Class136.method1977(false, l)).toString(), 7, string);
+						Class120_Sub14_Sub14.method1540(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), 7, string);
 					} else if (i_132_ != 1) {
-						Class120_Sub14_Sub14.method1540(Class136.method1977(false, l), 3, string);
+						Class120_Sub14_Sub14.method1540(Class136.longToString(l), 3, string);
 					} else {
-						Class120_Sub14_Sub14.method1540(new StringBuilder("<img=0>").append(Class136.method1977(false, l)).toString(), 7, string);
+						Class120_Sub14_Sub14.method1540(new StringBuilder("<img=0>").append(Class136.longToString(l)).toString(), 7, string);
 					}
 				}
 				Class23.packetType = -1;
@@ -836,14 +836,14 @@ abstract class AbstractTimer {
 				final int i_136_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
 				final int i_137_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_135_)) {
-					final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(i_136_);
-					final Class120_Sub26 class120_sub26_138_ = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(i_137_);
+					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_136_);
+					final OverridedJInterface class120_sub26_138_ = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_137_);
 					if (class120_sub26_138_ != null) {
-						Class120_Sub19.method1675(class120_sub26_138_, class120_sub26 == null || class120_sub26_138_.anInt2745 != class120_sub26.anInt2745);
+						Class120_Sub19.removeOverridedInterface(class120_sub26_138_, class120_sub26 == null || class120_sub26_138_.interfaceId != class120_sub26.interfaceId);
 					}
 					if (class120_sub26 != null) {
 						class120_sub26.unlink();
-						Class120_Sub12_Sub13.aClass75_3234.put(class120_sub26, i_137_);
+						Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26, i_137_);
 					}
 					JagexInterface jagexInterface = Class74.getJagexInterface(i_136_);
 					if (jagexInterface != null) {
@@ -854,8 +854,8 @@ abstract class AbstractTimer {
 						InterfaceClickMask.redrawInterface(jagexInterface);
 						ProducingGraphicsBuffer.method1854(true, false, jagexInterface);
 					}
-					if ((Class69.anInt616 ^ 0xffffffff) != 0) {
-						InterfaceClickMask.method1689(1, Class69.anInt616);
+					if (Class69.rootInterfaceId != -1) {
+						InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
 					}
 				}
 				Class23.packetType = -1;
@@ -896,12 +896,12 @@ abstract class AbstractTimer {
 					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
 					if (i_143_ != 2 && i_143_ != 3) {
 						if (i_143_ == 1) {
-							GroundTile.method1669(9, new StringBuilder("<img=0>").append(Class136.method1977(false, l)).toString(), Class136.method1977(false, l_139_), string, i ^ 0xffffffff);
+							GroundTile.method1669(9, new StringBuilder("<img=0>").append(Class136.longToString(l)).toString(), Class136.longToString(l_139_), string, i ^ 0xffffffff);
 						} else {
-							GroundTile.method1669(9, Class136.method1977(false, l), Class136.method1977(false, l_139_), string, i + -1);
+							GroundTile.method1669(9, Class136.longToString(l), Class136.longToString(l_139_), string, i + -1);
 						}
 					} else {
-						GroundTile.method1669(9, new StringBuilder("<img=1>").append(Class136.method1977(false, l)).toString(), Class136.method1977(false, l_139_), string, -1);
+						GroundTile.method1669(9, new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), Class136.longToString(l_139_), string, -1);
 					}
 				}
 				Class23.packetType = -1;
@@ -1043,7 +1043,7 @@ abstract class AbstractTimer {
 				if (i_172_ > 0) {
 					string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
 				}
-				String string_175_ = Class136.method1977(false, l);
+				String string_175_ = Class136.longToString(l);
 				for (int i_176_ = 0; ProducingGraphicsBuffer.anInt2799 > i_176_; i_176_++) {
 					if ((AbstractSprite.aLongArray3617[i_176_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
 						if (i_172_ != Class120_Sub12_Sub16.anIntArray3252[i_176_]) {
@@ -1115,10 +1115,10 @@ abstract class AbstractTimer {
 					if (i_188_ == 2) {
 						Class54.method480(-62);
 					}
-					Class69.anInt616 = i_186_;
+					Class69.rootInterfaceId = i_186_;
 					Class120_Sub14_Sub1.method1413(-5, i_186_);
 					Class101_Sub2.method846((byte) 83, false);
-					JagexSocket.method376(true, Class69.anInt616);
+					JagexSocket.method376(true, Class69.rootInterfaceId);
 					for (int i_189_ = 0; i_189_ < 100; i_189_++) {
 						Class52.aBooleanArray467[i_189_] = true;
 					}
@@ -1129,7 +1129,7 @@ abstract class AbstractTimer {
 			if (Class23.packetType == 156) {
 				final int i_190_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_190_)) {
-					Class3.method85(true);
+					Class3.smoothCamera();
 				}
 				Class23.packetType = -1;
 				return true;
@@ -1282,11 +1282,11 @@ abstract class AbstractTimer {
 					Class24.anInt147 = (Class24.anInt147 - -1) % 100;
 					final String string = Class121.method1837(i_207_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
 					if (i_206_ == 2 || i_206_ == 3) {
-						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.method1977(false, l)).toString(), i_207_, Class136.method1977(false, l_202_), 20, string, 0);
+						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), i_207_, Class136.longToString(l_202_), 20, string, 0);
 					} else if (i_206_ != 1) {
-						Class120_Sub16.method1660(Class136.method1977(false, l), i_207_, Class136.method1977(false, l_202_), 20, string, i);
+						Class120_Sub16.method1660(Class136.longToString(l), i_207_, Class136.longToString(l_202_), 20, string, i);
 					} else {
-						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(Class136.method1977(false, l)).toString(), i_207_, Class136.method1977(false, l_202_), 20, string, 0);
+						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(Class136.longToString(l)).toString(), i_207_, Class136.longToString(l_202_), 20, string, 0);
 					}
 				}
 				Class23.packetType = -1;
@@ -1493,11 +1493,11 @@ abstract class AbstractTimer {
 					Class24.anInt147 = (Class24.anInt147 + 1) % 100;
 					final String string = Class121.method1837(i_241_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
 					if (i_240_ == 2) {
-						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.method1977(false, l)).toString(), i_241_, null, 18, string, 0);
+						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), i_241_, null, 18, string, 0);
 					} else if (i_240_ == 1) {
-						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(Class136.method1977(false, l)).toString(), i_241_, null, 18, string, 0);
+						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(Class136.longToString(l)).toString(), i_241_, null, 18, string, 0);
 					} else {
-						Class120_Sub16.method1660(Class136.method1977(false, l), i_241_, null, 18, string, i + 0);
+						Class120_Sub16.method1660(Class136.longToString(l), i_241_, null, 18, string, i + 0);
 					}
 				}
 				Class23.packetType = -1;
@@ -1536,9 +1536,9 @@ abstract class AbstractTimer {
 				final int i_256_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
 				final int i_257_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_256_)) {
-					final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(i_257_);
+					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_257_);
 					if (class120_sub26 != null) {
-						Class120_Sub19.method1675(class120_sub26, true);
+						Class120_Sub19.removeOverridedInterface(class120_sub26, true);
 					}
 					if (Class156.aClass189_1454 != null) {
 						InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
@@ -1697,7 +1697,7 @@ abstract class AbstractTimer {
 				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
 				final int i_288_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
 				final String string = Class121.method1837(i_288_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
-				Class120_Sub16.method1660(Class136.method1977(false, l), i_288_, null, 19, string, 0);
+				Class120_Sub16.method1660(Class136.longToString(l), i_288_, null, 19, string, 0);
 				Class23.packetType = -1;
 				return true;
 			}

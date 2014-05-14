@@ -205,7 +205,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			if (i_28_ <= 27) {
 				method1283(84, (byte) 81);
 			}
-			if (!client.method54(jagexInterface).method1678(i, 58) && jagexInterface.anObjectArray2006 == null) {
+			if (!client.getClickMask(jagexInterface).method1678(i, 58) && jagexInterface.anObjectArray2006 == null) {
 				return null;
 			}
 			if (jagexInterface.aStringArray2052 == null || i >= jagexInterface.aStringArray2052.length || jagexInterface.aStringArray2052[i] == null || jagexInterface.aStringArray2052[i].trim().length() == 0) {

@@ -45,8 +45,8 @@ final class Class42 {
 							final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_5_];
 							Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_5_;
 							class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
-							class180_sub5_sub2.method2346((byte) 90, npcType);
-							class180_sub5_sub2.method2338(23751, class180_sub5_sub2.npcType.size);
+							class180_sub5_sub2.setNpcType(npcType);
+							class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
 							class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = Class15.anIntArray101[class180_sub5_sub2.npcType.aByte1652];
 							class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
 							if (class180_sub5_sub2.anInt3010 == 0) {

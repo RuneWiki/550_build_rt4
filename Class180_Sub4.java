@@ -114,7 +114,7 @@ final class Class180_Sub4 extends SceneGraphNode {
 			for (int i_10_ = 0; i_10_ < 4; i_10_++) {
 				Class182.aClass25Array1802[i_10_] = new Class25(104, 104);
 			}
-			Class114.aByteArrayArrayArray1095 = new byte[4][104][104];
+			Class114.tileSettings = new byte[4][104][104];
 			Class9.aByteArrayArrayArray70 = new byte[4][104][104];
 			Class120_Sub14_Sub12.groundObjects = new Deque[4][104][104];
 			if (HDToolkit.glEnabled) {

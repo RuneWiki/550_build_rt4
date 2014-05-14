@@ -60,7 +60,7 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 						class120_sub14_sub8 = Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286;
 					}
 					if (class73.anInt634 == 2) {
-						class120_sub14_sub8 = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303;
+						class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 					}
 					if (class107 != null) {
 						i_10_ = class107.anInt1030;

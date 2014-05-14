@@ -3,7 +3,7 @@
  */
 
 final class Queue {
-	static int anInt1767 = 0;
+	static int lastMouseX = 0;
 	static int anInt1768;
 	NodeSub head = new NodeSub();
 	private NodeSub current;

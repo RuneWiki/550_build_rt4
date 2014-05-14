@@ -138,10 +138,10 @@ class Class132_Sub2 extends Class132 {
 		int i_20_ = i_21_ = i_16_ + 128;
 		int i_23_;
 		int i_22_ = i_23_ = i_18_ + 128;
-		int i_24_ = Class120_Sub26.anIntArrayArrayArray2741[i][i_14_][i_15_] - PlayerAppearance.anInt1367;
-		int i_25_ = Class120_Sub26.anIntArrayArrayArray2741[i][i_14_ + 1][i_15_] - PlayerAppearance.anInt1367;
-		int i_26_ = Class120_Sub26.anIntArrayArrayArray2741[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.anInt1367;
-		int i_27_ = Class120_Sub26.anIntArrayArrayArray2741[i][i_14_][i_15_ + 1] - PlayerAppearance.anInt1367;
+		int i_24_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_14_][i_15_] - PlayerAppearance.anInt1367;
+		int i_25_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_14_ + 1][i_15_] - PlayerAppearance.anInt1367;
+		int i_26_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.anInt1367;
+		int i_27_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_14_][i_15_ + 1] - PlayerAppearance.anInt1367;
 		int i_28_ = i_18_ * i_12_ + i_16_ * i_13_ >> 16;
 		i_18_ = i_18_ * i_13_ - i_16_ * i_12_ >> 16;
 		i_16_ = i_28_;

@@ -100,7 +100,7 @@ final class Class73 {
 			if (class107_sub1_2_ != null) {
 				return class107_sub1_2_;
 			}
-			Class88.aClass50_834.method429(anInt647, 66);
+			Class88.aClass50_834.method429(anInt647);
 			class107_sub1_2_ = Class164.method2138(32, 0, Class88.aClass50_834, anInt647);
 			if (class107_sub1_2_ != null) {
 				class107_sub1_2_.anInt1029 = class107_sub1_2_.anInt1026;
@@ -252,7 +252,7 @@ final class Class73 {
 			if (class107_10_ != null) {
 				return class107_10_;
 			}
-			if (!Class88.aClass50_834.method429(i, 85)) {
+			if (!Class88.aClass50_834.method429(i)) {
 				return null;
 			}
 			final Class107_Sub1 class107_sub1 = Class164.method2138(32, 0, Class88.aClass50_834, i);

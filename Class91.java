@@ -49,8 +49,8 @@ final class Class91 implements Runnable {
 			while (this.aBoolean858) {
 				synchronized (this.anObject857) {
 					if (this.anInt859 < 500) {
-						this.anIntArray861[this.anInt859] = Queue.anInt1767;
-						this.anIntArray860[this.anInt859] = Class191.anInt2113;
+						this.anIntArray861[this.anInt859] = Queue.lastMouseX;
+						this.anIntArray860[this.anInt859] = Class191.lastMouseY;
 						this.anInt859++;
 					}
 				}
@@ -62,7 +62,7 @@ final class Class91 implements Runnable {
 	}
 
 	static final void method763(final int i, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
-		final JagexInterface jagexInterface = Class120_Sub13.method1404(i_10_, (byte) 82, i_8_);
+		final JagexInterface jagexInterface = Class120_Sub13.method1404(i_10_, i_8_);
 		if (jagexInterface != null && jagexInterface.anObjectArray1980 != null) {
 			final Class120_Sub10 class120_sub10 = new Class120_Sub10();
 			class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray1980;

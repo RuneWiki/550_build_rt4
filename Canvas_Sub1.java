@@ -3,10 +3,6 @@
  */
 
 final class Canvas_Sub1 {
-	static int anInt10;
-	static int anInt11;
-	static int anInt12;
-	static int anInt13;
 	static Cache aClass21_14 = new Cache(64);
 	static Hashtable aClass75_15 = new Hashtable(32);
 	static PacketBuffer aClass120_Sub7_Sub1_16 = new PacketBuffer(5000);

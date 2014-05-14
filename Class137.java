@@ -16,13 +16,13 @@ final class Class137 {
 			for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
 				final JagexInterface jagexInterface = class189s_1_[i_2_];
 				if (jagexInterface != null) {
-					if (jagexInterface.anInt1995 == 0) {
+					if (jagexInterface.type == 0) {
 						if (jagexInterface.aClass189Array2072 != null) {
 							method1980(bool, jagexInterface.aClass189Array2072, i);
 						}
-						final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(jagexInterface.bitPacked);
+						final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 						if (class120_sub26 != null) {
-							InterfaceClickMask.method1689(i, class120_sub26.anInt2745);
+							InterfaceClickMask.method1689(i, class120_sub26.interfaceId);
 						}
 					}
 					if (i == 0 && jagexInterface.anObjectArray2013 != null) {
@@ -71,13 +71,13 @@ final class Class137 {
 				Class120_Sub15.anInt2588 = -1;
 			} else {
 				int i_11_ = -i_5_ + Class22.method197(Class173.gameLevel, i_7_, i_8_);
-				i_7_ -= Class83.anInt792;
-				i_11_ -= Class120_Sub12_Sub10.anInt3200;
-				i_8_ -= GroundObjectNode.anInt3626;
-				final int i_12_ = Rasterizer.sineTable[Class128.anInt1223];
-				final int i_13_ = Rasterizer.cosineTable[Class128.anInt1223];
-				final int i_14_ = Rasterizer.sineTable[Class180_Sub3.anInt2909];
-				final int i_15_ = Rasterizer.cosineTable[Class180_Sub3.anInt2909];
+				i_7_ -= Class83.renderX;
+				i_11_ -= Class120_Sub12_Sub10.renderY;
+				i_8_ -= GroundObjectNode.renderZ;
+				final int i_12_ = Rasterizer.sineTable[Class128.renderPitch];
+				final int i_13_ = Rasterizer.cosineTable[Class128.renderPitch];
+				final int i_14_ = Rasterizer.sineTable[Class180_Sub3.renderYaw];
+				final int i_15_ = Rasterizer.cosineTable[Class180_Sub3.renderYaw];
 				int i_16_ = i_8_ * i_14_ + i_7_ * i_15_ >> 16;
 				i_8_ = i_8_ * i_15_ - i_14_ * i_7_ >> 16;
 				i_7_ = i_16_;

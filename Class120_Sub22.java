@@ -38,7 +38,7 @@ final class Class120_Sub22 extends Node {
 				final Buffer class120_sub7 = new Buffer(is);
 				Canvas_Sub1.aClass120_Sub7_Sub1_16.getBytesA(is, 0, i_6_);
 				StringNode.aClass120_Sub7Array2737[i] = class120_sub7;
-				class180_sub5_sub1.method2339(class120_sub7, (byte) 71);
+				class180_sub5_sub1.decodeAppearance(class120_sub7);
 			}
 			if ((0x4 & i_0_) != 0) {
 				class180_sub5_sub1.anInt3016 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
@@ -64,11 +64,11 @@ final class Class120_Sub22 extends Node {
 				class180_sub5_sub1.aString2975 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
 				if (class180_sub5_sub1.aString2975.charAt(0) != '~') {
 					if (class180_sub5_sub1 == Class100.selfPlayer) {
-						Class120_Sub14_Sub14.method1540(class180_sub5_sub1.method2342((byte) -122), 2, class180_sub5_sub1.aString2975);
+						Class120_Sub14_Sub14.method1540(class180_sub5_sub1.getTitledName(), 2, class180_sub5_sub1.aString2975);
 					}
 				} else {
 					class180_sub5_sub1.aString2975 = class180_sub5_sub1.aString2975.substring(1);
-					Class120_Sub14_Sub14.method1540(class180_sub5_sub1.method2342((byte) -122), 2, class180_sub5_sub1.aString2975);
+					Class120_Sub14_Sub14.method1540(class180_sub5_sub1.getTitledName(), 2, class180_sub5_sub1.aString2975);
 				}
 				class180_sub5_sub1.anInt2995 = 0;
 				class180_sub5_sub1.anInt2976 = 0;
@@ -80,8 +80,8 @@ final class Class120_Sub22 extends Node {
 				final boolean bool = (i_12_ & 0x8000) != 0;
 				final int i_14_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
 				final int i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.pos;
-				if (class180_sub5_sub1.aString3745 != null && class180_sub5_sub1.appearance != null) {
-					final long l = Class70.stringToLong(class180_sub5_sub1.aString3745);
+				if (class180_sub5_sub1.name != null && class180_sub5_sub1.appearance != null) {
+					final long l = Class70.stringToLong(class180_sub5_sub1.name);
 					boolean bool_16_ = false;
 					if (i_13_ <= 1) {
 						if (!bool && (Class27.aBoolean167 && !Class128.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
@@ -114,11 +114,11 @@ final class Class120_Sub22 extends Node {
 						class180_sub5_sub1.anInt3025 = 150;
 						class180_sub5_sub1.anInt2976 = i_12_ >> 8;
 						if (i_13_ == 2) {
-							Class120_Sub16.method1660(new StringBuilder("<img=1>").append(class180_sub5_sub1.method2342((byte) -122)).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
+							Class120_Sub16.method1660(new StringBuilder("<img=1>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
 						} else if (i_13_ == 1) {
-							Class120_Sub16.method1660(new StringBuilder("<img=0>").append(class180_sub5_sub1.method2342((byte) -122)).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
+							Class120_Sub16.method1660(new StringBuilder("<img=0>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
 						} else {
-							Class120_Sub16.method1660(class180_sub5_sub1.method2342((byte) -122), i_18_, null, !bool ? 2 : 17, string, 0);
+							Class120_Sub16.method1660(class180_sub5_sub1.getTitledName(), i_18_, null, !bool ? 2 : 17, string, 0);
 						}
 					}
 				}

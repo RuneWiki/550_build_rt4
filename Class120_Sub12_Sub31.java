@@ -122,7 +122,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 	static final int method1368(final JagexInterface jagexInterface, final int i, final byte i_18_) {
 		int i_19_;
 		try {
-			if (!client.method54(jagexInterface).method1678(i, 68) && jagexInterface.anObjectArray2006 == null) {
+			if (!client.getClickMask(jagexInterface).method1678(i, 68) && jagexInterface.anObjectArray2006 == null) {
 				return -1;
 			}
 			i_19_ = jagexInterface.anIntArray1992 == null || jagexInterface.anIntArray1992.length <= i ? -1 : jagexInterface.anIntArray1992[i];

@@ -11,7 +11,7 @@ final class Class120_Sub24 extends Node {
 	int anInt2721;
 	int anInt2722;
 	int anInt2723;
-	static int anInt2724;
+	static int menuWidth;
 	int anInt2725;
 	static String aString2726 = "Loaded sprites";
 	int anInt2727;
@@ -33,7 +33,7 @@ final class Class120_Sub24 extends Node {
 			aStringArray2716 = null;
 			aString2726 = null;
 			if (i != -76) {
-				anInt2724 = -65;
+				menuWidth = -65;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ra.A(").append(i).append(')').toString());

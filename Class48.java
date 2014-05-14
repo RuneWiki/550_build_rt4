@@ -91,8 +91,8 @@ final class Class48 {
 		}
 	}
 
-	static final int method405() {
-		return Class43.aClass21_367.getCount();
+	static final int getPlayersCacheSize() {
+		return Class43.playerModelsCache.getCount();
 	}
 
 	static final void method406(final int i, final long l) {
@@ -101,7 +101,7 @@ final class Class48 {
 				if (ProducingGraphicsBuffer.anInt2799 >= 100 && !Class120_Sub12_Sub21_Sub1.aBoolean3908 || ProducingGraphicsBuffer.anInt2799 >= 200) {
 					Class120_Sub14_Sub14.method1540("", 0, Class120_Sub11.aString2550);
 				} else {
-					final String string = Class136.method1977(false, l);
+					final String string = Class136.longToString(l);
 					for (int i_21_ = 0; ProducingGraphicsBuffer.anInt2799 > i_21_; i_21_++) {
 						if ((l ^ 0xffffffffffffffffL) == (AbstractSprite.aLongArray3617[i_21_] ^ 0xffffffffffffffffL)) {
 							Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
@@ -114,7 +114,7 @@ final class Class48 {
 							return;
 						}
 					}
-					if (string.equals(Class100.selfPlayer.aString3745)) {
+					if (string.equals(Class100.selfPlayer.name)) {
 						Class120_Sub14_Sub14.method1540("", 0, Class120_Sub14_Sub23.aString3655);
 					} else {
 						Class120_Sub16.aStringArray2599[ProducingGraphicsBuffer.anInt2799] = string;

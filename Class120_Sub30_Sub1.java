@@ -19,7 +19,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 
 	static final void method1738(final int i, final Player class180_sub5_sub1) {
 		try {
-			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.aString3745));
+			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.name));
 			if (class120_sub8 != null) {
 				class120_sub8.method1156(-77);
 			} else {
@@ -52,7 +52,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 				Class79.aClass120_Sub14_Sub22_691 = null;
 				Class79.aClass177_690.clear();
 				Class112.aClass98_1070 = null;
-				Class120_Sub26.aClass98_2739 = null;
+				OverridedJInterface.aClass98_2739 = null;
 				Class120_Sub14_Sub14_Sub1.aClass98_3929 = null;
 				Class124.aClass98_1201 = null;
 				PlayerAppearance.aClass98_1373 = null;

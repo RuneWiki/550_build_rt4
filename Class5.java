@@ -8,7 +8,6 @@ final class Class5 implements ShaderInterface {
 	static short[] aShortArray2152;
 	static String aString2153 = "Close";
 	static int anInt2154 = 0;
-	static int anInt2155;
 	private int anInt2156 = -1;
 	static int anInt2157;
 	static boolean aBoolean2158;
@@ -112,14 +111,7 @@ final class Class5 implements ShaderInterface {
 
 	@Override
 	public final int method4() {
-		int i;
-		try {
-			anInt2155++;
-			i = 4;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "ae.C()");
-		}
-		return i;
+		return 4;
 	}
 
 	@Override

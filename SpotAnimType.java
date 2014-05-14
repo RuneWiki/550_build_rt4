@@ -33,7 +33,7 @@ final class SpotAnimType {
 					return true;
 				}
 			}
-			if (string.equalsIgnoreCase(Class100.selfPlayer.aString3745)) {
+			if (string.equalsIgnoreCase(Class100.selfPlayer.name)) {
 				return true;
 			}
 			bool = false;
@@ -53,7 +53,7 @@ final class SpotAnimType {
 				Class120_Sub12_Sub31.anInt3384 = 0;
 				Class101_Sub1.anInt2272 = 0;
 				Class120_Sub12_Sub15.anInt3248 = -1;
-				client.anInt2200 = 1;
+				client.cameraType = 1;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("li.D(").append(i).append(')').toString());
@@ -135,7 +135,7 @@ final class SpotAnimType {
 				return null;
 			}
 			final int[] is_8_ = new int[is.length];
-			Class4.method90(is, 0, is_8_, 0, is.length);
+			ArrayUtils.arrayCopy(is, 0, is_8_, 0, is.length);
 			is_7_ = is_8_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("li.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());

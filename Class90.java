@@ -6,7 +6,7 @@ import java.util.TimeZone;
 
 final class Class90 {
 	private Class50 aClass50_839;
-	static Cache aClass21_840 = new Cache(5);
+	static Cache playerHeadModelsCache = new Cache(5);
 	private final Class50 aClass50_841;
 	private final Hashtable aClass75_842 = new Hashtable(256);
 	static Class50 aClass50_843;
@@ -34,7 +34,7 @@ final class Class90 {
 			}
 			aClass82_850 = null;
 			aCalendar844 = null;
-			aClass21_840 = null;
+			playerHeadModelsCache = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.I(").append(i).append(')').toString());
 		}
@@ -88,7 +88,7 @@ final class Class90 {
 
 	final Class120_Sub5_Sub1 method753(final int[] is, final int i, final int i_6_) {
 		try {
-			if (aClass50_839.method421(-61) == 1) {
+			if (aClass50_839.method421() == 1) {
 				return method754(i_6_, -111, 0, is);
 			}
 			if (aClass50_839.getFileAmount(i_6_) == 1) {
@@ -146,7 +146,7 @@ final class Class90 {
 
 	final Class120_Sub5_Sub1 method756(final int i, final int[] is, final int i_12_) {
 		try {
-			if (aClass50_841.method421(-78) == 1) {
+			if (aClass50_841.method421() == 1) {
 				return method752(0, is, i_12_, -1656949328);
 			}
 			if (aClass50_841.getFileAmount(i_12_) == 1) {
@@ -163,8 +163,8 @@ final class Class90 {
 
 	static final void method757(final byte i) {
 		try {
-			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
-				final int i_13_ = class120_sub26.anInt2745;
+			for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+				final int i_13_ = class120_sub26.interfaceId;
 				if (Class50.loadInterface(i_13_)) {
 					boolean bool = true;
 					final JagexInterface[] class189s = Node.interfaceCache[i_13_];
@@ -195,9 +195,9 @@ final class Class90 {
 		do {
 			try {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
-				for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
-					if (class120_sub26.anInt2744 == 0) {
-						Class120_Sub19.method1675(class120_sub26, true);
+				for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+					if (class120_sub26.type == 0) {
+						Class120_Sub19.removeOverridedInterface(class120_sub26, true);
 					}
 				}
 				if (Class156.aClass189_1454 != null) {

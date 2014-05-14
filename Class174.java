@@ -66,7 +66,7 @@ final class Class174 {
 					bool = true;
 					Class118.playersList[i_3_] = new Player();
 					if (StringNode.aClass120_Sub7Array2737[i_3_] != null) {
-						Class118.playersList[i_3_].method2339(StringNode.aClass120_Sub7Array2737[i_3_], (byte) 71);
+						Class118.playersList[i_3_].decodeAppearance(StringNode.aClass120_Sub7Array2737[i_3_]);
 					}
 				}
 				Class112.playerIndices[Class83.localPlayerCount++] = i_3_;

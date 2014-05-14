@@ -14,22 +14,18 @@ class Node {
 	static JagexInterface[][] interfaceCache;
 	static int[] anIntArray1151 = { 1, 4 };
 
-	static final void method1029(final byte i) {
-		try {
-			if (Class88.aBoolean828 && i == 126) {
-				final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, JagexSocket.anInt420);
-				if (jagexInterface != null && jagexInterface.anObjectArray2000 != null) {
-					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-					class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2000;
-					class120_sub10.aClass189_2534 = jagexInterface;
-					Class88.method744(true, class120_sub10);
-				}
-				Class88.aBoolean828 = false;
-				Class192.anInt2123 = -1;
-				InterfaceClickMask.redrawInterface(jagexInterface);
+	static final void method1029() {
+		if (Class88.aBoolean828) {
+			final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, JagexSocket.anInt420);
+			if (jagexInterface != null && jagexInterface.anObjectArray2000 != null) {
+				final Class120_Sub10 class120_sub10 = new Class120_Sub10();
+				class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2000;
+				class120_sub10.aClass189_2534 = jagexInterface;
+				Class88.method744(true, class120_sub10);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.VA(").append(i).append(')').toString());
+			Class88.aBoolean828 = false;
+			Class192.anInt2123 = -1;
+			InterfaceClickMask.redrawInterface(jagexInterface);
 		}
 	}
 

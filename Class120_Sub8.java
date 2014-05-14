@@ -189,14 +189,14 @@ final class Class120_Sub8 extends Node {
 
 	static final void method1158(final int i, final byte i_2_, final int i_3_) {
 		try {
-			if (client.anInt2200 == 2) {
-				Class128.anInt1223 = i;
-				Class180_Sub3.anInt2909 = i_3_;
+			if (client.cameraType == 2) {
+				Class128.renderPitch = i;
+				Class180_Sub3.renderYaw = i_3_;
 			}
 			OutputStream_Sub1.aFloat28 = i_3_;
 			Class120_Sub12_Sub21.aFloat3293 = i;
 			if (i_2_ == 125) {
-				Class127.method1892((byte) 27);
+				Class127.method1892();
 				Class118.aBoolean1134 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {

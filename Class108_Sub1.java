@@ -8,7 +8,7 @@ final class Class108_Sub1 extends Class108 {
 	private int anInt2316;
 	private int anInt2317;
 	int anInt2318;
-	static int anInt2319;
+	static int selectedObjSlot;
 	static int anInt2320 = 0;
 	int anInt2321;
 	Class158 aClass158_2322;
@@ -159,7 +159,7 @@ final class Class108_Sub1 extends Class108 {
 		try {
 			if (!this.aBoolean2339) {
 				if (ParticleEngine.particleSetting >= this.aClass80_2323.anInt746) {
-					if (Class120_Sub26.anIntArray2743[ParticleEngine.particleSetting] >= ParticleEngine.anInt2351) {
+					if (OverridedJInterface.anIntArray2743[ParticleEngine.particleSetting] >= ParticleEngine.anInt2351) {
 						if (anInt2341 != anInt2342 || anInt2342 != anInt2325 || anInt2332 != anInt2326 || anInt2332 != anInt2316 || anInt2338 != anInt2317 || anInt2344 != anInt2317) {
 							if ((this.aClass80_2323.anInt772 ^ 0xffffffff) != 0) {
 								int i_18_ = (int) (l + -aLong2330);

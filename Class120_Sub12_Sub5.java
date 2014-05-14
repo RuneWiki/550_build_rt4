@@ -90,7 +90,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 					if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, 0, Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
 						break;
 					}
-					Class30.aClass120_Sub30_Sub2_234.method1778((byte) 15);
+					Class30.aClass120_Sub30_Sub2_234.method1778();
 					Class30.aClass120_Sub30_Sub2_234.method1748(128, Class120_Sub14_Sub14_Sub2.anInt3940);
 					Class30.aClass120_Sub30_Sub2_234.method1773(StringNode.aBoolean2734, Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941, (byte) 119);
 					Class26.aClass90_163 = null;
@@ -223,61 +223,54 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		return is;
 	}
 
-	static final void method1222(final int i, final long l) {
-		try {
-			if (!Class134.aBoolean1277) {
-				Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
-				OutputStream_Sub1.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
-			}
-			if (i != 0) {
-				method1217(false, '\035');
-			}
-			final int i_28_ = Class100.selfPlayer.z - -Class29.anInt195;
-			final int i_29_ = Class23.anInt136 + Class100.selfPlayer.x;
-			if (Class69_Sub3_Sub1.anInt3083 + -i_29_ < -500 || -i_29_ + Class69_Sub3_Sub1.anInt3083 > 500 || Class120_Sub10.anInt2545 - i_28_ < -500 || Class120_Sub10.anInt2545 - i_28_ > 500) {
-				Class120_Sub10.anInt2545 = i_28_;
-				Class69_Sub3_Sub1.anInt3083 = i_29_;
-			}
-			if (Class69_Sub3_Sub1.anInt3083 != i_29_) {
-				final int i_30_ = i_29_ + -Class69_Sub3_Sub1.anInt3083;
-				int i_31_ = (int) (l * i_30_ / 320L);
-				if (i_30_ <= 0) {
-					if (i_31_ != 0) {
-						if (i_31_ < i_30_) {
-							i_31_ = i_30_;
-						}
-					} else {
-						i_31_ = -1;
-					}
-				} else if (i_31_ == 0) {
-					i_31_ = 1;
-				} else if (i_31_ > i_30_) {
-					i_31_ = i_30_;
-				}
-				Class69_Sub3_Sub1.anInt3083 += i_31_;
-			}
-			if (Class120_Sub10.anInt2545 != i_28_) {
-				final int i_32_ = i_28_ - Class120_Sub10.anInt2545;
-				int i_33_ = (int) (l * i_32_ / 320L);
-				if (i_32_ > 0) {
-					if (i_33_ != 0) {
-						if (i_33_ > i_32_) {
-							i_33_ = i_32_;
-						}
-					} else {
-						i_33_ = 1;
-					}
-				} else if (i_33_ == 0) {
-					i_33_ = -1;
-				} else if (i_32_ > i_33_) {
-					i_33_ = i_32_;
-				}
-				Class120_Sub10.anInt2545 += i_33_;
-			}
-			Class127.method1892((byte) 35);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ck.V(").append(i).append(',').append(l).append(')').toString());
+	static final void method1222(final long l) {
+		if (!Class134.aBoolean1277) {
+			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
+			OutputStream_Sub1.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
+		final int playerZ = Class100.selfPlayer.z + Class29.anInt195;
+		final int playerX = Class100.selfPlayer.x + Class23.anInt136;
+		if (Class69_Sub3_Sub1.playerRenderX - playerX < -500 || Class69_Sub3_Sub1.playerRenderX - playerX > 500 || Class120_Sub10.playerRenderZ - playerZ < -500 || Class120_Sub10.playerRenderZ - playerZ > 500) {
+			Class120_Sub10.playerRenderZ = playerZ;
+			Class69_Sub3_Sub1.playerRenderX = playerX;
+		}
+		if (Class69_Sub3_Sub1.playerRenderX != playerX) {
+			final int i_30_ = playerX - Class69_Sub3_Sub1.playerRenderX;
+			int i_31_ = (int) (l * i_30_ / 320L);
+			if (i_30_ <= 0) {
+				if (i_31_ != 0) {
+					if (i_31_ < i_30_) {
+						i_31_ = i_30_;
+					}
+				} else {
+					i_31_ = -1;
+				}
+			} else if (i_31_ == 0) {
+				i_31_ = 1;
+			} else if (i_31_ > i_30_) {
+				i_31_ = i_30_;
+			}
+			Class69_Sub3_Sub1.playerRenderX += i_31_;
+		}
+		if (Class120_Sub10.playerRenderZ != playerZ) {
+			final int i_32_ = playerZ - Class120_Sub10.playerRenderZ;
+			int i_33_ = (int) (l * i_32_ / 320L);
+			if (i_32_ > 0) {
+				if (i_33_ != 0) {
+					if (i_33_ > i_32_) {
+						i_33_ = i_32_;
+					}
+				} else {
+					i_33_ = 1;
+				}
+			} else if (i_33_ == 0) {
+				i_33_ = -1;
+			} else if (i_32_ > i_33_) {
+				i_33_ = i_32_;
+			}
+			Class120_Sub10.playerRenderZ += i_33_;
+		}
+		Class127.method1892();
 	}
 
 	private final void method1223(final byte i) {

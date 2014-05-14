@@ -545,8 +545,8 @@ final class ParticleEngine extends Class108 {
 			this.anInt2375 = (this.anInt2368 + (anInt2371 << 6) >> 7) - 1;
 			this.anInt2369 = this.anInt2372;
 			if (this.anInt2374 < 3) {
-				this.anInt2382 = Class120_Sub26.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2373][this.anInt2367] + Class120_Sub26.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2384][this.anInt2367]
-						+ Class120_Sub26.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2373][this.anInt2375] + Class120_Sub26.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2384][this.anInt2375] >> 2;
+				this.anInt2382 = OverridedJInterface.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2384][this.anInt2367]
+						+ OverridedJInterface.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.anIntArrayArrayArray2741[this.anInt2374 + 1][this.anInt2384][this.anInt2375] >> 2;
 			} else {
 				this.anInt2382 = this.anInt2369 - 1024;
 			}

@@ -50,7 +50,7 @@ final class IntegerNode extends Node {
 			if (i != -101) {
 				method1833((byte) 8, null);
 			}
-			if (jagexInterface.anInt1975 == 205) {
+			if (jagexInterface.clientCode == 205) {
 				Class31.anInt244 = 250;
 				return true;
 			}

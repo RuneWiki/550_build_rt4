@@ -28,7 +28,7 @@ final class Class151 {
 					if (jagexInterface.anInt2023 < 0) {
 						jagexInterface.anInt2023 = 0;
 					}
-					if (jagexInterface.anInt1995 == 0) {
+					if (jagexInterface.type == 0) {
 						ProducingGraphicsBuffer.method1854(bool, false, jagexInterface);
 					}
 				}

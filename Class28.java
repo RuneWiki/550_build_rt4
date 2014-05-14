@@ -96,7 +96,7 @@ final class Class28 {
 	}
 
 	static final void method247() {
-		Class120_Sub26.aClass105_2746 = new Deque();
+		OverridedJInterface.aClass105_2746 = new Deque();
 	}
 
 	public Class28() {

@@ -42,7 +42,7 @@ final class Class33 {
 	static final String method277(final byte i, final JagexInterface jagexInterface) {
 		String string;
 		try {
-			if (client.method54(jagexInterface).method1685(1105924391) == 0) {
+			if (client.getClickMask(jagexInterface).method1685(1105924391) == 0) {
 				return null;
 			}
 			if (jagexInterface.aString2095 == null || jagexInterface.aString2095.trim().length() == 0) {

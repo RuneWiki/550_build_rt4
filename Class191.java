@@ -14,7 +14,7 @@ final class Class191 {
 	int anInt2110;
 	int anInt2111;
 	int anInt2112;
-	static int anInt2113 = 0;
+	static int lastMouseY = 0;
 	float aFloat2114 = 0.25F;
 	static int anInt2115;
 	float aFloat2116 = 1.0F;
@@ -44,10 +44,10 @@ final class Class191 {
 			if (FileSystem.anInt455 != 2) {
 				if (Class115.anInt1110 == Class50.anInt449 && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.anInt3424) {
 					FileSystem.anInt455 = 0;
-					if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.anInt1906 > 2) {
-						GameShell.method31((byte) 96, -2 + Class186.anInt1906);
+					if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
+						GameShell.method31((byte) 96, -2 + Class186.menuOptionCount);
 					} else {
-						GameShell.method31((byte) 96, Class186.anInt1906 - 1);
+						GameShell.method31((byte) 96, Class186.menuOptionCount - 1);
 					}
 				} else {
 					FileSystem.anInt455 = 2;
@@ -56,10 +56,10 @@ final class Class191 {
 				}
 			} else if (Class115.anInt1110 == Class120_Sub14_Sub12.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
 				FileSystem.anInt455 = 0;
-				if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.anInt1906 > 2) {
-					GameShell.method31((byte) 96, Class186.anInt1906 - 2);
+				if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
+					GameShell.method31((byte) 96, Class186.menuOptionCount - 2);
 				} else {
-					GameShell.method31((byte) 96, -1 + Class186.anInt1906);
+					GameShell.method31((byte) 96, -1 + Class186.menuOptionCount);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -96,13 +96,13 @@ final class Class191 {
 		try {
 			Class89.aClass50_836 = class50;
 			if (i != 5) {
-				anInt2113 = -56;
+				lastMouseY = -56;
 			}
 			Decimator.aClass50_1721 = class50_4_;
 			Class101_Sub4.interfaceJs5 = class50_3_;
 			Class120_Sub12_Sub11.aClass50_3213 = class50_2_;
-			Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421(-124)][];
-			Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421(-97)];
+			Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
+			Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(class50_2_ != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(',').append(class50_4_ != null ? "{...}" : "null").append(')').toString());
 		}

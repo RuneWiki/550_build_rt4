@@ -8,11 +8,11 @@ final class Class192 {
 	static Calendar aCalendar2121;
 	static volatile int anInt2122 = 0;
 	static int anInt2123;
-	static String aString2124;
+	static String selectedObjName;
 
 	static {
 		aCalendar2121 = Calendar.getInstance();
-		aString2124 = null;
+		selectedObjName = null;
 		anInt2123 = -1;
 	}
 
@@ -40,7 +40,7 @@ final class Class192 {
 
 	public static void method2516(final byte i) {
 		try {
-			aString2124 = null;
+			selectedObjName = null;
 			aCalendar2121 = null;
 			if (i < 107) {
 				method2515(44);

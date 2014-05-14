@@ -77,7 +77,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 	private final SceneGraphNode method2350(final boolean bool, final int i) {
 		SceneGraphNode sceneGraphNode;
 		try {
-			final boolean bool_12_ = Class120_Sub26.anIntArrayArrayArray2741 != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
+			final boolean bool_12_ = OverridedJInterface.anIntArrayArrayArray2741 != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			LocType locType = LocType.list(anInt3064);
 			if (locType.childrenIDs != null) {
 				locType = locType.handleVarp();
@@ -111,7 +111,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 			final int i_18_ = anInt3049 + (i_14_ >> 1);
 			final int i_19_ = anInt3069 - -(1 + i_15_ >> 1);
 			method2353(128 * i_16_, -127, 128 * i_18_);
-			final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.aBoolean1586) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
+			final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.forceTween) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
 			if (bool && !bool_20_) {
 				anInt3072 = anInt3052;
 				anInt3050 = locType.myId;
@@ -120,10 +120,10 @@ final class Class180_Sub6 extends SceneGraphNode {
 			final int i_21_ = (i_14_ << 6) + (anInt3049 << 7);
 			int[][] is = null;
 			final int i_22_ = (anInt3069 << 7) - -(i_15_ << 6);
-			final int[][] is_23_ = Class120_Sub26.anIntArrayArrayArray2741[anInt3060];
+			final int[][] is_23_ = OverridedJInterface.anIntArrayArrayArray2741[anInt3060];
 			if (!bool_12_) {
 				if (anInt3060 < 3) {
-					is = Class120_Sub26.anIntArrayArrayArray2741[anInt3060 + 1];
+					is = OverridedJInterface.anIntArrayArrayArray2741[anInt3060 + 1];
 				}
 			} else {
 				is = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
@@ -150,7 +150,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 					Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
 				}
 				if (anInt3060 != 0) {
-					final int[][] is_27_ = Class120_Sub26.anIntArrayArrayArray2741[0];
+					final int[][] is_27_ = OverridedJInterface.anIntArrayArrayArray2741[0];
 					i_26_ = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
 				}
 				final Class107_Sub1 class107_sub1 = class88.aClass107_Sub1_830;

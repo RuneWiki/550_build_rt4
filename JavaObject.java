@@ -4,19 +4,19 @@
 
 final class JavaObject extends AbstractObject {
 	static int anInt3913 = 0;
-	static Hashtable aClass75_3914;
+	static Hashtable clickMaskCache;
 	static int anInt3915 = 0;
 	static int[] anIntArray3916;
 	private final Object value;
 
 	static {
-		aClass75_3914 = new Hashtable(512);
+		clickMaskCache = new Hashtable(512);
 	}
 
 	public static void method1433(final int i) {
 		try {
 			if (i == 0) {
-				aClass75_3914 = null;
+				clickMaskCache = null;
 				anIntArray3916 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -28,10 +28,10 @@ final class JavaObject extends AbstractObject {
 		int i_0_;
 		try {
 			int i_1_ = i;
-			if (class50.method429(Class120_Sub14_Sub16.anInt3589, 100)) {
+			if (class50.method429(Class120_Sub14_Sub16.anInt3589)) {
 				i_1_++;
 			}
-			if (class50.method429(Class108_Sub1.anInt2328, i ^ 0x3c)) {
+			if (class50.method429(Class108_Sub1.anInt2328)) {
 				i_1_++;
 			}
 			i_0_ = i_1_;
@@ -64,7 +64,7 @@ final class JavaObject extends AbstractObject {
 					Class120_Sub12_Sub4.aClass189_3156 = null;
 				}
 			} else {
-				int i_2_ = Queue.anInt1767;
+				int i_2_ = Queue.lastMouseX;
 				i_2_ -= AbstractGraphicsBuffer.anInt1173;
 				if (i_2_ < Class120_Sub12_Sub7.anInt3183) {
 					i_2_ = Class120_Sub12_Sub7.anInt3183;
@@ -72,7 +72,7 @@ final class JavaObject extends AbstractObject {
 				if (Class120_Sub12_Sub4.aClass189_3156.anInt1948 + i_2_ > Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183) {
 					i_2_ = Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.aClass189_3156.anInt1948;
 				}
-				int i_3_ = Class191.anInt2113;
+				int i_3_ = Class191.lastMouseY;
 				i_3_ -= client.anInt2203;
 				if (Class120_Sub12_Sub35.anInt3413 > i_3_) {
 					i_3_ = Class120_Sub12_Sub35.anInt3413;
@@ -98,8 +98,8 @@ final class JavaObject extends AbstractObject {
 				}
 				if (InterfaceChangeNode.anInt3483 == 0) {
 					if (!Class120_Sub11.aBoolean2551) {
-						if (Class69.anInt617 != 1 && !Class120_Sub14_Sub4.method1438(i ^ ~0x1, -1 + Class186.anInt1906) || Class186.anInt1906 <= 2) {
-							if (Class186.anInt1906 > 0) {
+						if (Class69.anInt617 != 1 && !Class120_Sub14_Sub4.method1438(i ^ ~0x1, -1 + Class186.menuOptionCount) || Class186.menuOptionCount <= 2) {
+							if (Class186.menuOptionCount > 0) {
 								Class191.method2508((byte) -99);
 							}
 						} else {
@@ -118,7 +118,7 @@ final class JavaObject extends AbstractObject {
 						if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(0);
 							Class120_Sub12_Sub11.outputStream.method1126((byte) 93, Class120_Sub12_Sub4.aClass189_3156.bitPacked);
-							Class120_Sub12_Sub11.outputStream.method1086((byte) 21, LocType.aClass189_1818.bitPacked);
+							Class120_Sub12_Sub11.outputStream.putInt2(LocType.aClass189_1818.bitPacked);
 							Class120_Sub12_Sub11.outputStream.method1116(-2076007248, LocType.aClass189_1818.anInt2083);
 							Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.anInt2083);
 						}

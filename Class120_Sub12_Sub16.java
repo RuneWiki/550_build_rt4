@@ -98,20 +98,20 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				final int i_12_ = Class109.anInt1042 * 128 + 64;
 				final int i_13_ = 64 + 128 * Class120_Sub10.anInt2546;
 				final int i_14_ = Class22.method197(Class173.gameLevel, i_12_, i_13_) + -Class121.anInt1154;
-				final int i_15_ = i_12_ - Class83.anInt792;
-				final int i_16_ = -Class120_Sub12_Sub10.anInt3200 + i_14_;
-				final int i_17_ = i_13_ + -GroundObjectNode.anInt3626;
+				final int i_15_ = i_12_ - Class83.renderX;
+				final int i_16_ = -Class120_Sub12_Sub10.renderY + i_14_;
+				final int i_17_ = i_13_ + -GroundObjectNode.renderZ;
 				final int i_18_ = (int) Math.sqrt(i_17_ * i_17_ + i_15_ * i_15_);
-				Class128.anInt1223 = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
-				Class180_Sub3.anInt2909 = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
-				if (Class128.anInt1223 < 128) {
-					Class128.anInt1223 = 128;
+				Class128.renderPitch = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
+				Class180_Sub3.renderYaw = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
+				if (Class128.renderPitch < 128) {
+					Class128.renderPitch = 128;
 				}
-				if (Class128.anInt1223 > 383) {
-					Class128.anInt1223 = 383;
+				if (Class128.renderPitch > 383) {
+					Class128.renderPitch = 383;
 				}
 			}
-			client.anInt2200 = 2;
+			client.cameraType = 2;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lf.R(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
 		}
@@ -165,109 +165,103 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		return is;
 	}
 
-	static final void method1279(final int i) {
-		try {
-			if (i == 24594) {
-				int i_28_ = Class99.anInt951 * 128 + 64;
-				int i_29_ = 64 + 128 * Class134.anInt1280;
-				int i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) + -SpotAnimType.anInt986;
-				if (Class120_Sub17.anInt2621 >= 100) {
-					GroundObjectNode.anInt3626 = 64 + 128 * Class134.anInt1280;
-					Class83.anInt792 = Class99.anInt951 * 128 + 64;
-					Class120_Sub12_Sub10.anInt3200 = Class22.method197(Class173.gameLevel, Class83.anInt792, GroundObjectNode.anInt3626) + -SpotAnimType.anInt986;
-				} else {
-					if (GroundObjectNode.anInt3626 < i_29_) {
-						GroundObjectNode.anInt3626 += NpcType.anInt1660 - -((i_29_ + -GroundObjectNode.anInt3626) * Class120_Sub17.anInt2621 / 1000);
-						if (GroundObjectNode.anInt3626 > i_29_) {
-							GroundObjectNode.anInt3626 = i_29_;
-						}
-					}
-					if (i_28_ > Class83.anInt792) {
-						Class83.anInt792 += (i_28_ + -Class83.anInt792) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (i_28_ < Class83.anInt792) {
-							Class83.anInt792 = i_28_;
-						}
-					}
-					if (Class83.anInt792 > i_28_) {
-						Class83.anInt792 -= (Class83.anInt792 - i_28_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (Class83.anInt792 < i_28_) {
-							Class83.anInt792 = i_28_;
-						}
-					}
-					if (Class120_Sub12_Sub10.anInt3200 < i_30_) {
-						Class120_Sub12_Sub10.anInt3200 += (-Class120_Sub12_Sub10.anInt3200 + i_30_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (Class120_Sub12_Sub10.anInt3200 > i_30_) {
-							Class120_Sub12_Sub10.anInt3200 = i_30_;
-						}
-					}
-					if (i_29_ < GroundObjectNode.anInt3626) {
-						GroundObjectNode.anInt3626 -= (GroundObjectNode.anInt3626 - i_29_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (GroundObjectNode.anInt3626 < i_29_) {
-							GroundObjectNode.anInt3626 = i_29_;
-						}
-					}
-					if (i_30_ < Class120_Sub12_Sub10.anInt3200) {
-						Class120_Sub12_Sub10.anInt3200 -= (Class120_Sub12_Sub10.anInt3200 - i_30_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
-						if (Class120_Sub12_Sub10.anInt3200 < i_30_) {
-							Class120_Sub12_Sub10.anInt3200 = i_30_;
-						}
-					}
-				}
-				i_29_ = 128 * Class120_Sub10.anInt2546 + 64;
-				i_28_ = 64 + Class109.anInt1042 * 128;
-				i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) - Class121.anInt1154;
-				final int i_31_ = -GroundObjectNode.anInt3626 + i_29_;
-				final int i_32_ = -Class120_Sub12_Sub10.anInt3200 + i_30_;
-				final int i_33_ = i_28_ + -Class83.anInt792;
-				final int i_34_ = (int) Math.sqrt(i_31_ * i_31_ + i_33_ * i_33_);
-				int i_35_ = (int) (Math.atan2(i_32_, i_34_) * 325.949) & 0x7ff;
-				if (i_35_ < 128) {
-					i_35_ = 128;
-				}
-				if (i_35_ > 383) {
-					i_35_ = 383;
-				}
-				final int i_36_ = (int) (-325.949 * Math.atan2(i_33_, i_31_)) & 0x7ff;
-				if (i_35_ > Class128.anInt1223) {
-					Class128.anInt1223 += (-Class128.anInt1223 + i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
-					if (Class128.anInt1223 > i_35_) {
-						Class128.anInt1223 = i_35_;
-					}
-				}
-				if (Class128.anInt1223 > i_35_) {
-					Class128.anInt1223 -= Class120_Sub12_Sub31.anInt3384 - -((-i_35_ + Class128.anInt1223) * Class101_Sub1.anInt2272 / 1000);
-					if (Class128.anInt1223 < i_35_) {
-						Class128.anInt1223 = i_35_;
-					}
-				}
-				int i_37_ = -Class180_Sub3.anInt2909 + i_36_;
-				if (i_37_ > 1024) {
-					i_37_ -= 2048;
-				}
-				if (i_37_ < -1024) {
-					i_37_ += 2048;
-				}
-				if (i_37_ > 0) {
-					Class180_Sub3.anInt2909 += Class101_Sub1.anInt2272 * i_37_ / 1000 + Class120_Sub12_Sub31.anInt3384;
-					Class180_Sub3.anInt2909 &= 0x7ff;
-				}
-				if (i_37_ < 0) {
-					Class180_Sub3.anInt2909 -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * -i_37_ / 1000);
-					Class180_Sub3.anInt2909 &= 0x7ff;
-				}
-				int i_38_ = -Class180_Sub3.anInt2909 + i_36_;
-				if (i_38_ > 1024) {
-					i_38_ -= 2048;
-				}
-				if (i_38_ < -1024) {
-					i_38_ += 2048;
-				}
-				if (i_38_ < 0 && i_37_ > 0 || i_38_ > 0 && i_37_ < 0) {
-					Class180_Sub3.anInt2909 = i_36_;
+	static final void method1279() {
+		int i_28_ = Class99.anInt951 * 128 + 64;
+		int i_29_ = 64 + 128 * Class134.anInt1280;
+		int i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) + -SpotAnimType.anInt986;
+		if (Class120_Sub17.anInt2621 >= 100) {
+			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
+			Class83.renderX = Class99.anInt951 * 128 + 64;
+			Class120_Sub12_Sub10.renderY = Class22.method197(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ) + -SpotAnimType.anInt986;
+		} else {
+			if (GroundObjectNode.renderZ < i_29_) {
+				GroundObjectNode.renderZ += NpcType.anInt1660 - -((i_29_ + -GroundObjectNode.renderZ) * Class120_Sub17.anInt2621 / 1000);
+				if (GroundObjectNode.renderZ > i_29_) {
+					GroundObjectNode.renderZ = i_29_;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lf.S(").append(i).append(')').toString());
+			if (i_28_ > Class83.renderX) {
+				Class83.renderX += (i_28_ + -Class83.renderX) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				if (i_28_ < Class83.renderX) {
+					Class83.renderX = i_28_;
+				}
+			}
+			if (Class83.renderX > i_28_) {
+				Class83.renderX -= (Class83.renderX - i_28_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				if (Class83.renderX < i_28_) {
+					Class83.renderX = i_28_;
+				}
+			}
+			if (Class120_Sub12_Sub10.renderY < i_30_) {
+				Class120_Sub12_Sub10.renderY += (-Class120_Sub12_Sub10.renderY + i_30_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				if (Class120_Sub12_Sub10.renderY > i_30_) {
+					Class120_Sub12_Sub10.renderY = i_30_;
+				}
+			}
+			if (i_29_ < GroundObjectNode.renderZ) {
+				GroundObjectNode.renderZ -= (GroundObjectNode.renderZ - i_29_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				if (GroundObjectNode.renderZ < i_29_) {
+					GroundObjectNode.renderZ = i_29_;
+				}
+			}
+			if (i_30_ < Class120_Sub12_Sub10.renderY) {
+				Class120_Sub12_Sub10.renderY -= (Class120_Sub12_Sub10.renderY - i_30_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				if (Class120_Sub12_Sub10.renderY < i_30_) {
+					Class120_Sub12_Sub10.renderY = i_30_;
+				}
+			}
+		}
+		i_29_ = 128 * Class120_Sub10.anInt2546 + 64;
+		i_28_ = 64 + Class109.anInt1042 * 128;
+		i_30_ = Class22.method197(Class173.gameLevel, i_28_, i_29_) - Class121.anInt1154;
+		final int i_31_ = -GroundObjectNode.renderZ + i_29_;
+		final int i_32_ = -Class120_Sub12_Sub10.renderY + i_30_;
+		final int i_33_ = i_28_ + -Class83.renderX;
+		final int i_34_ = (int) Math.sqrt(i_31_ * i_31_ + i_33_ * i_33_);
+		int i_35_ = (int) (Math.atan2(i_32_, i_34_) * 325.949) & 0x7ff;
+		if (i_35_ < 128) {
+			i_35_ = 128;
+		}
+		if (i_35_ > 383) {
+			i_35_ = 383;
+		}
+		final int i_36_ = (int) (-325.949 * Math.atan2(i_33_, i_31_)) & 0x7ff;
+		if (i_35_ > Class128.renderPitch) {
+			Class128.renderPitch += (-Class128.renderPitch + i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
+			if (Class128.renderPitch > i_35_) {
+				Class128.renderPitch = i_35_;
+			}
+		}
+		if (Class128.renderPitch > i_35_) {
+			Class128.renderPitch -= Class120_Sub12_Sub31.anInt3384 - -((-i_35_ + Class128.renderPitch) * Class101_Sub1.anInt2272 / 1000);
+			if (Class128.renderPitch < i_35_) {
+				Class128.renderPitch = i_35_;
+			}
+		}
+		int i_37_ = -Class180_Sub3.renderYaw + i_36_;
+		if (i_37_ > 1024) {
+			i_37_ -= 2048;
+		}
+		if (i_37_ < -1024) {
+			i_37_ += 2048;
+		}
+		if (i_37_ > 0) {
+			Class180_Sub3.renderYaw += Class101_Sub1.anInt2272 * i_37_ / 1000 + Class120_Sub12_Sub31.anInt3384;
+			Class180_Sub3.renderYaw &= 0x7ff;
+		}
+		if (i_37_ < 0) {
+			Class180_Sub3.renderYaw -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * -i_37_ / 1000);
+			Class180_Sub3.renderYaw &= 0x7ff;
+		}
+		int i_38_ = -Class180_Sub3.renderYaw + i_36_;
+		if (i_38_ > 1024) {
+			i_38_ -= 2048;
+		}
+		if (i_38_ < -1024) {
+			i_38_ += 2048;
+		}
+		if (i_38_ < 0 && i_37_ > 0 || i_38_ > 0 && i_37_ < 0) {
+			Class180_Sub3.renderYaw = i_36_;
 		}
 	}
 

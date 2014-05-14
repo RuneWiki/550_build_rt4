@@ -48,17 +48,8 @@ final class Class20 implements ShaderInterface {
 		return i;
 	}
 
-	static final int method177(final int i, final int i_0_) {
-		int i_1_;
-		try {
-			if (i != 522353736) {
-				method178((byte) -20, null);
-			}
-			i_1_ = i_0_ >>> 8;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.F(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-		return i_1_;
+	static final int method177(final int i_0_) {
+		return i_0_ >>> 8;
 	}
 
 	@Override
@@ -188,7 +179,7 @@ final class Class20 implements ShaderInterface {
 			if (i != 0) {
 				aLong2168 = 28L;
 			}
-			if (class50.method429(Class120_Sub14_Sub13.anInt3561, i ^ 0x46)) {
+			if (class50.method429(Class120_Sub14_Sub13.anInt3561)) {
 				return true;
 			}
 			bool = false;

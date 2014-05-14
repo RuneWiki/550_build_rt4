@@ -70,7 +70,6 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3020;
 	int anInt3021;
 	int anInt3022;
-	static int anInt3023;
 	int anInt3024;
 	int anInt3025;
 	int anInt3026;
@@ -545,7 +544,7 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 		final int i_79_ = i_76_ << 7;
 		final int i_80_ = i_77_ << 7;
-		final int i_81_ = Class120_Sub26.anIntArrayArrayArray2741[i][i_76_][i_77_] - 1;
+		final int i_81_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_76_][i_77_] - 1;
 		final int i_82_ = i_81_ - 120;
 		final int i_83_ = i_81_ - 230;
 		final int i_84_ = i_81_ - 238;
@@ -718,15 +717,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.aBoolean3007 = true;
 	}
 
-	final void method2338(final int i, final int i_89_) {
-		try {
-			size = i_89_;
-			if (i != 23751) {
-				method2338(110, -24);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.D(").append(i).append(',').append(i_89_).append(')').toString());
-		}
+	final void setSize(final int i_89_) {
+		size = i_89_;
 	}
 
 	GameEntity() {

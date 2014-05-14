@@ -126,16 +126,13 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1293(final boolean bool) {
-		final int i = Class126.anInt1209;
-		final int i_8_ = Class120_Sub16.anInt2600;
-		final int i_9_ = Class120_Sub14_Sub10.anInt3537 + -3;
-		if (bool) {
-			method1293(false);
-		}
-		final int i_11_ = Class120_Sub24.anInt2724;
+	static final void method1293() {
+		final int drawX = Class126.menuDrawX;
+		final int drawY = Class120_Sub16.menuDrawY;
+		final int height = Class120_Sub14_Sub10.menuHeight - 3;
+		final int width = Class120_Sub24.menuWidth;
 		if (Class157.aClass120_Sub14_Sub19_1472 == null || Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 == null) {
-			if (Class7.aClass50_63.method429(client.anInt2199, 75) && Class7.aClass50_63.method429(Class114.anInt1099, 102)) {
+			if (Class7.aClass50_63.method429(client.anInt2199) && Class7.aClass50_63.method429(Class114.anInt1099)) {
 				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, client.anInt2199, 0);
 				Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class114.anInt1099, 0);
 				if (HDToolkit.glEnabled) {
@@ -151,39 +148,39 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 					}
 				}
 			} else if (!HDToolkit.glEnabled) {
-				GraphicsLD.method2159(i, i_8_, i_11_, 20, Class140.anInt1345, -Class89.anInt837 + 256);
+				GraphicsLD.method2159(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			} else {
-				GraphicsHD.method590(i, i_8_, i_11_, 20, Class140.anInt1345, -Class89.anInt837 + 256);
+				GraphicsHD.method590(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			}
 		}
 		if (Class157.aClass120_Sub14_Sub19_1472 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 != null) {
-			final int i_12_ = (i_11_ + -(Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width * 2)) / Class157.aClass120_Sub14_Sub19_1472.width;
+			final int i_12_ = (width + -(Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width * 2)) / Class157.aClass120_Sub14_Sub19_1472.width;
 			for (int i_13_ = 0; i_13_ < i_12_; i_13_++) {
-				Class157.aClass120_Sub14_Sub19_1472.method1587(i_13_ * Class157.aClass120_Sub14_Sub19_1472.width + i + Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, i_8_);
+				Class157.aClass120_Sub14_Sub19_1472.method1587(i_13_ * Class157.aClass120_Sub14_Sub19_1472.width + drawX + Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, drawY);
 			}
-			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.method1587(i, i_8_);
-			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.method1592(i_11_ + i - Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, i_8_);
+			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.method1587(drawX, drawY);
+			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.method1592(width + drawX - Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, drawY);
 		}
-		Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1466(Class111.aString1056, i - -3, 14 + i_8_, Class120_Sub12_Sub3.anInt3151, -1);
+		Class120_Sub12_Sub22.boldFont.method1466(Class111.aString1056, drawX - -3, 14 + drawY, Class120_Sub12_Sub3.anInt3151, -1);
 		if (!HDToolkit.glEnabled) {
-			GraphicsLD.method2159(i, 20 + i_8_, i_11_, i_9_ + -20, Class140.anInt1345, -Class89.anInt837 + 256);
+			GraphicsLD.method2159(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		} else {
-			GraphicsHD.method590(i, 20 + i_8_, i_11_, i_9_ - 20, Class140.anInt1345, -Class89.anInt837 + 256);
+			GraphicsHD.method590(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		}
-		final int i_14_ = Queue.anInt1767;
-		final int i_15_ = Class191.anInt2113;
-		for (int i_16_ = 0; i_16_ < Class186.anInt1906; i_16_++) {
-			final int i_17_ = (-i_16_ + -1 + Class186.anInt1906) * 15 + 20 + i_8_ - -13;
-			if (i < i_14_ && i_11_ + i > i_14_ && -13 + i_17_ < i_15_ && i_17_ - -3 > i_15_) {
+		final int mouseX = Queue.lastMouseX;
+		final int mouseY = Class191.lastMouseY;
+		for (int i_16_ = 0; i_16_ < Class186.menuOptionCount; i_16_++) {
+			final int i_17_ = (-i_16_ + -1 + Class186.menuOptionCount) * 15 + 20 + drawY - -13;
+			if (drawX < mouseX && width + drawX > mouseX && -13 + i_17_ < mouseY && i_17_ - -3 > mouseY) {
 				if (!HDToolkit.glEnabled) {
-					GraphicsLD.method2159(i, i_17_ + -12, i_11_, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
+					GraphicsLD.method2159(drawX, i_17_ + -12, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				} else {
-					GraphicsHD.method590(i, -12 + i_17_, i_11_, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
+					GraphicsHD.method590(drawX, -12 + i_17_, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				}
 			}
 		}
-		if ((Class173.aClass120_Sub14_Sub19_1725 == null || Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && Class7.aClass50_63.method429(Class24.anInt146, 125) && Class7.aClass50_63.method429(Class92.anInt864, 83)
-				&& Class7.aClass50_63.method429(Class31.anInt240, 115)) {
+		if ((Class173.aClass120_Sub14_Sub19_1725 == null || Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && Class7.aClass50_63.method429(Class24.anInt146) && Class7.aClass50_63.method429(Class92.anInt864)
+				&& Class7.aClass50_63.method429(Class31.anInt240)) {
 			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class24.anInt146, 0);
 			Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class92.anInt864, 0);
 			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class31.anInt240, 0);
@@ -206,27 +203,27 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 			}
 		}
 		if (Class173.aClass120_Sub14_Sub19_1725 != null && Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 != null && RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 != null) {
-			final int i_18_ = (-(2 * RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width) + i_11_) / Class173.aClass120_Sub14_Sub19_1725.width;
+			final int i_18_ = (-(2 * RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width) + width) / Class173.aClass120_Sub14_Sub19_1725.width;
 			for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
-				Class173.aClass120_Sub14_Sub19_1725.method1587(RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width + i - -(Class173.aClass120_Sub14_Sub19_1725.width * i_19_), i_9_ + i_8_ - Class173.aClass120_Sub14_Sub19_1725.height);
+				Class173.aClass120_Sub14_Sub19_1725.method1587(RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width + drawX - -(Class173.aClass120_Sub14_Sub19_1725.width * i_19_), height + drawY - Class173.aClass120_Sub14_Sub19_1725.height);
 			}
-			final int i_20_ = (-RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height + -20 + i_9_) / Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height;
+			final int i_20_ = (-RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height + -20 + height) / Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height;
 			for (int i_21_ = 0; i_21_ < i_20_; i_21_++) {
-				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1587(i, 20 + i_8_ + Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height * i_21_);
-				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1592(-Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.width + i - -i_11_, i_21_ * Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height + 20 + i_8_);
+				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1587(drawX, 20 + drawY + Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height * i_21_);
+				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1592(-Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.width + drawX - -width, i_21_ * Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height + 20 + drawY);
 			}
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1587(i, i_9_ + i_8_ - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1592(i_11_ + i - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width, i_9_ + i_8_ + -RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
+			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1587(drawX, height + drawY - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
+			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1592(width + drawX - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width, height + drawY + -RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
 		}
-		for (int i_22_ = 0; Class186.anInt1906 > i_22_; i_22_++) {
-			final int i_23_ = 13 + i_8_ + 20 + (Class186.anInt1906 - 1 - i_22_) * 15;
+		for (int i_22_ = 0; Class186.menuOptionCount > i_22_; i_22_++) {
+			final int i_23_ = 13 + drawY + 20 + (Class186.menuOptionCount - 1 - i_22_) * 15;
 			int i_24_ = Class120_Sub12_Sub3.anInt3151;
-			if (i_14_ > i && i_11_ + i > i_14_ && -13 + i_23_ < i_15_ && i_23_ + 3 > i_15_) {
+			if (mouseX > drawX && width + drawX > mouseX && i_23_ - 13 < mouseY && i_23_ + 3 > mouseY) {
 				i_24_ = Class120_Sub12_Sub13.anInt3233;
 			}
-			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1466(Class121.method1838((byte) 111, i_22_), 3 + i, i_23_, i_24_, 0);
+			Class120_Sub12_Sub22.boldFont.method1466(Class121.getMenuOptionName(i_22_), 3 + drawX, i_23_, i_24_, 0);
 		}
-		Class54.method482(Class126.anInt1209, Class120_Sub16.anInt2600, Class120_Sub14_Sub10.anInt3537, Class120_Sub24.anInt2724);
+		Class54.method482(Class126.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub14_Sub10.menuHeight, Class120_Sub24.menuWidth);
 	}
 
 	static final int method1294(final int i, final int i_25_) {

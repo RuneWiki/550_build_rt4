@@ -200,7 +200,7 @@ final class Class81 {
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else {
-						Class120_Sub26.aClass98_2739 = new Class98(30, true, Node.canvas);
+						OverridedJInterface.aClass98_2739 = new Class98(30, true, Node.canvas);
 						Class90.anInt848 = 100;
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
@@ -226,22 +226,15 @@ final class Class81 {
 		}
 	}
 
-	static final void method707(final byte i) {
-		try {
-			if (!Class188.aBoolean1925) {
-				if (i < 114) {
-					method707((byte) 116);
-				}
-				if (!Class134.aBoolean1277) {
-					Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + 24.0F) / 2.0F;
-				} else {
-					OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 + 191 & ~0x7f;
-				}
-				Class188.aBoolean1925 = true;
-				Class118.aBoolean1134 = true;
+	static final void method707() {
+		if (!Class188.aBoolean1925) {
+			if (!Class134.aBoolean1277) {
+				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + 24.0F) / 2.0F;
+			} else {
+				OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 + 191 & ~0x7f;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.C(").append(i).append(')').toString());
+			Class188.aBoolean1925 = true;
+			Class118.aBoolean1134 = true;
 		}
 	}
 

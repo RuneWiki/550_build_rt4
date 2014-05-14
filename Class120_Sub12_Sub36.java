@@ -117,10 +117,10 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				}
 				if ((i_9_ & 0x2) != 0) {
 					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class120_Sub16.method1664((byte) 111, class180_sub5_sub2);
+						Class120_Sub16.method1664(class180_sub5_sub2);
 					}
-					class180_sub5_sub2.method2346((byte) 94, NpcType.list(Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA()));
-					class180_sub5_sub2.method2338(23751, class180_sub5_sub2.npcType.size);
+					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA()));
+					class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
 					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
 					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
 					if (class180_sub5_sub2.npcType.method2204(0)) {

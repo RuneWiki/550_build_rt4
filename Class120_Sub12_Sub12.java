@@ -324,42 +324,36 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1262(final int i) {
-		try {
-			if (i > 69) {
-				boolean bool = false;
-				while (!bool) {
-					bool = true;
-					for (int i_75_ = 0; i_75_ < -1 + Class186.anInt1906; i_75_++) {
-						if (Class120_Sub29.aShortArray2777[i_75_] < 1000 && Class120_Sub29.aShortArray2777[1 + i_75_] > 1000) {
-							bool = false;
-							final String string = Class120_Sub12_Sub29.aStringArray3369[i_75_];
-							Class120_Sub12_Sub29.aStringArray3369[i_75_] = Class120_Sub12_Sub29.aStringArray3369[i_75_ - -1];
-							Class120_Sub12_Sub29.aStringArray3369[i_75_ - -1] = string;
-							final String string_76_ = Class120_Sub12_Sub33.aStringArray3394[i_75_];
-							Class120_Sub12_Sub33.aStringArray3394[i_75_] = Class120_Sub12_Sub33.aStringArray3394[i_75_ + 1];
-							Class120_Sub12_Sub33.aStringArray3394[1 + i_75_] = string_76_;
-							int i_77_ = Class120_Sub12_Sub7.anIntArray3182[i_75_];
-							Class120_Sub12_Sub7.anIntArray3182[i_75_] = Class120_Sub12_Sub7.anIntArray3182[1 + i_75_];
-							Class120_Sub12_Sub7.anIntArray3182[i_75_ + 1] = i_77_;
-							i_77_ = Class120_Sub29.anIntArray2769[i_75_];
-							Class120_Sub29.anIntArray2769[i_75_] = Class120_Sub29.anIntArray2769[1 + i_75_];
-							Class120_Sub29.anIntArray2769[i_75_ - -1] = i_77_;
-							i_77_ = InterfaceChangeNode.menuOptionsCursorId[i_75_];
-							InterfaceChangeNode.menuOptionsCursorId[i_75_] = InterfaceChangeNode.menuOptionsCursorId[1 + i_75_];
-							InterfaceChangeNode.menuOptionsCursorId[i_75_ + 1] = i_77_;
-							final short i_78_ = Class120_Sub29.aShortArray2777[i_75_];
-							Class120_Sub29.aShortArray2777[i_75_] = Class120_Sub29.aShortArray2777[i_75_ - -1];
-							Class120_Sub29.aShortArray2777[1 + i_75_] = i_78_;
-							final long l = Class120_Sub12.aLongArray2562[i_75_];
-							Class120_Sub12.aLongArray2562[i_75_] = Class120_Sub12.aLongArray2562[1 + i_75_];
-							Class120_Sub12.aLongArray2562[i_75_ + 1] = l;
-						}
-					}
+	static final void method1262() {
+		boolean bool = false;
+		while (!bool) {
+			bool = true;
+			for (int i_75_ = 0; i_75_ < Class186.menuOptionCount - 1; i_75_++) {
+				if (Class120_Sub29.aShortArray2777[i_75_] < 1000 && Class120_Sub29.aShortArray2777[1 + i_75_] > 1000) {
+					bool = false;
+					final String string = Class120_Sub12_Sub29.aStringArray3369[i_75_];
+					Class120_Sub12_Sub29.aStringArray3369[i_75_] = Class120_Sub12_Sub29.aStringArray3369[i_75_ + 1];
+					Class120_Sub12_Sub29.aStringArray3369[i_75_ + 1] = string;
+					final String string_76_ = Class120_Sub12_Sub33.menuOptionName[i_75_];
+					Class120_Sub12_Sub33.menuOptionName[i_75_] = Class120_Sub12_Sub33.menuOptionName[i_75_ + 1];
+					Class120_Sub12_Sub33.menuOptionName[i_75_ + 1] = string_76_;
+					int i_77_ = Class120_Sub12_Sub7.anIntArray3182[i_75_];
+					Class120_Sub12_Sub7.anIntArray3182[i_75_] = Class120_Sub12_Sub7.anIntArray3182[1 + i_75_];
+					Class120_Sub12_Sub7.anIntArray3182[i_75_ + 1] = i_77_;
+					i_77_ = Class120_Sub29.anIntArray2769[i_75_];
+					Class120_Sub29.anIntArray2769[i_75_] = Class120_Sub29.anIntArray2769[1 + i_75_];
+					Class120_Sub29.anIntArray2769[i_75_ + 1] = i_77_;
+					i_77_ = InterfaceChangeNode.menuOptionsCursorId[i_75_];
+					InterfaceChangeNode.menuOptionsCursorId[i_75_] = InterfaceChangeNode.menuOptionsCursorId[1 + i_75_];
+					InterfaceChangeNode.menuOptionsCursorId[i_75_ + 1] = i_77_;
+					final short i_78_ = Class120_Sub29.aShortArray2777[i_75_];
+					Class120_Sub29.aShortArray2777[i_75_] = Class120_Sub29.aShortArray2777[i_75_ + 1];
+					Class120_Sub29.aShortArray2777[i_75_ + 1] = i_78_;
+					final long l = Class120_Sub12.aLongArray2562[i_75_];
+					Class120_Sub12.aLongArray2562[i_75_] = Class120_Sub12.aLongArray2562[1 + i_75_];
+					Class120_Sub12.aLongArray2562[i_75_ + 1] = l;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jj.W(").append(i).append(')').toString());
 		}
 	}
 

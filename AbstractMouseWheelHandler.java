@@ -387,16 +387,9 @@ abstract class AbstractMouseWheelHandler {
 		/* empty */
 	}
 
-	static final void method160(final int i) {
-		try {
-			if (i >= -95) {
-				method158(103, 21, true, 60, 24, -11, 8);
-			}
-			Class43.aClass21_367.clear();
-			Class90.aClass21_840.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bh.D(").append(i).append(')').toString());
-		}
+	static final void method160() {
+		Class43.playerModelsCache.clear();
+		Class90.playerHeadModelsCache.clear();
 	}
 
 	abstract int getRotation();

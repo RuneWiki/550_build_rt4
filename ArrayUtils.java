@@ -2,8 +2,8 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class4 {
-	static final void method88(final short[] is, int i, int i_0_, final short i_1_) {
+final class ArrayUtils {
+	static final void fillArray(final short[] is, int i, int i_0_, final short i_1_) {
 		i_0_ = i + i_0_ - 7;
 		while (i < i_0_) {
 			is[i++] = i_1_;
@@ -21,7 +21,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method89(final Object[] objects, int i, final Object[] objects_2_, int i_3_, int i_4_) {
+	static final void arrayCopy(final Object[] objects, int i, final Object[] objects_2_, int i_3_, int i_4_) {
 		if (objects == objects_2_) {
 			if (i == i_3_) {
 				return;
@@ -67,7 +67,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method90(final int[] is, int i, final int[] is_5_, int i_6_, int i_7_) {
+	static final void arrayCopy(final int[] is, int i, final int[] is_5_, int i_6_, int i_7_) {
 		if (is == is_5_) {
 			if (i == i_6_) {
 				return;
@@ -113,7 +113,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method91(final int[] is, int i, int i_8_, final int i_9_) {
+	static final void fillArray(final int[] is, int i, int i_8_, final int i_9_) {
 		i_8_ = i + i_8_ - 7;
 		while (i < i_8_) {
 			is[i++] = i_9_;
@@ -131,7 +131,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method92(final int[] is, int i, int i_10_) {
+	static final void resetArray(final int[] is, int i, int i_10_) {
 		i_10_ = i + i_10_ - 7;
 		while (i < i_10_) {
 			is[i++] = 0;
@@ -149,7 +149,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method93(final float[] fs, int i, final float[] fs_11_, int i_12_, int i_13_) {
+	static final void arrayCopy(final float[] fs, int i, final float[] fs_11_, int i_12_, int i_13_) {
 		if (fs == fs_11_) {
 			if (i == i_12_) {
 				return;
@@ -195,7 +195,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method94(final short[] is, int i, final short[] is_14_, int i_15_, int i_16_) {
+	static final void arrayCopy(final short[] is, int i, final short[] is_14_, int i_15_, int i_16_) {
 		if (is == is_14_) {
 			if (i == i_15_) {
 				return;
@@ -241,7 +241,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method95(final long[] ls, int i, final long[] ls_17_, int i_18_, int i_19_) {
+	static final void arrayCopy(final long[] ls, int i, final long[] ls_17_, int i_18_, int i_19_) {
 		if (ls == ls_17_) {
 			if (i == i_18_) {
 				return;
@@ -279,7 +279,7 @@ final class Class4 {
 		}
 	}
 
-	static final void method96(final byte[] is, int i, final byte[] is_20_, int i_21_, int i_22_) {
+	static final void arrayCopy(final byte[] is, int i, final byte[] is_20_, int i_21_, int i_22_) {
 		if (is == is_20_) {
 			if (i == i_21_) {
 				return;

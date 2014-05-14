@@ -5,7 +5,6 @@
 final class Class31 {
 	static int anInt240;
 	static Class50 aClass50_241;
-	static int anInt242;
 	static int[] anIntArray243;
 	static int anInt244 = 0;
 	static GameShell gameApplet = null;
@@ -36,7 +35,7 @@ final class Class31 {
 					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_0_;
 					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
 					if (class180_sub5_sub2.npcType != null && class180_sub5_sub2.npcType.method2204(0)) {
-						Class120_Sub16.method1664((byte) 64, class180_sub5_sub2);
+						Class120_Sub16.method1664(class180_sub5_sub2);
 					}
 					int i_1_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
 					if (i_1_ > 15) {
@@ -47,7 +46,7 @@ final class Class31 {
 						class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = i_2_;
 					}
 					int i_3_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
-					class180_sub5_sub2.method2346((byte) 90, NpcType.list(Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(14)));
+					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(14)));
 					final int i_4_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
 					if (i_3_ > 15) {
 						i_3_ -= 32;
@@ -56,7 +55,7 @@ final class Class31 {
 						Class169.anIntArray1648[Class154.anInt1441++] = i_0_;
 					}
 					final int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
-					class180_sub5_sub2.method2338(23751, class180_sub5_sub2.npcType.size);
+					class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
 					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
 					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
 					if (class180_sub5_sub2.anInt3010 == 0) {
@@ -104,9 +103,9 @@ final class Class31 {
 	static final void method264(final int i, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
 		try {
 			if (i == -1 && i_13_ >= 1 && i_10_ >= 1 && i_13_ <= 102 && i_10_ <= 102) {
-				if (!Class143_Sub1.method2021() && (0x2 & Class114.aByteArrayArrayArray1095[0][i_13_][i_10_]) == 0) {
+				if (!Class143_Sub1.method2021() && (0x2 & Class114.tileSettings[0][i_13_][i_10_]) == 0) {
 					int i_15_ = i_8_;
-					if ((0x8 & Class114.aByteArrayArrayArray1095[i_8_][i_13_][i_10_]) != 0) {
+					if ((0x8 & Class114.tileSettings[i_8_][i_13_][i_10_]) != 0) {
 						i_15_ = 0;
 					}
 					if (i_15_ != Class120_Sub14_Sub4.anInt3469) {
@@ -114,7 +113,7 @@ final class Class31 {
 					}
 				}
 				int i_16_ = i_8_;
-				if (i_16_ < 3 && (Class114.aByteArrayArrayArray1095[1][i_13_][i_10_] & 0x2) == 2) {
+				if (i_16_ < 3 && (Class114.tileSettings[1][i_13_][i_10_] & 0x2) == 2) {
 					i_16_++;
 				}
 				Class88.method743((byte) -116, i_8_, i_16_, i_10_, Class182.aClass25Array1802[i_8_], i_11_, i_13_);
@@ -162,7 +161,7 @@ final class Class31 {
 			if (i != 15) {
 				advertSuppressed = false;
 			}
-			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.aString3745));
+			final Class120_Sub8 class120_sub8 = (Class120_Sub8) Npc.aClass75_3750.get(Class70.stringToLong(class180_sub5_sub1.name));
 			if (class120_sub8 != null) {
 				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);

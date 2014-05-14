@@ -4,7 +4,7 @@
 
 final class Class120_Sub16 extends Node {
 	static String[] aStringArray2599;
-	static int anInt2600;
+	static int menuDrawY;
 	int anInt2601;
 	int anInt2602 = 2147483647;
 	int anInt2603;
@@ -133,23 +133,23 @@ final class Class120_Sub16 extends Node {
 		return i_12_;
 	}
 
-	static final void method1662(final int i) {
-		Class186.anInt1906--;
-		if (Class186.anInt1906 != i) {
-			Class4.method89(Class120_Sub12_Sub33.aStringArray3394, 1 + i, Class120_Sub12_Sub33.aStringArray3394, i, -i + Class186.anInt1906);
-			Class4.method89(Class120_Sub12_Sub29.aStringArray3369, i - -1, Class120_Sub12_Sub29.aStringArray3369, i, Class186.anInt1906 - i);
-			Class4.method90(InterfaceChangeNode.menuOptionsCursorId, i - -1, InterfaceChangeNode.menuOptionsCursorId, i, -i + Class186.anInt1906);
-			Class4.method94(Class120_Sub29.aShortArray2777, i - -1, Class120_Sub29.aShortArray2777, i, -i + Class186.anInt1906);
-			Class4.method95(Class120_Sub12.aLongArray2562, 1 + i, Class120_Sub12.aLongArray2562, i, -i + Class186.anInt1906);
-			Class4.method90(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.anInt1906 - i);
-			Class4.method90(Class120_Sub29.anIntArray2769, 1 + i, Class120_Sub29.anIntArray2769, i, -i + Class186.anInt1906);
+	static final void shiftOptions(final int i) {
+		Class186.menuOptionCount--;
+		if (Class186.menuOptionCount != i) {
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionName, i + 1, Class120_Sub12_Sub33.menuOptionName, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.aStringArray3369, i + 1, Class120_Sub12_Sub29.aStringArray3369, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.aShortArray2777, i + 1, Class120_Sub29.aShortArray2777, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12.aLongArray2562, i + 1, Class120_Sub12.aLongArray2562, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.anIntArray2769, i + 1, Class120_Sub29.anIntArray2769, i, Class186.menuOptionCount - i);
 		}
 	}
 
 	static final void method1663(final int i) {
 		try {
 			Class15.menuOpen = false;
-			Class186.anInt1906 = 0;
+			Class186.menuOptionCount = 0;
 			Class23.packetType = -1;
 			Class120_Sub12_Sub11.outputStream.pos = 0;
 			Class114.anInt1093 = -1;
@@ -171,33 +171,27 @@ final class Class120_Sub16 extends Node {
 				}
 			}
 			Class28.method243(true);
-			client.anInt2200 = 1;
+			client.cameraType = 1;
 			Class120_Sub14_Sub1.setGameState(30);
 			for (int i_16_ = 0; i_16_ < 100; i_16_++) {
 				Class52.aBooleanArray467[i_16_] = true;
 			}
-			Class120_Sub14_Sub11.method1521(false);
+			Class120_Sub14_Sub11.sendDisplayInfo();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.J(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method1664(final byte i, final Npc class180_sub5_sub2) {
-		try {
-			if (i > 39) {
-				for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
-					if (class180_sub5_sub2 == class120_sub8.aClass180_Sub5_Sub2_2492) {
-						if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
-							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
-							class120_sub8.aClass120_Sub30_Sub4_2488 = null;
-						}
-						class120_sub8.unlink();
-						break;
-					}
+	static final void method1664(final Npc class180_sub5_sub2) {
+		for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
+			if (class180_sub5_sub2 == class120_sub8.aClass180_Sub5_Sub2_2492) {
+				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
+					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
+					class120_sub8.aClass120_Sub30_Sub4_2488 = null;
 				}
+				class120_sub8.unlink();
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.A(").append(i).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

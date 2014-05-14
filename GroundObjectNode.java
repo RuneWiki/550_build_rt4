@@ -3,7 +3,7 @@
  */
 
 final class GroundObjectNode extends NodeSub {
-	static int anInt3626;
+	static int renderZ;
 	static volatile int anInt3627;
 	static int anInt3628;
 	static int[] anIntArray3629 = { -1, -1, 1, 1 };

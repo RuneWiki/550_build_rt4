@@ -36,7 +36,7 @@ final class Class93 {
 
 	static final void method771(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final Class25 class25, final boolean bool_8_, final int i_9_) {
 		try {
-			if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.aByteArrayArrayArray1095[0][i_5_][i_7_]) != 0 || (Class114.aByteArrayArrayArray1095[i_2_][i_5_][i_7_] & 0x10) == 0 && Class176.method2242(i_7_, i_2_, (byte) 106, i_5_) == Class120_Sub14_Sub4.anInt3469) {
+			if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][i_5_][i_7_]) != 0 || (Class114.tileSettings[i_2_][i_5_][i_7_] & 0x10) == 0 && Class176.method2242(i_7_, i_2_, (byte) 106, i_5_) == Class120_Sub14_Sub4.anInt3469) {
 				if (OutputStream_Sub1.anInt29 > i_2_) {
 					OutputStream_Sub1.anInt29 = i_2_;
 				}
@@ -69,13 +69,13 @@ final class Class93 {
 						i_14_ = (i_10_ >> 1) + i_7_;
 						i_15_ = i_7_ - -(i_10_ - -1 >> 1);
 					}
-					final int[][] is = Class120_Sub26.anIntArrayArrayArray2741[i_4_];
+					final int[][] is = OverridedJInterface.anIntArrayArrayArray2741[i_4_];
 					final int i_16_ = (i_11_ << 6) + (i_5_ << 7);
 					final int i_17_ = (i_10_ << 6) + (i_7_ << 7);
 					final int i_18_ = is[i_12_][i_14_] + is[i_13_][i_14_] + is[i_13_][i_15_] + is[i_12_][i_15_] >> 2;
 					int i_19_ = 0;
 					if (HDToolkit.glEnabled && i_4_ != 0) {
-						final int[][] is_20_ = Class120_Sub26.anIntArrayArrayArray2741[0];
+						final int[][] is_20_ = OverridedJInterface.anIntArrayArrayArray2741[0];
 						i_19_ = i_18_ + -(is_20_[i_13_][i_15_] + is_20_[i_13_][i_14_] - (-is_20_[i_12_][i_14_] - is_20_[i_12_][i_15_]) >> 2);
 					}
 					long l = i_5_ | i_7_ << 7 | i_9_ << 14 | i << 20 | 0x40000000;
@@ -83,7 +83,7 @@ final class Class93 {
 					if (bool) {
 						is_21_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
 					} else if (i_4_ < 3) {
-						is_21_ = Class120_Sub26.anIntArrayArrayArray2741[i_4_ + 1];
+						is_21_ = OverridedJInterface.anIntArrayArrayArray2741[i_4_ + 1];
 					}
 					if (locType.anInt1835 == 0 || bool) {
 						l |= ~0x7fffffffffffffffL;

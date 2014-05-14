@@ -56,7 +56,7 @@ final class Class2 {
 							class180_sub5_sub2.z -= 128 * i_8_;
 							class180_sub5_sub2.x -= i_9_ * 128;
 							if (class180_sub5_sub2.x < 0 || class180_sub5_sub2.x > 13184 || class180_sub5_sub2.z < 0 || class180_sub5_sub2.z > 13184) {
-								Class120_Sub12_Sub11.npcList[i_12_].method2346((byte) -123, null);
+								Class120_Sub12_Sub11.npcList[i_12_].setNpcType(null);
 								Class120_Sub12_Sub11.npcList[i_12_] = null;
 							} else {
 								for (int i_13_ = 0; i_13_ < 10; i_13_++) {
@@ -122,14 +122,14 @@ final class Class2 {
 					Class120_Sub12_Sub26.anInt3327 -= i_9_;
 				}
 				if (!bool) {
-					client.anInt2200 = 1;
+					client.cameraType = 1;
 				} else {
-					GroundObjectNode.anInt3626 -= 128 * i_8_;
+					GroundObjectNode.renderZ -= 128 * i_8_;
 					Class99.anInt951 -= i_9_;
 					Class120_Sub10.anInt2546 -= i_8_;
 					Class109.anInt1042 -= i_9_;
 					Class134.anInt1280 -= i_8_;
-					Class83.anInt792 -= i_9_ * 128;
+					Class83.renderX -= i_9_ * 128;
 				}
 				Class150.anInt1407 = 0;
 				if (HDToolkit.glEnabled && bool && (Math.abs(i_9_) > 104 || Math.abs(i_8_) > 104)) {

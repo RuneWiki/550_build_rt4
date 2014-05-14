@@ -617,7 +617,7 @@ final class Class97 {
 			i_122_ = i_122_ * i_128_ - i * i_127_ + 32767 >> 16;
 			i = i_129_;
 		}
-		Class4.method88(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.anInt2856, (short) Rasterizer.anInterface5_973.method20(anInt928, 65535));
+		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.anInt2856, (short) Rasterizer.anInterface5_973.method20(anInt928, 65535));
 		final Class180_Sub7_Sub1 class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
 		final int i_130_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
 		final int i_131_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();

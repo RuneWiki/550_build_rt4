@@ -21,7 +21,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 				return null;
 			}
 			final short[] is_1_ = new short[is.length];
-			Class4.method94(is, 0, is_1_, 0, is.length);
+			ArrayUtils.arrayCopy(is, 0, is_1_, 0, is.length);
 			is_0_ = is_1_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fi.S(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());

@@ -6,7 +6,7 @@ import java.awt.Component;
 final class Class114 {
 	static int anInt1093 = 0;
 	static byte[][][] aByteArrayArrayArray1094;
-	static byte[][][] aByteArrayArrayArray1095;
+	static byte[][][] tileSettings;
 	boolean aBoolean1096;
 	static Class50 aClass50_1097;
 	static String aString1098 = "Loading world list data";
@@ -28,7 +28,7 @@ final class Class114 {
 				constructGraphicsBuffer(null, 12, 69);
 			}
 			aString1098 = null;
-			aByteArrayArrayArray1095 = null;
+			tileSettings = null;
 			aClass50_1097 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mi.A(").append(i).append(')').toString());
@@ -59,7 +59,7 @@ final class Class114 {
 					}
 				}
 				Class65.aClass171Array595 = new DisplayModeInfo[i_2_];
-				Class4.method89(class171s_1_, 0, Class65.aClass171Array595, 0, i_2_);
+				ArrayUtils.arrayCopy(class171s_1_, 0, Class65.aClass171Array595, 0, i_2_);
 				final int[] is = new int[Class65.aClass171Array595.length];
 				for (int i_6_ = 0; Class65.aClass171Array595.length > i_6_; i_6_++) {
 					final DisplayModeInfo displayModeInfo = Class65.aClass171Array595[i_6_];

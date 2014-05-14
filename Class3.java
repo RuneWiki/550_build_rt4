@@ -50,10 +50,9 @@ final class Class3 {
 			boolean bool = false;
 			for (int i_7_ = 0; i_7_ < Class83.localPlayerCount; i_7_++) {
 				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_7_]];
-				if (class180_sub5_sub1 != null && class180_sub5_sub1.aString3745 != null && class180_sub5_sub1.aString3745.equalsIgnoreCase(string_6_)) {
+				if (class180_sub5_sub1 != null && class180_sub5_sub1.name != null && class180_sub5_sub1.name.equalsIgnoreCase(string_6_)) {
 					bool = true;
 					if (i == 1) {
-						Class40.anInt330++;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
 						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class112.playerIndices[i_7_]);
 						Class120_Sub12_Sub11.outputStream.method1113(0, -42);
@@ -62,26 +61,22 @@ final class Class3 {
 							if (i != 6) {
 								if (i == 7) {
 									Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
-									GameEntity.anInt3023++;
 									Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
 									Class120_Sub12_Sub11.outputStream.putByte(0);
 								}
 							} else {
-								Class22.anInt132++;
 								Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
-								Class120_Sub12_Sub11.outputStream.method1115(255, Class112.playerIndices[i_7_]);
+								Class120_Sub12_Sub11.outputStream.putLEShort(Class112.playerIndices[i_7_]);
 								Class120_Sub12_Sub11.outputStream.putByteS(0);
 							}
 						} else {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
 							Class120_Sub12_Sub11.outputStream.method1113(0, 82);
-							PacketBuffer.anInt3122++;
 							Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
 						}
 					} else {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
 						Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
-						Class193.anInt2131++;
 						Class120_Sub12_Sub11.outputStream.putByte(0);
 					}
 					break;
@@ -158,21 +153,15 @@ final class Class3 {
 		Class114.aByteArrayArrayArray1094 = new byte[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 	}
 
-	static final void method85(final boolean bool) {
-		try {
-			for (int i = 0; i < 5; i++) {
-				Class120_Sub12_Sub12.aBooleanArray3223[i] = false;
-			}
-			AbstractGraphicsBuffer.anInt1157 = -1;
-			client.anInt2200 = 5;
-			Class120_Sub12_Sub31.anInt3384 = 0;
-			if (bool) {
-				Class101_Sub1.anInt2272 = 0;
-				Class120_Sub12_Sub15.anInt3248 = -1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ab.I(").append(bool).append(')').toString());
+	static final void smoothCamera() {
+		for (int i = 0; i < 5; i++) {
+			Class120_Sub12_Sub12.aBooleanArray3223[i] = false;
 		}
+		AbstractGraphicsBuffer.anInt1157 = -1;
+		client.cameraType = 5;
+		Class120_Sub12_Sub31.anInt3384 = 0;
+		Class101_Sub1.anInt2272 = 0;
+		Class120_Sub12_Sub15.anInt3248 = -1;
 	}
 
 	static final int[] method86(final int i, final int i_17_, final int i_18_, final float f, final int i_19_, final int i_20_, final boolean bool, final byte i_21_) {

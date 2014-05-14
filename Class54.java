@@ -76,7 +76,7 @@ final class Class54 {
 			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286 = null;
 			Class180_Sub6.aClass120_Sub14_Sub19Array3073 = null;
 			Class120_Sub14_Sub14_Sub1.prayerIconSprites = null;
-			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303 = null;
+			Class120_Sub12_Sub22.boldFont = null;
 			aClass120_Sub14_Sub19Array490 = null;
 			Cache.aClass120_Sub14_Sub8_121 = null;
 			Class157.aClass120_Sub14_Sub19_1474 = null;

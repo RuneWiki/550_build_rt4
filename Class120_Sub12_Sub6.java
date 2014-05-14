@@ -109,7 +109,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		return class120_sub14_sub19_sub2;
 	}
 
-	static final void method1225(int i, final int i_16_) {
+	static final void setCursor(int i) {
 		if (!Class38.cursorsEnabled) {
 			i = -1;
 		}

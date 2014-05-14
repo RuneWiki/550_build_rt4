@@ -30,8 +30,8 @@ final class Class69_Sub1 extends Class69 {
 		}
 		final int i_3_ = i_0_ << 7;
 		final int i_4_ = i_1_ << 7;
-		if (Class120_Sub12_Sub34.method1380(i_3_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_], i_4_ + 1) && Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_], i_4_ + 1)
-				&& Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1], i_4_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_3_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1], i_4_ + 128 - 1)) {
+		if (Class120_Sub12_Sub34.method1380(i_3_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_], i_4_ + 1) && Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_], i_4_ + 1)
+				&& Class120_Sub12_Sub34.method1380(i_3_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1], i_4_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_3_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1], i_4_ + 128 - 1)) {
 			JagexSocket.anIntArrayArrayArray419[i][i_0_][i_1_] = Class120_Sub12_Sub9.anInt3193;
 			return true;
 		}

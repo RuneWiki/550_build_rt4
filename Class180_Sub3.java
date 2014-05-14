@@ -10,7 +10,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 	static Cache aClass21_2906;
 	int anInt2907;
 	int anInt2908;
-	static int anInt2909;
+	static int renderYaw;
 	private final int anInt2910;
 	private int anInt2912;
 	private boolean aBoolean2913;

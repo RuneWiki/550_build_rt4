@@ -11,15 +11,15 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-final class Class120_Sub26 extends Node {
+final class OverridedJInterface extends Node {
 	static int anInt2738;
 	static Class98 aClass98_2739;
 	static int anInt2740;
 	static int[][][] anIntArrayArrayArray2741;
 	static int anInt2742 = 0;
 	static int[] anIntArray2743 = { 2047, 16383, 65535 };
-	int anInt2744;
-	int anInt2745;
+	int type;
+	int interfaceId;
 	static Deque aClass105_2746;
 	static int anInt2747;
 
@@ -164,7 +164,7 @@ final class Class120_Sub26 extends Node {
 		}
 	}
 
-	public Class120_Sub26() {
+	public OverridedJInterface() {
 		/* empty */
 	}
 }

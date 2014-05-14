@@ -489,8 +489,8 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 								final int i_53_ = light.anInt395 >> 7;
 								final int i_54_ = light.anInt373 >> 7;
 								if (i_53_ >= 0 && i_54_ >= 0 && i_53_ < 104 && i_54_ < 104) {
-									light.aBoolean385 = (Class114.aByteArrayArrayArray1095[1][i_53_][i_54_] & 0x2) != 0;
-									light.anInt375 = Class120_Sub26.anIntArrayArrayArray2741[light.anInt384][i_53_][i_54_] - light.anInt375;
+									light.aBoolean385 = (Class114.tileSettings[1][i_53_][i_54_] & 0x2) != 0;
+									light.anInt375 = OverridedJInterface.anIntArrayArrayArray2741[light.anInt384][i_53_][i_54_] - light.anInt375;
 									LightManager.method1860(light);
 								}
 							}
@@ -616,9 +616,9 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				if (jagexInterface.aClass189Array2072 != null) {
 					Class151.method2065(jagexInterface.aClass189Array2072, bool, i, jagexInterface.bitPacked, i_76_, -106);
 				}
-				final Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.get(jagexInterface.bitPacked);
+				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 				if (class120_sub26 != null) {
-					Class120_Sub12_Sub12.method1258(bool, -6090, i, class120_sub26.anInt2745, i_76_);
+					Class120_Sub12_Sub12.method1258(bool, -6090, i, class120_sub26.interfaceId, i_76_);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

@@ -72,43 +72,43 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			for (int i_11_ = i_6_; i_7_ + i_6_ > i_11_; i_11_++) {
 				for (int i_12_ = i; i_12_ < i_5_ + i; i_12_++) {
 					if (i_12_ >= 0 && i_12_ < 104 && i_11_ >= 0 && i_11_ < 104) {
-						Class120_Sub26.anIntArrayArrayArray2741[i_4_][i_12_][i_11_] = i_4_ > 0 ? Class120_Sub26.anIntArrayArrayArray2741[i_4_ + -1][i_12_][i_11_] : 0;
+						OverridedJInterface.anIntArrayArrayArray2741[i_4_][i_12_][i_11_] = i_4_ > 0 ? OverridedJInterface.anIntArrayArrayArray2741[i_4_ + -1][i_12_][i_11_] : 0;
 					}
 				}
 			}
 			if ((i ^ 0xffffffff) < i_8_ && i < 104) {
 				for (int i_13_ = 1 + i_6_; i_13_ < i_6_ - -i_7_; i_13_++) {
 					if (i_13_ >= 0 && i_13_ < 104) {
-						Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_13_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][-1 + i][i_13_];
+						OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_13_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][-1 + i][i_13_];
 					}
 				}
 			}
 			if (i_6_ > 0 && i_6_ < 104) {
 				for (int i_14_ = i + 1; i - -i_5_ > i_14_; i_14_++) {
 					if (i_14_ >= 0 && i_14_ < 104) {
-						Class120_Sub26.anIntArrayArrayArray2741[i_4_][i_14_][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][i_14_][i_6_ - 1];
+						OverridedJInterface.anIntArrayArrayArray2741[i_4_][i_14_][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][i_14_][i_6_ - 1];
 					}
 				}
 			}
 			if (i >= 0 && i_6_ >= 0 && i < 104 && i_6_ < 104) {
 				if (i_4_ != 0) {
-					if (i <= 0 || Class120_Sub26.anIntArrayArrayArray2741[-1 + i_4_][-1 + i][i_6_] == Class120_Sub26.anIntArrayArrayArray2741[i_4_][i - 1][i_6_]) {
-						if (i_6_ > 0 && Class120_Sub26.anIntArrayArrayArray2741[i_4_ + -1][i][i_6_ + -1] != Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_ + -1]) {
-							Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_ - 1];
-						} else if (i > 0 && i_6_ > 0 && Class120_Sub26.anIntArrayArrayArray2741[-1 + i_4_][-1 + i][-1 + i_6_] != Class120_Sub26.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ - 1]) {
-							Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ - 1];
+					if (i <= 0 || OverridedJInterface.anIntArrayArrayArray2741[-1 + i_4_][-1 + i][i_6_] == OverridedJInterface.anIntArrayArrayArray2741[i_4_][i - 1][i_6_]) {
+						if (i_6_ > 0 && OverridedJInterface.anIntArrayArrayArray2741[i_4_ + -1][i][i_6_ + -1] != OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_ + -1]) {
+							OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_ - 1];
+						} else if (i > 0 && i_6_ > 0 && OverridedJInterface.anIntArrayArrayArray2741[-1 + i_4_][-1 + i][-1 + i_6_] != OverridedJInterface.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ - 1]) {
+							OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ - 1];
 						}
 					} else {
-						Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][i + -1][i_6_];
+						OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][i + -1][i_6_];
 					}
-				} else if (i > 0 && Class120_Sub26.anIntArrayArrayArray2741[i_4_][i - 1][i_6_] != 0) {
-					Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][i - 1][i_6_];
-				} else if (i_6_ <= 0 || Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_ - 1] == 0) {
-					if (i > 0 && i_6_ > 0 && Class120_Sub26.anIntArrayArrayArray2741[i_4_][-1 + i][-1 + i_6_] != 0) {
-						Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ + -1];
+				} else if (i > 0 && OverridedJInterface.anIntArrayArrayArray2741[i_4_][i - 1][i_6_] != 0) {
+					OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][i - 1][i_6_];
+				} else if (i_6_ <= 0 || OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_ - 1] == 0) {
+					if (i > 0 && i_6_ > 0 && OverridedJInterface.anIntArrayArrayArray2741[i_4_][-1 + i][-1 + i_6_] != 0) {
+						OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][-1 + i][i_6_ + -1];
 					}
 				} else {
-					Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][i_6_] = Class120_Sub26.anIntArrayArrayArray2741[i_4_][i][-1 + i_6_];
+					OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][i_6_] = OverridedJInterface.anIntArrayArrayArray2741[i_4_][i][-1 + i_6_];
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

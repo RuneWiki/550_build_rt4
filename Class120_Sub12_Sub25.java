@@ -313,7 +313,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.aClass120_Sub7_Sub1_1326.putByte(AbstractMouseWheelHandler.anInt116);
 						Class137.aClass120_Sub7_Sub1_1326.putByte(Class31.advertSuppressed ? 1 : 0);
 						Class137.aClass120_Sub7_Sub1_1326.putByte(1);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(Class120_Sub12_Sub4.getDisplayType());
+						Class137.aClass120_Sub7_Sub1_1326.putByte(Class120_Sub12_Sub4.getDisplayMode());
 						Class137.aClass120_Sub7_Sub1_1326.putShort(Class69_Sub1.canvasWidth);
 						Class137.aClass120_Sub7_Sub1_1326.putShort(Class120_Sub12_Sub5.canvasHeight);
 						Class137.aClass120_Sub7_Sub1_1326.putByte(Class36.antiAliasingSamples);

@@ -337,6 +337,20 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 		}
 	}
 
+	static final Class120_Sub14_Sub11 list(final int i) {
+		Class120_Sub14_Sub11 class120_sub14_sub11_4_ = (Class120_Sub14_Sub11) AbstractGraphicsBuffer.aClass35_1160.method302(17301, i);
+		if (class120_sub14_sub11_4_ != null) {
+			return class120_sub14_sub11_4_;
+		}
+		final byte[] is = Class111.aClass50_1059.getFile(11, i);
+		class120_sub14_sub11_4_ = new Class120_Sub14_Sub11();
+		if (is != null) {
+			class120_sub14_sub11_4_.method1512(new Buffer(is), 121);
+		}
+		AbstractGraphicsBuffer.aClass35_1160.method301(i, 88, class120_sub14_sub11_4_);
+		return class120_sub14_sub11_4_;
+	}
+
 	static final AbstractSprite[] method1520(final byte i) {
 		AbstractSprite[] class120_sub14_sub19s;
 		try {
@@ -362,17 +376,11 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 		return class120_sub14_sub19s;
 	}
 
-	static final void method1521(final boolean bool) {
-		try {
-			Class120_Sub12_Sub11.outputStream.putByteIsaac(86);
-			if (!bool) {
-				Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.getDisplayType());
-				Class120_Sub12_Sub11.outputStream.putShort(Class69_Sub1.canvasWidth);
-				Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub12_Sub5.canvasHeight);
-				Class120_Sub12_Sub11.outputStream.putByte(Class36.antiAliasingSamples);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jc.F(").append(bool).append(')').toString());
-		}
+	static final void sendDisplayInfo() {
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(86);
+		Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
+		Class120_Sub12_Sub11.outputStream.putShort(Class69_Sub1.canvasWidth);
+		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub12_Sub5.canvasHeight);
+		Class120_Sub12_Sub11.outputStream.putByte(Class36.antiAliasingSamples);
 	}
 }

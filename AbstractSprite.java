@@ -64,7 +64,7 @@ abstract class AbstractSprite extends NodeSub {
 	static final void method1593(boolean bool, final int i_21_, final int i_22_, final int i_23_) {
 		boolean bool_24_ = false;
 		Class15.aLong98 = 0L;
-		final int i_25_ = Class120_Sub12_Sub4.getDisplayType();
+		final int i_25_ = Class120_Sub12_Sub4.getDisplayMode();
 		if (i_25_ > 0 == i_21_ <= 0) {
 			bool_24_ = true;
 		}

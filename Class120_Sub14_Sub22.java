@@ -22,7 +22,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 
 	static final void method1629(final int i, final int i_0_, final int i_1_, final int i_2_, final String string) {
 		try {
-			final JagexInterface jagexInterface = Class120_Sub13.method1404(i, (byte) 82, i_0_);
+			final JagexInterface jagexInterface = Class120_Sub13.method1404(i, i_0_);
 			if (jagexInterface != null) {
 				if (jagexInterface.anObjectArray2006 != null) {
 					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
@@ -33,10 +33,10 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 					Class88.method744(true, class120_sub10);
 				}
 				boolean bool = true;
-				if (jagexInterface.anInt1975 > 0) {
+				if (jagexInterface.clientCode > 0) {
 					bool = IntegerNode.method1833((byte) -101, jagexInterface);
 				}
-				if (bool && client.method54(jagexInterface).method1678(-1 + i_1_, 26)) {
+				if (bool && client.getClickMask(jagexInterface).method1678(-1 + i_1_, 26)) {
 					if (i_1_ == 1) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(94);
 						Class120_Sub12_Sub11.outputStream.putInt(i);

@@ -1691,7 +1691,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 
 	private static final short[] method2420(final short[] is, final int i) {
 		final short[] is_484_ = new short[i];
-		Class4.method94(is, 0, is_484_, 0, i);
+		ArrayUtils.arrayCopy(is, 0, is_484_, 0, i);
 		return is_484_;
 	}
 
@@ -2839,7 +2839,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 
 	private static final float[] method2435(final float[] fs, final int i) {
 		final float[] fs_714_ = new float[i];
-		Class4.method93(fs, 0, fs_714_, 0, i);
+		ArrayUtils.arrayCopy(fs, 0, fs_714_, 0, i);
 		return fs_714_;
 	}
 

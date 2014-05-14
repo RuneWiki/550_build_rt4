@@ -45,7 +45,7 @@ final class InterfaceChangeNode extends NodeSub {
 	}
 
 	static final void build3dScreenMenu(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_7_) {
-		if (Light.anInt393 == 0) {//TODO refactor this
+		if (Light.objSelected == 0) {//TODO refactor this
 			final int i_8_ = IntegerNode.anInt2792;
 			final int i_9_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_10_ = Class190.anInt2100;
@@ -58,9 +58,9 @@ final class InterfaceChangeNode extends NodeSub {
 				}
 				Class120_Sub14_Sub6.addMenuOption(0L, i_11_, i_13_, "", Npc.aString3752, (short) 26, -1);
 			} else {
-				final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, (byte) 82, JagexSocket.anInt420);
+				final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, JagexSocket.anInt420);
 				if (jagexInterface == null) {
-					Node.method1029((byte) 126);
+					Node.method1029();
 				} else {
 					Class120_Sub14_Sub6.addMenuOption(0L, i_11_, i_13_, " ->", Class101.aString963, (short) 19, Class150.anInt1417);
 				}
@@ -83,10 +83,10 @@ final class InterfaceChangeNode extends NodeSub {
 					if (locType == null) {
 						continue;
 					}
-					if (Light.anInt393 == 1) {
-						Class120_Sub14_Sub6.addMenuOption(bitPacked, x, z, new StringBuilder(Class192.aString2124).append(" -> <col=00ffff>").append(locType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 16, Class120_Sub12_Sub10.anInt3205);
+					if (Light.objSelected == 1) {
+						Class120_Sub14_Sub6.addMenuOption(bitPacked, x, z, new StringBuilder(Class192.selectedObjName).append(" -> <col=00ffff>").append(locType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 16, Class120_Sub12_Sub10.anInt3205);
 					} else if (Class88.aBoolean828) {
-						final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class74.method652(Class139.anInt1330, (byte) -114);
+						final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class120_Sub14_Sub11.list(Class139.anInt1330);
 						if ((0x4 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || locType.method2454((byte) 75, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 							Class120_Sub14_Sub6.addMenuOption(bitPacked, x, z, new StringBuilder(Light.aString369).append(" -> <col=00ffff>").append(locType.name).toString(), Class101.aString963, (short) 4, Class150.anInt1417);
 						}
@@ -202,9 +202,9 @@ final class InterfaceChangeNode extends NodeSub {
 						for (GroundObjectNode groundObjectNode = (GroundObjectNode) deque.getLast(); groundObjectNode != null; groundObjectNode = (GroundObjectNode) deque.getPrevious()) {
 							final int objectId = groundObjectNode.aClass180_Sub1_3630.id;
 							final ObjType objType = ObjType.list(objectId);
-							if (Light.anInt393 != 1) {
+							if (Light.objSelected != 1) {
 								if (Class88.aBoolean828) {
-									final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class74.method652(Class139.anInt1330, (byte) -71);
+									final Class120_Sub14_Sub11 class120_sub14_sub11 = (Class139.anInt1330 ^ 0xffffffff) == 0 ? null : Class120_Sub14_Sub11.list(Class139.anInt1330);
 									if ((0x1 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParam(class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 										Class120_Sub14_Sub6.addMenuOption(objectId, x, z, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), Class101.aString963, (short) 48, Class150.anInt1417);
 									}
@@ -244,7 +244,7 @@ final class InterfaceChangeNode extends NodeSub {
 									Class120_Sub14_Sub6.addMenuOption(objectId, x, z, new StringBuilder("<col=ff9040>").append(objType.name).toString(), Class11.aString81, (short) 1004, Class120_Sub12_Sub11.anInt3211);
 								}
 							} else {
-								Class120_Sub14_Sub6.addMenuOption(objectId, x, z, new StringBuilder(Class192.aString2124).append(" -> <col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 28, Class120_Sub12_Sub10.anInt3205);
+								Class120_Sub14_Sub6.addMenuOption(objectId, x, z, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), AbstractGraphicsBuffer.aString1176, (short) 28, Class120_Sub12_Sub10.anInt3205);
 							}
 						}
 					}

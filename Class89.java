@@ -42,7 +42,7 @@ final class Class89 {
 				method746(49, 92, (byte) -101);
 			}
 			final float[] fs_3_ = new float[fs.length];
-			Class4.method93(fs, 0, fs_3_, 0, fs.length);
+			ArrayUtils.arrayCopy(fs, 0, fs_3_, 0, fs.length);
 			fs_2_ = fs_3_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ji.C(").append(i).append(',').append(fs != null ? "{...}" : "null").append(')').toString());

@@ -165,10 +165,10 @@ final class Class96 {
 						if (AbstractTimer.worldConnection.getAvailable() < 2) {
 							return -1;
 						}
-						Class120_Sub26.anInt2740 = AbstractTimer.worldConnection.read();
-						Class120_Sub26.anInt2740 <<= 8;
-						Class120_Sub26.anInt2740 += AbstractTimer.worldConnection.read();
-						Class39.aByteArray324 = new byte[Class120_Sub26.anInt2740];
+						OverridedJInterface.anInt2740 = AbstractTimer.worldConnection.read();
+						OverridedJInterface.anInt2740 <<= 8;
+						OverridedJInterface.anInt2740 += AbstractTimer.worldConnection.read();
+						Class39.aByteArray324 = new byte[OverridedJInterface.anInt2740];
 						Class132_Sub1.anInt2816 = 0;
 						Decimator.anInt1716 = 3;
 					}
@@ -179,12 +179,12 @@ final class Class96 {
 					if (i_40_ < 1) {
 						return -1;
 					}
-					if (i_40_ > Class120_Sub26.anInt2740 + -Class132_Sub1.anInt2816) {
-						i_40_ = -Class132_Sub1.anInt2816 + Class120_Sub26.anInt2740;
+					if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
+						i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
 					}
 					AbstractTimer.worldConnection.read(Class132_Sub1.anInt2816, Class39.aByteArray324, i_40_);
 					Class132_Sub1.anInt2816 += i_40_;
-					if (Class132_Sub1.anInt2816 < Class120_Sub26.anInt2740) {
+					if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
 						return -1;
 					}
 					if (!Class54.method477((byte) -33, Class39.aByteArray324)) {
@@ -192,7 +192,7 @@ final class Class96 {
 					}
 					int i_41_ = 0;
 					Class86.aClass167_Sub1Array817 = new Class167_Sub1[Class57.anInt502];
-					for (int i_42_ = Class120_Sub26.anInt2738; i_42_ <= Class120_Sub14_Sub2.anInt3454; i_42_++) {
+					for (int i_42_ = OverridedJInterface.anInt2738; i_42_ <= Class120_Sub14_Sub2.anInt3454; i_42_++) {
 						final Class167_Sub1 class167_sub1 = Class82.method710((byte) -24, i_42_);
 						if (class167_sub1 != null) {
 							Class86.aClass167_Sub1Array817[i_41_++] = class167_sub1;
@@ -201,7 +201,7 @@ final class Class96 {
 					AbstractTimer.worldConnection.method377();
 					Class39.aByteArray324 = null;
 					Decimator.anInt1716 = 0;
-					Class120_Sub26.anInt2742 = 0;
+					OverridedJInterface.anInt2742 = 0;
 					AbstractTimer.worldConnection = null;
 					Class158.aLong1482 = TimeUtil.getSafeTime();
 					i_37_ = 0;

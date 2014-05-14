@@ -109,7 +109,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		}
 	}
 
-	static final int getDisplayType() {
+	static final int getDisplayMode() {
 		if (Class120_Sub14_Sub10.fullscreenFrame != null) {
 			return 3;
 		}
@@ -126,46 +126,46 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		int i_12_;
 		try {
 			int i_13_ = 0;
-			if (class50.method429(Class120_Sub8.anInt2490, 125)) {
+			if (class50.method429(Class120_Sub8.anInt2490)) {
 				i_13_++;
 			}
-			if (class50.method429(Class120_Sub12_Sub25.anInt3315, 72)) {
+			if (class50.method429(Class120_Sub12_Sub25.anInt3315)) {
 				i_13_++;
 			}
-			if (class50.method429(Class120_Sub14_Sub15.anInt3583, 73)) {
+			if (class50.method429(Class120_Sub14_Sub15.anInt3583)) {
 				i_13_++;
 			}
-			if (class50.method429(Class52.anInt477, 80)) {
+			if (class50.method429(Class52.anInt477)) {
 				i_13_++;
 			}
-			if (class50.method429(Class120_Sub21.anInt2664, 105)) {
+			if (class50.method429(Class120_Sub21.anInt2664)) {
 				i_13_++;
 			}
-			if (class50.method429(Class173.anInt1727, 76)) {
+			if (class50.method429(Class173.anInt1727)) {
 				i_13_++;
 			}
-			if (class50.method429(Class169.anInt1644, 110)) {
+			if (class50.method429(Class169.anInt1644)) {
 				i_13_++;
 			}
-			if (class50.method429(Class132_Sub2.anInt2823, 111)) {
+			if (class50.method429(Class132_Sub2.anInt2823)) {
 				i_13_++;
 			}
-			if (class50.method429(Class73.anInt665, 103)) {
+			if (class50.method429(Class73.anInt665)) {
 				i_13_++;
 			}
-			if (class50.method429(Class134.anInt1278, 114)) {
+			if (class50.method429(Class134.anInt1278)) {
 				i_13_++;
 			}
-			if (class50.method429(Class81.anInt778, 94)) {
+			if (class50.method429(Class81.anInt778)) {
 				i_13_++;
 			}
-			if (class50.method429(Class120_Sub12_Sub7.anInt3180, 82)) {
+			if (class50.method429(Class120_Sub12_Sub7.anInt3180)) {
 				i_13_++;
 			}
-			if (class50.method429(Class9.anInt71, 114)) {
+			if (class50.method429(Class9.anInt71)) {
 				i_13_++;
 			}
-			if (class50.method429(PlayerAppearance.anInt1364, 62)) {
+			if (class50.method429(PlayerAppearance.anInt1364)) {
 				i_13_++;
 			}
 			i_12_ = i_13_;

@@ -138,10 +138,10 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!Class120_Sub14_Sub4.aBoolean3470 || !Class35.aBooleanArray299[81] || Class186.anInt1906 <= 2) {
-			return InterfaceChangeNode.menuOptionsCursorId[Class186.anInt1906 - 1];
+		if (!Class120_Sub14_Sub4.aBoolean3470 || !Class35.aBooleanArray299[81] || Class186.menuOptionCount <= 2) {
+			return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 1];
 		}
-		return InterfaceChangeNode.menuOptionsCursorId[Class186.anInt1906 - 2];
+		return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 2];
 	}
 
 	final int method467(final byte i) {

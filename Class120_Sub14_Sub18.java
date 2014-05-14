@@ -40,7 +40,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 					ParticleEngine.method952(2);
 				}
 				InterfaceClickMask.safeModeEnabled = false;
-				Class120_Sub12_Sub19.anInt3282 = 0;
+				Class120_Sub12_Sub19.currentDisplayMode = 0;
 				Class186.aBoolean1902 = false;
 				Class140.anInt1343 = 0;
 				Class38.cursorsEnabled = true;
@@ -137,7 +137,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 
 	static final void method1580(NpcType npcType, final int i, final int i_11_, final int i_12_, final int i_13_) {
 		try {
-			if (Class186.anInt1906 < 400) {
+			if (Class186.menuOptionCount < 400) {
 				if (npcType.childrenIDs != null) {
 					npcType = npcType.handleVarp();
 				}
@@ -150,9 +150,9 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 						final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : Class120_Sub3.aString2424;
 						string = new StringBuilder(string).append(Class81.method704(Class100.selfPlayer.anInt3747, (byte) -109, npcType.anInt1674)).append(" (").append(string_14_).append(npcType.anInt1674).append(")").toString();
 					}
-					if (Light.anInt393 != 1) {
+					if (Light.objSelected != 1) {
 						if (Class88.aBoolean828) {
-							final Class120_Sub14_Sub11 class120_sub14_sub11 = Class139.anInt1330 != -1 ? Class74.method652(Class139.anInt1330, (byte) -88) : null;
+							final Class120_Sub14_Sub11 class120_sub14_sub11 = Class139.anInt1330 != -1 ? Class120_Sub14_Sub11.list(Class139.anInt1330) : null;
 							if ((0x2 & GroundTile.anInt2652) != 0 && (class120_sub14_sub11 == null || npcType.method2206(-9059, class120_sub14_sub11.anInt3542, Class139.anInt1330) != class120_sub14_sub11.anInt3542)) {
 								Class120_Sub14_Sub6.addMenuOption(i_12_, i_13_, i_11_, new StringBuilder(Light.aString369).append(" -> <col=ffff00>").append(string).toString(), Class101.aString963, (short) 42, Class150.anInt1417);
 							}
@@ -224,7 +224,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 							Class120_Sub14_Sub6.addMenuOption(i_12_, i_13_, i_11_, new StringBuilder("<col=ffff00>").append(string).toString(), Class11.aString81, (short) 1010, Class120_Sub12_Sub11.anInt3211);
 						}
 					} else {
-						Class120_Sub14_Sub6.addMenuOption(i_12_, i_13_, i_11_, new StringBuilder(Class192.aString2124).append(" -> <col=ffff00>").append(string).toString(), AbstractGraphicsBuffer.aString1176, (short) 33, Class120_Sub12_Sub10.anInt3205);
+						Class120_Sub14_Sub6.addMenuOption(i_12_, i_13_, i_11_, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), AbstractGraphicsBuffer.aString1176, (short) 33, Class120_Sub12_Sub10.anInt3205);
 					}
 				}
 			}

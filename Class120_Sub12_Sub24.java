@@ -75,7 +75,7 @@ final class Class120_Sub12_Sub24 extends Class120_Sub12 {
 			}
 			final int[] is_5_ = this.aClass30_2563.method258(i_4_, 117);
 			if (this.aClass30_2563.aBoolean238) {
-				Class4.method91(is_5_, 0, Class120_Sub12_Sub7.anInt3178, anInt3310);
+				ArrayUtils.fillArray(is_5_, 0, Class120_Sub12_Sub7.anInt3178, anInt3310);
 			}
 			is = is_5_;
 		} catch (final RuntimeException runtimeexception) {

@@ -18,7 +18,7 @@ final class Class120_Sub10 extends Node {
 	static Cache aClass21_2542 = new Cache(64);
 	int anInt2543;
 	static Class50 aClass50_2544;
-	static int anInt2545;
+	static int playerRenderZ;
 	static int anInt2546;
 	static boolean[] playerOptionsOnTop;
 	static String aString2548 = "slide:";
@@ -44,7 +44,7 @@ final class Class120_Sub10 extends Node {
 				Class120_Sub12_Sub7.frameWidth -= insets.left - -insets.right;
 				PlayerAppearance.frameHeight -= insets.bottom + insets.top;
 			}
-			if (Class120_Sub12_Sub4.getDisplayType() >= 2) {
+			if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
 				Class186.topMargin = 0;
 				Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
 				Class120_Sub28.leftMargin = 0;
@@ -68,7 +68,7 @@ final class Class120_Sub10 extends Node {
 				final Insets insets = Class112.frame.getInsets();
 				Node.canvas.setLocation(insets.left - -Class120_Sub28.leftMargin, Class186.topMargin + insets.top);
 			}
-			if ((Class69.anInt616 ^ 0xffffffff) != 0) {
+			if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
 				Class101_Sub2.method846((byte) 122, true);
 			}
 			Class120_Sub12_Sub22.method1322();
@@ -106,8 +106,8 @@ final class Class120_Sub10 extends Node {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
 								final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
-									final int i_11_ = (Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_][i_10_] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_][i_10_ + 1] + Class120_Sub26.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_ + 1])
-											/ 4 - (Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1] + Class120_Sub26.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1]) / 4;
+									final int i_11_ = (OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_ + 1])
+											/ 4 - (OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1]) / 4;
 									final Class182 class182 = class120_sub18.aClass182_2628;
 									if (class182 != null) {
 										if (class182.aClass180_1800.method2268()) {

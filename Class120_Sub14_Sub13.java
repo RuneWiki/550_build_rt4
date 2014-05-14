@@ -296,7 +296,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				}
 			} else {
 				for (int i_54_ = 0; anIntArray3568.length > i_54_; i_54_++) {
-					if (!class50.method429(anIntArray3568[i_54_], 64)) {
+					if (!class50.method429(anIntArray3568[i_54_])) {
 						return false;
 					}
 				}

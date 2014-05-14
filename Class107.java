@@ -40,7 +40,7 @@ abstract class Class107 {
 			}
 		}
 		if (displayMode == 3 && Class120_Sub14_Sub10.fullscreenFrame == null) {
-			method908(-1, i_1_, true, -1, Class120_Sub12_Sub19.anInt3282, true);
+			method908(-1, i_1_, true, -1, Class120_Sub12_Sub19.currentDisplayMode, true);
 		} else {
 			Container container;
 			if (Class120_Sub14_Sub10.fullscreenFrame == null) {
@@ -107,7 +107,7 @@ abstract class Class107 {
 					if (Class109.gameState != 5) {
 						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
 					} else {
-						Class128.method1909(true, Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303, false);
+						Class128.method1909(true, Class120_Sub12_Sub22.boldFont, false);
 					}
 					try {
 						final Graphics graphics = Node.canvas.getGraphics();
@@ -185,11 +185,11 @@ abstract class Class107 {
 				} else {
 					Class91.frameResizable = true;
 				}
-				if (Class69.anInt616 != -1) {
+				if (Class69.rootInterfaceId != -1) {
 					Class101_Sub2.method846((byte) 71, true);
 				}
 				if (AbstractTimer.worldConnection != null && (Class109.gameState == 30 || Class109.gameState == 25)) {
-					Class120_Sub14_Sub11.method1521(false);
+					Class120_Sub14_Sub11.sendDisplayInfo();
 				}
 				for (int i_5_ = 0; i_5_ < 100; i_5_++) {
 					Class52.aBooleanArray467[i_5_] = true;

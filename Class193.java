@@ -12,7 +12,6 @@ final class Class193 {
 	private long aLong2128;
 	private int anInt2129 = 0;
 	private long aLong2130;
-	static int anInt2131;
 	private final FileOnDisk aClass95_2132;
 	private long aLong2133 = -1L;
 	private int anInt2134;
@@ -64,7 +63,7 @@ final class Class193 {
 				if ((aLong2133 ^ 0xffffffffffffffffL) != 0L && (aLong2133 + aByteArray2125.length ^ 0xffffffffffffffffL) > (i_1_ + aLong2136 ^ 0xffffffffffffffffL)) {
 					final int i_3_ = (int) (aByteArray2125.length + -aLong2136 + aLong2133);
 					i_1_ -= i_3_;
-					Class4.method96(is, i, aByteArray2125, (int) (-aLong2133 + aLong2136), i_3_);
+					ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (-aLong2133 + aLong2136), i_3_);
 					i += i_3_;
 					aLong2136 += i_3_;
 					anInt2129 = aByteArray2125.length;
@@ -94,14 +93,14 @@ final class Class193 {
 					}
 					if (-1L < l_4_ && (l ^ 0xffffffffffffffffL) < (l_4_ ^ 0xffffffffffffffffL)) {
 						final int i_5_ = (int) (l + -l_4_);
-						Class4.method96(is, (int) (-aLong2136 + i - -l_4_), aByteArray2126, (int) (l_4_ + -aLong2130), i_5_);
+						ArrayUtils.arrayCopy(is, (int) (-aLong2136 + i - -l_4_), aByteArray2126, (int) (l_4_ + -aLong2130), i_5_);
 					}
 					aLong2136 += i_1_;
 				} else if (i_1_ > 0) {
 					if (0L == (aLong2133 ^ 0xffffffffffffffffL)) {
 						aLong2133 = aLong2136;
 					}
-					Class4.method96(is, i, aByteArray2125, (int) (aLong2136 + -aLong2133), i_1_);
+					ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (aLong2136 + -aLong2133), i_1_);
 					aLong2136 += i_1_;
 					if ((anInt2129 ^ 0xffffffffffffffffL) > (aLong2136 + -aLong2133 ^ 0xffffffffffffffffL)) {
 						anInt2129 = (int) (-aLong2133 + aLong2136);
@@ -202,7 +201,7 @@ final class Class193 {
 					}
 					if (0L > (l_8_ ^ 0xffffffffffffffffL) && l_8_ < l) {
 						final int i_9_ = (int) (-l_8_ + l);
-						Class4.method96(aByteArray2125, (int) (l_8_ + -aLong2133), aByteArray2126, (int) (l_8_ - aLong2130), i_9_);
+						ArrayUtils.arrayCopy(aByteArray2125, (int) (l_8_ + -aLong2133), aByteArray2126, (int) (l_8_ - aLong2130), i_9_);
 					}
 					aLong2133 = -1L;
 					anInt2129 = 0;
@@ -223,7 +222,7 @@ final class Class193 {
 					throw new ArrayIndexOutOfBoundsException(i_10_ - (-i_11_ + is.length));
 				}
 				if (0L != (aLong2133 ^ 0xffffffffffffffffL) && aLong2136 >= aLong2133 && aLong2133 + anInt2129 >= i_11_ + aLong2136) {
-					Class4.method96(aByteArray2125, (int) (-aLong2133 + aLong2136), is, i_10_, i_11_);
+					ArrayUtils.arrayCopy(aByteArray2125, (int) (-aLong2133 + aLong2136), is, i_10_, i_11_);
 					aLong2136 += i_11_;
 					return;
 				}
@@ -235,7 +234,7 @@ final class Class193 {
 					if (i_14_ > i_11_) {
 						i_14_ = i_11_;
 					}
-					Class4.method96(aByteArray2126, (int) (-aLong2130 + aLong2136), is, i_10_, i_14_);
+					ArrayUtils.arrayCopy(aByteArray2126, (int) (-aLong2130 + aLong2136), is, i_10_, i_14_);
 					i_11_ -= i_14_;
 					aLong2136 += i_14_;
 					i_10_ += i_14_;
@@ -260,7 +259,7 @@ final class Class193 {
 						i_16_ = anInt2134;
 					}
 					i_11_ -= i_16_;
-					Class4.method96(aByteArray2126, 0, is, i_10_, i_16_);
+					ArrayUtils.arrayCopy(aByteArray2126, 0, is, i_10_, i_16_);
 					aLong2136 += i_16_;
 					i_10_ += i_16_;
 				}
@@ -292,7 +291,7 @@ final class Class193 {
 					}
 					if ((l_19_ ^ 0xffffffffffffffffL) < 0L && l_18_ > l_19_) {
 						final int i_20_ = (int) (l_18_ - l_19_);
-						Class4.method96(aByteArray2125, (int) (-aLong2133 + l_19_), is, (int) (-l + l_19_) + i_13_, i_20_);
+						ArrayUtils.arrayCopy(aByteArray2125, (int) (-aLong2133 + l_19_), is, (int) (-l + l_19_) + i_13_, i_20_);
 						if (l_18_ > aLong2136) {
 							i_11_ -= -aLong2136 + l_18_;
 							aLong2136 = l_18_;

@@ -25,7 +25,7 @@ final class Class154 {
 					if (Class120_Sub12_Sub26.anInt3335 >= 100) {
 						Class120_Sub14_Sub14.method1540("", 0, Class143_Sub1.aString2192);
 					} else {
-						final String string = Class136.method1977(false, l);
+						final String string = Class136.longToString(l);
 						for (int i_0_ = 0; Class120_Sub12_Sub26.anInt3335 > i_0_; i_0_++) {
 							if (Class85.aLongArray806[i_0_] == l) {
 								Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
@@ -38,7 +38,7 @@ final class Class154 {
 								return;
 							}
 						}
-						if (string.equals(Class100.selfPlayer.aString3745)) {
+						if (string.equals(Class100.selfPlayer.name)) {
 							Class120_Sub14_Sub14.method1540("", 0, Class112.aString1079);
 						} else {
 							Class85.aLongArray806[Class120_Sub12_Sub26.anInt3335] = l;
@@ -68,7 +68,7 @@ final class Class154 {
 				i_3_ = 1;
 			}
 			if (HDToolkit.glEnabled) {
-				int i_6_ = i_3_ + -334;
+				int i_6_ = i_3_ - 334;
 				if (i_6_ < 0) {
 					i_6_ = 0;
 				} else if (i_6_ > 100) {

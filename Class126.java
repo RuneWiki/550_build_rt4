@@ -7,8 +7,7 @@ final class Class126 {
 	private final int[] anIntArray1205;
 	private final byte[] aByteArray1206;
 	static boolean aBoolean1207 = false;
-	static int anInt1208;
-	static int anInt1209;
+	static int menuDrawX;
 	private int[] anIntArray1210;
 
 	static final boolean method1882(final int i, final int i_0_, final boolean bool, final String string) {
@@ -74,7 +73,7 @@ final class Class126 {
 			if (i != 64) {
 				aBoolean1207 = true;
 			}
-			Class4.method96(is, 0, is_10_, 0, is.length);
+			ArrayUtils.arrayCopy(is, 0, is_10_, 0, is.length);
 			is_9_ = is_10_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());

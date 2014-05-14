@@ -37,7 +37,7 @@ abstract class Class57 {
 				} else {
 					LocType.method2465((byte) 0, true);
 					IsaacCipher.method905(16448, 512);
-					if (Class114.aByteArrayArrayArray1095 != null) {
+					if (Class114.tileSettings != null) {
 						Class120_Sub14_Sub6.method1447(false);
 					}
 				}

@@ -80,7 +80,7 @@ final class Class101_Sub2 extends Class101 {
 			if (i <= 30) {
 				loopCycle = 17;
 			}
-			Class120_Sub12_Sub12.method1258(bool, -6090, Class69_Sub1.canvasWidth, Class69.anInt616, Class120_Sub12_Sub5.canvasHeight);
+			Class120_Sub12_Sub12.method1258(bool, -6090, Class69_Sub1.canvasWidth, Class69.rootInterfaceId, Class120_Sub12_Sub5.canvasHeight);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("de.I(").append(i).append(',').append(bool).append(')').toString());
 		}

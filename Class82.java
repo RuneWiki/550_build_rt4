@@ -65,10 +65,10 @@ final class Class82 implements Runnable {
 			if (i != -24) {
 				aString787 = null;
 			}
-			if (!Class159.aBoolean1487 || Class120_Sub26.anInt2738 > i_0_ || Class120_Sub14_Sub2.anInt3454 < i_0_) {
+			if (!Class159.aBoolean1487 || OverridedJInterface.anInt2738 > i_0_ || Class120_Sub14_Sub2.anInt3454 < i_0_) {
 				return null;
 			}
-			class167_sub1 = Class48.aClass167_Sub1Array435[-Class120_Sub26.anInt2738 + i_0_];
+			class167_sub1 = Class48.aClass167_Sub1Array435[-OverridedJInterface.anInt2738 + i_0_];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.A(").append(i).append(',').append(i_0_).append(')').toString());
 		}
@@ -96,7 +96,7 @@ final class Class82 implements Runnable {
 				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
 				GraphicsLD.fillRect(-150 + i_6_, i_7_ + 2, Class90.anInt848 * 3, 30, 9179409);
 			}
-			Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1478(Class36.aString313, i_6_, i_7_ + 20, 16777215, -1);
+			Class120_Sub12_Sub22.boldFont.method1478(Class36.aString313, i_6_, i_7_ + 20, 16777215, -1);
 		} else {
 			GroundObjectNode.anInt3628 = (int) (i * 2 / Class79.aFloat696);
 			GroundTile.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);

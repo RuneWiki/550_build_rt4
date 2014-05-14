@@ -304,8 +304,8 @@ final class Class45 {
 		}
 		final int i_43_ = i_40_ << 7;
 		final int i_44_ = i_41_ << 7;
-		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1)
-				&& Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, Class120_Sub26.anIntArrayArrayArray2741[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
+		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1)
+				&& Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
 			return true;
 		}
 		return false;

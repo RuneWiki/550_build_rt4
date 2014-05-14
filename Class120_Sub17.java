@@ -4,7 +4,6 @@
 
 final class Class120_Sub17 extends Node {
 	static int anInt2612 = 0;
-	static int anInt2613;
 	static String aString2614 = "glow3:";
 	static int anInt2615 = 0;
 	static int anInt2616;
@@ -21,9 +20,9 @@ final class Class120_Sub17 extends Node {
 				return Class74.getJagexInterface(jagexInterface.anInt2029);
 			}
 			final int i_1_ = jagexInterface.bitPacked >>> 16;
-			final Class140 class140 = new Class140(Class120_Sub12_Sub13.aClass75_3234);
-			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) class140.method1994((byte) -128); class120_sub26 != null; class120_sub26 = (Class120_Sub26) class140.method1998((byte) 101)) {
-				if (i_1_ == class120_sub26.anInt2745) {
+			final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);
+			for (OverridedJInterface class120_sub26 = (OverridedJInterface) class140.method1994((byte) -128); class120_sub26 != null; class120_sub26 = (OverridedJInterface) class140.method1998((byte) 101)) {
+				if (i_1_ == class120_sub26.interfaceId) {
 					return Class74.getJagexInterface((int) class120_sub26.uid);
 				}
 			}

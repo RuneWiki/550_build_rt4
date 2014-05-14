@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	private int anInt3231 = 0;
 	private int anInt3232;
 	static int anInt3233;
-	static Hashtable aClass75_3234 = new Hashtable(8);
+	static Hashtable overridedInterfaces = new Hashtable(8);
 	private int anInt3235;
 	private int anInt3236;
 
@@ -128,7 +128,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 
 	public static void method1267(final int i) {
 		try {
-			aClass75_3234 = null;
+			overridedInterfaces = null;
 			if (i != -1) {
 				anInt3233 = -5;
 			}
@@ -208,7 +208,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 				}
 			}
 			if (i != -1735) {
-				aClass75_3234 = null;
+				overridedInterfaces = null;
 			}
 			is = is_4_;
 		} catch (final RuntimeException runtimeexception) {

@@ -8,7 +8,6 @@ final class Class150 {
 	int anInt1406;
 	static int anInt1407 = 0;
 	static int anInt1408;
-	static int anInt1409;
 	int anInt1410;
 	int anInt1411;
 	static int[] anIntArray1412 = new int[4096];

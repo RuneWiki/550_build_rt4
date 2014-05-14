@@ -62,8 +62,8 @@ final class Class26 {
 			synchronized (Class120_Sub14_Sub4.mouseHandler) {
 				Class136.anInt1320++;
 				InterfaceChangeNode.anInt3483 = Class42.anInt362;
-				Queue.anInt1767 = Class160.anInt1492;
-				Class191.anInt2113 = Class120_Sub12_Sub27.anInt3351;
+				Queue.lastMouseX = Class160.anInt1492;
+				Class191.lastMouseY = Class120_Sub12_Sub27.anInt3351;
 				Class156.anInt1455 = GroundObjectNode.anInt3627;
 				Class50.anInt449 = Class192.anInt2122;
 				if (i != -1) {

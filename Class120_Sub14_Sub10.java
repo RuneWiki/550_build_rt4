@@ -8,12 +8,12 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	private int[][] anIntArrayArray3529;
 	static Frame fullscreenFrame;
 	boolean aBoolean3531 = true;
-	static LDSprite aClass120_Sub14_Sub19_Sub2_3532;
+	static LDSprite landScapeAsSprite;
 	static int[] anIntArray3533 = new int[14];
 	static Hashtable aClass75_3534 = new Hashtable(16);
 	int[] anIntArray3535;
 	private String[] aStringArray3536;
-	static int anInt3537;
+	static int menuHeight;
 
 	static final void method1499(final Class28 class28) {
 		for (int i = class28.anInt180; i <= class28.anInt182; i++) {
@@ -94,7 +94,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	private final void method1503(final int i, final boolean bool, final Buffer class120_sub7) {
 		try {
 			if (bool) {
-				aClass120_Sub14_Sub19_Sub2_3532 = null;
+				landScapeAsSprite = null;
 			}
 			if (i != 1) {
 				if (i != 2) {
@@ -138,7 +138,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 				return true;
 			}
 			if (i != 80) {
-				aClass120_Sub14_Sub19_Sub2_3532 = null;
+				landScapeAsSprite = null;
 			}
 			if (c == '\u20ac' || c == '\u0152' || c == '\u2014' || c == '\u0153' || c == '\u0178') {
 				return true;
@@ -216,7 +216,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 			if (!bool) {
 				method1509(false);
 			}
-			aClass120_Sub14_Sub19_Sub2_3532 = null;
+			landScapeAsSprite = null;
 			aClass75_3534 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ij.H(").append(bool).append(')').toString());

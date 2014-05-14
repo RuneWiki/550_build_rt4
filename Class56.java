@@ -9,19 +9,12 @@ final class Class56 {
 	static int anInt497 = -1;
 	static int anInt498 = 0;
 
-	static final void method486(final byte i) {
-		try {
-			if (i <= 100) {
-				aClass21_494 = null;
-			}
+	static final void method486() {
+		Class107.aClass189Array1022 = null;
+		Class43.method343(Class69.rootInterfaceId, 0, 0, (byte) -100, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
+		if (Class107.aClass189Array1022 != null) {
+			Class142.method2008(Class120_Sub12_Sub38.anInt3438, -1412584499, (byte) -116, Class26.aClass189_161.anInt2082, Class107.aClass189Array1022, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
 			Class107.aClass189Array1022 = null;
-			Class43.method343(Class69.anInt616, 0, 0, (byte) -100, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
-			if (Class107.aClass189Array1022 != null) {
-				Class142.method2008(Class120_Sub12_Sub38.anInt3438, -1412584499, (byte) -116, Class26.aClass189_161.anInt2082, Class107.aClass189Array1022, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
-				Class107.aClass189Array1022 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gf.A(").append(i).append(')').toString());
 		}
 	}
 

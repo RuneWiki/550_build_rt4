@@ -6,13 +6,13 @@ final class Class43 {
 	static boolean usingJavaAbove5;
 	static byte[][] aByteArrayArray365;
 	static int[] anIntArray366 = new int[1000];
-	static Cache aClass21_367;
+	static Cache playerModelsCache;
 	static int anInt368;
 
 	static {
 		aByteArrayArray365 = new byte[50][];
 		usingJavaAbove5 = false;
-		aClass21_367 = new Cache(260);
+		playerModelsCache = new Cache(260);
 	}
 
 	static final void method338(final int i, final int i_0_, final int i_1_) {
@@ -71,15 +71,9 @@ final class Class43 {
 		}
 	}
 
-	static final void method342(final int i) {
-		try {
-			if (i == -6086) {
-				Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421(-34)][];
-				Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421(i ^ 0x17fa)];
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("el.D(").append(i).append(')').toString());
-		}
+	static final void method342() {
+		Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
+		Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
 	}
 
 	static final void method343(final int i, final int i_5_, final int i_6_, final byte i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_) {
@@ -106,7 +100,7 @@ final class Class43 {
 
 	public static void method344(final byte i) {
 		try {
-			aClass21_367 = null;
+			playerModelsCache = null;
 			aByteArrayArray365 = null;
 			if (i == 93) {
 				anIntArray366 = null;
@@ -130,17 +124,17 @@ final class Class43 {
 				Class148.aClass151Array1400[i_15_].anInt1418 = class120_sub7.getUSmart();
 				Class148.aClass151Array1400[i_15_].aString1422 = class120_sub7.method1135(6072);
 			}
-			Class120_Sub26.anInt2738 = class120_sub7.getUSmart();
+			OverridedJInterface.anInt2738 = class120_sub7.getUSmart();
 			if (i == -31081) {
 				Class120_Sub14_Sub2.anInt3454 = class120_sub7.getUSmart();
 				Class57.anInt502 = class120_sub7.getUSmart();
-				Class48.aClass167_Sub1Array435 = new Class167_Sub1[Class120_Sub14_Sub2.anInt3454 - Class120_Sub26.anInt2738 + 1];
+				Class48.aClass167_Sub1Array435 = new Class167_Sub1[Class120_Sub14_Sub2.anInt3454 - OverridedJInterface.anInt2738 + 1];
 				for (int i_16_ = 0; i_16_ < Class57.anInt502; i_16_++) {
 					final int i_17_ = class120_sub7.getUSmart();
 					final Class167_Sub1 class167_sub1 = Class48.aClass167_Sub1Array435[i_17_] = new Class167_Sub1();
 					class167_sub1.anInt1615 = class120_sub7.getUByte();
 					class167_sub1.anInt1614 = class120_sub7.getInt();
-					class167_sub1.anInt2838 = Class120_Sub26.anInt2738 + i_17_;
+					class167_sub1.anInt2838 = OverridedJInterface.anInt2738 + i_17_;
 					class167_sub1.aString2834 = class120_sub7.method1135(6072);
 					class167_sub1.aString2836 = class120_sub7.method1135(i + 37153);
 				}

@@ -36,7 +36,7 @@ final class Class7 {
 						class120_sub8.anInt2485 = Class20.method179(class180_sub5_sub1, (byte) -94);
 						class120_sub8.anInt2499 = class180_sub5_sub1.anInt3739;
 						class120_sub8.anInt2493 = class180_sub5_sub1.anInt3735 * 128;
-						Npc.aClass75_3750.put(class120_sub8, Class70.stringToLong(class180_sub5_sub1.aString3745));
+						Npc.aClass75_3750.put(class120_sub8, Class70.stringToLong(class180_sub5_sub1.name));
 					}
 				} else {
 					class120_sub8.aClass180_Sub5_Sub2_2492 = class180_sub5_sub2;

@@ -28,7 +28,7 @@ final class Class128 {
 					0, 0, 0, 0, 4, 24, 44, 64, 84, 104, 304, 678, 698, 550, 934, 954, 6448, 6946, 6966, 2352, 2726, 2746, 10544, 10918, 10938, 10304, 10550, 10570, 14640, 15014, 15034, 19760, 20134, 20154, -29392, -29018, -28998, 31024, 31270, 31290, -24272, -23898, -23878, -19152, -18778, -18758,
 					-14032, -13658, -13638, -6864, -6490, -6470, 516, 536, 6788, 6808, 11012, 11032, 14980, 15000, 21124, 21144, -28924, -28904, -22012, -21992, -12924, -12904 } };
 	int anInt1222;
-	static int anInt1223;
+	static int renderPitch;
 	private int anInt1224 = 0;
 	int anInt1225;
 	int anInt1226;
@@ -74,8 +74,8 @@ final class Class128 {
 	static final void method1900(final int i) {
 		try {
 			Class180_Sub4.method2318((byte) 25, Class140.anInt1343);
-			final int i_7_ = (Class83.anInt792 >> 10) + (GameEntity.currentBaseX >> 3);
-			final int i_8_ = (Class181.currentBaseZ >> 3) + (GroundObjectNode.anInt3626 >> 10);
+			final int i_7_ = (Class83.renderX >> 10) + (GameEntity.currentBaseX >> 3);
+			final int i_8_ = (Class181.currentBaseZ >> 3) + (GroundObjectNode.renderZ >> 10);
 			int i_11_ = 18;
 			RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_11_][];
 			Class56.anIntArray495 = new int[i_11_];
@@ -84,7 +84,7 @@ final class Class128 {
 			Class28.anIntArray183 = new int[i_11_];
 			Class179.aByteArrayArray1777 = new byte[i_11_][];
 			if (i != 0) {
-				anInt1223 = 59;
+				renderPitch = 59;
 			}
 			Class111.anIntArray1063 = new int[i_11_];
 			Class101_Sub1.aByteArrayArray2271 = new byte[i_11_][];
@@ -148,7 +148,7 @@ final class Class128 {
 			aClass35_1219 = null;
 			aShortArrayArray1221 = null;
 			if (i != -110) {
-				anInt1223 = 115;
+				renderPitch = 115;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pa.D(").append(i).append(')').toString());
@@ -322,13 +322,13 @@ final class Class128 {
 			if (!HDToolkit.glEnabled) {
 				GraphicsLD.drawRect(-152 + Class69_Sub1.canvasWidth / 2, i, 304, 34, 9179409);
 				GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 + -151, 1 + i, 302, 32, 0);
-				GraphicsLD.fillRect(-150 + Class69_Sub1.canvasWidth / 2, 2 + i, Class120_Sub26.anInt2747 * 3, 30, 9179409);
-				GraphicsLD.fillRect(Class120_Sub26.anInt2747 * 3 + Class69_Sub1.canvasWidth / 2 - 150, i - -2, -(3 * Class120_Sub26.anInt2747) + 300, 30, 0);
+				GraphicsLD.fillRect(-150 + Class69_Sub1.canvasWidth / 2, 2 + i, OverridedJInterface.anInt2747 * 3, 30, 9179409);
+				GraphicsLD.fillRect(OverridedJInterface.anInt2747 * 3 + Class69_Sub1.canvasWidth / 2 - 150, i - -2, -(3 * OverridedJInterface.anInt2747) + 300, 30, 0);
 			} else {
 				GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 + -152, i, 304, 34, 9179409);
 				GraphicsHD.drawRect(-151 + Class69_Sub1.canvasWidth / 2, i + 1, 302, 32, 0);
-				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, 3 * Class120_Sub26.anInt2747, 30, 9179409);
-				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 + -150 + 3 * Class120_Sub26.anInt2747, i + 2, 300 + -(Class120_Sub26.anInt2747 * 3), 30, 0);
+				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, 3 * OverridedJInterface.anInt2747, 30, 9179409);
+				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 + -150 + 3 * OverridedJInterface.anInt2747, i + 2, 300 + -(OverridedJInterface.anInt2747 * 3), 30, 0);
 			}
 			class120_sub14_sub8.method1478(Class134.aString1283, Class69_Sub1.canvasWidth / 2, 4 + Class120_Sub12_Sub5.canvasHeight / 2, 16777215, -1);
 		} catch (final RuntimeException runtimeexception) {

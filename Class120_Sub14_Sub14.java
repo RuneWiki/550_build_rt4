@@ -94,7 +94,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 										i_27_ = i_2_ - (-8 + i_24_) + i_9_;
 									}
 									if (i_26_ >= 0 && i_26_ < 104 && i_27_ >= 0 && i_27_ < 104) {
-										Class120_Sub26.anIntArrayArrayArray2741[i_5_][i_26_][i_27_] = Class120_Sub26.anIntArrayArrayArray2741[i_5_][i_22_ + i_16_][i_23_ + i_18_];
+										OverridedJInterface.anIntArrayArrayArray2741[i_5_][i_26_][i_27_] = OverridedJInterface.anIntArrayArrayArray2741[i_5_][i_22_ + i_16_][i_23_ + i_18_];
 									}
 								}
 							} else {
@@ -234,8 +234,8 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 									i_50_ = light.anInt373 >> 7;
 									i_49_ = light.anInt395 >> 7;
 									if (i_49_ >= 0 && i_50_ >= 0 && i_49_ < 104 && i_50_ < 104) {
-										light.aBoolean385 = (0x2 & Class114.aByteArrayArrayArray1095[1][i_49_][i_50_]) != 0;
-										light.anInt375 = -light.anInt375 + Class120_Sub26.anIntArrayArrayArray2741[light.anInt384][i_49_][i_50_];
+										light.aBoolean385 = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
+										light.anInt375 = -light.anInt375 + OverridedJInterface.anIntArrayArrayArray2741[light.anInt384][i_49_][i_50_];
 										LightManager.method1860(light);
 									}
 								}

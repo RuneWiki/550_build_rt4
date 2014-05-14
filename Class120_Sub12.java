@@ -140,7 +140,7 @@ abstract class Class120_Sub12 extends Node {
 					class120_sub28.anIntArray2763[i_7_] = -5;
 				}
 			}
-			Class120_Sub26.aClass105_2746.addLast(class120_sub28);
+			OverridedJInterface.aClass105_2746.addLast(class120_sub28);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jo.P(").append(signlink != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}

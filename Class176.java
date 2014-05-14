@@ -14,10 +14,10 @@ final class Class176 {
 	static final int method2242(final int i, final int i_0_, final byte i_1_, final int i_2_) {
 		int i_3_;
 		try {
-			if ((0x8 & Class114.aByteArrayArrayArray1095[i_0_][i_2_][i]) != 0) {
+			if ((0x8 & Class114.tileSettings[i_0_][i_2_][i]) != 0) {
 				return 0;
 			}
-			if (i_0_ > 0 && (0x2 & Class114.aByteArrayArrayArray1095[1][i_2_][i]) != 0) {
+			if (i_0_ > 0 && (0x2 & Class114.tileSettings[1][i_2_][i]) != 0) {
 				return -1 + i_0_;
 			}
 			i_3_ = i_0_;
@@ -27,30 +27,21 @@ final class Class176 {
 		return i_3_;
 	}
 
-	static final String method2243(final boolean bool) {
-		String string;
-		try {
-			if (!bool) {
-				method2245((byte) -26);
-			}
-			String string_4_;
-			if (Light.anInt393 == 1 && Class186.anInt1906 < 2) {
-				string_4_ = new StringBuilder(AbstractGraphicsBuffer.aString1176).append(Class29.aString196).append(Class192.aString2124).append(" ->").toString();
-			} else if (Class88.aBoolean828 && Class186.anInt1906 < 2) {
-				string_4_ = new StringBuilder(Class101.aString963).append(Class29.aString196).append(Light.aString369).append(" ->").toString();
-			} else if (!Class120_Sub14_Sub4.aBoolean3470 || !Class35.aBooleanArray299[81] || Class186.anInt1906 <= 2) {
-				string_4_ = Class121.method1838((byte) 95, -1 + Class186.anInt1906);
-			} else {
-				string_4_ = Class121.method1838((byte) 98, Class186.anInt1906 + -2);
-			}
-			if (Class186.anInt1906 > 2) {
-				string_4_ = new StringBuilder(string_4_).append("<col=ffffff> / ").append(-2 + Class186.anInt1906).append(Class120_Sub11.aString2553).toString();
-			}
-			string = string_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ui.C(").append(bool).append(')').toString());
+	static final String method2243() {
+		String string_4_;
+		if (Light.objSelected == 1 && Class186.menuOptionCount < 2) {
+			string_4_ = new StringBuilder(AbstractGraphicsBuffer.aString1176).append(Class29.aString196).append(Class192.selectedObjName).append(" ->").toString();
+		} else if (Class88.aBoolean828 && Class186.menuOptionCount < 2) {
+			string_4_ = new StringBuilder(Class101.aString963).append(Class29.aString196).append(Light.aString369).append(" ->").toString();
+		} else if (!Class120_Sub14_Sub4.aBoolean3470 || !Class35.aBooleanArray299[81] || Class186.menuOptionCount <= 2) {
+			string_4_ = Class121.getMenuOptionName(-1 + Class186.menuOptionCount);
+		} else {
+			string_4_ = Class121.getMenuOptionName(Class186.menuOptionCount + -2);
 		}
-		return string;
+		if (Class186.menuOptionCount > 2) {
+			string_4_ = new StringBuilder(string_4_).append("<col=ffffff> / ").append(-2 + Class186.menuOptionCount).append(Class120_Sub11.aString2553).toString();
+		}
+		return string_4_;
 	}
 
 	static final void method2244(final int i, final Class120_Sub14_Sub5 class120_sub14_sub5, final Class73 class73) {
@@ -128,7 +119,7 @@ final class Class176 {
 							i_14_ += Class112.aClass98_1070.method817();
 						}
 					}
-					if (Queue.anInt1767 > -i_5_ + i_6_ && i_6_ - -i_5_ > Queue.anInt1767 && Class191.anInt2113 > -i_5_ + i_7_ && Class191.anInt2113 < i_7_ - -i_5_ || Queue.anInt1767 > i_15_ && i_17_ > Queue.anInt1767 && i_16_ < Class191.anInt2113 && Class191.anInt2113 < i_19_) {
+					if (Queue.lastMouseX > -i_5_ + i_6_ && i_6_ - -i_5_ > Queue.lastMouseX && Class191.lastMouseY > -i_5_ + i_7_ && Class191.lastMouseY < i_7_ - -i_5_ || Queue.lastMouseX > i_15_ && i_17_ > Queue.lastMouseX && i_16_ < Class191.lastMouseY && Class191.lastMouseY < i_19_) {
 						if (class73.aStringArray646[4] != null) {
 							Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, 0, 0, class73.aString645, class73.aStringArray646[4], (short) 1011, -1);
 						}

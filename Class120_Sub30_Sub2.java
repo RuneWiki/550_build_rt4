@@ -997,13 +997,9 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		Class69.aClass50_619 = class50;
 	}
 
-	final synchronized void method1778(final byte i) {
-		try {
-			for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst(); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
-				class120_sub22.method1706(true);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ld.LA(").append(i).append(')').toString());
+	final synchronized void method1778() {
+		for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst(); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
+			class120_sub22.method1706(true);
 		}
 	}
 

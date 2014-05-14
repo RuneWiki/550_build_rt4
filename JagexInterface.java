@@ -7,7 +7,7 @@ final class JagexInterface {
 	int anInt1930;
 	JagexInterface aClass189_1931 = null;
 	Object[] anObjectArray1932;
-	InterfaceClickMask aClass120_Sub20_1933;
+	InterfaceClickMask clickMask;
 	String aString1934;
 	int anInt1935 = 0;
 	String aString1936;
@@ -49,7 +49,7 @@ final class JagexInterface {
 	int anInt1972;
 	int[] anIntArray1973;
 	int anInt1974;
-	int anInt1975;
+	int clientCode;
 	Object[] anObjectArray1976;
 	int anInt1977;
 	int[] anIntArray1978;
@@ -69,7 +69,7 @@ final class JagexInterface {
 	int[] anIntArray1992;
 	Object[] anObjectArray1993;
 	String aString1994;
-	int anInt1995;
+	int type;
 	int anInt1996;
 	int anInt1997;
 	Object[] anObjectArray1998;
@@ -297,7 +297,7 @@ final class JagexInterface {
 				return null;
 			}
 			if (i <= 106) {
-				method2499((byte) -16, 110, -113);
+				method2499(110, -113);
 			}
 			final int i_17_ = this.anIntArray1957[i_16_];
 			if (i_17_ == -1) {
@@ -367,9 +367,9 @@ final class JagexInterface {
 
 	final void decodeOld(final Buffer buffer) {
 		this.aBoolean2041 = false;
-		this.anInt1995 = buffer.getUByte();
+		this.type = buffer.getUByte();
 		this.anInt1996 = buffer.getUByte();
-		this.anInt1975 = buffer.getUShort();
+		this.clientCode = buffer.getUShort();
 		this.anInt2015 = buffer.method1078(true);
 		this.anInt2061 = buffer.method1078(true);
 		this.anInt2014 = buffer.getUShort();
@@ -413,15 +413,15 @@ final class JagexInterface {
 			}
 		}
 		int i_30_ = 0;
-		if (this.anInt1995 == 0) {
+		if (this.type == 0) {
 			this.anInt1937 = buffer.getUShort();
 			this.aBoolean2045 = buffer.getUByte() == 1;
 		}
-		if (this.anInt1995 == 1) {
+		if (this.type == 1) {
 			buffer.getUShort();
 			buffer.getUByte();
 		}
-		if (this.anInt1995 == 2) {
+		if (this.type == 2) {
 			this.aByte1963 = (byte) 3;
 			this.aByte2092 = (byte) 3;
 			this.anIntArray1983 = new int[this.anInt2060 * this.anInt2014];
@@ -466,10 +466,10 @@ final class JagexInterface {
 				}
 			}
 		}
-		if (this.anInt1995 == 3) {
+		if (this.type == 3) {
 			this.aBoolean2019 = buffer.getUByte() == 1;
 		}
-		if (this.anInt1995 == 4 || this.anInt1995 == 1) {
+		if (this.type == 4 || this.type == 1) {
 			this.anInt2011 = buffer.getUByte();
 			this.anInt2009 = buffer.getUByte();
 			this.anInt2057 = buffer.getUByte();
@@ -479,23 +479,23 @@ final class JagexInterface {
 			}
 			this.aBoolean2040 = buffer.getUByte() == 1;
 		}
-		if (this.anInt1995 == 4) {
+		if (this.type == 4) {
 			this.aString1950 = buffer.getJString();
 			this.aString1936 = buffer.getJString();
 		}
-		if (this.anInt1995 == 1 || this.anInt1995 == 3 || this.anInt1995 == 4) {
+		if (this.type == 1 || this.type == 3 || this.type == 4) {
 			this.anInt2025 = buffer.getInt();
 		}
-		if (this.anInt1995 == 3 || this.anInt1995 == 4) {
+		if (this.type == 3 || this.type == 4) {
 			this.anInt1972 = buffer.getInt();
 			this.anInt2081 = buffer.getInt();
 			this.anInt2087 = buffer.getInt();
 		}
-		if (this.anInt1995 == 5) {
+		if (this.type == 5) {
 			this.anInt2055 = buffer.getInt();
 			this.anInt2012 = buffer.getInt();
 		}
-		if (this.anInt1995 == 6) {
+		if (this.type == 6) {
 			this.anInt2031 = 1;
 			this.anInt1961 = buffer.getUShort();
 			anInt1987 = 1;
@@ -518,7 +518,7 @@ final class JagexInterface {
 			this.anInt2047 = buffer.getUShort();
 			this.anInt2091 = buffer.getUShort();
 		}
-		if (this.anInt1995 == 7) {
+		if (this.type == 7) {
 			this.aByte2092 = (byte) 3;
 			this.aByte1963 = (byte) 3;
 			this.anIntArray1983 = new int[this.anInt2014 * this.anInt2060];
@@ -545,10 +545,10 @@ final class JagexInterface {
 				}
 			}
 		}
-		if (this.anInt1995 == 8) {
+		if (this.type == 8) {
 			this.aString1950 = buffer.getJString();
 		}
-		if (this.anInt1996 == 2 || this.anInt1995 == 2) {
+		if (this.anInt1996 == 2 || this.type == 2) {
 			this.aString2095 = buffer.getJString();
 			this.aString1979 = buffer.getJString();
 			final int i_40_ = 0x3f & buffer.getUShort();
@@ -577,7 +577,7 @@ final class JagexInterface {
 		if (this.anInt1996 == 6) {
 			i_30_ |= 0x1;
 		}
-		this.aClass120_Sub20_1933 = new InterfaceClickMask(i_30_, -1);
+		this.clickMask = new InterfaceClickMask(i_30_, -1);
 	}
 
 	final AbstractSprite method2492(final boolean bool, final byte i) {
@@ -684,12 +684,12 @@ final class JagexInterface {
 	final void decodeNew(final Buffer buffer) {
 		this.aBoolean2041 = true;
 		buffer.pos++;
-		this.anInt1995 = buffer.getUByte();
-		if ((0x80 & this.anInt1995) != 0) {
-			this.anInt1995 &= 0x7f;
-			System.out.println(buffer.getJString());
+		this.type = buffer.getUByte();
+		if ((0x80 & this.type) != 0) {
+			this.type &= 0x7f;
+			buffer.getJString();
 		}
-		this.anInt1975 = buffer.getUShort();
+		this.clientCode = buffer.getUShort();
 		this.anInt2015 = buffer.method1078(true);
 		this.anInt2061 = buffer.method1078(true);
 		this.anInt2014 = buffer.getUShort();
@@ -705,12 +705,12 @@ final class JagexInterface {
 			this.anInt2029 = (this.bitPacked & ~0xffff) + this.anInt2029;
 		}
 		this.aBoolean2045 = buffer.getUByte() == 1;
-		if (this.anInt1995 == 0) {
+		if (this.type == 0) {
 			this.anInt1930 = buffer.getUShort();
 			this.anInt1937 = buffer.getUShort();
 			this.aBoolean1960 = buffer.getUByte() == 1;
 		}
-		if (this.anInt1995 == 5) {
+		if (this.type == 5) {
 			this.anInt2055 = buffer.getInt();
 			this.anInt2070 = buffer.getUShort();
 			final int i_48_ = buffer.getUByte();
@@ -723,7 +723,7 @@ final class JagexInterface {
 			this.aBoolean1958 = buffer.getUByte() == 1;
 			this.anInt2025 = buffer.getInt();
 		}
-		if (this.anInt1995 == 6) {
+		if (this.type == 6) {
 			this.anInt2031 = 1;
 			this.anInt1961 = buffer.getUShort();
 			if (this.anInt1961 == 65535) {
@@ -750,7 +750,7 @@ final class JagexInterface {
 				this.anInt2007 = buffer.getUShort();
 			}
 		}
-		if (this.anInt1995 == 4) {
+		if (this.type == 4) {
 			this.anInt2067 = buffer.getUShort();
 			if (65535 == this.anInt2067) {
 				this.anInt2067 = -1;
@@ -762,12 +762,12 @@ final class JagexInterface {
 			this.aBoolean2040 = buffer.getUByte() == 1;
 			this.anInt2025 = buffer.getInt();
 		}
-		if (this.anInt1995 == 3) {
+		if (this.type == 3) {
 			this.anInt2025 = buffer.getInt();
 			this.aBoolean2019 = buffer.getUByte() == 1;
 			this.anInt1974 = buffer.getUByte();
 		}
-		if (this.anInt1995 == 9) {
+		if (this.type == 9) {
 			this.anInt1967 = buffer.getUByte();
 			this.anInt2025 = buffer.getInt();
 			this.aBoolean1989 = buffer.getUByte() == 1;
@@ -836,7 +836,7 @@ final class JagexInterface {
 				this.cursorId = -1;
 			}
 		}
-		this.aClass120_Sub20_1933 = new InterfaceClickMask(i_49_, i_59_);
+		this.clickMask = new InterfaceClickMask(i_49_, i_59_);
 		this.anObjectArray2034 = method2503(buffer);
 		this.anObjectArray2058 = method2503(buffer);
 		this.anObjectArray2074 = method2503(buffer);
@@ -920,14 +920,10 @@ final class JagexInterface {
 		}
 	}
 
-	static final void method2499(final byte i, final int i_64_, final int i_65_) {
-		try {
-			Class120_Sub12_Sub11.outputStream.putByteIsaac(178);
-			Class120_Sub12_Sub11.outputStream.method1115(255, i_64_);
-			Class120_Sub12_Sub11.outputStream.method1086((byte) 21, i_65_);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.S(").append(i).append(',').append(i_64_).append(',').append(i_65_).append(')').toString());
-		}
+	static final void method2499(final int i_64_, final int i_65_) {
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(178);
+		Class120_Sub12_Sub11.outputStream.putLEShort(i_64_);
+		Class120_Sub12_Sub11.outputStream.putInt2(i_65_);
 	}
 
 	static final void method2500() {
@@ -1184,7 +1180,7 @@ final class JagexInterface {
 		this.anInt2057 = 0;
 		this.aBoolean2040 = false;
 		this.anInt2043 = 0;
-		this.anInt1975 = 0;
+		this.clientCode = 0;
 		this.anInt2044 = 0;
 		this.anInt1946 = 0;
 		this.anInt1937 = 0;
@@ -1202,7 +1198,7 @@ final class JagexInterface {
 		this.anInt2067 = -1;
 		this.aString1964 = "";
 		this.anInt2064 = 0;
-		this.aClass120_Sub20_1933 = Class110.aClass120_Sub20_1053;
+		this.clickMask = Class110.aClass120_Sub20_1053;
 		this.anInt2081 = 0;
 		this.anInt2060 = 0;
 		this.anInt2069 = 0;

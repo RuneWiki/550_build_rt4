@@ -7,7 +7,7 @@ final class Class83 implements Runnable {
 	static int[] anIntArray789;
 	private Queue aClass177_790 = new Queue();
 	private boolean aBoolean791 = false;
-	static int anInt792;
+	static int renderX;
 	int anInt793 = 0;
 	static Class50 aClass50_794;
 	private Thread aThread795;
@@ -185,7 +185,7 @@ final class Class83 implements Runnable {
 			anIntArray789 = null;
 			aClass50_794 = null;
 			if (i != 31425) {
-				anInt792 = -67;
+				renderX = -67;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.D(").append(i).append(')').toString());
@@ -254,7 +254,7 @@ final class Class83 implements Runnable {
 				this.anInt793++;
 				aClass177_790.notifyAll();
 				if (i != -377) {
-					anInt792 = 58;
+					renderX = 58;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

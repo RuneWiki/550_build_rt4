@@ -77,7 +77,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 				}
 			}
 		}
-		final boolean bool = Class120_Sub26.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
+		final boolean bool = OverridedJInterface.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
 		if (HDToolkit.glEnabled) {
 			final GL gl = HDToolkit.gl;
 			gl.glPushMatrix();
@@ -112,7 +112,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 					}
 					if (i_15_ == 0 && Class74.sceneryShadowsType > 0) {
 						HDToolkit.method527(101.5F);
-						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, Class120_Sub26.anIntArrayArrayArray2741[0]);
+						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.anIntArrayArrayArray2741[0]);
 					}
 				}
 				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub1.groundTiles);
@@ -235,7 +235,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class166.method2181(5, i + 55);
 			Class43.method341(5, i ^ ~0x17);
 			JagexInterface.method2490(5, 69);
-			Class120_Sub12_Sub30.method1360(-99, 5);
+			Class120_Sub12_Sub30.method1360(5);
 			if (i != 23) {
 				anInt3590 = -94;
 			}

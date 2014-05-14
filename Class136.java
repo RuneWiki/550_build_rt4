@@ -19,41 +19,32 @@ final class Class136 {
 		anInt1320 = 0;
 	}
 
-	static final String method1977(final boolean bool, long l) {
-		String string;
-		try {
-			if (bool) {
-				addObjectPile(0, 92, 4, -71, null, -105L, null, null);
-			}
-			if (-1L <= (l ^ 0xffffffffffffffffL) || -6582952005840035282L >= (l ^ 0xffffffffffffffffL)) {
-				return null;
-			}
-			if ((l % 37L ^ 0xffffffffffffffffL) == -1L) {
-				return null;
-			}
-			int i = 0;
-			for (long l_0_ = l; 0L != l_0_; l_0_ /= 37L) {
-				i++;
-			}
-			final StringBuffer stringbuffer = new StringBuffer(i);
-			while (-1L != (l ^ 0xffffffffffffffffL)) {
-				final long l_1_ = l;
-				l /= 37L;
-				char c = Class120_Sub12_Sub16.aCharArray3254[(int) (-(l * 37L) + l_1_)];
-				if (c == '_') {
-					c = '\u00a0';
-					final int i_2_ = stringbuffer.length() + -1;
-					stringbuffer.setCharAt(i_2_, Character.toUpperCase(stringbuffer.charAt(i_2_)));
-				}
-				stringbuffer.append(c);
-			}
-			stringbuffer.reverse();
-			stringbuffer.setCharAt(0, Character.toUpperCase(stringbuffer.charAt(0)));
-			string = stringbuffer.toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pn.A(").append(bool).append(',').append(l).append(')').toString());
+	static final String longToString(long l) {
+		if (-1L <= (l ^ 0xffffffffffffffffL) || -6582952005840035282L >= (l ^ 0xffffffffffffffffL)) {
+			return null;
 		}
-		return string;
+		if ((l % 37L ^ 0xffffffffffffffffL) == -1L) {
+			return null;
+		}
+		int i = 0;
+		for (long l_0_ = l; 0L != l_0_; l_0_ /= 37L) {
+			i++;
+		}
+		final StringBuffer stringbuffer = new StringBuffer(i);
+		while (-1L != (l ^ 0xffffffffffffffffL)) {
+			final long l_1_ = l;
+			l /= 37L;
+			char c = Class120_Sub12_Sub16.aCharArray3254[(int) (-(l * 37L) + l_1_)];
+			if (c == '_') {
+				c = '\u00a0';
+				final int i_2_ = stringbuffer.length() - 1;
+				stringbuffer.setCharAt(i_2_, Character.toUpperCase(stringbuffer.charAt(i_2_)));
+			}
+			stringbuffer.append(c);
+		}
+		stringbuffer.reverse();
+		stringbuffer.setCharAt(0, Character.toUpperCase(stringbuffer.charAt(0)));
+		return stringbuffer.toString();
 	}
 
 	static final void addObjectPile(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final long l, final SceneGraphNode class180_6_, final SceneGraphNode class180_7_) {

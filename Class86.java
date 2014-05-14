@@ -16,43 +16,32 @@ final class Class86 {
 		anInt818 = -1;
 	}
 
-	static final void method727(final int i) {
-		try {
-			if (!Class154.aBoolean1439) {
-				Class118.aBoolean1134 = true;
-				if (!Class134.aBoolean1277) {
-					Class120_Sub12_Sub4.aFloat3154 += (12.0F - Class120_Sub12_Sub4.aFloat3154) / 2.0F;
-				} else {
-					Class120_Sub12_Sub21.aFloat3293 = 47 + (int) Class120_Sub12_Sub21.aFloat3293 & ~0xf;
-				}
-				Class154.aBoolean1439 = true;
-				if (i != -16) {
-					method727(-93);
-				}
+	static final void method727() {
+		if (!Class154.aBoolean1439) {
+			Class118.aBoolean1134 = true;
+			if (!Class134.aBoolean1277) {
+				Class120_Sub12_Sub4.aFloat3154 += (12.0F - Class120_Sub12_Sub4.aFloat3154) / 2.0F;
+			} else {
+				Class120_Sub12_Sub21.aFloat3293 = 47 + (int) Class120_Sub12_Sub21.aFloat3293 & ~0xf;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("je.D(").append(i).append(')').toString());
+			Class154.aBoolean1439 = true;
 		}
 	}
 
-	static final void method728(final int i, final boolean bool, final JagexInterface jagexInterface, final int i_0_) {
-		try {
-			if (!bool && (Class186.anInt1906 >= 2 || Light.anInt393 != 0 || Class88.aBoolean828)) {
-				final String string = Class176.method2243(!bool);
-				if (jagexInterface == null) {
-					final int i_1_ = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, Class52.anInt478);
-					Class120_Sub12_Sub1.method1195(i_1_ + Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1459(string), 15, 4 + i, i_0_);
-				} else {
-					Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
-					if (class120_sub14_sub8 == null) {
-						class120_sub14_sub8 = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303;
-					}
-					class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2025, jagexInterface.anInt2026, jagexInterface.anInt2011, jagexInterface.anInt2009, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
-					Class120_Sub12_Sub1.method1195(Class173.anIntArray1730[2], Class173.anIntArray1730[3], Class173.anIntArray1730[0], Class173.anIntArray1730[1]);
+	static final void method728(final JagexInterface jagexInterface, final int i, final int i_0_) {
+		if ((Class186.menuOptionCount >= 2 || Light.objSelected != 0 || Class88.aBoolean828)) {
+			final String string = Class176.method2243();
+			if (jagexInterface == null) {
+				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, Class52.anInt478);
+				Class120_Sub12_Sub1.method1195(i_1_ + Class120_Sub12_Sub22.boldFont.method1459(string), 15, 4 + i, i_0_);
+			} else {
+				Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
+				if (class120_sub14_sub8 == null) {
+					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
+				class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2025, jagexInterface.anInt2026, jagexInterface.anInt2011, jagexInterface.anInt2009, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
+				Class120_Sub12_Sub1.method1195(Class173.anIntArray1730[2], Class173.anIntArray1730[3], Class173.anIntArray1730[0], Class173.anIntArray1730[1]);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("je.F(").append(i).append(',').append(bool).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -128,7 +117,7 @@ final class Class86 {
 		try {
 			Class166.aClass50_1613 = class50;
 			if (i >= -19) {
-				method728(-46, true, null, -81);
+				method728(null, -46, -81);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("je.A(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());

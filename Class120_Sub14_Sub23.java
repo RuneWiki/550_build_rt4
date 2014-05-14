@@ -42,11 +42,11 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 			SpotAnimType.anInt986 = i_3_;
 			NpcType.anInt1660 = i;
 			if (bool && Class120_Sub17.anInt2621 >= 100) {
-				Class83.anInt792 = 128 * Class99.anInt951 + 64;
-				GroundObjectNode.anInt3626 = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.anInt3200 = Class22.method197(Class173.gameLevel, Class83.anInt792, GroundObjectNode.anInt3626) - SpotAnimType.anInt986;
+				Class83.renderX = 128 * Class99.anInt951 + 64;
+				GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
+				Class120_Sub12_Sub10.renderY = Class22.method197(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ) - SpotAnimType.anInt986;
 			}
-			client.anInt2200 = 2;
+			client.cameraType = 2;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}

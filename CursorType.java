@@ -78,13 +78,13 @@ final class CursorType {
 					method1914(100, 27);
 				}
 				if (!Class15.menuOpen) {
-					if (i_5_ == 1 && Class186.anInt1906 > 0) {
-						final short i_6_ = Class120_Sub29.aShortArray2777[Class186.anInt1906 + -1];
+					if (i_5_ == 1 && Class186.menuOptionCount > 0) {
+						final short i_6_ = Class120_Sub29.aShortArray2777[Class186.menuOptionCount + -1];
 						if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
-							final int i_7_ = Class120_Sub29.anIntArray2769[Class186.anInt1906 - 1];
-							final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.anInt1906 - 1];
+							final int i_7_ = Class120_Sub29.anIntArray2769[Class186.menuOptionCount - 1];
+							final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];
 							final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
-							final InterfaceClickMask class120_sub20 = client.method54(jagexInterface);
+							final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
 							if (class120_sub20.method1681(-9617) || class120_sub20.method1691(-104)) {
 								JavaObject.anInt3915 = 0;
 								Class126.aBoolean1207 = false;
@@ -100,39 +100,39 @@ final class CursorType {
 							}
 						}
 					}
-					if (i_5_ == 1 && (Class69.anInt617 == 1 && Class186.anInt1906 > 2 || Class120_Sub14_Sub4.method1438(0, Class186.anInt1906 + -1))) {
+					if (i_5_ == 1 && (Class69.anInt617 == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(0, Class186.menuOptionCount + -1))) {
 						i_5_ = 2;
 					}
-					if (i_5_ == 2 && Class186.anInt1906 > 0 || FileSystem.anInt455 == 1) {
+					if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
 						Class120_Sub12_Sub28.method1349((byte) 103);
 					}
-					if (i_5_ == 1 && Class186.anInt1906 > 0 || FileSystem.anInt455 == 2) {
+					if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
 						Class191.method2508((byte) 72);
 					}
 				} else {
 					if (i_5_ != 1) {
-						final int i_9_ = Queue.anInt1767;
-						final int i_10_ = Class191.anInt2113;
-						if (i_9_ < -10 + Class126.anInt1209 || i_9_ > 10 + Class120_Sub24.anInt2724 + Class126.anInt1209 || i_10_ < -10 + Class120_Sub16.anInt2600 || 10 + Class120_Sub14_Sub10.anInt3537 + Class120_Sub16.anInt2600 < i_10_) {
+						final int i_9_ = Queue.lastMouseX;
+						final int i_10_ = Class191.lastMouseY;
+						if (i_9_ < -10 + Class126.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Class126.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + Class120_Sub14_Sub10.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
 							Class15.menuOpen = false;
-							Class120_Sub12_Sub1.method1195(Class120_Sub24.anInt2724, Class120_Sub14_Sub10.anInt3537, Class126.anInt1209, Class120_Sub16.anInt2600);
+							Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
 						}
 					}
 					if (i_5_ == 1) {
-						final int i_11_ = Class126.anInt1209;
-						final int i_12_ = Class120_Sub16.anInt2600;
+						final int i_11_ = Class126.menuDrawX;
+						final int i_12_ = Class120_Sub16.menuDrawY;
 						final int i_13_ = Class50.anInt449;
 						final int i_14_ = Class120_Sub12_Sub36.anInt3424;
-						final int i_15_ = Class120_Sub24.anInt2724;
+						final int i_15_ = Class120_Sub24.menuWidth;
 						int i_16_ = -1;
-						for (int i_17_ = 0; Class186.anInt1906 > i_17_; i_17_++) {
+						for (int i_17_ = 0; Class186.menuOptionCount > i_17_; i_17_++) {
 							if (!Class186.aBoolean1899) {
-								final int i_18_ = (Class186.anInt1906 + -1 + -i_17_) * 15 + i_12_ - -31;
+								final int i_18_ = (Class186.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
 								if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
 									i_16_ = i_17_;
 								}
 							} else {
-								final int i_19_ = 15 * (-i_17_ + Class186.anInt1906 + -1) + 33 + i_12_;
+								final int i_19_ = 15 * (-i_17_ + Class186.menuOptionCount + -1) + 33 + i_12_;
 								if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_19_ + -13 < i_14_ && i_19_ + 3 > i_14_) {
 									i_16_ = i_17_;
 								}
@@ -142,7 +142,7 @@ final class CursorType {
 							GameShell.method31((byte) 96, i_16_);
 						}
 						Class15.menuOpen = false;
-						Class120_Sub12_Sub1.method1195(Class120_Sub24.anInt2724, Class120_Sub14_Sub10.anInt3537, Class126.anInt1209, Class120_Sub16.anInt2600);
+						Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
 					}
 				}
 			}

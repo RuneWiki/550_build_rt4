@@ -380,24 +380,24 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1372(final int i_36_) {
-		if (i_36_ != -1 && Class57.interfaceLoaded[i_36_]) {
-			Class101_Sub4.interfaceJs5.method438(false, i_36_);
-			if (Node.interfaceCache[i_36_] != null) {
-				boolean bool = true;
-				for (int i_37_ = 0; i_37_ < Node.interfaceCache[i_36_].length; i_37_++) {
-					if (Node.interfaceCache[i_36_][i_37_] != null) {
-						if (Node.interfaceCache[i_36_][i_37_].anInt1995 == 2) {
-							bool = false;
+	static final void uncacheJInterface(final int group) {
+		if (group != -1 && Class57.interfaceLoaded[group]) {
+			Class101_Sub4.interfaceJs5.clearFiles(group);
+			if (Node.interfaceCache[group] != null) {
+				boolean discard = true;
+				for (int file = 0; file < Node.interfaceCache[group].length; file++) {
+					if (Node.interfaceCache[group][file] != null) {
+						if (Node.interfaceCache[group][file].type == 2) {
+							discard = false;
 						} else {
-							Node.interfaceCache[i_36_][i_37_] = null;
+							Node.interfaceCache[group][file] = null;
 						}
 					}
 				}
-				if (bool) {
-					Node.interfaceCache[i_36_] = null;
+				if (discard) {
+					Node.interfaceCache[group] = null;
 				}
-				Class57.interfaceLoaded[i_36_] = false;
+				Class57.interfaceLoaded[group] = false;
 			}
 		}
 	}

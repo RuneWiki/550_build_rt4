@@ -26,10 +26,10 @@ final class OutputStream_Sub1 extends OutputStream {
 			if (i != 9) {
 				return -10;
 			}
-			Class120_Sub26.anInt2742++;
-			if (Class120_Sub26.anInt2742 > 4) {
+			OverridedJInterface.anInt2742++;
+			if (OverridedJInterface.anInt2742 > 4) {
 				Decimator.anInt1716 = 0;
-				Class120_Sub26.anInt2742 = 0;
+				OverridedJInterface.anInt2742 = 0;
 				return i_0_;
 			}
 			Decimator.anInt1716 = 0;

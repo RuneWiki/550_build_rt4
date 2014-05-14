@@ -5,7 +5,6 @@
 final class Class24 {
 	static boolean aBoolean139 = false;
 	static int[][][] anIntArrayArrayArray140;
-	static int anInt141;
 	static String aString142 = "Please wait - attempting to reestablish.";
 	static Class50 aClass50_143;
 	static float aFloat144;
@@ -34,25 +33,7 @@ final class Class24 {
 			Class187.aClass85Array1909[i_0_] = null;
 		}
 		Class15.menuOpen = false;
-		Canvas_Sub1.anInt11 = 0;
-		Class150.anInt1409 = 0;
-		Canvas_Sub1.anInt13 = 0;
-		Class118.anInt1139 = 0;
-		GameEntity.anInt3023 = 0;
-		Class193.anInt2131 = 0;
-		Class126.anInt1208 = 0;
-		PacketBuffer.anInt3122 = 0;
-		Class120_Sub15.anInt2590 = 0;
-		Canvas_Sub1.anInt12 = 0;
-		Class40.anInt330 = 0;
-		Class5.anInt2155 = 0;
-		Class120_Sub17.anInt2613 = 0;
-		Canvas_Sub1.anInt10 = 0;
-		Class120_Sub12_Sub9.anInt3198 = 0;
-		Class22.anInt132 = 0;
-		anInt141 = 0;
-		Class31.anInt242 = 0;
-		Class186.anInt1906 = 0;
+		Class186.menuOptionCount = 0;
 		Class120_Sub12_Sub39.method1402(3, 0);
 		for (int i_1_ = 0; i_1_ < 100; i_1_++) {
 			Class160.aStringArray1502[i_1_] = null;
@@ -64,7 +45,7 @@ final class Class24 {
 		OutputStream_Sub1.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
 		Class120_Sub14_Sub1.anInt3447 = -40 + (int) (Math.random() * 80.0);
 		Class88.aBoolean828 = false;
-		Light.anInt393 = 0;
+		Light.objSelected = 0;
 		Class29.anInt195 = (int) (110.0 * Math.random()) - 55;
 		Class150.anInt1407 = 0;
 		AbstractGraphicsBuffer.method1842(50);
@@ -107,19 +88,19 @@ final class Class24 {
 		for (int i_7_ = 0; Class120_Sub12_Sub25.anIntArray3320.length > i_7_; i_7_++) {
 			Class120_Sub12_Sub25.anIntArray3320[i_7_] = -1;
 		}
-		if ((Class69.anInt616 ^ 0xffffffff) != 0) {
-			Class120_Sub12_Sub32.method1372(Class69.anInt616);
+		if (Class69.rootInterfaceId != -1) {
+			Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 		}
-		for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
-			Class120_Sub19.method1675(class120_sub26, true);
+		for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+			Class120_Sub19.removeOverridedInterface(class120_sub26, true);
 		}
-		Class69.anInt616 = -1;
-		Class120_Sub12_Sub13.aClass75_3234 = new Hashtable(8);
-		Class43.method342(-6086);
+		Class69.rootInterfaceId = -1;
+		Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
+		Class43.method342();
 		Class156.aClass189_1454 = null;
-		Class186.anInt1906 = 0;
+		Class186.menuOptionCount = 0;
 		Class15.menuOpen = false;
-		Class26.aClass144_159.method2042(0, -1, null, -1, new int[5], false);
+		Class26.aClass144_159.method2042(-1, null, -1, new int[5], false);
 		for (int i_8_ = 0; i_8_ < 8; i_8_++) {
 			Buffer.playerOptions[i_8_] = null;
 			Class120_Sub10.playerOptionsOnTop[i_8_] = false;
@@ -151,7 +132,7 @@ final class Class24 {
 		Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
 		LocType.method2450();
 		Class186.aBoolean1899 = false;
-		Class120_Sub14_Sub11.method1521(false);
+		Class120_Sub14_Sub11.sendDisplayInfo();
 	}
 
 	public static void method206(final byte i) {

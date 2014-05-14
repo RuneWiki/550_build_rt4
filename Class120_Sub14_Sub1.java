@@ -5,7 +5,7 @@
 final class Class120_Sub14_Sub1 extends NodeSub {
 	Class180_Sub4 aClass180_Sub4_3446;
 	static int anInt3447 = 0;
-	static int anInt3448;
+	static int selectedObjId;
 	static String aString3449 = "Take";
 
 	public static void method1412(final int i) {

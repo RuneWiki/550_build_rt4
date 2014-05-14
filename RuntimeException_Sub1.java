@@ -11,13 +11,13 @@ final class RuntimeException_Sub1 extends RuntimeException {
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_2145;
 	Throwable aThrowable2146;
 
-	static final Class120_Sub26 method2528(final int i, final int i_0_, final byte i_1_, final int i_2_) {
-		Class120_Sub26 class120_sub26;
+	static final OverridedJInterface method2528(final int i, final int i_0_, final byte i_1_, final int i_2_) {
+		OverridedJInterface class120_sub26;
 		try {
-			final Class120_Sub26 class120_sub26_3_ = new Class120_Sub26();
-			class120_sub26_3_.anInt2744 = i_0_;
-			class120_sub26_3_.anInt2745 = i;
-			Class120_Sub12_Sub13.aClass75_3234.put(class120_sub26_3_, i_2_);
+			final OverridedJInterface class120_sub26_3_ = new OverridedJInterface();
+			class120_sub26_3_.type = i_0_;
+			class120_sub26_3_.interfaceId = i;
+			Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26_3_, i_2_);
 			Class120_Sub14_Sub1.method1413(-117, i);
 			final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 			if (jagexInterface != null) {
@@ -27,33 +27,33 @@ final class RuntimeException_Sub1 extends RuntimeException {
 				InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
 				Class156.aClass189_1454 = null;
 			}
-			final int i_4_ = Class186.anInt1906;
+			final int i_4_ = Class186.menuOptionCount;
 			for (int i_5_ = 0; i_4_ > i_5_; i_5_++) {
 				if (Class150.method2064(Class120_Sub29.aShortArray2777[i_5_])) {
-					Class120_Sub16.method1662(i_5_);
+					Class120_Sub16.shiftOptions(i_5_);
 				}
 			}
-			if (Class186.anInt1906 == 1) {
+			if (Class186.menuOptionCount == 1) {
 				Class15.menuOpen = false;
-				Class120_Sub12_Sub1.method1195(Class120_Sub24.anInt2724, Class120_Sub14_Sub10.anInt3537, Class126.anInt1209, Class120_Sub16.anInt2600);
+				Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
 			} else {
-				Class120_Sub12_Sub1.method1195(Class120_Sub24.anInt2724, Class120_Sub14_Sub10.anInt3537, Class126.anInt1209, Class120_Sub16.anInt2600);
-				int i_6_ = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1459(Class111.aString1056);
-				for (int i_7_ = 0; Class186.anInt1906 > i_7_; i_7_++) {
-					final int i_8_ = Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1459(Class121.method1838((byte) 87, i_7_));
+				Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
+				int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
+				for (int i_7_ = 0; Class186.menuOptionCount > i_7_; i_7_++) {
+					final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_7_));
 					if (i_6_ < i_8_) {
 						i_6_ = i_8_;
 					}
 				}
-				Class120_Sub14_Sub10.anInt3537 = (Class186.aBoolean1899 ? 26 : 22) + Class186.anInt1906 * 15;
-				Class120_Sub24.anInt2724 = 8 + i_6_;
+				Class120_Sub14_Sub10.menuHeight = (Class186.aBoolean1899 ? 26 : 22) + Class186.menuOptionCount * 15;
+				Class120_Sub24.menuWidth = 8 + i_6_;
 			}
 			if (jagexInterface != null) {
 				ProducingGraphicsBuffer.method1854(false, false, jagexInterface);
 			}
 			JagexSocket.method376(true, i);
-			if (Class69.anInt616 != -1) {
-				InterfaceClickMask.method1689(1, Class69.anInt616);
+			if (Class69.rootInterfaceId != -1) {
+				InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
 			}
 			class120_sub26 = class120_sub26_3_;
 		} catch (final RuntimeException runtimeexception) {

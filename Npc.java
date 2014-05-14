@@ -9,14 +9,10 @@ final class Npc extends GameEntity {
 	static Class50 aClass50_3753;
 	static byte[][][] aByteArrayArrayArray3754;
 
-	final void method2346(final byte i, final NpcType npcType) {
-		try {
-			this.npcType = npcType;
-			if (this.aClass108_Sub2_2988 != null) {
-				this.aClass108_Sub2_2988.method947();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.Q(").append(i).append(',').append(npcType != null ? "{...}" : "null").append(')').toString());
+	final void setNpcType(final NpcType npcType) {
+		this.npcType = npcType;
+		if (this.aClass108_Sub2_2988 != null) {
+			this.aClass108_Sub2_2988.method947();
 		}
 	}
 

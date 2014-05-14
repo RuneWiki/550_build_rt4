@@ -7,9 +7,8 @@ final class Class40 {
 	boolean[] aBooleanArray327;
 	int anInt328 = -1;
 	private int[] anIntArray329;
-	static int anInt330;
 	static Class50 aClass50_331;
-	boolean aBoolean332 = false;
+	boolean tween = false;
 	static int anInt333 = 0;
 	int anInt334;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array335;
@@ -40,7 +39,7 @@ final class Class40 {
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_5_ = null;
 			i_1_ &= 0x3;
-			if ((this.aBoolean332 || Class164.aBoolean1586) && (i ^ 0xffffffff) != 0 && this.anIntArray342.length > i) {
+			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && this.anIntArray342.length > i) {
 				i = this.anIntArray342[i];
 				class120_sub14_sub18_5_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
 				i &= 0xffff;
@@ -150,7 +149,7 @@ final class Class40 {
 				return class180_sub7.method2376(true, true, true);
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_15_ = null;
-			if ((this.aBoolean332 || Class164.aBoolean1586) && i_10_ != -1 && i_10_ < this.anIntArray342.length) {
+			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.anIntArray342.length) {
 				i_10_ = this.anIntArray342[i_10_];
 				class120_sub14_sub18_15_ = Class120_Sub12_Sub31.method1367(i_10_ >> 16, -1);
 				i_10_ &= 0xffff;
@@ -167,7 +166,7 @@ final class Class40 {
 						i_18_ &= 0xffff;
 					}
 				}
-				if ((this.aBoolean332 || Class164.aBoolean1586) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < anIntArray329.length) {
+				if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < anIntArray329.length) {
 					i_17_ = anIntArray329[i_10_];
 					if (-65536 != (i_17_ ^ 0xffffffff)) {
 						class120_sub14_sub18_19_ = Class120_Sub12_Sub31.method1367(i_17_ >> 16, -1);
@@ -212,7 +211,7 @@ final class Class40 {
 				return class180_sub7.method2381(true, true, true);
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_28_ = null;
-			if ((this.aBoolean332 || Class164.aBoolean1586) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.anIntArray342.length) {
+			if ((this.tween || Class164.forceTween) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.anIntArray342.length) {
 				i_25_ = this.anIntArray342[i_25_];
 				class120_sub14_sub18_28_ = Class120_Sub12_Sub31.method1367(i_25_ >> 16, -1);
 				i_25_ &= 0xffff;
@@ -278,7 +277,7 @@ final class Class40 {
 										if (i != 13) {
 											if (i != 14) {
 												if (i == 15) {
-													this.aBoolean332 = true;
+													this.tween = true;
 												} else if (i == 16) {
 													this.aBoolean340 = true;
 												}
@@ -351,7 +350,7 @@ final class Class40 {
 			}
 			i_51_ &= 0x3;
 			Class120_Sub14_Sub18 class120_sub14_sub18_54_ = null;
-			if ((this.aBoolean332 || Class164.aBoolean1586) && (i ^ 0xffffffff) != 0 && i < this.anIntArray342.length) {
+			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.anIntArray342.length) {
 				i = this.anIntArray342[i];
 				class120_sub14_sub18_54_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
 				i &= 0xffff;

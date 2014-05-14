@@ -219,38 +219,32 @@ final class FileSystem {
 		return string;
 	}
 
-	static final void method448(final boolean bool) {
-		try {
-			final int i = Class126.anInt1209;
-			final int i_36_ = Class120_Sub16.anInt2600;
-			final int i_37_ = Class120_Sub24.anInt2724;
-			if (bool) {
-				final int i_39_ = Class120_Sub14_Sub10.anInt3537;
-				if (!HDToolkit.glEnabled) {
-					GraphicsLD.fillRect(i, i_36_, i_37_, i_39_, 6116423);
-					GraphicsLD.fillRect(i + 1, i_36_ - -1, -2 + i_37_, 16, 0);
-					GraphicsLD.drawRect(i - -1, 18 + i_36_, -2 + i_37_, -19 + i_39_, 0);
-				} else {
-					GraphicsHD.fillRect(i, i_36_, i_37_, i_39_, 6116423);
-					GraphicsHD.fillRect(1 + i, i_36_ + 1, -2 + i_37_, 16, 0);
-					GraphicsHD.drawRect(1 + i, 18 + i_36_, i_37_ + -2, i_39_ + -19, 0);
-				}
-				Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1466(Class111.aString1056, i + 3, 14 + i_36_, 6116423, -1);
-				final int i_40_ = Queue.anInt1767;
-				final int i_41_ = Class191.anInt2113;
-				for (int i_42_ = 0; i_42_ < Class186.anInt1906; i_42_++) {
-					final int i_43_ = i_36_ - -31 - -(15 * (Class186.anInt1906 + -1 + -i_42_));
-					int i_44_ = 16777215;
-					if (i_40_ > i && i + i_37_ > i_40_ && i_41_ > i_43_ + -13 && i_41_ < 3 + i_43_) {
-						i_44_ = 16776960;
-					}
-					Class120_Sub12_Sub22.aClass120_Sub14_Sub8_3303.method1466(Class121.method1838((byte) 84, i_42_), i - -3, i_43_, i_44_, 0);
-				}
-				Class54.method482(Class126.anInt1209, Class120_Sub16.anInt2600, Class120_Sub14_Sub10.anInt3537, Class120_Sub24.anInt2724);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fm.E(").append(bool).append(')').toString());
+	static final void drawMenu() {
+		final int x = Class126.menuDrawX;
+		final int y = Class120_Sub16.menuDrawY;
+		final int width = Class120_Sub24.menuWidth;
+		final int height = Class120_Sub14_Sub10.menuHeight;
+		if (!HDToolkit.glEnabled) {
+			GraphicsLD.fillRect(x, y, width, height, 6116423);
+			GraphicsLD.fillRect(x + 1, y + 1, width - 2, 16, 0);
+			GraphicsLD.drawRect(x + 1, y + 18, width - 2, height - 19, 0);
+		} else {
+			GraphicsHD.fillRect(x, y, width, height, 6116423);
+			GraphicsHD.fillRect(x + 1, y + 1, width - 2, 16, 0);
+			GraphicsHD.drawRect(x + 1, y + 18, width - 2, height - 19, 0);
 		}
+		Class120_Sub12_Sub22.boldFont.method1466(Class111.aString1056, x + 3, y + 14, 6116423, -1);
+		final int mouseX = Queue.lastMouseX;
+		final int mouseY = Class191.lastMouseY;
+		for (int optionId = 0; optionId < Class186.menuOptionCount; optionId++) {
+			final int optionY = y + 31 + (15 * (Class186.menuOptionCount - 1 - optionId));
+			int optionColor = 16777215;
+			if (mouseX > x && x + width > mouseX && mouseY > optionY - 13 && mouseY < 3 + optionY) {
+				optionColor = 16776960;
+			}
+			Class120_Sub12_Sub22.boldFont.method1466(Class121.getMenuOptionName(optionId), x + 3, optionY, optionColor, 0);
+		}
+		Class54.method482(Class126.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub14_Sub10.menuHeight, Class120_Sub24.menuWidth);
 	}
 
 	static final void checkPlayerLocation() {

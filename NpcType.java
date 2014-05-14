@@ -379,27 +379,21 @@ final class NpcType {
 	}
 
 	final boolean method2204(final int i) {
-		boolean bool;
-		try {
-			if (this.childrenIDs == null) {
-				if (this.anInt1681 == -1 && (this.anInt1682 ^ 0xffffffff) == 0 && (this.anInt1676 ^ 0xffffffff) == 0) {
-					return false;
-				}
-				return true;
+		if (this.childrenIDs == null) {
+			if (this.anInt1681 == -1 && (this.anInt1682 ^ 0xffffffff) == 0 && (this.anInt1676 ^ 0xffffffff) == 0) {
+				return false;
 			}
-			for (int i_29_ = i; this.childrenIDs.length > i_29_; i_29_++) {
-				if ((this.childrenIDs[i_29_] ^ 0xffffffff) != 0) {
-					final NpcType class170_30_ = NpcType.list(this.childrenIDs[i_29_]);
-					if (class170_30_.anInt1681 != -1 || (class170_30_.anInt1682 ^ 0xffffffff) != 0 || (class170_30_.anInt1676 ^ 0xffffffff) != 0) {
-						return true;
-					}
-				}
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.A(").append(i).append(')').toString());
+			return true;
 		}
-		return bool;
+		for (int i_29_ = i; this.childrenIDs.length > i_29_; i_29_++) {
+			if ((this.childrenIDs[i_29_] ^ 0xffffffff) != 0) {
+				final NpcType class170_30_ = NpcType.list(this.childrenIDs[i_29_]);
+				if (class170_30_.anInt1681 != -1 || (class170_30_.anInt1682 ^ 0xffffffff) != 0 || (class170_30_.anInt1676 ^ 0xffffffff) != 0) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	final void method2205(final int i) {
@@ -675,7 +669,7 @@ final class NpcType {
 							bool_75_ |= Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_79_].method1578((byte) -39, i_83_);
 							bool_77_ |= class40_80_.aBoolean341;
 						}
-						if ((class40_80_.aBoolean332 || Class164.aBoolean1586) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.anIntArray342.length) {
+						if ((class40_80_.tween || Class164.forceTween) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.anIntArray342.length) {
 							Class120_Sub28.anIntArray2761[i_79_] = class40_80_.anIntArray338[i_81_];
 							Cache.anIntArray124[i_79_] = class150s[i_79_].anInt1410;
 							int i_84_ = class40_80_.anIntArray342[i_82_];
@@ -717,7 +711,7 @@ final class NpcType {
 					bool_75_ |= class120_sub14_sub18.method1578((byte) -39, i_87_);
 					bool_77_ |= class40_49_.aBoolean341;
 				}
-				if ((class40_49_.aBoolean332 || Class164.aBoolean1586) && i_50_ != -1 && i_50_ < class40_49_.anIntArray342.length) {
+				if ((class40_49_.tween || Class164.forceTween) && i_50_ != -1 && i_50_ < class40_49_.anIntArray342.length) {
 					i_86_ = class40_49_.anIntArray342[i_50_];
 					i_89_ = class40_49_.anIntArray338[i];
 					final int i_91_ = i_86_ >>> 16;
@@ -748,7 +742,7 @@ final class NpcType {
 					bool_75_ |= class120_sub14_sub18_95_.method1578((byte) -39, i_93_);
 					bool_77_ |= class40.aBoolean341;
 				}
-				if ((class40.aBoolean332 || Class164.aBoolean1586) && i_51_ != -1 && i_51_ < class40.anIntArray342.length) {
+				if ((class40.tween || Class164.forceTween) && i_51_ != -1 && i_51_ < class40.anIntArray342.length) {
 					i_94_ = class40.anIntArray338[i_52_];
 					i_92_ = class40.anIntArray342[i_51_];
 					final int i_98_ = i_92_ >>> 16;

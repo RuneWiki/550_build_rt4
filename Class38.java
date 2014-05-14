@@ -79,24 +79,24 @@ final class Class38 {
 	}
 
 	static final boolean method315(final int i, final int level) {
-		if (Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532 == null) {
+		if (Class120_Sub14_Sub10.landScapeAsSprite == null) {
 			if (!HDToolkit.glEnabled && Class134.aClass120_Sub14_Sub19_1276 != null) {
-				Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532 = (LDSprite) Class134.aClass120_Sub14_Sub19_1276;
+				Class120_Sub14_Sub10.landScapeAsSprite = (LDSprite) Class134.aClass120_Sub14_Sub19_1276;
 			} else {
-				Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532 = new LDSprite(512, 512);
+				Class120_Sub14_Sub10.landScapeAsSprite = new LDSprite(512, 512);
 			}
-			final int[] is = Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532.pixels;
+			final int[] is = Class120_Sub14_Sub10.landScapeAsSprite.pixels;
 			final int i_12_ = is.length;
 			for (int i_13_ = 0; i_13_ < i_12_; i_13_++) {
 				is[i_13_] = 1;
 			}
 			for (int i_14_ = 1; i_14_ < 103; i_14_++) {
-				int i_15_ = (0 + -i_14_ + 103) * 512 * 4 + 24628;
+				int i_15_ = (103 - i_14_) * 512 * 4 + 24628;
 				for (int i_16_ = 1; i_16_ < 103; i_16_++) {
-					if ((0x18 & Class114.aByteArrayArrayArray1095[level][i_16_][i_14_]) == 0) {
+					if ((0x18 & Class114.tileSettings[level][i_16_][i_14_]) == 0) {
 						Class120_Sub12_Sub6.method1229(is, i_15_, 512, level, i_16_, i_14_);
 					}
-					if (level < 3 && (Class114.aByteArrayArrayArray1095[level + 1][i_16_][i_14_] & 0x8) != 0) {
+					if (level < 3 && (Class114.tileSettings[level + 1][i_16_][i_14_] & 0x8) != 0) {
 						Class120_Sub12_Sub6.method1229(is, i_15_, 512, 1 + level, i_16_, i_14_);
 					}
 					i_15_ += 4;
@@ -165,12 +165,12 @@ final class Class38 {
 				}
 			}
 		}
-		Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532.method1617();
+		Class120_Sub14_Sub10.landScapeAsSprite.method1617();
 		final int whiteColor = 0xffffff;//-10 - (-238 + -(int) (20.0 * Math.random())) + (228 + (int) (20.0 * Math.random()) << 8) + (-10 + (int) (20.0 * Math.random()) + 238 << 16);
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int i_30_ = 1; i_30_ < 103; i_30_++) {
 			for (int i_31_ = 1; i_31_ < 103; i_31_++) {
-				if ((Class114.aByteArrayArrayArray1095[level][i_31_ - 0][0 + i_30_] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, true, i_30_, i_31_)) {
+				if ((Class114.tileSettings[level][i_31_ - 0][0 + i_30_] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, true, i_30_, i_31_)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -178,7 +178,7 @@ final class Class38 {
 					}
 					return false;
 				}
-				if (level < 3 && (Class114.aByteArrayArrayArray1095[level - -1][i_31_ + 0][0 + i_30_] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, true, i_30_, i_31_)) {
+				if (level < 3 && (Class114.tileSettings[level - -1][i_31_ + 0][0 + i_30_] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, true, i_30_, i_31_)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -189,23 +189,23 @@ final class Class38 {
 			}
 		}
 		if (HDToolkit.glEnabled) {
-			final int[] is = Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532.pixels;
+			final int[] is = Class120_Sub14_Sub10.landScapeAsSprite.pixels;
 			final int i_32_ = is.length;
 			for (int i_33_ = 0; i_33_ < i_32_; i_33_++) {
 				if (is[i_33_] == 0) {
 					is[i_33_] = 1;
 				}
 			}
-			Class134.aClass120_Sub14_Sub19_1276 = new HDSprite(Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532);
+			Class134.aClass120_Sub14_Sub19_1276 = new HDSprite(Class120_Sub14_Sub10.landScapeAsSprite);
 		} else {
-			Class134.aClass120_Sub14_Sub19_1276 = Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532;
+			Class134.aClass120_Sub14_Sub19_1276 = Class120_Sub14_Sub10.landScapeAsSprite;
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsLD.pixels = null;
 		} else {
 			Class120_Sub13.fullscreenGraphics.init2dCanvas();
 		}
-		Class120_Sub14_Sub10.aClass120_Sub14_Sub19_Sub2_3532 = null;
+		Class120_Sub14_Sub10.landScapeAsSprite = null;
 		return true;
 	}
 

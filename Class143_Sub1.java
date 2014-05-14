@@ -350,25 +350,25 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		int i_36_;
 		try {
 			int i_37_ = 0;
-			if (class50_35_.method429(Class32.anInt270, 105)) {
+			if (class50_35_.method429(Class32.anInt270)) {
 				i_37_++;
 			}
-			if (class50_35_.method429(Class191.anInt2115, 122)) {
+			if (class50_35_.method429(Class191.anInt2115)) {
 				i_37_++;
 			}
-			if (class50_35_.method429(Class110.anInt1051, 117)) {
+			if (class50_35_.method429(Class110.anInt1051)) {
 				i_37_++;
 			}
-			if (class50.method429(Class32.anInt270, 68)) {
+			if (class50.method429(Class32.anInt270)) {
 				i_37_++;
 			}
-			if (class50.method429(Class191.anInt2115, i + 23291)) {
+			if (class50.method429(Class191.anInt2115)) {
 				i_37_++;
 			}
 			if (i != -23185) {
 				return -119;
 			}
-			if (class50.method429(Class110.anInt1051, i + 23247)) {
+			if (class50.method429(Class110.anInt1051)) {
 				i_37_++;
 			}
 			i_36_ = i_37_;
@@ -471,7 +471,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 
 	static final void method2032(final JagexInterface jagexInterface, final int i) {
 		try {
-			final int i_44_ = jagexInterface.anInt1975;
+			final int i_44_ = jagexInterface.clientCode;
 			if (i_44_ == 324) {
 				if ((Class120_Sub12_Sub15.anInt3241 ^ 0xffffffff) == 0) {
 					Class169.anInt1643 = jagexInterface.anInt2012;
@@ -502,13 +502,13 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 					jagexInterface.anInt1961 = -1;
 					jagexInterface.anInt2031 = 5;
 				} else if (i_44_ == 328) {
-					if (Class100.selfPlayer.aString3745 == null) {
+					if (Class100.selfPlayer.name == null) {
 						jagexInterface.anInt1961 = 0;
 					} else {
 						jagexInterface.anInt2047 = 150;
 						jagexInterface.anInt2091 = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
 						jagexInterface.anInt2031 = 5;
-						jagexInterface.anInt1961 = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.aString3745) << 11);
+						jagexInterface.anInt1961 = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.name) << 11);
 						jagexInterface.anInt1946 = Class100.selfPlayer.anInt3046;
 						jagexInterface.anInt1945 = Class100.selfPlayer.anInt3004;
 						jagexInterface.anInt2098 = Class100.selfPlayer.anInt3021;

@@ -112,31 +112,31 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 
 	static final void method1421(final boolean bool) {
 		if (bool) {
-			if ((Class69.anInt616 ^ 0xffffffff) != 0) {
-				Class120_Sub12_Sub32.method1372(Class69.anInt616);
+			if (Class69.rootInterfaceId != -1) {
+				Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 			}
-			for (Class120_Sub26 class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getFirst(); class120_sub26 != null; class120_sub26 = (Class120_Sub26) Class120_Sub12_Sub13.aClass75_3234.getNext()) {
-				Class120_Sub19.method1675(class120_sub26, true);
+			for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+				Class120_Sub19.removeOverridedInterface(class120_sub26, true);
 			}
-			Class69.anInt616 = -1;
-			Class120_Sub12_Sub13.aClass75_3234 = new Hashtable(8);
-			Class43.method342(-6086);
-			Class69.anInt616 = GameShell.anInt3;
+			Class69.rootInterfaceId = -1;
+			Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
+			Class43.method342();
+			Class69.rootInterfaceId = GameShell.loginscreenId;
 			Class101_Sub2.method846((byte) 44, false);
-			Class132_Sub1.method1931(121);
-			JagexSocket.method376(true, Class69.anInt616);
+			Class132_Sub1.method1931();
+			JagexSocket.method376(true, Class69.rootInterfaceId);
 		}
 		Class192.anInt2123 = -1;
-		Class120_Sub12_Sub6.method1225(Class107.defaultCursorId, -77);
+		Class120_Sub12_Sub6.setCursor(Class107.defaultCursorId);
 		Class100.selfPlayer = new Player();
-		Class100.selfPlayer.z = 3000;
 		Class100.selfPlayer.x = 3000;
+		Class100.selfPlayer.z = 3000;
 		if (HDToolkit.glEnabled || Buffer.gameId != 0) {
-			if (client.anInt2200 != 2) {
-				Class120_Sub14_Sub6.method1445((byte) 114);
+			if (client.cameraType != 2) {
+				Class120_Sub14_Sub6.method1445();
 			} else {
-				Class83.anInt792 = Class99.anInt951 << 7;
-				GroundObjectNode.anInt3626 = Class134.anInt1280 << 7;
+				Class83.renderX = Class99.anInt951 << 7;
+				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {
 				Class120_Sub8.method1159();

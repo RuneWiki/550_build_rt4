@@ -42,7 +42,7 @@ final class ObjectPile {
 		try {
 			final int i_3_ = is.length;
 			final byte[] is_4_ = new byte[i_3_];
-			Class4.method96(is, 0, is_4_, 0, i_3_);
+			ArrayUtils.arrayCopy(is, 0, is_4_, 0, i_3_);
 			is_2_ = is_4_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vf.B(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());

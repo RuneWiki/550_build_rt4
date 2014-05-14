@@ -10,7 +10,7 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 	static boolean[] aBooleanArray3391;
 	private int anInt3392;
 	static int affiliateId;
-	static String[] aStringArray3394 = new String[500];
+	static String[] menuOptionName = new String[500];
 	private int[][] anIntArrayArray3395;
 	private int anInt3396;
 	private int anInt3397;
@@ -35,10 +35,10 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 
 	public static void method1375(final byte i) {
 		try {
-			aStringArray3394 = null;
+			menuOptionName = null;
 			anIntArrayArrayArray3388 = null;
 			if (i <= 85) {
-				method1377(20, -39);
+				method1377(-39);
 			}
 			aBooleanArray3391 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -94,17 +94,8 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		}
 	}
 
-	static final int method1377(final int i, final int i_8_) {
-		int i_9_;
-		try {
-			if (i < 94) {
-				anInt3406 = 108;
-			}
-			i_9_ = 0xff & i_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.S(").append(i).append(',').append(i_8_).append(')').toString());
-		}
-		return i_9_;
+	static final int method1377(final int i_8_) {
+		return 0xff & i_8_;
 	}
 
 	@Override
@@ -229,7 +220,7 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 						}
 					}
 				} else {
-					Class4.method91(is_13_, 0, Class120_Sub12_Sub7.anInt3178, 0);
+					ArrayUtils.fillArray(is_13_, 0, Class120_Sub12_Sub7.anInt3178, 0);
 				}
 			}
 			if (i != -1735) {
