@@ -44,42 +44,42 @@ final class Class92 {
 
 	static final void method767(final int i) {
 		try {
-			Canvas_Sub1.aClass120_Sub7_Sub1_16.method1144(i);
-			final int i_4_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+			Canvas_Sub1.inputStream.method1144(i);
+			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ != 0) {
-				final int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(2);
+				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_5_ == 0) {
 					Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 				} else if (i_5_ == 1) {
-					final int i_6_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
 					Class100.selfPlayer.method2330(i_6_, i + -24890, 1);
-					final int i_7_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_7_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 					}
 				} else if (i_5_ == 2) {
-					if (Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1) == 1) {
-						final int i_8_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+					if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
+						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
 						Class100.selfPlayer.method2330(i_8_, -24892, 2);
-						final int i_9_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+						final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
 						Class100.selfPlayer.method2330(i_9_, -24892, 2);
 					} else {
-						final int i_10_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
 						Class100.selfPlayer.method2330(i_10_, -24892, 0);
 					}
-					final int i_11_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_11_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 					}
 				} else if (i_5_ == 3) {
-					final int i_12_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(7);
-					final int i_13_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
-					final int i_14_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					final int i_12_ = Canvas_Sub1.inputStream.getBitValue(7);
+					final int i_13_ = Canvas_Sub1.inputStream.getBitValue(1);
+					final int i_14_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_14_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 					}
-					Class173.gameLevel = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(2);
-					final int i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(7);
+					Class173.gameLevel = Canvas_Sub1.inputStream.getBitValue(2);
+					final int i_15_ = Canvas_Sub1.inputStream.getBitValue(7);
 					Class100.selfPlayer.method2343(i_12_, i_13_ == 1, i_15_);
 				}
 			}

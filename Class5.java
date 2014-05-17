@@ -124,7 +124,7 @@ final class Class5 implements ShaderInterface {
 			if (i != 1610612736) {
 				method100(-79);
 			}
-			OutputStream_Sub1.aClass21_30.clearSoftReference();
+			DummyOutputStream.aClass21_30.clearSoftReference();
 			Class120_Sub12_Sub27.aClass21_3342.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ae.H(").append(i).append(')').toString());

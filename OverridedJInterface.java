@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 final class OverridedJInterface extends Node {
-	static int anInt2738;
+	static int worldOff;
 	static Class98 aClass98_2739;
 	static int anInt2740;
 	static int[][][] anIntArrayArrayArray2741;
@@ -109,7 +109,7 @@ final class OverridedJInterface extends Node {
 									class120_sub7_sub1.putLong(((Number) object).longValue());
 								} else if (object instanceof String) {
 									class120_sub7_sub1.putByte(2);
-									class120_sub7_sub1.putJString((String) object);
+									class120_sub7_sub1.putJagexString((String) object);
 								} else {
 									class120_sub7_sub1.putByte(4);
 								}
@@ -141,8 +141,8 @@ final class OverridedJInterface extends Node {
 						}
 					}
 				}
-				class120_sub7_sub1.method1123(8523, i_2_);
-				class120_sub7_sub1.method1140((byte) -115, class120_sub7_sub1.pos - i_2_);
+				class120_sub7_sub1.putCrc(i_2_);
+				class120_sub7_sub1.putSizedByte(class120_sub7_sub1.pos - i_2_);
 				class120_sub28.unlink();
 			}
 		} catch (final RuntimeException runtimeexception) {

@@ -36,7 +36,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 				if (jagexInterface.clientCode > 0) {
 					bool = IntegerNode.method1833((byte) -101, jagexInterface);
 				}
-				if (bool && client.getClickMask(jagexInterface).method1678(-1 + i_1_, 26)) {
+				if (bool && client.getClickMask(jagexInterface).method1678(-1 + i_1_)) {
 					if (i_1_ == 1) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(94);
 						Class120_Sub12_Sub11.outputStream.putInt(i);

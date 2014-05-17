@@ -58,12 +58,12 @@ final class Decimator {
 		}
 		if (!Class15.menuOpen) {
 			if (FileSystem.anInt455 == 0) {
-				if (Class156.anInt1455 == 0) {
+				if (Class156.lastMouseClick == 0) {
 					Class120_Sub12_Sub21.anInt3298 = Class191.lastMouseY;
 					Class115.anInt1110 = Queue.lastMouseX;
 				} else {
-					Class120_Sub12_Sub21.anInt3298 = Class120_Sub12_Sub36.anInt3424;
-					Class115.anInt1110 = Class50.anInt449;
+					Class120_Sub12_Sub21.anInt3298 = Class120_Sub12_Sub36.lastClickY;
+					Class115.anInt1110 = Class50.lastClickX;
 				}
 			} else {
 				Class115.anInt1110 = Class120_Sub14_Sub12.anInt3558;
@@ -77,7 +77,7 @@ final class Decimator {
 		}
 		ParticleEngine.method959(Class101_Sub2.loopCycle);
 		if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
-			AbstractGraphicsBuffer.method1846(-22845, Class69.rootInterfaceId);
+			AbstractGraphicsBuffer.method1846(Class69.rootInterfaceId);
 		}
 		for (int i_4_ = 0; i_4_ < Class120_Sub1.anInt2414; i_4_++) {
 			if (Class52.aBooleanArray467[i_4_]) {
@@ -105,7 +105,7 @@ final class Decimator {
 		}
 		Class120_Sub12_Sub12.method1262();
 		if (Class15.menuOpen) {
-			if (Class186.aBoolean1899) {
+			if (Class186.usingSpriteMenu) {
 				Class120_Sub12_Sub18.method1293();
 			} else {
 				FileSystem.drawMenu();
@@ -132,21 +132,21 @@ final class Decimator {
 			for (int i_6_ = 0; i_6_ < Class120_Sub1.anInt2414; i_6_++) {
 				if (Class9.aBooleanArray74[i_6_]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method590(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711935, 128);
+						GraphicsHD.fillRect(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711935, 128);
 					} else {
-						GraphicsLD.method2159(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711935, 128);
+						GraphicsLD.fillRect(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711935, 128);
 					}
 				} else if (Class120_Sub12_Sub33.aBooleanArray3391[i_6_]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method590(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711680, 128);
+						GraphicsHD.fillRect(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711680, 128);
 					} else {
-						GraphicsLD.method2159(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711680, 128);
+						GraphicsLD.fillRect(Class160.anIntArray1495[i_6_], Class120_Sub12_Sub38.anIntArray3441[i_6_], Class120_Sub16.anIntArray2608[i_6_], Class69_Sub3_Sub1.anIntArray3081[i_6_], 16711680, 128);
 					}
 				}
 			}
 		}
-		Class120_Sub11.method1176(Class173.gameLevel, 78, Class100.selfPlayer.z, Class100.selfPlayer.x, Class120_Sub12_Sub22.anInt3301);
-		Class120_Sub12_Sub22.anInt3301 = 0;
+		Class120_Sub11.method1176(Class173.gameLevel, 78, Class100.selfPlayer.z, Class100.selfPlayer.x, Class120_Sub12_Sub22.redrawRate);
+		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
 	final byte[] method2220(final byte i, byte[] is) {
@@ -263,9 +263,9 @@ final class Decimator {
 			for (int i_29_ = 0; Class154.anInt1441 > i_29_; i_29_++) {
 				final int i_30_ = Class169.anIntArray1648[i_29_];
 				final Player class180_sub5_sub1 = Class118.playersList[i_30_];
-				int i_31_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				int i_31_ = Canvas_Sub1.inputStream.getUByte();
 				if ((i_31_ & 0x80) != 0) {
-					i_31_ += Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() << 8;
+					i_31_ += Canvas_Sub1.inputStream.getUByte() << 8;
 				}
 				Class120_Sub22.method1701(i_30_, i_31_, -20, class180_sub5_sub1);
 			}
@@ -283,17 +283,17 @@ final class Decimator {
 				if (!HDToolkit.glEnabled) {
 					GraphicsLD.method2156(i_34_, i_32_, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 				} else {
-					final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false, (byte) -18);
+					final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
 					if (class120_sub14_sub19 != null) {
 						class120_sub14_sub19.method1587(i_34_, i_32_);
 					}
 				}
 			} else if (!HDToolkit.glEnabled) {
-				((LDSprite) Class157.aClass120_Sub14_Sub19_1474).method1604(i_34_, i_32_, jagexInterface.anInt1948, jagexInterface.anInt2059, Class157.aClass120_Sub14_Sub19_1474.width / 2, Class157.aClass120_Sub14_Sub19_1474.height / 2, (int) OutputStream_Sub1.aFloat28, 256,
+				((LDSprite) Class157.aClass120_Sub14_Sub19_1474).method1604(i_34_, i_32_, jagexInterface.anInt1948, jagexInterface.anInt2059, Class157.aClass120_Sub14_Sub19_1474.width / 2, Class157.aClass120_Sub14_Sub19_1474.height / 2, (int) DummyOutputStream.aFloat28, 256,
 						jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 			} else {
-				((HDSprite) Class157.aClass120_Sub14_Sub19_1474).method1600(i_34_, i_32_, jagexInterface.anInt1948, jagexInterface.anInt2059, Class157.aClass120_Sub14_Sub19_1474.width / 2, Class157.aClass120_Sub14_Sub19_1474.height / 2, (int) OutputStream_Sub1.aFloat28, 256,
-						(HDSprite) jagexInterface.method2492(false, (byte) -18));
+				((HDSprite) Class157.aClass120_Sub14_Sub19_1474).method1600(i_34_, i_32_, jagexInterface.anInt1948, jagexInterface.anInt2059, Class157.aClass120_Sub14_Sub19_1474.width / 2, Class157.aClass120_Sub14_Sub19_1474.height / 2, (int) DummyOutputStream.aFloat28, 256,
+						(HDSprite) jagexInterface.method2492(false));
 			}
 			Class120_Sub12_Sub33.aBooleanArray3391[i_33_] = true;
 			if (i < 2) {

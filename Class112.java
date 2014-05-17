@@ -143,13 +143,13 @@ final class Class112 {
 					int i_15_ = 0;
 					int i_16_ = 0;
 					if (Class142.aClass189_1362 != null) {
-						i_15_ = Class142.aClass189_1362.anInt2073;
-						i_16_ = Class142.aClass189_1362.anInt1938;
+						i_15_ = Class142.aClass189_1362.x;
+						i_16_ = Class142.aClass189_1362.y;
 					}
 					Class100.anIntArray956[1] = Class191.lastMouseY + -i_16_;
 					Class100.anIntArray956[0] = -i_15_ + Queue.lastMouseX;
 				}
-				Class167_Sub1.method2194(200000, 1006199388, class120_sub14_sub12);
+				World.method2194(200000, 1006199388, class120_sub14_sub12);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mg.I(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());

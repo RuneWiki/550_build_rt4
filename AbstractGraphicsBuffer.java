@@ -141,16 +141,9 @@ abstract class AbstractGraphicsBuffer {
 
 	abstract void init(Component component, int width, int height);
 
-	static final void method1846(final int i, final int i_17_) {
-		try {
-			if (i != -22845) {
-				method1848(-16);
-			}
-			if (Class50.loadInterface(i_17_)) {
-				Class139.method1991(Node.interfaceCache[i_17_], (byte) -23, -1);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.F(").append(i).append(',').append(i_17_).append(')').toString());
+	static final void method1846(final int i_17_) {
+		if (Class50.loadInterface(i_17_)) {
+			Class139.animateInterface(Node.interfaceCache[i_17_], -1);
 		}
 	}
 

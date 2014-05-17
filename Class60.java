@@ -154,16 +154,16 @@ final class Class60 implements ShaderInterface {
 				final int[] is_4_ = is_2_[i];
 				final int[] is_5_ = is_3_[i];
 				for (int i_6_ = 0; i_6_ < 64; i_6_++) {
-					if (HDToolkit.isBigEndian) {
-						class120_sub7.method1106(true, is_4_[i_6_] / 4096.0F);
-						class120_sub7.method1106(true, is_5_[i_6_] / 4096.0F);
-						class120_sub7.method1106(true, 1.0F);
-						class120_sub7.method1106(true, 1.0F);
+					if (HDToolkit.usingBigEndian) {
+						class120_sub7.putFloatAsInt(is_4_[i_6_] / 4096.0F);
+						class120_sub7.putFloatAsInt(is_5_[i_6_] / 4096.0F);
+						class120_sub7.putFloatAsInt(1.0F);
+						class120_sub7.putFloatAsInt(1.0F);
 					} else {
-						class120_sub7.method1134(is_4_[i_6_] / 4096.0F, -2503);
-						class120_sub7.method1134(is_5_[i_6_] / 4096.0F, -2503);
-						class120_sub7.method1134(1.0F, -2503);
-						class120_sub7.method1134(1.0F, -2503);
+						class120_sub7.putFloatAsLEInt(is_4_[i_6_] / 4096.0F);
+						class120_sub7.putFloatAsLEInt(is_5_[i_6_] / 4096.0F);
+						class120_sub7.putFloatAsLEInt(1.0F);
+						class120_sub7.putFloatAsLEInt(1.0F);
 					}
 				}
 			}

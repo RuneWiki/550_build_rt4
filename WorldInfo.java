@@ -2,42 +2,35 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class151 {
-	int anInt1418;
+final class WorldInfo {
+	int country;
 	static boolean aBoolean1419 = false;
 	static int anInt1420 = 0;
 	static String aString1421;
-	String aString1422;
+	String region;
 
 	static final void method2065(final JagexInterface[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_, final int i_2_) {
-		try {
-			for (final JagexInterface class1892 : class189s) {
-				final JagexInterface jagexInterface = class1892;
-				if (jagexInterface != null && jagexInterface.anInt2029 == i_0_) {
-					Class23.method201(bool, i, jagexInterface, i_1_, -4);
-					SceneGraphNode.method2272(i, i_1_, jagexInterface, 97);
-					if (jagexInterface.anInt2021 > -jagexInterface.anInt2059 + jagexInterface.anInt1937) {
-						jagexInterface.anInt2021 = -jagexInterface.anInt2059 + jagexInterface.anInt1937;
-					}
-					if (jagexInterface.anInt2023 > jagexInterface.anInt1930 + -jagexInterface.anInt1948) {
-						jagexInterface.anInt2023 = jagexInterface.anInt1930 + -jagexInterface.anInt1948;
-					}
-					if (jagexInterface.anInt2021 < 0) {
-						jagexInterface.anInt2021 = 0;
-					}
-					if (jagexInterface.anInt2023 < 0) {
-						jagexInterface.anInt2023 = 0;
-					}
-					if (jagexInterface.type == 0) {
-						ProducingGraphicsBuffer.method1854(bool, false, jagexInterface);
-					}
+		for (final JagexInterface class1892 : class189s) {
+			final JagexInterface jagexInterface = class1892;
+			if (jagexInterface != null && jagexInterface.parent == i_0_) {
+				Class23.method201(bool, i, jagexInterface, i_1_, -4);
+				SceneGraphNode.method2272(i, i_1_, jagexInterface, 97);
+				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.anInt2059) {
+					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.anInt2059;
+				}
+				if (jagexInterface.verticalScrollPosition > jagexInterface.maxScrollHorizontal - jagexInterface.anInt1948) {
+					jagexInterface.verticalScrollPosition = jagexInterface.maxScrollHorizontal - jagexInterface.anInt1948;
+				}
+				if (jagexInterface.horizontalScrollPosition < 0) {
+					jagexInterface.horizontalScrollPosition = 0;
+				}
+				if (jagexInterface.verticalScrollPosition < 0) {
+					jagexInterface.verticalScrollPosition = 0;
+				}
+				if (jagexInterface.type == 0) {
+					ProducingGraphicsBuffer.method1854(bool, false, jagexInterface);
 				}
 			}
-			if (i_2_ >= -100) {
-				method2066((byte) -75, 90);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rf.B(").append(class189s != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 

@@ -3,12 +3,12 @@
  */
 
 final class Class74 {
-	static String aString666;
+	static String loginName;
 	static int anInt667 = 0;
 	static int sceneryShadowsType;
 
 	static {
-		aString666 = "";
+		loginName = "";
 		sceneryShadowsType = 2;
 	}
 
@@ -26,9 +26,9 @@ final class Class74 {
 
 	public static void method651(final boolean bool) {
 		try {
-			aString666 = null;
+			loginName = null;
 			if (bool) {
-				aString666 = null;
+				loginName = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("i.D(").append(bool).append(')').toString());

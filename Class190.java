@@ -159,14 +159,7 @@ final class Class190 {
 		}
 	}
 
-	static final void method2506(final int i, final int i_19_) {
-		try {
-			Class120_Sub12_Sub1.sleepModifier2 = 1000 / i;
-			if (i_19_ != -27143) {
-				aClass50_2099 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wi.B(").append(i).append(',').append(i_19_).append(')').toString());
-		}
+	static final void method2506(final int i) {
+		Class120_Sub12_Sub1.sleepModifier2 = 1000 / i;
 	}
 }

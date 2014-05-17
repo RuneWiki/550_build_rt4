@@ -28,7 +28,7 @@ final class ObjectPile {
 			i_0_ = i_0_ * RuntimeException_Sub1.anInt2142 >> 8;
 			if (i_1_ == -1 && !Class120_Sub12_Sub15.aBoolean3247) {
 				Class188.method2481(104);
-			} else if (i_1_ != -1 && (Class157.anInt1466 != i_1_ || !Class167_Sub1.method2193(113)) && i_0_ != 0 && !Class120_Sub12_Sub15.aBoolean3247) {
+			} else if (i_1_ != -1 && (Class157.anInt1466 != i_1_ || !World.method2193(113)) && i_0_ != 0 && !Class120_Sub12_Sub15.aBoolean3247) {
 				Class120_Sub15.method1654(0, Class120_Sub12_Sub36.aClass50_3419, 2, (byte) -127, i_0_, i_1_, false);
 			}
 			Class157.anInt1466 = i_1_;

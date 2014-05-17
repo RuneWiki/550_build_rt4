@@ -158,7 +158,7 @@ final class Class62 {
 				return 1;
 			}
 			if (i_14_ == 81) {
-				final int i_16_ = aClass120_Sub7_569.getTriByte();
+				final int i_16_ = aClass120_Sub7_569.getMedium();
 				i_15_ -= 3;
 				final int i_17_ = this.anIntArray572[i];
 				aLong573 += (long) i_17_ * (long) (anInt576 - i_16_);

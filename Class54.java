@@ -8,27 +8,18 @@ final class Class54 {
 	static AbstractSprite[] aClass120_Sub14_Sub19Array490;
 	static Class35 aClass35_491 = new Class35(128);
 
-	static final boolean method477(final byte i, final byte[] is) {
-		boolean bool;
-		try {
-			final Buffer class120_sub7 = new Buffer(is);
-			final int i_0_ = class120_sub7.getUByte();
-			if (i != -33) {
-				method482(68, -95, -124, -92);
-			}
-			if (i_0_ != 1) {
-				return false;
-			}
-			final boolean bool_1_ = class120_sub7.getUByte() == 1;
-			if (bool_1_) {
-				Class43.method346(-31081, class120_sub7);
-			}
-			Class140.method2000(0, class120_sub7);
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.C(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+	static final boolean method477(final byte[] data) {
+		final Buffer buffer = new Buffer(data);
+		final int i_0_ = buffer.getUByte();
+		if (i_0_ != 1) {
+			return false;
 		}
-		return bool;
+		final boolean bool_1_ = buffer.getUByte() == 1;
+		if (bool_1_) {
+			Class43.decodeWorldListInfo(buffer);
+		}
+		Class140.updateWorldPlayers(buffer);
+		return true;
 	}
 
 	static final Class137 method478(final Class50 class50, final int i, final String string, final boolean bool) {
@@ -80,7 +71,7 @@ final class Class54 {
 			aClass120_Sub14_Sub19Array490 = null;
 			Cache.aClass120_Sub14_Sub8_121 = null;
 			Class157.aClass120_Sub14_Sub19_1474 = null;
-			Class40.aClass120_Sub14_Sub19Array335 = null;
+			SeqType.aClass120_Sub14_Sub19Array335 = null;
 			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
 			Class101_Sub1.aClass120_Sub14_Sub19Array2274 = null;
 			Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = null;
@@ -111,7 +102,7 @@ final class Class54 {
 			aString489 = null;
 			aClass35_491 = null;
 			if (i < 124) {
-				method477((byte) -24, null);
+				method477(null);
 			}
 			aClass120_Sub14_Sub19Array490 = null;
 			anIntArray488 = null;

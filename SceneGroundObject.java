@@ -28,7 +28,7 @@ final class SceneGroundObject extends SceneGraphNode {
 
 	@Override
 	final void method2265(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
-		final Class180_Sub7 class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -113, -1, null, null, 0);
+		final Class180_Sub7 class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -1, null, null, 0);
 		if (class180_sub7 != null) {
 			class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
 			anInt2842 = class180_sub7.getMaxY();
@@ -50,7 +50,7 @@ final class SceneGroundObject extends SceneGraphNode {
 		try {
 			ParticleEngine.method959(Class101_Sub2.loopCycle);
 			if (Class69.rootInterfaceId != -1) {
-				AbstractGraphicsBuffer.method1846(-22845, Class69.rootInterfaceId);
+				AbstractGraphicsBuffer.method1846(Class69.rootInterfaceId);
 			}
 			for (int i_8_ = 0; i_8_ < Class120_Sub1.anInt2414; i_8_++) {
 				if (Class52.aBooleanArray467[i_8_]) {
@@ -78,7 +78,7 @@ final class SceneGroundObject extends SceneGraphNode {
 			} else {
 				GraphicsLD.method2175();
 			}
-			Class120_Sub12_Sub22.anInt3301 = 0;
+			Class120_Sub12_Sub22.redrawRate = 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("he.D(").append(i).append(')').toString());
 		}

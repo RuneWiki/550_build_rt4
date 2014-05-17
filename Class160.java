@@ -4,7 +4,7 @@
 
 final class Class160 {
 	int anInt1491;
-	static volatile int anInt1492 = -1;
+	static volatile int currentMouseX = -1;
 	static int anInt1493;
 	static int anInt1494;
 	static int[] anIntArray1495 = new int[100];

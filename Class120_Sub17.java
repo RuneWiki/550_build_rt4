@@ -16,8 +16,8 @@ final class Class120_Sub17 extends Node {
 	static final JagexInterface method1665(final int i, final JagexInterface jagexInterface) {
 		JagexInterface class189_0_;
 		try {
-			if (jagexInterface.anInt2029 != -1) {
-				return Class74.getJagexInterface(jagexInterface.anInt2029);
+			if (jagexInterface.parent != -1) {
+				return Class74.getJagexInterface(jagexInterface.parent);
 			}
 			final int i_1_ = jagexInterface.bitPacked >>> 16;
 			final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);

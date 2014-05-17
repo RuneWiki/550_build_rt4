@@ -138,7 +138,7 @@ final class Class90 {
 		try {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(i);
 			Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(string));
-			Class120_Sub12_Sub11.outputStream.method1080(i_11_, (byte) 10);
+			Class120_Sub12_Sub11.outputStream.putByteC(i_11_);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.J(").append(i).append(',').append(i_11_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}

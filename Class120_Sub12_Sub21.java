@@ -24,7 +24,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 				return true;
 			}
 			if (anInt3295 >= 0) {
-				final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.method904(Class10.aClass50_79, anInt3295, (byte) 118) : Class120_Sub14_Sub13.method1534(Class10.aClass50_79, (byte) -53, Class120_Sub12_Sub25.anInt3316, anInt3295);
+				final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.method904(Class10.aClass50_79, anInt3295, (byte) 118) : Class120_Sub14_Sub13.method1534(Class10.aClass50_79, Class120_Sub12_Sub25.anInt3316, anInt3295);
 				class120_sub14_sub19_sub2.method1615();
 				this.anIntArray3296 = class120_sub14_sub19_sub2.pixels;
 				this.anInt3292 = class120_sub14_sub19_sub2.width;
@@ -59,7 +59,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			if (class120_sub14_sub16_2_ != null) {
 				return class120_sub14_sub16_2_;
 			}
-			final byte[] is = Class40.aClass50_331.getFile(26, i_1_);
+			final byte[] is = SeqType.aClass50_331.getFile(26, i_1_);
 			class120_sub14_sub16_2_ = new Class120_Sub14_Sub16();
 			if (is != null) {
 				class120_sub14_sub16_2_.method1565(new Buffer(is), 0);
@@ -136,8 +136,8 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 					}
 				}
 			}
-			if (!Class120_Sub12_Sub15.aBoolean3247 || Class167_Sub1.method2193(81)) {
-				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !Class167_Sub1.method2193(18)) {
+			if (!Class120_Sub12_Sub15.aBoolean3247 || World.method2193(81)) {
+				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !World.method2193(18)) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(250);
 					Class120_Sub12_Sub11.outputStream.putInt(Class157.anInt1466);
 					Class157.anInt1466 = -1;

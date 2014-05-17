@@ -25,7 +25,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 	private int anInt3067;
 	private int anInt3068;
 	private final int anInt3069;
-	private Class40 aClass40_3070;
+	private SeqType aClass40_3070;
 	static Cache aClass21_3071 = new Cache(200);
 	private int anInt3072;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array3073;
@@ -245,17 +245,17 @@ final class Class180_Sub6 extends SceneGraphNode {
 						return;
 					}
 				} else {
-					aClass40_3070 = Class120_Sub30_Sub2.method1763(i_29_, 122);
+					aClass40_3070 = SeqType.list(i_29_);
 				}
 				if (bool) {
-					anInt3052 = (int) (Math.random() * aClass40_3070.anIntArray342.length);
-					anInt3048 = 1 - -(int) (aClass40_3070.anIntArray338[anInt3052] * Math.random());
+					anInt3052 = (int) (Math.random() * aClass40_3070.frames.length);
+					anInt3048 = 1 - -(int) (aClass40_3070.cycles[anInt3052] * Math.random());
 				} else {
 					anInt3048 = 1;
 					anInt3052 = 0;
 				}
 				anInt3057 = anInt3052 - -1;
-				if (anInt3057 < 0 || aClass40_3070.anIntArray342.length <= anInt3057) {
+				if (anInt3057 < 0 || aClass40_3070.frames.length <= anInt3057) {
 					anInt3057 = -1;
 				}
 				anInt3067 = -anInt3048 + Class101_Sub2.loopCycle;
@@ -282,44 +282,44 @@ final class Class180_Sub6 extends SceneGraphNode {
 					}
 				}
 				i_33_ = Class101_Sub2.loopCycle - anInt3067;
-				if (i_33_ > 100 && aClass40_3070.anInt346 > 0) {
+				if (i_33_ > 100 && aClass40_3070.padding > 0) {
 					int i_34_;
-					for (i_34_ = -aClass40_3070.anInt346 + aClass40_3070.anIntArray342.length; anInt3052 < i_34_ && aClass40_3070.anIntArray338[anInt3052] < i_33_; anInt3052++) {
-						i_33_ -= aClass40_3070.anIntArray338[anInt3052];
+					for (i_34_ = -aClass40_3070.padding + aClass40_3070.frames.length; anInt3052 < i_34_ && aClass40_3070.cycles[anInt3052] < i_33_; anInt3052++) {
+						i_33_ -= aClass40_3070.cycles[anInt3052];
 					}
 					if (anInt3052 >= i_34_) {
 						int i_35_ = 0;
-						for (int i_36_ = i_34_; aClass40_3070.anIntArray342.length > i_36_; i_36_++) {
-							i_35_ += aClass40_3070.anIntArray338[i_36_];
+						for (int i_36_ = i_34_; aClass40_3070.frames.length > i_36_; i_36_++) {
+							i_35_ += aClass40_3070.cycles[i_36_];
 						}
 						i_33_ %= i_35_;
 					}
 					anInt3057 = anInt3052 - -1;
-					if (aClass40_3070.anIntArray342.length <= anInt3057) {
-						anInt3057 -= aClass40_3070.anInt346;
-						if (anInt3057 < 0 || anInt3057 >= aClass40_3070.anIntArray342.length) {
+					if (aClass40_3070.frames.length <= anInt3057) {
+						anInt3057 -= aClass40_3070.padding;
+						if (anInt3057 < 0 || anInt3057 >= aClass40_3070.frames.length) {
 							anInt3057 = -1;
 						}
 					}
 				}
 				for (;;) {
-					if (aClass40_3070.anIntArray338[anInt3052] >= i_33_) {
+					if (aClass40_3070.cycles[anInt3052] >= i_33_) {
 						break while_11_;
 					}
 					Class120_Sub12_Sub23.method1323(aClass40_3070, i, i_32_, anInt3052, false, false);
-					i_33_ -= aClass40_3070.anIntArray338[anInt3052];
+					i_33_ -= aClass40_3070.cycles[anInt3052];
 					anInt3052++;
-					if (aClass40_3070.anIntArray342.length <= anInt3052) {
-						anInt3052 -= aClass40_3070.anInt346;
-						if (anInt3052 < 0 || aClass40_3070.anIntArray342.length <= anInt3052) {
+					if (aClass40_3070.frames.length <= anInt3052) {
+						anInt3052 -= aClass40_3070.padding;
+						if (anInt3052 < 0 || aClass40_3070.frames.length <= anInt3052) {
 							aClass40_3070 = null;
 							break;
 						}
 					}
 					anInt3057 = 1 + anInt3052;
-					if (anInt3057 >= aClass40_3070.anIntArray342.length) {
-						anInt3057 -= aClass40_3070.anInt346;
-						if (anInt3057 < 0 || aClass40_3070.anIntArray342.length <= anInt3057) {
+					if (anInt3057 >= aClass40_3070.frames.length) {
+						anInt3057 -= aClass40_3070.padding;
+						if (anInt3057 < 0 || aClass40_3070.frames.length <= anInt3057) {
 							anInt3057 = -1;
 						}
 					}

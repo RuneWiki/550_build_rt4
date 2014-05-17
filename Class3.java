@@ -54,8 +54,8 @@ final class Class3 {
 					bool = true;
 					if (i == 1) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
-						Class120_Sub12_Sub11.outputStream.method1116(-2076007248, Class112.playerIndices[i_7_]);
-						Class120_Sub12_Sub11.outputStream.method1113(0, -42);
+						Class120_Sub12_Sub11.outputStream.putShortA(Class112.playerIndices[i_7_]);
+						Class120_Sub12_Sub11.outputStream.putByteA(0);
 					} else if (i != 4) {
 						if (i != 5) {
 							if (i != 6) {
@@ -71,7 +71,7 @@ final class Class3 {
 							}
 						} else {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
-							Class120_Sub12_Sub11.outputStream.method1113(0, 82);
+							Class120_Sub12_Sub11.outputStream.putByteA(0);
 							Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
 						}
 					} else {

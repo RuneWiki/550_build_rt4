@@ -37,7 +37,7 @@ final class Class76 {
 
 	static final void method665(final byte i, final Class50 class50) {
 		try {
-			Class40.aClass50_331 = class50;
+			SeqType.aClass50_331 = class50;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("id.C(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
 		}

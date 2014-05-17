@@ -49,8 +49,8 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 				for (int i_9_ = 0; i_7_ != 0 && i_9_ < class180_sub5_sub2.aClass150Array2972.length; i_7_ >>>= 1) {
 					if ((0x1 & i_7_) != 0) {
 						if ((i_6_ ^ 0xffffffff) != 0) {
-							final Class40 class40 = Class120_Sub30_Sub2.method1763(i_6_, 120);
-							final int i_10_ = class40.anInt337;
+							final SeqType seqType = SeqType.list(i_6_);
+							final int i_10_ = seqType.anInt337;
 							Class150 class150 = class180_sub5_sub2.aClass150Array2972[i_9_];
 							if (class150 != null) {
 								if (class150.anInt1406 == i_6_) {
@@ -61,14 +61,14 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 											class150.anInt1410 = 0;
 											class150.anInt1411 = i_8_;
 											class150.anInt1413 = 0;
-											Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
+											Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
 										} else if (i_10_ == 2) {
 											class150.anInt1416 = 0;
 										}
 									} else {
 										class150 = class180_sub5_sub2.aClass150Array2972[i_9_] = null;
 									}
-								} else if (class40.anInt348 >= Class120_Sub30_Sub2.method1763(class150.anInt1406, i ^ 0x77).anInt348) {
+								} else if (seqType.anInt348 >= SeqType.list(class150.anInt1406).anInt348) {
 									class150 = class180_sub5_sub2.aClass150Array2972[i_9_] = null;
 								}
 							}
@@ -80,7 +80,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 								class150.anInt1414 = 1;
 								class150.anInt1416 = 0;
 								class150.anInt1411 = i_8_;
-								Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
 							}
 						} else {
 							class180_sub5_sub2.aClass150Array2972[i_9_] = null;

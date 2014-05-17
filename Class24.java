@@ -14,7 +14,7 @@ final class Class24 {
 
 	static final void method205() {
 		Class179.aClient1776.loadJagmisc();
-		InputStream_Sub1.focus = true;
+		DummyInputStream.focus = true;
 		Class120_Sub12_Sub11.anInt3214 = 0;
 		Class179.aBoolean1779 = true;
 		Class110.aClass91_1055.anInt859 = 0;
@@ -25,16 +25,16 @@ final class Class24 {
 		Class120_Sub22.anInt2675 = 0;
 		Class73.anInt639 = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
-		Class40.anInt333 = -1;
+		SeqType.anInt333 = -1;
 		Class88.anInt827 = 0;
 		Class23.packetType = -1;
-		Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
+		Canvas_Sub1.inputStream.pos = 0;
 		for (int i_0_ = 0; i_0_ < Class187.aClass85Array1909.length; i_0_++) {
 			Class187.aClass85Array1909[i_0_] = null;
 		}
 		Class15.menuOpen = false;
 		Class186.menuOptionCount = 0;
-		Class120_Sub12_Sub39.method1402(3, 0);
+		Class120_Sub12_Sub39.setMouseIdleCycle(0);
 		for (int i_1_ = 0; i_1_ < 100; i_1_++) {
 			Class160.aStringArray1502[i_1_] = null;
 		}
@@ -42,7 +42,7 @@ final class Class24 {
 		Class23.anInt136 = -50 + (int) (100.0 * Math.random());
 		Class164.anInt1590 = (int) (120.0 * Math.random()) - 60;
 		Class120_Sub16.messageCount = 0;
-		OutputStream_Sub1.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
+		DummyOutputStream.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
 		Class120_Sub14_Sub1.anInt3447 = -40 + (int) (Math.random() * 80.0);
 		Class88.aBoolean828 = false;
 		Light.objSelected = 0;
@@ -130,8 +130,8 @@ final class Class24 {
 		Class118.aBoolean1134 = true;
 		Class120_Sub14_Sub20.interfaceCounter = 0;
 		Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
-		LocType.method2450();
-		Class186.aBoolean1899 = false;
+		LocType.resetSpriteMenu();
+		Class186.usingSpriteMenu = false;
 		Class120_Sub14_Sub11.sendDisplayInfo();
 	}
 

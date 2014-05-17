@@ -30,14 +30,14 @@ final class Class120_Sub19 extends Node {
 							class98 = Class120_Sub14_Sub14_Sub1.aClass98_3929;
 						}
 						if (Class79.aFloat696 >= 8.0) {
-							class98 = Class167_Sub1.aClass98_2833;
+							class98 = World.aClass98_2833;
 						}
 					} else if (class73.anInt634 == 2) {
 						if (3.0 == Class79.aFloat696) {
 							class98 = Class120_Sub14_Sub14_Sub1.aClass98_3929;
 						}
 						if (Class79.aFloat696 == 4.0) {
-							class98 = Class167_Sub1.aClass98_2833;
+							class98 = World.aClass98_2833;
 						}
 						if (Class79.aFloat696 == 6.0) {
 							class98 = Class124.aClass98_1201;
@@ -92,7 +92,7 @@ final class Class120_Sub19 extends Node {
 					final int i_10_ = 2 + i_6_;
 					final int i_11_ = -(i_7_ / 2) + class120_sub14_sub5.anInt3478 + -5;
 					if (class73.anInt640 != 0) {
-						GraphicsLD.method2159(i_11_, i_10_, i_7_ - -10, 1 + i_6_ - -(i_4_ * class98.method817()) - i_10_, class73.anInt640, class73.anInt640 >>> 24);
+						GraphicsLD.fillRect(i_11_, i_10_, i_7_ - -10, 1 + i_6_ - -(i_4_ * class98.method817()) - i_10_, class73.anInt640, class73.anInt640 >>> 24);
 					}
 					if (class73.anInt648 != 0) {
 						GraphicsLD.drawRect(i_11_, i_10_, 10 + i_7_, -i_10_ + class98.method817() * i_4_ + i_6_ + 1, class73.anInt648, class73.anInt648 >>> 24);
@@ -156,7 +156,7 @@ final class Class120_Sub19 extends Node {
 					i_18_ = i_20_;
 				}
 			}
-			Class120_Sub14_Sub10.menuHeight = (Class186.aBoolean1899 ? 26 : 22) + 15 * Class186.menuOptionCount;
+			Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + 15 * Class186.menuOptionCount;
 			Class120_Sub24.menuWidth = 8 + i_18_;
 		} else {
 			Class15.menuOpen = false;
@@ -205,7 +205,7 @@ final class Class120_Sub19 extends Node {
 			}
 			int i_31_ = 0;
 			class120_sub7.pos = 0;
-			class120_sub14_sub12_22_.aString3554 = class120_sub7.method1127((byte) -7);
+			class120_sub14_sub12_22_.aString3554 = class120_sub7.getFastJString();
 			class120_sub14_sub12_22_.aStringArray3551 = new String[i_25_];
 			class120_sub14_sub12_22_.anIntArray3550 = new int[i_25_];
 			class120_sub14_sub12_22_.anIntArray3548 = new int[i_25_];

@@ -41,7 +41,7 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 				}
 				InterfaceClickMask.safeModeEnabled = false;
 				Class120_Sub12_Sub19.currentDisplayMode = 0;
-				Class186.aBoolean1902 = false;
+				Class186.hdrEnabled = false;
 				Class140.anInt1343 = 0;
 				Class38.cursorsEnabled = true;
 				Class120_Sub19.anInt2657 = 0;
@@ -233,100 +233,90 @@ final class Class120_Sub14_Sub18 extends NodeSub {
 		}
 	}
 
-	static final int method1581(final int i, final int i_21_, int i_22_, final int i_23_, final boolean bool) {
-		int i_24_;
-		try {
-			if (Class158.aBoolean1478) {
-				i_22_ = 1000000;
-				Class158.aBoolean1478 = false;
+	static final int method1581(final int i, final int i_21_, int i_22_, final int i_23_) {
+		if (Class158.aBoolean1478) {
+			i_22_ = 1000000;
+			Class158.aBoolean1478 = false;
+		}
+		final Class191 class191 = Class139.aClass191ArrayArray1337[i_23_][i_21_];
+		final float f = class191.aFloat2102 * (0.7F + 0.1F * i);
+		final int i_25_ = class191.anInt2109;
+		final float f_26_ = class191.aFloat2106;
+		final float f_27_ = class191.aFloat2104;
+		final int i_28_ = class191.anInt2111;
+		int i_29_ = class191.anInt2118;
+		if (!Decimator.fogEnabled) {
+			i_29_ = 0;
+		}
+		final Class120_Sub14_Sub9 class120_sub14_sub9 = class191.aClass120_Sub14_Sub9_2117;
+		final float f_30_ = class191.aFloat2114;
+		final float f_31_ = class191.aFloat2108;
+		final float f_32_ = class191.aFloat2116;
+		if (i_25_ != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != f_26_ || Class132_Sub2.aFloat2821 != f_27_ || Light.anInt379 != i_28_ || i_29_ != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 || Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Class70.aFloat622 != f_31_) {
+			Class132.anInt1248 = Class9.anInt72;
+			Class156.anInt1453 = Deque.anInt1007;
+			Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
+			Class91.aFloat856 = Class66.aFloat600;
+			Class120_Sub12_Sub1.aFloat3124 = Class108.aFloat1034;
+			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
+			Class84.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
+			Class120_Sub12_Sub30.anInt3376 = Class25.anInt151;
+			Class73.aFloat632 = Class101.aFloat962;
+			Class24.aFloat144 = Class120_Sub12.aFloat2557;
+			if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || Class84.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
+				RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = new Class120_Sub14_Sub9();
 			}
-			final Class191 class191 = Class139.aClass191ArrayArray1337[i_23_][i_21_];
-			final float f = class191.aFloat2102 * (0.7F + 0.1F * i);
-			final int i_25_ = class191.anInt2109;
-			final float f_26_ = class191.aFloat2106;
-			final float f_27_ = class191.aFloat2104;
-			final int i_28_ = class191.anInt2111;
-			if (!bool) {
-				aClass120_Sub14_Sub19_3611 = null;
-			}
-			int i_29_ = class191.anInt2118;
-			if (!Decimator.fogEnabled) {
-				i_29_ = 0;
-			}
-			final Class120_Sub14_Sub9 class120_sub14_sub9 = class191.aClass120_Sub14_Sub9_2117;
-			final float f_30_ = class191.aFloat2114;
-			final float f_31_ = class191.aFloat2108;
-			final float f_32_ = class191.aFloat2116;
-			if (i_25_ != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != f_26_ || Class132_Sub2.aFloat2821 != f_27_ || Light.anInt379 != i_28_ || i_29_ != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204
-					|| Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Class70.aFloat622 != f_31_) {
-				Class132.anInt1248 = Class9.anInt72;
-				Class156.anInt1453 = Deque.anInt1007;
-				Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
-				Class91.aFloat856 = Class66.aFloat600;
-				Class120_Sub12_Sub1.aFloat3124 = Class108.aFloat1034;
-				FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
-				Class84.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
-				Class120_Sub12_Sub30.anInt3376 = Class25.anInt151;
-				Class73.aFloat632 = Class101.aFloat962;
-				Class24.aFloat144 = Class120_Sub12.aFloat2557;
-				if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || Class84.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
-					RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = new Class120_Sub14_Sub9();
-				}
-				Class43.anInt368 = i_29_;
-				Class132_Sub2.aFloat2821 = f_27_;
-				Class120_Sub12.aFloat2569 = f;
-				Class57.anInt500 = 0;
-				Class120_Sub12_Sub17.anInt3257 = i_25_;
-				Class120_Sub2.aFloat2417 = f_32_;
-				Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = class120_sub14_sub9;
-				Class125.aFloat2149 = f_26_;
-				Class70.aFloat622 = f_31_;
-				Light.anInt379 = i_28_;
-				Class101.aFloat965 = f_30_;
-			}
-			if (65536 > Class57.anInt500) {
-				Class57.anInt500 += i_22_ * 250;
-				if (-65537 >= (Class57.anInt500 ^ 0xffffffff)) {
-					Class120_Sub12.aFloat2557 = Class101.aFloat965;
-					Class66.aFloat600 = Class125.aFloat2149;
-					Class101.aFloat962 = Class70.aFloat622;
-					Class3.aClass120_Sub14_Sub9_54 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204;
-					Class25.anInt151 = Class43.anInt368;
-					Class108.aFloat1034 = Class120_Sub2.aFloat2417;
-					Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
-					Deque.anInt1007 = Light.anInt379;
-					Class57.anInt500 = 65536;
-					Class84.aClass120_Sub14_Sub9_798 = null;
-					Class147.aFloat1395 = Class132_Sub2.aFloat2821;
-					Class9.anInt72 = Class120_Sub12_Sub17.anInt3257;
-				} else {
-					final int i_33_ = 65536 - Class57.anInt500 >> 8;
-					final float f_34_ = Class57.anInt500 / 65536.0F;
-					final int i_35_ = Class57.anInt500 >> 8;
-					Class25.anInt151 = Class120_Sub12_Sub30.anInt3376 * i_33_ - -(Class43.anInt368 * i_35_) >> 8;
-					Class9.anInt72 = (i_33_ * (0xff00ff & Class132.anInt1248) - -((Class120_Sub12_Sub17.anInt3257 & 0xff00ff) * i_35_) & ~0xff00ff) + (i_35_ * (0xff00 & Class120_Sub12_Sub17.anInt3257) + (Class132.anInt1248 & 0xff00) * i_33_ & 0xff0000) >> 8;
-					final float f_36_ = (-Class57.anInt500 + 65536) / 65536.0F;
-					Class120_Sub12_Sub23.aFloat3306 = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
-					Class147.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
-					Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
-					Class66.aFloat600 = f_34_ * Class125.aFloat2149 + Class91.aFloat856 * f_36_;
-					Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
-					Class101.aFloat962 = f_36_ * Class73.aFloat632 + Class70.aFloat622 * f_34_;
-					Class108.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
-					if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != Class84.aClass120_Sub14_Sub9_798) {
-						if (Class84.aClass120_Sub14_Sub9_798 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != null) {
-							Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145.method1495(Class84.aClass120_Sub14_Sub9_798, Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204, Class57.anInt500 / 65536.0F);
-						} else {
-							Class3.aClass120_Sub14_Sub9_54 = null;
-						}
+			Class43.anInt368 = i_29_;
+			Class132_Sub2.aFloat2821 = f_27_;
+			Class120_Sub12.aFloat2569 = f;
+			Class57.anInt500 = 0;
+			Class120_Sub12_Sub17.anInt3257 = i_25_;
+			Class120_Sub2.aFloat2417 = f_32_;
+			Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = class120_sub14_sub9;
+			Class125.aFloat2149 = f_26_;
+			Class70.aFloat622 = f_31_;
+			Light.anInt379 = i_28_;
+			Class101.aFloat965 = f_30_;
+		}
+		if (65536 > Class57.anInt500) {
+			Class57.anInt500 += i_22_ * 250;
+			if (-65537 >= (Class57.anInt500 ^ 0xffffffff)) {
+				Class120_Sub12.aFloat2557 = Class101.aFloat965;
+				Class66.aFloat600 = Class125.aFloat2149;
+				Class101.aFloat962 = Class70.aFloat622;
+				Class3.aClass120_Sub14_Sub9_54 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204;
+				Class25.anInt151 = Class43.anInt368;
+				Class108.aFloat1034 = Class120_Sub2.aFloat2417;
+				Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
+				Deque.anInt1007 = Light.anInt379;
+				Class57.anInt500 = 65536;
+				Class84.aClass120_Sub14_Sub9_798 = null;
+				Class147.aFloat1395 = Class132_Sub2.aFloat2821;
+				Class9.anInt72 = Class120_Sub12_Sub17.anInt3257;
+			} else {
+				final int i_33_ = 65536 - Class57.anInt500 >> 8;
+				final float f_34_ = Class57.anInt500 / 65536.0F;
+				final int i_35_ = Class57.anInt500 >> 8;
+				Class25.anInt151 = Class120_Sub12_Sub30.anInt3376 * i_33_ - -(Class43.anInt368 * i_35_) >> 8;
+				Class9.anInt72 = (i_33_ * (0xff00ff & Class132.anInt1248) - -((Class120_Sub12_Sub17.anInt3257 & 0xff00ff) * i_35_) & ~0xff00ff) + (i_35_ * (0xff00 & Class120_Sub12_Sub17.anInt3257) + (Class132.anInt1248 & 0xff00) * i_33_ & 0xff0000) >> 8;
+				final float f_36_ = (-Class57.anInt500 + 65536) / 65536.0F;
+				Class120_Sub12_Sub23.aFloat3306 = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
+				Class147.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
+				Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
+				Class66.aFloat600 = f_34_ * Class125.aFloat2149 + Class91.aFloat856 * f_36_;
+				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
+				Class101.aFloat962 = f_36_ * Class73.aFloat632 + Class70.aFloat622 * f_34_;
+				Class108.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
+				if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != Class84.aClass120_Sub14_Sub9_798) {
+					if (Class84.aClass120_Sub14_Sub9_798 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != null) {
+						Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145.method1495(Class84.aClass120_Sub14_Sub9_798, Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204, Class57.anInt500 / 65536.0F);
+					} else {
+						Class3.aClass120_Sub14_Sub9_54 = null;
 					}
 				}
 			}
-			i_24_ = Deque.anInt1007;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("te.C(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',').append(bool).append(')').toString());
 		}
-		return i_24_;
+		return Deque.anInt1007;
 	}
 
 	public static void method1582(final byte i) {

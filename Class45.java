@@ -16,49 +16,35 @@ final class Class45 {
 	private int anInt405;
 	private final Buffer aClass120_Sub7_406 = new Buffer(4);
 	private long aLong407;
-	private JagexSocket aClass46_408;
+	private JagexSocket js5Connection;
 	private Buffer aClass120_Sub7_409;
 	volatile int anInt410 = 0;
 	volatile int anInt411 = 0;
 	private byte aByte412 = 0;
 	private Class120_Sub14_Sub14_Sub2 aClass120_Sub14_Sub14_Sub2_413;
 
-	private final int method354(final int i) {
-		int i_0_;
-		try {
-			i_0_ = aClass177_403.getAmount() - -aClass177_404.getAmount();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.B(").append(i).append(')').toString());
-		}
-		return i_0_;
+	private final int method354() {
+		return aClass177_403.getAmount() + aClass177_404.getAmount();
 	}
 
-	final void method355(final int i) {
-		do {
+	final void method355() {
+		if (js5Connection != null) {
 			try {
-				if (aClass46_408 != null) {
-					try {
-						aClass120_Sub7_406.pos = 0;
-						aClass120_Sub7_406.putByte(7);
-						aClass120_Sub7_406.method1104((byte) 9, 0);
-						aClass46_408.put(aClass120_Sub7_406.buf, i, 4);
-					} catch (final IOException ioexception) {
-						try {
-							aClass46_408.method377();
-						} catch (final Exception exception) {
-							/* empty */
-						}
-						aClass46_408 = null;
-						this.anInt410++;
-						this.anInt411 = -2;
-						break;
-					}
+				aClass120_Sub7_406.pos = 0;
+				aClass120_Sub7_406.putByte(7);
+				aClass120_Sub7_406.putMedium(0);
+				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
+			} catch (final IOException ioexception) {
+				try {
+					js5Connection.close();
+				} catch (final Exception exception) {
+					/* empty */
 				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.L(").append(i).append(')').toString());
+				js5Connection = null;
+				this.anInt410++;
+				this.anInt411 = -2;
 			}
-		} while (false);
+		}
 	}
 
 	static final void method356(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_) {
@@ -205,10 +191,10 @@ final class Class45 {
 	final void method360(final byte i) {
 		try {
 			if (i > -71) {
-				aClass46_408 = null;
+				js5Connection = null;
 			}
-			if (aClass46_408 != null) {
-				aClass46_408.method378((byte) 52);
+			if (js5Connection != null) {
+				js5Connection.replaceStreamsWithDummy();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.P(").append(i).append(')').toString());
@@ -217,15 +203,15 @@ final class Class45 {
 
 	final void method361(final int i, final JagexSocket jagexSocket, final boolean bool) {
 		try {
-			if (aClass46_408 != null) {
+			if (js5Connection != null) {
 				try {
-					aClass46_408.method377();
+					js5Connection.close();
 				} catch (final Exception exception) {
 					/* empty */
 				}
-				aClass46_408 = null;
+				js5Connection = null;
 			}
-			aClass46_408 = jagexSocket;
+			js5Connection = jagexSocket;
 			method370((byte) 22);
 			method367((byte) 122, bool);
 			aClass120_Sub14_Sub14_Sub2_413 = null;
@@ -250,14 +236,14 @@ final class Class45 {
 					aClass120_Sub7_406.putByte(4);
 					aClass120_Sub7_406.putByte(aByte412);
 					aClass120_Sub7_406.putShort(0);
-					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
+					js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 				} catch (final IOException ioexception) {
 					try {
-						aClass46_408.method377();
+						js5Connection.close();
 					} catch (final Exception exception) {
 						/* empty */
 					}
-					aClass46_408 = null;
+					js5Connection = null;
 					this.anInt410++;
 					this.anInt411 = -2;
 				}
@@ -281,7 +267,7 @@ final class Class45 {
 			class120_sub14_sub14_sub2_39_.aBoolean3573 = bool;
 			class120_sub14_sub14_sub2_39_.subUid = l;
 			if (!bool) {
-				if (method354(93) >= 20) {
+				if (method354() >= 20) {
 					throw new RuntimeException();
 				}
 				aClass177_403.insertLast(class120_sub14_sub14_sub2_39_);
@@ -312,26 +298,19 @@ final class Class45 {
 	}
 
 	final void method364(final int i) {
-		try {
-			if (i > -83) {
-				aClass120_Sub7_409 = null;
-			}
-			if (aClass46_408 != null) {
-				aClass46_408.method377();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.A(").append(i).append(')').toString());
+		if (js5Connection != null) {
+			js5Connection.close();
 		}
 	}
 
 	final void method365(final int i) {
 		try {
 			try {
-				aClass46_408.method377();
+				js5Connection.close();
 			} catch (final Exception exception) {
 				/* empty */
 			}
-			aClass46_408 = null;
+			js5Connection = null;
 			if (i == -30223) {
 				aByte412 = (byte) (int) (1.0 + Math.random() * 255.0);
 				this.anInt411 = -1;
@@ -358,23 +337,23 @@ final class Class45 {
 	final void method367(final byte i, final boolean bool) {
 		do {
 			try {
-				if (aClass46_408 != null) {
+				if (js5Connection != null) {
 					try {
 						aClass120_Sub7_406.pos = 0;
 						if (i < 116) {
 							aClass120_Sub7_409 = null;
 						}
 						aClass120_Sub7_406.putByte(bool ? 2 : 3);
-						aClass120_Sub7_406.method1104((byte) 9, 0);
-						aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
+						aClass120_Sub7_406.putMedium(0);
+						js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 					} catch (final IOException ioexception) {
 						try {
-							aClass46_408.method377();
+							js5Connection.close();
 						} catch (final Exception exception) {
 							/* empty */
 						}
 						this.anInt410++;
-						aClass46_408 = null;
+						js5Connection = null;
 						this.anInt411 = -2;
 						break;
 					}
@@ -667,7 +646,7 @@ final class Class45 {
 			if (!bool) {
 				aClass177_404 = null;
 			}
-			bool_119_ = method354(-66) >= 20;
+			bool_119_ = method354() >= 20;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("en.E(").append(bool).append(')').toString());
 		}
@@ -677,21 +656,21 @@ final class Class45 {
 	private final void method370(final byte i) {
 		do {
 			try {
-				if (aClass46_408 != null) {
+				if (js5Connection != null) {
 					try {
 						aClass120_Sub7_406.pos = 0;
 						aClass120_Sub7_406.putByte(6);
 						if (i > 3) {
-							aClass120_Sub7_406.method1104((byte) 9, 3);
-							aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
+							aClass120_Sub7_406.putMedium(3);
+							js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 						}
 					} catch (final IOException ioexception) {
 						try {
-							aClass46_408.method377();
+							js5Connection.close();
 						} catch (final Exception exception) {
 							/* empty */
 						}
-						aClass46_408 = null;
+						js5Connection = null;
 						this.anInt411 = -2;
 						this.anInt410++;
 						break;
@@ -707,9 +686,9 @@ final class Class45 {
 	final boolean method371(final int i) {
 		boolean bool;
 		try {
-			if (aClass46_408 != null) {
+			if (js5Connection != null) {
 				final long l = TimeUtil.getSafeTime();
-				int i_120_ = (int) (-aLong407 + l);
+				int i_120_ = (int) (l - aLong407);
 				aLong407 = l;
 				if (i_120_ > 200) {
 					i_120_ = 200;
@@ -717,27 +696,27 @@ final class Class45 {
 				anInt405 += i_120_;
 				if (anInt405 > 30000) {
 					try {
-						aClass46_408.method377();
+						js5Connection.close();
 					} catch (final Exception exception) {
 						/* empty */
 					}
-					aClass46_408 = null;
+					js5Connection = null;
 				}
 			}
-			if (aClass46_408 == null) {
-				if (method366(false) != 0 || method354(i ^ ~0x69d0) != 0) {
+			if (js5Connection == null) {
+				if (method366(false) != 0 || method354() != 0) {
 					return false;
 				}
 				return true;
 			}
 			boolean bool_121_;
 			try {
-				aClass46_408.method380((byte) -120);
+				js5Connection.checkForError();
 				for (Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_401.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_401.peekNext()) {
 					aClass120_Sub7_406.pos = 0;
 					aClass120_Sub7_406.putByte(1);
-					aClass120_Sub7_406.method1104((byte) 9, (int) class120_sub14_sub14_sub2.subUid);
-					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
+					aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
+					js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 					aClass177_402.insertLast(class120_sub14_sub14_sub2);
 				}
 				if (i != -27018) {
@@ -746,12 +725,12 @@ final class Class45 {
 				for (Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_403.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_403.peekNext()) {
 					aClass120_Sub7_406.pos = 0;
 					aClass120_Sub7_406.putByte(0);
-					aClass120_Sub7_406.method1104((byte) 9, (int) class120_sub14_sub14_sub2.subUid);
-					aClass46_408.put(aClass120_Sub7_406.buf, 0, 4);
+					aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
+					js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 					aClass177_404.insertLast(class120_sub14_sub14_sub2);
 				}
 				for (int i_122_ = 0; i_122_ < 100; i_122_++) {
-					final int i_123_ = aClass46_408.getAvailable();
+					final int i_123_ = js5Connection.getAvailable();
 					if (i_123_ < 0) {
 						throw new IOException();
 					}
@@ -776,7 +755,7 @@ final class Class45 {
 						if (i_123_ < i_125_) {
 							i_125_ = i_123_;
 						}
-						aClass46_408.read(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, i_125_);
+						js5Connection.read(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, i_125_);
 						if (aByte412 != 0) {
 							for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
 								aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_
@@ -797,7 +776,7 @@ final class Class45 {
 						if (i_128_ > i_123_) {
 							i_128_ = i_123_;
 						}
-						aClass46_408.read(aClass120_Sub7_409.pos, aClass120_Sub7_409.buf, i_128_);
+						js5Connection.read(aClass120_Sub7_409.buf, aClass120_Sub7_409.pos, i_128_);
 						if (aByte412 != 0) {
 							for (int i_129_ = 0; i_128_ > i_129_; i_129_++) {
 								aClass120_Sub7_409.buf[aClass120_Sub7_409.pos - -i_129_] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub7_409.buf[aClass120_Sub7_409.pos + i_129_], aByte412);
@@ -852,14 +831,14 @@ final class Class45 {
 				bool_121_ = true;
 			} catch (final IOException ioexception) {
 				try {
-					aClass46_408.method377();
+					js5Connection.close();
 				} catch (final Exception exception) {
 					/* empty */
 				}
-				aClass46_408 = null;
+				js5Connection = null;
 				this.anInt410++;
 				this.anInt411 = -2;
-				if (method366(false) == 0 && method354(i ^ 0x69a2) == 0) {
+				if (method366(false) == 0 && method354() == 0) {
 					return true;
 				}
 				return false;

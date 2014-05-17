@@ -12,7 +12,7 @@ final class PacketBuffer extends Buffer {
 		super(i);
 	}
 
-	final void method1141(final int[] is) {
+	final void initIsaac(final int[] is) {
 		aClass106_3119 = new IsaacCipher(is);
 	}
 
@@ -163,7 +163,7 @@ final class PacketBuffer extends Buffer {
 							Class140.anInt1343 = class120_sub7.getUByte();
 						}
 						if (i_1_ >= 10) {
-							Class186.aBoolean1902 = class120_sub7.getUByte() != 0;
+							Class186.hdrEnabled = class120_sub7.getUByte() != 0;
 						}
 						if (i_1_ >= 11) {
 							Class38.cursorsEnabled = class120_sub7.getUByte() != 0;

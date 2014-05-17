@@ -240,15 +240,15 @@ final class ParticleEngine extends Class108 {
 			gl.glDisable(2896);
 		}
 		aClass120_Sub7_2381.pos = 0;
-		if (HDToolkit.isBigEndian) {
+		if (HDToolkit.usingBigEndian) {
 			for (int i_32_ = i - 1; i_32_ >= 0; i_32_--) {
 				final int i_33_ = anIntArray2389[i_32_] > 32 ? 32 : anIntArray2389[i_32_];
 				if (i_33_ > 0) {
 					for (int i_34_ = i_33_ - 1; i_34_ >= 0; i_34_--) {
 						final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_32_][i_34_]];
-						aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3087 >> 12);
-						aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3088 >> 12);
-						aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3090 >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
 						final int i_35_ = class108_sub3_sub1.anInt3091;
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 8));
@@ -259,9 +259,9 @@ final class ParticleEngine extends Class108 {
 						final int i_36_ = anIntArray2389[i_32_] - 32 - 1;
 						for (int i_37_ = anIntArray2390[i_36_] - 1; i_37_ >= 0; i_37_--) {
 							final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_36_][i_37_]];
-							aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3087 >> 12);
-							aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3088 >> 12);
-							aClass120_Sub7_2381.method1106(true, class108_sub3_sub1.anInt3090 >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
 							final int i_38_ = class108_sub3_sub1.anInt3091;
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 8));
@@ -277,9 +277,9 @@ final class ParticleEngine extends Class108 {
 				if (i_40_ > 0) {
 					for (int i_41_ = i_40_ - 1; i_41_ >= 0; i_41_--) {
 						final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_39_][i_41_]];
-						aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3087 >> 12, -2503);
-						aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3088 >> 12, -2503);
-						aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3090 >> 12, -2503);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
 						final int i_42_ = class108_sub3_sub1.anInt3091;
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 8));
@@ -290,9 +290,9 @@ final class ParticleEngine extends Class108 {
 						final int i_43_ = anIntArray2389[i_39_] - 32 - 1;
 						for (int i_44_ = anIntArray2390[i_43_] - 1; i_44_ >= 0; i_44_--) {
 							final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_43_][i_44_]];
-							aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3087 >> 12, -2503);
-							aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3088 >> 12, -2503);
-							aClass120_Sub7_2381.method1134(class108_sub3_sub1.anInt3090 >> 12, -2503);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
 							final int i_45_ = class108_sub3_sub1.anInt3091;
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 8));

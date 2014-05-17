@@ -79,7 +79,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 						break;
 					}
 					if (Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 == null) {
-						Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = Class120_Sub31.method1830(Class52.aClass50_476, Class120_Sub14_Sub23.anInt3649, Class40.anInt349);
+						Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = Class120_Sub31.method1830(Class52.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
 						if (Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 == null) {
 							return false;
 						}
@@ -226,7 +226,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	static final void method1222(final long l) {
 		if (!Class134.aBoolean1277) {
 			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
-			OutputStream_Sub1.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
+			DummyOutputStream.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
 		final int playerZ = Class100.selfPlayer.z + Class29.anInt195;
 		final int playerX = Class100.selfPlayer.x + Class23.anInt136;

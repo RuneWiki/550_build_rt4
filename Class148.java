@@ -4,7 +4,7 @@
 
 final class Class148 {
 	static int localNpcCount = 0;
-	static Class151[] aClass151Array1400;
+	static WorldInfo[] worldsInfo;
 
 	static final void method2057(final String[] strings, final boolean bool, final int i, final short[] is, final int i_0_) {
 		try {
@@ -57,7 +57,7 @@ final class Class148 {
 			if (i != 1) {
 				method2059(113);
 			}
-			aClass151Array1400 = null;
+			worldsInfo = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.B(").append(i).append(')').toString());
 		}
@@ -70,7 +70,7 @@ final class Class148 {
 			final byte[] is = Class120_Sub6.method1075(string, 23668);
 			class120_sub7.method1079(-32769, is.length);
 			if (i != -32696) {
-				aClass151Array1400 = null;
+				worldsInfo = null;
 			}
 			class120_sub7.pos += Class39.aClass126_321.method1885(class120_sub7.pos, 0, 19, class120_sub7.buf, is, is.length);
 			i_7_ = class120_sub7.pos - i_8_;

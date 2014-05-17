@@ -3,9 +3,9 @@
  */
 
 final class Class48 {
-	static Class167_Sub1[] aClass167_Sub1Array435;
-	static int anInt436 = -2;
-	static boolean aBoolean437 = false;
+	static World[] worldList;
+	static int returnCode = -2;
+	static boolean jsEnabled = false;
 
 	static final boolean method400(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_) {
 		if (i_0_ < i_1_ && i_0_ < i_2_ && i_0_ < i_3_) {
@@ -43,7 +43,7 @@ final class Class48 {
 			if (i >= -122) {
 				method404((byte) -105, -52, 126, 125, 19);
 			}
-			aClass167_Sub1Array435 = null;
+			worldList = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fc.D(").append(i).append(')').toString());
 		}

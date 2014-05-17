@@ -21,20 +21,20 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final Class40 class40, final int i, final int i_0_, final int i_1_, final boolean bool, final boolean bool_2_) {
+	static final void method1323(final SeqType seqType, final int i, final int i_0_, final int i_1_, final boolean bool, final boolean bool_2_) {
 		try {
-			if (Class150.anInt1407 < 50 && class40 != null && class40.anIntArrayArray347 != null && class40.anIntArrayArray347.length > i_1_ && class40.anIntArrayArray347[i_1_] != null) {
-				final int i_3_ = class40.anIntArrayArray347[i_1_][0];
+			if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > i_1_ && seqType.anIntArrayArray347[i_1_] != null) {
+				final int i_3_ = seqType.anIntArrayArray347[i_1_][0];
 				int i_4_ = i_3_ >> 8;
 				final int i_5_ = (0xe4 & i_3_) >> 5;
 				if (bool_2_) {
 					method1324(23);
 				}
 				final int i_6_ = i_3_ & 0x1f;
-				if (class40.anIntArrayArray347[i_1_].length > 1) {
-					final int i_7_ = (int) (class40.anIntArrayArray347[i_1_].length * Math.random());
+				if (seqType.anIntArrayArray347[i_1_].length > 1) {
+					final int i_7_ = (int) (seqType.anIntArrayArray347[i_1_].length * Math.random());
 					if (i_7_ > 0) {
-						i_4_ = class40.anIntArrayArray347[i_1_][i_7_];
+						i_4_ = seqType.anIntArrayArray347[i_1_][i_7_];
 					}
 				}
 				if (i_6_ == 0) {
@@ -54,7 +54,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.S(").append(class40 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(',').append(bool_2_).append(')').toString());
+			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.S(").append(seqType != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(',').append(bool_2_).append(')').toString());
 		}
 	}
 

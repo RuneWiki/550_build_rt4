@@ -4,7 +4,7 @@
 import java.io.IOException;
 import java.io.OutputStream;
 
-final class OutputStream_Sub1 extends OutputStream {
+final class DummyOutputStream extends OutputStream {
 	static Class120_Sub19 aClass120_Sub19_27 = new Class120_Sub19(0, 0);
 	static float aFloat28 = 0.0F;
 	static int anInt29 = 99;
@@ -20,7 +20,7 @@ final class OutputStream_Sub1 extends OutputStream {
 		int i_1_;
 		try {
 			if (AbstractTimer.worldConnection != null) {
-				AbstractTimer.worldConnection.method377();
+				AbstractTimer.worldConnection.close();
 				AbstractTimer.worldConnection = null;
 			}
 			if (i != 9) {
@@ -55,11 +55,7 @@ final class OutputStream_Sub1 extends OutputStream {
 
 	@Override
 	public final void write(final int i) throws IOException {
-		try {
-			throw new IOException();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ok.write(").append(i).append(')').toString());
-		}
+		throw new IOException();
 	}
 
 	public static void method74(final int i) {

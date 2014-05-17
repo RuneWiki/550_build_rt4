@@ -361,16 +361,9 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1402(final int i, final int i_19_) {
-		try {
-			if (i != 3) {
-				spriteHeights = null;
-			}
-			synchronized (Class120_Sub14_Sub4.mouseHandler) {
-				Class136.anInt1320 = i_19_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.T(").append(i).append(',').append(i_19_).append(')').toString());
+	static final void setMouseIdleCycle(final int i_19_) {
+		synchronized (Class120_Sub14_Sub4.mouseHandler) {
+			Class136.mouseIdleCycle = i_19_;
 		}
 	}
 

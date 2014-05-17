@@ -45,17 +45,8 @@ final class Class182 {
 		return bool;
 	}
 
-	static final int method2444(final int i) {
-		int i_8_;
-		try {
-			if (i != 0) {
-				return 39;
-			}
-			i_8_ = Class136.anInt1320;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ve.A(").append(i).append(')').toString());
-		}
-		return i_8_;
+	static final int getMouseIdleCycle() {
+		return Class136.mouseIdleCycle;
 	}
 
 	static final boolean method2445(final int i) {
@@ -63,15 +54,15 @@ final class Class182 {
 		try {
 			bool = AbstractTimer.method737(i + 0);
 		} catch (final IOException ioexception) {
-			Class100.method825((byte) -18);
+			Class100.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
 			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
-				string = new StringBuilder(string).append(Canvas_Sub1.aClass120_Sub7_Sub1_16.buf[i_11_]).append(",").toString();
+				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}
 			Class180_Sub3.method2312(exception, string);
-			InputStream_Sub1.logout();
+			DummyInputStream.processLogout();
 			return true;
 		}
 		return bool;
@@ -81,7 +72,7 @@ final class Class182 {
 		int i_16_;
 		try {
 			if (i != 102) {
-				method2444(45);
+				getMouseIdleCycle();
 			}
 			final int i_17_ = i_14_ & 0xf;
 			final int i_18_ = i_17_ >= 4 ? i_17_ == 12 || i_17_ == 14 ? i_13_ : i_15_ : i_12_;

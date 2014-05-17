@@ -59,7 +59,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 				Class116.aClass120_Sub14_Sub19_1114 = null;
 				CanvasWrapper.anInt20 = -1;
 				Class79.aClass137_693 = null;
-				Class167_Sub1.aClass98_2833 = null;
+				World.aClass98_2833 = null;
 				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
 				Class110.aClass98_1052 = null;
 				Class92.aClass98_863 = null;

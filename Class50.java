@@ -8,7 +8,7 @@ final class Class50 {
 	private boolean aBoolean446;
 	private boolean aBoolean447;
 	private Object[][] anObjectArrayArray448;
-	static int anInt449 = 0;
+	static int lastClickX = 0;
 	private Class53 aClass53_450;
 	private Object[] anObjectArray451;
 	private Class52 aClass52_452 = null;
@@ -184,7 +184,7 @@ final class Class50 {
 		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class134.aBoolean1277 ? 1 : 0);
 		class120_sub7_14_.putByte(Class140.anInt1343);
-		class120_sub7_14_.putByte(Class186.aBoolean1902 ? 1 : 0);
+		class120_sub7_14_.putByte(Class186.hdrEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class38.cursorsEnabled ? 1 : 0);
 		return class120_sub7_14_;
 	}
@@ -325,7 +325,7 @@ final class Class50 {
 				is_30_ = Class71.method639(true, is_29_);
 			} catch (final RuntimeException runtimeexception) {
 				throw Class120_Sub14_Sub2.method1428(runtimeexception,
-						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.method1431(is_29_.length, i + 0, is_29_)).append(",").append(AbstractObject.method1431(is_29_.length + -2, 0, is_29_))
+						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length + -2))
 								.append(",").append(aClass52_452.anIntArray470[i_23_]).append(",").append(aClass52_452.indexCrc).toString());
 			}
 			if (aBoolean446) {

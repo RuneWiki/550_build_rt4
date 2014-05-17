@@ -10,7 +10,7 @@ final class FileSystem {
 	static int anInt455;
 	static Deque aClass105_456;
 	static int anInt457;
-	static Class40[] aClass40Array458;
+	static SeqType[] aClass40Array458;
 	static int anInt459 = 0;
 	static float aFloat460;
 	static boolean haveInternetExplorer6;
@@ -21,7 +21,7 @@ final class FileSystem {
 	static {
 		anInt455 = 0;
 		haveInternetExplorer6 = false;
-		aClass40Array458 = new Class40[14];
+		aClass40Array458 = new SeqType[14];
 		aClass105_456 = new Deque();
 	}
 

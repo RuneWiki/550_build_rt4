@@ -222,17 +222,17 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					System.out.println("oncard_texture:" + Class113.anInt1081);
 				}
 				if (string.equalsIgnoreCase("::clientdrop")) {
-					Class100.method825((byte) -68);
+					Class100.dropClient();
 				}
 				if (string.equalsIgnoreCase("::clientjs5drop")) {
 					Class178.aClass45_1772.method364(-117);
 				}
 				if (string.equalsIgnoreCase("::serverjs5drop")) {
-					Class178.aClass45_1772.method355(0);
+					Class178.aClass45_1772.method355();
 				}
 				if (string.equalsIgnoreCase("::breakcon")) {
 					NpcType.gameSignlink.method1963(5000);
-					AbstractTimer.worldConnection.method378((byte) 52);
+					AbstractTimer.worldConnection.replaceStreamsWithDummy();
 					Class178.aClass45_1772.method360((byte) -127);
 				}
 				if (string.equalsIgnoreCase("::replacecanvas")) {
@@ -260,29 +260,29 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					AbstractSprite.method1593(false, 3, 1024, 768);
 				}
 				if (string.startsWith("::setba")) {
-					Class140.anInt1343 = Class31.method265(true, string.substring(8));
+					Class140.anInt1343 = Class31.method265(string.substring(8));
 					Class120_Sub6.savePreferences(NpcType.gameSignlink);
 					Class120_Sub14_Sub5.aBoolean3471 = false;
 				}
 				if (string.startsWith("::setparticles")) {
-					ParticleEngine.method952(Class31.method265(true, string.substring(15)));
+					ParticleEngine.method952(Class31.method265(string.substring(15)));
 					Class120_Sub6.savePreferences(NpcType.gameSignlink);
 					Class120_Sub14_Sub5.aBoolean3471 = false;
 				}
 				if (string.startsWith("::fps ")) {
-					Class190.method2506(Class31.method265(true, string.substring(6)), -27143);
+					Class190.method2506(Class31.method265(string.substring(6)));
 				}
 				if (string.equalsIgnoreCase("::errortest")) {
 					throw new RuntimeException();
 				}
 				if (string.startsWith("::rect_debug")) {
-					Class15.anInt96 = Class31.method265(true, string.substring(12).trim());
+					Class15.anInt96 = Class31.method265(string.substring(12).trim());
 					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.anInt96).toString());
 				}
 				if (string.equalsIgnoreCase("::qa_op_test")) {
 					Class120_Sub30_Sub1.aBoolean3673 = true;
 				}
-				if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290(), 947635216)) {
+				if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290())) {
 					Class120_Sub14_Sub14.method1540(null, 0, "Failed to enable hdr");
 				}
 				if (string.equalsIgnoreCase("::tween")) {
@@ -316,7 +316,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
 			Class120_Sub12_Sub11.outputStream.putByte(string.length() - 1);
-			Class120_Sub12_Sub11.outputStream.putJString(string.substring(2));
+			Class120_Sub12_Sub11.outputStream.putJagexString(string.substring(2));
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("of.U(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}

@@ -324,7 +324,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			}
 			Class52.aClass50_476 = null;
 			Class120_Sub12_Sub25.anInt3312 = 1;
-			Class40.anInt349 = -1;
+			SeqType.anInt349 = -1;
 			StringNode.aBoolean2734 = false;
 			Class120_Sub14_Sub14_Sub2.anInt3940 = 0;
 		} catch (final RuntimeException runtimeexception) {

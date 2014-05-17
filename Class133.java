@@ -64,15 +64,15 @@ final class Class133 {
 	final void method1947() {
 		final Buffer class120_sub7 = new Buffer(this.anInt1271 * 4);
 		final Buffer class120_sub7_0_ = new Buffer(this.anInt1267 * 16);
-		if (HDToolkit.isBigEndian) {
+		if (HDToolkit.usingBigEndian) {
 			for (int i = 0; i < this.anInt1267; i++) {
 				class120_sub7_0_.putByte(aByteArray1264[i]);
 				class120_sub7_0_.putByte(aByteArray1265[i]);
 				class120_sub7_0_.putByte(aByteArray1274[i]);
 				class120_sub7_0_.putByte(255);
-				class120_sub7_0_.method1106(true, anIntArray1275[i]);
-				class120_sub7_0_.method1106(true, anIntArray1272[i]);
-				class120_sub7_0_.method1106(true, anIntArray1268[i]);
+				class120_sub7_0_.putFloatAsInt(anIntArray1275[i]);
+				class120_sub7_0_.putFloatAsInt(anIntArray1272[i]);
+				class120_sub7_0_.putFloatAsInt(anIntArray1268[i]);
 			}
 			for (int i = 0; i < this.anInt1271; i++) {
 				class120_sub7.putInt(anIntArray1269[i]);
@@ -83,9 +83,9 @@ final class Class133 {
 				class120_sub7_0_.putByte(aByteArray1265[i]);
 				class120_sub7_0_.putByte(aByteArray1274[i]);
 				class120_sub7_0_.putByte(255);
-				class120_sub7_0_.method1134(anIntArray1275[i], -2503);
-				class120_sub7_0_.method1134(anIntArray1272[i], -2503);
-				class120_sub7_0_.method1134(anIntArray1268[i], -2503);
+				class120_sub7_0_.putFloatAsLEInt(anIntArray1275[i]);
+				class120_sub7_0_.putFloatAsLEInt(anIntArray1272[i]);
+				class120_sub7_0_.putFloatAsLEInt(anIntArray1268[i]);
 			}
 			for (int i = 0; i < this.anInt1271; i++) {
 				class120_sub7.putLEInt(anIntArray1269[i]);

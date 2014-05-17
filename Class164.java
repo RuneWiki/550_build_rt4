@@ -8,7 +8,7 @@ class Class164 {
 	private long aLong1584;
 	static boolean forceTween;
 	int[] anIntArray1587;
-	static long aLong1588 = 0L;
+	static long serverSessionKey = 0L;
 	private boolean aBoolean1589 = false;
 	static int anInt1590 = 0;
 	private int anInt1591;
@@ -325,7 +325,7 @@ class Class164 {
 						LightManager.method1869();
 					}
 					Class120_Sub12_Sub29.ping(true);
-					int i_25_ = OutputStream_Sub1.anInt29;
+					int i_25_ = DummyOutputStream.anInt29;
 					if (i_25_ > Class173.gameLevel) {
 						i_25_ = Class173.gameLevel;
 					}
@@ -335,7 +335,7 @@ class Class164 {
 					if (Class143_Sub1.method2021()) {
 						Class5.method98(0);
 					} else {
-						Class5.method98(OutputStream_Sub1.anInt29);
+						Class5.method98(DummyOutputStream.anInt29);
 					}
 					Class192.method2515(1);
 					if (HDToolkit.glEnabled && bool_13_) {
@@ -490,7 +490,7 @@ class Class164 {
 			if (!Class134.aBoolean1277) {
 				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + -24.0F) / 2.0F;
 			} else {
-				OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 - 65 & ~0x7f;
+				DummyOutputStream.aFloat28 = (int) DummyOutputStream.aFloat28 - 65 & ~0x7f;
 			}
 			Class188.aBoolean1925 = true;
 		}
@@ -537,7 +537,7 @@ class Class164 {
 			}
 			if (AbstractGraphicsBuffer.anInt1175 == 2 || AbstractGraphicsBuffer.anInt1175 == 5 || Class134.aClass120_Sub14_Sub19_1276 == null) {
 				if (HDToolkit.glEnabled) {
-					final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false, (byte) -18);
+					final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
 					if (class120_sub14_sub19 != null) {
 						class120_sub14_sub19.method1587(i, i_40_);
 					}
@@ -545,13 +545,13 @@ class Class164 {
 					GraphicsLD.method2156(i, i_40_, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 				}
 			} else {
-				final int i_42_ = (int) OutputStream_Sub1.aFloat28 - -anInt1590 & 0x7ff;
+				final int i_42_ = (int) DummyOutputStream.aFloat28 - -anInt1590 & 0x7ff;
 				final int i_43_ = 464 - (Class100.selfPlayer.z / 32 + 0);
 				final int i_44_ = 48 - -(Class100.selfPlayer.x / 32);
 				if (!HDToolkit.glEnabled) {
 					((LDSprite) Class134.aClass120_Sub14_Sub19_1276).method1606(i, i_40_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_44_, i_43_, i_42_, 256 + Class154.anInt1442, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 				} else {
-					((HDSprite) Class134.aClass120_Sub14_Sub19_1276).method1600(i, i_40_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_44_, i_43_, i_42_, 256 - -Class154.anInt1442, (HDSprite) jagexInterface.method2492(false, (byte) -18));
+					((HDSprite) Class134.aClass120_Sub14_Sub19_1276).method1600(i, i_40_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_44_, i_43_, i_42_, 256 - -Class154.anInt1442, (HDSprite) jagexInterface.method2492(false));
 				}
 				if (SceneGraphNode.aClass137_1780 != null) {
 					for (int i_45_ = 0; i_45_ < SceneGraphNode.aClass137_1780.anInt1325; i_45_++) {

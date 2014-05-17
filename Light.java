@@ -291,28 +291,17 @@ final class Light {
 		}
 	}
 
-	static final boolean method353(final int i) {
-		boolean bool;
-		try {
-			if (i != 4096) {
-				return true;
+	static final boolean isShowingVideoAd() {
+		if (Class48.jsEnabled) {
+			boolean bool_11_ = false;
+			try {
+				bool_11_ = !((Boolean) Class77.method666(NpcType.gameSignlink.gameApplet, "showingVideoAd")).booleanValue();
+			} catch (final Throwable throwable) {
+				/* empty */
 			}
-			do {
-				if (Class48.aBoolean437) {
-					boolean bool_11_;
-					try {
-						bool_11_ = !((Boolean) Class77.method666(NpcType.gameSignlink.gameApplet, "showingVideoAd")).booleanValue();
-					} catch (final Throwable throwable) {
-						break;
-					}
-					return bool_11_;
-				}
-			} while (false);
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.D(").append(i).append(')').toString());
+			return bool_11_;
 		}
-		return bool;
+		return true;
 	}
 
 	protected Light() {

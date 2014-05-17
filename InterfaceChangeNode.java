@@ -3,7 +3,7 @@
  */
 
 final class InterfaceChangeNode extends NodeSub {
-	static int anInt3483 = 0;
+	static int lastMousePress = 0;
 	int anInt3484;
 	static int[] anIntArray3485;
 	int anInt3486;

@@ -3,11 +3,11 @@
  */
 
 final class Class42 {
-	static volatile int anInt362;
+	static volatile int currentMousePress;
 	static boolean aBoolean363 = false;
 
 	static {
-		anInt362 = 0;
+		currentMousePress = 0;
 	}
 
 	static final void method336(final byte i) {
@@ -68,7 +68,7 @@ final class Class42 {
 		try {
 			final int i_12_ = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
 			if (i != 104) {
-				anInt362 = 112;
+				currentMousePress = 112;
 			}
 			final byte[] is = Class145.spritePaletteIndicators[0];
 			final int[] is_13_ = new int[i_12_];

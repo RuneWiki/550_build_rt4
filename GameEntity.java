@@ -22,7 +22,7 @@ abstract class GameEntity extends SceneGraphNode {
 	Class150[] aClass150Array2972;
 	byte[] aByteArray2973;
 	private int anInt2974;
-	String aString2975;
+	String textSpoken;
 	int anInt2976;
 	private int size;
 	static int currentBaseX;
@@ -71,7 +71,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3021;
 	int anInt3022;
 	int anInt3024;
-	int anInt3025;
+	int textCycle;
 	int anInt3026;
 	int spotAnimFrameId;
 	int anInt3028;
@@ -100,12 +100,12 @@ abstract class GameEntity extends SceneGraphNode {
 			if (i <= 5) {
 				this.anInt3031 = 110;
 			}
-			if (this.anInt3006 != -1 && Class120_Sub30_Sub2.method1763(this.anInt3006, 126).anInt336 == 1) {
+			if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
 				this.anInt3006 = -1;
 			}
 			if ((this.spotAnimId ^ 0xffffffff) != 0) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-				if (spotAnimType.aBoolean998 && Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, 124).anInt336 == 1) {
+				if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.anInt991).anInt336 == 1) {
 					this.spotAnimId = -1;
 				}
 			}
@@ -409,7 +409,7 @@ abstract class GameEntity extends SceneGraphNode {
 				i_43_--;
 				i_44_++;
 			}
-			if (this.anInt3006 != -1 && Class120_Sub30_Sub2.method1763(this.anInt3006, i_41_ ^ ~0x6141).anInt336 == 1) {
+			if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
 				this.anInt3006 = -1;
 			}
 			if (i == 1) {
@@ -417,7 +417,7 @@ abstract class GameEntity extends SceneGraphNode {
 			}
 			if ((this.spotAnimId ^ 0xffffffff) != 0) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-				if (spotAnimType.aBoolean998 && Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, 125).anInt336 == 1) {
+				if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.anInt991).anInt336 == 1) {
 					this.spotAnimId = -1;
 				}
 			}
@@ -745,7 +745,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt3010 = 32;
 		this.aBoolean2986 = false;
 		anInt3014 = 0;
-		this.aString2975 = null;
+		this.textSpoken = null;
 		this.aBoolean2997 = false;
 		this.aByteArray2973 = new byte[10];
 		this.anInt2993 = 0;
@@ -753,7 +753,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt2999 = 0;
 		this.anInt3004 = -1;
 		this.anInt2987 = 0;
-		this.anInt3025 = 100;
+		this.textCycle = 100;
 		this.anInt3030 = 0;
 		this.anInt2995 = 0;
 		this.anInt3031 = 0;

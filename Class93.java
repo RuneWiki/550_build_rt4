@@ -37,8 +37,8 @@ final class Class93 {
 	static final void method771(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final Class25 class25, final boolean bool_8_, final int i_9_) {
 		try {
 			if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][i_5_][i_7_]) != 0 || (Class114.tileSettings[i_2_][i_5_][i_7_] & 0x10) == 0 && Class176.method2242(i_7_, i_2_, (byte) 106, i_5_) == Class120_Sub14_Sub4.anInt3469) {
-				if (OutputStream_Sub1.anInt29 > i_2_) {
-					OutputStream_Sub1.anInt29 = i_2_;
+				if (DummyOutputStream.anInt29 > i_2_) {
+					DummyOutputStream.anInt29 = i_2_;
 				}
 				final LocType locType = LocType.list(i_3_);
 				if (!HDToolkit.glEnabled || !locType.aBoolean1876) {

@@ -13,46 +13,46 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 
 	static final void method1244(final JagexInterface jagexInterface, final int i, final int i_0_, final int i_1_) {
 		try {
-			if (jagexInterface.anInt1996 == 1) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 57, -1);
+			if (jagexInterface.actionType == 1) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.tooltip, (short) 57, -1);
 			}
-			if (jagexInterface.anInt1996 == 2 && !Class88.aBoolean828) {
+			if (jagexInterface.actionType == 2 && !Class88.aBoolean828) {
 				final String string = Class33.method277((byte) 117, jagexInterface);
 				if (string != null) {
-					Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, new StringBuilder("<col=00ff00>").append(jagexInterface.aString1979).toString(), string, (short) 34, -1);
+					Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, new StringBuilder("<col=00ff00>").append(jagexInterface.spellName).toString(), string, (short) 34, -1);
 				}
 			}
-			if (jagexInterface.anInt1996 == 3) {
+			if (jagexInterface.actionType == 3) {
 				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", Class5.aString2153, (short) 7, -1);
 			}
 			if (i <= 78) {
 				method1245(-53, 52, null);
 			}
-			if (jagexInterface.anInt1996 == 4) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 18, -1);
+			if (jagexInterface.actionType == 4) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.tooltip, (short) 18, -1);
 			}
-			if (jagexInterface.anInt1996 == 5) {
-				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 11, -1);
+			if (jagexInterface.actionType == 5) {
+				Class120_Sub14_Sub6.addMenuOption(0L, 0, jagexInterface.bitPacked, "", jagexInterface.tooltip, (short) 11, -1);
 			}
-			if (jagexInterface.anInt1996 == 6 && Class156.aClass189_1454 == null) {
-				Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, "", jagexInterface.aString1934, (short) 3, -1);
+			if (jagexInterface.actionType == 6 && Class156.aClass189_1454 == null) {
+				Class120_Sub14_Sub6.addMenuOption(0L, -1, jagexInterface.bitPacked, "", jagexInterface.tooltip, (short) 3, -1);
 			}
 			if (jagexInterface.type == 2) {
 				int i_2_ = 0;
-				for (int i_3_ = 0; jagexInterface.anInt2060 > i_3_; i_3_++) {
-					for (int i_4_ = 0; i_4_ < jagexInterface.anInt2014; i_4_++) {
-						int i_5_ = i_4_ * (32 + jagexInterface.anInt2044);
-						int i_6_ = i_3_ * (32 - -jagexInterface.anInt2077);
+				for (int i_3_ = 0; jagexInterface.originalHeight > i_3_; i_3_++) {
+					for (int i_4_ = 0; i_4_ < jagexInterface.originalWidth; i_4_++) {
+						int i_5_ = i_4_ * (32 + jagexInterface.objSpritePadX);
+						int i_6_ = i_3_ * (32 - -jagexInterface.objSpritePadY);
 						if (i_2_ < 20) {
-							i_6_ += jagexInterface.anIntArray1986[i_2_];
-							i_5_ += jagexInterface.anIntArray1988[i_2_];
+							i_6_ += jagexInterface.spriteYs[i_2_];
+							i_5_ += jagexInterface.spriteXs[i_2_];
 						}
 						if (i_1_ >= i_5_ && i_0_ >= i_6_ && i_5_ + 32 > i_1_ && i_0_ < 32 + i_6_) {
 							Class120_Sub13.anInt2572 = i_2_;
 							Class120_Sub14_Sub16.aClass189_3588 = jagexInterface;
-							if (jagexInterface.anIntArray1978[i_2_] > 0) {
+							if (jagexInterface.objAmounts[i_2_] > 0) {
 								final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-								final ObjType objType = ObjType.list(jagexInterface.anIntArray1978[i_2_] - 1);
+								final ObjType objType = ObjType.list(jagexInterface.objAmounts[i_2_] - 1);
 								if (Light.objSelected != 1 || !class120_sub20.method1694(500)) {
 									if (Class88.aBoolean828 && class120_sub20.method1694(500)) {
 										final Class120_Sub14_Sub11 class120_sub14_sub11 = Class139.anInt1330 == -1 ? null : Class120_Sub14_Sub11.list(Class139.anInt1330);
@@ -97,7 +97,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 												}
 											}
 										}
-										strings = jagexInterface.aStringArray2056;
+										strings = jagexInterface.oiActions;
 										if (MouseHandler.showNumbersOnActions) {
 											strings = Class120_Sub12_Sub36.addNumbers(strings);
 										}
@@ -144,7 +144,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					for (int i_13_ = 9; i_13_ >= 5; i_13_--) {
 						final String string = Class120_Sub12_Sub17.method1285(i_13_, jagexInterface, (byte) 35);
 						if (string != null) {
-							Class120_Sub14_Sub6.addMenuOption(1 + i_13_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string, (short) 1009, Class120_Sub12_Sub31.method1368(jagexInterface, i_13_, (byte) -25));
+							Class120_Sub14_Sub6.addMenuOption(1 + i_13_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string, (short) 1009, Class120_Sub12_Sub31.method1368(jagexInterface, i_13_));
 						}
 					}
 					final String string = Class33.method277((byte) 126, jagexInterface);
@@ -154,14 +154,14 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					for (int i_14_ = 4; i_14_ >= 0; i_14_--) {
 						final String string_15_ = Class120_Sub12_Sub17.method1285(i_14_, jagexInterface, (byte) 120);
 						if (string_15_ != null) {
-							Class120_Sub14_Sub6.addMenuOption(1 + i_14_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string_15_, (short) 23, Class120_Sub12_Sub31.method1368(jagexInterface, i_14_, (byte) -35));
+							Class120_Sub14_Sub6.addMenuOption(1 + i_14_, jagexInterface.anInt2083, jagexInterface.bitPacked, jagexInterface.aString1964, string_15_, (short) 23, Class120_Sub12_Sub31.method1368(jagexInterface, i_14_));
 						}
 					}
 					if (client.getClickMask(jagexInterface).method1686((byte) -101)) {
 						if (jagexInterface.aString1994 != null) {
 							Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, "", jagexInterface.aString1994, (short) 3, -1);
 						} else {
-							Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, "", Class109.aString1046, (short) 3, -1);
+							Class120_Sub14_Sub6.addMenuOption(0L, jagexInterface.anInt2083, jagexInterface.bitPacked, "", Class109.continueString, (short) 3, -1);
 						}
 					}
 				}

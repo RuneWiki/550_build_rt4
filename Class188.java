@@ -39,7 +39,7 @@ final class Class188 {
 	static final void method2481(final int i) {
 		try {
 			if (i != 104) {
-				method2483((byte) -31, 48);
+				method2483(48);
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1770(21229);
 			Class120_Sub12_Sub25.anInt3312 = 1;
@@ -80,46 +80,36 @@ final class Class188 {
 		}
 	}
 
-	static final boolean method2483(final byte i, final int i_0_) {
-		boolean bool;
-		try {
-			if (i < 57) {
-				method2484(false);
-			}
-			final Class167_Sub1 class167_sub1 = Class82.method710((byte) -24, i_0_);
-			if (class167_sub1 == null) {
-				return false;
-			}
-			if (Signlink.anInt1310 == 1 || Signlink.anInt1310 == 2 || Class107.modeWhere == 2) {
-				Class120_Sub12_Sub30.aString3375 = class167_sub1.aString2836;
-				Class157.anInt1469 = class167_sub1.anInt2838;
-				if (Class107.modeWhere != 0) {
-					GameEntity.anInt3045 = 50000 - -Class157.anInt1469;
-					Class71.anInt625 = Class157.anInt1469 + 40000;
-					Class158.anInt1479 = Class71.anInt625;
-				}
-				return true;
-			}
-			String string = "";
-			String string_1_ = "";
-			if (Class120_Sub12_Sub25.settings != null) {
-				string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
-			}
-			if (Class107.modeWhere != 0) {
-				string = new StringBuilder(":").append(7000 + class167_sub1.anInt2838).toString();
-			}
-			final String string_2_ = new StringBuilder("http://").append(class167_sub1.aString2836).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(!Class48.aBoolean437 ? "0" : "1").append(",o")
-					.append(Class110.aBoolean1054 ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
-			try {
-				Class179.aClient1776.getAppletContext().showDocument(new URL(string_2_), "_self");
-			} catch (final Exception exception) {
-				return false;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.C(").append(i).append(',').append(i_0_).append(')').toString());
+	static final boolean method2483(final int i_0_) {
+		final World class167_sub1 = Class82.method710((byte) -24, i_0_);
+		if (class167_sub1 == null) {
+			return false;
 		}
-		return bool;
+		if (Signlink.anInt1310 == 1 || Signlink.anInt1310 == 2 || Class107.modeWhere == 2) {
+			Class120_Sub12_Sub30.aString3375 = class167_sub1.ip;
+			Class157.worldId = class167_sub1.worldId;
+			if (Class107.modeWhere != 0) {
+				GameEntity.anInt3045 = Class157.worldId + 50000;
+				Class71.anInt625 = Class157.worldId + 40000;
+				Class158.anInt1479 = Class71.anInt625;
+			}
+			return true;
+		}
+		String string = "";
+		String string_1_ = "";
+		if (Class120_Sub12_Sub25.settings != null) {
+			string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
+		}
+		if (Class107.modeWhere != 0) {
+			string = new StringBuilder(":").append(7000 + class167_sub1.worldId).toString();
+		}
+		final String string_2_ = new StringBuilder("http://").append(class167_sub1.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
+		try {
+			Class179.aClient1776.getAppletContext().showDocument(new URL(string_2_), "_self");
+		} catch (final Exception exception) {
+			return false;
+		}
+		return true;
 	}
 
 	public Class188() {

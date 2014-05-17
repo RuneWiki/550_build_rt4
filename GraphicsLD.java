@@ -354,7 +354,7 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2159(int i, int i_98_, int i_99_, int i_100_, int i_101_, final int i_102_) {
+	static final void fillRect(int i, int i_98_, int i_99_, int i_100_, int i_101_, final int i_102_) {
 		if (i < startX) {
 			i_99_ -= startX - i;
 			i = startX;

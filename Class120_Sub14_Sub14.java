@@ -129,9 +129,9 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 				if (i_32_ == 128) {
 					bool_30_ = true;
 					CanvasWrapper.anIntArray21[0] = class120_sub7.getUShort();
-					CanvasWrapper.anIntArray21[1] = class120_sub7.method1078(true);
-					CanvasWrapper.anIntArray21[2] = class120_sub7.method1078(true);
-					CanvasWrapper.anIntArray21[3] = class120_sub7.method1078(true);
+					CanvasWrapper.anIntArray21[1] = class120_sub7.getShort();
+					CanvasWrapper.anIntArray21[2] = class120_sub7.getShort();
+					CanvasWrapper.anIntArray21[3] = class120_sub7.getShort();
 					CanvasWrapper.anIntArray21[4] = class120_sub7.getUShort();
 				} else if (i_32_ == 129) {
 					for (int i_33_ = 0; i_33_ < 4; i_33_++) {

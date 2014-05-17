@@ -57,7 +57,7 @@ final class Class120_Sub15 extends Node {
 			Class120_Sub14_Sub23.anInt3649 = i_6_;
 			Class52.aClass50_476 = class50;
 			StringNode.aBoolean2734 = bool;
-			Class40.anInt349 = i;
+			SeqType.anInt349 = i;
 			Class120_Sub14_Sub14_Sub2.anInt3940 = i_5_;
 			Class120_Sub12_Sub25.anInt3312 = 1;
 			if (i_4_ >= -126) {

@@ -107,7 +107,7 @@ final class Cache {
 			}
 			if (HDToolkit.glEnabled) {
 				Class47.method382(104, 104);
-				Class108_Sub1.method933(Class186.aBoolean1902, i ^ 0x387be992);
+				Class108_Sub1.method933(Class186.hdrEnabled);
 				ParticleEngine.method964();
 			}
 			Class8.method109(Class7.aClass50_63, Class120_Sub13.aClass50_2576, (byte) 124);
@@ -239,7 +239,7 @@ final class Cache {
 						Class79_Sub1.aStringArray2243[i_9_++] = string;
 					}
 				}
-				Class167_Sub1.method2194(i, 1006199388, class120_sub14_sub12);
+				World.method2194(i, 1006199388, class120_sub14_sub12);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cc.E(").append(class120_sub10 != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());

@@ -59,16 +59,16 @@ final class Class82 implements Runnable {
 		} while (false);
 	}
 
-	static final Class167_Sub1 method710(final byte i, final int i_0_) {
-		Class167_Sub1 class167_sub1;
+	static final World method710(final byte i, final int i_0_) {
+		World class167_sub1;
 		try {
 			if (i != -24) {
 				aString787 = null;
 			}
-			if (!Class159.aBoolean1487 || OverridedJInterface.anInt2738 > i_0_ || Class120_Sub14_Sub2.anInt3454 < i_0_) {
+			if (!Class159.aBoolean1487 || OverridedJInterface.worldOff > i_0_ || Class120_Sub14_Sub2.worldLen < i_0_) {
 				return null;
 			}
-			class167_sub1 = Class48.aClass167_Sub1Array435[-OverridedJInterface.anInt2738 + i_0_];
+			class167_sub1 = Class48.worldList[i_0_ - OverridedJInterface.worldOff];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.A(").append(i).append(',').append(i_0_).append(')').toString());
 		}

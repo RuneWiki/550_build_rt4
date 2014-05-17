@@ -73,7 +73,7 @@ final class CursorType {
 	static final void method1918(final int i) {
 		try {
 			if (Class180_Sub4.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && Class120_Sub14_Sub2.anInt3450 <= 0) {
-				int i_5_ = Class156.anInt1455;
+				int i_5_ = Class156.lastMouseClick;
 				if (i != 13) {
 					method1914(100, 27);
 				}
@@ -92,9 +92,9 @@ final class CursorType {
 									InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
 								}
 								Class180_Sub4.aClass189_2954 = Class74.getJagexInterface(i_7_);
-								Class23.anInt134 = Class50.anInt449;
+								Class23.anInt134 = Class50.lastClickX;
 								Class5.anInt2154 = i_8_;
-								Class27.anInt166 = Class120_Sub12_Sub36.anInt3424;
+								Class27.anInt166 = Class120_Sub12_Sub36.lastClickY;
 								InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
 								return;
 							}
@@ -104,7 +104,7 @@ final class CursorType {
 						i_5_ = 2;
 					}
 					if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
-						Class120_Sub12_Sub28.method1349((byte) 103);
+						Class120_Sub12_Sub28.determineMenuSize();
 					}
 					if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
 						Class191.method2508((byte) 72);
@@ -121,12 +121,12 @@ final class CursorType {
 					if (i_5_ == 1) {
 						final int i_11_ = Class126.menuDrawX;
 						final int i_12_ = Class120_Sub16.menuDrawY;
-						final int i_13_ = Class50.anInt449;
-						final int i_14_ = Class120_Sub12_Sub36.anInt3424;
+						final int i_13_ = Class50.lastClickX;
+						final int i_14_ = Class120_Sub12_Sub36.lastClickY;
 						final int i_15_ = Class120_Sub24.menuWidth;
 						int i_16_ = -1;
 						for (int i_17_ = 0; Class186.menuOptionCount > i_17_; i_17_++) {
-							if (!Class186.aBoolean1899) {
+							if (!Class186.usingSpriteMenu) {
 								final int i_18_ = (Class186.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
 								if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
 									i_16_ = i_17_;
@@ -168,7 +168,7 @@ final class CursorType {
 	}
 
 	static final CursorType list(final int i_110_) {
-		CursorType class130_111_ = (CursorType) OutputStream_Sub1.aClass21_30.get(i_110_);
+		CursorType class130_111_ = (CursorType) DummyOutputStream.aClass21_30.get(i_110_);
 		if (class130_111_ != null) {
 			return class130_111_;
 		}
@@ -178,7 +178,7 @@ final class CursorType {
 		if (is != null) {
 			class130_111_.method1916(-24927, i_110_, new Buffer(is));
 		}
-		OutputStream_Sub1.aClass21_30.put(class130_111_, i_110_);
+		DummyOutputStream.aClass21_30.put(class130_111_, i_110_);
 		return class130_111_;
 	}
 }

@@ -170,7 +170,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 			if (i != 0) {
 				aClass164_3366 = null;
 			}
-			class101_sub3 = new Class101_Sub3(class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.getTriByte(), class120_sub7.getTriByte(), class120_sub7.getUByte());
+			class101_sub3 = new Class101_Sub3(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getMedium(), class120_sub7.getUByte());
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sc.S(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
@@ -210,7 +210,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	static final Class101_Sub2 method1357(final Buffer class120_sub7, final int i) {
 		Class101_Sub2 class101_sub2;
 		try {
-			class101_sub2 = new Class101_Sub2(class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.getTriByte(), class120_sub7.getUByte());
+			class101_sub2 = new Class101_Sub2(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getUByte());
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sc.U(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}

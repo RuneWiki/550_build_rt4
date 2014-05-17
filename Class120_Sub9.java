@@ -43,31 +43,31 @@ final class Class120_Sub9 extends Node {
 	final void method1161() {
 		final Buffer class120_sub7 = new Buffer((aBoolean2511 ? 40 : 36) * this.anInt2527);
 		for (int i = 0; i < this.anInt2527; i++) {
-			if (HDToolkit.isBigEndian) {
-				class120_sub7.method1106(true, anIntArray2506[i]);
-				class120_sub7.method1106(true, anIntArray2531[i]);
-				class120_sub7.method1106(true, anIntArray2521[i]);
+			if (HDToolkit.usingBigEndian) {
+				class120_sub7.putFloatAsInt(anIntArray2506[i]);
+				class120_sub7.putFloatAsInt(anIntArray2531[i]);
+				class120_sub7.putFloatAsInt(anIntArray2521[i]);
 				class120_sub7.putInt(anIntArray2500[i]);
-				class120_sub7.method1106(true, aFloatArray2501[i]);
-				class120_sub7.method1106(true, aFloatArray2529[i]);
-				class120_sub7.method1106(true, aFloatArray2503[i]);
-				class120_sub7.method1106(true, anIntArray2506[i] / aFloat2517);
-				class120_sub7.method1106(true, anIntArray2521[i] / aFloat2517);
+				class120_sub7.putFloatAsInt(aFloatArray2501[i]);
+				class120_sub7.putFloatAsInt(aFloatArray2529[i]);
+				class120_sub7.putFloatAsInt(aFloatArray2503[i]);
+				class120_sub7.putFloatAsInt(anIntArray2506[i] / aFloat2517);
+				class120_sub7.putFloatAsInt(anIntArray2521[i] / aFloat2517);
 				if (aBoolean2511) {
-					class120_sub7.method1106(true, aFloatArray2530[i]);
+					class120_sub7.putFloatAsInt(aFloatArray2530[i]);
 				}
 			} else {
-				class120_sub7.method1134(anIntArray2506[i], -2503);
-				class120_sub7.method1134(anIntArray2531[i], -2503);
-				class120_sub7.method1134(anIntArray2521[i], -2503);
+				class120_sub7.putFloatAsLEInt(anIntArray2506[i]);
+				class120_sub7.putFloatAsLEInt(anIntArray2531[i]);
+				class120_sub7.putFloatAsLEInt(anIntArray2521[i]);
 				class120_sub7.putInt(anIntArray2500[i]);
-				class120_sub7.method1134(aFloatArray2501[i], -2503);
-				class120_sub7.method1134(aFloatArray2529[i], -2503);
-				class120_sub7.method1134(aFloatArray2503[i], -2503);
-				class120_sub7.method1134(anIntArray2506[i] / aFloat2517, -2503);
-				class120_sub7.method1134(anIntArray2521[i] / aFloat2517, -2503);
+				class120_sub7.putFloatAsLEInt(aFloatArray2501[i]);
+				class120_sub7.putFloatAsLEInt(aFloatArray2529[i]);
+				class120_sub7.putFloatAsLEInt(aFloatArray2503[i]);
+				class120_sub7.putFloatAsLEInt(anIntArray2506[i] / aFloat2517);
+				class120_sub7.putFloatAsLEInt(anIntArray2521[i] / aFloat2517);
 				if (aBoolean2511) {
-					class120_sub7.method1134(aFloatArray2530[i], -2503);
+					class120_sub7.putFloatAsLEInt(aFloatArray2530[i]);
 				}
 			}
 		}
@@ -102,7 +102,7 @@ final class Class120_Sub9 extends Node {
 		} else {
 			aClass120_Sub7_2513.pos = 0;
 		}
-		if (HDToolkit.isBigEndian) {
+		if (HDToolkit.usingBigEndian) {
 			for (int i = 0; i < anInt2502; i++) {
 				final GroundTile class120_sub18 = class120_sub18s[anIntArray2504[i]][anIntArray2514[i]][anIntArray2524[i]];
 				if (class120_sub18 != null && class120_sub18.aBoolean2647) {
@@ -141,7 +141,7 @@ final class Class120_Sub9 extends Node {
 							int[] is_8_;
 							final int i_7_ = (is_8_ = is_6_).length;
 							for (int i_9_ = 0; i_9_ < i_7_; i_9_++) {
-								final int i_10_ = is_8_[i_9_];
+								int i_10_ = is_8_[i_9_];
 								aClass120_Sub7_2513.putLEInt(i_10_);
 							}
 						}

@@ -5,13 +5,13 @@
 final class Class156 {
 	static int anInt1453;
 	static JagexInterface aClass189_1454 = null;
-	static int anInt1455;
+	static int lastMouseClick;
 	static Class50 aClass50_1456;
 	static String aString1457 = "glow2:";
 	static int[] anIntArray1458;
 
 	static {
-		anInt1455 = 0;
+		lastMouseClick = 0;
 		anIntArray1458 = new int[] { 16, 32, 64, 128 };
 	}
 
@@ -29,7 +29,7 @@ final class Class156 {
 			aClass50_1456 = null;
 			anIntArray1458 = null;
 			if (i != -2366) {
-				anInt1455 = -83;
+				lastMouseClick = -83;
 			}
 			aClass189_1454 = null;
 		} catch (final RuntimeException runtimeexception) {

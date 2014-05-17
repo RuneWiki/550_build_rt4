@@ -6,7 +6,7 @@ import java.awt.FontMetrics;
 import javax.media.opengl.GL;
 
 final class Class20 implements ShaderInterface {
-	static long aLong2168;
+	static long selfNameAsLong;
 	static Class50 aClass50_2169;
 	private float[] aFloatArray2170 = new float[4];
 	static FontMetrics aFontMetrics2171;
@@ -177,7 +177,7 @@ final class Class20 implements ShaderInterface {
 		boolean bool;
 		try {
 			if (i != 0) {
-				aLong2168 = 28L;
+				selfNameAsLong = 28L;
 			}
 			if (class50.method429(Class120_Sub14_Sub13.anInt3561)) {
 				return true;

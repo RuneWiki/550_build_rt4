@@ -22,7 +22,7 @@ final class Class180_Sub4 extends SceneGraphNode {
 	private boolean aBoolean2938;
 	int anInt2939;
 	private final int anInt2940;
-	private Class40 aClass40_2941;
+	private SeqType aClass40_2941;
 	private double aDouble2942;
 	int anInt2943;
 	int anInt2944;
@@ -60,19 +60,19 @@ final class Class180_Sub4 extends SceneGraphNode {
 			}
 			if (aClass40_2941 != null) {
 				anInt2945 += i;
-				while (aClass40_2941.anIntArray338[anInt2925] < anInt2945) {
-					anInt2945 -= aClass40_2941.anIntArray338[anInt2925];
+				while (aClass40_2941.cycles[anInt2925] < anInt2945) {
+					anInt2945 -= aClass40_2941.cycles[anInt2925];
 					anInt2925++;
-					if (aClass40_2941.anIntArray342.length <= anInt2925) {
-						anInt2925 -= aClass40_2941.anInt346;
-						if (anInt2925 < 0 || anInt2925 >= aClass40_2941.anIntArray342.length) {
+					if (aClass40_2941.frames.length <= anInt2925) {
+						anInt2925 -= aClass40_2941.padding;
+						if (anInt2925 < 0 || anInt2925 >= aClass40_2941.frames.length) {
 							anInt2925 = 0;
 						}
 					}
 					anInt2936 = anInt2925 + 1;
-					if (anInt2936 >= aClass40_2941.anIntArray342.length) {
-						anInt2936 -= aClass40_2941.anInt346;
-						if (anInt2936 < 0 || aClass40_2941.anIntArray342.length <= anInt2936) {
+					if (anInt2936 >= aClass40_2941.frames.length) {
+						anInt2936 -= aClass40_2941.padding;
+						if (anInt2936 < 0 || aClass40_2941.frames.length <= anInt2936) {
 							anInt2936 = -1;
 						}
 					}
@@ -247,7 +247,7 @@ final class Class180_Sub4 extends SceneGraphNode {
 		if ((i_28_ ^ 0xffffffff) == 0) {
 			aClass40_2941 = null;
 		} else {
-			aClass40_2941 = Class120_Sub30_Sub2.method1763(i_28_, 120);
+			aClass40_2941 = SeqType.list(i_28_);
 		}
 	}
 

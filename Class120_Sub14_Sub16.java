@@ -227,7 +227,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class157.method2087(5, (byte) -86);
 			Class101_Sub1.method840(i ^ 0x15, 5);
 			SceneGroundObject.method2278(5, (byte) -123);
-			OutputStream_Sub1.method73((byte) 125, 5);
+			DummyOutputStream.method73((byte) 125, 5);
 			InterfaceClickMask.method1680((byte) 126, 5);
 			Class26.method232((byte) 114, 5);
 			Class188.method2480(true, 5);
@@ -259,7 +259,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 				}
 				for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
 					final boolean bool = class120_sub7.getUByte() == 1;
-					final int i_35_ = class120_sub7.getTriByte();
+					final int i_35_ = class120_sub7.getMedium();
 					Node node;
 					if (bool) {
 						node = new StringNode(class120_sub7.getJString());
@@ -347,7 +347,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 				method1560(41);
 			}
 			Class120_Sub12_Sub34.anIntArray3409 = new int[104];
-			OutputStream_Sub1.anInt29 = 99;
+			DummyOutputStream.anInt29 = 99;
 			int i_44_;
 			if (bool) {
 				i_44_ = 1;

@@ -9,7 +9,7 @@ import java.awt.Insets;
 final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	static Class120_Sub30_Sub3 aClass120_Sub30_Sub3_3299;
 	private int anInt3300 = 32768;
-	static int anInt3301 = 0;
+	static int redrawRate = 0;
 	static int anInt3302;
 	static Class120_Sub14_Sub8 boldFont;
 

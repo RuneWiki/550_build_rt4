@@ -105,7 +105,7 @@ final class Class176 {
 						i_19_ = i_8_ * Class112.aClass98_1070.method817() + i_16_;
 						i_17_ = i_9_ + i_15_ + 10;
 						if (class73.anInt640 != 0) {
-							GraphicsLD.method2159(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.anInt640, class73.anInt640 >>> 24);
+							GraphicsLD.fillRect(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.anInt640, class73.anInt640 >>> 24);
 						}
 						if (class73.anInt648 != 0) {
 							GraphicsLD.drawRect(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.anInt648, class73.anInt648 >>> 24);

@@ -7,16 +7,16 @@ final class Class136 {
 	static int[] anIntArray1315 = new int[100];
 	static String aString1316;
 	static boolean aBoolean1317 = false;
-	static int worldId;
+	static int defaultWorldId;
 	static Random aRandom1319;
-	static volatile int anInt1320;
+	static volatile int mouseIdleCycle;
 	static int anInt1321;
 
 	static {
 		aString1316 = "glow3:";
-		worldId = 1;
+		defaultWorldId = 1;
 		aRandom1319 = new Random();
-		anInt1320 = 0;
+		mouseIdleCycle = 0;
 	}
 
 	static final String longToString(long l) {

@@ -58,7 +58,7 @@ final class Class145 {
 				int i_12_ = Math.min(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2);
 				if (i_11_ > i_12_ * i_12_) {
 					i_12_ -= 10;
-					final int i_13_ = Class164.anInt1590 + (int) OutputStream_Sub1.aFloat28 & 0x7ff;
+					final int i_13_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
 					int i_14_ = Rasterizer.cosineTable[i_13_];
 					i_14_ = 256 * i_14_ / (Class154.anInt1442 - -256);
 					int i_15_ = Rasterizer.sineTable[i_13_];

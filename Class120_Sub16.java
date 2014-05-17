@@ -154,9 +154,9 @@ final class Class120_Sub16 extends Node {
 			Class120_Sub12_Sub11.outputStream.pos = 0;
 			Class114.anInt1093 = -1;
 			Class73.anInt639 = -1;
-			Class40.anInt333 = -1;
+			SeqType.anInt333 = -1;
 			Class88.anInt827 = 0;
-			Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
+			Canvas_Sub1.inputStream.pos = 0;
 			Class120_Sub22.anInt2675 = 0;
 			AbstractMouseWheelHandler.packetSize = 0;
 			Class8.method111((byte) 0);

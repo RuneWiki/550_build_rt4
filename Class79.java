@@ -504,7 +504,7 @@ class Class79 {
 									aByteArrayArrayArray707[i_113_][i_114_][(63 - i_116_ << 6) + i_115_] = (byte) i_118_;
 								}
 								if ((i_117_ & 0x2) == 2) {
-									final int i_119_ = class120_sub7.getTriByte();
+									final int i_119_ = class120_sub7.getMedium();
 									if (anIntArrayArrayArray702[i_113_][i_114_] == null) {
 										anIntArrayArrayArray702[i_113_][i_114_] = new int[4096];
 									}

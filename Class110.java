@@ -7,7 +7,7 @@ final class Class110 {
 	static int anInt1051;
 	static Class98 aClass98_1052;
 	static InterfaceClickMask aClass120_Sub20_1053;
-	static boolean aBoolean1054 = false;
+	static boolean objectTagEnabled = false;
 	static Class91 aClass91_1055;
 
 	static {

@@ -45,8 +45,8 @@ final class DisplayModeInfo {
 					Class118.playersList[i_3_] = null;
 				}
 			}
-			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.packetSize) {
-				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+			if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
+				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 			}
 			for (int i_4_ = 0; Class83.localPlayerCount > i_4_; i_4_++) {
 				if (Class118.playersList[Class112.playerIndices[i_4_]] == null) {
@@ -60,7 +60,7 @@ final class DisplayModeInfo {
 
 	static final void method2214(final boolean bool) {
 		try {
-			OutputStream_Sub1.aClass21_30.clear();
+			DummyOutputStream.aClass21_30.clear();
 			Class120_Sub12_Sub27.aClass21_3342.clear();
 			if (bool) {
 				anInt1715 = 98;

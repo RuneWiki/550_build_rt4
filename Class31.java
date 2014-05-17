@@ -21,8 +21,8 @@ final class Class31 {
 	static final void method262(final int i) {
 		try {
 			if (i < -114) {
-				while (Canvas_Sub1.aClass120_Sub7_Sub1_16.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 27) {
-					final int i_0_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(15);
+				while (Canvas_Sub1.inputStream.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 27) {
+					final int i_0_ = Canvas_Sub1.inputStream.getBitValue(15);
 					if (i_0_ == 32767) {
 						break;
 					}
@@ -37,24 +37,24 @@ final class Class31 {
 					if (class180_sub5_sub2.npcType != null && class180_sub5_sub2.npcType.method2204(0)) {
 						Class120_Sub16.method1664(class180_sub5_sub2);
 					}
-					int i_1_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
+					int i_1_ = Canvas_Sub1.inputStream.getBitValue(5);
 					if (i_1_ > 15) {
 						i_1_ -= 32;
 					}
-					final int i_2_ = Class15.anIntArray101[Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3)];
+					final int i_2_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
 					if (bool) {
 						class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = i_2_;
 					}
-					int i_3_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(5);
-					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(14)));
-					final int i_4_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					int i_3_ = Canvas_Sub1.inputStream.getBitValue(5);
+					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getBitValue(14)));
+					final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_3_ > 15) {
 						i_3_ -= 32;
 					}
 					if (i_4_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = i_0_;
 					}
-					final int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 					class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
 					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
 					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
@@ -66,7 +66,7 @@ final class Class31 {
 						Class7.method106(128, null, class180_sub5_sub2.anIntArray2958[0], class180_sub5_sub2, class180_sub5_sub2.anIntArray3040[0], null, 0, Class173.gameLevel);
 					}
 				}
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.method1146();
+				Canvas_Sub1.inputStream.method1146();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("db.D(").append(i).append(')').toString());
@@ -130,17 +130,8 @@ final class Class31 {
 		}
 	}
 
-	static final int method265(final boolean bool, final String string) {
-		int i;
-		try {
-			if (!bool) {
-				return 47;
-			}
-			i = CanvasWrapper.method65(10, string, 92, true);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("db.B(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
-		}
-		return i;
+	static final int method265(final String string) {
+		return CanvasWrapper.method65(string, 10, true);
 	}
 
 	public static void method266(final boolean bool) {
@@ -149,7 +140,7 @@ final class Class31 {
 			aClass107_Sub1_246 = null;
 			anIntArray243 = null;
 			if (bool) {
-				method265(true, null);
+				method265(null);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("db.A(").append(bool).append(')').toString());

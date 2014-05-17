@@ -42,7 +42,7 @@ final class Class191 {
 	static final void method2508(final byte i) {
 		try {
 			if (FileSystem.anInt455 != 2) {
-				if (Class115.anInt1110 == Class50.anInt449 && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.anInt3424) {
+				if (Class115.anInt1110 == Class50.lastClickX && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.lastClickY) {
 					FileSystem.anInt455 = 0;
 					if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
 						GameShell.method31((byte) 96, -2 + Class186.menuOptionCount);
@@ -51,8 +51,8 @@ final class Class191 {
 					}
 				} else {
 					FileSystem.anInt455 = 2;
-					Class31.anInt250 = Class120_Sub12_Sub36.anInt3424;
-					Class120_Sub14_Sub12.anInt3558 = Class50.anInt449;
+					Class31.anInt250 = Class120_Sub12_Sub36.lastClickY;
+					Class120_Sub14_Sub12.anInt3558 = Class50.lastClickX;
 				}
 			} else if (Class115.anInt1110 == Class120_Sub14_Sub12.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
 				FileSystem.anInt455 = 0;
@@ -121,22 +121,22 @@ final class Class191 {
 	static final void method2513(final byte i) {
 		try {
 			if (Class23.packetType == 17) {
-				final int i_7_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_7_ = Canvas_Sub1.inputStream.getUByte();
 				int i_8_ = Class32.anInt254 * 2 - -((0xfd & i_7_) >> 4);
 				int i_9_ = (0xf & i_7_) + Class28.anInt176 * 2;
-				int i_10_ = i_8_ - -Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-				int i_11_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte() + i_9_;
-				final int i_12_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
-				final int i_13_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_14_ = 4 * Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_15_ = 4 * Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_16_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_17_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				int i_18_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				int i_10_ = i_8_ - -Canvas_Sub1.inputStream.getByte();
+				int i_11_ = Canvas_Sub1.inputStream.getByte() + i_9_;
+				final int i_12_ = Canvas_Sub1.inputStream.getShort();
+				final int i_13_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_14_ = 4 * Canvas_Sub1.inputStream.getUByte();
+				final int i_15_ = 4 * Canvas_Sub1.inputStream.getUByte();
+				final int i_16_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_17_ = Canvas_Sub1.inputStream.getUShort();
+				int i_18_ = Canvas_Sub1.inputStream.getUByte();
 				if (i_18_ == 255) {
 					i_18_ = -1;
 				}
-				final int i_19_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_19_ = Canvas_Sub1.inputStream.getUByte();
 				if (i_8_ >= 0 && i_9_ >= 0 && i_8_ < 208 && i_9_ < 208 && i_10_ >= 0 && i_11_ >= 0 && i_10_ < 208 && i_11_ < 208 && -65536 != (i_13_ ^ 0xffffffff)) {
 					i_8_ *= 64;
 					i_9_ *= 64;
@@ -147,12 +147,12 @@ final class Class191 {
 					Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 				}
 			} else if (Class23.packetType == 114) {
-				final int i_20_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_20_ = Canvas_Sub1.inputStream.getUByte();
 				final int i_21_ = Class32.anInt254 + (i_20_ >> 4 & 0x7);
 				final int i_22_ = (i_20_ & 0x7) + Class28.anInt176;
-				final int i_23_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_24_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_25_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_23_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_24_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_25_ = Canvas_Sub1.inputStream.getUShort();
 				if (i_21_ >= 0 && i_22_ >= 0 && i_21_ < 104 && i_22_ < 104) {
 					final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_21_][i_22_];
 					if (deque != null) {
@@ -168,42 +168,42 @@ final class Class191 {
 				}
 			} else {
 				if (Class23.packetType == 133) {
-					final int i_26_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1128(-96);
-					final int i_27_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+					final int i_26_ = Canvas_Sub1.inputStream.getShortA();
+					final int i_27_ = Canvas_Sub1.inputStream.getUByteA();
 					final int i_28_ = (i_27_ & 0x7) + Class28.anInt176;
 					final int i_29_ = (0x7 & i_27_ >> 4) + Class32.anInt254;
-					final int i_30_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-					final int i_31_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_30_ = Canvas_Sub1.inputStream.getULEShortA();
+					final int i_31_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_32_ = i_31_ >> 2;
-					final byte i_33_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1110((byte) -120);
+					final byte i_33_ = Canvas_Sub1.inputStream.getByteS();
 					final int i_34_ = 0x3 & i_31_;
-					final byte i_35_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByteC();
-					final byte i_36_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-					final byte i_37_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByteC();
-					final int i_38_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-					final int i_39_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					final byte i_35_ = Canvas_Sub1.inputStream.getByteC();
+					final byte i_36_ = Canvas_Sub1.inputStream.getByte();
+					final byte i_37_ = Canvas_Sub1.inputStream.getByteC();
+					final int i_38_ = Canvas_Sub1.inputStream.getULEShortA();
+					final int i_39_ = Canvas_Sub1.inputStream.getUShort();
 					if (!HDToolkit.glEnabled) {
 						Class120_Sub12_Sub6.method1226(i_33_, i_26_, i_30_, i_38_, i_32_, i_35_, i_36_, 101, i_39_, i_34_, i_28_, i_37_, i_29_);
 					}
 				}
 				if (Class23.packetType == 111) {
-					final int i_40_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_40_ = Canvas_Sub1.inputStream.getUByte();
 					int i_41_ = 2 * Class32.anInt254 + (i_40_ >> 4 & 0xf);
 					int i_42_ = (i_40_ & 0xf) + Class28.anInt176 * 2;
-					int i_43_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte() + i_41_;
-					int i_44_ = i_42_ - -Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-					final int i_45_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
-					final int i_46_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
-					final int i_47_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					int i_48_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-					final int i_49_ = 4 * Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-					final int i_50_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_51_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					int i_52_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					int i_43_ = Canvas_Sub1.inputStream.getByte() + i_41_;
+					int i_44_ = i_42_ - -Canvas_Sub1.inputStream.getByte();
+					final int i_45_ = Canvas_Sub1.inputStream.getShort();
+					final int i_46_ = Canvas_Sub1.inputStream.getShort();
+					final int i_47_ = Canvas_Sub1.inputStream.getUShort();
+					int i_48_ = Canvas_Sub1.inputStream.getByte();
+					final int i_49_ = 4 * Canvas_Sub1.inputStream.getUByte();
+					final int i_50_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_51_ = Canvas_Sub1.inputStream.getUShort();
+					int i_52_ = Canvas_Sub1.inputStream.getUByte();
 					if (i_52_ == 255) {
 						i_52_ = -1;
 					}
-					final int i_53_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_53_ = Canvas_Sub1.inputStream.getUByte();
 					if (i_41_ >= 0 && i_42_ >= 0 && i_41_ < 208 && i_42_ < 208 && i_43_ >= 0 && i_44_ >= 0 && i_43_ < 208 && i_44_ < 208 && i_47_ != 65535) {
 						i_44_ *= 64;
 						i_43_ *= 64;
@@ -248,12 +248,12 @@ final class Class191 {
 						Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 					}
 				} else if (Class23.packetType == 158) {
-					final int i_64_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_64_ = Canvas_Sub1.inputStream.getUByte();
 					int i_65_ = ((0x77 & i_64_) >> 4) + Class32.anInt254;
 					int i_66_ = Class28.anInt176 + (0x7 & i_64_);
-					final int i_67_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_68_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-					final int i_69_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					final int i_67_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_68_ = Canvas_Sub1.inputStream.getUByte();
+					final int i_69_ = Canvas_Sub1.inputStream.getUShort();
 					if (i_65_ >= 0 && i_66_ >= 0 && i_65_ < 104 && i_66_ < 104) {
 						i_66_ = 64 + 128 * i_66_;
 						i_65_ = 64 + 128 * i_65_;
@@ -261,39 +261,39 @@ final class Class191 {
 						Class120_Sub12_Sub7.aClass105_3177.addLast(new Class120_Sub14_Sub4(class180_sub3));
 					}
 				} else if (Class23.packetType == 179) {
-					int i_70_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					int i_70_ = Canvas_Sub1.inputStream.getUShort();
 					if (i_70_ == 65535) {
 						i_70_ = -1;
 					}
-					final int i_71_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+					final int i_71_ = Canvas_Sub1.inputStream.getUByteS();
 					final int i_72_ = i_71_ >> 2;
 					final int i_73_ = 0x3 & i_71_;
 					final int i_74_ = Class25.anIntArray153[i_72_];
-					final int i_75_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_75_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_76_ = (i_75_ & 0x7) + Class28.anInt176;
 					final int i_77_ = Class32.anInt254 + ((0x7f & i_75_) >> 4);
 					ProducingGraphicsBuffer.method1853(i_70_, i_77_, (byte) -73, Class173.gameLevel, i_76_, i_74_, i_73_, i_72_);
 				} else if (Class23.packetType == 131) {
-					final int i_78_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+					final int i_78_ = Canvas_Sub1.inputStream.getUByteS();
 					final int i_79_ = i_78_ >> 2;
 					final int i_80_ = Class25.anIntArray153[i_79_];
 					final int i_81_ = i_78_ & 0x3;
-					final int i_82_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-					final int i_83_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_82_ = Canvas_Sub1.inputStream.getULEShort();
+					final int i_83_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_84_ = (i_83_ & 0x7) + Class28.anInt176;
 					final int i_85_ = (i_83_ >> 4 & 0x7) + Class32.anInt254;
 					if (i_85_ >= 0 && i_84_ >= 0 && i_85_ < 104 && i_84_ < 104) {
 						Class38.method317(i_82_, Class173.gameLevel, i_81_, i_85_, -1, i_84_, (byte) 20, i_79_, i_80_, 0);
 					}
 				} else if (Class23.packetType == 115) {
-					final int i_86_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_87_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_86_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_87_ = Canvas_Sub1.inputStream.getUByte();
 					LocType.list(i_86_).method2460(i_87_, 23428);
 				} else if (Class23.packetType == 232) {
-					final int i_88_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
+					final int i_88_ = Canvas_Sub1.inputStream.getUByteC();
 					final int i_89_ = Class28.anInt176 + (i_88_ & 0x7);
 					final int i_90_ = (i_88_ >> 4 & 0x7) + Class32.anInt254;
-					final int i_91_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_91_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_92_ = i_91_ >> 2;
 					final int i_93_ = Class25.anIntArray153[i_92_];
 					final int i_94_ = 0x3 & i_91_;
@@ -301,19 +301,19 @@ final class Class191 {
 						Class38.method317(-1, Class173.gameLevel, i_94_, i_90_, -1, i_89_, (byte) -97, i_92_, i_93_, 0);
 					}
 				} else if (Class23.packetType == 105) {
-					final int i_95_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_95_ = Canvas_Sub1.inputStream.getUByte();
 					int i_96_ = (i_95_ >> 4 & 0x7) + Class32.anInt254;
 					int i_97_ = (i_95_ & 0x7) + Class28.anInt176;
-					int i_98_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte() + i_96_;
-					int i_99_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte() + i_97_;
-					final int i_100_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
-					final int i_101_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_102_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() * 4;
-					final int i_103_ = 4 * Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-					final int i_104_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_105_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					int i_106_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-					final int i_107_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					int i_98_ = Canvas_Sub1.inputStream.getByte() + i_96_;
+					int i_99_ = Canvas_Sub1.inputStream.getByte() + i_97_;
+					final int i_100_ = Canvas_Sub1.inputStream.getShort();
+					final int i_101_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_102_ = Canvas_Sub1.inputStream.getUByte() * 4;
+					final int i_103_ = 4 * Canvas_Sub1.inputStream.getUByte();
+					final int i_104_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_105_ = Canvas_Sub1.inputStream.getUShort();
+					int i_106_ = Canvas_Sub1.inputStream.getUByte();
+					final int i_107_ = Canvas_Sub1.inputStream.getUByte();
 					if (i_106_ == 255) {
 						i_106_ = -1;
 					}
@@ -327,10 +327,10 @@ final class Class191 {
 						Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 					}
 				} else if (Class23.packetType == 120) {
-					final int i_108_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+					final int i_108_ = Canvas_Sub1.inputStream.getUByteS();
 					final int i_109_ = Class32.anInt254 - -((0x73 & i_108_) >> 4);
 					final int i_110_ = (0x7 & i_108_) + Class28.anInt176;
-					final int i_111_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
+					final int i_111_ = Canvas_Sub1.inputStream.getUShortA();
 					if (i_109_ >= 0 && i_110_ >= 0 && i_109_ < 104 && i_110_ < 104) {
 						final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_109_][i_110_];
 						if (deque != null) {
@@ -347,11 +347,11 @@ final class Class191 {
 						}
 					}
 				} else if (Class23.packetType == 60) {
-					final int i_112_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+					final int i_112_ = Canvas_Sub1.inputStream.getUByteA();
 					final int i_113_ = Class28.anInt176 + (0x7 & i_112_);
 					final int i_114_ = (i_112_ >> 4 & 0x7) + Class32.anInt254;
-					final int i_115_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-					final int i_116_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
+					final int i_115_ = Canvas_Sub1.inputStream.getULEShort();
+					final int i_116_ = Canvas_Sub1.inputStream.getUShortA();
 					if (i_114_ >= 0 && i_113_ >= 0 && i_114_ < 104 && i_113_ < 104) {
 						final SceneGroundObject class180_sub1 = new SceneGroundObject();
 						class180_sub1.amount = i_116_;
@@ -363,18 +363,18 @@ final class Class191 {
 						Class5.spawnGroundObject(i_114_, i_113_);
 					}
 				} else if (Class23.packetType == 144) {
-					final int i_117_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_117_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_118_ = Class28.anInt176 - -(i_117_ & 0x7);
 					final int i_119_ = Class32.anInt254 - -(0x7 & i_117_ >> 4);
-					int i_120_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					int i_120_ = Canvas_Sub1.inputStream.getUShort();
 					if (65535 == i_120_) {
 						i_120_ = -1;
 					}
-					final int i_121_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_121_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_122_ = 0xf & i_121_ >> 4;
 					final int i_123_ = 0x7 & i_121_;
-					final int i_124_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-					final int i_125_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+					final int i_124_ = Canvas_Sub1.inputStream.getUByte();
+					final int i_125_ = Canvas_Sub1.inputStream.getUByte();
 					if (i_119_ >= 0 && i_118_ >= 0 && i_119_ < 104 && i_118_ < 104) {
 						final int i_126_ = i_122_ + 1;
 						if (-i_126_ + i_119_ <= Class100.selfPlayer.anIntArray2958[0] && Class100.selfPlayer.anIntArray2958[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= Class100.selfPlayer.anIntArray3040[0] && i_118_ - -i_126_ >= Class100.selfPlayer.anIntArray3040[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
@@ -388,10 +388,10 @@ final class Class191 {
 						}
 					}
 				} else if (Class23.packetType == 47) {
-					final int i_127_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-					final int i_128_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_129_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					final int i_130_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+					final int i_127_ = Canvas_Sub1.inputStream.getULEShortA();
+					final int i_128_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_129_ = Canvas_Sub1.inputStream.getUShort();
+					final int i_130_ = Canvas_Sub1.inputStream.getUByteA();
 					final int i_131_ = ((i_130_ & 0x7a) >> 4) + Class32.anInt254;
 					final int i_132_ = Class28.anInt176 + (0x7 & i_130_);
 					if (i_131_ >= 0 && i_132_ >= 0 && i_131_ < 104 && i_132_ < 104 && i_128_ != Class167.anInt1616) {
@@ -437,8 +437,8 @@ final class Class191 {
 		this.anInt2112 = -60;
 		this.aFloat2106 = 0.69921875F;
 		this.anInt2111 = Class117.anInt1128;
-		if (Class167_Sub1.anIntArray2835 != null) {
-			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(Class167_Sub1.anIntArray2835[0], Class167_Sub1.anIntArray2835[1], Class167_Sub1.anIntArray2835[2], Class167_Sub1.anIntArray2835[3], Class167_Sub1.anIntArray2835[4], Class167_Sub1.anIntArray2835[5]);
+		if (World.anIntArray2835 != null) {
+			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(World.anIntArray2835[0], World.anIntArray2835[1], World.anIntArray2835[2], World.anIntArray2835[3], World.anIntArray2835[4], World.anIntArray2835[5]);
 		}
 	}
 
@@ -466,9 +466,9 @@ final class Class191 {
 			this.aFloat2104 = 1.2F;
 		}
 		if ((i & 0x10) != 0) {
-			this.anInt2110 = class120_sub7.method1078(true);
-			this.anInt2112 = class120_sub7.method1078(true);
-			this.anInt2107 = class120_sub7.method1078(true);
+			this.anInt2110 = class120_sub7.getShort();
+			this.anInt2112 = class120_sub7.getShort();
+			this.anInt2107 = class120_sub7.getShort();
 		} else {
 			this.anInt2107 = -50;
 			this.anInt2110 = -50;
@@ -485,8 +485,8 @@ final class Class191 {
 			this.anInt2118 = 0;
 		}
 		if ((0x80 & i) == 0) {
-			if (Class167_Sub1.anIntArray2835 != null) {
-				this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(Class167_Sub1.anIntArray2835[0], Class167_Sub1.anIntArray2835[1], Class167_Sub1.anIntArray2835[2], Class167_Sub1.anIntArray2835[3], Class167_Sub1.anIntArray2835[4], Class167_Sub1.anIntArray2835[5]);
+			if (World.anIntArray2835 != null) {
+				this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(World.anIntArray2835[0], World.anIntArray2835[1], World.anIntArray2835[2], World.anIntArray2835[3], World.anIntArray2835[4], World.anIntArray2835[5]);
 			}
 		} else {
 			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort());

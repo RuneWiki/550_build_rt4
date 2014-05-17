@@ -462,28 +462,28 @@ final class Class97 {
 		if (aByteBuffer921 == null) {
 			final Buffer class120_sub7 = new Buffer(1088);
 			final Buffer class120_sub7_95_ = new Buffer(5140);
-			if (HDToolkit.isBigEndian) {
-				class120_sub7_95_.method1106(true, 0.0F);
-				class120_sub7_95_.method1106(true, 1.0F);
-				class120_sub7_95_.method1106(true, 0.0F);
-				class120_sub7_95_.method1106(true, 0.5F);
-				class120_sub7_95_.method1106(true, 1.0F);
-				class120_sub7_95_.method1106(true, 0.0F);
-				class120_sub7_95_.method1106(true, -1.0F);
-				class120_sub7_95_.method1106(true, 0.0F);
-				class120_sub7_95_.method1106(true, 0.5F);
-				class120_sub7_95_.method1106(true, 0.0F);
+			if (HDToolkit.usingBigEndian) {
+				class120_sub7_95_.putFloatAsInt(0.0F);
+				class120_sub7_95_.putFloatAsInt(1.0F);
+				class120_sub7_95_.putFloatAsInt(0.0F);
+				class120_sub7_95_.putFloatAsInt(0.5F);
+				class120_sub7_95_.putFloatAsInt(1.0F);
+				class120_sub7_95_.putFloatAsInt(0.0F);
+				class120_sub7_95_.putFloatAsInt(-1.0F);
+				class120_sub7_95_.putFloatAsInt(0.0F);
+				class120_sub7_95_.putFloatAsInt(0.5F);
+				class120_sub7_95_.putFloatAsInt(0.0F);
 			} else {
-				class120_sub7_95_.method1134(0.0F, -2503);
-				class120_sub7_95_.method1134(1.0F, -2503);
-				class120_sub7_95_.method1134(0.0F, -2503);
-				class120_sub7_95_.method1134(0.5F, -2503);
-				class120_sub7_95_.method1134(1.0F, -2503);
-				class120_sub7_95_.method1134(0.0F, -2503);
-				class120_sub7_95_.method1134(-1.0F, -2503);
-				class120_sub7_95_.method1134(0.0F, -2503);
-				class120_sub7_95_.method1134(0.5F, -2503);
-				class120_sub7_95_.method1134(0.0F, -2503);
+				class120_sub7_95_.putFloatAsLEInt(0.0F);
+				class120_sub7_95_.putFloatAsLEInt(1.0F);
+				class120_sub7_95_.putFloatAsLEInt(0.0F);
+				class120_sub7_95_.putFloatAsLEInt(0.5F);
+				class120_sub7_95_.putFloatAsLEInt(1.0F);
+				class120_sub7_95_.putFloatAsLEInt(0.0F);
+				class120_sub7_95_.putFloatAsLEInt(-1.0F);
+				class120_sub7_95_.putFloatAsLEInt(0.0F);
+				class120_sub7_95_.putFloatAsLEInt(0.5F);
+				class120_sub7_95_.putFloatAsLEInt(0.0F);
 			}
 			float f = 0.0F;
 			float f_96_ = 0.05882353F;
@@ -496,25 +496,25 @@ final class Class97 {
 					final float f_102_ = Rasterizer.cosineTable[i_101_] / 65535.0F;
 					final float f_103_ = Rasterizer.sineTable[i_101_] * f_98_ / 65535.0F;
 					final float f_104_ = Rasterizer.sineTable[i_101_] * f_99_ / 65535.0F;
-					if (HDToolkit.isBigEndian) {
-						class120_sub7_95_.method1106(true, f_104_);
-						class120_sub7_95_.method1106(true, f_102_);
-						class120_sub7_95_.method1106(true, f_103_);
-						class120_sub7_95_.method1106(true, f);
-						class120_sub7_95_.method1106(true, f_96_);
+					if (HDToolkit.usingBigEndian) {
+						class120_sub7_95_.putFloatAsInt(f_104_);
+						class120_sub7_95_.putFloatAsInt(f_102_);
+						class120_sub7_95_.putFloatAsInt(f_103_);
+						class120_sub7_95_.putFloatAsInt(f);
+						class120_sub7_95_.putFloatAsInt(f_96_);
 					} else {
-						class120_sub7_95_.method1134(f_104_, -2503);
-						class120_sub7_95_.method1134(f_102_, -2503);
-						class120_sub7_95_.method1134(f_103_, -2503);
-						class120_sub7_95_.method1134(f, -2503);
-						class120_sub7_95_.method1134(f_96_, -2503);
+						class120_sub7_95_.putFloatAsLEInt(f_104_);
+						class120_sub7_95_.putFloatAsLEInt(f_102_);
+						class120_sub7_95_.putFloatAsLEInt(f_103_);
+						class120_sub7_95_.putFloatAsLEInt(f);
+						class120_sub7_95_.putFloatAsLEInt(f_96_);
 					}
 					f_96_ += 0.05882353F;
 				}
 				if (i > 0) {
 					int i_105_ = i * 15 + 2;
 					int i_106_ = i_105_ - 15;
-					if (HDToolkit.isBigEndian) {
+					if (HDToolkit.usingBigEndian) {
 						class120_sub7.putShort(0);
 						class120_sub7.putShort(0);
 						for (int i_107_ = 1; i_107_ < 16; i_107_++) {

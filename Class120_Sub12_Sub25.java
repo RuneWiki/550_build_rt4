@@ -145,7 +145,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		for (int i = 0; i < SceneGroundObject.aClass120_Sub9ArrayArray2844[0].length; i++) {
 			final Class120_Sub9 class120_sub9 = SceneGroundObject.aClass120_Sub9ArrayArray2844[0][i];
 			if (class120_sub9.anInt2520 >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -123)) {
-				gl.glColor4fv(Class167_Sub1.method2196(-13316, class120_sub9.anInt2505), 0);
+				gl.glColor4fv(World.method2196(-13316, class120_sub9.anInt2505), 0);
 				final float f = 201.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
 				class120_sub9.method1162(Class120_Sub1.groundTiles, f, true);
 			}
@@ -217,18 +217,18 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		}
 	}
 
-	static final void login() {
+	static final void handleLogin() {
 		do {
-			if (Class86.anInt819 != 0 && Class86.anInt819 != 5) {
+			if (Class86.loginStep != 0 && Class86.loginStep != 5) {
 				try {
 					if (2000 < ++Class150.anInt1408) {
 						if (AbstractTimer.worldConnection != null) {
-							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 						if (Class121.anInt1153 >= 1) {
-							Class86.anInt819 = 0;
-							Class48.anInt436 = -5;
+							Class86.loginStep = 0;
+							Class48.returnCode = -5;
 							break;
 						}
 						if (Class158.anInt1479 != Class71.anInt625) {
@@ -237,27 +237,27 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class158.anInt1479 = GameEntity.anInt3045;
 						}
 						Class121.anInt1153++;
-						Class86.anInt819 = 1;
+						Class86.loginStep = 1;
 						Class150.anInt1408 = 0;
 					}
-					if (Class86.anInt819 == 1) {
-						Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
-						Class86.anInt819 = 2;
+					if (Class86.loginStep == 1) {
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+						Class86.loginStep = 2;
 					}
-					if (Class86.anInt819 == 2) {
-						if (Class53_Sub1.aClass185_2217.status == 2) {
+					if (Class86.loginStep == 2) {
+						if (Class53_Sub1.worldConnectionNode.status == 2) {
 							throw new IOException();
 						}
-						if (Class53_Sub1.aClass185_2217.status != 1) {
+						if (Class53_Sub1.worldConnectionNode.status != 1) {
 							break;
 						}
-						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
-						Class53_Sub1.aClass185_2217 = null;
-						final long l = Class20.aLong2168 = Class70.stringToLong(Class74.aString666);
-						final int i_18_ = (int) (l >> 16 & 0x1fL);
+						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+						Class53_Sub1.worldConnectionNode = null;
+						final long l = Class20.selfNameAsLong = Class70.stringToLong(Class74.loginName);
+						final int nameCode = (int) (l >> 16 & 0x1fL);
 						Class120_Sub12_Sub11.outputStream.pos = 0;
 						Class120_Sub12_Sub11.outputStream.putByte(14);
-						Class120_Sub12_Sub11.outputStream.putByte(i_18_);
+						Class120_Sub12_Sub11.outputStream.putByte(nameCode);
 						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, 2);
 						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
 							Class120_Sub12_Sub3.aClass164_3150.method2131();
@@ -265,178 +265,174 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
 							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
-						final int i_19_ = AbstractTimer.worldConnection.read();
+						final int returnCode = AbstractTimer.worldConnection.read();
 						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
 							Class120_Sub12_Sub3.aClass164_3150.method2131();
 						}
 						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
 							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
-						if (i_19_ != 0) {
-							Class48.anInt436 = i_19_;
-							Class86.anInt819 = 0;
-							AbstractTimer.worldConnection.method377();
+						if (returnCode != 0) {
+							Class48.returnCode = returnCode;
+							Class86.loginStep = 0;
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 							break;
 						}
-						Class86.anInt819 = 3;
+						Class86.loginStep = 3;
 					}
-					if (Class86.anInt819 == 3) {
+					if (Class86.loginStep == 3) {
 						if (AbstractTimer.worldConnection.getAvailable() < 8) {
 							break;
 						}
 						final int[] is = new int[4];
-						AbstractTimer.worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, 8);
-						Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-						Class164.aLong1588 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
+						AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 8);
+						Canvas_Sub1.inputStream.pos = 0;
+						Class164.serverSessionKey = Canvas_Sub1.inputStream.getLong();
 						is[0] = (int) (9.9999999E7 * Math.random());
 						is[1] = (int) (9.9999999E7 * Math.random());
-						is[2] = (int) (Class164.aLong1588 >> 32);
-						is[3] = (int) Class164.aLong1588;
+						is[2] = (int) (Class164.serverSessionKey >> 32);
+						is[3] = (int) Class164.serverSessionKey;
 						Class120_Sub12_Sub11.outputStream.pos = 0;
 						Class120_Sub12_Sub11.outputStream.putByte(10);
 						Class120_Sub12_Sub11.outputStream.putInt(is[0]);
 						Class120_Sub12_Sub11.outputStream.putInt(is[1]);
 						Class120_Sub12_Sub11.outputStream.putInt(is[2]);
 						Class120_Sub12_Sub11.outputStream.putInt(is[3]);
-						Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(Class74.aString666));
-						Class120_Sub12_Sub11.outputStream.putJString(Class40.aString345);
+						Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(Class74.loginName));
+						Class120_Sub12_Sub11.outputStream.putJagexString(SeqType.loginPassword);
 						Class120_Sub12_Sub11.outputStream.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
-						Class137.aClass120_Sub7_Sub1_1326.pos = 0;
+						Class137.loginStream.pos = 0;
 						if (Class109.gameState == 40) {
-							Class137.aClass120_Sub7_Sub1_1326.putByte(18);
+							Class137.loginStream.putByte(18);
 						} else {
-							Class137.aClass120_Sub7_Sub1_1326.putByte(16);
+							Class137.loginStream.putByte(16);
 						}
-						Class137.aClass120_Sub7_Sub1_1326.putShort(163 + Class120_Sub12_Sub11.outputStream.pos + settings.length() + 1);
-						Class137.aClass120_Sub7_Sub1_1326.putInt(550);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(AbstractMouseWheelHandler.anInt116);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(Class31.advertSuppressed ? 1 : 0);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(1);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(Class120_Sub12_Sub4.getDisplayMode());
-						Class137.aClass120_Sub7_Sub1_1326.putShort(Class69_Sub1.canvasWidth);
-						Class137.aClass120_Sub7_Sub1_1326.putShort(Class120_Sub12_Sub5.canvasHeight);
-						Class137.aClass120_Sub7_Sub1_1326.putByte(Class36.antiAliasingSamples);
-						Class120_Sub12_Sub30.method1358(Class137.aClass120_Sub7_Sub1_1326);
-						Class137.aClass120_Sub7_Sub1_1326.putJString(settings);
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub33.affiliateId);
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub18.method1288());
+						Class137.loginStream.putShort(163 + Class120_Sub12_Sub11.outputStream.pos + settings.length() + 1);
+						Class137.loginStream.putInt(550);
+						Class137.loginStream.putByte(AbstractMouseWheelHandler.anInt116);
+						Class137.loginStream.putByte(Class31.advertSuppressed ? 1 : 0);
+						Class137.loginStream.putByte(1);
+						Class137.loginStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
+						Class137.loginStream.putShort(Class69_Sub1.canvasWidth);
+						Class137.loginStream.putShort(Class120_Sub12_Sub5.canvasHeight);
+						Class137.loginStream.putByte(Class36.antiAliasingSamples);
+						Class120_Sub12_Sub30.method1358(Class137.loginStream);
+						Class137.loginStream.putJagexString(settings);
+						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
+						Class137.loginStream.putInt(Class120_Sub12_Sub18.method1288());
 						Class120_Sub14_Sub5.aBoolean3471 = true;
-						Class137.aClass120_Sub7_Sub1_1326.putShort(Class120_Sub14_Sub20.interfaceCounter);
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub8.aClass50_2479.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class45.aClass50_397.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class33.aClass50_275.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class159.aClass50_1490.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class65.aClass50_597.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub36.aClass50_3419.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class7.aClass50_63.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class35.aClass50_303.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class108_Sub3.aClass50_2400.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub10.aClass50_2544.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub13.aClass50_2576.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class132.aClass50_1251.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class114.aClass50_1097.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class169.aClass50_1649.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub29.aClass50_3367.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class127.aClass50_1213.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class2.aClass50_50.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub2.aClass50_2415.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class20.aClass50_2169.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub24.aClass50_3309.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class153.aClass50_1433.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(AbstractMouseWheelHandler.aClass50_115.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class120_Sub12_Sub15.aClass50_3242.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Class187.aClass50_1907.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putInt(Npc.aClass50_3753.getIndexCrc());
-						Class137.aClass120_Sub7_Sub1_1326.putBuffer(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
-						AbstractTimer.worldConnection.put(Class137.aClass120_Sub7_Sub1_1326.buf, 0, Class137.aClass120_Sub7_Sub1_1326.pos);
-						Class120_Sub12_Sub11.outputStream.method1141(is);
+						Class137.loginStream.putShort(Class120_Sub14_Sub20.interfaceCounter);
+						Class137.loginStream.putInt(Class120_Sub8.aClass50_2479.getIndexCrc());
+						Class137.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
+						Class137.loginStream.putInt(Class45.aClass50_397.getIndexCrc());
+						Class137.loginStream.putInt(Class33.aClass50_275.getIndexCrc());
+						Class137.loginStream.putInt(Class159.aClass50_1490.getIndexCrc());
+						Class137.loginStream.putInt(Class65.aClass50_597.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub12_Sub36.aClass50_3419.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
+						Class137.loginStream.putInt(Class7.aClass50_63.getIndexCrc());
+						Class137.loginStream.putInt(Class35.aClass50_303.getIndexCrc());
+						Class137.loginStream.putInt(Class108_Sub3.aClass50_2400.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub10.aClass50_2544.getIndexCrc());
+						Class137.loginStream.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub13.aClass50_2576.getIndexCrc());
+						Class137.loginStream.putInt(Class132.aClass50_1251.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
+						Class137.loginStream.putInt(Class114.aClass50_1097.getIndexCrc());
+						Class137.loginStream.putInt(Class169.aClass50_1649.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub12_Sub29.aClass50_3367.getIndexCrc());
+						Class137.loginStream.putInt(Class127.aClass50_1213.getIndexCrc());
+						Class137.loginStream.putInt(Class2.aClass50_50.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub2.aClass50_2415.getIndexCrc());
+						Class137.loginStream.putInt(Class20.aClass50_2169.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub12_Sub24.aClass50_3309.getIndexCrc());
+						Class137.loginStream.putInt(Class153.aClass50_1433.getIndexCrc());
+						Class137.loginStream.putInt(AbstractMouseWheelHandler.aClass50_115.getIndexCrc());
+						Class137.loginStream.putInt(Class120_Sub12_Sub15.aClass50_3242.getIndexCrc());
+						Class137.loginStream.putInt(Class187.aClass50_1907.getIndexCrc());
+						Class137.loginStream.putInt(Npc.aClass50_3753.getIndexCrc());
+						Class137.loginStream.putBuffer(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
+						AbstractTimer.worldConnection.put(Class137.loginStream.buf, 0, Class137.loginStream.pos);
+						Class120_Sub12_Sub11.outputStream.initIsaac(is);
 						for (int i_20_ = 0; i_20_ < 4; i_20_++) {
 							is[i_20_] += 50;
 						}
-						Canvas_Sub1.aClass120_Sub7_Sub1_16.method1141(is);
-						Class86.anInt819 = 4;
+						Canvas_Sub1.inputStream.initIsaac(is);
+						Class86.loginStep = 4;
 					}
-					if (Class86.anInt819 == 4) {
+					if (Class86.loginStep == 4) {
 						if (AbstractTimer.worldConnection.getAvailable() < 1) {
 							break;
 						}
-						final int i_21_ = AbstractTimer.worldConnection.read();
-						if (i_21_ == 21) {
-							Class86.anInt819 = 7;
-						} else if (i_21_ != 29) {
-							if (i_21_ != 1) {
-								if (i_21_ == 2) {
-									Class86.anInt819 = 8;
-								} else {
-									if (i_21_ == 15) {
-										Class48.anInt436 = i_21_;
-										Class86.anInt819 = 0;
-									} else if (i_21_ != 23 || Class121.anInt1153 >= 1) {
-										Class48.anInt436 = i_21_;
-										Class86.anInt819 = 0;
-										AbstractTimer.worldConnection.method377();
-										AbstractTimer.worldConnection = null;
-									} else {
-										Class86.anInt819 = 1;
-										Class150.anInt1408 = 0;
-										Class121.anInt1153++;
-										AbstractTimer.worldConnection.method377();
-										AbstractTimer.worldConnection = null;
-									}
-									break;
-								}
-							} else {
-								Class48.anInt436 = i_21_;
-								Class86.anInt819 = 5;
-								break;
-							}
+						final int returnCode = AbstractTimer.worldConnection.read();
+						if (returnCode == 21) {
+							Class86.loginStep = 7;
+						} else if (returnCode == 29) {
+							Class86.loginStep = 10;
+						} else if (returnCode == 1) {
+							Class48.returnCode = returnCode;
+							Class86.loginStep = 5;
+							break;
+						} else if (returnCode == 2) {
+							Class86.loginStep = 8;
 						} else {
-							Class86.anInt819 = 10;
+							if (returnCode == 15) {
+								Class48.returnCode = returnCode;
+								Class86.loginStep = 0;
+							} else if (returnCode != 23 || Class121.anInt1153 >= 1) {
+								Class48.returnCode = returnCode;
+								Class86.loginStep = 0;
+								AbstractTimer.worldConnection.close();
+								AbstractTimer.worldConnection = null;
+							} else {
+								Class86.loginStep = 1;
+								Class150.anInt1408 = 0;
+								Class121.anInt1153++;
+								AbstractTimer.worldConnection.close();
+								AbstractTimer.worldConnection = null;
+							}
+							break;
 						}
 					}
-					if (Class86.anInt819 == 6) {
+					if (Class86.loginStep == 6) {
 						Class120_Sub12_Sub11.outputStream.pos = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(17);
 						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
-						Class86.anInt819 = 4;
-					} else if (Class86.anInt819 == 7) {
+						Class86.loginStep = 4;
+					} else if (Class86.loginStep == 7) {
 						if (AbstractTimer.worldConnection.getAvailable() >= 1) {
 							Class57.anInt504 = 180 + 60 * AbstractTimer.worldConnection.read();
-							Class86.anInt819 = 0;
-							Class48.anInt436 = 21;
-							AbstractTimer.worldConnection.method377();
+							Class86.loginStep = 0;
+							Class48.returnCode = 21;
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
-					} else if (Class86.anInt819 == 10) {
+					} else if (Class86.loginStep == 10) {
 						if (AbstractTimer.worldConnection.getAvailable() >= 1) {
 							Class120_Sub22.anInt2672 = AbstractTimer.worldConnection.read();
-							Class48.anInt436 = 29;
-							Class86.anInt819 = 0;
-							AbstractTimer.worldConnection.method377();
+							Class48.returnCode = 29;
+							Class86.loginStep = 0;
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 					} else {
-						if (Class86.anInt819 == 8) {
+						if (Class86.loginStep == 8) {
 							if (AbstractTimer.worldConnection.getAvailable() < 14) {
 								break;
 							}
-							AbstractTimer.worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, 14);
-							Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-							Class86.anInt821 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-							Class27.aBoolean167 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class128.aBoolean1228 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class127.aBoolean1211 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class167.anInt1616 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-							Class120_Sub12_Sub21_Sub1.aBoolean3908 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
-							Class120_Sub12_Sub37.membersClient = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() == 1;
+							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 14);
+							Canvas_Sub1.inputStream.pos = 0;
+							Class86.anInt821 = Canvas_Sub1.inputStream.getUByte();
+							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
+							Class27.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class128.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class127.aBoolean1211 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class167.anInt1616 = Canvas_Sub1.inputStream.getUShort();
+							Class120_Sub12_Sub21_Sub1.aBoolean3908 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class120_Sub12_Sub37.membersClient = Canvas_Sub1.inputStream.getUByte() == 1;
 							ObjType.method2114(Class120_Sub12_Sub37.membersClient);
 							Class120_Sub12_Sub15.method1276(Class120_Sub12_Sub37.membersClient, (byte) -54);
 							Class69_Sub3.method627(Class120_Sub12_Sub37.membersClient, 6497794);
@@ -460,15 +456,15 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							} catch (final Throwable throwable) {
 								/* empty */
 							}
-							Class23.packetType = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteIsaac();
-							AbstractMouseWheelHandler.packetSize = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-							Class86.anInt819 = 9;
+							Class23.packetType = Canvas_Sub1.inputStream.getUByteIsaac();
+							AbstractMouseWheelHandler.packetSize = Canvas_Sub1.inputStream.getUShort();
+							Class86.loginStep = 9;
 						}
-						if (Class86.anInt819 == 9 && AbstractTimer.worldConnection.getAvailable() >= AbstractMouseWheelHandler.packetSize) {
-							Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-							AbstractTimer.worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, AbstractMouseWheelHandler.packetSize);
-							Class48.anInt436 = 2;
-							Class86.anInt819 = 0;
+						if (Class86.loginStep == 9 && AbstractTimer.worldConnection.getAvailable() >= AbstractMouseWheelHandler.packetSize) {
+							Canvas_Sub1.inputStream.pos = 0;
+							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, AbstractMouseWheelHandler.packetSize);
+							Class48.returnCode = 2;
+							Class86.loginStep = 0;
 							Class24.method205();
 							Class116.anInt1118 = -1;
 							Class120_Sub29.receiveRegionData(false);
@@ -477,12 +473,12 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 					}
 				} catch (final IOException ioexception) {
 					if (AbstractTimer.worldConnection != null) {
-						AbstractTimer.worldConnection.method377();
+						AbstractTimer.worldConnection.close();
 						AbstractTimer.worldConnection = null;
 					}
 					if (Class121.anInt1153 < 1) {
 						Class121.anInt1153++;
-						Class86.anInt819 = 1;
+						Class86.loginStep = 1;
 						if (Class71.anInt625 != Class158.anInt1479) {
 							Class158.anInt1479 = Class71.anInt625;
 						} else {
@@ -490,8 +486,8 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						}
 						Class150.anInt1408 = 0;
 					} else {
-						Class86.anInt819 = 0;
-						Class48.anInt436 = -4;
+						Class86.loginStep = 0;
+						Class48.returnCode = -4;
 						break;
 					}
 				}

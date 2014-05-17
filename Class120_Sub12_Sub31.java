@@ -102,7 +102,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		Class120_Sub14_Sub18 class120_sub14_sub18;
 		try {
 			if (i_16_ != -1) {
-				method1368(null, -29, (byte) -45);
+				method1368(null, -29);
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_17_ = (Class120_Sub14_Sub18) SceneGraphNode.aClass21_1781.get(i);
 			if (class120_sub14_sub18_17_ != null) {
@@ -119,17 +119,11 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		return class120_sub14_sub18;
 	}
 
-	static final int method1368(final JagexInterface jagexInterface, final int i, final byte i_18_) {
-		int i_19_;
-		try {
-			if (!client.getClickMask(jagexInterface).method1678(i, 68) && jagexInterface.anObjectArray2006 == null) {
-				return -1;
-			}
-			i_19_ = jagexInterface.anIntArray1992 == null || jagexInterface.anIntArray1992.length <= i ? -1 : jagexInterface.anIntArray1992[i];
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.R(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_18_).append(')').toString());
+	static final int method1368(final JagexInterface jagexInterface, final int i) {
+		if (!client.getClickMask(jagexInterface).method1678(i) && jagexInterface.anObjectArray2006 == null) {
+			return -1;
 		}
-		return i_19_;
+		return jagexInterface.cursors == null || jagexInterface.cursors.length <= i ? -1 : jagexInterface.cursors[i];
 	}
 
 	@Override
@@ -139,7 +133,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 				anInt3379 = class120_sub7.getUShort();
 			}
 			if (i != -43) {
-				method1368(null, -36, (byte) -30);
+				method1368(null, -36);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sh.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_20_).append(')').toString());

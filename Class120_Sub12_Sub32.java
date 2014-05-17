@@ -39,7 +39,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					Class82.method713(i_5_, i, i_2_, i_3_, false);
 				}
 			} else if (i_8_ == 0) {
-				Class40.method321(true, i_5_, i_6_, i_3_, i);
+				SeqType.method321(true, i_5_, i_6_, i_3_, i);
 			} else {
 				final int i_9_ = (i_8_ << 12) / i_7_;
 				final int i_10_ = -(i_5_ * i_9_ >> 12) + i;
@@ -103,12 +103,12 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				for (int i_21_ = 0; i_20_ != 0 && i_21_ < class180_sub5_sub1.aClass150Array2972.length; i_21_++) {
 					if ((0x1 & i_20_) != 0) {
 						if (i_18_ != -1) {
-							final Class40 class40 = Class120_Sub30_Sub2.method1763(i_18_, 118);
+							final SeqType seqType = SeqType.list(i_18_);
 							Class150 class150 = class180_sub5_sub1.aClass150Array2972[i_21_];
-							final int i_22_ = class40.anInt337;
+							final int i_22_ = seqType.anInt337;
 							if (class150 != null) {
 								if (class150.anInt1406 != i_18_) {
-									if (class40.anInt348 >= Class120_Sub30_Sub2.method1763(class150.anInt1406, 123).anInt348) {
+									if (seqType.anInt348 >= SeqType.list(class150.anInt1406).anInt348) {
 										class150 = class180_sub5_sub1.aClass150Array2972[i_21_] = null;
 									}
 								} else if (i_22_ == 0) {
@@ -119,7 +119,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 									class150.anInt1410 = 0;
 									class150.anInt1416 = 0;
 									class150.anInt1411 = i_19_;
-									Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, Class100.selfPlayer == class180_sub5_sub1, false);
+									Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, Class100.selfPlayer == class180_sub5_sub1, false);
 								} else if (i_22_ == 2) {
 									class150.anInt1416 = 0;
 								}
@@ -132,7 +132,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 								class150.anInt1411 = i_19_;
 								class150.anInt1414 = 1;
 								class150.anInt1413 = 0;
-								Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer, false);
 							}
 						} else {
 							class180_sub5_sub1.aClass150Array2972[i_21_] = null;
@@ -163,12 +163,12 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				class180_sub5.anInt3037 = 0;
 			} else {
 				if (class180_sub5.anInt3006 != -1 && class180_sub5.anInt2993 == 0) {
-					final Class40 class40 = Class120_Sub30_Sub2.method1763(class180_sub5.anInt3006, 125);
-					if (class180_sub5.anInt3031 > 0 && class40.anInt343 == 0) {
+					final SeqType seqType = SeqType.list(class180_sub5.anInt3006);
+					if (class180_sub5.anInt3031 > 0 && seqType.anInt343 == 0) {
 						class180_sub5.anInt3037++;
 						return;
 					}
-					if (class180_sub5.anInt3031 <= 0 && class40.anInt336 == 0) {
+					if (class180_sub5.anInt3031 <= 0 && seqType.anInt336 == 0) {
 						class180_sub5.anInt3037++;
 						return;
 					}
@@ -176,12 +176,12 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				if ((class180_sub5.spotAnimId ^ 0xffffffff) != 0 && Class101_Sub2.loopCycle >= class180_sub5.anInt2979) {
 					final SpotAnimType spotAnimType = SpotAnimType.list(class180_sub5.spotAnimId);
 					if (spotAnimType.aBoolean998 && (spotAnimType.anInt991 ^ 0xffffffff) != 0) {
-						final Class40 class40 = Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, i ^ ~0x4b);
-						if (class180_sub5.anInt3031 > 0 && class40.anInt343 == 0) {
+						final SeqType seqType = SeqType.list(spotAnimType.anInt991);
+						if (class180_sub5.anInt3031 > 0 && seqType.anInt343 == 0) {
 							class180_sub5.anInt3037++;
 							return;
 						}
-						if (class180_sub5.anInt3031 <= 0 && class40.anInt336 == 0) {
+						if (class180_sub5.anInt3031 <= 0 && seqType.anInt336 == 0) {
 							class180_sub5.anInt3037++;
 							return;
 						}

@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	private int anInt3357 = 0;
 	private int[] anIntArray3358;
 	private int[] anIntArray3359;
-	static String aString3360 = "Ok";
+	static String okString = "Ok";
 	static int anInt3361 = 0;
 
 	static final void method1344(final Class25[] class25s, final byte i, final int[][][] is, final boolean bool) {
@@ -154,8 +154,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					for (int i_57_ = 1; i_57_ < 103; i_57_++) {
 						for (int i_58_ = 1; i_58_ < 103; i_58_++) {
 							if (bool || Class143_Sub1.method2021() || (Class114.tileSettings[0][i_57_][i_58_] & 0x2) != 0 || (Class114.tileSettings[i_9_][i_57_][i_58_] & 0x10) == 0 && Class176.method2242(i_58_, i_9_, (byte) 122, i_57_) == Class120_Sub14_Sub4.anInt3469) {
-								if (OutputStream_Sub1.anInt29 > i_9_) {
-									OutputStream_Sub1.anInt29 = i_9_;
+								if (DummyOutputStream.anInt29 > i_9_) {
+									DummyOutputStream.anInt29 = i_9_;
 								}
 								final int i_59_ = 0xff & Class120_Sub4.aByteArrayArrayArray2441[i_9_][i_57_][i_58_];
 								final int i_60_ = 0xff & Class99.aByteArrayArrayArray949[i_9_][i_57_][i_58_];
@@ -487,7 +487,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	static final void method1346(final Class107 class107, final int i, final JagexInterface jagexInterface, final byte i_141_, final int i_142_, final int i_143_, final int i_144_) {
 		try {
 			if (class107 != null) {
-				final int i_145_ = Class164.anInt1590 + (int) OutputStream_Sub1.aFloat28 & 0x7ff;
+				final int i_145_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
 				final int i_146_ = 10 + Math.max(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2);
 				if (i_141_ > -46) {
 					method1348(-32);
@@ -501,7 +501,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					final int i_150_ = i_149_ * i_142_ + i_143_ * i_148_ >> 16;
 					final int i_151_ = -(i_142_ * i_148_) + i_143_ * i_149_ >> 16;
 					if (HDToolkit.glEnabled) {
-						((Class107_Sub2) class107).method928(-(class107.anInt1029 / 2) + i_150_ + jagexInterface.anInt1948 / 2 + i, jagexInterface.anInt2059 / 2 + i_144_ + -i_151_ - class107.anInt1028 / 2, (HDSprite) jagexInterface.method2492(false, (byte) -18));
+						((Class107_Sub2) class107).method928(-(class107.anInt1029 / 2) + i_150_ + jagexInterface.anInt1948 / 2 + i, jagexInterface.anInt2059 / 2 + i_144_ + -i_151_ - class107.anInt1028 / 2, (HDSprite) jagexInterface.method2492(false));
 					} else {
 						((Class107_Sub1) class107).method924(i_150_ + i + jagexInterface.anInt1948 / 2 - class107.anInt1029 / 2, -i_151_ + i_144_ - (-(jagexInterface.anInt2059 / 2) - -(class107.anInt1028 / 2)), jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					}
@@ -544,9 +544,9 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	public static void method1348(final int i) {
 		try {
 			if (i != -4000) {
-				aString3360 = null;
+				okString = null;
 			}
-			aString3360 = null;
+			okString = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rm.AA(").append(i).append(')').toString());
 		}
@@ -582,56 +582,50 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1349(final byte i) {
-		try {
-			int i_171_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
-			for (int i_172_ = 0; Class186.menuOptionCount > i_172_; i_172_++) {
-				final int i_173_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_172_));
-				if (i_173_ > i_171_) {
-					i_171_ = i_173_;
-				}
+	static final void determineMenuSize() {
+		int chooseOptionWidth = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
+		for (int id = 0; Class186.menuOptionCount > id; id++) {
+			final int actionWidth = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(id));
+			if (chooseOptionWidth < actionWidth) {
+				chooseOptionWidth = actionWidth;
 			}
-			if (i >= 57) {
-				final int i_174_ = 21 + Class186.menuOptionCount * 15;
-				int i_175_ = Class120_Sub12_Sub21.anInt3298;
-				i_171_ += 8;
-				if (i_174_ + i_175_ > Class120_Sub12_Sub5.canvasHeight) {
-					i_175_ = Class120_Sub12_Sub5.canvasHeight - i_174_;
-				}
-				if (i_175_ < 0) {
-					i_175_ = 0;
-				}
-				int i_176_ = -(i_171_ / 2) + Class115.anInt1110;
-				if (i_176_ + i_171_ > Class69_Sub1.canvasWidth) {
-					i_176_ = -i_171_ + Class69_Sub1.canvasWidth;
-				}
-				if (i_176_ < 0) {
-					i_176_ = 0;
-				}
-				if (FileSystem.anInt455 != 1) {
-					if (Class50.anInt449 == Class115.anInt1110 && Class120_Sub12_Sub36.anInt3424 == Class120_Sub12_Sub21.anInt3298) {
-						Class120_Sub14_Sub10.menuHeight = (Class186.aBoolean1899 ? 26 : 22) + Class186.menuOptionCount * 15;
-						Class126.menuDrawX = i_176_;
-						Class120_Sub24.menuWidth = i_171_;
-						FileSystem.anInt455 = 0;
-						Class15.menuOpen = true;
-						Class120_Sub16.menuDrawY = i_175_;
-					} else {
-						Class120_Sub14_Sub12.anInt3558 = Class50.anInt449;
-						Class31.anInt250 = Class120_Sub12_Sub36.anInt3424;
-						FileSystem.anInt455 = 1;
-					}
-				} else if (Class115.anInt1110 == Class120_Sub14_Sub12.anInt3558 && Class120_Sub12_Sub21.anInt3298 == Class31.anInt250) {
-					FileSystem.anInt455 = 0;
-					Class120_Sub16.menuDrawY = i_175_;
-					Class120_Sub14_Sub10.menuHeight = (Class186.aBoolean1899 ? 26 : 22) + 15 * Class186.menuOptionCount;
-					Class15.menuOpen = true;
-					Class120_Sub24.menuWidth = i_171_;
-					Class126.menuDrawX = i_176_;
-				}
+		}
+		final int i_174_ = 21 + Class186.menuOptionCount * 15;
+		int i_175_ = Class120_Sub12_Sub21.anInt3298;
+		chooseOptionWidth += 8;
+		if (i_174_ + i_175_ > Class120_Sub12_Sub5.canvasHeight) {
+			i_175_ = Class120_Sub12_Sub5.canvasHeight - i_174_;
+		}
+		if (i_175_ < 0) {
+			i_175_ = 0;
+		}
+		int i_176_ = -(chooseOptionWidth / 2) + Class115.anInt1110;
+		if (i_176_ + chooseOptionWidth > Class69_Sub1.canvasWidth) {
+			i_176_ = Class69_Sub1.canvasWidth - chooseOptionWidth;
+		}
+		if (i_176_ < 0) {
+			i_176_ = 0;
+		}
+		if (FileSystem.anInt455 != 1) {
+			if (Class50.lastClickX == Class115.anInt1110 && Class120_Sub12_Sub36.lastClickY == Class120_Sub12_Sub21.anInt3298) {
+				Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + Class186.menuOptionCount * 15;
+				Class126.menuDrawX = i_176_;
+				Class120_Sub24.menuWidth = chooseOptionWidth;
+				FileSystem.anInt455 = 0;
+				Class15.menuOpen = true;
+				Class120_Sub16.menuDrawY = i_175_;
+			} else {
+				Class120_Sub14_Sub12.anInt3558 = Class50.lastClickX;
+				Class31.anInt250 = Class120_Sub12_Sub36.lastClickY;
+				FileSystem.anInt455 = 1;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rm.S(").append(i).append(')').toString());
+		} else if (Class115.anInt1110 == Class120_Sub14_Sub12.anInt3558 && Class120_Sub12_Sub21.anInt3298 == Class31.anInt250) {
+			FileSystem.anInt455 = 0;
+			Class120_Sub16.menuDrawY = i_175_;
+			Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + 15 * Class186.menuOptionCount;
+			Class15.menuOpen = true;
+			Class120_Sub24.menuWidth = chooseOptionWidth;
+			Class126.menuDrawX = i_176_;
 		}
 	}
 

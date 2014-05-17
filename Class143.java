@@ -3,7 +3,7 @@
  */
 
 class Class143 implements Interface3 {
-	static String aString2183 = "Select";
+	static String selectString = "Select";
 	private final Class50 aClass50_2184;
 	static volatile long lastCanvasReplace = 0L;
 	private final Class114[] aClass114Array2186;
@@ -43,7 +43,7 @@ class Class143 implements Interface3 {
 			Class150.anIntArray1412[i_17_] = i_6_;
 			Class120_Sub12.anIntArray2565[i_17_++] = i_4_;
 			if (i_8_ != -1) {
-				aString2183 = null;
+				selectString = null;
 			}
 			final int[][] is = Class182.aClass25Array1802[Class173.gameLevel].anIntArrayArray152;
 			while (i_17_ != i_16_) {
@@ -230,7 +230,7 @@ class Class143 implements Interface3 {
 	public static void method2017(final byte i) {
 		try {
 			if (i == -10) {
-				aString2183 = null;
+				selectString = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.JA(").append(i).append(')').toString());
@@ -309,15 +309,15 @@ class Class143 implements Interface3 {
 		SceneGroundObject.aString2847 = "Wordpack geladen.";
 		CursorType.aString1239 = "Titelbild geladen.";
 		Class120_Sub12_Sub1.aString3137 = "Standardinstellungen geladen";
-		aString2183 = "Ausw\u00e4hlen";
+		selectString = "Ausw\u00e4hlen";
 		Class120_Sub12_Sub27.aString3338 = "Suche nach Updates - ";
 		Class36.aString313 = "Lade...";
 		Class29.aString217 = "Lade Titelbild - ";
-		Class109.aString1046 = "Weiter";
+		Class109.continueString = "Weiter";
 		Class120_Sub14_Sub24.aString3665 = "Lade Sprites - ";
 		Class120_Sub12_Sub25.aString3319 = "Bitte entferne ";
 		Class120_Sub12_Sub30.aString3371 = "Lade Texturen - ";
-		InputStream_Sub1.aString25 = "Gegenstand f\u00fcr Mitglieder";
+		DummyInputStream.aString25 = "Gegenstand f\u00fcr Mitglieder";
 		AbstractGraphicsBuffer.aString1176 = "Benutzen";
 		Class120_Sub6.aString2444 = "Liste der Welten geladen";
 		Class120_Sub12_Sub18.aString3272 = "RuneScape wird geladen - bitte warten...";
@@ -327,12 +327,12 @@ class Class143 implements Interface3 {
 		Class45.aString400 = "Starte 3D-Softwarebibliothek.";
 		Class85.aString807 = "welle:";
 		Class143_Sub1.aString2192 = "Deine Ignorieren-Liste ist voll, du kannst nur 100 Spieler darauf eintragen.";
-		Class120_Sub12_Sub28.aString3360 = "Okay";
+		Class120_Sub12_Sub28.okString = "Okay";
 		Class96.aString915 = "sch\u00fctteln:";
 		IntegerNode.aString2788 = "Lade Benutzeroberfl\u00e4che - ";
 		Class120_Sub11.aString2554 = "Lade Standardeinstellungen - ";
 		Class69_Sub2_Sub1.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
-		Class167_Sub1.aString2837 = "3D-Softwarebibliothek gestartet.";
+		World.aString2837 = "3D-Softwarebibliothek gestartet.";
 		Class120_Sub14_Sub2.aString3455 = "M";
 		Class24.aString142 = "Bitte warte - es wird versucht, die Verbindung wiederherzustellen.";
 		Class69.aString618 = "gr\u00fcn:";

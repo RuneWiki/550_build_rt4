@@ -20,19 +20,13 @@ final class Class100 {
 		}
 	}
 
-	static final void method825(final byte i) {
-		try {
-			if (i < -4) {
-				if (Class31.anInt244 > 0) {
-					InputStream_Sub1.logout();
-				} else {
-					Light.aClass46_381 = AbstractTimer.worldConnection;
-					AbstractTimer.worldConnection = null;
-					Class120_Sub14_Sub1.setGameState(40);
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.G(").append(i).append(')').toString());
+	static final void dropClient() {
+		if (Class31.anInt244 > 0) {
+			DummyInputStream.processLogout();
+		} else {
+			Light.aClass46_381 = AbstractTimer.worldConnection;
+			AbstractTimer.worldConnection = null;
+			Class120_Sub14_Sub1.setGameState(40);
 		}
 	}
 
@@ -68,7 +62,7 @@ final class Class100 {
 			}
 			aClass108_Sub3_958 = null;
 			if (i != 25480) {
-				method825((byte) -65);
+				dropClient();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.H(").append(i).append(')').toString());

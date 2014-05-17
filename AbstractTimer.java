@@ -65,10 +65,10 @@ abstract class AbstractTimer {
 				return false;
 			}
 			if (Class23.packetType == -1) {
-				worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, 1);
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
+				worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 1);
+				Canvas_Sub1.inputStream.pos = 0;
 				i_11_--;
-				Class23.packetType = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteIsaac();
+				Class23.packetType = Canvas_Sub1.inputStream.getUByteIsaac();
 				AbstractMouseWheelHandler.packetSize = Class93.anIntArray866[Class23.packetType];
 			}
 			if (AbstractMouseWheelHandler.packetSize == -1) {
@@ -76,15 +76,15 @@ abstract class AbstractTimer {
 					return false;
 				}
 				i_11_--;
-				worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, 1);
-				AbstractMouseWheelHandler.packetSize = 0xff & Canvas_Sub1.aClass120_Sub7_Sub1_16.buf[0];
+				worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 1);
+				AbstractMouseWheelHandler.packetSize = 0xff & Canvas_Sub1.inputStream.buf[0];
 			}
 			if (AbstractMouseWheelHandler.packetSize == -2) {
 				if (i_11_ > 1) {
 					i_11_ -= 2;
-					worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, 2);
-					Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-					AbstractMouseWheelHandler.packetSize = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 2);
+					Canvas_Sub1.inputStream.pos = 0;
+					AbstractMouseWheelHandler.packetSize = Canvas_Sub1.inputStream.getUShort();
 				} else {
 					return false;
 				}
@@ -92,9 +92,9 @@ abstract class AbstractTimer {
 			if (AbstractMouseWheelHandler.packetSize > i_11_) {
 				return false;
 			}
-			Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-			worldConnection.read(i, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, AbstractMouseWheelHandler.packetSize);
-			Class40.anInt333 = Class73.anInt639;
+			Canvas_Sub1.inputStream.pos = 0;
+			worldConnection.read(Canvas_Sub1.inputStream.buf, i, AbstractMouseWheelHandler.packetSize);
+			SeqType.anInt333 = Class73.anInt639;
 			Class73.anInt639 = Class114.anInt1093;
 			Class88.anInt827 = 0;
 			Class114.anInt1093 = Class23.packetType;
@@ -110,8 +110,8 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 34) {
-				final int i_13_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				int i_14_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_13_ = Canvas_Sub1.inputStream.getInt();
+				int i_14_ = Canvas_Sub1.inputStream.getUShort();
 				JagexInterface jagexInterface;
 				if (i_13_ >= 0) {
 					jagexInterface = Class74.getJagexInterface(i_13_);
@@ -121,21 +121,21 @@ abstract class AbstractTimer {
 				if ((i_13_ ^ 0xffffffff) > 69999) {
 					i_14_ += 32768;
 				}
-				while (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos < AbstractMouseWheelHandler.packetSize) {
+				while (Canvas_Sub1.inputStream.pos < AbstractMouseWheelHandler.packetSize) {
 					int i_15_ = 0;
-					final int i_16_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUSmart();
-					final int i_17_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					final int i_16_ = Canvas_Sub1.inputStream.getUSmart();
+					final int i_17_ = Canvas_Sub1.inputStream.getUShort();
 					if (i_17_ != 0) {
-						i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+						i_15_ = Canvas_Sub1.inputStream.getUByte();
 						if (i_15_ == 255) {
-							i_15_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+							i_15_ = Canvas_Sub1.inputStream.getInt();
 						}
 					}
-					if (jagexInterface != null && i_16_ >= 0 && jagexInterface.anIntArray1978.length > i_16_) {
-						jagexInterface.anIntArray1978[i_16_] = i_17_;
-						jagexInterface.anIntArray1983[i_16_] = i_15_;
+					if (jagexInterface != null && i_16_ >= 0 && jagexInterface.objAmounts.length > i_16_) {
+						jagexInterface.objAmounts[i_16_] = i_17_;
+						jagexInterface.objIds[i_16_] = i_15_;
 					}
-					MouseHandler.method1027(i + 14378, i_14_, i_16_, -1 + i_17_, i_15_);
+					MouseHandler.method1027(i_14_, i_16_, -1 + i_17_, i_15_);
 				}
 				if (jagexInterface != null) {
 					InterfaceClickMask.redrawInterface(jagexInterface);
@@ -146,24 +146,24 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 53) {
-				Class28.anInt176 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
-				Class32.anInt254 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
-				while (AbstractMouseWheelHandler.packetSize > Canvas_Sub1.aClass120_Sub7_Sub1_16.pos) {
-					Class23.packetType = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				Class28.anInt176 = Canvas_Sub1.inputStream.getUByteS();
+				Class32.anInt254 = Canvas_Sub1.inputStream.getUByteA();
+				while (AbstractMouseWheelHandler.packetSize > Canvas_Sub1.inputStream.pos) {
+					Class23.packetType = Canvas_Sub1.inputStream.getUByte();
 					Class191.method2513((byte) 127);
 				}
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 192) {
-				InputStream_Sub1.logout();
+				DummyInputStream.processLogout();
 				Class23.packetType = -1;
 				return false;
 			}
 			if (Class23.packetType == 176) {
-				final int i_18_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_19_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final byte i_20_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByteC();
+				final int i_18_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_19_ = Canvas_Sub1.inputStream.getULEShortA();
+				final byte i_20_ = Canvas_Sub1.inputStream.getByteC();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_18_)) {
 					Class20.method180(i_19_, i_20_, 60);
 				}
@@ -171,16 +171,16 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 4) {
-				ObjectPile.anInt1805 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				ObjectPile.anInt1805 = Canvas_Sub1.inputStream.getUByte();
 				Class61.anInt563 = Class160.anInt1494;
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 35) {
-				final int i_21_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
-				final int i_22_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_23_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
-				final int i_24_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
+				final int i_21_ = Canvas_Sub1.inputStream.getUByteC();
+				final int i_22_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_23_ = Canvas_Sub1.inputStream.getLEInt();
+				final int i_24_ = Canvas_Sub1.inputStream.getULEShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_22_)) {
 					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_23_);
 					if (class120_sub26 != null) {
@@ -192,7 +192,7 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 59) {
-				final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+				final String string = Canvas_Sub1.inputStream.getJString();
 				if (!string.endsWith(":tradereq:")) {
 					if (!string.endsWith(":chalreq:")) {
 						if (string.endsWith(":assistreq:")) {
@@ -325,17 +325,17 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 162) {
-				final int i_52_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				final int i_53_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				int i_54_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				int i_55_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_52_ = Canvas_Sub1.inputStream.getInt();
+				final int i_53_ = Canvas_Sub1.inputStream.getInt();
+				int i_54_ = Canvas_Sub1.inputStream.getUShort();
+				int i_55_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (i_54_ == 65535) {
 					i_54_ = -1;
 				}
 				if (65535 == i_55_) {
 					i_55_ = -1;
 				}
-				final int i_56_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_56_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_56_)) {
 					for (int i_57_ = i_55_; i_54_ >= i_57_; i_57_++) {
 						final long l = ((long) i_53_ << 32) + (long) i_57_;
@@ -358,9 +358,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 1) {
-				final int i_59_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
-				final int i_60_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
+				final int i_59_ = Canvas_Sub1.inputStream.getULEShort();
+				final String string = Canvas_Sub1.inputStream.getJString();
+				final int i_60_ = Canvas_Sub1.inputStream.getInt1();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_59_)) {
 					InterfaceChangeNode.method761(string, i_60_);
 				}
@@ -368,9 +368,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 11) {
-				final int i_61_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_62_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1089(775571361);
-				final int i_63_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
+				final int i_61_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_62_ = Canvas_Sub1.inputStream.method1089(775571361);
+				final int i_63_ = Canvas_Sub1.inputStream.getUShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_61_)) {
 					Class120_Sub12_Sub11.method1250(i_63_, true, i_62_);
 				}
@@ -378,9 +378,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 148) {
-				final int i_64_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_65_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
-				final int i_66_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_64_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_65_ = Canvas_Sub1.inputStream.getLEInt();
+				final int i_66_ = Canvas_Sub1.inputStream.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_66_)) {
 					Class20.method180(i_64_, i_65_, 82);
 				}
@@ -389,16 +389,16 @@ abstract class AbstractTimer {
 			}
 			if (Class23.packetType == 95) {
 				Class90.method757((byte) 38);
-				Class56.anInt498 = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
+				Class56.anInt498 = Canvas_Sub1.inputStream.getShort();
 				Class120_Sub2.anInt2419 = Class160.anInt1494;
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 164) {
 				Class90.method757((byte) 40);
-				final int i_67_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_68_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
-				final int i_69_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_67_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_68_ = Canvas_Sub1.inputStream.getInt1();
+				final int i_69_ = Canvas_Sub1.inputStream.getUByte();
 				Class120_Sub12_Sub38.anIntArray3439[i_69_] = i_68_;
 				SceneGraphNode.anIntArray1783[i_69_] = i_67_;
 				Decimator.anIntArray1720[i_69_] = 1;
@@ -413,23 +413,23 @@ abstract class AbstractTimer {
 			}
 			if (Class23.packetType == 8) {
 				Class90.method757((byte) 76);
-				Class69_Sub2.anInt2240 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				Class69_Sub2.anInt2240 = Canvas_Sub1.inputStream.getUByte();
 				Class120_Sub2.anInt2419 = Class160.anInt1494;
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 86) {
-				Class143.setSettings(Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString());
+				Class143.setSettings(Canvas_Sub1.inputStream.getJString());
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 87) {
-				final int i_71_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				int i_72_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_71_ = Canvas_Sub1.inputStream.getULEShortA();
+				int i_72_ = Canvas_Sub1.inputStream.getUShort();
 				if (-65536 == (i_72_ ^ 0xffffffff)) {
 					i_72_ = -1;
 				}
-				final int i_73_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
+				final int i_73_ = Canvas_Sub1.inputStream.getLEInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_71_)) {
 					Class120_Sub21.method1695(1, -1, i_73_, i_72_, (byte) 66);
 				}
@@ -442,8 +442,8 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 138) {
-				final int i_74_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_75_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1089(775571361);
+				final int i_74_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_75_ = Canvas_Sub1.inputStream.method1089(775571361);
 				Class142.method2004(1006, i_75_, i_74_);
 				Class23.packetType = -1;
 				return true;
@@ -456,8 +456,8 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 97) {
-				Class28.anInt176 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
-				Class32.anInt254 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+				Class28.anInt176 = Canvas_Sub1.inputStream.getUByteS();
+				Class32.anInt254 = Canvas_Sub1.inputStream.getUByteA();
 				Class23.packetType = -1;
 				return true;
 			}
@@ -467,10 +467,10 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 126) {
-				String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
-				final int i_76_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
-				int i_77_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_78_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+				String string = Canvas_Sub1.inputStream.getJString();
+				final int i_76_ = Canvas_Sub1.inputStream.getUByteC();
+				int i_77_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_78_ = Canvas_Sub1.inputStream.getUByteS();
 				if (i_77_ == 65535) {
 					i_77_ = -1;
 				}
@@ -486,16 +486,16 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 55) {
-				AbstractGraphicsBuffer.anInt1175 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				AbstractGraphicsBuffer.anInt1175 = Canvas_Sub1.inputStream.getUByte();
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 31) {
-				final int i_79_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				final int i_80_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_81_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				int i_82_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				int i_83_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_79_ = Canvas_Sub1.inputStream.getInt();
+				final int i_80_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_81_ = Canvas_Sub1.inputStream.getUShortA();
+				int i_82_ = Canvas_Sub1.inputStream.getUShort();
+				int i_83_ = Canvas_Sub1.inputStream.getUShort();
 				if ((i_82_ ^ 0xffffffff) == -65536) {
 					i_82_ = -1;
 				}
@@ -524,15 +524,15 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 174) {
-				long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final int i_86_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				long l = Canvas_Sub1.inputStream.getLong();
+				final int i_86_ = Canvas_Sub1.inputStream.getUShort();
 				boolean bool_87_ = false;
 				if (-1L != (~0x7fffffffffffffffL & l ^ 0xffffffffffffffffL)) {
 					bool_87_ = true;
 				}
-				final byte i_88_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
+				final byte i_88_ = Canvas_Sub1.inputStream.getByte();
 				if (!bool_87_) {
-					final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+					final String string = Canvas_Sub1.inputStream.getJString();
 					final Class120_Sub13 class120_sub13 = new Class120_Sub13();
 					class120_sub13.uid = l;
 					class120_sub13.aString2580 = Class174.method2234(i + 0, class120_sub13.uid);
@@ -547,7 +547,7 @@ abstract class AbstractTimer {
 							Class120_Sub28.aClass120_Sub13Array2754[i_89_].aByte2575 = i_88_;
 							Class120_Sub28.aClass120_Sub13Array2754[i_89_].aString2579 = string;
 							Class120_Sub12_Sub12.anInt3217 = Class160.anInt1494;
-							if ((Class20.aLong2168 ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+							if ((Class20.selfNameAsLong ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
 								MouseHandler.aByte1141 = i_88_;
 							}
 							Class23.packetType = -1;
@@ -568,7 +568,7 @@ abstract class AbstractTimer {
 						Class120_Sub28.aClass120_Sub13Array2754 = new Class120_Sub13[100];
 					}
 					Class120_Sub28.aClass120_Sub13Array2754[i_89_ - -1] = class120_sub13;
-					if (l == Class20.aLong2168) {
+					if (l == Class20.selfNameAsLong) {
 						MouseHandler.aByte1141 = i_88_;
 					}
 					Class120_Sub14_Sub13.anInt3572++;
@@ -595,24 +595,24 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 104) {
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
+				final long l = Canvas_Sub1.inputStream.getLong();
+				final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.inputStream)));
 				Class120_Sub14_Sub14.method1540(Class136.longToString(l), 6, string);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 253) {
-				final int i_93_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+				final int i_93_ = Canvas_Sub1.inputStream.getUShort();
+				final String string = Canvas_Sub1.inputStream.getJString();
 				final Object[] objects = new Object[string.length() + 1];
 				for (int i_94_ = string.length() + -1; i_94_ >= 0; i_94_--) {
 					if (string.charAt(i_94_) == 's') {
-						objects[i_94_ + 1] = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+						objects[i_94_ + 1] = Canvas_Sub1.inputStream.getJString();
 					} else {
-						objects[i_94_ + 1] = new Integer(Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt());
+						objects[i_94_ + 1] = new Integer(Canvas_Sub1.inputStream.getInt());
 					}
 				}
-				objects[0] = new Integer(Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt());
+				objects[0] = new Integer(Canvas_Sub1.inputStream.getInt());
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_93_)) {
 					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
 					class120_sub10.anObjectArray2537 = objects;
@@ -622,15 +622,15 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 63) {
-				int i_95_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_96_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+				int i_95_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_96_ = Canvas_Sub1.inputStream.getUByteS();
 				if ((i_95_ ^ 0xffffffff) == -65536) {
 					i_95_ = -1;
 				}
 				final int i_97_ = i_96_ >> 2;
 				final int i_98_ = Class25.anIntArray153[i_97_];
 				final int i_99_ = i_96_ & 0x3;
-				final int i_100_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+				final int i_100_ = Canvas_Sub1.inputStream.getInt();
 				final int i_101_ = (i_100_ & 0x3bd1748b) >> 28;
 				int i_102_ = (i_100_ & 0xfffe0e8) >> 14;
 				int i_103_ = 0x3fff & i_100_;
@@ -645,11 +645,11 @@ abstract class AbstractTimer {
 					AbstractSprite.method1593(false, Class120_Sub12_Sub19.currentDisplayMode, -1, -1);
 				}
 				final byte[] is = new byte[AbstractMouseWheelHandler.packetSize];
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.getBytesIsaac(is, 0, AbstractMouseWheelHandler.packetSize);
+				Canvas_Sub1.inputStream.getBytesIsaac(is, 0, AbstractMouseWheelHandler.packetSize);
 				final String string = DisplayModeInfo.method2215(is, 0, AbstractMouseWheelHandler.packetSize);
 				System.out.println(string);
 				if (Class112.frame != null || Signlink.anInt1310 != 3 && Signlink.osName.startsWith("win") && !FileSystem.haveInternetExplorer6) {
-					Class151.aString1421 = string;
+					WorldInfo.aString1421 = string;
 					Class99.aBoolean950 = true;
 					Class3.aClass185_56 = NpcType.gameSignlink.method1953(string, (byte) -88);
 				} else {
@@ -659,8 +659,8 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 147) {
-				Class32.anInt254 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				Class28.anInt176 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+				Class32.anInt254 = Canvas_Sub1.inputStream.getUByte();
+				Class28.anInt176 = Canvas_Sub1.inputStream.getUByteA();
 				for (int i_104_ = Class32.anInt254; i_104_ < Class32.anInt254 + 8; i_104_++) {
 					for (int i_105_ = Class28.anInt176; i_105_ < 8 + Class28.anInt176; i_105_++) {
 						if (Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_104_][i_105_] != null) {
@@ -678,29 +678,29 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 10) {
-				final int i_106_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
-				final int i_107_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
+				final int i_106_ = Canvas_Sub1.inputStream.getInt1();
+				final int i_107_ = Canvas_Sub1.inputStream.getUShortA();
 				Class120_Sub14_Sub14_Sub1.method1544(i_107_, (byte) -68, i_106_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 100) {
-				int i_108_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				int i_108_ = Canvas_Sub1.inputStream.getUShort();
 				if ((i_108_ ^ 0xffffffff) == -65536) {
 					i_108_ = -1;
 				}
-				final int i_109_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+				final int i_109_ = Canvas_Sub1.inputStream.getUByteA();
 				ObjectPile.method2447((byte) 82, i_109_, i_108_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 206) {
-				final int i_110_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				int i_111_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_110_ = Canvas_Sub1.inputStream.getUByte();
+				int i_111_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (i_111_ == 65535) {
 					i_111_ = -1;
 				}
-				final int i_112_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1092((byte) -128);
+				final int i_112_ = Canvas_Sub1.inputStream.method1092((byte) -128);
 				Class101.method832(-1, i_110_, i_112_, i_111_);
 				Class23.packetType = -1;
 				return true;
@@ -709,15 +709,15 @@ abstract class AbstractTimer {
 				if (AbstractMouseWheelHandler.packetSize == 0) {
 					Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
 				} else {
-					Npc.aString3752 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+					Npc.aString3752 = Canvas_Sub1.inputStream.getJString();
 				}
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 33) {
-				final int i_113_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_114_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final byte i_115_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
+				final int i_113_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_114_ = Canvas_Sub1.inputStream.getUByte();
+				final byte i_115_ = Canvas_Sub1.inputStream.getByte();
 				if (client.aByte2201 != i_115_) {
 					Class23.packetType = -1;
 					return true;
@@ -735,32 +735,32 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 183) {
-				final int i_116_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				int i_117_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_116_ = Canvas_Sub1.inputStream.getInt();
+				int i_117_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (i_117_ == 65535) {
 					i_117_ = -1;
 				}
-				final int i_118_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_119_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+				final int i_118_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_119_ = Canvas_Sub1.inputStream.getInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_118_)) {
 					final JagexInterface jagexInterface = Class74.getJagexInterface(i_116_);
 					if (jagexInterface.aBoolean2041) {
 						Class120_Sub12_Sub27.method1342(i_119_, i_116_, i + -128, i_117_);
 						final ObjType objType = ObjType.list(i_117_);
-						Class40.method325(objType.yan2d, objType.zoom2d, objType.xan2d, i_116_, (byte) 92);
+						SeqType.method325(objType.yan2d, objType.zoom2d, objType.xan2d, i_116_, (byte) 92);
 						Class120_Sub12_Sub37.method1394((byte) -48, objType.yof2d, objType.zan2d, objType.xof2d, i_116_);
 					} else {
 						if (i_117_ == -1) {
-							jagexInterface.anInt2031 = 0;
+							jagexInterface.modelTypeDisabled = 0;
 							Class23.packetType = -1;
 							return true;
 						}
 						final ObjType objType = ObjType.list(i_117_);
-						jagexInterface.anInt2091 = objType.yan2d;
-						jagexInterface.anInt2031 = 4;
-						jagexInterface.anInt1961 = i_117_;
-						jagexInterface.anInt2047 = objType.xan2d;
-						jagexInterface.anInt2005 = objType.zoom2d * 100 / i_119_;
+						jagexInterface.rotateY = objType.yan2d;
+						jagexInterface.modelTypeDisabled = 4;
+						jagexInterface.mediaIdDisabled = i_117_;
+						jagexInterface.rotateX = objType.xan2d;
+						jagexInterface.zoom = objType.zoom2d * 100 / i_119_;
 						InterfaceClickMask.redrawInterface(jagexInterface);
 					}
 				}
@@ -768,10 +768,10 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 65) {
-				final int i_120_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1089(775571361);
-				final int i_121_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_122_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1128(i ^ ~0x6e);
-				final int i_123_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1087(true);
+				final int i_120_ = Canvas_Sub1.inputStream.method1089(775571361);
+				final int i_121_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_122_ = Canvas_Sub1.inputStream.getShortA();
+				final int i_123_ = Canvas_Sub1.inputStream.method1087(true);
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_121_)) {
 					Class29.method254((byte) -96, i_120_, i_122_, i_123_);
 				}
@@ -779,10 +779,10 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 152) {
-				final int i_124_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_125_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_126_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_127_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
+				final int i_124_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_125_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_126_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_127_ = Canvas_Sub1.inputStream.getLEInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_124_)) {
 					Class89.method746(i_126_ + (i_125_ << 16), i_127_, (byte) -56);
 				}
@@ -791,11 +791,11 @@ abstract class AbstractTimer {
 			}
 			if (Class23.packetType == 44) {
 				boolean bool_128_ = false;
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final long l_129_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final long l_130_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getTriByte();
+				final long l = Canvas_Sub1.inputStream.getLong();
+				final long l_129_ = Canvas_Sub1.inputStream.getUShort();
+				final long l_130_ = Canvas_Sub1.inputStream.getMedium();
 				final long l_131_ = (l_129_ << 32) + l_130_;
-				final int i_132_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_132_ = Canvas_Sub1.inputStream.getUByte();
 				while_214_: do {
 					for (int i_133_ = 0; i_133_ < 100; i_133_++) {
 						if ((Class120_Sub12_Sub15.aLongArray3245[i_133_] ^ 0xffffffffffffffffL) == (l_131_ ^ 0xffffffffffffffffL)) {
@@ -819,7 +819,7 @@ abstract class AbstractTimer {
 				if (!bool_128_ && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_131_;
 					Class24.anInt147 = (Class24.anInt147 - -1) % 100;
-					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(i + 32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
+					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(i + 32767, Canvas_Sub1.inputStream)));
 					if (i_132_ == 2 || i_132_ == 3) {
 						Class120_Sub14_Sub14.method1540(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), 7, string);
 					} else if (i_132_ != 1) {
@@ -832,9 +832,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 89) {
-				final int i_135_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_136_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				final int i_137_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
+				final int i_135_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_136_ = Canvas_Sub1.inputStream.getInt();
+				final int i_137_ = Canvas_Sub1.inputStream.getLEInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_135_)) {
 					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_136_);
 					final OverridedJInterface class120_sub26_138_ = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_137_);
@@ -862,13 +862,13 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 246) {
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-				final long l_139_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final long l_140_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final long l_141_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getTriByte();
+				final long l = Canvas_Sub1.inputStream.getLong();
+				Canvas_Sub1.inputStream.getByte();
+				final long l_139_ = Canvas_Sub1.inputStream.getLong();
+				final long l_140_ = Canvas_Sub1.inputStream.getUShort();
+				final long l_141_ = Canvas_Sub1.inputStream.getMedium();
 				final long l_142_ = (l_140_ << 32) - -l_141_;
-				final int i_143_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_143_ = Canvas_Sub1.inputStream.getUByte();
 				boolean bool_144_ = false;
 				while_215_: do {
 					for (int i_145_ = 0; i_145_ < 100; i_145_++) {
@@ -893,7 +893,7 @@ abstract class AbstractTimer {
 				if (!bool_144_ && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_142_;
 					Class24.anInt147 = (1 + Class24.anInt147) % 100;
-					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.aClass120_Sub7_Sub1_16)));
+					final String string = Class120_Sub14_Sub8.method1472(Class120_Sub22.method1705(false, Class7.method107(32767, Canvas_Sub1.inputStream)));
 					if (i_143_ != 2 && i_143_ != 3) {
 						if (i_143_ == 1) {
 							GroundTile.method1669(9, new StringBuilder("<img=0>").append(Class136.longToString(l)).toString(), Class136.longToString(l_139_), string, i ^ 0xffffffff);
@@ -908,30 +908,30 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 90) {
-				final int i_147_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_148_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_149_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_150_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_151_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
+				final int i_147_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_148_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_149_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_150_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_151_ = Canvas_Sub1.inputStream.getLEInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_149_)) {
-					Class40.method325(i_148_, i_147_, i_150_, i_151_, (byte) 92);
+					SeqType.method325(i_148_, i_147_, i_150_, i_151_, (byte) 92);
 				}
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 130) {
-				final int i_152_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
-				final int i_153_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
-				final int i_154_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_152_ = Canvas_Sub1.inputStream.getUByteA();
+				final int i_153_ = Canvas_Sub1.inputStream.getUByteC();
+				final int i_154_ = Canvas_Sub1.inputStream.getUByte();
 				Class173.gameLevel = i_154_ >> 1;
 				Class100.selfPlayer.method2343(i_152_, (i_154_ & 0x1) == 1, i_153_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 172) {
-				final int i_155_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
-				final int i_156_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1078(true);
-				final int i_157_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_155_ = Canvas_Sub1.inputStream.getLEInt();
+				final int i_156_ = Canvas_Sub1.inputStream.getShort();
+				final int i_157_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_157_)) {
 					Class120_Sub14_Sub24.method1647(i + 5, i_155_, i_156_);
 				}
@@ -939,14 +939,14 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 103) {
-				final int i_158_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+				final int i_158_ = Canvas_Sub1.inputStream.getInt();
 				Class120_Sub1.aClass185_2403 = NpcType.gameSignlink.method1952((byte) -73, i_158_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 242) {
-				final int i_159_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_160_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
+				final int i_159_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_160_ = Canvas_Sub1.inputStream.getULEShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_160_)) {
 					Class134.anInt1281 = i_159_;
 				}
@@ -955,7 +955,7 @@ abstract class AbstractTimer {
 			}
 			if (Class23.packetType == 2) {
 				Class120_Sub12_Sub12.anInt3217 = Class160.anInt1494;
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
+				final long l = Canvas_Sub1.inputStream.getLong();
 				if (l == 0L) {
 					InterfaceChangeNode.aString3489 = null;
 					Class120_Sub14_Sub13.anInt3572 = 0;
@@ -964,11 +964,11 @@ abstract class AbstractTimer {
 					Class120_Sub28.aClass120_Sub13Array2754 = null;
 					return true;
 				}
-				final long l_161_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
+				final long l_161_ = Canvas_Sub1.inputStream.getLong();
 				InterfaceChangeNode.aString3489 = Class174.method2234(0, l_161_);
 				Class150.aString1415 = Class174.method2234(0, l);
-				Class112.aByte1078 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-				final int i_162_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				Class112.aByte1078 = Canvas_Sub1.inputStream.getByte();
+				final int i_162_ = Canvas_Sub1.inputStream.getUByte();
 				if (i_162_ == 255) {
 					Class23.packetType = -1;
 					return true;
@@ -977,12 +977,12 @@ abstract class AbstractTimer {
 				final Class120_Sub13[] class120_sub13s = new Class120_Sub13[100];
 				for (int i_163_ = 0; Class120_Sub14_Sub13.anInt3572 > i_163_; i_163_++) {
 					class120_sub13s[i_163_] = new Class120_Sub13();
-					class120_sub13s[i_163_].uid = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
+					class120_sub13s[i_163_].uid = Canvas_Sub1.inputStream.getLong();
 					class120_sub13s[i_163_].aString2580 = Class174.method2234(i + 0, class120_sub13s[i_163_].uid);
-					class120_sub13s[i_163_].anInt2571 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					class120_sub13s[i_163_].aByte2575 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-					class120_sub13s[i_163_].aString2579 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
-					if (Class20.aLong2168 == class120_sub13s[i_163_].uid) {
+					class120_sub13s[i_163_].anInt2571 = Canvas_Sub1.inputStream.getUShort();
+					class120_sub13s[i_163_].aByte2575 = Canvas_Sub1.inputStream.getByte();
+					class120_sub13s[i_163_].aString2579 = Canvas_Sub1.inputStream.getJString();
+					if (Class20.selfNameAsLong == class120_sub13s[i_163_].uid) {
 						MouseHandler.aByte1141 = class120_sub13s[i_163_].aByte2575;
 					}
 				}
@@ -1008,7 +1008,7 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 173) {
-				Class120_Sub12.method1182(NpcType.gameSignlink, AbstractMouseWheelHandler.packetSize, (byte) -120, Canvas_Sub1.aClass120_Sub7_Sub1_16);
+				Class120_Sub12.method1182(NpcType.gameSignlink, AbstractMouseWheelHandler.packetSize, (byte) -120, Canvas_Sub1.inputStream);
 				Class23.packetType = -1;
 				return true;
 			}
@@ -1019,11 +1019,11 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 113) {
-				final int i_167_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_168_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1089(i + 775571361);
-				final int i_169_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_170_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_171_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_167_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_168_ = Canvas_Sub1.inputStream.method1089(i + 775571361);
+				final int i_169_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_170_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_171_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_170_)) {
 					Class120_Sub21.method1695(7, i_167_, i_168_, i_169_ << 16 | i_171_, (byte) 66);
 				}
@@ -1031,9 +1031,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 182) {
-				long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final int i_172_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_173_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				long l = Canvas_Sub1.inputStream.getLong();
+				final int i_172_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_173_ = Canvas_Sub1.inputStream.getUByte();
 				boolean bool_174_ = true;
 				if (0L > l) {
 					bool_174_ = false;
@@ -1041,7 +1041,7 @@ abstract class AbstractTimer {
 				}
 				String string = "";
 				if (i_172_ > 0) {
-					string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+					string = Canvas_Sub1.inputStream.getJString();
 				}
 				String string_175_ = Class136.longToString(l);
 				for (int i_176_ = 0; ProducingGraphicsBuffer.anInt2799 > i_176_; i_176_++) {
@@ -1078,7 +1078,7 @@ abstract class AbstractTimer {
 					bool_177_ = true;
 					i_178_--;
 					for (int i_179_ = 0; i_178_ > i_179_; i_179_++) {
-						if (Class120_Sub12_Sub16.anIntArray3252[i_179_] != Class157.anInt1469 && Class157.anInt1469 == Class120_Sub12_Sub16.anIntArray3252[1 + i_179_] || Class120_Sub12_Sub16.anIntArray3252[i_179_] == 0 && Class120_Sub12_Sub16.anIntArray3252[i_179_ + 1] != 0) {
+						if (Class120_Sub12_Sub16.anIntArray3252[i_179_] != Class157.worldId && Class157.worldId == Class120_Sub12_Sub16.anIntArray3252[1 + i_179_] || Class120_Sub12_Sub16.anIntArray3252[i_179_] == 0 && Class120_Sub12_Sub16.anIntArray3252[i_179_ + 1] != 0) {
 							bool_177_ = false;
 							final int i_180_ = Class120_Sub12_Sub16.anIntArray3252[i_179_];
 							Class120_Sub12_Sub16.anIntArray3252[i_179_] = Class120_Sub12_Sub16.anIntArray3252[i_179_ + 1];
@@ -1108,9 +1108,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 225) {
-				final int i_186_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_187_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_188_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS();
+				final int i_186_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_187_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_188_ = Canvas_Sub1.inputStream.getUByteS();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_187_)) {
 					if (i_188_ == 2) {
 						Class54.method480(-62);
@@ -1127,7 +1127,7 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 156) {
-				final int i_190_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_190_ = Canvas_Sub1.inputStream.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_190_)) {
 					Class3.smoothCamera();
 				}
@@ -1156,7 +1156,7 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 177) {
-				final int i_193_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_193_ = Canvas_Sub1.inputStream.getUByte();
 				final int i_194_ = i_193_ >> 5;
 				final int i_195_ = 0x1f & i_193_;
 				if (i_195_ == 0) {
@@ -1166,11 +1166,11 @@ abstract class AbstractTimer {
 				}
 				final Class85 class85 = new Class85();
 				class85.anInt809 = i_195_;
-				class85.anInt805 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				class85.anInt805 = Canvas_Sub1.inputStream.getUByte();
 				if (class85.anInt805 >= 0 && class85.anInt805 < Class180_Sub6.aClass120_Sub14_Sub19Array3073.length) {
 					if (class85.anInt809 == 1 || class85.anInt809 == 10) {
-						class85.anInt808 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-						Canvas_Sub1.aClass120_Sub7_Sub1_16.pos += 5;
+						class85.anInt808 = Canvas_Sub1.inputStream.getUShort();
+						Canvas_Sub1.inputStream.pos += 5;
 					} else if (class85.anInt809 >= 2 && class85.anInt809 <= 6) {
 						if (class85.anInt809 == 2) {
 							class85.anInt812 = 64;
@@ -1193,12 +1193,12 @@ abstract class AbstractTimer {
 							class85.anInt812 = 64;
 						}
 						class85.anInt809 = 2;
-						class85.anInt804 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-						class85.anInt813 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-						class85.anInt814 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-						class85.anInt810 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+						class85.anInt804 = Canvas_Sub1.inputStream.getUShort();
+						class85.anInt813 = Canvas_Sub1.inputStream.getUShort();
+						class85.anInt814 = Canvas_Sub1.inputStream.getUByte();
+						class85.anInt810 = Canvas_Sub1.inputStream.getUShort();
 					}
-					class85.anInt811 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+					class85.anInt811 = Canvas_Sub1.inputStream.getUShort();
 					if (class85.anInt811 == 65535) {
 						class85.anInt811 = -1;
 					}
@@ -1218,9 +1218,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 75) {
-				final int i_196_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
-				final int i_197_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_196_ = Canvas_Sub1.inputStream.getULEShortA();
+				final String string = Canvas_Sub1.inputStream.getJString();
+				final int i_197_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_196_)) {
 					Class120_Sub12_Sub28.method1345(string, i_197_, (byte) 108);
 				}
@@ -1228,38 +1228,38 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 137) {
-				final int i_198_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_199_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_198_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_199_ = Canvas_Sub1.inputStream.getUByte();
 				Class142.method2004(1006, i_199_, i_198_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 72) {
-				Class120_Sub22.anInt2675 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort() * 30;
+				Class120_Sub22.anInt2675 = Canvas_Sub1.inputStream.getULEShort() * 30;
 				Class120_Sub2.anInt2419 = Class160.anInt1494;
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 26) {
-				final int i_200_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
+				final int i_200_ = Canvas_Sub1.inputStream.getInt1();
 				final JagexInterface jagexInterface = Class74.getJagexInterface(i_200_);
-				for (int i_201_ = 0; jagexInterface.anIntArray1978.length > i_201_; i_201_++) {
-					jagexInterface.anIntArray1978[i_201_] = -1;
-					jagexInterface.anIntArray1978[i_201_] = 0;
+				for (int i_201_ = 0; jagexInterface.objAmounts.length > i_201_; i_201_++) {
+					jagexInterface.objAmounts[i_201_] = -1;
+					jagexInterface.objAmounts[i_201_] = 0;
 				}
 				InterfaceClickMask.redrawInterface(jagexInterface);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 99) {
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-				final long l_202_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final long l_203_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final long l_204_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getTriByte();
+				final long l = Canvas_Sub1.inputStream.getLong();
+				Canvas_Sub1.inputStream.getByte();
+				final long l_202_ = Canvas_Sub1.inputStream.getLong();
+				final long l_203_ = Canvas_Sub1.inputStream.getUShort();
+				final long l_204_ = Canvas_Sub1.inputStream.getMedium();
 				final long l_205_ = (l_203_ << 32) - -l_204_;
-				final int i_206_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_207_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_206_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_207_ = Canvas_Sub1.inputStream.getUShort();
 				boolean bool_208_ = false;
 				while_216_: do {
 					for (int i_209_ = 0; i_209_ < 100; i_209_++) {
@@ -1280,7 +1280,7 @@ abstract class AbstractTimer {
 				if (!bool_208_ && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_205_;
 					Class24.anInt147 = (Class24.anInt147 - -1) % 100;
-					final String string = Class121.method1837(i_207_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
+					final String string = Class121.method1837(i_207_, true).method1506(Canvas_Sub1.inputStream);
 					if (i_206_ == 2 || i_206_ == 3) {
 						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), i_207_, Class136.longToString(l_202_), 20, string, 0);
 					} else if (i_206_ != 1) {
@@ -1293,10 +1293,10 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 237) {
-				int i_211_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_212_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_213_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_214_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
+				int i_211_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_212_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_213_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_214_ = Canvas_Sub1.inputStream.getInt1();
 				if (i_214_ >> 30 != 0) {
 					final int i_215_ = i_214_ >> 28 & 0x3;
 					int i_216_ = -GameEntity.currentBaseX + (i_214_ >> 14 & 0x3fff);
@@ -1326,17 +1326,17 @@ abstract class AbstractTimer {
 									final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
 									final SpotAnimType class103_220_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId);
 									if ((spotAnimType.anInt991 ^ 0xffffffff) != 0 && (class103_220_.anInt991 ^ 0xffffffff) != 0) {
-										final Class40 class40 = Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, 127);
-										final Class40 class40_221_ = Class120_Sub30_Sub2.method1763(class103_220_.anInt991, 120);
-										if (class40.anInt348 < class40_221_.anInt348) {
+										final SeqType seqType = SeqType.list(spotAnimType.anInt991);
+										final SeqType class40_221_ = SeqType.list(class103_220_.anInt991);
+										if (seqType.anInt348 < class40_221_.anInt348) {
 											bool_219_ = false;
 										}
 									}
 								} else {
 									final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
 									if (spotAnimType.aBoolean998 && (spotAnimType.anInt991 ^ 0xffffffff) != 0) {
-										final Class40 class40 = Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, 119);
-										final int i_222_ = class40.anInt337;
+										final SeqType seqType = SeqType.list(spotAnimType.anInt991);
+										final int i_222_ = seqType.anInt337;
 										if (i_222_ == 1) {
 											class180_sub5_sub1.spotAnimFrameId = 0;
 											class180_sub5_sub1.anInt2963 = 0;
@@ -1344,7 +1344,7 @@ abstract class AbstractTimer {
 											bool_219_ = false;
 											class180_sub5_sub1.anInt2979 = i_212_ + Class101_Sub2.loopCycle;
 											class180_sub5_sub1.anInt2984 = 0;
-											Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.spotAnimFrameId, false, false);
+											Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.spotAnimFrameId, false, false);
 										} else if (i_222_ == 2) {
 											class180_sub5_sub1.anInt2999 = 0;
 											bool_219_ = false;
@@ -1368,9 +1368,9 @@ abstract class AbstractTimer {
 								if ((class180_sub5_sub1.spotAnimId ^ 0xffffffff) != 0 && class180_sub5_sub1.anInt2979 == Class101_Sub2.loopCycle) {
 									final int i_223_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId).anInt991;
 									if ((i_223_ ^ 0xffffffff) != 0) {
-										final Class40 class40 = Class120_Sub30_Sub2.method1763(i_223_, 121);
-										if (class40 != null && class40.anIntArray342 != null) {
-											Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer, false);
+										final SeqType seqType = SeqType.list(i_223_);
+										if (seqType != null && seqType.frames != null) {
+											Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer, false);
 										}
 									}
 								}
@@ -1389,8 +1389,8 @@ abstract class AbstractTimer {
 							if (i_211_ == class180_sub5_sub2.spotAnimId) {
 								final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
 								if (spotAnimType.aBoolean998 && spotAnimType.anInt991 != -1) {
-									final Class40 class40 = Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, i ^ 0x7a);
-									final int i_226_ = class40.anInt337;
+									final SeqType seqType = SeqType.list(spotAnimType.anInt991);
+									final int i_226_ = seqType.anInt337;
 									if (i_226_ == 1) {
 										bool_225_ = false;
 										class180_sub5_sub2.anInt2979 = Class101_Sub2.loopCycle + i_212_;
@@ -1398,7 +1398,7 @@ abstract class AbstractTimer {
 										class180_sub5_sub2.anInt2971 = 1;
 										class180_sub5_sub2.anInt2963 = 0;
 										class180_sub5_sub2.anInt2984 = 0;
-										Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub2.z, class180_sub5_sub2.x, class180_sub5_sub2.spotAnimFrameId, false, false);
+										Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, class180_sub5_sub2.spotAnimFrameId, false, false);
 									} else if (i_226_ == 2) {
 										class180_sub5_sub2.anInt2999 = 0;
 										bool_225_ = false;
@@ -1408,9 +1408,9 @@ abstract class AbstractTimer {
 								final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
 								final SpotAnimType class103_227_ = SpotAnimType.list(class180_sub5_sub2.spotAnimId);
 								if ((spotAnimType.anInt991 ^ 0xffffffff) != 0 && class103_227_.anInt991 != -1) {
-									final Class40 class40 = Class120_Sub30_Sub2.method1763(spotAnimType.anInt991, i ^ 0x7e);
-									final Class40 class40_228_ = Class120_Sub30_Sub2.method1763(class103_227_.anInt991, 118);
-									if (class40.anInt348 < class40_228_.anInt348) {
+									final SeqType seqType = SeqType.list(spotAnimType.anInt991);
+									final SeqType class40_228_ = SeqType.list(class103_227_.anInt991);
+									if (seqType.anInt348 < class40_228_.anInt348) {
 										bool_225_ = false;
 									}
 								}
@@ -1429,9 +1429,9 @@ abstract class AbstractTimer {
 							if (class180_sub5_sub2.spotAnimId != -1 && Class101_Sub2.loopCycle == class180_sub5_sub2.anInt2979) {
 								final int i_229_ = SpotAnimType.list(class180_sub5_sub2.spotAnimId).anInt991;
 								if (i_229_ != -1) {
-									final Class40 class40 = Class120_Sub30_Sub2.method1763(i_229_, 120);
-									if (class40 != null && class40.anIntArray342 != null) {
-										Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
+									final SeqType seqType = SeqType.list(i_229_);
+									if (seqType != null && seqType.frames != null) {
+										Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false, false);
 									}
 								}
 							}
@@ -1442,12 +1442,12 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 151) {
-				final int i_230_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_231_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_232_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_233_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_234_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_235_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_230_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_231_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_232_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_233_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_234_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_235_ = Canvas_Sub1.inputStream.getUByte();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_230_)) {
 					Class120_Sub14_Sub23.method1639(i_234_, i_231_, i_235_, i_233_, true, 0, i_232_);
 				}
@@ -1455,9 +1455,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 116) {
-				final int i_236_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_237_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final String string = Canvas_Sub1.aClass120_Sub7_Sub1_16.getJString();
+				final int i_236_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_237_ = Canvas_Sub1.inputStream.getUShortA();
+				final String string = Canvas_Sub1.inputStream.getJString();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_237_)) {
 					Class120_Sub12_Sub28.method1345(string, i_236_, (byte) 108);
 				}
@@ -1465,11 +1465,11 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 222) {
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final long l_238_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final long l_239_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getTriByte();
-				final int i_240_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_241_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final long l = Canvas_Sub1.inputStream.getLong();
+				final long l_238_ = Canvas_Sub1.inputStream.getUShort();
+				final long l_239_ = Canvas_Sub1.inputStream.getMedium();
+				final int i_240_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_241_ = Canvas_Sub1.inputStream.getUShort();
 				boolean bool_242_ = false;
 				final long l_243_ = (l_238_ << 32) + l_239_;
 				while_217_: do {
@@ -1491,7 +1491,7 @@ abstract class AbstractTimer {
 				if (!bool_242_ && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_243_;
 					Class24.anInt147 = (Class24.anInt147 + 1) % 100;
-					final String string = Class121.method1837(i_241_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
+					final String string = Class121.method1837(i_241_, true).method1506(Canvas_Sub1.inputStream);
 					if (i_240_ == 2) {
 						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), i_241_, null, 18, string, 0);
 					} else if (i_240_ == 1) {
@@ -1504,12 +1504,12 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 46) {
-				final int i_246_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_247_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_248_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_249_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_250_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_251_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_246_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_247_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_248_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_249_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_250_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_251_ = Canvas_Sub1.inputStream.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_246_)) {
 					Class120_Sub12_Sub12.aBooleanArray3223[i_247_] = true;
 					Class120_Sub12_Sub37.anIntArray3425[i_247_] = i_248_;
@@ -1521,20 +1521,20 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 153) {
-				int i_252_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				int i_252_ = Canvas_Sub1.inputStream.getUShort();
 				if (65535 == i_252_) {
 					i_252_ = -1;
 				}
-				final int i_253_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_254_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_255_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_253_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_254_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_255_ = Canvas_Sub1.inputStream.getUByte();
 				Class48.method404((byte) -100, i_254_, i_252_, i_253_, i_255_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 135) {
-				final int i_256_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_257_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+				final int i_256_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_257_ = Canvas_Sub1.inputStream.getInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_256_)) {
 					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_257_);
 					if (class120_sub26 != null) {
@@ -1549,9 +1549,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 40) {
-				final int i_258_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
-				final int i_259_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-				final int i_260_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_258_ = Canvas_Sub1.inputStream.getLEInt();
+				final int i_259_ = Canvas_Sub1.inputStream.getULEShort();
+				final int i_260_ = Canvas_Sub1.inputStream.getUByte();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_259_)) {
 					Class164.method2132(i_258_, i_260_, true);
 				}
@@ -1559,21 +1559,21 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 23) {
-				Class69_Sub3_Sub1.anInt3084 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				Class120_Sub12_Sub31.anInt3382 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				KeyboardHandler.anInt1507 = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				Class69_Sub3_Sub1.anInt3084 = Canvas_Sub1.inputStream.getUByte();
+				Class120_Sub12_Sub31.anInt3382 = Canvas_Sub1.inputStream.getUByte();
+				KeyboardHandler.anInt1507 = Canvas_Sub1.inputStream.getUByte();
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 168) {
-				final int i_261_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_261_ = Canvas_Sub1.inputStream.getUShort();
 				Class86.method730(255, i_261_);
 				Class120_Sub12_Sub21_Sub1.anIntArray3912[Class120_Sub12_Sub3.method1207(31, Class33.anInt278++)] = Class120_Sub12_Sub3.method1207(32767, i_261_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 52) {
-				final int i_262_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_262_ = Canvas_Sub1.inputStream.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_262_)) {
 					SpotAnimType.method876((byte) 107);
 				}
@@ -1581,15 +1581,15 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 38) {
-				final byte i_263_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getByte();
-				final int i_264_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
+				final byte i_263_ = Canvas_Sub1.inputStream.getByte();
+				final int i_264_ = Canvas_Sub1.inputStream.getULEShort();
 				Class120_Sub14_Sub14_Sub1.method1544(i_264_, (byte) -68, i_263_);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 194) {
-				final int i_265_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
-				int i_266_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_265_ = Canvas_Sub1.inputStream.getInt();
+				int i_266_ = Canvas_Sub1.inputStream.getUShort();
 				if (69999 < (i_265_ ^ 0xffffffff)) {
 					i_266_ += 32768;
 				}
@@ -1600,24 +1600,24 @@ abstract class AbstractTimer {
 					jagexInterface = Class74.getJagexInterface(i_265_);
 				}
 				if (jagexInterface != null) {
-					for (int i_267_ = 0; jagexInterface.anIntArray1978.length > i_267_; i_267_++) {
-						jagexInterface.anIntArray1978[i_267_] = 0;
-						jagexInterface.anIntArray1983[i_267_] = 0;
+					for (int i_267_ = 0; jagexInterface.objAmounts.length > i_267_; i_267_++) {
+						jagexInterface.objAmounts[i_267_] = 0;
+						jagexInterface.objIds[i_267_] = 0;
 					}
 				}
 				Class179.method2263(114, i_266_);
-				final int i_268_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_268_ = Canvas_Sub1.inputStream.getUShort();
 				for (int i_269_ = 0; i_269_ < i_268_; i_269_++) {
-					final int i_270_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-					int i_271_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
+					final int i_270_ = Canvas_Sub1.inputStream.getUShort();
+					int i_271_ = Canvas_Sub1.inputStream.getUByteC();
 					if (i_271_ == 255) {
-						i_271_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+						i_271_ = Canvas_Sub1.inputStream.getInt();
 					}
-					if (jagexInterface != null && i_269_ < jagexInterface.anIntArray1978.length) {
-						jagexInterface.anIntArray1978[i_269_] = i_270_;
-						jagexInterface.anIntArray1983[i_269_] = i_271_;
+					if (jagexInterface != null && i_269_ < jagexInterface.objAmounts.length) {
+						jagexInterface.objAmounts[i_269_] = i_270_;
+						jagexInterface.objIds[i_269_] = i_271_;
 					}
-					MouseHandler.method1027(14378, i_266_, i_269_, i_270_ - 1, i_271_);
+					MouseHandler.method1027(i_266_, i_269_, i_270_ - 1, i_271_);
 				}
 				if (jagexInterface != null) {
 					InterfaceClickMask.redrawInterface(jagexInterface);
@@ -1628,9 +1628,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 150) {
-				final int i_272_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_273_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_274_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
+				final int i_272_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_273_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_274_ = Canvas_Sub1.inputStream.getUByteC();
 				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_273_];
 				if (class180_sub5_sub2 != null) {
 					Class23.method204(i_272_, class180_sub5_sub2, (byte) -118, i_274_);
@@ -1639,12 +1639,12 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 93) {
-				final int i_275_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_276_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_277_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_278_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_279_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				final int i_280_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
+				final int i_275_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_276_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_277_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_278_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_279_ = Canvas_Sub1.inputStream.getUByte();
+				final int i_280_ = Canvas_Sub1.inputStream.getUByte();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_275_)) {
 					Class120_Sub12_Sub16.method1278(26379, i_278_, i_279_, i_276_, i_277_, i_280_);
 				}
@@ -1652,17 +1652,17 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 166) {
-				Canvas_Sub1.aClass120_Sub7_Sub1_16.pos += 28;
-				if (Canvas_Sub1.aClass120_Sub7_Sub1_16.compareCrc()) {
-					Class120_Sub3.method1057(Canvas_Sub1.aClass120_Sub7_Sub1_16, -28 + Canvas_Sub1.aClass120_Sub7_Sub1_16.pos);
+				Canvas_Sub1.inputStream.pos += 28;
+				if (Canvas_Sub1.inputStream.compareCrc()) {
+					Class120_Sub3.method1057(Canvas_Sub1.inputStream, -28 + Canvas_Sub1.inputStream.pos);
 				}
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 42) {
-				final int i_281_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-				final int i_282_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-				final int i_283_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_281_ = Canvas_Sub1.inputStream.getULEShortA();
+				final int i_282_ = Canvas_Sub1.inputStream.getUShortA();
+				final int i_283_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_281_)) {
 					Class120_Sub8.method1158(i_283_, (byte) 125, i_282_);
 				}
@@ -1670,12 +1670,12 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 18) {
-				int i_284_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
+				int i_284_ = Canvas_Sub1.inputStream.getULEShort();
 				if (65535 == i_284_) {
 					i_284_ = -1;
 				}
-				final int i_285_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_286_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt();
+				final int i_285_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_286_ = Canvas_Sub1.inputStream.getInt();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_285_)) {
 					Class120_Sub21.method1695(2, -1, i_286_, i_284_, (byte) 66);
 				}
@@ -1685,7 +1685,7 @@ abstract class AbstractTimer {
 			if (Class23.packetType == 43) {
 				Class120_Sub12_Sub26.anInt3335 = AbstractMouseWheelHandler.packetSize / 8;
 				for (int i_287_ = 0; Class120_Sub12_Sub26.anInt3335 > i_287_; i_287_++) {
-					Class85.aLongArray806[i_287_] = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
+					Class85.aLongArray806[i_287_] = Canvas_Sub1.inputStream.getLong();
 					Class84.aStringArray801[i_287_] = Class143.method2018(Class120_Sub12_Sub38.method1397(i, 93), Class85.aLongArray806[i_287_]);
 					Class120_Sub14_Sub4.aBooleanArray3468[i_287_] = false;
 				}
@@ -1694,16 +1694,16 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 221) {
-				final long l = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong();
-				final int i_288_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final String string = Class121.method1837(i_288_, true).method1506(Canvas_Sub1.aClass120_Sub7_Sub1_16);
+				final long l = Canvas_Sub1.inputStream.getLong();
+				final int i_288_ = Canvas_Sub1.inputStream.getUShort();
+				final String string = Class121.method1837(i_288_, true).method1506(Canvas_Sub1.inputStream);
 				Class120_Sub16.method1660(Class136.longToString(l), i_288_, null, 19, string, 0);
 				Class23.packetType = -1;
 				return true;
 			}
 			if (Class23.packetType == 199) {
-				final int i_289_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
-				final int i_290_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+				final int i_289_ = Canvas_Sub1.inputStream.getInt1();
+				final int i_290_ = Canvas_Sub1.inputStream.getUShort();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_290_)) {
 					int i_291_ = 0;
 					if (Class100.selfPlayer.appearance != null) {
@@ -1715,9 +1715,9 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 243) {
-				final int i_292_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-				final int i_293_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getInt1();
-				final int i_294_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
+				final int i_292_ = Canvas_Sub1.inputStream.getUShort();
+				final int i_293_ = Canvas_Sub1.inputStream.getInt1();
+				final int i_294_ = Canvas_Sub1.inputStream.getULEShortA();
 				if (Class69_Sub3_Sub1.updateInterfaceCounter(i_294_)) {
 					Class29.method250(i_293_, i_292_, 6703);
 				}
@@ -1725,11 +1725,11 @@ abstract class AbstractTimer {
 				return true;
 			}
 			if (Class23.packetType == 19) {
-				final int i_295_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte();
-				if (Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByte() != 0) {
-					final PacketBuffer class120_sub7_sub1 = Canvas_Sub1.aClass120_Sub7_Sub1_16;
+				final int i_295_ = Canvas_Sub1.inputStream.getUByte();
+				if (Canvas_Sub1.inputStream.getUByte() != 0) {
+					final PacketBuffer class120_sub7_sub1 = Canvas_Sub1.inputStream;
 					class120_sub7_sub1.pos = ((Buffer) class120_sub7_sub1).pos - 1;
-					Class120_Sub3.aClass160Array2427[i_295_] = new Class160(Canvas_Sub1.aClass120_Sub7_Sub1_16);
+					Class120_Sub3.aClass160Array2427[i_295_] = new Class160(Canvas_Sub1.inputStream);
 				} else {
 					Class120_Sub3.aClass160Array2427[i_295_] = new Class160();
 				}
@@ -1737,8 +1737,8 @@ abstract class AbstractTimer {
 				Class120_Sub29.anInt2768 = Class160.anInt1494;
 				return true;
 			}
-			Class180_Sub3.method2312(null, new StringBuilder("T1 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(Class40.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).toString());
-			InputStream_Sub1.logout();
+			Class180_Sub3.method2312(null, new StringBuilder("T1 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).toString());
+			DummyInputStream.processLogout();
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jf.E(").append(i).append(')').toString());

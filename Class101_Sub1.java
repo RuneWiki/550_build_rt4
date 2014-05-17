@@ -116,7 +116,7 @@ final class Class101_Sub1 extends Class101 {
 	static final void method843(final int i, final String string, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final Class120_Sub14_Sub8 class120_sub14_sub8, final JagexInterface jagexInterface) {
 		try {
 			final int i_29_ = i_27_ * i_27_ - -(i_25_ * i_25_);
-			final int i_30_ = (int) OutputStream_Sub1.aFloat28 + Class164.anInt1590 & 0x7ff;
+			final int i_30_ = (int) DummyOutputStream.aFloat28 + Class164.anInt1590 & 0x7ff;
 			final int i_31_ = Math.max(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2) - -10;
 			if (i_31_ * i_31_ >= i_29_) {
 				int i_32_ = Rasterizer.cosineTable[i_30_];
@@ -133,7 +133,7 @@ final class Class101_Sub1 extends Class101 {
 				i_34_ -= i_35_ / 2;
 				if (-jagexInterface.anInt1948 <= i_34_ && i_34_ <= jagexInterface.anInt1948 && -jagexInterface.anInt2059 <= i_37_ && i_37_ <= jagexInterface.anInt2059) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method595((HDSprite) jagexInterface.method2492(false, (byte) -18));
+						GraphicsHD.method595((HDSprite) jagexInterface.method2492(false));
 					} else {
 						GraphicsLD.method2164(jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					}

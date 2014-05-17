@@ -79,7 +79,7 @@ final class Class173 {
 	static final void translateToSpanish() {
 		InterfaceClickMask.aString2660 = "Carregando fontes - ";
 		Class120_Sub19.aString2653 = "M";
-		InputStream_Sub1.aString25 = "Objeto para membros";
+		DummyInputStream.aString25 = "Objeto para membros";
 		SceneGroundObject.aString2849 = "Remova ";
 		Class91.aString853 = "Alocando mem\u00f3ria";
 		Class120_Sub12_Sub30.aString3371 = "Carregando /secure/libs_v4s/RCras - ";
@@ -98,7 +98,7 @@ final class Class173 {
 		Class120_Sub13.aString2578 = " da sua lista de ignorados primeiro.";
 		Class120_Sub15.aString2594 = "Lista de atualiza\u00e7\u00f5es carregada";
 		Class69_Sub2_Sub1.aString3078 = " j\u00e1 est\u00e1 na sua lista de ignorados.";
-		Class109.aString1046 = "Continuar";
+		Class109.continueString = "Continuar";
 		Class121.aString1155 = "Fontes carregadas";
 		Class65.aString591 = "Atacar";
 		Class116.aString1116 = "Conex\u00e3o perdida.";
@@ -139,9 +139,9 @@ final class Class173 {
 		Class91.aString854 = "K";
 		NodeSub.aString2585 = "Config carregada";
 		Class111.aString1056 = "Selecionar op\u00e7\u00e3o";
-		Class167_Sub1.aString2837 = "Biblioteca 3D iniciada";
+		World.aString2837 = "Biblioteca 3D iniciada";
 		Class96.aString915 = "tremor:";
-		Class120_Sub12_Sub28.aString3360 = "Ok";
+		Class120_Sub12_Sub28.okString = "Ok";
 		SceneGroundObject.aString2847 = "Pacote de palavras carregado";
 		Class156.aString1457 = "brilho2:";
 		Class112.aString1079 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de ignorados.";
@@ -157,7 +157,7 @@ final class Class173 {
 		Class120_Sub12_Sub21_Sub1.aString3910 = " j\u00e1 est\u00e1 na sua lista de amigos.";
 		Class120_Sub14_Sub23.aString3655 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de amigos.";
 		Class120_Sub12_Sub1.aString3132 = "Caminhar para c\u00e1";
-		Class143.aString2183 = "Selecionar";
+		Class143.selectString = "Selecionar";
 		Class11.aString81 = "Examinar";
 		Class120_Sub10.aString2538 = "deslizamento:";
 		Class120_Sub12_Sub15.aString3244 = "Oculto";

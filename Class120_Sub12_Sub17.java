@@ -141,7 +141,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 							break while_171_;
 						}
 					} else {
-						anInt3265 = class120_sub7.method1078(true);
+						anInt3265 = class120_sub7.getShort();
 						break while_171_;
 					}
 					anInt3268 = (class120_sub7.getByte() << 12) / 100;
@@ -205,16 +205,16 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			if (i_28_ <= 27) {
 				method1283(84, (byte) 81);
 			}
-			if (!client.getClickMask(jagexInterface).method1678(i, 58) && jagexInterface.anObjectArray2006 == null) {
+			if (!client.getClickMask(jagexInterface).method1678(i) && jagexInterface.anObjectArray2006 == null) {
 				return null;
 			}
-			if (jagexInterface.aStringArray2052 == null || i >= jagexInterface.aStringArray2052.length || jagexInterface.aStringArray2052[i] == null || jagexInterface.aStringArray2052[i].trim().length() == 0) {
+			if (jagexInterface.niActions == null || i >= jagexInterface.niActions.length || jagexInterface.niActions[i] == null || jagexInterface.niActions[i].trim().length() == 0) {
 				if (Class120_Sub30_Sub1.aBoolean3673) {
 					return new StringBuilder("Hidden-").append(i).toString();
 				}
 				return null;
 			}
-			string = jagexInterface.aStringArray2052[i];
+			string = jagexInterface.niActions[i];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lj.V(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
 		}

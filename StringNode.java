@@ -82,7 +82,7 @@ final class StringNode extends Node {
 			if (Class26.anInt162 / 256 > i_6_) {
 				i_6_ = Class26.anInt162 / 256;
 			}
-			final int i_7_ = (int) OutputStream_Sub1.aFloat28 + Class120_Sub14_Sub1.anInt3447 & 0x7ff;
+			final int i_7_ = (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447 & 0x7ff;
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
 				i_6_ = Class181.anIntArray1790[4] + 128;
 			}
@@ -139,9 +139,9 @@ final class StringNode extends Node {
 			}
 			int i_16_;
 			if (Class109.gameState == 10) {
-				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObjectNode.renderZ >> 10, Class120_Sub12_Sub22.anInt3301, Class83.renderX >> 10, true);
+				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObjectNode.renderZ >> 10, Class120_Sub12_Sub22.redrawRate, Class83.renderX >> 10);
 			} else {
-				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, Class100.selfPlayer.anIntArray3040[0] >> 3, Class120_Sub12_Sub22.anInt3301, Class100.selfPlayer.anIntArray2958[0] >> 3, true);
+				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, Class100.selfPlayer.anIntArray3040[0] >> 3, Class120_Sub12_Sub22.redrawRate, Class100.selfPlayer.anIntArray2958[0] >> 3);
 			}
 			if (Class158.anInt1475 >= 0) {
 				HDToolkit.method517();
@@ -190,7 +190,7 @@ final class StringNode extends Node {
 			Class143_Sub1.method2027(y, -8967, Class179.anInt1775, height, Class179.anInt1775, width, x);
 			Class120_Sub12_Sub13.method1264();
 		}
-		((Class143_Sub1) Rasterizer.anInterface5_973).method2023(Class120_Sub12_Sub22.anInt3301, -103);
+		((Class143_Sub1) Rasterizer.anInterface5_973).method2023(Class120_Sub12_Sub22.redrawRate, -103);
 		Class128.drawOverlay(y, x, height, width);
 		Class83.renderX = i_8_;
 		Class120_Sub12_Sub10.renderY = i_11_;

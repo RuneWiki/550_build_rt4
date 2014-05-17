@@ -30,7 +30,7 @@ final class GroundTile extends Node {
 	int anInt2646;
 	boolean aBoolean2647;
 	int anInt2648;
-	static Class40[] aClass40Array2649 = new Class40[14];
+	static SeqType[] aClass40Array2649 = new SeqType[14];
 	Class36 aClass36_2650;
 	static int[] spriteYOffsets;
 	static int anInt2652;

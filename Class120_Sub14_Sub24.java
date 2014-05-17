@@ -43,39 +43,31 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 		}
 	}
 
-	static final void method1648(final byte i) {
-		try {
-			for (int i_2_ = -1; i_2_ < Class83.localPlayerCount; i_2_++) {
-				int i_3_;
-				if (i_2_ == -1) {
-					i_3_ = 2047;
-				} else {
-					i_3_ = Class112.playerIndices[i_2_];
-				}
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
-				if (class180_sub5_sub1 != null && class180_sub5_sub1.anInt3025 > 0) {
-					final Player class180_sub5_sub1_4_ = class180_sub5_sub1;
-					class180_sub5_sub1_4_.anInt3025 = ((GameEntity) class180_sub5_sub1_4_).anInt3025 - 1;
-					if (class180_sub5_sub1.anInt3025 == 0) {
-						class180_sub5_sub1.aString2975 = null;
-					}
+	static final void updateEntityText() {
+		for (int id = -1; id < Class83.localPlayerCount; id++) {
+			int index;
+			if (id == -1) {
+				index = 2047;
+			} else {
+				index = Class112.playerIndices[id];
+			}
+			final Player player = Class118.playersList[index];
+			if (player != null && player.textCycle > 0) {
+				player.textCycle--;
+				if (player.textCycle == 0) {
+					player.textSpoken = null;
 				}
 			}
-			if (i == 127) {
-				for (int i_5_ = 0; Class148.localNpcCount > i_5_; i_5_++) {
-					final int i_6_ = Class120_Sub12_Sub36.localNpcIndices[i_5_];
-					final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_6_];
-					if (class180_sub5_sub2 != null && class180_sub5_sub2.anInt3025 > 0) {
-						final Npc class180_sub5_sub2_7_ = class180_sub5_sub2;
-						class180_sub5_sub2_7_.anInt3025 = ((GameEntity) class180_sub5_sub2_7_).anInt3025 - 1;
-						if (class180_sub5_sub2.anInt3025 == 0) {
-							class180_sub5_sub2.aString2975 = null;
-						}
-					}
+		}
+		for (int id = 0; id < Class148.localNpcCount; id++) {
+			final int index = Class120_Sub12_Sub36.localNpcIndices[id];
+			final Npc npc = Class120_Sub12_Sub11.npcList[index];
+			if (npc != null && npc.textCycle > 0) {
+				npc.textCycle--;
+				if (npc.textCycle == 0) {
+					npc.textSpoken = null;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wn.B(").append(i).append(')').toString());
 		}
 	}
 

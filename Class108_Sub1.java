@@ -36,32 +36,23 @@ final class Class108_Sub1 extends Class108 {
 	private int anInt2344;
 	private int anInt2345;
 
-	static final boolean method933(boolean bool, final int i) {
-		boolean bool_0_;
-		try {
-			if (i != 947635216) {
-				method936(-68, -21, -101);
+	static final boolean method933(boolean bool) {
+		final boolean bool_1_ = Class34.method290();
+		if (bool != bool_1_) {
+			if (!bool) {
+				Class34.method282();
+			} else if (!Class34.method288() || !Class34.method286() || !Class34.method280()) {
+				bool = false;
 			}
-			final boolean bool_1_ = Class34.method290();
-			if (bool != bool_1_) {
-				if (!bool) {
-					Class34.method282();
-				} else if (!Class34.method288() || !Class34.method286() || !Class34.method280()) {
-					bool = false;
-				}
-				Class186.aBoolean1902 = bool;
-				Class120_Sub6.savePreferences(NpcType.gameSignlink);
-				if (!bool_1_ == bool) {
-					((Class143_Sub1) Rasterizer.anInterface5_973).method2025(127);
-					return true;
-				}
-				return false;
+			Class186.hdrEnabled = bool;
+			Class120_Sub6.savePreferences(NpcType.gameSignlink);
+			if (!bool_1_ == bool) {
+				((Class143_Sub1) Rasterizer.anInterface5_973).method2025(127);
+				return true;
 			}
-			bool_0_ = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.K(").append(bool).append(',').append(i).append(')').toString());
+			return false;
 		}
-		return bool_0_;
+		return true;
 	}
 
 	static final void method934(final byte i) {

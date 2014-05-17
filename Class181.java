@@ -52,7 +52,7 @@ final class Class181 {
 					this.anInt1787 = class120_sub7.getUShort();
 				} else if (i_2_ != 3) {
 					if (i_2_ == 4) {
-						this.anInt1786 = class120_sub7.method1078(true);
+						this.anInt1786 = class120_sub7.getShort();
 					}
 				} else {
 					this.anInt1789 = class120_sub7.getUShort();

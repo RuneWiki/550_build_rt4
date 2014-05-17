@@ -65,119 +65,109 @@ final class Class83 implements Runnable {
 		return class120_sub14_sub14_sub1;
 	}
 
-	static final int a(final byte[] is, final String string, final int i, final int i_2_, final int i_3_, final int i_4_) {
-		int i_5_;
-		try {
-			final int i_6_ = -i_3_ + i;
-			for (int i_7_ = 0; i_6_ > i_7_; i_7_++) {
-				final char c = string.charAt(i_3_ + i_7_);
-				if (c > 0 && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
-					is[i_7_ + i_2_] = (byte) c;
-				} else if (c != '\u20ac') {
-					if (c != '\u201a') {
-						if (c != '\u0192') {
-							if (c != '\u201e') {
-								if (c != '\u2026') {
-									if (c != '\u2020') {
-										if (c == '\u2021') {
-											is[i_7_ + i_2_] = (byte) -121;
-										} else if (c != '\u02c6') {
-											if (c == '\u2030') {
-												is[i_2_ - -i_7_] = (byte) -119;
-											} else if (c != '\u0160') {
-												if (c != '\u2039') {
-													if (c != '\u0152') {
-														if (c != '\u017d') {
-															if (c == '\u2018') {
-																is[i_2_ - -i_7_] = (byte) -111;
-															} else if (c != '\u2019') {
-																if (c == '\u201c') {
-																	is[i_2_ - -i_7_] = (byte) -109;
-																} else if (c != '\u201d') {
-																	if (c == '\u2022') {
-																		is[i_2_ + i_7_] = (byte) -107;
-																	} else if (c != '\u2013') {
-																		if (c != '\u2014') {
-																			if (c == '\u02dc') {
-																				is[i_2_ - -i_7_] = (byte) -104;
-																			} else if (c != '\u2122') {
-																				if (c == '\u0161') {
-																					is[i_7_ + i_2_] = (byte) -102;
-																				} else if (c != '\u203a') {
-																					if (c != '\u0153') {
-																						if (c != '\u017e') {
-																							if (c != '\u0178') {
-																								is[i_7_ + i_2_] = (byte) 63;
-																							} else {
-																								is[i_2_ - -i_7_] = (byte) -97;
-																							}
+	static final int a(final byte[] is, final String string, final int i, final int i_2_, final int i_3_) {
+		final int i_6_ = i - i_3_;
+		for (int i_7_ = 0; i_6_ > i_7_; i_7_++) {
+			final char c = string.charAt(i_3_ + i_7_);
+			if (c > 0 && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
+				is[i_7_ + i_2_] = (byte) c;
+			} else if (c != '\u20ac') {
+				if (c != '\u201a') {
+					if (c != '\u0192') {
+						if (c != '\u201e') {
+							if (c != '\u2026') {
+								if (c != '\u2020') {
+									if (c == '\u2021') {
+										is[i_7_ + i_2_] = (byte) -121;
+									} else if (c != '\u02c6') {
+										if (c == '\u2030') {
+											is[i_2_ - -i_7_] = (byte) -119;
+										} else if (c != '\u0160') {
+											if (c != '\u2039') {
+												if (c != '\u0152') {
+													if (c != '\u017d') {
+														if (c == '\u2018') {
+															is[i_2_ - -i_7_] = (byte) -111;
+														} else if (c != '\u2019') {
+															if (c == '\u201c') {
+																is[i_2_ - -i_7_] = (byte) -109;
+															} else if (c != '\u201d') {
+																if (c == '\u2022') {
+																	is[i_2_ + i_7_] = (byte) -107;
+																} else if (c != '\u2013') {
+																	if (c != '\u2014') {
+																		if (c == '\u02dc') {
+																			is[i_2_ - -i_7_] = (byte) -104;
+																		} else if (c != '\u2122') {
+																			if (c == '\u0161') {
+																				is[i_7_ + i_2_] = (byte) -102;
+																			} else if (c != '\u203a') {
+																				if (c != '\u0153') {
+																					if (c != '\u017e') {
+																						if (c != '\u0178') {
+																							is[i_7_ + i_2_] = (byte) 63;
 																						} else {
-																							is[i_2_ + i_7_] = (byte) -98;
+																							is[i_2_ - -i_7_] = (byte) -97;
 																						}
 																					} else {
-																						is[i_7_ + i_2_] = (byte) -100;
+																						is[i_2_ + i_7_] = (byte) -98;
 																					}
 																				} else {
-																					is[i_2_ - -i_7_] = (byte) -101;
+																					is[i_7_ + i_2_] = (byte) -100;
 																				}
 																			} else {
-																				is[i_2_ - -i_7_] = (byte) -103;
+																				is[i_2_ - -i_7_] = (byte) -101;
 																			}
 																		} else {
-																			is[i_7_ + i_2_] = (byte) -105;
+																			is[i_2_ - -i_7_] = (byte) -103;
 																		}
 																	} else {
-																		is[i_7_ + i_2_] = (byte) -106;
+																		is[i_7_ + i_2_] = (byte) -105;
 																	}
 																} else {
-																	is[i_7_ + i_2_] = (byte) -108;
+																	is[i_7_ + i_2_] = (byte) -106;
 																}
 															} else {
-																is[i_7_ + i_2_] = (byte) -110;
+																is[i_7_ + i_2_] = (byte) -108;
 															}
 														} else {
-															is[i_2_ - -i_7_] = (byte) -114;
+															is[i_7_ + i_2_] = (byte) -110;
 														}
 													} else {
-														is[i_7_ + i_2_] = (byte) -116;
+														is[i_2_ - -i_7_] = (byte) -114;
 													}
 												} else {
-													is[i_7_ + i_2_] = (byte) -117;
+													is[i_7_ + i_2_] = (byte) -116;
 												}
 											} else {
-												is[i_2_ + i_7_] = (byte) -118;
+												is[i_7_ + i_2_] = (byte) -117;
 											}
 										} else {
-											is[i_7_ + i_2_] = (byte) -120;
+											is[i_2_ + i_7_] = (byte) -118;
 										}
 									} else {
-										is[i_7_ + i_2_] = (byte) -122;
+										is[i_7_ + i_2_] = (byte) -120;
 									}
 								} else {
-									is[i_7_ + i_2_] = (byte) -123;
+									is[i_7_ + i_2_] = (byte) -122;
 								}
 							} else {
-								is[i_7_ + i_2_] = (byte) -124;
+								is[i_7_ + i_2_] = (byte) -123;
 							}
 						} else {
-							is[i_2_ + i_7_] = (byte) -125;
+							is[i_7_ + i_2_] = (byte) -124;
 						}
 					} else {
-						is[i_2_ - -i_7_] = (byte) -126;
+						is[i_2_ + i_7_] = (byte) -125;
 					}
 				} else {
-					is[i_7_ + i_2_] = (byte) -128;
+					is[i_2_ - -i_7_] = (byte) -126;
 				}
+			} else {
+				is[i_7_ + i_2_] = (byte) -128;
 			}
-			if (i_4_ != 23422) {
-				return 64;
-			}
-			i_5_ = i_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.H(").append(is != null ? "{...}" : "null").append(',').append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')')
-					.toString());
 		}
-		return i_5_;
+		return i_6_;
 	}
 
 	public static void a(final int i) {

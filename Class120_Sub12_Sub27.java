@@ -16,7 +16,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	private byte[] aByteArray3347;
 	static boolean aBoolean3348 = false;
 	static int[] anIntArray3349;
-	static volatile int anInt3351;
+	static volatile int currentMouseY;
 	private int anInt3352;
 	static int anInt3353;
 	static Class107 aClass107_3354;
@@ -25,7 +25,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 		aString3338 = "Checking for updates - ";
 		aClass21_3342 = new Cache(2);
 		anIntArray3349 = new int[] { 7, 8, 9, 10, 11, 12, 13, 15 };
-		anInt3351 = -1;
+		currentMouseY = -1;
 	}
 
 	@Override

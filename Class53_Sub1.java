@@ -15,7 +15,7 @@ final class Class53_Sub1 extends Class53 {
 	private final int anInt2214;
 	private byte[] aByteArray2215;
 	private Class52 aClass52_2216;
-	static SignlinkNode aClass185_2217;
+	static SignlinkNode worldConnectionNode;
 	private Class120_Sub14_Sub14 aClass120_Sub14_Sub14_2218;
 	static int anInt2219;
 	private final int anInt2220;
@@ -185,7 +185,7 @@ final class Class53_Sub1 extends Class53 {
 		try {
 			if (i == -82) {
 				aString2213 = null;
-				aClass185_2217 = null;
+				worldConnectionNode = null;
 				aString2206 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {

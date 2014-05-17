@@ -57,24 +57,17 @@ final class Class26 {
 		}
 	}
 
-	static final void method233(final int i) {
-		try {
-			synchronized (Class120_Sub14_Sub4.mouseHandler) {
-				Class136.anInt1320++;
-				InterfaceChangeNode.anInt3483 = Class42.anInt362;
-				Queue.lastMouseX = Class160.anInt1492;
-				Class191.lastMouseY = Class120_Sub12_Sub27.anInt3351;
-				Class156.anInt1455 = GroundObjectNode.anInt3627;
-				Class50.anInt449 = Class192.anInt2122;
-				if (i != -1) {
-					method233(-127);
-				}
-				Class120_Sub12_Sub36.anInt3424 = Class80.anInt751;
-				Class120_Sub12_Sub2.aLong3146 = Class186.aLong1897;
-				GroundObjectNode.anInt3627 = 0;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.B(").append(i).append(')').toString());
+	static final void handleMouse() {
+		synchronized (Class120_Sub14_Sub4.mouseHandler) {
+			Class136.mouseIdleCycle++;
+			InterfaceChangeNode.lastMousePress = Class42.currentMousePress;
+			Queue.lastMouseX = Class160.currentMouseX;
+			Class191.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
+			Class156.lastMouseClick = GroundObjectNode.currentMouseClick;
+			Class50.lastClickX = Class192.currentClickX;
+			Class120_Sub12_Sub36.lastClickY = Class80.currentClickY;
+			Class120_Sub12_Sub2.lastClickTime = Class186.currentClickTime;
+			GroundObjectNode.currentMouseClick = 0;
 		}
 	}
 

@@ -582,19 +582,10 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		aClass120_Sub12_3562 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
 	}
 
-	static final LDSprite method1534(final Class50 class50, final byte i, final int i_105_, final int i_106_) {
-		LDSprite class120_sub14_sub19_sub2;
-		try {
-			if (!Class10.method121(class50, i_105_, i_106_)) {
-				return null;
-			}
-			if (i > -31) {
-				method1531(null);
-			}
-			class120_sub14_sub19_sub2 = Class85.method722(49);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.J(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_105_).append(',').append(i_106_).append(')').toString());
+	static final LDSprite method1534(final Class50 class50, final int i_105_, final int i_106_) {
+		if (!Class10.method121(class50, i_105_, i_106_)) {
+			return null;
 		}
-		return class120_sub14_sub19_sub2;
+		return Class85.method722();
 	}
 }

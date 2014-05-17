@@ -18,7 +18,7 @@ final class Class153 {
 		Class107 class107;
 		try {
 			if (i != 26494) {
-				method2073(0, 127);
+				method2073(0);
 			}
 			if (!ObjType.method2113(class50, -5, i_0_)) {
 				return null;
@@ -59,17 +59,8 @@ final class Class153 {
 		return class186;
 	}
 
-	static final int method2073(final int i, final int i_3_) {
-		int i_4_;
-		try {
-			if (i_3_ != 1841970955) {
-				return 99;
-			}
-			i_4_ = i >> 11 & 0x7f;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.H(").append(i).append(',').append(i_3_).append(')').toString());
-		}
-		return i_4_;
+	static final int method2073(final int i) {
+		return i >> 11 & 0x7f;
 	}
 
 	private final void method2074(final int i, final int i_5_, final Buffer class120_sub7, final int i_6_) {
@@ -81,14 +72,14 @@ final class Class153 {
 				this.anInt1435 = class120_sub7.getUShort();
 			} else if (i_6_ != 2) {
 				if (i_6_ == 3) {
-					this.anInt1427 = class120_sub7.method1078(true);
-					this.anInt1428 = class120_sub7.method1078(true);
-					this.anInt1431 = class120_sub7.method1078(true);
+					this.anInt1427 = class120_sub7.getShort();
+					this.anInt1428 = class120_sub7.getShort();
+					this.anInt1431 = class120_sub7.getShort();
 				} else if (i_6_ != 4) {
 					if (i_6_ == 5) {
 						this.anInt1429 = class120_sub7.getUShort();
 					} else if (i_6_ == 6) {
-						this.anInt1432 = class120_sub7.getTriByte();
+						this.anInt1432 = class120_sub7.getMedium();
 					}
 				} else {
 					this.anInt1434 = class120_sub7.getUByte();

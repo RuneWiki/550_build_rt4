@@ -46,7 +46,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 					try {
 						if (++Class120_Sub14_Sub4.anInt3466 > 2000) {
 							if (AbstractTimer.worldConnection != null) {
-								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 							}
 							if (Class107.anInt1027 < 1) {
@@ -65,18 +65,18 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							}
 						}
 						if (Class154.anInt1440 == 1) {
-							Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+							Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
 							Class154.anInt1440 = 2;
 						}
 						if (Class154.anInt1440 == 2) {
-							if (Class53_Sub1.aClass185_2217.status == 2) {
+							if (Class53_Sub1.worldConnectionNode.status == 2) {
 								throw new IOException();
 							}
-							if (Class53_Sub1.aClass185_2217.status != 1) {
+							if (Class53_Sub1.worldConnectionNode.status != 1) {
 								break;
 							}
-							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
-							Class53_Sub1.aClass185_2217 = null;
+							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+							Class53_Sub1.worldConnectionNode = null;
 							AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
 								Class120_Sub12_Sub3.aClass164_3150.method2131();
@@ -94,7 +94,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							if (i_1_ != 21) {
 								Class120_Sub12_Sub35.anInt3410 = i_1_;
 								Class154.anInt1440 = 0;
-								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 								break;
 							}
@@ -108,19 +108,19 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							Class154.anInt1440 = 4;
 						}
 						if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Class45.aStringArray399.length) {
-							Canvas_Sub1.aClass120_Sub7_Sub1_16.pos = 0;
-							AbstractTimer.worldConnection.read(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.buf, Class45.aStringArray399.length * 8);
+							Canvas_Sub1.inputStream.pos = 0;
+							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Class45.aStringArray399.length * 8);
 							for (int i_2_ = 0; i_2_ < Class45.aStringArray399.length; i_2_++) {
-								Class45.aStringArray399[i_2_] = Class174.method2234(0, Canvas_Sub1.aClass120_Sub7_Sub1_16.getLong());
+								Class45.aStringArray399[i_2_] = Class174.method2234(0, Canvas_Sub1.inputStream.getLong());
 							}
 							Class154.anInt1440 = 0;
 							Class120_Sub12_Sub35.anInt3410 = 21;
-							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 					} catch (final IOException ioexception) {
 						if (AbstractTimer.worldConnection != null) {
-							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 						if (Class107.anInt1027 >= 1) {

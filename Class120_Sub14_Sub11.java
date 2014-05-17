@@ -17,8 +17,8 @@ final class Class120_Sub14_Sub11 extends NodeSub {
 		aBoolean3545 = false;
 	}
 
-	static final Class167_Sub1 method1511(final int i) {
-		Class167_Sub1 class167_sub1;
+	static final World method1511(final int i) {
+		World class167_sub1;
 		try {
 			Class108_Sub3.anInt2395 = 0;
 			class167_sub1 = Class120_Sub12_Sub11.method1254(6);

@@ -27,7 +27,7 @@ final class Class120_Sub8 extends Node {
 	int anInt2499;
 
 	static final void translateToFrench() {
-		Class167_Sub1.aString2837 = "Librairie 3D d\u00e9marr\u00e9e";
+		World.aString2837 = "Librairie 3D d\u00e9marr\u00e9e";
 		NpcType.aString1685 = "clignotant3:";
 		Class120_Sub12_Sub18.aString3272 = "Chargement de RuneScape en cours - veuillez patienter...";
 		Class156.aString1457 = "brillant2:";
@@ -66,7 +66,7 @@ final class Class120_Sub8 extends Node {
 		Class65.aString591 = "Attaquer";
 		Class120_Sub12_Sub21_Sub1.aString3910 = " est d\u00e9j\u00e0 dans votre liste d'amis.";
 		PlayerAppearance.aString1368 = "M\u00e9moire attribu\u00e9e";
-		InputStream_Sub1.aString25 = "Objet d'abonn\u00e9s";
+		DummyInputStream.aString25 = "Objet d'abonn\u00e9s";
 		Class69_Sub2_Sub1.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
 		Class69_Sub1.aString2231 = "jaune:";
 		Class91.aString853 = "M\u00e9moire en cours d'attribution";
@@ -75,7 +75,7 @@ final class Class120_Sub8 extends Node {
 		Class147.aString1397 = "clignotant1:";
 		Class120_Sub12_Sub25.aString3319 = "Veuillez commencer par supprimer ";
 		Class121.aString1155 = "Polices charg\u00e9es";
-		Class120_Sub12_Sub28.aString3360 = "OK";
+		Class120_Sub12_Sub28.okString = "OK";
 		Class29.aString217 = "Chargement de l'\u00e9cran-titre - ";
 		Class143_Sub1.aString2192 = "Votre liste noire est pleine (100 noms maximum).";
 		NodeSub.aString2585 = "Fichiers config charg\u00e9s";
@@ -104,9 +104,9 @@ final class Class120_Sub8 extends Node {
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
 		Class120_Sub3.aString2428 = "Chargement des fichiers config - ";
 		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
-		Class109.aString1046 = "Continuer";
+		Class109.continueString = "Continuer";
 		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
-		Class143.aString2183 = "S\u00e9lectionner";
+		Class143.selectString = "S\u00e9lectionner";
 		Class54.aString489 = " de votre liste d'amis.";
 		Class120_Sub13.aString2574 = "blanc:";
 		Class36.aString313 = "Chargement en cours...";
@@ -193,7 +193,7 @@ final class Class120_Sub8 extends Node {
 				Class128.renderPitch = i;
 				Class180_Sub3.renderYaw = i_3_;
 			}
-			OutputStream_Sub1.aFloat28 = i_3_;
+			DummyOutputStream.aFloat28 = i_3_;
 			Class120_Sub12_Sub21.aFloat3293 = i;
 			if (i_2_ == 125) {
 				Class127.method1892();

@@ -145,45 +145,43 @@ abstract class SceneGraphNode {
 	static final void method2272(final int i, final int i_27_, final JagexInterface jagexInterface, final int i_28_) {
 		try {
 			if (jagexInterface.aByte2051 == 0) {
-				jagexInterface.anInt2073 = jagexInterface.anInt2015;
-			} else if (jagexInterface.aByte2051 != 1) {
-				if (jagexInterface.aByte2051 == 2) {
-					jagexInterface.anInt2073 = -jagexInterface.anInt2015 + -jagexInterface.anInt1948 + i;
-				} else if (jagexInterface.aByte2051 == 3) {
-					jagexInterface.anInt2073 = jagexInterface.anInt2015 * i >> 14;
-				} else if (jagexInterface.aByte2051 != 4) {
-					jagexInterface.anInt2073 = -(i * jagexInterface.anInt2015 >> 14) + -jagexInterface.anInt1948 + i;
-				} else {
-					jagexInterface.anInt2073 = (jagexInterface.anInt2015 * i >> 14) + (i - jagexInterface.anInt1948) / 2;
-				}
+				jagexInterface.x = jagexInterface.originalX;
+			} else if (jagexInterface.aByte2051 == 1) {
+				jagexInterface.x = jagexInterface.originalX + (-jagexInterface.anInt1948 + i) / 2;
+			} else if (jagexInterface.aByte2051 == 2) {
+				jagexInterface.x = -jagexInterface.originalX + -jagexInterface.anInt1948 + i;
+			} else if (jagexInterface.aByte2051 == 3) {
+				jagexInterface.x = jagexInterface.originalX * i >> 14;
+			} else if (jagexInterface.aByte2051 == 4) {
+				jagexInterface.x = (jagexInterface.originalX * i >> 14) + (i - jagexInterface.anInt1948) / 2;
 			} else {
-				jagexInterface.anInt2073 = jagexInterface.anInt2015 + (-jagexInterface.anInt1948 + i) / 2;
+				jagexInterface.x = -(i * jagexInterface.originalX >> 14) + -jagexInterface.anInt1948 + i;
 			}
 			if (jagexInterface.aByte2017 != 0) {
 				if (jagexInterface.aByte2017 == 1) {
-					jagexInterface.anInt1938 = jagexInterface.anInt2061 + (-jagexInterface.anInt2059 + i_27_) / 2;
+					jagexInterface.y = jagexInterface.originalY + (-jagexInterface.anInt2059 + i_27_) / 2;
 				} else if (jagexInterface.aByte2017 == 2) {
-					jagexInterface.anInt1938 = i_27_ + -jagexInterface.anInt2059 - jagexInterface.anInt2061;
+					jagexInterface.y = i_27_ + -jagexInterface.anInt2059 - jagexInterface.originalY;
 				} else if (jagexInterface.aByte2017 == 3) {
-					jagexInterface.anInt1938 = i_27_ * jagexInterface.anInt2061 >> 14;
+					jagexInterface.y = i_27_ * jagexInterface.originalY >> 14;
 				} else if (jagexInterface.aByte2017 != 4) {
-					jagexInterface.anInt1938 = -(jagexInterface.anInt2061 * i_27_ >> 14) + i_27_ + -jagexInterface.anInt2059;
+					jagexInterface.y = -(jagexInterface.originalY * i_27_ >> 14) + i_27_ + -jagexInterface.anInt2059;
 				} else {
-					jagexInterface.anInt1938 = (jagexInterface.anInt2061 * i_27_ >> 14) + (i_27_ - jagexInterface.anInt2059) / 2;
+					jagexInterface.y = (jagexInterface.originalY * i_27_ >> 14) + (i_27_ - jagexInterface.anInt2059) / 2;
 				}
 			} else {
-				jagexInterface.anInt1938 = jagexInterface.anInt2061;
+				jagexInterface.y = jagexInterface.originalY;
 			}
 			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).anInt2662 != 0 || jagexInterface.type == 0)) {
-				if (jagexInterface.anInt1938 < 0) {
-					jagexInterface.anInt1938 = 0;
-				} else if (jagexInterface.anInt2059 + jagexInterface.anInt1938 > i_27_) {
-					jagexInterface.anInt1938 = -jagexInterface.anInt2059 + i_27_;
+				if (jagexInterface.y < 0) {
+					jagexInterface.y = 0;
+				} else if (jagexInterface.anInt2059 + jagexInterface.y > i_27_) {
+					jagexInterface.y = -jagexInterface.anInt2059 + i_27_;
 				}
-				if (jagexInterface.anInt2073 < 0) {
-					jagexInterface.anInt2073 = 0;
-				} else if (i < jagexInterface.anInt2073 - -jagexInterface.anInt1948) {
-					jagexInterface.anInt2073 = i + -jagexInterface.anInt1948;
+				if (jagexInterface.x < 0) {
+					jagexInterface.x = 0;
+				} else if (i < jagexInterface.x - -jagexInterface.anInt1948) {
+					jagexInterface.x = i + -jagexInterface.anInt1948;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

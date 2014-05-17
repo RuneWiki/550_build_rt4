@@ -124,14 +124,9 @@ final class Class120_Sub6 extends Node {
 		}
 	}
 
-	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
-		try {
-			if (Class50.loadInterface(i) && i_9_ < -28) {
-				client.method60(Node.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.C(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')')
-					.toString());
+	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_) {
+		if (Class50.loadInterface(i)) {
+			client.method60(Node.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
 		}
 	}
 

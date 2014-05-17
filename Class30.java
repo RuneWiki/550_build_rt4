@@ -41,7 +41,7 @@ final class Class30 {
 				method259(true, -5, 125, 45, null, -90);
 			}
 			for (int i_0_ = 0; i_0_ < anInt225; i_0_++) {
-				aClass120_Sub19Array227[i_0_] = OutputStream_Sub1.aClass120_Sub19_27;
+				aClass120_Sub19Array227[i_0_] = DummyOutputStream.aClass120_Sub19_27;
 			}
 			is = anIntArrayArray230;
 		} catch (final RuntimeException runtimeexception) {
@@ -79,7 +79,7 @@ final class Class30 {
 				return anIntArrayArray230[0];
 			}
 			this.aBoolean238 = aClass120_Sub19Array227[i] == null;
-			aClass120_Sub19Array227[i] = OutputStream_Sub1.aClass120_Sub19_27;
+			aClass120_Sub19Array227[i] = DummyOutputStream.aClass120_Sub19_27;
 			is = anIntArrayArray230[i];
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("da.E(").append(i).append(',').append(i_1_).append(')').toString());

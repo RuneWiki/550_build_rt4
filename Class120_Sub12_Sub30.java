@@ -99,8 +99,8 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			if (!bool) {
 				method1360(107);
 			}
-			class101_sub4 = new Class101_Sub4(class120_sub7.method1078(true), class120_sub7.method1078(bool), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(bool),
-					class120_sub7.method1078(true), class120_sub7.getTriByte(), class120_sub7.getUByte());
+			class101_sub4 = new Class101_Sub4(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(),
+					class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getUByte());
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.T(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}

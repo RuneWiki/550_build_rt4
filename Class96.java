@@ -119,22 +119,22 @@ final class Class96 {
 						if (TimeUtil.getSafeTime() - 5000L < Class158.aLong1482) {
 							return 0;
 						}
-						Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
 						GameShell.aLong4 = TimeUtil.getSafeTime();
 						Decimator.anInt1716 = 1;
 					}
 					if ((TimeUtil.getSafeTime() ^ 0xffffffffffffffffL) < (GameShell.aLong4 + 30000L ^ 0xffffffffffffffffL)) {
-						return OutputStream_Sub1.method72((byte) 9, 1000);
+						return DummyOutputStream.method72((byte) 9, 1000);
 					}
 					if (Decimator.anInt1716 == 1) {
-						if (Class53_Sub1.aClass185_2217.status == 2) {
-							return OutputStream_Sub1.method72((byte) 9, 1001);
+						if (Class53_Sub1.worldConnectionNode.status == 2) {
+							return DummyOutputStream.method72((byte) 9, 1001);
 						}
-						if (Class53_Sub1.aClass185_2217.status != 1) {
+						if (Class53_Sub1.worldConnectionNode.status != 1) {
 							return -1;
 						}
-						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
-						Class53_Sub1.aClass185_2217 = null;
+						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+						Class53_Sub1.worldConnectionNode = null;
 						int i_38_ = 0;
 						if (Class159.aBoolean1487) {
 							i_38_ = anInt900;
@@ -157,7 +157,7 @@ final class Class96 {
 							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
 						if (i_39_ != 0) {
-							return OutputStream_Sub1.method72((byte) 9, i_39_);
+							return DummyOutputStream.method72((byte) 9, i_39_);
 						}
 						Decimator.anInt1716 = 2;
 					}
@@ -182,23 +182,23 @@ final class Class96 {
 					if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
 						i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
 					}
-					AbstractTimer.worldConnection.read(Class132_Sub1.anInt2816, Class39.aByteArray324, i_40_);
+					AbstractTimer.worldConnection.read(Class39.aByteArray324, Class132_Sub1.anInt2816, i_40_);
 					Class132_Sub1.anInt2816 += i_40_;
 					if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
 						return -1;
 					}
-					if (!Class54.method477((byte) -33, Class39.aByteArray324)) {
-						return OutputStream_Sub1.method72((byte) 9, 1002);
+					if (!Class54.method477(Class39.aByteArray324)) {
+						return DummyOutputStream.method72((byte) 9, 1002);
 					}
 					int i_41_ = 0;
-					Class86.aClass167_Sub1Array817 = new Class167_Sub1[Class57.anInt502];
-					for (int i_42_ = OverridedJInterface.anInt2738; i_42_ <= Class120_Sub14_Sub2.anInt3454; i_42_++) {
-						final Class167_Sub1 class167_sub1 = Class82.method710((byte) -24, i_42_);
+					Class86.aClass167_Sub1Array817 = new World[Class57.worldLen2];
+					for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= Class120_Sub14_Sub2.worldLen; i_42_++) {
+						final World class167_sub1 = Class82.method710((byte) -24, i_42_);
 						if (class167_sub1 != null) {
 							Class86.aClass167_Sub1Array817[i_41_++] = class167_sub1;
 						}
 					}
-					AbstractTimer.worldConnection.method377();
+					AbstractTimer.worldConnection.close();
 					Class39.aByteArray324 = null;
 					Decimator.anInt1716 = 0;
 					OverridedJInterface.anInt2742 = 0;
@@ -206,7 +206,7 @@ final class Class96 {
 					Class158.aLong1482 = TimeUtil.getSafeTime();
 					i_37_ = 0;
 				} catch (final IOException ioexception) {
-					return OutputStream_Sub1.method72((byte) 9, 1003);
+					return DummyOutputStream.method72((byte) 9, 1003);
 				}
 				return i_37_;
 			} while (false);

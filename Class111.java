@@ -28,9 +28,9 @@ final class Class111 {
 			if (i > 10) {
 				i = 10;
 			}
-			OutputStream_Sub1.anInt32 += i * 128;
-			if (InterfaceChangeNode.anIntArray3485.length < OutputStream_Sub1.anInt32) {
-				OutputStream_Sub1.anInt32 -= InterfaceChangeNode.anIntArray3485.length;
+			DummyOutputStream.anInt32 += i * 128;
+			if (InterfaceChangeNode.anIntArray3485.length < DummyOutputStream.anInt32) {
+				DummyOutputStream.anInt32 -= InterfaceChangeNode.anIntArray3485.length;
 				final int i_2_ = (int) (Math.random() * 12.0);
 				Class96.method787(-69, JagexSocket.aClass107_Sub1Array426[i_2_]);
 			}
@@ -42,7 +42,7 @@ final class Class111 {
 				anInt1065 = 106;
 			}
 			for (/**/; i_6_ < i_5_; i_6_++) {
-				int i_7_ = Light.anIntArray392[i_4_ + i_3_] - i * InterfaceChangeNode.anIntArray3485[OutputStream_Sub1.anInt32 + i_3_ & -1 + InterfaceChangeNode.anIntArray3485.length] / 6;
+				int i_7_ = Light.anIntArray392[i_4_ + i_3_] - i * InterfaceChangeNode.anIntArray3485[DummyOutputStream.anInt32 + i_3_ & -1 + InterfaceChangeNode.anIntArray3485.length] / 6;
 				if (i_7_ < 0) {
 					i_7_ = 0;
 				}
@@ -117,7 +117,7 @@ final class Class111 {
 			if (i != -22511) {
 				method982(100, -72, null);
 			}
-			i_23_ = CanvasWrapper.method65(i_22_, string, 97, true);
+			i_23_ = CanvasWrapper.method65(string, i_22_, true);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mf.C(").append(i).append(',').append(i_22_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
@@ -143,7 +143,7 @@ final class Class111 {
 
 	static final void method984(final GameEntity class180_sub5, final int i) {
 		try {
-			if (Class101_Sub2.loopCycle == class180_sub5.anInt2961 || class180_sub5.anInt3006 == -1 || class180_sub5.anInt2993 != 0 || class180_sub5.anInt3044 + 1 > Class120_Sub30_Sub2.method1763(class180_sub5.anInt3006, 118).anIntArray338[class180_sub5.anInt2964]) {
+			if (Class101_Sub2.loopCycle == class180_sub5.anInt2961 || class180_sub5.anInt3006 == -1 || class180_sub5.anInt2993 != 0 || class180_sub5.anInt3044 + 1 > SeqType.list(class180_sub5.anInt3006).cycles[class180_sub5.anInt2964]) {
 				final int i_24_ = class180_sub5.anInt2961 - class180_sub5.anInt3035;
 				final int i_25_ = Class101_Sub2.loopCycle - class180_sub5.anInt3035;
 				final int i_26_ = 128 * class180_sub5.anInt2967 + 64 * class180_sub5.getSize();

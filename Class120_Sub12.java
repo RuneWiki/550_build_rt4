@@ -223,7 +223,7 @@ abstract class Class120_Sub12 extends Node {
 			if (Class32.anInt260 > i_28_ || i_28_ > Class120_Sub14_Sub11.anInt3544 || Class32.anInt260 > i || Class120_Sub14_Sub11.anInt3544 < i || Class32.anInt260 > i_23_ || Class120_Sub14_Sub11.anInt3544 < i_23_ || Class32.anInt260 > i_24_ || i_24_ > Class120_Sub14_Sub11.anInt3544
 					|| i_25_ < Class120_Sub30_Sub2.anInt3699 || i_25_ > Class139.anInt1334 || i_21_ < Class120_Sub30_Sub2.anInt3699 || Class139.anInt1334 < i_21_ || i_27_ < Class120_Sub30_Sub2.anInt3699 || Class139.anInt1334 < i_27_ || Class120_Sub30_Sub2.anInt3699 > i_26_
 					|| Class139.anInt1334 < i_26_) {
-				Class151.method2067(i_28_, i_27_, i_24_, i, i_21_, i_25_, i_26_, -17731, i_22_, i_23_);
+				WorldInfo.method2067(i_28_, i_27_, i_24_, i, i_21_, i_25_, i_26_, -17731, i_22_, i_23_);
 			} else {
 				Class120_Sub3.method1059(i_26_, i_27_, i_25_, i_22_, i, i_23_, i_24_, i_21_, i_28_, true);
 			}

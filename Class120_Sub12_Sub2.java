@@ -11,7 +11,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	static Cache aClass21_3143 = new Cache(20);
 	static Cache aClass21_3144 = new Cache(4);
 	static int anInt3145;
-	static long aLong3146 = 0L;
+	static long lastClickTime = 0L;
 
 	static final void method1201(final int i, final int i_0_, final int i_1_, final int i_2_) {
 		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
@@ -138,7 +138,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 						anInt3140 = class120_sub7.getUShort();
 						break while_124_;
 					} while (false);
-					final int i_21_ = class120_sub7.getTriByte();
+					final int i_21_ = class120_sub7.getMedium();
 					anIntArray3141[0] = Class120_Sub12_Sub3.method1207(i_21_ << 4, 267386880);
 					anIntArray3141[2] = Class120_Sub12_Sub3.method1207(255, i_21_) >> 12;
 					anIntArray3141[1] = Class120_Sub12_Sub3.method1207(4080, i_21_ >> 4);
@@ -166,7 +166,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	public static void method1204(final int i) {
 		try {
 			if (i != 18253) {
-				aLong3146 = -116L;
+				lastClickTime = -116L;
 			}
 			aClass21_3144 = null;
 			aClass21_3143 = null;

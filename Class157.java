@@ -13,7 +13,7 @@ final class Class157 {
 	static int anInt1466 = -1;
 	int anInt1467;
 	byte[] aByteArray1468;
-	static int anInt1469;
+	static int worldId;
 	int anInt1470;
 	byte[] aByteArray1471;
 	static AbstractSprite aClass120_Sub14_Sub19_1472;
@@ -22,7 +22,7 @@ final class Class157 {
 
 	static {
 		anIntArray1461 = new int[] { 0, 0, 2, 0, 0, 2, 1, 1, 0 };
-		anInt1469 = 1;
+		worldId = 1;
 	}
 
 	static final void method2087(final int i, final byte i_0_) {

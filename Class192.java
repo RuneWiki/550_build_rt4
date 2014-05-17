@@ -6,7 +6,7 @@ import java.util.Calendar;
 final class Class192 {
 	static int anInt2120 = 0;
 	static Calendar aCalendar2121;
-	static volatile int anInt2122 = 0;
+	static volatile int currentClickX = 0;
 	static int anInt2123;
 	static String selectedObjName;
 
@@ -53,7 +53,7 @@ final class Class192 {
 	static final void method2517(final Player class180_sub5_sub1, final int i, final int i_0_, final int i_1_) {
 		try {
 			if (class180_sub5_sub1.anInt3006 != i || (i ^ 0xffffffff) == 0) {
-				if ((i ^ 0xffffffff) == 0 || (class180_sub5_sub1.anInt3006 ^ 0xffffffff) == 0 || Class120_Sub30_Sub2.method1763(i, i_1_ ^ ~0x7b).anInt348 >= Class120_Sub30_Sub2.method1763(class180_sub5_sub1.anInt3006, 118).anInt348) {
+				if ((i ^ 0xffffffff) == 0 || (class180_sub5_sub1.anInt3006 ^ 0xffffffff) == 0 || SeqType.list(i).anInt348 >= SeqType.list(class180_sub5_sub1.anInt3006).anInt348) {
 					class180_sub5_sub1.anInt3006 = i;
 					class180_sub5_sub1.anInt3044 = 0;
 					class180_sub5_sub1.anInt2993 = i_0_;
@@ -62,19 +62,19 @@ final class Class192 {
 					class180_sub5_sub1.anInt2999 = 0;
 					class180_sub5_sub1.anInt3031 = class180_sub5_sub1.anInt2960;
 					if (class180_sub5_sub1.anInt3006 != -1) {
-						Class120_Sub12_Sub23.method1323(Class120_Sub30_Sub2.method1763(class180_sub5_sub1.anInt3006, 119), class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
+						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
 					}
 				}
 			} else {
-				final Class40 class40 = Class120_Sub30_Sub2.method1763(i, 124);
-				final int i_2_ = class40.anInt337;
+				final SeqType seqType = SeqType.list(i);
+				final int i_2_ = seqType.anInt337;
 				if (i_2_ == 1) {
 					class180_sub5_sub1.anInt2993 = i_0_;
 					class180_sub5_sub1.anInt2964 = 0;
 					class180_sub5_sub1.anInt3044 = 0;
 					class180_sub5_sub1.anInt3013 = 1;
 					class180_sub5_sub1.anInt2999 = 0;
-					Class120_Sub12_Sub23.method1323(class40, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
+					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
 				}
 				if (i_2_ == 2) {
 					class180_sub5_sub1.anInt2999 = 0;

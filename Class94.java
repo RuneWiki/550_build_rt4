@@ -97,18 +97,18 @@ final class Class94 {
 		final Buffer class120_sub7 = new Buffer(1620);
 		for (int i_11_ = 0; i_11_ <= 8; i_11_++) {
 			for (int i_12_ = 0; i_12_ <= 8; i_12_++) {
-				if (HDToolkit.isBigEndian) {
-					class120_sub7.method1106(true, i_12_ / 8.0F);
-					class120_sub7.method1106(true, i_11_ / 8.0F);
-					class120_sub7.method1106(true, i_12_ * 128);
-					class120_sub7.method1106(true, is[i_12_ + i][i_11_ + i_10_]);
-					class120_sub7.method1106(true, i_11_ * 128);
+				if (HDToolkit.usingBigEndian) {
+					class120_sub7.putFloatAsInt(i_12_ / 8.0F);
+					class120_sub7.putFloatAsInt(i_11_ / 8.0F);
+					class120_sub7.putFloatAsInt(i_12_ * 128);
+					class120_sub7.putFloatAsInt(is[i_12_ + i][i_11_ + i_10_]);
+					class120_sub7.putFloatAsInt(i_11_ * 128);
 				} else {
-					class120_sub7.method1134(i_12_ / 8.0F, -2503);
-					class120_sub7.method1134(i_11_ / 8.0F, -2503);
-					class120_sub7.method1134(i_12_ * 128, -2503);
-					class120_sub7.method1134(is[i_12_ + i][i_11_ + i_10_], -2503);
-					class120_sub7.method1134(i_11_ * 128, -2503);
+					class120_sub7.putFloatAsLEInt(i_12_ / 8.0F);
+					class120_sub7.putFloatAsLEInt(i_11_ / 8.0F);
+					class120_sub7.putFloatAsLEInt(i_12_ * 128);
+					class120_sub7.putFloatAsLEInt(is[i_12_ + i][i_11_ + i_10_]);
+					class120_sub7.putFloatAsLEInt(i_11_ * 128);
 				}
 			}
 		}
@@ -124,7 +124,7 @@ final class Class94 {
 		final Buffer class120_sub7_13_ = new Buffer(1536);
 		for (int i_14_ = 0; i_14_ < 8; i_14_++) {
 			for (int i_15_ = 0; i_15_ < 8; i_15_++) {
-				if (HDToolkit.isBigEndian) {
+				if (HDToolkit.usingBigEndian) {
 					class120_sub7_13_.putInt(i_15_ + (i_14_ + 1) * 9);
 					class120_sub7_13_.putInt(i_15_ + i_14_ * 9);
 					class120_sub7_13_.putInt(i_15_ + 1 + i_14_ * 9);

@@ -152,7 +152,7 @@ final class Class52 {
 	}
 
 	Class52(final byte[] is, final int i) {
-		this.indexCrc = AbstractObject.method1431(is.length, 0, is);
+		this.indexCrc = AbstractObject.getCrc(is, is.length);
 		if (this.indexCrc != i) {
 			throw new RuntimeException();
 		}

@@ -55,7 +55,7 @@ final class Class179 {
 
 	static final void method2262(final int i) {
 		try {
-			final int i_1_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(8);
+			final int i_1_ = Canvas_Sub1.inputStream.getBitValue(8);
 			if (i == -16097) {
 				if (Class83.localPlayerCount > i_1_) {
 					for (int i_2_ = i_1_; i_2_ < Class83.localPlayerCount; i_2_++) {
@@ -69,12 +69,12 @@ final class Class179 {
 				for (int i_3_ = 0; i_1_ > i_3_; i_3_++) {
 					final int i_4_ = Class112.playerIndices[i_3_];
 					final Player class180_sub5_sub1 = Class118.playersList[i_4_];
-					final int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+					final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_5_ == 0) {
 						Class112.playerIndices[Class83.localPlayerCount++] = i_4_;
 						class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
 					} else {
-						final int i_6_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(2);
+						final int i_6_ = Canvas_Sub1.inputStream.getBitValue(2);
 						if (i_6_ == 0) {
 							Class112.playerIndices[Class83.localPlayerCount++] = i_4_;
 							class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
@@ -82,25 +82,25 @@ final class Class179 {
 						} else if (i_6_ == 1) {
 							Class112.playerIndices[Class83.localPlayerCount++] = i_4_;
 							class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
-							final int i_7_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+							final int i_7_ = Canvas_Sub1.inputStream.getBitValue(3);
 							class180_sub5_sub1.method2330(i_7_, -24892, 1);
-							final int i_8_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+							final int i_8_ = Canvas_Sub1.inputStream.getBitValue(1);
 							if (i_8_ == 1) {
 								Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
 							}
 						} else if (i_6_ == 2) {
 							Class112.playerIndices[Class83.localPlayerCount++] = i_4_;
 							class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
-							if (Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1) == 1) {
-								final int i_9_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+							if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
+								final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
 								class180_sub5_sub1.method2330(i_9_, i ^ 0x5fdb, 2);
-								final int i_10_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+								final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
 								class180_sub5_sub1.method2330(i_10_, -24892, 2);
 							} else {
-								final int i_11_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(3);
+								final int i_11_ = Canvas_Sub1.inputStream.getBitValue(3);
 								class180_sub5_sub1.method2330(i_11_, -24892, 0);
 							}
-							final int i_12_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+							final int i_12_ = Canvas_Sub1.inputStream.getBitValue(1);
 							if (i_12_ == 1) {
 								Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
 							}

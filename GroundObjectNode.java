@@ -4,7 +4,7 @@
 
 final class GroundObjectNode extends NodeSub {
 	static int renderZ;
-	static volatile int anInt3627;
+	static volatile int currentMouseClick;
 	static int anInt3628;
 	static int[] anIntArray3629 = { -1, -1, 1, 1 };
 	SceneGroundObject aClass180_Sub1_3630;
@@ -44,7 +44,7 @@ final class GroundObjectNode extends NodeSub {
 	}
 
 	static {
-		anInt3627 = 0;
+		currentMouseClick = 0;
 		anIntArray3631 = new int[] { 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, 2147483647, -1 };
 	}
 }

@@ -97,11 +97,11 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 										this.anInt3228 = class120_sub7.getUByte();
 										break while_208_;
 									} while (false);
-									this.anInt3221 = class120_sub7.method1078(true);
+									this.anInt3221 = class120_sub7.getShort();
 									if (this.anInt3221 < 0) {
 										aShortArray3218 = new short[this.anInt3228];
 										for (i_3_ = 0; this.anInt3228 > i_3_; i_3_++) {
-											aShortArray3218[i_3_] = (short) class120_sub7.method1078(true);
+											aShortArray3218[i_3_] = (short) class120_sub7.getShort();
 										}
 									}
 									break while_208_;
@@ -129,7 +129,7 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 				method1258(false, -114, 21, 64, -40);
 			}
 			if (Class50.loadInterface(i_5_)) {
-				Class151.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_, -105);
+				WorldInfo.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_, -105);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jj.AA(").append(bool).append(',').append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());

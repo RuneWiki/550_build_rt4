@@ -33,7 +33,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 			if (i == -43) {
 				final int i_1_ = i_0_;
 				if (i_1_ == 0) {
-					method1251(i ^ 0x28, class120_sub7.getTriByte());
+					method1251(i ^ 0x28, class120_sub7.getMedium());
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -123,8 +123,8 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		}
 	}
 
-	static final Class167_Sub1 method1254(final int i) {
-		Class167_Sub1 class167_sub1;
+	static final World method1254(final int i) {
+		World class167_sub1;
 		try {
 			if (i != 6) {
 				npcList = null;

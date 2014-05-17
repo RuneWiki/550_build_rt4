@@ -474,13 +474,13 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			final int i_44_ = jagexInterface.clientCode;
 			if (i_44_ == 324) {
 				if ((Class120_Sub12_Sub15.anInt3241 ^ 0xffffffff) == 0) {
-					Class169.anInt1643 = jagexInterface.anInt2012;
-					Class120_Sub12_Sub15.anInt3241 = jagexInterface.anInt2055;
+					Class169.anInt1643 = jagexInterface.enabledSprite;
+					Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSprite;
 				}
 				if (!Class26.aClass144_159.aBoolean1371) {
-					jagexInterface.anInt2055 = Class169.anInt1643;
+					jagexInterface.disabledSprite = Class169.anInt1643;
 				} else {
-					jagexInterface.anInt2055 = Class120_Sub12_Sub15.anInt3241;
+					jagexInterface.disabledSprite = Class120_Sub12_Sub15.anInt3241;
 				}
 			} else {
 				if (i <= 21) {
@@ -488,31 +488,31 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				}
 				if (i_44_ == 325) {
 					if (Class120_Sub12_Sub15.anInt3241 == -1) {
-						Class120_Sub12_Sub15.anInt3241 = jagexInterface.anInt2055;
-						Class169.anInt1643 = jagexInterface.anInt2012;
+						Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSprite;
+						Class169.anInt1643 = jagexInterface.enabledSprite;
 					}
 					if (!Class26.aClass144_159.aBoolean1371) {
-						jagexInterface.anInt2055 = Class120_Sub12_Sub15.anInt3241;
+						jagexInterface.disabledSprite = Class120_Sub12_Sub15.anInt3241;
 					} else {
-						jagexInterface.anInt2055 = Class169.anInt1643;
+						jagexInterface.disabledSprite = Class169.anInt1643;
 					}
 				} else if (i_44_ == 327) {
-					jagexInterface.anInt2047 = 150;
-					jagexInterface.anInt2091 = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
-					jagexInterface.anInt1961 = -1;
-					jagexInterface.anInt2031 = 5;
+					jagexInterface.rotateX = 150;
+					jagexInterface.rotateY = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
+					jagexInterface.mediaIdDisabled = -1;
+					jagexInterface.modelTypeDisabled = 5;
 				} else if (i_44_ == 328) {
 					if (Class100.selfPlayer.name == null) {
-						jagexInterface.anInt1961 = 0;
+						jagexInterface.mediaIdDisabled = 0;
 					} else {
-						jagexInterface.anInt2047 = 150;
-						jagexInterface.anInt2091 = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
-						jagexInterface.anInt2031 = 5;
-						jagexInterface.anInt1961 = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.name) << 11);
-						jagexInterface.anInt1946 = Class100.selfPlayer.anInt3046;
-						jagexInterface.anInt1945 = Class100.selfPlayer.anInt3004;
-						jagexInterface.anInt2098 = Class100.selfPlayer.anInt3021;
-						jagexInterface.anInt1965 = 0;
+						jagexInterface.rotateX = 150;
+						jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
+						jagexInterface.modelTypeDisabled = 5;
+						jagexInterface.mediaIdDisabled = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.name) << 11);
+						jagexInterface.currentFrame = Class100.selfPlayer.anInt3046;
+						jagexInterface.disabledAnim = Class100.selfPlayer.anInt3004;
+						jagexInterface.nextFrame = Class100.selfPlayer.anInt3021;
+						jagexInterface.frameDelay = 0;
 					}
 				}
 			}

@@ -325,7 +325,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 						anInt3605 = fs.length;
 					}
 				} else {
-					final int i_83_ = HDToolkit.isBigEndian ? 33639 : 5121;
+					final int i_83_ = HDToolkit.usingBigEndian ? 33639 : 5121;
 					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) 58, i, class50, 0.7, interface3, aBoolean3591);
 					if (anInt3597 == 2) {
 						method1571(Class163.anInt1567, Class163.anInt1570, i, i, Class163.anInt1571, i_83_, is);

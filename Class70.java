@@ -16,9 +16,9 @@ final class Class70 {
 				DisplayModeInfo.anInt1715 = 0;
 			}
 			Class136.aBoolean1317 = false;
-			if (InterfaceChangeNode.anInt3483 != 0) {
+			if (InterfaceChangeNode.lastMousePress != 0) {
 				if (i_1_ <= i_2_ && 16 + i_1_ > i_2_ && i_0_ >= i_4_ && i_0_ < i_4_ + 16) {
-					jagexInterface.anInt2021 -= 4;
+					jagexInterface.horizontalScrollPosition -= 4;
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				} else if (i_1_ > i_2_ || 16 + i_1_ <= i_2_ || -16 + i_5_ + i_4_ > i_0_ || i_4_ + i_5_ <= i_0_) {
 					if (-DisplayModeInfo.anInt1715 + i_1_ <= i_2_ && i_2_ < i_1_ - -16 - -DisplayModeInfo.anInt1715 && i_0_ >= 16 + i_4_ && i_0_ < -16 + i_5_ + i_4_) {
@@ -28,19 +28,19 @@ final class Class70 {
 						}
 						final int i_7_ = i_0_ - i_4_ - 16 - i_6_ / 2;
 						final int i_8_ = -32 + i_5_ - i_6_;
-						jagexInterface.anInt2021 = i_7_ * (i_3_ + -i_5_) / i_8_;
+						jagexInterface.horizontalScrollPosition = i_7_ * (i_3_ + -i_5_) / i_8_;
 						InterfaceClickMask.redrawInterface(jagexInterface);
 						Class136.aBoolean1317 = true;
 					}
 				} else {
-					jagexInterface.anInt2021 += 4;
+					jagexInterface.horizontalScrollPosition += 4;
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				}
 			}
 			if (Class66.anInt598 != 0) {
 				final int i_9_ = jagexInterface.anInt1948;
 				if (-i_9_ + i_1_ <= i_2_ && i_4_ <= i_0_ && i_2_ < i_1_ + 16 && i_0_ <= i_5_ + i_4_) {
-					jagexInterface.anInt2021 += Class66.anInt598 * 45;
+					jagexInterface.horizontalScrollPosition += Class66.anInt598 * 45;
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				}
 			}

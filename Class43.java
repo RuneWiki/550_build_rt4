@@ -115,34 +115,28 @@ final class Class43 {
 		System.exit(1);
 	}
 
-	static final void method346(final int i, final Buffer class120_sub7) {
-		try {
-			final int i_14_ = class120_sub7.getUSmart();
-			Class148.aClass151Array1400 = new Class151[i_14_];
-			for (int i_15_ = 0; i_15_ < i_14_; i_15_++) {
-				Class148.aClass151Array1400[i_15_] = new Class151();
-				Class148.aClass151Array1400[i_15_].anInt1418 = class120_sub7.getUSmart();
-				Class148.aClass151Array1400[i_15_].aString1422 = class120_sub7.method1135(6072);
-			}
-			OverridedJInterface.anInt2738 = class120_sub7.getUSmart();
-			if (i == -31081) {
-				Class120_Sub14_Sub2.anInt3454 = class120_sub7.getUSmart();
-				Class57.anInt502 = class120_sub7.getUSmart();
-				Class48.aClass167_Sub1Array435 = new Class167_Sub1[Class120_Sub14_Sub2.anInt3454 - OverridedJInterface.anInt2738 + 1];
-				for (int i_16_ = 0; i_16_ < Class57.anInt502; i_16_++) {
-					final int i_17_ = class120_sub7.getUSmart();
-					final Class167_Sub1 class167_sub1 = Class48.aClass167_Sub1Array435[i_17_] = new Class167_Sub1();
-					class167_sub1.anInt1615 = class120_sub7.getUByte();
-					class167_sub1.anInt1614 = class120_sub7.getInt();
-					class167_sub1.anInt2838 = OverridedJInterface.anInt2738 + i_17_;
-					class167_sub1.aString2834 = class120_sub7.method1135(6072);
-					class167_sub1.aString2836 = class120_sub7.method1135(i + 37153);
-				}
-				Class96.anInt900 = class120_sub7.getInt();
-				Class159.aBoolean1487 = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("el.C(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	static final void decodeWorldListInfo(final Buffer buffer) {
+		final int worldAmount = buffer.getUSmart();
+		Class148.worldsInfo = new WorldInfo[worldAmount];
+		for (int id = 0; id < worldAmount; id++) {
+			Class148.worldsInfo[id] = new WorldInfo();
+			Class148.worldsInfo[id].country = buffer.getUSmart();
+			Class148.worldsInfo[id].region = buffer.getJagexString();
 		}
+		OverridedJInterface.worldOff = buffer.getUSmart();
+		Class120_Sub14_Sub2.worldLen = buffer.getUSmart();
+		Class57.worldLen2 = buffer.getUSmart();
+		Class48.worldList = new World[Class120_Sub14_Sub2.worldLen - OverridedJInterface.worldOff + 1];
+		for (int i_16_ = 0; i_16_ < Class57.worldLen2; i_16_++) {
+			final int worldId = buffer.getUSmart();
+			final World class167_sub1 = Class48.worldList[worldId] = new World();
+			class167_sub1.location = buffer.getUByte();
+			class167_sub1.flag = buffer.getInt();
+			class167_sub1.worldId = OverridedJInterface.worldOff + worldId;
+			class167_sub1.activity = buffer.getJagexString();
+			class167_sub1.ip = buffer.getJagexString();
+		}
+		Class96.anInt900 = buffer.getInt();
+		Class159.aBoolean1487 = true;
 	}
 }

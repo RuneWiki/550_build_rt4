@@ -454,9 +454,9 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				} else {
 					bool_32_ = true;
 					CanvasWrapper.anIntArray21[0] = class120_sub7.getUShort();
-					CanvasWrapper.anIntArray21[1] = class120_sub7.method1078(true);
-					CanvasWrapper.anIntArray21[2] = class120_sub7.method1078(true);
-					CanvasWrapper.anIntArray21[3] = class120_sub7.method1078(true);
+					CanvasWrapper.anIntArray21[1] = class120_sub7.getShort();
+					CanvasWrapper.anIntArray21[2] = class120_sub7.getShort();
+					CanvasWrapper.anIntArray21[3] = class120_sub7.getShort();
 					CanvasWrapper.anIntArray21[4] = class120_sub7.getUShort();
 				}
 			}
@@ -609,12 +609,12 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 
 	static final void method1854(final boolean bool, final boolean bool_75_, final JagexInterface jagexInterface) {
 		try {
-			final int i = jagexInterface.anInt1930 != 0 ? jagexInterface.anInt1930 : jagexInterface.anInt1948;
-			final int i_76_ = jagexInterface.anInt1937 == 0 ? jagexInterface.anInt2059 : jagexInterface.anInt1937;
-			Class151.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_, -120);
+			final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.anInt1948 : jagexInterface.maxScrollHorizontal;
+			final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.anInt2059 : jagexInterface.maxScrollVertical;
+			WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_, -120);
 			if (!bool_75_) {
 				if (jagexInterface.aClass189Array2072 != null) {
-					Class151.method2065(jagexInterface.aClass189Array2072, bool, i, jagexInterface.bitPacked, i_76_, -106);
+					WorldInfo.method2065(jagexInterface.aClass189Array2072, bool, i, jagexInterface.bitPacked, i_76_, -106);
 				}
 				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 				if (class120_sub26 != null) {

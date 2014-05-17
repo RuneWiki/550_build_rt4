@@ -18,26 +18,16 @@ final class Class85 {
 	int anInt814;
 	int anInt815;
 
-	static final LDSprite method722(final int i) {
-		LDSprite class120_sub14_sub19_sub2;
-		try {
-			final byte[] is = Class145.spritePaletteIndicators[0];
-			if (i <= 35) {
-				method723(-67, 47, -107, 27, 70, 30);
-			}
-			final int i_0_ = Class120_Sub12_Sub11.spriteWidths[0] * Class120_Sub12_Sub39.spriteHeights[0];
-			final int[] is_1_ = new int[i_0_];
-			for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-				is_1_[i_2_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(is[i_2_], 255)];
-			}
-			final LDSprite class120_sub14_sub19_sub2_3_ = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0],
-					is_1_);
-			Class53_Sub1.resetSpriteInfo();
-			class120_sub14_sub19_sub2 = class120_sub14_sub19_sub2_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jd.D(").append(i).append(')').toString());
+	static final LDSprite method722() {
+		final byte[] is = Class145.spritePaletteIndicators[0];
+		final int i_0_ = Class120_Sub12_Sub11.spriteWidths[0] * Class120_Sub12_Sub39.spriteHeights[0];
+		final int[] is_1_ = new int[i_0_];
+		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
+			is_1_[i_2_] = Class132_Sub1.spritePalette[is[i_2_] & 0xff];
 		}
-		return class120_sub14_sub19_sub2;
+		final LDSprite class120_sub14_sub19_sub2_3_ = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_1_);
+		Class53_Sub1.resetSpriteInfo();
+		return class120_sub14_sub19_sub2_3_;
 	}
 
 	static final boolean method723(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {

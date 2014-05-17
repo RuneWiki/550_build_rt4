@@ -13,14 +13,14 @@ final class Class109 {
 	private int[][][] anIntArrayArrayArray1043;
 	static int gameState = 0;
 	private int anInt1045 = -1;
-	static String aString1046;
+	static String continueString;
 	static Class6[] aClass6Array1047 = new Class6[50];
 	private final int anInt1048;
 	boolean aBoolean1049;
 
 	static {
 		anIntArray1037 = new int[] { 1, 0, -1, 0 };
-		aString1046 = "Continue";
+		continueString = "Continue";
 	}
 
 	final void method972(final byte i) {
@@ -62,7 +62,7 @@ final class Class109 {
 		try {
 			aClass6Array1047 = null;
 			anIntArray1037 = null;
-			aString1046 = null;
+			continueString = null;
 			aString1038 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("md.C(").append(i).append(')').toString());

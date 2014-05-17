@@ -702,7 +702,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 		} else {
 			aClass120_Sub7_3871.pos = 0;
 		}
-		if (HDToolkit.isBigEndian) {
+		if (HDToolkit.usingBigEndian) {
 			for (int i = 0; i < anInt3867; i++) {
 				aClass120_Sub7_3871.putInt(aShortArray3866[i]);
 				aClass120_Sub7_3871.putInt(aShortArray3877[i]);
@@ -2147,7 +2147,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 				aClass120_Sub7_3871.pos = 0;
 			}
 			if (bool_592_) {
-				if (HDToolkit.isBigEndian) {
+				if (HDToolkit.usingBigEndian) {
 					for (int i_596_ = 0; i_596_ < anInt3861; i_596_++) {
 						final int i_597_ = Float.floatToRawIntBits(this.anIntArray3878[i_596_]);
 						final int i_598_ = Float.floatToRawIntBits(this.anIntArray3856[i_596_]);
@@ -2277,18 +2277,18 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 				final float f = 3.0F / aShort3853;
 				final float f_633_ = 3.0F / (aShort3853 + aShort3853 / 2);
 				aClass120_Sub7_3871.pos = aClass49_3848.anInt442;
-				if (HDToolkit.isBigEndian) {
+				if (HDToolkit.usingBigEndian) {
 					for (int i_634_ = 0; i_634_ < anInt3890; i_634_++) {
 						final short i_635_ = aShortArray3849[i_634_];
 						if (i_635_ == 0) {
-							aClass120_Sub7_3871.method1106(true, aShortArray3873[i_634_] * f_633_);
-							aClass120_Sub7_3871.method1106(true, aShortArray3852[i_634_] * f_633_);
-							aClass120_Sub7_3871.method1106(true, aShortArray3844[i_634_] * f_633_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3873[i_634_] * f_633_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3852[i_634_] * f_633_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3844[i_634_] * f_633_);
 						} else {
 							final float f_636_ = f / i_635_;
-							aClass120_Sub7_3871.method1106(true, aShortArray3873[i_634_] * f_636_);
-							aClass120_Sub7_3871.method1106(true, aShortArray3852[i_634_] * f_636_);
-							aClass120_Sub7_3871.method1106(true, aShortArray3844[i_634_] * f_636_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3873[i_634_] * f_636_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3852[i_634_] * f_636_);
+							aClass120_Sub7_3871.putFloatAsInt(aShortArray3844[i_634_] * f_636_);
 						}
 						aClass120_Sub7_3871.pos += i - 12;
 					}
@@ -2296,14 +2296,14 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 					for (int i_637_ = 0; i_637_ < anInt3890; i_637_++) {
 						final short i_638_ = aShortArray3849[i_637_];
 						if (i_638_ == 0) {
-							aClass120_Sub7_3871.method1134(aShortArray3873[i_637_] * f_633_, -2503);
-							aClass120_Sub7_3871.method1134(aShortArray3852[i_637_] * f_633_, -2503);
-							aClass120_Sub7_3871.method1134(aShortArray3844[i_637_] * f_633_, -2503);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3873[i_637_] * f_633_);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3852[i_637_] * f_633_);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3844[i_637_] * f_633_);
 						} else {
 							final float f_639_ = f / i_638_;
-							aClass120_Sub7_3871.method1134(aShortArray3873[i_637_] * f_639_, -2503);
-							aClass120_Sub7_3871.method1134(aShortArray3852[i_637_] * f_639_, -2503);
-							aClass120_Sub7_3871.method1134(aShortArray3844[i_637_] * f_639_, -2503);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3873[i_637_] * f_639_);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3852[i_637_] * f_639_);
+							aClass120_Sub7_3871.putFloatAsLEInt(aShortArray3844[i_637_] * f_639_);
 						}
 						aClass120_Sub7_3871.pos += i - 12;
 					}
@@ -2311,16 +2311,16 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 			}
 			if (bool_595_) {
 				aClass120_Sub7_3871.pos = aClass49_3854.anInt442;
-				if (HDToolkit.isBigEndian) {
+				if (HDToolkit.usingBigEndian) {
 					for (int i_640_ = 0; i_640_ < anInt3890; i_640_++) {
-						aClass120_Sub7_3871.method1106(true, aFloatArray3874[i_640_]);
-						aClass120_Sub7_3871.method1106(true, aFloatArray3868[i_640_]);
+						aClass120_Sub7_3871.putFloatAsInt(aFloatArray3874[i_640_]);
+						aClass120_Sub7_3871.putFloatAsInt(aFloatArray3868[i_640_]);
 						aClass120_Sub7_3871.pos += i - 8;
 					}
 				} else {
 					for (int i_641_ = 0; i_641_ < anInt3890; i_641_++) {
-						aClass120_Sub7_3871.method1134(aFloatArray3874[i_641_], -2503);
-						aClass120_Sub7_3871.method1134(aFloatArray3868[i_641_], -2503);
+						aClass120_Sub7_3871.putFloatAsLEInt(aFloatArray3874[i_641_]);
+						aClass120_Sub7_3871.putFloatAsLEInt(aFloatArray3868[i_641_]);
 						aClass120_Sub7_3871.pos += i - 8;
 					}
 				}

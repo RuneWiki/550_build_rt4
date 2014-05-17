@@ -148,9 +148,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 					}
 				}
 			} else if (!HDToolkit.glEnabled) {
-				GraphicsLD.method2159(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
+				GraphicsLD.fillRect(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			} else {
-				GraphicsHD.method590(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
+				GraphicsHD.fillRect(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			}
 		}
 		if (Class157.aClass120_Sub14_Sub19_1472 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 != null) {
@@ -163,9 +163,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		}
 		Class120_Sub12_Sub22.boldFont.method1466(Class111.aString1056, drawX - -3, 14 + drawY, Class120_Sub12_Sub3.anInt3151, -1);
 		if (!HDToolkit.glEnabled) {
-			GraphicsLD.method2159(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
+			GraphicsLD.fillRect(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		} else {
-			GraphicsHD.method590(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
+			GraphicsHD.fillRect(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		}
 		final int mouseX = Queue.lastMouseX;
 		final int mouseY = Class191.lastMouseY;
@@ -173,9 +173,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 			final int i_17_ = (-i_16_ + -1 + Class186.menuOptionCount) * 15 + 20 + drawY - -13;
 			if (drawX < mouseX && width + drawX > mouseX && -13 + i_17_ < mouseY && i_17_ - -3 > mouseY) {
 				if (!HDToolkit.glEnabled) {
-					GraphicsLD.method2159(drawX, i_17_ + -12, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
+					GraphicsLD.fillRect(drawX, i_17_ + -12, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				} else {
-					GraphicsHD.method590(drawX, -12 + i_17_, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
+					GraphicsHD.fillRect(drawX, -12 + i_17_, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				}
 			}
 		}

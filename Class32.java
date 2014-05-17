@@ -180,7 +180,7 @@ final class Class32 {
 		return string;
 	}
 
-	static final Class180_Sub7 method273(final int i, final int i_14_, final Class40 class40, final int i_15_, final int i_16_, final int i_17_, final Class180_Sub7 class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
+	static final Class180_Sub7 method273(final int i, final int i_14_, final SeqType seqType, final int i_15_, final int i_16_, final int i_17_, final Class180_Sub7 class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
 		Class180_Sub7 class180_sub7_24_;
 		try {
 			final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + i_16_ - -((long) i << 48);
@@ -270,8 +270,8 @@ final class Class32 {
 				i_51_ = i_47_;
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18 = null;
-			if (class40 != null) {
-				i_18_ = class40.anIntArray342[i_18_];
+			if (seqType != null) {
+				i_18_ = seqType.frames[i_18_];
 				class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_18_ >> 16, -1);
 				i_18_ &= 0xffff;
 			}

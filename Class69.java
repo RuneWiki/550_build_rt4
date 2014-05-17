@@ -99,23 +99,23 @@ class Class69 {
 						}
 					}
 				}
-				if (entity.aString2975 != null && (id >= Class83.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.method875(-111, ((Player) entity).name))) {
+				if (entity.textSpoken != null && (id >= Class83.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.method875(-111, ((Player) entity).name))) {
 					Class128.method1903(i_1_ >> 1, i_2_, i_0_, i_3_ >> 1, false, entity.method2328(), entity);
 					if (Class120_Sub12_Sub38.anInt3434 > -1 && Class120_Sub12_Sub19.textCount < AbstractGraphicsBuffer.anInt1166) {
-						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.method1459(entity.aString2975) / 2;
+						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.method1459(entity.textSpoken) / 2;
 						AbstractGraphicsBuffer.anIntArray1158[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.anInt3497;
 						AbstractGraphicsBuffer.anIntArray1161[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub38.anInt3434;
 						AbstractGraphicsBuffer.anIntArray1171[Class120_Sub12_Sub19.textCount] = Class120_Sub15.anInt2588;
 						AbstractGraphicsBuffer.anIntArray1159[Class120_Sub12_Sub19.textCount] = entity.anInt2976;
 						AbstractGraphicsBuffer.anIntArray1156[Class120_Sub12_Sub19.textCount] = entity.anInt2995;
-						AbstractGraphicsBuffer.anIntArray1163[Class120_Sub12_Sub19.textCount] = entity.anInt3025;
-						AbstractGraphicsBuffer.aStringArray1167[Class120_Sub12_Sub19.textCount] = entity.aString2975;
+						AbstractGraphicsBuffer.anIntArray1163[Class120_Sub12_Sub19.textCount] = entity.textCycle;
+						AbstractGraphicsBuffer.aStringArray1167[Class120_Sub12_Sub19.textCount] = entity.textSpoken;
 						Class120_Sub12_Sub19.textCount++;
 					}
 				}
 				if (Class101_Sub2.loopCycle < entity.anInt2989) {
-					AbstractSprite class120_sub14_sub19 = Class40.aClass120_Sub14_Sub19Array335[0];
-					AbstractSprite class120_sub14_sub19_15_ = Class40.aClass120_Sub14_Sub19Array335[1];
+					AbstractSprite class120_sub14_sub19 = SeqType.aClass120_Sub14_Sub19Array335[0];
+					AbstractSprite class120_sub14_sub19_15_ = SeqType.aClass120_Sub14_Sub19Array335[1];
 					int i_16_;
 					if (!(entity instanceof Npc)) {
 						i_16_ = entity.method2328();

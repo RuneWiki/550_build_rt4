@@ -37,7 +37,7 @@ final class Class80 {
 	private int anInt748;
 	private int anInt749;
 	boolean aBoolean750;
-	static volatile int anInt751 = 0;
+	static volatile int currentClickY = 0;
 	int anInt752;
 	short aShort753;
 	boolean aBoolean754;
@@ -72,7 +72,7 @@ final class Class80 {
 	public static void method697(final int i) {
 		try {
 			if (i != -1) {
-				anInt751 = -23;
+				currentClickY = -23;
 			}
 			aByteArray761 = null;
 		} catch (final RuntimeException runtimeexception) {

@@ -587,31 +587,6 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	static final Class40 method1763(final int i, final int i_64_) {
-		Class40 class40;
-		try {
-			Class40 class40_65_ = (Class40) KeyboardHandler.aClass21_1504.get(i);
-			if (class40_65_ != null) {
-				return class40_65_;
-			}
-			final byte[] is = Class101_Sub3.aClass50_2286.getFile(Class120_Sub12_Sub8.method1237(i, 16711680), Class120_Sub12_Sub36.method1390(true, i));
-			class40_65_ = new Class40();
-			if (i_64_ < 117) {
-				return null;
-			}
-			class40_65_.anInt326 = i;
-			if (is != null) {
-				class40_65_.method322(new Buffer(is), false);
-			}
-			class40_65_.method328((byte) 89);
-			KeyboardHandler.aClass21_1504.put(class40_65_, i);
-			class40 = class40_65_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ld.BA(").append(i).append(',').append(i_64_).append(')').toString());
-		}
-		return class40;
-	}
-
 	private final void method1764(final int i, final int i_66_) {
 		try {
 			for (Class120_Sub6 class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6 != null; class120_sub6 = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {

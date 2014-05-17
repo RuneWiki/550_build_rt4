@@ -130,9 +130,9 @@ final class Player extends GameEntity {
 				if (this.appearance == null) {
 					return;
 				}
-				final Class40 class40 = this.anInt3006 == -1 || this.anInt2993 != 0 ? null : Class120_Sub30_Sub2.method1763(this.anInt3006, 120);
-				final Class40 class40_23_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) 112).anInt218 || class40 == null) ? Class120_Sub30_Sub2.method1763(this.anInt3004, 126) : null;
-				final Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, class40, false, this.anInt3044);
+				final SeqType seqType = this.anInt3006 == -1 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
+				final SeqType class40_23_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) 112).anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
+				final Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, seqType, false, this.anInt3044);
 				if (class180_sub7 == null) {
 					return;
 				}
@@ -187,11 +187,11 @@ final class Player extends GameEntity {
 	final void method2265(final int i, final int i_26_, final int i_27_, final int i_28_, final int i_29_, final int i_30_, final int i_31_, final int i_32_, final long l, final int i_33_, final ParticleEngine class108_sub2) {
 		try {
 			if (this.appearance != null) {
-				final Class40 class40 = this.anInt3006 != -1 && this.anInt2993 == 0 ? Class120_Sub30_Sub2.method1763(this.anInt3006, 122) : null;
+				final SeqType seqType = this.anInt3006 != -1 && this.anInt2993 == 0 ? SeqType.list(this.anInt3006) : null;
 				final Class29 class29 = method2336((byte) -109);
 				final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
-				final Class40 class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) -115).anInt218 || class40 == null) ? Class120_Sub30_Sub2.method1763(this.anInt3004, 121) : null;
-				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, class40, true, this.anInt3044);
+				final SeqType class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) -115).anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
+				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, seqType, true, this.anInt3044);
 				final int i_35_ = Class48.getPlayersCacheSize();
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 					SpotAnimType.method880(127);
@@ -209,7 +209,7 @@ final class Player extends GameEntity {
 				if (class180_sub7 != null) {
 					this.anInt3018 = class180_sub7.getMaxY();
 					if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).aBoolean1653)) {
-						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, 2, class40_34_ == null ? class40 : class40_34_, i, 1, 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
+						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, 2, class40_34_ == null ? seqType : class40_34_, i, 1, 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
 						if (!HDToolkit.glEnabled) {
 							class180_sub7_37_.method2265(0, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, -1L, i_33_, null);
 						} else {

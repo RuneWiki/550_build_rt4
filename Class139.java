@@ -4,16 +4,16 @@
 import javax.media.opengl.GL;
 
 final class Class139 {
-	private short[] aShortArray1327;
-	private short[] aShortArray1328;
-	private short[] aShortArray1329;
+	private short[] originalModelColors;
+	private short[] modifiedModelColors;
+	private short[] originalModelTextures;
 	static int anInt1330;
-	boolean aBoolean1331 = false;
-	private short[] aShortArray1332;
-	private int[] anIntArray1333;
+	boolean noInterface = false;
+	private short[] modifiedModelTextures;
+	private int[] models;
 	static int anInt1334 = 100;
-	private final int[] anIntArray1335 = { -1, -1, -1, -1, -1 };
-	int anInt1336 = -1;
+	private final int[] headModels = { -1, -1, -1, -1, -1 };
+	int partId = -1;
 	static Class191[][] aClass191ArrayArray1337;
 
 	public static void method1983(final int i) {
@@ -96,19 +96,19 @@ final class Class139 {
 		final Class180_Sub2[] class180_sub2s = new Class180_Sub2[5];
 		int i_12_ = 0;
 		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
-			if ((anIntArray1335[i_13_] ^ 0xffffffff) != 0) {
-				class180_sub2s[i_12_++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, anIntArray1335[i_13_], 0);
+			if (headModels[i_13_] != -1) {
+				class180_sub2s[i_12_++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, headModels[i_13_], 0);
 			}
 		}
 		final Class180_Sub2 class180_sub2_14_ = new Class180_Sub2(class180_sub2s, i_12_);
-		if (aShortArray1327 != null) {
-			for (int i_15_ = 0; aShortArray1327.length > i_15_; i_15_++) {
-				class180_sub2_14_.method2307(aShortArray1327[i_15_], aShortArray1328[i_15_]);
+		if (originalModelColors != null) {
+			for (int i_15_ = 0; originalModelColors.length > i_15_; i_15_++) {
+				class180_sub2_14_.recolor(originalModelColors[i_15_], modifiedModelColors[i_15_]);
 			}
 		}
-		if (aShortArray1329 != null) {
-			for (int i_16_ = 0; i_16_ < aShortArray1329.length; i_16_++) {
-				class180_sub2_14_.method2292(aShortArray1329[i_16_], aShortArray1332[i_16_]);
+		if (originalModelTextures != null) {
+			for (int i_16_ = 0; i_16_ < originalModelTextures.length; i_16_++) {
+				class180_sub2_14_.retexture(originalModelTextures[i_16_], modifiedModelTextures[i_16_]);
 			}
 		}
 		return class180_sub2_14_;
@@ -117,15 +117,15 @@ final class Class139 {
 	final Class180_Sub2 method1986(final byte i) {
 		Class180_Sub2 class180_sub2;
 		try {
-			if (anIntArray1333 == null) {
+			if (models == null) {
 				return null;
 			}
-			final Class180_Sub2[] class180_sub2s = new Class180_Sub2[anIntArray1333.length];
+			final Class180_Sub2[] class180_sub2s = new Class180_Sub2[models.length];
 			if (i < 85) {
-				method1987(-112, null, true);
+				decode(null, -112);
 			}
-			for (int i_17_ = 0; anIntArray1333.length > i_17_; i_17_++) {
-				class180_sub2s[i_17_] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, anIntArray1333[i_17_], 0);
+			for (int i_17_ = 0; models.length > i_17_; i_17_++) {
+				class180_sub2s[i_17_] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, models[i_17_], 0);
 			}
 			Class180_Sub2 class180_sub2_18_;
 			if (class180_sub2s.length != 1) {
@@ -133,14 +133,14 @@ final class Class139 {
 			} else {
 				class180_sub2_18_ = class180_sub2s[0];
 			}
-			if (aShortArray1327 != null) {
-				for (int i_19_ = 0; aShortArray1327.length > i_19_; i_19_++) {
-					class180_sub2_18_.method2307(aShortArray1327[i_19_], aShortArray1328[i_19_]);
+			if (originalModelColors != null) {
+				for (int i_19_ = 0; originalModelColors.length > i_19_; i_19_++) {
+					class180_sub2_18_.recolor(originalModelColors[i_19_], modifiedModelColors[i_19_]);
 				}
 			}
-			if (aShortArray1329 != null) {
-				for (int i_20_ = 0; aShortArray1329.length > i_20_; i_20_++) {
-					class180_sub2_18_.method2292(aShortArray1329[i_20_], aShortArray1332[i_20_]);
+			if (originalModelTextures != null) {
+				for (int i_20_ = 0; originalModelTextures.length > i_20_; i_20_++) {
+					class180_sub2_18_.retexture(originalModelTextures[i_20_], modifiedModelTextures[i_20_]);
 				}
 			}
 			class180_sub2 = class180_sub2_18_;
@@ -150,48 +150,40 @@ final class Class139 {
 		return class180_sub2;
 	}
 
-	private final void method1987(final int i, final Buffer class120_sub7, final boolean bool) {
-		try {
-			if (!bool) {
-				method1989(null, false);
+	private final void decode(final Buffer buffer, final int configCode) {
+		if (configCode == 1) {
+			this.partId = buffer.getUByte();
+		}
+		if (configCode == 2) {
+			final int i_21_ = buffer.getUByte();
+			models = new int[i_21_];
+			for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
+				models[i_22_] = buffer.getUShort();
 			}
-			if (i != 1) {
-				if (i == 2) {
-					final int i_21_ = class120_sub7.getUByte();
-					anIntArray1333 = new int[i_21_];
-					for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
-						anIntArray1333[i_22_] = class120_sub7.getUShort();
-					}
-				} else if (i != 3) {
-					if (i == 40) {
-						final int i_23_ = class120_sub7.getUByte();
-						aShortArray1328 = new short[i_23_];
-						aShortArray1327 = new short[i_23_];
-						for (int i_24_ = 0; i_23_ > i_24_; i_24_++) {
-							aShortArray1327[i_24_] = (short) class120_sub7.getUShort();
-							aShortArray1328[i_24_] = (short) class120_sub7.getUShort();
-						}
-					} else if (i != 41) {
-						if (i >= 60 && i < 70) {
-							anIntArray1335[i - 60] = class120_sub7.getUShort();
-						}
-					} else {
-						final int i_25_ = class120_sub7.getUByte();
-						aShortArray1332 = new short[i_25_];
-						aShortArray1329 = new short[i_25_];
-						for (int i_26_ = 0; i_26_ < i_25_; i_26_++) {
-							aShortArray1329[i_26_] = (short) class120_sub7.getUShort();
-							aShortArray1332[i_26_] = (short) class120_sub7.getUShort();
-						}
-					}
-				} else {
-					this.aBoolean1331 = true;
-				}
-			} else {
-				this.anInt1336 = class120_sub7.getUByte();
+		}
+		if (configCode == 3) {
+			this.noInterface = true;
+		}
+		if (configCode == 40) {
+			final int i_23_ = buffer.getUByte();
+			modifiedModelColors = new short[i_23_];
+			originalModelColors = new short[i_23_];
+			for (int i_24_ = 0; i_23_ > i_24_; i_24_++) {
+				originalModelColors[i_24_] = (short) buffer.getUShort();
+				modifiedModelColors[i_24_] = (short) buffer.getUShort();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.J(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+		}
+		if (configCode == 41) {
+			final int i_25_ = buffer.getUByte();
+			modifiedModelTextures = new short[i_25_];
+			originalModelTextures = new short[i_25_];
+			for (int i_26_ = 0; i_26_ < i_25_; i_26_++) {
+				originalModelTextures[i_26_] = (short) buffer.getUShort();
+				modifiedModelTextures[i_26_] = (short) buffer.getUShort();
+			}
+		}
+		if (configCode >= 60 && configCode < 70) {
+			headModels[configCode - 60] = buffer.getUShort();
 		}
 	}
 
@@ -983,15 +975,15 @@ final class Class139 {
 	final boolean method1990(final byte i) {
 		boolean bool;
 		try {
-			if (anIntArray1333 == null) {
+			if (models == null) {
 				return true;
 			}
 			boolean bool_130_ = true;
 			if (i >= -102) {
 				method1989(null, false);
 			}
-			for (int i_131_ = 0; i_131_ < anIntArray1333.length; i_131_++) {
-				if (!SceneGroundObject.aClass50_2839.method440(anIntArray1333[i_131_], true, 0)) {
+			for (int i_131_ = 0; i_131_ < models.length; i_131_++) {
+				if (!SceneGroundObject.aClass50_2839.method440(models[i_131_], true, 0)) {
 					bool_130_ = false;
 				}
 			}
@@ -1002,95 +994,78 @@ final class Class139 {
 		return bool;
 	}
 
-	static final void method1991(final JagexInterface[] class189s, final byte i, final int i_132_) {
-		try {
-			for (final JagexInterface class1892 : class189s) {
-				final JagexInterface jagexInterface = class1892;
-				if (jagexInterface != null && jagexInterface.anInt2029 == i_132_ && (!jagexInterface.aBoolean2041 || !client.method59(jagexInterface))) {
-					if (jagexInterface.type == 0) {
-						if (!jagexInterface.aBoolean2041 && client.method59(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
-							continue;
-						}
-						method1991(class189s, (byte) -23, jagexInterface.bitPacked);
-						if (jagexInterface.aClass189Array2072 != null) {
-							method1991(jagexInterface.aClass189Array2072, (byte) -23, jagexInterface.bitPacked);
-						}
-						final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
-						if (class120_sub26 != null) {
-							AbstractGraphicsBuffer.method1846(-22845, class120_sub26.interfaceId);
-						}
+	static final void animateInterface(final JagexInterface[] class189s, final int parent) {
+		for (final JagexInterface jagexInterface : class189s) {
+			if (jagexInterface != null && jagexInterface.parent == parent && (!jagexInterface.aBoolean2041 || !client.method59(jagexInterface))) {
+				if (jagexInterface.type == 0) {
+					if (!jagexInterface.aBoolean2041 && client.method59(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
+						continue;
 					}
-					if (jagexInterface.type == 6) {
-						if ((jagexInterface.anInt1945 ^ 0xffffffff) != 0 || (jagexInterface.anInt1990 ^ 0xffffffff) != 0) {
-							final boolean bool = Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -122);
-							int i_134_;
-							if (bool) {
-								i_134_ = jagexInterface.anInt1990;
-							} else {
-								i_134_ = jagexInterface.anInt1945;
-							}
-							if ((i_134_ ^ 0xffffffff) != 0) {
-								final Class40 class40 = Class120_Sub30_Sub2.method1763(i_134_, i + 149);
-								if (class40 != null) {
-									jagexInterface.anInt1965 += Class120_Sub12_Sub22.anInt3301;
-									while (class40.anIntArray338[jagexInterface.anInt1946] < jagexInterface.anInt1965) {
-										jagexInterface.anInt1965 -= class40.anIntArray338[jagexInterface.anInt1946];
-										jagexInterface.anInt1946++;
-										if (jagexInterface.anInt1946 >= class40.anIntArray342.length) {
-											jagexInterface.anInt1946 -= class40.anInt346;
-											if (jagexInterface.anInt1946 < 0 || class40.anIntArray342.length <= jagexInterface.anInt1946) {
-												jagexInterface.anInt1946 = 0;
-											}
+					animateInterface(class189s, jagexInterface.bitPacked);
+					if (jagexInterface.aClass189Array2072 != null) {
+						animateInterface(jagexInterface.aClass189Array2072, jagexInterface.bitPacked);
+					}
+					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
+					if (class120_sub26 != null) {
+						AbstractGraphicsBuffer.method1846(class120_sub26.interfaceId);
+					}
+				}
+				if (jagexInterface.type == 6) {
+					if (jagexInterface.disabledAnim != -1 || jagexInterface.enabledAnim != -1) {
+						final boolean enabled = Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -122);
+						int animation;
+						if (enabled) {
+							animation = jagexInterface.enabledAnim;
+						} else {
+							animation = jagexInterface.disabledAnim;
+						}
+						if (animation != -1) {
+							final SeqType seqType = SeqType.list(animation);
+							if (seqType != null) {
+								jagexInterface.frameDelay += Class120_Sub12_Sub22.redrawRate;
+								while (jagexInterface.frameDelay > seqType.cycles[jagexInterface.currentFrame]) {
+									jagexInterface.frameDelay -= seqType.cycles[jagexInterface.currentFrame];
+									jagexInterface.currentFrame++;
+									if (jagexInterface.currentFrame >= seqType.frames.length) {
+										jagexInterface.currentFrame -= seqType.padding;
+										if (jagexInterface.currentFrame < 0 || seqType.frames.length <= jagexInterface.currentFrame) {
+											jagexInterface.currentFrame = 0;
 										}
-										jagexInterface.anInt2098 = jagexInterface.anInt1946 + 1;
-										if (class40.anIntArray342.length <= jagexInterface.anInt2098) {
-											jagexInterface.anInt2098 -= class40.anInt346;
-											if (jagexInterface.anInt2098 < 0 || class40.anIntArray342.length <= jagexInterface.anInt2098) {
-												jagexInterface.anInt2098 = -1;
-											}
-										}
-										InterfaceClickMask.redrawInterface(jagexInterface);
 									}
+									jagexInterface.nextFrame = jagexInterface.currentFrame + 1;
+									if (seqType.frames.length <= jagexInterface.nextFrame) {
+										jagexInterface.nextFrame -= seqType.padding;
+										if (jagexInterface.nextFrame < 0 || seqType.frames.length <= jagexInterface.nextFrame) {
+											jagexInterface.nextFrame = -1;
+										}
+									}
+									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
 							}
 						}
-						if (jagexInterface.anInt1969 != 0 && !jagexInterface.aBoolean2041) {
-							int i_135_ = jagexInterface.anInt1969 >> 16;
-							i_135_ *= Class120_Sub12_Sub22.anInt3301;
-							int i_136_ = jagexInterface.anInt1969 << 16 >> 16;
-							jagexInterface.anInt2047 = i_135_ + jagexInterface.anInt2047 & 0x7ff;
-							i_136_ *= Class120_Sub12_Sub22.anInt3301;
-							jagexInterface.anInt2091 = i_136_ + jagexInterface.anInt2091 & 0x7ff;
-							InterfaceClickMask.redrawInterface(jagexInterface);
-						}
+					}
+					if (jagexInterface.rotateSpeed != 0 && !jagexInterface.aBoolean2041) {
+						int i_135_ = jagexInterface.rotateSpeed >> 16;
+						i_135_ *= Class120_Sub12_Sub22.redrawRate;
+						int i_136_ = jagexInterface.rotateSpeed << 16 >> 16;
+						jagexInterface.rotateX = i_135_ + jagexInterface.rotateX & 0x7ff;
+						i_136_ *= Class120_Sub12_Sub22.redrawRate;
+						jagexInterface.rotateY = i_136_ + jagexInterface.rotateY & 0x7ff;
+						InterfaceClickMask.redrawInterface(jagexInterface);
 					}
 				}
 			}
-			if (i != -23) {
-				method1989(null, false);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.D(").append(class189s != null ? "{...}" : "null").append(',').append(i).append(',').append(i_132_).append(')').toString());
 		}
 	}
 
-	final void method1992(final boolean bool, final Buffer class120_sub7) {
-		do {
-			try {
-				for (;;) {
-					final int i = class120_sub7.getUByte();
-					if (i == 0) {
-						break;
-					}
-					method1987(i, class120_sub7, true);
-				}
-				if (!bool) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.E(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int i = buffer.getUByte();
+			if (i == 0) {
+				break;
 			}
-		} while (false);
+			decode(buffer, i);
+		}
 	}
 
 	final boolean method1993(final int i) {
@@ -1101,7 +1076,7 @@ final class Class139 {
 			}
 			boolean bool_137_ = true;
 			for (int i_138_ = 0; i_138_ < 5; i_138_++) {
-				if (anIntArray1335[i_138_] != -1 && !SceneGroundObject.aClass50_2839.method440(anIntArray1335[i_138_], true, 0)) {
+				if (headModels[i_138_] != -1 && !SceneGroundObject.aClass50_2839.method440(headModels[i_138_], true, 0)) {
 					bool_137_ = false;
 				}
 			}
@@ -1120,7 +1095,7 @@ final class Class139 {
 		final byte[] is = Class147.aClass50_1394.getFile(3, i_5_);
 		class139_6_ = new Class139();
 		if (is != null) {
-			class139_6_.method1992(true, new Buffer(is));
+			class139_6_.decode(new Buffer(is));
 		}
 		Class120_Sub12_Sub37.aClass21_3427.put(class139_6_, i_5_);
 		return class139_6_;

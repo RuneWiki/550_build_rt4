@@ -11,12 +11,12 @@ final class Class186 {
 	int anInt1894;
 	int anInt1895;
 	int anInt1896;
-	static volatile long aLong1897 = 0L;
+	static volatile long currentClickTime = 0L;
 	SceneGraphNode aClass180_1898;
-	static boolean aBoolean1899;
+	static boolean usingSpriteMenu;
 	static int anInt1900;
 	SceneGraphNode aClass180_1901;
-	static boolean aBoolean1902;
+	static boolean hdrEnabled;
 	static String aString1903;
 	long bitPacked = 0L;
 	int anInt1905;
@@ -25,9 +25,9 @@ final class Class186 {
 	static {
 		topMargin = 0;
 		aString1903 = "scroll:";
-		aBoolean1899 = false;
+		usingSpriteMenu = false;
 		actionsLen = 0;
-		aBoolean1902 = false;
+		hdrEnabled = false;
 		menuOptionCount = 0;
 	}
 
@@ -48,8 +48,8 @@ final class Class186 {
 					Class120_Sub12_Sub11.npcList[i_1_] = null;
 				}
 			}
-			if (Canvas_Sub1.aClass120_Sub7_Sub1_16.pos != AbstractMouseWheelHandler.packetSize) {
-				throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.aClass120_Sub7_Sub1_16.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+			if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
+				throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 			}
 			for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
 				if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_2_]] == null) {
@@ -123,10 +123,10 @@ final class Class186 {
 					}
 					final int i_14_ = i_6_ - -(Class120_Sub14_Sub11.anInt3538 * i_8_ / Class79.anInt700);
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.method590(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
+						GraphicsHD.fillRect(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
 						GraphicsHD.drawRect(i_14_, i_12_, i_11_, i_13_, i_10_);
 					} else {
-						GraphicsLD.method2159(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
+						GraphicsLD.fillRect(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
 						GraphicsLD.drawRect(i_14_, i_12_, i_11_, i_13_, i_10_);
 					}
 					if (Class96.anInt919 > 0) {
@@ -143,17 +143,17 @@ final class Class186 {
 									final int i_16_ = i_8_ * class120_sub14_sub5.anInt3480 / Class79.anInt700 + i_6_;
 									final int i_17_ = i_7_ + i_9_ * class120_sub14_sub5.anInt3481 / Class79.anInt692;
 									if (!HDToolkit.glEnabled) {
-										GraphicsLD.method2159(i_16_ - 2, i_17_ + -2, 4, 4, 16776960, i_15_);
+										GraphicsLD.fillRect(i_16_ - 2, i_17_ + -2, 4, 4, 16776960, i_15_);
 									} else {
-										GraphicsHD.method590(i_16_ + -2, i_17_ - 2, 4, 4, 16776960, i_15_);
+										GraphicsHD.fillRect(i_16_ + -2, i_17_ - 2, 4, 4, 16776960, i_15_);
 									}
 								} else if (Class120_Sub12_Sub9.anInt3195 != -1 && class73.anInt652 == Class120_Sub12_Sub9.anInt3195) {
 									final int i_18_ = i_6_ - -(class120_sub14_sub5.anInt3480 * i_8_ / Class79.anInt700);
 									final int i_19_ = i_7_ + i_9_ * class120_sub14_sub5.anInt3481 / Class79.anInt692;
 									if (!HDToolkit.glEnabled) {
-										GraphicsLD.method2159(i_18_ + -2, -2 + i_19_, 4, 4, 16776960, i_15_);
+										GraphicsLD.fillRect(i_18_ + -2, -2 + i_19_, 4, 4, 16776960, i_15_);
 									} else {
-										GraphicsHD.method590(-2 + i_18_, -2 + i_19_, 4, 4, 16776960, i_15_);
+										GraphicsHD.fillRect(-2 + i_18_, -2 + i_19_, 4, 4, 16776960, i_15_);
 									}
 								}
 							}

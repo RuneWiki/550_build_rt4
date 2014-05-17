@@ -26,9 +26,9 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				for (final JagexInterface class1892 : class189s) {
 					final JagexInterface jagexInterface = class1892;
 					if (jagexInterface != null) {
-						jagexInterface.anInt2098 = 1;
-						jagexInterface.anInt1946 = 0;
-						jagexInterface.anInt1965 = 0;
+						jagexInterface.nextFrame = 1;
+						jagexInterface.currentFrame = 0;
+						jagexInterface.frameDelay = 0;
 					}
 				}
 			}
@@ -68,10 +68,10 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			}
 			final boolean bool = state == 5 || state == 10 || state == 28;
 			if (state == 40) {
-				Class120_Sub1.method1037((byte) -120);
+				Class120_Sub1.method1037();
 			}
 			if (state != 40 && Light.aClass46_381 != null) {
-				Light.aClass46_381.method377();
+				Light.aClass46_381.close();
 				Light.aClass46_381 = null;
 			}
 			if (state == 25 || state == 28) {

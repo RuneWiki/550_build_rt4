@@ -32,31 +32,22 @@ class Buffer extends Node {
 		}
 	}
 
-	final void putJString(final String string) {
+	final void putJagexString(final String string) {
 		final int i_0_ = string.indexOf('\0');
 		if (i_0_ >= 0) {
-			throw new IllegalArgumentException(new StringBuilder("NUL character at ").append(i_0_).append(" - cannot pjstr").toString());
+			throw new IllegalArgumentException("NUL character at " + i_0_ + " - cannot pjstr");
 		}
-		this.pos += Class83.a(this.buf, string, string.length(), this.pos, 0, 23422);
+		this.pos += Class83.a(this.buf, string, string.length(), this.pos, 0);
 		this.buf[this.pos++] = (byte) 0;
 	}
 
-	final int method1078(final boolean bool) {
-		int i;
-		try {
-			this.pos += 2;
-			if (!bool) {
-				anInt2474 = 60;
-			}
-			int i_1_ = (0xff00 & this.buf[this.pos + -2] << 8) - -(0xff & this.buf[-1 + this.pos]);
-			if (i_1_ > 32767) {
-				i_1_ -= 65536;
-			}
-			i = i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.HA(").append(bool).append(')').toString());
+	final int getShort() {//getshort
+		this.pos += 2;
+		int i_1_ = (0xff00 & this.buf[this.pos - 2] << 8) + (0xff & this.buf[this.pos - 1]);
+		if (i_1_ > 32767) {
+			i_1_ -= 65536;
 		}
-		return i;
+		return i_1_;
 	}
 
 	final void method1079(final int i, final int i_2_) {
@@ -73,15 +64,8 @@ class Buffer extends Node {
 		}
 	}
 
-	final void method1080(final int i, final byte i_3_) {
-		try {
-			if (i_3_ != 10) {
-				method1126((byte) 116, 4);
-			}
-			this.buf[this.pos++] = (byte) (-i + 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.UB(").append(i).append(',').append(i_3_).append(')').toString());
-		}
+	final void putByteC(final int i) {
+		this.buf[this.pos++] = (byte) (-i);
 	}
 
 	final int getUSmart() {
@@ -320,7 +304,7 @@ class Buffer extends Node {
 			}
 			i_48_ += i_49_;
 			if (i <= 107) {
-				method1104((byte) -77, 120);
+				putMedium(120);
 			}
 			i_47_ = i_48_;
 		} catch (final RuntimeException runtimeexception) {
@@ -329,11 +313,11 @@ class Buffer extends Node {
 		return i_47_;
 	}
 
-	final void putLEInt(final int i) {
-		this.buf[this.pos++] = (byte) i;
-		this.buf[this.pos++] = (byte) (i >> 8);
-		this.buf[this.pos++] = (byte) (i >> 16);
-		this.buf[this.pos++] = (byte) (i >> 24);
+	final void putLEInt(final int i_87_) {
+		this.buf[this.pos++] = (byte) i_87_;
+		this.buf[this.pos++] = (byte) (i_87_ >> 8);
+		this.buf[this.pos++] = (byte) (i_87_ >> 16);
+		this.buf[this.pos++] = (byte) (i_87_ >> 24);
 	}
 
 	final void getBytesA(final byte[] is, final int i_50_, final int i_51_) {
@@ -352,16 +336,10 @@ class Buffer extends Node {
 		return false;
 	}
 
-	final void method1104(final byte i, final int i_55_) {
-		try {
-			this.buf[this.pos++] = (byte) (i_55_ >> 16);
-			this.buf[this.pos++] = (byte) (i_55_ >> 8);
-			if (i == 9) {
-				this.buf[this.pos++] = (byte) i_55_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.L(").append(i).append(',').append(i_55_).append(')').toString());
-		}
+	final void putMedium(final int i_55_) {
+		this.buf[this.pos++] = (byte) (i_55_ >> 16);
+		this.buf[this.pos++] = (byte) (i_55_ >> 8);
+		this.buf[this.pos++] = (byte) i_55_;
 	}
 
 	final void method1105(final byte i, final int i_56_) {
@@ -376,7 +354,7 @@ class Buffer extends Node {
 		}
 	}
 
-	final void method1106(final boolean bool, final float f) {
+	final void putFloatAsInt(final float f) {
 		final int i = Float.floatToRawIntBits(f);
 		this.buf[this.pos++] = (byte) (i >> 24);
 		this.buf[this.pos++] = (byte) (i >> 16);
@@ -433,17 +411,8 @@ class Buffer extends Node {
 		}
 	}
 
-	final byte method1110(final byte i) {
-		byte i_68_;
-		try {
-			if (i >= -96) {
-				return (byte) 7;
-			}
-			i_68_ = (byte) (128 - this.buf[this.pos++]);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.MB(").append(i).append(')').toString());
-		}
-		return i_68_;
+	final byte getByteS() {
+		return (byte) (128 - this.buf[this.pos++]);
 	}
 
 	final int method1111(final boolean bool) {
@@ -477,12 +446,8 @@ class Buffer extends Node {
 		}
 	}
 
-	final void method1113(final int i, final int i_72_) {
-		try {
-			this.buf[this.pos++] = (byte) (i + 128);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.C(").append(i).append(',').append(i_72_).append(')').toString());
-		}
+	final void putByteA(final int i) {
+		this.buf[this.pos++] = (byte) (i + 128);
 	}
 
 	final void getBuffer(final byte[] is, final int i_73_, final int i_74_) {
@@ -496,16 +461,9 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_76_ >> 8);
 	}
 
-	final void method1116(final int i, final int i_77_) {
-		try {
-			this.buf[this.pos++] = (byte) (i_77_ >> 8);
-			this.buf[this.pos++] = (byte) (i_77_ - -128);
-			if (i != -2076007248) {
-				anInt2473 = 4;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.G(").append(i).append(',').append(i_77_).append(')').toString());
-		}
+	final void putShortA(final int i_77_) {
+		this.buf[this.pos++] = (byte) (i_77_ >> 8);
+		this.buf[this.pos++] = (byte) (i_77_ + 128);
 	}
 
 	final byte getByteC() {
@@ -529,15 +487,15 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) i;
 	}
 
-	final int getTriByte() {
+	final int getMedium() {
 		this.pos += 3;
 		return (0xff & this.buf[this.pos - 1]) + (this.buf[this.pos - 3] << 16 & 0xff0000) + ((this.buf[this.pos - 2] & 0xff) << 8);
 	}
 
 	static final void method1121(final int i) {
 		try {
-			if (i == -3 && Class86.anInt819 == 5) {
-				Class86.anInt819 = 6;
+			if (i == -3 && Class86.loginStep == 5) {
+				Class86.loginStep = 6;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.NB(").append(i).append(')').toString());
@@ -549,19 +507,10 @@ class Buffer extends Node {
 		return (this.buf[this.pos + -4] & 0xff) + ((this.buf[this.pos + -1] & 0xff) << 24) - -((0xff & this.buf[-2 + this.pos]) << 16) + ((0xff & this.buf[-3 + this.pos]) << 8);
 	}
 
-	final int method1123(final int i, final int i_81_) {
-		int i_82_;
-		try {
-			final int i_83_ = NodeSub.getCrc(this.buf, i_81_, this.pos);
-			putInt(i_83_);
-			if (i != 8523) {
-				gameId = 112;
-			}
-			i_82_ = i_83_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.PB(").append(i).append(',').append(i_81_).append(')').toString());
-		}
-		return i_82_;
+	final int putCrc(final int off) {
+		final int i_83_ = NodeSub.getCrc(this.buf, off, this.pos);
+		putInt(i_83_);
+		return i_83_;
 	}
 
 	final long getLong() {
@@ -574,50 +523,21 @@ class Buffer extends Node {
 		return this.buf[this.pos++] - 128 & 0xff;
 	}
 
-	final void method1126(final byte i, final int i_87_) {
-		try {
-			this.buf[this.pos++] = (byte) i_87_;
-			this.buf[this.pos++] = (byte) (i_87_ >> 8);
-			this.buf[this.pos++] = (byte) (i_87_ >> 16);
-			this.buf[this.pos++] = (byte) (i_87_ >> 24);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.NA(").append(i).append(',').append(i_87_).append(')').toString());
+	final String getFastJString() {
+		if (this.buf[this.pos] == 0) {
+			this.pos++;
+			return null;
 		}
+		return getJString();
 	}
 
-	final String method1127(final byte i) {
-		String string;
-		try {
-			if (this.buf[this.pos] == 0) {
-				this.pos++;
-				return null;
-			}
-			if (i != -7) {
-				return null;
-			}
-			string = getJString();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.PA(").append(i).append(')').toString());
+	final int getShortA() {
+		this.pos += 2;
+		int i_89_ = (-128 + this.buf[this.pos - 1] & 0xff) + ((0xff & this.buf[this.pos - 2]) << 8);
+		if (i_89_ > 32767) {
+			i_89_ -= 65536;
 		}
-		return string;
-	}
-
-	final int method1128(final int i) {
-		int i_88_;
-		try {
-			this.pos += 2;
-			int i_89_ = (-128 + this.buf[this.pos - 1] & 0xff) + ((0xff & this.buf[this.pos - 2]) << 8);
-			if (i_89_ > 32767) {
-				i_89_ -= 65536;
-			}
-			if (i > -95) {
-				this.buf = null;
-			}
-			i_88_ = i_89_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.M(").append(i).append(')').toString());
-		}
-		return i_88_;
+		return i_89_;
 	}
 
 	Buffer(final byte[] is) {
@@ -644,7 +564,7 @@ class Buffer extends Node {
 				putInt(i_92_);
 			}
 			if (bool) {
-				method1127((byte) 33);
+				getFastJString();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.KA(").append(bool).append(',').append(is != null ? "{...}" : "null").append(')').toString());
@@ -678,7 +598,7 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) i_103_;
 	}
 
-	final void method1134(final float f, final int i) {
+	final void putFloatAsLEInt(final float f) {
 		final int i_104_ = Float.floatToRawIntBits(f);
 		this.buf[this.pos++] = (byte) i_104_;
 		this.buf[this.pos++] = (byte) (i_104_ >> 8);
@@ -686,25 +606,16 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_104_ >> 24);
 	}
 
-	final String method1135(final int i) {
-		String string;
-		try {
-			final byte i_105_ = this.buf[this.pos++];
-			if (i != 6072) {
-				method1129(true, null);
-			}
-			if (i_105_ != 0) {
-				throw new IllegalStateException("Bad version number in gjstr2");
-			}
-			final int i_106_ = this.pos;
-			while (this.buf[this.pos++] != 0) {
-				/* empty */
-			}
-			string = DisplayModeInfo.method2215(this.buf, i_106_, -1 + this.pos + -i_106_);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.JB(").append(i).append(')').toString());
+	final String getJagexString() {
+		final byte i_105_ = this.buf[this.pos++];
+		if (i_105_ != 0) {
+			throw new IllegalStateException("Bad version number in gjstr2");
 		}
-		return string;
+		final int i_106_ = this.pos;
+		while (this.buf[this.pos++] != 0) {
+			/* empty */
+		}
+		return DisplayModeInfo.method2215(this.buf, i_106_, -1 + this.pos + -i_106_);
 	}
 
 	final void method1136(final int i, final int i_107_, final byte[] is, final int i_108_) {
@@ -733,14 +644,7 @@ class Buffer extends Node {
 		return this.buf[this.pos++];
 	}
 
-	final void method1140(final byte i, final int i_113_) {
-		try {
-			this.buf[this.pos + -i_113_ - 1] = (byte) i_113_;
-			if (i >= -114) {
-				getUByteS();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.GB(").append(i).append(',').append(i_113_).append(')').toString());
-		}
+	final void putSizedByte(final int i_113_) {
+		this.buf[this.pos - i_113_ - 1] = (byte) i_113_;
 	}
 }

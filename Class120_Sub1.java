@@ -26,7 +26,7 @@ final class Class120_Sub1 extends Node {
 	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final int i_7_) {
 		try {
 			if (i_5_ != 84) {
-				method1037((byte) -110);
+				method1037();
 			}
 			if (Class32.anInt260 > -i + i_6_ || i + i_6_ > Class120_Sub14_Sub11.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || Class139.anInt1334 < i + i_3_) {
 				Class45.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
@@ -38,20 +38,14 @@ final class Class120_Sub1 extends Node {
 		}
 	}
 
-	static final void method1037(final byte i) {
-		try {
-			Class57.anInt504 = 0;
-			Class86.anInt819 = 1;
-			Class120_Sub12_Sub5.errorPinging = false;
-			if (i == -120) {
-				Class121.anInt1153 = 0;
-				Class150.anInt1408 = 0;
-				Class120_Sub22.anInt2672 = -1;
-				Class48.anInt436 = -3;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("af.D(").append(i).append(')').toString());
-		}
+	static final void method1037() {
+		Class57.anInt504 = 0;
+		Class86.loginStep = 1;
+		Class120_Sub12_Sub5.errorPinging = false;
+		Class121.anInt1153 = 0;
+		Class150.anInt1408 = 0;
+		Class120_Sub22.anInt2672 = -1;
+		Class48.returnCode = -3;
 	}
 
 	public static void method1038(final int i) {

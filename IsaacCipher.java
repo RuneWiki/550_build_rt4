@@ -204,7 +204,7 @@ final class IsaacCipher {
 			if (i_12_ != 118) {
 				return null;
 			}
-			class120_sub14_sub19_sub2 = Class85.method722(90);
+			class120_sub14_sub19_sub2 = Class85.method722();
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_12_).append(')').toString());
 		}

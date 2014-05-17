@@ -127,7 +127,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					} else {
 						if (string_19_.startsWith("img=")) {
 							try {
-								final int i_20_ = Class31.method265(true, string_19_.substring(4));
+								final int i_20_ = Class31.method265(string_19_.substring(4));
 								i_16_ += aClass107Array3499[i_20_].anInt1029;
 								i_15_ = 0;
 							} catch (final Exception exception) {
@@ -184,7 +184,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					} else {
 						if (string_32_.startsWith("img=")) {
 							try {
-								final int i_33_ = Class31.method265(true, string_32_.substring(4));
+								final int i_33_ = Class31.method265(string_32_.substring(4));
 								final Class107 class107 = aClass107Array3499[i_33_];
 								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : class107.anInt1028;
 								if (anInt3506 == 256) {
@@ -491,7 +491,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 									i_116_ = 0;
 								}
 								i_111_++;
-								final int i_117_ = Class31.method265(true, string_114_.substring(4));
+								final int i_117_ = Class31.method265(string_114_.substring(4));
 								final Class107 class107 = aClass107Array3499[i_117_];
 								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : class107.anInt1028;
 								if (anInt3506 == 256) {
@@ -715,7 +715,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 			} else if (string.equals("/col")) {
 				anInt3507 = anInt3509;
 			} else if (string.startsWith("trans=")) {
-				anInt3506 = Class31.method265(true, string.substring(6));
+				anInt3506 = Class31.method265(string.substring(6));
 			} else if (string.equals("/trans")) {
 				anInt3506 = anInt3505;
 			} else if (string.startsWith("str=")) {
@@ -830,7 +830,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 						i_180_ = 174;
 					} else if (string_184_.startsWith("img=")) {
 						try {
-							final int i_185_ = Class31.method265(true, string_184_.substring(4));
+							final int i_185_ = Class31.method265(string_184_.substring(4));
 							i += aClass107Array3499[i_185_].anInt1029;
 							i_180_ = 0;
 						} catch (final Exception exception) {

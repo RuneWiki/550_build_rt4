@@ -11,20 +11,20 @@ import java.net.Socket;
 final class JagexSocket implements Runnable {
 	static int anInt414 = 5063219;
 	static BigInteger aBigInteger415;
-	private OutputStream anOutputStream416;
-	private boolean aBoolean417 = false;
-	private int anInt418 = 0;
+	private OutputStream outputStream;
+	private boolean closed = false;
+	private int tcycle = 0;
 	static int[][][] anIntArrayArrayArray419;
 	static int anInt420 = -1;
-	private byte[] aByteArray421;
-	private final Socket aSocket422;
+	private byte[] buffer;
+	private final Socket socket;
 	static boolean aBoolean423 = false;
-	private InputStream anInputStream424;
-	private boolean aBoolean425 = false;
+	private InputStream inputStream;
+	private boolean IOError = false;
 	static Class107_Sub1[] aClass107_Sub1Array426;
-	private final Signlink aClass135_427;
-	private SignlinkNode aClass185_428;
-	private int anInt429 = 0;
+	private final Signlink signlink;
+	private SignlinkNode socketThread;
+	private int tnum = 0;
 
 	static {
 		aBigInteger415 = new BigInteger("7162900525229798032761816791230527296329313291232324290237849263501208207972894053929065636522363163621000728841182238772712427862772219676577293600221789");
@@ -43,10 +43,10 @@ final class JagexSocket implements Runnable {
 		}
 	}
 
-	final void read(int off, final byte[] buf, int len) throws IOException {
-		if (!aBoolean417) {
+	final void read(final byte[] buf, int off, int len) throws IOException {
+		if (!closed) {
 			while (len > 0) {
-				final int i_2_ = anInputStream424.read(buf, off, len);
+				final int i_2_ = inputStream.read(buf, off, len);
 				if (i_2_ <= 0) {
 					throw new EOFException();
 				}
@@ -63,11 +63,11 @@ final class JagexSocket implements Runnable {
 					try {
 						if ((++Class79_Sub1.anInt2244 ^ 0xffffffff) < -1501) {
 							if (AbstractTimer.worldConnection != null) {
-								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 							}
 							if (Class137.anInt1323 >= 1) {
-								Class48.anInt436 = -5;
+								Class48.returnCode = -5;
 								Class120_Sub14_Sub18.anInt3609 = 0;
 								return;
 							}
@@ -81,18 +81,18 @@ final class JagexSocket implements Runnable {
 							Class79_Sub1.anInt2244 = 0;
 						}
 						if (Class120_Sub14_Sub18.anInt3609 == 1) {
-							Class53_Sub1.aClass185_2217 = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+							Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
 							Class120_Sub14_Sub18.anInt3609 = 2;
 						}
 						if (Class120_Sub14_Sub18.anInt3609 == 2) {
-							if (Class53_Sub1.aClass185_2217.status == 2) {
+							if (Class53_Sub1.worldConnectionNode.status == 2) {
 								throw new IOException();
 							}
-							if (Class53_Sub1.aClass185_2217.status != 1) {
+							if (Class53_Sub1.worldConnectionNode.status != 1) {
 								return;
 							}
-							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.aClass185_2217.value, NpcType.gameSignlink);
-							Class53_Sub1.aClass185_2217 = null;
+							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+							Class53_Sub1.worldConnectionNode = null;
 							AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
 								Class120_Sub12_Sub3.aClass164_3150.method2131();
@@ -110,9 +110,9 @@ final class JagexSocket implements Runnable {
 							if (i_3_ == 101) {
 								Class120_Sub14_Sub18.anInt3609 = 3;
 							} else {
-								Class48.anInt436 = i_3_;
+								Class48.returnCode = i_3_;
 								Class120_Sub14_Sub18.anInt3609 = 0;
-								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 								return;
 							}
@@ -122,22 +122,22 @@ final class JagexSocket implements Runnable {
 						}
 						if (AbstractTimer.worldConnection.getAvailable() >= 2) {
 							final int i_4_ = AbstractTimer.worldConnection.read() << 8 | AbstractTimer.worldConnection.read();
-							Class188.method2483((byte) 125, i_4_);
-							if ((Class157.anInt1469 ^ 0xffffffff) == 0) {
+							Class188.method2483(i_4_);
+							if ((Class157.worldId ^ 0xffffffff) == 0) {
 								Class120_Sub14_Sub18.anInt3609 = 0;
-								Class48.anInt436 = 6;
-								AbstractTimer.worldConnection.method377();
+								Class48.returnCode = 6;
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 							} else {
 								Class120_Sub14_Sub18.anInt3609 = 0;
-								AbstractTimer.worldConnection.method377();
+								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
-								Class120_Sub1.method1037((byte) -120);
+								Class120_Sub1.method1037();
 							}
 						}
 					} catch (final IOException ioexception) {
 						if (AbstractTimer.worldConnection != null) {
-							AbstractTimer.worldConnection.method377();
+							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 						if (Class137.anInt1323 < 1) {
@@ -151,7 +151,7 @@ final class JagexSocket implements Runnable {
 							Class120_Sub14_Sub18.anInt3609 = 1;
 						} else {
 							Class120_Sub14_Sub18.anInt3609 = 0;
-							Class48.anInt436 = -4;
+							Class48.returnCode = -4;
 						}
 						break;
 					}
@@ -167,10 +167,10 @@ final class JagexSocket implements Runnable {
 	}
 
 	final int getAvailable() throws IOException {
-		if (aBoolean417) {
+		if (closed) {
 			return 0;
 		}
-		return anInputStream424.available();
+		return inputStream.available();
 	}
 
 	static final void method376(final boolean bool, final int i) {
@@ -194,160 +194,134 @@ final class JagexSocket implements Runnable {
 		}
 	}
 
-	final void method377() {
-		if (!aBoolean417) {
+	final void close() {
+		if (!closed) {
 			synchronized (this) {
-				aBoolean417 = true;
+				closed = true;
 				notifyAll();
 			}
-			if (aClass185_428 != null) {
-				while (aClass185_428.status == 0) {
+			if (socketThread != null) {
+				while (socketThread.status == 0) {
 					PacketBuffer.sleepWrapper(1L);
 				}
-				if (aClass185_428.status == 1) {
+				if (socketThread.status == 1) {
 					try {
-						((Thread) aClass185_428.value).join();
+						((Thread) socketThread.value).join();
 					} catch (final InterruptedException interruptedexception) {
 						/* empty */
 					}
 				}
 			}
-			aClass185_428 = null;
+			socketThread = null;
 		}
 	}
 
-	final void method378(final byte i) {
-		try {
-			if (i != 52) {
-				aBoolean423 = true;
-			}
-			if (!aBoolean417) {
-				anInputStream424 = new InputStream_Sub1();
-				anOutputStream416 = new OutputStream_Sub1();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eo.E(").append(i).append(')').toString());
+	final void replaceStreamsWithDummy() {
+		if (!closed) {
+			inputStream = new DummyInputStream();
+			outputStream = new DummyOutputStream();
 		}
 	}
 
 	final int read() throws IOException {
-		if (aBoolean417) {
+		if (closed) {
 			return 0;
 		}
-		return anInputStream424.read();
+		return inputStream.read();
 	}
 
 	@Override
 	protected final void finalize() {
-		try {
-			method377();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "eo.finalize()");
-		}
+		close();
 	}
 
-	final void method380(final byte i) throws IOException {
-		try {
-			if (!aBoolean417) {
-				if (i != -120) {
-					method376(false, 116);
-				}
-				if (aBoolean425) {
-					aBoolean425 = false;
-					throw new IOException();
-				}
+	final void checkForError() throws IOException {
+		if (!closed) {
+			if (IOError) {
+				IOError = false;
+				throw new IOException();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eo.B(").append(i).append(')').toString());
 		}
 	}
 
 	@Override
 	public final void run() {
-		do {
-			try {
-				try {
-					for (;;) {
-						int i;
-						int i_9_;
-						synchronized (this) {
-							if (anInt429 == anInt418) {
-								if (aBoolean417) {
-									break;
-								}
-								try {
-									this.wait();
-								} catch (final InterruptedException interruptedexception) {
-									/* empty */
-								}
-							}
-							i = anInt418;
-							if (anInt418 <= anInt429) {
-								i_9_ = anInt429 - anInt418;
-							} else {
-								i_9_ = 5000 + -anInt418;
-							}
+		try {
+			for (;;) {
+				int off;
+				int len;
+				synchronized (this) {
+					if (tnum == tcycle) {
+						if (closed) {
+							break;
 						}
-						if (i_9_ > 0) {
-							try {
-								anOutputStream416.write(aByteArray421, i, i_9_);
-							} catch (final IOException ioexception) {
-								aBoolean425 = true;
-							}
-							anInt418 = (i_9_ + anInt418) % 5000;
-							try {
-								if (anInt429 == anInt418) {
-									anOutputStream416.flush();
-								}
-							} catch (final IOException ioexception) {
-								aBoolean425 = true;
-							}
+						try {
+							this.wait();
+						} catch (final InterruptedException interruptedexception) {
+							/* empty */
 						}
 					}
+					off = tcycle;
+					if (tcycle <= tnum) {
+						len = tnum - tcycle;
+					} else {
+						len = 5000 - tcycle;
+					}
+				}
+				if (len > 0) {
 					try {
-						if (anInputStream424 != null) {
-							anInputStream424.close();
-						}
-						if (anOutputStream416 != null) {
-							anOutputStream416.close();
-						}
-						if (aSocket422 != null) {
-							aSocket422.close();
+						outputStream.write(buffer, off, len);
+					} catch (final IOException ioexception) {
+						IOError = true;
+					}
+					tcycle = (len + tcycle) % 5000;
+					try {
+						if (tnum == tcycle) {
+							outputStream.flush();
 						}
 					} catch (final IOException ioexception) {
-						/* empty */
+						IOError = true;
 					}
-					aByteArray421 = null;
-				} catch (final Exception exception) {
-					Class180_Sub3.method2312(exception, null);
-					break;
 				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, "eo.run()");
 			}
-		} while (false);
+			try {
+				if (inputStream != null) {
+					inputStream.close();
+				}
+				if (outputStream != null) {
+					outputStream.close();
+				}
+				if (socket != null) {
+					socket.close();
+				}
+			} catch (final IOException ioexception) {
+				/* empty */
+			}
+			buffer = null;
+		} catch (final Exception exception) {
+			Class180_Sub3.method2312(exception, null);
+		}
 	}
 
 	final void put(final byte[] buf, final int off, final int len) throws IOException {
-		if (!aBoolean417) {
-			if (aBoolean425) {
-				aBoolean425 = false;
+		if (!closed) {
+			if (IOError) {
+				IOError = false;
 				throw new IOException();
 			}
-			if (aByteArray421 == null) {
-				aByteArray421 = new byte[5000];
+			if (buffer == null) {
+				buffer = new byte[5000];
 			}
 			synchronized (this) {
-				for (int i_12_ = 0; i_12_ < len; i_12_++) {
-					aByteArray421[anInt429] = buf[i_12_ + off];
-					anInt429 = (anInt429 + 1) % 5000;
-					if ((anInt418 + 4900) % 5000 == anInt429) {
+				for (int id = 0; id < len; id++) {
+					buffer[tnum] = buf[id + off];
+					tnum = (tnum + 1) % 5000;
+					if ((tcycle + 4900) % 5000 == tnum) {
 						throw new IOException();
 					}
 				}
-				if (aClass185_428 == null) {
-					aClass185_428 = aClass135_427.startThread(this, 3);
+				if (socketThread == null) {
+					socketThread = signlink.startThread(this, 3);
 				}
 				notifyAll();
 			}
@@ -355,11 +329,11 @@ final class JagexSocket implements Runnable {
 	}
 
 	JagexSocket(final Socket socket, final Signlink signlink) throws IOException {
-		aSocket422 = socket;
-		aClass135_427 = signlink;
-		aSocket422.setSoTimeout(30000);
-		aSocket422.setTcpNoDelay(true);
-		anInputStream424 = aSocket422.getInputStream();
-		anOutputStream416 = aSocket422.getOutputStream();
+		this.socket = socket;
+		this.signlink = signlink;
+		this.socket.setSoTimeout(30000);
+		this.socket.setTcpNoDelay(true);
+		this.inputStream = this.socket.getInputStream();
+		this.outputStream = this.socket.getOutputStream();
 	}
 }

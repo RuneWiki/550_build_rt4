@@ -4,73 +4,73 @@
 
 final class JagexInterface {
 	Object[] anObjectArray1929;
-	int anInt1930;
+	int maxScrollHorizontal;
 	JagexInterface aClass189_1931 = null;
 	Object[] anObjectArray1932;
 	InterfaceClickMask clickMask;
-	String aString1934;
-	int anInt1935 = 0;
-	String aString1936;
-	int anInt1937;
-	int anInt1938;
+	String tooltip;
+	int rotateZ = 0;
+	String enabledText;
+	int maxScrollVertical;
+	int y;
 	boolean aBoolean1939;
 	boolean aBoolean1940;
 	int cursorId;
 	Object[] anObjectArray1942;
-	boolean aBoolean1943;
+	boolean flipVertical;
 	Object[] anObjectArray1944;
-	int anInt1945;
-	int anInt1946;
+	int disabledAnim;
+	int currentFrame;
 	Object[] anObjectArray1947;
 	int anInt1948;
 	int[] anIntArray1949;
-	String aString1950 = "";
+	String disabledText = "";
 	Object[] anObjectArray1951;
 	static Thread gameShellThread;
 	Object[] anObjectArray1953;
 	Object[] anObjectArray1954;
 	byte[] aByteArray1955;
 	boolean aBoolean1956;
-	int[] anIntArray1957;
-	boolean aBoolean1958;
+	int[] spriteIDs;
+	boolean flipHorizontal;
 	Object[] anObjectArray1959;
 	boolean aBoolean1960;
-	int anInt1961;
+	int mediaIdDisabled;
 	int anInt1962;
 	byte aByte1963;
 	String aString1964;
-	int anInt1965 = 0;
+	int frameDelay = 0;
 	int anInt1966;
-	int anInt1967;
+	int thickness;
 	int anInt1968;
-	int anInt1969;
-	int[][] anIntArrayArray1970;
+	int rotateSpeed;
+	int[][] cs1opcodes;
 	boolean aBoolean1971;
-	int anInt1972;
+	int enabledColor;
 	int[] anIntArray1973;
-	int anInt1974;
+	int alpha;
 	int clientCode;
 	Object[] anObjectArray1976;
 	int anInt1977;
-	int[] anIntArray1978;
-	String aString1979;
+	int[] objAmounts;
+	String spellName;
 	Object[] anObjectArray1980;
-	int anInt1981;
+	int translateX;
 	int anInt1982;
-	int[] anIntArray1983;
+	int[] objIds;
 	Object[] anObjectArray1984;
 	int[] anIntArray1985;
-	int[] anIntArray1986;
-	private int anInt1987;
-	int[] anIntArray1988;
+	int[] spriteYs;
+	private int mediaTypeEnabled;
+	int[] spriteXs;
 	boolean aBoolean1989;
-	int anInt1990;
+	int enabledAnim;
 	int[] anIntArray1991;
-	int[] anIntArray1992;
+	int[] cursors;
 	Object[] anObjectArray1993;
 	String aString1994;
 	int type;
-	int anInt1996;
+	int actionType;
 	int anInt1997;
 	Object[] anObjectArray1998;
 	int bitPacked;
@@ -79,100 +79,100 @@ final class JagexInterface {
 	int anInt2002;
 	boolean aBoolean2003;
 	int anInt2004;
-	int anInt2005;
+	int zoom;
 	Object[] anObjectArray2006;
 	int anInt2007;
-	int anInt2008;
-	int anInt2009;
-	int anInt2010;
-	int anInt2011;
-	int anInt2012;
+	int translateY;
+	int verticalAlignment;
+	int mouseOverId;
+	int horizontalAlignment;
+	int enabledSprite;
 	Object[] anObjectArray2013;
-	int anInt2014;
-	int anInt2015;
-	private int anInt2016;
+	int originalWidth;
+	int originalX;
+	private int mediaIdEnabled;
 	byte aByte2017;
 	boolean aBoolean2018;
-	boolean aBoolean2019;
+	boolean filled;
 	int anInt2020;
-	int anInt2021;
+	int horizontalScrollPosition;
 	int[] anIntArray2022;
-	int anInt2023;
+	int verticalScrollPosition;
 	Object[] anObjectArray2024;
-	int anInt2025;
-	int anInt2026;
+	int disabledColor;
+	int shadow;
 	static int anInt2027;
 	int anInt2028;
-	int anInt2029;
+	int parent;
 	int anInt2030;
-	int anInt2031;
+	int modelTypeDisabled;
 	Object[] anObjectArray2032;
 	int anInt2033;
 	Object[] anObjectArray2034;
 	boolean aBoolean2035;
 	Object[] anObjectArray2036;
 	int anInt2037;
-	int[] anIntArray2038;
+	int[] requiredValues;
 	int[] anIntArray2039;
-	boolean aBoolean2040;
+	boolean shaded;
 	boolean aBoolean2041;
 	static short[] aShortArray2042;
 	int anInt2043;
-	int anInt2044;
-	boolean aBoolean2045;
+	int objSpritePadX;
+	boolean hidden;
 	boolean aBoolean2046;
-	int anInt2047;
+	int rotateX;
 	byte[] aByteArray2048;
 	int anInt2049;
 	Object[] anObjectArray2050;
 	byte aByte2051;
-	String[] aStringArray2052;
+	String[] niActions;
 	static int anInt2053;
 	Object[] anObjectArray2054;
-	int anInt2055;
-	String[] aStringArray2056;
-	int anInt2057;
+	int disabledSprite;
+	String[] oiActions;
+	int verticalSpacing;
 	Object[] anObjectArray2058;
 	int anInt2059;
-	int anInt2060;
-	int anInt2061;
+	int originalHeight;
+	int originalY;
 	Object[] anObjectArray2062;
 	int[] anIntArray2063;
 	int anInt2064;
 	short aShort2065;
 	int anInt2066;
-	int anInt2067;
+	int font;
 	static int anInt2068 = 0;
 	int anInt2069;
-	int anInt2070;
-	int[] anIntArray2071;
+	int rotation;
+	int[] valueCompareType;
 	JagexInterface[] aClass189Array2072;
-	int anInt2073;
+	int x;
 	Object[] anObjectArray2074;
 	int anInt2075;
 	int anInt2076;
-	int anInt2077;
+	int objSpritePadY;
 	int anInt2078;
 	int[] anIntArray2079;
 	Object[] anObjectArray2080;
-	int anInt2081;
+	int disabledMouseOverColor;
 	int anInt2082;
 	int anInt2083;
 	Object[] anObjectArray2084;
 	int anInt2085;
 	Object[] anObjectArray2086;
-	int anInt2087;
+	int enabledMouseOverColor;
 	int anInt2088;
 	Object[] anObjectArray2089;
-	int anInt2090;
-	int anInt2091;
+	int outline;
+	int rotateY;
 	byte aByte2092;
 	short aShort2093;
 	int anInt2094;
-	String aString2095;
+	String selectedActionName;
 	int[] anIntArray2096;
 	boolean aBoolean2097;
-	int anInt2098;
+	int nextFrame;
 
 	static {
 		anInt2027 = 0;
@@ -181,125 +181,115 @@ final class JagexInterface {
 	}
 
 	final void setAction(final String string, final int i_0_) {
-		if (this.aStringArray2052 == null || i_0_ >= this.aStringArray2052.length) {
+		if (this.niActions == null || i_0_ >= this.niActions.length) {
 			final String[] strings = new String[i_0_ + 1];
-			if (this.aStringArray2052 != null) {
-				for (int i_1_ = 0; this.aStringArray2052.length > i_1_; i_1_++) {
-					strings[i_1_] = this.aStringArray2052[i_1_];
+			if (this.niActions != null) {
+				for (int i_1_ = 0; this.niActions.length > i_1_; i_1_++) {
+					strings[i_1_] = this.niActions[i_1_];
 				}
 			}
-			this.aStringArray2052 = strings;
+			this.niActions = strings;
 		}
-		this.aStringArray2052[i_0_] = string;
+		this.niActions[i_0_] = string;
 	}
 
-	final Class180_Sub7 method2486(final Class40 class40, final PlayerAppearance playerAppearance, final int i, final byte i_2_, final int i_3_, final int i_4_, final boolean bool) {
-		Class180_Sub7 class180_sub7;
-		try {
-			if (i_2_ != -83) {
-				this.anInt2044 = 104;
-			}
-			int i_5_;
-			int i_6_;
-			if (!bool) {
-				i_6_ = this.anInt2031;
-				i_5_ = this.anInt1961;
-			} else {
-				i_5_ = anInt2016;
-				i_6_ = anInt1987;
-			}
-			Class88.aBoolean835 = false;
-			if (i_6_ == 0) {
-				return null;
-			}
-			if (i_6_ == 1 && i_5_ == -1) {
-				return null;
-			}
-			if (i_6_ == 1) {
-				Class180_Sub7 class180_sub7_7_ = (Class180_Sub7) Class120_Sub1.aClass21_2406.get(i_5_ + (i_6_ << 16));
-				if (class180_sub7_7_ == null) {
-					final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Decimator.aClass50_1721, i_5_, 0);
-					if (class180_sub2 == null) {
-						Class88.aBoolean835 = true;
-						return null;
-					}
-					class180_sub7_7_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-					Class120_Sub1.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
-				}
-				if (class40 != null) {
-					class180_sub7_7_ = class40.method323(false, i_4_, i, class180_sub7_7_, i_3_);
-				}
-				return class180_sub7_7_;
-			}
-			if (i_6_ == 2) {
-				final Class180_Sub7 class180_sub7_8_ = NpcType.list(i_5_).method2210(i, class40, (byte) -128, i_4_, i_3_);
-				if (class180_sub7_8_ == null) {
-					Class88.aBoolean835 = true;
-					return null;
-				}
-				return class180_sub7_8_;
-			}
-			if (i_6_ == 3) {
-				if (playerAppearance == null) {
-					return null;
-				}
-				final Class180_Sub7 class180_sub7_9_ = playerAppearance.method2044(i_4_, class40, i, (byte) 60, i_3_);
-				if (class180_sub7_9_ == null) {
-					Class88.aBoolean835 = true;
-					return null;
-				}
-				return class180_sub7_9_;
-			}
-			if (i_6_ == 4) {
-				final ObjType objType = ObjType.list(i_5_);
-				final Class180_Sub7 class180_sub7_10_ = objType.method2105(i_3_, 10, -102, i, playerAppearance, class40, i_4_);
-				if (class180_sub7_10_ == null) {
-					Class88.aBoolean835 = true;
-					return null;
-				}
-				return class180_sub7_10_;
-			}
-			if (i_6_ == 6) {
-				final Class180_Sub7 class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, -95, null, class40, i, null, 0, 0, i_4_);
-				if (class180_sub7_11_ == null) {
-					Class88.aBoolean835 = true;
-					return null;
-				}
-				return class180_sub7_11_;
-			}
-			if (i_6_ == 7) {
-				if (playerAppearance == null) {
-					return null;
-				}
-				final int i_12_ = this.anInt1961 & 0xffff;
-				final int i_13_ = this.anInt1997;
-				final int i_14_ = this.anInt1961 >>> 16;
-				final Class180_Sub7 class180_sub7_15_ = playerAppearance.method2041(-6, class40, i_12_, i_13_, i_3_, i_4_, i_14_, i);
-				if (class180_sub7_15_ == null) {
-					Class88.aBoolean835 = true;
-					return null;
-				}
-				return class180_sub7_15_;
-			}
-			class180_sub7 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("wf.K(").append(class40 != null ? "{...}" : "null").append(',').append(playerAppearance != null ? "{...}" : "null").append(',').append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(bool).append(')').toString());
+	final Class180_Sub7 method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
+		int i_5_;
+		int i_6_;
+		if (!bool) {
+			i_6_ = this.modelTypeDisabled;
+			i_5_ = this.mediaIdDisabled;
+		} else {
+			i_5_ = mediaIdEnabled;
+			i_6_ = mediaTypeEnabled;
 		}
-		return class180_sub7;
+		Class88.aBoolean835 = false;
+		if (i_6_ == 0) {
+			return null;
+		}
+		if (i_6_ == 1 && i_5_ == -1) {
+			return null;
+		}
+		if (i_6_ == 1) {
+			Class180_Sub7 class180_sub7_7_ = (Class180_Sub7) Class120_Sub1.aClass21_2406.get(i_5_ + (i_6_ << 16));
+			if (class180_sub7_7_ == null) {
+				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Decimator.aClass50_1721, i_5_, 0);
+				if (class180_sub2 == null) {
+					Class88.aBoolean835 = true;
+					return null;
+				}
+				class180_sub7_7_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+				Class120_Sub1.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
+			}
+			if (seqType != null) {
+				class180_sub7_7_ = seqType.method323(false, i_4_, i, class180_sub7_7_, i_3_);
+			}
+			return class180_sub7_7_;
+		}
+		if (i_6_ == 2) {
+			final Class180_Sub7 class180_sub7_8_ = NpcType.list(i_5_).method2210(i, seqType, (byte) -128, i_4_, i_3_);
+			if (class180_sub7_8_ == null) {
+				Class88.aBoolean835 = true;
+				return null;
+			}
+			return class180_sub7_8_;
+		}
+		if (i_6_ == 3) {
+			if (playerAppearance == null) {
+				return null;
+			}
+			final Class180_Sub7 class180_sub7_9_ = playerAppearance.method2044(i_4_, seqType, i, (byte) 60, i_3_);
+			if (class180_sub7_9_ == null) {
+				Class88.aBoolean835 = true;
+				return null;
+			}
+			return class180_sub7_9_;
+		}
+		if (i_6_ == 4) {
+			final ObjType objType = ObjType.list(i_5_);
+			final Class180_Sub7 class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
+			if (class180_sub7_10_ == null) {
+				Class88.aBoolean835 = true;
+				return null;
+			}
+			return class180_sub7_10_;
+		}
+		if (i_6_ == 6) {
+			final Class180_Sub7 class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, -95, null, seqType, i, null, 0, 0, i_4_);
+			if (class180_sub7_11_ == null) {
+				Class88.aBoolean835 = true;
+				return null;
+			}
+			return class180_sub7_11_;
+		}
+		if (i_6_ == 7) {
+			if (playerAppearance == null) {
+				return null;
+			}
+			final int i_12_ = this.mediaIdDisabled & 0xffff;
+			final int i_13_ = this.anInt1997;
+			final int i_14_ = this.mediaIdDisabled >>> 16;
+			final Class180_Sub7 class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
+			if (class180_sub7_15_ == null) {
+				Class88.aBoolean835 = true;
+				return null;
+			}
+			return class180_sub7_15_;
+		}
+		return null;
 	}
 
 	final AbstractSprite method2487(final byte i, final int i_16_) {
 		AbstractSprite class120_sub14_sub19;
 		try {
 			Class88.aBoolean835 = false;
-			if (i_16_ < 0 || i_16_ >= this.anIntArray1957.length) {
+			if (i_16_ < 0 || i_16_ >= this.spriteIDs.length) {
 				return null;
 			}
 			if (i <= 106) {
 				method2499(110, -113);
 			}
-			final int i_17_ = this.anIntArray1957[i_16_];
+			final int i_17_ = this.spriteIDs[i_16_];
 			if (i_17_ == -1) {
 				return null;
 			}
@@ -320,24 +310,20 @@ final class JagexInterface {
 		return class120_sub14_sub19;
 	}
 
-	final void method2488(final int i, final int i_19_, final int i_20_) {
-		try {
-			if (this.anIntArray1992 == null || i >= this.anIntArray1992.length) {
-				final int[] is = new int[1 + i];
-				if (this.anIntArray1992 != null) {
-					for (int i_21_ = 0; this.anIntArray1992.length > i_21_; i_21_++) {
-						is[i_21_] = this.anIntArray1992[i_21_];
-					}
-					for (int i_22_ = this.anIntArray1992.length; i > i_22_; i_22_++) {
-						is[i_22_] = -1;
-					}
+	final void setCursor(final int index, final int cursor) {
+		if (this.cursors == null || this.cursors.length <= index) {
+			final int[] newArray = new int[1 + index];
+			if (this.cursors != null) {
+				for (int i_21_ = 0; i_21_ < this.cursors.length; i_21_++) {
+					newArray[i_21_] = this.cursors[i_21_];
 				}
-				this.anIntArray1992 = is;
+				for (int i_22_ = this.cursors.length; i_22_< index; i_22_++) {
+					newArray[i_22_] = -1;
+				}
 			}
-			this.anIntArray1992[i] = i_19_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.G(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+			this.cursors = newArray;
 		}
+		this.cursors[index] = cursor;
 	}
 
 	final Class41 method2489(final int i) {
@@ -355,7 +341,7 @@ final class JagexInterface {
 
 	static final void method2490(final int i, final int i_23_) {
 		try {
-			OutputStream_Sub1.aClass21_30.method192(i);
+			DummyOutputStream.aClass21_30.method192(i);
 			if (i_23_ <= 7) {
 				anInt2053 = -76;
 			}
@@ -368,54 +354,54 @@ final class JagexInterface {
 	final void decodeOld(final Buffer buffer) {
 		this.aBoolean2041 = false;
 		this.type = buffer.getUByte();
-		this.anInt1996 = buffer.getUByte();
+		this.actionType = buffer.getUByte();
 		this.clientCode = buffer.getUShort();
-		this.anInt2015 = buffer.method1078(true);
-		this.anInt2061 = buffer.method1078(true);
-		this.anInt2014 = buffer.getUShort();
-		this.anInt2060 = buffer.getUShort();
+		this.originalX = buffer.getShort();
+		this.originalY = buffer.getShort();
+		this.originalWidth = buffer.getUShort();
+		this.originalHeight = buffer.getUShort();
 		this.aByte2092 = (byte) 0;
 		this.aByte2051 = (byte) 0;
 		this.aByte2017 = (byte) 0;
 		this.aByte1963 = (byte) 0;
-		this.anInt1974 = buffer.getUByte();
-		this.anInt2029 = buffer.getUShort();
-		if (-65536 != (this.anInt2029 ^ 0xffffffff)) {
-			this.anInt2029 = this.anInt2029 + (~0xffff & this.bitPacked);
+		this.alpha = buffer.getUByte();
+		this.parent = buffer.getUShort();
+		if (this.parent == 65535) {
+			this.parent = -1;
 		} else {
-			this.anInt2029 = -1;
+			this.parent = this.parent + (~0xffff & this.bitPacked);
 		}
-		this.anInt2010 = buffer.getUShort();
-		if ((this.anInt2010 ^ 0xffffffff) == -65536) {
-			this.anInt2010 = -1;
+		this.mouseOverId = buffer.getUShort();
+		if ((this.mouseOverId ^ 0xffffffff) == -65536) {
+			this.mouseOverId = -1;
 		}
-		final int i_24_ = buffer.getUByte();
-		if (i_24_ > 0) {
-			this.anIntArray2038 = new int[i_24_];
-			this.anIntArray2071 = new int[i_24_];
-			for (int i_25_ = 0; i_25_ < i_24_; i_25_++) {
-				this.anIntArray2038[i_25_] = buffer.getUByte();
-				this.anIntArray2071[i_25_] = buffer.getUShort();
+		final int valueCompareCount = buffer.getUByte();
+		if (valueCompareCount > 0) {
+			this.requiredValues = new int[valueCompareCount];
+			this.valueCompareType = new int[valueCompareCount];
+			for (int id = 0; id < valueCompareCount; id++) {
+				this.requiredValues[id] = buffer.getUByte();
+				this.valueCompareType[id] = buffer.getUShort();
 			}
 		}
-		final int i_26_ = buffer.getUByte();
-		if (i_26_ > 0) {
-			this.anIntArrayArray1970 = new int[i_26_][];
-			for (int i_27_ = 0; i_27_ < i_26_; i_27_++) {
+		final int cs1length = buffer.getUByte();
+		if (cs1length > 0) {
+			this.cs1opcodes = new int[cs1length][];
+			for (int i_27_ = 0; i_27_ < cs1length; i_27_++) {
 				final int i_28_ = buffer.getUShort();
-				this.anIntArrayArray1970[i_27_] = new int[i_28_];
+				this.cs1opcodes[i_27_] = new int[i_28_];
 				for (int i_29_ = 0; i_28_ > i_29_; i_29_++) {
-					this.anIntArrayArray1970[i_27_][i_29_] = buffer.getUShort();
-					if (65535 == this.anIntArrayArray1970[i_27_][i_29_]) {
-						this.anIntArrayArray1970[i_27_][i_29_] = -1;
+					this.cs1opcodes[i_27_][i_29_] = buffer.getUShort();
+					if (65535 == this.cs1opcodes[i_27_][i_29_]) {
+						this.cs1opcodes[i_27_][i_29_] = -1;
 					}
 				}
 			}
 		}
-		int i_30_ = 0;
+		int clickMask = 0;
 		if (this.type == 0) {
-			this.anInt1937 = buffer.getUShort();
-			this.aBoolean2045 = buffer.getUByte() == 1;
+			this.maxScrollVertical = buffer.getUShort();
+			this.hidden = buffer.getUByte() == 1;
 		}
 		if (this.type == 1) {
 			buffer.getUShort();
@@ -424,226 +410,217 @@ final class JagexInterface {
 		if (this.type == 2) {
 			this.aByte1963 = (byte) 3;
 			this.aByte2092 = (byte) 3;
-			this.anIntArray1983 = new int[this.anInt2060 * this.anInt2014];
-			this.anIntArray1978 = new int[this.anInt2014 * this.anInt2060];
+			this.objIds = new int[this.originalHeight * this.originalWidth];
+			this.objAmounts = new int[this.originalWidth * this.originalHeight];
 			final int i_31_ = buffer.getUByte();
 			final int i_32_ = buffer.getUByte();
 			if (i_31_ == 1) {
-				i_30_ |= 0x10000000;
+				clickMask |= 0x10000000;
 			}
 			final int i_33_ = buffer.getUByte();
 			if (i_32_ == 1) {
-				i_30_ |= 0x40000000;
+				clickMask |= 0x40000000;
 			}
 			final int i_34_ = buffer.getUByte();
 			if (i_33_ == 1) {
-				i_30_ |= ~0x7fffffff;
+				clickMask |= ~0x7fffffff;
 			}
 			if (i_34_ == 1) {
-				i_30_ |= 0x20000000;
+				clickMask |= 0x20000000;
 			}
-			this.anInt2044 = buffer.getUByte();
-			this.anInt2077 = buffer.getUByte();
-			this.anIntArray1986 = new int[20];
-			this.anIntArray1988 = new int[20];
-			this.anIntArray1957 = new int[20];
+			this.objSpritePadX = buffer.getUByte();
+			this.objSpritePadY = buffer.getUByte();
+			this.spriteYs = new int[20];
+			this.spriteXs = new int[20];
+			this.spriteIDs = new int[20];
 			for (int i_35_ = 0; i_35_ < 20; i_35_++) {
 				final int i_36_ = buffer.getUByte();
 				if (i_36_ == 1) {
-					this.anIntArray1988[i_35_] = buffer.method1078(true);
-					this.anIntArray1986[i_35_] = buffer.method1078(true);
-					this.anIntArray1957[i_35_] = buffer.getInt();
+					this.spriteXs[i_35_] = buffer.getShort();
+					this.spriteYs[i_35_] = buffer.getShort();
+					this.spriteIDs[i_35_] = buffer.getInt();
 				} else {
-					this.anIntArray1957[i_35_] = -1;
+					this.spriteIDs[i_35_] = -1;
 				}
 			}
-			this.aStringArray2056 = new String[5];
+			this.oiActions = new String[5];
 			for (int i_37_ = 0; i_37_ < 5; i_37_++) {
 				final String string = buffer.getJString();
 				if (string.length() > 0) {
-					this.aStringArray2056[i_37_] = string;
-					i_30_ |= 1 << i_37_ + 23;
+					this.oiActions[i_37_] = string;
+					clickMask |= 1 << i_37_ + 23;
 				}
 			}
 		}
 		if (this.type == 3) {
-			this.aBoolean2019 = buffer.getUByte() == 1;
+			this.filled = buffer.getUByte() == 1;
 		}
 		if (this.type == 4 || this.type == 1) {
-			this.anInt2011 = buffer.getUByte();
-			this.anInt2009 = buffer.getUByte();
-			this.anInt2057 = buffer.getUByte();
-			this.anInt2067 = buffer.getUShort();
-			if (-65536 == (this.anInt2067 ^ 0xffffffff)) {
-				this.anInt2067 = -1;
+			this.horizontalAlignment = buffer.getUByte();
+			this.verticalAlignment = buffer.getUByte();
+			this.verticalSpacing = buffer.getUByte();
+			this.font = buffer.getUShort();
+			if (this.font == 65535) {
+				this.font = -1;
 			}
-			this.aBoolean2040 = buffer.getUByte() == 1;
+			this.shaded = buffer.getUByte() == 1;
 		}
 		if (this.type == 4) {
-			this.aString1950 = buffer.getJString();
-			this.aString1936 = buffer.getJString();
+			this.disabledText = buffer.getJString();
+			this.enabledText = buffer.getJString();
 		}
 		if (this.type == 1 || this.type == 3 || this.type == 4) {
-			this.anInt2025 = buffer.getInt();
+			this.disabledColor = buffer.getInt();
 		}
 		if (this.type == 3 || this.type == 4) {
-			this.anInt1972 = buffer.getInt();
-			this.anInt2081 = buffer.getInt();
-			this.anInt2087 = buffer.getInt();
+			this.enabledColor = buffer.getInt();
+			this.disabledMouseOverColor = buffer.getInt();
+			this.enabledMouseOverColor = buffer.getInt();
 		}
 		if (this.type == 5) {
-			this.anInt2055 = buffer.getInt();
-			this.anInt2012 = buffer.getInt();
+			this.disabledSprite = buffer.getInt();
+			this.enabledSprite = buffer.getInt();
 		}
 		if (this.type == 6) {
-			this.anInt2031 = 1;
-			this.anInt1961 = buffer.getUShort();
-			anInt1987 = 1;
-			if ((this.anInt1961 ^ 0xffffffff) == -65536) {
-				this.anInt1961 = -1;
+			this.modelTypeDisabled = 1;
+			this.mediaIdDisabled = buffer.getUShort();
+			if (this.mediaIdDisabled == 65535) {
+				this.mediaIdDisabled = -1;
 			}
-			anInt2016 = buffer.getUShort();
-			if (-65536 == (anInt2016 ^ 0xffffffff)) {
-				anInt2016 = -1;
+			mediaTypeEnabled = 1;
+			mediaIdEnabled = buffer.getUShort();
+			if (mediaIdEnabled == 65535) {
+				mediaIdEnabled = -1;
 			}
-			this.anInt1945 = buffer.getUShort();
-			if (this.anInt1945 == 65535) {
-				this.anInt1945 = -1;
+			this.disabledAnim = buffer.getUShort();
+			if (this.disabledAnim == 65535) {
+				this.disabledAnim = -1;
 			}
-			this.anInt1990 = buffer.getUShort();
-			if (65535 == this.anInt1990) {
-				this.anInt1990 = -1;
+			this.enabledAnim = buffer.getUShort();
+			if (this.enabledAnim == 65535) {
+				this.enabledAnim = -1;
 			}
-			this.anInt2005 = buffer.getUShort();
-			this.anInt2047 = buffer.getUShort();
-			this.anInt2091 = buffer.getUShort();
+			this.zoom = buffer.getUShort();
+			this.rotateX = buffer.getUShort();
+			this.rotateY = buffer.getUShort();
 		}
 		if (this.type == 7) {
 			this.aByte2092 = (byte) 3;
 			this.aByte1963 = (byte) 3;
-			this.anIntArray1983 = new int[this.anInt2014 * this.anInt2060];
-			this.anIntArray1978 = new int[this.anInt2060 * this.anInt2014];
-			this.anInt2011 = buffer.getUByte();
-			this.anInt2067 = buffer.getUShort();
-			if (-65536 == (this.anInt2067 ^ 0xffffffff)) {
-				this.anInt2067 = -1;
+			this.objIds = new int[this.originalWidth * this.originalHeight];
+			this.objAmounts = new int[this.originalHeight * this.originalWidth];
+			this.horizontalAlignment = buffer.getUByte();
+			this.font = buffer.getUShort();
+			if (this.font == 65535) {
+				this.font = -1;
 			}
-			this.aBoolean2040 = buffer.getUByte() == 1;
-			this.anInt2025 = buffer.getInt();
-			this.anInt2044 = buffer.method1078(true);
-			this.anInt2077 = buffer.method1078(true);
+			this.shaded = buffer.getUByte() == 1;
+			this.disabledColor = buffer.getInt();
+			this.objSpritePadX = buffer.getShort();
+			this.objSpritePadY = buffer.getShort();
 			final int i_38_ = buffer.getUByte();
 			if (i_38_ == 1) {
-				i_30_ |= 0x40000000;
+				clickMask |= 0x40000000;
 			}
-			this.aStringArray2056 = new String[5];
+			this.oiActions = new String[5];
 			for (int i_39_ = 0; i_39_ < 5; i_39_++) {
 				final String string = buffer.getJString();
 				if (string.length() > 0) {
-					this.aStringArray2056[i_39_] = string;
-					i_30_ |= 1 << i_39_ + 23;
+					this.oiActions[i_39_] = string;
+					clickMask |= 1 << i_39_ + 23;
 				}
 			}
 		}
 		if (this.type == 8) {
-			this.aString1950 = buffer.getJString();
+			this.disabledText = buffer.getJString();
 		}
-		if (this.anInt1996 == 2 || this.type == 2) {
-			this.aString2095 = buffer.getJString();
-			this.aString1979 = buffer.getJString();
+		if (this.actionType == 2 || this.type == 2) {
+			this.selectedActionName = buffer.getJString();
+			this.spellName = buffer.getJString();
 			final int i_40_ = 0x3f & buffer.getUShort();
-			i_30_ |= i_40_ << 11;
+			clickMask |= i_40_ << 11;
 		}
-		if (this.anInt1996 == 1 || this.anInt1996 == 4 || this.anInt1996 == 5 || this.anInt1996 == 6) {
-			this.aString1934 = buffer.getJString();
-			if (this.aString1934.length() == 0) {
-				if (this.anInt1996 == 1) {
-					this.aString1934 = Class120_Sub12_Sub28.aString3360;
+		if (this.actionType == 1 || this.actionType == 4 || this.actionType == 5 || this.actionType == 6) {
+			this.tooltip = buffer.getJString();
+			if (this.tooltip.length() == 0) {
+				if (this.actionType == 1) {
+					this.tooltip = Class120_Sub12_Sub28.okString;
 				}
-				if (this.anInt1996 == 4) {
-					this.aString1934 = Class143.aString2183;
+				if (this.actionType == 4) {
+					this.tooltip = Class143.selectString;
 				}
-				if (this.anInt1996 == 5) {
-					this.aString1934 = Class143.aString2183;
+				if (this.actionType == 5) {
+					this.tooltip = Class143.selectString;
 				}
-				if (this.anInt1996 == 6) {
-					this.aString1934 = Class109.aString1046;
+				if (this.actionType == 6) {
+					this.tooltip = Class109.continueString;
 				}
 			}
 		}
-		if (this.anInt1996 == 1 || this.anInt1996 == 4 || this.anInt1996 == 5) {
-			i_30_ |= 0x400000;
+		if (this.actionType == 1 || this.actionType == 4 || this.actionType == 5) {
+			clickMask |= 0x400000;
 		}
-		if (this.anInt1996 == 6) {
-			i_30_ |= 0x1;
+		if (this.actionType == 6) {
+			clickMask |= 0x1;
 		}
-		this.clickMask = new InterfaceClickMask(i_30_, -1);
+		this.clickMask = new InterfaceClickMask(clickMask, -1);
 	}
 
-	final AbstractSprite method2492(final boolean bool, final byte i) {
-		AbstractSprite class120_sub14_sub19;
-		try {
-			Class88.aBoolean835 = false;
-			int i_41_;
-			if (!bool) {
-				i_41_ = this.anInt2055;
-			} else {
-				i_41_ = this.anInt2012;
-			}
-			if (i_41_ == -1) {
-				return null;
-			}
-			final long l = ((!this.aBoolean1958 ? 0L : 1L) << 39) + ((long) this.anInt2090 << 36) + i_41_ + ((this.aBoolean2018 ? 1L : 0L) << 35) - -((this.aBoolean1943 ? 1L : 0L) << 38) + ((long) this.anInt2026 << 40);
-			AbstractSprite class120_sub14_sub19_42_ = (AbstractSprite) Class180_Sub6.aClass21_3071.get(l);
-			if (class120_sub14_sub19_42_ != null) {
-				return class120_sub14_sub19_42_;
-			}
-			LDSprite class120_sub14_sub19_sub2;
-			if (!this.aBoolean2018) {
-				class120_sub14_sub19_sub2 = Class120_Sub14_Sub13.method1534(Class89.aClass50_836, (byte) -49, i_41_, 0);
-			} else {
-				class120_sub14_sub19_sub2 = Class120_Sub12_Sub26.method1340(Class89.aClass50_836, i_41_, 0);
-			}
-			if (class120_sub14_sub19_sub2 == null) {
-				Class88.aBoolean835 = true;
-				return null;
-			}
-			if (this.aBoolean1943) {
-				class120_sub14_sub19_sub2.method1608();
-			}
-			if (this.aBoolean1958) {
-				class120_sub14_sub19_sub2.method1603();
-			}
-			if (this.anInt2090 > 0) {
-				class120_sub14_sub19_sub2.method1616(this.anInt2090);
-			}
-			if (this.anInt2090 >= 1) {
-				class120_sub14_sub19_sub2.method1613(1);
-			}
-			if (this.anInt2090 >= 2) {
-				class120_sub14_sub19_sub2.method1613(16777215);
-			}
-			if (this.anInt2026 != 0) {
-				class120_sub14_sub19_sub2.method1607(this.anInt2026);
-			}
-			if (HDToolkit.glEnabled) {
-				if (!(class120_sub14_sub19_sub2 instanceof LDTransparentSprite)) {
-					class120_sub14_sub19_42_ = new HDSprite(class120_sub14_sub19_sub2);
-				} else {
-					class120_sub14_sub19_42_ = new HDTransparentSprite(class120_sub14_sub19_sub2);
-				}
-			} else {
-				class120_sub14_sub19_42_ = class120_sub14_sub19_sub2;
-			}
-			Class180_Sub6.aClass21_3071.put(class120_sub14_sub19_42_, l);
-			if (i != -18) {
-				method2487((byte) 42, 52);
-			}
-			class120_sub14_sub19 = class120_sub14_sub19_42_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.C(").append(bool).append(',').append(i).append(')').toString());
+	final AbstractSprite method2492(final boolean bool) {
+		Class88.aBoolean835 = false;
+		int i_41_;
+		if (!bool) {
+			i_41_ = this.disabledSprite;
+		} else {
+			i_41_ = this.enabledSprite;
 		}
-		return class120_sub14_sub19;
+		if (i_41_ == -1) {
+			return null;
+		}
+		final long l = ((!this.flipHorizontal ? 0L : 1L) << 39) + ((long) this.outline << 36) + i_41_ + ((this.aBoolean2018 ? 1L : 0L) << 35) - -((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
+		AbstractSprite class120_sub14_sub19_42_ = (AbstractSprite) Class180_Sub6.aClass21_3071.get(l);
+		if (class120_sub14_sub19_42_ != null) {
+			return class120_sub14_sub19_42_;
+		}
+		LDSprite class120_sub14_sub19_sub2;
+		if (!this.aBoolean2018) {
+			class120_sub14_sub19_sub2 = Class120_Sub14_Sub13.method1534(Class89.aClass50_836, i_41_, 0);
+		} else {
+			class120_sub14_sub19_sub2 = Class120_Sub12_Sub26.method1340(Class89.aClass50_836, i_41_, 0);
+		}
+		if (class120_sub14_sub19_sub2 == null) {
+			Class88.aBoolean835 = true;
+			return null;
+		}
+		if (this.flipVertical) {
+			class120_sub14_sub19_sub2.method1608();
+		}
+		if (this.flipHorizontal) {
+			class120_sub14_sub19_sub2.method1603();
+		}
+		if (this.outline > 0) {
+			class120_sub14_sub19_sub2.method1616(this.outline);
+		}
+		if (this.outline >= 1) {
+			class120_sub14_sub19_sub2.method1613(1);
+		}
+		if (this.outline >= 2) {
+			class120_sub14_sub19_sub2.method1613(16777215);
+		}
+		if (this.shadow != 0) {
+			class120_sub14_sub19_sub2.method1607(this.shadow);
+		}
+		if (HDToolkit.glEnabled) {
+			if (!(class120_sub14_sub19_sub2 instanceof LDTransparentSprite)) {
+				class120_sub14_sub19_42_ = new HDSprite(class120_sub14_sub19_sub2);
+			} else {
+				class120_sub14_sub19_42_ = new HDTransparentSprite(class120_sub14_sub19_sub2);
+			}
+		} else {
+			class120_sub14_sub19_42_ = class120_sub14_sub19_sub2;
+		}
+		Class180_Sub6.aClass21_3071.put(class120_sub14_sub19_42_, l);
+		return class120_sub14_sub19_42_;
 	}
 
 	private final int[] method2493(final Buffer class120_sub7) {
@@ -690,54 +667,55 @@ final class JagexInterface {
 			buffer.getJString();
 		}
 		this.clientCode = buffer.getUShort();
-		this.anInt2015 = buffer.method1078(true);
-		this.anInt2061 = buffer.method1078(true);
-		this.anInt2014 = buffer.getUShort();
-		this.anInt2060 = buffer.getUShort();
+		this.originalX = buffer.getShort();
+		this.originalY = buffer.getShort();
+		this.originalWidth = buffer.getUShort();
+		this.originalHeight = buffer.getUShort();
 		this.aByte1963 = buffer.getByte();
 		this.aByte2092 = buffer.getByte();
 		this.aByte2051 = buffer.getByte();
 		this.aByte2017 = buffer.getByte();
-		this.anInt2029 = buffer.getUShort();
-		if (this.anInt2029 == 65535) {
-			this.anInt2029 = -1;
+		//System.out.println(aByte1963+":"+aByte2092+":"+aByte2051+":"+aByte2017);
+		this.parent = buffer.getUShort();
+		if (this.parent == 65535) {
+			this.parent = -1;
 		} else {
-			this.anInt2029 = (this.bitPacked & ~0xffff) + this.anInt2029;
+			this.parent = (this.bitPacked & ~0xffff) + this.parent;
 		}
-		this.aBoolean2045 = buffer.getUByte() == 1;
+		this.hidden = buffer.getUByte() == 1;
 		if (this.type == 0) {
-			this.anInt1930 = buffer.getUShort();
-			this.anInt1937 = buffer.getUShort();
+			this.maxScrollHorizontal = buffer.getUShort();
+			this.maxScrollVertical = buffer.getUShort();
 			this.aBoolean1960 = buffer.getUByte() == 1;
 		}
 		if (this.type == 5) {
-			this.anInt2055 = buffer.getInt();
-			this.anInt2070 = buffer.getUShort();
+			this.disabledSprite = buffer.getInt();
+			this.rotation = buffer.getUShort();
 			final int i_48_ = buffer.getUByte();
+			this.aBoolean2001 = (i_48_ & 0x1) != 0;
 			this.aBoolean2018 = (i_48_ & 0x2) != 0;
-			this.aBoolean2001 = (0x1 & i_48_) != 0;
-			this.anInt1974 = buffer.getUByte();
-			this.anInt2090 = buffer.getUByte();
-			this.anInt2026 = buffer.getInt();
-			this.aBoolean1943 = buffer.getUByte() == 1;
-			this.aBoolean1958 = buffer.getUByte() == 1;
-			this.anInt2025 = buffer.getInt();
+			this.alpha = buffer.getUByte();
+			this.outline = buffer.getUByte();
+			this.shadow = buffer.getInt();
+			this.flipVertical = buffer.getUByte() == 1;
+			this.flipHorizontal = buffer.getUByte() == 1;
+			this.disabledColor = buffer.getInt();
 		}
 		if (this.type == 6) {
-			this.anInt2031 = 1;
-			this.anInt1961 = buffer.getUShort();
-			if (this.anInt1961 == 65535) {
-				this.anInt1961 = -1;
+			this.modelTypeDisabled = 1;
+			this.mediaIdDisabled = buffer.getUShort();
+			if (this.mediaIdDisabled == 65535) {
+				this.mediaIdDisabled = -1;
 			}
-			this.anInt1981 = buffer.method1078(true);
-			this.anInt2008 = buffer.method1078(true);
-			this.anInt2047 = buffer.getUShort();
-			this.anInt2091 = buffer.getUShort();
-			this.anInt1935 = buffer.getUShort();
-			this.anInt2005 = buffer.getUShort();
-			this.anInt1945 = buffer.getUShort();
-			if ((this.anInt1945 ^ 0xffffffff) == -65536) {
-				this.anInt1945 = -1;
+			this.translateX = buffer.getShort();
+			this.translateY = buffer.getShort();
+			this.rotateX = buffer.getUShort();
+			this.rotateY = buffer.getUShort();
+			this.rotateZ = buffer.getUShort();
+			this.zoom = buffer.getUShort();
+			this.disabledAnim = buffer.getUShort();
+			if ((this.disabledAnim ^ 0xffffffff) == -65536) {
+				this.disabledAnim = -1;
 			}
 			this.aBoolean2046 = buffer.getUByte() == 1;
 			this.aShort2093 = (short) buffer.getUShort();
@@ -751,28 +729,28 @@ final class JagexInterface {
 			}
 		}
 		if (this.type == 4) {
-			this.anInt2067 = buffer.getUShort();
-			if (65535 == this.anInt2067) {
-				this.anInt2067 = -1;
+			this.font = buffer.getUShort();
+			if (65535 == this.font) {
+				this.font = -1;
 			}
-			this.aString1950 = buffer.getJString();
-			this.anInt2057 = buffer.getUByte();
-			this.anInt2011 = buffer.getUByte();
-			this.anInt2009 = buffer.getUByte();
-			this.aBoolean2040 = buffer.getUByte() == 1;
-			this.anInt2025 = buffer.getInt();
+			this.disabledText = buffer.getJString();
+			this.verticalSpacing = buffer.getUByte();
+			this.horizontalAlignment = buffer.getUByte();
+			this.verticalAlignment = buffer.getUByte();
+			this.shaded = buffer.getUByte() == 1;
+			this.disabledColor = buffer.getInt();
 		}
 		if (this.type == 3) {
-			this.anInt2025 = buffer.getInt();
-			this.aBoolean2019 = buffer.getUByte() == 1;
-			this.anInt1974 = buffer.getUByte();
+			this.disabledColor = buffer.getInt();
+			this.filled = buffer.getUByte() == 1;
+			this.alpha = buffer.getUByte();
 		}
 		if (this.type == 9) {
-			this.anInt1967 = buffer.getUByte();
-			this.anInt2025 = buffer.getInt();
+			this.thickness = buffer.getUByte();
+			this.disabledColor = buffer.getInt();
 			this.aBoolean1989 = buffer.getUByte() == 1;
 		}
-		final int i_49_ = buffer.getTriByte();
+		final int clickMask = buffer.getMedium();
 		int i_50_ = buffer.getUByte();
 		if (i_50_ != 0) {
 			this.aByteArray2048 = new byte[10];
@@ -796,22 +774,22 @@ final class JagexInterface {
 		final int i_53_ = i_52_ >> 4;
 		final int i_54_ = 0xf & i_52_;
 		if (i_54_ > 0) {
-			this.aStringArray2052 = new String[i_54_];
+			this.niActions = new String[i_54_];
 			for (int i_55_ = 0; i_54_ > i_55_; i_55_++) {
-				this.aStringArray2052[i_55_] = buffer.getJString();
+				this.niActions[i_55_] = buffer.getJString();
 			}
 		}
 		if (i_53_ > 0) {
 			final int i_56_ = buffer.getUByte();
-			this.anIntArray1992 = new int[i_56_ - -1];
-			for (int i_57_ = 0; i_57_ < this.anIntArray1992.length; i_57_++) {
-				this.anIntArray1992[i_57_] = -1;
+			this.cursors = new int[i_56_ + 1];
+			for (int i_57_ = 0; i_57_ < this.cursors.length; i_57_++) {
+				this.cursors[i_57_] = -1;
 			}
-			this.anIntArray1992[i_56_] = buffer.getUShort();
+			this.cursors[i_56_] = buffer.getUShort();
 		}
 		if (i_53_ > 1) {
 			final int i_58_ = buffer.getUByte();
-			this.anIntArray1992[i_58_] = buffer.getUShort();
+			this.cursors[i_58_] = buffer.getUShort();
 		}
 		this.aString1994 = buffer.getJString();
 		if (this.aString1994.equals("")) {
@@ -821,8 +799,8 @@ final class JagexInterface {
 		this.anInt1962 = buffer.getUByte();
 		this.anInt2066 = buffer.getUByte();
 		this.aBoolean1939 = buffer.getUByte() == 1;
-		this.aString2095 = buffer.getJString();
-		if (Class153.method2073(i_49_, 1841970955) != 0) {
+		this.selectedActionName = buffer.getJString();
+		if (Class153.method2073(clickMask) != 0) {
 			i_59_ = buffer.getUShort();
 			if (65535 == i_59_) {
 				i_59_ = -1;
@@ -836,7 +814,7 @@ final class JagexInterface {
 				this.cursorId = -1;
 			}
 		}
-		this.clickMask = new InterfaceClickMask(i_49_, i_59_);
+		this.clickMask = new InterfaceClickMask(clickMask, i_59_);
 		this.anObjectArray2034 = method2503(buffer);
 		this.anObjectArray2058 = method2503(buffer);
 		this.anObjectArray2074 = method2503(buffer);
@@ -866,15 +844,15 @@ final class JagexInterface {
 
 	final void method2496(final int i, final byte i_60_, final int i_61_) {
 		try {
-			int i_62_ = this.anIntArray1978[i];
-			this.anIntArray1978[i] = this.anIntArray1978[i_61_];
-			this.anIntArray1978[i_61_] = i_62_;
+			int i_62_ = this.objAmounts[i];
+			this.objAmounts[i] = this.objAmounts[i_61_];
+			this.objAmounts[i_61_] = i_62_;
 			if (i_60_ <= 53) {
 				method2501(69);
 			}
-			i_62_ = this.anIntArray1983[i];
-			this.anIntArray1983[i] = this.anIntArray1983[i_61_];
-			this.anIntArray1983[i_61_] = i_62_;
+			i_62_ = this.objIds[i];
+			this.objIds[i] = this.objIds[i_61_];
+			this.objIds[i_61_] = i_62_;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.D(").append(i).append(',').append(i_60_).append(',').append(i_61_).append(')').toString());
 		}
@@ -884,22 +862,22 @@ final class JagexInterface {
 		Class120_Sub14_Sub8 class120_sub14_sub8;
 		try {
 			Class88.aBoolean835 = false;
-			if ((this.anInt2067 ^ 0xffffffff) == 0) {
+			if ((this.font ^ 0xffffffff) == 0) {
 				return null;
 			}
 			if (i != 54) {
 				return null;
 			}
-			Class120_Sub14_Sub8 class120_sub14_sub8_63_ = (Class120_Sub14_Sub8) Class120_Sub12_Sub2.aClass21_3143.get(this.anInt2067);
+			Class120_Sub14_Sub8 class120_sub14_sub8_63_ = (Class120_Sub14_Sub8) Class120_Sub12_Sub2.aClass21_3143.get(this.font);
 			if (class120_sub14_sub8_63_ != null) {
 				return class120_sub14_sub8_63_;
 			}
-			class120_sub14_sub8_63_ = Class9.method117(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, 18265, this.anInt2067, 0);
+			class120_sub14_sub8_63_ = Class9.method117(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, 18265, this.font, 0);
 			if (class120_sub14_sub8_63_ == null) {
 				Class88.aBoolean835 = true;
 			} else {
 				class120_sub14_sub8_63_.method1474(class107s, null);
-				Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.anInt2067);
+				Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.font);
 			}
 			class120_sub14_sub8 = class120_sub14_sub8_63_;
 		} catch (final RuntimeException runtimeexception) {
@@ -1064,7 +1042,7 @@ final class JagexInterface {
 			if (this.anIntArray2079 != null) {
 				return true;
 			}
-			final Class107_Sub1 class107_sub1 = Class164.method2138(i + 33, 0, Class89.aClass50_836, this.anInt2055);
+			final Class107_Sub1 class107_sub1 = Class164.method2138(i + 33, 0, Class89.aClass50_836, this.disabledSprite);
 			if (class107_sub1 == null) {
 				return false;
 			}
@@ -1132,40 +1110,40 @@ final class JagexInterface {
 		this.aBoolean1971 = false;
 		this.aBoolean1939 = false;
 		this.aBoolean1940 = false;
-		this.anInt1974 = 0;
-		this.anInt1981 = 0;
-		this.aString1934 = Class120_Sub12_Sub28.aString3360;
+		this.alpha = 0;
+		this.translateX = 0;
+		this.tooltip = Class120_Sub12_Sub28.okString;
 		this.anInt1962 = 0;
 		this.aByte1963 = (byte) 0;
-		this.anInt1930 = 0;
+		this.maxScrollHorizontal = 0;
 		this.bitPacked = -1;
 		this.aBoolean1989 = false;
 		this.aBoolean2003 = false;
-		this.anInt2011 = 0;
+		this.horizontalAlignment = 0;
 		this.aBoolean2018 = false;
-		this.aString1936 = "";
+		this.enabledText = "";
 		this.anInt1997 = -1;
-		this.anInt2023 = 0;
-		this.anInt1972 = 0;
-		this.aString1979 = "";
-		this.aBoolean2019 = false;
-		this.anInt2025 = 0;
+		this.verticalScrollPosition = 0;
+		this.enabledColor = 0;
+		this.spellName = "";
+		this.filled = false;
+		this.disabledColor = 0;
 		this.anInt1948 = 0;
-		this.anInt1938 = 0;
-		this.anInt1990 = -1;
-		this.anInt2015 = 0;
-		this.aBoolean2045 = false;
-		this.anInt2005 = 100;
+		this.y = 0;
+		this.enabledAnim = -1;
+		this.originalX = 0;
+		this.hidden = false;
+		this.zoom = 100;
 		this.aBoolean2035 = false;
 		this.anInt2007 = 0;
 		this.aBoolean2046 = false;
-		this.anInt1967 = 1;
+		this.thickness = 1;
 		this.anInt2033 = 0;
-		this.anInt2010 = -1;
-		this.anInt2026 = 0;
+		this.mouseOverId = -1;
+		this.shadow = 0;
 		this.aBoolean2001 = false;
-		this.anInt2047 = 0;
-		this.anInt1969 = 0;
+		this.rotateX = 0;
+		this.rotateSpeed = 0;
 		this.aByte2017 = (byte) 0;
 		this.anInt2059 = 0;
 		this.anInt2028 = 0;
@@ -1175,56 +1153,56 @@ final class JagexInterface {
 		this.aBoolean1956 = true;
 		this.aShort2065 = (short) 3000;
 		this.anInt2049 = -1;
-		this.anInt2021 = 0;
-		anInt1987 = 1;
-		this.anInt2057 = 0;
-		this.aBoolean2040 = false;
+		this.horizontalScrollPosition = 0;
+		mediaTypeEnabled = 1;
+		this.verticalSpacing = 0;
+		this.shaded = false;
 		this.anInt2043 = 0;
 		this.clientCode = 0;
-		this.anInt2044 = 0;
-		this.anInt1946 = 0;
-		this.anInt1937 = 0;
-		this.anInt1996 = 0;
-		this.anInt2029 = -1;
+		this.objSpritePadX = 0;
+		this.currentFrame = 0;
+		this.maxScrollVertical = 0;
+		this.actionType = 0;
+		this.parent = -1;
 		this.aByte2051 = (byte) 0;
-		this.anInt2014 = 0;
-		this.anInt2009 = 0;
-		this.anInt2012 = -1;
-		this.anInt1945 = -1;
-		this.anInt2077 = 0;
+		this.originalWidth = 0;
+		this.verticalAlignment = 0;
+		this.enabledSprite = -1;
+		this.disabledAnim = -1;
+		this.objSpritePadY = 0;
 		this.anInt1982 = 1;
-		anInt2016 = -1;
+		mediaIdEnabled = -1;
 		this.anInt2075 = 0;
-		this.anInt2067 = -1;
+		this.font = -1;
 		this.aString1964 = "";
 		this.anInt2064 = 0;
 		this.clickMask = Class110.aClass120_Sub20_1053;
-		this.anInt2081 = 0;
-		this.anInt2060 = 0;
+		this.disabledMouseOverColor = 0;
+		this.originalHeight = 0;
 		this.anInt2069 = 0;
-		this.anInt2087 = 0;
+		this.enabledMouseOverColor = 0;
 		this.anInt2082 = -1;
 		this.anInt2076 = 0;
 		this.aBoolean2041 = false;
 		this.aBoolean1960 = false;
-		this.anInt2031 = 1;
-		this.anInt2070 = 0;
+		this.modelTypeDisabled = 1;
+		this.rotation = 0;
 		this.anInt1968 = -1;
 		this.anInt1977 = 0;
-		this.anInt2091 = 0;
+		this.rotateY = 0;
 		this.anInt2037 = 0;
-		this.anInt2073 = 0;
+		this.x = 0;
 		this.aShort2093 = (short) 0;
 		this.aByte2092 = (byte) 0;
-		this.anInt2055 = -1;
+		this.disabledSprite = -1;
 		this.anInt2083 = -1;
-		this.anInt2061 = 0;
-		this.anInt2090 = 0;
+		this.originalY = 0;
+		this.outline = 0;
 		this.aBoolean2097 = false;
-		this.anInt2008 = 0;
+		this.translateY = 0;
 		this.anInt2088 = -1;
-		this.aString2095 = "";
-		this.anInt2098 = 1;
+		this.selectedActionName = "";
+		this.nextFrame = 1;
 		this.anInt2085 = 1;
 	}
 }

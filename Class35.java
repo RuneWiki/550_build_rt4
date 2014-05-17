@@ -130,7 +130,7 @@ final class Class35 {
 		component.removeMouseListener(Class120_Sub14_Sub4.mouseHandler);
 		component.removeMouseMotionListener(Class120_Sub14_Sub4.mouseHandler);
 		component.removeFocusListener(Class120_Sub14_Sub4.mouseHandler);
-		Class42.anInt362 = 0;
+		Class42.currentMousePress = 0;
 	}
 
 	static final String method305(final int i, final int i_3_) {

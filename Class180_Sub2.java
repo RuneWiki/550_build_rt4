@@ -577,7 +577,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		return new Class180_Sub2(is);
 	}
 
-	final void method2292(final short i, final short i_116_) {
+	final void retexture(final short i, final short i_116_) {
 		if (this.aShortArray2850 != null) {
 			for (int i_117_ = 0; i_117_ < this.anInt2856; i_117_++) {
 				if (this.aShortArray2850[i_117_] == i) {
@@ -1447,7 +1447,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	final void method2307(final short i, final short i_372_) {
+	final void recolor(final short i, final short i_372_) {
 		for (int i_373_ = 0; i_373_ < this.anInt2856; i_373_++) {
 			if (this.triangleColors[i_373_] == i) {
 				this.triangleColors[i_373_] = i_372_;

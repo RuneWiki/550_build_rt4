@@ -17,7 +17,7 @@ final class Class187 {
 			if (!bool) {
 				aClass50_1907 = null;
 			}
-			class101_sub1 = new Class101_Sub1(class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(true), class120_sub7.method1078(bool), class120_sub7.getTriByte(), class120_sub7.getTriByte(), class120_sub7.getUByte());
+			class101_sub1 = new Class101_Sub1(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getMedium(), class120_sub7.getUByte());
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wc.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}

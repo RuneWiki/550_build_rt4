@@ -7,7 +7,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 	char aChar3451;
 	private int anInt3452;
 	static Class120_Sub14_Sub18[] aClass120_Sub14_Sub18Array3453 = new Class120_Sub14_Sub18[14];
-	static int anInt3454;
+	static int worldLen;
 	static String aString3455 = "M";
 	static int anInt3456;
 	private String aString3457 = "null";
@@ -190,7 +190,7 @@ final class Class120_Sub14_Sub2 extends NodeSub {
 	final void method1425(final boolean bool, final Buffer class120_sub7) {
 		try {
 			if (bool) {
-				anInt3454 = 75;
+				worldLen = 75;
 			}
 			for (;;) {
 				final int i = class120_sub7.getUByte();

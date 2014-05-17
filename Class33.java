@@ -45,7 +45,7 @@ final class Class33 {
 			if (client.getClickMask(jagexInterface).method1685(1105924391) == 0) {
 				return null;
 			}
-			if (jagexInterface.aString2095 == null || jagexInterface.aString2095.trim().length() == 0) {
+			if (jagexInterface.selectedActionName == null || jagexInterface.selectedActionName.trim().length() == 0) {
 				if (Class120_Sub30_Sub1.aBoolean3673) {
 					return "Hidden-use";
 				}
@@ -54,7 +54,7 @@ final class Class33 {
 			if (i <= 114) {
 				return null;
 			}
-			string = jagexInterface.aString2095;
+			string = jagexInterface.selectedActionName;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("df.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}

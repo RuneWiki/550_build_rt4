@@ -197,7 +197,7 @@ final class Class128 {
 	private final void method1906(final int i, final Buffer class120_sub7, final int i_29_, final byte i_30_) {
 		try {
 			if (i_29_ == 1) {
-				anInt1224 = class120_sub7.getTriByte();
+				anInt1224 = class120_sub7.getMedium();
 				method1908((byte) 59, anInt1224);
 			} else if (i_29_ != 2) {
 				if (i_29_ != 3) {

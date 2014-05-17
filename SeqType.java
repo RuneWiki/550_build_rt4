@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class40 {
+final class SeqType {
 	int anInt326;
 	boolean[] aBooleanArray327;
 	int anInt328 = -1;
@@ -14,15 +14,15 @@ final class Class40 {
 	static AbstractSprite[] aClass120_Sub14_Sub19Array335;
 	int anInt336;
 	int anInt337 = 2;
-	int[] anIntArray338;
+	int[] cycles;
 	int anInt339;
 	boolean aBoolean340;
 	boolean aBoolean341;
-	int[] anIntArray342;
+	int[] frames;
 	int anInt343;
 	boolean aBoolean344;
-	static String aString345 = "";
-	int anInt346;
+	static String loginPassword = "";
+	int padding;
 	int[][] anIntArrayArray347;
 	int anInt348;
 	static int anInt349;
@@ -30,8 +30,8 @@ final class Class40 {
 	final Class180_Sub7 method320(final boolean bool, int i, int i_0_, final Class180_Sub7 class180_sub7, int i_1_, final int i_2_) {
 		Class180_Sub7 class180_sub7_3_;
 		try {
-			final int i_4_ = this.anIntArray338[i_0_];
-			i_0_ = this.anIntArray342[i_0_];
+			final int i_4_ = this.cycles[i_0_];
+			i_0_ = this.frames[i_0_];
 			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_0_ >> 16, -1);
 			i_0_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
@@ -39,13 +39,13 @@ final class Class40 {
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_5_ = null;
 			i_1_ &= 0x3;
-			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && this.anIntArray342.length > i) {
-				i = this.anIntArray342[i];
+			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && this.frames.length > i) {
+				i = this.frames[i];
 				class120_sub14_sub18_5_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
 				i &= 0xffff;
 			}
 			if (bool) {
-				this.anIntArray338 = null;
+				this.cycles = null;
 			}
 			Class180_Sub7 class180_sub7_6_;
 			if (class120_sub14_sub18_5_ != null) {
@@ -138,19 +138,19 @@ final class Class40 {
 	final Class180_Sub7 method323(final boolean bool, final int i, int i_10_, final Class180_Sub7 class180_sub7, final int i_11_) {
 		Class180_Sub7 class180_sub7_12_;
 		try {
-			final int i_13_ = this.anIntArray338[i_11_];
+			final int i_13_ = this.cycles[i_11_];
 			if (bool) {
-				this.anIntArray338 = null;
+				this.cycles = null;
 			}
-			int i_14_ = this.anIntArray342[i_11_];
+			int i_14_ = this.frames[i_11_];
 			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_14_ >> 16, -1);
 			i_14_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2376(true, true, true);
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_15_ = null;
-			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.anIntArray342.length) {
-				i_10_ = this.anIntArray342[i_10_];
+			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
+				i_10_ = this.frames[i_10_];
 				class120_sub14_sub18_15_ = Class120_Sub12_Sub31.method1367(i_10_ >> 16, -1);
 				i_10_ &= 0xffff;
 			}
@@ -203,16 +203,16 @@ final class Class40 {
 	final Class180_Sub7 method324(final int i, int i_23_, final int i_24_, final Class180_Sub7 class180_sub7, int i_25_) {
 		Class180_Sub7 class180_sub7_26_;
 		try {
-			final int i_27_ = this.anIntArray338[i_23_];
-			i_23_ = this.anIntArray342[i_23_];
+			final int i_27_ = this.cycles[i_23_];
+			i_23_ = this.frames[i_23_];
 			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_23_ >> 16, -1);
 			i_23_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2381(true, true, true);
 			}
 			Class120_Sub14_Sub18 class120_sub14_sub18_28_ = null;
-			if ((this.tween || Class164.forceTween) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.anIntArray342.length) {
-				i_25_ = this.anIntArray342[i_25_];
+			if ((this.tween || Class164.forceTween) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.frames.length) {
+				i_25_ = this.frames[i_25_];
 				class120_sub14_sub18_28_ = Class120_Sub12_Sub31.method1367(i_25_ >> 16, -1);
 				i_25_ &= 0xffff;
 			}
@@ -248,19 +248,19 @@ final class Class40 {
 		try {
 			if (i == 1) {
 				final int i_35_ = class120_sub7.getUShort();
-				this.anIntArray338 = new int[i_35_];
+				this.cycles = new int[i_35_];
 				for (int i_36_ = 0; i_36_ < i_35_; i_36_++) {
-					this.anIntArray338[i_36_] = class120_sub7.getUShort();
+					this.cycles[i_36_] = class120_sub7.getUShort();
 				}
-				this.anIntArray342 = new int[i_35_];
+				this.frames = new int[i_35_];
 				for (int i_37_ = 0; i_37_ < i_35_; i_37_++) {
-					this.anIntArray342[i_37_] = class120_sub7.getUShort();
+					this.frames[i_37_] = class120_sub7.getUShort();
 				}
 				for (int i_38_ = 0; i_38_ < i_35_; i_38_++) {
-					this.anIntArray342[i_38_] = (class120_sub7.getUShort() << 16) - -this.anIntArray342[i_38_];
+					this.frames[i_38_] = (class120_sub7.getUShort() << 16) - -this.frames[i_38_];
 				}
 			} else if (i == 2) {
-				this.anInt346 = class120_sub7.getUShort();
+				this.padding = class120_sub7.getUShort();
 			} else if (i != 3) {
 				if (i == 4) {
 					this.aBoolean344 = true;
@@ -291,7 +291,7 @@ final class Class40 {
 												final int i_41_ = class120_sub7.getUByte();
 												if (i_41_ > 0) {
 													this.anIntArrayArray347[i_40_] = new int[i_41_];
-													this.anIntArrayArray347[i_40_][0] = class120_sub7.getTriByte();
+													this.anIntArrayArray347[i_40_][0] = class120_sub7.getMedium();
 													for (int i_42_ = 1; i_41_ > i_42_; i_42_++) {
 														this.anIntArrayArray347[i_40_][i_42_] = class120_sub7.getUShort();
 													}
@@ -341,8 +341,8 @@ final class Class40 {
 	final Class180_Sub7 method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final Class180_Sub7 class180_sub7) {
 		Class180_Sub7 class180_sub7_52_;
 		try {
-			final int i_53_ = this.anIntArray338[i_50_];
-			i_50_ = this.anIntArray342[i_50_];
+			final int i_53_ = this.cycles[i_50_];
+			i_50_ = this.frames[i_50_];
 			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_50_ >> 16, -1);
 			i_50_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
@@ -350,8 +350,8 @@ final class Class40 {
 			}
 			i_51_ &= 0x3;
 			Class120_Sub14_Sub18 class120_sub14_sub18_54_ = null;
-			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.anIntArray342.length) {
-				i = this.anIntArray342[i];
+			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
+				i = this.frames[i];
 				class120_sub14_sub18_54_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
 				i &= 0xffff;
 			}
@@ -431,9 +431,25 @@ final class Class40 {
 		}
 	}
 
+	static final SeqType list(final int i) {
+		SeqType class40_65_ = (SeqType) KeyboardHandler.aClass21_1504.get(i);
+		if (class40_65_ != null) {
+			return class40_65_;
+		}
+		final byte[] is = Class101_Sub3.aClass50_2286.getFile(Class120_Sub12_Sub8.method1237(i, 16711680), Class120_Sub12_Sub36.method1390(true, i));
+		class40_65_ = new SeqType();
+		class40_65_.anInt326 = i;
+		if (is != null) {
+			class40_65_.method322(new Buffer(is), false);
+		}
+		class40_65_.method328((byte) 89);
+		KeyboardHandler.aClass21_1504.put(class40_65_, i);
+		return class40_65_;
+	}
+
 	public static void method329(final int i) {
 		try {
-			aString345 = null;
+			loginPassword = null;
 			aClass120_Sub14_Sub19Array335 = null;
 			aClass50_331 = null;
 			if (i != 1) {
@@ -444,14 +460,14 @@ final class Class40 {
 		}
 	}
 
-	public Class40() {
+	public SeqType() {
 		this.anInt336 = -1;
 		this.aBoolean340 = false;
 		this.anInt343 = -1;
 		this.anInt334 = -1;
 		this.anInt339 = 99;
 		this.aBoolean341 = false;
-		this.anInt346 = -1;
+		this.padding = -1;
 		this.aBoolean344 = false;
 		this.anInt348 = 5;
 	}

@@ -71,7 +71,7 @@ final class Class84 {
 							class180_sub4.method2319(-60, Class22.method197(class180_sub4.anInt2934, class180_sub5_sub1.x, class180_sub5_sub1.z) + -class180_sub4.anInt2943, class180_sub5_sub1.x, Class101_Sub2.loopCycle, class180_sub5_sub1.z);
 						}
 					}
-					class180_sub4.method2317(Class120_Sub12_Sub22.anInt3301, 1);
+					class180_sub4.method2317(Class120_Sub12_Sub22.redrawRate, 1);
 					Class120_Sub12_Sub5.method1218(Class173.gameLevel, (int) class180_sub4.aDouble2949, (int) class180_sub4.aDouble2953, (int) class180_sub4.aDouble2937, 60, class180_sub4, class180_sub4.anInt2944, -1L, false);
 				}
 			}

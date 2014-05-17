@@ -20,7 +20,7 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 				if (class73.anIntArray638 != null) {
 					final int[] is = new int[class73.anIntArray638.length];
 					for (int i_5_ = 0; i_5_ < is.length / 2; i_5_++) {
-						final int i_6_ = (int) OutputStream_Sub1.aFloat28 - -Class164.anInt1590 & 0x7ff;
+						final int i_6_ = (int) DummyOutputStream.aFloat28 - -Class164.anInt1590 & 0x7ff;
 						int i_7_ = Rasterizer.cosineTable[i_6_];
 						i_7_ = 256 * i_7_ / (Class154.anInt1442 - -256);
 						int i_8_ = Rasterizer.sineTable[i_6_];
@@ -37,13 +37,13 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 						if (!HDToolkit.glEnabled) {
 							GraphicsLD.method2165(is[2 * i_9_], is[i_9_ * 2 + 1], is[2 + i_9_ * 2], is[2 * i_9_ + 3], class73.anInt630, class73.anInt630 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 						} else {
-							GraphicsHD.method588(is[2 * i_9_], is[2 * i_9_ + 1], is[(1 + i_9_) * 2], is[1 + 2 * i_9_ + 2], class73.anInt630, class73.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false, (byte) -18));
+							GraphicsHD.method588(is[2 * i_9_], is[2 * i_9_ + 1], is[(1 + i_9_) * 2], is[1 + 2 * i_9_ + 2], class73.anInt630, class73.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false));
 						}
 					}
 					if (!HDToolkit.glEnabled) {
 						GraphicsLD.method2165(is[is.length - 2], is[-1 + is.length], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					} else {
-						GraphicsHD.method588(is[-2 + is.length], is[-1 + is.length], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false, (byte) -18));
+						GraphicsHD.method588(is[-2 + is.length], is[-1 + is.length], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false));
 					}
 				}
 				Class107 class107 = null;
@@ -122,12 +122,12 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 			if (i_18_ < i_16_) {
 				final int i_20_ = (i_16_ + i_18_) / 2;
 				int i_21_ = i_18_;
-				final Class167_Sub1 class167_sub1 = Class86.aClass167_Sub1Array817[i_20_];
+				final World class167_sub1 = Class86.aClass167_Sub1Array817[i_20_];
 				Class86.aClass167_Sub1Array817[i_20_] = Class86.aClass167_Sub1Array817[i_16_];
 				Class86.aClass167_Sub1Array817[i_16_] = class167_sub1;
 				for (int i_22_ = i_18_; i_16_ > i_22_; i_22_++) {
 					if (Class120_Sub12_Sub7.method1233(i_15_, bool, class167_sub1, bool_17_, Class86.aClass167_Sub1Array817[i_22_], i, true) <= 0) {
-						final Class167_Sub1 class167_sub1_23_ = Class86.aClass167_Sub1Array817[i_22_];
+						final World class167_sub1_23_ = Class86.aClass167_Sub1Array817[i_22_];
 						Class86.aClass167_Sub1Array817[i_22_] = Class86.aClass167_Sub1Array817[i_21_];
 						Class86.aClass167_Sub1Array817[i_21_++] = class167_sub1_23_;
 					}
@@ -159,12 +159,12 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 		return i_24_;
 	}
 
-	static final int method1553(final int i, final Class167_Sub1 class167_sub1, final int i_25_, final Class167_Sub1 class167_sub1_26_, final boolean bool) {
+	static final int method1553(final int i, final World class167_sub1, final int i_25_, final World class167_sub1_26_, final boolean bool) {
 		int i_27_;
 		try {
 			if (i_25_ == 1) {
-				int i_28_ = class167_sub1_26_.anInt1617;
-				int i_29_ = class167_sub1.anInt1617;
+				int i_28_ = class167_sub1_26_.players;
+				int i_29_ = class167_sub1.players;
 				if (!bool) {
 					if ((i_29_ ^ 0xffffffff) == 0) {
 						i_29_ = 2001;
@@ -176,19 +176,19 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 				return i_28_ + -i_29_;
 			}
 			if (i_25_ == 2) {
-				return Class120_Sub12_Sub21_Sub1.method1313(i ^ ~0x5019, class167_sub1.method2195(true).aString1422, Class9.language, class167_sub1_26_.method2195(true).aString1422);
+				return Class120_Sub12_Sub21_Sub1.method1313(i ^ ~0x5019, class167_sub1.getWorldInfo().region, Class9.language, class167_sub1_26_.getWorldInfo().region);
 			}
 			if (i_25_ == 3) {
-				if (class167_sub1_26_.aString2834.equals("-")) {
-					if (class167_sub1.aString2834.equals("-")) {
+				if (class167_sub1_26_.activity.equals("-")) {
+					if (class167_sub1.activity.equals("-")) {
 						return 0;
 					}
 					return bool ? -1 : 1;
 				}
-				if (class167_sub1.aString2834.equals("-")) {
+				if (class167_sub1.activity.equals("-")) {
 					return bool ? 1 : -1;
 				}
-				return Class120_Sub12_Sub21_Sub1.method1313(i + 23070, class167_sub1.aString2834, Class9.language, class167_sub1_26_.aString2834);
+				return Class120_Sub12_Sub21_Sub1.method1313(i + 23070, class167_sub1.activity, Class9.language, class167_sub1_26_.activity);
 			}
 			if (i_25_ == 4) {
 				return class167_sub1_26_.method2185((byte) -123) ? class167_sub1.method2185((byte) -126) ? 0 : 1 : class167_sub1.method2185((byte) -127) ? -1 : 0;
@@ -205,7 +205,7 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 			if (i != -17691) {
 				return 12;
 			}
-			i_27_ = -class167_sub1.anInt2838 + class167_sub1_26_.anInt2838;
+			i_27_ = -class167_sub1.worldId + class167_sub1_26_.worldId;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ul.D(").append(i).append(',').append(class167_sub1 != null ? "{...}" : "null").append(',').append(i_25_).append(',').append(class167_sub1_26_ != null ? "{...}" : "null").append(',').append(bool).append(')')
 					.toString());

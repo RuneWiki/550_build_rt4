@@ -68,7 +68,7 @@ final class Class140 {
 		buffer.pos = data.length - 7 - (paletteSize - 1) * 3 - (Class93.spriteAmount * 8);
 		Class132_Sub1.spritePalette = new int[paletteSize];
 		for (int id = 1; paletteSize > id; id++) {
-			Class132_Sub1.spritePalette[id] = buffer.getTriByte();
+			Class132_Sub1.spritePalette[id] = buffer.getMedium();
 			if (Class132_Sub1.spritePalette[id] == 0) {
 				Class132_Sub1.spritePalette[id] = 1;
 			}
@@ -116,7 +116,7 @@ final class Class140 {
 	static final void method1997(final boolean bool, final int i, final int i_22_) {
 		try {
 			if (bool) {
-				method2000(92, null);
+				updateWorldPlayers(null);
 			}
 			Class2.permanentVariable[i] = i_22_;
 			Class120_Sub3 class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.get(i);
@@ -168,20 +168,16 @@ final class Class140 {
 		aClass75_1342 = hashtable;
 	}
 
-	static final void method2000(final int i, final Buffer class120_sub7) {
-		try {
-			for (int i_25_ = i; Class57.anInt502 > i_25_; i_25_++) {
-				final int i_26_ = class120_sub7.getUSmart();
-				int i_27_ = class120_sub7.getUShort();
-				if (65535 == i_27_) {
-					i_27_ = -1;
-				}
-				if (Class48.aClass167_Sub1Array435[i_26_] != null) {
-					Class48.aClass167_Sub1Array435[i_26_].anInt1617 = i_27_;
-				}
+	static final void updateWorldPlayers(final Buffer buffer) {
+		for (int world = 0; world < Class57.worldLen2; world++) {
+			final int worldId = buffer.getUSmart();
+			int playerAmount = buffer.getUShort();
+			if (playerAmount == 65535) {
+				playerAmount = -1;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			if (Class48.worldList[worldId] != null) {
+				Class48.worldList[worldId].players = playerAmount;
+			}
 		}
 	}
 }

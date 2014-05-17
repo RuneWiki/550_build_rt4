@@ -155,7 +155,7 @@ final class Class29 {
 						final int i_15_ = class120_sub7.getUByte();
 						this.anIntArrayArray215[i_15_] = new int[6];
 						for (int i_16_ = 0; i_16_ < 6; i_16_++) {
-							this.anIntArrayArray215[i_15_][i_16_] = class120_sub7.method1078(true);
+							this.anIntArrayArray215[i_15_][i_16_] = class120_sub7.getShort();
 						}
 					} else if (i_14_ == 29) {
 						this.anInt189 = class120_sub7.getUByte();
@@ -171,7 +171,7 @@ final class Class29 {
 						} else if (i_14_ == 35) {
 							this.anInt207 = class120_sub7.getUShort();
 						} else if (i_14_ == 36) {
-							this.anInt209 = class120_sub7.method1078(true);
+							this.anInt209 = class120_sub7.getShort();
 						} else if (i_14_ != 37) {
 							if (i_14_ != 38) {
 								if (i_14_ == 39) {
@@ -220,7 +220,7 @@ final class Class29 {
 							this.anInt201 = class120_sub7.getUByte();
 						}
 					} else {
-						this.anInt208 = class120_sub7.method1078(true);
+						this.anInt208 = class120_sub7.getShort();
 					}
 				} else {
 					this.anInt204 = (short) (4 * class120_sub7.getUByte());

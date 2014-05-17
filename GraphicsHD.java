@@ -33,7 +33,7 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void method583(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
+	static final void drawRect(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
 		HDToolkit.method499();
 		final float f = i + 0.3F;
 		final float f_12_ = f + (i_8_ - 1);
@@ -129,7 +129,7 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void method590(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_) {
+	static final void fillRect(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_) {
 		HDToolkit.method499();
 		final float f = i;
 		final float f_51_ = f + i_47_;
@@ -216,7 +216,7 @@ final class GraphicsHD {
 		gl.glRasterPos2i(i, HDToolkit.canvasHeight - i_60_ - i_62_);
 		gl.glDisable(3042);
 		gl.glDisable(3008);
-		gl.glDrawPixels(i_61_, i_62_, 32993, HDToolkit.isBigEndian ? 33639 : 5121, IntBuffer.wrap(is));
+		gl.glDrawPixels(i_61_, i_62_, 32993, HDToolkit.usingBigEndian ? 33639 : 5121, IntBuffer.wrap(is));
 		gl.glEnable(3008);
 		gl.glEnable(3042);
 	}

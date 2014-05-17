@@ -190,7 +190,7 @@ final class Class81 {
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
 					} else if (Class90.anInt848 == 85) {
-						Class167_Sub1.aClass98_2833 = new Class98(22, true, Node.canvas);
+						World.aClass98_2833 = new Class98(22, true, Node.canvas);
 						Class90.anInt848 = 88;
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613((byte) 53);
@@ -231,7 +231,7 @@ final class Class81 {
 			if (!Class134.aBoolean1277) {
 				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + 24.0F) / 2.0F;
 			} else {
-				OutputStream_Sub1.aFloat28 = (int) OutputStream_Sub1.aFloat28 + 191 & ~0x7f;
+				DummyOutputStream.aFloat28 = (int) DummyOutputStream.aFloat28 + 191 & ~0x7f;
 			}
 			Class188.aBoolean1925 = true;
 			Class118.aBoolean1134 = true;

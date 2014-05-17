@@ -253,12 +253,12 @@ final class SpotAnimType {
 				}
 				if (aShortArray1002 != null) {
 					for (int i_20_ = 0; i_20_ < aShortArray1002.length; i_20_++) {
-						class180_sub2.method2307(aShortArray1002[i_20_], aShortArray993[i_20_]);
+						class180_sub2.recolor(aShortArray1002[i_20_], aShortArray993[i_20_]);
 					}
 				}
 				if (aShortArray1000 != null) {
 					for (int i_21_ = 0; aShortArray1000.length > i_21_; i_21_++) {
-						class180_sub2.method2292(aShortArray1000[i_21_], aShortArray1001[i_21_]);
+						class180_sub2.retexture(aShortArray1000[i_21_], aShortArray1001[i_21_]);
 					}
 				}
 				class180_sub7_19_ = class180_sub2.method2300(anInt985 + 64, 850 + anInt988, -30, -50, -30);
@@ -268,7 +268,7 @@ final class SpotAnimType {
 			if ((this.anInt991 ^ 0xffffffff) == 0 || (i_17_ ^ 0xffffffff) == 0) {
 				class180_sub7_22_ = class180_sub7_19_.method2381(true, true, true);
 			} else {
-				class180_sub7_22_ = Class120_Sub30_Sub2.method1763(this.anInt991, i_18_ ^ 0x72).method324(98, i_17_, i_16_, class180_sub7_19_, i);
+				class180_sub7_22_ = SeqType.list(this.anInt991).method324(98, i_17_, i_16_, class180_sub7_19_, i);
 			}
 			if (anInt990 != 128 || anInt999 != 128) {
 				class180_sub7_22_.method2369(anInt990, anInt999, anInt990);

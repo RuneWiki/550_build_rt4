@@ -97,7 +97,7 @@ final class Class27 {
 		if (Class120_Sub12_Sub12.aBooleanArray3223[4] && i_5_ < Class181.anIntArray1790[4] + 128) {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
-		final int i_8_ = 0x7ff & (int) OutputStream_Sub1.aFloat28 + Class120_Sub14_Sub1.anInt3447;
+		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
 		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.method197(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, Class120_Sub10.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
 		if (Class83.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && Class128.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
 			client.cameraType = 1;

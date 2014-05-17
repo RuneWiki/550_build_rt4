@@ -126,7 +126,7 @@ final class Class73 {
 				this.aString649 = class120_sub7.getJString();
 			} else if (i_3_ != 4) {
 				if (i_3_ == 5) {
-					this.anInt656 = class120_sub7.getTriByte();
+					this.anInt656 = class120_sub7.getMedium();
 				} else if (i_3_ == 6) {
 					this.anInt634 = class120_sub7.getUByte();
 				} else if (i_3_ != 7) {
@@ -180,7 +180,7 @@ final class Class73 {
 						final int i_4_ = class120_sub7.getUByte();
 						this.anIntArray638 = new int[i_4_ * 2];
 						for (int i_5_ = 0; 2 * i_4_ > i_5_; i_5_++) {
-							this.anIntArray638[i_5_] = class120_sub7.method1078(true);
+							this.anIntArray638[i_5_] = class120_sub7.getShort();
 						}
 						this.anInt630 = class120_sub7.getInt();
 						this.anInt651 = class120_sub7.getInt();
@@ -195,7 +195,7 @@ final class Class73 {
 					}
 				}
 			} else {
-				this.anInt655 = class120_sub7.getTriByte();
+				this.anInt655 = class120_sub7.getMedium();
 			}
 			if (i != -6973) {
 				method644(-128, -21);

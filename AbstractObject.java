@@ -9,17 +9,8 @@ abstract class AbstractObject extends NodeSub {
 
 	abstract boolean isSoftReference();
 
-	static final int method1431(final int i, final int i_0_, final byte[] is) {
-		int i_1_;
-		try {
-			if (i_0_ != 0) {
-				method1431(-18, -34, null);
-			}
-			i_1_ = NodeSub.getCrc(is, 0, i);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cn.B(").append(i).append(',').append(i_0_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
-		}
-		return i_1_;
+	static final int getCrc(final byte[] is, final int i) {
+		return NodeSub.getCrc(is, 0, i);
 	}
 
 	static final InterfaceChangeNode putInterfaceChange(final int type, final int uid) {

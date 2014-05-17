@@ -56,33 +56,33 @@ final class Class120_Sub29 extends Node {
 	static final void receiveRegionData(final boolean bool) {
 		Class134.aBoolean1282 = bool;
 		if (Class134.aBoolean1282) {
-			final int i_4_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShortA();
-			final int i_5_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-			final int i_6_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getULEShort();
-			Canvas_Sub1.aClass120_Sub7_Sub1_16.method1144(-2);
+			final int i_4_ = Canvas_Sub1.inputStream.getULEShortA();
+			final int i_5_ = Canvas_Sub1.inputStream.getUShortA();
+			final int i_6_ = Canvas_Sub1.inputStream.getULEShort();
+			Canvas_Sub1.inputStream.method1144(-2);
 			for (int i_7_ = 0; i_7_ < 4; i_7_++) {
 				for (int i_8_ = 0; i_8_ < 13; i_8_++) {
 					for (int i_9_ = 0; i_9_ < 13; i_9_++) {
-						final int i_10_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(1);
+						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(1);
 						if (i_10_ != 1) {
 							Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_7_][i_8_][i_9_] = -1;
 						} else {
-							Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_7_][i_8_][i_9_] = Canvas_Sub1.aClass120_Sub7_Sub1_16.getBitValue(26);
+							Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_7_][i_8_][i_9_] = Canvas_Sub1.inputStream.getBitValue(26);
 						}
 					}
 				}
 			}
-			Canvas_Sub1.aClass120_Sub7_Sub1_16.method1146();
-			int i_11_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.packetSize) / 16;
+			Canvas_Sub1.inputStream.method1146();
+			int i_11_ = (-Canvas_Sub1.inputStream.pos + AbstractMouseWheelHandler.packetSize) / 16;
 			Class125.anIntArrayArray2150 = new int[i_11_][4];
 			for (int i_12_ = 0; i_11_ > i_12_; i_12_++) {
 				for (int i_13_ = 0; i_13_ < 4; i_13_++) {
-					Class125.anIntArrayArray2150[i_12_][i_13_] = Canvas_Sub1.aClass120_Sub7_Sub1_16.method1089(775571361);
+					Class125.anIntArrayArray2150[i_12_][i_13_] = Canvas_Sub1.inputStream.method1089(775571361);
 				}
 			}
-			final int i_14_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-			final boolean bool_15_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS());
-			final int i_16_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteA();
+			final int i_14_ = Canvas_Sub1.inputStream.getUShort();
+			final boolean bool_15_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.inputStream.getUByteS());
+			final int i_16_ = Canvas_Sub1.inputStream.getUByteA();
 			Class76.anIntArray680 = new int[i_11_];
 			Class179.aByteArrayArray1777 = null;
 			Class120_Sub12_Sub36.aByteArrayArray3421 = new byte[i_11_][];
@@ -125,20 +125,20 @@ final class Class120_Sub29 extends Node {
 			}
 			Class2.method76(false, 118, i_6_, bool_15_, i_4_, i_14_, i_5_, i_16_);
 		} else {
-			final boolean bool_27_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteS());
-			final int i_28_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
-			int i_29_ = (-Canvas_Sub1.aClass120_Sub7_Sub1_16.pos + AbstractMouseWheelHandler.packetSize) / 16;
+			final boolean bool_27_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.inputStream.getUByteS());
+			final int i_28_ = Canvas_Sub1.inputStream.getUShort();
+			int i_29_ = (-Canvas_Sub1.inputStream.pos + AbstractMouseWheelHandler.packetSize) / 16;
 			Class125.anIntArrayArray2150 = new int[i_29_][4];
 			for (int i_30_ = 0; i_30_ < i_29_; i_30_++) {
 				for (int i_31_ = 0; i_31_ < 4; i_31_++) {
-					Class125.anIntArrayArray2150[i_30_][i_31_] = Canvas_Sub1.aClass120_Sub7_Sub1_16.getLEInt();
+					Class125.anIntArrayArray2150[i_30_][i_31_] = Canvas_Sub1.inputStream.getLEInt();
 				}
 			}
-			final int i_32_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUByteC();
-			final int i_33_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShortA();
-			final int i_34_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+			final int i_32_ = Canvas_Sub1.inputStream.getUByteC();
+			final int i_33_ = Canvas_Sub1.inputStream.getUShortA();
+			final int i_34_ = Canvas_Sub1.inputStream.getUShort();
 			boolean bool_35_ = false;
-			final int i_36_ = Canvas_Sub1.aClass120_Sub7_Sub1_16.getUShort();
+			final int i_36_ = Canvas_Sub1.inputStream.getUShort();
 			if ((i_36_ / 8 == 48 || i_36_ / 8 == 49) && i_28_ / 8 == 48) {
 				bool_35_ = true;
 			}

@@ -6,7 +6,7 @@ abstract class Class57 {
 	static Class50 aClass50_499;
 	static int anInt500 = 0;
 	static Class84 aClass84_501;
-	static int anInt502;
+	static int worldLen2;
 	static boolean[] interfaceLoaded;
 	static int anInt504 = 0;
 
@@ -92,7 +92,7 @@ abstract class Class57 {
 				method495(i, objects, 1 + i_6_, -47, is);
 			}
 			if (i_4_ >= -42) {
-				anInt502 = -2;
+				worldLen2 = -2;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.E(").append(i).append(',').append(objects != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(',').append(is != null ? "{...}" : "null").append(')').toString());

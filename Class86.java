@@ -4,9 +4,9 @@
 
 final class Class86 {
 	static Cache aClass21_816 = new Cache(64);
-	static Class167_Sub1[] aClass167_Sub1Array817 = new Class167_Sub1[0];
+	static World[] aClass167_Sub1Array817 = new World[0];
 	static int anInt818;
-	static int anInt819 = 0;
+	static int loginStep = 0;
 	static GroundTile[][][] aClass120_Sub18ArrayArrayArray820;
 	static int anInt821 = 0;
 	static Class193 aClass193_822;
@@ -39,7 +39,7 @@ final class Class86 {
 				if (class120_sub14_sub8 == null) {
 					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
-				class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2025, jagexInterface.anInt2026, jagexInterface.anInt2011, jagexInterface.anInt2009, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
+				class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.disabledColor, jagexInterface.shadow, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
 				Class120_Sub12_Sub1.method1195(Class173.anIntArray1730[2], Class173.anIntArray1730[3], Class173.anIntArray1730[0], Class173.anIntArray1730[1]);
 			}
 		}

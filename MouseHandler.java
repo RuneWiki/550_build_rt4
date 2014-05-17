@@ -18,14 +18,10 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseEntered(final MouseEvent mouseevent) {
-		try {
-			if (Class120_Sub14_Sub4.mouseHandler != null) {
-				Class136.anInt1320 = 0;
-				Class160.anInt1492 = mouseevent.getX();
-				Class120_Sub12_Sub27.anInt3351 = mouseevent.getY();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseEntered(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		if (Class120_Sub14_Sub4.mouseHandler != null) {
+			Class136.mouseIdleCycle = 0;
+			Class160.currentMouseX = mouseevent.getX();
+			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}
 
@@ -40,46 +36,34 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final void mouseClicked(final MouseEvent mouseevent) {
-		try {
-			if (mouseevent.isPopupTrigger()) {
-				mouseevent.consume();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseClicked(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		if (mouseevent.isPopupTrigger()) {
+			mouseevent.consume();
 		}
 	}
 
 	@Override
 	public final synchronized void mouseExited(final MouseEvent mouseevent) {
-		try {
-			if (Class120_Sub14_Sub4.mouseHandler != null) {
-				Class136.anInt1320 = 0;
-				Class160.anInt1492 = -1;
-				Class120_Sub12_Sub27.anInt3351 = -1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseExited(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		if (Class120_Sub14_Sub4.mouseHandler != null) {
+			Class136.mouseIdleCycle = 0;
+			Class160.currentMouseX = -1;
+			Class120_Sub12_Sub27.currentMouseY = -1;
 		}
 	}
 
 	@Override
 	public final synchronized void mouseReleased(final MouseEvent mouseevent) {
-		try {
-			do {
-				if (Class120_Sub14_Sub4.mouseHandler != null) {
-					Class136.anInt1320 = 0;
-					Class42.anInt362 = 0;
-					final int i = mouseevent.getModifiers();
-					if ((0x10 & i) != 0) {
-						break;
-					}
+		do {
+			if (Class120_Sub14_Sub4.mouseHandler != null) {
+				Class136.mouseIdleCycle = 0;
+				Class42.currentMousePress = 0;
+				final int i = mouseevent.getModifiers();
+				if ((0x10 & i) != 0) {
+					break;
 				}
-			} while (false);
-			if (mouseevent.isPopupTrigger()) {
-				mouseevent.consume();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseReleased(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		} while (false);
+		if (mouseevent.isPopupTrigger()) {
+			mouseevent.consume();
 		}
 	}
 
@@ -106,88 +90,69 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 		return class128;
 	}
 
-	static final void method1027(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		try {
-			Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_1_);
-			if (class120_sub17 == null) {
-				class120_sub17 = new Class120_Sub17();
-				Canvas_Sub1.aClass75_15.put(class120_sub17, i_1_);
-			}
-			if (class120_sub17.anIntArray2618.length <= i_2_) {
-				final int[] is = new int[1 + i_2_];
-				final int[] is_5_ = new int[i_2_ - -1];
-				for (int i_6_ = 0; class120_sub17.anIntArray2618.length > i_6_; i_6_++) {
-					is[i_6_] = class120_sub17.anIntArray2618[i_6_];
-					is_5_[i_6_] = class120_sub17.anIntArray2619[i_6_];
-				}
-				for (int i_7_ = class120_sub17.anIntArray2618.length; i_7_ < i_2_; i_7_++) {
-					is[i_7_] = -1;
-					is_5_[i_7_] = 0;
-				}
-				class120_sub17.anIntArray2619 = is_5_;
-				class120_sub17.anIntArray2618 = is;
-			}
-			if (i != 14378) {
-				showNumbersOnActions = true;
-			}
-			class120_sub17.anIntArray2618[i_2_] = i_3_;
-			class120_sub17.anIntArray2619[i_2_] = i_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+	static final void method1027(final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
+		Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_1_);
+		if (class120_sub17 == null) {
+			class120_sub17 = new Class120_Sub17();
+			Canvas_Sub1.aClass75_15.put(class120_sub17, i_1_);
 		}
+		if (class120_sub17.anIntArray2618.length <= i_2_) {
+			final int[] is = new int[i_2_ + 1];
+			final int[] is_5_ = new int[i_2_ + 1];
+			for (int i_6_ = 0; class120_sub17.anIntArray2618.length > i_6_; i_6_++) {
+				is[i_6_] = class120_sub17.anIntArray2618[i_6_];
+				is_5_[i_6_] = class120_sub17.anIntArray2619[i_6_];
+			}
+			for (int i_7_ = class120_sub17.anIntArray2618.length; i_7_ < i_2_; i_7_++) {
+				is[i_7_] = -1;
+				is_5_[i_7_] = 0;
+			}
+			class120_sub17.anIntArray2619 = is_5_;
+			class120_sub17.anIntArray2618 = is;
+		}
+		class120_sub17.anIntArray2618[i_2_] = i_3_;
+		class120_sub17.anIntArray2619[i_2_] = i_4_;
 	}
 
 	@Override
 	public final synchronized void mouseDragged(final MouseEvent mouseevent) {
-		try {
-			if (Class120_Sub14_Sub4.mouseHandler != null) {
-				Class136.anInt1320 = 0;
-				Class160.anInt1492 = mouseevent.getX();
-				Class120_Sub12_Sub27.anInt3351 = mouseevent.getY();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseDragged(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		if (Class120_Sub14_Sub4.mouseHandler != null) {
+			Class136.mouseIdleCycle = 0;
+			Class160.currentMouseX = mouseevent.getX();
+			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}
 
 	@Override
 	public final synchronized void focusLost(final FocusEvent focusevent) {
-		try {
-			if (Class120_Sub14_Sub4.mouseHandler != null) {
-				Class42.anInt362 = 0;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.focusLost(").append(focusevent != null ? "{...}" : "null").append(')').toString());
+		if (Class120_Sub14_Sub4.mouseHandler != null) {
+			Class42.currentMousePress = 0;
 		}
 	}
 
 	@Override
 	public final synchronized void mousePressed(final MouseEvent mouseevent) {
-		try {
-			do {
-				if (Class120_Sub14_Sub4.mouseHandler != null) {
-					Class136.anInt1320 = 0;
-					Class192.anInt2122 = mouseevent.getX();
-					Class80.anInt751 = mouseevent.getY();
-					Class186.aLong1897 = TimeUtil.getSafeTime();
-					if (mouseevent.isMetaDown()) {
-						GroundObjectNode.anInt3627 = 2;
-						Class42.anInt362 = 2;
-					} else {
-						GroundObjectNode.anInt3627 = 1;
-						Class42.anInt362 = 1;
-					}
-					final int i = mouseevent.getModifiers();
-					if ((i & 0x4) == 0) {
-						break;
-					}
+		do {
+			if (Class120_Sub14_Sub4.mouseHandler != null) {
+				Class136.mouseIdleCycle = 0;
+				Class192.currentClickX = mouseevent.getX();
+				Class80.currentClickY = mouseevent.getY();
+				Class186.currentClickTime = TimeUtil.getSafeTime();
+				if (mouseevent.isMetaDown()) {
+					GroundObjectNode.currentMouseClick = 2;
+					Class42.currentMousePress = 2;
+				} else {
+					GroundObjectNode.currentMouseClick = 1;
+					Class42.currentMousePress = 1;
 				}
-			} while (false);
-			if (mouseevent.isPopupTrigger()) {
-				mouseevent.consume();
+				final int i = mouseevent.getModifiers();
+				if ((i & 0x4) == 0) {
+					break;
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mousePressed(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		} while (false);
+		if (mouseevent.isPopupTrigger()) {
+			mouseevent.consume();
 		}
 	}
 
@@ -205,14 +170,10 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseMoved(final MouseEvent mouseevent) {
-		try {
-			if (Class120_Sub14_Sub4.mouseHandler != null) {
-				Class136.anInt1320 = 0;
-				Class160.anInt1492 = mouseevent.getX();
-				Class120_Sub12_Sub27.anInt3351 = mouseevent.getY();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.mouseMoved(").append(mouseevent != null ? "{...}" : "null").append(')').toString());
+		if (Class120_Sub14_Sub4.mouseHandler != null) {
+			Class136.mouseIdleCycle = 0;
+			Class160.currentMouseX = mouseevent.getX();
+			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}
 }

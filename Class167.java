@@ -3,10 +3,10 @@
  */
 
 abstract class Class167 {
-	int anInt1614;
-	int anInt1615;
+	int flag;
+	int location;
 	static int anInt1616 = -1;
-	int anInt1617;
+	int players;
 	static Cache aClass21_1618 = new Cache(30);
 	static boolean aBoolean1619 = true;
 	static boolean aBoolean1620 = false;
@@ -17,7 +17,7 @@ abstract class Class167 {
 			if (i != -3378) {
 				aBoolean1619 = true;
 			}
-			bool = (0x1 & this.anInt1614) != 0;
+			bool = (0x1 & this.flag) != 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.C(").append(i).append(')').toString());
 		}
@@ -54,7 +54,7 @@ abstract class Class167 {
 			if (i > -120) {
 				return false;
 			}
-			bool = (this.anInt1614 & 0x8) != 0;
+			bool = (this.flag & 0x8) != 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.I(").append(i).append(')').toString());
 		}
@@ -67,7 +67,7 @@ abstract class Class167 {
 			if (i <= 64) {
 				return true;
 			}
-			bool = (0x2 & this.anInt1614) != 0;
+			bool = (0x2 & this.flag) != 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.B(").append(i).append(')').toString());
 		}
@@ -80,7 +80,7 @@ abstract class Class167 {
 			if (i != 1082) {
 				method2185((byte) -113);
 			}
-			bool = (this.anInt1614 & 0x4) != 0;
+			bool = (this.flag & 0x4) != 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.D(").append(i).append(')').toString());
 		}

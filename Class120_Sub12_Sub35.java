@@ -55,21 +55,21 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 	static final boolean method1382(final JagexInterface jagexInterface, final byte i) {
 		boolean bool;
 		try {
-			if (jagexInterface.anIntArray2038 == null) {
+			if (jagexInterface.requiredValues == null) {
 				return false;
 			}
 			if (i > -89) {
 				anInt3410 = -79;
 			}
-			for (int i_7_ = 0; i_7_ < jagexInterface.anIntArray2038.length; i_7_++) {
+			for (int i_7_ = 0; i_7_ < jagexInterface.requiredValues.length; i_7_++) {
 				final int i_8_ = LocType.method2467(i_7_, (byte) -81, jagexInterface);
-				final int i_9_ = jagexInterface.anIntArray2071[i_7_];
-				if (jagexInterface.anIntArray2038[i_7_] != 2) {
-					if (jagexInterface.anIntArray2038[i_7_] == 3) {
+				final int i_9_ = jagexInterface.valueCompareType[i_7_];
+				if (jagexInterface.requiredValues[i_7_] != 2) {
+					if (jagexInterface.requiredValues[i_7_] == 3) {
 						if (i_8_ <= i_9_) {
 							return false;
 						}
-					} else if (jagexInterface.anIntArray2038[i_7_] == 4) {
+					} else if (jagexInterface.requiredValues[i_7_] == 4) {
 						if (i_8_ == i_9_) {
 							return false;
 						}

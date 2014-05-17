@@ -45,7 +45,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 						i_6_ = i_8_;
 					}
 				}
-				Class120_Sub14_Sub10.menuHeight = (Class186.aBoolean1899 ? 26 : 22) + Class186.menuOptionCount * 15;
+				Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + Class186.menuOptionCount * 15;
 				Class120_Sub24.menuWidth = 8 + i_6_;
 			}
 			if (jagexInterface != null) {

@@ -98,7 +98,7 @@ final class Class127 {
 
 	static final void method1891(final int i, final int i_6_, final int i_7_, final int i_8_, final boolean bool, final Class50 class50) {
 		try {
-			Class40.anInt349 = i_7_;
+			SeqType.anInt349 = i_7_;
 			Class120_Sub14_Sub14_Sub2.anInt3940 = i;
 			Class69.anInt614 = 10000;
 			Class120_Sub14_Sub23.anInt3649 = i_8_;
@@ -120,12 +120,12 @@ final class Class127 {
 		if (383.0F < Class120_Sub12_Sub21.aFloat3293) {
 			Class120_Sub12_Sub21.aFloat3293 = 383.0F;
 		}
-		for (/**/; 2048.0F <= OutputStream_Sub1.aFloat28; OutputStream_Sub1.aFloat28 -= 2048.0F) {
+		for (/**/; 2048.0F <= DummyOutputStream.aFloat28; DummyOutputStream.aFloat28 -= 2048.0F) {
 			/* empty */
 		}
 		final int i_10_ = Class120_Sub10.playerRenderZ >> 7;
 		int i_11_ = 0;
-		for (/**/; OutputStream_Sub1.aFloat28 < 0.0F; OutputStream_Sub1.aFloat28 += 2048.0F) {
+		for (/**/; DummyOutputStream.aFloat28 < 0.0F; DummyOutputStream.aFloat28 += 2048.0F) {
 			/* empty */
 		}
 		final int i_12_ = Class22.method197(Class173.gameLevel, Class69_Sub3_Sub1.playerRenderX, Class120_Sub10.playerRenderZ);

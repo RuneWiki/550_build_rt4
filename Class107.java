@@ -158,7 +158,7 @@ abstract class Class107 {
 							}
 						}
 						Class120_Sub9.method1163();
-						LocType.method2450();
+						LocType.resetSpriteMenu();
 					}
 				} else {
 					JagexInterface.gameShellThread.setPriority(5);
@@ -173,7 +173,7 @@ abstract class Class107 {
 					}
 					LightManager.method1856(4, 104, 104);
 					Class47.method382(104, 104);
-					LocType.method2450();
+					LocType.resetSpriteMenu();
 				}
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);

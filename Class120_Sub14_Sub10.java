@@ -172,7 +172,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 		if (anIntArray3528 != null) {
 			for (int i_17_ = 0; i_17_ < anIntArray3528.length; i_17_++) {
 				stringbuffer.append(aStringArray3536[i_17_]);
-				stringbuffer.append(Class101_Sub4.method849(class120_sub7.method1098(-124, InputStream_Sub1.anIntArray24[anIntArray3528[i_17_]]), anIntArray3528[i_17_], anIntArrayArray3529[i_17_]));
+				stringbuffer.append(Class101_Sub4.method849(class120_sub7.method1098(-124, DummyInputStream.anIntArray24[anIntArray3528[i_17_]]), anIntArray3528[i_17_], anIntArrayArray3529[i_17_]));
 			}
 		}
 		stringbuffer.append(aStringArray3536[aStringArray3536.length - 1]);

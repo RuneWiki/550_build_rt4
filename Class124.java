@@ -73,7 +73,7 @@ final class Class124 {
 	private final void method1877(final int i, final int i_5_, final int i_6_, final Buffer class120_sub7) {
 		try {
 			if (i == 1) {
-				this.anInt1197 = Class120_Sub12_Sub1.method1200(class120_sub7.getTriByte(), 1624671788);
+				this.anInt1197 = Class120_Sub12_Sub1.method1200(class120_sub7.getMedium(), 1624671788);
 			} else if (i != 2) {
 				if (i != 3) {
 					if (i != 5) {
@@ -91,7 +91,7 @@ final class Class124 {
 											this.anInt1199 = class120_sub7.getUByte();
 										}
 									} else {
-										this.anInt1200 = class120_sub7.getTriByte();
+										this.anInt1200 = class120_sub7.getMedium();
 									}
 								} else {
 									this.aBoolean1196 = true;
@@ -100,7 +100,7 @@ final class Class124 {
 								this.aBoolean1193 = false;
 							}
 						} else {
-							this.anInt1198 = Class120_Sub12_Sub1.method1200(class120_sub7.getTriByte(), 1624671788);
+							this.anInt1198 = Class120_Sub12_Sub1.method1200(class120_sub7.getMedium(), 1624671788);
 						}
 					} else {
 						this.aBoolean1195 = false;

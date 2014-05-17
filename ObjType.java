@@ -78,7 +78,7 @@ final class ObjType {
 			int i = this.anInt1546;
 			int i_2_ = anInt1512;
 			if (bool_1_) {
-				method2105(-24, -30, 16, 118, null, null, -125);
+				method2105(-24, -30, 118, null, null, -125);
 			}
 			int i_3_ = anInt1535;
 			if (bool) {
@@ -109,12 +109,12 @@ final class ObjType {
 			}
 			if (recol_s != null) {
 				for (int i_7_ = 0; i_7_ < recol_s.length; i_7_++) {
-					class180_sub2_4_.method2307(recol_s[i_7_], recol_d[i_7_]);
+					class180_sub2_4_.recolor(recol_s[i_7_], recol_d[i_7_]);
 				}
 			}
 			if (retex_s != null) {
 				for (int i_8_ = 0; i_8_ < retex_s.length; i_8_++) {
-					class180_sub2_4_.method2292(retex_s[i_8_], retex_d[i_8_]);
+					class180_sub2_4_.retexture(retex_s[i_8_], retex_d[i_8_]);
 				}
 			}
 			class180_sub2 = class180_sub2_4_;
@@ -149,93 +149,77 @@ final class ObjType {
 		}
 	}
 
-	final Class180_Sub7 method2105(final int i, final int i_11_, final int i_12_, final int i_13_, final PlayerAppearance playerAppearance, final Class40 class40, final int i_14_) {
-		Class180_Sub7 class180_sub7;
-		try {
-			if (this.countobj != null && i_11_ > 1) {
-				int i_15_ = -1;
-				for (int i_16_ = 0; i_16_ < 10; i_16_++) {
-					if (i_11_ >= this.countco[i_16_] && this.countco[i_16_] != 0) {
-						i_15_ = this.countobj[i_16_];
-					}
-				}
-				if ((i_15_ ^ 0xffffffff) != 0) {
-					return ObjType.list(i_15_).method2105(i, 1, 53, i_13_, playerAppearance, class40, i_14_);
+	final Class180_Sub7 method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
+		if (this.countobj != null && i_11_ > 1) {
+			int i_15_ = -1;
+			for (int i_16_ = 0; i_16_ < 10; i_16_++) {
+				if (i_11_ >= this.countco[i_16_] && this.countco[i_16_] != 0) {
+					i_15_ = this.countobj[i_16_];
 				}
 			}
-			Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.get(this.myId);
-			if (class180_sub7_17_ == null) {
-				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
-				if (class180_sub2 == null) {
-					return null;
-				}
-				if (recol_s != null) {
-					for (int i_18_ = 0; recol_s.length > i_18_; i_18_++) {
-						if (recol_d_palette == null || i_18_ >= recol_d_palette.length) {
-							class180_sub2.method2307(recol_s[i_18_], recol_d[i_18_]);
-						} else {
-							class180_sub2.method2307(recol_s[i_18_], NodeSub.aShortArray2584[recol_d_palette[i_18_] & 0xff]);
-						}
-					}
-				}
-				if (retex_s != null) {
-					for (int i_19_ = 0; i_19_ < retex_s.length; i_19_++) {
-						class180_sub2.method2292(retex_s[i_19_], retex_d[i_19_]);
-					}
-				}
-				if (playerAppearance != null) {
-					for (int i_20_ = 0; i_20_ < 5; i_20_++) {
-						if (playerAppearance.anIntArray1370[i_20_] < Class159.aShortArrayArray1489[i_20_].length) {
-							class180_sub2.method2307(Class120_Sub12_Sub37.aShortArray3429[i_20_], Class159.aShortArrayArray1489[i_20_][playerAppearance.anIntArray1370[i_20_]]);
-						}
-						if (playerAppearance.anIntArray1370[i_20_] < Class120_Sub30_Sub1.aShortArrayArray3668[i_20_].length) {
-							class180_sub2.method2307(SpotAnimType.aShortArray994[i_20_], Class120_Sub30_Sub1.aShortArrayArray3668[i_20_][playerAppearance.anIntArray1370[i_20_]]);
-						}
-					}
-				}
-				class180_sub7_17_ = class180_sub2.method2300(64 - -ambient, contrast + 768, -50, -10, -50);
-				if (resizex != 128 || resizey != 128 || resizez != 128) {
-					class180_sub7_17_.method2369(resizex, resizey, resizez);
-				}
-				class180_sub7_17_.haveActions = true;
-				if (HDToolkit.glEnabled) {
-					((Class180_Sub7_Sub2) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
-				}
-				Class33.aClass21_273.put(class180_sub7_17_, this.myId);
+			if ((i_15_ ^ 0xffffffff) != 0) {
+				return ObjType.list(i_15_).method2105(i, 1, i_13_, playerAppearance, seqType, i_14_);
 			}
-			if (class40 != null) {
-				class180_sub7_17_ = class40.method323(false, i_14_, i_13_, class180_sub7_17_, i);
-			}
-			class180_sub7 = class180_sub7_17_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.G(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(playerAppearance != null ? "{...}" : "null").append(',').append(class40 != null ? "{...}" : "null")
-					.append(',').append(i_14_).append(')').toString());
 		}
-		return class180_sub7;
+		Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.get(this.myId);
+		if (class180_sub7_17_ == null) {
+			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
+			if (class180_sub2 == null) {
+				return null;
+			}
+			if (recol_s != null) {
+				for (int i_18_ = 0; recol_s.length > i_18_; i_18_++) {
+					if (recol_d_palette == null || i_18_ >= recol_d_palette.length) {
+						class180_sub2.recolor(recol_s[i_18_], recol_d[i_18_]);
+					} else {
+						class180_sub2.recolor(recol_s[i_18_], NodeSub.aShortArray2584[recol_d_palette[i_18_] & 0xff]);
+					}
+				}
+			}
+			if (retex_s != null) {
+				for (int i_19_ = 0; i_19_ < retex_s.length; i_19_++) {
+					class180_sub2.retexture(retex_s[i_19_], retex_d[i_19_]);
+				}
+			}
+			if (playerAppearance != null) {
+				for (int i_20_ = 0; i_20_ < 5; i_20_++) {
+					if (playerAppearance.anIntArray1370[i_20_] < Class159.aShortArrayArray1489[i_20_].length) {
+						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_20_], Class159.aShortArrayArray1489[i_20_][playerAppearance.anIntArray1370[i_20_]]);
+					}
+					if (playerAppearance.anIntArray1370[i_20_] < Class120_Sub30_Sub1.aShortArrayArray3668[i_20_].length) {
+						class180_sub2.recolor(SpotAnimType.aShortArray994[i_20_], Class120_Sub30_Sub1.aShortArrayArray3668[i_20_][playerAppearance.anIntArray1370[i_20_]]);
+					}
+				}
+			}
+			class180_sub7_17_ = class180_sub2.method2300(64 - -ambient, contrast + 768, -50, -10, -50);
+			if (resizex != 128 || resizey != 128 || resizez != 128) {
+				class180_sub7_17_.method2369(resizex, resizey, resizez);
+			}
+			class180_sub7_17_.haveActions = true;
+			if (HDToolkit.glEnabled) {
+				((Class180_Sub7_Sub2) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
+			}
+			Class33.aClass21_273.put(class180_sub7_17_, this.myId);
+		}
+		if (seqType != null) {
+			class180_sub7_17_ = seqType.method323(false, i_14_, i_13_, class180_sub7_17_, i);
+		}
+		return class180_sub7_17_;
 	}
 
-	final ObjType method2106(final boolean bool, final int i) {
-		ObjType class162_21_;
-		try {
-			if (!bool) {
-				manwearxoff = 115;
-			}
-			if (this.countobj != null && i > 1) {
-				int i_22_ = -1;
-				for (int i_23_ = 0; i_23_ < 10; i_23_++) {
-					if (this.countco[i_23_] <= i && this.countco[i_23_] != 0) {
-						i_22_ = this.countobj[i_23_];
-					}
-				}
-				if (i_22_ != -1) {
-					return ObjType.list(i_22_);
+	final ObjType method2106(final int i) {
+		if (this.countobj != null && i > 1) {
+			int i_22_ = -1;
+			for (int i_23_ = 0; i_23_ < 10; i_23_++) {
+				if (this.countco[i_23_] <= i && this.countco[i_23_] != 0) {
+					i_22_ = this.countobj[i_23_];
 				}
 			}
-			class162_21_ = this;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.J(").append(bool).append(',').append(i).append(')').toString());
+			if (i_22_ != -1) {
+				return ObjType.list(i_22_);
+			}
 		}
-		return class162_21_;
+		return this;
 	}
 
 	final Class180_Sub2 method2107(final int i, final boolean bool) {
@@ -261,12 +245,12 @@ final class ObjType {
 			}
 			if (recol_s != null) {
 				for (int i_28_ = 0; i_28_ < recol_s.length; i_28_++) {
-					class180_sub2_26_.method2307(recol_s[i_28_], recol_d[i_28_]);
+					class180_sub2_26_.recolor(recol_s[i_28_], recol_d[i_28_]);
 				}
 			}
 			if (retex_s != null) {
 				for (int i_29_ = 0; i_29_ < retex_s.length; i_29_++) {
-					class180_sub2_26_.method2292(retex_s[i_29_], retex_d[i_29_]);
+					class180_sub2_26_.retexture(retex_s[i_29_], retex_d[i_29_]);
 				}
 			}
 			class180_sub2 = class180_sub2_26_;
@@ -453,24 +437,24 @@ final class ObjType {
 			if (recol_s != null) {
 				for (int i_50_ = 0; i_50_ < recol_s.length; i_50_++) {
 					if (recol_d_palette != null && recol_d_palette.length > i_50_) {
-						class180_sub2.method2307(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
+						class180_sub2.recolor(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
 					} else {
-						class180_sub2.method2307(recol_s[i_50_], recol_d[i_50_]);
+						class180_sub2.recolor(recol_s[i_50_], recol_d[i_50_]);
 					}
 				}
 			}
 			if (retex_s != null) {
 				for (int i_51_ = 0; i_51_ < retex_s.length; i_51_++) {
-					class180_sub2.method2292(retex_s[i_51_], retex_d[i_51_]);
+					class180_sub2.retexture(retex_s[i_51_], retex_d[i_51_]);
 				}
 			}
 			if (playerAppearance != null) {
 				for (int i_52_ = 0; i_52_ < 5; i_52_++) {
 					if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.anIntArray1370[i_52_]) {
-						class180_sub2.method2307(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.anIntArray1370[i_52_]]);
+						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.anIntArray1370[i_52_]]);
 					}
 					if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.anIntArray1370[i_52_]) {
-						class180_sub2.method2307(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.anIntArray1370[i_52_]]);
+						class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.anIntArray1370[i_52_]]);
 					}
 				}
 			}
@@ -585,7 +569,7 @@ final class ObjType {
 																									}
 																									for (int i_59_ = 0; i_59_ < i_57_; i_59_++) {
 																										final boolean bool = buffer.getUByte() == 1;
-																										final int i_60_ = buffer.getTriByte();
+																										final int i_60_ = buffer.getMedium();
 																										Node node;
 																										if (!bool) {
 																											node = new IntegerNode(buffer.getInt());
@@ -700,7 +684,7 @@ final class ObjType {
 			class162_12_.method2112(119, list(class162_12_.lentlink), list(class162_12_.lenttemplate));
 		}
 		if (!AbstractObject.aBoolean3463 && class162_12_.members) {
-			class162_12_.name = InputStream_Sub1.aString25;
+			class162_12_.name = DummyInputStream.aString25;
 			class162_12_.options = Class120_Sub12_Sub32.aStringArray3387;
 			class162_12_.inventoryOptions = Class120_Sub12_Sub29.aStringArray3363;
 			class162_12_.team = 0;

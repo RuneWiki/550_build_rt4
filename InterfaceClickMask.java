@@ -19,17 +19,8 @@ final class InterfaceClickMask extends Node {
 		return bool;
 	}
 
-	final boolean method1678(final int i, final int i_0_) {
-		boolean bool;
-		try {
-			if (i_0_ <= 24) {
-				method1677((byte) 72);
-			}
-			bool = (0x1 & this.anInt2662 >> i - -1) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.G(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-		return bool;
+	final boolean method1678(final int i) {
+		return (0x1 & this.anInt2662 >> i + 1) != 0;
 	}
 
 	static final void method1679(final Node node, final byte i, final Node class120_1_) {
@@ -105,7 +96,7 @@ final class InterfaceClickMask extends Node {
 			if (i != 1105924391) {
 				return -75;
 			}
-			i_4_ = Class153.method2073(this.anInt2662, i ^ 0x2c212e2c);
+			i_4_ = Class153.method2073(this.anInt2662);
 		} catch (final RuntimeException runtimeexception) {
 			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.P(").append(i).append(')').toString());
 		}
@@ -221,7 +212,7 @@ final class InterfaceClickMask extends Node {
 
 	static final void method1689(final int i_17_, final int i) {
 		if (Class50.loadInterface(i)) {
-			Class137.method1980(true, Node.interfaceCache[i], i_17_);
+			Class137.method1980(Node.interfaceCache[i], i_17_);
 		}
 	}
 

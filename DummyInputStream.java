@@ -3,7 +3,7 @@
  */
 import java.io.InputStream;
 
-final class InputStream_Sub1 extends InputStream {
+final class DummyInputStream extends InputStream {
 	static boolean focus;
 	static int[] anIntArray24;
 	static String aString25 = "Members object";
@@ -23,9 +23,9 @@ final class InputStream_Sub1 extends InputStream {
 		return -1;
 	}
 
-	static final void logout() {
+	static final void processLogout() {
 		if (AbstractTimer.worldConnection != null) {
-			AbstractTimer.worldConnection.method377();
+			AbstractTimer.worldConnection.close();
 			AbstractTimer.worldConnection = null;
 		}
 		Class110.method976(-7603);
@@ -75,14 +75,8 @@ final class InputStream_Sub1 extends InputStream {
 
 	@Override
 	public final int read() {
-		int i;
-		try {
-			PacketBuffer.sleepWrapper(30000L);
-			i = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "ia.read()");
-		}
-		return i;
+		PacketBuffer.sleepWrapper(30000L);
+		return -1;
 	}
 
 	public static void method70(final boolean bool) {

@@ -83,7 +83,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 		return is;
 	}
 
-	static final int method1233(final int i, final boolean bool, final Class167_Sub1 class167_sub1, final boolean bool_17_, final Class167_Sub1 class167_sub1_18_, final int i_19_, final boolean bool_20_) {
+	static final int method1233(final int i, final boolean bool, final World class167_sub1, final boolean bool_17_, final World class167_sub1_18_, final int i_19_, final boolean bool_20_) {
 		int i_21_;
 		try {
 			if (!bool_20_) {

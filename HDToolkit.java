@@ -18,7 +18,7 @@ final class HDToolkit {
 	static int anInt507;
 	private static boolean aBoolean508;
 	static GL gl;
-	static boolean isBigEndian;
+	static boolean usingBigEndian;
 	private static int anInt511 = -1;
 	private static float aFloat512;
 	static boolean aBoolean513;
@@ -575,7 +575,7 @@ final class HDToolkit {
 		if (i != 0) {
 			return i;
 		}
-		isBigEndian = ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN;
+		usingBigEndian = ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN;
 		vertexBufferAsObject = gl.isExtensionAvailable("GL_ARB_vertex_buffer_object");
 		aBoolean523 = gl.isExtensionAvailable("GL_ARB_multisample");
 		aBoolean514 = gl.isExtensionAvailable("GL_ARB_texture_cube_map");
@@ -602,7 +602,7 @@ final class HDToolkit {
 						break;
 					}
 					if (Class120_Sub21.method1697(string_55_.substring(0, 4), (byte) -36)) {
-						i_50_ = Class31.method265(true, string_55_.substring(0, 4));
+						i_50_ = Class31.method265(string_55_.substring(0, 4));
 						break;
 					}
 				}
