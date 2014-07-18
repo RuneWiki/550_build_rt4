@@ -13,7 +13,7 @@ final class Class38 {
 				cursorsEnabled = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ee.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -40,7 +40,7 @@ final class Class38 {
 				cursorsEnabled = false;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ee.D(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.D(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -48,13 +48,13 @@ final class Class38 {
 		for (int i_5_ = 0; i_5_ < Class142.anInt1361; i_5_++) {
 			for (int i_6_ = 0; i_6_ < Class186.anInt1900; i_6_++) {
 				for (int i_7_ = 0; i_7_ < Class120_Sub12_Sub38.anInt3440; i_7_++) {
-					final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_5_][i_6_][i_7_];
+					final GroundTile class120_sub18 = LabelGroup.groundTiles[i_5_][i_6_][i_7_];
 					if (class120_sub18 != null) {
 						final Class182 class182 = class120_sub18.aClass182_2628;
 						if (class182 != null && class182.aClass180_1800.method2268()) {
-							Class120_Sub10.method1170(class182.aClass180_1800, i_5_, i_6_, i_7_, 1, 1);
+							InterfaceListener.method1170(class182.aClass180_1800, i_5_, i_6_, i_7_, 1, 1);
 							if (class182.aClass180_1796 != null && class182.aClass180_1796.method2268()) {
-								Class120_Sub10.method1170(class182.aClass180_1796, i_5_, i_6_, i_7_, 1, 1);
+								InterfaceListener.method1170(class182.aClass180_1796, i_5_, i_6_, i_7_, 1, 1);
 								class182.aClass180_1800.method2267(class182.aClass180_1796, 0, 0, 0, false);
 								class182.aClass180_1796 = class182.aClass180_1796.method2269(i, i_3_, i_4_);
 							}
@@ -63,7 +63,7 @@ final class Class38 {
 						for (int i_8_ = 0; i_8_ < class120_sub18.anInt2638; i_8_++) {
 							final Class28 class28 = class120_sub18.aClass28Array2625[i_8_];
 							if (class28 != null && class28.aClass180_174.method2268()) {
-								Class120_Sub10.method1170(class28.aClass180_174, i_5_, i_6_, i_7_, class28.anInt182 - class28.anInt180 + 1, class28.anInt175 - class28.anInt184 + 1);
+								InterfaceListener.method1170(class28.aClass180_174, i_5_, i_6_, i_7_, class28.anInt182 - class28.anInt180 + 1, class28.anInt175 - class28.anInt184 + 1);
 								class28.aClass180_174 = class28.aClass180_174.method2269(i, i_3_, i_4_);
 							}
 						}
@@ -78,7 +78,7 @@ final class Class38 {
 		}
 	}
 
-	static final boolean method315(final int i, final int level) {
+	static final boolean method315(final int level) {
 		if (Class120_Sub14_Sub10.landScapeAsSprite == null) {
 			if (!HDToolkit.glEnabled && Class134.aClass120_Sub14_Sub19_1276 != null) {
 				Class120_Sub14_Sub10.landScapeAsSprite = (LDSprite) Class134.aClass120_Sub14_Sub19_1276;
@@ -138,7 +138,7 @@ final class Class38 {
 									bool_22_ = true;
 								}
 								if (bool_22_) {
-									final int[][] is_25_ = Class182.aClass25Array1802[level].anIntArrayArray152;
+									final int[][] is_25_ = Class182.collisionMaps[level].anIntArrayArray152;
 									for (int i_26_ = 0; i_26_ < 10; i_26_++) {
 										final int i_27_ = (int) (Math.random() * 4.0);
 										if (i_27_ == 0 && i_23_ > 0 && i_23_ > -3 + i_17_ && (is_25_[i_23_ + -1][i_24_] & 0x2c0108) == 0) {
@@ -216,7 +216,7 @@ final class Class38 {
 			}
 			Class180_Sub4.aClass21_2931.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ee.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -244,7 +244,7 @@ final class Class38 {
 			class120_sub24.anInt2717 = i_35_;
 			class120_sub24.anInt2727 = i_40_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ee.E(").append(i).append(',').append(i_34_).append(',').append(i_35_).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.E(").append(i).append(',').append(i_34_).append(',').append(i_35_).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',')
 					.append(i_41_).append(',').append(i_42_).append(')').toString());
 		}
 	}

@@ -35,9 +35,9 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			}
 			if (Class186.menuOptionCount == 1) {
 				Class15.menuOpen = false;
-				Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
+				Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 			} else {
-				Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
+				Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 				int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
 				for (int i_7_ = 0; Class186.menuOptionCount > i_7_; i_7_++) {
 					final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_7_));
@@ -57,7 +57,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			}
 			class120_sub26 = class120_sub26_3_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bk.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bk.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 		return class120_sub26;
 	}
@@ -83,11 +83,11 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			class182.anInt1799 = i_13_;
 			class182.anInt1792 = i_14_;
 			for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-				if (Class120_Sub1.groundTiles[i_15_][i_9_][i_10_] == null) {
-					Class120_Sub1.groundTiles[i_15_][i_9_][i_10_] = new GroundTile(i_15_, i_9_, i_10_);
+				if (LabelGroup.groundTiles[i_15_][i_9_][i_10_] == null) {
+					LabelGroup.groundTiles[i_15_][i_9_][i_10_] = new GroundTile(i_15_, i_9_, i_10_);
 				}
 			}
-			Class120_Sub1.groundTiles[i][i_9_][i_10_].aClass182_2628 = class182;
+			LabelGroup.groundTiles[i][i_9_][i_10_].aClass182_2628 = class182;
 		}
 	}
 

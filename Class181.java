@@ -20,7 +20,7 @@ final class Class181 {
 			}
 			anIntArray1790 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vd.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -28,7 +28,7 @@ final class Class181 {
 		String string;
 		try {
 			String string_0_ = "www";
-			if (Class107.modeWhere != 0) {
+			if (AbstractIndexedSprite.modeWhere != 0) {
 				string_0_ = "www-wtqa";
 			}
 			String string_1_ = "";
@@ -40,7 +40,7 @@ final class Class181 {
 			}
 			string = new StringBuilder("http://").append(string_0_).append(".runescape.com/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/").toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vd.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.B(").append(i).append(')').toString());
 		}
 		return string;
 	}
@@ -64,7 +64,7 @@ final class Class181 {
 				this.anInt1788 = 63;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vd.C(").append(i).append(',').append(i_2_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.C(").append(i).append(',').append(i_2_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
 		}
 	}
 
@@ -81,7 +81,7 @@ final class Class181 {
 				method2438(-34);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vd.D(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.D(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 

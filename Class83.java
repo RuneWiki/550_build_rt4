@@ -9,7 +9,7 @@ final class Class83 implements Runnable {
 	private boolean aBoolean791 = false;
 	static int renderX;
 	int anInt793 = 0;
-	static Class50 aClass50_794;
+	static js5 aClass50_794;
 	private Thread aThread795;
 
 	@Override
@@ -42,7 +42,7 @@ final class Class83 implements Runnable {
 				class120_sub14_sub14_sub1.aBoolean3576 = false;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "ja.run()");
+			throw EnumType.method1428(runtimeexception, "ja.run()");
 		}
 	}
 
@@ -60,7 +60,7 @@ final class Class83 implements Runnable {
 			a(-377, class120_sub14_sub14_sub1_1_);
 			class120_sub14_sub14_sub1 = class120_sub14_sub14_sub1_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.G(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.G(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 		}
 		return class120_sub14_sub14_sub1;
 	}
@@ -178,7 +178,7 @@ final class Class83 implements Runnable {
 				renderX = -67;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -194,7 +194,7 @@ final class Class83 implements Runnable {
 			a(-377, class120_sub14_sub14_sub1_9_);
 			class120_sub14_sub14_sub1 = class120_sub14_sub14_sub1_9_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.E(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.E(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(i_8_).append(')').toString());
 		}
 		return class120_sub14_sub14_sub1;
 	}
@@ -207,7 +207,7 @@ final class Class83 implements Runnable {
 			KeyboardHandler.aClass21_1504.clearSoftReference();
 			SceneGraphNode.aClass21_1781.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -216,7 +216,7 @@ final class Class83 implements Runnable {
 			Class120_Sub2.anInt2422 = Class79.anInt694 + -i_11_ + Class79.anInt692 - 1;
 			CanvasWrapper.anInt20 = i - Class79.anInt695;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.A(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.A(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
 		}
 	}
 
@@ -233,7 +233,7 @@ final class Class83 implements Runnable {
 			}
 			aThread795 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.F(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.F(").append(bool).append(')').toString());
 		}
 	}
 
@@ -248,7 +248,7 @@ final class Class83 implements Runnable {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.I(").append(i).append(',').append(class120_sub14_sub14_sub1 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.I(").append(i).append(',').append(class120_sub14_sub14_sub1 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -276,7 +276,7 @@ final class Class83 implements Runnable {
 			class120_sub14_sub14_sub1_13_.aBoolean3573 = true;
 			class120_sub14_sub14_sub1 = class120_sub14_sub14_sub1_13_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ja.B(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.B(").append(i).append(',').append(fileSystem != null ? "{...}" : "null").append(',').append(i_12_).append(')').toString());
 		}
 		return class120_sub14_sub14_sub1;
 	}

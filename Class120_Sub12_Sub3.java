@@ -19,7 +19,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			aClass164_3150 = null;
 			anIntArray3148 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.W(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.W(").append(i).append(')').toString());
 		}
 	}
 
@@ -32,24 +32,18 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			Class22.aClass127_130.method1896(-16646, Class79.aClass177_690);
 			final Class120_Sub14_Sub5 class120_sub14_sub5_0_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1895((byte) -79);
 			final Class73 class73 = Class73.list(class120_sub14_sub5_0_.anInt3473);
-			if (class73 != null && class73.aBoolean659 && class73.method647(-1)) {
+			if (class73 != null && class73.aBoolean659 && class73.method647()) {
 				return class120_sub14_sub5_0_;
 			}
 			class120_sub14_sub5 = Class112.method992(2048);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.U(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.U(").append(i).append(')').toString());
 		}
 		return class120_sub14_sub5;
 	}
 
 	static int method1207(final int i, final int i_1_) {
-		int i_2_;
-		try {
-			i_2_ = i & i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.R(").append(i).append(',').append(i_1_).append(')').toString());
-		}
-		return i_2_;
+		return i & i_1_;
 	}
 
 	@Override
@@ -77,7 +71,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 				} while (false);
 				anInt3153 = class120_sub7.getUShort();
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("ca.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
 			}
 		} while (false);
 	}
@@ -104,60 +98,45 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			Class120_Sub12_Sub35.aClass21_3411.put(class181_6_, i);
 			class181 = class181_6_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.S(").append(i).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.S(").append(i).append(',').append(i_5_).append(')').toString());
 		}
 		return class181;
 	}
 
-	static final Class107[] method1209(final Class50 class50, final int i, final int i_7_, final int i_8_) {
-		Class107[] class107s;
-		try {
-			if (!Class10.method121(class50, i, i_8_)) {
-				return null;
-			}
-			class107s = Class100.method826(0);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.V(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
+	static final AbstractIndexedSprite[] constructIndexedSprites(final js5 js5, final int i, final int i_8_) {
+		if (!Class10.decodedSprites(js5, i, i_8_)) {
+			return null;
 		}
-		return class107s;
+		return Class100.constructIndexedSprites();
 	}
 
 	@Override
-	final int[][] method1188(final int i, final int i_9_) {
-		int[][] is;
-		try {
-			if (i_9_ != -29869) {
-				return null;
-			}
-			final int[][] is_10_ = this.aClass109_2559.method975(i, -62);
-			if (this.aClass109_2559.aBoolean1049) {
-				final int[][] is_11_ = method1179(0, i, (byte) -51);
-				final int[] is_12_ = is_11_[1];
-				final int[] is_13_ = is_11_[0];
-				final int[] is_14_ = is_10_[0];
-				final int[] is_15_ = is_10_[1];
-				final int[] is_16_ = is_11_[2];
-				final int[] is_17_ = is_10_[2];
-				for (int i_18_ = 0; Class120_Sub12_Sub7.anInt3178 > i_18_; i_18_++) {
-					final int i_19_ = is_13_[i_18_];
-					final int i_20_ = is_16_[i_18_];
-					final int i_21_ = is_12_[i_18_];
-					if (i_20_ == i_19_ && i_20_ == i_21_) {
-						is_14_[i_18_] = anInt3152 * i_19_ >> 12;
-						is_15_[i_18_] = i_20_ * anInt3149 >> 12;
-						is_17_[i_18_] = anInt3153 * i_21_ >> 12;
-					} else {
-						is_14_[i_18_] = anInt3152;
-						is_15_[i_18_] = anInt3149;
-						is_17_[i_18_] = anInt3153;
-					}
+	final int[][] method1188(final int i) {
+		final int[][] is_10_ = this.aClass109_2559.method975(i);
+		if (this.aClass109_2559.aBoolean1049) {
+			final int[][] is_11_ = method1179(0, i, (byte) -51);
+			final int[] is_12_ = is_11_[1];
+			final int[] is_13_ = is_11_[0];
+			final int[] is_14_ = is_10_[0];
+			final int[] is_15_ = is_10_[1];
+			final int[] is_16_ = is_11_[2];
+			final int[] is_17_ = is_10_[2];
+			for (int i_18_ = 0; Class120_Sub12_Sub7.anInt3178 > i_18_; i_18_++) {
+				final int i_19_ = is_13_[i_18_];
+				final int i_20_ = is_16_[i_18_];
+				final int i_21_ = is_12_[i_18_];
+				if (i_20_ == i_19_ && i_20_ == i_21_) {
+					is_14_[i_18_] = anInt3152 * i_19_ >> 12;
+					is_15_[i_18_] = i_20_ * anInt3149 >> 12;
+					is_17_[i_18_] = anInt3153 * i_21_ >> 12;
+				} else {
+					is_14_[i_18_] = anInt3152;
+					is_15_[i_18_] = anInt3149;
+					is_17_[i_18_] = anInt3153;
 				}
 			}
-			is = is_10_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.K(").append(i).append(',').append(i_9_).append(')').toString());
 		}
-		return is;
+		return is_10_;
 	}
 
 	static final int method1210(final int i, int i_22_) {
@@ -173,7 +152,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			i_22_ += i_22_ >>> 16;
 			i_23_ = i_22_ & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ca.T(").append(i).append(',').append(i_22_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.T(").append(i).append(',').append(i_22_).append(')').toString());
 		}
 		return i_23_;
 	}

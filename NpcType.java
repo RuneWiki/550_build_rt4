@@ -59,35 +59,24 @@ final class NpcType {
 	String aString1705;
 	boolean aBoolean1706;
 
-	final boolean method2199(final int i) {
-		boolean bool;
-		try {
-			if (this.childrenIDs == null) {
-				return true;
-			}
-			int i_0_ = -1;
-			if ((varbitId ^ 0xffffffff) == 0) {
-				if (varpId != -1) {
-					i_0_ = Class2.permanentVariable[varpId];
-				}
-			} else {
-				i_0_ = Class173.method2226((byte) -128, varbitId);
-			}
-			if (i_0_ < 0 || i_0_ >= -1 + this.childrenIDs.length || (this.childrenIDs[i_0_] ^ 0xffffffff) == 0) {
-				final int i_1_ = this.childrenIDs[this.childrenIDs.length - 1];
-				if (i_1_ == -1) {
-					return false;
-				}
-				return true;
-			}
-			if (i != 15835) {
-				this.aBoolean1656 = true;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.K(").append(i).append(')').toString());
+	final boolean method2199() {
+		if (this.childrenIDs == null) {
+			return true;
 		}
-		return bool;
+		int i_0_ = -1;
+		if (varbitId != -1) {
+			i_0_ = Class173.method2226((byte) -128, varbitId);
+		} else if (varpId != -1) {
+			i_0_ = Class2.permanentVariable[varpId];
+		}
+		if (i_0_ < 0 || i_0_ >= this.childrenIDs.length - 1 || this.childrenIDs[i_0_] == -1) {
+			final int i_1_ = this.childrenIDs[this.childrenIDs.length - 1];
+			if (i_1_ == -1) {
+				return false;
+			}
+			return true;
+		}
+		return true;
 	}
 
 	public static void method2200(final boolean bool) {
@@ -97,7 +86,7 @@ final class NpcType {
 				gameSignlink = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.C(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.C(").append(bool).append(')').toString());
 		}
 	}
 
@@ -120,7 +109,7 @@ final class NpcType {
 			}
 			i_4_ = i_5_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.B(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.B(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 		return i_4_;
 	}
@@ -140,7 +129,7 @@ final class NpcType {
 			}
 			string_7_ = class120_sub25.value;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.I(").append(i).append(',').append(i_6_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.I(").append(i).append(',').append(i_6_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return string_7_;
 	}
@@ -148,7 +137,7 @@ final class NpcType {
 	private final void method2203(final Buffer class120_sub7, final byte i, final int i_8_) {
 		try {
 			if (i <= 17) {
-				method2199(2);
+				method2199();
 			}
 			if (i_8_ == 1) {
 				final int i_9_ = class120_sub7.getUByte();
@@ -271,7 +260,7 @@ final class NpcType {
 																								} else if (i_8_ == 249) {
 																									final int i_16_ = class120_sub7.getUByte();
 																									if (aClass75_1661 == null) {
-																										final int i_17_ = Class120_Sub12_Sub17.method1283(i_16_, (byte) 93);
+																										final int i_17_ = Class120_Sub12_Sub17.method1283(i_16_);
 																										aClass75_1661 = new Hashtable(i_17_);
 																									}
 																									for (int i_18_ = 0; i_18_ < i_16_; i_18_++) {
@@ -374,7 +363,7 @@ final class NpcType {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.J(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.J(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
@@ -402,7 +391,7 @@ final class NpcType {
 				method2206(29, 46, 112);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.N(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.N(").append(i).append(')').toString());
 		}
 	}
 
@@ -421,7 +410,7 @@ final class NpcType {
 			}
 			i_33_ = class120_sub32.value;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.M(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.M(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());
 		}
 		return i_33_;
 	}
@@ -439,12 +428,12 @@ final class NpcType {
 				method2203(class120_sub7, (byte) 63, i_34_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.F(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.F(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
-	static final void method2208(final Class50 class50) {
-		Class49.aClass50_440 = class50;
+	static final void method2208(final js5 js5) {
+		Class49.aClass50_440 = js5;
 	}
 
 	final NpcType handleVarp() {
@@ -520,7 +509,7 @@ final class NpcType {
 			}
 			class180_sub7 = class180_sub7_42_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.H(").append(i).append(',').append(seqType != null ? "{...}" : "null").append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.H(").append(i).append(',').append(seqType != null ? "{...}" : "null").append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
 		}
 		return class180_sub7;
 	}
@@ -565,7 +554,7 @@ final class NpcType {
 				}
 				Class29 class29 = null;
 				if (this.anInt1692 != -1) {
-					class29 = Class120_Sub14_Sub23.method1642(-16596, this.anInt1692);
+					class29 = Class29.list(this.anInt1692);
 				}
 				if (class29 != null && class29.anIntArrayArray215 != null) {
 					for (int i_58_ = 0; class29.anIntArrayArray215.length > i_58_; i_58_++) {
@@ -661,19 +650,19 @@ final class NpcType {
 						final int i_81_ = class150s[i_79_].anInt1413;
 						final int i_82_ = class150s[i_79_].anInt1414;
 						int i_83_ = class40_80_.frames[i_81_];
-						Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_79_] = Class120_Sub12_Sub31.method1367(i_83_ >>> 16, -1);
+						EnumType.aClass120_Sub14_Sub18Array3453[i_79_] = FrameLoader.list(i_83_ >>> 16);
 						i_83_ &= 0xffff;
 						Class180_Sub3.anIntArray2918[i_79_] = i_83_;
-						if (Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_79_] != null) {
-							bool_76_ |= Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_79_].method1579(3, i_83_);
-							bool_75_ |= Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_79_].method1578((byte) -39, i_83_);
+						if (EnumType.aClass120_Sub14_Sub18Array3453[i_79_] != null) {
+							bool_76_ |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].method1579(3, i_83_);
+							bool_75_ |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].method1578((byte) -39, i_83_);
 							bool_77_ |= class40_80_.aBoolean341;
 						}
 						if ((class40_80_.tween || Class164.forceTween) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.frames.length) {
 							Class120_Sub28.anIntArray2761[i_79_] = class40_80_.cycles[i_81_];
 							Cache.anIntArray124[i_79_] = class150s[i_79_].anInt1410;
 							int i_84_ = class40_80_.frames[i_82_];
-							DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] = Class120_Sub12_Sub31.method1367(i_84_ >>> 16, -1);
+							DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] = FrameLoader.list(i_84_ >>> 16);
 							i_84_ &= 0xffff;
 							Class120_Sub12.anIntArray2567[i_79_] = i_84_;
 							if (DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] != null) {
@@ -698,13 +687,13 @@ final class NpcType {
 			}
 			int i_86_ = -1;
 			int i_87_ = -1;
-			Class120_Sub14_Sub18 class120_sub14_sub18 = null;
-			Class120_Sub14_Sub18 class120_sub14_sub18_88_ = null;
+			FrameLoader class120_sub14_sub18 = null;
+			FrameLoader class120_sub14_sub18_88_ = null;
 			int i_89_ = 0;
 			if (class40_49_ != null) {
 				i_87_ = class40_49_.frames[i];
 				final int i_90_ = i_87_ >>> 16;
-				class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_90_, -1);
+				class120_sub14_sub18 = FrameLoader.list(i_90_);
 				i_87_ &= 0xffff;
 				if (class120_sub14_sub18 != null) {
 					bool_76_ |= class120_sub14_sub18.method1579(3, i_87_);
@@ -717,7 +706,7 @@ final class NpcType {
 					final int i_91_ = i_86_ >>> 16;
 					i_86_ &= 0xffff;
 					if (i_91_ != i_90_) {
-						class120_sub14_sub18_88_ = Class120_Sub12_Sub31.method1367(i_86_ >>> 16, -1);
+						class120_sub14_sub18_88_ = FrameLoader.list(i_86_ >>> 16);
 					} else {
 						class120_sub14_sub18_88_ = class120_sub14_sub18;
 					}
@@ -730,13 +719,13 @@ final class NpcType {
 			int i_92_ = -1;
 			int i_93_ = -1;
 			int i_94_ = 0;
-			Class120_Sub14_Sub18 class120_sub14_sub18_95_ = null;
-			Class120_Sub14_Sub18 class120_sub14_sub18_96_ = null;
+			FrameLoader class120_sub14_sub18_95_ = null;
+			FrameLoader class120_sub14_sub18_96_ = null;
 			if (seqType != null) {
 				i_93_ = seqType.frames[i_52_];
 				final int i_97_ = i_93_ >>> 16;
 				i_93_ &= 0xffff;
-				class120_sub14_sub18_95_ = Class120_Sub12_Sub31.method1367(i_97_, -1);
+				class120_sub14_sub18_95_ = FrameLoader.list(i_97_);
 				if (class120_sub14_sub18_95_ != null) {
 					bool_76_ |= class120_sub14_sub18_95_.method1579(3, i_93_);
 					bool_75_ |= class120_sub14_sub18_95_.method1578((byte) -39, i_93_);
@@ -750,7 +739,7 @@ final class NpcType {
 					if (i_98_ == i_97_) {
 						class120_sub14_sub18_96_ = class120_sub14_sub18_95_;
 					} else {
-						class120_sub14_sub18_96_ = Class120_Sub12_Sub31.method1367(i_92_ >>> 16, -1);
+						class120_sub14_sub18_96_ = FrameLoader.list(i_92_ >>> 16);
 					}
 					if (class120_sub14_sub18_96_ != null) {
 						bool_76_ |= class120_sub14_sub18_96_.method1579(3, i_92_);
@@ -764,8 +753,8 @@ final class NpcType {
 				return null;
 			}
 			for (int i_101_ = 0; i_101_ < i_78_; i_101_++) {
-				if (Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_101_] != null) {
-					class180_sub7_99_.method2384(Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_101_], Class180_Sub3.anIntArray2918[i_101_], DummyOutputStream.aClass120_Sub14_Sub18Array31[i_101_], Class120_Sub12.anIntArray2567[i_101_], Cache.anIntArray124[i_101_] - 1,
+				if (EnumType.aClass120_Sub14_Sub18Array3453[i_101_] != null) {
+					class180_sub7_99_.method2384(EnumType.aClass120_Sub14_Sub18Array3453[i_101_], Class180_Sub3.anIntArray2918[i_101_], DummyOutputStream.aClass120_Sub14_Sub18Array31[i_101_], Class120_Sub12.anIntArray2567[i_101_], Cache.anIntArray124[i_101_] - 1,
 							Class120_Sub28.anIntArray2761[i_101_], i_100_, FileSystem.aClass40Array458[i_101_].aBoolean341, anIntArrayArray1659[i_101_]);
 				}
 				i_100_ <<= 1;
@@ -780,7 +769,7 @@ final class NpcType {
 				class180_sub7_99_.method2361(class120_sub14_sub18, i_87_, class120_sub14_sub18_88_, i_86_, i_53_ + -1, i_89_, class120_sub14_sub18_95_, i_93_, class120_sub14_sub18_96_, i_92_, -1 + i_47_, i_94_, class40_49_.aBooleanArray327, class40_49_.aBoolean341 | seqType.aBoolean341);
 			}
 			for (int i_102_ = 0; i_102_ < i_78_; i_102_++) {
-				Class120_Sub14_Sub2.aClass120_Sub14_Sub18Array3453[i_102_] = null;
+				EnumType.aClass120_Sub14_Sub18Array3453[i_102_] = null;
 				DummyOutputStream.aClass120_Sub14_Sub18Array31[i_102_] = null;
 				FileSystem.aClass40Array458[i_102_] = null;
 			}
@@ -789,7 +778,7 @@ final class NpcType {
 			}
 			class180_sub7 = class180_sub7_99_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ua.D(").append(i).append(',').append(i_47_).append(',').append(i_48_).append(',').append(seqType != null ? "{...}" : "null").append(',').append(class40_49_ != null ? "{...}" : "null").append(',').append(i_50_)
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.D(").append(i).append(',').append(i_47_).append(',').append(i_48_).append(',').append(seqType != null ? "{...}" : "null").append(',').append(class40_49_ != null ? "{...}" : "null").append(',').append(i_50_)
 					.append(',').append(class150s != null ? "{...}" : "null").append(',').append(i_51_).append(',').append(i_52_).append(',').append(i_53_).append(')').toString());
 		}
 		return class180_sub7;

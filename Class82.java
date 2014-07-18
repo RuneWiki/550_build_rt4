@@ -10,7 +10,7 @@ final class Class82 implements Runnable {
 	volatile Class164[] aClass164Array782 = new Class164[2];
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
-	static Class107[] aClass107Array785;
+	static AbstractIndexedSprite[] aClass107Array785;
 	static Cache aClass21_786 = new Cache(64);
 	static String aString787 = "Face here";
 
@@ -54,7 +54,7 @@ final class Class82 implements Runnable {
 					throw runtimeexception;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, "im.run()");
+				throw EnumType.method1428(runtimeexception, "im.run()");
 			}
 		} while (false);
 	}
@@ -65,12 +65,12 @@ final class Class82 implements Runnable {
 			if (i != -24) {
 				aString787 = null;
 			}
-			if (!Class159.aBoolean1487 || OverridedJInterface.worldOff > i_0_ || Class120_Sub14_Sub2.worldLen < i_0_) {
+			if (!Class159.aBoolean1487 || OverridedJInterface.worldOff > i_0_ || EnumType.worldLen < i_0_) {
 				return null;
 			}
 			class167_sub1 = Class48.worldList[i_0_ - OverridedJInterface.worldOff];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.A(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("im.A(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 		return class167_sub1;
 	}
@@ -100,7 +100,7 @@ final class Class82 implements Runnable {
 		} else {
 			GroundObjectNode.anInt3628 = (int) (i * 2 / Class79.aFloat696);
 			GroundTile.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
-			Class120_Sub14_Sub11.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			ParamType.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
 			Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
 			final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
 			final int i_9_ = Class169.anInt1646 - (int) (i / Class79.aFloat696);
@@ -139,14 +139,14 @@ final class Class82 implements Runnable {
 				final int i_12_ = i_4_ + i_3_ - 5;
 				int i_13_ = 16776960;
 				int i_14_ = i_2_ + i + -8;
-				Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_12_, i_14_, 16776960, -1);
+				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_12_, i_14_, 16776960, -1);
 				final Runtime runtime = Runtime.getRuntime();
 				i_14_ -= 15;
 				final int i_15_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
 				if (-65537 > (i_15_ ^ 0xffffffff)) {
 					i_13_ = 16711680;
 				}
-				Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Mem:").append(i_15_).append("k").toString(), i_12_, i_14_, i_13_, -1);
+				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Mem:").append(i_15_).append("k").toString(), i_12_, i_14_, i_13_, -1);
 				i_14_ -= 15;
 			}
 		}
@@ -156,7 +156,7 @@ final class Class82 implements Runnable {
 		try {
 			Class84.aClass120_Sub14_Sub9_798 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("im.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -165,13 +165,13 @@ final class Class82 implements Runnable {
 			if (bool) {
 				aString787 = null;
 			}
-			if (Class32.anInt260 <= i && Class120_Sub14_Sub11.anInt3544 >= i) {
-				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, 1, Class139.anInt1334);
-				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, 1, Class139.anInt1334);
+			if (Class32.anInt260 <= i && ParamType.anInt3544 >= i) {
+				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, 1, IdentityKit.anInt1334);
+				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, 1, IdentityKit.anInt1334);
 				Class108_Sub1.method939(i, i_18_, i_17_, (byte) -30, i_16_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.C(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("im.C(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -182,39 +182,31 @@ final class Class82 implements Runnable {
 			aString787 = null;
 			aClass88_783 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("im.F(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method715(final int i) {
-		try {
-			if (Class100.selfPlayer != null && Class100.selfPlayer.x - (64 * Class100.selfPlayer.getSize() + -64) >> 7 == Class120_Sub12_Sub26.anInt3327
-					&& Class100.selfPlayer.z + -(Class100.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.anInt592) {
-				SceneGroundObject.aBoolean2848 = false;
-				Class120_Sub12_Sub26.anInt3327 = 0;
+	static final void method715() {
+		if (Class100.selfPlayer != null && Class100.selfPlayer.x - (64 * Class100.selfPlayer.getSize() - 64) >> 7 == Class120_Sub12_Sub26.flagX && Class100.selfPlayer.z - (Class100.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.flagY) {
+			SceneGroundObject.packetSetFlagPosition = false;
+			Class120_Sub12_Sub26.flagX = 0;
+		}
+		for (int i_19_ = 0; i_19_ < 104; i_19_++) {
+			for (int i_20_ = 0; i_20_ < 104; i_20_++) {
+				Class120_Sub14_Sub14_Sub1.anIntArrayArray3933[i_19_][i_20_] = 0;
 			}
-			for (int i_19_ = 0; i_19_ < 104; i_19_++) {
-				for (int i_20_ = 0; i_20_ < 104; i_20_++) {
-					Class120_Sub14_Sub14_Sub1.anIntArrayArray3933[i_19_][i_20_] = 0;
-				}
+		}
+		for (int i_21_ = 0; Class83.localPlayerCount > i_21_; i_21_++) {
+			final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_21_]];
+			if (class180_sub5_sub1 != null) {
+				((GameEntity) class180_sub5_sub1).hasMenuAction = false;
 			}
-			if (i <= 65) {
-				method710((byte) -122, -87);
+		}
+		for (int i_22_ = 0; Class148.localNpcCount > i_22_; i_22_++) {
+			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_22_]];
+			if (class180_sub5_sub2 != null) {
+				((GameEntity) class180_sub5_sub2).hasMenuAction = false;
 			}
-			for (int i_21_ = 0; Class83.localPlayerCount > i_21_; i_21_++) {
-				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_21_]];
-				if (class180_sub5_sub1 != null) {
-					((GameEntity) class180_sub5_sub1).aBoolean2986 = false;
-				}
-			}
-			for (int i_22_ = 0; Class148.localNpcCount > i_22_; i_22_++) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_22_]];
-				if (class180_sub5_sub2 != null) {
-					((GameEntity) class180_sub5_sub2).aBoolean2986 = false;
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("im.G(").append(i).append(')').toString());
 		}
 	}
 

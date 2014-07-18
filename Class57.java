@@ -3,7 +3,7 @@
  */
 
 abstract class Class57 {
-	static Class50 aClass50_499;
+	static js5 aClass50_499;
 	static int anInt500 = 0;
 	static Class84 aClass84_501;
 	static int worldLen2;
@@ -23,43 +23,36 @@ abstract class Class57 {
 			aClass50_499 = null;
 			interfaceLoaded = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gh.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method492(final int i) {
-		try {
-			final int i_0_ = Class24.method207();
-			if (i_0_ != 0) {
-				if (i_0_ != 1) {
-					LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
-					IsaacCipher.method905(16448, 2);
-				} else {
-					LocType.method2465((byte) 0, true);
-					IsaacCipher.method905(16448, 512);
-					if (Class114.tileSettings != null) {
-						Class120_Sub14_Sub6.method1447(false);
-					}
-				}
+	static final void method492() {
+		final int i_0_ = Class24.method207();
+		if (i_0_ != 0) {
+			if (i_0_ != 1) {
+				LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
+				IsaacCipher.method905(16448, 2);
 			} else {
-				Class9.aByteArrayArrayArray70 = null;
-				IsaacCipher.method905(16448, 0);
+				LocType.method2465((byte) 0, true);
+				IsaacCipher.method905(16448, 512);
+				if (Class114.tileSettings != null) {
+					InvType.method1447(false);
+				}
 			}
-			Class153.anInt1436 = Class173.gameLevel;
-			if (i <= 93) {
-				interfaceLoaded = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.C(").append(i).append(')').toString());
+		} else {
+			Class9.aByteArrayArrayArray70 = null;
+			IsaacCipher.method905(16448, 0);
 		}
+		Class153.anInt1436 = Class173.gameLevel;
 	}
 
 	abstract AbstractObject method493(int i, AbstractObject class120_sub14_sub3);
 
 	static final void method494(final int i, final int i_1_) {
-		Class120_Sub30_Sub2.anInt3688 = Class139.aClass191ArrayArray1337[i][i_1_].anInt2110;
-		Queue.anInt1768 = Class139.aClass191ArrayArray1337[i][i_1_].anInt2112;
-		ProducingGraphicsBuffer.anInt2798 = Class139.aClass191ArrayArray1337[i][i_1_].anInt2107;
+		Class120_Sub30_Sub2.anInt3688 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2110;
+		Queue.anInt1768 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2112;
+		ProducingGraphicsBuffer.anInt2798 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2107;
 		Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 	}
 
@@ -95,7 +88,7 @@ abstract class Class57 {
 				worldLen2 = -2;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gh.E(").append(i).append(',').append(objects != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gh.E(").append(i).append(',').append(objects != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 }

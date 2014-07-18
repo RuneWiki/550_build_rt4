@@ -17,7 +17,7 @@ final class Class22 {
 			}
 			aClass127_130 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cd.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -211,25 +211,25 @@ final class Class22 {
 			} while (false);
 			class120_sub9.method1165(i_1_, i_9_, i_10_, is_17_, is_15_, false);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "cd.E(");
+			throw EnumType.method1428(runtimeexception, "cd.E(");
 		}
 	}
 
-	static final int method197(final int i_40_, final int i_39_, final int i) {
+	static final int getTileHeight(final int level, final int x, final int z) {
 		if (OverridedJInterface.anIntArrayArrayArray2741 == null) {
 			return 0;
 		}
-		final int i_42_ = i_39_ >> 7;
-		final int i_43_ = i >> 7;
+		final int i_42_ = x >> 7;
+		final int i_43_ = z >> 7;
 		if (i_42_ < 0 || i_43_ < 0 || i_42_ > 103 || i_43_ > 103) {
 			return 0;
 		}
-		int i_44_ = i_40_;
+		int i_44_ = level;
 		if (i_44_ < 3 && (0x2 & Class114.tileSettings[1][i_42_][i_43_]) == 2) {
 			i_44_++;
 		}
-		final int i_45_ = i & 0x7f;
-		final int i_46_ = i_39_ & 0x7f;
+		final int i_45_ = z & 0x7f;
+		final int i_46_ = x & 0x7f;
 		final int i_47_ = OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_]) >> 7;
 		final int i_48_ = OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_][1 + i_43_] >> 7;
 		return i_48_ * i_45_ + i_47_ * (128 + -i_45_) >> 7;
@@ -302,7 +302,7 @@ final class Class22 {
 			}
 			c_50_ = c;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cd.D(").append(i).append(',').append(i_49_).append(',').append(c).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.D(").append(i).append(',').append(i_49_).append(',').append(c).append(')').toString());
 		}
 		return c_50_;
 	}
@@ -334,7 +334,7 @@ final class Class22 {
 				aClass127_130 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cd.A(").append(i).append(',').append(i_51_).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.A(").append(i).append(',').append(i_51_).append(',').append(bool).append(')').toString());
 		}
 	}
 

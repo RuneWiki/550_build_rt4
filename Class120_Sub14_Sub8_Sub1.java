@@ -112,7 +112,7 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 				}
 			}
 			anInt3923 *= 16;
-			anInt3923 = Class120_Sub12_Sub17.method1283(anInt3923, (byte) -9);
+			anInt3923 = Class120_Sub12_Sub17.method1283(anInt3923);
 			final int i = anInt3923 / 16;
 			final byte[] is_25_ = new byte[anInt3923 * anInt3923 * 2];
 			for (int i_26_ = 0; i_26_ < 256; i_26_++) {

@@ -7,11 +7,11 @@ final class Class120_Sub22 extends Node {
 	static int anInt2672 = -1;
 	Class120_Sub5_Sub1[] aClass120_Sub5_Sub1Array2673;
 	int anInt2674;
-	static int anInt2675 = 0;
+	static int systemUpdateCycle = 0;
 	Class157[] aClass157Array2676;
 	byte[] aByteArray2677;
 	private int[] anIntArray2678;
-	static Class50 aClass50_2679;
+	static js5 aClass50_2679;
 	short[] aShortArray2680;
 	byte[] aByteArray2681;
 
@@ -81,7 +81,7 @@ final class Class120_Sub22 extends Node {
 				final int i_14_ = Canvas_Sub1.inputStream.getUByteS();
 				final int i_15_ = Canvas_Sub1.inputStream.pos;
 				if (class180_sub5_sub1.name != null && class180_sub5_sub1.appearance != null) {
-					final long l = Class70.stringToLong(class180_sub5_sub1.name);
+					final long l = Varp.stringToLong(class180_sub5_sub1.name);
 					boolean bool_16_ = false;
 					if (i_13_ <= 1) {
 						if (!bool && (Class27.aBoolean167 && !Class128.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
@@ -102,7 +102,7 @@ final class Class120_Sub22 extends Node {
 						Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
 						String string;
 						if (!bool) {
-							string = Class120_Sub14_Sub8.method1472(method1705(false, Class7.method107(32767, Class120_Sub12_Sub19.aClass120_Sub7_3278)));
+							string = Class120_Sub14_Sub8.method1472(method1705(false, Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 						} else {
 							i_12_ &= 0x7fff;
 							final Class22 class22 = Class110.method980(73, Class120_Sub12_Sub19.aClass120_Sub7_3278);
@@ -114,11 +114,11 @@ final class Class120_Sub22 extends Node {
 						class180_sub5_sub1.textCycle = 150;
 						class180_sub5_sub1.anInt2976 = i_12_ >> 8;
 						if (i_13_ == 2) {
-							Class120_Sub16.method1660(new StringBuilder("<img=1>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
+							Class120_Sub16.method1660(new StringBuilder("<img=1>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string);
 						} else if (i_13_ == 1) {
-							Class120_Sub16.method1660(new StringBuilder("<img=0>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string, 0);
+							Class120_Sub16.method1660(new StringBuilder("<img=0>").append(class180_sub5_sub1.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string);
 						} else {
-							Class120_Sub16.method1660(class180_sub5_sub1.getTitledName(), i_18_, null, !bool ? 2 : 17, string, 0);
+							Class120_Sub16.method1660(class180_sub5_sub1.getTitledName(), i_18_, null, !bool ? 2 : 17, string);
 						}
 					}
 				}
@@ -131,7 +131,7 @@ final class Class120_Sub22 extends Node {
 				if (-65536 == (i_19_ ^ 0xffffffff)) {
 					i_19_ = -1;
 				}
-				if ((i_19_ ^ 0xffffffff) != 0 && class180_sub5_sub1.spotAnimId != -1 && SeqType.list(SpotAnimType.list(i_19_).anInt991).anInt348 < SeqType.list(SpotAnimType.list(class180_sub5_sub1.spotAnimId).anInt991).anInt348) {
+				if ((i_19_ ^ 0xffffffff) != 0 && class180_sub5_sub1.spotAnimId != -1 && SeqType.list(SpotAnimType.list(i_19_).animationId).anInt348 < SeqType.list(SpotAnimType.list(class180_sub5_sub1.spotAnimId).animationId).anInt348) {
 					bool = false;
 				}
 				if (bool) {
@@ -145,11 +145,11 @@ final class Class120_Sub22 extends Node {
 					}
 					class180_sub5_sub1.spotAnimId = i_19_;
 					if ((class180_sub5_sub1.spotAnimId ^ 0xffffffff) != 0 && Class101_Sub2.loopCycle == class180_sub5_sub1.anInt2979) {
-						final int i_21_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId).anInt991;
+						final int i_21_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId).animationId;
 						if ((i_21_ ^ 0xffffffff) != 0) {
 							final SeqType seqType = SeqType.list(i_21_);
 							if (seqType != null && seqType.frames != null) {
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, 0, class180_sub5_sub1 == Class100.selfPlayer);
 							}
 						}
 					}
@@ -178,7 +178,7 @@ final class Class120_Sub22 extends Node {
 				class180_sub5_sub1.method2326(Class101_Sub2.loopCycle, 0, i_23_, i_22_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -212,7 +212,7 @@ final class Class120_Sub22 extends Node {
 			}
 			bool = bool_25_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.F(").append(is != null ? "{...}" : "null").append(',').append(class90 != null ? "{...}" : "null").append(',').append(i).append(',').append(is_24_ != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.F(").append(is != null ? "{...}" : "null").append(',').append(class90 != null ? "{...}" : "null").append(',').append(i).append(',').append(is_24_ != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool;
 	}
@@ -224,7 +224,7 @@ final class Class120_Sub22 extends Node {
 				method1701(34, -2, -85, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -239,7 +239,7 @@ final class Class120_Sub22 extends Node {
 			}
 			c_29_ = Character.toTitleCase(c);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.E(").append(c).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.E(").append(c).append(',').append(bool).append(')').toString());
 		}
 		return c_29_;
 	}
@@ -279,7 +279,7 @@ final class Class120_Sub22 extends Node {
 			}
 			string_30_ = new String(cs);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.C(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.C(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return string_30_;
 	}
@@ -291,7 +291,7 @@ final class Class120_Sub22 extends Node {
 			}
 			anIntArray2678 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qh.B(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.B(").append(bool).append(')').toString());
 		}
 	}
 

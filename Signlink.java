@@ -122,6 +122,7 @@ public class Signlink implements Runnable {
 					if (aLong1313 > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
+					System.out.println(currentNode.objectData+":"+currentNode.integerData);
 					currentNode.value = new Socket(InetAddress.getByName((String) currentNode.objectData), currentNode.integerData);
 				} else if (type == 2) {
 					final Thread thread = new Thread((Runnable) currentNode.objectData);

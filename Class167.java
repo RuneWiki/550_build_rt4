@@ -19,7 +19,7 @@ abstract class Class167 {
 			}
 			bool = (0x1 & this.flag) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.C(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -41,7 +41,7 @@ abstract class Class167 {
 				}
 				class57_0_ = class57_1_;
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.E(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("tn.E(").append(i).append(')').toString());
 			}
 			return class57_0_;
 		} while (false);
@@ -56,7 +56,7 @@ abstract class Class167 {
 			}
 			bool = (this.flag & 0x8) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.I(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -69,7 +69,7 @@ abstract class Class167 {
 			}
 			bool = (0x2 & this.flag) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.B(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -82,7 +82,7 @@ abstract class Class167 {
 			}
 			bool = (this.flag & 0x4) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.D(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -94,7 +94,7 @@ abstract class Class167 {
 			}
 			aClass21_1618 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -102,7 +102,7 @@ abstract class Class167 {
 		final byte[] paletteIndicators = Class145.spritePaletteIndicators[0];
 		final int pixelAmt = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
 		LDSprite sprite;
-		if (!Class141.spriteHasAlpha[0]) {
+		if (!PlainTile.spriteHasAlpha[0]) {
 			final int[] pixels = new int[pixelAmt];
 			for (int pixelId = 0; pixelId < pixelAmt; pixelId++) {
 				pixels[pixelId] = Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff];
@@ -136,24 +136,15 @@ abstract class Class167 {
 			}
 			bool = locType.method2460(i_9_, 23428);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.H(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tn.H(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 		return bool;
 	}
 
-	static final AbstractSprite[] method2191(final int i, final Class50 class50, final int i_11_, final int i_12_) {
-		AbstractSprite[] class120_sub14_sub19s;
-		try {
-			if (i_11_ != 8693) {
-				aBoolean1620 = true;
-			}
-			if (!Class10.method121(class50, i, i_12_)) {
-				return null;
-			}
-			class120_sub14_sub19s = Class120_Sub14_Sub11.method1520((byte) -46);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tn.G(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
+	static final AbstractSprite[] constructSprites(final js5 js5, final int i, final int i_12_) {
+		if (!Class10.decodedSprites(js5, i, i_12_)) {
+			return null;
 		}
-		return class120_sub14_sub19s;
+		return ParamType.constructSprites();
 	}
 }

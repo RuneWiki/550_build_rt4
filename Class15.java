@@ -4,7 +4,7 @@
 
 final class Class15 {
 	static Cache aClass21_95;
-	static int anInt96 = 0;
+	static int rectDebugType = 0;
 	static boolean menuOpen;
 	static long aLong98;
 	static Class120_Sub14_Sub8_Sub2 aClass120_Sub14_Sub8_Sub2_99;
@@ -25,15 +25,15 @@ final class Class15 {
 		anIntArray101 = new int[] { 768, 1024, 1280, 512, 1536, 256, 0, 1792 };
 	}
 
-	static final void method145(final Class50 class50, final int i) {
+	static final void method145(final js5 js5, final int i) {
 		try {
 			if (i != 1024) {
 				method145(null, 7);
 			}
-			ObjType.aClass50_1517 = class50;
+			ObjType.aClass50_1517 = js5;
 			Class120_Sub12_Sub22.anInt3302 = ObjType.aClass50_1517.getFileAmount(16);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("be.A(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("be.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -47,30 +47,7 @@ final class Class15 {
 			aClass21_95 = null;
 			anIntArray101 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("be.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("be.B(").append(i).append(')').toString());
 		}
-	}
-
-	static final Class120_Sub14_Sub6 method147(final int i, final int i_2_) {
-		Class120_Sub14_Sub6 class120_sub14_sub6;
-		try {
-			if (i_2_ != 10057) {
-				return null;
-			}
-			Class120_Sub14_Sub6 class120_sub14_sub6_3_ = (Class120_Sub14_Sub6) Light.aClass35_383.method302(i_2_ + 7244, i);
-			if (class120_sub14_sub6_3_ != null) {
-				return class120_sub14_sub6_3_;
-			}
-			final byte[] is = Class166.aClass50_1613.getFile(5, i);
-			class120_sub14_sub6_3_ = new Class120_Sub14_Sub6();
-			if (is != null) {
-				class120_sub14_sub6_3_.method1448(0, new Buffer(is));
-			}
-			Light.aClass35_383.method301(i, 83, class120_sub14_sub6_3_);
-			class120_sub14_sub6 = class120_sub14_sub6_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("be.C(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return class120_sub14_sub6;
 	}
 }

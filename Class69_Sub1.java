@@ -16,7 +16,7 @@ final class Class69_Sub1 extends Class69 {
 				canvasWidth = -41;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cb.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cb.F(").append(i).append(')').toString());
 		}
 	}
 

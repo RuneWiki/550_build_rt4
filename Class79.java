@@ -4,7 +4,7 @@
 
 class Class79 {
 	private static Hashtable aClass75_688 = new Hashtable(16);
-	static Class50 aClass50_689;
+	static js5 aClass50_689;
 	static Queue aClass177_690;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_691;
 	static int anInt692;
@@ -37,10 +37,10 @@ class Class79 {
 		aClass177_690 = new Queue();
 	}
 
-	static final void method675(final Class50 class50) {
-		aClass50_689 = class50;
+	static final void method675(final js5 js5) {
+		aClass50_689 = js5;
 		aClass75_688.clear();
-		final int i = aClass50_689.method432(false, "details");
+		final int i = aClass50_689.method432("details");
 		final int[] is = aClass50_689.method433(true, i);
 		int[] is_1_;
 		final int i_0_ = (is_1_ = is).length;
@@ -267,10 +267,10 @@ class Class79 {
 										final Class142 class142 = Class120_Sub12_Sub8.method1240((byte) 1, i_59_ - 1);
 										int i_60_ = i_58_ >> 13 & 0x3;
 										final boolean bool = (i_58_ >> 15 & 0x1) == 1;
-										final Class107_Sub1 class107_sub1 = class142.method2011(-1, bool, i_60_);
+										final LDIndexedSprite class107_sub1 = class142.method2011(-1, bool, i_60_);
 										if (class107_sub1 != null) {
-											int i_61_ = i_50_ * class107_sub1.anInt1026 / 4;
-											int i_62_ = i_55_ * class107_sub1.anInt1030 / 4;
+											int i_61_ = i_50_ * class107_sub1.width / 4;
+											int i_62_ = i_55_ * class107_sub1.height / 4;
 											if (class142.aBoolean1359) {
 												int i_63_ = i_58_ >> 16 & 0xf;
 												int i_64_ = i_58_ >> 20 & 0xf;
@@ -406,10 +406,10 @@ class Class79 {
 		class120_sub14_sub5.anInt3475 = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.anInt3481 - anInt704) >> 16);
 		final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
 		if (class73.anInt644 != -1) {
-			final Class107 class107 = class73.method648(false, false, true);
-			if (class107 != null) {
-				if (class120_sub14_sub5.anInt3478 - (class107.anInt1026 + 1 >> 1) > anInt709 || class120_sub14_sub5.anInt3478 + (class107.anInt1026 + 1 >> 1) < anInt708 || class120_sub14_sub5.anInt3475 - (class107.anInt1030 + 1 >> 1) > anInt712
-						|| class120_sub14_sub5.anInt3475 + (class107.anInt1030 + 1 >> 1) < anInt705) {
+			final AbstractIndexedSprite abstractIndexedSprite = class73.method648(false, false, true);
+			if (abstractIndexedSprite != null) {
+				if (class120_sub14_sub5.anInt3478 - (abstractIndexedSprite.width + 1 >> 1) > anInt709 || class120_sub14_sub5.anInt3478 + (abstractIndexedSprite.width + 1 >> 1) < anInt708 || class120_sub14_sub5.anInt3475 - (abstractIndexedSprite.height + 1 >> 1) > anInt712
+						|| class120_sub14_sub5.anInt3475 + (abstractIndexedSprite.height + 1 >> 1) < anInt705) {
 					class120_sub14_sub5.aBoolean3476 = true;
 				} else {
 					class120_sub14_sub5.aBoolean3476 = false;
@@ -570,9 +570,9 @@ class Class79 {
 						i_129_ = 127;
 					}
 					final int i_130_ = (i_128_ + i & 0xfc00) + (i_128_ & 0x380) + i_129_;
-					i_127_ = Rasterizer.anIntArray969[Class96.method789((byte) -77, i_130_, 96)];
+					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, i_130_, 96)];
 				} else if (i_126_ >= 0) {
-					i_127_ = Rasterizer.anIntArray969[Class96.method789((byte) -77, Rasterizer.anInterface5_973.method20(i_126_, 65535), 96)];
+					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, Rasterizer.anInterface5_973.method20(i_126_, 65535), 96)];
 				} else if (class124.anInt1197 == -1) {
 					i_127_ = -1;
 				} else {
@@ -584,7 +584,7 @@ class Class79 {
 						i_132_ = 127;
 					}
 					final int i_133_ = (i_131_ + i & 0xfc00) + (i_131_ & 0x380) + i_132_;
-					i_127_ = Rasterizer.anIntArray969[Class96.method789((byte) -77, i_133_, 96)];
+					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, i_133_, 96)];
 				}
 				anIntArray715[i_125_ + 1] = i_127_;
 			}

@@ -18,7 +18,7 @@ final class Class5 implements ShaderInterface {
 	}
 
 	static final void spawnGroundObject(final int x, final int z) {
-		final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][x][z];
+		final Deque deque = ClientScript.groundObjects[Class173.gameLevel][x][z];
 		if (deque == null) {
 			Class180_Sub6.resetObjectPile(Class173.gameLevel, x, z);
 		} else {
@@ -53,7 +53,7 @@ final class Class5 implements ShaderInterface {
 					}
 				}
 				final long bitPacked = 0x60000000 + x + (z << 7);
-				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.method197(Class173.gameLevel, 64 + x * 128, 64 + 128 * z), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
+				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.getTileHeight(Class173.gameLevel, 64 + x * 128, 64 + 128 * z), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
 			}
 		}
 	}
@@ -62,8 +62,8 @@ final class Class5 implements ShaderInterface {
 		Class190.anInt2101 = i;
 		for (int i_7_ = 0; i_7_ < Class186.anInt1900; i_7_++) {
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.anInt3440; i_8_++) {
-				if (Class120_Sub1.groundTiles[i][i_7_][i_8_] == null) {
-					Class120_Sub1.groundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
+				if (LabelGroup.groundTiles[i][i_7_][i_8_] == null) {
+					LabelGroup.groundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
 				}
 			}
 		}
@@ -90,7 +90,7 @@ final class Class5 implements ShaderInterface {
 				gl.glTexEnvi(8960, 34184, 34167);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "ae.B()");
+			throw EnumType.method1428(runtimeexception, "ae.B()");
 		}
 	}
 
@@ -105,7 +105,7 @@ final class Class5 implements ShaderInterface {
 				gl.glTexEnvi(8960, 34184, 5890);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "ae.A()");
+			throw EnumType.method1428(runtimeexception, "ae.A()");
 		}
 	}
 
@@ -124,10 +124,10 @@ final class Class5 implements ShaderInterface {
 			if (i != 1610612736) {
 				method100(-79);
 			}
-			DummyOutputStream.aClass21_30.clearSoftReference();
-			Class120_Sub12_Sub27.aClass21_3342.clearSoftReference();
+			CursorType.recentUse.clearSoftReference();
+			CursorType.spriteCache.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ae.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ae.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -176,7 +176,7 @@ final class Class5 implements ShaderInterface {
 			}
 			aShortArray2152 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ae.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ae.E(").append(i).append(')').toString());
 		}
 	}
 }

@@ -8,7 +8,7 @@ final class Class118 {
 	static Player[] playersList = new Player[2048];
 	static short[][] aShortArrayArray1136;
 	static String aString1137;
-	static Class107[] aClass107Array1138;
+	static AbstractIndexedSprite[] aClass107Array1138;
 
 	static {
 		aBoolean1134 = true;
@@ -51,7 +51,7 @@ final class Class118 {
 	}
 
 	static final Class36 method1022(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -67,7 +67,7 @@ final class Class118 {
 			playersList = null;
 			aClass107Array1138 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nc.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nc.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -186,7 +186,7 @@ final class Class118 {
 										i_37_ = 127;
 									}
 									final int i_38_ = (0xfc00 & i_2_ + i_36_) - (-(0x380 & i_36_) - i_37_);
-									is_35_[(Class120_Sub12_Sub3.method1207(i_32_, 63) << 6) - -Class120_Sub12_Sub3.method1207(i_20_, 63)] = Rasterizer.anIntArray969[Class178.method2256(true, i_38_, 96)];
+									is_35_[(Class120_Sub12_Sub3.method1207(i_32_, 63) << 6) - -Class120_Sub12_Sub3.method1207(i_20_, 63)] = Rasterizer.palette[Class178.method2256(true, i_38_, 96)];
 								}
 							}
 						}
@@ -194,14 +194,14 @@ final class Class118 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nc.B(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nc.B(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
 	static final Class124 method1025(final byte i, final int i_39_) {
 		Class124 class124;
 		try {
-			Class124 class124_40_ = (Class124) Class120_Sub10.aClass21_2542.get(i_39_);
+			Class124 class124_40_ = (Class124) InterfaceListener.aClass21_2542.get(i_39_);
 			if (i >= -125) {
 				method1025((byte) 70, -4);
 			}
@@ -213,10 +213,10 @@ final class Class118 {
 			if (is != null) {
 				class124_40_.method1875(i_39_, new Buffer(is), -1);
 			}
-			Class120_Sub10.aClass21_2542.put(class124_40_, i_39_);
+			InterfaceListener.aClass21_2542.put(class124_40_, i_39_);
 			class124 = class124_40_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nc.A(").append(i).append(',').append(i_39_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nc.A(").append(i).append(',').append(i_39_).append(')').toString());
 		}
 		return class124;
 	}

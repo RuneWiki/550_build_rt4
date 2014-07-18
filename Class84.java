@@ -17,10 +17,10 @@ final class Class84 {
 				aString799 = null;
 			}
 			Class180_Sub6.aClass21_3071.clearSoftReference();
-			Class120_Sub1.aClass21_2406.clearSoftReference();
+			LabelGroup.aClass21_2406.clearSoftReference();
 			Class120_Sub12_Sub2.aClass21_3143.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -34,12 +34,12 @@ final class Class84 {
 				aStringArray801 = null;
 			}
 			if (i_0_ >= i) {
-				Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_2_], i_1_, i, i_0_);
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i, i_0_);
 			} else {
-				Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_2_], i_1_, i_0_, i);
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i_0_, i);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.F(").append(i).append(',').append(bool).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.F(").append(i).append(',').append(bool).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -56,7 +56,7 @@ final class Class84 {
 					if (class180_sub4.anInt2929 > 0) {
 						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[-1 + class180_sub4.anInt2929];
 						if (class180_sub5_sub2 != null && class180_sub5_sub2.x >= 0 && class180_sub5_sub2.x < 13312 && class180_sub5_sub2.z >= 0 && class180_sub5_sub2.z < 13312) {
-							class180_sub4.method2319(-108, Class22.method197(class180_sub4.anInt2934, class180_sub5_sub2.x, class180_sub5_sub2.z) - class180_sub4.anInt2943, class180_sub5_sub2.x, Class101_Sub2.loopCycle, class180_sub5_sub2.z);
+							class180_sub4.method2319(-108, Class22.getTileHeight(class180_sub4.anInt2934, class180_sub5_sub2.x, class180_sub5_sub2.z) - class180_sub4.anInt2943, class180_sub5_sub2.x, Class101_Sub2.loopCycle, class180_sub5_sub2.z);
 						}
 					}
 					if (class180_sub4.anInt2929 < 0) {
@@ -68,7 +68,7 @@ final class Class84 {
 							class180_sub5_sub1 = Class118.playersList[i_3_];
 						}
 						if (class180_sub5_sub1 != null && class180_sub5_sub1.x >= 0 && class180_sub5_sub1.x < 13312 && class180_sub5_sub1.z >= 0 && class180_sub5_sub1.z < 13312) {
-							class180_sub4.method2319(-60, Class22.method197(class180_sub4.anInt2934, class180_sub5_sub1.x, class180_sub5_sub1.z) + -class180_sub4.anInt2943, class180_sub5_sub1.x, Class101_Sub2.loopCycle, class180_sub5_sub1.z);
+							class180_sub4.method2319(-60, Class22.getTileHeight(class180_sub4.anInt2934, class180_sub5_sub1.x, class180_sub5_sub1.z) + -class180_sub4.anInt2943, class180_sub5_sub1.x, Class101_Sub2.loopCycle, class180_sub5_sub1.z);
 						}
 					}
 					class180_sub4.method2317(Class120_Sub12_Sub22.redrawRate, 1);
@@ -76,7 +76,7 @@ final class Class84 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -89,19 +89,12 @@ final class Class84 {
 				aString799 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.E(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method720(final int i, final Class126 class126) {
-		try {
-			if (i >= -71) {
-				method720(-17, null);
-			}
-			Class39.aClass126_321 = class126;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.A(").append(i).append(',').append(class126 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void setHuffman(final Huffman huffman) {
+		Class39.huffman = huffman;
 	}
 
 	final void method721(final Buffer class120_sub7, final byte i, final byte[] is) {
@@ -121,7 +114,7 @@ final class Class84 {
 			}
 			anInflater797.reset();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jb.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

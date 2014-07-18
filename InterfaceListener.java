@@ -4,20 +4,20 @@
 import java.awt.Container;
 import java.awt.Insets;
 
-final class Class120_Sub10 extends Node {
+final class InterfaceListener extends Node {
 	JagexInterface aClass189_2532;
 	int anInt2533;
 	JagexInterface aClass189_2534;
 	int anInt2535;
 	boolean aBoolean2536;
-	Object[] anObjectArray2537;
+	Object[] objectData;
 	static String aString2538 = "slide:";
 	String aString2539;
 	int anInt2540;
 	int anInt2541;
 	static Cache aClass21_2542 = new Cache(64);
 	int anInt2543;
-	static Class50 aClass50_2544;
+	static js5 aClass50_2544;
 	static int playerRenderZ;
 	static int anInt2546;
 	static boolean[] playerOptionsOnTop;
@@ -73,7 +73,7 @@ final class Class120_Sub10 extends Node {
 			}
 			Class120_Sub12_Sub22.method1322();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("io.C(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("io.C(").append(bool).append(')').toString());
 		}
 	}
 
@@ -88,7 +88,7 @@ final class Class120_Sub10 extends Node {
 			aClass50_2544 = null;
 			aString2548 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("io.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("io.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -104,7 +104,7 @@ final class Class120_Sub10 extends Node {
 					if (i_9_ >= 0 && i_9_ < Class186.anInt1900) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
-								final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_8_][i_9_][i_10_];
+								final GroundTile class120_sub18 = LabelGroup.groundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
 									final int i_11_ = (OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_ + 1])
 											/ 4 - (OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1]) / 4;
@@ -150,7 +150,7 @@ final class Class120_Sub10 extends Node {
 			final int i_20_ = ~0xff00ff & i_16_ * (i_15_ & 0xff00ff) + (i & 0xff00ff) * i_18_;
 			i_17_ = i_19_ + (i_20_ >> 7);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("io.D(").append(i).append(',').append(i_15_).append(',').append(bool).append(',').append(i_16_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("io.D(").append(i).append(',').append(i_15_).append(',').append(bool).append(',').append(i_16_).append(')').toString());
 		}
 		return i_17_;
 	}
@@ -166,12 +166,12 @@ final class Class120_Sub10 extends Node {
 			final int i_26_ = Class108_Sub1.method936(i_22_, 25528, i_21_);
 			i_23_ = i_24_ / 16 + i_25_ / 8 + i_26_ / 4;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("io.A(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("io.A(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
 		}
 		return i_23_;
 	}
 
-	public Class120_Sub10() {
+	public InterfaceListener() {
 		/* empty */
 	}
 }

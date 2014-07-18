@@ -6,12 +6,11 @@ final class Class111 {
 	static String aString1056;
 	static Class28[] aClass28Array1057;
 	static boolean aBoolean1058;
-	static Class50 aClass50_1059;
 	static int anInt1060 = 0;
 	static int anInt1061 = 127;
 	static String aString1062 = "glow1:";
 	static int[] anIntArray1063;
-	static Class50 aClass50_1064;
+	static js5 aClass50_1064;
 	static int anInt1065;
 	static String aString1066 = "cyan:";
 
@@ -63,8 +62,8 @@ final class Class111 {
 				Class120_Sub15.anIntArray2597[i_6_] = Class120_Sub15.anIntArray2597[i_6_ - -i];
 			}
 			for (i_6_ = -i + 256; i_6_ < 256; i_6_++) {
-				Class120_Sub15.anIntArray2597[i_6_] = (int) (16.0 * Math.sin(Class91.anInt852 / 14.0) + 14.0 * Math.sin(Class91.anInt852 / 15.0) + 12.0 * Math.sin(Class91.anInt852 / 16.0));
-				Class91.anInt852++;
+				Class120_Sub15.anIntArray2597[i_6_] = (int) (16.0 * Math.sin(MouseRecorder.anInt852 / 14.0) + 14.0 * Math.sin(MouseRecorder.anInt852 / 15.0) + 12.0 * Math.sin(MouseRecorder.anInt852 / 16.0));
+				MouseRecorder.anInt852++;
 			}
 			Class74.anInt667 += i;
 			i_6_ = (i - -(0x1 & Class101_Sub2.loopCycle)) / 2;
@@ -107,7 +106,7 @@ final class Class111 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mf.B(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.B(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -119,7 +118,7 @@ final class Class111 {
 			}
 			i_23_ = CanvasWrapper.method65(string, i_22_, true);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mf.C(").append(i).append(',').append(i_22_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.C(").append(i).append(',').append(i_22_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return i_23_;
 	}
@@ -132,12 +131,12 @@ final class Class111 {
 			anIntArray1063 = null;
 			aString1062 = null;
 			aClass50_1064 = null;
-			aClass50_1059 = null;
+			ParamType.configClient = null;
 			if (i != 212098599) {
 				aClass50_1064 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mf.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -168,7 +167,7 @@ final class Class111 {
 			}
 			class180_sub5.anInt3032 = class180_sub5.anInt3019;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mf.D(").append(class180_sub5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.D(").append(class180_sub5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

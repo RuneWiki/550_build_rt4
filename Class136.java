@@ -57,7 +57,7 @@ final class Class136 {
 		objectPile.secondItemModel = class180_6_;
 		objectPile.thirdItemModel = class180_7_;
 		int locHeight = 0;
-		final GroundTile groundTile = Class120_Sub1.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
 		if (groundTile != null) {
 			for (int i_9_ = 0; i_9_ < groundTile.anInt2638; i_9_++) {
 				final Class28 class28 = groundTile.aClass28Array2625[i_9_];
@@ -70,10 +70,10 @@ final class Class136 {
 			}
 		}
 		objectPile.yLocationModifier = -locHeight;
-		if (Class120_Sub1.groundTiles[level][x][z] == null) {
-			Class120_Sub1.groundTiles[level][x][z] = new GroundTile(level, x, z);
+		if (LabelGroup.groundTiles[level][x][z] == null) {
+			LabelGroup.groundTiles[level][x][z] = new GroundTile(level, x, z);
 		}
-		Class120_Sub1.groundTiles[level][x][z].objectPile = objectPile;
+		LabelGroup.groundTiles[level][x][z].objectPile = objectPile;
 	}
 
 	public static void method1979(final int i) {
@@ -85,7 +85,7 @@ final class Class136 {
 			aRandom1319 = null;
 			anIntArray1315 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pn.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pn.B(").append(i).append(')').toString());
 		}
 	}
 }

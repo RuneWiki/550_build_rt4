@@ -28,7 +28,7 @@ final class Class32 {
 	int anInt267 = 0;
 	int anInt268;
 	static int anInt269;
-	static int anInt270;
+	static int p11fullId;
 	long aLong271;
 	static int anInt272;
 
@@ -70,7 +70,7 @@ final class Class32 {
 				this.anInt267 = 119;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dc.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -81,7 +81,7 @@ final class Class32 {
 				anIntArray263 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dc.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -96,10 +96,9 @@ final class Class32 {
 			final int i_5_ = Class90.aCalendar844.get(11);
 			final int i_6_ = Class90.aCalendar844.get(12);
 			final int i_7_ = Class90.aCalendar844.get(13);
-			string = new StringBuilder(Class69_Sub3.aStringArray2242[i_1_ - 1]).append(", ").append(i_2_ / 10).append(i_2_ % 10).append("-").append(Class120_Sub28.aStringArray2759[i_3_]).append("-").append(i_4_).append(" ").append(i_5_ / 10).append(i_5_ % 10).append(":").append(i_6_ / 10)
-					.append(i_6_ % 10).append(":").append(i_7_ / 10).append(i_7_ % 10).append(" GMT").toString();
+			string = new StringBuilder(Class69_Sub3.aStringArray2242[i_1_ - 1]).append(", ").append(i_2_ / 10).append(i_2_ % 10).append("-").append(Class120_Sub28.aStringArray2759[i_3_]).append("-").append(i_4_).append(" ").append(i_5_ / 10).append(i_5_ % 10).append(":").append(i_6_ / 10).append(i_6_ % 10).append(":").append(i_7_ / 10).append(i_7_ % 10).append(" GMT").toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dc.G(").append(l).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.G(").append(l).append(',').append(i).append(')').toString());
 		}
 		return string;
 	}
@@ -128,7 +127,7 @@ final class Class32 {
 				this.anInt262 *= -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dc.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -269,10 +268,10 @@ final class Class32 {
 			if (i_51_ > i_47_) {
 				i_51_ = i_47_;
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18 = null;
+			FrameLoader class120_sub14_sub18 = null;
 			if (seqType != null) {
 				i_18_ = seqType.frames[i_18_];
-				class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_18_ >> 16, -1);
+				class120_sub14_sub18 = FrameLoader.list(i_18_ >> 16);
 				i_18_ &= 0xffff;
 			}
 			if (class120_sub14_sub18 == null) {
@@ -290,25 +289,25 @@ final class Class32 {
 			}
 			if (HDToolkit.glEnabled) {
 				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
-				if (i_19_ != Class22.method197(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.method197(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
+				if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.getTileHeight(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
 					for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
-						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.method197(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
+						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.getTileHeight(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
 					}
 					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
 					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 				}
 			} else {
 				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
-				if (i_19_ != Class22.method197(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.method197(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
+				if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
 					for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
-						class180_sub7_sub1.yVertices[i_53_] += Class22.method197(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
+						class180_sub7_sub1.yVertices[i_53_] += Class22.getTileHeight(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
 					}
 					class180_sub7_sub1.boundsCalculated = false;
 				}
 			}
 			class180_sub7_24_ = class180_sub7_25_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "dc.F(");
+			throw EnumType.method1428(runtimeexception, "dc.F(");
 		}
 		return class180_sub7_24_;
 	}
@@ -330,7 +329,7 @@ final class Class32 {
 				method268(class120_sub7, 2, i_54_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dc.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

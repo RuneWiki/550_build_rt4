@@ -21,11 +21,11 @@ final class OverridedJInterface extends Node {
 	int type;
 	int interfaceId;
 	static Deque aClass105_2746;
-	static int anInt2747;
+	static int loadingBarPercent;
 
 	static {
 		anInt2740 = 0;
-		anInt2747 = 10;
+		loadingBarPercent = 10;
 		aClass105_2746 = new Deque();
 	}
 
@@ -146,7 +146,7 @@ final class OverridedJInterface extends Node {
 				class120_sub28.unlink();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rl.A(").append(class120_sub7_sub1 != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rl.A(").append(class120_sub7_sub1 != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -160,7 +160,7 @@ final class OverridedJInterface extends Node {
 			anIntArray2743 = null;
 			anIntArrayArrayArray2741 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rl.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rl.B(").append(i).append(')').toString());
 		}
 	}
 

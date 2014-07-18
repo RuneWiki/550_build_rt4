@@ -5,17 +5,17 @@
 final class Rasterizer {
 	static int anInt967;
 	static float aFloat968;
-	static int[] anIntArray969 = new int[65536];
+	static int[] palette = new int[65536];
 	static int anInt970;
 	static boolean aBoolean971;
 	static boolean aBoolean972;
 	static Interface5 anInterface5_973;
 	static boolean aBoolean974;
-	static int anInt975 = 0;
+	static int alpha = 0;
 	private static boolean aBoolean976;
 	private static int[] anIntArray977;
-	private static int anInt978;
-	private static int[] anIntArray979;
+	private static int endY;
+	private static int[] coordinateYLookup;
 	static int[] cosineTable;
 	private static boolean aBoolean981;
 	static int[] sineTable;
@@ -31,7 +31,7 @@ final class Rasterizer {
 		aBoolean981 = false;
 		cosineTable = new int[2048];
 		aBoolean976 = false;
-		anIntArray979 = new int[1024];
+		coordinateYLookup = new int[1024];
 		anIntArray984 = new int[2048];
 		sineTable = new int[2048];
 		for (int i = 1; i < 512; i++) {
@@ -100,12 +100,12 @@ final class Rasterizer {
 			final int i_21_ = (i_15_ * i_14_ - i_16_ * i_12_ << 8) / i_20_;
 			final int i_22_ = (i_16_ * i_11_ - i_15_ * i_13_ << 8) / i_20_;
 			if (i <= i_3_ && i <= i_4_) {
-				if (i < anInt978) {
-					if (i_3_ > anInt978) {
-						i_3_ = anInt978;
+				if (i < endY) {
+					if (i_3_ > endY) {
+						i_3_ = endY;
 					}
-					if (i_4_ > anInt978) {
-						i_4_ = anInt978;
+					if (i_4_ > endY) {
+						i_4_ = endY;
 					}
 					i_8_ = (i_8_ << 8) - i_21_ * i_5_ + i_21_;
 					if (i_3_ < i_4_) {
@@ -124,7 +124,7 @@ final class Rasterizer {
 						if (i != i_3_ && i_19_ < i_18_ || i == i_3_ && i_19_ > i_17_) {
 							i_4_ -= i_3_;
 							i_3_ -= i;
-							i = anIntArray979[i];
+							i = coordinateYLookup[i];
 							while (--i_3_ >= 0) {
 								method867(GraphicsLD.pixels, i, 0, 0, i_7_ >> 16, i_5_ >> 16, i_8_, i_21_);
 								i_7_ += i_19_;
@@ -142,7 +142,7 @@ final class Rasterizer {
 						} else {
 							i_4_ -= i_3_;
 							i_3_ -= i;
-							i = anIntArray979[i];
+							i = coordinateYLookup[i];
 							while (--i_3_ >= 0) {
 								method867(GraphicsLD.pixels, i, 0, 0, i_5_ >> 16, i_7_ >> 16, i_8_, i_21_);
 								i_7_ += i_19_;
@@ -174,7 +174,7 @@ final class Rasterizer {
 						if (i != i_4_ && i_19_ < i_18_ || i == i_4_ && i_17_ > i_18_) {
 							i_3_ -= i_4_;
 							i_4_ -= i;
-							i = anIntArray979[i];
+							i = coordinateYLookup[i];
 							while (--i_4_ >= 0) {
 								method867(GraphicsLD.pixels, i, 0, 0, i_6_ >> 16, i_5_ >> 16, i_8_, i_21_);
 								i_6_ += i_19_;
@@ -192,7 +192,7 @@ final class Rasterizer {
 						} else {
 							i_3_ -= i_4_;
 							i_4_ -= i;
-							i = anIntArray979[i];
+							i = coordinateYLookup[i];
 							while (--i_4_ >= 0) {
 								method867(GraphicsLD.pixels, i, 0, 0, i_5_ >> 16, i_6_ >> 16, i_8_, i_21_);
 								i_6_ += i_19_;
@@ -211,12 +211,12 @@ final class Rasterizer {
 					}
 				}
 			} else if (i_3_ <= i_4_) {
-				if (i_3_ < anInt978) {
-					if (i_4_ > anInt978) {
-						i_4_ = anInt978;
+				if (i_3_ < endY) {
+					if (i_4_ > endY) {
+						i_4_ = endY;
 					}
-					if (i > anInt978) {
-						i = anInt978;
+					if (i > endY) {
+						i = endY;
 					}
 					i_9_ = (i_9_ << 8) - i_21_ * i_6_ + i_21_;
 					if (i_4_ < i) {
@@ -235,7 +235,7 @@ final class Rasterizer {
 						if (i_3_ != i_4_ && i_18_ < i_17_ || i_3_ == i_4_ && i_18_ > i_19_) {
 							i -= i_4_;
 							i_4_ -= i_3_;
-							i_3_ = anIntArray979[i_3_];
+							i_3_ = coordinateYLookup[i_3_];
 							while (--i_4_ >= 0) {
 								method867(GraphicsLD.pixels, i_3_, 0, 0, i_5_ >> 16, i_6_ >> 16, i_9_, i_21_);
 								i_5_ += i_18_;
@@ -253,7 +253,7 @@ final class Rasterizer {
 						} else {
 							i -= i_4_;
 							i_4_ -= i_3_;
-							i_3_ = anIntArray979[i_3_];
+							i_3_ = coordinateYLookup[i_3_];
 							while (--i_4_ >= 0) {
 								method867(GraphicsLD.pixels, i_3_, 0, 0, i_6_ >> 16, i_5_ >> 16, i_9_, i_21_);
 								i_5_ += i_18_;
@@ -285,7 +285,7 @@ final class Rasterizer {
 						if (i_18_ < i_17_) {
 							i_4_ -= i;
 							i -= i_3_;
-							i_3_ = anIntArray979[i_3_];
+							i_3_ = coordinateYLookup[i_3_];
 							while (--i >= 0) {
 								method867(GraphicsLD.pixels, i_3_, 0, 0, i_7_ >> 16, i_6_ >> 16, i_9_, i_21_);
 								i_7_ += i_18_;
@@ -303,7 +303,7 @@ final class Rasterizer {
 						} else {
 							i_4_ -= i;
 							i -= i_3_;
-							i_3_ = anIntArray979[i_3_];
+							i_3_ = coordinateYLookup[i_3_];
 							while (--i >= 0) {
 								method867(GraphicsLD.pixels, i_3_, 0, 0, i_6_ >> 16, i_7_ >> 16, i_9_, i_21_);
 								i_7_ += i_18_;
@@ -321,12 +321,12 @@ final class Rasterizer {
 						}
 					}
 				}
-			} else if (i_4_ < anInt978) {
-				if (i > anInt978) {
-					i = anInt978;
+			} else if (i_4_ < endY) {
+				if (i > endY) {
+					i = endY;
 				}
-				if (i_3_ > anInt978) {
-					i_3_ = anInt978;
+				if (i_3_ > endY) {
+					i_3_ = endY;
 				}
 				i_10_ = (i_10_ << 8) - i_21_ * i_7_ + i_21_;
 				if (i < i_3_) {
@@ -345,7 +345,7 @@ final class Rasterizer {
 					if (i_17_ < i_19_) {
 						i_3_ -= i;
 						i -= i_4_;
-						i_4_ = anIntArray979[i_4_];
+						i_4_ = coordinateYLookup[i_4_];
 						while (--i >= 0) {
 							method867(GraphicsLD.pixels, i_4_, 0, 0, i_6_ >> 16, i_7_ >> 16, i_10_, i_21_);
 							i_6_ += i_17_;
@@ -363,7 +363,7 @@ final class Rasterizer {
 					} else {
 						i_3_ -= i;
 						i -= i_4_;
-						i_4_ = anIntArray979[i_4_];
+						i_4_ = coordinateYLookup[i_4_];
 						while (--i >= 0) {
 							method867(GraphicsLD.pixels, i_4_, 0, 0, i_7_ >> 16, i_6_ >> 16, i_10_, i_21_);
 							i_6_ += i_17_;
@@ -395,7 +395,7 @@ final class Rasterizer {
 					if (i_17_ < i_19_) {
 						i -= i_3_;
 						i_3_ -= i_4_;
-						i_4_ = anIntArray979[i_4_];
+						i_4_ = coordinateYLookup[i_4_];
 						while (--i_3_ >= 0) {
 							method867(GraphicsLD.pixels, i_4_, 0, 0, i_5_ >> 16, i_7_ >> 16, i_10_, i_21_);
 							i_5_ += i_17_;
@@ -413,7 +413,7 @@ final class Rasterizer {
 					} else {
 						i -= i_3_;
 						i_3_ -= i_4_;
-						i_4_ = anIntArray979[i_4_];
+						i_4_ = coordinateYLookup[i_4_];
 						while (--i_3_ >= 0) {
 							method867(GraphicsLD.pixels, i_4_, 0, 0, i_7_ >> 16, i_5_ >> 16, i_10_, i_21_);
 							i_5_ += i_17_;
@@ -446,7 +446,7 @@ final class Rasterizer {
 		if (i_25_ < i_26_) {
 			i += i_25_;
 			i_24_ = i_26_ - i_25_ >> 2;
-			if (anInt975 == 0) {
+			if (alpha == 0) {
 				while (--i_24_ >= 0) {
 					is[i++] = i_23_;
 					is[i++] = i_23_;
@@ -457,7 +457,7 @@ final class Rasterizer {
 				while (--i_24_ >= 0) {
 					is[i++] = i_23_;
 				}
-			} else if (anInt975 == 254) {
+			} else if (alpha == 254) {
 				while (--i_24_ >= 0) {
 					is[i++] = is[i];
 					is[i++] = is[i];
@@ -469,8 +469,8 @@ final class Rasterizer {
 					is[i++] = is[i];
 				}
 			} else {
-				final int i_27_ = anInt975;
-				final int i_28_ = 256 - anInt975;
+				final int i_27_ = alpha;
+				final int i_28_ = 256 - alpha;
 				i_23_ = ((i_23_ & 0xff00ff) * i_28_ >> 8 & 0xff00ff) + ((i_23_ & 0xff00) * i_28_ >> 8 & 0xff00);
 				while (--i_24_ >= 0) {
 					int i_29_ = is[i];
@@ -556,36 +556,36 @@ final class Rasterizer {
 				if (i_48_ == 0) {
 					i_48_ = 1;
 				}
-				anIntArray969[i_32_++] = i_48_;
+				palette[i_32_++] = i_48_;
 			}
 		}
 	}
 
 	static final int method859() {
-		return anIntArray979[0] / GraphicsLD.width;
+		return coordinateYLookup[0] / GraphicsLD.width;
 	}
 
-	private static final void method860(final int i, final int i_49_, final int i_50_, final int i_51_) {
+	private static final void calculateYLookupArray(final int i, final int i_49_, final int i_50_, final int i_51_) {
 		anInt983 = i_50_ - i;
-		anInt978 = i_51_ - i_49_;
+		endY = i_51_ - i_49_;
 		method868();
-		if (anIntArray979.length < anInt978) {
-			anIntArray979 = new int[Class120_Sub12_Sub17.method1283(anInt978, (byte) -123)];
+		if (coordinateYLookup.length < endY) {
+			coordinateYLookup = new int[Class120_Sub12_Sub17.method1283(endY)];
 		}
 		int i_52_ = i_49_ * GraphicsLD.width + i;
-		for (int i_53_ = 0; i_53_ < anInt978; i_53_++) {
-			anIntArray979[i_53_] = i_52_;
+		for (int i_53_ = 0; i_53_ < endY; i_53_++) {
+			coordinateYLookup[i_53_] = i_52_;
 			i_52_ += GraphicsLD.width;
 		}
 	}
 
 	static final int method861() {
-		return anIntArray979[0] % GraphicsLD.width;
+		return coordinateYLookup[0] % GraphicsLD.width;
 	}
 
 	static final void method862(int i, int i_54_, int i_55_, int i_56_, int i_57_, int i_58_, int i_59_, int i_60_, int i_61_, final int i_62_, int i_63_, int i_64_, final int i_65_, int i_66_, int i_67_, final int i_68_, int i_69_, int i_70_, final int i_71_) {
 		final int[] is = anInterface5_973.method19(aFloat968, 274092135, i_71_);
-		if (is == null || anInt975 > 10) {
+		if (is == null || alpha > 10) {
 			final int i_72_ = anInterface5_973.method20(i_71_, 65535);
 			aBoolean974 = true;
 			method856(i, i_54_, i_55_, i_56_, i_57_, i_58_, method853(i_72_, i_59_), method853(i_72_, i_60_), method853(i_72_, i_61_));
@@ -630,12 +630,12 @@ final class Rasterizer {
 				final int i_92_ = i_69_ * i_67_ - i_66_ * i_70_ << 8;
 				final int i_93_ = i_63_ * i_70_ - i_69_ * i_64_ << 5;
 				if (i <= i_54_ && i <= i_55_) {
-					if (i < anInt978) {
-						if (i_54_ > anInt978) {
-							i_54_ = anInt978;
+					if (i < endY) {
+						if (i_54_ > endY) {
+							i_54_ = endY;
 						}
-						if (i_55_ > anInt978) {
-							i_55_ = anInt978;
+						if (i_55_ > endY) {
+							i_55_ = endY;
 						}
 						i_59_ = (i_59_ << 9) - i_83_ * i_56_ + i_83_;
 						if (i_54_ < i_55_) {
@@ -658,7 +658,7 @@ final class Rasterizer {
 							if (i != i_54_ && i_81_ < i_79_ || i == i_54_ && i_81_ > i_80_) {
 								i_55_ -= i_54_;
 								i_54_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_54_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i, i_58_ >> 16, i_56_ >> 16, i_59_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_58_ += i_81_;
@@ -682,7 +682,7 @@ final class Rasterizer {
 							} else {
 								i_55_ -= i_54_;
 								i_54_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_54_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i, i_56_ >> 16, i_58_ >> 16, i_59_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_58_ += i_81_;
@@ -724,7 +724,7 @@ final class Rasterizer {
 							if (i != i_55_ && i_81_ < i_79_ || i == i_55_ && i_80_ > i_79_) {
 								i_54_ -= i_55_;
 								i_55_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_55_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i, i_57_ >> 16, i_56_ >> 16, i_59_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_57_ += i_81_;
@@ -748,7 +748,7 @@ final class Rasterizer {
 							} else {
 								i_54_ -= i_55_;
 								i_55_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_55_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i, i_56_ >> 16, i_57_ >> 16, i_59_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_57_ += i_81_;
@@ -773,12 +773,12 @@ final class Rasterizer {
 						}
 					}
 				} else if (i_54_ <= i_55_) {
-					if (i_54_ < anInt978) {
-						if (i_55_ > anInt978) {
-							i_55_ = anInt978;
+					if (i_54_ < endY) {
+						if (i_55_ > endY) {
+							i_55_ = endY;
 						}
-						if (i > anInt978) {
-							i = anInt978;
+						if (i > endY) {
+							i = endY;
 						}
 						i_60_ = (i_60_ << 9) - i_83_ * i_57_ + i_83_;
 						if (i_55_ < i) {
@@ -801,7 +801,7 @@ final class Rasterizer {
 							if (i_54_ != i_55_ && i_79_ < i_80_ || i_54_ == i_55_ && i_79_ > i_81_) {
 								i -= i_55_;
 								i_55_ -= i_54_;
-								i_54_ = anIntArray979[i_54_];
+								i_54_ = coordinateYLookup[i_54_];
 								while (--i_55_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i_54_, i_56_ >> 16, i_57_ >> 16, i_60_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_56_ += i_79_;
@@ -825,7 +825,7 @@ final class Rasterizer {
 							} else {
 								i -= i_55_;
 								i_55_ -= i_54_;
-								i_54_ = anIntArray979[i_54_];
+								i_54_ = coordinateYLookup[i_54_];
 								while (--i_55_ >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i_54_, i_57_ >> 16, i_56_ >> 16, i_60_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_56_ += i_79_;
@@ -867,7 +867,7 @@ final class Rasterizer {
 							if (i_79_ < i_80_) {
 								i_55_ -= i;
 								i -= i_54_;
-								i_54_ = anIntArray979[i_54_];
+								i_54_ = coordinateYLookup[i_54_];
 								while (--i >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i_54_, i_58_ >> 16, i_57_ >> 16, i_60_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_58_ += i_79_;
@@ -891,7 +891,7 @@ final class Rasterizer {
 							} else {
 								i_55_ -= i;
 								i -= i_54_;
-								i_54_ = anIntArray979[i_54_];
+								i_54_ = coordinateYLookup[i_54_];
 								while (--i >= 0) {
 									method870(GraphicsLD.pixels, is, 0, 0, i_54_, i_57_ >> 16, i_58_ >> 16, i_60_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 									i_58_ += i_79_;
@@ -915,12 +915,12 @@ final class Rasterizer {
 							}
 						}
 					}
-				} else if (i_55_ < anInt978) {
-					if (i > anInt978) {
-						i = anInt978;
+				} else if (i_55_ < endY) {
+					if (i > endY) {
+						i = endY;
 					}
-					if (i_54_ > anInt978) {
-						i_54_ = anInt978;
+					if (i_54_ > endY) {
+						i_54_ = endY;
 					}
 					i_61_ = (i_61_ << 9) - i_83_ * i_58_ + i_83_;
 					if (i < i_54_) {
@@ -943,7 +943,7 @@ final class Rasterizer {
 						if (i_80_ < i_81_) {
 							i_54_ -= i;
 							i -= i_55_;
-							i_55_ = anIntArray979[i_55_];
+							i_55_ = coordinateYLookup[i_55_];
 							while (--i >= 0) {
 								method870(GraphicsLD.pixels, is, 0, 0, i_55_, i_57_ >> 16, i_58_ >> 16, i_61_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 								i_57_ += i_80_;
@@ -967,7 +967,7 @@ final class Rasterizer {
 						} else {
 							i_54_ -= i;
 							i -= i_55_;
-							i_55_ = anIntArray979[i_55_];
+							i_55_ = coordinateYLookup[i_55_];
 							while (--i >= 0) {
 								method870(GraphicsLD.pixels, is, 0, 0, i_55_, i_58_ >> 16, i_57_ >> 16, i_61_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 								i_57_ += i_80_;
@@ -1009,7 +1009,7 @@ final class Rasterizer {
 						if (i_80_ < i_81_) {
 							i -= i_54_;
 							i_54_ -= i_55_;
-							i_55_ = anIntArray979[i_55_];
+							i_55_ = coordinateYLookup[i_55_];
 							while (--i_54_ >= 0) {
 								method870(GraphicsLD.pixels, is, 0, 0, i_55_, i_56_ >> 16, i_58_ >> 16, i_61_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 								i_56_ += i_80_;
@@ -1033,7 +1033,7 @@ final class Rasterizer {
 						} else {
 							i -= i_54_;
 							i_54_ -= i_55_;
-							i_55_ = anIntArray979[i_55_];
+							i_55_ = coordinateYLookup[i_55_];
 							while (--i_54_ >= 0) {
 								method870(GraphicsLD.pixels, is, 0, 0, i_55_, i_58_ >> 16, i_56_ >> 16, i_61_, i_83_, i_85_, i_88_, i_91_, i_86_, i_89_, i_92_);
 								i_56_ += i_80_;
@@ -1075,12 +1075,12 @@ final class Rasterizer {
 			i_108_ = (i_102_ - i_104_ << 16) / (i - i_101_);
 		}
 		if (i <= i_100_ && i <= i_101_) {
-			if (i < anInt978) {
-				if (i_100_ > anInt978) {
-					i_100_ = anInt978;
+			if (i < endY) {
+				if (i_100_ > endY) {
+					i_100_ = endY;
 				}
-				if (i_101_ > anInt978) {
-					i_101_ = anInt978;
+				if (i_101_ > endY) {
+					i_101_ = endY;
 				}
 				if (i_100_ < i_101_) {
 					i_104_ = i_102_ <<= 16;
@@ -1097,7 +1097,7 @@ final class Rasterizer {
 					if (i != i_100_ && i_108_ < i_106_ || i == i_100_ && i_108_ > i_107_) {
 						i_101_ -= i_100_;
 						i_100_ -= i;
-						i = anIntArray979[i];
+						i = coordinateYLookup[i];
 						while (--i_100_ >= 0) {
 							method857(GraphicsLD.pixels, i, i_105_, 0, i_104_ >> 16, i_102_ >> 16);
 							i_104_ += i_108_;
@@ -1113,7 +1113,7 @@ final class Rasterizer {
 					} else {
 						i_101_ -= i_100_;
 						i_100_ -= i;
-						i = anIntArray979[i];
+						i = coordinateYLookup[i];
 						while (--i_100_ >= 0) {
 							method857(GraphicsLD.pixels, i, i_105_, 0, i_102_ >> 16, i_104_ >> 16);
 							i_104_ += i_108_;
@@ -1142,7 +1142,7 @@ final class Rasterizer {
 					if (i != i_101_ && i_108_ < i_106_ || i == i_101_ && i_107_ > i_106_) {
 						i_100_ -= i_101_;
 						i_101_ -= i;
-						i = anIntArray979[i];
+						i = coordinateYLookup[i];
 						while (--i_101_ >= 0) {
 							method857(GraphicsLD.pixels, i, i_105_, 0, i_103_ >> 16, i_102_ >> 16);
 							i_103_ += i_108_;
@@ -1158,7 +1158,7 @@ final class Rasterizer {
 					} else {
 						i_100_ -= i_101_;
 						i_101_ -= i;
-						i = anIntArray979[i];
+						i = coordinateYLookup[i];
 						while (--i_101_ >= 0) {
 							method857(GraphicsLD.pixels, i, i_105_, 0, i_102_ >> 16, i_103_ >> 16);
 							i_103_ += i_108_;
@@ -1175,12 +1175,12 @@ final class Rasterizer {
 				}
 			}
 		} else if (i_100_ <= i_101_) {
-			if (i_100_ < anInt978) {
-				if (i_101_ > anInt978) {
-					i_101_ = anInt978;
+			if (i_100_ < endY) {
+				if (i_101_ > endY) {
+					i_101_ = endY;
 				}
-				if (i > anInt978) {
-					i = anInt978;
+				if (i > endY) {
+					i = endY;
 				}
 				if (i_101_ < i) {
 					i_102_ = i_103_ <<= 16;
@@ -1197,7 +1197,7 @@ final class Rasterizer {
 					if (i_100_ != i_101_ && i_106_ < i_107_ || i_100_ == i_101_ && i_106_ > i_108_) {
 						i -= i_101_;
 						i_101_ -= i_100_;
-						i_100_ = anIntArray979[i_100_];
+						i_100_ = coordinateYLookup[i_100_];
 						while (--i_101_ >= 0) {
 							method857(GraphicsLD.pixels, i_100_, i_105_, 0, i_102_ >> 16, i_103_ >> 16);
 							i_102_ += i_106_;
@@ -1213,7 +1213,7 @@ final class Rasterizer {
 					} else {
 						i -= i_101_;
 						i_101_ -= i_100_;
-						i_100_ = anIntArray979[i_100_];
+						i_100_ = coordinateYLookup[i_100_];
 						while (--i_101_ >= 0) {
 							method857(GraphicsLD.pixels, i_100_, i_105_, 0, i_103_ >> 16, i_102_ >> 16);
 							i_102_ += i_106_;
@@ -1242,7 +1242,7 @@ final class Rasterizer {
 					if (i_106_ < i_107_) {
 						i_101_ -= i;
 						i -= i_100_;
-						i_100_ = anIntArray979[i_100_];
+						i_100_ = coordinateYLookup[i_100_];
 						while (--i >= 0) {
 							method857(GraphicsLD.pixels, i_100_, i_105_, 0, i_104_ >> 16, i_103_ >> 16);
 							i_104_ += i_106_;
@@ -1258,7 +1258,7 @@ final class Rasterizer {
 					} else {
 						i_101_ -= i;
 						i -= i_100_;
-						i_100_ = anIntArray979[i_100_];
+						i_100_ = coordinateYLookup[i_100_];
 						while (--i >= 0) {
 							method857(GraphicsLD.pixels, i_100_, i_105_, 0, i_103_ >> 16, i_104_ >> 16);
 							i_104_ += i_106_;
@@ -1274,12 +1274,12 @@ final class Rasterizer {
 					}
 				}
 			}
-		} else if (i_101_ < anInt978) {
-			if (i > anInt978) {
-				i = anInt978;
+		} else if (i_101_ < endY) {
+			if (i > endY) {
+				i = endY;
 			}
-			if (i_100_ > anInt978) {
-				i_100_ = anInt978;
+			if (i_100_ > endY) {
+				i_100_ = endY;
 			}
 			if (i < i_100_) {
 				i_103_ = i_104_ <<= 16;
@@ -1296,7 +1296,7 @@ final class Rasterizer {
 				if (i_107_ < i_108_) {
 					i_100_ -= i;
 					i -= i_101_;
-					i_101_ = anIntArray979[i_101_];
+					i_101_ = coordinateYLookup[i_101_];
 					while (--i >= 0) {
 						method857(GraphicsLD.pixels, i_101_, i_105_, 0, i_103_ >> 16, i_104_ >> 16);
 						i_103_ += i_107_;
@@ -1312,7 +1312,7 @@ final class Rasterizer {
 				} else {
 					i_100_ -= i;
 					i -= i_101_;
-					i_101_ = anIntArray979[i_101_];
+					i_101_ = coordinateYLookup[i_101_];
 					while (--i >= 0) {
 						method857(GraphicsLD.pixels, i_101_, i_105_, 0, i_104_ >> 16, i_103_ >> 16);
 						i_103_ += i_107_;
@@ -1341,7 +1341,7 @@ final class Rasterizer {
 				if (i_107_ < i_108_) {
 					i -= i_100_;
 					i_100_ -= i_101_;
-					i_101_ = anIntArray979[i_101_];
+					i_101_ = coordinateYLookup[i_101_];
 					while (--i_100_ >= 0) {
 						method857(GraphicsLD.pixels, i_101_, i_105_, 0, i_102_ >> 16, i_104_ >> 16);
 						i_102_ += i_107_;
@@ -1357,7 +1357,7 @@ final class Rasterizer {
 				} else {
 					i -= i_100_;
 					i_100_ -= i_101_;
-					i_101_ = anIntArray979[i_101_];
+					i_101_ = coordinateYLookup[i_101_];
 					while (--i_100_ >= 0) {
 						method857(GraphicsLD.pixels, i_101_, i_105_, 0, i_104_ >> 16, i_102_ >> 16);
 						i_102_ += i_107_;
@@ -1701,10 +1701,10 @@ final class Rasterizer {
 			if (aBoolean971) {
 				i_122_ = i_124_ - i_123_ >> 2;
 				i_126_ <<= 2;
-				if (anInt975 == 0) {
+				if (alpha == 0) {
 					if (i_122_ > 0) {
 						do {
-							i_121_ = anIntArray969[i_125_ >> 8];
+							i_121_ = palette[i_125_ >> 8];
 							i_125_ += i_126_;
 							is[i++] = i_121_;
 							is[i++] = i_121_;
@@ -1714,17 +1714,17 @@ final class Rasterizer {
 					}
 					i_122_ = i_124_ - i_123_ & 0x3;
 					if (i_122_ > 0) {
-						i_121_ = anIntArray969[i_125_ >> 8];
+						i_121_ = palette[i_125_ >> 8];
 						do {
 							is[i++] = i_121_;
 						} while (--i_122_ > 0);
 					}
 				} else {
-					final int i_127_ = anInt975;
-					final int i_128_ = 256 - anInt975;
+					final int i_127_ = alpha;
+					final int i_128_ = 256 - alpha;
 					if (i_122_ > 0) {
 						do {
-							i_121_ = anIntArray969[i_125_ >> 8];
+							i_121_ = palette[i_125_ >> 8];
 							i_125_ += i_126_;
 							i_121_ = ((i_121_ & 0xff00ff) * i_128_ >> 8 & 0xff00ff) + ((i_121_ & 0xff00) * i_128_ >> 8 & 0xff00);
 							int i_129_ = is[i];
@@ -1739,7 +1739,7 @@ final class Rasterizer {
 					}
 					i_122_ = i_124_ - i_123_ & 0x3;
 					if (i_122_ > 0) {
-						i_121_ = anIntArray969[i_125_ >> 8];
+						i_121_ = palette[i_125_ >> 8];
 						i_121_ = ((i_121_ & 0xff00ff) * i_128_ >> 8 & 0xff00ff) + ((i_121_ & 0xff00) * i_128_ >> 8 & 0xff00);
 						do {
 							final int i_130_ = is[i];
@@ -1749,16 +1749,16 @@ final class Rasterizer {
 				}
 			} else {
 				i_122_ = i_124_ - i_123_;
-				if (anInt975 == 0) {
+				if (alpha == 0) {
 					do {
-						is[i++] = anIntArray969[i_125_ >> 8];
+						is[i++] = palette[i_125_ >> 8];
 						i_125_ += i_126_;
 					} while (--i_122_ > 0);
 				} else {
-					final int i_131_ = anInt975;
-					final int i_132_ = 256 - anInt975;
+					final int i_131_ = alpha;
+					final int i_132_ = 256 - alpha;
 					do {
-						i_121_ = anIntArray969[i_125_ >> 8];
+						i_121_ = palette[i_125_ >> 8];
 						i_125_ += i_126_;
 						i_121_ = ((i_121_ & 0xff00ff) * i_132_ >> 8 & 0xff00ff) + ((i_121_ & 0xff00) * i_132_ >> 8 & 0xff00);
 						final int i_133_ = is[i];
@@ -1771,15 +1771,15 @@ final class Rasterizer {
 
 	static final void method868() {
 		anInt967 = anInt983 / 2;
-		anInt970 = anInt978 / 2;
+		anInt970 = endY / 2;
 		IntegerNode.anInt2792 = -anInt967;
 		Class120_Sub12_Sub16.anInt3253 = anInt983 - anInt967;
 		Class190.anInt2100 = -anInt970;
-		Class120_Sub30_Sub1.anInt3672 = anInt978 - anInt970;
+		Class120_Sub30_Sub1.anInt3672 = endY - anInt970;
 	}
 
 	static final void method869(final int i, final int i_134_) {
-		final int i_135_ = anIntArray979[0];
+		final int i_135_ = coordinateYLookup[0];
 		final int i_136_ = i_135_ / GraphicsLD.width;
 		final int i_137_ = i_135_ - i_136_ * GraphicsLD.width;
 		anInt967 = i - i_137_;
@@ -1787,7 +1787,7 @@ final class Rasterizer {
 		IntegerNode.anInt2792 = -anInt967;
 		Class120_Sub12_Sub16.anInt3253 = anInt983 - anInt967;
 		Class190.anInt2100 = -anInt970;
-		Class120_Sub30_Sub1.anInt3672 = anInt978 - anInt970;
+		Class120_Sub30_Sub1.anInt3672 = endY - anInt970;
 	}
 
 	private static final void method870(final int[] is, final int[] is_138_, int i, int i_139_, int i_140_, int i_141_, int i_142_, int i_143_, int i_144_, int i_145_, int i_146_, int i_147_, final int i_148_, final int i_149_, final int i_150_) {
@@ -2173,12 +2173,12 @@ final class Rasterizer {
 				final int i_206_ = i_183_ * i_181_ - i_180_ * i_184_ << 5;
 				final int i_207_ = i_177_ * i_184_ - i_183_ * i_178_ << 5;
 				if (i <= i_168_ && i <= i_169_) {
-					if (i < anInt978) {
-						if (i_168_ > anInt978) {
-							i_168_ = anInt978;
+					if (i < endY) {
+						if (i_168_ > endY) {
+							i_168_ = endY;
 						}
-						if (i_169_ > anInt978) {
-							i_169_ = anInt978;
+						if (i_169_ > endY) {
+							i_169_ = endY;
 						}
 						i_173_ = (i_173_ << 9) - i_197_ * i_170_ + i_197_;
 						if (i_168_ < i_169_) {
@@ -2201,7 +2201,7 @@ final class Rasterizer {
 							if (i != i_168_ && i_195_ < i_193_ || i == i_168_ && i_195_ > i_194_) {
 								i_169_ -= i_168_;
 								i_168_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_168_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i, i_172_ >> 16, i_170_ >> 16, i_173_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_172_ += i_195_;
@@ -2225,7 +2225,7 @@ final class Rasterizer {
 							} else {
 								i_169_ -= i_168_;
 								i_168_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_168_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i, i_170_ >> 16, i_172_ >> 16, i_173_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_172_ += i_195_;
@@ -2267,7 +2267,7 @@ final class Rasterizer {
 							if (i != i_169_ && i_195_ < i_193_ || i == i_169_ && i_194_ > i_193_) {
 								i_168_ -= i_169_;
 								i_169_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_169_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i, i_171_ >> 16, i_170_ >> 16, i_173_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_171_ += i_195_;
@@ -2291,7 +2291,7 @@ final class Rasterizer {
 							} else {
 								i_168_ -= i_169_;
 								i_169_ -= i;
-								i = anIntArray979[i];
+								i = coordinateYLookup[i];
 								while (--i_169_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i, i_170_ >> 16, i_171_ >> 16, i_173_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_171_ += i_195_;
@@ -2316,12 +2316,12 @@ final class Rasterizer {
 						}
 					}
 				} else if (i_168_ <= i_169_) {
-					if (i_168_ < anInt978) {
-						if (i_169_ > anInt978) {
-							i_169_ = anInt978;
+					if (i_168_ < endY) {
+						if (i_169_ > endY) {
+							i_169_ = endY;
 						}
-						if (i > anInt978) {
-							i = anInt978;
+						if (i > endY) {
+							i = endY;
 						}
 						i_174_ = (i_174_ << 9) - i_197_ * i_171_ + i_197_;
 						if (i_169_ < i) {
@@ -2344,7 +2344,7 @@ final class Rasterizer {
 							if (i_168_ != i_169_ && i_193_ < i_194_ || i_168_ == i_169_ && i_193_ > i_195_) {
 								i -= i_169_;
 								i_169_ -= i_168_;
-								i_168_ = anIntArray979[i_168_];
+								i_168_ = coordinateYLookup[i_168_];
 								while (--i_169_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i_168_, i_170_ >> 16, i_171_ >> 16, i_174_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_170_ += i_193_;
@@ -2368,7 +2368,7 @@ final class Rasterizer {
 							} else {
 								i -= i_169_;
 								i_169_ -= i_168_;
-								i_168_ = anIntArray979[i_168_];
+								i_168_ = coordinateYLookup[i_168_];
 								while (--i_169_ >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i_168_, i_171_ >> 16, i_170_ >> 16, i_174_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_170_ += i_193_;
@@ -2410,7 +2410,7 @@ final class Rasterizer {
 							if (i_193_ < i_194_) {
 								i_169_ -= i;
 								i -= i_168_;
-								i_168_ = anIntArray979[i_168_];
+								i_168_ = coordinateYLookup[i_168_];
 								while (--i >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i_168_, i_172_ >> 16, i_171_ >> 16, i_174_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_172_ += i_193_;
@@ -2434,7 +2434,7 @@ final class Rasterizer {
 							} else {
 								i_169_ -= i;
 								i -= i_168_;
-								i_168_ = anIntArray979[i_168_];
+								i_168_ = coordinateYLookup[i_168_];
 								while (--i >= 0) {
 									method873(GraphicsLD.pixels, is, 0, 0, i_168_, i_171_ >> 16, i_172_ >> 16, i_174_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 									i_172_ += i_193_;
@@ -2458,12 +2458,12 @@ final class Rasterizer {
 							}
 						}
 					}
-				} else if (i_169_ < anInt978) {
-					if (i > anInt978) {
-						i = anInt978;
+				} else if (i_169_ < endY) {
+					if (i > endY) {
+						i = endY;
 					}
-					if (i_168_ > anInt978) {
-						i_168_ = anInt978;
+					if (i_168_ > endY) {
+						i_168_ = endY;
 					}
 					i_175_ = (i_175_ << 9) - i_197_ * i_172_ + i_197_;
 					if (i < i_168_) {
@@ -2486,7 +2486,7 @@ final class Rasterizer {
 						if (i_194_ < i_195_) {
 							i_168_ -= i;
 							i -= i_169_;
-							i_169_ = anIntArray979[i_169_];
+							i_169_ = coordinateYLookup[i_169_];
 							while (--i >= 0) {
 								method873(GraphicsLD.pixels, is, 0, 0, i_169_, i_171_ >> 16, i_172_ >> 16, i_175_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 								i_171_ += i_194_;
@@ -2510,7 +2510,7 @@ final class Rasterizer {
 						} else {
 							i_168_ -= i;
 							i -= i_169_;
-							i_169_ = anIntArray979[i_169_];
+							i_169_ = coordinateYLookup[i_169_];
 							while (--i >= 0) {
 								method873(GraphicsLD.pixels, is, 0, 0, i_169_, i_172_ >> 16, i_171_ >> 16, i_175_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 								i_171_ += i_194_;
@@ -2552,7 +2552,7 @@ final class Rasterizer {
 						if (i_194_ < i_195_) {
 							i -= i_168_;
 							i_168_ -= i_169_;
-							i_169_ = anIntArray979[i_169_];
+							i_169_ = coordinateYLookup[i_169_];
 							while (--i_168_ >= 0) {
 								method873(GraphicsLD.pixels, is, 0, 0, i_169_, i_170_ >> 16, i_172_ >> 16, i_175_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 								i_170_ += i_194_;
@@ -2576,7 +2576,7 @@ final class Rasterizer {
 						} else {
 							i -= i_168_;
 							i_168_ -= i_169_;
-							i_169_ = anIntArray979[i_169_];
+							i_169_ = coordinateYLookup[i_169_];
 							while (--i_168_ >= 0) {
 								method873(GraphicsLD.pixels, is, 0, 0, i_169_, i_172_ >> 16, i_170_ >> 16, i_175_, i_197_, i_199_, i_202_, i_205_, i_200_, i_203_, i_206_);
 								i_170_ += i_194_;
@@ -2605,8 +2605,8 @@ final class Rasterizer {
 	}
 
 	public static void method872() {
-		anIntArray979 = null;
-		anIntArray969 = null;
+		coordinateYLookup = null;
+		palette = null;
 		anInterface5_973 = null;
 		anIntArray977 = null;
 		anIntArray984 = null;
@@ -2891,7 +2891,7 @@ final class Rasterizer {
 		}
 	}
 
-	static final void method874() {
-		method860(GraphicsLD.startX, GraphicsLD.startY, GraphicsLD.endX, GraphicsLD.endY);
+	static final void calculateByBounds() {
+		calculateYLookupArray(GraphicsLD.startX, GraphicsLD.startY, GraphicsLD.endX, GraphicsLD.endY);
 	}
 }

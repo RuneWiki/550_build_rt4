@@ -7,13 +7,13 @@ final class Class192 {
 	static int anInt2120 = 0;
 	static Calendar aCalendar2121;
 	static volatile int currentClickX = 0;
-	static int anInt2123;
+	static int selectedSpellCursor;
 	static String selectedObjName;
 
 	static {
 		aCalendar2121 = Calendar.getInstance();
 		selectedObjName = null;
-		anInt2123 = -1;
+		selectedSpellCursor = -1;
 	}
 
 	static final void method2515(final int i) {
@@ -34,7 +34,7 @@ final class Class192 {
 			Class120_Sub12_Sub31.anIntArray3383 = null;
 			Class120_Sub12_Sub34.anIntArray3409 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wk.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -46,7 +46,7 @@ final class Class192 {
 				method2515(44);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wk.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -62,7 +62,7 @@ final class Class192 {
 					class180_sub5_sub1.anInt2999 = 0;
 					class180_sub5_sub1.anInt3031 = class180_sub5_sub1.anInt2960;
 					if (class180_sub5_sub1.anInt3006 != -1) {
-						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
+						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
 					}
 				}
 			} else {
@@ -74,7 +74,7 @@ final class Class192 {
 					class180_sub5_sub1.anInt3044 = 0;
 					class180_sub5_sub1.anInt3013 = 1;
 					class180_sub5_sub1.anInt2999 = 0;
-					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer, false);
+					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
 				}
 				if (i_2_ == 2) {
 					class180_sub5_sub1.anInt2999 = 0;
@@ -84,7 +84,7 @@ final class Class192 {
 				method2517(null, 78, -82, -118);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wk.A(").append(class180_sub5_sub1 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.A(").append(class180_sub5_sub1 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 }

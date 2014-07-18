@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class126 {
+final class Huffman {
 	static int anInt1204 = 0;
 	private final int[] anIntArray1205;
 	private final byte[] aByteArray1206;
@@ -58,7 +58,7 @@ final class Class126 {
 			}
 			bool_1_ = bool_3_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.C(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.C(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool_1_;
 	}
@@ -76,30 +76,30 @@ final class Class126 {
 			ArrayUtils.arrayCopy(is, 0, is_10_, 0, is.length);
 			is_9_ = is_10_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 		return is_9_;
 	}
 
-	static final Class50 method1884(final boolean bool, final byte i, final boolean bool_11_, final int i_12_, final boolean bool_13_) {
-		Class50 class50;
+	static final js5 method1884(final boolean bool, final byte i, final boolean bool_11_, final int i_12_, final boolean bool_13_) {
+		js5 js5;
 		try {
 			FileSystem fileSystem = null;
 			if (Class73.aClass193_663 != null) {
 				fileSystem = new FileSystem(i_12_, Class73.aClass193_663, Class120_Sub13.aClass193Array2581[i_12_], 1000000);
 			}
-			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = Class120_Sub14_Sub2.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_, (byte) -105);
+			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_, (byte) -105);
 			if (bool_13_) {
 				Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_].method471(-94271416);
 			}
 			if (i >= -42) {
 				method1882(122, -120, false, null);
 			}
-			class50 = new Class50(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
+			js5 = new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.E(").append(bool).append(',').append(i).append(',').append(bool_11_).append(',').append(i_12_).append(',').append(bool_13_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.E(").append(bool).append(',').append(i).append(',').append(bool_11_).append(',').append(i_12_).append(',').append(bool_13_).append(')').toString());
 		}
-		return class50;
+		return js5;
 	}
 
 	final int method1885(final int i, int i_14_, final int i_15_, final byte[] is, final byte[] is_16_, int i_17_) {
@@ -145,7 +145,7 @@ final class Class126 {
 			}
 			i_18_ = -i + (7 + i_20_ >> 3);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.B(").append(i).append(',').append(i_14_).append(',').append(i_15_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_16_ != null ? "{...}" : "null").append(',').append(i_17_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.B(").append(i).append(',').append(i_14_).append(',').append(i_15_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_16_ != null ? "{...}" : "null").append(',').append(i_17_).append(')')
 					.toString());
 		}
 		return i_18_;
@@ -263,7 +263,7 @@ final class Class126 {
 			}
 			i_31_ = i_33_ - -1 + -i_27_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.F(").append(i).append(',').append(i_27_).append(',').append(i_28_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_29_ != null ? "{...}" : "null").append(',').append(i_30_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.F(").append(i).append(',').append(i_27_).append(',').append(i_28_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_29_ != null ? "{...}" : "null").append(',').append(i_30_).append(')')
 					.toString());
 		}
 		return i_31_;
@@ -286,13 +286,13 @@ final class Class126 {
 			}
 			is = is_42_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oj.D(").append(i).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(f).append(',').append(i_41_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.D(").append(i).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(f).append(',').append(i_41_).append(',')
 					.append(bool).append(')').toString());
 		}
 		return is;
 	}
 
-	Class126(final byte[] is) {
+	Huffman(final byte[] is) {
 		final int i = is.length;
 		aByteArray1206 = is;
 		anIntArray1210 = new int[8];

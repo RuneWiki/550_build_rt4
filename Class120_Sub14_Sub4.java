@@ -23,43 +23,34 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 			aBooleanArray3468 = null;
 			mouseHandler = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ed.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ed.C(").append(i).append(')').toString());
 		}
 	}
 
-	static final boolean method1437(final int i, final long l, final int i_0_, final int i_1_) {
-		boolean bool;
-		try {
-			final int i_2_ = (0x35960c & (int) l) >> 20;
-			if (i_0_ != 0) {
-				return true;
-			}
-			final int i_3_ = 0x1f & (int) l >> 14;
-			final int i_4_ = 0x7fffffff & (int) (l >>> 32);
-			if (i_3_ == 10 || i_3_ == 11 || i_3_ == 22) {
-				final LocType locType = LocType.list(i_4_);
-				int i_5_ = locType.anInt1857;
-				int i_6_;
-				int i_7_;
-				if (i_2_ != 0 && i_2_ != 2) {
-					i_7_ = locType.anInt1827;
-					i_6_ = locType.anInt1841;
-				} else {
-					i_6_ = locType.anInt1827;
-					i_7_ = locType.anInt1841;
-				}
-				if (i_2_ != 0) {
-					i_5_ = (i_5_ << i_2_ & 0xf) + (i_5_ >> 4 + -i_2_);
-				}
-				Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], 0, i_5_, true, i_7_, i, Class100.selfPlayer.anIntArray3040[0], 0, (byte) -101, i_6_, i_1_);
+	static final boolean method1437(final int i, final long l, final int i_1_) {
+		final int i_2_ = (0x35960c & (int) l) >> 20;
+		final int i_3_ = 0x1f & (int) l >> 14;
+		final int i_4_ = 0x7fffffff & (int) (l >>> 32);
+		if (i_3_ == 10 || i_3_ == 11 || i_3_ == 22) {
+			final LocType locType = LocType.list(i_4_);
+			int i_5_ = locType.anInt1857;
+			int i_6_;
+			int i_7_;
+			if (i_2_ != 0 && i_2_ != 2) {
+				i_7_ = locType.anInt1827;
+				i_6_ = locType.anInt1841;
 			} else {
-				Class120_Sub14_Sub5.method1440(Class100.selfPlayer.anIntArray2958[0], i_2_, 0, true, 0, i, Class100.selfPlayer.anIntArray3040[0], 1 + i_3_, (byte) -111, 0, i_1_);
+				i_6_ = locType.anInt1827;
+				i_7_ = locType.anInt1841;
 			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ed.A(").append(i).append(',').append(l).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			if (i_2_ != 0) {
+				i_5_ = (i_5_ << i_2_ & 0xf) + (i_5_ >> 4 + -i_2_);
+			}
+			Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, i_5_, true, i_7_, i, Class100.selfPlayer.walkQueueZ[0], 0, i_6_, i_1_);
+		} else {
+			Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], i_2_, 0, true, 0, i, Class100.selfPlayer.walkQueueZ[0], 1 + i_3_, 0, i_1_);
 		}
-		return bool;
+		return true;
 	}
 
 	Class120_Sub14_Sub4(final Class180_Sub3 class180_sub3) {
@@ -81,7 +72,7 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ed.B(").append(i).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ed.B(").append(i).append(',').append(i_8_).append(')').toString());
 		}
 		return bool;
 	}

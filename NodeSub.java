@@ -14,13 +14,13 @@ class NodeSub extends Node {
 		aFloatArray2583 = new float[4];
 	}
 
-	static final int getCrc(final byte[] is, final int i_1_, final int i) {
-		int i_3_ = -1;
-		for (int i_4_ = i_1_; i_4_ < i; i_4_++) {
-			i_3_ = DisplayModeInfo.anIntArray1707[(i_3_ ^ is[i_4_]) & 0xff] ^ i_3_ >>> 8;
+	static final int getCrc(final byte[] buffer, final int off, final int len) {
+		int crc = -1;
+		for (int id = off; id < len; id++) {
+			crc = DisplayModeInfo.crcTable[(crc ^ buffer[id]) & 0xff] ^ crc >>> 8;
 		}
-		i_3_ ^= 0xffffffff;
-		return i_3_;
+		crc ^= 0xffffffff;
+		return crc;
 	}
 
 	final void unlinkSub() {
@@ -38,7 +38,7 @@ class NodeSub extends Node {
 			aFloatArray2583 = null;
 			aString2585 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lh.HA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lh.HA(").append(i).append(')').toString());
 		}
 	}
 
@@ -55,9 +55,9 @@ class NodeSub extends Node {
 				aString2585 = null;
 			}
 			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
-			class120_sub14_sub7.method1453((byte) -104);
+			class120_sub14_sub7.method1453();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lh.IA(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lh.IA(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 

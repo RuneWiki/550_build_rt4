@@ -11,7 +11,7 @@ final class ObjType {
 	private int womanwearyoff;
 	private byte[] recol_d_palette;
 	private int manhead2;
-	static Class50 aClass50_1517;
+	static js5 aClass50_1517;
 	private int modelId;
 	int dummyitem = 0;
 	static int[] anIntArray1520 = { 0, 1, 2, 3, 4, 5, 6, 14 };
@@ -119,34 +119,28 @@ final class ObjType {
 			}
 			class180_sub2 = class180_sub2_4_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.Q(").append(bool).append(',').append(bool_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.Q(").append(bool).append(',').append(bool_1_).append(')').toString());
 		}
 		return class180_sub2;
 	}
 
-	final void method2104(final ObjType class162_9_, final ObjType class162_10_, final int i) {
-		try {
-			this.cost = class162_9_.cost;
-			recol_d_palette = class162_10_.recol_d_palette;
-			recol_d = class162_10_.recol_d;
-			retex_s = class162_10_.retex_s;
-			this.yan2d = class162_10_.yan2d;
-			this.xan2d = class162_10_.xan2d;
-			this.xof2d = class162_10_.xof2d;
-			recol_s = class162_10_.recol_s;
-			if (i == 65536) {
-				modelId = class162_10_.modelId;
-				this.name = class162_9_.name;
-				this.stackable = 1;
-				this.zan2d = class162_10_.zan2d;
-				this.members = class162_9_.members;
-				this.yof2d = class162_10_.yof2d;
-				this.zoom2d = class162_10_.zoom2d;
-				retex_d = class162_10_.retex_d;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.B(").append(class162_9_ != null ? "{...}" : "null").append(',').append(class162_10_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	final void genCert(final ObjType class162_9_, final ObjType class162_10_) {
+		this.cost = class162_9_.cost;
+		recol_d_palette = class162_10_.recol_d_palette;
+		recol_d = class162_10_.recol_d;
+		retex_s = class162_10_.retex_s;
+		this.yan2d = class162_10_.yan2d;
+		this.xan2d = class162_10_.xan2d;
+		this.xof2d = class162_10_.xof2d;
+		recol_s = class162_10_.recol_s;
+		modelId = class162_10_.modelId;
+		this.name = class162_9_.name;
+		this.stackable = 1;
+		this.zan2d = class162_10_.zan2d;
+		this.members = class162_9_.members;
+		this.yof2d = class162_10_.yof2d;
+		this.zoom2d = class162_10_.zoom2d;
+		retex_d = class162_10_.retex_d;
 	}
 
 	final Class180_Sub7 method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
@@ -255,13 +249,13 @@ final class ObjType {
 			}
 			class180_sub2 = class180_sub2_26_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.C(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.C(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return class180_sub2;
 	}
 
 	static final Class186 method2108(final int i, final int i_30_, final int i_31_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_30_][i_31_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_30_][i_31_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -301,7 +295,7 @@ final class ObjType {
 			}
 			bool_32_ = bool_36_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.F(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.F(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return bool_32_;
 	}
@@ -317,70 +311,57 @@ final class ObjType {
 		return class120_sub25.value;
 	}
 
-	final void method2112(final int i, final ObjType class162_39_, final ObjType class162_40_) {
-		try {
-			this.anInt1553 = class162_39_.anInt1553;
-			manhead2 = class162_39_.manhead2;
-			manhead = class162_39_.manhead;
-			anInt1534 = class162_39_.anInt1534;
-			anInt1535 = class162_39_.anInt1535;
-			this.xof2d = class162_40_.xof2d;
-			womanwearyoff = class162_39_.womanwearyoff;
-			anInt1512 = class162_39_.anInt1512;
-			this.params = class162_39_.params;
-			recol_s = class162_39_.recol_s;
-			this.zan2d = class162_40_.zan2d;
-			womanhead2 = class162_39_.womanhead2;
-			manwearyoff = class162_39_.manwearyoff;
-			manwearzoff = class162_39_.manwearzoff;
-			this.team = class162_39_.team;
-			this.yan2d = class162_40_.yan2d;
-			manwearxoff = class162_39_.manwearxoff;
-			modelId = class162_40_.modelId;
-			this.inventoryOptions = new String[5];
-			this.members = class162_39_.members;
-			recol_d = class162_39_.recol_d;
-			womanwearzoff = class162_39_.womanwearzoff;
-			this.yof2d = class162_40_.yof2d;
-			retex_d = class162_39_.retex_d;
-			this.xan2d = class162_40_.xan2d;
-			this.anInt1546 = class162_39_.anInt1546;
-			retex_s = class162_39_.retex_s;
-			womanwearxoff = class162_39_.womanwearxoff;
-			womanhead = class162_39_.womanhead;
-			this.zoom2d = class162_40_.zoom2d;
-			anInt1559 = class162_39_.anInt1559;
-			this.options = class162_39_.options;
-			this.name = class162_39_.name;
-			this.cost = 0;
-			recol_d_palette = class162_39_.recol_d_palette;
-			if (class162_39_.inventoryOptions != null) {
-				for (int i_41_ = 0; i_41_ < 4; i_41_++) {
-					this.inventoryOptions[i_41_] = class162_39_.inventoryOptions[i_41_];
-				}
+	final void genLent(final ObjType class162_39_, final ObjType class162_40_) {
+		this.anInt1553 = class162_39_.anInt1553;
+		manhead2 = class162_39_.manhead2;
+		manhead = class162_39_.manhead;
+		anInt1534 = class162_39_.anInt1534;
+		anInt1535 = class162_39_.anInt1535;
+		this.xof2d = class162_40_.xof2d;
+		womanwearyoff = class162_39_.womanwearyoff;
+		anInt1512 = class162_39_.anInt1512;
+		this.params = class162_39_.params;
+		recol_s = class162_39_.recol_s;
+		this.zan2d = class162_40_.zan2d;
+		womanhead2 = class162_39_.womanhead2;
+		manwearyoff = class162_39_.manwearyoff;
+		manwearzoff = class162_39_.manwearzoff;
+		this.team = class162_39_.team;
+		this.yan2d = class162_40_.yan2d;
+		manwearxoff = class162_39_.manwearxoff;
+		modelId = class162_40_.modelId;
+		this.inventoryOptions = new String[5];
+		this.members = class162_39_.members;
+		recol_d = class162_39_.recol_d;
+		womanwearzoff = class162_39_.womanwearzoff;
+		this.yof2d = class162_40_.yof2d;
+		retex_d = class162_39_.retex_d;
+		this.xan2d = class162_40_.xan2d;
+		this.anInt1546 = class162_39_.anInt1546;
+		retex_s = class162_39_.retex_s;
+		womanwearxoff = class162_39_.womanwearxoff;
+		womanhead = class162_39_.womanhead;
+		this.zoom2d = class162_40_.zoom2d;
+		anInt1559 = class162_39_.anInt1559;
+		this.options = class162_39_.options;
+		this.name = class162_39_.name;
+		this.cost = 0;
+		recol_d_palette = class162_39_.recol_d_palette;
+		if (class162_39_.inventoryOptions != null) {
+			for (int i_41_ = 0; i_41_ < 4; i_41_++) {
+				this.inventoryOptions[i_41_] = class162_39_.inventoryOptions[i_41_];
 			}
-			this.inventoryOptions[4] = Class8.aString64;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.N(").append(i).append(',').append(class162_39_ != null ? "{...}" : "null").append(',').append(class162_40_ != null ? "{...}" : "null").append(')').toString());
 		}
+		this.inventoryOptions[4] = Class8.aString64;
 	}
 
-	static final boolean method2113(final Class50 class50, final int i, final int i_42_) {
-		boolean bool;
-		try {
-			if (i != -5) {
-				return true;
-			}
-			final byte[] is = class50.method413(i_42_, true);
-			if (is == null) {
-				return false;
-			}
-			Class140.decodeSprites(is);
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.R(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_42_).append(')').toString());
+	static final boolean method2113(final js5 js5, final int i_42_) {
+		final byte[] is = js5.method413(i_42_, true);
+		if (is == null) {
+			return false;
 		}
-		return bool;
+		Class140.decodeSprites(is);
+		return true;
 	}
 
 	static final void method2114(final boolean bool) {
@@ -390,15 +371,15 @@ final class ObjType {
 		}
 	}
 
-	final int getIntegerParam(final int i_44_, final int i) {
+	final int getIntegerParamValue(final int defaultInt, final int param) {
 		if (this.params == null) {
-			return i_44_;
+			return defaultInt;
 		}
-		final IntegerNode class120_sub32 = (IntegerNode) this.params.get(i);
-		if (class120_sub32 == null) {
-			return i_44_;
+		final IntegerNode node = (IntegerNode) this.params.get(param);
+		if (node == null) {
+			return defaultInt;
 		}
-		return class120_sub32.value;
+		return node.value;
 	}
 
 	final boolean method2116(final boolean bool, final int i) {
@@ -422,7 +403,7 @@ final class ObjType {
 			}
 			bool_46_ = bool_49_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.M(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.M(").append(bool).append(',').append(i).append(')').toString());
 		}
 		return bool_46_;
 	}
@@ -467,7 +448,7 @@ final class ObjType {
 			}
 			class180_sub7_sub1 = class180_sub7_sub1_53_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.I(").append(playerAppearance != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.I(").append(playerAppearance != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return class180_sub7_sub1;
 	}
@@ -564,7 +545,7 @@ final class ObjType {
 																								if (configCode == 249) {
 																									final int i_57_ = buffer.getUByte();
 																									if (this.params == null) {
-																										final int i_58_ = Class120_Sub12_Sub17.method1283(i_57_, (byte) -99);
+																										final int i_58_ = Class120_Sub12_Sub17.method1283(i_57_);
 																										this.params = new Hashtable(i_58_);
 																									}
 																									for (int i_59_ = 0; i_59_ < i_57_; i_59_++) {
@@ -678,10 +659,10 @@ final class ObjType {
 		}
 		class162_12_.method2109(104);
 		if (class162_12_.certtemplate != -1) {
-			class162_12_.method2104(list(class162_12_.certlink), list(class162_12_.certtemplate), 65536);
+			class162_12_.genCert(list(class162_12_.certlink), list(class162_12_.certtemplate));
 		}
 		if (class162_12_.lenttemplate != -1) {
-			class162_12_.method2112(119, list(class162_12_.lentlink), list(class162_12_.lenttemplate));
+			class162_12_.genLent(list(class162_12_.lentlink), list(class162_12_.lenttemplate));
 		}
 		if (!AbstractObject.aBoolean3463 && class162_12_.members) {
 			class162_12_.name = DummyInputStream.aString25;
@@ -702,7 +683,7 @@ final class ObjType {
 				anInt1551 = -2;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("td.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("td.E(").append(i).append(')').toString());
 		}
 	}
 

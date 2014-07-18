@@ -101,8 +101,8 @@ class HDSprite extends AbstractSprite {
 	}
 
 	void method1596(final int[] pixels) {
-		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width, (byte) 90);
-		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height, (byte) 112);
+		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height);
 		final byte[] is_18_ = new byte[this.anInt3945 * this.anInt3948 * 4];
 		int i = 0;
 		int i_19_ = 0;

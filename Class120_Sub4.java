@@ -28,7 +28,7 @@ final class Class120_Sub4 extends Node {
 			}
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 		return bool;
 	}
@@ -44,7 +44,7 @@ final class Class120_Sub4 extends Node {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.C(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.C(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
 		}
 		return bool;
 	}
@@ -60,7 +60,7 @@ final class Class120_Sub4 extends Node {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.B(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.B(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
 		}
 		return bool;
 	}
@@ -71,7 +71,7 @@ final class Class120_Sub4 extends Node {
 			is[2] = -anInt2437 - -this.anInt2429 + i;
 			is[1] = -anInt2433 + this.anInt2438 + i_7_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.A(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.A(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -81,7 +81,7 @@ final class Class120_Sub4 extends Node {
 			aByteArrayArrayArray2441 = null;
 			aClass105_2439 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -91,7 +91,7 @@ final class Class120_Sub4 extends Node {
 			is[0] = anInt2430;
 			is[2] = anInt2437 + -this.anInt2429 + i;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("e.F(").append(i).append(',').append(i_9_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("e.F(").append(i).append(',').append(i_9_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_10_).append(')').toString());
 		}
 	}
 

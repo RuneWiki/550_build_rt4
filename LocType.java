@@ -53,7 +53,7 @@ final class LocType {
 	boolean aBoolean1862;
 	boolean aBoolean1863;
 	boolean aBoolean1864;
-	private Hashtable aClass75_1865;
+	private Hashtable params;
 	int anInt1866;
 	private short aShort1867;
 	private boolean aBoolean1868;
@@ -70,10 +70,11 @@ final class LocType {
 	int anInt1879;
 	boolean aBoolean1880;
 	int[] anIntArray1881;
+	static Cache recentUse = new Cache(64);
 
 	static final void resetSpriteMenu() {
 		Class173.aClass120_Sub14_Sub19_1725 = null;
-		Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = null;
+		FrameLoader.aClass120_Sub14_Sub19_3611 = null;
 		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
 		Class157.aClass120_Sub14_Sub19_1472 = null;
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
@@ -81,12 +82,12 @@ final class LocType {
 
 	static final void method2451(final byte i) {
 		try {
-			Class120_Sub12_Sub37.aClass21_3427.clear();
+			IdentityKit.recentUse.clear();
 			if (i != 22) {
 				method2451((byte) 92);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.L(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.L(").append(i).append(')').toString());
 		}
 	}
 
@@ -105,12 +106,12 @@ final class LocType {
 			}
 			bool_0_ = bool_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.F(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.F(").append(bool).append(')').toString());
 		}
 		return bool_0_;
 	}
 
-	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final int i_10_, final Class107_Sub1 class107_sub1) {
+	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final int i_10_, final LDIndexedSprite class107_sub1) {
 		Class88 class88;
 		try {
 			if (i_10_ > -112) {
@@ -172,7 +173,7 @@ final class LocType {
 			}
 			Class88 class88_12_ = (Class88) Class167.aClass21_1618.get(l);
 			Class180_Sub7_Sub2 class180_sub7_sub2;
-			Class107_Sub1 class107_sub1_13_;
+			LDIndexedSprite class107_sub1_13_;
 			if (class88_12_ != null) {
 				class180_sub7_sub2 = (Class180_Sub7_Sub2) class88_12_.aClass180_826;
 				class107_sub1_13_ = class88_12_.aClass107_Sub1_830;
@@ -207,30 +208,21 @@ final class LocType {
 			Class82.aClass88_783.aClass107_Sub1_830 = class107_sub1_13_;
 			class88 = Class82.aClass88_783;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.Q(").append(i).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_6_ != null ? "{...}" : "null").append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.Q(").append(i).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_6_ != null ? "{...}" : "null").append(',')
 					.append(bool_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(class107_sub1 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class88;
 	}
 
-	final int method2454(final byte i, final int i_16_, final int i_17_) {
-		int i_18_;
-		try {
-			if (i != 75) {
-				method2454((byte) 89, 55, 121);
-			}
-			if (aClass75_1865 == null) {
-				return i_16_;
-			}
-			final IntegerNode class120_sub32 = (IntegerNode) aClass75_1865.get(i_17_);
-			if (class120_sub32 == null) {
-				return i_16_;
-			}
-			i_18_ = class120_sub32.value;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.K(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(')').toString());
+	final int getIntegerParamValue(final int param, final int defaultInt) {
+		if (params == null) {
+			return defaultInt;
 		}
-		return i_18_;
+		final IntegerNode integerNode = (IntegerNode) params.get(param);
+		if (integerNode == null) {
+			return defaultInt;
+		}
+		return integerNode.value;
 	}
 
 	private final Class180_Sub2 method2455(int i, final byte i_19_, final int i_20_) {
@@ -348,7 +340,7 @@ final class LocType {
 			}
 			class180_sub2 = class180_sub2_30_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.A(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.A(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
 		}
 		return class180_sub2;
 	}
@@ -370,20 +362,13 @@ final class LocType {
 		return LocType.list(this.childrenIDs[i_34_]);
 	}
 
-	final void method2457(final int i, final Buffer class120_sub7) {
-		try {
-			for (;;) {
-				final int i_36_ = class120_sub7.getUByte();
-				if (i_36_ == 0) {
-					break;
-				}
-				method2464(i_36_, -14007, class120_sub7);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			if (i != -1) {
-				this.anInt1840 = -55;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.J(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
@@ -472,7 +457,7 @@ final class LocType {
 			final Class180_Sub7_Sub2 class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, aShortArray1860 == null, true, class180_sub7_sub2_41_.method2407() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.method2429() == i_40_, true, !bool_48_,
 					aShortArray1837 == null);
 			if (bool_38_) {
-				method2470(null, -89, -43);
+				getStringParamValue(-89, null);
 			}
 			if (bool_48_) {
 				class180_sub7_sub2_51_.method2410();
@@ -513,7 +498,7 @@ final class LocType {
 			}
 			class180_sub7_sub2 = class180_sub7_sub2_51_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.E(").append(i).append(',').append(bool).append(',').append(i_37_).append(',').append(bool_38_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.E(").append(i).append(',').append(bool).append(',').append(i_37_).append(',').append(bool_38_).append(')').toString());
 		}
 		return class180_sub7_sub2;
 	}
@@ -544,12 +529,12 @@ final class LocType {
 			}
 			bool = bool_56_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.U(").append(i).append(',').append(i_54_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.U(").append(i).append(',').append(i_54_).append(')').toString());
 		}
 		return bool;
 	}
 
-	final Class88 method2461(final int i, final int[][] is, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final boolean bool, final int i_62_, final int i_63_, final int i_64_, final int[][] is_65_, final SeqType seqType, final Class107_Sub1 class107_sub1, final int i_66_) {
+	final Class88 method2461(final int i, final int[][] is, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final boolean bool, final int i_62_, final int i_63_, final int i_64_, final int[][] is_65_, final SeqType seqType, final LDIndexedSprite class107_sub1, final int i_66_) {
 		Class88 class88;
 		try {
 			if (i_59_ != 26643) {
@@ -637,7 +622,7 @@ final class LocType {
 			Class82.aClass88_783.aClass180_826 = class180_sub7_sub1;
 			class88 = Class82.aClass88_783;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.P(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_58_).append(',').append(i_59_).append(',').append(i_60_).append(',').append(i_61_).append(',').append(bool).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.P(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_58_).append(',').append(i_59_).append(',').append(i_60_).append(',').append(i_61_).append(',').append(bool).append(',')
 					.append(i_62_).append(',').append(i_63_).append(',').append(i_64_).append(',').append(is_65_ != null ? "{...}" : "null").append(',').append(seqType != null ? "{...}" : "null").append(',').append(class107_sub1 != null ? "{...}" : "null").append(',').append(i_66_).append(')')
 					.toString());
 		}
@@ -652,7 +637,7 @@ final class LocType {
 			}
 			aClass189_1818 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.S(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.S(").append(i).append(')').toString());
 		}
 	}
 
@@ -672,158 +657,157 @@ final class LocType {
 			}
 			i_70_ = -1;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.O(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.O(").append(i).append(')').toString());
 		}
 		return i_70_;
 	}
 
-	private final void method2464(final int i, final int i_73_, final Buffer class120_sub7) {
-		try {
-			if (i != 1) {
-				if (i == 2) {
-					this.name = class120_sub7.getJString();
-				} else if (i != 5) {
-					if (i != 14) {
-						if (i != 15) {
-							if (i == 17) {
+	private final void decode(final Buffer buffer, final int code) {
+			if (code != 1) {
+				if (code == 2) {
+					this.name = buffer.getJString();
+				} else if (code != 5) {
+					if (code != 14) {
+						if (code != 15) {
+							if (code == 17) {
 								this.anInt1821 = 0;
 								this.aBoolean1844 = false;
-							} else if (i == 18) {
+							} else if (code == 18) {
 								this.aBoolean1844 = false;
-							} else if (i == 19) {
-								this.anInt1835 = class120_sub7.getUByte();
-							} else if (i == 21) {
+							} else if (code == 19) {
+								this.anInt1835 = buffer.getUByte();
+							} else if (code == 21) {
 								aByte1820 = (byte) 1;
-							} else if (i != 22) {
-								if (i == 23) {
+							} else if (code != 22) {
+								if (code == 23) {
 									this.anInt1866 = 1;
-								} else if (i == 24) {
-									this.anInt1836 = class120_sub7.getUShort();
+								} else if (code == 24) {
+									this.anInt1836 = buffer.getUShort();
 									if (this.anInt1836 == 65535) {
 										this.anInt1836 = -1;
 									}
-								} else if (i != 27) {
-									if (i != 28) {
-										if (i != 29) {
-											if (i == 39) {
-												anInt1824 = 5 * class120_sub7.getByte();
-											} else if (i >= 30 && i < 35) {
-												this.actions[-30 + i] = class120_sub7.getJString();
-												if (this.actions[i + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-													this.actions[i - 30] = null;
+								} else if (code != 27) {
+									if (code != 28) {
+										if (code != 29) {
+											if (code == 39) {
+												anInt1824 = 5 * buffer.getByte();
+											} else if (code >= 30 && code < 35) {
+												this.actions[-30 + code] = buffer.getJString();
+												if (this.actions[code + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+													this.actions[code - 30] = null;
 												}
-											} else if (i != 40) {
-												if (i != 41) {
-													if (i == 42) {
-														final int i_74_ = class120_sub7.getUByte();
+											} else if (code != 40) {
+												if (code != 41) {
+													if (code == 42) {
+														final int i_74_ = buffer.getUByte();
 														aByteArray1871 = new byte[i_74_];
 														for (int i_75_ = 0; i_75_ < i_74_; i_75_++) {
-															aByteArray1871[i_75_] = class120_sub7.getByte();
+															aByteArray1871[i_75_] = buffer.getByte();
 														}
-													} else if (i == 62) {
+													} else if (code == 62) {
 														aBoolean1868 = true;
-													} else if (i != 64) {
-														if (i != 65) {
-															if (i != 66) {
-																if (i != 67) {
-																	if (i == 69) {
-																		this.anInt1857 = class120_sub7.getUByte();
-																	} else if (i != 70) {
-																		if (i != 71) {
-																			if (i == 72) {
-																				anInt1859 = class120_sub7.getShort();
-																			} else if (i == 73) {
+													} else if (code != 64) {
+														if (code != 65) {
+															if (code != 66) {
+																if (code != 67) {
+																	if (code == 69) {
+																		this.anInt1857 = buffer.getUByte();
+																	} else if (code != 70) {
+																		if (code != 71) {
+																			if (code == 72) {
+																				anInt1859 = buffer.getShort();
+																			} else if (code == 73) {
 																				this.aBoolean1853 = true;
-																			} else if (i != 74) {
-																				if (i == 75) {
-																					this.anInt1831 = class120_sub7.getUByte();
-																				} else if (i != 77 && i != 92) {
-																					if (i != 78) {
-																						if (i == 79) {
-																							this.anInt1879 = class120_sub7.getUShort();
-																							this.anInt1845 = class120_sub7.getUShort();
-																							this.anInt1832 = class120_sub7.getUByte();
-																							final int i_76_ = class120_sub7.getUByte();
+																			} else if (code != 74) {
+																				if (code == 75) {
+																					this.anInt1831 = buffer.getUByte();
+																				} else if (code != 77 && code != 92) {
+																					if (code != 78) {
+																						if (code == 79) {
+																							this.anInt1879 = buffer.getUShort();
+																							this.anInt1845 = buffer.getUShort();
+																							this.anInt1832 = buffer.getUByte();
+																							final int i_76_ = buffer.getUByte();
 																							this.anIntArray1870 = new int[i_76_];
 																							for (int i_77_ = 0; i_77_ < i_76_; i_77_++) {
-																								this.anIntArray1870[i_77_] = class120_sub7.getUShort();
+																								this.anIntArray1870[i_77_] = buffer.getUShort();
 																							}
-																						} else if (i == 81) {
+																						} else if (code == 81) {
 																							aByte1820 = (byte) 2;
-																							aShort1867 = (short) (256 * class120_sub7.getUByte());
-																						} else if (i != 82) {
-																							if (i != 88) {
-																								if (i != 89) {
-																									if (i == 90) {
+																							aShort1867 = (short) (256 * buffer.getUByte());
+																						} else if (code != 82) {
+																							if (code != 88) {
+																								if (code != 89) {
+																									if (code == 90) {
 																										this.aBoolean1822 = true;
-																									} else if (i == 91) {
+																									} else if (code == 91) {
 																										this.members = true;
-																									} else if (i == 93) {
+																									} else if (code == 93) {
 																										aByte1820 = (byte) 3;
-																										aShort1867 = (short) class120_sub7.getUShort();
-																									} else if (i == 94) {
+																										aShort1867 = (short) buffer.getUShort();
+																									} else if (code == 94) {
 																										aByte1820 = (byte) 4;
-																									} else if (i != 95) {
-																										if (i != 96) {
-																											if (i == 97) {
+																									} else if (code != 95) {
+																										if (code != 96) {
+																											if (code == 97) {
 																												this.aBoolean1862 = true;
-																											} else if (i != 98) {
-																												if (i != 99) {
-																													if (i == 100) {
-																														this.cursor2op = class120_sub7.getUByte();
-																														this.cursor2 = class120_sub7.getUShort();
-																													} else if (i != 101) {
-																														if (i != 102) {
-																															if (i == 103) {
+																											} else if (code != 98) {
+																												if (code != 99) {
+																													if (code == 100) {
+																														this.cursor2op = buffer.getUByte();
+																														this.cursor2 = buffer.getUShort();
+																													} else if (code != 101) {
+																														if (code != 102) {
+																															if (code == 103) {
 																																this.anInt1866 = 0;
-																															} else if (i == 104) {
-																																this.anInt1839 = class120_sub7.getUByte();
-																															} else if (i == 105) {
+																															} else if (code == 104) {
+																																this.anInt1839 = buffer.getUByte();
+																															} else if (code == 105) {
 																																this.aBoolean1872 = true;
-																															} else if (i == 106) {
-																																final int i_78_ = class120_sub7.getUByte();
+																															} else if (code == 106) {
+																																final int i_78_ = buffer.getUByte();
 																																anIntArray1829 = new int[i_78_];
 																																this.anIntArray1881 = new int[i_78_];
 																																for (int i_79_ = 0; i_78_ > i_79_; i_79_++) {
-																																	this.anIntArray1881[i_79_] = class120_sub7.getUShort();
-																																	final int i_80_ = class120_sub7.getUByte();
+																																	this.anIntArray1881[i_79_] = buffer.getUShort();
+																																	final int i_80_ = buffer.getUByte();
 																																	anIntArray1829[i_79_] = i_80_;
 																																	anInt1816 += i_80_;
 																																}
-																															} else if (i == 107) {
-																																this.anInt1840 = class120_sub7.getUShort();
-																															} else if (i >= 150 && i < 155) {
-																																this.actions[-150 + i] = class120_sub7.getJString();
-																																if (!Class69_Sub2.aBoolean2234 || this.actions[-150 + i].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-																																	this.actions[i - 150] = null;
+																															} else if (code == 107) {
+																																this.anInt1840 = buffer.getUShort();
+																															} else if (code >= 150 && code < 155) {
+																																this.actions[-150 + code] = buffer.getJString();
+																																if (!Class69_Sub2.aBoolean2234 || this.actions[-150 + code].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+																																	this.actions[code - 150] = null;
 																																}
-																															} else if (i == 249) {
-																																final int i_81_ = class120_sub7.getUByte();
-																																if (aClass75_1865 == null) {
-																																	final int i_82_ = Class120_Sub12_Sub17.method1283(i_81_, (byte) -11);
-																																	aClass75_1865 = new Hashtable(i_82_);
+																															} else if (code == 249) {
+																																final int i_81_ = buffer.getUByte();
+																																if (params == null) {
+																																	final int i_82_ = Class120_Sub12_Sub17.method1283(i_81_);
+																																	params = new Hashtable(i_82_);
 																																}
 																																for (int i_83_ = 0; i_81_ > i_83_; i_83_++) {
-																																	final boolean bool = class120_sub7.getUByte() == 1;
-																																	final int i_84_ = class120_sub7.getMedium();
+																																	final boolean bool = buffer.getUByte() == 1;
+																																	final int i_84_ = buffer.getMedium();
 																																	Node node;
 																																	if (bool) {
-																																		node = new StringNode(class120_sub7.getJString());
+																																		node = new StringNode(buffer.getJString());
 																																	} else {
-																																		node = new IntegerNode(class120_sub7.getInt());
+																																		node = new IntegerNode(buffer.getInt());
 																																	}
-																																	aClass75_1865.put(node, i_84_);
+																																	params.put(node, i_84_);
 																																}
 																															}
 																														} else {
-																															this.anInt1826 = class120_sub7.getUShort();
+																															this.anInt1826 = buffer.getUShort();
 																														}
 																													} else {
-																														this.anInt1869 = class120_sub7.getUByte();
+																														this.anInt1869 = buffer.getUByte();
 																													}
 																												} else {
-																													this.cursor1op = class120_sub7.getUByte();
-																													this.cursor1 = class120_sub7.getUShort();
+																													this.cursor1op = buffer.getUByte();
+																													this.cursor1 = buffer.getUShort();
 																												}
 																											} else {
 																												this.aBoolean1863 = true;
@@ -844,29 +828,29 @@ final class LocType {
 																							this.aBoolean1876 = true;
 																						}
 																					} else {
-																						this.anInt1833 = class120_sub7.getUShort();
-																						this.anInt1832 = class120_sub7.getUByte();
+																						this.anInt1833 = buffer.getUShort();
+																						this.anInt1832 = buffer.getUByte();
 																					}
 																				} else {
 																					int i_85_ = -1;
-																					anInt1854 = class120_sub7.getUShort();
+																					anInt1854 = buffer.getUShort();
 																					if (anInt1854 == 65535) {
 																						anInt1854 = -1;
 																					}
-																					anInt1846 = class120_sub7.getUShort();
+																					anInt1846 = buffer.getUShort();
 																					if (-65536 == (anInt1846 ^ 0xffffffff)) {
 																						anInt1846 = -1;
 																					}
-																					if (i == 92) {
-																						i_85_ = class120_sub7.getUShort();
+																					if (code == 92) {
+																						i_85_ = buffer.getUShort();
 																						if (-65536 == (i_85_ ^ 0xffffffff)) {
 																							i_85_ = -1;
 																						}
 																					}
-																					final int i_86_ = class120_sub7.getUByte();
+																					final int i_86_ = buffer.getUByte();
 																					this.childrenIDs = new int[2 + i_86_];
 																					for (int i_87_ = 0; i_86_ >= i_87_; i_87_++) {
-																						this.childrenIDs[i_87_] = class120_sub7.getUShort();
+																						this.childrenIDs[i_87_] = buffer.getUShort();
 																						if (-65536 == (this.childrenIDs[i_87_] ^ 0xffffffff)) {
 																							this.childrenIDs[i_87_] = -1;
 																						}
@@ -877,46 +861,46 @@ final class LocType {
 																				this.aBoolean1880 = true;
 																			}
 																		} else {
-																			anInt1855 = class120_sub7.getShort();
+																			anInt1855 = buffer.getShort();
 																		}
 																	} else {
-																		anInt1838 = class120_sub7.getShort();
+																		anInt1838 = buffer.getShort();
 																	}
 																} else {
-																	anInt1873 = class120_sub7.getUShort();
+																	anInt1873 = buffer.getUShort();
 																}
 															} else {
-																anInt1875 = class120_sub7.getUShort();
+																anInt1875 = buffer.getUShort();
 															}
 														} else {
-															anInt1856 = class120_sub7.getUShort();
+															anInt1856 = buffer.getUShort();
 														}
 													} else {
 														this.aBoolean1858 = false;
 													}
 												} else {
-													final int i_88_ = class120_sub7.getUByte();
+													final int i_88_ = buffer.getUByte();
 													aShortArray1828 = new short[i_88_];
 													aShortArray1837 = new short[i_88_];
 													for (int i_89_ = 0; i_89_ < i_88_; i_89_++) {
-														aShortArray1837[i_89_] = (short) class120_sub7.getUShort();
-														aShortArray1828[i_89_] = (short) class120_sub7.getUShort();
+														aShortArray1837[i_89_] = (short) buffer.getUShort();
+														aShortArray1828[i_89_] = (short) buffer.getUShort();
 													}
 												}
 											} else {
-												final int i_90_ = class120_sub7.getUByte();
+												final int i_90_ = buffer.getUByte();
 												aShortArray1860 = new short[i_90_];
 												aShortArray1815 = new short[i_90_];
 												for (int i_91_ = 0; i_91_ < i_90_; i_91_++) {
-													aShortArray1860[i_91_] = (short) class120_sub7.getUShort();
-													aShortArray1815[i_91_] = (short) class120_sub7.getUShort();
+													aShortArray1860[i_91_] = (short) buffer.getUShort();
+													aShortArray1815[i_91_] = (short) buffer.getUShort();
 												}
 											}
 										} else {
-											anInt1843 = class120_sub7.getByte();
+											anInt1843 = buffer.getByte();
 										}
 									} else {
-										this.anInt1819 = class120_sub7.getUByte();
+										this.anInt1819 = buffer.getUByte();
 									}
 								} else {
 									this.anInt1821 = 1;
@@ -925,46 +909,40 @@ final class LocType {
 								aBoolean1830 = true;
 							}
 						} else {
-							this.anInt1827 = class120_sub7.getUByte();
+							this.anInt1827 = buffer.getUByte();
 						}
 					} else {
-						this.anInt1841 = class120_sub7.getUByte();
+						this.anInt1841 = buffer.getUByte();
 					}
 				} else {
-					final int i_92_ = class120_sub7.getUByte();
+					final int i_92_ = buffer.getUByte();
 					if (i_92_ > 0) {
 						if (anIntArray1850 == null || Class120_Sub12_Sub26.aBoolean3326) {
 							anIntArray1817 = null;
 							anIntArray1850 = new int[i_92_];
 							for (int i_93_ = 0; i_93_ < i_92_; i_93_++) {
-								anIntArray1850[i_93_] = class120_sub7.getUShort();
+								anIntArray1850[i_93_] = buffer.getUShort();
 							}
 						} else {
-							class120_sub7.pos += i_92_ * 2;
+							buffer.pos += i_92_ * 2;
 						}
 					}
 				}
 			} else {
-				final int i_94_ = class120_sub7.getUByte();
+				final int i_94_ = buffer.getUByte();
 				if (i_94_ > 0) {
 					if (anIntArray1850 != null && !Class120_Sub12_Sub26.aBoolean3326) {
-						class120_sub7.pos += 3 * i_94_;
+						buffer.pos += 3 * i_94_;
 					} else {
 						anIntArray1850 = new int[i_94_];
 						anIntArray1817 = new int[i_94_];
 						for (int i_95_ = 0; i_95_ < i_94_; i_95_++) {
-							anIntArray1850[i_95_] = class120_sub7.getUShort();
-							anIntArray1817[i_95_] = class120_sub7.getUByte();
+							anIntArray1850[i_95_] = buffer.getUShort();
+							anIntArray1817[i_95_] = buffer.getUByte();
 						}
 					}
 				}
 			}
-			if (i_73_ != -14007) {
-				this.aBoolean1872 = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.I(").append(i).append(',').append(i_73_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
-		}
 	}
 
 	static final void method2465(final byte i, final boolean bool) {
@@ -983,32 +961,26 @@ final class LocType {
 				anIntArray1834 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.H(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.H(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 
 	final boolean method2466(final int i) {
-		boolean bool;
-		try {
-			if (this.childrenIDs == null) {
-				if (this.anInt1833 == -1 && this.anIntArray1870 == null) {
-					return false;
-				}
-				return true;
+		if (this.childrenIDs == null) {
+			if (this.anInt1833 == -1 && this.anIntArray1870 == null) {
+				return false;
 			}
-			for (final int element : this.childrenIDs) {
-				if ((element ^ 0xffffffff) != 0) {
-					final LocType class184_100_ = LocType.list(element);
-					if (class184_100_.anInt1833 != -1 || class184_100_.anIntArray1870 != null) {
-						return true;
-					}
-				}
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.C(").append(i).append(')').toString());
+			return true;
 		}
-		return bool;
+		for (final int element : this.childrenIDs) {
+			if (element != -1) {
+				final LocType class184_100_ = LocType.list(element);
+				if (class184_100_.anInt1833 != -1 || class184_100_.anIntArray1870 != null) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	static final int method2467(final int i, final byte i_101_, final JagexInterface jagexInterface) {
@@ -1033,7 +1005,7 @@ final class LocType {
 						return i_104_;
 					}
 					if (i_107_ == 1) {
-						i_108_ = SceneGraphNode.anIntArray1783[is[i_103_++]];
+						i_108_ = SceneGraphNode.skillsLevel[is[i_103_++]];
 					}
 					if (i_107_ == 15) {
 						i_106_ = 1;
@@ -1045,10 +1017,10 @@ final class LocType {
 						i_106_ = 3;
 					}
 					if (i_107_ == 2) {
-						i_108_ = Decimator.anIntArray1720[is[i_103_++]];
+						i_108_ = Decimator.skillsBaseLevel[is[i_103_++]];
 					}
 					if (i_107_ == 3) {
-						i_108_ = Class120_Sub12_Sub38.anIntArray3439[is[i_103_++]];
+						i_108_ = Class120_Sub12_Sub38.skillsXp[is[i_103_++]];
 					}
 					if (i_107_ == 4) {
 						int i_109_ = is[i_103_++] << 16;
@@ -1056,9 +1028,9 @@ final class LocType {
 						final JagexInterface class189_110_ = Class74.getJagexInterface(i_109_);
 						final int i_111_ = is[i_103_++];
 						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.membersClient)) {
-							for (int i_112_ = 0; class189_110_.objAmounts.length > i_112_; i_112_++) {
-								if (class189_110_.objAmounts[i_112_] == i_111_ + 1) {
-									i_108_ += class189_110_.objIds[i_112_];
+							for (int i_112_ = 0; class189_110_.objIds.length > i_112_; i_112_++) {
+								if (class189_110_.objIds[i_112_] == i_111_ + 1) {
+									i_108_ += class189_110_.objAmounts[i_112_];
 								}
 							}
 						}
@@ -1067,18 +1039,18 @@ final class LocType {
 						i_108_ = Class2.permanentVariable[is[i_103_++]];
 					}
 					if (i_107_ == 6) {
-						i_108_ = Class55.anIntArray492[Decimator.anIntArray1720[is[i_103_++]] - 1];
+						i_108_ = Class55.skillsXpForLevel[Decimator.skillsBaseLevel[is[i_103_++]] - 1];
 					}
 					if (i_107_ == 7) {
 						i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
 					}
 					if (i_107_ == 8) {
-						i_108_ = Class100.selfPlayer.anInt3747;
+						i_108_ = Class100.selfPlayer.combatLevel;
 					}
 					if (i_107_ == 9) {
 						for (int i_113_ = 0; i_113_ < 25; i_113_++) {
 							if (Class173.aBooleanArray1723[i_113_]) {
-								i_108_ += Decimator.anIntArray1720[i_113_];
+								i_108_ += Decimator.skillsBaseLevel[i_113_];
 							}
 						}
 					}
@@ -1088,8 +1060,8 @@ final class LocType {
 						final JagexInterface class189_115_ = Class74.getJagexInterface(i_114_);
 						final int i_116_ = is[i_103_++];
 						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.membersClient)) {
-							for (int i_117_ = 0; class189_115_.objAmounts.length > i_117_; i_117_++) {
-								if (1 + i_116_ == class189_115_.objAmounts[i_117_]) {
+							for (int i_117_ = 0; class189_115_.objIds.length > i_117_; i_117_++) {
+								if (1 + i_116_ == class189_115_.objIds[i_117_]) {
 									i_108_ = 999999999;
 									break;
 								}
@@ -1097,10 +1069,10 @@ final class LocType {
 						}
 					}
 					if (i_107_ == 11) {
-						i_108_ = Class69_Sub2.anInt2240;
+						i_108_ = Class69_Sub2.energy;
 					}
 					if (i_107_ == 12) {
-						i_108_ = Class56.anInt498;
+						i_108_ = Class56.weight;
 					}
 					if (i_107_ == 13) {
 						final int i_118_ = Class2.permanentVariable[is[i_103_++]];
@@ -1142,7 +1114,7 @@ final class LocType {
 				i_102_ = -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.M(").append(i).append(',').append(i_101_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.M(").append(i).append(',').append(i_101_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 		return i_102_;
 	}
@@ -1168,77 +1140,61 @@ final class LocType {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.D(").append(i).append(',').append(i_121_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.D(").append(i).append(',').append(i_121_).append(')').toString());
 		}
 		return bool;
 	}
 
-	final void method2469(final int i) {
-		try {
-			if ((this.anInt1835 ^ 0xffffffff) == 0) {
-				this.anInt1835 = 0;
-				if (anIntArray1850 != null && (anIntArray1817 == null || anIntArray1817[0] == 10)) {
+	final void postDecode() {
+		if (this.anInt1835 == -1) {
+			this.anInt1835 = 0;
+			if (anIntArray1850 != null && (anIntArray1817 == null || anIntArray1817[0] == 10)) {
+				this.anInt1835 = 1;
+			}
+			for (int i_123_ = 0; i_123_ < 5; i_123_++) {
+				if (this.actions[i_123_] != null) {
 					this.anInt1835 = 1;
-				}
-				for (int i_123_ = 0; i_123_ < 5; i_123_++) {
-					if (this.actions[i_123_] != null) {
-						this.anInt1835 = 1;
-						break;
-					}
+					break;
 				}
 			}
-			if (this.anInt1831 == -1) {
-				this.anInt1831 = this.anInt1821 == 0 ? 0 : 1;
-			}
-			if (i < 122) {
-				anInt1855 = 118;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.G(").append(i).append(')').toString());
+		}
+		if (this.anInt1831 == -1) {
+			this.anInt1831 = this.anInt1821 == 0 ? 0 : 1;
 		}
 	}
 
-	final String method2470(final String string, final int i, final int i_124_) {
-		String string_125_;
-		try {
-			if (aClass75_1865 == null) {
-				return string;
-			}
-			if (i_124_ != -108) {
-				return null;
-			}
-			final StringNode class120_sub25 = (StringNode) aClass75_1865.get(i);
-			if (class120_sub25 == null) {
-				return string;
-			}
-			string_125_ = class120_sub25.value;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vh.B(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(i_124_).append(')').toString());
+	final String getStringParamValue(final int param, final String defaultString) {
+		if (params == null) {
+			return defaultString;
 		}
-		return string_125_;
+		final StringNode stringNode = (StringNode) params.get(param);
+		if (stringNode == null) {
+			return defaultString;
+		}
+		return stringNode.value;
 	}
 
 	static final LocType list(final int id) {
-		LocType class184_1_ = (LocType) Class56.aClass21_494.get(id);
-		if (class184_1_ != null) {
-			return class184_1_;
+		LocType locType = (LocType) recentUse.get(id);
+		if (locType != null) {
+			return locType;
 		}
-		final byte[] is = Class120_Sub6.aClass50_2450.getFile(Class53_Sub1.method465(114, id), GroundTile.method1667(true, id));
-		class184_1_ = new LocType();
-		class184_1_.myId = id;
-		if (is != null) {
-			class184_1_.method2457(-1, new Buffer(is));
+		final byte[] data = Class120_Sub6.aClass50_2450.getFile(Class53_Sub1.method465(114, id), GroundTile.method1667(true, id));
+		locType = new LocType();
+		locType.myId = id;
+		if (data != null) {
+			locType.decode(new Buffer(data));
 		}
-		class184_1_.method2469(125);
-		if (!Class69_Sub2.aBoolean2234 && class184_1_.members) {
-			class184_1_.actions = null;
+		locType.postDecode();
+		if (!Class69_Sub2.aBoolean2234 && locType.members) {
+			locType.actions = null;
 		}
-		if (class184_1_.aBoolean1880) {
-			class184_1_.anInt1821 = 0;
-			class184_1_.aBoolean1844 = false;
+		if (locType.aBoolean1880) {
+			locType.anInt1821 = 0;
+			locType.aBoolean1844 = false;
 		}
-		Class56.aClass21_494.put(class184_1_, id);
-		return class184_1_;
+		recentUse.put(locType, id);
+		return locType;
 	}
 
 	public LocType() {

@@ -5,22 +5,22 @@
 final class InterfaceClickMask extends Node {
 	static boolean safeModeEnabled = false;
 	static String aString2660 = "Loading fonts - ";
-	int anInt2661;
-	int anInt2662;
+	int paramId;
+	int optionMask;
 	static Cache aClass21_2663 = new Cache(500);
 
 	final boolean method1677(final byte i) {
 		boolean bool;
 		try {
-			bool = (0x1 & this.anInt2662 >> 21) != 0;
+			bool = (0x1 & this.optionMask >> 21) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.E(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
 	final boolean method1678(final int i) {
-		return (0x1 & this.anInt2662 >> i + 1) != 0;
+		return (0x1 & this.optionMask >> i + 1) != 0;
 	}
 
 	static final void method1679(final Node node, final byte i, final Node class120_1_) {
@@ -35,7 +35,7 @@ final class InterfaceClickMask extends Node {
 				class120_1_.next.previous = class120_1_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.B(").append(node != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_1_ != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.B(").append(node != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_1_ != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -43,7 +43,7 @@ final class InterfaceClickMask extends Node {
 		try {
 			Class120_Sub12_Sub31.aClass21_3378.method192(i_2_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.M(").append(i).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.M(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -53,54 +53,30 @@ final class InterfaceClickMask extends Node {
 			if (i != -9617) {
 				method1689(76, -102);
 			}
-			bool = (this.anInt2662 & 0x107da4ce) >> 28 != 0;
+			bool = (this.optionMask & 0x107da4ce) >> 28 != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.Q(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.Q(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
 	static final void redrawInterface(final JagexInterface jagexInterface) {
-		if (jagexInterface.anInt1968 == Class84.anInt796) {
-			Class52.aBooleanArray467[jagexInterface.anInt2082] = true;
+		if (jagexInterface.redrawCycle == Class84.anInt796) {
+			Class52.needInterfaceRedrawWrapper[jagexInterface.redrawId] = true;
 		}
 	}
 
-	final int method1683(final byte i) {
-		int i_3_;
-		try {
-			if (i != 45) {
-				return -14;
-			}
-			i_3_ = 0x7 & this.anInt2662 >> 18;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.D(").append(i).append(')').toString());
-		}
-		return i_3_;
+	final int method1683() {
+		return 0x7 & this.optionMask >> 18;
 	}
 
-	public static void method1684(final int i) {
-		try {
-			aClass21_2663 = null;
-			if (i == 1023) {
-				aString2660 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.N(").append(i).append(')').toString());
-		}
+	public static void method1684() {
+		aClass21_2663 = null;
+		aString2660 = null;
 	}
 
 	final int method1685(final int i) {
-		int i_4_;
-		try {
-			if (i != 1105924391) {
-				return -75;
-			}
-			i_4_ = Class153.method2073(this.anInt2662);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.P(").append(i).append(')').toString());
-		}
-		return i_4_;
+		return Class153.method2073(this.optionMask);
 	}
 
 	final boolean method1686(final byte i) {
@@ -109,9 +85,9 @@ final class InterfaceClickMask extends Node {
 			if (i != -101) {
 				return false;
 			}
-			bool = (this.anInt2662 & 0x1) != 0;
+			bool = (this.optionMask & 0x1) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.H(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -122,9 +98,9 @@ final class InterfaceClickMask extends Node {
 			if (i <= 103) {
 				return false;
 			}
-			bool = (0x1 & this.anInt2662 >> 31) != 0;
+			bool = (0x1 & this.optionMask >> 31) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.F(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -205,20 +181,20 @@ final class InterfaceClickMask extends Node {
 			}
 			i_6_ = (i_14_ >> 1) + (i_15_ >> 5 << 7) + (i_16_ >> 2 << 10);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.L(").append(i).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.L(").append(i).append(',').append(i_5_).append(')').toString());
 		}
 		return i_6_;
 	}
 
 	static final void method1689(final int i_17_, final int i) {
-		if (Class50.loadInterface(i)) {
+		if (js5.loadInterface(i)) {
 			Class137.method1980(Node.interfaceCache[i], i_17_);
 		}
 	}
 
 	static final void method1690(final int i, final int i_19_) {
 		try {
-			Class56.aClass21_494.method192(i_19_);
+			LocType.recentUse.method192(i_19_);
 			aClass21_2663.method192(i_19_);
 			Class167.aClass21_1618.method192(i_19_);
 			Class116.aClass21_1117.method192(i_19_);
@@ -226,21 +202,12 @@ final class InterfaceClickMask extends Node {
 				method1680((byte) 59, 102);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.O(").append(i).append(',').append(i_19_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.O(").append(i).append(',').append(i_19_).append(')').toString());
 		}
 	}
 
-	final boolean method1691(final int i) {
-		boolean bool;
-		try {
-			if (i >= -12) {
-				safeModeEnabled = false;
-			}
-			bool = (this.anInt2662 >> 29 & 0x1) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.R(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1691() {
+		return (this.optionMask >> 29 & 0x1) != 0;
 	}
 
 	final boolean method1692(final boolean bool) {
@@ -249,9 +216,9 @@ final class InterfaceClickMask extends Node {
 			if (bool) {
 				return false;
 			}
-			bool_20_ = (0x1 & this.anInt2662 >> 22) != 0;
+			bool_20_ = (0x1 & this.optionMask >> 22) != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.K(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.K(").append(bool).append(')').toString());
 		}
 		return bool_20_;
 	}
@@ -264,7 +231,7 @@ final class InterfaceClickMask extends Node {
 			Class120_Sub14_Sub14_Sub2.aClass21_3937.clear();
 			Class132.aClass21_1255.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -272,17 +239,17 @@ final class InterfaceClickMask extends Node {
 		boolean bool;
 		try {
 			if (i != 500) {
-				method1691(-126);
+				method1691();
 			}
-			bool = (0x4b87f889 & this.anInt2662) >> 30 != 0;
+			bool = (0x4b87f889 & this.optionMask) >> 30 != 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("on.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("on.J(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
 	InterfaceClickMask(final int i, final int i_21_) {
-		this.anInt2662 = i;
-		this.anInt2661 = i_21_;
+		this.optionMask = i;
+		this.paramId = i_21_;
 	}
 }

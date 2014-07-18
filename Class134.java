@@ -5,12 +5,12 @@
 final class Class134 {
 	static AbstractSprite aClass120_Sub14_Sub19_1276;
 	static boolean aBoolean1277;
-	static int anInt1278;
+	static int scrollbarId;
 	static byte[][] aByteArrayArray1279;
 	static int anInt1280;
-	static int anInt1281;
+	static int renderPriority;
 	static boolean aBoolean1282;
-	static String aString1283;
+	static String loadingText;
 	static int[] anIntArray1284;
 	static int[] anIntArray1285 = new int[128];
 	static char[] aCharArray1286;
@@ -18,9 +18,9 @@ final class Class134 {
 
 	static {
 		aBoolean1282 = false;
-		aString1283 = "";
+		loadingText = "";
 		aCharArray1286 = new char[128];
-		anInt1281 = 0;
+		renderPriority = 0;
 		anIntArray1284 = new int[2];
 		aByteArrayArray1279 = new byte[250][];
 	}
@@ -36,7 +36,7 @@ final class Class134 {
 			}
 			string = Class69_Sub3.method626(i, 10, -1556668830, bool_0_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pj.B(").append(bool).append(',').append(i).append(',').append(bool_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pj.B(").append(bool).append(',').append(i).append(',').append(bool_0_).append(')').toString());
 		}
 		return string;
 	}
@@ -47,13 +47,13 @@ final class Class134 {
 			aByteArrayArray1279 = null;
 			aCharArray1286 = null;
 			anIntArray1284 = null;
-			aString1283 = null;
+			loadingText = null;
 			if (i == -9077) {
 				aByteArrayArray1287 = null;
 				anIntArray1285 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pj.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pj.A(").append(i).append(')').toString());
 		}
 	}
 }

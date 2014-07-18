@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	private int anInt3271 = 4096;
 	static String aString3272;
 	static Signlink errorSignlink;
-	static int[] anIntArray3274 = new int[32];
+	static int[] skillTriggers = new int[32];
 	static boolean aBoolean3275;
 	static int lastFullscreenWidth;
 
@@ -122,12 +122,12 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		aString3272 = null;
 		if (i == -98) {
 			errorSignlink = null;
-			anIntArray3274 = null;
+			skillTriggers = null;
 		}
 	}
 
 	static final void method1293() {
-		final int drawX = Class126.menuDrawX;
+		final int drawX = Huffman.menuDrawX;
 		final int drawY = Class120_Sub16.menuDrawY;
 		final int height = Class120_Sub14_Sub10.menuHeight - 3;
 		final int width = Class120_Sub24.menuWidth;
@@ -179,10 +179,10 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				}
 			}
 		}
-		if ((Class173.aClass120_Sub14_Sub19_1725 == null || Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && Class7.aClass50_63.method429(Class24.anInt146) && Class7.aClass50_63.method429(Class92.anInt864)
+		if ((Class173.aClass120_Sub14_Sub19_1725 == null || FrameLoader.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && Class7.aClass50_63.method429(Class24.anInt146) && Class7.aClass50_63.method429(Class92.anInt864)
 				&& Class7.aClass50_63.method429(Class31.anInt240)) {
 			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class24.anInt146, 0);
-			Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class92.anInt864, 0);
+			FrameLoader.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class92.anInt864, 0);
 			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class31.anInt240, 0);
 			if (HDToolkit.glEnabled) {
 				if (Class173.aClass120_Sub14_Sub19_1725 instanceof LDTransparentSprite) {
@@ -190,10 +190,10 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				} else {
 					Class173.aClass120_Sub14_Sub19_1725 = new HDSprite((LDSprite) Class173.aClass120_Sub14_Sub19_1725);
 				}
-				if (Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 instanceof LDTransparentSprite) {
-					Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = new HDTransparentSprite((LDSprite) Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611);
+				if (FrameLoader.aClass120_Sub14_Sub19_3611 instanceof LDTransparentSprite) {
+					FrameLoader.aClass120_Sub14_Sub19_3611 = new HDTransparentSprite((LDSprite) FrameLoader.aClass120_Sub14_Sub19_3611);
 				} else {
-					Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 = new HDSprite((LDSprite) Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611);
+					FrameLoader.aClass120_Sub14_Sub19_3611 = new HDSprite((LDSprite) FrameLoader.aClass120_Sub14_Sub19_3611);
 				}
 				if (RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 instanceof LDTransparentSprite) {
 					RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = new HDTransparentSprite((LDSprite) RuntimeException_Sub1.aClass120_Sub14_Sub19_2144);
@@ -202,15 +202,15 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				}
 			}
 		}
-		if (Class173.aClass120_Sub14_Sub19_1725 != null && Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611 != null && RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 != null) {
+		if (Class173.aClass120_Sub14_Sub19_1725 != null && FrameLoader.aClass120_Sub14_Sub19_3611 != null && RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 != null) {
 			final int i_18_ = (-(2 * RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width) + width) / Class173.aClass120_Sub14_Sub19_1725.width;
 			for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
 				Class173.aClass120_Sub14_Sub19_1725.method1587(RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width + drawX - -(Class173.aClass120_Sub14_Sub19_1725.width * i_19_), height + drawY - Class173.aClass120_Sub14_Sub19_1725.height);
 			}
-			final int i_20_ = (-RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height + -20 + height) / Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height;
+			final int i_20_ = (-RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height + -20 + height) / FrameLoader.aClass120_Sub14_Sub19_3611.height;
 			for (int i_21_ = 0; i_21_ < i_20_; i_21_++) {
-				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1587(drawX, 20 + drawY + Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height * i_21_);
-				Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.method1592(-Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.width + drawX - -width, i_21_ * Class120_Sub14_Sub18.aClass120_Sub14_Sub19_3611.height + 20 + drawY);
+				FrameLoader.aClass120_Sub14_Sub19_3611.method1587(drawX, 20 + drawY + FrameLoader.aClass120_Sub14_Sub19_3611.height * i_21_);
+				FrameLoader.aClass120_Sub14_Sub19_3611.method1592(-FrameLoader.aClass120_Sub14_Sub19_3611.width + drawX - -width, i_21_ * FrameLoader.aClass120_Sub14_Sub19_3611.height + 20 + drawY);
 			}
 			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1587(drawX, height + drawY - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
 			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1592(width + drawX - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width, height + drawY + -RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
@@ -223,7 +223,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 			}
 			Class120_Sub12_Sub22.boldFont.method1466(Class121.getMenuOptionName(i_22_), 3 + drawX, i_23_, i_24_, 0);
 		}
-		Class54.method482(Class126.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub14_Sub10.menuHeight, Class120_Sub24.menuWidth);
+		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 	}
 
 	static final int method1294(final int i, final int i_25_) {
@@ -265,13 +265,10 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	}
 
 	@Override
-	final int[] method1187(final int i, final int i_28_) {
-		if (i != -1735) {
-			anInt3270 = -73;
-		}
-		final int[] is = this.aClass30_2563.method258(i_28_, -75);
+	final int[] method1187(final int i_28_) {
+		final int[] is = this.aClass30_2563.method258(i_28_);
 		if (this.aClass30_2563.aBoolean238) {
-			final int[] is_29_ = method1192(-7764, i_28_, 0);
+			final int[] is_29_ = method1192(i_28_, 0);
 			for (int i_30_ = 0; Class120_Sub12_Sub7.anInt3178 > i_30_; i_30_++) {
 				final int i_31_ = is_29_[i_30_];
 				is[i_30_] = i_31_ >= anInt3270 && anInt3271 >= i_31_ ? 4096 : 0;

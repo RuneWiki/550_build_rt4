@@ -15,7 +15,7 @@ final class Class150 {
 	int anInt1414;
 	static String aString1415;
 	int anInt1416;
-	static int anInt1417;
+	static int selectedSpellTargetCursor;
 
 	static {
 		anInt1408 = 0;
@@ -30,7 +30,7 @@ final class Class150 {
 				anIntArray1412 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("re.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("re.A(").append(i).append(')').toString());
 		}
 	}
 

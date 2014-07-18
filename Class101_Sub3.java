@@ -4,7 +4,7 @@
 
 final class Class101_Sub3 extends Class101 {
 	static String aString2285 = "Drop";
-	static Class50 aClass50_2286;
+	static js5 aClass50_2286;
 	private final int anInt2287;
 	private final int anInt2288;
 	private int anInt2289;
@@ -20,7 +20,7 @@ final class Class101_Sub3 extends Class101 {
 				aString2285 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gg.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gg.I(").append(i).append(')').toString());
 		}
 	}
 
@@ -36,7 +36,7 @@ final class Class101_Sub3 extends Class101 {
 			}
 			GroundObjectNode.method1627(i_2_, this.anInt964, this.anInt960, this.anInt959, i_5_, i_4_, 4194303, i_3_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gg.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gg.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
@@ -67,7 +67,7 @@ final class Class101_Sub3 extends Class101 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gg.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gg.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -91,7 +91,7 @@ final class Class101_Sub3 extends Class101 {
 			final int i_24_ = anInt2292 * i_20_ >> 12;
 			Class120_Sub12_Sub22.method1321(i_21_, i_24_, i_22_, i + -1380161011, i_23_, this.anInt960);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gg.B(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gg.B(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
 		}
 	}
 }

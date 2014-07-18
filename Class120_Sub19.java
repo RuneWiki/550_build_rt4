@@ -18,8 +18,8 @@ final class Class120_Sub19 extends Node {
 		try {
 			Class98 class98 = null;
 			if (i_2_ == 0) {
-				if (class73.anInt634 != 0) {
-					if (class73.anInt634 == 1) {
+				if (class73.fontType != 0) {
+					if (class73.fontType == 1) {
 						if (3.0 == Class79.aFloat696) {
 							class98 = Class112.aClass98_1070;
 						}
@@ -32,7 +32,7 @@ final class Class120_Sub19 extends Node {
 						if (Class79.aFloat696 >= 8.0) {
 							class98 = World.aClass98_2833;
 						}
-					} else if (class73.anInt634 == 2) {
+					} else if (class73.fontType == 2) {
 						if (3.0 == Class79.aFloat696) {
 							class98 = Class120_Sub14_Sub14_Sub1.aClass98_3929;
 						}
@@ -65,7 +65,7 @@ final class Class120_Sub19 extends Node {
 					if (class120_sub14_sub5.aBoolean3472 && (class73.anInt656 ^ 0xffffffff) != 0) {
 						i_3_ = class73.anInt656;
 					}
-					final int i_4_ = Cache.aClass120_Sub14_Sub8_121.method1486(class73.aString649, null, Class125.aStringArray2148);
+					final int i_4_ = Cache.smallFont.method1486(class73.aString649, null, Class125.aStringArray2148);
 					int i_5_ = class120_sub14_sub5.anInt3475;
 					if (!bool) {
 						i_5_ -= i_0_ - (-((-1 + i_4_) * class98.method817()) + -(class98.method813() / 2));
@@ -112,7 +112,7 @@ final class Class120_Sub19 extends Node {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
+			throw EnumType.method1428(runtimeexception,
 					new StringBuilder("ol.C(").append(class120_sub14_sub5 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(',').append(i_2_).append(',').append(class120_sub16 != null ? "{...}" : "null").append(',')
 							.append(class73 != null ? "{...}" : "null").append(')').toString());
 		}
@@ -126,7 +126,7 @@ final class Class120_Sub19 extends Node {
 				anInt2657 = -121;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ol.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ol.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -148,7 +148,7 @@ final class Class120_Sub19 extends Node {
 			}
 		}
 		if (Class186.menuOptionCount != 1) {
-			Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
 			for (int i_19_ = 0; Class186.menuOptionCount > i_19_; i_19_++) {
 				final int i_20_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_19_));
@@ -160,7 +160,7 @@ final class Class120_Sub19 extends Node {
 			Class120_Sub24.menuWidth = 8 + i_18_;
 		} else {
 			Class15.menuOpen = false;
-			Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
@@ -170,60 +170,5 @@ final class Class120_Sub19 extends Node {
 	Class120_Sub19(final int i, final int i_21_) {
 		this.anInt2656 = i;
 		this.anInt2654 = i_21_;
-	}
-
-	static final Class120_Sub14_Sub12 method1676(final byte i, final byte[] is) {
-		Class120_Sub14_Sub12 class120_sub14_sub12;
-		try {
-			final Class120_Sub14_Sub12 class120_sub14_sub12_22_ = new Class120_Sub14_Sub12();
-			final Buffer class120_sub7 = new Buffer(is);
-			class120_sub7.pos = class120_sub7.buf.length + -2;
-			final int i_23_ = class120_sub7.getUShort();
-			final int i_24_ = -12 + class120_sub7.buf.length + -2 - i_23_;
-			class120_sub7.pos = i_24_;
-			final int i_25_ = class120_sub7.getInt();
-			class120_sub14_sub12_22_.anInt3557 = class120_sub7.getUShort();
-			class120_sub14_sub12_22_.anInt3555 = class120_sub7.getUShort();
-			class120_sub14_sub12_22_.anInt3553 = class120_sub7.getUShort();
-			class120_sub14_sub12_22_.anInt3547 = class120_sub7.getUShort();
-			final int i_26_ = class120_sub7.getUByte();
-			if (i_26_ > 0) {
-				class120_sub14_sub12_22_.aClass75Array3552 = new Hashtable[i_26_];
-				for (int i_27_ = 0; i_26_ > i_27_; i_27_++) {
-					int i_28_ = class120_sub7.getUShort();
-					final Hashtable hashtable = new Hashtable(Class120_Sub12_Sub17.method1283(i_28_, (byte) 119));
-					class120_sub14_sub12_22_.aClass75Array3552[i_27_] = hashtable;
-					while (i_28_-- > 0) {
-						final int i_29_ = class120_sub7.getInt();
-						final int i_30_ = class120_sub7.getInt();
-						hashtable.put(new IntegerNode(i_30_), i_29_);
-					}
-				}
-			}
-			if (i != 63) {
-				return null;
-			}
-			int i_31_ = 0;
-			class120_sub7.pos = 0;
-			class120_sub14_sub12_22_.aString3554 = class120_sub7.getFastJString();
-			class120_sub14_sub12_22_.aStringArray3551 = new String[i_25_];
-			class120_sub14_sub12_22_.anIntArray3550 = new int[i_25_];
-			class120_sub14_sub12_22_.anIntArray3548 = new int[i_25_];
-			while (class120_sub7.pos < i_24_) {
-				final int i_32_ = class120_sub7.getUShort();
-				if (i_32_ == 3) {
-					class120_sub14_sub12_22_.aStringArray3551[i_31_] = class120_sub7.getJString().intern();
-				} else if (i_32_ >= 100 || i_32_ == 21 || i_32_ == 38 || i_32_ == 39) {
-					class120_sub14_sub12_22_.anIntArray3548[i_31_] = class120_sub7.getUByte();
-				} else {
-					class120_sub14_sub12_22_.anIntArray3548[i_31_] = class120_sub7.getInt();
-				}
-				class120_sub14_sub12_22_.anIntArray3550[i_31_++] = i_32_;
-			}
-			class120_sub14_sub12 = class120_sub14_sub12_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ol.B(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
-		}
-		return class120_sub14_sub12;
 	}
 }

@@ -9,6 +9,8 @@ final class CursorType {
 	static String aString1239 = "Loaded title screen";
 	private int graphic;
 	int hotSpotX;
+	static Cache spriteCache = new Cache(2);
+	static Cache recentUse = new Cache(64);
 	static int anInt1242;
 	static JagexInterface aClass189_1243;
 
@@ -17,137 +19,107 @@ final class CursorType {
 		anInt1242 = 127;
 	}
 
-	static final void method1914(final int i, final int i_0_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i_0_);
-			class120_sub14_sub7.method1453((byte) -104);
-			if (i != -9626) {
-				aString1238 = null;
+	static final void method1914(final int i_0_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i_0_);
+		class120_sub14_sub7.method1453();
+	}
+
+	public static void method1915() {
+		aString1238 = null;
+		aClass189_1243 = null;
+		aString1239 = null;
+	}
+
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pe.A(").append(i).append(',').append(i_0_).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
-	public static void method1915(final int i) {
-		try {
-			aString1238 = null;
-			aClass189_1243 = null;
-			if (i != -23239) {
-				anInt1242 = 9;
-			}
-			aString1239 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pe.B(").append(i).append(')').toString());
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			graphic = buffer.getUShort();
+		} else if (code == 2) {
+			this.hotSpotX = buffer.getUByte();
+			this.hotSpotY = buffer.getUByte();
 		}
 	}
 
-	final void method1916(final int i, final int i_1_, final Buffer class120_sub7) {
-		do {
-			try {
-				for (;;) {
-					final int i_2_ = class120_sub7.getUByte();
-					if (i_2_ == 0) {
-						break;
-					}
-					method1917((byte) -94, class120_sub7, i_2_, i_1_);
-				}
-				if (i != -24927) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pe.D(").append(i).append(',').append(i_1_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
-			}
-		} while (false);
-	}
-
-	private final void method1917(final byte i, final Buffer class120_sub7, final int i_3_, final int i_4_) {
-			if (i_3_ == 1) {
-				graphic = class120_sub7.getUShort();
-			} else if (i_3_ == 2) {
-				this.hotSpotX = class120_sub7.getUByte();
-				this.hotSpotY = class120_sub7.getUByte();
-			}
-	}
-
-	static final void method1918(final int i) {
-		try {
-			if (Class180_Sub4.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && Class120_Sub14_Sub2.anInt3450 <= 0) {
-				int i_5_ = Class156.lastMouseClick;
-				if (i != 13) {
-					method1914(100, 27);
-				}
-				if (!Class15.menuOpen) {
-					if (i_5_ == 1 && Class186.menuOptionCount > 0) {
-						final short i_6_ = Class120_Sub29.aShortArray2777[Class186.menuOptionCount + -1];
-						if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
-							final int i_7_ = Class120_Sub29.anIntArray2769[Class186.menuOptionCount - 1];
-							final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];
-							final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
-							final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-							if (class120_sub20.method1681(-9617) || class120_sub20.method1691(-104)) {
-								JavaObject.anInt3915 = 0;
-								Class126.aBoolean1207 = false;
-								if (Class180_Sub4.aClass189_2954 != null) {
-									InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
-								}
-								Class180_Sub4.aClass189_2954 = Class74.getJagexInterface(i_7_);
-								Class23.anInt134 = Class50.lastClickX;
-								Class5.anInt2154 = i_8_;
-								Class27.anInt166 = Class120_Sub12_Sub36.lastClickY;
+	static final void method1918() {
+		if (Class180_Sub4.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && EnumType.anInt3450 <= 0) {
+			int i_5_ = Class156.lastMouseClick;
+			if (!Class15.menuOpen) {
+				if (i_5_ == 1 && Class186.menuOptionCount > 0) {
+					final short i_6_ = Class120_Sub29.aShortArray2777[Class186.menuOptionCount - 1];
+					if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
+						final int i_7_ = Class120_Sub29.anIntArray2769[Class186.menuOptionCount - 1];
+						final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];
+						final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
+						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
+						if (class120_sub20.method1681(-9617) || class120_sub20.method1691()) {
+							JavaObject.anInt3915 = 0;
+							Huffman.aBoolean1207 = false;
+							if (Class180_Sub4.aClass189_2954 != null) {
 								InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
-								return;
 							}
+							Class180_Sub4.aClass189_2954 = Class74.getJagexInterface(i_7_);
+							Class23.anInt134 = js5.lastClickX;
+							Class5.anInt2154 = i_8_;
+							Class27.anInt166 = Class120_Sub12_Sub36.lastClickY;
+							InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
+							return;
 						}
-					}
-					if (i_5_ == 1 && (Class69.anInt617 == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(0, Class186.menuOptionCount + -1))) {
-						i_5_ = 2;
-					}
-					if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
-						Class120_Sub12_Sub28.determineMenuSize();
-					}
-					if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
-						Class191.method2508((byte) 72);
-					}
-				} else {
-					if (i_5_ != 1) {
-						final int i_9_ = Queue.lastMouseX;
-						final int i_10_ = Class191.lastMouseY;
-						if (i_9_ < -10 + Class126.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Class126.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + Class120_Sub14_Sub10.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
-							Class15.menuOpen = false;
-							Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
-						}
-					}
-					if (i_5_ == 1) {
-						final int i_11_ = Class126.menuDrawX;
-						final int i_12_ = Class120_Sub16.menuDrawY;
-						final int i_13_ = Class50.lastClickX;
-						final int i_14_ = Class120_Sub12_Sub36.lastClickY;
-						final int i_15_ = Class120_Sub24.menuWidth;
-						int i_16_ = -1;
-						for (int i_17_ = 0; Class186.menuOptionCount > i_17_; i_17_++) {
-							if (!Class186.usingSpriteMenu) {
-								final int i_18_ = (Class186.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
-								if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
-									i_16_ = i_17_;
-								}
-							} else {
-								final int i_19_ = 15 * (-i_17_ + Class186.menuOptionCount + -1) + 33 + i_12_;
-								if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_19_ + -13 < i_14_ && i_19_ + 3 > i_14_) {
-									i_16_ = i_17_;
-								}
-							}
-						}
-						if (i_16_ != -1) {
-							GameShell.method31((byte) 96, i_16_);
-						}
-						Class15.menuOpen = false;
-						Class120_Sub12_Sub1.method1195(Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight, Class126.menuDrawX, Class120_Sub16.menuDrawY);
 					}
 				}
+				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(0, Class186.menuOptionCount + -1))) {
+					i_5_ = 2;
+				}
+				if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
+					Class120_Sub12_Sub28.determineMenuSize();
+				}
+				if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
+					Class191.method2508((byte) 72);
+				}
+			} else {
+				if (i_5_ != 1) {
+					final int i_9_ = Queue.lastMouseX;
+					final int i_10_ = Class191.lastMouseY;
+					if (i_9_ < -10 + Huffman.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + Class120_Sub14_Sub10.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
+						Class15.menuOpen = false;
+						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+					}
+				}
+				if (i_5_ == 1) {
+					final int i_11_ = Huffman.menuDrawX;
+					final int i_12_ = Class120_Sub16.menuDrawY;
+					final int i_13_ = js5.lastClickX;
+					final int i_14_ = Class120_Sub12_Sub36.lastClickY;
+					final int i_15_ = Class120_Sub24.menuWidth;
+					int i_16_ = -1;
+					for (int i_17_ = 0; Class186.menuOptionCount > i_17_; i_17_++) {
+						if (!Class186.usingSpriteMenu) {
+							final int i_18_ = (Class186.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
+							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
+								i_16_ = i_17_;
+							}
+						} else {
+							final int i_19_ = 15 * (-i_17_ + Class186.menuOptionCount + -1) + 33 + i_12_;
+							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_19_ + -13 < i_14_ && i_19_ + 3 > i_14_) {
+								i_16_ = i_17_;
+							}
+						}
+					}
+					if (i_16_ != -1) {
+						GameShell.method31(i_16_);
+					}
+					Class15.menuOpen = false;
+					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pe.F(").append(i).append(')').toString());
 		}
 	}
 
@@ -156,29 +128,28 @@ final class CursorType {
 	}
 
 	final LDSprite getCursor() {
-		LDSprite class120_sub14_sub19_sub2_20_ = (LDSprite) Class120_Sub12_Sub27.aClass21_3342.get(graphic);
-		if (class120_sub14_sub19_sub2_20_ != null) {
-			return class120_sub14_sub19_sub2_20_;
+		LDSprite ldSprite = (LDSprite) spriteCache.get(graphic);
+		if (ldSprite != null) {
+			return ldSprite;
 		}
-		class120_sub14_sub19_sub2_20_ = Class120_Sub12_Sub26.method1340(Class83.aClass50_794, graphic, 0);
-		if (class120_sub14_sub19_sub2_20_ != null) {
-			Class120_Sub12_Sub27.aClass21_3342.put(class120_sub14_sub19_sub2_20_, graphic);
+		ldSprite = Class120_Sub12_Sub26.method1340(Class83.aClass50_794, graphic, 0);
+		if (ldSprite != null) {
+			spriteCache.put(ldSprite, graphic);
 		}
-		return class120_sub14_sub19_sub2_20_;
+		return ldSprite;
 	}
 
-	static final CursorType list(final int i_110_) {
-		CursorType class130_111_ = (CursorType) DummyOutputStream.aClass21_30.get(i_110_);
-		if (class130_111_ != null) {
-			return class130_111_;
+	static final CursorType list(final int id) {
+		CursorType cursorType = (CursorType) recentUse.get(id);
+		if (cursorType != null) {
+			return cursorType;
 		}
-		System.out.println(Class120_Sub1.aClass50_2413.getFileAmount(33));
-		final byte[] is = Class120_Sub1.aClass50_2413.getFile(33, i_110_);
-		class130_111_ = new CursorType();
-		if (is != null) {
-			class130_111_.method1916(-24927, i_110_, new Buffer(is));
+		final byte[] data = LabelGroup.aClass50_2413.getFile(33, id);
+		cursorType = new CursorType();
+		if (data != null) {
+			cursorType.decode(new Buffer(data));
 		}
-		DummyOutputStream.aClass21_30.put(class130_111_, i_110_);
-		return class130_111_;
+		recentUse.put(cursorType, id);
+		return cursorType;
 	}
 }

@@ -32,13 +32,13 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				final byte[] is_2_ = is[i_1_];
 				if (is_2_ != null) {
 					final int i_3_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) - GameEntity.currentBaseX;
-					final int i_4_ = 64 * (0xff & Class120_Sub12_Sub36.anIntArray3417[i_1_]) + -Class181.currentBaseZ;
+					final int i_4_ = 64 * (0xff & Class120_Sub12_Sub36.anIntArray3417[i_1_]) - Class181.currentBaseZ;
 					Class120_Sub2.method1050();
-					Class25.method222(bool, is_2_, -127, i_4_, i_3_, Class182.aClass25Array1802);
+					CollisionMap.method222(bool, is_2_, -127, i_4_, i_3_, Class182.collisionMaps);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.CA(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.CA(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -120,7 +120,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			}
 			i_7_ = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.IA(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_5_).append(',').append(string_6_ != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.IA(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_5_).append(',').append(string_6_ != null ? "{...}" : "null").append(')').toString());
 		}
 		return i_7_;
 	}
@@ -134,7 +134,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			}
 			anIntArray3912 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.GA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.GA(").append(i).append(')').toString());
 		}
 	}
 
@@ -181,7 +181,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					final int[][] is = OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel];
 					final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
 					SceneGraphNode sceneGraphNode = null;
-					final int i_32_ = Class25.anIntArray153[class120_sub29.anInt2772];
+					final int i_32_ = CollisionMap.anIntArray153[class120_sub29.anInt2772];
 					if (i_32_ != 0) {
 						if (i_32_ != 1) {
 							if (i_32_ != 2) {
@@ -239,7 +239,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.HA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.HA(").append(i).append(')').toString());
 		}
 	}
 
@@ -258,7 +258,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.EA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.EA(").append(i).append(')').toString());
 		}
 	}
 
@@ -299,14 +299,14 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			}
 			string = stringbuffer.toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.DA(").append(bool).append(',').append(strings != null ? "{...}" : "null").append(',').append(i).append(',').append(i_39_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.DA(").append(bool).append(',').append(strings != null ? "{...}" : "null").append(',').append(i).append(',').append(i_39_).append(')').toString());
 		}
 		return string;
 	}
 
 	static final void drawTextOnScreen(final String string, final boolean bool) {
-		final int i_49_ = Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1468(string, 250);
-		final int i_51_ = Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1481(string, 250) * 13;
+		final int i_49_ = Class120_Sub12_Sub20.plainFont.method1468(string, 250);
+		final int i_51_ = Class120_Sub12_Sub20.plainFont.method1481(string, 250) * 13;
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.fillRect(6, 6, i_49_ + 8, 8 + i_51_, 0);
 			GraphicsHD.drawRect(6, 6, i_49_ + 8, 8 + i_51_, 16777215);
@@ -314,10 +314,10 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			GraphicsLD.fillRect(6, 6, i_49_ + 8, 8 + i_51_, 0);
 			GraphicsLD.drawRect(6, 6, i_49_ + 8, 8 + i_51_, 16777215);
 		}
-		Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1462(string, 10, 10, i_49_, i_51_, 16777215, -1, 1, 1, 0);
-		Class120_Sub12_Sub1.method1195(i_49_ + 8, i_51_ + 8, 6, 6);
+		Class120_Sub12_Sub20.plainFont.method1462(string, 10, 10, i_49_, i_51_, 16777215, -1, 1, 1, 0);
+		Class120_Sub12_Sub1.redrawScreen(6, 6, i_49_ + 8, i_51_ + 8);
 		if (!bool) {
-			Class54.method482(10, 10, i_51_, i_49_);
+			Class54.redrawScreen(10, 10, i_49_, i_51_);
 		} else if (HDToolkit.glEnabled) {
 			HDToolkit.method536();
 		} else {
@@ -331,29 +331,20 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	}
 
 	@Override
-	final int[][] method1188(final int i, final int i_52_) {
-		int[][] is;
-		try {
-			if (i_52_ != -29869) {
-				aString3911 = null;
+	final int[][] method1188(final int i) {
+		final int[][] is_53_ = this.aClass109_2559.method975(i);
+		if (this.aClass109_2559.aBoolean1049 && method1304()) {
+			final int[] is_54_ = is_53_[1];
+			final int[] is_55_ = is_53_[2];
+			final int i_56_ = this.anInt3290 * (i % this.anInt3290);
+			final int[] is_57_ = is_53_[0];
+			for (int i_58_ = 0; i_58_ < Class120_Sub12_Sub7.anInt3178; i_58_++) {
+				final int i_59_ = this.anIntArray3296[i_56_ - -(i_58_ % this.anInt3292)];
+				is_55_[i_58_] = Class120_Sub12_Sub3.method1207(i_59_, 255) << 4;
+				is_54_[i_58_] = Class120_Sub12_Sub3.method1207(4080, i_59_ >> 4);
+				is_57_[i_58_] = Class120_Sub12_Sub3.method1207(i_59_, 16711680) >> 12;
 			}
-			final int[][] is_53_ = this.aClass109_2559.method975(i, -48);
-			if (this.aClass109_2559.aBoolean1049 && method1304(-128)) {
-				final int[] is_54_ = is_53_[1];
-				final int[] is_55_ = is_53_[2];
-				final int i_56_ = this.anInt3290 * (i % this.anInt3290);
-				final int[] is_57_ = is_53_[0];
-				for (int i_58_ = 0; i_58_ < Class120_Sub12_Sub7.anInt3178; i_58_++) {
-					final int i_59_ = this.anIntArray3296[i_56_ - -(i_58_ % this.anInt3292)];
-					is_55_[i_58_] = Class120_Sub12_Sub3.method1207(i_59_, 255) << 4;
-					is_54_[i_58_] = Class120_Sub12_Sub3.method1207(4080, i_59_ >> 4);
-					is_57_[i_58_] = Class120_Sub12_Sub3.method1207(i_59_, 16711680) >> 12;
-				}
-			}
-			is = is_53_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wd.K(").append(i).append(',').append(i_52_).append(')').toString());
 		}
-		return is;
+		return is_53_;
 	}
 }

@@ -28,7 +28,7 @@ abstract class AbstractSprite extends NodeSub {
 				method1586(52);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uj.MA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uj.MA(").append(i).append(')').toString());
 		}
 	}
 
@@ -49,7 +49,7 @@ abstract class AbstractSprite extends NodeSub {
 			}
 			method1589(i_17_, i_18_, i_15_, i, i_14_, i_16_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uj.OA(").append(i).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uj.OA(").append(i).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
 		}
 	}
 
@@ -77,7 +77,7 @@ abstract class AbstractSprite extends NodeSub {
 		if (bool && i_21_ > 0) {
 			bool_24_ = true;
 		}
-		Class107.method908(i_22_, i_25_, bool, i_23_, i_21_, bool_24_);
+		AbstractIndexedSprite.method908(i_22_, i_25_, bool, i_23_, i_21_, bool_24_);
 	}
 
 	abstract void method1594(int i, int i_26_, int i_27_);

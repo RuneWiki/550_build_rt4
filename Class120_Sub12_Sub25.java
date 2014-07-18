@@ -11,7 +11,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 	static int anInt3312 = 0;
 	private int anInt3313 = 1;
 	private int anInt3314;
-	static int anInt3315;
+	static int hitbardefaultId;
 	static int anInt3316 = -1;
 	private int anInt3317 = 204;
 	static byte[][] aByteArrayArray3318;
@@ -20,58 +20,48 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 	static String settings = null;
 
 	@Override
-	final int[] method1187(final int i, final int i_0_) {
-		int[] is;
-		try {
-			if (i != -1735) {
-				method1332((byte) -48);
-			}
-			final int[] is_1_ = this.aClass30_2563.method258(i_0_, -93);
-			if (this.aClass30_2563.aBoolean238) {
-				int i_2_ = 0;
-				for (/**/; Class120_Sub12_Sub7.anInt3178 > i_2_; i_2_++) {
-					final int i_3_ = Class90.anIntArray849[i_2_];
-					int i_4_ = i_3_ * anInt3313 >> 12;
-					final int i_5_ = Class150.anIntArray1405[i_0_];
-					final int i_6_ = i_5_ * anInt3314 >> 12;
-					final int i_7_ = anInt3313 * (i_3_ % (4096 / anInt3313));
-					final int i_8_ = i_5_ % (4096 / anInt3314) * anInt3314;
-					if (i_8_ < anInt3317) {
-						for (i_4_ -= i_6_; i_4_ < 0; i_4_ += 4) {
-							/* empty */
-						}
-						for (/**/; i_4_ > 3; i_4_ -= 4) {
-							/* empty */
-						}
-						if (i_4_ != 1) {
-							is_1_[i_2_] = 0;
-							continue;
-						}
-						if (i_7_ < anInt3317) {
-							is_1_[i_2_] = 0;
-							continue;
-						}
+	final int[] method1187(final int i_0_) {
+		final int[] is_1_ = this.aClass30_2563.method258(i_0_);
+		if (this.aClass30_2563.aBoolean238) {
+			for (int i_2_ = 0; Class120_Sub12_Sub7.anInt3178 > i_2_; i_2_++) {
+				final int i_3_ = Class90.anIntArray849[i_2_];
+				int i_4_ = i_3_ * anInt3313 >> 12;
+				final int i_5_ = Class150.anIntArray1405[i_0_];
+				final int i_6_ = i_5_ * anInt3314 >> 12;
+				final int i_7_ = anInt3313 * (i_3_ % (4096 / anInt3313));
+				final int i_8_ = i_5_ % (4096 / anInt3314) * anInt3314;
+				if (i_8_ < anInt3317) {
+					for (i_4_ -= i_6_; i_4_ < 0; i_4_ += 4) {
+						/* empty */
+					}
+					for (/**/; i_4_ > 3; i_4_ -= 4) {
+						/* empty */
+					}
+					if (i_4_ != 1) {
+						is_1_[i_2_] = 0;
+						continue;
 					}
 					if (i_7_ < anInt3317) {
-						for (i_4_ -= i_6_; i_4_ < 0; i_4_ += 4) {
-							/* empty */
-						}
-						for (/**/; i_4_ > 3; i_4_ -= 4) {
-							/* empty */
-						}
-						if (i_4_ > 0) {
-							is_1_[i_2_] = 0;
-							continue;
-						}
+						is_1_[i_2_] = 0;
+						continue;
 					}
-					is_1_[i_2_] = 4096;
 				}
+				if (i_7_ < anInt3317) {
+					for (i_4_ -= i_6_; i_4_ < 0; i_4_ += 4) {
+						/* empty */
+					}
+					for (/**/; i_4_ > 3; i_4_ -= 4) {
+						/* empty */
+					}
+					if (i_4_ > 0) {
+						is_1_[i_2_] = 0;
+						continue;
+					}
+				}
+				is_1_[i_2_] = 4096;
 			}
-			is = is_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.D(").append(i).append(',').append(i_0_).append(')').toString());
 		}
-		return is;
+		return is_1_;
 	}
 
 	public Class120_Sub12_Sub25() {
@@ -106,7 +96,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_9_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("qj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_9_).append(')').toString());
 			}
 		} while (false);
 	}
@@ -116,7 +106,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			Class159.aClass21_1486.method192(i);
 			Class120_Sub6.aClass21_2443.method192(i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.W(").append(i).append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.W(").append(i).append(',').append(i_11_).append(')').toString());
 		}
 	}
 
@@ -130,7 +120,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			aString3319 = null;
 			aByteArrayArray3318 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.AA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.AA(").append(i).append(')').toString());
 		}
 	}
 
@@ -147,7 +137,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (class120_sub9.anInt2520 >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -123)) {
 				gl.glColor4fv(World.method2196(-13316, class120_sub9.anInt2505), 0);
 				final float f = 201.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
-				class120_sub9.method1162(Class120_Sub1.groundTiles, f, true);
+				class120_sub9.method1162(LabelGroup.groundTiles, f, true);
 			}
 		}
 		gl.glEnableClientState(32886);
@@ -162,12 +152,12 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (i == -23) {
 				Class173.method2225();
 				for (int i_12_ = 0; i_12_ < 4; i_12_++) {
-					Class182.aClass25Array1802[i_12_].method225(11736);
+					Class182.collisionMaps[i_12_].method225(11736);
 				}
 				System.gc();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.T(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.T(").append(i).append(')').toString());
 		}
 	}
 
@@ -208,12 +198,12 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (i >= -76) {
 				method1332((byte) 124);
 			}
-			Class56.aClass21_494.clear();
+			LocType.recentUse.clear();
 			InterfaceClickMask.aClass21_2663.clear();
 			Class167.aClass21_1618.clear();
 			Class116.aClass21_1117.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qj.U(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.U(").append(i).append(')').toString());
 		}
 	}
 
@@ -253,7 +243,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						}
 						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
 						Class53_Sub1.worldConnectionNode = null;
-						final long l = Class20.selfNameAsLong = Class70.stringToLong(Class74.loginName);
+						final long l = Class20.selfNameAsLong = Varp.stringToLong(Class74.loginName);
 						final int nameCode = (int) (l >> 16 & 0x1fL);
 						Class120_Sub12_Sub11.outputStream.pos = 0;
 						Class120_Sub12_Sub11.outputStream.putByte(14);
@@ -299,7 +289,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class120_Sub12_Sub11.outputStream.putInt(is[1]);
 						Class120_Sub12_Sub11.outputStream.putInt(is[2]);
 						Class120_Sub12_Sub11.outputStream.putInt(is[3]);
-						Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(Class74.loginName));
+						Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(Class74.loginName));
 						Class120_Sub12_Sub11.outputStream.putJagexString(SeqType.loginPassword);
 						Class120_Sub12_Sub11.outputStream.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
 						Class137.loginStream.pos = 0;
@@ -322,8 +312,8 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
 						Class137.loginStream.putInt(Class120_Sub12_Sub18.method1288());
 						Class120_Sub14_Sub5.aBoolean3471 = true;
-						Class137.loginStream.putShort(Class120_Sub14_Sub20.interfaceCounter);
-						Class137.loginStream.putInt(Class120_Sub8.aClass50_2479.getIndexCrc());
+						Class137.loginStream.putShort(Class120_Sub14_Sub20.packetCounter);
+						Class137.loginStream.putInt(AmbientSound.aClass50_2479.getIndexCrc());
 						Class137.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
 						Class137.loginStream.putInt(Class45.aClass50_397.getIndexCrc());
 						Class137.loginStream.putInt(Class33.aClass50_275.getIndexCrc());
@@ -334,7 +324,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class7.aClass50_63.getIndexCrc());
 						Class137.loginStream.putInt(Class35.aClass50_303.getIndexCrc());
 						Class137.loginStream.putInt(Class108_Sub3.aClass50_2400.getIndexCrc());
-						Class137.loginStream.putInt(Class120_Sub10.aClass50_2544.getIndexCrc());
+						Class137.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
 						Class137.loginStream.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
 						Class137.loginStream.putInt(Class120_Sub13.aClass50_2576.getIndexCrc());
 						Class137.loginStream.putInt(Class132.aClass50_1251.getIndexCrc());
@@ -423,7 +413,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							}
 							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 14);
 							Canvas_Sub1.inputStream.pos = 0;
-							Class86.anInt821 = Canvas_Sub1.inputStream.getUByte();
+							Class86.staffLevel = Canvas_Sub1.inputStream.getUByte();
 							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
 							Class27.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class128.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
@@ -439,20 +429,20 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							if (!Class31.advertSuppressed) {
 								if (Class27.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.aBoolean3908) {
 									try {
-										Class77.method666(NpcType.gameSignlink.gameApplet, "zap");
+										JSHelper.call(NpcType.gameSignlink.gameApplet, "zap");
 									} catch (final Throwable throwable) {
 										/* empty */
 									}
 								} else {
 									try {
-										Class77.method666(NpcType.gameSignlink.gameApplet, "unzap");
+										JSHelper.call(NpcType.gameSignlink.gameApplet, "unzap");
 									} catch (final Throwable throwable) {
 										/* empty */
 									}
 								}
 							}
 							try {
-								Class77.method666(NpcType.gameSignlink.gameApplet, "loggedin");
+								JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedin");
 							} catch (final Throwable throwable) {
 								/* empty */
 							}

@@ -4,10 +4,10 @@
 
 class Class143 implements Interface3 {
 	static String selectString = "Select";
-	private final Class50 aClass50_2184;
+	private final js5 aClass50_2184;
 	static volatile long lastCanvasReplace = 0L;
 	private final Class114[] aClass114Array2186;
-	private final Class50 aClass50_2187;
+	private final js5 aClass50_2187;
 	static int anInt2188 = 2;
 	private final Class35 aClass35_2189 = new Class35(256);
 
@@ -20,7 +20,7 @@ class Class143 implements Interface3 {
 			}
 			is = method2016(i_0_, true).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.C(").append(i).append(',').append(f).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.C(").append(i).append(',').append(f).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(bool).append(')').toString());
 		}
 		return is;
 	}
@@ -45,7 +45,7 @@ class Class143 implements Interface3 {
 			if (i_8_ != -1) {
 				selectString = null;
 			}
-			final int[][] is = Class182.aClass25Array1802[Class173.gameLevel].anIntArrayArray152;
+			final int[][] is = Class182.collisionMaps[Class173.gameLevel].anIntArrayArray152;
 			while (i_17_ != i_16_) {
 				i_15_ = Class150.anIntArray1412[i_16_];
 				i_14_ = Class120_Sub12.anIntArray2565[i_16_];
@@ -55,16 +55,16 @@ class Class143 implements Interface3 {
 					break;
 				}
 				if (i_5_ != 0) {
-					if ((i_5_ < 5 || i_5_ == 10) && Class182.aClass25Array1802[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, (byte) -93, i, 2, i_5_ + -1)) {
+					if ((i_5_ < 5 || i_5_ == 10) && Class182.collisionMaps[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, (byte) -93, i, 2, i_5_ + -1)) {
 						bool_18_ = true;
 						break;
 					}
-					if (i_5_ < 10 && Class182.aClass25Array1802[Class173.gameLevel].method223(i, i_15_, i_7_, 1024, i_14_, i_5_ - 1, i_9_, 2)) {
+					if (i_5_ < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i, i_15_, i_7_, 1024, i_14_, i_5_ - 1, i_9_, 2)) {
 						bool_18_ = true;
 						break;
 					}
 				}
-				if (i_3_ != 0 && i_11_ != 0 && Class182.aClass25Array1802[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
+				if (i_3_ != 0 && i_11_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
 					bool_18_ = true;
 					break;
 				}
@@ -165,11 +165,11 @@ class Class143 implements Interface3 {
 					return;
 				}
 			}
-			SceneGroundObject.aBoolean2848 = false;
-			Class120_Sub12_Sub26.anInt3327 = i_15_;
-			Class65.anInt592 = i_14_;
+			SceneGroundObject.packetSetFlagPosition = false;
+			Class120_Sub12_Sub26.flagX = i_15_;
+			Class65.flagY = i_14_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
+			throw EnumType.method1428(runtimeexception,
 					new StringBuilder("qi.IA(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(bool).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',')
 							.append(i_11_).append(')').toString());
 		}
@@ -187,7 +187,7 @@ class Class143 implements Interface3 {
 				} else {
 					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(Class32.method270(94608000000L + TimeUtil.getSafeTime(), 1)).append("; Max-Age=").append(94608000L).toString();
 				}
-				Class77.method668(new StringBuilder("document.cookie=\"").append(string_30_).append("\"").toString(), NpcType.gameSignlink.gameApplet);
+				JSHelper.eval(new StringBuilder("document.cookie=\"").append(string_30_).append("\"").toString(), NpcType.gameSignlink.gameApplet);
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
@@ -202,7 +202,7 @@ class Class143 implements Interface3 {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.KA(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("qi.KA(").append(i).append(')').toString());
 			}
 		} while (false);
 	}
@@ -210,7 +210,7 @@ class Class143 implements Interface3 {
 	Class120_Sub14_Sub13 method2016(final int i, final boolean bool) {
 		Class120_Sub14_Sub13 class120_sub14_sub13;
 		try {
-			final NodeSub class120_sub14 = aClass35_2189.method302(17301, i);
+			final NodeSub class120_sub14 = aClass35_2189.get(i);
 			if (class120_sub14 != null) {
 				return (Class120_Sub14_Sub13) class120_sub14;
 			}
@@ -219,10 +219,10 @@ class Class143 implements Interface3 {
 				return null;
 			}
 			final Class120_Sub14_Sub13 class120_sub14_sub13_31_ = new Class120_Sub14_Sub13(new Buffer(is));
-			aClass35_2189.method301(i, 30, class120_sub14_sub13_31_);
+			aClass35_2189.put(class120_sub14_sub13_31_, i);
 			class120_sub14_sub13 = class120_sub14_sub13_31_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.O(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.O(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return class120_sub14_sub13;
 	}
@@ -233,7 +233,7 @@ class Class143 implements Interface3 {
 				selectString = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.JA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.JA(").append(i).append(')').toString());
 		}
 	}
 
@@ -247,7 +247,7 @@ class Class143 implements Interface3 {
 			final Class120_Sub14_Sub13 class120_sub14_sub13 = method2016(i, true);
 			bool = class120_sub14_sub13 != null && class120_sub14_sub13.method1529(this, aClass50_2187, -50);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.A(").append(i).append(',').append(i_32_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.A(").append(i).append(',').append(i_32_).append(')').toString());
 		}
 		return bool;
 	}
@@ -258,22 +258,9 @@ class Class143 implements Interface3 {
 		try {
 			class114 = aClass114Array2186[i];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.B(").append(i).append(',').append(i_33_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.B(").append(i).append(',').append(i_33_).append(')').toString());
 		}
 		return class114;
-	}
-
-	static final String method2018(final int i, final long l) {
-		String string;
-		try {
-			if (i <= 92) {
-				method2015(48);
-			}
-			string = Class174.method2234(0, l);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.MA(").append(i).append(',').append(l).append(')').toString());
-		}
-		return string;
 	}
 
 	static final boolean method2019(final char c, final int i) {
@@ -293,7 +280,7 @@ class Class143 implements Interface3 {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qi.LA(").append(c).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.LA(").append(c).append(',').append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -304,7 +291,7 @@ class Class143 implements Interface3 {
 		Class5.aString2153 = "Schlie\u00dfen";
 		Class11.aString82 = "Verbindung zum Update-Server hergestellt.";
 		Class53_Sub1.aString2213 = "rot:";
-		Class91.aString853 = "Speicher wird zugewiesen.";
+		MouseRecorder.aString853 = "Speicher wird zugewiesen.";
 		Class120_Sub11.aString2553 = " weitere Optionen";
 		SceneGroundObject.aString2847 = "Wordpack geladen.";
 		CursorType.aString1239 = "Titelbild geladen.";
@@ -333,7 +320,7 @@ class Class143 implements Interface3 {
 		Class120_Sub11.aString2554 = "Lade Standardeinstellungen - ";
 		Class69_Sub2_Sub1.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
 		World.aString2837 = "3D-Softwarebibliothek gestartet.";
-		Class120_Sub14_Sub2.aString3455 = "M";
+		EnumType.aString3455 = "M";
 		Class24.aString142 = "Bitte warte - es wird versucht, die Verbindung wiederherzustellen.";
 		Class69.aString618 = "gr\u00fcn:";
 		InterfaceClickMask.aString2660 = "Lade Schrifts\u00e4tze - ";
@@ -344,7 +331,7 @@ class Class143 implements Interface3 {
 		Class180_Sub6.aString3062 = "Spieler kann nicht gefunden werden: ";
 		Class120_Sub11.aString2552 = "Titelbild ge\u00f6ffnet.";
 		Class120_Sub3.aString2428 = "Lade Konfiguration - ";
-		Class107.aString1025 = "Musik-Engine vorbereitet.";
+		AbstractIndexedSprite.aString1025 = "Musik-Engine vorbereitet.";
 		Class120_Sub30_Sub2.aString3679 = "Ladevorgang - bitte warte.";
 		Class65.aString591 = "Angreifen";
 		Class120_Sub11.aString2550 = "Deine Freunde-Liste ist voll! Maximale Eintr\u00e4ge: Mitglieder 200/freie Spieler 100";
@@ -371,7 +358,7 @@ class Class143 implements Interface3 {
 		Class157.aString1462 = "Abbrechen";
 		Class147.aString1398 = "welle2:";
 		Class120_Sub12_Sub21_Sub1.aString3911 = "Stufe: ";
-		Class91.aString854 = "T";
+		MouseRecorder.aString854 = "T";
 		Class11.aString81 = "Untersuchen";
 		Class121.aString1155 = "Schrifts\u00e4tze geladen.";
 		Class8.aString64 = "Ablegen";
@@ -379,7 +366,7 @@ class Class143 implements Interface3 {
 		Class84.aString799 = "Benutzeroberfl\u00e4che geladen.";
 		Class174.aString1733 = "Fertigkeit: ";
 		Class112.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
-		Class120_Sub10.aString2538 = "gleiten:";
+		InterfaceListener.aString2538 = "gleiten:";
 		Class120_Sub12_Sub21_Sub1.aString3910 = " steht bereits auf deiner Freunde-Liste!";
 		SceneGroundObject.aString2849 = "Bitte entferne ";
 		Class53_Sub1.aString2206 = "blinken2:";
@@ -394,10 +381,10 @@ class Class143 implements Interface3 {
 		Class120_Sub13.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}
 
-	Class143(final Class50 class50, final Class50 class50_36_, final Class50 class50_37_) {
+	Class143(final js5 js5, final js5 class50_36_, final js5 class50_37_) {
 		aClass50_2184 = class50_36_;
 		aClass50_2187 = class50_37_;
-		final Buffer class120_sub7 = new Buffer(class50.getFile(0, 0));
+		final Buffer class120_sub7 = new Buffer(js5.getFile(0, 0));
 		final int i = class120_sub7.getUShort();
 		aClass114Array2186 = new Class114[i];
 		for (int i_38_ = 0; i > i_38_; i_38_++) {

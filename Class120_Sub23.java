@@ -244,9 +244,9 @@ final class Class120_Sub23 extends Node {
 		return fs;
 	}
 
-	private static final boolean method1708(final Class50 class50) {
+	private static final boolean method1708(final js5 js5) {
 		if (!aBoolean2699) {
-			final byte[] is = class50.getFile(0, 0);
+			final byte[] is = js5.getFile(0, 0);
 			if (is == null) {
 				return false;
 			}
@@ -442,12 +442,12 @@ final class Class120_Sub23 extends Node {
 		return new Class120_Sub5_Sub1(anInt2694, is_105_, anInt2701, anInt2702, aBoolean2711);
 	}
 
-	static final Class120_Sub23 method1716(final Class50 class50, final int i, final int i_106_) {
-		if (!method1708(class50)) {
-			class50.method440(i, true, i_106_);
+	static final Class120_Sub23 method1716(final js5 js5, final int i, final int i_106_) {
+		if (!method1708(js5)) {
+			js5.method440(i, true, i_106_);
 			return null;
 		}
-		final byte[] is = class50.getFile(i, i_106_);
+		final byte[] is = js5.getFile(i, i_106_);
 		if (is == null) {
 			return null;
 		}

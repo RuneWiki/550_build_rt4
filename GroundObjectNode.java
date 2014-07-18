@@ -17,7 +17,7 @@ final class GroundObjectNode extends NodeSub {
 				method1627(26, -114, 79, -74, -123, -65, -64, -86);
 			anIntArray3631 = null;
 		} catch (RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "w.C(" + i + ')');
+			throw EnumType.method1428(runtimeexception, "w.C(" + i + ')');
 		}
 	}
 
@@ -29,18 +29,18 @@ final class GroundObjectNode extends NodeSub {
 		try {
 			if (i_5_ != 4194303)
 				method1626(58);
-			if (i >= Class32.anInt260 && i_4_ <= Class120_Sub14_Sub11.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (Class139.anInt1334 ^ 0xffffffff))
+			if (i >= Class32.anInt260 && i_4_ <= ParamType.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (IdentityKit.anInt1334 ^ 0xffffffff))
 				Class120_Sub2.method1045(i_0_, i_4_, i_6_, i, i_3_, (byte) -57, i_1_, i_2_);
 			else
 				Class92.method768(i_3_, i_2_, i_1_, i_0_, i, (byte) 105, i_4_, i_6_);
 		} catch (RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, ("w.B(" + i + ',' + i_0_ + ',' + i_1_ + ',' + i_2_ + ',' + i_3_ + ',' + i_4_ + ',' + i_5_ + ',' + i_6_ + ')'));
+			throw EnumType.method1428(runtimeexception, ("w.B(" + i + ',' + i_0_ + ',' + i_1_ + ',' + i_2_ + ',' + i_3_ + ',' + i_4_ + ',' + i_5_ + ',' + i_6_ + ')'));
 		}
 	}
 
-	static final void method1628() {
+	static final void sendInterfaceCounter() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(156);
-		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub14_Sub20.interfaceCounter);
+		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub14_Sub20.packetCounter);
 	}
 
 	static {

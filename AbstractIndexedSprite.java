@@ -5,18 +5,18 @@ import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Insets;
 
-abstract class Class107 {
-	int anInt1020;
-	int anInt1021;
+abstract class AbstractIndexedSprite {
+	int xOffset;
+	int yOffset;
 	static JagexInterface[] aClass189Array1022;
 	static int modeWhere = 0;
 	static int defaultCursorId;
 	static String aString1025;
-	int anInt1026;
+	int width;
 	static int anInt1027 = 0;
-	int anInt1028;
-	int anInt1029;
-	int anInt1030;
+	int trimHeight;
+	int trimWidth;
+	int height;
 
 	static {
 		defaultCursorId = -1;
@@ -168,8 +168,8 @@ abstract class Class107 {
 					if (Class120_Sub12_Sub6.highLightingDetail) {
 						Rasterizer.method852(0.7F);
 					}
-					if (Class139.aClass191ArrayArray1337 == null) {
-						Class139.aClass191ArrayArray1337 = new Class191[13][13];
+					if (IdentityKit.aClass191ArrayArray1337 == null) {
+						IdentityKit.aClass191ArrayArray1337 = new Class191[13][13];
 					}
 					LightManager.method1856(4, 104, 104);
 					Class47.method382(104, 104);
@@ -181,18 +181,18 @@ abstract class Class107 {
 					Cache.method191(11650);
 				}
 				if (displayMode < 2) {
-					Class91.frameResizable = false;
+					MouseRecorder.frameResizable = false;
 				} else {
-					Class91.frameResizable = true;
+					MouseRecorder.frameResizable = true;
 				}
 				if (Class69.rootInterfaceId != -1) {
 					Class101_Sub2.method846((byte) 71, true);
 				}
 				if (AbstractTimer.worldConnection != null && (Class109.gameState == 30 || Class109.gameState == 25)) {
-					Class120_Sub14_Sub11.sendDisplayInfo();
+					ParamType.sendDisplayInfo();
 				}
 				for (int i_5_ = 0; i_5_ < 100; i_5_++) {
-					Class52.aBooleanArray467[i_5_] = true;
+					Class52.needInterfaceRedrawWrapper[i_5_] = true;
 				}
 				Class120_Sub12_Sub26.fullRedraw = true;
 			}
@@ -207,7 +207,7 @@ abstract class Class107 {
 			}
 			aString1025 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ma.H(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ma.H(").append(bool).append(')').toString());
 		}
 	}
 
@@ -215,7 +215,7 @@ abstract class Class107 {
 
 	abstract void method911(int i, int i_7_, int i_8_);
 
-	public Class107() {
+	public AbstractIndexedSprite() {
 		/* empty */
 	}
 }

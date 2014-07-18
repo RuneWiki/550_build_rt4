@@ -10,7 +10,6 @@ abstract class AbstractGraphicsBuffer {
 	static int anInt1157;
 	static int[] anIntArray1158;
 	static int[] anIntArray1159;
-	static Class35 aClass35_1160;
 	static int[] anIntArray1161;
 	static int[] anIntArray1162;
 	static int[] anIntArray1163;
@@ -38,7 +37,7 @@ abstract class AbstractGraphicsBuffer {
 		anIntArray1163 = new int[anInt1166];
 		anIntArray1171 = new int[anInt1166];
 		anIntArray1156 = new int[anInt1166];
-		aClass35_1160 = new Class35(64);
+		ParamType.recentUse = new Class35(64);
 		aDouble1172 = -1.0;
 		anInt1173 = 0;
 		anInt1175 = 0;
@@ -59,7 +58,7 @@ abstract class AbstractGraphicsBuffer {
 			}
 			class120_sub9 = class120_sub9_0_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.B(").append(hashtable != null ? "{...}" : "null").append(',').append(class124 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.B(").append(hashtable != null ? "{...}" : "null").append(',').append(class124 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return class120_sub9;
 	}
@@ -69,16 +68,16 @@ abstract class AbstractGraphicsBuffer {
 	static final void method1842(final int i) {
 		try {
 			anInt1175 = 0;
-			SceneGroundObject.aBoolean2848 = false;
-			Class65.anInt592 = 0;
+			SceneGroundObject.packetSetFlagPosition = false;
+			Class65.flagY = 0;
 			Class120_Sub12_Sub15.anInt3243 = -1;
-			Class120_Sub12_Sub26.anInt3327 = 0;
+			Class120_Sub12_Sub26.flagX = 0;
 			if (i != 50) {
-				aClass35_1160 = null;
+				ParamType.recentUse = null;
 			}
 			client.aByte2201 = (byte) 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -86,13 +85,13 @@ abstract class AbstractGraphicsBuffer {
 
 	static final void method1844(int i, final byte i_6_, int i_7_, int i_8_, final int i_9_, int i_10_) {
 		try {
-			if (Class139.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
+			if (IdentityKit.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
 				boolean bool;
 				if (Class32.anInt260 > i_10_) {
 					i_10_ = Class32.anInt260;
 					bool = false;
-				} else if (i_10_ > Class120_Sub14_Sub11.anInt3544) {
-					i_10_ = Class120_Sub14_Sub11.anInt3544;
+				} else if (i_10_ > ParamType.anInt3544) {
+					i_10_ = ParamType.anInt3544;
 					bool = false;
 				} else {
 					bool = true;
@@ -101,21 +100,21 @@ abstract class AbstractGraphicsBuffer {
 				if (i < Class32.anInt260) {
 					i = Class32.anInt260;
 					bool_11_ = false;
-				} else if (Class120_Sub14_Sub11.anInt3544 < i) {
-					i = Class120_Sub14_Sub11.anInt3544;
+				} else if (ParamType.anInt3544 < i) {
+					i = ParamType.anInt3544;
 					bool_11_ = false;
 				} else {
 					bool_11_ = true;
 				}
 				if (Class120_Sub30_Sub2.anInt3699 <= i_8_) {
-					Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_8_++], i_9_, i_10_, i);
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_8_++], i_9_, i_10_, i);
 				} else {
 					i_8_ = Class120_Sub30_Sub2.anInt3699;
 				}
-				if (Class139.anInt1334 < i_7_) {
-					i_7_ = Class139.anInt1334;
+				if (IdentityKit.anInt1334 < i_7_) {
+					i_7_ = IdentityKit.anInt1334;
 				} else {
-					Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_7_--], i_9_, i_10_, i);
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_7_--], i_9_, i_10_, i);
 				}
 				if (bool && bool_11_) {
 					for (int i_12_ = i_8_; i_12_ <= i_7_; i_12_++) {
@@ -135,15 +134,15 @@ abstract class AbstractGraphicsBuffer {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.C(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.C(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 	}
 
 	abstract void init(Component component, int width, int height);
 
-	static final void method1846(final int i_17_) {
-		if (Class50.loadInterface(i_17_)) {
-			Class139.animateInterface(Node.interfaceCache[i_17_], -1);
+	static final void animateInterface(final int id) {
+		if (js5.loadInterface(id)) {
+			IdentityKit.animateInterfaces(Node.interfaceCache[id], -1);
 		}
 	}
 
@@ -155,7 +154,7 @@ abstract class AbstractGraphicsBuffer {
 		try {
 			anIntArray1171 = null;
 			aStringArray1167 = null;
-			aClass35_1160 = null;
+			ParamType.recentUse = null;
 			if (i == 84167136) {
 				aString1176 = null;
 				anIntArray1158 = null;
@@ -166,7 +165,7 @@ abstract class AbstractGraphicsBuffer {
 				anIntArray1163 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ob.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.H(").append(i).append(')').toString());
 		}
 	}
 

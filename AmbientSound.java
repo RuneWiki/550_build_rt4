@@ -2,9 +2,9 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub8 extends Node {
+final class AmbientSound extends Node {
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2478;
-	static Class50 aClass50_2479;
+	static js5 aClass50_2479;
 	int anInt2480 = 0;
 	int anInt2481;
 	int[] anIntArray2482;
@@ -15,14 +15,14 @@ final class Class120_Sub8 extends Node {
 	int anInt2487;
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2488;
 	int anInt2489;
-	static int anInt2490;
+	static int hitmarksId;
 	boolean aBoolean2491;
-	Npc aClass180_Sub5_Sub2_2492;
+	Npc npc;
 	int anInt2493;
 	int anInt2494;
-	Player aClass180_Sub5_Sub1_2495;
+	Player player;
 	int anInt2496;
-	LocType aClass184_2497;
+	LocType location;
 	int anInt2498;
 	int anInt2499;
 
@@ -69,7 +69,7 @@ final class Class120_Sub8 extends Node {
 		DummyInputStream.aString25 = "Objet d'abonn\u00e9s";
 		Class69_Sub2_Sub1.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
 		Class69_Sub1.aString2231 = "jaune:";
-		Class91.aString853 = "M\u00e9moire en cours d'attribution";
+		MouseRecorder.aString853 = "M\u00e9moire en cours d'attribution";
 		Class120_Sub6.aString2444 = "Liste des serveurs charg\u00e9e";
 		Class101_Sub3.aString2285 = "Poser";
 		Class147.aString1397 = "clignotant1:";
@@ -84,17 +84,17 @@ final class Class120_Sub8 extends Node {
 		Class120_Sub11.aString2553 = " autres options";
 		Class61.aString568 = "voudrait faire un \u00e9change avec vous.";
 		Class120_Sub30_Sub2.aString3679 = "Chargement en cours. Veuillez patienter.";
-		Class91.aString854 = "K";
+		MouseRecorder.aString854 = "K";
 		Class29.aString196 = " ";
 		Class120_Sub14_Sub24.aString3665 = "Chargement des sprites - ";
 		Class114.aString1098 = "Chargement de la liste des serveurs";
 		Class120_Sub19.aString2653 = "M";
 		Class120_Sub12_Sub1.aString3137 = "Param\u00e8tres par d\u00e9faut charg\u00e9s";
-		Class120_Sub10.aString2538 = "glissement:";
+		InterfaceListener.aString2538 = "glissement:";
 		Class120_Sub21.aString2669 = " s'est connect\u00e9.";
 		Class180_Sub6.aString3062 = "Impossible de trouver ";
 		Class53_Sub1.aString2213 = "rouge:";
-		Class107.aString1025 = "Moteur son pr\u00e9par\u00e9";
+		AbstractIndexedSprite.aString1025 = "Moteur son pr\u00e9par\u00e9";
 		Class120_Sub24.aString2726 = "Sprites charg\u00e9s";
 		IntegerNode.aString2788 = "Chargement des interfaces - ";
 		Class69.aString618 = "vert:";
@@ -115,64 +115,57 @@ final class Class120_Sub8 extends Node {
 		Class120_Sub12_Sub15.aString3244 = "Cach\u00e9";
 		Class82.aString787 = "Regarder dans cette direction";
 		Class112.aString1079 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste noire.";
-		Class120_Sub14_Sub2.aString3455 = "M";
+		EnumType.aString3455 = "M";
 		Class111.aString1056 = "Choisir une option";
 		Class157.aString1462 = "Annuler";
 		Class191.aString2105 = "Connexion au serveur de mise \u00e0 jour en cours";
 		Class96.aString915 = "tremblement:";
 	}
 
-	final void method1156(final int i) {
-		try {
-			if (i >= -45) {
-				method1157(5);
-			}
-			final int i_0_ = this.anInt2485;
-			if (this.aClass184_2497 == null) {
-				if (this.aClass180_Sub5_Sub2_2492 != null) {
-					final int i_1_ = Class20.method178((byte) -54, this.aClass180_Sub5_Sub2_2492);
-					if (i_0_ != i_1_) {
-						this.anInt2485 = i_1_;
-						NpcType npcType = this.aClass180_Sub5_Sub2_2492.npcType;
-						if (npcType.childrenIDs != null) {
-							npcType = npcType.handleVarp();
-						}
-						if (npcType != null) {
-							this.anInt2493 = 128 * npcType.anInt1677;
-							this.anInt2499 = npcType.anInt1658;
-						} else {
-							this.anInt2499 = this.anInt2493 = 0;
-						}
+	final void method1156() {
+		final int i_0_ = this.anInt2485;
+		if (this.location == null) {
+			if (this.npc != null) {
+				final int i_1_ = Class20.method178(this.npc);
+				if (i_0_ != i_1_) {
+					this.anInt2485 = i_1_;
+					NpcType npcType = this.npc.npcType;
+					if (npcType.childrenIDs != null) {
+						npcType = npcType.handleVarp();
 					}
-				} else if (this.aClass180_Sub5_Sub1_2495 != null) {
-					this.anInt2485 = Class20.method179(this.aClass180_Sub5_Sub1_2495, (byte) -123);
-					this.anInt2493 = 128 * this.aClass180_Sub5_Sub1_2495.anInt3735;
-					this.anInt2499 = this.aClass180_Sub5_Sub1_2495.anInt3739;
+					if (npcType != null) {
+						this.anInt2493 = 128 * npcType.anInt1677;
+						this.anInt2499 = npcType.anInt1658;
+					} else {
+						this.anInt2499 = this.anInt2493 = 0;
+					}
 				}
+			} else if (this.player != null) {
+				this.anInt2485 = Class20.method179(this.player);
+				this.anInt2493 = 128 * this.player.anInt3735;
+				this.anInt2499 = this.player.anInt3739;
+			}
+		} else {
+			final LocType locType = this.location.handleVarp();
+			if (locType == null) {
+				this.anInt2489 = 0;
+				this.anInt2493 = 0;
+				this.anIntArray2482 = null;
+				this.anInt2499 = 0;
+				this.anInt2485 = -1;
+				this.anInt2486 = 0;
 			} else {
-				final LocType locType = this.aClass184_2497.handleVarp();
-				if (locType == null) {
-					this.anInt2489 = 0;
-					this.anInt2493 = 0;
-					this.anIntArray2482 = null;
-					this.anInt2499 = 0;
-					this.anInt2485 = -1;
-					this.anInt2486 = 0;
-				} else {
-					this.anInt2485 = locType.anInt1833;
-					this.anInt2489 = locType.anInt1879;
-					this.anInt2486 = locType.anInt1845;
-					this.anInt2493 = 128 * locType.anInt1832;
-					this.anInt2499 = locType.anInt1839;
-					this.anIntArray2482 = locType.anIntArray1870;
-				}
+				this.anInt2485 = locType.anInt1833;
+				this.anInt2489 = locType.anInt1879;
+				this.anInt2486 = locType.anInt1845;
+				this.anInt2493 = 128 * locType.anInt1832;
+				this.anInt2499 = locType.anInt1839;
+				this.anIntArray2482 = locType.anIntArray1870;
 			}
-			if (this.anInt2485 != i_0_ && this.aClass120_Sub30_Sub4_2488 != null) {
-				Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(this.aClass120_Sub30_Sub4_2488);
-				this.aClass120_Sub30_Sub4_2488 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gn.C(").append(i).append(')').toString());
+		}
+		if (this.anInt2485 != i_0_ && this.aClass120_Sub30_Sub4_2488 != null) {
+			Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(this.aClass120_Sub30_Sub4_2488);
+			this.aClass120_Sub30_Sub4_2488 = null;
 		}
 	}
 
@@ -183,7 +176,7 @@ final class Class120_Sub8 extends Node {
 			}
 			aClass50_2479 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gn.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gn.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -200,7 +193,7 @@ final class Class120_Sub8 extends Node {
 				Class118.aBoolean1134 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gn.A(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gn.A(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 	}
 
@@ -208,28 +201,21 @@ final class Class120_Sub8 extends Node {
 		Class158.aBoolean1478 = true;
 	}
 
-	static final void method1160(final byte i, final int[] is, final int i_4_, int i_5_, int i_6_) {
-		try {
-			final int i_7_ = -7 + --i_6_;
-			if (i != 115) {
-				anInt2490 = -85;
-			}
-			i_5_--;
-			while (i_5_ < i_7_) {
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-				is[++i_5_] = i_4_;
-			}
-			while (i_6_ > i_5_) {
-				is[++i_5_] = i_4_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gn.D(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+	static final void fillArray(final int[] src, final int val, int i_5_, int i_6_) {
+		final int i_7_ = -7 + --i_6_;
+		i_5_--;
+		while (i_5_ < i_7_) {
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+			src[++i_5_] = val;
+		}
+		while (i_6_ > i_5_) {
+			src[++i_5_] = val;
 		}
 	}
 }

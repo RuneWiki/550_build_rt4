@@ -12,8 +12,8 @@ final class HDTransparentSprite extends HDSprite {
 
 	@Override
 	final void method1596(final int[] is) {
-		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width, (byte) -89);
-		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height, (byte) -42);
+		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height);
 		final byte[] is_0_ = new byte[this.anInt3945 * this.anInt3948 * 4];
 		int i = 0;
 		int i_1_ = 0;

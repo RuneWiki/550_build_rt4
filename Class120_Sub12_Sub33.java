@@ -7,10 +7,10 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 	static int[][][] anIntArrayArrayArray3388;
 	private int anInt3389 = 81;
 	private int anInt3390;
-	static boolean[] aBooleanArray3391;
+	static boolean[] needScreenRedraw;
 	private int anInt3392;
 	static int affiliateId;
-	static String[] menuOptionName = new String[500];
+	static String[] menuOptionPrefix = new String[500];
 	private int[][] anIntArrayArray3395;
 	private int anInt3396;
 	private int anInt3397;
@@ -28,21 +28,21 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 
 	static {
 		affiliateId = 0;
-		aBooleanArray3391 = new boolean[100];
+		needScreenRedraw = new boolean[100];
 		anInt3406 = 0;
 		anInt3407 = -1;
 	}
 
 	public static void method1375(final byte i) {
 		try {
-			menuOptionName = null;
+			menuOptionPrefix = null;
 			anIntArrayArrayArray3388 = null;
 			if (i <= 85) {
 				method1377(-39);
 			}
-			aBooleanArray3391 = null;
+			needScreenRedraw = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.T(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.T(").append(i).append(')').toString());
 		}
 	}
 
@@ -71,7 +71,7 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 				for (int i_2_ = 0; anInt3390 > i_2_; i_2_++) {
 					if (i_2_ > 0) {
 						int i_3_ = anInt3392;
-						final int i_4_ = (-2048 + Class28.method244(random, 4096, -97)) * anInt3408 >> 12;
+						final int i_4_ = (-2048 + Class28.method244(random, 4096)) * anInt3408 >> 12;
 						i_3_ += i_4_ * i_1_ >> 12;
 						anIntArray3403[i_2_] = i_3_ + anIntArray3403[i_2_ - 1];
 					}
@@ -79,18 +79,18 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 					for (int i_5_ = 0; i_5_ < anInt3398; i_5_++) {
 						if (i_5_ > 0) {
 							int i_6_ = anInt3404;
-							final int i_7_ = (Class28.method244(random, 4096, i + -9) - 2048) * anInt3400 >> 12;
+							final int i_7_ = (Class28.method244(random, 4096) - 2048) * anInt3400 >> 12;
 							i_6_ += i_0_ * i_7_ >> 12;
 							anIntArrayArray3395[i_2_][i_5_] = anIntArrayArray3395[i_2_][i_5_ + -1] - -i_6_;
 						}
-						anIntArrayArray3405[i_2_][i_5_] = anInt3396 <= 0 ? 4096 : -Class28.method244(random, anInt3396, Class120_Sub12_Sub38.method1397(i, -25)) + 4096;
+						anIntArrayArray3405[i_2_][i_5_] = anInt3396 <= 0 ? 4096 : -Class28.method244(random, anInt3396) + 4096;
 					}
 					anIntArrayArray3395[i_2_][anInt3398] = 4096;
 				}
 				anIntArray3403[anInt3390] = 4096;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.R(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.R(").append(i).append(')').toString());
 		}
 	}
 
@@ -103,7 +103,7 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		try {
 			method1376(-1);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.O(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.O(").append(i).append(')').toString());
 		}
 	}
 
@@ -171,65 +171,56 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 				anInt3404 = -71;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_10_).append(')').toString());
 		}
 	}
 
 	@Override
-	final int[] method1187(final int i, final int i_12_) {
-		int[] is;
-		try {
-			final int[] is_13_ = this.aClass30_2563.method258(i_12_, i + 1662);
-			if (this.aClass30_2563.aBoolean238) {
-				int i_14_ = 0;
-				int i_15_;
-				for (i_15_ = anInt3399 + Class150.anIntArray1405[i_12_]; i_15_ < 0; i_15_ += 4096) {
-					/* empty */
-				}
-				for (/**/; i_15_ > 4096; i_15_ -= 4096) {
-					/* empty */
-				}
-				for (/**/; anInt3390 > i_14_ && i_15_ >= anIntArray3403[i_14_]; i_14_++) {
-					/* empty */
-				}
-				final int i_16_ = -1 + i_14_;
-				final int i_17_ = anIntArray3403[i_14_];
-				final boolean bool = (i_14_ & 0x1) == 0;
-				final int i_18_ = anIntArray3403[i_14_ + -1];
-				if (i_18_ - -anInt3402 < i_15_ && i_15_ < i_17_ + -anInt3402) {
-					for (int i_19_ = 0; Class120_Sub12_Sub7.anInt3178 > i_19_; i_19_++) {
-						final int i_20_ = !bool ? -anInt3397 : anInt3397;
-						int i_21_ = Class90.anIntArray849[i_19_] - -(i_20_ * anInt3404 >> 12);
-						int i_22_ = 0;
-						for (/**/; i_21_ < 0; i_21_ += 4096) {
-							/* empty */
-						}
-						for (/**/; i_21_ > 4096; i_21_ -= 4096) {
-							/* empty */
-						}
-						for (/**/; i_22_ < anInt3398 && i_21_ >= anIntArrayArray3395[i_16_][i_22_]; i_22_++) {
-							/* empty */
-						}
-						final int i_23_ = anIntArrayArray3395[i_16_][i_22_];
-						final int i_24_ = -1 + i_22_;
-						final int i_25_ = anIntArrayArray3395[i_16_][i_24_];
-						if (i_25_ + anInt3402 >= i_21_ || -anInt3402 + i_23_ <= i_21_) {
-							is_13_[i_19_] = 0;
-						} else {
-							is_13_[i_19_] = anIntArrayArray3405[i_16_][i_24_];
-						}
+	final int[] method1187(final int i_12_) {
+		final int[] is_13_ = this.aClass30_2563.method258(i_12_);
+		if (this.aClass30_2563.aBoolean238) {
+			int i_14_ = 0;
+			int i_15_;
+			for (i_15_ = anInt3399 + Class150.anIntArray1405[i_12_]; i_15_ < 0; i_15_ += 4096) {
+				/* empty */
+			}
+			for (/**/; i_15_ > 4096; i_15_ -= 4096) {
+				/* empty */
+			}
+			for (/**/; anInt3390 > i_14_ && i_15_ >= anIntArray3403[i_14_]; i_14_++) {
+				/* empty */
+			}
+			final int i_16_ = -1 + i_14_;
+			final int i_17_ = anIntArray3403[i_14_];
+			final boolean bool = (i_14_ & 0x1) == 0;
+			final int i_18_ = anIntArray3403[i_14_ + -1];
+			if (i_18_ - -anInt3402 < i_15_ && i_15_ < i_17_ + -anInt3402) {
+				for (int i_19_ = 0; Class120_Sub12_Sub7.anInt3178 > i_19_; i_19_++) {
+					final int i_20_ = !bool ? -anInt3397 : anInt3397;
+					int i_21_ = Class90.anIntArray849[i_19_] - -(i_20_ * anInt3404 >> 12);
+					int i_22_ = 0;
+					for (/**/; i_21_ < 0; i_21_ += 4096) {
+						/* empty */
 					}
-				} else {
-					ArrayUtils.fillArray(is_13_, 0, Class120_Sub12_Sub7.anInt3178, 0);
+					for (/**/; i_21_ > 4096; i_21_ -= 4096) {
+						/* empty */
+					}
+					for (/**/; i_22_ < anInt3398 && i_21_ >= anIntArrayArray3395[i_16_][i_22_]; i_22_++) {
+						/* empty */
+					}
+					final int i_23_ = anIntArrayArray3395[i_16_][i_22_];
+					final int i_24_ = -1 + i_22_;
+					final int i_25_ = anIntArrayArray3395[i_16_][i_24_];
+					if (i_25_ + anInt3402 >= i_21_ || -anInt3402 + i_23_ <= i_21_) {
+						is_13_[i_19_] = 0;
+					} else {
+						is_13_[i_19_] = anIntArrayArray3405[i_16_][i_24_];
+					}
 				}
+			} else {
+				ArrayUtils.fillArray(is_13_, 0, Class120_Sub12_Sub7.anInt3178, 0);
 			}
-			if (i != -1735) {
-				method1376(84);
-			}
-			is = is_13_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sn.D(").append(i).append(',').append(i_12_).append(')').toString());
 		}
-		return is;
+		return is_13_;
 	}
 }

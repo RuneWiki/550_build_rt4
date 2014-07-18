@@ -6,7 +6,7 @@ abstract class SceneGraphNode {
 	static Class137 aClass137_1780;
 	static Cache aClass21_1781 = new Cache(100);
 	static Class188[] aClass188Array1782;
-	static int[] anIntArray1783 = new int[25];
+	static int[] skillsLevel = new int[25];
 
 	public SceneGraphNode() {
 		/* empty */
@@ -25,7 +25,7 @@ abstract class SceneGraphNode {
 		try {
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "vc.DB()");
+			throw EnumType.method1428(runtimeexception, "vc.DB()");
 		}
 		return bool;
 	}
@@ -35,7 +35,7 @@ abstract class SceneGraphNode {
 		try {
 			class180_17_ = this;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.IC(").append(i).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vc.IC(").append(i).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
 		}
 		return class180_17_;
 	}
@@ -46,11 +46,11 @@ abstract class SceneGraphNode {
 			if (i > -32) {
 				method2271(-104, false, null, -23, null);
 			}
-			anIntArray1783 = null;
+			skillsLevel = null;
 			aClass21_1781 = null;
 			aClass188Array1782 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.RC(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vc.RC(").append(i).append(')').toString());
 		}
 	}
 
@@ -80,15 +80,15 @@ abstract class SceneGraphNode {
 				return;
 			}
 			if (bool) {
-				anIntArray1783 = null;
+				skillsLevel = null;
 			}
 			final Class120_Sub16 class120_sub16 = new Class120_Sub16(class120_sub14_sub5);
-			Class107_Sub1 class107_sub1 = null;
+			LDIndexedSprite class107_sub1 = null;
 			if ((class73.anInt644 ^ 0xffffffff) != 0) {
 				if (!class120_sub14_sub5.aBoolean3472 || class73.anInt657 == -1) {
-					class107_sub1 = (Class107_Sub1) class73.method648(false, false, true);
+					class107_sub1 = (LDIndexedSprite) class73.method648(false, false, true);
 				} else {
-					class107_sub1 = (Class107_Sub1) class73.method648(true, bool, true);
+					class107_sub1 = (LDIndexedSprite) class73.method648(true, bool, true);
 				}
 				if (class107_sub1 != null) {
 					if (Class96.anInt919 > 0 && ((Class127.anInt1215 ^ 0xffffffff) != 0 && class120_sub14_sub5.anInt3473 == Class127.anInt1215 || Class120_Sub12_Sub9.anInt3195 != -1 && class73.anInt652 == Class120_Sub12_Sub9.anInt3195)) {
@@ -98,46 +98,46 @@ abstract class SceneGraphNode {
 						} else {
 							i_26_ = 300 - 3 * Class136.anInt1321;
 						}
-						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.anInt1026 / 2 - -7, 16776960, i_26_);
-						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, 5 + class107_sub1.anInt1026 / 2, 16776960, i_26_);
-						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, 3 + class107_sub1.anInt1026 / 2, 16776960, i_26_);
-						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.anInt1026 / 2 + 1, 16776960, i_26_);
-						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.anInt1026 / 2, 16776960, i_26_);
+						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.width / 2 - -7, 16776960, i_26_);
+						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, 5 + class107_sub1.width / 2, 16776960, i_26_);
+						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, 3 + class107_sub1.width / 2, 16776960, i_26_);
+						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.width / 2 + 1, 16776960, i_26_);
+						GraphicsLD.method2152(class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475, class107_sub1.width / 2, 16776960, i_26_);
 					}
-					class107_sub1.method910(-(class107_sub1.anInt1026 >> 1) + class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475 - (class107_sub1.anInt1030 >> 1));
-					class120_sub16.anInt2604 = (class107_sub1.anInt1030 >> 1) + i_18_ + class120_sub14_sub5.anInt3475;
-					class120_sub16.anInt2602 = -(class107_sub1.anInt1026 >> 1) + i + class120_sub14_sub5.anInt3478;
-					class120_sub16.anInt2605 = (class107_sub1.anInt1026 >> 1) + i + class120_sub14_sub5.anInt3478;
-					class120_sub16.anInt2603 = i_18_ + class120_sub14_sub5.anInt3475 - (class107_sub1.anInt1030 >> 1);
+					class107_sub1.method910(-(class107_sub1.width >> 1) + class120_sub14_sub5.anInt3478, class120_sub14_sub5.anInt3475 - (class107_sub1.height >> 1));
+					class120_sub16.anInt2604 = (class107_sub1.height >> 1) + i_18_ + class120_sub14_sub5.anInt3475;
+					class120_sub16.anInt2602 = -(class107_sub1.width >> 1) + i + class120_sub14_sub5.anInt3478;
+					class120_sub16.anInt2605 = (class107_sub1.width >> 1) + i + class120_sub14_sub5.anInt3478;
+					class120_sub16.anInt2603 = i_18_ + class120_sub14_sub5.anInt3475 - (class107_sub1.height >> 1);
 				}
 			}
 			if (class73.aString649 != null) {
 				if (class107_sub1 != null) {
-					Class120_Sub19.method1673(class120_sub14_sub5, i, 5 + (class107_sub1.anInt1030 >> 1), i_18_, false, 0, class120_sub16, class73);
+					Class120_Sub19.method1673(class120_sub14_sub5, i, 5 + (class107_sub1.height >> 1), i_18_, false, 0, class120_sub16, class73);
 				} else {
 					Class120_Sub19.method1673(class120_sub14_sub5, i, 0, i_18_, true, 0, class120_sub16, class73);
 				}
 			}
 			if (class120_sub16.method1656(Queue.lastMouseX, -101, Class191.lastMouseY) && class73.aStringArray646 != null) {
 				if (class73.aStringArray646[4] != null) {
-					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[4], (short) 1011, -1);
+					InvType.addMenuOption(class73.aStringArray646[4], class73.aString645, class120_sub14_sub5.anInt3473, class73.anInt652, 0, (short) 1011, -1);
 				}
 				if (class73.aStringArray646[3] != null) {
-					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[3], (short) 1003, -1);
+					InvType.addMenuOption(class73.aStringArray646[3], class73.aString645, class120_sub14_sub5.anInt3473, class73.anInt652, 0, (short) 1003, -1);
 				}
 				if (class73.aStringArray646[2] != null) {
-					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[2], (short) 1008, -1);
+					InvType.addMenuOption(class73.aStringArray646[2], class73.aString645, class120_sub14_sub5.anInt3473, class73.anInt652, 0, (short) 1008, -1);
 				}
 				if (class73.aStringArray646[1] != null) {
-					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[1], (short) 1002, -1);
+					InvType.addMenuOption(class73.aStringArray646[1], class73.aString645, class120_sub14_sub5.anInt3473, class73.anInt652, 0, (short) 1002, -1);
 				}
 				if (class73.aStringArray646[0] != null) {
-					Class120_Sub14_Sub6.addMenuOption(class120_sub14_sub5.anInt3473, class73.anInt652, 0, class73.aString645, class73.aStringArray646[0], (short) 1012, -1);
+					InvType.addMenuOption(class73.aStringArray646[0], class73.aString645, class120_sub14_sub5.anInt3473, class73.anInt652, 0, (short) 1012, -1);
 				}
 			}
 			Class73.aClass105_653.addLast(class120_sub16);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.TC(").append(i).append(',').append(bool).append(',').append(class120_sub14_sub5 != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(class73 != null ? "{...}" : "null").append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vc.TC(").append(i).append(',').append(bool).append(',').append(class120_sub14_sub5 != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(class73 != null ? "{...}" : "null").append(')')
 					.toString());
 		}
 	}
@@ -147,58 +147,58 @@ abstract class SceneGraphNode {
 			if (jagexInterface.aByte2051 == 0) {
 				jagexInterface.x = jagexInterface.originalX;
 			} else if (jagexInterface.aByte2051 == 1) {
-				jagexInterface.x = jagexInterface.originalX + (-jagexInterface.anInt1948 + i) / 2;
+				jagexInterface.x = jagexInterface.originalX + (-jagexInterface.width + i) / 2;
 			} else if (jagexInterface.aByte2051 == 2) {
-				jagexInterface.x = -jagexInterface.originalX + -jagexInterface.anInt1948 + i;
+				jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + i;
 			} else if (jagexInterface.aByte2051 == 3) {
 				jagexInterface.x = jagexInterface.originalX * i >> 14;
 			} else if (jagexInterface.aByte2051 == 4) {
-				jagexInterface.x = (jagexInterface.originalX * i >> 14) + (i - jagexInterface.anInt1948) / 2;
+				jagexInterface.x = (jagexInterface.originalX * i >> 14) + (i - jagexInterface.width) / 2;
 			} else {
-				jagexInterface.x = -(i * jagexInterface.originalX >> 14) + -jagexInterface.anInt1948 + i;
+				jagexInterface.x = -(i * jagexInterface.originalX >> 14) + -jagexInterface.width + i;
 			}
 			if (jagexInterface.aByte2017 != 0) {
 				if (jagexInterface.aByte2017 == 1) {
-					jagexInterface.y = jagexInterface.originalY + (-jagexInterface.anInt2059 + i_27_) / 2;
+					jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + i_27_) / 2;
 				} else if (jagexInterface.aByte2017 == 2) {
-					jagexInterface.y = i_27_ + -jagexInterface.anInt2059 - jagexInterface.originalY;
+					jagexInterface.y = i_27_ + -jagexInterface.height - jagexInterface.originalY;
 				} else if (jagexInterface.aByte2017 == 3) {
 					jagexInterface.y = i_27_ * jagexInterface.originalY >> 14;
 				} else if (jagexInterface.aByte2017 != 4) {
-					jagexInterface.y = -(jagexInterface.originalY * i_27_ >> 14) + i_27_ + -jagexInterface.anInt2059;
+					jagexInterface.y = -(jagexInterface.originalY * i_27_ >> 14) + i_27_ + -jagexInterface.height;
 				} else {
-					jagexInterface.y = (jagexInterface.originalY * i_27_ >> 14) + (i_27_ - jagexInterface.anInt2059) / 2;
+					jagexInterface.y = (jagexInterface.originalY * i_27_ >> 14) + (i_27_ - jagexInterface.height) / 2;
 				}
 			} else {
 				jagexInterface.y = jagexInterface.originalY;
 			}
-			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).anInt2662 != 0 || jagexInterface.type == 0)) {
+			if (i_28_ >= 92 && Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
 				if (jagexInterface.y < 0) {
 					jagexInterface.y = 0;
-				} else if (jagexInterface.anInt2059 + jagexInterface.y > i_27_) {
-					jagexInterface.y = -jagexInterface.anInt2059 + i_27_;
+				} else if (jagexInterface.height + jagexInterface.y > i_27_) {
+					jagexInterface.y = -jagexInterface.height + i_27_;
 				}
 				if (jagexInterface.x < 0) {
 					jagexInterface.x = 0;
-				} else if (i < jagexInterface.x - -jagexInterface.anInt1948) {
-					jagexInterface.x = i + -jagexInterface.anInt1948;
+				} else if (i < jagexInterface.x - -jagexInterface.width) {
+					jagexInterface.x = i + -jagexInterface.width;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.QC(").append(i).append(',').append(i_27_).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vc.QC(").append(i).append(',').append(i_27_).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
 		}
 	}
 
 	abstract int getMaxY();
 
-	static final void method2274(final Class50 class50, final int i) {
+	static final void method2274(final js5 js5, final int i) {
 		try {
-			Class3.aClass50_55 = class50;
+			Class3.aClass50_55 = js5;
 			if (i != 2) {
 				method2271(-63, false, null, -6, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vc.SC(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vc.SC(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

@@ -10,17 +10,17 @@ abstract class Class101 {
 	static String aString963 = null;
 	int anInt964;
 	static float aFloat965;
-	static Class50 aClass50_966;
+	static js5 aClass50_966;
 
 	static final void method832(final int i, int i_0_, final int i_1_, final int i_2_) {
 		try {
 			i_0_ = RuntimeException_Sub1.anInt2142 * i_0_ >> 8;
 			if (i != (i_0_ ^ 0xffffffff) && (i_2_ ^ 0xffffffff) != 0) {
-				Class127.method1891(i_0_, -20329, 0, i_2_, false, Class120_Sub10.aClass50_2544);
+				Class127.method1891(i_0_, -20329, 0, i_2_, false, InterfaceListener.aClass50_2544);
 				Class120_Sub12_Sub15.aBoolean3247 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lc.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lc.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -31,7 +31,7 @@ abstract class Class101 {
 	static final void method835(final int i, final boolean bool) {
 		try {
 			Class117.method1021(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, Class66.aFloat600, Class147.aFloat1395);
-			Class117.method1020(Deque.anInt1007, Class25.anInt151, bool);
+			Class117.method1020(Deque.anInt1007, CollisionMap.anInt151, bool);
 			Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 			Class117.method1016();
 			Class120_Sub2_Sub1.aFloat3112 = aFloat962;
@@ -41,7 +41,7 @@ abstract class Class101 {
 				Class120_Sub2_Sub1.aFloat3111 = Class108.aFloat1034;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lc.G(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lc.G(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -58,7 +58,7 @@ abstract class Class101 {
 			i_12_ <<= i_10_;
 			Class140.method1997(false, i_9_, i_8_ << i_10_ & i_12_ | Class2.permanentVariable[i_9_] & (i_12_ ^ 0xffffffff));
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lc.C(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lc.C(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
@@ -72,7 +72,7 @@ abstract class Class101 {
 			aClass50_966 = null;
 			aString963 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lc.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lc.D(").append(i).append(')').toString());
 		}
 	}
 

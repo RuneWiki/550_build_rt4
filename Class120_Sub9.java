@@ -309,7 +309,7 @@ final class Class120_Sub9 extends Node {
 		anIntArray2524 = new int[this.anInt2519];
 		anIntArray2504 = new int[this.anInt2519];
 		anIntArrayArray2523 = new int[this.anInt2519][];
-		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt2507, (byte) -17));
+		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt2507));
 		if (this.aBoolean2516) {
 			anIntArrayArray2526 = new int[this.anInt2519][];
 			aBooleanArray2522 = new boolean[this.anInt2519];

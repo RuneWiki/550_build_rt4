@@ -4,7 +4,7 @@
 
 final class Class81 {
 	static Hashtable aClass75_777;
-	static int anInt778;
+	static int nameiconsId;
 	static int[] anIntArray779 = new int[50];
 
 	public static void method703(final int i) {
@@ -15,7 +15,7 @@ final class Class81 {
 			aClass75_777 = null;
 			anIntArray779 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("il.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -52,7 +52,7 @@ final class Class81 {
 			}
 			string = "<col=ffff00>";
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("il.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 		return string;
 	}
@@ -209,7 +209,7 @@ final class Class81 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("il.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -217,12 +217,12 @@ final class Class81 {
 		try {
 			Canvas_Sub1.aClass21_14.method192(i);
 			if (i_9_ != -128) {
-				anInt778 = 46;
+				nameiconsId = 46;
 			}
 			Class33.aClass21_273.method192(i);
 			Class180_Sub3.aClass21_2906.method192(i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.F(").append(i).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("il.F(").append(i).append(',').append(i_9_).append(')').toString());
 		}
 	}
 
@@ -246,7 +246,7 @@ final class Class81 {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("il.A(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("il.A(").append(i).append(')').toString());
 			}
 		} while (false);
 	}

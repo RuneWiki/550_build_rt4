@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class168 {
+final class ShapedTile {
 	int[] anIntArray1621;
 	int anInt1622;
 	static int[] anIntArray1623 = new int[6];
@@ -45,7 +45,7 @@ final class Class168 {
 		anIntArrayArray1642 = null;
 	}
 
-	Class168(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_,
+	ShapedTile(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_,
 			final int i_16_, final int i_17_) {
 		if (i_4_ != i_5_ || i_4_ != i_6_ || i_4_ != i_7_) {
 			this.aBoolean1629 = false;

@@ -33,27 +33,27 @@ final class Class120_Sub28 extends Node {
 			}
 			anIntArray2761 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sj.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sj.A(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method1725(final boolean bool) {
 		try {
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class101_Sub1.aClass105_2266.getNext()) {
+			for (AmbientSound class120_sub8 = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
 				if (class120_sub8.aBoolean2491) {
-					class120_sub8.method1156(-123);
+					class120_sub8.method1156();
 				}
 			}
 			if (bool) {
 				aStringArray2759 = null;
 			}
-			for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
+			for (AmbientSound class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
 				if (class120_sub8.aBoolean2491) {
-					class120_sub8.method1156(-121);
+					class120_sub8.method1156();
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sj.B(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sj.B(").append(bool).append(')').toString());
 		}
 	}
 

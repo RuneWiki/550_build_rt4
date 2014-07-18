@@ -7,7 +7,7 @@ abstract class Class132 {
 	static int anInt1248;
 	private int anInt1249 = 4;
 	static String aString1250 = " has logged out.";
-	static Class50 aClass50_1251;
+	static js5 aClass50_1251;
 	private int anInt1252;
 	private short[] aShortArray1253;
 	private int anInt1254;
@@ -112,7 +112,7 @@ abstract class Class132 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pg.M(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.M(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -127,13 +127,13 @@ abstract class Class132 {
 			}
 			for (int i = 0; i < 255; i++) {
 				final int i_42_ = -i + 255;
-				final int i_43_ = Class28.method244(random, i_42_, 3);
+				final int i_43_ = Class28.method244(random, i_42_);
 				final short i_44_ = aShortArray1253[i_43_];
 				aShortArray1253[i_43_] = aShortArray1253[i_42_];
 				aShortArray1253[i_42_] = aShortArray1253[256 + i_42_] = i_44_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pg.K(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.K(").append(bool).append(')').toString());
 		}
 	}
 
@@ -149,7 +149,7 @@ abstract class Class132 {
 				aShortArray1259[i_45_] = (short) (int) Math.pow(2.0, i_45_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pg.P(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.P(").append(i).append(')').toString());
 		}
 	}
 
@@ -175,7 +175,7 @@ abstract class Class132 {
 			}
 			i_54_ = -i_48_ + 7 + 1 + -i_53_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pg.N(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(i_52_).append(',').append(i_53_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.N(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(i_52_).append(',').append(i_53_).append(')').toString());
 		}
 		return i_54_;
 	}
@@ -188,7 +188,7 @@ abstract class Class132 {
 				aString1250 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pg.O(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.O(").append(i).append(')').toString());
 		}
 	}
 
@@ -680,7 +680,7 @@ abstract class Class132 {
 			Class24.method209(-4391, ls, class120_sub9s_187_);
 			class120_sub9s = class120_sub9s_187_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(
+			throw EnumType.method1428(
 					runtimeexception,
 					new StringBuilder("pg.L(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(is_60_ != null ? "{...}" : "null").append(',').append(is_61_ != null ? "{...}" : "null").append(',').append(fs != null ? "{...}" : "null").append(',').append(i_62_)
 							.append(',').append(is_63_ != null ? "{...}" : "null").append(',').append(is_64_ != null ? "{...}" : "null").append(',').append(is_65_ != null ? "{...}" : "null").append(',').append(is_66_ != null ? "{...}" : "null").append(',').append(fs_67_ != null ? "{...}" : "null")

@@ -29,18 +29,14 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 			}
 			aCRC32_3658 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wn.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wn.E(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method1647(final int i, final int i_0_, final int i_1_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i, i_0_);
-			class120_sub14_sub7.method1454((byte) -121);
-			class120_sub14_sub7.anInt3484 = i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wn.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
+	static final void method1647(final int i_0_, final int i_1_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i_0_);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3484 = i_1_;
 	}
 
 	static final void updateEntityText() {
@@ -80,10 +76,10 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 			class36.anInt312 = i_10_;
 			class36.bitPacked = l;
 			class36.aBoolean314 = bool;
-			if (Class120_Sub1.groundTiles[i][i_8_][i_9_] == null) {
-				Class120_Sub1.groundTiles[i][i_8_][i_9_] = new GroundTile(i, i_8_, i_9_);
+			if (LabelGroup.groundTiles[i][i_8_][i_9_] == null) {
+				LabelGroup.groundTiles[i][i_8_][i_9_] = new GroundTile(i, i_8_, i_9_);
 			}
-			Class120_Sub1.groundTiles[i][i_8_][i_9_].aClass36_2650 = class36;
+			LabelGroup.groundTiles[i][i_8_][i_9_].aClass36_2650 = class36;
 		}
 	}
 
@@ -95,7 +91,7 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 				this.anInt3657 = i_12_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wn.D(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wn.D(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(')').toString());
 		}
 	}
 

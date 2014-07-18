@@ -38,7 +38,7 @@ final class Class148 {
 				method2057(strings, true, i, is, i_2_ + 1);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.E(").append(strings != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.E(").append(strings != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -48,7 +48,7 @@ final class Class148 {
 				Class120_Sub12_Sub35.aClass21_3411.clear();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -59,7 +59,7 @@ final class Class148 {
 			}
 			worldsInfo = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -72,10 +72,10 @@ final class Class148 {
 			if (i != -32696) {
 				worldsInfo = null;
 			}
-			class120_sub7.pos += Class39.aClass126_321.method1885(class120_sub7.pos, 0, 19, class120_sub7.buf, is, is.length);
+			class120_sub7.pos += Class39.huffman.method1885(class120_sub7.pos, 0, 19, class120_sub7.buf, is, is.length);
 			i_7_ = class120_sub7.pos - i_8_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.D(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.D(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return i_7_;
 	}
@@ -89,11 +89,11 @@ final class Class148 {
 			}
 			final byte[] is = Class120_Sub13.aClass50_2576.getFile(i_9_, 0);
 			class120_sub14_sub8_sub2_10_ = new Class120_Sub14_Sub8_Sub2(is);
-			class120_sub14_sub8_sub2_10_.method1474(Class82.aClass107Array785, null);
+			class120_sub14_sub8_sub2_10_.setNameIcons(Class82.aClass107Array785, null);
 			Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
 			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_10_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rc.C(").append(i).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.C(").append(i).append(',').append(i_9_).append(')').toString());
 		}
 		return class120_sub14_sub8_sub2;
 	}

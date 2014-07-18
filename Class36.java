@@ -25,12 +25,12 @@ final class Class36 {
 						class180_sub5.anInt3021++;
 						class180_sub5.anInt2998 = 1;
 						class180_sub5.anInt3046++;
-						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt3046, class180_sub5 == Class100.selfPlayer, false);
+						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt3046, class180_sub5 == Class100.selfPlayer);
 					}
 					if (class180_sub5.anInt3046 >= seqType.frames.length) {
 						class180_sub5.anInt2998 = 0;
 						class180_sub5.anInt3046 = 0;
-						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt3046, Class100.selfPlayer == class180_sub5, false);
+						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt3046, Class100.selfPlayer == class180_sub5);
 					}
 					class180_sub5.anInt3021 = 1 + class180_sub5.anInt3046;
 					if (class180_sub5.anInt3021 >= seqType.frames.length) {
@@ -41,7 +41,7 @@ final class Class36 {
 			do {
 				if (class180_sub5.spotAnimId != -1 && Class101_Sub2.loopCycle >= class180_sub5.anInt2979) {
 					final SpotAnimType spotAnimType = SpotAnimType.list(class180_sub5.spotAnimId);
-					final int i_0_ = spotAnimType.anInt991;
+					final int i_0_ = spotAnimType.animationId;
 					if ((i_0_ ^ 0xffffffff) == 0) {
 						class180_sub5.spotAnimId = -1;
 					} else {
@@ -62,13 +62,13 @@ final class Class36 {
 						} else {
 							if (class180_sub5.spotAnimFrameId < 0) {
 								class180_sub5.spotAnimFrameId = 0;
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, 0, class180_sub5 == Class100.selfPlayer, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, 0, class180_sub5 == Class100.selfPlayer);
 							}
 							class180_sub5.anInt2963++;
 							if (seqType.frames.length > class180_sub5.spotAnimFrameId && seqType.cycles[class180_sub5.spotAnimFrameId] < class180_sub5.anInt2963) {
 								class180_sub5.anInt2963 = 1;
 								class180_sub5.spotAnimFrameId++;
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.spotAnimFrameId, Class100.selfPlayer == class180_sub5, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.spotAnimFrameId, Class100.selfPlayer == class180_sub5);
 							}
 							if (class180_sub5.spotAnimFrameId >= seqType.frames.length) {
 								if (!spotAnimType.aBoolean998) {
@@ -78,7 +78,7 @@ final class Class36 {
 									class180_sub5.spotAnimFrameId -= seqType.padding;
 									if (seqType.anInt339 > class180_sub5.anInt2984) {
 										if (class180_sub5.spotAnimFrameId >= 0 && seqType.frames.length > class180_sub5.spotAnimFrameId) {
-											Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.spotAnimFrameId, Class100.selfPlayer == class180_sub5, false);
+											Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.spotAnimFrameId, Class100.selfPlayer == class180_sub5);
 										} else {
 											class180_sub5.spotAnimId = -1;
 										}
@@ -121,7 +121,7 @@ final class Class36 {
 					if (seqType.frames.length > class180_sub5.anInt2964 && class180_sub5.anInt3044 > seqType.cycles[class180_sub5.anInt2964]) {
 						class180_sub5.anInt2964++;
 						class180_sub5.anInt3044 = 1;
-						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt2964, class180_sub5 == Class100.selfPlayer, false);
+						Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt2964, class180_sub5 == Class100.selfPlayer);
 					}
 					if (class180_sub5.anInt2964 >= seqType.frames.length) {
 						class180_sub5.anInt2999++;
@@ -130,7 +130,7 @@ final class Class36 {
 							if (class180_sub5.anInt2964 < 0 || class180_sub5.anInt2964 >= seqType.frames.length) {
 								class180_sub5.anInt3006 = -1;
 							} else {
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt2964, class180_sub5 == Class100.selfPlayer, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class180_sub5.anInt2964, class180_sub5 == Class100.selfPlayer);
 							}
 						} else {
 							class180_sub5.anInt3006 = -1;
@@ -172,14 +172,14 @@ final class Class36 {
 							if (seqType.frames.length > class150.anInt1413 && seqType.cycles[class150.anInt1413] < class150.anInt1410) {
 								class150.anInt1410 = 1;
 								class150.anInt1413++;
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class150.anInt1413, class180_sub5 == Class100.selfPlayer, false);
+								Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class150.anInt1413, class180_sub5 == Class100.selfPlayer);
 							}
 							if (class150.anInt1413 >= seqType.frames.length) {
 								class150.anInt1413 -= seqType.padding;
 								class150.anInt1416++;
 								if (seqType.anInt339 > class150.anInt1416) {
 									if (class150.anInt1413 >= 0 && seqType.frames.length > class150.anInt1413) {
-										Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class150.anInt1413, class180_sub5 == Class100.selfPlayer, false);
+										Class120_Sub12_Sub23.method1323(seqType, class180_sub5.z, class180_sub5.x, class150.anInt1413, class180_sub5 == Class100.selfPlayer);
 									} else {
 										class180_sub5.aClass150Array2972[i_1_] = null;
 									}
@@ -201,7 +201,7 @@ final class Class36 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dm.C(").append(i).append(',').append(class180_sub5 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dm.C(").append(i).append(',').append(class180_sub5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -212,7 +212,7 @@ final class Class36 {
 				method309(-10);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dm.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dm.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -224,7 +224,7 @@ final class Class36 {
 			Class159.aClass21_1486.clear();
 			Class120_Sub6.aClass21_2443.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dm.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dm.A(").append(i).append(')').toString());
 		}
 	}
 

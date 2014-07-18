@@ -9,8 +9,8 @@ abstract class AbstractObject extends NodeSub {
 
 	abstract boolean isSoftReference();
 
-	static final int getCrc(final byte[] is, final int i) {
-		return NodeSub.getCrc(is, 0, i);
+	static final int getCrc(final byte[] buffer, final int len) {
+		return NodeSub.getCrc(buffer, 0, len);
 	}
 
 	static final InterfaceChangeNode putInterfaceChange(final int type, final int uid) {

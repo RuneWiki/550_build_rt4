@@ -8,7 +8,7 @@ final class Class120_Sub13 extends Node {
 	static boolean[][] aBooleanArrayArray2573;
 	static String aString2574 = "white:";
 	byte aByte2575;
-	static Class50 aClass50_2576;
+	static js5 aClass50_2576;
 	static AbstractGraphicsBuffer fullscreenGraphics;
 	static String aString2578 = " from your ignore list first.";
 	String aString2579;
@@ -23,7 +23,7 @@ final class Class120_Sub13 extends Node {
 				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= Class186.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
 					return false;
 				}
-				final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_10_][i_11_];
+				final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_10_][i_11_];
 				if (class120_sub18 != null && class120_sub18.anInt2638 >= 5) {
 					return false;
 				}
@@ -57,11 +57,11 @@ final class Class120_Sub13 extends Node {
 					i_14_ += 2;
 				}
 				for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-					if (Class120_Sub1.groundTiles[i_15_][i_12_][i_13_] == null) {
-						Class120_Sub1.groundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
+					if (LabelGroup.groundTiles[i_15_][i_12_][i_13_] == null) {
+						LabelGroup.groundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
 					}
 				}
-				final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_12_][i_13_];
+				final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_12_][i_13_];
 				class120_sub18.aClass28Array2625[class120_sub18.anInt2638] = class28;
 				class120_sub18.anIntArray2641[class120_sub18.anInt2638] = i_14_;
 				class120_sub18.anInt2635 |= i_14_;
@@ -81,20 +81,9 @@ final class Class120_Sub13 extends Node {
 			}
 		}
 		if (bool) {
-			Class111.aClass28Array1057[Class120_Sub14_Sub12.anInt3556++] = class28;
+			Class111.aClass28Array1057[ClientScript.anInt3556++] = class28;
 		}
 		return true;
-	}
-
-	static final JagexInterface method1404(final int i, final int i_19_) {
-		final JagexInterface class189_20_ = Class74.getJagexInterface(i);
-		if (i_19_ == -1) {
-			return class189_20_;
-		}
-		if (class189_20_ == null || class189_20_.aClass189Array2072 == null || i_19_ >= class189_20_.aClass189Array2072.length) {
-			return null;
-		}
-		return class189_20_.aClass189Array2072[i_19_];
 	}
 
 	static final int method1405(int i, final boolean bool, int i_21_) {
@@ -110,7 +99,7 @@ final class Class120_Sub13 extends Node {
 			}
 			i_22_ = i_23_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("l.D(").append(i).append(',').append(bool).append(',').append(i_21_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("l.D(").append(i).append(',').append(bool).append(',').append(i_21_).append(')').toString());
 		}
 		return i_22_;
 	}
@@ -120,14 +109,14 @@ final class Class120_Sub13 extends Node {
 			aClass50_2576 = null;
 			aBooleanArrayArray2573 = null;
 			if (i != -31470) {
-				method1404(-57, 16);
+				JagexInterface.getComponent(-57, 16);
 			}
 			fullscreenGraphics = null;
 			aString2574 = null;
 			aString2578 = null;
 			aClass193Array2581 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("l.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("l.B(").append(i).append(')').toString());
 		}
 	}
 

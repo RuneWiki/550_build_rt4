@@ -8,7 +8,7 @@ class Class132_Sub2 extends Class132 {
 	private byte[] aByteArray2820;
 	static float aFloat2821;
 	private int[] anIntArray2822 = new int[this.anInt1256];
-	static int anInt2823;
+	static int crossId;
 
 	@Override
 	final void method1927(final int i, final int i_0_, final byte i_1_) {
@@ -18,7 +18,7 @@ class Class132_Sub2 extends Class132 {
 				method1942(null, 60, 96, -23, -83, 95, -53, 52, true);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.F(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.F(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
@@ -32,7 +32,7 @@ class Class132_Sub2 extends Class132 {
 			method1938(anInt2819++, (byte) (anInt2818 >> 4));
 			anInt2818 = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -45,7 +45,7 @@ class Class132_Sub2 extends Class132 {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.G(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("rn.G(").append(i).append(')').toString());
 			}
 		} while (false);
 	}
@@ -54,7 +54,7 @@ class Class132_Sub2 extends Class132 {
 		try {
 			aByteArray2820[anInt2819++] = (byte) (127 + Class120_Sub12_Sub3.method1207(i_2_ >> 1, 127));
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.A(").append(i).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.A(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -87,7 +87,7 @@ class Class132_Sub2 extends Class132 {
 				method1939(ls, (byte) -71, i_3_, 1 + i_6_, objects);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.H(").append(ls != null ? "{...}" : "null").append(',').append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.H(").append(ls != null ? "{...}" : "null").append(',').append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -100,7 +100,7 @@ class Class132_Sub2 extends Class132 {
 			Class23.aFont135 = null;
 			Class20.aFontMetrics2171 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.J(").append(i).append(')').toString());
 		}
 	}
 
@@ -113,23 +113,16 @@ class Class132_Sub2 extends Class132 {
 			}
 			anInt2818 = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.I(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method1941(final int i, final Class50 class50) {
-		try {
-			Class120_Sub14_Sub16.anInt3589 = class50.method432(false, "titlebg");
-			if (i != -2232) {
-				method1941(115, null);
-			}
-			Class108_Sub1.anInt2328 = class50.method432(false, "logo");
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rn.D(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void getTitleSpriteIds(final js5 js5) {
+		StructType.titlebgId = js5.method432("titlebg");
+		Class108_Sub1.logoId = js5.method432("logo");
 	}
 
-	static final void method1942(final Class141 class141, final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_, final boolean bool) {
+	static final void method1942(final PlainTile plainTile, final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_, final boolean bool) {
 		int i_17_;
 		int i_16_ = i_17_ = (i_14_ << 7) - DisplayModeInfo.anInt1713;
 		int i_19_;
@@ -178,7 +171,7 @@ class Class132_Sub2 extends Class132 {
 						final int i_34_ = Rasterizer.anInt970 + (i_26_ << 9) / i_22_;
 						final int i_35_ = Rasterizer.anInt967 + (i_17_ << 9) / i_23_;
 						final int i_36_ = Rasterizer.anInt970 + (i_27_ << 9) / i_23_;
-						Rasterizer.anInt975 = 0;
+						Rasterizer.alpha = 0;
 						if ((i_33_ - i_35_) * (i_32_ - i_36_) - (i_34_ - i_36_) * (i_31_ - i_35_) > 0) {
 							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
 								Cache.anInt122 = i_14_;
@@ -189,19 +182,19 @@ class Class132_Sub2 extends Class132 {
 								if (i_33_ < 0 || i_35_ < 0 || i_31_ < 0 || i_33_ > Rasterizer.anInt983 || i_35_ > Rasterizer.anInt983 || i_31_ > Rasterizer.anInt983) {
 									Rasterizer.aBoolean972 = true;
 								}
-								if (class141.anInt1348 == -1) {
-									if (class141.anInt1351 != 12345678) {
-										Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, class141.anInt1351, class141.anInt1353, class141.anInt1347);
+								if (plainTile.anInt1348 == -1) {
+									if (plainTile.anInt1351 != 12345678) {
+										Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347);
 									}
 								} else if (Class120_Sub30_Sub1.manyGroundTextures) {
-									if (class141.aBoolean1352) {
-										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, class141.anInt1351, class141.anInt1353, class141.anInt1347, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, class141.anInt1348);
+									if (plainTile.aBoolean1352) {
+										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.anInt1348);
 									} else {
-										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, class141.anInt1351, class141.anInt1353, class141.anInt1347, i_21_, i_17_, i_20_, i_26_, i_27_, i_25_, i_22_, i_23_, i_19_, class141.anInt1348);
+										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347, i_21_, i_17_, i_20_, i_26_, i_27_, i_25_, i_22_, i_23_, i_19_, plainTile.anInt1348);
 									}
 								} else {
-									final int i_37_ = Rasterizer.anInterface5_973.method20(class141.anInt1348, 65535);
-									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, Class108_Sub1.method935(i_37_, class141.anInt1351), Class108_Sub1.method935(i_37_, class141.anInt1353), Class108_Sub1.method935(i_37_, class141.anInt1347));
+									final int i_37_ = Rasterizer.anInterface5_973.method20(plainTile.anInt1348, 65535);
+									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, Class108_Sub1.method935(i_37_, plainTile.anInt1351), Class108_Sub1.method935(i_37_, plainTile.anInt1353), Class108_Sub1.method935(i_37_, plainTile.anInt1347));
 								}
 							}
 						}
@@ -215,15 +208,15 @@ class Class132_Sub2 extends Class132 {
 								if (i_29_ < 0 || i_31_ < 0 || i_35_ < 0 || i_29_ > Rasterizer.anInt983 || i_31_ > Rasterizer.anInt983 || i_35_ > Rasterizer.anInt983) {
 									Rasterizer.aBoolean972 = true;
 								}
-								if (class141.anInt1348 == -1) {
-									if (class141.anInt1349 != 12345678) {
-										Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, class141.anInt1349, class141.anInt1347, class141.anInt1353);
+								if (plainTile.anInt1348 == -1) {
+									if (plainTile.anInt1349 != 12345678) {
+										Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353);
 									}
 								} else if (Class120_Sub30_Sub1.manyGroundTextures) {
-									Rasterizer.method871(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, class141.anInt1349, class141.anInt1347, class141.anInt1353, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, class141.anInt1348);
+									Rasterizer.method871(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.anInt1348);
 								} else {
-									final int i_38_ = Rasterizer.anInterface5_973.method20(class141.anInt1348, 65535);
-									Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, Class108_Sub1.method935(i_38_, class141.anInt1349), Class108_Sub1.method935(i_38_, class141.anInt1347), Class108_Sub1.method935(i_38_, class141.anInt1353));
+									final int i_38_ = Rasterizer.anInterface5_973.method20(plainTile.anInt1348, 65535);
+									Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, Class108_Sub1.method935(i_38_, plainTile.anInt1349), Class108_Sub1.method935(i_38_, plainTile.anInt1347), Class108_Sub1.method935(i_38_, plainTile.anInt1353));
 								}
 							}
 						}

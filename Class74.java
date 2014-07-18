@@ -16,7 +16,7 @@ final class Class74 {
 		final int i_1_ = i_0_ >> 16;
 		final int i_2_ = i_0_ & 0xffff;
 		if (Node.interfaceCache[i_1_] == null || Node.interfaceCache[i_1_][i_2_] == null) {
-			final boolean bool = Class50.loadInterface(i_1_);
+			final boolean bool = js5.loadInterface(i_1_);
 			if (!bool) {
 				return null;
 			}
@@ -31,7 +31,7 @@ final class Class74 {
 				loginName = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("i.D(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("i.D(").append(bool).append(')').toString());
 		}
 	}
 }

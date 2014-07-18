@@ -3,7 +3,7 @@
  */
 
 final class Class190 {
-	static Class50 aClass50_2099;
+	static js5 aClass50_2099;
 	static int anInt2100;
 	static int anInt2101 = 0;
 
@@ -97,7 +97,7 @@ final class Class190 {
 							is[1536 + i_11_] = i_10_;
 						}
 					}
-				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_7_)) {
+				} else if (!FrameLoader.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_7_)) {
 					return false;
 				}
 			}
@@ -127,7 +127,7 @@ final class Class190 {
 							is[3 + i_16_ + 1536] = i_15_;
 						}
 					}
-				} else if (!Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_12_)) {
+				} else if (!FrameLoader.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_12_)) {
 					return false;
 				}
 			}
@@ -136,13 +136,13 @@ final class Class190 {
 				final int i_17_ = (int) (l >>> 32) & 0x7fffffff;
 				final int i_18_ = (0x389bda & (int) l) >> 20;
 				final LocType locType = LocType.list(i_17_);
-				if ((locType.anInt1826 ^ 0xffffffff) != 0 && !Class120_Sub14_Sub18.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_18_)) {
+				if ((locType.anInt1826 ^ 0xffffffff) != 0 && !FrameLoader.method1583(i_2_, i_4_, locType, 4, i_5_, i_1_, i_18_)) {
 					return false;
 				}
 			}
 			bool_6_ = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wi.C(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wi.C(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')')
 					.toString());
 		}
 		return bool_6_;
@@ -155,7 +155,7 @@ final class Class190 {
 				aClass50_2099 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wi.A(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wi.A(").append(bool).append(')').toString());
 		}
 	}
 

@@ -14,17 +14,17 @@ class Node {
 	static JagexInterface[][] interfaceCache;
 	static int[] anIntArray1151 = { 1, 4 };
 
-	static final void method1029() {
-		if (Class88.aBoolean828) {
-			final JagexInterface jagexInterface = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, JagexSocket.anInt420);
-			if (jagexInterface != null && jagexInterface.anObjectArray2000 != null) {
-				final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-				class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2000;
+	static final void deselectSpell() {
+		if (Class88.spellSelected) {
+			final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.anInt420);
+			if (jagexInterface != null && jagexInterface.onSpellDeselectionListener != null) {
+				final InterfaceListener class120_sub10 = new InterfaceListener();
+				class120_sub10.objectData = jagexInterface.onSpellDeselectionListener;
 				class120_sub10.aClass189_2534 = jagexInterface;
 				Class88.method744(true, class120_sub10);
 			}
-			Class88.aBoolean828 = false;
-			Class192.anInt2123 = -1;
+			Class88.spellSelected = false;
+			Class192.selectedSpellCursor = -1;
 			InterfaceClickMask.redrawInterface(jagexInterface);
 		}
 	}
@@ -36,7 +36,7 @@ class Node {
 			interfaceCache = null;
 			anIntArray1151 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.TA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ni.TA(").append(i).append(')').toString());
 		}
 	}
 
@@ -56,10 +56,10 @@ class Node {
 			int i_16_ = i_10_ * ((i_6_ << 1) + 3);
 			int i_17_ = i_15_ * (1 + i_6_);
 			int i_18_ = (-3 + (i_5_ << 1)) * i_9_;
-			if (i >= Class120_Sub30_Sub2.anInt3699 && Class139.anInt1334 >= i) {
-				final int i_19_ = Class3.method83(Class32.anInt260, i_3_ + i_2_, 1, Class120_Sub14_Sub11.anInt3544);
-				final int i_20_ = Class3.method83(Class32.anInt260, i_3_ - i_2_, 1, Class120_Sub14_Sub11.anInt3544);
-				Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i], i_1_, i_20_, i_19_);
+			if (i >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i) {
+				final int i_19_ = Class3.method83(Class32.anInt260, i_3_ + i_2_, 1, ParamType.anInt3544);
+				final int i_20_ = Class3.method83(Class32.anInt260, i_3_ - i_2_, 1, ParamType.anInt3544);
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_1_, i_20_, i_19_);
 			}
 			int i_21_ = i_14_ * (i_5_ + -1);
 			while (i_5_ > 0) {
@@ -86,19 +86,19 @@ class Node {
 				i_21_ -= i_14_;
 				final int i_23_ = i_5_ + i;
 				i_18_ -= i_14_;
-				if (i_23_ >= Class120_Sub30_Sub2.anInt3699 && Class139.anInt1334 >= i_22_) {
-					final int i_24_ = Class3.method83(Class32.anInt260, i_6_ + i_3_, 1, Class120_Sub14_Sub11.anInt3544);
-					final int i_25_ = Class3.method83(Class32.anInt260, i_3_ - i_6_, 1, Class120_Sub14_Sub11.anInt3544);
+				if (i_23_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_22_) {
+					final int i_24_ = Class3.method83(Class32.anInt260, i_6_ + i_3_, 1, ParamType.anInt3544);
+					final int i_25_ = Class3.method83(Class32.anInt260, i_3_ - i_6_, 1, ParamType.anInt3544);
 					if (Class120_Sub30_Sub2.anInt3699 <= i_22_) {
-						Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_22_], i_1_, i_25_, i_24_);
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_1_, i_25_, i_24_);
 					}
-					if (i_23_ <= Class139.anInt1334) {
-						Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_23_], i_1_, i_25_, i_24_);
+					if (i_23_ <= IdentityKit.anInt1334) {
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_23_], i_1_, i_25_, i_24_);
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.AB(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ni.AB(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
 		}
 	}
 
@@ -123,11 +123,11 @@ class Node {
 				return new StringBuilder(" <col=00ff80>").append(string_27_.substring(0, string_27_.length() - 8)).append(Class120_Sub19.aString2653).append(" (").append(string_27_).append(")</col>").toString();
 			}
 			if (string_27_.length() > 6) {
-				return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, -4 + string_27_.length())).append(Class91.aString854).append(" (").append(string_27_).append(")</col>").toString();
+				return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, -4 + string_27_.length())).append(MouseRecorder.aString854).append(" (").append(string_27_).append(")</col>").toString();
 			}
 			string = new StringBuilder(" <col=ffff00>").append(string_27_).append("</col>").toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ni.WA(").append(i).append(',').append(i_26_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ni.WA(").append(i).append(',').append(i_26_).append(')').toString());
 		}
 		return string;
 	}

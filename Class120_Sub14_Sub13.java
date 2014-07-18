@@ -5,7 +5,7 @@
 final class Class120_Sub14_Sub13 extends NodeSub {
 	private final Class120_Sub12 aClass120_Sub12_3559;
 	private final int[] anIntArray3560;
-	static int anInt3561;
+	static int runesId;
 	private final Class120_Sub12 aClass120_Sub12_3562;
 	static int anInt3563;
 	static Cache aClass21_3564 = new Cache(4);
@@ -28,17 +28,17 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			i_0_ = i_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.I(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.I(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return i_0_;
 	}
 
-	final LDSprite method1525(final double d, final int i, final int i_4_, final Interface3 interface3, final Class50 class50, final int i_5_, final boolean bool) {
+	final LDSprite method1525(final double d, final int i, final int i_4_, final Interface3 interface3, final js5 js5, final int i_5_, final boolean bool) {
 		LDSprite class120_sub14_sub19_sub2;
 		try {
 			Class11.method124(d, (byte) -78);
 			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = class50;
+			Class10.aClass50_79 = js5;
 			if (i >= -35) {
 				aShort3570 = (short) 117;
 			}
@@ -56,12 +56,12 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				int[] is_10_;
 				int[] is_11_;
 				if (aClass120_Sub12_3566.aBoolean2558) {
-					final int[] is_12_ = aClass120_Sub12_3566.method1187(-1735, i_9_);
+					final int[] is_12_ = aClass120_Sub12_3566.method1187(i_9_);
 					is_11_ = is_12_;
 					is = is_12_;
 					is_10_ = is_12_;
 				} else {
-					final int[][] is_13_ = aClass120_Sub12_3566.method1188(i_9_, -29869);
+					final int[][] is_13_ = aClass120_Sub12_3566.method1188(i_9_);
 					is = is_13_[1];
 					is_10_ = is_13_[2];
 					is_11_ = is_13_[0];
@@ -105,19 +105,19 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			class120_sub14_sub19_sub2 = class120_sub14_sub19_sub2_6_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.F(").append(d).append(',').append(i).append(',').append(i_4_).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_5_)
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.F(").append(d).append(',').append(i).append(',').append(i_4_).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_5_)
 					.append(',').append(bool).append(')').toString());
 		}
 		return class120_sub14_sub19_sub2;
 	}
 
-	final int[] method1526(final int i, final byte i_20_, final int i_21_, final Class50 class50, final double d, final Interface3 interface3, final boolean bool) {
+	final int[] method1526(final int i, final byte i_20_, final int i_21_, final js5 js5, final double d, final Interface3 interface3, final boolean bool) {
 		int[] is;
 		try {
 			final int[] is_22_ = new int[i_21_ * i * 4];
 			Class11.method124(d, (byte) -78);
 			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = class50;
+			Class10.aClass50_79 = js5;
 			Class22.method199(i, i_21_, false);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 				element.method1190(i_21_, 87, i);
@@ -132,21 +132,21 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				int[] is_28_;
 				int[] is_29_;
 				if (!aClass120_Sub12_3566.aBoolean2558) {
-					final int[][] is_30_ = aClass120_Sub12_3566.method1188(i_26_, -29869);
+					final int[][] is_30_ = aClass120_Sub12_3566.method1188(i_26_);
 					is_28_ = is_30_[0];
 					is_29_ = is_30_[2];
 					is_27_ = is_30_[1];
 				} else {
-					final int[] is_31_ = aClass120_Sub12_3566.method1187(-1735, i_26_);
+					final int[] is_31_ = aClass120_Sub12_3566.method1187(i_26_);
 					is_27_ = is_31_;
 					is_28_ = is_31_;
 					is_29_ = is_31_;
 				}
 				int[] is_32_;
 				if (!aClass120_Sub12_3559.aBoolean2558) {
-					is_32_ = aClass120_Sub12_3559.method1188(i_26_, -29869)[0];
+					is_32_ = aClass120_Sub12_3559.method1188(i_26_)[0];
 				} else {
-					is_32_ = aClass120_Sub12_3559.method1187(-1735, i_26_);
+					is_32_ = aClass120_Sub12_3559.method1187(i_26_);
 				}
 				for (int i_33_ = i + -1; i_33_ >= 0; i_33_--) {
 					int i_34_ = is_28_[i_33_] >> 4;
@@ -196,8 +196,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			is = is_22_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("ln.A(").append(i).append(',').append(i_20_).append(',').append(i_21_).append(',').append(class50 != null ? "{...}" : "null").append(',').append(d).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception,
+					new StringBuilder("ln.A(").append(i).append(',').append(i_20_).append(',').append(i_21_).append(',').append(js5 != null ? "{...}" : "null").append(',').append(d).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 		return is;
 	}
@@ -206,11 +206,11 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		try {
 			aClass21_3564 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.G(").append(i).append(')').toString());
 		}
 	}
 
-	final float[] method1528(final int i, final byte i_38_, final boolean bool, final Interface3 interface3, final Class50 class50, final int i_39_) {
+	final float[] method1528(final int i, final byte i_38_, final boolean bool, final Interface3 interface3, final js5 js5, final int i_39_) {
 		float[] fs;
 		try {
 			if (i_38_ > -79) {
@@ -218,7 +218,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			CanvasWrapper.anInterface3_19 = interface3;
 			final float[] fs_40_ = new float[4 * i_39_ * i];
-			Class10.aClass50_79 = class50;
+			Class10.aClass50_79 = js5;
 			Class22.method199(i_39_, i, false);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 				element.method1190(i, 100, i_39_);
@@ -232,27 +232,27 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				int[] is_44_;
 				int[] is_45_;
 				if (!aClass120_Sub12_3566.aBoolean2558) {
-					final int[][] is_46_ = aClass120_Sub12_3566.method1188(i_43_, -29869);
+					final int[][] is_46_ = aClass120_Sub12_3566.method1188(i_43_);
 					is_44_ = is_46_[1];
 					is_45_ = is_46_[0];
 					is = is_46_[2];
 				} else {
-					final int[] is_47_ = aClass120_Sub12_3566.method1187(-1735, i_43_);
+					final int[] is_47_ = aClass120_Sub12_3566.method1187(i_43_);
 					is = is_47_;
 					is_44_ = is_47_;
 					is_45_ = is_47_;
 				}
 				int[] is_48_;
 				if (aClass120_Sub12_3559.aBoolean2558) {
-					is_48_ = aClass120_Sub12_3559.method1187(-1735, i_43_);
+					is_48_ = aClass120_Sub12_3559.method1187(i_43_);
 				} else {
-					is_48_ = aClass120_Sub12_3559.method1188(i_43_, -29869)[0];
+					is_48_ = aClass120_Sub12_3559.method1188(i_43_)[0];
 				}
 				int[] is_49_;
 				if (aClass120_Sub12_3562.aBoolean2558) {
-					is_49_ = aClass120_Sub12_3562.method1187(-1735, i_43_);
+					is_49_ = aClass120_Sub12_3562.method1187(i_43_);
 				} else {
-					is_49_ = aClass120_Sub12_3562.method1188(i_43_, -29869)[0];
+					is_49_ = aClass120_Sub12_3562.method1188(i_43_)[0];
 				}
 				for (int i_50_ = i_39_ - 1; i_50_ >= 0; i_50_--) {
 					float f = is_48_[i_50_] / 4096.0F;
@@ -276,13 +276,13 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			fs = fs_40_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.H(").append(i).append(',').append(i_38_).append(',').append(bool).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_39_)
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.H(").append(i).append(',').append(i_38_).append(',').append(bool).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_39_)
 					.append(')').toString());
 		}
 		return fs;
 	}
 
-	final boolean method1529(final Interface3 interface3, final Class50 class50, final int i) {
+	final boolean method1529(final Interface3 interface3, final js5 js5, final int i) {
 		boolean bool;
 		try {
 			if (i > -25) {
@@ -290,13 +290,13 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			if (Class120_Sub12_Sub25.anInt3316 > 0) {
 				for (int i_53_ = 0; i_53_ < anIntArray3568.length; i_53_++) {
-					if (!class50.method440(Class120_Sub12_Sub25.anInt3316, true, anIntArray3568[i_53_])) {
+					if (!js5.method440(Class120_Sub12_Sub25.anInt3316, true, anIntArray3568[i_53_])) {
 						return false;
 					}
 				}
 			} else {
 				for (int i_54_ = 0; anIntArray3568.length > i_54_; i_54_++) {
-					if (!class50.method429(anIntArray3568[i_54_])) {
+					if (!js5.method429(anIntArray3568[i_54_])) {
 						return false;
 					}
 				}
@@ -308,17 +308,17 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ln.D(").append(interface3 != null ? "{...}" : "null").append(',').append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.D(").append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return bool;
 	}
 
-	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final Class50 class50, final int i_56_, final double d, final int i_57_, final boolean bool) {
+	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final js5 js5, final int i_56_, final double d, final int i_57_, final boolean bool) {
 		LDTransparentSprite class120_sub14_sub19_sub2_sub1;
 		try {
 			Class11.method124(d, (byte) -78);
 			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = class50;
+			Class10.aClass50_79 = js5;
 			Class22.method199(i_57_, i, false);
 			final LDTransparentSprite class120_sub14_sub19_sub2_sub1_58_ = new LDTransparentSprite(i_57_, i);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
@@ -333,21 +333,21 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				int[] is_62_;
 				int[] is_63_;
 				if (aClass120_Sub12_3566.aBoolean2558) {
-					final int[] is_64_ = aClass120_Sub12_3566.method1187(-1735, i_61_);
+					final int[] is_64_ = aClass120_Sub12_3566.method1187(i_61_);
 					is_62_ = is_64_;
 					is_63_ = is_64_;
 					is = is_64_;
 				} else {
-					final int[][] is_65_ = aClass120_Sub12_3566.method1188(i_61_, -29869);
+					final int[][] is_65_ = aClass120_Sub12_3566.method1188(i_61_);
 					is = is_65_[0];
 					is_62_ = is_65_[1];
 					is_63_ = is_65_[2];
 				}
 				int[] is_66_;
 				if (!aClass120_Sub12_3559.aBoolean2558) {
-					is_66_ = aClass120_Sub12_3559.method1188(i_61_, -29869)[0];
+					is_66_ = aClass120_Sub12_3559.method1188(i_61_)[0];
 				} else {
-					is_66_ = aClass120_Sub12_3559.method1187(-1735, i_61_);
+					is_66_ = aClass120_Sub12_3559.method1187(i_61_);
 				}
 				for (int i_67_ = -1 + i_57_; i_67_ >= 0; i_67_--) {
 					int i_68_ = is[i_67_] >> 4;
@@ -397,8 +397,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			class120_sub14_sub19_sub2_sub1 = class120_sub14_sub19_sub2_sub1_58_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("ln.C(").append(i).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_56_).append(',').append(d).append(',').append(i_57_).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception,
+					new StringBuilder("ln.C(").append(i).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_56_).append(',').append(d).append(',').append(i_57_).append(',').append(bool).append(')').toString());
 		}
 		return class120_sub14_sub19_sub2_sub1;
 	}
@@ -416,7 +416,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			i_73_ = 2;
 		}
 		if (Class173.anInt1724 != i) {
-			if (!Class120_Sub14_Sub11.aBoolean3545) {
+			if (!ParamType.aBoolean3545) {
 				if (Class173.anInt1724 != 0) {
 					Class157.shaders[Class173.anInt1724].method2();
 				}
@@ -434,12 +434,12 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		}
 	}
 
-	final int[] method1533(final double d, final boolean bool, final int i, final Class50 class50, final Interface3 interface3, final int i_75_, final boolean bool_76_, final int i_77_) {
+	final int[] method1533(final double d, final boolean bool, final int i, final js5 js5, final Interface3 interface3, final int i_75_, final boolean bool_76_, final int i_77_) {
 		int[] is;
 		try {
 			Class11.method124(d, (byte) -78);
 			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = class50;
+			Class10.aClass50_79 = js5;
 			Class22.method199(i_77_, i_75_, false);
 			final int[] is_78_ = new int[i_77_ * i_75_];
 			Class120_Sub12[] class120_sub12s;
@@ -468,12 +468,12 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 				int[] is_86_;
 				int[] is_87_;
 				if (!aClass120_Sub12_3566.aBoolean2558) {
-					final int[][] is_88_ = aClass120_Sub12_3566.method1188(i_84_, i + -60188);
+					final int[][] is_88_ = aClass120_Sub12_3566.method1188(i_84_);
 					is_87_ = is_88_[0];
 					is_86_ = is_88_[2];
 					is_85_ = is_88_[1];
 				} else {
-					final int[] is_89_ = aClass120_Sub12_3566.method1187(-1735, i_84_);
+					final int[] is_89_ = aClass120_Sub12_3566.method1187(i_84_);
 					is_85_ = is_89_;
 					is_86_ = is_89_;
 					is_87_ = is_89_;
@@ -517,8 +517,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			is = is_78_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("ln.E(").append(d).append(',').append(bool).append(',').append(i).append(',').append(class50 != null ? "{...}" : "null").append(',').append(interface3 != null ? "{...}" : "null").append(',').append(i_75_).append(',').append(bool_76_).append(',').append(i_77_)
+			throw EnumType.method1428(runtimeexception,
+					new StringBuilder("ln.E(").append(d).append(',').append(bool).append(',').append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(interface3 != null ? "{...}" : "null").append(',').append(i_75_).append(',').append(bool_76_).append(',').append(i_77_)
 							.append(')').toString());
 		}
 		return is;
@@ -543,7 +543,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		int i_96_ = 0;
 		final int[][] is = new int[i_95_][];
 		for (int i_97_ = 0; i_97_ < i_95_; i_97_++) {
-			final Class120_Sub12 class120_sub12 = Class141.method2003(class120_sub7, 18120);
+			final Class120_Sub12 class120_sub12 = PlainTile.method2003(class120_sub7, 18120);
 			if (class120_sub12.method1181(-1) >= 0) {
 				i++;
 			}
@@ -582,8 +582,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		aClass120_Sub12_3562 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
 	}
 
-	static final LDSprite method1534(final Class50 class50, final int i_105_, final int i_106_) {
-		if (!Class10.method121(class50, i_105_, i_106_)) {
+	static final LDSprite method1534(final js5 js5, final int i_105_, final int i_106_) {
+		if (!Class10.decodedSprites(js5, i_105_, i_106_)) {
 			return null;
 		}
 		return Class85.method722();

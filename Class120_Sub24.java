@@ -36,7 +36,7 @@ final class Class120_Sub24 extends Node {
 				menuWidth = -65;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ra.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ra.A(").append(i).append(')').toString());
 		}
 	}
 }

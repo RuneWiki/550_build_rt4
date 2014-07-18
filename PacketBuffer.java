@@ -36,7 +36,7 @@ final class PacketBuffer extends Buffer {
 				Class127.anInt1215 = -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.KC(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.KC(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -47,7 +47,7 @@ final class PacketBuffer extends Buffer {
 			}
 			anInt3121 = 8 * this.pos;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.PC(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.PC(").append(i).append(')').toString());
 		}
 	}
 
@@ -115,11 +115,11 @@ final class PacketBuffer extends Buffer {
 						}
 						highWaterDetail = class120_sub7.getUByte() == 1;
 						Decimator.fogEnabled = class120_sub7.getUByte() == 1;
-						AbstractMouseWheelHandler.anInt117 = class120_sub7.getUByte();
-						if (AbstractMouseWheelHandler.anInt117 > 2) {
-							AbstractMouseWheelHandler.anInt117 = 2;
+						AbstractMouseWheelHandler.antiAliasingSamplesWrapper = class120_sub7.getUByte();
+						if (AbstractMouseWheelHandler.antiAliasingSamplesWrapper > 2) {
+							AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 2;
 						}
-						Class36.antiAliasingSamples = AbstractMouseWheelHandler.anInt117;
+						Class36.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
 						Class167.aBoolean1619 = class120_sub7.getUByte() == 1;
 						Class111.anInt1061 = class120_sub7.getUByte();
 						if (Class111.anInt1061 > 127) {
@@ -142,7 +142,7 @@ final class PacketBuffer extends Buffer {
 							if (Class120_Sub14_Sub13.maxMemory < 96) {
 								i_3_ = 0;
 							}
-							ParticleEngine.method952(i_3_);
+							ParticleEngine.setParticles(i_3_);
 						}
 						if (i_1_ >= 5) {
 							Class120_Sub19.anInt2657 = class120_sub7.getInt();
@@ -172,7 +172,7 @@ final class PacketBuffer extends Buffer {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.NC(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.NC(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -195,7 +195,7 @@ final class PacketBuffer extends Buffer {
 				highWaterDetail = false;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.EC(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.EC(").append(i).append(')').toString());
 		}
 	}
 
@@ -216,7 +216,7 @@ final class PacketBuffer extends Buffer {
 				highWaterDetail = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.JC(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.JC(").append(i).append(')').toString());
 		}
 	}
 
@@ -226,7 +226,7 @@ final class PacketBuffer extends Buffer {
 				Class120_Sub12_Sub9.aClass21_3196.clear();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.CC(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.CC(").append(i).append(')').toString());
 		}
 	}
 
@@ -242,7 +242,7 @@ final class PacketBuffer extends Buffer {
 			}
 			i_10_ = 8 * i - anInt3121;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wa.DC(").append(i).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.DC(").append(i).append(',').append(i_9_).append(')').toString());
 		}
 		return i_10_;
 	}

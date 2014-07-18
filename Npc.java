@@ -3,10 +3,10 @@
  */
 
 final class Npc extends GameEntity {
-	static Hashtable aClass75_3750 = new Hashtable(16);
+	static Hashtable playerAmbientSounds = new Hashtable(16);
 	NpcType npcType;
 	static String aString3752;
-	static Class50 aClass50_3753;
+	static js5 aClass50_3753;
 	static byte[][][] aByteArrayArrayArray3754;
 
 	final void setNpcType(final NpcType npcType) {
@@ -29,7 +29,7 @@ final class Npc extends GameEntity {
 		try {
 			if (this.npcType != null) {
 				final SeqType seqType = (this.anInt3006 ^ 0xffffffff) == 0 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
-				final SeqType class40_8_ = (this.anInt3004 ^ 0xffffffff) != 0 && (this.anInt3004 != method2336((byte) 96).anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
+				final SeqType class40_8_ = (this.anInt3004 ^ 0xffffffff) != 0 && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
 				Class180_Sub7 class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -102, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 				if (class180_sub7 != null) {
 					this.anInt3018 = class180_sub7.getMaxY();
@@ -102,7 +102,7 @@ final class Npc extends GameEntity {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.T(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(l)
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.T(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(l)
 					.append(',').append(i_7_).append(',').append(class108_sub2 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
@@ -113,7 +113,7 @@ final class Npc extends GameEntity {
 		try {
 			i = this.anInt3018;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "p.MA()");
+			throw EnumType.method1428(runtimeexception, "p.MA()");
 		}
 		return i;
 	}
@@ -125,7 +125,7 @@ final class Npc extends GameEntity {
 				this.aClass108_Sub2_2988.method953();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "p.finalize()");
+			throw EnumType.method1428(runtimeexception, "p.finalize()");
 		}
 	}
 
@@ -135,7 +135,7 @@ final class Npc extends GameEntity {
 			if (this.npcType != null) {
 				if (!this.aBoolean3007) {
 					final SeqType seqType = this.anInt3006 != -1 && this.anInt2993 == 0 ? SeqType.list(this.anInt3006) : null;
-					final SeqType class40_16_ = this.anInt3004 == -1 || this.anInt3004 == method2336((byte) 63).anInt218 && seqType != null ? null : SeqType.list(this.anInt3004);
+					final SeqType class40_16_ = this.anInt3004 == -1 || this.anInt3004 == method2336().anInt218 && seqType != null ? null : SeqType.list(this.anInt3004);
 					final Class180_Sub7 class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -119, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 					if (class180_sub7 == null) {
 						return;
@@ -147,7 +147,7 @@ final class Npc extends GameEntity {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.BB(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.BB(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(')').toString());
 		}
 	}
 
@@ -155,13 +155,13 @@ final class Npc extends GameEntity {
 		try {
 			aString3752 = null;
 			aClass50_3753 = null;
-			aClass75_3750 = null;
+			playerAmbientSounds = null;
 			if (i != 2980) {
 				method2348(-78, -35, 3, -80, (byte) -86);
 			}
 			aByteArrayArrayArray3754 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.S(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.S(").append(i).append(')').toString());
 		}
 	}
 
@@ -186,7 +186,7 @@ final class Npc extends GameEntity {
 			}
 			Class127.method1889((byte) -103);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
 		}
 	}
 
@@ -195,7 +195,7 @@ final class Npc extends GameEntity {
 		int i;
 		try {
 			if (bool) {
-				aClass75_3750 = null;
+				playerAmbientSounds = null;
 			}
 			if (this.npcType.childrenIDs != null) {
 				final NpcType npcType = this.npcType.handleVarp();
@@ -205,7 +205,7 @@ final class Npc extends GameEntity {
 			}
 			i = this.anInt2982;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.I(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.I(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -260,7 +260,7 @@ final class Npc extends GameEntity {
 			}
 			bool = bool_25_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("p.U(").append(i).append(',').append(i_23_).append(',').append(i_24_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("p.U(").append(i).append(',').append(i_23_).append(',').append(i_24_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool;
 	}

@@ -26,7 +26,7 @@ final class HDToolkit {
 	private static int anInt515;
 	static int anInt516;
 	private static String aString517;
-	private static GLDrawable aGLDrawable518;
+	private static GLDrawable glDrawable;
 	private static String aString519;
 	static boolean aBoolean520;
 	private static int viewportOffsetY;
@@ -205,11 +205,11 @@ final class HDToolkit {
 				glcapabilities.setNumSamples(i);
 			}
 			final GLDrawableFactory gldrawablefactory = GLDrawableFactory.getFactory();
-			aGLDrawable518 = gldrawablefactory.getGLDrawable(canvas, glcapabilities, null);
-			aGLDrawable518.setRealized(true);
+			glDrawable = gldrawablefactory.getGLDrawable(canvas, glcapabilities, null);
+			glDrawable.setRealized(true);
 			int i_18_ = 0;
 			for (;;) {
-				aGLContext522 = aGLDrawable518.createContext(glcontext);
+				aGLContext522 = glDrawable.createContext(glcontext);
 				try {
 					final int i_19_ = aGLContext522.makeCurrent();
 					if (i_19_ != 0) {
@@ -238,7 +238,7 @@ final class HDToolkit {
 			i_18_ = 0;
 			for (;;) {
 				try {
-					aGLDrawable518.swapBuffers();
+					glDrawable.swapBuffers();
 					break;
 				} catch (final Exception exception) {
 					if (i_18_++ > 5) {
@@ -353,7 +353,7 @@ final class HDToolkit {
 		aString517 = null;
 		aString519 = null;
 		gl = null;
-		aGLDrawable518 = null;
+		glDrawable = null;
 		aGLContext522 = null;
 		aFloatArray532 = null;
 	}
@@ -411,13 +411,13 @@ final class HDToolkit {
 			}
 			aGLContext522 = null;
 		}
-		if (aGLDrawable518 != null) {
+		if (glDrawable != null) {
 			try {
-				aGLDrawable518.setRealized(false);
+				glDrawable.setRealized(false);
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
-			aGLDrawable518 = null;
+			glDrawable = null;
 		}
 		LightManager.method1870();
 		glEnabled = false;
@@ -683,7 +683,7 @@ final class HDToolkit {
 
 	static final void method536() {
 		try {
-			aGLDrawable518.swapBuffers();
+			glDrawable.swapBuffers();
 		} catch (final Exception exception) {
 			/* empty */
 		}

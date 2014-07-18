@@ -20,7 +20,7 @@ final class Class115 {
 			i_1_ = Class120_Sub12_Sub38.anInt3440 * 128 - 1;
 		}
 		Class69_Sub2.anInt2239 = Rasterizer.sineTable[i_2_];
-		Class120_Sub17.anInt2616 = Rasterizer.cosineTable[i_2_];
+		ObjectContainer.anInt2616 = Rasterizer.cosineTable[i_2_];
 		Class120_Sub12_Sub30.anInt3377 = Rasterizer.sineTable[i_3_];
 		Class73.anInt637 = Rasterizer.cosineTable[i_3_];
 		DisplayModeInfo.anInt1713 = i;
@@ -83,32 +83,23 @@ final class Class115 {
 		JagexInterface.method2500();
 		if (Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 != null) {
 			Class178.method2257(true);
-			Class120_Sub14_Sub16.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);
+			StructType.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);
 			if (HDToolkit.glEnabled) {
-				Class120_Sub14_Sub11.aBoolean3545 = false;
+				ParamType.aBoolean3545 = false;
 				Class120_Sub14_Sub13.method1532(0, 0);
 				Class117.method1011(null);
 				LightManager.method1859();
 			}
 			Class178.method2257(false);
 		}
-		Class120_Sub14_Sub16.method1561(i, i_0_, i_1_, is, i_9_, i_10_, i_11_, i_12_);
+		StructType.method1561(i, i_0_, i_1_, is, i_9_, i_10_, i_11_, i_12_);
 	}
 
-	static final LDSprite[] method1008(final int i, final int i_24_, final byte i_25_, final Class50 class50) {
-		LDSprite[] class120_sub14_sub19_sub2s;
-		try {
-			if (i_25_ >= -97) {
-				return null;
-			}
-			if (!Class10.method121(class50, i_24_, i)) {
-				return null;
-			}
-			class120_sub14_sub19_sub2s = Class120_Sub1.method1039(5325);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mj.A(").append(i).append(',').append(i_24_).append(',').append(i_25_).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+	static final LDSprite[] constructLDSprites(final js5 js5, final int i_24_, final int i) {
+		if (!Class10.decodedSprites(js5, i_24_, i)) {
+			return null;
 		}
-		return class120_sub14_sub19_sub2s;
+		return LabelGroup.constructLDSprites();
 	}
 
 	public Class115() {

@@ -5,11 +5,11 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 final class Class90 {
-	private Class50 aClass50_839;
+	private js5 aClass50_839;
 	static Cache playerHeadModelsCache = new Cache(5);
-	private final Class50 aClass50_841;
+	private final js5 aClass50_841;
 	private final Hashtable aClass75_842 = new Hashtable(256);
-	static Class50 aClass50_843;
+	static js5 aClass50_843;
 	static Calendar aCalendar844;
 	static boolean aBoolean845 = false;
 	static boolean aBoolean846;
@@ -30,28 +30,14 @@ final class Class90 {
 			anIntArray849 = null;
 			aClass50_843 = null;
 			if (i != 54) {
-				constructSprites();
+				constructTransparentSprites();
 			}
 			aClass82_850 = null;
 			aCalendar844 = null;
 			playerHeadModelsCache = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.I(").append(i).append(')').toString());
 		}
-	}
-
-	static final Class120_Sub14_Sub2 method751(final int i_0_) {
-		Class120_Sub14_Sub2 class120_sub14_sub2_1_ = (Class120_Sub14_Sub2) Class54.aClass35_491.method302(17301, i_0_);
-		if (class120_sub14_sub2_1_ != null) {
-			return class120_sub14_sub2_1_;
-		}
-		final byte[] is = Class24.aClass50_145.getFile(Class65.method576(i_0_, (byte) 70), Class120_Sub6.method1070(-123, i_0_));
-		class120_sub14_sub2_1_ = new Class120_Sub14_Sub2();
-		if (is != null) {
-			class120_sub14_sub2_1_.method1425(false, new Buffer(is));
-		}
-		Class54.aClass35_491.method301(i_0_, 103, class120_sub14_sub2_1_);
-		return class120_sub14_sub2_1_;
 	}
 
 	private final Class120_Sub5_Sub1 method752(final int i, final int[] is, final int i_2_, final int i_3_) {
@@ -81,7 +67,7 @@ final class Class90 {
 			}
 			class120_sub5_sub1 = class120_sub5_sub1_5_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.E(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.E(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 		return class120_sub5_sub1;
 	}
@@ -96,7 +82,7 @@ final class Class90 {
 			}
 			throw new RuntimeException();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.B(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.B(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(')').toString());
 		}
 	}
 
@@ -129,7 +115,7 @@ final class Class90 {
 			aClass75_851.put(class120_sub5_sub1_10_, l);
 			class120_sub5_sub1 = class120_sub5_sub1_10_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.H(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.H(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 		return class120_sub5_sub1;
 	}
@@ -137,10 +123,10 @@ final class Class90 {
 	static final void method755(final int i, final int i_11_, final String string) {
 		try {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(i);
-			Class120_Sub12_Sub11.outputStream.putLong(Class70.stringToLong(string));
+			Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
 			Class120_Sub12_Sub11.outputStream.putByteC(i_11_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.J(").append(i).append(',').append(i_11_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.J(").append(i).append(',').append(i_11_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -157,68 +143,53 @@ final class Class90 {
 			}
 			throw new RuntimeException();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_12_).append(')').toString());
 		}
 	}
 
-	static final void method757(final byte i) {
-		try {
-			for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-				final int i_13_ = class120_sub26.interfaceId;
-				if (Class50.loadInterface(i_13_)) {
-					boolean bool = true;
-					final JagexInterface[] class189s = Node.interfaceCache[i_13_];
-					JagexInterface[] class189s_15_;
-					final int i_14_ = (class189s_15_ = class189s).length;
-					for (int i_16_ = 0; i_16_ < i_14_; i_16_++) {
-						final JagexInterface jagexInterface = class189s_15_[i_16_];
-						if (jagexInterface != null) {
-							bool = jagexInterface.aBoolean2041;
-							break;
-						}
+	static final void redrawOldFormatOverridedInterfaces() {
+		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+			final int interfaceId = overridedInterface.interfaceId;
+			if (js5.loadInterface(interfaceId)) {
+				boolean newFormat = true;
+				final JagexInterface[] cache = Node.interfaceCache[interfaceId];
+				for (int id = 0; id < cache.length; id++) {
+					final JagexInterface jagexInterface = cache[id];
+					if (jagexInterface != null) {
+						newFormat = jagexInterface.newFormat;
+						break;
 					}
-					if (!bool) {
-						final int i_17_ = (int) class120_sub26.uid;
-						final JagexInterface jagexInterface = Class74.getJagexInterface(i_17_);
-						if (jagexInterface != null) {
-							InterfaceClickMask.redrawInterface(jagexInterface);
-						}
+				}
+				if (!newFormat) {
+					final int uid = (int) overridedInterface.uid;
+					final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
+					if (jagexInterface != null) {
+						InterfaceClickMask.redrawInterface(jagexInterface);
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method758(final int i) {
-		do {
-			try {
-				Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
-				for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-					if (class120_sub26.type == 0) {
-						Class120_Sub19.removeOverridedInterface(class120_sub26, true);
-					}
-				}
-				if (Class156.aClass189_1454 != null) {
-					InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
-					Class156.aClass189_1454 = null;
-				}
-				if (i != 0) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jk.C(").append(i).append(')').toString());
+	static final void removeOverridedInterfaces() {
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
+		for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+			if (class120_sub26.type == 0) {
+				Class120_Sub19.removeOverridedInterface(class120_sub26, true);
 			}
-		} while (false);
+		}
+		if (Class156.aClass189_1454 != null) {
+			InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
+			Class156.aClass189_1454 = null;
+		}
 	}
 
-	static final AbstractSprite[] constructSprites() {
+	static final AbstractSprite[] constructTransparentSprites() {
 		final AbstractSprite[] sprites = new AbstractSprite[Class93.spriteAmount];
 		for (int spriteId = 0; spriteId < Class93.spriteAmount; spriteId++) {
 			final int pixelAmt = Class120_Sub12_Sub11.spriteWidths[spriteId] * Class120_Sub12_Sub39.spriteHeights[spriteId];
 			final byte[] paletteIndicators = Class145.spritePaletteIndicators[spriteId];
-			if (!Class141.spriteHasAlpha[spriteId]) {
+			if (!PlainTile.spriteHasAlpha[spriteId]) {
 				final int[] pixels = new int[pixelAmt];
 				for (int pixelId = 0; pixelId < pixelAmt; pixelId++) {
 					pixels[pixelId] = Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff];
@@ -245,8 +216,8 @@ final class Class90 {
 		return sprites;
 	}
 
-	Class90(final Class50 class50, final Class50 class50_26_) {
+	Class90(final js5 js5, final js5 class50_26_) {
 		aClass50_839 = class50_26_;
-		aClass50_841 = class50;
+		aClass50_841 = js5;
 	}
 }

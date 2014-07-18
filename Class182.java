@@ -14,17 +14,17 @@ final class Class182 {
 	int anInt1799;
 	SceneGraphNode aClass180_1800;
 	int anInt1801;
-	static Class25[] aClass25Array1802 = new Class25[4];
+	static CollisionMap[] collisionMaps = new CollisionMap[4];
 
 	public static void method2442(final byte i) {
 		try {
 			aClass21_1798 = null;
 			if (i >= 8) {
-				aClass25Array1802 = null;
+				collisionMaps = null;
 				prefixTitles = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ve.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ve.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -39,7 +39,7 @@ final class Class182 {
 			}
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
+			throw EnumType.method1428(runtimeexception,
 					new StringBuilder("ve.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
 		}
 		return bool;
@@ -49,15 +49,15 @@ final class Class182 {
 		return Class136.mouseIdleCycle;
 	}
 
-	static final boolean method2445(final int i) {
+	static final boolean method2445() {
 		boolean bool;
 		try {
-			bool = AbstractTimer.method737(i + 0);
+			bool = AbstractTimer.method737();
 		} catch (final IOException ioexception) {
 			Class100.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.anIntArray2958[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.anIntArray3040[0]).append(" - ").toString();
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.walkQueueZ[0]).append(" - ").toString();
 			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
 				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}
@@ -79,7 +79,7 @@ final class Class182 {
 			final int i_19_ = i_17_ < 8 ? i_13_ : i_12_;
 			i_16_ = ((0x2 & i_17_) != 0 ? -i_18_ : i_18_) + ((0x1 & i_17_) != 0 ? -i_19_ : i_19_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ve.E(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ve.E(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(')').toString());
 		}
 		return i_16_;
 	}

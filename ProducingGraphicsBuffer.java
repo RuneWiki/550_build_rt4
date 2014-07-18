@@ -17,7 +17,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	static int anInt2798;
 	static int anInt2799 = 0;
 	private ImageConsumer imageConsumer;
-	static int[] anIntArray2801 = new int[1000];
+	static int[] intStack = new int[1000];
 
 	@Override
 	public final synchronized void addConsumer(final ImageConsumer imageconsumer) {
@@ -52,7 +52,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	static final void method1850(final int i, final GameEntity class180_sub5) {
 		try {
 			if (class180_sub5.anInt3010 != 0) {
-				final Class29 class29 = class180_sub5.method2336((byte) 90);
+				final Class29 class29 = class180_sub5.method2336();
 				if ((class180_sub5.anInt2981 ^ 0xffffffff) != 0 && 32768 > class180_sub5.anInt2981) {
 					final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[class180_sub5.anInt2981];
 					if (class180_sub5_sub2 != null) {
@@ -64,7 +64,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 					}
 				}
 				if (i <= 119) {
-					anIntArray2801 = null;
+					intStack = null;
 				}
 				if (32768 <= class180_sub5.anInt2981) {
 					int i_5_ = -32768 + class180_sub5.anInt2981;
@@ -195,7 +195,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 									} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
 										class180_sub5.anInt3004 = class29.anInt190;
 									}
-								} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 + -1] == 0) {
+								} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 - 1] == 0) {
 									if ((class29.anInt203 ^ 0xffffffff) == 0) {
 										if (class29.anInt212 != -1) {
 											class180_sub5.anInt3004 = class29.anInt212;
@@ -216,7 +216,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							}
 						} else {
 							if (class180_sub5.anInt2960 > 0) {
-								if (class180_sub5.aByteArray2973[-1 + class180_sub5.anInt2960] == 2) {
+								if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 - 1] == 2) {
 									if ((class29.anInt211 ^ 0xffffffff) == 0) {
 										if (class29.anInt190 != -1) {
 											class180_sub5.anInt3004 = class29.anInt190;
@@ -263,7 +263,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 										} else if (class29.anInt190 != -1) {
 											class180_sub5.anInt3004 = class29.anInt190;
 										}
-									} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 + -1] != 0) {
+									} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 - 1] != 0) {
 										if ((class29.anInt222 ^ 0xffffffff) != 0) {
 											class180_sub5.anInt3004 = class29.anInt222;
 										}
@@ -291,13 +291,13 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 									if (class29.anInt193 != -1) {
 										class180_sub5.anInt3004 = class29.anInt193;
 									}
-								} else if (class180_sub5.aByteArray2973[-1 + class180_sub5.anInt2960] == 2) {
+								} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 - 1] == 2) {
 									if ((class29.anInt194 ^ 0xffffffff) != 0) {
 										class180_sub5.anInt3004 = class29.anInt194;
 									} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
 										class180_sub5.anInt3004 = class29.anInt190;
 									}
-								} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 + -1] != 0) {
+								} else if (class180_sub5.aByteArray2973[class180_sub5.anInt2960 - 1] != 0) {
 									if (class29.anInt202 != -1) {
 										class180_sub5.anInt3004 = class29.anInt202;
 									}
@@ -316,11 +316,11 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.N(").append(i).append(',').append(class180_sub5 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.N(").append(i).append(',').append(class180_sub5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
-	static final int[] method1851(final boolean bool, final Class25[] class25s, final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final byte[] is) {
+	static final int[] method1851(final boolean bool, final CollisionMap[] class25s, final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final byte[] is) {
 		int[] is_22_;
 		try {
 			int i_23_;
@@ -350,7 +350,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			for (/**/; i_23_ > i_29_; i_29_++) {
 				for (int i_30_ = 0; i_30_ < 64; i_30_++) {
 					for (int i_31_ = 0; i_31_ < 64; i_31_++) {
-						Class10.method119(class120_sub7, false, false, bool, i_29_, i_27_ + i_30_, i_31_ + i_28_, i_31_ + i_19_, 0, 0, 0, i_20_ + i_30_);
+						Class10.method119(class120_sub7, false, bool, i_29_, i_27_ + i_30_, i_31_ + i_28_, i_31_ + i_19_, 0, 0, 0, i_20_ + i_30_);
 					}
 				}
 			}
@@ -505,7 +505,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 						final int i_57_ = (i_20_ >> 3) - -i_55_;
 						final int i_58_ = (i_19_ >> 3) + i_56_;
 						if (i_57_ >= 0 && i_57_ < 13 && i_58_ >= 0 && i_58_ < 13) {
-							Class139.aClass191ArrayArray1337[i_57_][i_58_] = class191;
+							IdentityKit.aClass191ArrayArray1337[i_57_][i_58_] = class191;
 						}
 					}
 				}
@@ -525,7 +525,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			}
 			is_22_ = !bool_32_ ? null : CanvasWrapper.anIntArray21;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.O(").append(bool).append(',').append(class25s != null ? "{...}" : "null").append(',').append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.O(").append(bool).append(',').append(class25s != null ? "{...}" : "null").append(',').append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 		return is_22_;
 	}
@@ -539,12 +539,12 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	public static void method1852(final int i) {
 		try {
 			anIntArray2796 = null;
-			anIntArray2801 = null;
+			intStack = null;
 			if (i != -1) {
 				method1853(-97, 89, (byte) -55, -120, 58, -53, -53, -56);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.L(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.L(").append(i).append(')').toString());
 		}
 	}
 
@@ -603,18 +603,18 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				method1852(91);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.P(").append(i).append(',').append(i_66_).append(',').append(i_67_).append(',').append(i_68_).append(',').append(i_69_).append(',').append(i_70_).append(',').append(i_71_).append(',').append(i_72_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.P(").append(i).append(',').append(i_66_).append(',').append(i_67_).append(',').append(i_68_).append(',').append(i_69_).append(',').append(i_70_).append(',').append(i_71_).append(',').append(i_72_).append(')').toString());
 		}
 	}
 
 	static final void method1854(final boolean bool, final boolean bool_75_, final JagexInterface jagexInterface) {
 		try {
-			final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.anInt1948 : jagexInterface.maxScrollHorizontal;
-			final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.anInt2059 : jagexInterface.maxScrollVertical;
+			final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.width : jagexInterface.maxScrollHorizontal;
+			final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.height : jagexInterface.maxScrollVertical;
 			WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_, -120);
 			if (!bool_75_) {
-				if (jagexInterface.aClass189Array2072 != null) {
-					WorldInfo.method2065(jagexInterface.aClass189Array2072, bool, i, jagexInterface.bitPacked, i_76_, -106);
+				if (jagexInterface.components != null) {
+					WorldInfo.method2065(jagexInterface.components, bool, i, jagexInterface.bitPacked, i_76_, -106);
 				}
 				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 				if (class120_sub26 != null) {
@@ -622,7 +622,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tm.K(").append(bool).append(',').append(bool_75_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.K(").append(bool).append(',').append(bool_75_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

@@ -31,7 +31,7 @@ final class FileSystem {
 			if (i_1_ != 13080) {
 				return 64;
 			}
-			int i_4_ = Rasterizer.anIntArray969[Class180_Sub7_Sub1.method2401(i_2_, i)];
+			int i_4_ = Rasterizer.palette[Class180_Sub7_Sub1.method2401(i_2_, i)];
 			if (i_0_ > 0) {
 				final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff, false);
 				if (i_5_ != 0) {
@@ -73,7 +73,7 @@ final class FileSystem {
 			}
 			i_3_ = i_4_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fm.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 		return i_3_;
 	}
@@ -179,7 +179,7 @@ final class FileSystem {
 			}
 			aClass40Array458 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fm.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -187,11 +187,11 @@ final class FileSystem {
 		try {
 			if (i_30_ == 0) {
 				for (int i_34_ = i; i_34_ <= i_31_; i_34_++) {
-					Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_34_], i_32_, i_29_, i_33_);
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_34_], i_32_, i_29_, i_33_);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fm.C(").append(i).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',').append(i_33_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.C(").append(i).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',').append(i_33_).append(')').toString());
 		}
 	}
 
@@ -203,7 +203,7 @@ final class FileSystem {
 			}
 			bool_35_ = c >= '0' && c <= '9';
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fm.I(").append(bool).append(',').append(c).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.I(").append(bool).append(',').append(c).append(')').toString());
 		}
 		return bool_35_;
 	}
@@ -214,13 +214,13 @@ final class FileSystem {
 		try {
 			string = new StringBuilder("Cache:").append(anInt464).toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "fm.toString()");
+			throw EnumType.method1428(runtimeexception, "fm.toString()");
 		}
 		return string;
 	}
 
 	static final void drawMenu() {
-		final int x = Class126.menuDrawX;
+		final int x = Huffman.menuDrawX;
 		final int y = Class120_Sub16.menuDrawY;
 		final int width = Class120_Sub24.menuWidth;
 		final int height = Class120_Sub14_Sub10.menuHeight;
@@ -244,7 +244,7 @@ final class FileSystem {
 			}
 			Class120_Sub12_Sub22.boldFont.method1466(Class121.getMenuOptionName(optionId), x + 3, optionY, optionColor, 0);
 		}
-		Class54.method482(Class126.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub14_Sub10.menuHeight, Class120_Sub24.menuWidth);
+		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 	}
 
 	static final void checkPlayerLocation() {

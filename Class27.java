@@ -27,7 +27,7 @@ final class Class27 {
 			Class120_Sub2.anInt2422 = -1;
 			Class127.method1889((byte) -106);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cm.C(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.C(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -44,7 +44,7 @@ final class Class27 {
 				method238(class120_sub7, (byte) -116, i_0_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cm.E(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.E(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -59,7 +59,7 @@ final class Class27 {
 				this.anInt169 = class120_sub7.getUByte();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("cm.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
@@ -98,22 +98,22 @@ final class Class27 {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
 		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
-		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.method197(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, Class120_Sub10.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
+		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
 		if (Class83.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && Class128.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {
 			Class120_Sub12_Sub31.anInt3384 = 10;
 			NpcType.anInt1660 = 10;
-			Class120_Sub17.anInt2621 = 10;
+			ObjectContainer.anInt2621 = 10;
 			int i_9_ = Class180_Sub3.renderYaw + -i_6_;
 			if (i_3_ < GroundObjectNode.renderZ) {
-				i_3_ += NpcType.anInt1660 + (-i_3_ + GroundObjectNode.renderZ) * Class120_Sub17.anInt2621 / 1000;
+				i_3_ += NpcType.anInt1660 + (-i_3_ + GroundObjectNode.renderZ) * ObjectContainer.anInt2621 / 1000;
 				if (i_3_ < GroundObjectNode.renderZ) {
 					GroundObjectNode.renderZ = i_3_;
 				}
 			}
 			if (GroundObjectNode.renderZ < i_3_) {
-				i_3_ -= NpcType.anInt1660 - -((-GroundObjectNode.renderZ + i_3_) * Class120_Sub17.anInt2621 / 1000);
+				i_3_ -= NpcType.anInt1660 - -((-GroundObjectNode.renderZ + i_3_) * ObjectContainer.anInt2621 / 1000);
 				if (GroundObjectNode.renderZ < i_3_) {
 					GroundObjectNode.renderZ = i_3_;
 				}
@@ -122,26 +122,26 @@ final class Class27 {
 				i_9_ -= 2048;
 			}
 			if (i_4_ < Class120_Sub12_Sub10.renderY) {
-				i_4_ += (Class120_Sub12_Sub10.renderY - i_4_) * Class120_Sub17.anInt2621 / 1000 + NpcType.anInt1660;
+				i_4_ += (Class120_Sub12_Sub10.renderY - i_4_) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
 				if (Class120_Sub12_Sub10.renderY > i_4_) {
 					Class120_Sub12_Sub10.renderY = i_4_;
 				}
 			}
 			if (Class120_Sub12_Sub10.renderY < i_4_) {
-				i_4_ -= Class120_Sub17.anInt2621 * (-Class120_Sub12_Sub10.renderY + i_4_) / 1000 + NpcType.anInt1660;
+				i_4_ -= ObjectContainer.anInt2621 * (-Class120_Sub12_Sub10.renderY + i_4_) / 1000 + NpcType.anInt1660;
 				if (i_4_ > Class120_Sub12_Sub10.renderY) {
 					Class120_Sub12_Sub10.renderY = i_4_;
 				}
 			}
 			if (i_2_ < Class83.renderX) {
-				i_2_ += NpcType.anInt1660 - -(Class120_Sub17.anInt2621 * (Class83.renderX - i_2_) / 1000);
+				i_2_ += NpcType.anInt1660 - -(ObjectContainer.anInt2621 * (Class83.renderX - i_2_) / 1000);
 				if (Class83.renderX > i_2_) {
 					Class83.renderX = i_2_;
 				}
 			}
 			Class101_Sub1.anInt2272 = 10;
 			if (Class83.renderX < i_2_) {
-				i_2_ -= Class120_Sub17.anInt2621 * (i_2_ - Class83.renderX) / 1000 + NpcType.anInt1660;
+				i_2_ -= ObjectContainer.anInt2621 * (i_2_ - Class83.renderX) / 1000 + NpcType.anInt1660;
 				if (Class83.renderX < i_2_) {
 					Class83.renderX = i_2_;
 				}

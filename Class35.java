@@ -9,7 +9,7 @@ final class Class35 {
 	static int[][] anIntArrayArray300;
 	static int anInt301;
 	private final Queue aClass177_302 = new Queue();
-	static Class50 aClass50_303;
+	static js5 aClass50_303;
 	private final Hashtable aClass75_304;
 	private int anInt305;
 	private final int anInt306;
@@ -26,7 +26,7 @@ final class Class35 {
 			Class11.aClass21_80.clear();
 			Class180_Sub4.aClass21_2931.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -39,7 +39,7 @@ final class Class35 {
 				method300(-82, null, -71);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -51,66 +51,51 @@ final class Class35 {
 			}
 			node = aClass75_304.getFirst();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.G(").append(i).append(')').toString());
 		}
 		return node;
 	}
 
-	static final Class120_Sub22 method300(final int i, final Class50 class50, final int i_0_) {
+	static final Class120_Sub22 method300(final int i, final js5 js5, final int i_0_) {
 		Class120_Sub22 class120_sub22;
 		try {
 			if (i_0_ != 112) {
 				method300(81, null, -127);
 			}
-			final byte[] is = class50.method413(i, true);
+			final byte[] is = js5.method413(i, true);
 			if (is == null) {
 				return null;
 			}
 			class120_sub22 = new Class120_Sub22(is);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.F(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.F(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 		}
 		return class120_sub22;
 	}
 
-	final void method301(final long l, final int i, final NodeSub class120_sub14) {
-		try {
-			if (anInt305 != 0) {
-				anInt305--;
-			} else {
-				NodeSub class120_sub14_1_ = aClass177_302.removeFirst();
+	final void put(final NodeSub node, final long uid) {
+		if (anInt305 != 0) {
+			anInt305--;
+		} else {
+			NodeSub class120_sub14_1_ = aClass177_302.removeFirst();
+			class120_sub14_1_.unlink();
+			class120_sub14_1_.unlinkSub();
+			if (aClass120_Sub14_298 == class120_sub14_1_) {
+				class120_sub14_1_ = aClass177_302.removeFirst();
 				class120_sub14_1_.unlink();
 				class120_sub14_1_.unlinkSub();
-				if (aClass120_Sub14_298 == class120_sub14_1_) {
-					class120_sub14_1_ = aClass177_302.removeFirst();
-					class120_sub14_1_.unlink();
-					class120_sub14_1_.unlinkSub();
-				}
 			}
-			aClass75_304.put(class120_sub14, l);
-			if (i > 28) {
-				aClass177_302.insertLast(class120_sub14);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.E(").append(l).append(',').append(i).append(',').append(class120_sub14 != null ? "{...}" : "null").append(')').toString());
 		}
+		aClass75_304.put(node, uid);
+		aClass177_302.insertLast(node);
 	}
 
-	final NodeSub method302(final int i, final long l) {
-		NodeSub class120_sub14;
-		try {
-			if (i != 17301) {
-				return null;
-			}
-			final NodeSub class120_sub14_2_ = (NodeSub) aClass75_304.get(l);
-			if (class120_sub14_2_ != null) {
-				aClass177_302.insertLast(class120_sub14_2_);
-			}
-			class120_sub14 = class120_sub14_2_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.I(").append(i).append(',').append(l).append(')').toString());
+	final NodeSub get(final long uid) {
+		final NodeSub class120_sub14_2_ = (NodeSub) aClass75_304.get(uid);
+		if (class120_sub14_2_ != null) {
+			aClass177_302.insertLast(class120_sub14_2_);
 		}
-		return class120_sub14;
+		return class120_sub14_2_;
 	}
 
 	final Node method303(final int i) {
@@ -121,7 +106,7 @@ final class Class35 {
 			}
 			node = aClass75_304.getNext();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.A(").append(i).append(')').toString());
 		}
 		return node;
 	}
@@ -145,9 +130,9 @@ final class Class35 {
 			if ((i_3_ ^ 0xffffffff) > -10000001) {
 				return new StringBuilder("<col=ffffff>").append(i_3_ / 1000).append(CursorType.aString1238).append("</col>").toString();
 			}
-			string = new StringBuilder("<col=00ff80>").append(i_3_ / 1000000).append(Class120_Sub14_Sub2.aString3455).append("</col>").toString();
+			string = new StringBuilder("<col=00ff80>").append(i_3_ / 1000000).append(EnumType.aString3455).append("</col>").toString();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.J(").append(i).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.J(").append(i).append(',').append(i_3_).append(')').toString());
 		}
 		return string;
 	}
@@ -159,7 +144,7 @@ final class Class35 {
 			aClass120_Sub14_298 = new NodeSub();
 			anInt305 = anInt306;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dj.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.H(").append(i).append(')').toString());
 		}
 	}
 

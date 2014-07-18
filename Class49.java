@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 final class Class49 {
 	static int anInt438;
 	boolean aBoolean439 = false;
-	static Class50 aClass50_440;
+	static js5 aClass50_440;
 	static JagexInterface aClass189_441;
 	int anInt442;
 	ByteBuffer aByteBuffer443;
@@ -20,7 +20,7 @@ final class Class49 {
 				aClass50_440 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ff.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -35,7 +35,7 @@ final class Class49 {
 			}
 			i_0_ = Class157.shaders[Class173.anInt1724].method4();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ff.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.B(").append(i).append(')').toString());
 		}
 		return i_0_;
 	}
@@ -53,7 +53,7 @@ final class Class49 {
 				method409(class120_sub30_1_, (byte) 24);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ff.C(").append(class120_sub30 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.C(").append(class120_sub30 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 

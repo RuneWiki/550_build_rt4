@@ -2,16 +2,14 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub6 extends NodeSub {
-	int anInt3482 = 0;
+final class InvType extends NodeSub {
+	
+	int size = 0;
+	static Class35 recentUse;
 
-	private final void method1443(final Buffer class120_sub7, final int i, final int i_0_) {
-		try {
-			if (i_0_ == (i ^ 0xffffffff)) {
-				this.anInt3482 = class120_sub7.getUShort();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fn.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(')').toString());
+	private final void decode(final Buffer buffer, final int configCode) {
+		if (configCode == 2) {
+			this.size = buffer.getUShort();
 		}
 	}
 
@@ -20,7 +18,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 			final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * Class32.anInt272 >> 16) + JagexInterface.anInt2053;
 			final float[] fs = new float[3];
 			Class32.anInt272 += i_3_;
-			if (65535 > Class32.anInt272) {
+			if (Class32.anInt272 < 65535) {
 				Class24.aBoolean139 = false;
 				AbstractSprite.aBoolean3622 = false;
 			} else {
@@ -59,9 +57,9 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 				final int i_22_ = i_18_ + -(i_17_ * 2) + i_16_;
 				fs_13_[i_15_] = f * ((f * i_21_ + i_22_) * f + i_20_) + i_19_;
 			}
-			final float f_23_ = -fs[0] + fs_13_[0];
-			final float f_24_ = fs_13_[2] - fs[2];
+			final float f_23_ = fs_13_[0] - fs[0];
 			final float f_25_ = (fs_13_[1] - fs[1]) * -1.0F;
+			final float f_24_ = fs_13_[2] - fs[2];
 			final double d = Math.sqrt(f_23_ * f_23_ + f_24_ * f_24_);
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
 			Class193.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
@@ -70,11 +68,11 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 		}
 	}
 
-	static final void addMenuOption(final long l, final int i, final int i_26_, final String string, final String string_27_, final short i_28_, final int i_29_) {
+	static final void addMenuOption(final String prefix, final String sufix, final long l, final int i, final int i_26_, final short i_28_, final int cursor) {
 		if (!Class15.menuOpen && Class186.menuOptionCount < 500) {//TODO refactor menu options
-			Class120_Sub12_Sub33.menuOptionName[Class186.menuOptionCount] = string_27_;
-			Class120_Sub12_Sub29.aStringArray3369[Class186.menuOptionCount] = string;
-			InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount] = i_29_ == -1 ? Class192.anInt2123 : i_29_;
+			Class120_Sub12_Sub33.menuOptionPrefix[Class186.menuOptionCount] = prefix;
+			Class120_Sub12_Sub29.menuOptionSufix[Class186.menuOptionCount] = sufix;
+			InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount] = cursor == -1 ? Class192.selectedSpellCursor : cursor;
 			Class120_Sub29.aShortArray2777[Class186.menuOptionCount] = i_28_;
 			Class120_Sub12.aLongArray2562[Class186.menuOptionCount] = l;
 			Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount] = i;
@@ -91,7 +89,7 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 			}
 			for (int i_31_ = 0; i_31_ < 104; i_31_++) {
 				for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-					if (Class120_Sub3.method1055(i, i_31_, false, true, i_32_, Class120_Sub1.groundTiles)) {
+					if (Class120_Sub3.method1055(i, i_31_, false, true, i_32_, LabelGroup.groundTiles)) {
 						i++;
 					}
 					if (i >= 512) {
@@ -100,27 +98,35 @@ final class Class120_Sub14_Sub6 extends NodeSub {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fn.B(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fn.B(").append(bool).append(')').toString());
 		}
 	}
 
-	final void method1448(final int i, final Buffer class120_sub7) {
-		try {
-			if (i == 0) {
-				for (;;) {
-					final int i_33_ = class120_sub7.getUByte();
-					if (i_33_ == 0) {
-						break;
-					}
-					method1443(class120_sub7, i_33_, -3);
-				}
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int configCode = buffer.getUByte();
+			if (configCode == 0) {
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fn.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			decode(buffer, configCode);
 		}
 	}
 
-	public Class120_Sub14_Sub6() {
+	static final InvType list(final int id) {
+		InvType invType = (InvType) recentUse.get(id);
+		if (invType != null) {
+			return invType;
+		}
+		final byte[] is = Class166.aClass50_1613.getFile(5, id);
+		invType = new InvType();
+		if (is != null) {
+			invType.decode(new Buffer(is));
+		}
+		recentUse.put(invType, id);
+		return invType;
+	}
+
+	public InvType() {
 		/* empty */
 	}
 }

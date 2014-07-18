@@ -7,7 +7,7 @@ final class GroundTile extends Node {
 	byte aByte2623;
 	boolean aBoolean2624;
 	Class28[] aClass28Array2625 = new Class28[5];
-	Class141 aClass141_2626;
+	PlainTile aClass141_2626;
 	static int anInt2627;
 	Class182 aClass182_2628;
 	int anInt2629;
@@ -21,7 +21,7 @@ final class GroundTile extends Node {
 	int anInt2637;
 	int anInt2638;
 	Class186 aClass186_2639;
-	Class168 aClass168_2640;
+	ShapedTile aClass168_2640;
 	int[] anIntArray2641 = new int[5];
 	int anInt2642;
 	static Hashtable aClass75_2643;
@@ -33,7 +33,7 @@ final class GroundTile extends Node {
 	static SeqType[] aClass40Array2649 = new SeqType[14];
 	Class36 aClass36_2650;
 	static int[] spriteYOffsets;
-	static int anInt2652;
+	static int selectedSpellUseMask;
 
 	static {
 		aClass75_2643 = new Hashtable(16);
@@ -47,7 +47,7 @@ final class GroundTile extends Node {
 			}
 			i_0_ = 0xff & i;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nh.F(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.F(").append(bool).append(',').append(i).append(')').toString());
 		}
 		return i_0_;
 	}
@@ -61,25 +61,25 @@ final class GroundTile extends Node {
 
 	static final void method1668(final SceneGraphNode sceneGraphNode, final int i, final int i_3_, final int i_4_) {
 		if (i_3_ < Class186.anInt1900) {
-			final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_3_ + 1][i_4_];
+			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_];
 			if (class120_sub18 != null && class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.aClass36_2650.aClass180_309, 128, 0, 0, true);
 			}
 		}
 		if (i_4_ < Class186.anInt1900) {
-			final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_3_][i_4_ + 1];
+			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.aClass36_2650.aClass180_309, 0, 0, 128, true);
 			}
 		}
 		if (i_3_ < Class186.anInt1900 && i_4_ < Class120_Sub12_Sub38.anInt3440) {
-			final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_3_ + 1][i_4_ + 1];
+			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.aClass36_2650.aClass180_309, 128, 0, 128, true);
 			}
 		}
 		if (i_3_ < Class186.anInt1900 && i_4_ > 0) {
-			final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_3_ + 1][i_4_ - 1];
+			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ - 1];
 			if (class120_sub18 != null && class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.aClass36_2650.aClass180_309, 128, 0, -128, true);
 			}
@@ -87,12 +87,7 @@ final class GroundTile extends Node {
 	}
 
 	static final void method1669(final int i, final String string, final String string_5_, final String string_6_, final int i_7_) {
-		try {
-			Class120_Sub16.method1660(string, i_7_, string_5_, i, string_6_, 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nh.C(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(string_5_ != null ? "{...}" : "null").append(',').append(string_6_ != null ? "{...}" : "null").append(',').append(i_7_)
-					.append(')').toString());
-		}
+		Class120_Sub16.method1660(string, i_7_, string_5_, i, string_6_);
 	}
 
 	static final int method1670(final int i, final int i_8_) {
@@ -106,7 +101,7 @@ final class GroundTile extends Node {
 			final int i_12_ = (i * i_11_ >> 12) + 40960;
 			i_9_ = i_10_ * i_12_ >> 12;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nh.E(").append(i).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.E(").append(i).append(',').append(i_8_).append(')').toString());
 		}
 		return i_9_;
 	}
@@ -122,7 +117,7 @@ final class GroundTile extends Node {
 			}
 			aClass40Array2649 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nh.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.A(").append(i).append(')').toString());
 		}
 	}
 }

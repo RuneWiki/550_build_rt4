@@ -21,7 +21,7 @@ final class JagexSocket implements Runnable {
 	static boolean aBoolean423 = false;
 	private InputStream inputStream;
 	private boolean IOError = false;
-	static Class107_Sub1[] aClass107_Sub1Array426;
+	static LDIndexedSprite[] aClass107_Sub1Array426;
 	private final Signlink signlink;
 	private SignlinkNode socketThread;
 	private int tnum = 0;
@@ -39,7 +39,7 @@ final class JagexSocket implements Runnable {
 			}
 			aClass107_Sub1Array426 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eo.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eo.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -56,113 +56,106 @@ final class JagexSocket implements Runnable {
 		}
 	}
 
-	static final void method374(final int i) {
-		try {
-			if (Class120_Sub14_Sub18.anInt3609 != 0) {
-				do {
-					try {
-						if ((++Class79_Sub1.anInt2244 ^ 0xffffffff) < -1501) {
-							if (AbstractTimer.worldConnection != null) {
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-							}
-							if (Class137.anInt1323 >= 1) {
-								Class48.returnCode = -5;
-								Class120_Sub14_Sub18.anInt3609 = 0;
-								return;
-							}
-							Class120_Sub14_Sub18.anInt3609 = 1;
-							Class137.anInt1323++;
-							if (Hashtable.anInt675 != Class116.anInt1115) {
-								Class116.anInt1115 = Hashtable.anInt675;
-							} else {
-								Class116.anInt1115 = ObjectPile.anInt1808;
-							}
-							Class79_Sub1.anInt2244 = 0;
-						}
-						if (Class120_Sub14_Sub18.anInt3609 == 1) {
-							Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
-							Class120_Sub14_Sub18.anInt3609 = 2;
-						}
-						if (Class120_Sub14_Sub18.anInt3609 == 2) {
-							if (Class53_Sub1.worldConnectionNode.status == 2) {
-								throw new IOException();
-							}
-							if (Class53_Sub1.worldConnectionNode.status != 1) {
-								return;
-							}
-							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
-							Class53_Sub1.worldConnectionNode = null;
-							AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
-							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131();
-							}
-							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131();
-							}
-							final int i_3_ = AbstractTimer.worldConnection.read();
-							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131();
-							}
-							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131();
-							}
-							if (i_3_ == 101) {
-								Class120_Sub14_Sub18.anInt3609 = 3;
-							} else {
-								Class48.returnCode = i_3_;
-								Class120_Sub14_Sub18.anInt3609 = 0;
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-								return;
-							}
-						}
-						if (Class120_Sub14_Sub18.anInt3609 != 3) {
-							break;
-						}
-						if (AbstractTimer.worldConnection.getAvailable() >= 2) {
-							final int i_4_ = AbstractTimer.worldConnection.read() << 8 | AbstractTimer.worldConnection.read();
-							Class188.method2483(i_4_);
-							if ((Class157.worldId ^ 0xffffffff) == 0) {
-								Class120_Sub14_Sub18.anInt3609 = 0;
-								Class48.returnCode = 6;
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-							} else {
-								Class120_Sub14_Sub18.anInt3609 = 0;
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-								Class120_Sub1.method1037();
-							}
-						}
-					} catch (final IOException ioexception) {
+	static final void method374() {
+		if (FrameLoader.anInt3609 != 0) {
+			do {
+				try {
+					if ((++Class79_Sub1.anInt2244 ^ 0xffffffff) < -1501) {
 						if (AbstractTimer.worldConnection != null) {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
-						if (Class137.anInt1323 < 1) {
-							Class137.anInt1323++;
-							Class79_Sub1.anInt2244 = 0;
-							if (Class116.anInt1115 == Hashtable.anInt675) {
-								Class116.anInt1115 = ObjectPile.anInt1808;
-							} else {
-								Class116.anInt1115 = Hashtable.anInt675;
-							}
-							Class120_Sub14_Sub18.anInt3609 = 1;
-						} else {
-							Class120_Sub14_Sub18.anInt3609 = 0;
-							Class48.returnCode = -4;
+						if (Class137.anInt1323 >= 1) {
+							Class48.returnCode = -5;
+							FrameLoader.anInt3609 = 0;
+							return;
 						}
+						FrameLoader.anInt3609 = 1;
+						Class137.anInt1323++;
+						if (Hashtable.anInt675 != Class116.anInt1115) {
+							Class116.anInt1115 = Hashtable.anInt675;
+						} else {
+							Class116.anInt1115 = ObjectPile.anInt1808;
+						}
+						Class79_Sub1.anInt2244 = 0;
+					}
+					if (FrameLoader.anInt3609 == 1) {
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+						FrameLoader.anInt3609 = 2;
+					}
+					if (FrameLoader.anInt3609 == 2) {
+						if (Class53_Sub1.worldConnectionNode.status == 2) {
+							throw new IOException();
+						}
+						if (Class53_Sub1.worldConnectionNode.status != 1) {
+							return;
+						}
+						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+						Class53_Sub1.worldConnectionNode = null;
+						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
+						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
+						}
+						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
+						}
+						final int i_3_ = AbstractTimer.worldConnection.read();
+						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
+						}
+						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
+						}
+						if (i_3_ == 101) {
+							FrameLoader.anInt3609 = 3;
+						} else {
+							Class48.returnCode = i_3_;
+							FrameLoader.anInt3609 = 0;
+							AbstractTimer.worldConnection.close();
+							AbstractTimer.worldConnection = null;
+							return;
+						}
+					}
+					if (FrameLoader.anInt3609 != 3) {
 						break;
 					}
-					return;
-				} while (false);
-				if (i != 22773) {
-					method376(true, -13);
+					if (AbstractTimer.worldConnection.getAvailable() >= 2) {
+						final int i_4_ = AbstractTimer.worldConnection.read() << 8 | AbstractTimer.worldConnection.read();
+						Class188.method2483(i_4_);
+						if ((Class157.worldId ^ 0xffffffff) == 0) {
+							FrameLoader.anInt3609 = 0;
+							Class48.returnCode = 6;
+							AbstractTimer.worldConnection.close();
+							AbstractTimer.worldConnection = null;
+						} else {
+							FrameLoader.anInt3609 = 0;
+							AbstractTimer.worldConnection.close();
+							AbstractTimer.worldConnection = null;
+							LabelGroup.method1037();
+						}
+					}
+				} catch (final IOException ioexception) {
+					if (AbstractTimer.worldConnection != null) {
+						AbstractTimer.worldConnection.close();
+						AbstractTimer.worldConnection = null;
+					}
+					if (Class137.anInt1323 < 1) {
+						Class137.anInt1323++;
+						Class79_Sub1.anInt2244 = 0;
+						if (Class116.anInt1115 == Hashtable.anInt675) {
+							Class116.anInt1115 = ObjectPile.anInt1808;
+						} else {
+							Class116.anInt1115 = Hashtable.anInt675;
+						}
+						FrameLoader.anInt3609 = 1;
+					} else {
+						FrameLoader.anInt3609 = 0;
+						Class48.returnCode = -4;
+					}
+					break;
 				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eo.J(").append(i).append(')').toString());
+				return;
+			} while (false);
 		}
 	}
 
@@ -175,22 +168,22 @@ final class JagexSocket implements Runnable {
 
 	static final void method376(final boolean bool, final int i) {
 		try {
-			if (i != -1 && Class50.loadInterface(i) && bool) {
+			if (i != -1 && js5.loadInterface(i) && bool) {
 				final JagexInterface[] class189s = Node.interfaceCache[i];
 				JagexInterface[] class189s_7_;
 				final int i_6_ = (class189s_7_ = class189s).length;
 				for (int i_8_ = 0; i_8_ < i_6_; i_8_++) {
 					final JagexInterface jagexInterface = class189s_7_[i_8_];
 					if (jagexInterface.anObjectArray2034 != null) {
-						final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-						class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2034;
+						final InterfaceListener class120_sub10 = new InterfaceListener();
+						class120_sub10.objectData = jagexInterface.anObjectArray2034;
 						class120_sub10.aClass189_2534 = jagexInterface;
 						Cache.method194(class120_sub10, false, 2000000);
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eo.F(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eo.F(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 

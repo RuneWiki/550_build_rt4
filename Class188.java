@@ -32,7 +32,7 @@ final class Class188 {
 			}
 			Class82.aClass21_786.method192(i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.B(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("we.B(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -45,7 +45,7 @@ final class Class188 {
 			Class120_Sub12_Sub25.anInt3312 = 1;
 			Class52.aClass50_476 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("we.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -54,7 +54,7 @@ final class Class188 {
 			do {
 				if (HDToolkit.glEnabled && Class99.openwinjsEnabled) {
 					try {
-						Class77.method667(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
+						JSHelper.call(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
 					} catch (final Throwable throwable) {
 						break;
 					}
@@ -68,7 +68,7 @@ final class Class188 {
 			}
 		} else {
 			try {
-				Class77.method666(NpcType.gameSignlink.gameApplet, "loggedout");
+				JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedout");
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
@@ -85,10 +85,10 @@ final class Class188 {
 		if (class167_sub1 == null) {
 			return false;
 		}
-		if (Signlink.anInt1310 == 1 || Signlink.anInt1310 == 2 || Class107.modeWhere == 2) {
+		if (Signlink.anInt1310 == 1 || Signlink.anInt1310 == 2 || AbstractIndexedSprite.modeWhere == 2) {
 			Class120_Sub12_Sub30.aString3375 = class167_sub1.ip;
 			Class157.worldId = class167_sub1.worldId;
-			if (Class107.modeWhere != 0) {
+			if (AbstractIndexedSprite.modeWhere != 0) {
 				GameEntity.anInt3045 = Class157.worldId + 50000;
 				Class71.anInt625 = Class157.worldId + 40000;
 				Class158.anInt1479 = Class71.anInt625;
@@ -100,7 +100,7 @@ final class Class188 {
 		if (Class120_Sub12_Sub25.settings != null) {
 			string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
 		}
-		if (Class107.modeWhere != 0) {
+		if (AbstractIndexedSprite.modeWhere != 0) {
 			string = new StringBuilder(":").append(7000 + class167_sub1.worldId).toString();
 		}
 		final String string_2_ = new StringBuilder("http://").append(class167_sub1.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
@@ -119,6 +119,7 @@ final class Class188 {
 	static final void method2484(final boolean bool) {
 		while_177_: do {
 			try {
+				//System.out.println(Class24.method207());
 				if (Class24.method207() == 2) {
 					final byte i = (byte) (0xff & InterfaceChangeNode.anInt3490 + -4);
 					if (bool) {
@@ -139,13 +140,13 @@ final class Class188 {
 							Class180_Sub6.anIntArray3075[i_6_] = 0;
 						}
 						if (client.cameraType != 1) {
-							final int i_7_ = Class22.method197(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ);
+							final int i_7_ = Class22.getTileHeight(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ);
 							if (-Class120_Sub12_Sub10.renderY + i_7_ < 800 && (0x4 & Class114.tileSettings[Class173.gameLevel][Class83.renderX >> 7][GroundObjectNode.renderZ >> 7]) != 0) {
-								Class120_Sub3.method1055(1, Class83.renderX >> 7, false, false, GroundObjectNode.renderZ >> 7, Class120_Sub1.groundTiles);
+								Class120_Sub3.method1055(1, Class83.renderX >> 7, false, false, GroundObjectNode.renderZ >> 7, LabelGroup.groundTiles);
 							}
 						} else {
 							if ((0x4 & Class114.tileSettings[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]) != 0) {
-								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, Class120_Sub1.groundTiles);
+								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, LabelGroup.groundTiles);
 							}
 							if (Class128.renderPitch < 310) {
 								int i_8_ = GroundObjectNode.renderZ >> 7;
@@ -181,7 +182,7 @@ final class Class188 {
 											i_8_++;
 										}
 										if ((Class114.tileSettings[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
-											Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.groundTiles);
+											Class120_Sub3.method1055(1, i_9_, false, false, i_8_, LabelGroup.groundTiles);
 											break while_177_;
 										}
 										i_14_ += i_15_;
@@ -197,7 +198,7 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, false, false, i_8_, Class120_Sub1.groundTiles);
+									Class120_Sub3.method1055(1, i_9_, false, false, i_8_, LabelGroup.groundTiles);
 								} else {
 									final int i_16_ = 65536 * i_11_ / i_13_;
 									int i_17_ = 32768;
@@ -213,7 +214,7 @@ final class Class188 {
 											i_9_++;
 										}
 										if ((0x4 & Class114.tileSettings[Class173.gameLevel][i_9_][i_8_]) != 0) {
-											Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.groundTiles);
+											Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, LabelGroup.groundTiles);
 											break while_177_;
 										}
 										i_17_ += i_16_;
@@ -229,14 +230,14 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, Class120_Sub1.groundTiles);
+									Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, LabelGroup.groundTiles);
 								}
 							}
 						}
 					}
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("we.D(").append(bool).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("we.D(").append(bool).append(')').toString());
 			}
 		} while (false);
 	}

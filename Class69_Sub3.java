@@ -13,7 +13,7 @@ class Class69_Sub3 extends Class69 {
 				aStringArray2242 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.J(").append(i).append(')').toString());
 		}
 	}
 
@@ -24,7 +24,7 @@ class Class69_Sub3 extends Class69 {
 			}
 			Class11.aClass21_80.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.M(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.M(").append(i).append(')').toString());
 		}
 	}
 
@@ -58,7 +58,7 @@ class Class69_Sub3 extends Class69 {
 			}
 			string = new String(cs);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.I(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.I(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(')').toString());
 		}
 		return string;
 	}
@@ -70,13 +70,13 @@ class Class69_Sub3 extends Class69 {
 				Class35.method297(-20);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.K(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.K(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
 	static final void method628(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
 		try {
-			Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_10_], i_9_, i_8_ + -i_11_, i_11_ + i_8_);
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_10_], i_9_, i_8_ + -i_11_, i_11_ + i_8_);
 			int i_12_ = 0;
 			int i_13_ = i_7_;
 			final int i_14_ = i_11_ * i_11_;
@@ -119,12 +119,12 @@ class Class69_Sub3 extends Class69 {
 					i_19_ += -i_23_;
 					i_23_ -= i_21_;
 					final int i_30_ = -i_12_ + i_8_;
-					Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_27_], i_9_, i_30_, i_28_);
-					Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_29_], i_9_, i_30_, i_28_);
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_27_], i_9_, i_30_, i_28_);
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_29_], i_9_, i_30_, i_28_);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hn.L(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.L(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
 		}
 	}
 }

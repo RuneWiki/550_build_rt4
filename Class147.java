@@ -3,7 +3,7 @@
  */
 
 final class Class147 {
-	static Class50 aClass50_1394;
+	static js5 aClass50_1394;
 	static float aFloat1395;
 	static int[] anIntArray1396 = { 0, -1, 0, 1 };
 	static String aString1397 = "flash1:";
@@ -18,7 +18,7 @@ final class Class147 {
 				anIntArray1396 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rb.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rb.A(").append(i).append(')').toString());
 		}
 	}
 }

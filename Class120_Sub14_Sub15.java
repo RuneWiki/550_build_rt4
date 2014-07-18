@@ -10,9 +10,9 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	static int[] anIntArray3580 = new int[32];
 	private int anInt3581 = -1;
 	static volatile int anInt3582;
-	static int anInt3583;
+	static int headiconspkId;
 	static Deque aClass105_3584;
-	static String aString3585;
+	static String gameLoadingText;
 	private final int anInt3586;
 
 	static {
@@ -22,41 +22,37 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			i += i;
 		}
 		anInt3582 = 0;
-		aString3585 = null;
+		gameLoadingText = null;
 		aClass105_3584 = new Deque();
 	}
 
-	static final void method1554(final byte i, final int i_1_) {
-		try {
-			Class90.method757((byte) -83);
-			Class120_Sub28.method1725(false);
-			final int i_2_ = Class132_Sub1.method1933((byte) -110, i_1_).anInt621;
-			if (i_2_ != 0) {
-				final int i_3_ = Class2.permanentVariable[i_1_];
-				if (i_2_ == 9) {
-					JagexInterface.anInt2027 = i_3_;
-				}
-				if (i_2_ == 5) {
-					Class69.anInt617 = i_3_;
-				}
-				if (i_2_ == 6) {
-					Player.anInt3748 = i_3_;
-				}
+	static final void method1554(final int id) {
+		Class90.redrawOldFormatOverridedInterfaces();
+		Class120_Sub28.method1725(false);
+		final int i_2_ = Varp.list(id).setting;
+		if (i_2_ != 0) {
+			final int value = Class2.permanentVariable[id];
+			if (i_2_ == 9) {
+				JagexInterface.inserting = value;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.B(").append(i).append(',').append(i_1_).append(')').toString());
+			if (i_2_ == 5) {
+				Class69.mouseButtons = value;
+			}
+			if (i_2_ == 6) {
+				Player.chatEffects = value;
+			}
 		}
 	}
 
 	public static void method1555(final int i) {
 		try {
 			if (i < -21) {
-				aString3585 = null;
+				gameLoadingText = null;
 				aClass105_3584 = null;
 				anIntArray3580 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.F(").append(i).append(')').toString());
 		}
 	}
 
@@ -112,39 +108,22 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
-	static final String method1557(final boolean bool, final int i, final Buffer class120_sub7) {
-		String string;
-		do {
-			String string_15_;
-			try {
-				String string_16_;
-				try {
-					if (!bool) {
-						anInt3583 = -42;
-					}
-					int i_17_ = class120_sub7.getUSmart();
-					if (i < i_17_) {
-						i_17_ = i;
-					}
-					final byte[] is = new byte[i_17_];
-					class120_sub7.pos += Class39.aClass126_321.method1886(0, class120_sub7.pos, 125, class120_sub7.buf, is, i_17_);
-					final String string_18_ = DisplayModeInfo.method2215(is, 0, i_17_);
-					string_16_ = string_18_;
-				} catch (final Exception exception) {
-					string = "Cabbage";
-					break;
-				}
-				string_15_ = string_16_;
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.A(").append(bool).append(',').append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	static final String decodeText(final Buffer buffer, final int maxLen) {
+		try {
+			int len = buffer.getUSmart();
+			if (len > maxLen) {
+				len = maxLen;
 			}
-			return string_15_;
-		} while (false);
-		return string;
+			final byte[] buf = new byte[len];
+			buffer.pos += Class39.huffman.method1886(0, buffer.pos, 125, buffer.buf, buf, len);
+			return DisplayModeInfo.method2215(buf, 0, len);
+		} catch (final Exception exception) {
+			return "Cabbage";
+		}
 	}
 
 	@Override
@@ -157,7 +136,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			}
 			super.finalize();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "qd.finalize()");
+			throw EnumType.method1428(runtimeexception, "qd.finalize()");
 		}
 	}
 
@@ -167,7 +146,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			final int i_22_ = i >> 31 & i_20_ + i_19_;
 			i_21_ = i_22_ + (i + (i >>> 31)) % i_20_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.C(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.C(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
 		}
 		return i_21_;
 	}
@@ -185,7 +164,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 				HDToolkit.method521(0);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qd.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -196,7 +175,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		anInt3581 = is[0];
 		anInt3586 = Class113.anInt1083;
 		HDToolkit.method514(anInt3581);
-		final int i_24_ = Rasterizer.anIntArray969[i];
+		final int i_24_ = Rasterizer.palette[i];
 		final byte[] is_25_ = { (byte) (i_24_ >> 16), (byte) (i_24_ >> 8), (byte) i_24_, -1 };
 		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_25_);
 		gl.glTexImage2D(3553, 0, 6408, 1, 1, 0, 6408, 5121, bytebuffer);

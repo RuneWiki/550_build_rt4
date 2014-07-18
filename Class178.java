@@ -25,22 +25,22 @@ final class Class178 {
 			}
 			i_1_ = i_0_ + (i & 0xff80);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("um.A(").append(bool).append(',').append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("um.A(").append(bool).append(',').append(i).append(',').append(i_0_).append(')').toString());
 		}
 		return i_1_;
 	}
 
 	static final void method2257(final boolean bool) {
 		if (bool) {
-			Class120_Sub1.groundTiles = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
+			LabelGroup.groundTiles = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
 			OverridedJInterface.anIntArrayArrayArray2741 = Class24.anIntArrayArrayArray140;
 			Canvas_Sub1.aClass120_Sub9ArrayArray17 = IntegerNode.aClass120_Sub9ArrayArray2789;
 		} else {
-			Class120_Sub1.groundTiles = Class86.aClass120_Sub18ArrayArrayArray820;
+			LabelGroup.groundTiles = Class86.aClass120_Sub18ArrayArrayArray820;
 			OverridedJInterface.anIntArrayArrayArray2741 = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			Canvas_Sub1.aClass120_Sub9ArrayArray17 = SceneGroundObject.aClass120_Sub9ArrayArray2844;
 		}
-		Class142.anInt1361 = Class120_Sub1.groundTiles.length;
+		Class142.anInt1361 = LabelGroup.groundTiles.length;
 	}
 
 	public static void method2258(final byte i) {
@@ -50,7 +50,7 @@ final class Class178 {
 			}
 			aClass45_1772 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("um.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("um.B(").append(i).append(')').toString());
 		}
 	}
 }

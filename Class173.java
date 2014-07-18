@@ -7,7 +7,7 @@ final class Class173 {
 	static int anInt1724;
 	static AbstractSprite aClass120_Sub14_Sub19_1725;
 	static int anInt1726;
-	static int anInt1727;
+	static int hintmapmarkersId;
 	static int anInt1728 = 0;
 	static int gameLevel;
 	static int[] anIntArray1730;
@@ -46,10 +46,10 @@ final class Class173 {
 			}
 		}
 		if (Class111.aClass28Array1057 != null) {
-			for (int i = 0; i < Class120_Sub14_Sub12.anInt3556; i++) {
+			for (int i = 0; i < ClientScript.anInt3556; i++) {
 				Class111.aClass28Array1057[i] = null;
 			}
-			Class120_Sub14_Sub12.anInt3556 = 0;
+			ClientScript.anInt3556 = 0;
 		}
 		if (Class39.aClass28Array323 != null) {
 			for (int i = 0; i < Class39.aClass28Array323.length; i++) {
@@ -71,7 +71,7 @@ final class Class173 {
 			final int i_9_ = Class120_Sub14_Sub15.anIntArray3580[-i_7_ + i_8_];
 			i_5_ = i_9_ & Class2.permanentVariable[i_6_] >> i_7_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uf.B(").append(i).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.B(").append(i).append(',').append(i_4_).append(')').toString());
 		}
 		return i_5_;
 	}
@@ -81,7 +81,7 @@ final class Class173 {
 		Class120_Sub19.aString2653 = "M";
 		DummyInputStream.aString25 = "Objeto para membros";
 		SceneGroundObject.aString2849 = "Remova ";
-		Class91.aString853 = "Alocando mem\u00f3ria";
+		MouseRecorder.aString853 = "Alocando mem\u00f3ria";
 		Class120_Sub12_Sub30.aString3371 = "Carregando /secure/libs_v4s/RCras - ";
 		Class108_Sub3.aString2396 = "Mechscape carregando. Aguarde...";
 		Class109.aString1038 = "Gerenciador de entradas carregado";
@@ -105,11 +105,11 @@ final class Class173 {
 		Class174.aString1733 = "habilidade: ";
 		Class24.aString142 = "Tentando reestabelecer conex\u00e3o. Aguarde.";
 		Class45.aString400 = "Iniciando biblioteca 3D";
-		Class107.aString1025 = "Mecanismo de som preparado";
+		AbstractIndexedSprite.aString1025 = "Mecanismo de som preparado";
 		Class101_Sub3.aString2285 = "Largar";
 		Class120_Sub12_Sub18.aString3272 = "RuneScape carregando. Aguarde...";
 		Class111.aString1062 = "brilho1:";
-		Class120_Sub14_Sub2.aString3455 = "M";
+		EnumType.aString3455 = "M";
 		Class136.aString1316 = "brilho3:";
 		Class69.aString618 = "verde:";
 		Class120_Sub12_Sub27.aString3338 = "Verificando atualiza\u00e7\u00f5es - ";
@@ -136,7 +136,7 @@ final class Class173 {
 		Class120_Sub11.aString2554 = "Carregando padr\u00f5es - ";
 		Class120_Sub12_Sub21_Sub1.aString3911 = "n\u00edvel: ";
 		Class132.aString1250 = " saiu do jogo.";
-		Class91.aString854 = "K";
+		MouseRecorder.aString854 = "K";
 		NodeSub.aString2585 = "Config carregada";
 		Class111.aString1056 = "Selecionar op\u00e7\u00e3o";
 		World.aString2837 = "Biblioteca 3D iniciada";
@@ -159,7 +159,7 @@ final class Class173 {
 		Class120_Sub12_Sub1.aString3132 = "Caminhar para c\u00e1";
 		Class143.selectString = "Selecionar";
 		Class11.aString81 = "Examinar";
-		Class120_Sub10.aString2538 = "deslizamento:";
+		InterfaceListener.aString2538 = "deslizamento:";
 		Class120_Sub12_Sub15.aString3244 = "Oculto";
 		Class120_Sub21.aString2669 = " entrou no jogo.";
 		Class120_Sub3.aString2428 = "Carregando config - ";
@@ -179,7 +179,7 @@ final class Class173 {
 				gameLevel = -88;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uf.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -192,7 +192,7 @@ final class Class173 {
 			anIntArray1730 = null;
 			aBooleanArray1723 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uf.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.E(").append(i).append(')').toString());
 		}
 	}
 }

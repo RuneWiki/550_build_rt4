@@ -47,14 +47,14 @@ final class Class174 {
 			}
 			aString1733 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method2233(final byte i) {
 		try {
 			if (i >= 0) {
-				method2234(50, -9L);
+				longToString(-9L);
 			}
 			while (Canvas_Sub1.inputStream.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 11) {
 				final int i_3_ = Canvas_Sub1.inputStream.getBitValue(11);
@@ -89,38 +89,32 @@ final class Class174 {
 				if (i_8_ > 15) {
 					i_8_ -= 32;
 				}
-				class180_sub5_sub1.method2343(Class100.selfPlayer.anIntArray3040[0] + i_8_, i_6_ == 1, Class100.selfPlayer.anIntArray2958[0] + i_5_);
+				class180_sub5_sub1.method2343(Class100.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1, Class100.selfPlayer.walkQueueX[0] + i_5_);
 			}
 			Canvas_Sub1.inputStream.method1146();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.F(").append(i).append(')').toString());
 		}
 	}
 
-	static final String method2234(final int i, long l) {
-		String string;
-		try {
-			if ((l ^ 0xffffffffffffffffL) >= -1L || (l ^ 0xffffffffffffffffL) <= -6582952005840035282L) {
-				return null;
-			}
-			if (l % 37L == 0L) {
-				return null;
-			}
-			int i_9_ = i;
-			for (long l_10_ = l; l_10_ != 0L; l_10_ /= 37L) {
-				i_9_++;
-			}
-			final StringBuffer stringbuffer = new StringBuffer(i_9_);
-			while ((l ^ 0xffffffffffffffffL) != -1L) {
-				final long l_11_ = l;
-				l /= 37L;
-				stringbuffer.append(Class120_Sub12_Sub16.aCharArray3254[(int) (l_11_ + -(l * 37L))]);
-			}
-			string = stringbuffer.reverse().toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.G(").append(i).append(',').append(l).append(')').toString());
+	static final String longToString(long l) {
+		if ((l ^ 0xffffffffffffffffL) >= -1L || (l ^ 0xffffffffffffffffL) <= -6582952005840035282L) {
+			return null;
 		}
-		return string;
+		if (l % 37L == 0L) {
+			return null;
+		}
+		int i_9_ = 0;
+		for (long l_10_ = l; l_10_ != 0L; l_10_ /= 37L) {
+			i_9_++;
+		}
+		final StringBuffer stringbuffer = new StringBuffer(i_9_);
+		while ((l ^ 0xffffffffffffffffL) != -1L) {
+			final long l_11_ = l;
+			l /= 37L;
+			stringbuffer.append(Class120_Sub12_Sub16.aCharArray3254[(int) (l_11_ + -(l * 37L))]);
+		}
+		return stringbuffer.reverse().toString();
 	}
 
 	static final void method2236(final int i) {
@@ -143,7 +137,7 @@ final class Class174 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ug.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.C(").append(i).append(')').toString());
 		}
 	}
 

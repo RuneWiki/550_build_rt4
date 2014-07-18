@@ -14,7 +14,7 @@ final class Class41 {
 	private Class97[] aClass97Array357;
 	private int anInt358;
 	private final int anInt359;
-	static Class50 aClass50_360;
+	static js5 aClass50_360;
 	private LDSprite aClass120_Sub14_Sub19_Sub2_361;
 
 	final void method330(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, int i_5_, final int i_6_) {
@@ -110,8 +110,8 @@ final class Class41 {
 		Class97.method806();
 	}
 
-	static final void method334(final Class50 class50) {
-		aClass50_360 = class50;
+	static final void method334(final js5 js5) {
+		aClass50_360 = js5;
 	}
 
 	Class41(final int i, final Class97[] class97s, final int i_25_, final int i_26_, final int i_27_, final int i_28_) {

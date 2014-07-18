@@ -11,7 +11,7 @@ final class Class99 {
 	static int anInt954;
 
 	static final Class182 method821(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -29,7 +29,7 @@ final class Class99 {
 				Class117.method1016();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ko.A(").append(i).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ko.A(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -41,7 +41,7 @@ final class Class99 {
 			aByteArrayArrayArray949 = null;
 			aString952 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ko.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ko.C(").append(i).append(')').toString());
 		}
 	}
 }

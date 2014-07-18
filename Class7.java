@@ -6,7 +6,7 @@ final class Class7 {
 	static String aString60 = "glow2:";
 	static int anInt61;
 	static int[] anIntArray62 = new int[1000];
-	static Class50 aClass50_63;
+	static js5 aClass50_63;
 
 	public static void method105(final int i) {
 		try {
@@ -17,94 +17,79 @@ final class Class7 {
 			aClass50_63 = null;
 			aString60 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ah.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ah.C(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method106(final int i, final LocType locType, final int i_0_, final Npc class180_sub5_sub2, final int i_1_, final Player class180_sub5_sub1, final int i_2_, final int i_3_) {
-		try {
-			final Class120_Sub8 class120_sub8 = new Class120_Sub8();
-			class120_sub8.anInt2498 = i_3_;
-			class120_sub8.anInt2483 = i_1_ * 128;
-			class120_sub8.anInt2494 = i_0_ * i;
-			if (locType == null) {
-				if (class180_sub5_sub2 == null) {
-					if (class180_sub5_sub1 != null) {
-						class120_sub8.aClass180_Sub5_Sub1_2495 = class180_sub5_sub1;
-						class120_sub8.anInt2487 = 128 * (i_0_ - -class180_sub5_sub1.getSize());
-						class120_sub8.anInt2481 = (class180_sub5_sub1.getSize() + i_1_) * 128;
-						class120_sub8.anInt2485 = Class20.method179(class180_sub5_sub1, (byte) -94);
-						class120_sub8.anInt2499 = class180_sub5_sub1.anInt3739;
-						class120_sub8.anInt2493 = class180_sub5_sub1.anInt3735 * 128;
-						Npc.aClass75_3750.put(class120_sub8, Class70.stringToLong(class180_sub5_sub1.name));
-					}
-				} else {
-					class120_sub8.aClass180_Sub5_Sub2_2492 = class180_sub5_sub2;
-					NpcType npcType = class180_sub5_sub2.npcType;
-					if (npcType.childrenIDs != null) {
-						class120_sub8.aBoolean2491 = true;
-						npcType = npcType.handleVarp();
-					}
-					if (npcType != null) {
-						class120_sub8.anInt2487 = 128 * (npcType.size + i_0_);
-						class120_sub8.anInt2481 = (npcType.size + i_1_) * 128;
-						class120_sub8.anInt2485 = Class20.method178((byte) -54, class180_sub5_sub2);
-						class120_sub8.anInt2499 = npcType.anInt1658;
-						class120_sub8.anInt2493 = 128 * npcType.anInt1677;
-					}
-					Class120_Sub12_Sub10.aClass105_3201.addLast(class120_sub8);
+	static final void addAmbientSound(final LocType locType, final int x, final Npc npc, final int z, final Player player, final int rotation, final int level) {
+		final AmbientSound ambientSound = new AmbientSound();
+		ambientSound.anInt2498 = level;
+		ambientSound.anInt2483 = z * 128;
+		ambientSound.anInt2494 = x * 128;
+		if (locType == null) {
+			if (npc == null) {
+				if (player != null) {
+					ambientSound.player = player;
+					ambientSound.anInt2487 = (x + player.getSize()) * 128;
+					ambientSound.anInt2481 = (z + player.getSize()) * 128;
+					ambientSound.anInt2485 = Class20.method179(player);
+					ambientSound.anInt2499 = player.anInt3739;
+					ambientSound.anInt2493 = player.anInt3735 * 128;
+					Npc.playerAmbientSounds.put(ambientSound, Varp.stringToLong(player.name));
 				}
 			} else {
-				class120_sub8.anInt2486 = locType.anInt1845;
-				class120_sub8.anInt2489 = locType.anInt1879;
-				class120_sub8.anIntArray2482 = locType.anIntArray1870;
-				class120_sub8.anInt2499 = locType.anInt1839;
-				int i_4_ = locType.anInt1841;
-				class120_sub8.anInt2493 = locType.anInt1832 * 128;
-				class120_sub8.aClass184_2497 = locType;
-				int i_5_ = locType.anInt1827;
-				if (i_2_ == 1 || i_2_ == 3) {
-					i_4_ = locType.anInt1827;
-					i_5_ = locType.anInt1841;
+				ambientSound.npc = npc;
+				NpcType npcType = npc.npcType;
+				if (npcType.childrenIDs != null) {
+					ambientSound.aBoolean2491 = true;
+					npcType = npcType.handleVarp();
 				}
-				class120_sub8.anInt2487 = 128 * (i_4_ + i_0_);
-				class120_sub8.anInt2485 = locType.anInt1833;
-				class120_sub8.anInt2481 = 128 * (i_5_ + i_1_);
-				if (locType.childrenIDs != null) {
-					class120_sub8.aBoolean2491 = true;
-					class120_sub8.method1156(-110);
+				if (npcType != null) {
+					ambientSound.anInt2487 = (npcType.size + x) * 128;
+					ambientSound.anInt2481 = (npcType.size + z) * 128;
+					ambientSound.anInt2485 = Class20.method178(npc);
+					ambientSound.anInt2499 = npcType.anInt1658;
+					ambientSound.anInt2493 = npcType.anInt1677 * 128;
 				}
-				if (class120_sub8.anIntArray2482 != null) {
-					class120_sub8.anInt2496 = (int) ((-class120_sub8.anInt2489 + class120_sub8.anInt2486) * Math.random()) + class120_sub8.anInt2489;
-				}
-				Class101_Sub1.aClass105_2266.addLast(class120_sub8);
+				Class120_Sub12_Sub10.npcAmbientSounds.addLast(ambientSound);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
-					new StringBuilder("ah.D(").append(i).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null")
-							.append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+		} else {
+			ambientSound.anInt2486 = locType.anInt1845;
+			ambientSound.anInt2489 = locType.anInt1879;
+			ambientSound.anIntArray2482 = locType.anIntArray1870;
+			ambientSound.anInt2499 = locType.anInt1839;
+			int i_4_ = locType.anInt1841;
+			ambientSound.anInt2493 = locType.anInt1832 * 128;
+			ambientSound.location = locType;
+			int i_5_ = locType.anInt1827;
+			if (rotation == 1 || rotation == 3) {
+				i_4_ = locType.anInt1827;
+				i_5_ = locType.anInt1841;
+			}
+			ambientSound.anInt2487 = 128 * (i_4_ + x);
+			ambientSound.anInt2485 = locType.anInt1833;
+			ambientSound.anInt2481 = 128 * (i_5_ + z);
+			if (locType.childrenIDs != null) {
+				ambientSound.aBoolean2491 = true;
+				ambientSound.method1156();
+			}
+			if (ambientSound.anIntArray2482 != null) {
+				ambientSound.anInt2496 = (int) ((-ambientSound.anInt2489 + ambientSound.anInt2486) * Math.random()) + ambientSound.anInt2489;
+			}
+			Class101_Sub1.locationAmbientSounds.addLast(ambientSound);
 		}
 	}
 
-	static final String method107(final int i, final Buffer class120_sub7) {
-		String string;
-		try {
-			if (i != 32767) {
-				aClass50_63 = null;
-			}
-			string = Class120_Sub14_Sub15.method1557(true, 32767, class120_sub7);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ah.B(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
-		}
-		return string;
+	static final String decodeText(final Buffer buffer) {
+		return Class120_Sub14_Sub15.decodeText(buffer, 32767);
 	}
 
 	static final void method108(final int i, final int i_6_) {
 		try {
 			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_6_, i);
-			class120_sub14_sub7.method1453((byte) -104);
+			class120_sub14_sub7.method1453();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ah.A(").append(i).append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ah.A(").append(i).append(',').append(i_6_).append(')').toString());
 		}
 	}
 }

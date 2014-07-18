@@ -3,18 +3,17 @@
  */
 
 final class Class56 {
-	static Cache aClass21_494 = new Cache(64);
 	static int[] anIntArray495;
 	private final int[] anIntArray496;
 	static int anInt497 = -1;
-	static int anInt498 = 0;
+	static int weight = 0;
 
 	static final void method486() {
-		Class107.aClass189Array1022 = null;
-		Class43.method343(Class69.rootInterfaceId, 0, 0, (byte) -100, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
-		if (Class107.aClass189Array1022 != null) {
-			Class142.method2008(Class120_Sub12_Sub38.anInt3438, -1412584499, (byte) -116, Class26.aClass189_161.anInt2082, Class107.aClass189Array1022, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
-			Class107.aClass189Array1022 = null;
+		AbstractIndexedSprite.aClass189Array1022 = null;
+		Class43.method343(Class69.rootInterfaceId, 0, 0, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
+		if (AbstractIndexedSprite.aClass189Array1022 != null) {
+			Class142.method2008(AbstractIndexedSprite.aClass189Array1022, Class120_Sub12_Sub38.anInt3438, -1412584499, Class26.aClass189_161.redrawId, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
+			AbstractIndexedSprite.aClass189Array1022 = null;
 		}
 	}
 
@@ -36,7 +35,7 @@ final class Class56 {
 				i_2_ = i_1_ & i_2_ + 1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gf.D(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gf.D(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -48,7 +47,7 @@ final class Class56 {
 			}
 			i_4_ = 6;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gf.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gf.E(").append(i).append(')').toString());
 		}
 		return i_4_;
 	}
@@ -62,18 +61,18 @@ final class Class56 {
 			}
 			Class88.aClass177_831.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gf.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gf.C(").append(i).append(')').toString());
 		}
 	}
 
 	public static void method490(final int i) {
 		try {
 			if (i <= -122) {
-				aClass21_494 = null;
+				LocType.recentUse = null;
 				anIntArray495 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gf.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gf.B(").append(i).append(')').toString());
 		}
 	}
 

@@ -569,8 +569,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	static final Class180_Sub2 method2291(final Class50 class50, final int i, final int i_115_) {
-		final byte[] is = class50.getFile(i, i_115_);
+	static final Class180_Sub2 method2291(final js5 js5, final int i, final int i_115_) {
+		final byte[] is = js5.getFile(i, i_115_);
 		if (is == null) {
 			return null;
 		}

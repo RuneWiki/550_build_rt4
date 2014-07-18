@@ -3,22 +3,22 @@
  */
 
 final class Class179 {
-	static Class176[] aClass176Array1773;
+	static SubScript[] subScripts;
 	static int[][] anIntArrayArray1774;
 	static int anInt1775 = 0;
 	static client aClient1776;
 	static byte[][] aByteArrayArray1777;
-	static Class50 aClass50_1778;
+	static js5 aClass50_1778;
 	static boolean aBoolean1779;
 
 	static {
-		aClass176Array1773 = new Class176[50];
+		subScripts = new SubScript[50];
 		aBoolean1779 = true;
 	}
 
 	public static void method2259(final int i) {
 		try {
-			aClass176Array1773 = null;
+			subScripts = null;
 			aByteArrayArray1777 = null;
 			if (i == 27440) {
 				anIntArrayArray1774 = null;
@@ -26,30 +26,30 @@ final class Class179 {
 				aClass50_1778 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("va.F(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method2260(final boolean bool, final int i) {
 		try {
 			if (bool) {
-				method2263(-109, 39);
+				method2263(39);
 			}
 			Class120_Sub2.anInt2422 = -1;
 			Class120_Sub2.anInt2422 = -1;
 			Class169.anInt1646 = i;
 			Class127.method1889((byte) 51);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.E(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("va.E(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
 	static final void method2261(final int i, final int i_0_) {
 		try {
 			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_0_, i);
-			class120_sub14_sub7.method1453((byte) -104);
+			class120_sub14_sub7.method1453();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.B(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("va.B(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -83,7 +83,7 @@ final class Class179 {
 							Class112.playerIndices[Class83.localPlayerCount++] = i_4_;
 							class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
 							final int i_7_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub1.method2330(i_7_, -24892, 1);
+							class180_sub5_sub1.move(i_7_, 1);
 							final int i_8_ = Canvas_Sub1.inputStream.getBitValue(1);
 							if (i_8_ == 1) {
 								Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
@@ -93,12 +93,12 @@ final class Class179 {
 							class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
 							if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
 								final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
-								class180_sub5_sub1.method2330(i_9_, i ^ 0x5fdb, 2);
+								class180_sub5_sub1.move(i_9_, 2);
 								final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
-								class180_sub5_sub1.method2330(i_10_, -24892, 2);
+								class180_sub5_sub1.move(i_10_, 2);
 							} else {
 								final int i_11_ = Canvas_Sub1.inputStream.getBitValue(3);
-								class180_sub5_sub1.method2330(i_11_, -24892, 0);
+								class180_sub5_sub1.move(i_11_, 0);
 							}
 							final int i_12_ = Canvas_Sub1.inputStream.getBitValue(1);
 							if (i_12_ == 1) {
@@ -111,24 +111,17 @@ final class Class179 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("va.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method2263(final int i, final int i_13_) {
-		try {
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_13_);
-			if (class120_sub17 != null) {
-				if (i <= 79) {
-					method2261(37, -50);
-				}
-				for (int i_14_ = 0; i_14_ < class120_sub17.anIntArray2618.length; i_14_++) {
-					class120_sub17.anIntArray2618[i_14_] = -1;
-					class120_sub17.anIntArray2619[i_14_] = 0;
-				}
+	static final void method2263(final int i_13_) {
+		final ObjectContainer class120_sub17 = (ObjectContainer) ObjectContainer.objectContainerCache.get(i_13_);
+		if (class120_sub17 != null) {
+			for (int i_14_ = 0; i_14_ < class120_sub17.objectIds.length; i_14_++) {
+				class120_sub17.objectIds[i_14_] = -1;
+				class120_sub17.objectCounts[i_14_] = 0;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.C(").append(i).append(',').append(i_13_).append(')').toString());
 		}
 	}
 
@@ -137,7 +130,7 @@ final class Class179 {
 		try {
 			bool = i_15_ == (i_15_ & -i_15_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("va.A(").append(i).append(',').append(i_15_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("va.A(").append(i).append(',').append(i_15_).append(')').toString());
 		}
 		return bool;
 	}

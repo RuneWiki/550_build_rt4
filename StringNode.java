@@ -18,7 +18,7 @@ final class StringNode extends Node {
 			}
 			anIntArray2735 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rk.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rk.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -27,10 +27,10 @@ final class StringNode extends Node {
 			if (i != -19674) {
 				method1720(32);
 			}
-			Class141.aClass21_1350.clear();
+			SpotAnimType.recentUse.clear();
 			Class182.aClass21_1798.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rk.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rk.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -38,29 +38,29 @@ final class StringNode extends Node {
 		/* empty */
 	}
 
-	static final void method1721(final int i, int x, int height, final boolean bool, int width, int y) {
+	static final void method1721(final int i, int x, int height, final boolean titleScreen, int width, int y) {
 		InterfaceChangeNode.anInt3490++;
-		Class82.method715(68);
-		if (!bool) {
-			Class120_Sub12_Sub14.method1269(0, 92);
-			Class120_Sub14_Sub14_Sub1.method1545(0, true, false, true);
-			if (Class134.anInt1281 != 0) {
+		Class82.method715();
+		if (!titleScreen) {
+			Class120_Sub12_Sub14.method1269(0);
+			Class120_Sub14_Sub14_Sub1.method1545(0, false, true);
+			if (Class134.renderPriority != 0) {
 				for (int i_4_ = 1; i_4_ <= 5; i_4_++) {
-					Class120_Sub12_Sub14.method1269(i_4_, -103);
-					Class120_Sub14_Sub14_Sub1.method1545(i_4_, true, false, false);
-					Class120_Sub14_Sub14_Sub1.method1545(i_4_, true, true, false);
+					Class120_Sub12_Sub14.method1269(i_4_);
+					Class120_Sub14_Sub14_Sub1.method1545(i_4_, false, false);
+					Class120_Sub14_Sub14_Sub1.method1545(i_4_, true, false);
 				}
 			} else {
 				for (int i_5_ = 1; i_5_ <= 5; i_5_++) {
-					Class120_Sub14_Sub14_Sub1.method1545(i_5_, true, false, false);
-					Class120_Sub14_Sub14_Sub1.method1545(i_5_, true, true, false);
-					Class120_Sub12_Sub14.method1269(i_5_, -122);
+					Class120_Sub14_Sub14_Sub1.method1545(i_5_, false, false);
+					Class120_Sub14_Sub14_Sub1.method1545(i_5_, true, false);
+					Class120_Sub12_Sub14.method1269(i_5_);
 				}
 			}
 		} else {
-			Class120_Sub14_Sub14_Sub1.method1545(0, true, false, false);
+			Class120_Sub14_Sub14_Sub1.method1545(0, false, false);
 		}
-		if (!bool) {
+		if (!titleScreen) {
 			Class84.method718((byte) -12);
 		}
 		Class174.method2236(60);
@@ -69,7 +69,7 @@ final class StringNode extends Node {
 			width = Class120_Sub12_Sub27.anInt3339;
 			height = Light.anInt391;
 			y = Class120_Sub28.anInt2751;
-			x = Class120_Sub17.anInt2612;
+			x = ObjectContainer.anInt2612;
 		}
 		ParticleEngine.anInt2364 = x;
 		ParticleEngine.anInt2358 = y;
@@ -86,7 +86,7 @@ final class StringNode extends Node {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
 				i_6_ = Class181.anIntArray1790[4] + 128;
 			}
-			Class120_Sub12_Sub30.method1363(57, i_7_, Class22.method197(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_6_, 3 * i_6_ + 600, Class120_Sub10.playerRenderZ, height, Class69_Sub3_Sub1.playerRenderX);
+			Class120_Sub12_Sub30.method1363(57, i_7_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_6_, 3 * i_6_ + 600, InterfaceListener.playerRenderZ, height, Class69_Sub3_Sub1.playerRenderX);
 		}
 		final int i_8_ = Class83.renderX;
 		final int i_9_ = GroundObjectNode.renderZ;
@@ -95,7 +95,7 @@ final class StringNode extends Node {
 		final int i_12_ = Class180_Sub3.renderYaw;
 		for (int i_13_ = i; i_13_ < 5; i_13_++) {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[i_13_]) {
-				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(Class120_Sub1.anIntArray2409[i_13_] / 100.0 * Class120_Sub1.anIntArray2412[i_13_]) * Class181.anIntArray1790[i_13_]);
+				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * Class181.anIntArray1790[i_13_]);
 				if (i_13_ == 1) {
 					Class120_Sub12_Sub10.renderY += i_14_;
 				}
@@ -122,9 +122,9 @@ final class StringNode extends Node {
 		Class188.method2484(false);
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(x, y, width + x, y + height);
-			Rasterizer.method874();
+			Rasterizer.calculateByBounds();
 			if (Class158.anInt1475 >= 0) {
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 127, Class143_Sub1.anInt2197, Class158.anInt1475, Class141.anInt1356);
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 127, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
 				class41.method330(Class132.anInt1257, x, y, width, height, Class128.renderPitch, Class180_Sub3.renderYaw, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
@@ -139,13 +139,13 @@ final class StringNode extends Node {
 			}
 			int i_16_;
 			if (Class109.gameState == 10) {
-				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObjectNode.renderZ >> 10, Class120_Sub12_Sub22.redrawRate, Class83.renderX >> 10);
+				i_16_ = FrameLoader.method1581(Class120_Sub14_Sub14_Sub1.brightness, GroundObjectNode.renderZ >> 10, Class120_Sub12_Sub22.redrawRate, Class83.renderX >> 10);
 			} else {
-				i_16_ = Class120_Sub14_Sub18.method1581(Class120_Sub14_Sub14_Sub1.brightness, Class100.selfPlayer.anIntArray3040[0] >> 3, Class120_Sub12_Sub22.redrawRate, Class100.selfPlayer.anIntArray2958[0] >> 3);
+				i_16_ = FrameLoader.method1581(Class120_Sub14_Sub14_Sub1.brightness, Class100.selfPlayer.walkQueueZ[0] >> 3, Class120_Sub12_Sub22.redrawRate, Class100.selfPlayer.walkQueueX[0] >> 3);
 			}
 			if (Class158.anInt1475 >= 0) {
 				HDToolkit.method517();
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 126, Class143_Sub1.anInt2197, Class158.anInt1475, Class141.anInt1356);
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 126, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
 				class41.method331(Class132.anInt1257, x, y, width, height, Class128.renderPitch, Class180_Sub3.renderYaw, i_16_);
 			} else {
 				HDToolkit.method531(i_16_);
@@ -179,12 +179,12 @@ final class StringNode extends Node {
 			Class143_Sub1.method2027(y, -8967, 256, height, 256, width, x);
 		} else {
 			LightManager.method1858(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
-			Class91.method760(Class180_Sub3.renderYaw, Class128.renderPitch, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, 85, Class83.renderX);
+			MouseRecorder.method760(Class180_Sub3.renderYaw, Class128.renderPitch, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, 85, Class83.renderX);
 			HDToolkit.anInt542 = Class101_Sub2.loopCycle;
 			Class115.method1007(Class83.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, Class128.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
 			Class167.aBoolean1620 = true;
 			LightManager.method1859();
-			Class91.method760(0, 0, 0, 0, 91, 0);
+			MouseRecorder.method760(0, 0, 0, 0, 91, 0);
 			Class120_Sub2.method1050();
 			Class69.method612(x, Class179.anInt1775, height, Class179.anInt1775, width, y);
 			Class143_Sub1.method2027(y, -8967, Class179.anInt1775, height, Class179.anInt1775, width, x);
@@ -208,7 +208,7 @@ final class StringNode extends Node {
 			}
 			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
 		}
-		if (!bool && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.anInt1110 && width + x > Class115.anInt1110 && y <= Class120_Sub12_Sub21.anInt3298 && y + height > Class120_Sub12_Sub21.anInt3298) {
+		if (!titleScreen && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.anInt1110 && width + x > Class115.anInt1110 && y <= Class120_Sub12_Sub21.anInt3298 && y + height > Class120_Sub12_Sub21.anInt3298) {
 			InterfaceChangeNode.build3dScreenMenu(height, Class115.anInt1110, y, x, width, Class120_Sub12_Sub21.anInt3298);
 		}
 	}

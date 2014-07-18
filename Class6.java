@@ -61,8 +61,8 @@ final class Class6 {
 		return i;
 	}
 
-	static final Class6 method103(final Class50 class50, final int i, final int i_10_) {
-		final byte[] is = class50.getFile(i, i_10_);
+	static final Class6 method103(final js5 js5, final int i, final int i_10_) {
+		final byte[] is = js5.getFile(i, i_10_);
 		if (is == null) {
 			return null;
 		}

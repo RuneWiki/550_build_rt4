@@ -27,7 +27,7 @@ final class Class145 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qm.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qm.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -44,7 +44,7 @@ final class Class145 {
 				method2046(-51, i_4_, i_3_, class120_sub7);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qm.D(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qm.D(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -55,7 +55,7 @@ final class Class145 {
 			}
 			final int i_11_ = i_7_ * i_7_ + i_9_ * i_9_;
 			if (i >= i_11_) {
-				int i_12_ = Math.min(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2);
+				int i_12_ = Math.min(jagexInterface.width / 2, jagexInterface.height / 2);
 				if (i_11_ > i_12_ * i_12_) {
 					i_12_ -= 10;
 					final int i_13_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
@@ -69,16 +69,16 @@ final class Class145 {
 					final int i_18_ = (int) (i_12_ * Math.sin(d));
 					final int i_19_ = (int) (i_12_ * Math.cos(d));
 					if (!HDToolkit.glEnabled) {
-						((LDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1612(-10 + i_5_ + jagexInterface.anInt1948 / 2 + i_18_, -i_19_ + jagexInterface.anInt2059 / 2 + i_8_ + -10, 20, 20, 15, 15, d, 256);
+						((LDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1612(-10 + i_5_ + jagexInterface.width / 2 + i_18_, -i_19_ + jagexInterface.height / 2 + i_8_ + -10, 20, 20, 15, 15, d, 256);
 					} else {
-						((HDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1601(240, 240, (i_5_ - -(jagexInterface.anInt1948 / 2) + i_18_) * 16, (-i_19_ + i_8_ + jagexInterface.anInt2059 / 2) * 16, (int) (d * 10430.378), 4096);
+						((HDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1601(240, 240, (i_5_ - -(jagexInterface.width / 2) + i_18_) * 16, (-i_19_ + i_8_ + jagexInterface.height / 2) * 16, (int) (d * 10430.378), 4096);
 					}
 				} else {
-					Class23.method200(i_5_, jagexInterface, i_8_, i_9_, 2, i_7_, Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167[i_10_]);
+					Class23.method200(i_5_, jagexInterface, i_8_, i_9_, i_7_, Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167[i_10_]);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qm.B(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qm.B(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',')
 					.append(i_10_).append(')').toString());
 		}
 	}
@@ -90,7 +90,7 @@ final class Class145 {
 				sleepModifier1 = -23;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qm.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qm.C(").append(i).append(')').toString());
 		}
 	}
 

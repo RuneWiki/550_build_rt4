@@ -9,32 +9,23 @@ final class Class153 {
 	boolean aBoolean1430;
 	int anInt1431;
 	int anInt1432 = 16777215;
-	static Class50 aClass50_1433;
+	static js5 aClass50_1433;
 	int anInt1434;
 	int anInt1435 = 8;
 	static int anInt1436 = -1;
 
-	static final Class107 method2069(final int i, final Class50 class50, final int i_0_) {
-		Class107 class107;
-		try {
-			if (i != 26494) {
-				method2073(0);
-			}
-			if (!ObjType.method2113(class50, -5, i_0_)) {
-				return null;
-			}
-			class107 = Class11.method128(i ^ 0x677e);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.F(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	static final AbstractIndexedSprite createIndexedSprite(final js5 js5, final int i_0_) {
+		if (!ObjType.method2113(js5, i_0_)) {
+			return null;
 		}
-		return class107;
+		return Class11.createIndexedSprite();
 	}
 
 	static final void method2070(final byte i) {
 		try {
 			Class120_Sub14_Sub13.method1532(0, 0);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -45,12 +36,12 @@ final class Class153 {
 				anInt1436 = 102;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.G(").append(i).append(')').toString());
 		}
 	}
 
 	static final Class186 method2072(final int i, final int i_1_, final int i_2_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_1_][i_2_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_1_][i_2_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -66,7 +57,7 @@ final class Class153 {
 	private final void method2074(final int i, final int i_5_, final Buffer class120_sub7, final int i_6_) {
 		try {
 			if (i != -3) {
-				method2069(16, null, 112);
+				createIndexedSprite(null, 112);
 			}
 			if (i_6_ == 1) {
 				this.anInt1435 = class120_sub7.getUShort();
@@ -88,18 +79,18 @@ final class Class153 {
 				this.aBoolean1430 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.E(").append(i).append(',').append(i_5_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.E(").append(i).append(',').append(i_5_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_6_).append(')').toString());
 		}
 	}
 
-	static final void method2075(final byte i, final Class50 class50) {
+	static final void method2075(final byte i, final js5 js5) {
 		try {
-			CanvasWrapper.aClass50_18 = class50;
+			CanvasWrapper.aClass50_18 = js5;
 			if (i != -46) {
 				method2072(75, -8, -127);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.D(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.D(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -112,7 +103,7 @@ final class Class153 {
 				method2070((byte) 57);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.A(").append(i).append(',').append(i_7_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.A(").append(i).append(',').append(i_7_).append(')').toString());
 		}
 	}
 
@@ -129,7 +120,7 @@ final class Class153 {
 				method2070((byte) 103);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sa.I(").append(i).append(',').append(i_8_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.I(").append(i).append(',').append(i_8_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

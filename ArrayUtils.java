@@ -324,4 +324,13 @@ final class ArrayUtils {
 			is_20_[i_21_++] = is[i++];
 		}
 	}
+
+	static final float[] arrayCopy(final float[] fs) {
+		if (fs == null) {
+			return null;
+		}
+		final float[] fs_3_ = new float[fs.length];
+		arrayCopy(fs, 0, fs_3_, 0, fs.length);
+		return fs_3_;
+	}
 }

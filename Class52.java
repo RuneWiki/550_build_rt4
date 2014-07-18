@@ -5,17 +5,17 @@
 final class Class52 {
 	int[] anIntArray465;
 	static boolean aBoolean466;
-	static boolean[] aBooleanArray467 = new boolean[100];
+	static boolean[] needInterfaceRedrawWrapper = new boolean[100];
 	int[][] anIntArrayArray468;
-	static Class50 aClass50_469;
+	static js5 aClass50_469;
 	int[] anIntArray470;
 	int anInt471;
 	int anInt472;
 	Class56 aClass56_473;
 	int[][] anIntArrayArray474;
 	int[] anIntArray475;
-	static Class50 aClass50_476;
-	static int anInt477;
+	static js5 aClass50_476;
+	static int headiconsprayerId;
 	static int anInt478;
 	Class56[] aClass56Array479;
 	int[] anIntArray480;
@@ -46,8 +46,8 @@ final class Class52 {
 
 	static final void method453(final int i, final byte i_1_) {
 		if (i_1_ >= 103) {
-			Class120_Sub14_Sub11.aClass21_3541.clear();
-			Class120_Sub14_Sub11.aClass21_3541 = new Cache(i);
+			ParamType.aClass21_3541.clear();
+			ParamType.aClass21_3541 = new Cache(i);
 		}
 	}
 
@@ -55,7 +55,7 @@ final class Class52 {
 		aClass50_476 = null;
 		if (bool) {
 			aClass50_469 = null;
-			aBooleanArray467 = null;
+			needInterfaceRedrawWrapper = null;
 		}
 	}
 

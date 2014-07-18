@@ -230,7 +230,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 					throw new RuntimeException("Invalid gradient preset");
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.R(").append(i).append(',').append(i_0_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("vm.R(").append(i).append(',').append(i_0_).append(')').toString());
 			}
 		} while (false);
 	}
@@ -294,23 +294,23 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.U(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.U(").append(i).append(')').toString());
 		}
 	}
 
-	static final boolean method1400(final Class120_Sub30_Sub2 class120_sub30_sub2, final Class50 class50, final Class50 class50_13_, final boolean bool, final Class50 class50_14_) {
+	static final boolean method1400(final Class120_Sub30_Sub2 class120_sub30_sub2, final js5 js5, final js5 class50_13_, final boolean bool, final js5 class50_14_) {
 		boolean bool_15_;
 		try {
 			Class30.aClass120_Sub30_Sub2_234 = class120_sub30_sub2;
 			if (bool) {
 				method1401(41);
 			}
-			Class57.aClass50_499 = class50;
+			Class57.aClass50_499 = js5;
 			Class120_Sub29.aClass50_2770 = class50_14_;
 			Class52.aClass50_469 = class50_13_;
 			bool_15_ = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.S(").append(class120_sub30_sub2 != null ? "{...}" : "null").append(',').append(class50 != null ? "{...}" : "null").append(',').append(class50_13_ != null ? "{...}" : "null").append(',').append(bool).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.S(").append(class120_sub30_sub2 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_13_ != null ? "{...}" : "null").append(',').append(bool).append(',')
 					.append(class50_14_ != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool_15_;
@@ -324,7 +324,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 			}
 			method1399(43);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.O(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.O(").append(i).append(')').toString());
 		}
 	}
 
@@ -335,7 +335,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 			}
 			spriteHeights = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.V(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.V(").append(i).append(')').toString());
 		}
 	}
 
@@ -357,7 +357,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_16_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_16_).append(')').toString());
 		}
 	}
 
@@ -372,36 +372,27 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 	}
 
 	@Override
-	final int[][] method1188(final int i, final int i_20_) {
-		int[][] is;
-		try {
-			if (i_20_ != -29869) {
-				method1399(118);
-			}
-			final int[][] is_21_ = this.aClass109_2559.method975(i, i_20_ ^ 0x74fa);
-			if (this.aClass109_2559.aBoolean1049) {
-				final int[] is_22_ = method1192(-7764, i, 0);
-				final int[] is_23_ = is_21_[1];
-				final int[] is_24_ = is_21_[2];
-				final int[] is_25_ = is_21_[0];
-				for (int i_26_ = 0; Class120_Sub12_Sub7.anInt3178 > i_26_; i_26_++) {
-					int i_27_ = is_22_[i_26_] >> 4;
-					if (i_27_ < 0) {
-						i_27_ = 0;
-					}
-					if (i_27_ > 256) {
-						i_27_ = 256;
-					}
-					i_27_ = anIntArray3445[i_27_];
-					is_25_[i_26_] = Class120_Sub12_Sub3.method1207(16711680, i_27_) >> 12;
-					is_23_[i_26_] = Class120_Sub12_Sub3.method1207(i_27_, 65280) >> 4;
-					is_24_[i_26_] = Class120_Sub12_Sub3.method1207(i_27_ << 4, 4080);
+	final int[][] method1188(final int i) {
+		final int[][] is_21_ = this.aClass109_2559.method975(i);
+		if (this.aClass109_2559.aBoolean1049) {
+			final int[] is_22_ = method1192(i, 0);
+			final int[] is_23_ = is_21_[1];
+			final int[] is_24_ = is_21_[2];
+			final int[] is_25_ = is_21_[0];
+			for (int i_26_ = 0; Class120_Sub12_Sub7.anInt3178 > i_26_; i_26_++) {
+				int i_27_ = is_22_[i_26_] >> 4;
+				if (i_27_ < 0) {
+					i_27_ = 0;
 				}
+				if (i_27_ > 256) {
+					i_27_ = 256;
+				}
+				i_27_ = anIntArray3445[i_27_];
+				is_25_[i_26_] = Class120_Sub12_Sub3.method1207(16711680, i_27_) >> 12;
+				is_23_[i_26_] = Class120_Sub12_Sub3.method1207(i_27_, 65280) >> 4;
+				is_24_[i_26_] = Class120_Sub12_Sub3.method1207(i_27_ << 4, 4080);
 			}
-			is = is_21_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vm.K(").append(i).append(',').append(i_20_).append(')').toString());
 		}
-		return is;
+		return is_21_;
 	}
 }

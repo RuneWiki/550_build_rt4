@@ -4,12 +4,12 @@
 
 final class Class169 {
 	static int anInt1643 = -1;
-	static int anInt1644;
+	static int mapflagId;
 	static KeyboardHandler keyboardHandler = new KeyboardHandler();
 	static int anInt1646;
 	int anInt1647;
 	static int[] anIntArray1648 = new int[2048];
-	static Class50 aClass50_1649;
+	static js5 aClass50_1649;
 	Class32 aClass32_1650;
 	static short aShort1651 = 256;
 
@@ -22,7 +22,7 @@ final class Class169 {
 				method2198(false);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("u.A(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("u.A(").append(bool).append(')').toString());
 		}
 	}
 

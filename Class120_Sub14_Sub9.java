@@ -78,7 +78,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 				anInt3524 = 2;
 			} else if (anInt3524 != 1) {
 				for (int i = 0; i < 6; i++) {
-					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.anIntArray969, Rasterizer.anInterface5_973.method20(anIntArray3518[i], 65535), 1);
+					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.palette, Rasterizer.anInterface5_973.method20(anIntArray3518[i], 65535), 1);
 					gl.glTexImage2D(34069 + i, 0, 6407, 1, 1, 0, 32993, 5121, intbuffer);
 					Class113.anInt1081 += 3 - anInt3521;
 					anInt3521 = 3;
@@ -219,12 +219,12 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 
 	static final Class120_Sub14_Sub9 method1498(final int i, final int i_14_, final int i_15_, final int i_16_, final int i_17_, final int i_18_) {
 		final long l = i * 67481L ^ i_14_ * 97549L ^ i_15_ * 475427L ^ i_16_ * 986053L ^ i_17_ * 32147369L ^ i_18_ * 76724863L;
-		Class120_Sub14_Sub9 class120_sub14_sub9 = (Class120_Sub14_Sub9) aClass35_3517.method302(17301, l);
+		Class120_Sub14_Sub9 class120_sub14_sub9 = (Class120_Sub14_Sub9) aClass35_3517.get(l);
 		if (class120_sub14_sub9 != null) {
 			return class120_sub14_sub9;
 		}
 		class120_sub14_sub9 = new Class120_Sub14_Sub9(i, i_14_, i_15_, i_16_, i_17_, i_18_);
-		aClass35_3517.method301(l, 56, class120_sub14_sub9);
+		aClass35_3517.put(class120_sub14_sub9, l);
 		return class120_sub14_sub9;
 	}
 

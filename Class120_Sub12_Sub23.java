@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 	static int[] anIntArray3304;
-	static Class50 aClass50_3305;
+	static js5 aClass50_3305;
 	static float aFloat3306;
 	static int anInt3307 = 0;
 	static int anInt3308;
@@ -21,55 +21,39 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final SeqType seqType, final int i, final int i_0_, final int i_1_, final boolean bool, final boolean bool_2_) {
-		try {
-			if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > i_1_ && seqType.anIntArrayArray347[i_1_] != null) {
-				final int i_3_ = seqType.anIntArrayArray347[i_1_][0];
-				int i_4_ = i_3_ >> 8;
-				final int i_5_ = (0xe4 & i_3_) >> 5;
-				if (bool_2_) {
-					method1324(23);
-				}
-				final int i_6_ = i_3_ & 0x1f;
-				if (seqType.anIntArrayArray347[i_1_].length > 1) {
-					final int i_7_ = (int) (seqType.anIntArrayArray347[i_1_].length * Math.random());
-					if (i_7_ > 0) {
-						i_4_ = seqType.anIntArrayArray347[i_1_][i_7_];
-					}
-				}
-				if (i_6_ == 0) {
-					if (bool) {
-						Class48.method404((byte) -100, 0, i_4_, i_5_, 255);
-					}
-				} else if (CursorType.anInt1242 != 0) {
-					Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_4_;
-					LocType.anIntArray1834[Class150.anInt1407] = i_5_;
-					final int i_8_ = (-64 + i) / 128;
-					Class81.anIntArray779[Class150.anInt1407] = 0;
-					Class109.aClass6Array1047[Class150.anInt1407] = null;
-					Class120_Sub14_Sub14_Sub1.anIntArray3926[Class150.anInt1407] = 255;
-					final int i_9_ = (-64 + i_0_) / 128;
-					Class174.anIntArray1731[Class150.anInt1407] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
-					Class150.anInt1407++;
+	static final void method1323(final SeqType seqType, final int i, final int i_0_, final int i_1_, final boolean bool) {
+		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > i_1_ && seqType.anIntArrayArray347[i_1_] != null) {
+			final int i_3_ = seqType.anIntArrayArray347[i_1_][0];
+			int i_4_ = i_3_ >> 8;
+			final int i_5_ = (0xe4 & i_3_) >> 5;
+			final int i_6_ = i_3_ & 0x1f;
+			if (seqType.anIntArrayArray347[i_1_].length > 1) {
+				final int i_7_ = (int) (seqType.anIntArrayArray347[i_1_].length * Math.random());
+				if (i_7_ > 0) {
+					i_4_ = seqType.anIntArrayArray347[i_1_][i_7_];
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.S(").append(seqType != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(',').append(bool_2_).append(')').toString());
+			if (i_6_ == 0) {
+				if (bool) {
+					Class48.method404((byte) -100, 0, i_4_, i_5_, 255);
+				}
+			} else if (CursorType.anInt1242 != 0) {
+				Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_4_;
+				LocType.anIntArray1834[Class150.anInt1407] = i_5_;
+				final int i_8_ = (-64 + i) / 128;
+				Class81.anIntArray779[Class150.anInt1407] = 0;
+				Class109.aClass6Array1047[Class150.anInt1407] = null;
+				Class120_Sub14_Sub14_Sub1.anIntArray3926[Class150.anInt1407] = 255;
+				final int i_9_ = (-64 + i_0_) / 128;
+				Class174.anIntArray1731[Class150.anInt1407] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
+				Class150.anInt1407++;
+			}
 		}
 	}
 
 	@Override
-	final int[] method1187(final int i, final int i_10_) {
-		int[] is;
-		try {
-			if (i != -1735) {
-				aFloat3306 = -0.8563887F;
-			}
-			is = Class90.anIntArray849;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.D(").append(i).append(',').append(i_10_).append(')').toString());
-		}
-		return is;
+	final int[] method1187(final int i_10_) {
+		return Class90.anIntArray849;
 	}
 
 	public static void method1324(final int i) {
@@ -80,7 +64,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				anInt3307 = 95;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.U(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.U(").append(i).append(')').toString());
 		}
 	}
 
@@ -93,9 +77,9 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			int i_16_ = i_12_;
 			int i_17_ = -1;
 			int i_18_ = -i_12_;
-			final int i_19_ = Class3.method83(Class32.anInt260, i_12_ + i_11_, 1, Class120_Sub14_Sub11.anInt3544);
-			final int i_20_ = Class3.method83(Class32.anInt260, i_11_ - i_12_, 1, Class120_Sub14_Sub11.anInt3544);
-			Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i], i_13_, i_20_, i_19_);
+			final int i_19_ = Class3.method83(Class32.anInt260, i_12_ + i_11_, 1, ParamType.anInt3544);
+			final int i_20_ = Class3.method83(Class32.anInt260, i_11_ - i_12_, 1, ParamType.anInt3544);
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_13_, i_20_, i_19_);
 			while (i_16_ > i_15_) {
 				i_17_ += 2;
 				i_18_ += i_17_;
@@ -104,33 +88,33 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 					i_18_ -= i_16_ << 1;
 					final int i_21_ = -i_16_ + i;
 					final int i_22_ = i_16_ + i;
-					if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= Class139.anInt1334) {
-						final int i_23_ = Class3.method83(Class32.anInt260, i_11_ + i_15_, 1, Class120_Sub14_Sub11.anInt3544);
-						final int i_24_ = Class3.method83(Class32.anInt260, i_11_ - i_15_, 1, Class120_Sub14_Sub11.anInt3544);
-						if (Class139.anInt1334 >= i_22_) {
-							Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
+					if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= IdentityKit.anInt1334) {
+						final int i_23_ = Class3.method83(Class32.anInt260, i_11_ + i_15_, 1, ParamType.anInt3544);
+						final int i_24_ = Class3.method83(Class32.anInt260, i_11_ - i_15_, 1, ParamType.anInt3544);
+						if (IdentityKit.anInt1334 >= i_22_) {
+							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
 						}
 						if (Class120_Sub30_Sub2.anInt3699 <= i_21_) {
-							Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_21_], i_13_, i_24_, i_23_);
+							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_21_], i_13_, i_24_, i_23_);
 						}
 					}
 				}
 				i_15_++;
 				final int i_25_ = i - i_15_;
 				final int i_26_ = i + i_15_;
-				if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= Class139.anInt1334) {
-					final int i_27_ = Class3.method83(Class32.anInt260, i_11_ - -i_16_, 1, Class120_Sub14_Sub11.anInt3544);
-					final int i_28_ = Class3.method83(Class32.anInt260, i_11_ - i_16_, 1, Class120_Sub14_Sub11.anInt3544);
-					if (i_26_ <= Class139.anInt1334) {
-						Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
+				if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= IdentityKit.anInt1334) {
+					final int i_27_ = Class3.method83(Class32.anInt260, i_11_ - -i_16_, 1, ParamType.anInt3544);
+					final int i_28_ = Class3.method83(Class32.anInt260, i_11_ - i_16_, 1, ParamType.anInt3544);
+					if (i_26_ <= IdentityKit.anInt1334) {
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
 					}
 					if (Class120_Sub30_Sub2.anInt3699 <= i_25_) {
-						Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_25_], i_13_, i_28_, i_27_);
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_25_], i_13_, i_28_, i_27_);
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.R(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.R(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
 		}
 	}
 
@@ -140,13 +124,13 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			if (!bool) {
 				anIntArray3304 = null;
 			}
-			String string_30_ = Class136.longToString(Class70.stringToLong(string));
+			String string_30_ = Class136.longToString(Varp.stringToLong(string));
 			if (string_30_ == null) {
 				string_30_ = "";
 			}
 			string_29_ = string_30_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("pk.T(").append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.T(").append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 		return string_29_;
 	}

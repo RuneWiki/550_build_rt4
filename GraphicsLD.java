@@ -318,14 +318,14 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void method2156(int i, int i_86_, final int i_87_, final int[] is, final int[] is_88_) {
-		int i_89_ = i + i_86_ * width;
+	static final void method2156(int i, int i_86_, final int color, final int[] is, final int[] is_88_) {
+		int step = i + i_86_ * width;
 		for (i_86_ = 0; i_86_ < is.length; i_86_++) {
-			int i_90_ = i_89_ + is[i_86_];
+			int pixel = step + is[i_86_];
 			for (i = -is_88_[i_86_]; i < 0; i++) {
-				pixels[i_90_++] = i_87_;
+				pixels[pixel++] = color;
 			}
-			i_89_ += width;
+			step += width;
 		}
 	}
 

@@ -8,7 +8,7 @@ final class Class114 {
 	static byte[][][] aByteArrayArrayArray1094;
 	static byte[][][] tileSettings;
 	boolean aBoolean1096;
-	static Class50 aClass50_1097;
+	static js5 aClass50_1097;
 	static String aString1098 = "Loading world list data";
 	static int anInt1099;
 	boolean aBoolean1100;
@@ -31,7 +31,7 @@ final class Class114 {
 			tileSettings = null;
 			aClass50_1097 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mi.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mi.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -39,7 +39,7 @@ final class Class114 {
 		DisplayModeInfo[] class171s;
 		try {
 			if (Class65.aClass171Array595 == null) {
-				final DisplayModeInfo[] class171s_0_ = Class120_Sub14_Sub2.getDisplayModes(NpcType.gameSignlink);
+				final DisplayModeInfo[] class171s_0_ = EnumType.getDisplayModes(NpcType.gameSignlink);
 				final DisplayModeInfo[] class171s_1_ = new DisplayModeInfo[class171s_0_.length];
 				int i_2_ = 0;
 				while_44_: for (int i_3_ = 0; class171s_0_.length > i_3_; i_3_++) {
@@ -72,13 +72,13 @@ final class Class114 {
 			}
 			class171s = Class65.aClass171Array595;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mi.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mi.C(").append(i).append(')').toString());
 		}
 		return class171s;
 	}
 
 	static final long method1005(final int i, final int i_7_, final int i_8_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_7_][i_8_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_7_][i_8_];
 		if (class120_sub18 == null || class120_sub18.aClass182_2628 == null) {
 			return 0L;
 		}

@@ -3,7 +3,7 @@
  */
 
 final class Class55 {
-	static int[] anIntArray492 = new int[99];
+	static int[] skillsXpForLevel = new int[99];
 	static int[] anIntArray493;
 
 	static {
@@ -12,7 +12,7 @@ final class Class55 {
 			final int i_1_ = 1 + i_0_;
 			final int i_2_ = (int) (Math.pow(2.0, i_1_ / 7.0) * 300.0 + i_1_);
 			i += i_2_;
-			anIntArray492[i_0_] = i / 4;
+			skillsXpForLevel[i_0_] = i / 4;
 		}
 		anIntArray493 = new int[] { 1, -1, -1, 1 };
 	}
@@ -20,12 +20,12 @@ final class Class55 {
 	public static void method484(final int i) {
 		try {
 			anIntArray493 = null;
-			anIntArray492 = null;
+			skillsXpForLevel = null;
 			if (i != -7103) {
 				method484(-15);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ge.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ge.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -45,7 +45,7 @@ final class Class55 {
 			class120_sub14_sub22_4_.method1636(12800);
 			class120_sub14_sub22 = class120_sub14_sub22_4_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ge.A(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ge.A(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class120_sub14_sub22;
 	}

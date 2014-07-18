@@ -33,21 +33,15 @@ final class ObjectPile {
 			}
 			Class157.anInt1466 = i_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vf.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vf.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
-	static final byte[] method2448(final byte[] is, final int i) {
-		byte[] is_2_;
-		try {
-			final int i_3_ = is.length;
-			final byte[] is_4_ = new byte[i_3_];
-			ArrayUtils.arrayCopy(is, 0, is_4_, 0, i_3_);
-			is_2_ = is_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vf.B(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
-		return is_2_;
+	static final byte[] method2448(final byte[] is) {
+		final int i_3_ = is.length;
+		final byte[] is_4_ = new byte[i_3_];
+		ArrayUtils.arrayCopy(is, 0, is_4_, 0, i_3_);
+		return is_4_;
 	}
 
 	public static void method2449(final byte i) {
@@ -58,7 +52,7 @@ final class ObjectPile {
 			aClass172_1809 = null;
 			aShortArray1804 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("vf.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("vf.C(").append(i).append(')').toString());
 		}
 	}
 

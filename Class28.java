@@ -14,7 +14,7 @@ final class Class28 {
 	int anInt178;
 	int anInt179;
 	int anInt180;
-	static Class50 aClass50_181;
+	static js5 aClass50_181;
 	int anInt182;
 	static int[] anIntArray183;
 	int anInt184;
@@ -25,7 +25,7 @@ final class Class28 {
 		try {
 			Class148.method2057(strings, true, -1 + strings.length, is, 0);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(strings != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("co.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(strings != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -34,31 +34,25 @@ final class Class28 {
 			if (!bool) {
 				method243(false);
 			}
-			Canvas_Sub1.aClass75_15 = new Hashtable(32);
+			ObjectContainer.objectContainerCache = new Hashtable(32);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.A(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("co.A(").append(bool).append(')').toString());
 		}
 	}
 
-	static final int method244(final Random random, final int i, final int i_0_) {
-		int i_1_;
-		try {
-			if (i <= 0) {
-				throw new IllegalArgumentException();
-			}
-			if (Class179.method2264((byte) -121, i)) {
-				return (int) ((random.nextInt() & 0xffffffffL) * i >> 32);
-			}
-			final int i_2_ = -(int) (4294967296L % i) + -2147483648;
-			int i_3_;
-			do {
-				i_3_ = random.nextInt();
-			} while (i_3_ >= i_2_);
-			i_1_ = Class120_Sub14_Sub15.method1558(i_3_, -1, i);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.D(").append(random != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(')').toString());
+	static final int method244(final Random random, final int i) {
+		if (i <= 0) {
+			throw new IllegalArgumentException();
 		}
-		return i_1_;
+		if (Class179.method2264((byte) -121, i)) {
+			return (int) ((random.nextInt() & 0xffffffffL) * i >> 32);
+		}
+		final int i_2_ = -(int) (4294967296L % i) + -2147483648;
+		int i_3_;
+		do {
+			i_3_ = random.nextInt();
+		} while (i_3_ >= i_2_);
+		return Class120_Sub14_Sub15.method1558(i_3_, -1, i);
 	}
 
 	public static void method245(final int i) {
@@ -68,31 +62,8 @@ final class Class28 {
 				anIntArray183 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("co.C(").append(i).append(')').toString());
 		}
-	}
-
-	static final Class120_Sub14_Sub12 method246(final boolean bool, final int i) {
-		Class120_Sub14_Sub12 class120_sub14_sub12;
-		try {
-			Class120_Sub14_Sub12 class120_sub14_sub12_4_ = (Class120_Sub14_Sub12) Class128.aClass35_1219.method302(17301, i);
-			if (class120_sub14_sub12_4_ != null) {
-				return class120_sub14_sub12_4_;
-			}
-			final byte[] is = IsaacCipher.aClass50_1019.getFile(i, 0);
-			if (is == null || is.length <= 1) {
-				return null;
-			}
-			class120_sub14_sub12_4_ = Class120_Sub19.method1676((byte) 63, is);
-			if (bool) {
-				method247();
-			}
-			Class128.aClass35_1219.method301(i, 45, class120_sub14_sub12_4_);
-			class120_sub14_sub12 = class120_sub14_sub12_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("co.E(").append(bool).append(',').append(i).append(')').toString());
-		}
-		return class120_sub14_sub12;
 	}
 
 	static final void method247() {

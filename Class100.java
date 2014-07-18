@@ -4,19 +4,19 @@
 
 final class Class100 {
 	Class108_Sub3 aClass108_Sub3_955 = new Class108_Sub3();
-	static int[] anIntArray956;
+	static int[] intArguments;
 	static Player selfPlayer;
 	private Class108_Sub3 aClass108_Sub3_958;
 
 	public static void method824(final byte i) {
 		try {
-			anIntArray956 = null;
+			intArguments = null;
 			if (i != 108) {
 				selfPlayer = null;
 			}
 			selfPlayer = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.F(").append(i).append(')').toString());
 		}
 	}
 
@@ -30,25 +30,17 @@ final class Class100 {
 		}
 	}
 
-	static final Class107[] method826(final int i) {
-		Class107[] class107s;
-		try {
-			final Class107[] class107s_0_ = new Class107[Class93.spriteAmount];
-			for (int i_1_ = i; Class93.spriteAmount > i_1_; i_1_++) {
-				if (HDToolkit.glEnabled) {
-					class107s_0_[i_1_] = new Class107_Sub2(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], GroundTile.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
-							Class132_Sub1.spritePalette);
-				} else {
-					class107s_0_[i_1_] = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_1_], GroundTile.spriteYOffsets[i_1_], Class120_Sub12_Sub11.spriteWidths[i_1_], Class120_Sub12_Sub39.spriteHeights[i_1_], Class145.spritePaletteIndicators[i_1_],
-							Class132_Sub1.spritePalette);
-				}
+	static final AbstractIndexedSprite[] constructIndexedSprites() {
+		final AbstractIndexedSprite[] abstractIndexedSprites = new AbstractIndexedSprite[Class93.spriteAmount];
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			if (HDToolkit.glEnabled) {
+				abstractIndexedSprites[id] = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
+			} else {
+				abstractIndexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 			}
-			Class53_Sub1.resetSpriteInfo();
-			class107s = class107s_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.B(").append(i).append(')').toString());
 		}
-		return class107s;
+		Class53_Sub1.resetSpriteInfo();
+		return abstractIndexedSprites;
 	}
 
 	final void method827(final int i) {
@@ -65,7 +57,7 @@ final class Class100 {
 				dropClient();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -83,7 +75,7 @@ final class Class100 {
 			aClass108_Sub3_958 = class108_sub3_2_.aClass108_Sub3_2398;
 			class108_sub3 = class108_sub3_2_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.D(").append(i).append(')').toString());
 		}
 		return class108_sub3;
 	}
@@ -120,7 +112,7 @@ final class Class100 {
 				method829(i, is, is_3_, 40, i_6_ + 1);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(is_3_ != null ? "{...}" : "null").append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(is_3_ != null ? "{...}" : "null").append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}
 	}
 
@@ -136,7 +128,7 @@ final class Class100 {
 				class108_sub3.aClass108_Sub3_2398.aClass108_Sub3_2399 = class108_sub3;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.C(").append(i).append(',').append(class108_sub3 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.C(").append(i).append(',').append(class108_sub3 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -154,7 +146,7 @@ final class Class100 {
 			aClass108_Sub3_958 = class108_sub3_13_.aClass108_Sub3_2398;
 			class108_sub3 = class108_sub3_13_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("lb.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("lb.E(").append(i).append(')').toString());
 		}
 		return class108_sub3;
 	}

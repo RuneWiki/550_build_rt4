@@ -17,7 +17,7 @@ final class Class108_Sub1 extends Class108 {
 	private int anInt2325;
 	private int anInt2326;
 	private int anInt2327;
-	static int anInt2328 = -1;
+	static int logoId = -1;
 	boolean aBoolean2329;
 	private final long aLong2330;
 	private int anInt2331;
@@ -62,7 +62,7 @@ final class Class108_Sub1 extends Class108 {
 				method937(7, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.I(").append(i).append(')').toString());
 		}
 	}
 
@@ -87,7 +87,7 @@ final class Class108_Sub1 extends Class108 {
 			final int i_7_ = 1376312589 + (789221 + i_6_ * i_6_ * 15731) * i_6_ & 0x7fffffff;
 			i_5_ = (i_7_ & 0x7fd13c7) >> 19;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.J(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.J(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
 		}
 		return i_5_;
 	}
@@ -110,22 +110,13 @@ final class Class108_Sub1 extends Class108 {
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8 = class120_sub14_sub8_8_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 		return class120_sub14_sub8;
 	}
 
-	static final Class120_Sub14_Sub22 method938(final int i) {
-		Class120_Sub14_Sub22 class120_sub14_sub22;
-		try {
-			if (i != 257238413) {
-				method938(-9);
-			}
-			class120_sub14_sub22 = Class79.aClass120_Sub14_Sub22_691;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.M(").append(i).append(')').toString());
-		}
-		return class120_sub14_sub22;
+	static final Class120_Sub14_Sub22 method938() {
+		return Class79.aClass120_Sub14_Sub22_691;
 	}
 
 	static final void method939(final int i, final int i_9_, final int i_10_, final byte i_11_, final int i_12_) {
@@ -142,7 +133,7 @@ final class Class108_Sub1 extends Class108 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.F(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.F(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
 		}
 	}
 
@@ -281,36 +272,29 @@ final class Class108_Sub1 extends Class108 {
 			}
 			ParticleEngine.anInt2360 += this.anInt2333;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.H(").append(i).append(',').append(i_15_).append(',').append(bool).append(',').append(i_16_).append(',').append(l).append(',').append(i_17_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.H(").append(i).append(',').append(i_15_).append(',').append(bool).append(',').append(i_16_).append(',').append(l).append(',').append(i_17_).append(')').toString());
 		}
 	}
 
-	static final void method941(final long l, final int i) {
-		try {
-			if (0L != l) {
-				for (int i_51_ = 0; i_51_ < ProducingGraphicsBuffer.anInt2799; i_51_++) {
-					if ((AbstractSprite.aLongArray3617[i_51_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
-						ProducingGraphicsBuffer.anInt2799--;
-						for (int i_52_ = i_51_; i_52_ < ProducingGraphicsBuffer.anInt2799; i_52_++) {
-							Class120_Sub16.aStringArray2599[i_52_] = Class120_Sub16.aStringArray2599[1 + i_52_];
-							Class120_Sub12_Sub16.anIntArray3252[i_52_] = Class120_Sub12_Sub16.anIntArray3252[1 + i_52_];
-							Class79_Sub1.aStringArray2247[i_52_] = Class79_Sub1.aStringArray2247[i_52_ - -1];
-							AbstractSprite.aLongArray3617[i_52_] = AbstractSprite.aLongArray3617[i_52_ + 1];
-							Class120_Sub12_Sub30.anIntArray3374[i_52_] = Class120_Sub12_Sub30.anIntArray3374[i_52_ - -1];
-							Class120_Sub12_Sub9.aBooleanArray3194[i_52_] = Class120_Sub12_Sub9.aBooleanArray3194[i_52_ + 1];
-						}
-						Class61.anInt563 = Class160.anInt1494;
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
-						Class120_Sub12_Sub11.outputStream.putLong(l);
-						break;
+	static final void method941(final long l) {
+		if (0L != l) {
+			for (int i_51_ = 0; i_51_ < ProducingGraphicsBuffer.anInt2799; i_51_++) {
+				if ((AbstractSprite.aLongArray3617[i_51_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+					ProducingGraphicsBuffer.anInt2799--;
+					for (int i_52_ = i_51_; i_52_ < ProducingGraphicsBuffer.anInt2799; i_52_++) {
+						Class120_Sub16.aStringArray2599[i_52_] = Class120_Sub16.aStringArray2599[1 + i_52_];
+						Class120_Sub12_Sub16.anIntArray3252[i_52_] = Class120_Sub12_Sub16.anIntArray3252[1 + i_52_];
+						Class79_Sub1.aStringArray2247[i_52_] = Class79_Sub1.aStringArray2247[i_52_ - -1];
+						AbstractSprite.aLongArray3617[i_52_] = AbstractSprite.aLongArray3617[i_52_ + 1];
+						Class120_Sub12_Sub30.anIntArray3374[i_52_] = Class120_Sub12_Sub30.anIntArray3374[i_52_ - -1];
+						Class120_Sub12_Sub9.aBooleanArray3194[i_52_] = Class120_Sub12_Sub9.aBooleanArray3194[i_52_ + 1];
 					}
-				}
-				if (i < 43) {
-					method935(-21, 22);
+					Class61.anInt563 = Class160.anInt1494;
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
+					Class120_Sub12_Sub11.outputStream.putLong(l);
+					break;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.E(").append(l).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -335,7 +319,7 @@ final class Class108_Sub1 extends Class108 {
 				this.anInt2315 = i_63_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bi.N(").append(i).append(',').append(i_53_).append(',').append(i_54_).append(',').append(i_55_).append(',').append(i_56_).append(',').append(i_57_).append(',').append(i_58_).append(',').append(i_59_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.N(").append(i).append(',').append(i_53_).append(',').append(i_54_).append(',').append(i_55_).append(',').append(i_56_).append(',').append(i_57_).append(',').append(i_58_).append(',').append(i_59_).append(',')
 					.append(i_60_).append(',').append(i_61_).append(')').toString());
 		}
 	}

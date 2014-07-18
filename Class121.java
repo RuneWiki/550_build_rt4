@@ -13,14 +13,14 @@ final class Class121 {
 			aString1155 = null;
 			anIntArray1152 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nl.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nl.D(").append(i).append(')').toString());
 		}
 	}
 
 	static final Class120_Sub14_Sub10 method1837(final int i, final boolean bool) {
 		Class120_Sub14_Sub10 class120_sub14_sub10;
 		try {
-			Class120_Sub14_Sub10 class120_sub14_sub10_0_ = (Class120_Sub14_Sub10) Class26.aClass35_158.method302(17301, i);
+			Class120_Sub14_Sub10 class120_sub14_sub10_0_ = (Class120_Sub14_Sub10) Class26.aClass35_158.get(i);
 			if (class120_sub14_sub10_0_ != null) {
 				return class120_sub14_sub10_0_;
 			}
@@ -40,19 +40,19 @@ final class Class121 {
 			if (i >= 32768) {
 				class120_sub14_sub10_0_.method1507(90);
 			}
-			Class26.aClass35_158.method301(i, 69, class120_sub14_sub10_0_);
+			Class26.aClass35_158.put(class120_sub14_sub10_0_, i);
 			class120_sub14_sub10 = class120_sub14_sub10_0_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nl.B(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nl.B(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return class120_sub14_sub10;
 	}
 
 	static final String getMenuOptionName(final int option) {
-		if (Class120_Sub12_Sub29.aStringArray3369[option].length() <= 0) {
-			return Class120_Sub12_Sub33.menuOptionName[option];
+		if (Class120_Sub12_Sub29.menuOptionSufix[option].length() <= 0) {
+			return Class120_Sub12_Sub33.menuOptionPrefix[option];
 		}
-		return Class120_Sub12_Sub33.menuOptionName[option] + Class29.aString196 + Class120_Sub12_Sub29.aStringArray3369[option];
+		return Class120_Sub12_Sub33.menuOptionPrefix[option] + Class29.aString196 + Class120_Sub12_Sub29.menuOptionSufix[option];
 	}
 
 	static final void method1839(final int i) {
@@ -62,7 +62,7 @@ final class Class121 {
 				Class82.aClass21_786.clearSoftReference();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nl.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nl.A(").append(i).append(')').toString());
 		}
 	}
 }

@@ -36,7 +36,7 @@ final class Class164_Sub1 extends Class164 {
 			anInt2826 = i;
 		} catch (final LineUnavailableException lineunavailableexception) {
 			if (Class120_Sub12_Sub3.method1210(-31511, i) != 1) {
-				method2134(Class120_Sub12_Sub17.method1283(i, (byte) -39));
+				method2134(Class120_Sub12_Sub17.method1283(i));
 			} else {
 				aSourceDataLine2825 = null;
 				throw lineunavailableexception;

@@ -6,8 +6,6 @@ final class Class54 {
 	static int[] anIntArray488 = new int[2];
 	static String aString489 = " from your friend list first.";
 	static AbstractSprite[] aClass120_Sub14_Sub19Array490;
-	static Class35 aClass35_491 = new Class35(128);
-
 	static final boolean method477(final byte[] data) {
 		final Buffer buffer = new Buffer(data);
 		final int i_0_ = buffer.getUByte();
@@ -22,14 +20,14 @@ final class Class54 {
 		return true;
 	}
 
-	static final Class137 method478(final Class50 class50, final int i, final String string, final boolean bool) {
+	static final Class137 method478(final js5 js5, final int i, final String string, final boolean bool) {
 		Class137 class137;
 		try {
-			final int i_2_ = class50.method432(false, string);
+			final int i_2_ = js5.method432(string);
 			if (i_2_ == -1) {
 				return new Class137(0);
 			}
-			final int[] is = class50.method433(true, i_2_);
+			final int[] is = js5.method433(true, i_2_);
 			final Class137 class137_3_ = new Class137(is.length);
 			int i_4_ = 0;
 			if (i != -2) {
@@ -37,7 +35,7 @@ final class Class54 {
 			}
 			int i_5_ = 0;
 			while (class137_3_.anInt1325 > i_4_) {
-				final Buffer class120_sub7 = new Buffer(class50.getFile(i_2_, is[i_5_++]));
+				final Buffer class120_sub7 = new Buffer(js5.getFile(i_2_, is[i_5_++]));
 				final int i_6_ = class120_sub7.getInt();
 				final int i_7_ = class120_sub7.getUShort();
 				final int i_8_ = class120_sub7.getUByte();
@@ -52,7 +50,7 @@ final class Class54 {
 			}
 			class137 = class137_3_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.A(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 		return class137;
 	}
@@ -64,13 +62,13 @@ final class Class54 {
 			Class82.aClass107Array785 = null;
 			Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = null;
 			Class120_Sub12_Sub30.crossSprites = null;
-			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286 = null;
+			Class120_Sub12_Sub20.plainFont = null;
 			Class180_Sub6.aClass120_Sub14_Sub19Array3073 = null;
 			Class120_Sub14_Sub14_Sub1.prayerIconSprites = null;
 			Class120_Sub12_Sub22.boldFont = null;
 			aClass120_Sub14_Sub19Array490 = null;
-			Cache.aClass120_Sub14_Sub8_121 = null;
-			Class157.aClass120_Sub14_Sub19_1474 = null;
+			Cache.smallFont = null;
+			Class157.compassSprite = null;
 			SeqType.aClass120_Sub14_Sub19Array335 = null;
 			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
 			Class101_Sub1.aClass120_Sub14_Sub19Array2274 = null;
@@ -80,7 +78,7 @@ final class Class54 {
 				method480(46);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -93,39 +91,39 @@ final class Class54 {
 				aString489 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.F(").append(i).append(')').toString());
 		}
 	}
 
 	public static void method481(final int i) {
 		try {
 			aString489 = null;
-			aClass35_491 = null;
+			EnumType.recentUse = null;
 			if (i < 124) {
 				method477(null);
 			}
 			aClass120_Sub14_Sub19Array490 = null;
 			anIntArray488 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method482(final int i, final int i_9_, final int i_10_, final int i_12_) {
-		for (int i_13_ = 0; Class120_Sub1.anInt2414 > i_13_; i_13_++) {
-			if (Class120_Sub16.anIntArray2608[i_13_] + Class160.anIntArray1495[i_13_] > i && Class160.anIntArray1495[i_13_] < i + i_12_ && i_9_ < Class120_Sub12_Sub38.anIntArray3441[i_13_] - -Class69_Sub3_Sub1.anIntArray3081[i_13_] && i_10_ + i_9_ > Class120_Sub12_Sub38.anIntArray3441[i_13_]) {
-				Class120_Sub12_Sub33.aBooleanArray3391[i_13_] = true;
+	static final void redrawScreen(final int x, final int y, final int widght, final int height) {
+		for (int id = 0; LabelGroup.screenRedrawPos > id; id++) {
+			if (Class120_Sub16.screenRedrawWidhts[id] + Class160.screenRedrawXs[id] > x && Class160.screenRedrawXs[id] < x + widght && y < Class120_Sub12_Sub38.screenRedrawYs[id] - -Class69_Sub3_Sub1.screenRedrawHeights[id] && height + y > Class120_Sub12_Sub38.screenRedrawYs[id]) {
+				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
 		}
 	}
 
-	static final void method483(final Class50 class50, final byte i) {
+	static final void method483(final js5 js5, final byte i) {
 		try {
 			if (i < -97) {
-				Class76.aClass50_678 = class50;
+				Class76.aClass50_678 = js5;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("gd.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

@@ -26,7 +26,7 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.G(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("wh.G(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 			}
 		} while (false);
 	}
@@ -35,20 +35,20 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		try {
 			Class134.anInt1280 = i_5_;
 			Class99.anInt951 = i_1_;
-			Class120_Sub17.anInt2621 = i_2_;
+			ObjectContainer.anInt2621 = i_2_;
 			if (i_4_ != 0) {
 				method1639(6, 117, 100, 73, true, 14, -115);
 			}
 			SpotAnimType.anInt986 = i_3_;
 			NpcType.anInt1660 = i;
-			if (bool && Class120_Sub17.anInt2621 >= 100) {
+			if (bool && ObjectContainer.anInt2621 >= 100) {
 				Class83.renderX = 128 * Class99.anInt951 + 64;
 				GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.renderY = Class22.method197(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ) - SpotAnimType.anInt986;
+				Class120_Sub12_Sub10.renderY = Class22.getTileHeight(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ) - SpotAnimType.anInt986;
 			}
 			client.cameraType = 2;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}
 	}
 
@@ -68,7 +68,7 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 			}
 			i_6_ = -1;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.C(").append(c).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.C(").append(c).append(',').append(i).append(')').toString());
 		}
 		return i_6_;
 	}
@@ -80,50 +80,20 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 				anIntArray3654 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final Class29 method1642(final int i, final int i_8_) {
-		Class29 class29;
-		try {
-			Class29 class29_9_ = (Class29) Class120_Sub12_Sub31.aClass21_3378.get(i_8_);
-			if (class29_9_ != null) {
-				return class29_9_;
-			}
-			if (i != -16596) {
-				return null;
-			}
-			final byte[] is = CanvasWrapper.aClass50_18.getFile(32, i_8_);
-			class29_9_ = new Class29();
-			if (is != null) {
-				class29_9_.method248(new Buffer(is), (byte) 70);
-			}
-			class29_9_.method253(63);
-			Class120_Sub12_Sub31.aClass21_3378.put(class29_9_, i_8_);
-			class29 = class29_9_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.H(").append(i).append(',').append(i_8_).append(')').toString());
+	final int method1643(final char c) {
+		if (this.anIntArray3651 == null) {
+			return -1;
 		}
-		return class29;
-	}
-
-	final int method1643(final char c, final int i) {
-		int i_10_;
-		try {
-			if (this.anIntArray3651 == null) {
-				return -1;
+		for (int i_11_ = 0; this.anIntArray3651.length > i_11_; i_11_++) {
+			if (this.aCharArray3652[i_11_] == c) {
+				return this.anIntArray3651[i_11_];
 			}
-			for (int i_11_ = 0; this.anIntArray3651.length > i_11_; i_11_++) {
-				if (this.aCharArray3652[i_11_] == c) {
-					return this.anIntArray3651[i_11_];
-				}
-			}
-			i_10_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.F(").append(c).append(',').append(i).append(')').toString());
 		}
-		return i_10_;
+		return -1;
 	}
 
 	final void method1644(final int i) {
@@ -139,7 +109,7 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -162,7 +132,7 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 					for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
 						this.anIntArray3648[i_16_] = class120_sub7.getUShort();
 						final byte i_17_ = class120_sub7.getByte();
-						this.aCharArray3653[i_16_] = i_17_ != 0 ? Class120_Sub12_Sub24.method1328(false, i_17_) : '\0';
+						this.aCharArray3653[i_16_] = i_17_ != 0 ? Class120_Sub12_Sub24.method1328(i_17_) : '\0';
 					}
 				}
 			} else {
@@ -172,11 +142,11 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 				for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
 					this.anIntArray3651[i_19_] = class120_sub7.getUShort();
 					final byte i_20_ = class120_sub7.getByte();
-					this.aCharArray3652[i_19_] = i_20_ != 0 ? Class120_Sub12_Sub24.method1328(false, i_20_) : '\0';
+					this.aCharArray3652[i_19_] = i_20_ != 0 ? Class120_Sub12_Sub24.method1328(i_20_) : '\0';
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wh.E(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_14_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.E(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_14_).append(')').toString());
 		}
 	}
 }

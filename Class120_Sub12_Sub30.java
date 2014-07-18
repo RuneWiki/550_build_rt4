@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static AbstractSprite[] crossSprites;
 	static String aString3371;
 	static String aString3372;
-	static Class50 aClass50_3373;
+	static js5 aClass50_3373;
 	static int[] anIntArray3374 = new int[200];
 	static String aString3375;
 	static int anInt3376;
@@ -49,7 +49,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			}
 			i_4_ = 4096 + -((0x7fffffff & 1376312589 + i_5_ * (789221 + 15731 * i_5_ * i_5_)) / 262144);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.R(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("se.R(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 		return i_4_;
 	}
@@ -60,24 +60,15 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	}
 
 	@Override
-	final int[] method1187(final int i, final int i_7_) {
-		int[] is;
-		try {
-			final int[] is_8_ = this.aClass30_2563.method258(i_7_, i ^ ~0x69f);
-			if (this.aClass30_2563.aBoolean238) {
-				final int i_9_ = Class150.anIntArray1405[i_7_];
-				for (int i_10_ = 0; i_10_ < Class120_Sub12_Sub7.anInt3178; i_10_++) {
-					is_8_[i_10_] = method1359(i_9_, -9228, Class90.anIntArray849[i_10_]) % 4096;
-				}
+	final int[] method1187(final int i_7_) {
+		final int[] is_8_ = this.aClass30_2563.method258(i_7_);
+		if (this.aClass30_2563.aBoolean238) {
+			final int i_9_ = Class150.anIntArray1405[i_7_];
+			for (int i_10_ = 0; i_10_ < Class120_Sub12_Sub7.anInt3178; i_10_++) {
+				is_8_[i_10_] = method1359(i_9_, -9228, Class90.anIntArray849[i_10_]) % 4096;
 			}
-			if (i != -1735) {
-				method1362(true, null);
-			}
-			is = is_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.D(").append(i).append(',').append(i_7_).append(')').toString());
 		}
-		return is;
+		return is_8_;
 	}
 
 	public static void method1361(final int i) {
@@ -89,7 +80,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			aString3371 = null;
 			crossSprites = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.W(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("se.W(").append(i).append(')').toString());
 		}
 	}
 
@@ -102,7 +93,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			class101_sub4 = new Class101_Sub4(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(),
 					class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getUByte());
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("se.T(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("se.T(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class101_sub4;
 	}

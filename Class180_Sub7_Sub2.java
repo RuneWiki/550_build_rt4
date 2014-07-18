@@ -766,7 +766,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 		if (bool_170_) {
 			class180_sub7_sub2_178_.aByteArray3884 = aByteArray3884;
 		} else {
-			class180_sub7_sub2_178_.aByteArray3884 = Class126.method1883(64, aByteArray3884);
+			class180_sub7_sub2_178_.aByteArray3884 = Huffman.method1883(64, aByteArray3884);
 		}
 		if (bool_169_ && bool_170_ && bool_171_ && (bool_174_ && bool_172_ || Class120_Sub12_Sub6.highLightingDetail)) {
 			class180_sub7_sub2_178_.aClass49_3869 = aClass49_3869;
@@ -798,8 +798,8 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 			class180_sub7_sub2_178_.aFloatArray3868 = aFloatArray3868;
 			class180_sub7_sub2_178_.aClass49_3854 = aClass49_3854;
 		} else {
-			class180_sub7_sub2_178_.aFloatArray3874 = Class89.method748(-5899, aFloatArray3874);
-			class180_sub7_sub2_178_.aFloatArray3868 = Class89.method748(-5899, aFloatArray3868);
+			class180_sub7_sub2_178_.aFloatArray3874 = ArrayUtils.arrayCopy(aFloatArray3874);
+			class180_sub7_sub2_178_.aFloatArray3868 = ArrayUtils.arrayCopy(aFloatArray3868);
 			class180_sub7_sub2_178_.aClass49_3854 = new Class49();
 		}
 		if (bool_176_) {
@@ -867,7 +867,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 		return this.aClass13_3870.aShort92;
 	}
 
-	final Class107_Sub1 method2414(final Class107_Sub1 class107_sub1) {
+	final LDIndexedSprite method2414(final LDIndexedSprite class107_sub1) {
 		if (anInt3890 == 0) {
 			return null;
 		}
@@ -894,17 +894,17 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 		}
 		final int i_192_ = i_189_ - i + 1;
 		final int i_193_ = i_191_ - i_190_ + 1;
-		Class107_Sub1 class107_sub1_194_;
-		if (class107_sub1 != null && class107_sub1.aByteArray2306.length >= i_192_ * i_193_) {
+		LDIndexedSprite class107_sub1_194_;
+		if (class107_sub1 != null && class107_sub1.paletteIndicators.length >= i_192_ * i_193_) {
 			class107_sub1_194_ = class107_sub1;
-			class107_sub1_194_.anInt1029 = class107_sub1_194_.anInt1026 = i_192_;
-			class107_sub1_194_.anInt1028 = class107_sub1_194_.anInt1030 = i_193_;
+			class107_sub1_194_.trimWidth = class107_sub1_194_.width = i_192_;
+			class107_sub1_194_.trimHeight = class107_sub1_194_.height = i_193_;
 			class107_sub1_194_.method912();
 		} else {
-			class107_sub1_194_ = new Class107_Sub1(i_192_, i_193_, 0);
+			class107_sub1_194_ = new LDIndexedSprite(i_192_, i_193_, 0);
 		}
-		class107_sub1_194_.anInt1020 = i;
-		class107_sub1_194_.anInt1021 = i_190_;
+		class107_sub1_194_.xOffset = i;
+		class107_sub1_194_.yOffset = i_190_;
 		if (anIntArray3905.length < anInt3890) {
 			anIntArray3905 = new int[anInt3890];
 			anIntArray3901 = new int[anInt3890];
@@ -935,7 +935,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 				final int i_210_ = anIntArray3901[i_204_];
 				final int i_211_ = anIntArray3901[i_205_];
 				if ((i_206_ - i_207_) * (i_210_ - i_211_) - (i_210_ - i_209_) * (i_208_ - i_207_) > 0) {
-					Rasterizer.method865(class107_sub1_194_.aByteArray2306, i_209_, i_210_, i_211_, i_206_, i_207_, i_208_, i_192_);
+					Rasterizer.method865(class107_sub1_194_.paletteIndicators, i_209_, i_210_, i_211_, i_206_, i_207_, i_208_, i_192_);
 				}
 			}
 		}
@@ -1868,7 +1868,7 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 	}
 
 	private static final int method2423(final int i, final short i_532_, final int i_533_, final byte i_534_) {
-		int i_535_ = Rasterizer.anIntArray969[Class180_Sub7_Sub1.method2401(i, i_533_)];
+		int i_535_ = Rasterizer.palette[Class180_Sub7_Sub1.method2401(i, i_533_)];
 		if (i_532_ != -1) {
 			final int i_536_ = Rasterizer.anInterface5_973.method24(i_532_ & 0xffff, false);
 			if (i_536_ != 0) {

@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class1 {
+final class SeqFrame {
 	short[] aShortArray33;
 	private static short[] aShortArray34 = new short[500];
 	short[] aShortArray35;
@@ -18,7 +18,7 @@ final class Class1 {
 	private static short[] aShortArray45 = new short[500];
 	private static short[] aShortArray46;
 	short[] aShortArray47;
-	Class120_Sub1 aClass120_Sub1_48;
+	LabelGroup aClass120_Sub1_48;
 
 	static {
 		aShortArray41 = new short[500];
@@ -35,7 +35,7 @@ final class Class1 {
 		aByteArray39 = null;
 	}
 
-	Class1(final byte[] is, final Class120_Sub1 class120_sub1) {
+	SeqFrame(final byte[] is, final LabelGroup class120_sub1) {
 		this.aBoolean42 = false;
 		this.aClass120_Sub1_48 = null;
 		this.aClass120_Sub1_48 = class120_sub1;
@@ -48,7 +48,7 @@ final class Class1 {
 		int i_3_ = -1;
 		class120_sub7_0_.pos = class120_sub7.pos + i;
 		for (int i_4_ = 0; i_4_ < i; i_4_++) {
-			final int i_5_ = this.aClass120_Sub1_48.anIntArray2402[i_4_];
+			final int i_5_ = this.aClass120_Sub1_48.types[i_4_];
 			if (i_5_ == 0) {
 				i_2_ = i_4_;
 			}

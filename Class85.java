@@ -70,9 +70,9 @@ final class Class85 {
 		return true;
 	}
 
-	static final void method725(final byte i, final Class50 class50) {
+	static final void method725(final byte i, final js5 js5) {
 		try {
-			JagexSocket.aClass107_Sub1Array426 = Class191.method2514(class50, Class120_Sub14_Sub13.anInt3561, (byte) -118);
+			JagexSocket.aClass107_Sub1Array426 = Class191.method2514(js5, Class120_Sub14_Sub13.runesId, (byte) -118);
 			Class76.anIntArray679 = new int[256];
 			for (int i_20_ = 0; i_20_ < 3; i_20_++) {
 				float f = Class191.anIntArray2119[i_20_] >> 16 & 0xff;
@@ -104,7 +104,7 @@ final class Class85 {
 			Light.anIntArray392 = new int[32768];
 			Class92.aClass120_Sub14_Sub19_Sub2_862 = new LDSprite(128, 254);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jd.E(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jd.E(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -116,7 +116,7 @@ final class Class85 {
 			}
 			aString807 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jd.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jd.C(").append(i).append(')').toString());
 		}
 	}
 

@@ -15,11 +15,11 @@ final class Player extends GameEntity {
 	private byte titleId;
 	int anInt3742;
 	boolean playerLimitReached;
-	int anInt3744;
+	int team;
 	String name;
 	int anInt3746;
-	int anInt3747;
-	static int anInt3748 = 0;
+	int combatLevel;
+	static int chatEffects = 0;
 	PlayerAppearance appearance;
 
 	final void decodeAppearance(final Buffer buffer) {
@@ -36,7 +36,7 @@ final class Player extends GameEntity {
 		this.z += (getSize() - i_3_) * 64;
 		this.anInt3732 = buffer.getByte();
 		this.anInt3746 = buffer.getByte();
-		this.anInt3744 = 0;
+		this.team = 0;
 		for (int i_4_ = 0; i_4_ < 12; i_4_++) {
 			final int i_5_ = buffer.getUByte();
 			if (i_5_ == 0) {
@@ -46,7 +46,7 @@ final class Player extends GameEntity {
 				int i_7_ = (i_5_ << 8) - -i_6_;
 				if (i_4_ == 0 && 65535 == i_7_) {
 					i_0_ = buffer.getUShort();
-					this.anInt3744 = buffer.getUByte();
+					this.team = buffer.getUByte();
 					break;
 				}
 				if (-32769 >= (i_7_ ^ 0xffffffff)) {
@@ -54,7 +54,7 @@ final class Player extends GameEntity {
 					is[i_4_] = Class191.method2512(1073741824, i_7_);
 					final int i_8_ = ObjType.list(i_7_).team;
 					if (i_8_ != 0) {
-						this.anInt3744 = i_8_;
+						this.team = i_8_;
 					}
 				} else {
 					is[i_4_] = Class191.method2512(-2147483648, i_7_ - 256);
@@ -72,7 +72,7 @@ final class Player extends GameEntity {
 		this.anInt2982 = buffer.getUShort();
 		final long l = buffer.getLong();
 		this.name = Class136.longToString(l);
-		this.anInt3747 = buffer.getUByte();
+		this.combatLevel = buffer.getUByte();
 		if (!bool) {
 			this.anInt3737 = 0;
 			this.anInt3733 = buffer.getUByte();
@@ -82,7 +82,7 @@ final class Player extends GameEntity {
 			}
 		} else {
 			this.anInt3737 = buffer.getUShort();
-			this.anInt3733 = this.anInt3747;
+			this.anInt3733 = this.combatLevel;
 			this.anInt3738 = -1;
 		}
 		final int i_12_ = this.anInt3735;
@@ -110,8 +110,8 @@ final class Player extends GameEntity {
 		final int i_18_ = this.appearance.npcId;
 		this.appearance.method2042(i_0_, is, this.anInt2982, is_9_, i_2_ == 1);
 		if (i_0_ != i_18_) {
-			this.x = this.anIntArray2958[0] * 128 + (64 * getSize());
-			this.z = this.anIntArray3040[0] * 128 + (64 * getSize());
+			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
+			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
 		}
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();
@@ -131,7 +131,7 @@ final class Player extends GameEntity {
 					return;
 				}
 				final SeqType seqType = this.anInt3006 == -1 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
-				final SeqType class40_23_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) 112).anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
+				final SeqType class40_23_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
 				final Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, seqType, false, this.anInt3044);
 				if (class180_sub7 == null) {
 					return;
@@ -142,13 +142,13 @@ final class Player extends GameEntity {
 				this.aClass108_Sub2_2988.method944(i, i_19_, i_21_, i_20_, i_22_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.BB(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("f.BB(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
 		}
 	}
 
-	static final void method2340(final Class50 class50, final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2, final boolean bool, final Class50 class50_24_) {
+	static final void method2340(final js5 js5, final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2, final boolean bool, final js5 class50_24_) {
 		Class111.aClass50_1064 = class50_24_;
-		Class120_Sub12_Sub23.aClass50_3305 = class50;
+		Class120_Sub12_Sub23.aClass50_3305 = js5;
 		AbstractObject.aBoolean3463 = bool;
 		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
 		Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_);
@@ -166,7 +166,7 @@ final class Player extends GameEntity {
 			}
 			i = this.anInt2982;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.I(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("f.I(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -179,7 +179,7 @@ final class Player extends GameEntity {
 			Class43.playerModelsCache.clearSoftReference();
 			Class90.playerHeadModelsCache.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.V(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("f.V(").append(i).append(')').toString());
 		}
 	}
 
@@ -188,9 +188,9 @@ final class Player extends GameEntity {
 		try {
 			if (this.appearance != null) {
 				final SeqType seqType = this.anInt3006 != -1 && this.anInt2993 == 0 ? SeqType.list(this.anInt3006) : null;
-				final Class29 class29 = method2336((byte) -109);
+				final Class29 class29 = method2336();
 				final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
-				final SeqType class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336((byte) -115).anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
+				final SeqType class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
 				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, seqType, true, this.anInt3044);
 				final int i_35_ = Class48.getPlayersCacheSize();
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
@@ -332,7 +332,7 @@ final class Player extends GameEntity {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.T(").append(i).append(',').append(i_26_).append(',').append(i_27_).append(',').append(i_28_).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("f.T(").append(i).append(',').append(i_26_).append(',').append(i_27_).append(',').append(i_28_).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',')
 					.append(l).append(',').append(i_33_).append(',').append(class108_sub2 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
@@ -371,12 +371,12 @@ final class Player extends GameEntity {
 				this.aClass108_Sub2_2988.method953();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "f.finalize()");
+			throw EnumType.method1428(runtimeexception, "f.finalize()");
 		}
 	}
 
 	final void method2343(final int i, final boolean bool, final int i_53_) {
-		super.method2323((byte) 87, i, getSize(), i_53_, bool);
+		super.method2323(i, getSize(), i_53_, bool);
 	}
 
 	private final void method2344(final int i, final int i_54_, final ParticleEngine class108_sub2, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final int i_62_, final byte i_63_, final int i_64_, final int i_65_,
@@ -403,7 +403,7 @@ final class Player extends GameEntity {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "f.S(");
+			throw EnumType.method1428(runtimeexception, "f.S(");
 		}
 	}
 
@@ -429,7 +429,7 @@ final class Player extends GameEntity {
 			} else {
 				for (int i_76_ = 0; i_76_ < Class186.menuOptionCount; i_76_++) {
 					if (Class120_Sub29.aShortArray2777[i_76_] == 1 || Class120_Sub29.aShortArray2777[i_76_] == 1009 || Class120_Sub29.aShortArray2777[i_76_] == 34 || Class120_Sub29.aShortArray2777[i_76_] == 23 || Class120_Sub29.aShortArray2777[i_76_] == 3) {
-						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = Class120_Sub17.method1665(89, class189_77_)) {
+						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = ObjectContainer.method1665(89, class189_77_)) {
 							if (class189_77_.bitPacked == jagexInterface.bitPacked) {
 								return true;
 							}
@@ -438,11 +438,11 @@ final class Player extends GameEntity {
 				}
 			}
 			if (i_72_ <= 103) {
-				anInt3748 = 126;
+				chatEffects = 126;
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("f.Q(").append(i).append(',').append(i_71_).append(',').append(i_72_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("f.Q(").append(i).append(',').append(i_71_).append(',').append(i_72_).append(')').toString());
 		}
 		return bool;
 	}
@@ -454,12 +454,12 @@ final class Player extends GameEntity {
 		this.anInt3732 = -1;
 		this.anInt3739 = 255;
 		this.anInt3736 = -1;
-		this.anInt3744 = 0;
+		this.team = 0;
 		titleId = (byte) 0;
 		this.anInt3742 = -1;
 		this.anInt3740 = -1;
 		this.playerLimitReached = false;
-		this.anInt3747 = 0;
+		this.combatLevel = 0;
 		this.anInt3746 = -1;
 	}
 }

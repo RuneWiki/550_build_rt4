@@ -11,14 +11,14 @@ class Buffer extends Node {
 	static int gameId;
 	static int anInt2473 = 0;
 	static int anInt2474;
-	static int anInt2475;
+	static int subScriptAmount;
 	static String[] languageArray;
 	static int[] anIntArray2477;
 
 	static {
 		gameId = 0;
 		playerOptions = new String[8];
-		anInt2475 = 0;
+		subScriptAmount = 0;
 		languageArray = new String[] { "en", "de", "fr", "pt" };
 	}
 
@@ -28,7 +28,7 @@ class Buffer extends Node {
 			languageArray = null;
 			playerOptions = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.I(").append(i).append(')').toString());
 		}
 	}
 
@@ -60,7 +60,7 @@ class Buffer extends Node {
 				throw new IllegalArgumentException();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.TB(").append(i).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.TB(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -95,7 +95,7 @@ class Buffer extends Node {
 			}
 			putByte(0x7f & i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.EA(").append(i).append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.EA(").append(i).append(',').append(i_6_).append(')').toString());
 		}
 	}
 
@@ -130,7 +130,7 @@ class Buffer extends Node {
 		int i;
 		try {
 			if (!bool) {
-				anInt2475 = -16;
+				subScriptAmount = -16;
 			}
 			this.pos += 2;
 			int i_10_ = ((this.buf[this.pos - 1] & 0xff) << 8) + (0xff & this.buf[this.pos + -2]);
@@ -139,7 +139,7 @@ class Buffer extends Node {
 			}
 			i = i_10_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.OA(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.OA(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -148,18 +148,9 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (128 - i_11_);
 	}
 
-	final int method1089(final int i) {
-		int i_12_;
-		try {
-			this.pos += 4;
-			if (i != 775571361) {
-				return 46;
-			}
-			i_12_ = (this.buf[this.pos - 2] & 0xff) + ((0xff & this.buf[-4 + this.pos]) << 16) + (~0xffffff & this.buf[-3 + this.pos] << 24) + (0xff00 & this.buf[this.pos + -1] << 8);
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.KB(").append(i).append(')').toString());
-		}
-		return i_12_;
+	final int method1089() {
+		this.pos += 4;
+		return (this.buf[this.pos - 2] & 0xff) + ((0xff & this.buf[-4 + this.pos]) << 16) + (~0xffffff & this.buf[-3 + this.pos] << 24) + (0xff00 & this.buf[this.pos + -1] << 8);
 	}
 
 	final int getULEShortA() {
@@ -180,7 +171,7 @@ class Buffer extends Node {
 			}
 			i_15_ = (this.buf[-2 + this.pos] << 16 & 0xff0000) + ((this.buf[this.pos + -3] & 0xff) << 8) + (this.buf[-1 + this.pos] & 0xff);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.F(").append(i).append(')').toString());
 		}
 		return i_15_;
 	}
@@ -241,7 +232,7 @@ class Buffer extends Node {
 			final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, i_20_ ^ ~0x2d, null);
 			Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
+			throw EnumType.method1428(runtimeexception,
 					new StringBuilder("fd.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_)
 							.append(')').toString());
 		}
@@ -281,7 +272,7 @@ class Buffer extends Node {
 			}
 			l = l_43_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.K(").append(i).append(',').append(i_42_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.K(").append(i).append(',').append(i_42_).append(')').toString());
 		}
 		return l;
 	}
@@ -308,7 +299,7 @@ class Buffer extends Node {
 			}
 			i_47_ = i_48_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.H(").append(i).append(')').toString());
 		}
 		return i_47_;
 	}
@@ -328,9 +319,9 @@ class Buffer extends Node {
 
 	final boolean compareCrc() {
 		this.pos -= 4;
-		final int i_53_ = NodeSub.getCrc(this.buf, 0, this.pos);
-		final int i_54_ = getInt();
-		if (i_53_ == i_54_) {
+		final int one = NodeSub.getCrc(this.buf, 0, this.pos);
+		final int second = getInt();
+		if (one == second) {
 			return true;
 		}
 		return false;
@@ -350,7 +341,7 @@ class Buffer extends Node {
 			this.buf[this.pos++] = (byte) i_56_;
 			this.buf[this.pos++] = (byte) (i_56_ >> 8);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.GA(").append(i).append(',').append(i_56_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.GA(").append(i).append(',').append(i_56_).append(')').toString());
 		}
 	}
 
@@ -379,7 +370,7 @@ class Buffer extends Node {
 				this.buf[this.pos++] = (byte) (int) (l >> i_58_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.Q(").append(l).append(',').append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.Q(").append(l).append(',').append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -407,7 +398,7 @@ class Buffer extends Node {
 			}
 			this.pos = i_61_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.CB(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(bool).append(',').append(i_59_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.CB(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(bool).append(',').append(i_59_).append(')').toString());
 		}
 	}
 
@@ -428,7 +419,7 @@ class Buffer extends Node {
 			}
 			i = i_70_ | i_69_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.QA(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.QA(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -442,7 +433,7 @@ class Buffer extends Node {
 				this.buf[-i + this.pos + -1] = (byte) i;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.QB(").append(i).append(',').append(i_71_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.QB(").append(i).append(',').append(i_71_).append(')').toString());
 		}
 	}
 
@@ -498,7 +489,7 @@ class Buffer extends Node {
 				Class86.loginStep = 6;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.NB(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.NB(").append(i).append(')').toString());
 		}
 	}
 
@@ -508,9 +499,9 @@ class Buffer extends Node {
 	}
 
 	final int putCrc(final int off) {
-		final int i_83_ = NodeSub.getCrc(this.buf, off, this.pos);
-		putInt(i_83_);
-		return i_83_;
+		final int crc = NodeSub.getCrc(this.buf, off, this.pos);
+		putInt(crc);
+		return crc;
 	}
 
 	final long getLong() {
@@ -567,7 +558,7 @@ class Buffer extends Node {
 				getFastJString();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.KA(").append(bool).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.KA(").append(bool).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -626,7 +617,7 @@ class Buffer extends Node {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("fd.S(").append(i).append(',').append(i_107_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_108_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.S(").append(i).append(',').append(i_107_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_108_).append(')').toString());
 		}
 	}
 

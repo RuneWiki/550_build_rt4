@@ -3,7 +3,7 @@
  */
 
 abstract class Class120_Sub2 extends Node {
-	static Class50 aClass50_2415;
+	static js5 aClass50_2415;
 	static int[][] anIntArrayArray2416;
 	static float aFloat2417;
 	boolean aBoolean2418;
@@ -27,7 +27,7 @@ abstract class Class120_Sub2 extends Node {
 			}
 			i_0_ = 1;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.K(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.K(").append(i).append(')').toString());
 		}
 		return i_0_;
 	}
@@ -37,7 +37,7 @@ abstract class Class120_Sub2 extends Node {
 		try {
 			i = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "bc.G()");
+			throw EnumType.method1428(runtimeexception, "bc.G()");
 		}
 		return i;
 	}
@@ -58,7 +58,7 @@ abstract class Class120_Sub2 extends Node {
 			aStringArray2420 = null;
 			anIntArrayArray2416 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.L(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.L(").append(i).append(')').toString());
 		}
 	}
 
@@ -69,22 +69,22 @@ abstract class Class120_Sub2 extends Node {
 			final int i_10_ = i_3_ + i_7_;
 			final int i_11_ = i_1_ + -i_7_;
 			for (int i_12_ = i_2_; i_8_ > i_12_; i_12_++) {
-				Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_12_], i, i_3_, i_1_);
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_12_], i, i_3_, i_1_);
 			}
 			if (i_5_ != -57) {
 				method1046(30, 23, -109, 75, 35);
 			}
 			for (int i_13_ = i_4_; i_9_ < i_13_; i_13_--) {
-				Class120_Sub8.method1160((byte) 115, GameEntity.anIntArrayArray3009[i_13_], i, i_3_, i_1_);
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_13_], i, i_3_, i_1_);
 			}
 			for (int i_14_ = i_8_; i_14_ <= i_9_; i_14_++) {
 				final int[] is = GameEntity.anIntArrayArray3009[i_14_];
-				Class120_Sub8.method1160((byte) 115, is, i, i_3_, i_10_);
-				Class120_Sub8.method1160((byte) 115, is, i_6_, i_10_, i_11_);
-				Class120_Sub8.method1160((byte) 115, is, i, i_11_, i_1_);
+				AmbientSound.fillArray(is, i, i_3_, i_10_);
+				AmbientSound.fillArray(is, i_6_, i_10_, i_11_);
+				AmbientSound.fillArray(is, i, i_11_, i_1_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.M(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.M(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')')
 					.toString());
 		}
 	}
@@ -92,15 +92,15 @@ abstract class Class120_Sub2 extends Node {
 	static final boolean method1046(final int i, final int i_15_, final int i_16_, final int i_17_, final int i_18_) {
 		final int i_19_ = i_17_ * Class120_Sub12_Sub30.anInt3377 + i * Class73.anInt637 >> 16;
 		final int i_20_ = i_17_ * Class73.anInt637 - i * Class120_Sub12_Sub30.anInt3377 >> 16;
-		int i_21_ = i_15_ * Class69_Sub2.anInt2239 + i_20_ * Class120_Sub17.anInt2616 >> 16;
-		final int i_22_ = i_15_ * Class120_Sub17.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
+		int i_21_ = i_15_ * Class69_Sub2.anInt2239 + i_20_ * ObjectContainer.anInt2616 >> 16;
+		final int i_22_ = i_15_ * ObjectContainer.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
 		if (i_21_ < 1) {
 			i_21_ = 1;
 		}
 		final int i_23_ = (i_19_ << 9) / i_21_;
 		final int i_24_ = (i_22_ << 9) / i_21_;
-		int i_25_ = i_16_ * Class69_Sub2.anInt2239 + i_20_ * Class120_Sub17.anInt2616 >> 16;
-		final int i_26_ = i_16_ * Class120_Sub17.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
+		int i_25_ = i_16_ * Class69_Sub2.anInt2239 + i_20_ * ObjectContainer.anInt2616 >> 16;
+		final int i_26_ = i_16_ * ObjectContainer.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
 		if (i_25_ < 1) {
 			i_25_ = 1;
 		}
@@ -151,7 +151,7 @@ abstract class Class120_Sub2 extends Node {
 		try {
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.J(").append(i).append(')').toString());
 		}
 		return bool;
 	}
@@ -168,7 +168,7 @@ abstract class Class120_Sub2 extends Node {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bc.O(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.O(").append(i).append(')').toString());
 		}
 		return bool;
 	}

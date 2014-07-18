@@ -15,7 +15,7 @@ abstract class Class53 {
 				method457(null, (byte) -77);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ga.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -48,7 +48,7 @@ abstract class Class53 {
 				class120_sub24.anInt2723 = i_0_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ga.C(").append(class120_sub24 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.C(").append(class120_sub24 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -71,7 +71,7 @@ abstract class Class53 {
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_6_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ga.G(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.G(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return class120_sub14_sub8_sub2;
 	}

@@ -9,7 +9,7 @@ final class Class154 {
 	static int anInt1440;
 	static int anInt1441;
 	static int anInt1442;
-	static Class50 aClass50_1443;
+	static js5 aClass50_1443;
 
 	static {
 		aClass21_1438 = new Cache(32);
@@ -42,7 +42,7 @@ final class Class154 {
 							Class120_Sub14_Sub14.method1540("", 0, Class112.aString1079);
 						} else {
 							Class85.aLongArray806[Class120_Sub12_Sub26.anInt3335] = l;
-							Class84.aStringArray801[Class120_Sub12_Sub26.anInt3335] = Class143.method2018(117, l);
+							Class84.aStringArray801[Class120_Sub12_Sub26.anInt3335] = Class174.longToString(l);
 							Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.anInt3335++] = bool;
 							Class61.anInt563 = Class160.anInt1494;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
@@ -54,7 +54,7 @@ final class Class154 {
 					}
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sd.A(").append(bool).append(',').append(l).append(',').append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("sd.A(").append(bool).append(',').append(l).append(',').append(i).append(')').toString());
 			}
 		} while (false);
 	}
@@ -117,13 +117,13 @@ final class Class154 {
 				Class179.anInt1775 = i_3_ * i_7_ / 334;
 			}
 			Class120_Sub28.anInt2751 = i;
-			Class120_Sub17.anInt2612 = i_4_;
+			ObjectContainer.anInt2612 = i_4_;
 			Class120_Sub12_Sub27.anInt3339 = (short) i_5_;
 			if (!bool_2_) {
 				Light.anInt391 = (short) i_3_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sd.B(").append(i).append(',').append(bool).append(',').append(bool_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sd.B(").append(i).append(',').append(bool).append(',').append(bool_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}
 	}
 
@@ -136,7 +136,7 @@ final class Class154 {
 			aClass21_1438 = null;
 			aClass32Array1437 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("sd.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("sd.C(").append(i).append(')').toString());
 		}
 	}
 }

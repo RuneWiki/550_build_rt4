@@ -16,8 +16,8 @@ final class Class137 {
 			final JagexInterface jagexInterface = class189s_1_[i_2_];
 			if (jagexInterface != null) {
 				if (jagexInterface.type == 0) {
-					if (jagexInterface.aClass189Array2072 != null) {
-						method1980(jagexInterface.aClass189Array2072, i);
+					if (jagexInterface.components != null) {
+						method1980(jagexInterface.components, i);
 					}
 					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 					if (class120_sub26 != null) {
@@ -25,20 +25,20 @@ final class Class137 {
 					}
 				}
 				if (i == 0 && jagexInterface.anObjectArray2013 != null) {
-					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
+					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.aClass189_2534 = jagexInterface;
-					class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray2013;
+					class120_sub10.objectData = jagexInterface.anObjectArray2013;
 					Class88.method744(true, class120_sub10);
 				}
 				if (i == 1 && jagexInterface.anObjectArray1932 != null) {
-					if (jagexInterface.anInt2083 >= 0) {
+					if (jagexInterface.componentIndex >= 0) {
 						final JagexInterface class189_3_ = Class74.getJagexInterface(jagexInterface.bitPacked);
-						if (class189_3_ == null || class189_3_.aClass189Array2072 == null || class189_3_.aClass189Array2072.length <= jagexInterface.anInt2083 || jagexInterface != class189_3_.aClass189Array2072[jagexInterface.anInt2083]) {
+						if (class189_3_ == null || class189_3_.components == null || class189_3_.components.length <= jagexInterface.componentIndex || jagexInterface != class189_3_.components[jagexInterface.componentIndex]) {
 							continue;
 						}
 					}
-					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
-					class120_sub10.anObjectArray2537 = jagexInterface.anObjectArray1932;
+					final InterfaceListener class120_sub10 = new InterfaceListener();
+					class120_sub10.objectData = jagexInterface.anObjectArray1932;
 					class120_sub10.aClass189_2534 = jagexInterface;
 					Class88.method744(true, class120_sub10);
 				}
@@ -53,7 +53,7 @@ final class Class137 {
 				loginStream = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("po.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("po.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -63,7 +63,7 @@ final class Class137 {
 				Class120_Sub12_Sub38.anInt3434 = -1;
 				Class120_Sub15.anInt2588 = -1;
 			} else {
-				int i_11_ = -i_5_ + Class22.method197(Class173.gameLevel, i_7_, i_8_);
+				int i_11_ = -i_5_ + Class22.getTileHeight(Class173.gameLevel, i_7_, i_8_);
 				i_7_ -= Class83.renderX;
 				i_11_ -= Class120_Sub12_Sub10.renderY;
 				i_8_ -= GroundObjectNode.renderZ;
@@ -91,7 +91,7 @@ final class Class137 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("po.C(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("po.C(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')')
 					.toString());
 		}
 	}

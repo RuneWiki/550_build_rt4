@@ -586,7 +586,7 @@ final class Class97 {
 		aClass120_Sub14_Sub19_Sub2_920 = new LDTransparentSprite(anInt931, anInt931);
 		GraphicsLD.method2169(anIntArray923);
 		aClass120_Sub14_Sub19_Sub2_920.method1617();
-		Rasterizer.method874();
+		Rasterizer.calculateByBounds();
 		GraphicsLD.fillRect(0, 0, anInt931, anInt931, 0);
 		int i = 0;
 		int i_121_ = 0;
@@ -640,7 +640,7 @@ final class Class97 {
 		}
 		Class120_Sub13.fullscreenGraphics.init2dCanvas();
 		GraphicsLD.method2172(anIntArray923);
-		Rasterizer.method874();
+		Rasterizer.calculateByBounds();
 	}
 
 	private final void method804() {
@@ -704,7 +704,7 @@ final class Class97 {
 			aClass120_Sub14_Sub19_Sub2_920 = new LDSprite(anInt931, anInt931);
 			GraphicsLD.method2169(anIntArray923);
 			aClass120_Sub14_Sub19_Sub2_920.method1617();
-			Rasterizer.method874();
+			Rasterizer.calculateByBounds();
 			GraphicsLD.fillRect(0, 0, anInt931, anInt931, 0);
 			int i = 0;
 			int i_148_ = 0;
@@ -747,7 +747,7 @@ final class Class97 {
 			}
 			Class120_Sub13.fullscreenGraphics.init2dCanvas();
 			GraphicsLD.method2172(anIntArray923);
-			Rasterizer.method874();
+			Rasterizer.calculateByBounds();
 		}
 	}
 

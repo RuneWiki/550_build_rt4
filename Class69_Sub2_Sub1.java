@@ -15,15 +15,15 @@ final class Class69_Sub2_Sub1 extends Class69_Sub2 {
 				aString3078 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hm.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.F(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method622(final int i) {
 		try {
-			Class86.aClass21_816.clearSoftReference();
+			Varp.recentUse.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hm.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.I(").append(i).append(')').toString());
 		}
 	}
 
@@ -35,7 +35,7 @@ final class Class69_Sub2_Sub1 extends Class69_Sub2 {
 			}
 			i_1_ = Class120_Sub14_Sub15.anInt3582;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hm.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.H(").append(i).append(')').toString());
 		}
 		return i_1_;
 	}

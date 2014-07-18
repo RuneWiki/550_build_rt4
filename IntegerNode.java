@@ -18,7 +18,7 @@ final class IntegerNode extends Node {
 
 	static final void method1831(final int i) {
 		try {
-			Class56.aClass21_494.clearSoftReference();
+			LocType.recentUse.clearSoftReference();
 			InterfaceClickMask.aClass21_2663.clearSoftReference();
 			if (i != 18786) {
 				killtime = 81L;
@@ -26,7 +26,7 @@ final class IntegerNode extends Node {
 			Class167.aClass21_1618.clearSoftReference();
 			Class116.aClass21_1117.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("v.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -40,7 +40,7 @@ final class IntegerNode extends Node {
 				method1831(113);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("v.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -56,7 +56,7 @@ final class IntegerNode extends Node {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("v.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("v.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool;
 	}

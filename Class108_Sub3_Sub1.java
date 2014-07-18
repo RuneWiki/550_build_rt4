@@ -287,9 +287,9 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 							method969();
 							return;
 						}
-						GroundTile class120_sub18 = Class120_Sub1.groundTiles[i_52_][i_48_][i_49_];
+						GroundTile class120_sub18 = LabelGroup.groundTiles[i_52_][i_48_][i_49_];
 						if (class120_sub18 == null) {
-							class120_sub18 = Class120_Sub1.groundTiles[i_52_][i_48_][i_49_] = new GroundTile(i_52_, i_48_, i_49_);
+							class120_sub18 = LabelGroup.groundTiles[i_52_][i_48_][i_49_] = new GroundTile(i_52_, i_48_, i_49_);
 						}
 						if (class120_sub18.aClass100_2645 == null) {
 							class120_sub18.aClass100_2645 = new Class100();

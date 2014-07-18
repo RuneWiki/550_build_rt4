@@ -16,9 +16,9 @@ final class Class94 {
 	private Class104 aClass104_877;
 	private ByteBuffer aByteBuffer878;
 
-	final boolean method776(final Class107_Sub1 class107_sub1, final int i, final int i_0_) {
-		final byte[] is = class107_sub1.aByteArray2306;
-		final int i_1_ = class107_sub1.anInt1026;
+	final boolean method776(final LDIndexedSprite class107_sub1, final int i, final int i_0_) {
+		final byte[] is = class107_sub1.paletteIndicators;
+		final int i_1_ = class107_sub1.width;
 		int i_2_ = i * 128 + 1 + (i_0_ * 128 + 1) * i_1_;
 		int i_3_ = 0;
 		for (int i_4_ = -128; i_4_ < 0; i_4_++) {

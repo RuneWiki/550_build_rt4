@@ -65,11 +65,11 @@ final class Class96 {
 				class120_sub9.method1165(i_6_, i_11_, i, is_20_, null, false);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "kf.B(");
+			throw EnumType.method1428(runtimeexception, "kf.B(");
 		}
 	}
 
-	static final void method787(final int i, final Class107_Sub1 class107_sub1) {
+	static final void method787(final int i, final LDIndexedSprite class107_sub1) {
 		try {
 			for (int i_25_ = 0; InterfaceChangeNode.anIntArray3485.length > i_25_; i_25_++) {
 				InterfaceChangeNode.anIntArray3485[i_25_] = 0;
@@ -93,11 +93,11 @@ final class Class96 {
 			}
 			if (class107_sub1 != null) {
 				i_27_ = 0;
-				for (i_28_ = 0; i_28_ < class107_sub1.anInt1030; i_28_++) {
-					for (int i_32_ = 0; i_32_ < class107_sub1.anInt1026; i_32_++) {
-						if (class107_sub1.aByteArray2306[i_27_++] != 0) {
-							final int i_33_ = i_32_ - (-16 - class107_sub1.anInt1020);
-							final int i_34_ = 16 + i_28_ + class107_sub1.anInt1021;
+				for (i_28_ = 0; i_28_ < class107_sub1.height; i_28_++) {
+					for (int i_32_ = 0; i_32_ < class107_sub1.width; i_32_++) {
+						if (class107_sub1.paletteIndicators[i_27_++] != 0) {
+							final int i_33_ = i_32_ - (-16 - class107_sub1.xOffset);
+							final int i_34_ = 16 + i_28_ + class107_sub1.yOffset;
 							final int i_35_ = (i_34_ << 7) + i_33_;
 							InterfaceChangeNode.anIntArray3485[i_35_] = 0;
 						}
@@ -105,7 +105,7 @@ final class Class96 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kf.A(").append(i).append(',').append(class107_sub1 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.A(").append(i).append(',').append(class107_sub1 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -192,7 +192,7 @@ final class Class96 {
 					}
 					int i_41_ = 0;
 					Class86.aClass167_Sub1Array817 = new World[Class57.worldLen2];
-					for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= Class120_Sub14_Sub2.worldLen; i_42_++) {
+					for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
 						final World class167_sub1 = Class82.method710((byte) -24, i_42_);
 						if (class167_sub1 != null) {
 							Class86.aClass167_Sub1Array817[i_41_++] = class167_sub1;
@@ -212,7 +212,7 @@ final class Class96 {
 			} while (false);
 			i_36_ = -1;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kf.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.D(").append(i).append(')').toString());
 		}
 		return i_36_;
 	}
@@ -244,7 +244,7 @@ final class Class96 {
 			}
 			i_45_ = (i_43_ & 0xff80) + i_44_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kf.C(").append(i).append(',').append(i_43_).append(',').append(i_44_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.C(").append(i).append(',').append(i_43_).append(',').append(i_44_).append(')').toString());
 		}
 		return i_45_;
 	}
@@ -257,7 +257,7 @@ final class Class96 {
 				method786(true, -78, false, null, null, null, (byte) 53, null, 73, 58, (byte) 44, 17, true, 46, null, -105, -18, null, null, -57, null, true);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kf.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.E(").append(i).append(')').toString());
 		}
 	}
 

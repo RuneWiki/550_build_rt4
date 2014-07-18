@@ -6,8 +6,8 @@ final class SeqType {
 	int anInt326;
 	boolean[] aBooleanArray327;
 	int anInt328 = -1;
-	private int[] anIntArray329;
-	static Class50 aClass50_331;
+	private int[] interfaceFrames;
+	static js5 aClass50_331;
 	boolean tween = false;
 	static int anInt333 = 0;
 	int anInt334;
@@ -32,16 +32,16 @@ final class SeqType {
 		try {
 			final int i_4_ = this.cycles[i_0_];
 			i_0_ = this.frames[i_0_];
-			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_0_ >> 16, -1);
+			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_0_ >> 16);
 			i_0_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2376(true, true, true);
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18_5_ = null;
+			FrameLoader class120_sub14_sub18_5_ = null;
 			i_1_ &= 0x3;
-			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && this.frames.length > i) {
+			if ((this.tween || Class164.forceTween) && i != -1 && this.frames.length > i) {
 				i = this.frames[i];
-				class120_sub14_sub18_5_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
+				class120_sub14_sub18_5_ = FrameLoader.list(i >> 16);
 				i &= 0xffff;
 			}
 			if (bool) {
@@ -98,23 +98,23 @@ final class SeqType {
 			}
 			class180_sub7_3_ = class180_sub7_6_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.I(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.I(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 		return class180_sub7_3_;
 	}
 
 	static final void method321(final boolean bool, int i, int i_7_, final int i_8_, final int i_9_) {
 		try {
-			if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= Class139.anInt1334) {
-				i = Class3.method83(Class32.anInt260, i, 1, Class120_Sub14_Sub11.anInt3544);
-				i_7_ = Class3.method83(Class32.anInt260, i_7_, 1, Class120_Sub14_Sub11.anInt3544);
+			if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
+				i = Class3.method83(Class32.anInt260, i, 1, ParamType.anInt3544);
+				i_7_ = Class3.method83(Class32.anInt260, i_7_, 1, ParamType.anInt3544);
 				Class84.method717(i, false, i_7_, i_8_, i_9_);
 			}
 			if (!bool) {
-				method325(21, -94, -102, -35, (byte) 68);
+				method325(21, -94, -102, -35);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.E(").append(bool).append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.E(").append(bool).append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(')').toString());
 		}
 	}
 
@@ -128,10 +128,10 @@ final class SeqType {
 				if (i == 0) {
 					break;
 				}
-				method326(class120_sub7, i, 4282);
+				decode(class120_sub7, i);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.J(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.J(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -143,33 +143,33 @@ final class SeqType {
 				this.cycles = null;
 			}
 			int i_14_ = this.frames[i_11_];
-			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_14_ >> 16, -1);
+			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
 			i_14_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2376(true, true, true);
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18_15_ = null;
+			FrameLoader class120_sub14_sub18_15_ = null;
 			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
 				i_10_ = this.frames[i_10_];
-				class120_sub14_sub18_15_ = Class120_Sub12_Sub31.method1367(i_10_ >> 16, -1);
+				class120_sub14_sub18_15_ = FrameLoader.list(i_10_ >> 16);
 				i_10_ &= 0xffff;
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18_16_ = null;
+			FrameLoader class120_sub14_sub18_16_ = null;
 			int i_17_ = 0;
 			int i_18_ = 0;
-			Class120_Sub14_Sub18 class120_sub14_sub18_19_ = null;
-			if (anIntArray329 != null) {
-				if (i_11_ < anIntArray329.length) {
-					i_18_ = anIntArray329[i_11_];
+			FrameLoader class120_sub14_sub18_19_ = null;
+			if (interfaceFrames != null) {
+				if (i_11_ < interfaceFrames.length) {
+					i_18_ = interfaceFrames[i_11_];
 					if (i_18_ != 65535) {
-						class120_sub14_sub18_16_ = Class120_Sub12_Sub31.method1367(i_18_ >> 16, -1);
+						class120_sub14_sub18_16_ = FrameLoader.list(i_18_ >> 16);
 						i_18_ &= 0xffff;
 					}
 				}
-				if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < anIntArray329.length) {
-					i_17_ = anIntArray329[i_10_];
+				if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < interfaceFrames.length) {
+					i_17_ = interfaceFrames[i_10_];
 					if (-65536 != (i_17_ ^ 0xffffffff)) {
-						class120_sub14_sub18_19_ = Class120_Sub12_Sub31.method1367(i_17_ >> 16, -1);
+						class120_sub14_sub18_19_ = FrameLoader.list(i_17_ >> 16);
 						i_17_ &= 0xffff;
 					}
 				}
@@ -195,7 +195,7 @@ final class SeqType {
 			}
 			class180_sub7_12_ = class180_sub7_22_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.F(").append(bool).append(',').append(i).append(',').append(i_10_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.F(").append(bool).append(',').append(i).append(',').append(i_10_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_11_).append(')').toString());
 		}
 		return class180_sub7_12_;
 	}
@@ -205,15 +205,15 @@ final class SeqType {
 		try {
 			final int i_27_ = this.cycles[i_23_];
 			i_23_ = this.frames[i_23_];
-			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_23_ >> 16, -1);
+			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_23_ >> 16);
 			i_23_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2381(true, true, true);
 			}
-			Class120_Sub14_Sub18 class120_sub14_sub18_28_ = null;
+			FrameLoader class120_sub14_sub18_28_ = null;
 			if ((this.tween || Class164.forceTween) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.frames.length) {
 				i_25_ = this.frames[i_25_];
-				class120_sub14_sub18_28_ = Class120_Sub12_Sub31.method1367(i_25_ >> 16, -1);
+				class120_sub14_sub18_28_ = FrameLoader.list(i_25_ >> 16);
 				i_25_ &= 0xffff;
 			}
 			Class180_Sub7 class180_sub7_29_;
@@ -225,116 +225,85 @@ final class SeqType {
 			class180_sub7_29_.method2380(class120_sub14_sub18, i_23_, class120_sub14_sub18_28_, i_25_, i_24_ + -1, i_27_, this.aBoolean341);
 			class180_sub7_26_ = class180_sub7_29_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.B(").append(i).append(',').append(i_23_).append(',').append(i_24_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_25_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.B(").append(i).append(',').append(i_23_).append(',').append(i_24_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_25_).append(')').toString());
 		}
 		return class180_sub7_26_;
 	}
 
-	static final void method325(final int i, final int i_30_, final int i_31_, final int i_32_, final byte i_33_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_32_);
-			class120_sub14_sub7.method1454((byte) -106);
-			class120_sub14_sub7.anInt3492 = i;
-			if (i_33_ == 92) {
-				class120_sub14_sub7.anInt3486 = i_30_;
-				class120_sub14_sub7.anInt3484 = i_31_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.D(").append(i).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',').append(i_33_).append(')').toString());
-		}
+	static final void method325(final int i, final int i_30_, final int i_31_, final int i_32_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_32_);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3492 = i;
+		class120_sub14_sub7.anInt3486 = i_30_;
+		class120_sub14_sub7.anInt3484 = i_31_;
 	}
 
-	private final void method326(final Buffer class120_sub7, final int i, final int i_34_) {
-		try {
-			if (i == 1) {
-				final int i_35_ = class120_sub7.getUShort();
-				this.cycles = new int[i_35_];
-				for (int i_36_ = 0; i_36_ < i_35_; i_36_++) {
-					this.cycles[i_36_] = class120_sub7.getUShort();
-				}
-				this.frames = new int[i_35_];
-				for (int i_37_ = 0; i_37_ < i_35_; i_37_++) {
-					this.frames[i_37_] = class120_sub7.getUShort();
-				}
-				for (int i_38_ = 0; i_38_ < i_35_; i_38_++) {
-					this.frames[i_38_] = (class120_sub7.getUShort() << 16) - -this.frames[i_38_];
-				}
-			} else if (i == 2) {
-				this.padding = class120_sub7.getUShort();
-			} else if (i != 3) {
-				if (i == 4) {
-					this.aBoolean344 = true;
-				} else if (i != 5) {
-					if (i != 6) {
-						if (i == 7) {
-							this.anInt334 = class120_sub7.getUShort();
-						} else if (i != 8) {
-							if (i != 9) {
-								if (i != 10) {
-									if (i == 11) {
-										this.anInt337 = class120_sub7.getUByte();
-									} else if (i != 12) {
-										if (i != 13) {
-											if (i != 14) {
-												if (i == 15) {
-													this.tween = true;
-												} else if (i == 16) {
-													this.aBoolean340 = true;
-												}
-											} else {
-												this.aBoolean341 = true;
-											}
-										} else {
-											final int i_39_ = class120_sub7.getUShort();
-											this.anIntArrayArray347 = new int[i_39_][];
-											for (int i_40_ = 0; i_40_ < i_39_; i_40_++) {
-												final int i_41_ = class120_sub7.getUByte();
-												if (i_41_ > 0) {
-													this.anIntArrayArray347[i_40_] = new int[i_41_];
-													this.anIntArrayArray347[i_40_][0] = class120_sub7.getMedium();
-													for (int i_42_ = 1; i_41_ > i_42_; i_42_++) {
-														this.anIntArrayArray347[i_40_][i_42_] = class120_sub7.getUShort();
-													}
-												}
-											}
-										}
-									} else {
-										final int i_43_ = class120_sub7.getUByte();
-										anIntArray329 = new int[i_43_];
-										for (int i_44_ = 0; i_43_ > i_44_; i_44_++) {
-											anIntArray329[i_44_] = class120_sub7.getUShort();
-										}
-										for (int i_45_ = 0; i_45_ < i_43_; i_45_++) {
-											anIntArray329[i_45_] = (class120_sub7.getUShort() << 16) + anIntArray329[i_45_];
-										}
-									}
-								} else {
-									this.anInt336 = class120_sub7.getUByte();
-								}
-							} else {
-								this.anInt343 = class120_sub7.getUByte();
-							}
-						} else {
-							this.anInt339 = class120_sub7.getUByte();
-						}
-					} else {
-						this.anInt328 = class120_sub7.getUShort();
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			final int i_35_ = buffer.getUShort();
+			this.cycles = new int[i_35_];
+			for (int i_36_ = 0; i_36_ < i_35_; i_36_++) {
+				this.cycles[i_36_] = buffer.getUShort();
+			}
+			this.frames = new int[i_35_];
+			for (int i_37_ = 0; i_37_ < i_35_; i_37_++) {
+				this.frames[i_37_] = buffer.getUShort();
+			}
+			for (int i_38_ = 0; i_38_ < i_35_; i_38_++) {
+				this.frames[i_38_] = (buffer.getUShort() << 16) + this.frames[i_38_];
+			}
+		} else if (code == 2) {
+			this.padding = buffer.getUShort();
+		} else if (code == 3) {
+			this.aBooleanArray327 = new boolean[256];
+			final int i_46_ = buffer.getUByte();
+			for (int i_47_ = 0; i_46_ > i_47_; i_47_++) {
+				this.aBooleanArray327[buffer.getUByte()] = true;
+			}
+		} else if (code == 4) {
+			this.aBoolean344 = true;
+		} else if (code == 5) {
+			this.anInt348 = buffer.getUByte();
+		} else if (code == 6) {
+			this.anInt328 = buffer.getUShort();
+		} else if (code == 7) {
+			this.anInt334 = buffer.getUShort();
+		} else if (code == 8) {
+			this.anInt339 = buffer.getUByte();
+		} else if (code == 9) {
+			this.anInt343 = buffer.getUByte();
+		} else if (code == 10) {
+			this.anInt336 = buffer.getUByte();
+		} else if (code == 11) {
+			this.anInt337 = buffer.getUByte();
+		} else if (code == 12) {
+			final int i_43_ = buffer.getUByte();
+			interfaceFrames = new int[i_43_];
+			for (int i_44_ = 0; i_43_ > i_44_; i_44_++) {
+				interfaceFrames[i_44_] = buffer.getUShort();
+			}
+			for (int i_45_ = 0; i_45_ < i_43_; i_45_++) {
+				interfaceFrames[i_45_] = (buffer.getUShort() << 16) + interfaceFrames[i_45_];
+			}
+		} else if (code == 13) {
+			final int i_39_ = buffer.getUShort();
+			this.anIntArrayArray347 = new int[i_39_][];
+			for (int i_40_ = 0; i_40_ < i_39_; i_40_++) {
+				final int i_41_ = buffer.getUByte();
+				if (i_41_ > 0) {
+					this.anIntArrayArray347[i_40_] = new int[i_41_];
+					this.anIntArrayArray347[i_40_][0] = buffer.getMedium();
+					for (int i_42_ = 1; i_41_ > i_42_; i_42_++) {
+						this.anIntArrayArray347[i_40_][i_42_] = buffer.getUShort();
 					}
-				} else {
-					this.anInt348 = class120_sub7.getUByte();
-				}
-			} else {
-				this.aBooleanArray327 = new boolean[256];
-				final int i_46_ = class120_sub7.getUByte();
-				for (int i_47_ = 0; i_46_ > i_47_; i_47_++) {
-					this.aBooleanArray327[class120_sub7.getUByte()] = true;
 				}
 			}
-			if (i_34_ != 4282) {
-				method327(-37, -40, -57, -61, -47, null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.G(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_34_).append(')').toString());
+		} else if (code == 14) {
+			this.aBoolean341 = true;
+		} else if (code == 15) {
+			this.tween = true;
+		} else if (code == 16) {
+			this.aBoolean340 = true;
 		}
 	}
 
@@ -343,16 +312,16 @@ final class SeqType {
 		try {
 			final int i_53_ = this.cycles[i_50_];
 			i_50_ = this.frames[i_50_];
-			final Class120_Sub14_Sub18 class120_sub14_sub18 = Class120_Sub12_Sub31.method1367(i_50_ >> 16, -1);
+			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_50_ >> 16);
 			i_50_ &= 0xffff;
 			if (class120_sub14_sub18 == null) {
 				return class180_sub7.method2378(true, true, true);
 			}
 			i_51_ &= 0x3;
-			Class120_Sub14_Sub18 class120_sub14_sub18_54_ = null;
+			FrameLoader class120_sub14_sub18_54_ = null;
 			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
 				i = this.frames[i];
-				class120_sub14_sub18_54_ = Class120_Sub12_Sub31.method1367(i >> 16, -1);
+				class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
 				i &= 0xffff;
 			}
 			Class180_Sub7 class180_sub7_55_;
@@ -403,7 +372,7 @@ final class SeqType {
 			}
 			class180_sub7_52_ = class180_sub7_55_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.H(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.H(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class180_sub7_52_;
 	}
@@ -427,7 +396,7 @@ final class SeqType {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -456,7 +425,7 @@ final class SeqType {
 				anInt333 = 102;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("eg.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.C(").append(i).append(')').toString());
 		}
 	}
 

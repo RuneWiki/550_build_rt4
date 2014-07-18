@@ -7,11 +7,11 @@ final class Class101_Sub4 extends Class101 {
 	private final int anInt2294;
 	private final int anInt2295;
 	static int[] anIntArray2296 = new int[32];
-	static Class50 aClass50_2297;
+	static js5 aClass50_2297;
 	private final int anInt2298;
 	private int anInt2299;
 	private final int anInt2300;
-	static Class50 interfaceJs5;
+	static js5 interfaceJs5;
 	private final int anInt2302;
 	private final int anInt2303;
 	static int[] anIntArray2304 = new int[32];
@@ -36,7 +36,7 @@ final class Class101_Sub4 extends Class101 {
 				interfaceJs5 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("in.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("in.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -60,7 +60,7 @@ final class Class101_Sub4 extends Class101 {
 				anInt2299 = -14;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("in.B(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("in.B(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
 		}
 	}
 
@@ -79,13 +79,13 @@ final class Class101_Sub4 extends Class101 {
 	static final void method851(final boolean bool, final int i) {
 		try {
 			Class180_Sub6.aClass21_3071.method192(i);
-			Class120_Sub1.aClass21_2406.method192(i);
+			LabelGroup.aClass21_2406.method192(i);
 			Class120_Sub12_Sub2.aClass21_3143.method192(i);
 			if (bool) {
 				aClass50_2297 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("in.J(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("in.J(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -96,7 +96,7 @@ final class Class101_Sub4 extends Class101 {
 				method850((byte) 62);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("in.A(").append(i).append(',').append(i_22_).append(',').append(i_23_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("in.A(").append(i).append(',').append(i_22_).append(',').append(i_23_).append(')').toString());
 		}
 	}
 }

@@ -5,11 +5,11 @@ import java.awt.Component;
 
 abstract class AbstractMouseWheelHandler {
 	static Queue aClass177_114;
-	static Class50 aClass50_115;
+	static js5 aClass50_115;
 	static int anInt116 = -1;
-	static int anInt117 = 0;
+	static int antiAliasingSamplesWrapper = 0;
 	static int packetSize;
-	static int anInt119;
+	static int selectedSpellInterfaceBitPacked;
 
 	static {
 		aClass177_114 = new Queue();
@@ -25,7 +25,7 @@ abstract class AbstractMouseWheelHandler {
 				aClass177_114 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bh.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.F(").append(i).append(')').toString());
 		}
 	}
 
@@ -47,11 +47,11 @@ abstract class AbstractMouseWheelHandler {
 			if (!bool) {
 				packetSize = -62;
 			}
-			Class120_Sub8.method1160((byte) 115, is, i_0_, -i_1_ + i_3_, i_12_);
+			AmbientSound.fillArray(is, i_0_, -i_1_ + i_3_, i_12_);
 			final int i_13_ = i_7_ + i_3_;
 			int i_14_ = -i_7_;
-			Class120_Sub8.method1160((byte) 115, is, i_2_, i_12_, i_13_);
-			Class120_Sub8.method1160((byte) 115, is, i_0_, i_13_, i_3_ + i_1_);
+			AmbientSound.fillArray(is, i_2_, i_12_, i_13_);
+			AmbientSound.fillArray(is, i_0_, i_13_, i_3_ + i_1_);
 			while (i_8_ > i_5_) {
 				i_10_ += 2;
 				i_6_ += i_10_;
@@ -69,8 +69,8 @@ abstract class AbstractMouseWheelHandler {
 						final int i_16_ = i_3_ - -i_5_;
 						final int[] is_17_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
 						final int i_18_ = -i_5_ + i_3_;
-						Class120_Sub8.method1160((byte) 115, is_15_, i_0_, i_18_, i_16_);
-						Class120_Sub8.method1160((byte) 115, is_17_, i_0_, i_18_, i_16_);
+						AmbientSound.fillArray(is_15_, i_0_, i_18_, i_16_);
+						AmbientSound.fillArray(is_17_, i_0_, i_18_, i_16_);
 					} else {
 						final int[] is_19_ = GameEntity.anIntArrayArray3009[i_8_ + i_4_];
 						final int i_20_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
@@ -79,12 +79,12 @@ abstract class AbstractMouseWheelHandler {
 						final int i_23_ = i_3_ - i_20_;
 						final int i_24_ = i_20_ + i_3_;
 						final int i_25_ = -i_5_ + i_3_;
-						Class120_Sub8.method1160((byte) 115, is_19_, i_0_, i_25_, i_23_);
-						Class120_Sub8.method1160((byte) 115, is_19_, i_2_, i_23_, i_24_);
-						Class120_Sub8.method1160((byte) 115, is_19_, i_0_, i_24_, i_22_);
-						Class120_Sub8.method1160((byte) 115, is_21_, i_0_, i_25_, i_23_);
-						Class120_Sub8.method1160((byte) 115, is_21_, i_2_, i_23_, i_24_);
-						Class120_Sub8.method1160((byte) 115, is_21_, i_0_, i_24_, i_22_);
+						AmbientSound.fillArray(is_19_, i_0_, i_25_, i_23_);
+						AmbientSound.fillArray(is_19_, i_2_, i_23_, i_24_);
+						AmbientSound.fillArray(is_19_, i_0_, i_24_, i_22_);
+						AmbientSound.fillArray(is_21_, i_0_, i_25_, i_23_);
+						AmbientSound.fillArray(is_21_, i_2_, i_23_, i_24_);
+						AmbientSound.fillArray(is_21_, i_0_, i_24_, i_22_);
 					}
 					i_6_ -= i_8_ << 1;
 				}
@@ -93,22 +93,22 @@ abstract class AbstractMouseWheelHandler {
 				final int i_28_ = i_8_ + i_3_;
 				final int i_29_ = -i_8_ + i_3_;
 				if (i_7_ <= i_5_) {
-					Class120_Sub8.method1160((byte) 115, is_26_, i_0_, i_29_, i_28_);
-					Class120_Sub8.method1160((byte) 115, is_27_, i_0_, i_29_, i_28_);
+					AmbientSound.fillArray(is_26_, i_0_, i_29_, i_28_);
+					AmbientSound.fillArray(is_27_, i_0_, i_29_, i_28_);
 				} else {
 					final int i_30_ = i_5_ > i_11_ ? Class120_Sub14_Sub23.anIntArray3654[i_5_] : i_11_;
 					final int i_31_ = i_30_ + i_3_;
 					final int i_32_ = i_3_ - i_30_;
-					Class120_Sub8.method1160((byte) 115, is_26_, i_0_, i_29_, i_32_);
-					Class120_Sub8.method1160((byte) 115, is_26_, i_2_, i_32_, i_31_);
-					Class120_Sub8.method1160((byte) 115, is_26_, i_0_, i_31_, i_28_);
-					Class120_Sub8.method1160((byte) 115, is_27_, i_0_, i_29_, i_32_);
-					Class120_Sub8.method1160((byte) 115, is_27_, i_2_, i_32_, i_31_);
-					Class120_Sub8.method1160((byte) 115, is_27_, i_0_, i_31_, i_28_);
+					AmbientSound.fillArray(is_26_, i_0_, i_29_, i_32_);
+					AmbientSound.fillArray(is_26_, i_2_, i_32_, i_31_);
+					AmbientSound.fillArray(is_26_, i_0_, i_31_, i_28_);
+					AmbientSound.fillArray(is_27_, i_0_, i_29_, i_32_);
+					AmbientSound.fillArray(is_27_, i_2_, i_32_, i_31_);
+					AmbientSound.fillArray(is_27_, i_0_, i_31_, i_28_);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bh.E(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.E(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
 		}
 	}
 
@@ -378,7 +378,7 @@ abstract class AbstractMouseWheelHandler {
 			}
 			class120_sub12 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bh.G(").append(i).append(',').append(i_33_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.G(").append(i).append(',').append(i_33_).append(')').toString());
 		}
 		return class120_sub12;
 	}

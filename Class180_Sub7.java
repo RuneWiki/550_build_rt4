@@ -7,30 +7,30 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2360(int i);
 
-	final void method2361(final Class120_Sub14_Sub18 class120_sub14_sub18, final int i, final Class120_Sub14_Sub18 class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final Class120_Sub14_Sub18 class120_sub14_sub18_4_, final int i_5_,
-			final Class120_Sub14_Sub18 class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
+	final void method2361(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameLoader class120_sub14_sub18_4_, final int i_5_,
+			final FrameLoader class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
 		if (i != -1) {
 			if (bools == null || i_5_ == -1) {
 				method2380(class120_sub14_sub18, i, class120_sub14_sub18_0_, i_1_, i_2_, i_3_, bool);
 			} else if (method2375()) {
-				final Class1 class1 = class120_sub14_sub18.aClass1Array3610[i];
-				final Class120_Sub1 class120_sub1 = class1.aClass120_Sub1_48;
-				Class1 class1_10_ = null;
+				final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
+				final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+				SeqFrame class1_10_ = null;
 				if (class120_sub14_sub18_0_ != null) {
-					class1_10_ = class120_sub14_sub18_0_.aClass1Array3610[i_1_];
+					class1_10_ = class120_sub14_sub18_0_.seqFrames[i_1_];
 					if (class1_10_.aClass120_Sub1_48 != class120_sub1) {
 						class1_10_ = null;
 					}
 				}
-				final Class1 class1_11_ = class120_sub14_sub18_4_.aClass1Array3610[i_5_];
-				Class1 class1_12_ = null;
+				final SeqFrame class1_11_ = class120_sub14_sub18_4_.seqFrames[i_5_];
+				SeqFrame class1_12_ = null;
 				if (class120_sub14_sub18_6_ != null) {
-					class1_12_ = class120_sub14_sub18_6_.aClass1Array3610[i_7_];
+					class1_12_ = class120_sub14_sub18_6_.seqFrames[i_7_];
 					if (class1_12_.aClass120_Sub1_48 != class120_sub1) {
 						class1_12_ = null;
 					}
 				}
-				method2370(class120_sub1, class1, class1_10_, i_2_, i_3_, bools, false, bool, 65535, null);
+				method2370(class120_sub1, seqFrame, class1_10_, i_2_, i_3_, bools, false, bool, 65535, null);
 				method2388(0, new int[0], 0, 0, 0, bool);
 				method2370(class120_sub1, class1_11_, class1_12_, i_8_, i_9_, bools, true, bool, 65535, null);
 				method2364();
@@ -70,34 +70,34 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2369(int i, int i_32_, int i_33_);
 
-	private final void method2370(final Class120_Sub1 class120_sub1, final Class1 class1, final Class1 class1_34_, final int i, final int i_35_, final boolean[] bools, final boolean bool, final boolean bool_36_, final int i_37_, final int[] is) {
+	private final void method2370(final LabelGroup class120_sub1, final SeqFrame seqFrame, final SeqFrame class1_34_, final int i, final int i_35_, final boolean[] bools, final boolean bool, final boolean bool_36_, final int i_37_, final int[] is) {
 		if (class1_34_ == null || i == 0) {
-			for (int i_38_ = 0; i_38_ < class1.anInt43; i_38_++) {
-				final short i_39_ = class1.aShortArray35[i_38_];
-				if (bools == null || bools[i_39_] == bool || class120_sub1.anIntArray2402[i_39_] == 0) {
-					final short i_40_ = class1.aShortArray40[i_38_];
+			for (int i_38_ = 0; i_38_ < seqFrame.anInt43; i_38_++) {
+				final short i_39_ = seqFrame.aShortArray35[i_38_];
+				if (bools == null || bools[i_39_] == bool || class120_sub1.types[i_39_] == 0) {
+					final short i_40_ = seqFrame.aShortArray40[i_38_];
 					if (i_40_ != -1) {
 						final int i_41_ = i_37_ & class120_sub1.anIntArray2405[i_40_];
 						if (i_41_ != 65535) {
-							method2382(0, class120_sub1.anIntArrayArray2410[i_40_], 0, 0, 0, bool_36_, i_41_, is);
+							method2382(0, class120_sub1.labels[i_40_], 0, 0, 0, bool_36_, i_41_, is);
 						} else {
-							method2388(0, class120_sub1.anIntArrayArray2410[i_40_], 0, 0, 0, bool_36_);
+							method2388(0, class120_sub1.labels[i_40_], 0, 0, 0, bool_36_);
 						}
 					}
 					final int i_42_ = i_37_ & class120_sub1.anIntArray2405[i_39_];
 					if (i_42_ != 65535) {
-						method2382(class120_sub1.anIntArray2402[i_39_], class120_sub1.anIntArrayArray2410[i_39_], class1.aShortArray47[i_38_], class1.aShortArray33[i_38_], class1.aShortArray36[i_38_], bool_36_, i_42_, is);
+						method2382(class120_sub1.types[i_39_], class120_sub1.labels[i_39_], seqFrame.aShortArray47[i_38_], seqFrame.aShortArray33[i_38_], seqFrame.aShortArray36[i_38_], bool_36_, i_42_, is);
 					} else {
-						method2388(class120_sub1.anIntArray2402[i_39_], class120_sub1.anIntArrayArray2410[i_39_], class1.aShortArray47[i_38_], class1.aShortArray33[i_38_], class1.aShortArray36[i_38_], bool_36_);
+						method2388(class120_sub1.types[i_39_], class120_sub1.labels[i_39_], seqFrame.aShortArray47[i_38_], seqFrame.aShortArray33[i_38_], seqFrame.aShortArray36[i_38_], bool_36_);
 					}
 				}
 			}
 		} else {
 			int i_43_ = 0;
 			int i_44_ = 0;
-			for (int i_45_ = 0; i_45_ < class120_sub1.anInt2404; i_45_++) {
+			for (int i_45_ = 0; i_45_ < class120_sub1.length; i_45_++) {
 				boolean bool_46_ = false;
-				if (i_43_ < class1.anInt43 && class1.aShortArray35[i_43_] == i_45_) {
+				if (i_43_ < seqFrame.anInt43 && seqFrame.aShortArray35[i_43_] == i_45_) {
 					bool_46_ = true;
 				}
 				boolean bool_47_ = false;
@@ -105,7 +105,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 					bool_47_ = true;
 				}
 				if (bool_46_ || bool_47_) {
-					if (bools != null && bools[i_45_] != bool && class120_sub1.anIntArray2402[i_45_] != 0) {
+					if (bools != null && bools[i_45_] != bool && class120_sub1.types[i_45_] != 0) {
 						if (bool_46_) {
 							i_43_++;
 						}
@@ -114,7 +114,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 						}
 					} else {
 						int i_48_ = 0;
-						final int i_49_ = class120_sub1.anIntArray2402[i_45_];
+						final int i_49_ = class120_sub1.types[i_45_];
 						if (i_49_ == 3) {
 							i_48_ = 128;
 						}
@@ -124,11 +124,11 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 						short i_53_;
 						byte i_54_;
 						if (bool_46_) {
-							i_50_ = class1.aShortArray47[i_43_];
-							i_51_ = class1.aShortArray33[i_43_];
-							i_52_ = class1.aShortArray36[i_43_];
-							i_53_ = class1.aShortArray40[i_43_];
-							i_54_ = class1.aByteArray38[i_43_];
+							i_50_ = seqFrame.aShortArray47[i_43_];
+							i_51_ = seqFrame.aShortArray33[i_43_];
+							i_52_ = seqFrame.aShortArray36[i_43_];
+							i_53_ = seqFrame.aShortArray40[i_43_];
+							i_54_ = seqFrame.aByteArray38[i_43_];
 							i_43_++;
 						} else {
 							i_50_ = i_48_;
@@ -195,23 +195,23 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 						if (i_53_ != -1) {
 							final int i_67_ = i_37_ & class120_sub1.anIntArray2405[i_53_];
 							if (i_67_ != 65535) {
-								method2382(0, class120_sub1.anIntArrayArray2410[i_53_], 0, 0, 0, bool_36_, i_67_, is);
+								method2382(0, class120_sub1.labels[i_53_], 0, 0, 0, bool_36_, i_67_, is);
 							} else {
-								method2388(0, class120_sub1.anIntArrayArray2410[i_53_], 0, 0, 0, bool_36_);
+								method2388(0, class120_sub1.labels[i_53_], 0, 0, 0, bool_36_);
 							}
 						} else if (i_58_ != -1) {
 							final int i_68_ = i_37_ & class120_sub1.anIntArray2405[i_58_];
 							if (i_68_ != 65535) {
-								method2382(0, class120_sub1.anIntArrayArray2410[i_58_], 0, 0, 0, bool_36_, i_68_, is);
+								method2382(0, class120_sub1.labels[i_58_], 0, 0, 0, bool_36_, i_68_, is);
 							} else {
-								method2388(0, class120_sub1.anIntArrayArray2410[i_58_], 0, 0, 0, bool_36_);
+								method2388(0, class120_sub1.labels[i_58_], 0, 0, 0, bool_36_);
 							}
 						}
 						final int i_69_ = i_37_ & class120_sub1.anIntArray2405[i_45_];
 						if (i_69_ != 65535) {
-							method2382(i_49_, class120_sub1.anIntArrayArray2410[i_45_], i_60_, i_61_, i_62_, bool_36_, i_69_, is);
+							method2382(i_49_, class120_sub1.labels[i_45_], i_60_, i_61_, i_62_, bool_36_, i_69_, is);
 						} else {
-							method2388(i_49_, class120_sub1.anIntArrayArray2410[i_45_], i_60_, i_61_, i_62_, bool_36_);
+							method2388(i_49_, class120_sub1.labels[i_45_], i_60_, i_61_, i_62_, bool_36_);
 						}
 					}
 				}
@@ -243,18 +243,18 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2379(int i, int i_82_, int i_83_, int i_84_);
 
-	final void method2380(final Class120_Sub14_Sub18 class120_sub14_sub18, final int i, final Class120_Sub14_Sub18 class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
+	final void method2380(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
 		if (i != -1 && method2375()) {
-			final Class1 class1 = class120_sub14_sub18.aClass1Array3610[i];
-			final Class120_Sub1 class120_sub1 = class1.aClass120_Sub1_48;
-			Class1 class1_89_ = null;
+			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
+			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+			SeqFrame class1_89_ = null;
 			if (class120_sub14_sub18_85_ != null) {
-				class1_89_ = class120_sub14_sub18_85_.aClass1Array3610[i_86_];
+				class1_89_ = class120_sub14_sub18_85_.seqFrames[i_86_];
 				if (class1_89_.aClass120_Sub1_48 != class120_sub1) {
 					class1_89_ = null;
 				}
 			}
-			method2370(class120_sub1, class1, class1_89_, i_87_, i_88_, null, false, bool, 65535, null);
+			method2370(class120_sub1, seqFrame, class1_89_, i_87_, i_88_, null, false, bool, 65535, null);
 			method2364();
 		}
 	}
@@ -265,18 +265,18 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract int method2383();
 
-	final void method2384(final Class120_Sub14_Sub18 class120_sub14_sub18, final int i, final Class120_Sub14_Sub18 class120_sub14_sub18_97_, final int i_98_, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
+	final void method2384(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_97_, final int i_98_, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
 		if (i != -1 && method2375()) {
-			final Class1 class1 = class120_sub14_sub18.aClass1Array3610[i];
-			final Class120_Sub1 class120_sub1 = class1.aClass120_Sub1_48;
-			Class1 class1_102_ = null;
+			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
+			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+			SeqFrame class1_102_ = null;
 			if (class120_sub14_sub18_97_ != null) {
-				class1_102_ = class120_sub14_sub18_97_.aClass1Array3610[i_98_];
+				class1_102_ = class120_sub14_sub18_97_.seqFrames[i_98_];
 				if (class1_102_.aClass120_Sub1_48 != class120_sub1) {
 					class1_102_ = null;
 				}
 			}
-			method2370(class120_sub1, class1, class1_102_, i_99_, i_100_, null, false, bool, i_101_, is);
+			method2370(class120_sub1, seqFrame, class1_102_, i_99_, i_100_, null, false, bool, i_101_, is);
 			method2364();
 		}
 	}
@@ -330,17 +330,17 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 		/* empty */
 	}
 
-	final void method2389(final Class120_Sub14_Sub18 class120_sub14_sub18, final int i) {
+	final void method2389(final FrameLoader class120_sub14_sub18, final int i) {
 		if (i != -1 && method2375()) {
-			final Class1 class1 = class120_sub14_sub18.aClass1Array3610[i];
-			final Class120_Sub1 class120_sub1 = class1.aClass120_Sub1_48;
-			for (int i_129_ = 0; i_129_ < class1.anInt43; i_129_++) {
-				final short i_130_ = class1.aShortArray35[i_129_];
+			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
+			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+			for (int i_129_ = 0; i_129_ < seqFrame.anInt43; i_129_++) {
+				final short i_130_ = seqFrame.aShortArray35[i_129_];
 				if (class120_sub1.aBooleanArray2407[i_130_]) {
-					if (class1.aShortArray40[i_129_] != -1) {
+					if (seqFrame.aShortArray40[i_129_] != -1) {
 						method2379(0, 0, 0, 0);
 					}
-					method2379(class120_sub1.anIntArray2402[i_130_], class1.aShortArray47[i_129_], class1.aShortArray33[i_129_], class1.aShortArray36[i_129_]);
+					method2379(class120_sub1.types[i_130_], seqFrame.aShortArray47[i_129_], seqFrame.aShortArray33[i_129_], seqFrame.aShortArray36[i_129_]);
 				}
 			}
 			method2364();

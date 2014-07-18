@@ -4,11 +4,11 @@
 
 final class Class110 {
 	static int[][][] anIntArrayArrayArray1050;
-	static int anInt1051;
+	static int b12fullId;
 	static Class98 aClass98_1052;
 	static InterfaceClickMask aClass120_Sub20_1053;
 	static boolean objectTagEnabled = false;
-	static Class91 aClass91_1055;
+	static MouseRecorder mouseRecorder;
 
 	static {
 		aClass120_Sub20_1053 = new InterfaceClickMask(0, -1);
@@ -50,7 +50,7 @@ final class Class110 {
 				((Class143_Sub1) Rasterizer.anInterface5_973).method2025(-45);
 			}
 			Class128.aClass35_1219.method306((byte) 115);
-			Class120_Sub8.aClass50_2479.method419(0);
+			AmbientSound.aClass50_2479.method419(0);
 			Class79_Sub1.aClass50_2245.method419(0);
 			Class33.aClass50_275.method419(i ^ i);
 			Class159.aClass50_1490.method419(i + 7603);
@@ -59,66 +59,59 @@ final class Class110 {
 			Class120_Sub12_Sub17.aClass50_3258.method419(0);
 			Class7.aClass50_63.method419(0);
 			Class108_Sub3.aClass50_2400.method419(0);
-			Class120_Sub10.aClass50_2544.method419(0);
+			InterfaceListener.aClass50_2544.method419(0);
 			IsaacCipher.aClass50_1019.method419(0);
 			Class120_Sub12_Sub2.aClass21_3144.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("me.A(").append(i).append(')').toString());
 		}
 	}
 
 	public static void method977(final byte i) {
 		try {
 			aClass98_1052 = null;
-			aClass91_1055 = null;
+			mouseRecorder = null;
 			if (i < -65) {
 				aClass120_Sub20_1053 = null;
 				anIntArrayArrayArray1050 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("me.B(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method978(final boolean bool, String string, final int i) {
-		try {
-			short[] is = new short[16];
-			string = string.toLowerCase();
-			final int i_1_ = !bool ? 0 : 32768;
-			int i_2_ = 0;
-			final int i_3_ = (bool ? Class192.anInt2120 : Class32.anInt269) + i_1_;
-			for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
-				final Class120_Sub14_Sub10 class120_sub14_sub10 = Class121.method1837(i_4_, true);
-				if (class120_sub14_sub10.aBoolean3531 && (class120_sub14_sub10.method1510(17538).toLowerCase().indexOf(string) ^ 0xffffffff) != 0) {
-					if (i_2_ >= 50) {
-						Buffer.anInt2474 = -1;
-						Class120_Sub12_Sub37.aShortArray3430 = null;
-						return;
-					}
-					if (is.length <= i_2_) {
-						final short[] is_5_ = new short[is.length * 2];
-						for (int i_6_ = 0; i_2_ > i_6_; i_6_++) {
-							is_5_[i_6_] = is[i_6_];
-						}
-						is = is_5_;
-					}
-					is[i_2_++] = (short) i_4_;
+	static final void method978(final boolean bool, String string) {
+		short[] is = new short[16];
+		string = string.toLowerCase();
+		final int i_1_ = !bool ? 0 : 32768;
+		int i_2_ = 0;
+		final int i_3_ = (bool ? Class192.anInt2120 : Class32.anInt269) + i_1_;
+		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
+			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class121.method1837(i_4_, true);
+			if (class120_sub14_sub10.aBoolean3531 && (class120_sub14_sub10.method1510().toLowerCase().indexOf(string) ^ 0xffffffff) != 0) {
+				if (i_2_ >= 50) {
+					Buffer.anInt2474 = -1;
+					Class120_Sub12_Sub37.aShortArray3430 = null;
+					return;
 				}
+				if (is.length <= i_2_) {
+					final short[] is_5_ = new short[is.length * 2];
+					for (int i_6_ = 0; i_2_ > i_6_; i_6_++) {
+						is_5_[i_6_] = is[i_6_];
+					}
+					is = is_5_;
+				}
+				is[i_2_++] = (short) i_4_;
 			}
-			Class108.anInt1035 = 0;
-			Buffer.anInt2474 = i_2_;
-			final String[] strings = new String[Buffer.anInt2474];
-			Class120_Sub12_Sub37.aShortArray3430 = is;
-			for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
-				strings[i_7_] = Class121.method1837(is[i_7_], true).method1510(17538);
-			}
-			Class28.method242(Class120_Sub12_Sub37.aShortArray3430, 56, strings);
-			if (i != 18262) {
-				method979(20, -115);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.D(").append(bool).append(',').append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
+		Class108.anInt1035 = 0;
+		Buffer.anInt2474 = i_2_;
+		final String[] strings = new String[Buffer.anInt2474];
+		Class120_Sub12_Sub37.aShortArray3430 = is;
+		for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
+			strings[i_7_] = Class121.method1837(is[i_7_], true).method1510();
+		}
+		Class28.method242(Class120_Sub12_Sub37.aShortArray3430, 56, strings);
 	}
 
 	static final int method979(int i, final int i_8_) {
@@ -150,7 +143,7 @@ final class Class110 {
 			}
 			i_9_ = i_10_ - -i;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.E(").append(i).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("me.E(").append(i).append(',').append(i_8_).append(')').toString());
 		}
 		return i_9_;
 	}
@@ -166,7 +159,7 @@ final class Class110 {
 			class22_11_.aClass120_Sub14_Sub10_128 = Class121.method1837(class22_11_.anInt129, true);
 			class22 = class22_11_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("me.C(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("me.C(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class22;
 	}

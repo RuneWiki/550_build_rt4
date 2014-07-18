@@ -12,7 +12,7 @@ final class Class120_Sub16 extends Node {
 	int anInt2605;
 	int anInt2606;
 	int anInt2607;
-	static int[] anIntArray2608 = new int[100];
+	static int[] screenRedrawWidhts = new int[100];
 	int anInt2609;
 	static int messageCount = 0;
 	Class120_Sub14_Sub5 aClass120_Sub14_Sub5_2611;
@@ -23,13 +23,13 @@ final class Class120_Sub16 extends Node {
 
 	public static void method1655(final boolean bool) {
 		try {
-			anIntArray2608 = null;
+			screenRedrawWidhts = null;
 			aStringArray2599 = null;
 			if (!bool) {
 				method1659(-16, -103, 22);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.H(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.H(").append(bool).append(')').toString());
 		}
 	}
 
@@ -47,19 +47,19 @@ final class Class120_Sub16 extends Node {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 		return bool;
 	}
 
 	static final void method1657(final boolean bool) {
 		try {
-			Class120_Sub14_Sub11.aClass21_3541.clear();
+			ParamType.aClass21_3541.clear();
 			if (!bool) {
 				messageCount = 79;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.C(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.C(").append(bool).append(')').toString());
 		}
 	}
 
@@ -71,14 +71,14 @@ final class Class120_Sub16 extends Node {
 			}
 			Class82.aClass21_786.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.B(").append(i).append(')').toString());
 		}
 	}
 
 	static final int method1659(final int i, final int i_2_, final int i_3_) {
 		int i_4_;
 		try {
-			int i_5_ = Class176.method2246(i_2_ + 91923, 0, i - -45365, 4) + -128 + (Class176.method2246(37821 + i_2_, 0, i + 10294, 2) + -128 >> 1) + (Class176.method2246(i_2_, 0, i, 1) + -128 >> 2);
+			int i_5_ = SubScript.method2246(i_2_ + 91923, 0, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, 0, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, 0, i, 1) + -128 >> 2);
 			i_5_ = (int) (0.3 * i_5_) - -35;
 			if (i_3_ >= -30) {
 				method1655(false);
@@ -90,26 +90,26 @@ final class Class120_Sub16 extends Node {
 			}
 			i_4_ = i_5_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.D(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.D(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 		return i_4_;
 	}
 
-	static final void method1660(final String string, final int i, final String string_6_, final int i_7_, final String string_8_, final int i_9_) {
+	static final void method1660(final String string, final int i, final String string_6_, final int i_7_, final String string_8_) {
 		for (int i_10_ = 99; i_10_ > 0; i_10_--) {
-			Class136.anIntArray1315[i_10_] = Class136.anIntArray1315[i_10_ + -1];
-			Class76.aStringArray677[i_10_] = Class76.aStringArray677[-1 + i_10_];
+			Class136.anIntArray1315[i_10_] = Class136.anIntArray1315[i_10_ - 1];
+			Class76.aStringArray677[i_10_] = Class76.aStringArray677[i_10_ - 1];
 			Class160.aStringArray1502[i_10_] = Class160.aStringArray1502[i_10_ - 1];
-			Class120_Sub2.aStringArray2423[i_10_] = Class120_Sub2.aStringArray2423[i_10_ + -1];
-			Class120_Sub12_Sub36.anIntArray3422[i_10_] = Class120_Sub12_Sub36.anIntArray3422[-1 + i_10_];
+			Class120_Sub2.aStringArray2423[i_10_] = Class120_Sub2.aStringArray2423[i_10_ - 1];
+			Class120_Sub12_Sub36.anIntArray3422[i_10_] = Class120_Sub12_Sub36.anIntArray3422[i_10_- 1];
 		}
 		Class136.anIntArray1315[0] = i_7_;
 		Class76.aStringArray677[0] = string;
 		Class160.aStringArray1502[0] = string_8_;
-		Class166.anInt1612 = Class160.anInt1494;
 		Class120_Sub12_Sub36.anIntArray3422[0] = i;
+		Class120_Sub2.aStringArray2423[0] = string_6_;
+		Class166.anInt1612 = Class160.anInt1494;
 		messageCount++;
-		Class120_Sub2.aStringArray2423[i_9_] = string_6_;
 	}
 
 	static final int method1661(final int i, final int i_11_, char c) {
@@ -128,7 +128,7 @@ final class Class120_Sub16 extends Node {
 			}
 			i_12_ = i_13_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.I(").append(i).append(',').append(i_11_).append(',').append(c).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.I(").append(i).append(',').append(i_11_).append(',').append(c).append(')').toString());
 		}
 		return i_12_;
 	}
@@ -136,8 +136,8 @@ final class Class120_Sub16 extends Node {
 	static final void shiftOptions(final int i) {
 		Class186.menuOptionCount--;
 		if (Class186.menuOptionCount != i) {
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionName, i + 1, Class120_Sub12_Sub33.menuOptionName, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.aStringArray3369, i + 1, Class120_Sub12_Sub29.aStringArray3369, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionPrefix, i + 1, Class120_Sub12_Sub33.menuOptionPrefix, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.menuOptionSufix, i + 1, Class120_Sub12_Sub29.menuOptionSufix, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub29.aShortArray2777, i + 1, Class120_Sub29.aShortArray2777, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub12.aLongArray2562, i + 1, Class120_Sub12.aLongArray2562, i, Class186.menuOptionCount - i);
@@ -146,45 +146,41 @@ final class Class120_Sub16 extends Node {
 		}
 	}
 
-	static final void method1663(final int i) {
-		try {
-			Class15.menuOpen = false;
-			Class186.menuOptionCount = 0;
-			Class23.packetType = -1;
-			Class120_Sub12_Sub11.outputStream.pos = 0;
-			Class114.anInt1093 = -1;
-			Class73.anInt639 = -1;
-			SeqType.anInt333 = -1;
-			Class88.anInt827 = 0;
-			Canvas_Sub1.inputStream.pos = 0;
-			Class120_Sub22.anInt2675 = 0;
-			AbstractMouseWheelHandler.packetSize = 0;
-			Class8.method111((byte) 0);
-			for (int i_14_ = 0; i_14_ < Class118.playersList.length; i_14_++) {
-				if (Class118.playersList[i_14_] != null) {
-					Class118.playersList[i_14_].anInt2981 = -1;
-				}
+	static final void method1663() {
+		Class15.menuOpen = false;
+		Class186.menuOptionCount = 0;
+		Class23.packetType = -1;
+		Class120_Sub12_Sub11.outputStream.pos = 0;
+		Class114.anInt1093 = -1;
+		Class73.anInt639 = -1;
+		SeqType.anInt333 = -1;
+		Class88.anInt827 = 0;
+		Canvas_Sub1.inputStream.pos = 0;
+		Class120_Sub22.systemUpdateCycle = 0;
+		AbstractMouseWheelHandler.packetSize = 0;
+		Class8.method111((byte) 0);
+		for (int i_14_ = 0; i_14_ < Class118.playersList.length; i_14_++) {
+			if (Class118.playersList[i_14_] != null) {
+				Class118.playersList[i_14_].anInt2981 = -1;
 			}
-			for (int i_15_ = i; i_15_ < Class120_Sub12_Sub11.npcList.length; i_15_++) {
-				if (Class120_Sub12_Sub11.npcList[i_15_] != null) {
-					Class120_Sub12_Sub11.npcList[i_15_].anInt2981 = -1;
-				}
-			}
-			Class28.method243(true);
-			client.cameraType = 1;
-			Class120_Sub14_Sub1.setGameState(30);
-			for (int i_16_ = 0; i_16_ < 100; i_16_++) {
-				Class52.aBooleanArray467[i_16_] = true;
-			}
-			Class120_Sub14_Sub11.sendDisplayInfo();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nb.J(").append(i).append(')').toString());
 		}
+		for (int i_15_ = 0; i_15_ < Class120_Sub12_Sub11.npcList.length; i_15_++) {
+			if (Class120_Sub12_Sub11.npcList[i_15_] != null) {
+				Class120_Sub12_Sub11.npcList[i_15_].anInt2981 = -1;
+			}
+		}
+		Class28.method243(true);
+		client.cameraType = 1;
+		Class120_Sub14_Sub1.setGameState(30);
+		for (int i_16_ = 0; i_16_ < 100; i_16_++) {
+			Class52.needInterfaceRedrawWrapper[i_16_] = true;
+		}
+		ParamType.sendDisplayInfo();
 	}
 
 	static final void method1664(final Npc class180_sub5_sub2) {
-		for (Class120_Sub8 class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getFront(); class120_sub8 != null; class120_sub8 = (Class120_Sub8) Class120_Sub12_Sub10.aClass105_3201.getNext()) {
-			if (class180_sub5_sub2 == class120_sub8.aClass180_Sub5_Sub2_2492) {
+		for (AmbientSound class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
+			if (class180_sub5_sub2 == class120_sub8.npc) {
 				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 					class120_sub8.aClass120_Sub30_Sub4_2488 = null;

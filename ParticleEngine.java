@@ -133,13 +133,13 @@ final class ParticleEngine extends Class108 {
 		}
 	}
 
-	static final void method945(final Class50 class50) {
+	static final void method945(final js5 js5) {
 		anInt2353 = 0;
 		anInt2354 = 0;
 		aClass174_2361 = new Class174();
 		aClass108_Sub3_Sub1Array2350 = new Class108_Sub3_Sub1[1024];
-		Class120_Sub30_Sub2.method1777(class50);
-		NpcType.method2208(class50);
+		Class120_Sub30_Sub2.method1777(js5);
+		NpcType.method2208(js5);
 	}
 
 	static final void method946() {
@@ -339,7 +339,7 @@ final class ParticleEngine extends Class108 {
 		aByteBuffer2394 = null;
 	}
 
-	static final void method952(final int i) {
+	static final void setParticles(final int i) {
 		particleSetting = i;
 	}
 
@@ -450,7 +450,7 @@ final class ParticleEngine extends Class108 {
 		}
 	}
 
-	static final void method959(final long l) {
+	static final void process(final long l) {
 		anInt2351 = anInt2360;
 		runningParticleCount = 0;
 		anInt2360 = 0;

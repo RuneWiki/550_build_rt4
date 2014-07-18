@@ -17,7 +17,6 @@ final class Light {
 	Class133 aClass133_380;
 	static JagexSocket aClass46_381;
 	boolean aBoolean382;
-	static Class35 aClass35_383;
 	int anInt384;
 	boolean aBoolean385;
 	private int anInt386;
@@ -32,7 +31,7 @@ final class Light {
 	int anInt395;
 
 	static {
-		aClass35_383 = new Class35(64);
+		InvType.recentUse = new Class35(64);
 	}
 
 	final void method347(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
@@ -44,7 +43,7 @@ final class Light {
 				anInt389 = i;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("em.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
 		}
 	}
 
@@ -214,7 +213,7 @@ final class Light {
 				anInt386 = 2048;
 				anInt378 = 0;
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.F(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("em.F(").append(i).append(')').toString());
 			}
 		} while (false);
 	}
@@ -226,7 +225,7 @@ final class Light {
 				this.aFloat387 = 1.0F / (i_5_ * i_5_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("em.E(").append(i).append(')').toString());
 		}
 	}
 
@@ -273,7 +272,7 @@ final class Light {
 			}
 			bool_10_ = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.C(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("em.C(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return bool_10_;
 	}
@@ -283,11 +282,11 @@ final class Light {
 			aString369 = null;
 			anIntArray392 = null;
 			if (i <= -51) {
-				aClass35_383 = null;
+				InvType.recentUse = null;
 				aClass46_381 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("em.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("em.G(").append(i).append(')').toString());
 		}
 	}
 
@@ -295,7 +294,7 @@ final class Light {
 		if (Class48.jsEnabled) {
 			boolean bool_11_ = false;
 			try {
-				bool_11_ = !((Boolean) Class77.method666(NpcType.gameSignlink.gameApplet, "showingVideoAd")).booleanValue();
+				bool_11_ = !((Boolean) JSHelper.call(NpcType.gameSignlink.gameApplet, "showingVideoAd")).booleanValue();
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
@@ -332,7 +331,7 @@ final class Light {
 		for (int i = 0; i < this.aShortArray372.length; i++) {
 			this.aShortArray372[i] = (short) class120_sub7.getUShort();
 		}
-		this.color = Rasterizer.anIntArray969[class120_sub7.getUShort()];
+		this.color = Rasterizer.palette[class120_sub7.getUShort()];
 		final int i = class120_sub7.getUByte();
 		this.anInt376 = 0x1f & i;
 		anInt390 = 0x700 & i << 3;

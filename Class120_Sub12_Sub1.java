@@ -20,173 +20,164 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 	private int anInt3136;
 	static String aString3137 = "Loaded defaults";
 
-	static final void method1195(final int i, final int i_1_, final int i_2_, final int i_3_) {
-		for (int i_4_ = 0; i_4_ < Class120_Sub1.anInt2414; i_4_++) {
-			if (i_2_ < Class160.anIntArray1495[i_4_] - -Class120_Sub16.anIntArray2608[i_4_] && i_2_ + i > Class160.anIntArray1495[i_4_] && Class120_Sub12_Sub38.anIntArray3441[i_4_] + Class69_Sub3_Sub1.anIntArray3081[i_4_] > i_3_ && i_3_ + i_1_ > Class120_Sub12_Sub38.anIntArray3441[i_4_]) {
-				Class52.aBooleanArray467[i_4_] = true;
+	static final void redrawScreen(final int x, final int y, final int width, final int height) {
+		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+			if (x < Class160.screenRedrawXs[id] + Class120_Sub16.screenRedrawWidhts[id] && x + width > Class160.screenRedrawXs[id] && Class120_Sub12_Sub38.screenRedrawYs[id] + Class69_Sub3_Sub1.screenRedrawHeights[id] > y && y + height > Class120_Sub12_Sub38.screenRedrawYs[id]) {
+				Class52.needInterfaceRedrawWrapper[id] = true;
 			}
 		}
 	}
 
 	@Override
-	final int[] method1187(final int i, final int i_5_) {
-		int[] is;
-		try {
-			final int[] is_6_ = this.aClass30_2563.method258(i_5_, -118);
-			if (i != -1735) {
-				return null;
+	final int[] method1187(final int i_5_) {
+		final int[] is_6_ = this.aClass30_2563.method258(i_5_);
+		if (this.aClass30_2563.aBoolean238) {
+			int i_7_ = 0;
+			final int[][] is_8_ = this.aClass30_2563.method257();
+			int i_9_ = 0;
+			int i_10_ = 0;
+			int i_11_ = 0;
+			int i_12_ = 0;
+			boolean bool = true;
+			int i_13_ = 0;
+			boolean bool_14_ = true;
+			final int i_15_ = anInt3135 * Class120_Sub12_Sub7.anInt3178 >> 12;
+			int i_16_ = 0;
+			final int i_17_ = anInt3125 * Class120_Sub12_Sub2.anInt3145 >> 12;
+			final int i_18_ = Class120_Sub12_Sub7.anInt3178 * anInt3136 >> 12;
+			final int i_19_ = anInt3134 * Class120_Sub12_Sub2.anInt3145 >> 12;
+			if (i_19_ <= 1) {
+				return is_8_[i_5_];
 			}
-			if (this.aClass30_2563.aBoolean238) {
-				int i_7_ = 0;
-				final int[][] is_8_ = this.aClass30_2563.method257(-1);
-				int i_9_ = 0;
-				int i_10_ = 0;
-				int i_11_ = 0;
-				int i_12_ = 0;
-				boolean bool = true;
-				int i_13_ = 0;
-				boolean bool_14_ = true;
-				final int i_15_ = anInt3135 * Class120_Sub12_Sub7.anInt3178 >> 12;
-				int i_16_ = 0;
-				final int i_17_ = anInt3125 * Class120_Sub12_Sub2.anInt3145 >> 12;
-				final int i_18_ = Class120_Sub12_Sub7.anInt3178 * anInt3136 >> 12;
-				final int i_19_ = anInt3134 * Class120_Sub12_Sub2.anInt3145 >> 12;
-				if (i_19_ <= 1) {
-					return is_8_[i_5_];
+			anInt3130 = Class120_Sub12_Sub7.anInt3178 / 8 * anInt3133 >> 12;
+			final int i_20_ = 1 - -(Class120_Sub12_Sub7.anInt3178 / i_15_);
+			final Random random = new Random(anInt3126);
+			int[][] is_21_ = new int[i_20_][3];
+			int[][] is_22_ = new int[i_20_][3];
+			for (;;) {
+				int i_23_ = i_15_ - -Class28.method244(random, -i_15_ + i_18_);
+				int i_24_ = Class28.method244(random, -i_17_ + i_19_) + i_17_;
+				int i_25_ = i_10_ + i_23_;
+				if (i_25_ > Class120_Sub12_Sub7.anInt3178) {
+					i_23_ = -i_10_ + Class120_Sub12_Sub7.anInt3178;
+					i_25_ = Class120_Sub12_Sub7.anInt3178;
 				}
-				anInt3130 = Class120_Sub12_Sub7.anInt3178 / 8 * anInt3133 >> 12;
-				final int i_20_ = 1 - -(Class120_Sub12_Sub7.anInt3178 / i_15_);
-				final Random random = new Random(anInt3126);
-				int[][] is_21_ = new int[i_20_][3];
-				int[][] is_22_ = new int[i_20_][3];
-				for (;;) {
-					int i_23_ = i_15_ - -Class28.method244(random, -i_15_ + i_18_, -128);
-					int i_24_ = Class28.method244(random, -i_17_ + i_19_, -92) + i_17_;
-					int i_25_ = i_10_ + i_23_;
-					if (i_25_ > Class120_Sub12_Sub7.anInt3178) {
-						i_23_ = -i_10_ + Class120_Sub12_Sub7.anInt3178;
-						i_25_ = Class120_Sub12_Sub7.anInt3178;
+				int i_26_;
+				if (bool) {
+					i_26_ = 0;
+				} else {
+					int i_27_ = i_12_;
+					final int[] is_28_ = is_22_[i_12_];
+					i_26_ = is_28_[2];
+					int i_29_ = 0;
+					int i_30_ = i_7_ + i_25_;
+					if (i_30_ < 0) {
+						i_30_ += Class120_Sub12_Sub7.anInt3178;
 					}
-					int i_26_;
-					if (bool) {
-						i_26_ = 0;
-					} else {
-						int i_27_ = i_12_;
-						final int[] is_28_ = is_22_[i_12_];
-						i_26_ = is_28_[2];
-						int i_29_ = 0;
-						int i_30_ = i_7_ + i_25_;
-						if (i_30_ < 0) {
-							i_30_ += Class120_Sub12_Sub7.anInt3178;
-						}
-						if (Class120_Sub12_Sub7.anInt3178 < i_30_) {
-							i_30_ -= Class120_Sub12_Sub7.anInt3178;
-						}
-						for (;;) {
-							final int[] is_31_ = is_22_[i_27_];
-							if (is_31_[0] <= i_30_ && i_30_ <= is_31_[1]) {
-								break;
-							}
-							if (++i_27_ >= i_13_) {
-								i_27_ = 0;
-							}
-							i_29_++;
-						}
-						if (i_27_ != i_12_) {
-							int i_32_ = i_10_ - -i_7_;
-							if (i_32_ < 0) {
-								i_32_ += Class120_Sub12_Sub7.anInt3178;
-							}
-							if (i_32_ > Class120_Sub12_Sub7.anInt3178) {
-								i_32_ -= Class120_Sub12_Sub7.anInt3178;
-							}
-							for (int i_33_ = 1; i_29_ >= i_33_; i_33_++) {
-								final int[] is_34_ = is_22_[(i_33_ + i_12_) % i_13_];
-								i_26_ = Math.max(i_26_, is_34_[2]);
-							}
-							for (int i_35_ = 0; i_35_ <= i_29_; i_35_++) {
-								final int[] is_36_ = is_22_[(i_35_ + i_12_) % i_13_];
-								final int i_37_ = is_36_[2];
-								if (i_37_ != i_26_) {
-									final int i_38_ = is_36_[1];
-									final int i_39_ = is_36_[0];
-									int i_40_;
-									int i_41_;
-									if (i_32_ >= i_30_) {
-										if (i_39_ != 0) {
-											i_40_ = Math.max(i_32_, i_39_);
-											i_41_ = Class120_Sub12_Sub7.anInt3178;
-										} else {
-											i_41_ = Math.min(i_30_, i_38_);
-											i_40_ = 0;
-										}
-									} else {
-										i_40_ = Math.max(i_32_, i_39_);
-										i_41_ = Math.min(i_30_, i_38_);
-									}
-									method1198(-i_37_ + i_26_, i_41_ + -i_40_, i_11_ + i_40_, i_37_, -1, random, is_8_);
-								}
-							}
-						}
-						i_12_ = i_27_;
+					if (Class120_Sub12_Sub7.anInt3178 < i_30_) {
+						i_30_ -= Class120_Sub12_Sub7.anInt3178;
 					}
-					if (Class120_Sub12_Sub2.anInt3145 < i_24_ + i_26_) {
-						i_24_ = -i_26_ + Class120_Sub12_Sub2.anInt3145;
-					} else {
-						bool_14_ = false;
-					}
-					if (i_25_ != Class120_Sub12_Sub7.anInt3178) {
-						final int[] is_42_ = is_21_[i_16_++];
-						is_42_[1] = i_25_;
-						is_42_[2] = i_24_ + i_26_;
-						is_42_[0] = i_10_;
-						method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, i ^ 0x6c6, random, is_8_);
-						i_10_ = i_25_;
-					} else {
-						method1198(i_24_, i_23_, i_10_ - -i_9_, i_26_, -1, random, is_8_);
-						if (bool_14_) {
+					for (;;) {
+						final int[] is_31_ = is_22_[i_27_];
+						if (is_31_[0] <= i_30_ && i_30_ <= is_31_[1]) {
 							break;
 						}
-						bool = false;
-						final int[] is_43_ = is_21_[i_16_++];
-						bool_14_ = true;
-						is_43_[1] = i_25_;
-						i_11_ = i_9_;
-						i_13_ = i_16_;
-						is_43_[0] = i_10_;
-						is_43_[2] = i_24_ + i_26_;
-						i_9_ = Class28.method244(random, Class120_Sub12_Sub7.anInt3178, 105);
-						final int[][] is_44_ = is_22_;
-						i_12_ = 0;
-						i_7_ = i_9_ + -i_11_;
-						is_22_ = is_21_;
-						int i_45_ = i_7_;
-						is_21_ = is_44_;
-						if (i_45_ < 0) {
-							i_45_ += Class120_Sub12_Sub7.anInt3178;
+						if (++i_27_ >= i_13_) {
+							i_27_ = 0;
 						}
-						i_16_ = 0;
-						if (Class120_Sub12_Sub7.anInt3178 < i_45_) {
-							i_45_ -= Class120_Sub12_Sub7.anInt3178;
-						}
-						for (;;) {
-							final int[] is_46_ = is_22_[i_12_];
-							if (i_45_ >= is_46_[0] && is_46_[1] >= i_45_) {
-								break;
-							}
-							if (i_13_ <= ++i_12_) {
-								i_12_ = 0;
-							}
-						}
-						i_10_ = 0;
+						i_29_++;
 					}
+					if (i_27_ != i_12_) {
+						int i_32_ = i_10_ - -i_7_;
+						if (i_32_ < 0) {
+							i_32_ += Class120_Sub12_Sub7.anInt3178;
+						}
+						if (i_32_ > Class120_Sub12_Sub7.anInt3178) {
+							i_32_ -= Class120_Sub12_Sub7.anInt3178;
+						}
+						for (int i_33_ = 1; i_29_ >= i_33_; i_33_++) {
+							final int[] is_34_ = is_22_[(i_33_ + i_12_) % i_13_];
+							i_26_ = Math.max(i_26_, is_34_[2]);
+						}
+						for (int i_35_ = 0; i_35_ <= i_29_; i_35_++) {
+							final int[] is_36_ = is_22_[(i_35_ + i_12_) % i_13_];
+							final int i_37_ = is_36_[2];
+							if (i_37_ != i_26_) {
+								final int i_38_ = is_36_[1];
+								final int i_39_ = is_36_[0];
+								int i_40_;
+								int i_41_;
+								if (i_32_ >= i_30_) {
+									if (i_39_ != 0) {
+										i_40_ = Math.max(i_32_, i_39_);
+										i_41_ = Class120_Sub12_Sub7.anInt3178;
+									} else {
+										i_41_ = Math.min(i_30_, i_38_);
+										i_40_ = 0;
+									}
+								} else {
+									i_40_ = Math.max(i_32_, i_39_);
+									i_41_ = Math.min(i_30_, i_38_);
+								}
+								method1198(-i_37_ + i_26_, i_41_ + -i_40_, i_11_ + i_40_, i_37_, -1, random, is_8_);
+							}
+						}
+					}
+					i_12_ = i_27_;
+				}
+				if (Class120_Sub12_Sub2.anInt3145 < i_24_ + i_26_) {
+					i_24_ = -i_26_ + Class120_Sub12_Sub2.anInt3145;
+				} else {
+					bool_14_ = false;
+				}
+				if (i_25_ != Class120_Sub12_Sub7.anInt3178) {
+					final int[] is_42_ = is_21_[i_16_++];
+					is_42_[1] = i_25_;
+					is_42_[2] = i_24_ + i_26_;
+					is_42_[0] = i_10_;
+					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, -1, random, is_8_);
+					i_10_ = i_25_;
+				} else {
+					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, -1, random, is_8_);
+					if (bool_14_) {
+						break;
+					}
+					bool = false;
+					final int[] is_43_ = is_21_[i_16_++];
+					bool_14_ = true;
+					is_43_[1] = i_25_;
+					i_11_ = i_9_;
+					i_13_ = i_16_;
+					is_43_[0] = i_10_;
+					is_43_[2] = i_24_ + i_26_;
+					i_9_ = Class28.method244(random, Class120_Sub12_Sub7.anInt3178);
+					final int[][] is_44_ = is_22_;
+					i_12_ = 0;
+					i_7_ = i_9_ + -i_11_;
+					is_22_ = is_21_;
+					int i_45_ = i_7_;
+					is_21_ = is_44_;
+					if (i_45_ < 0) {
+						i_45_ += Class120_Sub12_Sub7.anInt3178;
+					}
+					i_16_ = 0;
+					if (Class120_Sub12_Sub7.anInt3178 < i_45_) {
+						i_45_ -= Class120_Sub12_Sub7.anInt3178;
+					}
+					for (;;) {
+						final int[] is_46_ = is_22_[i_12_];
+						if (i_45_ >= is_46_[0] && is_46_[1] >= i_45_) {
+							break;
+						}
+						if (i_13_ <= ++i_12_) {
+							i_12_ = 0;
+						}
+					}
+					i_10_ = 0;
 				}
 			}
-			is = is_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ac.D(").append(i).append(',').append(i_5_).append(')').toString());
 		}
-		return is;
+		return is_6_;
 	}
 
 	@Override
@@ -199,7 +190,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 			return null;
 		}
 		if (bitDepth == 0) {
-			final DisplayModeInfo[] displayModes = Class120_Sub14_Sub2.getDisplayModes(signlink);
+			final DisplayModeInfo[] displayModes = EnumType.getDisplayModes(signlink);
 			if (displayModes == null) {
 				return null;
 			}
@@ -238,15 +229,15 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 			}
 			aString3132 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ac.U(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ac.U(").append(bool).append(')').toString());
 		}
 	}
 
 	private final void method1198(final int i, final int i_55_, int i_56_, final int i_57_, final int i_58_, final Random random, final int[][] is) {
 		try {
-			final int i_59_ = anInt3129 > 0 ? 4096 + -Class28.method244(random, anInt3129, 104) : 4096;
+			final int i_59_ = anInt3129 > 0 ? 4096 + -Class28.method244(random, anInt3129) : 4096;
 			final int i_60_ = anInt3130 * anInt3127 >> 12;
-			final int i_61_ = anInt3130 + -((i_60_ ^ 0xffffffff) < i_58_ ? Class28.method244(random, i_60_, 105) : 0);
+			final int i_61_ = anInt3130 + -((i_60_ ^ 0xffffffff) < i_58_ ? Class28.method244(random, i_60_) : 0);
 			if (Class120_Sub12_Sub7.anInt3178 <= i_56_) {
 				i_56_ -= Class120_Sub12_Sub7.anInt3178;
 			}
@@ -330,29 +321,9 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception,
+			throw EnumType.method1428(runtimeexception,
 					new StringBuilder("ac.R(").append(i).append(',').append(i_55_).append(',').append(i_56_).append(',').append(i_57_).append(',').append(i_58_).append(',').append(random != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
-	}
-
-	static final int method1199(final int i, final int i_89_, final boolean bool) {
-		int i_90_;
-		try {
-			if (bool) {
-				return 42;
-			}
-			final Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i);
-			if (class120_sub17 == null) {
-				return -1;
-			}
-			if (i_89_ < 0 || i_89_ >= class120_sub17.anIntArray2618.length) {
-				return -1;
-			}
-			i_90_ = class120_sub17.anIntArray2618[i_89_];
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ac.S(").append(i).append(',').append(i_89_).append(',').append(bool).append(')').toString());
-		}
-		return i_90_;
 	}
 
 	static final int method1200(final int i, final int i_91_) {
@@ -362,11 +333,11 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 				return -1;
 			}
 			if (i_91_ != 1624671788) {
-				method1199(-15, 12, false);
+				ObjectContainer.getId(-15, 12);
 			}
 			i_92_ = InterfaceClickMask.method1688(106, i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ac.T(").append(i).append(',').append(i_91_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ac.T(").append(i).append(',').append(i_91_).append(')').toString());
 		}
 		return i_92_;
 	}
@@ -452,7 +423,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 				} while (false);
 				anInt3129 = class120_sub7.getUShort();
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ac.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_93_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("ac.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_93_).append(')').toString());
 			}
 		} while (false);
 	}

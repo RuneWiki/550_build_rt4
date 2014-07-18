@@ -9,7 +9,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 	private int[] anIntArray3496;
 	int anInt3497 = 0;
 	private byte[] aByteArray3498;
-	private Class107[] aClass107Array3499;
+	private AbstractIndexedSprite[] nameIcons;
 	private static StringBuffer aStringBuffer3500 = new StringBuffer(100);
 	private int[] anIntArray3501;
 	private int[] anIntArray3502;
@@ -128,7 +128,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 						if (string_19_.startsWith("img=")) {
 							try {
 								final int i_20_ = Class31.method265(string_19_.substring(4));
-								i_16_ += aClass107Array3499[i_20_].anInt1029;
+								i_16_ += nameIcons[i_20_].trimWidth;
 								i_15_ = 0;
 							} catch (final Exception exception) {
 								/* empty */
@@ -185,14 +185,14 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 						if (string_32_.startsWith("img=")) {
 							try {
 								final int i_33_ = Class31.method265(string_32_.substring(4));
-								final Class107 class107 = aClass107Array3499[i_33_];
-								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : class107.anInt1028;
+								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_33_];
+								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : abstractIndexedSprite.trimHeight;
 								if (anInt3506 == 256) {
-									class107.method910(i, i_27_ + this.anInt3497 - i_34_);
+									abstractIndexedSprite.method910(i, i_27_ + this.anInt3497 - i_34_);
 								} else {
-									class107.method911(i, i_27_ + this.anInt3497 - i_34_, anInt3506);
+									abstractIndexedSprite.method911(i, i_27_ + this.anInt3497 - i_34_, anInt3506);
 								}
-								i += class107.anInt1029;
+								i += abstractIndexedSprite.trimWidth;
 								i_29_ = 0;
 							} catch (final Exception exception) {
 								/* empty */
@@ -437,11 +437,11 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 		}
 	}
 
-	final void method1474(final Class107[] class107s, final int[] is) {
+	final void setNameIcons(final AbstractIndexedSprite[] class107s, final int[] is) {
 		if (is != null && is.length != class107s.length) {
 			throw new IllegalArgumentException();
 		}
-		aClass107Array3499 = class107s;
+		nameIcons = class107s;
 		anIntArray3501 = is;
 	}
 
@@ -492,14 +492,14 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 								}
 								i_111_++;
 								final int i_117_ = Class31.method265(string_114_.substring(4));
-								final Class107 class107 = aClass107Array3499[i_117_];
-								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : class107.anInt1028;
+								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_117_];
+								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : abstractIndexedSprite.trimHeight;
 								if (anInt3506 == 256) {
-									class107.method910(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
+									abstractIndexedSprite.method910(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
 								} else {
-									class107.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, anInt3506);
+									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, anInt3506);
 								}
-								i += class107.anInt1029;
+								i += abstractIndexedSprite.trimWidth;
 								i_110_ = 0;
 							} catch (final Exception exception) {
 								/* empty */
@@ -752,7 +752,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 		if (string == null) {
 			return 0;
 		}
-		Class89.method749(' ', aStringBuffer3500, 0, true);
+		Class89.method749(aStringBuffer3500, ' ', 0);
 		int i = 0;
 		int i_175_ = 0;
 		int i_176_ = -1;
@@ -831,7 +831,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					} else if (string_184_.startsWith("img=")) {
 						try {
 							final int i_185_ = Class31.method265(string_184_.substring(4));
-							i += aClass107Array3499[i_185_].anInt1029;
+							i += nameIcons[i_185_].trimWidth;
 							i_180_ = 0;
 						} catch (final Exception exception) {
 							/* empty */

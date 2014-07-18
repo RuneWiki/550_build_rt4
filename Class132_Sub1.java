@@ -15,7 +15,7 @@ class Class132_Sub1 extends Class132 {
 	private int anInt2810;
 	static boolean[][] aBooleanArrayArray2811;
 	static int[] spritePalette;
-	static Class50 aClass50_2813;
+	static js5 aClass50_2813;
 	static int anInt2814;
 	private final int anInt2815;
 	static int anInt2816 = 0;
@@ -28,7 +28,7 @@ class Class132_Sub1 extends Class132 {
 
 	static final void method1931() {
 		for (int i_0_ = 0; i_0_ < 100; i_0_++) {
-			Class52.aBooleanArray467[i_0_] = true;
+			Class52.needInterfaceRedrawWrapper[i_0_] = true;
 		}
 	}
 
@@ -36,7 +36,7 @@ class Class132_Sub1 extends Class132 {
 		try {
 			aByteArray2808[i] = i_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.G(").append(i).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.G(").append(i).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
@@ -55,31 +55,8 @@ class Class132_Sub1 extends Class132 {
 			method1932(anInt2803++, (byte) anInt2807);
 			anInt2807 = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.E(").append(i).append(')').toString());
 		}
-	}
-
-	static final Class70 method1933(final byte i, final int i_2_) {
-		Class70 class70;
-		try {
-			if (i > -105) {
-				method1933((byte) 102, 66);
-			}
-			Class70 class70_3_ = (Class70) Class86.aClass21_816.get(i_2_);
-			if (class70_3_ != null) {
-				return class70_3_;
-			}
-			final byte[] is = ObjType.aClass50_1517.getFile(16, i_2_);
-			class70_3_ = new Class70();
-			if (is != null) {
-				class70_3_.method637(new Buffer(is), 40);
-			}
-			Class86.aClass21_816.put(class70_3_, i_2_);
-			class70 = class70_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.B(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return class70;
 	}
 
 	static final Class41 method1934(final int i, final byte i_4_, final int i_5_, final int i_6_, final int i_7_) {
@@ -103,7 +80,7 @@ class Class132_Sub1 extends Class132 {
 			Class120_Sub6.aClass21_2443.put(class41_8_, l);
 			class41 = class41_8_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
 		}
 		return class41;
 	}
@@ -117,7 +94,7 @@ class Class132_Sub1 extends Class132 {
 				method1934(-3, (byte) 87, -16, 108, -56);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.I(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.I(").append(i).append(')').toString());
 		}
 	}
 
@@ -131,7 +108,7 @@ class Class132_Sub1 extends Class132 {
 				aBooleanArrayArray2811 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -162,7 +139,7 @@ class Class132_Sub1 extends Class132 {
 				anImage2809 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ea.F(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.F(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
 		}
 	}
 

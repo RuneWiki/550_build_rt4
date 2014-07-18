@@ -7,7 +7,7 @@ import javax.media.opengl.GL;
 
 final class Class20 implements ShaderInterface {
 	static long selfNameAsLong;
-	static Class50 aClass50_2169;
+	static js5 aClass50_2169;
 	private float[] aFloatArray2170 = new float[4];
 	static FontMetrics aFontMetrics2171;
 	private int anInt2172;
@@ -20,7 +20,7 @@ final class Class20 implements ShaderInterface {
 			final GL gl = HDToolkit.gl;
 			gl.glCallList(anInt2172);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "bo.B()");
+			throw EnumType.method1428(runtimeexception, "bo.B()");
 		}
 	}
 
@@ -30,7 +30,7 @@ final class Class20 implements ShaderInterface {
 		try {
 			i = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "bo.C()");
+			throw EnumType.method1428(runtimeexception, "bo.C()");
 		}
 		return i;
 	}
@@ -43,7 +43,7 @@ final class Class20 implements ShaderInterface {
 			}
 			i = 2;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.H(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.H(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -58,7 +58,7 @@ final class Class20 implements ShaderInterface {
 			final GL gl = HDToolkit.gl;
 			gl.glCallList(anInt2172 - -1);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "bo.A()");
+			throw EnumType.method1428(runtimeexception, "bo.A()");
 		}
 	}
 
@@ -108,85 +108,58 @@ final class Class20 implements ShaderInterface {
 			}
 			gl.glActiveTexture(33984);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final int method178(final byte i, final Npc class180_sub5_sub2) {
-		int i_5_;
-		try {
-			NpcType npcType = class180_sub5_sub2.npcType;
-			if (npcType.childrenIDs != null) {
-				npcType = npcType.handleVarp();
-				if (npcType == null) {
-					return -1;
-				}
+	static final int method178(final Npc npc) {
+		NpcType npcType = npc.npcType;
+		if (npcType.childrenIDs != null) {
+			npcType = npcType.handleVarp();
+			if (npcType == null) {
+				return -1;
 			}
-			if (i != -54) {
-				method179(null, (byte) 123);
-			}
-			int i_6_ = npcType.anInt1682;
-			final Class29 class29 = class180_sub5_sub2.method2336((byte) 111);
-			if (class180_sub5_sub2.anInt3004 == class29.anInt218) {
-				i_6_ = npcType.anInt1681;
-			} else if (class180_sub5_sub2.anInt3004 != class29.anInt190 && class180_sub5_sub2.anInt3004 != class29.anInt188 && class180_sub5_sub2.anInt3004 != class29.anInt216 && class29.anInt223 != class180_sub5_sub2.anInt3004) {
-				if (class180_sub5_sub2.anInt3004 == class29.anInt212 || class29.anInt192 == class180_sub5_sub2.anInt3004 || class29.anInt219 == class180_sub5_sub2.anInt3004 || class180_sub5_sub2.anInt3004 == class29.anInt210) {
-					i_6_ = npcType.anInt1657;
-				}
-			} else {
-				i_6_ = npcType.anInt1676;
-			}
-			i_5_ = i_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.L(").append(i).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(')').toString());
 		}
-		return i_5_;
+		int i_6_ = npcType.anInt1682;
+		final Class29 class29 = npc.method2336();
+		if (npc.anInt3004 == class29.anInt218) {
+			i_6_ = npcType.anInt1681;
+		} else if (npc.anInt3004 != class29.anInt190 && npc.anInt3004 != class29.anInt188 && npc.anInt3004 != class29.anInt216 && class29.anInt223 != npc.anInt3004) {
+			if (npc.anInt3004 == class29.anInt212 || class29.anInt192 == npc.anInt3004 || class29.anInt219 == npc.anInt3004 || npc.anInt3004 == class29.anInt210) {
+				i_6_ = npcType.anInt1657;
+			}
+		} else {
+			i_6_ = npcType.anInt1676;
+		}
+		return i_6_;
 	}
 
-	static final int method179(final Player class180_sub5_sub1, final byte i) {
-		int i_7_;
-		try {
-			int i_8_ = class180_sub5_sub1.anInt3734;
-			final Class29 class29 = class180_sub5_sub1.method2336((byte) 91);
-			if (class180_sub5_sub1.anInt3004 != class29.anInt218) {
-				if (class29.anInt190 == class180_sub5_sub1.anInt3004 || class180_sub5_sub1.anInt3004 == class29.anInt188 || class29.anInt216 == class180_sub5_sub1.anInt3004 || class180_sub5_sub1.anInt3004 == class29.anInt223) {
-					i_8_ = class180_sub5_sub1.anInt3742;
-				} else if (class29.anInt212 == class180_sub5_sub1.anInt3004 || class180_sub5_sub1.anInt3004 == class29.anInt192 || class180_sub5_sub1.anInt3004 == class29.anInt219 || class29.anInt210 == class180_sub5_sub1.anInt3004) {
-					i_8_ = class180_sub5_sub1.anInt3736;
-				}
-			} else {
-				i_8_ = class180_sub5_sub1.anInt3740;
+	static final int method179(final Player player) {
+		int i_8_ = player.anInt3734;
+		final Class29 class29 = player.method2336();
+		if (player.anInt3004 != class29.anInt218) {
+			if (class29.anInt190 == player.anInt3004 || player.anInt3004 == class29.anInt188 || class29.anInt216 == player.anInt3004 || player.anInt3004 == class29.anInt223) {
+				i_8_ = player.anInt3742;
+			} else if (class29.anInt212 == player.anInt3004 || player.anInt3004 == class29.anInt192 || player.anInt3004 == class29.anInt219 || class29.anInt210 == player.anInt3004) {
+				i_8_ = player.anInt3736;
 			}
-			if (i > -64) {
-				return 44;
-			}
-			i_7_ = i_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.I(").append(class180_sub5_sub1 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		} else {
+			i_8_ = player.anInt3740;
 		}
-		return i_7_;
+		return i_8_;
 	}
 
 	static final void method180(final int i, final int i_9_, final int i_10_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i);
-		class120_sub14_sub7.method1454((byte) -127);
+		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_9_;
 	}
 
-	static final boolean method181(final int i, final Class50 class50) {
-		boolean bool;
-		try {
-			if (i != 0) {
-				selfNameAsLong = 28L;
-			}
-			if (class50.method429(Class120_Sub14_Sub13.anInt3561)) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.G(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+	static final boolean runeSpritesCached(final js5 js5) {
+		if (js5.method429(Class120_Sub14_Sub13.runesId)) {
+			return true;
 		}
-		return bool;
+		return false;
 	}
 
 	private final void method182(final boolean bool) {
@@ -225,7 +198,7 @@ final class Class20 implements ShaderInterface {
 			gl.glActiveTexture(33984);
 			gl.glEndList();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.J(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.J(").append(bool).append(')').toString());
 		}
 	}
 
@@ -238,7 +211,7 @@ final class Class20 implements ShaderInterface {
 			aClass50_2169 = null;
 			aFontMetrics2171 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bo.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.E(").append(i).append(')').toString());
 		}
 	}
 }

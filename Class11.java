@@ -23,7 +23,7 @@ final class Class11 {
 				AbstractGraphicsBuffer.aDouble1172 = d;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.A(").append(d).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.A(").append(d).append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -34,71 +34,60 @@ final class Class11 {
 			}
 			Class120_Sub12_Sub16.aClass21_3251.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.B(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method126(Color color, final boolean bool, final boolean bool_2_, final int i, final String string) {
-		do {
-			try {
-				try {
-					final Graphics graphics = Node.canvas.getGraphics();
-					if (Class23.aFont135 == null) {
-						Class23.aFont135 = new Font("Helvetica", 1, 13);
-						Class20.aFontMetrics2171 = Node.canvas.getFontMetrics(Class23.aFont135);
-					}
-					if (bool) {
-						graphics.setColor(Color.black);
-						graphics.fillRect(0, 0, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
-					}
-					if (color == null) {
-						color = new Color(140, 17, 17);
-					}
-					try {
-						if (Class132_Sub1.anImage2809 == null) {
-							Class132_Sub1.anImage2809 = Node.canvas.createImage(304, 34);
-						}
-						final Graphics graphics_3_ = Class132_Sub1.anImage2809.getGraphics();
-						graphics_3_.setColor(color);
-						graphics_3_.drawRect(0, 0, 303, 33);
-						graphics_3_.fillRect(2, 2, 3 * i, 30);
-						graphics_3_.setColor(Color.black);
-						graphics_3_.drawRect(1, 1, 301, 31);
-						if (bool_2_) {
-							method125((byte) -20);
-						}
-						graphics_3_.fillRect(2 + i * 3, 2, -(3 * i) + 300, 30);
-						graphics_3_.setFont(Class23.aFont135);
-						graphics_3_.setColor(Color.white);
-						graphics_3_.drawString(string, (304 + -Class20.aFontMetrics2171.stringWidth(string)) / 2, 22);
-						graphics.drawImage(Class132_Sub1.anImage2809, Class69_Sub1.canvasWidth / 2 - 152, -18 + Class120_Sub12_Sub5.canvasHeight / 2, null);
-					} catch (final Exception exception) {
-						final int i_4_ = Class69_Sub1.canvasWidth / 2 - 152;
-						final int i_5_ = -18 + Class120_Sub12_Sub5.canvasHeight / 2;
-						graphics.setColor(color);
-						graphics.drawRect(i_4_, i_5_, 303, 33);
-						graphics.fillRect(i_4_ + 2, i_5_ + 2, 3 * i, 30);
-						graphics.setColor(Color.black);
-						graphics.drawRect(1 + i_4_, i_5_ + 1, 301, 31);
-						graphics.fillRect(i * 3 + 2 + i_4_, i_5_ - -2, -(i * 3) + 300, 30);
-						graphics.setFont(Class23.aFont135);
-						graphics.setColor(Color.white);
-						graphics.drawString(string, i_4_ - -((-Class20.aFontMetrics2171.stringWidth(string) + 304) / 2), 22 + i_5_);
-					}
-					if (Class120_Sub14_Sub15.aString3585 != null) {
-						graphics.setFont(Class23.aFont135);
-						graphics.setColor(Color.white);
-						graphics.drawString(Class120_Sub14_Sub15.aString3585, Class69_Sub1.canvasWidth / 2 - Class20.aFontMetrics2171.stringWidth(Class120_Sub14_Sub15.aString3585) / 2, -26 + Class120_Sub12_Sub5.canvasHeight / 2);
-					}
-				} catch (final Exception exception) {
-					Node.canvas.repaint();
-					break;
-				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.F(").append(color != null ? "{...}" : "null").append(',').append(bool).append(',').append(bool_2_).append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+	static final void drawLoadingText(Color color, final boolean fillBg, final int fill, final String text) {
+		try {
+			final Graphics graphics = Node.canvas.getGraphics();
+			if (Class23.aFont135 == null) {
+				Class23.aFont135 = new Font("Helvetica", 1, 13);
+				Class20.aFontMetrics2171 = Node.canvas.getFontMetrics(Class23.aFont135);
 			}
-		} while (false);
+			if (fillBg) {
+				graphics.setColor(Color.black);
+				graphics.fillRect(0, 0, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+			}
+			if (color == null) {
+				color = new Color(140, 17, 17);
+			}
+			try {
+				if (Class132_Sub1.anImage2809 == null) {
+					Class132_Sub1.anImage2809 = Node.canvas.createImage(304, 34);
+				}
+				final Graphics graphics_3_ = Class132_Sub1.anImage2809.getGraphics();
+				graphics_3_.setColor(color);
+				graphics_3_.drawRect(0, 0, 303, 33);
+				graphics_3_.fillRect(2, 2, 3 * fill, 30);
+				graphics_3_.setColor(Color.black);
+				graphics_3_.drawRect(1, 1, 301, 31);
+				graphics_3_.fillRect(2 + fill * 3, 2, -(3 * fill) + 300, 30);
+				graphics_3_.setFont(Class23.aFont135);
+				graphics_3_.setColor(Color.white);
+				graphics_3_.drawString(text, (304 + -Class20.aFontMetrics2171.stringWidth(text)) / 2, 22);
+				graphics.drawImage(Class132_Sub1.anImage2809, Class69_Sub1.canvasWidth / 2 - 152, -18 + Class120_Sub12_Sub5.canvasHeight / 2, null);
+			} catch (final Exception exception) {
+				final int i_4_ = Class69_Sub1.canvasWidth / 2 - 152;
+				final int i_5_ = -18 + Class120_Sub12_Sub5.canvasHeight / 2;
+				graphics.setColor(color);
+				graphics.drawRect(i_4_, i_5_, 303, 33);
+				graphics.fillRect(i_4_ + 2, i_5_ + 2, 3 * fill, 30);
+				graphics.setColor(Color.black);
+				graphics.drawRect(1 + i_4_, i_5_ + 1, 301, 31);
+				graphics.fillRect(fill * 3 + 2 + i_4_, i_5_ - -2, -(fill * 3) + 300, 30);
+				graphics.setFont(Class23.aFont135);
+				graphics.setColor(Color.white);
+				graphics.drawString(text, i_4_ - -((-Class20.aFontMetrics2171.stringWidth(text) + 304) / 2), 22 + i_5_);
+			}
+			if (Class120_Sub14_Sub15.gameLoadingText != null) {
+				graphics.setFont(Class23.aFont135);
+				graphics.setColor(Color.white);
+				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - Class20.aFontMetrics2171.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, -26 + Class120_Sub12_Sub5.canvasHeight / 2);
+			}
+		} catch (final Exception exception) {
+			Node.canvas.repaint();
+		}
 	}
 
 	static final void method127(final int i, final int i_6_, final int i_7_, final int i_8_, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final long l) {
@@ -115,34 +104,23 @@ final class Class11 {
 			class186.anInt1905 = i_12_;
 			class186.anInt1892 = i_13_;
 			for (int i_14_ = i; i_14_ >= 0; i_14_--) {
-				if (Class120_Sub1.groundTiles[i_14_][i_6_][i_7_] == null) {
-					Class120_Sub1.groundTiles[i_14_][i_6_][i_7_] = new GroundTile(i_14_, i_6_, i_7_);
+				if (LabelGroup.groundTiles[i_14_][i_6_][i_7_] == null) {
+					LabelGroup.groundTiles[i_14_][i_6_][i_7_] = new GroundTile(i_14_, i_6_, i_7_);
 				}
 			}
-			Class120_Sub1.groundTiles[i][i_6_][i_7_].aClass186_2639 = class186;
+			LabelGroup.groundTiles[i][i_6_][i_7_].aClass186_2639 = class186;
 		}
 	}
 
-	static final Class107 method128(final int i) {
-		Class107 class107;
-		try {
-			if (i != 0) {
-				method125((byte) -81);
-			}
-			Class107 class107_15_;
-			if (HDToolkit.glEnabled) {
-				class107_15_ = new Class107_Sub2(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
-						Class132_Sub1.spritePalette);
-			} else {
-				class107_15_ = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
-						Class132_Sub1.spritePalette);
-			}
-			Class53_Sub1.resetSpriteInfo();
-			class107 = class107_15_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.C(").append(i).append(')').toString());
+	static final AbstractIndexedSprite createIndexedSprite() {
+		AbstractIndexedSprite indexedSprite;
+		if (HDToolkit.glEnabled) {
+			indexedSprite = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
+		} else {
+			indexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
 		}
-		return class107;
+		Class53_Sub1.resetSpriteInfo();
+		return indexedSprite;
 	}
 
 	public static void method129(final int i) {
@@ -154,7 +132,7 @@ final class Class11 {
 				aString82 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -168,7 +146,7 @@ final class Class11 {
 			final int i_22_ = is[i_16_][1 + i_18_] * (-i + 128) + i * is[i_16_ + 1][1 + i_18_] >> 7;
 			i_20_ = i_21_ * (128 - i_17_) + i_22_ * i_17_ >> 7;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ao.G(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.G(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
 		}
 		return i_20_;
 	}

@@ -3,7 +3,7 @@
  */
 
 final class Class140 {
-	static int anInt1338 = 0;
+	static int loadingStage = 0;
 	private int anInt1339 = 0;
 	static boolean aBoolean1340;
 	static int[] anIntArray1341 = { 1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0 };
@@ -17,24 +17,20 @@ final class Class140 {
 		try {
 			anInt1339 = 0;
 			if (i > -127) {
-				method1995(104, -127);
+				method1995(104);
 			}
 			node = method1998((byte) 101);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.A(").append(i).append(')').toString());
 		}
 		return node;
 	}
 
-	static final void method1995(final int i, final int i_0_) {
-		try {
-			if ((Class120_Sub12_Sub25.anInt3312 ^ 0xffffffff) == i_0_) {
-				Class30.aClass120_Sub30_Sub2_234.method1748(i_0_ ^ ~0x80, i);
-			} else {
-				Class120_Sub14_Sub14_Sub2.anInt3940 = i;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.G(").append(i).append(',').append(i_0_).append(')').toString());
+	static final void method1995(final int i) {
+		if (Class120_Sub12_Sub25.anInt3312 == 0) {
+			Class30.aClass120_Sub30_Sub2_234.method1748(i);
+		} else {
+			Class120_Sub14_Sub14_Sub2.anInt3940 = i;
 		}
 	}
 
@@ -42,7 +38,7 @@ final class Class140 {
 		final Buffer buffer = new Buffer(data);
 		buffer.pos = data.length - 2;
 		Class93.spriteAmount = buffer.getUShort();
-		Class141.spriteHasAlpha = new boolean[Class93.spriteAmount];
+		PlainTile.spriteHasAlpha = new boolean[Class93.spriteAmount];
 		Class120_Sub12.spriteAlphas = new byte[Class93.spriteAmount][];
 		Class180_Sub4.spriteXOffsets = new int[Class93.spriteAmount];
 		Class120_Sub12_Sub11.spriteWidths = new int[Class93.spriteAmount];
@@ -109,7 +105,7 @@ final class Class140 {
 					}
 				}
 			}
-			Class141.spriteHasAlpha[spriteId] = hasAlpha;
+			PlainTile.spriteHasAlpha[spriteId] = hasAlpha;
 		}
 	}
 
@@ -127,7 +123,7 @@ final class Class140 {
 				class120_sub3.aLong2425 = 500L + TimeUtil.getSafeTime();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.E(").append(bool).append(',').append(i).append(',').append(i_22_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.E(").append(bool).append(',').append(i).append(',').append(i_22_).append(')').toString());
 		}
 	}
 
@@ -151,7 +147,7 @@ final class Class140 {
 			}
 			node = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.F(").append(i).append(')').toString());
 		}
 		return node;
 	}
@@ -160,7 +156,7 @@ final class Class140 {
 		try {
 			anIntArray1341 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qe.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.C(").append(i).append(')').toString());
 		}
 	}
 

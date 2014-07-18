@@ -16,7 +16,7 @@ final class Class191 {
 	int anInt2112;
 	static int lastMouseY = 0;
 	float aFloat2114 = 0.25F;
-	static int anInt2115;
+	static int p12fullId;
 	float aFloat2116 = 1.0F;
 	Class120_Sub14_Sub9 aClass120_Sub14_Sub9_2117;
 	int anInt2118;
@@ -35,47 +35,47 @@ final class Class191 {
 				method2514(null, -113, (byte) 34);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.F(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method2508(final byte i) {
 		try {
 			if (FileSystem.anInt455 != 2) {
-				if (Class115.anInt1110 == Class50.lastClickX && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.lastClickY) {
+				if (Class115.anInt1110 == js5.lastClickX && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.lastClickY) {
 					FileSystem.anInt455 = 0;
 					if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
-						GameShell.method31((byte) 96, -2 + Class186.menuOptionCount);
+						GameShell.method31(-2 + Class186.menuOptionCount);
 					} else {
-						GameShell.method31((byte) 96, Class186.menuOptionCount - 1);
+						GameShell.method31(Class186.menuOptionCount - 1);
 					}
 				} else {
 					FileSystem.anInt455 = 2;
 					Class31.anInt250 = Class120_Sub12_Sub36.lastClickY;
-					Class120_Sub14_Sub12.anInt3558 = Class50.lastClickX;
+					ClientScript.anInt3558 = js5.lastClickX;
 				}
-			} else if (Class115.anInt1110 == Class120_Sub14_Sub12.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
+			} else if (Class115.anInt1110 == ClientScript.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
 				FileSystem.anInt455 = 0;
 				if (Class120_Sub14_Sub4.aBoolean3470 && Class35.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
-					GameShell.method31((byte) 96, Class186.menuOptionCount - 2);
+					GameShell.method31(Class186.menuOptionCount - 2);
 				} else {
-					GameShell.method31((byte) 96, -1 + Class186.menuOptionCount);
+					GameShell.method31(-1 + Class186.menuOptionCount);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.C(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method2509(final Class50 class50, final Class50 class50_0_, final Class50 class50_1_, final int i) {
+	static final void method2509(final js5 js5, final js5 class50_0_, final js5 class50_1_, final int i) {
 		try {
-			Class101_Sub3.aClass50_2286 = class50;
+			Class101_Sub3.aClass50_2286 = js5;
 			if (i == 31779) {
 				Class132_Sub1.aClass50_2813 = class50_1_;
 				Class179.aClass50_1778 = class50_0_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.H(").append(class50 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(',').append(class50_1_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.H(").append(js5 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(',').append(class50_1_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -88,13 +88,13 @@ final class Class191 {
 			this.aFloat2114 = class120_sub7.getUByte() * 8 / 255.0F;
 			this.aFloat2116 = 8 * class120_sub7.getUByte() / 255.0F;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
-	static final void method2511(final Class50 class50, final int i, final Class50 class50_2_, final Class50 class50_3_, final Class50 class50_4_) {
+	static final void method2511(final js5 js5, final int i, final js5 class50_2_, final js5 class50_3_, final js5 class50_4_) {
 		try {
-			Class89.aClass50_836 = class50;
+			Class89.aClass50_836 = js5;
 			if (i != 5) {
 				lastMouseY = -56;
 			}
@@ -104,7 +104,7 @@ final class Class191 {
 			Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
 			Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(class50_2_ != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(',').append(class50_4_ != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(class50_2_ != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(',').append(class50_4_ != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -113,7 +113,7 @@ final class Class191 {
 		try {
 			i_6_ = i | i_5_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.G(").append(i).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.G(").append(i).append(',').append(i_5_).append(')').toString());
 		}
 		return i_6_;
 	}
@@ -141,9 +141,9 @@ final class Class191 {
 					i_8_ *= 64;
 					i_9_ *= 64;
 					i_10_ *= 64;
-					final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_13_, Class173.gameLevel, i_8_, i_9_, -i_14_ + Class22.method197(Class173.gameLevel, i_8_, i_9_), i_16_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_17_, i_18_, i_19_, i_12_, i_15_);
+					final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_13_, Class173.gameLevel, i_8_, i_9_, -i_14_ + Class22.getTileHeight(Class173.gameLevel, i_8_, i_9_), i_16_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_17_, i_18_, i_19_, i_12_, i_15_);
 					i_11_ *= 64;
-					class180_sub4.method2319(-102, Class22.method197(Class173.gameLevel, i_10_, i_11_) + -i_15_, i_10_, Class101_Sub2.loopCycle + i_16_, i_11_);
+					class180_sub4.method2319(-102, Class22.getTileHeight(Class173.gameLevel, i_10_, i_11_) + -i_15_, i_10_, Class101_Sub2.loopCycle + i_16_, i_11_);
 					Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 				}
 			} else if (Class23.packetType == 114) {
@@ -154,7 +154,7 @@ final class Class191 {
 				final int i_24_ = Canvas_Sub1.inputStream.getUShort();
 				final int i_25_ = Canvas_Sub1.inputStream.getUShort();
 				if (i_21_ >= 0 && i_22_ >= 0 && i_21_ < 104 && i_22_ < 104) {
-					final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_21_][i_22_];
+					final Deque deque = ClientScript.groundObjects[Class173.gameLevel][i_21_][i_22_];
 					if (deque != null) {
 						for (GroundObjectNode class120_sub14_sub21 = (GroundObjectNode) deque.getFront(); class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObjectNode) deque.getNext()) {
 							final SceneGroundObject class180_sub1 = class120_sub14_sub21.aClass180_Sub1_3630;
@@ -228,7 +228,7 @@ final class Class191 {
 								}
 							}
 							if (class180_sub5 != null) {
-								final Class29 class29 = class180_sub5.method2336((byte) 76);
+								final Class29 class29 = class180_sub5.method2336();
 								if (class29.anIntArrayArray215 != null && class29.anIntArrayArray215[i_54_] != null) {
 									i_48_ -= class29.anIntArrayArray215[i_54_][1];
 									int i_59_ = class29.anIntArrayArray215[i_54_][0];
@@ -243,8 +243,8 @@ final class Class191 {
 								}
 							}
 						}
-						final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.method197(Class173.gameLevel, i_41_, i_42_) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
-						class180_sub4.method2319(-10, Class22.method197(Class173.gameLevel, i_43_, i_44_) + -i_49_, i_43_, Class101_Sub2.loopCycle + i_50_, i_44_);
+						final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(Class173.gameLevel, i_41_, i_42_) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
+						class180_sub4.method2319(-10, Class22.getTileHeight(Class173.gameLevel, i_43_, i_44_) + -i_49_, i_43_, Class101_Sub2.loopCycle + i_50_, i_44_);
 						Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 					}
 				} else if (Class23.packetType == 158) {
@@ -257,7 +257,7 @@ final class Class191 {
 					if (i_65_ >= 0 && i_66_ >= 0 && i_65_ < 104 && i_66_ < 104) {
 						i_66_ = 64 + 128 * i_66_;
 						i_65_ = 64 + 128 * i_65_;
-						final Class180_Sub3 class180_sub3 = new Class180_Sub3(i_67_, Class173.gameLevel, i_65_, i_66_, -i_68_ + Class22.method197(Class173.gameLevel, i_65_, i_66_), i_69_, Class101_Sub2.loopCycle);
+						final Class180_Sub3 class180_sub3 = new Class180_Sub3(i_67_, Class173.gameLevel, i_65_, i_66_, -i_68_ + Class22.getTileHeight(Class173.gameLevel, i_65_, i_66_), i_69_, Class101_Sub2.loopCycle);
 						Class120_Sub12_Sub7.aClass105_3177.addLast(new Class120_Sub14_Sub4(class180_sub3));
 					}
 				} else if (Class23.packetType == 179) {
@@ -268,7 +268,7 @@ final class Class191 {
 					final int i_71_ = Canvas_Sub1.inputStream.getUByteS();
 					final int i_72_ = i_71_ >> 2;
 					final int i_73_ = 0x3 & i_71_;
-					final int i_74_ = Class25.anIntArray153[i_72_];
+					final int i_74_ = CollisionMap.anIntArray153[i_72_];
 					final int i_75_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_76_ = (i_75_ & 0x7) + Class28.anInt176;
 					final int i_77_ = Class32.anInt254 + ((0x7f & i_75_) >> 4);
@@ -276,7 +276,7 @@ final class Class191 {
 				} else if (Class23.packetType == 131) {
 					final int i_78_ = Canvas_Sub1.inputStream.getUByteS();
 					final int i_79_ = i_78_ >> 2;
-					final int i_80_ = Class25.anIntArray153[i_79_];
+					final int i_80_ = CollisionMap.anIntArray153[i_79_];
 					final int i_81_ = i_78_ & 0x3;
 					final int i_82_ = Canvas_Sub1.inputStream.getULEShort();
 					final int i_83_ = Canvas_Sub1.inputStream.getUByte();
@@ -295,7 +295,7 @@ final class Class191 {
 					final int i_90_ = (i_88_ >> 4 & 0x7) + Class32.anInt254;
 					final int i_91_ = Canvas_Sub1.inputStream.getUByte();
 					final int i_92_ = i_91_ >> 2;
-					final int i_93_ = Class25.anIntArray153[i_92_];
+					final int i_93_ = CollisionMap.anIntArray153[i_92_];
 					final int i_94_ = 0x3 & i_91_;
 					if (i_90_ >= 0 && i_89_ >= 0 && i_90_ < 104 && i_89_ < 104) {
 						Class38.method317(-1, Class173.gameLevel, i_94_, i_90_, -1, i_89_, (byte) -97, i_92_, i_93_, 0);
@@ -322,8 +322,8 @@ final class Class191 {
 						i_98_ = i_98_ * 128 + 64;
 						i_99_ = 64 + i_99_ * 128;
 						i_96_ = 64 + i_96_ * 128;
-						final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_101_, Class173.gameLevel, i_96_, i_97_, -i_102_ + Class22.method197(Class173.gameLevel, i_96_, i_97_), Class101_Sub2.loopCycle + i_104_, i_105_ - -Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
-						class180_sub4.method2319(-26, Class22.method197(Class173.gameLevel, i_98_, i_99_) - i_103_, i_98_, i_104_ + Class101_Sub2.loopCycle, i_99_);
+						final Class180_Sub4 class180_sub4 = new Class180_Sub4(i_101_, Class173.gameLevel, i_96_, i_97_, -i_102_ + Class22.getTileHeight(Class173.gameLevel, i_96_, i_97_), Class101_Sub2.loopCycle + i_104_, i_105_ - -Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
+						class180_sub4.method2319(-26, Class22.getTileHeight(Class173.gameLevel, i_98_, i_99_) - i_103_, i_98_, i_104_ + Class101_Sub2.loopCycle, i_99_);
 						Class120_Sub14_Sub14_Sub1.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
 					}
 				} else if (Class23.packetType == 120) {
@@ -332,7 +332,7 @@ final class Class191 {
 					final int i_110_ = (0x7 & i_108_) + Class28.anInt176;
 					final int i_111_ = Canvas_Sub1.inputStream.getUShortA();
 					if (i_109_ >= 0 && i_110_ >= 0 && i_109_ < 104 && i_110_ < 104) {
-						final Deque deque = Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_109_][i_110_];
+						final Deque deque = ClientScript.groundObjects[Class173.gameLevel][i_109_][i_110_];
 						if (deque != null) {
 							for (GroundObjectNode class120_sub14_sub21 = (GroundObjectNode) deque.getFront(); class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObjectNode) deque.getNext()) {
 								if ((i_111_ & 0x7fff) == class120_sub14_sub21.aClass180_Sub1_3630.id) {
@@ -341,7 +341,7 @@ final class Class191 {
 								}
 							}
 							if (deque.getFront() == null) {
-								Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_109_][i_110_] = null;
+								ClientScript.groundObjects[Class173.gameLevel][i_109_][i_110_] = null;
 							}
 							Class5.spawnGroundObject(i_109_, i_110_);
 						}
@@ -356,10 +356,10 @@ final class Class191 {
 						final SceneGroundObject class180_sub1 = new SceneGroundObject();
 						class180_sub1.amount = i_116_;
 						class180_sub1.id = i_115_;
-						if (Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_114_][i_113_] == null) {
-							Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_114_][i_113_] = new Deque();
+						if (ClientScript.groundObjects[Class173.gameLevel][i_114_][i_113_] == null) {
+							ClientScript.groundObjects[Class173.gameLevel][i_114_][i_113_] = new Deque();
 						}
-						Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_114_][i_113_].addLast(new GroundObjectNode(class180_sub1));
+						ClientScript.groundObjects[Class173.gameLevel][i_114_][i_113_].addLast(new GroundObjectNode(class180_sub1));
 						Class5.spawnGroundObject(i_114_, i_113_);
 					}
 				} else if (Class23.packetType == 144) {
@@ -377,7 +377,7 @@ final class Class191 {
 					final int i_125_ = Canvas_Sub1.inputStream.getUByte();
 					if (i_119_ >= 0 && i_118_ >= 0 && i_119_ < 104 && i_118_ < 104) {
 						final int i_126_ = i_122_ + 1;
-						if (-i_126_ + i_119_ <= Class100.selfPlayer.anIntArray2958[0] && Class100.selfPlayer.anIntArray2958[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= Class100.selfPlayer.anIntArray3040[0] && i_118_ - -i_126_ >= Class100.selfPlayer.anIntArray3040[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
+						if (-i_126_ + i_119_ <= Class100.selfPlayer.walkQueueX[0] && Class100.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= Class100.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= Class100.selfPlayer.walkQueueZ[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
 							Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_120_;
 							LocType.anIntArray1834[Class150.anInt1407] = i_123_;
 							Class81.anIntArray779[Class150.anInt1407] = i_124_;
@@ -398,30 +398,30 @@ final class Class191 {
 						final SceneGroundObject class180_sub1 = new SceneGroundObject();
 						class180_sub1.amount = i_129_;
 						class180_sub1.id = i_127_;
-						if (Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_131_][i_132_] == null) {
-							Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_131_][i_132_] = new Deque();
+						if (ClientScript.groundObjects[Class173.gameLevel][i_131_][i_132_] == null) {
+							ClientScript.groundObjects[Class173.gameLevel][i_131_][i_132_] = new Deque();
 						}
-						Class120_Sub14_Sub12.groundObjects[Class173.gameLevel][i_131_][i_132_].addLast(new GroundObjectNode(class180_sub1));
+						ClientScript.groundObjects[Class173.gameLevel][i_131_][i_132_].addLast(new GroundObjectNode(class180_sub1));
 						Class5.spawnGroundObject(i_131_, i_132_);
 					}
 				} else if (i < 34) {
-					anInt2115 = -87;
+					p12fullId = -87;
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final Class107_Sub1[] method2514(final Class50 class50, final int i, final byte i_133_) {
-		Class107_Sub1[] class107_sub1s;
+	static final LDIndexedSprite[] method2514(final js5 js5, final int i, final byte i_133_) {
+		LDIndexedSprite[] class107_sub1s;
 		try {
-			if (!ObjType.method2113(class50, -5, i)) {
+			if (!ObjType.method2113(js5, i)) {
 				return null;
 			}
-			class107_sub1s = Class120_Sub14_Sub14.method1541(118);
+			class107_sub1s = Class120_Sub14_Sub14.constructLDIndexedSprites();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wj.A(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_133_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_133_).append(')').toString());
 		}
 		return class107_sub1s;
 	}

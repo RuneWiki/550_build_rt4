@@ -3,17 +3,18 @@
  */
 import javax.media.opengl.GL;
 
-final class Class139 {
+final class IdentityKit {
 	private short[] originalModelColors;
 	private short[] modifiedModelColors;
 	private short[] originalModelTextures;
-	static int anInt1330;
+	static int selectedSpellParam;
 	boolean noInterface = false;
 	private short[] modifiedModelTextures;
 	private int[] models;
 	static int anInt1334 = 100;
 	private final int[] headModels = { -1, -1, -1, -1, -1 };
 	int partId = -1;
+	static Cache recentUse = new Cache(64);
 	static Class191[][] aClass191ArrayArray1337;
 
 	public static void method1983(final int i) {
@@ -23,7 +24,7 @@ final class Class139 {
 				method1984(null, -107, -88, -101);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qa.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -33,10 +34,10 @@ final class Class139 {
 			if (class180_sub5_sub1.anInt3737 == 0) {
 				boolean bool = true;
 				if ((Class100.selfPlayer.anInt3738 ^ 0xffffffff) != 0 && (class180_sub5_sub1.anInt3738 ^ 0xffffffff) != 0) {
-					final int i_3_ = class180_sub5_sub1.anInt3747 >= Class100.selfPlayer.anInt3747 ? class180_sub5_sub1.anInt3747 : Class100.selfPlayer.anInt3747;
+					final int i_3_ = class180_sub5_sub1.combatLevel >= Class100.selfPlayer.combatLevel ? class180_sub5_sub1.combatLevel : Class100.selfPlayer.combatLevel;
 					final int i_4_ = Class100.selfPlayer.anInt3738 >= class180_sub5_sub1.anInt3738 ? class180_sub5_sub1.anInt3738 : Class100.selfPlayer.anInt3738;
 					final int i_5_ = 10 * i_3_ / 100 + 5 - -i_4_;
-					int i_6_ = -class180_sub5_sub1.anInt3747 + Class100.selfPlayer.anInt3747;
+					int i_6_ = -class180_sub5_sub1.combatLevel + Class100.selfPlayer.combatLevel;
 					if (i_6_ < 0) {
 						i_6_ = -i_6_;
 					}
@@ -45,47 +46,47 @@ final class Class139 {
 					}
 				}
 				final String string_7_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : Class120_Sub3.aString2424;
-				if (class180_sub5_sub1.anInt3733 <= class180_sub5_sub1.anInt3747) {
-					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(!bool ? "<col=ffffff>" : Class81.method704(Class100.selfPlayer.anInt3747, (byte) -109, class180_sub5_sub1.anInt3747)).append(" (").append(string_7_).append(class180_sub5_sub1.anInt3747).append(")").toString();
+				if (class180_sub5_sub1.anInt3733 <= class180_sub5_sub1.combatLevel) {
+					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(!bool ? "<col=ffffff>" : Class81.method704(Class100.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel)).append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append(")").toString();
 				} else {
-					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(bool ? Class81.method704(Class100.selfPlayer.anInt3747, (byte) -109, class180_sub5_sub1.anInt3747) : "<col=ffffff>").append(" (").append(string_7_).append(class180_sub5_sub1.anInt3747).append("+").append(-class180_sub5_sub1.anInt3747 + class180_sub5_sub1.anInt3733).append(")").toString();
+					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(bool ? Class81.method704(Class100.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel) : "<col=ffffff>").append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append("+").append(-class180_sub5_sub1.combatLevel + class180_sub5_sub1.anInt3733).append(")").toString();
 				}
 			} else {
 				string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(" (").append(Class174.aString1733).append(class180_sub5_sub1.anInt3737).append(")").toString();
 			}
 			if (Light.objSelected == 1) {
-				Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffffff>").append(string).toString(), AbstractGraphicsBuffer.aString1176, (short) 21, Class120_Sub12_Sub10.anInt3205);
-			} else if (Class88.aBoolean828) {
-				if ((0x8 & GroundTile.anInt2652) != 0) {
-						Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder(Light.aString369).append(" -> <col=ffffff>").append(string).toString(), Class101.aString963, (short) 5, Class150.anInt1417);
+				InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffffff>").append(string).toString(), i_1_, i_2_, i_0_, (short) 21, Class120_Sub12_Sub10.anInt3205);
+			} else if (Class88.spellSelected) {
+				if ((0x8 & GroundTile.selectedSpellUseMask) != 0) {
+						InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ffffff>").append(string).toString(), i_1_, i_2_, i_0_, (short) 5, Class150.selectedSpellTargetCursor);
 					}
 				} else {
 					for (int i_8_ = 7; i_8_ >= 0; i_8_--) {
 						if (Buffer.playerOptions[i_8_] != null) {
 							short i_9_ = 0;
 							if (Buffer.gameId == 0 && Buffer.playerOptions[i_8_].equalsIgnoreCase(Class65.aString591)) {
-								if (Class100.selfPlayer.anInt3747 < class180_sub5_sub1.anInt3747) {
+								if (Class100.selfPlayer.combatLevel < class180_sub5_sub1.combatLevel) {
 									i_9_ = (short) 2000;
 								}
-								if (Class100.selfPlayer.anInt3744 != 0 && class180_sub5_sub1.anInt3744 != 0) {
-									if (class180_sub5_sub1.anInt3744 == Class100.selfPlayer.anInt3744) {
+								if (Class100.selfPlayer.team != 0 && class180_sub5_sub1.team != 0) {
+									if (class180_sub5_sub1.team == Class100.selfPlayer.team) {
 										i_9_ = (short) 2000;
 									} else {
 										i_9_ = (short) 0;
 									}
 								}
-							} else if (Class120_Sub10.playerOptionsOnTop[i_8_]) {
+							} else if (InterfaceListener.playerOptionsOnTop[i_8_]) {
 								i_9_ = (short) 2000;
 							}
 							short i_10_ = JagexInterface.aShortArray2042[i_8_];
 							i_10_ += i_9_;
-							Class120_Sub14_Sub6.addMenuOption(i_1_, i_2_, i_0_, new StringBuilder("<col=ffffff>").append(string).toString(), Buffer.playerOptions[i_8_], i_10_, Class120_Sub14_Sub14.playerOptionsIcon[i_8_]);
+							InvType.addMenuOption(Buffer.playerOptions[i_8_], new StringBuilder("<col=ffffff>").append(string).toString(), i_1_, i_2_, i_0_, i_10_, Class120_Sub14_Sub14.playerOptionsIcon[i_8_]);
 						}
 					}
 				}
 				for (int i_11_ = 0; Class186.menuOptionCount > i_11_; i_11_++) {
 					if (Class120_Sub29.aShortArray2777[i_11_] == 26) {
-						Class120_Sub12_Sub29.aStringArray3369[i_11_] = new StringBuilder("<col=ffffff>").append(string).toString();
+						Class120_Sub12_Sub29.menuOptionSufix[i_11_] = new StringBuilder("<col=ffffff>").append(string).toString();
 						break;
 					}
 				}
@@ -145,7 +146,7 @@ final class Class139 {
 			}
 			class180_sub2 = class180_sub2_18_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qa.B(").append(i).append(')').toString());
 		}
 		return class180_sub2;
 	}
@@ -187,29 +188,22 @@ final class Class139 {
 		}
 	}
 
-	static final byte[] method1988(final int i, final boolean bool, final Object object) {
-		try {
-			if (i != 19138) {
-				return null;
-			}
-			if (object == null) {
-				return null;
-			}
-			if (object instanceof byte[]) {
-				final byte[] is = (byte[]) object;
-				if (bool) {
-					return ObjectPile.method2448(is, -98);
-				}
-				return is;
-			}
-			if (object instanceof Class66) {
-				final Class66 class66 = (Class66) object;
-				return class66.method580(-9747);
-			}
-			throw new IllegalArgumentException();
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.C(").append(i).append(',').append(bool).append(',').append(object != null ? "{...}" : "null").append(')').toString());
+	static final byte[] method1988(final Object object, final boolean bool) {
+		if (object == null) {
+			return null;
 		}
+		if (object instanceof byte[]) {
+			final byte[] is = (byte[]) object;
+			if (bool) {
+				return ObjectPile.method2448(is);
+			}
+			return is;
+		}
+		if (object instanceof Class66) {
+			final Class66 class66 = (Class66) object;
+			return class66.method580(-9747);
+		}
+		throw new IllegalArgumentException();
 	}
 
 	static final void method1989(final GroundTile class120_sub18, boolean bool) {
@@ -224,7 +218,7 @@ final class Class139 {
 				final int i_28_ = class120_sub18_27_.anInt2629;
 				final int i_29_ = class120_sub18_27_.anInt2636;
 				final int i_30_ = class120_sub18_27_.anInt2642;
-				final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_29_];
+				final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_29_];
 				float f = 0.0F;
 				if (HDToolkit.glEnabled) {
 					if (Class24.anIntArrayArrayArray140 == OverridedJInterface.anIntArrayArrayArray2741) {
@@ -236,8 +230,8 @@ final class Class139 {
 							Class117.method1011(Class29.method251(125));
 						}
 						final int i_33_ = i_31_ >>> 24 << 3;
-						if (i_33_ != Class120_Sub14_Sub18.anInt3612) {
-							Class120_Sub14_Sub18.anInt3612 = i_33_;
+						if (i_33_ != FrameLoader.anInt3612) {
+							FrameLoader.anInt3612 = i_33_;
 							Canvas_Sub1.method64(3, i_33_);
 						}
 						final int i_34_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i][i_28_] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i + 1][i_28_] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i][i_28_ + 1] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i + 1][i_28_ + 1] >> 2;
@@ -252,7 +246,7 @@ final class Class139 {
 				if (class120_sub18_27_.aBoolean2647) {
 					if (bool) {
 						if (i_29_ > 0) {
-							final GroundTile class120_sub18_35_ = Class120_Sub1.groundTiles[i_29_ - 1][i][i_28_];
+							final GroundTile class120_sub18_35_ = LabelGroup.groundTiles[i_29_ - 1][i][i_28_];
 							if (class120_sub18_35_ != null && class120_sub18_35_.aBoolean2624) {
 								continue;
 							}
@@ -292,15 +286,15 @@ final class Class139 {
 						}
 						if (class120_sub18_40_.aClass141_2626 != null) {
 							if (!Class69_Sub1.method618(0, i, i_28_)) {
-								Class132_Sub2.method1942(class120_sub18_40_.aClass141_2626, 0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
+								Class132_Sub2.method1942(class120_sub18_40_.aClass141_2626, 0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
 							} else {
-								Class132_Sub2.method1942(class120_sub18_40_.aClass141_2626, 0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
+								Class132_Sub2.method1942(class120_sub18_40_.aClass141_2626, 0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
 							}
 						} else if (class120_sub18_40_.aClass168_2640 != null) {
 							if (!Class69_Sub1.method618(0, i, i_28_)) {
-								Class157.method2088(class120_sub18_40_.aClass168_2640, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
+								Class157.method2088(class120_sub18_40_.aClass168_2640, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
 							} else {
-								Class157.method2088(class120_sub18_40_.aClass168_2640, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
+								Class157.method2088(class120_sub18_40_.aClass168_2640, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
 							}
 						}
 						final Class182 class182 = class120_sub18_40_.aClass182_2628;
@@ -312,7 +306,7 @@ final class Class139 {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 							}
-							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 									class182.bitPacked, i_29_, null);
 						}
 						for (int i_41_ = 0; i_41_ < class120_sub18_40_.anInt2638; i_41_++) {
@@ -321,7 +315,7 @@ final class Class139 {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
+								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
 										class28.bitPacked, i_29_, null);
 							}
 						}
@@ -334,17 +328,17 @@ final class Class139 {
 						if (!Class69_Sub1.method618(i_30_, i, i_28_)) {
 							bool_42_ = true;
 							if (class120_sub18_27_.aClass141_2626.anInt1351 != 12345678 || Class120_Sub12_Sub7.aBoolean3181 && i_29_ <= Class180_Sub4.anInt2933) {
-								Class132_Sub2.method1942(class120_sub18_27_.aClass141_2626, i_30_, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
+								Class132_Sub2.method1942(class120_sub18_27_.aClass141_2626, i_30_, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
 							}
 						} else {
-							Class132_Sub2.method1942(class120_sub18_27_.aClass141_2626, i_30_, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
+							Class132_Sub2.method1942(class120_sub18_27_.aClass141_2626, i_30_, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
 						}
 					} else if (class120_sub18_27_.aClass168_2640 != null) {
 						if (!Class69_Sub1.method618(i_30_, i, i_28_)) {
 							bool_42_ = true;
-							Class157.method2088(class120_sub18_27_.aClass168_2640, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
+							Class157.method2088(class120_sub18_27_.aClass168_2640, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
 						} else {
-							Class157.method2088(class120_sub18_27_.aClass168_2640, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
+							Class157.method2088(class120_sub18_27_.aClass168_2640, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, true);
 						}
 					}
 					if (bool_42_) {
@@ -356,7 +350,7 @@ final class Class139 {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
+							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
@@ -407,14 +401,14 @@ final class Class139 {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 									class182.bitPacked, i_29_, null);
 						}
 						if ((class182.anInt1792 & i_44_) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+							class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 									class182.bitPacked, i_29_, null);
 						}
 					}
@@ -426,7 +420,7 @@ final class Class139 {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
+							class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
 									- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 						} else if (class186.anInt1895 == 256) {
 							final int i_45_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
@@ -449,12 +443,12 @@ final class Class139 {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_ + class186.anInt1905, i_46_, i_47_ + class186.anInt1892, class186.bitPacked, i_29_, null);
+								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_ + class186.anInt1905, i_46_, i_47_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.aClass180_1898 != null) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_, i_46_, i_47_, class186.bitPacked, i_29_, null);
+								class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_45_, i_46_, i_47_, class186.bitPacked, i_29_, null);
 							}
 						}
 						if (HDToolkit.glEnabled) {
@@ -470,7 +464,7 @@ final class Class139 {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
+							class36.aClass180_309.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
@@ -482,15 +476,15 @@ final class Class139 {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
 							if (objectPile.secondItemModel != null) {
-								objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 							if (objectPile.thirdItemModel != null) {
-								objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 							if (objectPile.mainItemModel != null) {
-								objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 						}
@@ -573,7 +567,7 @@ final class Class139 {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 							} while (false);
-							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+							class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 									class182.bitPacked, i_29_, null);
 						}
 						class120_sub18_27_.anInt2633 = 0;
@@ -677,7 +671,7 @@ final class Class139 {
 										LightManager.method1862(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, class28.anInt180, class28.anInt184, class28.anInt182, class28.anInt175);
 									}
 								}
-								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
+								class28.aClass180_174.method2265(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
 										class28.bitPacked, i_29_, null);
 							}
 							for (int i_82_ = class28.anInt180; i_82_ <= class28.anInt182; i_82_++) {
@@ -713,9 +707,9 @@ final class Class139 {
 							i_88_ = 1024;
 						}
 						final int i_89_ = i_87_ * Class73.anInt637 - i_85_ * Class120_Sub12_Sub30.anInt3377 >> 16;
-						final int i_90_ = i_86_ * Class69_Sub2.anInt2239 + i_89_ * Class120_Sub17.anInt2616 >> 16;
-						final int i_91_ = i_90_ + (91 * Class120_Sub17.anInt2616 + 0 * Class69_Sub2.anInt2239 >> 16);
-						int i_92_ = i_90_ + (-91 * Class120_Sub17.anInt2616 - i_88_ * Class69_Sub2.anInt2239 >> 16);
+						final int i_90_ = i_86_ * Class69_Sub2.anInt2239 + i_89_ * ObjectContainer.anInt2616 >> 16;
+						final int i_91_ = i_90_ + (91 * ObjectContainer.anInt2616 + 0 * Class69_Sub2.anInt2239 >> 16);
+						int i_92_ = i_90_ + (-91 * ObjectContainer.anInt2616 - i_88_ * Class69_Sub2.anInt2239 >> 16);
 						if (i_92_ < i_91_ - 1597) {
 							i_92_ = i_91_ - 1597;
 						}
@@ -755,7 +749,7 @@ final class Class139 {
 										final int i_100_ = (class108_sub3_sub1_98_.anInt3088 >> 12) - PlayerAppearance.anInt1367;
 										int i_101_ = (class108_sub3_sub1_98_.anInt3090 >> 12) - Class145.anInt1381;
 										i_101_ = i_101_ * Class73.anInt637 - i_99_ * Class120_Sub12_Sub30.anInt3377 >> 16;
-										i_101_ = (i_100_ * Class69_Sub2.anInt2239 + i_101_ * Class120_Sub17.anInt2616 >> 16) - i_92_;
+										i_101_ = (i_100_ * Class69_Sub2.anInt2239 + i_101_ * ObjectContainer.anInt2616 >> 16) - i_92_;
 										if (ParticleEngine.anIntArray2389[i_101_] < 32) {
 											ParticleEngine.aShortArrayArray2378[i_101_][ParticleEngine.anIntArray2389[i_101_]++] = class108_sub3_sub1_98_.aShort3094;
 										} else {
@@ -819,8 +813,8 @@ final class Class139 {
 								int i_111_ = i_110_ * Class120_Sub12_Sub30.anInt3377 + i_108_ * Class73.anInt637 >> 16;
 								i_110_ = i_110_ * Class73.anInt637 - i_108_ * Class120_Sub12_Sub30.anInt3377 >> 16;
 								i_108_ = i_111_;
-								i_111_ = i_109_ * Class120_Sub17.anInt2616 - i_110_ * Class69_Sub2.anInt2239 >> 16;
-								i_110_ = i_109_ * Class69_Sub2.anInt2239 + i_110_ * Class120_Sub17.anInt2616 >> 16;
+								i_111_ = i_109_ * ObjectContainer.anInt2616 - i_110_ * Class69_Sub2.anInt2239 >> 16;
+								i_110_ = i_109_ * Class69_Sub2.anInt2239 + i_110_ * ObjectContainer.anInt2616 >> 16;
 								i_109_ = i_111_;
 								if (i_110_ >= 50) {
 									final int i_112_ = i_105_ + (i_108_ << 9) / i_110_;
@@ -861,22 +855,22 @@ final class Class139 {
 						}
 					}
 					class120_sub18_27_.aBoolean2624 = false;
-					Class120_Sub17.anInt2615--;
+					ObjectContainer.anInt2615--;
 					final ObjectPile objectPile = class120_sub18_27_.objectPile;
 					if (objectPile != null && objectPile.yLocationModifier != 0) {
 						if (HDToolkit.glEnabled) {
 							LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 						}
 						if (objectPile.secondItemModel != null) {
-							objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+							objectPile.secondItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
 									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 						if (objectPile.thirdItemModel != null) {
-							objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+							objectPile.thirdItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
 									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 						if (objectPile.mainItemModel != null) {
-							objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
+							objectPile.mainItemModel.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
 									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 					}
@@ -887,7 +881,7 @@ final class Class139 {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
+								class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
 										- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.anInt1895 == 256) {
 								final int i_119_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
@@ -910,12 +904,12 @@ final class Class139 {
 									if (HDToolkit.glEnabled) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 									}
-									class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_ + class186.anInt1905, i_120_, i_121_ + class186.anInt1892, class186.bitPacked, i_29_, null);
+									class186.aClass180_1901.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_ + class186.anInt1905, i_120_, i_121_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 								} else if (class186.aClass180_1898 != null) {
 									if (HDToolkit.glEnabled) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 									}
-									class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_, i_120_, i_121_, class186.bitPacked, i_29_, null);
+									class186.aClass180_1898.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i_119_, i_120_, i_121_, class186.bitPacked, i_29_, null);
 								}
 							}
 						}
@@ -925,20 +919,20 @@ final class Class139 {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1866(class182.anInt1792, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+								class182.aClass180_1796.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 										class182.bitPacked, i_29_, null);
 							}
 							if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, Class120_Sub17.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
+								class182.aClass180_1800.method2265(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
 										class182.bitPacked, i_29_, null);
 							}
 						}
 					}
 					if (i_29_ < Class142.anInt1361 - 1) {
-						final GroundTile class120_sub18_125_ = Class120_Sub1.groundTiles[i_29_ + 1][i][i_28_];
+						final GroundTile class120_sub18_125_ = LabelGroup.groundTiles[i_29_ + 1][i][i_28_];
 						if (class120_sub18_125_ != null && class120_sub18_125_.aBoolean2624) {
 							AbstractTimer.aClass105_824.addLast(class120_sub18_125_);
 						}
@@ -989,25 +983,25 @@ final class Class139 {
 			}
 			bool = bool_130_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qa.H(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
-	static final void animateInterface(final JagexInterface[] class189s, final int parent) {
+	static final void animateInterfaces(final JagexInterface[] class189s, final int parent) {
 		for (final JagexInterface jagexInterface : class189s) {
-			if (jagexInterface != null && jagexInterface.parent == parent && (!jagexInterface.aBoolean2041 || !client.method59(jagexInterface))) {
+			if (jagexInterface != null && jagexInterface.parent == parent && (!jagexInterface.newFormat || !client.isHidden(jagexInterface))) {
 				if (jagexInterface.type == 0) {
-					if (!jagexInterface.aBoolean2041 && client.method59(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
+					if (!jagexInterface.newFormat && client.isHidden(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
 						continue;
 					}
-					animateInterface(class189s, jagexInterface.bitPacked);
-					if (jagexInterface.aClass189Array2072 != null) {
-						animateInterface(jagexInterface.aClass189Array2072, jagexInterface.bitPacked);
+					animateInterfaces(class189s, jagexInterface.bitPacked);
+					if (jagexInterface.components != null) {
+						animateInterfaces(jagexInterface.components, jagexInterface.bitPacked);
 					}
 					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 					if (class120_sub26 != null) {
-						AbstractGraphicsBuffer.method1846(class120_sub26.interfaceId);
+						AbstractGraphicsBuffer.animateInterface(class120_sub26.interfaceId);
 					}
 				}
 				if (jagexInterface.type == 6) {
@@ -1044,7 +1038,7 @@ final class Class139 {
 							}
 						}
 					}
-					if (jagexInterface.rotateSpeed != 0 && !jagexInterface.aBoolean2041) {
+					if (jagexInterface.rotateSpeed != 0 && !jagexInterface.newFormat) {
 						int i_135_ = jagexInterface.rotateSpeed >> 16;
 						i_135_ *= Class120_Sub12_Sub22.redrawRate;
 						int i_136_ = jagexInterface.rotateSpeed << 16 >> 16;
@@ -1072,7 +1066,7 @@ final class Class139 {
 		boolean bool;
 		try {
 			if (i != -32390) {
-				method1988(-50, false, null);
+				method1988(null, false);
 			}
 			boolean bool_137_ = true;
 			for (int i_138_ = 0; i_138_ < 5; i_138_++) {
@@ -1082,26 +1076,26 @@ final class Class139 {
 			}
 			bool = bool_137_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qa.K(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qa.K(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
-	static final Class139 list(final int i_5_) {
-		Class139 class139_6_ = (Class139) Class120_Sub12_Sub37.aClass21_3427.get(i_5_);
-		if (class139_6_ != null) {
-			return class139_6_;
+	static final IdentityKit list(final int id) {
+		IdentityKit ikit = (IdentityKit) recentUse.get(id);
+		if (ikit != null) {
+			return ikit;
 		}
-		final byte[] is = Class147.aClass50_1394.getFile(3, i_5_);
-		class139_6_ = new Class139();
-		if (is != null) {
-			class139_6_.decode(new Buffer(is));
+		final byte[] buffer = Class147.aClass50_1394.getFile(3, id);
+		ikit = new IdentityKit();
+		if (buffer != null) {
+			ikit.decode(new Buffer(buffer));
 		}
-		Class120_Sub12_Sub37.aClass21_3427.put(class139_6_, i_5_);
-		return class139_6_;
+		recentUse.put(ikit, id);
+		return ikit;
 	}
 
-	public Class139() {
+	public IdentityKit() {
 		/* empty */
 	}
 }

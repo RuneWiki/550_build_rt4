@@ -22,7 +22,7 @@ final class Class124 {
 				method1876((byte) 36);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oh.B(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.B(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -37,7 +37,7 @@ final class Class124 {
 			}
 			i_2_ = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oh.E(").append(i).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.E(").append(i).append(',').append(i_1_).append(')').toString());
 		}
 		return i_2_;
 	}
@@ -55,7 +55,7 @@ final class Class124 {
 				method1877(i_4_, -119, i, class120_sub7);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oh.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
 		}
 	}
 
@@ -66,7 +66,7 @@ final class Class124 {
 			}
 			aClass98_1201 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oh.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -118,7 +118,7 @@ final class Class124 {
 				this.anInt1197 = -48;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("oh.A(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.A(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

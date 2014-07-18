@@ -42,7 +42,7 @@ final class Queue {
 		try {
 			GameEntity.anIntArrayArray3009 = is;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uk.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uk.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -81,7 +81,7 @@ final class Queue {
 			}
 			i_6_ = -i + 7;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uk.G(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uk.G(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
 		}
 		return i_6_;
 	}
@@ -98,10 +98,10 @@ final class Queue {
 				Class120_Sub14_Sub4.anInt3466 = 0;
 				Class154.anInt1440 = 1;
 				Class120_Sub12_Sub35.anInt3410 = -3;
-				Class107.anInt1027 = 0;
+				AbstractIndexedSprite.anInt1027 = 0;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("uk.A(").append(bool).append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("uk.A(").append(bool).append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(')').toString());
 		}
 	}
 

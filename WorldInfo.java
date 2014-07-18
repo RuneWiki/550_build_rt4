@@ -15,11 +15,11 @@ final class WorldInfo {
 			if (jagexInterface != null && jagexInterface.parent == i_0_) {
 				Class23.method201(bool, i, jagexInterface, i_1_, -4);
 				SceneGraphNode.method2272(i, i_1_, jagexInterface, 97);
-				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.anInt2059) {
-					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.anInt2059;
+				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {
+					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.height;
 				}
-				if (jagexInterface.verticalScrollPosition > jagexInterface.maxScrollHorizontal - jagexInterface.anInt1948) {
-					jagexInterface.verticalScrollPosition = jagexInterface.maxScrollHorizontal - jagexInterface.anInt1948;
+				if (jagexInterface.verticalScrollPosition > jagexInterface.maxScrollHorizontal - jagexInterface.width) {
+					jagexInterface.verticalScrollPosition = jagexInterface.maxScrollHorizontal - jagexInterface.width;
 				}
 				if (jagexInterface.horizontalScrollPosition < 0) {
 					jagexInterface.horizontalScrollPosition = 0;
@@ -43,7 +43,7 @@ final class WorldInfo {
 				Class127.anInt1215 = i_4_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rf.C(").append(i).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.C(").append(i).append(',').append(i_4_).append(')').toString());
 		}
 	}
 
@@ -85,7 +85,7 @@ final class WorldInfo {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rf.D(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.D(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',')
 					.append(i_12_).append(',').append(i_13_).append(')').toString());
 		}
 	}
@@ -97,7 +97,7 @@ final class WorldInfo {
 				method2065(null, false, 101, -99, 41, -24);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("rf.A(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.A(").append(bool).append(')').toString());
 		}
 	}
 }

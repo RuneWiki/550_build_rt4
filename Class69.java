@@ -6,9 +6,9 @@ class Class69 {
 	static int anInt614;
 	static boolean aBoolean615 = true;
 	static int rootInterfaceId;
-	static int anInt617 = 0;
+	static int mouseButtons = 0;
 	static String aString618;
-	static Class50 aClass50_619;
+	static js5 aClass50_619;
 
 	static {
 		rootInterfaceId = -1;
@@ -123,7 +123,7 @@ class Class69 {
 						final Npc class180_sub5_sub2 = (Npc) entity;
 						AbstractSprite[] class120_sub14_sub19s = (AbstractSprite[]) Class120_Sub12_Sub2.aClass21_3144.get(class180_sub5_sub2.npcType.anInt1666);
 						if (class120_sub14_sub19s == null) {
-							class120_sub14_sub19s = Class125.method1878(Class7.aClass50_63, (byte) 110, 0, class180_sub5_sub2.npcType.anInt1666);
+							class120_sub14_sub19s = Class125.constructTransparentSprites(Class7.aClass50_63, 0, class180_sub5_sub2.npcType.anInt1666);
 							if (class120_sub14_sub19s != null) {
 								Class120_Sub12_Sub2.aClass21_3144.put(class120_sub14_sub19s, class180_sub5_sub2.npcType.anInt1666);
 							}
@@ -187,7 +187,7 @@ class Class69 {
 								Class120_Sub15.anInt2588 -= 10;
 							}
 							Class69_Sub2.aClass120_Sub14_Sub19Array2238[entity.anIntArray2991[i_21_]].method1587(Class120_Sub12_Sub38.anInt3434 + i - 12, i_4_ - (-Class120_Sub15.anInt2588 + 12));
-							Cache.aClass120_Sub14_Sub8_121.method1478(Integer.toString(entity.anIntArray2968[i_21_]), i - -Class120_Sub12_Sub38.anInt3434 + -1, 3 + i_4_ - -Class120_Sub15.anInt2588, 16777215, 0);
+							Cache.smallFont.method1478(Integer.toString(entity.anIntArray2968[i_21_]), i - -Class120_Sub12_Sub38.anInt3434 + -1, 3 + i_4_ - -Class120_Sub15.anInt2588, 16777215, 0);
 						}
 					}
 				}
@@ -211,7 +211,7 @@ class Class69 {
 			Class120_Sub12_Sub38.anInt3434 = AbstractGraphicsBuffer.anIntArray1161[i_23_];
 			Class120_Sub15.anInt2588 = AbstractGraphicsBuffer.anIntArray1171[i_23_] = i_24_;
 			final String string = AbstractGraphicsBuffer.aStringArray1167[i_23_];
-			if (Player.anInt3748 != 0) {
+			if (Player.chatEffects != 0) {
 				Class120_Sub12_Sub22.boldFont.method1478(string, Class120_Sub12_Sub38.anInt3434 + i, Class120_Sub15.anInt2588 + i_4_, 16776960, 0);
 			} else {
 				int i_28_ = 16776960;
@@ -332,7 +332,7 @@ class Class69 {
 			}
 			Class112.gameLoopCount = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hh.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -347,7 +347,7 @@ class Class69 {
 			Class120_Sub12_Sub31.method1364(false, 3);
 			Class120_Sub12_Sub31.method1364(false, 4);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hh.A(").append(i).append(',').append(i_36_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.A(").append(i).append(',').append(i_36_).append(')').toString());
 		}
 	}
 
@@ -359,20 +359,20 @@ class Class69 {
 				method613((byte) -65);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hh.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.C(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method616(final int i, final int i_37_, final int i_38_, final int i_39_, final int i_40_) {
 		try {
 			if (i < -91) {
-				Class139.anInt1334 = i_39_;
-				Class120_Sub14_Sub11.anInt3544 = i_40_;
+				IdentityKit.anInt1334 = i_39_;
+				ParamType.anInt3544 = i_40_;
 				Class120_Sub30_Sub2.anInt3699 = i_37_;
 				Class32.anInt260 = i_38_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("hh.D(").append(i).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.D(").append(i).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
 		}
 	}
 }

@@ -6,22 +6,15 @@ final class Class8 {
 	static String aString64 = "Discard";
 	static byte[][][] aByteArrayArrayArray65;
 
-	static final void method109(final Class50 class50, final Class50 class50_0_, final byte i) {
-		try {
-			Cache.aClass120_Sub14_Sub8_121 = Class9.method117(class50, class50_0_, 18265, Class32.anInt270, 0);
-			if (HDToolkit.glEnabled) {
-				Class33.aClass120_Sub14_Sub8_Sub2_274 = Class93.method772(0, class50_0_, Class32.anInt270, class50, 1);
-			} else {
-				Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Cache.aClass120_Sub14_Sub8_121;
-			}
-			Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286 = Class9.method117(class50, class50_0_, 18265, Class191.anInt2115, 0);
-			Class120_Sub12_Sub22.boldFont = Class9.method117(class50, class50_0_, 18265, Class110.anInt1051, 0);
-			if (i < 68) {
-				aByteArrayArrayArray65 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aj.A(").append(class50 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final void constructFonts(final js5 js5, final js5 class50_0_) {
+		Cache.smallFont = Class9.method117(js5, class50_0_, 18265, Class32.p11fullId, 0);
+		if (HDToolkit.glEnabled) {
+			Class33.aClass120_Sub14_Sub8_Sub2_274 = Class93.method772(0, class50_0_, Class32.p11fullId, js5, 1);
+		} else {
+			Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Cache.smallFont;
 		}
+		Class120_Sub12_Sub20.plainFont = Class9.method117(js5, class50_0_, 18265, Class191.p12fullId, 0);
+		Class120_Sub12_Sub22.boldFont = Class9.method117(js5, class50_0_, 18265, Class110.b12fullId, 0);
 	}
 
 	static final int method110(final char c, final String string, final boolean bool) {
@@ -39,7 +32,7 @@ final class Class8 {
 			}
 			i = i_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aj.D(").append(c).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("aj.D(").append(c).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -48,11 +41,11 @@ final class Class8 {
 		try {
 			AbstractGraphicsBuffer.anInt1175 = 0;
 			client.aByte2201 = i;
-			Class65.anInt592 = 0;
-			Class120_Sub12_Sub26.anInt3327 = 0;
-			SceneGroundObject.aBoolean2848 = false;
+			Class65.flagY = 0;
+			Class120_Sub12_Sub26.flagX = 0;
+			SceneGroundObject.packetSetFlagPosition = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aj.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("aj.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -64,7 +57,7 @@ final class Class8 {
 			aString64 = null;
 			aByteArrayArrayArray65 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("aj.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("aj.B(").append(i).append(')').toString());
 		}
 	}
 }

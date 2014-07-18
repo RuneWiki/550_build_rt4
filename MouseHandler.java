@@ -85,33 +85,9 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 			Class22.aClass21_131.put(class128_0_, i);
 			class128 = class128_0_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("nf.C(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("nf.C(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return class128;
-	}
-
-	static final void method1027(final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		Class120_Sub17 class120_sub17 = (Class120_Sub17) Canvas_Sub1.aClass75_15.get(i_1_);
-		if (class120_sub17 == null) {
-			class120_sub17 = new Class120_Sub17();
-			Canvas_Sub1.aClass75_15.put(class120_sub17, i_1_);
-		}
-		if (class120_sub17.anIntArray2618.length <= i_2_) {
-			final int[] is = new int[i_2_ + 1];
-			final int[] is_5_ = new int[i_2_ + 1];
-			for (int i_6_ = 0; class120_sub17.anIntArray2618.length > i_6_; i_6_++) {
-				is[i_6_] = class120_sub17.anIntArray2618[i_6_];
-				is_5_[i_6_] = class120_sub17.anIntArray2619[i_6_];
-			}
-			for (int i_7_ = class120_sub17.anIntArray2618.length; i_7_ < i_2_; i_7_++) {
-				is[i_7_] = -1;
-				is_5_[i_7_] = 0;
-			}
-			class120_sub17.anIntArray2619 = is_5_;
-			class120_sub17.anIntArray2618 = is;
-		}
-		class120_sub17.anIntArray2618[i_2_] = i_3_;
-		class120_sub17.anIntArray2619[i_2_] = i_4_;
 	}
 
 	@Override

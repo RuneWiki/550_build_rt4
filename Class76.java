@@ -4,7 +4,7 @@
 
 final class Class76 {
 	static String[] aStringArray677 = new String[100];
-	static Class50 aClass50_678;
+	static js5 aClass50_678;
 	static int[] anIntArray679;
 	static int[] anIntArray680;
 
@@ -16,7 +16,7 @@ final class Class76 {
 			}
 			i_1_ = i & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("id.A(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("id.A(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 		return i_1_;
 	}
@@ -31,15 +31,15 @@ final class Class76 {
 			aStringArray677 = null;
 			anIntArray680 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("id.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("id.B(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method665(final byte i, final Class50 class50) {
+	static final void method665(final byte i, final js5 js5) {
 		try {
-			SeqType.aClass50_331 = class50;
+			SeqType.aClass50_331 = js5;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("id.C(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("id.C(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 }

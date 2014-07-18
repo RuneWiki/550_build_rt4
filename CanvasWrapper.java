@@ -6,7 +6,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 
 final class CanvasWrapper extends Canvas {
-	static Class50 aClass50_18;
+	static js5 aClass50_18;
 	static Interface3 anInterface3_19;
 	static int anInt20 = -1;
 	static int[] anIntArray21;
@@ -70,16 +70,16 @@ final class CanvasWrapper extends Canvas {
 		if (Class74.loginName.equals("") || SeqType.loginPassword.equals("")) {
 			Class48.returnCode = 3;
 		} else if (Class157.worldId != -1) {
-			Class120_Sub1.method1037();
+			LabelGroup.method1037();
 		} else {
 			Class79_Sub1.anInt2244 = 0;
-			Class120_Sub14_Sub18.anInt3609 = 1;
+			FrameLoader.anInt3609 = 1;
 			Class48.returnCode = -3;
 			Class137.anInt1323 = 0;
 			final Buffer class120_sub7 = new Buffer(128);
 			class120_sub7.putByte(10);
 			class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
-			class120_sub7.putLong(Class70.stringToLong(Class74.loginName));
+			class120_sub7.putLong(Varp.stringToLong(Class74.loginName));
 			class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
 			class120_sub7.putJagexString(SeqType.loginPassword);
 			class120_sub7.putInt((int) (Math.random() * 9.9999999E7));
@@ -100,7 +100,7 @@ final class CanvasWrapper extends Canvas {
 				anIntArray21 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ql.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ql.B(").append(i).append(')').toString());
 		}
 	}
 

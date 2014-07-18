@@ -10,12 +10,12 @@ class Class69_Sub2 extends Class69 {
 	static AbstractSprite[] aClass120_Sub14_Sub19Array2237;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array2238;
 	static int anInt2239;
-	static int anInt2240;
+	static int energy;
 
 	static {
 		anInt2233 = 128;
 		anIntArray2235 = new int[1000];
-		anInt2240 = 0;
+		energy = 0;
 	}
 
 	public static void method619(final int i) {
@@ -27,7 +27,7 @@ class Class69_Sub2 extends Class69 {
 			aClass120_Sub14_Sub19Array2237 = null;
 			aClass120_Sub14_Sub19Array2238 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("dg.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("dg.J(").append(i).append(')').toString());
 		}
 	}
 }

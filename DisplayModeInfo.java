@@ -3,7 +3,7 @@
  */
 
 final class DisplayModeInfo {
-	static int[] anIntArray1707 = new int[256];
+	static int[] crcTable = new int[256];
 	static String aString1708 = "Created gameworld";
 	int height;
 	int width;
@@ -23,7 +23,7 @@ final class DisplayModeInfo {
 					i_0_ >>>= 1;
 				}
 			}
-			anIntArray1707[i] = i_0_;
+			crcTable[i] = i_0_;
 		}
 		anInt1715 = 0;
 	}
@@ -54,19 +54,19 @@ final class DisplayModeInfo {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ub.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.A(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method2214(final boolean bool) {
 		try {
-			DummyOutputStream.aClass21_30.clear();
-			Class120_Sub12_Sub27.aClass21_3342.clear();
+			CursorType.recentUse.clear();
+			CursorType.spriteCache.clear();
 			if (bool) {
 				anInt1715 = 98;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ub.D(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.D(").append(bool).append(')').toString());
 		}
 	}
 
@@ -95,13 +95,13 @@ final class DisplayModeInfo {
 
 	public static void method2216(final boolean bool) {
 		try {
-			anIntArray1707 = null;
+			crcTable = null;
 			aString1708 = null;
 			if (!bool) {
 				method2214(false);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ub.C(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.C(").append(bool).append(')').toString());
 		}
 	}
 }

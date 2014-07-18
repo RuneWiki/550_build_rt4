@@ -10,7 +10,7 @@ final class Class120_Sub6 extends Node {
 	Class120_Sub5_Sub1 aClass120_Sub5_Sub1_2447;
 	static boolean characterShadowsOn = true;
 	int anInt2449;
-	static Class50 aClass50_2450;
+	static js5 aClass50_2450;
 	int anInt2451;
 	int anInt2452;
 	int anInt2453;
@@ -39,13 +39,13 @@ final class Class120_Sub6 extends Node {
 			if (i != -8251) {
 				aString2444 = null;
 			}
-			String string_1_ = Class174.method2234(0, Class70.stringToLong(string));
+			String string_1_ = Class174.longToString(Varp.stringToLong(string));
 			if (string_1_ == null) {
 				string_1_ = "";
 			}
 			string_0_ = string_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.G(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.G(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return string_0_;
 	}
@@ -59,7 +59,7 @@ final class Class120_Sub6 extends Node {
 			}
 			if (signlinkNode.status == 1) {
 				fileOnDisk = (FileOnDisk) signlinkNode.value;
-				final Buffer buffer = Class50.method417();
+				final Buffer buffer = js5.method417();
 				fileOnDisk.write(buffer.buf, 0, buffer.pos);
 			}
 		} catch (final Exception exception) {
@@ -74,17 +74,8 @@ final class Class120_Sub6 extends Node {
 		}
 	}
 
-	static final int method1070(final int i, final int i_2_) {
-		int i_3_;
-		try {
-			if (i >= -77) {
-				aString2444 = null;
-			}
-			i_3_ = i_2_ & 0xff;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.H(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return i_3_;
+	static final int method1070(final int i_2_) {
+		return i_2_ & 0xff;
 	}
 
 	final void method1071(final int i) {
@@ -97,7 +88,7 @@ final class Class120_Sub6 extends Node {
 			this.aClass120_Sub22_2459 = null;
 			this.aClass120_Sub5_Sub1_2447 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -109,23 +100,16 @@ final class Class120_Sub6 extends Node {
 				aClass50_2450 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.F(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.F(").append(bool).append(')').toString());
 		}
 	}
 
-	static final void method1073(final int i) {
-		try {
-			if (i != -4760) {
-				aString2444 = null;
-			}
-			FileSystem.anInt459++;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.E(").append(i).append(')').toString());
-		}
+	static final void method1073() {
+		FileSystem.anInt459++;
 	}
 
 	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_) {
-		if (Class50.loadInterface(i)) {
+		if (js5.loadInterface(i)) {
 			client.method60(Node.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
 		}
 	}
@@ -230,7 +214,7 @@ final class Class120_Sub6 extends Node {
 			}
 			is = is_12_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ej.B(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.B(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return is;
 	}

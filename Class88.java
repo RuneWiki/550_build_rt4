@@ -5,13 +5,13 @@
 final class Class88 {
 	SceneGraphNode aClass180_826;
 	static int anInt827;
-	static boolean aBoolean828 = false;
+	static boolean spellSelected = false;
 	static Deque aClass105_829;
-	Class107_Sub1 aClass107_Sub1_830;
+	LDIndexedSprite aClass107_Sub1_830;
 	static Queue aClass177_831;
 	static int anInt832;
 	static int[] anIntArray833;
-	static Class50 aClass50_834;
+	static js5 aClass50_834;
 	static boolean aBoolean835;
 
 	static {
@@ -22,7 +22,7 @@ final class Class88 {
 		aBoolean835 = false;
 	}
 
-	static final void method743(final byte i, final int i_0_, final int i_1_, final int i_2_, final Class25 class25, final int i_3_, final int i_4_) {
+	static final void method743(final byte i, final int i_0_, final int i_1_, final int i_2_, final CollisionMap collisionMap, final int i_3_, final int i_4_) {
 		try {
 			int i_5_ = -1;
 			long l = 0L;
@@ -57,7 +57,7 @@ final class Class88 {
 						sceneGraphNode = class182.aClass180_1800;
 					}
 					if (locType.anInt1821 != 0) {
-						class25.method215(i_7_, !locType.aBoolean1880, i_4_, i_6_, locType.aBoolean1844, 123, i_2_);
+						collisionMap.method215(i_7_, !locType.aBoolean1880, i_4_, i_6_, locType.aBoolean1844, 123, i_2_);
 					}
 				} else if (i_3_ == 1) {
 					final Class186 class186 = Class153.method2072(i_0_, i_4_, i_2_);
@@ -71,7 +71,7 @@ final class Class88 {
 						sceneGraphNode = class28.aClass180_174;
 					}
 					if (locType.anInt1821 != 0 && i_4_ + locType.anInt1841 < 104 && locType.anInt1841 + i_2_ < 104 && i_4_ + locType.anInt1827 < 104 && locType.anInt1827 + i_2_ < 104) {
-						class25.method214(i_7_, i_2_, locType.anInt1827, 3, locType.aBoolean1844, i_4_, locType.anInt1841, !locType.aBoolean1880);
+						collisionMap.method214(i_7_, i_2_, locType.anInt1827, 3, locType.aBoolean1844, i_4_, locType.anInt1841, !locType.aBoolean1880);
 					}
 				} else if (i_3_ == 3) {
 					final Class36 class36 = Class118.method1022(i_0_, i_4_, i_2_);
@@ -79,7 +79,7 @@ final class Class88 {
 						sceneGraphNode = class36.aClass180_309;
 					}
 					if (locType.anInt1821 == 1) {
-						class25.method228(33, i_4_, i_2_);
+						collisionMap.method228(33, i_4_, i_2_);
 					}
 				}
 				if (locType.childrenIDs != null) {
@@ -144,19 +144,19 @@ final class Class88 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jh.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(class25 != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(')')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jh.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(collisionMap != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(')')
 					.toString());
 		}
 	}
 
-	static final void method744(final boolean bool, final Class120_Sub10 class120_sub10) {
+	static final void method744(final boolean bool, final InterfaceListener class120_sub10) {
 		try {
 			Cache.method194(class120_sub10, !bool, 200000);
 			if (!bool) {
 				method744(false, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jh.B(").append(bool).append(',').append(class120_sub10 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jh.B(").append(bool).append(',').append(class120_sub10 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -170,7 +170,7 @@ final class Class88 {
 			anIntArray833 = null;
 			aClass177_831 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("jh.C(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("jh.C(").append(bool).append(')').toString());
 		}
 	}
 

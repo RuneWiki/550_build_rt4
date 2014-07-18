@@ -19,7 +19,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 		do {
 			try {
 				if (i != -43) {
-					method1188(-125, -106);
+					method1188(-125);
 				}
 				final int i_1_ = i_0_;
 				if (i_1_ != 0) {
@@ -32,61 +32,52 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 				}
 				aBoolean3277 = class120_sub7.getUByte() == 1;
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("no.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("no.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
 			}
 		} while (false);
 	}
 
 	@Override
-	final int[][] method1188(final int i, final int i_2_) {
-		int[][] is;
-		try {
-			if (i_2_ != -29869) {
-				method1295(false);
-			}
-			final int[][] is_3_ = this.aClass109_2559.method975(i, -117);
-			if (this.aClass109_2559.aBoolean1049) {
-				final int[] is_4_ = method1192(i_2_ ^ 0x6aff, Class120_Sub29.anInt2774 & -1 + i, 0);
-				final int[] is_5_ = method1192(-7764, i, 0);
-				final int[] is_6_ = method1192(i_2_ + 22105, 1 + i & Class120_Sub29.anInt2774, 0);
-				final int[] is_7_ = is_3_[0];
-				final int[] is_8_ = is_3_[1];
-				final int[] is_9_ = is_3_[2];
-				for (int i_10_ = 0; Class120_Sub12_Sub7.anInt3178 > i_10_; i_10_++) {
-					final int i_11_ = (is_6_[i_10_] + -is_4_[i_10_]) * anInt3279;
-					final int i_12_ = anInt3279 * (is_5_[i_10_ + 1 & Class32.anInt259] - is_5_[i_10_ - 1 & Class32.anInt259]);
-					final int i_13_ = i_11_ >> 12;
-					final int i_14_ = i_12_ >> 12;
-					final int i_15_ = i_13_ * i_13_ >> 12;
-					final int i_16_ = i_14_ * i_14_ >> 12;
-					final int i_17_ = (int) (Math.sqrt((i_15_ + i_16_ - -4096) / 4096.0F) * 4096.0);
-					int i_18_;
-					int i_19_;
-					int i_20_;
-					if (i_17_ == 0) {
-						i_18_ = 0;
-						i_19_ = 0;
-						i_20_ = 0;
-					} else {
-						i_18_ = i_11_ / i_17_;
-						i_19_ = 16777216 / i_17_;
-						i_20_ = i_12_ / i_17_;
-					}
-					if (aBoolean3277) {
-						i_20_ = 2048 + (i_20_ >> 1);
-						i_18_ = 2048 - -(i_18_ >> 1);
-						i_19_ = 2048 - -(i_19_ >> 1);
-					}
-					is_7_[i_10_] = i_20_;
-					is_8_[i_10_] = i_18_;
-					is_9_[i_10_] = i_19_;
+	final int[][] method1188(final int i) {
+		final int[][] is_3_ = this.aClass109_2559.method975(i);
+		if (this.aClass109_2559.aBoolean1049) {
+			final int[] is_4_ = method1192(Class120_Sub29.anInt2774 & -1 + i, 0);
+			final int[] is_5_ = method1192(i, 0);
+			final int[] is_6_ = method1192(1 + i & Class120_Sub29.anInt2774, 0);
+			final int[] is_7_ = is_3_[0];
+			final int[] is_8_ = is_3_[1];
+			final int[] is_9_ = is_3_[2];
+			for (int i_10_ = 0; Class120_Sub12_Sub7.anInt3178 > i_10_; i_10_++) {
+				final int i_11_ = (is_6_[i_10_] + -is_4_[i_10_]) * anInt3279;
+				final int i_12_ = anInt3279 * (is_5_[i_10_ + 1 & Class32.anInt259] - is_5_[i_10_ - 1 & Class32.anInt259]);
+				final int i_13_ = i_11_ >> 12;
+				final int i_14_ = i_12_ >> 12;
+				final int i_15_ = i_13_ * i_13_ >> 12;
+				final int i_16_ = i_14_ * i_14_ >> 12;
+				final int i_17_ = (int) (Math.sqrt((i_15_ + i_16_ - -4096) / 4096.0F) * 4096.0);
+				int i_18_;
+				int i_19_;
+				int i_20_;
+				if (i_17_ == 0) {
+					i_18_ = 0;
+					i_19_ = 0;
+					i_20_ = 0;
+				} else {
+					i_18_ = i_11_ / i_17_;
+					i_19_ = 16777216 / i_17_;
+					i_20_ = i_12_ / i_17_;
 				}
+				if (aBoolean3277) {
+					i_20_ = 2048 + (i_20_ >> 1);
+					i_18_ = 2048 - -(i_18_ >> 1);
+					i_19_ = 2048 - -(i_19_ >> 1);
+				}
+				is_7_[i_10_] = i_20_;
+				is_8_[i_10_] = i_18_;
+				is_9_[i_10_] = i_19_;
 			}
-			is = is_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("no.K(").append(i).append(',').append(i_2_).append(')').toString());
 		}
-		return is;
+		return is_3_;
 	}
 
 	public static void method1295(final boolean bool) {
@@ -96,7 +87,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 				anInt3281 = 79;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("no.R(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("no.R(").append(bool).append(')').toString());
 		}
 	}
 

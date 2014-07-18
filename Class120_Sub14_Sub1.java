@@ -15,13 +15,13 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				method1415(null, (byte) -112, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bb.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.E(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method1413(final int i, final int i_0_) {
 		try {
-			if (Class50.loadInterface(i_0_)) {
+			if (js5.loadInterface(i_0_)) {
 				final JagexInterface[] class189s = Node.interfaceCache[i_0_];
 				for (final JagexInterface class1892 : class189s) {
 					final JagexInterface jagexInterface = class1892;
@@ -33,18 +33,18 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bb.C(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.C(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
-	static final void method1414(final Class50 class50, final int i) {
+	static final void method1414(final js5 js5, final int i) {
 		try {
-			Class111.aClass50_1059 = class50;
+			ParamType.configClient = js5;
 			if (i != 40) {
 				method1412(-18);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bb.A(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -56,7 +56,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("bb.D(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("bb.D(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
 			}
 		} while (false);
 	}
@@ -68,7 +68,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			}
 			final boolean bool = state == 5 || state == 10 || state == 28;
 			if (state == 40) {
-				Class120_Sub1.method1037();
+				LabelGroup.method1037();
 			}
 			if (state != 40 && Light.aClass46_381 != null) {
 				Light.aClass46_381.close();

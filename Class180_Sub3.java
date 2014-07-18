@@ -60,7 +60,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
 						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
 						final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
-						class180_sub5_sub2.method2330(i_6_, -24892, 1);
+						class180_sub5_sub2.move(i_6_, 1);
 						final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 						if (i_7_ == 1) {
 							Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
@@ -70,12 +70,12 @@ final class Class180_Sub3 extends SceneGraphNode {
 						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
 						if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
 							final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.method2330(i_8_, i + -24935, 0);
+							class180_sub5_sub2.move(i_8_, 0);
 						} else {
 							final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.method2330(i_9_, -24892, 2);
+							class180_sub5_sub2.move(i_9_, 2);
 							final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.method2330(i_10_, -24892, 2);
+							class180_sub5_sub2.move(i_10_, 2);
 						}
 						final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 						if (i_11_ == 1) {
@@ -87,7 +87,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.G(").append(i).append(')').toString());
 		}
 	}
 
@@ -115,7 +115,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			}
 			aBoolean2913 = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.E(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.E(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -135,12 +135,12 @@ final class Class180_Sub3 extends SceneGraphNode {
 						this.aBoolean2920 = true;
 					} while (false);
 					if (!this.aBoolean2920) {
-						Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false, false);
+						Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false);
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.F(").append(i).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.F(").append(i).append(',').append(i_12_).append(')').toString());
 		}
 	}
 
@@ -197,7 +197,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			}
 			class180_sub7 = class180_sub7_14_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.C(").append(i).append(')').toString());
 		}
 		return class180_sub7;
 	}
@@ -211,7 +211,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			}
 			Class180_Sub4.aClass21_2931.method192(i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.B(").append(i).append(',').append(i_15_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.B(").append(i).append(',').append(i_15_).append(')').toString());
 		}
 	}
 
@@ -229,7 +229,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 				aClass108_Sub2_2915.method944(i, i_16_, i_18_, i_17_, i_19_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.BB(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.BB(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
 		}
 	}
 
@@ -243,13 +243,13 @@ final class Class180_Sub3 extends SceneGraphNode {
 				anInt2914 = class180_sub7.getMaxY();
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.T(").append(i).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',').append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.T(").append(i).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',').append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',')
 					.append(l).append(',').append(i_27_).append(',').append(class108_sub2 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
 	static final Class28 method2315(final int i, final int i_28_, final int i_29_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_28_][i_29_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_28_][i_29_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -271,7 +271,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			aClass21_2906 = null;
 			anIntArray2918 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("o.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("o.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -281,7 +281,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 		try {
 			i = anInt2914;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, "o.MA()");
+			throw EnumType.method1428(runtimeexception, "o.MA()");
 		}
 		return i;
 	}
@@ -297,7 +297,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 		this.anInt2907 = i_33_;
 		this.anInt2905 = i_34_;
 		this.anInt2917 = i_35_ + i_36_;
-		final int i_37_ = SpotAnimType.list(anInt2910).anInt991;
+		final int i_37_ = SpotAnimType.list(anInt2910).animationId;
 		if ((i_37_ ^ 0xffffffff) != 0) {
 			this.aBoolean2920 = false;
 			aClass40_2916 = SeqType.list(i_37_);
@@ -305,7 +305,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			this.aBoolean2920 = true;
 		}
 		if (this.anInt2917 == i_36_) {
-			Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false, false);
+			Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false);
 		}
 	}
 }

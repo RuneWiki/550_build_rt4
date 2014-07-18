@@ -5,7 +5,7 @@
 abstract class GameEntity extends SceneGraphNode {
 	int spotAnimId;
 	static int anInt2957;
-	int[] anIntArray2958 = new int[10];
+	int[] walkQueueX = new int[10];
 	private boolean aBoolean2959;
 	int anInt2960;
 	int anInt2961;
@@ -33,7 +33,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2983;
 	int anInt2984;
 	int anInt2985;
-	boolean aBoolean2986;
+	boolean hasMenuAction;
 	int anInt2987;
 	ParticleEngine aClass108_Sub2_2988;
 	int anInt2989;
@@ -86,7 +86,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3037;
 	int anInt3038;
 	private int anInt3039;
-	int[] anIntArray3040;
+	int[] walkQueueZ;
 	int anInt3041;
 	int anInt3042;
 	int anInt3043;
@@ -95,53 +95,46 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3046;
 	Object anObject3047;
 
-	final void method2323(final byte i, final int i_0_, final int i_1_, final int i_2_, final boolean bool) {
-		try {
-			if (i <= 5) {
-				this.anInt3031 = 110;
+	final void method2323(final int i_0_, final int size, final int i_2_, final boolean bool) {
+		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
+			this.anInt3006 = -1;
+		}
+		if (this.spotAnimId != -1) {
+			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
+			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).anInt336 == 1) {
+				this.spotAnimId = -1;
 			}
-			if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
-				this.anInt3006 = -1;
-			}
-			if ((this.spotAnimId ^ 0xffffffff) != 0) {
-				final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-				if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.anInt991).anInt336 == 1) {
-					this.spotAnimId = -1;
+		}
+		if (!bool) {
+			final int i_3_ = i_2_ - this.walkQueueX[0];
+			final int i_4_ = i_0_ - this.walkQueueZ[0];
+			if (i_3_ >= -8 && i_3_ <= 8 && i_4_ >= -8 && i_4_ <= 8) {
+				if (this.anInt2960 < 9) {
+					this.anInt2960++;
 				}
-			}
-			if (!bool) {
-				final int i_3_ = i_2_ - this.anIntArray2958[0];
-				final int i_4_ = i_0_ - this.anIntArray3040[0];
-				if (i_3_ >= -8 && i_3_ <= 8 && i_4_ >= -8 && i_4_ <= 8) {
-					if (this.anInt2960 < 9) {
-						this.anInt2960++;
-					}
-					for (int i_5_ = this.anInt2960; i_5_ > 0; i_5_--) {
-						this.anIntArray2958[i_5_] = this.anIntArray2958[i_5_ + -1];
-						this.anIntArray3040[i_5_] = this.anIntArray3040[i_5_ + -1];
-						this.aByteArray2973[i_5_] = this.aByteArray2973[i_5_ + -1];
-					}
-					this.anIntArray2958[0] = i_2_;
-					this.aByteArray2973[0] = (byte) 1;
-					this.anIntArray3040[0] = i_0_;
-					return;
+				for (int i_5_ = this.anInt2960; i_5_ > 0; i_5_--) {
+					this.walkQueueX[i_5_] = this.walkQueueX[i_5_ - 1];
+					this.walkQueueZ[i_5_] = this.walkQueueZ[i_5_ - 1];
+					this.aByteArray2973[i_5_] = this.aByteArray2973[i_5_ - 1];
 				}
+				this.walkQueueX[0] = i_2_;
+				this.aByteArray2973[0] = (byte) 1;
+				this.walkQueueZ[0] = i_0_;
+				return;
 			}
-			this.anInt3031 = 0;
-			this.anInt3037 = 0;
-			this.anIntArray2958[0] = i_2_;
-			this.anIntArray3040[0] = i_0_;
-			this.z = 128 * this.anIntArray3040[0] + 64 * i_1_;
-			this.anInt2960 = 0;
-			this.x = this.anIntArray2958[0] * 128 + 64 * i_1_;
-			if (HDToolkit.glEnabled && this == Class100.selfPlayer) {
-				Class120_Sub8.method1159();
-			}
-			if (this.aClass108_Sub2_2988 != null) {
-				this.aClass108_Sub2_2988.method947();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.M(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(bool).append(')').toString());
+		}
+		this.anInt3031 = 0;
+		this.anInt3037 = 0;
+		this.walkQueueX[0] = i_2_;
+		this.walkQueueZ[0] = i_0_;
+		this.x = this.walkQueueX[0] * 128 + 64 * size;
+		this.z = this.walkQueueZ[0] * 128 + 64 * size;
+		this.anInt2960 = 0;
+		if (HDToolkit.glEnabled && this == Class100.selfPlayer) {
+			AmbientSound.method1159();
+		}
+		if (this.aClass108_Sub2_2988 != null) {
+			this.aClass108_Sub2_2988.method947();
 		}
 	}
 
@@ -153,7 +146,7 @@ abstract class GameEntity extends SceneGraphNode {
 				method2335(71, -23, -76, 114);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -170,13 +163,13 @@ abstract class GameEntity extends SceneGraphNode {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.A(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.A(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
 	final void method2327(final int i, final Class180_Sub7 class180_sub7) {
 		try {
-			final Class29 class29 = method2336((byte) -52);
+			final Class29 class29 = method2336();
 			if (class29.anInt208 != i || class29.anInt209 != 0) {
 				int i_10_ = 0;
 				int i_11_ = 0;
@@ -378,7 +371,7 @@ abstract class GameEntity extends SceneGraphNode {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.P(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.P(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -397,68 +390,61 @@ abstract class GameEntity extends SceneGraphNode {
 			this.anInt3031 = 0;
 			this.anInt2960 = 0;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.J(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.J(").append(i).append(')').toString());
 		}
 	}
 
-	final void method2330(final int i, final int i_41_, final int i_42_) {
-		try {
-			int i_43_ = this.anIntArray2958[0];
-			int i_44_ = this.anIntArray3040[0];
-			if (i == 0) {
-				i_43_--;
-				i_44_++;
-			}
-			if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
-				this.anInt3006 = -1;
-			}
-			if (i == 1) {
-				i_44_++;
-			}
-			if ((this.spotAnimId ^ 0xffffffff) != 0) {
-				final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-				if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.anInt991).anInt336 == 1) {
-					this.spotAnimId = -1;
-				}
-			}
-			if (i == 2) {
-				i_44_++;
-				i_43_++;
-			}
-			if (this.anInt2960 < 9) {
-				this.anInt2960++;
-			}
-			for (int i_45_ = this.anInt2960; i_45_ > 0; i_45_--) {
-				this.anIntArray2958[i_45_] = this.anIntArray2958[-1 + i_45_];
-				this.anIntArray3040[i_45_] = this.anIntArray3040[i_45_ + -1];
-				this.aByteArray2973[i_45_] = this.aByteArray2973[-1 + i_45_];
-			}
-			this.aByteArray2973[0] = (byte) i_42_;
-			if (i == 3) {
-				i_43_--;
-			}
-			if (i_41_ != -24892) {
-				this.anInt2998 = -47;
-			}
-			if (i == 4) {
-				i_43_++;
-			}
-			if (i == 5) {
-				i_43_--;
-				i_44_--;
-			}
-			if (i == 6) {
-				i_44_--;
-			}
-			if (i == 7) {
-				i_43_++;
-				i_44_--;
-			}
-			this.anIntArray2958[0] = i_43_;
-			this.anIntArray3040[0] = i_44_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.N(").append(i).append(',').append(i_41_).append(',').append(i_42_).append(')').toString());
+	final void move(final int dir, final int type) {
+		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
+			this.anInt3006 = -1;
 		}
+		if ((this.spotAnimId ^ 0xffffffff) != 0) {
+			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
+			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).anInt336 == 1) {
+				this.spotAnimId = -1;
+			}
+		}
+		int x = this.walkQueueX[0];
+		int z = this.walkQueueZ[0];
+		if (dir == 0) {
+			x--;
+			z++;
+		}
+		if (dir == 1) {
+			z++;
+		}
+		if (dir == 2) {
+			z++;
+			x++;
+		}
+		if (dir == 3) {
+			x--;
+		}
+		if (dir == 4) {
+			x++;
+		}
+		if (dir == 5) {
+			x--;
+			z--;
+		}
+		if (dir == 6) {
+			z--;
+		}
+		if (dir == 7) {
+			x++;
+			z--;
+		}
+		if (this.anInt2960 < 9) {
+			this.anInt2960++;
+		}
+		for (int i_45_ = this.anInt2960; i_45_ > 0; i_45_--) {
+			this.walkQueueX[i_45_] = this.walkQueueX[i_45_ - 1];
+			this.walkQueueZ[i_45_] = this.walkQueueZ[i_45_ - 1];
+			this.aByteArray2973[i_45_] = this.aByteArray2973[i_45_ - 1];
+		}
+		this.aByteArray2973[0] = (byte) type;
+		this.walkQueueX[0] = x;
+		this.walkQueueZ[0] = z;
 	}
 
 	public static void method2331(final int i) {
@@ -469,7 +455,7 @@ abstract class GameEntity extends SceneGraphNode {
 			}
 			anIntArrayArray3009 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.B(").append(i).append(')').toString());
 		}
 	}
 
@@ -486,7 +472,7 @@ abstract class GameEntity extends SceneGraphNode {
 			Class159.anInt1488 = i_47_;
 			Class93.anInt867 = 0;
 			MouseHandler.anInt1140 = 0;
-			final Class29 class29 = method2336((byte) -97);
+			final Class29 class29 = method2336();
 			final int i_48_ = class29.anInt204;
 			final int i_49_ = class29.anInt206;
 			if (i_48_ != 0 && i_49_ != 0) {
@@ -497,7 +483,7 @@ abstract class GameEntity extends SceneGraphNode {
 				final int i_54_ = i_51_ * i_53_ - i_52_ * i_50_ >> 16;
 				final int i_55_ = i_51_ * i_52_ + i_53_ * i_50_ >> 16;
 				final int i_56_ = -i_49_ / 2;
-				final int i_57_ = Class22.method197(Class173.gameLevel, i_55_ + this.x, i_54_ + this.z);
+				final int i_57_ = Class22.getTileHeight(Class173.gameLevel, i_55_ + this.x, i_54_ + this.z);
 				final int i_58_ = i_48_ / 2;
 				final int i_59_ = -i_48_ / 2;
 				final int i_60_ = i_50_ * i_56_ - -(i_58_ * i_51_) >> 16;
@@ -505,13 +491,13 @@ abstract class GameEntity extends SceneGraphNode {
 				final int i_62_ = i_51_ * i_61_ - i_50_ * i_59_ >> 16;
 				final int i_63_ = i_51_ * i_56_ - i_50_ * i_58_ >> 16;
 				final int i_64_ = i_59_ * i_51_ + i_50_ * i_61_ >> 16;
-				final int i_65_ = Class22.method197(Class173.gameLevel, i_60_ + this.x, i_63_ + this.z);
-				final int i_66_ = Class22.method197(Class173.gameLevel, this.x - -i_64_, i_62_ + this.z);
+				final int i_65_ = Class22.getTileHeight(Class173.gameLevel, i_60_ + this.x, i_63_ + this.z);
+				final int i_66_ = Class22.getTileHeight(Class173.gameLevel, this.x - -i_64_, i_62_ + this.z);
 				final int i_67_ = i_48_ / 2;
 				final int i_68_ = i_49_ / 2;
 				final int i_69_ = i_50_ * i_68_ - -(i_67_ * i_51_) >> 16;
 				final int i_70_ = -(i_50_ * i_67_) + i_51_ * i_68_ >> 16;
-				final int i_71_ = Class22.method197(Class173.gameLevel, i_69_ + this.x, this.z - -i_70_);
+				final int i_71_ = Class22.getTileHeight(Class173.gameLevel, i_69_ + this.x, this.z - -i_70_);
 				final int i_72_ = i_71_ > i_66_ ? i_66_ : i_71_;
 				final int i_73_ = i_66_ > i_57_ ? i_57_ : i_66_;
 				final int i_74_ = i_57_ < i_65_ ? i_57_ : i_65_;
@@ -526,7 +512,7 @@ abstract class GameEntity extends SceneGraphNode {
 				}
 				Class93.anInt867 = i_57_ + i_71_;
 				if (Class93.anInt867 > i_66_ + i_65_) {
-					Class93.anInt867 = i_65_ - -i_66_;
+					Class93.anInt867 = i_65_ + i_66_;
 				}
 				Class93.anInt867 = -this.anInt3005 + (Class93.anInt867 >> 1);
 				if (Class93.anInt867 != 0) {
@@ -534,7 +520,7 @@ abstract class GameEntity extends SceneGraphNode {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.E(").append(class180_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_47_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.E(").append(class180_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_47_).append(')').toString());
 		}
 	}
 
@@ -680,18 +666,12 @@ abstract class GameEntity extends SceneGraphNode {
 		return true;
 	}
 
-	final Class29 method2336(final byte i) {
-		Class29 class29;
-		try {
-			final int i_85_ = method2325(false);
-			if (i_85_ != -1) {
-				return Class120_Sub14_Sub23.method1642(-16596, i_85_);
-			}
-			class29 = Class120_Sub17.aClass29_2620;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qc.H(").append(i).append(')').toString());
+	final Class29 method2336() {
+		final int i_85_ = method2325(false);
+		if (i_85_ != -1) {
+			return Class29.list(i_85_);
 		}
-		return class29;
+		return ObjectContainer.aClass29_2620;
 	}
 
 	final void method2337(final Class180_Sub7 class180_sub7, final Class180_Sub7 class180_sub7_86_) {
@@ -743,7 +723,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt3013 = -1;
 		this.anInt2998 = 0;
 		this.anInt3010 = 32;
-		this.aBoolean2986 = false;
+		this.hasMenuAction = false;
 		anInt3014 = 0;
 		this.textSpoken = null;
 		this.aBoolean2997 = false;
@@ -772,7 +752,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anIntArray2968 = new int[4];
 		this.anInt2989 = -1000;
 		this.anInt3037 = 0;
-		this.anIntArray3040 = new int[10];
+		this.walkQueueZ = new int[10];
 		anInt3029 = 0;
 		this.anInt3022 = 0;
 		this.anInt2990 = 0;

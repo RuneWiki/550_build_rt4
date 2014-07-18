@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class107_Sub2 extends Class107 {
+final class HDIndexedSprite extends AbstractIndexedSprite {
 	private int anInt2307;
 	private int anInt2308;
 	private int anInt2309;
@@ -17,8 +17,8 @@ final class Class107_Sub2 extends Class107 {
 	@Override
 	final void method910(int i, int i_0_) {
 		HDToolkit.method510();
-		i += this.anInt1020;
-		i_0_ += this.anInt1021;
+		i += this.xOffset;
+		i_0_ += this.yOffset;
 		final GL gl = HDToolkit.gl;
 		HDToolkit.method514(anInt2311);
 		method926(1);
@@ -42,8 +42,8 @@ final class Class107_Sub2 extends Class107 {
 	}
 
 	private final void method925() {
-		final float f = (float) this.anInt1026 / (float) anInt2309;
-		final float f_1_ = (float) this.anInt1030 / (float) anInt2310;
+		final float f = (float) this.width / (float) anInt2309;
+		final float f_1_ = (float) this.height / (float) anInt2310;
 		final GL gl = HDToolkit.gl;
 		if (anInt2307 == -1) {
 			anInt2307 = gl.glGenLists(1);
@@ -52,13 +52,13 @@ final class Class107_Sub2 extends Class107 {
 		gl.glNewList(anInt2307, 4864);
 		gl.glBegin(6);
 		gl.glTexCoord2f(f, 0.0F);
-		gl.glVertex2f(this.anInt1026, 0.0F);
+		gl.glVertex2f(this.width, 0.0F);
 		gl.glTexCoord2f(0.0F, 0.0F);
 		gl.glVertex2f(0.0F, 0.0F);
 		gl.glTexCoord2f(0.0F, f_1_);
-		gl.glVertex2f(0.0F, -this.anInt1030);
+		gl.glVertex2f(0.0F, -this.height);
 		gl.glTexCoord2f(f, f_1_);
-		gl.glVertex2f(this.anInt1026, -this.anInt1030);
+		gl.glVertex2f(this.width, -this.height);
 		gl.glEnd();
 		gl.glEndList();
 	}
@@ -66,8 +66,8 @@ final class Class107_Sub2 extends Class107 {
 	@Override
 	final void method911(int i, int i_2_, final int i_3_) {
 		HDToolkit.method539();
-		i += this.anInt1020;
-		i_2_ += this.anInt1021;
+		i += this.xOffset;
+		i_2_ += this.yOffset;
 		final GL gl = HDToolkit.gl;
 		HDToolkit.method514(anInt2311);
 		method926(1);
@@ -91,17 +91,17 @@ final class Class107_Sub2 extends Class107 {
 		}
 	}
 
-	private final void method927(final byte[] is, final int[] is_4_) {
-		anInt2309 = Class120_Sub12_Sub17.method1283(this.anInt1026, (byte) 112);
-		anInt2310 = Class120_Sub12_Sub17.method1283(this.anInt1030, (byte) 108);
+	private final void method927(final byte[] indicators, final int[] palette) {
+		anInt2309 = Class120_Sub12_Sub17.method1283(this.width);
+		anInt2310 = Class120_Sub12_Sub17.method1283(this.height);
 		final byte[] is_5_ = new byte[anInt2309 * anInt2310 * 4];
 		int i = 0;
 		int i_6_ = 0;
-		for (int i_7_ = 0; i_7_ < this.anInt1030; i_7_++) {
-			for (int i_8_ = 0; i_8_ < this.anInt1026; i_8_++) {
-				final byte i_9_ = is[i_6_++];
+		for (int i_7_ = 0; i_7_ < this.height; i_7_++) {
+			for (int i_8_ = 0; i_8_ < this.width; i_8_++) {
+				final byte i_9_ = indicators[i_6_++];
 				if (i_9_ != 0) {
-					final int i_10_ = is_4_[i_9_];
+					final int i_10_ = palette[i_9_];
 					is_5_[i++] = (byte) (i_10_ >> 16);
 					is_5_[i++] = (byte) (i_10_ >> 8);
 					is_5_[i++] = (byte) i_10_;
@@ -110,7 +110,7 @@ final class Class107_Sub2 extends Class107 {
 					i += 4;
 				}
 			}
-			i += (anInt2309 - this.anInt1026) * 4;
+			i += (anInt2309 - this.width) * 4;
 		}
 		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_5_);
 		final GL gl = HDToolkit.gl;
@@ -141,26 +141,26 @@ final class Class107_Sub2 extends Class107 {
 			gl.glTexEnvi(8960, 34176, 34168);
 			final float f = (float) (i - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
 			final float f_13_ = (float) (i_12_ - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
-			final float f_14_ = (float) (i + this.anInt1026 - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
-			final float f_15_ = (float) (i_12_ + this.anInt1030 - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
-			i += this.anInt1020;
-			i_12_ += this.anInt1021;
+			final float f_14_ = (float) (i + this.width - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
+			final float f_15_ = (float) (i_12_ + this.height - GraphicsHD.startY) / (float) class120_sub14_sub19_sub1.anInt3948;
+			i += this.xOffset;
+			i_12_ += this.yOffset;
 			gl.glBegin(6);
 			gl.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-			final float f_16_ = (float) this.anInt1026 / (float) anInt2309;
-			final float f_17_ = (float) this.anInt1030 / (float) anInt2310;
+			final float f_16_ = (float) this.width / (float) anInt2309;
+			final float f_17_ = (float) this.height / (float) anInt2310;
 			gl.glMultiTexCoord2f(33985, f_14_, f_13_);
 			gl.glTexCoord2f(f_16_, 0.0F);
-			gl.glVertex2f(i + this.anInt1026, HDToolkit.canvasHeight - i_12_);
+			gl.glVertex2f(i + this.width, HDToolkit.canvasHeight - i_12_);
 			gl.glMultiTexCoord2f(33985, f, f_13_);
 			gl.glTexCoord2f(0.0F, 0.0F);
 			gl.glVertex2f(i, HDToolkit.canvasHeight - i_12_);
 			gl.glMultiTexCoord2f(33985, f, f_15_);
 			gl.glTexCoord2f(0.0F, f_17_);
-			gl.glVertex2f(i, HDToolkit.canvasHeight - (i_12_ + this.anInt1030));
+			gl.glVertex2f(i, HDToolkit.canvasHeight - (i_12_ + this.height));
 			gl.glMultiTexCoord2f(33985, f_14_, f_15_);
 			gl.glTexCoord2f(f_16_, f_17_);
-			gl.glVertex2f(i + this.anInt1026, HDToolkit.canvasHeight - (i_12_ + this.anInt1030));
+			gl.glVertex2f(i + this.width, HDToolkit.canvasHeight - (i_12_ + this.height));
 			gl.glEnd();
 			gl.glTexEnvi(8960, 34161, 8448);
 			gl.glTexEnvi(8960, 34176, 5890);
@@ -169,29 +169,29 @@ final class Class107_Sub2 extends Class107 {
 		}
 	}
 
-	Class107_Sub2(final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final byte[] is, final int[] is_23_) {
+	HDIndexedSprite(final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final byte[] is, final int[] is_23_) {
 		anInt2312 = 0;
 		anInt2307 = -1;
-		this.anInt1029 = i;
-		this.anInt1028 = i_18_;
-		this.anInt1020 = i_19_;
-		this.anInt1021 = i_20_;
-		this.anInt1026 = i_21_;
-		this.anInt1030 = i_22_;
+		this.trimWidth = i;
+		this.trimHeight = i_18_;
+		this.xOffset = i_19_;
+		this.yOffset = i_20_;
+		this.width = i_21_;
+		this.height = i_22_;
 		method927(is, is_23_);
 		method925();
 	}
 
-	Class107_Sub2(final Class107_Sub1 class107_sub1) {
+	HDIndexedSprite(final LDIndexedSprite class107_sub1) {
 		anInt2312 = 0;
 		anInt2307 = -1;
-		this.anInt1026 = class107_sub1.anInt1026;
-		this.anInt1030 = class107_sub1.anInt1030;
-		this.anInt1020 = class107_sub1.anInt1020;
-		this.anInt1021 = class107_sub1.anInt1021;
-		this.anInt1029 = class107_sub1.anInt1029;
-		this.anInt1028 = class107_sub1.anInt1028;
-		method927(class107_sub1.aByteArray2306, class107_sub1.anIntArray2305);
+		this.width = class107_sub1.width;
+		this.height = class107_sub1.height;
+		this.xOffset = class107_sub1.xOffset;
+		this.yOffset = class107_sub1.yOffset;
+		this.trimWidth = class107_sub1.trimWidth;
+		this.trimHeight = class107_sub1.trimHeight;
+		method927(class107_sub1.paletteIndicators, class107_sub1.palette);
 		method925();
 	}
 }

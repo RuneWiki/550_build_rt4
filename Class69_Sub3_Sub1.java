@@ -7,7 +7,7 @@ import java.net.Socket;
 final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 	static Hashtable aClass75_3079 = new Hashtable(16);
 	static JagexInterface aClass189_3080 = null;
-	static int[] anIntArray3081 = new int[100];
+	static int[] screenRedrawHeights = new int[100];
 	static int[] anIntArray3082;
 	static int playerRenderX;
 	static int anInt3084 = 0;
@@ -26,16 +26,16 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 				aClass75_3079 = null;
 			}
 			aClass189_3080 = null;
-			anIntArray3081 = null;
+			screenRedrawHeights = null;
 			anIntArray3082 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("un.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("un.F(").append(i).append(')').toString());
 		}
 	}
 
-	static final boolean updateInterfaceCounter(final int i_0_) {
-		Class120_Sub14_Sub20.interfaceCounter = 1 + i_0_ & 0xffff;
-		Class30.interfaceCounterUpdated = true;
+	static final boolean updatePacketCounter(final int i_0_) {
+		Class120_Sub14_Sub20.packetCounter = 1 + i_0_ & 0xffff;
+		Class30.packetCounterUpdated = true;
 		return true;
 	}
 
@@ -49,10 +49,10 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 								AbstractTimer.worldConnection.close();
 								AbstractTimer.worldConnection = null;
 							}
-							if (Class107.anInt1027 < 1) {
+							if (AbstractIndexedSprite.anInt1027 < 1) {
 								Class120_Sub14_Sub4.anInt3466 = 0;
 								Class154.anInt1440 = 1;
-								Class107.anInt1027++;
+								AbstractIndexedSprite.anInt1027++;
 								if (Class158.anInt1479 != Class71.anInt625) {
 									Class158.anInt1479 = Class71.anInt625;
 								} else {
@@ -111,7 +111,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							Canvas_Sub1.inputStream.pos = 0;
 							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Class45.aStringArray399.length * 8);
 							for (int i_2_ = 0; i_2_ < Class45.aStringArray399.length; i_2_++) {
-								Class45.aStringArray399[i_2_] = Class174.method2234(0, Canvas_Sub1.inputStream.getLong());
+								Class45.aStringArray399[i_2_] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
 							}
 							Class154.anInt1440 = 0;
 							Class120_Sub12_Sub35.anInt3410 = 21;
@@ -123,7 +123,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
-						if (Class107.anInt1027 >= 1) {
+						if (AbstractIndexedSprite.anInt1027 >= 1) {
 							Class154.anInt1440 = 0;
 							Class120_Sub12_Sub35.anInt3410 = -4;
 						} else {
@@ -134,14 +134,14 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							} else {
 								Class158.anInt1479 = GameEntity.anInt3045;
 							}
-							Class107.anInt1027++;
+							AbstractIndexedSprite.anInt1027++;
 							break;
 						}
 					}
 				}
 				break;
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("un.G(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("un.G(").append(i).append(')').toString());
 			}
 		} while (false);
 	}

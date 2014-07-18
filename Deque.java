@@ -22,7 +22,7 @@ final class Deque {
 			i_1_ = i & (i_2_ ^ 0xffffffff);
 		} catch (final RuntimeException runtimeexception) {
 			
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ll.C(").append(i).append(',').append(i_0_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ll.C(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 		return i_1_;
 	}
@@ -72,7 +72,7 @@ final class Deque {
 	}
 
 	static final Class182 method894(final int i, final int i_5_, final int i_6_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_5_][i_6_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_5_][i_6_];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -117,7 +117,7 @@ final class Deque {
 			}
 			i_11_ = i_9_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ll.L(").append(i).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ll.L(").append(i).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 		return i_11_;
 	}

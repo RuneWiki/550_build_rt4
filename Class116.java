@@ -60,7 +60,7 @@ final class Class116 {
 			if (Class80.aBoolean742 && Class73.aClass105_653 != null) {
 				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getNext()) {
 					final Class73 class73 = Class73.list(class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
-					if (Class120_Sub14_Sub2.anInt3450 != 0 || !class120_sub16.method1656(Queue.lastMouseX, -108, Class191.lastMouseY)) {
+					if (EnumType.anInt3450 != 0 || !class120_sub16.method1656(Queue.lastMouseX, -108, Class191.lastMouseY)) {
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
 							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = false;
 							Class112.method989(16, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, -30073, class73.anInt652);
@@ -80,7 +80,7 @@ final class Class116 {
 				method1010((byte) -62);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mm.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mm.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -91,7 +91,7 @@ final class Class116 {
 			aString1116 = null;
 			aClass120_Sub14_Sub19_1114 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("mm.B(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("mm.B(").append(i).append(')').toString());
 		}
 	}
 }

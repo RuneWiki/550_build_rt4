@@ -3,7 +3,7 @@
  */
 
 final class Class101_Sub1 extends Class101 {
-	static Deque aClass105_2266 = new Deque();
+	static Deque locationAmbientSounds = new Deque();
 	private int anInt2267;
 	private final int anInt2268;
 	private final int anInt2269;
@@ -22,35 +22,35 @@ final class Class101_Sub1 extends Class101 {
 				final int i_3_ = anInt2270 * i >> 12;
 				final int i_4_ = i_0_ * anInt2267 >> 12;
 				final int i_5_ = i_0_ * anInt2268 >> 12;
-				Class70.method635(i_3_, this.anInt960, i_2_, this.anInt964, (byte) 75, this.anInt959, i_5_, i_4_);
+				Varp.method635(i_3_, this.anInt960, i_2_, this.anInt964, (byte) 75, this.anInt959, i_5_, i_4_);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
 	public static void method839(final byte i) {
 		try {
 			if (i >= 3) {
-				aClass105_2266 = null;
+				locationAmbientSounds = null;
 				aClass120_Sub14_Sub19Array2274 = null;
 				aClass22_2273 = null;
 				aByteArrayArray2271 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.L(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.L(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method840(final int i, final int i_6_) {
 		try {
-			Class141.aClass21_1350.method192(i_6_);
+			SpotAnimType.recentUse.method192(i_6_);
 			Class182.aClass21_1798.method192(i_6_);
 			if (i != 2) {
 				anInt2275 = 21;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.J(").append(i).append(',').append(i_6_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.J(").append(i).append(',').append(i_6_).append(')').toString());
 		}
 	}
 
@@ -62,7 +62,7 @@ final class Class101_Sub1 extends Class101 {
 			}
 			i_8_ = i_7_ >>> 10;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.H(").append(i).append(',').append(i_7_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.H(").append(i).append(',').append(i_7_).append(')').toString());
 		}
 		return i_8_;
 	}
@@ -79,13 +79,13 @@ final class Class101_Sub1 extends Class101 {
 					if (Class9.method116(class73, -1)) {
 						SceneGraphNode.method2271(i, false, class120_sub14_sub5, i_10_, class73);
 						if (class120_sub14_sub5.aBoolean3476) {
-							Class176.method2244(10, class120_sub14_sub5, class73);
+							SubScript.method2244(10, class120_sub14_sub5, class73);
 						}
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.I(").append(deque != null ? "{...}" : "null").append(',').append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.I(").append(deque != null ? "{...}" : "null").append(',').append(i).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 	}
 
@@ -101,7 +101,7 @@ final class Class101_Sub1 extends Class101 {
 			}
 			Class128.method1901(i_15_, i_13_, this.anInt960, i_16_, true, i_14_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.B(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.B(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
 		}
 	}
 
@@ -117,7 +117,7 @@ final class Class101_Sub1 extends Class101 {
 		try {
 			final int i_29_ = i_27_ * i_27_ - -(i_25_ * i_25_);
 			final int i_30_ = (int) DummyOutputStream.aFloat28 + Class164.anInt1590 & 0x7ff;
-			final int i_31_ = Math.max(jagexInterface.anInt1948 / 2, jagexInterface.anInt2059 / 2) - -10;
+			final int i_31_ = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) - -10;
 			if (i_31_ * i_31_ >= i_29_) {
 				int i_32_ = Rasterizer.cosineTable[i_30_];
 				i_32_ = i_32_ * 256 / (256 + Class154.anInt1442);
@@ -131,13 +131,13 @@ final class Class101_Sub1 extends Class101 {
 					method842(null, -86, -41, -86);
 				}
 				i_34_ -= i_35_ / 2;
-				if (-jagexInterface.anInt1948 <= i_34_ && i_34_ <= jagexInterface.anInt1948 && -jagexInterface.anInt2059 <= i_37_ && i_37_ <= jagexInterface.anInt2059) {
+				if (-jagexInterface.width <= i_34_ && i_34_ <= jagexInterface.width && -jagexInterface.height <= i_37_ && i_37_ <= jagexInterface.height) {
 					if (HDToolkit.glEnabled) {
 						GraphicsHD.method595((HDSprite) jagexInterface.method2492(false));
 					} else {
 						GraphicsLD.method2164(jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 					}
-					class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(jagexInterface.anInt1948 / 2)), i_24_ + jagexInterface.anInt2059 / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
+					class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(jagexInterface.width / 2)), i_24_ + jagexInterface.height / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
 					if (!HDToolkit.glEnabled) {
 						GraphicsLD.method2174();
 					} else {
@@ -146,7 +146,7 @@ final class Class101_Sub1 extends Class101 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("am.K(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_23_).append(',').append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',').append(i_27_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("am.K(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_23_).append(',').append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',').append(i_27_).append(',')
 					.append(i_28_).append(',').append(class120_sub14_sub8 != null ? "{...}" : "null").append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
 		}
 	}

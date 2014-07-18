@@ -4,16 +4,16 @@
 import javax.media.opengl.GL;
 
 final class Class47 {
-	static Class107_Sub1[] aClass107_Sub1Array430;
+	static LDIndexedSprite[] floorshadowSprites;
 	private static int anInt431;
-	static Class107_Sub1 aClass107_Sub1_432;
+	static LDIndexedSprite aClass107_Sub1_432;
 	static Class94[][] aClass94ArrayArray433;
 	private static int anInt434;
 
 	static final void method382(final int i, final int i_0_) {
 		anInt431 = i + 7 >> 3;
 		anInt434 = i_0_ + 7 >> 3;
-		aClass107_Sub1_432 = new Class107_Sub1(anInt431 * 128 + 2, anInt434 * 128 + 2, 0);
+		aClass107_Sub1_432 = new LDIndexedSprite(anInt431 * 128 + 2, anInt434 * 128 + 2, 0);
 		aClass94ArrayArray433 = new Class94[anInt431][anInt434];
 		for (int i_1_ = 0; i_1_ < anInt431; i_1_++) {
 			for (int i_2_ = 0; i_2_ < anInt434; i_2_++) {
@@ -47,9 +47,9 @@ final class Class47 {
 			final int i_21_ = i_18_ - (i_19_ * Class117.anInt1130 >> 8) >> 3;
 			final int i_22_ = i_20_ - (i_19_ * Class117.anInt1123 >> 8) >> 3;
 			if (i == 0 || i == 1 || !bool && !bool_11_) {
-				method396(aClass107_Sub1Array430[1], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1);
+				method396(floorshadowSprites[1], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1);
 			} else {
-				method393(aClass107_Sub1Array430[i], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1, i_10_, bool);
+				method393(floorshadowSprites[i], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1, i_10_, bool);
 			}
 		}
 	}
@@ -90,7 +90,7 @@ final class Class47 {
 		}
 	}
 
-	static final void method387(final Class107_Sub1 class107_sub1, final int i, final int i_43_, final int i_44_) {
+	static final void method387(final LDIndexedSprite class107_sub1, final int i, final int i_43_, final int i_44_) {
 		if (class107_sub1 != null) {
 			final int i_45_ = i - (i_43_ * Class117.anInt1130 >> 8) >> 3;
 			final int i_46_ = i_44_ - (i_43_ * Class117.anInt1123 >> 8) >> 3;
@@ -100,11 +100,11 @@ final class Class47 {
 
 	static final void method388() {
 		aClass107_Sub1_432 = null;
-		aClass107_Sub1Array430 = null;
+		floorshadowSprites = null;
 		aClass94ArrayArray433 = null;
 	}
 
-	static final void method389(final Class107_Sub1 class107_sub1, final int i, final int i_47_, final int i_48_) {
+	static final void method389(final LDIndexedSprite class107_sub1, final int i, final int i_47_, final int i_48_) {
 		if (class107_sub1 != null) {
 			final int i_49_ = i - (i_47_ * Class117.anInt1130 >> 8) >> 3;
 			final int i_50_ = i_48_ - (i_47_ * Class117.anInt1123 >> 8) >> 3;
@@ -114,11 +114,11 @@ final class Class47 {
 
 	public static void method390() {
 		aClass107_Sub1_432 = null;
-		aClass107_Sub1Array430 = null;
+		floorshadowSprites = null;
 		aClass94ArrayArray433 = null;
 	}
 
-	static final boolean method391(final Class107_Sub1 class107_sub1, final int i, final int i_51_, final int i_52_) {
+	static final boolean method391(final LDIndexedSprite class107_sub1, final int i, final int i_51_, final int i_52_) {
 		if (class107_sub1 == null) {
 			return false;
 		}
@@ -162,10 +162,10 @@ final class Class47 {
 		HDToolkit.method532();
 	}
 
-	private static final void method393(final Class107_Sub1 class107_sub1, final Class107_Sub1 class107_sub1_62_, final int i, final int i_63_, final int i_64_, final boolean bool) {
-		if (i > 0 && i_63_ > 0 && i + 16 < class107_sub1_62_.anInt1026 && i_63_ + 16 < class107_sub1_62_.anInt1030) {
-			final int i_65_ = i + i_63_ * class107_sub1_62_.anInt1026;
-			final int i_66_ = class107_sub1_62_.anInt1026 - 16;
+	private static final void method393(final LDIndexedSprite class107_sub1, final LDIndexedSprite class107_sub1_62_, final int i, final int i_63_, final int i_64_, final boolean bool) {
+		if (i > 0 && i_63_ > 0 && i + 16 < class107_sub1_62_.width && i_63_ + 16 < class107_sub1_62_.height) {
+			final int i_65_ = i + i_63_ * class107_sub1_62_.width;
+			final int i_66_ = class107_sub1_62_.width - 16;
 			int i_67_;
 			int i_68_;
 			int i_69_;
@@ -187,29 +187,29 @@ final class Class47 {
 				i_69_ = -i_68_ * 16 + 1;
 			}
 			if (bool) {
-				method383(class107_sub1_62_.aByteArray2306, class107_sub1.aByteArray2306, i_67_, i_65_, i_66_, i_68_, i_69_);
+				method383(class107_sub1_62_.paletteIndicators, class107_sub1.paletteIndicators, i_67_, i_65_, i_66_, i_68_, i_69_);
 			} else {
-				method399(class107_sub1_62_.aByteArray2306, class107_sub1.aByteArray2306, i_67_, i_65_, i_66_, i_68_, i_69_);
+				method399(class107_sub1_62_.paletteIndicators, class107_sub1.paletteIndicators, i_67_, i_65_, i_66_, i_68_, i_69_);
 			}
 			method397(i, i_63_, 16, 16);
 		}
 	}
 
-	private static final boolean method394(final Class107_Sub1 class107_sub1, final Class107_Sub1 class107_sub1_70_, int i, int i_71_) {
-		i += class107_sub1.anInt1020;
-		i_71_ += class107_sub1.anInt1021;
-		int i_72_ = i + i_71_ * class107_sub1_70_.anInt1026;
-		int i_73_ = class107_sub1.anInt1030;
-		int i_74_ = class107_sub1.anInt1026;
-		int i_75_ = class107_sub1_70_.anInt1026 - i_74_;
+	private static final boolean method394(final LDIndexedSprite class107_sub1, final LDIndexedSprite class107_sub1_70_, int i, int i_71_) {
+		i += class107_sub1.xOffset;
+		i_71_ += class107_sub1.yOffset;
+		int i_72_ = i + i_71_ * class107_sub1_70_.width;
+		int i_73_ = class107_sub1.height;
+		int i_74_ = class107_sub1.width;
+		int i_75_ = class107_sub1_70_.width - i_74_;
 		if (i_71_ <= 0) {
 			final int i_76_ = 1 - i_71_;
 			i_73_ -= i_76_;
-			i_72_ += i_76_ * class107_sub1_70_.anInt1026;
+			i_72_ += i_76_ * class107_sub1_70_.width;
 			i_71_ = 1;
 		}
-		if (i_71_ + i_73_ >= class107_sub1_70_.anInt1030) {
-			final int i_77_ = i_71_ + i_73_ + 1 - class107_sub1_70_.anInt1030;
+		if (i_71_ + i_73_ >= class107_sub1_70_.height) {
+			final int i_77_ = i_71_ + i_73_ + 1 - class107_sub1_70_.height;
 			i_73_ -= i_77_;
 		}
 		if (i <= 0) {
@@ -219,36 +219,36 @@ final class Class47 {
 			i_75_ += i_78_;
 			i = 1;
 		}
-		if (i + i_74_ >= class107_sub1_70_.anInt1026) {
-			final int i_79_ = i + i_74_ + 1 - class107_sub1_70_.anInt1026;
+		if (i + i_74_ >= class107_sub1_70_.width) {
+			final int i_79_ = i + i_74_ + 1 - class107_sub1_70_.width;
 			i_74_ -= i_79_;
 			i_75_ += i_79_;
 		}
 		if (i_74_ <= 0 || i_73_ <= 0) {
 			return false;
 		}
-		i_75_ += 7 * class107_sub1_70_.anInt1026;
-		return method398(class107_sub1_70_.aByteArray2306, i_72_, i_74_, i_73_, i_75_, 8);
+		i_75_ += 7 * class107_sub1_70_.width;
+		return method398(class107_sub1_70_.paletteIndicators, i_72_, i_74_, i_73_, i_75_, 8);
 	}
 
-	private static final void method395(final Class107_Sub1 class107_sub1, final Class107_Sub1 class107_sub1_81_, int i, int i_82_) {
-		i += class107_sub1.anInt1020;
-		i_82_ += class107_sub1.anInt1021;
-		int i_83_ = i + i_82_ * class107_sub1_81_.anInt1026;
+	private static final void method395(final LDIndexedSprite class107_sub1, final LDIndexedSprite class107_sub1_81_, int i, int i_82_) {
+		i += class107_sub1.xOffset;
+		i_82_ += class107_sub1.yOffset;
+		int i_83_ = i + i_82_ * class107_sub1_81_.width;
 		int i_84_ = 0;
-		int i_85_ = class107_sub1.anInt1030;
-		int i_86_ = class107_sub1.anInt1026;
-		int i_87_ = class107_sub1_81_.anInt1026 - i_86_;
+		int i_85_ = class107_sub1.height;
+		int i_86_ = class107_sub1.width;
+		int i_87_ = class107_sub1_81_.width - i_86_;
 		int i_88_ = 0;
 		if (i_82_ <= 0) {
 			final int i_89_ = 1 - i_82_;
 			i_85_ -= i_89_;
 			i_84_ += i_89_ * i_86_;
-			i_83_ += i_89_ * class107_sub1_81_.anInt1026;
+			i_83_ += i_89_ * class107_sub1_81_.width;
 			i_82_ = 1;
 		}
-		if (i_82_ + i_85_ >= class107_sub1_81_.anInt1030) {
-			final int i_90_ = i_82_ + i_85_ + 1 - class107_sub1_81_.anInt1030;
+		if (i_82_ + i_85_ >= class107_sub1_81_.height) {
+			final int i_90_ = i_82_ + i_85_ + 1 - class107_sub1_81_.height;
 			i_85_ -= i_90_;
 		}
 		if (i <= 0) {
@@ -260,36 +260,36 @@ final class Class47 {
 			i_87_ += i_91_;
 			i = 1;
 		}
-		if (i + i_86_ >= class107_sub1_81_.anInt1026) {
-			final int i_92_ = i + i_86_ + 1 - class107_sub1_81_.anInt1026;
+		if (i + i_86_ >= class107_sub1_81_.width) {
+			final int i_92_ = i + i_86_ + 1 - class107_sub1_81_.width;
 			i_86_ -= i_92_;
 			i_88_ += i_92_;
 			i_87_ += i_92_;
 		}
 		if (i_86_ > 0 && i_85_ > 0) {
-			method386(class107_sub1_81_.aByteArray2306, class107_sub1.aByteArray2306, i_84_, i_83_, i_86_, i_85_, i_87_, i_88_);
+			method386(class107_sub1_81_.paletteIndicators, class107_sub1.paletteIndicators, i_84_, i_83_, i_86_, i_85_, i_87_, i_88_);
 			method397(i, i_82_, i_86_, i_85_);
 		}
 	}
 
-	private static final void method396(final Class107_Sub1 class107_sub1, final Class107_Sub1 class107_sub1_93_, int i, int i_94_) {
-		i += class107_sub1.anInt1020;
-		i_94_ += class107_sub1.anInt1021;
-		int i_95_ = i + i_94_ * class107_sub1_93_.anInt1026;
+	private static final void method396(final LDIndexedSprite class107_sub1, final LDIndexedSprite class107_sub1_93_, int i, int i_94_) {
+		i += class107_sub1.xOffset;
+		i_94_ += class107_sub1.yOffset;
+		int i_95_ = i + i_94_ * class107_sub1_93_.width;
 		int i_96_ = 0;
-		int i_97_ = class107_sub1.anInt1030;
-		int i_98_ = class107_sub1.anInt1026;
-		int i_99_ = class107_sub1_93_.anInt1026 - i_98_;
+		int i_97_ = class107_sub1.height;
+		int i_98_ = class107_sub1.width;
+		int i_99_ = class107_sub1_93_.width - i_98_;
 		int i_100_ = 0;
 		if (i_94_ <= 0) {
 			final int i_101_ = 1 - i_94_;
 			i_97_ -= i_101_;
 			i_96_ += i_101_ * i_98_;
-			i_95_ += i_101_ * class107_sub1_93_.anInt1026;
+			i_95_ += i_101_ * class107_sub1_93_.width;
 			i_94_ = 1;
 		}
-		if (i_94_ + i_97_ >= class107_sub1_93_.anInt1030) {
-			final int i_102_ = i_94_ + i_97_ + 1 - class107_sub1_93_.anInt1030;
+		if (i_94_ + i_97_ >= class107_sub1_93_.height) {
+			final int i_102_ = i_94_ + i_97_ + 1 - class107_sub1_93_.height;
 			i_97_ -= i_102_;
 		}
 		if (i <= 0) {
@@ -301,14 +301,14 @@ final class Class47 {
 			i_99_ += i_103_;
 			i = 1;
 		}
-		if (i + i_98_ >= class107_sub1_93_.anInt1026) {
-			final int i_104_ = i + i_98_ + 1 - class107_sub1_93_.anInt1026;
+		if (i + i_98_ >= class107_sub1_93_.width) {
+			final int i_104_ = i + i_98_ + 1 - class107_sub1_93_.width;
 			i_98_ -= i_104_;
 			i_100_ += i_104_;
 			i_99_ += i_104_;
 		}
 		if (i_98_ > 0 && i_97_ > 0) {
-			method385(class107_sub1_93_.aByteArray2306, class107_sub1.aByteArray2306, i_96_, i_95_, i_98_, i_97_, i_99_, i_100_);
+			method385(class107_sub1_93_.paletteIndicators, class107_sub1.paletteIndicators, i_96_, i_95_, i_98_, i_97_, i_99_, i_100_);
 			method397(i, i_94_, i_98_, i_97_);
 		}
 	}

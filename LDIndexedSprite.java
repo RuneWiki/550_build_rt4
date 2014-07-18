@@ -2,18 +2,18 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class107_Sub1 extends Class107 {
-	int[] anIntArray2305;
-	byte[] aByteArray2306;
+final class LDIndexedSprite extends AbstractIndexedSprite {
+	int[] palette;
+	byte[] paletteIndicators;
 
 	@Override
 	final void method911(int i, int i_0_, final int i_1_) {
-		i += this.anInt1020;
-		i_0_ += this.anInt1021;
+		i += this.xOffset;
+		i_0_ += this.yOffset;
 		int i_2_ = i + i_0_ * GraphicsLD.width;
 		int i_3_ = 0;
-		int i_4_ = this.anInt1030;
-		int i_5_ = this.anInt1026;
+		int i_4_ = this.height;
+		int i_5_ = this.width;
 		int i_6_ = GraphicsLD.width - i_5_;
 		int i_7_ = 0;
 		if (i_0_ < GraphicsLD.startY) {
@@ -42,26 +42,26 @@ final class Class107_Sub1 extends Class107 {
 			i_6_ += i_10_;
 		}
 		if (i_5_ > 0 && i_4_ > 0) {
-			method922(GraphicsLD.pixels, this.aByteArray2306, this.anIntArray2305, i_3_, i_2_, i_5_, i_4_, i_6_, i_7_, i_1_);
+			method922(GraphicsLD.pixels, this.paletteIndicators, this.palette, i_3_, i_2_, i_5_, i_4_, i_6_, i_7_, i_1_);
 		}
 	}
 
 	final void method912() {
 		int i = 0;
-		int i_11_ = this.aByteArray2306.length - 7;
+		int i_11_ = this.paletteIndicators.length - 7;
 		while (i < i_11_) {
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
-			this.aByteArray2306[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
 		}
 		i_11_ += 7;
 		while (i < i_11_) {
-			this.aByteArray2306[i++] = (byte) 0;
+			this.paletteIndicators[i++] = (byte) 0;
 		}
 	}
 
@@ -109,79 +109,79 @@ final class Class107_Sub1 extends Class107 {
 	}
 
 	final void method914(final int i, final int i_24_, final int i_25_) {
-		for (int i_26_ = 0; i_26_ < this.anIntArray2305.length; i_26_++) {
-			int i_27_ = this.anIntArray2305[i_26_] >> 16 & 0xff;
+		for (int i_26_ = 0; i_26_ < this.palette.length; i_26_++) {
+			int i_27_ = this.palette[i_26_] >> 16 & 0xff;
 			i_27_ += i;
 			if (i_27_ < 0) {
 				i_27_ = 0;
 			} else if (i_27_ > 255) {
 				i_27_ = 255;
 			}
-			int i_28_ = this.anIntArray2305[i_26_] >> 8 & 0xff;
+			int i_28_ = this.palette[i_26_] >> 8 & 0xff;
 			i_28_ += i_24_;
 			if (i_28_ < 0) {
 				i_28_ = 0;
 			} else if (i_28_ > 255) {
 				i_28_ = 255;
 			}
-			int i_29_ = this.anIntArray2305[i_26_] & 0xff;
+			int i_29_ = this.palette[i_26_] & 0xff;
 			i_29_ += i_25_;
 			if (i_29_ < 0) {
 				i_29_ = 0;
 			} else if (i_29_ > 255) {
 				i_29_ = 255;
 			}
-			this.anIntArray2305[i_26_] = (i_27_ << 16) + (i_28_ << 8) + i_29_;
+			this.palette[i_26_] = (i_27_ << 16) + (i_28_ << 8) + i_29_;
 		}
 	}
 
 	final void method915() {
-		final byte[] is = new byte[this.anInt1026 * this.anInt1030];
+		final byte[] is = new byte[this.width * this.height];
 		int i = 0;
-		for (int i_30_ = this.anInt1030 - 1; i_30_ >= 0; i_30_--) {
-			for (int i_31_ = 0; i_31_ < this.anInt1026; i_31_++) {
-				is[i++] = this.aByteArray2306[i_31_ + i_30_ * this.anInt1026];
+		for (int i_30_ = this.height - 1; i_30_ >= 0; i_30_--) {
+			for (int i_31_ = 0; i_31_ < this.width; i_31_++) {
+				is[i++] = this.paletteIndicators[i_31_ + i_30_ * this.width];
 			}
 		}
-		this.aByteArray2306 = is;
-		this.anInt1021 = this.anInt1028 - this.anInt1030 - this.anInt1021;
+		this.paletteIndicators = is;
+		this.yOffset = this.trimHeight - this.height - this.yOffset;
 	}
 
 	final void method916() {
-		final byte[] is = new byte[this.anInt1026 * this.anInt1030];
+		final byte[] is = new byte[this.width * this.height];
 		int i = 0;
-		for (int i_32_ = 0; i_32_ < this.anInt1026; i_32_++) {
-			for (int i_33_ = this.anInt1030 - 1; i_33_ >= 0; i_33_--) {
-				is[i++] = this.aByteArray2306[i_32_ + i_33_ * this.anInt1026];
+		for (int i_32_ = 0; i_32_ < this.width; i_32_++) {
+			for (int i_33_ = this.height - 1; i_33_ >= 0; i_33_--) {
+				is[i++] = this.paletteIndicators[i_32_ + i_33_ * this.width];
 			}
 		}
-		this.aByteArray2306 = is;
-		int i_34_ = this.anInt1021;
-		this.anInt1021 = this.anInt1020;
-		this.anInt1020 = this.anInt1028 - this.anInt1030 - i_34_;
-		i_34_ = this.anInt1030;
-		this.anInt1030 = this.anInt1026;
-		this.anInt1026 = i_34_;
-		i_34_ = this.anInt1028;
-		this.anInt1028 = this.anInt1029;
-		this.anInt1029 = i_34_;
+		this.paletteIndicators = is;
+		int i_34_ = this.yOffset;
+		this.yOffset = this.xOffset;
+		this.xOffset = this.trimHeight - this.height - i_34_;
+		i_34_ = this.height;
+		this.height = this.width;
+		this.width = i_34_;
+		i_34_ = this.trimHeight;
+		this.trimHeight = this.trimWidth;
+		this.trimWidth = i_34_;
 	}
 
 	final void method917(int i, int i_35_, final int i_36_, final int i_37_, final int i_38_, final int i_39_) {
 		if (i_39_ != 0) {
-			i -= this.anInt1020 << 4;
-			i_35_ -= this.anInt1021 << 4;
+			i -= this.xOffset << 4;
+			i_35_ -= this.yOffset << 4;
 			final double d = (i_38_ & 0xffff) * 9.587379924285257E-5;
 			final int i_40_ = (int) Math.floor(Math.sin(d) * i_39_ + 0.5);
 			final int i_41_ = (int) Math.floor(Math.cos(d) * i_39_ + 0.5);
 			final int i_42_ = -i * i_41_ + -i_35_ * i_40_;
 			final int i_43_ = --i * i_40_ + -i_35_ * i_41_;
-			final int i_44_ = ((this.anInt1026 << 4) - i) * i_41_ + -i_35_ * i_40_;
-			final int i_45_ = -((this.anInt1026 << 4) - i) * i_40_ + -i_35_ * i_41_;
-			final int i_46_ = -i * i_41_ + ((this.anInt1030 << 4) - i_35_) * i_40_;
-			final int i_47_ = --i * i_40_ + ((this.anInt1030 << 4) - i_35_) * i_41_;
-			final int i_48_ = ((this.anInt1026 << 4) - i) * i_41_ + ((this.anInt1030 << 4) - i_35_) * i_40_;
-			final int i_49_ = -((this.anInt1026 << 4) - i) * i_40_ + ((this.anInt1030 << 4) - i_35_) * i_41_;
+			final int i_44_ = ((this.width << 4) - i) * i_41_ + -i_35_ * i_40_;
+			final int i_45_ = -((this.width << 4) - i) * i_40_ + -i_35_ * i_41_;
+			final int i_46_ = -i * i_41_ + ((this.height << 4) - i_35_) * i_40_;
+			final int i_47_ = --i * i_40_ + ((this.height << 4) - i_35_) * i_41_;
+			final int i_48_ = ((this.width << 4) - i) * i_41_ + ((this.height << 4) - i_35_) * i_40_;
+			final int i_49_ = -((this.width << 4) - i) * i_40_ + ((this.height << 4) - i_35_) * i_41_;
 			int i_50_;
 			int i_51_;
 			if (i_42_ < i_44_) {
@@ -268,9 +268,9 @@ final class Class107_Sub1 extends Class107 {
 								final int i_64_ = i_60_;
 								final int i_65_ = i_61_;
 								int i_66_ = i_51_;
-								if (i_64_ >= 0 && i_65_ >= 0 && i_64_ - (this.anInt1026 << 12) < 0 && i_65_ - (this.anInt1030 << 12) < 0) {
+								if (i_64_ >= 0 && i_65_ >= 0 && i_64_ - (this.width << 12) < 0 && i_65_ - (this.height << 12) < 0) {
 									for (/**/; i_66_ < 0; i_66_++) {
-										final int i_67_ = this.anIntArray2305[this.aByteArray2306[(i_65_ >> 12) * this.anInt1026 + (i_64_ >> 12)]];
+										final int i_67_ = this.palette[this.paletteIndicators[(i_65_ >> 12) * this.width + (i_64_ >> 12)]];
 										if (i_67_ != 0) {
 											GraphicsLD.pixels[i_63_++] = i_67_;
 										} else {
@@ -288,9 +288,9 @@ final class Class107_Sub1 extends Class107 {
 								final int i_70_ = i_60_;
 								int i_71_ = i_61_ + (i_58_ * i_56_ >> 4);
 								int i_72_ = i_51_;
-								if (i_70_ >= 0 && i_70_ - (this.anInt1026 << 12) < 0) {
+								if (i_70_ >= 0 && i_70_ - (this.width << 12) < 0) {
 									int i_73_;
-									if ((i_73_ = i_71_ - (this.anInt1030 << 12)) >= 0) {
+									if ((i_73_ = i_71_ - (this.height << 12)) >= 0) {
 										i_73_ = (i_56_ - i_73_) / i_56_;
 										i_72_ += i_73_;
 										i_71_ += i_56_ * i_73_;
@@ -300,7 +300,7 @@ final class Class107_Sub1 extends Class107 {
 										i_72_ = i_73_;
 									}
 									for (/**/; i_72_ < 0; i_72_++) {
-										final int i_74_ = this.anIntArray2305[this.aByteArray2306[(i_71_ >> 12) * this.anInt1026 + (i_70_ >> 12)]];
+										final int i_74_ = this.palette[this.paletteIndicators[(i_71_ >> 12) * this.width + (i_70_ >> 12)]];
 										if (i_74_ != 0) {
 											GraphicsLD.pixels[i_69_++] = i_74_;
 										} else {
@@ -320,7 +320,7 @@ final class Class107_Sub1 extends Class107 {
 								final int i_77_ = i_60_;
 								int i_78_ = i_61_ + (i_58_ * i_56_ >> 4);
 								int i_79_ = i_51_;
-								if (i_77_ >= 0 && i_77_ - (this.anInt1026 << 12) < 0) {
+								if (i_77_ >= 0 && i_77_ - (this.width << 12) < 0) {
 									if (i_78_ < 0) {
 										final int i_80_ = (i_56_ - 1 - i_78_) / i_56_;
 										i_79_ += i_80_;
@@ -328,11 +328,11 @@ final class Class107_Sub1 extends Class107 {
 										i_76_ += i_80_;
 									}
 									int i_81_;
-									if ((i_81_ = (1 + i_78_ - (this.anInt1030 << 12) - i_56_) / i_56_) > i_79_) {
+									if ((i_81_ = (1 + i_78_ - (this.height << 12) - i_56_) / i_56_) > i_79_) {
 										i_79_ = i_81_;
 									}
 									for (/**/; i_79_ < 0; i_79_++) {
-										final int i_82_ = this.anIntArray2305[this.aByteArray2306[(i_78_ >> 12) * this.anInt1026 + (i_77_ >> 12)]];
+										final int i_82_ = this.palette[this.paletteIndicators[(i_78_ >> 12) * this.width + (i_77_ >> 12)]];
 										if (i_82_ != 0) {
 											GraphicsLD.pixels[i_76_++] = i_82_;
 										} else {
@@ -354,9 +354,9 @@ final class Class107_Sub1 extends Class107 {
 								int i_85_ = i_60_ + (i_58_ * i_57_ >> 4);
 								final int i_86_ = i_61_;
 								int i_87_ = i_51_;
-								if (i_86_ >= 0 && i_86_ - (this.anInt1030 << 12) < 0) {
+								if (i_86_ >= 0 && i_86_ - (this.height << 12) < 0) {
 									int i_88_;
-									if ((i_88_ = i_85_ - (this.anInt1026 << 12)) >= 0) {
+									if ((i_88_ = i_85_ - (this.width << 12)) >= 0) {
 										i_88_ = (i_57_ - i_88_) / i_57_;
 										i_87_ += i_88_;
 										i_85_ += i_57_ * i_88_;
@@ -366,7 +366,7 @@ final class Class107_Sub1 extends Class107 {
 										i_87_ = i_88_;
 									}
 									for (/**/; i_87_ < 0; i_87_++) {
-										final int i_89_ = this.anIntArray2305[this.aByteArray2306[(i_86_ >> 12) * this.anInt1026 + (i_85_ >> 12)]];
+										final int i_89_ = this.palette[this.paletteIndicators[(i_86_ >> 12) * this.width + (i_85_ >> 12)]];
 										if (i_89_ != 0) {
 											GraphicsLD.pixels[i_84_++] = i_89_;
 										} else {
@@ -387,7 +387,7 @@ final class Class107_Sub1 extends Class107 {
 								int i_93_ = i_61_ + (i_58_ * i_56_ >> 4);
 								int i_94_ = i_51_;
 								int i_95_;
-								if ((i_95_ = i_92_ - (this.anInt1026 << 12)) >= 0) {
+								if ((i_95_ = i_92_ - (this.width << 12)) >= 0) {
 									i_95_ = (i_57_ - i_95_) / i_57_;
 									i_94_ += i_95_;
 									i_92_ += i_57_ * i_95_;
@@ -397,7 +397,7 @@ final class Class107_Sub1 extends Class107 {
 								if ((i_95_ = (i_92_ - i_57_) / i_57_) > i_94_) {
 									i_94_ = i_95_;
 								}
-								if ((i_95_ = i_93_ - (this.anInt1030 << 12)) >= 0) {
+								if ((i_95_ = i_93_ - (this.height << 12)) >= 0) {
 									i_95_ = (i_56_ - i_95_) / i_56_;
 									i_94_ += i_95_;
 									i_92_ += i_57_ * i_95_;
@@ -408,7 +408,7 @@ final class Class107_Sub1 extends Class107 {
 									i_94_ = i_95_;
 								}
 								for (/**/; i_94_ < 0; i_94_++) {
-									final int i_96_ = this.anIntArray2305[this.aByteArray2306[(i_93_ >> 12) * this.anInt1026 + (i_92_ >> 12)]];
+									final int i_96_ = this.palette[this.paletteIndicators[(i_93_ >> 12) * this.width + (i_92_ >> 12)]];
 									if (i_96_ != 0) {
 										GraphicsLD.pixels[i_91_++] = i_96_;
 									} else {
@@ -430,7 +430,7 @@ final class Class107_Sub1 extends Class107 {
 								int i_100_ = i_61_ + (i_58_ * i_56_ >> 4);
 								int i_101_ = i_51_;
 								int i_102_;
-								if ((i_102_ = i_99_ - (this.anInt1026 << 12)) >= 0) {
+								if ((i_102_ = i_99_ - (this.width << 12)) >= 0) {
 									i_102_ = (i_57_ - i_102_) / i_57_;
 									i_101_ += i_102_;
 									i_99_ += i_57_ * i_102_;
@@ -447,11 +447,11 @@ final class Class107_Sub1 extends Class107 {
 									i_100_ += i_56_ * i_102_;
 									i_98_ += i_102_;
 								}
-								if ((i_102_ = (1 + i_100_ - (this.anInt1030 << 12) - i_56_) / i_56_) > i_101_) {
+								if ((i_102_ = (1 + i_100_ - (this.height << 12) - i_56_) / i_56_) > i_101_) {
 									i_101_ = i_102_;
 								}
 								for (/**/; i_101_ < 0; i_101_++) {
-									final int i_103_ = this.anIntArray2305[this.aByteArray2306[(i_100_ >> 12) * this.anInt1026 + (i_99_ >> 12)]];
+									final int i_103_ = this.palette[this.paletteIndicators[(i_100_ >> 12) * this.width + (i_99_ >> 12)]];
 									if (i_103_ != 0) {
 										GraphicsLD.pixels[i_98_++] = i_103_;
 									} else {
@@ -473,7 +473,7 @@ final class Class107_Sub1 extends Class107 {
 							int i_106_ = i_60_ + (i_58_ * i_57_ >> 4);
 							final int i_107_ = i_61_;
 							int i_108_ = i_51_;
-							if (i_107_ >= 0 && i_107_ - (this.anInt1030 << 12) < 0) {
+							if (i_107_ >= 0 && i_107_ - (this.height << 12) < 0) {
 								if (i_106_ < 0) {
 									final int i_109_ = (i_57_ - 1 - i_106_) / i_57_;
 									i_108_ += i_109_;
@@ -481,11 +481,11 @@ final class Class107_Sub1 extends Class107 {
 									i_105_ += i_109_;
 								}
 								int i_110_;
-								if ((i_110_ = (1 + i_106_ - (this.anInt1026 << 12) - i_57_) / i_57_) > i_108_) {
+								if ((i_110_ = (1 + i_106_ - (this.width << 12) - i_57_) / i_57_) > i_108_) {
 									i_108_ = i_110_;
 								}
 								for (/**/; i_108_ < 0; i_108_++) {
-									final int i_111_ = this.anIntArray2305[this.aByteArray2306[(i_107_ >> 12) * this.anInt1026 + (i_106_ >> 12)]];
+									final int i_111_ = this.palette[this.paletteIndicators[(i_107_ >> 12) * this.width + (i_106_ >> 12)]];
 									if (i_111_ != 0) {
 										GraphicsLD.pixels[i_105_++] = i_111_;
 									} else {
@@ -513,10 +513,10 @@ final class Class107_Sub1 extends Class107 {
 								i_113_ += i_117_;
 							}
 							int i_118_;
-							if ((i_118_ = (1 + i_114_ - (this.anInt1026 << 12) - i_57_) / i_57_) > i_116_) {
+							if ((i_118_ = (1 + i_114_ - (this.width << 12) - i_57_) / i_57_) > i_116_) {
 								i_116_ = i_118_;
 							}
-							if ((i_118_ = i_115_ - (this.anInt1030 << 12)) >= 0) {
+							if ((i_118_ = i_115_ - (this.height << 12)) >= 0) {
 								i_118_ = (i_56_ - i_118_) / i_56_;
 								i_116_ += i_118_;
 								i_114_ += i_57_ * i_118_;
@@ -527,7 +527,7 @@ final class Class107_Sub1 extends Class107 {
 								i_116_ = i_118_;
 							}
 							for (/**/; i_116_ < 0; i_116_++) {
-								final int i_119_ = this.anIntArray2305[this.aByteArray2306[(i_115_ >> 12) * this.anInt1026 + (i_114_ >> 12)]];
+								final int i_119_ = this.palette[this.paletteIndicators[(i_115_ >> 12) * this.width + (i_114_ >> 12)]];
 								if (i_119_ != 0) {
 									GraphicsLD.pixels[i_113_++] = i_119_;
 								} else {
@@ -556,7 +556,7 @@ final class Class107_Sub1 extends Class107 {
 								i_121_ += i_125_;
 							}
 							int i_126_;
-							if ((i_126_ = (1 + i_122_ - (this.anInt1026 << 12) - i_57_) / i_57_) > i_124_) {
+							if ((i_126_ = (1 + i_122_ - (this.width << 12) - i_57_) / i_57_) > i_124_) {
 								i_124_ = i_126_;
 							}
 							if (i_123_ < 0) {
@@ -566,11 +566,11 @@ final class Class107_Sub1 extends Class107 {
 								i_123_ += i_56_ * i_126_;
 								i_121_ += i_126_;
 							}
-							if ((i_126_ = (1 + i_123_ - (this.anInt1030 << 12) - i_56_) / i_56_) > i_124_) {
+							if ((i_126_ = (1 + i_123_ - (this.height << 12) - i_56_) / i_56_) > i_124_) {
 								i_124_ = i_126_;
 							}
 							for (/**/; i_124_ < 0; i_124_++) {
-								final int i_127_ = this.anIntArray2305[this.aByteArray2306[(i_123_ >> 12) * this.anInt1026 + (i_122_ >> 12)]];
+								final int i_127_ = this.palette[this.paletteIndicators[(i_123_ >> 12) * this.width + (i_122_ >> 12)]];
 								if (i_127_ != 0) {
 									GraphicsLD.pixels[i_121_++] = i_127_;
 								} else {
@@ -591,23 +591,23 @@ final class Class107_Sub1 extends Class107 {
 	}
 
 	final void method918(int i, int i_128_, int i_129_, int i_130_) {
-		final int i_131_ = this.anInt1026;
-		final int i_132_ = this.anInt1030;
+		final int i_131_ = this.width;
+		final int i_132_ = this.height;
 		int i_133_ = 0;
 		int i_134_ = 0;
-		final int i_135_ = this.anInt1029;
-		final int i_136_ = this.anInt1028;
+		final int i_135_ = this.trimWidth;
+		final int i_136_ = this.trimHeight;
 		final int i_137_ = (i_135_ << 16) / i_129_;
 		final int i_138_ = (i_136_ << 16) / i_130_;
-		if (this.anInt1020 > 0) {
-			final int i_139_ = ((this.anInt1020 << 16) + i_137_ - 1) / i_137_;
+		if (this.xOffset > 0) {
+			final int i_139_ = ((this.xOffset << 16) + i_137_ - 1) / i_137_;
 			i += i_139_;
-			i_133_ += i_139_ * i_137_ - (this.anInt1020 << 16);
+			i_133_ += i_139_ * i_137_ - (this.xOffset << 16);
 		}
-		if (this.anInt1021 > 0) {
-			final int i_140_ = ((this.anInt1021 << 16) + i_138_ - 1) / i_138_;
+		if (this.yOffset > 0) {
+			final int i_140_ = ((this.yOffset << 16) + i_138_ - 1) / i_138_;
 			i_128_ += i_140_;
-			i_134_ += i_140_ * i_138_ - (this.anInt1021 << 16);
+			i_134_ += i_140_ * i_138_ - (this.yOffset << 16);
 		}
 		if (i_131_ < i_135_) {
 			i_129_ = ((i_131_ << 16) - i_133_ + i_137_ - 1) / i_137_;
@@ -638,27 +638,27 @@ final class Class107_Sub1 extends Class107 {
 			i_133_ += i_137_ * i_145_;
 			i_142_ += i_145_;
 		}
-		method920(GraphicsLD.pixels, this.aByteArray2306, this.anIntArray2305, i_133_, i_134_, i_141_, i_142_, i_129_, i_130_, i_137_, i_138_, i_131_);
+		method920(GraphicsLD.pixels, this.paletteIndicators, this.palette, i_133_, i_134_, i_141_, i_142_, i_129_, i_130_, i_137_, i_138_, i_131_);
 	}
 
 	final void method919(int i, int i_146_, int i_147_, int i_148_, final int i_149_) {
-		final int i_150_ = this.anInt1026;
-		final int i_151_ = this.anInt1030;
+		final int i_150_ = this.width;
+		final int i_151_ = this.height;
 		int i_152_ = 0;
 		int i_153_ = 0;
-		final int i_154_ = this.anInt1029;
-		final int i_155_ = this.anInt1028;
+		final int i_154_ = this.trimWidth;
+		final int i_155_ = this.trimHeight;
 		final int i_156_ = (i_154_ << 16) / i_147_;
 		final int i_157_ = (i_155_ << 16) / i_148_;
-		if (this.anInt1020 > 0) {
-			final int i_158_ = ((this.anInt1020 << 16) + i_156_ - 1) / i_156_;
+		if (this.xOffset > 0) {
+			final int i_158_ = ((this.xOffset << 16) + i_156_ - 1) / i_156_;
 			i += i_158_;
-			i_152_ += i_158_ * i_156_ - (this.anInt1020 << 16);
+			i_152_ += i_158_ * i_156_ - (this.xOffset << 16);
 		}
-		if (this.anInt1021 > 0) {
-			final int i_159_ = ((this.anInt1021 << 16) + i_157_ - 1) / i_157_;
+		if (this.yOffset > 0) {
+			final int i_159_ = ((this.yOffset << 16) + i_157_ - 1) / i_157_;
 			i_146_ += i_159_;
-			i_153_ += i_159_ * i_157_ - (this.anInt1021 << 16);
+			i_153_ += i_159_ * i_157_ - (this.yOffset << 16);
 		}
 		if (i_150_ < i_154_) {
 			i_147_ = ((i_150_ << 16) - i_152_ + i_156_ - 1) / i_156_;
@@ -689,7 +689,7 @@ final class Class107_Sub1 extends Class107 {
 			i_152_ += i_156_ * i_164_;
 			i_161_ += i_164_;
 		}
-		method921(GraphicsLD.pixels, this.aByteArray2306, this.anIntArray2305, i_152_, i_153_, i_160_, i_161_, i_147_, i_148_, i_156_, i_157_, i_150_, i_149_);
+		method921(GraphicsLD.pixels, this.paletteIndicators, this.palette, i_152_, i_153_, i_160_, i_161_, i_147_, i_148_, i_156_, i_157_, i_150_, i_149_);
 	}
 
 	private static final void method920(final int[] is, final byte[] is_165_, final int[] is_166_, int i, int i_167_, int i_168_, final int i_169_, final int i_170_, final int i_171_, final int i_172_, final int i_173_, final int i_174_) {
@@ -711,15 +711,15 @@ final class Class107_Sub1 extends Class107 {
 		}
 	}
 
-	Class107_Sub1(final int i, final int i_180_, final int i_181_, final int i_182_, final int i_183_, final int i_184_, final byte[] is, final int[] is_185_) {
-		this.anInt1029 = i;
-		this.anInt1028 = i_180_;
-		this.anInt1020 = i_181_;
-		this.anInt1021 = i_182_;
-		this.anInt1026 = i_183_;
-		this.anInt1030 = i_184_;
-		this.aByteArray2306 = is;
-		this.anIntArray2305 = is_185_;
+	LDIndexedSprite(final int i, final int i_180_, final int i_181_, final int i_182_, final int i_183_, final int i_184_, final byte[] is, final int[] is_185_) {
+		this.trimWidth = i;
+		this.trimHeight = i_180_;
+		this.xOffset = i_181_;
+		this.yOffset = i_182_;
+		this.width = i_183_;
+		this.height = i_184_;
+		this.paletteIndicators = is;
+		this.palette = is_185_;
 	}
 
 	private static final void method921(final int[] is, final byte[] is_186_, final int[] is_187_, int i, int i_188_, int i_189_, final int i_190_, final int i_191_, final int i_192_, final int i_193_, final int i_194_, final int i_195_, final int i_196_) {
@@ -766,22 +766,22 @@ final class Class107_Sub1 extends Class107 {
 		}
 	}
 
-	Class107_Sub1(final int i, final int i_221_, final int i_222_) {
-		this.anInt1029 = this.anInt1026 = i;
-		this.anInt1028 = this.anInt1030 = i_221_;
-		this.anInt1020 = this.anInt1021 = 0;
-		this.aByteArray2306 = new byte[i * i_221_];
-		this.anIntArray2305 = new int[i_222_];
+	LDIndexedSprite(final int i, final int i_221_, final int i_222_) {
+		this.trimWidth = this.width = i;
+		this.trimHeight = this.height = i_221_;
+		this.xOffset = this.yOffset = 0;
+		this.paletteIndicators = new byte[i * i_221_];
+		this.palette = new int[i_222_];
 	}
 
 	@Override
 	final void method910(int i, int i_223_) {
-		i += this.anInt1020;
-		i_223_ += this.anInt1021;
+		i += this.xOffset;
+		i_223_ += this.yOffset;
 		int i_224_ = i + i_223_ * GraphicsLD.width;
 		int i_225_ = 0;
-		int i_226_ = this.anInt1030;
-		int i_227_ = this.anInt1026;
+		int i_226_ = this.height;
+		int i_227_ = this.width;
 		int i_228_ = GraphicsLD.width - i_227_;
 		int i_229_ = 0;
 		if (i_223_ < GraphicsLD.startY) {
@@ -810,24 +810,24 @@ final class Class107_Sub1 extends Class107 {
 			i_228_ += i_232_;
 		}
 		if (i_227_ > 0 && i_226_ > 0) {
-			method913(GraphicsLD.pixels, this.aByteArray2306, this.anIntArray2305, 0, i_225_, i_224_, i_227_, i_226_, i_228_, i_229_);
+			method913(GraphicsLD.pixels, this.paletteIndicators, this.palette, 0, i_225_, i_224_, i_227_, i_226_, i_228_, i_229_);
 		}
 	}
 
 	final void method923() {
-		if (this.anInt1026 != this.anInt1029 || this.anInt1030 != this.anInt1028) {
-			final byte[] is = new byte[this.anInt1029 * this.anInt1028];
+		if (this.width != this.trimWidth || this.height != this.trimHeight) {
+			final byte[] is = new byte[this.trimWidth * this.trimHeight];
 			int i = 0;
-			for (int i_233_ = 0; i_233_ < this.anInt1030; i_233_++) {
-				for (int i_234_ = 0; i_234_ < this.anInt1026; i_234_++) {
-					is[i_234_ + this.anInt1020 + (i_233_ + this.anInt1021) * this.anInt1029] = this.aByteArray2306[i++];
+			for (int i_233_ = 0; i_233_ < this.height; i_233_++) {
+				for (int i_234_ = 0; i_234_ < this.width; i_234_++) {
+					is[i_234_ + this.xOffset + (i_233_ + this.yOffset) * this.trimWidth] = this.paletteIndicators[i++];
 				}
 			}
-			this.aByteArray2306 = is;
-			this.anInt1026 = this.anInt1029;
-			this.anInt1030 = this.anInt1028;
-			this.anInt1020 = 0;
-			this.anInt1021 = 0;
+			this.paletteIndicators = is;
+			this.width = this.trimWidth;
+			this.height = this.trimHeight;
+			this.xOffset = 0;
+			this.yOffset = 0;
 		}
 	}
 
@@ -835,11 +835,11 @@ final class Class107_Sub1 extends Class107 {
 		if (GraphicsLD.endY - GraphicsLD.startY != is.length) {
 			throw new IllegalStateException();
 		}
-		i += this.anInt1020;
-		i_235_ += this.anInt1021;
+		i += this.xOffset;
+		i_235_ += this.yOffset;
 		int i_237_ = 0;
-		int i_238_ = this.anInt1030;
-		int i_239_ = this.anInt1026;
+		int i_238_ = this.height;
+		int i_239_ = this.width;
 		int i_240_ = GraphicsLD.width - i_239_;
 		int i_241_ = 0;
 		int i_242_ = i + i_235_ * GraphicsLD.width;
@@ -902,7 +902,7 @@ final class Class107_Sub1 extends Class107 {
 					i_254_ = i_251_ - i_250_;
 				}
 				for (int i_255_ = -i_250_; i_255_ < 0; i_255_++) {
-					final int i_256_ = this.anIntArray2305[this.aByteArray2306[i_237_++]];
+					final int i_256_ = this.palette[this.paletteIndicators[i_237_++]];
 					if (i_256_ != 0) {
 						GraphicsLD.pixels[i_242_++] = i_256_;
 					} else {

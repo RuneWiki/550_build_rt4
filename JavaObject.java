@@ -20,23 +20,23 @@ final class JavaObject extends AbstractObject {
 				anIntArray3916 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ei.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ei.F(").append(i).append(')').toString());
 		}
 	}
 
-	static final int method1434(final Class50 class50, final int i) {
+	static final int method1434(final js5 js5, final int i) {
 		int i_0_;
 		try {
 			int i_1_ = i;
-			if (class50.method429(Class120_Sub14_Sub16.anInt3589)) {
+			if (js5.method429(StructType.titlebgId)) {
 				i_1_++;
 			}
-			if (class50.method429(Class108_Sub1.anInt2328)) {
+			if (js5.method429(Class108_Sub1.logoId)) {
 				i_1_++;
 			}
 			i_0_ = i_1_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ei.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ei.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return i_0_;
 	}
@@ -69,8 +69,8 @@ final class JavaObject extends AbstractObject {
 				if (i_2_ < Class120_Sub12_Sub7.anInt3183) {
 					i_2_ = Class120_Sub12_Sub7.anInt3183;
 				}
-				if (Class120_Sub12_Sub4.aClass189_3156.anInt1948 + i_2_ > Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183) {
-					i_2_ = Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.aClass189_3156.anInt1948;
+				if (Class120_Sub12_Sub4.aClass189_3156.width + i_2_ > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
+					i_2_ = Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.aClass189_3156.width;
 				}
 				int i_3_ = Class191.lastMouseY;
 				i_3_ -= client.anInt2203;
@@ -78,8 +78,8 @@ final class JavaObject extends AbstractObject {
 					i_3_ = Class120_Sub12_Sub35.anInt3413;
 				}
 				final int i_4_ = i_2_ + -Class120_Sub12_Sub17.anInt3264;
-				if (Class120_Sub12_Sub4.aClass189_3156.anInt2059 + i_3_ > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.anInt2059) {
-					i_3_ = Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.anInt2059 + -Class120_Sub12_Sub4.aClass189_3156.anInt2059;
+				if (Class120_Sub12_Sub4.aClass189_3156.height + i_3_ > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
+					i_3_ = Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height + -Class120_Sub12_Sub4.aClass189_3156.height;
 				}
 				final int i_5_ = i_3_ - Class9.anInt77;
 				final int i_6_ = Class120_Sub12_Sub4.aClass189_3156.anInt1962;
@@ -89,16 +89,16 @@ final class JavaObject extends AbstractObject {
 				final int i_7_ = Class26.aClass189_161.verticalScrollPosition + i_2_ - Class120_Sub12_Sub7.anInt3183;
 				final int i_8_ = -Class120_Sub12_Sub35.anInt3413 + i_3_ - -Class26.aClass189_161.horizontalScrollPosition;
 				if (Class120_Sub12_Sub4.aClass189_3156.anObjectArray1959 != null && Class120_Sub11.aBoolean2551) {
-					final Class120_Sub10 class120_sub10 = new Class120_Sub10();
+					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.anInt2540 = i_8_;
 					class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.aClass189_3156;
 					class120_sub10.anInt2543 = i_7_;
-					class120_sub10.anObjectArray2537 = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1959;
+					class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1959;
 					Class88.method744(true, class120_sub10);
 				}
 				if (InterfaceChangeNode.lastMousePress == 0) {
 					if (!Class120_Sub11.aBoolean2551) {
-						if (Class69.anInt617 != 1 && !Class120_Sub14_Sub4.method1438(i ^ ~0x1, -1 + Class186.menuOptionCount) || Class186.menuOptionCount <= 2) {
+						if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(i ^ ~0x1, -1 + Class186.menuOptionCount) || Class186.menuOptionCount <= 2) {
 							if (Class186.menuOptionCount > 0) {
 								Class191.method2508((byte) -99);
 							}
@@ -107,20 +107,20 @@ final class JavaObject extends AbstractObject {
 						}
 					} else {
 						if (Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947 != null) {
-							final Class120_Sub10 class120_sub10 = new Class120_Sub10();
+							final InterfaceListener class120_sub10 = new InterfaceListener();
 							class120_sub10.aClass189_2532 = LocType.aClass189_1818;
 							class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.aClass189_3156;
 							class120_sub10.anInt2543 = i_7_;
 							class120_sub10.anInt2540 = i_8_;
-							class120_sub10.anObjectArray2537 = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947;
+							class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947;
 							Class88.method744(true, class120_sub10);
 						}
 						if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(0);
 							Class120_Sub12_Sub11.outputStream.putLEInt(Class120_Sub12_Sub4.aClass189_3156.bitPacked);
 							Class120_Sub12_Sub11.outputStream.putInt2(LocType.aClass189_1818.bitPacked);
-							Class120_Sub12_Sub11.outputStream.putShortA(LocType.aClass189_1818.anInt2083);
-							Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.anInt2083);
+							Class120_Sub12_Sub11.outputStream.putShortA(LocType.aClass189_1818.componentIndex);
+							Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub12_Sub4.aClass189_3156.componentIndex);
 						}
 					}
 					Class120_Sub12_Sub4.aClass189_3156 = null;
@@ -130,7 +130,7 @@ final class JavaObject extends AbstractObject {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ei.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ei.G(").append(i).append(')').toString());
 		}
 	}
 }

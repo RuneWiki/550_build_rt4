@@ -4,7 +4,7 @@
 
 final class IsaacCipher {
 	private int anInt1010;
-	static Class50 aClass50_1011;
+	static js5 aClass50_1011;
 	private int anInt1012;
 	static int crossY = 0;
 	private int anInt1014;
@@ -12,9 +12,9 @@ final class IsaacCipher {
 	private int anInt1016;
 	private final int[] anIntArray1017;
 	private final int[] anIntArray1018 = new int[256];
-	static Class50 aClass50_1019;
+	static js5 aClass50_1019;
 
-	static final void method900(final int i, final Class50 class50) {
+	static final void method900(final int i, final js5 js5) {
 		try {
 			if (!Class101_Sub3.aBoolean2291 && i > 50) {
 				if (!HDToolkit.glEnabled) {
@@ -22,16 +22,16 @@ final class IsaacCipher {
 				} else {
 					GraphicsHD.method599();
 				}
-				KeyboardHandler.aClass120_Sub14_Sub19_1508 = Class26.method229(-1, Class120_Sub14_Sub16.anInt3589, class50);
+				KeyboardHandler.aClass120_Sub14_Sub19_1508 = Class26.method229(-1, StructType.titlebgId, js5);
 				final int i_0_ = Class120_Sub12_Sub5.canvasHeight;
 				final int i_1_ = 956 * i_0_ / 503;
 				KeyboardHandler.aClass120_Sub14_Sub19_1508.method1588((-i_1_ + Class69_Sub1.canvasWidth) / 2, 0, i_1_, i_0_);
-				Class120_Sub12_Sub27.aClass107_3354 = Class153.method2069(26494, class50, Class108_Sub1.anInt2328);
-				Class120_Sub12_Sub27.aClass107_3354.method910(-(Class120_Sub12_Sub27.aClass107_3354.anInt1026 / 2) + Class69_Sub1.canvasWidth / 2, 18);
+				Class120_Sub12_Sub27.aClass107_3354 = Class153.createIndexedSprite(js5, Class108_Sub1.logoId);
+				Class120_Sub12_Sub27.aClass107_3354.method910(-(Class120_Sub12_Sub27.aClass107_3354.width / 2) + Class69_Sub1.canvasWidth / 2, 18);
 				Class101_Sub3.aBoolean2291 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.D(").append(i).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.D(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -161,7 +161,7 @@ final class IsaacCipher {
 				anInt1010 = 256;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -174,7 +174,7 @@ final class IsaacCipher {
 			aClass50_1011 = null;
 			aClass50_1019 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.F(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.F(").append(i).append(')').toString());
 		}
 	}
 
@@ -195,10 +195,10 @@ final class IsaacCipher {
 		method901(1);
 	}
 
-	static final LDSprite method904(final Class50 class50, final int i, final byte i_12_) {
+	static final LDSprite method904(final js5 js5, final int i, final byte i_12_) {
 		LDSprite class120_sub14_sub19_sub2;
 		try {
-			if (!ObjType.method2113(class50, -5, i)) {
+			if (!ObjType.method2113(js5, i)) {
 				return null;
 			}
 			if (i_12_ != 118) {
@@ -206,7 +206,7 @@ final class IsaacCipher {
 			}
 			class120_sub14_sub19_sub2 = Class85.method722();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.E(").append(class50 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_12_).append(')').toString());
 		}
 		return class120_sub14_sub19_sub2;
 	}
@@ -221,7 +221,7 @@ final class IsaacCipher {
 				Class180_Sub6.anIntArray3075 = new int[i_13_];
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.G(").append(i).append(',').append(i_13_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.G(").append(i).append(',').append(i_13_).append(')').toString());
 		}
 	}
 
@@ -247,7 +247,7 @@ final class IsaacCipher {
 				anIntArray1017[i_14_] = anInt1014 = anIntArray1018[Class120_Sub12_Sub3.method1207(255, i_16_ >> 8 >> 2)] - -i_15_;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -264,7 +264,7 @@ final class IsaacCipher {
 			}
 			l = l_18_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("m.B(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("m.B(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return l;
 	}

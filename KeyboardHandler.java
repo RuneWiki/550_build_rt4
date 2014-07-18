@@ -23,7 +23,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 			aClass120_Sub14_Sub19_1508 = null;
 			aClass21_1504 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tb.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -34,7 +34,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 				Class180_Sub6.anInt3074 = -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tb.focusLost(").append(focusevent != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.focusLost(").append(focusevent != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -49,7 +49,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 				final char c = keyevent.getKeyChar();
 				if (c != '\0' && '\uffff' != c && Class143.method2019(c, -1)) {
 					final int i = 0x7f & Class120_Sub28.anInt2762 + 1;
-					if (i != Class141.anInt1357) {
+					if (i != PlainTile.anInt1357) {
 						Class120_Sub12_Sub8.anIntArray3187[Class120_Sub28.anInt2762] = -1;
 						Class134.aCharArray1286[Class120_Sub28.anInt2762] = c;
 						Class120_Sub28.anInt2762 = i;
@@ -58,7 +58,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 			}
 			keyevent.consume();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tb.keyTyped(").append(keyevent != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.keyTyped(").append(keyevent != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -90,7 +90,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 				}
 				if (i >= 0) {
 					final int i_0_ = 1 + Class120_Sub28.anInt2762 & 0x7f;
-					if (i_0_ != Class141.anInt1357) {
+					if (i_0_ != PlainTile.anInt1357) {
 						Class120_Sub12_Sub8.anIntArray3187[Class120_Sub28.anInt2762] = i;
 						Class134.aCharArray1286[Class120_Sub28.anInt2762] = '\0';
 						Class120_Sub28.anInt2762 = i_0_;
@@ -102,7 +102,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tb.keyPressed(").append(keyevent != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.keyPressed(").append(keyevent != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -127,7 +127,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 			}
 			keyevent.consume();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("tb.keyReleased(").append(keyevent != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.keyReleased(").append(keyevent != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 }

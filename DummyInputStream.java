@@ -31,7 +31,7 @@ final class DummyInputStream extends InputStream {
 		Class110.method976(-7603);
 		Class173.method2225();
 		for (int i = 0; i < 4; i++) {
-			Class182.aClass25Array1802[i].method225(11736);
+			Class182.collisionMaps[i].method225(11736);
 		}
 		Class120_Sub30_Sub1.method1739(false, (byte) -93);
 		System.gc();
@@ -59,16 +59,16 @@ final class DummyInputStream extends InputStream {
 		for (int i = 0; i < 4; i++) {
 			for (int i_1_ = 0; i_1_ < 104; i_1_++) {
 				for (int i_2_ = 0; i_2_ < 104; i_2_++) {
-					Class120_Sub14_Sub12.groundObjects[i][i_1_][i_2_] = null;
+					ClientScript.groundObjects[i][i_1_][i_2_] = null;
 				}
 			}
 		}
 		SpotAnimType.method876((byte) 120);
-		Class120_Sub14_Sub20.interfaceCounter = 0;
+		Class120_Sub14_Sub20.packetCounter = 0;
 		Class33.method275((byte) -5);
-		Class120_Sub14_Sub2.method1421(true);
+		EnumType.method1421(true);
 		try {
-			Class77.method666(NpcType.gameSignlink.gameApplet, "loggedout");
+			JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedout");
 		} catch (final Throwable throwable) {
 		}
 	}
@@ -87,7 +87,7 @@ final class DummyInputStream extends InputStream {
 				aString25 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ia.B(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ia.B(").append(bool).append(')').toString());
 		}
 	}
 
@@ -139,11 +139,11 @@ final class DummyInputStream extends InputStream {
 						break;
 					}
 					String string_10_ = "";
-					if (Class120_Sub1.aClass185_2403 != null) {
-						if (Class120_Sub1.aClass185_2403.value != null) {
-							string_10_ = (String) Class120_Sub1.aClass185_2403.value;
+					if (LabelGroup.aClass185_2403 != null) {
+						if (LabelGroup.aClass185_2403.value != null) {
+							string_10_ = (String) LabelGroup.aClass185_2403.value;
 						} else {
-							string_10_ = Class125.method1879((byte) 39, Class120_Sub1.aClass185_2403.integerData);
+							string_10_ = Class125.method1879((byte) 39, LabelGroup.aClass185_2403.integerData);
 						}
 					}
 					string = new StringBuilder(string.substring(0, i_9_)).append(string_10_).append(string.substring(i_9_ + 4)).toString();
@@ -151,7 +151,7 @@ final class DummyInputStream extends InputStream {
 			}
 			string_3_ = string;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ia.C(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ia.C(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 		return string_3_;
 	}

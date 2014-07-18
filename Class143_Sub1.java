@@ -7,9 +7,9 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	private boolean aBoolean2191 = false;
 	static String aString2192 = "Your ignore list is full. Max of 100 users.";
 	private Class35 aClass35_2193;
-	private final Class50 aClass50_2194;
+	private final js5 aClass50_2194;
 	static int[][][] anIntArrayArrayArray2195 = new int[2][][];
-	private Class50 aClass50_2196;
+	private js5 aClass50_2196;
 	static int anInt2197;
 	private Class35 aClass35_2198;
 
@@ -34,7 +34,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			i_1_ = method8(i, (byte) -17).aByte1102 & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.I(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.I(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return i_1_;
 	}
@@ -48,7 +48,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			bool = method8(i, (byte) 126).aBoolean1096;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.V(").append(i).append(',').append(i_2_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.V(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 		return bool;
 	}
@@ -65,7 +65,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.N(").append(i).append(',').append(i_3_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.N(").append(i).append(',').append(i_3_).append(')').toString());
 		}
 	}
 
@@ -78,7 +78,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			bool = !method8(i, (byte) 124).aBoolean1108;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.CA(").append(i).append(',').append(i_4_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.CA(").append(i).append(',').append(i_4_).append(')').toString());
 		}
 		return bool;
 	}
@@ -89,7 +89,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		try {
 			i_6_ = method8(i, (byte) -77).aByte1104 & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.T(").append(i).append(',').append(i_5_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.T(").append(i).append(',').append(i_5_).append(')').toString());
 		}
 		return i_6_;
 	}
@@ -104,7 +104,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			is = class120_sub14_sub17.method1570(this, aClass50_2196, aBoolean2191 || method8(i, (byte) 108).aBoolean1100);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.E(").append(i).append(',').append(i_7_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.E(").append(i).append(',').append(i_7_).append(')').toString());
 		}
 		return is;
 	}
@@ -115,7 +115,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (i_8_ != 25248) {
 				return null;
 			}
-			Class120_Sub14_Sub17 class120_sub14_sub17_9_ = (Class120_Sub14_Sub17) aClass35_2198.method302(17301, i);
+			Class120_Sub14_Sub17 class120_sub14_sub17_9_ = (Class120_Sub14_Sub17) aClass35_2198.get(i);
 			if (class120_sub14_sub17_9_ != null) {
 				return class120_sub14_sub17_9_;
 			}
@@ -124,10 +124,10 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				return null;
 			}
 			class120_sub14_sub17_9_ = new Class120_Sub14_Sub17(new Buffer(is));
-			aClass35_2198.method301(i, 45, class120_sub14_sub17_9_);
+			aClass35_2198.put(class120_sub14_sub17_9_, i);
 			class120_sub14_sub17 = class120_sub14_sub17_9_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.G(").append(i).append(',').append(i_8_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.G(").append(i).append(',').append(i_8_).append(')').toString());
 		}
 		return class120_sub14_sub17;
 	}
@@ -148,7 +148,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			class120_sub14_sub19_sub2_sub1 = class120_sub14_sub17.aClass120_Sub14_Sub13_3602.method1530(i, this, aClass50_2196, -127, f, i, false);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.J(").append(bool).append(',').append(f).append(',').append(bool_10_).append(',').append(i).append(',').append(i_11_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.J(").append(bool).append(',').append(f).append(',').append(bool_10_).append(',').append(i).append(',').append(i_11_).append(')').toString());
 		}
 		return class120_sub14_sub19_sub2_sub1;
 	}
@@ -165,7 +165,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			bool = false;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.R(").append(i).append(',').append(i_12_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.R(").append(i).append(',').append(i_12_).append(')').toString());
 		}
 		return bool;
 	}
@@ -178,7 +178,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			Class120_Sub14_Sub17.anIntArray3596 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.AA(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.AA(").append(i).append(')').toString());
 		}
 	}
 
@@ -189,14 +189,14 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				return null;
 			}
 			do {
-				if (is.length > i && !Class120_Sub8.aBoolean2484) {
+				if (is.length > i && !AmbientSound.aBoolean2484) {
 					Class66 class66;
 					try {
 						final Class66 class66_14_ = (Class66) Class.forName("Class66_Sub1").newInstance();
 						class66_14_.method581(0, is);
 						class66 = class66_14_;
 					} catch (final Throwable throwable) {
-						Class120_Sub8.aBoolean2484 = true;
+						AmbientSound.aBoolean2484 = true;
 						break;
 					}
 					return class66;
@@ -205,9 +205,9 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (!bool) {
 				return is;
 			}
-			is_13_ = ObjectPile.method2448(is, 112);
+			is_13_ = ObjectPile.method2448(is);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.F(").append(is != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.F(").append(is != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
 		}
 		return is_13_;
 	}
@@ -221,7 +221,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			i_16_ = method8(i, (byte) 118).aShort1106 & 0xffff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.HA(").append(i).append(',').append(i_15_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.HA(").append(i).append(',').append(i_15_).append(')').toString());
 		}
 		return i_16_;
 	}
@@ -239,7 +239,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			bool_17_ = class120_sub14_sub17.method1575(this, aClass50_2196);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.H(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.H(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return bool_17_;
 	}
@@ -262,7 +262,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.S(").append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.S(").append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(')').toString());
 		}
 	}
 
@@ -278,7 +278,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.M(").append(i).append(',').append(i_27_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.M(").append(i).append(',').append(i_27_).append(')').toString());
 		}
 	}
 
@@ -291,17 +291,17 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			bool = method8(i_28_, (byte) 115).aBoolean1101;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.Q(").append(i).append(',').append(i_28_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.Q(").append(i).append(',').append(i_28_).append(')').toString());
 		}
 		return bool;
 	}
 
-	Class143_Sub1(final Class50 class50, final Class50 class50_29_, final Class50 class50_30_, final int i, final boolean bool) {
-		super(class50_29_, class50, class50_30_);
+	Class143_Sub1(final js5 js5, final js5 class50_29_, final js5 class50_30_, final int i, final boolean bool) {
+		super(class50_29_, js5, class50_30_);
 		anInt2190 = 50;
 		anInt2190 = i;
 		aClass50_2196 = class50_30_;
-		aClass50_2194 = class50;
+		aClass50_2194 = js5;
 		aBoolean2191 = bool;
 		aClass35_2198 = new Class35(anInt2190);
 		if (!HDToolkit.glEnabled) {
@@ -328,7 +328,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				class120_sub14_sub15.method1559(1);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.K(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.K(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());
 		}
 	}
 
@@ -341,39 +341,39 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			i_34_ = method8(i_33_, (byte) 113).aByte1105 & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.BA(").append(i).append(',').append(i_33_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.BA(").append(i).append(',').append(i_33_).append(')').toString());
 		}
 		return i_34_;
 	}
 
-	static final int method2029(final Class50 class50, final Class50 class50_35_, final int i) {
+	static final int method2029(final js5 js5, final js5 class50_35_, final int i) {
 		int i_36_;
 		try {
 			int i_37_ = 0;
-			if (class50_35_.method429(Class32.anInt270)) {
+			if (class50_35_.method429(Class32.p11fullId)) {
 				i_37_++;
 			}
-			if (class50_35_.method429(Class191.anInt2115)) {
+			if (class50_35_.method429(Class191.p12fullId)) {
 				i_37_++;
 			}
-			if (class50_35_.method429(Class110.anInt1051)) {
+			if (class50_35_.method429(Class110.b12fullId)) {
 				i_37_++;
 			}
-			if (class50.method429(Class32.anInt270)) {
+			if (js5.method429(Class32.p11fullId)) {
 				i_37_++;
 			}
-			if (class50.method429(Class191.anInt2115)) {
+			if (js5.method429(Class191.p12fullId)) {
 				i_37_++;
 			}
 			if (i != -23185) {
 				return -119;
 			}
-			if (class50.method429(Class110.anInt1051)) {
+			if (js5.method429(Class110.b12fullId)) {
 				i_37_++;
 			}
 			i_36_ = i_37_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.P(").append(class50 != null ? "{...}" : "null").append(',').append(class50_35_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.P(").append(js5 != null ? "{...}" : "null").append(',').append(class50_35_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return i_36_;
 	}
@@ -388,7 +388,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			final Class120_Sub14_Sub17 class120_sub14_sub17 = method2024(i, 25248);
 			class120_sub14_sub13 = class120_sub14_sub17 == null ? null : class120_sub14_sub17.aClass120_Sub14_Sub13_3602;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.O(").append(i).append(',').append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.O(").append(i).append(',').append(bool).append(')').toString());
 		}
 		return class120_sub14_sub13;
 	}
@@ -396,18 +396,18 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	private final Class120_Sub14_Sub15 method2030(final int i, final int i_38_) {
 		Class120_Sub14_Sub15 class120_sub14_sub15;
 		try {
-			Class120_Sub14_Sub15 class120_sub14_sub15_39_ = (Class120_Sub14_Sub15) aClass35_2193.method302(17301, i_38_);
+			Class120_Sub14_Sub15 class120_sub14_sub15_39_ = (Class120_Sub14_Sub15) aClass35_2193.get(i_38_);
 			if (class120_sub14_sub15_39_ != null) {
 				return class120_sub14_sub15_39_;
 			}
 			class120_sub14_sub15_39_ = new Class120_Sub14_Sub15(method8(i_38_, (byte) -69).aShort1106 & 0xffff);
-			aClass35_2193.method301(i_38_, 103, class120_sub14_sub15_39_);
+			aClass35_2193.put(class120_sub14_sub15_39_, i_38_);
 			if (i != -926489461) {
 				return null;
 			}
 			class120_sub14_sub15 = class120_sub14_sub15_39_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.W(").append(i).append(',').append(i_38_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.W(").append(i).append(',').append(i_38_).append(')').toString());
 		}
 		return class120_sub14_sub15;
 	}
@@ -420,7 +420,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				aClass50_2196 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.U(").append(i).append(',').append(i_40_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.U(").append(i).append(',').append(i_40_).append(')').toString());
 		}
 	}
 
@@ -432,7 +432,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				anInt2197 = -77;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -450,7 +450,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			class120_sub14_sub17.aBoolean3604 = true;
 			is = class120_sub14_sub17.method1572(this, aClass50_2196, f, aBoolean2191 || method8(i_41_, (byte) 110).aBoolean1100);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.L(").append(f).append(',').append(i).append(',').append(i_41_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.L(").append(f).append(',').append(i).append(',').append(i_41_).append(')').toString());
 		}
 		return is;
 	}
@@ -464,60 +464,53 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			i_43_ = method8(i, (byte) -40).aByte1103 & 0xff;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.GA(").append(i).append(',').append(i_42_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("c.GA(").append(i).append(',').append(i_42_).append(')').toString());
 		}
 		return i_43_;
 	}
 
-	static final void method2032(final JagexInterface jagexInterface, final int i) {
-		try {
-			final int i_44_ = jagexInterface.clientCode;
-			if (i_44_ == 324) {
-				if ((Class120_Sub12_Sub15.anInt3241 ^ 0xffffffff) == 0) {
-					Class169.anInt1643 = jagexInterface.enabledSprite;
-					Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSprite;
+	static final void method2032(final JagexInterface jagexInterface) {
+		final int i_44_ = jagexInterface.clientCode;
+		if (i_44_ == 324) {
+			if (Class120_Sub12_Sub15.anInt3241 == -1) {
+				Class169.anInt1643 = jagexInterface.enabledSpriteId;
+				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
+			}
+			if (!Class26.aClass144_159.aBoolean1371) {
+				jagexInterface.disabledSpriteId = Class169.anInt1643;
+			} else {
+				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
+			}
+		} else {
+			if (i_44_ == 325) {
+				if (Class120_Sub12_Sub15.anInt3241 == -1) {
+					Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
+					Class169.anInt1643 = jagexInterface.enabledSpriteId;
 				}
 				if (!Class26.aClass144_159.aBoolean1371) {
-					jagexInterface.disabledSprite = Class169.anInt1643;
+					jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
 				} else {
-					jagexInterface.disabledSprite = Class120_Sub12_Sub15.anInt3241;
+					jagexInterface.disabledSpriteId = Class169.anInt1643;
 				}
-			} else {
-				if (i <= 21) {
-					anInt2197 = -61;
-				}
-				if (i_44_ == 325) {
-					if (Class120_Sub12_Sub15.anInt3241 == -1) {
-						Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSprite;
-						Class169.anInt1643 = jagexInterface.enabledSprite;
-					}
-					if (!Class26.aClass144_159.aBoolean1371) {
-						jagexInterface.disabledSprite = Class120_Sub12_Sub15.anInt3241;
-					} else {
-						jagexInterface.disabledSprite = Class169.anInt1643;
-					}
-				} else if (i_44_ == 327) {
+			} else if (i_44_ == 327) {
+				jagexInterface.rotateX = 150;
+				jagexInterface.rotateY = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
+				jagexInterface.mediaIdDisabled = -1;
+				jagexInterface.modelTypeDisabled = 5;
+			} else if (i_44_ == 328) {
+				if (Class100.selfPlayer.name == null) {
+					jagexInterface.mediaIdDisabled = 0;
+				} else {
 					jagexInterface.rotateX = 150;
-					jagexInterface.rotateY = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
-					jagexInterface.mediaIdDisabled = -1;
+					jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
 					jagexInterface.modelTypeDisabled = 5;
-				} else if (i_44_ == 328) {
-					if (Class100.selfPlayer.name == null) {
-						jagexInterface.mediaIdDisabled = 0;
-					} else {
-						jagexInterface.rotateX = 150;
-						jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
-						jagexInterface.modelTypeDisabled = 5;
-						jagexInterface.mediaIdDisabled = 2047 + ((int) Class70.stringToLong(Class100.selfPlayer.name) << 11);
-						jagexInterface.currentFrame = Class100.selfPlayer.anInt3046;
-						jagexInterface.disabledAnim = Class100.selfPlayer.anInt3004;
-						jagexInterface.nextFrame = Class100.selfPlayer.anInt3021;
-						jagexInterface.frameDelay = 0;
-					}
+					jagexInterface.mediaIdDisabled = 2047 + ((int) Varp.stringToLong(Class100.selfPlayer.name) << 11);
+					jagexInterface.currentFrame = Class100.selfPlayer.anInt3046;
+					jagexInterface.disabledAnim = Class100.selfPlayer.anInt3004;
+					jagexInterface.nextFrame = Class100.selfPlayer.anInt3021;
+					jagexInterface.frameDelay = 0;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("c.FA(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 }

@@ -14,10 +14,10 @@ final class Class26 {
 	static int anInt162 = 0;
 	static Class90 aClass90_163;
 
-	static final AbstractSprite method229(final int i, final int i_0_, final Class50 class50) {
+	static final AbstractSprite method229(final int i, final int i_0_, final js5 js5) {
 		AbstractSprite class120_sub14_sub19;
 		try {
-			if (!ObjType.method2113(class50, -5, i_0_)) {
+			if (!ObjType.method2113(js5, i_0_)) {
 				return null;
 			}
 			if (i != -1) {
@@ -25,7 +25,7 @@ final class Class26 {
 			}
 			class120_sub14_sub19 = Class42.method337((byte) 104);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.D(").append(i).append(',').append(i_0_).append(',').append(class50 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ci.D(").append(i).append(',').append(i_0_).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}
 		return class120_sub14_sub19;
 	}
@@ -44,7 +44,7 @@ final class Class26 {
 			aClass90_163 = null;
 			aClass144_159 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.C(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ci.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -53,7 +53,7 @@ final class Class26 {
 			Class120_Sub14_Sub14_Sub2.aClass21_3937.method192(i_9_);
 			Class132.aClass21_1255.method192(i_9_);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.G(").append(i).append(',').append(i_9_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ci.G(").append(i).append(',').append(i_9_).append(')').toString());
 		}
 	}
 
@@ -64,7 +64,7 @@ final class Class26 {
 			Queue.lastMouseX = Class160.currentMouseX;
 			Class191.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
 			Class156.lastMouseClick = GroundObjectNode.currentMouseClick;
-			Class50.lastClickX = Class192.currentClickX;
+			js5.lastClickX = Class192.currentClickX;
 			Class120_Sub12_Sub36.lastClickY = Class80.currentClickY;
 			Class120_Sub12_Sub2.lastClickTime = Class186.currentClickTime;
 			GroundObjectNode.currentMouseClick = 0;
@@ -81,18 +81,11 @@ final class Class26 {
 		Class180_Sub6.anInt3074 = -1;
 	}
 
-	static final void method235(final boolean bool) {
-		try {
-			if (bool) {
-				aClass35_158 = null;
+	static final void removeKeyboardHandler() {
+		if (Class169.keyboardHandler != null) {
+			synchronized (Class169.keyboardHandler) {
+				Class169.keyboardHandler = null;
 			}
-			if (Class169.keyboardHandler != null) {
-				synchronized (Class169.keyboardHandler) {
-					Class169.keyboardHandler = null;
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ci.A(").append(bool).append(')').toString());
 		}
 	}
 

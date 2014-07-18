@@ -359,8 +359,8 @@ final class Class120_Sub31 extends Node {
 		this.aClass75_2786 = null;
 	}
 
-	static final Class120_Sub31 method1830(final Class50 class50, final int i, final int i_82_) {
-		final byte[] is = class50.getFile(i, i_82_);
+	static final Class120_Sub31 method1830(final js5 js5, final int i, final int i_82_) {
+		final byte[] is = js5.getFile(i, i_82_);
 		if (is == null) {
 			return null;
 		}

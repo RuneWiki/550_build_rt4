@@ -24,9 +24,9 @@ final class Class142 {
 				i_0_ = 0;
 			}
 			i_5_ <<= i_3_;
-			Class120_Sub14_Sub14_Sub1.method1544(i_2_, (byte) -68, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
+			Class120_Sub14_Sub14_Sub1.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
 	}
 
@@ -41,7 +41,7 @@ final class Class142 {
 							if (i_6_ < 0) {
 								i_6_ = 0;
 							}
-							Class30.aClass120_Sub30_Sub2_234.method1748(128, i_6_);
+							Class30.aClass120_Sub30_Sub2_234.method1748(i_6_);
 						} else {
 							Class30.aClass120_Sub30_Sub2_234.method1770(21229);
 							Class30.aClass120_Sub30_Sub2_234.method1753((byte) 99);
@@ -65,7 +65,7 @@ final class Class142 {
 				}
 				break;
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.I(").append(i).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("qg.I(").append(i).append(')').toString());
 			}
 		} while (false);
 	}
@@ -86,7 +86,7 @@ final class Class142 {
 					break;
 				}
 			} catch (final RuntimeException runtimeexception) {
-				throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
+				throw EnumType.method1428(runtimeexception, new StringBuilder("qg.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 			}
 		} while (false);
 	}
@@ -128,52 +128,52 @@ final class Class142 {
 				Class120_Sub12_Sub11.outputStream.putBuffer(class120_sub7_17_.buf, 0, class120_sub7_17_.pos);
 				Class120_Sub12_Sub35.anInt3410 = -3;
 				Class120_Sub14_Sub4.anInt3466 = 0;
-				Class107.anInt1027 = 0;
+				AbstractIndexedSprite.anInt1027 = 0;
 				Class154.anInt1440 = 1;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.A(").append(bool).append(',').append(i).append(',').append(bool_9_).append(',').append(i_10_).append(',').append(string != null ? "{...}" : "null").append(',').append(i_11_).append(',').append(i_12_)
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.A(").append(bool).append(',').append(i).append(',').append(bool_9_).append(',').append(i_10_).append(',').append(string != null ? "{...}" : "null").append(',').append(i_11_).append(',').append(i_12_)
 					.append(',').append(i_13_).append(',').append(l).append(',').append(bool_14_).append(',').append(string_15_ != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
-	static final void method2008(final int i, final int i_20_, final byte i_21_, final int i_22_, final JagexInterface[] class189s, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_) {
+	static final void method2008(final JagexInterface[] class189s, final int i, final int i_20_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_) {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
-			Rasterizer.method874();
+			Rasterizer.calculateByBounds();
 		} else {
 			GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 		}
 		for (int i_28_ = 0; i_28_ < class189s.length; i_28_++) {
 			final JagexInterface jagexInterface = class189s[i_28_];
 			if (jagexInterface != null && (i_20_ == jagexInterface.parent || (i_20_ ^ 0xffffffff) == 1412584498 && jagexInterface == Class120_Sub12_Sub4.aClass189_3156)) {
-				int i_29_;
+				int redrawId;
 				if (i_22_ == -1) {
-					Class160.anIntArray1495[Class120_Sub1.anInt2414] = jagexInterface.x + i;
-					Class120_Sub12_Sub38.anIntArray3441[Class120_Sub1.anInt2414] = i_26_ + jagexInterface.y;
-					Class120_Sub16.anIntArray2608[Class120_Sub1.anInt2414] = jagexInterface.anInt1948;
-					Class69_Sub3_Sub1.anIntArray3081[Class120_Sub1.anInt2414] = jagexInterface.anInt2059;
-					i_29_ = Class120_Sub1.anInt2414++;
+					Class160.screenRedrawXs[LabelGroup.screenRedrawPos] = jagexInterface.x + i;
+					Class120_Sub12_Sub38.screenRedrawYs[LabelGroup.screenRedrawPos] = jagexInterface.y + i_26_;
+					Class120_Sub16.screenRedrawWidhts[LabelGroup.screenRedrawPos] = jagexInterface.width;
+					Class69_Sub3_Sub1.screenRedrawHeights[LabelGroup.screenRedrawPos] = jagexInterface.height;
+					redrawId = LabelGroup.screenRedrawPos++;
 				} else {
-					i_29_ = i_22_;
+					redrawId = i_22_;
 				}
-				jagexInterface.anInt1968 = Class101_Sub2.loopCycle;
-				jagexInterface.anInt2082 = i_29_;
-				if (!jagexInterface.aBoolean2041 || !client.method59(jagexInterface)) {
+				jagexInterface.redrawCycle = Class101_Sub2.loopCycle;
+				jagexInterface.redrawId = redrawId;
+				if (!jagexInterface.newFormat || !client.isHidden(jagexInterface)) {
 					if (jagexInterface.clientCode > 0) {
-						Class143_Sub1.method2032(jagexInterface, 27);
+						Class143_Sub1.method2032(jagexInterface);
 					}
 					int i_30_ = jagexInterface.alpha;
 					int i_31_ = jagexInterface.y + i_26_;
 					int i_32_ = jagexInterface.x + i;
-					if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).anInt2662 != 0 || jagexInterface.type == 0) && i_30_ > 127) {
+					if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0) && i_30_ > 127) {
 						i_30_ = 127;
 					}
 					if (jagexInterface == Class120_Sub12_Sub4.aClass189_3156) {
 						if (-1412584499 != i_20_ && !jagexInterface.aBoolean1939) {
 							Class120_Sub12_Sub38.anInt3438 = i;
 							Class111.anInt1065 = i_26_;
-							Class107.aClass189Array1022 = class189s;
+							AbstractIndexedSprite.aClass189Array1022 = class189s;
 							continue;
 						}
 						if (!jagexInterface.aBoolean1939) {
@@ -190,11 +190,11 @@ final class Class142 {
 							if (i_34_ < Class120_Sub12_Sub7.anInt3183) {
 								i_34_ = Class120_Sub12_Sub7.anInt3183;
 							}
-							if (i_33_ + jagexInterface.anInt2059 > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.anInt2059) {
-								i_33_ = Class120_Sub12_Sub35.anInt3413 - (-Class26.aClass189_161.anInt2059 - -jagexInterface.anInt2059);
+							if (i_33_ + jagexInterface.height > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
+								i_33_ = Class120_Sub12_Sub35.anInt3413 - (-Class26.aClass189_161.height - -jagexInterface.height);
 							}
-							if (Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183 < i_34_ + jagexInterface.anInt1948) {
-								i_34_ = -jagexInterface.anInt1948 + Class26.aClass189_161.anInt1948 + Class120_Sub12_Sub7.anInt3183;
+							if (Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 < i_34_ + jagexInterface.width) {
+								i_34_ = -jagexInterface.width + Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183;
 							}
 							i_32_ = i_34_;
 							i_31_ = i_33_;
@@ -207,8 +207,8 @@ final class Class142 {
 					if (jagexInterface.type != 2) {
 						i_35_ = i_25_ < i_31_ ? i_31_ : i_25_;
 						i_37_ = i_32_ <= i_27_ ? i_27_ : i_32_;
-						int i_39_ = i_32_ - -jagexInterface.anInt1948;
-						int i_40_ = i_31_ - -jagexInterface.anInt2059;
+						int i_39_ = i_32_ + jagexInterface.width;
+						int i_40_ = i_31_ + jagexInterface.height;
 						if (jagexInterface.type == 9) {
 							i_39_++;
 							i_40_++;
@@ -221,14 +221,14 @@ final class Class142 {
 						i_37_ = i_27_;
 						i_38_ = i_23_;
 					}
-					if (!jagexInterface.aBoolean2041 || i_37_ < i_36_ && i_38_ > i_35_) {
+					if (!jagexInterface.newFormat || i_37_ < i_36_ && i_38_ > i_35_) {
 						if (jagexInterface.clientCode != 0) {
 							if (jagexInterface.clientCode == 1337 || jagexInterface.clientCode == 1403) {
 								Class56.anInt497 = i_32_;
 								DummyInputStream.aClass189_26 = jagexInterface;
-								Class120_Sub14_Sub16.anInt3590 = i_31_;
-								StringNode.method1721(0, i_32_, jagexInterface.anInt2059, jagexInterface.clientCode == 1403, jagexInterface.anInt1948, i_31_);
-								Class52.aBooleanArray467[i_29_] = true;
+								StructType.anInt3590 = i_31_;
+								StringNode.method1721(0, i_32_, jagexInterface.height, jagexInterface.clientCode == 1403, jagexInterface.width, i_31_);
+								Class52.needInterfaceRedrawWrapper[redrawId] = true;
 								if (HDToolkit.glEnabled) {
 									GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 								} else {
@@ -238,7 +238,7 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1338) {
 								if (jagexInterface.method2501(-1)) {
-									Class164.method2145(i_32_, i_29_, jagexInterface, i_31_, 0);
+									Class164.method2145(jagexInterface, i_32_, redrawId, i_31_);
 									if (!HDToolkit.glEnabled) {
 										GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
 									} else {
@@ -249,29 +249,29 @@ final class Class142 {
 										int i_42_ = Class120_Sub12_Sub21.anInt3298 - i_31_;
 										final int i_43_ = jagexInterface.anIntArray2079[i_42_];
 										if (i_43_ <= i_41_ && i_41_ <= jagexInterface.anIntArray1949[i_42_] + i_43_) {
-											i_42_ -= jagexInterface.anInt2059 / 2;
+											i_42_ -= jagexInterface.height / 2;
 											final int i_44_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
 											int i_45_ = Rasterizer.sineTable[i_44_];
-											i_41_ -= jagexInterface.anInt1948 / 2;
+											i_41_ -= jagexInterface.width / 2;
 											i_45_ = i_45_ * (256 + Class154.anInt1442) >> 8;
 											int i_46_ = Rasterizer.cosineTable[i_44_];
-											i_46_ = (Class154.anInt1442 - -256) * i_46_ >> 8;
+											i_46_ = (256 + Class154.anInt1442) * i_46_ >> 8;
 											final int i_47_ = i_45_ * i_42_ + (i_41_ * i_46_) >> 11;
 											final int i_48_ = -(i_45_ * i_41_) + i_46_ * i_42_ >> 11;
 											final int i_49_ = Class100.selfPlayer.x - -i_47_ - -64 - 64 * Class100.selfPlayer.getSize() >> 7;
 											final int i_50_ = Class100.selfPlayer.z - (i_48_ - -(64 * Class100.selfPlayer.getSize())) - -64 >> 7;
-											if (Class88.aBoolean828 && (0x40 & GroundTile.anInt2652) != 0) {
-												final JagexInterface class189_51_ = Class120_Sub13.method1404(AbstractMouseWheelHandler.anInt119, JagexSocket.anInt420);
+											if (Class88.spellSelected && (0x40 & GroundTile.selectedSpellUseMask) != 0) {
+												final JagexInterface class189_51_ = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.anInt420);
 												if (class189_51_ != null) {
-													Class120_Sub14_Sub6.addMenuOption(1L, i_49_, i_50_, " ->", Class101.aString963, (short) 19, Class150.anInt1417);
+													InvType.addMenuOption(Class101.aString963, " ->", 1L, i_49_, i_50_, (short) 19, Class150.selectedSpellTargetCursor);
 												} else {
-													Node.method1029();
+													Node.deselectSpell();
 												}
 											} else {
 												if (Buffer.gameId == 1) {
-													Class120_Sub14_Sub6.addMenuOption(1L, i_49_, i_50_, "", Class82.aString787, (short) 47, -1);
+													InvType.addMenuOption(Class82.aString787, "", 1L, i_49_, i_50_, (short) 47, -1);
 												}
-												Class120_Sub14_Sub6.addMenuOption(1L, i_49_, i_50_, "", Npc.aString3752, (short) 26, -1);
+												InvType.addMenuOption(Npc.aString3752, "", 1L, i_49_, i_50_, (short) 26, -1);
 											}
 										}
 									}
@@ -280,7 +280,7 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1339) {
 								if (jagexInterface.method2501(-1)) {
-									Decimator.method2224(jagexInterface, (byte) 12, i_31_, i_29_, i_32_);
+									Decimator.method2224(jagexInterface, (byte) 12, i_31_, redrawId, i_32_);
 									if (HDToolkit.glEnabled) {
 										GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 									} else {
@@ -290,9 +290,9 @@ final class Class142 {
 								continue;
 							}
 							if (jagexInterface.clientCode == 1400) {
-								Class82.method711(jagexInterface.anInt2059, (byte) -114, i_31_, i_32_, jagexInterface.anInt1948);
-								Class52.aBooleanArray467[i_29_] = true;
-								Class120_Sub12_Sub33.aBooleanArray3391[i_29_] = true;
+								Class82.method711(jagexInterface.height, (byte) -114, i_31_, i_32_, jagexInterface.width);
+								Class52.needInterfaceRedrawWrapper[redrawId] = true;
+								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
 									GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
 								} else {
@@ -301,9 +301,9 @@ final class Class142 {
 								continue;
 							}
 							if (jagexInterface.clientCode == 1401) {
-								Class186.method2473(jagexInterface.anInt2059, -18418, jagexInterface.anInt1948, i_32_, i_31_);
-								Class52.aBooleanArray467[i_29_] = true;
-								Class120_Sub12_Sub33.aBooleanArray3391[i_29_] = true;
+								Class186.method2473(jagexInterface.height, -18418, jagexInterface.width, i_32_, i_31_);
+								Class52.needInterfaceRedrawWrapper[redrawId] = true;
+								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
 									GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
 								} else {
@@ -314,16 +314,16 @@ final class Class142 {
 							if (jagexInterface.clientCode == 1402) {
 								if (!HDToolkit.glEnabled) {
 									Class80.method699(-1, i_31_, i_32_);
-									Class52.aBooleanArray467[i_29_] = true;
-									Class120_Sub12_Sub33.aBooleanArray3391[i_29_] = true;
+									Class52.needInterfaceRedrawWrapper[redrawId] = true;
+									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
 								continue;
 							}
 							if (jagexInterface.clientCode == 1405) {
 								if (Class85.showFps) {
-									final int i_52_ = i_32_ + jagexInterface.anInt1948;
+									final int i_52_ = i_32_ + jagexInterface.width;
 									int i_53_ = i_31_ + 15;
-									Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_52_, i_53_, 16776960, -1);
+									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_52_, i_53_, 16776960, -1);
 									final Runtime runtime = Runtime.getRuntime();
 									i_53_ += 15;
 									final int i_54_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
@@ -331,7 +331,7 @@ final class Class142 {
 									if (65536 < i_54_) {
 										i_55_ = 16711680;
 									}
-									Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Mem:").append(i_54_).append("k").toString(), i_52_, i_53_, i_55_, -1);
+									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Mem:").append(i_54_).append("k").toString(), i_52_, i_53_, i_55_, -1);
 									i_53_ += 15;
 									if (HDToolkit.glEnabled) {
 										i_55_ = 16776960;
@@ -339,7 +339,7 @@ final class Class142 {
 										if (i_56_ > 65536) {
 											i_55_ = 16711680;
 										}
-										Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286.method1482(new StringBuilder("Card:").append(i_56_).append("k").toString(), i_52_, i_53_, i_55_, -1);
+										Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Card:").append(i_56_).append("k").toString(), i_52_, i_53_, i_55_, -1);
 										i_53_ += 15;
 									}
 									i_55_ = 16776960;
@@ -354,14 +354,14 @@ final class Class142 {
 									final int i_61_ = i_58_ * 100 / i_59_;
 									final int i_62_ = i_57_ * 10000 / i_59_;
 									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, -116, 2, 0)).append("% (").append(i_61_).append("%)").toString();
-									Cache.aClass120_Sub14_Sub8_121.method1482(string, i_52_, i_53_, i_55_, -1);
+									Cache.smallFont.method1482(string, i_52_, i_53_, i_55_, -1);
 									i_53_ += 12;
 									if (ParticleEngine.anInt2360 > 0) {
-										Cache.aClass120_Sub14_Sub8_121.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
+										Cache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
 									}
 									i_53_ += 12;
-									Class52.aBooleanArray467[i_29_] = true;
-									Class120_Sub12_Sub33.aBooleanArray3391[i_29_] = true;
+									Class52.needInterfaceRedrawWrapper[redrawId] = true;
+									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
 								continue;
 							}
@@ -375,9 +375,9 @@ final class Class142 {
 						if (!Class15.menuOpen) {
 							if (jagexInterface.type == 0 && jagexInterface.aBoolean1960 && i_37_ <= Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 >= i_35_ && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298 && !Class120_Sub30_Sub1.aBoolean3673) {
 								Class120_Sub29.aShortArray2777[0] = (short) 1006;
-								Class120_Sub12_Sub33.menuOptionName[0] = Class157.aString1462;
-								Class120_Sub12_Sub29.aStringArray3369[0] = "";
-								InterfaceChangeNode.menuOptionsCursorId[0] = Class192.anInt2123;
+								Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
+								Class120_Sub12_Sub29.menuOptionSufix[0] = "";
+								InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 								Class186.menuOptionCount = 1;
 							}
 							if (Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298) {
@@ -385,34 +385,34 @@ final class Class142 {
 							}
 						}
 						if (jagexInterface.type == 0) {
-							if (!jagexInterface.aBoolean2041 && client.method59(jagexInterface) && jagexInterface != CursorType.aClass189_1243) {
+							if (!jagexInterface.newFormat && client.isHidden(jagexInterface) && jagexInterface != CursorType.aClass189_1243) {
 								continue;
 							}
-							if (!jagexInterface.aBoolean2041) {
-								if (-jagexInterface.anInt2059 + jagexInterface.maxScrollVertical < jagexInterface.horizontalScrollPosition) {
-									jagexInterface.horizontalScrollPosition = -jagexInterface.anInt2059 + jagexInterface.maxScrollVertical;
+							if (!jagexInterface.newFormat) {
+								if (-jagexInterface.height + jagexInterface.maxScrollVertical < jagexInterface.horizontalScrollPosition) {
+									jagexInterface.horizontalScrollPosition = -jagexInterface.height + jagexInterface.maxScrollVertical;
 								}
 								if (jagexInterface.horizontalScrollPosition < 0) {
 									jagexInterface.horizontalScrollPosition = 0;
 								}
 							}
 							if (HDToolkit.glEnabled && jagexInterface.clientCode == 1407) {
-								Class34.method283(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059);
+								Class34.method283(i_32_, i_31_, jagexInterface.width, jagexInterface.height);
 							}
-							method2008(i_32_ + -jagexInterface.verticalScrollPosition, jagexInterface.bitPacked, (byte) -105, i_29_, class189s, i_38_, i_36_, i_35_, -jagexInterface.horizontalScrollPosition + i_31_, i_37_);
-							if (jagexInterface.aClass189Array2072 != null) {
-								method2008(-jagexInterface.verticalScrollPosition + i_32_, jagexInterface.bitPacked, (byte) -108, i_29_, jagexInterface.aClass189Array2072, i_38_, i_36_, i_35_, -jagexInterface.horizontalScrollPosition + i_31_, i_37_);
+							method2008(class189s, i_32_ + -jagexInterface.verticalScrollPosition, jagexInterface.bitPacked, redrawId, i_38_, i_36_, i_35_, -jagexInterface.horizontalScrollPosition + i_31_, i_37_);
+							if (jagexInterface.components != null) {
+								method2008(jagexInterface.components, -jagexInterface.verticalScrollPosition + i_32_, jagexInterface.bitPacked, redrawId, i_38_, i_36_, i_35_, -jagexInterface.horizontalScrollPosition + i_31_, i_37_);
 							}
 							final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 							if (class120_sub26 != null) {
 								if (class120_sub26.type == 0 && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && Class120_Sub12_Sub21.anInt3298 >= i_35_ && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_ && !Class120_Sub30_Sub1.aBoolean3673) {
 									Class120_Sub29.aShortArray2777[0] = (short) 1006;
-									InterfaceChangeNode.menuOptionsCursorId[0] = Class192.anInt2123;
-									Class120_Sub12_Sub33.menuOptionName[0] = Class157.aString1462;
-									Class120_Sub12_Sub29.aStringArray3369[0] = "";
+									InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
+									Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
+									Class120_Sub12_Sub29.menuOptionSufix[0] = "";
 									Class186.menuOptionCount = 1;
 								}
-								Class43.method343(class120_sub26.interfaceId, i_35_, i_31_, (byte) -81, i_32_, i_38_, i_37_, i_36_, i_29_);
+								Class43.method343(class120_sub26.interfaceId, i_35_, i_31_, i_32_, i_38_, i_37_, i_36_, redrawId);
 							}
 							if (HDToolkit.glEnabled && jagexInterface.clientCode == 1407) {
 								Class34.method289();
@@ -422,12 +422,12 @@ final class Class142 {
 								GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 							} else {
 								GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
-								Rasterizer.method874();
+								Rasterizer.calculateByBounds();
 							}
 						}
-						if (Class9.aBooleanArray74[i_29_] || Class15.anInt96 > 1) {
-							if (jagexInterface.type == 0 && !jagexInterface.aBoolean2041 && jagexInterface.anInt2059 < jagexInterface.maxScrollVertical) {
-								PlayerAppearance.method2039(jagexInterface.anInt2059, (byte) 80, jagexInterface.anInt1948 + i_32_, jagexInterface.maxScrollVertical, i_31_, jagexInterface.horizontalScrollPosition);
+						if (Class9.needInterfaceRedraw[redrawId] || Class15.rectDebugType > 1) {
+							if (jagexInterface.type == 0 && !jagexInterface.newFormat && jagexInterface.height < jagexInterface.maxScrollVertical) {
+								PlayerAppearance.method2039(jagexInterface.height, (byte) 80, jagexInterface.width + i_32_, jagexInterface.maxScrollVertical, i_31_, jagexInterface.horizontalScrollPosition);
 							}
 							if (jagexInterface.type != 1) {
 								if (jagexInterface.type == 2) {
@@ -440,17 +440,17 @@ final class Class142 {
 												i_66_ += jagexInterface.spriteYs[i_63_];
 												i_67_ += jagexInterface.spriteXs[i_63_];
 											}
-											if (jagexInterface.objAmounts[i_63_] > 0) {
-												final int i_68_ = jagexInterface.objAmounts[i_63_] - 1;
+											if (jagexInterface.objIds[i_63_] > 0) {
+												final int i_68_ = jagexInterface.objIds[i_63_] - 1;
 												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Class180_Sub4.aClass189_2954 && Class5.anInt2154 == i_63_) {
 													AbstractSprite class120_sub14_sub19;
-													if (Light.objSelected != 1 || i_63_ != Class108_Sub1.selectedObjSlot || jagexInterface.bitPacked != Class141.selectedObjInterface) {
-														class120_sub14_sub19 = Class187.method2477(jagexInterface.objIds[i_63_], 1, jagexInterface.aBoolean1956, (byte) -94, null, i_68_, 3153952);
+													if (Light.objSelected != 1 || i_63_ != Class108_Sub1.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
+														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 1, jagexInterface.aBoolean1956, (byte) -94, null, i_68_, 3153952);
 													} else {
-														class120_sub14_sub19 = Class187.method2477(jagexInterface.objIds[i_63_], 2, jagexInterface.aBoolean1956, (byte) -127, null, i_68_, 0);
+														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 2, jagexInterface.aBoolean1956, (byte) -127, null, i_68_, 0);
 													}
 													if (Rasterizer.aBoolean974) {
-														Class52.aBooleanArray467[i_29_] = true;
+														Class52.needInterfaceRedrawWrapper[redrawId] = true;
 													}
 													if (class120_sub14_sub19 != null) {
 														if (jagexInterface == Class180_Sub4.aClass189_2954 && i_63_ == Class5.anInt2154) {
@@ -490,20 +490,20 @@ final class Class142 {
 																	class189_71_.horizontalScrollPosition -= i_74_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
-																if (i_72_ < i_66_ - (-i_70_ + -32) && class189_71_.horizontalScrollPosition < class189_71_.maxScrollVertical - class189_71_.anInt2059) {
+																if (i_72_ < i_66_ - (-i_70_ + -32) && class189_71_.horizontalScrollPosition < class189_71_.maxScrollVertical - class189_71_.height) {
 																	int i_75_ = (32 + i_66_ - (-i_70_ + i_72_)) * Class120_Sub12_Sub22.redrawRate / 3;
 																	if (i_75_ > Class120_Sub12_Sub22.redrawRate * 10) {
 																		i_75_ = 10 * Class120_Sub12_Sub22.redrawRate;
 																	}
-																	if (i_75_ > -class189_71_.horizontalScrollPosition + -class189_71_.anInt2059 + class189_71_.maxScrollVertical) {
-																		i_75_ = -class189_71_.horizontalScrollPosition + -class189_71_.anInt2059 + class189_71_.maxScrollVertical;
+																	if (i_75_ > -class189_71_.horizontalScrollPosition + -class189_71_.height + class189_71_.maxScrollVertical) {
+																		i_75_ = -class189_71_.horizontalScrollPosition + -class189_71_.height + class189_71_.maxScrollVertical;
 																	}
 																	class189_71_.horizontalScrollPosition += i_75_;
 																	Class27.anInt166 -= i_75_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
 															}
-														} else if (jagexInterface == Class32.aClass189_256 && i_63_ == Class126.anInt1204) {
+														} else if (jagexInterface == Class32.aClass189_256 && i_63_ == Huffman.anInt1204) {
 															class120_sub14_sub19.method1594(i_67_, i_66_, 128);
 														} else {
 															class120_sub14_sub19.method1587(i_67_, i_66_);
@@ -541,25 +541,25 @@ final class Class142 {
 									if (i_30_ == 0) {
 										if (!jagexInterface.filled) {
 											if (!HDToolkit.glEnabled) {
-												GraphicsLD.drawRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_);
+												GraphicsLD.drawRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_);
 											} else {
-												GraphicsHD.drawRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_);
+												GraphicsHD.drawRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_);
 											}
 										} else if (!HDToolkit.glEnabled) {
-											GraphicsLD.fillRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_);
+											GraphicsLD.fillRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_);
 										} else {
-											GraphicsHD.fillRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_);
+											GraphicsHD.fillRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_);
 										}
 									} else if (jagexInterface.filled) {
 										if (HDToolkit.glEnabled) {
-											GraphicsHD.fillRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_, 256 - (i_30_ & 0xff));
+											GraphicsHD.fillRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_, 256 - (i_30_ & 0xff));
 										} else {
-											GraphicsLD.fillRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_, 256 - (0xff & i_30_));
+											GraphicsLD.fillRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_, 256 - (0xff & i_30_));
 										}
 									} else if (!HDToolkit.glEnabled) {
-										GraphicsLD.drawRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_, 256 - (0xff & i_30_));
+										GraphicsLD.drawRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_, 256 - (0xff & i_30_));
 									} else {
-										GraphicsHD.drawRect(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_76_, 256 - (i_30_ & 0xff));
+										GraphicsHD.drawRect(i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_76_, 256 - (i_30_ & 0xff));
 									}
 								} else if (jagexInterface.type == 4) {
 									final Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
@@ -584,7 +584,7 @@ final class Class142 {
 												string = jagexInterface.enabledText;
 											}
 										}
-										if (jagexInterface.aBoolean2041 && jagexInterface.anInt2030 != -1) {
+										if (jagexInterface.newFormat && jagexInterface.anInt2030 != -1) {
 											final ObjType objType = ObjType.list(jagexInterface.anInt2030);
 											string = objType.name;
 											if (string == null) {
@@ -598,13 +598,13 @@ final class Class142 {
 											string = Class71.aString626;
 											i_77_ = jagexInterface.disabledColor;
 										}
-										if (!jagexInterface.aBoolean2041) {
+										if (!jagexInterface.newFormat) {
 											string = DummyInputStream.method71(jagexInterface, 2, string);
 										}
-										class120_sub14_sub8.method1462(string, i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, i_77_, !jagexInterface.shaded ? -1 : 0, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
+										class120_sub14_sub8.method1462(string, i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_77_, !jagexInterface.shaded ? -1 : 0, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
 									}
 								} else if (jagexInterface.type == 5) {
-									if (!jagexInterface.aBoolean2041) {
+									if (!jagexInterface.newFormat) {
 										final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -115));
 										if (class120_sub14_sub19 == null) {
 											if (Class88.aBoolean835) {
@@ -626,10 +626,10 @@ final class Class142 {
 											final int i_78_ = class120_sub14_sub19.trimWidth;
 											final int i_79_ = class120_sub14_sub19.trimHeight;
 											if (jagexInterface.aBoolean2001) {
-												final int i_80_ = (i_78_ + -1 + jagexInterface.anInt1948) / i_78_;
-												final int i_81_ = (jagexInterface.anInt2059 - (1 + -i_79_)) / i_79_;
+												final int i_80_ = (i_78_ + -1 + jagexInterface.width) / i_78_;
+												final int i_81_ = (jagexInterface.height - (1 + -i_79_)) / i_79_;
 												if (HDToolkit.glEnabled) {
-													GraphicsHD.method591(i_32_, i_31_, i_32_ + jagexInterface.anInt1948, i_31_ - -jagexInterface.anInt2059);
+													GraphicsHD.method591(i_32_, i_31_, i_32_ + jagexInterface.width, i_31_ - -jagexInterface.height);
 													final boolean bool = Class179.method2264((byte) 91, class120_sub14_sub19.width);
 													final HDSprite class120_sub14_sub19_sub1 = (HDSprite) class120_sub14_sub19;
 													final boolean bool_82_ = Class179.method2264((byte) 96, class120_sub14_sub19.height);
@@ -670,7 +670,7 @@ final class Class142 {
 													}
 													GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 												} else {
-													GraphicsLD.method2166(i_32_, i_31_, jagexInterface.anInt1948 + i_32_, i_31_ + jagexInterface.anInt2059);
+													GraphicsLD.method2166(i_32_, i_31_, jagexInterface.width + i_32_, i_31_ + jagexInterface.height);
 													for (int i_87_ = 0; i_80_ > i_87_; i_87_++) {
 														for (int i_88_ = 0; i_88_ < i_81_; i_88_++) {
 															if (jagexInterface.rotation != 0) {
@@ -685,13 +685,13 @@ final class Class142 {
 													GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
 												}
 											} else {
-												final int i_89_ = jagexInterface.anInt1948 * 4096 / i_78_;
+												final int i_89_ = jagexInterface.width * 4096 / i_78_;
 												if (jagexInterface.rotation != 0) {
-													class120_sub14_sub19.method1590(i_31_ + jagexInterface.anInt2059 / 2, (byte) -99, jagexInterface.rotation, jagexInterface.anInt1948 / 2 + i_32_, i_89_);
+													class120_sub14_sub19.method1590(i_31_ + jagexInterface.height / 2, (byte) -99, jagexInterface.rotation, jagexInterface.width / 2 + i_32_, i_89_);
 												} else if (i_30_ != 0) {
-													class120_sub14_sub19.method1585(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, -(i_30_ & 0xff) + 256);
-												} else if (jagexInterface.anInt1948 != i_78_ || i_79_ != jagexInterface.anInt2059) {
-													class120_sub14_sub19.method1588(i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059);
+													class120_sub14_sub19.method1585(i_32_, i_31_, jagexInterface.width, jagexInterface.height, -(i_30_ & 0xff) + 256);
+												} else if (jagexInterface.width != i_78_ || i_79_ != jagexInterface.height) {
+													class120_sub14_sub19.method1588(i_32_, i_31_, jagexInterface.width, jagexInterface.height);
 												} else {
 													class120_sub14_sub19.method1587(i_32_, i_31_);
 												}
@@ -702,9 +702,9 @@ final class Class142 {
 									} else {
 										final Class41 class41 = jagexInterface.method2489(0);
 										if (!HDToolkit.glEnabled) {
-											class41.method330(0, i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
+											class41.method330(0, i_32_, i_31_, jagexInterface.width, jagexInterface.height, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
 										} else {
-											class41.method331(0, i_32_, i_31_, jagexInterface.anInt1948, jagexInterface.anInt2059, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
+											class41.method331(0, i_32_, i_31_, jagexInterface.width, jagexInterface.height, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
 										}
 									}
 								} else if (jagexInterface.type == 6) {
@@ -753,7 +753,7 @@ final class Class142 {
 										}
 										final Player class180_sub5_sub1 = Class118.playersList[i_92_];
 										final SeqType seqType = (i_90_ ^ 0xffffffff) == 0 ? null : SeqType.list(i_90_);
-										if (class180_sub5_sub1 != null && (int) Class70.stringToLong(class180_sub5_sub1.name) << 11 == (~0x7ff & jagexInterface.mediaIdDisabled)) {
+										if (class180_sub5_sub1 != null && (int) Varp.stringToLong(class180_sub5_sub1.name) << 11 == (~0x7ff & jagexInterface.mediaIdDisabled)) {
 											class180_sub7 = class180_sub5_sub1.appearance.method2040(null, 0, -1, -1, null, jagexInterface.currentFrame, -7453, false, 0, seqType, true, 0);
 										}
 									} else {
@@ -764,21 +764,21 @@ final class Class142 {
 										if (jagexInterface.anInt2069 <= 0) {
 											i_93_ = 256;
 										} else {
-											i_93_ = (jagexInterface.anInt1948 << 8) / jagexInterface.anInt2069;
+											i_93_ = (jagexInterface.width << 8) / jagexInterface.anInt2069;
 										}
 										int i_94_;
 										if (jagexInterface.anInt2007 <= 0) {
 											i_94_ = 256;
 										} else {
-											i_94_ = (jagexInterface.anInt2059 << 8) / jagexInterface.anInt2007;
+											i_94_ = (jagexInterface.height << 8) / jagexInterface.anInt2007;
 										}
-										final int i_95_ = i_31_ - -(jagexInterface.anInt2059 / 2) - -(jagexInterface.translateY * i_94_ >> 8);
-										final int i_96_ = (jagexInterface.translateX * i_93_ >> 8) + jagexInterface.anInt1948 / 2 + i_32_;
+										final int i_95_ = i_31_ - -(jagexInterface.height / 2) - -(jagexInterface.translateY * i_94_ >> 8);
+										final int i_96_ = (jagexInterface.translateX * i_93_ >> 8) + jagexInterface.width / 2 + i_32_;
 										if (!HDToolkit.glEnabled) {
 											Rasterizer.method869(i_96_, i_95_);
 											final int i_97_ = jagexInterface.zoom * Rasterizer.cosineTable[jagexInterface.rotateX] >> 16;
 											final int i_98_ = Rasterizer.sineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
-											if (jagexInterface.aBoolean2041) {
+											if (jagexInterface.newFormat) {
 												if (jagexInterface.aBoolean2046) {
 													((Class180_Sub7_Sub1) class180_sub7).method2400(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_98_ - -i_91_ - -jagexInterface.anInt1977, i_97_ + jagexInterface.anInt1977, jagexInterface.zoom);
 												} else {
@@ -810,7 +810,7 @@ final class Class142 {
 											}
 											final int i_99_ = Rasterizer.cosineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
 											final int i_100_ = jagexInterface.zoom * Rasterizer.sineTable[jagexInterface.rotateX] >> 16;
-											if (jagexInterface.aBoolean2041) {
+											if (jagexInterface.newFormat) {
 												class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, jagexInterface.anInt1977 + i_91_ + i_100_, i_99_ + jagexInterface.anInt1977, -1L);
 											} else {
 												class180_sub7.method2367(0, jagexInterface.rotateY, 0, jagexInterface.rotateX, 0, i_100_, i_99_, -1L);
@@ -832,13 +832,13 @@ final class Class142 {
 										int i_101_ = 0;
 										for (int i_102_ = 0; i_102_ < jagexInterface.originalHeight; i_102_++) {
 											for (int i_103_ = 0; jagexInterface.originalWidth > i_103_; i_103_++) {
-												if (jagexInterface.objAmounts[i_101_] > 0) {
-													final ObjType objType = ObjType.list(jagexInterface.objAmounts[i_101_] + -1);
+												if (jagexInterface.objIds[i_101_] > 0) {
+													final ObjType objType = ObjType.list(jagexInterface.objIds[i_101_] + -1);
 													String string;
-													if (objType.stackable != 1 && jagexInterface.objIds[i_101_] == 1) {
+													if (objType.stackable != 1 && jagexInterface.objAmounts[i_101_] == 1) {
 														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col>").toString();
 													} else {
-														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.method1033((byte) 126, jagexInterface.objIds[i_101_])).toString();
+														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.method1033((byte) 126, jagexInterface.objAmounts[i_101_])).toString();
 													}
 													final int i_104_ = i_32_ + i_103_ * (115 + jagexInterface.objSpritePadX);
 													final int i_105_ = (jagexInterface.objSpritePadY + 12) * i_102_ + i_31_;
@@ -856,7 +856,7 @@ final class Class142 {
 									}
 									if (jagexInterface.type == 8 && Class49.aClass189_441 == jagexInterface && Class108.anInt1031 == Class120_Sub12_Sub21.anInt3291) {
 										int i_106_ = 0;
-										final Class120_Sub14_Sub8 class120_sub14_sub8 = Class120_Sub12_Sub20.aClass120_Sub14_Sub8_3286;
+										final Class120_Sub14_Sub8 class120_sub14_sub8 = Class120_Sub12_Sub20.plainFont;
 										int i_107_ = 0;
 										String string = jagexInterface.disabledText;
 										string = DummyInputStream.method71(jagexInterface, 2, string);
@@ -878,11 +878,11 @@ final class Class142 {
 										}
 										i_107_ += 7;
 										i_106_ += 6;
-										int i_111_ = i_31_ + jagexInterface.anInt2059 + 5;
+										int i_111_ = i_31_ + jagexInterface.height + 5;
 										if (i_23_ < i_107_ + i_111_) {
 											i_111_ = -i_107_ + i_23_;
 										}
-										int i_112_ = i_32_ + jagexInterface.anInt1948 - (5 + i_106_);
+										int i_112_ = i_32_ + jagexInterface.width - (5 + i_106_);
 										if (i_112_ < i_32_ + 5) {
 											i_112_ = i_32_ + 5;
 										}
@@ -919,14 +919,14 @@ final class Class142 {
 										int i_118_;
 										int i_119_;
 										if (jagexInterface.aBoolean1989) {
-											i_117_ = jagexInterface.anInt1948 + i_32_;
+											i_117_ = jagexInterface.width + i_32_;
 											i_116_ = i_32_;
 											i_118_ = i_31_;
-											i_119_ = jagexInterface.anInt2059 + i_31_;
+											i_119_ = jagexInterface.height + i_31_;
 										} else {
 											i_116_ = i_32_;
-											i_117_ = i_32_ + jagexInterface.anInt1948;
-											i_118_ = i_31_ + jagexInterface.anInt2059;
+											i_117_ = i_32_ + jagexInterface.width;
+											i_118_ = i_31_ + jagexInterface.height;
 											i_119_ = i_31_;
 										}
 										if (jagexInterface.thickness == 1) {
@@ -957,7 +957,7 @@ final class Class142 {
 			}
 			SceneGroundObject.aClass21_2841.clear();
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.G(").append(i).append(')').toString());
 		}
 	}
 
@@ -974,14 +974,14 @@ final class Class142 {
 				this.aBoolean1359 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.H(").append(i).append(',').append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.H(").append(i).append(',').append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
-	final Class107_Sub1 method2011(final int i, final boolean bool, final int i_121_) {
-		Class107_Sub1 class107_sub1;
+	final LDIndexedSprite method2011(final int i, final boolean bool, final int i_121_) {
+		LDIndexedSprite class107_sub1;
 		try {
-			Class107_Sub1 class107_sub1_122_ = (Class107_Sub1) Class132.aClass21_1255.get(i_121_ << 16 | this.anInt1363 | (!bool ? 0 : 262144));
+			LDIndexedSprite class107_sub1_122_ = (LDIndexedSprite) Class132.aClass21_1255.get(i_121_ << 16 | this.anInt1363 | (!bool ? 0 : 262144));
 			if (class107_sub1_122_ != null) {
 				return class107_sub1_122_;
 			}
@@ -989,8 +989,8 @@ final class Class142 {
 			class107_sub1_122_ = Class164.method2138(i ^ ~0x20, 0, Class120_Sub14_Sub22.aClass50_3640, this.anInt1363);
 			if (class107_sub1_122_ != null) {
 				class107_sub1_122_.method914(Class158.anInt1481, Class5.anInt2157, GameEntity.anInt2957);
-				class107_sub1_122_.anInt1029 = class107_sub1_122_.anInt1026;
-				class107_sub1_122_.anInt1028 = class107_sub1_122_.anInt1030;
+				class107_sub1_122_.trimWidth = class107_sub1_122_.width;
+				class107_sub1_122_.trimHeight = class107_sub1_122_.height;
 				if (bool) {
 					class107_sub1_122_.method915();
 				}
@@ -1004,7 +1004,7 @@ final class Class142 {
 			}
 			class107_sub1 = class107_sub1_122_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.C(").append(i).append(',').append(bool).append(',').append(i_121_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.C(").append(i).append(',').append(bool).append(',').append(i_121_).append(')').toString());
 		}
 		return class107_sub1;
 	}
@@ -1021,7 +1021,7 @@ final class Class142 {
 				aClass189_1362 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("qg.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.E(").append(i).append(')').toString());
 		}
 	}
 }

@@ -21,13 +21,13 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 			aClass180_Sub2Array3574 = null;
 			aString3575 = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ng.O(").append(bool).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.O(").append(bool).append(')').toString());
 		}
 	}
 
 	abstract int method1537(int i);
 
-	private static final int[] method1538(final int i, final Class25[] class25s, final byte[] is, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool, final int i_6_) {
+	private static final int[] method1538(final int i, final CollisionMap[] class25s, final byte[] is, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool, final int i_6_) {
 		int[] is_7_;
 		try {
 			final int i_8_ = 8 * (i_6_ & 0x7);
@@ -72,7 +72,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 							if (i_9_ - -8 != i_20_ && 8 + i_8_ != i_21_) {
 								final int i_22_ = Queue.method2253(0x7 & i_21_, i_3_, i_20_ & 0x7, 1) + i_0_;
 								final int i_23_ = Deque.method897(i_3_, 7, i_20_ & 0x7, 0x7 & i_21_) + i_2_;
-								Class10.method119(class120_sub7, false, false, bool, i_5_, i_15_ + i_20_, i_21_ + i_17_, i_23_, i_3_, i_18_, i_16_, i_22_);
+								Class10.method119(class120_sub7, false, bool, i_5_, i_15_ + i_20_, i_21_ + i_17_, i_23_, i_3_, i_18_, i_16_, i_22_);
 								if (i_20_ == 63 || i_21_ == 63) {
 									final int i_24_ = i_20_ != 63 ? i_20_ : 64;
 									final int i_25_ = i_21_ == 63 ? 64 : i_21_;
@@ -115,10 +115,10 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 									i_29_ = i_9_ + -i_20_ + i_2_ - -8;
 									i_28_ = i_0_ - (-i_21_ + i_8_);
 								}
-								Class10.method119(class120_sub7, false, true, bool, i_5_, i_15_ - -i_20_, i_17_ + i_21_, i_29_, 0, 0, 0, i_28_);
+								Class10.method119(class120_sub7, true, bool, i_5_, i_15_ - -i_20_, i_17_ + i_21_, i_29_, 0, 0, 0, i_28_);
 							}
 						} else {
-							Class10.method119(class120_sub7, false, false, bool, 0, 0, 0, -1, 0, 0, 0, -1);
+							Class10.method119(class120_sub7, false, bool, 0, 0, 0, -1, 0, 0, 0, -1);
 						}
 					}
 				}
@@ -227,7 +227,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 								int i_49_ = light.anInt395 >> 7;
 								int i_50_ = light.anInt373 >> 7;
 								if (light.anInt384 == i && i_49_ >= i_9_ && 8 + i_9_ > i_49_ && i_8_ <= i_50_ && 8 + i_8_ > i_50_) {
-									final int i_51_ = (i_0_ << 7) - -Class120_Sub14_Sub16.method1566(0x3ff & light.anInt395, i_3_, 0x3ff & light.anInt373, (byte) 24);
+									final int i_51_ = (i_0_ << 7) - -StructType.method1566(0x3ff & light.anInt395, i_3_, 0x3ff & light.anInt373, (byte) 24);
 									final int i_52_ = (i_2_ << 7) + Class92.method766(light.anInt373 & 0x3ff, 3, 0x3ff & light.anInt395, i_3_);
 									light.anInt395 = i_51_;
 									light.anInt373 = i_52_;
@@ -246,7 +246,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 				if (class191 == null) {
 					class191 = new Class191();
 				}
-				Class139.aClass191ArrayArray1337[i_0_ >> 3][i_2_ >> 3] = class191;
+				IdentityKit.aClass191ArrayArray1337[i_0_ >> 3][i_2_ >> 3] = class191;
 			}
 			final int i_53_ = i_2_ - -7;
 			final int i_54_ = 7 + i_0_;
@@ -257,7 +257,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 			}
 			is_7_ = !bool_30_ ? null : CanvasWrapper.anIntArray21;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ng.J(").append(i).append(',').append(class25s != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',')
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.J(").append(i).append(',').append(class25s != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',')
 					.append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(bool).append(',').append(i_6_).append(')').toString());
 		}
 		return is_7_;
@@ -286,32 +286,22 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 			}
 			i_63_ = i_57_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ng.M(").append(i).append(',').append(i_57_).append(',').append(i_58_).append(',').append(i_59_).append(',').append(i_60_).append(',').append(i_61_).append(',').append(i_62_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.M(").append(i).append(',').append(i_57_).append(',').append(i_58_).append(',').append(i_59_).append(',').append(i_60_).append(',').append(i_61_).append(',').append(i_62_).append(')').toString());
 		}
 		return i_63_;
 	}
 
 	static final void method1540(final String string, final int i, final String string_65_) {
-		Class120_Sub16.method1660(string, -1, null, i, string_65_, 0);
+		Class120_Sub16.method1660(string, -1, null, i, string_65_);
 	}
 
-	static final Class107_Sub1[] method1541(final int i) {
-		Class107_Sub1[] class107_sub1s;
-		try {
-			final Class107_Sub1[] class107_sub1s_66_ = new Class107_Sub1[Class93.spriteAmount];
-			if (i <= 63) {
-				return null;
-			}
-			for (int i_67_ = 0; Class93.spriteAmount > i_67_; i_67_++) {
-				class107_sub1s_66_[i_67_] = new Class107_Sub1(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_67_], GroundTile.spriteYOffsets[i_67_], Class120_Sub12_Sub11.spriteWidths[i_67_], Class120_Sub12_Sub39.spriteHeights[i_67_],
-						Class145.spritePaletteIndicators[i_67_], Class132_Sub1.spritePalette);
-			}
-			Class53_Sub1.resetSpriteInfo();
-			class107_sub1s = class107_sub1s_66_;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ng.L(").append(i).append(')').toString());
+	static final LDIndexedSprite[] constructLDIndexedSprites() {
+		final LDIndexedSprite[] indexedSprites = new LDIndexedSprite[Class93.spriteAmount];
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			indexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 		}
-		return class107_sub1s;
+		Class53_Sub1.resetSpriteInfo();
+		return indexedSprites;
 	}
 
 	static final void method1542(final boolean bool, final boolean bool_68_) {
@@ -343,7 +333,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 									for (int i_80_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_80_; i_80_++) {
 										if (Class120_Sub12_Sub36.anIntArray3417[i_80_] == i_79_ && is_69_[i_80_] != null) {
 											bool_73_ = true;
-											final int[] is_81_ = method1538(i_75_, Class182.aClass25Array1802, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
+											final int[] is_81_ = method1538(i_75_, Class182.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
 											if (is == null && is_81_ != null) {
 												is = is_81_;
 											}
@@ -359,7 +349,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 					}
 				}
 				if (is != null) {
-					Class141.anInt1356 = is[3];
+					PlainTile.anInt1356 = is[3];
 					Class158.anInt1475 = is[0];
 					Class143_Sub1.anInt2197 = is[2];
 					Class132.anInt1257 = is[4];
@@ -369,7 +359,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ng.K(").append(bool).append(',').append(bool_68_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.K(").append(bool).append(',').append(bool_68_).append(')').toString());
 		}
 	}
 

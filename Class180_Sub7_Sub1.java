@@ -857,13 +857,13 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			final int i_164_ = trianglesC[i];
 			Rasterizer.aBoolean972 = aBooleanArray3823[i];
 			if (aByteArray3765 == null) {
-				Rasterizer.anInt975 = 0;
+				Rasterizer.alpha = 0;
 			} else {
-				Rasterizer.anInt975 = aByteArray3765[i] & 0xff;
+				Rasterizer.alpha = aByteArray3765[i] & 0xff;
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
 				if (anIntArray3769[i] == -1) {
-					Rasterizer.method863(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], Rasterizer.anIntArray969[anIntArray3779[i] & 0xffff]);
+					Rasterizer.method863(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], Rasterizer.palette[anIntArray3779[i] & 0xffff]);
 				} else {
 					Rasterizer.method856(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i] & 0xffff, anIntArray3780[i] & 0xffff, anIntArray3769[i] & 0xffff);
 				}
@@ -1071,9 +1071,9 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		final int i_205_ = anIntArray3829[i_202_];
 		final int i_206_ = anIntArray3829[i_203_];
 		if (aByteArray3765 == null) {
-			Rasterizer.anInt975 = 0;
+			Rasterizer.alpha = 0;
 		} else {
-			Rasterizer.anInt975 = aByteArray3765[i] & 0xff;
+			Rasterizer.alpha = aByteArray3765[i] & 0xff;
 		}
 		if (i_204_ >= 50) {
 			anIntArray3843[i_200_] = anIntArray3840[i_201_];
@@ -1151,7 +1151,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
 				if (anIntArray3769[i] == -1) {
-					Rasterizer.method863(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, Rasterizer.anIntArray969[anIntArray3779[i] & 0xffff]);
+					Rasterizer.method863(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, Rasterizer.palette[anIntArray3779[i] & 0xffff]);
 				} else {
 					Rasterizer.method856(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, anIntArray3842[0], anIntArray3842[1], anIntArray3842[2]);
 				}
@@ -1184,7 +1184,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
 				if (anIntArray3769[i] == -1) {
-					final int i_232_ = Rasterizer.anIntArray969[anIntArray3779[i] & 0xffff];
+					final int i_232_ = Rasterizer.palette[anIntArray3779[i] & 0xffff];
 					Rasterizer.method863(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, i_232_);
 					Rasterizer.method863(i_225_, i_227_, anIntArray3837[3], i_222_, i_224_, anIntArray3843[3], i_232_);
 				} else {

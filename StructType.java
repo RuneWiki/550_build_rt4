@@ -3,10 +3,11 @@
  */
 import javax.media.opengl.GL;
 
-final class Class120_Sub14_Sub16 extends NodeSub {
-	private Hashtable aClass75_3587;
+final class StructType extends NodeSub {
+	private Hashtable params;
+	static Class35 recentUse = new Class35(64);
 	static JagexInterface aClass189_3588;
-	static int anInt3589 = -1;
+	static int titlebgId = -1;
 	static int anInt3590 = -1;
 
 	public static void method1560(final int i) {
@@ -16,19 +17,19 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 				method1562((byte) -20);
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.G(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.G(").append(i).append(')').toString());
 		}
 	}
 
 	static final void method1561(final int i, final int i_0_, final int i_1_, final byte[][][] is, final int i_2_, final byte i_3_, final int i_4_, final int i_5_) {
 		Class120_Sub12_Sub9.anInt3193++;
-		Class120_Sub17.anInt2615 = 0;
+		ObjectContainer.anInt2615 = 0;
 		final int i_6_ = i_4_ - 16;
 		final int i_7_ = i_4_ + 16;
 		final int i_8_ = i_5_ - 16;
 		final int i_9_ = i_5_ + 16;
 		for (int i_10_ = Class190.anInt2101; i_10_ < Class142.anInt1361; i_10_++) {
-			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_10_];
+			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_10_];
 			for (int i_11_ = Class160.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
 				for (int i_12_ = Class31.anInt248; i_12_ < Class45.anInt396; i_12_++) {
 					final GroundTile class120_sub18 = class120_sub18s[i_11_][i_12_];
@@ -71,7 +72,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 							} else {
 								class120_sub18.aBoolean2631 = false;
 							}
-							Class120_Sub17.anInt2615++;
+							ObjectContainer.anInt2615++;
 						}
 					}
 				}
@@ -85,10 +86,10 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			if (bool) {
 				Class120_Sub12_Sub25.method1331();
 				Class120_Sub14_Sub13.method1532(3, -1);
-				Class120_Sub14_Sub11.aBoolean3545 = true;
+				ParamType.aBoolean3545 = true;
 				WaterShader.method165();
 				Class120_Sub12_Sub19.anInt3281 = -1;
-				Class120_Sub14_Sub18.anInt3612 = -1;
+				FrameLoader.anInt3612 = -1;
 				for (int i_14_ = 0; i_14_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[0].length; i_14_++) {
 					final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[0][i_14_];
 					final float f = 251.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
@@ -97,7 +98,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						Class69.method614(class120_sub9.anInt2505, 65535);
 						Class117.method1011(Class29.method251(72));
 					}
-					class120_sub9.method1162(Class120_Sub1.groundTiles, f, false);
+					class120_sub9.method1162(LabelGroup.groundTiles, f, false);
 				}
 				WaterShader.method163();
 			} else {
@@ -108,19 +109,19 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -106) && PacketBuffer.highWaterDetail) {
 							Class69.method614(class120_sub9.anInt2505, 65535);
 						}
-						class120_sub9.method1162(Class120_Sub1.groundTiles, f, false);
+						class120_sub9.method1162(LabelGroup.groundTiles, f, false);
 					}
 					if (i_15_ == 0 && Class74.sceneryShadowsType > 0) {
 						HDToolkit.method527(101.5F);
 						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.anIntArrayArrayArray2741[0]);
 					}
 				}
-				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub1.groundTiles);
+				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, LabelGroup.groundTiles);
 			}
 			gl.glPopMatrix();
 		}
 		for (int i_17_ = Class190.anInt2101; i_17_ < Class142.anInt1361; i_17_++) {
-			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_17_];
+			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_17_];
 			for (int i_18_ = -Class120_Sub14_Sub13.anInt3563; i_18_ <= 0; i_18_++) {
 				final int i_19_ = Class120_Sub12_Sub26.anInt3332 + i_18_;
 				final int i_20_ = Class120_Sub12_Sub26.anInt3332 - i_18_;
@@ -132,13 +133,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 							if (i_22_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, true);
+									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Class45.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, true);
+									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
 						}
@@ -146,17 +147,17 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 							if (i_22_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, true);
+									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Class45.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, true);
+									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
 						}
-						if (Class120_Sub17.anInt2615 == 0) {
+						if (ObjectContainer.anInt2615 == 0) {
 							if (!bool) {
 								Class120_Sub12_Sub7.aBoolean3181 = false;
 							}
@@ -167,7 +168,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			}
 		}
 		for (int i_24_ = Class190.anInt2101; i_24_ < Class142.anInt1361; i_24_++) {
-			final GroundTile[][] class120_sub18s = Class120_Sub1.groundTiles[i_24_];
+			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_24_];
 			for (int i_25_ = -Class120_Sub14_Sub13.anInt3563; i_25_ <= 0; i_25_++) {
 				final int i_26_ = Class120_Sub12_Sub26.anInt3332 + i_25_;
 				final int i_27_ = Class120_Sub12_Sub26.anInt3332 - i_25_;
@@ -179,13 +180,13 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 							if (i_29_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, false);
+									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Class45.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, false);
+									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
 						}
@@ -193,17 +194,17 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 							if (i_29_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, false);
+									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Class45.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									Class139.method1989(class120_sub18, false);
+									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
 						}
-						if (Class120_Sub17.anInt2615 == 0) {
+						if (ObjectContainer.anInt2615 == 0) {
 							if (!bool) {
 								Class120_Sub12_Sub7.aBoolean3181 = false;
 							}
@@ -220,7 +221,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 		try {
 			Class66.method579(5, (byte) -23);
 			Class101_Sub2.method844(5, true);
-			Class91.method764(5, 3);
+			MouseRecorder.method764(5, 3);
 			InterfaceClickMask.method1690(23, 5);
 			Class180_Sub3.method2314(5, 3);
 			Class81.method706(5, -128);
@@ -245,76 +246,53 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			Class120_Sub12_Sub2.aClass21_3144.method192(5);
 			Class15.aClass21_95.method192(5);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.H(").append(i).append(')').toString());
 		}
 	}
 
-	private final void method1563(final Buffer class120_sub7, final byte i, final int i_31_) {
-		try {
-			if (i_31_ == 249) {
-				final int i_32_ = class120_sub7.getUByte();
-				if (aClass75_3587 == null) {
-					final int i_33_ = Class120_Sub12_Sub17.method1283(i_32_, (byte) -44);
-					aClass75_3587 = new Hashtable(i_33_);
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 249) {
+			final int i_32_ = buffer.getUByte();
+			if (params == null) {
+				final int i_33_ = Class120_Sub12_Sub17.method1283(i_32_);
+				params = new Hashtable(i_33_);
+			}
+			for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
+				final boolean bool = buffer.getUByte() == 1;
+				final int i_35_ = buffer.getMedium();
+				Node node;
+				if (bool) {
+					node = new StringNode(buffer.getJString());
+				} else {
+					node = new IntegerNode(buffer.getInt());
 				}
-				for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
-					final boolean bool = class120_sub7.getUByte() == 1;
-					final int i_35_ = class120_sub7.getMedium();
-					Node node;
-					if (bool) {
-						node = new StringNode(class120_sub7.getJString());
-					} else {
-						node = new IntegerNode(class120_sub7.getInt());
-					}
-					aClass75_3587.put(node, i_35_);
-				}
+				params.put(node, i_35_);
 			}
-			if (i < 122) {
-				anInt3589 = 3;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_31_).append(')').toString());
 		}
 	}
 
-	final int method1564(final int i, final int i_36_, final int i_37_) {
-		int i_38_;
-		try {
-			if (aClass75_3587 == null) {
-				return i;
-			}
-			final IntegerNode class120_sub32 = (IntegerNode) aClass75_3587.get(i_36_);
-			if (i_37_ != -16959) {
-				return -123;
-			}
-			if (class120_sub32 == null) {
-				return i;
-			}
-			i_38_ = class120_sub32.value;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.C(").append(i).append(',').append(i_36_).append(',').append(i_37_).append(')').toString());
+	final int getIntegerParamValue(final int param, final int defaultInteger) {
+		if (params == null) {
+			return defaultInteger;
 		}
-		return i_38_;
+		final IntegerNode integerNode = (IntegerNode) params.get(param);
+		if (integerNode == null) {
+			return defaultInteger;
+		}
+		return integerNode.value;
 	}
 
-	public Class120_Sub14_Sub16() {
+	public StructType() {
 		/* empty */
 	}
 
-	final void method1565(final Buffer class120_sub7, final int i) {
-		try {
-			for (;;) {
-				final int i_39_ = class120_sub7.getUByte();
-				if (i_39_ == 0) {
-					break;
-				}
-				method1563(class120_sub7, (byte) 127, i_39_);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			if (i != 0) {
-				method1563(null, (byte) -85, 16);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.E(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
@@ -336,7 +314,7 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			}
 			i_43_ = 1023 + -i_41_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.B(").append(i).append(',').append(i_40_).append(',').append(i_41_).append(',').append(i_42_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.B(").append(i).append(',').append(i_40_).append(',').append(i_41_).append(',').append(i_42_).append(')').toString());
 		}
 		return i_43_;
 	}
@@ -366,27 +344,32 @@ final class Class120_Sub14_Sub16 extends NodeSub {
 			PacketBuffer.anIntArray3120 = new int[104];
 			CanvasWrapper.anIntArray21 = new int[5];
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.F(").append(bool).append(',').append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.F(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
-	final String method1568(final String string, final int i, final byte i_45_) {
-		String string_46_;
-		try {
-			if (i_45_ >= -105) {
-				aClass189_3588 = null;
-			}
-			if (aClass75_3587 == null) {
-				return string;
-			}
-			final StringNode class120_sub25 = (StringNode) aClass75_3587.get(i);
-			if (class120_sub25 == null) {
-				return string;
-			}
-			string_46_ = class120_sub25.value;
-		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("ro.D(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(i_45_).append(')').toString());
+	final String getStringParamValue(final int param, final String defaultString) {
+		if (params == null) {
+			return defaultString;
 		}
-		return string_46_;
+		final StringNode stringNode = (StringNode) params.get(param);
+		if (stringNode == null) {
+			return defaultString;
+		}
+		return stringNode.value;
+	}
+
+	static final StructType list(final int id) {
+		StructType structType = (StructType) recentUse.get(id);
+		if (structType != null) {
+			return structType;
+		}
+		final byte[] data = SeqType.aClass50_331.getFile(26, id);
+		structType = new StructType();
+		if (data != null) {
+			structType.decode(new Buffer(data));
+		}
+		recentUse.put(structType, id);
+		return structType;
 	}
 }

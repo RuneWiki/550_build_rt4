@@ -3,9 +3,9 @@
  */
 
 final class Class79_Sub1 extends Class79 {
-	static String[] aStringArray2243;
+	static String[] stringArguments;
 	static int anInt2244;
-	static Class50 aClass50_2245;
+	static js5 aClass50_2245;
 	static int[] anIntArray2246 = new int[256];
 	static String[] aStringArray2247;
 
@@ -25,7 +25,7 @@ final class Class79_Sub1 extends Class79 {
 				Class120_Sub12_Sub27.aClass107_3354 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kn.A(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kn.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -37,9 +37,9 @@ final class Class79_Sub1 extends Class79 {
 			}
 			aClass50_2245 = null;
 			anIntArray2246 = null;
-			aStringArray2243 = null;
+			stringArguments = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("kn.D(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("kn.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -48,7 +48,7 @@ final class Class79_Sub1 extends Class79 {
 	}
 
 	static final long method696(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null || class120_sub18.aClass36_2650 == null) {
 			return 0L;
 		}

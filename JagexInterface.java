@@ -22,13 +22,13 @@ final class JagexInterface {
 	int disabledAnim;
 	int currentFrame;
 	Object[] anObjectArray1947;
-	int anInt1948;
+	int width;
 	int[] anIntArray1949;
 	String disabledText = "";
-	Object[] anObjectArray1951;
+	Object[] mouseDraggedListener;
 	static Thread gameShellThread;
 	Object[] anObjectArray1953;
-	Object[] anObjectArray1954;
+	Object[] keyPressedListener;
 	byte[] aByteArray1955;
 	boolean aBoolean1956;
 	int[] spriteIDs;
@@ -38,11 +38,11 @@ final class JagexInterface {
 	int mediaIdDisabled;
 	int anInt1962;
 	byte aByte1963;
-	String aString1964;
+	String spellNameni;
 	int frameDelay = 0;
 	int anInt1966;
 	int thickness;
-	int anInt1968;
+	int redrawCycle;
 	int rotateSpeed;
 	int[][] cs1opcodes;
 	boolean aBoolean1971;
@@ -50,14 +50,14 @@ final class JagexInterface {
 	int[] anIntArray1973;
 	int alpha;
 	int clientCode;
-	Object[] anObjectArray1976;
+	Object[] privateChatUpdateListener;
 	int anInt1977;
-	int[] objAmounts;
-	String spellName;
-	Object[] anObjectArray1980;
+	int[] objIds;
+	String spellNameoi;
+	Object[] onSpellSelectionListener;
 	int translateX;
 	int anInt1982;
-	int[] objIds;
+	int[] objAmounts;
 	Object[] anObjectArray1984;
 	int[] anIntArray1985;
 	int[] spriteYs;
@@ -65,16 +65,16 @@ final class JagexInterface {
 	int[] spriteXs;
 	boolean aBoolean1989;
 	int enabledAnim;
-	int[] anIntArray1991;
+	int[] stringScriptValuesTriggers;
 	int[] cursors;
 	Object[] anObjectArray1993;
-	String aString1994;
+	String actionSufix;
 	int type;
 	int actionType;
 	int anInt1997;
 	Object[] anObjectArray1998;
 	int bitPacked;
-	Object[] anObjectArray2000;
+	Object[] onSpellDeselectionListener;
 	boolean aBoolean2001;
 	int anInt2002;
 	boolean aBoolean2003;
@@ -86,7 +86,7 @@ final class JagexInterface {
 	int verticalAlignment;
 	int mouseOverId;
 	int horizontalAlignment;
-	int enabledSprite;
+	int enabledSpriteId;
 	Object[] anObjectArray2013;
 	int originalWidth;
 	int originalX;
@@ -94,14 +94,14 @@ final class JagexInterface {
 	byte aByte2017;
 	boolean aBoolean2018;
 	boolean filled;
-	int anInt2020;
+	int targetCursorId;
 	int horizontalScrollPosition;
-	int[] anIntArray2022;
+	int[] skillListernerTriggers;
 	int verticalScrollPosition;
-	Object[] anObjectArray2024;
+	Object[] mouseWheelListener;
 	int disabledColor;
 	int shadow;
-	static int anInt2027;
+	static int inserting;
 	int anInt2028;
 	int parent;
 	int anInt2030;
@@ -113,11 +113,11 @@ final class JagexInterface {
 	Object[] anObjectArray2036;
 	int anInt2037;
 	int[] requiredValues;
-	int[] anIntArray2039;
+	int[] varpListenerTriggers;
 	boolean shaded;
-	boolean aBoolean2041;
+	boolean newFormat;
 	static short[] aShortArray2042;
-	int anInt2043;
+	int lastSkillTriggersPos;
 	int objSpritePadX;
 	boolean hidden;
 	boolean aBoolean2046;
@@ -128,16 +128,16 @@ final class JagexInterface {
 	byte aByte2051;
 	String[] niActions;
 	static int anInt2053;
-	Object[] anObjectArray2054;
-	int disabledSprite;
+	Object[] skillUpdateListener;
+	int disabledSpriteId;
 	String[] oiActions;
 	int verticalSpacing;
-	Object[] anObjectArray2058;
-	int anInt2059;
+	Object[] mouseFocusListener;
+	int height;
 	int originalHeight;
 	int originalY;
 	Object[] anObjectArray2062;
-	int[] anIntArray2063;
+	int[] inventoryListenerTriggers;
 	int anInt2064;
 	short aShort2065;
 	int anInt2066;
@@ -146,19 +146,19 @@ final class JagexInterface {
 	int anInt2069;
 	int rotation;
 	int[] valueCompareType;
-	JagexInterface[] aClass189Array2072;
+	JagexInterface[] components;
 	int x;
-	Object[] anObjectArray2074;
+	Object[] mouseUnfocusListener;
 	int anInt2075;
 	int anInt2076;
 	int objSpritePadY;
 	int anInt2078;
 	int[] anIntArray2079;
-	Object[] anObjectArray2080;
+	Object[] mouseClickFocusListener;
 	int disabledMouseOverColor;
-	int anInt2082;
-	int anInt2083;
-	Object[] anObjectArray2084;
+	int redrawId;
+	int componentIndex;
+	Object[] mouseClickUnfocusListener;
 	int anInt2085;
 	Object[] anObjectArray2086;
 	int enabledMouseOverColor;
@@ -170,12 +170,12 @@ final class JagexInterface {
 	short aShort2093;
 	int anInt2094;
 	String selectedActionName;
-	int[] anIntArray2096;
+	int[] integerScriptsValuesTriggers;
 	boolean aBoolean2097;
 	int nextFrame;
 
 	static {
-		anInt2027 = 0;
+		inserting = 0;
 		aShortArray2042 = new short[] { 43, 29, 60, 31, 22, 14, 24, 12 };
 		anInt2053 = 0;
 	}
@@ -211,7 +211,7 @@ final class JagexInterface {
 			return null;
 		}
 		if (i_6_ == 1) {
-			Class180_Sub7 class180_sub7_7_ = (Class180_Sub7) Class120_Sub1.aClass21_2406.get(i_5_ + (i_6_ << 16));
+			Class180_Sub7 class180_sub7_7_ = (Class180_Sub7) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
 			if (class180_sub7_7_ == null) {
 				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Decimator.aClass50_1721, i_5_, 0);
 				if (class180_sub2 == null) {
@@ -219,7 +219,7 @@ final class JagexInterface {
 					return null;
 				}
 				class180_sub7_7_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class120_Sub1.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
+				LabelGroup.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
 			}
 			if (seqType != null) {
 				class180_sub7_7_ = seqType.method323(false, i_4_, i, class180_sub7_7_, i_3_);
@@ -305,7 +305,7 @@ final class JagexInterface {
 			}
 			class120_sub14_sub19 = class120_sub14_sub19_18_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.Q(").append(i).append(',').append(i_16_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.Q(").append(i).append(',').append(i_16_).append(')').toString());
 		}
 		return class120_sub14_sub19;
 	}
@@ -334,25 +334,25 @@ final class JagexInterface {
 			}
 			class41 = (this.anInt2088 ^ 0xffffffff) != 0 ? Class132_Sub1.method1934(this.anInt2002, (byte) 126, this.anInt2094, this.anInt2088, this.anInt1966) : null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.R(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.R(").append(i).append(')').toString());
 		}
 		return class41;
 	}
 
 	static final void method2490(final int i, final int i_23_) {
 		try {
-			DummyOutputStream.aClass21_30.method192(i);
+			CursorType.recentUse.method192(i);
 			if (i_23_ <= 7) {
 				anInt2053 = -76;
 			}
-			Class120_Sub12_Sub27.aClass21_3342.method192(i);
+			CursorType.spriteCache.method192(i);
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.B(").append(i).append(',').append(i_23_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.B(").append(i).append(',').append(i_23_).append(')').toString());
 		}
 	}
 
 	final void decodeOld(final Buffer buffer) {
-		this.aBoolean2041 = false;
+		this.newFormat = false;
 		this.type = buffer.getUByte();
 		this.actionType = buffer.getUByte();
 		this.clientCode = buffer.getUShort();
@@ -410,8 +410,8 @@ final class JagexInterface {
 		if (this.type == 2) {
 			this.aByte1963 = (byte) 3;
 			this.aByte2092 = (byte) 3;
-			this.objIds = new int[this.originalHeight * this.originalWidth];
-			this.objAmounts = new int[this.originalWidth * this.originalHeight];
+			this.objAmounts = new int[this.originalHeight * this.originalWidth];
+			this.objIds = new int[this.originalWidth * this.originalHeight];
 			final int i_31_ = buffer.getUByte();
 			final int i_32_ = buffer.getUByte();
 			if (i_31_ == 1) {
@@ -478,8 +478,8 @@ final class JagexInterface {
 			this.enabledMouseOverColor = buffer.getInt();
 		}
 		if (this.type == 5) {
-			this.disabledSprite = buffer.getInt();
-			this.enabledSprite = buffer.getInt();
+			this.disabledSpriteId = buffer.getInt();
+			this.enabledSpriteId = buffer.getInt();
 		}
 		if (this.type == 6) {
 			this.modelTypeDisabled = 1;
@@ -507,8 +507,8 @@ final class JagexInterface {
 		if (this.type == 7) {
 			this.aByte2092 = (byte) 3;
 			this.aByte1963 = (byte) 3;
-			this.objIds = new int[this.originalWidth * this.originalHeight];
-			this.objAmounts = new int[this.originalHeight * this.originalWidth];
+			this.objAmounts = new int[this.originalWidth * this.originalHeight];
+			this.objIds = new int[this.originalHeight * this.originalWidth];
 			this.horizontalAlignment = buffer.getUByte();
 			this.font = buffer.getUShort();
 			if (this.font == 65535) {
@@ -536,7 +536,7 @@ final class JagexInterface {
 		}
 		if (this.actionType == 2 || this.type == 2) {
 			this.selectedActionName = buffer.getJString();
-			this.spellName = buffer.getJString();
+			this.spellNameoi = buffer.getJString();
 			final int i_40_ = 0x3f & buffer.getUShort();
 			clickMask |= i_40_ << 11;
 		}
@@ -570,9 +570,9 @@ final class JagexInterface {
 		Class88.aBoolean835 = false;
 		int i_41_;
 		if (!bool) {
-			i_41_ = this.disabledSprite;
+			i_41_ = this.disabledSpriteId;
 		} else {
-			i_41_ = this.enabledSprite;
+			i_41_ = this.enabledSpriteId;
 		}
 		if (i_41_ == -1) {
 			return null;
@@ -653,13 +653,13 @@ final class JagexInterface {
 			}
 			class153 = class153_47_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.A(").append(i).append(',').append(i_46_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.A(").append(i).append(',').append(i_46_).append(')').toString());
 		}
 		return class153;
 	}
 
 	final void decodeNew(final Buffer buffer) {
-		this.aBoolean2041 = true;
+		this.newFormat = true;
 		buffer.pos++;
 		this.type = buffer.getUByte();
 		if ((0x80 & this.type) != 0) {
@@ -675,7 +675,6 @@ final class JagexInterface {
 		this.aByte2092 = buffer.getByte();
 		this.aByte2051 = buffer.getByte();
 		this.aByte2017 = buffer.getByte();
-		//System.out.println(aByte1963+":"+aByte2092+":"+aByte2051+":"+aByte2017);
 		this.parent = buffer.getUShort();
 		if (this.parent == 65535) {
 			this.parent = -1;
@@ -689,7 +688,7 @@ final class JagexInterface {
 			this.aBoolean1960 = buffer.getUByte() == 1;
 		}
 		if (this.type == 5) {
-			this.disabledSprite = buffer.getInt();
+			this.disabledSpriteId = buffer.getInt();
 			this.rotation = buffer.getUShort();
 			final int i_48_ = buffer.getUByte();
 			this.aBoolean2001 = (i_48_ & 0x1) != 0;
@@ -714,7 +713,7 @@ final class JagexInterface {
 			this.rotateZ = buffer.getUShort();
 			this.zoom = buffer.getUShort();
 			this.disabledAnim = buffer.getUShort();
-			if ((this.disabledAnim ^ 0xffffffff) == -65536) {
+			if (this.disabledAnim == 65535) {
 				this.disabledAnim = -1;
 			}
 			this.aBoolean2046 = buffer.getUByte() == 1;
@@ -730,7 +729,7 @@ final class JagexInterface {
 		}
 		if (this.type == 4) {
 			this.font = buffer.getUShort();
-			if (65535 == this.font) {
+			if (this.font == 65535) {
 				this.font = -1;
 			}
 			this.disabledText = buffer.getJString();
@@ -769,7 +768,7 @@ final class JagexInterface {
 				this.aByteArray1955[i_51_] = buffer.getByte();
 			}
 		}
-		this.aString1964 = buffer.getJString();
+		this.spellNameni = buffer.getJString();
 		final int i_52_ = buffer.getUByte();
 		final int i_53_ = i_52_ >> 4;
 		final int i_54_ = 0xf & i_52_;
@@ -791,74 +790,74 @@ final class JagexInterface {
 			final int i_58_ = buffer.getUByte();
 			this.cursors[i_58_] = buffer.getUShort();
 		}
-		this.aString1994 = buffer.getJString();
-		if (this.aString1994.equals("")) {
-			this.aString1994 = null;
+		this.actionSufix = buffer.getJString();
+		if (this.actionSufix.equals("")) {
+			this.actionSufix = null;
 		}
-		int i_59_ = -1;
+		int paramId = -1;
 		this.anInt1962 = buffer.getUByte();
 		this.anInt2066 = buffer.getUByte();
 		this.aBoolean1939 = buffer.getUByte() == 1;
 		this.selectedActionName = buffer.getJString();
 		if (Class153.method2073(clickMask) != 0) {
-			i_59_ = buffer.getUShort();
-			if (65535 == i_59_) {
-				i_59_ = -1;
+			paramId = buffer.getUShort();
+			if (paramId == 65535) {
+				paramId = -1;
 			}
-			this.anInt2020 = buffer.getUShort();
-			if ((this.anInt2020 ^ 0xffffffff) == -65536) {
-				this.anInt2020 = -1;
+			this.targetCursorId = buffer.getUShort();
+			if (this.targetCursorId == 65535) {
+				this.targetCursorId = -1;
 			}
 			this.cursorId = buffer.getUShort();
-			if ((this.cursorId ^ 0xffffffff) == -65536) {
+			if (this.cursorId == 65535) {
 				this.cursorId = -1;
 			}
 		}
-		this.clickMask = new InterfaceClickMask(clickMask, i_59_);
+		this.clickMask = new InterfaceClickMask(clickMask, paramId);
 		this.anObjectArray2034 = method2503(buffer);
-		this.anObjectArray2058 = method2503(buffer);
-		this.anObjectArray2074 = method2503(buffer);
-		this.anObjectArray2000 = method2503(buffer);
-		this.anObjectArray1980 = method2503(buffer);
+		this.mouseFocusListener = method2503(buffer);
+		this.mouseUnfocusListener = method2503(buffer);
+		this.onSpellDeselectionListener = method2503(buffer);
+		this.onSpellSelectionListener = method2503(buffer);
 		this.anObjectArray2050 = method2503(buffer);
 		this.anObjectArray1929 = method2503(buffer);
-		this.anObjectArray2054 = method2503(buffer);
+		this.skillUpdateListener = method2503(buffer);
 		this.anObjectArray1998 = method2503(buffer);
 		this.anObjectArray2006 = method2503(buffer);
 		this.anObjectArray1953 = method2503(buffer);
-		this.anObjectArray2080 = method2503(buffer);
+		this.mouseClickFocusListener = method2503(buffer);
 		this.anObjectArray1993 = method2503(buffer);
-		this.anObjectArray2084 = method2503(buffer);
-		this.anObjectArray1951 = method2503(buffer);
+		this.mouseClickUnfocusListener = method2503(buffer);
+		this.mouseDraggedListener = method2503(buffer);
 		this.anObjectArray1959 = method2503(buffer);
 		this.anObjectArray1947 = method2503(buffer);
-		this.anObjectArray2024 = method2503(buffer);
+		this.mouseWheelListener = method2503(buffer);
 		this.anObjectArray2062 = method2503(buffer);
 		this.anObjectArray2032 = method2503(buffer);
-		this.anIntArray2039 = method2493(buffer);
-		this.anIntArray2063 = method2493(buffer);
-		this.anIntArray2022 = method2493(buffer);
-		this.anIntArray2096 = method2493(buffer);
-		this.anIntArray1991 = method2493(buffer);
+		this.varpListenerTriggers = method2493(buffer);
+		this.inventoryListenerTriggers = method2493(buffer);
+		this.skillListernerTriggers = method2493(buffer);
+		this.integerScriptsValuesTriggers = method2493(buffer);
+		this.stringScriptValuesTriggers = method2493(buffer);
 	}
 
 	final void method2496(final int i, final byte i_60_, final int i_61_) {
 		try {
-			int i_62_ = this.objAmounts[i];
-			this.objAmounts[i] = this.objAmounts[i_61_];
-			this.objAmounts[i_61_] = i_62_;
+			int i_62_ = this.objIds[i];
+			this.objIds[i] = this.objIds[i_61_];
+			this.objIds[i_61_] = i_62_;
 			if (i_60_ <= 53) {
 				method2501(69);
 			}
-			i_62_ = this.objIds[i];
-			this.objIds[i] = this.objIds[i_61_];
-			this.objIds[i_61_] = i_62_;
+			i_62_ = this.objAmounts[i];
+			this.objAmounts[i] = this.objAmounts[i_61_];
+			this.objAmounts[i_61_] = i_62_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.D(").append(i).append(',').append(i_60_).append(',').append(i_61_).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.D(").append(i).append(',').append(i_60_).append(',').append(i_61_).append(')').toString());
 		}
 	}
 
-	final Class120_Sub14_Sub8 method2497(final byte i, final Class107[] class107s) {
+	final Class120_Sub14_Sub8 method2497(final byte i, final AbstractIndexedSprite[] class107s) {
 		Class120_Sub14_Sub8 class120_sub14_sub8;
 		try {
 			Class88.aBoolean835 = false;
@@ -876,12 +875,12 @@ final class JagexInterface {
 			if (class120_sub14_sub8_63_ == null) {
 				Class88.aBoolean835 = true;
 			} else {
-				class120_sub14_sub8_63_.method1474(class107s, null);
+				class120_sub14_sub8_63_.setNameIcons(class107s, null);
 				Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.font);
 			}
 			class120_sub14_sub8 = class120_sub14_sub8_63_;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.M(").append(i).append(',').append(class107s != null ? "{...}" : "null").append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.M(").append(i).append(',').append(class107s != null ? "{...}" : "null").append(')').toString());
 		}
 		return class120_sub14_sub8;
 	}
@@ -894,7 +893,7 @@ final class JagexInterface {
 			}
 			gameShellThread = null;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.H(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.H(").append(i).append(')').toString());
 		}
 	}
 
@@ -1042,27 +1041,27 @@ final class JagexInterface {
 			if (this.anIntArray2079 != null) {
 				return true;
 			}
-			final Class107_Sub1 class107_sub1 = Class164.method2138(i + 33, 0, Class89.aClass50_836, this.disabledSprite);
+			final LDIndexedSprite class107_sub1 = Class164.method2138(i + 33, 0, Class89.aClass50_836, this.disabledSpriteId);
 			if (class107_sub1 == null) {
 				return false;
 			}
 			class107_sub1.method923();
-			this.anIntArray1949 = new int[class107_sub1.anInt1030];
-			this.anIntArray2079 = new int[class107_sub1.anInt1030];
+			this.anIntArray1949 = new int[class107_sub1.height];
+			this.anIntArray2079 = new int[class107_sub1.height];
 			if (i != -1) {
 				this.anIntArray1973 = null;
 			}
-			for (int i_82_ = 0; i_82_ < class107_sub1.anInt1030; i_82_++) {
+			for (int i_82_ = 0; i_82_ < class107_sub1.height; i_82_++) {
 				int i_83_ = 0;
-				for (int i_84_ = 0; i_84_ < class107_sub1.anInt1026; i_84_++) {
-					if (class107_sub1.aByteArray2306[i_84_ + i_82_ * class107_sub1.anInt1026] != 0) {
+				for (int i_84_ = 0; i_84_ < class107_sub1.width; i_84_++) {
+					if (class107_sub1.paletteIndicators[i_84_ + i_82_ * class107_sub1.width] != 0) {
 						i_83_ = i_84_;
 						break;
 					}
 				}
-				int i_85_ = class107_sub1.anInt1026;
-				for (int i_86_ = i_83_; class107_sub1.anInt1026 > i_86_; i_86_++) {
-					if (class107_sub1.aByteArray2306[class107_sub1.anInt1026 * i_82_ + i_86_] == 0) {
+				int i_85_ = class107_sub1.width;
+				for (int i_86_ = i_83_; class107_sub1.width > i_86_; i_86_++) {
+					if (class107_sub1.paletteIndicators[class107_sub1.width * i_82_ + i_86_] == 0) {
 						i_85_ = i_86_;
 						break;
 					}
@@ -1072,13 +1071,13 @@ final class JagexInterface {
 			}
 			bool = true;
 		} catch (final RuntimeException runtimeexception) {
-			throw Class120_Sub14_Sub2.method1428(runtimeexception, new StringBuilder("wf.E(").append(i).append(')').toString());
+			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.E(").append(i).append(')').toString());
 		}
 		return bool;
 	}
 
 	static final long method2502(final int i, final int i_87_, final int i_88_) {
-		final GroundTile class120_sub18 = Class120_Sub1.groundTiles[i][i_87_][i_88_];
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_87_][i_88_];
 		if (class120_sub18 == null || class120_sub18.aClass186_2639 == null) {
 			return 0L;
 		}
@@ -1105,6 +1104,17 @@ final class JagexInterface {
 		return objects_90_;
 	}
 
+	static final JagexInterface getComponent(final int bitPacked, final int componentIndex) {
+		final JagexInterface class189_20_ = Class74.getJagexInterface(bitPacked);
+		if (componentIndex == -1) {
+			return class189_20_;
+		}
+		if (class189_20_ == null || class189_20_.components == null || componentIndex >= class189_20_.components.length) {
+			return null;
+		}
+		return class189_20_.components[componentIndex];
+	}
+
 	public JagexInterface() {
 		this.cursorId = -1;
 		this.aBoolean1971 = false;
@@ -1125,10 +1135,10 @@ final class JagexInterface {
 		this.anInt1997 = -1;
 		this.verticalScrollPosition = 0;
 		this.enabledColor = 0;
-		this.spellName = "";
+		this.spellNameoi = "";
 		this.filled = false;
 		this.disabledColor = 0;
-		this.anInt1948 = 0;
+		this.width = 0;
 		this.y = 0;
 		this.enabledAnim = -1;
 		this.originalX = 0;
@@ -1145,9 +1155,9 @@ final class JagexInterface {
 		this.rotateX = 0;
 		this.rotateSpeed = 0;
 		this.aByte2017 = (byte) 0;
-		this.anInt2059 = 0;
+		this.height = 0;
 		this.anInt2028 = 0;
-		this.anInt2020 = -1;
+		this.targetCursorId = -1;
 		this.anInt2030 = -1;
 		this.anInt2066 = 0;
 		this.aBoolean1956 = true;
@@ -1157,7 +1167,7 @@ final class JagexInterface {
 		mediaTypeEnabled = 1;
 		this.verticalSpacing = 0;
 		this.shaded = false;
-		this.anInt2043 = 0;
+		this.lastSkillTriggersPos = 0;
 		this.clientCode = 0;
 		this.objSpritePadX = 0;
 		this.currentFrame = 0;
@@ -1167,35 +1177,35 @@ final class JagexInterface {
 		this.aByte2051 = (byte) 0;
 		this.originalWidth = 0;
 		this.verticalAlignment = 0;
-		this.enabledSprite = -1;
+		this.enabledSpriteId = -1;
 		this.disabledAnim = -1;
 		this.objSpritePadY = 0;
 		this.anInt1982 = 1;
 		mediaIdEnabled = -1;
 		this.anInt2075 = 0;
 		this.font = -1;
-		this.aString1964 = "";
+		this.spellNameni = "";
 		this.anInt2064 = 0;
 		this.clickMask = Class110.aClass120_Sub20_1053;
 		this.disabledMouseOverColor = 0;
 		this.originalHeight = 0;
 		this.anInt2069 = 0;
 		this.enabledMouseOverColor = 0;
-		this.anInt2082 = -1;
+		this.redrawId = -1;
 		this.anInt2076 = 0;
-		this.aBoolean2041 = false;
+		this.newFormat = false;
 		this.aBoolean1960 = false;
 		this.modelTypeDisabled = 1;
 		this.rotation = 0;
-		this.anInt1968 = -1;
+		this.redrawCycle = -1;
 		this.anInt1977 = 0;
 		this.rotateY = 0;
 		this.anInt2037 = 0;
 		this.x = 0;
 		this.aShort2093 = (short) 0;
 		this.aByte2092 = (byte) 0;
-		this.disabledSprite = -1;
-		this.anInt2083 = -1;
+		this.disabledSpriteId = -1;
+		this.componentIndex = -1;
 		this.originalY = 0;
 		this.outline = 0;
 		this.aBoolean2097 = false;

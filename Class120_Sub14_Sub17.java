@@ -96,12 +96,12 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		}
 	}
 
-	final int[] method1570(final Interface3 interface3, final Class50 class50, final boolean bool) {
-		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, class50, -50)) {
+	final int[] method1570(final Interface3 interface3, final js5 js5, final boolean bool) {
+		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -50)) {
 			return null;
 		}
 		final int i = bool ? 64 : 128;
-		return this.aClass120_Sub14_Sub13_3602.method1533(1.0, aBoolean3591, 30319, class50, interface3, i, false, i);
+		return this.aClass120_Sub14_Sub13_3602.method1533(1.0, aBoolean3591, 30319, js5, interface3, i, false, i);
 	}
 
 	private static final void method1571(final int i, final int i_20_, int i_21_, int i_22_, final int i_23_, final int i_24_, final int[] is) {
@@ -168,13 +168,13 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		}
 	}
 
-	final int[] method1572(final Interface3 interface3, final Class50 class50, final float f, final boolean bool) {
+	final int[] method1572(final Interface3 interface3, final js5 js5, final float f, final boolean bool) {
 		if (anIntArray3593 == null || aFloat3607 != f) {
-			if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, class50, -75)) {
+			if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -75)) {
 				return null;
 			}
 			anInt3600 = bool ? 64 : 128;
-			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, 30319, class50, interface3, anInt3600, true, anInt3600);
+			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, 30319, js5, interface3, anInt3600, true, anInt3600);
 			aFloat3607 = f;
 			if (aBoolean3606) {
 				final int[] is = new int[anInt3600];
@@ -290,12 +290,12 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		anIntArray3596 = null;
 	}
 
-	final boolean method1575(final Interface3 interface3, final Class50 class50) {
-		return this.aClass120_Sub14_Sub13_3602.method1529(interface3, class50, -55);
+	final boolean method1575(final Interface3 interface3, final js5 js5) {
+		return this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -55);
 	}
 
-	final boolean method1576(final Interface3 interface3, final Class50 class50, int i) {
-		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, class50, -26)) {
+	final boolean method1576(final Interface3 interface3, final js5 js5, int i) {
+		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -26)) {
 			return false;
 		}
 		final GL gl = HDToolkit.gl;
@@ -310,7 +310,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 				}
 				HDToolkit.method514(anInt3592);
 				if (aBoolean3603 && Class34.method290()) {
-					final float[] fs = this.aClass120_Sub14_Sub13_3602.method1528(i, (byte) -107, aBoolean3591, interface3, class50, i);
+					final float[] fs = this.aClass120_Sub14_Sub13_3602.method1528(i, (byte) -107, aBoolean3591, interface3, js5, i);
 					if (anInt3597 == 2) {
 						method1569(Class163.anInt1567, Class163.anInt1573, i, i, Class163.anInt1570, Class163.anInt1580, fs);
 						gl.glTexParameteri(3553, 10241, 9987);
@@ -326,7 +326,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 					}
 				} else {
 					final int i_83_ = HDToolkit.usingBigEndian ? 33639 : 5121;
-					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) 58, i, class50, 0.7, interface3, aBoolean3591);
+					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) 58, i, js5, 0.7, interface3, aBoolean3591);
 					if (anInt3597 == 2) {
 						method1571(Class163.anInt1567, Class163.anInt1570, i, i, Class163.anInt1571, i_83_, is);
 						gl.glTexParameteri(3553, 10241, 9987);
@@ -341,7 +341,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 							if (i == 0) {
 								break;
 							}
-							is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) -120, i, class50, 0.7, interface3, aBoolean3591);
+							is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) -120, i, js5, 0.7, interface3, aBoolean3591);
 						}
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
