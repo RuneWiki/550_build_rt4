@@ -32,17 +32,17 @@ abstract class Class57 {
 		if (i_0_ != 0) {
 			if (i_0_ != 1) {
 				LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
-				IsaacCipher.method905(16448, 2);
+				IsaacCipher.method905(2);
 			} else {
 				LocType.method2465((byte) 0, true);
-				IsaacCipher.method905(16448, 512);
+				IsaacCipher.method905(512);
 				if (Class114.tileSettings != null) {
 					InvType.method1447(false);
 				}
 			}
 		} else {
 			Class9.aByteArrayArrayArray70 = null;
-			IsaacCipher.method905(16448, 0);
+			IsaacCipher.method905(0);
 		}
 		Class153.anInt1436 = Class173.gameLevel;
 	}
@@ -55,40 +55,33 @@ abstract class Class57 {
 		ProducingGraphicsBuffer.anInt2798 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2107;
 		Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 	}
-
-	static final void method495(final int i, final Object[] objects, final int i_3_, final int i_4_, final int[] is) {
-		try {
-			if (i > i_3_) {
-				final int i_5_ = (i_3_ + i) / 2;
-				int i_6_ = i_3_;
-				final int i_7_ = is[i_5_];
-				is[i_5_] = is[i];
-				is[i] = i_7_;
-				final Object object = objects[i_5_];
-				objects[i_5_] = objects[i];
-				objects[i] = object;
-				for (int i_8_ = i_3_; i_8_ < i; i_8_++) {
-					if (i_7_ - -(i_8_ & 0x1) > is[i_8_]) {
-						final int i_9_ = is[i_8_];
-						is[i_8_] = is[i_6_];
-						is[i_6_] = i_9_;
-						final Object object_10_ = objects[i_8_];
-						objects[i_8_] = objects[i_6_];
-						objects[i_6_++] = object_10_;
-					}
+	
+	static final void sortArray(final int len, final Object[] objects, final int off, final int[] is) {//TODO figure out what kinda algo it uses, etc?
+		if (len > off) {
+			final int i_5_ = (off + len) / 2;
+			int i_6_ = off;
+			final int i_7_ = is[i_5_];
+			is[i_5_] = is[len];
+			is[len] = i_7_;
+			final Object object = objects[i_5_];
+			objects[i_5_] = objects[len];
+			objects[len] = object;
+			for (int i_8_ = off; i_8_ < len; i_8_++) {
+				if (i_7_ + (i_8_ & 0x1) > is[i_8_]) {
+					final int i_9_ = is[i_8_];
+					is[i_8_] = is[i_6_];
+					is[i_6_] = i_9_;
+					final Object object_10_ = objects[i_8_];
+					objects[i_8_] = objects[i_6_];
+					objects[i_6_++] = object_10_;
 				}
-				is[i] = is[i_6_];
-				is[i_6_] = i_7_;
-				objects[i] = objects[i_6_];
-				objects[i_6_] = object;
-				method495(i_6_ - 1, objects, i_3_, -102, is);
-				method495(i, objects, 1 + i_6_, -47, is);
 			}
-			if (i_4_ >= -42) {
-				worldLen2 = -2;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gh.E(").append(i).append(',').append(objects != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			is[len] = is[i_6_];
+			is[i_6_] = i_7_;
+			objects[len] = objects[i_6_];
+			objects[i_6_] = object;
+			sortArray(i_6_ - 1, objects, off, is);
+			sortArray(len, objects, 1 + i_6_, is);
 		}
 	}
 }

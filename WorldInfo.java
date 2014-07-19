@@ -9,12 +9,12 @@ final class WorldInfo {
 	static String aString1421;
 	String region;
 
-	static final void method2065(final JagexInterface[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_, final int i_2_) {
+	static final void method2065(final JagexInterface[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_) {
 		for (final JagexInterface class1892 : class189s) {
 			final JagexInterface jagexInterface = class1892;
 			if (jagexInterface != null && jagexInterface.parent == i_0_) {
-				Class23.method201(bool, i, jagexInterface, i_1_, -4);
-				SceneGraphNode.method2272(i, i_1_, jagexInterface, 97);
+				Class23.method201(jagexInterface, bool, i, i_1_);
+				SceneGraphNode.method2272(jagexInterface, i, i_1_);
 				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {
 					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.height;
 				}
@@ -94,7 +94,7 @@ final class WorldInfo {
 		try {
 			aString1421 = null;
 			if (bool) {
-				method2065(null, false, 101, -99, 41, -24);
+				method2065(null, false, 101, -99, 41);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.A(").append(bool).append(')').toString());

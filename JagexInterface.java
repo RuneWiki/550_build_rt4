@@ -37,7 +37,7 @@ final class JagexInterface {
 	boolean aBoolean1960;
 	int mediaIdDisabled;
 	int anInt1962;
-	byte aByte1963;
+	byte dynamicWidthValue;
 	String spellNameni;
 	int frameDelay = 0;
 	int anInt1966;
@@ -91,7 +91,7 @@ final class JagexInterface {
 	int originalWidth;
 	int originalX;
 	private int mediaIdEnabled;
-	byte aByte2017;
+	byte dynamicYValue;
 	boolean aBoolean2018;
 	boolean filled;
 	int targetCursorId;
@@ -108,7 +108,7 @@ final class JagexInterface {
 	int modelTypeDisabled;
 	Object[] anObjectArray2032;
 	int anInt2033;
-	Object[] anObjectArray2034;
+	Object[] onloadListener;
 	boolean aBoolean2035;
 	Object[] anObjectArray2036;
 	int anInt2037;
@@ -125,7 +125,7 @@ final class JagexInterface {
 	byte[] aByteArray2048;
 	int anInt2049;
 	Object[] anObjectArray2050;
-	byte aByte2051;
+	byte dynamicXValue;
 	String[] niActions;
 	static int anInt2053;
 	Object[] skillUpdateListener;
@@ -163,10 +163,10 @@ final class JagexInterface {
 	Object[] anObjectArray2086;
 	int enabledMouseOverColor;
 	int anInt2088;
-	Object[] anObjectArray2089;
+	Object[] onResizeListener;
 	int outline;
 	int rotateY;
-	byte aByte2092;
+	byte dynamicHeightValue;
 	short aShort2093;
 	int anInt2094;
 	String selectedActionName;
@@ -238,7 +238,7 @@ final class JagexInterface {
 			if (playerAppearance == null) {
 				return null;
 			}
-			final Class180_Sub7 class180_sub7_9_ = playerAppearance.method2044(i_4_, seqType, i, (byte) 60, i_3_);
+			final Class180_Sub7 class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
 			if (class180_sub7_9_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -339,18 +339,6 @@ final class JagexInterface {
 		return class41;
 	}
 
-	static final void method2490(final int i, final int i_23_) {
-		try {
-			CursorType.recentUse.method192(i);
-			if (i_23_ <= 7) {
-				anInt2053 = -76;
-			}
-			CursorType.spriteCache.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.B(").append(i).append(',').append(i_23_).append(')').toString());
-		}
-	}
-
 	final void decodeOld(final Buffer buffer) {
 		this.newFormat = false;
 		this.type = buffer.getUByte();
@@ -360,10 +348,10 @@ final class JagexInterface {
 		this.originalY = buffer.getShort();
 		this.originalWidth = buffer.getUShort();
 		this.originalHeight = buffer.getUShort();
-		this.aByte2092 = (byte) 0;
-		this.aByte2051 = (byte) 0;
-		this.aByte2017 = (byte) 0;
-		this.aByte1963 = (byte) 0;
+		this.dynamicHeightValue = (byte) 0;
+		this.dynamicXValue = (byte) 0;
+		this.dynamicYValue = (byte) 0;
+		this.dynamicWidthValue = (byte) 0;
 		this.alpha = buffer.getUByte();
 		this.parent = buffer.getUShort();
 		if (this.parent == 65535) {
@@ -408,8 +396,8 @@ final class JagexInterface {
 			buffer.getUByte();
 		}
 		if (this.type == 2) {
-			this.aByte1963 = (byte) 3;
-			this.aByte2092 = (byte) 3;
+			this.dynamicWidthValue = (byte) 3;
+			this.dynamicHeightValue = (byte) 3;
 			this.objAmounts = new int[this.originalHeight * this.originalWidth];
 			this.objIds = new int[this.originalWidth * this.originalHeight];
 			final int i_31_ = buffer.getUByte();
@@ -505,8 +493,8 @@ final class JagexInterface {
 			this.rotateY = buffer.getUShort();
 		}
 		if (this.type == 7) {
-			this.aByte2092 = (byte) 3;
-			this.aByte1963 = (byte) 3;
+			this.dynamicHeightValue = (byte) 3;
+			this.dynamicWidthValue = (byte) 3;
 			this.objAmounts = new int[this.originalWidth * this.originalHeight];
 			this.objIds = new int[this.originalHeight * this.originalWidth];
 			this.horizontalAlignment = buffer.getUByte();
@@ -671,10 +659,10 @@ final class JagexInterface {
 		this.originalY = buffer.getShort();
 		this.originalWidth = buffer.getUShort();
 		this.originalHeight = buffer.getUShort();
-		this.aByte1963 = buffer.getByte();
-		this.aByte2092 = buffer.getByte();
-		this.aByte2051 = buffer.getByte();
-		this.aByte2017 = buffer.getByte();
+		this.dynamicWidthValue = buffer.getByte();
+		this.dynamicHeightValue = buffer.getByte();
+		this.dynamicXValue = buffer.getByte();
+		this.dynamicYValue = buffer.getByte();
 		this.parent = buffer.getUShort();
 		if (this.parent == 65535) {
 			this.parent = -1;
@@ -720,10 +708,10 @@ final class JagexInterface {
 			this.aShort2093 = (short) buffer.getUShort();
 			this.aShort2065 = (short) buffer.getUShort();
 			this.aBoolean2003 = buffer.getUByte() == 1;
-			if (this.aByte1963 != 0) {
+			if (this.dynamicWidthValue != 0) {
 				this.anInt2069 = buffer.getUShort();
 			}
-			if (this.aByte2092 != 0) {
+			if (this.dynamicHeightValue != 0) {
 				this.anInt2007 = buffer.getUShort();
 			}
 		}
@@ -814,7 +802,7 @@ final class JagexInterface {
 			}
 		}
 		this.clickMask = new InterfaceClickMask(clickMask, paramId);
-		this.anObjectArray2034 = method2503(buffer);
+		this.onloadListener = method2503(buffer);
 		this.mouseFocusListener = method2503(buffer);
 		this.mouseUnfocusListener = method2503(buffer);
 		this.onSpellDeselectionListener = method2503(buffer);
@@ -1041,7 +1029,7 @@ final class JagexInterface {
 			if (this.anIntArray2079 != null) {
 				return true;
 			}
-			final LDIndexedSprite class107_sub1 = Class164.method2138(i + 33, 0, Class89.aClass50_836, this.disabledSpriteId);
+			final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class89.aClass50_836, 0, this.disabledSpriteId);
 			if (class107_sub1 == null) {
 				return false;
 			}
@@ -1124,7 +1112,7 @@ final class JagexInterface {
 		this.translateX = 0;
 		this.tooltip = Class120_Sub12_Sub28.okString;
 		this.anInt1962 = 0;
-		this.aByte1963 = (byte) 0;
+		this.dynamicWidthValue = (byte) 0;
 		this.maxScrollHorizontal = 0;
 		this.bitPacked = -1;
 		this.aBoolean1989 = false;
@@ -1154,7 +1142,7 @@ final class JagexInterface {
 		this.aBoolean2001 = false;
 		this.rotateX = 0;
 		this.rotateSpeed = 0;
-		this.aByte2017 = (byte) 0;
+		this.dynamicYValue = (byte) 0;
 		this.height = 0;
 		this.anInt2028 = 0;
 		this.targetCursorId = -1;
@@ -1174,7 +1162,7 @@ final class JagexInterface {
 		this.maxScrollVertical = 0;
 		this.actionType = 0;
 		this.parent = -1;
-		this.aByte2051 = (byte) 0;
+		this.dynamicXValue = (byte) 0;
 		this.originalWidth = 0;
 		this.verticalAlignment = 0;
 		this.enabledSpriteId = -1;
@@ -1203,7 +1191,7 @@ final class JagexInterface {
 		this.anInt2037 = 0;
 		this.x = 0;
 		this.aShort2093 = (short) 0;
-		this.aByte2092 = (byte) 0;
+		this.dynamicHeightValue = (byte) 0;
 		this.disabledSpriteId = -1;
 		this.componentIndex = -1;
 		this.originalY = 0;

@@ -3,7 +3,7 @@
  */
 
 final class Canvas_Sub1 {
-	static Cache aClass21_14 = new Cache(64);
+	static ObjectCache aClass21_14 = new ObjectCache(64);
 	static PacketBuffer inputStream = new PacketBuffer(5000);
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray17;
 
@@ -21,30 +21,21 @@ final class Canvas_Sub1 {
 		}
 	}
 
-	static final int method62(final int i, final int i_0_, final int i_1_) {
-		int i_2_;
-		try {
-			if (i_0_ != 20244) {
-				showVideoAd();
-			}
-			final int i_3_ = i_1_ >>> 31;
-			i_2_ = (i_3_ + i_1_) / i + -i_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nj.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
-		return i_2_;
+	static final int method62(final int i, final int i_1_) {
+		final int i_3_ = i_1_ >>> 31;
+		return (i_3_ + i_1_) / i - i_3_;
 	}
 
 	static final boolean showVideoAd() {
 		if (Class48.jsEnabled) {
-			boolean bool_4_ = false;
+			boolean adCalled = false;
 			try {
 				JSHelper.call(NpcType.gameSignlink.gameApplet, "showVideoAd");
-				bool_4_ = true;
+				adCalled = true;
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
-			return bool_4_;
+			return adCalled;
 		}
 		return false;
 	}

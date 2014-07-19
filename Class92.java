@@ -44,7 +44,7 @@ final class Class92 {
 
 	static final void method767(final int i) {
 		try {
-			Canvas_Sub1.inputStream.method1144(i);
+			Canvas_Sub1.inputStream.startBitAccess();
 			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ != 0) {
 				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
@@ -80,7 +80,7 @@ final class Class92 {
 					}
 					Class173.gameLevel = Canvas_Sub1.inputStream.getBitValue(2);
 					final int i_15_ = Canvas_Sub1.inputStream.getBitValue(7);
-					Class100.selfPlayer.method2343(i_12_, i_13_ == 1, i_15_);
+					Class100.selfPlayer.method2343(i_15_, i_12_, i_13_ == 1);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

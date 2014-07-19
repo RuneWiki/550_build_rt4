@@ -68,31 +68,24 @@ final class CollisionMap {
 		}
 	}
 
-	final void method213(final boolean bool, final boolean bool_17_, final int i, final int i_18_, int i_19_, final int i_20_, int i_21_) {
-		try {
-			i_19_ -= anInt150;
-			int i_22_ = 256;
-			i_21_ -= anInt149;
-			if (bool) {
-				i_22_ |= 0x20000;
-			}
-			if (bool_17_) {
-				i_22_ |= 0x40000000;
-			}
-			for (int i_23_ = i_21_; i_23_ < i_21_ - -i_18_; i_23_++) {
-				if (i_23_ >= 0 && anInt154 > i_23_) {
-					for (int i_24_ = i_19_; i_19_ + i > i_24_; i_24_++) {
-						if (i_24_ >= 0 && anInt148 > i_24_) {
-							method227(i_22_, i_24_, i_23_, -1);
-						}
+	final void method213(final boolean bool, final boolean bool_17_, final int i, final int i_18_, int i_19_, int i_21_) {
+		i_19_ -= anInt150;
+		int i_22_ = 256;
+		i_21_ -= anInt149;
+		if (bool) {
+			i_22_ |= 0x20000;
+		}
+		if (bool_17_) {
+			i_22_ |= 0x40000000;
+		}
+		for (int i_23_ = i_21_; i_23_ < i_21_ + i_18_; i_23_++) {
+			if (i_23_ >= 0 && anInt154 > i_23_) {
+				for (int i_24_ = i_19_; i_24_ < i_19_ + i; i_24_++) {
+					if (i_24_ >= 0 && anInt148 > i_24_) {
+						method227(i_22_, i_24_, i_23_, -1);
 					}
 				}
 			}
-			if (i_20_ != -32566) {
-				method226(0, -98, (byte) 113);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ch.C(").append(bool).append(',').append(bool_17_).append(',').append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(')').toString());
 		}
 	}
 
@@ -1198,21 +1191,15 @@ final class CollisionMap {
 		return bool;
 	}
 
-	final void method225(final int i) {
-		try {
-			if (i == 11736) {
-				for (int i_127_ = 0; i_127_ < anInt154; i_127_++) {
-					for (int i_128_ = 0; anInt148 > i_128_; i_128_++) {
-						if (i_127_ != 0 && i_128_ != 0 && anInt154 + -5 > i_127_ && i_128_ < -5 + anInt148) {
-							this.anIntArrayArray152[i_127_][i_128_] = 2097152;
-						} else {
-							this.anIntArrayArray152[i_127_][i_128_] = 16777215;
-						}
-					}
+	final void method225() {
+		for (int i_127_ = 0; i_127_ < anInt154; i_127_++) {
+			for (int i_128_ = 0; anInt148 > i_128_; i_128_++) {
+				if (i_127_ != 0 && i_128_ != 0 && anInt154 + -5 > i_127_ && i_128_ < -5 + anInt148) {
+					this.anIntArrayArray152[i_127_][i_128_] = 2097152;
+				} else {
+					this.anIntArrayArray152[i_127_][i_128_] = 16777215;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ch.M(").append(i).append(')').toString());
 		}
 	}
 
@@ -1259,6 +1246,6 @@ final class CollisionMap {
 		anInt149 = 0;
 		anInt148 = i_136_;
 		this.anIntArrayArray152 = new int[anInt154][anInt148];
-		method225(11736);
+		method225();
 	}
 }

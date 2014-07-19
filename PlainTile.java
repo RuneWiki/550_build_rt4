@@ -24,14 +24,14 @@ final class PlainTile {
 					final int i_0_ = Class120_Sub12_Sub36.anIntArray3416[Class111.anInt1060];
 					Class111.anInt1060 = Class111.anInt1060 - -1 & 0x7f;
 					if (i_0_ >= 0) {
-						Class35.aBooleanArray299[i_0_] = true;
+						NodeCache.aBooleanArray299[i_0_] = true;
 					} else {
-						Class35.aBooleanArray299[i_0_ ^ 0xffffffff] = false;
+						NodeCache.aBooleanArray299[i_0_ ^ 0xffffffff] = false;
 					}
 				}
 			} else {
 				for (int i_1_ = 0; i_1_ < 112; i_1_++) {
-					Class35.aBooleanArray299[i_1_] = false;
+					NodeCache.aBooleanArray299[i_1_] = false;
 				}
 				Class180_Sub6.anInt3074 = Class111.anInt1060;
 			}
@@ -61,26 +61,17 @@ final class PlainTile {
 		this.anInt1347 = i_2_;
 	}
 
-	static final Class120_Sub12 method2003(final Buffer class120_sub7, final int i) {
-		Class120_Sub12 class120_sub12;
-		try {
-			class120_sub7.getUByte();
-			final int i_7_ = class120_sub7.getUByte();
-			final Class120_Sub12 class120_sub12_8_ = AbstractMouseWheelHandler.method159(9, i_7_);
-			class120_sub12_8_.anInt2570 = class120_sub7.getUByte();
-			final int i_9_ = class120_sub7.getUByte();
-			for (int i_10_ = 0; i_10_ < i_9_; i_10_++) {
-				final int i_11_ = class120_sub7.getUByte();
-				class120_sub12_8_.method1180((byte) -43, class120_sub7, i_11_);
-			}
-			if (i != 18120) {
-				anInt1356 = -77;
-			}
-			class120_sub12_8_.method1193((byte) 91);
-			class120_sub12 = class120_sub12_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qf.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final Class120_Sub12 method2003(final Buffer buffer) {
+		buffer.getUByte();
+		final int i_7_ = buffer.getUByte();
+		final Class120_Sub12 class120_sub12_8_ = AbstractMouseWheelHandler.method159(i_7_);
+		class120_sub12_8_.anInt2570 = buffer.getUByte();
+		final int codeLength = buffer.getUByte();
+		for (int loop = 0; loop < codeLength; loop++) {
+			final int code = buffer.getUByte();
+			class120_sub12_8_.decode(buffer, code);
 		}
-		return class120_sub12;
+		class120_sub12_8_.postDecode();
+		return class120_sub12_8_;
 	}
 }

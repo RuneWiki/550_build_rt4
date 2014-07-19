@@ -7,7 +7,7 @@ final class Class65 {
 	static int flagY;
 	static int pingTimer = 0;
 	static int[][] anIntArrayArray594;
-	static DisplayModeInfo[] aClass171Array595;
+	static DisplayModeInfo[] displayModes;
 	static int loadAttempts;
 	static js5 aClass50_597;
 
@@ -26,7 +26,7 @@ final class Class65 {
 		try {
 			aClass50_597 = null;
 			anIntArrayArray594 = null;
-			aClass171Array595 = null;
+			displayModes = null;
 			aString591 = null;
 			if (i <= 60) {
 				method578(-105, null);

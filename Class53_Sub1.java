@@ -58,7 +58,7 @@ final class Class53_Sub1 extends Class53 {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(207);
 		}
 		Class120_Sub12_Sub11.outputStream.putByteS(++client.aByte2201);
-		Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+		Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_3_);
 		Class120_Sub12_Sub11.outputStream.putLEShortA(i + GameEntity.currentBaseX);
 	}
@@ -85,12 +85,12 @@ final class Class53_Sub1 extends Class53 {
 			if (aClass45_2205.method357()) {
 				return null;
 			}
-			aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, -24559, anInt2214);
+			aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
 		}
 		if (aClass120_Sub14_Sub14_2218.aBoolean3576) {
 			return null;
 		}
-		final byte[] is = aClass120_Sub14_Sub14_2218.method1535((byte) -90);
+		final byte[] is = aClass120_Sub14_Sub14_2218.getBuffer();
 		if (!(aClass120_Sub14_Sub14_2218 instanceof Class120_Sub14_Sub14_Sub1)) {
 			try {
 				if (is == null) {
@@ -103,7 +103,7 @@ final class Class53_Sub1 extends Class53 {
 				if (aClass45_2205.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, -24559, anInt2214);
+					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
 				}
 				return null;
 			}
@@ -124,7 +124,7 @@ final class Class53_Sub1 extends Class53 {
 				if (aClass45_2205.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, -24559, anInt2214);
+					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
 				}
 				return null;
 			}
@@ -138,7 +138,7 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!Class120_Sub14_Sub4.aBoolean3470 || !Class35.aBooleanArray299[81] || Class186.menuOptionCount <= 2) {
+		if (!Class120_Sub14_Sub4.aBoolean3470 || !NodeCache.aBooleanArray299[81] || Class186.menuOptionCount <= 2) {
 			return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 1];
 		}
 		return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 2];
@@ -151,7 +151,7 @@ final class Class53_Sub1 extends Class53 {
 				if (aClass120_Sub14_Sub14_2218 == null) {
 					return 0;
 				}
-				return aClass120_Sub14_Sub14_2218.method1537(99);
+				return aClass120_Sub14_Sub14_2218.method1537();
 			}
 			i_7_ = 100;
 		} catch (final RuntimeException runtimeexception) {
@@ -273,7 +273,7 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final void resetSpriteInfo() {
-		Class180_Sub4.spriteXOffsets = null;
+		Projectile.spriteXOffsets = null;
 		Class132_Sub1.spritePalette = null;
 		Class120_Sub12_Sub11.spriteWidths = null;
 		Class120_Sub12_Sub39.spriteHeights = null;
@@ -292,7 +292,7 @@ final class Class53_Sub1 extends Class53 {
 			if (i != -94271416) {
 				aString2206 = null;
 			}
-			final byte[] is_13_ = class120_sub14_sub14.method1535((byte) -90);
+			final byte[] is_13_ = class120_sub14_sub14.getBuffer();
 			class120_sub14_sub14.unlink();
 			is = is_13_;
 		} catch (final RuntimeException runtimeexception) {
@@ -323,7 +323,7 @@ final class Class53_Sub1 extends Class53 {
 		try {
 			final Class120_Sub14_Sub14 class120_sub14_sub14 = (Class120_Sub14_Sub14) aClass75_2212.get(i);
 			if (class120_sub14_sub14 != null) {
-				return class120_sub14_sub14.method1537(117);
+				return class120_sub14_sub14.method1537();
 			}
 			if (i_15_ != -1) {
 				aClass83_2207 = null;
@@ -350,7 +350,7 @@ final class Class53_Sub1 extends Class53 {
 				if (i_18_ == 0) {
 					if (aClass51_2209 == null || (aByteArray2215[i_17_] ^ 0xffffffff) == 0) {
 						if (!aClass45_2205.method357()) {
-							class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, true, -24559, i_17_);
+							class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
 						} else {
 							return null;
 						}
@@ -372,7 +372,7 @@ final class Class53_Sub1 extends Class53 {
 					if (aClass45_2205.method369(true)) {
 						return null;
 					}
-					class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, false, -24559, i_17_);
+					class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, false, i_17_);
 				} else {
 					throw new RuntimeException();
 				}
@@ -381,7 +381,7 @@ final class Class53_Sub1 extends Class53 {
 			if (class120_sub14_sub14_19_.aBoolean3576) {
 				return null;
 			}
-			final byte[] is = class120_sub14_sub14_19_.method1535((byte) -90);
+			final byte[] is = class120_sub14_sub14_19_.getBuffer();
 			if (!(class120_sub14_sub14_19_ instanceof Class120_Sub14_Sub14_Sub1)) {
 				try {
 					if (is == null || is.length <= 2) {
@@ -399,7 +399,7 @@ final class Class53_Sub1 extends Class53 {
 					aClass45_2205.method365(-30223);
 					class120_sub14_sub14_19_.unlink();
 					if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-						final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, -24559, i_17_);
+						final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
 						aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 					}
 					return null;
@@ -448,7 +448,7 @@ final class Class53_Sub1 extends Class53 {
 				aByteArray2215[i_17_] = (byte) -1;
 				class120_sub14_sub14_19_.unlink();
 				if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-					final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, -24559, i_17_);
+					final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
 					aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 				}
 				return null;

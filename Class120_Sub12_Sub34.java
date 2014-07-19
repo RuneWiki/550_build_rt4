@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 	public static void method1378(final int i) {
 		try {
 			if (i != 8) {
-				method1379(null, (byte) -115);
+				method1379(null);
 			}
 			anIntArray3409 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -16,23 +16,19 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1379(final JagexInterface jagexInterface, final byte i) {
-		try {
-			final JagexInterface class189_0_ = ObjectContainer.method1665(72, jagexInterface);
-			int i_1_;
-			int i_2_;
-			if (class189_0_ != null) {
-				i_2_ = class189_0_.width;
-				i_1_ = class189_0_.height;
-			} else {
-				i_1_ = Class120_Sub12_Sub5.canvasHeight;
-				i_2_ = Class69_Sub1.canvasWidth;
-			}
-			Class23.method201(false, i_2_, jagexInterface, i_1_, -4);
-			SceneGraphNode.method2272(i_2_, i_1_, jagexInterface, 125);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tc.R(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final void method1379(final JagexInterface jagexInterface) {
+		final JagexInterface class189_0_ = ObjectContainer.method1665(jagexInterface);
+		int width;
+		int height;
+		if (class189_0_ != null) {
+			width = class189_0_.width;
+			height = class189_0_.height;
+		} else {
+			width = Class69_Sub1.canvasWidth;
+			height = Class120_Sub12_Sub5.canvasHeight;
 		}
+		Class23.method201(jagexInterface, false, width, height);
+		SceneGraphNode.method2272(jagexInterface, width, height);
 	}
 
 	static final boolean method1380(final int i, final int i_3_, final int i_4_) {
@@ -99,16 +95,9 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_31_) {
-		try {
-			if (i_31_ == 0) {
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
-			}
-			if (i != -43) {
-				method1380(90, 65, 93);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tc.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_31_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_31_) {
+		if (i_31_ == 0) {
+			this.aBoolean2558 = buffer.getUByte() == 1;
 		}
 	}
 

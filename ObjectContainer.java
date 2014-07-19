@@ -14,24 +14,18 @@ final class ObjectContainer extends Node {
 	static Class29 aClass29_2620 = new Class29();
 	static int anInt2621;
 
-	static final JagexInterface method1665(final int i, final JagexInterface jagexInterface) {
-		JagexInterface class189_0_;
-		try {
-			if (jagexInterface.parent != -1) {
-				return Class74.getJagexInterface(jagexInterface.parent);
-			}
-			final int i_1_ = jagexInterface.bitPacked >>> 16;
-			final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);
-			for (OverridedJInterface class120_sub26 = (OverridedJInterface) class140.method1994((byte) -128); class120_sub26 != null; class120_sub26 = (OverridedJInterface) class140.method1998((byte) 101)) {
-				if (i_1_ == class120_sub26.interfaceId) {
-					return Class74.getJagexInterface((int) class120_sub26.uid);
-				}
-			}
-			class189_0_ = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nd.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+	static final JagexInterface method1665(final JagexInterface jagexInterface) {
+		if (jagexInterface.parent != -1) {
+			return Class74.getJagexInterface(jagexInterface.parent);
 		}
-		return class189_0_;
+		final int id = jagexInterface.bitPacked >>> 16;
+		final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);
+		for (OverridedJInterface overridedJInterface = (OverridedJInterface) class140.method1994(); overridedJInterface != null; overridedJInterface = (OverridedJInterface) class140.method1998()) {
+			if (id == overridedJInterface.interfaceId) {
+				return Class74.getJagexInterface((int) overridedJInterface.uid);
+			}
+		}
+		return null;
 	}
 
 	public static void method1666(final byte i) {

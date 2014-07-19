@@ -25,18 +25,6 @@ final class Class157 {
 		worldId = 1;
 	}
 
-	static final void method2087(final int i, final byte i_0_) {
-		try {
-			if (i_0_ != -86) {
-				compassSprite = null;
-			}
-			KeyboardHandler.aClass21_1504.method192(i);
-			SceneGraphNode.aClass21_1781.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("si.B(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-	}
-
 	static final void method2088(final ShapedTile shapedTile, final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool) {
 		int i_6_ = shapedTile.anIntArray1637.length;
 		for (int i_7_ = 0; i_7_ < i_6_; i_7_++) {
@@ -74,7 +62,7 @@ final class Class157 {
 			final int i_21_ = ShapedTile.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
 				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
-					Cache.anInt122 = i_4_;
+					ObjectCache.anInt122 = i_4_;
 					Class20.anInt2174 = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {

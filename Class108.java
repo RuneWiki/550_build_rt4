@@ -45,7 +45,7 @@ class Class108 {
 	}
 
 	static final void method932(final boolean bool, final int i, final int i_3_, final int i_4_) {
-		Class120_Sub30_Sub1.method1739(false, (byte) -93);
+		Class120_Sub30_Sub1.method1739(false);
 		JagexSocket.aBoolean423 = bool;
 		Class120_Sub12_Sub33.anInt3407 = i_3_;
 		Class86.anInt818 = i;

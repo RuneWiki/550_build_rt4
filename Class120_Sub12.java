@@ -37,7 +37,7 @@ abstract class Class120_Sub12 extends Node {
 		int[][] is;
 		try {
 			if (i_1_ != -51) {
-				method1184((byte) -115);
+				method1184();
 			}
 			if (!this.aClass120_Sub12Array2561[i].aBoolean2558) {
 				return this.aClass120_Sub12Array2561[i].method1188(i_0_);
@@ -54,27 +54,11 @@ abstract class Class120_Sub12 extends Node {
 		return is;
 	}
 
-	void method1180(final byte i, final Buffer class120_sub7, final int i_4_) {
-		try {
-			if (i != -43) {
-				anIntArray2567 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jo.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_4_).append(')').toString());
-		}
+	void decode(final Buffer buffer, final int code) {
 	}
 
-	int method1181(final int i) {
-		int i_5_;
-		try {
-			if (i != -1) {
-				spriteAlphas = null;
-			}
-			i_5_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jo.I(").append(i).append(')').toString());
-		}
-		return i_5_;
+	int method1181() {
+		return -1;
 	}
 
 	static final void method1182(final Signlink signlink, final int i, final byte i_6_, final Buffer class120_sub7) {
@@ -170,17 +154,8 @@ abstract class Class120_Sub12 extends Node {
 		}
 	}
 
-	int method1184(final byte i) {
-		int i_20_;
-		try {
-			if (i >= -26) {
-				this.aBoolean2558 = true;
-			}
-			i_20_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jo.Q(").append(i).append(')').toString());
-		}
-		return i_20_;
+	int method1184() {
+		return -1;
 	}
 
 	static final void method1185(final int i) {
@@ -262,7 +237,7 @@ abstract class Class120_Sub12 extends Node {
 		try {
 			final int i_34_ = this.anInt2570 == 255 ? i : this.anInt2570;
 			if (i_32_ <= 14) {
-				method1193((byte) -78);
+				postDecode();
 			}
 			if (this.aBoolean2558) {
 				this.aClass30_2563 = new Class30(i_34_, i, i_33_);
@@ -310,7 +285,7 @@ abstract class Class120_Sub12 extends Node {
 		return this.aClass120_Sub12Array2561[i_58_].method1188(i_57_)[0];
 	}
 
-	void method1193(final byte i) {
+	void postDecode() {
 		/* empty */
 	}
 

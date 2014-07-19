@@ -5,7 +5,7 @@
 final class Class187 {
 	static js5 aClass50_1907;
 	static int anInt1908;
-	static Class85[] aClass85Array1909 = new Class85[8];
+	static HintIcon[] hintIcons = new HintIcon[8];
 
 	static {
 		anInt1908 = 0;
@@ -27,9 +27,9 @@ final class Class187 {
 	public static void method2476(final byte i) {
 		try {
 			aClass50_1907 = null;
-			aClass85Array1909 = null;
+			hintIcons = null;
 			if (i != 80) {
-				method2478(false);
+				method2478();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("wc.E(").append(i).append(')').toString());
@@ -59,21 +59,14 @@ final class Class187 {
 		return class120_sub14_sub19;
 	}
 
-	static final void method2478(final boolean bool) {
-		try {
-			if (IdentityKit.aClass191ArrayArray1337 != null) {
-				final Class191 class191 = new Class191();
-				for (int i = 0; i < 13; i++) {
-					for (int i_7_ = 0; i_7_ < 13; i_7_++) {
-						IdentityKit.aClass191ArrayArray1337[i][i_7_] = class191;
-					}
+	static final void method2478() {
+		if (IdentityKit.aClass191ArrayArray1337 != null) {
+			final Class191 class191 = new Class191();
+			for (int i = 0; i < 13; i++) {
+				for (int i_7_ = 0; i_7_ < 13; i_7_++) {
+					IdentityKit.aClass191ArrayArray1337[i][i_7_] = class191;
 				}
 			}
-			if (bool) {
-				aClass50_1907 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wc.C(").append(bool).append(')').toString());
 		}
 	}
 

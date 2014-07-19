@@ -37,7 +37,7 @@ abstract class AbstractGraphicsBuffer {
 		anIntArray1163 = new int[anInt1166];
 		anIntArray1171 = new int[anInt1166];
 		anIntArray1156 = new int[anInt1166];
-		ParamType.recentUse = new Class35(64);
+		ParamType.recentUse = new NodeCache(64);
 		aDouble1172 = -1.0;
 		anInt1173 = 0;
 		anInt1175 = 0;

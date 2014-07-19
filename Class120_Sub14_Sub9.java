@@ -6,7 +6,7 @@ import java.nio.IntBuffer;
 import javax.media.opengl.GL;
 
 final class Class120_Sub14_Sub9 extends NodeSub {
-	static Class35 aClass35_3517 = new Class35(4);
+	static NodeCache aClass35_3517 = new NodeCache(4);
 	private int[] anIntArray3518;
 	private static int[] anIntArray3519 = null;
 	private int anInt3520 = -1;

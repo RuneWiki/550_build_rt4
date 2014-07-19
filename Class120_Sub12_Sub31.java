@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub31 extends Class120_Sub12 {
-	static Cache aClass21_3378;
+	static ObjectCache aClass21_3378;
 	private int anInt3379 = 4096;
 	static int anInt3380;
 	static AbstractMouseWheelHandler mouseWheelHandler;
@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 
 	static {
 		anInt3380 = 0;
-		aClass21_3378 = new Cache(64);
+		aClass21_3378 = new ObjectCache(64);
 	}
 
 	static final void method1364(final boolean bool, final int i) {
@@ -97,16 +97,9 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_20_) {
-		try {
-			if (i_20_ == 0) {
-				anInt3379 = class120_sub7.getUShort();
-			}
-			if (i != -43) {
-				method1368(null, -36);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sh.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_20_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_20_) {
+		if (i_20_ == 0) {
+			anInt3379 = buffer.getUShort();
 		}
 	}
 }

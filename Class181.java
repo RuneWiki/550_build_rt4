@@ -3,7 +3,7 @@
  */
 
 final class Class181 {
-	static Class35 aClass35_1784 = new Class35(16);
+	static NodeCache aClass35_1784 = new NodeCache(16);
 	static int currentBaseZ;
 	int anInt1786;
 	int anInt1787 = 2048;

@@ -5,32 +5,32 @@
 final class SeqType {
 	int anInt326;
 	boolean[] aBooleanArray327;
-	int anInt328 = -1;
+	int shieldDisplayed = -1;
 	private int[] interfaceFrames;
 	static js5 aClass50_331;
 	boolean tween = false;
 	static int anInt333 = 0;
-	int anInt334;
+	int weaponDisplayed;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array335;
-	int anInt336;
-	int anInt337 = 2;
-	int[] cycles;
-	int anInt339;
+	int walkProperties;
+	int resetInPlay = 2;
+	int[] delays;
+	int resetCycle;
 	boolean aBoolean340;
 	boolean aBoolean341;
 	int[] frames;
-	int anInt343;
+	int speedupType;
 	boolean aBoolean344;
 	static String loginPassword = "";
 	int padding;
 	int[][] anIntArrayArray347;
-	int anInt348;
+	int priority;
 	static int anInt349;
 
 	final Class180_Sub7 method320(final boolean bool, int i, int i_0_, final Class180_Sub7 class180_sub7, int i_1_, final int i_2_) {
 		Class180_Sub7 class180_sub7_3_;
 		try {
-			final int i_4_ = this.cycles[i_0_];
+			final int i_4_ = this.delays[i_0_];
 			i_0_ = this.frames[i_0_];
 			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_0_ >> 16);
 			i_0_ &= 0xffff;
@@ -45,7 +45,7 @@ final class SeqType {
 				i &= 0xffff;
 			}
 			if (bool) {
-				this.cycles = null;
+				this.delays = null;
 			}
 			Class180_Sub7 class180_sub7_6_;
 			if (class120_sub14_sub18_5_ != null) {
@@ -121,7 +121,7 @@ final class SeqType {
 	final void method322(final Buffer class120_sub7, final boolean bool) {
 		try {
 			if (bool) {
-				this.anInt336 = 76;
+				this.walkProperties = 76;
 			}
 			for (;;) {
 				final int i = class120_sub7.getUByte();
@@ -138,9 +138,9 @@ final class SeqType {
 	final Class180_Sub7 method323(final boolean bool, final int i, int i_10_, final Class180_Sub7 class180_sub7, final int i_11_) {
 		Class180_Sub7 class180_sub7_12_;
 		try {
-			final int i_13_ = this.cycles[i_11_];
+			final int i_13_ = this.delays[i_11_];
 			if (bool) {
-				this.cycles = null;
+				this.delays = null;
 			}
 			int i_14_ = this.frames[i_11_];
 			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
@@ -203,7 +203,7 @@ final class SeqType {
 	final Class180_Sub7 method324(final int i, int i_23_, final int i_24_, final Class180_Sub7 class180_sub7, int i_25_) {
 		Class180_Sub7 class180_sub7_26_;
 		try {
-			final int i_27_ = this.cycles[i_23_];
+			final int i_27_ = this.delays[i_23_];
 			i_23_ = this.frames[i_23_];
 			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_23_ >> 16);
 			i_23_ &= 0xffff;
@@ -241,9 +241,9 @@ final class SeqType {
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
 			final int i_35_ = buffer.getUShort();
-			this.cycles = new int[i_35_];
+			this.delays = new int[i_35_];
 			for (int i_36_ = 0; i_36_ < i_35_; i_36_++) {
-				this.cycles[i_36_] = buffer.getUShort();
+				this.delays[i_36_] = buffer.getUShort();
 			}
 			this.frames = new int[i_35_];
 			for (int i_37_ = 0; i_37_ < i_35_; i_37_++) {
@@ -263,19 +263,19 @@ final class SeqType {
 		} else if (code == 4) {
 			this.aBoolean344 = true;
 		} else if (code == 5) {
-			this.anInt348 = buffer.getUByte();
+			this.priority = buffer.getUByte();
 		} else if (code == 6) {
-			this.anInt328 = buffer.getUShort();
+			this.shieldDisplayed = buffer.getUShort();
 		} else if (code == 7) {
-			this.anInt334 = buffer.getUShort();
+			this.weaponDisplayed = buffer.getUShort();
 		} else if (code == 8) {
-			this.anInt339 = buffer.getUByte();
+			this.resetCycle = buffer.getUByte();
 		} else if (code == 9) {
-			this.anInt343 = buffer.getUByte();
+			this.speedupType = buffer.getUByte();
 		} else if (code == 10) {
-			this.anInt336 = buffer.getUByte();
+			this.walkProperties = buffer.getUByte();
 		} else if (code == 11) {
-			this.anInt337 = buffer.getUByte();
+			this.resetInPlay = buffer.getUByte();
 		} else if (code == 12) {
 			final int i_43_ = buffer.getUByte();
 			interfaceFrames = new int[i_43_];
@@ -310,7 +310,7 @@ final class SeqType {
 	final Class180_Sub7 method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final Class180_Sub7 class180_sub7) {
 		Class180_Sub7 class180_sub7_52_;
 		try {
-			final int i_53_ = this.cycles[i_50_];
+			final int i_53_ = this.delays[i_50_];
 			i_50_ = this.frames[i_50_];
 			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_50_ >> 16);
 			i_50_ &= 0xffff;
@@ -380,18 +380,18 @@ final class SeqType {
 	final void method328(final byte i) {
 		try {
 			if (i == 89) {
-				if (this.anInt343 == -1) {
+				if (this.speedupType == -1) {
 					if (this.aBooleanArray327 != null) {
-						this.anInt343 = 2;
+						this.speedupType = 2;
 					} else {
-						this.anInt343 = 0;
+						this.speedupType = 0;
 					}
 				}
-				if ((this.anInt336 ^ 0xffffffff) == 0) {
+				if ((this.walkProperties ^ 0xffffffff) == 0) {
 					if (this.aBooleanArray327 != null) {
-						this.anInt336 = 2;
+						this.walkProperties = 2;
 					} else {
-						this.anInt336 = 0;
+						this.walkProperties = 0;
 					}
 				}
 			}
@@ -430,14 +430,14 @@ final class SeqType {
 	}
 
 	public SeqType() {
-		this.anInt336 = -1;
+		this.walkProperties = -1;
 		this.aBoolean340 = false;
-		this.anInt343 = -1;
-		this.anInt334 = -1;
-		this.anInt339 = 99;
+		this.speedupType = -1;
+		this.weaponDisplayed = -1;
+		this.resetCycle = 99;
 		this.aBoolean341 = false;
 		this.padding = -1;
 		this.aBoolean344 = false;
-		this.anInt348 = 5;
+		this.priority = 5;
 	}
 }

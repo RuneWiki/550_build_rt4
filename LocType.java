@@ -70,7 +70,7 @@ final class LocType {
 	int anInt1879;
 	boolean aBoolean1880;
 	int[] anIntArray1881;
-	static Cache recentUse = new Cache(64);
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	static final void resetSpriteMenu() {
 		Class173.aClass120_Sub14_Sub19_1725 = null;
@@ -78,17 +78,6 @@ final class LocType {
 		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
 		Class157.aClass120_Sub14_Sub19_1472 = null;
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
-	}
-
-	static final void method2451(final byte i) {
-		try {
-			IdentityKit.recentUse.clear();
-			if (i != 22) {
-				method2451((byte) 92);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.L(").append(i).append(')').toString());
-		}
 	}
 
 	final boolean method2452(final boolean bool) {

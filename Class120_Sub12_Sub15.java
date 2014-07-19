@@ -48,7 +48,7 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 		try {
 			if (!bool == AbstractObject.aBoolean3463) {
 				AbstractObject.aBoolean3463 = bool;
-				Class120_Sub12_Sub18.method1291(256);
+				Class120_Sub12_Sub18.method1291();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("la.S(").append(bool).append(',').append(i).append(')').toString());
@@ -56,26 +56,19 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_1_) {
-		try {
-			final int i_2_ = i_1_;
-			do {
-				if (i_2_ != 0) {
-					if (i_2_ != 1) {
-						break;
-					}
-				} else {
-					anInt3246 = class120_sub7.getUByte();
+	final void decode(final Buffer buffer, final int i_1_) {
+		final int i_2_ = i_1_;
+		do {
+			if (i_2_ != 0) {
+				if (i_2_ != 1) {
 					break;
 				}
-				anInt3249 = class120_sub7.getUByte();
-			} while (false);
-			if (i != -43) {
-				method1276(true, (byte) -63);
+			} else {
+				anInt3246 = buffer.getUByte();
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("la.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_1_).append(')').toString());
-		}
+			anInt3249 = buffer.getUByte();
+		} while (false);
 	}
 
 	public Class120_Sub12_Sub15() {

@@ -3,7 +3,7 @@
  */
 
 final class Class93 {
-	static int[] anIntArray866 = { 0, -2, -2, 0, 1, 0, 0, 0, 1, 0, 6, 8, 0, 0, 0, 0, 0, 15, 8, 20, 0, 0, 0, 3, 0, -2, 4, 0, 0, 0, -1, 12, 0, 3, -2, 9, 0, 0, 3, 0, 7, 0, 6, -2, -1, 0, 8, 7, 0, -2, 0, 0, 2, -2, -1, 1, 0, 0, 0, -1, 5, 0, 0, 7, 0, 10, 0, 0, 0, 0, 0, 0, 2, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0,
+	static int[] packetSizes = { 0, -2, -2, 0, 1, 0, 0, 0, 1, 0, 6, 8, 0, 0, 0, 0, 0, 15, 8, 20, 0, 0, 0, 3, 0, -2, 4, 0, 0, 0, -1, 12, 0, 3, -2, 9, 0, 0, 3, 0, 7, 0, 6, -2, -1, 0, 8, 7, 0, -2, 0, 0, 2, -2, -1, 1, 0, 0, 0, -1, 5, 0, 0, 7, 0, 10, 0, 0, 0, 0, 0, 0, 2, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, -1, 8, 0, 10, 12, 0, 0, 8, 0, 2, 0, 2, 0, -1, 3, 0, 0, 4, -1, 15, 0, 0, 0, 0, 0, 17, 0, 12, 7, 3, -2, 0, 0, 0, 3, 0, 0, 0, 0, 0, -1, 0, 0, 6, 3, 4, 0, 14, 0, 6, -2, 3, 6, 0, 0, 0, 0, 0, 6, 0, 0, 2, 8, 0, 5, 8, 10, 6, 0, -2, 2, 0, 6, 0, 0, 0, 14, 0, 6, 0, 28, 0, 2, 0, 0, 0, 8,
 			-2, -1, 0, 5, 11, 0, 4, 0, 0, -1, 12, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 8, 0, 0, -1, 0, 0, 0, 0, 0, -1, -2, 0, 0 };
 	static int anInt867 = 0;
@@ -14,15 +14,15 @@ final class Class93 {
 	static final void method770(final long l, final byte i) {
 		try {
 			if ((l ^ 0xffffffffffffffffL) != -1L && i == -67) {
-				for (int i_0_ = 0; i_0_ < Class120_Sub12_Sub26.anInt3335; i_0_++) {
-					if ((l ^ 0xffffffffffffffffL) == (Class85.aLongArray806[i_0_] ^ 0xffffffffffffffffL)) {
-						Class120_Sub12_Sub26.anInt3335--;
-						for (int i_1_ = i_0_; i_1_ < Class120_Sub12_Sub26.anInt3335; i_1_++) {
-							Class85.aLongArray806[i_1_] = Class85.aLongArray806[i_1_ - -1];
-							Class84.aStringArray801[i_1_] = Class84.aStringArray801[1 + i_1_];
+				for (int i_0_ = 0; i_0_ < Class120_Sub12_Sub26.ignoreCount; i_0_++) {
+					if ((l ^ 0xffffffffffffffffL) == (HintIcon.ignoreNamesAsLong[i_0_] ^ 0xffffffffffffffffL)) {
+						Class120_Sub12_Sub26.ignoreCount--;
+						for (int i_1_ = i_0_; i_1_ < Class120_Sub12_Sub26.ignoreCount; i_1_++) {
+							HintIcon.ignoreNamesAsLong[i_1_] = HintIcon.ignoreNamesAsLong[i_1_ - -1];
+							Class84.ignoreNames[i_1_] = Class84.ignoreNames[1 + i_1_];
 							Class120_Sub14_Sub4.aBooleanArray3468[i_1_] = Class120_Sub14_Sub4.aBooleanArray3468[1 + i_1_];
 						}
-						Class61.anInt563 = Class160.anInt1494;
+						Class61.anInt563 = GrandExchangeObject.anInt1494;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(142);
 						Class120_Sub12_Sub11.outputStream.putLong(l);
 						break;
@@ -147,7 +147,7 @@ final class Class93 {
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, -32566, i_5_);
+							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, i_5_);
 						}
 					} else if (i_9_ >= 12) {
 						SceneGraphNode sceneGraphNode;
@@ -165,7 +165,7 @@ final class Class93 {
 							Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 4);
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, -32566, i_5_);
+							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, i_5_);
 						}
 					} else if (i_9_ == 0) {
 						SceneGraphNode sceneGraphNode;
@@ -338,7 +338,7 @@ final class Class93 {
 						}
 						method774(i_2_, i_5_, i_7_, i_18_, 1, 1, sceneGraphNode, 0, l);
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, -32566, i_5_);
+							collisionMap.method213(locType.aBoolean1844, !locType.aBoolean1880, i_10_, i_11_, i_7_, i_5_);
 						}
 						if (locType.anInt1819 != 16) {
 							Class120_Sub12_Sub2.method1201(i_2_, i_5_, i_7_, locType.anInt1819);
@@ -457,7 +457,7 @@ final class Class93 {
 	public static void method773(final int i) {
 		try {
 			aClass189_869 = null;
-			anIntArray866 = null;
+			packetSizes = null;
 			if (i != 1) {
 				spriteAmount = 33;
 			}
@@ -472,7 +472,7 @@ final class Class93 {
 		}
 		final int i_49_ = i_43_ * 128 + 64 * i_46_;
 		final int i_50_ = i_44_ * 128 + 64 * i_47_;
-		return Class120_Sub13.method1403(i, i_43_, i_44_, i_46_, i_47_, i_49_, i_50_, i_45_, sceneGraphNode, i_48_, false, l);
+		return ClanMember.method1403(i, i_43_, i_44_, i_46_, i_47_, i_49_, i_50_, i_45_, sceneGraphNode, i_48_, false, l);
 	}
 
 	static final void method775(final boolean bool, final int i, final int i_51_, final int i_52_, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_) {

@@ -11,55 +11,49 @@ final class RuntimeException_Sub1 extends RuntimeException {
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_2145;
 	Throwable aThrowable2146;
 
-	static final OverridedJInterface method2528(final int i, final int i_0_, final byte i_1_, final int i_2_) {
-		OverridedJInterface class120_sub26;
-		try {
-			final OverridedJInterface class120_sub26_3_ = new OverridedJInterface();
-			class120_sub26_3_.type = i_0_;
-			class120_sub26_3_.interfaceId = i;
-			Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26_3_, i_2_);
-			Class120_Sub14_Sub1.method1413(-117, i);
-			final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
-			if (jagexInterface != null) {
-				InterfaceClickMask.redrawInterface(jagexInterface);
-			}
-			if (Class156.aClass189_1454 != null) {
-				InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
-				Class156.aClass189_1454 = null;
-			}
-			final int i_4_ = Class186.menuOptionCount;
-			for (int i_5_ = 0; i_4_ > i_5_; i_5_++) {
-				if (Class150.method2064(Class120_Sub29.aShortArray2777[i_5_])) {
-					Class120_Sub16.shiftOptions(i_5_);
-				}
-			}
-			if (Class186.menuOptionCount == 1) {
-				Class15.menuOpen = false;
-				Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
-			} else {
-				Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
-				int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
-				for (int i_7_ = 0; Class186.menuOptionCount > i_7_; i_7_++) {
-					final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_7_));
-					if (i_6_ < i_8_) {
-						i_6_ = i_8_;
-					}
-				}
-				Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + Class186.menuOptionCount * 15;
-				Class120_Sub24.menuWidth = 8 + i_6_;
-			}
-			if (jagexInterface != null) {
-				ProducingGraphicsBuffer.method1854(false, false, jagexInterface);
-			}
-			JagexSocket.method376(true, i);
-			if (Class69.rootInterfaceId != -1) {
-				InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
-			}
-			class120_sub26 = class120_sub26_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bk.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+	static final OverridedJInterface overrideInterface(final int i, final int i_0_, final int i_2_) {
+		final OverridedJInterface class120_sub26_3_ = new OverridedJInterface();
+		class120_sub26_3_.type = i_0_;
+		class120_sub26_3_.interfaceId = i;
+		Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26_3_, i_2_);
+		Class120_Sub14_Sub1.stopInterfaceAnimation(i);
+		final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+		if (jagexInterface != null) {
+			InterfaceClickMask.redrawInterface(jagexInterface);
 		}
-		return class120_sub26;
+		if (Class156.aClass189_1454 != null) {
+			InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
+			Class156.aClass189_1454 = null;
+		}
+		final int i_4_ = Class186.menuOptionCount;
+		for (int i_5_ = 0; i_4_ > i_5_; i_5_++) {
+			if (Class150.method2064(Class120_Sub29.aShortArray2777[i_5_])) {
+				Class120_Sub16.shiftOptions(i_5_);
+			}
+		}
+		if (Class186.menuOptionCount == 1) {
+			Class15.menuOpen = false;
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+		} else {
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+			int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
+			for (int i_7_ = 0; Class186.menuOptionCount > i_7_; i_7_++) {
+				final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_7_));
+				if (i_6_ < i_8_) {
+					i_6_ = i_8_;
+				}
+			}
+			Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + Class186.menuOptionCount * 15;
+			Class120_Sub24.menuWidth = 8 + i_6_;
+		}
+		if (jagexInterface != null) {
+			ProducingGraphicsBuffer.method1854(false, false, jagexInterface);
+		}
+		JagexSocket.executeOnloadScript(i);
+		if (Class69.rootInterfaceId != -1) {
+			InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
+		}
+		return class120_sub26_3_;
 	}
 
 	public static void method2529(final int i) {
@@ -67,7 +61,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		aByteArrayArray2140 = null;
 		aClass120_Sub14_Sub19_2144 = null;
 		if (i != -16553) {
-			method2528(2, 79, (byte) -38, 61);
+			overrideInterface(2, 79, 61);
 		}
 	}
 

@@ -21,7 +21,7 @@ final class JagexSocket implements Runnable {
 	static boolean aBoolean423 = false;
 	private InputStream inputStream;
 	private boolean IOError = false;
-	static LDIndexedSprite[] aClass107_Sub1Array426;
+	static LDIndexedSprite[] runesSprite;
 	private final Signlink signlink;
 	private SignlinkNode socketThread;
 	private int tnum = 0;
@@ -37,7 +37,7 @@ final class JagexSocket implements Runnable {
 			if (i != 14420) {
 				method372(31);
 			}
-			aClass107_Sub1Array426 = null;
+			runesSprite = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("eo.C(").append(i).append(')').toString());
 		}
@@ -166,24 +166,18 @@ final class JagexSocket implements Runnable {
 		return inputStream.available();
 	}
 
-	static final void method376(final boolean bool, final int i) {
-		try {
-			if (i != -1 && js5.loadInterface(i) && bool) {
-				final JagexInterface[] class189s = Node.interfaceCache[i];
-				JagexInterface[] class189s_7_;
-				final int i_6_ = (class189s_7_ = class189s).length;
-				for (int i_8_ = 0; i_8_ < i_6_; i_8_++) {
-					final JagexInterface jagexInterface = class189s_7_[i_8_];
-					if (jagexInterface.anObjectArray2034 != null) {
-						final InterfaceListener class120_sub10 = new InterfaceListener();
-						class120_sub10.objectData = jagexInterface.anObjectArray2034;
-						class120_sub10.aClass189_2534 = jagexInterface;
-						Cache.method194(class120_sub10, false, 2000000);
-					}
+	static final void executeOnloadScript(final int i) {
+		if (i != -1 && js5.loadInterface(i)) {
+			final JagexInterface[] class189s = Node.interfaceCache[i];
+			for (int i_8_ = 0; i_8_ < class189s.length; i_8_++) {
+				final JagexInterface jagexInterface = class189s[i_8_];
+				if (jagexInterface.onloadListener != null) {
+					final InterfaceListener class120_sub10 = new InterfaceListener();
+					class120_sub10.objectData = jagexInterface.onloadListener;
+					class120_sub10.aClass189_2534 = jagexInterface;
+					ObjectCache.method194(class120_sub10, false, 2000000);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eo.F(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 

@@ -406,7 +406,7 @@ class Class79 {
 		class120_sub14_sub5.anInt3475 = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.anInt3481 - anInt704) >> 16);
 		final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
 		if (class73.anInt644 != -1) {
-			final AbstractIndexedSprite abstractIndexedSprite = class73.method648(false, false, true);
+			final AbstractIndexedSprite abstractIndexedSprite = class73.method648(false, true);
 			if (abstractIndexedSprite != null) {
 				if (class120_sub14_sub5.anInt3478 - (abstractIndexedSprite.width + 1 >> 1) > anInt709 || class120_sub14_sub5.anInt3478 + (abstractIndexedSprite.width + 1 >> 1) < anInt708 || class120_sub14_sub5.anInt3475 - (abstractIndexedSprite.height + 1 >> 1) > anInt712
 						|| class120_sub14_sub5.anInt3475 + (abstractIndexedSprite.height + 1 >> 1) < anInt705) {

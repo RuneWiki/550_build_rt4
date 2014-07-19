@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 
 	static final void redrawScreen(final int x, final int y, final int width, final int height) {
 		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
-			if (x < Class160.screenRedrawXs[id] + Class120_Sub16.screenRedrawWidhts[id] && x + width > Class160.screenRedrawXs[id] && Class120_Sub12_Sub38.screenRedrawYs[id] + Class69_Sub3_Sub1.screenRedrawHeights[id] > y && y + height > Class120_Sub12_Sub38.screenRedrawYs[id]) {
+			if (x < GrandExchangeObject.screenRedrawXs[id] + Class120_Sub16.screenRedrawWidhts[id] && x + width > GrandExchangeObject.screenRedrawXs[id] && Class120_Sub12_Sub38.screenRedrawYs[id] + Class69_Sub3_Sub1.screenRedrawHeights[id] > y && y + height > Class120_Sub12_Sub38.screenRedrawYs[id]) {
 				Class52.needInterfaceRedrawWrapper[id] = true;
 			}
 		}
@@ -181,7 +181,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
+	final void postDecode() {
 		/* empty */
 	}
 
@@ -354,77 +354,69 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_93_) {
+	final void decode(final Buffer buffer, final int i_94_) {
 		while_111_: do {
-			try {
-				if (i != -43) {
-					method1200(-59, 27);
-				}
-				final int i_94_ = i_93_;
-				while_110_: do {
-					while_109_: do {
-						while_108_: do {
-							while_107_: do {
-								while_106_: do {
-									while_105_: do {
-										do {
-											if (i_94_ != 0) {
-												if (i_94_ != 1) {
-													if (i_94_ != 2) {
-														if (i_94_ != 3) {
-															if (i_94_ != 4) {
-																if (i_94_ != 5) {
-																	if (i_94_ != 6) {
-																		if (i_94_ != 7) {
-																			if (i_94_ == 8) {
-																				break while_110_;
-																			}
-																			break while_111_;
+			while_110_: do {
+				while_109_: do {
+					while_108_: do {
+						while_107_: do {
+							while_106_: do {
+								while_105_: do {
+									do {
+										if (i_94_ != 0) {
+											if (i_94_ != 1) {
+												if (i_94_ != 2) {
+													if (i_94_ != 3) {
+														if (i_94_ != 4) {
+															if (i_94_ != 5) {
+																if (i_94_ != 6) {
+																	if (i_94_ != 7) {
+																		if (i_94_ == 8) {
+																			break while_110_;
 																		}
-																	} else {
-																		break while_108_;
+																		break while_111_;
 																	}
-																	break while_109_;
+																} else {
+																	break while_108_;
 																}
-															} else {
-																break while_106_;
+																break while_109_;
 															}
-															break while_107_;
+														} else {
+															break while_106_;
 														}
-													} else {
-														break;
+														break while_107_;
 													}
-													break while_105_;
+												} else {
+													break;
 												}
-											} else {
-												anInt3126 = class120_sub7.getUByte();
-												break while_111_;
+												break while_105_;
 											}
-											anInt3135 = class120_sub7.getUShort();
+										} else {
+											anInt3126 = buffer.getUByte();
 											break while_111_;
-										} while (false);
-										anInt3136 = class120_sub7.getUShort();
+										}
+										anInt3135 = buffer.getUShort();
 										break while_111_;
 									} while (false);
-									anInt3125 = class120_sub7.getUShort();
+									anInt3136 = buffer.getUShort();
 									break while_111_;
 								} while (false);
-								anInt3134 = class120_sub7.getUShort();
+								anInt3125 = buffer.getUShort();
 								break while_111_;
 							} while (false);
-							anInt3133 = class120_sub7.getUShort();
+							anInt3134 = buffer.getUShort();
 							break while_111_;
 						} while (false);
-						anInt3128 = class120_sub7.getUByte();
+						anInt3133 = buffer.getUShort();
 						break while_111_;
 					} while (false);
-					anInt3127 = class120_sub7.getUShort();
+					anInt3128 = buffer.getUByte();
 					break while_111_;
 				} while (false);
-				anInt3129 = class120_sub7.getUShort();
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("ac.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_93_).append(')').toString());
-			}
+				anInt3127 = buffer.getUShort();
+				break while_111_;
+			} while (false);
+			anInt3129 = buffer.getUShort();
 		} while (false);
 	}
 }

@@ -21,7 +21,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final SeqType seqType, final int i, final int i_0_, final int i_1_, final boolean bool) {
+	static final void method1323(final SeqType seqType, final int x, final int z, final int i_1_, final boolean bool) {
 		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > i_1_ && seqType.anIntArrayArray347[i_1_] != null) {
 			final int i_3_ = seqType.anIntArrayArray347[i_1_][0];
 			int i_4_ = i_3_ >> 8;
@@ -35,16 +35,16 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			}
 			if (i_6_ == 0) {
 				if (bool) {
-					Class48.method404((byte) -100, 0, i_4_, i_5_, 255);
+					Class48.method404(0, i_4_, i_5_, 255);
 				}
 			} else if (CursorType.anInt1242 != 0) {
 				Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_4_;
 				LocType.anIntArray1834[Class150.anInt1407] = i_5_;
-				final int i_8_ = (-64 + i) / 128;
 				Class81.anIntArray779[Class150.anInt1407] = 0;
 				Class109.aClass6Array1047[Class150.anInt1407] = null;
 				Class120_Sub14_Sub14_Sub1.anIntArray3926[Class150.anInt1407] = 255;
-				final int i_9_ = (-64 + i_0_) / 128;
+				final int i_8_ = (z - 64) / 128;
+				final int i_9_ = (x - 64) / 128;
 				Class174.anIntArray1731[Class150.anInt1407] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
 				Class150.anInt1407++;
 			}

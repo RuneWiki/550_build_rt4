@@ -86,17 +86,10 @@ final class Class29 {
 		return strings;
 	}
 
-	static final void method250(final int i, final int i_7_, final int i_8_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(12, i);
-			if (i_8_ != 6703) {
-				anInt195 = -25;
-			}
-			class120_sub14_sub7.method1454();
-			class120_sub14_sub7.anInt3484 = i_7_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("d.E(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
-		}
+	static final void method250(final int i, final int i_7_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(12, i);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3484 = i_7_;
 	}
 
 	static final float[] method251(final int i) {

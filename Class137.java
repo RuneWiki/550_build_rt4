@@ -57,42 +57,37 @@ final class Class137 {
 		}
 	}
 
-	static final void method1982(final byte i, final int i_4_, final int i_5_, final int i_6_, int i_7_, int i_8_, final int i_9_, final int i_10_) {
-		try {
-			if (i_7_ < 128 || i_8_ < 128 || i_7_ > 13056 || i_8_ > 13056) {
-				Class120_Sub12_Sub38.anInt3434 = -1;
+	static final void method1982(final int i_4_, final int yOff, final int i_6_, int x, int z, final int i_9_, final int i_10_) {
+		if (x < 128 || z < 128 || x > 13056 || z > 13056) {
+			Class120_Sub12_Sub38.anInt3434 = -1;
+			Class120_Sub15.anInt2588 = -1;
+		} else {
+			int y = Class22.getTileHeight(Class173.gameLevel, x, z) - yOff;
+			x -= Class83.renderX;
+			y -= Class120_Sub12_Sub10.renderY;
+			z -= GroundObjectNode.renderZ;
+			final int i_12_ = Rasterizer.sineTable[OverlayType.renderPitch];
+			final int i_13_ = Rasterizer.cosineTable[OverlayType.renderPitch];
+			final int i_14_ = Rasterizer.sineTable[Class180_Sub3.renderYaw];
+			final int i_15_ = Rasterizer.cosineTable[Class180_Sub3.renderYaw];
+			int i_16_ = z * i_14_ + x * i_15_ >> 16;
+			z = z * i_15_ - i_14_ * x >> 16;
+			x = i_16_;
+			i_16_ = -(z * i_12_) + i_13_ * y >> 16;
+			z = i_12_ * y + z * i_13_ >> 16;
+			y = i_16_;
+			if (z < 50) {
 				Class120_Sub15.anInt2588 = -1;
+				Class120_Sub12_Sub38.anInt3434 = -1;
+			} else if (HDToolkit.glEnabled) {
+				final int i_17_ = i_6_ * 512 >> 8;
+				Class120_Sub12_Sub38.anInt3434 = i_10_ + i_17_ * x / z;
+				final int i_18_ = i_9_ * 512 >> 8;
+				Class120_Sub15.anInt2588 = i_4_ - -(i_18_ * y / z);
 			} else {
-				int i_11_ = -i_5_ + Class22.getTileHeight(Class173.gameLevel, i_7_, i_8_);
-				i_7_ -= Class83.renderX;
-				i_11_ -= Class120_Sub12_Sub10.renderY;
-				i_8_ -= GroundObjectNode.renderZ;
-				final int i_12_ = Rasterizer.sineTable[Class128.renderPitch];
-				final int i_13_ = Rasterizer.cosineTable[Class128.renderPitch];
-				final int i_14_ = Rasterizer.sineTable[Class180_Sub3.renderYaw];
-				final int i_15_ = Rasterizer.cosineTable[Class180_Sub3.renderYaw];
-				int i_16_ = i_8_ * i_14_ + i_7_ * i_15_ >> 16;
-				i_8_ = i_8_ * i_15_ - i_14_ * i_7_ >> 16;
-				i_7_ = i_16_;
-				i_16_ = -(i_8_ * i_12_) + i_13_ * i_11_ >> 16;
-				i_8_ = i_12_ * i_11_ + i_8_ * i_13_ >> 16;
-				i_11_ = i_16_;
-				if (i_8_ < 50) {
-					Class120_Sub15.anInt2588 = -1;
-					Class120_Sub12_Sub38.anInt3434 = -1;
-				} else if (HDToolkit.glEnabled) {
-					final int i_17_ = i_6_ * 512 >> 8;
-					Class120_Sub12_Sub38.anInt3434 = i_10_ + i_17_ * i_7_ / i_8_;
-					final int i_18_ = i_9_ * 512 >> 8;
-					Class120_Sub15.anInt2588 = i_4_ - -(i_18_ * i_11_ / i_8_);
-				} else {
-					Class120_Sub12_Sub38.anInt3434 = i_10_ - -((i_7_ << 9) / i_8_);
-					Class120_Sub15.anInt2588 = i_4_ + (i_11_ << 9) / i_8_;
-				}
+				Class120_Sub12_Sub38.anInt3434 = i_10_ - -((x << 9) / z);
+				Class120_Sub15.anInt2588 = i_4_ + (y << 9) / z;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("po.C(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')')
-					.toString());
 		}
 	}
 

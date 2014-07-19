@@ -997,7 +997,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 				final int i_94_ = (int) class120_sub11.uid;
 				Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.get(i_94_);
 				if (class120_sub22 == null) {
-					class120_sub22 = Class35.method300(i_94_, js5, i_92_ ^ 0x70);
+					class120_sub22 = NodeCache.method300(i_94_, js5, i_92_ ^ 0x70);
 					if (class120_sub22 == null) {
 						bool_93_ = false;
 						continue;

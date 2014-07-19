@@ -16,18 +16,11 @@ final class IntegerNode extends Node {
 		killtime = 0L;
 	}
 
-	static final void method1831(final int i) {
-		try {
-			LocType.recentUse.clearSoftReference();
-			InterfaceClickMask.aClass21_2663.clearSoftReference();
-			if (i != 18786) {
-				killtime = 81L;
-			}
-			Class167.aClass21_1618.clearSoftReference();
-			Class116.aClass21_1117.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("v.A(").append(i).append(')').toString());
-		}
+	static final void method1831() {
+		LocType.recentUse.clearSoftReference();
+		InterfaceClickMask.aClass21_2663.clearSoftReference();
+		Class167.aClass21_1618.clearSoftReference();
+		Class116.aClass21_1117.clearSoftReference();
 	}
 
 	public static void method1832(final int i) {
@@ -37,7 +30,7 @@ final class IntegerNode extends Node {
 			aClass120_Sub9ArrayArray2789 = null;
 			anIntArray2787 = null;
 			if (i != 0) {
-				method1831(113);
+				method1831();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("v.C(").append(i).append(')').toString());

@@ -108,16 +108,9 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_28_) {
-		try {
-			if (i != -43) {
-				method1249(null, 124, null);
-			}
-			if (i_28_ == 0) {
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fl.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_28_) {
+		if (i_28_ == 0) {
+			this.aBoolean2558 = buffer.getUByte() == 1;
 		}
 	}
 

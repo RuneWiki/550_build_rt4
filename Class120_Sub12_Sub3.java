@@ -47,32 +47,24 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_3_) {
+	final void decode(final Buffer buffer, final int i_4_) {
 		while_125_: do {
-			try {
-				if (i != -43) {
-					method1206((byte) -4);
-				}
-				final int i_4_ = i_3_;
-				do {
-					if (i_4_ != 0) {
-						if (i_4_ != 1) {
-							if (i_4_ == 2) {
-								break;
-							}
-							break while_125_;
+			do {
+				if (i_4_ != 0) {
+					if (i_4_ != 1) {
+						if (i_4_ == 2) {
+							break;
 						}
-					} else {
-						anInt3152 = class120_sub7.getUShort();
 						break while_125_;
 					}
-					anInt3149 = class120_sub7.getUShort();
+				} else {
+					anInt3152 = buffer.getUShort();
 					break while_125_;
-				} while (false);
-				anInt3153 = class120_sub7.getUShort();
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("ca.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
-			}
+				}
+				anInt3149 = buffer.getUShort();
+				break while_125_;
+			} while (false);
+			anInt3153 = buffer.getUShort();
 		} while (false);
 	}
 

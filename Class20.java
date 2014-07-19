@@ -9,7 +9,7 @@ final class Class20 implements ShaderInterface {
 	static long selfNameAsLong;
 	static js5 aClass50_2169;
 	private float[] aFloatArray2170 = new float[4];
-	static FontMetrics aFontMetrics2171;
+	static FontMetrics loadingFontMetrics;
 	private int anInt2172;
 	static long aLong2173 = 0L;
 	static int anInt2174 = -1;
@@ -31,19 +31,6 @@ final class Class20 implements ShaderInterface {
 			i = 0;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, "bo.C()");
-		}
-		return i;
-	}
-
-	static final int method176(final boolean bool) {
-		int i;
-		try {
-			if (bool) {
-				return -118;
-			}
-			i = 2;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.H(").append(bool).append(')').toString());
 		}
 		return i;
 	}
@@ -88,7 +75,7 @@ final class Class20 implements ShaderInterface {
 			gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
 			gl.glRotatef(Class120_Sub14_Sub13.anInt3571 * 360.0F / 2048.0F, 1.0F, 0.0F, 0.0F);
 			gl.glRotatef(Class145.anInt1382 * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);
-			gl.glTranslatef(-Class180_Sub4.anInt2955, -Class120_Sub12_Sub27.anInt3353, -Class69_Sub1.anInt2229);
+			gl.glTranslatef(-Projectile.anInt2955, -Class120_Sub12_Sub27.anInt3353, -Class69_Sub1.anInt2229);
 			gl.glTexGenfv(8192, 9474, aFloatArray2170, 0);
 			aFloatArray2170[1] = f_3_;
 			aFloatArray2170[0] = 0.0F;
@@ -149,7 +136,7 @@ final class Class20 implements ShaderInterface {
 		return i_8_;
 	}
 
-	static final void method180(final int i, final int i_9_, final int i_10_) {
+	static final void method180(final int i, final int i_9_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_9_;
@@ -209,7 +196,7 @@ final class Class20 implements ShaderInterface {
 	public static void method183(final byte i) {
 		try {
 			aClass50_2169 = null;
-			aFontMetrics2171 = null;
+			loadingFontMetrics = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("bo.E(").append(i).append(')').toString());
 		}

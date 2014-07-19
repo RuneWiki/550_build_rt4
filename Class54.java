@@ -67,7 +67,7 @@ final class Class54 {
 			Class120_Sub14_Sub14_Sub1.prayerIconSprites = null;
 			Class120_Sub12_Sub22.boldFont = null;
 			aClass120_Sub14_Sub19Array490 = null;
-			Cache.smallFont = null;
+			ObjectCache.smallFont = null;
 			Class157.compassSprite = null;
 			SeqType.aClass120_Sub14_Sub19Array335 = null;
 			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
@@ -75,24 +75,17 @@ final class Class54 {
 			Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = null;
 			Class69_Sub2.aClass120_Sub14_Sub19Array2238 = null;
 			if (i != 0) {
-				method480(46);
+				method480();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.B(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method480(final int i) {
-		try {
-			Class120_Sub30_Sub1.method1739(false, (byte) -93);
-			System.gc();
-			Class120_Sub14_Sub1.setGameState(25);
-			if (i >= -30) {
-				aString489 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.F(").append(i).append(')').toString());
-		}
+	static final void method480() {
+		Class120_Sub30_Sub1.method1739(false);
+		System.gc();
+		Class120_Sub14_Sub1.setGameState(25);
 	}
 
 	public static void method481(final int i) {
@@ -111,7 +104,7 @@ final class Class54 {
 
 	static final void redrawScreen(final int x, final int y, final int widght, final int height) {
 		for (int id = 0; LabelGroup.screenRedrawPos > id; id++) {
-			if (Class120_Sub16.screenRedrawWidhts[id] + Class160.screenRedrawXs[id] > x && Class160.screenRedrawXs[id] < x + widght && y < Class120_Sub12_Sub38.screenRedrawYs[id] - -Class69_Sub3_Sub1.screenRedrawHeights[id] && height + y > Class120_Sub12_Sub38.screenRedrawYs[id]) {
+			if (Class120_Sub16.screenRedrawWidhts[id] + GrandExchangeObject.screenRedrawXs[id] > x && GrandExchangeObject.screenRedrawXs[id] < x + widght && y < Class120_Sub12_Sub38.screenRedrawYs[id] - -Class69_Sub3_Sub1.screenRedrawHeights[id] && height + y > Class120_Sub12_Sub38.screenRedrawYs[id]) {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
 		}

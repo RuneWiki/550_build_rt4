@@ -10,7 +10,7 @@ final class Class182 {
 	int anInt1795;
 	SceneGraphNode aClass180_1796;
 	int anInt1797;
-	static Cache aClass21_1798 = new Cache(30);
+	static ObjectCache aClass21_1798 = new ObjectCache(30);
 	int anInt1799;
 	SceneGraphNode aClass180_1800;
 	int anInt1801;

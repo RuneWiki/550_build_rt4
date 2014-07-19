@@ -6,7 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 final class Class11 {
-	static Cache aClass21_80 = new Cache(50);
+	static ObjectCache aClass21_80 = new ObjectCache(50);
 	static String aString81 = "Examine";
 	static String aString82 = "Connected to update server";
 
@@ -27,23 +27,12 @@ final class Class11 {
 		}
 	}
 
-	static final void method125(final byte i) {
-		try {
-			if (i != 113) {
-				aString82 = null;
-			}
-			Class120_Sub12_Sub16.aClass21_3251.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void drawLoadingText(Color color, final boolean fillBg, final int fill, final String text) {
 		try {
 			final Graphics graphics = Node.canvas.getGraphics();
-			if (Class23.aFont135 == null) {
-				Class23.aFont135 = new Font("Helvetica", 1, 13);
-				Class20.aFontMetrics2171 = Node.canvas.getFontMetrics(Class23.aFont135);
+			if (Class23.loadingFont == null) {
+				Class23.loadingFont = new Font("Helvetica", 1, 13);
+				Class20.loadingFontMetrics = Node.canvas.getFontMetrics(Class23.loadingFont);
 			}
 			if (fillBg) {
 				graphics.setColor(Color.black);
@@ -53,37 +42,37 @@ final class Class11 {
 				color = new Color(140, 17, 17);
 			}
 			try {
-				if (Class132_Sub1.anImage2809 == null) {
-					Class132_Sub1.anImage2809 = Node.canvas.createImage(304, 34);
+				if (Class132_Sub1.loadingTextImage == null) {
+					Class132_Sub1.loadingTextImage = Node.canvas.createImage(304, 34);
 				}
-				final Graphics graphics_3_ = Class132_Sub1.anImage2809.getGraphics();
-				graphics_3_.setColor(color);
-				graphics_3_.drawRect(0, 0, 303, 33);
-				graphics_3_.fillRect(2, 2, 3 * fill, 30);
-				graphics_3_.setColor(Color.black);
-				graphics_3_.drawRect(1, 1, 301, 31);
-				graphics_3_.fillRect(2 + fill * 3, 2, -(3 * fill) + 300, 30);
-				graphics_3_.setFont(Class23.aFont135);
-				graphics_3_.setColor(Color.white);
-				graphics_3_.drawString(text, (304 + -Class20.aFontMetrics2171.stringWidth(text)) / 2, 22);
-				graphics.drawImage(Class132_Sub1.anImage2809, Class69_Sub1.canvasWidth / 2 - 152, -18 + Class120_Sub12_Sub5.canvasHeight / 2, null);
+				final Graphics imageGraphics = Class132_Sub1.loadingTextImage.getGraphics();
+				imageGraphics.setColor(color);
+				imageGraphics.drawRect(0, 0, 303, 33);
+				imageGraphics.fillRect(2, 2, 3 * fill, 30);
+				imageGraphics.setColor(Color.black);
+				imageGraphics.drawRect(1, 1, 301, 31);
+				imageGraphics.fillRect(2 + fill * 3, 2, 300 - (3 * fill), 30);
+				imageGraphics.setFont(Class23.loadingFont);
+				imageGraphics.setColor(Color.white);
+				imageGraphics.drawString(text, (304 - Class20.loadingFontMetrics.stringWidth(text)) / 2, 22);
+				graphics.drawImage(Class132_Sub1.loadingTextImage, Class69_Sub1.canvasWidth / 2 - 152, Class120_Sub12_Sub5.canvasHeight / 2 - 18, null);
 			} catch (final Exception exception) {
-				final int i_4_ = Class69_Sub1.canvasWidth / 2 - 152;
-				final int i_5_ = -18 + Class120_Sub12_Sub5.canvasHeight / 2;
+				final int x = Class69_Sub1.canvasWidth / 2 - 152;
+				final int y = Class120_Sub12_Sub5.canvasHeight / 2 - 18;
 				graphics.setColor(color);
-				graphics.drawRect(i_4_, i_5_, 303, 33);
-				graphics.fillRect(i_4_ + 2, i_5_ + 2, 3 * fill, 30);
+				graphics.drawRect(x, y, 303, 33);
+				graphics.fillRect(x + 2, y + 2, 3 * fill, 30);
 				graphics.setColor(Color.black);
-				graphics.drawRect(1 + i_4_, i_5_ + 1, 301, 31);
-				graphics.fillRect(fill * 3 + 2 + i_4_, i_5_ - -2, -(fill * 3) + 300, 30);
-				graphics.setFont(Class23.aFont135);
+				graphics.drawRect(1 + x, y + 1, 301, 31);
+				graphics.fillRect(fill * 3 + 2 + x, y + 2, 300 - (fill * 3), 30);
+				graphics.setFont(Class23.loadingFont);
 				graphics.setColor(Color.white);
-				graphics.drawString(text, i_4_ - -((-Class20.aFontMetrics2171.stringWidth(text) + 304) / 2), 22 + i_5_);
+				graphics.drawString(text, x + ((-Class20.loadingFontMetrics.stringWidth(text) + 304) / 2), 22 + y);
 			}
 			if (Class120_Sub14_Sub15.gameLoadingText != null) {
-				graphics.setFont(Class23.aFont135);
+				graphics.setFont(Class23.loadingFont);
 				graphics.setColor(Color.white);
-				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - Class20.aFontMetrics2171.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, -26 + Class120_Sub12_Sub5.canvasHeight / 2);
+				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - Class20.loadingFontMetrics.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26);
 			}
 		} catch (final Exception exception) {
 			Node.canvas.repaint();
@@ -112,12 +101,12 @@ final class Class11 {
 		}
 	}
 
-	static final AbstractIndexedSprite createIndexedSprite() {
+	static final AbstractIndexedSprite constructAbstractIndexedSprite() {
 		AbstractIndexedSprite indexedSprite;
 		if (HDToolkit.glEnabled) {
-			indexedSprite = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
+			indexedSprite = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
 		} else {
-			indexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
+			indexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return indexedSprite;

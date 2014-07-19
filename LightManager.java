@@ -201,8 +201,8 @@ final class LightManager {
 						final int i_44_ = light.aShortArray372[i_40_++];
 						int i_45_ = (light.anInt395 >> 7) - light.anInt370 + (i_44_ >> 8);
 						int i_46_ = i_45_ + (i_44_ & 0xff) - 1;
-						if (i_45_ < Class160.anInt1493) {
-							i_45_ = Class160.anInt1493;
+						if (i_45_ < GrandExchangeObject.anInt1493) {
+							i_45_ = GrandExchangeObject.anInt1493;
 						}
 						if (i_46_ >= Class53.anInt487) {
 							i_46_ = Class53.anInt487 - 1;

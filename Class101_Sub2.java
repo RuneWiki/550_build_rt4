@@ -13,22 +13,12 @@ final class Class101_Sub2 extends Class101 {
 	static int loopCycle = 0;
 	private final int anInt2284;
 
-	static final void method844(final int i, final boolean bool) {
-		try {
-			if (bool) {
-				Class22.aClass21_131.method192(i);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("de.J(").append(i).append(',').append(bool).append(')').toString());
-		}
-	}
-
 	public static void method845(final int i) {
 		try {
 			aByteArrayArray2278 = null;
 			aClass50_2277 = null;
 			if (i != -1739218740) {
-				method846((byte) 89, false);
+				method846(false);
 			}
 			gameShellTimer = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -75,14 +65,7 @@ final class Class101_Sub2 extends Class101 {
 		anInt2281 = i_11_;
 	}
 
-	static final void method846(final byte i, final boolean bool) {
-		try {
-			if (i <= 30) {
-				loopCycle = 17;
-			}
-			Class120_Sub12_Sub12.method1258(bool, -6090, Class69_Sub1.canvasWidth, Class69.rootInterfaceId, Class120_Sub12_Sub5.canvasHeight);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("de.I(").append(i).append(',').append(bool).append(')').toString());
-		}
+	static final void method846(final boolean bool) {
+		Class120_Sub12_Sub12.method1258(bool, Class69_Sub1.canvasWidth, Class69.rootInterfaceId, Class120_Sub12_Sub5.canvasHeight);
 	}
 }

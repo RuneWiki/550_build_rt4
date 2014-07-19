@@ -42,16 +42,6 @@ final class Class148 {
 		}
 	}
 
-	static final void method2058(final int i) {
-		try {
-			if (i == 1) {
-				Class120_Sub12_Sub35.aClass21_3411.clear();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.A(").append(i).append(')').toString());
-		}
-	}
-
 	public static void method2059(final int i) {
 		try {
 			if (i != 1) {
@@ -87,7 +77,7 @@ final class Class148 {
 			if (class120_sub14_sub8_sub2_10_ != null) {
 				return class120_sub14_sub8_sub2_10_;
 			}
-			final byte[] is = Class120_Sub13.aClass50_2576.getFile(i_9_, 0);
+			final byte[] is = ClanMember.aClass50_2576.getFile(i_9_, 0);
 			class120_sub14_sub8_sub2_10_ = new Class120_Sub14_Sub8_Sub2(is);
 			class120_sub14_sub8_sub2_10_.setNameIcons(Class82.aClass107Array785, null);
 			Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);

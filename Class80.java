@@ -94,52 +94,47 @@ final class Class80 {
 		}
 	}
 
-	static final void method699(final int i, final int i_1_, final int i_2_) {
-		try {
-			if ((FileSystem.anInt459 ^ 0xffffffff) < i) {
-				Class111.method981(FileSystem.anInt459, i ^ ~0x338);
-				FileSystem.anInt459 = 0;
+	static final void method699(final int i_1_, final int i_2_) {
+		if (FileSystem.anInt459 > 0) {
+			Class111.method981(FileSystem.anInt459);
+			FileSystem.anInt459 = 0;
+		}
+		int i_3_ = 0;
+		int i_4_ = GraphicsLD.width * i_1_;
+		int i_6_ = 0;
+		for (int i_7_ = 1; i_7_ < 255; i_7_++) {
+			int i_8_ = (256 - i_7_) * Class120_Sub15.anIntArray2597[i_7_] / 256;
+			if (i_8_ < 0) {
+				i_8_ = 0;
 			}
-			int i_3_ = 0;
-			int i_4_ = GraphicsLD.width * i_1_;
-			int i_6_ = 0;
-			for (int i_7_ = 1; i_7_ < 255; i_7_++) {
-				int i_8_ = (-i_7_ + 256) * Class120_Sub15.anIntArray2597[i_7_] / 256;
-				if (i_8_ < 0) {
-					i_8_ = 0;
-				}
-				i_3_ += i_8_;
-				for (int i_9_ = i_8_; i_9_ < 128; i_9_++) {
-					final int i_10_ = GraphicsLD.pixels[i_2_ - -i_4_++];
-					int i_11_ = Light.anIntArray392[i_3_++];
-					if (i_11_ == 0) {
-						Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = i_10_;
-					} else {
-						int i_12_ = i_11_ - -18;
-						if (i_12_ > 255) {
-							i_12_ = 255;
-						}
-						int i_13_ = 238 + -i_11_;
-						if (i_13_ > 255) {
-							i_13_ = 255;
-						}
-						i_11_ = Class76.anIntArray679[i_11_];
-						Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_)
-								- -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
+			i_3_ += i_8_;
+			for (int i_9_ = i_8_; i_9_ < 128; i_9_++) {
+				final int i_10_ = GraphicsLD.pixels[i_2_ + i_4_++];
+				int i_11_ = Light.anIntArray392[i_3_++];
+				if (i_11_ == 0) {
+					Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = i_10_;
+				} else {
+					int i_12_ = i_11_ + 18;
+					if (i_12_ > 255) {
+						i_12_ = 255;
 					}
+					int i_13_ = 238 - i_11_;
+					if (i_13_ > 255) {
+						i_13_ = 255;
+					}
+					i_11_ = Class76.anIntArray679[i_11_];
+					Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_) - -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
 				}
-				for (int i_14_ = 0; i_8_ > i_14_; i_14_++) {
-					Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = GraphicsLD.pixels[i_2_ - -i_4_++];
-				}
-				i_4_ += -128 + GraphicsLD.width;
 			}
-			if (!HDToolkit.glEnabled) {
-				Class92.aClass120_Sub14_Sub19_Sub2_862.method1591(i_2_, i_1_);
-			} else {
-				GraphicsHD.method596(Class92.aClass120_Sub14_Sub19_Sub2_862.pixels, i_2_, i_1_, Class92.aClass120_Sub14_Sub19_Sub2_862.width, Class92.aClass120_Sub14_Sub19_Sub2_862.height);
+			for (int i_14_ = 0; i_8_ > i_14_; i_14_++) {
+				Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = GraphicsLD.pixels[i_2_ + i_4_++];
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.E(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			i_4_ += -128 + GraphicsLD.width;
+		}
+		if (!HDToolkit.glEnabled) {
+			Class92.aClass120_Sub14_Sub19_Sub2_862.method1591(i_2_, i_1_);
+		} else {
+			GraphicsHD.method596(Class92.aClass120_Sub14_Sub19_Sub2_862.pixels, i_2_, i_1_, Class92.aClass120_Sub14_Sub19_Sub2_862.width, Class92.aClass120_Sub14_Sub19_Sub2_862.height);
 		}
 	}
 
@@ -152,7 +147,7 @@ final class Class80 {
 			if (i_16_ != 124) {
 				aByteArray761 = null;
 			}
-			class120_sub14_sub19 = Class42.method337((byte) 104);
+			class120_sub14_sub19 = Class42.constructAbstractSprite();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.B(").append(i).append(',').append(i_15_).append(',').append(i_16_).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
 		}

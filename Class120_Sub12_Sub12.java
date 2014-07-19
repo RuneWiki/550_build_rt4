@@ -26,7 +26,7 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		try {
 			Class120_Sub12_Sub31.aClass21_3378.clearSoftReference();
 			if (i > -83) {
-				method1258(true, -88, -44, -12, 106);
+				method1258(true, -44, -12, 106);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("jj.S(").append(i).append(')').toString());
@@ -59,80 +59,66 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_2_) {
+	final void decode(final Buffer buffer, final int i_3_) {
 		while_208_: do {
-			try {
-				if (i == -43) {
-					int i_3_ = i_2_;
-					while_207_: do {
-						while_206_: do {
-							while_205_: do {
-								while_204_: do {
-									do {
-										if (i_3_ != 0) {
-											if (i_3_ != 1) {
-												if (i_3_ != 2) {
-													if (i_3_ != 3) {
-														if (i_3_ != 4) {
-															if (i_3_ != 5) {
-																if (i_3_ == 6) {
-																	break while_207_;
-																}
-																break while_208_;
-															}
-														} else {
-															break while_205_;
+			while_207_: do {
+				while_206_: do {
+					while_205_: do {
+						while_204_: do {
+							do {
+								if (i_3_ != 0) {
+									if (i_3_ != 1) {
+										if (i_3_ != 2) {
+											if (i_3_ != 3) {
+												if (i_3_ != 4) {
+													if (i_3_ != 5) {
+														if (i_3_ == 6) {
+															break while_207_;
 														}
-														break while_206_;
+														break while_208_;
 													}
 												} else {
-													break;
+													break while_205_;
 												}
-												break while_204_;
+												break while_206_;
 											}
 										} else {
-											this.aBoolean3226 = class120_sub7.getUByte() == 1;
-											break while_208_;
+											break;
 										}
-										this.anInt3228 = class120_sub7.getUByte();
-										break while_208_;
-									} while (false);
-									this.anInt3221 = class120_sub7.getShort();
-									if (this.anInt3221 < 0) {
-										aShortArray3218 = new short[this.anInt3228];
-										for (i_3_ = 0; this.anInt3228 > i_3_; i_3_++) {
-											aShortArray3218[i_3_] = (short) class120_sub7.getShort();
-										}
+										break while_204_;
 									}
+								} else {
+									this.aBoolean3226 = buffer.getUByte() == 1;
 									break while_208_;
-								} while (false);
-								this.anInt3229 = this.anInt3225 = class120_sub7.getUByte();
+								}
+								this.anInt3228 = buffer.getUByte();
 								break while_208_;
 							} while (false);
-							this.anInt3222 = class120_sub7.getUByte();
+							this.anInt3221 = buffer.getShort();
+							if (this.anInt3221 < 0) {
+								aShortArray3218 = new short[this.anInt3228];
+								for (int i_4_ = 0; i_4_ < this.anInt3228; i_4_++) {
+									aShortArray3218[i_4_] = (short) buffer.getShort();
+								}
+							}
 							break while_208_;
 						} while (false);
-						this.anInt3229 = class120_sub7.getUByte();
+						this.anInt3229 = this.anInt3225 = buffer.getUByte();
 						break while_208_;
 					} while (false);
-					this.anInt3225 = class120_sub7.getUByte();
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("jj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_2_).append(')').toString());
-			}
+					this.anInt3222 = buffer.getUByte();
+					break while_208_;
+				} while (false);
+				this.anInt3229 = buffer.getUByte();
+				break while_208_;
+			} while (false);
+			this.anInt3225 = buffer.getUByte();
 		} while (false);
 	}
 
-	static final void method1258(final boolean bool, final int i, final int i_4_, final int i_5_, final int i_6_) {
-		try {
-			if (i != -6090) {
-				method1258(false, -114, 21, 64, -40);
-			}
-			if (js5.loadInterface(i_5_)) {
-				WorldInfo.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_, -105);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jj.AA(").append(bool).append(',').append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+	static final void method1258(final boolean bool, final int i_4_, final int i_5_, final int i_6_) {
+		if (js5.loadInterface(i_5_)) {
+			WorldInfo.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_);
 		}
 	}
 
@@ -299,19 +285,15 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			aByteArray3219 = Class128.method1899(this.anInt3222, -29382);
-			method1257((byte) 114);
-			for (int i_73_ = -1 + this.anInt3228; i_73_ >= 1; i_73_--) {
-				final short i_74_ = aShortArray3218[i_73_];
-				if (i_74_ > 8 || i_74_ < -8) {
-					break;
-				}
-				this.anInt3228--;
+	final void postDecode() {
+		aByteArray3219 = OverlayType.method1899(this.anInt3222);
+		method1257((byte) 114);
+		for (int i_73_ = -1 + this.anInt3228; i_73_ >= 1; i_73_--) {
+			final short i_74_ = aShortArray3218[i_73_];
+			if (i_74_ > 8 || i_74_ < -8) {
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jj.O(").append(i).append(')').toString());
+			this.anInt3228--;
 		}
 	}
 

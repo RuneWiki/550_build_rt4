@@ -244,7 +244,7 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void method599() {
+	static final void clearPixels() {
 		HDToolkit.gl.glClear(16640);
 	}
 

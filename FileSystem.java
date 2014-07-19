@@ -108,7 +108,7 @@ final class FileSystem {
 				Class80.aByteArray761[2] = (byte) i_14_;
 				Class80.aByteArray761[3] = (byte) (i_16_ >> 16);
 				aClass193_462.seek(6 * i);
-				aClass193_462.method2519(0, Class80.aByteArray761, 6, (byte) 42);
+				aClass193_462.write(Class80.aByteArray761, 0, 6);
 				int i_21_;
 				for (/**/; i_20_ < i_14_; i_20_ += i_21_) {
 					int i_22_ = 0;
@@ -158,8 +158,8 @@ final class FileSystem {
 						i_21_ = 512;
 					}
 					i_16_ = i_22_;
-					aClass193_454.method2519(0, Class80.aByteArray761, 8, (byte) 42);
-					aClass193_454.method2519(i_20_, is, i_21_, (byte) 42);
+					aClass193_454.write(Class80.aByteArray761, 0, 8);
+					aClass193_454.write(is, i_20_, i_21_);
 				}
 				bool_15_ = true;
 			} catch (final IOException ioexception) {

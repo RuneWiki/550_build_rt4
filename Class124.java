@@ -15,17 +15,6 @@ final class Class124 {
 	int anInt1202;
 	int anInt1203;
 
-	static final void method1873(final int i, final int i_0_) {
-		try {
-			Class154.aClass21_1438.method192(i_0_);
-			if (i != -1) {
-				method1876((byte) 36);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.B(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-	}
-
 	static final int method1874(final int i, final int i_1_) {
 		int i_2_;
 		try {

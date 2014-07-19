@@ -4,7 +4,6 @@
 
 final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	private Class101[] aClass101Array3237;
-	static Cache aClass21_3238 = new Cache(128);
 	static int[] anIntArray3239;
 	static int anInt3240 = 0;
 
@@ -53,25 +52,25 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		return is_3_;
 	}
 
-	static final void method1269(final int loopId) {
+	static final void method1269(final int size) {
 		int playerCount = Class83.localPlayerCount;
-		if (loopId == 0) {
+		if (size == 0) {
 			playerCount = 1;
 		}
 		for (int id = 0; id < playerCount; id++) {
 			Player player;
-			if (loopId == 0) {
+			if (size == 0) {
 				player = Class100.selfPlayer;
 			} else {
 				player = Class118.playersList[Class112.playerIndices[id]];
 			}
 			if (player != null && player.isVisible()) {
-				final int size = player.getSize();
-				if (loopId == 0 || loopId == size) {
-					if (size != 1) {
-						if (((size & 0x1) != 0 || (player.x & 0x7f) == 0 && (0x7f & player.z) == 0) && ((0x1 & size) != 1 || (0x7f & player.x) == 64 && (player.z & 0x7f) == 64)) {
-							int i_20_ = player.x - size * 64 >> 7;
-							int i_21_ = player.z - size * 64 >> 7;
+				final int playerSize = player.getSize();
+				if (size == 0 || size == playerSize) {
+					if (playerSize != 1) {
+						if (((playerSize & 0x1) != 0 || (player.x & 0x7f) == 0 && (0x7f & player.z) == 0) && ((0x1 & playerSize) != 1 || (0x7f & player.x) == 64 && (player.z & 0x7f) == 64)) {
+							int i_20_ = player.x - playerSize * 64 >> 7;
+							int i_21_ = player.z - playerSize * 64 >> 7;
 							int i_22_ = i_20_ + player.getSize();
 							if (i_22_ > 104) {
 								i_22_ = 104;
@@ -105,7 +104,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		for (int i_28_ = 0; i_28_ < playerCount; i_28_++) {
 			Player class180_sub5_sub1;
 			long l;
-			if (loopId == 0) {
+			if (size == 0) {
 				l = 8791798054912L;
 				class180_sub5_sub1 = Class100.selfPlayer;
 			} else {
@@ -114,10 +113,10 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 			}
 			if (class180_sub5_sub1 != null && class180_sub5_sub1.isVisible()) {
 				final int i_29_ = class180_sub5_sub1.getSize();
-				if (loopId == 0 || loopId == i_29_) {
+				if (size == 0 || size == i_29_) {
 					class180_sub5_sub1.playerLimitReached = false;
 					class180_sub5_sub1.aBoolean2992 = true;
-					if ((Class120_Sub12_Sub10.manyIdleAnimations && Class83.localPlayerCount > 200 || Class83.localPlayerCount > 50) && loopId != 0 && class180_sub5_sub1.anInt3004 == class180_sub5_sub1.method2336().anInt218) {
+					if ((Class120_Sub12_Sub10.manyIdleAnimations && Class83.localPlayerCount > 200 || Class83.localPlayerCount > 50) && size != 0 && class180_sub5_sub1.anInt3004 == class180_sub5_sub1.method2336().anInt218) {
 						class180_sub5_sub1.playerLimitReached = true;
 					}
 					if (i_29_ == 1) {
@@ -183,46 +182,39 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_40_) {
-		try {
-			if (i_40_ == 0) {
-				aClass101Array3237 = new Class101[class120_sub7.getUByte()];
-				while_200_: for (int i_41_ = 0; i_41_ < aClass101Array3237.length; i_41_++) {
-					final int i_42_ = class120_sub7.getUByte();
-					final int i_43_ = i_42_;
-					while_198_: do {
-						do {
-							if (i_43_ != 0) {
-								if (i_43_ != 1) {
-									if (i_43_ != 2) {
-										if (i_43_ != 3) {
-											continue while_200_;
-										}
-									} else {
-										break;
+	final void decode(final Buffer buffer, final int i_40_) {
+		if (i_40_ == 0) {
+			aClass101Array3237 = new Class101[buffer.getUByte()];
+			while_200_: for (int i_41_ = 0; i_41_ < aClass101Array3237.length; i_41_++) {
+				final int i_42_ = buffer.getUByte();
+				final int i_43_ = i_42_;
+				while_198_: do {
+					do {
+						if (i_43_ != 0) {
+							if (i_43_ != 1) {
+								if (i_43_ != 2) {
+									if (i_43_ != 3) {
+										continue while_200_;
 									}
-									break while_198_;
+								} else {
+									break;
 								}
-							} else {
-								aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1357(class120_sub7, 116);
-								continue while_200_;
+								break while_198_;
 							}
-							aClass101Array3237[i_41_] = Class120_Sub12_Sub30.method1362(true, class120_sub7);
+						} else {
+							aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1357(buffer, 116);
 							continue while_200_;
-						} while (false);
-						aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1356(class120_sub7, 0);
+						}
+						aClass101Array3237[i_41_] = Class120_Sub12_Sub30.method1362(buffer);
 						continue while_200_;
 					} while (false);
-					aClass101Array3237[i_41_] = Class187.method2475(class120_sub7, true);
-				}
-			} else if (i_40_ == 1) {
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
+					aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1356(buffer, 0);
+					continue while_200_;
+				} while (false);
+				aClass101Array3237[i_41_] = Class187.method2475(buffer, true);
 			}
-			if (i != -43) {
-				method1269(-117);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("km.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_40_).append(')').toString());
+		} else if (i_40_ == 1) {
+			this.aBoolean2558 = buffer.getUByte() == 1;
 		}
 	}
 
@@ -297,8 +289,8 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						}
 					}
 					if (i_61_ != 0) {
-						final Class128 class128 = MouseHandler.method1026(-1 + (i_61_ & 0xff), true);
-						is_56_[i_57_][i_58_] = (class128.anInt1227 + 1 << 16) + class128.anInt1225;
+						final OverlayType overlayType = OverlayType.list(-1 + (i_61_ & 0xff));
+						is_56_[i_57_][i_58_] = (overlayType.anInt1227 + 1 << 16) + overlayType.anInt1225;
 					}
 				}
 			}
@@ -539,7 +531,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	public static void method1273(final int i) {
 		try {
 			anIntArray3239 = null;
-			aClass21_3238 = null;
+			Class73.recentUse = null;
 			if (i != 1) {
 				method1273(-45);
 			}

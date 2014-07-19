@@ -10,7 +10,6 @@ final class Class73 {
 	static float aFloat632;
 	boolean aBoolean633;
 	int fontType;
-	static Cache aClass21_635;
 	private int anInt636 = -1;
 	static int anInt637;
 	int[] anIntArray638;
@@ -22,7 +21,7 @@ final class Class73 {
 	int anInt644;
 	String aString645;
 	String[] aStringArray646;
-	private int anInt647;
+	private int spriteId;
 	int anInt648;
 	String aString649;
 	private int anInt650;
@@ -33,9 +32,10 @@ final class Class73 {
 	int anInt655;
 	int anInt656;
 	int anInt657;
-	int anInt658;
+	int id;
 	boolean aBoolean659;
 	private int anInt660;
+	static ObjectCache recentUse = new ObjectCache(128);
 	static int[] anIntArray661;
 	static int fps;
 	static Class193 aClass193_663;
@@ -43,7 +43,6 @@ final class Class73 {
 	static int mapdotsId;
 
 	static {
-		aClass21_635 = new Cache(64);
 		fps = 0;
 		anIntArray661 = new int[1000];
 		anIntArray664 = new int[14];
@@ -60,20 +59,13 @@ final class Class73 {
 		}
 	}
 
-	final void method643(final Buffer class120_sub7, final int i) {
-		try {
-			if (i != 0) {
-				method645((byte) 75);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			for (;;) {
-				final int i_0_ = class120_sub7.getUByte();
-				if (i_0_ == 0) {
-					break;
-				}
-				method646(i ^ ~0x1b3c, i_0_, class120_sub7);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
@@ -90,118 +82,102 @@ final class Class73 {
 		return string;
 	}
 
-	final LDIndexedSprite method645(final byte i) {
-		LDIndexedSprite class107_sub1;
-		try {
-			if (i >= -100) {
-				method646(104, -75, null);
-			}
-			LDIndexedSprite class107_sub1_2_ = (LDIndexedSprite) Class82.aClass21_786.get(anInt647 | 0x20000);
-			if (class107_sub1_2_ != null) {
-				return class107_sub1_2_;
-			}
-			Class88.aClass50_834.method429(anInt647);
-			class107_sub1_2_ = Class164.method2138(32, 0, Class88.aClass50_834, anInt647);
-			if (class107_sub1_2_ != null) {
-				class107_sub1_2_.trimWidth = class107_sub1_2_.width;
-				class107_sub1_2_.xOffset = 0;
-				class107_sub1_2_.trimHeight = class107_sub1_2_.height;
-				class107_sub1_2_.yOffset = 0;
-				Class82.aClass21_786.put(class107_sub1_2_, 0x20000 | anInt647);
-			}
-			class107_sub1 = class107_sub1_2_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.F(").append(i).append(')').toString());
+	final LDIndexedSprite constructSprite() {
+		LDIndexedSprite class107_sub1_2_ = (LDIndexedSprite) Class82.aClass21_786.get(spriteId | 0x20000);
+		if (class107_sub1_2_ != null) {
+			return class107_sub1_2_;
 		}
-		return class107_sub1;
+		Class88.aClass50_834.method429(spriteId);
+		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, spriteId);
+		if (class107_sub1_2_ != null) {
+			class107_sub1_2_.trimWidth = class107_sub1_2_.width;
+			class107_sub1_2_.xOffset = 0;
+			class107_sub1_2_.trimHeight = class107_sub1_2_.height;
+			class107_sub1_2_.yOffset = 0;
+			Class82.aClass21_786.put(class107_sub1_2_, 0x20000 | spriteId);
+		}
+		return class107_sub1_2_;
 	}
 
-	private final void method646(final int i, final int i_3_, final Buffer class120_sub7) {
-		try {
-			if (i_3_ == 1) {
-				this.anInt644 = class120_sub7.getUShort();
-			} else if (i_3_ == 2) {
-				this.anInt657 = class120_sub7.getUShort();
-			} else if (i_3_ == 3) {
-				this.aString649 = class120_sub7.getJString();
-			} else if (i_3_ != 4) {
-				if (i_3_ == 5) {
-					this.anInt656 = class120_sub7.getMedium();
-				} else if (i_3_ == 6) {
-					this.fontType = class120_sub7.getUByte();
-				} else if (i_3_ != 7) {
-					if (i_3_ == 8) {
-						this.randomizePosition = class120_sub7.getUByte() == 1;
-					} else if (i_3_ == 9) {
-						anInt650 = class120_sub7.getUShort();
-						if (anInt650 == 65535) {
-							anInt650 = -1;
-						}
-						anInt660 = class120_sub7.getUShort();
-						if (anInt660 == 65535) {
-							anInt660 = -1;
-						}
-						anInt643 = class120_sub7.getInt();
-						anInt641 = class120_sub7.getInt();
-					} else if (i_3_ >= 10 && i_3_ <= 14) {
-						this.aStringArray646[i_3_ + -10] = class120_sub7.getJString();
-					} else if (i_3_ != 15) {
-						if (i_3_ != 16) {
-							if (i_3_ != 17) {
-								if (i_3_ == 18) {
-									anInt647 = class120_sub7.getUShort();
-								} else if (i_3_ != 19) {
-									if (i_3_ == 20) {
-										anInt631 = class120_sub7.getUShort();
-										if ((anInt631 ^ 0xffffffff) == -65536) {
-											anInt631 = -1;
-										}
-										anInt636 = class120_sub7.getUShort();
-										if (65535 == anInt636) {
-											anInt636 = -1;
-										}
-										anInt654 = class120_sub7.getInt();
-										anInt628 = class120_sub7.getInt();
-									} else if (i_3_ == 21) {
-										this.anInt648 = class120_sub7.getInt();
-									} else if (i_3_ == 22) {
-										this.anInt640 = class120_sub7.getInt();
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.anInt644 = buffer.getUShort();
+		} else if (code == 2) {
+			this.anInt657 = buffer.getUShort();
+		} else if (code == 3) {
+			this.aString649 = buffer.getJString();
+		} else if (code != 4) {
+			if (code == 5) {
+				this.anInt656 = buffer.getMedium();
+			} else if (code == 6) {
+				this.fontType = buffer.getUByte();
+			} else if (code != 7) {
+				if (code == 8) {
+					this.randomizePosition = buffer.getUByte() == 1;
+				} else if (code == 9) {
+					anInt650 = buffer.getUShort();
+					if (anInt650 == 65535) {
+						anInt650 = -1;
+					}
+					anInt660 = buffer.getUShort();
+					if (anInt660 == 65535) {
+						anInt660 = -1;
+					}
+					anInt643 = buffer.getInt();
+					anInt641 = buffer.getInt();
+				} else if (code >= 10 && code <= 14) {
+					this.aStringArray646[code + -10] = buffer.getJString();
+				} else if (code != 15) {
+					if (code != 16) {
+						if (code != 17) {
+							if (code == 18) {
+								spriteId = buffer.getUShort();
+							} else if (code != 19) {
+								if (code == 20) {
+									anInt631 = buffer.getUShort();
+									if ((anInt631 ^ 0xffffffff) == -65536) {
+										anInt631 = -1;
 									}
-								} else {
-									this.anInt652 = class120_sub7.getUShort();
+									anInt636 = buffer.getUShort();
+									if (65535 == anInt636) {
+										anInt636 = -1;
+									}
+									anInt654 = buffer.getInt();
+									anInt628 = buffer.getInt();
+								} else if (code == 21) {
+									this.anInt648 = buffer.getInt();
+								} else if (code == 22) {
+									this.anInt640 = buffer.getInt();
 								}
 							} else {
-								this.aString645 = class120_sub7.getJString();
+								this.anInt652 = buffer.getUShort();
 							}
 						} else {
-							this.aBoolean659 = false;
+							this.aString645 = buffer.getJString();
 						}
 					} else {
-						final int i_4_ = class120_sub7.getUByte();
-						this.anIntArray638 = new int[i_4_ * 2];
-						for (int i_5_ = 0; 2 * i_4_ > i_5_; i_5_++) {
-							this.anIntArray638[i_5_] = class120_sub7.getShort();
-						}
-						this.anInt630 = class120_sub7.getInt();
-						this.anInt651 = class120_sub7.getInt();
+						this.aBoolean659 = false;
 					}
 				} else {
-					final int i_6_ = class120_sub7.getUByte();
-					if ((i_6_ & 0x2) == 2) {
-						this.aBoolean633 = true;
+					final int i_4_ = buffer.getUByte();
+					this.anIntArray638 = new int[i_4_ * 2];
+					for (int i_5_ = 0; 2 * i_4_ > i_5_; i_5_++) {
+						this.anIntArray638[i_5_] = buffer.getShort();
 					}
-					if ((i_6_ & 0x1) == 0) {
-						this.aBoolean629 = false;
-					}
+					this.anInt630 = buffer.getInt();
+					this.anInt651 = buffer.getInt();
 				}
 			} else {
-				this.anInt655 = class120_sub7.getMedium();
+				final int i_6_ = buffer.getUByte();
+				if ((i_6_ & 0x2) == 2) {
+					this.aBoolean633 = true;
+				}
+				if ((i_6_ & 0x1) == 0) {
+					this.aBoolean629 = false;
+				}
 			}
-			if (i != -6973) {
-				method644(-128, -21);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.G(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+		} else {
+			this.anInt655 = buffer.getMedium();
 		}
 	}
 
@@ -232,52 +208,43 @@ final class Class73 {
 		return false;
 	}
 
-	final AbstractIndexedSprite method648(final boolean bool, final boolean bool_8_, final boolean bool_9_) {
-		AbstractIndexedSprite abstractIndexedSprite;
-		try {
-			if (bool_8_) {
-				method647();
-			}
-			final int i = bool ? this.anInt657 : this.anInt644;
-			AbstractIndexedSprite class107_10_ = (AbstractIndexedSprite) Class82.aClass21_786.get(i | (bool ? 65536 : 0));
-			if (class107_10_ != null) {
-				return class107_10_;
-			}
-			if (!Class88.aClass50_834.method429(i)) {
-				return null;
-			}
-			final LDIndexedSprite class107_sub1 = Class164.method2138(32, 0, Class88.aClass50_834, i);
-			if (!HDToolkit.glEnabled || bool_9_) {
-				class107_10_ = class107_sub1;
-			} else {
-				class107_10_ = new HDIndexedSprite(class107_sub1);
-			}
-			if (class107_10_ != null) {
-				class107_10_.trimHeight = class107_10_.height;
-				class107_10_.yOffset = 0;
-				class107_10_.trimWidth = class107_10_.width;
-				class107_10_.xOffset = 0;
-				Class82.aClass21_786.put(class107_10_, (bool ? 65536 : 0) | i);
-			}
-			abstractIndexedSprite = class107_10_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.C(").append(bool).append(',').append(bool_8_).append(',').append(bool_9_).append(')').toString());
+	final AbstractIndexedSprite method648(final boolean bool, final boolean bool_9_) {
+		final int i = bool ? this.anInt657 : this.anInt644;
+		AbstractIndexedSprite class107_10_ = (AbstractIndexedSprite) Class82.aClass21_786.get(i | (bool ? 65536 : 0));
+		if (class107_10_ != null) {
+			return class107_10_;
 		}
-		return abstractIndexedSprite;
+		if (!Class88.aClass50_834.method429(i)) {
+			return null;
+		}
+		final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, i);
+		if (!HDToolkit.glEnabled || bool_9_) {
+			class107_10_ = class107_sub1;
+		} else {
+			class107_10_ = new HDIndexedSprite(class107_sub1);
+		}
+		if (class107_10_ != null) {
+			class107_10_.trimHeight = class107_10_.height;
+			class107_10_.yOffset = 0;
+			class107_10_.trimWidth = class107_10_.width;
+			class107_10_.xOffset = 0;
+			Class82.aClass21_786.put(class107_10_, (bool ? 65536 : 0) | i);
+		}
+		return class107_10_;
 	}
 
 	static final Class73 list(int i) {
-		Class73 class73_34_ = (Class73) Class120_Sub12_Sub14.aClass21_3238.get(i);
+		Class73 class73_34_ = (Class73) recentUse.get(i);
 		if (class73_34_ != null) {
 			return class73_34_;
 		}
 		final byte[] is = Class31.aClass50_241.getFile(36, i);
 		class73_34_ = new Class73();
-		class73_34_.anInt658 = i;
+		class73_34_.id = i;
 		if (is != null) {
-			class73_34_.method643(new Buffer(is), 0);
+			class73_34_.decode(new Buffer(is));
 		}
-		Class120_Sub12_Sub14.aClass21_3238.put(class73_34_, i);
+		recentUse.put(class73_34_, i);
 		return class73_34_;
 	}
 
@@ -286,7 +253,6 @@ final class Class73 {
 			aClass193_663 = null;
 			anIntArray664 = null;
 			anIntArray661 = null;
-			aClass21_635 = null;
 			if (i != -41) {
 				method644(-111, 123);
 			}
@@ -307,7 +273,7 @@ final class Class73 {
 		this.aBoolean659 = true;
 		anInt631 = -1;
 		anInt660 = -1;
-		anInt647 = -1;
+		spriteId = -1;
 		this.anInt656 = -1;
 		this.anInt657 = -1;
 	}

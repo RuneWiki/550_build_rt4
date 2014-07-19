@@ -5,7 +5,7 @@ import javax.media.opengl.GL;
 
 final class StructType extends NodeSub {
 	private Hashtable params;
-	static Class35 recentUse = new Class35(64);
+	static NodeCache recentUse = new NodeCache(64);
 	static JagexInterface aClass189_3588;
 	static int titlebgId = -1;
 	static int anInt3590 = -1;
@@ -14,7 +14,7 @@ final class StructType extends NodeSub {
 		try {
 			aClass189_3588 = null;
 			if (i < 45) {
-				method1562((byte) -20);
+				method1562();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.G(").append(i).append(')').toString());
@@ -30,7 +30,7 @@ final class StructType extends NodeSub {
 		final int i_9_ = i_5_ + 16;
 		for (int i_10_ = Class190.anInt2101; i_10_ < Class142.anInt1361; i_10_++) {
 			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_10_];
-			for (int i_11_ = Class160.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
+			for (int i_11_ = GrandExchangeObject.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
 				for (int i_12_ = Class31.anInt248; i_12_ < Class45.anInt396; i_12_++) {
 					final GroundTile class120_sub18 = class120_sub18s[i_11_][i_12_];
 					if (class120_sub18 != null) {
@@ -125,11 +125,11 @@ final class StructType extends NodeSub {
 			for (int i_18_ = -Class120_Sub14_Sub13.anInt3563; i_18_ <= 0; i_18_++) {
 				final int i_19_ = Class120_Sub12_Sub26.anInt3332 + i_18_;
 				final int i_20_ = Class120_Sub12_Sub26.anInt3332 - i_18_;
-				if (i_19_ >= Class160.anInt1493 || i_20_ < Class53.anInt487) {
+				if (i_19_ >= GrandExchangeObject.anInt1493 || i_20_ < Class53.anInt487) {
 					for (int i_21_ = -Class120_Sub14_Sub13.anInt3563; i_21_ <= 0; i_21_++) {
 						final int i_22_ = Class112.anInt1080 + i_21_;
 						final int i_23_ = Class112.anInt1080 - i_21_;
-						if (i_19_ >= Class160.anInt1493) {
+						if (i_19_ >= GrandExchangeObject.anInt1493) {
 							if (i_22_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
@@ -172,11 +172,11 @@ final class StructType extends NodeSub {
 			for (int i_25_ = -Class120_Sub14_Sub13.anInt3563; i_25_ <= 0; i_25_++) {
 				final int i_26_ = Class120_Sub12_Sub26.anInt3332 + i_25_;
 				final int i_27_ = Class120_Sub12_Sub26.anInt3332 - i_25_;
-				if (i_26_ >= Class160.anInt1493 || i_27_ < Class53.anInt487) {
+				if (i_26_ >= GrandExchangeObject.anInt1493 || i_27_ < Class53.anInt487) {
 					for (int i_28_ = -Class120_Sub14_Sub13.anInt3563; i_28_ <= 0; i_28_++) {
 						final int i_29_ = Class112.anInt1080 + i_28_;
 						final int i_30_ = Class112.anInt1080 - i_28_;
-						if (i_26_ >= Class160.anInt1493) {
+						if (i_26_ >= GrandExchangeObject.anInt1493) {
 							if (i_29_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
@@ -217,37 +217,46 @@ final class StructType extends NodeSub {
 		Class120_Sub12_Sub7.aBoolean3181 = false;
 	}
 
-	static final void method1562(final byte i) {
-		try {
-			Class66.method579(5, (byte) -23);
-			Class101_Sub2.method844(5, true);
-			MouseRecorder.method764(5, 3);
-			InterfaceClickMask.method1690(23, 5);
-			Class180_Sub3.method2314(5, 3);
-			Class81.method706(5, -128);
-			Class157.method2087(5, (byte) -86);
-			Class101_Sub1.method840(i ^ 0x15, 5);
-			SceneGroundObject.method2278(5, (byte) -123);
-			DummyOutputStream.method73((byte) 125, 5);
-			InterfaceClickMask.method1680((byte) 126, 5);
-			Class26.method232((byte) 114, 5);
-			Class188.method2480(true, 5);
-			Class120_Sub12_Sub25.method1329(5, -79);
-			Class166.method2181(5, i + 55);
-			Class43.method341(5, i ^ ~0x17);
-			JagexInterface.method2490(5, 69);
-			Class120_Sub12_Sub30.method1360(5);
-			if (i != 23) {
-				anInt3590 = -94;
-			}
-			Class101_Sub4.method851(false, 50);
-			Class159.method2094(2260, 5);
-			Class124.method1873(i + -24, 5);
-			Class120_Sub12_Sub2.aClass21_3144.method192(5);
-			Class15.aClass21_95.method192(5);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.H(").append(i).append(')').toString());
-		}
+	static final void method1562() {
+		InterfaceListener.aClass21_2542.method192(5);
+		OverlayType.recentUse.method192(5);
+		IdentityKit.recentUse.method192(5);
+		LocType.recentUse.method192(5);
+		InterfaceClickMask.aClass21_2663.method192(5);
+		Class167.aClass21_1618.method192(5);
+		Class116.aClass21_1117.method192(5);
+		NpcType.recentUse.method192(5);
+		Class11.aClass21_80.method192(5);
+		Projectile.aClass21_2931.method192(5);
+		Canvas_Sub1.aClass21_14.method192(5);
+		Class33.aClass21_273.method192(5);
+		Class180_Sub3.aClass21_2906.method192(5);
+		KeyboardHandler.aClass21_1504.method192(5);
+		SceneGraphNode.aClass21_1781.method192(5);
+		SpotAnimType.recentUse.method192(5);
+		Class182.aClass21_1798.method192(5);
+		VarBit.recentUse.method192(5);
+		Varp.recentUse.method192(5);
+		Class120_Sub12_Sub31.aClass21_3378.method192(5);
+		Class120_Sub14_Sub14_Sub2.aClass21_3937.method192(5);
+		Class132.aClass21_1255.method192(5);
+		Class73.recentUse.method192(5);
+		Class82.aClass21_786.method192(5);
+		Class159.aClass21_1486.method192(5);
+		Class120_Sub6.aClass21_2443.method192(5);
+		Class120_Sub12_Sub9.aClass21_3196.method192(5);
+		Class120_Sub12_Sub35.aClass21_3411.method192(5);
+		CursorType.recentUse.method192(5);
+		CursorType.spriteCache.method192(5);
+		Class43.playerModelsCache.method192(5);
+		Class90.playerHeadModelsCache.method192(5);		
+		Class180_Sub6.aClass21_3071.method192(50);
+		LabelGroup.aClass21_2406.method192(50);
+		Class120_Sub12_Sub2.aClass21_3143.method192(50);
+		Class120_Sub14_Sub13.aClass21_3564.method192(5);
+		Class154.aClass21_1438.method192(5);
+		Class120_Sub12_Sub2.aClass21_3144.method192(5);
+		Class15.aClass21_95.method192(5);
 	}
 
 	private final void decode(final Buffer buffer, final int code) {

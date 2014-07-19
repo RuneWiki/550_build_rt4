@@ -3,18 +3,25 @@
  */
 import java.lang.reflect.Method;
 
-final class Class27 {
-	int anInt164;
+final class VarBit {
+	int setting;
 	static int anInt165;
 	static int anInt166 = 0;
 	static boolean aBoolean167;
-	int anInt168;
-	int anInt169;
+	int startBit;
+	int endBit;
+	static js5 aClass50_3056;
+	static ObjectCache recentUse = new ObjectCache(64);
 	static Class aClass170;
 
 	static {
 		anInt165 = 0;
 		aBoolean167 = false;
+	}
+	
+	public static void resetLol() {
+		recentUse = null;
+		aClass50_3056 = null;
 	}
 
 	static final void method236(final boolean bool, final int i) {
@@ -31,39 +38,39 @@ final class Class27 {
 		}
 	}
 
-	final void method237(final Buffer class120_sub7, final byte i) {
-		try {
-			if (i != 58) {
-				method236(true, 65);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			for (;;) {
-				final int i_0_ = class120_sub7.getUByte();
-				if (i_0_ == 0) {
-					break;
-				}
-				method238(class120_sub7, (byte) -116, i_0_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.E(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
-	private final void method238(final Buffer class120_sub7, final byte i, final int i_1_) {
-		try {
-			if (i >= -98) {
-				method240(-121);
-			}
-			if (i_1_ == 1) {
-				this.anInt164 = class120_sub7.getUShort();
-				this.anInt168 = class120_sub7.getUByte();
-				this.anInt169 = class120_sub7.getUByte();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_1_).append(')').toString());
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.setting = buffer.getUShort();
+			this.startBit = buffer.getUByte();
+			this.endBit = buffer.getUByte();
 		}
 	}
 
-	public Class27() {
+	static final VarBit list(final int id) {
+		VarBit varBit = (VarBit) recentUse.get(id);
+		if (varBit != null) {
+			return varBit;
+		}
+		final byte[] data = aClass50_3056.getFile(id >>> 10, id & 0x3ff);
+		varBit = new VarBit();
+		if (data != null) {
+			varBit.decode(new Buffer(data));
+		}
+		recentUse.put(varBit, id);
+		return varBit;
+	}
+
+	public VarBit() {
 		/* empty */
 	}
 
@@ -93,13 +100,13 @@ final class Class27 {
 		if (Class26.anInt162 / 256 > i_5_) {
 			i_5_ = Class26.anInt162 / 256;
 		}
-		int i_7_ = Class128.renderPitch;
+		int i_7_ = OverlayType.renderPitch;
 		if (Class120_Sub12_Sub12.aBooleanArray3223[4] && i_5_ < Class181.anIntArray1790[4] + 128) {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
 		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
 		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
-		if (Class83.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && Class128.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
+		if (Class83.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {
 			Class120_Sub12_Sub31.anInt3384 = 10;
@@ -149,20 +156,20 @@ final class Class27 {
 			if (i_9_ < -1024) {
 				i_9_ += 2048;
 			}
-			if (Class128.renderPitch > i_7_) {
-				i_7_ += Class120_Sub12_Sub31.anInt3384 + (-i_7_ + Class128.renderPitch) * Class101_Sub1.anInt2272 / 1000;
-				if (i_7_ < Class128.renderPitch) {
-					Class128.renderPitch = i_7_;
+			if (OverlayType.renderPitch > i_7_) {
+				i_7_ += Class120_Sub12_Sub31.anInt3384 + (-i_7_ + OverlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000;
+				if (i_7_ < OverlayType.renderPitch) {
+					OverlayType.renderPitch = i_7_;
 				}
 			}
 			if (i_9_ > 0) {
 				i_6_ += Class101_Sub1.anInt2272 * i_9_ / 1000 + Class120_Sub12_Sub31.anInt3384;
 				i_6_ &= 0x7ff;
 			}
-			if (Class128.renderPitch < i_7_) {
-				i_7_ -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * (i_7_ - Class128.renderPitch) / 1000);
-				if (Class128.renderPitch < i_7_) {
-					Class128.renderPitch = i_7_;
+			if (OverlayType.renderPitch < i_7_) {
+				i_7_ -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * (i_7_ - OverlayType.renderPitch) / 1000);
+				if (OverlayType.renderPitch < i_7_) {
+					OverlayType.renderPitch = i_7_;
 				}
 			}
 			if (i_9_ < 0) {

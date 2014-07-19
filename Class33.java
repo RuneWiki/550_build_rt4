@@ -3,28 +3,22 @@
  */
 
 final class Class33 {
-	static Cache aClass21_273 = new Cache(50);
+	static ObjectCache aClass21_273 = new ObjectCache(50);
 	static Class120_Sub14_Sub8_Sub2 aClass120_Sub14_Sub8_Sub2_274;
 	static js5 aClass50_275;
 	static String aString276 = "green:";
 	static String[] stringStack = new String[1000];
 	static int anInt278 = 0;
 
-	static final void method275(final byte i) {
-		try {
-			if (i == -5) {
-				for (int i_0_ = 0; Class120_Sub12_Sub22.anInt3302 > i_0_; i_0_++) {
-					final Varp varp = Varp.list(i_0_);
-					if (varp != null && varp.setting == 0) {
-						Class30.anIntArray239[i_0_] = 0;
-						Class2.permanentVariable[i_0_] = 0;
-					}
-				}
-				Class69_Sub3_Sub1.aClass75_3079 = new Hashtable(16);
+	static final void resetVarp() {
+		for (int i_0_ = 0; Class120_Sub12_Sub22.anInt3302 > i_0_; i_0_++) {
+			final Varp varp = Varp.list(i_0_);
+			if (varp != null && varp.setting == 0) {
+				Class30.anIntArray239[i_0_] = 0;
+				Class2.permanentVariable[i_0_] = 0;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("df.C(").append(i).append(')').toString());
 		}
+		Class69_Sub3_Sub1.aClass75_3079 = new Hashtable(16);
 	}
 
 	static final void method276(final int i_1_) {

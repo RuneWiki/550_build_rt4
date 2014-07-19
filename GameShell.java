@@ -59,7 +59,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
 					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
 			}
@@ -80,7 +80,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(160);
-					Class120_Sub12_Sub11.outputStream.putByteC(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
 					Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
 					Class120_Sub12_Sub11.outputStream.putShort(Class108_Sub1.selectedObjSlot);
@@ -94,7 +94,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(134);
-				Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (l >>> 32));
 				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + i_2_);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
@@ -107,7 +107,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(227);
 				Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
-				Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 				Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
@@ -123,7 +123,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 					Class120_Sub12_Sub11.outputStream.putInt(PlainTile.selectedObjInterface);
 					Class120_Sub12_Sub11.outputStream.putShortA(Class108_Sub1.selectedObjSlot);
-					Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub14_Sub1.selectedObjId);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
@@ -160,7 +160,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShort(Class108_Sub1.selectedObjSlot);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 				Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + i_1_);
-				Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 				Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
 			}
 			if (i_4_ == 36) {
@@ -171,7 +171,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(37);
-					Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
 				}
@@ -184,7 +184,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(4);
-					Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
@@ -207,7 +207,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(33);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteA(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
 				}
 			}
@@ -226,7 +226,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(89);
 				Class120_Sub12_Sub11.outputStream.putShort((int) (l >>> 32) & 0x7fffffff);
-				Class120_Sub12_Sub11.outputStream.putByteC(Class35.aBooleanArray299[82] ? 1 : 0);
+				Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.aBooleanArray299[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
 				Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
 				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
@@ -241,7 +241,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(232);
 				Class120_Sub12_Sub11.outputStream.putLEShort(i_2_ - -Class181.currentBaseZ);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				Class120_Sub12_Sub11.outputStream.putByteA(Class35.aBooleanArray299[82] ? 1 : 0);
+				Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.aBooleanArray299[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShort(i_1_ + GameEntity.currentBaseX);
 				Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
 			}
@@ -254,7 +254,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(155);
 					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteC(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
 					Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
@@ -269,7 +269,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
 					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
 			}
@@ -277,7 +277,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				if (i_3_ == 0) {
 					Class120_Sub12_Sub33.anInt3401 = 1;
 					Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
-				} else if (Class86.staffLevel <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
+				} else if (Class86.staffLevel <= 0 || !NodeCache.aBooleanArray299[82] || !NodeCache.aBooleanArray299[81]) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX - -i_1_);
 					Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ - -i_2_);
@@ -294,7 +294,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(53);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
 				}
 			}
@@ -337,7 +337,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(148);
 					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteA(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
 			}
@@ -361,7 +361,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(159);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
 				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
-				Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
 				Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
 			}
@@ -374,7 +374,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(245);
 					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
 				}
 			}
@@ -419,14 +419,14 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
 					Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.aBooleanArray299[82] ? 1 : 0);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 				}
 			}
 			if (i_4_ == 26) {
 				if (i_3_ != 0) {
 					if (i_3_ == 1) {
-						if (Class86.staffLevel <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
+						if (Class86.staffLevel <= 0 || !NodeCache.aBooleanArray299[82] || !NodeCache.aBooleanArray299[81]) {
 							Class53_Sub1.method464(i_1_, 1, i_2_);
 							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.anInt457);// 1
 							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.anInt2219);// 2
@@ -475,7 +475,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
 					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 					Class120_Sub12_Sub11.outputStream.putLEShort(i_1_ - -GameEntity.currentBaseX);
-					Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
 				}
 				if (i_4_ == 5) {
@@ -489,7 +489,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
 						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
 						Class120_Sub12_Sub11.outputStream.putLEInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-						Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 					}
 				}
@@ -501,7 +501,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(48);
 					Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
 					Class120_Sub12_Sub11.outputStream.putShortA((int) (l >>> 32) & 0x7fffffff);
-					Class120_Sub12_Sub11.outputStream.putByteS(!Class35.aBooleanArray299[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
 					Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
 				}
@@ -550,7 +550,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(12);
 							Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
-							Class120_Sub12_Sub11.outputStream.putByte(!Class35.aBooleanArray299[82] ? 0 : 1);
+							Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
 						}
 					}
@@ -572,7 +572,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
 							Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-							Class120_Sub12_Sub11.outputStream.putByteA(Class35.aBooleanArray299[82] ? 1 : 0);
+							Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.aBooleanArray299[82] ? 1 : 0);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 						}
 					}
@@ -586,7 +586,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
 						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
-						Class120_Sub12_Sub11.outputStream.putByteC(!Class35.aBooleanArray299[82] ? 0 : 1);
+						Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class120_Sub14_Sub1.selectedObjId);
 						Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
@@ -597,7 +597,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(3);
-						Class120_Sub12_Sub11.outputStream.putByteC(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
 						Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_1_ + GameEntity.currentBaseX);
@@ -619,7 +619,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							}
 							if (npcType != null) {
 								Class120_Sub12_Sub11.outputStream.putByteIsaac(65);
-								Class120_Sub12_Sub11.outputStream.putLEShort(npcType.anInt1686);
+								Class120_Sub12_Sub11.outputStream.putLEShort(npcType.id);
 							}
 						}
 					}
@@ -634,7 +634,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(60);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_2_ + Class181.currentBaseZ);
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
-						Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + i_1_);
 						Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
 					}
@@ -644,7 +644,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(92);
-						Class120_Sub12_Sub11.outputStream.putByteS(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_1_ + GameEntity.currentBaseX);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_2_ - -Class181.currentBaseZ);
@@ -685,7 +685,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(54);
-						Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
 						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 						Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
@@ -699,7 +699,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
-							Class120_Sub12_Sub11.outputStream.putByteA(!Class35.aBooleanArray299[82] ? 0 : 1);
+							Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.aBooleanArray299[82] ? 0 : 1);
 							Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 						}
@@ -712,7 +712,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(223);
-							Class120_Sub12_Sub11.outputStream.putByte(Class35.aBooleanArray299[82] ? 1 : 0);
+							Class120_Sub12_Sub11.outputStream.putByte(NodeCache.aBooleanArray299[82] ? 1 : 0);
 							Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 							Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, Class100.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
 						}
@@ -748,7 +748,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
 						Class120_Sub12_Sub11.outputStream.putShort(i_2_ + Class181.currentBaseZ);
 						Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
-						Class120_Sub12_Sub11.outputStream.putByteA(Class35.aBooleanArray299[82] ? 1 : 0);
+						Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.aBooleanArray299[82] ? 1 : 0);
 						Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
 					}
 					if (Light.objSelected != 0) {
@@ -808,7 +808,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.constructSprites(js5, Class73.mapdotsId, 0);
 		Class118.aClass107Array1138 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class134.scrollbarId, 0);
 		Class82.aClass107Array785 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class81.nameiconsId, 0);
-		Cache.smallFont.setNameIcons(Class82.aClass107Array785, null);
+		ObjectCache.smallFont.setNameIcons(Class82.aClass107Array785, null);
 		Class120_Sub12_Sub20.plainFont.setNameIcons(Class82.aClass107Array785, null);
 		Class120_Sub12_Sub22.boldFont.setNameIcons(Class82.aClass107Array785, null);
 		if (HDToolkit.glEnabled) {
@@ -964,7 +964,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	abstract void method39();
 
-	abstract void method40(byte i);
+	abstract void method40();
 
 	@Override
 	public final void windowOpened(final WindowEvent windowevent) {
@@ -1064,7 +1064,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				/* empty */
 			}
 		}
-		method40((byte) 116);
+		method40();
 		if (Class112.frame != null) {
 			try {
 				System.exit(0);
@@ -1162,9 +1162,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					}
 				}
 			}
-			Class27.calculateMaxMemory();
+			VarBit.calculateMaxMemory();
 			addCanvas();
-			Class120_Sub13.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+			ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 			mainInit();
 			Class101_Sub2.gameShellTimer = Class52.constructTimer();
 			loadJagmisc();

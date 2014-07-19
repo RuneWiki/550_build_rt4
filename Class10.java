@@ -84,12 +84,12 @@ final class Class10 {
 		}
 	}
 
-	static final boolean decodedSprites(final js5 js5, final int i_12_, final int i_13_) {
-		final byte[] is = js5.getFile(i_12_, i_13_);
-		if (is == null) {
+	static final boolean decodedSprites(final js5 js5, final int group, final int file) {
+		final byte[] data = js5.getFile(group, file);
+		if (data == null) {
 			return false;
 		}
-		Class140.decodeSprites(is);
+		Class140.decodeSprites(data);
 		return true;
 	}
 

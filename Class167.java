@@ -7,7 +7,7 @@ abstract class Class167 {
 	int location;
 	static int anInt1616 = -1;
 	int players;
-	static Cache aClass21_1618 = new Cache(30);
+	static ObjectCache aClass21_1618 = new ObjectCache(30);
 	static boolean aBoolean1619 = true;
 	static boolean aBoolean1620 = false;
 
@@ -107,14 +107,14 @@ abstract class Class167 {
 			for (int pixelId = 0; pixelId < pixelAmt; pixelId++) {
 				pixels[pixelId] = Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff];
 			}
-			sprite = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
+			sprite = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
 		} else {
 			final int[] pixels = new int[pixelAmt];
 			final byte[] alphas = Class120_Sub12.spriteAlphas[0];
 			for (int pixelId = 0; pixelAmt > pixelId; pixelId++) {
 				pixels[pixelId] = Class191.method2512((alphas[pixelId] & 0xff) << 24, Class132_Sub1.spritePalette[(paletteIndicators[pixelId] & 0xff)]);
 			}
-			sprite = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
+			sprite = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return sprite;

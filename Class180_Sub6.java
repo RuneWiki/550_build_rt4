@@ -11,7 +11,6 @@ final class Class180_Sub6 extends SceneGraphNode {
 	private final int anInt3053;
 	private boolean aBoolean3054 = false;
 	private final int anInt3055;
-	static js5 aClass50_3056;
 	private int anInt3057;
 	private ParticleEngine aClass108_Sub2_3058;
 	private int anInt3059;
@@ -26,7 +25,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 	private int anInt3068;
 	private final int anInt3069;
 	private SeqType aClass40_3070;
-	static Cache aClass21_3071 = new Cache(200);
+	static ObjectCache aClass21_3071 = new ObjectCache(200);
 	private int anInt3072;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array3073;
 	static int anInt3074 = 0;
@@ -183,7 +182,6 @@ final class Class180_Sub6 extends SceneGraphNode {
 				aClass21_3071 = null;
 			}
 			aString3062 = null;
-			aClass50_3056 = null;
 			aClass188Array3076 = null;
 			aClass120_Sub14_Sub19Array3073 = null;
 			aClass21_3071 = null;
@@ -241,7 +239,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 				aClass40_3070 = null;
 			} else {
 				if (aClass40_3070 != null && aClass40_3070.anInt326 == i_29_) {
-					if (aClass40_3070.anInt337 == 0) {
+					if (aClass40_3070.resetInPlay == 0) {
 						return;
 					}
 				} else {
@@ -249,7 +247,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 				}
 				if (bool) {
 					anInt3052 = (int) (Math.random() * aClass40_3070.frames.length);
-					anInt3048 = 1 - -(int) (aClass40_3070.cycles[anInt3052] * Math.random());
+					anInt3048 = 1 - -(int) (aClass40_3070.delays[anInt3052] * Math.random());
 				} else {
 					anInt3048 = 1;
 					anInt3052 = 0;
@@ -284,13 +282,13 @@ final class Class180_Sub6 extends SceneGraphNode {
 				i_33_ = Class101_Sub2.loopCycle - anInt3067;
 				if (i_33_ > 100 && aClass40_3070.padding > 0) {
 					int i_34_;
-					for (i_34_ = -aClass40_3070.padding + aClass40_3070.frames.length; anInt3052 < i_34_ && aClass40_3070.cycles[anInt3052] < i_33_; anInt3052++) {
-						i_33_ -= aClass40_3070.cycles[anInt3052];
+					for (i_34_ = -aClass40_3070.padding + aClass40_3070.frames.length; anInt3052 < i_34_ && aClass40_3070.delays[anInt3052] < i_33_; anInt3052++) {
+						i_33_ -= aClass40_3070.delays[anInt3052];
 					}
 					if (anInt3052 >= i_34_) {
 						int i_35_ = 0;
 						for (int i_36_ = i_34_; aClass40_3070.frames.length > i_36_; i_36_++) {
-							i_35_ += aClass40_3070.cycles[i_36_];
+							i_35_ += aClass40_3070.delays[i_36_];
 						}
 						i_33_ %= i_35_;
 					}
@@ -303,11 +301,11 @@ final class Class180_Sub6 extends SceneGraphNode {
 					}
 				}
 				for (;;) {
-					if (aClass40_3070.cycles[anInt3052] >= i_33_) {
+					if (aClass40_3070.delays[anInt3052] >= i_33_) {
 						break while_11_;
 					}
-					Class120_Sub12_Sub23.method1323(aClass40_3070, i, i_32_, anInt3052, false);
-					i_33_ -= aClass40_3070.cycles[anInt3052];
+					Class120_Sub12_Sub23.method1323(aClass40_3070, i_32_, i, anInt3052, false);
+					i_33_ -= aClass40_3070.delays[anInt3052];
 					anInt3052++;
 					if (aClass40_3070.frames.length <= anInt3052) {
 						anInt3052 -= aClass40_3070.padding;

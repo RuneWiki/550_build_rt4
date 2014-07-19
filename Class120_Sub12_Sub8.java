@@ -152,16 +152,9 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_22_) {
-		try {
-			if (i_22_ == 0) {
-				anInt3191 = class120_sub7.getUShort();
-			}
-			if (i != -43) {
-				anInt3188 = 99;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_22_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_22_) {
+		if (i_22_ == 0) {
+			anInt3191 = buffer.getUShort();
 		}
 	}
 
@@ -176,17 +169,8 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	}
 
 	@Override
-	final int method1184(final byte i) {
-		int i_23_;
-		try {
-			if (i >= -26) {
-				return -93;
-			}
-			i_23_ = anInt3191;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.Q(").append(i).append(')').toString());
-		}
-		return i_23_;
+	final int method1184() {
+		return anInt3191;
 	}
 
 	static final void synchronizeKeys() {

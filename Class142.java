@@ -10,24 +10,17 @@ final class Class142 {
 	static JagexInterface aClass189_1362;
 	int anInt1363;
 
-	static final void method2004(final int i, int i_0_, final int i_1_) {
-		try {
-			final Class27 class27 = Class43.method339(i_1_, -9609);
-			final int i_2_ = class27.anInt164;
-			final int i_3_ = class27.anInt168;
-			final int i_4_ = class27.anInt169;
-			if (i != 1006) {
-				method2007(false, 6, false, -60, null, 13, -119, (byte) 48, 12L, false, null);
-			}
-			int i_5_ = Class120_Sub14_Sub15.anIntArray3580[i_4_ - i_3_];
-			if (i_0_ < 0 || i_0_ > i_5_) {
-				i_0_ = 0;
-			}
-			i_5_ <<= i_3_;
-			Class120_Sub14_Sub14_Sub1.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+	static final void method2004(int i_0_, final int i_1_) {
+		final VarBit varBit = VarBit.list(i_1_);
+		final int i_2_ = varBit.setting;
+		final int i_3_ = varBit.startBit;
+		final int i_4_ = varBit.endBit;
+		int i_5_ = Class120_Sub14_Sub15.anIntArray3580[i_4_ - i_3_];
+		if (i_0_ < 0 || i_0_ > i_5_) {
+			i_0_ = 0;
 		}
+		i_5_ <<= i_3_;
+		Class120_Sub14_Sub14_Sub1.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
 	}
 
 	static final void method2005(final int i) {
@@ -149,7 +142,7 @@ final class Class142 {
 			if (jagexInterface != null && (i_20_ == jagexInterface.parent || (i_20_ ^ 0xffffffff) == 1412584498 && jagexInterface == Class120_Sub12_Sub4.aClass189_3156)) {
 				int redrawId;
 				if (i_22_ == -1) {
-					Class160.screenRedrawXs[LabelGroup.screenRedrawPos] = jagexInterface.x + i;
+					GrandExchangeObject.screenRedrawXs[LabelGroup.screenRedrawPos] = jagexInterface.x + i;
 					Class120_Sub12_Sub38.screenRedrawYs[LabelGroup.screenRedrawPos] = jagexInterface.y + i_26_;
 					Class120_Sub16.screenRedrawWidhts[LabelGroup.screenRedrawPos] = jagexInterface.width;
 					Class69_Sub3_Sub1.screenRedrawHeights[LabelGroup.screenRedrawPos] = jagexInterface.height;
@@ -313,14 +306,14 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1402) {
 								if (!HDToolkit.glEnabled) {
-									Class80.method699(-1, i_31_, i_32_);
+									Class80.method699(i_31_, i_32_);
 									Class52.needInterfaceRedrawWrapper[redrawId] = true;
 									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
 								continue;
 							}
 							if (jagexInterface.clientCode == 1405) {
-								if (Class85.showFps) {
+								if (HintIcon.showFps) {
 									final int i_52_ = i_32_ + jagexInterface.width;
 									int i_53_ = i_31_ + 15;
 									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_52_, i_53_, 16776960, -1);
@@ -354,10 +347,10 @@ final class Class142 {
 									final int i_61_ = i_58_ * 100 / i_59_;
 									final int i_62_ = i_57_ * 10000 / i_59_;
 									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, -116, 2, 0)).append("% (").append(i_61_).append("%)").toString();
-									Cache.smallFont.method1482(string, i_52_, i_53_, i_55_, -1);
+									ObjectCache.smallFont.method1482(string, i_52_, i_53_, i_55_, -1);
 									i_53_ += 12;
 									if (ParticleEngine.anInt2360 > 0) {
-										Cache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
+										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
 									}
 									i_53_ += 12;
 									Class52.needInterfaceRedrawWrapper[redrawId] = true;
@@ -442,7 +435,7 @@ final class Class142 {
 											}
 											if (jagexInterface.objIds[i_63_] > 0) {
 												final int i_68_ = jagexInterface.objIds[i_63_] - 1;
-												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Class180_Sub4.aClass189_2954 && Class5.anInt2154 == i_63_) {
+												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Projectile.aClass189_2954 && Class5.anInt2154 == i_63_) {
 													AbstractSprite class120_sub14_sub19;
 													if (Light.objSelected != 1 || i_63_ != Class108_Sub1.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
 														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 1, jagexInterface.aBoolean1956, (byte) -94, null, i_68_, 3153952);
@@ -453,9 +446,9 @@ final class Class142 {
 														Class52.needInterfaceRedrawWrapper[redrawId] = true;
 													}
 													if (class120_sub14_sub19 != null) {
-														if (jagexInterface == Class180_Sub4.aClass189_2954 && i_63_ == Class5.anInt2154) {
+														if (jagexInterface == Projectile.aClass189_2954 && i_63_ == Class5.anInt2154) {
 															int i_69_ = -Class23.anInt134 + Queue.lastMouseX;
-															int i_70_ = -Class27.anInt166 + Class191.lastMouseY;
+															int i_70_ = -VarBit.anInt166 + Class191.lastMouseY;
 															if (i_69_ < 5 && i_69_ > -5) {
 																i_69_ = 0;
 															}
@@ -486,7 +479,7 @@ final class Class142 {
 																	if (class189_71_.horizontalScrollPosition < i_74_) {
 																		i_74_ = class189_71_.horizontalScrollPosition;
 																	}
-																	Class27.anInt166 += i_74_;
+																	VarBit.anInt166 += i_74_;
 																	class189_71_.horizontalScrollPosition -= i_74_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
@@ -499,7 +492,7 @@ final class Class142 {
 																		i_75_ = -class189_71_.horizontalScrollPosition + -class189_71_.height + class189_71_.maxScrollVertical;
 																	}
 																	class189_71_.horizontalScrollPosition += i_75_;
-																	Class27.anInt166 -= i_75_;
+																	VarBit.anInt166 -= i_75_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
 															}
@@ -950,17 +943,6 @@ final class Class142 {
 		}
 	}
 
-	static final void method2009(final int i) {
-		try {
-			if (i != 255) {
-				anInt1361 = 57;
-			}
-			SceneGroundObject.aClass21_2841.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.G(").append(i).append(')').toString());
-		}
-	}
-
 	final void method2010(final int i, final boolean bool, final Buffer class120_sub7) {
 		try {
 			for (;;) {
@@ -986,7 +968,7 @@ final class Class142 {
 				return class107_sub1_122_;
 			}
 			Class120_Sub14_Sub22.aClass50_3640.method429(this.anInt1363);
-			class107_sub1_122_ = Class164.method2138(i ^ ~0x20, 0, Class120_Sub14_Sub22.aClass50_3640, this.anInt1363);
+			class107_sub1_122_ = Class164.constructLDIndexedSprite(Class120_Sub14_Sub22.aClass50_3640, 0, this.anInt1363);
 			if (class107_sub1_122_ != null) {
 				class107_sub1_122_.method914(Class158.anInt1481, Class5.anInt2157, GameEntity.anInt2957);
 				class107_sub1_122_.trimWidth = class107_sub1_122_.width;

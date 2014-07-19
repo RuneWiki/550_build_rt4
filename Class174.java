@@ -56,7 +56,7 @@ final class Class174 {
 			if (i >= 0) {
 				longToString(-9L);
 			}
-			while (Canvas_Sub1.inputStream.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 11) {
+			while (Canvas_Sub1.inputStream.getBitsLeft(AbstractMouseWheelHandler.packetSize) >= 11) {
 				final int i_3_ = Canvas_Sub1.inputStream.getBitValue(11);
 				if (i_3_ == 2047) {
 					break;
@@ -89,9 +89,9 @@ final class Class174 {
 				if (i_8_ > 15) {
 					i_8_ -= 32;
 				}
-				class180_sub5_sub1.method2343(Class100.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1, Class100.selfPlayer.walkQueueX[0] + i_5_);
+				class180_sub5_sub1.method2343(Class100.selfPlayer.walkQueueX[0] + i_5_, Class100.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
 			}
-			Canvas_Sub1.inputStream.method1146();
+			Canvas_Sub1.inputStream.endBitAccess();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.F(").append(i).append(')').toString());
 		}

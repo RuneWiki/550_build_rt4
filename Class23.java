@@ -5,7 +5,7 @@ import java.awt.Font;
 
 final class Class23 {
 	static int anInt134;
-	static Font aFont135;
+	static Font loadingFont;
 	static int anInt136;
 	static int anInt137 = 0;
 	static int packetType;
@@ -37,49 +37,39 @@ final class Class23 {
 		}
 	}
 
-	static final void method201(final boolean bool, final int i, final JagexInterface jagexInterface, final int i_11_, final int i_12_) {
-		final int i_13_ = jagexInterface.height;
-		if (jagexInterface.aByte2092 == 0) {
+	static final void method201(final JagexInterface jagexInterface, final boolean bool, final int i, final int i_11_) {
+		final int oldHeight = jagexInterface.height;
+		if (jagexInterface.dynamicHeightValue == 0) {
 			jagexInterface.height = jagexInterface.originalHeight;
-		} else if (jagexInterface.aByte2092 != 1) {
-			if (jagexInterface.aByte2092 != 2) {
-				if (jagexInterface.aByte2092 == 3) {
-					if (jagexInterface.type != 2) {
-						if (jagexInterface.type == 7) {
-							jagexInterface.height = jagexInterface.originalHeight * 12 - -((-1 + jagexInterface.originalHeight) * jagexInterface.objSpritePadY);
-						}
-					} else {
-						jagexInterface.height = jagexInterface.objSpritePadY * (jagexInterface.originalHeight + -1) + 32 * jagexInterface.originalHeight;
-					}
-				}
-			} else {
-				jagexInterface.height = i_11_ * jagexInterface.originalHeight >> 14;
-			}
-		} else {
+		} else if (jagexInterface.dynamicHeightValue == 1) {
 			jagexInterface.height = i_11_ - jagexInterface.originalHeight;
-		}
-		final int i_14_ = jagexInterface.width;
-		if (jagexInterface.aByte1963 == 0) {
-			jagexInterface.width = jagexInterface.originalWidth;
-		} else if (jagexInterface.aByte1963 == 1) {
-			jagexInterface.width = i + -jagexInterface.originalWidth;
-		} else if (jagexInterface.aByte1963 != 2) {
-			if (jagexInterface.aByte1963 == 3) {
-				if (jagexInterface.type != 2) {
-					if (jagexInterface.type == 7) {
-						jagexInterface.width = 115 * jagexInterface.originalWidth - -(jagexInterface.objSpritePadX * (-1 + jagexInterface.originalWidth));
-					}
-				} else {
-					jagexInterface.width = (-1 + jagexInterface.originalWidth) * jagexInterface.objSpritePadX + 32 * jagexInterface.originalWidth;
-				}
+		} else if (jagexInterface.dynamicHeightValue == 2) {
+			jagexInterface.height = i_11_ * jagexInterface.originalHeight >> 14;
+		} else if (jagexInterface.dynamicHeightValue == 3) {
+			if (jagexInterface.type == 2) {
+				jagexInterface.height = jagexInterface.objSpritePadY * (jagexInterface.originalHeight + -1) + 32 * jagexInterface.originalHeight;
+			} else if (jagexInterface.type == 7) {
+				jagexInterface.height = jagexInterface.originalHeight * 12 - -((-1 + jagexInterface.originalHeight) * jagexInterface.objSpritePadY);
 			}
-		} else {
-			jagexInterface.width = i * jagexInterface.originalWidth >> 14;
 		}
-		if (jagexInterface.aByte1963 == 4) {
+		final int oldWidth = jagexInterface.width;
+		if (jagexInterface.dynamicWidthValue == 0) {
+			jagexInterface.width = jagexInterface.originalWidth;
+		} else if (jagexInterface.dynamicWidthValue == 1) {
+			jagexInterface.width = i - jagexInterface.originalWidth;
+		} else if (jagexInterface.dynamicWidthValue == 2) {
+			jagexInterface.width = i * jagexInterface.originalWidth >> 14;
+		} else if (jagexInterface.dynamicWidthValue == 3) {
+			if (jagexInterface.type == 2) {
+				jagexInterface.width = (-1 + jagexInterface.originalWidth) * jagexInterface.objSpritePadX + 32 * jagexInterface.originalWidth;
+			} else if (jagexInterface.type == 7) {
+				jagexInterface.width = 115 * jagexInterface.originalWidth - -(jagexInterface.objSpritePadX * (-1 + jagexInterface.originalWidth));
+			}
+		}
+		if (jagexInterface.dynamicWidthValue == 4) {
 			jagexInterface.width = jagexInterface.anInt1982 * jagexInterface.height / jagexInterface.anInt2085;
 		}
-		if (jagexInterface.aByte2092 == 4) {
+		if (jagexInterface.dynamicHeightValue == 4) {
 			jagexInterface.height = jagexInterface.anInt2085 * jagexInterface.width / jagexInterface.anInt1982;
 		}
 		if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
@@ -98,11 +88,11 @@ final class Class23 {
 		if (jagexInterface.clientCode == 1337) {
 			DummyInputStream.aClass189_26 = jagexInterface;
 		}
-		if (bool && jagexInterface.anObjectArray2089 != null && (i_14_ != jagexInterface.width || i_13_ != jagexInterface.height)) {
-			final InterfaceListener class120_sub10 = new InterfaceListener();
-			class120_sub10.objectData = jagexInterface.anObjectArray2089;
-			class120_sub10.aClass189_2534 = jagexInterface;
-			Class88.aClass105_829.addLast(class120_sub10);
+		if (bool && jagexInterface.onResizeListener != null && (oldWidth != jagexInterface.width || oldHeight != jagexInterface.height)) {
+			final InterfaceListener interfaceListener = new InterfaceListener();
+			interfaceListener.objectData = jagexInterface.onResizeListener;
+			interfaceListener.aClass189_2534 = jagexInterface;
+			Class88.aClass105_829.addLast(interfaceListener);
 		}
 	}
 
@@ -116,7 +106,7 @@ final class Class23 {
 
 	public static void method203(final int i) {
 		try {
-			aFont135 = null;
+			loadingFont = null;
 			if (i != 5) {
 				method200(112, null, -82, 29, -44, null);
 			}
@@ -125,39 +115,32 @@ final class Class23 {
 		}
 	}
 
-	static final void method204(final int i, final Npc class180_sub5_sub2, final byte i_17_, final int i_18_) {
-		try {
-			if (i_17_ != -118) {
-				anInt136 = 103;
+	static final void method204(final Npc npc, final int i, final int i_18_) {
+		if (i == npc.anInt3006 && i != -1) {
+			final SeqType seqType = SeqType.list(i);
+			final int resetCode = seqType.resetInPlay;
+			if (resetCode == 1) {
+				npc.anInt2964 = 0;
+				npc.anInt2993 = i_18_;
+				npc.anInt3013 = 1;
+				npc.anInt2999 = 0;
+				npc.anInt3044 = 0;
+				Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.anInt2964, false);
 			}
-			if (i == class180_sub5_sub2.anInt3006 && i != -1) {
-				final SeqType seqType = SeqType.list(i);
-				final int i_19_ = seqType.anInt337;
-				if (i_19_ == 1) {
-					class180_sub5_sub2.anInt2964 = 0;
-					class180_sub5_sub2.anInt2993 = i_18_;
-					class180_sub5_sub2.anInt3013 = 1;
-					class180_sub5_sub2.anInt2999 = 0;
-					class180_sub5_sub2.anInt3044 = 0;
-					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, class180_sub5_sub2.anInt2964, false);
-				}
-				if (i_19_ == 2) {
-					class180_sub5_sub2.anInt2999 = 0;
-				}
-			} else if (i == -1 || (class180_sub5_sub2.anInt3006 ^ 0xffffffff) == 0 || SeqType.list(i).anInt348 >= SeqType.list(class180_sub5_sub2.anInt3006).anInt348) {
-				class180_sub5_sub2.anInt3013 = 1;
-				class180_sub5_sub2.anInt3031 = class180_sub5_sub2.anInt2960;
-				class180_sub5_sub2.anInt2999 = 0;
-				class180_sub5_sub2.anInt2964 = 0;
-				class180_sub5_sub2.anInt2993 = i_18_;
-				class180_sub5_sub2.anInt3006 = i;
-				class180_sub5_sub2.anInt3044 = 0;
-				if (class180_sub5_sub2.anInt3006 != -1) {
-					Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub2.anInt3006), class180_sub5_sub2.z, class180_sub5_sub2.x, class180_sub5_sub2.anInt2964, false);
-				}
+			if (resetCode == 2) {
+				npc.anInt2999 = 0;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ce.D(").append(i).append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(',').append(i_17_).append(',').append(i_18_).append(')').toString());
+		} else if (i == -1 || npc.anInt3006 == -1 || SeqType.list(i).priority >= SeqType.list(npc.anInt3006).priority) {
+			npc.anInt3013 = 1;
+			npc.anInt3031 = npc.anInt2960;
+			npc.anInt2999 = 0;
+			npc.anInt2964 = 0;
+			npc.anInt2993 = i_18_;
+			npc.anInt3006 = i;
+			npc.anInt3044 = 0;
+			if (npc.anInt3006 != -1) {
+				Class120_Sub12_Sub23.method1323(SeqType.list(npc.anInt3006), npc.x, npc.z, npc.anInt2964, false);
+			}
 		}
 	}
 }

@@ -92,30 +92,24 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_6_) {
-		if (i != -43) {
-			method1292((byte) 16);
-		}
-		final int i_7_ = i_6_;
+	final void decode(final Buffer buffer, final int i_7_) {
 		do {
 			if (i_7_ != 0) {
 				if (i_7_ != 1) {
 					break;
 				}
 			} else {
-				anInt3270 = class120_sub7.getUShort();
+				anInt3270 = buffer.getUShort();
 				break;
 			}
-			anInt3271 = class120_sub7.getUShort();
+			anInt3271 = buffer.getUShort();
 		} while (false);
 	}
 
-	static final void method1291(final int i) {
-		if (i == 256) {
-			Canvas_Sub1.aClass21_14.clear();
-			Class33.aClass21_273.clear();
-			Class180_Sub3.aClass21_2906.clear();
-		}
+	static final void method1291() {
+		Canvas_Sub1.aClass21_14.clear();
+		Class33.aClass21_273.clear();
+		Class180_Sub3.aClass21_2906.clear();
 	}
 
 	public static void method1292(final byte i) {

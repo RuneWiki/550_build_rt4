@@ -655,7 +655,7 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void method2173() {
+	static final void clearPixels() {
 		int i = 0;
 		int i_206_ = width * height - 7;
 		while (i < i_206_) {

@@ -72,13 +72,13 @@ abstract class AbstractIndexedSprite {
 			}
 			if (refreshCanvas) {
 				Class26.removeKeyboard(Node.canvas);
-				Class35.removeMouse(Node.canvas);
+				NodeCache.removeMouse(Node.canvas);
 				if (Class120_Sub12_Sub31.mouseWheelHandler != null) {
 					Class120_Sub12_Sub31.mouseWheelHandler.removeListener(Node.canvas);
 				}
 				Class179.aClient1776.addCanvas();
 				Class82.addKeyboard(Node.canvas);
-				Class35.addMouse(Node.canvas);
+				NodeCache.addMouse(Node.canvas);
 				if (Class120_Sub12_Sub31.mouseWheelHandler != null) {
 					Class120_Sub12_Sub31.mouseWheelHandler.addListener(Node.canvas);
 				}
@@ -101,25 +101,25 @@ abstract class AbstractIndexedSprite {
 				Node.canvas.setIgnoreRepaint(true);
 				if (!Class42.aBoolean363) {
 					Class173.method2225();
-					Class120_Sub13.fullscreenGraphics = null;
-					Class120_Sub13.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
-					GraphicsLD.method2173();
+					ClanMember.fullscreenGraphics = null;
+					ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+					GraphicsLD.clearPixels();
 					if (Class109.gameState != 5) {
 						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
 					} else {
-						Class128.method1909(true, Class120_Sub12_Sub22.boldFont, false);
+						OverlayType.method1909(true, Class120_Sub12_Sub22.boldFont, false);
 					}
 					try {
 						final Graphics graphics = Node.canvas.getGraphics();
-						Class120_Sub13.fullscreenGraphics.drawImage(graphics, 0, 0);
+						ClanMember.fullscreenGraphics.drawImage(graphics, 0, 0);
 					} catch (final Exception exception) {
 						/* empty */
 					}
 					Class120_Sub12_Sub22.method1322();
 					if (i_1_ != 0) {
-						Class120_Sub13.fullscreenGraphics = null;
+						ClanMember.fullscreenGraphics = null;
 					} else {
-						Class120_Sub13.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
+						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 					}
 					final SignlinkNode signlinkNode = NpcType.gameSignlink.method1967(-72, Class179.aClient1776.getClass());
 					while (signlinkNode.status == 0) {
@@ -139,7 +139,7 @@ abstract class AbstractIndexedSprite {
 				if (displayMode <= 0 || i_1_ != 0) {
 					if (displayMode == 0 && i_1_ > 0) {
 						JagexInterface.gameShellThread.setPriority(1);
-						Class120_Sub13.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
+						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 						Class180_Sub7_Sub1.method2395();
 						ParticleEngine.method946();
 						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20, (byte) -111);
@@ -162,7 +162,7 @@ abstract class AbstractIndexedSprite {
 					}
 				} else {
 					JagexInterface.gameShellThread.setPriority(5);
-					Class120_Sub13.fullscreenGraphics = null;
+					ClanMember.fullscreenGraphics = null;
 					Class180_Sub7_Sub1.method2404();
 					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200, (byte) -111);
 					if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -178,7 +178,7 @@ abstract class AbstractIndexedSprite {
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (bool_4_) {
-					Cache.method191(11650);
+					ObjectCache.method191();
 				}
 				if (displayMode < 2) {
 					MouseRecorder.frameResizable = false;
@@ -186,7 +186,7 @@ abstract class AbstractIndexedSprite {
 					MouseRecorder.frameResizable = true;
 				}
 				if (Class69.rootInterfaceId != -1) {
-					Class101_Sub2.method846((byte) 71, true);
+					Class101_Sub2.method846(true);
 				}
 				if (AbstractTimer.worldConnection != null && (Class109.gameState == 30 || Class109.gameState == 25)) {
 					ParamType.sendDisplayInfo();

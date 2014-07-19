@@ -23,7 +23,7 @@ final class Class96 {
 	int anInt898;
 	int anInt899;
 	static int anInt900;
-	static Class35 aClass35_901;
+	static NodeCache aClass35_901;
 	int anInt902;
 	byte[] aByteArray903;
 	int[][] anIntArrayArray904;
@@ -44,7 +44,7 @@ final class Class96 {
 	static int anInt919;
 
 	static {
-		aClass35_901 = new Class35(64);
+		aClass35_901 = new NodeCache(64);
 	}
 
 	static final void method786(final boolean bool, final int i, final boolean bool_0_, final float[][] fs, final float[][] fs_1_, final Class120_Sub9 class120_sub9, final byte i_2_, final int[][] is, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final boolean bool_7_,
@@ -69,43 +69,37 @@ final class Class96 {
 		}
 	}
 
-	static final void method787(final int i, final LDIndexedSprite class107_sub1) {
-		try {
-			for (int i_25_ = 0; InterfaceChangeNode.anIntArray3485.length > i_25_; i_25_++) {
-				InterfaceChangeNode.anIntArray3485[i_25_] = 0;
+	static final void method787(final LDIndexedSprite class107_sub1) {
+		for (int i_25_ = 0; InterfaceChangeNode.anIntArray3485.length > i_25_; i_25_++) {
+			InterfaceChangeNode.anIntArray3485[i_25_] = 0;
+		}
+		for (int i_27_ = 0; i_27_ < 5000; i_27_++) {
+			final int i_29_ = (int) (128.0 * Math.random() * 256.0);
+			InterfaceChangeNode.anIntArray3485[i_29_] = (int) (Math.random() * 284.0);
+		}
+		for (int i_27_ = 0; i_27_ < 20; i_27_++) {
+			for (int i_28_ = 1; i_28_ < 255; i_28_++) {
+				for (int i_30_ = 1; i_30_ < 127; i_30_++) {
+					final int i_31_ = (i_28_ << 7) + i_30_;
+					KeyboardHandler.anIntArray1503[i_31_] = (InterfaceChangeNode.anIntArray3485[128 + i_31_] + InterfaceChangeNode.anIntArray3485[1 + i_31_] + InterfaceChangeNode.anIntArray3485[-1 + i_31_] - -InterfaceChangeNode.anIntArray3485[i_31_ - 128]) / 4;
+				}
 			}
+			final int[] is = InterfaceChangeNode.anIntArray3485;
+			InterfaceChangeNode.anIntArray3485 = KeyboardHandler.anIntArray1503;
+			KeyboardHandler.anIntArray1503 = is;
+		}
+		if (class107_sub1 != null) {
 			int i_27_ = 0;
-			int i_28_ = 103 % ((i - 48) / 55);
-			for (/**/; i_27_ < 5000; i_27_++) {
-				final int i_29_ = (int) (128.0 * Math.random() * 256.0);
-				InterfaceChangeNode.anIntArray3485[i_29_] = (int) (Math.random() * 284.0);
-			}
-			for (i_27_ = 0; i_27_ < 20; i_27_++) {
-				for (i_28_ = 1; i_28_ < 255; i_28_++) {
-					for (int i_30_ = 1; i_30_ < 127; i_30_++) {
-						final int i_31_ = (i_28_ << 7) + i_30_;
-						KeyboardHandler.anIntArray1503[i_31_] = (InterfaceChangeNode.anIntArray3485[128 + i_31_] + InterfaceChangeNode.anIntArray3485[1 + i_31_] + InterfaceChangeNode.anIntArray3485[-1 + i_31_] - -InterfaceChangeNode.anIntArray3485[i_31_ - 128]) / 4;
-					}
-				}
-				final int[] is = InterfaceChangeNode.anIntArray3485;
-				InterfaceChangeNode.anIntArray3485 = KeyboardHandler.anIntArray1503;
-				KeyboardHandler.anIntArray1503 = is;
-			}
-			if (class107_sub1 != null) {
-				i_27_ = 0;
-				for (i_28_ = 0; i_28_ < class107_sub1.height; i_28_++) {
-					for (int i_32_ = 0; i_32_ < class107_sub1.width; i_32_++) {
-						if (class107_sub1.paletteIndicators[i_27_++] != 0) {
-							final int i_33_ = i_32_ - (-16 - class107_sub1.xOffset);
-							final int i_34_ = 16 + i_28_ + class107_sub1.yOffset;
-							final int i_35_ = (i_34_ << 7) + i_33_;
-							InterfaceChangeNode.anIntArray3485[i_35_] = 0;
-						}
+			for (int i_28_ = 0; i_28_ < class107_sub1.height; i_28_++) {
+				for (int i_32_ = 0; i_32_ < class107_sub1.width; i_32_++) {
+					if (class107_sub1.paletteIndicators[i_27_++] != 0) {
+						final int i_33_ = i_32_ - (-16 - class107_sub1.xOffset);
+						final int i_34_ = 16 + i_28_ + class107_sub1.yOffset;
+						final int i_35_ = (i_34_ << 7) + i_33_;
+						InterfaceChangeNode.anIntArray3485[i_35_] = 0;
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.A(").append(i).append(',').append(class107_sub1 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -136,7 +130,7 @@ final class Class96 {
 						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
 						Class53_Sub1.worldConnectionNode = null;
 						int i_38_ = 0;
-						if (Class159.aBoolean1487) {
+						if (Class159.worldsLoaded) {
 							i_38_ = anInt900;
 						}
 						Class120_Sub12_Sub11.outputStream.pos = 0;
@@ -191,11 +185,11 @@ final class Class96 {
 						return DummyOutputStream.method72((byte) 9, 1002);
 					}
 					int i_41_ = 0;
-					Class86.aClass167_Sub1Array817 = new World[Class57.worldLen2];
+					Class86.worlds = new World[Class57.worldLen2];
 					for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
-						final World class167_sub1 = Class82.method710((byte) -24, i_42_);
+						final World class167_sub1 = Class82.method710(i_42_);
 						if (class167_sub1 != null) {
-							Class86.aClass167_Sub1Array817[i_41_++] = class167_sub1;
+							Class86.worlds[i_41_++] = class167_sub1;
 						}
 					}
 					AbstractTimer.worldConnection.close();

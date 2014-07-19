@@ -148,7 +148,7 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (128 - i_11_);
 	}
 
-	final int method1089() {
+	final int getInt2() {
 		this.pos += 4;
 		return (this.buf[this.pos - 2] & 0xff) + ((0xff & this.buf[-4 + this.pos]) << 16) + (~0xffffff & this.buf[-3 + this.pos] << 24) + (0xff00 & this.buf[this.pos + -1] << 8);
 	}

@@ -2,6 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Component;
+import java.util.Arrays;
 
 final class Class114 {
 	static int anInt1093 = 0;
@@ -35,46 +36,37 @@ final class Class114 {
 		}
 	}
 
-	static final DisplayModeInfo[] method1004(final byte i) {
-		DisplayModeInfo[] class171s;
-		try {
-			if (Class65.aClass171Array595 == null) {
-				final DisplayModeInfo[] class171s_0_ = EnumType.getDisplayModes(NpcType.gameSignlink);
-				final DisplayModeInfo[] class171s_1_ = new DisplayModeInfo[class171s_0_.length];
-				int i_2_ = 0;
-				while_44_: for (int i_3_ = 0; class171s_0_.length > i_3_; i_3_++) {
-					final DisplayModeInfo displayModeInfo = class171s_0_[i_3_];
-					if ((displayModeInfo.bitDepth <= 0 || displayModeInfo.bitDepth >= 24) && displayModeInfo.width >= 800 && displayModeInfo.height >= 600) {
-						for (int i_4_ = 0; i_2_ > i_4_; i_4_++) {
-							final DisplayModeInfo class171_5_ = class171s_1_[i_4_];
-							if (displayModeInfo.width == class171_5_.width && class171_5_.height == displayModeInfo.height) {
-								if (class171_5_.bitDepth < displayModeInfo.bitDepth) {
-									class171s_1_[i_4_] = displayModeInfo;
-								}
-								continue while_44_;
+	static final DisplayModeInfo[] constructDisplayModes() {
+		if (Class65.displayModes == null) {
+			final DisplayModeInfo[] class171s_0_ = EnumType.getDisplayModes(NpcType.gameSignlink);
+			final DisplayModeInfo[] class171s_1_ = new DisplayModeInfo[class171s_0_.length];
+			int i_2_ = 0;
+			while_44_: for (int i_3_ = 0; class171s_0_.length > i_3_; i_3_++) {
+				final DisplayModeInfo displayModeInfo = class171s_0_[i_3_];
+				if ((displayModeInfo.bitDepth <= 0 || displayModeInfo.bitDepth >= 24) && displayModeInfo.width >= 800 && displayModeInfo.height >= 600) {
+					for (int i_4_ = 0; i_2_ > i_4_; i_4_++) {
+						final DisplayModeInfo class171_5_ = class171s_1_[i_4_];
+						if (displayModeInfo.width == class171_5_.width && class171_5_.height == displayModeInfo.height) {
+							if (class171_5_.bitDepth < displayModeInfo.bitDepth) {
+								class171s_1_[i_4_] = displayModeInfo;
 							}
+							continue while_44_;
 						}
-						class171s_1_[i_2_] = displayModeInfo;
-						i_2_++;
 					}
+					class171s_1_[i_2_] = displayModeInfo;
+					i_2_++;
 				}
-				Class65.aClass171Array595 = new DisplayModeInfo[i_2_];
-				ArrayUtils.arrayCopy(class171s_1_, 0, Class65.aClass171Array595, 0, i_2_);
-				final int[] is = new int[Class65.aClass171Array595.length];
-				for (int i_6_ = 0; Class65.aClass171Array595.length > i_6_; i_6_++) {
-					final DisplayModeInfo displayModeInfo = Class65.aClass171Array595[i_6_];
-					is[i_6_] = displayModeInfo.height * displayModeInfo.width;
-				}
-				Class120_Sub14_Sub1.method1415(is, (byte) 119, Class65.aClass171Array595);
 			}
-			if (i >= -29) {
-				method1005(47, -82, -101);
+			Class65.displayModes = new DisplayModeInfo[i_2_];
+			ArrayUtils.arrayCopy(class171s_1_, 0, Class65.displayModes, 0, i_2_);
+			final int[] is = new int[Class65.displayModes.length];
+			for (int i_6_ = 0; Class65.displayModes.length > i_6_; i_6_++) {
+				final DisplayModeInfo displayModeInfo = Class65.displayModes[i_6_];
+				is[i_6_] = displayModeInfo.height * displayModeInfo.width;
 			}
-			class171s = Class65.aClass171Array595;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mi.C(").append(i).append(')').toString());
+			Class120_Sub14_Sub1.sortArray(is, Class65.displayModes);
 		}
-		return class171s;
+		return Class65.displayModes;
 	}
 
 	static final long method1005(final int i, final int i_7_, final int i_8_) {

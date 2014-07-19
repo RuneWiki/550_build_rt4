@@ -13,25 +13,19 @@ final class Class150 {
 	static int[] anIntArray1412 = new int[4096];
 	int anInt1413;
 	int anInt1414;
-	static String aString1415;
+	static String clanOwner;
 	int anInt1416;
 	static int selectedSpellTargetCursor;
 
 	static {
 		anInt1408 = 0;
-		aString1415 = null;
+		clanOwner = null;
 	}
 
-	public static void method2062(final int i) {
-		try {
-			aString1415 = null;
-			anIntArray1405 = null;
-			if (i == -23191) {
-				anIntArray1412 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("re.A(").append(i).append(')').toString());
-		}
+	public static void method2062() {
+		clanOwner = null;
+		anIntArray1405 = null;
+		anIntArray1412 = null;
 	}
 
 	static final void revertFrame(final Signlink signlink, final Frame frame) {

@@ -31,33 +31,29 @@ final class Class186 {
 		menuOptionCount = 0;
 	}
 
-	static final void method2471(final int i) {
-		try {
-			Class154.anInt1441 = 0;
-			Class120_Sub12_Sub23.anInt3307 = 0;
-			Class180_Sub3.method2309((byte) 43);
-			Class31.method262(-122);
-			Class120_Sub12_Sub36.method1389(0);
-			for (int i_0_ = 0; Class120_Sub12_Sub23.anInt3307 > i_0_; i_0_++) {
-				final int i_1_ = Class43.anIntArray366[i_0_];
-				if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].anInt2985) {
-					if (Class120_Sub12_Sub11.npcList[i_1_].npcType.method2204(0)) {
-						Class120_Sub16.method1664(Class120_Sub12_Sub11.npcList[i_1_]);
-					}
-					Class120_Sub12_Sub11.npcList[i_1_].setNpcType(null);
-					Class120_Sub12_Sub11.npcList[i_1_] = null;
+	static final void method2471() {
+		Class154.anInt1441 = 0;
+		Class120_Sub12_Sub23.anInt3307 = 0;
+		Class180_Sub3.method2309();
+		Class31.method262();
+		Class120_Sub12_Sub36.method1389();
+		for (int i_0_ = 0; Class120_Sub12_Sub23.anInt3307 > i_0_; i_0_++) {
+			final int i_1_ = Class43.anIntArray366[i_0_];
+			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].anInt2985) {
+				if (Class120_Sub12_Sub11.npcList[i_1_].npcType.hasAmbientSound()) {
+					Class120_Sub16.removeAmbientSoundNpc(Class120_Sub12_Sub11.npcList[i_1_]);
 				}
+				Class120_Sub12_Sub11.npcList[i_1_].setNpcType(null);
+				Class120_Sub12_Sub11.npcList[i_1_] = null;
 			}
-			if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
-				throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+		}
+		if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
+			throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+		}
+		for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
+			if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_2_]] == null) {
+				throw new RuntimeException(new StringBuilder("gnp2 pos:").append(i_2_).append(" size:").append(Class148.localNpcCount).toString());
 			}
-			for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
-				if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_2_]] == null) {
-					throw new RuntimeException(new StringBuilder("gnp2 pos:").append(i_2_).append(" size:").append(Class148.localNpcCount).toString());
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vl.D(").append(i).append(')').toString());
 		}
 	}
 
@@ -108,7 +104,7 @@ final class Class186 {
 							Class116.aClass120_Sub14_Sub19_1114 = new HDSprite(class120_sub14_sub19_sub2);
 						}
 						if (!HDToolkit.glEnabled) {
-							Class120_Sub13.fullscreenGraphics.init2dCanvas();
+							ClanMember.fullscreenGraphics.init2dCanvas();
 						} else {
 							GraphicsLD.pixels = null;
 						}

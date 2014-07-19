@@ -31,7 +31,7 @@ final class Light {
 	int anInt395;
 
 	static {
-		InvType.recentUse = new Class35(64);
+		InvType.recentUse = new NodeCache(64);
 	}
 
 	final void method347(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
@@ -262,8 +262,8 @@ final class Light {
 			if (string == null) {
 				return false;
 			}
-			for (int i = 0; Class120_Sub12_Sub26.anInt3335 > i; i++) {
-				if (string.equalsIgnoreCase(Class84.aStringArray801[i])) {
+			for (int i = 0; Class120_Sub12_Sub26.ignoreCount > i; i++) {
+				if (string.equalsIgnoreCase(Class84.ignoreNames[i])) {
 					return true;
 				}
 			}

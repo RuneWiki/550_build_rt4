@@ -76,12 +76,8 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			PacketBuffer.method1147((byte) -29);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ph.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		PacketBuffer.method1147();
 	}
 
 	@Override
@@ -168,24 +164,17 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_36_) {
+	final void decode(final Buffer buffer, final int i_37_) {
 		do {
-			try {
-				if (i == -43) {
-					final int i_37_ = i_36_;
-					if (i_37_ != 0) {
-						if (i_37_ != 1) {
-							break;
-						}
-					} else {
-						anInt3300 = class120_sub7.getUShort() << 4;
-						break;
-					}
-					this.aBoolean2558 = class120_sub7.getUByte() == 1;
+			if (i_37_ != 0) {
+				if (i_37_ != 1) {
+					break;
 				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("ph.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_36_).append(')').toString());
+			} else {
+				anInt3300 = buffer.getUShort() << 4;
+				break;
 			}
+			this.aBoolean2558 = buffer.getUByte() == 1;
 		} while (false);
 	}
 

@@ -17,17 +17,9 @@ final class Class120_Sub12_Sub24 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_0_) {
-		try {
-			final int i_1_ = i_0_;
-			if (i_1_ == 0) {
-				anInt3310 = (class120_sub7.getUByte() << 12) / 255;
-			}
-			if (i != -43) {
-				method1187(27);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qb.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_1_) {
+		if (i_1_ == 0) {
+			anInt3310 = (buffer.getUByte() << 12) / 255;
 		}
 	}
 

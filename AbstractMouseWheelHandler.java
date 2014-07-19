@@ -112,275 +112,265 @@ abstract class AbstractMouseWheelHandler {
 		}
 	}
 
-	static final Class120_Sub12 method159(final int i, final int i_33_) {
-		Class120_Sub12 class120_sub12;
-		try {
-			final int i_34_ = i_33_;
-			while_82_: do {
-				while_81_: do {
-					while_80_: do {
-						while_79_: do {
-							while_78_: do {
-								while_77_: do {
-									while_76_: do {
-										while_75_: do {
-											while_74_: do {
-												while_73_: do {
-													while_72_: do {
-														while_71_: do {
-															while_70_: do {
-																while_69_: do {
-																	while_68_: do {
-																		while_67_: do {
-																			while_66_: do {
-																				while_65_: do {
-																					while_64_: do {
-																						while_63_: do {
-																							while_62_: do {
-																								while_61_: do {
-																									while_60_: do {
-																										while_59_: do {
-																											while_58_: do {
-																												while_57_: do {
-																													while_56_: do {
-																														while_55_: do {
-																															while_54_: do {
-																																while_53_: do {
-																																	while_52_: do {
-																																		while_51_: do {
-																																			while_50_: do {
-																																				while_49_: do {
-																																					while_48_: do {
-																																						while_47_: do {
-																																							while_46_: do {
-																																								while_45_: do {
-																																									do {
-																																										if (i_34_ != 0) {
-																																											if (i_34_ != 1) {
-																																												if (i_34_ != 2) {
-																																													if (i_34_ != 3) {
-																																														if (i_34_ != 4) {
-																																															if (i_34_ != 5) {
-																																																if (i_34_ != 6) {
-																																																	if (i_34_ != 7) {
-																																																		if (i_34_ != 8) {
-																																																			if (i_34_ != 9) {
-																																																				if (i_34_ != 10) {
-																																																					if (i_34_ != 11) {
-																																																						if (i_34_ != 12) {
-																																																							if (i_34_ != 13) {
-																																																								if (i_34_ != 14) {
-																																																									if (i_34_ != 15) {
-																																																										if (i_34_ != 16) {
-																																																											if (i_34_ != 17) {
-																																																												if (i_34_ != 18) {
-																																																													if (i_34_ != 19) {
-																																																														if (i_34_ != 20) {
-																																																															if (i_34_ != 21) {
-																																																																if (i_34_ != 22) {
-																																																																	if (i_34_ != 23) {
-																																																																		if (i_34_ != 24) {
-																																																																			if (i_34_ != 25) {
-																																																																				if (i_34_ != 26) {
-																																																																					if (i_34_ != 27) {
-																																																																						if (i_34_ != 28) {
-																																																																							if (i_34_ != 29) {
-																																																																								if (i_34_ != 30) {
-																																																																									if (i_34_ != 31) {
-																																																																										if (i_34_ != 32) {
-																																																																											if (i_34_ != 33) {
-																																																																												if (i_34_ != 34) {
-																																																																													if (i_34_ != 35) {
-																																																																														if (i_34_ != 36) {
-																																																																															if (i_34_ != 37) {
-																																																																																if (i_34_ != 38) {
-																																																																																	if (i_34_ != 39) {
-																																																																																		break while_82_;
-																																																																																	}
-																																																																																} else {
-																																																																																	break while_80_;
+	static final Class120_Sub12 method159(final int i_34_) {
+		while_82_: do {
+			while_81_: do {
+				while_80_: do {
+					while_79_: do {
+						while_78_: do {
+							while_77_: do {
+								while_76_: do {
+									while_75_: do {
+										while_74_: do {
+											while_73_: do {
+												while_72_: do {
+													while_71_: do {
+														while_70_: do {
+															while_69_: do {
+																while_68_: do {
+																	while_67_: do {
+																		while_66_: do {
+																			while_65_: do {
+																				while_64_: do {
+																					while_63_: do {
+																						while_62_: do {
+																							while_61_: do {
+																								while_60_: do {
+																									while_59_: do {
+																										while_58_: do {
+																											while_57_: do {
+																												while_56_: do {
+																													while_55_: do {
+																														while_54_: do {
+																															while_53_: do {
+																																while_52_: do {
+																																	while_51_: do {
+																																		while_50_: do {
+																																			while_49_: do {
+																																				while_48_: do {
+																																					while_47_: do {
+																																						while_46_: do {
+																																							while_45_: do {
+																																								do {
+																																									if (i_34_ != 0) {
+																																										if (i_34_ != 1) {
+																																											if (i_34_ != 2) {
+																																												if (i_34_ != 3) {
+																																													if (i_34_ != 4) {
+																																														if (i_34_ != 5) {
+																																															if (i_34_ != 6) {
+																																																if (i_34_ != 7) {
+																																																	if (i_34_ != 8) {
+																																																		if (i_34_ != 9) {
+																																																			if (i_34_ != 10) {
+																																																				if (i_34_ != 11) {
+																																																					if (i_34_ != 12) {
+																																																						if (i_34_ != 13) {
+																																																							if (i_34_ != 14) {
+																																																								if (i_34_ != 15) {
+																																																									if (i_34_ != 16) {
+																																																										if (i_34_ != 17) {
+																																																											if (i_34_ != 18) {
+																																																												if (i_34_ != 19) {
+																																																													if (i_34_ != 20) {
+																																																														if (i_34_ != 21) {
+																																																															if (i_34_ != 22) {
+																																																																if (i_34_ != 23) {
+																																																																	if (i_34_ != 24) {
+																																																																		if (i_34_ != 25) {
+																																																																			if (i_34_ != 26) {
+																																																																				if (i_34_ != 27) {
+																																																																					if (i_34_ != 28) {
+																																																																						if (i_34_ != 29) {
+																																																																							if (i_34_ != 30) {
+																																																																								if (i_34_ != 31) {
+																																																																									if (i_34_ != 32) {
+																																																																										if (i_34_ != 33) {
+																																																																											if (i_34_ != 34) {
+																																																																												if (i_34_ != 35) {
+																																																																													if (i_34_ != 36) {
+																																																																														if (i_34_ != 37) {
+																																																																															if (i_34_ != 38) {
+																																																																																if (i_34_ != 39) {
+																																																																																	break while_82_;
 																																																																																}
-																																																																																break while_81_;
+																																																																															} else {
+																																																																																break while_80_;
 																																																																															}
-																																																																														} else {
-																																																																															break while_78_;
+																																																																															break while_81_;
 																																																																														}
-																																																																														break while_79_;
+																																																																													} else {
+																																																																														break while_78_;
 																																																																													}
-																																																																												} else {
-																																																																													break while_76_;
+																																																																													break while_79_;
 																																																																												}
-																																																																												break while_77_;
+																																																																											} else {
+																																																																												break while_76_;
 																																																																											}
-																																																																										} else {
-																																																																											break while_74_;
+																																																																											break while_77_;
 																																																																										}
-																																																																										break while_75_;
+																																																																									} else {
+																																																																										break while_74_;
 																																																																									}
-																																																																								} else {
-																																																																									break while_72_;
+																																																																									break while_75_;
 																																																																								}
-																																																																								break while_73_;
+																																																																							} else {
+																																																																								break while_72_;
 																																																																							}
-																																																																						} else {
-																																																																							break while_70_;
+																																																																							break while_73_;
 																																																																						}
-																																																																						break while_71_;
+																																																																					} else {
+																																																																						break while_70_;
 																																																																					}
-																																																																				} else {
-																																																																					break while_68_;
+																																																																					break while_71_;
 																																																																				}
-																																																																				break while_69_;
+																																																																			} else {
+																																																																				break while_68_;
 																																																																			}
-																																																																		} else {
-																																																																			break while_66_;
+																																																																			break while_69_;
 																																																																		}
-																																																																		break while_67_;
+																																																																	} else {
+																																																																		break while_66_;
 																																																																	}
-																																																																} else {
-																																																																	break while_64_;
+																																																																	break while_67_;
 																																																																}
-																																																																break while_65_;
+																																																															} else {
+																																																																break while_64_;
 																																																															}
-																																																														} else {
-																																																															break while_62_;
+																																																															break while_65_;
 																																																														}
-																																																														break while_63_;
+																																																													} else {
+																																																														break while_62_;
 																																																													}
-																																																												} else {
-																																																													break while_60_;
+																																																													break while_63_;
 																																																												}
-																																																												break while_61_;
+																																																											} else {
+																																																												break while_60_;
 																																																											}
-																																																										} else {
-																																																											break while_58_;
+																																																											break while_61_;
 																																																										}
-																																																										break while_59_;
+																																																									} else {
+																																																										break while_58_;
 																																																									}
-																																																								} else {
-																																																									break while_56_;
+																																																									break while_59_;
 																																																								}
-																																																								break while_57_;
+																																																							} else {
+																																																								break while_56_;
 																																																							}
-																																																						} else {
-																																																							break while_54_;
+																																																							break while_57_;
 																																																						}
-																																																						break while_55_;
+																																																					} else {
+																																																						break while_54_;
 																																																					}
-																																																				} else {
-																																																					break while_52_;
+																																																					break while_55_;
 																																																				}
-																																																				break while_53_;
+																																																			} else {
+																																																				break while_52_;
 																																																			}
-																																																		} else {
-																																																			break while_50_;
+																																																			break while_53_;
 																																																		}
-																																																		break while_51_;
+																																																	} else {
+																																																		break while_50_;
 																																																	}
-																																																} else {
-																																																	break while_48_;
+																																																	break while_51_;
 																																																}
-																																																break while_49_;
+																																															} else {
+																																																break while_48_;
 																																															}
-																																														} else {
-																																															break while_46_;
+																																															break while_49_;
 																																														}
-																																														break while_47_;
+																																													} else {
+																																														break while_46_;
 																																													}
-																																												} else {
-																																													break;
+																																													break while_47_;
 																																												}
-																																												break while_45_;
+																																											} else {
+																																												break;
 																																											}
-																																										} else {
-																																											return new Class120_Sub12_Sub24();
+																																											break while_45_;
 																																										}
-																																										return new Class120_Sub12_Sub11();
-																																									} while (false);
-																																									return new Class120_Sub12_Sub23();
+																																									} else {
+																																										return new Class120_Sub12_Sub24();
+																																									}
+																																									return new Class120_Sub12_Sub11();
 																																								} while (false);
-																																								return new Class120_Sub12_Sub7();
+																																								return new Class120_Sub12_Sub23();
 																																							} while (false);
-																																							return new Class120_Sub12_Sub33();
+																																							return new Class120_Sub12_Sub7();
 																																						} while (false);
-																																						return new Class120_Sub12_Sub38();
+																																						return new Class120_Sub12_Sub33();
 																																					} while (false);
-																																					return new Class120_Sub12_Sub4();
+																																					return new Class120_Sub12_Sub38();
 																																				} while (false);
-																																				return new Class120_Sub12_Sub32();
+																																				return new Class120_Sub12_Sub4();
 																																			} while (false);
-																																			return new Class120_Sub12_Sub20();
+																																			return new Class120_Sub12_Sub32();
 																																		} while (false);
-																																		return new Class120_Sub12_Sub9();
+																																		return new Class120_Sub12_Sub20();
 																																	} while (false);
-																																	return new Class120_Sub12_Sub39();
+																																	return new Class120_Sub12_Sub9();
 																																} while (false);
-																																return new Class120_Sub12_Sub3();
+																																return new Class120_Sub12_Sub39();
 																															} while (false);
-																															return new Class120_Sub12_Sub37();
+																															return new Class120_Sub12_Sub3();
 																														} while (false);
-																														return new Class120_Sub12_Sub30();
+																														return new Class120_Sub12_Sub37();
 																													} while (false);
-																													return new Class120_Sub12_Sub16();
+																													return new Class120_Sub12_Sub30();
 																												} while (false);
-																												return new Class120_Sub12_Sub27();
+																												return new Class120_Sub12_Sub16();
 																											} while (false);
-																											return new Class120_Sub12_Sub25();
+																											return new Class120_Sub12_Sub27();
 																										} while (false);
-																										return new Class120_Sub12_Sub17();
+																										return new Class120_Sub12_Sub25();
 																									} while (false);
-																									return new Class120_Sub12_Sub21_Sub1();
+																									return new Class120_Sub12_Sub17();
 																								} while (false);
-																								return new Class120_Sub12_Sub22();
+																								return new Class120_Sub12_Sub21_Sub1();
 																							} while (false);
-																							return new Class120_Sub12_Sub15();
+																							return new Class120_Sub12_Sub22();
 																						} while (false);
-																						return new Class120_Sub12_Sub10();
+																						return new Class120_Sub12_Sub15();
 																					} while (false);
-																					return new Class120_Sub12_Sub34();
+																					return new Class120_Sub12_Sub10();
 																				} while (false);
-																				return new Class120_Sub12_Sub36();
+																				return new Class120_Sub12_Sub34();
 																			} while (false);
-																			return new Class120_Sub12_Sub35();
+																			return new Class120_Sub12_Sub36();
 																		} while (false);
-																		return new Class120_Sub12_Sub2();
+																		return new Class120_Sub12_Sub35();
 																	} while (false);
-																	return new Class120_Sub12_Sub18();
+																	return new Class120_Sub12_Sub2();
 																} while (false);
-																return new Class120_Sub12_Sub28();
+																return new Class120_Sub12_Sub18();
 															} while (false);
-															return new Class120_Sub12_Sub1();
+															return new Class120_Sub12_Sub28();
 														} while (false);
-														return new Class120_Sub12_Sub14();
+														return new Class120_Sub12_Sub1();
 													} while (false);
-													return new Class120_Sub12_Sub29();
+													return new Class120_Sub12_Sub14();
 												} while (false);
-												return new Class120_Sub12_Sub6();
+												return new Class120_Sub12_Sub29();
 											} while (false);
-											return new Class120_Sub12_Sub5();
+											return new Class120_Sub12_Sub6();
 										} while (false);
-										return new Class120_Sub12_Sub19();
+										return new Class120_Sub12_Sub5();
 									} while (false);
-									return new Class120_Sub12_Sub12();
+									return new Class120_Sub12_Sub19();
 								} while (false);
-								return new Class120_Sub12_Sub31();
+								return new Class120_Sub12_Sub12();
 							} while (false);
-							return new Class120_Sub12_Sub8();
+							return new Class120_Sub12_Sub31();
 						} while (false);
-						return new Class120_Sub12_Sub26();
+						return new Class120_Sub12_Sub8();
 					} while (false);
-					return new Class120_Sub12_Sub13();
+					return new Class120_Sub12_Sub26();
 				} while (false);
-				return new Class120_Sub12_Sub21();
+				return new Class120_Sub12_Sub13();
 			} while (false);
-			if (i != 9) {
-				return null;
-			}
-			class120_sub12 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.G(").append(i).append(',').append(i_33_).append(')').toString());
-		}
-		return class120_sub12;
+			return new Class120_Sub12_Sub21();
+		} while (false);
+		return null;
 	}
 
 	public AbstractMouseWheelHandler() {

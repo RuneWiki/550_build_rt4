@@ -64,10 +64,10 @@ final class Class173 {
 			if (i > -93) {
 				aClass120_Sub14_Sub19_1725 = null;
 			}
-			final Class27 class27 = Class43.method339(i_4_, -9609);
-			final int i_6_ = class27.anInt164;
-			final int i_7_ = class27.anInt168;
-			final int i_8_ = class27.anInt169;
+			final VarBit varBit = VarBit.list(i_4_);
+			final int i_6_ = varBit.setting;
+			final int i_7_ = varBit.startBit;
+			final int i_8_ = varBit.endBit;
 			final int i_9_ = Class120_Sub14_Sub15.anIntArray3580[-i_7_ + i_8_];
 			i_5_ = i_9_ & Class2.permanentVariable[i_6_] >> i_7_;
 		} catch (final RuntimeException runtimeexception) {
@@ -95,7 +95,7 @@ final class Class173 {
 		CursorType.aString1238 = "K";
 		Class69_Sub1.aString2231 = "amarelo:";
 		Class180_Sub6.aString3062 = "N\u00e3o \u00e9 poss\u00edvel encontrar ";
-		Class120_Sub13.aString2578 = " da sua lista de ignorados primeiro.";
+		ClanMember.aString2578 = " da sua lista de ignorados primeiro.";
 		Class120_Sub15.aString2594 = "Lista de atualiza\u00e7\u00f5es carregada";
 		Class69_Sub2_Sub1.aString3078 = " j\u00e1 est\u00e1 na sua lista de ignorados.";
 		Class109.continueString = "Continuar";
@@ -116,7 +116,7 @@ final class Class173 {
 		Class29.aString196 = " ";
 		Class120_Sub11.aString2552 = "Tela t\u00edtulo aberta";
 		Class120_Sub14_Sub1.aString3449 = "Pegar";
-		Class85.aString807 = "onda:";
+		HintIcon.aString807 = "onda:";
 		Class147.aString1398 = "onda2:";
 		Class84.aString799 = "Interfaces carregadas";
 		PlayerAppearance.aString1368 = "Mem\u00f3ria alocada";
@@ -128,7 +128,7 @@ final class Class173 {
 		Class143_Sub1.aString2192 = "Sua lista de ignorados est\u00e1 cheia. O limite \u00e9 100 usu\u00e1rios.";
 		Class54.aString489 = " da sua lista de amigos primeiro.";
 		Class120_Sub3.aString2424 = "qualifica\u00e7\u00e3o: ";
-		Class120_Sub13.aString2574 = "branco:";
+		ClanMember.aString2574 = "branco:";
 		Class191.aString2105 = "Conectando ao servidor de atualiza\u00e7\u00e3o";
 		Class158.aString1483 = "cyan:";
 		Class120_Sub6.aString2444 = "Dados da lista de mundos carregados";
@@ -170,17 +170,6 @@ final class Class173 {
 		Class142.aString1358 = "Texturas carregadas";
 		DisplayModeInfo.aString1708 = "Universo de jogo criado";
 		Class45.aString398 = "Carregando pacote de palavras - ";
-	}
-
-	static final void method2228(final int i) {
-		try {
-			Class22.aClass21_131.clear();
-			if (i != 27114) {
-				gameLevel = -88;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.C(").append(i).append(')').toString());
-		}
 	}
 
 	public static void method2229(final byte i) {

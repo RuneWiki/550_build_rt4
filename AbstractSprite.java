@@ -7,7 +7,7 @@ abstract class AbstractSprite extends NodeSub {
 	int offsetY;
 	int offsetX;
 	int height;
-	static long[] aLongArray3617;
+	static long[] friendsNameAsLong;
 	int width;
 	static int anInt3619 = -1;
 	static int anInt3620;
@@ -15,7 +15,7 @@ abstract class AbstractSprite extends NodeSub {
 	static boolean aBoolean3622;
 
 	static {
-		aLongArray3617 = new long[200];
+		friendsNameAsLong = new long[200];
 		aBoolean3622 = false;
 	}
 
@@ -23,7 +23,7 @@ abstract class AbstractSprite extends NodeSub {
 
 	public static void method1586(final int i) {
 		try {
-			aLongArray3617 = null;
+			friendsNameAsLong = null;
 			if (i != 16) {
 				method1586(52);
 			}

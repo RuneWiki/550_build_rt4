@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub6 extends Node {
-	static Cache aClass21_2443;
+	static ObjectCache aClass21_2443;
 	static String aString2444 = "Loaded world list data";
 	int anInt2445;
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2446;
@@ -30,7 +30,7 @@ final class Class120_Sub6 extends Node {
 	int anInt2467;
 
 	static {
-		aClass21_2443 = new Cache(4);
+		aClass21_2443 = new ObjectCache(4);
 	}
 
 	static final String method1068(final String string, final int i) {
@@ -102,10 +102,6 @@ final class Class120_Sub6 extends Node {
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.F(").append(bool).append(')').toString());
 		}
-	}
-
-	static final void method1073() {
-		FileSystem.anInt459++;
 	}
 
 	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_) {

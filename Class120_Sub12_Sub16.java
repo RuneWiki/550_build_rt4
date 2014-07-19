@@ -4,25 +4,17 @@
 
 final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 	static short aShort3250 = 1;
-	static Cache aClass21_3251 = new Cache(64);
-	static int[] anIntArray3252 = new int[200];
+	static ObjectCache aClass21_3251 = new ObjectCache(64);
+	static int[] friendsWorld = new int[200];
 	static int anInt3253;
 	static char[] aCharArray3254 = { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 	static int[] anIntArray3255 = new int[50];
 	private int anInt3256 = 585;
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_0_) {
-		try {
-			final int i_1_ = i_0_;
-			if (i_1_ == 0) {
-				anInt3256 = class120_sub7.getUShort();
-			}
-			if (i != -43) {
-				method1187(99);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lf.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_1_) {
+		if (i_1_ == 0) {
+			anInt3256 = buffer.getUShort();
 		}
 	}
 
@@ -30,26 +22,26 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		ClientScript class120_sub14_sub12;
 		try {
 			int i_5_ = i_2_ << 8 | i;
-			ClientScript class120_sub14_sub12_6_ = (ClientScript) Class128.aClass35_1219.get((long) i_5_ << 16);
+			ClientScript class120_sub14_sub12_6_ = (ClientScript) OverlayType.aClass35_1219.get((long) i_5_ << 16);
 			if (class120_sub14_sub12_6_ != null) {
 				return class120_sub14_sub12_6_;
 			}
-			byte[] is = IsaacCipher.aClass50_1019.method413(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115), true);
+			byte[] is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115));
 			if (is != null) {
 				if (is.length <= 1) {
 					return null;
 				}
 				class120_sub14_sub12_6_ = ClientScript.decode(is);
 				class120_sub14_sub12_6_.anInt3546 = i;
-				Class128.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+				OverlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 				return class120_sub14_sub12_6_;
 			}
 			i_5_ = i | i_3_ - -65536 << 8;
-			class120_sub14_sub12_6_ = (ClientScript) Class128.aClass35_1219.get((long) i_5_ << 16);
+			class120_sub14_sub12_6_ = (ClientScript) OverlayType.aClass35_1219.get((long) i_5_ << 16);
 			if (class120_sub14_sub12_6_ != null) {
 				return class120_sub14_sub12_6_;
 			}
-			is = IsaacCipher.aClass50_1019.method413(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115), true);
+			is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115));
 			if (i_4_ != 933634440) {
 				return null;
 			}
@@ -59,22 +51,22 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				}
 				class120_sub14_sub12_6_ = ClientScript.decode(is);
 				class120_sub14_sub12_6_.anInt3546 = i;
-				Class128.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+				OverlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 				return class120_sub14_sub12_6_;
 			}
 			i_5_ = i | 0xffff00;
-			class120_sub14_sub12_6_ = (ClientScript) Class128.aClass35_1219.get((long) i_5_ << 16);
+			class120_sub14_sub12_6_ = (ClientScript) OverlayType.aClass35_1219.get((long) i_5_ << 16);
 			if (class120_sub14_sub12_6_ != null) {
 				return class120_sub14_sub12_6_;
 			}
-			is = IsaacCipher.aClass50_1019.method413(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115), true);
+			is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_, (byte) -115));
 			if (is != null) {
 				if (is.length <= 1) {
 					return null;
 				}
 				class120_sub14_sub12_6_ = ClientScript.decode(is);
 				class120_sub14_sub12_6_.anInt3546 = i;
-				Class128.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+				OverlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 				return class120_sub14_sub12_6_;
 			}
 			class120_sub14_sub12 = null;
@@ -91,7 +83,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			Class101_Sub1.anInt2272 = i_11_;
 			Class120_Sub12_Sub31.anInt3384 = i_8_;
 			if (i != 26379) {
-				anIntArray3252 = null;
+				friendsWorld = null;
 			}
 			Class109.anInt1042 = i_9_;
 			if (Class101_Sub1.anInt2272 >= 100) {
@@ -102,13 +94,13 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				final int i_16_ = -Class120_Sub12_Sub10.renderY + i_14_;
 				final int i_17_ = i_13_ + -GroundObjectNode.renderZ;
 				final int i_18_ = (int) Math.sqrt(i_17_ * i_17_ + i_15_ * i_15_);
-				Class128.renderPitch = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
+				OverlayType.renderPitch = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
 				Class180_Sub3.renderYaw = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
-				if (Class128.renderPitch < 128) {
-					Class128.renderPitch = 128;
+				if (OverlayType.renderPitch < 128) {
+					OverlayType.renderPitch = 128;
 				}
-				if (Class128.renderPitch > 383) {
-					Class128.renderPitch = 383;
+				if (OverlayType.renderPitch > 383) {
+					OverlayType.renderPitch = 383;
 				}
 			}
 			client.cameraType = 2;
@@ -217,16 +209,16 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			i_35_ = 383;
 		}
 		final int i_36_ = (int) (-325.949 * Math.atan2(i_33_, i_31_)) & 0x7ff;
-		if (i_35_ > Class128.renderPitch) {
-			Class128.renderPitch += (-Class128.renderPitch + i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
-			if (Class128.renderPitch > i_35_) {
-				Class128.renderPitch = i_35_;
+		if (i_35_ > OverlayType.renderPitch) {
+			OverlayType.renderPitch += (-OverlayType.renderPitch + i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
+			if (OverlayType.renderPitch > i_35_) {
+				OverlayType.renderPitch = i_35_;
 			}
 		}
-		if (Class128.renderPitch > i_35_) {
-			Class128.renderPitch -= Class120_Sub12_Sub31.anInt3384 - -((-i_35_ + Class128.renderPitch) * Class101_Sub1.anInt2272 / 1000);
-			if (Class128.renderPitch < i_35_) {
-				Class128.renderPitch = i_35_;
+		if (OverlayType.renderPitch > i_35_) {
+			OverlayType.renderPitch -= Class120_Sub12_Sub31.anInt3384 - -((-i_35_ + OverlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000);
+			if (OverlayType.renderPitch < i_35_) {
+				OverlayType.renderPitch = i_35_;
 			}
 		}
 		int i_37_ = -Class180_Sub3.renderYaw + i_36_;
@@ -263,7 +255,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			if (i != -6473) {
 				anIntArray3255 = null;
 			}
-			anIntArray3252 = null;
+			friendsWorld = null;
 			anIntArray3255 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("lf.T(").append(i).append(')').toString());

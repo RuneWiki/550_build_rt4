@@ -4,13 +4,13 @@
 
 final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 	static int anInt3410 = -2;
-	static Cache aClass21_3411;
+	static ObjectCache aClass21_3411;
 	static int crossX = 0;
 	static int anInt3413;
 	static short[][] aShortArrayArray3414;
 
 	static {
-		aClass21_3411 = new Cache(64);
+		aClass21_3411 = new ObjectCache(64);
 		anInt3413 = -1;
 		aShortArrayArray3414 = new short[][] { { 6798, 107, 10283, 16, 4797, 7744, 5799, 4634, -31839, 22433, 2983, -11343, 8, 5281, 10438, 3650, -27322, -21845, 200, 571, 908, 21830, 28946, -15701, -14010 },
 				{ 8741, 12, -1506, -22374, 7735, 8404, 1701, -27106, 24094, 10153, -8915, 4783, 1341, 16578, -30533, 25239, 8, 5281, 10438, 3650, -27322, -21845, 200, 571, 908, 21830, 28946, -15701, -14010 },
@@ -34,7 +34,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 
 	static final void method1381(final js5 js5, final byte i) {
 		try {
-			Class180_Sub6.aClass50_3056 = js5;
+			VarBit.aClass50_3056 = js5;
 			if (i != -94) {
 				anInt3413 = 34;
 			}
@@ -76,17 +76,6 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.U(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 		return bool;
-	}
-
-	static final void method1383(final int i) {
-		try {
-			if (i != 725) {
-				method1383(34);
-			}
-			Varp.recentUse.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.R(").append(i).append(')').toString());
-		}
 	}
 
 	static final Class32 method1384(final int i, final int i_10_) {

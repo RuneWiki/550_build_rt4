@@ -44,70 +44,63 @@ final class Class193 {
 		}
 	}
 
-	final void method2519(int i, final byte[] is, int i_1_, final byte i_2_) throws IOException {
+	final void write(final byte[] is, int i, int i_1_) throws IOException {
 		try {
-			try {
-				if ((aLong2128 ^ 0xffffffffffffffffL) > (i_1_ + aLong2136 ^ 0xffffffffffffffffL)) {
-					aLong2128 = aLong2136 - -(long) i_1_;
-				}
-				if (i_2_ != 42) {
-					removeMouseHandler();
-				}
-				if (-1L != aLong2133 && (aLong2136 < aLong2133 || (aLong2136 ^ 0xffffffffffffffffL) < (aLong2133 - -(long) anInt2129 ^ 0xffffffffffffffffL))) {
-					method2524(-1);
-				}
-				if ((aLong2133 ^ 0xffffffffffffffffL) != 0L && (aLong2133 + aByteArray2125.length ^ 0xffffffffffffffffL) > (i_1_ + aLong2136 ^ 0xffffffffffffffffL)) {
-					final int i_3_ = (int) (aByteArray2125.length + -aLong2136 + aLong2133);
-					i_1_ -= i_3_;
-					ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (-aLong2133 + aLong2136), i_3_);
-					i += i_3_;
-					aLong2136 += i_3_;
-					anInt2129 = aByteArray2125.length;
-					method2524(i_2_ ^ ~0x2a);
-				}
-				if (i_1_ > aByteArray2125.length) {
-					long l = -1L;
-					long l_4_ = -1L;
-					if ((aLong2136 ^ 0xffffffffffffffffL) != (aLong2135 ^ 0xffffffffffffffffL)) {
-						aClass95_2132.seek(aLong2136);
-						aLong2135 = aLong2136;
-					}
-					aClass95_2132.write(is, i, i_1_);
-					if ((aLong2136 ^ 0xffffffffffffffffL) <= (aLong2130 ^ 0xffffffffffffffffL) && aLong2130 - -(long) anInt2134 > aLong2136) {
-						l_4_ = aLong2136;
-					} else if (aLong2136 <= aLong2130 && (i_1_ + aLong2136 ^ 0xffffffffffffffffL) < (aLong2130 ^ 0xffffffffffffffffL)) {
-						l_4_ = aLong2130;
-					}
-					aLong2135 += i_1_;
-					if (i_1_ + aLong2136 > aLong2130 && i_1_ + aLong2136 <= anInt2134 + aLong2130) {
-						l = i_1_ + aLong2136;
-					} else if ((aLong2136 ^ 0xffffffffffffffffL) > (anInt2134 + aLong2130 ^ 0xffffffffffffffffL) && aLong2130 + anInt2134 <= i_1_ + aLong2136) {
-						l = aLong2130 - -(long) anInt2134;
-					}
-					if (aLong2135 > aLong2127) {
-						aLong2127 = aLong2135;
-					}
-					if (-1L < l_4_ && (l ^ 0xffffffffffffffffL) < (l_4_ ^ 0xffffffffffffffffL)) {
-						final int i_5_ = (int) (l + -l_4_);
-						ArrayUtils.arrayCopy(is, (int) (-aLong2136 + i - -l_4_), aByteArray2126, (int) (l_4_ + -aLong2130), i_5_);
-					}
-					aLong2136 += i_1_;
-				} else if (i_1_ > 0) {
-					if (0L == (aLong2133 ^ 0xffffffffffffffffL)) {
-						aLong2133 = aLong2136;
-					}
-					ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (aLong2136 + -aLong2133), i_1_);
-					aLong2136 += i_1_;
-					if ((anInt2129 ^ 0xffffffffffffffffL) > (aLong2136 + -aLong2133 ^ 0xffffffffffffffffL)) {
-						anInt2129 = (int) (-aLong2133 + aLong2136);
-					}
-				}
-			} catch (final IOException ioexception) {
-				aLong2135 = -1L;
-				throw ioexception;
+			if ((aLong2128 ^ 0xffffffffffffffffL) > (i_1_ + aLong2136 ^ 0xffffffffffffffffL)) {
+				aLong2128 = aLong2136 - -(long) i_1_;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wl.B(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			if (-1L != aLong2133 && (aLong2136 < aLong2133 || (aLong2136 ^ 0xffffffffffffffffL) < (aLong2133 - -(long) anInt2129 ^ 0xffffffffffffffffL))) {
+				method2524();
+			}
+			if ((aLong2133 ^ 0xffffffffffffffffL) != 0L && (aLong2133 + aByteArray2125.length ^ 0xffffffffffffffffL) > (i_1_ + aLong2136 ^ 0xffffffffffffffffL)) {
+				final int i_3_ = (int) (aByteArray2125.length + -aLong2136 + aLong2133);
+				i_1_ -= i_3_;
+				ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (-aLong2133 + aLong2136), i_3_);
+				i += i_3_;
+				aLong2136 += i_3_;
+				anInt2129 = aByteArray2125.length;
+				method2524();
+			}
+			if (i_1_ > aByteArray2125.length) {
+				long l = -1L;
+				long l_4_ = -1L;
+				if ((aLong2136 ^ 0xffffffffffffffffL) != (aLong2135 ^ 0xffffffffffffffffL)) {
+					aClass95_2132.seek(aLong2136);
+					aLong2135 = aLong2136;
+				}
+				aClass95_2132.write(is, i, i_1_);
+				if ((aLong2136 ^ 0xffffffffffffffffL) <= (aLong2130 ^ 0xffffffffffffffffL) && aLong2130 - -(long) anInt2134 > aLong2136) {
+					l_4_ = aLong2136;
+				} else if (aLong2136 <= aLong2130 && (i_1_ + aLong2136 ^ 0xffffffffffffffffL) < (aLong2130 ^ 0xffffffffffffffffL)) {
+					l_4_ = aLong2130;
+				}
+				aLong2135 += i_1_;
+				if (i_1_ + aLong2136 > aLong2130 && i_1_ + aLong2136 <= anInt2134 + aLong2130) {
+					l = i_1_ + aLong2136;
+				} else if ((aLong2136 ^ 0xffffffffffffffffL) > (anInt2134 + aLong2130 ^ 0xffffffffffffffffL) && aLong2130 + anInt2134 <= i_1_ + aLong2136) {
+					l = aLong2130 - -(long) anInt2134;
+				}
+				if (aLong2135 > aLong2127) {
+					aLong2127 = aLong2135;
+				}
+				if (-1L < l_4_ && (l ^ 0xffffffffffffffffL) < (l_4_ ^ 0xffffffffffffffffL)) {
+					final int i_5_ = (int) (l + -l_4_);
+					ArrayUtils.arrayCopy(is, (int) (-aLong2136 + i - -l_4_), aByteArray2126, (int) (l_4_ + -aLong2130), i_5_);
+				}
+				aLong2136 += i_1_;
+			} else if (i_1_ > 0) {
+				if (0L == (aLong2133 ^ 0xffffffffffffffffL)) {
+					aLong2133 = aLong2136;
+				}
+				ArrayUtils.arrayCopy(is, i, aByteArray2125, (int) (aLong2136 + -aLong2133), i_1_);
+				aLong2136 += i_1_;
+				if ((anInt2129 ^ 0xffffffffffffffffL) > (aLong2136 + -aLong2133 ^ 0xffffffffffffffffL)) {
+					anInt2129 = (int) (-aLong2133 + aLong2136);
+				}
+			}
+		} catch (final IOException ioexception) {
+			aLong2135 = -1L;
+			throw ioexception;
 		}
 	}
 
@@ -154,7 +147,7 @@ final class Class193 {
 
 	final void seek(final long l) throws IOException {
 		if (-1L < (l ^ 0xffffffffffffffffL)) {
-			throw new IOException(new StringBuilder("Invalid seek to ").append(l).append(" in file ").append(method2526((byte) 119)).toString());
+			throw new IOException(new StringBuilder("Invalid seek to ").append(l).append(" in file ").append(getFile()).toString());
 		}
 		aLong2136 = l;
 	}
@@ -170,45 +163,36 @@ final class Class193 {
 		}
 	}
 
-	private final void method2524(final int i) throws IOException {
-		do {
-			try {
-				if (0L != (aLong2133 ^ 0xffffffffffffffffL)) {
-					if ((aLong2133 ^ 0xffffffffffffffffL) != (aLong2135 ^ 0xffffffffffffffffL)) {
-						aClass95_2132.seek(aLong2133);
-						aLong2135 = aLong2133;
-					}
-					aClass95_2132.write(aByteArray2125, 0, anInt2129);
-					aLong2135 += anInt2129;
-					if (aLong2135 > aLong2127) {
-						aLong2127 = aLong2135;
-					}
-					long l = -1L;
-					if (anInt2129 + aLong2133 > aLong2130 && aLong2133 + anInt2129 <= anInt2134 + aLong2130) {
-						l = aLong2133 - -(long) anInt2129;
-					} else if (aLong2133 < aLong2130 + anInt2134 && (aLong2130 + anInt2134 ^ 0xffffffffffffffffL) >= (aLong2133 + anInt2129 ^ 0xffffffffffffffffL)) {
-						l = anInt2134 + aLong2130;
-					}
-					long l_8_ = -1L;
-					if ((aLong2130 ^ 0xffffffffffffffffL) >= (aLong2133 ^ 0xffffffffffffffffL) && (aLong2133 ^ 0xffffffffffffffffL) > (anInt2134 + aLong2130 ^ 0xffffffffffffffffL)) {
-						l_8_ = aLong2133;
-					} else if ((aLong2133 ^ 0xffffffffffffffffL) >= (aLong2130 ^ 0xffffffffffffffffL) && (aLong2130 ^ 0xffffffffffffffffL) > (aLong2133 + anInt2129 ^ 0xffffffffffffffffL)) {
-						l_8_ = aLong2130;
-					}
-					if (0L > (l_8_ ^ 0xffffffffffffffffL) && l_8_ < l) {
-						final int i_9_ = (int) (-l_8_ + l);
-						ArrayUtils.arrayCopy(aByteArray2125, (int) (l_8_ + -aLong2133), aByteArray2126, (int) (l_8_ - aLong2130), i_9_);
-					}
-					aLong2133 = -1L;
-					anInt2129 = 0;
-				}
-				if (i != -1) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("wl.C(").append(i).append(')').toString());
+	private final void method2524() throws IOException {
+		if (0L != (aLong2133 ^ 0xffffffffffffffffL)) {
+			if ((aLong2133 ^ 0xffffffffffffffffL) != (aLong2135 ^ 0xffffffffffffffffL)) {
+				aClass95_2132.seek(aLong2133);
+				aLong2135 = aLong2133;
 			}
-		} while (false);
+			aClass95_2132.write(aByteArray2125, 0, anInt2129);
+			aLong2135 += anInt2129;
+			if (aLong2135 > aLong2127) {
+				aLong2127 = aLong2135;
+			}
+			long l = -1L;
+			if (anInt2129 + aLong2133 > aLong2130 && aLong2133 + anInt2129 <= anInt2134 + aLong2130) {
+				l = aLong2133 - -(long) anInt2129;
+			} else if (aLong2133 < aLong2130 + anInt2134 && (aLong2130 + anInt2134 ^ 0xffffffffffffffffL) >= (aLong2133 + anInt2129 ^ 0xffffffffffffffffL)) {
+				l = anInt2134 + aLong2130;
+			}
+			long l_8_ = -1L;
+			if ((aLong2130 ^ 0xffffffffffffffffL) >= (aLong2133 ^ 0xffffffffffffffffL) && (aLong2133 ^ 0xffffffffffffffffL) > (anInt2134 + aLong2130 ^ 0xffffffffffffffffL)) {
+				l_8_ = aLong2133;
+			} else if ((aLong2133 ^ 0xffffffffffffffffL) >= (aLong2130 ^ 0xffffffffffffffffL) && (aLong2130 ^ 0xffffffffffffffffL) > (aLong2133 + anInt2129 ^ 0xffffffffffffffffL)) {
+				l_8_ = aLong2130;
+			}
+			if (0L > (l_8_ ^ 0xffffffffffffffffL) && l_8_ < l) {
+				final int i_9_ = (int) (-l_8_ + l);
+				ArrayUtils.arrayCopy(aByteArray2125, (int) (l_8_ + -aLong2133), aByteArray2126, (int) (l_8_ - aLong2130), i_9_);
+			}
+			aLong2133 = -1L;
+			anInt2129 = 0;
+		}
 	}
 
 	final void method2525(final int i, final byte[] is, int i_10_, int i_11_) throws IOException {
@@ -306,17 +290,8 @@ final class Class193 {
 		}
 	}
 
-	private final File method2526(final byte i) {
-		File file;
-		try {
-			if (i <= 16) {
-				method2521((byte) 41);
-			}
-			file = aClass95_2132.getFile();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wl.F(").append(i).append(')').toString());
-		}
-		return file;
+	private final File getFile() {
+		return aClass95_2132.getFile();
 	}
 
 	final void method2527(final int i, final byte[] is) throws IOException {

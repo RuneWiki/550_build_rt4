@@ -4,23 +4,10 @@
 
 final class Class166 {
 	static int anInt1612 = 0;
-	static js5 aClass50_1613;
-
 	static final void method2178(final js5 js5, final boolean bool, final js5 class50_0_) {
 		Class69_Sub2.aBoolean2234 = bool;
 		Class120_Sub12_Sub36.aClass50_3418 = class50_0_;
 		Class120_Sub6.aClass50_2450 = js5;
-	}
-
-	public static void method2179(final byte i) {
-		try {
-			aClass50_1613 = null;
-			if (i != 12) {
-				method2179((byte) -64);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tl.E(").append(i).append(')').toString());
-		}
 	}
 
 	static final void method2180(final GameEntity class180_sub5, final boolean bool) {
@@ -50,34 +37,19 @@ final class Class166 {
 		}
 	}
 
-	static final void method2181(final int i, final int i_3_) {
-		try {
-			if (i_3_ < 10) {
-				aClass50_1613 = null;
-			}
-			Class120_Sub12_Sub9.aClass21_3196.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tl.B(").append(i).append(',').append(i_3_).append(')').toString());
-		}
-	}
-
-	static final void method2182(final int i, final String string) {
-		try {
-			if (i == 6137 && Class120_Sub28.aClass120_Sub13Array2754 != null) {
-				int i_4_ = 0;
-				final long l = Varp.stringToLong(string);
-				if (0L != l) {
-					for (/**/; Class120_Sub28.aClass120_Sub13Array2754.length > i_4_ && l != Class120_Sub28.aClass120_Sub13Array2754[i_4_].uid; i_4_++) {
-						/* empty */
-					}
-					if (Class120_Sub28.aClass120_Sub13Array2754.length > i_4_ && Class120_Sub28.aClass120_Sub13Array2754[i_4_] != null) {
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(75);
-						Class120_Sub12_Sub11.outputStream.putLong(Class120_Sub28.aClass120_Sub13Array2754[i_4_].uid);
-					}
+	static final void kickUser(final String string) {
+		if (Class120_Sub28.clanMembers != null) {
+			int i_4_ = 0;
+			final long nameAsLong = Varp.stringToLong(string);
+			if (0L != nameAsLong) {
+				for (/**/; Class120_Sub28.clanMembers.length > i_4_ && nameAsLong != Class120_Sub28.clanMembers[i_4_].uid; i_4_++) {
+					/* empty */
+				}
+				if (Class120_Sub28.clanMembers.length > i_4_ && Class120_Sub28.clanMembers[i_4_] != null) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(75);
+					Class120_Sub12_Sub11.outputStream.putLong(Class120_Sub28.clanMembers[i_4_].uid);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tl.D(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 }

@@ -9,8 +9,8 @@ final class CursorType {
 	static String aString1239 = "Loaded title screen";
 	private int graphic;
 	int hotSpotX;
-	static Cache spriteCache = new Cache(2);
-	static Cache recentUse = new Cache(64);
+	static ObjectCache spriteCache = new ObjectCache(2);
+	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt1242;
 	static JagexInterface aClass189_1243;
 
@@ -50,7 +50,7 @@ final class CursorType {
 	}
 
 	static final void method1918() {
-		if (Class180_Sub4.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && EnumType.anInt3450 <= 0) {
+		if (Projectile.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && EnumType.anInt3450 <= 0) {
 			int i_5_ = Class156.lastMouseClick;
 			if (!Class15.menuOpen) {
 				if (i_5_ == 1 && Class186.menuOptionCount > 0) {
@@ -63,19 +63,19 @@ final class CursorType {
 						if (class120_sub20.method1681(-9617) || class120_sub20.method1691()) {
 							JavaObject.anInt3915 = 0;
 							Huffman.aBoolean1207 = false;
-							if (Class180_Sub4.aClass189_2954 != null) {
-								InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
+							if (Projectile.aClass189_2954 != null) {
+								InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
 							}
-							Class180_Sub4.aClass189_2954 = Class74.getJagexInterface(i_7_);
+							Projectile.aClass189_2954 = Class74.getJagexInterface(i_7_);
 							Class23.anInt134 = js5.lastClickX;
 							Class5.anInt2154 = i_8_;
-							Class27.anInt166 = Class120_Sub12_Sub36.lastClickY;
-							InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
+							VarBit.anInt166 = Class120_Sub12_Sub36.lastClickY;
+							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
 							return;
 						}
 					}
 				}
-				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(0, Class186.menuOptionCount + -1))) {
+				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(Class186.menuOptionCount + -1))) {
 					i_5_ = 2;
 				}
 				if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {

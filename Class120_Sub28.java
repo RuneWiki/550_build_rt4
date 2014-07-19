@@ -7,7 +7,7 @@ final class Class120_Sub28 extends Node {
 	static int anInt2751 = 0;
 	int[] anIntArray2752;
 	int anInt2753;
-	static Class120_Sub13[] aClass120_Sub13Array2754;
+	static ClanMember[] clanMembers;
 	SignlinkNode[] aClass185Array2755;
 	int[] anIntArray2756;
 	int anInt2757;
@@ -27,7 +27,7 @@ final class Class120_Sub28 extends Node {
 	public static void method1724(final int i) {
 		try {
 			aStringArray2759 = null;
-			aClass120_Sub13Array2754 = null;
+			clanMembers = null;
 			if (i != 0) {
 				method1724(19);
 			}

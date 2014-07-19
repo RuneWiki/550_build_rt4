@@ -14,11 +14,11 @@ final class Class153 {
 	int anInt1435 = 8;
 	static int anInt1436 = -1;
 
-	static final AbstractIndexedSprite createIndexedSprite(final js5 js5, final int i_0_) {
-		if (!ObjType.method2113(js5, i_0_)) {
+	static final AbstractIndexedSprite constructAbstractIndexedSprite(final js5 js5, final int groupId) {
+		if (!ObjType.decodedSprites(js5, groupId)) {
 			return null;
 		}
-		return Class11.createIndexedSprite();
+		return Class11.constructAbstractIndexedSprite();
 	}
 
 	static final void method2070(final byte i) {
@@ -57,7 +57,7 @@ final class Class153 {
 	private final void method2074(final int i, final int i_5_, final Buffer class120_sub7, final int i_6_) {
 		try {
 			if (i != -3) {
-				createIndexedSprite(null, 112);
+				constructAbstractIndexedSprite(null, 112);
 			}
 			if (i_6_ == 1) {
 				this.anInt1435 = class120_sub7.getUShort();

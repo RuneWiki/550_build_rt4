@@ -9,7 +9,7 @@ final class InterfaceChangeNode extends NodeSub {
 	int anInt3486;
 	static long allocatingTime = 0L;
 	static int[][] anIntArrayArray3488;
-	static String aString3489;
+	static String clanName;
 	static int anInt3490 = 0;
 	static int[] menuOptionsCursorId;
 	int anInt3492;
@@ -18,7 +18,7 @@ final class InterfaceChangeNode extends NodeSub {
 	static {
 		anIntArrayArray3488 = new int[][] { new int[0], { 128, 0, 128, 128, 0, 128 }, { 0, 0, 128, 0, 128, 128, 64, 128 }, { 0, 128, 0, 0, 128, 0, 64, 128 }, { 0, 0, 64, 128, 0, 128 }, { 128, 128, 64, 128, 128, 0 }, { 64, 0, 128, 0, 128, 128, 64, 128 }, { 128, 0, 128, 128, 0, 128, 0, 64, 64, 0 },
 				{ 0, 0, 64, 0, 0, 64 }, { 0, 0, 128, 0, 128, 128, 64, 96, 32, 64 }, { 0, 128, 0, 0, 32, 64, 64, 96, 128, 128 }, { 0, 128, 0, 0, 32, 32, 96, 32, 128, 0, 128, 128 } };
-		aString3489 = null;
+		clanName = null;
 		menuOptionsCursorId = new int[500];
 	}
 
@@ -32,7 +32,7 @@ final class InterfaceChangeNode extends NodeSub {
 
 	public static void method1451(final int i) {
 		try {
-			aString3489 = null;
+			clanName = null;
 			if (i <= 30) {
 				method1451(106);
 			}

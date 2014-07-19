@@ -9,7 +9,7 @@ final class Class101_Sub3 extends Class101 {
 	private final int anInt2288;
 	private int anInt2289;
 	static LDSprite aClass120_Sub14_Sub19_Sub2_2290;
-	static boolean aBoolean2291;
+	static boolean titleScreenSpritesDrawn;
 	private final int anInt2292;
 
 	public static void method847(final int i) {

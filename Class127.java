@@ -232,17 +232,6 @@ final class Class127 {
 		return i_24_;
 	}
 
-	static final void method1898(final byte i) {
-		try {
-			if (i != 48) {
-				aShortArray1214 = null;
-			}
-			Class22.aClass21_131.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.B(").append(i).append(')').toString());
-		}
-	}
-
 	public Class127() {
 		/* empty */
 	}

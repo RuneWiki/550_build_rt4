@@ -91,19 +91,6 @@ class Class132_Sub2 extends Class132 {
 		}
 	}
 
-	static final void method1940(final byte i) {
-		try {
-			if (i > -93) {
-				method1939(null, (byte) -86, -80, 101, null);
-			}
-			Class132_Sub1.anImage2809 = null;
-			Class23.aFont135 = null;
-			Class20.aFontMetrics2171 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.J(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void method1925(final int i) {
 		try {
@@ -174,7 +161,7 @@ class Class132_Sub2 extends Class132 {
 						Rasterizer.alpha = 0;
 						if ((i_33_ - i_35_) * (i_32_ - i_36_) - (i_34_ - i_36_) * (i_31_ - i_35_) > 0) {
 							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
-								Cache.anInt122 = i_14_;
+								ObjectCache.anInt122 = i_14_;
 								Class20.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {
@@ -200,7 +187,7 @@ class Class132_Sub2 extends Class132 {
 						}
 						if ((i_29_ - i_31_) * (i_36_ - i_32_) - (i_30_ - i_32_) * (i_35_ - i_31_) > 0) {
 							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
-								Cache.anInt122 = i_14_;
+								ObjectCache.anInt122 = i_14_;
 								Class20.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {

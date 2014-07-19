@@ -11,7 +11,7 @@ abstract class Class132 {
 	private int anInt1252;
 	private short[] aShortArray1253;
 	private int anInt1254;
-	static Cache aClass21_1255 = new Cache(64);
+	static ObjectCache aClass21_1255 = new ObjectCache(64);
 	int anInt1256 = 4;
 	static int anInt1257;
 	private int anInt1258;

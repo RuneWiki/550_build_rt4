@@ -12,18 +12,8 @@ final class Class140 {
 	private Node aClass120_1344;
 	static int anInt1345;
 
-	final Node method1994(final byte i) {
-		Node node;
-		try {
-			anInt1339 = 0;
-			if (i > -127) {
-				method1995(104);
-			}
-			node = method1998((byte) 101);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.A(").append(i).append(')').toString());
-		}
-		return node;
+	final Node method1994() {
+		return method1998();
 	}
 
 	static final void method1995(final int i) {
@@ -40,7 +30,7 @@ final class Class140 {
 		Class93.spriteAmount = buffer.getUShort();
 		PlainTile.spriteHasAlpha = new boolean[Class93.spriteAmount];
 		Class120_Sub12.spriteAlphas = new byte[Class93.spriteAmount][];
-		Class180_Sub4.spriteXOffsets = new int[Class93.spriteAmount];
+		Projectile.spriteXOffsets = new int[Class93.spriteAmount];
 		Class120_Sub12_Sub11.spriteWidths = new int[Class93.spriteAmount];
 		Class145.spritePaletteIndicators = new byte[Class93.spriteAmount][];
 		Class120_Sub12_Sub39.spriteHeights = new int[Class93.spriteAmount];
@@ -50,7 +40,7 @@ final class Class140 {
 		SceneGroundObject.spriteTrimHeight = buffer.getUShort();
 		final int paletteSize = (0xff & buffer.getUByte()) + 1;
 		for (int i_3_ = 0; i_3_ < Class93.spriteAmount; i_3_++) {
-			Class180_Sub4.spriteXOffsets[i_3_] = buffer.getUShort();
+			Projectile.spriteXOffsets[i_3_] = buffer.getUShort();
 		}
 		for (int i_4_ = 0; i_4_ < Class93.spriteAmount; i_4_++) {
 			GroundTile.spriteYOffsets[i_4_] = buffer.getUShort();
@@ -127,29 +117,20 @@ final class Class140 {
 		}
 	}
 
-	final Node method1998(final byte i) {
-		Node node;
-		try {
-			if (anInt1339 > 0 && aClass75_1342.table[-1 + anInt1339] != aClass120_1344) {
-				final Node class120_23_ = aClass120_1344;
-				aClass120_1344 = class120_23_.next;
-				return class120_23_;
-			}
-			while (anInt1339 < aClass75_1342.capacity) {
-				final Node class120_24_ = aClass75_1342.table[anInt1339++].next;
-				if (aClass75_1342.table[anInt1339 + -1] != class120_24_) {
-					aClass120_1344 = class120_24_.next;
-					return class120_24_;
-				}
-			}
-			if (i != 101) {
-				aBoolean1340 = true;
-			}
-			node = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.F(").append(i).append(')').toString());
+	final Node method1998() {
+		if (anInt1339 > 0 && aClass75_1342.table[-1 + anInt1339] != aClass120_1344) {
+			final Node class120_23_ = aClass120_1344;
+			aClass120_1344 = class120_23_.next;
+			return class120_23_;
 		}
-		return node;
+		while (anInt1339 < aClass75_1342.capacity) {
+			final Node class120_24_ = aClass75_1342.table[anInt1339++].next;
+			if (aClass75_1342.table[anInt1339 + -1] != class120_24_) {
+				aClass120_1344 = class120_24_.next;
+				return class120_24_;
+			}
+		}
+		return null;
 	}
 
 	public static void method1999(final byte i) {

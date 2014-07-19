@@ -91,33 +91,25 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_32_) {
-		try {
-			final int i_33_ = i_32_;
-			while_166_: do {
-				do {
-					if (i_33_ != 0) {
-						if (i_33_ != 1) {
-							if (i_33_ == 2) {
-								break;
-							}
-							break while_166_;
+	final void decode(final Buffer buffer, final int i_33_) {
+		while_166_: do {
+			do {
+				if (i_33_ != 0) {
+					if (i_33_ != 1) {
+						if (i_33_ == 2) {
+							break;
 						}
-					} else {
-						anInt3435 = class120_sub7.getUByte();
 						break while_166_;
 					}
-					anInt3436 = class120_sub7.getUByte();
+				} else {
+					anInt3435 = buffer.getUByte();
 					break while_166_;
-				} while (false);
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
+				}
+				anInt3436 = buffer.getUByte();
+				break while_166_;
 			} while (false);
-			if (i != -43) {
-				anInt3435 = 58;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vi.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_32_).append(')').toString());
-		}
+			this.aBoolean2558 = buffer.getUByte() == 1;
+		} while (false);
 	}
 
 	static int method1397(final int i, final int i_34_) {

@@ -32,7 +32,7 @@ final class Npc extends GameEntity {
 				final SeqType class40_8_ = (this.anInt3004 ^ 0xffffffff) != 0 && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
 				Class180_Sub7 class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -102, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 				if (class180_sub7 != null) {
-					this.anInt3018 = class180_sub7.getMaxY();
+					this.maxY = class180_sub7.getMaxY();
 					NpcType npcType = this.npcType;
 					if (npcType.childrenIDs != null) {
 						npcType = npcType.handleVarp();
@@ -111,7 +111,7 @@ final class Npc extends GameEntity {
 	final int getMaxY() {
 		int i;
 		try {
-			i = this.anInt3018;
+			i = this.maxY;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, "p.MA()");
 		}
@@ -191,23 +191,14 @@ final class Npc extends GameEntity {
 	}
 
 	@Override
-	final int method2325(final boolean bool) {
-		int i;
-		try {
-			if (bool) {
-				playerAmbientSounds = null;
+	final int method2325() {
+		if (this.npcType.childrenIDs != null) {
+			final NpcType npcType = this.npcType.handleVarp();
+			if (npcType != null && npcType.anInt1692 != -1) {
+				return npcType.anInt1692;
 			}
-			if (this.npcType.childrenIDs != null) {
-				final NpcType npcType = this.npcType.handleVarp();
-				if (npcType != null && (npcType.anInt1692 ^ 0xffffffff) != 0) {
-					return npcType.anInt1692;
-				}
-			}
-			i = this.anInt2982;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("p.I(").append(bool).append(')').toString());
 		}
-		return i;
+		return this.anInt2982;
 	}
 
 	static final boolean method2349(final int i, final int i_23_, final int i_24_, final byte[] is) {

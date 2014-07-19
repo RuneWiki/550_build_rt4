@@ -46,35 +46,29 @@ final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
 	}
 
 	@Override
-	final int method1537(final int i) {
-		int i_2_;
-		try {
-			if (this.aBoolean3576) {
-				return 0;
-			}
-			i_2_ = 100;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("al.G(").append(i).append(')').toString());
+	final int method1537() {
+		if (this.aBoolean3576) {
+			return 0;
 		}
-		return i_2_;
+		return 100;
 	}
 
-	static final void method1545(final int i, final boolean bool_3_, final boolean bool_4_) {
+	static final void method1545(final int size, final boolean bool_3_, final boolean bool_4_) {
 		for (int i_5_ = 0; i_5_ < Class148.localNpcCount; i_5_++) {
 			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_5_]];
 			if (class180_sub5_sub2 != null && class180_sub5_sub2.isVisible() && class180_sub5_sub2.npcType.method2199()) {
-				final int size = class180_sub5_sub2.getSize();
+				final int npcSize = class180_sub5_sub2.getSize();
 				if (bool_4_) {
 					if (!class180_sub5_sub2.npcType.aBoolean1706) {
 						continue;
 					}
-				} else if (!class180_sub5_sub2.npcType.aBoolean1656 == bool_3_ || i != 0 && i != size) {
+				} else if (!class180_sub5_sub2.npcType.aBoolean1656 == bool_3_ || size != 0 && size != npcSize) {
 					continue;
 				}
-				if (size != 1) {
-					if (((0x1 & size) != 0 || (0x7f & class180_sub5_sub2.x) == 0 && (class180_sub5_sub2.z & 0x7f) == 0) && ((size & 0x1) != 1 || (0x7f & class180_sub5_sub2.x) == 64 && (class180_sub5_sub2.z & 0x7f) == 64)) {
-						int i_7_ = class180_sub5_sub2.x - 64 * size >> 7;
-						int i_8_ = class180_sub5_sub2.z - size * 64 >> 7;
+				if (npcSize != 1) {
+					if (((0x1 & npcSize) != 0 || (0x7f & class180_sub5_sub2.x) == 0 && (class180_sub5_sub2.z & 0x7f) == 0) && ((npcSize & 0x1) != 1 || (0x7f & class180_sub5_sub2.x) == 64 && (class180_sub5_sub2.z & 0x7f) == 64)) {
+						int i_7_ = class180_sub5_sub2.x - 64 * npcSize >> 7;
+						int i_8_ = class180_sub5_sub2.z - npcSize * 64 >> 7;
 						int i_9_ = class180_sub5_sub2.getSize() + i_7_;
 						if (i_9_ > 104) {
 							i_9_ = 104;
@@ -113,7 +107,7 @@ final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
 					if (!class180_sub5_sub2.npcType.aBoolean1706) {
 						continue;
 					}
-				} else if (bool_3_ != class180_sub5_sub2.npcType.aBoolean1656 || i != 0 && i != i_16_) {
+				} else if (bool_3_ != class180_sub5_sub2.npcType.aBoolean1656 || size != 0 && size != i_16_) {
 					continue;
 				}
 				class180_sub5_sub2.aBoolean2992 = true;
@@ -192,19 +186,10 @@ final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
 	}
 
 	@Override
-	final byte[] method1535(final byte i) {
-		byte[] is;
-		try {
-			if (i != -90) {
-				return null;
-			}
-			if (this.aBoolean3576) {
-				throw new RuntimeException();
-			}
-			is = this.aByteArray3931;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("al.C(").append(i).append(')').toString());
+	final byte[] getBuffer() {
+		if (this.aBoolean3576) {
+			throw new RuntimeException();
 		}
-		return is;
+		return this.aByteArray3931;
 	}
 }

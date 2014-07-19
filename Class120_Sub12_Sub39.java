@@ -317,15 +317,11 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			if (anIntArrayArray3443 == null) {
-				method1398(1, (byte) -68);
-			}
-			method1399(43);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.O(").append(i).append(')').toString());
+	final void postDecode() {
+		if (anIntArrayArray3443 == null) {
+			method1398(1, (byte) -68);
 		}
+		method1399(43);
 	}
 
 	public static void method1401(final int i) {
@@ -340,24 +336,20 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_16_) {
-		try {
-			if (i == -43 && i_16_ == 0) {
-				final int i_17_ = class120_sub7.getUByte();
-				if (i_17_ != 0) {
-					method1398(i_17_, (byte) 121);
-				} else {
-					anIntArrayArray3443 = new int[class120_sub7.getUByte()][4];
-					for (int i_18_ = 0; anIntArrayArray3443.length > i_18_; i_18_++) {
-						anIntArrayArray3443[i_18_][0] = class120_sub7.getUShort();
-						anIntArrayArray3443[i_18_][1] = class120_sub7.getUByte() << 4;
-						anIntArrayArray3443[i_18_][2] = class120_sub7.getUByte() << 4;
-						anIntArrayArray3443[i_18_][3] = class120_sub7.getUByte() << 4;
-					}
+	final void decode(final Buffer buffer, final int i_16_) {
+		if (i_16_ == 0) {
+			final int i_17_ = buffer.getUByte();
+			if (i_17_ != 0) {
+				method1398(i_17_, (byte) 121);
+			} else {
+				anIntArrayArray3443 = new int[buffer.getUByte()][4];
+				for (int i_18_ = 0; anIntArrayArray3443.length > i_18_; i_18_++) {
+					anIntArrayArray3443[i_18_][0] = buffer.getUShort();
+					anIntArrayArray3443[i_18_][1] = buffer.getUByte() << 4;
+					anIntArrayArray3443[i_18_][2] = buffer.getUByte() << 4;
+					anIntArrayArray3443[i_18_][3] = buffer.getUByte() << 4;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_16_).append(')').toString());
 		}
 	}
 

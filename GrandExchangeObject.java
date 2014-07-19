@@ -2,17 +2,17 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class160 {
-	int anInt1491;
+final class GrandExchangeObject {
+	int amount;
 	static volatile int currentMouseX = -1;
 	static int anInt1493;
 	static int anInt1494;
 	static int[] screenRedrawXs = new int[100];
-	private byte aByte1496;
-	int anInt1497;
-	int anInt1498;
-	int anInt1499;
-	int anInt1500;
+	private byte progress;
+	int soldAmount;
+	int totalPrice;
+	int price;
+	int id;
 	static int[] anIntArray1501;
 	static String[] aStringArray1502;
 
@@ -22,7 +22,7 @@ final class Class160 {
 	}
 
 	final int method2097() {
-		return (0x8 & aByte1496) != 8 ? 0 : 1;
+		return (0x8 & progress) != 8 ? 0 : 1;
 	}
 
 	public static void method2098(final int i) {
@@ -41,7 +41,7 @@ final class Class160 {
 	static final void method2099(final js5 js5, final boolean bool, final int i, final js5 class50_1_) {
 		try {
 			Class140.aBoolean1340 = bool;
-			Class190.aClass50_2099 = class50_1_;
+			NpcType.aClass50_2099 = class50_1_;
 			if (i == -9746) {
 				Class28.aClass50_181 = js5;
 			}
@@ -50,20 +50,20 @@ final class Class160 {
 		}
 	}
 
-	final int method2100() {
-		return aByte1496 & 0x7;
+	final int getProgress() {
+		return progress & 0x7;
 	}
 
-	public Class160() {
+	public GrandExchangeObject() {
 		/* empty */
 	}
 
-	Class160(final Buffer class120_sub7) {
-		aByte1496 = class120_sub7.getByte();
-		this.anInt1500 = class120_sub7.getUShort();
-		this.anInt1499 = class120_sub7.getInt();
-		this.anInt1491 = class120_sub7.getInt();
-		this.anInt1497 = class120_sub7.getInt();
-		this.anInt1498 = class120_sub7.getInt();
+	GrandExchangeObject(final Buffer buffer) {
+		progress = buffer.getByte();
+		this.id = buffer.getUShort();
+		this.price = buffer.getInt();
+		this.amount = buffer.getInt();//Not sure about these 2
+		this.soldAmount = buffer.getInt();//Not sure about these 2
+		this.totalPrice = buffer.getInt();
 	}
 }

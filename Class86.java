@@ -3,7 +3,7 @@
  */
 
 final class Class86 {
-	static World[] aClass167_Sub1Array817 = new World[0];
+	static World[] worlds = new World[0];
 	static int anInt818;
 	static int loginStep = 0;
 	static GroundTile[][][] aClass120_Sub18ArrayArrayArray820;
@@ -44,63 +44,56 @@ final class Class86 {
 		}
 	}
 
-	static final void method729(final boolean bool, final int i) {
-		try {
-			int i_2_;
-			byte[][] is;
-			if (!HDToolkit.glEnabled || !bool) {
-				i_2_ = 4;
-				is = RuntimeException_Sub1.aByteArrayArray2140;
-			} else {
-				i_2_ = 1;
-				is = Class120_Sub12_Sub36.aByteArrayArray3421;
+	static final void method729(final boolean bool) {
+		int i_2_;
+		byte[][] is;
+		if (!HDToolkit.glEnabled || !bool) {
+			i_2_ = 4;
+			is = RuntimeException_Sub1.aByteArrayArray2140;
+		} else {
+			i_2_ = 1;
+			is = Class120_Sub12_Sub36.aByteArrayArray3421;
+		}
+		final int i_3_ = is.length;
+		for (int i_4_ = 0; i_4_ < i_3_; i_4_++) {
+			int[] is_5_ = null;
+			final int i_6_ = Class120_Sub12_Sub36.anIntArray3417[i_4_] >> 8;
+			final byte[] is_7_ = is[i_4_];
+			final int i_8_ = 0xff & Class120_Sub12_Sub36.anIntArray3417[i_4_];
+			final int i_9_ = -GameEntity.currentBaseX + 64 * i_6_;
+			final int i_10_ = i_8_ * 64 + -Class181.currentBaseZ;
+			if (is_7_ != null) {
+				Class120_Sub2.method1050();
+				is_5_ = ProducingGraphicsBuffer.method1851(bool, Class182.collisionMaps, -24017, Class181.currentBaseZ, i_10_, i_9_, GameEntity.currentBaseX, is_7_);
 			}
-			final int i_3_ = is.length;
-			for (int i_4_ = 0; i_4_ < i_3_; i_4_++) {
-				int[] is_5_ = null;
-				final int i_6_ = Class120_Sub12_Sub36.anIntArray3417[i_4_] >> 8;
-				final byte[] is_7_ = is[i_4_];
-				final int i_8_ = 0xff & Class120_Sub12_Sub36.anIntArray3417[i_4_];
-				final int i_9_ = -GameEntity.currentBaseX + 64 * i_6_;
-				final int i_10_ = i_8_ * 64 + -Class181.currentBaseZ;
-				if (is_7_ != null) {
-					Class120_Sub2.method1050();
-					is_5_ = ProducingGraphicsBuffer.method1851(bool, Class182.collisionMaps, -24017, Class181.currentBaseZ, i_10_, i_9_, GameEntity.currentBaseX, is_7_);
-				}
-				if (!bool && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
-					if (is_5_ == null) {
-						Class158.anInt1475 = -1;
-					} else {
-						Class158.anInt1475 = is_5_[0];
-						PlainTile.anInt1356 = is_5_[3];
-						Class143_Sub1.anInt2197 = is_5_[2];
-						Class120_Sub12.anInt2560 = is_5_[1];
-						Class132.anInt1257 = is_5_[4];
-					}
+			if (!bool && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
+				if (is_5_ == null) {
+					Class158.anInt1475 = -1;
+				} else {
+					Class158.anInt1475 = is_5_[0];
+					PlainTile.anInt1356 = is_5_[3];
+					Class143_Sub1.anInt2197 = is_5_[2];
+					Class120_Sub12.anInt2560 = is_5_[1];
+					Class132.anInt1257 = is_5_[4];
 				}
 			}
-			if (i != 1) {
-				aClass75_823 = null;
-			}
-			for (int i_11_ = 0; i_3_ > i_11_; i_11_++) {
-				final int i_12_ = (Class120_Sub12_Sub36.anIntArray3417[i_11_] & 0xff) * 64 - Class181.currentBaseZ;
-				final int i_13_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_11_] >> 8) - GameEntity.currentBaseX;
-				final byte[] is_14_ = is[i_11_];
-				if (is_14_ == null && Class3.anInt53 < 800) {
-					Class120_Sub2.method1050();
-					for (int i_15_ = 0; i_15_ < i_2_; i_15_++) {
-						Class120_Sub14_Sub15.method1556(i_13_, i_15_, 64, i_12_, 64, -1);
-					}
+		}
+		for (int i_11_ = 0; i_3_ > i_11_; i_11_++) {
+			final int i_12_ = (Class120_Sub12_Sub36.anIntArray3417[i_11_] & 0xff) * 64 - Class181.currentBaseZ;
+			final int i_13_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_11_] >> 8) - GameEntity.currentBaseX;
+			final byte[] is_14_ = is[i_11_];
+			if (is_14_ == null && Class3.anInt53 < 800) {
+				Class120_Sub2.method1050();
+				for (int i_15_ = 0; i_15_ < i_2_; i_15_++) {
+					Class120_Sub14_Sub15.method1556(i_13_, i_15_, 64, i_12_, 64, -1);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("je.C(").append(bool).append(',').append(i).append(')').toString());
 		}
 	}
 
 	static final void method731(final int i, final js5 js5) {
 		try {
-			Class166.aClass50_1613 = js5;
+			InvType.aClass50_1613 = js5;
 			if (i >= -19) {
 				method728(null, -46, -81);
 			}
@@ -112,7 +105,7 @@ final class Class86 {
 	public static void method732(final boolean bool) {
 		try {
 			aClass120_Sub18ArrayArrayArray820 = null;
-			aClass167_Sub1Array817 = null;
+			worlds = null;
 			Varp.recentUse = null;
 			if (bool) {
 				method732(false);

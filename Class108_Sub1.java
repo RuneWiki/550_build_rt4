@@ -55,17 +55,6 @@ final class Class108_Sub1 extends Class108 {
 		return true;
 	}
 
-	static final void method934(final byte i) {
-		try {
-			Class120_Sub14_Sub13.aClass21_3564.clear();
-			if (i <= 26) {
-				method937(7, null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.I(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method935(final int i, int i_2_) {
 		i_2_ = i_2_ * (i & 0x7f) >> 7;
 		if (i_2_ < 2) {
@@ -103,9 +92,9 @@ final class Class108_Sub1 extends Class108 {
 			}
 			Class120_Sub14_Sub8 class120_sub14_sub8_8_;
 			if (HDToolkit.glEnabled) {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub1(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub1(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			} else {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub2(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			}
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8 = class120_sub14_sub8_8_;
@@ -278,18 +267,18 @@ final class Class108_Sub1 extends Class108 {
 
 	static final void method941(final long l) {
 		if (0L != l) {
-			for (int i_51_ = 0; i_51_ < ProducingGraphicsBuffer.anInt2799; i_51_++) {
-				if ((AbstractSprite.aLongArray3617[i_51_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
-					ProducingGraphicsBuffer.anInt2799--;
-					for (int i_52_ = i_51_; i_52_ < ProducingGraphicsBuffer.anInt2799; i_52_++) {
-						Class120_Sub16.aStringArray2599[i_52_] = Class120_Sub16.aStringArray2599[1 + i_52_];
-						Class120_Sub12_Sub16.anIntArray3252[i_52_] = Class120_Sub12_Sub16.anIntArray3252[1 + i_52_];
-						Class79_Sub1.aStringArray2247[i_52_] = Class79_Sub1.aStringArray2247[i_52_ - -1];
-						AbstractSprite.aLongArray3617[i_52_] = AbstractSprite.aLongArray3617[i_52_ + 1];
-						Class120_Sub12_Sub30.anIntArray3374[i_52_] = Class120_Sub12_Sub30.anIntArray3374[i_52_ - -1];
+			for (int i_51_ = 0; i_51_ < ProducingGraphicsBuffer.friendCount; i_51_++) {
+				if ((AbstractSprite.friendsNameAsLong[i_51_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+					ProducingGraphicsBuffer.friendCount--;
+					for (int i_52_ = i_51_; i_52_ < ProducingGraphicsBuffer.friendCount; i_52_++) {
+						Class120_Sub16.friendsName[i_52_] = Class120_Sub16.friendsName[1 + i_52_];
+						Class120_Sub12_Sub16.friendsWorld[i_52_] = Class120_Sub12_Sub16.friendsWorld[1 + i_52_];
+						Class79_Sub1.friendsSideText[i_52_] = Class79_Sub1.friendsSideText[i_52_ - -1];
+						AbstractSprite.friendsNameAsLong[i_52_] = AbstractSprite.friendsNameAsLong[i_52_ + 1];
+						Class120_Sub12_Sub30.friendsRank[i_52_] = Class120_Sub12_Sub30.friendsRank[i_52_ - -1];
 						Class120_Sub12_Sub9.aBooleanArray3194[i_52_] = Class120_Sub12_Sub9.aBooleanArray3194[i_52_ + 1];
 					}
-					Class61.anInt563 = Class160.anInt1494;
+					Class61.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
 					Class120_Sub12_Sub11.outputStream.putLong(l);
 					break;

@@ -58,16 +58,9 @@ final class DisplayModeInfo {
 		}
 	}
 
-	static final void method2214(final boolean bool) {
-		try {
-			CursorType.recentUse.clear();
-			CursorType.spriteCache.clear();
-			if (bool) {
-				anInt1715 = 98;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.D(").append(bool).append(')').toString());
-		}
+	static final void method2214() {
+		CursorType.recentUse.clear();
+		CursorType.spriteCache.clear();
 	}
 
 	static final String method2215(final byte[] buf, final int off, final int len) {
@@ -98,7 +91,7 @@ final class DisplayModeInfo {
 			crcTable = null;
 			aString1708 = null;
 			if (!bool) {
-				method2214(false);
+				method2214();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.C(").append(bool).append(')').toString());

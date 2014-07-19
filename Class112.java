@@ -15,7 +15,7 @@ final class Class112 {
 	static int gameLoopCount;
 	static Frame frame;
 	static int anInt1077 = 0;
-	static byte aByte1078;
+	static byte kickRights;
 	static String aString1079;
 	static int anInt1080;
 
@@ -49,32 +49,7 @@ final class Class112 {
 		}
 	}
 
-	final boolean method986(final byte i) {
-		if(false) {
-			int[] keys = new int[] {
-                    0x00, 0x00, 0x00, 0x00, 0xe8, 0xa1, 0xd4, 0x98, 0xce, 0x00, 0x00, 0x01, 0x45, 
-                    0xf3, 0x32, 0x04, 0xb4, 0x00, 0x00, 0x00, 0xc8, 0xcf, 0xd1, 0x37, 0xdf, 0x00, 0x00, 0x01, 0x00, 
-                    0x58, 0x50, 0xb1, 0x0c, 0x00, 0x00, 0x02, 0x83, 0x53, 0x43, 0xc6, 0xb6, 0x00, 0x00, 0x00, 0xa7, 
-                    0x44, 0x77, 0xed, 0x9e, 0x00, 0x00, 0x02, 0x63, 0x54, 0x1c, 0x92, 0x79, 0x00, 0x00, 0x00, 0x2a, 
-                    0x22, 0x1e, 0x4c, 0x1e, 0x00, 0x00, 0x03, 0x54, 0x27, 0xdc, 0xba, 0x3a, 0x00, 0x00, 0x00, 0xb8, 
-                    0x31, 0x80, 0xa9, 0xbf, 0x00, 0x00, 0x00, 0xee, 0x29, 0x76, 0x27, 0x6a, 0x00, 0x00, 0x00, 0x05, 
-                    0x03, 0x03, 0x1d, 0x69, 0x00, 0x00, 0x00, 0x1c, 0xab, 0x58, 0x73, 0xfa, 0x00, 0x00, 0x02, 0x93, 
-                    0x44, 0x0e, 0xbd, 0x96, 0x00, 0x00, 0x00, 0x1b, 0xac, 0x7a, 0x01, 0x72, 0x00, 0x00, 0x00, 0x1a, 
-                    0x86, 0xf2, 0xed, 0x7a, 0x00, 0x00, 0x00, 0x05, 0xe6, 0x90, 0x28, 0x8f, 0x00, 0x00, 0x01, 0xe0, 
-                    0xda, 0xa8, 0x68, 0x5a, 0x00, 0x00, 0x00, 0xde, 0x67, 0xa7, 0x30, 0xb3, 0x00, 0x00, 0x01, 0x2d, 
-                    0xbe, 0x06, 0x61, 0x74, 0x00, 0x00, 0x00, 0xe9, 0x8e, 0x89, 0xfe, 0xa8, 0x00, 0x00, 0x03, 0xa5, 
-                    0x91, 0x70, 0xfa, 0xba, 0x00, 0x00, 0x00, 0x5b, 0xbe, 0xd6, 0x8e, 0xef, 0x00, 0x00, 0x00, 0x6d, 
-                    0x70, 0x6d, 0x9b, 0x4e, 0x00, 0x00, 0x00, 0x62, 0x0a, 0x72, 0x6e, 0xf0, 0x00, 0x00, 0x00, 0x2e, 
-                    0x53, 0xcc, 0xe6, 0xcc, 0x00, 0x00, 0x00, 0x05, 0xfa, 0xbe, 0xd3, 0xa5, 0x00, 0x00, 0x00, 0x5f, 
-                    0x24, 0x57, 0x42, 0x5c, 0x00, 0x00, 0x00, 0x00, 0xb7, 0x14, 0xf7, 0x53, 0x00, 0x00, 0x00, 0x02,   
-                };
-			aClass120_Sub7_1072 = new Buffer(keys.length);
-            for(int key : keys) {
-            	aClass120_Sub7_1072.putByte(key);
-            }
-            aClass53_Sub1Array1074 = new Class53_Sub1[(-5 + aClass120_Sub7_1072.buf.length) / 8];
-			return true;
-		}
+	final boolean method986() {
 		if (aClass120_Sub7_1072 != null) {
 			return true;
 		}
@@ -82,13 +57,13 @@ final class Class112 {
 			if (aClass45_1071.method357()) {
 				return false;
 			}
-			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, -24559, 255);
+			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, 255);
 		}
 		if (aClass120_Sub14_Sub14_Sub2_1073.aBoolean3576) {
 			return false;
 		}
-		aClass120_Sub7_1072 = new Buffer(aClass120_Sub14_Sub14_Sub2_1073.method1535((byte) -90));
-		aClass53_Sub1Array1074 = new Class53_Sub1[(aClass120_Sub7_1072.buf.length + -5) / 8];
+		aClass120_Sub7_1072 = new Buffer(aClass120_Sub14_Sub14_Sub2_1073.getBuffer());
+		aClass53_Sub1Array1074 = new Class53_Sub1[(aClass120_Sub7_1072.buf.length - 5) / 8];
 		return true;
 	}
 
@@ -176,31 +151,22 @@ final class Class112 {
 		Class120_Sub14_Sub13.runesId = js5.method432("runes");
 	}
 
-	private final Class53_Sub1 method991(final FileSystem fileSystem, final byte i, final FileSystem class51_17_, final boolean bool, final int i_18_) {
-		Class53_Sub1 class53_sub1;
-		try {
-			if (aClass120_Sub7_1072 == null) {
-				throw new RuntimeException();
-			}
-			aClass120_Sub7_1072.pos = 5 + i_18_ * 8;
-			if (aClass120_Sub7_1072.buf.length <= aClass120_Sub7_1072.pos) {
-				throw new RuntimeException();
-			}
-			if (aClass53_Sub1Array1074[i_18_] != null) {
-				return aClass53_Sub1Array1074[i_18_];
-			}
-			final int i_19_ = aClass120_Sub7_1072.getInt();
-			final int i_20_ = aClass120_Sub7_1072.getInt();
-			if (i != -75) {
-				getRunesSpriteId(null);
-			}
-			final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(i_18_, class51_17_, fileSystem, aClass45_1071, aClass83_1068, i_19_, i_20_, bool);
-			aClass53_Sub1Array1074[i_18_] = class53_sub1_21_;
-			class53_sub1 = class53_sub1_21_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mg.G(").append(fileSystem != null ? "{...}" : "null").append(',').append(i).append(',').append(class51_17_ != null ? "{...}" : "null").append(',').append(bool).append(',').append(i_18_).append(')').toString());
+	private final Class53_Sub1 method991(final FileSystem fileSystem, final FileSystem class51_17_, final boolean bool, final int i_18_) {
+		if (aClass120_Sub7_1072 == null) {
+			throw new RuntimeException();
 		}
-		return class53_sub1;
+		aClass120_Sub7_1072.pos = 5 + i_18_ * 8;
+		if (aClass120_Sub7_1072.buf.length <= aClass120_Sub7_1072.pos) {
+			throw new RuntimeException();
+		}
+		if (aClass53_Sub1Array1074[i_18_] != null) {
+			return aClass53_Sub1Array1074[i_18_];
+		}
+		final int i_19_ = aClass120_Sub7_1072.getInt();
+		final int i_20_ = aClass120_Sub7_1072.getInt();
+		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(i_18_, class51_17_, fileSystem, aClass45_1071, aClass83_1068, i_19_, i_20_, bool);
+		aClass53_Sub1Array1074[i_18_] = class53_sub1_21_;
+		return class53_sub1_21_;
 	}
 
 	static final Class120_Sub14_Sub5 method992(final int i) {
@@ -231,7 +197,7 @@ final class Class112 {
 			if (i_24_ > -15) {
 				return null;
 			}
-			class53_sub1 = method991(fileSystem, (byte) -75, class51_23_, true, i);
+			class53_sub1 = method991(fileSystem, class51_23_, true, i);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("mg.B(").append(fileSystem != null ? "{...}" : "null").append(',').append(class51_23_ != null ? "{...}" : "null").append(',').append(i).append(',').append(i_24_).append(')').toString());
 		}
@@ -242,7 +208,7 @@ final class Class112 {
 		aClass45_1071 = class45;
 		aClass83_1068 = class83;
 		if (!aClass45_1071.method357()) {
-			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, -24559, 255);
+			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, 255);
 		}
 	}
 }

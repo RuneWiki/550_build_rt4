@@ -199,16 +199,9 @@ final class Class83 implements Runnable {
 		return class120_sub14_sub14_sub1;
 	}
 
-	static final void b(final int i) {
-		try {
-			if (i != -22906) {
-				localPlayerCount = -27;
-			}
-			KeyboardHandler.aClass21_1504.clearSoftReference();
-			SceneGraphNode.aClass21_1781.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ja.C(").append(i).append(')').toString());
-		}
+	static final void b() {
+		KeyboardHandler.aClass21_1504.clearSoftReference();
+		SceneGraphNode.aClass21_1781.clearSoftReference();
 	}
 
 	static final void a(final int i, final byte i_10_, final int i_11_) {

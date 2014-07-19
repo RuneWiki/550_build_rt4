@@ -22,7 +22,7 @@ final class MouseRecorder implements Runnable {
 		try {
 			if (i_3_ > 65) {
 				Class69_Sub1.anInt2229 = i_2_;
-				Class180_Sub4.anInt2955 = i_4_;
+				Projectile.anInt2955 = i_4_;
 				Class120_Sub12_Sub27.anInt3353 = i_1_;
 				Class145.anInt1382 = i;
 				Class120_Sub14_Sub13.anInt3571 = i_0_;
@@ -73,17 +73,6 @@ final class MouseRecorder implements Runnable {
 		AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked = i_10_;
 		GroundTile.selectedSpellUseMask = i;
 		InterfaceClickMask.redrawInterface(jagexInterface);
-	}
-
-	static final void method764(final int i, final int i_12_) {
-		try {
-			if (i_12_ != 3) {
-				method762((byte) 113);
-			}
-			IdentityKit.recentUse.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jm.A(").append(i).append(',').append(i_12_).append(')').toString());
-		}
 	}
 
 	public MouseRecorder() {

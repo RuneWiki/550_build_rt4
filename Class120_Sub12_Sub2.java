@@ -8,8 +8,8 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	private int anInt3140 = 4096;
 	private final int[] anIntArray3141;
 	private int anInt3142 = 4096;
-	static Cache aClass21_3143 = new Cache(20);
-	static Cache aClass21_3144 = new Cache(4);
+	static ObjectCache aClass21_3143 = new ObjectCache(20);
+	static ObjectCache aClass21_3144 = new ObjectCache(4);
 	static int anInt3145;
 	static long lastClickTime = 0L;
 
@@ -94,52 +94,45 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_19_) {
+	final void decode(final Buffer buffer, final int i_19_) {
 		do {
-			try {
-				final int i_20_ = i_19_;
-				while_124_: do {
-					while_123_: do {
-						while_122_: do {
-							do {
-								if (i_20_ != 0) {
-									if (i_20_ != 1) {
-										if (i_20_ != 2) {
-											if (i_20_ != 3) {
-												if (i_20_ == 4) {
-													break while_123_;
-												}
-												break while_124_;
+			final int i_20_ = i_19_;
+			while_124_: do {
+				while_123_: do {
+					while_122_: do {
+						do {
+							if (i_20_ != 0) {
+								if (i_20_ != 1) {
+									if (i_20_ != 2) {
+										if (i_20_ != 3) {
+											if (i_20_ == 4) {
+												break while_123_;
 											}
-										} else {
-											break;
+											break while_124_;
 										}
-										break while_122_;
+									} else {
+										break;
 									}
-								} else {
-									anInt3138 = class120_sub7.getUShort();
-									break while_124_;
+									break while_122_;
 								}
-								anInt3142 = class120_sub7.getUShort();
+							} else {
+								anInt3138 = buffer.getUShort();
 								break while_124_;
-							} while (false);
-							anInt3139 = class120_sub7.getUShort();
+							}
+							anInt3142 = buffer.getUShort();
 							break while_124_;
 						} while (false);
-						anInt3140 = class120_sub7.getUShort();
+						anInt3139 = buffer.getUShort();
 						break while_124_;
 					} while (false);
-					final int i_21_ = class120_sub7.getMedium();
-					anIntArray3141[0] = Class120_Sub12_Sub3.method1207(i_21_ << 4, 267386880);
-					anIntArray3141[2] = Class120_Sub12_Sub3.method1207(255, i_21_) >> 12;
-					anIntArray3141[1] = Class120_Sub12_Sub3.method1207(4080, i_21_ >> 4);
+					anInt3140 = buffer.getUShort();
+					break while_124_;
 				} while (false);
-				if (i != -43) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("bl.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_19_).append(')').toString());
-			}
+				final int i_21_ = buffer.getMedium();
+				anIntArray3141[0] = Class120_Sub12_Sub3.method1207(i_21_ << 4, 267386880);
+				anIntArray3141[2] = Class120_Sub12_Sub3.method1207(255, i_21_) >> 12;
+				anIntArray3141[1] = Class120_Sub12_Sub3.method1207(4080, i_21_ >> 4);
+			} while (false);
 		} while (false);
 	}
 

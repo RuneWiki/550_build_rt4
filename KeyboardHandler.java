@@ -9,18 +9,18 @@ import java.math.BigInteger;
 
 final class KeyboardHandler implements KeyListener, FocusListener {
 	static int[] anIntArray1503;
-	static Cache aClass21_1504 = new Cache(64);
+	static ObjectCache aClass21_1504 = new ObjectCache(64);
 	static BigInteger aBigInteger1505 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
 	static int[] anIntArray1506;
 	static int anInt1507 = 0;
-	static AbstractSprite aClass120_Sub14_Sub19_1508;
+	static AbstractSprite titlebgSprite;
 
 	public static void method2101(final int i) {
 		try {
 			anIntArray1503 = null;
 			anIntArray1506 = null;
 			aBigInteger1505 = null;
-			aClass120_Sub14_Sub19_1508 = null;
+			titlebgSprite = null;
 			aClass21_1504 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.A(").append(i).append(')').toString());

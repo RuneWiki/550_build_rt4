@@ -3,7 +3,7 @@
  */
 
 class Class108_Sub3 extends Class108 {
-	static int anInt2395 = 1;
+	static int worldPos = 1;
 	static String aString2396 = "Mechscape is loading - please wait...";
 	static boolean highDetailTextures;
 	Class108_Sub3 aClass108_Sub3_2398;

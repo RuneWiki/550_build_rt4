@@ -48,7 +48,7 @@ final class Class120_Sub14_Sub5 extends NodeSub {
 			}
 			KeyboardHandler.anIntArray1506 = new int[i_9_];
 			if (i > -117) {
-				method1442((byte) -58, 109, -113, 39);
+				method1442(109, -113, 39);
 			}
 			for (int i_11_ = 0; i_9_ > i_11_; i_11_++) {
 				KeyboardHandler.anIntArray1506[i_11_] = is[i_11_];
@@ -58,28 +58,19 @@ final class Class120_Sub14_Sub5 extends NodeSub {
 		}
 	}
 
-	static final int method1442(final byte i, final int i_12_, int i_13_, final int i_14_) {
-		int i_15_;
-		try {
-			if (i != -123) {
-				anInt3479 = -28;
+	static final int method1442(final int i_12_, int i_13_, final int i_14_) {
+		if (i_14_ <= 243) {
+			if (i_14_ > 217) {
+				i_13_ >>= 3;
+			} else if (i_14_ > 192) {
+				i_13_ >>= 2;
+			} else if (i_14_ > 179) {
+				i_13_ >>= 1;
 			}
-			if (i_14_ <= 243) {
-				if (i_14_ > 217) {
-					i_13_ >>= 3;
-				} else if (i_14_ > 192) {
-					i_13_ >>= 2;
-				} else if (i_14_ > 179) {
-					i_13_ >>= 1;
-				}
-			} else {
-				i_13_ >>= 4;
-			}
-			i_15_ = (i_14_ >> 1) + (i_13_ >> 5 << 7) + (i_12_ >> 2 << 10);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fg.C(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
+		} else {
+			i_13_ >>= 4;
 		}
-		return i_15_;
+		return (i_14_ >> 1) + (i_13_ >> 5 << 7) + (i_12_ >> 2 << 10);
 	}
 
 	public Class120_Sub14_Sub5() {

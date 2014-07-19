@@ -54,12 +54,12 @@ final class Class120_Sub29 extends Node {
 	}
 
 	static final void receiveRegionData(final boolean bool) {
-		Class134.aBoolean1282 = bool;
-		if (Class134.aBoolean1282) {
-			final int i_4_ = Canvas_Sub1.inputStream.getULEShortA();
-			final int i_5_ = Canvas_Sub1.inputStream.getUShortA();
-			final int i_6_ = Canvas_Sub1.inputStream.getULEShort();
-			Canvas_Sub1.inputStream.method1144(-2);
+		Class134.dynamicMapRegion = bool;
+		if (Class134.dynamicMapRegion) {
+			final int playerZ = Canvas_Sub1.inputStream.getULEShortA();
+			final int baseZ = Canvas_Sub1.inputStream.getUShortA();
+			final int baseX = Canvas_Sub1.inputStream.getULEShort();
+			Canvas_Sub1.inputStream.startBitAccess();
 			for (int i_7_ = 0; i_7_ < 4; i_7_++) {
 				for (int i_8_ = 0; i_8_ < 13; i_8_++) {
 					for (int i_9_ = 0; i_9_ < 13; i_9_++) {
@@ -72,17 +72,17 @@ final class Class120_Sub29 extends Node {
 					}
 				}
 			}
-			Canvas_Sub1.inputStream.method1146();
-			int i_11_ = (-Canvas_Sub1.inputStream.pos + AbstractMouseWheelHandler.packetSize) / 16;
+			Canvas_Sub1.inputStream.endBitAccess();
+			int i_11_ = (AbstractMouseWheelHandler.packetSize - Canvas_Sub1.inputStream.pos) / 16;
 			Class125.anIntArrayArray2150 = new int[i_11_][4];
 			for (int i_12_ = 0; i_11_ > i_12_; i_12_++) {
 				for (int i_13_ = 0; i_13_ < 4; i_13_++) {
-					Class125.anIntArrayArray2150[i_12_][i_13_] = Canvas_Sub1.inputStream.method1089();
+					Class125.anIntArrayArray2150[i_12_][i_13_] = Canvas_Sub1.inputStream.getInt2();
 				}
 			}
-			final int i_14_ = Canvas_Sub1.inputStream.getUShort();
-			final boolean bool_15_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.inputStream.getUByteS());
-			final int i_16_ = Canvas_Sub1.inputStream.getUByteA();
+			final int playerX = Canvas_Sub1.inputStream.getUShort();
+			final boolean bool_15_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
+			final int level = Canvas_Sub1.inputStream.getUByteA();
 			Class76.anIntArray680 = new int[i_11_];
 			Class179.aByteArrayArray1777 = null;
 			Class120_Sub12_Sub36.aByteArrayArray3421 = new byte[i_11_][];
@@ -123,9 +123,9 @@ final class Class120_Sub29 extends Node {
 					}
 				}
 			}
-			Class2.method76(false, i_6_, bool_15_, i_4_, i_14_, i_5_, i_16_);
+			Class2.method76(false, baseX, bool_15_, playerZ, playerX, baseZ, level);
 		} else {
-			final boolean bool_27_ = Class180_Sub4.method2318((byte) 25, Canvas_Sub1.inputStream.getUByteS());
+			final boolean bool_27_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
 			final int i_28_ = Canvas_Sub1.inputStream.getUShort();
 			int i_29_ = (-Canvas_Sub1.inputStream.pos + AbstractMouseWheelHandler.packetSize) / 16;
 			Class125.anIntArrayArray2150 = new int[i_29_][4];
@@ -180,14 +180,8 @@ final class Class120_Sub29 extends Node {
 		}
 	}
 
-	static final int method1728(final int i, final int i_40_) {
-		int i_41_;
-		try {
-			i_41_ = i & 0x3ff;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ta.A(").append(i).append(',').append(i_40_).append(')').toString());
-		}
-		return i_41_;
+	static final int method1728(final int i) {
+		return i & 0x3ff;
 	}
 
 	public static void method1729(final int i) {

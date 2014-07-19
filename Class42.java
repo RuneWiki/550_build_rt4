@@ -50,36 +50,27 @@ final class Class42 {
 							class180_sub5_sub2.anInt3032 = 0;
 						}
 						class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
-						class180_sub5_sub2.method2323(i_11_, class180_sub5_sub2.getSize(), i_9_, true);
+						class180_sub5_sub2.method2323(i_9_, i_11_, class180_sub5_sub2.getSize(), true);
 					}
 				}
 			}
 		}
 	}
 
-	static final AbstractSprite method337(final byte i) {
-		AbstractSprite class120_sub14_sub19;
-		try {
-			final int i_12_ = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
-			if (i != 104) {
-				currentMousePress = 112;
-			}
-			final byte[] is = Class145.spritePaletteIndicators[0];
-			final int[] is_13_ = new int[i_12_];
-			for (int i_14_ = 0; i_12_ > i_14_; i_14_++) {
-				is_13_[i_14_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(is[i_14_], 255)];
-			}
-			AbstractSprite class120_sub14_sub19_15_;
-			if (HDToolkit.glEnabled) {
-				class120_sub14_sub19_15_ = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
-			} else {
-				class120_sub14_sub19_15_ = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], is_13_);
-			}
-			Class53_Sub1.resetSpriteInfo();
-			class120_sub14_sub19 = class120_sub14_sub19_15_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ek.B(").append(i).append(')').toString());
+	static final AbstractSprite constructAbstractSprite() {
+		final int pixelLen = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
+		final byte[] indicators = Class145.spritePaletteIndicators[0];
+		final int[] pixels = new int[pixelLen];
+		for (int id = 0; id < pixelLen; id++) {
+			pixels[id] = Class132_Sub1.spritePalette[indicators[id] & 0xff];
 		}
-		return class120_sub14_sub19;
+		AbstractSprite abstractSprite;
+		if (HDToolkit.glEnabled) {
+			abstractSprite = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
+		} else {
+			abstractSprite = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
+		}
+		Class53_Sub1.resetSpriteInfo();
+		return abstractSprite;
 	}
 }

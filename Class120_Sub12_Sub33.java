@@ -99,80 +99,68 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			method1376(-1);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		method1376(-1);
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_10_) {
-		try {
-			final int i_11_ = i_10_;
-			while_144_: do {
-				while_143_: do {
-					while_142_: do {
-						while_141_: do {
-							while_140_: do {
-								while_139_: do {
-									do {
-										if (i_11_ != 0) {
-											if (i_11_ != 1) {
-												if (i_11_ != 2) {
-													if (i_11_ != 3) {
-														if (i_11_ != 4) {
-															if (i_11_ != 5) {
-																if (i_11_ != 6) {
-																	if (i_11_ != 7) {
-																		break while_144_;
-																	}
-																} else {
-																	break while_142_;
+	final void decode(final Buffer buffer, final int i_11_) {
+		while_144_: do {
+			while_143_: do {
+				while_142_: do {
+					while_141_: do {
+						while_140_: do {
+							while_139_: do {
+								do {
+									if (i_11_ != 0) {
+										if (i_11_ != 1) {
+											if (i_11_ != 2) {
+												if (i_11_ != 3) {
+													if (i_11_ != 4) {
+														if (i_11_ != 5) {
+															if (i_11_ != 6) {
+																if (i_11_ != 7) {
+																	break while_144_;
 																}
-																break while_143_;
+															} else {
+																break while_142_;
 															}
-														} else {
-															break while_140_;
+															break while_143_;
 														}
-														break while_141_;
+													} else {
+														break while_140_;
 													}
-												} else {
-													break;
+													break while_141_;
 												}
-												break while_139_;
+											} else {
+												break;
 											}
-										} else {
-											anInt3398 = class120_sub7.getUByte();
-											break while_144_;
+											break while_139_;
 										}
-										anInt3390 = class120_sub7.getUByte();
+									} else {
+										anInt3398 = buffer.getUByte();
 										break while_144_;
-									} while (false);
-									anInt3400 = class120_sub7.getUShort();
+									}
+									anInt3390 = buffer.getUByte();
 									break while_144_;
 								} while (false);
-								anInt3408 = class120_sub7.getUShort();
+								anInt3400 = buffer.getUShort();
 								break while_144_;
 							} while (false);
-							anInt3397 = class120_sub7.getUShort();
+							anInt3408 = buffer.getUShort();
 							break while_144_;
 						} while (false);
-						anInt3399 = class120_sub7.getUShort();
+						anInt3397 = buffer.getUShort();
 						break while_144_;
 					} while (false);
-					anInt3389 = class120_sub7.getUShort();
+					anInt3399 = buffer.getUShort();
 					break while_144_;
 				} while (false);
-				anInt3396 = class120_sub7.getUShort();
+				anInt3389 = buffer.getUShort();
+				break while_144_;
 			} while (false);
-			if (i != -43) {
-				anInt3404 = -71;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_10_).append(')').toString());
-		}
+			anInt3396 = buffer.getUShort();
+		} while (false);
 	}
 
 	@Override

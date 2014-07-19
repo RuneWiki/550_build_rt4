@@ -30,50 +30,44 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		}
 	}
 
-	static final void method1739(final boolean bool, final byte i) {
-		try {
-			Class90.anInt848 = 0;
-			Class73.aClass105_653 = null;
-			Class79.aByteArrayArrayArray707 = null;
-			if (!bool || Class79.aClass120_Sub14_Sub22_691 == null) {
-				Class85.anInt802 = -1;
-			} else {
-				Class85.anInt802 = Class79.aClass120_Sub14_Sub22_691.anInt3634;
-			}
-			Class142.aClass189_1362 = null;
-			Class79.anIntArray715 = null;
-			Class79.anIntArrayArrayArray702 = null;
-			Class79.aByteArrayArrayArray703 = null;
-			Class79.aByteArrayArrayArray711 = null;
-			Class79.anIntArrayArrayArray713 = null;
-			Class79.aByteArrayArrayArray706 = null;
-			if (i == -93) {
-				Class79.aByteArrayArrayArray710 = null;
-				Class79.aClass120_Sub14_Sub22_691 = null;
-				Class79.aClass177_690.clear();
-				Class112.aClass98_1070 = null;
-				OverridedJInterface.aClass98_2739 = null;
-				Class120_Sub14_Sub14_Sub1.aClass98_3929 = null;
-				Class124.aClass98_1201 = null;
-				PlayerAppearance.aClass98_1373 = null;
-				Class116.aClass120_Sub14_Sub19_1114 = null;
-				CanvasWrapper.anInt20 = -1;
-				Class79.aClass137_693 = null;
-				World.aClass98_2833 = null;
-				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
-				Class110.aClass98_1052 = null;
-				Class92.aClass98_863 = null;
-				Class120_Sub2.anInt2422 = -1;
-				Class120_Sub16.method1658(i ^ 0x3a);
-				Class22.aClass127_130 = null;
-				Class86.aClass75_823 = null;
-				Class81.aClass75_777 = null;
-				Class43.method338(128, 64, -61);
-				Class52.method453(64, (byte) 119);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bn.C(").append(bool).append(',').append(i).append(')').toString());
+	static final void method1739(final boolean bool) {
+		Class90.anInt848 = 0;
+		Class73.aClass105_653 = null;
+		Class79.aByteArrayArrayArray707 = null;
+		if (!bool || Class79.aClass120_Sub14_Sub22_691 == null) {
+			HintIcon.anInt802 = -1;
+		} else {
+			HintIcon.anInt802 = Class79.aClass120_Sub14_Sub22_691.anInt3634;
 		}
+		Class142.aClass189_1362 = null;
+		Class79.anIntArray715 = null;
+		Class79.anIntArrayArrayArray702 = null;
+		Class79.aByteArrayArrayArray703 = null;
+		Class79.aByteArrayArrayArray711 = null;
+		Class79.anIntArrayArrayArray713 = null;
+		Class79.aByteArrayArrayArray706 = null;
+		Class79.aByteArrayArrayArray710 = null;
+		Class79.aClass120_Sub14_Sub22_691 = null;
+		Class79.aClass177_690.clear();
+		Class112.aClass98_1070 = null;
+		OverridedJInterface.aClass98_2739 = null;
+		Class120_Sub14_Sub14_Sub1.aClass98_3929 = null;
+		Class124.aClass98_1201 = null;
+		PlayerAppearance.aClass98_1373 = null;
+		Class116.aClass120_Sub14_Sub19_1114 = null;
+		CanvasWrapper.anInt20 = -1;
+		Class79.aClass137_693 = null;
+		World.aClass98_2833 = null;
+		Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
+		Class110.aClass98_1052 = null;
+		Class92.aClass98_863 = null;
+		Class120_Sub2.anInt2422 = -1;
+		Class120_Sub16.method1658();
+		Class22.aClass127_130 = null;
+		Class86.aClass75_823 = null;
+		Class81.aClass75_777 = null;
+		Class43.method338(128, 64, -61);
+		Class52.method453(64, (byte) 119);
 	}
 
 	@Override
@@ -240,7 +234,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	public static void method1742(final int i) {
 		try {
 			if (i != 1970740129) {
-				method1739(false, (byte) 82);
+				method1739(false);
 			}
 			aShortArrayArray3668 = null;
 		} catch (final RuntimeException runtimeexception) {

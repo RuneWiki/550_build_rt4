@@ -14,7 +14,7 @@ final class IdentityKit {
 	static int anInt1334 = 100;
 	private final int[] headModels = { -1, -1, -1, -1, -1 };
 	int partId = -1;
-	static Cache recentUse = new Cache(64);
+	static ObjectCache recentUse = new ObjectCache(64);
 	static Class191[][] aClass191ArrayArray1337;
 
 	public static void method1983(final int i) {
@@ -222,7 +222,7 @@ final class IdentityKit {
 				float f = 0.0F;
 				if (HDToolkit.glEnabled) {
 					if (Class24.anIntArrayArrayArray140 == OverridedJInterface.anIntArrayArrayArray2741) {
-						final int i_31_ = Class35.anIntArrayArray300[i][i_28_];
+						final int i_31_ = NodeCache.anIntArrayArray300[i][i_28_];
 						final int i_32_ = i_31_ & 0xffffff;
 						if (i_32_ != Class120_Sub12_Sub19.anInt3281) {
 							Class120_Sub12_Sub19.anInt3281 = i_32_;
@@ -251,7 +251,7 @@ final class IdentityKit {
 								continue;
 							}
 						}
-						if (i <= Class120_Sub12_Sub26.anInt3332 && i > Class160.anInt1493) {
+						if (i <= Class120_Sub12_Sub26.anInt3332 && i > GrandExchangeObject.anInt1493) {
 							final GroundTile class120_sub18_36_ = class120_sub18s[i - 1][i_28_];
 							if (class120_sub18_36_ != null && class120_sub18_36_.aBoolean2624 && (class120_sub18_36_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x1) == 0)) {
 								continue;
@@ -327,7 +327,7 @@ final class IdentityKit {
 					if (class120_sub18_27_.aClass141_2626 != null) {
 						if (!Class69_Sub1.method618(i_30_, i, i_28_)) {
 							bool_42_ = true;
-							if (class120_sub18_27_.aClass141_2626.anInt1351 != 12345678 || Class120_Sub12_Sub7.aBoolean3181 && i_29_ <= Class180_Sub4.anInt2933) {
+							if (class120_sub18_27_.aClass141_2626.anInt1351 != 12345678 || Class120_Sub12_Sub7.aBoolean3181 && i_29_ <= Projectile.anInt2933) {
 								Class132_Sub2.method1942(class120_sub18_27_.aClass141_2626, i_30_, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, Class73.anInt637, i, i_28_, false);
 							}
 						} else {
@@ -649,7 +649,7 @@ final class IdentityKit {
 							}
 							final Class28 class28 = Class39.aClass28Array323[i_73_];
 							class28.anInt173 = Class120_Sub12_Sub9.anInt3193;
-							if (!Class85.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.aClass180_174.getMaxY())) {
+							if (!HintIcon.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.aClass180_174.getMaxY())) {
 								if (HDToolkit.glEnabled) {
 									if ((class28.bitPacked & 0xfc000L) == 147456L) {
 										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
@@ -830,7 +830,7 @@ final class IdentityKit {
 					}
 				}
 				if (class120_sub18_27_.aBoolean2624 && class120_sub18_27_.anInt2633 == 0) {
-					if (i <= Class120_Sub12_Sub26.anInt3332 && i > Class160.anInt1493) {
+					if (i <= Class120_Sub12_Sub26.anInt3332 && i > GrandExchangeObject.anInt1493) {
 						final GroundTile class120_sub18_115_ = class120_sub18s[i - 1][i_28_];
 						if (class120_sub18_115_ != null && class120_sub18_115_.aBoolean2624) {
 							continue;
@@ -1017,8 +1017,8 @@ final class IdentityKit {
 							final SeqType seqType = SeqType.list(animation);
 							if (seqType != null) {
 								jagexInterface.frameDelay += Class120_Sub12_Sub22.redrawRate;
-								while (jagexInterface.frameDelay > seqType.cycles[jagexInterface.currentFrame]) {
-									jagexInterface.frameDelay -= seqType.cycles[jagexInterface.currentFrame];
+								while (jagexInterface.frameDelay > seqType.delays[jagexInterface.currentFrame]) {
+									jagexInterface.frameDelay -= seqType.delays[jagexInterface.currentFrame];
 									jagexInterface.currentFrame++;
 									if (jagexInterface.currentFrame >= seqType.frames.length) {
 										jagexInterface.currentFrame -= seqType.padding;

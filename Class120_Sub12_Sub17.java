@@ -122,33 +122,25 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_17_) {
-		try {
-			final int i_18_ = i_17_;
-			while_171_: do {
-				do {
-					if (i_18_ != 0) {
-						if (i_18_ != 1) {
-							if (i_18_ == 2) {
-								break;
-							}
-							break while_171_;
+	final void decode(final Buffer buffer, final int i_18_) {
+		while_171_: do {
+			do {
+				if (i_18_ != 0) {
+					if (i_18_ != 1) {
+						if (i_18_ == 2) {
+							break;
 						}
-					} else {
-						anInt3265 = class120_sub7.getShort();
 						break while_171_;
 					}
-					anInt3268 = (class120_sub7.getByte() << 12) / 100;
+				} else {
+					anInt3265 = buffer.getShort();
 					break while_171_;
-				} while (false);
-				anInt3262 = (class120_sub7.getByte() << 12) / 100;
+				}
+				anInt3268 = (buffer.getByte() << 12) / 100;
+				break while_171_;
 			} while (false);
-			if (i != -43) {
-				method1283(-95);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_17_).append(')').toString());
-		}
+			anInt3262 = (buffer.getByte() << 12) / 100;
+		} while (false);
 	}
 
 	public Class120_Sub12_Sub17() {

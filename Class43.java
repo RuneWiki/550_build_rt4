@@ -6,48 +6,25 @@ final class Class43 {
 	static boolean usingJavaAbove5;
 	static byte[][] aByteArrayArray365;
 	static int[] anIntArray366 = new int[1000];
-	static Cache playerModelsCache;
+	static ObjectCache playerModelsCache;
 	static int anInt368;
 
 	static {
 		aByteArrayArray365 = new byte[50][];
 		usingJavaAbove5 = false;
-		playerModelsCache = new Cache(260);
+		playerModelsCache = new ObjectCache(260);
 	}
 
 	static final void method338(final int i, final int i_0_, final int i_1_) {
 		try {
-			Class120_Sub12_Sub14.aClass21_3238 = new Cache(i);
-			Class82.aClass21_786 = new Cache(i_0_);
+			Class73.recentUse = new ObjectCache(i);
+			Class82.aClass21_786 = new ObjectCache(i_0_);
 			if (i_1_ > -35) {
 				method344((byte) -118);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("el.I(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
 		}
-	}
-
-	static final Class27 method339(final int i, final int i_2_) {
-		Class27 class27;
-		try {
-			Class27 class27_3_ = (Class27) ParamType.aClass21_3541.get(i);
-			if (class27_3_ != null) {
-				return class27_3_;
-			}
-			if (i_2_ != -9609) {
-				method343(73, 82, 7, 41, 6, 111, 24, -14);
-			}
-			final byte[] is = Class180_Sub6.aClass50_3056.getFile(Class101_Sub1.method841(i_2_ ^ ~0x25ab, i), Class120_Sub29.method1728(i, i_2_ ^ 0x25ca));
-			class27_3_ = new Class27();
-			if (is != null) {
-				class27_3_.method237(new Buffer(is), (byte) 58);
-			}
-			ParamType.aClass21_3541.put(class27_3_, i);
-			class27 = class27_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("el.G(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return class27;
 	}
 
 	static final void method340(final int i) {
@@ -57,17 +34,6 @@ final class Class43 {
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("el.F(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method341(final int i, final int i_4_) {
-		try {
-			if (i_4_ != -1) {
-				method340(-128);
-			}
-			Class120_Sub12_Sub35.aClass21_3411.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("el.E(").append(i).append(',').append(i_4_).append(')').toString());
 		}
 	}
 
@@ -129,6 +95,6 @@ final class Class43 {
 			class167_sub1.ip = buffer.getJagexString();
 		}
 		Class96.anInt900 = buffer.getInt();
-		Class159.aBoolean1487 = true;
+		Class159.worldsLoaded = true;
 	}
 }

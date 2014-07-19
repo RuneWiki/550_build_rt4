@@ -45,11 +45,11 @@ final class AmbientSound extends Node {
 		Class120_Sub11.aString2554 = "Chargement des param\u00e8tres par d\u00e9faut - ";
 		Class174.aString1733 = "comp\u00e9tence ";
 		Class120_Sub3.aString2424 = "classement ";
-		Class85.aString807 = "ondulation:";
+		HintIcon.aString807 = "ondulation:";
 		Class120_Sub14_Sub23.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
 		Class116.aString1116 = "Connexion perdue.";
 		Class5.aString2153 = "Fermer";
-		Class120_Sub13.aString2578 = " de votre liste noire.";
+		ClanMember.aString2578 = " de votre liste noire.";
 		DisplayModeInfo.aString1708 = "Monde de jeu cr\u00e9\u00e9";
 		Class11.aString82 = "Connect\u00e9 au serveur de mise \u00e0 jour";
 		Class120_Sub12_Sub1.aString3132 = "Atteindre";
@@ -108,7 +108,7 @@ final class AmbientSound extends Node {
 		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
 		Class143.selectString = "S\u00e9lectionner";
 		Class54.aString489 = " de votre liste d'amis.";
-		Class120_Sub13.aString2574 = "blanc:";
+		ClanMember.aString2574 = "blanc:";
 		Class36.aString313 = "Chargement en cours...";
 		Class120_Sub11.aString2552 = "\u00c9cran-titre ouvert";
 		Class120_Sub12_Sub30.aString3371 = "Chargement des textures - ";
@@ -180,21 +180,15 @@ final class AmbientSound extends Node {
 		}
 	}
 
-	static final void method1158(final int i, final byte i_2_, final int i_3_) {
-		try {
-			if (client.cameraType == 2) {
-				Class128.renderPitch = i;
-				Class180_Sub3.renderYaw = i_3_;
-			}
-			DummyOutputStream.aFloat28 = i_3_;
-			Class120_Sub12_Sub21.aFloat3293 = i;
-			if (i_2_ == 125) {
-				Class127.method1892();
-				Class118.aBoolean1134 = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gn.A(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+	static final void method1158(final int i, final int i_3_) {
+		if (client.cameraType == 2) {
+			OverlayType.renderPitch = i;
+			Class180_Sub3.renderYaw = i_3_;
 		}
+		DummyOutputStream.aFloat28 = i_3_;
+		Class120_Sub12_Sub21.aFloat3293 = i;
+		Class127.method1892();
+		Class118.aBoolean1134 = true;
 	}
 
 	static final void method1159() {

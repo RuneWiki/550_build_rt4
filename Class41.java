@@ -152,7 +152,7 @@ final class Class41 {
 						aClass97Array357[anInt353++] = class97;
 					}
 				}
-				Class57.method495(anInt353 - 1, aClass97Array357, 0, -80, is);
+				Class57.sortArray(anInt353 - 1, aClass97Array357, 0, is);
 			}
 		}
 	}

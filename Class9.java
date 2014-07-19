@@ -101,7 +101,7 @@ final class Class9 {
 			if (!class73.method647()) {
 				return false;
 			}
-			if (Class86.aClass75_823.get(class73.anInt658) != null) {
+			if (Class86.aClass75_823.get(class73.id) != null) {
 				return false;
 			}
 			if (Class81.aClass75_777.get(class73.anInt652) != null) {

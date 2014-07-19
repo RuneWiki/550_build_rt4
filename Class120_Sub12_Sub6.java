@@ -92,7 +92,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 				class120_sub14_sub19_sub2_8_.method1587(0, 0);
 			}
 			if (bool && (objType.stackable == 1 || i_0_ != 1) && i_0_ != -1) {
-				Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(Class35.method305(-41, i_0_), 0, 9, 16776960, 1);
+				Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(NodeCache.method305(-41, i_0_), 0, 9, 16776960, 1);
 			}
 			GraphicsLD.init2dCanvas(is, i_11_, i_9_);
 			GraphicsLD.method2172(is_10_);
@@ -163,42 +163,34 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_29_) {
+	final void decode(final Buffer buffer, final int i_30_) {
 		do {
-			try {
-				final int i_30_ = i_29_;
-				while_114_: do {
-					while_113_: do {
-						do {
-							if (i_30_ != 0) {
-								if (i_30_ != 1) {
-									if (i_30_ != 2) {
-										if (i_30_ != 3) {
-											break while_114_;
-										}
-									} else {
-										break;
+			while_114_: do {
+				while_113_: do {
+					do {
+						if (i_30_ != 0) {
+							if (i_30_ != 1) {
+								if (i_30_ != 2) {
+									if (i_30_ != 3) {
+										break while_114_;
 									}
-									break while_113_;
+								} else {
+									break;
 								}
-							} else {
-								anInt3172 = class120_sub7.getUShort();
-								break while_114_;
+								break while_113_;
 							}
-							anInt3171 = class120_sub7.getUShort();
+						} else {
+							anInt3172 = buffer.getUShort();
 							break while_114_;
-						} while (false);
-						anInt3175 = class120_sub7.getUShort();
+						}
+						anInt3171 = buffer.getUShort();
 						break while_114_;
 					} while (false);
-					anInt3170 = class120_sub7.getUShort();
+					anInt3175 = buffer.getUShort();
+					break while_114_;
 				} while (false);
-				if (i != -43) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("dn.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_29_).append(')').toString());
-			}
+				anInt3170 = buffer.getUShort();
+			} while (false);
 		} while (false);
 	}
 

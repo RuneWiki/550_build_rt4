@@ -638,7 +638,7 @@ final class Class97 {
 				}
 			}
 		}
-		Class120_Sub13.fullscreenGraphics.init2dCanvas();
+		ClanMember.fullscreenGraphics.init2dCanvas();
 		GraphicsLD.method2172(anIntArray923);
 		Rasterizer.calculateByBounds();
 	}
@@ -745,7 +745,7 @@ final class Class97 {
 			} else {
 				class180_sub7_sub1.method2400(0, 0, 0, 0, -i_159_, -i_160_, 0, (i_158_ << 9) / anInt931);
 			}
-			Class120_Sub13.fullscreenGraphics.init2dCanvas();
+			ClanMember.fullscreenGraphics.init2dCanvas();
 			GraphicsLD.method2172(anIntArray923);
 			Rasterizer.calculateByBounds();
 		}

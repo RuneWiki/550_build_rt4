@@ -18,7 +18,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	static volatile int currentMouseY;
 	private int anInt3352;
 	static int anInt3353;
-	static AbstractIndexedSprite aClass107_3354;
+	static AbstractIndexedSprite logoSprite;
 
 	static {
 		aString3338 = "Checking for updates - ";
@@ -27,13 +27,9 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			aByteArray3347 = Class128.method1899(anInt3341, -29382);
-			method1341(97);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rh.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		aByteArray3347 = OverlayType.method1899(anInt3341);
+		method1341();
 	}
 
 	@Override
@@ -165,19 +161,13 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 		anInt3352 = 5;
 	}
 
-	private final void method1341(final int i) {
-		try {
-			if (i >= 17) {
-				final Random random = new Random(anInt3341);
-				aShortArray3343 = new short[512];
-				if (anInt3345 > 0) {
-					for (int i_18_ = 0; i_18_ < 512; i_18_++) {
-						aShortArray3343[i_18_] = (short) Class28.method244(random, anInt3345);
-					}
-				}
+	private final void method1341() {
+		final Random random = new Random(anInt3341);
+		aShortArray3343 = new short[512];
+		if (anInt3345 > 0) {
+			for (int i_18_ = 0; i_18_ < 512; i_18_++) {
+				aShortArray3343[i_18_] = (short) Class28.method244(random, anInt3345);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rh.S(").append(i).append(')').toString());
 		}
 	}
 
@@ -189,69 +179,61 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_22_) {
-		try {
-			final int i_23_ = i_22_;
-			while_191_: do {
-				while_190_: do {
-					while_189_: do {
-						while_188_: do {
-							while_187_: do {
-								do {
-									if (i_23_ != 0) {
-										if (i_23_ != 1) {
-											if (i_23_ != 2) {
-												if (i_23_ != 3) {
-													if (i_23_ != 4) {
-														if (i_23_ != 5) {
-															if (i_23_ == 6) {
-																break while_190_;
-															}
-															break while_191_;
+	final void decode(final Buffer buffer, final int i_23_) {
+		while_191_: do {
+			while_190_: do {
+				while_189_: do {
+					while_188_: do {
+						while_187_: do {
+							do {
+								if (i_23_ != 0) {
+									if (i_23_ != 1) {
+										if (i_23_ != 2) {
+											if (i_23_ != 3) {
+												if (i_23_ != 4) {
+													if (i_23_ != 5) {
+														if (i_23_ == 6) {
+															break while_190_;
 														}
-													} else {
-														break while_188_;
+														break while_191_;
 													}
-													break while_189_;
+												} else {
+													break while_188_;
 												}
-											} else {
-												break;
+												break while_189_;
 											}
-											break while_187_;
+										} else {
+											break;
 										}
-									} else {
-										anInt3344 = anInt3352 = class120_sub7.getUByte();
-										break while_191_;
+										break while_187_;
 									}
-									anInt3341 = class120_sub7.getUByte();
+								} else {
+									anInt3344 = anInt3352 = buffer.getUByte();
 									break while_191_;
-								} while (false);
-								anInt3345 = class120_sub7.getUShort();
+								}
+								anInt3341 = buffer.getUByte();
 								break while_191_;
 							} while (false);
-							anInt3346 = class120_sub7.getUByte();
+							anInt3345 = buffer.getUShort();
 							break while_191_;
 						} while (false);
-						anInt3340 = class120_sub7.getUByte();
+						anInt3346 = buffer.getUByte();
 						break while_191_;
 					} while (false);
-					anInt3344 = class120_sub7.getUByte();
+					anInt3340 = buffer.getUByte();
 					break while_191_;
 				} while (false);
-				anInt3352 = class120_sub7.getUByte();
+				anInt3344 = buffer.getUByte();
+				break while_191_;
 			} while (false);
-			if (i != -43) {
-				method1193((byte) -115);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rh.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_22_).append(')').toString());
-		}
+			anInt3352 = buffer.getUByte();
+		} while (false);
 	}
 
 	public static void method1343(final int i) {
 		try {
 			CursorType.spriteCache = null;
-			aClass107_3354 = null;
+			logoSprite = null;
 			aString3338 = null;
 			anIntArray3349 = null;
 			if (i <= 39) {

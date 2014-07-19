@@ -15,7 +15,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2965;
 	private int anInt2966;
 	int anInt2967;
-	int[] anIntArray2968;
+	int[] hitsValue;
 	int x;
 	int anInt2970;
 	int anInt2971;
@@ -28,7 +28,7 @@ abstract class GameEntity extends SceneGraphNode {
 	static int currentBaseX;
 	int anInt2979;
 	private boolean aBoolean2980;
-	int anInt2981;
+	int facingEntityIndex;
 	int anInt2982;
 	int anInt2983;
 	int anInt2984;
@@ -36,9 +36,9 @@ abstract class GameEntity extends SceneGraphNode {
 	boolean hasMenuAction;
 	int anInt2987;
 	ParticleEngine aClass108_Sub2_2988;
-	int anInt2989;
+	int hpBarCycle;
 	int anInt2990;
-	int[] anIntArray2991;
+	int[] hitsType;
 	boolean aBoolean2992;
 	int anInt2993;
 	private int anInt2994;
@@ -47,10 +47,10 @@ abstract class GameEntity extends SceneGraphNode {
 	boolean aBoolean2997;
 	int anInt2998;
 	int anInt2999;
-	int[] anIntArray3000;
+	int[] hitsCycle;
 	int z;
 	boolean aBoolean3002;
-	int anInt3003;
+	int faceZ;
 	int anInt3004;
 	int anInt3005;
 	int anInt3006;
@@ -63,14 +63,14 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3013;
 	private int anInt3014;
 	int anInt3015;
-	int anInt3016;
+	int faceX;
 	int anInt3017;
-	int anInt3018;
+	int maxY;
 	int anInt3019;
 	int anInt3020;
 	int anInt3021;
 	int anInt3022;
-	int anInt3024;
+	int hpBarRatio;
 	int textCycle;
 	int anInt3026;
 	int spotAnimFrameId;
@@ -95,19 +95,19 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3046;
 	Object anObject3047;
 
-	final void method2323(final int i_0_, final int size, final int i_2_, final boolean bool) {
-		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
+	final void method2323(final int x, final int z, final int size, final boolean bool) {
+		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).walkProperties == 1) {
 			this.anInt3006 = -1;
 		}
 		if (this.spotAnimId != -1) {
 			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).anInt336 == 1) {
+			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).walkProperties == 1) {
 				this.spotAnimId = -1;
 			}
 		}
 		if (!bool) {
-			final int i_3_ = i_2_ - this.walkQueueX[0];
-			final int i_4_ = i_0_ - this.walkQueueZ[0];
+			final int i_3_ = x - this.walkQueueX[0];
+			final int i_4_ = z - this.walkQueueZ[0];
 			if (i_3_ >= -8 && i_3_ <= 8 && i_4_ >= -8 && i_4_ <= 8) {
 				if (this.anInt2960 < 9) {
 					this.anInt2960++;
@@ -117,16 +117,16 @@ abstract class GameEntity extends SceneGraphNode {
 					this.walkQueueZ[i_5_] = this.walkQueueZ[i_5_ - 1];
 					this.aByteArray2973[i_5_] = this.aByteArray2973[i_5_ - 1];
 				}
-				this.walkQueueX[0] = i_2_;
+				this.walkQueueX[0] = x;
 				this.aByteArray2973[0] = (byte) 1;
-				this.walkQueueZ[0] = i_0_;
+				this.walkQueueZ[0] = z;
 				return;
 			}
 		}
 		this.anInt3031 = 0;
 		this.anInt3037 = 0;
-		this.walkQueueX[0] = i_2_;
-		this.walkQueueZ[0] = i_0_;
+		this.walkQueueX[0] = x;
+		this.walkQueueZ[0] = z;
 		this.x = this.walkQueueX[0] * 128 + 64 * size;
 		this.z = this.walkQueueZ[0] * 128 + 64 * size;
 		this.anInt2960 = 0;
@@ -150,20 +150,16 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	abstract int method2325(boolean bool);
+	abstract int method2325();
 
-	final void method2326(final int i, final int i_6_, final int i_7_, final int i_8_) {
-		try {
-			for (int i_9_ = i_6_; i_9_ < 4; i_9_++) {
-				if (i >= this.anIntArray3000[i_9_]) {
-					this.anIntArray2968[i_9_] = i_8_;
-					this.anIntArray2991[i_9_] = i_7_;
-					this.anIntArray3000[i_9_] = i - -70;
-					break;
-				}
+	final void addHit(final int damage, final int type, final int cycle) {
+		for (int id = 0; id < 4; id++) {
+			if (cycle >= this.hitsCycle[id]) {
+				this.hitsValue[id] = damage;
+				this.hitsType[id] = type;
+				this.hitsCycle[id] = cycle + 70;
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.A(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
@@ -375,11 +371,11 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	final int method2328() {
-		if (this.anInt3018 == -32768) {
+	final int getHeight() {
+		if (this.maxY == -32768) {
 			return 200;
 		}
-		return -this.anInt3018;
+		return -this.maxY;
 	}
 
 	final void method2329(final int i) {
@@ -395,12 +391,12 @@ abstract class GameEntity extends SceneGraphNode {
 	}
 
 	final void move(final int dir, final int type) {
-		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).anInt336 == 1) {
+		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).walkProperties == 1) {
 			this.anInt3006 = -1;
 		}
 		if ((this.spotAnimId ^ 0xffffffff) != 0) {
 			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).anInt336 == 1) {
+			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).walkProperties == 1) {
 				this.spotAnimId = -1;
 			}
 		}
@@ -667,7 +663,7 @@ abstract class GameEntity extends SceneGraphNode {
 	}
 
 	final Class29 method2336() {
-		final int i_85_ = method2325(false);
+		final int i_85_ = method2325();
 		if (i_85_ != -1) {
 			return Class29.list(i_85_);
 		}
@@ -708,8 +704,8 @@ abstract class GameEntity extends SceneGraphNode {
 		anInt2974 = 0;
 		anInt2966 = 0;
 		size = 1;
-		this.anInt2981 = -1;
-		this.anIntArray2991 = new int[4];
+		this.facingEntityIndex = -1;
+		this.hitsType = new int[4];
 		this.anInt2983 = 0;
 		aBoolean2980 = false;
 		anInt2994 = 0;
@@ -741,23 +737,23 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt2964 = 0;
 		this.anInt3021 = -1;
 		this.anInt2971 = -1;
-		this.anInt3016 = 0;
+		this.faceX = 0;
 		this.spotAnimFrameId = 0;
-		this.anIntArray3000 = new int[4];
-		this.anInt3018 = -32768;
+		this.hitsCycle = new int[4];
+		this.maxY = -32768;
 		this.anInt2976 = 0;
 		anInt3039 = 0;
 		anInt3036 = 0;
 		this.anInt3017 = 0;
-		this.anIntArray2968 = new int[4];
-		this.anInt2989 = -1000;
+		this.hitsValue = new int[4];
+		this.hpBarCycle = -1000;
 		this.anInt3037 = 0;
 		this.walkQueueZ = new int[10];
 		anInt3029 = 0;
 		this.anInt3022 = 0;
 		this.anInt2990 = 0;
 		this.anInt2985 = 0;
-		this.anInt3003 = 0;
+		this.faceZ = 0;
 		this.anInt3042 = 0;
 		this.anInt3046 = 0;
 		this.anInt3044 = 0;

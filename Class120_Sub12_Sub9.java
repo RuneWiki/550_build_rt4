@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	static int anInt3193;
 	static boolean[] aBooleanArray3194 = new boolean[200];
 	static int anInt3195 = -1;
-	static Cache aClass21_3196 = new Cache(16);
+	static ObjectCache aClass21_3196 = new ObjectCache(16);
 	private boolean aBoolean3197 = true;
 	static int anInt3199 = 0;
 
@@ -48,7 +48,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 							i_5_ += jagexInterface.spriteXs[i_2_];
 						}
 						if (i_1_ >= i_5_ && i_0_ >= i_6_ && i_5_ + 32 > i_1_ && i_0_ < 32 + i_6_) {
-							Class120_Sub13.anInt2572 = i_2_;
+							ClanMember.anInt2572 = i_2_;
 							StructType.aClass189_3588 = jagexInterface;
 							if (jagexInterface.objIds[i_2_] > 0) {
 								final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
@@ -188,34 +188,26 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_20_) {
+	final void decode(final Buffer buffer, final int i_21_) {
 		do {
-			try {
-				final int i_21_ = i_20_;
-				while_112_: do {
-					do {
-						if (i_21_ != 0) {
-							if (i_21_ != 1) {
-								if (i_21_ == 2) {
-									break;
-								}
-								break while_112_;
+			while_112_: do {
+				do {
+					if (i_21_ != 0) {
+						if (i_21_ != 1) {
+							if (i_21_ == 2) {
+								break;
 							}
-						} else {
-							aBoolean3197 = class120_sub7.getUByte() == 1;
 							break while_112_;
 						}
-						aBoolean3192 = class120_sub7.getUByte() == 1;
+					} else {
+						aBoolean3197 = buffer.getUByte() == 1;
 						break while_112_;
-					} while (false);
-					this.aBoolean2558 = class120_sub7.getUByte() == 1;
+					}
+					aBoolean3192 = buffer.getUByte() == 1;
+					break while_112_;
 				} while (false);
-				if (i != -43) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("fj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_20_).append(')').toString());
-			}
+				this.aBoolean2558 = buffer.getUByte() == 1;
+			} while (false);
 		} while (false);
 	}
 
@@ -249,8 +241,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			if (i != -29399) {
 				anInt3193 = -29;
 			}
-			ProducingGraphicsBuffer.method1850(126, class180_sub5);
-			Class36.method307(-25431, class180_sub5);
+			ProducingGraphicsBuffer.method1850(class180_sub5);
+			Class36.method307(class180_sub5);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fj.S(").append(i).append(',').append(i_22_).append(',').append(class180_sub5 != null ? "{...}" : "null").append(')').toString());
 		}

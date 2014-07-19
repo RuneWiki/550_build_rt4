@@ -7,16 +7,9 @@ final class Class81 {
 	static int nameiconsId;
 	static int[] anIntArray779 = new int[50];
 
-	public static void method703(final int i) {
-		try {
-			if (i != 26683) {
-				method706(108, 74);
-			}
-			aClass75_777 = null;
-			anIntArray779 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("il.E(").append(i).append(')').toString());
-		}
+	public static void method703() {
+		aClass75_777 = null;
+		anIntArray779 = null;
 	}
 
 	static final String method704(final int i, final byte i_0_, final int i_1_) {
@@ -137,23 +130,23 @@ final class Class81 {
 					Class118.method1024(i ^ ~0x1cf1, new Buffer(Class79.aClass50_689.method428(108, "underlay", Class79.aClass120_Sub14_Sub22_691.aString3645)));
 					Class90.anInt848 = 30;
 					Class120_Sub12_Sub29.ping(true);
-					Class69.method613((byte) 53);
+					Class69.method613();
 				} else if (Class90.anInt848 == 30) {
 					Class79.method680(new Buffer(Class79.aClass50_689.method428(108, "overlay", Class79.aClass120_Sub14_Sub22_691.aString3645)));
 					Class90.anInt848 = 40;
-					Class69.method613((byte) 53);
+					Class69.method613();
 				} else if (Class90.anInt848 == 40) {
 					Class79.method688(new Buffer(Class79.aClass50_689.method428(i ^ ~0x62, "overlay2", Class79.aClass120_Sub14_Sub22_691.aString3645)));
 					Class90.anInt848 = 50;
-					Class69.method613((byte) 53);
+					Class69.method613();
 				} else if (Class90.anInt848 == 50) {
 					Class79.method689(new Buffer(Class79.aClass50_689.method428(111, "loc", Class79.aClass120_Sub14_Sub22_691.aString3645)), Class120_Sub12_Sub37.membersClient);
 					Class90.anInt848 = 60;
 					Class120_Sub12_Sub29.ping(true);
-					Class69.method613((byte) 53);
+					Class69.method613();
 				} else if (i == -39) {
 					if (Class90.anInt848 == 60) {
-						if (!Class79.aClass50_689.method414(new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString(), i ^ 0x27)) {
+						if (!Class79.aClass50_689.method414(new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString())) {
 							Class79.aClass137_693 = new Class137(0);
 						} else {
 							if (!Class79.aClass50_689.method435(new StringBuilder(Class79.aClass120_Sub14_Sub22_691.aString3645).append("_labels").toString(), 2)) {
@@ -163,66 +156,53 @@ final class Class81 {
 						}
 						Class79.method682();
 						Class90.anInt848 = 70;
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 70) {
 						PlayerAppearance.aClass98_1373 = new Class98(11, true, Node.canvas);
 						Class90.anInt848 = 73;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 73) {
 						Class92.aClass98_863 = new Class98(12, true, Node.canvas);
 						Class90.anInt848 = 76;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 76) {
 						Class112.aClass98_1070 = new Class98(14, true, Node.canvas);
 						Class90.anInt848 = 79;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 79) {
 						Class110.aClass98_1052 = new Class98(17, true, Node.canvas);
 						Class90.anInt848 = 82;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 82) {
 						Class120_Sub14_Sub14_Sub1.aClass98_3929 = new Class98(19, true, Node.canvas);
 						Class90.anInt848 = 85;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 85) {
 						World.aClass98_2833 = new Class98(22, true, Node.canvas);
 						Class90.anInt848 = 88;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else if (Class90.anInt848 == 88) {
 						Class124.aClass98_1201 = new Class98(26, true, Node.canvas);
 						Class90.anInt848 = 91;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 					} else {
 						OverridedJInterface.aClass98_2739 = new Class98(30, true, Node.canvas);
 						Class90.anInt848 = 100;
 						Class120_Sub12_Sub29.ping(true);
-						Class69.method613((byte) 53);
+						Class69.method613();
 						System.gc();
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("il.D(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method706(final int i, final int i_9_) {
-		try {
-			Canvas_Sub1.aClass21_14.method192(i);
-			if (i_9_ != -128) {
-				nameiconsId = 46;
-			}
-			Class33.aClass21_273.method192(i);
-			Class180_Sub3.aClass21_2906.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("il.F(").append(i).append(',').append(i_9_).append(')').toString());
 		}
 	}
 

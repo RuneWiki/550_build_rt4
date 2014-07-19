@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static String aString3371;
 	static String aString3372;
 	static js5 aClass50_3373;
-	static int[] anIntArray3374 = new int[200];
+	static int[] friendsRank = new int[200];
 	static String aString3375;
 	static int anInt3376;
 	static int anInt3377;
@@ -54,11 +54,6 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		return i_4_;
 	}
 
-	static final void method1360(final int i_6_) {
-		Class43.playerModelsCache.method192(i_6_);
-		Class90.playerHeadModelsCache.method192(i_6_);
-	}
-
 	@Override
 	final int[] method1187(final int i_7_) {
 		final int[] is_8_ = this.aClass30_2563.method258(i_7_);
@@ -76,7 +71,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			aString3372 = null;
 			aString3375 = null;
 			aClass50_3373 = null;
-			anIntArray3374 = null;
+			friendsRank = null;
 			aString3371 = null;
 			crossSprites = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -84,18 +79,8 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		}
 	}
 
-	static final Class101_Sub4 method1362(final boolean bool, final Buffer class120_sub7) {
-		Class101_Sub4 class101_sub4;
-		try {
-			if (!bool) {
-				method1360(107);
-			}
-			class101_sub4 = new Class101_Sub4(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(),
-					class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getUByte());
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("se.T(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
-		}
-		return class101_sub4;
+	static final Class101_Sub4 method1362(final Buffer buffer) {
+		return new Class101_Sub4(buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getMedium(), buffer.getUByte());
 	}
 
 	public Class120_Sub12_Sub30() {
@@ -132,6 +117,6 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		Class120_Sub12_Sub10.renderY = tileHeight - i_21_;
 		Class83.renderX = pRenderX - i_23_;
 		Class180_Sub3.renderYaw = yaw;
-		Class128.renderPitch = pitch;
+		OverlayType.renderPitch = pitch;
 	}
 }

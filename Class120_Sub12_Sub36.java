@@ -21,30 +21,15 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		anIntArray3416 = new int[128];
 	}
 
-	static final void method1387(final byte i) {
-		try {
-			Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.U(").append(i).append(')').toString());
-		}
-	}
-
-	public static void method1388(final byte i) {
-		try {
-			aClass50_3419 = null;
-			aByteArrayArray3421 = null;
-			anIntArray3416 = null;
-			if (i != 27) {
-				method1387((byte) -96);
-			}
-			anIntArray3417 = null;
-			anIntArray3422 = null;
-			localNpcIndices = null;
-			anIntArrayArrayArray3420 = null;
-			aClass50_3418 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.S(").append(i).append(')').toString());
-		}
+	public static void method1388() {
+		aClass50_3419 = null;
+		aByteArrayArray3421 = null;
+		anIntArray3416 = null;
+		anIntArray3417 = null;
+		anIntArray3422 = null;
+		localNpcIndices = null;
+		anIntArrayArrayArray3420 = null;
+		aClass50_3418 = null;
 	}
 
 	public Class120_Sub12_Sub36() {
@@ -69,111 +54,107 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		return is_1_;
 	}
 
-	static final void method1389(final int i) {
-		try {
-			for (int i_7_ = i; Class154.anInt1441 > i_7_; i_7_++) {
-				final int i_8_ = Class169.anIntArray1648[i_7_];
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_8_];
-				int i_9_ = Canvas_Sub1.inputStream.getUByte();
-				if ((i_9_ & 0x1) != 0) {
-					i_9_ += Canvas_Sub1.inputStream.getUByte() << 8;
-				}
-				if ((i_9_ & 0x40) != 0) {
-					final int i_10_ = Canvas_Sub1.inputStream.getUByteC();
-					final int i_11_ = Canvas_Sub1.inputStream.getUByteS();
-					class180_sub5_sub2.method2326(Class101_Sub2.loopCycle, 0, i_11_, i_10_);
-					class180_sub5_sub2.anInt2989 = 300 + Class101_Sub2.loopCycle;
-					class180_sub5_sub2.anInt3024 = Canvas_Sub1.inputStream.getUByteC();
-				}
-				if ((i_9_ & 0x100) != 0) {
-					final int i_12_ = Canvas_Sub1.inputStream.getUByteA();
-					final int[] is = new int[i_12_];
-					final int[] is_13_ = new int[i_12_];
-					final int[] is_14_ = new int[i_12_];
-					for (int i_15_ = 0; i_12_ > i_15_; i_15_++) {
-						int i_16_ = Canvas_Sub1.inputStream.getULEShort();
-						if ((i_16_ ^ 0xffffffff) == -65536) {
-							i_16_ = -1;
-						}
-						is_14_[i_15_] = i_16_;
-						is[i_15_] = Canvas_Sub1.inputStream.getUByteC();
-						is_13_[i_15_] = Canvas_Sub1.inputStream.getULEShortA();
+	static final void method1389() {
+		for (int id = 0; id < Class154.anInt1441; id++) {
+			final int index = Class169.anIntArray1648[id];
+			final Npc npc = Class120_Sub12_Sub11.npcList[index];
+			int mask = Canvas_Sub1.inputStream.getUByte();
+			if ((mask & 0x1) != 0) {
+				mask += Canvas_Sub1.inputStream.getUByte() << 8;
+			}
+			if ((mask & 0x40) != 0) {
+				final int damage = Canvas_Sub1.inputStream.getUByteC();
+				final int type = Canvas_Sub1.inputStream.getUByteS();
+				npc.addHit(damage, type, Class101_Sub2.loopCycle);
+				npc.hpBarCycle = 300 + Class101_Sub2.loopCycle;
+				npc.hpBarRatio = Canvas_Sub1.inputStream.getUByteC();
+			}
+			if ((mask & 0x100) != 0) {
+				final int i_12_ = Canvas_Sub1.inputStream.getUByteA();
+				final int[] is = new int[i_12_];
+				final int[] is_13_ = new int[i_12_];
+				final int[] is_14_ = new int[i_12_];
+				for (int i_15_ = 0; i_15_ < i_12_; i_15_++) {
+					int i_16_ = Canvas_Sub1.inputStream.getULEShort();
+					if (i_16_ == 65535) {
+						i_16_ = -1;
 					}
-					Class120_Sub12_Sub4.method1213(is_14_, class180_sub5_sub2, is_13_, 0, is);
+					is_14_[i_15_] = i_16_;
+					is[i_15_] = Canvas_Sub1.inputStream.getUByteC();
+					is_13_[i_15_] = Canvas_Sub1.inputStream.getULEShortA();
 				}
-				if ((i_9_ & 0x10) != 0) {
-					final int i_17_ = Canvas_Sub1.inputStream.getUByteA();
-					final int i_18_ = Canvas_Sub1.inputStream.getUByteS();
-					class180_sub5_sub2.method2326(Class101_Sub2.loopCycle, 0, i_18_, i_17_);
+				Class120_Sub12_Sub4.method1213(npc, is_14_, is_13_, is);
+			}
+			if ((mask & 0x10) != 0) {
+				final int damage = Canvas_Sub1.inputStream.getUByteA();
+				final int type = Canvas_Sub1.inputStream.getUByteS();
+				npc.addHit(damage, type, Class101_Sub2.loopCycle);
+			}
+			if ((mask & 0x2) != 0) {
+				if (npc.npcType.hasAmbientSound()) {
+					Class120_Sub16.removeAmbientSoundNpc(npc);
 				}
-				if ((i_9_ & 0x2) != 0) {
-					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class120_Sub16.method1664(class180_sub5_sub2);
-					}
-					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getUShortA()));
-					class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
-					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
-					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
-					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class7.addAmbientSound(null, class180_sub5_sub2.walkQueueX[0], class180_sub5_sub2, class180_sub5_sub2.walkQueueZ[0], null, 0, Class173.gameLevel);
-					}
+				npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getUShortA()));
+				npc.setSize(npc.npcType.size);
+				npc.anInt3010 = npc.npcType.anInt1672;
+				npc.anInt2982 = npc.npcType.anInt1692;
+				if (npc.npcType.hasAmbientSound()) {
+					Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 				}
-				if ((i_9_ & 0x200) != 0) {
-					class180_sub5_sub2.anInt3016 = Canvas_Sub1.inputStream.getULEShortA();
-					class180_sub5_sub2.anInt3003 = Canvas_Sub1.inputStream.getUShort();
+			}
+			if ((mask & 0x200) != 0) {
+				npc.faceX = Canvas_Sub1.inputStream.getULEShortA();
+				npc.faceZ = Canvas_Sub1.inputStream.getUShort();
+			}
+			if ((mask & 0x20) != 0) {
+				int i_19_ = Canvas_Sub1.inputStream.getUShort();
+				if (i_19_ == 65535) {
+					i_19_ = -1;
 				}
-				if ((i_9_ & 0x20) != 0) {
-					int i_19_ = Canvas_Sub1.inputStream.getUShort();
-					if ((i_19_ ^ 0xffffffff) == -65536) {
-						i_19_ = -1;
-					}
-					final int i_20_ = Canvas_Sub1.inputStream.getUByteS();
-					Class23.method204(i_19_, class180_sub5_sub2, (byte) -118, i_20_);
+				final int i_20_ = Canvas_Sub1.inputStream.getUByteS();
+				Class23.method204(npc, i_19_, i_20_);
+			}
+			if ((mask & 0x4) != 0) {
+				int spotanimId = Canvas_Sub1.inputStream.getUShortA();
+				final int bitPacked = Canvas_Sub1.inputStream.getInt();
+				boolean bool = true;
+				if (spotanimId == 65535) {
+					spotanimId = -1;
 				}
-				if ((i_9_ & 0x4) != 0) {
-					int i_21_ = Canvas_Sub1.inputStream.getUShortA();
-					final int i_22_ = Canvas_Sub1.inputStream.getInt();
-					boolean bool = true;
-					if (i_21_ == 65535) {
-						i_21_ = -1;
+				if (spotanimId != -1 && npc.spotAnimId != -1 && SeqType.list(SpotAnimType.list(spotanimId).animationId).priority < SeqType.list(SpotAnimType.list(npc.spotAnimId).animationId).priority) {
+					bool = false;
+				}
+				if (bool) {
+					npc.anInt2963 = 0;
+					npc.spotAnimFrameId = 0;
+					npc.anInt2971 = 1;
+					npc.anInt2979 = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
+					if (npc.anInt2979 > Class101_Sub2.loopCycle) {
+						npc.spotAnimFrameId = -1;
 					}
-					if (i_21_ != -1 && class180_sub5_sub2.spotAnimId != -1 && SeqType.list(SpotAnimType.list(i_21_).animationId).anInt348 < SeqType.list(SpotAnimType.list(class180_sub5_sub2.spotAnimId).animationId).anInt348) {
-						bool = false;
-					}
-					if (bool) {
-						class180_sub5_sub2.anInt2963 = 0;
-						class180_sub5_sub2.spotAnimFrameId = 0;
-						class180_sub5_sub2.anInt2971 = 1;
-						class180_sub5_sub2.anInt2979 = (0xffff & i_22_) + Class101_Sub2.loopCycle;
-						if (class180_sub5_sub2.anInt2979 > Class101_Sub2.loopCycle) {
-							class180_sub5_sub2.spotAnimFrameId = -1;
-						}
-						class180_sub5_sub2.anInt2965 = i_22_ >> 16;
-						class180_sub5_sub2.spotAnimId = i_21_;
-						if (class180_sub5_sub2.spotAnimId != -1 && Class101_Sub2.loopCycle == class180_sub5_sub2.anInt2979) {
-							final int i_23_ = SpotAnimType.list(class180_sub5_sub2.spotAnimId).animationId;
-							if (i_23_ != -1) {
-								final SeqType seqType = SeqType.list(i_23_);
-								if (seqType != null && seqType.frames != null) {
-									Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false);
-								}
+					npc.anInt2965 = bitPacked >> 16;
+					npc.spotAnimId = spotanimId;
+					if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.anInt2979) {
+						final int spotanimAnimationId = SpotAnimType.list(npc.spotAnimId).animationId;
+						if (spotanimAnimationId != -1) {
+							final SeqType seqType = SeqType.list(spotanimAnimationId);
+							if (seqType != null && seqType.frames != null) {
+								Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 							}
 						}
 					}
 				}
-				if ((i_9_ & 0x8) != 0) {
-					class180_sub5_sub2.anInt2981 = Canvas_Sub1.inputStream.getULEShort();
-					if (-65536 == (class180_sub5_sub2.anInt2981 ^ 0xffffffff)) {
-						class180_sub5_sub2.anInt2981 = -1;
-					}
-				}
-				if ((i_9_ & 0x80) != 0) {
-					class180_sub5_sub2.textSpoken = Canvas_Sub1.inputStream.getJString();
-					class180_sub5_sub2.textCycle = 100;
+			}
+			if ((mask & 0x8) != 0) {
+				npc.facingEntityIndex = Canvas_Sub1.inputStream.getULEShort();
+				if (npc.facingEntityIndex == 65535) {
+					npc.facingEntityIndex = -1;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.V(").append(i).append(')').toString());
+			if ((mask & 0x80) != 0) {
+				npc.textSpoken = Canvas_Sub1.inputStream.getJString();
+				npc.textCycle = 100;
+			}
 		}
 	}
 
@@ -202,16 +183,9 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_28_) {
-		try {
-			if (i != -43) {
-				method1187(-15);
-			}
-			if (i_28_ == 0) {
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_28_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_28_) {
+		if (i_28_ == 0) {
+			this.aBoolean2558 = buffer.getUByte() == 1;
 		}
 	}
 

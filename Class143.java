@@ -9,7 +9,7 @@ class Class143 implements Interface3 {
 	private final Class114[] aClass114Array2186;
 	private final js5 aClass50_2187;
 	static int anInt2188 = 2;
-	private final Class35 aClass35_2189 = new Class35(256);
+	private final NodeCache aClass35_2189 = new NodeCache(256);
 
 	@Override
 	public final int[] method6(final int i, final float f, final int i_0_, final int i_1_, final int i_2_, final boolean bool) {
@@ -194,37 +194,18 @@ class Class143 implements Interface3 {
 		}
 	}
 
-	static final void method2015(final int i) {
-		do {
-			try {
-				Class154.aClass21_1438.clear();
-				if (i != -5069) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("qi.KA(").append(i).append(')').toString());
-			}
-		} while (false);
-	}
-
 	Class120_Sub14_Sub13 method2016(final int i, final boolean bool) {
-		Class120_Sub14_Sub13 class120_sub14_sub13;
-		try {
-			final NodeSub class120_sub14 = aClass35_2189.get(i);
-			if (class120_sub14 != null) {
-				return (Class120_Sub14_Sub13) class120_sub14;
-			}
-			final byte[] is = aClass50_2184.method413(i, bool);
-			if (is == null) {
-				return null;
-			}
-			final Class120_Sub14_Sub13 class120_sub14_sub13_31_ = new Class120_Sub14_Sub13(new Buffer(is));
-			aClass35_2189.put(class120_sub14_sub13_31_, i);
-			class120_sub14_sub13 = class120_sub14_sub13_31_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.O(").append(i).append(',').append(bool).append(')').toString());
+		final NodeSub class120_sub14 = aClass35_2189.get(i);
+		if (class120_sub14 != null) {
+			return (Class120_Sub14_Sub13) class120_sub14;
 		}
-		return class120_sub14_sub13;
+		final byte[] is = aClass50_2184.getFileSmart(i);
+		if (is == null) {
+			return null;
+		}
+		final Class120_Sub14_Sub13 class120_sub14_sub13_31_ = new Class120_Sub14_Sub13(new Buffer(is));
+		aClass35_2189.put(class120_sub14_sub13_31_, i);
+		return class120_sub14_sub13_31_;
 	}
 
 	public static void method2017(final byte i) {
@@ -312,7 +293,7 @@ class Class143 implements Interface3 {
 		Class45.aString398 = "Lade Wordpack - ";
 		Class191.aString2105 = "Verbindung mit Update-Server...";
 		Class45.aString400 = "Starte 3D-Softwarebibliothek.";
-		Class85.aString807 = "welle:";
+		HintIcon.aString807 = "welle:";
 		Class143_Sub1.aString2192 = "Deine Ignorieren-Liste ist voll, du kannst nur 100 Spieler darauf eintragen.";
 		Class120_Sub12_Sub28.okString = "Okay";
 		Class96.aString915 = "sch\u00fctteln:";
@@ -324,7 +305,7 @@ class Class143 implements Interface3 {
 		Class24.aString142 = "Bitte warte - es wird versucht, die Verbindung wiederherzustellen.";
 		Class69.aString618 = "gr\u00fcn:";
 		InterfaceClickMask.aString2660 = "Lade Schrifts\u00e4tze - ";
-		Class120_Sub13.aString2574 = "weiss:";
+		ClanMember.aString2574 = "weiss:";
 		DisplayModeInfo.aString1708 = "Spielwelt erstellt.";
 		Class29.aString196 = ": ";
 		GameEntity.aString3011 = "scrollen:";
@@ -378,7 +359,7 @@ class Class143 implements Interface3 {
 		Class69_Sub1.aString2231 = "gelb:";
 		Class120_Sub14_Sub14.aString3575 = "lila:";
 		Class120_Sub3.aString2424 = "Kampfstufe: ";
-		Class120_Sub13.aString2578 = " zuerst von deiner Ignorieren-Liste!";
+		ClanMember.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}
 
 	Class143(final js5 js5, final js5 class50_36_, final js5 class50_37_) {

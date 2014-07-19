@@ -86,7 +86,7 @@ final class Huffman {
 		try {
 			FileSystem fileSystem = null;
 			if (Class73.aClass193_663 != null) {
-				fileSystem = new FileSystem(i_12_, Class73.aClass193_663, Class120_Sub13.aClass193Array2581[i_12_], 1000000);
+				fileSystem = new FileSystem(i_12_, Class73.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
 			}
 			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_, (byte) -105);
 			if (bool_13_) {
@@ -279,7 +279,7 @@ final class Huffman {
 			class120_sub12_sub12.anInt3228 = i_40_;
 			class120_sub12_sub12.anInt3221 = (int) (f * 4096.0F);
 			class120_sub12_sub12.aBoolean3226 = bool;
-			class120_sub12_sub12.method1193((byte) 124);
+			class120_sub12_sub12.postDecode();
 			Class22.method199(i_39_, i, false);
 			for (int i_43_ = 0; i_43_ < i; i_43_++) {
 				class120_sub12_sub12.method1261(is_42_[i_43_], i_43_, -126);

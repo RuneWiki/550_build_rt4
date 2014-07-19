@@ -5,7 +5,7 @@
 final class ObjectPile {
 	int renderX;
 	static short[] aShortArray1804;
-	static int anInt1805 = 0;
+	static int friendsServerStatus = 0;
 	long bitPacked;
 	SceneGraphNode thirdItemModel;
 	static int anInt1808;

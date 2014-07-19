@@ -67,7 +67,7 @@ class Class69_Sub3 extends Class69 {
 		try {
 			if (i == 6497794 && bool != Class140.aBoolean1340) {
 				Class140.aBoolean1340 = bool;
-				Class35.method297(-20);
+				NodeCache.method297();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.K(").append(bool).append(',').append(i).append(')').toString());

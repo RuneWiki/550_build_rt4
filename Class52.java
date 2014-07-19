@@ -46,8 +46,8 @@ final class Class52 {
 
 	static final void method453(final int i, final byte i_1_) {
 		if (i_1_ >= 103) {
-			ParamType.aClass21_3541.clear();
-			ParamType.aClass21_3541 = new Cache(i);
+			VarBit.recentUse.clear();
+			VarBit.recentUse = new ObjectCache(i);
 		}
 	}
 
@@ -60,7 +60,7 @@ final class Class52 {
 	}
 
 	private final void method455(final byte[] is, final int i) {
-		final Buffer class120_sub7 = new Buffer(Class71.method639(true, is));
+		final Buffer class120_sub7 = new Buffer(Class71.method639(is));
 		final int i_2_ = class120_sub7.getUByte();
 		if (i_2_ != 5 && i_2_ != 6) {
 			throw new RuntimeException();

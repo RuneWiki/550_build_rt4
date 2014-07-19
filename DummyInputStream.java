@@ -28,12 +28,12 @@ final class DummyInputStream extends InputStream {
 			AbstractTimer.worldConnection.close();
 			AbstractTimer.worldConnection = null;
 		}
-		Class110.method976(-7603);
+		Class110.method976();
 		Class173.method2225();
 		for (int i = 0; i < 4; i++) {
-			Class182.collisionMaps[i].method225(11736);
+			Class182.collisionMaps[i].method225();
 		}
-		Class120_Sub30_Sub1.method1739(false, (byte) -93);
+		Class120_Sub30_Sub1.method1739(false);
 		System.gc();
 		Class120_Sub12_Sub6.method1230(5, 2);
 		Class157.anInt1466 = -1;
@@ -42,10 +42,10 @@ final class DummyInputStream extends InputStream {
 		Class181.currentBaseZ = 0;
 		Class116.anInt1118 = 0;
 		Class3.anInt53 = 0;
-		Class134.aBoolean1282 = false;
+		Class134.dynamicMapRegion = false;
 		GameEntity.currentBaseX = 0;
-		for (int i = 0; i < Class187.aClass85Array1909.length; i++) {
-			Class187.aClass85Array1909[i] = null;
+		for (int i = 0; i < Class187.hintIcons.length; i++) {
+			Class187.hintIcons[i] = null;
 		}
 		Class148.localNpcCount = 0;
 		Class83.localPlayerCount = 0;
@@ -65,7 +65,7 @@ final class DummyInputStream extends InputStream {
 		}
 		SpotAnimType.method876((byte) 120);
 		Class120_Sub14_Sub20.packetCounter = 0;
-		Class33.method275((byte) -5);
+		Class33.resetVarp();
 		EnumType.method1421(true);
 		try {
 			JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedout");

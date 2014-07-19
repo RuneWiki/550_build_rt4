@@ -7,7 +7,7 @@ import java.net.URL;
 final class Class180_Sub3 extends SceneGraphNode {
 	int anInt2904;
 	int anInt2905;
-	static Cache aClass21_2906;
+	static ObjectCache aClass21_2906;
 	int anInt2907;
 	int anInt2908;
 	static int renderYaw;
@@ -24,70 +24,63 @@ final class Class180_Sub3 extends SceneGraphNode {
 	static int[] anIntArray2921;
 
 	static {
-		aClass21_2906 = new Cache(100);
+		aClass21_2906 = new ObjectCache(100);
 	}
 
-	static final void method2309(final byte i) {
-		try {
-			Canvas_Sub1.inputStream.method1144(-2);
-			final int i_0_ = Canvas_Sub1.inputStream.getBitValue(8);
-			if (i_0_ < Class148.localNpcCount) {
-				for (int i_1_ = i_0_; Class148.localNpcCount > i_1_; i_1_++) {
-					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class120_Sub12_Sub36.localNpcIndices[i_1_];
-				}
+	static final void method2309() {
+		Canvas_Sub1.inputStream.startBitAccess();
+		final int i_0_ = Canvas_Sub1.inputStream.getBitValue(8);
+		if (i_0_ < Class148.localNpcCount) {
+			for (int i_1_ = i_0_; Class148.localNpcCount > i_1_; i_1_++) {
+				Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class120_Sub12_Sub36.localNpcIndices[i_1_];
 			}
-			if (i_0_ > Class148.localNpcCount) {
-				throw new RuntimeException("gnpov1");
-			}
-			if (i != 43) {
-				anIntArray2918 = null;
-			}
-			Class148.localNpcCount = 0;
-			for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-				final int i_3_ = Class120_Sub12_Sub36.localNpcIndices[i_2_];
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
-				final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
-				if (i_4_ == 0) {
+		}
+		if (i_0_ > Class148.localNpcCount) {
+			throw new RuntimeException("gnpov1");
+		}
+		Class148.localNpcCount = 0;
+		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
+			final int i_3_ = Class120_Sub12_Sub36.localNpcIndices[i_2_];
+			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
+			if (i_4_ == 0) {
+				Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+				class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+			} else {
+				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
+				if (i_5_ == 0) {
 					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
-				} else {
-					final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
-					if (i_5_ == 0) {
-						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+				} else if (i_5_ == 1) {
+					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
+					class180_sub5_sub2.move(i_6_, 1);
+					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
+					if (i_7_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
-					} else if (i_5_ == 1) {
-						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
-						final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
-						class180_sub5_sub2.move(i_6_, 1);
-						final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
-						if (i_7_ == 1) {
-							Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
-						}
-					} else if (i_5_ == 2) {
-						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
-						if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
-							final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.move(i_8_, 0);
-						} else {
-							final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.move(i_9_, 2);
-							final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
-							class180_sub5_sub2.move(i_10_, 2);
-						}
-						final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
-						if (i_11_ == 1) {
-							Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
-						}
-					} else if (i_5_ == 3) {
-						Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_3_;
 					}
+				} else if (i_5_ == 2) {
+					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
+						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
+						class180_sub5_sub2.move(i_8_, 0);
+					} else {
+						final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
+						class180_sub5_sub2.move(i_9_, 2);
+						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
+						class180_sub5_sub2.move(i_10_, 2);
+					}
+					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
+					if (i_11_ == 1) {
+						Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+					}
+				} else if (i_5_ == 3) {
+					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_3_;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("o.G(").append(i).append(')').toString());
 		}
 	}
 
@@ -126,16 +119,16 @@ final class Class180_Sub3 extends SceneGraphNode {
 				if (i_12_ == -46) {
 					while_12_: do {
 						do {
-							if (aClass40_2916.cycles[anInt2919] >= anInt2912) {
+							if (aClass40_2916.delays[anInt2919] >= anInt2912) {
 								break while_12_;
 							}
-							anInt2912 -= aClass40_2916.cycles[anInt2919];
+							anInt2912 -= aClass40_2916.delays[anInt2919];
 							anInt2919++;
 						} while (anInt2919 < aClass40_2916.frames.length);
 						this.aBoolean2920 = true;
 					} while (false);
 					if (!this.aBoolean2920) {
-						Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false);
+						Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2904, this.anInt2907, anInt2919, false);
 					}
 				}
 			}
@@ -200,19 +193,6 @@ final class Class180_Sub3 extends SceneGraphNode {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("o.C(").append(i).append(')').toString());
 		}
 		return class180_sub7;
-	}
-
-	static final void method2314(final int i, final int i_15_) {
-		try {
-			Class73.aClass21_635.method192(i);
-			Class11.aClass21_80.method192(i);
-			if (i_15_ != 3) {
-				anIntArray2921 = null;
-			}
-			Class180_Sub4.aClass21_2931.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("o.B(").append(i).append(',').append(i_15_).append(')').toString());
-		}
 	}
 
 	@Override
@@ -305,7 +285,7 @@ final class Class180_Sub3 extends SceneGraphNode {
 			this.aBoolean2920 = true;
 		}
 		if (this.anInt2917 == i_36_) {
-			Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2907, this.anInt2904, anInt2919, false);
+			Class120_Sub12_Sub23.method1323(aClass40_2916, this.anInt2904, this.anInt2907, anInt2919, false);
 		}
 	}
 }

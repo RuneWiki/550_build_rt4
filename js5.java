@@ -64,48 +64,32 @@ final class js5 {
 		return i_4_;
 	}
 
-	final byte[] method413(final int i, final boolean bool) {
-		try {
-			if (!bool) {
-				aClass52_452 = null;
-			}
-			if (!informationLoaded()) {
-				return null;
-			}
-			if (aClass52_452.anIntArray465.length == 1) {
-				return getFile(0, i);
-			}
-			if (!method436(i)) {
-				return null;
-			}
-			if (aClass52_452.anIntArray465[i] == 1) {
-				return getFile(i, 0);
-			}
-			throw new RuntimeException();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.A(").append(i).append(',').append(bool).append(')').toString());
+	final byte[] getFileSmart(final int groupId) {
+		if (!informationLoaded()) {
+			return null;
 		}
+		if (aClass52_452.anIntArray465.length == 1) {
+			return getFile(0, groupId);
+		}
+		if (!method436(groupId)) {
+			return null;
+		}
+		if (aClass52_452.anIntArray465[groupId] == 1) {
+			return getFile(groupId, 0);
+		}
+		throw new RuntimeException();
 	}
 
-	final boolean method414(String string, final int i) {
-		boolean bool;
-		try {
-			if (i != -2) {
-				return true;
-			}
-			if (!informationLoaded()) {
-				return false;
-			}
-			string = string.toLowerCase();
-			final int i_6_ = aClass52_452.aClass56_473.method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
-			if (i_6_ < 0) {
-				return false;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.J(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	final boolean method414(String string) {
+		if (!informationLoaded()) {
+			return false;
 		}
-		return bool;
+		string = string.toLowerCase();
+		final int i_6_ = aClass52_452.aClass56_473.method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
+		if (i_6_ < 0) {
+			return false;
+		}
+		return true;
 	}
 
 	final int method415() {
@@ -191,18 +175,11 @@ final class js5 {
 		return true;
 	}
 
-	final void method419(final int i) {
-		try {
-			if (anObjectArrayArray448 != null) {
-				for (int i_15_ = 0; anObjectArrayArray448.length > i_15_; i_15_++) {
-					anObjectArrayArray448[i_15_] = null;
-				}
+	final void method419() {
+		if (anObjectArrayArray448 != null) {
+			for (int i_15_ = 0; i_15_ < anObjectArrayArray448.length; i_15_++) {
+				anObjectArrayArray448[i_15_] = null;
 			}
-			if (i != 0) {
-				aClass53_450 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.JA(").append(i).append(')').toString());
 		}
 	}
 
@@ -306,7 +283,7 @@ final class js5 {
 			}
 			byte[] is_30_;
 			try {
-				is_30_ = Class71.method639(true, is_29_);
+				is_30_ = Class71.method639(is_29_);
 			} catch (final RuntimeException runtimeexception) {
 				throw EnumType.method1428(runtimeexception,
 						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2))

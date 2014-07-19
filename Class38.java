@@ -170,19 +170,19 @@ final class Class38 {
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int i_30_ = 1; i_30_ < 103; i_30_++) {
 			for (int i_31_ = 1; i_31_ < 103; i_31_++) {
-				if ((Class114.tileSettings[level][i_31_ - 0][0 + i_30_] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, true, i_30_, i_31_)) {
+				if ((Class114.tileSettings[level][i_31_ - 0][0 + i_30_] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, i_30_, i_31_)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
-						Class120_Sub13.fullscreenGraphics.init2dCanvas();
+						ClanMember.fullscreenGraphics.init2dCanvas();
 					}
 					return false;
 				}
-				if (level < 3 && (Class114.tileSettings[level - -1][i_31_ + 0][0 + i_30_] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, true, i_30_, i_31_)) {
+				if (level < 3 && (Class114.tileSettings[level - -1][i_31_ + 0][0 + i_30_] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, i_30_, i_31_)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
-						Class120_Sub13.fullscreenGraphics.init2dCanvas();
+						ClanMember.fullscreenGraphics.init2dCanvas();
 					}
 					return false;
 				}
@@ -203,7 +203,7 @@ final class Class38 {
 		if (HDToolkit.glEnabled) {
 			GraphicsLD.pixels = null;
 		} else {
-			Class120_Sub13.fullscreenGraphics.init2dCanvas();
+			ClanMember.fullscreenGraphics.init2dCanvas();
 		}
 		Class120_Sub14_Sub10.landScapeAsSprite = null;
 		return true;
@@ -214,7 +214,7 @@ final class Class38 {
 			if (i != 2883872) {
 				method312(-20);
 			}
-			Class180_Sub4.aClass21_2931.clear();
+			Projectile.aClass21_2931.clear();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.C(").append(i).append(')').toString());
 		}

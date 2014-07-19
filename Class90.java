@@ -6,7 +6,7 @@ import java.util.TimeZone;
 
 final class Class90 {
 	private js5 aClass50_839;
-	static Cache playerHeadModelsCache = new Cache(5);
+	static ObjectCache playerHeadModelsCache = new ObjectCache(5);
 	private final js5 aClass50_841;
 	private final Hashtable aClass75_842 = new Hashtable(256);
 	static js5 aClass50_843;
@@ -195,9 +195,9 @@ final class Class90 {
 					pixels[pixelId] = Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff];
 				}
 				if (!HDToolkit.glEnabled) {
-					sprites[spriteId] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				} else {
-					sprites[spriteId] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				}
 			} else {
 				final byte[] alphas = Class120_Sub12.spriteAlphas[spriteId];
@@ -206,9 +206,9 @@ final class Class90 {
 					pixels[pixelId] = Class191.method2512(Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff], Class120_Sub12_Sub3.method1207(-16777216, alphas[pixelId] << 24));
 				}
 				if (HDToolkit.glEnabled) {
-					sprites[spriteId] = new HDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new HDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				} else {
-					sprites[spriteId] = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
+					sprites[spriteId] = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 				}
 			}
 		}

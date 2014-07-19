@@ -5,7 +5,6 @@
 final class Class3 {
 	static int anInt53;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_54;
-	static js5 aClass50_55;
 	static SignlinkNode aClass185_56;
 
 	static final void method79(final int i, final js5 js5, final js5 class50_0_) {
@@ -35,7 +34,7 @@ final class Class3 {
 			}
 			aClass120_Sub14_Sub9_54 = null;
 			aClass185_56 = null;
-			aClass50_55 = null;
+			OverlayType.aClass50_55 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.C(").append(i).append(')').toString());
 		}
@@ -108,7 +107,7 @@ final class Class3 {
 		int i_13_;
 		try {
 			if (i_11_ != 1) {
-				aClass50_55 = null;
+				OverlayType.aClass50_55 = null;
 			}
 			i_13_ = i_10_ >= i ? i_10_ > i_12_ ? i_12_ : i_10_ : i;
 		} catch (final RuntimeException runtimeexception) {
@@ -128,14 +127,14 @@ final class Class3 {
 		}
 		if (bool) {
 			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new GroundTile[1][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			Class35.anIntArrayArray300 = new int[Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
+			NodeCache.anIntArrayArray300 = new int[Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 			Class24.anIntArrayArrayArray140 = new int[1][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 			if (HDToolkit.glEnabled) {
 				IntegerNode.aClass120_Sub9ArrayArray2789 = new Class120_Sub9[1][];
 			}
 		} else {
 			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = null;
-			Class35.anIntArrayArray300 = null;
+			NodeCache.anIntArrayArray300 = null;
 			Class24.anIntArrayArrayArray140 = null;
 			IntegerNode.aClass120_Sub9ArrayArray2789 = null;
 		}
@@ -149,7 +148,7 @@ final class Class3 {
 		ClientScript.anInt3556 = 0;
 		Class39.aClass28Array323 = new Class28[100];
 		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1];
-		Class120_Sub13.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
+		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
 		Class114.aByteArrayArrayArray1094 = new byte[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
 	}
 
@@ -178,7 +177,7 @@ final class Class3 {
 			class120_sub12_sub12.anInt3229 = i;
 			class120_sub12_sub12.anInt3222 = i_18_;
 			class120_sub12_sub12.anInt3225 = i_20_;
-			class120_sub12_sub12.method1193((byte) -17);
+			class120_sub12_sub12.postDecode();
 			Class22.method199(i_19_, 1, false);
 			class120_sub12_sub12.method1261(is_22_, 0, i_21_ ^ ~0x4a);
 			is = is_22_;

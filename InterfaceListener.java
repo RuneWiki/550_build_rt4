@@ -15,7 +15,7 @@ final class InterfaceListener extends Node {
 	String aString2539;
 	int anInt2540;
 	int anInt2541;
-	static Cache aClass21_2542 = new Cache(64);
+	static ObjectCache aClass21_2542 = new ObjectCache(64);
 	int anInt2543;
 	static js5 aClass50_2544;
 	static int playerRenderZ;
@@ -69,7 +69,7 @@ final class InterfaceListener extends Node {
 				Node.canvas.setLocation(insets.left - -Class120_Sub28.leftMargin, Class186.topMargin + insets.top);
 			}
 			if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
-				Class101_Sub2.method846((byte) 122, true);
+				Class101_Sub2.method846(true);
 			}
 			Class120_Sub12_Sub22.method1322();
 		} catch (final RuntimeException runtimeexception) {

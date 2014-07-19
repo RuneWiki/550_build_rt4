@@ -76,19 +76,6 @@ final class Class101_Sub4 extends Class101 {
 		anInt2294 = i_19_;
 	}
 
-	static final void method851(final boolean bool, final int i) {
-		try {
-			Class180_Sub6.aClass21_3071.method192(i);
-			LabelGroup.aClass21_2406.method192(i);
-			Class120_Sub12_Sub2.aClass21_3143.method192(i);
-			if (bool) {
-				aClass50_2297 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("in.J(").append(bool).append(',').append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void method833(final int i, final int i_22_, final byte i_23_) {
 		try {

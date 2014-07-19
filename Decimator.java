@@ -141,15 +141,15 @@ final class Decimator {
 			for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
 				if (Class9.needInterfaceRedraw[id]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.fillRect(Class160.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
+						GraphicsHD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					} else {
-						GraphicsLD.fillRect(Class160.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
+						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					}
 				} else if (Class120_Sub12_Sub33.needScreenRedraw[id]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.fillRect(Class160.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
+						GraphicsHD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					} else {
-						GraphicsLD.fillRect(Class160.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
+						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					}
 				}
 			}
@@ -206,9 +206,9 @@ final class Decimator {
 	static final void method2221(final boolean bool) {
 		do {
 			try {
-				if (Class85.anInt802 != -1) {
-					Class108.method932(false, -1, -1, Class85.anInt802);
-					Class85.anInt802 = -1;
+				if (HintIcon.anInt802 != -1) {
+					Class108.method932(false, -1, -1, HintIcon.anInt802);
+					HintIcon.anInt802 = -1;
 				}
 				if (bool) {
 					break;

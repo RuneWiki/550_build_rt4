@@ -18,59 +18,53 @@ final class Class31 {
 		aClass107_Sub1_246 = null;
 	}
 
-	static final void method262(final int i) {
-		try {
-			if (i < -114) {
-				while (Canvas_Sub1.inputStream.method1153(AbstractMouseWheelHandler.packetSize, 8) >= 27) {
-					final int i_0_ = Canvas_Sub1.inputStream.getBitValue(15);
-					if (i_0_ == 32767) {
-						break;
-					}
-					boolean bool = false;
-					if (Class120_Sub12_Sub11.npcList[i_0_] == null) {
-						bool = true;
-						Class120_Sub12_Sub11.npcList[i_0_] = new Npc();
-					}
-					final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_0_];
-					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_0_;
-					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
-					if (class180_sub5_sub2.npcType != null && class180_sub5_sub2.npcType.method2204(0)) {
-						Class120_Sub16.method1664(class180_sub5_sub2);
-					}
-					int i_1_ = Canvas_Sub1.inputStream.getBitValue(5);
-					if (i_1_ > 15) {
-						i_1_ -= 32;
-					}
-					final int i_2_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
-					if (bool) {
-						class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = i_2_;
-					}
-					int i_3_ = Canvas_Sub1.inputStream.getBitValue(5);
-					class180_sub5_sub2.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getBitValue(14)));
-					final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
-					if (i_3_ > 15) {
-						i_3_ -= 32;
-					}
-					if (i_4_ == 1) {
-						Class169.anIntArray1648[Class154.anInt1441++] = i_0_;
-					}
-					final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
-					class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
-					class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
-					class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
-					if (class180_sub5_sub2.anInt3010 == 0) {
-						class180_sub5_sub2.anInt3032 = 0;
-					}
-					class180_sub5_sub2.method2323(Class100.selfPlayer.walkQueueZ[0] - -i_1_, class180_sub5_sub2.getSize(), i_3_ + Class100.selfPlayer.walkQueueX[0], i_5_ == 1);
-					if (class180_sub5_sub2.npcType.method2204(0)) {
-						Class7.addAmbientSound(null, class180_sub5_sub2.walkQueueX[0], class180_sub5_sub2, class180_sub5_sub2.walkQueueZ[0], null, 0, Class173.gameLevel);
-					}
-				}
-				Canvas_Sub1.inputStream.method1146();
+	static final void method262() {
+		while (Canvas_Sub1.inputStream.getBitsLeft(AbstractMouseWheelHandler.packetSize) >= 27) {
+			final int index = Canvas_Sub1.inputStream.getBitValue(15);
+			if (index == 32767) {
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("db.D(").append(i).append(')').toString());
+			boolean newNpc = false;
+			if (Class120_Sub12_Sub11.npcList[index] == null) {
+				newNpc = true;
+				Class120_Sub12_Sub11.npcList[index] = new Npc();
+			}
+			final Npc npc = Class120_Sub12_Sub11.npcList[index];
+			Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = index;
+			npc.anInt2985 = Class101_Sub2.loopCycle;
+			if (npc.npcType != null && npc.npcType.hasAmbientSound()) {
+				Class120_Sub16.removeAmbientSoundNpc(npc);
+			}
+			int i_1_ = Canvas_Sub1.inputStream.getBitValue(5);
+			if (i_1_ > 15) {
+				i_1_ -= 32;
+			}
+			final int i_2_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
+			if (newNpc) {
+				npc.anInt3019 = npc.anInt3032 = i_2_;
+			}
+			int i_3_ = Canvas_Sub1.inputStream.getBitValue(5);
+			npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getBitValue(14)));
+			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
+			if (i_3_ > 15) {
+				i_3_ -= 32;
+			}
+			if (i_4_ == 1) {
+				Class169.anIntArray1648[Class154.anInt1441++] = index;
+			}
+			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
+			npc.setSize(npc.npcType.size);
+			npc.anInt2982 = npc.npcType.anInt1692;
+			npc.anInt3010 = npc.npcType.anInt1672;
+			if (npc.anInt3010 == 0) {
+				npc.anInt3032 = 0;
+			}
+			npc.method2323(i_3_ + Class100.selfPlayer.walkQueueX[0], Class100.selfPlayer.walkQueueZ[0] - -i_1_, npc.getSize(), i_5_ == 1);
+			if (npc.npcType.hasAmbientSound()) {
+				Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
+			}
 		}
+		Canvas_Sub1.inputStream.endBitAccess();
 	}
 
 	static final int method263(final boolean bool) {

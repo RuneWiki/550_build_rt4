@@ -7,31 +7,24 @@ final class Class79_Sub1 extends Class79 {
 	static int anInt2244;
 	static js5 aClass50_2245;
 	static int[] anIntArray2246 = new int[256];
-	static String[] aStringArray2247;
+	static String[] friendsSideText;
 
 	static {
 		anInt2244 = 0;
-		aStringArray2247 = new String[200];
+		friendsSideText = new String[200];
 	}
 
-	static final void method693(final int i) {
-		try {
-			if (Class101_Sub3.aBoolean2291) {
-				if (i != 256) {
-					method693(127);
-				}
-				Class101_Sub3.aBoolean2291 = false;
-				KeyboardHandler.aClass120_Sub14_Sub19_1508 = null;
-				Class120_Sub12_Sub27.aClass107_3354 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kn.A(").append(i).append(')').toString());
+	static final void method693() {
+		if (Class101_Sub3.titleScreenSpritesDrawn) {
+			Class101_Sub3.titleScreenSpritesDrawn = false;
+			KeyboardHandler.titlebgSprite = null;
+			Class120_Sub12_Sub27.logoSprite = null;
 		}
 	}
 
 	public static void method694(final int i) {
 		try {
-			aStringArray2247 = null;
+			friendsSideText = null;
 			if (i <= 79) {
 				aClass50_2245 = null;
 			}

@@ -65,7 +65,7 @@ final class Class120_Sub19 extends Node {
 					if (class120_sub14_sub5.aBoolean3472 && (class73.anInt656 ^ 0xffffffff) != 0) {
 						i_3_ = class73.anInt656;
 					}
-					final int i_4_ = Cache.smallFont.method1486(class73.aString649, null, Class125.aStringArray2148);
+					final int i_4_ = ObjectCache.smallFont.method1486(class73.aString649, null, Class125.aStringArray2148);
 					int i_5_ = class120_sub14_sub5.anInt3475;
 					if (!bool) {
 						i_5_ -= i_0_ - (-((-1 + i_4_) * class98.method817()) + -(class98.method813() / 2));

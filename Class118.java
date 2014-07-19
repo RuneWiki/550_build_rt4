@@ -123,11 +123,11 @@ final class Class118 {
 						if (i_13_ > i_22_) {
 							final int i_23_ = 0xff & is[i_22_][i_21_];
 							if (i_23_ > 0) {
-								final Class128 class128 = MouseHandler.method1026(-1 + i_23_, true);
-								is_15_[i_21_] += class128.anInt1218;
-								is_16_[i_21_] += class128.anInt1222;
-								is_17_[i_21_] += class128.anInt1229;
-								is_18_[i_21_] += class128.anInt1226;
+								final OverlayType overlayType = OverlayType.list(-1 + i_23_);
+								is_15_[i_21_] += overlayType.anInt1218;
+								is_16_[i_21_] += overlayType.anInt1222;
+								is_17_[i_21_] += overlayType.anInt1229;
+								is_18_[i_21_] += overlayType.anInt1226;
 								is_19_[i_21_]++;
 							}
 						}
@@ -135,11 +135,11 @@ final class Class118 {
 						if (i_24_ >= 0) {
 							final int i_25_ = is[i_24_][i_21_] & 0xff;
 							if (i_25_ > 0) {
-								final Class128 class128 = MouseHandler.method1026(-1 + i_25_, true);
-								is_15_[i_21_] -= class128.anInt1218;
-								is_16_[i_21_] -= class128.anInt1222;
-								is_17_[i_21_] -= class128.anInt1229;
-								is_18_[i_21_] -= class128.anInt1226;
+								final OverlayType overlayType = OverlayType.list(-1 + i_25_);
+								is_15_[i_21_] -= overlayType.anInt1218;
+								is_16_[i_21_] -= overlayType.anInt1222;
+								is_17_[i_21_] -= overlayType.anInt1229;
+								is_18_[i_21_] -= overlayType.anInt1226;
 								is_19_[i_21_]--;
 							}
 						}
@@ -170,7 +170,7 @@ final class Class118 {
 							}
 							if (i_32_ >= 0 && i_29_ > 0) {
 								int[] is_35_ = is_27_[i_32_ >> 6];
-								final int i_36_ = i_30_ != 0 ? Class120_Sub14_Sub5.method1442((byte) -123, i_26_ * 256 / i_30_, i_28_ / i_29_, i_31_ / i_29_) : 0;
+								final int i_36_ = i_30_ != 0 ? Class120_Sub14_Sub5.method1442(i_26_ * 256 / i_30_, i_28_ / i_29_, i_31_ / i_29_) : 0;
 								if (is[i_20_][i_32_] == 0) {
 									if (is_35_ != null) {
 										is_35_[Class120_Sub12_Sub3.method1207(63, i_20_) + (Class120_Sub12_Sub3.method1207(63, i_32_) << 6)] = 0;

@@ -57,7 +57,7 @@ final class Class121 {
 
 	static final void method1839(final int i) {
 		try {
-			Class120_Sub12_Sub14.aClass21_3238.clearSoftReference();
+			Class73.recentUse.clearSoftReference();
 			if (i == -14307) {
 				Class82.aClass21_786.clearSoftReference();
 			}

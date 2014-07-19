@@ -3,8 +3,8 @@
  */
 
 final class Class159 {
-	static Cache aClass21_1486 = new Cache(16);
-	static boolean aBoolean1487 = false;
+	static ObjectCache aClass21_1486 = new ObjectCache(16);
+	static boolean worldsLoaded = false;
 	static int anInt1488 = 0;
 	static short[][] aShortArrayArray1489;
 	static js5 aClass50_1490;
@@ -46,17 +46,6 @@ final class Class159 {
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.B(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method2094(final int i, final int i_4_) {
-		try {
-			if (i != 2260) {
-				anInt1488 = 84;
-			}
-			Class120_Sub14_Sub13.aClass21_3564.method192(i_4_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.E(").append(i).append(',').append(i_4_).append(')').toString());
 		}
 	}
 

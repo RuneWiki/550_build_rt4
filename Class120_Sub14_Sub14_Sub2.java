@@ -4,7 +4,7 @@
 
 final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 	int anInt3936;
-	static Cache aClass21_3937 = new Cache(64);
+	static ObjectCache aClass21_3937 = new ObjectCache(64);
 	byte aByte3938;
 	Buffer aClass120_Sub7_3939;
 	static int anInt3940;
@@ -44,14 +44,14 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 			}
 			AbstractIndexedSprite abstractIndexedSprite = null;
 			if (class73.anInt644 != -1) {
-				abstractIndexedSprite = class73.method648(false, false, false);
+				abstractIndexedSprite = class73.method648(false, false);
 				if (abstractIndexedSprite != null) {
 					Class120_Sub12_Sub28.method1346(abstractIndexedSprite, i_0_, jagexInterface, (byte) -119, i_2_, i_3_, i);
 				}
 			}
 			if (class73.aString649 != null) {
 				int i_10_ = 0;
-				Class120_Sub14_Sub8 class120_sub14_sub8 = Cache.smallFont;
+				Class120_Sub14_Sub8 class120_sub14_sub8 = ObjectCache.smallFont;
 				if (class73.fontType == 1) {
 					class120_sub14_sub8 = Class120_Sub12_Sub20.plainFont;
 				}
@@ -114,18 +114,18 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 			if (i_18_ < i_16_) {
 				final int i_20_ = (i_16_ + i_18_) / 2;
 				int i_21_ = i_18_;
-				final World class167_sub1 = Class86.aClass167_Sub1Array817[i_20_];
-				Class86.aClass167_Sub1Array817[i_20_] = Class86.aClass167_Sub1Array817[i_16_];
-				Class86.aClass167_Sub1Array817[i_16_] = class167_sub1;
+				final World class167_sub1 = Class86.worlds[i_20_];
+				Class86.worlds[i_20_] = Class86.worlds[i_16_];
+				Class86.worlds[i_16_] = class167_sub1;
 				for (int i_22_ = i_18_; i_16_ > i_22_; i_22_++) {
-					if (Class120_Sub12_Sub7.method1233(i_15_, bool, class167_sub1, bool_17_, Class86.aClass167_Sub1Array817[i_22_], i, true) <= 0) {
-						final World class167_sub1_23_ = Class86.aClass167_Sub1Array817[i_22_];
-						Class86.aClass167_Sub1Array817[i_22_] = Class86.aClass167_Sub1Array817[i_21_];
-						Class86.aClass167_Sub1Array817[i_21_++] = class167_sub1_23_;
+					if (Class120_Sub12_Sub7.method1233(i_15_, bool, class167_sub1, bool_17_, Class86.worlds[i_22_], i, true) <= 0) {
+						final World class167_sub1_23_ = Class86.worlds[i_22_];
+						Class86.worlds[i_22_] = Class86.worlds[i_21_];
+						Class86.worlds[i_21_++] = class167_sub1_23_;
 					}
 				}
-				Class86.aClass167_Sub1Array817[i_16_] = Class86.aClass167_Sub1Array817[i_21_];
-				Class86.aClass167_Sub1Array817[i_21_] = class167_sub1;
+				Class86.worlds[i_16_] = Class86.worlds[i_21_];
+				Class86.worlds[i_21_] = class167_sub1;
 				method1552(bool, i, i_15_, i_21_ - 1, bool_17_, i_18_, 1);
 				method1552(bool, i, i_15_, i_16_, bool_17_, i_21_ - -1, i_19_);
 			}
@@ -138,17 +138,11 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 	}
 
 	@Override
-	final int method1537(final int i) {
-		int i_24_;
-		try {
-			if (this.aClass120_Sub7_3939 == null) {
-				return 0;
-			}
-			i_24_ = this.aClass120_Sub7_3939.pos * 100 / (-this.aByte3938 + this.aClass120_Sub7_3939.buf.length);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ul.G(").append(i).append(')').toString());
+	final int method1537() {
+		if (this.aClass120_Sub7_3939 == null) {
+			return 0;
 		}
-		return i_24_;
+		return this.aClass120_Sub7_3939.pos * 100 / (-this.aByte3938 + this.aClass120_Sub7_3939.buf.length);
 	}
 
 	static final int method1553(final int i, final World class167_sub1, final int i_25_, final World class167_sub1_26_, final boolean bool) {
@@ -206,19 +200,10 @@ final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
 	}
 
 	@Override
-	final byte[] method1535(final byte i) {
-		byte[] is;
-		try {
-			if (i != -90) {
-				method1552(true, -64, -11, 126, true, -99, 51);
-			}
-			if (this.aBoolean3576 || this.aClass120_Sub7_3939.buf.length - this.aByte3938 > this.aClass120_Sub7_3939.pos) {
-				throw new RuntimeException();
-			}
-			is = this.aClass120_Sub7_3939.buf;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ul.C(").append(i).append(')').toString());
+	final byte[] getBuffer() {
+		if (this.aBoolean3576 || this.aClass120_Sub7_3939.buf.length - this.aByte3938 > this.aClass120_Sub7_3939.pos) {
+			throw new RuntimeException();
 		}
-		return is;
+		return this.aClass120_Sub7_3939.buf;
 	}
 }

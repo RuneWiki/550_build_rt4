@@ -15,7 +15,7 @@ final class EnumType extends NodeSub {
 	private Hashtable aClass75_3459;
 	static Class112 aClass112_3460;
 	Hashtable params;
-	static Class35 recentUse = new Class35(128);
+	static NodeCache recentUse = new NodeCache(128);
 	static long aLong3462;
 
 	static {
@@ -38,7 +38,7 @@ final class EnumType extends NodeSub {
 		aClass75_3459 = new Hashtable(params.getCapacity());
 		for (StringNode class120_sub25 = (StringNode) params.getFirst(); class120_sub25 != null; class120_sub25 = (StringNode) params.getNext()) {
 			final Class120_Sub21 class120_sub21 = new Class120_Sub21(class120_sub25.value, (int) class120_sub25.uid);
-			aClass75_3459.put(class120_sub21, IsaacCipher.method907((byte) 121, class120_sub25.value));
+			aClass75_3459.put(class120_sub21, IsaacCipher.method907(class120_sub25.value));
 		}
 	}
 
@@ -81,8 +81,8 @@ final class EnumType extends NodeSub {
 		return true;
 	}
 
-	static final void method1421(final boolean bool) {
-		if (bool) {
+	static final void method1421(final boolean titleScreen) {
+		if (titleScreen) {
 			if (Class69.rootInterfaceId != -1) {
 				Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 			}
@@ -93,9 +93,9 @@ final class EnumType extends NodeSub {
 			Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
 			Class43.method342();
 			Class69.rootInterfaceId = GameShell.loginscreenId;
-			Class101_Sub2.method846((byte) 44, false);
+			Class101_Sub2.method846(false);
 			Class132_Sub1.method1931();
-			JagexSocket.method376(true, Class69.rootInterfaceId);
+			JagexSocket.executeOnloadScript(Class69.rootInterfaceId);
 		}
 		Class192.selectedSpellCursor = -1;
 		Class120_Sub12_Sub6.setCursor(AbstractIndexedSprite.defaultCursorId);
@@ -112,10 +112,10 @@ final class EnumType extends NodeSub {
 			if (HDToolkit.glEnabled) {
 				AmbientSound.method1159();
 			}
-			Class128.method1900();
+			OverlayType.method1900();
 			Class120_Sub14_Sub1.setGameState(28);
 		} else {
-			Class85.method725((byte) -55, Class7.aClass50_63);
+			HintIcon.method725(Class7.aClass50_63);
 			Class120_Sub14_Sub1.setGameState(10);
 		}
 	}
@@ -197,7 +197,7 @@ final class EnumType extends NodeSub {
 		if (aClass75_3459 == null) {
 			method1418();
 		}
-		for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.get(IsaacCipher.method907((byte) 75, string)); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.poll()) {
+		for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.get(IsaacCipher.method907(string)); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.poll()) {
 			if (class120_sub21.aString2666.equals(string)) {
 				return true;
 			}

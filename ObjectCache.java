@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Cache {
+final class ObjectCache {
 	static Class120_Sub14_Sub8 smallFont;
 	static int anInt122 = -1;
 	private final Hashtable hashtable;
@@ -12,13 +12,13 @@ final class Cache {
 	private int defaultCapacity;
 
 	final int getCount() {
-		int i_0_ = 0;
+		int count = 0;
 		for (AbstractObject class120_sub14_sub3 = (AbstractObject) aClass177_126.peekFirst(); class120_sub14_sub3 != null; class120_sub14_sub3 = (AbstractObject) aClass177_126.peekNext()) {
 			if (!class120_sub14_sub3.isSoftReference()) {
-				i_0_++;
+				count++;
 			}
 		}
-		return i_0_;
+		return count;
 	}
 
 	final void put(final Object object, final long l) {
@@ -75,55 +75,48 @@ final class Cache {
 		}
 	}
 
-	static final void method191(final int i) {
-		try {
-			Class173.method2225();
-			Class132_Sub2.method1937((byte) 59);
-			Class110.method976(-7603);
-			Class120_Sub14_Sub9.aClass35_3517.method306((byte) -87);
-			Class82.aClass88_783 = new Class88();
-			((Class143_Sub1) Rasterizer.anInterface5_973).method2025(0);
-			Class41.method333();
-			LightManager.lights = new Light[255];
-			LightManager.lightsPos = 0;
-			Class180_Sub7_Sub2.method2436();
-			Class47.method388();
-			Class54.method479(0);
-			Class120_Sub30_Sub1.method1739(false, (byte) -93);
-			Class79_Sub1.method693(i ^ 0x2c82);
-			Class82.method712(106);
-			for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_2_];
-				if (class180_sub5_sub1 != null) {
-					class180_sub5_sub1.anObject3047 = null;
-				}
+	static final void method191() {
+		Class173.method2225();
+		Class132_Sub2.method1937((byte) 59);
+		Class110.method976();
+		Class120_Sub14_Sub9.aClass35_3517.clear();
+		Class82.aClass88_783 = new Class88();
+		((Class143_Sub1) Rasterizer.anInterface5_973).method2025(0);
+		Class41.method333();
+		LightManager.lights = new Light[255];
+		LightManager.lightsPos = 0;
+		Class180_Sub7_Sub2.method2436();
+		Class47.method388();
+		Class54.method479(0);
+		Class120_Sub30_Sub1.method1739(false);
+		Class79_Sub1.method693();
+		Class82.method712(106);
+		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
+			final Player class180_sub5_sub1 = Class118.playersList[i_2_];
+			if (class180_sub5_sub1 != null) {
+				class180_sub5_sub1.anObject3047 = null;
 			}
-			if (HDToolkit.glEnabled) {
-				Class47.method382(104, 104);
-				Class108_Sub1.method933(Class186.hdrEnabled);
-				ParticleEngine.method964();
-			}
-			Class8.constructFonts(Class7.aClass50_63, Class120_Sub13.aClass50_2576);
-			GameShell.constructSprites(Class7.aClass50_63);
-			Class157.aClass120_Sub14_Sub19_1472 = null;
-			FrameLoader.aClass120_Sub14_Sub19_3611 = null;
-			if (i != 11650) {
-				method194(null, true, 13);
-			}
-			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
-			Class173.aClass120_Sub14_Sub19_1725 = null;
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
-			if (Class109.gameState == 5) {
-				IsaacCipher.method900(62, Class7.aClass50_63);
-			}
-			if (Class109.gameState == 10) {
-				EnumType.method1421(false);
-			}
-			if (Class109.gameState == 30) {
-				Class120_Sub14_Sub1.setGameState(25);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cc.H(").append(i).append(')').toString());
+		}
+		if (HDToolkit.glEnabled) {
+			Class47.method382(104, 104);
+			Class108_Sub1.method933(Class186.hdrEnabled);
+			ParticleEngine.method964();
+		}
+		Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);
+		GameShell.constructSprites(Class7.aClass50_63);
+		Class157.aClass120_Sub14_Sub19_1472 = null;
+		FrameLoader.aClass120_Sub14_Sub19_3611 = null;
+		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
+		Class173.aClass120_Sub14_Sub19_1725 = null;
+		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
+		if (Class109.gameState == 5) {
+			IsaacCipher.drawTitleScreenSprites(Class7.aClass50_63);
+		}
+		if (Class109.gameState == 10) {
+			EnumType.method1421(false);
+		}
+		if (Class109.gameState == 30) {
+			Class120_Sub14_Sub1.setGameState(25);
 		}
 	}
 
@@ -147,7 +140,7 @@ final class Cache {
 		}
 	}
 
-	Cache(final int i) {
+	ObjectCache(final int i) {
 		defaultCapacity = i;
 		capacity = i;
 		int i_5_;

@@ -42,29 +42,8 @@ final class Class101_Sub1 extends Class101 {
 		}
 	}
 
-	static final void method840(final int i, final int i_6_) {
-		try {
-			SpotAnimType.recentUse.method192(i_6_);
-			Class182.aClass21_1798.method192(i_6_);
-			if (i != 2) {
-				anInt2275 = 21;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("am.J(").append(i).append(',').append(i_6_).append(')').toString());
-		}
-	}
-
-	static final int method841(final int i, final int i_7_) {
-		int i_8_;
-		try {
-			if (i < 23) {
-				return -47;
-			}
-			i_8_ = i_7_ >>> 10;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("am.H(").append(i).append(',').append(i_7_).append(')').toString());
-		}
-		return i_8_;
+	static final int method841(final int i_7_) {
+		return i_7_ >>> 10;
 	}
 
 	static final void method842(final Deque deque, final int i, final int i_9_, final int i_10_) {
@@ -79,7 +58,7 @@ final class Class101_Sub1 extends Class101 {
 					if (Class9.method116(class73, -1)) {
 						SceneGraphNode.method2271(i, false, class120_sub14_sub5, i_10_, class73);
 						if (class120_sub14_sub5.aBoolean3476) {
-							SubScript.method2244(10, class120_sub14_sub5, class73);
+							SubScript.method2244(class120_sub14_sub5, class73);
 						}
 					}
 				}
@@ -99,7 +78,7 @@ final class Class101_Sub1 extends Class101 {
 			if (i != 1380163464) {
 				anInt2267 = 89;
 			}
-			Class128.method1901(i_15_, i_13_, this.anInt960, i_16_, true, i_14_);
+			OverlayType.method1901(i_15_, i_13_, this.anInt960, i_16_, true, i_14_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("am.B(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
 		}

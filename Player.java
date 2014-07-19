@@ -120,7 +120,7 @@ final class Player extends GameEntity {
 
 	@Override
 	final int getMaxY() {
-		return this.anInt3018;
+		return this.maxY;
 	}
 
 	@Override
@@ -158,29 +158,13 @@ final class Player extends GameEntity {
 	}
 
 	@Override
-	final int method2325(final boolean bool) {
-		int i;
-		try {
-			if (bool) {
-				method2266(-87, -38, 15, 11, -116);
-			}
-			i = this.anInt2982;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("f.I(").append(bool).append(')').toString());
-		}
-		return i;
+	final int method2325() {
+		return anInt2982;
 	}
 
-	static final void method2341(final int i) {
-		try {
-			if (i != -31352) {
-				method2345(0, 111, (byte) -128);
-			}
-			Class43.playerModelsCache.clearSoftReference();
-			Class90.playerHeadModelsCache.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("f.V(").append(i).append(')').toString());
-		}
+	static final void method2341() {
+		Class43.playerModelsCache.clearSoftReference();
+		Class90.playerHeadModelsCache.clearSoftReference();
 	}
 
 	@Override
@@ -207,7 +191,7 @@ final class Player extends GameEntity {
 					}
 				}
 				if (class180_sub7 != null) {
-					this.anInt3018 = class180_sub7.getMaxY();
+					this.maxY = class180_sub7.getMaxY();
 					if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).aBoolean1653)) {
 						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, 2, class40_34_ == null ? seqType : class40_34_, i, 1, 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
 						if (!HDToolkit.glEnabled) {
@@ -223,30 +207,30 @@ final class Player extends GameEntity {
 						}
 					}
 					if (this == Class100.selfPlayer) {
-						for (int i_39_ = Class187.aClass85Array1909.length - 1; i_39_ >= 0; i_39_--) {
-							final Class85 class85 = Class187.aClass85Array1909[i_39_];
-							if (class85 != null && class85.anInt811 != -1) {
-								if (class85.anInt809 == 1 && class85.anInt808 >= 0 && class85.anInt808 < Class120_Sub12_Sub11.npcList.length) {
-									final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[class85.anInt808];
+						for (int i_39_ = Class187.hintIcons.length - 1; i_39_ >= 0; i_39_--) {
+							final HintIcon hintIcon = Class187.hintIcons[i_39_];
+							if (hintIcon != null && hintIcon.modelId != -1) {
+								if (hintIcon.targetType == 1 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class120_Sub12_Sub11.npcList.length) {
+									final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[hintIcon.targetIndex];
 									if (class180_sub5_sub2 != null) {
 										final int i_40_ = -(Class100.selfPlayer.x / 32) + class180_sub5_sub2.x / 32;
 										final int i_41_ = class180_sub5_sub2.z / 32 - Class100.selfPlayer.z / 32;
-										method2344(i_28_, i_41_, null, i_27_, i_33_, i_26_, i, i_30_, i_40_, i_31_, class85.anInt811, (byte) -96, i_29_, 360000, class180_sub7, i_32_);
+										method2344(i_28_, i_41_, null, i_27_, i_33_, i_26_, i, i_30_, i_40_, i_31_, hintIcon.modelId, (byte) -96, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}
-								if (class85.anInt809 == 2) {
-									final int i_42_ = 2 + 4 * (class85.anInt804 - GameEntity.currentBaseX) - (Class100.selfPlayer.x / 32);
-									final int i_43_ = 2 + 4 * (class85.anInt813 - Class181.currentBaseZ) - (Class100.selfPlayer.z / 32);
-									int i_44_ = class85.anInt810 * 4;
+								if (hintIcon.targetType == 2) {
+									final int i_42_ = 2 + 4 * (hintIcon.x - GameEntity.currentBaseX) - (Class100.selfPlayer.x / 32);
+									final int i_43_ = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (Class100.selfPlayer.z / 32);
+									int i_44_ = hintIcon.showDistance * 4;
 									i_44_ *= i_44_;
-									method2344(i_28_, i_43_, null, i_27_, i_33_, i_26_, i, i_30_, i_42_, i_31_, class85.anInt811, (byte) -109, i_29_, i_44_, class180_sub7, i_32_);
+									method2344(i_28_, i_43_, null, i_27_, i_33_, i_26_, i, i_30_, i_42_, i_31_, hintIcon.modelId, (byte) -109, i_29_, i_44_, class180_sub7, i_32_);
 								}
-								if (class85.anInt809 == 10 && class85.anInt808 >= 0 && Class118.playersList.length > class85.anInt808) {
-									final Player class180_sub5_sub1_45_ = Class118.playersList[class85.anInt808];
+								if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && Class118.playersList.length > hintIcon.targetIndex) {
+									final Player class180_sub5_sub1_45_ = Class118.playersList[hintIcon.targetIndex];
 									if (class180_sub5_sub1_45_ != null) {
 										final int i_46_ = class180_sub5_sub1_45_.x / 32 - (Class100.selfPlayer.x / 32);
 										final int i_47_ = class180_sub5_sub1_45_.z / 32 - (Class100.selfPlayer.z / 32);
-										method2344(i_28_, i_47_, null, i_27_, i_33_, i_26_, i, i_30_, i_46_, i_31_, class85.anInt811, (byte) -115, i_29_, 360000, class180_sub7, i_32_);
+										method2344(i_28_, i_47_, null, i_27_, i_33_, i_26_, i, i_30_, i_46_, i_31_, hintIcon.modelId, (byte) -115, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}
 							}
@@ -375,8 +359,8 @@ final class Player extends GameEntity {
 		}
 	}
 
-	final void method2343(final int i, final boolean bool, final int i_53_) {
-		super.method2323(i, getSize(), i_53_, bool);
+	final void method2343(final int x, final int z, final boolean bool) {
+		super.method2323(x, z, getSize(), bool);
 	}
 
 	private final void method2344(final int i, final int i_54_, final ParticleEngine class108_sub2, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final int i_62_, final byte i_63_, final int i_64_, final int i_65_,
@@ -429,7 +413,7 @@ final class Player extends GameEntity {
 			} else {
 				for (int i_76_ = 0; i_76_ < Class186.menuOptionCount; i_76_++) {
 					if (Class120_Sub29.aShortArray2777[i_76_] == 1 || Class120_Sub29.aShortArray2777[i_76_] == 1009 || Class120_Sub29.aShortArray2777[i_76_] == 34 || Class120_Sub29.aShortArray2777[i_76_] == 23 || Class120_Sub29.aShortArray2777[i_76_] == 3) {
-						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = ObjectContainer.method1665(89, class189_77_)) {
+						for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.anIntArray2769[i_76_]); class189_77_ != null; class189_77_ = ObjectContainer.method1665(class189_77_)) {
 							if (class189_77_.bitPacked == jagexInterface.bitPacked) {
 								return true;
 							}

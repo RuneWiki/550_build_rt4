@@ -22,7 +22,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			return true;
 		}
 		if (anInt3295 >= 0) {
-			final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.method904(Class10.aClass50_79, anInt3295, (byte) 118) : Class120_Sub14_Sub13.method1534(Class10.aClass50_79, Class120_Sub12_Sub25.anInt3316, anInt3295);
+			final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.constructLDSprite(Class10.aClass50_79, anInt3295) : Class120_Sub14_Sub13.method1534(Class10.aClass50_79, Class120_Sub12_Sub25.anInt3316, anInt3295);
 			class120_sub14_sub19_sub2.method1615();
 			this.anIntArray3296 = class120_sub14_sub19_sub2.pixels;
 			this.anInt3292 = class120_sub14_sub19_sub2.width;
@@ -33,16 +33,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_0_) {
-		try {
-			if (i != -43) {
-				method1306((byte) -20);
-			}
-			if (i_0_ == 0) {
-				anInt3295 = class120_sub7.getUShort();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_0_) {
+		if (i_0_ == 0) {
+			anInt3295 = buffer.getUShort();
 		}
 	}
 
@@ -124,16 +117,10 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		}
 	}
 
-	private static final void method1307(final byte i) {
-		try {
-			Class73.aClass21_635.clearSoftReference();
-			if (i == -71) {
-				Class11.aClass21_80.clearSoftReference();
-				Class180_Sub4.aClass21_2931.clearSoftReference();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.AA(").append(i).append(')').toString());
-		}
+	private static final void method1307() {
+		NpcType.recentUse.clearSoftReference();
+		Class11.aClass21_80.clearSoftReference();
+		Projectile.aClass21_2931.clearSoftReference();
 	}
 
 	static final void method1308(final int i, final int i_12_, final int i_13_, final int i_14_, int i_15_, int i_16_) {
@@ -152,17 +139,6 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		}
 	}
 
-	private static final void method1309(final int i) {
-		try {
-			if (i != 0) {
-				actions = null;
-			}
-			InterfaceListener.aClass21_2542.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.R(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void method1189(final int i) {
 		try {
@@ -174,17 +150,8 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	}
 
 	@Override
-	final int method1181(final int i) {
-		int i_18_;
-		try {
-			if (i != -1) {
-				StructType.list(-27);
-			}
-			i_18_ = anInt3295;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.I(").append(i).append(')').toString());
-		}
-		return i_18_;
+	final int method1181() {
+		return anInt3295;
 	}
 
 	public static void method1310(final int i) {
@@ -199,37 +166,30 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1311(final byte i) {
-		try {
-			method1309(0);
-			Class127.method1898((byte) 48);
-			Class128.method1907((byte) 105);
-			IntegerNode.method1831(i + 18722);
-			method1307((byte) -71);
-			Class120_Sub12_Sub4.method1214((byte) 99);
-			Class83.b(i + -22970);
-			Class120_Sub12_Sub7.method1234((byte) 59);
-			Class120_Sub12_Sub29.method1351(-25);
-			Class69_Sub2_Sub1.method622(51);
-			Class120_Sub12_Sub12.method1256((byte) -121);
-			Class120_Sub12_Sub13.method1263(14834);
-			Class121.method1839(-14307);
-			GameEntity.method2324(-115);
-			Class81.method708(-11);
-			Class120_Sub12_Sub36.method1387((byte) -123);
-			Class5.method99(i ^ 0x60000040);
-			Player.method2341(i + -31416);
-			if (i != 64) {
-				anInt3298 = 90;
-			}
-			Class84.method716(i + -22837);
-			Class43.method340(-119);
-			SceneGroundObject.method2275((byte) 29);
-			Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
-			Class15.aClass21_95.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.V(").append(i).append(')').toString());
-		}
+	static final void method1311() {
+		InterfaceListener.aClass21_2542.clearSoftReference();
+		OverlayType.recentUse.clearSoftReference();
+		IdentityKit.recentUse.clearSoftReference();
+		IntegerNode.method1831();
+		method1307();
+		Class120_Sub12_Sub4.method1214();
+		Class83.b();
+		Class120_Sub12_Sub7.method1234((byte) 59);
+		Class120_Sub12_Sub29.method1351(-25);
+		Class69_Sub2_Sub1.method622(51);
+		Class120_Sub12_Sub12.method1256((byte) -121);
+		Class120_Sub12_Sub13.method1263(14834);
+		Class121.method1839(-14307);
+		GameEntity.method2324(-115);
+		Class81.method708(-11);
+		Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
+		Class5.method99();
+		Player.method2341();
+		Class84.method716();
+		Class43.method340(-119);
+		SceneGroundObject.method2275((byte) 29);
+		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
+		Class15.aClass21_95.clearSoftReference();
 	}
 
 	public Class120_Sub12_Sub21() {

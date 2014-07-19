@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static final void method1211(final boolean bool, final int i, final int i_0_, final boolean bool_1_, final int i_2_) {
 		try {
-			Class120_Sub14_Sub14_Sub2.method1552(bool, i_2_, i_0_, Class86.aClass167_Sub1Array817.length + -1, bool_1_, 0, 1);
+			Class120_Sub14_Sub14_Sub2.method1552(bool, i_2_, i_0_, Class86.worlds.length + -1, bool_1_, 0, 1);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.W(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(bool_1_).append(',').append(i_2_).append(')').toString());
 		}
@@ -40,73 +40,60 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1213(final int[] is, final Npc class180_sub5_sub2, final int[] is_3_, final int i, final int[] is_4_) {
-		try {
-			for (int i_5_ = i; i_5_ < is.length; i_5_++) {
-				final int i_6_ = is[i_5_];
-				int i_7_ = is_3_[i_5_];
-				final int i_8_ = is_4_[i_5_];
-				for (int i_9_ = 0; i_7_ != 0 && i_9_ < class180_sub5_sub2.aClass150Array2972.length; i_7_ >>>= 1) {
-					if ((0x1 & i_7_) != 0) {
-						if ((i_6_ ^ 0xffffffff) != 0) {
-							final SeqType seqType = SeqType.list(i_6_);
-							final int i_10_ = seqType.anInt337;
-							Class150 class150 = class180_sub5_sub2.aClass150Array2972[i_9_];
-							if (class150 != null) {
-								if (class150.anInt1406 == i_6_) {
-									if (i_10_ != 0) {
-										if (i_10_ == 1) {
-											class150.anInt1416 = 0;
-											class150.anInt1414 = 1;
-											class150.anInt1410 = 0;
-											class150.anInt1411 = i_8_;
-											class150.anInt1413 = 0;
-											Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false);
-										} else if (i_10_ == 2) {
-											class150.anInt1416 = 0;
-										}
-									} else {
-										class150 = class180_sub5_sub2.aClass150Array2972[i_9_] = null;
+	static final void method1213(final Npc npc, final int[] is, final int[] is_3_, final int[] is_4_) {
+		for (int i_5_ = 0; i_5_ < is.length; i_5_++) {
+			final int i_6_ = is[i_5_];
+			int i_7_ = is_3_[i_5_];
+			final int i_8_ = is_4_[i_5_];
+			for (int i_9_ = 0; i_7_ != 0 && i_9_ < npc.aClass150Array2972.length; i_7_ >>>= 1) {
+				if ((0x1 & i_7_) != 0) {
+					if (i_6_ != -1) {
+						final SeqType seqType = SeqType.list(i_6_);
+						final int i_10_ = seqType.resetInPlay;
+						Class150 class150 = npc.aClass150Array2972[i_9_];
+						if (class150 != null) {
+							if (class150.anInt1406 == i_6_) {
+								if (i_10_ != 0) {
+									if (i_10_ == 1) {
+										class150.anInt1416 = 0;
+										class150.anInt1414 = 1;
+										class150.anInt1410 = 0;
+										class150.anInt1411 = i_8_;
+										class150.anInt1413 = 0;
+										Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
+									} else if (i_10_ == 2) {
+										class150.anInt1416 = 0;
 									}
-								} else if (seqType.anInt348 >= SeqType.list(class150.anInt1406).anInt348) {
-									class150 = class180_sub5_sub2.aClass150Array2972[i_9_] = null;
+								} else {
+									class150 = npc.aClass150Array2972[i_9_] = null;
 								}
+							} else if (seqType.priority >= SeqType.list(class150.anInt1406).priority) {
+								class150 = npc.aClass150Array2972[i_9_] = null;
 							}
-							if (class150 == null) {
-								class150 = class180_sub5_sub2.aClass150Array2972[i_9_] = new Class150();
-								class150.anInt1406 = i_6_;
-								class150.anInt1413 = 0;
-								class150.anInt1410 = 0;
-								class150.anInt1414 = 1;
-								class150.anInt1416 = 0;
-								class150.anInt1411 = i_8_;
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.z, class180_sub5_sub2.x, 0, false);
-							}
-						} else {
-							class180_sub5_sub2.aClass150Array2972[i_9_] = null;
 						}
+						if (class150 == null) {
+							class150 = npc.aClass150Array2972[i_9_] = new Class150();
+							class150.anInt1406 = i_6_;
+							class150.anInt1413 = 0;
+							class150.anInt1410 = 0;
+							class150.anInt1414 = 1;
+							class150.anInt1416 = 0;
+							class150.anInt1411 = i_8_;
+							Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
+						}
+					} else {
+						npc.aClass150Array2972[i_9_] = null;
 					}
-					i_9_++;
 				}
+				i_9_++;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("cf.V(").append(is != null ? "{...}" : "null").append(',').append(class180_sub5_sub2 != null ? "{...}" : "null").append(',').append(is_3_ != null ? "{...}" : "null").append(',').append(i).append(',').append(is_4_ != null ? "{...}" : "null").append(')')
-							.toString());
 		}
 	}
 
-	static final void method1214(final byte i) {
-		try {
-			Canvas_Sub1.aClass21_14.clearSoftReference();
-			if (i != 99) {
-				aLong3158 = -25L;
-			}
-			Class33.aClass21_273.clearSoftReference();
-			Class180_Sub3.aClass21_2906.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.T(").append(i).append(')').toString());
-		}
+	static final void method1214() {
+		Canvas_Sub1.aClass21_14.clearSoftReference();
+		Class33.aClass21_273.clearSoftReference();
+		Class180_Sub3.aClass21_2906.clearSoftReference();
 	}
 
 	static final int getDisplayMode() {
@@ -176,33 +163,25 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_14_) {
-		try {
-			final int i_15_ = i_14_;
-			while_119_: do {
-				do {
-					if (i_15_ != 0) {
-						if (i_15_ != 1) {
-							if (i_15_ == 2) {
-								break;
-							}
-							break while_119_;
+	final void decode(final Buffer buffer, final int i_15_) {
+		while_119_: do {
+			do {
+				if (i_15_ != 0) {
+					if (i_15_ != 1) {
+						if (i_15_ == 2) {
+							break;
 						}
-					} else {
-						anInt3155 = class120_sub7.getUShort();
 						break while_119_;
 					}
-					anInt3159 = class120_sub7.getUShort();
+				} else {
+					anInt3155 = buffer.getUShort();
 					break while_119_;
-				} while (false);
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
+				}
+				anInt3159 = buffer.getUShort();
+				break while_119_;
 			} while (false);
-			if (i != -43) {
-				aClass189_3156 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_14_).append(')').toString());
-		}
+			this.aBoolean2558 = buffer.getUByte() == 1;
+		} while (false);
 	}
 
 	@Override

@@ -2,17 +2,17 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub13 extends Node {
-	int anInt2571;
+final class ClanMember extends Node {
+	int world;
 	static int anInt2572 = 0;
 	static boolean[][] aBooleanArrayArray2573;
 	static String aString2574 = "white:";
-	byte aByte2575;
+	byte rank;
 	static js5 aClass50_2576;
 	static AbstractGraphicsBuffer fullscreenGraphics;
 	static String aString2578 = " from your ignore list first.";
-	String aString2579;
-	String aString2580;
+	String sideText;
+	String name;
 	static Class193[] aClass193Array2581 = new Class193[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
@@ -66,16 +66,16 @@ final class Class120_Sub13 extends Node {
 				class120_sub18.anIntArray2641[class120_sub18.anInt2638] = i_14_;
 				class120_sub18.anInt2635 |= i_14_;
 				class120_sub18.anInt2638++;
-				if (bool_8_ && Class35.anIntArrayArray300[i_12_][i_13_] != 0) {
-					i_9_ = Class35.anIntArrayArray300[i_12_][i_13_];
+				if (bool_8_ && NodeCache.anIntArrayArray300[i_12_][i_13_] != 0) {
+					i_9_ = NodeCache.anIntArrayArray300[i_12_][i_13_];
 				}
 			}
 		}
 		if (bool_8_ && i_9_ != 0) {
 			for (int i_16_ = i_0_; i_16_ < i_0_ + i_2_; i_16_++) {
 				for (int i_17_ = i_1_; i_17_ < i_1_ + i_3_; i_17_++) {
-					if (Class35.anIntArrayArray300[i_16_][i_17_] == 0) {
-						Class35.anIntArrayArray300[i_16_][i_17_] = i_9_;
+					if (NodeCache.anIntArrayArray300[i_16_][i_17_] == 0) {
+						NodeCache.anIntArrayArray300[i_16_][i_17_] = i_9_;
 					}
 				}
 			}
@@ -120,7 +120,7 @@ final class Class120_Sub13 extends Node {
 		}
 	}
 
-	public Class120_Sub13() {
+	public ClanMember() {
 		/* empty */
 	}
 }

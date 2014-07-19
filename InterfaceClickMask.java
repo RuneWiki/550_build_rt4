@@ -7,7 +7,7 @@ final class InterfaceClickMask extends Node {
 	static String aString2660 = "Loading fonts - ";
 	int paramId;
 	int optionMask;
-	static Cache aClass21_2663 = new Cache(500);
+	static ObjectCache aClass21_2663 = new ObjectCache(500);
 
 	final boolean method1677(final byte i) {
 		boolean bool;
@@ -36,14 +36,6 @@ final class InterfaceClickMask extends Node {
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("on.B(").append(node != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_1_ != null ? "{...}" : "null").append(')').toString());
-		}
-	}
-
-	static final void method1680(final byte i, final int i_2_) {
-		try {
-			Class120_Sub12_Sub31.aClass21_3378.method192(i_2_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.M(").append(i).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -192,20 +184,6 @@ final class InterfaceClickMask extends Node {
 		}
 	}
 
-	static final void method1690(final int i, final int i_19_) {
-		try {
-			LocType.recentUse.method192(i_19_);
-			aClass21_2663.method192(i_19_);
-			Class167.aClass21_1618.method192(i_19_);
-			Class116.aClass21_1117.method192(i_19_);
-			if (i != 23) {
-				method1680((byte) 59, 102);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.O(").append(i).append(',').append(i_19_).append(')').toString());
-		}
-	}
-
 	final boolean method1691() {
 		return (this.optionMask >> 29 & 0x1) != 0;
 	}
@@ -223,16 +201,9 @@ final class InterfaceClickMask extends Node {
 		return bool_20_;
 	}
 
-	static final void method1693(final int i) {
-		try {
-			if (i != -15681) {
-				redrawInterface(null);
-			}
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.clear();
-			Class132.aClass21_1255.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.A(").append(i).append(')').toString());
-		}
+	static final void method1693() {
+		Class120_Sub14_Sub14_Sub2.aClass21_3937.clear();
+		Class132.aClass21_1255.clear();
 	}
 
 	final boolean method1694(final int i) {

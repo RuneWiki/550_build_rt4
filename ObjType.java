@@ -11,7 +11,6 @@ final class ObjType {
 	private int womanwearyoff;
 	private byte[] recol_d_palette;
 	private int manhead2;
-	static js5 aClass50_1517;
 	private int modelId;
 	int dummyitem = 0;
 	static int[] anIntArray1520 = { 0, 1, 2, 3, 4, 5, 6, 14 };
@@ -355,19 +354,19 @@ final class ObjType {
 		this.inventoryOptions[4] = Class8.aString64;
 	}
 
-	static final boolean method2113(final js5 js5, final int i_42_) {
-		final byte[] is = js5.method413(i_42_, true);
-		if (is == null) {
+	static final boolean decodedSprites(final js5 js5, final int groupId) {
+		final byte[] data = js5.getFileSmart(groupId);
+		if (data == null) {
 			return false;
 		}
-		Class140.decodeSprites(is);
+		Class140.decodeSprites(data);
 		return true;
 	}
 
 	static final void method2114(final boolean bool) {
 		if (!Class69_Sub2.aBoolean2234 == bool) {
 			Class69_Sub2.aBoolean2234 = bool;
-			Class120_Sub12_Sub25.method1334(-111);
+			Class120_Sub12_Sub25.method1334();
 		}
 	}
 
@@ -678,7 +677,6 @@ final class ObjType {
 	public static void method2119(final int i) {
 		try {
 			anIntArray1520 = null;
-			aClass50_1517 = null;
 			if (i != 2) {
 				anInt1551 = -2;
 			}

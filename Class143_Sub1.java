@@ -6,12 +6,12 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	private int anInt2190;
 	private boolean aBoolean2191 = false;
 	static String aString2192 = "Your ignore list is full. Max of 100 users.";
-	private Class35 aClass35_2193;
+	private NodeCache aClass35_2193;
 	private final js5 aClass50_2194;
 	static int[][][] anIntArrayArrayArray2195 = new int[2][][];
 	private js5 aClass50_2196;
 	static int anInt2197;
-	private Class35 aClass35_2198;
+	private NodeCache aClass35_2198;
 
 	static final boolean method2021() {
 		if (HDToolkit.glEnabled) {
@@ -58,7 +58,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (i_3_ > -2) {
 				anInt2190 = -23;
 			}
-			for (Class120_Sub14_Sub17 class120_sub14_sub17 = (Class120_Sub14_Sub17) aClass35_2198.method299(40); class120_sub14_sub17 != null; class120_sub14_sub17 = (Class120_Sub14_Sub17) aClass35_2198.method303(-91)) {
+			for (Class120_Sub14_Sub17 class120_sub14_sub17 = (Class120_Sub14_Sub17) aClass35_2198.getFirst(); class120_sub14_sub17 != null; class120_sub14_sub17 = (Class120_Sub14_Sub17) aClass35_2198.getNext()) {
 				if (class120_sub14_sub17.aBoolean3604) {
 					class120_sub14_sub17.method1573(i);
 					class120_sub14_sub17.aBoolean3604 = false;
@@ -172,9 +172,9 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 
 	final void method2025(final int i) {
 		try {
-			aClass35_2198.method306((byte) 123);
+			aClass35_2198.clear();
 			if (aClass35_2193 != null) {
-				aClass35_2193.method306((byte) 120);
+				aClass35_2193.clear();
 			}
 			Class120_Sub14_Sub17.anIntArray3596 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -244,25 +244,16 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		return bool_17_;
 	}
 
-	static final void method2027(final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_23_) {
-		try {
-			final Class85[] class85s = Class187.aClass85Array1909;
-			if (i_18_ != -8967) {
-				anIntArrayArrayArray2195 = null;
-			}
-			Class85[] class85s_25_;
-			final int i_24_ = (class85s_25_ = class85s).length;
-			for (int i_26_ = 0; i_26_ < i_24_; i_26_++) {
-				final Class85 class85 = class85s_25_[i_26_];
-				if (class85 != null && class85.anInt809 == 2) {
-					Class137.method1982((byte) 51, i_20_ >> 1, 2 * class85.anInt814, i_21_, (class85.anInt804 + -GameEntity.currentBaseX << 7) + class85.anInt812, class85.anInt815 + (-Class181.currentBaseZ + class85.anInt813 << 7), i_19_, i_22_ >> 1);
-					if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0 && Class101_Sub2.loopCycle % 20 < 10) {
-						Class180_Sub6.aClass120_Sub14_Sub19Array3073[class85.anInt805].method1587(-12 + i_23_ + Class120_Sub12_Sub38.anInt3434, Class120_Sub15.anInt2588 + i - 28);
-					}
+	static final void method2027(final int i, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_23_) {
+		final HintIcon[] class85s = Class187.hintIcons;
+		for (int i_26_ = 0; i_26_ < class85s.length; i_26_++) {
+			final HintIcon hintIcon = class85s[i_26_];
+			if (hintIcon != null && hintIcon.targetType == 2) {
+				Class137.method1982(i_20_ >> 1, 2 * hintIcon.y, i_21_, (hintIcon.x + -GameEntity.currentBaseX << 7) + hintIcon.anInt812, hintIcon.anInt815 + (-Class181.currentBaseZ + hintIcon.z << 7), i_19_, i_22_ >> 1);
+				if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0 && Class101_Sub2.loopCycle % 20 < 10) {
+					Class180_Sub6.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + i_23_ + Class120_Sub12_Sub38.anInt3434, Class120_Sub15.anInt2588 + i - 28);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("c.S(").append(i).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(')').toString());
 		}
 	}
 
@@ -270,11 +261,11 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		try {
 			if (i_27_ == -111) {
 				anInt2190 = i;
-				aClass35_2198 = new Class35(anInt2190);
+				aClass35_2198 = new NodeCache(anInt2190);
 				if (!HDToolkit.glEnabled) {
 					aClass35_2193 = null;
 				} else {
-					aClass35_2193 = new Class35(anInt2190);
+					aClass35_2193 = new NodeCache(anInt2190);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -303,11 +294,11 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		aClass50_2196 = class50_30_;
 		aClass50_2194 = js5;
 		aBoolean2191 = bool;
-		aClass35_2198 = new Class35(anInt2190);
+		aClass35_2198 = new NodeCache(anInt2190);
 		if (!HDToolkit.glEnabled) {
 			aClass35_2193 = null;
 		} else {
-			aClass35_2193 = new Class35(anInt2190);
+			aClass35_2193 = new NodeCache(anInt2190);
 		}
 	}
 

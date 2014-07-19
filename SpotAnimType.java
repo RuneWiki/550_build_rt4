@@ -21,7 +21,7 @@ final class SpotAnimType {
 	private short[] retextureOriginal;
 	private short[] retextureModified;
 	private short[] recolorOriginal;
-	static Cache recentUse = new Cache(64);
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	static final boolean method875(final int i, final String string) {
 		boolean bool;
@@ -29,8 +29,8 @@ final class SpotAnimType {
 			if (string == null) {
 				return false;
 			}
-			for (int i_0_ = 0; ProducingGraphicsBuffer.anInt2799 > i_0_; i_0_++) {
-				if (string.equalsIgnoreCase(Class120_Sub16.aStringArray2599[i_0_])) {
+			for (int i_0_ = 0; ProducingGraphicsBuffer.friendCount > i_0_; i_0_++) {
+				if (string.equalsIgnoreCase(Class120_Sub16.friendsName[i_0_])) {
 					return true;
 				}
 			}

@@ -57,23 +57,17 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 		this.aClass180_Sub3_3467 = class180_sub3;
 	}
 
-	static final boolean method1438(final int i, final int i_8_) {
-		boolean bool;
-		try {
-			if (i_8_ < i) {
-				return false;
-			}
-			int i_9_ = Class120_Sub29.aShortArray2777[i_8_];
-			if (i_9_ >= 2000) {
-				i_9_ -= 2000;
-			}
-			if (i_9_ == 1009) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ed.B(").append(i).append(',').append(i_8_).append(')').toString());
+	static final boolean method1438(final int i_8_) {
+		if (i_8_ < 0) {
+			return false;
 		}
-		return bool;
+		int i_9_ = Class120_Sub29.aShortArray2777[i_8_];
+		if (i_9_ >= 2000) {
+			i_9_ -= 2000;
+		}
+		if (i_9_ == 1009) {
+			return true;
+		}
+		return false;
 	}
 }

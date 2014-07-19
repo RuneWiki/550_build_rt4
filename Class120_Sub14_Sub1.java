@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub14_Sub1 extends NodeSub {
-	Class180_Sub4 aClass180_Sub4_3446;
+	Projectile aClass180_Sub4_3446;
 	static int anInt3447 = 0;
 	static int selectedObjId;
 	static String aString3449 = "Take";
@@ -12,28 +12,24 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 		try {
 			aString3449 = null;
 			if (i != 0) {
-				method1415(null, (byte) -112, null);
+				sortArray(null, null);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.E(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method1413(final int i, final int i_0_) {
-		try {
-			if (js5.loadInterface(i_0_)) {
-				final JagexInterface[] class189s = Node.interfaceCache[i_0_];
-				for (final JagexInterface class1892 : class189s) {
-					final JagexInterface jagexInterface = class1892;
-					if (jagexInterface != null) {
-						jagexInterface.nextFrame = 1;
-						jagexInterface.currentFrame = 0;
-						jagexInterface.frameDelay = 0;
-					}
+	static final void stopInterfaceAnimation(final int id) {
+		if (js5.loadInterface(id)) {
+			final JagexInterface[] class189s = Node.interfaceCache[id];
+			for (final JagexInterface class1892 : class189s) {
+				final JagexInterface jagexInterface = class1892;
+				if (jagexInterface != null) {
+					jagexInterface.nextFrame = 1;
+					jagexInterface.currentFrame = 0;
+					jagexInterface.frameDelay = 0;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.C(").append(i).append(',').append(i_0_).append(')').toString());
 		}
 	}
 
@@ -48,23 +44,16 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 		}
 	}
 
-	static final void method1415(final int[] is, final byte i, final Object[] objects) {
-		do {
-			try {
-				Class57.method495(-1 + is.length, objects, 0, -118, is);
-				if (i <= 93) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("bb.D(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
-			}
-		} while (false);
+	static final void sortArray(final int[] is, final Object[] objects) {
+		Class57.sortArray(is.length - 1, objects, 0, is);
 	}
 
 	static final void setGameState(final int state) {
 		if (state != Class109.gameState) {
 			if (Class109.gameState == 0) {
-				Class132_Sub2.method1940((byte) -119);
+				Class132_Sub1.loadingTextImage = null;
+				Class23.loadingFont = null;
+				Class20.loadingFontMetrics = null;
 			}
 			final boolean bool = state == 5 || state == 10 || state == 28;
 			if (state == 40) {
@@ -80,15 +69,15 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				Class66.anInt599 = 0;
 				Class145.anInt1379 = 1;
 				Class181.anInt1791 = 0;
-				Class120_Sub30_Sub1.method1739(true, (byte) -93);
+				Class120_Sub30_Sub1.method1739(true);
 			}
 			if (state == 25 || state == 10) {
 				Class120_Sub12_Sub14.tbrefresh();
 			}
 			if (state != 5) {
-				Class79_Sub1.method693(256);
+				Class79_Sub1.method693();
 			} else {
-				IsaacCipher.method900(111, Class7.aClass50_63);
+				IsaacCipher.drawTitleScreenSprites(Class7.aClass50_63);
 			}
 			final boolean bool_3_ = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
 			if (bool_3_ == !bool) {
@@ -112,7 +101,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 		}
 	}
 
-	Class120_Sub14_Sub1(final Class180_Sub4 class180_sub4) {
+	Class120_Sub14_Sub1(final Projectile class180_sub4) {
 		this.aClass180_Sub4_3446 = class180_sub4;
 	}
 }

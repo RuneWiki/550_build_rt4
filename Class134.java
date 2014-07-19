@@ -8,8 +8,8 @@ final class Class134 {
 	static int scrollbarId;
 	static byte[][] aByteArrayArray1279;
 	static int anInt1280;
-	static int renderPriority;
-	static boolean aBoolean1282;
+	static int entityRenderPriority;
+	static boolean dynamicMapRegion;
 	static String loadingText;
 	static int[] anIntArray1284;
 	static int[] anIntArray1285 = new int[128];
@@ -17,10 +17,10 @@ final class Class134 {
 	static byte[][] aByteArrayArray1287;
 
 	static {
-		aBoolean1282 = false;
+		dynamicMapRegion = false;
 		loadingText = "";
 		aCharArray1286 = new char[128];
-		renderPriority = 0;
+		entityRenderPriority = 0;
 		anIntArray1284 = new int[2];
 		aByteArrayArray1279 = new byte[250][];
 	}

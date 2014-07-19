@@ -51,7 +51,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		i_7_ /= 128;
 		i_8_ /= 128;
 		i_9_ /= 128;
-		return Class120_Sub13.method1403(i, i_6_, i_7_, i_8_ - i_6_ + 1, i_9_ - i_7_ + 1, i_1_, i_2_, i_3_, sceneGraphNode, i_5_, true, l);
+		return ClanMember.method1403(i, i_6_, i_7_, i_8_ - i_6_ + 1, i_9_ - i_7_ + 1, i_1_, i_2_, i_3_, sceneGraphNode, i_5_, true, l);
 	}
 
 	static final void method1219() {
@@ -120,33 +120,25 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_11_) {
-		try {
-			final int i_12_ = i_11_;
-			while_120_: do {
-				do {
-					if (i_12_ != 0) {
-						if (i_12_ != 1) {
-							if (i_12_ == 2) {
-								break;
-							}
-							break while_120_;
+	final void decode(final Buffer buffer, final int i_12_) {
+		while_120_: do {
+			do {
+				if (i_12_ != 0) {
+					if (i_12_ != 1) {
+						if (i_12_ == 2) {
+							break;
 						}
-					} else {
-						anInt3162 = class120_sub7.getUShort();
 						break while_120_;
 					}
-					anInt3161 = class120_sub7.getUShort();
+				} else {
+					anInt3162 = buffer.getUShort();
 					break while_120_;
-				} while (false);
-				anInt3160 = class120_sub7.getUShort();
+				}
+				anInt3161 = buffer.getUShort();
+				break while_120_;
 			} while (false);
-			if (i != -43) {
-				method1221(16);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_11_).append(')').toString());
-		}
+			anInt3160 = buffer.getUShort();
+		} while (false);
 	}
 
 	public static void method1221(final int i) {
@@ -161,12 +153,8 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			method1223((byte) -92);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		method1223();
 	}
 
 	@Override
@@ -257,23 +245,19 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		Class127.method1892();
 	}
 
-	private final void method1223(final byte i) {
-		try {
-			final double d = Math.cos(anInt3160 / 4096.0F);
-			anIntArray3166[0] = (int) (4096.0 * (Math.sin(anInt3161 / 4096.0F) * d));
-			anIntArray3166[1] = (int) (Math.cos(anInt3161 / 4096.0F) * d * 4096.0);
-			anIntArray3166[2] = (int) (4096.0 * Math.sin(anInt3160 / 4096.0F));
-			final int i_34_ = anIntArray3166[0] * anIntArray3166[0] >> 12;
-			final int i_35_ = anIntArray3166[2] * anIntArray3166[2] >> 12;
-			final int i_36_ = anIntArray3166[1] * anIntArray3166[1] >> 12;
-			final int i_37_ = (int) (4096.0 * Math.sqrt(i_35_ + i_34_ + i_36_ >> 12));
-			if (i == -92 && i_37_ != 0) {
-				anIntArray3166[0] = (anIntArray3166[0] << 12) / i_37_;
-				anIntArray3166[2] = (anIntArray3166[2] << 12) / i_37_;
-				anIntArray3166[1] = (anIntArray3166[1] << 12) / i_37_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.W(").append(i).append(')').toString());
+	private final void method1223() {
+		final double d = Math.cos(anInt3160 / 4096.0F);
+		anIntArray3166[0] = (int) (4096.0 * (Math.sin(anInt3161 / 4096.0F) * d));
+		anIntArray3166[1] = (int) (Math.cos(anInt3161 / 4096.0F) * d * 4096.0);
+		anIntArray3166[2] = (int) (4096.0 * Math.sin(anInt3160 / 4096.0F));
+		final int i_34_ = anIntArray3166[0] * anIntArray3166[0] >> 12;
+		final int i_35_ = anIntArray3166[2] * anIntArray3166[2] >> 12;
+		final int i_36_ = anIntArray3166[1] * anIntArray3166[1] >> 12;
+		final int i_37_ = (int) (4096.0 * Math.sqrt(i_35_ + i_34_ + i_36_ >> 12));
+		if (i_37_ != 0) {
+			anIntArray3166[0] = (anIntArray3166[0] << 12) / i_37_;
+			anIntArray3166[2] = (anIntArray3166[2] << 12) / i_37_;
+			anIntArray3166[1] = (anIntArray3166[1] << 12) / i_37_;
 		}
 	}
 }

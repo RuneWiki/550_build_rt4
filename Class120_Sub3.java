@@ -6,7 +6,7 @@ final class Class120_Sub3 extends Node {
 	static String aString2424 = "rating: ";
 	long aLong2425;
 	static volatile boolean canvasReplaceRecommended = false;
-	static Class160[] aClass160Array2427 = new Class160[6];
+	static GrandExchangeObject[] grandExchangeObjects = new GrandExchangeObject[6];
 	static String aString2428 = "Loading config - ";
 
 	static final boolean method1055(final int i, final int i_0_, final boolean bool, final boolean bool_1_, final int i_2_, final GroundTile[][][] class120_sub18s) {
@@ -256,7 +256,7 @@ final class Class120_Sub3 extends Node {
 		if (Class10.aClass193_78 != null) {
 			try {
 				Class10.aClass193_78.seek(0L);
-				Class10.aClass193_78.method2519(i_45_, class120_sub7.buf, 24, (byte) 42);
+				Class10.aClass193_78.write(class120_sub7.buf, i_45_, 24);
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -265,7 +265,7 @@ final class Class120_Sub3 extends Node {
 
 	public static void method1058(final int i) {
 		try {
-			aClass160Array2427 = null;
+			grandExchangeObjects = null;
 			aString2424 = null;
 			aString2428 = null;
 			if (i != 1) {

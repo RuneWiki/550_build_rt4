@@ -6,12 +6,11 @@ final class Class22 {
 	Class120_Sub14_Sub10 aClass120_Sub14_Sub10_128;
 	int anInt129;
 	static Class127 aClass127_130;
-	static Cache aClass21_131 = new Cache(64);
 	int[] anIntArray133;
 
 	public static void method195(final int i) {
 		try {
-			aClass21_131 = null;
+			OverlayType.recentUse = null;
 			if (i != -63361369) {
 				method198(-8, -105, '\uffc0');
 			}

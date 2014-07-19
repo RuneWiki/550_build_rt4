@@ -5,7 +5,7 @@
 final class SceneGroundObject extends SceneGraphNode {
 	static js5 aClass50_2839;
 	static int spriteTrimHeight;
-	static Cache aClass21_2841;
+	static ObjectCache aClass21_2841;
 	private int anInt2842 = -32768;
 	static int anInt2843;
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
@@ -16,7 +16,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	static String aString2849;
 
 	static {
-		aClass21_2841 = new Cache(64);
+		aClass21_2841 = new ObjectCache(64);
 		packetSetFlagPosition = true;
 		aString2849 = "Please remove ";
 	}
@@ -38,7 +38,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	static final void method2275(final byte i) {
 		try {
 			if (i != 29) {
-				method2276(43);
+				method2276();
 			}
 			Class154.aClass21_1438.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
@@ -46,42 +46,35 @@ final class SceneGroundObject extends SceneGraphNode {
 		}
 	}
 
-	static final void method2276(final int i) {
-		try {
-			ParticleEngine.process(Class101_Sub2.loopCycle);
-			if (Class69.rootInterfaceId != -1) {
-				AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
-			}
-			for (int i_8_ = 0; i_8_ < LabelGroup.screenRedrawPos; i_8_++) {
-				if (Class52.needInterfaceRedrawWrapper[i_8_]) {
-					Class120_Sub12_Sub33.needScreenRedraw[i_8_] = true;
-				}
-				Class9.needInterfaceRedraw[i_8_] = Class52.needInterfaceRedrawWrapper[i_8_];
-				Class52.needInterfaceRedrawWrapper[i_8_] = false;
-			}
-			if (i != 7878) {
-				aClass50_2839 = null;
-			}
-			Class84.anInt796 = Class101_Sub2.loopCycle;
-			StructType.aClass189_3588 = null;
-			Class56.anInt497 = -1;
-			if (HDToolkit.glEnabled) {
-				Class167.aBoolean1620 = true;
-			}
-			StructType.anInt3590 = -1;
-			if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
-				LabelGroup.screenRedrawPos = 0;
-				Class56.method486();
-			}
-			if (HDToolkit.glEnabled) {
-				GraphicsHD.method597();
-			} else {
-				GraphicsLD.method2175();
-			}
-			Class120_Sub12_Sub22.redrawRate = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("he.D(").append(i).append(')').toString());
+	static final void method2276() {
+		ParticleEngine.process(Class101_Sub2.loopCycle);
+		if (Class69.rootInterfaceId != -1) {
+			AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
 		}
+		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+			if (Class52.needInterfaceRedrawWrapper[id]) {
+				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
+			}
+			Class9.needInterfaceRedraw[id] = Class52.needInterfaceRedrawWrapper[id];
+			Class52.needInterfaceRedrawWrapper[id] = false;
+		}
+		Class84.anInt796 = Class101_Sub2.loopCycle;
+		StructType.aClass189_3588 = null;
+		Class56.anInt497 = -1;
+		if (HDToolkit.glEnabled) {
+			Class167.aBoolean1620 = true;
+		}
+		StructType.anInt3590 = -1;
+		if (Class69.rootInterfaceId != -1) {
+			LabelGroup.screenRedrawPos = 0;
+			Class56.method486();
+		}
+		if (HDToolkit.glEnabled) {
+			GraphicsHD.method597();
+		} else {
+			GraphicsLD.method2175();
+		}
+		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
 	public static void method2277(final int i) {
@@ -103,13 +96,4 @@ final class SceneGroundObject extends SceneGraphNode {
 		/* empty */
 	}
 
-	static final void method2278(final int i, final byte i_13_) {
-		try {
-			if (i_13_ == -123) {
-				ParamType.aClass21_3541.method192(i);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("he.A(").append(i).append(',').append(i_13_).append(')').toString());
-		}
-	}
 }

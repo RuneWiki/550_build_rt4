@@ -119,16 +119,9 @@ final class Class5 implements ShaderInterface {
 		/* empty */
 	}
 
-	static final void method99(final int i) {
-		try {
-			if (i != 1610612736) {
-				method100(-79);
-			}
-			CursorType.recentUse.clearSoftReference();
-			CursorType.spriteCache.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ae.H(").append(i).append(')').toString());
-		}
+	static final void method99() {
+		CursorType.recentUse.clearSoftReference();
+		CursorType.spriteCache.clearSoftReference();
 	}
 
 	public Class5() {
@@ -172,7 +165,7 @@ final class Class5 implements ShaderInterface {
 		try {
 			aString2153 = null;
 			if (i != -22938) {
-				method99(55);
+				method99();
 			}
 			aShortArray2152 = null;
 		} catch (final RuntimeException runtimeexception) {

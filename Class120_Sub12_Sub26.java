@@ -16,14 +16,14 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	static int anInt3332;
 	static long[] mainLoopTimeCache;
 	private int anInt3334;
-	static int anInt3335;
+	static int ignoreCount;
 	private int anInt3336;
 	static Class53_Sub1[] aClass53_Sub1Array3337;
 
 	static {
 		flagX = 0;
 		aBoolean3326 = false;
-		anInt3335 = 0;
+		ignoreCount = 0;
 		mainLoopTimeCache = new long[32];
 		aClass53_Sub1Array3337 = new Class53_Sub1[29];
 	}
@@ -46,14 +46,10 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 		return bool;
 	}
 
-	static final void method1337(final byte i) {
-		try {
-			Class180_Sub6.aClass21_3071.clear();
-			LabelGroup.aClass21_2406.clear();
-			Class120_Sub12_Sub2.aClass21_3143.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rg.U(").append(i).append(')').toString());
-		}
+	static final void method1337() {
+		Class180_Sub6.aClass21_3071.clear();
+		LabelGroup.aClass21_2406.clear();
+		Class120_Sub12_Sub2.aClass21_3143.clear();
 	}
 
 	public static void method1338(final int i) {
@@ -87,12 +83,8 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			PacketBuffer.method1147((byte) -29);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rg.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		PacketBuffer.method1147();
 	}
 
 	static final LDSprite method1340(final js5 js5, final int i, final int i_8_) {
@@ -113,61 +105,54 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_9_) {
+	final void decode(final Buffer buffer, final int i_10_) {
 		while_196_: do {
-			try {
-				if (i == -43) {
-					final int i_10_ = i_9_;
-					while_195_: do {
-						while_194_: do {
-							while_193_: do {
-								while_192_: do {
-									do {
-										if (i_10_ != 0) {
-											if (i_10_ != 1) {
-												if (i_10_ != 2) {
-													if (i_10_ != 3) {
-														if (i_10_ != 4) {
-															if (i_10_ != 5) {
-																if (i_10_ == 6) {
-																	break while_195_;
-																}
-																break while_196_;
-															}
-														} else {
-															break while_193_;
+			while_195_: do {
+				while_194_: do {
+					while_193_: do {
+						while_192_: do {
+							do {
+								if (i_10_ != 0) {
+									if (i_10_ != 1) {
+										if (i_10_ != 2) {
+											if (i_10_ != 3) {
+												if (i_10_ != 4) {
+													if (i_10_ != 5) {
+														if (i_10_ == 6) {
+															break while_195_;
 														}
-														break while_194_;
+														break while_196_;
 													}
 												} else {
-													break;
+													break while_193_;
 												}
-												break while_192_;
+												break while_194_;
 											}
 										} else {
-											anInt3330 = class120_sub7.getUShort();
-											break while_196_;
+											break;
 										}
-										anInt3324 = class120_sub7.getUShort();
-										break while_196_;
-									} while (false);
-									anInt3323 = class120_sub7.getUShort();
+										break while_192_;
+									}
+								} else {
+									anInt3330 = buffer.getUShort();
 									break while_196_;
-								} while (false);
-								anInt3334 = class120_sub7.getUShort();
+								}
+								anInt3324 = buffer.getUShort();
 								break while_196_;
 							} while (false);
-							anInt3329 = class120_sub7.getUShort();
+							anInt3323 = buffer.getUShort();
 							break while_196_;
 						} while (false);
-						anInt3336 = class120_sub7.getUShort();
+						anInt3334 = buffer.getUShort();
 						break while_196_;
 					} while (false);
-					anInt3322 = class120_sub7.getUShort();
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("rg.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_9_).append(')').toString());
-			}
+					anInt3329 = buffer.getUShort();
+					break while_196_;
+				} while (false);
+				anInt3336 = buffer.getUShort();
+				break while_196_;
+			} while (false);
+			anInt3322 = buffer.getUShort();
 		} while (false);
 	}
 

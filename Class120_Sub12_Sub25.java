@@ -70,51 +70,34 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_9_) {
+	final void decode(final Buffer buffer, final int i_10_) {
 		do {
-			try {
-				final int i_10_ = i_9_;
-				while_178_: do {
-					do {
-						if (i_10_ != 0) {
-							if (i_10_ != 1) {
-								if (i_10_ == 2) {
-									break;
-								}
-								break while_178_;
+			while_178_: do {
+				do {
+					if (i_10_ != 0) {
+						if (i_10_ != 1) {
+							if (i_10_ == 2) {
+								break;
 							}
-						} else {
-							anInt3313 = class120_sub7.getUByte();
 							break while_178_;
 						}
-						anInt3314 = class120_sub7.getUByte();
+					} else {
+						anInt3313 = buffer.getUByte();
 						break while_178_;
-					} while (false);
-					anInt3317 = class120_sub7.getUShort();
+					}
+					anInt3314 = buffer.getUByte();
+					break while_178_;
 				} while (false);
-				if (i != -43) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("qj.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_9_).append(')').toString());
-			}
+				anInt3317 = buffer.getUShort();
+			} while (false);
 		} while (false);
-	}
-
-	static final void method1329(final int i, final int i_11_) {
-		try {
-			Class159.aClass21_1486.method192(i);
-			Class120_Sub6.aClass21_2443.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.W(").append(i).append(',').append(i_11_).append(')').toString());
-		}
 	}
 
 	public static void method1330(final int i) {
 		try {
 			settings = null;
 			if (i != 0) {
-				method1334(-115);
+				method1334();
 			}
 			anIntArray3320 = null;
 			aString3319 = null;
@@ -152,7 +135,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (i == -23) {
 				Class173.method2225();
 				for (int i_12_ = 0; i_12_ < 4; i_12_++) {
-					Class182.collisionMaps[i_12_].method225(11736);
+					Class182.collisionMaps[i_12_].method225();
 				}
 				System.gc();
 			}
@@ -193,18 +176,11 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		Class28.method242(Class120_Sub12_Sub37.aShortArray3430, -87, strings);
 	}
 
-	static final void method1334(final int i) {
-		try {
-			if (i >= -76) {
-				method1332((byte) 124);
-			}
-			LocType.recentUse.clear();
-			InterfaceClickMask.aClass21_2663.clear();
-			Class167.aClass21_1618.clear();
-			Class116.aClass21_1117.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.U(").append(i).append(')').toString());
-		}
+	static final void method1334() {
+		LocType.recentUse.clear();
+		InterfaceClickMask.aClass21_2663.clear();
+		Class167.aClass21_1618.clear();
+		Class116.aClass21_1117.clear();
 	}
 
 	static final void handleLogin() {
@@ -322,11 +298,11 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class120_Sub12_Sub36.aClass50_3419.getIndexCrc());
 						Class137.loginStream.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
 						Class137.loginStream.putInt(Class7.aClass50_63.getIndexCrc());
-						Class137.loginStream.putInt(Class35.aClass50_303.getIndexCrc());
+						Class137.loginStream.putInt(NodeCache.aClass50_303.getIndexCrc());
 						Class137.loginStream.putInt(Class108_Sub3.aClass50_2400.getIndexCrc());
 						Class137.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
 						Class137.loginStream.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
-						Class137.loginStream.putInt(Class120_Sub13.aClass50_2576.getIndexCrc());
+						Class137.loginStream.putInt(ClanMember.aClass50_2576.getIndexCrc());
 						Class137.loginStream.putInt(Class132.aClass50_1251.getIndexCrc());
 						Class137.loginStream.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
 						Class137.loginStream.putInt(Class114.aClass50_1097.getIndexCrc());
@@ -415,8 +391,8 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Canvas_Sub1.inputStream.pos = 0;
 							Class86.staffLevel = Canvas_Sub1.inputStream.getUByte();
 							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
-							Class27.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
-							Class128.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
+							VarBit.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
+							OverlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class127.aBoolean1211 = Canvas_Sub1.inputStream.getUByte() == 1;
@@ -427,7 +403,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class120_Sub12_Sub15.method1276(Class120_Sub12_Sub37.membersClient, (byte) -54);
 							Class69_Sub3.method627(Class120_Sub12_Sub37.membersClient, 6497794);
 							if (!Class31.advertSuppressed) {
-								if (Class27.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.aBoolean3908) {
+								if (VarBit.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.aBoolean3908) {
 									try {
 										JSHelper.call(NpcType.gameSignlink.gameApplet, "zap");
 									} catch (final Throwable throwable) {

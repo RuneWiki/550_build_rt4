@@ -14,57 +14,53 @@ final class Class110 {
 		aClass120_Sub20_1053 = new InterfaceClickMask(0, -1);
 	}
 
-	static final void method976(final int i) {
-		try {
-			Class156.method2085(-93);
-			Class173.method2228(i ^ ~0x7458);
-			LocType.method2451((byte) 22);
-			Class120_Sub12_Sub25.method1334(-102);
-			Class35.method297(i + 7670);
-			Class120_Sub12_Sub18.method1291(256);
-			Class120_Sub12_Sub20.method1296((byte) -114);
-			StringNode.method1720(-19674);
-			Class120_Sub16.method1657(true);
-			Class120_Sub12_Sub35.method1383(725);
-			PlayerAppearance.method2033(-104);
-			InterfaceClickMask.method1693(-15681);
-			Class120_Sub16.method1658(i + 7536);
-			Class36.method309(-14865);
-			PacketBuffer.method1151(32);
-			Class148.method2058(1);
-			DisplayModeInfo.method2214(false);
-			AbstractMouseWheelHandler.method160();
-			Class120_Sub12_Sub26.method1337((byte) 96);
-			if (LocType.modeWhat != 0) {
-				for (int i_0_ = 0; Class120_Sub12_Sub25.aByteArrayArray3318.length > i_0_; i_0_++) {
-					Class120_Sub12_Sub25.aByteArrayArray3318[i_0_] = null;
-				}
-				Class120_Sub14_Sub20.anInt3624 = 0;
+	static final void method976() {
+		InterfaceListener.aClass21_2542.clear();
+		OverlayType.recentUse.clear();
+		IdentityKit.recentUse.clear();
+		Class120_Sub12_Sub25.method1334();
+		NodeCache.method297();
+		Class120_Sub12_Sub18.method1291();
+		Class120_Sub12_Sub20.method1296();
+		StringNode.method1720();
+		VarBit.recentUse.clear();
+		Varp.recentUse.clear();
+		Class120_Sub12_Sub31.aClass21_3378.clear();
+		InterfaceClickMask.method1693();
+		Class120_Sub16.method1658();
+		Class36.method309();
+		Class120_Sub12_Sub9.aClass21_3196.clear();
+		Class120_Sub12_Sub35.aClass21_3411.clear();
+		DisplayModeInfo.method2214();
+		AbstractMouseWheelHandler.method160();
+		Class120_Sub12_Sub26.method1337();
+		if (LocType.modeWhat != 0) {
+			for (int i_0_ = 0; i_0_ < Class120_Sub12_Sub25.aByteArrayArray3318.length; i_0_++) {
+				Class120_Sub12_Sub25.aByteArrayArray3318[i_0_] = null;
 			}
-			Class108_Sub1.method934((byte) 61);
-			Class143.method2015(i + 2534);
-			Class11.method125((byte) 113);
-			Class142.method2009(255);
-			Class15.aClass21_95.clear();
-			if (!HDToolkit.glEnabled) {
-				((Class143_Sub1) Rasterizer.anInterface5_973).method2025(-45);
-			}
-			Class128.aClass35_1219.method306((byte) 115);
-			AmbientSound.aClass50_2479.method419(0);
-			Class79_Sub1.aClass50_2245.method419(0);
-			Class33.aClass50_275.method419(i ^ i);
-			Class159.aClass50_1490.method419(i + 7603);
-			Class65.aClass50_597.method419(0);
-			Class120_Sub12_Sub36.aClass50_3419.method419(i + 7603);
-			Class120_Sub12_Sub17.aClass50_3258.method419(0);
-			Class7.aClass50_63.method419(0);
-			Class108_Sub3.aClass50_2400.method419(0);
-			InterfaceListener.aClass50_2544.method419(0);
-			IsaacCipher.aClass50_1019.method419(0);
-			Class120_Sub12_Sub2.aClass21_3144.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("me.A(").append(i).append(')').toString());
+			Class120_Sub14_Sub20.anInt3624 = 0;
 		}
+		Class120_Sub14_Sub13.aClass21_3564.clear();
+		Class154.aClass21_1438.clear();
+		Class120_Sub12_Sub16.aClass21_3251.clear();
+		SceneGroundObject.aClass21_2841.clear();
+		Class15.aClass21_95.clear();
+		if (!HDToolkit.glEnabled) {
+			((Class143_Sub1) Rasterizer.anInterface5_973).method2025(-45);
+		}
+		OverlayType.aClass35_1219.clear();
+		AmbientSound.aClass50_2479.method419();
+		Class79_Sub1.aClass50_2245.method419();
+		Class33.aClass50_275.method419();
+		Class159.aClass50_1490.method419();
+		Class65.aClass50_597.method419();
+		Class120_Sub12_Sub36.aClass50_3419.method419();
+		Class120_Sub12_Sub17.aClass50_3258.method419();
+		Class7.aClass50_63.method419();
+		Class108_Sub3.aClass50_2400.method419();
+		InterfaceListener.aClass50_2544.method419();
+		IsaacCipher.aClass50_1019.method419();
+		Class120_Sub12_Sub2.aClass21_3144.clear();
 	}
 
 	public static void method977(final byte i) {

@@ -151,7 +151,7 @@ final class Class88 {
 
 	static final void method744(final boolean bool, final InterfaceListener class120_sub10) {
 		try {
-			Cache.method194(class120_sub10, !bool, 200000);
+			ObjectCache.method194(class120_sub10, !bool, 200000);
 			if (!bool) {
 				method744(false, null);
 			}

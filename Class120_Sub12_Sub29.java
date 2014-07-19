@@ -15,7 +15,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 
 	static final void method1351(final int i) {
 		try {
-			ParamType.aClass21_3541.clearSoftReference();
+			VarBit.recentUse.clearSoftReference();
 			if (i > -7) {
 				method1355(93, (byte) -60);
 			}
@@ -125,12 +125,8 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			anInt3365 = -anInt3364 + anInt3368;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		anInt3365 = -anInt3364 + anInt3368;
 	}
 
 	static final boolean method1355(final int i, final byte i_15_) {
@@ -160,33 +156,25 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_16_) {
-		try {
-			final int i_17_ = i_16_;
-			while_128_: do {
-				do {
-					if (i_17_ != 0) {
-						if (i_17_ != 1) {
-							if (i_17_ == 2) {
-								break;
-							}
-							break while_128_;
+	final void decode(final Buffer buffer, final int i_17_) {
+		while_128_: do {
+			do {
+				if (i_17_ != 0) {
+					if (i_17_ != 1) {
+						if (i_17_ == 2) {
+							break;
 						}
-					} else {
-						anInt3364 = class120_sub7.getUShort();
 						break while_128_;
 					}
-					anInt3368 = class120_sub7.getUShort();
+				} else {
+					anInt3364 = buffer.getUShort();
 					break while_128_;
-				} while (false);
-				this.aBoolean2558 = class120_sub7.getUByte() == 1;
+				}
+				anInt3368 = buffer.getUShort();
+				break while_128_;
 			} while (false);
-			if (i != -43) {
-				method1356(null, 121);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_16_).append(')').toString());
-		}
+			this.aBoolean2558 = buffer.getUByte() == 1;
+		} while (false);
 	}
 
 	static final Class101_Sub2 method1357(final Buffer class120_sub7, final int i) {

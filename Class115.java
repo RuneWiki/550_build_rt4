@@ -28,9 +28,9 @@ final class Class115 {
 		Class145.anInt1381 = i_1_;
 		Class120_Sub12_Sub26.anInt3332 = i / 128;
 		Class112.anInt1080 = i_1_ / 128;
-		Class160.anInt1493 = Class120_Sub12_Sub26.anInt3332 - Class120_Sub14_Sub13.anInt3563;
-		if (Class160.anInt1493 < 0) {
-			Class160.anInt1493 = 0;
+		GrandExchangeObject.anInt1493 = Class120_Sub12_Sub26.anInt3332 - Class120_Sub14_Sub13.anInt3563;
+		if (GrandExchangeObject.anInt1493 < 0) {
+			GrandExchangeObject.anInt1493 = 0;
 		}
 		Class31.anInt248 = Class112.anInt1080 - Class120_Sub14_Sub13.anInt3563;
 		if (Class31.anInt248 < 0) {
@@ -64,15 +64,15 @@ final class Class115 {
 						i_20_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
 					}
 					final int i_21_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[3][i_18_][i_19_] - PlayerAppearance.anInt1367 - 1000;
-					Class120_Sub13.aBooleanArrayArray2573[i_14_][i_15_] = Class120_Sub2.method1046(i_16_, i_21_, i_20_, i_17_, i_13_);
+					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = Class120_Sub2.method1046(i_16_, i_21_, i_20_, i_17_, i_13_);
 				} else {
-					Class120_Sub13.aBooleanArrayArray2573[i_14_][i_15_] = false;
+					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = false;
 				}
 			}
 		}
 		for (int i_22_ = 0; i_22_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1; i_22_++) {
 			for (int i_23_ = 0; i_23_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1; i_23_++) {
-				SpotAnimType.aBooleanArrayArray992[i_22_][i_23_] = Class120_Sub13.aBooleanArrayArray2573[i_22_][i_23_] || Class120_Sub13.aBooleanArrayArray2573[i_22_ + 1][i_23_] || Class120_Sub13.aBooleanArrayArray2573[i_22_][i_23_ + 1] || Class120_Sub13.aBooleanArrayArray2573[i_22_ + 1][i_23_ + 1];
+				SpotAnimType.aBooleanArrayArray992[i_22_][i_23_] = ClanMember.aBooleanArrayArray2573[i_22_][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_][i_23_ + 1] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_ + 1];
 			}
 		}
 		Class61.anIntArray562 = is_4_;

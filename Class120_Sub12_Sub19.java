@@ -15,25 +15,17 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_0_) {
+	final void decode(final Buffer buffer, final int i_1_) {
 		do {
-			try {
-				if (i != -43) {
-					method1188(-125);
-				}
-				final int i_1_ = i_0_;
-				if (i_1_ != 0) {
-					if (i_1_ != 1) {
-						break;
-					}
-				} else {
-					anInt3279 = class120_sub7.getUShort();
+			if (i_1_ != 0) {
+				if (i_1_ != 1) {
 					break;
 				}
-				aBoolean3277 = class120_sub7.getUByte() == 1;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("no.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+			} else {
+				anInt3279 = buffer.getUShort();
+				break;
 			}
+			aBoolean3277 = buffer.getUByte() == 1;
 		} while (false);
 	}
 

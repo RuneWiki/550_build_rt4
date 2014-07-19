@@ -118,7 +118,7 @@ final class WaterShader implements ShaderInterface {
 			gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
 			gl.glRotatef(Class120_Sub14_Sub13.anInt3571 * 360.0F / 2048.0F, 1.0F, 0.0F, 0.0F);
 			gl.glRotatef(Class145.anInt1382 * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);
-			gl.glTranslatef(-Class180_Sub4.anInt2955, -Class120_Sub12_Sub27.anInt3353, -Class69_Sub1.anInt2229);
+			gl.glTranslatef(-Projectile.anInt2955, -Class120_Sub12_Sub27.anInt3353, -Class69_Sub1.anInt2229);
 			if (aBoolean2165) {
 				aFloatArray2167[0] = 0.001F;
 				aFloatArray2167[1] = 9.0E-4F;

@@ -3,9 +3,9 @@
  */
 
 final class PacketBuffer extends Buffer {
-	private IsaacCipher aClass106_3119;
+	private IsaacCipher isaacCipher;
 	static int[] anIntArray3120;
-	private int anInt3121;
+	private int bitOffset;
 	static boolean highWaterDetail = true;
 
 	PacketBuffer(final int i) {
@@ -13,7 +13,7 @@ final class PacketBuffer extends Buffer {
 	}
 
 	final void initIsaac(final int[] is) {
-		aClass106_3119 = new IsaacCipher(is);
+		isaacCipher = new IsaacCipher(is);
 	}
 
 	static final void sleepWrapper(final long millis) {
@@ -40,15 +40,8 @@ final class PacketBuffer extends Buffer {
 		}
 	}
 
-	final void method1144(final int i) {
-		try {
-			if (i != -2) {
-				putByteIsaac(-35);
-			}
-			anInt3121 = 8 * this.pos;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.PC(").append(i).append(')').toString());
-		}
+	final void startBitAccess() {
+		bitOffset = 8 * this.pos;
 	}
 
 	static final void method1145(final Buffer class120_sub7, final int i) {
@@ -176,36 +169,29 @@ final class PacketBuffer extends Buffer {
 		}
 	}
 
-	final void method1146() {
-		this.pos = (7 + anInt3121) / 8;
+	final void endBitAccess() {
+		this.pos = (7 + bitOffset) / 8;
 	}
 
-	static final void method1147(final byte i) {
-		try {
-			if (Class84.anIntArray800 == null || Class83.anIntArray789 == null) {
-				Class83.anIntArray789 = new int[256];
-				Class84.anIntArray800 = new int[256];
-				for (int i_4_ = 0; i_4_ < 256; i_4_++) {
-					final double d = i_4_ / 255.0 * 6.283185307179586;
-					Class84.anIntArray800[i_4_] = (int) (Math.sin(d) * 4096.0);
-					Class83.anIntArray789[i_4_] = (int) (4096.0 * Math.cos(d));
-				}
+	static final void method1147() {
+		if (Class84.anIntArray800 == null || Class83.anIntArray789 == null) {
+			Class83.anIntArray789 = new int[256];
+			Class84.anIntArray800 = new int[256];
+			for (int i_4_ = 0; i_4_ < 256; i_4_++) {
+				final double d = i_4_ / 255.0 * 6.283185307179586;
+				Class84.anIntArray800[i_4_] = (int) (Math.sin(d) * 4096.0);
+				Class83.anIntArray789[i_4_] = (int) (Math.cos(d) * 4096.0);
 			}
-			if (i != -29) {
-				highWaterDetail = false;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.EC(").append(i).append(')').toString());
 		}
 	}
 
 	final int getUByteIsaac() {
-		return 0xff & this.buf[this.pos++] - aClass106_3119.method903();
+		return 0xff & this.buf[this.pos++] - isaacCipher.method903();
 	}
 
 	final void getBytesIsaac(final byte[] buf, final int off, final int len) {
 		for (int id = 0; id < len; id++) {
-			buf[id + off] = (byte) (this.buf[this.pos++] - aClass106_3119.method903());
+			buf[id + off] = (byte) (this.buf[this.pos++] - isaacCipher.method903());
 		}
 	}
 
@@ -220,47 +206,28 @@ final class PacketBuffer extends Buffer {
 		}
 	}
 
-	static final void method1151(final int i) {
-		try {
-			if (i == 32) {
-				Class120_Sub12_Sub9.aClass21_3196.clear();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.CC(").append(i).append(')').toString());
-		}
-	}
-
 	final void putByteIsaac(final int i_8_) {
-		this.buf[this.pos++] = (byte) (aClass106_3119.method903() + i_8_);
+		this.buf[this.pos++] = (byte) (isaacCipher.method903() + i_8_);
 	}
 
-	final int method1153(final int i, final int i_9_) {
-		int i_10_;
-		try {
-			if (i_9_ != 8) {
-				return 112;
-			}
-			i_10_ = 8 * i - anInt3121;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.DC(").append(i).append(',').append(i_9_).append(')').toString());
-		}
-		return i_10_;
+	final int getBitsLeft(final int i) {
+		return 8 * i - bitOffset;
 	}
 
-	final int getBitValue(int i) {
-		int i_13_ = 8 + -(anInt3121 & 7);
-		int i_14_ = anInt3121 >> 3;
-		anInt3121 += i;
-		int i_15_ = 0;
-		for (/**/; i > i_13_; i_13_ = 8) {
-			i_15_ += (this.buf[i_14_++] & GroundObjectNode.anIntArray3631[i_13_]) << -i_13_ + i;
-			i -= i_13_;
+	final int getBitValue(int bit) {
+		int byteOff = 8 - (bitOffset & 7);
+		int bitOff = bitOffset >> 3;
+		bitOffset += bit;
+		int value = 0;
+		for (/**/; bit > byteOff; byteOff = 8) {
+			value += (this.buf[bitOff++] & GroundObjectNode.bitMasks[byteOff]) << -byteOff + bit;
+			bit -= byteOff;
 		}
-		if (i_13_ != i) {
-			i_15_ += this.buf[i_14_] >> -i + i_13_ & GroundObjectNode.anIntArray3631[i];
+		if (byteOff != bit) {
+			value += this.buf[bitOff] >> -bit + byteOff & GroundObjectNode.bitMasks[bit];
 		} else {
-			i_15_ += GroundObjectNode.anIntArray3631[i_13_] & this.buf[i_14_];
+			value += GroundObjectNode.bitMasks[byteOff] & this.buf[bitOff];
 		}
-		return i_15_;
+		return value;
 	}
 }

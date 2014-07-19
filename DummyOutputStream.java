@@ -44,14 +44,6 @@ final class DummyOutputStream extends OutputStream {
 		return i_1_;
 	}
 
-	static final void method73(final byte i, final int i_2_) {
-		try {
-			Varp.recentUse.method192(i_2_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ok.A(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-	}
-
 	@Override
 	public final void write(final int i) throws IOException {
 		throw new IOException();

@@ -8,7 +8,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	static int runesId;
 	private final Class120_Sub12 aClass120_Sub12_3562;
 	static int anInt3563;
-	static Cache aClass21_3564 = new Cache(4);
+	static ObjectCache aClass21_3564 = new ObjectCache(4);
 	private final Class120_Sub12[] aClass120_Sub12Array3565;
 	private final Class120_Sub12 aClass120_Sub12_3566;
 	static int maxMemory = 64;
@@ -16,7 +16,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	static int anInt3569;
 	static short aShort3570 = 205;
 	static int anInt3571;
-	static int anInt3572;
+	static int clanMembersAmount;
 
 	static final int method1524(final String string, final int i) {
 		int i_0_;
@@ -543,11 +543,11 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		int i_96_ = 0;
 		final int[][] is = new int[i_95_][];
 		for (int i_97_ = 0; i_97_ < i_95_; i_97_++) {
-			final Class120_Sub12 class120_sub12 = PlainTile.method2003(class120_sub7, 18120);
-			if (class120_sub12.method1181(-1) >= 0) {
+			final Class120_Sub12 class120_sub12 = PlainTile.method2003(class120_sub7);
+			if (class120_sub12.method1181() >= 0) {
 				i++;
 			}
-			if (class120_sub12.method1184((byte) -84) >= 0) {
+			if (class120_sub12.method1184() >= 0) {
 				i_96_++;
 			}
 			final int i_98_ = class120_sub12.aClass120_Sub12Array2561.length;
@@ -567,8 +567,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			for (int i_102_ = 0; i_101_ > i_102_; i_102_++) {
 				class120_sub12.aClass120_Sub12Array2561[i_102_] = aClass120_Sub12Array3565[is[i_100_][i_102_]];
 			}
-			final int i_103_ = class120_sub12.method1181(-1);
-			final int i_104_ = class120_sub12.method1184((byte) -56);
+			final int i_103_ = class120_sub12.method1181();
+			final int i_104_ = class120_sub12.method1184();
 			if (i_103_ > 0) {
 				anIntArray3568[i++] = i_103_;
 			}
@@ -586,6 +586,6 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		if (!Class10.decodedSprites(js5, i_105_, i_106_)) {
 			return null;
 		}
-		return Class85.method722();
+		return HintIcon.constructLDSprite();
 	}
 }

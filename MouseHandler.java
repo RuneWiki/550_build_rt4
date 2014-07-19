@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 
 final class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
 	static int anInt1140;
-	static byte aByte1141;
+	static byte selfClanRank;
 	static boolean showNumbersOnActions = false;
 
 	static {
@@ -20,7 +20,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 	public final synchronized void mouseEntered(final MouseEvent mouseevent) {
 		if (Class120_Sub14_Sub4.mouseHandler != null) {
 			Class136.mouseIdleCycle = 0;
-			Class160.currentMouseX = mouseevent.getX();
+			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}
@@ -45,7 +45,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 	public final synchronized void mouseExited(final MouseEvent mouseevent) {
 		if (Class120_Sub14_Sub4.mouseHandler != null) {
 			Class136.mouseIdleCycle = 0;
-			Class160.currentMouseX = -1;
+			GrandExchangeObject.currentMouseX = -1;
 			Class120_Sub12_Sub27.currentMouseY = -1;
 		}
 	}
@@ -67,34 +67,11 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 		}
 	}
 
-	static final Class128 method1026(final int i, final boolean bool) {
-		Class128 class128;
-		try {
-			Class128 class128_0_ = (Class128) Class22.aClass21_131.get(i);
-			if (class128_0_ != null) {
-				return class128_0_;
-			}
-			final byte[] is = Class3.aClass50_55.getFile(1, i);
-			class128_0_ = new Class128();
-			if (is != null) {
-				class128_0_.method1904(new Buffer(is), 0, i);
-			}
-			if (!bool) {
-				method1028();
-			}
-			Class22.aClass21_131.put(class128_0_, i);
-			class128 = class128_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nf.C(").append(i).append(',').append(bool).append(')').toString());
-		}
-		return class128;
-	}
-
 	@Override
 	public final synchronized void mouseDragged(final MouseEvent mouseevent) {
 		if (Class120_Sub14_Sub4.mouseHandler != null) {
 			Class136.mouseIdleCycle = 0;
-			Class160.currentMouseX = mouseevent.getX();
+			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}
@@ -148,7 +125,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 	public final synchronized void mouseMoved(final MouseEvent mouseevent) {
 		if (Class120_Sub14_Sub4.mouseHandler != null) {
 			Class136.mouseIdleCycle = 0;
-			Class160.currentMouseX = mouseevent.getX();
+			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 		}
 	}

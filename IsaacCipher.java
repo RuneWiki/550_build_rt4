@@ -14,24 +14,20 @@ final class IsaacCipher {
 	private final int[] anIntArray1018 = new int[256];
 	static js5 aClass50_1019;
 
-	static final void method900(final int i, final js5 js5) {
-		try {
-			if (!Class101_Sub3.aBoolean2291 && i > 50) {
-				if (!HDToolkit.glEnabled) {
-					GraphicsLD.method2173();
-				} else {
-					GraphicsHD.method599();
-				}
-				KeyboardHandler.aClass120_Sub14_Sub19_1508 = Class26.method229(-1, StructType.titlebgId, js5);
-				final int i_0_ = Class120_Sub12_Sub5.canvasHeight;
-				final int i_1_ = 956 * i_0_ / 503;
-				KeyboardHandler.aClass120_Sub14_Sub19_1508.method1588((-i_1_ + Class69_Sub1.canvasWidth) / 2, 0, i_1_, i_0_);
-				Class120_Sub12_Sub27.aClass107_3354 = Class153.createIndexedSprite(js5, Class108_Sub1.logoId);
-				Class120_Sub12_Sub27.aClass107_3354.method910(-(Class120_Sub12_Sub27.aClass107_3354.width / 2) + Class69_Sub1.canvasWidth / 2, 18);
-				Class101_Sub3.aBoolean2291 = true;
+	static final void drawTitleScreenSprites(final js5 js5) {
+		if (!Class101_Sub3.titleScreenSpritesDrawn) {
+			if (!HDToolkit.glEnabled) {
+				GraphicsLD.clearPixels();
+			} else {
+				GraphicsHD.clearPixels();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.D(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
+			KeyboardHandler.titlebgSprite = Class26.constructAbstractSprite(js5, StructType.titlebgId);
+			final int canvasHeight = Class120_Sub12_Sub5.canvasHeight;
+			final int i_1_ = 956 * canvasHeight / 503;
+			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_1_) / 2, 0, i_1_, canvasHeight);
+			Class120_Sub12_Sub27.logoSprite = Class153.constructAbstractIndexedSprite(js5, Class108_Sub1.logoId);
+			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 - (Class120_Sub12_Sub27.logoSprite.width / 2), 18);
+			Class101_Sub3.titleScreenSpritesDrawn = true;
 		}
 	}
 
@@ -157,7 +153,7 @@ final class IsaacCipher {
 					anIntArray1018[6 + i_10_] = i_8_;
 					anIntArray1018[i_10_ + 7] = i_9_;
 				}
-				method906(i + -1);
+				method906();
 				anInt1010 = 256;
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -180,7 +176,7 @@ final class IsaacCipher {
 
 	final int method903() {
 		if (anInt1010-- == 0) {
-			method906(0);
+			method906();
 			anInt1010 = 255;
 		}
 		return 0;
@@ -195,77 +191,49 @@ final class IsaacCipher {
 		method901(1);
 	}
 
-	static final LDSprite method904(final js5 js5, final int i, final byte i_12_) {
-		LDSprite class120_sub14_sub19_sub2;
-		try {
-			if (!ObjType.method2113(js5, i)) {
-				return null;
-			}
-			if (i_12_ != 118) {
-				return null;
-			}
-			class120_sub14_sub19_sub2 = Class85.method722();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_12_).append(')').toString());
+	static final LDSprite constructLDSprite(final js5 js5, final int groupId) {
+		if (!ObjType.decodedSprites(js5, groupId)) {
+			return null;
 		}
-		return class120_sub14_sub19_sub2;
+		return HintIcon.constructLDSprite();
 	}
 
-	static final void method905(final int i, final int i_13_) {
-		try {
-			Class54.anIntArray488 = new int[i_13_];
-			StringNode.anIntArray2735 = new int[i_13_];
-			Class134.anIntArray1284 = new int[i_13_];
-			if (i == 16448) {
-				IntegerNode.anIntArray2787 = new int[i_13_];
-				Class180_Sub6.anIntArray3075 = new int[i_13_];
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.G(").append(i).append(',').append(i_13_).append(')').toString());
-		}
+	static final void method905(final int i_13_) {
+		Class54.anIntArray488 = new int[i_13_];
+		StringNode.anIntArray2735 = new int[i_13_];
+		Class134.anIntArray1284 = new int[i_13_];
+		IntegerNode.anIntArray2787 = new int[i_13_];
+		Class180_Sub6.anIntArray3075 = new int[i_13_];
 	}
 
-	private final void method906(final int i) {
-		try {
-			anInt1014 += ++anInt1012;
-			for (int i_14_ = i; i_14_ < 256; i_14_++) {
-				final int i_15_ = anIntArray1018[i_14_];
-				if ((0x2 & i_14_) == 0) {
-					if ((i_14_ & 0x1) != 0) {
-						anInt1016 ^= anInt1016 >>> 6;
-					} else {
-						anInt1016 ^= anInt1016 << 13;
-					}
-				} else if ((i_14_ & 0x1) != 0) {
-					anInt1016 ^= anInt1016 >>> 16;
+	private final void method906() {
+		anInt1014 += ++anInt1012;
+		for (int i_14_ = 0; i_14_ < 256; i_14_++) {
+			final int i_15_ = anIntArray1018[i_14_];
+			if ((0x2 & i_14_) == 0) {
+				if ((i_14_ & 0x1) != 0) {
+					anInt1016 ^= anInt1016 >>> 6;
 				} else {
-					anInt1016 ^= anInt1016 << 2;
+					anInt1016 ^= anInt1016 << 13;
 				}
-				anInt1016 += anIntArray1018[0xff & i_14_ + 128];
-				int i_16_;
-				anIntArray1018[i_14_] = i_16_ = anInt1014 + anIntArray1018[Class120_Sub12_Sub3.method1207(i_15_, 1020) >> 2] - -anInt1016;
-				anIntArray1017[i_14_] = anInt1014 = anIntArray1018[Class120_Sub12_Sub3.method1207(255, i_16_ >> 8 >> 2)] - -i_15_;
+			} else if ((i_14_ & 0x1) != 0) {
+				anInt1016 ^= anInt1016 >>> 16;
+			} else {
+				anInt1016 ^= anInt1016 << 2;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.H(").append(i).append(')').toString());
+			anInt1016 += anIntArray1018[0xff & i_14_ + 128];
+			int i_16_;
+			anIntArray1018[i_14_] = i_16_ = anInt1014 + anIntArray1018[Class120_Sub12_Sub3.method1207(i_15_, 1020) >> 2] - -anInt1016;
+			anIntArray1017[i_14_] = anInt1014 = anIntArray1018[Class120_Sub12_Sub3.method1207(255, i_16_ >> 8 >> 2)] - -i_15_;
 		}
 	}
 
-	static final long method907(final byte i, final String string) {
-		long l;
-		try {
-			if (i < 67) {
-				return -16L;
-			}
-			final int i_17_ = string.length();
-			long l_18_ = 0L;
-			for (int i_19_ = 0; i_19_ < i_17_; i_19_++) {
-				l_18_ = string.charAt(i_19_) + (l_18_ << 5) - l_18_;
-			}
-			l = l_18_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.B(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+	static final long method907(final String string) {
+		final int i_17_ = string.length();
+		long l_18_ = 0L;
+		for (int i_19_ = 0; i_19_ < i_17_; i_19_++) {
+			l_18_ = string.charAt(i_19_) + (l_18_ << 5) - l_18_;
 		}
-		return l;
+		return l_18_;
 	}
 }

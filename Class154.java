@@ -4,7 +4,7 @@
 
 final class Class154 {
 	static Class32[] aClass32Array1437 = new Class32[8];
-	static Cache aClass21_1438;
+	static ObjectCache aClass21_1438;
 	static boolean aBoolean1439 = false;
 	static int anInt1440;
 	static int anInt1441;
@@ -12,51 +12,42 @@ final class Class154 {
 	static js5 aClass50_1443;
 
 	static {
-		aClass21_1438 = new Cache(32);
+		aClass21_1438 = new ObjectCache(32);
 		anInt1441 = 0;
 		anInt1440 = 0;
 		anInt1442 = 0;
 	}
 
-	static final void method2078(final boolean bool, final long l, final byte i) {
-		do {
-			try {
-				if (0L != l) {
-					if (Class120_Sub12_Sub26.anInt3335 >= 100) {
-						Class120_Sub14_Sub14.method1540("", 0, Class143_Sub1.aString2192);
-					} else {
-						final String string = Class136.longToString(l);
-						for (int i_0_ = 0; Class120_Sub12_Sub26.anInt3335 > i_0_; i_0_++) {
-							if (Class85.aLongArray806[i_0_] == l) {
-								Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
-								return;
-							}
-						}
-						for (int i_1_ = 0; i_1_ < ProducingGraphicsBuffer.anInt2799; i_1_++) {
-							if ((AbstractSprite.aLongArray3617[i_1_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
-								Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(string).append(Class54.aString489).toString());
-								return;
-							}
-						}
-						if (string.equals(Class100.selfPlayer.name)) {
-							Class120_Sub14_Sub14.method1540("", 0, Class112.aString1079);
-						} else {
-							Class85.aLongArray806[Class120_Sub12_Sub26.anInt3335] = l;
-							Class84.aStringArray801[Class120_Sub12_Sub26.anInt3335] = Class174.longToString(l);
-							Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.anInt3335++] = bool;
-							Class61.anInt563 = Class160.anInt1494;
-							Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
-							Class120_Sub12_Sub11.outputStream.putLong(l);
-							if (i <= 33) {
-								break;
-							}
-						}
+	static final void addIgnore(final long l, final boolean bool) {
+		if (l != 0L) {
+			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
+				Class120_Sub14_Sub14.method1540("", 0, Class143_Sub1.aString2192);
+			} else {
+				final String string = Class136.longToString(l);
+				for (int i_0_ = 0; Class120_Sub12_Sub26.ignoreCount > i_0_; i_0_++) {
+					if (HintIcon.ignoreNamesAsLong[i_0_] == l) {
+						Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
+						return;
 					}
 				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("sd.A(").append(bool).append(',').append(l).append(',').append(i).append(')').toString());
+				for (int i_1_ = 0; i_1_ < ProducingGraphicsBuffer.friendCount; i_1_++) {
+					if ((AbstractSprite.friendsNameAsLong[i_1_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+						Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(string).append(Class54.aString489).toString());
+						return;
+					}
+				}
+				if (string.equals(Class100.selfPlayer.name)) {
+					Class120_Sub14_Sub14.method1540("", 0, Class112.aString1079);
+				} else {
+					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = l;
+					Class84.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(l);
+					Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = bool;
+					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
+					Class120_Sub12_Sub11.outputStream.putLong(l);
+				}
 			}
-		} while (false);
+		}
 	}
 
 	static final void method2079(int i, final boolean bool, final boolean bool_2_, int i_3_, int i_4_, int i_5_) {

@@ -7,11 +7,11 @@ final class Class8 {
 	static byte[][][] aByteArrayArrayArray65;
 
 	static final void constructFonts(final js5 js5, final js5 class50_0_) {
-		Cache.smallFont = Class9.method117(js5, class50_0_, 18265, Class32.p11fullId, 0);
+		ObjectCache.smallFont = Class9.method117(js5, class50_0_, 18265, Class32.p11fullId, 0);
 		if (HDToolkit.glEnabled) {
 			Class33.aClass120_Sub14_Sub8_Sub2_274 = Class93.method772(0, class50_0_, Class32.p11fullId, js5, 1);
 		} else {
-			Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) Cache.smallFont;
+			Class33.aClass120_Sub14_Sub8_Sub2_274 = (Class120_Sub14_Sub8_Sub2) ObjectCache.smallFont;
 		}
 		Class120_Sub12_Sub20.plainFont = Class9.method117(js5, class50_0_, 18265, Class191.p12fullId, 0);
 		Class120_Sub12_Sub22.boldFont = Class9.method117(js5, class50_0_, 18265, Class110.b12fullId, 0);

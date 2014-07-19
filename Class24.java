@@ -29,14 +29,14 @@ final class Class24 {
 		Class88.anInt827 = 0;
 		Class23.packetType = -1;
 		Canvas_Sub1.inputStream.pos = 0;
-		for (int i_0_ = 0; i_0_ < Class187.aClass85Array1909.length; i_0_++) {
-			Class187.aClass85Array1909[i_0_] = null;
+		for (int i_0_ = 0; i_0_ < Class187.hintIcons.length; i_0_++) {
+			Class187.hintIcons[i_0_] = null;
 		}
 		Class15.menuOpen = false;
 		Class186.menuOptionCount = 0;
 		Class120_Sub12_Sub39.setMouseIdleCycle(0);
 		for (int i_1_ = 0; i_1_ < 100; i_1_++) {
-			Class160.aStringArray1502[i_1_] = null;
+			GrandExchangeObject.aStringArray1502[i_1_] = null;
 		}
 		Class154.anInt1442 = -20 + (int) (Math.random() * 30.0);
 		Class23.anInt136 = -50 + (int) (100.0 * Math.random());
@@ -71,9 +71,9 @@ final class Class24 {
 			}
 		}
 		Class120_Sub4.aClass105_2439 = new Deque();
-		ObjectPile.anInt1805 = 0;
-		ProducingGraphicsBuffer.anInt2799 = 0;
-		Class33.method275((byte) -5);
+		ObjectPile.friendsServerStatus = 0;
+		ProducingGraphicsBuffer.friendCount = 0;
+		Class33.resetVarp();
 		Class56.method489((byte) -44);
 		Class101_Sub1.anInt2272 = 0;
 		InterfaceListener.anInt2546 = 0;
@@ -111,11 +111,11 @@ final class Class24 {
 		for (int i_9_ = 0; i_9_ < 100; i_9_++) {
 			Class52.needInterfaceRedrawWrapper[i_9_] = true;
 		}
-		Class120_Sub28.aClass120_Sub13Array2754 = null;
-		InterfaceChangeNode.aString3489 = null;
-		Class120_Sub14_Sub13.anInt3572 = 0;
+		Class120_Sub28.clanMembers = null;
+		InterfaceChangeNode.clanName = null;
+		Class120_Sub14_Sub13.clanMembersAmount = 0;
 		for (int i_10_ = 0; i_10_ < 6; i_10_++) {
-			Class120_Sub3.aClass160Array2427[i_10_] = new Class160();
+			Class120_Sub3.grandExchangeObjects[i_10_] = new GrandExchangeObject();
 		}
 		for (int i_11_ = 0; i_11_ < 25; i_11_++) {
 			SceneGraphNode.skillsLevel[i_11_] = 0;

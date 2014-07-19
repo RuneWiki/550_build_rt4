@@ -11,7 +11,7 @@ final class Class82 implements Runnable {
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
 	static AbstractIndexedSprite[] aClass107Array785;
-	static Cache aClass21_786 = new Cache(64);
+	static ObjectCache aClass21_786 = new ObjectCache(64);
 	static String aString787 = "Face here";
 
 	static final void addKeyboard(final Component component) {
@@ -59,20 +59,11 @@ final class Class82 implements Runnable {
 		} while (false);
 	}
 
-	static final World method710(final byte i, final int i_0_) {
-		World class167_sub1;
-		try {
-			if (i != -24) {
-				aString787 = null;
-			}
-			if (!Class159.aBoolean1487 || OverridedJInterface.worldOff > i_0_ || EnumType.worldLen < i_0_) {
-				return null;
-			}
-			class167_sub1 = Class48.worldList[i_0_ - OverridedJInterface.worldOff];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("im.A(").append(i).append(',').append(i_0_).append(')').toString());
+	static final World method710(final int i_0_) {
+		if (!Class159.worldsLoaded || OverridedJInterface.worldOff > i_0_ || EnumType.worldLen < i_0_) {
+			return null;
 		}
-		return class167_sub1;
+		return Class48.worldList[i_0_ - OverridedJInterface.worldOff];
 	}
 
 	static final void method711(final int i, final byte i_1_, final int i_2_, final int i_3_, final int i_4_) {
@@ -135,7 +126,7 @@ final class Class82 implements Runnable {
 					Class96.anInt919--;
 				}
 			}
-			if (Class85.showFps) {
+			if (HintIcon.showFps) {
 				final int i_12_ = i_4_ + i_3_ - 5;
 				int i_13_ = 16776960;
 				int i_14_ = i_2_ + i + -8;

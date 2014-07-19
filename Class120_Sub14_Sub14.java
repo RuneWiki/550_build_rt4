@@ -10,7 +10,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 	boolean aBoolean3577;
 	static int[] playerOptionsIcon = new int[8];
 
-	abstract byte[] method1535(byte i);
+	abstract byte[] getBuffer();
 
 	public static void method1536(final boolean bool) {
 		try {
@@ -25,7 +25,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 		}
 	}
 
-	abstract int method1537(int i);
+	abstract int method1537();
 
 	private static final int[] method1538(final int i, final CollisionMap[] class25s, final byte[] is, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool, final int i_6_) {
 		int[] is_7_;
@@ -298,7 +298,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 	static final LDIndexedSprite[] constructLDIndexedSprites() {
 		final LDIndexedSprite[] indexedSprites = new LDIndexedSprite[Class93.spriteAmount];
 		for (int id = 0; id < Class93.spriteAmount; id++) {
-			indexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
+			indexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return indexedSprites;

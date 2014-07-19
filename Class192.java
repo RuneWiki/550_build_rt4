@@ -53,7 +53,7 @@ final class Class192 {
 	static final void method2517(final Player class180_sub5_sub1, final int i, final int i_0_, final int i_1_) {
 		try {
 			if (class180_sub5_sub1.anInt3006 != i || (i ^ 0xffffffff) == 0) {
-				if ((i ^ 0xffffffff) == 0 || (class180_sub5_sub1.anInt3006 ^ 0xffffffff) == 0 || SeqType.list(i).anInt348 >= SeqType.list(class180_sub5_sub1.anInt3006).anInt348) {
+				if ((i ^ 0xffffffff) == 0 || (class180_sub5_sub1.anInt3006 ^ 0xffffffff) == 0 || SeqType.list(i).priority >= SeqType.list(class180_sub5_sub1.anInt3006).priority) {
 					class180_sub5_sub1.anInt3006 = i;
 					class180_sub5_sub1.anInt3044 = 0;
 					class180_sub5_sub1.anInt2993 = i_0_;
@@ -62,19 +62,19 @@ final class Class192 {
 					class180_sub5_sub1.anInt2999 = 0;
 					class180_sub5_sub1.anInt3031 = class180_sub5_sub1.anInt2960;
 					if (class180_sub5_sub1.anInt3006 != -1) {
-						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
+						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
 					}
 				}
 			} else {
 				final SeqType seqType = SeqType.list(i);
-				final int i_2_ = seqType.anInt337;
+				final int i_2_ = seqType.resetInPlay;
 				if (i_2_ == 1) {
 					class180_sub5_sub1.anInt2993 = i_0_;
 					class180_sub5_sub1.anInt2964 = 0;
 					class180_sub5_sub1.anInt3044 = 0;
 					class180_sub5_sub1.anInt3013 = 1;
 					class180_sub5_sub1.anInt2999 = 0;
-					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.z, class180_sub5_sub1.x, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
+					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
 				}
 				if (i_2_ == 2) {
 					class180_sub5_sub1.anInt2999 = 0;

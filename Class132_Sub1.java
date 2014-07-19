@@ -11,7 +11,7 @@ class Class132_Sub1 extends Class132 {
 	private int anInt2806;
 	private int anInt2807;
 	private byte[] aByteArray2808;
-	static Image anImage2809;
+	static Image loadingTextImage;
 	private int anInt2810;
 	static boolean[][] aBooleanArrayArray2811;
 	static int[] spritePalette;
@@ -101,7 +101,7 @@ class Class132_Sub1 extends Class132 {
 	public static void method1935(final int i) {
 		try {
 			spritePalette = null;
-			anImage2809 = null;
+			loadingTextImage = null;
 			aClass120_Sub15_2805 = null;
 			aClass50_2813 = null;
 			if (i == 2061936524) {
@@ -136,7 +136,7 @@ class Class132_Sub1 extends Class132 {
 				anInt2807 = anInt2817;
 			}
 			if (i_11_ >= -17) {
-				anImage2809 = null;
+				loadingTextImage = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.F(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());

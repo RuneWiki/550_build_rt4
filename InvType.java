@@ -5,10 +5,15 @@
 final class InvType extends NodeSub {
 	
 	int size = 0;
-	static Class35 recentUse;
+	static js5 aClass50_1613;
+	static NodeCache recentUse;
+	
+	public static void method2179() {
+		aClass50_1613 = null;
+	}
 
-	private final void decode(final Buffer buffer, final int configCode) {
-		if (configCode == 2) {
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 2) {
 			this.size = buffer.getUShort();
 		}
 	}
@@ -64,7 +69,7 @@ final class InvType extends NodeSub {
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
 			Class193.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
 			Class180_Sub3.renderYaw = 0x7ff & (int) (Class193.aFloat2139 * 325.949);
-			Class128.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
+			OverlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
 		}
 	}
 
@@ -104,11 +109,11 @@ final class InvType extends NodeSub {
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
-			final int configCode = buffer.getUByte();
-			if (configCode == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, configCode);
+			decode(buffer, code);
 		}
 	}
 
@@ -117,10 +122,10 @@ final class InvType extends NodeSub {
 		if (invType != null) {
 			return invType;
 		}
-		final byte[] is = Class166.aClass50_1613.getFile(5, id);
+		final byte[] data = aClass50_1613.getFile(5, id);
 		invType = new InvType();
-		if (is != null) {
-			invType.decode(new Buffer(is));
+		if (data != null) {
+			invType.decode(new Buffer(data));
 		}
 		recentUse.put(invType, id);
 		return invType;
@@ -129,4 +134,5 @@ final class InvType extends NodeSub {
 	public InvType() {
 		/* empty */
 	}
+
 }

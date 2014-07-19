@@ -11,16 +11,9 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	private int anInt3288 = 0;
 	private int[] anIntArray3289;
 
-	static final void method1296(final byte i) {
-		try {
-			if (i != -114) {
-				method1300(-8);
-			}
-			KeyboardHandler.aClass21_1504.clear();
-			SceneGraphNode.aClass21_1781.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.V(").append(i).append(')').toString());
-		}
+	static final void method1296() {
+		KeyboardHandler.aClass21_1504.clear();
+		SceneGraphNode.aClass21_1781.clear();
 	}
 
 	private final int[] method1297(final int i, final int i_0_) {
@@ -197,7 +190,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (Class86.staffLevel >= 2) {
 				if (string.equalsIgnoreCase("::gc")) {
-					Class120_Sub12_Sub21.method1311((byte) 64);
+					Class120_Sub12_Sub21.method1311();
 					for (int i_40_ = 0; i_40_ < 10; i_40_++) {
 						System.gc();
 					}
@@ -206,7 +199,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
 				}
 				if (string.equalsIgnoreCase("::mm")) {
-					Class120_Sub12_Sub21.method1311((byte) 64);
+					Class120_Sub12_Sub21.method1311();
 					for (int i_42_ = 0; i_42_ < 10; i_42_++) {
 						System.gc();
 					}
@@ -214,7 +207,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
 					Class120_Sub14_Sub14.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
 					SpotAnimType.method880(124);
-					Class120_Sub12_Sub21.method1311((byte) 64);
+					Class120_Sub12_Sub21.method1311();
 					for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 						System.gc();
 					}
@@ -250,10 +243,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					Class120_Sub14_Sub1.setGameState(25);
 				}
 				if (string.equalsIgnoreCase("::fpson")) {
-					Class85.showFps = true;
+					HintIcon.showFps = true;
 				}
 				if (string.equalsIgnoreCase("::fpsoff")) {
-					Class85.showFps = false;
+					HintIcon.showFps = false;
 				}
 				if (string.equalsIgnoreCase("::wm0")) {
 					AbstractSprite.method1593(false, 0, -1, -1);
@@ -331,46 +324,38 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			if (anIntArrayArray3283 == null) {
-				anIntArrayArray3283 = new int[][] { new int[2], { 4096, 4096 } };
-			}
-			if (anIntArrayArray3283.length < 2) {
-				throw new RuntimeException("Curve operation requires at least two markers");
-			}
-			if (anInt3288 == 2) {
-				method1299(0);
-			}
-			PacketBuffer.method1147((byte) -29);
-			method1298(113);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.O(").append(i).append(')').toString());
+	final void postDecode() {
+		if (anIntArrayArray3283 == null) {
+			anIntArrayArray3283 = new int[][] { new int[2], { 4096, 4096 } };
 		}
+		if (anIntArrayArray3283.length < 2) {
+			throw new RuntimeException("Curve operation requires at least two markers");
+		}
+		if (anInt3288 == 2) {
+			method1299(0);
+		}
+		PacketBuffer.method1147();
+		method1298(113);
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_45_) {
-		try {
-			if (i == -43 && i_45_ == 0) {
-				anInt3288 = class120_sub7.getUByte();
-				anIntArrayArray3283 = new int[class120_sub7.getUByte()][2];
-				for (int i_46_ = 0; i_46_ < anIntArrayArray3283.length; i_46_++) {
-					anIntArrayArray3283[i_46_][0] = class120_sub7.getUShort();
-					anIntArrayArray3283[i_46_][1] = class120_sub7.getUShort();
-				}
+	final void decode(final Buffer buffer, final int i_45_) {
+		if (i_45_ == 0) {
+			anInt3288 = buffer.getUByte();
+			anIntArrayArray3283 = new int[buffer.getUByte()][2];
+			for (int i_46_ = 0; i_46_ < anIntArrayArray3283.length; i_46_++) {
+				anIntArrayArray3283[i_46_][0] = buffer.getUShort();
+				anIntArrayArray3283[i_46_][1] = buffer.getUShort();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_45_).append(')').toString());
 		}
 	}
 
 	static final void method1302(final int i, final int i_47_, final int i_48_) {
 		Class120_Sub12_Sub7.aBoolean3181 = true;
-		Class180_Sub4.anInt2933 = i;
+		Projectile.anInt2933 = i;
 		Class108_Sub1.anInt2320 = i_47_;
 		Class187.anInt1908 = i_48_;
-		Cache.anInt122 = -1;
+		ObjectCache.anInt122 = -1;
 		Class20.anInt2174 = -1;
 	}
 
@@ -378,19 +363,9 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		super(1, true);
 	}
 
-	static final LDIndexedSprite method1303(final boolean bool) {
-		LDIndexedSprite class107_sub1;
-		try {
-			final LDIndexedSprite class107_sub1_49_ = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0],
-					Class132_Sub1.spritePalette);
-			Class53_Sub1.resetSpriteInfo();
-			if (!bool) {
-				return null;
-			}
-			class107_sub1 = class107_sub1_49_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.S(").append(bool).append(')').toString());
-		}
-		return class107_sub1;
+	static final LDIndexedSprite constructLDIndexedSprite() {
+		final LDIndexedSprite ldIndexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
+		Class53_Sub1.resetSpriteInfo();
+		return ldIndexedSprite;
 	}
 }

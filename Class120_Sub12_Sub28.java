@@ -101,11 +101,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							if (i_45_ < 104) {
 								final int i_46_ = Class120_Sub4.aByteArrayArrayArray2441[i_9_][i_45_][i_44_] & 0xff;
 								if (i_46_ > 0) {
-									final Class128 class128 = MouseHandler.method1026(-1 + i_46_, true);
-									StringNode.anIntArray2733[i_44_] += class128.anInt1218;
-									PacketBuffer.anIntArray3120[i_44_] += class128.anInt1222;
-									Class120_Sub12_Sub31.anIntArray3383[i_44_] += class128.anInt1229;
-									Buffer.anIntArray2477[i_44_] += class128.anInt1226;
+									final OverlayType overlayType = OverlayType.list(-1 + i_46_);
+									StringNode.anIntArray2733[i_44_] += overlayType.anInt1218;
+									PacketBuffer.anIntArray3120[i_44_] += overlayType.anInt1222;
+									Class120_Sub12_Sub31.anIntArray3383[i_44_] += overlayType.anInt1229;
+									Buffer.anIntArray2477[i_44_] += overlayType.anInt1226;
 									Class120_Sub12_Sub34.anIntArray3409[i_44_]++;
 								}
 							}
@@ -113,11 +113,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							if (i_47_ >= 0) {
 								final int i_48_ = Class120_Sub4.aByteArrayArrayArray2441[i_9_][i_47_][i_44_] & 0xff;
 								if (i_48_ > 0) {
-									final Class128 class128 = MouseHandler.method1026(-1 + i_48_, true);
-									StringNode.anIntArray2733[i_44_] -= class128.anInt1218;
-									PacketBuffer.anIntArray3120[i_44_] -= class128.anInt1222;
-									Class120_Sub12_Sub31.anIntArray3383[i_44_] -= class128.anInt1229;
-									Buffer.anIntArray2477[i_44_] -= class128.anInt1226;
+									final OverlayType overlayType = OverlayType.list(-1 + i_48_);
+									StringNode.anIntArray2733[i_44_] -= overlayType.anInt1218;
+									PacketBuffer.anIntArray3120[i_44_] -= overlayType.anInt1222;
+									Class120_Sub12_Sub31.anIntArray3383[i_44_] -= overlayType.anInt1229;
+									Buffer.anIntArray2477[i_44_] -= overlayType.anInt1226;
 									Class120_Sub12_Sub34.anIntArray3409[i_44_]--;
 								}
 							}
@@ -146,7 +146,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									i_53_ -= PacketBuffer.anIntArray3120[i_56_];
 								}
 								if (i_54_ >= 0 && i_52_ > 0) {
-									is_6_[i_43_][i_54_] = Class120_Sub14_Sub5.method1442((byte) -123, i_49_ * 256 / i_51_, i_53_ / i_52_, i_50_ / i_52_);
+									is_6_[i_43_][i_54_] = Class120_Sub14_Sub5.method1442(i_49_ * 256 / i_51_, i_53_ / i_52_, i_50_ / i_52_);
 								}
 							}
 						}
@@ -199,11 +199,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									if (i_60_ == 0) {
 										Class120_Sub12.method1191(i_9_, i_57_, i_58_, 0, 0, -1, i_61_, i_62_, i_63_, i_64_, Class178.method2256(true, i_66_, i_73_), Class178.method2256(true, i_66_, i_70_), Class178.method2256(true, i_66_, i_71_), Class178.method2256(true, i_66_, i_72_), 0, 0, 0, 0,
 												i_67_, 0);
-										if (HDToolkit.glEnabled && i_9_ > 0 && i_66_ != -1 && MouseHandler.method1026(-1 + i_59_, true).aBoolean1220) {
+										if (HDToolkit.glEnabled && i_9_ > 0 && i_66_ != -1 && OverlayType.list(-1 + i_59_).aBoolean1220) {
 											Class47.method384(0, 0, true, false, i_57_, i_58_, i_61_ - OverridedJInterface.anIntArrayArrayArray2741[0][i_57_][i_58_], -OverridedJInterface.anIntArrayArrayArray2741[0][i_57_ + 1][i_58_] + i_62_, -OverridedJInterface.anIntArrayArrayArray2741[0][1 + i_57_][1 + i_58_]
 													+ i_63_, -OverridedJInterface.anIntArrayArrayArray2741[0][i_57_][1 + i_58_] + i_64_);
 										}
-										if (HDToolkit.glEnabled && !bool && Class35.anIntArrayArray300 != null && i_9_ == 0) {
+										if (HDToolkit.glEnabled && !bool && NodeCache.anIntArrayArray300 != null && i_9_ == 0) {
 											while_130_: for (int i_74_ = i_57_ + -1; i_74_ <= i_57_ + 1; i_74_++) {
 												for (int i_75_ = i_58_ + -1; i_58_ + 1 >= i_75_; i_75_++) {
 													if ((i_74_ != i_57_ || i_58_ != i_75_) && i_74_ >= 0 && i_74_ < 104 && i_75_ >= 0 && i_75_ < 104) {
@@ -211,7 +211,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 														if (i_76_ != 0) {
 															final Class124 class124 = Class118.method1025((byte) -128, -1 + i_76_);
 															if ((class124.anInt1203 ^ 0xffffffff) != 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.anInt1203, 255), (byte) -90)) {
-																Class35.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
+																NodeCache.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
 																break while_130_;
 															}
 														}
@@ -223,7 +223,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 										final int i_77_ = 1 + Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_][i_57_][i_58_];
 										final byte i_78_ = Class8.aByteArrayArrayArray65[i_9_][i_57_][i_58_];
 										final Class124 class124 = Class118.method1025((byte) -127, -1 + i_60_);
-										if (HDToolkit.glEnabled && !bool && Class35.anIntArrayArray300 != null && i_9_ == 0) {
+										if (HDToolkit.glEnabled && !bool && NodeCache.anIntArrayArray300 != null && i_9_ == 0) {
 											if ((class124.anInt1203 ^ 0xffffffff) == 0 || !Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.anInt1203, 255), (byte) -59)) {
 												while_129_: for (int i_79_ = i_57_ - 1; i_79_ <= 1 + i_57_; i_79_++) {
 													for (int i_80_ = -1 + i_58_; i_58_ - -1 >= i_80_; i_80_++) {
@@ -232,7 +232,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 															if (i_81_ != 0) {
 																final Class124 class124_82_ = Class118.method1025((byte) -126, -1 + i_81_);
 																if (class124_82_.anInt1203 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124_82_.anInt1203, 255), (byte) -100)) {
-																	Class35.anIntArrayArray300[i_57_][i_58_] = class124_82_.anInt1200 + (class124_82_.anInt1199 << 24);
+																	NodeCache.anIntArrayArray300[i_57_][i_58_] = class124_82_.anInt1200 + (class124_82_.anInt1199 << 24);
 																	break while_129_;
 																}
 															}
@@ -240,7 +240,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 													}
 												}
 											} else {
-												Class35.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
+												NodeCache.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
 											}
 										}
 										int i_83_ = class124.anInt1203;
@@ -284,7 +284,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 										Class120_Sub12.method1191(i_9_, i_57_, i_58_, i_77_, i_78_, i_83_, i_61_, i_62_, i_63_, i_64_, Class178.method2256(true, i_66_, i_73_), Class178.method2256(true, i_66_, i_70_), Class178.method2256(true, i_66_, i_71_), Class178.method2256(true, i_66_, i_72_),
 												Class96.method789((byte) -77, i_85_, i_73_), Class96.method789((byte) -77, i_85_, i_70_), Class96.method789((byte) -77, i_85_, i_71_), Class96.method789((byte) -77, i_85_, i_72_), i_67_, i_84_);
 										if (HDToolkit.glEnabled && i_9_ > 0) {
-											Class47.method384(i_77_, i_78_, i_85_ == -2 || !class124.aBoolean1193, i_66_ == -1 || !MouseHandler.method1026(-1 + i_59_, true).aBoolean1220, i_57_, i_58_, -OverridedJInterface.anIntArrayArrayArray2741[0][i_57_][i_58_] + i_61_, i_62_
+											Class47.method384(i_77_, i_78_, i_85_ == -2 || !class124.aBoolean1193, i_66_ == -1 || !OverlayType.list(-1 + i_59_).aBoolean1220, i_57_, i_58_, -OverridedJInterface.anIntArrayArrayArray2741[0][i_57_][i_58_] + i_61_, i_62_
 													- OverridedJInterface.anIntArrayArrayArray2741[0][i_57_ - -1][i_58_], i_63_ + -OverridedJInterface.anIntArrayArrayArray2741[0][1 + i_57_][i_58_ + 1], i_64_ - OverridedJInterface.anIntArrayArrayArray2741[0][i_57_][i_58_ - -1]);
 										}
 									}
@@ -308,7 +308,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							}
 						}
 						if (bool) {
-							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, Class35.anIntArrayArray300, is_6_, fs_91_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_,
+							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_,
 									Class120_Sub12_Sub33.anIntArrayArrayArray3388[0], Class114.tileSettings, Class120_Sub4.aByteArrayArrayArray2441[i_9_], false, OverridedJInterface.anIntArrayArrayArray2741[i_9_]);
 							Class65.method578(i_9_, class120_sub9s);
 						} else {
@@ -553,33 +553,25 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_169_) {
-		try {
-			final int i_170_ = i_169_;
-			while_137_: do {
-				do {
-					if (i_170_ != 0) {
-						if (i_170_ != 1) {
-							if (i_170_ == 2) {
-								break;
-							}
-							break while_137_;
+	final void decode(final Buffer buffer, final int i_170_) {
+		while_137_: do {
+			do {
+				if (i_170_ != 0) {
+					if (i_170_ != 1) {
+						if (i_170_ == 2) {
+							break;
 						}
-					} else {
-						anInt3355 = class120_sub7.getUByte();
 						break while_137_;
 					}
-					anInt3356 = class120_sub7.getUShort();
+				} else {
+					anInt3355 = buffer.getUByte();
 					break while_137_;
-				} while (false);
-				anInt3357 = class120_sub7.getUByte();
+				}
+				anInt3356 = buffer.getUShort();
+				break while_137_;
 			} while (false);
-			if (i != -43) {
-				anInt3361 = -7;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rm.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_169_).append(')').toString());
-		}
+			anInt3357 = buffer.getUByte();
+		} while (false);
 	}
 
 	static final void determineMenuSize() {
@@ -630,31 +622,23 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			method1350((byte) 78);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rm.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		method1350();
 	}
 
-	private final void method1350(final byte i) {
-		try {
-			anIntArray3358 = new int[anInt3355 - -1];
-			final int i_177_ = 4096 / anInt3355;
-			anIntArray3359 = new int[anInt3355 - -1];
-			final int i_178_ = i_177_ * anInt3356 >> 12;
-			int i_179_ = 0;
-			for (int i_180_ = 0; i_180_ < anInt3355; i_180_++) {
-				anIntArray3358[i_180_] = i_179_;
-				anIntArray3359[i_180_] = i_178_ + i_179_;
-				i_179_ += i_177_;
-			}
-			anIntArray3358[anInt3355] = 4096;
-			anIntArray3359[anInt3355] = anIntArray3359[0] + 4096;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rm.U(").append(i).append(')').toString());
+	private final void method1350() {
+		anIntArray3358 = new int[anInt3355 - -1];
+		final int i_177_ = 4096 / anInt3355;
+		anIntArray3359 = new int[anInt3355 - -1];
+		final int i_178_ = i_177_ * anInt3356 >> 12;
+		int i_179_ = 0;
+		for (int i_180_ = 0; i_180_ < anInt3355; i_180_++) {
+			anIntArray3358[i_180_] = i_179_;
+			anIntArray3359[i_180_] = i_178_ + i_179_;
+			i_179_ += i_177_;
 		}
+		anIntArray3358[anInt3355] = 4096;
+		anIntArray3359[anInt3355] = anIntArray3359[0] + 4096;
 	}
 
 	public Class120_Sub12_Sub28() {

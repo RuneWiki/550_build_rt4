@@ -24,18 +24,6 @@ final class Class188 {
 	int anInt1927;
 	int anInt1928;
 
-	static final void method2480(final boolean bool, final int i) {
-		try {
-			Class120_Sub12_Sub14.aClass21_3238.method192(i);
-			if (!bool) {
-				aBoolean1925 = true;
-			}
-			Class82.aClass21_786.method192(i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("we.B(").append(bool).append(',').append(i).append(')').toString());
-		}
-	}
-
 	static final void method2481(final int i) {
 		try {
 			if (i != 104) {
@@ -81,7 +69,7 @@ final class Class188 {
 	}
 
 	static final boolean method2483(final int i_0_) {
-		final World class167_sub1 = Class82.method710((byte) -24, i_0_);
+		final World class167_sub1 = Class82.method710(i_0_);
 		if (class167_sub1 == null) {
 			return false;
 		}
@@ -148,7 +136,7 @@ final class Class188 {
 							if ((0x4 & Class114.tileSettings[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]) != 0) {
 								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, LabelGroup.groundTiles);
 							}
-							if (Class128.renderPitch < 310) {
+							if (OverlayType.renderPitch < 310) {
 								int i_8_ = GroundObjectNode.renderZ >> 7;
 								int i_9_ = Class83.renderX >> 7;
 								final int i_10_ = Class100.selfPlayer.z >> 7;

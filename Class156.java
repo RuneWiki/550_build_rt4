@@ -15,14 +15,6 @@ final class Class156 {
 		anIntArray1458 = new int[] { 16, 32, 64, 128 };
 	}
 
-	static final void method2085(final int i) {
-		try {
-			InterfaceListener.aClass21_2542.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sg.B(").append(i).append(')').toString());
-		}
-	}
-
 	public static void method2086(final int i) {
 		try {
 			aString1457 = null;

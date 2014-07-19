@@ -24,34 +24,20 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 
 	private Class120_Sub12_Sub11(final int i) {
 		super(0, false);
-		method1251(-3, i);
+		method1251(i);
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_0_) {
-		try {
-			if (i == -43) {
-				final int i_1_ = i_0_;
-				if (i_1_ == 0) {
-					method1251(i ^ 0x28, class120_sub7.getMedium());
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	final void decode(final Buffer buffer, final int i_1_) {
+		if (i_1_ == 0) {
+			method1251(buffer.getMedium());
 		}
 	}
 
-	static final void method1250(final int i, final boolean bool, final int i_2_) {
-		try {
-			if (!bool) {
-				npcList = null;
-			}
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i_2_);
-			class120_sub14_sub7.method1454();
-			class120_sub14_sub7.anInt3484 = i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.W(").append(i).append(',').append(bool).append(',').append(i_2_).append(')').toString());
-		}
+	static final void method1250(final int i, final int i_2_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i_2_);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3484 = i;
 	}
 
 	public Class120_Sub12_Sub11() {
@@ -74,17 +60,10 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		return is_4_;
 	}
 
-	private final void method1251(final int i, final int i_9_) {
-		try {
-			anInt3208 = (i_9_ & 0xff00) >> 4;
-			anInt3210 = 0xff0 & i_9_ >> 12;
-			anInt3207 = 0xff0 & i_9_ << 4;
-			if (i != -3) {
-				npcList = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.R(").append(i).append(',').append(i_9_).append(')').toString());
-		}
+	private final void method1251(final int i_9_) {
+		anInt3208 = (i_9_ & 0xff00) >> 4;
+		anInt3210 = 0xff0 & i_9_ >> 12;
+		anInt3207 = 0xff0 & i_9_ << 4;
 	}
 
 	public static void method1252(final int i) {
@@ -114,27 +93,11 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		}
 	}
 
-	static final World method1254(final int i) {
-		World class167_sub1;
-		try {
-			if (i != 6) {
-				npcList = null;
-			}
-			if (Class86.aClass167_Sub1Array817.length > Class108_Sub3.anInt2395) {
-				return Class86.aClass167_Sub1Array817[Class108_Sub3.anInt2395++];
-			}
-			class167_sub1 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.T(").append(i).append(')').toString());
-		}
-		return class167_sub1;
-	}
-
 	static final void method1255(final Light light, final int[] is, final float[][] fs, final int i, final int i_10_, final Class133 class133, final float[][] fs_11_, final int i_12_, final float[][] fs_13_, final int i_14_, final int[][] is_15_) {
 		try {
 			final int[] is_16_ = new int[is.length / 2];
 			if (i_12_ != 1) {
-				method1250(-43, false, -91);
+				method1250(-43, -91);
 			}
 			for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
 				int i_18_ = is[i_17_ + i_17_];

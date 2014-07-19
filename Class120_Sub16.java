@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub16 extends Node {
-	static String[] aStringArray2599;
+	static String[] friendsName;
 	static int menuDrawY;
 	int anInt2601;
 	int anInt2602 = 2147483647;
@@ -18,13 +18,13 @@ final class Class120_Sub16 extends Node {
 	Class120_Sub14_Sub5 aClass120_Sub14_Sub5_2611;
 
 	static {
-		aStringArray2599 = new String[200];
+		friendsName = new String[200];
 	}
 
 	public static void method1655(final boolean bool) {
 		try {
 			screenRedrawWidhts = null;
-			aStringArray2599 = null;
+			friendsName = null;
 			if (!bool) {
 				method1659(-16, -103, 22);
 			}
@@ -52,27 +52,9 @@ final class Class120_Sub16 extends Node {
 		return bool;
 	}
 
-	static final void method1657(final boolean bool) {
-		try {
-			ParamType.aClass21_3541.clear();
-			if (!bool) {
-				messageCount = 79;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.C(").append(bool).append(')').toString());
-		}
-	}
-
-	static final void method1658(final int i) {
-		try {
-			Class120_Sub12_Sub14.aClass21_3238.clear();
-			if (i > -22) {
-				method1658(44);
-			}
-			Class82.aClass21_786.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.B(").append(i).append(')').toString());
-		}
+	static final void method1658() {
+		Class73.recentUse.clear();
+		Class82.aClass21_786.clear();
 	}
 
 	static final int method1659(final int i, final int i_2_, final int i_3_) {
@@ -99,16 +81,16 @@ final class Class120_Sub16 extends Node {
 		for (int i_10_ = 99; i_10_ > 0; i_10_--) {
 			Class136.anIntArray1315[i_10_] = Class136.anIntArray1315[i_10_ - 1];
 			Class76.aStringArray677[i_10_] = Class76.aStringArray677[i_10_ - 1];
-			Class160.aStringArray1502[i_10_] = Class160.aStringArray1502[i_10_ - 1];
+			GrandExchangeObject.aStringArray1502[i_10_] = GrandExchangeObject.aStringArray1502[i_10_ - 1];
 			Class120_Sub2.aStringArray2423[i_10_] = Class120_Sub2.aStringArray2423[i_10_ - 1];
 			Class120_Sub12_Sub36.anIntArray3422[i_10_] = Class120_Sub12_Sub36.anIntArray3422[i_10_- 1];
 		}
 		Class136.anIntArray1315[0] = i_7_;
 		Class76.aStringArray677[0] = string;
-		Class160.aStringArray1502[0] = string_8_;
+		GrandExchangeObject.aStringArray1502[0] = string_8_;
 		Class120_Sub12_Sub36.anIntArray3422[0] = i;
 		Class120_Sub2.aStringArray2423[0] = string_6_;
-		Class166.anInt1612 = Class160.anInt1494;
+		Class166.anInt1612 = GrandExchangeObject.anInt1494;
 		messageCount++;
 	}
 
@@ -116,7 +98,7 @@ final class Class120_Sub16 extends Node {
 		int i_12_;
 		try {
 			if (i != 1762) {
-				method1658(-16);
+				method1658();
 			}
 			int i_13_ = c << 4;
 			if (Character.isUpperCase(c) || Character.isTitleCase(c)) {
@@ -161,12 +143,12 @@ final class Class120_Sub16 extends Node {
 		Class8.method111((byte) 0);
 		for (int i_14_ = 0; i_14_ < Class118.playersList.length; i_14_++) {
 			if (Class118.playersList[i_14_] != null) {
-				Class118.playersList[i_14_].anInt2981 = -1;
+				Class118.playersList[i_14_].facingEntityIndex = -1;
 			}
 		}
 		for (int i_15_ = 0; i_15_ < Class120_Sub12_Sub11.npcList.length; i_15_++) {
 			if (Class120_Sub12_Sub11.npcList[i_15_] != null) {
-				Class120_Sub12_Sub11.npcList[i_15_].anInt2981 = -1;
+				Class120_Sub12_Sub11.npcList[i_15_].facingEntityIndex = -1;
 			}
 		}
 		Class28.method243(true);
@@ -178,9 +160,9 @@ final class Class120_Sub16 extends Node {
 		ParamType.sendDisplayInfo();
 	}
 
-	static final void method1664(final Npc class180_sub5_sub2) {
+	static final void removeAmbientSoundNpc(final Npc npc) {
 		for (AmbientSound class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
-			if (class180_sub5_sub2 == class120_sub8.npc) {
+			if (npc == class120_sub8.npc) {
 				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
 					class120_sub8.aClass120_Sub30_Sub4_2488 = null;

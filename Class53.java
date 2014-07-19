@@ -67,7 +67,7 @@ abstract class Class53 {
 			if (i > -59) {
 				return null;
 			}
-			final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_6_ = new Class120_Sub14_Sub8_Sub2(is, Class180_Sub4.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+			final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_6_ = new Class120_Sub14_Sub8_Sub2(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
 			Class53_Sub1.resetSpriteInfo();
 			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_6_;
 		} catch (final RuntimeException runtimeexception) {

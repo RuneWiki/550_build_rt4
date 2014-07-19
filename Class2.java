@@ -8,11 +8,11 @@ final class Class2 {
 	static int[] anIntArray51 = { 1, 1, 0, 0, 0, 8, 0, 0, 8 };
 	static int[] permanentVariable = new int[2500];
 
-	static final void method76(final boolean bool, final int i_0_, final boolean bool_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
-		if (bool_1_ || Class116.anInt1118 != i_0_ || Class3.anInt53 != i_4_ || Class120_Sub14_Sub4.anInt3469 != i_5_ && !Class143_Sub1.method2021()) {
-			Class3.anInt53 = i_4_;
-			Class120_Sub14_Sub4.anInt3469 = i_5_;
-			Class116.anInt1118 = i_0_;
+	static final void method76(final boolean bool, final int baseX, final boolean bool_1_, final int playerZ, final int playerX, final int baseZ, final int level) {
+		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || Class120_Sub14_Sub4.anInt3469 != level && !Class143_Sub1.method2021()) {
+			Class3.anInt53 = baseZ;
+			Class120_Sub14_Sub4.anInt3469 = level;
+			Class116.anInt1118 = baseX;
 			if (Class143_Sub1.method2021()) {
 				Class120_Sub14_Sub4.anInt3469 = 0;
 			}
@@ -24,8 +24,8 @@ final class Class2 {
 			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, true);
 			int i_6_ = GameEntity.currentBaseX;
 			int i_7_ = Class181.currentBaseZ;
-			GameEntity.currentBaseX = i_0_ * 8 - 48;
-			Class181.currentBaseZ = i_4_ * 8 - 48;
+			GameEntity.currentBaseX = baseX * 8 - 48;
+			Class181.currentBaseZ = baseZ * 8 - 48;
 			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = Class79.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
 			SceneGraphNode.aClass137_1780 = null;
 			final int i_8_ = Class181.currentBaseZ - i_7_;
@@ -84,9 +84,9 @@ final class Class2 {
 				i_16_ = 103;
 			}
 			int i_19_ = 0;
-			Class173.gameLevel = i_5_;
+			Class173.gameLevel = level;
 			int i_20_ = 104;
-			Class100.selfPlayer.method2343(i_2_, false, i_3_);
+			Class100.selfPlayer.method2343(playerX, playerZ, false);
 			int i_21_ = 1;
 			if (i_8_ < 0) {
 				i_20_ = -1;

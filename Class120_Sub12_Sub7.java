@@ -43,22 +43,16 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 		}
 	}
 
-	static final int method1232(final String string, final int i) {
-		int i_13_;
-		try {
-			if (string == null) {
-				return -1;
-			}
-			for (int i_14_ = 0; i_14_ < ProducingGraphicsBuffer.anInt2799; i_14_++) {
-				if (string.equalsIgnoreCase(Class120_Sub16.aStringArray2599[i_14_])) {
-					return i_14_;
-				}
-			}
-			i_13_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fa.S(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final int getFriendsIndex(final String string) {
+		if (string == null) {
+			return -1;
 		}
-		return i_13_;
+		for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
+			if (string.equalsIgnoreCase(Class120_Sub16.friendsName[id])) {
+				return id;
+			}
+		}
+		return -1;
 	}
 
 	public Class120_Sub12_Sub7() {

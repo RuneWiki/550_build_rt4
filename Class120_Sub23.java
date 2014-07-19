@@ -290,7 +290,7 @@ final class Class120_Sub23 extends Node {
 			final int[] is_82_ = new int[i_76_];
 			final int i_83_ = Class110.method979(i_76_ - 1, -67);
 			for (int i_84_ = 0; i_84_ < i_76_; i_84_++) {
-				is_82_[i_84_] = Class120_Sub13.method1405(i_84_, false, i_83_);
+				is_82_[i_84_] = ClanMember.method1405(i_84_, false, i_83_);
 			}
 			if (i != 0) {
 				aFloatArray2692 = fs;

@@ -64,42 +64,30 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1193(final byte i) {
-		try {
-			PacketBuffer.method1147((byte) -29);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vb.O(").append(i).append(')').toString());
-		}
+	final void postDecode() {
+		PacketBuffer.method1147();
 	}
 
 	@Override
-	final void method1180(final byte i, final Buffer class120_sub7, final int i_9_) {
-		try {
-			final int i_10_ = i_9_;
-			while_165_: do {
-				do {
-					if (i_10_ != 0) {
-						if (i_10_ != 1) {
-							if (i_10_ == 3) {
-								break;
-							}
-							break while_165_;
+	final void decode(final Buffer buffer, final int i_10_) {
+		while_165_: do {
+			do {
+				if (i_10_ != 0) {
+					if (i_10_ != 1) {
+						if (i_10_ == 3) {
+							break;
 						}
-					} else {
-						anInt3428 = class120_sub7.getUByte();
 						break while_165_;
 					}
-					anInt3433 = class120_sub7.getUByte();
+				} else {
+					anInt3428 = buffer.getUByte();
 					break while_165_;
-				} while (false);
-				anInt3426 = class120_sub7.getUByte();
+				}
+				anInt3433 = buffer.getUByte();
+				break while_165_;
 			} while (false);
-			if (i != -43) {
-				aShortArray3430 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vb.M(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_9_).append(')').toString());
-		}
+			anInt3426 = buffer.getUByte();
+		} while (false);
 	}
 
 	static final void method1394(final byte i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {

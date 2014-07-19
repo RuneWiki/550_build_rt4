@@ -7,7 +7,7 @@ final class LabelGroup extends Node {
 	static SignlinkNode aClass185_2403;
 	int length;
 	int[] anIntArray2405;
-	static Cache aClass21_2406;
+	static ObjectCache aClass21_2406;
 	boolean[] aBooleanArray2407;
 	int id;
 	static int[] anIntArray2409 = new int[5];
@@ -18,7 +18,7 @@ final class LabelGroup extends Node {
 	static int screenRedrawPos;
 
 	static {
-		aClass21_2406 = new Cache(50);
+		aClass21_2406 = new ObjectCache(50);
 		anIntArray2412 = new int[5];
 		screenRedrawPos = 0;
 	}
@@ -73,7 +73,7 @@ final class LabelGroup extends Node {
 			for (int i_12_ = 0; i_10_ > i_12_; i_12_++) {
 				is[i_12_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, is_11_[i_12_])];
 			}
-			sprites[i_9_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Class180_Sub4.spriteXOffsets[i_9_], GroundTile.spriteYOffsets[i_9_], Class120_Sub12_Sub11.spriteWidths[i_9_], Class120_Sub12_Sub39.spriteHeights[i_9_], is);
+			sprites[i_9_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[i_9_], GroundTile.spriteYOffsets[i_9_], Class120_Sub12_Sub11.spriteWidths[i_9_], Class120_Sub12_Sub39.spriteHeights[i_9_], is);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return sprites;

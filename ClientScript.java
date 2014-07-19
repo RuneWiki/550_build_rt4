@@ -55,7 +55,7 @@ final class ClientScript extends NodeSub {
 	}
 
 	static final ClientScript list(final int id) {
-		ClientScript class120_sub14_sub12_4_ = (ClientScript) Class128.aClass35_1219.get(id);
+		ClientScript class120_sub14_sub12_4_ = (ClientScript) OverlayType.aClass35_1219.get(id);
 		if (class120_sub14_sub12_4_ != null) {
 			return class120_sub14_sub12_4_;
 		}
@@ -64,7 +64,7 @@ final class ClientScript extends NodeSub {
 			return null;
 		}
 		class120_sub14_sub12_4_ = ClientScript.decode(is);
-		Class128.aClass35_1219.put(class120_sub14_sub12_4_, id);
+		OverlayType.aClass35_1219.put(class120_sub14_sub12_4_, id);
 		return class120_sub14_sub12_4_;
 	}
 

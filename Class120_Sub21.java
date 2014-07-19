@@ -18,19 +18,12 @@ final class Class120_Sub21 extends Node {
 		skillTriggersPos = 0;
 	}
 
-	static final void method1695(final int i, final int i_0_, final int i_1_, final int i_2_, final byte i_3_) {
-		try {
-			if (i_3_ != 66) {
-				method1697(null, (byte) 51);
-			}
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(4, i_1_);
-			class120_sub14_sub7.method1454();
-			class120_sub14_sub7.anInt3484 = i;
-			class120_sub14_sub7.anInt3492 = i_2_;
-			class120_sub14_sub7.anInt3486 = i_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pl.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
-		}
+	static final void method1695(final int i, final int i_0_, final int i_1_, final int i_2_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(4, i_1_);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3484 = i;
+		class120_sub14_sub7.anInt3492 = i_2_;
+		class120_sub14_sub7.anInt3486 = i_0_;
 	}
 
 	public static void method1696(final int i) {
@@ -83,7 +76,7 @@ final class Class120_Sub21 extends Node {
 	static final void method1700() {
 		if (Class120_Sub22.systemUpdateCycle > 1) {
 			Class120_Sub22.systemUpdateCycle--;
-			Class120_Sub2.anInt2419 = Class160.anInt1494;
+			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 		}
 		if (Class31.anInt244 > 0) {
 			Class31.anInt244--;
@@ -260,7 +253,7 @@ final class Class120_Sub21 extends Node {
 						Class120_Sub14_Sub24.updateEntityText();
 						for (int i_18_ = Class31.method263(true); i_18_ != -1; i_18_ = Class31.method263(false)) {
 							Class120_Sub14_Sub15.method1554(i_18_);
-							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(Class27.anInt165++, 31)] = i_18_;
+							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(VarBit.anInt165++, 31)] = i_18_;
 						}
 						for (InterfaceChangeNode node = InterfaceChangeNode.poll(); node != null; node = InterfaceChangeNode.poll()) {
 							final int i_19_ = node.getType();
@@ -317,8 +310,8 @@ final class Class120_Sub21 extends Node {
 													final JagexInterface jagexInterface = Class74.getJagexInterface(i_20_);
 													jagexInterface.x = jagexInterface.originalX = node.anInt3484;
 													jagexInterface.y = jagexInterface.originalY = node.anInt3492;
-													jagexInterface.aByte2017 = (byte) 0;
-													jagexInterface.aByte2051 = (byte) 0;
+													jagexInterface.dynamicYValue = (byte) 0;
+													jagexInterface.dynamicXValue = (byte) 0;
 													InterfaceClickMask.redrawInterface(jagexInterface);
 												} else if (i_19_ != 12) {
 													if (i_19_ == 13) {
@@ -398,25 +391,25 @@ final class Class120_Sub21 extends Node {
 								Class32.aClass189_256 = null;
 							}
 						}
-						if (Class180_Sub4.aClass189_2954 != null) {
-							InterfaceClickMask.redrawInterface(Class180_Sub4.aClass189_2954);
-							if (5 + Class23.anInt134 < Queue.lastMouseX || Queue.lastMouseX < Class23.anInt134 + -5 || Class191.lastMouseY > 5 + Class27.anInt166 || Class191.lastMouseY < -5 + Class27.anInt166) {
+						if (Projectile.aClass189_2954 != null) {
+							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
+							if (5 + Class23.anInt134 < Queue.lastMouseX || Queue.lastMouseX < Class23.anInt134 + -5 || Class191.lastMouseY > 5 + VarBit.anInt166 || Class191.lastMouseY < -5 + VarBit.anInt166) {
 								Huffman.aBoolean1207 = true;
 							}
 							JavaObject.anInt3915++;
 							if (InterfaceChangeNode.lastMousePress == 0) {
 								if (Huffman.aBoolean1207 && JavaObject.anInt3915 >= 5) {
-									if (Class180_Sub4.aClass189_2954 == StructType.aClass189_3588 && Class120_Sub13.anInt2572 != Class5.anInt2154) {
-										final JagexInterface jagexInterface = Class180_Sub4.aClass189_2954;
+									if (Projectile.aClass189_2954 == StructType.aClass189_3588 && ClanMember.anInt2572 != Class5.anInt2154) {
+										final JagexInterface jagexInterface = Projectile.aClass189_2954;
 										int inserting = 0;
 										if (JagexInterface.inserting == 1 && jagexInterface.clientCode == 206) {
 											inserting = 1;
 										}
-										if (jagexInterface.objIds[Class120_Sub13.anInt2572] <= 0) {
+										if (jagexInterface.objIds[ClanMember.anInt2572] <= 0) {
 											inserting = 0;
 										}
 										if (client.getClickMask(jagexInterface).method1691()) {
-											final int i_31_ = Class120_Sub13.anInt2572;
+											final int i_31_ = ClanMember.anInt2572;
 											final int i_32_ = Class5.anInt2154;
 											jagexInterface.objIds[i_31_] = jagexInterface.objIds[i_32_];
 											jagexInterface.objAmounts[i_31_] = jagexInterface.objAmounts[i_32_];
@@ -424,7 +417,7 @@ final class Class120_Sub21 extends Node {
 											jagexInterface.objAmounts[i_32_] = 0;
 										} else if (inserting == 1) {
 											int i_33_ = Class5.anInt2154;
-											final int i_34_ = Class120_Sub13.anInt2572;
+											final int i_34_ = ClanMember.anInt2572;
 											while (i_34_ != i_33_) {
 												if (i_34_ < i_33_) {
 													jagexInterface.method2496(i_33_, (byte) 89, i_33_ - 1);
@@ -435,15 +428,15 @@ final class Class120_Sub21 extends Node {
 												}
 											}
 										} else {
-											jagexInterface.method2496(Class5.anInt2154, (byte) 88, Class120_Sub13.anInt2572);
+											jagexInterface.method2496(Class5.anInt2154, (byte) 88, ClanMember.anInt2572);
 										}
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(6);
-										Class120_Sub12_Sub11.outputStream.putLEShortA(Class120_Sub13.anInt2572);
+										Class120_Sub12_Sub11.outputStream.putLEShortA(ClanMember.anInt2572);
 										Class120_Sub12_Sub11.outputStream.putByteS(inserting);
-										Class120_Sub12_Sub11.outputStream.putInt2(Class180_Sub4.aClass189_2954.bitPacked);
+										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.aClass189_2954.bitPacked);
 										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.anInt2154);
 									}
-								} else if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(0, Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
+								} else if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
 									if (Class186.menuOptionCount > 0) {
 										Class191.method2508((byte) -125);
 									}
@@ -451,7 +444,7 @@ final class Class120_Sub21 extends Node {
 									Class120_Sub12_Sub28.determineMenuSize();
 								}
 								Class69_Sub2.anInt2236 = 10;
-								Class180_Sub4.aClass189_2954 = null;
+								Projectile.aClass189_2954 = null;
 								Class156.lastMouseClick = 0;
 							}
 						}
@@ -464,14 +457,14 @@ final class Class120_Sub21 extends Node {
 						Class49.aClass189_441 = null;
 						WorldInfo.aBoolean1419 = false;
 						for (/**/; Class120_Sub12_Sub13.method1265() && ObjType.anInt1551 < 128; ObjType.anInt1551++) {
-							Class134.anIntArray1285[ObjType.anInt1551] = Class35.anInt301;
+							Class134.anIntArray1285[ObjType.anInt1551] = NodeCache.anInt301;
 							Class120_Sub19.anIntArray2658[ObjType.anInt1551] = ObjType.aChar1536;
 						}
 						Class142.aClass189_1362 = null;
 						if (Class69.rootInterfaceId != -1) {
 							Class120_Sub6.method1074(Class69.rootInterfaceId, Class69_Sub1.canvasWidth, 0, 0, 0, 0, Class120_Sub12_Sub5.canvasHeight);
 						}
-						Class160.anInt1494++;
+						GrandExchangeObject.anInt1494++;
 						if (Class142.aClass189_1362 != null) {
 							Class116.method1009((byte) -107);
 						}
@@ -521,9 +514,9 @@ final class Class120_Sub21 extends Node {
 							EnumType.anInt3450 = 0;
 						}
 						if (Class120_Sub12_Sub4.aClass189_3156 != null) {
-							JavaObject.method1435(-2);
+							JavaObject.method1435();
 						}
-						if (Class86.staffLevel > 0 && Class35.aBooleanArray299[82] && Class35.aBooleanArray299[81] && Class66.mouseWheelRotation != 0) {
+						if (Class86.staffLevel > 0 && NodeCache.aBooleanArray299[82] && NodeCache.aBooleanArray299[81] && Class66.mouseWheelRotation != 0) {
 							int i_42_ = Class173.gameLevel - Class66.mouseWheelRotation;
 							if (i_42_ < 0) {
 								i_42_ = 0;
@@ -532,11 +525,11 @@ final class Class120_Sub21 extends Node {
 							}
 							Class108.tele(Class100.selfPlayer.walkQueueX[0] + GameEntity.currentBaseX, Class181.currentBaseZ + Class100.selfPlayer.walkQueueZ[0], i_42_);
 						}
-						if (Class86.staffLevel <= 0 || !Class35.aBooleanArray299[82] || !Class35.aBooleanArray299[81]) {
+						if (Class86.staffLevel <= 0 || !NodeCache.aBooleanArray299[82] || !NodeCache.aBooleanArray299[81]) {
 							if (Class120_Sub14_Sub5.anInt3479 != 2) {
 								if (Class120_Sub12_Sub33.anInt3401 != 2) {
-									if (Cache.anInt122 != -1 && Class120_Sub14_Sub5.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
-										final int i_43_ = (Cache.anInt122 << 1) + -Class100.selfPlayer.getSize() + 1 >> 1;
+									if (ObjectCache.anInt122 != -1 && Class120_Sub14_Sub5.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
+										final int i_43_ = (ObjectCache.anInt122 << 1) + -Class100.selfPlayer.getSize() + 1 >> 1;
 										final int i_44_ = (Class20.anInt2174 << 1) - Class100.selfPlayer.getSize() + 1 >> 1;
 										Class53_Sub1.method464(i_43_, 0, i_44_);
 										Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -546,9 +539,9 @@ final class Class120_Sub21 extends Node {
 										Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
 									}
 								} else {
-									if (Cache.anInt122 != -1) {
+									if (ObjectCache.anInt122 != -1) {
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
-										Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + Cache.anInt122);
+										Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + ObjectCache.anInt122);
 										Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + Class20.anInt2174);
 										Class120_Sub14_Sub22.crossState = 1;
 										Class120_Sub12_Sub7.crossIndex = 0;
@@ -558,12 +551,12 @@ final class Class120_Sub21 extends Node {
 									Class120_Sub12_Sub33.anInt3401 = 0;
 								}
 							} else {
-								if (Cache.anInt122 != -1) {
+								if (ObjectCache.anInt122 != -1) {
 									Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
 									Class120_Sub12_Sub11.outputStream.putShortA(Class20.anInt2174 + Class181.currentBaseZ);
 									Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.anInt420);
 									Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-									Class120_Sub12_Sub11.outputStream.putLEShort(Cache.anInt122 + GameEntity.currentBaseX);
+									Class120_Sub12_Sub11.outputStream.putLEShort(ObjectCache.anInt122 + GameEntity.currentBaseX);
 									Class120_Sub12_Sub35.crossX = js5.lastClickX;
 									Class120_Sub14_Sub22.crossState = 1;
 									Class120_Sub12_Sub7.crossIndex = 0;
@@ -572,12 +565,12 @@ final class Class120_Sub21 extends Node {
 								Class120_Sub14_Sub5.anInt3479 = 0;
 							}
 						} else {
-							if (Cache.anInt122 != -1) {
-								Class108.tele(Cache.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
+							if (ObjectCache.anInt122 != -1) {
+								Class108.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
 							}
 							Class120_Sub14_Sub5.anInt3479 = Class120_Sub12_Sub33.anInt3401 = 0;
 						}
-						Cache.anInt122 = -1;
+						ObjectCache.anInt122 = -1;
 						CursorType.method1918();
 						if (jagexInterface != CursorType.aClass189_1243) {
 							if (jagexInterface != null) {
