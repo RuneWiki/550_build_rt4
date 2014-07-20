@@ -122,7 +122,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 			if (js5.method429(Class120_Sub14_Sub15.headiconspkId)) {
 				i_13_++;
 			}
-			if (js5.method429(Class52.headiconsprayerId)) {
+			if (js5.method429(MasterIndexInfo.headiconsprayerId)) {
 				i_13_++;
 			}
 			if (js5.method429(Class120_Sub21.hintheadiconsId)) {

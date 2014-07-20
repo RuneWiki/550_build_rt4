@@ -305,7 +305,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			if (i != 5) {
 				method1229(null, 7, 90, 60, -66, -47);
 			}
-			Class52.aClass50_476 = null;
+			MasterIndexInfo.aClass50_476 = null;
 			Class120_Sub12_Sub25.anInt3312 = 1;
 			SeqType.anInt349 = -1;
 			StringNode.aBoolean2734 = false;

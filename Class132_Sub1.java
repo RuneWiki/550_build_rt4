@@ -28,7 +28,7 @@ class Class132_Sub1 extends Class132 {
 
 	static final void method1931() {
 		for (int i_0_ = 0; i_0_ < 100; i_0_++) {
-			Class52.needInterfaceRedrawWrapper[i_0_] = true;
+			MasterIndexInfo.needInterfaceRedrawWrapper[i_0_] = true;
 		}
 	}
 

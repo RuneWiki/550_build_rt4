@@ -109,7 +109,7 @@ final class Class24 {
 		Class28.method243(true);
 		Class69.aBoolean615 = true;
 		for (int i_9_ = 0; i_9_ < 100; i_9_++) {
-			Class52.needInterfaceRedrawWrapper[i_9_] = true;
+			MasterIndexInfo.needInterfaceRedrawWrapper[i_9_] = true;
 		}
 		Class120_Sub28.clanMembers = null;
 		InterfaceChangeNode.clanName = null;
@@ -126,7 +126,7 @@ final class Class24 {
 			AmbientSound.method1159();
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
-		Class52.aBoolean466 = false;
+		MasterIndexInfo.aBoolean466 = false;
 		Class118.aBoolean1134 = true;
 		Class120_Sub14_Sub20.packetCounter = 0;
 		Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
@@ -150,7 +150,7 @@ final class Class24 {
 	}
 
 	static final int method207() {
-		if (Class52.aBoolean466) {
+		if (MasterIndexInfo.aBoolean466) {
 			return 0;
 		}
 		if (!Class143_Sub1.method2021()) {

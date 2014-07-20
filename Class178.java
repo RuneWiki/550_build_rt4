@@ -4,7 +4,7 @@
 
 final class Class178 {
 	static int anInt1771;
-	static Class45 aClass45_1772;
+	static Js5Worker aClass45_1772;
 
 	static final int method2256(final boolean bool, final int i, int i_0_) {
 		int i_1_;

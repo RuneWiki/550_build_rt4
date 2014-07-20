@@ -307,7 +307,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 			}
 			Class57.aClass50_499 = js5;
 			Class120_Sub29.aClass50_2770 = class50_14_;
-			Class52.aClass50_469 = class50_13_;
+			MasterIndexInfo.aClass50_469 = class50_13_;
 			bool_15_ = true;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.S(").append(class120_sub30_sub2 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_13_ != null ? "{...}" : "null").append(',').append(bool).append(',')

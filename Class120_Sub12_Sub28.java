@@ -324,7 +324,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								class120_sub9s_99_[i_101_ + class120_sub9s.length] = class120_sub9s_98_[i_101_];
 							}
 							Class65.method578(i_9_, class120_sub9s_99_);
-							Class45.method368((byte) -99, Class8.aByteArrayArrayArray65[i_9_], LightManager.lightsPos, LightManager.lights, OverridedJInterface.anIntArrayArrayArray2741[i_9_], Class120_Sub4.aByteArrayArrayArray2441[i_9_], fs, Class99.aByteArrayArrayArray949[i_9_], fs_92_, fs_91_,
+							Js5Worker.method368((byte) -99, Class8.aByteArrayArrayArray65[i_9_], LightManager.lightsPos, LightManager.lights, OverridedJInterface.anIntArrayArrayArray2741[i_9_], Class120_Sub4.aByteArrayArrayArray2441[i_9_], fs, Class99.aByteArrayArrayArray949[i_9_], fs_92_, fs_91_,
 									i_9_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_]);
 						}
 					}

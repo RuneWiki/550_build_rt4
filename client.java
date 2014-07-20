@@ -199,7 +199,7 @@ public final class client extends GameShell {
 			} else {
 				AmbientSound.aClass50_2479 = Huffman.method1884(true, (byte) -93, false, 0, true);
 				Class79_Sub1.aClass50_2245 = Huffman.method1884(true, (byte) -112, false, 1, true);
-				Class45.aClass50_397 = Huffman.method1884(false, (byte) -127, true, 2, true);
+				Js5Worker.aClass50_397 = Huffman.method1884(false, (byte) -127, true, 2, true);
 				Class33.aClass50_275 = Huffman.method1884(true, (byte) -119, false, 3, true);
 				Class159.aClass50_1490 = Huffman.method1884(true, (byte) -106, false, 4, true);
 				Class65.aClass50_597 = Huffman.method1884(true, (byte) -78, true, 5, true);
@@ -302,9 +302,9 @@ public final class client extends GameShell {
 			Class120_Sub14_Sub1.setGameState(5);
 			Class140.loadingStage = 70;
 		} else if (Class140.loadingStage == 70) {
-			Class45.aClass50_397.method430(true);
+			Js5Worker.aClass50_397.method430(true);
 			int i_18_ = 0;
-			i_18_ += Class45.aClass50_397.method415();
+			i_18_ += Js5Worker.aClass50_397.method415();
 			Class114.aClass50_1097.method430(true);
 			i_18_ += Class114.aClass50_1097.method415();
 			Class169.aClass50_1649.method430(true);
@@ -329,30 +329,30 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 50;
 				Class134.loadingText = new StringBuilder(Class120_Sub3.aString2428).append(i_18_ / 11).append("%").toString();
 			} else {
-				Class120_Sub14_Sub1.method1414(Class45.aClass50_397, 40);
-				Class125.method1881(Class45.aClass50_397, 76);
-				SceneGraphNode.method2274(Class45.aClass50_397, 2);
-				Class186.method2472(-12879, Class120_Sub12_Sub17.aClass50_3258, Class45.aClass50_397);
+				Class120_Sub14_Sub1.method1414(Js5Worker.aClass50_397, 40);
+				Class125.method1881(Js5Worker.aClass50_397, 76);
+				SceneGraphNode.method2274(Js5Worker.aClass50_397, 2);
+				Class186.method2472(-12879, Class120_Sub12_Sub17.aClass50_3258, Js5Worker.aClass50_397);
 				Class166.method2178(Class114.aClass50_1097, true, Class120_Sub12_Sub17.aClass50_3258);
 				GrandExchangeObject.method2099(Class120_Sub12_Sub17.aClass50_3258, true, -9746, Class120_Sub12_Sub29.aClass50_3367);
 				Player.method2340(Class127.aClass50_1213, Class33.aClass120_Sub14_Sub8_Sub2_274, true, Class120_Sub12_Sub17.aClass50_3258);
-				Class76.method665((byte) -69, Class45.aClass50_397);
+				Class76.method665((byte) -69, Js5Worker.aClass50_397);
 				Class191.method2509(Class2.aClass50_50, Class79_Sub1.aClass50_2245, AmbientSound.aClass50_2479, 31779);
-				Class153.method2075((byte) -46, Class45.aClass50_397);
+				Class153.method2075((byte) -46, Js5Worker.aClass50_397);
 				Class120_Sub12_Sub13.method1266(-1, Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.aClass50_3258);
 				Class120_Sub12_Sub35.method1381(Class20.aClass50_2169, (byte) -94);
-				Class15.method145(Class45.aClass50_397, 1024);
+				Class15.method145(Js5Worker.aClass50_397, 1024);
 				Class191.method2511(Class7.aClass50_63, 5, ClanMember.aClass50_2576, Class33.aClass50_275, Class120_Sub12_Sub17.aClass50_3258);
-				Class86.method731(-91, Class45.aClass50_397);
+				Class86.method731(-91, Js5Worker.aClass50_397);
 				Class120_Sub11.method1177(-12014, Class169.aClass50_1649);
 				InterfaceChangeNode.method1455(AbstractMouseWheelHandler.aClass50_115, new Class125(), Class153.aClass50_1433);
 				Class120_Sub12_Sub10.method1249(Class153.aClass50_1433, -26193, AbstractMouseWheelHandler.aClass50_115);
-				Class54.method483(Class45.aClass50_397, (byte) -102);
-				Class120_Sub12_Sub17.method1287(Class45.aClass50_397, (byte) 117);
-				Class120_Sub12_Sub2.method1203(2, Class45.aClass50_397);
-				ObjectCache.method189(Class45.aClass50_397, Class7.aClass50_63);
-				Class3.method79(-8, Class7.aClass50_63, Class45.aClass50_397);
-				Class120_Sub21.method1698((byte) -11, Class45.aClass50_397, Class7.aClass50_63);
+				Class54.method483(Js5Worker.aClass50_397, (byte) -102);
+				Class120_Sub12_Sub17.method1287(Js5Worker.aClass50_397, (byte) 117);
+				Class120_Sub12_Sub2.method1203(2, Js5Worker.aClass50_397);
+				ObjectCache.method189(Js5Worker.aClass50_397, Class7.aClass50_63);
+				Class3.method79(-8, Class7.aClass50_63, Js5Worker.aClass50_397);
+				Class120_Sub21.method1698((byte) -11, Js5Worker.aClass50_397, Class7.aClass50_63);
 				OverridedJInterface.loadingBarPercent = 50;
 				Class134.loadingText = NodeSub.aString2585;
 				Class120_Sub14_Sub5.method1441(-123);
@@ -360,7 +360,7 @@ public final class client extends GameShell {
 			}
 		} else if (Class140.loadingStage == 80) {
 			final int i_19_ = Class120_Sub12_Sub4.method1216(Class7.aClass50_63, -89);
-			final int i_20_ = Class45.method358(125);
+			final int i_20_ = Js5Worker.method358(125);
 			if (i_19_ < i_20_) {
 				Class134.loadingText = new StringBuilder(Class120_Sub14_Sub24.aString3665).append(100 * i_19_ / i_20_).append("%").toString();
 				OverridedJInterface.loadingBarPercent = 60;
@@ -405,7 +405,7 @@ public final class client extends GameShell {
 			Class140.loadingStage = 120;
 		} else if (Class140.loadingStage == 120) {
 			if (!Class108_Sub3.aClass50_2400.method410("huffman", (byte) -99, "")) {
-				Class134.loadingText = new StringBuilder(Class45.aString398).append("0%").toString();
+				Class134.loadingText = new StringBuilder(Js5Worker.aString398).append("0%").toString();
 				OverridedJInterface.loadingBarPercent = 80;
 			} else {
 				final Huffman huffman = new Huffman(Class108_Sub3.aClass50_2400.method428(95, "", "huffman"));
@@ -461,7 +461,7 @@ public final class client extends GameShell {
 			Class33.aClass50_275.method426(true, true, (byte) -20);
 			SeekableFile.aBoolean2138 = true;
 			Class140.loadingStage = 150;
-			Class134.loadingText = Class45.aString400;
+			Class134.loadingText = Js5Worker.aString400;
 			OverridedJInterface.loadingBarPercent = 97;
 		} else if (Class140.loadingStage == 150) {
 			Class78.method674();
@@ -526,7 +526,7 @@ public final class client extends GameShell {
 	final void mainInit() {
 		InterfaceListener.updateCanvasPosition();
 		Class38.fileSystemWorker = new FileSystemWorker();
-		Class178.aClass45_1772 = new Class45();
+		Class178.aClass45_1772 = new Js5Worker();
 		if (LocType.modeWhat != 0) {
 			Class120_Sub12_Sub25.aByteArrayArray3318 = new byte[50][];
 		}
@@ -749,7 +749,7 @@ public final class client extends GameShell {
 		HintIcon.method726(255);
 		Buffer.method1076((byte) 124);
 		JagexSocket.method372(14420);
-		Class45.method359(-29587);
+		Js5Worker.method359(-29587);
 		FileSystemWorker.a();
 		Class112.method988((byte) -58);
 		Class53_Sub1.method468((byte) -82);
@@ -827,7 +827,7 @@ public final class client extends GameShell {
 		Class127.method1894((byte) -128);
 		Class73.method649((byte) -41);
 		Class53.method456((byte) 126);
-		Class52.method454(true);
+		MasterIndexInfo.method454();
 		AbstractRequest.method1536(false);
 		Class74.method651(false);
 		GraphicsLD.method2163();
@@ -1186,7 +1186,7 @@ public final class client extends GameShell {
 			}
 			if (HDToolkit.glEnabled) {
 				for (int id = 0; id < 100; id++) {
-					Class52.needInterfaceRedrawWrapper[id] = true;
+					MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 				}
 			}
 			if (Class109.gameState != 0) {
@@ -1270,8 +1270,8 @@ public final class client extends GameShell {
 			Class101_Sub2.loopCycle++;
 			if (Class101_Sub2.loopCycle % 1000 == 1) {
 				final GregorianCalendar gregoriancalendar = new GregorianCalendar();
-				Class52.anInt478 = 600 * gregoriancalendar.get(11) - -(10 * gregoriancalendar.get(12)) + gregoriancalendar.get(13) / 6;
-				Class136.aRandom1319.setSeed(Class52.anInt478);
+				MasterIndexInfo.anInt478 = 600 * gregoriancalendar.get(11) - -(10 * gregoriancalendar.get(12)) + gregoriancalendar.get(13) / 6;
+				Class136.aRandom1319.setSeed(MasterIndexInfo.anInt478);
 			}
 			method56();
 			if (EnumType.aClass112_3460 != null) {// js5

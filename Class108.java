@@ -31,7 +31,7 @@ class Class108 {
 		AmbientSound.hitmarksId = js5.method432("hitmarks");
 		Class120_Sub12_Sub25.hitbardefaultId = js5.method432("hitbar_default");
 		Class120_Sub14_Sub15.headiconspkId = js5.method432("headicons_pk");
-		Class52.headiconsprayerId = js5.method432("headicons_prayer");
+		MasterIndexInfo.headiconsprayerId = js5.method432("headicons_prayer");
 		Class120_Sub21.hintheadiconsId = js5.method432("hint_headicons");
 		Class173.hintmapmarkersId = js5.method432("hint_mapmarkers");
 		Class169.mapflagId = js5.method432("mapflag");

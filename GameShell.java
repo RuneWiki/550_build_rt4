@@ -800,7 +800,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		Class69_Sub2.aClass120_Sub14_Sub19Array2238 = Class125.constructTransparentSprites(js5, 0, AmbientSound.hitmarksId);
 		SeqType.aClass120_Sub14_Sub19Array335 = Class125.constructTransparentSprites(js5, 0, Class120_Sub12_Sub25.hitbardefaultId);
 		Class54.aClass120_Sub14_Sub19Array490 = Class125.constructTransparentSprites(js5, 0, Class120_Sub14_Sub15.headiconspkId);
-		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, 0, Class52.headiconsprayerId);
+		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, 0, MasterIndexInfo.headiconsprayerId);
 		Class180_Sub6.aClass120_Sub14_Sub19Array3073 = Class125.constructTransparentSprites(js5, 0, Class120_Sub21.hintheadiconsId);
 		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = Class125.constructTransparentSprites(js5, 0, Class173.hintmapmarkersId);
 		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, Class169.mapflagId, 0);
@@ -1166,7 +1166,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			addCanvas();
 			ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 			mainInit();
-			Class101_Sub2.gameShellTimer = Class52.constructTimer();
+			Class101_Sub2.gameShellTimer = MasterIndexInfo.constructTimer();
 			loadJagmisc();
 			while (IntegerNode.killtime == 0L || TimeUtil.getSafeTime() < IntegerNode.killtime) {
 				Class112.gameLoopCount = Class101_Sub2.gameShellTimer.sleep(Class145.sleepModifier1, Class120_Sub12_Sub1.sleepModifier2);
@@ -1252,7 +1252,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 				jagmisc.init();
 				jagmiscLoaded = true;
-				Class101_Sub2.gameShellTimer = Class52.constructTimer();
+				Class101_Sub2.gameShellTimer = MasterIndexInfo.constructTimer();
 			} catch (final Throwable throwable) {
 				/* empty */
 			}

@@ -31,7 +31,7 @@ final class StructType extends NodeSub {
 		for (int i_10_ = Class190.anInt2101; i_10_ < Class142.anInt1361; i_10_++) {
 			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_10_];
 			for (int i_11_ = GrandExchangeObject.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
-				for (int i_12_ = Class31.anInt248; i_12_ < Class45.anInt396; i_12_++) {
+				for (int i_12_ = Class31.anInt248; i_12_ < Js5Worker.anInt396; i_12_++) {
 					final GroundTile class120_sub18 = class120_sub18s[i_11_][i_12_];
 					if (class120_sub18 != null) {
 						if (!SpotAnimType.aBooleanArrayArray992[i_11_ - Class120_Sub12_Sub26.anInt3332 + Class120_Sub14_Sub13.anInt3563][i_12_ - Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563] || is != null && i_10_ >= i_2_ && is[i_10_][i_11_][i_12_] == i_3_) {
@@ -136,7 +136,7 @@ final class StructType extends NodeSub {
 									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
-							if (i_23_ < Class45.anInt396) {
+							if (i_23_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									IdentityKit.method1989(class120_sub18, true);
@@ -150,7 +150,7 @@ final class StructType extends NodeSub {
 									IdentityKit.method1989(class120_sub18, true);
 								}
 							}
-							if (i_23_ < Class45.anInt396) {
+							if (i_23_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									IdentityKit.method1989(class120_sub18, true);
@@ -183,7 +183,7 @@ final class StructType extends NodeSub {
 									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
-							if (i_30_ < Class45.anInt396) {
+							if (i_30_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									IdentityKit.method1989(class120_sub18, false);
@@ -197,7 +197,7 @@ final class StructType extends NodeSub {
 									IdentityKit.method1989(class120_sub18, false);
 								}
 							}
-							if (i_30_ < Class45.anInt396) {
+							if (i_30_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 									IdentityKit.method1989(class120_sub18, false);

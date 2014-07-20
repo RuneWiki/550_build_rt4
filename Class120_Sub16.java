@@ -155,7 +155,7 @@ final class Class120_Sub16 extends Node {
 		client.cameraType = 1;
 		Class120_Sub14_Sub1.setGameState(30);
 		for (int i_16_ = 0; i_16_ < 100; i_16_++) {
-			Class52.needInterfaceRedrawWrapper[i_16_] = true;
+			MasterIndexInfo.needInterfaceRedrawWrapper[i_16_] = true;
 		}
 		ParamType.sendDisplayInfo();
 	}

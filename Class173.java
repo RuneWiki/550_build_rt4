@@ -104,7 +104,7 @@ final class Class173 {
 		Class116.aString1116 = "Conex\u00e3o perdida.";
 		Class174.aString1733 = "habilidade: ";
 		Class24.aString142 = "Tentando reestabelecer conex\u00e3o. Aguarde.";
-		Class45.aString400 = "Iniciando biblioteca 3D";
+		Js5Worker.aString400 = "Iniciando biblioteca 3D";
 		AbstractIndexedSprite.aString1025 = "Mecanismo de som preparado";
 		Class101_Sub3.aString2285 = "Largar";
 		Class120_Sub12_Sub18.aString3272 = "RuneScape carregando. Aguarde...";
@@ -169,7 +169,7 @@ final class Class173 {
 		Class53_Sub1.aString2213 = "vermelho:";
 		Class142.aString1358 = "Texturas carregadas";
 		DisplayModeInfo.aString1708 = "Universo de jogo criado";
-		Class45.aString398 = "Carregando pacote de palavras - ";
+		Js5Worker.aString398 = "Carregando pacote de palavras - ";
 	}
 
 	public static void method2229(final byte i) {

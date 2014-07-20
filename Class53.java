@@ -80,5 +80,5 @@ abstract class Class53 {
 		/* empty */
 	}
 
-	abstract Class52 method462();
+	abstract MasterIndexInfo method462();
 }

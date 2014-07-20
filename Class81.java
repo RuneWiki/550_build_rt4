@@ -124,7 +124,7 @@ final class Class81 {
 					Class73.aClass105_653 = new Deque();
 					Class22.aClass127_130 = new Class127();
 					Class43.method338(1024, 256, -87);
-					Class52.method453(256, (byte) 104);
+					MasterIndexInfo.method453(256);
 					Class90.anInt848 = 20;
 				} else if (Class90.anInt848 == 20) {
 					Class118.method1024(i ^ ~0x1cf1, new Buffer(Class79.aClass50_689.method428(108, "underlay", Class79.aClass120_Sub14_Sub22_691.aString3645)));

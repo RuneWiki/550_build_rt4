@@ -269,7 +269,7 @@ final class IdentityKit {
 								continue;
 							}
 						}
-						if (i_28_ >= Class112.anInt1080 && i_28_ < Class45.anInt396 - 1) {
+						if (i_28_ >= Class112.anInt1080 && i_28_ < Js5Worker.anInt396 - 1) {
 							final GroundTile class120_sub18_39_ = class120_sub18s[i][i_28_ + 1];
 							if (class120_sub18_39_ != null && class120_sub18_39_.aBoolean2624 && (class120_sub18_39_.aBoolean2647 || (class120_sub18_27_.anInt2635 & 0x2) == 0)) {
 								continue;
@@ -412,7 +412,7 @@ final class IdentityKit {
 									class182.bitPacked, i_29_, null);
 						}
 					}
-					if (class186 != null && !Class45.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
+					if (class186 != null && !Js5Worker.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
 						if (HDToolkit.glEnabled) {
 							HDToolkit.method527(f - 0.5F);
 						}
@@ -848,7 +848,7 @@ final class IdentityKit {
 							continue;
 						}
 					}
-					if (i_28_ >= Class112.anInt1080 && i_28_ < Class45.anInt396 - 1) {
+					if (i_28_ >= Class112.anInt1080 && i_28_ < Js5Worker.anInt396 - 1) {
 						final GroundTile class120_sub18_118_ = class120_sub18s[i][i_28_ + 1];
 						if (class120_sub18_118_ != null && class120_sub18_118_.aBoolean2624) {
 							continue;
@@ -876,7 +876,7 @@ final class IdentityKit {
 					}
 					if (class120_sub18_27_.anInt2646 != 0) {
 						final Class186 class186 = class120_sub18_27_.aClass186_2639;
-						if (class186 != null && !Class45.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
+						if (class186 != null && !Js5Worker.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
 							if ((class186.anInt1895 & class120_sub18_27_.anInt2646) != 0) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);

@@ -54,7 +54,7 @@ final class InterfaceClickMask extends Node {
 
 	static final void redrawInterface(final JagexInterface jagexInterface) {
 		if (jagexInterface.redrawCycle == Class84.anInt796) {
-			Class52.needInterfaceRedrawWrapper[jagexInterface.redrawId] = true;
+			MasterIndexInfo.needInterfaceRedrawWrapper[jagexInterface.redrawId] = true;
 		}
 	}
 

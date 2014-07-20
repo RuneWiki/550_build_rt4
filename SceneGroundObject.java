@@ -52,11 +52,11 @@ final class SceneGroundObject extends SceneGraphNode {
 			AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
 		}
 		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
-			if (Class52.needInterfaceRedrawWrapper[id]) {
+			if (MasterIndexInfo.needInterfaceRedrawWrapper[id]) {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
-			Class9.needInterfaceRedraw[id] = Class52.needInterfaceRedrawWrapper[id];
-			Class52.needInterfaceRedrawWrapper[id] = false;
+			Class9.needInterfaceRedraw[id] = MasterIndexInfo.needInterfaceRedrawWrapper[id];
+			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
 		Class84.anInt796 = Class101_Sub2.loopCycle;
 		StructType.aClass189_3588 = null;

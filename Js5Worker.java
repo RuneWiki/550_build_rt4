@@ -3,7 +3,7 @@
  */
 import java.io.IOException;
 
-final class Class45 {
+final class Js5Worker {
 	static int anInt396;
 	static js5 aClass50_397;
 	static String aString398 = "Loading wordpack - ";
@@ -800,7 +800,7 @@ final class Class45 {
 		return bool_121_;
 	}
 
-	public Class45() {
+	public Js5Worker() {
 		aClass120_Sub7_409 = new Buffer(8);
 	}
 }

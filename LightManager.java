@@ -190,8 +190,8 @@ final class LightManager {
 					int i_40_ = 0;
 					int i_41_ = (light.anInt373 >> 7) - light.anInt370;
 					int i_42_ = (light.anInt373 >> 7) + light.anInt370;
-					if (i_42_ >= Class45.anInt396) {
-						i_42_ = Class45.anInt396 - 1;
+					if (i_42_ >= Js5Worker.anInt396) {
+						i_42_ = Js5Worker.anInt396 - 1;
 					}
 					if (i_41_ < Class31.anInt248) {
 						i_40_ += Class31.anInt248 - i_41_;

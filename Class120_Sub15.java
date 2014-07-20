@@ -55,7 +55,7 @@ final class Class120_Sub15 extends Node {
 		try {
 			Class69.anInt614 = i_3_;
 			Class120_Sub14_Sub23.anInt3649 = i_6_;
-			Class52.aClass50_476 = js5;
+			MasterIndexInfo.aClass50_476 = js5;
 			StringNode.aBoolean2734 = bool;
 			SeqType.anInt349 = i;
 			Js5Request.anInt3940 = i_5_;

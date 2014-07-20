@@ -40,9 +40,9 @@ final class Class115 {
 		if (Class53.anInt487 > Class186.anInt1900) {
 			Class53.anInt487 = Class186.anInt1900;
 		}
-		Class45.anInt396 = Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563;
-		if (Class45.anInt396 > Class120_Sub12_Sub38.anInt3440) {
-			Class45.anInt396 = Class120_Sub12_Sub38.anInt3440;
+		Js5Worker.anInt396 = Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563;
+		if (Js5Worker.anInt396 > Class120_Sub12_Sub38.anInt3440) {
+			Js5Worker.anInt396 = Class120_Sub12_Sub38.anInt3440;
 		}
 		int i_13_;
 		if (HDToolkit.glEnabled) {

@@ -38,7 +38,7 @@ final class Class142 {
 						} else {
 							Class30.aClass120_Sub30_Sub2_234.method1770(21229);
 							Class30.aClass120_Sub30_Sub2_234.method1753((byte) 99);
-							if (Class52.aClass50_476 != null) {
+							if (MasterIndexInfo.aClass50_476 != null) {
 								Class120_Sub12_Sub25.anInt3312 = 2;
 							} else {
 								Class120_Sub12_Sub25.anInt3312 = 0;
@@ -51,7 +51,7 @@ final class Class142 {
 					exception.printStackTrace();
 					Class30.aClass120_Sub30_Sub2_234.method1770(21229);
 					Js5Request.aClass120_Sub31_3941 = null;
-					Class52.aClass50_476 = null;
+					MasterIndexInfo.aClass50_476 = null;
 					Class26.aClass90_163 = null;
 					Class120_Sub12_Sub25.anInt3312 = 0;
 					break;
@@ -221,7 +221,7 @@ final class Class142 {
 								DummyInputStream.aClass189_26 = jagexInterface;
 								StructType.anInt3590 = i_31_;
 								StringNode.method1721(0, i_32_, jagexInterface.height, jagexInterface.clientCode == 1403, jagexInterface.width, i_31_);
-								Class52.needInterfaceRedrawWrapper[redrawId] = true;
+								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								if (HDToolkit.glEnabled) {
 									GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 								} else {
@@ -284,7 +284,7 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1400) {
 								Class82.method711(jagexInterface.height, (byte) -114, i_31_, i_32_, jagexInterface.width);
-								Class52.needInterfaceRedrawWrapper[redrawId] = true;
+								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
 									GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
@@ -295,7 +295,7 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1401) {
 								Class186.method2473(jagexInterface.height, -18418, jagexInterface.width, i_32_, i_31_);
-								Class52.needInterfaceRedrawWrapper[redrawId] = true;
+								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
 									GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
@@ -307,7 +307,7 @@ final class Class142 {
 							if (jagexInterface.clientCode == 1402) {
 								if (!HDToolkit.glEnabled) {
 									Class80.method699(i_31_, i_32_);
-									Class52.needInterfaceRedrawWrapper[redrawId] = true;
+									MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
 								continue;
@@ -353,7 +353,7 @@ final class Class142 {
 										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
 									}
 									i_53_ += 12;
-									Class52.needInterfaceRedrawWrapper[redrawId] = true;
+									MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
 								continue;
@@ -443,7 +443,7 @@ final class Class142 {
 														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 2, jagexInterface.aBoolean1956, (byte) -127, null, i_68_, 0);
 													}
 													if (Rasterizer.aBoolean974) {
-														Class52.needInterfaceRedrawWrapper[redrawId] = true;
+														MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 													}
 													if (class120_sub14_sub19 != null) {
 														if (jagexInterface == Projectile.aClass189_2954 && i_63_ == Class5.anInt2154) {

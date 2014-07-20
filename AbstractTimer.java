@@ -1100,7 +1100,7 @@ abstract class AbstractTimer {
 				Class101_Sub2.method846(false);
 				JagexSocket.executeOnloadScript(Class69.rootInterfaceId);
 				for (int id = 0; id < 100; id++) {
-					Class52.needInterfaceRedrawWrapper[id] = true;
+					MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 				}
 			}
 			Class23.packetType = -1;

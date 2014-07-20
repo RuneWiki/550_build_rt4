@@ -1514,9 +1514,9 @@ final class World extends Class167 {
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub35.anInt3410;
 																							} else if (opcode == 5610) {
 																								for (int i_136_ = 0; i_136_ < 5; i_136_++) {
-																									Class33.stringStack[stringStackIndex++] = Class45.aStringArray399.length > i_136_ ? Class120_Sub12_Sub23.method1326(Class45.aStringArray399[i_136_], true) : "";
+																									Class33.stringStack[stringStackIndex++] = Js5Worker.aStringArray399.length > i_136_ ? Class120_Sub12_Sub23.method1326(Js5Worker.aStringArray399[i_136_], true) : "";
 																								}
-																								Class45.aStringArray399 = null;
+																								Js5Worker.aStringArray399 = null;
 																							} else {
 																								if (opcode != 5611) {
 																									break;
@@ -1704,7 +1704,7 @@ final class World extends Class167 {
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
 																								Class120_Sub14_Sub5.aBoolean3471 = false;
 																							} else if (opcode == 6021) {
-																								Class52.aBoolean466 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+																								MasterIndexInfo.aBoolean466 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class57.method492();
 																							} else if (opcode == 6023) {
 																								boolean bool_143_ = false;

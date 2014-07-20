@@ -104,14 +104,14 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							if (AbstractTimer.worldConnection.getAvailable() < 1) {
 								break;
 							}
-							Class45.aStringArray399 = new String[AbstractTimer.worldConnection.read()];
+							Js5Worker.aStringArray399 = new String[AbstractTimer.worldConnection.read()];
 							Class154.anInt1440 = 4;
 						}
-						if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Class45.aStringArray399.length) {
+						if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Js5Worker.aStringArray399.length) {
 							Canvas_Sub1.inputStream.pos = 0;
-							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Class45.aStringArray399.length * 8);
-							for (int i_2_ = 0; i_2_ < Class45.aStringArray399.length; i_2_++) {
-								Class45.aStringArray399[i_2_] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
+							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Js5Worker.aStringArray399.length * 8);
+							for (int i_2_ = 0; i_2_ < Js5Worker.aStringArray399.length; i_2_++) {
+								Js5Worker.aStringArray399[i_2_] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
 							}
 							Class154.anInt1440 = 0;
 							Class120_Sub12_Sub35.anInt3410 = 21;

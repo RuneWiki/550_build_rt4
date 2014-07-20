@@ -31,7 +31,7 @@ final class Class188 {
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1770(21229);
 			Class120_Sub12_Sub25.anInt3312 = 1;
-			Class52.aClass50_476 = null;
+			MasterIndexInfo.aClass50_476 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("we.E(").append(i).append(')').toString());
 		}

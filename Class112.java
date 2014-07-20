@@ -8,7 +8,7 @@ final class Class112 {
 	private final FileSystemWorker fileSystemWorker;
 	static int[] anIntArray1069;
 	static Class98 aClass98_1070;
-	private final Class45 aClass45_1071;
+	private final Js5Worker aClass45_1071;
 	private Buffer aClass120_Sub7_1072;
 	private Js5Request aClass120_Sub14_Sub14_Sub2_1073;
 	private Class53_Sub1[] aClass53_Sub1Array1074;
@@ -197,8 +197,8 @@ final class Class112 {
 		return class53_sub1;
 	}
 
-	Class112(final Class45 class45, final FileSystemWorker fsw) {
-		aClass45_1071 = class45;
+	Class112(final Js5Worker js5Worker, final FileSystemWorker fsw) {
+		aClass45_1071 = js5Worker;
 		fileSystemWorker = fsw;
 		if (!aClass45_1071.method357()) {
 			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, 255);

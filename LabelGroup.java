@@ -29,7 +29,7 @@ final class LabelGroup extends Node {
 				method1037();
 			}
 			if (Class32.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
-				Class45.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
+				Js5Worker.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
 			} else {
 				AbstractMouseWheelHandler.method158(i_7_, i_2_, true, i, i_4_, i_6_, i_3_);
 			}

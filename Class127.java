@@ -102,7 +102,7 @@ final class Class127 {
 			Js5Request.anInt3940 = i;
 			Class69.anInt614 = 10000;
 			Class120_Sub14_Sub23.anInt3649 = i_8_;
-			Class52.aClass50_476 = js5;
+			MasterIndexInfo.aClass50_476 = js5;
 			if (i_6_ == -20329) {
 				StringNode.aBoolean2734 = bool;
 				Class120_Sub12_Sub25.anInt3312 = 1;

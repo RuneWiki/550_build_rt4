@@ -281,9 +281,9 @@ class Class143 implements Interface3 {
 		Class120_Sub6.aString2444 = "Liste der Welten geladen";
 		Class120_Sub12_Sub18.aString3272 = "RuneScape wird geladen - bitte warten...";
 		Class120_Sub19.aString2653 = "M";
-		Class45.aString398 = "Lade Wordpack - ";
+		Js5Worker.aString398 = "Lade Wordpack - ";
 		Class191.aString2105 = "Verbindung mit Update-Server...";
-		Class45.aString400 = "Starte 3D-Softwarebibliothek.";
+		Js5Worker.aString400 = "Starte 3D-Softwarebibliothek.";
 		HintIcon.aString807 = "welle:";
 		Class143_Sub1.aString2192 = "Deine Ignorieren-Liste ist voll, du kannst nur 100 Spieler darauf eintragen.";
 		Class120_Sub12_Sub28.okString = "Okay";

@@ -193,7 +193,7 @@ abstract class AbstractIndexedSprite {
 					ParamType.sendDisplayInfo();
 				}
 				for (int id = 0; id < 100; id++) {
-					Class52.needInterfaceRedrawWrapper[id] = true;
+					MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 				}
 				Class120_Sub12_Sub26.fullRedraw = true;
 			}

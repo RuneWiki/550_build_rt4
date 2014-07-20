@@ -31,14 +31,14 @@ final class Class86 {
 		if ((Class186.menuOptionCount >= 2 || Light.objSelected != 0 || Class88.spellSelected)) {
 			final String string = SubScript.method2243();
 			if (jagexInterface == null) {
-				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, Class52.anInt478);
+				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, MasterIndexInfo.anInt478);
 				Class120_Sub12_Sub1.redrawScreen(4 + i, i_0_, i_1_ + Class120_Sub12_Sub22.boldFont.method1459(string), 15);
 			} else {
 				Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
 				if (class120_sub14_sub8 == null) {
 					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
-				class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.width, jagexInterface.height, jagexInterface.disabledColor, jagexInterface.shadow, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, Class136.aRandom1319, Class52.anInt478, Class173.anIntArray1730);
+				class120_sub14_sub8.method1476(string, i, i_0_, jagexInterface.width, jagexInterface.height, jagexInterface.disabledColor, jagexInterface.shadow, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, Class136.aRandom1319, MasterIndexInfo.anInt478, Class173.anIntArray1730);
 				Class120_Sub12_Sub1.redrawScreen(Class173.anIntArray1730[0], Class173.anIntArray1730[1], Class173.anIntArray1730[2], Class173.anIntArray1730[3]);
 			}
 		}

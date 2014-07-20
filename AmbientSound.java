@@ -62,7 +62,7 @@ final class AmbientSound extends Node {
 		Class11.aString81 = "Examiner";
 		Class71.aString626 = "Veuillez patienter...";
 		Class24.aString142 = "Veuillez patienter - tentative de r\u00e9tablissement.";
-		Class45.aString398 = "Chargement du module texte - ";
+		Js5Worker.aString398 = "Chargement du module texte - ";
 		Class65.aString591 = "Attaquer";
 		Class120_Sub12_Sub21_Sub1.aString3910 = " est d\u00e9j\u00e0 dans votre liste d'amis.";
 		PlayerAppearance.aString1368 = "M\u00e9moire attribu\u00e9e";
@@ -79,7 +79,7 @@ final class AmbientSound extends Node {
 		Class29.aString217 = "Chargement de l'\u00e9cran-titre - ";
 		Class143_Sub1.aString2192 = "Votre liste noire est pleine (100 noms maximum).";
 		NodeSub.aString2585 = "Fichiers config charg\u00e9s";
-		Class45.aString400 = "D\u00e9marrage de la librairie 3D";
+		Js5Worker.aString400 = "D\u00e9marrage de la librairie 3D";
 		Class108_Sub3.aString2396 = "Chargement de Mechscape en cours - veuillez patienter...";
 		Class120_Sub11.aString2553 = " autres options";
 		Class61.aString568 = "voudrait faire un \u00e9change avec vous.";

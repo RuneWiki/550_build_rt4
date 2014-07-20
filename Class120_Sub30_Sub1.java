@@ -67,7 +67,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		Class86.aClass75_823 = null;
 		Class81.aClass75_777 = null;
 		Class43.method338(128, 64, -61);
-		Class52.method453(64, (byte) 119);
+		MasterIndexInfo.method453(64);
 	}
 
 	@Override

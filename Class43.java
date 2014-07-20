@@ -45,10 +45,10 @@ final class Class43 {
 	static final void method343(final int i, final int i_5_, final int i_6_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_) {
 		if (!js5.loadInterface(i)) {
 			if (i_12_ != -1) {
-				Class52.needInterfaceRedrawWrapper[i_12_] = true;
+				MasterIndexInfo.needInterfaceRedrawWrapper[i_12_] = true;
 			} else {
 				for (int i_13_ = 0; i_13_ < 100; i_13_++) {
-					Class52.needInterfaceRedrawWrapper[i_13_] = true;
+					MasterIndexInfo.needInterfaceRedrawWrapper[i_13_] = true;
 				}
 			}
 		} else {

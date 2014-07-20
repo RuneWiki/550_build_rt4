@@ -291,7 +291,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putShort(Class120_Sub14_Sub20.packetCounter);
 						Class137.loginStream.putInt(AmbientSound.aClass50_2479.getIndexCrc());
 						Class137.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
-						Class137.loginStream.putInt(Class45.aClass50_397.getIndexCrc());
+						Class137.loginStream.putInt(Js5Worker.aClass50_397.getIndexCrc());
 						Class137.loginStream.putInt(Class33.aClass50_275.getIndexCrc());
 						Class137.loginStream.putInt(Class159.aClass50_1490.getIndexCrc());
 						Class137.loginStream.putInt(Class65.aClass50_597.getIndexCrc());
