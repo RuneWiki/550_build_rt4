@@ -51,7 +51,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 						LocType.anIntArray1834[i_4_] = LocType.anIntArray1834[i_4_ + 1];
 						Class81.anIntArray779[i_4_] = Class81.anIntArray779[1 + i_4_];
 						Class174.anIntArray1731[i_4_] = Class174.anIntArray1731[i_4_ + 1];
-						Class120_Sub14_Sub14_Sub1.anIntArray3926[i_4_] = Class120_Sub14_Sub14_Sub1.anIntArray3926[i_4_ + 1];
+						FileSystemRequest.anIntArray3926[i_4_] = FileSystemRequest.anIntArray3926[i_4_ + 1];
 					}
 					i_3_--;
 				} else {
@@ -86,9 +86,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 							if (i_11_ < 0) {
 								i_11_ = 0;
 							}
-							i_5_ = (-i_11_ + i_6_) * CursorType.anInt1242 * Class120_Sub14_Sub14_Sub1.anIntArray3926[i_3_] / i_6_ >> 8;
+							i_5_ = (-i_11_ + i_6_) * CursorType.anInt1242 * FileSystemRequest.anIntArray3926[i_3_] / i_6_ >> 8;
 						} else {
-							i_5_ = Class120_Sub14_Sub14_Sub1.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
+							i_5_ = FileSystemRequest.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
 						}
 						if (i_5_ > 0) {
 							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
@@ -173,7 +173,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		IntegerNode.method1831();
 		method1307();
 		Class120_Sub12_Sub4.method1214();
-		Class83.b();
+		FileSystemWorker.b();
 		Class120_Sub12_Sub7.method1234((byte) 59);
 		Class120_Sub12_Sub29.method1351(-25);
 		Class69_Sub2_Sub1.method622(51);

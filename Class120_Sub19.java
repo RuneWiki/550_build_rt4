@@ -27,14 +27,14 @@ final class Class120_Sub19 extends Node {
 							class98 = Class110.aClass98_1052;
 						}
 						if (Class79.aFloat696 == 6.0) {
-							class98 = Class120_Sub14_Sub14_Sub1.aClass98_3929;
+							class98 = FileSystemRequest.aClass98_3929;
 						}
 						if (Class79.aFloat696 >= 8.0) {
 							class98 = World.aClass98_2833;
 						}
 					} else if (class73.fontType == 2) {
 						if (3.0 == Class79.aFloat696) {
-							class98 = Class120_Sub14_Sub14_Sub1.aClass98_3929;
+							class98 = FileSystemRequest.aClass98_3929;
 						}
 						if (Class79.aFloat696 == 4.0) {
 							class98 = World.aClass98_2833;

@@ -50,41 +50,34 @@ final class Class192 {
 		}
 	}
 
-	static final void method2517(final Player class180_sub5_sub1, final int i, final int i_0_, final int i_1_) {
-		try {
-			if (class180_sub5_sub1.anInt3006 != i || (i ^ 0xffffffff) == 0) {
-				if ((i ^ 0xffffffff) == 0 || (class180_sub5_sub1.anInt3006 ^ 0xffffffff) == 0 || SeqType.list(i).priority >= SeqType.list(class180_sub5_sub1.anInt3006).priority) {
-					class180_sub5_sub1.anInt3006 = i;
-					class180_sub5_sub1.anInt3044 = 0;
-					class180_sub5_sub1.anInt2993 = i_0_;
-					class180_sub5_sub1.anInt2964 = 0;
-					class180_sub5_sub1.anInt3013 = 1;
-					class180_sub5_sub1.anInt2999 = 0;
-					class180_sub5_sub1.anInt3031 = class180_sub5_sub1.anInt2960;
-					if (class180_sub5_sub1.anInt3006 != -1) {
-						Class120_Sub12_Sub23.method1323(SeqType.list(class180_sub5_sub1.anInt3006), class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
-					}
-				}
-			} else {
-				final SeqType seqType = SeqType.list(i);
-				final int i_2_ = seqType.resetInPlay;
-				if (i_2_ == 1) {
-					class180_sub5_sub1.anInt2993 = i_0_;
-					class180_sub5_sub1.anInt2964 = 0;
-					class180_sub5_sub1.anInt3044 = 0;
-					class180_sub5_sub1.anInt3013 = 1;
-					class180_sub5_sub1.anInt2999 = 0;
-					Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt2964, class180_sub5_sub1 == Class100.selfPlayer);
-				}
-				if (i_2_ == 2) {
-					class180_sub5_sub1.anInt2999 = 0;
+	static final void method2517(final Player player, final int animationId, final int delay) {
+		if (player.anInt3006 != animationId || animationId == -1) {
+			if (animationId == -1 || player.anInt3006 == -1 || SeqType.list(animationId).priority >= SeqType.list(player.anInt3006).priority) {
+				player.anInt3006 = animationId;
+				player.anInt3044 = 0;
+				player.anInt2993 = delay;
+				player.anInt2964 = 0;
+				player.anInt3013 = 1;
+				player.anInt2999 = 0;
+				player.anInt3031 = player.anInt2960;
+				if (player.anInt3006 != -1) {
+					Class120_Sub12_Sub23.method1323(SeqType.list(player.anInt3006), player.x, player.z, player.anInt2964, player == Class100.selfPlayer);
 				}
 			}
-			if (i_1_ != -1) {
-				method2517(null, 78, -82, -118);
+		} else {
+			final SeqType seqType = SeqType.list(animationId);
+			final int i_2_ = seqType.resetInPlay;
+			if (i_2_ == 1) {
+				player.anInt2993 = delay;
+				player.anInt2964 = 0;
+				player.anInt3044 = 0;
+				player.anInt3013 = 1;
+				player.anInt2999 = 0;
+				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.anInt2964, player == Class100.selfPlayer);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.A(").append(class180_sub5_sub1 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+			if (i_2_ == 2) {
+				player.anInt2999 = 0;
+			}
 		}
 	}
 }

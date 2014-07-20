@@ -6,7 +6,7 @@ import java.io.IOException;
 
 final class FileSystem {
 	static int[] anIntArray453 = { 76, 8, 137, 4, 0, 1, 38, 2, 19 };
-	private Class193 aClass193_454 = null;
+	private SeekableFile dataFile = null;
 	static int anInt455;
 	static Deque aClass105_456;
 	static int anInt457;
@@ -14,9 +14,9 @@ final class FileSystem {
 	static int anInt459 = 0;
 	static float aFloat460;
 	static boolean haveInternetExplorer6;
-	private Class193 aClass193_462 = null;
-	private int anInt463 = 65000;
-	private final int anInt464;
+	private SeekableFile indexFile = null;
+	private int maxLength = 65000;
+	private final int storeId;
 
 	static {
 		anInt455 = 0;
@@ -78,44 +78,43 @@ final class FileSystem {
 		return i_3_;
 	}
 
-	private final boolean put(final int i, boolean bool, final int i_14_, final byte[] is) {
-		synchronized (aClass193_454) {
-			boolean bool_15_;
+	private final boolean save(final byte[] buffer, final int index, final int len, boolean exists) {
+		synchronized (dataFile) {
 			try {
-				int i_16_;
-				if (bool) {
-					if (6 + i * 6 > aClass193_462.method2521((byte) -110)) {
+				int sector;
+				if (exists) {
+					if (6 + index * 6 > indexFile.length()) {
 						return false;
 					}
-					aClass193_462.seek(6 * i);
-					aClass193_462.method2525(0, Class80.aByteArray761, 0, 6);
-					i_16_ = (0xff & Class80.aByteArray761[5]) + ((Class80.aByteArray761[4] & 0xff) << 8) + (0xff0000 & Class80.aByteArray761[3] << 16);
-					if (i_16_ <= 0 || i_16_ > aClass193_454.method2521((byte) -47) / 520L) {
+					indexFile.seek(6 * index);
+					indexFile.read(Class80.aByteArray761, 0, 6);
+					sector = (0xff & Class80.aByteArray761[5]) + ((Class80.aByteArray761[4] & 0xff) << 8) + ((Class80.aByteArray761[3] & 0xff) << 16);
+					if (sector <= 0 || sector > dataFile.length() / 520L) {
 						return false;
 					}
 				} else {
-					i_16_ = (int) ((aClass193_454.method2521((byte) -96) - -519L) / 520L);
-					if (i_16_ == 0) {
-						i_16_ = 1;
+					sector = (int) ((dataFile.length() + 519L) / 520L);
+					if (sector == 0) {
+						sector = 1;
 					}
 				}
-				Class80.aByteArray761[5] = (byte) i_16_;
-				Class80.aByteArray761[0] = (byte) (i_14_ >> 16);
-				Class80.aByteArray761[1] = (byte) (i_14_ >> 8);
+				Class80.aByteArray761[5] = (byte) sector;
+				Class80.aByteArray761[0] = (byte) (len >> 16);
+				Class80.aByteArray761[1] = (byte) (len >> 8);
 				int i_19_ = 0;
-				Class80.aByteArray761[4] = (byte) (i_16_ >> 8);
+				Class80.aByteArray761[4] = (byte) (sector >> 8);
 				int i_20_ = 0;
-				Class80.aByteArray761[2] = (byte) i_14_;
-				Class80.aByteArray761[3] = (byte) (i_16_ >> 16);
-				aClass193_462.seek(6 * i);
-				aClass193_462.write(Class80.aByteArray761, 0, 6);
+				Class80.aByteArray761[2] = (byte) len;
+				Class80.aByteArray761[3] = (byte) (sector >> 16);
+				indexFile.seek(6 * index);
+				indexFile.write(Class80.aByteArray761, 0, 6);
 				int i_21_;
-				for (/**/; i_20_ < i_14_; i_20_ += i_21_) {
+				for (/**/; i_20_ < len; i_20_ += i_21_) {
 					int i_22_ = 0;
-					if (bool) {
-						aClass193_454.seek(520 * i_16_);
+					if (exists) {
+						dataFile.seek(520 * sector);
 						try {
-							aClass193_454.method2525(0, Class80.aByteArray761, 0, 8);
+							dataFile.read(Class80.aByteArray761, 0, 8);
 						} catch (final EOFException eofexception) {
 							break;
 						}
@@ -123,50 +122,48 @@ final class FileSystem {
 						final int i_23_ = ((Class80.aByteArray761[2] & 0xff) << 8) + (0xff & Class80.aByteArray761[3]);
 						final int i_24_ = 0xff & Class80.aByteArray761[7];
 						i_21_ = (Class80.aByteArray761[1] & 0xff) + ((Class80.aByteArray761[0] & 0xff) << 8);
-						if (i != i_21_ || i_19_ != i_23_ || i_24_ != anInt464) {
+						if (index != i_21_ || i_19_ != i_23_ || i_24_ != storeId) {
 							return false;
 						}
-						if (i_22_ < 0 || (i_22_ ^ 0xffffffffffffffffL) < (aClass193_454.method2521((byte) -74) / 520L ^ 0xffffffffffffffffL)) {
+						if (i_22_ < 0 || (i_22_ ^ 0xffffffffffffffffL) < (dataFile.length() / 520L ^ 0xffffffffffffffffL)) {
 							return false;
 						}
 					}
 					if (i_22_ == 0) {
-						bool = false;
-						i_22_ = (int) ((aClass193_454.method2521((byte) -91) + 519L) / 520L);
+						exists = false;
+						i_22_ = (int) ((dataFile.length() + 519L) / 520L);
 						if (i_22_ == 0) {
 							i_22_++;
 						}
-						if (i_22_ == i_16_) {
+						if (i_22_ == sector) {
 							i_22_++;
 						}
 					}
-					Class80.aByteArray761[1] = (byte) i;
-					if (i_14_ + -i_20_ <= 512) {
+					Class80.aByteArray761[1] = (byte) index;
+					if (len + -i_20_ <= 512) {
 						i_22_ = 0;
 					}
 					Class80.aByteArray761[5] = (byte) (i_22_ >> 8);
 					Class80.aByteArray761[4] = (byte) (i_22_ >> 16);
 					Class80.aByteArray761[6] = (byte) i_22_;
-					Class80.aByteArray761[0] = (byte) (i >> 8);
+					Class80.aByteArray761[0] = (byte) (index >> 8);
 					Class80.aByteArray761[2] = (byte) (i_19_ >> 8);
-					Class80.aByteArray761[7] = (byte) anInt464;
+					Class80.aByteArray761[7] = (byte) storeId;
 					Class80.aByteArray761[3] = (byte) i_19_;
 					i_19_++;
-					i_21_ = i_14_ + -i_20_;
-					aClass193_454.seek(520 * i_16_);
+					i_21_ = len + -i_20_;
+					dataFile.seek(520 * sector);
 					if (i_21_ > 512) {
 						i_21_ = 512;
 					}
-					i_16_ = i_22_;
-					aClass193_454.write(Class80.aByteArray761, 0, 8);
-					aClass193_454.write(is, i_20_, i_21_);
+					sector = i_22_;
+					dataFile.write(Class80.aByteArray761, 0, 8);
+					dataFile.write(buffer, i_20_, i_21_);
 				}
-				bool_15_ = true;
 			} catch (final IOException ioexception) {
 				return false;
 			}
-			final boolean bool_28_ = bool_15_;
-			return bool_28_;
+			return true;
 		}
 	}
 
@@ -210,13 +207,7 @@ final class FileSystem {
 
 	@Override
 	public final String toString() {
-		String string;
-		try {
-			string = new StringBuilder("Cache:").append(anInt464).toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "fm.toString()");
-		}
-		return string;
+		return "Cache:" + storeId;
 	}
 
 	static final void drawMenu() {
@@ -263,24 +254,22 @@ final class FileSystem {
 	}
 
 	final byte[] get(final int i) {
-		synchronized (aClass193_454) {
+		synchronized (dataFile) {
 			byte[] is;
 			try {
-				if ((i * 6 + 6 ^ 0xffffffffffffffffL) < (aClass193_462.method2521((byte) -31) ^ 0xffffffffffffffffL)) {
-					final byte[] is_48_ = null;
-					final byte[] is_49_ = is_48_;
-					return is_49_;
+				if ((i * 6 + 6) > indexFile.length()) {
+					return null;
 				}
-				aClass193_462.seek(i * 6);
-				aClass193_462.method2525(0, Class80.aByteArray761, 0, 6);
+				indexFile.seek(i * 6);
+				indexFile.read(Class80.aByteArray761, 0, 6);
 				final int i_50_ = (Class80.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & Class80.aByteArray761[1] << 8) - -(0xff & Class80.aByteArray761[2]);
 				int i_51_ = (Class80.aByteArray761[5] & 0xff) + ((Class80.aByteArray761[4] & 0xff) << 8) + (0xff0000 & Class80.aByteArray761[3] << 16);
-				if (i_50_ < 0 || i_50_ > anInt463) {
+				if (i_50_ < 0 || i_50_ > maxLength) {
 					final byte[] is_52_ = null;
 					final byte[] is_53_ = is_52_;
 					return is_53_;
 				}
-				if (i_51_ <= 0 || aClass193_454.method2521((byte) -54) / 520L < i_51_) {
+				if (i_51_ <= 0 || dataFile.length() / 520L < i_51_) {
 					final byte[] is_54_ = null;
 					final byte[] is_55_ = is_54_;
 					return is_55_;
@@ -294,22 +283,22 @@ final class FileSystem {
 						final byte[] is_60_ = is_59_;
 						return is_60_;
 					}
-					aClass193_454.seek(520 * i_51_);
+					dataFile.seek(520 * i_51_);
 					int i_61_ = -i_58_ + i_50_;
 					if (i_61_ > 512) {
 						i_61_ = 512;
 					}
-					aClass193_454.method2525(0, Class80.aByteArray761, 0, i_61_ - -8);
+					dataFile.read(Class80.aByteArray761, 0, i_61_ - -8);
 					final int i_62_ = (0xff & Class80.aByteArray761[3]) + ((Class80.aByteArray761[2] & 0xff) << 8);
 					final int i_63_ = (0xff & Class80.aByteArray761[6]) + ((0xff & Class80.aByteArray761[5]) << 8) + (0xff0000 & Class80.aByteArray761[4] << 16);
 					final int i_64_ = (Class80.aByteArray761[1] & 0xff) + (0xff00 & Class80.aByteArray761[0] << 8);
 					final int i_65_ = 0xff & Class80.aByteArray761[7];
-					if (i != i_64_ || i_62_ != i_57_ || i_65_ != anInt464) {
+					if (i != i_64_ || i_62_ != i_57_ || i_65_ != storeId) {
 						final byte[] is_66_ = null;
 						final byte[] is_67_ = is_66_;
 						return is_67_;
 					}
-					if (i_63_ < 0 || i_63_ > aClass193_454.method2521((byte) -115) / 520L) {
+					if (i_63_ < 0 || i_63_ > dataFile.length() / 520L) {
 						final byte[] is_68_ = null;
 						final byte[] is_69_ = is_68_;
 						return is_69_;
@@ -322,32 +311,29 @@ final class FileSystem {
 				}
 				is = is_56_;
 			} catch (final IOException ioexception) {
-				final byte[] is_71_ = null;
-				final byte[] is_72_ = is_71_;
-				return is_72_;
+				return null;
 			}
-			final byte[] is_73_ = is;
-			return is_73_;
+			return is;
 		}
 	}
 
-	final boolean put(final int i, final byte[] is, final int i_74_) {
-		synchronized (aClass193_454) {
-			if (i < 0 || anInt463 < i) {
+	final boolean save(final byte[] buffer, final int index, final int len) {
+		synchronized (dataFile) {
+			if (len < 0 || len > maxLength) {
 				throw new IllegalArgumentException();
 			}
-			boolean bool = put(i_74_, true, i, is);
-			if (!bool) {
-				bool = put(i_74_, false, i, is);
+			boolean success = save(buffer, index, len, true);
+			if (!success) {
+				success = save(buffer, index, len, false);
 			}
-			return bool;
+			return success;
 		}
 	}
 
-	FileSystem(final int i, final Class193 class193, final Class193 class193_78_, final int i_79_) {
-		anInt464 = i;
-		anInt463 = i_79_;
-		aClass193_454 = class193;
-		aClass193_462 = class193_78_;
+	FileSystem(final int i, final SeekableFile seekableFile, final SeekableFile class193_78_, final int i_79_) {
+		storeId = i;
+		maxLength = i_79_;
+		dataFile = seekableFile;
+		indexFile = class193_78_;
 	}
 }

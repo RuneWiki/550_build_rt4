@@ -55,11 +55,11 @@ final class OverlayType {
 
 	static final void method1900() {
 		Projectile.method2318(Class140.anInt1343);
-		final int i_7_ = (Class83.renderX >> 10) + (GameEntity.currentBaseX >> 3);
+		final int i_7_ = (FileSystemWorker.renderX >> 10) + (GameEntity.currentBaseX >> 3);
 		final int i_8_ = (GroundObjectNode.renderZ >> 10) + (Class181.currentBaseZ >> 3);
 		int i_11_ = 18;
 		RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_11_][];
-		Class56.anIntArray495 = new int[i_11_];
+		LookupTable.anIntArray495 = new int[i_11_];
 		Class120_Sub12_Sub36.aByteArrayArray3421 = new byte[i_11_][];
 		ProducingGraphicsBuffer.anIntArray2796 = new int[i_11_];
 		Class28.anIntArray183 = new int[i_11_];
@@ -75,13 +75,13 @@ final class OverlayType {
 			for (int i_13_ = (i_8_ - 6) / 8; i_13_ <= (i_8_ + 6) / 8; i_13_++) {
 				final int i_14_ = (i_12_ << 8) + i_13_;
 				Class120_Sub12_Sub36.anIntArray3417[i_11_] = i_14_;
-				Class56.anIntArray495[i_11_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_12_).append("_").append(i_13_).toString());
+				LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_12_).append("_").append(i_13_).toString());
 				Class28.anIntArray183[i_11_] = Class65.aClass50_597.method432(new StringBuilder("l").append(i_12_).append("_").append(i_13_).toString());
 				ProducingGraphicsBuffer.anIntArray2796[i_11_] = Class65.aClass50_597.method432(new StringBuilder("n").append(i_12_).append("_").append(i_13_).toString());
 				Class111.anIntArray1063[i_11_] = Class65.aClass50_597.method432(new StringBuilder("um").append(i_12_).append("_").append(i_13_).toString());
 				Class76.anIntArray680[i_11_] = Class65.aClass50_597.method432(new StringBuilder("ul").append(i_12_).append("_").append(i_13_).toString());
 				if (ProducingGraphicsBuffer.anIntArray2796[i_11_] == -1) {
-					Class56.anIntArray495[i_11_] = -1;
+					LookupTable.anIntArray495[i_11_] = -1;
 					Class28.anIntArray183[i_11_] = -1;
 					Class111.anIntArray1063[i_11_] = -1;
 					Class76.anIntArray680[i_11_] = -1;
@@ -91,7 +91,7 @@ final class OverlayType {
 		}
 		for (int i_15_ = i_11_; i_15_ < ProducingGraphicsBuffer.anIntArray2796.length; i_15_++) {
 			ProducingGraphicsBuffer.anIntArray2796[i_15_] = -1;
-			Class56.anIntArray495[i_15_] = -1;
+			LookupTable.anIntArray495[i_15_] = -1;
 			Class28.anIntArray183[i_15_] = -1;
 			Class111.anIntArray1063[i_15_] = -1;
 			Class76.anIntArray680[i_15_] = -1;
@@ -250,34 +250,27 @@ final class OverlayType {
 		return overlayType;
 	}
 
-	static final void method1909(final boolean bool, final Class120_Sub14_Sub8 class120_sub14_sub8, final boolean bool_39_) {
-		try {
-			if (HDToolkit.glEnabled || bool) {
-				final int i = Class120_Sub12_Sub5.canvasHeight;
-				final int i_40_ = 956 * i / 503;
-				KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
-				Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
-			}
-			class120_sub14_sub8.method1478(Buffer.gameId != 1 ? Class120_Sub12_Sub18.aString3272 : Class108_Sub3.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
-			if (bool_39_) {
-				aShortArrayArray1221 = null;
-			}
-			final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
-			if (!HDToolkit.glEnabled) {
-				GraphicsLD.drawRect(-152 + Class69_Sub1.canvasWidth / 2, i, 304, 34, 9179409);
-				GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 + -151, 1 + i, 302, 32, 0);
-				GraphicsLD.fillRect(-150 + Class69_Sub1.canvasWidth / 2, 2 + i, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
-				GraphicsLD.fillRect(OverridedJInterface.loadingBarPercent * 3 + Class69_Sub1.canvasWidth / 2 - 150, i - -2, -(3 * OverridedJInterface.loadingBarPercent) + 300, 30, 0);
-			} else {
-				GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 + -152, i, 304, 34, 9179409);
-				GraphicsHD.drawRect(-151 + Class69_Sub1.canvasWidth / 2, i + 1, 302, 32, 0);
-				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, 3 * OverridedJInterface.loadingBarPercent, 30, 9179409);
-				GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 + -150 + 3 * OverridedJInterface.loadingBarPercent, i + 2, 300 + -(OverridedJInterface.loadingBarPercent * 3), 30, 0);
-			}
-			class120_sub14_sub8.method1478(Class134.loadingText, Class69_Sub1.canvasWidth / 2, 4 + Class120_Sub12_Sub5.canvasHeight / 2, 16777215, -1);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pa.K(").append(bool).append(',').append(class120_sub14_sub8 != null ? "{...}" : "null").append(',').append(bool_39_).append(')').toString());
+	static final void method1909(final Class120_Sub14_Sub8 font, final boolean bool) {
+		if (HDToolkit.glEnabled || bool) {
+			final int i = Class120_Sub12_Sub5.canvasHeight;
+			final int i_40_ = 956 * i / 503;
+			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
+			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 		}
+		font.method1478(Buffer.gameId != 1 ? Class120_Sub12_Sub18.aString3272 : Class108_Sub3.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
+		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
+		if (!HDToolkit.glEnabled) {
+			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
+			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, 1 + i, 302, 32, 0);
+			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, 2 + i, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
+			GraphicsLD.fillRect(OverridedJInterface.loadingBarPercent * 3 + Class69_Sub1.canvasWidth / 2 - 150, i + 2, 300 - (3 * OverridedJInterface.loadingBarPercent), 30, 0);
+		} else {
+			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
+			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, i + 1, 302, 32, 0);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, 3 * OverridedJInterface.loadingBarPercent, 30, 9179409);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + 3 * OverridedJInterface.loadingBarPercent, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
+		}
+		font.method1478(Class134.loadingText, Class69_Sub1.canvasWidth / 2, 4 + Class120_Sub12_Sub5.canvasHeight / 2, 16777215, -1);
 	}
 
 	public OverlayType() {

@@ -88,7 +88,7 @@ final class Class173 {
 		NpcType.aString1685 = "brilho3:";
 		Class120_Sub12_Sub1.aString3137 = "Padr\u00f5es carregados";
 		Class8.aString64 = "Descartar";
-		Class120_Sub14_Sub14.aString3575 = "roxo:";
+		AbstractRequest.aString3575 = "roxo:";
 		AbstractGraphicsBuffer.aString1176 = "Usar";
 		Class120_Sub14_Sub24.aString3665 = "Carregando sprites - ";
 		Class82.aString787 = "Virar para c\u00e1";

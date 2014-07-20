@@ -52,7 +52,7 @@ final class Class48 {
 			Class81.anIntArray779[Class150.anInt1407] = i_16_;
 			Class109.aClass6Array1047[Class150.anInt1407] = null;
 			Class174.anIntArray1731[Class150.anInt1407] = 0;
-			Class120_Sub14_Sub14_Sub1.anIntArray3926[Class150.anInt1407] = i_19_;
+			FileSystemRequest.anIntArray3926[Class150.anInt1407] = i_19_;
 			Class150.anInt1407++;
 		}
 	}
@@ -65,23 +65,23 @@ final class Class48 {
 		try {
 			if ((l ^ 0xffffffffffffffffL) != -1L) {
 				if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.aBoolean3908 || ProducingGraphicsBuffer.friendCount >= 200) {
-					Class120_Sub14_Sub14.method1540("", 0, Class120_Sub11.aString2550);
+					AbstractRequest.method1540("", 0, Class120_Sub11.aString2550);
 				} else {
 					final String string = Class136.longToString(l);
 					for (int i_21_ = 0; ProducingGraphicsBuffer.friendCount > i_21_; i_21_++) {
 						if ((l ^ 0xffffffffffffffffL) == (AbstractSprite.friendsNameAsLong[i_21_] ^ 0xffffffffffffffffL)) {
-							Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
+							AbstractRequest.method1540("", 0, new StringBuilder(string).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
 							return;
 						}
 					}
 					for (int i_22_ = 0; i_22_ < Class120_Sub12_Sub26.ignoreCount; i_22_++) {
 						if ((l ^ 0xffffffffffffffffL) == (HintIcon.ignoreNamesAsLong[i_22_] ^ 0xffffffffffffffffL)) {
-							Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(string).append(ClanMember.aString2578).toString());
+							AbstractRequest.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(string).append(ClanMember.aString2578).toString());
 							return;
 						}
 					}
 					if (string.equals(Class100.selfPlayer.name)) {
-						Class120_Sub14_Sub14.method1540("", 0, Class120_Sub14_Sub23.aString3655);
+						AbstractRequest.method1540("", 0, Class120_Sub14_Sub23.aString3655);
 					} else {
 						Class120_Sub16.friendsName[ProducingGraphicsBuffer.friendCount] = string;
 						AbstractSprite.friendsNameAsLong[ProducingGraphicsBuffer.friendCount] = l;

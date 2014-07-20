@@ -60,14 +60,14 @@ final class SceneGroundObject extends SceneGraphNode {
 		}
 		Class84.anInt796 = Class101_Sub2.loopCycle;
 		StructType.aClass189_3588 = null;
-		Class56.anInt497 = -1;
+		LookupTable.anInt497 = -1;
 		if (HDToolkit.glEnabled) {
 			Class167.aBoolean1620 = true;
 		}
 		StructType.anInt3590 = -1;
 		if (Class69.rootInterfaceId != -1) {
 			LabelGroup.screenRedrawPos = 0;
-			Class56.method486();
+			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.method597();

@@ -61,7 +61,7 @@ final class ObjectCache {
 	}
 
 	static final void method189(final js5 js5, final js5 class50_1_) {
-		Class83.aClass50_794 = class50_1_;
+		FileSystemWorker.aClass50_794 = class50_1_;
 		LabelGroup.aClass50_2413 = js5;
 	}
 

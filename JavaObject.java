@@ -57,30 +57,30 @@ final class JavaObject extends AbstractObject {
 				Class120_Sub12_Sub4.aClass189_3156 = null;
 			}
 		} else {
-			int i_2_ = Queue.lastMouseX;
-			i_2_ -= AbstractGraphicsBuffer.anInt1173;
-			if (i_2_ < Class120_Sub12_Sub7.anInt3183) {
-				i_2_ = Class120_Sub12_Sub7.anInt3183;
+			int mouseX = Queue.lastMouseX;
+			mouseX -= AbstractGraphicsBuffer.anInt1173;
+			if (mouseX < Class120_Sub12_Sub7.anInt3183) {
+				mouseX = Class120_Sub12_Sub7.anInt3183;
 			}
-			if (Class120_Sub12_Sub4.aClass189_3156.width + i_2_ > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
-				i_2_ = Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.aClass189_3156.width;
+			if (Class120_Sub12_Sub4.aClass189_3156.width + mouseX > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
+				mouseX = Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.aClass189_3156.width;
 			}
-			int i_3_ = Class191.lastMouseY;
-			i_3_ -= client.anInt2203;
-			if (Class120_Sub12_Sub35.anInt3413 > i_3_) {
-				i_3_ = Class120_Sub12_Sub35.anInt3413;
+			int mouseY = Class191.lastMouseY;
+			mouseY -= client.anInt2203;
+			if (Class120_Sub12_Sub35.anInt3413 > mouseY) {
+				mouseY = Class120_Sub12_Sub35.anInt3413;
 			}
-			final int i_4_ = i_2_ + -Class120_Sub12_Sub17.anInt3264;
-			if (Class120_Sub12_Sub4.aClass189_3156.height + i_3_ > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
-				i_3_ = Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height + -Class120_Sub12_Sub4.aClass189_3156.height;
+			final int i_4_ = mouseX - Class120_Sub12_Sub17.anInt3264;
+			if (Class120_Sub12_Sub4.aClass189_3156.height + mouseY > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
+				mouseY = Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height + -Class120_Sub12_Sub4.aClass189_3156.height;
 			}
-			final int i_5_ = i_3_ - Class9.anInt77;
+			final int i_5_ = mouseY - Class9.anInt77;
 			final int i_6_ = Class120_Sub12_Sub4.aClass189_3156.anInt1962;
 			if (SceneGroundObject.anInt2843 > Class120_Sub12_Sub4.aClass189_3156.anInt2066 && (i_4_ > i_6_ || i_4_ < -i_6_ || i_5_ > i_6_ || i_5_ < -i_6_)) {
 				Class120_Sub11.aBoolean2551 = true;
 			}
-			final int i_7_ = Class26.aClass189_161.verticalScrollPosition + i_2_ - Class120_Sub12_Sub7.anInt3183;
-			final int i_8_ = -Class120_Sub12_Sub35.anInt3413 + i_3_ - -Class26.aClass189_161.horizontalScrollPosition;
+			final int i_7_ = Class26.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
+			final int i_8_ = -Class120_Sub12_Sub35.anInt3413 + mouseY + Class26.aClass189_161.horizontalScrollPosition;
 			if (Class120_Sub12_Sub4.aClass189_3156.anObjectArray1959 != null && Class120_Sub11.aBoolean2551) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.anInt2540 = i_8_;
@@ -93,7 +93,7 @@ final class JavaObject extends AbstractObject {
 				if (!Class120_Sub11.aBoolean2551) {
 					if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(Class186.menuOptionCount - 1) || Class186.menuOptionCount <= 2) {
 						if (Class186.menuOptionCount > 0) {
-							Class191.method2508((byte) -99);
+							Class191.method2508();
 						}
 					} else {
 						Class120_Sub12_Sub28.determineMenuSize();

@@ -51,7 +51,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		Class79.aClass177_690.clear();
 		Class112.aClass98_1070 = null;
 		OverridedJInterface.aClass98_2739 = null;
-		Class120_Sub14_Sub14_Sub1.aClass98_3929 = null;
+		FileSystemRequest.aClass98_3929 = null;
 		Class124.aClass98_1201 = null;
 		PlayerAppearance.aClass98_1373 = null;
 		Class116.aClass120_Sub14_Sub19_1114 = null;

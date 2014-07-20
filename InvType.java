@@ -50,7 +50,7 @@ final class InvType extends NodeSub {
 			GroundObjectNode.renderZ = -(128 * Class181.currentBaseZ) + (int) fs[2];
 			Class120_Sub12_Sub10.renderY = -1 * (int) fs[1];
 			final float[] fs_13_ = new float[3];
-			Class83.renderX = (int) fs[0] + -(128 * GameEntity.currentBaseX);
+			FileSystemWorker.renderX = (int) fs[0] + -(128 * GameEntity.currentBaseX);
 			final int i_14_ = 2 * Class9.anInt67;
 			for (int i_15_ = 0; i_15_ < 3; i_15_++) {
 				final int i_16_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_] * 3;
@@ -67,8 +67,8 @@ final class InvType extends NodeSub {
 			final float f_24_ = fs_13_[2] - fs[2];
 			final double d = Math.sqrt(f_23_ * f_23_ + f_24_ * f_24_);
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
-			Class193.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
-			Class180_Sub3.renderYaw = 0x7ff & (int) (Class193.aFloat2139 * 325.949);
+			SeekableFile.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
+			Class180_Sub3.renderYaw = 0x7ff & (int) (SeekableFile.aFloat2139 * 325.949);
 			OverlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
 		}
 	}

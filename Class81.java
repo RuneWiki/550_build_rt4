@@ -178,7 +178,7 @@ final class Class81 {
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613();
 					} else if (Class90.anInt848 == 82) {
-						Class120_Sub14_Sub14_Sub1.aClass98_3929 = new Class98(19, true, Node.canvas);
+						FileSystemRequest.aClass98_3929 = new Class98(19, true, Node.canvas);
 						Class90.anInt848 = 85;
 						Class120_Sub12_Sub29.ping(true);
 						Class69.method613();

@@ -56,7 +56,7 @@ final class AmbientSound extends Node {
 		Class120_Sub15.aString2594 = "Liste des mises \u00e0 jour charg\u00e9e";
 		Class8.aString64 = "Jeter";
 		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
-		Class120_Sub14_Sub14.aString3575 = "violet:";
+		AbstractRequest.aString3575 = "violet:";
 		Class142.aString1358 = "Textures charg\u00e9es";
 		CursorType.aString1238 = "K";
 		Class11.aString81 = "Examiner";

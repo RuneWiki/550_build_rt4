@@ -42,9 +42,9 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 			SpotAnimType.anInt986 = i_3_;
 			NpcType.anInt1660 = i;
 			if (bool && ObjectContainer.anInt2621 >= 100) {
-				Class83.renderX = 128 * Class99.anInt951 + 64;
+				FileSystemWorker.renderX = 128 * Class99.anInt951 + 64;
 				GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.renderY = Class22.getTileHeight(Class173.gameLevel, Class83.renderX, GroundObjectNode.renderZ) - SpotAnimType.anInt986;
+				Class120_Sub12_Sub10.renderY = Class22.getTileHeight(Class173.gameLevel, FileSystemWorker.renderX, GroundObjectNode.renderZ) - SpotAnimType.anInt986;
 			}
 			client.cameraType = 2;
 		} catch (final RuntimeException runtimeexception) {

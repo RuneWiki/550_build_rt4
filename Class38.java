@@ -3,44 +3,30 @@
  */
 
 final class Class38 {
-	static Class83 aClass83_319;
+	static FileSystemWorker fileSystemWorker;
 	static boolean cursorsEnabled = true;
 
-	public static void method312(final int i) {
-		try {
-			aClass83_319 = null;
-			if (i != -1) {
-				cursorsEnabled = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.B(").append(i).append(')').toString());
-		}
+	public static void method312() {
+		fileSystemWorker = null;
 	}
 
-	static final void method313(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		try {
-			if (i_1_ != 1012) {
-				if (i_1_ != 1002) {
-					if (i_1_ == 1008) {
-						Class112.method989(12, i_0_, -30073, i_2_);
-					} else if (i_1_ != 1003) {
-						if (i_1_ == 1011) {
-							Class112.method989(14, i_0_, i ^ ~0x7692, i_2_);
-						}
-					} else {
-						Class112.method989(13, i_0_, -30073, i_2_);
+	static final void method313(final int i_0_, final int i_1_, final int i_2_) {
+		if (i_1_ != 1012) {
+			if (i_1_ != 1002) {
+				if (i_1_ == 1008) {
+					Class112.method989(12, i_0_, i_2_);
+				} else if (i_1_ != 1003) {
+					if (i_1_ == 1011) {
+						Class112.method989(14, i_0_, i_2_);
 					}
 				} else {
-					Class112.method989(11, i_0_, i ^ ~0x7692, i_2_);
+					Class112.method989(13, i_0_, i_2_);
 				}
 			} else {
-				Class112.method989(10, i_0_, -30073, i_2_);
+				Class112.method989(11, i_0_, i_2_);
 			}
-			if (i != 1002) {
-				cursorsEnabled = false;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.D(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+		} else {
+			Class112.method989(10, i_0_, i_2_);
 		}
 	}
 
@@ -138,7 +124,7 @@ final class Class38 {
 									bool_22_ = true;
 								}
 								if (bool_22_) {
-									final int[][] is_25_ = Class182.collisionMaps[level].anIntArrayArray152;
+									final int[][] is_25_ = Class182.collisionMaps[level].collisionFlags;
 									for (int i_26_ = 0; i_26_ < 10; i_26_++) {
 										final int i_27_ = (int) (Math.random() * 4.0);
 										if (i_27_ == 0 && i_23_ > 0 && i_23_ > -3 + i_17_ && (is_25_[i_23_ + -1][i_24_] & 0x2c0108) == 0) {
@@ -212,7 +198,7 @@ final class Class38 {
 	static final void method316(final int i) {
 		try {
 			if (i != 2883872) {
-				method312(-20);
+				method312();
 			}
 			Projectile.aClass21_2931.clear();
 		} catch (final RuntimeException runtimeexception) {

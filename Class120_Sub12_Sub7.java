@@ -74,7 +74,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 			if (!bool_20_) {
 				anInt3184 = 93;
 			}
-			final int i_22_ = Class120_Sub14_Sub14_Sub2.method1553(-17691, class167_sub1, i, class167_sub1_18_, bool);
+			final int i_22_ = Js5Request.method1553(-17691, class167_sub1, i, class167_sub1_18_, bool);
 			if (i_22_ != 0) {
 				if (!bool) {
 					return i_22_;
@@ -84,7 +84,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 			if ((i_19_ ^ 0xffffffff) == 0) {
 				return 0;
 			}
-			final int i_23_ = Class120_Sub14_Sub14_Sub2.method1553(-17691, class167_sub1, i_19_, class167_sub1_18_, bool_17_);
+			final int i_23_ = Js5Request.method1553(-17691, class167_sub1, i_19_, class167_sub1_18_, bool_17_);
 			if (!bool_17_) {
 				return i_23_;
 			}

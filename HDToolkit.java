@@ -207,7 +207,7 @@ final class HDToolkit {
 			final GLDrawableFactory gldrawablefactory = GLDrawableFactory.getFactory();
 			glDrawable = gldrawablefactory.getGLDrawable(canvas, glcapabilities, null);
 			glDrawable.setRealized(true);
-			int i_18_ = 0;
+			int tries = 0;
 			for (;;) {
 				aGLContext522 = glDrawable.createContext(glcontext);
 				try {
@@ -218,7 +218,7 @@ final class HDToolkit {
 				} catch (final Exception exception) {
 					/* empty */
 				}
-				if (i_18_++ > 5) {
+				if (tries++ > 5) {
 					return -2;
 				}
 				PacketBuffer.sleepWrapper(1000L);
@@ -235,13 +235,13 @@ final class HDToolkit {
 			method533();
 			method538();
 			gl.glClear(16384);
-			i_18_ = 0;
+			tries = 0;
 			for (;;) {
 				try {
 					glDrawable.swapBuffers();
 					break;
 				} catch (final Exception exception) {
-					if (i_18_++ > 5) {
+					if (tries++ > 5) {
 						method519();
 						return -3;
 					}
@@ -488,7 +488,7 @@ final class HDToolkit {
 		}
 	}
 
-	static final void method525(final Canvas canvas) {
+	static final void destroy(final Canvas canvas) {
 		try {
 			if (canvas.isDisplayable()) {
 				final GLDrawableFactory gldrawablefactory = GLDrawableFactory.getFactory();

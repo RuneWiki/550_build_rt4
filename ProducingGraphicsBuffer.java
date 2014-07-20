@@ -327,7 +327,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 					for (int i_25_ = 0; i_25_ < 64; i_25_++) {
 						for (int i_26_ = 0; i_26_ < 64; i_26_++) {
 							if (i_20_ + i_25_ > 0 && i_25_ + i_20_ < 103 && i_19_ + i_26_ > 0 && i_26_ + i_19_ < 103) {
-								class25s[i_24_].anIntArrayArray152[i_25_ + i_20_][i_19_ - -i_26_] = Class120_Sub12_Sub3.method1207(class25s[i_24_].anIntArrayArray152[i_25_ + i_20_][i_19_ - -i_26_], -2097153);
+								class25s[i_24_].collisionFlags[i_25_ + i_20_][i_19_ - -i_26_] = Class120_Sub12_Sub3.method1207(class25s[i_24_].collisionFlags[i_25_ + i_20_][i_19_ - -i_26_], -2097153);
 							}
 						}
 					}

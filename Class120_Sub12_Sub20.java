@@ -108,7 +108,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 						final int[] is = anIntArrayArray3283[-1 + i_25_];
 						final int[] is_26_ = anIntArrayArray3283[i_25_];
 						final int i_27_ = (-is[0] + i_24_ << 12) / (is_26_[0] + -is[0]);
-						final int i_28_ = 4096 + -Class83.anIntArray789[0xff & i_27_ >> 5] >> 1;
+						final int i_28_ = 4096 + -FileSystemWorker.anIntArray789[0xff & i_27_ >> 5] >> 1;
 						final int i_29_ = 4096 + -i_28_;
 						int i_30_ = i_28_ * is_26_[1] + i_29_ * is[1] >> 12;
 						if (i_30_ <= -32768) {
@@ -185,8 +185,8 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					is_8_[i_10_] = 0;
 					is_9_[i_10_] = 1;
 				}
-				Class120_Sub12_Sub32.method1370(is_9_, Class100.selfPlayer, -121, is_8_, is);
-				Class120_Sub14_Sub14.method1540(null, 0, "hi");
+				Class120_Sub12_Sub32.method1370(Class100.selfPlayer, is_9_, is_8_, is);
+				AbstractRequest.method1540(null, 0, "hi");
 			}
 			if (Class86.staffLevel >= 2) {
 				if (string.equalsIgnoreCase("::gc")) {
@@ -196,7 +196,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					}
 					final Runtime runtime = Runtime.getRuntime();
 					final int i_41_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
+					AbstractRequest.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
 				}
 				if (string.equalsIgnoreCase("::mm")) {
 					Class120_Sub12_Sub21.method1311();
@@ -205,17 +205,17 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					}
 					final Runtime runtime = Runtime.getRuntime();
 					int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-					Class120_Sub14_Sub14.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
+					AbstractRequest.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
 					SpotAnimType.method880(124);
 					Class120_Sub12_Sub21.method1311();
 					for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 						System.gc();
 					}
 					i_43_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					Class120_Sub14_Sub14.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
+					AbstractRequest.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
 				}
 				if (string.equalsIgnoreCase("::pcachesize")) {
-					Class120_Sub14_Sub14.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
+					AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
 				}
 				if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
 					System.out.println("oncard_geometry:" + Class113.anInt1082);
@@ -234,7 +234,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				if (string.equalsIgnoreCase("::breakcon")) {
 					NpcType.gameSignlink.method1963(5000);
 					AbstractTimer.worldConnection.replaceStreamsWithDummy();
-					Class178.aClass45_1772.method360((byte) -127);
+					Class178.aClass45_1772.replaceStreamsWithDummy();
 				}
 				if (string.equalsIgnoreCase("::replacecanvas")) {
 					Class120_Sub3.canvasReplaceRecommended = true;
@@ -249,16 +249,16 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					HintIcon.showFps = false;
 				}
 				if (string.equalsIgnoreCase("::wm0")) {
-					AbstractSprite.method1593(false, 0, -1, -1);
+					AbstractSprite.method1593(0, -1, -1, false);
 				}
 				if (string.equalsIgnoreCase("::wm1")) {
-					AbstractSprite.method1593(false, 1, -1, -1);
+					AbstractSprite.method1593(1, -1, -1, false);
 				}
 				if (string.equalsIgnoreCase("::wm2")) {
-					AbstractSprite.method1593(false, 2, -1, -1);
+					AbstractSprite.method1593(2, -1, -1, false);
 				}
 				if (string.equalsIgnoreCase("::wm3")) {
-					AbstractSprite.method1593(false, 3, 1024, 768);
+					AbstractSprite.method1593(3, 1024, 768, false);
 				}
 				if (string.startsWith("::setba")) {
 					Class140.anInt1343 = Class31.method265(string.substring(8));
@@ -278,21 +278,21 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 				if (string.startsWith("::rect_debug")) {
 					Class15.rectDebugType = Class31.method265(string.substring(12).trim());
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
+					AbstractRequest.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
 				}
 				if (string.equalsIgnoreCase("::qa_op_test")) {
 					Class120_Sub30_Sub1.aBoolean3673 = true;
 				}
 				if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290())) {
-					Class120_Sub14_Sub14.method1540(null, 0, "Failed to enable hdr");
+					AbstractRequest.method1540(null, 0, "Failed to enable hdr");
 				}
 				if (string.equalsIgnoreCase("::tween")) {
 					if (Class164.forceTween) {
 						Class164.forceTween = false;
-						Class120_Sub14_Sub14.method1540(null, 0, "Forced tweening disabled.");
+						AbstractRequest.method1540(null, 0, "Forced tweening disabled.");
 					} else {
 						Class164.forceTween = true;
-						Class120_Sub14_Sub14.method1540(null, 0, "Forced tweening ENABLED!");
+						AbstractRequest.method1540(null, 0, "Forced tweening ENABLED!");
 					}
 				}
 				if (string.equalsIgnoreCase("::shiftclick")) {
@@ -305,14 +305,14 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					}
 				}
 				if (string.equalsIgnoreCase("::getcgcoord")) {
-					Class120_Sub14_Sub14.method1540(
+					AbstractRequest.method1540(
 							null,
 							0,
 							new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:")
 									.append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 				if (string.equalsIgnoreCase("::getheight")) {
-					Class120_Sub14_Sub14.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+					AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
 				}
 			}
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(216);

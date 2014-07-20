@@ -92,7 +92,7 @@ final class VarBit {
 	}
 
 	static final void method240(final int i) {
-		int i_2_ = Class83.renderX;
+		int i_2_ = FileSystemWorker.renderX;
 		int i_3_ = GroundObjectNode.renderZ;
 		int i_4_ = Class120_Sub12_Sub10.renderY;
 		int i_5_ = (int) Class120_Sub12_Sub21.aFloat3293;
@@ -106,7 +106,7 @@ final class VarBit {
 		}
 		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
 		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
-		if (Class83.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
+		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {
 			Class120_Sub12_Sub31.anInt3384 = 10;
@@ -140,17 +140,17 @@ final class VarBit {
 					Class120_Sub12_Sub10.renderY = i_4_;
 				}
 			}
-			if (i_2_ < Class83.renderX) {
-				i_2_ += NpcType.anInt1660 - -(ObjectContainer.anInt2621 * (Class83.renderX - i_2_) / 1000);
-				if (Class83.renderX > i_2_) {
-					Class83.renderX = i_2_;
+			if (i_2_ < FileSystemWorker.renderX) {
+				i_2_ += NpcType.anInt1660 - -(ObjectContainer.anInt2621 * (FileSystemWorker.renderX - i_2_) / 1000);
+				if (FileSystemWorker.renderX > i_2_) {
+					FileSystemWorker.renderX = i_2_;
 				}
 			}
 			Class101_Sub1.anInt2272 = 10;
-			if (Class83.renderX < i_2_) {
-				i_2_ -= ObjectContainer.anInt2621 * (i_2_ - Class83.renderX) / 1000 + NpcType.anInt1660;
-				if (Class83.renderX < i_2_) {
-					Class83.renderX = i_2_;
+			if (FileSystemWorker.renderX < i_2_) {
+				i_2_ -= ObjectContainer.anInt2621 * (i_2_ - FileSystemWorker.renderX) / 1000 + NpcType.anInt1660;
+				if (FileSystemWorker.renderX < i_2_) {
+					FileSystemWorker.renderX = i_2_;
 				}
 			}
 			if (i_9_ < -1024) {

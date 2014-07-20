@@ -183,7 +183,7 @@ final class Class159 {
 			if (-i + i_55_ < Class32.anInt260 || ParamType.anInt3544 < i_55_ + i || -i + i_54_ < Class120_Sub30_Sub2.anInt3699 || i_54_ + i > IdentityKit.anInt1334) {
 				Class120_Sub12_Sub23.method1325(i_54_, i_55_, i, i_53_, -127);
 			} else {
-				CollisionMap.method211(i_54_, false, i_55_, i, i_53_);
+				CollisionMap.method211(i_54_, i_55_, i, i_53_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.D(").append(i).append(',').append(i_53_).append(',').append(bool).append(',').append(i_54_).append(',').append(i_55_).append(')').toString());

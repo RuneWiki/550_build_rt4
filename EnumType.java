@@ -106,7 +106,7 @@ final class EnumType extends NodeSub {
 			if (client.cameraType != 2) {
 				InvType.method1445();
 			} else {
-				Class83.renderX = Class99.anInt951 << 7;
+				FileSystemWorker.renderX = Class99.anInt951 << 7;
 				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {

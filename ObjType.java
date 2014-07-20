@@ -176,11 +176,11 @@ final class ObjType {
 			}
 			if (playerAppearance != null) {
 				for (int i_20_ = 0; i_20_ < 5; i_20_++) {
-					if (playerAppearance.anIntArray1370[i_20_] < Class159.aShortArrayArray1489[i_20_].length) {
-						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_20_], Class159.aShortArrayArray1489[i_20_][playerAppearance.anIntArray1370[i_20_]]);
+					if (playerAppearance.colors[i_20_] < Class159.aShortArrayArray1489[i_20_].length) {
+						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_20_], Class159.aShortArrayArray1489[i_20_][playerAppearance.colors[i_20_]]);
 					}
-					if (playerAppearance.anIntArray1370[i_20_] < Class120_Sub30_Sub1.aShortArrayArray3668[i_20_].length) {
-						class180_sub2.recolor(SpotAnimType.aShortArray994[i_20_], Class120_Sub30_Sub1.aShortArrayArray3668[i_20_][playerAppearance.anIntArray1370[i_20_]]);
+					if (playerAppearance.colors[i_20_] < Class120_Sub30_Sub1.aShortArrayArray3668[i_20_].length) {
+						class180_sub2.recolor(SpotAnimType.aShortArray994[i_20_], Class120_Sub30_Sub1.aShortArrayArray3668[i_20_][playerAppearance.colors[i_20_]]);
 					}
 				}
 			}
@@ -430,11 +430,11 @@ final class ObjType {
 			}
 			if (playerAppearance != null) {
 				for (int i_52_ = 0; i_52_ < 5; i_52_++) {
-					if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.anIntArray1370[i_52_]) {
-						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.anIntArray1370[i_52_]]);
+					if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.colors[i_52_]) {
+						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.colors[i_52_]]);
 					}
-					if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.anIntArray1370[i_52_]) {
-						class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.anIntArray1370[i_52_]]);
+					if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.colors[i_52_]) {
+						class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.colors[i_52_]]);
 					}
 				}
 			}

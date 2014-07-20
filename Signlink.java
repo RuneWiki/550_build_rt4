@@ -368,7 +368,7 @@ public class Signlink implements Runnable {
 		return anInterface4_1297;
 	}
 
-	public final SignlinkNode method1967(final int i, final Class var_class) {
+	public final SignlinkNode method1967(final Class var_class) {
 		return putNode(10, 0, var_class, 0);
 	}
 

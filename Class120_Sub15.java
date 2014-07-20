@@ -58,7 +58,7 @@ final class Class120_Sub15 extends Node {
 			Class52.aClass50_476 = js5;
 			StringNode.aBoolean2734 = bool;
 			SeqType.anInt349 = i;
-			Class120_Sub14_Sub14_Sub2.anInt3940 = i_5_;
+			Js5Request.anInt3940 = i_5_;
 			Class120_Sub12_Sub25.anInt3312 = 1;
 			if (i_4_ >= -126) {
 				method1653(-15);

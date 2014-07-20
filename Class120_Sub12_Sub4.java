@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static final void method1211(final boolean bool, final int i, final int i_0_, final boolean bool_1_, final int i_2_) {
 		try {
-			Class120_Sub14_Sub14_Sub2.method1552(bool, i_2_, i_0_, Class86.worlds.length + -1, bool_1_, 0, 1);
+			Js5Request.method1552(bool, i_2_, i_0_, Class86.worlds.length + -1, bool_1_, 0, 1);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.W(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(bool_1_).append(',').append(i_2_).append(')').toString());
 		}

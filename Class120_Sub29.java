@@ -89,7 +89,7 @@ final class Class120_Sub29 extends Node {
 			Class120_Sub12_Sub36.anIntArray3417 = new int[i_11_];
 			ProducingGraphicsBuffer.anIntArray2796 = null;
 			Class111.anIntArray1063 = new int[i_11_];
-			Class56.anIntArray495 = new int[i_11_];
+			LookupTable.anIntArray495 = new int[i_11_];
 			Class101_Sub1.aByteArrayArray2271 = new byte[i_11_][];
 			Class134.aByteArrayArray1287 = new byte[i_11_][];
 			Class28.anIntArray183 = new int[i_11_];
@@ -113,7 +113,7 @@ final class Class120_Sub29 extends Node {
 								Class120_Sub12_Sub36.anIntArray3417[i_11_] = i_23_;
 								final int i_25_ = 0xff & i_23_ >> 8;
 								final int i_26_ = 0xff & i_23_;
-								Class56.anIntArray495[i_11_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_25_).append("_").append(i_26_).toString());
+								LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_25_).append("_").append(i_26_).toString());
 								Class28.anIntArray183[i_11_] = Class65.aClass50_597.method432(new StringBuilder("l").append(i_25_).append("_").append(i_26_).toString());
 								Class111.anIntArray1063[i_11_] = Class65.aClass50_597.method432(new StringBuilder("um").append(i_25_).append("_").append(i_26_).toString());
 								Class76.anIntArray680[i_11_] = Class65.aClass50_597.method432(new StringBuilder("ul").append(i_25_).append("_").append(i_26_).toString());
@@ -146,7 +146,7 @@ final class Class120_Sub29 extends Node {
 			if (i_36_ / 8 == 48 && i_28_ / 8 == 148) {
 				bool_35_ = true;
 			}
-			Class56.anIntArray495 = new int[i_29_];
+			LookupTable.anIntArray495 = new int[i_29_];
 			RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_29_][];
 			Class76.anIntArray680 = new int[i_29_];
 			Class28.anIntArray183 = new int[i_29_];
@@ -162,13 +162,13 @@ final class Class120_Sub29 extends Node {
 					final int i_39_ = (i_37_ << 8) + i_38_;
 					if (!bool_35_ || i_38_ != 49 && i_38_ != 149 && i_38_ != 147 && i_37_ != 50 && (i_37_ != 49 || i_38_ != 47)) {
 						Class120_Sub12_Sub36.anIntArray3417[i_29_] = i_39_;
-						Class56.anIntArray495[i_29_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_37_).append("_").append(i_38_).toString());
+						LookupTable.anIntArray495[i_29_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_37_).append("_").append(i_38_).toString());
 						Class28.anIntArray183[i_29_] = Class65.aClass50_597.method432(new StringBuilder("l").append(i_37_).append("_").append(i_38_).toString());
 						Class111.anIntArray1063[i_29_] = Class65.aClass50_597.method432(new StringBuilder("um").append(i_37_).append("_").append(i_38_).toString());
 						Class76.anIntArray680[i_29_] = Class65.aClass50_597.method432(new StringBuilder("ul").append(i_37_).append("_").append(i_38_).toString());
 					} else {
 						Class120_Sub12_Sub36.anIntArray3417[i_29_] = i_39_;
-						Class56.anIntArray495[i_29_] = -1;
+						LookupTable.anIntArray495[i_29_] = -1;
 						Class28.anIntArray183[i_29_] = -1;
 						Class111.anIntArray1063[i_29_] = -1;
 						Class76.anIntArray680[i_29_] = -1;

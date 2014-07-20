@@ -3,7 +3,7 @@
  */
 
 final class Class10 {
-	static Class193 aClass193_78;
+	static SeekableFile aClass193_78;
 	static js5 aClass50_79;
 
 	static final void method119(final Buffer buffer, final boolean bool_0_, final boolean bool_1_, final int level, final int i_2_, final int i_3_, final int z, final int i_5_, final int i_6_, final int i_7_, final int x) {
@@ -105,7 +105,7 @@ final class Class10 {
 			if (Class120_Sub12_Sub29.aClass164_3366 != null) {
 				Class120_Sub12_Sub29.aClass164_3366.method2136(14680);
 			}
-			Class120_Sub14_Sub14_Sub1.method1546(2, Class167.aBoolean1619, 22050, (byte) 115);
+			FileSystemRequest.method1546(2, Class167.aBoolean1619, 22050, (byte) 115);
 			Class120_Sub12_Sub3.aClass164_3150 = Class120_Sub12_Sub18.method1289(Node.canvas, (byte) -112, 22050, NpcType.gameSignlink, 0);
 			if (i == 23529) {
 				Class120_Sub12_Sub3.aClass164_3150.method2143(Class69_Sub1.aClass120_Sub30_Sub2_2230);

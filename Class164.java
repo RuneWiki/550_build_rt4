@@ -170,8 +170,8 @@ class Class164 {
 		Class66.anInt599 = 0;
 		boolean bool = true;
 		for (int i_7_ = 0; RuntimeException_Sub1.aByteArrayArray2140.length > i_7_; i_7_++) {
-			if (Class56.anIntArray495[i_7_] != -1 && RuntimeException_Sub1.aByteArrayArray2140[i_7_] == null) {
-				RuntimeException_Sub1.aByteArrayArray2140[i_7_] = Class65.aClass50_597.getFile(Class56.anIntArray495[i_7_], 0);
+			if (LookupTable.anIntArray495[i_7_] != -1 && RuntimeException_Sub1.aByteArrayArray2140[i_7_] == null) {
+				RuntimeException_Sub1.aByteArrayArray2140[i_7_] = Class65.aClass50_597.getFile(LookupTable.anIntArray495[i_7_], 0);
 				if (RuntimeException_Sub1.aByteArrayArray2140[i_7_] == null) {
 					bool = false;
 					Class66.anInt599++;
@@ -266,7 +266,7 @@ class Class164 {
 				}
 				Class3.method84(4, 104, 104, !HDToolkit.glEnabled ? 25 : 28, bool_13_);
 				for (int i_15_ = 0; i_15_ < 4; i_15_++) {
-					Class182.collisionMaps[i_15_].method225();
+					Class182.collisionMaps[i_15_].resetFlags();
 				}
 				for (int i_16_ = 0; i_16_ < 4; i_16_++) {
 					for (int i_17_ = 0; i_17_ < 104; i_17_++) {
@@ -308,7 +308,7 @@ class Class164 {
 					}
 				}
 				if (Class134.dynamicMapRegion) {
-					Class120_Sub14_Sub14.method1542(false, false);
+					AbstractRequest.method1542(false, false);
 					Class120_Sub12_Sub29.ping(true);
 					if (HDToolkit.glEnabled) {
 						final int i_23_ = Class100.selfPlayer.walkQueueZ[0] >> 3;
@@ -346,7 +346,7 @@ class Class164 {
 						Class120_Sub12_Sub21_Sub1.method1312(true);
 					}
 					if (Class134.dynamicMapRegion) {
-						Class120_Sub14_Sub14.method1542(true, false);
+						AbstractRequest.method1542(true, false);
 						Class120_Sub12_Sub29.ping(true);
 						Class112.method987(true, 13371);
 					}
@@ -537,7 +537,7 @@ class Class164 {
 						if (i_46_ >= 0 && i_46_ < 104 && i_47_ >= 0 && i_47_ < 104) {
 							final int i_48_ = -(Class100.selfPlayer.x / 32) + i_46_ * 4 - -2;
 							final int i_49_ = -(Class100.selfPlayer.z / 32) + 4 * i_47_ + 2;
-							Class120_Sub14_Sub14_Sub2.method1547(jagexInterface, i_40_, i, SceneGraphNode.aClass137_1780.aClass120_Sub14_Sub5Array1324[i_45_].anInt3473, i_48_, i_49_);
+							Js5Request.method1547(jagexInterface, i_40_, i, SceneGraphNode.aClass137_1780.aClass120_Sub14_Sub5Array1324[i_45_].anInt3473, i_48_, i_49_);
 						}
 					}
 				}
@@ -552,7 +552,7 @@ class Class164 {
 						continue;
 					}
 				}
-				Class120_Sub14_Sub14_Sub2.method1547(jagexInterface, i_40_, i, locType.anInt1840, i_51_, i_52_);
+				Js5Request.method1547(jagexInterface, i_40_, i, locType.anInt1840, i_51_, i_52_);
 			}
 			for (int i_53_ = 0; i_53_ < 104; i_53_++) {
 				for (int i_54_ = 0; i_54_ < 104; i_54_++) {
@@ -575,14 +575,14 @@ class Class164 {
 						final int i_58_ = -(Class100.selfPlayer.x / 32) + class180_sub5_sub2.x / 32;
 						final int i_59_ = -(Class100.selfPlayer.z / 32) + class180_sub5_sub2.z / 32;
 						if (npcType.anInt1698 != -1) {
-							Class120_Sub14_Sub14_Sub2.method1547(jagexInterface, i_40_, i, npcType.anInt1698, i_58_, i_59_);
+							Js5Request.method1547(jagexInterface, i_40_, i, npcType.anInt1698, i_58_, i_59_);
 						} else {
 							Class23.method200(i, jagexInterface, i_40_, i_58_, i_59_, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[1]);
 						}
 					}
 				}
 			}
-			for (int i_60_ = 0; i_60_ < Class83.localPlayerCount; i_60_++) {
+			for (int i_60_ = 0; i_60_ < FileSystemWorker.localPlayerCount; i_60_++) {
 				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_60_]];
 				if (class180_sub5_sub1 != null && class180_sub5_sub1.isVisible()) {
 					final int i_61_ = class180_sub5_sub1.x / 32 + -(Class100.selfPlayer.x / 32);

@@ -12,7 +12,7 @@ final class FrameLoader extends NodeSub {
 	static final void method1577(final Signlink signlink, final int i) {
 		try {
 			FileOnDisk fileOnDisk = null;
-			Class120_Sub14_Sub14_Sub1.brightness = 3;
+			FileSystemRequest.brightness = 3;
 			GameShell.method32(true);
 			Class120_Sub6.characterShadowsOn = true;
 			Class108_Sub3.highDetailTextures = true;

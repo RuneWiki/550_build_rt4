@@ -49,17 +49,17 @@ final class Class24 {
 		Class29.anInt195 = (int) (110.0 * Math.random()) - 55;
 		Class150.anInt1407 = 0;
 		AbstractGraphicsBuffer.method1842(50);
-		Class83.localPlayerCount = 0;
+		FileSystemWorker.localPlayerCount = 0;
 		Class148.localNpcCount = 0;
 		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
 			Class118.playersList[i_2_] = null;
-			StringNode.aClass120_Sub7Array2737[i_2_] = null;
+			StringNode.playerAppearanceBuffers[i_2_] = null;
 		}
 		for (int i_3_ = 0; -32769 < (i_3_ ^ 0xffffffff); i_3_++) {
 			Class120_Sub12_Sub11.npcList[i_3_] = null;
 		}
 		Class100.selfPlayer = Class118.playersList[2047] = new Player();
-		Class120_Sub14_Sub14_Sub1.aClass105_3928.clear();
+		FileSystemRequest.aClass105_3928.clear();
 		Class120_Sub12_Sub7.aClass105_3177.clear();
 		if (ClientScript.groundObjects != null) {
 			for (int i_4_ = 0; i_4_ < 4; i_4_++) {
@@ -74,7 +74,7 @@ final class Class24 {
 		ObjectPile.friendsServerStatus = 0;
 		ProducingGraphicsBuffer.friendCount = 0;
 		Class33.resetVarp();
-		Class56.method489((byte) -44);
+		LookupTable.method489((byte) -44);
 		Class101_Sub1.anInt2272 = 0;
 		InterfaceListener.anInt2546 = 0;
 		ObjectContainer.anInt2621 = 0;
@@ -104,7 +104,7 @@ final class Class24 {
 		for (int i_8_ = 0; i_8_ < 8; i_8_++) {
 			Buffer.playerOptions[i_8_] = null;
 			InterfaceListener.playerOptionsOnTop[i_8_] = false;
-			Class120_Sub14_Sub14.playerOptionsIcon[i_8_] = -1;
+			AbstractRequest.playerOptionsIcon[i_8_] = -1;
 		}
 		Class28.method243(true);
 		Class69.aBoolean615 = true;

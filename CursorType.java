@@ -82,7 +82,7 @@ final class CursorType {
 					Class120_Sub12_Sub28.determineMenuSize();
 				}
 				if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
-					Class191.method2508((byte) 72);
+					Class191.method2508();
 				}
 			} else {
 				if (i_5_ != 1) {
@@ -132,7 +132,7 @@ final class CursorType {
 		if (ldSprite != null) {
 			return ldSprite;
 		}
-		ldSprite = Class120_Sub12_Sub26.method1340(Class83.aClass50_794, graphic, 0);
+		ldSprite = Class120_Sub12_Sub26.method1340(FileSystemWorker.aClass50_794, graphic, 0);
 		if (ldSprite != null) {
 			spriteCache.put(ldSprite, graphic);
 		}

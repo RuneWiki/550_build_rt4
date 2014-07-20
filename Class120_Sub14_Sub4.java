@@ -46,9 +46,9 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 			if (i_2_ != 0) {
 				i_5_ = (i_5_ << i_2_ & 0xf) + (i_5_ >> 4 + -i_2_);
 			}
-			Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, i_5_, true, i_7_, i, Class100.selfPlayer.walkQueueZ[0], 0, i_6_, i_1_);
+			Class120_Sub14_Sub5.setFlagPosition(Class100.selfPlayer.walkQueueX[0], 0, i_5_, true, i_7_, i, Class100.selfPlayer.walkQueueZ[0], 0, i_6_, i_1_);
 		} else {
-			Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], i_2_, 0, true, 0, i, Class100.selfPlayer.walkQueueZ[0], 1 + i_3_, 0, i_1_);
+			Class120_Sub14_Sub5.setFlagPosition(Class100.selfPlayer.walkQueueX[0], i_2_, 0, true, 0, i, Class100.selfPlayer.walkQueueZ[0], 1 + i_3_, 0, i_1_);
 		}
 		return true;
 	}

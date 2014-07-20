@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub14_Sub2 extends Class120_Sub14_Sub14 {
+final class Js5Request extends AbstractRequest {
 	int anInt3936;
 	static ObjectCache aClass21_3937 = new ObjectCache(64);
 	byte aByte3938;

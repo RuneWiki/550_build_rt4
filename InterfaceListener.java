@@ -27,54 +27,48 @@ final class InterfaceListener extends Node {
 		playerOptionsOnTop = new boolean[8];
 	}
 
-	static final void method1168(final boolean bool) {
-		try {
-			Container container;
-			if (Class120_Sub14_Sub10.fullscreenFrame != null) {
-				container = Class120_Sub14_Sub10.fullscreenFrame;
-			} else if (Class112.frame != null) {
-				container = Class112.frame;
-			} else {
-				container = NpcType.gameSignlink.gameApplet;
-			}
-			Class120_Sub12_Sub7.frameWidth = container.getSize().width;
-			PlayerAppearance.frameHeight = container.getSize().height;
-			if (container == Class112.frame) {
-				final Insets insets = Class112.frame.getInsets();
-				Class120_Sub12_Sub7.frameWidth -= insets.left - -insets.right;
-				PlayerAppearance.frameHeight -= insets.bottom + insets.top;
-			}
-			if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
-				Class186.topMargin = 0;
-				Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
-				Class120_Sub28.leftMargin = 0;
-				Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
-			} else {
-				Class69_Sub1.canvasWidth = 765;
-				Class120_Sub12_Sub5.canvasHeight = 503;
-				Class120_Sub28.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
-				Class186.topMargin = 0;
-			}
-			if (bool) {
-				aString2548 = null;
-			}
-			if (HDToolkit.glEnabled) {
-				HDToolkit.setCanvasSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
-			}
-			Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
-			if (container != Class112.frame) {
-				Node.canvas.setLocation(Class120_Sub28.leftMargin, Class186.topMargin);
-			} else {
-				final Insets insets = Class112.frame.getInsets();
-				Node.canvas.setLocation(insets.left - -Class120_Sub28.leftMargin, Class186.topMargin + insets.top);
-			}
-			if ((Class69.rootInterfaceId ^ 0xffffffff) != 0) {
-				Class101_Sub2.method846(true);
-			}
-			Class120_Sub12_Sub22.method1322();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("io.C(").append(bool).append(')').toString());
+	static final void updateCanvasPosition() {
+		Container container;
+		if (Class120_Sub14_Sub10.fullscreenFrame != null) {
+			container = Class120_Sub14_Sub10.fullscreenFrame;
+		} else if (Class112.frame != null) {
+			container = Class112.frame;
+		} else {
+			container = NpcType.gameSignlink.gameApplet;
 		}
+		Class120_Sub12_Sub7.frameWidth = container.getSize().width;
+		PlayerAppearance.frameHeight = container.getSize().height;
+		if (Class112.frame == container) {
+			final Insets insets = Class112.frame.getInsets();
+			Class120_Sub12_Sub7.frameWidth -= insets.left + insets.right;
+			PlayerAppearance.frameHeight -= insets.bottom + insets.top;
+		}
+		if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
+			Class186.topMargin = 0;
+			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
+			Class120_Sub28.leftMargin = 0;
+			Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
+		} else {
+			Class69_Sub1.canvasWidth = 765;
+			Class120_Sub12_Sub5.canvasHeight = 503;
+			Class120_Sub28.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
+			//Class186.topMargin = 0;//original
+			Class186.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
+		}
+		if (HDToolkit.glEnabled) {
+			HDToolkit.setCanvasSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+		}
+		Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+		if (Class112.frame != container) {
+			Node.canvas.setLocation(Class120_Sub28.leftMargin, Class186.topMargin);
+		} else {
+			final Insets insets = Class112.frame.getInsets();
+			Node.canvas.setLocation(insets.left - -Class120_Sub28.leftMargin, Class186.topMargin + insets.top);
+		}
+		if (Class69.rootInterfaceId != -1) {
+			Class101_Sub2.method846(true);
+		}
+		Class120_Sub12_Sub22.method1322();
 	}
 
 	public static void method1169(final byte i) {

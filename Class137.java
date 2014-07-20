@@ -63,7 +63,7 @@ final class Class137 {
 			Class120_Sub15.anInt2588 = -1;
 		} else {
 			int y = Class22.getTileHeight(Class173.gameLevel, x, z) - yOff;
-			x -= Class83.renderX;
+			x -= FileSystemWorker.renderX;
 			y -= Class120_Sub12_Sub10.renderY;
 			z -= GroundObjectNode.renderZ;
 			final int i_12_ = Rasterizer.sineTable[OverlayType.renderPitch];

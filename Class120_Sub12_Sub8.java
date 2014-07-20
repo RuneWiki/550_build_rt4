@@ -113,7 +113,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	static final Class142 method1240(final byte i, final int i_18_) {
 		Class142 class142;
 		try {
-			Class142 class142_19_ = (Class142) Class120_Sub14_Sub14_Sub2.aClass21_3937.get(i_18_);
+			Class142 class142_19_ = (Class142) Js5Request.aClass21_3937.get(i_18_);
 			if (class142_19_ != null) {
 				return class142_19_;
 			}
@@ -125,7 +125,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 			if (is != null) {
 				class142_19_.method2010(i_18_, false, new Buffer(is));
 			}
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.put(class142_19_, i_18_);
+			Js5Request.aClass21_3937.put(class142_19_, i_18_);
 			class142 = class142_19_;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.R(").append(i).append(',').append(i_18_).append(')').toString());
@@ -133,21 +133,14 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return class142;
 	}
 
-	static final void method1241(final JagexInterface jagexInterface, final int i, final int i_20_, final byte i_21_) {
-		try {
-			if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface, 26) != null) {
-				Class120_Sub12_Sub4.aClass189_3156 = jagexInterface;
-				Class26.aClass189_161 = method1243(jagexInterface, 26);
-				Class120_Sub11.aBoolean2551 = false;
-				if (i_21_ <= 47) {
-					anIntArray3190 = null;
-				}
-				SceneGroundObject.anInt2843 = 0;
-				AbstractGraphicsBuffer.anInt1173 = i;
-				client.anInt2203 = i_20_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.W(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_20_).append(',').append(i_21_).append(')').toString());
+	static final void method1241(final JagexInterface jagexInterface, final int i, final int i_20_) {
+		if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface, 26) != null) {
+			Class120_Sub12_Sub4.aClass189_3156 = jagexInterface;
+			Class26.aClass189_161 = method1243(jagexInterface, 26);
+			Class120_Sub11.aBoolean2551 = false;
+			SceneGroundObject.anInt2843 = 0;
+			AbstractGraphicsBuffer.anInt1173 = i;
+			client.anInt2203 = i_20_;
 		}
 	}
 

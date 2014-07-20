@@ -82,11 +82,11 @@ final class PacketBuffer extends Buffer {
 						i_2_ = 33;
 					}
 					if (i_2_ <= class120_sub7.buf.length - class120_sub7.pos) {
-						Class120_Sub14_Sub14_Sub1.brightness = class120_sub7.getUByte();
-						if (Class120_Sub14_Sub14_Sub1.brightness < 1) {
-							Class120_Sub14_Sub14_Sub1.brightness = 1;
-						} else if (Class120_Sub14_Sub14_Sub1.brightness > 4) {
-							Class120_Sub14_Sub14_Sub1.brightness = 4;
+						FileSystemRequest.brightness = class120_sub7.getUByte();
+						if (FileSystemRequest.brightness < 1) {
+							FileSystemRequest.brightness = 1;
+						} else if (FileSystemRequest.brightness > 4) {
+							FileSystemRequest.brightness = 4;
 						}
 						GameShell.method32(class120_sub7.getUByte() == 1);
 						Class120_Sub12.aBoolean2564 = class120_sub7.getUByte() == 1;
@@ -174,13 +174,13 @@ final class PacketBuffer extends Buffer {
 	}
 
 	static final void method1147() {
-		if (Class84.anIntArray800 == null || Class83.anIntArray789 == null) {
-			Class83.anIntArray789 = new int[256];
+		if (Class84.anIntArray800 == null || FileSystemWorker.anIntArray789 == null) {
+			FileSystemWorker.anIntArray789 = new int[256];
 			Class84.anIntArray800 = new int[256];
 			for (int i_4_ = 0; i_4_ < 256; i_4_++) {
 				final double d = i_4_ / 255.0 * 6.283185307179586;
 				Class84.anIntArray800[i_4_] = (int) (Math.sin(d) * 4096.0);
-				Class83.anIntArray789[i_4_] = (int) (Math.cos(d) * 4096.0);
+				FileSystemWorker.anIntArray789[i_4_] = (int) (Math.cos(d) * 4096.0);
 			}
 		}
 	}

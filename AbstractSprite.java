@@ -38,19 +38,12 @@ abstract class AbstractSprite extends NodeSub {
 
 	abstract void method1589(int i, int i_8_, int i_9_, int i_10_, int i_11_, int i_12_);
 
-	final void method1590(int i, final byte i_13_, final int i_14_, int i_15_, final int i_16_) {
-		try {
-			final int i_17_ = this.trimWidth << 3;
-			i_15_ = (i_17_ & 0xf) + (i_15_ << 4);
-			final int i_18_ = this.trimHeight << 3;
-			i = (i_18_ & 0xf) + (i << 4);
-			if (i_13_ != -99) {
-				this.trimWidth = -99;
-			}
-			method1589(i_17_, i_18_, i_15_, i, i_14_, i_16_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uj.OA(").append(i).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
-		}
+	final void method1590(int i, final int i_14_, int i_15_, final int i_16_) {
+		final int i_17_ = this.trimWidth << 3;
+		i_15_ = (i_17_ & 0xf) + (i_15_ << 4);
+		final int i_18_ = this.trimHeight << 3;
+		i = (i_18_ & 0xf) + (i << 4);
+		method1589(i_17_, i_18_, i_15_, i, i_14_, i_16_);
 	}
 
 	abstract void method1591(int i, int i_19_);
@@ -61,23 +54,24 @@ abstract class AbstractSprite extends NodeSub {
 		/* empty */
 	}
 
-	static final void method1593(boolean bool, final int i_21_, final int i_22_, final int i_23_) {
+	static final void method1593(final int newDisplayMode, final int width, final int height, boolean canvasReplaceRecommended) {
 		boolean bool_24_ = false;
 		Class15.aLong98 = 0L;
-		final int i_25_ = Class120_Sub12_Sub4.getDisplayMode();
-		if (i_25_ > 0 == i_21_ <= 0) {
+		final int currentDisplayMode = Class120_Sub12_Sub4.getDisplayMode();
+		System.out.println("currentDisplayMode is "+currentDisplayMode+", wanted "+newDisplayMode);
+		if (currentDisplayMode > 0 == newDisplayMode <= 0) {
 			bool_24_ = true;
 		}
-		if (i_21_ == 3 || i_25_ == 3) {
-			bool = true;
+		if (newDisplayMode == 3 || currentDisplayMode == 3) {
+			canvasReplaceRecommended = true;
 		}
-		if (Signlink.osName.startsWith("mac") && i_21_ > 0) {
-			bool = true;
+		if (Signlink.osName.startsWith("mac") && newDisplayMode > 0) {
+			canvasReplaceRecommended = true;
 		}
-		if (bool && i_21_ > 0) {
+		if (canvasReplaceRecommended && newDisplayMode > 0) {
 			bool_24_ = true;
 		}
-		AbstractIndexedSprite.method908(i_22_, i_25_, bool, i_23_, i_21_, bool_24_);
+		AbstractIndexedSprite.method908(newDisplayMode, width, height, currentDisplayMode, canvasReplaceRecommended, bool_24_);
 	}
 
 	abstract void method1594(int i, int i_26_, int i_27_);

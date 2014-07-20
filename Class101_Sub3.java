@@ -53,7 +53,7 @@ final class Class101_Sub3 extends Class101 {
 		try {
 			int i_11_ = -1;
 			if (i == 2047) {
-				for (/**/; Class83.localPlayerCount > i_11_; i_11_++) {
+				for (/**/; FileSystemWorker.localPlayerCount > i_11_; i_11_++) {
 					int i_12_;
 					if ((i_11_ ^ 0xffffffff) == 0) {
 						i_12_ = 2047;

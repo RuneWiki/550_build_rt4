@@ -24,10 +24,10 @@ final class Player extends GameEntity {
 
 	final void decodeAppearance(final Buffer buffer) {
 		buffer.pos = 0;
-		int i_0_ = -1;
+		int newNpcId = -1;
 		final int i_1_ = buffer.getUByte();
 		final boolean bool = (0x4 & i_1_) != 0;
-		final int i_2_ = i_1_ & 0x1;
+		final int isFemale = i_1_ & 0x1;
 		final int i_3_ = super.getSize();
 		setSize(1 + ((0x3e & i_1_) >> 3));
 		titleId = (byte) (i_1_ >> 6 & 0x3);
@@ -45,7 +45,7 @@ final class Player extends GameEntity {
 				final int i_6_ = buffer.getUByte();
 				int i_7_ = (i_5_ << 8) - -i_6_;
 				if (i_4_ == 0 && 65535 == i_7_) {
-					i_0_ = buffer.getUShort();
+					newNpcId = buffer.getUShort();
 					this.team = buffer.getUByte();
 					break;
 				}
@@ -61,13 +61,13 @@ final class Player extends GameEntity {
 				}
 			}
 		}
-		final int[] is_9_ = new int[5];
-		for (int i_10_ = 0; i_10_ < 5; i_10_++) {
-			int i_11_ = buffer.getUByte();
-			if (i_11_ < 0 || Class159.aShortArrayArray1489[i_10_].length <= i_11_) {
-				i_11_ = 0;
+		final int[] colors = new int[5];
+		for (int id = 0; id < 5; id++) {
+			int color = buffer.getUByte();
+			if (color < 0 || color >= Class159.aShortArrayArray1489[id].length) {
+				color = 0;
 			}
-			is_9_[i_10_] = i_11_;
+			colors[id] = color;
 		}
 		this.anInt2982 = buffer.getUShort();
 		final long l = buffer.getLong();
@@ -107,9 +107,9 @@ final class Player extends GameEntity {
 		if (this.appearance == null) {
 			this.appearance = new PlayerAppearance();
 		}
-		final int i_18_ = this.appearance.npcId;
-		this.appearance.method2042(i_0_, is, this.anInt2982, is_9_, i_2_ == 1);
-		if (i_0_ != i_18_) {
+		final int thisNpcId = this.appearance.npcId;
+		this.appearance.method2042(newNpcId, is, this.anInt2982, colors, isFemale == 1);
+		if (newNpcId != thisNpcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
 		}

@@ -38,7 +38,7 @@ final class Class73 {
 	static ObjectCache recentUse = new ObjectCache(128);
 	static int[] anIntArray661;
 	static int fps;
-	static Class193 aClass193_663;
+	static SeekableFile aClass193_663;
 	static int[] anIntArray664;
 	static int mapdotsId;
 
@@ -53,7 +53,7 @@ final class Class73 {
 			if (i != -46) {
 				method649((byte) 90);
 			}
-			CollisionMap.method218(1, -1 + ls.length, ls, 0, is);
+			CollisionMap.method218(-1 + ls.length, ls, 0, is);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.E(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(ls != null ? "{...}" : "null").append(')').toString());
 		}
@@ -69,17 +69,11 @@ final class Class73 {
 		}
 	}
 
-	static final String method644(final int i, final int i_1_) {
-		String string;
-		try {
-			if (i < i_1_) {
-				return Integer.toString(i);
-			}
-			string = "*";
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ho.D(").append(i).append(',').append(i_1_).append(')').toString());
+	static final String method644(final int amount) {
+		if (amount < 999999999) {
+			return Integer.toString(amount);
 		}
-		return string;
+		return "*";
 	}
 
 	final LDIndexedSprite constructSprite() {
@@ -254,7 +248,7 @@ final class Class73 {
 			anIntArray664 = null;
 			anIntArray661 = null;
 			if (i != -41) {
-				method644(-111, 123);
+				method644(-111);
 			}
 			aClass105_653 = null;
 		} catch (final RuntimeException runtimeexception) {

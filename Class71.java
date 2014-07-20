@@ -12,7 +12,7 @@ final class Class71 {
 		try {
 			aString624 = null;
 			if (i > -1) {
-				method639(null);
+				unpack(null);
 			}
 			anIntArray627 = null;
 			aString626 = null;
@@ -21,7 +21,7 @@ final class Class71 {
 		}
 	}
 
-	static final byte[] method639(final byte[] is) {
+	static final byte[] unpack(final byte[] is) {
 		final Buffer class120_sub7 = new Buffer(is);
 		final int i = class120_sub7.getUByte();
 		final int i_1_ = class120_sub7.getInt();

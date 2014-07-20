@@ -438,7 +438,7 @@ final class Class120_Sub21 extends Node {
 									}
 								} else if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
 									if (Class186.menuOptionCount > 0) {
-										Class191.method2508((byte) -125);
+										Class191.method2508();
 									}
 								} else {
 									Class120_Sub12_Sub28.determineMenuSize();
@@ -536,7 +536,7 @@ final class Class120_Sub21 extends Node {
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 										Class120_Sub14_Sub22.crossState = 1;
 										Class120_Sub12_Sub7.crossIndex = 0;
-										Class120_Sub14_Sub5.method1440(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
+										Class120_Sub14_Sub5.setFlagPosition(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
 									}
 								} else {
 									if (ObjectCache.anInt122 != -1) {

@@ -307,7 +307,7 @@ final class Light {
 		this.aFloatArray377 = new float[4];
 		this.aBoolean385 = false;
 		if (JavaObject.anIntArray3916 == null) {
-			Class120_Sub14_Sub14_Sub2.method1550(1);
+			Js5Request.method1550(1);
 		}
 		method348(-40);
 	}
@@ -316,7 +316,7 @@ final class Light {
 		this.aFloatArray377 = new float[4];
 		this.aBoolean385 = false;
 		if (JavaObject.anIntArray3916 == null) {
-			Class120_Sub14_Sub14_Sub2.method1550(1);
+			Js5Request.method1550(1);
 		}
 		this.anInt384 = class120_sub7.getUByte();
 		this.aBoolean371 = (0x10 & this.anInt384) != 0;

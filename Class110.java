@@ -144,19 +144,10 @@ final class Class110 {
 		return i_9_;
 	}
 
-	static final Class22 method980(final int i, final Buffer class120_sub7) {
-		Class22 class22;
-		try {
-			final Class22 class22_11_ = new Class22();
-			class22_11_.anInt129 = class120_sub7.getUShort();
-			if (i <= 71) {
-				method980(-65, null);
-			}
-			class22_11_.aClass120_Sub14_Sub10_128 = Class121.method1837(class22_11_.anInt129, true);
-			class22 = class22_11_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("me.C(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
-		}
-		return class22;
+	static final Class22 method980(final Buffer bufer) {
+		final Class22 class22_11_ = new Class22();
+		class22_11_.anInt129 = bufer.getUShort();
+		class22_11_.aClass120_Sub14_Sub10_128 = Class121.method1837(class22_11_.anInt129, true);
+		return class22_11_;
 	}
 }

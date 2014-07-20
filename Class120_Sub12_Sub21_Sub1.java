@@ -30,7 +30,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				final int i_3_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) - GameEntity.currentBaseX;
 				final int i_4_ = 64 * (0xff & Class120_Sub12_Sub36.anIntArray3417[i_1_]) - Class181.currentBaseZ;
 				Class120_Sub2.method1050();
-				CollisionMap.method222(bool, is_2_, -127, i_4_, i_3_, Class182.collisionMaps);
+				CollisionMap.method222(bool, is_2_, i_4_, i_3_, Class182.collisionMaps);
 			}
 		}
 	}

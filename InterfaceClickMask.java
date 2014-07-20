@@ -202,7 +202,7 @@ final class InterfaceClickMask extends Node {
 	}
 
 	static final void method1693() {
-		Class120_Sub14_Sub14_Sub2.aClass21_3937.clear();
+		Js5Request.aClass21_3937.clear();
 		Class132.aClass21_1255.clear();
 	}
 

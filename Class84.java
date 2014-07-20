@@ -41,7 +41,7 @@ final class Class84 {
 			if (i != -12) {
 				aString799 = null;
 			}
-			for (Class120_Sub14_Sub1 class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.getFront(); class120_sub14_sub1 != null; class120_sub14_sub1 = (Class120_Sub14_Sub1) Class120_Sub14_Sub14_Sub1.aClass105_3928.getNext()) {
+			for (Class120_Sub14_Sub1 class120_sub14_sub1 = (Class120_Sub14_Sub1) FileSystemRequest.aClass105_3928.getFront(); class120_sub14_sub1 != null; class120_sub14_sub1 = (Class120_Sub14_Sub1) FileSystemRequest.aClass105_3928.getNext()) {
 				final Projectile class180_sub4 = class120_sub14_sub1.aClass180_Sub4_3446;
 				if (class180_sub4.anInt2934 != Class173.gameLevel || Class101_Sub2.loopCycle > class180_sub4.anInt2922) {
 					class120_sub14_sub1.unlink();

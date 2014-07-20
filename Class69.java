@@ -17,14 +17,14 @@ class Class69 {
 
 	static final void method612(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
 		Class120_Sub12_Sub19.textCount = 0;
-		for (int id = -1; Class148.localNpcCount + Class83.localPlayerCount > id; id++) {
+		for (int id = -1; Class148.localNpcCount + FileSystemWorker.localPlayerCount > id; id++) {
 			GameEntity entity;
 			if (id == -1) {
 				entity = Class100.selfPlayer;
-			} else if (id < Class83.localPlayerCount) {
+			} else if (id < FileSystemWorker.localPlayerCount) {
 				entity = Class118.playersList[Class112.playerIndices[id]];
 			} else {
-				entity = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id - Class83.localPlayerCount]];
+				entity = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id - FileSystemWorker.localPlayerCount]];
 			}
 			if (entity != null && entity.isVisible()) {
 				if (entity instanceof Npc) {
@@ -36,12 +36,12 @@ class Class69 {
 						continue;
 					}
 				}
-				if (id >= Class83.localPlayerCount) {
+				if (id >= FileSystemWorker.localPlayerCount) {
 					NpcType npcType = ((Npc) entity).npcType;
 					if (npcType.childrenIDs != null) {
 						npcType = npcType.handleVarp();
 					}
-					if (npcType.headIcon >= 0 && npcType.headIcon < Class120_Sub14_Sub14_Sub1.prayerIconSprites.length) {
+					if (npcType.headIcon >= 0 && npcType.headIcon < FileSystemRequest.prayerIconSprites.length) {
 						int y;
 						if (npcType.iconHeight == -1) {
 							y = entity.getHeight() + 15;
@@ -50,7 +50,7 @@ class Class69 {
 						}
 						OverlayType.method1903(entity, i_1_ >> 1, i_2_, i_0_, i_3_ >> 1, y);
 						if (Class120_Sub12_Sub38.anInt3434 > -1) {
-							Class120_Sub14_Sub14_Sub1.prayerIconSprites[npcType.headIcon].method1587(i - (-Class120_Sub12_Sub38.anInt3434 - -12), i_4_ + Class120_Sub15.anInt2588 - 30);
+							FileSystemRequest.prayerIconSprites[npcType.headIcon].method1587(i - (-Class120_Sub12_Sub38.anInt3434 - -12), i_4_ + Class120_Sub15.anInt2588 - 30);
 						}
 					}
 					final HintIcon[] class85s = Class187.hintIcons;
@@ -58,7 +58,7 @@ class Class69 {
 					final int i_9_ = (class85s_10_ = class85s).length;
 					for (int i_11_ = 0; i_11_ < i_9_; i_11_++) {
 						final HintIcon hintIcon = class85s_10_[i_11_];
-						if (hintIcon != null && hintIcon.targetType == 1 && hintIcon.targetIndex == Class120_Sub12_Sub36.localNpcIndices[id - Class83.localPlayerCount] && Class101_Sub2.loopCycle % 20 < 10) {
+						if (hintIcon != null && hintIcon.targetType == 1 && hintIcon.targetIndex == Class120_Sub12_Sub36.localNpcIndices[id - FileSystemWorker.localPlayerCount] && Class101_Sub2.loopCycle % 20 < 10) {
 							int i_12_;
 							if (npcType.iconHeight == -1) {
 								i_12_ = entity.getHeight() + 15;
@@ -82,7 +82,7 @@ class Class69 {
 								i_13_ += 25;
 							}
 							if (player.anInt3746 != -1) {
-								Class120_Sub14_Sub14_Sub1.prayerIconSprites[player.anInt3746].method1587(Class120_Sub12_Sub38.anInt3434 + i - 12, -i_13_ + i_4_ + Class120_Sub15.anInt2588);
+								FileSystemRequest.prayerIconSprites[player.anInt3746].method1587(Class120_Sub12_Sub38.anInt3434 + i - 12, -i_13_ + i_4_ + Class120_Sub15.anInt2588);
 								i_13_ += 25;
 							}
 						}
@@ -99,7 +99,7 @@ class Class69 {
 						}
 					}
 				}
-				if (entity.textSpoken != null && (id >= Class83.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.method875(-111, ((Player) entity).name))) {
+				if (entity.textSpoken != null && (id >= FileSystemWorker.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.method875(-111, ((Player) entity).name))) {
 					OverlayType.method1903(entity, i_1_ >> 1, i_2_, i_0_, i_3_ >> 1, entity.getHeight());
 					if (Class120_Sub12_Sub38.anInt3434 > -1 && Class120_Sub12_Sub19.textCount < AbstractGraphicsBuffer.anInt1166) {
 						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.method1459(entity.textSpoken) / 2;

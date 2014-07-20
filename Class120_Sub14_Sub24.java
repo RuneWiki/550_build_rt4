@@ -40,7 +40,7 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 	}
 
 	static final void updateEntityText() {
-		for (int id = -1; id < Class83.localPlayerCount; id++) {
+		for (int id = -1; id < FileSystemWorker.localPlayerCount; id++) {
 			int index;
 			if (id == -1) {
 				index = 2047;

@@ -99,7 +99,7 @@ final class Class127 {
 	static final void method1891(final int i, final int i_6_, final int i_7_, final int i_8_, final boolean bool, final js5 js5) {
 		try {
 			SeqType.anInt349 = i_7_;
-			Class120_Sub14_Sub14_Sub2.anInt3940 = i;
+			Js5Request.anInt3940 = i;
 			Class69.anInt614 = 10000;
 			Class120_Sub14_Sub23.anInt3649 = i_8_;
 			Class52.aClass50_476 = js5;

@@ -47,8 +47,6 @@ final class Decimator {
 		}
 		return i_3_;
 	}
-	
-	static ParticleEngine particleTest;
 
 	static final void method2219(final long l) {
 		if (client.cameraType == 1 || client.cameraType == 5) {
@@ -77,13 +75,6 @@ final class Decimator {
 			Class186.menuOptionCount = 1;
 			InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 		}
-		/*ParticleEngine.aBoolean2362 = true;
-		if (particleTest == null || Class101_Sub2.loopCycle % 100L == 0L) {
-			particleTest = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
-		}
-		if (particleTest != null) {
-			//particleTest.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
-		}*/
 		ParticleEngine.process(Class101_Sub2.loopCycle);
 		if (Class69.rootInterfaceId != -1) {
 			AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
@@ -97,7 +88,7 @@ final class Decimator {
 		}
 		Class69_Sub3_Sub1.aClass189_3080 = null;
 		Class84.anInt796 = Class101_Sub2.loopCycle;
-		Class56.anInt497 = -1;
+		LookupTable.anInt497 = -1;
 		StructType.anInt3590 = -1;
 		StructType.aClass189_3588 = null;
 		if (HDToolkit.glEnabled) {
@@ -105,7 +96,7 @@ final class Decimator {
 		}
 		if (Class69.rootInterfaceId != -1) {
 			LabelGroup.screenRedrawPos = 0;
-			Class56.method486();
+			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.method597();
@@ -120,8 +111,8 @@ final class Decimator {
 				FileSystem.drawMenu();
 			}
 		} else if (Class69_Sub3_Sub1.aClass189_3080 == null) {
-			if (Class56.anInt497 != -1) {
-				Class86.method728(null, Class56.anInt497, StructType.anInt3590);
+			if (LookupTable.anInt497 != -1) {
+				Class86.method728(null, LookupTable.anInt497, StructType.anInt3590);
 			}
 		} else {
 			Class86.method728(Class69_Sub3_Sub1.aClass189_3080, Class9.anInt68, Class90.anInt847);
@@ -158,49 +149,40 @@ final class Decimator {
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
-	final byte[] method2220(final byte i, byte[] is) {
-		byte[] is_7_;
-		try {
-			if (i > -53) {
-				anInt1716 = -25;
-			}
-			if (anIntArrayArray1719 != null) {
-				final int i_8_ = (int) ((long) anInt1717 * (long) is.length / anInt1718) - -14;
-				int i_9_ = 0;
-				final int[] is_10_ = new int[i_8_];
-				int i_11_ = 0;
-				byte[] is_13_;
-				final int i_12_ = (is_13_ = is).length;
-				for (int i_14_ = 0; i_14_ < i_12_; i_14_++) {
-					final int i_15_ = is_13_[i_14_];
-					final int[] is_16_ = anIntArrayArray1719[i_11_];
-					for (int i_17_ = 0; i_17_ < 14; i_17_++) {
-						is_10_[i_9_ + i_17_] += is_16_[i_17_] * i_15_;
-					}
-					i_11_ += anInt1717;
-					final int i_18_ = i_11_ / anInt1718;
-					i_9_ += i_18_;
-					i_11_ -= anInt1718 * i_18_;
+	final byte[] method2220(byte[] is) {
+		if (anIntArrayArray1719 != null) {
+			final int i_8_ = (int) ((long) anInt1717 * (long) is.length / anInt1718) - -14;
+			int i_9_ = 0;
+			final int[] is_10_ = new int[i_8_];
+			int i_11_ = 0;
+			byte[] is_13_;
+			final int i_12_ = (is_13_ = is).length;
+			for (int i_14_ = 0; i_14_ < i_12_; i_14_++) {
+				final int i_15_ = is_13_[i_14_];
+				final int[] is_16_ = anIntArrayArray1719[i_11_];
+				for (int i_17_ = 0; i_17_ < 14; i_17_++) {
+					is_10_[i_9_ + i_17_] += is_16_[i_17_] * i_15_;
 				}
-				is = new byte[i_8_];
-				for (int i_19_ = 0; i_8_ > i_19_; i_19_++) {
-					final int i_20_ = 32768 + is_10_[i_19_] >> 16;
-					if (i_20_ >= -128) {
-						if (i_20_ > 127) {
-							is[i_19_] = (byte) 127;
-						} else {
-							is[i_19_] = (byte) i_20_;
-						}
+				i_11_ += anInt1717;
+				final int i_18_ = i_11_ / anInt1718;
+				i_9_ += i_18_;
+				i_11_ -= anInt1718 * i_18_;
+			}
+			is = new byte[i_8_];
+			for (int i_19_ = 0; i_8_ > i_19_; i_19_++) {
+				final int i_20_ = 32768 + is_10_[i_19_] >> 16;
+				if (i_20_ >= -128) {
+					if (i_20_ > 127) {
+						is[i_19_] = (byte) 127;
 					} else {
-						is[i_19_] = (byte) -128;
+						is[i_19_] = (byte) i_20_;
 					}
+				} else {
+					is[i_19_] = (byte) -128;
 				}
 			}
-			is_7_ = is;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
-		return is_7_;
+		return is;
 	}
 
 	static final void method2221(final boolean bool) {
@@ -264,22 +246,15 @@ final class Decimator {
 		}
 	}
 
-	static final void method2223(final int i) {
-		try {
-			if (i != -12937) {
-				method2224(null, (byte) 20, 17, 17, 52);
+	static final void method2223() {
+		for (int id = 0; id < Class154.anInt1441; id++) {
+			final int index = Class169.anIntArray1648[id];
+			final Player player = Class118.playersList[index];
+			int mask = Canvas_Sub1.inputStream.getUByte();
+			if ((mask & 0x80) != 0) {
+				mask += Canvas_Sub1.inputStream.getUByte() << 8;
 			}
-			for (int i_29_ = 0; Class154.anInt1441 > i_29_; i_29_++) {
-				final int i_30_ = Class169.anIntArray1648[i_29_];
-				final Player class180_sub5_sub1 = Class118.playersList[i_30_];
-				int i_31_ = Canvas_Sub1.inputStream.getUByte();
-				if ((i_31_ & 0x80) != 0) {
-					i_31_ += Canvas_Sub1.inputStream.getUByte() << 8;
-				}
-				Class120_Sub22.method1701(i_30_, i_31_, -20, class180_sub5_sub1);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.C(").append(i).append(')').toString());
+			Class120_Sub22.method1701(player, mask, index);
 		}
 	}
 

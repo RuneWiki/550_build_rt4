@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		if (Class10.aClass193_78 != null) {
 			try {
 				Class10.aClass193_78.seek(0L);
-				Class10.aClass193_78.method2527(0, is);
+				Class10.aClass193_78.read(is);
 				int i_0_;
 				for (i_0_ = 0; i_0_ < 24 && is[i_0_] == 0; i_0_++) {
 					/* empty */
@@ -115,7 +115,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		}
 		GroundObjectNode.renderZ = pRenderZ - i_24_;
 		Class120_Sub12_Sub10.renderY = tileHeight - i_21_;
-		Class83.renderX = pRenderX - i_23_;
+		FileSystemWorker.renderX = pRenderX - i_23_;
 		Class180_Sub3.renderYaw = yaw;
 		OverlayType.renderPitch = pitch;
 	}

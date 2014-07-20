@@ -25,154 +25,145 @@ class Class143 implements Interface3 {
 		return is;
 	}
 
-	static final void method2013(final int i, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
-		try {
-			for (int i_12_ = 0; i_12_ < 104; i_12_++) {
-				for (int i_13_ = 0; i_13_ < 104; i_13_++) {
-					Class179.anIntArrayArray1774[i_12_][i_13_] = 0;
-					Class120_Sub2.anIntArrayArray2416[i_12_][i_13_] = 99999999;
-				}
+	static final void method2013(final int i, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final int i_9_, final int i_10_, final int i_11_) {
+		for (int i_12_ = 0; i_12_ < 104; i_12_++) {
+			for (int i_13_ = 0; i_13_ < 104; i_13_++) {
+				Class179.anIntArrayArray1774[i_12_][i_13_] = 0;
+				Class120_Sub2.anIntArrayArray2416[i_12_][i_13_] = 99999999;
 			}
-			int i_14_ = i_4_;
-			Class179.anIntArrayArray1774[i_6_][i_4_] = 99;
-			Class120_Sub2.anIntArrayArray2416[i_6_][i_4_] = 0;
-			int i_15_ = i_6_;
-			int i_16_ = 0;
-			int i_17_ = 0;
-			boolean bool_18_ = false;
-			Class150.anIntArray1412[i_17_] = i_6_;
-			Class120_Sub12.anIntArray2565[i_17_++] = i_4_;
-			if (i_8_ != -1) {
-				selectString = null;
+		}
+		int i_14_ = i_4_;
+		Class179.anIntArrayArray1774[i_6_][i_4_] = 99;
+		Class120_Sub2.anIntArrayArray2416[i_6_][i_4_] = 0;
+		int i_15_ = i_6_;
+		int i_16_ = 0;
+		int i_17_ = 0;
+		boolean bool_18_ = false;
+		Class150.anIntArray1412[i_17_] = i_6_;
+		Class120_Sub12.anIntArray2565[i_17_++] = i_4_;
+		final int[][] is = Class182.collisionMaps[Class173.gameLevel].collisionFlags;
+		while (i_17_ != i_16_) {
+			i_15_ = Class150.anIntArray1412[i_16_];
+			i_14_ = Class120_Sub12.anIntArray2565[i_16_];
+			i_16_ = 0xfff & i_16_ + 1;
+			if (i == i_15_ && i_14_ == i_7_) {
+				bool_18_ = true;
+				break;
 			}
-			final int[][] is = Class182.collisionMaps[Class173.gameLevel].anIntArrayArray152;
-			while (i_17_ != i_16_) {
-				i_15_ = Class150.anIntArray1412[i_16_];
-				i_14_ = Class120_Sub12.anIntArray2565[i_16_];
-				i_16_ = 0xfff & i_16_ + 1;
-				if (i == i_15_ && i_14_ == i_7_) {
+			if (i_5_ != 0) {
+				if ((i_5_ < 5 || i_5_ == 10) && Class182.collisionMaps[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, i, 2, i_5_ + -1)) {
 					bool_18_ = true;
 					break;
 				}
-				if (i_5_ != 0) {
-					if ((i_5_ < 5 || i_5_ == 10) && Class182.collisionMaps[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, (byte) -93, i, 2, i_5_ + -1)) {
-						bool_18_ = true;
-						break;
-					}
-					if (i_5_ < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i, i_15_, i_7_, 1024, i_14_, i_5_ - 1, i_9_, 2)) {
-						bool_18_ = true;
-						break;
-					}
-				}
-				if (i_3_ != 0 && i_11_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
+				if (i_5_ < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i, i_15_, i_7_, i_14_, i_5_ - 1, i_9_, 2)) {
 					bool_18_ = true;
 					break;
 				}
-				final int i_19_ = 1 + Class120_Sub2.anIntArrayArray2416[i_15_][i_14_];
-				if (i_15_ > 0 && Class179.anIntArrayArray1774[i_15_ - 1][i_14_] == 0 && (is[i_15_ + -1][i_14_] & 0x2c010e) == 0 && (0x2c0138 & is[i_15_ - 1][i_14_ - -1]) == 0) {
-					Class150.anIntArray1412[i_17_] = i_15_ - 1;
-					Class120_Sub12.anIntArray2565[i_17_] = i_14_;
-					Class179.anIntArrayArray1774[i_15_ - 1][i_14_] = 2;
-					Class120_Sub2.anIntArrayArray2416[i_15_ - 1][i_14_] = i_19_;
-					i_17_ = 0xfff & 1 + i_17_;
-				}
-				if (i_15_ < 102 && Class179.anIntArrayArray1774[1 + i_15_][i_14_] == 0 && (is[2 + i_15_][i_14_] & 0x2c0183) == 0 && (is[i_15_ - -2][1 + i_14_] & 0x2c01e0) == 0) {
-					Class150.anIntArray1412[i_17_] = i_15_ - -1;
-					Class120_Sub12.anIntArray2565[i_17_] = i_14_;
-					Class179.anIntArrayArray1774[i_15_ + 1][i_14_] = 8;
-					i_17_ = 0xfff & 1 + i_17_;
-					Class120_Sub2.anIntArrayArray2416[i_15_ - -1][i_14_] = i_19_;
-				}
-				if (i_14_ > 0 && Class179.anIntArrayArray1774[i_15_][-1 + i_14_] == 0 && (0x2c010e & is[i_15_][-1 + i_14_]) == 0 && (0x2c0183 & is[i_15_ - -1][-1 + i_14_]) == 0) {
-					Class150.anIntArray1412[i_17_] = i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = -1 + i_14_;
-					Class179.anIntArrayArray1774[i_15_][-1 + i_14_] = 1;
-					i_17_ = i_17_ - -1 & 0xfff;
-					Class120_Sub2.anIntArrayArray2416[i_15_][i_14_ - 1] = i_19_;
-				}
-				if (i_14_ < 102 && Class179.anIntArrayArray1774[i_15_][i_14_ + 1] == 0 && (is[i_15_][i_14_ + 2] & 0x2c0138) == 0 && (is[1 + i_15_][2 + i_14_] & 0x2c01e0) == 0) {
-					Class150.anIntArray1412[i_17_] = i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = 1 + i_14_;
-					i_17_ = 0xfff & i_17_ + 1;
-					Class179.anIntArrayArray1774[i_15_][i_14_ + 1] = 4;
-					Class120_Sub2.anIntArrayArray2416[i_15_][i_14_ + 1] = i_19_;
-				}
-				if (i_15_ > 0 && i_14_ > 0 && Class179.anIntArrayArray1774[-1 + i_15_][i_14_ + -1] == 0 && (0x2c013e & is[-1 + i_15_][i_14_]) == 0 && (is[-1 + i_15_][-1 + i_14_] & 0x2c010e) == 0 && (is[i_15_][-1 + i_14_] & 0x2c018f) == 0) {
-					Class150.anIntArray1412[i_17_] = -1 + i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = i_14_ + -1;
-					i_17_ = 0xfff & i_17_ - -1;
-					Class179.anIntArrayArray1774[i_15_ - 1][-1 + i_14_] = 3;
-					Class120_Sub2.anIntArrayArray2416[-1 + i_15_][i_14_ + -1] = i_19_;
-				}
-				if (i_15_ < 102 && i_14_ > 0 && Class179.anIntArrayArray1774[i_15_ + 1][-1 + i_14_] == 0 && (0x2c018f & is[1 + i_15_][i_14_ - 1]) == 0 && (0x2c0183 & is[i_15_ - -2][i_14_ - 1]) == 0 && (is[2 + i_15_][i_14_] & 0x2c01e3) == 0) {
-					Class150.anIntArray1412[i_17_] = 1 + i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = -1 + i_14_;
-					i_17_ = 1 + i_17_ & 0xfff;
-					Class179.anIntArrayArray1774[1 + i_15_][-1 + i_14_] = 9;
-					Class120_Sub2.anIntArrayArray2416[i_15_ + 1][i_14_ - 1] = i_19_;
-				}
-				if (i_15_ > 0 && i_14_ < 102 && Class179.anIntArrayArray1774[-1 + i_15_][i_14_ + 1] == 0 && (0x2c013e & is[i_15_ - 1][1 + i_14_]) == 0 && (0x2c0138 & is[-1 + i_15_][i_14_ - -2]) == 0 && (0x2c01f8 & is[i_15_][i_14_ + 2]) == 0) {
-					Class150.anIntArray1412[i_17_] = -1 + i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = i_14_ + 1;
-					i_17_ = 0xfff & 1 + i_17_;
-					Class179.anIntArrayArray1774[-1 + i_15_][i_14_ - -1] = 6;
-					Class120_Sub2.anIntArrayArray2416[-1 + i_15_][i_14_ - -1] = i_19_;
-				}
-				if (i_15_ < 102 && i_14_ < 102 && Class179.anIntArrayArray1774[1 + i_15_][i_14_ + 1] == 0 && (0x2c01f8 & is[1 + i_15_][2 + i_14_]) == 0 && (is[2 + i_15_][i_14_ + 2] & 0x2c01e0) == 0 && (0x2c01e3 & is[i_15_ - -2][i_14_ + 1]) == 0) {
-					Class150.anIntArray1412[i_17_] = 1 + i_15_;
-					Class120_Sub12.anIntArray2565[i_17_] = i_14_ + 1;
-					i_17_ = 0xfff & i_17_ - -1;
-					Class179.anIntArrayArray1774[1 + i_15_][i_14_ + 1] = 12;
-					Class120_Sub2.anIntArrayArray2416[1 + i_15_][i_14_ + 1] = i_19_;
-				}
 			}
-			if (!bool_18_) {
-				if (!bool) {
-					return;
-				}
-				int i_20_ = 1000;
-				int i_21_ = 100;
-				for (int i_23_ = i - 10; i_23_ <= 10 + i; i_23_++) {
-					for (int i_24_ = -10 + i_7_; i_7_ + 10 >= i_24_; i_24_++) {
-						if (i_23_ >= 0 && i_24_ >= 0 && i_23_ < 104 && i_24_ < 104 && Class120_Sub2.anIntArrayArray2416[i_23_][i_24_] < 100) {
-							int i_25_ = 0;
-							int i_26_ = 0;
-							if (i <= i_23_) {
-								if (i_3_ + i + -1 < i_23_) {
-									i_25_ = i_23_ - (i_3_ + i - 1);
-								}
-							} else {
-								i_25_ = i + -i_23_;
+			if (i_3_ != 0 && i_11_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
+				bool_18_ = true;
+				break;
+			}
+			final int i_19_ = 1 + Class120_Sub2.anIntArrayArray2416[i_15_][i_14_];
+			if (i_15_ > 0 && Class179.anIntArrayArray1774[i_15_ - 1][i_14_] == 0 && (is[i_15_ + -1][i_14_] & 0x2c010e) == 0 && (0x2c0138 & is[i_15_ - 1][i_14_ - -1]) == 0) {
+				Class150.anIntArray1412[i_17_] = i_15_ - 1;
+				Class120_Sub12.anIntArray2565[i_17_] = i_14_;
+				Class179.anIntArrayArray1774[i_15_ - 1][i_14_] = 2;
+				Class120_Sub2.anIntArrayArray2416[i_15_ - 1][i_14_] = i_19_;
+				i_17_ = 0xfff & 1 + i_17_;
+			}
+			if (i_15_ < 102 && Class179.anIntArrayArray1774[1 + i_15_][i_14_] == 0 && (is[2 + i_15_][i_14_] & 0x2c0183) == 0 && (is[i_15_ - -2][1 + i_14_] & 0x2c01e0) == 0) {
+				Class150.anIntArray1412[i_17_] = i_15_ - -1;
+				Class120_Sub12.anIntArray2565[i_17_] = i_14_;
+				Class179.anIntArrayArray1774[i_15_ + 1][i_14_] = 8;
+				i_17_ = 0xfff & 1 + i_17_;
+				Class120_Sub2.anIntArrayArray2416[i_15_ - -1][i_14_] = i_19_;
+			}
+			if (i_14_ > 0 && Class179.anIntArrayArray1774[i_15_][-1 + i_14_] == 0 && (0x2c010e & is[i_15_][-1 + i_14_]) == 0 && (0x2c0183 & is[i_15_ - -1][-1 + i_14_]) == 0) {
+				Class150.anIntArray1412[i_17_] = i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = -1 + i_14_;
+				Class179.anIntArrayArray1774[i_15_][-1 + i_14_] = 1;
+				i_17_ = i_17_ - -1 & 0xfff;
+				Class120_Sub2.anIntArrayArray2416[i_15_][i_14_ - 1] = i_19_;
+			}
+			if (i_14_ < 102 && Class179.anIntArrayArray1774[i_15_][i_14_ + 1] == 0 && (is[i_15_][i_14_ + 2] & 0x2c0138) == 0 && (is[1 + i_15_][2 + i_14_] & 0x2c01e0) == 0) {
+				Class150.anIntArray1412[i_17_] = i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = 1 + i_14_;
+				i_17_ = 0xfff & i_17_ + 1;
+				Class179.anIntArrayArray1774[i_15_][i_14_ + 1] = 4;
+				Class120_Sub2.anIntArrayArray2416[i_15_][i_14_ + 1] = i_19_;
+			}
+			if (i_15_ > 0 && i_14_ > 0 && Class179.anIntArrayArray1774[-1 + i_15_][i_14_ + -1] == 0 && (0x2c013e & is[-1 + i_15_][i_14_]) == 0 && (is[-1 + i_15_][-1 + i_14_] & 0x2c010e) == 0 && (is[i_15_][-1 + i_14_] & 0x2c018f) == 0) {
+				Class150.anIntArray1412[i_17_] = -1 + i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = i_14_ + -1;
+				i_17_ = 0xfff & i_17_ - -1;
+				Class179.anIntArrayArray1774[i_15_ - 1][-1 + i_14_] = 3;
+				Class120_Sub2.anIntArrayArray2416[-1 + i_15_][i_14_ + -1] = i_19_;
+			}
+			if (i_15_ < 102 && i_14_ > 0 && Class179.anIntArrayArray1774[i_15_ + 1][-1 + i_14_] == 0 && (0x2c018f & is[1 + i_15_][i_14_ - 1]) == 0 && (0x2c0183 & is[i_15_ - -2][i_14_ - 1]) == 0 && (is[2 + i_15_][i_14_] & 0x2c01e3) == 0) {
+				Class150.anIntArray1412[i_17_] = 1 + i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = -1 + i_14_;
+				i_17_ = 1 + i_17_ & 0xfff;
+				Class179.anIntArrayArray1774[1 + i_15_][-1 + i_14_] = 9;
+				Class120_Sub2.anIntArrayArray2416[i_15_ + 1][i_14_ - 1] = i_19_;
+			}
+			if (i_15_ > 0 && i_14_ < 102 && Class179.anIntArrayArray1774[-1 + i_15_][i_14_ + 1] == 0 && (0x2c013e & is[i_15_ - 1][1 + i_14_]) == 0 && (0x2c0138 & is[-1 + i_15_][i_14_ - -2]) == 0 && (0x2c01f8 & is[i_15_][i_14_ + 2]) == 0) {
+				Class150.anIntArray1412[i_17_] = -1 + i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = i_14_ + 1;
+				i_17_ = 0xfff & 1 + i_17_;
+				Class179.anIntArrayArray1774[-1 + i_15_][i_14_ - -1] = 6;
+				Class120_Sub2.anIntArrayArray2416[-1 + i_15_][i_14_ - -1] = i_19_;
+			}
+			if (i_15_ < 102 && i_14_ < 102 && Class179.anIntArrayArray1774[1 + i_15_][i_14_ + 1] == 0 && (0x2c01f8 & is[1 + i_15_][2 + i_14_]) == 0 && (is[2 + i_15_][i_14_ + 2] & 0x2c01e0) == 0 && (0x2c01e3 & is[i_15_ - -2][i_14_ + 1]) == 0) {
+				Class150.anIntArray1412[i_17_] = 1 + i_15_;
+				Class120_Sub12.anIntArray2565[i_17_] = i_14_ + 1;
+				i_17_ = 0xfff & i_17_ - -1;
+				Class179.anIntArrayArray1774[1 + i_15_][i_14_ + 1] = 12;
+				Class120_Sub2.anIntArrayArray2416[1 + i_15_][i_14_ + 1] = i_19_;
+			}
+		}
+		if (!bool_18_) {
+			if (!bool) {
+				return;
+			}
+			int i_20_ = 1000;
+			int i_21_ = 100;
+			for (int i_23_ = i - 10; i_23_ <= 10 + i; i_23_++) {
+				for (int i_24_ = -10 + i_7_; i_7_ + 10 >= i_24_; i_24_++) {
+					if (i_23_ >= 0 && i_24_ >= 0 && i_23_ < 104 && i_24_ < 104 && Class120_Sub2.anIntArrayArray2416[i_23_][i_24_] < 100) {
+						int i_25_ = 0;
+						int i_26_ = 0;
+						if (i <= i_23_) {
+							if (i_3_ + i + -1 < i_23_) {
+								i_25_ = i_23_ - (i_3_ + i - 1);
 							}
-							if (i_24_ >= i_7_) {
-								if (i_24_ > i_11_ + i_7_ + -1) {
-									i_26_ = i_24_ + 1 + -i_11_ + -i_7_;
-								}
-							} else {
-								i_26_ = i_7_ + -i_24_;
+						} else {
+							i_25_ = i + -i_23_;
+						}
+						if (i_24_ >= i_7_) {
+							if (i_24_ > i_11_ + i_7_ + -1) {
+								i_26_ = i_24_ + 1 + -i_11_ + -i_7_;
 							}
-							final int i_27_ = i_25_ * i_25_ + i_26_ * i_26_;
-							if (i_20_ > i_27_ || i_27_ == i_20_ && i_21_ > Class120_Sub2.anIntArrayArray2416[i_23_][i_24_]) {
-								i_21_ = Class120_Sub2.anIntArrayArray2416[i_23_][i_24_];
-								i_14_ = i_24_;
-								i_15_ = i_23_;
-								i_20_ = i_27_;
-							}
+						} else {
+							i_26_ = i_7_ + -i_24_;
+						}
+						final int i_27_ = i_25_ * i_25_ + i_26_ * i_26_;
+						if (i_20_ > i_27_ || i_27_ == i_20_ && i_21_ > Class120_Sub2.anIntArrayArray2416[i_23_][i_24_]) {
+							i_21_ = Class120_Sub2.anIntArrayArray2416[i_23_][i_24_];
+							i_14_ = i_24_;
+							i_15_ = i_23_;
+							i_20_ = i_27_;
 						}
 					}
 				}
-				if (i_20_ == 1000 || i_6_ == i_15_ && i_4_ == i_14_) {
-					return;
-				}
 			}
-			SceneGroundObject.packetSetFlagPosition = false;
-			Class120_Sub12_Sub26.flagX = i_15_;
-			Class65.flagY = i_14_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("qi.IA(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(bool).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',')
-							.append(i_11_).append(')').toString());
+			if (i_20_ == 1000 || i_6_ == i_15_ && i_4_ == i_14_) {
+				return;
+			}
 		}
+		SceneGroundObject.packetSetFlagPosition = false;
+		Class120_Sub12_Sub26.flagX = i_15_;
+		Class65.flagY = i_14_;
 	}
 
 	static final void setSettings(final String string) {
@@ -357,7 +348,7 @@ class Class143 implements Interface3 {
 		Class120_Sub14_Sub23.aString3655 = "Du kannst dich nicht auf deine eigene Freunde-Liste setzen!";
 		Class142.aString1358 = "Texturen geladen.";
 		Class69_Sub1.aString2231 = "gelb:";
-		Class120_Sub14_Sub14.aString3575 = "lila:";
+		AbstractRequest.aString3575 = "lila:";
 		Class120_Sub3.aString2424 = "Kampfstufe: ";
 		ClanMember.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}

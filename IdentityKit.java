@@ -80,7 +80,7 @@ final class IdentityKit {
 							}
 							short i_10_ = JagexInterface.aShortArray2042[i_8_];
 							i_10_ += i_9_;
-							InvType.addMenuOption(Buffer.playerOptions[i_8_], new StringBuilder("<col=ffffff>").append(string).toString(), i_1_, i_2_, i_0_, i_10_, Class120_Sub14_Sub14.playerOptionsIcon[i_8_]);
+							InvType.addMenuOption(Buffer.playerOptions[i_8_], new StringBuilder("<col=ffffff>").append(string).toString(), i_1_, i_2_, i_0_, i_10_, AbstractRequest.playerOptionsIcon[i_8_]);
 						}
 					}
 				}
@@ -151,40 +151,40 @@ final class IdentityKit {
 		return class180_sub2;
 	}
 
-	private final void decode(final Buffer buffer, final int configCode) {
-		if (configCode == 1) {
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
 			this.partId = buffer.getUByte();
 		}
-		if (configCode == 2) {
-			final int i_21_ = buffer.getUByte();
-			models = new int[i_21_];
-			for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
-				models[i_22_] = buffer.getUShort();
+		if (code == 2) {
+			final int modelLen = buffer.getUByte();
+			models = new int[modelLen];
+			for (int id = 0; id < modelLen; id++) {
+				models[id] = buffer.getUShort();
 			}
 		}
-		if (configCode == 3) {
+		if (code == 3) {
 			this.noInterface = true;
 		}
-		if (configCode == 40) {
-			final int i_23_ = buffer.getUByte();
-			modifiedModelColors = new short[i_23_];
-			originalModelColors = new short[i_23_];
-			for (int i_24_ = 0; i_23_ > i_24_; i_24_++) {
-				originalModelColors[i_24_] = (short) buffer.getUShort();
-				modifiedModelColors[i_24_] = (short) buffer.getUShort();
+		if (code == 40) {
+			final int colorLen = buffer.getUByte();
+			modifiedModelColors = new short[colorLen];
+			originalModelColors = new short[colorLen];
+			for (int id = 0; id < colorLen; id++) {
+				originalModelColors[id] = (short) buffer.getUShort();
+				modifiedModelColors[id] = (short) buffer.getUShort();
 			}
 		}
-		if (configCode == 41) {
-			final int i_25_ = buffer.getUByte();
-			modifiedModelTextures = new short[i_25_];
-			originalModelTextures = new short[i_25_];
-			for (int i_26_ = 0; i_26_ < i_25_; i_26_++) {
-				originalModelTextures[i_26_] = (short) buffer.getUShort();
-				modifiedModelTextures[i_26_] = (short) buffer.getUShort();
+		if (code == 41) {
+			final int textureLen = buffer.getUByte();
+			modifiedModelTextures = new short[textureLen];
+			originalModelTextures = new short[textureLen];
+			for (int id = 0; id < textureLen; id++) {
+				originalModelTextures[id] = (short) buffer.getUShort();
+				modifiedModelTextures[id] = (short) buffer.getUShort();
 			}
 		}
-		if (configCode >= 60 && configCode < 70) {
-			headModels[configCode - 60] = buffer.getUShort();
+		if (code >= 60 && code < 70) {
+			headModels[code - 60] = buffer.getUShort();
 		}
 	}
 
@@ -1022,14 +1022,14 @@ final class IdentityKit {
 									jagexInterface.currentFrame++;
 									if (jagexInterface.currentFrame >= seqType.frames.length) {
 										jagexInterface.currentFrame -= seqType.padding;
-										if (jagexInterface.currentFrame < 0 || seqType.frames.length <= jagexInterface.currentFrame) {
+										if (jagexInterface.currentFrame < 0 || jagexInterface.currentFrame >= seqType.frames.length) {
 											jagexInterface.currentFrame = 0;
 										}
 									}
 									jagexInterface.nextFrame = jagexInterface.currentFrame + 1;
-									if (seqType.frames.length <= jagexInterface.nextFrame) {
+									if (jagexInterface.nextFrame >= seqType.frames.length) {
 										jagexInterface.nextFrame -= seqType.padding;
-										if (jagexInterface.nextFrame < 0 || seqType.frames.length <= jagexInterface.nextFrame) {
+										if (jagexInterface.nextFrame < 0 || jagexInterface.nextFrame >= seqType.frames.length) {
 											jagexInterface.nextFrame = -1;
 										}
 									}
@@ -1054,11 +1054,11 @@ final class IdentityKit {
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
-			final int i = buffer.getUByte();
-			if (i == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, i);
+			decode(buffer, code);
 		}
 	}
 
@@ -1082,17 +1082,17 @@ final class IdentityKit {
 	}
 
 	static final IdentityKit list(final int id) {
-		IdentityKit ikit = (IdentityKit) recentUse.get(id);
-		if (ikit != null) {
-			return ikit;
+		IdentityKit identityKit = (IdentityKit) recentUse.get(id);
+		if (identityKit != null) {
+			return identityKit;
 		}
-		final byte[] buffer = Class147.aClass50_1394.getFile(3, id);
-		ikit = new IdentityKit();
-		if (buffer != null) {
-			ikit.decode(new Buffer(buffer));
+		final byte[] data = Class147.aClass50_1394.getFile(3, id);
+		identityKit = new IdentityKit();
+		if (data != null) {
+			identityKit.decode(new Buffer(data));
 		}
-		recentUse.put(ikit, id);
-		return ikit;
+		recentUse.put(identityKit, id);
+		return identityKit;
 	}
 
 	public IdentityKit() {

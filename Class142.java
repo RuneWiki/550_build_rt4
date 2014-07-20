@@ -20,7 +20,7 @@ final class Class142 {
 			i_0_ = 0;
 		}
 		i_5_ <<= i_3_;
-		Class120_Sub14_Sub14_Sub1.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
+		FileSystemRequest.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
 	}
 
 	static final void method2005(final int i) {
@@ -43,14 +43,14 @@ final class Class142 {
 							} else {
 								Class120_Sub12_Sub25.anInt3312 = 0;
 							}
-							Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = null;
+							Js5Request.aClass120_Sub31_3941 = null;
 							Class26.aClass90_163 = null;
 						}
 					}
 				} catch (final Exception exception) {
 					exception.printStackTrace();
 					Class30.aClass120_Sub30_Sub2_234.method1770(21229);
-					Class120_Sub14_Sub14_Sub2.aClass120_Sub31_3941 = null;
+					Js5Request.aClass120_Sub31_3941 = null;
 					Class52.aClass50_476 = null;
 					Class26.aClass90_163 = null;
 					Class120_Sub12_Sub25.anInt3312 = 0;
@@ -217,7 +217,7 @@ final class Class142 {
 					if (!jagexInterface.newFormat || i_37_ < i_36_ && i_38_ > i_35_) {
 						if (jagexInterface.clientCode != 0) {
 							if (jagexInterface.clientCode == 1337 || jagexInterface.clientCode == 1403) {
-								Class56.anInt497 = i_32_;
+								LookupTable.anInt497 = i_32_;
 								DummyInputStream.aClass189_26 = jagexInterface;
 								StructType.anInt3590 = i_31_;
 								StringNode.method1721(0, i_32_, jagexInterface.height, jagexInterface.clientCode == 1403, jagexInterface.width, i_31_);
@@ -592,7 +592,7 @@ final class Class142 {
 											i_77_ = jagexInterface.disabledColor;
 										}
 										if (!jagexInterface.newFormat) {
-											string = DummyInputStream.method71(jagexInterface, 2, string);
+											string = DummyInputStream.method71(jagexInterface, string);
 										}
 										class120_sub14_sub8.method1462(string, i_32_, i_31_, jagexInterface.width, jagexInterface.height, i_77_, !jagexInterface.shaded ? -1 : 0, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
 									}
@@ -667,7 +667,7 @@ final class Class142 {
 													for (int i_87_ = 0; i_80_ > i_87_; i_87_++) {
 														for (int i_88_ = 0; i_88_ < i_81_; i_88_++) {
 															if (jagexInterface.rotation != 0) {
-																class120_sub14_sub19.method1590(i_31_ - -(i_88_ * i_79_) + i_79_ / 2, (byte) -99, jagexInterface.rotation, i_87_ * i_78_ + i_32_ - -(i_78_ / 2), 4096);
+																class120_sub14_sub19.method1590(i_31_ - -(i_88_ * i_79_) + i_79_ / 2, jagexInterface.rotation, i_87_ * i_78_ + i_32_ - -(i_78_ / 2), 4096);
 															} else if (i_30_ == 0) {
 																class120_sub14_sub19.method1587(i_32_ - -(i_87_ * i_78_), i_31_ + i_88_ * i_79_);
 															} else {
@@ -680,7 +680,7 @@ final class Class142 {
 											} else {
 												final int i_89_ = jagexInterface.width * 4096 / i_78_;
 												if (jagexInterface.rotation != 0) {
-													class120_sub14_sub19.method1590(i_31_ + jagexInterface.height / 2, (byte) -99, jagexInterface.rotation, jagexInterface.width / 2 + i_32_, i_89_);
+													class120_sub14_sub19.method1590(i_31_ + jagexInterface.height / 2, jagexInterface.rotation, jagexInterface.width / 2 + i_32_, i_89_);
 												} else if (i_30_ != 0) {
 													class120_sub14_sub19.method1585(i_32_, i_31_, jagexInterface.width, jagexInterface.height, -(i_30_ & 0xff) + 256);
 												} else if (jagexInterface.width != i_78_ || i_79_ != jagexInterface.height) {
@@ -791,7 +791,7 @@ final class Class142 {
 											HDToolkit.method532();
 											HDToolkit.method502(true);
 											HDToolkit.method507(false);
-											Class99.method822(Class120_Sub14_Sub14_Sub1.brightness, -78);
+											Class99.method822(FileSystemRequest.brightness, -78);
 											if (Class167.aBoolean1620) {
 												GraphicsHD.method597();
 												HDToolkit.method517();
@@ -852,7 +852,7 @@ final class Class142 {
 										final Class120_Sub14_Sub8 class120_sub14_sub8 = Class120_Sub12_Sub20.plainFont;
 										int i_107_ = 0;
 										String string = jagexInterface.disabledText;
-										string = DummyInputStream.method71(jagexInterface, 2, string);
+										string = DummyInputStream.method71(jagexInterface, string);
 										while (string.length() > 0) {
 											final int i_108_ = string.indexOf("<br>");
 											String string_109_;
@@ -891,7 +891,7 @@ final class Class142 {
 										}
 										int i_113_ = 2 + class120_sub14_sub8.anInt3497 + i_111_;
 										string = jagexInterface.disabledText;
-										string = DummyInputStream.method71(jagexInterface, 2, string);
+										string = DummyInputStream.method71(jagexInterface, string);
 										while (string.length() > 0) {
 											final int i_114_ = string.indexOf("<br>");
 											String string_115_;

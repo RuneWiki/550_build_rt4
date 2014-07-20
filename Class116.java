@@ -63,15 +63,15 @@ final class Class116 {
 					if (EnumType.anInt3450 != 0 || !class120_sub16.method1656(Queue.lastMouseX, -108, Class191.lastMouseY)) {
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
 							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = false;
-							Class112.method989(16, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, -30073, class73.anInt652);
+							Class112.method989(16, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
 						}
 					} else {
 						if (!class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
 							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = true;
-							Class112.method989(15, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, -30073, class73.anInt652);
+							Class112.method989(15, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
 						}
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
-							Class112.method989(17, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, -30073, class73.anInt652);
+							Class112.method989(17, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
 						}
 					}
 				}

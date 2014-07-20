@@ -93,7 +93,7 @@ final class Projectile extends SceneGraphNode {
 		Class120_Sub2.anIntArrayArray2416 = new int[104][104];
 		Class179.anIntArrayArray1774 = new int[104][104];
 		Class120_Sub12_Sub36.anIntArrayArrayArray3420 = new int[4][13][13];
-		Class120_Sub14_Sub14_Sub1.anIntArrayArray3933 = new int[104][104];
+		FileSystemRequest.anIntArrayArray3933 = new int[104][104];
 		for (int i_10_ = 0; i_10_ < 4; i_10_++) {
 			Class182.collisionMaps[i_10_] = new CollisionMap(104, 104);
 		}

@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class Class120_Sub14_Sub14 extends NodeSub {
+abstract class AbstractRequest extends NodeSub {
 	boolean aBoolean3573;
 	static Class180_Sub2[] aClass180_Sub2Array3574 = new Class180_Sub2[4];
 	static String aString3575 = "purple:";
@@ -38,7 +38,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 						final int i_12_ = Queue.method2253(i_11_ & 0x7, i_3_, i_10_ & 0x7, 1) + i_0_;
 						final int i_13_ = i_2_ + Deque.method897(i_3_, 7, 0x7 & i_10_, 0x7 & i_11_);
 						if (i_12_ > 0 && i_12_ < 103 && i_13_ > 0 && i_13_ < 103) {
-							class25s[i_5_].anIntArrayArray152[i_12_][i_13_] = Class120_Sub12_Sub3.method1207(class25s[i_5_].anIntArrayArray152[i_12_][i_13_], -2097153);
+							class25s[i_5_].collisionFlags[i_12_][i_13_] = Class120_Sub12_Sub3.method1207(class25s[i_5_].collisionFlags[i_12_][i_13_], -2097153);
 						}
 					}
 				}
@@ -363,7 +363,7 @@ abstract class Class120_Sub14_Sub14 extends NodeSub {
 		}
 	}
 
-	public Class120_Sub14_Sub14() {
+	public AbstractRequest() {
 		/* empty */
 	}
 }

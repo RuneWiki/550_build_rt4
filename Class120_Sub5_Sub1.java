@@ -10,7 +10,7 @@ final class Class120_Sub5_Sub1 extends Class120_Sub5 {
 	int anInt3118;
 
 	final Class120_Sub5_Sub1 method1067(final Decimator decimator) {
-		this.aByteArray3114 = decimator.method2220((byte) -63, this.aByteArray3114);
+		this.aByteArray3114 = decimator.method2220(this.aByteArray3114);
 		this.anInt3116 = decimator.method2217(this.anInt3116, (byte) -127);
 		if (this.anInt3115 == this.anInt3118) {
 			this.anInt3115 = this.anInt3118 = decimator.method2218(-125, this.anInt3115);

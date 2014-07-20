@@ -467,7 +467,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				Class169.anInt1643 = jagexInterface.enabledSpriteId;
 				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
 			}
-			if (!Class26.aClass144_159.aBoolean1371) {
+			if (!Class26.aClass144_159.isFemale) {
 				jagexInterface.disabledSpriteId = Class169.anInt1643;
 			} else {
 				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
@@ -478,7 +478,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 					Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
 					Class169.anInt1643 = jagexInterface.enabledSpriteId;
 				}
-				if (!Class26.aClass144_159.aBoolean1371) {
+				if (!Class26.aClass144_159.isFemale) {
 					jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
 				} else {
 					jagexInterface.disabledSpriteId = Class169.anInt1643;

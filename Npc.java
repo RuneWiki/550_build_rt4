@@ -208,7 +208,7 @@ final class Npc extends GameEntity {
 			final Buffer class120_sub7 = new Buffer(is);
 			int i_26_ = -1;
 			for (;;) {
-				final int i_27_ = class120_sub7.method1100(120);
+				final int i_27_ = class120_sub7.method1100();
 				if (i_27_ == 0) {
 					break;
 				}

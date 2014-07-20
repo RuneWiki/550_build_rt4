@@ -29,7 +29,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									i_4_--;
 								}
 								if (i_4_ >= 0) {
-									class25s[i_4_].method226(i_2_, i_3_, (byte) -90);
+									class25s[i_4_].addRangableFlag(i_2_, i_3_);
 								}
 							}
 						}

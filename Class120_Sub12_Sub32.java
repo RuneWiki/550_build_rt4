@@ -87,57 +87,51 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1370(final int[] is, final Player class180_sub5_sub1, final int i, final int[] is_15_, final int[] is_16_) {
-		try {
-			for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
-				final int i_18_ = is_16_[i_17_];
-				final int i_19_ = is_15_[i_17_];
-				int i_20_ = is[i_17_];
-				for (int i_21_ = 0; i_20_ != 0 && i_21_ < class180_sub5_sub1.aClass150Array2972.length; i_21_++) {
-					if ((0x1 & i_20_) != 0) {
-						if (i_18_ != -1) {
-							final SeqType seqType = SeqType.list(i_18_);
-							Class150 class150 = class180_sub5_sub1.aClass150Array2972[i_21_];
-							final int i_22_ = seqType.resetInPlay;
-							if (class150 != null) {
-								if (class150.anInt1406 != i_18_) {
-									if (seqType.priority >= SeqType.list(class150.anInt1406).priority) {
-										class150 = class180_sub5_sub1.aClass150Array2972[i_21_] = null;
-									}
-								} else if (i_22_ == 0) {
-									class150 = class180_sub5_sub1.aClass150Array2972[i_21_] = null;
-								} else if (i_22_ == 1) {
-									class150.anInt1413 = 0;
-									class150.anInt1414 = 1;
-									class150.anInt1410 = 0;
-									class150.anInt1416 = 0;
-									class150.anInt1411 = i_19_;
-									Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, 0, Class100.selfPlayer == class180_sub5_sub1);
-								} else if (i_22_ == 2) {
-									class150.anInt1416 = 0;
+	static final void method1370(final Player player, final int[] is, final int[] is_15_, final int[] is_16_) {
+		for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
+			final int i_18_ = is_16_[i_17_];
+			final int i_19_ = is_15_[i_17_];
+			int i_20_ = is[i_17_];
+			for (int i_21_ = 0; i_20_ != 0 && i_21_ < player.aClass150Array2972.length; i_21_++) {
+				if ((0x1 & i_20_) != 0) {
+					if (i_18_ != -1) {
+						final SeqType seqType = SeqType.list(i_18_);
+						Class150 class150 = player.aClass150Array2972[i_21_];
+						final int i_22_ = seqType.resetInPlay;
+						if (class150 != null) {
+							if (class150.anInt1406 != i_18_) {
+								if (seqType.priority >= SeqType.list(class150.anInt1406).priority) {
+									class150 = player.aClass150Array2972[i_21_] = null;
 								}
-							}
-							if (class150 == null) {
-								class150 = class180_sub5_sub1.aClass150Array2972[i_21_] = new Class150();
-								class150.anInt1406 = i_18_;
+							} else if (i_22_ == 0) {
+								class150 = player.aClass150Array2972[i_21_] = null;
+							} else if (i_22_ == 1) {
+								class150.anInt1413 = 0;
+								class150.anInt1414 = 1;
 								class150.anInt1410 = 0;
 								class150.anInt1416 = 0;
 								class150.anInt1411 = i_19_;
-								class150.anInt1414 = 1;
-								class150.anInt1413 = 0;
-								Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, 0, class180_sub5_sub1 == Class100.selfPlayer);
+								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, Class100.selfPlayer == player);
+							} else if (i_22_ == 2) {
+								class150.anInt1416 = 0;
 							}
-						} else {
-							class180_sub5_sub1.aClass150Array2972[i_21_] = null;
 						}
+						if (class150 == null) {
+							class150 = player.aClass150Array2972[i_21_] = new Class150();
+							class150.anInt1406 = i_18_;
+							class150.anInt1410 = 0;
+							class150.anInt1416 = 0;
+							class150.anInt1411 = i_19_;
+							class150.anInt1414 = 1;
+							class150.anInt1413 = 0;
+							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == Class100.selfPlayer);
+						}
+					} else {
+						player.aClass150Array2972[i_21_] = null;
 					}
-					i_20_ >>>= 1;
 				}
+				i_20_ >>>= 1;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("sl.S(").append(is != null ? "{...}" : "null").append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(',').append(i).append(',').append(is_15_ != null ? "{...}" : "null").append(',').append(is_16_ != null ? "{...}" : "null").append(')')
-							.toString());
 		}
 	}
 

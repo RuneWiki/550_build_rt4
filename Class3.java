@@ -47,7 +47,7 @@ final class Class3 {
 			}
 			final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string, -8251), true);
 			boolean bool = false;
-			for (int i_7_ = 0; i_7_ < Class83.localPlayerCount; i_7_++) {
+			for (int i_7_ = 0; i_7_ < FileSystemWorker.localPlayerCount; i_7_++) {
 				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_7_]];
 				if (class180_sub5_sub1 != null && class180_sub5_sub1.name != null && class180_sub5_sub1.name.equalsIgnoreCase(string_6_)) {
 					bool = true;
@@ -82,7 +82,7 @@ final class Class3 {
 				}
 			}
 			if (!bool) {
-				Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(Class180_Sub6.aString3062).append(string_6_).toString());
+				AbstractRequest.method1540("", 0, new StringBuilder(Class180_Sub6.aString3062).append(string_6_).toString());
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.G(").append(i).append(',').append(i_5_).append(',').append(string != null ? "{...}" : "null").append(')').toString());

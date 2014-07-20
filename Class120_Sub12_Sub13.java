@@ -14,7 +14,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 
 	static final void method1263(final int i) {
 		try {
-			Class120_Sub14_Sub14_Sub2.aClass21_3937.clearSoftReference();
+			Js5Request.aClass21_3937.clearSoftReference();
 			if (i != 14834) {
 				method1265();
 			}
@@ -130,7 +130,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 				i_8_ = (i_8_ & 0xffd) >> 4;
 				int i_9_ = Class28.method244(random, Class120_Sub12_Sub7.anInt3178);
 				int i_10_ = Class28.method244(random, Class120_Sub12_Sub2.anInt3145);
-				int i_11_ = i_9_ + (Class83.anIntArray789[i_8_] * anInt3236 >> 12);
+				int i_11_ = i_9_ + (FileSystemWorker.anIntArray789[i_8_] * anInt3236 >> 12);
 				int i_12_ = i_10_ + (Class84.anIntArray800[i_8_] * anInt3236 >> 12);
 				int i_13_ = -i_10_ + i_12_;
 				int i_14_ = i_11_ + -i_9_;

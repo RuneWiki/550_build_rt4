@@ -20,7 +20,7 @@ final class Class140 {
 		if (Class120_Sub12_Sub25.anInt3312 == 0) {
 			Class30.aClass120_Sub30_Sub2_234.method1748(i);
 		} else {
-			Class120_Sub14_Sub14_Sub2.anInt3940 = i;
+			Js5Request.anInt3940 = i;
 		}
 	}
 

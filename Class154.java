@@ -21,23 +21,23 @@ final class Class154 {
 	static final void addIgnore(final long l, final boolean bool) {
 		if (l != 0L) {
 			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
-				Class120_Sub14_Sub14.method1540("", 0, Class143_Sub1.aString2192);
+				AbstractRequest.method1540("", 0, Class143_Sub1.aString2192);
 			} else {
 				final String string = Class136.longToString(l);
 				for (int i_0_ = 0; Class120_Sub12_Sub26.ignoreCount > i_0_; i_0_++) {
 					if (HintIcon.ignoreNamesAsLong[i_0_] == l) {
-						Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
+						AbstractRequest.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
 						return;
 					}
 				}
 				for (int i_1_ = 0; i_1_ < ProducingGraphicsBuffer.friendCount; i_1_++) {
 					if ((AbstractSprite.friendsNameAsLong[i_1_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
-						Class120_Sub14_Sub14.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(string).append(Class54.aString489).toString());
+						AbstractRequest.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(string).append(Class54.aString489).toString());
 						return;
 					}
 				}
 				if (string.equals(Class100.selfPlayer.name)) {
-					Class120_Sub14_Sub14.method1540("", 0, Class112.aString1079);
+					AbstractRequest.method1540("", 0, Class112.aString1079);
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = l;
 					Class84.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(l);
@@ -67,8 +67,8 @@ final class Class154 {
 				}
 				int i_7_ = Class169.aShort1651 + (Class120_Sub14_Sub13.aShort3570 + -Class169.aShort1651) * i_6_ / 100;
 				if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
-					if (i_7_ > Class120_Sub14_Sub14_Sub1.aShort3932) {
-						i_7_ = Class120_Sub14_Sub14_Sub1.aShort3932;
+					if (i_7_ > FileSystemRequest.aShort3932) {
+						i_7_ = FileSystemRequest.aShort3932;
 					}
 				} else {
 					i_7_ = Class120_Sub12_Sub16.aShort3250;
@@ -77,8 +77,8 @@ final class Class154 {
 				if (i_8_ < RuntimeException_Sub1.aShort2143) {
 					i_8_ = RuntimeException_Sub1.aShort2143;
 					i_7_ = i_5_ * i_8_ * 334 / (512 * i_3_);
-					if (i_7_ > Class120_Sub14_Sub14_Sub1.aShort3932) {
-						i_7_ = Class120_Sub14_Sub14_Sub1.aShort3932;
+					if (i_7_ > FileSystemRequest.aShort3932) {
+						i_7_ = FileSystemRequest.aShort3932;
 						final int i_9_ = i_3_ * i_7_ * 512 / (334 * i_8_);
 						final int i_10_ = (-i_9_ + i_5_) / 2;
 						if (bool) {

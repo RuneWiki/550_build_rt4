@@ -57,7 +57,7 @@ final class Class88 {
 						sceneGraphNode = class182.aClass180_1800;
 					}
 					if (locType.anInt1821 != 0) {
-						collisionMap.method215(i_7_, !locType.aBoolean1880, i_4_, i_6_, locType.aBoolean1844, 123, i_2_);
+						collisionMap.method215(i_7_, i_4_, i_6_, i_2_, !locType.aBoolean1880, locType.aBoolean1844);
 					}
 				} else if (i_3_ == 1) {
 					final Class186 class186 = Class153.method2072(i_0_, i_4_, i_2_);
@@ -71,7 +71,7 @@ final class Class88 {
 						sceneGraphNode = class28.aClass180_174;
 					}
 					if (locType.anInt1821 != 0 && i_4_ + locType.anInt1841 < 104 && locType.anInt1841 + i_2_ < 104 && i_4_ + locType.anInt1827 < 104 && locType.anInt1827 + i_2_ < 104) {
-						collisionMap.method214(i_7_, i_2_, locType.anInt1827, 3, locType.aBoolean1844, i_4_, locType.anInt1841, !locType.aBoolean1880);
+						collisionMap.method214(i_7_, i_2_, locType.anInt1827, i_4_, locType.anInt1841, locType.aBoolean1844, !locType.aBoolean1880);
 					}
 				} else if (i_3_ == 3) {
 					final Class36 class36 = Class118.method1022(i_0_, i_4_, i_2_);
@@ -79,7 +79,7 @@ final class Class88 {
 						sceneGraphNode = class36.aClass180_309;
 					}
 					if (locType.anInt1821 == 1) {
-						collisionMap.method228(33, i_4_, i_2_);
+						collisionMap.method228(i_4_, i_2_);
 					}
 				}
 				if (locType.childrenIDs != null) {

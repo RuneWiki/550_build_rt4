@@ -144,7 +144,7 @@ final class InterfaceChangeNode extends NodeSub {
 								}
 							}
 						}
-						for (int i_29_ = 0; i_29_ < Class83.localPlayerCount; i_29_++) {
+						for (int i_29_ = 0; i_29_ < FileSystemWorker.localPlayerCount; i_29_++) {
 							final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_29_]];
 							if (class180_sub5_sub1 != null && !class180_sub5_sub1.hasMenuAction && class180_sub5_sub1.aBoolean2992) {
 								final int i_30_ = class180_sub5_sub1.x - 64 * (-1 + class180_sub5_sub1.getSize());
@@ -178,7 +178,7 @@ final class InterfaceChangeNode extends NodeSub {
 								}
 							}
 						}
-						for (int i_37_ = 0; Class83.localPlayerCount > i_37_; i_37_++) {
+						for (int i_37_ = 0; FileSystemWorker.localPlayerCount > i_37_; i_37_++) {
 							final Player class180_sub5_sub1_38_ = Class118.playersList[Class112.playerIndices[i_37_]];
 							if (class180_sub5_sub1_38_ != null && !class180_sub5_sub1_38_.hasMenuAction && class180_sub5_sub1_38_ != class180_sub5_sub1 && class180_sub5_sub1_38_.aBoolean2992) {
 								final int i_39_ = class180_sub5_sub1_38_.x - (class180_sub5_sub1_38_.getSize() + -1) * 64;
@@ -317,6 +317,6 @@ final class InterfaceChangeNode extends NodeSub {
 		if (!Class10.decodedSprites(js5, i_48_, 0)) {
 			return null;
 		}
-		return Class120_Sub14_Sub14.constructLDIndexedSprites();
+		return AbstractRequest.constructLDIndexedSprites();
 	}
 }

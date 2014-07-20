@@ -184,10 +184,10 @@ final class Class82 implements Runnable {
 		}
 		for (int i_19_ = 0; i_19_ < 104; i_19_++) {
 			for (int i_20_ = 0; i_20_ < 104; i_20_++) {
-				Class120_Sub14_Sub14_Sub1.anIntArrayArray3933[i_19_][i_20_] = 0;
+				FileSystemRequest.anIntArrayArray3933[i_19_][i_20_] = 0;
 			}
 		}
-		for (int i_21_ = 0; Class83.localPlayerCount > i_21_; i_21_++) {
+		for (int i_21_ = 0; FileSystemWorker.localPlayerCount > i_21_; i_21_++) {
 			final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_21_]];
 			if (class180_sub5_sub1 != null) {
 				((GameEntity) class180_sub5_sub1).hasMenuAction = false;

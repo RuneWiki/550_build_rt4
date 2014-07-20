@@ -18,7 +18,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 				renderY = 16;
 			}
 			for (;;) {
-				final int i_8_ = class120_sub7.method1100(118);
+				final int i_8_ = class120_sub7.method1100();
 				if (i_8_ == 0) {
 					break;
 				}
@@ -39,7 +39,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 					if (i_13_ == i_4_ && i_3_ <= i_11_ && 8 + i_3_ > i_11_ && i_2_ <= i_12_ && i_2_ - -8 > i_12_) {
 						final LocType locType = LocType.list(i_7_);
 						final int i_17_ = Class132.method1928(locType.anInt1841, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, locType.anInt1827) + i_0_;
-						final int i_18_ = i_6_ - -Class120_Sub14_Sub14.method1539(i_5_ + -10525, 0x7 & i_11_, locType.anInt1827, locType.anInt1841, i_1_, 0x7 & i_12_, i_16_);
+						final int i_18_ = i_6_ - -AbstractRequest.method1539(i_5_ + -10525, 0x7 & i_11_, locType.anInt1827, locType.anInt1841, i_1_, 0x7 & i_12_, i_16_);
 						if (i_17_ > 0 && i_18_ > 0 && i_17_ < 103 && i_18_ < 103) {
 							CollisionMap collisionMap = null;
 							if (!bool) {

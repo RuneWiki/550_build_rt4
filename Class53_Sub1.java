@@ -5,7 +5,7 @@
 final class Class53_Sub1 extends Class53 {
 	private final Class45 aClass45_2205;
 	static String aString2206 = "flash2:";
-	private Class83 aClass83_2207;
+	private FileSystemWorker fileSystemWorker;
 	private final FileSystem aClass51_2208;
 	private final FileSystem aClass51_2209;
 	private int anInt2210 = 0;
@@ -16,7 +16,7 @@ final class Class53_Sub1 extends Class53 {
 	private byte[] aByteArray2215;
 	private Class52 aClass52_2216;
 	static SignlinkNode worldConnectionNode;
-	private Class120_Sub14_Sub14 aClass120_Sub14_Sub14_2218;
+	private AbstractRequest aClass120_Sub14_Sub14_2218;
 	static int anInt2219;
 	private final int anInt2220;
 	private int anInt2221 = 0;
@@ -91,7 +91,7 @@ final class Class53_Sub1 extends Class53 {
 			return null;
 		}
 		final byte[] is = aClass120_Sub14_Sub14_2218.getBuffer();
-		if (!(aClass120_Sub14_Sub14_2218 instanceof Class120_Sub14_Sub14_Sub1)) {
+		if (!(aClass120_Sub14_Sub14_2218 instanceof FileSystemRequest)) {
 			try {
 				if (is == null) {
 					throw new RuntimeException();
@@ -108,7 +108,7 @@ final class Class53_Sub1 extends Class53 {
 				return null;
 			}
 			if (aClass51_2208 != null) {
-				aClass83_2207.a((byte) -124, aClass51_2208, is, anInt2214);
+				fileSystemWorker.requestWrite(aClass51_2208, is, anInt2214);
 			}
 		} else {
 			try {
@@ -285,7 +285,7 @@ final class Class53_Sub1 extends Class53 {
 	final byte[] method460(final int i, final int i_12_) {
 		byte[] is;
 		try {
-			final Class120_Sub14_Sub14 class120_sub14_sub14 = method475(-1, i_12_, 0);
+			final AbstractRequest class120_sub14_sub14 = method475(-1, i_12_, 0);
 			if (class120_sub14_sub14 == null) {
 				return null;
 			}
@@ -321,12 +321,12 @@ final class Class53_Sub1 extends Class53 {
 	final int method458(final int i, final int i_15_) {
 		int i_16_;
 		try {
-			final Class120_Sub14_Sub14 class120_sub14_sub14 = (Class120_Sub14_Sub14) aClass75_2212.get(i);
+			final AbstractRequest class120_sub14_sub14 = (AbstractRequest) aClass75_2212.get(i);
 			if (class120_sub14_sub14 != null) {
 				return class120_sub14_sub14.method1537();
 			}
 			if (i_15_ != -1) {
-				aClass83_2207 = null;
+				fileSystemWorker = null;
 			}
 			i_16_ = 0;
 		} catch (final RuntimeException runtimeexception) {
@@ -335,10 +335,10 @@ final class Class53_Sub1 extends Class53 {
 		return i_16_;
 	}
 
-	private final Class120_Sub14_Sub14 method475(final int i, final int i_17_, final int i_18_) {
-		Class120_Sub14_Sub14 class120_sub14_sub14;
+	private final AbstractRequest method475(final int i, final int i_17_, final int i_18_) {
+		AbstractRequest class120_sub14_sub14;
 		try {
-			Class120_Sub14_Sub14 class120_sub14_sub14_19_ = (Class120_Sub14_Sub14) aClass75_2212.get(i_17_);
+			AbstractRequest class120_sub14_sub14_19_ = (AbstractRequest) aClass75_2212.get(i_17_);
 			if (class120_sub14_sub14_19_ != null && i_18_ == 0 && !class120_sub14_sub14_19_.aBoolean3573 && class120_sub14_sub14_19_.aBoolean3576) {
 				class120_sub14_sub14_19_.unlink();
 				class120_sub14_sub14_19_ = null;
@@ -355,13 +355,13 @@ final class Class53_Sub1 extends Class53 {
 							return null;
 						}
 					} else {
-						class120_sub14_sub14_19_ = aClass83_2207.a((byte) -117, aClass51_2209, i_17_);
+						class120_sub14_sub14_19_ = fileSystemWorker.requestRead2(aClass51_2209, i_17_);
 					}
 				} else if (i_18_ == 1) {
 					if (aClass51_2209 == null) {
 						throw new RuntimeException();
 					}
-					class120_sub14_sub14_19_ = aClass83_2207.a(-10260, aClass51_2209, i_17_);
+					class120_sub14_sub14_19_ = fileSystemWorker.requestRead(aClass51_2209, i_17_);
 				} else if (i_18_ == 2) {
 					if (aClass51_2209 == null) {
 						throw new RuntimeException();
@@ -382,13 +382,13 @@ final class Class53_Sub1 extends Class53 {
 				return null;
 			}
 			final byte[] is = class120_sub14_sub14_19_.getBuffer();
-			if (!(class120_sub14_sub14_19_ instanceof Class120_Sub14_Sub14_Sub1)) {
+			if (!(class120_sub14_sub14_19_ instanceof FileSystemRequest)) {
 				try {
 					if (is == null || is.length <= 2) {
 						throw new RuntimeException();
 					}
 					Class120_Sub14_Sub24.aCRC32_3658.reset();
-					Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, -2 + is.length);
+					Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
 					final int i_20_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
 					if (aClass52_2216.anIntArray470[i_17_] != i_20_) {
 						throw new RuntimeException();
@@ -399,7 +399,7 @@ final class Class53_Sub1 extends Class53 {
 					aClass45_2205.method365(-30223);
 					class120_sub14_sub14_19_.unlink();
 					if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-						final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
+						final Js5Request class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
 						aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 					}
 					return null;
@@ -407,7 +407,7 @@ final class Class53_Sub1 extends Class53 {
 				is[-2 + is.length] = (byte) (aClass52_2216.anIntArray483[i_17_] >>> 8);
 				is[is.length + -1] = (byte) aClass52_2216.anIntArray483[i_17_];
 				if (aClass51_2209 != null) {
-					aClass83_2207.a((byte) -127, aClass51_2209, is, i_17_);
+					fileSystemWorker.requestWrite(aClass51_2209, is, i_17_);
 					if (aByteArray2215[i_17_] != 1) {
 						anInt2210++;
 						aByteArray2215[i_17_] = (byte) 1;
@@ -418,7 +418,7 @@ final class Class53_Sub1 extends Class53 {
 				}
 				return class120_sub14_sub14_19_;
 			}
-			Class120_Sub14_Sub14 class120_sub14_sub14_21_;
+			AbstractRequest class120_sub14_sub14_21_;
 			try {
 				if (is == null || is.length <= 2) {
 					throw new RuntimeException();
@@ -448,7 +448,7 @@ final class Class53_Sub1 extends Class53 {
 				aByteArray2215[i_17_] = (byte) -1;
 				class120_sub14_sub14_19_.unlink();
 				if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-					final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
+					final Js5Request class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
 					aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 				}
 				return null;
@@ -525,7 +525,7 @@ final class Class53_Sub1 extends Class53 {
 							if (aClass52_2216.anIntArray475[anInt2221] == 0) {
 								anInt2221++;
 							} else {
-								if (aClass83_2207.anInt793 >= 250) {
+								if (fileSystemWorker.requestsAwaiting >= 250) {
 									bool = false;
 									break;
 								}
@@ -548,7 +548,7 @@ final class Class53_Sub1 extends Class53 {
 					}
 				}
 				if (aBoolean2227 && (aLong2226 ^ 0xffffffffffffffffL) >= (TimeUtil.getSafeTime() ^ 0xffffffffffffffffL)) {
-					for (Class120_Sub14_Sub14 class120_sub14_sub14 = (Class120_Sub14_Sub14) aClass75_2212.getFirst(); class120_sub14_sub14 != null; class120_sub14_sub14 = (Class120_Sub14_Sub14) aClass75_2212.getNext()) {
+					for (AbstractRequest class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getFirst(); class120_sub14_sub14 != null; class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getNext()) {
 						if (!class120_sub14_sub14.aBoolean3576) {
 							if (class120_sub14_sub14.aBoolean3577) {
 								if (!class120_sub14_sub14.aBoolean3573) {
@@ -568,7 +568,7 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Class45 class45, final Class83 class83, final int i_27_, final int i_28_, final boolean bool) {
+	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Class45 class45, final FileSystemWorker fsWorker, final int i_27_, final int i_28_, final boolean bool) {
 		aClass51_2209 = fileSystem;
 		anInt2214 = i;
 		if (aClass51_2209 == null) {
@@ -580,11 +580,11 @@ final class Class53_Sub1 extends Class53 {
 		anInt2220 = i_28_;
 		aBoolean2227 = bool;
 		anInt2211 = i_27_;
-		aClass83_2207 = class83;
+		fileSystemWorker = fsWorker;
 		aClass51_2208 = class51_26_;
 		aClass45_2205 = class45;
 		if (aClass51_2208 != null) {
-			aClass120_Sub14_Sub14_2218 = aClass83_2207.a((byte) -125, aClass51_2208, anInt2214);
+			aClass120_Sub14_Sub14_2218 = fileSystemWorker.requestRead2(aClass51_2208, anInt2214);
 		}
 	}
 }

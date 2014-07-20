@@ -238,7 +238,7 @@ final class StructType extends NodeSub {
 		VarBit.recentUse.method192(5);
 		Varp.recentUse.method192(5);
 		Class120_Sub12_Sub31.aClass21_3378.method192(5);
-		Class120_Sub14_Sub14_Sub2.aClass21_3937.method192(5);
+		Js5Request.aClass21_3937.method192(5);
 		Class132.aClass21_1255.method192(5);
 		Class73.recentUse.method192(5);
 		Class82.aClass21_786.method192(5);

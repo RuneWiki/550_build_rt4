@@ -21,14 +21,14 @@ final class js5 {
 			}
 			string = string.toLowerCase();
 			string_0_ = string_0_.toLowerCase();
-			final int i_1_ = aClass52_452.aClass56_473.method487(-76, Class120_Sub14_Sub13.method1524(string, 0));
+			final int i_1_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 			if (!method436(i_1_)) {
 				return false;
 			}
 			if (i != -99) {
 				method426(true, false, (byte) 79);
 			}
-			final int i_2_ = aClass52_452.aClass56Array479[i_1_].method487(-84, Class120_Sub14_Sub13.method1524(string_0_, 0));
+			final int i_2_ = aClass52_452.aClass56Array479[i_1_].lookupIdentifier(Class120_Sub14_Sub13.method1524(string_0_, 0));
 			bool = method440(i_1_, true, i_2_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.T(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(string_0_ != null ? "{...}" : "null").append(')').toString());
@@ -56,7 +56,7 @@ final class js5 {
 				return 0;
 			}
 			string = string.toLowerCase();
-			final int i_5_ = aClass52_452.aClass56_473.method487(-107, Class120_Sub14_Sub13.method1524(string, i + 11));
+			final int i_5_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, i + 11));
 			i_4_ = method416(i_5_, -12826);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.EA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
@@ -85,7 +85,7 @@ final class js5 {
 			return false;
 		}
 		string = string.toLowerCase();
-		final int i_6_ = aClass52_452.aClass56_473.method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
+		final int i_6_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 		if (i_6_ < 0) {
 			return false;
 		}
@@ -132,7 +132,7 @@ final class js5 {
 	static final Buffer method417() {
 		final Buffer class120_sub7_14_ = new Buffer(34);
 		class120_sub7_14_.putByte(11);
-		class120_sub7_14_.putByte(Class120_Sub14_Sub14_Sub1.brightness);
+		class120_sub7_14_.putByte(FileSystemRequest.brightness);
 		class120_sub7_14_.putByte(Class61.aBoolean566 ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
 		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
@@ -283,7 +283,7 @@ final class js5 {
 			}
 			byte[] is_30_;
 			try {
-				is_30_ = Class71.method639(is_29_);
+				is_30_ = Class71.unpack(is_29_);
 			} catch (final RuntimeException runtimeexception) {
 				throw EnumType.method1428(runtimeexception,
 						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2))
@@ -396,7 +396,7 @@ final class js5 {
 			}
 			if (informationLoaded()) {
 				string = string.toLowerCase();
-				final int i_48_ = aClass52_452.aClass56_473.method487(-75, Class120_Sub14_Sub13.method1524(string, 0));
+				final int i_48_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 				method411(0, i_48_);
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -415,11 +415,11 @@ final class js5 {
 				return null;
 			}
 			string = string.toLowerCase();
-			final int i_50_ = aClass52_452.aClass56_473.method487(-92, Class120_Sub14_Sub13.method1524(string_49_, 0));
+			final int i_50_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string_49_, 0));
 			if (!method436(i_50_)) {
 				return null;
 			}
-			final int i_51_ = aClass52_452.aClass56Array479[i_50_].method487(-128, Class120_Sub14_Sub13.method1524(string, 0));
+			final int i_51_ = aClass52_452.aClass56Array479[i_50_].lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 			is = getFile(i_50_, i_51_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.H(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(string_49_ != null ? "{...}" : "null").append(')').toString());
@@ -494,7 +494,7 @@ final class js5 {
 			return -1;
 		}
 		string = string.toLowerCase();
-		final int i_60_ = aClass52_452.aClass56_473.method487(-98, Class120_Sub14_Sub13.method1524(string, 0));
+		final int i_60_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 		if (!method436(i_60_)) {
 			return -1;
 		}
@@ -567,7 +567,7 @@ final class js5 {
 			if (i != 2) {
 				method415();
 			}
-			final int i_66_ = aClass52_452.aClass56_473.method487(-72, Class120_Sub14_Sub13.method1524(string, 0));
+			final int i_66_ = aClass52_452.aClass56_473.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
 			bool = allFilesComplete(i_66_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.CA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
@@ -594,7 +594,7 @@ final class js5 {
 			if (!informationLoaded()) {
 				return -1;
 			}
-			final int i_70_ = aClass52_452.aClass56_473.method487(-91, i);
+			final int i_70_ = aClass52_452.aClass56_473.lookupIdentifier(i);
 			if (!method436(i_70_)) {
 				return -1;
 			}

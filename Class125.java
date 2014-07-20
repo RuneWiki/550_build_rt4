@@ -20,17 +20,8 @@ final class Class125 implements Interface1 {
 		/* empty */
 	}
 
-	static final String method1879(final byte i, final int i_2_) {
-		String string;
-		try {
-			if (i != 39) {
-				return null;
-			}
-			string = new StringBuilder(String.valueOf(0xff & i_2_ >> 24)).append(".").append(0xff & i_2_ >> 16).append(".").append(0xff & i_2_ >> 8).append(".").append(0xff & i_2_).toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oi.C(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return string;
+	static final String method1879(final int i_2_) {
+		return new StringBuilder(String.valueOf(0xff & i_2_ >> 24)).append(".").append(0xff & i_2_ >> 16).append(".").append(0xff & i_2_ >> 8).append(".").append(0xff & i_2_).toString();
 	}
 
 	public static void method1880(final byte i) {

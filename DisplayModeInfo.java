@@ -35,7 +35,7 @@ final class DisplayModeInfo {
 			Class92.method767(-2);
 			Class179.method2262(-16097);
 			Class174.method2233((byte) -54);
-			Decimator.method2223(-12937);
+			Decimator.method2223();
 			for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {
 				final int i_3_ = Class43.anIntArray366[i_2_];
 				if (Class101_Sub2.loopCycle != Class118.playersList[i_3_].anInt2985) {
@@ -48,9 +48,9 @@ final class DisplayModeInfo {
 			if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
 				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 			}
-			for (int i_4_ = 0; Class83.localPlayerCount > i_4_; i_4_++) {
+			for (int i_4_ = 0; FileSystemWorker.localPlayerCount > i_4_; i_4_++) {
 				if (Class118.playersList[Class112.playerIndices[i_4_]] == null) {
-					throw new RuntimeException(new StringBuilder("gpp2 pos:").append(i_4_).append(" size:").append(Class83.localPlayerCount).toString());
+					throw new RuntimeException(new StringBuilder("gpp2 pos:").append(i_4_).append(" size:").append(FileSystemWorker.localPlayerCount).toString());
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

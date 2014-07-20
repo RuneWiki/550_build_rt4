@@ -5,12 +5,12 @@ import java.awt.Frame;
 
 final class Class112 {
 	static int[] playerIndices = new int[2048];
-	private final Class83 aClass83_1068;
+	private final FileSystemWorker fileSystemWorker;
 	static int[] anIntArray1069;
 	static Class98 aClass98_1070;
 	private final Class45 aClass45_1071;
 	private Buffer aClass120_Sub7_1072;
-	private Class120_Sub14_Sub14_Sub2 aClass120_Sub14_Sub14_Sub2_1073;
+	private Js5Request aClass120_Sub14_Sub14_Sub2_1073;
 	private Class53_Sub1[] aClass53_Sub1Array1074;
 	static int gameLoopCount;
 	static Frame frame;
@@ -121,29 +121,22 @@ final class Class112 {
 		}
 	}
 
-	static final void method989(final int i, final int i_12_, final int i_13_, final int i_14_) {
-		try {
-			if (i_13_ != -30073) {
-				method989(102, 57, 60, -123);
-			}
-			final ClientScript class120_sub14_sub12 = Class120_Sub12_Sub16.method1277(i, i_12_, i_14_, 933634440);
-			if (class120_sub14_sub12 != null) {
-				Class100.intArguments = new int[class120_sub14_sub12.intArgumentCount];
-				Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
-				if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
-					int i_15_ = 0;
-					int i_16_ = 0;
-					if (Class142.aClass189_1362 != null) {
-						i_15_ = Class142.aClass189_1362.x;
-						i_16_ = Class142.aClass189_1362.y;
-					}
-					Class100.intArguments[1] = Class191.lastMouseY + -i_16_;
-					Class100.intArguments[0] = Queue.lastMouseX - i_15_;
+	static final void method989(final int i, final int i_12_, final int i_14_) {
+		final ClientScript class120_sub14_sub12 = Class120_Sub12_Sub16.method1277(i, i_12_, i_14_);
+		if (class120_sub14_sub12 != null) {
+			Class100.intArguments = new int[class120_sub14_sub12.intArgumentCount];
+			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
+			if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
+				int i_15_ = 0;
+				int i_16_ = 0;
+				if (Class142.aClass189_1362 != null) {
+					i_15_ = Class142.aClass189_1362.x;
+					i_16_ = Class142.aClass189_1362.y;
 				}
-				World.method2194(class120_sub14_sub12, 200000);
+				Class100.intArguments[1] = Class191.lastMouseY - i_16_;
+				Class100.intArguments[0] = Queue.lastMouseX - i_15_;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mg.I(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
+			World.method2194(class120_sub14_sub12, 200000);
 		}
 	}
 
@@ -164,7 +157,7 @@ final class Class112 {
 		}
 		final int i_19_ = aClass120_Sub7_1072.getInt();
 		final int i_20_ = aClass120_Sub7_1072.getInt();
-		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(i_18_, class51_17_, fileSystem, aClass45_1071, aClass83_1068, i_19_, i_20_, bool);
+		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(i_18_, class51_17_, fileSystem, aClass45_1071, fileSystemWorker, i_19_, i_20_, bool);
 		aClass53_Sub1Array1074[i_18_] = class53_sub1_21_;
 		return class53_sub1_21_;
 	}
@@ -204,9 +197,9 @@ final class Class112 {
 		return class53_sub1;
 	}
 
-	Class112(final Class45 class45, final Class83 class83) {
+	Class112(final Class45 class45, final FileSystemWorker fsw) {
 		aClass45_1071 = class45;
-		aClass83_1068 = class83;
+		fileSystemWorker = fsw;
 		if (!aClass45_1071.method357()) {
 			aClass120_Sub14_Sub14_Sub2_1073 = aClass45_1071.method362((byte) 0, 255, true, 255);
 		}

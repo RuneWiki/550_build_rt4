@@ -68,7 +68,7 @@ class Class132_Sub1 extends Class132 {
 				return class41_8_;
 			}
 			Class97[] class97s = null;
-			final Class145 class145 = Class120_Sub14_Sub14_Sub2.method1551(i_6_, (byte) -83);
+			final Class145 class145 = Js5Request.method1551(i_6_, (byte) -83);
 			if (class145.anIntArray1383 != null) {
 				class97s = new Class97[class145.anIntArray1383.length];
 				for (int i_9_ = 0; i_9_ < class97s.length; i_9_++) {

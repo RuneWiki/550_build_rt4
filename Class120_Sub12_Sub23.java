@@ -42,7 +42,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				LocType.anIntArray1834[Class150.anInt1407] = i_5_;
 				Class81.anIntArray779[Class150.anInt1407] = 0;
 				Class109.aClass6Array1047[Class150.anInt1407] = null;
-				Class120_Sub14_Sub14_Sub1.anIntArray3926[Class150.anInt1407] = 255;
+				FileSystemRequest.anIntArray3926[Class150.anInt1407] = 255;
 				final int i_8_ = (z - 64) / 128;
 				final int i_9_ = (x - 64) / 128;
 				Class174.anIntArray1731[Class150.anInt1407] = i_6_ + (i_8_ << 8) + (i_9_ << 16);

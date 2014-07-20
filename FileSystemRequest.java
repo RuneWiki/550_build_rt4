@@ -2,17 +2,17 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
+final class FileSystemRequest extends AbstractRequest {
 	static int[] anIntArray3926;
-	int anInt3927;
+	int type;
 	static Deque aClass105_3928;
 	static Class98 aClass98_3929;
 	static AbstractSprite[] prayerIconSprites;
-	byte[] aByteArray3931;
+	byte[] buffer;
 	static short aShort3932 = 32767;
 	static int[][] anIntArrayArray3933;
 	static int brightness;
-	FileSystem aClass51_3935;
+	FileSystem fileSystem;
 
 	static {
 		anIntArray3926 = new int[50];
@@ -181,7 +181,7 @@ final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
 		}
 	}
 
-	public Class120_Sub14_Sub14_Sub1() {
+	public FileSystemRequest() {
 		/* empty */
 	}
 
@@ -190,6 +190,6 @@ final class Class120_Sub14_Sub14_Sub1 extends Class120_Sub14_Sub14 {
 		if (this.aBoolean3576) {
 			throw new RuntimeException();
 		}
-		return this.aByteArray3931;
+		return this.buffer;
 	}
 }

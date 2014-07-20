@@ -37,7 +37,7 @@ class Buffer extends Node {
 		if (i_0_ >= 0) {
 			throw new IllegalArgumentException("NUL character at " + i_0_ + " - cannot pjstr");
 		}
-		this.pos += Class83.a(this.buf, string, string.length(), this.pos, 0);
+		this.pos += FileSystemWorker.a(this.buf, string, string.length(), this.pos, 0);
 		this.buf[this.pos++] = (byte) 0;
 	}
 
@@ -257,24 +257,15 @@ class Buffer extends Node {
 		return (0xff & this.buf[-1 + this.pos]) + (~0xffffff & this.buf[this.pos - 4] << 24) - -(this.buf[this.pos - 3] << 16 & 0xff0000) - -((0xff & this.buf[this.pos - 2]) << 8);
 	}
 
-	final long method1098(final int i, int i_42_) {
-		long l;
-		try {
-			if (i >= -96) {
-				return -5L;
-			}
-			if (--i_42_ < 0 || i_42_ > 7) {
-				throw new IllegalArgumentException();
-			}
-			long l_43_ = 0L;
-			for (int i_44_ = i_42_ * 8; i_44_ >= 0; i_44_ -= 8) {
-				l_43_ |= (0xffL & this.buf[this.pos++]) << i_44_;
-			}
-			l = l_43_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.K(").append(i).append(',').append(i_42_).append(')').toString());
+	final long method1098(int i_42_) {
+		if (--i_42_ < 0 || i_42_ > 7) {
+			throw new IllegalArgumentException();
 		}
-		return l;
+		long l_43_ = 0L;
+		for (int i_44_ = i_42_ * 8; i_44_ >= 0; i_44_ -= 8) {
+			l_43_ |= (0xffL & this.buf[this.pos++]) << i_44_;
+		}
+		return l_43_;
 	}
 
 	final int getSmart() {
@@ -285,23 +276,14 @@ class Buffer extends Node {
 		return getUByte() - 64;
 	}
 
-	final int method1100(final int i) {
-		int i_47_;
-		try {
-			int i_48_ = 0;
-			int i_49_;
-			for (i_49_ = getUSmart(); i_49_ == 32767; i_49_ = getUSmart()) {
-				i_48_ += 32767;
-			}
-			i_48_ += i_49_;
-			if (i <= 107) {
-				putMedium(120);
-			}
-			i_47_ = i_48_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.H(").append(i).append(')').toString());
+	final int method1100() {
+		int i_48_ = 0;
+		int i_49_;
+		for (i_49_ = getUSmart(); i_49_ == 32767; i_49_ = getUSmart()) {
+			i_48_ += 32767;
 		}
-		return i_47_;
+		i_48_ += i_49_;
+		return i_48_;
 	}
 
 	final void putLEInt(final int i_87_) {
@@ -311,9 +293,9 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_87_ >> 24);
 	}
 
-	final void getBytesA(final byte[] is, final int i_50_, final int i_51_) {
-		for (int i_52_ = i_50_; i_52_ < i_51_ + i_50_; i_52_++) {
-			is[i_52_] = (byte) (this.buf[this.pos++] + -128);
+	final void getBytesA(final byte[] buffer, final int off, final int len) {
+		for (int id = off; id < len + off; id++) {
+			buffer[id] = (byte) (this.buf[this.pos++] - 128);
 		}
 	}
 

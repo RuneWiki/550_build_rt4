@@ -135,7 +135,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (i == -23) {
 				Class173.method2225();
 				for (int i_12_ = 0; i_12_ < 4; i_12_++) {
-					Class182.collisionMaps[i_12_].method225();
+					Class182.collisionMaps[i_12_].resetFlags();
 				}
 				System.gc();
 			}

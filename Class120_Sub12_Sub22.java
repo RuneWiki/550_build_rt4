@@ -91,7 +91,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				final int i_19_ = anInt3300 * is_16_[i_17_] >> 12;
 				final int i_20_ = i_19_ * Class84.anIntArray800[i_18_] >> 12;
 				final int i_21_ = Class120_Sub29.anInt2774 & i_13_ + (i_20_ >> 12);
-				final int i_22_ = i_19_ * Class83.anIntArray789[i_18_] >> 12;
+				final int i_22_ = i_19_ * FileSystemWorker.anIntArray789[i_18_] >> 12;
 				final int i_23_ = Class32.anInt259 & i_17_ + (i_22_ >> 12);
 				final int[] is_24_ = method1192(i_21_, 0);
 				is_14_[i_17_] = is_24_[i_23_];
@@ -191,7 +191,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				final int i_46_ = is_41_[i_45_] * anInt3300 >> 12;
 				final int i_47_ = is_40_[i_45_] * 255 >> 12 & 0xff;
 				final int i_48_ = i_46_ * Class84.anIntArray800[i_47_] >> 12;
-				final int i_49_ = Class83.anIntArray789[i_47_] * i_46_ >> 12;
+				final int i_49_ = FileSystemWorker.anIntArray789[i_47_] * i_46_ >> 12;
 				final int i_50_ = Class32.anInt259 & (i_49_ >> 12) + i_45_;
 				final int i_51_ = (i_48_ >> 12) + i & Class120_Sub29.anInt2774;
 				final int[][] is_52_ = method1179(0, i_51_, (byte) -51);

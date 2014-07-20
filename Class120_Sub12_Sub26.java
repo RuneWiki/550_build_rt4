@@ -35,7 +35,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 			if (i_1_ < 84) {
 				anInt3331 = -62;
 			}
-			int i_3_ = Class83.anIntArray789[0xff & 255 * i_2_ >> 12];
+			int i_3_ = FileSystemWorker.anIntArray789[0xff & 255 * i_2_ >> 12];
 			i_3_ = (i_3_ << 12) / anInt3329;
 			i_3_ = (i_3_ << 12) / anInt3322;
 			i_3_ = anInt3336 * i_3_ >> 12;
@@ -68,7 +68,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 		boolean bool;
 		try {
 			final int i_6_ = (i - -i_4_) * anInt3329 >> 12;
-			int i_7_ = Class83.anIntArray789[(0xffafc & 255 * i_6_) >> 12];
+			int i_7_ = FileSystemWorker.anIntArray789[(0xffafc & 255 * i_6_) >> 12];
 			if (i_5_ != -46) {
 				method1340(null, 23, 112);
 			}

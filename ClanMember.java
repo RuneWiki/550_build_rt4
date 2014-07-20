@@ -13,7 +13,7 @@ final class ClanMember extends Node {
 	static String aString2578 = " from your ignore list first.";
 	String sideText;
 	String name;
-	static Class193[] aClass193Array2581 = new Class193[29];
+	static SeekableFile[] aClass193Array2581 = new SeekableFile[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
 		final boolean bool_8_ = OverridedJInterface.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;

@@ -21,7 +21,7 @@ final class Class45 {
 	volatile int anInt410 = 0;
 	volatile int anInt411 = 0;
 	private byte aByte412 = 0;
-	private Class120_Sub14_Sub14_Sub2 aClass120_Sub14_Sub14_Sub2_413;
+	private Js5Request aClass120_Sub14_Sub14_Sub2_413;
 
 	private final int method354() {
 		return aClass177_403.getAmount() + aClass177_404.getAmount();
@@ -188,16 +188,9 @@ final class Class45 {
 		}
 	}
 
-	final void method360(final byte i) {
-		try {
-			if (i > -71) {
-				js5Connection = null;
-			}
-			if (js5Connection != null) {
-				js5Connection.replaceStreamsWithDummy();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.P(").append(i).append(')').toString());
+	final void replaceStreamsWithDummy() {
+		if (js5Connection != null) {
+			js5Connection.replaceStreamsWithDummy();
 		}
 	}
 
@@ -217,14 +210,14 @@ final class Class45 {
 			aClass120_Sub14_Sub14_Sub2_413 = null;
 			aClass120_Sub7_409.pos = 0;
 			for (;;) {
-				final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_402.removeFirst();
+				final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.removeFirst();
 				if (class120_sub14_sub14_sub2 == null) {
 					break;
 				}
 				aClass177_401.insertLast(class120_sub14_sub14_sub2);
 			}
 			for (;;) {
-				final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_404.removeFirst();
+				final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.removeFirst();
 				if (class120_sub14_sub14_sub2 == null) {
 					break;
 				}
@@ -255,9 +248,9 @@ final class Class45 {
 		}
 	}
 
-	final Class120_Sub14_Sub14_Sub2 method362(final byte i, final int i_36_, final boolean bool, final int i_38_) {
+	final Js5Request method362(final byte i, final int i_36_, final boolean bool, final int i_38_) {
 		final long l = i_38_ + (i_36_ << 16);
-		final Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2_39_ = new Class120_Sub14_Sub14_Sub2();
+		final Js5Request class120_sub14_sub14_sub2_39_ = new Js5Request();
 		class120_sub14_sub14_sub2_39_.aByte3938 = i;
 		class120_sub14_sub14_sub2_39_.aBoolean3573 = bool;
 		class120_sub14_sub14_sub2_39_.subUid = l;
@@ -677,14 +670,14 @@ final class Class45 {
 		boolean bool_121_;
 		try {
 			js5Connection.checkForError();
-			for (Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_401.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_401.peekNext()) {
+			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_401.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_401.peekNext()) {
 				aClass120_Sub7_406.pos = 0;
 				aClass120_Sub7_406.putByte(1);
 				aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
 				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
 				aClass177_402.insertLast(class120_sub14_sub14_sub2);
 			}
-			for (Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_403.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_403.peekNext()) {
+			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_403.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_403.peekNext()) {
 				aClass120_Sub7_406.pos = 0;
 				aClass120_Sub7_406.putByte(0);
 				aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
@@ -754,15 +747,15 @@ final class Class45 {
 							final boolean bool_134_ = (i_132_ & 0x80) != 0;
 							final int i_135_ = aClass120_Sub7_409.getInt();
 							final long l = i_131_ + (i_130_ << 16);
-							Class120_Sub14_Sub14_Sub2 class120_sub14_sub14_sub2;
+							Js5Request class120_sub14_sub14_sub2;
 							if (bool_134_) {
-								for (class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_404.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_404.peekNext()) {
+								for (class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.peekNext()) {
 									if ((class120_sub14_sub14_sub2.subUid ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
 										break;
 									}
 								}
 							} else {
-								for (class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_402.peekFirst(); class120_sub14_sub14_sub2 != null && l != class120_sub14_sub14_sub2.subUid; class120_sub14_sub14_sub2 = (Class120_Sub14_Sub14_Sub2) aClass177_402.peekNext()) {
+								for (class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.peekFirst(); class120_sub14_sub14_sub2 != null && l != class120_sub14_sub14_sub2.subUid; class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.peekNext()) {
 									/* empty */
 								}
 							}

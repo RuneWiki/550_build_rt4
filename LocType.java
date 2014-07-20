@@ -247,11 +247,11 @@ final class LocType {
 						InterfaceClickMask.aClass21_2663.put(class180_sub2_21_, i_24_);
 					}
 					if (i_22_ > 1) {
-						Class120_Sub14_Sub14.aClass180_Sub2Array3574[i_23_] = class180_sub2_21_;
+						AbstractRequest.aClass180_Sub2Array3574[i_23_] = class180_sub2_21_;
 					}
 				}
 				if (i_22_ > 1) {
-					class180_sub2_21_ = new Class180_Sub2(Class120_Sub14_Sub14.aClass180_Sub2Array3574, i_22_);
+					class180_sub2_21_ = new Class180_Sub2(AbstractRequest.aClass180_Sub2Array3574, i_22_);
 				}
 			} else {
 				int i_25_ = -1;
@@ -403,11 +403,11 @@ final class LocType {
 							return null;
 						}
 						if (i_42_ > 1) {
-							Class120_Sub14_Sub14.aClass180_Sub2Array3574[i_44_] = class180_sub2;
+							AbstractRequest.aClass180_Sub2Array3574[i_44_] = class180_sub2;
 						}
 					}
 					if (i_42_ > 1) {
-						class180_sub2 = new Class180_Sub2(Class120_Sub14_Sub14.aClass180_Sub2Array3574, i_42_);
+						class180_sub2 = new Class180_Sub2(AbstractRequest.aClass180_Sub2Array3574, i_42_);
 					}
 					class180_sub7_sub2_41_ = new Class180_Sub7_Sub2(class180_sub2, i_39_, i_40_, bool);
 					InterfaceClickMask.aClass21_2663.put(class180_sub7_sub2_41_, l);
@@ -972,140 +972,131 @@ final class LocType {
 		return false;
 	}
 
-	static final int method2467(final int i, final byte i_101_, final JagexInterface jagexInterface) {
-		int i_102_;
-		try {
-			if (jagexInterface.cs1opcodes == null || i >= jagexInterface.cs1opcodes.length) {
-				return -2;
-			}
-			try {
-				if (i_101_ >= -11) {
-					modeWhat = -7;
-				}
-				final int[] is = jagexInterface.cs1opcodes[i];
-				int i_103_ = 0;
-				int i_104_ = 0;
-				int i_105_ = 0;
-				for (;;) {
-					int i_106_ = 0;
-					final int i_107_ = is[i_103_++];
-					int i_108_ = 0;
-					if (i_107_ == 0) {
-						return i_104_;
-					}
-					if (i_107_ == 1) {
-						i_108_ = SceneGraphNode.skillsLevel[is[i_103_++]];
-					}
-					if (i_107_ == 15) {
-						i_106_ = 1;
-					}
-					if (i_107_ == 16) {
-						i_106_ = 2;
-					}
-					if (i_107_ == 17) {
-						i_106_ = 3;
-					}
-					if (i_107_ == 2) {
-						i_108_ = Decimator.skillsBaseLevel[is[i_103_++]];
-					}
-					if (i_107_ == 3) {
-						i_108_ = Class120_Sub12_Sub38.skillsXp[is[i_103_++]];
-					}
-					if (i_107_ == 4) {
-						int i_109_ = is[i_103_++] << 16;
-						i_109_ += is[i_103_++];
-						final JagexInterface class189_110_ = Class74.getJagexInterface(i_109_);
-						final int i_111_ = is[i_103_++];
-						if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.membersClient)) {
-							for (int i_112_ = 0; class189_110_.objIds.length > i_112_; i_112_++) {
-								if (class189_110_.objIds[i_112_] == i_111_ + 1) {
-									i_108_ += class189_110_.objAmounts[i_112_];
-								}
-							}
-						}
-					}
-					if (i_107_ == 5) {
-						i_108_ = Class2.permanentVariable[is[i_103_++]];
-					}
-					if (i_107_ == 6) {
-						i_108_ = Class55.skillsXpForLevel[Decimator.skillsBaseLevel[is[i_103_++]] - 1];
-					}
-					if (i_107_ == 7) {
-						i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
-					}
-					if (i_107_ == 8) {
-						i_108_ = Class100.selfPlayer.combatLevel;
-					}
-					if (i_107_ == 9) {
-						for (int i_113_ = 0; i_113_ < 25; i_113_++) {
-							if (Class173.aBooleanArray1723[i_113_]) {
-								i_108_ += Decimator.skillsBaseLevel[i_113_];
-							}
-						}
-					}
-					if (i_107_ == 10) {
-						int i_114_ = is[i_103_++] << 16;
-						i_114_ += is[i_103_++];
-						final JagexInterface class189_115_ = Class74.getJagexInterface(i_114_);
-						final int i_116_ = is[i_103_++];
-						if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.membersClient)) {
-							for (int i_117_ = 0; class189_115_.objIds.length > i_117_; i_117_++) {
-								if (1 + i_116_ == class189_115_.objIds[i_117_]) {
-									i_108_ = 999999999;
-									break;
-								}
-							}
-						}
-					}
-					if (i_107_ == 11) {
-						i_108_ = Class69_Sub2.energy;
-					}
-					if (i_107_ == 12) {
-						i_108_ = Class56.weight;
-					}
-					if (i_107_ == 13) {
-						final int i_118_ = Class2.permanentVariable[is[i_103_++]];
-						final int i_119_ = is[i_103_++];
-						i_108_ = (1 << i_119_ & i_118_) == 0 ? 0 : 1;
-					}
-					if (i_107_ == 14) {
-						final int i_120_ = is[i_103_++];
-						i_108_ = Class173.method2226((byte) -126, i_120_);
-					}
-					if (i_107_ == 18) {
-						i_108_ = GameEntity.currentBaseX + (Class100.selfPlayer.x >> 7);
-					}
-					if (i_107_ == 19) {
-						i_108_ = (Class100.selfPlayer.z >> 7) - -Class181.currentBaseZ;
-					}
-					if (i_107_ == 20) {
-						i_108_ = is[i_103_++];
-					}
-					if (i_106_ == 0) {
-						if (i_105_ == 0) {
-							i_104_ += i_108_;
-						}
-						if (i_105_ == 1) {
-							i_104_ -= i_108_;
-						}
-						if (i_105_ == 2 && i_108_ != 0) {
-							i_104_ /= i_108_;
-						}
-						if (i_105_ == 3) {
-							i_104_ *= i_108_;
-						}
-						i_105_ = 0;
-					} else {
-						i_105_ = i_106_;
-					}
-				}
-			} catch (final Exception exception) {
-				i_102_ = -1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.M(").append(i).append(',').append(i_101_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+	static final int method2467(final JagexInterface jagexInterface, final int i) {
+		if (jagexInterface.cs1opcodes == null || i >= jagexInterface.cs1opcodes.length) {
+			return -2;
 		}
-		return i_102_;
+		try {
+			final int[] is = jagexInterface.cs1opcodes[i];
+			int i_103_ = 0;
+			int i_104_ = 0;
+			int i_105_ = 0;
+			for (;;) {
+				int i_106_ = 0;
+				final int i_107_ = is[i_103_++];
+				int i_108_ = 0;
+				if (i_107_ == 0) {
+					return i_104_;
+				}
+				if (i_107_ == 1) {
+					i_108_ = SceneGraphNode.skillsLevel[is[i_103_++]];
+				}
+				if (i_107_ == 15) {
+					i_106_ = 1;
+				}
+				if (i_107_ == 16) {
+					i_106_ = 2;
+				}
+				if (i_107_ == 17) {
+					i_106_ = 3;
+				}
+				if (i_107_ == 2) {
+					i_108_ = Decimator.skillsBaseLevel[is[i_103_++]];
+				}
+				if (i_107_ == 3) {
+					i_108_ = Class120_Sub12_Sub38.skillsXp[is[i_103_++]];
+				}
+				if (i_107_ == 4) {
+					int i_109_ = is[i_103_++] << 16;
+					i_109_ += is[i_103_++];
+					final JagexInterface class189_110_ = Class74.getJagexInterface(i_109_);
+					final int i_111_ = is[i_103_++];
+					if ((i_111_ ^ 0xffffffff) != 0 && (!ObjType.list(i_111_).members || Class120_Sub12_Sub37.membersClient)) {
+						for (int i_112_ = 0; class189_110_.objIds.length > i_112_; i_112_++) {
+							if (class189_110_.objIds[i_112_] == i_111_ + 1) {
+								i_108_ += class189_110_.objAmounts[i_112_];
+							}
+						}
+					}
+				}
+				if (i_107_ == 5) {
+					i_108_ = Class2.permanentVariable[is[i_103_++]];
+				}
+				if (i_107_ == 6) {
+					i_108_ = Class55.skillsXpForLevel[Decimator.skillsBaseLevel[is[i_103_++]] - 1];
+				}
+				if (i_107_ == 7) {
+					i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
+				}
+				if (i_107_ == 8) {
+					i_108_ = Class100.selfPlayer.combatLevel;
+				}
+				if (i_107_ == 9) {
+					for (int i_113_ = 0; i_113_ < 25; i_113_++) {
+						if (Class173.aBooleanArray1723[i_113_]) {
+							i_108_ += Decimator.skillsBaseLevel[i_113_];
+						}
+					}
+				}
+				if (i_107_ == 10) {
+					int i_114_ = is[i_103_++] << 16;
+					i_114_ += is[i_103_++];
+					final JagexInterface class189_115_ = Class74.getJagexInterface(i_114_);
+					final int i_116_ = is[i_103_++];
+					if ((i_116_ ^ 0xffffffff) != 0 && (!ObjType.list(i_116_).members || Class120_Sub12_Sub37.membersClient)) {
+						for (int i_117_ = 0; class189_115_.objIds.length > i_117_; i_117_++) {
+							if (1 + i_116_ == class189_115_.objIds[i_117_]) {
+								i_108_ = 999999999;
+								break;
+							}
+						}
+					}
+				}
+				if (i_107_ == 11) {
+					i_108_ = Class69_Sub2.energy;
+				}
+				if (i_107_ == 12) {
+					i_108_ = LookupTable.weight;
+				}
+				if (i_107_ == 13) {
+					final int i_118_ = Class2.permanentVariable[is[i_103_++]];
+					final int i_119_ = is[i_103_++];
+					i_108_ = (1 << i_119_ & i_118_) == 0 ? 0 : 1;
+				}
+				if (i_107_ == 14) {
+					final int i_120_ = is[i_103_++];
+					i_108_ = Class173.method2226((byte) -126, i_120_);
+				}
+				if (i_107_ == 18) {
+					i_108_ = GameEntity.currentBaseX + (Class100.selfPlayer.x >> 7);
+				}
+				if (i_107_ == 19) {
+					i_108_ = (Class100.selfPlayer.z >> 7) - -Class181.currentBaseZ;
+				}
+				if (i_107_ == 20) {
+					i_108_ = is[i_103_++];
+				}
+				if (i_106_ == 0) {
+					if (i_105_ == 0) {
+						i_104_ += i_108_;
+					}
+					if (i_105_ == 1) {
+						i_104_ -= i_108_;
+					}
+					if (i_105_ == 2 && i_108_ != 0) {
+						i_104_ /= i_108_;
+					}
+					if (i_105_ == 3) {
+						i_104_ *= i_108_;
+					}
+					i_105_ = 0;
+				} else {
+					i_105_ = i_106_;
+				}
+			}
+		} catch (final Exception exception) {
+			return -1;
+		}
 	}
 
 	final boolean method2468(final byte i, final int i_121_) {

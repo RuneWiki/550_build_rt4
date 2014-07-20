@@ -125,7 +125,7 @@ final class Class2 {
 				InterfaceListener.anInt2546 -= i_8_;
 				Class109.anInt1042 -= i_9_;
 				Class134.anInt1280 -= i_8_;
-				Class83.renderX -= i_9_ * 128;
+				FileSystemWorker.renderX -= i_9_ * 128;
 			}
 			Class150.anInt1407 = 0;
 			if (HDToolkit.glEnabled && bool && (Math.abs(i_9_) > 104 || Math.abs(i_8_) > 104)) {
@@ -133,7 +133,7 @@ final class Class2 {
 			}
 			Class132_Sub2.method1937((byte) 84);
 			Class120_Sub12_Sub7.aClass105_3177.clear();
-			Class120_Sub14_Sub14_Sub1.aClass105_3928.clear();
+			FileSystemRequest.aClass105_3928.clear();
 			ParticleEngine.method958();
 		}
 	}

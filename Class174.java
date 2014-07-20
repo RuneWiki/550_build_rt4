@@ -65,11 +65,11 @@ final class Class174 {
 				if (Class118.playersList[i_3_] == null) {
 					bool = true;
 					Class118.playersList[i_3_] = new Player();
-					if (StringNode.aClass120_Sub7Array2737[i_3_] != null) {
-						Class118.playersList[i_3_].decodeAppearance(StringNode.aClass120_Sub7Array2737[i_3_]);
+					if (StringNode.playerAppearanceBuffers[i_3_] != null) {
+						Class118.playersList[i_3_].decodeAppearance(StringNode.playerAppearanceBuffers[i_3_]);
 					}
 				}
-				Class112.playerIndices[Class83.localPlayerCount++] = i_3_;
+				Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_3_;
 				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
 				class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
 				final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];

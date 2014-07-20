@@ -8,7 +8,7 @@ final class Class86 {
 	static int loginStep = 0;
 	static GroundTile[][][] aClass120_Sub18ArrayArrayArray820;
 	static int staffLevel = 0;
-	static Class193 aClass193_822;
+	static SeekableFile aClass193_822;
 	static Hashtable aClass75_823;
 
 	static {
