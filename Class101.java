@@ -29,7 +29,7 @@ abstract class Class101 {
 	abstract void method834(int i, int i_5_, int i_6_);
 
 	static final void method835(final boolean bool) {
-		Class117.method1021(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, Class66.aFloat600, Class147.aFloat1395);
+		Class117.method1021(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, Class147.aFloat1395);
 		Class117.method1020(Deque.anInt1007, CollisionMap.anInt151, bool);
 		Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 		Class117.method1016();

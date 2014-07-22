@@ -78,7 +78,7 @@ final class StructType extends NodeSub {
 				}
 			}
 		}
-		final boolean bool = OverridedJInterface.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
+		final boolean bool = OverridedJInterface.tileHeightMap == Class24.anIntArrayArrayArray140;
 		if (HDToolkit.glEnabled) {
 			final GL gl = HDToolkit.gl;
 			gl.glPushMatrix();
@@ -113,7 +113,7 @@ final class StructType extends NodeSub {
 					}
 					if (i_15_ == 0 && Class74.sceneryShadowsType > 0) {
 						HDToolkit.method527(101.5F);
-						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.anIntArrayArrayArray2741[0]);
+						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.tileHeightMap[0]);
 					}
 				}
 				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, LabelGroup.groundTiles);

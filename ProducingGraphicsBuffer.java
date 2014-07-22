@@ -483,7 +483,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 								final int i_54_ = light.anInt373 >> 7;
 								if (i_53_ >= 0 && i_54_ >= 0 && i_53_ < 104 && i_54_ < 104) {
 									light.aBoolean385 = (Class114.tileSettings[1][i_53_][i_54_] & 0x2) != 0;
-									light.anInt375 = OverridedJInterface.anIntArrayArrayArray2741[light.anInt384][i_53_][i_54_] - light.anInt375;
+									light.anInt375 = OverridedJInterface.tileHeightMap[light.anInt384][i_53_][i_54_] - light.anInt375;
 									LightManager.method1860(light);
 								}
 							}
@@ -600,22 +600,16 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		}
 	}
 
-	static final void method1854(final boolean bool, final boolean bool_75_, final JagexInterface jagexInterface) {
-		try {
-			final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.width : jagexInterface.maxScrollHorizontal;
-			final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.height : jagexInterface.maxScrollVertical;
-			WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_);
-			if (!bool_75_) {
-				if (jagexInterface.components != null) {
-					WorldInfo.method2065(jagexInterface.components, bool, i, jagexInterface.bitPacked, i_76_);
-				}
-				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
-				if (class120_sub26 != null) {
-					Class120_Sub12_Sub12.method1258(bool, i, class120_sub26.interfaceId, i_76_);
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.K(").append(bool).append(',').append(bool_75_).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+	static final void method1854(final JagexInterface jagexInterface, final boolean bool) {
+		final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.width : jagexInterface.maxScrollHorizontal;
+		final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.height : jagexInterface.maxScrollVertical;
+		WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_);
+		if (jagexInterface.components != null) {
+			WorldInfo.method2065(jagexInterface.components, bool, i, jagexInterface.bitPacked, i_76_);
+		}
+		final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
+		if (class120_sub26 != null) {
+			Class120_Sub12_Sub12.method1258(bool, i, class120_sub26.interfaceId, i_76_);
 		}
 	}
 

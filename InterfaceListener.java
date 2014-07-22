@@ -100,8 +100,8 @@ final class InterfaceListener extends Node {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
 								final GroundTile class120_sub18 = LabelGroup.groundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
-									final int i_11_ = (OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i_8_][i_9_ + 1][i_10_ + 1])
-											/ 4 - (OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_][i_1_ + 1] + OverridedJInterface.anIntArrayArrayArray2741[i][i_0_ + 1][i_1_ + 1]) / 4;
+									final int i_11_ = (OverridedJInterface.tileHeightMap[i_8_][i_9_][i_10_] + OverridedJInterface.tileHeightMap[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.tileHeightMap[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.tileHeightMap[i_8_][i_9_ + 1][i_10_ + 1])
+											/ 4 - (OverridedJInterface.tileHeightMap[i][i_0_][i_1_] + OverridedJInterface.tileHeightMap[i][i_0_ + 1][i_1_] + OverridedJInterface.tileHeightMap[i][i_0_][i_1_ + 1] + OverridedJInterface.tileHeightMap[i][i_0_ + 1][i_1_ + 1]) / 4;
 									final Class182 class182 = class120_sub18.aClass182_2628;
 									if (class182 != null) {
 										if (class182.aClass180_1800.method2268()) {

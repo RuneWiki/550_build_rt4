@@ -444,7 +444,7 @@ final class Class120_Sub23 extends Node {
 
 	static final Class120_Sub23 method1716(final js5 js5, final int i, final int i_106_) {
 		if (!method1708(js5)) {
-			js5.method440(i, true, i_106_);
+			js5.fileExists(i, i_106_);
 			return null;
 		}
 		final byte[] is = js5.getFile(i, i_106_);

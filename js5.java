@@ -5,8 +5,8 @@ import java.util.Arrays;
  */
 
 final class js5 {
-	private boolean aBoolean446;
-	private boolean aBoolean447;
+	private boolean clearOnUnpack;
+	private boolean clearOnUse;
 	private Object[][] anObjectArrayArray448;
 	static int lastClickX = 0;
 	private Class53 aClass53_450;
@@ -29,7 +29,7 @@ final class js5 {
 				method426(true, false, (byte) 79);
 			}
 			final int i_2_ = aClass52_452.groupFileLookupTable[i_1_].lookupIdentifier(Class120_Sub14_Sub13.method1524(string_0_, 0));
-			bool = method440(i_1_, true, i_2_);
+			bool = fileExists(i_1_, i_2_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.T(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(string_0_ != null ? "{...}" : "null").append(')').toString());
 		}
@@ -57,7 +57,7 @@ final class js5 {
 			}
 			string = string.toLowerCase();
 			final int i_5_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, i + 11));
-			i_4_ = method416(i_5_, -12826);
+			i_4_ = method416(i_5_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.EA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
@@ -100,7 +100,7 @@ final class js5 {
 		int i_9_ = 0;
 		for (int i_10_ = 0; anObjectArray451.length > i_10_; i_10_++) {
 			if (aClass52_452.groupFileCount[i_10_] > 0) {
-				i_9_ += method416(i_10_, -12826);
+				i_9_ += method416(i_10_);
 				i_8_ += 100;
 			}
 		}
@@ -110,23 +110,14 @@ final class js5 {
 		return i_9_ * 100 / i_8_;
 	}
 
-	private final int method416(final int i, final int i_12_) {
-		int i_13_;
-		try {
-			if (i_12_ != -12826) {
-				return -42;
-			}
-			if (!method436(i)) {
-				return 0;
-			}
-			if (anObjectArray451[i] != null) {
-				return 100;
-			}
-			i_13_ = aClass53_450.method458(i, -1);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.V(").append(i).append(',').append(i_12_).append(')').toString());
+	private final int method416(final int i) {
+		if (!method436(i)) {
+			return 0;
 		}
-		return i_13_;
+		if (anObjectArray451[i] != null) {
+			return 100;
+		}
+		return aClass53_450.method458(i);
 	}
 
 	static final Buffer method417() {
@@ -192,7 +183,7 @@ final class js5 {
 			if (anObjectArrayArray448[i_16_] == null || anObjectArrayArray448[i_16_][i] == null) {
 				boolean bool_17_ = method424(0, null, i_16_);
 				if (!bool_17_) {
-					method422(1, i_16_);
+					method422(i_16_);
 					bool_17_ = method424(0, null, i_16_);
 					if (!bool_17_) {
 						return null;
@@ -214,18 +205,11 @@ final class js5 {
 		return aClass52_452.anIntArray465.length;
 	}
 
-	private final void method422(final int i, final int i_20_) {
-		try {
-			if (i != 1) {
-				aBoolean446 = false;
-			}
-			if (!aBoolean446) {
-				anObjectArray451[i_20_] = Class143_Sub1.method2026(aClass53_450.method460(-94271416, i_20_), false, 136);
-			} else {
-				anObjectArray451[i_20_] = aClass53_450.method460(-94271416, i_20_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.FA(").append(i).append(',').append(i_20_).append(')').toString());
+	private final void method422(final int i_20_) {
+		if (!clearOnUnpack) {
+			anObjectArray451[i_20_] = Class143_Sub1.method2026(aClass53_450.method460(i_20_), false, 136);
+		} else {
+			anObjectArray451[i_20_] = aClass53_450.method460(i_20_);
 		}
 	}
 
@@ -289,7 +273,7 @@ final class js5 {
 						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2))
 								.append(",").append(aClass52_452.groupCrcs[i_23_]).append(",").append(aClass52_452.indexCrc).toString());
 			}
-			if (aBoolean446) {
+			if (clearOnUnpack) {
 				anObjectArray451[i_23_] = null;
 			}
 			if (i_25_ > 1) {
@@ -329,7 +313,7 @@ final class js5 {
 					} else {
 						i_44_ = is_24_[i_43_];
 					}
-					if (aBoolean447) {
+					if (clearOnUse) {
 						objects[i_44_] = is_37_[i_43_];
 					} else {
 						objects[i_44_] = Class143_Sub1.method2026(is_37_[i_43_], false, 136);
@@ -342,7 +326,7 @@ final class js5 {
 				} else {
 					i_45_ = is_24_[0];
 				}
-				if (aBoolean447) {
+				if (clearOnUse) {
 					objects[i_45_] = is_30_;
 				} else {
 					objects[i_45_] = Class143_Sub1.method2026(is_30_, false, 136);
@@ -362,7 +346,7 @@ final class js5 {
 		if (anObjectArray451[i] != null) {
 			return true;
 		}
-		method422(1, i);
+		method422(i);
 		if (anObjectArray451[i] != null) {
 			return true;
 		}
@@ -432,37 +416,31 @@ final class js5 {
 			return false;
 		}
 		if (aClass52_452.anIntArray465.length == 1) {
-			return method440(0, true, i);
+			return fileExists(0, i);
 		}
 		if (!method436(i)) {
 			return false;
 		}
 		if (aClass52_452.anIntArray465[i] == 1) {
-			return method440(i, true, 0);
+			return fileExists(i, 0);
 		}
 		throw new RuntimeException();
 	}
 
-	final boolean method430(final boolean bool) {
-		boolean bool_53_;
-		try {
-			if (!informationLoaded()) {
-				return false;
-			}
-			boolean bool_54_ = bool;
-			for (final int i_55_ : aClass52_452.groupIds) {
+	final boolean method430() {
+		if (!informationLoaded()) {
+			return false;
+		}
+		boolean bool_54_ = true;
+		for (final int i_55_ : aClass52_452.groupIds) {
+			if (anObjectArray451[i_55_] == null) {
+				method422(i_55_);
 				if (anObjectArray451[i_55_] == null) {
-					method422(1, i_55_);
-					if (anObjectArray451[i_55_] == null) {
-						bool_54_ = false;
-					}
+					bool_54_ = false;
 				}
 			}
-			bool_53_ = bool_54_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.DA(").append(bool).append(')').toString());
 		}
-		return bool_53_;
+		return bool_54_;
 	}
 
 	final byte[] method431(final int i, final int i_56_, final int[] is) {
@@ -472,7 +450,7 @@ final class js5 {
 		if (anObjectArrayArray448[i_56_] == null || anObjectArrayArray448[i_56_][i] == null) {
 			boolean bool = method424(0, is, i_56_);
 			if (!bool) {
-				method422(1, i_56_);
+				method422(i_56_);
 				bool = method424(0, is, i_56_);
 				if (!bool) {
 					return null;
@@ -480,7 +458,7 @@ final class js5 {
 			}
 		}
 		final byte[] is_59_ = IdentityKit.method1988(anObjectArrayArray448[i_56_][i], false);
-		if (aBoolean447) {
+		if (clearOnUse) {
 			anObjectArrayArray448[i_56_][i] = null;
 			if (aClass52_452.anIntArray465[i_56_] == 1) {
 				anObjectArrayArray448[i_56_] = null;
@@ -623,30 +601,21 @@ final class js5 {
 		return aClass52_452.indexCrc;
 	}
 
-	final boolean method440(final int i, final boolean bool, final int i_72_) {
-		boolean bool_73_;
-		try {
-			if (!method423(i_72_, i)) {
-				return false;
-			}
-			if (anObjectArrayArray448[i] != null && anObjectArrayArray448[i][i_72_] != null) {
-				return true;
-			}
-			if (!bool) {
-				method410(null, (byte) -61, null);
-			}
-			if (anObjectArray451[i] != null) {
-				return true;
-			}
-			method422(1, i);
-			if (anObjectArray451[i] != null) {
-				return true;
-			}
-			bool_73_ = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.B(").append(i).append(',').append(bool).append(',').append(i_72_).append(')').toString());
+	final boolean fileExists(final int group, final int file) {
+		if (!method423(file, group)) {
+			return false;
 		}
-		return bool_73_;
+		if (anObjectArrayArray448[group] != null && anObjectArrayArray448[group][file] != null) {
+			return true;
+		}
+		if (anObjectArray451[group] != null) {
+			return true;
+		}
+		method422(group);
+		if (anObjectArray451[group] != null) {
+			return true;
+		}
+		return false;
 	}
 
 	final int getFileAmount(final int i) {
@@ -661,8 +630,8 @@ final class js5 {
 	}
 
 	js5(final Class53 class53, final boolean bool, final boolean bool_78_) {
-		aBoolean447 = bool_78_;
+		clearOnUse = bool_78_;
 		aClass53_450 = class53;
-		aBoolean446 = bool;
+		clearOnUnpack = bool;
 	}
 }

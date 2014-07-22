@@ -10,55 +10,47 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_3204;
 	static int anInt3205 = -1;
 
-	static final void method1247(final int i, final int i_0_, final CollisionMap[] class25s, final byte[] is, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final boolean bool, final int i_5_, final int i_6_) {
-		try {
-			final Buffer class120_sub7 = new Buffer(is);
-			int i_7_ = -1;
-			if (i_5_ != 1) {
-				renderY = 16;
+	static final void method1247(final int i, final int i_0_, final CollisionMap[] class25s, final byte[] is, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final boolean bool, final int i_6_) {
+		final Buffer class120_sub7 = new Buffer(is);
+		int i_7_ = -1;
+		for (;;) {
+			final int i_8_ = class120_sub7.method1100();
+			if (i_8_ == 0) {
+				break;
 			}
+			i_7_ += i_8_;
+			int i_9_ = 0;
 			for (;;) {
-				final int i_8_ = class120_sub7.method1100();
-				if (i_8_ == 0) {
+				final int i_10_ = class120_sub7.getUSmart();
+				if (i_10_ == 0) {
 					break;
 				}
-				i_7_ += i_8_;
-				int i_9_ = 0;
-				for (;;) {
-					final int i_10_ = class120_sub7.getUSmart();
-					if (i_10_ == 0) {
-						break;
-					}
-					i_9_ += -1 + i_10_;
-					final int i_11_ = i_9_ >> 6 & 0x3f;
-					final int i_12_ = 0x3f & i_9_;
-					final int i_13_ = i_9_ >> 12;
-					final int i_14_ = class120_sub7.getUByte();
-					final int i_15_ = i_14_ >> 2;
-					final int i_16_ = i_14_ & 0x3;
-					if (i_13_ == i_4_ && i_3_ <= i_11_ && 8 + i_3_ > i_11_ && i_2_ <= i_12_ && i_2_ - -8 > i_12_) {
-						final LocType locType = LocType.list(i_7_);
-						final int i_17_ = Class132.method1928(locType.anInt1841, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, locType.anInt1827) + i_0_;
-						final int i_18_ = i_6_ - -AbstractRequest.method1539(i_5_ + -10525, 0x7 & i_11_, locType.anInt1827, locType.anInt1841, i_1_, 0x7 & i_12_, i_16_);
-						if (i_17_ > 0 && i_18_ > 0 && i_17_ < 103 && i_18_ < 103) {
-							CollisionMap collisionMap = null;
-							if (!bool) {
-								int i_19_ = i;
-								if ((Class114.tileSettings[1][i_17_][i_18_] & 0x2) == 2) {
-									i_19_--;
-								}
-								if (i_19_ >= 0) {
-									collisionMap = class25s[i_19_];
-								}
+				i_9_ += -1 + i_10_;
+				final int i_11_ = i_9_ >> 6 & 0x3f;
+				final int i_12_ = 0x3f & i_9_;
+				final int i_13_ = i_9_ >> 12;
+				final int i_14_ = class120_sub7.getUByte();
+				final int i_15_ = i_14_ >> 2;
+				final int i_16_ = i_14_ & 0x3;
+				if (i_13_ == i_4_ && i_3_ <= i_11_ && 8 + i_3_ > i_11_ && i_2_ <= i_12_ && i_2_ - -8 > i_12_) {
+					final LocType locType = LocType.list(i_7_);
+					final int i_17_ = Class132.method1928(locType.anInt1841, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, locType.anInt1827) + i_0_;
+					final int i_18_ = i_6_ - -AbstractRequest.method1539(0x7 & i_11_, locType.anInt1827, locType.anInt1841, i_1_, 0x7 & i_12_, i_16_);
+					if (i_17_ > 0 && i_18_ > 0 && i_17_ < 103 && i_18_ < 103) {
+						CollisionMap collisionMap = null;
+						if (!bool) {
+							int i_19_ = i;
+							if ((Class114.tileSettings[1][i_17_][i_18_] & 0x2) == 2) {
+								i_19_--;
 							}
-							Class93.method771(i_16_ - -i_1_ & 0x3, i, i_7_, i, i_17_, 4, bool, i_18_, collisionMap, !bool, i_15_);
+							if (i_19_ >= 0) {
+								collisionMap = class25s[i_19_];
+							}
 						}
+						Class93.method771(i_16_ - -i_1_ & 0x3, i, i_7_, i, i_17_, 4, bool, i_18_, collisionMap, !bool, i_15_);
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fl.R(").append(i).append(',').append(i_0_).append(',').append(class25s != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(i_2_).append(',')
-					.append(i_3_).append(',').append(i_4_).append(',').append(bool).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
 		}
 	}
 

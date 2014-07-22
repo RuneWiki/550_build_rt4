@@ -47,7 +47,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			Class120_Sub24.menuWidth = 8 + i_6_;
 		}
 		if (jagexInterface != null) {
-			ProducingGraphicsBuffer.method1854(false, false, jagexInterface);
+			ProducingGraphicsBuffer.method1854(jagexInterface, false);
 		}
 		JagexSocket.executeOnloadScript(i);
 		if (Class69.rootInterfaceId != -1) {

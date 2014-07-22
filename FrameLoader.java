@@ -268,7 +268,7 @@ final class FrameLoader extends NodeSub {
 			Class132.anInt1248 = Class9.anInt72;
 			Class156.anInt1453 = Deque.anInt1007;
 			Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
-			MouseRecorder.aFloat856 = Class66.aFloat600;
+			MouseRecorder.aFloat856 = AbstractBuffer.aFloat600;
 			Class120_Sub12_Sub1.aFloat3124 = Class108.aFloat1034;
 			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
 			Class84.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
@@ -294,7 +294,7 @@ final class FrameLoader extends NodeSub {
 			Class57.anInt500 += i_22_ * 250;
 			if (-65537 >= (Class57.anInt500 ^ 0xffffffff)) {
 				Class120_Sub12.aFloat2557 = Class101.aFloat965;
-				Class66.aFloat600 = Class125.aFloat2149;
+				AbstractBuffer.aFloat600 = Class125.aFloat2149;
 				Class101.aFloat962 = Varp.aFloat622;
 				Class3.aClass120_Sub14_Sub9_54 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204;
 				CollisionMap.anInt151 = Class43.anInt368;
@@ -315,7 +315,7 @@ final class FrameLoader extends NodeSub {
 				Class120_Sub12_Sub23.aFloat3306 = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
 				Class147.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
 				Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
-				Class66.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
+				AbstractBuffer.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
 				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
 				Class101.aFloat962 = f_36_ * Class73.aFloat632 + Varp.aFloat622 * f_34_;
 				Class108.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;

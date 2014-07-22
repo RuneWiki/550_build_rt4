@@ -46,7 +46,7 @@ final class FileSystemRequest extends AbstractRequest {
 	}
 
 	@Override
-	final int method1537() {
+	final int getCompletion() {
 		if (this.aBoolean3576) {
 			return 0;
 		}

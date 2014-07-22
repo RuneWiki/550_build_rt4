@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	static JagexInterface aClass189_3156;
 	static int[][] anIntArrayArray3157 = { { 0, 128, 0, 0, 128, 0, 128, 128 }, { 0, 128, 0, 0, 128, 0 }, { 0, 0, 64, 128, 0, 128 }, { 128, 128, 64, 128, 128, 0 }, { 0, 0, 128, 0, 128, 128, 64, 128 }, { 0, 128, 0, 0, 128, 0, 64, 128 }, { 64, 128, 0, 128, 0, 0, 64, 0 }, { 0, 0, 64, 0, 0, 64 },
 			{ 128, 0, 128, 128, 0, 128, 0, 64, 64, 0 }, { 0, 128, 0, 0, 32, 64, 64, 96, 128, 128 }, { 0, 0, 128, 0, 128, 128, 64, 96, 32, 64 }, { 0, 0, 128, 0, 96, 32, 32, 32 } };
-	static long aLong3158;
+	static long lastJs5ConnectionTime;
 	private int anInt3159 = 4096;
 
 	static {
@@ -58,7 +58,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 										class150.anInt1416 = 0;
 										class150.anInt1414 = 1;
 										class150.anInt1410 = 0;
-										class150.anInt1411 = i_8_;
+										class150.delay = i_8_;
 										class150.anInt1413 = 0;
 										Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 									} else if (i_10_ == 2) {
@@ -78,7 +78,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 							class150.anInt1410 = 0;
 							class150.anInt1414 = 1;
 							class150.anInt1416 = 0;
-							class150.anInt1411 = i_8_;
+							class150.delay = i_8_;
 							Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 						}
 					} else {
@@ -109,57 +109,51 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		return 0;
 	}
 
-	static final int method1216(final js5 js5, final int i) {
-		int i_12_;
-		try {
-			int i_13_ = 0;
-			if (js5.method429(AmbientSound.hitmarksId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class120_Sub12_Sub25.hitbardefaultId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class120_Sub14_Sub15.headiconspkId)) {
-				i_13_++;
-			}
-			if (js5.method429(MasterIndexInfo.headiconsprayerId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class120_Sub21.hintheadiconsId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class173.hintmapmarkersId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class169.mapflagId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class132_Sub2.crossId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class73.mapdotsId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class134.scrollbarId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class81.nameiconsId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class120_Sub12_Sub7.floorshadowsId)) {
-				i_13_++;
-			}
-			if (js5.method429(Class9.compassId)) {
-				i_13_++;
-			}
-			if (js5.method429(PlayerAppearance.hintmapedgeId)) {
-				i_13_++;
-			}
-			i_12_ = i_13_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.R(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final int method1216(final js5 js5) {
+		int i_13_ = 0;
+		if (js5.method429(AmbientSound.hitmarksId)) {
+			i_13_++;
 		}
-		return i_12_;
+		if (js5.method429(Class120_Sub12_Sub25.hitbardefaultId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class120_Sub14_Sub15.headiconspkId)) {
+			i_13_++;
+		}
+		if (js5.method429(MasterIndexInfo.headiconsprayerId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class120_Sub21.hintheadiconsId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class173.hintmapmarkersId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class169.mapflagId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class132_Sub2.crossId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class73.mapdotsId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class134.scrollbarId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class81.nameiconsId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class120_Sub12_Sub7.floorshadowsId)) {
+			i_13_++;
+		}
+		if (js5.method429(Class9.compassId)) {
+			i_13_++;
+		}
+		if (js5.method429(PlayerAppearance.hintmapedgeId)) {
+			i_13_++;
+		}
+		return i_13_;
 	}
 
 	@Override

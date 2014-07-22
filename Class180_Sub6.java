@@ -76,7 +76,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 	private final SceneGraphNode method2350(final boolean bool, final int i) {
 		SceneGraphNode sceneGraphNode;
 		try {
-			final boolean bool_12_ = OverridedJInterface.anIntArrayArrayArray2741 != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
+			final boolean bool_12_ = OverridedJInterface.tileHeightMap != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			LocType locType = LocType.list(anInt3064);
 			if (locType.childrenIDs != null) {
 				locType = locType.handleVarp();
@@ -119,10 +119,10 @@ final class Class180_Sub6 extends SceneGraphNode {
 			final int i_21_ = (i_14_ << 6) + (anInt3049 << 7);
 			int[][] is = null;
 			final int i_22_ = (anInt3069 << 7) - -(i_15_ << 6);
-			final int[][] is_23_ = OverridedJInterface.anIntArrayArrayArray2741[anInt3060];
+			final int[][] is_23_ = OverridedJInterface.tileHeightMap[anInt3060];
 			if (!bool_12_) {
 				if (anInt3060 < 3) {
-					is = OverridedJInterface.anIntArrayArrayArray2741[anInt3060 + 1];
+					is = OverridedJInterface.tileHeightMap[anInt3060 + 1];
 				}
 			} else {
 				is = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
@@ -149,7 +149,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 					Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
 				}
 				if (anInt3060 != 0) {
-					final int[][] is_27_ = OverridedJInterface.anIntArrayArrayArray2741[0];
+					final int[][] is_27_ = OverridedJInterface.tileHeightMap[0];
 					i_26_ = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
 				}
 				final LDIndexedSprite class107_sub1 = class88.aClass107_Sub1_830;

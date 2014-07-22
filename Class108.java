@@ -21,7 +21,7 @@ class Class108 {
 	static final void tele(final int x, final int z, final int level) {
 		final String string = new StringBuilder("::tele ").append(level).append(",").append(x >> 6).append(",").append(z >> 6).append(",").append(x & 0x3f).append(",").append(z & 0x3f).toString();
 		System.out.println(string);
-		Class120_Sub12_Sub20.method1301((byte) 95, string);
+		Class120_Sub12_Sub20.method1301(string);
 	}
 
 	static final void getSpriteIds(final js5 js5) {

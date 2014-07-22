@@ -16,7 +16,7 @@ final class ClanMember extends Node {
 	static SeekableFile[] aClass193Array2581 = new SeekableFile[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
-		final boolean bool_8_ = OverridedJInterface.anIntArrayArrayArray2741 == Class24.anIntArrayArrayArray140;
+		final boolean bool_8_ = OverridedJInterface.tileHeightMap == Class24.anIntArrayArrayArray140;
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {

@@ -13,8 +13,8 @@ final class WorldInfo {
 		for (final JagexInterface class1892 : class189s) {
 			final JagexInterface jagexInterface = class1892;
 			if (jagexInterface != null && jagexInterface.parent == i_0_) {
-				Class23.method201(jagexInterface, bool, i, i_1_);
-				SceneGraphNode.method2272(jagexInterface, i, i_1_);
+				Class23.updateInterfaceSize(jagexInterface, bool, i, i_1_);
+				SceneGraphNode.updateInterfacePosition(jagexInterface, i, i_1_);
 				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {
 					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.height;
 				}
@@ -28,7 +28,7 @@ final class WorldInfo {
 					jagexInterface.verticalScrollPosition = 0;
 				}
 				if (jagexInterface.type == 0) {
-					ProducingGraphicsBuffer.method1854(bool, false, jagexInterface);
+					ProducingGraphicsBuffer.method1854(jagexInterface, bool);
 				}
 			}
 		}

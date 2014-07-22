@@ -142,43 +142,43 @@ abstract class SceneGraphNode {
 		}
 	}
 
-	static final void method2272(final JagexInterface jagexInterface, final int i, final int i_27_) {
+	static final void updateInterfacePosition(final JagexInterface jagexInterface, final int width, final int height) {
 		if (jagexInterface.dynamicXValue == 0) {
 			jagexInterface.x = jagexInterface.originalX;
 		} else if (jagexInterface.dynamicXValue == 1) {
-			jagexInterface.x = jagexInterface.originalX + (i - jagexInterface.width) / 2;
+			jagexInterface.x = jagexInterface.originalX + (width - jagexInterface.width) / 2;
 		} else if (jagexInterface.dynamicXValue == 2) {
-			jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + i;
+			jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + width;
 		} else if (jagexInterface.dynamicXValue == 3) {
-			jagexInterface.x = jagexInterface.originalX * i >> 14;
+			jagexInterface.x = jagexInterface.originalX * width >> 14;
 		} else if (jagexInterface.dynamicXValue == 4) {
-			jagexInterface.x = (jagexInterface.originalX * i >> 14) + (i - jagexInterface.width) / 2;
+			jagexInterface.x = (jagexInterface.originalX * width >> 14) + (width - jagexInterface.width) / 2;
 		} else {
-			jagexInterface.x = -(i * jagexInterface.originalX >> 14) + -jagexInterface.width + i;
+			jagexInterface.x = -(width * jagexInterface.originalX >> 14) + -jagexInterface.width + width;
 		}
 		if (jagexInterface.dynamicYValue == 0) {
 			jagexInterface.y = jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 1) {
-			jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + i_27_) / 2;
+			jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + height) / 2;
 		} else if (jagexInterface.dynamicYValue == 2) {
-			jagexInterface.y = i_27_ + -jagexInterface.height - jagexInterface.originalY;
+			jagexInterface.y = height + -jagexInterface.height - jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 3) {
-			jagexInterface.y = i_27_ * jagexInterface.originalY >> 14;
+			jagexInterface.y = height * jagexInterface.originalY >> 14;
 		} else if (jagexInterface.dynamicYValue == 4) {
-			jagexInterface.y = (jagexInterface.originalY * i_27_ >> 14) + (i_27_ - jagexInterface.height) / 2;
+			jagexInterface.y = (jagexInterface.originalY * height >> 14) + (height - jagexInterface.height) / 2;
 		} else {
-			jagexInterface.y = -(jagexInterface.originalY * i_27_ >> 14) + i_27_ + -jagexInterface.height;
+			jagexInterface.y = -(jagexInterface.originalY * height >> 14) + height + -jagexInterface.height;
 		}
 		if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
 			if (jagexInterface.x < 0) {
 				jagexInterface.x = 0;
-			} else if (jagexInterface.x + jagexInterface.width > i) {
-				jagexInterface.x = i - jagexInterface.width;
+			} else if (jagexInterface.x + jagexInterface.width > width) {
+				jagexInterface.x = width - jagexInterface.width;
 			}
 			if (jagexInterface.y < 0) {
 				jagexInterface.y = 0;
-			} else if (jagexInterface.height + jagexInterface.y > i_27_) {
-				jagexInterface.y = i_27_ - jagexInterface.height;
+			} else if (jagexInterface.height + jagexInterface.y > height) {
+				jagexInterface.y = height - jagexInterface.height;
 			}
 		}
 	}

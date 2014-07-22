@@ -526,7 +526,7 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 		final int i_79_ = i_76_ << 7;
 		final int i_80_ = i_77_ << 7;
-		final int i_81_ = OverridedJInterface.anIntArrayArrayArray2741[i][i_76_][i_77_] - 1;
+		final int i_81_ = OverridedJInterface.tileHeightMap[i][i_76_][i_77_] - 1;
 		final int i_82_ = i_81_ - 120;
 		final int i_83_ = i_81_ - 230;
 		final int i_84_ = i_81_ - 238;

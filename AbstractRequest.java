@@ -25,7 +25,7 @@ abstract class AbstractRequest extends NodeSub {
 		}
 	}
 
-	abstract int method1537();
+	abstract int getCompletion();
 
 	private static final int[] method1538(final int i, final CollisionMap[] class25s, final byte[] is, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool, final int i_6_) {
 		int[] is_7_;
@@ -94,7 +94,7 @@ abstract class AbstractRequest extends NodeSub {
 										i_27_ = i_2_ - (-8 + i_24_) + i_9_;
 									}
 									if (i_26_ >= 0 && i_26_ < 104 && i_27_ >= 0 && i_27_ < 104) {
-										OverridedJInterface.anIntArrayArrayArray2741[i_5_][i_26_][i_27_] = OverridedJInterface.anIntArrayArrayArray2741[i_5_][i_22_ + i_16_][i_23_ + i_18_];
+										OverridedJInterface.tileHeightMap[i_5_][i_26_][i_27_] = OverridedJInterface.tileHeightMap[i_5_][i_22_ + i_16_][i_23_ + i_18_];
 									}
 								}
 							} else {
@@ -235,7 +235,7 @@ abstract class AbstractRequest extends NodeSub {
 									i_49_ = light.anInt395 >> 7;
 									if (i_49_ >= 0 && i_50_ >= 0 && i_49_ < 104 && i_50_ < 104) {
 										light.aBoolean385 = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
-										light.anInt375 = -light.anInt375 + OverridedJInterface.anIntArrayArrayArray2741[light.anInt384][i_49_][i_50_];
+										light.anInt375 = -light.anInt375 + OverridedJInterface.tileHeightMap[light.anInt384][i_49_][i_50_];
 										LightManager.method1860(light);
 									}
 								}
@@ -263,32 +263,23 @@ abstract class AbstractRequest extends NodeSub {
 		return is_7_;
 	}
 
-	static final int method1539(final int i, final int i_57_, int i_58_, int i_59_, int i_60_, final int i_61_, final int i_62_) {
-		int i_63_;
-		try {
-			if ((i_62_ & 0x1) == 1) {
-				final int i_64_ = i_59_;
-				i_59_ = i_58_;
-				i_58_ = i_64_;
-			}
-			i_60_ &= 0x3;
-			if (i_60_ == 0) {
-				return i_61_;
-			}
-			if (i_60_ == 1) {
-				return 1 + -i_59_ + 7 + -i_57_;
-			}
-			if (i != -10524) {
-				aClass180_Sub2Array3574 = null;
-			}
-			if (i_60_ == 2) {
-				return 7 + -i_61_ - -1 - i_58_;
-			}
-			i_63_ = i_57_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.M(").append(i).append(',').append(i_57_).append(',').append(i_58_).append(',').append(i_59_).append(',').append(i_60_).append(',').append(i_61_).append(',').append(i_62_).append(')').toString());
+	static final int method1539(final int i_57_, int i_58_, int i_59_, int i_60_, final int i_61_, final int i_62_) {
+		if ((i_62_ & 0x1) == 1) {
+			final int i_64_ = i_59_;
+			i_59_ = i_58_;
+			i_58_ = i_64_;
 		}
-		return i_63_;
+		i_60_ &= 0x3;
+		if (i_60_ == 0) {
+			return i_61_;
+		}
+		if (i_60_ == 1) {
+			return 1 + -i_59_ + 7 + -i_57_;
+		}
+		if (i_60_ == 2) {
+			return 7 + -i_61_ - -1 - i_58_;
+		}
+		return i_57_;
 	}
 
 	static final void method1540(final String string, final int i, final String string_65_) {

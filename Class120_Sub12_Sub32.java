@@ -88,10 +88,10 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	}
 
 	static final void method1370(final Player player, final int[] is, final int[] is_15_, final int[] is_16_) {
-		for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
-			final int i_18_ = is_16_[i_17_];
-			final int i_19_ = is_15_[i_17_];
-			int i_20_ = is[i_17_];
+		for (int id = 0; id < is_16_.length; id++) {
+			final int i_18_ = is_16_[id];
+			final int i_19_ = is_15_[id];
+			int i_20_ = is[id];
 			for (int i_21_ = 0; i_20_ != 0 && i_21_ < player.aClass150Array2972.length; i_21_++) {
 				if ((0x1 & i_20_) != 0) {
 					if (i_18_ != -1) {
@@ -110,7 +110,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 								class150.anInt1414 = 1;
 								class150.anInt1410 = 0;
 								class150.anInt1416 = 0;
-								class150.anInt1411 = i_19_;
+								class150.delay = i_19_;
 								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, Class100.selfPlayer == player);
 							} else if (i_22_ == 2) {
 								class150.anInt1416 = 0;
@@ -121,7 +121,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 							class150.anInt1406 = i_18_;
 							class150.anInt1410 = 0;
 							class150.anInt1416 = 0;
-							class150.anInt1411 = i_19_;
+							class150.delay = i_19_;
 							class150.anInt1414 = 1;
 							class150.anInt1413 = 0;
 							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == Class100.selfPlayer);
@@ -382,16 +382,9 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1373(final int i, final int i_38_) {
-		try {
-			if (i_38_ != 881) {
-				aStringArray3387 = null;
-			}
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
-			class120_sub14_sub7.method1453();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sl.R(").append(i).append(',').append(i_38_).append(')').toString());
-		}
+	static final void method1373(final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
+		class120_sub14_sub7.method1453();
 	}
 
 	public static void method1374(final byte i) {

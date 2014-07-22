@@ -19,7 +19,7 @@ final class Huffman {
 			boolean bool_2_ = false;
 			boolean bool_3_ = false;
 			if (i_0_ != 55) {
-				method1884(true, (byte) 55, false, 24, false);
+				method1884(24, true, false, false);
 			}
 			final int i_4_ = string.length();
 			int i_5_ = 0;
@@ -81,25 +81,16 @@ final class Huffman {
 		return is_9_;
 	}
 
-	static final js5 method1884(final boolean bool, final byte i, final boolean bool_11_, final int i_12_, final boolean bool_13_) {
-		js5 js5;
-		try {
-			FileSystem fileSystem = null;
-			if (Class73.aClass193_663 != null) {
-				fileSystem = new FileSystem(i_12_, Class73.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
-			}
-			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_, (byte) -105);
-			if (bool_13_) {
-				Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_].method471(-94271416);
-			}
-			if (i >= -42) {
-				method1882(122, -120, false, null);
-			}
-			js5 = new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.E(").append(bool).append(',').append(i).append(',').append(bool_11_).append(',').append(i_12_).append(',').append(bool_13_).append(')').toString());
+	static final js5 method1884(final int i_12_, final boolean bool, final boolean bool_11_, final boolean bool_13_) {
+		FileSystem fileSystem = null;
+		if (Class73.aClass193_663 != null) {
+			fileSystem = new FileSystem(i_12_, Class73.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
 		}
-		return js5;
+		Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_);
+		if (bool_13_) {
+			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_].method471();
+		}
+		return new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
 	}
 
 	final int method1885(final int i, int i_14_, final int i_15_, final byte[] is, final byte[] is_16_, int i_17_) {

@@ -69,13 +69,13 @@ final class Class93 {
 						i_14_ = (i_10_ >> 1) + i_7_;
 						i_15_ = i_7_ - -(i_10_ - -1 >> 1);
 					}
-					final int[][] is = OverridedJInterface.anIntArrayArrayArray2741[i_4_];
+					final int[][] is = OverridedJInterface.tileHeightMap[i_4_];
 					final int i_16_ = (i_11_ << 6) + (i_5_ << 7);
 					final int i_17_ = (i_10_ << 6) + (i_7_ << 7);
 					final int i_18_ = is[i_12_][i_14_] + is[i_13_][i_14_] + is[i_13_][i_15_] + is[i_12_][i_15_] >> 2;
 					int i_19_ = 0;
 					if (HDToolkit.glEnabled && i_4_ != 0) {
-						final int[][] is_20_ = OverridedJInterface.anIntArrayArrayArray2741[0];
+						final int[][] is_20_ = OverridedJInterface.tileHeightMap[0];
 						i_19_ = i_18_ + -(is_20_[i_13_][i_15_] + is_20_[i_13_][i_14_] - (-is_20_[i_12_][i_14_] - is_20_[i_12_][i_15_]) >> 2);
 					}
 					long l = i_5_ | i_7_ << 7 | i_9_ << 14 | i << 20 | 0x40000000;
@@ -83,7 +83,7 @@ final class Class93 {
 					if (bool) {
 						is_21_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
 					} else if (i_4_ < 3) {
-						is_21_ = OverridedJInterface.anIntArrayArrayArray2741[i_4_ + 1];
+						is_21_ = OverridedJInterface.tileHeightMap[i_4_ + 1];
 					}
 					if (locType.anInt1835 == 0 || bool) {
 						l |= ~0x7fffffffffffffffL;

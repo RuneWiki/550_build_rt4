@@ -15,11 +15,11 @@ final class Class10 {
 				final int i_9_ = buffer.getUByte();
 				if (i_9_ == 0) {
 					if (bool_1_) {
-						OverridedJInterface.anIntArrayArrayArray2741[0][i_7_ + x][i_6_ + z] = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][x + i_7_][z + i_6_];
+						OverridedJInterface.tileHeightMap[0][i_7_ + x][i_6_ + z] = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][x + i_7_][z + i_6_];
 					} else if (level != 0) {
-						OverridedJInterface.anIntArrayArrayArray2741[level][x + i_7_][i_6_ + z] = -240 + OverridedJInterface.anIntArrayArrayArray2741[level - 1][x + i_7_][z + i_6_];
+						OverridedJInterface.tileHeightMap[level][x + i_7_][i_6_ + z] = -240 + OverridedJInterface.tileHeightMap[level - 1][x + i_7_][z + i_6_];
 					} else {
-						OverridedJInterface.anIntArrayArrayArray2741[0][i_7_ + x][z + i_6_] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238, -70) * 8;
+						OverridedJInterface.tileHeightMap[0][i_7_ + x][z + i_6_] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238, -70) * 8;
 					}
 					break;
 				}
@@ -30,12 +30,12 @@ final class Class10 {
 							i_10_ = 0;
 						}
 						if (level == 0) {
-							OverridedJInterface.anIntArrayArrayArray2741[0][i_7_ + x][z - -i_6_] = 8 * -i_10_;
+							OverridedJInterface.tileHeightMap[0][i_7_ + x][z - -i_6_] = 8 * -i_10_;
 						} else {
-							OverridedJInterface.anIntArrayArrayArray2741[level][x + i_7_][i_6_ + z] = -(i_10_ * 8) + OverridedJInterface.anIntArrayArrayArray2741[-1 + level][i_7_ + x][i_6_ + z];
+							OverridedJInterface.tileHeightMap[level][x + i_7_][i_6_ + z] = -(i_10_ * 8) + OverridedJInterface.tileHeightMap[-1 + level][i_7_ + x][i_6_ + z];
 						}
 					} else {
-						OverridedJInterface.anIntArrayArrayArray2741[0][i_7_ + x][i_6_ + z] = 8 * i_10_ + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i_7_ + x][i_6_ + z];
+						OverridedJInterface.tileHeightMap[0][i_7_ + x][i_6_ + z] = 8 * i_10_ + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i_7_ + x][i_6_ + z];
 					}
 					break;
 				}

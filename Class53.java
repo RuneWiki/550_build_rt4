@@ -52,11 +52,11 @@ abstract class Class53 {
 		}
 	}
 
-	abstract int method458(int i, int i_3_);
+	abstract int method458(int i);
 
 	abstract void method459(int i, int i_4_);
 
-	abstract byte[] method460(int i, int i_5_);
+	abstract byte[] method460(int i_5_);
 
 	static final Class120_Sub14_Sub8_Sub2 method461(final byte[] is, final byte i) {
 		Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2;

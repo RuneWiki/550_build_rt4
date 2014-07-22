@@ -9,31 +9,31 @@ final class Js5Worker {
 	static String aString398 = "Loading wordpack - ";
 	static String[] aStringArray399;
 	static String aString400 = "Starting 3d Library";
-	private final Queue aClass177_401 = new Queue();
+	private final Queue urgentQueue = new Queue();
 	private final Queue aClass177_402 = new Queue();
-	private final Queue aClass177_403 = new Queue();
-	private Queue aClass177_404 = new Queue();
+	private final Queue prefetchQueue = new Queue();
+	private final Queue aClass177_404 = new Queue();
 	private int anInt405;
-	private final Buffer aClass120_Sub7_406 = new Buffer(4);
+	private final Buffer outputBuffer = new Buffer(4);
 	private long aLong407;
 	private JagexSocket js5Connection;
-	private Buffer aClass120_Sub7_409;
-	volatile int anInt410 = 0;
-	volatile int anInt411 = 0;
-	private byte aByte412 = 0;
+	private Buffer inputBuffer;
+	volatile int errorCount = 0;
+	volatile int errorType = 0;
+	private byte xorCode = 0;
 	private Js5Request aClass120_Sub14_Sub14_Sub2_413;
 
-	private final int method354() {
-		return aClass177_403.getAmount() + aClass177_404.getAmount();
+	private final int getPrefetchSize() {
+		return prefetchQueue.getAmount() + aClass177_404.getAmount();
 	}
 
-	final void method355() {
+	final void sendDropConnection() {
 		if (js5Connection != null) {
 			try {
-				aClass120_Sub7_406.pos = 0;
-				aClass120_Sub7_406.putByte(7);
-				aClass120_Sub7_406.putMedium(0);
-				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(7);
+				outputBuffer.putMedium(0);
+				js5Connection.put(outputBuffer.buf, 0, 4);
 			} catch (final IOException ioexception) {
 				try {
 					js5Connection.close();
@@ -41,8 +41,8 @@ final class Js5Worker {
 					/* empty */
 				}
 				js5Connection = null;
-				this.anInt410++;
-				this.anInt411 = -2;
+				this.errorCount++;
+				this.errorType = -2;
 			}
 		}
 	}
@@ -159,20 +159,7 @@ final class Js5Worker {
 	}
 
 	final boolean method357() {
-		return method366() >= 20;
-	}
-
-	static final int method358(final int i) {
-		int i_35_;
-		try {
-			if (i < 113) {
-				method368((byte) -67, null, -45, null, null, null, null, null, null, null, 115, null);
-			}
-			i_35_ = 14;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.G(").append(i).append(')').toString());
-		}
-		return i_35_;
+		return getUrgentSize() >= 20;
 	}
 
 	public static void method359(final int i) {
@@ -194,78 +181,74 @@ final class Js5Worker {
 		}
 	}
 
-	final void method361(final int i, final JagexSocket jagexSocket, final boolean bool) {
-		try {
-			if (js5Connection != null) {
+	final void method361(final JagexSocket jagexSocket, final boolean bool) {
+		if (js5Connection != null) {
+			try {
+				js5Connection.close();
+			} catch (final Exception exception) {
+				/* empty */
+			}
+			js5Connection = null;
+		}
+		js5Connection = jagexSocket;
+		method370();
+		method367(bool);
+		aClass120_Sub14_Sub14_Sub2_413 = null;
+		inputBuffer.pos = 0;
+		for (;;) {
+			final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.removeFirst();
+			if (class120_sub14_sub14_sub2 == null) {
+				break;
+			}
+			urgentQueue.insertLast(class120_sub14_sub14_sub2);
+		}
+		for (;;) {
+			final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.removeFirst();
+			if (class120_sub14_sub14_sub2 == null) {
+				break;
+			}
+			prefetchQueue.insertLast(class120_sub14_sub14_sub2);
+		}
+		if (xorCode != 0) {
+			try {
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(4);
+				outputBuffer.putByte(xorCode);
+				outputBuffer.putShort(0);
+				js5Connection.put(outputBuffer.buf, 0, 4);
+			} catch (final IOException ioexception) {
 				try {
 					js5Connection.close();
 				} catch (final Exception exception) {
 					/* empty */
 				}
 				js5Connection = null;
+				this.errorCount++;
+				this.errorType = -2;
 			}
-			js5Connection = jagexSocket;
-			method370();
-			method367((byte) 122, bool);
-			aClass120_Sub14_Sub14_Sub2_413 = null;
-			aClass120_Sub7_409.pos = 0;
-			for (;;) {
-				final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.removeFirst();
-				if (class120_sub14_sub14_sub2 == null) {
-					break;
-				}
-				aClass177_401.insertLast(class120_sub14_sub14_sub2);
-			}
-			for (;;) {
-				final Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.removeFirst();
-				if (class120_sub14_sub14_sub2 == null) {
-					break;
-				}
-				aClass177_403.insertLast(class120_sub14_sub14_sub2);
-			}
-			if (aByte412 != 0) {
-				try {
-					aClass120_Sub7_406.pos = 0;
-					aClass120_Sub7_406.putByte(4);
-					aClass120_Sub7_406.putByte(aByte412);
-					aClass120_Sub7_406.putShort(0);
-					js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
-				} catch (final IOException ioexception) {
-					try {
-						js5Connection.close();
-					} catch (final Exception exception) {
-						/* empty */
-					}
-					js5Connection = null;
-					this.anInt410++;
-					this.anInt411 = -2;
-				}
-			}
-			anInt405 = 0;
-			aLong407 = TimeUtil.getSafeTime();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.H(").append(i).append(',').append(jagexSocket != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
+		anInt405 = 0;
+		aLong407 = TimeUtil.getSafeTime();
 	}
 
-	final Js5Request method362(final byte i, final int i_36_, final boolean bool, final int i_38_) {
-		final long l = i_38_ + (i_36_ << 16);
-		final Js5Request class120_sub14_sub14_sub2_39_ = new Js5Request();
-		class120_sub14_sub14_sub2_39_.aByte3938 = i;
-		class120_sub14_sub14_sub2_39_.aBoolean3573 = bool;
-		class120_sub14_sub14_sub2_39_.subUid = l;
-		if (!bool) {
-			if (method354() >= 20) {
-				throw new RuntimeException();
+	final Js5Request putRequest(final int archiveId, final int groupId, final byte i, final boolean bool) {
+		final long uid = groupId + (archiveId << 16);
+		final Js5Request js5Request = new Js5Request();
+		js5Request.aByte3938 = i;
+		js5Request.aBoolean3573 = bool;
+		js5Request.subUid = uid;
+		if (bool) {
+			if (getUrgentSize() >= 20) {
+				throw new RuntimeException("Urgent list exceeded max limit of 20");
 			}
-			aClass177_403.insertLast(class120_sub14_sub14_sub2_39_);
+			urgentQueue.insertLast(js5Request);
 		} else {
-			if (method366() >= 20) {
-				throw new RuntimeException();
+			if (getPrefetchSize() >= 20) {
+				throw new RuntimeException("Prefetch list exceeded max limit of 20");
 			}
-			aClass177_401.insertLast(class120_sub14_sub14_sub2_39_);
+			prefetchQueue.insertLast(js5Request);
 		}
-		return class120_sub14_sub14_sub2_39_;
+		return js5Request;
 	}
 
 	static final boolean method363(final int i, final int i_40_, final int i_41_, final int i_42_) {
@@ -274,69 +257,52 @@ final class Js5Worker {
 		}
 		final int i_43_ = i_40_ << 7;
 		final int i_44_ = i_41_ << 7;
-		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.anIntArrayArrayArray2741[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
+		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.tileHeightMap[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.tileHeightMap[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
 			return true;
 		}
 		return false;
 	}
 
-	final void method364(final int i) {
+	final void closeConnection() {
 		if (js5Connection != null) {
 			js5Connection.close();
 		}
 	}
 
-	final void method365(final int i) {
+	final void crcError() {
 		try {
-			try {
-				js5Connection.close();
-			} catch (final Exception exception) {
-				/* empty */
-			}
-			js5Connection = null;
-			if (i == -30223) {
-				aByte412 = (byte) (int) (1.0 + Math.random() * 255.0);
-				this.anInt411 = -1;
-				this.anInt410++;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.J(").append(i).append(')').toString());
+			js5Connection.close();
+		} catch (final Exception exception) {
+			/* empty */
 		}
+		js5Connection = null;
+		xorCode = (byte) (int) (1.0 + Math.random() * 255.0);
+		this.errorType = -1;
+		this.errorCount++;
 	}
 
-	final int method366() {
-		return aClass177_401.getAmount() + aClass177_402.getAmount();
+	final int getUrgentSize() {
+		return urgentQueue.getAmount() + aClass177_402.getAmount();
 	}
 
-	final void method367(final byte i, final boolean bool) {
-		do {
+	final void method367(final boolean bool) {
+		if (js5Connection != null) {
 			try {
-				if (js5Connection != null) {
-					try {
-						aClass120_Sub7_406.pos = 0;
-						if (i < 116) {
-							aClass120_Sub7_409 = null;
-						}
-						aClass120_Sub7_406.putByte(bool ? 2 : 3);
-						aClass120_Sub7_406.putMedium(0);
-						js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
-					} catch (final IOException ioexception) {
-						try {
-							js5Connection.close();
-						} catch (final Exception exception) {
-							/* empty */
-						}
-						this.anInt410++;
-						js5Connection = null;
-						this.anInt411 = -2;
-						break;
-					}
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(bool ? 2 : 3);
+				outputBuffer.putMedium(0);
+				js5Connection.put(outputBuffer.buf, 0, 4);
+			} catch (final IOException ioexception) {
+				try {
+					js5Connection.close();
+				} catch (final Exception exception) {
+					/* empty */
 				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("en.D(").append(i).append(',').append(bool).append(')').toString());
+				this.errorCount++;
+				js5Connection = null;
+				this.errorType = -2;
 			}
-		} while (false);
+		}
 	}
 
 	static final void method368(final byte i, final byte[][] is, final int i_45_, final Light[] class44s, final int[][] is_46_, final byte[][] is_47_, final float[][] fs, final byte[][] is_48_, final float[][] fs_49_, final float[][] fs_50_, final int i_51_, final byte[][] is_52_) {
@@ -610,26 +576,17 @@ final class Js5Worker {
 		}
 	}
 
-	final boolean method369(final boolean bool) {
-		boolean bool_119_;
-		try {
-			if (!bool) {
-				aClass177_404 = null;
-			}
-			bool_119_ = method354() >= 20;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.E(").append(bool).append(')').toString());
-		}
-		return bool_119_;
+	final boolean method369() {
+		return getPrefetchSize() >= 20;
 	}
 
 	private final void method370() {
 		if (js5Connection != null) {
 			try {
-				aClass120_Sub7_406.pos = 0;
-				aClass120_Sub7_406.putByte(6);
-				aClass120_Sub7_406.putMedium(3);
-				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(6);
+				outputBuffer.putMedium(3);
+				js5Connection.put(outputBuffer.buf, 0, 4);
 			} catch (final IOException ioexception) {
 				try {
 					js5Connection.close();
@@ -637,8 +594,8 @@ final class Js5Worker {
 					/* empty */
 				}
 				js5Connection = null;
-				this.anInt411 = -2;
-				this.anInt410++;
+				this.errorType = -2;
+				this.errorCount++;
 			}
 		}
 	}
@@ -662,7 +619,7 @@ final class Js5Worker {
 			}
 		}
 		if (js5Connection == null) {
-			if (method366() != 0 || method354() != 0) {
+			if (getUrgentSize() != 0 || getPrefetchSize() != 0) {
 				return false;
 			}
 			return true;
@@ -670,26 +627,26 @@ final class Js5Worker {
 		boolean bool_121_;
 		try {
 			js5Connection.checkForError();
-			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_401.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_401.peekNext()) {
-				aClass120_Sub7_406.pos = 0;
-				aClass120_Sub7_406.putByte(1);
-				aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
-				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
+			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) urgentQueue.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) urgentQueue.peekNext()) {
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(1);
+				outputBuffer.putMedium((int) class120_sub14_sub14_sub2.subUid);
+				js5Connection.put(outputBuffer.buf, 0, 4);
 				aClass177_402.insertLast(class120_sub14_sub14_sub2);
 			}
-			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) aClass177_403.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_403.peekNext()) {
-				aClass120_Sub7_406.pos = 0;
-				aClass120_Sub7_406.putByte(0);
-				aClass120_Sub7_406.putMedium((int) class120_sub14_sub14_sub2.subUid);
-				js5Connection.put(aClass120_Sub7_406.buf, 0, 4);
+			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) prefetchQueue.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) prefetchQueue.peekNext()) {
+				outputBuffer.pos = 0;
+				outputBuffer.putByte(0);
+				outputBuffer.putMedium((int) class120_sub14_sub14_sub2.subUid);
+				js5Connection.put(outputBuffer.buf, 0, 4);
 				aClass177_404.insertLast(class120_sub14_sub14_sub2);
 			}
-			for (int i_122_ = 0; i_122_ < 100; i_122_++) {
-				final int i_123_ = js5Connection.getAvailable();
-				if (i_123_ < 0) {
+			for (int loopId = 0; loopId < 100; loopId++) {
+				final int available = js5Connection.getAvailable();
+				if (available < 0) {
 					throw new IOException();
 				}
-				if (i_123_ == 0) {
+				if (available == 0) {
 					break;
 				}
 				int i_124_ = 0;
@@ -702,18 +659,18 @@ final class Js5Worker {
 				}
 				anInt405 = 0;
 				if (i_124_ <= 0) {
-					int i_125_ = 512 + -aClass120_Sub14_Sub14_Sub2_413.anInt3936;
-					final int i_126_ = -aClass120_Sub14_Sub14_Sub2_413.aByte3938 + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf.length;
-					if (-aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos + i_126_ < i_125_) {
-						i_125_ = -aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos + i_126_;
+					int i_125_ = 512 - aClass120_Sub14_Sub14_Sub2_413.anInt3936;
+					final int i_126_ = aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf.length - aClass120_Sub14_Sub14_Sub2_413.aByte3938;
+					if (i_125_ > i_126_ - aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos) {
+						i_125_ = i_126_ - aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos;
 					}
-					if (i_123_ < i_125_) {
-						i_125_ = i_123_;
+					if (i_125_ > available) {
+						i_125_ = available;
 					}
 					js5Connection.read(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, i_125_);
-					if (aByte412 != 0) {
+					if (xorCode != 0) {
 						for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos], aByte412);
+							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos], xorCode);
 						}
 					}
 					aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos += i_125_;
@@ -726,57 +683,58 @@ final class Js5Worker {
 						aClass120_Sub14_Sub14_Sub2_413.anInt3936 = 0;
 					}
 				} else {
-					int i_128_ = -aClass120_Sub7_409.pos + i_124_;
-					if (i_128_ > i_123_) {
-						i_128_ = i_123_;
+					int i_128_ = i_124_ - inputBuffer.pos;
+					if (i_128_ > available) {
+						i_128_ = available;
 					}
-					js5Connection.read(aClass120_Sub7_409.buf, aClass120_Sub7_409.pos, i_128_);
-					if (aByte412 != 0) {
+					js5Connection.read(inputBuffer.buf, inputBuffer.pos, i_128_);
+					if (xorCode != 0) {
 						for (int i_129_ = 0; i_128_ > i_129_; i_129_++) {
-							aClass120_Sub7_409.buf[aClass120_Sub7_409.pos + i_129_] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub7_409.buf[aClass120_Sub7_409.pos + i_129_], aByte412);
+							inputBuffer.buf[inputBuffer.pos + i_129_] = (byte) Class120_Sub12_Sub38.method1397(inputBuffer.buf[inputBuffer.pos + i_129_], xorCode);
 						}
 					}
-					aClass120_Sub7_409.pos += i_128_;
-					if (i_124_ <= aClass120_Sub7_409.pos) {
+					inputBuffer.pos += i_128_;
+					if (inputBuffer.pos >= i_124_) {
 						if (aClass120_Sub14_Sub14_Sub2_413 == null) {
-							aClass120_Sub7_409.pos = 0;
-							final int i_130_ = aClass120_Sub7_409.getUByte();
-							final int i_131_ = aClass120_Sub7_409.getUShort();
-							final int i_132_ = aClass120_Sub7_409.getUByte();
-							final int i_133_ = 0x7f & i_132_;
+							inputBuffer.pos = 0;
+							final int archiveId = inputBuffer.getUByte();
+							final int groupId = inputBuffer.getUShort();
+							final int i_132_ = inputBuffer.getUByte();
+							final int ctype = 0x7f & i_132_;
 							final boolean bool_134_ = (i_132_ & 0x80) != 0;
-							final int i_135_ = aClass120_Sub7_409.getInt();
-							final long l = i_131_ + (i_130_ << 16);
-							Js5Request class120_sub14_sub14_sub2;
+							final int clen = inputBuffer.getInt();
+							final long l = groupId + (archiveId << 16);
+							Js5Request js5Request;
 							if (bool_134_) {
-								for (class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) aClass177_404.peekNext()) {
-									if ((class120_sub14_sub14_sub2.subUid ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+								for (js5Request = (Js5Request) aClass177_404.peekFirst(); js5Request != null; js5Request = (Js5Request) aClass177_404.peekNext()) {
+									if (js5Request.subUid == l) {
 										break;
 									}
 								}
 							} else {
-								for (class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.peekFirst(); class120_sub14_sub14_sub2 != null && l != class120_sub14_sub14_sub2.subUid; class120_sub14_sub14_sub2 = (Js5Request) aClass177_402.peekNext()) {
+								for (js5Request = (Js5Request) aClass177_402.peekFirst(); js5Request != null && l != js5Request.subUid; js5Request = (Js5Request) aClass177_402.peekNext()) {
 									/* empty */
 								}
 							}
-							if (class120_sub14_sub14_sub2 == null) {
+							if (js5Request == null) {
 								throw new IOException();
 							}
-							aClass120_Sub14_Sub14_Sub2_413 = class120_sub14_sub14_sub2;
-							final int i_136_ = i_133_ != 0 ? 9 : 5;
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939 = new Buffer(aClass120_Sub14_Sub14_Sub2_413.aByte3938 + i_135_ + i_136_);
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putByte(i_133_);
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putInt(i_135_);
+							aClass120_Sub14_Sub14_Sub2_413 = js5Request;
+							final int i_136_ = ctype != 0 ? 9 : 5;
+							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939 = new Buffer(aClass120_Sub14_Sub14_Sub2_413.aByte3938 + clen + i_136_);
+							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putByte(ctype);
+							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putInt(clen);
 							aClass120_Sub14_Sub14_Sub2_413.anInt3936 = 8;
-							aClass120_Sub7_409.pos = 0;
+							inputBuffer.pos = 0;
 						} else if (aClass120_Sub14_Sub14_Sub2_413.anInt3936 == 0) {
-							if (aClass120_Sub7_409.buf[0] == -1) {
-								aClass120_Sub7_409.pos = 0;
+							if (inputBuffer.buf[0] == -1) {
+								inputBuffer.pos = 0;
 								aClass120_Sub14_Sub14_Sub2_413.anInt3936 = 1;
 							} else {
 								aClass120_Sub14_Sub14_Sub2_413 = null;
 							}
 						} else {
+							System.out.println("Error processing incoming header!");
 							throw new IOException();
 						}
 					}
@@ -790,9 +748,9 @@ final class Js5Worker {
 				/* empty */
 			}
 			js5Connection = null;
-			this.anInt410++;
-			this.anInt411 = -2;
-			if (method366() == 0 && method354() == 0) {
+			this.errorCount++;
+			this.errorType = -2;
+			if (getUrgentSize() == 0 && getPrefetchSize() == 0) {
 				return true;
 			}
 			return false;
@@ -801,6 +759,6 @@ final class Js5Worker {
 	}
 
 	public Js5Worker() {
-		aClass120_Sub7_409 = new Buffer(8);
+		inputBuffer = new Buffer(8);
 	}
 }

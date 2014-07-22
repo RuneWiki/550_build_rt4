@@ -22,14 +22,14 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 	private int[] anIntArray3403;
 	private int anInt3404;
 	private int[][] anIntArrayArray3405;
-	static int anInt3406;
+	static int js5Stage;
 	static int anInt3407;
 	private int anInt3408;
 
 	static {
 		affiliateId = 0;
 		needScreenRedraw = new boolean[100];
-		anInt3406 = 0;
+		js5Stage = 0;
 		anInt3407 = -1;
 	}
 

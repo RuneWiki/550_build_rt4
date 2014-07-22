@@ -458,7 +458,7 @@ final class NpcType {
 			if (class180_sub7_42_ == null) {
 				boolean bool = false;
 				for (int i_43_ = 0; anIntArray1669.length > i_43_; i_43_++) {
-					if (!Class28.aClass50_181.method440(anIntArray1669[i_43_], true, 0)) {
+					if (!Class28.aClass50_181.fileExists(anIntArray1669[i_43_], 0)) {
 						bool = true;
 					}
 				}
@@ -524,7 +524,7 @@ final class NpcType {
 			if (class180_sub7_55_ == null) {
 				boolean bool = false;
 				for (int i_56_ = 0; i_56_ < anIntArray1678.length; i_56_++) {
-					if (anIntArray1678[i_56_] != -1 && !Class28.aClass50_181.method440(anIntArray1678[i_56_], true, 0)) {
+					if (anIntArray1678[i_56_] != -1 && !Class28.aClass50_181.fileExists(anIntArray1678[i_56_], 0)) {
 						bool = true;
 					}
 				}

@@ -11,7 +11,7 @@ final class GroundTile extends Node {
 	static int anInt2627;
 	Class182 aClass182_2628;
 	int anInt2629;
-	static SignlinkNode aClass185_2630;
+	static SignlinkNode js5ConnectionNode;
 	boolean aBoolean2631;
 	int anInt2632;
 	int anInt2633;
@@ -110,7 +110,7 @@ final class GroundTile extends Node {
 		try {
 			spriteYOffsets = null;
 			aClass75_2643 = null;
-			aClass185_2630 = null;
+			js5ConnectionNode = null;
 			aString2622 = null;
 			if (i != 14888) {
 				aClass40Array2649 = null;

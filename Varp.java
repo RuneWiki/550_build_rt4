@@ -38,10 +38,10 @@ final class Varp {
 				InterfaceClickMask.redrawInterface(jagexInterface);
 			}
 		}
-		if (Class66.mouseWheelRotation != 0) {
+		if (AbstractBuffer.mouseWheelRotation != 0) {
 			final int i_9_ = jagexInterface.width;
 			if (-i_9_ + i_1_ <= i_2_ && i_4_ <= i_0_ && i_2_ < i_1_ + 16 && i_0_ <= i_5_ + i_4_) {
-				jagexInterface.horizontalScrollPosition += Class66.mouseWheelRotation * 45;
+				jagexInterface.horizontalScrollPosition += AbstractBuffer.mouseWheelRotation * 45;
 				InterfaceClickMask.redrawInterface(jagexInterface);
 			}
 		}

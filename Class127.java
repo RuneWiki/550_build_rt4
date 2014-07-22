@@ -77,23 +77,14 @@ final class Class127 {
 		}
 	}
 
-	final NodeSub method1890(final int i) {
-		NodeSub class120_sub14;
-		try {
-			final NodeSub class120_sub14_5_ = aClass120_Sub14_1216;
-			if (class120_sub14_5_ == aClass177_1212.head) {
-				aClass120_Sub14_1216 = null;
-				return null;
-			}
-			aClass120_Sub14_1216 = class120_sub14_5_.nextSub;
-			if (i != 20389) {
-				aShortArray1214 = null;
-			}
-			class120_sub14 = class120_sub14_5_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.D(").append(i).append(')').toString());
+	final NodeSub method1890() {
+		final NodeSub class120_sub14_5_ = aClass120_Sub14_1216;
+		if (class120_sub14_5_ == aClass177_1212.head) {
+			aClass120_Sub14_1216 = null;
+			return null;
 		}
-		return class120_sub14;
+		aClass120_Sub14_1216 = class120_sub14_5_.nextSub;
+		return class120_sub14_5_;
 	}
 
 	static final void method1891(final int i, final int i_6_, final int i_7_, final int i_8_, final boolean bool, final js5 js5) {
@@ -136,7 +127,7 @@ final class Class127 {
 					if (i_15_ < 3 && (Class114.tileSettings[1][i_13_][i_14_] & 0x2) == 2) {
 						i_15_++;
 					}
-					final int i_16_ = i_12_ - (OverridedJInterface.anIntArrayArrayArray2741[i_15_][i_13_][i_14_] - 8 * (Class114.aByteArrayArrayArray1094[i_15_][i_13_][i_14_] & 0xff));
+					final int i_16_ = i_12_ - (OverridedJInterface.tileHeightMap[i_15_][i_13_][i_14_] - 8 * (Class114.aByteArrayArrayArray1094[i_15_][i_13_][i_14_] & 0xff));
 					if (i_16_ > i_11_) {
 						i_11_ = i_16_;
 					}

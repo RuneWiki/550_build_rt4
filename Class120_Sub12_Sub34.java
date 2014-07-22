@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 	public static void method1378(final int i) {
 		try {
 			if (i != 8) {
-				method1379(null);
+				updateInterface(null);
 			}
 			anIntArray3409 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -16,7 +16,7 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1379(final JagexInterface jagexInterface) {
+	static final void updateInterface(final JagexInterface jagexInterface) {
 		final JagexInterface class189_0_ = ObjectContainer.method1665(jagexInterface);
 		int width;
 		int height;
@@ -27,8 +27,8 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 			width = Class69_Sub1.canvasWidth;
 			height = Class120_Sub12_Sub5.canvasHeight;
 		}
-		Class23.method201(jagexInterface, false, width, height);
-		SceneGraphNode.method2272(jagexInterface, width, height);
+		Class23.updateInterfaceSize(jagexInterface, false, width, height);
+		SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 	}
 
 	static final boolean method1380(final int i, final int i_3_, final int i_4_) {

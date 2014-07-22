@@ -9,7 +9,7 @@ final class Class150 {
 	static int anInt1407 = 0;
 	static int anInt1408;
 	int anInt1410;
-	int anInt1411;
+	int delay;
 	static int[] anIntArray1412 = new int[4096];
 	int anInt1413;
 	int anInt1414;

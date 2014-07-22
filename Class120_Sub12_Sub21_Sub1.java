@@ -171,7 +171,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);
 					final int i_29_ = class120_sub29.anInt2765 - -(i_26_ >> 1);
 					final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
-					final int[][] is = OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel];
+					final int[][] is = OverridedJInterface.tileHeightMap[Class173.gameLevel];
 					final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
 					SceneGraphNode sceneGraphNode = null;
 					final int i_32_ = CollisionMap.anIntArray153[class120_sub29.anInt2772];

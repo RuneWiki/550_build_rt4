@@ -157,8 +157,8 @@ final class Class36 {
 		for (int i_1_ = 0; i_1_ < gameEntity.aClass150Array2972.length; i_1_++) {
 			final Class150 class150 = gameEntity.aClass150Array2972[i_1_];
 			if (class150 != null) {
-				if (class150.anInt1411 > 0) {
-					class150.anInt1411--;
+				if (class150.delay > 0) {
+					class150.delay--;
 				} else {
 					final SeqType seqType = SeqType.list(class150.anInt1406);
 					if (seqType == null || seqType.frames == null) {

@@ -66,7 +66,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			if (state == 25 || state == 28) {
 				Class120_Sub12_Sub28.anInt3361 = 0;
 				Class120_Sub12_Sub37.anInt3431 = 1;
-				Class66.anInt599 = 0;
+				AbstractBuffer.anInt599 = 0;
 				Class145.anInt1379 = 1;
 				Class181.anInt1791 = 0;
 				Class120_Sub30_Sub1.method1739(true);
@@ -82,16 +82,16 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			final boolean bool_3_ = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
 			if (bool_3_ == !bool) {
 				if (!bool) {
-					Class120_Sub12_Sub6.method1230(5, 2);
-					Class178.aClass45_1772.method367((byte) 122, true);
+					Class120_Sub12_Sub6.method1230(2);
+					Class178.aClass45_1772.method367(true);
 				} else {
 					Class157.anInt1466 = AbstractSprite.anInt3620;
 					if (RuntimeException_Sub1.anInt2142 != 0) {
 						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.aClass50_3419, 2, (byte) -127, 255, AbstractSprite.anInt3620, false);
 					} else {
-						Class120_Sub12_Sub6.method1230(5, 2);
+						Class120_Sub12_Sub6.method1230(2);
 					}
-					Class178.aClass45_1772.method367((byte) 124, false);
+					Class178.aClass45_1772.method367(false);
 				}
 			}
 			if (HDToolkit.glEnabled && (state == 25 || state == 28 || state == 40)) {

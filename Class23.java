@@ -37,14 +37,14 @@ final class Class23 {
 		}
 	}
 
-	static final void method201(final JagexInterface jagexInterface, final boolean bool, final int i, final int i_11_) {
+	static final void updateInterfaceSize(final JagexInterface jagexInterface, final boolean bool, final int width, final int height) {
 		final int oldHeight = jagexInterface.height;
 		if (jagexInterface.dynamicHeightValue == 0) {
 			jagexInterface.height = jagexInterface.originalHeight;
 		} else if (jagexInterface.dynamicHeightValue == 1) {
-			jagexInterface.height = i_11_ - jagexInterface.originalHeight;
+			jagexInterface.height = height - jagexInterface.originalHeight;
 		} else if (jagexInterface.dynamicHeightValue == 2) {
-			jagexInterface.height = i_11_ * jagexInterface.originalHeight >> 14;
+			jagexInterface.height = height * jagexInterface.originalHeight >> 14;
 		} else if (jagexInterface.dynamicHeightValue == 3) {
 			if (jagexInterface.type == 2) {
 				jagexInterface.height = jagexInterface.objSpritePadY * (jagexInterface.originalHeight + -1) + 32 * jagexInterface.originalHeight;
@@ -56,9 +56,9 @@ final class Class23 {
 		if (jagexInterface.dynamicWidthValue == 0) {
 			jagexInterface.width = jagexInterface.originalWidth;
 		} else if (jagexInterface.dynamicWidthValue == 1) {
-			jagexInterface.width = i - jagexInterface.originalWidth;
+			jagexInterface.width = width - jagexInterface.originalWidth;
 		} else if (jagexInterface.dynamicWidthValue == 2) {
-			jagexInterface.width = i * jagexInterface.originalWidth >> 14;
+			jagexInterface.width = width * jagexInterface.originalWidth >> 14;
 		} else if (jagexInterface.dynamicWidthValue == 3) {
 			if (jagexInterface.type == 2) {
 				jagexInterface.width = (-1 + jagexInterface.originalWidth) * jagexInterface.objSpritePadX + 32 * jagexInterface.originalWidth;

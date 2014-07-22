@@ -188,20 +188,20 @@ final class IdentityKit {
 		}
 	}
 
-	static final byte[] method1988(final Object object, final boolean bool) {
+	static final byte[] method1988(final Object object, final boolean newBuffer) {
 		if (object == null) {
 			return null;
 		}
 		if (object instanceof byte[]) {
-			final byte[] is = (byte[]) object;
-			if (bool) {
-				return ObjectPile.method2448(is);
+			final byte[] data = (byte[]) object;
+			if (newBuffer) {
+				return ObjectPile.copyBuffer(data);
 			}
-			return is;
+			return data;
 		}
-		if (object instanceof Class66) {
-			final Class66 class66 = (Class66) object;
-			return class66.method580(-9747);
+		if (object instanceof AbstractBuffer) {
+			final AbstractBuffer abstractBuffer = (AbstractBuffer) object;
+			return abstractBuffer.get();
 		}
 		throw new IllegalArgumentException();
 	}
@@ -221,7 +221,7 @@ final class IdentityKit {
 				final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_29_];
 				float f = 0.0F;
 				if (HDToolkit.glEnabled) {
-					if (Class24.anIntArrayArrayArray140 == OverridedJInterface.anIntArrayArrayArray2741) {
+					if (Class24.anIntArrayArrayArray140 == OverridedJInterface.tileHeightMap) {
 						final int i_31_ = NodeCache.anIntArrayArray300[i][i_28_];
 						final int i_32_ = i_31_ & 0xffffff;
 						if (i_32_ != Class120_Sub12_Sub19.anInt3281) {
@@ -698,11 +698,11 @@ final class IdentityKit {
 						HDToolkit.method527(f);
 						ParticleEngine.method956(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381);
 						final int i_85_ = class120_sub18_27_.anInt2632 * 128 + 64 - DisplayModeInfo.anInt1713;
-						final int i_86_ = OverridedJInterface.anIntArrayArrayArray2741[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - PlayerAppearance.anInt1367;
+						final int i_86_ = OverridedJInterface.tileHeightMap[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - PlayerAppearance.anInt1367;
 						final int i_87_ = class120_sub18_27_.anInt2629 * 128 + 64 - Class145.anInt1381;
 						int i_88_;
 						if (i_29_ < 3) {
-							i_88_ = OverridedJInterface.anIntArrayArrayArray2741[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - OverridedJInterface.anIntArrayArrayArray2741[i_29_ + 1][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629];
+							i_88_ = OverridedJInterface.tileHeightMap[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - OverridedJInterface.tileHeightMap[i_29_ + 1][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629];
 						} else {
 							i_88_ = 1024;
 						}
@@ -977,7 +977,7 @@ final class IdentityKit {
 				method1989(null, false);
 			}
 			for (int i_131_ = 0; i_131_ < models.length; i_131_++) {
-				if (!SceneGroundObject.aClass50_2839.method440(models[i_131_], true, 0)) {
+				if (!SceneGroundObject.aClass50_2839.fileExists(models[i_131_], 0)) {
 					bool_130_ = false;
 				}
 			}
@@ -1070,7 +1070,7 @@ final class IdentityKit {
 			}
 			boolean bool_137_ = true;
 			for (int i_138_ = 0; i_138_ < 5; i_138_++) {
-				if (headModels[i_138_] != -1 && !SceneGroundObject.aClass50_2839.method440(headModels[i_138_], true, 0)) {
+				if (headModels[i_138_] != -1 && !SceneGroundObject.aClass50_2839.fileExists(headModels[i_138_], 0)) {
 					bool_137_ = false;
 				}
 			}

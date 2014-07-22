@@ -215,7 +215,7 @@ final class Class22 {
 	}
 
 	static final int getTileHeight(final int level, final int x, final int z) {
-		if (OverridedJInterface.anIntArrayArrayArray2741 == null) {
+		if (OverridedJInterface.tileHeightMap == null) {
 			return 0;
 		}
 		final int i_42_ = x >> 7;
@@ -229,8 +229,8 @@ final class Class22 {
 		}
 		final int i_45_ = z & 0x7f;
 		final int i_46_ = x & 0x7f;
-		final int i_47_ = OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_]) >> 7;
-		final int i_48_ = OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * OverridedJInterface.anIntArrayArrayArray2741[i_44_][i_42_][1 + i_43_] >> 7;
+		final int i_47_ = OverridedJInterface.tileHeightMap[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * OverridedJInterface.tileHeightMap[i_44_][i_42_ + 1][i_43_]) >> 7;
+		final int i_48_ = OverridedJInterface.tileHeightMap[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * OverridedJInterface.tileHeightMap[i_44_][i_42_][1 + i_43_] >> 7;
 		return i_48_ * i_45_ + i_47_ * (128 + -i_45_) >> 7;
 	}
 

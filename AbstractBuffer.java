@@ -2,12 +2,12 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class Class66 {
+abstract class AbstractBuffer {
 	static int mouseWheelRotation = 0;
 	static int anInt599 = 0;
 	static float aFloat600;
 
-	abstract byte[] method580(int i);
+	abstract byte[] get();
 
-	abstract void method581(int i, byte[] is);
+	abstract void put(byte[] buffer);
 }

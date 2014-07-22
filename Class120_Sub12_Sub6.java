@@ -298,20 +298,13 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1230(final int i, final int i_58_) {
-		try {
-			Class120_Sub14_Sub23.anInt3649 = -1;
-			Class69.anInt614 = i_58_;
-			if (i != 5) {
-				method1229(null, 7, 90, 60, -66, -47);
-			}
-			MasterIndexInfo.aClass50_476 = null;
-			Class120_Sub12_Sub25.anInt3312 = 1;
-			SeqType.anInt349 = -1;
-			StringNode.aBoolean2734 = false;
-			Js5Request.anInt3940 = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dn.T(").append(i).append(',').append(i_58_).append(')').toString());
-		}
+	static final void method1230(final int i_58_) {
+		Class120_Sub14_Sub23.anInt3649 = -1;
+		Class69.anInt614 = i_58_;
+		MasterIndexInfo.aClass50_476 = null;
+		Class120_Sub12_Sub25.anInt3312 = 1;
+		SeqType.anInt349 = -1;
+		StringNode.aBoolean2734 = false;
+		Js5Request.anInt3940 = 0;
 	}
 }

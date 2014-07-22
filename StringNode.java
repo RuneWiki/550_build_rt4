@@ -190,7 +190,7 @@ final class StringNode extends Node {
 		Class180_Sub3.renderYaw = i_12_;
 		OverlayType.renderPitch = i_10_;
 		GroundObjectNode.renderZ = i_9_;
-		if (Class69.aBoolean615 && Class178.aClass45_1772.method366() == 0) {
+		if (Class69.aBoolean615 && Class178.aClass45_1772.getUrgentSize() == 0) {
 			Class69.aBoolean615 = false;
 		}
 		if (Class69.aBoolean615) {

@@ -290,7 +290,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			if (Class120_Sub12_Sub25.anInt3316 > 0) {
 				for (int i_53_ = 0; i_53_ < anIntArray3568.length; i_53_++) {
-					if (!js5.method440(Class120_Sub12_Sub25.anInt3316, true, anIntArray3568[i_53_])) {
+					if (!js5.fileExists(Class120_Sub12_Sub25.anInt3316, anIntArray3568[i_53_])) {
 						return false;
 					}
 				}

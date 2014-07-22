@@ -12,7 +12,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	static Npc[] npcList;
 	static js5 aClass50_3213;
 	static int anInt3214;
-	static JagexSocket aClass46_3215;
+	static JagexSocket js5Connection;
 	static short aShort3216;
 
 	static {
@@ -70,7 +70,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		try {
 			npcList = null;
 			outputStream = null;
-			aClass46_3215 = null;
+			js5Connection = null;
 			aClass50_3213 = null;
 			spriteWidths = null;
 			if (i != -129) {

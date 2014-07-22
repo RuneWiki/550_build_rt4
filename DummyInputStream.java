@@ -35,7 +35,7 @@ final class DummyInputStream extends InputStream {
 		}
 		Class120_Sub30_Sub1.method1739(false);
 		System.gc();
-		Class120_Sub12_Sub6.method1230(5, 2);
+		Class120_Sub12_Sub6.method1230(2);
 		Class157.anInt1466 = -1;
 		Class120_Sub12_Sub15.aBoolean3247 = false;
 		Class180_Sub6.method2355(true, 14713);

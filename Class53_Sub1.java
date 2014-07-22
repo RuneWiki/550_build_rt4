@@ -3,7 +3,7 @@
  */
 
 final class Class53_Sub1 extends Class53 {
-	private final Js5Worker aClass45_2205;
+	private final Js5Worker js5Worker;
 	static String aString2206 = "flash2:";
 	private FileSystemWorker fileSystemWorker;
 	private final FileSystem aClass51_2208;
@@ -82,10 +82,10 @@ final class Class53_Sub1 extends Class53 {
 			return aClass52_2216;
 		}
 		if (aClass120_Sub14_Sub14_2218 == null) {
-			if (aClass45_2205.method357()) {
+			if (js5Worker.method357()) {
 				return null;
 			}
-			aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
+			aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
 		}
 		if (aClass120_Sub14_Sub14_2218.aBoolean3576) {
 			return null;
@@ -98,12 +98,12 @@ final class Class53_Sub1 extends Class53 {
 				}
 				aClass52_2216 = new MasterIndexInfo(data, indexCrc);
 			} catch (final RuntimeException runtimeexception) {
-				aClass45_2205.method365(-30223);
+				js5Worker.crcError();
 				aClass52_2216 = null;
-				if (aClass45_2205.method357()) {
+				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
+					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
 				}
 				return null;
 			}
@@ -121,10 +121,10 @@ final class Class53_Sub1 extends Class53 {
 				}
 			} catch (final RuntimeException runtimeexception) {
 				aClass52_2216 = null;
-				if (aClass45_2205.method357()) {
+				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = aClass45_2205.method362((byte) 0, 255, true, anInt2214);
+					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
 				}
 				return null;
 			}
@@ -151,7 +151,7 @@ final class Class53_Sub1 extends Class53 {
 				if (aClass120_Sub14_Sub14_2218 == null) {
 					return 0;
 				}
-				return aClass120_Sub14_Sub14_2218.method1537();
+				return aClass120_Sub14_Sub14_2218.getCompletion();
 			}
 			i_7_ = 100;
 		} catch (final RuntimeException runtimeexception) {
@@ -164,7 +164,7 @@ final class Class53_Sub1 extends Class53 {
 	final void method459(final int i, final int i_8_) {
 		try {
 			if (i_8_ >= -2) {
-				method471(16);
+				method471();
 			}
 			if (aClass51_2209 != null) {
 				for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
@@ -193,31 +193,24 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	final void method469(final boolean bool) {
-		try {
-			if (aClass105_2225 != null && method462() != null) {
-				Node node = aClass105_2224.getFront();
-				if (!bool) {
-					for (/**/; node != null; node = aClass105_2224.getNext()) {
-						final int i = (int) node.uid;
-						if (i < 0 || aClass52_2216.anInt484 <= i || aClass52_2216.groupFileCount[i] == 0) {
-							node.unlink();
-						} else {
-							if (aByteArray2215[i] == 0) {
-								method475(-1, i, 1);
-							}
-							if (aByteArray2215[i] == -1) {
-								method475(-1, i, 2);
-							}
-							if (aByteArray2215[i] == 1) {
-								node.unlink();
-							}
-						}
+	final void method469() {
+		if (aClass105_2225 != null && method462() != null) {
+			for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
+				final int i = (int) node.uid;
+				if (i < 0 || aClass52_2216.anInt484 <= i || aClass52_2216.groupFileCount[i] == 0) {
+					node.unlink();
+				} else {
+					if (aByteArray2215[i] == 0) {
+						method475(i, 1);
+					}
+					if (aByteArray2215[i] == -1) {
+						method475(i, 2);
+					}
+					if (aByteArray2215[i] == 1) {
+						node.unlink();
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.H(").append(bool).append(')').toString());
 		}
 	}
 
@@ -234,23 +227,20 @@ final class Class53_Sub1 extends Class53 {
 		return i;
 	}
 
-	final void method471(final int i) {
-		try {
-			if (aClass51_2209 != null) {
-				aBoolean2223 = true;
-				if (aClass105_2225 == null) {
-					aClass105_2225 = new Deque();
-				}
-				if (i != -94271416) {
-					method469(false);
-				}
+	final void method471() {
+		if (aClass51_2209 != null) {
+			aBoolean2223 = true;
+			if (aClass105_2225 == null) {
+				aClass105_2225 = new Deque();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.L(").append(i).append(')').toString());
 		}
 	}
 
-	static final boolean bitPackedMatch(final int i, final int i_9_, final int i_10_, final long l) {//TODO think of new name
+	static final boolean bitPackedMatch(final int i, final int i_9_, final int i_10_, final long l) {// TODO
+																										// think
+																										// of
+																										// new
+																										// name
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_9_][i_10_];
 		if (class120_sub18 == null) {
 			return false;
@@ -282,23 +272,14 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	@Override
-	final byte[] method460(final int i, final int i_12_) {
-		byte[] is;
-		try {
-			final AbstractRequest class120_sub14_sub14 = method475(-1, i_12_, 0);
-			if (class120_sub14_sub14 == null) {
-				return null;
-			}
-			if (i != -94271416) {
-				aString2206 = null;
-			}
-			final byte[] is_13_ = class120_sub14_sub14.getBuffer();
-			class120_sub14_sub14.unlink();
-			is = is_13_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.D(").append(i).append(',').append(i_12_).append(')').toString());
+	final byte[] method460(final int i_12_) {
+		final AbstractRequest class120_sub14_sub14 = method475(i_12_, 0);
+		if (class120_sub14_sub14 == null) {
+			return null;
 		}
-		return is;
+		final byte[] is_13_ = class120_sub14_sub14.getBuffer();
+		class120_sub14_sub14.unlink();
+		return is_13_;
 	}
 
 	final int method474(final int i) {
@@ -318,257 +299,233 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	@Override
-	final int method458(final int i, final int i_15_) {
-		int i_16_;
-		try {
-			final AbstractRequest class120_sub14_sub14 = (AbstractRequest) aClass75_2212.get(i);
-			if (class120_sub14_sub14 != null) {
-				return class120_sub14_sub14.method1537();
-			}
-			if (i_15_ != -1) {
-				fileSystemWorker = null;
-			}
-			i_16_ = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.F(").append(i).append(',').append(i_15_).append(')').toString());
+	final int method458(final int i) {
+		final AbstractRequest abstractRequest = (AbstractRequest) aClass75_2212.get(i);
+		if (abstractRequest != null) {
+			return abstractRequest.getCompletion();
 		}
-		return i_16_;
+		return 0;
 	}
 
-	private final AbstractRequest method475(final int i, final int i_17_, final int i_18_) {
-		AbstractRequest class120_sub14_sub14;
-		try {
-			AbstractRequest class120_sub14_sub14_19_ = (AbstractRequest) aClass75_2212.get(i_17_);
-			if (class120_sub14_sub14_19_ != null && i_18_ == 0 && !class120_sub14_sub14_19_.aBoolean3573 && class120_sub14_sub14_19_.aBoolean3576) {
-				class120_sub14_sub14_19_.unlink();
-				class120_sub14_sub14_19_ = null;
-			}
-			if (i != -1) {
-				return null;
-			}
-			if (class120_sub14_sub14_19_ == null) {
-				if (i_18_ == 0) {
-					if (aClass51_2209 == null || (aByteArray2215[i_17_] ^ 0xffffffff) == 0) {
-						if (!aClass45_2205.method357()) {
-							class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
-						} else {
-							return null;
-						}
+	private final AbstractRequest method475(final int i_17_, final int i_18_) {
+		AbstractRequest class120_sub14_sub14_19_ = (AbstractRequest) aClass75_2212.get(i_17_);
+		if (class120_sub14_sub14_19_ != null && i_18_ == 0 && !class120_sub14_sub14_19_.aBoolean3573 && class120_sub14_sub14_19_.aBoolean3576) {
+			class120_sub14_sub14_19_.unlink();
+			class120_sub14_sub14_19_ = null;
+		}
+		if (class120_sub14_sub14_19_ == null) {
+			if (i_18_ == 0) {
+				if (aClass51_2209 == null || aByteArray2215[i_17_] == -1) {
+					if (!js5Worker.method357()) {
+						class120_sub14_sub14_19_ = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
 					} else {
-						class120_sub14_sub14_19_ = fileSystemWorker.requestRead2(aClass51_2209, i_17_);
-					}
-				} else if (i_18_ == 1) {
-					if (aClass51_2209 == null) {
-						throw new RuntimeException();
-					}
-					class120_sub14_sub14_19_ = fileSystemWorker.requestRead(aClass51_2209, i_17_);
-				} else if (i_18_ == 2) {
-					if (aClass51_2209 == null) {
-						throw new RuntimeException();
-					}
-					if (aByteArray2215[i_17_] != -1) {
-						throw new RuntimeException();
-					}
-					if (aClass45_2205.method369(true)) {
 						return null;
 					}
-					class120_sub14_sub14_19_ = aClass45_2205.method362((byte) 2, anInt2214, false, i_17_);
 				} else {
+					class120_sub14_sub14_19_ = fileSystemWorker.requestRead2(aClass51_2209, i_17_);
+				}
+			} else if (i_18_ == 1) {
+				if (aClass51_2209 == null) {
 					throw new RuntimeException();
 				}
-				aClass75_2212.put(class120_sub14_sub14_19_, i_17_);
-			}
-			if (class120_sub14_sub14_19_.aBoolean3576) {
-				return null;
-			}
-			final byte[] is = class120_sub14_sub14_19_.getBuffer();
-			if (!(class120_sub14_sub14_19_ instanceof FileSystemRequest)) {
-				try {
-					if (is == null || is.length <= 2) {
-						throw new RuntimeException();
-					}
-					Class120_Sub14_Sub24.aCRC32_3658.reset();
-					Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
-					final int i_20_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-					if (aClass52_2216.groupCrcs[i_17_] != i_20_) {
-						throw new RuntimeException();
-					}
-					aClass45_2205.anInt410 = 0;
-					aClass45_2205.anInt411 = 0;
-				} catch (final RuntimeException runtimeexception) {
-					aClass45_2205.method365(-30223);
-					class120_sub14_sub14_19_.unlink();
-					if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-						final Js5Request class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
-						aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
-					}
+				class120_sub14_sub14_19_ = fileSystemWorker.requestRead(aClass51_2209, i_17_);
+			} else if (i_18_ == 2) {
+				if (aClass51_2209 == null) {
+					throw new RuntimeException();
+				}
+				if (aByteArray2215[i_17_] != -1) {
+					throw new RuntimeException();
+				}
+				if (js5Worker.method369()) {
 					return null;
 				}
-				is[-2 + is.length] = (byte) (aClass52_2216.groupVersions[i_17_] >>> 8);
-				is[is.length + -1] = (byte) aClass52_2216.groupVersions[i_17_];
-				if (aClass51_2209 != null) {
-					fileSystemWorker.requestWrite(aClass51_2209, is, i_17_);
-					if (aByteArray2215[i_17_] != 1) {
-						anInt2210++;
-						aByteArray2215[i_17_] = (byte) 1;
-					}
-				}
-				if (!class120_sub14_sub14_19_.aBoolean3573) {
-					class120_sub14_sub14_19_.unlink();
-				}
-				return class120_sub14_sub14_19_;
+				class120_sub14_sub14_19_ = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, false);
+			} else {
+				throw new RuntimeException();
 			}
-			AbstractRequest class120_sub14_sub14_21_;
+			aClass75_2212.put(class120_sub14_sub14_19_, i_17_);
+		}
+		if (class120_sub14_sub14_19_.aBoolean3576) {
+			return null;
+		}
+		final byte[] is = class120_sub14_sub14_19_.getBuffer();
+		if (!(class120_sub14_sub14_19_ instanceof FileSystemRequest)) {
 			try {
 				if (is == null || is.length <= 2) {
 					throw new RuntimeException();
 				}
 				Class120_Sub14_Sub24.aCRC32_3658.reset();
 				Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
-				final int i_22_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-				if (i_22_ != aClass52_2216.groupCrcs[i_17_]) {
+				final int i_20_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
+				if (aClass52_2216.groupCrcs[i_17_] != i_20_) {
 					throw new RuntimeException();
 				}
-				final int i_23_ = (is[-1 + is.length] & 0xff) + ((0xff & is[-2 + is.length]) << 8);
-				if ((aClass52_2216.groupVersions[i_17_] & 0xffff) != i_23_) {
-					throw new RuntimeException();
-				}
-				if (aByteArray2215[i_17_] != 1) {
-					if (aByteArray2215[i_17_] != 0) {
-						/* empty */
-					}
-					anInt2210++;
-					aByteArray2215[i_17_] = (byte) 1;
-				}
-				if (!class120_sub14_sub14_19_.aBoolean3573) {
-					class120_sub14_sub14_19_.unlink();
-				}
-				class120_sub14_sub14_21_ = class120_sub14_sub14_19_;
-			} catch (final Exception exception) {
-				aByteArray2215[i_17_] = (byte) -1;
+				js5Worker.errorCount = 0;
+				js5Worker.errorType = 0;
+			} catch (final RuntimeException runtimeexception) {
+				js5Worker.crcError();
 				class120_sub14_sub14_19_.unlink();
-				if (class120_sub14_sub14_19_.aBoolean3573 && !aClass45_2205.method357()) {
-					final Js5Request class120_sub14_sub14_sub2 = aClass45_2205.method362((byte) 2, anInt2214, true, i_17_);
+				if (class120_sub14_sub14_19_.aBoolean3573 && !js5Worker.method357()) {
+					final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
 					aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 				}
 				return null;
 			}
-			class120_sub14_sub14 = class120_sub14_sub14_21_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.U(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(')').toString());
-		}
-		return class120_sub14_sub14;
-	}
-
-	final void method476(final int i) {
-		try {
-			if (i == -2) {
-				if (aClass105_2225 != null) {
-					if (method462() == null) {
-						return;
-					}
-					if (!aBoolean2222) {
-						if (!aBoolean2223) {
-							aClass105_2225 = null;
-						} else {
-							boolean bool = true;
-							for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
-								final int i_24_ = (int) node.uid;
-								if (aByteArray2215[i_24_] != 1) {
-									method475(-1, i_24_, 2);
-								}
-								if (aByteArray2215[i_24_] != 1) {
-									bool = false;
-								} else {
-									node.unlink();
-								}
-							}
-							while (aClass52_2216.groupFileCount.length > anInt2221) {
-								if (aClass52_2216.groupFileCount[anInt2221] == 0) {
-									anInt2221++;
-								} else {
-									if (aClass45_2205.method369(true)) {
-										bool = false;
-										break;
-									}
-									if (aByteArray2215[anInt2221] != 1) {
-										method475(i ^ 0x1, anInt2221, 2);
-									}
-									if (aByteArray2215[anInt2221] != 1) {
-										bool = false;
-										final Node node = new Node();
-										node.uid = anInt2221;
-										aClass105_2225.addLast(node);
-									}
-									anInt2221++;
-								}
-							}
-							if (bool) {
-								aBoolean2223 = false;
-								anInt2221 = 0;
-							}
-						}
-					} else {
-						boolean bool = true;
-						for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
-							final int i_25_ = (int) node.uid;
-							if (aByteArray2215[i_25_] == 0) {
-								method475(-1, i_25_, 1);
-							}
-							if (aByteArray2215[i_25_] == 0) {
-								bool = false;
-							} else {
-								node.unlink();
-							}
-						}
-						while (anInt2221 < aClass52_2216.groupFileCount.length) {
-							if (aClass52_2216.groupFileCount[anInt2221] == 0) {
-								anInt2221++;
-							} else {
-								if (fileSystemWorker.requestsAwaiting >= 250) {
-									bool = false;
-									break;
-								}
-								if (aByteArray2215[anInt2221] == 0) {
-									method475(i + 1, anInt2221, 1);
-								}
-								if (aByteArray2215[anInt2221] == 0) {
-									bool = false;
-									final Node node = new Node();
-									node.uid = anInt2221;
-									aClass105_2225.addLast(node);
-								}
-								anInt2221++;
-							}
-						}
-						if (bool) {
-							aBoolean2222 = false;
-							anInt2221 = 0;
-						}
-					}
-				}
-				if (aBoolean2227 && (aLong2226 ^ 0xffffffffffffffffL) >= (TimeUtil.getSafeTime() ^ 0xffffffffffffffffL)) {
-					for (AbstractRequest class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getFirst(); class120_sub14_sub14 != null; class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getNext()) {
-						if (!class120_sub14_sub14.aBoolean3576) {
-							if (class120_sub14_sub14.aBoolean3577) {
-								if (!class120_sub14_sub14.aBoolean3573) {
-									throw new RuntimeException();
-								}
-								class120_sub14_sub14.unlink();
-							} else {
-								class120_sub14_sub14.aBoolean3577 = true;
-							}
-						}
-					}
-					aLong2226 = TimeUtil.getSafeTime() - -1000L;
+			is[-2 + is.length] = (byte) (aClass52_2216.groupVersions[i_17_] >>> 8);
+			is[is.length + -1] = (byte) aClass52_2216.groupVersions[i_17_];
+			if (aClass51_2209 != null) {
+				fileSystemWorker.requestWrite(aClass51_2209, is, i_17_);
+				if (aByteArray2215[i_17_] != 1) {
+					anInt2210++;
+					aByteArray2215[i_17_] = (byte) 1;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.Q(").append(i).append(')').toString());
+			if (!class120_sub14_sub14_19_.aBoolean3573) {
+				class120_sub14_sub14_19_.unlink();
+			}
+			return class120_sub14_sub14_19_;
+		}
+		AbstractRequest class120_sub14_sub14_21_;
+		try {
+			if (is == null || is.length <= 2) {
+				throw new RuntimeException();
+			}
+			Class120_Sub14_Sub24.aCRC32_3658.reset();
+			Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
+			final int i_22_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
+			if (i_22_ != aClass52_2216.groupCrcs[i_17_]) {
+				throw new RuntimeException();
+			}
+			final int i_23_ = (is[-1 + is.length] & 0xff) + ((0xff & is[-2 + is.length]) << 8);
+			if ((aClass52_2216.groupVersions[i_17_] & 0xffff) != i_23_) {
+				throw new RuntimeException();
+			}
+			if (aByteArray2215[i_17_] != 1) {
+				if (aByteArray2215[i_17_] != 0) {
+					/* empty */
+				}
+				anInt2210++;
+				aByteArray2215[i_17_] = (byte) 1;
+			}
+			if (!class120_sub14_sub14_19_.aBoolean3573) {
+				class120_sub14_sub14_19_.unlink();
+			}
+			class120_sub14_sub14_21_ = class120_sub14_sub14_19_;
+		} catch (final Exception exception) {
+			aByteArray2215[i_17_] = (byte) -1;
+			class120_sub14_sub14_19_.unlink();
+			if (class120_sub14_sub14_19_.aBoolean3573 && !js5Worker.method357()) {
+				final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
+				aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
+			}
+			return null;
+		}
+		return class120_sub14_sub14_21_;
+	}
+
+	final void method476() {
+		if (aClass105_2225 != null) {
+			if (method462() == null) {
+				return;
+			}
+			if (!aBoolean2222) {
+				if (!aBoolean2223) {
+					aClass105_2225 = null;
+				} else {
+					boolean bool = true;
+					for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
+						final int i_24_ = (int) node.uid;
+						if (aByteArray2215[i_24_] != 1) {
+							method475(i_24_, 2);
+						}
+						if (aByteArray2215[i_24_] != 1) {
+							bool = false;
+						} else {
+							node.unlink();
+						}
+					}
+					while (aClass52_2216.groupFileCount.length > anInt2221) {
+						if (aClass52_2216.groupFileCount[anInt2221] == 0) {
+							anInt2221++;
+						} else {
+							if (js5Worker.method369()) {
+								bool = false;
+								break;
+							}
+							if (aByteArray2215[anInt2221] != 1) {
+								method475(anInt2221, 2);
+							}
+							if (aByteArray2215[anInt2221] != 1) {
+								bool = false;
+								final Node node = new Node();
+								node.uid = anInt2221;
+								aClass105_2225.addLast(node);
+							}
+							anInt2221++;
+						}
+					}
+					if (bool) {
+						aBoolean2223 = false;
+						anInt2221 = 0;
+					}
+				}
+			} else {
+				boolean bool = true;
+				for (Node node = aClass105_2225.getFront(); node != null; node = aClass105_2225.getNext()) {
+					final int i_25_ = (int) node.uid;
+					if (aByteArray2215[i_25_] == 0) {
+						method475(i_25_, 1);
+					}
+					if (aByteArray2215[i_25_] == 0) {
+						bool = false;
+					} else {
+						node.unlink();
+					}
+				}
+				while (anInt2221 < aClass52_2216.groupFileCount.length) {
+					if (aClass52_2216.groupFileCount[anInt2221] == 0) {
+						anInt2221++;
+					} else {
+						if (fileSystemWorker.requestsAwaiting >= 250) {
+							bool = false;
+							break;
+						}
+						if (aByteArray2215[anInt2221] == 0) {
+							method475(anInt2221, 1);
+						}
+						if (aByteArray2215[anInt2221] == 0) {
+							bool = false;
+							final Node node = new Node();
+							node.uid = anInt2221;
+							aClass105_2225.addLast(node);
+						}
+						anInt2221++;
+					}
+				}
+				if (bool) {
+					aBoolean2222 = false;
+					anInt2221 = 0;
+				}
+			}
+		}
+		if (aBoolean2227 && (aLong2226 ^ 0xffffffffffffffffL) >= (TimeUtil.getSafeTime() ^ 0xffffffffffffffffL)) {
+			for (AbstractRequest class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getFirst(); class120_sub14_sub14 != null; class120_sub14_sub14 = (AbstractRequest) aClass75_2212.getNext()) {
+				if (!class120_sub14_sub14.aBoolean3576) {
+					if (class120_sub14_sub14.aBoolean3577) {
+						if (!class120_sub14_sub14.aBoolean3573) {
+							throw new RuntimeException();
+						}
+						class120_sub14_sub14.unlink();
+					} else {
+						class120_sub14_sub14.aBoolean3577 = true;
+					}
+				}
+			}
+			aLong2226 = TimeUtil.getSafeTime() + 1000L;
 		}
 	}
 
-	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Js5Worker js5Worker, final FileSystemWorker fsWorker, final int i_27_, final int i_28_, final boolean bool) {
+	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Js5Worker jw, final FileSystemWorker fsWorker, final int i_27_, final int i_28_, final boolean bool) {
 		aClass51_2209 = fileSystem;
 		anInt2214 = i;
 		if (aClass51_2209 == null) {
@@ -582,7 +539,7 @@ final class Class53_Sub1 extends Class53 {
 		indexCrc = i_27_;
 		fileSystemWorker = fsWorker;
 		aClass51_2208 = class51_26_;
-		aClass45_2205 = js5Worker;
+		js5Worker = jw;
 		if (aClass51_2208 != null) {
 			aClass120_Sub14_Sub14_2218 = fileSystemWorker.requestRead2(aClass51_2208, anInt2214);
 		}

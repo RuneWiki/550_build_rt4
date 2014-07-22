@@ -516,8 +516,8 @@ final class Class120_Sub21 extends Node {
 						if (Class120_Sub12_Sub4.aClass189_3156 != null) {
 							JavaObject.method1435();
 						}
-						if (Class86.staffLevel > 0 && NodeCache.aBooleanArray299[82] && NodeCache.aBooleanArray299[81] && Class66.mouseWheelRotation != 0) {
-							int i_42_ = Class173.gameLevel - Class66.mouseWheelRotation;
+						if (Class86.staffLevel > 0 && NodeCache.aBooleanArray299[82] && NodeCache.aBooleanArray299[81] && AbstractBuffer.mouseWheelRotation != 0) {
+							int i_42_ = Class173.gameLevel - AbstractBuffer.mouseWheelRotation;
 							if (i_42_ < 0) {
 								i_42_ = 0;
 							} else if (i_42_ > 3) {

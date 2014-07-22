@@ -91,7 +91,7 @@ final class LocType {
 			final int i = (is = anIntArray1850).length;
 			for (int i_2_ = 0; i_2_ < i; i_2_++) {
 				final int i_3_ = is[i_2_];
-				bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.method440(0xffff & i_3_, true, 0);
+				bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.fileExists(0xffff & i_3_, 0);
 			}
 			bool_0_ = bool_1_;
 		} catch (final RuntimeException runtimeexception) {
@@ -501,7 +501,7 @@ final class LocType {
 			if (anIntArray1817 != null) {
 				for (int i_55_ = 0; i_55_ < anIntArray1817.length; i_55_++) {
 					if (anIntArray1817[i_55_] == i) {
-						return Class120_Sub12_Sub36.aClass50_3418.method440(0xffff & anIntArray1850[i_55_], true, 0);
+						return Class120_Sub12_Sub36.aClass50_3418.fileExists(0xffff & anIntArray1850[i_55_], 0);
 					}
 				}
 				return true;
@@ -514,7 +514,7 @@ final class LocType {
 			}
 			boolean bool_56_ = true;
 			for (final int element : anIntArray1850) {
-				bool_56_ &= Class120_Sub12_Sub36.aClass50_3418.method440(element & 0xffff, true, 0);
+				bool_56_ &= Class120_Sub12_Sub36.aClass50_3418.fileExists(element & 0xffff, 0);
 			}
 			bool = bool_56_;
 		} catch (final RuntimeException runtimeexception) {

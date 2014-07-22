@@ -169,158 +169,133 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1301(final byte i, final String string) {
-		try {
-			if (string.equalsIgnoreCase("::lol")) {
-				final int i_7_ = 1;
-				final int[] is = new int[i_7_];
-				final int[] is_8_ = new int[i_7_];
-				final int[] is_9_ = new int[i_7_];
-				for (int i_10_ = 0; i_10_ < i_7_; i_10_++) {
-					int i_11_ = 1658;
-					if (i_11_ == 65535) {
-						i_11_ = -1;
-					}
-					is[i_10_] = i_11_;
-					is_8_[i_10_] = 0;
-					is_9_[i_10_] = 1;
+	static final void method1301(final String string) {
+		if (Class86.staffLevel >= 2) {
+			if (string.equalsIgnoreCase("::gc")) {
+				Class120_Sub12_Sub21.method1311();
+				for (int i_40_ = 0; i_40_ < 10; i_40_++) {
+					System.gc();
 				}
-				Class120_Sub12_Sub32.method1370(Class100.selfPlayer, is_9_, is_8_, is);
-				AbstractRequest.method1540(null, 0, "hi");
+				final Runtime runtime = Runtime.getRuntime();
+				final int i_41_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
 			}
-			if (Class86.staffLevel >= 2) {
-				if (string.equalsIgnoreCase("::gc")) {
-					Class120_Sub12_Sub21.method1311();
-					for (int i_40_ = 0; i_40_ < 10; i_40_++) {
-						System.gc();
-					}
-					final Runtime runtime = Runtime.getRuntime();
-					final int i_41_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					AbstractRequest.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
+			if (string.equalsIgnoreCase("::mm")) {
+				Class120_Sub12_Sub21.method1311();
+				for (int i_42_ = 0; i_42_ < 10; i_42_++) {
+					System.gc();
 				}
-				if (string.equalsIgnoreCase("::mm")) {
-					Class120_Sub12_Sub21.method1311();
-					for (int i_42_ = 0; i_42_ < 10; i_42_++) {
-						System.gc();
-					}
-					final Runtime runtime = Runtime.getRuntime();
-					int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-					AbstractRequest.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
-					SpotAnimType.method880(124);
-					Class120_Sub12_Sub21.method1311();
-					for (int i_44_ = 0; i_44_ < 10; i_44_++) {
-						System.gc();
-					}
-					i_43_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-					AbstractRequest.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
+				final Runtime runtime = Runtime.getRuntime();
+				int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
+				SpotAnimType.method880(124);
+				Class120_Sub12_Sub21.method1311();
+				for (int i_44_ = 0; i_44_ < 10; i_44_++) {
+					System.gc();
 				}
-				if (string.equalsIgnoreCase("::pcachesize")) {
-					AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
-				}
-				if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
-					System.out.println("oncard_geometry:" + Class113.anInt1082);
-					System.out.println("oncard_2d:" + Class113.anInt1086);
-					System.out.println("oncard_texture:" + Class113.anInt1081);
-				}
-				if (string.equalsIgnoreCase("::clientdrop")) {
-					Class100.dropClient();
-				}
-				if (string.equalsIgnoreCase("::clientjs5drop")) {
-					Class178.aClass45_1772.method364(-117);
-				}
-				if (string.equalsIgnoreCase("::serverjs5drop")) {
-					Class178.aClass45_1772.method355();
-				}
-				if (string.equalsIgnoreCase("::breakcon")) {
-					NpcType.gameSignlink.method1963(5000);
-					AbstractTimer.worldConnection.replaceStreamsWithDummy();
-					Class178.aClass45_1772.replaceStreamsWithDummy();
-				}
-				if (string.equalsIgnoreCase("::replacecanvas")) {
-					Class120_Sub3.canvasReplaceRecommended = true;
-				}
-				if (string.equalsIgnoreCase("::rebuild")) {
-					Class120_Sub14_Sub1.setGameState(25);
-				}
-				if (string.equalsIgnoreCase("::fpson")) {
-					HintIcon.showFps = true;
-				}
-				if (string.equalsIgnoreCase("::fpsoff")) {
-					HintIcon.showFps = false;
-				}
-				if (string.equalsIgnoreCase("::wm0")) {
-					AbstractSprite.method1593(0, -1, -1, false);
-				}
-				if (string.equalsIgnoreCase("::wm1")) {
-					AbstractSprite.method1593(1, -1, -1, false);
-				}
-				if (string.equalsIgnoreCase("::wm2")) {
-					AbstractSprite.method1593(2, -1, -1, false);
-				}
-				if (string.equalsIgnoreCase("::wm3")) {
-					AbstractSprite.method1593(3, 1024, 768, false);
-				}
-				if (string.startsWith("::setba")) {
-					Class140.anInt1343 = Class31.method265(string.substring(8));
-					Class120_Sub6.savePreferences(NpcType.gameSignlink);
-					Class120_Sub14_Sub5.aBoolean3471 = false;
-				}
-				if (string.startsWith("::setparticles")) {
-					ParticleEngine.setParticles(Class31.method265(string.substring(15)));
-					Class120_Sub6.savePreferences(NpcType.gameSignlink);
-					Class120_Sub14_Sub5.aBoolean3471 = false;
-				}
-				if (string.startsWith("::fps ")) {
-					Class190.method2506(Class31.method265(string.substring(6)));
-				}
-				if (string.equalsIgnoreCase("::errortest")) {
-					throw new RuntimeException();
-				}
-				if (string.startsWith("::rect_debug")) {
-					Class15.rectDebugType = Class31.method265(string.substring(12).trim());
-					AbstractRequest.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
-				}
-				if (string.equalsIgnoreCase("::qa_op_test")) {
-					Class120_Sub30_Sub1.aBoolean3673 = true;
-				}
-				if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290())) {
-					AbstractRequest.method1540(null, 0, "Failed to enable hdr");
-				}
-				if (string.equalsIgnoreCase("::tween")) {
-					if (Class164.forceTween) {
-						Class164.forceTween = false;
-						AbstractRequest.method1540(null, 0, "Forced tweening disabled.");
-					} else {
-						Class164.forceTween = true;
-						AbstractRequest.method1540(null, 0, "Forced tweening ENABLED!");
-					}
-				}
-				if (string.equalsIgnoreCase("::shiftclick")) {
-					if (Class120_Sub14_Sub4.aBoolean3470) {
-						System.out.println("Shift-click disabled.");
-						Class120_Sub14_Sub4.aBoolean3470 = false;
-					} else {
-						System.out.println("Shift-click ENABLED!");
-						Class120_Sub14_Sub4.aBoolean3470 = true;
-					}
-				}
-				if (string.equalsIgnoreCase("::getcgcoord")) {
-					AbstractRequest.method1540(
-							null,
-							0,
-							new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:")
-									.append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
-				}
-				if (string.equalsIgnoreCase("::getheight")) {
-					AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.anIntArrayArrayArray2741[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+				i_43_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
+			}
+			if (string.equalsIgnoreCase("::pcachesize")) {
+				AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
+			}
+			if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
+				System.out.println("oncard_geometry:" + Class113.anInt1082);
+				System.out.println("oncard_2d:" + Class113.anInt1086);
+				System.out.println("oncard_texture:" + Class113.anInt1081);
+			}
+			if (string.equalsIgnoreCase("::clientdrop")) {
+				Class100.dropClient();
+			}
+			if (string.equalsIgnoreCase("::clientjs5drop")) {
+				Class178.aClass45_1772.closeConnection();
+			}
+			if (string.equalsIgnoreCase("::serverjs5drop")) {
+				Class178.aClass45_1772.sendDropConnection();
+			}
+			if (string.equalsIgnoreCase("::breakcon")) {
+				NpcType.gameSignlink.method1963(5000);
+				AbstractTimer.worldConnection.replaceStreamsWithDummy();
+				Class178.aClass45_1772.replaceStreamsWithDummy();
+			}
+			if (string.equalsIgnoreCase("::replacecanvas")) {
+				Class120_Sub3.canvasReplaceRecommended = true;
+			}
+			if (string.equalsIgnoreCase("::rebuild")) {
+				Class120_Sub14_Sub1.setGameState(25);
+			}
+			if (string.equalsIgnoreCase("::fpson")) {
+				HintIcon.showFps = true;
+			}
+			if (string.equalsIgnoreCase("::fpsoff")) {
+				HintIcon.showFps = false;
+			}
+			if (string.equalsIgnoreCase("::wm0")) {
+				AbstractSprite.method1593(0, -1, -1, false);
+			}
+			if (string.equalsIgnoreCase("::wm1")) {
+				AbstractSprite.method1593(1, -1, -1, false);
+			}
+			if (string.equalsIgnoreCase("::wm2")) {
+				AbstractSprite.method1593(2, -1, -1, false);
+			}
+			if (string.equalsIgnoreCase("::wm3")) {
+				AbstractSprite.method1593(3, 1024, 768, false);
+			}
+			if (string.startsWith("::setba")) {
+				Class140.anInt1343 = Class31.method265(string.substring(8));
+				Class120_Sub6.savePreferences(NpcType.gameSignlink);
+				Class120_Sub14_Sub5.aBoolean3471 = false;
+			}
+			if (string.startsWith("::setparticles")) {
+				ParticleEngine.setParticles(Class31.method265(string.substring(15)));
+				Class120_Sub6.savePreferences(NpcType.gameSignlink);
+				Class120_Sub14_Sub5.aBoolean3471 = false;
+			}
+			if (string.startsWith("::fps ")) {
+				Class190.method2506(Class31.method265(string.substring(6)));
+			}
+			if (string.equalsIgnoreCase("::errortest")) {
+				throw new RuntimeException();
+			}
+			if (string.startsWith("::rect_debug")) {
+				Class15.rectDebugType = Class31.method265(string.substring(12).trim());
+				AbstractRequest.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
+			}
+			if (string.equalsIgnoreCase("::qa_op_test")) {
+				Class120_Sub30_Sub1.aBoolean3673 = true;
+			}
+			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290())) {
+				AbstractRequest.method1540(null, 0, "Failed to enable hdr");
+			}
+			if (string.equalsIgnoreCase("::tween")) {
+				if (Class164.forceTween) {
+					Class164.forceTween = false;
+					AbstractRequest.method1540(null, 0, "Forced tweening disabled.");
+				} else {
+					Class164.forceTween = true;
+					AbstractRequest.method1540(null, 0, "Forced tweening ENABLED!");
 				}
 			}
-			Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
-			Class120_Sub12_Sub11.outputStream.putByte(string.length() - 1);
-			Class120_Sub12_Sub11.outputStream.putJagexString(string.substring(2));
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.U(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			if (string.equalsIgnoreCase("::shiftclick")) {
+				if (Class120_Sub14_Sub4.aBoolean3470) {
+					System.out.println("Shift-click disabled.");
+					Class120_Sub14_Sub4.aBoolean3470 = false;
+				} else {
+					System.out.println("Shift-click ENABLED!");
+					Class120_Sub14_Sub4.aBoolean3470 = true;
+				}
+			}
+			if (string.equalsIgnoreCase("::getcgcoord")) {
+				AbstractRequest.method1540(null, 0, new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+			}
+			if (string.equalsIgnoreCase("::getheight")) {
+				AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+			}
 		}
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
+		Class120_Sub12_Sub11.outputStream.putByte(string.length() - 1);
+		Class120_Sub12_Sub11.outputStream.putJagexString(string.substring(2));
 	}
 
 	@Override

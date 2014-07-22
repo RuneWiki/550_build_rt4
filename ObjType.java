@@ -283,13 +283,13 @@ final class ObjType {
 				return true;
 			}
 			boolean bool_36_ = true;
-			if (!Class111.aClass50_1064.method440(i_35_, true, 0)) {
+			if (!Class111.aClass50_1064.fileExists(i_35_, 0)) {
 				bool_36_ = false;
 			}
-			if ((i_33_ ^ 0xffffffff) != 0 && !Class111.aClass50_1064.method440(i_33_, true, 0)) {
+			if ((i_33_ ^ 0xffffffff) != 0 && !Class111.aClass50_1064.fileExists(i_33_, 0)) {
 				bool_36_ = false;
 			}
-			if ((i_34_ ^ 0xffffffff) != 0 && !Class111.aClass50_1064.method440(i_34_, true, 0)) {
+			if ((i_34_ ^ 0xffffffff) != 0 && !Class111.aClass50_1064.fileExists(i_34_, 0)) {
 				bool_36_ = false;
 			}
 			bool_32_ = bool_36_;
@@ -394,10 +394,10 @@ final class ObjType {
 				return true;
 			}
 			boolean bool_49_ = true;
-			if (!Class111.aClass50_1064.method440(i_47_, true, i)) {
+			if (!Class111.aClass50_1064.fileExists(i_47_, i)) {
 				bool_49_ = false;
 			}
-			if (i_48_ != -1 && !Class111.aClass50_1064.method440(i_48_, true, 0)) {
+			if (i_48_ != -1 && !Class111.aClass50_1064.fileExists(i_48_, 0)) {
 				bool_49_ = false;
 			}
 			bool_46_ = bool_49_;

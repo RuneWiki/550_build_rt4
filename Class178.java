@@ -33,11 +33,11 @@ final class Class178 {
 	static final void method2257(final boolean bool) {
 		if (bool) {
 			LabelGroup.groundTiles = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
-			OverridedJInterface.anIntArrayArrayArray2741 = Class24.anIntArrayArrayArray140;
+			OverridedJInterface.tileHeightMap = Class24.anIntArrayArrayArray140;
 			Canvas_Sub1.aClass120_Sub9ArrayArray17 = IntegerNode.aClass120_Sub9ArrayArray2789;
 		} else {
 			LabelGroup.groundTiles = Class86.aClass120_Sub18ArrayArrayArray820;
-			OverridedJInterface.anIntArrayArrayArray2741 = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
+			OverridedJInterface.tileHeightMap = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			Canvas_Sub1.aClass120_Sub9ArrayArray17 = SceneGroundObject.aClass120_Sub9ArrayArray2844;
 		}
 		Class142.anInt1361 = LabelGroup.groundTiles.length;

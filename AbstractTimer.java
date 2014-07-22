@@ -671,7 +671,7 @@ abstract class AbstractTimer {
 				i_108_ = -1;
 			}
 			final int i_109_ = Canvas_Sub1.inputStream.getUByteA();
-			ObjectPile.method2447((byte) 82, i_109_, i_108_);
+			ObjectPile.method2447(i_109_, i_108_);
 			Class23.packetType = -1;
 			return true;
 		}
@@ -833,7 +833,7 @@ abstract class AbstractTimer {
 				jagexInterface = Class74.getJagexInterface(i_137_);
 				if (jagexInterface != null) {
 					InterfaceClickMask.redrawInterface(jagexInterface);
-					ProducingGraphicsBuffer.method1854(true, false, jagexInterface);
+					ProducingGraphicsBuffer.method1854(jagexInterface, true);
 				}
 				if (Class69.rootInterfaceId != -1) {
 					InterfaceClickMask.method1689(1, Class69.rootInterfaceId);

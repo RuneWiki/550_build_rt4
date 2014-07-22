@@ -138,7 +138,7 @@ final class Js5Request extends AbstractRequest {
 	}
 
 	@Override
-	final int method1537() {
+	final int getCompletion() {
 		if (this.aClass120_Sub7_3939 == null) {
 			return 0;
 		}

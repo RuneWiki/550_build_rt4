@@ -248,7 +248,7 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 				if (i_1_ > 0 || i_1_ < -65535 || i_48_ < 0 || i_48_ >= Class186.anInt1900 || i_49_ < 0 || i_49_ >= Class120_Sub12_Sub38.anInt3440) {
 					method969();
 				} else {
-					final int[][][] is = OverridedJInterface.anIntArrayArrayArray2741;
+					final int[][][] is = OverridedJInterface.tileHeightMap;
 					final int i_50_ = is[class108_sub2.anInt2374][i_48_][i_49_];
 					int i_51_;
 					if (class108_sub2.anInt2374 < 3) {

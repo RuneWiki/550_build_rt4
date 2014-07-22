@@ -15,7 +15,7 @@ final class OverridedJInterface extends Node {
 	static int worldOff;
 	static Class98 aClass98_2739;
 	static int anInt2740;
-	static int[][][] anIntArrayArrayArray2741;
+	static int[][][] tileHeightMap;
 	static int anInt2742 = 0;
 	static int[] anIntArray2743 = { 2047, 16383, 65535 };
 	int type;
@@ -155,10 +155,10 @@ final class OverridedJInterface extends Node {
 			aClass98_2739 = null;
 			aClass105_2746 = null;
 			if (i != -11) {
-				anIntArrayArrayArray2741 = null;
+				tileHeightMap = null;
 			}
 			anIntArray2743 = null;
-			anIntArrayArrayArray2741 = null;
+			tileHeightMap = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("rl.B(").append(i).append(')').toString());
 		}

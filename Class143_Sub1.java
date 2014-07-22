@@ -183,33 +183,22 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	static final Object method2026(final byte[] is, final boolean bool, final int i) {
-		byte[] is_13_;
-		try {
-			if (is == null) {
-				return null;
-			}
-			do {
-				if (is.length > i && !AmbientSound.aBoolean2484) {
-					Class66 class66;
-					try {
-						final Class66 class66_14_ = (Class66) Class.forName("Class66_Sub1").newInstance();
-						class66_14_.method581(0, is);
-						class66 = class66_14_;
-					} catch (final Throwable throwable) {
-						AmbientSound.aBoolean2484 = true;
-						break;
-					}
-					return class66;
-				}
-			} while (false);
-			if (!bool) {
-				return is;
-			}
-			is_13_ = ObjectPile.method2448(is);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("c.F(").append(is != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
+		if (is == null) {
+			return null;
 		}
-		return is_13_;
+		if (is.length > i && !AmbientSound.aBoolean2484) {
+			try {
+				final AbstractBuffer abstractBuffer = (AbstractBuffer) Class.forName("JByteBuffer").newInstance();
+				abstractBuffer.put(is);
+				return abstractBuffer;
+			} catch (final Throwable throwable) {
+				AmbientSound.aBoolean2484 = true;
+			}
+		}
+		if (!bool) {
+			return is;
+		}
+		return ObjectPile.copyBuffer(is);
 	}
 
 	@Override

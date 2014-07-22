@@ -35,7 +35,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			if (class73 != null && class73.aBoolean659 && class73.method647()) {
 				return class120_sub14_sub5_0_;
 			}
-			class120_sub14_sub5 = Class112.method992(2048);
+			class120_sub14_sub5 = Class112.method992();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.U(").append(i).append(')').toString());
 		}
