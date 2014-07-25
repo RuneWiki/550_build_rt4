@@ -22,14 +22,10 @@ class Buffer extends Node {
 		languageArray = new String[] { "en", "de", "fr", "pt" };
 	}
 
-	public static void method1076(final byte i) {
-		try {
-			anIntArray2477 = null;
-			languageArray = null;
-			playerOptions = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.I(").append(i).append(')').toString());
-		}
+	public static void method1076() {
+		anIntArray2477 = null;
+		languageArray = null;
+		playerOptions = null;
 	}
 
 	final void putJagexString(final String string) {
@@ -41,26 +37,22 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) 0;
 	}
 
-	final int getShort() {//getshort
+	final int getShort() {
 		this.pos += 2;
-		int i_1_ = (0xff00 & this.buf[this.pos - 2] << 8) + (0xff & this.buf[this.pos - 1]);
+		int i_1_ = ((this.buf[this.pos - 2] & 0xff) << 8) + (this.buf[this.pos - 1] & 0xff);
 		if (i_1_ > 32767) {
 			i_1_ -= 65536;
 		}
 		return i_1_;
 	}
 
-	final void method1079(final int i, final int i_2_) {
-		try {
-			if (i_2_ >= 0 && i_2_ < 128) {
-				putByte(i_2_);
-			} else if (i_2_ >= 0 && -32769 < (i_2_ ^ 0xffffffff)) {
-				putShort(32768 - -i_2_);
-			} else if (i == -32769) {
-				throw new IllegalArgumentException();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.TB(").append(i).append(',').append(i_2_).append(')').toString());
+	final void putSmart(final int value) {
+		if (value >= 0 && value < 128) {
+			putByte(value);
+		} else if (value >= 0 && value < 32768) {
+			putShort(32768 + value);
+		} else {
+			throw new IllegalArgumentException();
 		}
 	}
 
@@ -76,27 +68,20 @@ class Buffer extends Node {
 		return getUByte();
 	}
 
-	final void method1082(final int i, final int i_6_) {
-		try {
-			if (i_6_ < 98) {
-				anIntArray2477 = null;
-			}
-			if ((~0x7f & i) != 0) {
-				if ((~0x3fff & i) != 0) {
-					if ((i & ~0x1fffff) != 0) {
-						if ((~0xfffffff & i) != 0) {
-							putByte(i >>> 28 | 0x80);
-						}
-						putByte(0x80 | i >>> 21);
+	final void method1082(final int i) {
+		if ((~0x7f & i) != 0) {
+			if ((~0x3fff & i) != 0) {
+				if ((i & ~0x1fffff) != 0) {
+					if ((~0xfffffff & i) != 0) {
+						putByte(i >>> 28 | 0x80);
 					}
-					putByte(0x80 | i >>> 14);
+					putByte(0x80 | i >>> 21);
 				}
-				putByte(i >>> 7 | 0x80);
+				putByte(0x80 | i >>> 14);
 			}
-			putByte(0x7f & i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.EA(").append(i).append(',').append(i_6_).append(')').toString());
+			putByte(i >>> 7 | 0x80);
 		}
+		putByte(0x7f & i);
 	}
 
 	final void putByte(final int i) {
@@ -126,22 +111,13 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_9_ >> 8);
 	}
 
-	final int method1087(final boolean bool) {
-		int i;
-		try {
-			if (!bool) {
-				subScriptAmount = -16;
-			}
-			this.pos += 2;
-			int i_10_ = ((this.buf[this.pos - 1] & 0xff) << 8) + (0xff & this.buf[this.pos + -2]);
-			if (i_10_ > 32767) {
-				i_10_ -= 65536;
-			}
-			i = i_10_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.OA(").append(bool).append(')').toString());
+	final int getLEShort() {
+		this.pos += 2;
+		int value = ((this.buf[this.pos - 1] & 0xff) << 8) + (0xff & this.buf[this.pos - 2]);
+		if (value > 32767) {
+			value -= 65536;
 		}
-		return i;
+		return value;
 	}
 
 	final void putByteS(final int i_11_) {
@@ -162,18 +138,9 @@ class Buffer extends Node {
 		return -this.buf[this.pos++] & 0xff;
 	}
 
-	final int method1092(final byte i) {
-		int i_15_;
-		try {
-			this.pos += 3;
-			if (i > -119) {
-				return -21;
-			}
-			i_15_ = (this.buf[-2 + this.pos] << 16 & 0xff0000) + ((this.buf[this.pos + -3] & 0xff) << 8) + (this.buf[-1 + this.pos] & 0xff);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.F(").append(i).append(')').toString());
-		}
-		return i_15_;
+	final int method1092() {
+		this.pos += 3;
+		return (this.buf[-2 + this.pos] << 16 & 0xff0000) + ((this.buf[this.pos + -3] & 0xff) << 8) + (this.buf[-1 + this.pos] & 0xff);
 	}
 
 	final void putInt1(final int i_16_) {
@@ -189,11 +156,11 @@ class Buffer extends Node {
 			int i_25_;
 			int i_26_;
 			if (i_24_ != 1 && i_24_ != 3) {
-				i_25_ = locType.anInt1841;
-				i_26_ = locType.anInt1827;
+				i_25_ = locType.sizeX;
+				i_26_ = locType.sizeZ;
 			} else {
-				i_25_ = locType.anInt1827;
-				i_26_ = locType.anInt1841;
+				i_25_ = locType.sizeZ;
+				i_26_ = locType.sizeX;
 			}
 			int i_27_;
 			int i_28_;
@@ -238,7 +205,7 @@ class Buffer extends Node {
 		}
 	}
 
-	final String getJString() {
+	final String getJagexString() {
 		final int i_37_ = this.pos;
 		while (this.buf[this.pos++] != 0) {
 			/* empty */
@@ -293,7 +260,7 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_87_ >> 24);
 	}
 
-	final void getBytesA(final byte[] buffer, final int off, final int len) {
+	final void getBufferA(final byte[] buffer, final int off, final int len) {
 		for (int id = off; id < len + off; id++) {
 			buffer[id] = (byte) (this.buf[this.pos++] - 128);
 		}
@@ -315,16 +282,9 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) i_55_;
 	}
 
-	final void method1105(final byte i, final int i_56_) {
-		try {
-			if (i != 43) {
-				getLong();
-			}
-			this.buf[this.pos++] = (byte) i_56_;
-			this.buf[this.pos++] = (byte) (i_56_ >> 8);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.GA(").append(i).append(',').append(i_56_).append(')').toString());
-		}
+	final void method1105(final int i_56_) {
+		this.buf[this.pos++] = (byte) i_56_;
+		this.buf[this.pos++] = (byte) (i_56_ >> 8);
 	}
 
 	final void putFloatAsInt(final float f) {
@@ -339,93 +299,64 @@ class Buffer extends Node {
 		return 128 - this.buf[this.pos++] & 0xff;
 	}
 
-	final void method1108(final long l, final boolean bool, int i) {
-		try {
-			i--;
-			if (!bool) {
-				anInt2473 = 25;
-			}
-			if (i < 0 || i > 7) {
-				throw new IllegalArgumentException();
-			}
-			for (int i_58_ = 8 * i; i_58_ >= 0; i_58_ -= 8) {
-				this.buf[this.pos++] = (byte) (int) (l >> i_58_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.Q(").append(l).append(',').append(bool).append(',').append(i).append(')').toString());
+	final void method1108(final long l, int i) {
+		i--;
+		if (i < 0 || i > 7) {
+			throw new IllegalArgumentException();
+		}
+		for (int i_58_ = 8 * i; i_58_ >= 0; i_58_ -= 8) {
+			this.buf[this.pos++] = (byte) (int) (l >> i_58_);
 		}
 	}
 
-	final void method1109(final int[] is, final int i, final boolean bool, final int i_59_) {
-		try {
-			final int i_60_ = (i_59_ - i) / 8;
-			final int i_61_ = this.pos;
-			this.pos = i;
-			if (!bool) {
-				gameId = -65;
+	final void decryptXTEA(final int[] is, final int i, final int i_59_) {
+		final int i_60_ = (i_59_ - i) / 8;
+		final int i_61_ = this.pos;
+		this.pos = i;
+		for (int i_62_ = 0; i_62_ < i_60_; i_62_++) {
+			int i_63_ = getInt();
+			int i_64_ = getInt();
+			int i_65_ = -957401312;
+			int i_67_ = 32;
+			while ((i_67_-- ^ 0xffffffff) < -1) {
+				i_64_ -= (i_63_ << 4 ^ i_63_ >>> 5) - -i_63_ ^ is[(i_65_ & 0x1927) >>> 11] + i_65_;
+				i_65_ -= -1640531527;
+				i_63_ -= (i_64_ << 4 ^ i_64_ >>> 5) + i_64_ ^ i_65_ + is[i_65_ & 0x3];
 			}
-			for (int i_62_ = 0; i_62_ < i_60_; i_62_++) {
-				int i_63_ = getInt();
-				int i_64_ = getInt();
-				int i_65_ = -957401312;
-				int i_67_ = 32;
-				while ((i_67_-- ^ 0xffffffff) < -1) {
-					i_64_ -= (i_63_ << 4 ^ i_63_ >>> 5) - -i_63_ ^ is[(i_65_ & 0x1927) >>> 11] + i_65_;
-					i_65_ -= -1640531527;
-					i_63_ -= (i_64_ << 4 ^ i_64_ >>> 5) + i_64_ ^ i_65_ + is[i_65_ & 0x3];
-				}
-				this.pos -= 8;
-				putInt(i_63_);
-				putInt(i_64_);
-			}
-			this.pos = i_61_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.CB(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(bool).append(',').append(i_59_).append(')').toString());
+			this.pos -= 8;
+			putInt(i_63_);
+			putInt(i_64_);
 		}
+		this.pos = i_61_;
 	}
 
 	final byte getByteS() {
 		return (byte) (128 - this.buf[this.pos++]);
 	}
 
-	final int method1111(final boolean bool) {
-		int i;
-		try {
-			int i_69_ = this.buf[this.pos++];
-			if (bool) {
-				return 46;
-			}
-			int i_70_ = 0;
-			for (/**/; i_69_ < 0; i_69_ = this.buf[this.pos++]) {
-				i_70_ = (i_69_ & 0x7f | i_70_) << 7;
-			}
-			i = i_70_ | i_69_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.QA(").append(bool).append(')').toString());
+	final int method1111() {
+		int i_69_ = this.buf[this.pos++];
+		int i_70_ = 0;
+		for (/**/; i_69_ < 0; i_69_ = this.buf[this.pos++]) {
+			i_70_ = (i_69_ & 0x7f | i_70_) << 7;
 		}
-		return i;
+		return i_70_ | i_69_;
 	}
 
-	final void method1112(final int i, final int i_71_) {
-		try {
-			if (i_71_ == -29605) {
-				this.buf[-4 + -i + this.pos] = (byte) (i >> 24);
-				this.buf[-3 + -i + this.pos] = (byte) (i >> 16);
-				this.buf[this.pos - i - 2] = (byte) (i >> 8);
-				this.buf[-i + this.pos + -1] = (byte) i;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.QB(").append(i).append(',').append(i_71_).append(')').toString());
-		}
+	final void method1112(final int i) {
+		this.buf[this.pos - i - 4] = (byte) (i >> 24);
+		this.buf[this.pos - i - 3] = (byte) (i >> 16);
+		this.buf[this.pos - i - 2] = (byte) (i >> 8);
+		this.buf[this.pos - 1 - i] = (byte) i;
 	}
 
 	final void putByteA(final int i) {
 		this.buf[this.pos++] = (byte) (i + 128);
 	}
 
-	final void getBuffer(final byte[] is, final int i_73_, final int i_74_) {
-		for (int i_75_ = i_73_; i_74_ + i_73_ > i_75_; i_75_++) {
-			is[i_75_] = this.buf[this.pos++];
+	final void getBuffer(final byte[] buffer, final int off, final int len) {
+		for (int id = off; id < len + off; id++) {
+			buffer[id] = this.buf[this.pos++];
 		}
 	}
 
@@ -496,12 +427,12 @@ class Buffer extends Node {
 		return this.buf[this.pos++] - 128 & 0xff;
 	}
 
-	final String getFastJString() {
+	final String getFastJagexString() {
 		if (this.buf[this.pos] == 0) {
 			this.pos++;
 			return null;
 		}
-		return getJString();
+		return getJagexString();
 	}
 
 	final int getShortA() {
@@ -518,29 +449,22 @@ class Buffer extends Node {
 		this.pos = 0;
 	}
 
-	final void method1129(final boolean bool, final int[] is) {
-		try {
-			final int i = this.pos / 8;
-			this.pos = 0;
-			for (int i_90_ = 0; i > i_90_; i_90_++) {
-				int i_91_ = getInt();
-				int i_92_ = getInt();
-				int i_93_ = 0;
-				int i_95_ = 32;
-				while ((i_95_-- ^ 0xffffffff) < -1) {
-					i_91_ += i_92_ + (i_92_ << 4 ^ i_92_ >>> 5) ^ i_93_ - -is[i_93_ & 0x3];
-					i_93_ += -1640531527;
-					i_92_ += i_93_ - -is[~0x50bffffc & i_93_ >>> 11] ^ (i_91_ >>> 5 ^ i_91_ << 4) + i_91_;
-				}
-				this.pos -= 8;
-				putInt(i_91_);
-				putInt(i_92_);
+	final void encryptXTEA(final int[] is) {
+		final int i = this.pos / 8;
+		this.pos = 0;
+		for (int i_90_ = 0; i > i_90_; i_90_++) {
+			int i_91_ = getInt();
+			int i_92_ = getInt();
+			int i_93_ = 0;
+			int i_95_ = 32;
+			while ((i_95_-- ^ 0xffffffff) < -1) {
+				i_91_ += i_92_ + (i_92_ << 4 ^ i_92_ >>> 5) ^ i_93_ - -is[i_93_ & 0x3];
+				i_93_ += -1640531527;
+				i_92_ += i_93_ - -is[~0x50bffffc & i_93_ >>> 11] ^ (i_91_ >>> 5 ^ i_91_ << 4) + i_91_;
 			}
-			if (bool) {
-				getFastJString();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.KA(").append(bool).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+			this.pos -= 8;
+			putInt(i_91_);
+			putInt(i_92_);
 		}
 	}
 
@@ -579,7 +503,7 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_104_ >> 24);
 	}
 
-	final String getJagexString() {
+	final String getJagexString2() {
 		final byte i_105_ = this.buf[this.pos++];
 		if (i_105_ != 0) {
 			throw new IllegalStateException("Bad version number in gjstr2");
@@ -591,15 +515,9 @@ class Buffer extends Node {
 		return DisplayModeInfo.method2215(this.buf, i_106_, -1 + this.pos + -i_106_);
 	}
 
-	final void method1136(final int i, final int i_107_, final byte[] is, final int i_108_) {
-		try {
-			if (i == -21764) {
-				for (int i_109_ = i_107_ + i_108_ + -1; i_108_ <= i_109_; i_109_--) {
-					is[i_109_] = this.buf[this.pos++];
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.S(").append(i).append(',').append(i_107_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_108_).append(')').toString());
+	final void getBufferReverse(final byte[] buffer, final int off, final int len) {
+		for (int id = len + off + -1; off <= id; id--) {
+			buffer[id] = this.buf[this.pos++];
 		}
 	}
 

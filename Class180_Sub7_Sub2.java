@@ -876,21 +876,21 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 		}
 		int i;
 		int i_189_;
-		if (Class117.anInt1130 > 0) {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort87 * Class117.anInt1130 >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort94 * Class117.anInt1130 >> 8) >> 3;
+		if (AtmosphereManager.anInt1130 > 0) {
+			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1130 >> 8) >> 3;
+			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1130 >> 8) >> 3;
 		} else {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort94 * Class117.anInt1130 >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort87 * Class117.anInt1130 >> 8) >> 3;
+			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1130 >> 8) >> 3;
+			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1130 >> 8) >> 3;
 		}
 		int i_190_;
 		int i_191_;
-		if (Class117.anInt1123 > 0) {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort87 * Class117.anInt1123 >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort94 * Class117.anInt1123 >> 8) >> 3;
+		if (AtmosphereManager.anInt1123 > 0) {
+			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1123 >> 8) >> 3;
+			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1123 >> 8) >> 3;
 		} else {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort94 * Class117.anInt1123 >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort87 * Class117.anInt1123 >> 8) >> 3;
+			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1123 >> 8) >> 3;
+			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1123 >> 8) >> 3;
 		}
 		final int i_192_ = i_189_ - i + 1;
 		final int i_193_ = i_191_ - i_190_ + 1;
@@ -910,8 +910,8 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 			anIntArray3901 = new int[anInt3890];
 		}
 		for (int i_195_ = 0; i_195_ < anInt3861; i_195_++) {
-			final int i_196_ = (this.anIntArray3878[i_195_] - (this.anIntArray3856[i_195_] * Class117.anInt1130 >> 8) >> 3) - i;
-			final int i_197_ = (this.anIntArray3845[i_195_] - (this.anIntArray3856[i_195_] * Class117.anInt1123 >> 8) >> 3) - i_190_;
+			final int i_196_ = (this.anIntArray3878[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.anInt1130 >> 8) >> 3) - i;
+			final int i_197_ = (this.anIntArray3845[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.anInt1123 >> 8) >> 3) - i_190_;
 			final int i_198_ = anIntArray3875[i_195_];
 			final int i_199_ = anIntArray3875[i_195_ + 1];
 			for (int i_200_ = i_198_; i_200_ < i_199_; i_200_++) {
@@ -2187,9 +2187,9 @@ final class Class180_Sub7_Sub2 extends Class180_Sub7 {
 			}
 			if (bool_593_) {
 				if (!Class120_Sub12_Sub6.highLightingDetail) {
-					final int i_612_ = (int) Class117.aFloatArray1127[0];
-					final int i_613_ = (int) Class117.aFloatArray1127[1];
-					final int i_614_ = (int) Class117.aFloatArray1127[2];
+					final int i_612_ = (int) AtmosphereManager.aFloatArray1127[0];
+					final int i_613_ = (int) AtmosphereManager.aFloatArray1127[1];
+					final int i_614_ = (int) AtmosphereManager.aFloatArray1127[2];
 					final int i_615_ = (int) Math.sqrt(i_612_ * i_612_ + i_613_ * i_613_ + i_614_ * i_614_);
 					final int i_616_ = (int) (aShort3851 * 1.3F);
 					final int i_617_ = aShort3853 * i_615_ >> 8;

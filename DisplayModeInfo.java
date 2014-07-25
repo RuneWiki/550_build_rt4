@@ -28,33 +28,29 @@ final class DisplayModeInfo {
 		anInt1715 = 0;
 	}
 
-	static final void method2213(final int i) {
-		try {
-			Class120_Sub12_Sub23.anInt3307 = 0;
-			Class154.anInt1441 = 0;
-			Class92.method767(-2);
-			Class179.method2262(-16097);
-			Class174.method2233((byte) -54);
-			Decimator.method2223();
-			for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {
-				final int i_3_ = Class43.anIntArray366[i_2_];
-				if (Class101_Sub2.loopCycle != Class118.playersList[i_3_].anInt2985) {
-					if (Class118.playersList[i_3_].anInt3735 > 0) {
-						Class31.method267(15, Class118.playersList[i_3_]);
-					}
-					Class118.playersList[i_3_] = null;
+	static final void method2213() {
+		Class120_Sub12_Sub23.anInt3307 = 0;
+		Class154.anInt1441 = 0;
+		Class92.method767(-2);
+		Class179.method2262(-16097);
+		Class174.method2233((byte) -54);
+		Decimator.method2223();
+		for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {
+			final int i_3_ = Class43.anIntArray366[i_2_];
+			if (Class101_Sub2.loopCycle != Class118.playersList[i_3_].anInt2985) {
+				if (Class118.playersList[i_3_].anInt3735 > 0) {
+					Class31.method267(15, Class118.playersList[i_3_]);
 				}
+				Class118.playersList[i_3_] = null;
 			}
-			if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
-				throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+		}
+		if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
+			throw new RuntimeException(new StringBuilder("gpp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+		}
+		for (int i_4_ = 0; FileSystemWorker.localPlayerCount > i_4_; i_4_++) {
+			if (Class118.playersList[Class112.playerIndices[i_4_]] == null) {
+				throw new RuntimeException(new StringBuilder("gpp2 pos:").append(i_4_).append(" size:").append(FileSystemWorker.localPlayerCount).toString());
 			}
-			for (int i_4_ = 0; FileSystemWorker.localPlayerCount > i_4_; i_4_++) {
-				if (Class118.playersList[Class112.playerIndices[i_4_]] == null) {
-					throw new RuntimeException(new StringBuilder("gpp2 pos:").append(i_4_).append(" size:").append(FileSystemWorker.localPlayerCount).toString());
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ub.A(").append(i).append(')').toString());
 		}
 	}
 

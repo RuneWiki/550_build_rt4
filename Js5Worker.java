@@ -234,7 +234,7 @@ final class Js5Worker {
 	final Js5Request putRequest(final int archiveId, final int groupId, final byte i, final boolean bool) {
 		final long uid = groupId + (archiveId << 16);
 		final Js5Request js5Request = new Js5Request();
-		js5Request.aByte3938 = i;
+		js5Request.bufferOff = i;
 		js5Request.aBoolean3573 = bool;
 		js5Request.subUid = uid;
 		if (bool) {
@@ -600,7 +600,7 @@ final class Js5Worker {
 		}
 	}
 
-	final boolean method371() {
+	final boolean process() {
 		if (js5Connection != null) {
 			final long l = TimeUtil.getSafeTime();
 			int i_120_ = (int) (l - aLong407);
@@ -624,22 +624,21 @@ final class Js5Worker {
 			}
 			return true;
 		}
-		boolean bool_121_;
 		try {
 			js5Connection.checkForError();
-			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) urgentQueue.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) urgentQueue.peekNext()) {
+			for (Js5Request urgentRequest = (Js5Request) urgentQueue.peekFirst(); urgentRequest != null; urgentRequest = (Js5Request) urgentQueue.peekNext()) {
 				outputBuffer.pos = 0;
 				outputBuffer.putByte(1);
-				outputBuffer.putMedium((int) class120_sub14_sub14_sub2.subUid);
+				outputBuffer.putMedium((int) urgentRequest.subUid);
 				js5Connection.put(outputBuffer.buf, 0, 4);
-				aClass177_402.insertLast(class120_sub14_sub14_sub2);
+				aClass177_402.insertLast(urgentRequest);
 			}
-			for (Js5Request class120_sub14_sub14_sub2 = (Js5Request) prefetchQueue.peekFirst(); class120_sub14_sub14_sub2 != null; class120_sub14_sub14_sub2 = (Js5Request) prefetchQueue.peekNext()) {
+			for (Js5Request prefetchRequest = (Js5Request) prefetchQueue.peekFirst(); prefetchRequest != null; prefetchRequest = (Js5Request) prefetchQueue.peekNext()) {
 				outputBuffer.pos = 0;
 				outputBuffer.putByte(0);
-				outputBuffer.putMedium((int) class120_sub14_sub14_sub2.subUid);
+				outputBuffer.putMedium((int) prefetchRequest.subUid);
 				js5Connection.put(outputBuffer.buf, 0, 4);
-				aClass177_404.insertLast(class120_sub14_sub14_sub2);
+				aClass177_404.insertLast(prefetchRequest);
 			}
 			for (int loopId = 0; loopId < 100; loopId++) {
 				final int available = js5Connection.getAvailable();
@@ -660,22 +659,22 @@ final class Js5Worker {
 				anInt405 = 0;
 				if (i_124_ <= 0) {
 					int i_125_ = 512 - aClass120_Sub14_Sub14_Sub2_413.anInt3936;
-					final int i_126_ = aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf.length - aClass120_Sub14_Sub14_Sub2_413.aByte3938;
-					if (i_125_ > i_126_ - aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos) {
-						i_125_ = i_126_ - aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos;
+					final int i_126_ = aClass120_Sub14_Sub14_Sub2_413.buffer.buf.length - aClass120_Sub14_Sub14_Sub2_413.bufferOff;
+					if (i_125_ > i_126_ - aClass120_Sub14_Sub14_Sub2_413.buffer.pos) {
+						i_125_ = i_126_ - aClass120_Sub14_Sub14_Sub2_413.buffer.pos;
 					}
 					if (i_125_ > available) {
 						i_125_ = available;
 					}
-					js5Connection.read(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf, aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos, i_125_);
+					js5Connection.read(aClass120_Sub14_Sub14_Sub2_413.buffer.buf, aClass120_Sub14_Sub14_Sub2_413.buffer.pos, i_125_);
 					if (xorCode != 0) {
 						for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos], xorCode);
+							aClass120_Sub14_Sub14_Sub2_413.buffer.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.buffer.pos] = (byte) Class120_Sub12_Sub38.method1397(aClass120_Sub14_Sub14_Sub2_413.buffer.buf[i_127_ + aClass120_Sub14_Sub14_Sub2_413.buffer.pos], xorCode);
 						}
 					}
-					aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos += i_125_;
+					aClass120_Sub14_Sub14_Sub2_413.buffer.pos += i_125_;
 					aClass120_Sub14_Sub14_Sub2_413.anInt3936 += i_125_;
-					if (i_126_ == aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.pos) {
+					if (i_126_ == aClass120_Sub14_Sub14_Sub2_413.buffer.pos) {
 						aClass120_Sub14_Sub14_Sub2_413.unlinkSub();
 						aClass120_Sub14_Sub14_Sub2_413.aBoolean3576 = false;
 						aClass120_Sub14_Sub14_Sub2_413 = null;
@@ -721,9 +720,9 @@ final class Js5Worker {
 							}
 							aClass120_Sub14_Sub14_Sub2_413 = js5Request;
 							final int i_136_ = ctype != 0 ? 9 : 5;
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939 = new Buffer(aClass120_Sub14_Sub14_Sub2_413.aByte3938 + clen + i_136_);
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putByte(ctype);
-							aClass120_Sub14_Sub14_Sub2_413.aClass120_Sub7_3939.putInt(clen);
+							aClass120_Sub14_Sub14_Sub2_413.buffer = new Buffer(aClass120_Sub14_Sub14_Sub2_413.bufferOff + clen + i_136_);
+							aClass120_Sub14_Sub14_Sub2_413.buffer.putByte(ctype);
+							aClass120_Sub14_Sub14_Sub2_413.buffer.putInt(clen);
 							aClass120_Sub14_Sub14_Sub2_413.anInt3936 = 8;
 							inputBuffer.pos = 0;
 						} else if (aClass120_Sub14_Sub14_Sub2_413.anInt3936 == 0) {
@@ -740,7 +739,6 @@ final class Js5Worker {
 					}
 				}
 			}
-			bool_121_ = true;
 		} catch (final IOException ioexception) {
 			try {
 				js5Connection.close();
@@ -755,7 +753,7 @@ final class Js5Worker {
 			}
 			return false;
 		}
-		return bool_121_;
+		return true;
 	}
 
 	public Js5Worker() {

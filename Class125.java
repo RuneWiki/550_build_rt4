@@ -38,17 +38,17 @@ final class Class125 implements Interface1 {
 	}
 
 	@Override
-	public final String method1(final long l, final int[] is, final int i_3_) {
-		if (i_3_ == 0) {
-			final EnumType class120_sub14_sub2 = EnumType.list(is[0]);
-			return class120_sub14_sub2.getStringParamValue((int) l);
+	public final String method1(final long id, final int[] params, final int type) {
+		if (type == 0) {
+			final EnumType enumType = EnumType.list(params[0]);
+			return enumType.getStringParamValue((int) id);
 		}
-		if (i_3_ == 1 || i_3_ == 10) {
-			final ObjType objType = ObjType.list((int) l);
+		if (type == 1 || type == 10) {
+			final ObjType objType = ObjType.list((int) id);
 			return objType.name;
 		}
-		if (i_3_ == 6 || i_3_ == 7 || i_3_ == 11) {
-			return EnumType.list(is[0]).getStringParamValue((int) l);
+		if (type == 6 || type == 7 || type == 11) {
+			return EnumType.list(params[0]).getStringParamValue((int) id);
 		}
 		return null;
 	}

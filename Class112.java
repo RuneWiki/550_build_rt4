@@ -9,8 +9,8 @@ final class Class112 {
 	static int[] anIntArray1069;
 	static Class98 aClass98_1070;
 	private final Js5Worker js5Worker;
-	private Buffer aClass120_Sub7_1072;
-	private Js5Request aClass120_Sub14_Sub14_Sub2_1073;
+	private Buffer masterIndexBuffer;
+	private Js5Request masterIndexRequest;
 	private Class53_Sub1[] aClass53_Sub1Array1074;
 	static int gameLoopCount;
 	static Frame frame;
@@ -41,20 +41,20 @@ final class Class112 {
 	}
 
 	final boolean method986() {
-		if (aClass120_Sub7_1072 != null) {
+		if (masterIndexBuffer != null) {
 			return true;
 		}
-		if (aClass120_Sub14_Sub14_Sub2_1073 == null) {
+		if (masterIndexRequest == null) {
 			if (js5Worker.method357()) {
 				return false;
 			}
-			aClass120_Sub14_Sub14_Sub2_1073 = js5Worker.putRequest(255, 255, (byte) 0, true);
+			masterIndexRequest = js5Worker.putRequest(255, 255, (byte) 0, true);
 		}
-		if (aClass120_Sub14_Sub14_Sub2_1073.aBoolean3576) {
+		if (masterIndexRequest.aBoolean3576) {
 			return false;
 		}
-		aClass120_Sub7_1072 = new Buffer(aClass120_Sub14_Sub14_Sub2_1073.getBuffer());
-		aClass53_Sub1Array1074 = new Class53_Sub1[(aClass120_Sub7_1072.buf.length - 5) / 8];
+		masterIndexBuffer = new Buffer(masterIndexRequest.getBuffer());
+		aClass53_Sub1Array1074 = new Class53_Sub1[(masterIndexBuffer.buf.length - 5) / 8];
 		return true;
 	}
 
@@ -104,7 +104,7 @@ final class Class112 {
 	static final void method989(final int i, final int i_12_, final int i_14_) {
 		final ClientScript class120_sub14_sub12 = Class120_Sub12_Sub16.method1277(i, i_12_, i_14_);
 		if (class120_sub14_sub12 != null) {
-			Class100.intArguments = new int[class120_sub14_sub12.intArgumentCount];
+			TileParticleQueue.intArguments = new int[class120_sub14_sub12.intArgumentCount];
 			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
 			if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
 				int i_15_ = 0;
@@ -113,8 +113,8 @@ final class Class112 {
 					i_15_ = Class142.aClass189_1362.x;
 					i_16_ = Class142.aClass189_1362.y;
 				}
-				Class100.intArguments[1] = Class191.lastMouseY - i_16_;
-				Class100.intArguments[0] = Queue.lastMouseX - i_15_;
+				TileParticleQueue.intArguments[1] = Class191.lastMouseY - i_16_;
+				TileParticleQueue.intArguments[0] = Queue.lastMouseX - i_15_;
 			}
 			World.method2194(class120_sub14_sub12, 200000);
 		}
@@ -125,18 +125,18 @@ final class Class112 {
 	}
 
 	private final Class53_Sub1 method991(final FileSystem fileSystem, final FileSystem class51_17_, final boolean bool, final int index) {
-		if (aClass120_Sub7_1072 == null) {
+		if (masterIndexBuffer == null) {
 			throw new RuntimeException();
 		}
-		aClass120_Sub7_1072.pos = 5 + index * 8;
-		if (aClass120_Sub7_1072.buf.length <= aClass120_Sub7_1072.pos) {
+		masterIndexBuffer.pos = 5 + index * 8;
+		if (masterIndexBuffer.buf.length <= masterIndexBuffer.pos) {
 			throw new RuntimeException();
 		}
 		if (aClass53_Sub1Array1074[index] != null) {
 			return aClass53_Sub1Array1074[index];
 		}
-		final int i_19_ = aClass120_Sub7_1072.getInt();
-		final int i_20_ = aClass120_Sub7_1072.getInt();
+		final int i_19_ = masterIndexBuffer.getInt();
+		final int i_20_ = masterIndexBuffer.getInt();
 		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(index, class51_17_, fileSystem, js5Worker, fileSystemWorker, i_19_, i_20_, bool);
 		aClass53_Sub1Array1074[index] = class53_sub1_21_;
 		return class53_sub1_21_;
@@ -163,7 +163,7 @@ final class Class112 {
 		js5Worker = jw;
 		fileSystemWorker = fsw;
 		if (!js5Worker.method357()) {
-			aClass120_Sub14_Sub14_Sub2_1073 = js5Worker.putRequest(255, 255, (byte) 0, true);
+			masterIndexRequest = js5Worker.putRequest(255, 255, (byte) 0, true);
 		}
 	}
 }

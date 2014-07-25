@@ -80,7 +80,7 @@ final class Class48 {
 							return;
 						}
 					}
-					if (string.equals(Class100.selfPlayer.name)) {
+					if (string.equals(TileParticleQueue.selfPlayer.name)) {
 						AbstractRequest.method1540("", 0, Class120_Sub14_Sub23.aString3655);
 					} else {
 						Class120_Sub16.friendsName[ProducingGraphicsBuffer.friendCount] = string;

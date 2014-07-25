@@ -10,10 +10,8 @@ final class Class137 {
 	static PacketBuffer loginStream = new PacketBuffer(5000);
 
 	static final void method1980(final JagexInterface[] class189s, final int i) {
-		JagexInterface[] class189s_1_;
-		final int i_0_ = (class189s_1_ = class189s).length;
-		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-			final JagexInterface jagexInterface = class189s_1_[i_2_];
+		for (int i_2_ = 0; i_2_ < class189s.length; i_2_++) {
+			final JagexInterface jagexInterface = class189s[i_2_];
 			if (jagexInterface != null) {
 				if (jagexInterface.type == 0) {
 					if (jagexInterface.components != null) {
@@ -28,7 +26,7 @@ final class Class137 {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.aClass189_2534 = jagexInterface;
 					class120_sub10.objectData = jagexInterface.anObjectArray2013;
-					Class88.method744(true, class120_sub10);
+					Class88.method744(class120_sub10);
 				}
 				if (i == 1 && jagexInterface.anObjectArray1932 != null) {
 					if (jagexInterface.componentIndex >= 0) {
@@ -40,7 +38,7 @@ final class Class137 {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.objectData = jagexInterface.anObjectArray1932;
 					class120_sub10.aClass189_2534 = jagexInterface;
-					Class88.method744(true, class120_sub10);
+					Class88.method744(class120_sub10);
 				}
 			}
 		}

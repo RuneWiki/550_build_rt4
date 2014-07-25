@@ -53,8 +53,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 							if (jagexInterface.objIds[i_2_] > 0) {
 								final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
 								final ObjType objType = ObjType.list(jagexInterface.objIds[i_2_] - 1);
-								if (Light.objSelected != 1 || !class120_sub20.method1694(500)) {
-									if (Class88.spellSelected && class120_sub20.method1694(500)) {
+								if (Light.objSelected != 1 || !class120_sub20.method1694()) {
+									if (Class88.spellSelected && class120_sub20.method1694()) {
 										final ParamType class120_sub14_sub11 = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
 										if ((0x10 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(class120_sub14_sub11.defaultInt, IdentityKit.selectedSpellParam) != class120_sub14_sub11.defaultInt)) {
 											InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
@@ -64,7 +64,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 										if (MouseHandler.showNumbersOnActions) {
 											strings = Class120_Sub12_Sub36.addNumbers(strings);
 										}
-										if (class120_sub20.method1694(500)) {
+										if (class120_sub20.method1694()) {
 											for (int i_7_ = 4; i_7_ >= 3; i_7_--) {
 												if (strings != null && strings[i_7_] != null) {
 													short i_8_;
@@ -77,10 +77,10 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 												}
 											}
 										}
-										if (class120_sub20.method1687(119)) {
+										if (class120_sub20.method1687()) {
 											InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.anInt3205);
 										}
-										if (class120_sub20.method1694(500) && strings != null) {
+										if (class120_sub20.method1694() && strings != null) {
 											for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
 												if (strings[i_9_] != null) {
 													short i_10_ = 0;
@@ -126,7 +126,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 										}
 										InvType.addMenuOption(Class11.aString81, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 1001, Class120_Sub12_Sub11.anInt3211);
 									}
-								} else if (PlainTile.selectedObjInterface != jagexInterface.bitPacked || Class108_Sub1.selectedObjSlot != i_2_) {
+								} else if (PlainTile.selectedObjInterface != jagexInterface.bitPacked || ParticleManager.selectedObjSlot != i_2_) {
 									InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 15, -1);
 								}
 							}
@@ -137,7 +137,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			}
 			if (jagexInterface.newFormat) {
 				if (Class88.spellSelected) {
-					if (client.getClickMask(jagexInterface).method1692(false) && (0x20 & GroundTile.selectedSpellUseMask) != 0) {
+					if (client.getClickMask(jagexInterface).method1692() && (0x20 & GroundTile.selectedSpellUseMask) != 0) {
 						InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> ").append(jagexInterface.spellNameni).toString(), 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1, Class150.selectedSpellTargetCursor);
 					}
 				} else {
@@ -157,7 +157,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 							InvType.addMenuOption(string_15_, jagexInterface.spellNameni, 1 + i_14_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 23, Class120_Sub12_Sub31.method1368(jagexInterface, i_14_));
 						}
 					}
-					if (client.getClickMask(jagexInterface).method1686((byte) -101)) {
+					if (client.getClickMask(jagexInterface).method1686()) {
 						if (jagexInterface.actionSufix != null) {
 							InvType.addMenuOption(jagexInterface.actionSufix, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
 						} else {
@@ -229,7 +229,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 				class180_sub5.z = class180_sub5.walkQueueZ[0] * 128 - -(class180_sub5.getSize() * 64);
 				class180_sub5.method2329(-31966);
 			}
-			if (Class100.selfPlayer == class180_sub5 && (class180_sub5.x < 1536 || class180_sub5.z < 1536 || class180_sub5.x >= 11776 || class180_sub5.z >= 11776)) {
+			if (TileParticleQueue.selfPlayer == class180_sub5 && (class180_sub5.x < 1536 || class180_sub5.z < 1536 || class180_sub5.x >= 11776 || class180_sub5.z >= 11776)) {
 				class180_sub5.spotAnimId = -1;
 				class180_sub5.anInt2961 = 0;
 				class180_sub5.anInt3035 = 0;

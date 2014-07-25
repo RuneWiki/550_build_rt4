@@ -70,8 +70,8 @@ final class Class88 {
 					if (class28 != null) {
 						sceneGraphNode = class28.aClass180_174;
 					}
-					if (locType.anInt1821 != 0 && i_4_ + locType.anInt1841 < 104 && locType.anInt1841 + i_2_ < 104 && i_4_ + locType.anInt1827 < 104 && locType.anInt1827 + i_2_ < 104) {
-						collisionMap.method214(i_7_, i_2_, locType.anInt1827, i_4_, locType.anInt1841, locType.aBoolean1844, !locType.aBoolean1880);
+					if (locType.anInt1821 != 0 && i_4_ + locType.sizeX < 104 && locType.sizeX + i_2_ < 104 && i_4_ + locType.sizeZ < 104 && locType.sizeZ + i_2_ < 104) {
+						collisionMap.method214(i_7_, i_2_, locType.sizeZ, i_4_, locType.sizeX, locType.aBoolean1844, !locType.aBoolean1880);
 					}
 				} else if (i_3_ == 3) {
 					final Class36 class36 = Class118.method1022(i_0_, i_4_, i_2_);
@@ -149,15 +149,8 @@ final class Class88 {
 		}
 	}
 
-	static final void method744(final boolean bool, final InterfaceListener class120_sub10) {
-		try {
-			ObjectCache.method194(class120_sub10, !bool, 200000);
-			if (!bool) {
-				method744(false, null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jh.B(").append(bool).append(',').append(class120_sub10 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method744(final InterfaceListener interfaceListener) {
+		ObjectCache.method194(interfaceListener, 200000);
 	}
 
 	public static void method745(final boolean bool) {

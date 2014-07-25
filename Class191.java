@@ -211,7 +211,7 @@ final class Class191 {
 							i_54_ = (i_57_ & 0x7c23) >> 11;
 							final int i_58_ = 0x7ff & i_57_;
 							if (i_58_ == Class167.anInt1616) {
-								class180_sub5 = Class100.selfPlayer;
+								class180_sub5 = TileParticleQueue.selfPlayer;
 							} else {
 								class180_sub5 = Class118.playersList[i_58_];
 							}
@@ -366,7 +366,7 @@ final class Class191 {
 				final int i_125_ = Canvas_Sub1.inputStream.getUByte();
 				if (i_119_ >= 0 && i_118_ >= 0 && i_119_ < 104 && i_118_ < 104) {
 					final int i_126_ = i_122_ + 1;
-					if (-i_126_ + i_119_ <= Class100.selfPlayer.walkQueueX[0] && Class100.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= Class100.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= Class100.selfPlayer.walkQueueZ[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
+					if (-i_126_ + i_119_ <= TileParticleQueue.selfPlayer.walkQueueX[0] && TileParticleQueue.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= TileParticleQueue.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= TileParticleQueue.selfPlayer.walkQueueZ[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
 						Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_120_;
 						LocType.anIntArray1834[Class150.anInt1407] = i_123_;
 						Class81.anIntArray779[Class150.anInt1407] = i_124_;
@@ -406,7 +406,7 @@ final class Class191 {
 
 	public Class191() {
 		this.aFloat2108 = 1.0F;
-		this.anInt2109 = Class117.anInt1126;
+		this.anInt2109 = AtmosphereManager.defaultScreenColorRgb;
 		this.aFloat2104 = 1.2F;
 		this.anInt2107 = -50;
 		this.anInt2110 = -50;
@@ -414,7 +414,7 @@ final class Class191 {
 		this.aFloat2102 = 1.1523438F;
 		this.anInt2112 = -60;
 		this.aFloat2106 = 0.69921875F;
-		this.anInt2111 = Class117.anInt1128;
+		this.anInt2111 = AtmosphereManager.defaulFogColorRgb;
 		if (World.anIntArray2835 != null) {
 			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(World.anIntArray2835[0], World.anIntArray2835[1], World.anIntArray2835[2], World.anIntArray2835[3], World.anIntArray2835[4], World.anIntArray2835[5]);
 		}
@@ -426,7 +426,7 @@ final class Class191 {
 		if ((0x1 & i) != 0) {
 			this.anInt2109 = class120_sub7.getInt();
 		} else {
-			this.anInt2109 = Class117.anInt1126;
+			this.anInt2109 = AtmosphereManager.defaultScreenColorRgb;
 		}
 		if ((0x2 & i) != 0) {
 			this.aFloat2102 = class120_sub7.getUShort() / 256.0F;
@@ -453,7 +453,7 @@ final class Class191 {
 			this.anInt2112 = -60;
 		}
 		if ((i & 0x20) == 0) {
-			this.anInt2111 = Class117.anInt1128;
+			this.anInt2111 = AtmosphereManager.defaulFogColorRgb;
 		} else {
 			this.anInt2111 = class120_sub7.getInt();
 		}

@@ -27,10 +27,10 @@ final class Class120_Sub14_Sub5 extends NodeSub {
 	}
 
 	static final void setFlagPosition(final int i, final int i_0_, final int i_1_, final boolean bool, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_7_, final int i_8_) {
-		if (Class100.selfPlayer.getSize() == 2) {
+		if (TileParticleQueue.selfPlayer.getSize() == 2) {
 			Class143.method2013(i_8_, i_2_, i_4_, i_5_, i, bool, i_3_, i_0_, i_1_, i_7_);
-		} else if (Class100.selfPlayer.getSize() > 2) {
-			ParamType.method1518(i_5_, i_8_, i, i_2_, i_4_, i_7_, i_3_, i_1_, Class100.selfPlayer.getSize(), i_0_, bool);
+		} else if (TileParticleQueue.selfPlayer.getSize() > 2) {
+			ParamType.method1518(i_5_, i_8_, i, i_2_, i_4_, i_7_, i_3_, i_1_, TileParticleQueue.selfPlayer.getSize(), i_0_, bool);
 		} else {
 			Class93.method775(bool, i_4_, i_8_, i_7_, i_0_, i_3_, i_5_, i, i_1_, i_2_);
 		}

@@ -31,7 +31,7 @@ final class StringNode extends Node {
 		/* empty */
 	}
 
-	static final void method1721(final int i, int x, int height, final boolean titleScreen, int width, int y) {
+	static final void method1721(int x, int y, int width, int height, final boolean titleScreen) {
 		InterfaceChangeNode.anInt3490++;
 		Class82.method715();
 		if (!titleScreen) {
@@ -79,14 +79,14 @@ final class StringNode extends Node {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
 				i_6_ = Class181.anIntArray1790[4] + 128;
 			}
-			Class120_Sub12_Sub30.method1363(57, i_7_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_6_, 3 * i_6_ + 600, InterfaceListener.playerRenderZ, height, Class69_Sub3_Sub1.playerRenderX);
+			Class120_Sub12_Sub30.method1363(57, i_7_, Class22.getTileHeight(Class173.gameLevel, TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z) - 50, i_6_, 3 * i_6_ + 600, InterfaceListener.playerRenderZ, height, Class69_Sub3_Sub1.playerRenderX);
 		}
 		final int i_8_ = FileSystemWorker.renderX;
 		final int i_9_ = GroundObjectNode.renderZ;
 		final int i_10_ = OverlayType.renderPitch;
 		final int i_11_ = Class120_Sub12_Sub10.renderY;
 		final int i_12_ = Class180_Sub3.renderYaw;
-		for (int i_13_ = i; i_13_ < 5; i_13_++) {
+		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[i_13_]) {
 				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * Class181.anIntArray1790[i_13_]);
 				if (i_13_ == 1) {
@@ -134,7 +134,7 @@ final class StringNode extends Node {
 			if (Class109.gameState == 10) {
 				i_16_ = FrameLoader.method1581(FileSystemRequest.brightness, GroundObjectNode.renderZ >> 10, Class120_Sub12_Sub22.redrawRate, FileSystemWorker.renderX >> 10);
 			} else {
-				i_16_ = FrameLoader.method1581(FileSystemRequest.brightness, Class100.selfPlayer.walkQueueZ[0] >> 3, Class120_Sub12_Sub22.redrawRate, Class100.selfPlayer.walkQueueX[0] >> 3);
+				i_16_ = FrameLoader.method1581(FileSystemRequest.brightness, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, Class120_Sub12_Sub22.redrawRate, TileParticleQueue.selfPlayer.walkQueueX[0] >> 3);
 			}
 			if (Class158.anInt1475 >= 0) {
 				HDToolkit.method517();
@@ -165,22 +165,22 @@ final class StringNode extends Node {
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;
 		if (!HDToolkit.glEnabled) {
-			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
+			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class120_Sub2.method1050();
 			Class120_Sub12_Sub13.method1264();
-			Class69.method612(x, 256, height, 256, width, y);
-			Class143_Sub1.method2027(y, 256, height, 256, width, x);
+			Class69.method612(x, y, width, height, 256, 256);
+			Class143_Sub1.method2027(x, y, width, height, 256, 256);
 		} else {
 			LightManager.method1858(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
 			MouseRecorder.method760(Class180_Sub3.renderYaw, OverlayType.renderPitch, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, 85, FileSystemWorker.renderX);
 			HDToolkit.anInt542 = Class101_Sub2.loopCycle;
-			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, Class100.selfPlayer.x >> 7, Class100.selfPlayer.z >> 7);
+			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class167.aBoolean1620 = true;
 			LightManager.method1859();
 			MouseRecorder.method760(0, 0, 0, 0, 91, 0);
 			Class120_Sub2.method1050();
-			Class69.method612(x, Class179.anInt1775, height, Class179.anInt1775, width, y);
-			Class143_Sub1.method2027(y, Class179.anInt1775, height, Class179.anInt1775, width, x);
+			Class69.method612(x, y, width, height, Class179.anInt1775, Class179.anInt1775);
+			Class143_Sub1.method2027(x, y, width, height, Class179.anInt1775, Class179.anInt1775);
 			Class120_Sub12_Sub13.method1264();
 		}
 		((Class143_Sub1) Rasterizer.anInterface5_973).method2023(Class120_Sub12_Sub22.redrawRate, -103);
@@ -190,7 +190,7 @@ final class StringNode extends Node {
 		Class180_Sub3.renderYaw = i_12_;
 		OverlayType.renderPitch = i_10_;
 		GroundObjectNode.renderZ = i_9_;
-		if (Class69.aBoolean615 && Class178.aClass45_1772.getUrgentSize() == 0) {
+		if (Class69.aBoolean615 && Class178.js5Worker.getUrgentSize() == 0) {
 			Class69.aBoolean615 = false;
 		}
 		if (Class69.aBoolean615) {

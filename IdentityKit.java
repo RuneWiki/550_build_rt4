@@ -29,15 +29,15 @@ final class IdentityKit {
 	}
 
 	static final void method1984(final Player class180_sub5_sub1, final int i_0_, final int i_1_, final int i_2_) {
-		if (Class100.selfPlayer != class180_sub5_sub1 && Class186.menuOptionCount < 400) {
+		if (TileParticleQueue.selfPlayer != class180_sub5_sub1 && Class186.menuOptionCount < 400) {
 			String string;
 			if (class180_sub5_sub1.anInt3737 == 0) {
 				boolean bool = true;
-				if ((Class100.selfPlayer.anInt3738 ^ 0xffffffff) != 0 && (class180_sub5_sub1.anInt3738 ^ 0xffffffff) != 0) {
-					final int i_3_ = class180_sub5_sub1.combatLevel >= Class100.selfPlayer.combatLevel ? class180_sub5_sub1.combatLevel : Class100.selfPlayer.combatLevel;
-					final int i_4_ = Class100.selfPlayer.anInt3738 >= class180_sub5_sub1.anInt3738 ? class180_sub5_sub1.anInt3738 : Class100.selfPlayer.anInt3738;
+				if ((TileParticleQueue.selfPlayer.anInt3738 ^ 0xffffffff) != 0 && (class180_sub5_sub1.anInt3738 ^ 0xffffffff) != 0) {
+					final int i_3_ = class180_sub5_sub1.combatLevel >= TileParticleQueue.selfPlayer.combatLevel ? class180_sub5_sub1.combatLevel : TileParticleQueue.selfPlayer.combatLevel;
+					final int i_4_ = TileParticleQueue.selfPlayer.anInt3738 >= class180_sub5_sub1.anInt3738 ? class180_sub5_sub1.anInt3738 : TileParticleQueue.selfPlayer.anInt3738;
 					final int i_5_ = 10 * i_3_ / 100 + 5 - -i_4_;
-					int i_6_ = -class180_sub5_sub1.combatLevel + Class100.selfPlayer.combatLevel;
+					int i_6_ = -class180_sub5_sub1.combatLevel + TileParticleQueue.selfPlayer.combatLevel;
 					if (i_6_ < 0) {
 						i_6_ = -i_6_;
 					}
@@ -47,9 +47,9 @@ final class IdentityKit {
 				}
 				final String string_7_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : Class120_Sub3.aString2424;
 				if (class180_sub5_sub1.anInt3733 <= class180_sub5_sub1.combatLevel) {
-					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(!bool ? "<col=ffffff>" : Class81.method704(Class100.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel)).append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append(")").toString();
+					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(!bool ? "<col=ffffff>" : Class81.method704(TileParticleQueue.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel)).append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append(")").toString();
 				} else {
-					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(bool ? Class81.method704(Class100.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel) : "<col=ffffff>").append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append("+").append(-class180_sub5_sub1.combatLevel + class180_sub5_sub1.anInt3733).append(")").toString();
+					string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(bool ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, (byte) -109, class180_sub5_sub1.combatLevel) : "<col=ffffff>").append(" (").append(string_7_).append(class180_sub5_sub1.combatLevel).append("+").append(-class180_sub5_sub1.combatLevel + class180_sub5_sub1.anInt3733).append(")").toString();
 				}
 			} else {
 				string = new StringBuilder(class180_sub5_sub1.getTitledName()).append(" (").append(Class174.aString1733).append(class180_sub5_sub1.anInt3737).append(")").toString();
@@ -65,11 +65,11 @@ final class IdentityKit {
 						if (Buffer.playerOptions[i_8_] != null) {
 							short i_9_ = 0;
 							if (Buffer.gameId == 0 && Buffer.playerOptions[i_8_].equalsIgnoreCase(Class65.aString591)) {
-								if (Class100.selfPlayer.combatLevel < class180_sub5_sub1.combatLevel) {
+								if (TileParticleQueue.selfPlayer.combatLevel < class180_sub5_sub1.combatLevel) {
 									i_9_ = (short) 2000;
 								}
-								if (Class100.selfPlayer.team != 0 && class180_sub5_sub1.team != 0) {
-									if (class180_sub5_sub1.team == Class100.selfPlayer.team) {
+								if (TileParticleQueue.selfPlayer.team != 0 && class180_sub5_sub1.team != 0) {
+									if (class180_sub5_sub1.team == TileParticleQueue.selfPlayer.team) {
 										i_9_ = (short) 2000;
 									} else {
 										i_9_ = (short) 0;
@@ -226,13 +226,13 @@ final class IdentityKit {
 						final int i_32_ = i_31_ & 0xffffff;
 						if (i_32_ != Class120_Sub12_Sub19.anInt3281) {
 							Class120_Sub12_Sub19.anInt3281 = i_32_;
-							Class69.method614(i_32_, 65535);
-							Class117.method1011(Class29.method251(125));
+							Class69.method614(i_32_);
+							AtmosphereManager.setFogColor(Class29.method251());
 						}
-						final int i_33_ = i_31_ >>> 24 << 3;
+						final int i_33_ = i_31_ >>> 24 << 2;
 						if (i_33_ != FrameLoader.anInt3612) {
 							FrameLoader.anInt3612 = i_33_;
-							Canvas_Sub1.method64(3, i_33_);
+							Canvas_Sub1.method64(i_33_);
 						}
 						final int i_34_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i][i_28_] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i + 1][i_28_] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i][i_28_ + 1] + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i + 1][i_28_ + 1] >> 2;
 						Class120_Sub14_Sub13.method1532(3, -i_34_);
@@ -692,7 +692,7 @@ final class IdentityKit {
 						class120_sub18_27_.aBoolean2631 = false;
 					}
 				}
-				if (class120_sub18_27_.aClass100_2645 != null) {
+				if (class120_sub18_27_.tileParticle != null) {
 					if (HDToolkit.glEnabled) {
 						final GL gl = HDToolkit.gl;
 						HDToolkit.method527(f);
@@ -714,18 +714,18 @@ final class IdentityKit {
 							i_92_ = i_91_ - 1597;
 						}
 						final int i_93_ = i_91_ - i_92_ + 2;
-						Class108_Sub3_Sub1 class108_sub3_sub1 = null;
-						Class108_Sub1 class108_sub1 = null;
+						Particle class108_sub3_sub1 = null;
+						ParticleManager class108_sub1 = null;
 						int i_94_ = -1;
-						Class108_Sub3_Sub1 class108_sub3_sub1_95_ = (Class108_Sub3_Sub1) class120_sub18_27_.aClass100_2645.method828((byte) -85);
-						for (/**/; true; class108_sub3_sub1_95_ = (Class108_Sub3_Sub1) class120_sub18_27_.aClass100_2645.method831((byte) 38)) {
+						Particle class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekFirst();
+						for (/**/; true; class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekNext()) {
 							if (class108_sub3_sub1_95_ != null) {
 								if (class108_sub3_sub1_95_.aClass108_Sub1_3099 == null || class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass108_Sub2_2340.aBoolean2356) {
 									class108_sub3_sub1_95_.unlink();
 									continue;
 								}
 								if ((byte) (int) (class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass108_Sub2_2340.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
-									class120_sub18_27_.aClass100_2645 = null;
+									class120_sub18_27_.tileParticle = null;
 									break;
 								}
 								if (class108_sub3_sub1 == null) {
@@ -743,7 +743,7 @@ final class IdentityKit {
 									ParticleEngine.anIntArray2390[i_97_] = 0;
 								}
 								ParticleEngine.anInt2380 = 0;
-								for (Class108_Sub3_Sub1 class108_sub3_sub1_98_ = class108_sub3_sub1; class108_sub3_sub1_98_ != class108_sub3_sub1_95_; class108_sub3_sub1_98_ = (Class108_Sub3_Sub1) class108_sub3_sub1_98_.aClass108_Sub3_2398) {
+								for (Particle class108_sub3_sub1_98_ = class108_sub3_sub1; class108_sub3_sub1_98_ != class108_sub3_sub1_95_; class108_sub3_sub1_98_ = (Particle) class108_sub3_sub1_98_.nextSub) {
 									if (class108_sub3_sub1_98_.aClass108_Sub1_3099 != null) {
 										final int i_99_ = (class108_sub3_sub1_98_.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
 										final int i_100_ = (class108_sub3_sub1_98_.anInt3088 >> 12) - PlayerAppearance.anInt1367;
@@ -768,7 +768,7 @@ final class IdentityKit {
 											}
 										}
 									}
-									if (class108_sub3_sub1_98_.aClass108_Sub3_2398 == class120_sub18_27_.aClass100_2645.aClass108_Sub3_955) {
+									if (class108_sub3_sub1_98_.nextSub == class120_sub18_27_.tileParticle.head) {
 										break;
 									}
 								}
@@ -797,33 +797,33 @@ final class IdentityKit {
 						}
 						ParticleEngine.method957();
 					} else {
-						final int i_105_ = ParticleEngine.anInt2364 + Rasterizer.anInt967;
-						final int i_106_ = ParticleEngine.anInt2358 + Rasterizer.anInt970;
-						final Class108_Sub3 class108_sub3 = class120_sub18_27_.aClass100_2645.aClass108_Sub3_955;
-						for (Class108_Sub3 class108_sub3_107_ = class108_sub3.aClass108_Sub3_2398; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.aClass108_Sub3_2398) {
-							final Class108_Sub3_Sub1 class108_sub3_sub1 = (Class108_Sub3_Sub1) class108_sub3_107_;
+						final int xOff = ParticleEngine.anInt2364 + Rasterizer.anInt967;
+						final int yOff = ParticleEngine.anInt2358 + Rasterizer.anInt970;
+						final ParticleNodeSub class108_sub3 = class120_sub18_27_.tileParticle.head;
+						for (ParticleNodeSub class108_sub3_107_ = class108_sub3.nextSub; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.nextSub) {
+							final Particle class108_sub3_sub1 = (Particle) class108_sub3_107_;
 							if (class108_sub3_sub1.aClass108_Sub1_3099 != null && !class108_sub3_sub1.aClass108_Sub1_3099.aClass108_Sub2_2340.aBoolean2356) {
 								if ((byte) (int) (class108_sub3_sub1.aClass108_Sub1_3099.aClass108_Sub2_2340.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
-									class120_sub18_27_.aClass100_2645 = null;
+									class120_sub18_27_.tileParticle = null;
 									break;
 								}
-								int i_108_ = (class108_sub3_sub1.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
-								int i_109_ = (class108_sub3_sub1.anInt3088 >> 12) - PlayerAppearance.anInt1367;
-								int i_110_ = (class108_sub3_sub1.anInt3090 >> 12) - Class145.anInt1381;
-								int i_111_ = i_110_ * Class120_Sub12_Sub30.anInt3377 + i_108_ * Class73.anInt637 >> 16;
-								i_110_ = i_110_ * Class73.anInt637 - i_108_ * Class120_Sub12_Sub30.anInt3377 >> 16;
-								i_108_ = i_111_;
-								i_111_ = i_109_ * ObjectContainer.anInt2616 - i_110_ * Class69_Sub2.anInt2239 >> 16;
-								i_110_ = i_109_ * Class69_Sub2.anInt2239 + i_110_ * ObjectContainer.anInt2616 >> 16;
-								i_109_ = i_111_;
-								if (i_110_ >= 50) {
-									final int i_112_ = i_105_ + (i_108_ << 9) / i_110_;
-									final int i_113_ = i_106_ + (i_109_ << 9) / i_110_;
-									int i_114_ = i_110_ * 400;
-									if (i_114_ == 0) {
-										i_114_ = 1;
+								int x = (class108_sub3_sub1.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
+								int y = (class108_sub3_sub1.anInt3088 >> 12) - PlayerAppearance.anInt1367;
+								int z = (class108_sub3_sub1.anInt3090 >> 12) - Class145.anInt1381;
+								int i_111_ = z * Class120_Sub12_Sub30.anInt3377 + x * Class73.anInt637 >> 16;
+								z = z * Class73.anInt637 - x * Class120_Sub12_Sub30.anInt3377 >> 16;
+								x = i_111_;
+								i_111_ = y * ObjectContainer.anInt2616 - z * Class69_Sub2.anInt2239 >> 16;
+								z = y * Class69_Sub2.anInt2239 + z * ObjectContainer.anInt2616 >> 16;
+								y = i_111_;
+								if (z >= 50) {
+									final int renderX = xOff + (x << 9) / z;
+									final int renderY = yOff + (y << 9) / z;
+									int size = z * 400;
+									if (size == 0) {
+										size = 1;
 									}
-									GraphicsLD.method2152(i_112_, i_113_, (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_114_, class108_sub3_sub1.anInt3091, class108_sub3_sub1.anInt3091 >> 24 & 0xff);
+									GraphicsLD.method2152(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}

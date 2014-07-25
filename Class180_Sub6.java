@@ -99,11 +99,11 @@ final class Class180_Sub6 extends SceneGraphNode {
 			int i_14_;
 			int i_15_;
 			if (i_13_ != 1 && i_13_ != 3) {
-				i_14_ = locType.anInt1841;
-				i_15_ = locType.anInt1827;
+				i_14_ = locType.sizeX;
+				i_15_ = locType.sizeZ;
 			} else {
-				i_14_ = locType.anInt1827;
-				i_15_ = locType.anInt1841;
+				i_14_ = locType.sizeZ;
+				i_15_ = locType.sizeX;
 			}
 			final int i_16_ = (i_15_ >> 1) + anInt3069;
 			final int i_17_ = anInt3049 + (1 + i_14_ >> 1);
@@ -429,7 +429,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 						locType = locType.handleVarp();
 					}
 					if (locType != null) {
-						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.anInt1841, locType.anInt1827);
+						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.sizeX, locType.sizeZ);
 					}
 				}
 				if (aClass108_Sub2_3058 != null) {
@@ -443,7 +443,7 @@ final class Class180_Sub6 extends SceneGraphNode {
 						locType = locType.handleVarp();
 					}
 					if (locType != null) {
-						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.anInt1841, locType.anInt1827);
+						aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.sizeX, locType.sizeZ);
 					}
 				}
 				if (aClass108_Sub2_3058 != null) {

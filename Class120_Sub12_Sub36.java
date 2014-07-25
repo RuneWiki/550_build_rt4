@@ -152,7 +152,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				}
 			}
 			if ((mask & 0x80) != 0) {
-				npc.textSpoken = Canvas_Sub1.inputStream.getJString();
+				npc.textSpoken = Canvas_Sub1.inputStream.getJagexString();
 				npc.textCycle = 100;
 			}
 		}

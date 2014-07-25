@@ -226,7 +226,7 @@ final class LightManager {
 			gl.glTexEnvi(8960, 34192, 768);
 			gl.glBlendFunc(770, 771);
 			gl.glDepthMask(true);
-			gl.glFogfv(2918, Class117.aFloatArray1124, 0);
+			gl.glFogfv(2918, AtmosphereManager.fogColor, 0);
 			gl.glEnableClientState(32888);
 			HDToolkit.method532();
 		}

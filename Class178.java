@@ -4,7 +4,7 @@
 
 final class Class178 {
 	static int anInt1771;
-	static Js5Worker aClass45_1772;
+	static Js5Worker js5Worker;
 
 	static final int method2256(final boolean bool, final int i, int i_0_) {
 		int i_1_;
@@ -48,7 +48,7 @@ final class Class178 {
 			if (i > -85) {
 				anInt1771 = -119;
 			}
-			aClass45_1772 = null;
+			js5Worker = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("um.B(").append(i).append(')').toString());
 		}

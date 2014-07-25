@@ -29,7 +29,7 @@ final class JavaObject extends AbstractObject {
 		if (js5.method429(StructType.titlebgId)) {
 			i_1_++;
 		}
-		if (js5.method429(Class108_Sub1.logoId)) {
+		if (js5.method429(ParticleManager.logoId)) {
 			i_1_++;
 		}
 		return i_1_;
@@ -87,7 +87,7 @@ final class JavaObject extends AbstractObject {
 				class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.aClass189_3156;
 				class120_sub10.anInt2543 = i_7_;
 				class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1959;
-				Class88.method744(true, class120_sub10);
+				Class88.method744(class120_sub10);
 			}
 			if (InterfaceChangeNode.lastMousePress == 0) {
 				if (!Class120_Sub11.aBoolean2551) {
@@ -106,7 +106,7 @@ final class JavaObject extends AbstractObject {
 						class120_sub10.anInt2543 = i_7_;
 						class120_sub10.anInt2540 = i_8_;
 						class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947;
-						Class88.method744(true, class120_sub10);
+						Class88.method744(class120_sub10);
 					}
 					if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(0);

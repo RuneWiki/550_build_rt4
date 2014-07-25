@@ -86,24 +86,17 @@ final class InvType extends NodeSub {
 		}
 	}
 
-	static final void method1447(final boolean bool) {
-		try {
-			int i = 0;
-			if (bool) {
-				method1447(false);
-			}
-			for (int i_31_ = 0; i_31_ < 104; i_31_++) {
-				for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-					if (Class120_Sub3.method1055(i, i_31_, false, true, i_32_, LabelGroup.groundTiles)) {
-						i++;
-					}
-					if (i >= 512) {
-						return;
-					}
+	static final void method1447() {
+		int i = 0;
+		for (int i_31_ = 0; i_31_ < 104; i_31_++) {
+			for (int i_32_ = 0; i_32_ < 104; i_32_++) {
+				if (Class120_Sub3.method1055(i, i_31_, true, i_32_, LabelGroup.groundTiles)) {
+					i++;
+				}
+				if (i >= 512) {
+					return;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fn.B(").append(bool).append(')').toString());
 		}
 	}
 

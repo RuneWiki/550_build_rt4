@@ -48,7 +48,7 @@ final class Class24 {
 		Light.objSelected = 0;
 		Class29.anInt195 = (int) (110.0 * Math.random()) - 55;
 		Class150.anInt1407 = 0;
-		AbstractGraphicsBuffer.method1842(50);
+		AbstractGraphicsBuffer.method1842();
 		FileSystemWorker.localPlayerCount = 0;
 		Class148.localNpcCount = 0;
 		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
@@ -58,7 +58,7 @@ final class Class24 {
 		for (int i_3_ = 0; -32769 < (i_3_ ^ 0xffffffff); i_3_++) {
 			Class120_Sub12_Sub11.npcList[i_3_] = null;
 		}
-		Class100.selfPlayer = Class118.playersList[2047] = new Player();
+		TileParticleQueue.selfPlayer = Class118.playersList[2047] = new Player();
 		FileSystemRequest.aClass105_3928.clear();
 		Class120_Sub12_Sub7.aClass105_3177.clear();
 		if (ClientScript.groundObjects != null) {
@@ -123,7 +123,7 @@ final class Class24 {
 			Class120_Sub12_Sub38.skillsXp[i_11_] = 0;
 		}
 		if (HDToolkit.glEnabled) {
-			AmbientSound.method1159();
+			Class158.aBoolean1478 = true;
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
 		MasterIndexInfo.aBoolean466 = false;

@@ -26,7 +26,7 @@ final class GroundTile extends Node {
 	int anInt2642;
 	static Hashtable aClass75_2643;
 	GroundTile aClass120_Sub18_2644;
-	Class100 aClass100_2645;
+	TileParticleQueue tileParticle;
 	int anInt2646;
 	boolean aBoolean2647;
 	int anInt2648;

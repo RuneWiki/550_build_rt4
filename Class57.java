@@ -31,13 +31,13 @@ abstract class Class57 {
 		final int i_0_ = Class24.method207();
 		if (i_0_ != 0) {
 			if (i_0_ != 1) {
-				LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff), true);
+				LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff));
 				IsaacCipher.method905(2);
 			} else {
-				LocType.method2465((byte) 0, true);
+				LocType.method2465((byte) 0);
 				IsaacCipher.method905(512);
 				if (Class114.tileSettings != null) {
-					InvType.method1447(false);
+					InvType.method1447();
 				}
 			}
 		} else {
@@ -53,7 +53,7 @@ abstract class Class57 {
 		Class120_Sub30_Sub2.anInt3688 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2110;
 		Queue.anInt1768 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2112;
 		ProducingGraphicsBuffer.anInt2798 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2107;
-		Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
+		AtmosphereManager.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 	}
 	
 	static final void sortArray(final int len, final Object[] objects, final int off, final int[] is) {//TODO figure out what kinda algo it uses, etc?

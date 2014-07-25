@@ -91,14 +91,14 @@ final class Class82 implements Runnable {
 		} else {
 			GroundObjectNode.anInt3628 = (int) (i * 2 / Class79.aFloat696);
 			GroundTile.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
-			ParamType.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			ParamType.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
 			Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
-			final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
 			final int i_9_ = Class169.anInt1646 - (int) (i / Class79.aFloat696);
 			if (i_1_ >= -111) {
 				method714((byte) -76);
 			}
-			final int i_10_ = (int) (i_4_ / Class79.aFloat696) + Class108_Sub1.anInt2336;
+			final int i_10_ = (int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
 			final int i_11_ = (int) (i / Class79.aFloat696) + Class169.anInt1646;
 			if (!HDToolkit.glEnabled) {
 				Class79.method683(i_8_, i_9_, i_10_, i_11_, i_3_, i_2_, i_4_ + i_3_, 1 + i + i_2_);
@@ -159,7 +159,7 @@ final class Class82 implements Runnable {
 			if (Class32.anInt260 <= i && ParamType.anInt3544 >= i) {
 				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, 1, IdentityKit.anInt1334);
 				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, 1, IdentityKit.anInt1334);
-				Class108_Sub1.method939(i, i_18_, i_17_, (byte) -30, i_16_);
+				ParticleManager.method939(i, i_18_, i_17_, (byte) -30, i_16_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("im.C(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(bool).append(')').toString());
@@ -178,7 +178,7 @@ final class Class82 implements Runnable {
 	}
 
 	static final void method715() {
-		if (Class100.selfPlayer != null && Class100.selfPlayer.x - (64 * Class100.selfPlayer.getSize() - 64) >> 7 == Class120_Sub12_Sub26.flagX && Class100.selfPlayer.z - (Class100.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.flagY) {
+		if (TileParticleQueue.selfPlayer != null && TileParticleQueue.selfPlayer.x - (64 * TileParticleQueue.selfPlayer.getSize() - 64) >> 7 == Class120_Sub12_Sub26.flagX && TileParticleQueue.selfPlayer.z - (TileParticleQueue.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.flagY) {
 			SceneGroundObject.packetSetFlagPosition = false;
 			Class120_Sub12_Sub26.flagX = 0;
 		}

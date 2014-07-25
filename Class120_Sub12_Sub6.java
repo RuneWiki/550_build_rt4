@@ -266,7 +266,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 					final int i_51_ = shapedTile.anInt1638;
 					final int i_52_ = shapedTile.anInt1626;
 					final int[] is_53_ = Class116.anIntArrayArray1119[i_49_];
-					final int[] is_54_ = Class108_Sub3.anIntArrayArray2401[i_50_];
+					final int[] is_54_ = ParticleNodeSub.anIntArrayArray2401[i_50_];
 					int i_55_ = 0;
 					if (i_51_ != 0) {
 						for (int i_56_ = 0; i_56_ < 4; i_56_++) {

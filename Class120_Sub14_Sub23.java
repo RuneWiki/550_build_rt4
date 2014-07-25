@@ -123,7 +123,7 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 				method1638((byte) -73, null);
 			}
 			if (i_14_ == 1) {
-				this.aString3650 = class120_sub7.getJString();
+				this.aString3650 = class120_sub7.getJagexString();
 			} else if (i_14_ != 2) {
 				if (i_14_ == 3) {
 					final int i_15_ = class120_sub7.getUByte();

@@ -96,14 +96,14 @@ final class ClientScript extends NodeSub {
 		}
 		int i_31_ = 0;
 		buffer.pos = 0;
-		clientScript.name = buffer.getFastJString();
+		clientScript.name = buffer.getFastJagexString();
 		clientScript.stringValues = new String[i_25_];
 		clientScript.opcodes = new int[i_25_];
 		clientScript.intValues = new int[i_25_];
 		while (buffer.pos < i_24_) {
 			final int i_32_ = buffer.getUShort();
 			if (i_32_ == 3) {
-				clientScript.stringValues[i_31_] = buffer.getJString().intern();
+				clientScript.stringValues[i_31_] = buffer.getJagexString().intern();
 			} else if (i_32_ >= 100 || i_32_ == 21 || i_32_ == 38 || i_32_ == 39) {
 				clientScript.intValues[i_31_] = buffer.getUByte();
 			} else {

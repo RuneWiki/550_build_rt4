@@ -58,7 +58,7 @@ final class Class148 {
 		try {
 			final int i_8_ = class120_sub7.pos;
 			final byte[] is = Class120_Sub6.method1075(string, 23668);
-			class120_sub7.method1079(-32769, is.length);
+			class120_sub7.putSmart(is.length);
 			if (i != -32696) {
 				worldsInfo = null;
 			}

@@ -87,7 +87,7 @@ final class Class115 {
 			if (HDToolkit.glEnabled) {
 				ParamType.aBoolean3545 = false;
 				Class120_Sub14_Sub13.method1532(0, 0);
-				Class117.method1011(null);
+				AtmosphereManager.setFogColor(null);
 				LightManager.method1859();
 			}
 			Class178.method2257(false);

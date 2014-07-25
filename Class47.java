@@ -44,8 +44,8 @@ final class Class47 {
 			final int i_18_ = i_12_ << 7;
 			final int i_19_ = i_14_ + i_15_ + i_16_ + i_17_ >> 2;
 			final int i_20_ = i_13_ << 7;
-			final int i_21_ = i_18_ - (i_19_ * Class117.anInt1130 >> 8) >> 3;
-			final int i_22_ = i_20_ - (i_19_ * Class117.anInt1123 >> 8) >> 3;
+			final int i_21_ = i_18_ - (i_19_ * AtmosphereManager.anInt1130 >> 8) >> 3;
+			final int i_22_ = i_20_ - (i_19_ * AtmosphereManager.anInt1123 >> 8) >> 3;
 			if (i == 0 || i == 1 || !bool && !bool_11_) {
 				method396(floorshadowSprites[1], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1);
 			} else {
@@ -92,8 +92,8 @@ final class Class47 {
 
 	static final void method387(final LDIndexedSprite class107_sub1, final int i, final int i_43_, final int i_44_) {
 		if (class107_sub1 != null) {
-			final int i_45_ = i - (i_43_ * Class117.anInt1130 >> 8) >> 3;
-			final int i_46_ = i_44_ - (i_43_ * Class117.anInt1123 >> 8) >> 3;
+			final int i_45_ = i - (i_43_ * AtmosphereManager.anInt1130 >> 8) >> 3;
+			final int i_46_ = i_44_ - (i_43_ * AtmosphereManager.anInt1123 >> 8) >> 3;
 			method395(class107_sub1, aClass107_Sub1_432, i_45_ + 1, i_46_ + 1);
 		}
 	}
@@ -106,8 +106,8 @@ final class Class47 {
 
 	static final void method389(final LDIndexedSprite class107_sub1, final int i, final int i_47_, final int i_48_) {
 		if (class107_sub1 != null) {
-			final int i_49_ = i - (i_47_ * Class117.anInt1130 >> 8) >> 3;
-			final int i_50_ = i_48_ - (i_47_ * Class117.anInt1123 >> 8) >> 3;
+			final int i_49_ = i - (i_47_ * AtmosphereManager.anInt1130 >> 8) >> 3;
+			final int i_50_ = i_48_ - (i_47_ * AtmosphereManager.anInt1123 >> 8) >> 3;
 			method396(class107_sub1, aClass107_Sub1_432, i_49_ + 1, i_50_ + 1);
 		}
 	}
@@ -122,8 +122,8 @@ final class Class47 {
 		if (class107_sub1 == null) {
 			return false;
 		}
-		final int i_53_ = i - (i_51_ * Class117.anInt1130 >> 8) >> 3;
-		final int i_54_ = i_52_ - (i_51_ * Class117.anInt1123 >> 8) >> 3;
+		final int i_53_ = i - (i_51_ * AtmosphereManager.anInt1130 >> 8) >> 3;
+		final int i_54_ = i_52_ - (i_51_ * AtmosphereManager.anInt1123 >> 8) >> 3;
 		return method394(class107_sub1, aClass107_Sub1_432, i_53_ + 1, i_54_ + 1);
 	}
 

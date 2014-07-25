@@ -69,12 +69,12 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 						if (Class174.anIntArray1731[i_3_] != 0) {
 							final int i_6_ = 128 * (Class174.anIntArray1731[i_3_] & 0xff);
 							final int i_7_ = (Class174.anIntArray1731[i_3_] & 0xffa0ea) >> 16;
-							int i_8_ = i_7_ * 128 + 64 + -Class100.selfPlayer.x;
+							int i_8_ = i_7_ * 128 + 64 + -TileParticleQueue.selfPlayer.x;
 							if (i_8_ < 0) {
 								i_8_ = -i_8_;
 							}
 							final int i_9_ = Class174.anIntArray1731[i_3_] >> 8 & 0xff;
-							int i_10_ = -Class100.selfPlayer.z + i_9_ * 128 + 64;
+							int i_10_ = -TileParticleQueue.selfPlayer.z + i_9_ * 128 + 64;
 							if (i_10_ < 0) {
 								i_10_ = -i_10_;
 							}

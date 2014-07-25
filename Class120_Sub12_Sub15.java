@@ -5,7 +5,7 @@
 final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 	static int anInt3241 = -1;
 	static js5 aClass50_3242;
-	static int anInt3243 = -1;
+	static int landscapeSpriteLevel = -1;
 	static String aString3244 = "Hidden";
 	static long[] aLongArray3245;
 	private int anInt3246 = 4;

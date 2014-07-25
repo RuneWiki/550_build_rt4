@@ -13,7 +13,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	private byte[] aByteArray3762;
 	private short aShort3763;
 	int[] zVertices;
-	private byte[] aByteArray3765;
+	private byte[] trianglesAlpha;
 	private int[] anIntArray3766;
 	private static Class180_Sub7_Sub1 aClass180_Sub7_Sub1_3767 = new Class180_Sub7_Sub1();
 	private int anInt3768 = 0;
@@ -319,7 +319,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 				}
 			}
 			if (aBoolean3833) {
-				Class100.method829(i_11_ - 1, anIntArray3810, anIntArray3826, 40, 0);
+				TileParticleQueue.method829(i_11_ - 1, anIntArray3810, anIntArray3826, 0);
 				if (aByteArray3762 == null) {
 					for (int i_41_ = 0; i_41_ < i_11_; i_41_++) {
 						method2393(anIntArray3810[i_41_]);
@@ -357,12 +357,12 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 									method2393(is[i_51_]);
 								} else {
 									final int i_53_ = (i_52_ >> 16) - 1;
-									final Class108_Sub3_Sub1 class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_53_];
+									final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_53_];
 									int i_54_ = anIntArray3834[i_53_] * 400;
 									if (i_54_ == 0) {
 										i_54_ = 1;
 									}
-									GraphicsLD.method2152(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_54_, class108_sub3_sub1.anInt3091, class108_sub3_sub1.anInt3091 >> 24 & 0xff);
+									GraphicsLD.method2152(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -375,12 +375,12 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 									method2393(is[i_56_]);
 								} else {
 									final int i_58_ = (i_57_ >> 16) - 1;
-									final Class108_Sub3_Sub1 class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_58_];
+									final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_58_];
 									int i_59_ = anIntArray3834[i_58_] * 400;
 									if (i_59_ == 0) {
 										i_59_ = 1;
 									}
-									GraphicsLD.method2152(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_59_, class108_sub3_sub1.anInt3091, class108_sub3_sub1.anInt3091 >> 24 & 0xff);
+									GraphicsLD.method2152(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -528,12 +528,12 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 						i_84_ = anIntArray3807[i_81_] / i_82_;
 					}
 					for (int i_85_ = anIntArray3818[i_79_]; anIntArray3821[i_85_] + i > i_84_; i_85_ = anIntArray3818[i_79_++]) {
-						final Class108_Sub3_Sub1 class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_85_];
+						final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_85_];
 						int i_86_ = anIntArray3834[i_85_] * 400;
 						if (i_86_ == 0) {
 							i_86_ = 1;
 						}
-						GraphicsLD.method2152(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_86_, class108_sub3_sub1.anInt3091, class108_sub3_sub1.anInt3091 >> 24 & 0xff);
+						GraphicsLD.method2152(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 						if (i_79_ >= i_12_) {
 							break;
 						}
@@ -560,12 +560,12 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			if (class108_sub2 != null) {
 				int i_88_ = anIntArray3818[i_79_];
 				while (i_79_ < i_12_) {
-					final Class108_Sub3_Sub1 class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_88_];
+					final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_88_];
 					int i_89_ = anIntArray3834[i_88_] * 400;
 					if (i_89_ == 0) {
 						i_89_ = 1;
 					}
-					GraphicsLD.method2152(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_89_, class108_sub3_sub1.anInt3091, class108_sub3_sub1.anInt3091 >> 24 & 0xff);
+					GraphicsLD.method2152(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 					i_88_ = anIntArray3818[i_79_++];
 				}
 			}
@@ -769,7 +769,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 								final int i_147_ = ParticleEngine.anInt2364 + i_122_;
 								final int i_148_ = ParticleEngine.anInt2358 + i_123_;
 								for (int i_149_ = 0; i_149_ < class108_sub2.aClass108_Sub3_Sub1Array2355.length; i_149_++) {
-									final Class108_Sub3_Sub1 class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_149_];
+									final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_149_];
 									if (class108_sub3_sub1 != null && !class108_sub3_sub1.aBoolean3097) {
 										int i_150_ = (class108_sub3_sub1.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
 										int i_151_ = (class108_sub3_sub1.anInt3088 >> 12) - PlayerAppearance.anInt1367;
@@ -856,10 +856,10 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			final int i_163_ = trianglesB[i];
 			final int i_164_ = trianglesC[i];
 			Rasterizer.aBoolean972 = aBooleanArray3823[i];
-			if (aByteArray3765 == null) {
+			if (trianglesAlpha == null) {
 				Rasterizer.alpha = 0;
 			} else {
-				Rasterizer.alpha = aByteArray3765[i] & 0xff;
+				Rasterizer.alpha = trianglesAlpha[i] & 0xff;
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
 				if (anIntArray3769[i] == -1) {
@@ -1070,10 +1070,10 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		final int i_204_ = anIntArray3829[i_201_];
 		final int i_205_ = anIntArray3829[i_202_];
 		final int i_206_ = anIntArray3829[i_203_];
-		if (aByteArray3765 == null) {
+		if (trianglesAlpha == null) {
 			Rasterizer.alpha = 0;
 		} else {
-			Rasterizer.alpha = aByteArray3765[i] & 0xff;
+			Rasterizer.alpha = trianglesAlpha[i] & 0xff;
 		}
 		if (i_204_ >= 50) {
 			anIntArray3843[i_200_] = anIntArray3840[i_201_];
@@ -1237,16 +1237,16 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			class180_sub7_sub1_239_.zVertices[i] = this.zVertices[i];
 		}
 		if (bool) {
-			class180_sub7_sub1_239_.aByteArray3765 = aByteArray3765;
+			class180_sub7_sub1_239_.trianglesAlpha = trianglesAlpha;
 		} else {
-			class180_sub7_sub1_239_.aByteArray3765 = is;
-			if (aByteArray3765 == null) {
+			class180_sub7_sub1_239_.trianglesAlpha = is;
+			if (trianglesAlpha == null) {
 				for (int i = 0; i < anInt3792; i++) {
-					class180_sub7_sub1_239_.aByteArray3765[i] = (byte) 0;
+					class180_sub7_sub1_239_.trianglesAlpha[i] = (byte) 0;
 				}
 			} else {
 				for (int i = 0; i < anInt3792; i++) {
-					class180_sub7_sub1_239_.aByteArray3765[i] = aByteArray3765[i];
+					class180_sub7_sub1_239_.trianglesAlpha[i] = trianglesAlpha[i];
 				}
 			}
 		}
@@ -1383,7 +1383,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			class180_sub7_sub1_265_.aByteArray3770 = aByteArray3770;
 			class180_sub7_sub1_265_.aShortArray3760 = aShortArray3760;
 			class180_sub7_sub1_265_.aShortArray3777 = aShortArray3777;
-			class180_sub7_sub1_265_.aByteArray3765 = aByteArray3765;
+			class180_sub7_sub1_265_.trianglesAlpha = trianglesAlpha;
 			class180_sub7_sub1_265_.aByte3756 = aByte3756;
 			class180_sub7_sub1_265_.anIntArray3791 = anIntArray3791;
 			class180_sub7_sub1_265_.anIntArray3797 = anIntArray3797;
@@ -1653,7 +1653,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 				}
 			}
 		} else if (i == 5) {
-			if (anIntArrayArray3795 != null && aByteArray3765 != null) {
+			if (anIntArrayArray3795 != null && trianglesAlpha != null) {
 				for (int i_401_ = 0; i_401_ < i_359_; i_401_++) {
 					final int i_402_ = is[i_401_];
 					if (i_402_ < anIntArrayArray3795.length) {
@@ -1663,13 +1663,13 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 						for (int i_406_ = 0; i_406_ < i_404_; i_406_++) {
 							final int i_407_ = is_405_[i_406_];
 							final int i_408_ = i_407_;
-							int i_409_ = (aByteArray3765[i_408_] & 0xff) + i_356_ * 8;
+							int i_409_ = (trianglesAlpha[i_408_] & 0xff) + i_356_ * 8;
 							if (i_409_ < 0) {
 								i_409_ = 0;
 							} else if (i_409_ > 255) {
 								i_409_ = 255;
 							}
-							aByteArray3765[i_408_] = (byte) i_409_;
+							trianglesAlpha[i_408_] = (byte) i_409_;
 						}
 					}
 				}
@@ -2096,7 +2096,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 				}
 			}
 		} else if (i == 5) {
-			if (anIntArrayArray3795 != null && aByteArray3765 != null) {
+			if (anIntArrayArray3795 != null && trianglesAlpha != null) {
 				for (int i_593_ = 0; i_593_ < i_456_; i_593_++) {
 					final int i_594_ = is[i_593_];
 					if (i_594_ < anIntArrayArray3795.length) {
@@ -2107,13 +2107,13 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 							final int i_599_ = is_597_[i_598_];
 							final int i_600_ = i_599_;
 							if (aShortArray3761 == null || (i_454_ & aShortArray3761[i_600_]) != 0) {
-								int i_601_ = (aByteArray3765[i_600_] & 0xff) + i_451_ * 8;
+								int i_601_ = (trianglesAlpha[i_600_] & 0xff) + i_451_ * 8;
 								if (i_601_ < 0) {
 									i_601_ = 0;
 								} else if (i_601_ > 255) {
 									i_601_ = 255;
 								}
-								aByteArray3765[i_600_] = (byte) i_601_;
+								trianglesAlpha[i_600_] = (byte) i_601_;
 							}
 						}
 					}
@@ -2266,13 +2266,13 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			}
 		} else if (i == 5) {
 			for (int i_636_ = 0; i_636_ < anInt3792; i_636_++) {
-				int i_637_ = (aByteArray3765[i_636_] & 0xff) + i_619_ * 8;
+				int i_637_ = (trianglesAlpha[i_636_] & 0xff) + i_619_ * 8;
 				if (i_637_ < 0) {
 					i_637_ = 0;
 				} else if (i_637_ > 255) {
 					i_637_ = 255;
 				}
-				aByteArray3765[i_636_] = (byte) i_637_;
+				trianglesAlpha[i_636_] = (byte) i_637_;
 			}
 		} else if (i == 7) {
 			for (int i_638_ = 0; i_638_ < anInt3792; i_638_++) {
@@ -2342,7 +2342,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		trianglesB = class180_sub2.trianglesB;
 		trianglesC = class180_sub2.trianglesC;
 		aByteArray3762 = class180_sub2.aByteArray2879;
-		aByteArray3765 = class180_sub2.aByteArray2864;
+		trianglesAlpha = class180_sub2.aByteArray2864;
 		aByte3756 = class180_sub2.aByte2899;
 		aShortArray3777 = class180_sub2.triangleColors;
 		anIntArrayArray3786 = class180_sub2.anIntArrayArray2884;
@@ -2534,7 +2534,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 						bool = true;
 					}
 				}
-				bool_665_ = bool_665_ | class180_sub7_sub1_671_.aByteArray3765 != null;
+				bool_665_ = bool_665_ | class180_sub7_sub1_671_.trianglesAlpha != null;
 				bool_666_ = bool_666_ | class180_sub7_sub1_671_.aShortArray3760 != null;
 				bool_667_ = bool_667_ | class180_sub7_sub1_671_.aByteArray3770 != null;
 				if (class180_sub7_sub1_671_.aClass158Array3788 != null) {
@@ -2558,7 +2558,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			aByteArray3762 = new byte[anInt3792];
 		}
 		if (bool_665_) {
-			aByteArray3765 = new byte[anInt3792];
+			trianglesAlpha = new byte[anInt3792];
 		}
 		if (bool_666_) {
 			aShortArray3760 = new short[anInt3792];
@@ -2601,8 +2601,8 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 							aByteArray3762[anInt3792] = class180_sub7_sub1_673_.aByte3756;
 						}
 					}
-					if (bool_665_ && class180_sub7_sub1_673_.aByteArray3765 != null) {
-						aByteArray3765[anInt3792] = class180_sub7_sub1_673_.aByteArray3765[i_674_];
+					if (bool_665_ && class180_sub7_sub1_673_.trianglesAlpha != null) {
+						trianglesAlpha[anInt3792] = class180_sub7_sub1_673_.trianglesAlpha[i_674_];
 					}
 					if (bool_666_) {
 						if (class180_sub7_sub1_673_.aShortArray3760 != null) {

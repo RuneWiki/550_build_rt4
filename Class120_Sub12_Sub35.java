@@ -104,21 +104,14 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 		return class32;
 	}
 
-	static final void method1385(final byte i) {
-		try {
-			if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.gameLevel) {
-				Class2.method76(false, Class116.anInt1118, false, Class100.selfPlayer.walkQueueZ[0], Class100.selfPlayer.walkQueueX[0], Class3.anInt53, Class173.gameLevel);
-			} else {
-				if (i >= -70) {
-					method1385((byte) -86);
-				}
-				Class120_Sub12_Sub5.method1219();
-				if (Class173.gameLevel != Class153.anInt1436) {
-					Class57.method492();
-				}
+	static final void method1385() {
+		if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.gameLevel) {
+			Class2.method76(false, Class116.anInt1118, false, TileParticleQueue.selfPlayer.walkQueueZ[0], TileParticleQueue.selfPlayer.walkQueueX[0], Class3.anInt53, Class173.gameLevel);
+		} else {
+			Class120_Sub12_Sub5.method1219();
+			if (Class173.gameLevel != Class153.anInt1436) {
+				Class57.method492();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.V(").append(i).append(')').toString());
 		}
 	}
 

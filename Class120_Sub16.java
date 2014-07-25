@@ -77,7 +77,7 @@ final class Class120_Sub16 extends Node {
 		return i_4_;
 	}
 
-	static final void method1660(final String string, final int i, final String string_6_, final int i_7_, final String string_8_) {
+	static final void method1660(final String name, final int i, final String string_6_, final int type, final String message) {
 		for (int i_10_ = 99; i_10_ > 0; i_10_--) {
 			Class136.anIntArray1315[i_10_] = Class136.anIntArray1315[i_10_ - 1];
 			Class76.aStringArray677[i_10_] = Class76.aStringArray677[i_10_ - 1];
@@ -85,9 +85,9 @@ final class Class120_Sub16 extends Node {
 			Class120_Sub2.aStringArray2423[i_10_] = Class120_Sub2.aStringArray2423[i_10_ - 1];
 			Class120_Sub12_Sub36.anIntArray3422[i_10_] = Class120_Sub12_Sub36.anIntArray3422[i_10_- 1];
 		}
-		Class136.anIntArray1315[0] = i_7_;
-		Class76.aStringArray677[0] = string;
-		GrandExchangeObject.aStringArray1502[0] = string_8_;
+		Class136.anIntArray1315[0] = type;
+		Class76.aStringArray677[0] = name;
+		GrandExchangeObject.aStringArray1502[0] = message;
 		Class120_Sub12_Sub36.anIntArray3422[0] = i;
 		Class120_Sub2.aStringArray2423[0] = string_6_;
 		Class166.anInt1612 = GrandExchangeObject.anInt1494;

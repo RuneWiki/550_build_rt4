@@ -130,8 +130,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.x = this.walkQueueX[0] * 128 + 64 * size;
 		this.z = this.walkQueueZ[0] * 128 + 64 * size;
 		this.anInt2960 = 0;
-		if (HDToolkit.glEnabled && this == Class100.selfPlayer) {
-			AmbientSound.method1159();
+		if (HDToolkit.glEnabled && this == TileParticleQueue.selfPlayer) {
+			Class158.aBoolean1478 = true;
 		}
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();

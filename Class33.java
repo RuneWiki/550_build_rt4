@@ -27,7 +27,7 @@ final class Class33 {
 	}
 
 	static final String method277(final JagexInterface jagexInterface) {
-		if (client.getClickMask(jagexInterface).method1685(1105924391) == 0) {
+		if (client.getClickMask(jagexInterface).method1685() == 0) {
 			return null;
 		}
 		if (jagexInterface.selectedActionName == null || jagexInterface.selectedActionName.trim().length() == 0) {

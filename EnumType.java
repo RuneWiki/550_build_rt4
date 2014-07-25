@@ -48,7 +48,7 @@ final class EnumType extends NodeSub {
 		} else if (code == 2) {
 			aChar3451 = Class120_Sub12_Sub24.method1328(buffer.getByte());
 		} else if (code == 3) {
-			defaultString = buffer.getJString();
+			defaultString = buffer.getJagexString();
 		} else if (code == 4) {
 			defaulInteger = buffer.getInt();
 		} else if (code == 5 || code == 6) {
@@ -58,7 +58,7 @@ final class EnumType extends NodeSub {
 				final int i_5_ = buffer.getInt();
 				Node node;
 				if (code == 5) {
-					node = new StringNode(buffer.getJString());
+					node = new StringNode(buffer.getJagexString());
 				} else {
 					node = new IntegerNode(buffer.getInt());
 				}
@@ -99,9 +99,9 @@ final class EnumType extends NodeSub {
 		}
 		Class192.selectedSpellCursor = -1;
 		Class120_Sub12_Sub6.setCursor(AbstractIndexedSprite.defaultCursorId);
-		Class100.selfPlayer = new Player();
-		Class100.selfPlayer.x = 3000;
-		Class100.selfPlayer.z = 3000;
+		TileParticleQueue.selfPlayer = new Player();
+		TileParticleQueue.selfPlayer.x = 3000;
+		TileParticleQueue.selfPlayer.z = 3000;
 		if (HDToolkit.glEnabled || Buffer.gameId != 0) {
 			if (client.cameraType != 2) {
 				InvType.method1445();
@@ -110,7 +110,7 @@ final class EnumType extends NodeSub {
 				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {
-				AmbientSound.method1159();
+				Class158.aBoolean1478 = true;
 			}
 			OverlayType.method1900();
 			Class120_Sub14_Sub1.setGameState(28);

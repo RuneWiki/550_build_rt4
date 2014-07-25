@@ -63,7 +63,7 @@ final class MouseRecorder implements Runnable {
 			final InterfaceListener class120_sub10 = new InterfaceListener();
 			class120_sub10.objectData = jagexInterface.onSpellSelectionListener;
 			class120_sub10.aClass189_2534 = jagexInterface;
-			Class88.method744(true, class120_sub10);
+			Class88.method744(class120_sub10);
 		}
 		Class88.spellSelected = true;
 		Class192.selectedSpellCursor = i_7_;

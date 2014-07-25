@@ -44,7 +44,7 @@ final class Class28 {
 		if (i <= 0) {
 			throw new IllegalArgumentException();
 		}
-		if (Class179.method2264((byte) -121, i)) {
+		if (Class179.method2264(i)) {
 			return (int) ((random.nextInt() & 0xffffffffL) * i >> 32);
 		}
 		final int i_2_ = -(int) (4294967296L % i) + -2147483648;

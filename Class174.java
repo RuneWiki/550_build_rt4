@@ -4,13 +4,13 @@
 
 final class Class174 {
 	static int[] anIntArray1731 = new int[50];
-	Class108 head = new Class108();
+	ParticleNode head = new ParticleNode();
 	static String aString1733 = "skill: ";
-	private Class108 next;
+	private ParticleNode next;
 	static int currentCursorId = -1;
 	
-	final Class108 peekFirst() {
-		final Class108 node = this.head.next;
+	final ParticleNode peekFirst() {
+		final ParticleNode node = this.head.next;
 		if (this.head == node) {
 			next = null;
 			return null;
@@ -19,8 +19,8 @@ final class Class174 {
 		return node;
 	}
 
-	final Class108 peekNext() {
-		final Class108 node = next;
+	final ParticleNode peekNext() {
+		final ParticleNode node = next;
 		if (this.head == node) {
 			next = null;
 			return null;
@@ -31,7 +31,7 @@ final class Class174 {
 
 	final int getCount() {
 		int count = 0;
-		Class108 next = this.head.next;
+		ParticleNode next = this.head.next;
 		while (this.head != next) {
 			next = next.next;
 			count++;
@@ -89,7 +89,7 @@ final class Class174 {
 				if (i_8_ > 15) {
 					i_8_ -= 32;
 				}
-				class180_sub5_sub1.method2343(Class100.selfPlayer.walkQueueX[0] + i_5_, Class100.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
+				class180_sub5_sub1.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + i_5_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
 			}
 			Canvas_Sub1.inputStream.endBitAccess();
 		} catch (final RuntimeException runtimeexception) {
@@ -141,7 +141,7 @@ final class Class174 {
 		}
 	}
 
-	final void insertLast(final Class108 class108) {
+	final void insertLast(final ParticleNode class108) {
 		if (class108.previous != null) {
 			class108.unlink();
 		}

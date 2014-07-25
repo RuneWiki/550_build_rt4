@@ -127,7 +127,7 @@ final class js5 {
 		class120_sub7_14_.putByte(Class61.aBoolean566 ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
 		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
-		class120_sub7_14_.putByte(Class108_Sub3.highDetailTextures ? 1 : 0);
+		class120_sub7_14_.putByte(ParticleNodeSub.highDetailTextures ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
 		class120_sub7_14_.putByte(Class191.flickeringEffectsOn ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub30_Sub1.manyGroundTextures ? 1 : 0);
@@ -261,7 +261,7 @@ final class js5 {
 			if (is != null && (is[0] != 0 || is[1] != 0 || is[2] != 0 || is[3] != 0)) {
 				is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], true);
 				final Buffer class120_sub7 = new Buffer(is_29_);
-				class120_sub7.method1109(is, 5, true, class120_sub7.buf.length);
+				class120_sub7.decryptXTEA(is, 5, class120_sub7.buf.length);
 			} else {
 				is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], false);
 			}

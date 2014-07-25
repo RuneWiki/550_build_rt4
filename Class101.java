@@ -29,14 +29,14 @@ abstract class Class101 {
 	abstract void method834(int i, int i_5_, int i_6_);
 
 	static final void method835(final boolean bool) {
-		Class117.method1021(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, Class147.aFloat1395);
-		Class117.method1020(Deque.anInt1007, CollisionMap.anInt151, bool);
-		Class117.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
-		Class117.method1016();
+		AtmosphereManager.method1021(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, Class147.aFloat1395);
+		AtmosphereManager.method1020(Deque.anInt1007, CollisionMap.anInt151, bool);
+		AtmosphereManager.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
+		AtmosphereManager.method1016();
 		Class120_Sub2_Sub1.aFloat3112 = aFloat962;
 		Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 = Class3.aClass120_Sub14_Sub9_54;
 		Class120_Sub2_Sub1.aFloat3106 = Class120_Sub12.aFloat2557;
-		Class120_Sub2_Sub1.aFloat3111 = Class108.aFloat1034;
+		Class120_Sub2_Sub1.aFloat3111 = ParticleNode.aFloat1034;
 	}
 
 	static final void method836(final int i, final int i_7_, int i_8_) {

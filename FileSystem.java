@@ -240,8 +240,8 @@ final class FileSystem {
 
 	static final void checkPlayerLocation() {
 		Class69_Sub3.isInTutIsland = 0;
-		final int x = (Class100.selfPlayer.x >> 7) + GameEntity.currentBaseX;
-		final int z = (Class100.selfPlayer.z >> 7) + Class181.currentBaseZ;
+		final int x = (TileParticleQueue.selfPlayer.x >> 7) + GameEntity.currentBaseX;
+		final int z = (TileParticleQueue.selfPlayer.z >> 7) + Class181.currentBaseZ;
 		if (x >= 3053 && x <= 3156 && z >= 3056 && z <= 3136) {
 			Class69_Sub3.isInTutIsland = 1;
 		}

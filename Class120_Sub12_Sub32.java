@@ -111,7 +111,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 								class150.anInt1410 = 0;
 								class150.anInt1416 = 0;
 								class150.delay = i_19_;
-								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, Class100.selfPlayer == player);
+								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, TileParticleQueue.selfPlayer == player);
 							} else if (i_22_ == 2) {
 								class150.anInt1416 = 0;
 							}
@@ -124,7 +124,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 							class150.delay = i_19_;
 							class150.anInt1414 = 1;
 							class150.anInt1413 = 0;
-							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == Class100.selfPlayer);
+							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == TileParticleQueue.selfPlayer);
 						}
 					} else {
 						player.aClass150Array2972[i_21_] = null;

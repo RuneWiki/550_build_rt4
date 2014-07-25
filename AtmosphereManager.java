@@ -3,16 +3,16 @@
  */
 import javax.media.opengl.GL;
 
-final class Class117 {
+final class AtmosphereManager {
 	private static float aFloat1120;
 	private static int anInt1121;
-	private static int anInt1122 = -1;
+	private static int fogOffset = -1;
 	static int anInt1123;
-	static float[] aFloatArray1124;
+	static float[] fogColor;
 	private static float aFloat1125;
-	static int anInt1126;
+	static int defaultScreenColorRgb;
 	static float[] aFloatArray1127;
-	static int anInt1128;
+	static int defaulFogColorRgb;
 	private static float[] aFloatArray1129;
 	static int anInt1130;
 	private static float aFloat1131;
@@ -21,18 +21,18 @@ final class Class117 {
 	static {
 		aFloat1120 = -1.0F;
 		aFloat1125 = -1.0F;
-		anInt1126 = 16777215;
+		defaultScreenColorRgb = 16777215;
 		aFloatArray1127 = new float[4];
-		anInt1128 = 13156520;
-		aFloatArray1124 = new float[4];
+		defaulFogColorRgb = 13156520;
+		fogColor = new float[4];
 		anInt1132 = -1;
 		aFloatArray1129 = new float[4];
 		anInt1121 = -1;
 	}
 
-	static final void method1011(float[] fs) {
+	static final void setFogColor(float[] fs) {
 		if (fs == null) {
-			fs = aFloatArray1124;
+			fs = fogColor;
 		}
 		final GL gl = HDToolkit.gl;
 		gl.glFogfv(2918, fs, 0);
@@ -43,9 +43,9 @@ final class Class117 {
 	}
 
 	private static final void method1013() {
-		method1021(anInt1126, 1.1523438F, 0.69921875F, 1.2F);
+		method1021(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
 		method1014(-50.0F, -60.0F, -50.0F);
-		method1020(anInt1128, 0, false);
+		method1020(defaulFogColorRgb, 0, false);
 	}
 
 	static final void method1014(final float f, final float f_0_, final float f_1_) {
@@ -93,27 +93,27 @@ final class Class117 {
 	public static void method1019() {
 		aFloatArray1127 = null;
 		aFloatArray1129 = null;
-		aFloatArray1124 = null;
+		fogColor = null;
 	}
 
-	static final void method1020(final int i, final int i_3_, final boolean bool) {
-		if (bool || anInt1132 != i || anInt1122 != i_3_) {
-			anInt1132 = i;
-			anInt1122 = i_3_;
+	static final void method1020(final int fogCol, final int fogOff, final boolean force) {
+		if (force || anInt1132 != fogCol || fogOffset != fogOff) {
+			anInt1132 = fogCol;
+			fogOffset = fogOff;
 			final GL gl = HDToolkit.gl;
-			aFloatArray1124[0] = (i >> 16 & 0xff) / 255.0F;
-			aFloatArray1124[1] = (i >> 8 & 0xff) / 255.0F;
-			aFloatArray1124[2] = (i & 0xff) / 255.0F;
+			fogColor[0] = (fogCol >> 16 & 0xff) / 255.0F;
+			fogColor[1] = (fogCol >> 8 & 0xff) / 255.0F;
+			fogColor[2] = (fogCol & 0xff) / 255.0F;
 			gl.glFogi(2917, 9729);
 			gl.glFogf(2914, 0.95F);
 			gl.glHint(3156, 4353);
-			int i_6_ = 3072 - i_3_;
+			int i_6_ = 3072 - fogOff;
 			if (i_6_ < 50) {
 				i_6_ = 50;
 			}
 			gl.glFogf(2915, i_6_);
 			gl.glFogf(2916, 3328.0F);
-			gl.glFogfv(2918, aFloatArray1124, 0);
+			gl.glFogfv(2918, fogColor, 0);
 		}
 	}
 

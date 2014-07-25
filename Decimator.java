@@ -145,7 +145,7 @@ final class Decimator {
 				}
 			}
 		}
-		Class120_Sub11.processAmbientSounds(Class100.selfPlayer.x, Class100.selfPlayer.z, Class173.gameLevel, Class120_Sub12_Sub22.redrawRate);
+		Class120_Sub11.processAmbientSounds(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel, Class120_Sub12_Sub22.redrawRate);
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
@@ -189,7 +189,7 @@ final class Decimator {
 		do {
 			try {
 				if (HintIcon.anInt802 != -1) {
-					Class108.method932(false, -1, -1, HintIcon.anInt802);
+					ParticleNode.method932(false, -1, -1, HintIcon.anInt802);
 					HintIcon.anInt802 = -1;
 				}
 				if (bool) {
@@ -258,34 +258,25 @@ final class Decimator {
 		}
 	}
 
-	static final void method2224(final JagexInterface jagexInterface, final byte i, final int i_32_, final int i_33_, final int i_34_) {
-		try {
-			if (HDToolkit.glEnabled) {
-				GraphicsHD.clipRect(i_34_, i_32_, jagexInterface.width + i_34_, i_32_ - -jagexInterface.height);
-			}
-			final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.anInt1590) & 0x7ff;
-			if (AbstractGraphicsBuffer.anInt1175 >= 3) {
-				if (!HDToolkit.glEnabled) {
-					GraphicsLD.method2156(i_34_, i_32_, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
-				} else {
-					final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
-					if (class120_sub14_sub19 != null) {
-						class120_sub14_sub19.method1587(i_34_, i_32_);
-					}
-				}
-			} else if (!HDToolkit.glEnabled) {
-				((LDSprite) Class157.compassSprite).method1604(i_34_, i_32_, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256,
-						jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
-			} else {
-				((HDSprite) Class157.compassSprite).method1600(i_34_, i_32_, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256,
-						(HDSprite) jagexInterface.method2492(false));
-			}
-			Class120_Sub12_Sub33.needScreenRedraw[i_33_] = true;
-			if (i < 2) {
-				anInt1716 = 66;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.F(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_32_).append(',').append(i_33_).append(',').append(i_34_).append(')').toString());
+	static final void method2224(final JagexInterface jagexInterface, final int x, final int y, final int redrawId) {
+		if (HDToolkit.glEnabled) {
+			GraphicsHD.clipRect(x, y, x + jagexInterface.width, y + jagexInterface.height);
 		}
+		final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.anInt1590) & 0x7ff;
+		if (AbstractGraphicsBuffer.anInt1175 >= 3) {
+			if (!HDToolkit.glEnabled) {
+				GraphicsLD.method2156(x, y, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+			} else {
+				final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
+				if (class120_sub14_sub19 != null) {
+					class120_sub14_sub19.method1587(x, y);
+				}
+			}
+		} else if (!HDToolkit.glEnabled) {
+			((LDSprite) Class157.compassSprite).method1604(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+		} else {
+			((HDSprite) Class157.compassSprite).method1600(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, (HDSprite) jagexInterface.method2492(false));
+		}
+		Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 	}
 }

@@ -147,11 +147,11 @@ final class NpcType {
 					}
 				}
 			} else if (i_8_ == 2) {
-				this.aString1705 = class120_sub7.getJString();
+				this.aString1705 = class120_sub7.getJagexString();
 			} else if (i_8_ == 12) {
 				this.size = class120_sub7.getUByte();
 			} else if (i_8_ >= 30 && i_8_ < 35) {
-				this.aStringArray1703[-30 + i_8_] = class120_sub7.getJString();
+				this.aStringArray1703[-30 + i_8_] = class120_sub7.getJagexString();
 				if (this.aStringArray1703[-30 + i_8_].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
 					this.aStringArray1703[-30 + i_8_] = null;
 				}
@@ -251,7 +251,7 @@ final class NpcType {
 																								if (i_8_ == 142) {
 																									this.anInt1698 = class120_sub7.getUShort();
 																								} else if (i_8_ >= 150 && i_8_ < 155) {
-																									this.aStringArray1703[-150 + i_8_] = class120_sub7.getJString();
+																									this.aStringArray1703[-150 + i_8_] = class120_sub7.getJagexString();
 																									if (!Class140.aBoolean1340 || this.aStringArray1703[i_8_ + -150].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
 																										this.aStringArray1703[i_8_ - 150] = null;
 																									}
@@ -266,7 +266,7 @@ final class NpcType {
 																										final int i_19_ = class120_sub7.getMedium();
 																										Node node;
 																										if (bool) {
-																											node = new StringNode(class120_sub7.getJString());
+																											node = new StringNode(class120_sub7.getJagexString());
 																										} else {
 																											node = new IntegerNode(class120_sub7.getInt());
 																										}

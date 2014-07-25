@@ -99,7 +99,7 @@ final class Class73 {
 		} else if (code == 2) {
 			this.anInt657 = buffer.getUShort();
 		} else if (code == 3) {
-			this.aString649 = buffer.getJString();
+			this.aString649 = buffer.getJagexString();
 		} else if (code != 4) {
 			if (code == 5) {
 				this.anInt656 = buffer.getMedium();
@@ -120,7 +120,7 @@ final class Class73 {
 					anInt643 = buffer.getInt();
 					anInt641 = buffer.getInt();
 				} else if (code >= 10 && code <= 14) {
-					this.aStringArray646[code + -10] = buffer.getJString();
+					this.aStringArray646[code + -10] = buffer.getJagexString();
 				} else if (code != 15) {
 					if (code != 16) {
 						if (code != 17) {
@@ -147,7 +147,7 @@ final class Class73 {
 								this.anInt652 = buffer.getUShort();
 							}
 						} else {
-							this.aString645 = buffer.getJString();
+							this.aString645 = buffer.getJagexString();
 						}
 					} else {
 						this.aBoolean659 = false;

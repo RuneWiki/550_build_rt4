@@ -16,17 +16,10 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		aClass21_3378 = new ObjectCache(64);
 	}
 
-	static final void method1364(final boolean bool, final int i) {
-		try {
-			if (bool) {
-				method1366(-33);
-			}
-			if (Class173.anInt1724 == i && i != 0) {
-				final ShaderInterface shaderInterface = Class157.shaders[i];
-				shaderInterface.method5(Class101_Sub1.anInt2275);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sh.U(").append(bool).append(',').append(i).append(')').toString());
+	static final void method1364(final int i) {
+		if (Class173.anInt1724 == i && i != 0) {
+			final ShaderInterface shaderInterface = Class157.shaders[i];
+			shaderInterface.method5(Class101_Sub1.anInt2275);
 		}
 	}
 

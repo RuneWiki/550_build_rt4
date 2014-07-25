@@ -179,137 +179,126 @@ final class Class32 {
 		return string;
 	}
 
-	static final Class180_Sub7 method273(final int i, final int i_14_, final SeqType seqType, final int i_15_, final int i_16_, final int i_17_, final Class180_Sub7 class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
-		Class180_Sub7 class180_sub7_24_;
-		try {
-			final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + i_16_ - -((long) i << 48);
-			Class180_Sub7 class180_sub7_25_ = (Class180_Sub7) Class154.aClass21_1438.get(l);
-			if (class180_sub7_25_ == null) {
-				int i_26_;
-				if (i_16_ == 1) {
-					i_26_ = 9;
-				} else if (i_16_ == 2) {
-					i_26_ = 12;
-				} else if (i_16_ != 3) {
-					if (i_16_ == 4) {
-						i_26_ = 18;
+	static final Class180_Sub7 method273(final int i, final SeqType seqType, int i_15_, int entitySize, final int i_17_, final Class180_Sub7 class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
+		final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + entitySize + ((long) i << 48);
+		Class180_Sub7 class180_sub7_25_ = (Class180_Sub7) Class154.aClass21_1438.get(l);
+		if (class180_sub7_25_ == null) {
+			int vertexCount;
+			if (entitySize == 1) {
+				vertexCount = 9;
+			} else if (entitySize == 2) {
+				vertexCount = 12;
+			} else if (entitySize == 3) {
+				vertexCount = 15;
+			} else if (entitySize == 4) {
+				vertexCount = 18;
+			} else {
+				vertexCount = 21;
+			}
+			final int[] is = { 64, 96, 128};
+			final int[][] is_28_ = new int[3][vertexCount];
+			final Class180_Sub2 class180_sub2 = new Class180_Sub2(3 * vertexCount + 1, 2 * vertexCount * 3 + -vertexCount, 0);
+			final int i_29_ = class180_sub2.method2302(0, 0, 0);
+			for (int i_30_ = 0; i_30_ < 3; i_30_++) {
+				final int i_31_ = is[i_30_];
+				final int i_32_ = is[i_30_];
+				for (int i_33_ = 0; i_33_ < vertexCount; i_33_++) {
+					final int i_34_ = (i_33_ << 11) / vertexCount;
+					final int i_35_ = Rasterizer.sineTable[i_34_] * i_31_ + i_23_ >> 16;
+					final int i_36_ = Rasterizer.cosineTable[i_34_] * i_32_ + i_20_ >> 16;
+					is_28_[i_30_][i_33_] = class180_sub2.method2302(i_35_, 0, i_36_);
+				}
+			}
+			for (int i_37_ = 0; i_37_ < 3; i_37_++) {
+				final int i_38_ = (256 * i_37_ + 128) / 3;
+				final int i_39_ = 256 - i_38_;
+				final byte i_40_ = (byte) (i_38_ * i_17_ + i_39_ * i_22_ >> 8);
+				final short i_41_ = (short) ((0xfc0000 & i_38_ * (i & 0xfc00) + i_39_ * (0xfc00 & i_21_)) + (0x38000 & (i & 0x380) * i_38_ + i_39_ * (0x380 & i_21_)) + (0x7f00 & (i_21_ & 0x7f) * i_39_ + i_38_ * (0x7f & i)) >> 8);
+				for (int i_42_ = 0; vertexCount > i_42_; i_42_++) {
+					if (i_37_ != 0) {
+						class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_ - 1][(1 + i_42_) % vertexCount], is_28_[i_37_][(i_42_ + 1) % vertexCount], (byte) 1, i_41_, i_40_);
+						class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_][(i_42_ - -1) % vertexCount], is_28_[i_37_][i_42_], (byte) 1, i_41_, i_40_);
 					} else {
-						i_26_ = 21;
-					}
-				} else {
-					i_26_ = 15;
-				}
-				final int[] is = { 64, 96, 128 };
-				final int[][] is_28_ = new int[3][i_26_];
-				final Class180_Sub2 class180_sub2 = new Class180_Sub2(3 * i_26_ + 1, 2 * i_26_ * 3 + -i_26_, 0);
-				final int i_29_ = class180_sub2.method2302(0, 0, 0);
-				for (int i_30_ = 0; i_30_ < 3; i_30_++) {
-					final int i_31_ = is[i_30_];
-					final int i_32_ = is[i_30_];
-					for (int i_33_ = 0; i_26_ > i_33_; i_33_++) {
-						final int i_34_ = (i_33_ << 11) / i_26_;
-						final int i_35_ = Rasterizer.sineTable[i_34_] * i_31_ + i_23_ >> 16;
-						final int i_36_ = Rasterizer.cosineTable[i_34_] * i_32_ + i_20_ >> 16;
-						is_28_[i_30_][i_33_] = class180_sub2.method2302(i_35_, 0, i_36_);
+						class180_sub2.method2295(i_29_, is_28_[0][(1 + i_42_) % vertexCount], is_28_[0][i_42_], (byte) 1, i_41_, i_40_);
 					}
 				}
-				for (int i_37_ = 0; i_37_ < 3; i_37_++) {
-					final int i_38_ = (256 * i_37_ + 128) / 3;
-					final int i_39_ = -i_38_ + 256;
-					final byte i_40_ = (byte) (i_38_ * i_17_ + i_39_ * i_22_ >> 8);
-					final short i_41_ = (short) ((0xfc0000 & i_38_ * (i & 0xfc00) + i_39_ * (0xfc00 & i_21_)) + (0x38000 & (i & 0x380) * i_38_ + i_39_ * (0x380 & i_21_)) + (0x7f00 & (i_21_ & 0x7f) * i_39_ + i_38_ * (0x7f & i)) >> 8);
-					for (int i_42_ = 0; i_26_ > i_42_; i_42_++) {
-						if (i_37_ != 0) {
-							class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_ - 1][(1 + i_42_) % i_26_], is_28_[i_37_][(i_42_ + 1) % i_26_], (byte) 1, i_41_, i_40_);
-							class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_][(i_42_ - -1) % i_26_], is_28_[i_37_][i_42_], (byte) 1, i_41_, i_40_);
-						} else {
-							class180_sub2.method2295(i_29_, is_28_[0][(1 + i_42_) % i_26_], is_28_[0][i_42_], (byte) 1, i_41_, i_40_);
-						}
-					}
-				}
-				class180_sub7_25_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class154.aClass21_1438.put(class180_sub7_25_, l);
 			}
-			final int i_43_ = 64 * i_16_ - 1;
-			int i_44_ = -i_43_;
-			if (i_14_ != 2) {
-				method269(2);
-			}
-			int i_45_ = i_43_;
-			int i_46_ = -i_43_;
-			int i_47_ = i_43_;
-			if (bool) {
-				if (i_15_ > 128 && i_15_ < 896) {
-					i_44_ -= 128;
-				}
-				if (i_15_ > 1664 || i_15_ < 384) {
-					i_46_ -= 128;
-				}
-				if (i_15_ > 1152 && i_15_ < 1920) {
-					i_45_ += 128;
-				}
-				if (i_15_ > 640 && i_15_ < 1408) {
-					i_47_ += 128;
-				}
-			}
-			int i_48_ = class180_sub7.method2374();
-			int i_49_ = class180_sub7.method2383();
-			int i_50_ = class180_sub7.method2363();
-			if (i_45_ < i_49_) {
-				i_49_ = i_45_;
-			}
-			if (i_46_ > i_50_) {
-				i_50_ = i_46_;
-			}
-			int i_51_ = class180_sub7.method2386();
-			if (i_48_ < i_44_) {
-				i_48_ = i_44_;
-			}
-			if (i_51_ > i_47_) {
-				i_51_ = i_47_;
-			}
-			FrameLoader class120_sub14_sub18 = null;
-			if (seqType != null) {
-				i_18_ = seqType.frames[i_18_];
-				class120_sub14_sub18 = FrameLoader.list(i_18_ >> 16);
-				i_18_ &= 0xffff;
-			}
-			if (class120_sub14_sub18 == null) {
-				class180_sub7_25_ = class180_sub7_25_.method2381(true, true, true);
-				class180_sub7_25_.method2369((i_49_ + -i_48_) / 2, 128, (i_51_ - i_50_) / 2);
-				class180_sub7_25_.method2368((i_48_ + i_49_) / 2, 0, (i_50_ - -i_51_) / 2);
-			} else {
-				class180_sub7_25_ = class180_sub7_25_.method2381(!class120_sub14_sub18.method1578((byte) -39, i_18_), !class120_sub14_sub18.method1579(3, i_18_), true);
-				class180_sub7_25_.method2369((-i_48_ + i_49_) / 2, 128, (i_51_ - i_50_) / 2);
-				class180_sub7_25_.method2368((i_49_ + i_48_) / 2, 0, (i_50_ + i_51_) / 2);
-				class180_sub7_25_.method2389(class120_sub14_sub18, i_18_);
-			}
-			if (i_15_ != 0) {
-				class180_sub7_25_.method2360(i_15_);
-			}
-			if (HDToolkit.glEnabled) {
-				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
-				if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.getTileHeight(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
-					for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
-						class180_sub7_sub2.anIntArray3856[i_52_] += Class22.getTileHeight(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
-					}
-					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
-					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
-				}
-			} else {
-				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
-				if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
-					for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
-						class180_sub7_sub1.yVertices[i_53_] += Class22.getTileHeight(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
-					}
-					class180_sub7_sub1.boundsCalculated = false;
-				}
-			}
-			class180_sub7_24_ = class180_sub7_25_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "dc.F(");
+			class180_sub7_25_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+			Class154.aClass21_1438.put(class180_sub7_25_, l);
 		}
-		return class180_sub7_24_;
+		final int i_43_ = 64 * entitySize - 1;
+		int i_44_ = -i_43_;
+		int i_45_ = i_43_;
+		int i_46_ = -i_43_;
+		int i_47_ = i_43_;
+		if (bool) {
+			if (i_15_ > 128 && i_15_ < 896) {
+				i_44_ -= 128;
+			}
+			if (i_15_ > 1664 || i_15_ < 384) {
+				i_46_ -= 128;
+			}
+			if (i_15_ > 1152 && i_15_ < 1920) {
+				i_45_ += 128;
+			}
+			if (i_15_ > 640 && i_15_ < 1408) {
+				i_47_ += 128;
+			}
+		}
+		int i_48_ = class180_sub7.method2374();
+		int i_49_ = class180_sub7.method2383();
+		int i_50_ = class180_sub7.method2363();
+		if (i_45_ < i_49_) {
+			i_49_ = i_45_;
+		}
+		if (i_46_ > i_50_) {
+			i_50_ = i_46_;
+		}
+		int i_51_ = class180_sub7.method2386();
+		if (i_48_ < i_44_) {
+			i_48_ = i_44_;
+		}
+		if (i_51_ > i_47_) {
+			i_51_ = i_47_;
+		}
+		FrameLoader class120_sub14_sub18 = null;
+		if (seqType != null) {
+			i_18_ = seqType.frames[i_18_];
+			class120_sub14_sub18 = FrameLoader.list(i_18_ >> 16);
+			i_18_ &= 0xffff;
+		}
+		if (class120_sub14_sub18 == null) {
+			class180_sub7_25_ = class180_sub7_25_.method2381(true, true, true);
+			class180_sub7_25_.method2369((i_49_ + -i_48_) / 2, 128, (i_51_ - i_50_) / 2);
+			class180_sub7_25_.method2368((i_48_ + i_49_) / 2, 0, (i_50_ - -i_51_) / 2);
+		} else {
+			class180_sub7_25_ = class180_sub7_25_.method2381(!class120_sub14_sub18.method1578((byte) -39, i_18_), !class120_sub14_sub18.method1579(3, i_18_), true);
+			class180_sub7_25_.method2369((-i_48_ + i_49_) / 2, 128, (i_51_ - i_50_) / 2);
+			class180_sub7_25_.method2368((i_49_ + i_48_) / 2, 0, (i_50_ + i_51_) / 2);
+			class180_sub7_25_.method2389(class120_sub14_sub18, i_18_);
+		}
+		if (i_15_ != 0) {
+			class180_sub7_25_.method2360(i_15_);
+		}
+		if (HDToolkit.glEnabled) {
+			final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
+			if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.getTileHeight(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
+				for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
+					class180_sub7_sub2.anIntArray3856[i_52_] += Class22.getTileHeight(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
+				}
+				class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
+				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
+			}
+		} else {
+			final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
+			if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
+				for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
+					class180_sub7_sub1.yVertices[i_53_] += Class22.getTileHeight(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
+				}
+				class180_sub7_sub1.boundsCalculated = false;
+			}
+		}
+		return class180_sub7_25_;
 	}
 
 	public Class32() {

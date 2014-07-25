@@ -77,7 +77,7 @@ final class ObjectCache {
 
 	static final void method191() {
 		Class173.method2225();
-		Class132_Sub2.method1937((byte) 59);
+		Class132_Sub2.resetMinimapLandscape();
 		Class110.method976();
 		Class120_Sub14_Sub9.aClass35_3517.clear();
 		Class82.aClass88_783 = new Class88();
@@ -99,7 +99,7 @@ final class ObjectCache {
 		}
 		if (HDToolkit.glEnabled) {
 			Class47.method382(104, 104);
-			Class108_Sub1.method933(Class186.hdrEnabled);
+			ParticleManager.method933(Class186.hdrEnabled);
 			ParticleEngine.method964();
 		}
 		Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);
@@ -176,14 +176,14 @@ final class ObjectCache {
 		return value;
 	}
 
-	static final void method194(final InterfaceListener listener, final boolean bool, final int i) {
+	static final void method194(final InterfaceListener listener, final int i) {
 		final Object[] objects = listener.objectData;
 		final int i_7_ = ((Integer) objects[0]).intValue();
 		final ClientScript class120_sub14_sub12 = ClientScript.list(i_7_);
 		if (class120_sub14_sub12 != null) {
 			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
 			int i_8_ = 0;
-			Class100.intArguments = new int[class120_sub14_sub12.intArgumentCount];
+			TileParticleQueue.intArguments = new int[class120_sub14_sub12.intArgumentCount];
 			int i_9_ = 0;
 			for (int i_10_ = 1; objects.length > i_10_; i_10_++) {
 				if (objects[i_10_] instanceof Integer) {
@@ -215,7 +215,7 @@ final class ObjectCache {
 					if (i_11_ == -2147483639) {
 						i_11_ = listener.anInt2535;
 					}
-					Class100.intArguments[i_8_++] = i_11_;
+					TileParticleQueue.intArguments[i_8_++] = i_11_;
 				} else if (objects[i_10_] instanceof String) {
 					String string = (String) objects[i_10_];
 					if (string.equals("event_opbase")) {

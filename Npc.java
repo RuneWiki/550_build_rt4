@@ -38,8 +38,8 @@ final class Npc extends GameEntity {
 						npcType = npcType.handleVarp();
 					}
 					if (Class120_Sub6.characterShadowsOn && npcType.aBoolean1653) {
-						final Class180_Sub7 class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, 2, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964,
-								this.anInt3005, this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
+						final Class180_Sub7 class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005,
+								this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
 						if (HDToolkit.glEnabled) {
 							final float f = HDToolkit.method534();
 							final float f_10_ = HDToolkit.method526();
@@ -157,7 +157,7 @@ final class Npc extends GameEntity {
 			aClass50_3753 = null;
 			playerAmbientSounds = null;
 			if (i != 2980) {
-				method2348(-78, -35, 3, -80, (byte) -86);
+				method2348(-78, -35, 3, -80);
 			}
 			aByteArrayArrayArray3754 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -165,29 +165,22 @@ final class Npc extends GameEntity {
 		}
 	}
 
-	static final void method2348(int i, final int i_17_, final int i_18_, int i_19_, final byte i_20_) {
-		try {
-			CanvasWrapper.anInt20 = -1;
-			final float f = (float) Class79.anInt692 / (float) Class79.anInt700;
-			Class120_Sub2.anInt2422 = -1;
-			int i_21_ = i_17_;
-			int i_22_ = i_18_;
-			if (!(f < 1.0F)) {
-				i_21_ = (int) (i_18_ / f);
-			} else {
-				i_22_ = (int) (i_17_ * f);
-			}
-			i -= (i_18_ - i_22_) / 2;
-			i_19_ -= (-i_21_ + i_17_) / 2;
-			Class108_Sub1.anInt2336 = Class79.anInt700 * i_19_ / i_21_;
-			Class169.anInt1646 = Class79.anInt692 * i / i_22_;
-			if (i_20_ != -80) {
-				aByteArrayArrayArray3754 = null;
-			}
-			Class127.method1889((byte) -103);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("p.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
+	static final void method2348(int i, final int i_17_, final int i_18_, int i_19_) {
+		CanvasWrapper.anInt20 = -1;
+		Class120_Sub2.anInt2422 = -1;
+		final float f = (float) Class79.anInt692 / (float) Class79.anInt700;
+		int i_21_ = i_17_;
+		int i_22_ = i_18_;
+		if (!(f < 1.0F)) {
+			i_21_ = (int) (i_18_ / f);
+		} else {
+			i_22_ = (int) (i_17_ * f);
 		}
+		i -= (i_18_ - i_22_) / 2;
+		i_19_ -= (-i_21_ + i_17_) / 2;
+		ParticleManager.anInt2336 = Class79.anInt700 * i_19_ / i_21_;
+		Class169.anInt1646 = Class79.anInt692 * i / i_22_;
+		Class127.method1889();
 	}
 
 	@Override
@@ -247,7 +240,7 @@ final class Npc extends GameEntity {
 				}
 			}
 			if (i != 0) {
-				method2348(-102, -70, -69, 74, (byte) -47);
+				method2348(-102, -70, -69, 74);
 			}
 			bool = bool_25_;
 		} catch (final RuntimeException runtimeexception) {

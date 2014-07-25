@@ -95,8 +95,8 @@ final class StructType extends NodeSub {
 					final float f = 251.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
 					if (class120_sub9.anInt2505 != Class120_Sub12_Sub19.anInt3281) {
 						Class120_Sub12_Sub19.anInt3281 = class120_sub9.anInt2505;
-						Class69.method614(class120_sub9.anInt2505, 65535);
-						Class117.method1011(Class29.method251(72));
+						Class69.method614(class120_sub9.anInt2505);
+						AtmosphereManager.setFogColor(Class29.method251());
 					}
 					class120_sub9.method1162(LabelGroup.groundTiles, f, false);
 				}
@@ -107,7 +107,7 @@ final class StructType extends NodeSub {
 						final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_][i_16_];
 						final float f = 201.5F - 50.0F * i_15_ - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
 						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -106) && PacketBuffer.highWaterDetail) {
-							Class69.method614(class120_sub9.anInt2505, 65535);
+							Class69.method614(class120_sub9.anInt2505);
 						}
 						class120_sub9.method1162(LabelGroup.groundTiles, f, false);
 					}
@@ -271,7 +271,7 @@ final class StructType extends NodeSub {
 				final int i_35_ = buffer.getMedium();
 				Node node;
 				if (bool) {
-					node = new StringNode(buffer.getJString());
+					node = new StringNode(buffer.getJagexString());
 				} else {
 					node = new IntegerNode(buffer.getInt());
 				}

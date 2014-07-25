@@ -79,7 +79,7 @@ final class Class43 {
 		for (int id = 0; id < worldAmount; id++) {
 			Class148.worldsInfo[id] = new WorldInfo();
 			Class148.worldsInfo[id].country = buffer.getUSmart();
-			Class148.worldsInfo[id].region = buffer.getJagexString();
+			Class148.worldsInfo[id].region = buffer.getJagexString2();
 		}
 		OverridedJInterface.worldOff = buffer.getUSmart();
 		EnumType.worldLen = buffer.getUSmart();
@@ -91,8 +91,8 @@ final class Class43 {
 			class167_sub1.location = buffer.getUByte();
 			class167_sub1.flag = buffer.getInt();
 			class167_sub1.worldId = OverridedJInterface.worldOff + worldId;
-			class167_sub1.activity = buffer.getJagexString();
-			class167_sub1.ip = buffer.getJagexString();
+			class167_sub1.activity = buffer.getJagexString2();
+			class167_sub1.ip = buffer.getJagexString2();
 		}
 		Class96.anInt900 = buffer.getInt();
 		Class159.worldsLoaded = true;

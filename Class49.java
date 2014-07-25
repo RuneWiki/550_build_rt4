@@ -24,27 +24,18 @@ final class Class49 {
 		}
 	}
 
-	static final int method408(final byte i) {
-		int i_0_;
-		try {
-			if (i < 96) {
-				method407(110);
-			}
-			if (Class173.anInt1724 == 0) {
-				return 0;
-			}
-			i_0_ = Class157.shaders[Class173.anInt1724].method4();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.B(").append(i).append(')').toString());
+	static final int method408() {
+		if (Class173.anInt1724 == 0) {
+			return 0;
 		}
-		return i_0_;
+		return Class157.shaders[Class173.anInt1724].method4();
 	}
 
 	static final void method409(final Class120_Sub30 class120_sub30, final byte i) {
 		try {
 			class120_sub30.aBoolean2784 = false;
 			if (i != 24) {
-				method408((byte) -8);
+				method408();
 			}
 			if (class120_sub30.aClass120_Sub5_2782 != null) {
 				class120_sub30.aClass120_Sub5_2782.anInt2442 = 0;

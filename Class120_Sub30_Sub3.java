@@ -111,7 +111,7 @@ final class Class120_Sub30_Sub3 extends Class120_Sub30 {
 		for (/**/; node != aClass105_3712.head && ((Class120_Sub33) node).anInt2794 <= class120_sub33.anInt2794; node = node.next) {
 			/* empty */
 		}
-		InterfaceClickMask.method1679(node, (byte) -123, class120_sub33);
+		InterfaceClickMask.method1679(node, class120_sub33);
 		anInt3714 = ((Class120_Sub33) aClass105_3712.head.next).anInt2794;
 	}
 

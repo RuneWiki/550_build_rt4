@@ -55,9 +55,9 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	}
 
 	static final void method1219() {
-		if (Class120_Sub12_Sub15.anInt3243 != Class173.gameLevel) {
+		if (Class120_Sub12_Sub15.landscapeSpriteLevel != Class173.gameLevel) {
 			if (Class38.method315(Class173.gameLevel)) {
-				Class120_Sub12_Sub15.anInt3243 = Class173.gameLevel;
+				Class120_Sub12_Sub15.landscapeSpriteLevel = Class173.gameLevel;
 			}
 		}
 	}
@@ -200,8 +200,8 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
 			DummyOutputStream.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
-		final int playerZ = Class100.selfPlayer.z + Class29.anInt195;
-		final int playerX = Class100.selfPlayer.x + Class23.anInt136;
+		final int playerZ = TileParticleQueue.selfPlayer.z + Class29.anInt195;
+		final int playerX = TileParticleQueue.selfPlayer.x + Class23.anInt136;
 		if (Class69_Sub3_Sub1.playerRenderX - playerX < -500 || Class69_Sub3_Sub1.playerRenderX - playerX > 500 || InterfaceListener.playerRenderZ - playerZ < -500 || InterfaceListener.playerRenderZ - playerZ > 500) {
 			InterfaceListener.playerRenderZ = playerZ;
 			Class69_Sub3_Sub1.playerRenderX = playerX;

@@ -29,10 +29,10 @@ final class VarBit {
 			if (bool) {
 				anInt166 = -76;
 			}
-			Class108_Sub1.anInt2336 = i;
+			ParticleManager.anInt2336 = i;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
-			Class127.method1889((byte) -106);
+			Class127.method1889();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.C(").append(bool).append(',').append(i).append(')').toString());
 		}
@@ -105,7 +105,7 @@ final class VarBit {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
 		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
-		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, Class100.selfPlayer.x, Class100.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
+		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
 		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {

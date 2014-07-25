@@ -480,7 +480,7 @@ final class ObjType {
 							if (configCode != 26) {
 								if (configCode < 30 || configCode >= 35) {
 									if (configCode >= 35 && configCode < 40) {
-										this.inventoryOptions[configCode + -35] = buffer.getJString();
+										this.inventoryOptions[configCode + -35] = buffer.getJagexString();
 									} else if (configCode != 40) {
 										if (configCode == 41) {
 											final int i_55_ = buffer.getUByte();
@@ -554,7 +554,7 @@ final class ObjType {
 																										if (!bool) {
 																											node = new IntegerNode(buffer.getInt());
 																										} else {
-																											node = new StringNode(buffer.getJString());
+																											node = new StringNode(buffer.getJagexString());
 																										}
 																										this.params.put(node, i_60_);
 																									}
@@ -617,7 +617,7 @@ final class ObjType {
 										}
 									}
 								} else {
-									this.options[-30 + configCode] = buffer.getJString();
+									this.options[-30 + configCode] = buffer.getJagexString();
 									if (this.options[configCode + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
 										this.options[configCode + -30] = null;
 									}
@@ -641,7 +641,7 @@ final class ObjType {
 				}
 			}
 		} else {
-			this.name = buffer.getJString();
+			this.name = buffer.getJagexString();
 		}
 	}
 

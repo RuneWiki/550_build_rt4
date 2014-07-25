@@ -29,7 +29,9 @@ final class Player extends GameEntity {
 		final boolean bool = (0x4 & i_1_) != 0;
 		final int isFemale = i_1_ & 0x1;
 		final int i_3_ = super.getSize();
+		System.out.println("old = "+super.getSize());
 		setSize(1 + ((0x3e & i_1_) >> 3));
+		System.out.println("new = " +super.getSize());
 		titleId = (byte) (i_1_ >> 6 & 0x3);
 		final int[] is = new int[12];
 		this.x += (getSize() - i_3_) * 64;
@@ -193,7 +195,7 @@ final class Player extends GameEntity {
 				if (class180_sub7 != null) {
 					this.maxY = class180_sub7.getMaxY();
 					if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).aBoolean1653)) {
-						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, 2, class40_34_ == null ? seqType : class40_34_, i, 1, 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
+						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, class40_34_ == null ? seqType : class40_34_, i, super.getSize(), 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
 						if (!HDToolkit.glEnabled) {
 							class180_sub7_37_.method2265(0, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, -1L, i_33_, null);
 						} else {
@@ -206,21 +208,21 @@ final class Player extends GameEntity {
 							HDToolkit.method535(f, f_38_);
 						}
 					}
-					if (this == Class100.selfPlayer) {
+					if (this == TileParticleQueue.selfPlayer) {
 						for (int i_39_ = Class187.hintIcons.length - 1; i_39_ >= 0; i_39_--) {
 							final HintIcon hintIcon = Class187.hintIcons[i_39_];
 							if (hintIcon != null && hintIcon.modelId != -1) {
 								if (hintIcon.targetType == 1 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class120_Sub12_Sub11.npcList.length) {
 									final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[hintIcon.targetIndex];
 									if (class180_sub5_sub2 != null) {
-										final int i_40_ = -(Class100.selfPlayer.x / 32) + class180_sub5_sub2.x / 32;
-										final int i_41_ = class180_sub5_sub2.z / 32 - Class100.selfPlayer.z / 32;
+										final int i_40_ = -(TileParticleQueue.selfPlayer.x / 32) + class180_sub5_sub2.x / 32;
+										final int i_41_ = class180_sub5_sub2.z / 32 - TileParticleQueue.selfPlayer.z / 32;
 										method2344(i_28_, i_41_, null, i_27_, i_33_, i_26_, i, i_30_, i_40_, i_31_, hintIcon.modelId, (byte) -96, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}
 								if (hintIcon.targetType == 2) {
-									final int i_42_ = 2 + 4 * (hintIcon.x - GameEntity.currentBaseX) - (Class100.selfPlayer.x / 32);
-									final int i_43_ = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (Class100.selfPlayer.z / 32);
+									final int i_42_ = 2 + 4 * (hintIcon.x - GameEntity.currentBaseX) - (TileParticleQueue.selfPlayer.x / 32);
+									final int i_43_ = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (TileParticleQueue.selfPlayer.z / 32);
 									int i_44_ = hintIcon.showDistance * 4;
 									i_44_ *= i_44_;
 									method2344(i_28_, i_43_, null, i_27_, i_33_, i_26_, i, i_30_, i_42_, i_31_, hintIcon.modelId, (byte) -109, i_29_, i_44_, class180_sub7, i_32_);
@@ -228,8 +230,8 @@ final class Player extends GameEntity {
 								if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && Class118.playersList.length > hintIcon.targetIndex) {
 									final Player class180_sub5_sub1_45_ = Class118.playersList[hintIcon.targetIndex];
 									if (class180_sub5_sub1_45_ != null) {
-										final int i_46_ = class180_sub5_sub1_45_.x / 32 - (Class100.selfPlayer.x / 32);
-										final int i_47_ = class180_sub5_sub1_45_.z / 32 - (Class100.selfPlayer.z / 32);
+										final int i_46_ = class180_sub5_sub1_45_.x / 32 - (TileParticleQueue.selfPlayer.x / 32);
+										final int i_47_ = class180_sub5_sub1_45_.z / 32 - (TileParticleQueue.selfPlayer.z / 32);
 										method2344(i_28_, i_47_, null, i_27_, i_33_, i_26_, i, i_30_, i_46_, i_31_, hintIcon.modelId, (byte) -115, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}

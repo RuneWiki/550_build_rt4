@@ -85,7 +85,7 @@ final class Class86 {
 			if (is_14_ == null && Class3.anInt53 < 800) {
 				Class120_Sub2.method1050();
 				for (int i_15_ = 0; i_15_ < i_2_; i_15_++) {
-					Class120_Sub14_Sub15.method1556(i_13_, i_15_, 64, i_12_, 64, -1);
+					Class120_Sub14_Sub15.method1556(i_13_, i_15_, 64, i_12_, 64);
 				}
 			}
 		}

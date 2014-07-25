@@ -60,7 +60,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		for (int id = 0; id < playerCount; id++) {
 			Player player;
 			if (size == 0) {
-				player = Class100.selfPlayer;
+				player = TileParticleQueue.selfPlayer;
 			} else {
 				player = Class118.playersList[Class112.playerIndices[id]];
 			}
@@ -106,7 +106,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 			long l;
 			if (size == 0) {
 				l = 8791798054912L;
-				class180_sub5_sub1 = Class100.selfPlayer;
+				class180_sub5_sub1 = TileParticleQueue.selfPlayer;
 			} else {
 				class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_28_]];
 				l = (long) Class112.playerIndices[i_28_] << 32;

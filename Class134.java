@@ -3,7 +3,7 @@
  */
 
 final class Class134 {
-	static AbstractSprite aClass120_Sub14_Sub19_1276;
+	static AbstractSprite landscapeAsSprite;
 	static boolean aBoolean1277;
 	static int scrollbarId;
 	static byte[][] aByteArrayArray1279;
@@ -43,7 +43,7 @@ final class Class134 {
 
 	public static void method1950(final int i) {
 		try {
-			aClass120_Sub14_Sub19_1276 = null;
+			landscapeAsSprite = null;
 			aByteArrayArray1279 = null;
 			aCharArray1286 = null;
 			anIntArray1284 = null;

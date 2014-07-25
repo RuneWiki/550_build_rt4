@@ -57,7 +57,7 @@ final class Class110 {
 		Class120_Sub12_Sub36.aClass50_3419.method419();
 		Class120_Sub12_Sub17.aClass50_3258.method419();
 		Class7.aClass50_63.method419();
-		Class108_Sub3.aClass50_2400.method419();
+		ParticleNodeSub.aClass50_2400.method419();
 		InterfaceListener.aClass50_2544.method419();
 		IsaacCipher.aClass50_1019.method419();
 		Class120_Sub12_Sub2.aClass21_3144.clear();
@@ -83,7 +83,7 @@ final class Class110 {
 		int i_2_ = 0;
 		final int i_3_ = (bool ? Class192.anInt2120 : Class32.anInt269) + i_1_;
 		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
-			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class121.method1837(i_4_, true);
+			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class120_Sub14_Sub10.list(i_4_);
 			if (class120_sub14_sub10.aBoolean3531 && (class120_sub14_sub10.method1510().toLowerCase().indexOf(string) ^ 0xffffffff) != 0) {
 				if (i_2_ >= 50) {
 					Buffer.anInt2474 = -1;
@@ -100,12 +100,12 @@ final class Class110 {
 				is[i_2_++] = (short) i_4_;
 			}
 		}
-		Class108.anInt1035 = 0;
+		ParticleNode.anInt1035 = 0;
 		Buffer.anInt2474 = i_2_;
 		final String[] strings = new String[Buffer.anInt2474];
 		Class120_Sub12_Sub37.aShortArray3430 = is;
 		for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
-			strings[i_7_] = Class121.method1837(is[i_7_], true).method1510();
+			strings[i_7_] = Class120_Sub14_Sub10.list(is[i_7_]).method1510();
 		}
 		Class28.method242(Class120_Sub12_Sub37.aShortArray3430, 56, strings);
 	}
@@ -142,12 +142,5 @@ final class Class110 {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("me.E(").append(i).append(',').append(i_8_).append(')').toString());
 		}
 		return i_9_;
-	}
-
-	static final Class22 method980(final Buffer bufer) {
-		final Class22 class22_11_ = new Class22();
-		class22_11_.anInt129 = bufer.getUShort();
-		class22_11_.aClass120_Sub14_Sub10_128 = Class121.method1837(class22_11_.anInt129, true);
-		return class22_11_;
 	}
 }

@@ -83,7 +83,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			if (bool_3_ == !bool) {
 				if (!bool) {
 					Class120_Sub12_Sub6.method1230(2);
-					Class178.aClass45_1772.method367(true);
+					Class178.js5Worker.method367(true);
 				} else {
 					Class157.anInt1466 = AbstractSprite.anInt3620;
 					if (RuntimeException_Sub1.anInt2142 != 0) {
@@ -91,7 +91,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 					} else {
 						Class120_Sub12_Sub6.method1230(2);
 					}
-					Class178.aClass45_1772.method367(false);
+					Class178.js5Worker.method367(false);
 				}
 			}
 			if (HDToolkit.glEnabled && (state == 25 || state == 28 || state == 40)) {

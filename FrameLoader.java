@@ -15,7 +15,7 @@ final class FrameLoader extends NodeSub {
 			FileSystemRequest.brightness = 3;
 			GameShell.method32(true);
 			Class120_Sub6.characterShadowsOn = true;
-			Class108_Sub3.highDetailTextures = true;
+			ParticleNodeSub.highDetailTextures = true;
 			Class120_Sub12.aBoolean2564 = true;
 			CursorType.anInt1242 = 127;
 			Class120_Sub30_Sub1.manyGroundTextures = true;
@@ -160,7 +160,7 @@ final class FrameLoader extends NodeSub {
 					String string = npcType.aString1705;
 					if (npcType.anInt1674 != 0) {
 						final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : Class120_Sub3.aString2424;
-						string = new StringBuilder(string).append(Class81.method704(Class100.selfPlayer.combatLevel, (byte) -109, npcType.anInt1674)).append(" (").append(string_14_).append(npcType.anInt1674).append(")").toString();
+						string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, (byte) -109, npcType.anInt1674)).append(" (").append(string_14_).append(npcType.anInt1674).append(")").toString();
 					}
 					if (Light.objSelected != 1) {
 						if (Class88.spellSelected) {
@@ -207,7 +207,7 @@ final class FrameLoader extends NodeSub {
 								for (int i_18_ = 4; i_18_ >= 0; i_18_--) {
 									if (strings[i_18_] != null && strings[i_18_].equalsIgnoreCase(Class65.aString591)) {
 										short i_19_ = 0;
-										if (Class100.selfPlayer.combatLevel < npcType.anInt1674) {
+										if (TileParticleQueue.selfPlayer.combatLevel < npcType.anInt1674) {
 											i_19_ = (short) 2000;
 										}
 										short i_20_ = 0;
@@ -269,7 +269,7 @@ final class FrameLoader extends NodeSub {
 			Class156.anInt1453 = Deque.anInt1007;
 			Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
 			MouseRecorder.aFloat856 = AbstractBuffer.aFloat600;
-			Class120_Sub12_Sub1.aFloat3124 = Class108.aFloat1034;
+			Class120_Sub12_Sub1.aFloat3124 = ParticleNode.aFloat1034;
 			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
 			Class84.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
 			Class120_Sub12_Sub30.anInt3376 = CollisionMap.anInt151;
@@ -298,7 +298,7 @@ final class FrameLoader extends NodeSub {
 				Class101.aFloat962 = Varp.aFloat622;
 				Class3.aClass120_Sub14_Sub9_54 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204;
 				CollisionMap.anInt151 = Class43.anInt368;
-				Class108.aFloat1034 = Class120_Sub2.aFloat2417;
+				ParticleNode.aFloat1034 = Class120_Sub2.aFloat2417;
 				Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
 				Deque.anInt1007 = Light.anInt379;
 				Class57.anInt500 = 65536;
@@ -318,7 +318,7 @@ final class FrameLoader extends NodeSub {
 				AbstractBuffer.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
 				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
 				Class101.aFloat962 = f_36_ * Class73.aFloat632 + Varp.aFloat622 * f_34_;
-				Class108.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
+				ParticleNode.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
 				if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != Class84.aClass120_Sub14_Sub9_798) {
 					if (Class84.aClass120_Sub14_Sub9_798 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != null) {
 						Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145.method1495(Class84.aClass120_Sub14_Sub9_798, Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204, Class57.anInt500 / 65536.0F);
@@ -362,11 +362,11 @@ final class FrameLoader extends NodeSub {
 			if (class107_sub1 == null) {
 				return false;
 			}
-			int i_42_ = locType.anInt1841;
-			int i_43_ = locType.anInt1827;
+			int i_42_ = locType.sizeX;
+			int i_43_ = locType.sizeZ;
 			if ((i_41_ & 0x1) == 1) {
-				i_42_ = locType.anInt1827;
-				i_43_ = locType.anInt1841;
+				i_42_ = locType.sizeZ;
+				i_43_ = locType.sizeX;
 			}
 			int i_44_ = class107_sub1.trimWidth;
 			int i_45_ = class107_sub1.trimHeight;

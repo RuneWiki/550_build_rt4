@@ -16,14 +16,14 @@ final class Class101_Sub4 extends Class101 {
 	private final int anInt2303;
 	static int[] anIntArray2304 = new int[32];
 
-	static final String method849(final long l, final int i_0_, final int[] is) {
+	static final String method849(final long id, final int type, final int[] params) {
 		if (Class120_Sub21.anInterface1_2668 != null) {
-			final String string_1_ = Class120_Sub21.anInterface1_2668.method1(l, is, i_0_);
+			final String string_1_ = Class120_Sub21.anInterface1_2668.method1(id, params, type);
 			if (string_1_ != null) {
 				return string_1_;
 			}
 		}
-		return Long.toString(l);
+		return Long.toString(id);
 	}
 
 	public static void method850(final byte i) {

@@ -35,7 +35,7 @@ final class Class120_Sub22 extends Node {
 			final int dataLen = Canvas_Sub1.inputStream.getUByteC();
 			final byte[] data = new byte[dataLen];
 			final Buffer buffer = new Buffer(data);
-			Canvas_Sub1.inputStream.getBytesA(data, 0, dataLen);
+			Canvas_Sub1.inputStream.getBufferA(data, 0, dataLen);
 			StringNode.playerAppearanceBuffers[index] = buffer;
 			player.decodeAppearance(buffer);
 		}
@@ -60,9 +60,9 @@ final class Class120_Sub22 extends Node {
 			Class120_Sub12_Sub32.method1370(player, is_9_, is_8_, is);
 		}
 		if ((mask & 0x10) != 0) {
-			player.textSpoken = Canvas_Sub1.inputStream.getJString();
+			player.textSpoken = Canvas_Sub1.inputStream.getJagexString();
 			if (player.textSpoken.charAt(0) != '~') {
-				if (player == Class100.selfPlayer) {
+				if (player == TileParticleQueue.selfPlayer) {
 					AbstractRequest.method1540(player.getTitledName(), 2, player.textSpoken);
 				}
 			} else {
@@ -97,27 +97,31 @@ final class Class120_Sub22 extends Node {
 				if (!ignore && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
 					int i_18_ = -1;
-					Canvas_Sub1.inputStream.method1136(-21764, i_14_, Class120_Sub12_Sub19.aClass120_Sub7_3278.buf, 0);
+					Canvas_Sub1.inputStream.getBufferReverse(Class120_Sub12_Sub19.aClass120_Sub7_3278.buf, 0, i_14_);
 					Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
-					String string;
-					if (!bool) {
-						string = Class120_Sub14_Sub8.method1472(method1705(false, Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
-					} else {
+					String message;
+					if (bool) {
 						i_12_ &= 0x7fff;
-						final Class22 class22 = Class110.method980(Class120_Sub12_Sub19.aClass120_Sub7_3278);
+						final Class22 class22 = Class22.decode(Class120_Sub12_Sub19.aClass120_Sub7_3278);
 						i_18_ = class22.anInt129;
-						string = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
+						message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
+					} else {
+						message = Class120_Sub14_Sub8.method1472(method1705(Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 					}
-					player.textSpoken = string.trim();
-					player.anInt2995 = 0xff & i_12_;
+					i_12_ &= 0x7fff;
+					final Class22 class22 = Class22.list(15);
+					i_18_ = class22.anInt129;
+					message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
+					player.textSpoken = message.trim();
+					player.anInt2995 = i_12_ & 0xff;
 					player.textCycle = 150;
 					player.anInt2976 = i_12_ >> 8;
 					if (staffLevel == 2) {
-						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(player.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string);
+						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(player.getTitledName()).toString(), i_18_, null, bool ? 17 : 1, message);
 					} else if (staffLevel == 1) {
-						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(player.getTitledName()).toString(), i_18_, null, !bool ? 1 : 17, string);
+						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(player.getTitledName()).toString(), i_18_, null, bool ? 17 : 1, message);
 					} else {
-						Class120_Sub16.method1660(player.getTitledName(), i_18_, null, !bool ? 2 : 17, string);
+						Class120_Sub16.method1660(player.getTitledName(), i_18_, null, bool ? 17 : 2, message);
 					}
 				}
 			}
@@ -148,7 +152,7 @@ final class Class120_Sub22 extends Node {
 					if (spotAnimAnimationId != -1) {
 						final SeqType seqType = SeqType.list(spotAnimAnimationId);
 						if (seqType != null && seqType.frames != null) {
-							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == Class100.selfPlayer);
+							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == TileParticleQueue.selfPlayer);
 						}
 					}
 				}
@@ -224,60 +228,42 @@ final class Class120_Sub22 extends Node {
 		}
 	}
 
-	private static final char method1704(final char c, final boolean bool) {
-		char c_29_;
-		try {
-			if (c == '\u00b5' || c == '\u0192') {
-				return c;
-			}
-			if (bool) {
-				return '\uffeb';
-			}
-			c_29_ = Character.toTitleCase(c);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.E(").append(c).append(',').append(bool).append(')').toString());
+	private static final char method1704(final char c) {
+		if (c == '\u00b5' || c == '\u0192') {
+			return c;
 		}
-		return c_29_;
+		return Character.toTitleCase(c);
 	}
 
-	static final String method1705(final boolean bool, final String string) {
-		String string_30_;
-		try {
-			final int i = string.length();
-			if (bool) {
-				return null;
-			}
-			final char[] cs = new char[i];
-			int i_31_ = 2;
-			for (int i_32_ = 0; i > i_32_; i_32_++) {
-				char c = string.charAt(i_32_);
-				if (i_31_ != 0) {
-					if (i_31_ == 2 || Character.isUpperCase(c)) {
-						c = method1704(c, false);
-					}
-				} else {
-					c = Character.toLowerCase(c);
+	static final String method1705(final String string) {
+		final int i = string.length();
+		final char[] cs = new char[i];
+		int i_31_ = 2;
+		for (int i_32_ = 0; i > i_32_; i_32_++) {
+			char c = string.charAt(i_32_);
+			if (i_31_ != 0) {
+				if (i_31_ == 2 || Character.isUpperCase(c)) {
+					c = method1704(c);
 				}
-				if (Character.isLetter(c)) {
-					i_31_ = 0;
-				} else if (c != '.' && c != '?' && c != '!') {
-					if (Character.isSpaceChar(c)) {
-						if (i_31_ != 2) {
-							i_31_ = 1;
-						}
-					} else {
+			} else {
+				c = Character.toLowerCase(c);
+			}
+			if (Character.isLetter(c)) {
+				i_31_ = 0;
+			} else if (c != '.' && c != '?' && c != '!') {
+				if (Character.isSpaceChar(c)) {
+					if (i_31_ != 2) {
 						i_31_ = 1;
 					}
 				} else {
-					i_31_ = 2;
+					i_31_ = 1;
 				}
-				cs[i_32_] = c;
+			} else {
+				i_31_ = 2;
 			}
-			string_30_ = new String(cs);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.C(").append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			cs[i_32_] = c;
 		}
-		return string_30_;
+		return new String(cs);
 	}
 
 	final void method1706(final boolean bool) {
@@ -405,7 +391,7 @@ final class Class120_Sub22 extends Node {
 				} else {
 					i_59_ = is_54_[i_60_++];
 				}
-				i_61_ = class120_sub7.method1111(false);
+				i_61_ = class120_sub7.method1111();
 			}
 			this.aShortArray2680[i_62_] += Class120_Sub12_Sub3.method1207(32768, i_61_ - 1 << 14);
 			anIntArray2678[i_62_] = i_61_;

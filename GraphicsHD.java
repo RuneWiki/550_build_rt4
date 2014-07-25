@@ -168,23 +168,23 @@ final class GraphicsHD {
 		method601();
 	}
 
-	static final void clipRect(int i, int i_57_, int i_58_, int i_59_) {
-		if (i < 0) {
-			i = 0;
+	static final void clipRect(int sx, int sy, int ex, int ey) {
+		if (sx < 0) {
+			sx = 0;
 		}
-		if (i_57_ < 0) {
-			i_57_ = 0;
+		if (sy < 0) {
+			sy = 0;
 		}
-		if (i_58_ > HDToolkit.canvasWidth) {
-			i_58_ = HDToolkit.canvasWidth;
+		if (ex > HDToolkit.canvasWidth) {
+			ex = HDToolkit.canvasWidth;
 		}
-		if (i_59_ > HDToolkit.canvasHeight) {
-			i_59_ = HDToolkit.canvasHeight;
+		if (ey > HDToolkit.canvasHeight) {
+			ey = HDToolkit.canvasHeight;
 		}
-		startX = i;
-		startY = i_57_;
-		endX = i_58_;
-		endY = i_59_;
+		startX = sx;
+		startY = sy;
+		endX = ex;
+		endY = ey;
 		final GL gl = HDToolkit.gl;
 		gl.glEnable(3089);
 		if (startX > endX || startY > endY) {

@@ -118,21 +118,12 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		}
 	}
 
-	static final String method1326(final String string, final boolean bool) {
-		String string_29_;
-		try {
-			if (!bool) {
-				anIntArray3304 = null;
-			}
-			String string_30_ = Class136.longToString(Varp.stringToLong(string));
-			if (string_30_ == null) {
-				string_30_ = "";
-			}
-			string_29_ = string_30_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.T(").append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+	static final String method1326(final String string) {
+		String returnString = Class136.longToString(Varp.stringToLong(string));
+		if (returnString == null) {
+			returnString = "";
 		}
-		return string_29_;
+		return returnString;
 	}
 
 	public Class120_Sub12_Sub23() {

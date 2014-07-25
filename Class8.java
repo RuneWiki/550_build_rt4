@@ -17,24 +17,14 @@ final class Class8 {
 		Class120_Sub12_Sub22.boldFont = Class9.method117(js5, class50_0_, 18265, Class110.b12fullId, 0);
 	}
 
-	static final int method110(final char c, final String string, final boolean bool) {
-		int i;
-		try {
-			int i_1_ = 0;
-			final int i_2_ = string.length();
-			if (bool) {
-				return -30;
+	static final int getCharCount(final String string, final char wantedChar) {
+		int count = 0;
+		for (int id = 0; id < string.length(); id++) {
+			if (string.charAt(id) == wantedChar) {
+				count++;
 			}
-			for (int i_3_ = 0; i_3_ < i_2_; i_3_++) {
-				if (string.charAt(i_3_) == c) {
-					i_1_++;
-				}
-			}
-			i = i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("aj.D(").append(c).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
 		}
-		return i;
+		return count;
 	}
 
 	static final void method111(final byte i) {

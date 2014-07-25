@@ -21,7 +21,7 @@ class Node {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.objectData = jagexInterface.onSpellDeselectionListener;
 				class120_sub10.aClass189_2534 = jagexInterface;
-				Class88.method744(true, class120_sub10);
+				Class88.method744(class120_sub10);
 			}
 			Class88.spellSelected = false;
 			Class192.selectedSpellCursor = -1;

@@ -56,7 +56,7 @@ final class Class84 {
 						final int i_3_ = -class180_sub4.anInt2929 - 1;
 						Player class180_sub5_sub1;
 						if (Class167.anInt1616 == i_3_) {
-							class180_sub5_sub1 = Class100.selfPlayer;
+							class180_sub5_sub1 = TileParticleQueue.selfPlayer;
 						} else {
 							class180_sub5_sub1 = Class118.playersList[i_3_];
 						}

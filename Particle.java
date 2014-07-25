@@ -2,13 +2,13 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class108_Sub3_Sub1 extends Class108_Sub3 {
+final class Particle extends ParticleNodeSub {
 	private static int anInt3086 = 12;
 	int anInt3087;
 	int anInt3088;
 	private short aShort3089;
 	int anInt3090;
-	int anInt3091;
+	int color;
 	private int anInt3092;
 	private short aShort3093;
 	short aShort3094;
@@ -16,7 +16,7 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 	private short aShort3096;
 	boolean aBoolean3097 = false;
 	private short aShort3098;
-	Class108_Sub1 aClass108_Sub1_3099;
+	ParticleManager aClass108_Sub1_3099;
 	private int anInt3100;
 
 	final void method968(final long l, final int i) {
@@ -32,9 +32,9 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 				final Class80 class80 = this.aClass108_Sub1_3099.aClass80_2323;
 				if (class80.anInt729 != 0) {
 					if (aShort3095 - aShort3093 <= class80.anInt735) {
-						int i_3_ = (this.anInt3091 >> 8 & 0xff00) + (anInt3092 >> 16 & 0xff) + class80.anInt728 * i;
-						int i_4_ = (this.anInt3091 & 0xff00) + (anInt3092 >> 8 & 0xff) + class80.anInt730 * i;
-						int i_5_ = (this.anInt3091 << 8 & 0xff00) + (anInt3092 & 0xff) + class80.anInt745 * i;
+						int i_3_ = (this.color >> 8 & 0xff00) + (anInt3092 >> 16 & 0xff) + class80.anInt728 * i;
+						int i_4_ = (this.color & 0xff00) + (anInt3092 >> 8 & 0xff) + class80.anInt730 * i;
+						int i_5_ = (this.color << 8 & 0xff00) + (anInt3092 & 0xff) + class80.anInt745 * i;
 						if (i_3_ < 0) {
 							i_3_ = 0;
 						} else if (i_3_ > 65535) {
@@ -50,20 +50,20 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 						} else if (i_5_ > 65535) {
 							i_5_ = 65535;
 						}
-						this.anInt3091 &= ~0xffffff;
-						this.anInt3091 |= ((i_3_ & 0xff00) << 8) + (i_4_ & 0xff00) + ((i_5_ & 0xff00) >> 8);
+						this.color &= ~0xffffff;
+						this.color |= ((i_3_ & 0xff00) << 8) + (i_4_ & 0xff00) + ((i_5_ & 0xff00) >> 8);
 						anInt3092 &= ~0xffffff;
 						anInt3092 |= ((i_3_ & 0xff) << 16) + ((i_4_ & 0xff) << 8) + (i_5_ & 0xff);
 					}
 					if (aShort3095 - aShort3093 <= class80.anInt731) {
-						int i_6_ = (this.anInt3091 >> 16 & 0xff00) + (anInt3092 >> 24 & 0xff) + class80.anInt720 * i;
+						int i_6_ = (this.color >> 16 & 0xff00) + (anInt3092 >> 24 & 0xff) + class80.anInt720 * i;
 						if (i_6_ < 0) {
 							i_6_ = 0;
 						} else if (i_6_ > 65535) {
 							i_6_ = 65535;
 						}
-						this.anInt3091 &= 0xffffff;
-						this.anInt3091 |= (i_6_ & 0xff00) << 16;
+						this.color &= 0xffffff;
+						this.color |= (i_6_ & 0xff00) << 16;
 						anInt3092 &= 0xffffff;
 						anInt3092 |= (i_6_ & 0xff) << 24;
 					}
@@ -291,14 +291,14 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 						if (class120_sub18 == null) {
 							class120_sub18 = LabelGroup.groundTiles[i_52_][i_48_][i_49_] = new GroundTile(i_52_, i_48_, i_49_);
 						}
-						if (class120_sub18.aClass100_2645 == null) {
-							class120_sub18.aClass100_2645 = new Class100();
+						if (class120_sub18.tileParticle == null) {
+							class120_sub18.tileParticle = new TileParticleQueue();
 							class120_sub18.aByte2623 = (byte) (int) (l & 0xffL);
 						} else if (class120_sub18.aByte2623 != (byte) (int) (l & 0xffL)) {
-							class120_sub18.aClass100_2645.method827(25480);
+							class120_sub18.tileParticle.clear();
 							class120_sub18.aByte2623 = (byte) (int) (l & 0xffL);
 						}
-						class120_sub18.aClass100_2645.method830(-2260, this);
+						class120_sub18.tileParticle.insertLast(this);
 					} else {
 						this.aBoolean3097 = false;
 					}
@@ -313,7 +313,7 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 		ParticleEngine.anInt2354 = ParticleEngine.anInt2354 + 1 & 0x3ff;
 		this.aClass108_Sub1_3099 = null;
 		unlink();
-		method967(13);
+		unlinkSub();
 	}
 
 	private final void method970() {
@@ -327,12 +327,12 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 		this.aClass108_Sub1_3099.aClass174_2337.insertLast(this);
 	}
 
-	final void method971(final Class108_Sub1 class108_sub1, final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_) {
+	final void method971(final ParticleManager class108_sub1, final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_) {
 		this.aClass108_Sub1_3099 = class108_sub1;
 		this.anInt3087 = i << anInt3086;
 		this.anInt3088 = i_53_ << anInt3086;
 		this.anInt3090 = i_54_ << anInt3086;
-		this.anInt3091 = i_60_;
+		this.color = i_60_;
 		aShort3095 = aShort3093 = (short) i_59_;
 		aShort3089 = (short) i_55_;
 		aShort3096 = (short) i_56_;
@@ -341,12 +341,12 @@ final class Class108_Sub3_Sub1 extends Class108_Sub3 {
 		method970();
 	}
 
-	Class108_Sub3_Sub1(final Class108_Sub1 class108_sub1, final int i, final int i_61_, final int i_62_, final int i_63_, final int i_64_, final int i_65_, final int i_66_, final int i_67_, final int i_68_) {
+	Particle(final ParticleManager class108_sub1, final int i, final int i_61_, final int i_62_, final int i_63_, final int i_64_, final int i_65_, final int i_66_, final int i_67_, final int i_68_) {
 		this.aClass108_Sub1_3099 = class108_sub1;
 		this.anInt3087 = i << anInt3086;
 		this.anInt3088 = i_61_ << anInt3086;
 		this.anInt3090 = i_62_ << anInt3086;
-		this.anInt3091 = i_68_;
+		this.color = i_68_;
 		aShort3095 = aShort3093 = (short) i_67_;
 		aShort3089 = (short) i_63_;
 		aShort3096 = (short) i_64_;

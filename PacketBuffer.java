@@ -91,7 +91,7 @@ final class PacketBuffer extends Buffer {
 						GameShell.method32(class120_sub7.getUByte() == 1);
 						Class120_Sub12.aBoolean2564 = class120_sub7.getUByte() == 1;
 						Hashtable.showGroundDecorations = class120_sub7.getUByte() == 1;
-						Class108_Sub3.highDetailTextures = class120_sub7.getUByte() == 1;
+						ParticleNodeSub.highDetailTextures = class120_sub7.getUByte() == 1;
 						Class120_Sub12_Sub10.manyIdleAnimations = class120_sub7.getUByte() == 1;
 						Class191.flickeringEffectsOn = class120_sub7.getUByte() == 1;
 						Class120_Sub30_Sub1.manyGroundTextures = class120_sub7.getUByte() == 1;

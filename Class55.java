@@ -35,7 +35,7 @@ final class Class55 {
 			if (i_3_ != 2951) {
 				return null;
 			}
-			final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, class120_sub7.getJString(), class120_sub7.getJString(), class120_sub7.getInt(), class120_sub7.getInt(), class120_sub7.getUByte() == 1,
+			final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, class120_sub7.getJagexString(), class120_sub7.getJagexString(), class120_sub7.getInt(), class120_sub7.getInt(), class120_sub7.getUByte() == 1,
 					class120_sub7.getUByte());
 			final int i_5_ = class120_sub7.getUByte();
 			for (int i_6_ = 0; i_5_ > i_6_; i_6_++) {

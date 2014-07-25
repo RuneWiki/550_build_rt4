@@ -9,47 +9,26 @@ final class InterfaceClickMask extends Node {
 	int optionMask;
 	static ObjectCache aClass21_2663 = new ObjectCache(500);
 
-	final boolean method1677(final byte i) {
-		boolean bool;
-		try {
-			bool = (0x1 & this.optionMask >> 21) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.E(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1677() {
+		return (0x1 & this.optionMask >> 21) != 0;
 	}
 
 	final boolean method1678(final int i) {
 		return (0x1 & this.optionMask >> i + 1) != 0;
 	}
 
-	static final void method1679(final Node node, final byte i, final Node class120_1_) {
-		try {
-			if (i < -78) {
-				if (class120_1_.previous != null) {
-					class120_1_.unlink();
-				}
-				class120_1_.next = node;
-				class120_1_.previous = node.previous;
-				class120_1_.previous.next = class120_1_;
-				class120_1_.next.previous = class120_1_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.B(").append(node != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_1_ != null ? "{...}" : "null").append(')').toString());
+	static final void method1679(final Node node, final Node class120_1_) {
+		if (class120_1_.previous != null) {
+			class120_1_.unlink();
 		}
+		class120_1_.next = node;
+		class120_1_.previous = node.previous;
+		class120_1_.previous.next = class120_1_;
+		class120_1_.next.previous = class120_1_;
 	}
 
-	final boolean method1681(final int i) {
-		boolean bool;
-		try {
-			if (i != -9617) {
-				method1689(76, -102);
-			}
-			bool = (this.optionMask & 0x107da4ce) >> 28 != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.Q(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1681() {
+		return (this.optionMask & 0x107da4ce) >> 28 != 0;
 	}
 
 	static final void redrawInterface(final JagexInterface jagexInterface) {
@@ -67,34 +46,16 @@ final class InterfaceClickMask extends Node {
 		aString2660 = null;
 	}
 
-	final int method1685(final int i) {
-		return Class153.method2073(this.optionMask);
+	final int method1685() {
+		return optionMask >> 11 & 0x7f;
 	}
 
-	final boolean method1686(final byte i) {
-		boolean bool;
-		try {
-			if (i != -101) {
-				return false;
-			}
-			bool = (this.optionMask & 0x1) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.H(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1686() {
+		return (this.optionMask & 0x1) != 0;
 	}
 
-	final boolean method1687(final int i) {
-		boolean bool;
-		try {
-			if (i <= 103) {
-				return false;
-			}
-			bool = (0x1 & this.optionMask >> 31) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.F(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1687() {
+		return (0x1 & this.optionMask >> 31) != 0;
 	}
 
 	static final int method1688(final int i, final int i_5_) {
@@ -188,17 +149,8 @@ final class InterfaceClickMask extends Node {
 		return (this.optionMask >> 29 & 0x1) != 0;
 	}
 
-	final boolean method1692(final boolean bool) {
-		boolean bool_20_;
-		try {
-			if (bool) {
-				return false;
-			}
-			bool_20_ = (0x1 & this.optionMask >> 22) != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.K(").append(bool).append(')').toString());
-		}
-		return bool_20_;
+	final boolean method1692() {
+		return (0x1 & this.optionMask >> 22) != 0;
 	}
 
 	static final void method1693() {
@@ -206,17 +158,8 @@ final class InterfaceClickMask extends Node {
 		Class132.aClass21_1255.clear();
 	}
 
-	final boolean method1694(final int i) {
-		boolean bool;
-		try {
-			if (i != 500) {
-				method1691();
-			}
-			bool = (0x4b87f889 & this.optionMask) >> 30 != 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.J(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1694() {
+		return (0x4b87f889 & this.optionMask) >> 30 != 0;
 	}
 
 	InterfaceClickMask(final int i, final int i_21_) {

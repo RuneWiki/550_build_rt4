@@ -34,7 +34,7 @@ final class SpotAnimType {
 					return true;
 				}
 			}
-			if (string.equalsIgnoreCase(Class100.selfPlayer.name)) {
+			if (string.equalsIgnoreCase(TileParticleQueue.selfPlayer.name)) {
 				return true;
 			}
 			bool = false;

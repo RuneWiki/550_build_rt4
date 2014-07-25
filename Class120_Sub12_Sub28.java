@@ -50,9 +50,9 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								}
 							}
 						} else {
-							final int i_15_ = (int) Class117.aFloatArray1127[0];
-							final int i_16_ = (int) Class117.aFloatArray1127[2];
-							final int i_17_ = (int) Class117.aFloatArray1127[1];
+							final int i_15_ = (int) AtmosphereManager.aFloatArray1127[0];
+							final int i_16_ = (int) AtmosphereManager.aFloatArray1127[2];
+							final int i_17_ = (int) AtmosphereManager.aFloatArray1127[1];
 							final int i_18_ = (int) Math.sqrt(i_16_ * i_16_ + i_17_ * i_17_ + i_15_ * i_15_);
 							final int i_19_ = 1024 * i_18_ >> 8;
 							for (int i_20_ = 1; i_20_ < 103; i_20_++) {

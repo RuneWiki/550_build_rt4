@@ -80,7 +80,7 @@ final class AmbientSound extends Node {
 		Class143_Sub1.aString2192 = "Votre liste noire est pleine (100 noms maximum).";
 		NodeSub.aString2585 = "Fichiers config charg\u00e9s";
 		Js5Worker.aString400 = "D\u00e9marrage de la librairie 3D";
-		Class108_Sub3.aString2396 = "Chargement de Mechscape en cours - veuillez patienter...";
+		ParticleNodeSub.aString2396 = "Chargement de Mechscape en cours - veuillez patienter...";
 		Class120_Sub11.aString2553 = " autres options";
 		Class61.aString568 = "voudrait faire un \u00e9change avec vous.";
 		Class120_Sub30_Sub2.aString3679 = "Chargement en cours. Veuillez patienter.";
@@ -190,11 +190,7 @@ final class AmbientSound extends Node {
 		Class127.method1892();
 		Class118.aBoolean1134 = true;
 	}
-
-	static final void method1159() {
-		Class158.aBoolean1478 = true;
-	}
-
+	
 	static final void fillArray(final int[] src, final int val, int i_5_, int i_6_) {
 		final int i_7_ = -7 + --i_6_;
 		i_5_--;

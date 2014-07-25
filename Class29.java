@@ -63,27 +63,21 @@ final class Class29 {
 		}
 	}
 
-	static final String[] method249(final int i, final char c, final String string) {
-		String[] strings;
-		try {
-			final int i_1_ = Class8.method110(c, string, false);
-			final String[] strings_2_ = new String[i_1_ + 1];
-			int i_3_ = i;
-			int i_4_ = 0;
-			for (int i_5_ = 0; i_1_ > i_5_; i_5_++) {
-				int i_6_;
-				for (i_6_ = i_4_; c != string.charAt(i_6_); i_6_++) {
-					/* empty */
-				}
-				strings_2_[i_3_++] = string.substring(i_4_, i_6_);
-				i_4_ = i_6_ - -1;
+	static final String[] splitString(final String string, final char c) {
+		final int charCount = Class8.getCharCount(string, c);
+		final String[] results = new String[charCount + 1];
+		int resultsPos = 0;
+		int beginIndex = 0;
+		for (int charIndex = 0; charIndex < charCount; charIndex++) {
+			int endIndex;
+			for (endIndex = beginIndex; c != string.charAt(endIndex); endIndex++) {
+				/* empty */
 			}
-			strings_2_[i_1_] = string.substring(i_4_);
-			strings = strings_2_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("d.F(").append(i).append(',').append(c).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+			results[resultsPos++] = string.substring(beginIndex, endIndex);
+			beginIndex = endIndex + 1;
 		}
-		return strings;
+		results[charCount] = string.substring(beginIndex);
+		return results;
 	}
 
 	static final void method250(final int i, final int i_7_) {
@@ -92,26 +86,17 @@ final class Class29 {
 		class120_sub14_sub7.anInt3484 = i_7_;
 	}
 
-	static final float[] method251(final int i) {
-		float[] fs;
-		try {
-			if (i < 51) {
-				return null;
-			}
-			final float f = Class117.method1012() + Class117.method1015();
-			final int i_9_ = Class117.method1017();
-			final float f_10_ = (0xff & i_9_ >> 16) / 255.0F;
-			NodeSub.aFloatArray2583[3] = 1.0F;
-			final float f_11_ = (0xff & i_9_ >> 8) / 255.0F;
-			final float f_13_ = (i_9_ & 0xff) / 255.0F;
-			NodeSub.aFloatArray2583[2] = 0.58823526F * (Class120_Sub15.aFloatArray2596[2] * f_13_) * f;
-			NodeSub.aFloatArray2583[1] = f * (0.58823526F * (Class120_Sub15.aFloatArray2596[1] * f_11_));
-			NodeSub.aFloatArray2583[0] = Class120_Sub15.aFloatArray2596[0] * f_10_ * 0.58823526F * f;
-			fs = NodeSub.aFloatArray2583;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("d.C(").append(i).append(')').toString());
-		}
-		return fs;
+	static final float[] method251() {
+		final float f = AtmosphereManager.method1012() + AtmosphereManager.method1015();
+		final int i_9_ = AtmosphereManager.method1017();
+		final float f_10_ = (0xff & i_9_ >> 16) / 255.0F;
+		final float f_11_ = (0xff & i_9_ >> 8) / 255.0F;
+		final float f_13_ = (i_9_ & 0xff) / 255.0F;
+		NodeSub.aFloatArray2583[0] = Class120_Sub15.aFloatArray2596[0] * f_10_ * 0.58823526F * f;
+		NodeSub.aFloatArray2583[1] = f * (0.58823526F * (Class120_Sub15.aFloatArray2596[1] * f_11_));
+		NodeSub.aFloatArray2583[2] = 0.58823526F * (Class120_Sub15.aFloatArray2596[2] * f_13_) * f;
+		NodeSub.aFloatArray2583[3] = 1.0F;
+		return NodeSub.aFloatArray2583;
 	}
 
 	private final void method252(final int i, final int i_14_, final Buffer class120_sub7) {

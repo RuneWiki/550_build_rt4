@@ -433,7 +433,7 @@ final class JagexInterface {
 			}
 			this.oiActions = new String[5];
 			for (int i_37_ = 0; i_37_ < 5; i_37_++) {
-				final String string = buffer.getJString();
+				final String string = buffer.getJagexString();
 				if (string.length() > 0) {
 					this.oiActions[i_37_] = string;
 					clickMask |= 1 << i_37_ + 23;
@@ -454,8 +454,8 @@ final class JagexInterface {
 			this.shaded = buffer.getUByte() == 1;
 		}
 		if (this.type == 4) {
-			this.disabledText = buffer.getJString();
-			this.enabledText = buffer.getJString();
+			this.disabledText = buffer.getJagexString();
+			this.enabledText = buffer.getJagexString();
 		}
 		if (this.type == 1 || this.type == 3 || this.type == 4) {
 			this.disabledColor = buffer.getInt();
@@ -512,7 +512,7 @@ final class JagexInterface {
 			}
 			this.oiActions = new String[5];
 			for (int i_39_ = 0; i_39_ < 5; i_39_++) {
-				final String string = buffer.getJString();
+				final String string = buffer.getJagexString();
 				if (string.length() > 0) {
 					this.oiActions[i_39_] = string;
 					clickMask |= 1 << i_39_ + 23;
@@ -520,16 +520,16 @@ final class JagexInterface {
 			}
 		}
 		if (this.type == 8) {
-			this.disabledText = buffer.getJString();
+			this.disabledText = buffer.getJagexString();
 		}
 		if (this.actionType == 2 || this.type == 2) {
-			this.selectedActionName = buffer.getJString();
-			this.spellNameoi = buffer.getJString();
+			this.selectedActionName = buffer.getJagexString();
+			this.spellNameoi = buffer.getJagexString();
 			final int i_40_ = 0x3f & buffer.getUShort();
 			clickMask |= i_40_ << 11;
 		}
 		if (this.actionType == 1 || this.actionType == 4 || this.actionType == 5 || this.actionType == 6) {
-			this.tooltip = buffer.getJString();
+			this.tooltip = buffer.getJagexString();
 			if (this.tooltip.length() == 0) {
 				if (this.actionType == 1) {
 					this.tooltip = Class120_Sub12_Sub28.okString;
@@ -652,7 +652,7 @@ final class JagexInterface {
 		this.type = buffer.getUByte();
 		if ((0x80 & this.type) != 0) {
 			this.type &= 0x7f;
-			buffer.getJString();
+			buffer.getJagexString();
 		}
 		this.clientCode = buffer.getUShort();
 		this.originalX = buffer.getShort();
@@ -720,7 +720,7 @@ final class JagexInterface {
 			if (this.font == 65535) {
 				this.font = -1;
 			}
-			this.disabledText = buffer.getJString();
+			this.disabledText = buffer.getJagexString();
 			this.verticalSpacing = buffer.getUByte();
 			this.horizontalAlignment = buffer.getUByte();
 			this.verticalAlignment = buffer.getUByte();
@@ -756,14 +756,14 @@ final class JagexInterface {
 				this.aByteArray1955[i_51_] = buffer.getByte();
 			}
 		}
-		this.spellNameni = buffer.getJString();
+		this.spellNameni = buffer.getJagexString();
 		final int i_52_ = buffer.getUByte();
 		final int i_53_ = i_52_ >> 4;
 		final int i_54_ = 0xf & i_52_;
 		if (i_54_ > 0) {
 			this.niActions = new String[i_54_];
 			for (int i_55_ = 0; i_54_ > i_55_; i_55_++) {
-				this.niActions[i_55_] = buffer.getJString();
+				this.niActions[i_55_] = buffer.getJagexString();
 			}
 		}
 		if (i_53_ > 0) {
@@ -778,7 +778,7 @@ final class JagexInterface {
 			final int i_58_ = buffer.getUByte();
 			this.cursors[i_58_] = buffer.getUShort();
 		}
-		this.actionSufix = buffer.getJString();
+		this.actionSufix = buffer.getJagexString();
 		if (this.actionSufix.equals("")) {
 			this.actionSufix = null;
 		}
@@ -786,7 +786,7 @@ final class JagexInterface {
 		this.anInt1962 = buffer.getUByte();
 		this.anInt2066 = buffer.getUByte();
 		this.aBoolean1939 = buffer.getUByte() == 1;
-		this.selectedActionName = buffer.getJString();
+		this.selectedActionName = buffer.getJagexString();
 		if (Class153.method2073(clickMask) != 0) {
 			paramId = buffer.getUShort();
 			if (paramId == 65535) {
@@ -835,7 +835,7 @@ final class JagexInterface {
 			this.objIds[i] = this.objIds[i_61_];
 			this.objIds[i_61_] = i_62_;
 			if (i_60_ <= 53) {
-				method2501(69);
+				method2501();
 			}
 			i_62_ = this.objAmounts[i];
 			this.objAmounts[i] = this.objAmounts[i_61_];
@@ -1023,45 +1023,36 @@ final class JagexInterface {
 		}
 	}
 
-	final boolean method2501(final int i) {
-		boolean bool;
-		try {
-			if (this.anIntArray2079 != null) {
-				return true;
-			}
-			final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class89.aClass50_836, 0, this.disabledSpriteId);
-			if (class107_sub1 == null) {
-				return false;
-			}
-			class107_sub1.method923();
-			this.anIntArray1949 = new int[class107_sub1.height];
-			this.anIntArray2079 = new int[class107_sub1.height];
-			if (i != -1) {
-				this.anIntArray1973 = null;
-			}
-			for (int i_82_ = 0; i_82_ < class107_sub1.height; i_82_++) {
-				int i_83_ = 0;
-				for (int i_84_ = 0; i_84_ < class107_sub1.width; i_84_++) {
-					if (class107_sub1.paletteIndicators[i_84_ + i_82_ * class107_sub1.width] != 0) {
-						i_83_ = i_84_;
-						break;
-					}
-				}
-				int i_85_ = class107_sub1.width;
-				for (int i_86_ = i_83_; class107_sub1.width > i_86_; i_86_++) {
-					if (class107_sub1.paletteIndicators[class107_sub1.width * i_82_ + i_86_] == 0) {
-						i_85_ = i_86_;
-						break;
-					}
-				}
-				this.anIntArray2079[i_82_] = i_83_;
-				this.anIntArray1949[i_82_] = i_85_ + -i_83_;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.E(").append(i).append(')').toString());
+	final boolean method2501() {
+		if (this.anIntArray2079 != null) {
+			return true;
 		}
-		return bool;
+		final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class89.aClass50_836, 0, this.disabledSpriteId);
+		if (class107_sub1 == null) {
+			return false;
+		}
+		class107_sub1.method923();
+		this.anIntArray1949 = new int[class107_sub1.height];
+		this.anIntArray2079 = new int[class107_sub1.height];
+		for (int i_82_ = 0; i_82_ < class107_sub1.height; i_82_++) {
+			int i_83_ = 0;
+			for (int i_84_ = 0; i_84_ < class107_sub1.width; i_84_++) {
+				if (class107_sub1.paletteIndicators[i_84_ + i_82_ * class107_sub1.width] != 0) {
+					i_83_ = i_84_;
+					break;
+				}
+			}
+			int i_85_ = class107_sub1.width;
+			for (int i_86_ = i_83_; class107_sub1.width > i_86_; i_86_++) {
+				if (class107_sub1.paletteIndicators[class107_sub1.width * i_82_ + i_86_] == 0) {
+					i_85_ = i_86_;
+					break;
+				}
+			}
+			this.anIntArray2079[i_82_] = i_83_;
+			this.anIntArray1949[i_82_] = i_85_ + -i_83_;
+		}
+		return true;
 	}
 
 	static final long method2502(final int i, final int i_87_, final int i_88_) {
@@ -1082,7 +1073,7 @@ final class JagexInterface {
 			final int i_92_ = class120_sub7.getUByte();
 			if (i_92_ != 0) {
 				if (i_92_ == 1) {
-					objects_90_[i_91_] = class120_sub7.getJString();
+					objects_90_[i_91_] = class120_sub7.getJagexString();
 				}
 			} else {
 				objects_90_[i_91_] = new Integer(class120_sub7.getInt());
@@ -1093,14 +1084,14 @@ final class JagexInterface {
 	}
 
 	static final JagexInterface getComponent(final int bitPacked, final int componentIndex) {
-		final JagexInterface class189_20_ = Class74.getJagexInterface(bitPacked);
+		final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
 		if (componentIndex == -1) {
-			return class189_20_;
+			return jagexInterface;
 		}
-		if (class189_20_ == null || class189_20_.components == null || componentIndex >= class189_20_.components.length) {
+		if (jagexInterface == null || jagexInterface.components == null || componentIndex >= jagexInterface.components.length) {
 			return null;
 		}
-		return class189_20_.components[componentIndex];
+		return jagexInterface.components[componentIndex];
 	}
 
 	public JagexInterface() {

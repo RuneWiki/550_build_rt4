@@ -36,7 +36,7 @@ final class Class154 {
 						return;
 					}
 				}
-				if (string.equals(Class100.selfPlayer.name)) {
+				if (string.equals(TileParticleQueue.selfPlayer.name)) {
 					AbstractRequest.method1540("", 0, Class112.aString1079);
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = l;

@@ -66,8 +66,8 @@ final class Class38 {
 
 	static final boolean method315(final int level) {
 		if (Class120_Sub14_Sub10.landScapeAsSprite == null) {
-			if (!HDToolkit.glEnabled && Class134.aClass120_Sub14_Sub19_1276 != null) {
-				Class120_Sub14_Sub10.landScapeAsSprite = (LDSprite) Class134.aClass120_Sub14_Sub19_1276;
+			if (!HDToolkit.glEnabled && Class134.landscapeAsSprite != null) {
+				Class120_Sub14_Sub10.landScapeAsSprite = (LDSprite) Class134.landscapeAsSprite;
 			} else {
 				Class120_Sub14_Sub10.landScapeAsSprite = new LDSprite(512, 512);
 			}
@@ -182,9 +182,9 @@ final class Class38 {
 					is[i_33_] = 1;
 				}
 			}
-			Class134.aClass120_Sub14_Sub19_1276 = new HDSprite(Class120_Sub14_Sub10.landScapeAsSprite);
+			Class134.landscapeAsSprite = new HDSprite(Class120_Sub14_Sub10.landScapeAsSprite);
 		} else {
-			Class134.aClass120_Sub14_Sub19_1276 = Class120_Sub14_Sub10.landScapeAsSprite;
+			Class134.landscapeAsSprite = Class120_Sub14_Sub10.landScapeAsSprite;
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsLD.pixels = null;

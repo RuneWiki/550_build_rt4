@@ -93,8 +93,8 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 			if (anInt3191 >= 0) {
 				final int i_15_ = Class120_Sub12_Sub2.anInt3145;
 				final int i_16_ = Class120_Sub12_Sub7.anInt3178;
-				final int i_17_ = CanvasWrapper.anInterface3_19.method8(anInt3191, (byte) -48).aBoolean1100 ? 64 : 128;
-				anIntArray3189 = CanvasWrapper.anInterface3_19.method6(i_17_, 1.0F, anInt3191, i_17_, i ^ ~0xc6, false);
+				final int i_17_ = CanvasWrapper.anInterface3_19.method8(anInt3191).aBoolean1100 ? 64 : 128;
+				anIntArray3189 = CanvasWrapper.anInterface3_19.method6(i_17_, 1.0F, anInt3191, i_17_, false);
 				anInt3188 = i_17_;
 				anInt3186 = i_17_;
 				Class22.method199(i_16_, i_15_, false);
@@ -166,7 +166,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return anInt3191;
 	}
 
-	static final void synchronizeKeys() {
+	static final void synchronizeKeyCodes() {
 		if (Signlink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
 			Class120_Sub12_Sub23.anIntArray3304[188] = 71;
 			Class120_Sub12_Sub23.anIntArray3304[223] = 28;

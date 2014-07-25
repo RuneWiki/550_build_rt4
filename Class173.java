@@ -83,7 +83,7 @@ final class Class173 {
 		SceneGroundObject.aString2849 = "Remova ";
 		MouseRecorder.aString853 = "Alocando mem\u00f3ria";
 		Class120_Sub12_Sub30.aString3371 = "Carregando /secure/libs_v4s/RCras - ";
-		Class108_Sub3.aString2396 = "Mechscape carregando. Aguarde...";
+		ParticleNodeSub.aString2396 = "Mechscape carregando. Aguarde...";
 		Class109.aString1038 = "Gerenciador de entradas carregado";
 		NpcType.aString1685 = "brilho3:";
 		Class120_Sub12_Sub1.aString3137 = "Padr\u00f5es carregados";

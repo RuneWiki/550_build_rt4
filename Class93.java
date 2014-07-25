@@ -45,11 +45,11 @@ final class Class93 {
 					int i_10_;
 					int i_11_;
 					if (i == 1 || i == 3) {
-						i_11_ = locType.anInt1827;
-						i_10_ = locType.anInt1841;
+						i_11_ = locType.sizeZ;
+						i_10_ = locType.sizeX;
 					} else {
-						i_10_ = locType.anInt1827;
-						i_11_ = locType.anInt1841;
+						i_10_ = locType.sizeZ;
+						i_11_ = locType.sizeX;
 					}
 					int i_12_;
 					int i_13_;

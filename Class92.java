@@ -52,7 +52,7 @@ final class Class92 {
 					Class169.anIntArray1648[Class154.anInt1441++] = 2047;
 				} else if (i_5_ == 1) {
 					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
-					Class100.selfPlayer.move(i_6_, 1);
+					TileParticleQueue.selfPlayer.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_7_ == 1) {
 						Class169.anIntArray1648[Class154.anInt1441++] = 2047;
@@ -60,12 +60,12 @@ final class Class92 {
 				} else if (i_5_ == 2) {
 					if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
 						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
-						Class100.selfPlayer.move(i_8_, 2);
+						TileParticleQueue.selfPlayer.move(i_8_, 2);
 						final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
-						Class100.selfPlayer.move(i_9_, 2);
+						TileParticleQueue.selfPlayer.move(i_9_, 2);
 					} else {
 						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
-						Class100.selfPlayer.move(i_10_, 0);
+						TileParticleQueue.selfPlayer.move(i_10_, 0);
 					}
 					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_11_ == 1) {
@@ -80,7 +80,7 @@ final class Class92 {
 					}
 					Class173.gameLevel = Canvas_Sub1.inputStream.getBitValue(2);
 					final int i_15_ = Canvas_Sub1.inputStream.getBitValue(7);
-					Class100.selfPlayer.method2343(i_15_, i_12_, i_13_ == 1);
+					TileParticleQueue.selfPlayer.method2343(i_15_, i_12_, i_13_ == 1);
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {

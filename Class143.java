@@ -12,17 +12,8 @@ class Class143 implements Interface3 {
 	private final NodeCache aClass35_2189 = new NodeCache(256);
 
 	@Override
-	public final int[] method6(final int i, final float f, final int i_0_, final int i_1_, final int i_2_, final boolean bool) {
-		int[] is;
-		try {
-			if (i_2_ > -125) {
-				return null;
-			}
-			is = method2016(i_0_, true).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.C(").append(i).append(',').append(f).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(bool).append(')').toString());
-		}
-		return is;
+	public final int[] method6(final int i, final float f, final int i_0_, final int i_1_, final boolean bool) {
+		return method2016(i_0_, true).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
 	}
 
 	static final void method2013(final int i, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final int i_9_, final int i_10_, final int i_11_) {
@@ -210,29 +201,14 @@ class Class143 implements Interface3 {
 	}
 
 	@Override
-	public final boolean method7(final int i, final int i_32_) {
-		boolean bool;
-		try {
-			if (i_32_ != 1) {
-				setSettings(null);
-			}
-			final Class120_Sub14_Sub13 class120_sub14_sub13 = method2016(i, true);
-			bool = class120_sub14_sub13 != null && class120_sub14_sub13.method1529(this, aClass50_2187, -50);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.A(").append(i).append(',').append(i_32_).append(')').toString());
-		}
-		return bool;
+	public final boolean method7(final int i) {
+		final Class120_Sub14_Sub13 class120_sub14_sub13 = method2016(i, true);
+		return class120_sub14_sub13 != null && class120_sub14_sub13.method1529(this, aClass50_2187);
 	}
 
 	@Override
-	public final Class114 method8(final int i, final byte i_33_) {
-		Class114 class114;
-		try {
-			class114 = aClass114Array2186[i];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.B(").append(i).append(',').append(i_33_).append(')').toString());
-		}
-		return class114;
+	public final Class114 method8(final int i) {
+		return aClass114Array2186[i];
 	}
 
 	static final boolean method2019(final char c, final int i) {
@@ -342,7 +318,7 @@ class Class143 implements Interface3 {
 		Class120_Sub12_Sub21_Sub1.aString3910 = " steht bereits auf deiner Freunde-Liste!";
 		SceneGroundObject.aString2849 = "Bitte entferne ";
 		Class53_Sub1.aString2206 = "blinken2:";
-		Class108_Sub3.aString2396 = "Mechscape wird geladen - bitte warten...";
+		ParticleNodeSub.aString2396 = "Mechscape wird geladen - bitte warten...";
 		NodeSub.aString2585 = "Konfig geladen.";
 		Class120_Sub14_Sub1.aString3449 = "Nehmen";
 		Class120_Sub14_Sub23.aString3655 = "Du kannst dich nicht auf deine eigene Freunde-Liste setzen!";

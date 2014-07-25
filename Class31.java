@@ -59,7 +59,7 @@ final class Class31 {
 			if (npc.anInt3010 == 0) {
 				npc.anInt3032 = 0;
 			}
-			npc.method2323(i_3_ + Class100.selfPlayer.walkQueueX[0], Class100.selfPlayer.walkQueueZ[0] - -i_1_, npc.getSize(), i_5_ == 1);
+			npc.method2323(i_3_ + TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0] - -i_1_, npc.getSize(), i_5_ == 1);
 			if (npc.npcType.hasAmbientSound()) {
 				Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 			}

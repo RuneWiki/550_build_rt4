@@ -45,7 +45,7 @@ final class Class3 {
 			if (i_5_ < 40) {
 				aClass120_Sub14_Sub9_54 = null;
 			}
-			final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string, -8251), true);
+			final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string, -8251));
 			boolean bool = false;
 			for (int i_7_ = 0; i_7_ < FileSystemWorker.localPlayerCount; i_7_++) {
 				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_7_]];

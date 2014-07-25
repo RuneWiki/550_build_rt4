@@ -58,13 +58,13 @@ final class Class7 {
 			ambientSound.anInt2489 = locType.anInt1879;
 			ambientSound.anIntArray2482 = locType.anIntArray1870;
 			ambientSound.anInt2499 = locType.anInt1839;
-			int i_4_ = locType.anInt1841;
+			int i_4_ = locType.sizeX;
 			ambientSound.anInt2493 = locType.anInt1832 * 128;
 			ambientSound.location = locType;
-			int i_5_ = locType.anInt1827;
+			int i_5_ = locType.sizeZ;
 			if (rotation == 1 || rotation == 3) {
-				i_4_ = locType.anInt1827;
-				i_5_ = locType.anInt1841;
+				i_4_ = locType.sizeZ;
+				i_5_ = locType.sizeX;
 			}
 			ambientSound.anInt2487 = 128 * (i_4_ + x);
 			ambientSound.anInt2485 = locType.anInt1833;

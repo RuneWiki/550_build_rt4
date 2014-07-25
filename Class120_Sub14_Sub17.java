@@ -27,11 +27,11 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 	private float aFloat3607;
 	private final boolean aBoolean3608;
 
-	private static final void method1569(final int i, final int i_0_, int i_1_, int i_2_, final int i_3_, final int i_4_, final float[] fs) {
-		if (i_1_ == 0 || i_1_ == -2147483648 || !Class179.method2264((byte) -110, i_1_)) {
+	private static final void method1569(final int i, final int i_0_, int width, int height, final int i_3_, final int i_4_, final float[] fs) {
+		if (width == 0 || width == -2147483648 || !Class179.method2264(width)) {
 			throw new InvalidParameterException("width must be power of 2");
 		}
-		if (i_2_ == 0 || i_2_ == -2147483648 || !Class179.method2264((byte) 94, i_2_)) {
+		if (height == 0 || height == -2147483648 || !Class179.method2264(height)) {
 			throw new InvalidParameterException("height must be power of 2");
 		}
 		int i_5_;
@@ -52,17 +52,17 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		}
 		final GL gl = HDToolkit.gl;
 		int i_6_ = 0;
-		int i_7_ = i_1_ < i_2_ ? i_1_ : i_2_;
-		int i_8_ = i_1_ >> 1;
-		int i_9_ = i_2_ >> 1;
+		int i_7_ = width < height ? width : height;
+		int i_8_ = width >> 1;
+		int i_9_ = height >> 1;
 		float[] fs_10_ = fs;
 		float[] fs_11_ = new float[i_8_ * i_9_ * i_5_];
 		for (;;) {
-			gl.glTexImage2D(i, i_6_, i_0_, i_1_, i_2_, 0, i_3_, 5126, FloatBuffer.wrap(fs_10_));
+			gl.glTexImage2D(i, i_6_, i_0_, width, height, 0, i_3_, 5126, FloatBuffer.wrap(fs_10_));
 			if (i_7_ <= 1) {
 				break;
 			}
-			final int i_12_ = i_1_ * i_5_;
+			final int i_12_ = width * i_5_;
 			for (int i_13_ = 0; i_13_ < i_5_; i_13_++) {
 				int i_14_ = i_13_;
 				int i_15_ = i_13_;
@@ -87,8 +87,8 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			final float[] fs_19_ = fs_11_;
 			fs_11_ = fs_10_;
 			fs_10_ = fs_19_;
-			i_1_ = i_8_;
-			i_2_ = i_9_;
+			width = i_8_;
+			height = i_9_;
 			i_8_ >>= 1;
 			i_9_ >>= 1;
 			i_7_ >>= 1;
@@ -97,18 +97,18 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 	}
 
 	final int[] method1570(final Interface3 interface3, final js5 js5, final boolean bool) {
-		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -50)) {
+		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5)) {
 			return null;
 		}
 		final int i = bool ? 64 : 128;
 		return this.aClass120_Sub14_Sub13_3602.method1533(1.0, aBoolean3591, 30319, js5, interface3, i, false, i);
 	}
 
-	private static final void method1571(final int i, final int i_20_, int i_21_, int i_22_, final int i_23_, final int i_24_, final int[] is) {
-		if (i_21_ == 0 || i_21_ == -2147483648 || !Class179.method2264((byte) -91, i_21_)) {
+	private static final void method1571(final int i, final int i_20_, int width, int height, final int i_23_, final int i_24_, final int[] is) {
+		if (width == 0 || width == -2147483648 || !Class179.method2264(width)) {
 			throw new InvalidParameterException("width must be power of 2");
 		}
-		if (i_22_ == 0 || i_22_ == -2147483648 || !Class179.method2264((byte) -115, i_22_)) {
+		if (height == 0 || height == -2147483648 || !Class179.method2264(height)) {
 			throw new InvalidParameterException("height must be power of 2");
 		}
 		if (i_23_ != 32993 && i_23_ != 6408) {
@@ -116,19 +116,19 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		}
 		final GL gl = HDToolkit.gl;
 		int i_25_ = 0;
-		int i_26_ = i_21_ < i_22_ ? i_21_ : i_22_;
-		int i_27_ = i_21_ >> 1;
-		int i_28_ = i_22_ >> 1;
+		int i_26_ = width < height ? width : height;
+		int i_27_ = width >> 1;
+		int i_28_ = height >> 1;
 		int[] is_29_ = is;
 		int[] is_30_ = new int[i_27_ * i_28_];
 		for (;;) {
-			gl.glTexImage2D(i, i_25_, i_20_, i_21_, i_22_, 0, i_23_, i_24_, IntBuffer.wrap(is_29_));
+			gl.glTexImage2D(i, i_25_, i_20_, width, height, 0, i_23_, i_24_, IntBuffer.wrap(is_29_));
 			if (i_26_ <= 1) {
 				break;
 			}
 			int i_31_ = 0;
 			int i_32_ = 0;
-			int i_33_ = i_32_ + i_21_;
+			int i_33_ = i_32_ + width;
 			for (int i_34_ = 0; i_34_ < i_28_; i_34_++) {
 				for (int i_35_ = 0; i_35_ < i_27_; i_35_++) {
 					final int i_36_ = is_29_[i_32_++];
@@ -153,14 +153,14 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 					i_43_ += i_39_ & 0xff;
 					is_30_[i_31_++] = (i_40_ & 0x3fc) << 22 | (i_41_ & 0x3fc) << 14 | (i_42_ & 0x3fc) << 6 | (i_43_ & 0x3fc) >> 2;
 				}
-				i_32_ += i_21_;
-				i_33_ += i_21_;
+				i_32_ += width;
+				i_33_ += width;
 			}
 			final int[] is_44_ = is_30_;
 			is_30_ = is_29_;
 			is_29_ = is_44_;
-			i_21_ = i_27_;
-			i_22_ = i_28_;
+			width = i_27_;
+			height = i_28_;
 			i_27_ >>= 1;
 			i_28_ >>= 1;
 			i_26_ >>= 1;
@@ -170,7 +170,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 
 	final int[] method1572(final Interface3 interface3, final js5 js5, final float f, final boolean bool) {
 		if (anIntArray3593 == null || aFloat3607 != f) {
-			if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -75)) {
+			if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5)) {
 				return null;
 			}
 			anInt3600 = bool ? 64 : 128;
@@ -291,15 +291,15 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 	}
 
 	final boolean method1575(final Interface3 interface3, final js5 js5) {
-		return this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -55);
+		return this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5);
 	}
 
 	final boolean method1576(final Interface3 interface3, final js5 js5, int i) {
-		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5, -26)) {
+		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5)) {
 			return false;
 		}
 		final GL gl = HDToolkit.gl;
-		final int i_82_ = Class49.method408((byte) 124);
+		final int i_82_ = Class49.method408();
 		if ((i_82_ & 0x1) == 0) {
 			if (anInt3592 == -1 || anInt3600 != i) {
 				if (anInt3592 == -1) {

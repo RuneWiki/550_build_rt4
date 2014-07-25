@@ -99,7 +99,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 		if (!Class10.decodedSprites(js5, i, i_8_)) {
 			return null;
 		}
-		return Class100.constructIndexedSprites();
+		return TileParticleQueue.constructIndexedSprites();
 	}
 
 	@Override

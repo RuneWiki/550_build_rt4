@@ -152,12 +152,12 @@ final class InterfaceListener extends Node {
 	static final int method1172(final byte i, final int i_21_, final int i_22_) {
 		int i_23_;
 		try {
-			final int i_24_ = Class108_Sub1.method936(i_22_ - 1, 25528, i_21_ - 1) + Class108_Sub1.method936(i_22_ + 1, 25528, i_21_ - 1) - -Class108_Sub1.method936(-1 + i_22_, 25528, i_21_ + 1) - -Class108_Sub1.method936(1 + i_22_, 25528, 1 + i_21_);
+			final int i_24_ = ParticleManager.method936(i_22_ - 1, 25528, i_21_ - 1) + ParticleManager.method936(i_22_ + 1, 25528, i_21_ - 1) - -ParticleManager.method936(-1 + i_22_, 25528, i_21_ + 1) - -ParticleManager.method936(1 + i_22_, 25528, 1 + i_21_);
 			if (i >= -48) {
 				return 6;
 			}
-			final int i_25_ = Class108_Sub1.method936(-1 + i_22_, 25528, i_21_) - (-Class108_Sub1.method936(i_22_ + 1, 25528, i_21_) - Class108_Sub1.method936(i_22_, 25528, i_21_ - 1) - Class108_Sub1.method936(i_22_, 25528, 1 + i_21_));
-			final int i_26_ = Class108_Sub1.method936(i_22_, 25528, i_21_);
+			final int i_25_ = ParticleManager.method936(-1 + i_22_, 25528, i_21_) - (-ParticleManager.method936(i_22_ + 1, 25528, i_21_) - ParticleManager.method936(i_22_, 25528, i_21_ - 1) - ParticleManager.method936(i_22_, 25528, 1 + i_21_));
+			final int i_26_ = ParticleManager.method936(i_22_, 25528, i_21_);
 			i_23_ = i_24_ / 16 + i_25_ / 8 + i_26_ / 4;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("io.A(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());

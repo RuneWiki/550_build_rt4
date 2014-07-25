@@ -38,7 +38,7 @@ final class Class179 {
 			Class120_Sub2.anInt2422 = -1;
 			Class120_Sub2.anInt2422 = -1;
 			Class169.anInt1646 = i;
-			Class127.method1889((byte) 51);
+			Class127.method1889();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("va.E(").append(bool).append(',').append(i).append(')').toString());
 		}
@@ -121,13 +121,7 @@ final class Class179 {
 		}
 	}
 
-	static final boolean method2264(final byte i, final int i_15_) {
-		boolean bool;
-		try {
-			bool = i_15_ == (i_15_ & -i_15_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("va.A(").append(i).append(',').append(i_15_).append(')').toString());
-		}
-		return bool;
+	static final boolean method2264(final int i_15_) {
+		return i_15_ == (i_15_ & -i_15_);
 	}
 }

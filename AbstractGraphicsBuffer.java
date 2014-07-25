@@ -65,20 +65,13 @@ abstract class AbstractGraphicsBuffer {
 
 	abstract void drawImage(Graphics graphics, int x, int y);
 
-	static final void method1842(final int i) {
-		try {
-			anInt1175 = 0;
-			SceneGroundObject.packetSetFlagPosition = false;
-			Class65.flagY = 0;
-			Class120_Sub12_Sub15.anInt3243 = -1;
-			Class120_Sub12_Sub26.flagX = 0;
-			if (i != 50) {
-				ParamType.recentUse = null;
-			}
-			client.aByte2201 = (byte) 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.E(").append(i).append(')').toString());
-		}
+	static final void method1842() {
+		anInt1175 = 0;
+		SceneGroundObject.packetSetFlagPosition = false;
+		Class65.flagY = 0;
+		Class120_Sub12_Sub15.landscapeSpriteLevel = -1;
+		Class120_Sub12_Sub26.flagX = 0;
+		client.aByte2201 = (byte) 0;
 	}
 
 	abstract void drawClippedImage(Graphics graphics, int x, int i, int i_3_, int y);

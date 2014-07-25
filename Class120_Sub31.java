@@ -125,7 +125,7 @@ final class Class120_Sub31 extends Node {
 		final int i_28_ = class120_sub7.pos;
 		final int i_29_ = i + i_17_ + i_18_ + i_19_ + i_20_ + i_21_ + i_22_ + i_23_ + i_24_;
 		for (int i_30_ = 0; i_30_ < i_29_; i_30_++) {
-			class120_sub7.method1111(false);
+			class120_sub7.method1111();
 		}
 		i_16_ += class120_sub7.pos - i_28_;
 		int i_31_ = class120_sub7.pos;
@@ -239,8 +239,8 @@ final class Class120_Sub31 extends Node {
 			int i_78_ = -1;
 			while_15_: do {
 				for (;;) {
-					final int i_79_ = class120_sub7.method1111(false);
-					class120_sub7_68_.method1082(i_79_, 109);
+					final int i_79_ = class120_sub7.method1111();
+					class120_sub7_68_.method1082(i_79_);
 					final int i_80_ = class120_sub7.buf[i_46_++] & 0xff;
 					final boolean bool = i_80_ != i_78_;
 					i_78_ = i_80_ & 0xf;
@@ -351,7 +351,7 @@ final class Class120_Sub31 extends Node {
 				}
 				throw new RuntimeException();
 			} while (false);
-			class120_sub7_68_.method1112(class120_sub7_68_.pos - i_77_, -29605);
+			class120_sub7_68_.method1112(class120_sub7_68_.pos - i_77_);
 		}
 	}
 

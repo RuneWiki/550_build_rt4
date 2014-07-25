@@ -205,18 +205,18 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				System.out.println("oncard_texture:" + Class113.anInt1081);
 			}
 			if (string.equalsIgnoreCase("::clientdrop")) {
-				Class100.dropClient();
+				TileParticleQueue.dropClient();
 			}
 			if (string.equalsIgnoreCase("::clientjs5drop")) {
-				Class178.aClass45_1772.closeConnection();
+				Class178.js5Worker.closeConnection();
 			}
 			if (string.equalsIgnoreCase("::serverjs5drop")) {
-				Class178.aClass45_1772.sendDropConnection();
+				Class178.js5Worker.sendDropConnection();
 			}
 			if (string.equalsIgnoreCase("::breakcon")) {
 				NpcType.gameSignlink.method1963(5000);
 				AbstractTimer.worldConnection.replaceStreamsWithDummy();
-				Class178.aClass45_1772.replaceStreamsWithDummy();
+				Class178.js5Worker.replaceStreamsWithDummy();
 			}
 			if (string.equalsIgnoreCase("::replacecanvas")) {
 				Class120_Sub3.canvasReplaceRecommended = true;
@@ -265,7 +265,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			if (string.equalsIgnoreCase("::qa_op_test")) {
 				Class120_Sub30_Sub1.aBoolean3673 = true;
 			}
-			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !Class108_Sub1.method933(!Class34.method290())) {
+			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleManager.method933(!Class34.method290())) {
 				AbstractRequest.method1540(null, 0, "Failed to enable hdr");
 			}
 			if (string.equalsIgnoreCase("::tween")) {
@@ -287,10 +287,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 			}
 			if (string.equalsIgnoreCase("::getcgcoord")) {
-				AbstractRequest.method1540(null, 0, new StringBuilder("x:").append(Class100.selfPlayer.x >> 7).append(" z:").append(Class100.selfPlayer.z >> 7).append(" groundh:").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+				AbstractRequest.method1540(null, 0, new StringBuilder("x:").append(TileParticleQueue.selfPlayer.x >> 7).append(" z:").append(TileParticleQueue.selfPlayer.z >> 7).append(" groundh:").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]).toString());
 			}
 			if (string.equalsIgnoreCase("::getheight")) {
-				AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]).toString());
+				AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]).toString());
 			}
 		}
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
@@ -328,7 +328,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	static final void method1302(final int i, final int i_47_, final int i_48_) {
 		Class120_Sub12_Sub7.aBoolean3181 = true;
 		Projectile.anInt2933 = i;
-		Class108_Sub1.anInt2320 = i_47_;
+		ParticleManager.anInt2320 = i_47_;
 		Class187.anInt1908 = i_48_;
 		ObjectCache.anInt122 = -1;
 		Class20.anInt2174 = -1;

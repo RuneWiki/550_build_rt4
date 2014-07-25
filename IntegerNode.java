@@ -37,21 +37,12 @@ final class IntegerNode extends Node {
 		}
 	}
 
-	static final boolean method1833(final byte i, final JagexInterface jagexInterface) {
-		boolean bool;
-		try {
-			if (i != -101) {
-				method1833((byte) 8, null);
-			}
-			if (jagexInterface.clientCode == 205) {
-				Class31.anInt244 = 250;
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("v.B(").append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(')').toString());
+	static final boolean method1833(final JagexInterface jagexInterface) {
+		if (jagexInterface.clientCode == 205) {
+			Class31.anInt244 = 250;
+			return true;
 		}
-		return bool;
+		return false;
 	}
 
 	public IntegerNode() {

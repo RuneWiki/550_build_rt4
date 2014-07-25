@@ -40,13 +40,9 @@ final class Canvas_Sub1 {
 		return false;
 	}
 
-	static final void method64(final int i, final int i_5_) {
-		try {
-			Class69_Sub2.anInt2233 = i_5_;
-			Class120_Sub12_Sub31.method1364(false, i);
-			Class120_Sub12_Sub31.method1364(false, 4);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nj.A(").append(i).append(',').append(i_5_).append(')').toString());
-		}
+	static final void method64(final int i_5_) {
+		Class69_Sub2.anInt2233 = i_5_;
+		Class120_Sub12_Sub31.method1364(3);
+		Class120_Sub12_Sub31.method1364(4);
 	}
 }

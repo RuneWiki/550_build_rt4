@@ -109,44 +109,44 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2152(final int i, int i_16_, int i_17_, final int i_18_, final int i_19_) {
-		if (i_19_ != 0) {
-			if (i_19_ == 256) {
-				method2154(i, i_16_, i_17_, i_18_);
+	static final void method2152(final int x, int y, int size, final int color, final int alpha) {
+		if (alpha != 0) {
+			if (alpha == 256) {
+				method2154(x, y, size, color);
 			} else {
-				if (i_17_ < 0) {
-					i_17_ = -i_17_;
+				if (size < 0) {
+					size = -size;
 				}
-				final int i_20_ = 256 - i_19_;
-				final int i_21_ = (i_18_ >> 16 & 0xff) * i_19_;
-				final int i_22_ = (i_18_ >> 8 & 0xff) * i_19_;
-				final int i_23_ = (i_18_ & 0xff) * i_19_;
-				int i_24_ = i_16_ - i_17_;
+				final int i_20_ = 256 - alpha;
+				final int i_21_ = (color >> 16 & 0xff) * alpha;
+				final int i_22_ = (color >> 8 & 0xff) * alpha;
+				final int i_23_ = (color & 0xff) * alpha;
+				int i_24_ = y - size;
 				if (i_24_ < startY) {
 					i_24_ = startY;
 				}
-				int i_25_ = i_16_ + i_17_ + 1;
+				int i_25_ = y + size + 1;
 				if (i_25_ > endY) {
 					i_25_ = endY;
 				}
 				int i_26_ = i_24_;
-				final int i_27_ = i_17_ * i_17_;
+				final int i_27_ = size * size;
 				int i_28_ = 0;
-				int i_29_ = i_16_ - i_26_;
+				int i_29_ = y - i_26_;
 				int i_30_ = i_29_ * i_29_;
 				int i_31_ = i_30_ - i_29_;
-				if (i_16_ > i_25_) {
-					i_16_ = i_25_;
+				if (y > i_25_) {
+					y = i_25_;
 				}
-				while (i_26_ < i_16_) {
+				while (i_26_ < y) {
 					for (/**/; i_31_ <= i_27_ || i_30_ <= i_27_; i_31_ += i_28_++ + i_28_) {
 						i_30_ += i_28_ + i_28_;
 					}
-					int i_32_ = i - i_28_ + 1;
+					int i_32_ = x - i_28_ + 1;
 					if (i_32_ < startX) {
 						i_32_ = startX;
 					}
-					int i_33_ = i + i_28_;
+					int i_33_ = x + i_28_;
 					if (i_33_ > endX) {
 						i_33_ = endX;
 					}
@@ -162,7 +162,7 @@ final class GraphicsLD {
 					i_30_ -= i_29_-- + i_29_;
 					i_31_ -= i_29_ + i_29_;
 				}
-				i_28_ = i_17_;
+				i_28_ = size;
 				i_29_ = -i_29_;
 				i_31_ = i_29_ * i_29_ + i_27_;
 				i_30_ = i_31_ - i_28_;
@@ -171,11 +171,11 @@ final class GraphicsLD {
 					for (/**/; i_31_ > i_27_ && i_30_ > i_27_; i_30_ -= i_28_ + i_28_) {
 						i_31_ -= i_28_-- + i_28_;
 					}
-					int i_40_ = i - i_28_;
+					int i_40_ = x - i_28_;
 					if (i_40_ < startX) {
 						i_40_ = startX;
 					}
-					int i_41_ = i + i_28_;
+					int i_41_ = x + i_28_;
 					if (i_41_ > endX - 1) {
 						i_41_ = endX - 1;
 					}
@@ -226,52 +226,52 @@ final class GraphicsLD {
 		}
 	}
 
-	private static final void method2154(final int i, int i_64_, int i_65_, final int i_66_) {
-		if (i_65_ == 0) {
-			method2157(i, i_64_, i_66_);
+	private static final void method2154(final int x, int y, int size, final int color) {
+		if (size == 0) {
+			setPixel(x, y, color);
 		} else {
-			if (i_65_ < 0) {
-				i_65_ = -i_65_;
+			if (size < 0) {
+				size = -size;
 			}
-			int i_67_ = i_64_ - i_65_;
+			int i_67_ = y - size;
 			if (i_67_ < startY) {
 				i_67_ = startY;
 			}
-			int i_68_ = i_64_ + i_65_ + 1;
+			int i_68_ = y + size + 1;
 			if (i_68_ > endY) {
 				i_68_ = endY;
 			}
 			int i_69_ = i_67_;
-			final int i_70_ = i_65_ * i_65_;
+			final int i_70_ = size * size;
 			int i_71_ = 0;
-			int i_72_ = i_64_ - i_69_;
+			int i_72_ = y - i_69_;
 			int i_73_ = i_72_ * i_72_;
 			int i_74_ = i_73_ - i_72_;
-			if (i_64_ > i_68_) {
-				i_64_ = i_68_;
+			if (y > i_68_) {
+				y = i_68_;
 			}
-			while (i_69_ < i_64_) {
+			while (i_69_ < y) {
 				for (/**/; i_74_ <= i_70_ || i_73_ <= i_70_; i_74_ += i_71_++ + i_71_) {
 					i_73_ += i_71_ + i_71_;
 				}
-				int i_75_ = i - i_71_ + 1;
+				int i_75_ = x - i_71_ + 1;
 				if (i_75_ < startX) {
 					i_75_ = startX;
 				}
-				int i_76_ = i + i_71_;
+				int i_76_ = x + i_71_;
 				if (i_76_ > endX) {
 					i_76_ = endX;
 				}
 				int i_77_ = i_75_ + i_69_ * width;
 				for (int i_78_ = i_75_; i_78_ < i_76_; i_78_++) {
-					pixels[i_77_++] = i_66_;
+					pixels[i_77_++] = color;
 				}
 				i_69_++;
 				i_73_ -= i_72_-- + i_72_;
 				i_74_ -= i_72_ + i_72_;
 			}
-			i_71_ = i_65_;
-			i_72_ = i_69_ - i_64_;
+			i_71_ = size;
+			i_72_ = i_69_ - y;
 			i_74_ = i_72_ * i_72_ + i_70_;
 			i_73_ = i_74_ - i_71_;
 			i_74_ -= i_72_;
@@ -279,17 +279,17 @@ final class GraphicsLD {
 				for (/**/; i_74_ > i_70_ && i_73_ > i_70_; i_73_ -= i_71_ + i_71_) {
 					i_74_ -= i_71_-- + i_71_;
 				}
-				int i_79_ = i - i_71_;
+				int i_79_ = x - i_71_;
 				if (i_79_ < startX) {
 					i_79_ = startX;
 				}
-				int i_80_ = i + i_71_;
+				int i_80_ = x + i_71_;
 				if (i_80_ > endX - 1) {
 					i_80_ = endX - 1;
 				}
 				int i_81_ = i_79_ + i_69_ * width;
 				for (int i_82_ = i_79_; i_82_ <= i_80_; i_82_++) {
-					pixels[i_81_++] = i_66_;
+					pixels[i_81_++] = color;
 				}
 				i_69_++;
 				i_74_ += i_72_ + i_72_;
@@ -318,20 +318,20 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void method2156(int i, int i_86_, final int color, final int[] is, final int[] is_88_) {
-		int step = i + i_86_ * width;
-		for (i_86_ = 0; i_86_ < is.length; i_86_++) {
-			int pixel = step + is[i_86_];
-			for (i = -is_88_[i_86_]; i < 0; i++) {
+	static final void method2156(int x, int y, final int color, final int[] is, final int[] is_88_) {
+		int step = x + y * width;
+		for (y = 0; y < is.length; y++) {
+			int pixel = step + is[y];
+			for (x = -is_88_[y]; x < 0; x++) {
 				pixels[pixel++] = color;
 			}
 			step += width;
 		}
 	}
 
-	private static final void method2157(final int i, final int i_91_, final int i_92_) {
-		if (i >= startX && i_91_ >= startY && i < endX && i_91_ < endY) {
-			pixels[i + i_91_ * width] = i_92_;
+	private static final void setPixel(final int x, final int y, final int color) {
+		if (x >= startX && y >= startY && x < endX && y < endY) {
+			pixels[x + y * width] = color;
 		}
 	}
 

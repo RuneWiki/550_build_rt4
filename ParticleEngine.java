@@ -7,17 +7,17 @@ import java.nio.FloatBuffer;
 
 import javax.media.opengl.GL;
 
-final class ParticleEngine extends Class108 {
+final class ParticleEngine extends ParticleNode {
 	static Class9 aClass9_2346;
 	static boolean aBoolean2347;
 	int anInt2348 = 0;
-	private final long aLong2349;
-	static Class108_Sub3_Sub1[] aClass108_Sub3_Sub1Array2350;
+	private final long startLoopCycle;
+	static Particle[] aClass108_Sub3_Sub1Array2350;
 	static int anInt2351 = 0;
 	private long aLong2352;
 	static int anInt2353 = 0;
 	static int anInt2354;
-	Class108_Sub3_Sub1[] aClass108_Sub3_Sub1Array2355;
+	Particle[] aClass108_Sub3_Sub1Array2355;
 	boolean aBoolean2356 = false;
 	private Class174 aClass174_2357 = new Class174();
 	static int anInt2358;
@@ -33,12 +33,12 @@ final class ParticleEngine extends Class108 {
 	int anInt2368;
 	int anInt2369;
 	private boolean aBoolean2370 = false;
-	private final int anInt2371;
+	private final int sizeZ;
 	int anInt2372;
 	int anInt2373;
 	int anInt2374;
 	int anInt2375;
-	private final int anInt2376;
+	private final int sizeX;
 	int anInt2377;
 	static short[][] aShortArrayArray2378;
 	int anInt2379;
@@ -77,7 +77,7 @@ final class ParticleEngine extends Class108 {
 		for (int i = 0; i < 8; i++) {
 			aBooleanArray2386[i] = false;
 		}
-		while_116_: for (Class108_Sub1 class108_sub1 = (Class108_Sub1) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (Class108_Sub1) aClass174_2357.peekNext()) {
+		while_116_: for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
 			if (class158s != null) {
 				for (int i = 0; i < class158s.length; i++) {
 					if (class108_sub1.aClass158_2322 == class158s[i]) {
@@ -99,13 +99,13 @@ final class ParticleEngine extends Class108 {
 		if (class158s != null) {
 			for (int i = 0; i < class158s.length && anInt2365 != 8; i++) {
 				if (!aBooleanArray2386[i]) {
-					final Class108_Sub1 class108_sub1 = new Class108_Sub1(class158s[i], this, this.aLong2359);
+					final ParticleManager class108_sub1 = new ParticleManager(class158s[i], this, this.aLong2359);
 					aClass174_2357.insertLast(class108_sub1);
 					anInt2365++;
 					aBooleanArray2386[i] = true;
 				}
 			}
-			for (Class108_Sub1 class108_sub1 = (Class108_Sub1) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (Class108_Sub1) aClass174_2357.peekNext()) {
+			for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
 				for (int i = 0; i < class158s.length; i++) {
 					if (aBooleanArray2386[i] && class158s[i] == class108_sub1.aClass158_2322) {
 						class108_sub1.method942(is[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1485], is[class108_sub1.aClass158_2322.anInt1485], is_0_[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1484], -74,
@@ -120,7 +120,7 @@ final class ParticleEngine extends Class108 {
 	final void method944(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
 		if (!this.aBoolean2356) {
 			if (i != this.anInt2377) {
-				for (Class108_Sub1 class108_sub1 = (Class108_Sub1) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (Class108_Sub1) aClass174_2357.peekNext()) {
+				for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
 					class108_sub1.aBoolean2329 = true;
 				}
 			}
@@ -137,7 +137,7 @@ final class ParticleEngine extends Class108 {
 		anInt2353 = 0;
 		anInt2354 = 0;
 		aClass174_2361 = new Class174();
-		aClass108_Sub3_Sub1Array2350 = new Class108_Sub3_Sub1[1024];
+		aClass108_Sub3_Sub1Array2350 = new Particle[1024];
 		Class120_Sub30_Sub2.method1777(js5);
 		NpcType.method2208(js5);
 	}
@@ -172,9 +172,9 @@ final class ParticleEngine extends Class108 {
 				}
 				method957();
 			} else {
-				final Class108 class108 = aClass174_2357.head;
-				for (Class108 class108_23_ = class108.next; class108_23_ != class108; class108_23_ = class108_23_.next) {
-					final Class108_Sub1 class108_sub1 = (Class108_Sub1) class108_23_;
+				final ParticleNode class108 = aClass174_2357.head;
+				for (ParticleNode class108_23_ = class108.next; class108_23_ != class108; class108_23_ = class108_23_.next) {
+					final ParticleManager class108_sub1 = (ParticleManager) class108_23_;
 					for (int i_24_ = 0; i_24_ < i_22_; i_24_++) {
 						anIntArray2389[i_24_] = 0;
 					}
@@ -182,9 +182,9 @@ final class ParticleEngine extends Class108 {
 						anIntArray2390[i_25_] = 0;
 					}
 					anInt2380 = 0;
-					final Class108 class108_26_ = class108_sub1.aClass174_2337.head;
-					for (Class108 class108_27_ = class108_26_.next; class108_27_ != class108_26_; class108_27_ = class108_27_.next) {
-						final Class108_Sub3_Sub1 class108_sub3_sub1 = (Class108_Sub3_Sub1) class108_27_;
+					final ParticleNode class108_26_ = class108_sub1.aClass174_2337.head;
+					for (ParticleNode class108_27_ = class108_26_.next; class108_27_ != class108_26_; class108_27_ = class108_27_.next) {
+						final Particle class108_sub3_sub1 = (Particle) class108_27_;
 						if (!class108_sub3_sub1.aBoolean3097) {
 							final int i_28_ = (class108_sub3_sub1.anInt3087 >> 12) - i_14_;
 							final int i_29_ = (class108_sub3_sub1.anInt3088 >> 12) - i_15_;
@@ -245,11 +245,11 @@ final class ParticleEngine extends Class108 {
 				final int i_33_ = anIntArray2389[i_32_] > 32 ? 32 : anIntArray2389[i_32_];
 				if (i_33_ > 0) {
 					for (int i_34_ = i_33_ - 1; i_34_ >= 0; i_34_--) {
-						final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_32_][i_34_]];
+						final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_32_][i_34_]];
 						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
 						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
 						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
-						final int i_35_ = class108_sub3_sub1.anInt3091;
+						final int i_35_ = class108_sub3_sub1.color;
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 8));
 						aClass120_Sub7_2381.putByte((byte) i_35_);
@@ -258,11 +258,11 @@ final class ParticleEngine extends Class108 {
 					if (anIntArray2389[i_32_] > 32) {
 						final int i_36_ = anIntArray2389[i_32_] - 32 - 1;
 						for (int i_37_ = anIntArray2390[i_36_] - 1; i_37_ >= 0; i_37_--) {
-							final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_36_][i_37_]];
+							final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_36_][i_37_]];
 							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
 							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
 							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
-							final int i_38_ = class108_sub3_sub1.anInt3091;
+							final int i_38_ = class108_sub3_sub1.color;
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 8));
 							aClass120_Sub7_2381.putByte((byte) i_38_);
@@ -276,11 +276,11 @@ final class ParticleEngine extends Class108 {
 				final int i_40_ = anIntArray2389[i_39_] > 32 ? 32 : anIntArray2389[i_39_];
 				if (i_40_ > 0) {
 					for (int i_41_ = i_40_ - 1; i_41_ >= 0; i_41_--) {
-						final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_39_][i_41_]];
+						final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_39_][i_41_]];
 						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
 						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
 						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
-						final int i_42_ = class108_sub3_sub1.anInt3091;
+						final int i_42_ = class108_sub3_sub1.color;
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 8));
 						aClass120_Sub7_2381.putByte((byte) i_42_);
@@ -289,11 +289,11 @@ final class ParticleEngine extends Class108 {
 					if (anIntArray2389[i_39_] > 32) {
 						final int i_43_ = anIntArray2389[i_39_] - 32 - 1;
 						for (int i_44_ = anIntArray2390[i_43_] - 1; i_44_ >= 0; i_44_--) {
-							final Class108_Sub3_Sub1 class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_43_][i_44_]];
+							final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_43_][i_44_]];
 							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
 							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
 							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
-							final int i_45_ = class108_sub3_sub1.anInt3091;
+							final int i_45_ = class108_sub3_sub1.color;
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 8));
 							aClass120_Sub7_2381.putByte((byte) i_45_);
@@ -350,7 +350,7 @@ final class ParticleEngine extends Class108 {
 				class120_sub14_sub24.unlinkSub();
 			}
 		}
-		this.aClass108_Sub3_Sub1Array2355 = new Class108_Sub3_Sub1[8192];
+		this.aClass108_Sub3_Sub1Array2355 = new Particle[8192];
 		this.anInt2348 = 0;
 		aClass174_2357 = new Class174();
 		anInt2365 = 0;
@@ -519,17 +519,17 @@ final class ParticleEngine extends Class108 {
 		aFloat2393 = i_63_ / 334.0F;
 	}
 
-	final void method962(final Class158[] class158s, final Class169[] class169s, final boolean bool, final int[] is, final int[] is_64_, final int[] is_65_) {
+	final void method962(final Class158[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
 		if (!this.aBoolean2356) {
-			method943(class158s, bool, is, is_64_, is_65_);
-			method960(class169s, bool, is, is_64_, is_65_);
+			method943(class158s, bool, xVertices, yVertices, zVertices);
+			method960(class169s, bool, xVertices, yVertices, zVertices);
 		}
 	}
 
 	private final boolean method963(final long l) {
 		long l_66_;
-		if (aLong2349 > aLong2352) {
-			l_66_ = aLong2349;
+		if (startLoopCycle > aLong2352) {
+			l_66_ = startLoopCycle;
 		} else {
 			l_66_ = aLong2352;
 		}
@@ -539,10 +539,10 @@ final class ParticleEngine extends Class108 {
 			return false;
 		}
 		if (aLong2352 > 0L) {
-			this.anInt2373 = this.anInt2379 - (anInt2376 << 6) >> 7;
-			this.anInt2384 = (this.anInt2379 + (anInt2376 << 6) >> 7) - 1;
-			this.anInt2367 = this.anInt2368 - (anInt2371 << 6) >> 7;
-			this.anInt2375 = (this.anInt2368 + (anInt2371 << 6) >> 7) - 1;
+			this.anInt2373 = this.anInt2379 - (sizeX << 6) >> 7;
+			this.anInt2384 = (this.anInt2379 + (sizeX << 6) >> 7) - 1;
+			this.anInt2367 = this.anInt2368 - (sizeZ << 6) >> 7;
+			this.anInt2375 = (this.anInt2368 + (sizeZ << 6) >> 7) - 1;
 			this.anInt2369 = this.anInt2372;
 			if (this.anInt2374 < 3) {
 				this.anInt2382 = OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2384][this.anInt2367]
@@ -555,16 +555,16 @@ final class ParticleEngine extends Class108 {
 			final int i_68_ = Rasterizer.cosineTable[this.anInt2377];
 			method955(i_67_, i_68_);
 			if (aBoolean2391) {
-				for (Class108_Sub1 class108_sub1 = (Class108_Sub1) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (Class108_Sub1) aClass174_2357.peekNext()) {
+				for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
 					for (int i_69_ = 0; i_69_ < class108_sub1.aClass80_2323.anInt740; i_69_++) {
-						class108_sub1.method940(1, i_67_, true, i_68_, this.aLong2359, 121);
+						class108_sub1.method940(1, i_67_, true, i_68_, this.aLong2359);
 					}
 				}
 				aBoolean2391 = false;
 			}
 			final int i_70_ = (int) (l - this.aLong2359);
-			for (Class108_Sub1 class108_sub1 = (Class108_Sub1) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (Class108_Sub1) aClass174_2357.peekNext()) {
-				class108_sub1.method940(i_70_, i_67_, i < 10, i_68_, l, 115);
+			for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
+				class108_sub1.method940(i_70_, i_67_, i < 10, i_68_, l);
 			}
 		}
 		this.aLong2359 = l;
@@ -598,11 +598,11 @@ final class ParticleEngine extends Class108 {
 		method944(i, i_71_, i_72_ + DisplayModeInfo.anInt1713, i_73_ + PlayerAppearance.anInt1367, i_74_ + Class145.anInt1381);
 	}
 
-	ParticleEngine(final int i, final int i_75_, final int i_76_) {
-		anInt2376 = i_75_;
-		anInt2371 = i_76_;
-		this.aClass108_Sub3_Sub1Array2355 = new Class108_Sub3_Sub1[8192];
-		aLong2349 = i;
+	ParticleEngine(final int lc, final int sx, final int sz) {
+		sizeX = sx;
+		sizeZ = sz;
+		this.aClass108_Sub3_Sub1Array2355 = new Particle[8192];
+		startLoopCycle = lc;
 		aBoolean2391 = true;
 		aClass174_2361.insertLast(this);
 	}

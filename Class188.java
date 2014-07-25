@@ -130,23 +130,23 @@ final class Class188 {
 						if (client.cameraType != 1) {
 							final int i_7_ = Class22.getTileHeight(Class173.gameLevel, FileSystemWorker.renderX, GroundObjectNode.renderZ);
 							if (-Class120_Sub12_Sub10.renderY + i_7_ < 800 && (0x4 & Class114.tileSettings[Class173.gameLevel][FileSystemWorker.renderX >> 7][GroundObjectNode.renderZ >> 7]) != 0) {
-								Class120_Sub3.method1055(1, FileSystemWorker.renderX >> 7, false, false, GroundObjectNode.renderZ >> 7, LabelGroup.groundTiles);
+								Class120_Sub3.method1055(1, FileSystemWorker.renderX >> 7, false, GroundObjectNode.renderZ >> 7, LabelGroup.groundTiles);
 							}
 						} else {
-							if ((0x4 & Class114.tileSettings[Class173.gameLevel][Class100.selfPlayer.x >> 7][Class100.selfPlayer.z >> 7]) != 0) {
-								Class120_Sub3.method1055(0, Class100.selfPlayer.x >> 7, bool, false, Class100.selfPlayer.z >> 7, LabelGroup.groundTiles);
+							if ((0x4 & Class114.tileSettings[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]) != 0) {
+								Class120_Sub3.method1055(0, TileParticleQueue.selfPlayer.x >> 7, false, TileParticleQueue.selfPlayer.z >> 7, LabelGroup.groundTiles);
 							}
 							if (OverlayType.renderPitch < 310) {
 								int i_8_ = GroundObjectNode.renderZ >> 7;
 								int i_9_ = FileSystemWorker.renderX >> 7;
-								final int i_10_ = Class100.selfPlayer.z >> 7;
+								final int i_10_ = TileParticleQueue.selfPlayer.z >> 7;
 								int i_11_;
 								if (i_8_ >= i_10_) {
 									i_11_ = i_8_ + -i_10_;
 								} else {
 									i_11_ = -i_8_ + i_10_;
 								}
-								final int i_12_ = Class100.selfPlayer.x >> 7;
+								final int i_12_ = TileParticleQueue.selfPlayer.x >> 7;
 								int i_13_;
 								if (i_12_ > i_9_) {
 									i_13_ = -i_9_ + i_12_;
@@ -170,7 +170,7 @@ final class Class188 {
 											i_8_++;
 										}
 										if ((Class114.tileSettings[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
-											Class120_Sub3.method1055(1, i_9_, false, false, i_8_, LabelGroup.groundTiles);
+											Class120_Sub3.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
 											break while_177_;
 										}
 										i_14_ += i_15_;
@@ -186,7 +186,7 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, false, false, i_8_, LabelGroup.groundTiles);
+									Class120_Sub3.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
 								} else {
 									final int i_16_ = 65536 * i_11_ / i_13_;
 									int i_17_ = 32768;
@@ -202,7 +202,7 @@ final class Class188 {
 											i_9_++;
 										}
 										if ((0x4 & Class114.tileSettings[Class173.gameLevel][i_9_][i_8_]) != 0) {
-											Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, LabelGroup.groundTiles);
+											Class120_Sub3.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
 											break while_177_;
 										}
 										i_17_ += i_16_;
@@ -218,7 +218,7 @@ final class Class188 {
 											}
 										}
 									}
-									Class120_Sub3.method1055(1, i_9_, bool, false, i_8_, LabelGroup.groundTiles);
+									Class120_Sub3.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
 								}
 							}
 						}

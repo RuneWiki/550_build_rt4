@@ -20,10 +20,10 @@ final class Class136 {
 	}
 
 	static final String longToString(long l) {
-		if (-1L <= (l ^ 0xffffffffffffffffL) || -6582952005840035282L >= (l ^ 0xffffffffffffffffL)) {
+		if (l <= 0L || -6582952005840035282L >= (l ^ 0xffffffffffffffffL)) {
 			return null;
 		}
-		if ((l % 37L ^ 0xffffffffffffffffL) == -1L) {
+		if (l % 37L == 0L) {
 			return null;
 		}
 		int i = 0;
@@ -31,7 +31,7 @@ final class Class136 {
 			i++;
 		}
 		final StringBuffer stringbuffer = new StringBuffer(i);
-		while (-1L != (l ^ 0xffffffffffffffffL)) {
+		while (l != 0L) {
 			final long l_1_ = l;
 			l /= 37L;
 			char c = Class120_Sub12_Sub16.aCharArray3254[(int) (-(l * 37L) + l_1_)];

@@ -92,9 +92,9 @@ final class Class97 {
 			i_18_ = i_18_ * i_24_ - i * i_23_ + 32767 >> 16;
 			i = i_25_;
 		}
-		Class117.method1014(-i, -i_17_, i_18_);
-		Class117.method1021(16777215, 0.5F, 0.5F, 1.0F);
-		Class117.method1016();
+		AtmosphereManager.method1014(-i, -i_17_, i_18_);
+		AtmosphereManager.method1021(16777215, 0.5F, 0.5F, 1.0F);
+		AtmosphereManager.method1016();
 		if (anInt929 != 0) {
 			gl.glScalef(0.8125F, 0.8125F, 1.0F);
 		}
@@ -200,9 +200,9 @@ final class Class97 {
 			i_28_ = i_28_ * i_37_ - i * i_36_ + 32767 >> 16;
 			i = i_38_;
 		}
-		Class117.method1014(-i, i_27_, -i_28_);
-		Class117.method1021(16777215, 0.5F, 0.5F, 0.5F);
-		Class117.method1016();
+		AtmosphereManager.method1014(-i, i_27_, -i_28_);
+		AtmosphereManager.method1021(16777215, 0.5F, 0.5F, 0.5F);
+		AtmosphereManager.method1016();
 		HDToolkit.method505();
 		HDToolkit.method502(true);
 		HDToolkit.method524(true);
@@ -524,14 +524,14 @@ final class Class97 {
 						class120_sub7.putShort(1);
 						class120_sub7.putShort(1);
 					} else {
-						class120_sub7.method1105((byte) 43, 0);
-						class120_sub7.method1105((byte) 43, 0);
+						class120_sub7.method1105(0);
+						class120_sub7.method1105(0);
 						for (int i_108_ = 1; i_108_ < 16; i_108_++) {
-							class120_sub7.method1105((byte) 43, i_106_++);
-							class120_sub7.method1105((byte) 43, i_105_++);
+							class120_sub7.method1105(i_106_++);
+							class120_sub7.method1105(i_105_++);
 						}
-						class120_sub7.method1105((byte) 43, 1);
-						class120_sub7.method1105((byte) 43, 1);
+						class120_sub7.method1105(1);
+						class120_sub7.method1105(1);
 					}
 				}
 				f += 0.05882353F;

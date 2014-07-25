@@ -340,4 +340,18 @@ final class Class22 {
 	public Class22() {
 		/* empty */
 	}
+	
+	static final Class22 list(final int id) {//TODO remove this method, used to test qc
+		final Class22 class22_11_ = new Class22();
+		class22_11_.anInt129 = id;
+		class22_11_.aClass120_Sub14_Sub10_128 = Class120_Sub14_Sub10.list(class22_11_.anInt129);
+		return class22_11_;
+	}
+
+	static final Class22 decode(final Buffer bufer) {
+		final Class22 class22_11_ = new Class22();
+		class22_11_.anInt129 = bufer.getUShort();
+		class22_11_.aClass120_Sub14_Sub10_128 = Class120_Sub14_Sub10.list(class22_11_.anInt129);
+		return class22_11_;
+	}
 }

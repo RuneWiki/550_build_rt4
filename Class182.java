@@ -54,10 +54,10 @@ final class Class182 {
 		try {
 			bool = AbstractTimer.method737();
 		} catch (final IOException ioexception) {
-			Class100.dropClient();
+			TileParticleQueue.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + Class100.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -Class100.selfPlayer.walkQueueZ[0]).append(" - ").toString();
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
 			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
 				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}

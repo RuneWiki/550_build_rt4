@@ -5,7 +5,7 @@
 final class LocType {
 	private short[] aShortArray1815;
 	private int anInt1816;
-	private int[] anIntArray1817;
+	private int[] types;
 	static JagexInterface aClass189_1818 = null;
 	int anInt1819;
 	private byte aByte1820;
@@ -15,7 +15,7 @@ final class LocType {
 	private int anInt1824;
 	int cursor1op = -1;
 	int anInt1826;
-	int anInt1827;
+	int sizeZ;
 	private short[] aShortArray1828;
 	private int[] anIntArray1829;
 	private boolean aBoolean1830;
@@ -29,7 +29,7 @@ final class LocType {
 	private int anInt1838;
 	int anInt1839;
 	int anInt1840;
-	int anInt1841;
+	int sizeX;
 	int cursor2;
 	private int anInt1843;
 	boolean aBoolean1844;
@@ -38,7 +38,7 @@ final class LocType {
 	int cursor2op;
 	String name;
 	String[] actions;
-	private int[] anIntArray1850;
+	private int[] modelIds;
 	boolean members;
 	int[] childrenIDs;
 	boolean aBoolean1853;
@@ -83,12 +83,12 @@ final class LocType {
 	final boolean method2452(final boolean bool) {
 		boolean bool_0_;
 		try {
-			if (anIntArray1850 == null) {
+			if (modelIds == null) {
 				return true;
 			}
 			boolean bool_1_ = bool;
 			int[] is;
-			final int i = (is = anIntArray1850).length;
+			final int i = (is = modelIds).length;
 			for (int i_2_ = 0; i_2_ < i; i_2_++) {
 				final int i_3_ = is[i_2_];
 				bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.fileExists(0xffff & i_3_, 0);
@@ -108,7 +108,7 @@ final class LocType {
 			}
 			if (!HDToolkit.glEnabled) {
 				long l;
-				if (anIntArray1817 == null) {
+				if (types == null) {
 					l = i_8_ + (this.myId << 10);
 				} else {
 					l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
@@ -155,7 +155,7 @@ final class LocType {
 				return Class82.aClass88_783;
 			}
 			long l;
-			if (anIntArray1817 != null) {
+			if (types != null) {
 				l = i_8_ + (this.myId << 10) + (i_4_ << 3);
 			} else {
 				l = (this.myId << 10) + i_8_;
@@ -222,16 +222,16 @@ final class LocType {
 			if (i_20_ == 2 && i > 3) {
 				bool = !bool;
 			}
-			if (anIntArray1817 == null) {
+			if (types == null) {
 				if (i_20_ != 10) {
 					return null;
 				}
-				if (anIntArray1850 == null) {
+				if (modelIds == null) {
 					return null;
 				}
-				final int i_22_ = anIntArray1850.length;
+				final int i_22_ = modelIds.length;
 				for (int i_23_ = 0; i_23_ < i_22_; i_23_++) {
-					int i_24_ = anIntArray1850[i_23_];
+					int i_24_ = modelIds[i_23_];
 					if (bool) {
 						i_24_ += 65536;
 					}
@@ -255,8 +255,8 @@ final class LocType {
 				}
 			} else {
 				int i_25_ = -1;
-				for (int i_26_ = 0; i_26_ < anIntArray1817.length; i_26_++) {
-					if (i_20_ == anIntArray1817[i_26_]) {
+				for (int i_26_ = 0; i_26_ < types.length; i_26_++) {
+					if (i_20_ == types[i_26_]) {
 						i_25_ = i_26_;
 						break;
 					}
@@ -264,7 +264,7 @@ final class LocType {
 				if (i_25_ == -1) {
 					return null;
 				}
-				int i_27_ = anIntArray1850[i_25_];
+				int i_27_ = modelIds[i_25_];
 				if (bool) {
 					i_27_ += 65536;
 				}
@@ -376,20 +376,20 @@ final class LocType {
 			final int i_39_ = 64 + anInt1843;
 			final int i_40_ = 768 + anInt1824 * 5;
 			Class180_Sub7_Sub2 class180_sub7_sub2_41_;
-			if (anIntArray1817 == null) {
+			if (types == null) {
 				if (i != 10) {
 					return null;
 				}
-				if (anIntArray1850 == null) {
+				if (modelIds == null) {
 					return null;
 				}
-				final int i_42_ = anIntArray1850.length;
+				final int i_42_ = modelIds.length;
 				if (i_42_ == 0) {
 					return null;
 				}
 				long l = 0L;
 				for (int i_43_ = 0; i_42_ > i_43_; i_43_++) {
-					l = 67783L * l + anIntArray1850[i_43_];
+					l = 67783L * l + modelIds[i_43_];
 				}
 				if (bool) {
 					l ^= 0xffffffffffffffffL;
@@ -398,7 +398,7 @@ final class LocType {
 				if (class180_sub7_sub2_41_ == null) {
 					Class180_Sub2 class180_sub2 = null;
 					for (int i_44_ = 0; i_42_ > i_44_; i_44_++) {
-						class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub36.aClass50_3418, 0xffff & anIntArray1850[i_44_], 0);
+						class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub36.aClass50_3418, 0xffff & modelIds[i_44_], 0);
 						if (class180_sub2 == null) {
 							return null;
 						}
@@ -414,8 +414,8 @@ final class LocType {
 				}
 			} else {
 				int i_45_ = -1;
-				for (int i_46_ = 0; anIntArray1817.length > i_46_; i_46_++) {
-					if (anIntArray1817[i_46_] == i) {
+				for (int i_46_ = 0; types.length > i_46_; i_46_++) {
+					if (types[i_46_] == i) {
 						i_45_ = i_46_;
 						break;
 					}
@@ -423,7 +423,7 @@ final class LocType {
 				if (i_45_ == -1) {
 					return null;
 				}
-				int i_47_ = anIntArray1850[i_45_];
+				int i_47_ = modelIds[i_45_];
 				if (bool) {
 					i_47_ += 65536;
 				}
@@ -498,22 +498,22 @@ final class LocType {
 			if (i_54_ != 23428) {
 				return true;
 			}
-			if (anIntArray1817 != null) {
-				for (int i_55_ = 0; i_55_ < anIntArray1817.length; i_55_++) {
-					if (anIntArray1817[i_55_] == i) {
-						return Class120_Sub12_Sub36.aClass50_3418.fileExists(0xffff & anIntArray1850[i_55_], 0);
+			if (types != null) {
+				for (int i_55_ = 0; i_55_ < types.length; i_55_++) {
+					if (types[i_55_] == i) {
+						return Class120_Sub12_Sub36.aClass50_3418.fileExists(0xffff & modelIds[i_55_], 0);
 					}
 				}
 				return true;
 			}
-			if (anIntArray1850 == null) {
+			if (modelIds == null) {
 				return true;
 			}
 			if (i != 10) {
 				return true;
 			}
 			boolean bool_56_ = true;
-			for (final int element : anIntArray1850) {
+			for (final int element : modelIds) {
 				bool_56_ &= Class120_Sub12_Sub36.aClass50_3418.fileExists(element & 0xffff, 0);
 			}
 			bool = bool_56_;
@@ -531,7 +531,7 @@ final class LocType {
 			}
 			if (HDToolkit.glEnabled) {
 				long l;
-				if (anIntArray1817 == null) {
+				if (types == null) {
 					l = (this.myId << 10) + i_62_;
 				} else {
 					l = i_62_ + (i_63_ << 3) + (this.myId << 10);
@@ -575,7 +575,7 @@ final class LocType {
 				return Class82.aClass88_783;
 			}
 			long l;
-			if (anIntArray1817 != null) {
+			if (types != null) {
 				l = i_62_ + (i_63_ << 3) + (this.myId << 10);
 			} else {
 				l = (this.myId << 10) + i_62_;
@@ -654,7 +654,7 @@ final class LocType {
 	private final void decode(final Buffer buffer, final int code) {
 			if (code != 1) {
 				if (code == 2) {
-					this.name = buffer.getJString();
+					this.name = buffer.getJagexString();
 				} else if (code != 5) {
 					if (code != 14) {
 						if (code != 15) {
@@ -681,7 +681,7 @@ final class LocType {
 											if (code == 39) {
 												anInt1824 = 5 * buffer.getByte();
 											} else if (code >= 30 && code < 35) {
-												this.actions[-30 + code] = buffer.getJString();
+												this.actions[-30 + code] = buffer.getJagexString();
 												if (this.actions[code + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
 													this.actions[code - 30] = null;
 												}
@@ -766,7 +766,7 @@ final class LocType {
 																															} else if (code == 107) {
 																																this.anInt1840 = buffer.getUShort();
 																															} else if (code >= 150 && code < 155) {
-																																this.actions[-150 + code] = buffer.getJString();
+																																this.actions[-150 + code] = buffer.getJagexString();
 																																if (!Class69_Sub2.aBoolean2234 || this.actions[-150 + code].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
 																																	this.actions[code - 150] = null;
 																																}
@@ -781,7 +781,7 @@ final class LocType {
 																																	final int i_84_ = buffer.getMedium();
 																																	Node node;
 																																	if (bool) {
-																																		node = new StringNode(buffer.getJString());
+																																		node = new StringNode(buffer.getJagexString());
 																																	} else {
 																																		node = new IntegerNode(buffer.getInt());
 																																	}
@@ -898,19 +898,19 @@ final class LocType {
 								aBoolean1830 = true;
 							}
 						} else {
-							this.anInt1827 = buffer.getUByte();
+							this.sizeZ = buffer.getUByte();
 						}
 					} else {
-						this.anInt1841 = buffer.getUByte();
+						this.sizeX = buffer.getUByte();
 					}
 				} else {
 					final int i_92_ = buffer.getUByte();
 					if (i_92_ > 0) {
-						if (anIntArray1850 == null || Class120_Sub12_Sub26.aBoolean3326) {
-							anIntArray1817 = null;
-							anIntArray1850 = new int[i_92_];
+						if (modelIds == null || Class120_Sub12_Sub26.aBoolean3326) {
+							types = null;
+							modelIds = new int[i_92_];
 							for (int i_93_ = 0; i_93_ < i_92_; i_93_++) {
-								anIntArray1850[i_93_] = buffer.getUShort();
+								modelIds[i_93_] = buffer.getUShort();
 							}
 						} else {
 							buffer.pos += i_92_ * 2;
@@ -920,37 +920,30 @@ final class LocType {
 			} else {
 				final int i_94_ = buffer.getUByte();
 				if (i_94_ > 0) {
-					if (anIntArray1850 != null && !Class120_Sub12_Sub26.aBoolean3326) {
+					if (modelIds != null && !Class120_Sub12_Sub26.aBoolean3326) {
 						buffer.pos += 3 * i_94_;
 					} else {
-						anIntArray1850 = new int[i_94_];
-						anIntArray1817 = new int[i_94_];
+						modelIds = new int[i_94_];
+						types = new int[i_94_];
 						for (int i_95_ = 0; i_95_ < i_94_; i_95_++) {
-							anIntArray1850[i_95_] = buffer.getUShort();
-							anIntArray1817[i_95_] = buffer.getUByte();
+							modelIds[i_95_] = buffer.getUShort();
+							types[i_95_] = buffer.getUByte();
 						}
 					}
 				}
 			}
 	}
 
-	static final void method2465(final byte i, final boolean bool) {
-		try {
-			if (Class9.aByteArrayArrayArray70 == null) {
-				Class9.aByteArrayArrayArray70 = new byte[4][104][104];
-			}
-			for (int i_96_ = 0; i_96_ < 4; i_96_++) {
-				for (int i_97_ = 0; i_97_ < 104; i_97_++) {
-					for (int i_98_ = 0; i_98_ < 104; i_98_++) {
-						Class9.aByteArrayArrayArray70[i_96_][i_97_][i_98_] = i;
-					}
+	static final void method2465(final byte i) {
+		if (Class9.aByteArrayArrayArray70 == null) {
+			Class9.aByteArrayArrayArray70 = new byte[4][104][104];
+		}
+		for (int i_96_ = 0; i_96_ < 4; i_96_++) {
+			for (int i_97_ = 0; i_97_ < 104; i_97_++) {
+				for (int i_98_ = 0; i_98_ < 104; i_98_++) {
+					Class9.aByteArrayArrayArray70[i_96_][i_97_][i_98_] = i;
 				}
 			}
-			if (!bool) {
-				anIntArray1834 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.H(").append(i).append(',').append(bool).append(')').toString());
 		}
 	}
 
@@ -1029,7 +1022,7 @@ final class LocType {
 					i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
 				}
 				if (i_107_ == 8) {
-					i_108_ = Class100.selfPlayer.combatLevel;
+					i_108_ = TileParticleQueue.selfPlayer.combatLevel;
 				}
 				if (i_107_ == 9) {
 					for (int i_113_ = 0; i_113_ < 25; i_113_++) {
@@ -1068,10 +1061,10 @@ final class LocType {
 					i_108_ = Class173.method2226((byte) -126, i_120_);
 				}
 				if (i_107_ == 18) {
-					i_108_ = GameEntity.currentBaseX + (Class100.selfPlayer.x >> 7);
+					i_108_ = GameEntity.currentBaseX + (TileParticleQueue.selfPlayer.x >> 7);
 				}
 				if (i_107_ == 19) {
-					i_108_ = (Class100.selfPlayer.z >> 7) - -Class181.currentBaseZ;
+					i_108_ = (TileParticleQueue.selfPlayer.z >> 7) - -Class181.currentBaseZ;
 				}
 				if (i_107_ == 20) {
 					i_108_ = is[i_103_++];
@@ -1128,7 +1121,7 @@ final class LocType {
 	final void postDecode() {
 		if (this.anInt1835 == -1) {
 			this.anInt1835 = 0;
-			if (anIntArray1850 != null && (anIntArray1817 == null || anIntArray1817[0] == 10)) {
+			if (modelIds != null && (types == null || types[0] == 10)) {
 				this.anInt1835 = 1;
 			}
 			for (int i_123_ = 0; i_123_ < 5; i_123_++) {
@@ -1183,13 +1176,13 @@ final class LocType {
 		this.aBoolean1823 = true;
 		this.anInt1819 = 16;
 		this.anInt1832 = 0;
-		this.anInt1827 = 1;
+		this.sizeZ = 1;
 		this.anInt1845 = 0;
 		this.members = false;
 		this.anInt1857 = 0;
 		this.cursor2op = -1;
 		this.actions = new String[5];
-		this.anInt1841 = 1;
+		this.sizeX = 1;
 		this.anInt1831 = -1;
 		anInt1838 = 0;
 		aBoolean1830 = false;

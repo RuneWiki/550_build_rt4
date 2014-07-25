@@ -61,7 +61,7 @@ final class Class192 {
 				player.anInt2999 = 0;
 				player.anInt3031 = player.anInt2960;
 				if (player.anInt3006 != -1) {
-					Class120_Sub12_Sub23.method1323(SeqType.list(player.anInt3006), player.x, player.z, player.anInt2964, player == Class100.selfPlayer);
+					Class120_Sub12_Sub23.method1323(SeqType.list(player.anInt3006), player.x, player.z, player.anInt2964, player == TileParticleQueue.selfPlayer);
 				}
 			}
 		} else {
@@ -73,7 +73,7 @@ final class Class192 {
 				player.anInt3044 = 0;
 				player.anInt3013 = 1;
 				player.anInt2999 = 0;
-				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.anInt2964, player == Class100.selfPlayer);
+				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.anInt2964, player == TileParticleQueue.selfPlayer);
 			}
 			if (i_2_ == 2) {
 				player.anInt2999 = 0;

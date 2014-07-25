@@ -60,7 +60,7 @@ final class CursorType {
 						final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];
 						final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
 						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-						if (class120_sub20.method1681(-9617) || class120_sub20.method1691()) {
+						if (class120_sub20.method1681() || class120_sub20.method1691()) {
 							JavaObject.anInt3915 = 0;
 							Huffman.aBoolean1207 = false;
 							if (Projectile.aClass189_2954 != null) {

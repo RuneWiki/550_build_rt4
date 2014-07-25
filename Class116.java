@@ -21,18 +21,18 @@ final class Class116 {
 					if (Class79.aFloat696 < Class79.aFloat698) {
 						Class79.aFloat696 = Class79.aFloat698;
 					}
-					Class127.method1889((byte) 65);
+					Class127.method1889();
 				}
 			} else {
 				Class79.aFloat696 += Class79.aFloat696 / 30.0;
 				if (Class79.aFloat698 < Class79.aFloat696) {
 					Class79.aFloat696 = Class79.aFloat698;
 				}
-				Class127.method1889((byte) 65);
+				Class127.method1889();
 			}
 			if ((CanvasWrapper.anInt20 ^ 0xffffffff) != 0 && Class120_Sub2.anInt2422 != -1) {
 				int i_0_ = -Class169.anInt1646 + Class120_Sub2.anInt2422;
-				int i_1_ = -Class108_Sub1.anInt2336 + CanvasWrapper.anInt20;
+				int i_1_ = -ParticleManager.anInt2336 + CanvasWrapper.anInt20;
 				if (i_0_ < 2 || i_0_ > 2) {
 					i_0_ >>= 4;
 				}
@@ -44,8 +44,8 @@ final class Class116 {
 					Class120_Sub2.anInt2422 = -1;
 					CanvasWrapper.anInt20 = -1;
 				}
-				Class108_Sub1.anInt2336 += i_1_;
-				Class127.method1889((byte) 84);
+				ParticleManager.anInt2336 += i_1_;
+				Class127.method1889();
 			}
 			if (Class96.anInt919 > 0) {
 				Class136.anInt1321--;

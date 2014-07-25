@@ -56,59 +56,55 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		}
 	}
 
-	static final void method1556(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {
-		try {
-			for (int i_9_ = i_6_; i_6_ - -i_7_ >= i_9_; i_9_++) {
-				for (int i_10_ = i; i_10_ <= i - -i_5_; i_10_++) {
-					if (i_10_ >= 0 && i_10_ < 104 && i_9_ >= 0 && i_9_ < 104) {
-						Npc.aByteArrayArrayArray3754[i_4_][i_10_][i_9_] = (byte) 127;
-					}
+	static final void method1556(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_) {
+		for (int i_9_ = i_6_; i_6_ + i_7_ >= i_9_; i_9_++) {
+			for (int i_10_ = i; i_10_ <= i + i_5_; i_10_++) {
+				if (i_10_ >= 0 && i_10_ < 104 && i_9_ >= 0 && i_9_ < 104) {
+					Npc.aByteArrayArrayArray3754[i_4_][i_10_][i_9_] = (byte) 127;
 				}
 			}
-			for (int i_11_ = i_6_; i_7_ + i_6_ > i_11_; i_11_++) {
-				for (int i_12_ = i; i_12_ < i_5_ + i; i_12_++) {
-					if (i_12_ >= 0 && i_12_ < 104 && i_11_ >= 0 && i_11_ < 104) {
-						OverridedJInterface.tileHeightMap[i_4_][i_12_][i_11_] = i_4_ > 0 ? OverridedJInterface.tileHeightMap[i_4_ + -1][i_12_][i_11_] : 0;
-					}
+		}
+		for (int i_11_ = i_6_; i_7_ + i_6_ > i_11_; i_11_++) {
+			for (int i_12_ = i; i_12_ < i_5_ + i; i_12_++) {
+				if (i_12_ >= 0 && i_12_ < 104 && i_11_ >= 0 && i_11_ < 104) {
+					OverridedJInterface.tileHeightMap[i_4_][i_12_][i_11_] = i_4_ > 0 ? OverridedJInterface.tileHeightMap[i_4_ + -1][i_12_][i_11_] : 0;
 				}
 			}
-			if ((i ^ 0xffffffff) < i_8_ && i < 104) {
-				for (int i_13_ = 1 + i_6_; i_13_ < i_6_ - -i_7_; i_13_++) {
-					if (i_13_ >= 0 && i_13_ < 104) {
-						OverridedJInterface.tileHeightMap[i_4_][i][i_13_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_13_];
-					}
+		}
+		if (i > 0 && i < 104) {
+			for (int i_13_ = 1 + i_6_; i_13_ < i_6_ - -i_7_; i_13_++) {
+				if (i_13_ >= 0 && i_13_ < 104) {
+					OverridedJInterface.tileHeightMap[i_4_][i][i_13_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_13_];
 				}
 			}
-			if (i_6_ > 0 && i_6_ < 104) {
-				for (int i_14_ = i + 1; i - -i_5_ > i_14_; i_14_++) {
-					if (i_14_ >= 0 && i_14_ < 104) {
-						OverridedJInterface.tileHeightMap[i_4_][i_14_][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i_14_][i_6_ - 1];
-					}
+		}
+		if (i_6_ > 0 && i_6_ < 104) {
+			for (int i_14_ = i + 1; i - -i_5_ > i_14_; i_14_++) {
+				if (i_14_ >= 0 && i_14_ < 104) {
+					OverridedJInterface.tileHeightMap[i_4_][i_14_][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i_14_][i_6_ - 1];
 				}
 			}
-			if (i >= 0 && i_6_ >= 0 && i < 104 && i_6_ < 104) {
-				if (i_4_ != 0) {
-					if (i <= 0 || OverridedJInterface.tileHeightMap[-1 + i_4_][-1 + i][i_6_] == OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_]) {
-						if (i_6_ > 0 && OverridedJInterface.tileHeightMap[i_4_ + -1][i][i_6_ + -1] != OverridedJInterface.tileHeightMap[i_4_][i][i_6_ + -1]) {
-							OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i][i_6_ - 1];
-						} else if (i > 0 && i_6_ > 0 && OverridedJInterface.tileHeightMap[-1 + i_4_][-1 + i][-1 + i_6_] != OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ - 1]) {
-							OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ - 1];
-						}
-					} else {
-						OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i + -1][i_6_];
-					}
-				} else if (i > 0 && OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_] != 0) {
-					OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_];
-				} else if (i_6_ <= 0 || OverridedJInterface.tileHeightMap[i_4_][i][i_6_ - 1] == 0) {
-					if (i > 0 && i_6_ > 0 && OverridedJInterface.tileHeightMap[i_4_][-1 + i][-1 + i_6_] != 0) {
-						OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ + -1];
+		}
+		if (i >= 0 && i_6_ >= 0 && i < 104 && i_6_ < 104) {
+			if (i_4_ != 0) {
+				if (i <= 0 || OverridedJInterface.tileHeightMap[-1 + i_4_][-1 + i][i_6_] == OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_]) {
+					if (i_6_ > 0 && OverridedJInterface.tileHeightMap[i_4_ + -1][i][i_6_ + -1] != OverridedJInterface.tileHeightMap[i_4_][i][i_6_ + -1]) {
+						OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i][i_6_ - 1];
+					} else if (i > 0 && i_6_ > 0 && OverridedJInterface.tileHeightMap[-1 + i_4_][-1 + i][-1 + i_6_] != OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ - 1]) {
+						OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ - 1];
 					}
 				} else {
-					OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i][-1 + i_6_];
+					OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i + -1][i_6_];
 				}
+			} else if (i > 0 && OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_] != 0) {
+				OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i - 1][i_6_];
+			} else if (i_6_ <= 0 || OverridedJInterface.tileHeightMap[i_4_][i][i_6_ - 1] == 0) {
+				if (i > 0 && i_6_ > 0 && OverridedJInterface.tileHeightMap[i_4_][-1 + i][-1 + i_6_] != 0) {
+					OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][-1 + i][i_6_ + -1];
+				}
+			} else {
+				OverridedJInterface.tileHeightMap[i_4_][i][i_6_] = OverridedJInterface.tileHeightMap[i_4_][i][-1 + i_6_];
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
 		}
 	}
 
@@ -153,7 +149,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 
 	final void method1559(final int i) {
 		try {
-			final int i_23_ = Class49.method408((byte) 117);
+			final int i_23_ = Class49.method408();
 			if ((i_23_ & i) == 0) {
 				HDToolkit.method514(anInt3581);
 			}

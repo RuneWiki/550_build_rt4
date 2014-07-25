@@ -61,7 +61,7 @@ final class Class157 {
 			final int i_20_ = ShapedTile.anIntArray1636[i_14_];
 			final int i_21_ = ShapedTile.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
-				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(Class108_Sub1.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
+				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleManager.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
 					ObjectCache.anInt122 = i_4_;
 					Class20.anInt2174 = i_5_;
 				}
@@ -84,7 +84,7 @@ final class Class157 {
 						}
 					} else {
 						final int i_22_ = Rasterizer.anInterface5_973.method20(shapedTile.anIntArray1621[i_12_], 65535);
-						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, Class108_Sub1.method935(i_22_, shapedTile.anIntArray1627[i_12_]), Class108_Sub1.method935(i_22_, shapedTile.anIntArray1625[i_12_]), Class108_Sub1.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
+						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, ParticleManager.method935(i_22_, shapedTile.anIntArray1627[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1625[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
 					}
 				}
 			}

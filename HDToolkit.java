@@ -591,7 +591,7 @@ final class HDToolkit {
 		if (string_49_.indexOf("radeon") != -1) {
 			int i_50_ = 0;
 			boolean bool = false;
-			final String[] strings_51_ = Class29.method249(0, ' ', string_49_.replace('/', ' '));
+			final String[] strings_51_ = Class29.splitString(string_49_.replace('/', ' '), ' ');
 			String[] strings_53_;
 			final int i_52_ = (strings_53_ = strings_51_).length;
 			for (int i_54_ = 0; i_54_ < i_52_; i_54_++) {
@@ -736,7 +736,7 @@ final class HDToolkit {
 		gl.glEnableClientState(32888);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
-		Class117.method1018();
+		AtmosphereManager.method1018();
 		LightManager.method1865();
 	}
 

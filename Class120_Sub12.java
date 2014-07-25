@@ -79,9 +79,9 @@ abstract class Class120_Sub12 extends Node {
 				try {
 					final int i_8_ = class120_sub7.getUByte();
 					if (i_8_ == 0 || i_8_ == 1 || i_8_ == 2) {
-						final String string = class120_sub7.getJString();
+						final String string = class120_sub7.getJagexString();
 						int i_9_ = 0;
-						final String string_10_ = class120_sub7.getJString();
+						final String string_10_ = class120_sub7.getJagexString();
 						if (i_8_ == 1) {
 							i_9_ = class120_sub7.getInt();
 						}
@@ -89,12 +89,12 @@ abstract class Class120_Sub12 extends Node {
 						class120_sub28.anIntArray2752[i_7_] = i_9_;
 						class120_sub28.aClass185Array2755[i_7_] = signlink.method1974(string_10_, FrameLoader.method1584(0, string));
 					} else if (i_8_ == 3 || i_8_ == 4) {
-						final String string = class120_sub7.getJString();
-						final String string_11_ = class120_sub7.getJString();
+						final String string = class120_sub7.getJagexString();
+						final String string_11_ = class120_sub7.getJagexString();
 						final int i_12_ = class120_sub7.getUByte();
 						final String[] strings = new String[i_12_];
 						for (int i_13_ = 0; i_13_ < i_12_; i_13_++) {
-							strings[i_13_] = class120_sub7.getJString();
+							strings[i_13_] = class120_sub7.getJagexString();
 						}
 						final byte[][] is = new byte[i_12_][];
 						if (i_8_ == 3) {

@@ -5,8 +5,8 @@
 final class Js5Request extends AbstractRequest {
 	int anInt3936;
 	static ObjectCache aClass21_3937 = new ObjectCache(64);
-	byte aByte3938;
-	Buffer aClass120_Sub7_3939;
+	byte bufferOff;
+	Buffer buffer;
 	static int anInt3940;
 	static Class120_Sub31 aClass120_Sub31_3941;
 
@@ -139,10 +139,10 @@ final class Js5Request extends AbstractRequest {
 
 	@Override
 	final int getCompletion() {
-		if (this.aClass120_Sub7_3939 == null) {
+		if (this.buffer == null) {
 			return 0;
 		}
-		return this.aClass120_Sub7_3939.pos * 100 / (-this.aByte3938 + this.aClass120_Sub7_3939.buf.length);
+		return this.buffer.pos * 100 / (this.buffer.buf.length - this.bufferOff);
 	}
 
 	static final int method1553(final int i, final World class167_sub1, final int i_25_, final World class167_sub1_26_, final boolean bool) {
@@ -201,9 +201,9 @@ final class Js5Request extends AbstractRequest {
 
 	@Override
 	final byte[] getBuffer() {
-		if (this.aBoolean3576 || this.aClass120_Sub7_3939.buf.length - this.aByte3938 > this.aClass120_Sub7_3939.pos) {
+		if (this.aBoolean3576 || this.buffer.buf.length - this.bufferOff > this.buffer.pos) {
 			throw new RuntimeException();
 		}
-		return this.aClass120_Sub7_3939.buf;
+		return this.buffer.buf;
 	}
 }

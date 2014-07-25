@@ -145,7 +145,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				if (class120_sub29.anInt2764 < 0) {
 					final int i_23_ = -class120_sub29.anInt2764 + -1;
 					if (i_23_ == Class167.anInt1616) {
-						class180_sub5 = Class100.selfPlayer;
+						class180_sub5 = TileParticleQueue.selfPlayer;
 					} else {
 						class180_sub5 = Class118.playersList[i_23_];
 					}
@@ -161,11 +161,11 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					int i_25_;
 					int i_26_;
 					if (class120_sub29.anInt2775 != 1 && class120_sub29.anInt2775 != 3) {
-						i_26_ = locType.anInt1827;
-						i_25_ = locType.anInt1841;
+						i_26_ = locType.sizeZ;
+						i_25_ = locType.sizeX;
 					} else {
-						i_25_ = locType.anInt1827;
-						i_26_ = locType.anInt1841;
+						i_25_ = locType.sizeZ;
+						i_26_ = locType.sizeX;
 					}
 					final int i_27_ = class120_sub29.anInt2780 + (i_25_ + 1 >> 1);
 					final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);

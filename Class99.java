@@ -20,23 +20,17 @@ final class Class99 {
 		return class182;
 	}
 
-	static final void method822(final int i, final int i_2_) {
-		try {
-			Class117.method1021(Class117.anInt1126, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
-			if (i_2_ <= -32) {
-				Class117.method1014(-50.0F, -60.0F, -50.0F);
-				Class117.method1020(Class117.anInt1128, 0, false);
-				Class117.method1016();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ko.A(").append(i).append(',').append(i_2_).append(')').toString());
-		}
+	static final void method822(final int i) {
+		AtmosphereManager.method1021(AtmosphereManager.defaultScreenColorRgb, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
+		AtmosphereManager.method1014(-50.0F, -60.0F, -50.0F);
+		AtmosphereManager.method1020(AtmosphereManager.defaulFogColorRgb, 0, false);
+		AtmosphereManager.method1016();
 	}
 
 	public static void method823(final int i) {
 		try {
 			if (i != -3237) {
-				method822(63, 109);
+				method822(63);
 			}
 			aByteArrayArrayArray949 = null;
 			aString952 = null;

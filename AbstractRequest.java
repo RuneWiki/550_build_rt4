@@ -334,7 +334,7 @@ abstract class AbstractRequest extends NodeSub {
 								}
 							}
 							if (!bool_73_) {
-								Class120_Sub14_Sub15.method1556(i_71_ * 8, i_70_, 8, i_72_ * 8, 8, -1);
+								Class120_Sub14_Sub15.method1556(i_71_ * 8, i_70_, 8, i_72_ * 8, 8);
 							}
 						}
 					}

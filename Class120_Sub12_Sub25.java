@@ -167,7 +167,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			}
 		}
 		Buffer.anInt2474 = i_13_;
-		Class108.anInt1035 = 0;
+		ParticleNode.anInt1035 = 0;
 		Class120_Sub12_Sub37.aShortArray3430 = is;
 		final String[] strings = new String[Buffer.anInt2474];
 		for (int i_17_ = 0; i_17_ < Buffer.anInt2474; i_17_++) {
@@ -299,7 +299,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
 						Class137.loginStream.putInt(Class7.aClass50_63.getIndexCrc());
 						Class137.loginStream.putInt(NodeCache.aClass50_303.getIndexCrc());
-						Class137.loginStream.putInt(Class108_Sub3.aClass50_2400.getIndexCrc());
+						Class137.loginStream.putInt(ParticleNodeSub.aClass50_2400.getIndexCrc());
 						Class137.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
 						Class137.loginStream.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
 						Class137.loginStream.putInt(ClanMember.aClass50_2576.getIndexCrc());

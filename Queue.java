@@ -9,30 +9,30 @@ final class Queue {
 	private NodeSub current;
 
 	final NodeSub peekFirst() {
-		final NodeSub node = this.head.nextSub;
-		if (node == this.head) {
+		final NodeSub nodeSub = this.head.nextSub;
+		if (nodeSub == this.head) {
 			current = null;
 			return null;
 		}
-		current = node.nextSub;
-		return node;
+		current = nodeSub.nextSub;
+		return nodeSub;
 	}
 
-	final void insertLast(final NodeSub node) {
-		if (node.previousSub != null) {
-			node.unlinkSub();
+	final void insertLast(final NodeSub nodeSub) {
+		if (nodeSub.previousSub != null) {
+			nodeSub.unlinkSub();
 		}
-		node.nextSub = this.head;
-		node.previousSub = this.head.previousSub;
-		node.previousSub.nextSub = node;
-		node.nextSub.previousSub = node;
+		nodeSub.nextSub = this.head;
+		nodeSub.previousSub = this.head.previousSub;
+		nodeSub.previousSub.nextSub = nodeSub;
+		nodeSub.nextSub.previousSub = nodeSub;
 	}
 
 	final int getAmount() {
 		int amount = 0;
-		NodeSub next = this.head.nextSub;
-		while (this.head != next) {
-			next = next.nextSub;
+		NodeSub nodeSub = this.head.nextSub;
+		while (this.head != nodeSub) {
+			nodeSub = nodeSub.nextSub;
 			amount++;
 		}
 		return amount;
@@ -47,21 +47,21 @@ final class Queue {
 	}
 
 	final NodeSub removeFirst() {
-		final NodeSub node = this.head.nextSub;
-		if (this.head == node) {
+		final NodeSub nodeSub = this.head.nextSub;
+		if (this.head == nodeSub) {
 			return null;
 		}
-		node.unlinkSub();
-		return node;
+		nodeSub.unlinkSub();
+		return nodeSub;
 	}
 
 	final void clear() {
 		for (;;) {
-			final NodeSub node = this.head.nextSub;
-			if (node == this.head) {
+			final NodeSub nodeSub = this.head.nextSub;
+			if (nodeSub == this.head) {
 				break;
 			}
-			node.unlinkSub();
+			nodeSub.unlinkSub();
 		}
 		current = null;
 	}
@@ -106,13 +106,13 @@ final class Queue {
 	}
 
 	final NodeSub peekNext() {
-		final NodeSub node = current;
-		if (this.head == node) {
+		final NodeSub nodeSub = current;
+		if (this.head == nodeSub) {
 			current = null;
 			return null;
 		}
-		current = node.nextSub;
-		return node;
+		current = nodeSub.nextSub;
+		return nodeSub;
 	}
 
 	public Queue() {

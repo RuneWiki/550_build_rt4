@@ -123,7 +123,7 @@ final class Class9 {
 			if (!Class10.decodedSprites(js5, i_6_, i_7_)) {
 				return null;
 			}
-			class120_sub14_sub8 = Class108_Sub1.method937(-11537, class50_5_.getFile(i_6_, i_7_));
+			class120_sub14_sub8 = ParticleManager.method937(-11537, class50_5_.getFile(i_6_, i_7_));
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.C(").append(js5 != null ? "{...}" : "null").append(',').append(class50_5_ != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
 		}

@@ -2,10 +2,10 @@
  * Visit http://jode.sourceforge.net/
  */
 
-class Class108 {
+class ParticleNode {
 	static int anInt1031 = 0;
-	Class108 next;
-	Class108 previous;
+	ParticleNode next;
+	ParticleNode previous;
 	static float aFloat1034;
 	static int anInt1035;
 
@@ -54,7 +54,7 @@ class Class108 {
 		Class81.aClass75_777 = new Hashtable(8);
 	}
 
-	public Class108() {
+	public ParticleNode() {
 		/* empty */
 	}
 }

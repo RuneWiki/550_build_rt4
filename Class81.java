@@ -69,7 +69,7 @@ final class Class81 {
 					Class79.anInt692 = -Class79.anInt694 + (Class79.aClass120_Sub14_Sub22_691.anInt3644 >> 6 << 6) - -64;
 					int i_3_ = -1;
 					int i_4_ = -1;
-					if (Class79.aClass120_Sub14_Sub22_691.method1630(Class181.currentBaseZ + (Class100.selfPlayer.z >> 7), -1, Class173.gameLevel, is, (Class100.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
+					if (Class79.aClass120_Sub14_Sub22_691.method1630(Class181.currentBaseZ + (TileParticleQueue.selfPlayer.z >> 7), -1, Class173.gameLevel, is, (TileParticleQueue.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
 						i_4_ = is[1] - Class79.anInt695;
 						i_3_ = -is[2] + Class79.anInt694 + -1 + Class79.anInt692;
 					}
@@ -77,19 +77,19 @@ final class Class81 {
 						i_3_ += (int) (Math.random() * 10.0) - 5;
 						Class169.anInt1646 = i_3_;
 						i_4_ += -5 + (int) (Math.random() * 10.0);
-						Class108_Sub1.anInt2336 = i_4_;
+						ParticleManager.anInt2336 = i_4_;
 					} else if ((Class120_Sub12_Sub33.anInt3407 ^ 0xffffffff) != 0 && (Class86.anInt818 ^ 0xffffffff) != 0) {
 						Class79.aClass120_Sub14_Sub22_691.method1632(is, Class86.anInt818, (byte) -84, Class120_Sub12_Sub33.anInt3407);
 						Class120_Sub12_Sub33.anInt3407 = Class86.anInt818 = -1;
 						JagexSocket.aBoolean423 = false;
 						if (is != null) {
 							Class169.anInt1646 = -1 + Class79.anInt692 - is[2] - -Class79.anInt694;
-							Class108_Sub1.anInt2336 = is[1] + -Class79.anInt695;
+							ParticleManager.anInt2336 = is[1] + -Class79.anInt695;
 						}
 					} else {
 						Class79.aClass120_Sub14_Sub22_691.method1632(is, 0x3fff & Class79.aClass120_Sub14_Sub22_691.anInt3633, (byte) 68, 0x3fff & Class79.aClass120_Sub14_Sub22_691.anInt3633 >> 14);
 						Class169.anInt1646 = Class79.anInt694 - (is[2] - (-1 + Class79.anInt692));
-						Class108_Sub1.anInt2336 = -Class79.anInt695 + is[1];
+						ParticleManager.anInt2336 = -Class79.anInt695 + is[1];
 					}
 					if (Class79.aClass120_Sub14_Sub22_691.anInt3643 != 37) {
 						if (Class79.aClass120_Sub14_Sub22_691.anInt3643 == 50) {
@@ -110,7 +110,7 @@ final class Class81 {
 					} else {
 						Class79.aFloat698 = Class79.aFloat696 = 3.0F;
 					}
-					Class127.method1889((byte) 15);
+					Class127.method1889();
 					final int i_5_ = Class79.anInt700 >> 6;
 					Class79.anIntArray715 = new int[1 + Buffer.anInt2471];
 					final int i_6_ = Class79.anInt692 >> 6;

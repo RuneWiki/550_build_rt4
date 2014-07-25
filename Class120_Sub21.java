@@ -83,7 +83,7 @@ final class Class120_Sub21 extends Node {
 		}
 		if (Class120_Sub12_Sub5.errorPinging) {
 			Class120_Sub12_Sub5.errorPinging = false;
-			Class100.dropClient();
+			TileParticleQueue.dropClient();
 		} else {
 			for (int i_5_ = 0; i_5_ < 100 && Class182.method2445(); i_5_++) {
 				/* empty */
@@ -239,14 +239,14 @@ final class Class120_Sub21 extends Node {
 				} else {
 					Class154.aBoolean1439 = false;
 				}
-				Class120_Sub12_Sub35.method1385((byte) -108);
+				Class120_Sub12_Sub35.method1385();
 				if (Class109.gameState == 30) {
 					Class120_Sub12.method1185(3);
 					Class120_Sub12_Sub21_Sub1.method1315(-1122255295);
 					Class120_Sub12_Sub21.method1306((byte) -124);
 					Class88.anInt827++;
 					if (Class88.anInt827 > 750) {
-						Class100.dropClient();
+						TileParticleQueue.dropClient();
 					} else {
 						Class101_Sub3.method848(2047);
 						Class3.method82((byte) 97);
@@ -480,7 +480,7 @@ final class Class120_Sub21 extends Node {
 									continue;
 								}
 							}
-							Class88.method744(true, class120_sub10);
+							Class88.method744(class120_sub10);
 						}
 						for (;;) {
 							final InterfaceListener class120_sub10 = (InterfaceListener) FileSystem.aClass105_456.removeFront();
@@ -494,7 +494,7 @@ final class Class120_Sub21 extends Node {
 									continue;
 								}
 							}
-							Class88.method744(true, class120_sub10);
+							Class88.method744(class120_sub10);
 						}
 						for (;;) {
 							final InterfaceListener class120_sub10 = (InterfaceListener) Class88.aClass105_829.removeFront();
@@ -508,7 +508,7 @@ final class Class120_Sub21 extends Node {
 									continue;
 								}
 							}
-							Class88.method744(true, class120_sub10);
+							Class88.method744(class120_sub10);
 						}
 						if (Class142.aClass189_1362 == null) {
 							EnumType.anInt3450 = 0;
@@ -523,20 +523,20 @@ final class Class120_Sub21 extends Node {
 							} else if (i_42_ > 3) {
 								i_42_ = 3;
 							}
-							Class108.tele(Class100.selfPlayer.walkQueueX[0] + GameEntity.currentBaseX, Class181.currentBaseZ + Class100.selfPlayer.walkQueueZ[0], i_42_);
+							ParticleNode.tele(TileParticleQueue.selfPlayer.walkQueueX[0] + GameEntity.currentBaseX, Class181.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0], i_42_);
 						}
 						if (Class86.staffLevel <= 0 || !NodeCache.aBooleanArray299[82] || !NodeCache.aBooleanArray299[81]) {
 							if (Class120_Sub14_Sub5.anInt3479 != 2) {
 								if (Class120_Sub12_Sub33.anInt3401 != 2) {
 									if (ObjectCache.anInt122 != -1 && Class120_Sub14_Sub5.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
-										final int i_43_ = (ObjectCache.anInt122 << 1) + -Class100.selfPlayer.getSize() + 1 >> 1;
-										final int i_44_ = (Class20.anInt2174 << 1) - Class100.selfPlayer.getSize() + 1 >> 1;
+										final int i_43_ = (ObjectCache.anInt122 << 1) + -TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
+										final int i_44_ = (Class20.anInt2174 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
 										Class53_Sub1.method464(i_43_, 0, i_44_);
 										Class120_Sub12_Sub35.crossX = js5.lastClickX;
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 										Class120_Sub14_Sub22.crossState = 1;
 										Class120_Sub12_Sub7.crossIndex = 0;
-										Class120_Sub14_Sub5.setFlagPosition(Class100.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, Class100.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
+										Class120_Sub14_Sub5.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
 									}
 								} else {
 									if (ObjectCache.anInt122 != -1) {
@@ -566,7 +566,7 @@ final class Class120_Sub21 extends Node {
 							}
 						} else {
 							if (ObjectCache.anInt122 != -1) {
-								Class108.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
+								ParticleNode.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, Class20.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
 							}
 							Class120_Sub14_Sub5.anInt3479 = Class120_Sub12_Sub33.anInt3401 = 0;
 						}
@@ -580,7 +580,7 @@ final class Class120_Sub21 extends Node {
 								InterfaceClickMask.redrawInterface(CursorType.aClass189_1243);
 							}
 						}
-						if (class189_35_ != Class49.aClass189_441 && Class120_Sub12_Sub21.anInt3291 == Class108.anInt1031) {
+						if (class189_35_ != Class49.aClass189_441 && Class120_Sub12_Sub21.anInt3291 == ParticleNode.anInt1031) {
 							if (class189_35_ != null) {
 								InterfaceClickMask.redrawInterface(class189_35_);
 							}
@@ -589,14 +589,14 @@ final class Class120_Sub21 extends Node {
 							}
 						}
 						if (Class49.aClass189_441 != null) {
-							if (Class108.anInt1031 < Class120_Sub12_Sub21.anInt3291) {
-								Class108.anInt1031++;
-								if (Class120_Sub12_Sub21.anInt3291 == Class108.anInt1031) {
+							if (ParticleNode.anInt1031 < Class120_Sub12_Sub21.anInt3291) {
+								ParticleNode.anInt1031++;
+								if (Class120_Sub12_Sub21.anInt3291 == ParticleNode.anInt1031) {
 									InterfaceClickMask.redrawInterface(Class49.aClass189_441);
 								}
 							}
-						} else if (Class108.anInt1031 > 0) {
-							Class108.anInt1031--;
+						} else if (ParticleNode.anInt1031 > 0) {
+							ParticleNode.anInt1031--;
 						}
 						for (int i_45_ = 0; i_45_ < 5; i_45_++) {
 							LabelGroup.anIntArray2412[i_45_]++;
@@ -686,7 +686,7 @@ final class Class120_Sub21 extends Node {
 								Class65.pingTimer = 0;
 							}
 						} catch (final IOException ioexception) {
-							Class100.dropClient();
+							TileParticleQueue.dropClient();
 						}
 					}
 				}

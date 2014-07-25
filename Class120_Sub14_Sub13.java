@@ -282,35 +282,26 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		return fs;
 	}
 
-	final boolean method1529(final Interface3 interface3, final js5 js5, final int i) {
-		boolean bool;
-		try {
-			if (i > -25) {
-				method1528(17, (byte) 54, true, null, null, -90);
-			}
-			if (Class120_Sub12_Sub25.anInt3316 > 0) {
-				for (int i_53_ = 0; i_53_ < anIntArray3568.length; i_53_++) {
-					if (!js5.fileExists(Class120_Sub12_Sub25.anInt3316, anIntArray3568[i_53_])) {
-						return false;
-					}
-				}
-			} else {
-				for (int i_54_ = 0; anIntArray3568.length > i_54_; i_54_++) {
-					if (!js5.method429(anIntArray3568[i_54_])) {
-						return false;
-					}
-				}
-			}
-			for (int i_55_ = 0; i_55_ < anIntArray3560.length; i_55_++) {
-				if (!interface3.method7(anIntArray3560[i_55_], 1)) {
+	final boolean method1529(final Interface3 interface3, final js5 js5) {
+		if (Class120_Sub12_Sub25.anInt3316 > 0) {
+			for (int i_53_ = 0; i_53_ < anIntArray3568.length; i_53_++) {
+				if (!js5.fileExists(Class120_Sub12_Sub25.anInt3316, anIntArray3568[i_53_])) {
 					return false;
 				}
 			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.D(").append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+		} else {
+			for (int i_54_ = 0; anIntArray3568.length > i_54_; i_54_++) {
+				if (!js5.method429(anIntArray3568[i_54_])) {
+					return false;
+				}
+			}
 		}
-		return bool;
+		for (int i_55_ = 0; i_55_ < anIntArray3560.length; i_55_++) {
+			if (!interface3.method7(anIntArray3560[i_55_])) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final js5 js5, final int i_56_, final double d, final int i_57_, final boolean bool) {

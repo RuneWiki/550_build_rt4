@@ -288,7 +288,7 @@ final class ParamType extends NodeSub {
 		} else if (configCode == 2) {
 			this.defaultInt = buffer.getInt();
 		} else if (configCode == 5) {
-			this.defaultString = buffer.getJString();
+			this.defaultString = buffer.getJagexString();
 		}
 	}
 

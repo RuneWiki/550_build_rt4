@@ -257,7 +257,7 @@ final class OverlayType {
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
 			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 		}
-		font.method1478(Buffer.gameId != 1 ? Class120_Sub12_Sub18.aString3272 : Class108_Sub3.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
+		font.method1478(Buffer.gameId != 1 ? Class120_Sub12_Sub18.aString3272 : ParticleNodeSub.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
 		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);

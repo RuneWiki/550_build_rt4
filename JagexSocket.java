@@ -175,7 +175,7 @@ final class JagexSocket implements Runnable {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.objectData = jagexInterface.onloadListener;
 					class120_sub10.aClass189_2534 = jagexInterface;
-					ObjectCache.method194(class120_sub10, false, 2000000);
+					ObjectCache.method194(class120_sub10, 2000000);
 				}
 			}
 		}

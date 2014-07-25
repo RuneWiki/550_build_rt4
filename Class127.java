@@ -50,30 +50,26 @@ final class Class127 {
 		return i_2_;
 	}
 
-	static final void method1889(final byte i) {
-		try {
-			if (Class108_Sub1.anInt2336 < 0) {
-				Class108_Sub1.anInt2336 = 0;
-				CanvasWrapper.anInt20 = -1;
-				Class120_Sub2.anInt2422 = -1;
-			}
-			if (Class108_Sub1.anInt2336 > Class79.anInt700) {
-				Class108_Sub1.anInt2336 = Class79.anInt700;
-				Class120_Sub2.anInt2422 = -1;
-				CanvasWrapper.anInt20 = -1;
-			}
-			if (Class169.anInt1646 < 0) {
-				CanvasWrapper.anInt20 = -1;
-				Class169.anInt1646 = 0;
-				Class120_Sub2.anInt2422 = -1;
-			}
-			if (Class79.anInt692 < Class169.anInt1646) {
-				Class120_Sub2.anInt2422 = -1;
-				CanvasWrapper.anInt20 = -1;
-				Class169.anInt1646 = Class79.anInt692;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.G(").append(i).append(')').toString());
+	static final void method1889() {
+		if (ParticleManager.anInt2336 < 0) {
+			ParticleManager.anInt2336 = 0;
+			CanvasWrapper.anInt20 = -1;
+			Class120_Sub2.anInt2422 = -1;
+		}
+		if (ParticleManager.anInt2336 > Class79.anInt700) {
+			ParticleManager.anInt2336 = Class79.anInt700;
+			Class120_Sub2.anInt2422 = -1;
+			CanvasWrapper.anInt20 = -1;
+		}
+		if (Class169.anInt1646 < 0) {
+			CanvasWrapper.anInt20 = -1;
+			Class169.anInt1646 = 0;
+			Class120_Sub2.anInt2422 = -1;
+		}
+		if (Class79.anInt692 < Class169.anInt1646) {
+			Class120_Sub2.anInt2422 = -1;
+			CanvasWrapper.anInt20 = -1;
+			Class169.anInt1646 = Class79.anInt692;
 		}
 	}
 
