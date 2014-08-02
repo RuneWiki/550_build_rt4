@@ -48,38 +48,30 @@ final class Class145 {
 		}
 	}
 
-	static final void method2048(final JagexInterface jagexInterface, final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
-		try {
-			if (i_6_ != 7403) {
-				anInt1382 = -38;
-			}
-			final int i_11_ = i_7_ * i_7_ + i_9_ * i_9_;
-			if (i >= i_11_) {
-				int i_12_ = Math.min(jagexInterface.width / 2, jagexInterface.height / 2);
-				if (i_11_ > i_12_ * i_12_) {
-					i_12_ -= 10;
-					final int i_13_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
-					int i_14_ = Rasterizer.cosineTable[i_13_];
-					i_14_ = 256 * i_14_ / (Class154.anInt1442 - -256);
-					int i_15_ = Rasterizer.sineTable[i_13_];
-					i_15_ = i_15_ * 256 / (Class154.anInt1442 + 256);
-					final int i_16_ = i_14_ * i_7_ + -(i_9_ * i_15_) >> 16;
-					final int i_17_ = i_9_ * i_14_ + i_15_ * i_7_ >> 16;
-					final double d = Math.atan2(i_17_, i_16_);
-					final int i_18_ = (int) (i_12_ * Math.sin(d));
-					final int i_19_ = (int) (i_12_ * Math.cos(d));
-					if (!HDToolkit.glEnabled) {
-						((LDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1612(-10 + i_5_ + jagexInterface.width / 2 + i_18_, -i_19_ + jagexInterface.height / 2 + i_8_ + -10, 20, 20, 15, 15, d, 256);
-					} else {
-						((HDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[i_10_]).method1601(240, 240, (i_5_ - -(jagexInterface.width / 2) + i_18_) * 16, (-i_19_ + i_8_ + jagexInterface.height / 2) * 16, (int) (d * 10430.378), 4096);
-					}
+	static final void method2048(final JagexInterface jagexInterface, final int maxDist, final int interfaceX, final int playerY, final int interfaceY, final int playerX, final int iconType) {
+		final int dist = playerX * playerX + playerY * playerY;
+		if (dist <= maxDist) {
+			int i_12_ = Math.min(jagexInterface.width / 2, jagexInterface.height / 2);
+			if (dist > i_12_ * i_12_) {
+				i_12_ -= 10;
+				final int i_13_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
+				int i_14_ = Rasterizer.cosineTable[i_13_];
+				i_14_ = 256 * i_14_ / (Class154.anInt1442 + 256);
+				int i_15_ = Rasterizer.sineTable[i_13_];
+				i_15_ = i_15_ * 256 / (Class154.anInt1442 + 256);
+				final int i_16_ = i_14_ * playerY + -(playerX * i_15_) >> 16;
+				final int i_17_ = playerX * i_14_ + i_15_ * playerY >> 16;
+				final double d = Math.atan2(i_17_, i_16_);
+				final int i_18_ = (int) (i_12_ * Math.sin(d));
+				final int i_19_ = (int) (i_12_ * Math.cos(d));
+				if (!HDToolkit.glEnabled) {
+					((LDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[iconType]).method1612(-10 + interfaceX + jagexInterface.width / 2 + i_18_, -i_19_ + jagexInterface.height / 2 + interfaceY + -10, 20, 20, 15, 15, d, 256);
 				} else {
-					Class23.method200(i_5_, jagexInterface, i_8_, i_9_, i_7_, Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167[i_10_]);
+					((HDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[iconType]).method1601(240, 240, (interfaceX - -(jagexInterface.width / 2) + i_18_) * 16, (-i_19_ + interfaceY + jagexInterface.height / 2) * 16, (int) (d * 10430.378), 4096);
 				}
+			} else {
+				Class23.method200(interfaceX, jagexInterface, interfaceY, playerX, playerY, Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167[iconType]);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qm.B(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',')
-					.append(i_10_).append(')').toString());
 		}
 	}
 

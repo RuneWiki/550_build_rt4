@@ -6,11 +6,11 @@ final class Player extends GameEntity {
 	int anInt3732;
 	int anInt3733 = 0;
 	int anInt3734;
-	int anInt3735;
+	int ambientSoundHearDistance;
 	int anInt3736;
 	int anInt3737 = 0;
 	int anInt3738;
-	int anInt3739;
+	int ambientSoundVolume;
 	int anInt3740;
 	private byte titleId;
 	int anInt3742;
@@ -87,24 +87,24 @@ final class Player extends GameEntity {
 			this.anInt3733 = this.combatLevel;
 			this.anInt3738 = -1;
 		}
-		final int i_12_ = this.anInt3735;
-		this.anInt3735 = buffer.getUByte();
-		if (this.anInt3735 != 0) {
+		final int i_12_ = this.ambientSoundHearDistance;
+		this.ambientSoundHearDistance = buffer.getUByte();
+		if (this.ambientSoundHearDistance != 0) {
 			final int i_13_ = this.anInt3736;
 			final int i_14_ = this.anInt3740;
 			final int i_15_ = this.anInt3734;
 			final int i_16_ = this.anInt3742;
-			final int i_17_ = this.anInt3739;
+			final int i_17_ = this.ambientSoundVolume;
 			this.anInt3740 = buffer.getUShort();
 			this.anInt3736 = buffer.getUShort();
 			this.anInt3734 = buffer.getUShort();
 			this.anInt3742 = buffer.getUShort();
-			this.anInt3739 = buffer.getUByte();
-			if (this.anInt3735 != i_12_ || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.anInt3739 != i_17_) {
-				Class120_Sub30_Sub1.method1738(-86, this);
+			this.ambientSoundVolume = buffer.getUByte();
+			if (this.ambientSoundHearDistance != i_12_ || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.ambientSoundVolume != i_17_) {
+				Class120_Sub30_Sub1.addRefreshPlayerAmbientSound(this);
 			}
 		} else {
-			Class31.method267(15, this);
+			Class31.removePlayerAmbientSound(this);
 		}
 		if (this.appearance == null) {
 			this.appearance = new PlayerAppearance();
@@ -134,7 +134,7 @@ final class Player extends GameEntity {
 				}
 				final SeqType seqType = this.anInt3006 == -1 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
 				final SeqType class40_23_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-				final Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, seqType, false, this.anInt3044);
+				final AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, seqType, false, this.anInt3044);
 				if (class180_sub7 == null) {
 					return;
 				}
@@ -151,7 +151,7 @@ final class Player extends GameEntity {
 	static final void method2340(final js5 js5, final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2, final boolean bool, final js5 class50_24_) {
 		Class111.aClass50_1064 = class50_24_;
 		Class120_Sub12_Sub23.aClass50_3305 = js5;
-		AbstractObject.aBoolean3463 = bool;
+		AbstractObject.objMemberClient = bool;
 		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
 		Node.anInt1143 = 256 * i_25_ + Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_);
 		Class15.aClass120_Sub14_Sub8_Sub2_99 = class120_sub14_sub8_sub2;
@@ -177,25 +177,25 @@ final class Player extends GameEntity {
 				final Class29 class29 = method2336();
 				final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
 				final SeqType class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-				Class180_Sub7 class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, seqType, true, this.anInt3044);
+				AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, seqType, true, this.anInt3044);
 				final int i_35_ = Class48.getPlayersCacheSize();
 				if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 					SpotAnimType.method880(127);
 				}
 				if (LocType.modeWhat != 0 && i_35_ < 50) {
 					int i_36_;
-					for (i_36_ = 50 - i_35_; Class120_Sub14_Sub20.anInt3624 < i_36_; Class120_Sub14_Sub20.anInt3624++) {
-						Class120_Sub12_Sub25.aByteArrayArray3318[Class120_Sub14_Sub20.anInt3624] = new byte[102400];
+					for (i_36_ = 50 - i_35_; OverlayFrequencyNode.anInt3624 < i_36_; OverlayFrequencyNode.anInt3624++) {
+						Class120_Sub12_Sub25.aByteArrayArray3318[OverlayFrequencyNode.anInt3624] = new byte[102400];
 					}
-					while (i_36_ < Class120_Sub14_Sub20.anInt3624) {
-						Class120_Sub14_Sub20.anInt3624--;
-						Class120_Sub12_Sub25.aByteArrayArray3318[Class120_Sub14_Sub20.anInt3624] = null;
+					while (i_36_ < OverlayFrequencyNode.anInt3624) {
+						OverlayFrequencyNode.anInt3624--;
+						Class120_Sub12_Sub25.aByteArrayArray3318[OverlayFrequencyNode.anInt3624] = null;
 					}
 				}
 				if (class180_sub7 != null) {
 					this.maxY = class180_sub7.getMaxY();
 					if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).aBoolean1653)) {
-						final Class180_Sub7 class180_sub7_37_ = Class32.method273(0, class40_34_ == null ? seqType : class40_34_, i, super.getSize(), 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
+						final AbstractModel class180_sub7_37_ = Class32.method273(0, class40_34_ == null ? seqType : class40_34_, i, super.getSize(), 240, class180_sub7, class40_34_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005, this.z, this.aBoolean3002, 0, 160, this.x);
 						if (!HDToolkit.glEnabled) {
 							class180_sub7_37_.method2265(0, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, -1L, i_33_, null);
 						} else {
@@ -217,7 +217,7 @@ final class Player extends GameEntity {
 									if (class180_sub5_sub2 != null) {
 										final int i_40_ = -(TileParticleQueue.selfPlayer.x / 32) + class180_sub5_sub2.x / 32;
 										final int i_41_ = class180_sub5_sub2.z / 32 - TileParticleQueue.selfPlayer.z / 32;
-										method2344(i_28_, i_41_, null, i_27_, i_33_, i_26_, i, i_30_, i_40_, i_31_, hintIcon.modelId, (byte) -96, i_29_, 360000, class180_sub7, i_32_);
+										method2344(i_28_, i_41_, null, i_27_, i_33_, i_26_, i, i_30_, i_40_, i_31_, hintIcon.modelId, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}
 								if (hintIcon.targetType == 2) {
@@ -225,95 +225,95 @@ final class Player extends GameEntity {
 									final int i_43_ = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (TileParticleQueue.selfPlayer.z / 32);
 									int i_44_ = hintIcon.showDistance * 4;
 									i_44_ *= i_44_;
-									method2344(i_28_, i_43_, null, i_27_, i_33_, i_26_, i, i_30_, i_42_, i_31_, hintIcon.modelId, (byte) -109, i_29_, i_44_, class180_sub7, i_32_);
+									method2344(i_28_, i_43_, null, i_27_, i_33_, i_26_, i, i_30_, i_42_, i_31_, hintIcon.modelId, i_29_, i_44_, class180_sub7, i_32_);
 								}
 								if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && Class118.playersList.length > hintIcon.targetIndex) {
 									final Player class180_sub5_sub1_45_ = Class118.playersList[hintIcon.targetIndex];
 									if (class180_sub5_sub1_45_ != null) {
 										final int i_46_ = class180_sub5_sub1_45_.x / 32 - (TileParticleQueue.selfPlayer.x / 32);
 										final int i_47_ = class180_sub5_sub1_45_.z / 32 - (TileParticleQueue.selfPlayer.z / 32);
-										method2344(i_28_, i_47_, null, i_27_, i_33_, i_26_, i, i_30_, i_46_, i_31_, hintIcon.modelId, (byte) -115, i_29_, 360000, class180_sub7, i_32_);
+										method2344(i_28_, i_47_, null, i_27_, i_33_, i_26_, i, i_30_, i_46_, i_31_, hintIcon.modelId, i_29_, 360000, class180_sub7, i_32_);
 									}
 								}
 							}
 						}
 					}
 					method2327(0, class180_sub7);
-					Class180_Sub7 class180_sub7_48_ = null;
+					AbstractModel spotAnimModel = null;
 					method2334(class180_sub7, i, 0);
-					if (!this.playerLimitReached && this.spotAnimId != -1 && this.spotAnimFrameId != -1) {
+					if (!this.playerLimitReached && this.spotAnimId != -1 && this.spotAnimFrame != -1) {
 						final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-						class180_sub7_48_ = spotAnimType.method882(this.anInt2971, this.anInt2963, this.spotAnimFrameId, (byte) 14);
-						if (class180_sub7_48_ != null) {
-							class180_sub7_48_.method2368(0, -this.anInt2965, 0);
+						spotAnimModel = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
+						if (spotAnimModel != null) {
+							spotAnimModel.method2368(0, -this.anInt2965, 0);
 							if (spotAnimType.aBoolean989) {
 								if (MouseHandler.anInt1140 != 0) {
-									class180_sub7_48_.method2377(MouseHandler.anInt1140);
+									spotAnimModel.method2377(MouseHandler.anInt1140);
 								}
 								if (Class159.anInt1488 != 0) {
-									class180_sub7_48_.method2362(Class159.anInt1488);
+									spotAnimModel.method2362(Class159.anInt1488);
 								}
 								if (Class93.anInt867 != 0) {
-									class180_sub7_48_.method2368(0, Class93.anInt867, 0);
+									spotAnimModel.method2368(0, Class93.anInt867, 0);
 								}
 							}
 						}
 					}
-					Class180_Sub7 class180_sub7_49_ = null;
+					AbstractModel locationModel = null;
 					if (!this.playerLimitReached && this.anObject3047 != null) {
 						if (this.anInt3012 <= Class101_Sub2.loopCycle) {
 							this.anObject3047 = null;
 						}
 						if (this.anInt3042 <= Class101_Sub2.loopCycle && Class101_Sub2.loopCycle < this.anInt3012) {
-							if (!(this.anObject3047 instanceof Class180_Sub6)) {
-								class180_sub7_49_ = (Class180_Sub7) this.anObject3047;
+							if (!(this.anObject3047 instanceof AnimatedLocation)) {
+								locationModel = (AbstractModel) this.anObject3047;
 							} else {
-								class180_sub7_49_ = (Class180_Sub7) ((Class180_Sub6) this.anObject3047).method2357(-80);
+								locationModel = (AbstractModel) ((AnimatedLocation) this.anObject3047).method2357(-80);
 							}
-							class180_sub7_49_.method2368(this.anInt3033 + -this.x, this.anInt2970 + -this.anInt3005, -this.z + this.anInt3028);
+							locationModel.method2368(this.anInt3033 + -this.x, this.anInt2970 + -this.anInt3005, -this.z + this.anInt3028);
 							if (this.anInt3019 == 512) {
-								class180_sub7_49_.method2372();
+								locationModel.rotate270();
 							} else if (this.anInt3019 == 1024) {
-								class180_sub7_49_.method2373();
+								locationModel.rotate180();
 							} else if (this.anInt3019 == 1536) {
-								class180_sub7_49_.method2365();
+								locationModel.rotate90();
 							}
 						}
 					}
 					if (!HDToolkit.glEnabled) {
-						if (class180_sub7_48_ != null) {
-							class180_sub7 = ((Class180_Sub7_Sub1) class180_sub7).method2392(class180_sub7_48_);
+						if (spotAnimModel != null) {
+							class180_sub7 = ((LDModel) class180_sub7).method2392(spotAnimModel);
 						}
-						if (class180_sub7_49_ != null) {
-							class180_sub7 = ((Class180_Sub7_Sub1) class180_sub7).method2392(class180_sub7_49_);
+						if (locationModel != null) {
+							class180_sub7 = ((LDModel) class180_sub7).method2392(locationModel);
 						}
-						method2337(class180_sub7, class180_sub7_48_);
+						method2337(class180_sub7, spotAnimModel);
 						class180_sub7.haveActions = true;
 						class180_sub7.method2265(i, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, l, i_33_, this.aClass108_Sub2_2988);
 					} else {
-						method2337(class180_sub7, class180_sub7_48_);
+						method2337(class180_sub7, spotAnimModel);
 						class180_sub7.haveActions = true;
 						class180_sub7.method2265(i, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, l, i_33_, this.aClass108_Sub2_2988);
-						if (class180_sub7_48_ != null) {
+						if (spotAnimModel != null) {
 							if (this.aClass108_Sub2_2988 != null) {
-								final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_48_;
+								final HDModel class180_sub7_sub2 = (HDModel) spotAnimModel;
 								this.aClass108_Sub2_2988.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, true, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
 							}
-							class180_sub7_48_.haveActions = true;
-							class180_sub7_48_.method2265(i, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, l, i_33_, this.aClass108_Sub2_2988);
+							spotAnimModel.haveActions = true;
+							spotAnimModel.method2265(i, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, l, i_33_, this.aClass108_Sub2_2988);
 						}
 					}
-					if (class180_sub7_49_ != null) {
+					if (locationModel != null) {
 						if (this.anInt3019 != 512) {
 							if (this.anInt3019 == 1024) {
-								class180_sub7_49_.method2373();
+								locationModel.rotate180();
 							} else if (this.anInt3019 == 1536) {
-								class180_sub7_49_.method2372();
+								locationModel.rotate270();
 							}
 						} else {
-							class180_sub7_49_.method2365();
+							locationModel.rotate90();
 						}
-						class180_sub7_49_.method2368(this.x - this.anInt3033, this.anInt3005 - this.anInt2970, -this.anInt3028 + this.z);
+						locationModel.method2368(this.x - this.anInt3033, this.anInt3005 - this.anInt2970, -this.anInt3028 + this.z);
 					}
 				}
 			}
@@ -365,31 +365,24 @@ final class Player extends GameEntity {
 		super.method2323(x, z, getSize(), bool);
 	}
 
-	private final void method2344(final int i, final int i_54_, final ParticleEngine class108_sub2, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final int i_62_, final byte i_63_, final int i_64_, final int i_65_,
-			final Class180_Sub7 class180_sub7, final int i_66_) {
-		try {
-			if (i_63_ <= -78) {
-				final int i_67_ = i_60_ * i_60_ + i_54_ * i_54_;
-				if (i_67_ >= 16 && i_67_ <= i_65_) {
-					final int i_68_ = (int) (Math.atan2(i_60_, i_54_) * 325.949) & 0x7ff;
-					final Class180_Sub7 class180_sub7_69_ = Class120_Sub12_Sub22.method1319(i_68_, class180_sub7, this.z, i_62_, (byte) -128, this.anInt3005, this.x);
-					if (class180_sub7_69_ != null) {
-						if (HDToolkit.glEnabled) {
-							final float f = HDToolkit.method534();
-							final float f_70_ = HDToolkit.method526();
-							HDToolkit.method503();
-							HDToolkit.method535(f, f_70_ - 150.0F);
-							class180_sub7_69_.method2265(0, i_57_, i_55_, i, i_64_, i_59_, i_61_, i_66_, -1L, i_56_, class108_sub2);
-							HDToolkit.method505();
-							HDToolkit.method535(f, f_70_);
-						} else {
-							class180_sub7_69_.method2265(0, i_57_, i_55_, i, i_64_, i_59_, i_61_, i_66_, -1L, i_56_, class108_sub2);
-						}
-					}
+	private final void method2344(final int i, final int i_54_, final ParticleEngine class108_sub2, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final int i_62_, final int i_64_, final int i_65_, final AbstractModel class180_sub7, final int i_66_) {
+		final int i_67_ = i_60_ * i_60_ + i_54_ * i_54_;
+		if (i_67_ >= 16 && i_67_ <= i_65_) {
+			final int i_68_ = (int) (Math.atan2(i_60_, i_54_) * 325.949) & 0x7ff;
+			final AbstractModel class180_sub7_69_ = Class120_Sub12_Sub22.method1319(i_68_, class180_sub7, this.z, i_62_, this.anInt3005, this.x);
+			if (class180_sub7_69_ != null) {
+				if (HDToolkit.glEnabled) {
+					final float f = HDToolkit.method534();
+					final float f_70_ = HDToolkit.method526();
+					HDToolkit.method503();
+					HDToolkit.method535(f, f_70_ - 150.0F);
+					class180_sub7_69_.method2265(0, i_57_, i_55_, i, i_64_, i_59_, i_61_, i_66_, -1L, i_56_, class108_sub2);
+					HDToolkit.method505();
+					HDToolkit.method535(f, f_70_);
+				} else {
+					class180_sub7_69_.method2265(0, i_57_, i_55_, i, i_64_, i_59_, i_61_, i_66_, -1L, i_56_, class108_sub2);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "f.S(");
 		}
 	}
 
@@ -435,10 +428,10 @@ final class Player extends GameEntity {
 
 	Player() {
 		this.anInt3734 = -1;
-		this.anInt3735 = 0;
+		this.ambientSoundHearDistance = 0;
 		this.anInt3738 = -1;
 		this.anInt3732 = -1;
-		this.anInt3739 = 255;
+		this.ambientSoundVolume = 255;
 		this.anInt3736 = -1;
 		this.team = 0;
 		titleId = (byte) 0;

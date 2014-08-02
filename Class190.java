@@ -7,7 +7,7 @@ final class Class190 {
 	static int anInt2101 = 0;
 
 	static final boolean method2504(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
-		long l = Class114.method1005(i_0_, i_2_ + i_5_, i_4_ - -i_1_);
+		long l = Class114.method1005(i_2_ + i_5_, i_4_ - -i_1_, i_0_);
 		if (l != 0L) {
 			final int i_7_ = 0x3 & (int) l >> 20;
 			final int i_8_ = ((int) l & 0x7e0cc) >> 14;
@@ -95,7 +95,7 @@ final class Class190 {
 				return false;
 			}
 		}
-		l = Class120_Sub11.method1173(i_0_, i_2_ + i_5_, i_1_ + i_4_);
+		l = Class120_Sub11.method1173(i_2_ + i_5_, i_1_ + i_4_, i_0_);
 		if (l != 0L) {
 			final int i_12_ = ((int) l & 0x35e805) >> 20;
 			final int i_13_ = 0x7fffffff & (int) (l >>> 32);
@@ -125,7 +125,7 @@ final class Class190 {
 				return false;
 			}
 		}
-		l = Class79_Sub1.method696(i_0_, i_5_ + i_2_, i_1_ + i_4_);
+		l = Class79_Sub1.method696(i_5_ + i_2_, i_1_ + i_4_, i_0_);
 		if (0L != l) {
 			final int i_17_ = (int) (l >>> 32) & 0x7fffffff;
 			final int i_18_ = (0x389bda & (int) l) >> 20;

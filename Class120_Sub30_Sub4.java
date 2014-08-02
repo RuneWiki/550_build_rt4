@@ -765,7 +765,7 @@ final class Class120_Sub30_Sub4 extends Class120_Sub30 {
 		return i_116_ >> 1;
 	}
 
-	final synchronized void method1813(final int i) {
+	final synchronized void setVolume(final int i) {
 		method1822(i << 6, method1824());
 	}
 

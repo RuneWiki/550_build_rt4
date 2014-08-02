@@ -117,27 +117,21 @@ final class Class174 {
 		return stringbuffer.reverse().toString();
 	}
 
-	static final void method2236(final int i) {
-		try {
-			if (i == 60) {
-				for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
-					final Class180_Sub3 class180_sub3 = class120_sub14_sub4.aClass180_Sub3_3467;
-					if (class180_sub3.anInt2908 == Class173.gameLevel && !class180_sub3.aBoolean2920) {
-						if (Class101_Sub2.loopCycle >= class180_sub3.anInt2917) {
-							class180_sub3.method2311(Class120_Sub12_Sub22.redrawRate, (byte) -46);
-							if (!class180_sub3.aBoolean2920) {
-								Class120_Sub12_Sub5.method1218(class180_sub3.anInt2908, class180_sub3.anInt2904, class180_sub3.anInt2907, class180_sub3.anInt2905, 60, class180_sub3, 0, -1L, false);
-							} else {
-								class120_sub14_sub4.unlink();
-							}
-						}
-					} else {
+	static final void method2236() {
+		for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
+			final SpotAnimation class180_sub3 = class120_sub14_sub4.aClass180_Sub3_3467;
+			if (class180_sub3.level == Class173.gameLevel && !class180_sub3.finishedAnimating) {
+				if (Class101_Sub2.loopCycle >= class180_sub3.startCycle) {
+					class180_sub3.animate(Class120_Sub12_Sub22.redrawRate);
+					if (class180_sub3.finishedAnimating) {
 						class120_sub14_sub4.unlink();
+					} else {
+						Class120_Sub12_Sub5.method1218(class180_sub3.level, class180_sub3.x, class180_sub3.z, class180_sub3.y, 60, class180_sub3, 0, -1L, false);
 					}
 				}
+			} else {
+				class120_sub14_sub4.unlink();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.C(").append(i).append(')').toString());
 		}
 	}
 

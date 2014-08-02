@@ -28,50 +28,30 @@ class Class69_Sub3 extends Class69 {
 		}
 	}
 
-	static final String method626(int i, final int i_0_, final int i_1_, final boolean bool) {
-		String string;
-		try {
-			if (i_0_ < 2 || i_0_ > 36) {
-				throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(i_0_).toString());
-			}
-			if (!bool || i < 0) {
-				return Integer.toString(i, i_0_);
-			}
-			if (i_1_ != -1556668830) {
-				isInTutIsland = 103;
-			}
-			int i_2_ = 2;
-			for (int i_3_ = i / i_0_; i_3_ != 0; i_3_ /= i_0_) {
-				i_2_++;
-			}
-			final char[] cs = new char[i_2_];
-			cs[0] = '+';
-			for (int i_4_ = i_2_ + -1; i_4_ > 0; i_4_--) {
-				final int i_5_ = i;
-				i /= i_0_;
-				final int i_6_ = -(i_0_ * i) + i_5_;
-				if (i_6_ >= 10) {
-					cs[i_4_] = (char) (i_6_ + 87);
-				} else {
-					cs[i_4_] = (char) (48 + i_6_);
-				}
-			}
-			string = new String(cs);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.I(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(')').toString());
+	static final String method626(int i, final int radix, final boolean bool) {
+		if (radix < 2 || radix > 36) {
+			throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(radix).toString());
 		}
-		return string;
-	}
-
-	static final void method627(final boolean bool, final int i) {
-		try {
-			if (i == 6497794 && bool != Class140.aBoolean1340) {
-				Class140.aBoolean1340 = bool;
-				NodeCache.method297();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.K(").append(bool).append(',').append(i).append(')').toString());
+		if (!bool || i < 0) {
+			return Integer.toString(i, radix);
 		}
+		int i_2_ = 2;
+		for (int i_3_ = i / radix; i_3_ != 0; i_3_ /= radix) {
+			i_2_++;
+		}
+		final char[] cs = new char[i_2_];
+		cs[0] = '+';
+		for (int i_4_ = i_2_ + -1; i_4_ > 0; i_4_--) {
+			final int i_5_ = i;
+			i /= radix;
+			final int i_6_ = -(radix * i) + i_5_;
+			if (i_6_ >= 10) {
+				cs[i_4_] = (char) (i_6_ + 87);
+			} else {
+				cs[i_4_] = (char) (48 + i_6_);
+			}
+		}
+		return new String(cs);
 	}
 
 	static final void method628(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {

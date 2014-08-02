@@ -57,9 +57,9 @@ final class Class116 {
 				Class127.anInt1215 = -1;
 				Class120_Sub12_Sub9.anInt3195 = -1;
 			}
-			if (Class80.aBoolean742 && Class73.aClass105_653 != null) {
-				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) Class73.aClass105_653.getNext()) {
-					final Class73 class73 = Class73.list(class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
+			if (Class80.aBoolean742 && MapFunctionType.aClass105_653 != null) {
+				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getNext()) {
+					final MapFunctionType class73 = MapFunctionType.list(class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
 					if (EnumType.anInt3450 != 0 || !class120_sub16.method1656(Queue.lastMouseX, -108, Class191.lastMouseY)) {
 						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
 							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = false;

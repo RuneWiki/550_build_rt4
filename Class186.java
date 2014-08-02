@@ -34,7 +34,7 @@ final class Class186 {
 	static final void method2471() {
 		Class154.anInt1441 = 0;
 		Class120_Sub12_Sub23.anInt3307 = 0;
-		Class180_Sub3.method2309();
+		SpotAnimation.method2309();
 		Class31.method262();
 		Class120_Sub12_Sub36.method1389();
 		for (int i_0_ = 0; Class120_Sub12_Sub23.anInt3307 > i_0_; i_0_++) {
@@ -133,7 +133,7 @@ final class Class186 {
 							i_15_ = Class136.anInt1321 * 5;
 						}
 						for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekNext()) {
-							final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
+							final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.anInt3473);
 							if (Class9.method116(class73, -1)) {
 								if (class120_sub14_sub5.anInt3473 == Class127.anInt1215) {
 									final int i_16_ = i_8_ * class120_sub14_sub5.anInt3480 / Class79.anInt700 + i_6_;

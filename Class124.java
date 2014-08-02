@@ -15,20 +15,14 @@ final class Class124 {
 	int anInt1202;
 	int anInt1203;
 
-	static final int method1874(final int i, final int i_1_) {
-		int i_2_;
-		try {
-			if (i_1_ > 0) {
-				return 1;
-			}
-			if (i < (i_1_ ^ 0xffffffff)) {
-				return -1;
-			}
-			i_2_ = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oh.E(").append(i).append(',').append(i_1_).append(')').toString());
+	static final int method1874(final int i_1_) {
+		if (i_1_ > 0) {
+			return 1;
 		}
-		return i_2_;
+		if (i_1_ < 0) {
+			return -1;
+		}
+		return 0;
 	}
 
 	final void method1875(final int i, final Buffer class120_sub7, final int i_3_) {
@@ -51,7 +45,7 @@ final class Class124 {
 	public static void method1876(final byte i) {
 		try {
 			if (i != 16) {
-				method1874(10, -62);
+				method1874(-62);
 			}
 			aClass98_1201 = null;
 		} catch (final RuntimeException runtimeexception) {

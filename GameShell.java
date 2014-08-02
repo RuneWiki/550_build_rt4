@@ -427,7 +427,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				if (i_3_ != 0) {
 					if (i_3_ == 1) {
 						if (Class86.staffLevel <= 0 || !NodeCache.aBooleanArray299[82] || !NodeCache.aBooleanArray299[81]) {
-							Class53_Sub1.method464(i_1_, 1, i_2_);
+							Class53_Sub1.method464(1, i_2_, i_1_);
 							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.anInt457);// 1
 							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.anInt2219);// 2
 							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.aFloat28);// 4
@@ -801,11 +801,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		SeqType.aClass120_Sub14_Sub19Array335 = Class125.constructTransparentSprites(js5, 0, Class120_Sub12_Sub25.hitbardefaultId);
 		Class54.aClass120_Sub14_Sub19Array490 = Class125.constructTransparentSprites(js5, 0, Class120_Sub14_Sub15.headiconspkId);
 		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, 0, MasterIndexInfo.headiconsprayerId);
-		Class180_Sub6.aClass120_Sub14_Sub19Array3073 = Class125.constructTransparentSprites(js5, 0, Class120_Sub21.hintheadiconsId);
+		AnimatedLocation.aClass120_Sub14_Sub19Array3073 = Class125.constructTransparentSprites(js5, 0, Class120_Sub21.hintheadiconsId);
 		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = Class125.constructTransparentSprites(js5, 0, Class173.hintmapmarkersId);
 		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, Class169.mapflagId, 0);
 		Class120_Sub12_Sub30.crossSprites = Class167.constructSprites(js5, Class132_Sub2.crossId, 0);
-		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.constructSprites(js5, Class73.mapdotsId, 0);
+		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.constructSprites(js5, MapFunctionType.mapdotsId, 0);
 		Class118.aClass107Array1138 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class134.scrollbarId, 0);
 		Class82.aClass107Array785 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class81.nameiconsId, 0);
 		ObjectCache.smallFont.setNameIcons(Class82.aClass107Array785, null);
@@ -996,7 +996,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		Class96.mainRedrawCachePos = 1 + Class96.mainRedrawCachePos & 0x1f;
 		if (oldTime != 0 && oldTime < newTime) {
 			final int timeDelta = (int) (newTime - oldTime);
-			Class73.fps = ((timeDelta >> 1) + 32000) / timeDelta;
+			MapFunctionType.fps = ((timeDelta >> 1) + 32000) / timeDelta;
 		}
 		if (ObjectContainer.canvasRefreshCycle++ > 50) {
 			ObjectContainer.canvasRefreshCycle -= 50;
@@ -1115,7 +1115,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			}
 			JagexInterface.gameShellThread = (Thread) signlinkNode.value;
 		} catch (final Exception exception) {
-			Class180_Sub3.method2312(exception, null);
+			SpotAnimation.method2312(exception, null);
 			error("crash");
 		}
 	}
@@ -1176,7 +1176,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				mainRedrawWrapper();
 			}
 		} catch (final Exception exception) {
-			Class180_Sub3.method2312(exception, null);
+			SpotAnimation.method2312(exception, null);
 			error("crash");
 		}
 		shutdownApplet(true);
@@ -1207,7 +1207,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			}
 			JagexInterface.gameShellThread = (Thread) signlinkNode.value;
 		} catch (final Exception exception) {
-			Class180_Sub3.method2312(exception, null);
+			SpotAnimation.method2312(exception, null);
 		}
 	}
 

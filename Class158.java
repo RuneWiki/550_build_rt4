@@ -44,12 +44,12 @@ final class Class158 {
 	}
 
 	Class158(final int i, final int i_5_, final int i_6_, final int i_7_) {
-		final Class80 class80 = Class120_Sub12_Sub31.method1365(0, i);
+		final Class80 class80 = Class80.list(i);
 		this.anInt1476 = i_7_;
 		this.anInt1484 = i_6_;
 		this.anInt1485 = i_5_;
 		if (!HDToolkit.glEnabled && (class80.anInt765 ^ 0xffffffff) != 0) {
-			this.aClass80_1480 = Class120_Sub12_Sub31.method1365(0, class80.anInt765);
+			this.aClass80_1480 = Class80.list(class80.anInt765);
 		} else {
 			this.aClass80_1480 = class80;
 		}

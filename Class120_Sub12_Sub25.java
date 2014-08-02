@@ -173,7 +173,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		for (int i_17_ = 0; i_17_ < Buffer.anInt2474; i_17_++) {
 			strings[i_17_] = ObjType.list(is[i_17_]).name;
 		}
-		Class28.method242(Class120_Sub12_Sub37.aShortArray3430, -87, strings);
+		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
 	}
 
 	static final void method1334() {
@@ -288,7 +288,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
 						Class137.loginStream.putInt(Class120_Sub12_Sub18.method1288());
 						Class120_Sub14_Sub5.aBoolean3471 = true;
-						Class137.loginStream.putShort(Class120_Sub14_Sub20.packetCounter);
+						Class137.loginStream.putShort(OverlayFrequencyNode.packetCounter);
 						Class137.loginStream.putInt(AmbientSound.aClass50_2479.getIndexCrc());
 						Class137.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
 						Class137.loginStream.putInt(Js5Worker.aClass50_397.getIndexCrc());
@@ -389,21 +389,24 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							}
 							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 14);
 							Canvas_Sub1.inputStream.pos = 0;
+							//if (VarBit.aBoolean167 && !OverlayType.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464) {
 							Class86.staffLevel = Canvas_Sub1.inputStream.getUByte();
 							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
+							
 							VarBit.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
 							OverlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
-							Class127.aBoolean1211 = Canvas_Sub1.inputStream.getUByte() == 1;
+							
+							Class127.recordMouseMovements = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class167.anInt1616 = Canvas_Sub1.inputStream.getUShort();
-							Class120_Sub12_Sub21_Sub1.aBoolean3908 = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class120_Sub12_Sub21_Sub1.extendFriendsList = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub37.membersClient = Canvas_Sub1.inputStream.getUByte() == 1;
-							ObjType.method2114(Class120_Sub12_Sub37.membersClient);
-							Class120_Sub12_Sub15.method1276(Class120_Sub12_Sub37.membersClient, (byte) -54);
-							Class69_Sub3.method627(Class120_Sub12_Sub37.membersClient, 6497794);
+							LocType.setMembersClient1(Class120_Sub12_Sub37.membersClient);
+							ObjType.setMembersClient2(Class120_Sub12_Sub37.membersClient);
+							NpcType.setMembersClient3(Class120_Sub12_Sub37.membersClient);
 							if (!Class31.advertSuppressed) {
-								if (VarBit.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.aBoolean3908) {
+								if (VarBit.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.extendFriendsList) {
 									try {
 										JSHelper.call(NpcType.gameSignlink.gameApplet, "zap");
 									} catch (final Throwable throwable) {

@@ -102,7 +102,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 			if (i != 59) {
 				method1235(false);
 			}
-			Class182.aClass21_1798.clearSoftReference();
+			SpotAnimType.aClass21_1798.clearSoftReference();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fa.R(").append(i).append(')').toString());
 		}

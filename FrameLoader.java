@@ -80,30 +80,12 @@ final class FrameLoader extends NodeSub {
 		}
 	}
 
-	final boolean method1578(final byte i, final int i_2_) {
-		boolean bool;
-		try {
-			if (i != -39) {
-				method1582((byte) 56);
-			}
-			bool = this.seqFrames[i_2_].aBoolean37;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("te.F(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return bool;
+	final boolean method1578(final int i_2_) {
+		return this.seqFrames[i_2_].aBoolean37;
 	}
 
-	final boolean method1579(final int i, final int i_3_) {
-		boolean bool;
-		try {
-			if (i != 3) {
-				return true;
-			}
-			bool = this.seqFrames[i_3_].aBoolean42;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("te.A(").append(i).append(',').append(i_3_).append(')').toString());
-		}
-		return bool;
+	final boolean method1579(final int i_3_) {
+		return this.seqFrames[i_3_].aBoolean42;
 	}
 
 	static final FrameLoader list(final int i) {
@@ -157,7 +139,7 @@ final class FrameLoader extends NodeSub {
 					if (i < 103) {
 						aClass120_Sub14_Sub19_3611 = null;
 					}
-					String string = npcType.aString1705;
+					String string = npcType.name;
 					if (npcType.anInt1674 != 0) {
 						final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : Class120_Sub3.aString2424;
 						string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, (byte) -109, npcType.anInt1674)).append(" (").append(string_14_).append(npcType.anInt1674).append(")").toString();
@@ -169,7 +151,7 @@ final class FrameLoader extends NodeSub {
 								InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ffff00>").append(string).toString(), i_12_, i_13_, i_11_, (short) 42, Class150.selectedSpellTargetCursor);
 							}
 						} else {
-							String[] strings = npcType.aStringArray1703;
+							String[] strings = npcType.actions;
 							if (MouseHandler.showNumbersOnActions) {
 								strings = Class120_Sub12_Sub36.addNumbers(strings);
 							}
@@ -271,11 +253,11 @@ final class FrameLoader extends NodeSub {
 			MouseRecorder.aFloat856 = AbstractBuffer.aFloat600;
 			Class120_Sub12_Sub1.aFloat3124 = ParticleNode.aFloat1034;
 			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
-			Class84.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
+			GZIPDecompressor.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
 			Class120_Sub12_Sub30.anInt3376 = CollisionMap.anInt151;
-			Class73.aFloat632 = Class101.aFloat962;
+			MapFunctionType.aFloat632 = Class101.aFloat962;
 			Class24.aFloat144 = Class120_Sub12.aFloat2557;
-			if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || Class84.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
+			if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || GZIPDecompressor.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
 				RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = new Class120_Sub14_Sub9();
 			}
 			Class43.anInt368 = i_29_;
@@ -302,7 +284,7 @@ final class FrameLoader extends NodeSub {
 				Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
 				Deque.anInt1007 = Light.anInt379;
 				Class57.anInt500 = 65536;
-				Class84.aClass120_Sub14_Sub9_798 = null;
+				GZIPDecompressor.aClass120_Sub14_Sub9_798 = null;
 				Class147.aFloat1395 = Class132_Sub2.aFloat2821;
 				Class9.anInt72 = Class120_Sub12_Sub17.anInt3257;
 			} else {
@@ -317,11 +299,11 @@ final class FrameLoader extends NodeSub {
 				Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
 				AbstractBuffer.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
 				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
-				Class101.aFloat962 = f_36_ * Class73.aFloat632 + Varp.aFloat622 * f_34_;
+				Class101.aFloat962 = f_36_ * MapFunctionType.aFloat632 + Varp.aFloat622 * f_34_;
 				ParticleNode.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
-				if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != Class84.aClass120_Sub14_Sub9_798) {
-					if (Class84.aClass120_Sub14_Sub9_798 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != null) {
-						Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145.method1495(Class84.aClass120_Sub14_Sub9_798, Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204, Class57.anInt500 / 65536.0F);
+				if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != GZIPDecompressor.aClass120_Sub14_Sub9_798) {
+					if (GZIPDecompressor.aClass120_Sub14_Sub9_798 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != null) {
+						Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145.method1495(GZIPDecompressor.aClass120_Sub14_Sub9_798, Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204, Class57.anInt500 / 65536.0F);
 					} else {
 						Class3.aClass120_Sub14_Sub9_54 = null;
 					}
@@ -343,48 +325,41 @@ final class FrameLoader extends NodeSub {
 	}
 
 	static final boolean method1583(final int i, final int i_37_, final LocType locType, final int i_38_, final int i_39_, final int i_40_, int i_41_) {
-		boolean bool;
-		try {
-			final Class142 class142 = Class120_Sub12_Sub8.method1240((byte) 1, locType.anInt1826);
-			if (class142.anInt1363 == -1) {
-				return true;
-			}
-			if (!locType.aBoolean1862) {
-				i_41_ = 0;
-			} else {
-				i_41_ += locType.anInt1869;
-				i_41_ &= 0x3;
-			}
-			if (i_38_ != 4) {
-				return true;
-			}
-			final LDIndexedSprite class107_sub1 = class142.method2011(-1, locType.aBoolean1872, i_41_);
-			if (class107_sub1 == null) {
-				return false;
-			}
-			int i_42_ = locType.sizeX;
-			int i_43_ = locType.sizeZ;
-			if ((i_41_ & 0x1) == 1) {
-				i_42_ = locType.sizeZ;
-				i_43_ = locType.sizeX;
-			}
-			int i_44_ = class107_sub1.trimWidth;
-			int i_45_ = class107_sub1.trimHeight;
-			if (class142.aBoolean1359) {
-				i_44_ = 4 * i_42_;
-				i_45_ = 4 * i_43_;
-			}
-			if (class142.anInt1360 == 0) {
-				class107_sub1.method918(i_39_ * 4 + 48, 48 + (-i_37_ + 104 + -i_43_) * 4, i_44_, i_45_);
-			} else {
-				class107_sub1.method919(4 * i_39_ + 48, (-i_43_ + -i_37_ + 104) * 4 + 48, i_44_, i_45_, class142.anInt1360);
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("te.G(").append(i).append(',').append(i_37_).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(i_41_).append(')').toString());
+		final Class142 class142 = Class142.list(locType.anInt1826);
+		if (class142.anInt1363 == -1) {
+			return true;
 		}
-		return bool;
+		if (!locType.aBoolean1862) {
+			i_41_ = 0;
+		} else {
+			i_41_ += locType.anInt1869;
+			i_41_ &= 0x3;
+		}
+		if (i_38_ != 4) {
+			return true;
+		}
+		final LDIndexedSprite class107_sub1 = class142.method2011(i_41_, locType.aBoolean1872);
+		if (class107_sub1 == null) {
+			return false;
+		}
+		int i_42_ = locType.sizeX;
+		int i_43_ = locType.sizeZ;
+		if ((i_41_ & 0x1) == 1) {
+			i_42_ = locType.sizeZ;
+			i_43_ = locType.sizeX;
+		}
+		int i_44_ = class107_sub1.trimWidth;
+		int i_45_ = class107_sub1.trimHeight;
+		if (class142.aBoolean1359) {
+			i_44_ = 4 * i_42_;
+			i_45_ = 4 * i_43_;
+		}
+		if (class142.anInt1360 == 0) {
+			class107_sub1.method918(i_39_ * 4 + 48, 48 + (-i_37_ + 104 + -i_43_) * 4, i_44_, i_45_);
+		} else {
+			class107_sub1.method919(4 * i_39_ + 48, (-i_43_ + -i_37_ + 104) * 4 + 48, i_44_, i_45_, class142.anInt1360);
+		}
+		return true;
 	}
 
 	static final Class method1584(final int i, final String string) throws ClassNotFoundException {

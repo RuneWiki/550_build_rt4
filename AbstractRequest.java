@@ -16,7 +16,7 @@ abstract class AbstractRequest extends NodeSub {
 		try {
 			playerOptionsIcon = null;
 			if (bool) {
-				method1542(true, true);
+				method1542(true);
 			}
 			aClass180_Sub2Array3574 = null;
 			aString3575 = null;
@@ -295,62 +295,56 @@ abstract class AbstractRequest extends NodeSub {
 		return indexedSprites;
 	}
 
-	static final void method1542(final boolean bool, final boolean bool_68_) {
-		try {
-			if (!bool_68_) {
-				int[] is = null;
-				int i;
-				byte[][] is_69_;
-				if (HDToolkit.glEnabled && bool) {
-					i = 1;
-					is_69_ = Class120_Sub12_Sub36.aByteArrayArray3421;
-				} else {
-					i = 4;
-					is_69_ = RuntimeException_Sub1.aByteArrayArray2140;
-				}
-				for (int i_70_ = 0; i_70_ < i; i_70_++) {
-					Class120_Sub2.method1050();
-					for (int i_71_ = 0; i_71_ < 13; i_71_++) {
-						for (int i_72_ = 0; i_72_ < 13; i_72_++) {
-							boolean bool_73_ = false;
-							final int i_74_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_70_][i_71_][i_72_];
-							if ((i_74_ ^ 0xffffffff) != 0) {
-								final int i_75_ = i_74_ >> 24 & 0x3;
-								if (!bool || i_75_ == 0) {
-									final int i_76_ = (0x6 & i_74_) >> 1;
-									final int i_77_ = (0xffdef6 & i_74_) >> 14;
-									final int i_78_ = (0x3fff & i_74_) >> 3;
-									final int i_79_ = i_78_ / 8 + (i_77_ / 8 << 8);
-									for (int i_80_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_80_; i_80_++) {
-										if (Class120_Sub12_Sub36.anIntArray3417[i_80_] == i_79_ && is_69_[i_80_] != null) {
-											bool_73_ = true;
-											final int[] is_81_ = method1538(i_75_, Class182.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
-											if (is == null && is_81_ != null) {
-												is = is_81_;
-											}
-											break;
-										}
+	static final void method1542(final boolean bool) {
+		int[] is = null;
+		int i;
+		byte[][] is_69_;
+		if (HDToolkit.glEnabled && bool) {
+			i = 1;
+			is_69_ = Class120_Sub12_Sub36.aByteArrayArray3421;
+		} else {
+			i = 4;
+			is_69_ = RuntimeException_Sub1.aByteArrayArray2140;
+		}
+		for (int i_70_ = 0; i_70_ < i; i_70_++) {
+			Class120_Sub2.method1050();
+			for (int i_71_ = 0; i_71_ < 13; i_71_++) {
+				for (int i_72_ = 0; i_72_ < 13; i_72_++) {
+					boolean bool_73_ = false;
+					final int i_74_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_70_][i_71_][i_72_];
+					if ((i_74_ ^ 0xffffffff) != 0) {
+						final int i_75_ = i_74_ >> 24 & 0x3;
+						if (!bool || i_75_ == 0) {
+							final int i_76_ = (0x6 & i_74_) >> 1;
+							final int i_77_ = (0xffdef6 & i_74_) >> 14;
+							final int i_78_ = (0x3fff & i_74_) >> 3;
+							final int i_79_ = i_78_ / 8 + (i_77_ / 8 << 8);
+							for (int i_80_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_80_; i_80_++) {
+								if (Class120_Sub12_Sub36.anIntArray3417[i_80_] == i_79_ && is_69_[i_80_] != null) {
+									bool_73_ = true;
+									final int[] is_81_ = method1538(i_75_, Class182.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
+									if (is == null && is_81_ != null) {
+										is = is_81_;
 									}
+									break;
 								}
-							}
-							if (!bool_73_) {
-								Class120_Sub14_Sub15.method1556(i_71_ * 8, i_70_, 8, i_72_ * 8, 8);
 							}
 						}
 					}
-				}
-				if (is != null) {
-					PlainTile.anInt1356 = is[3];
-					Class158.anInt1475 = is[0];
-					Class143_Sub1.anInt2197 = is[2];
-					Class132.anInt1257 = is[4];
-					Class120_Sub12.anInt2560 = is[1];
-				} else {
-					Class158.anInt1475 = -1;
+					if (!bool_73_) {
+						Class120_Sub14_Sub15.method1556(i_71_ * 8, i_70_, 8, i_72_ * 8, 8);
+					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.K(").append(bool).append(',').append(bool_68_).append(')').toString());
+		}
+		if (is != null) {
+			PlainTile.anInt1356 = is[3];
+			Class158.anInt1475 = is[0];
+			Class143_Sub1.anInt2197 = is[2];
+			Class132.anInt1257 = is[4];
+			Class120_Sub12.anInt2560 = is[1];
+		} else {
+			Class158.anInt1475 = -1;
 		}
 	}
 

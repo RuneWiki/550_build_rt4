@@ -16,7 +16,7 @@ abstract class Class101 {
 		try {
 			i_0_ = RuntimeException_Sub1.anInt2142 * i_0_ >> 8;
 			if (i != (i_0_ ^ 0xffffffff) && (i_2_ ^ 0xffffffff) != 0) {
-				Class127.method1891(i_0_, -20329, 0, i_2_, false, InterfaceListener.aClass50_2544);
+				Class127.method1891(InterfaceListener.aClass50_2544, i_0_, 0, i_2_, false);
 				Class120_Sub12_Sub15.aBoolean3247 = true;
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -45,7 +45,7 @@ abstract class Class101 {
 			final int i_9_ = varBit.setting;
 			final int i_10_ = varBit.startBit;
 			final int i_11_ = varBit.endBit;
-			int i_12_ = Class120_Sub14_Sub15.anIntArray3580[i_11_ + -i_10_];
+			int i_12_ = Class120_Sub14_Sub15.masklookup[i_11_ + -i_10_];
 			if (i_8_ < i_7_ || i_8_ > i_12_) {
 				i_8_ = 0;
 			}

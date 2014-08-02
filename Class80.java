@@ -80,17 +80,13 @@ final class Class80 {
 		}
 	}
 
-	final void method698(final Buffer class120_sub7, final byte i) {
-		try {
-			for (;;) {
-				final int i_0_ = class120_sub7.getUByte();
-				if (i_0_ == 0) {
-					break;
-				}
-				method701(-4, class120_sub7, i_0_);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.F(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
@@ -154,107 +150,100 @@ final class Class80 {
 		return class120_sub14_sub19;
 	}
 
-	private final void method701(final int i, final Buffer class120_sub7, final int i_17_) {
-		try {
-			if (i != -4) {
-				this.aShort753 = (short) 65;
-			}
-			if (i_17_ != 1) {
-				if (i_17_ == 2) {
-					class120_sub7.getUByte();
-				} else if (i_17_ == 3) {
-					this.anInt739 = class120_sub7.getInt();
-					this.anInt776 = class120_sub7.getInt();
-				} else if (i_17_ == 4) {
-					this.anInt717 = class120_sub7.getUByte();
-					this.anInt741 = class120_sub7.getByte();
-				} else if (i_17_ == 5) {
-					this.anInt721 = class120_sub7.getUByte();
-				} else if (i_17_ == 6) {
-					anInt747 = class120_sub7.getInt();
-					anInt762 = class120_sub7.getInt();
-				} else if (i_17_ == 7) {
-					this.anInt756 = class120_sub7.getUShort();
-					this.anInt738 = class120_sub7.getUShort();
-				} else if (i_17_ != 8) {
-					if (i_17_ == 9) {
-						final int i_18_ = class120_sub7.getUByte();
-						anIntArray771 = new int[i_18_];
-						for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
-							anIntArray771[i_19_] = class120_sub7.getUShort();
-						}
-					} else if (i_17_ != 10) {
-						if (i_17_ != 12) {
-							if (i_17_ != 13) {
-								if (i_17_ != 14) {
-									if (i_17_ == 15) {
-										this.anInt724 = class120_sub7.getUShort();
-									} else if (i_17_ == 16) {
-										this.aBoolean718 = class120_sub7.getUByte() == 1;
-										this.anInt755 = class120_sub7.getUShort();
-										this.anInt772 = class120_sub7.getUShort();
-										this.aBoolean760 = class120_sub7.getUByte() == 1;
-									} else if (i_17_ == 17) {
-										this.anInt765 = class120_sub7.getUShort();
-									} else if (i_17_ != 18) {
-										if (i_17_ == 19) {
-											this.anInt746 = class120_sub7.getUByte();
-										} else if (i_17_ == 20) {
-											anInt764 = class120_sub7.getUByte();
-										} else if (i_17_ == 21) {
-											anInt727 = class120_sub7.getUByte();
-										} else if (i_17_ != 22) {
-											if (i_17_ != 23) {
-												if (i_17_ == 24) {
-													this.aBoolean736 = false;
-												} else if (i_17_ != 25) {
-													if (i_17_ == 26) {
-														this.aBoolean750 = false;
-													}
-												} else {
-													final int i_20_ = class120_sub7.getUByte();
-													this.anIntArray773 = new int[i_20_];
-													for (int i_21_ = 0; i_20_ > i_21_; i_21_++) {
-														this.anIntArray773[i_21_] = class120_sub7.getUShort();
-													}
+	private final void decode(final Buffer buffer, final int code) {
+		if (code != 1) {
+			if (code == 2) {
+				buffer.getUByte();
+			} else if (code == 3) {
+				this.anInt739 = buffer.getInt();
+				this.anInt776 = buffer.getInt();
+			} else if (code == 4) {
+				this.anInt717 = buffer.getUByte();
+				this.anInt741 = buffer.getByte();
+			} else if (code == 5) {
+				this.anInt721 = buffer.getUByte();
+			} else if (code == 6) {
+				anInt747 = buffer.getInt();
+				anInt762 = buffer.getInt();
+			} else if (code == 7) {
+				this.anInt756 = buffer.getUShort();
+				this.anInt738 = buffer.getUShort();
+			} else if (code != 8) {
+				if (code == 9) {
+					final int i_18_ = buffer.getUByte();
+					anIntArray771 = new int[i_18_];
+					for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
+						anIntArray771[i_19_] = buffer.getUShort();
+					}
+				} else if (code != 10) {
+					if (code != 12) {
+						if (code != 13) {
+							if (code != 14) {
+								if (code == 15) {
+									this.anInt724 = buffer.getUShort();
+								} else if (code == 16) {
+									this.aBoolean718 = buffer.getUByte() == 1;
+									this.anInt755 = buffer.getUShort();
+									this.anInt772 = buffer.getUShort();
+									this.aBoolean760 = buffer.getUByte() == 1;
+								} else if (code == 17) {
+									this.anInt765 = buffer.getUShort();
+								} else if (code != 18) {
+									if (code == 19) {
+										this.anInt746 = buffer.getUByte();
+									} else if (code == 20) {
+										anInt764 = buffer.getUByte();
+									} else if (code == 21) {
+										anInt727 = buffer.getUByte();
+									} else if (code != 22) {
+										if (code != 23) {
+											if (code == 24) {
+												this.aBoolean736 = false;
+											} else if (code != 25) {
+												if (code == 26) {
+													this.aBoolean750 = false;
 												}
 											} else {
-												anInt732 = class120_sub7.getUByte();
+												final int i_20_ = buffer.getUByte();
+												this.anIntArray773 = new int[i_20_];
+												for (int i_21_ = 0; i_20_ > i_21_; i_21_++) {
+													this.anIntArray773[i_21_] = buffer.getUShort();
+												}
 											}
 										} else {
-											this.anInt733 = class120_sub7.getInt();
+											anInt732 = buffer.getUByte();
 										}
 									} else {
-										this.anInt729 = class120_sub7.getInt();
+										this.anInt733 = buffer.getInt();
 									}
 								} else {
-									this.anInt740 = class120_sub7.getUShort();
+									this.anInt729 = buffer.getInt();
 								}
 							} else {
-								this.anInt769 = class120_sub7.getByte();
+								this.anInt740 = buffer.getUShort();
 							}
 						} else {
-							this.anInt726 = class120_sub7.getByte();
+							this.anInt769 = buffer.getByte();
 						}
 					} else {
-						final int i_22_ = class120_sub7.getUByte();
-						this.anIntArray743 = new int[i_22_];
-						for (int i_23_ = 0; i_22_ > i_23_; i_23_++) {
-							this.anIntArray743[i_23_] = class120_sub7.getUShort();
-						}
+						this.anInt726 = buffer.getByte();
 					}
 				} else {
-					this.anInt768 = class120_sub7.getUShort();
-					this.anInt734 = class120_sub7.getUShort();
+					final int i_22_ = buffer.getUByte();
+					this.anIntArray743 = new int[i_22_];
+					for (int i_23_ = 0; i_22_ > i_23_; i_23_++) {
+						this.anIntArray743[i_23_] = buffer.getUShort();
+					}
 				}
 			} else {
-				this.aShort744 = (short) class120_sub7.getUShort();
-				this.aShort753 = (short) class120_sub7.getUShort();
-				this.aShort759 = (short) class120_sub7.getUShort();
-				this.aShort763 = (short) class120_sub7.getUShort();
+				this.anInt768 = buffer.getUShort();
+				this.anInt734 = buffer.getUShort();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.C(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_17_).append(')').toString());
+		} else {
+			this.aShort744 = (short) buffer.getUShort();
+			this.aShort753 = (short) buffer.getUShort();
+			this.aShort759 = (short) buffer.getUShort();
+			this.aShort763 = (short) buffer.getUShort();
 		}
 	}
 
@@ -309,6 +298,21 @@ final class Class80 {
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.A(").append(i).append(')').toString());
 		}
+	}
+
+	static final Class80 list(final int id) {
+		Class80 class80_15_ = (Class80) Class120_Sub12_Sub16.aClass21_3251.get(id);
+		if (class80_15_ != null) {
+			return class80_15_;
+		}
+		final byte[] is = Class69.aClass50_619.getFile(0, id);
+		class80_15_ = new Class80();
+		if (is != null) {
+			class80_15_.decode(new Buffer(is));
+		}
+		class80_15_.method702((byte) -87);
+		Class120_Sub12_Sub16.aClass21_3251.put(class80_15_, id);
+		return class80_15_;
 	}
 
 	public Class80() {

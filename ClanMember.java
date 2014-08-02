@@ -86,22 +86,13 @@ final class ClanMember extends Node {
 		return true;
 	}
 
-	static final int method1405(int i, final boolean bool, int i_21_) {
-		int i_22_;
-		try {
-			int i_23_ = 0;
-			if (bool) {
-				method1406(-75);
-			}
-			for (/**/; i_21_ > 0; i_21_--) {
-				i_23_ = i & 0x1 | i_23_ << 1;
-				i >>>= 1;
-			}
-			i_22_ = i_23_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("l.D(").append(i).append(',').append(bool).append(',').append(i_21_).append(')').toString());
+	static final int method1405(int i, int i_21_) {
+		int i_23_ = 0;
+		for (/**/; i_21_ > 0; i_21_--) {
+			i_23_ = i & 0x1 | i_23_ << 1;
+			i >>>= 1;
 		}
-		return i_22_;
+		return i_23_;
 	}
 
 	public static void method1406(final int i) {

@@ -34,7 +34,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 	}
 
 	static final boolean updatePacketCounter(final int i_0_) {
-		Class120_Sub14_Sub20.packetCounter = 1 + i_0_ & 0xffff;
+		OverlayFrequencyNode.packetCounter = 1 + i_0_ & 0xffff;
 		Class30.packetCounterUpdated = true;
 		return true;
 	}

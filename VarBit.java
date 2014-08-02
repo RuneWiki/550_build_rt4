@@ -56,6 +56,15 @@ final class VarBit {
 		}
 	}
 
+	static final int getVarbitValue(final int varBitId) {
+		final VarBit varBit = list(varBitId);
+		final int setting = varBit.setting;
+		final int start = varBit.startBit;
+		final int end = varBit.endBit;
+		final int mask = Class120_Sub14_Sub15.masklookup[end - start];
+		return mask & Class2.permanentVariable[setting] >> start;
+	}
+
 	static final VarBit list(final int id) {
 		VarBit varBit = (VarBit) recentUse.get(id);
 		if (varBit != null) {
@@ -96,7 +105,7 @@ final class VarBit {
 		int i_3_ = GroundObjectNode.renderZ;
 		int i_4_ = Class120_Sub12_Sub10.renderY;
 		int i_5_ = (int) Class120_Sub12_Sub21.aFloat3293;
-		int i_6_ = Class180_Sub3.renderYaw;
+		int i_6_ = SpotAnimation.renderYaw;
 		if (Class26.anInt162 / 256 > i_5_) {
 			i_5_ = Class26.anInt162 / 256;
 		}
@@ -106,13 +115,13 @@ final class VarBit {
 		}
 		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
 		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
-		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && Class180_Sub3.renderYaw == i_6_) {
+		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && SpotAnimation.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {
 			Class120_Sub12_Sub31.anInt3384 = 10;
 			NpcType.anInt1660 = 10;
 			ObjectContainer.anInt2621 = 10;
-			int i_9_ = Class180_Sub3.renderYaw + -i_6_;
+			int i_9_ = SpotAnimation.renderYaw + -i_6_;
 			if (i_3_ < GroundObjectNode.renderZ) {
 				i_3_ += NpcType.anInt1660 + (-i_3_ + GroundObjectNode.renderZ) * ObjectContainer.anInt2621 / 1000;
 				if (i_3_ < GroundObjectNode.renderZ) {
@@ -176,7 +185,7 @@ final class VarBit {
 				i_6_ -= Class120_Sub12_Sub31.anInt3384 + -i_9_ * Class101_Sub1.anInt2272 / 1000;
 				i_6_ &= 0x7ff;
 			}
-			int i_10_ = Class180_Sub3.renderYaw - i_6_;
+			int i_10_ = SpotAnimation.renderYaw - i_6_;
 			if (i_10_ > 1024) {
 				i_10_ -= 2048;
 			}
@@ -184,7 +193,7 @@ final class VarBit {
 				i_10_ += 2048;
 			}
 			if (i_10_ >= 0 || i_9_ <= 0 || i_10_ > 0 && i_9_ < 0) {
-				Class180_Sub3.renderYaw = i_6_;
+				SpotAnimation.renderYaw = i_6_;
 			}
 		}
 	}

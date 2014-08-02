@@ -87,7 +87,7 @@ final class Decimator {
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
 		Class69_Sub3_Sub1.aClass189_3080 = null;
-		Class84.anInt796 = Class101_Sub2.loopCycle;
+		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
 		LookupTable.anInt497 = -1;
 		StructType.anInt3590 = -1;
 		StructType.aClass189_3588 = null;

@@ -47,7 +47,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	}
 
 	static final void method1337() {
-		Class180_Sub6.aClass21_3071.clear();
+		AnimatedLocation.aClass21_3071.clear();
 		LabelGroup.aClass21_2406.clear();
 		Class120_Sub12_Sub2.aClass21_3143.clear();
 	}

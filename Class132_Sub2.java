@@ -37,7 +37,7 @@ class Class132_Sub2 extends Class132 {
 	}
 
 	static final void resetMinimapLandscape() {
-		Class134.landscapeAsSprite = null;
+		Class134.landscapeAsAbstractSprite = null;
 		Class120_Sub12_Sub15.landscapeSpriteLevel = -1;
 	}
 

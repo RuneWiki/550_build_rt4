@@ -38,7 +38,7 @@ final class Class110 {
 			for (int i_0_ = 0; i_0_ < Class120_Sub12_Sub25.aByteArrayArray3318.length; i_0_++) {
 				Class120_Sub12_Sub25.aByteArrayArray3318[i_0_] = null;
 			}
-			Class120_Sub14_Sub20.anInt3624 = 0;
+			OverlayFrequencyNode.anInt3624 = 0;
 		}
 		Class120_Sub14_Sub13.aClass21_3564.clear();
 		Class154.aClass21_1438.clear();
@@ -79,12 +79,12 @@ final class Class110 {
 	static final void method978(final boolean bool, String string) {
 		short[] is = new short[16];
 		string = string.toLowerCase();
-		final int i_1_ = !bool ? 0 : 32768;
+		final int i_1_ = bool ? 32768 : 0;
 		int i_2_ = 0;
 		final int i_3_ = (bool ? Class192.anInt2120 : Class32.anInt269) + i_1_;
 		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
 			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class120_Sub14_Sub10.list(i_4_);
-			if (class120_sub14_sub10.aBoolean3531 && (class120_sub14_sub10.method1510().toLowerCase().indexOf(string) ^ 0xffffffff) != 0) {
+			if (class120_sub14_sub10.aBoolean3531 && class120_sub14_sub10.method1510().toLowerCase().indexOf(string) != -1) {
 				if (i_2_ >= 50) {
 					Buffer.anInt2474 = -1;
 					Class120_Sub12_Sub37.aShortArray3430 = null;
@@ -107,7 +107,7 @@ final class Class110 {
 		for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
 			strings[i_7_] = Class120_Sub14_Sub10.list(is[i_7_]).method1510();
 		}
-		Class28.method242(Class120_Sub12_Sub37.aShortArray3430, 56, strings);
+		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
 	}
 
 	static final int method979(int i, final int i_8_) {

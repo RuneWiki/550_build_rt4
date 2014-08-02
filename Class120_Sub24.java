@@ -5,7 +5,7 @@
 final class Class120_Sub24 extends Node {
 	static String[] aStringArray2716;
 	int anInt2717;
-	static int anInt2718;
+	static int mapFunctionCount;
 	int anInt2719;
 	int anInt2720 = -1;
 	int anInt2721;
@@ -22,7 +22,7 @@ final class Class120_Sub24 extends Node {
 	int anInt2732 = 0;
 
 	static {
-		anInt2718 = 0;
+		mapFunctionCount = 0;
 		aStringArray2716 = new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 		anIntArray2730 = new int[] { 1, 1, 1, 1, 4, 1, 1, 5, 6, 1, 5, 0, 7, 0, 4, 1, 7, 2, 1, 1, 6, 1, 1, 3, 6, 1, 7, 0, 0, 6, 7, 0, 1, 7, 6, 1, 1, 1, 5, 4, 3, 2, 1, 1, 0, 4, 1, 5 };
 	}

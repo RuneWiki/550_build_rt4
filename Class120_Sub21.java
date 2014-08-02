@@ -91,7 +91,7 @@ final class Class120_Sub21 extends Node {
 			if (Class109.gameState == 30) {
 				OverridedJInterface.method1722(Class120_Sub12_Sub11.outputStream, true, 78);
 				synchronized (Class110.mouseRecorder.lock) {
-					if (Class127.aBoolean1211) {
+					if (Class127.recordMouseMovements) {
 						if (Class156.lastMouseClick != 0 || Class110.mouseRecorder.cacheIndex >= 40) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(199);
 							Class120_Sub12_Sub11.outputStream.putByte(0);
@@ -531,7 +531,7 @@ final class Class120_Sub21 extends Node {
 									if (ObjectCache.anInt122 != -1 && Class120_Sub14_Sub5.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
 										final int i_43_ = (ObjectCache.anInt122 << 1) + -TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
 										final int i_44_ = (Class20.anInt2174 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
-										Class53_Sub1.method464(i_43_, 0, i_44_);
+										Class53_Sub1.method464(0, i_44_, i_43_);
 										Class120_Sub12_Sub35.crossX = js5.lastClickX;
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 										Class120_Sub14_Sub22.crossState = 1;

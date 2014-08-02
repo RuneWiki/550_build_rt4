@@ -53,7 +53,7 @@ final class Class120_Sub16 extends Node {
 	}
 
 	static final void method1658() {
-		Class73.recentUse.clear();
+		MapFunctionType.recentUse.clear();
 		Class82.aClass21_786.clear();
 	}
 
@@ -94,25 +94,16 @@ final class Class120_Sub16 extends Node {
 		messageCount++;
 	}
 
-	static final int method1661(final int i, final int i_11_, char c) {
-		int i_12_;
-		try {
-			if (i != 1762) {
-				method1658();
-			}
-			int i_13_ = c << 4;
-			if (Character.isUpperCase(c) || Character.isTitleCase(c)) {
-				c = Character.toLowerCase(c);
-				i_13_ = 1 + (c << 4);
-			}
-			if (c == 241 && i_11_ == 0) {
-				i_13_ = 1762;
-			}
-			i_12_ = i_13_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.I(").append(i).append(',').append(i_11_).append(',').append(c).append(')').toString());
+	static final int method1661(final int i_11_, char c) {
+		int i_13_ = c << 4;
+		if (Character.isUpperCase(c) || Character.isTitleCase(c)) {
+			c = Character.toLowerCase(c);
+			i_13_ = 1 + (c << 4);
 		}
-		return i_12_;
+		if (c == 241 && i_11_ == 0) {
+			i_13_ = 1762;
+		}
+		return i_13_;
 	}
 
 	static final void shiftOptions(final int i) {
@@ -134,7 +125,7 @@ final class Class120_Sub16 extends Node {
 		Class23.packetType = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		Class114.anInt1093 = -1;
-		Class73.anInt639 = -1;
+		MapFunctionType.anInt639 = -1;
 		SeqType.anInt333 = -1;
 		Class88.anInt827 = 0;
 		Canvas_Sub1.inputStream.pos = 0;

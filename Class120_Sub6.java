@@ -110,108 +110,99 @@ final class Class120_Sub6 extends Node {
 		}
 	}
 
-	static final byte[] method1075(final String string, final int i) {
-		byte[] is;
-		try {
-			final int i_11_ = string.length();
-			if (i != 23668) {
-				return null;
-			}
-			final byte[] is_12_ = new byte[i_11_];
-			for (int i_13_ = 0; i_11_ > i_13_; i_13_++) {
-				final char c = string.charAt(i_13_);
-				if (c > '\0' && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
-					is_12_[i_13_] = (byte) c;
-				} else if (c != '\u20ac') {
-					if (c != '\u201a') {
-						if (c == '\u0192') {
-							is_12_[i_13_] = (byte) -125;
-						} else if (c == '\u201e') {
-							is_12_[i_13_] = (byte) -124;
-						} else if (c == '\u2026') {
-							is_12_[i_13_] = (byte) -123;
-						} else if (c != '\u2020') {
-							if (c == '\u2021') {
-								is_12_[i_13_] = (byte) -121;
-							} else if (c != '\u02c6') {
-								if (c != '\u2030') {
-									if (c == '\u0160') {
-										is_12_[i_13_] = (byte) -118;
-									} else if (c == '\u2039') {
-										is_12_[i_13_] = (byte) -117;
-									} else if (c != '\u0152') {
-										if (c != '\u017d') {
-											if (c == '\u2018') {
-												is_12_[i_13_] = (byte) -111;
-											} else if (c == '\u2019') {
-												is_12_[i_13_] = (byte) -110;
-											} else if (c == '\u201c') {
-												is_12_[i_13_] = (byte) -109;
-											} else if (c != '\u201d') {
-												if (c == '\u2022') {
-													is_12_[i_13_] = (byte) -107;
-												} else if (c != '\u2013') {
-													if (c != '\u2014') {
-														if (c != '\u02dc') {
-															if (c == '\u2122') {
-																is_12_[i_13_] = (byte) -103;
-															} else if (c != '\u0161') {
-																if (c == '\u203a') {
-																	is_12_[i_13_] = (byte) -101;
-																} else if (c != '\u0153') {
-																	if (c != '\u017e') {
-																		if (c != '\u0178') {
-																			is_12_[i_13_] = (byte) 63;
-																		} else {
-																			is_12_[i_13_] = (byte) -97;
-																		}
+	static final byte[] method1075(final String string) {
+		final int i_11_ = string.length();
+		final byte[] is_12_ = new byte[i_11_];
+		for (int i_13_ = 0; i_11_ > i_13_; i_13_++) {
+			final char c = string.charAt(i_13_);
+			if (c > '\0' && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
+				is_12_[i_13_] = (byte) c;
+			} else if (c != '\u20ac') {
+				if (c != '\u201a') {
+					if (c == '\u0192') {
+						is_12_[i_13_] = (byte) -125;
+					} else if (c == '\u201e') {
+						is_12_[i_13_] = (byte) -124;
+					} else if (c == '\u2026') {
+						is_12_[i_13_] = (byte) -123;
+					} else if (c != '\u2020') {
+						if (c == '\u2021') {
+							is_12_[i_13_] = (byte) -121;
+						} else if (c != '\u02c6') {
+							if (c != '\u2030') {
+								if (c == '\u0160') {
+									is_12_[i_13_] = (byte) -118;
+								} else if (c == '\u2039') {
+									is_12_[i_13_] = (byte) -117;
+								} else if (c != '\u0152') {
+									if (c != '\u017d') {
+										if (c == '\u2018') {
+											is_12_[i_13_] = (byte) -111;
+										} else if (c == '\u2019') {
+											is_12_[i_13_] = (byte) -110;
+										} else if (c == '\u201c') {
+											is_12_[i_13_] = (byte) -109;
+										} else if (c != '\u201d') {
+											if (c == '\u2022') {
+												is_12_[i_13_] = (byte) -107;
+											} else if (c != '\u2013') {
+												if (c != '\u2014') {
+													if (c != '\u02dc') {
+														if (c == '\u2122') {
+															is_12_[i_13_] = (byte) -103;
+														} else if (c != '\u0161') {
+															if (c == '\u203a') {
+																is_12_[i_13_] = (byte) -101;
+															} else if (c != '\u0153') {
+																if (c != '\u017e') {
+																	if (c != '\u0178') {
+																		is_12_[i_13_] = (byte) 63;
 																	} else {
-																		is_12_[i_13_] = (byte) -98;
+																		is_12_[i_13_] = (byte) -97;
 																	}
 																} else {
-																	is_12_[i_13_] = (byte) -100;
+																	is_12_[i_13_] = (byte) -98;
 																}
 															} else {
-																is_12_[i_13_] = (byte) -102;
+																is_12_[i_13_] = (byte) -100;
 															}
 														} else {
-															is_12_[i_13_] = (byte) -104;
+															is_12_[i_13_] = (byte) -102;
 														}
 													} else {
-														is_12_[i_13_] = (byte) -105;
+														is_12_[i_13_] = (byte) -104;
 													}
 												} else {
-													is_12_[i_13_] = (byte) -106;
+													is_12_[i_13_] = (byte) -105;
 												}
 											} else {
-												is_12_[i_13_] = (byte) -108;
+												is_12_[i_13_] = (byte) -106;
 											}
 										} else {
-											is_12_[i_13_] = (byte) -114;
+											is_12_[i_13_] = (byte) -108;
 										}
 									} else {
-										is_12_[i_13_] = (byte) -116;
+										is_12_[i_13_] = (byte) -114;
 									}
 								} else {
-									is_12_[i_13_] = (byte) -119;
+									is_12_[i_13_] = (byte) -116;
 								}
 							} else {
-								is_12_[i_13_] = (byte) -120;
+								is_12_[i_13_] = (byte) -119;
 							}
 						} else {
-							is_12_[i_13_] = (byte) -122;
+							is_12_[i_13_] = (byte) -120;
 						}
 					} else {
-						is_12_[i_13_] = (byte) -126;
+						is_12_[i_13_] = (byte) -122;
 					}
 				} else {
-					is_12_[i_13_] = (byte) -128;
+					is_12_[i_13_] = (byte) -126;
 				}
+			} else {
+				is_12_[i_13_] = (byte) -128;
 			}
-			is = is_12_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.B(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
-		return is;
+		return is_12_;
 	}
 }

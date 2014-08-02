@@ -207,7 +207,7 @@ final class Particle extends ParticleNodeSub {
 					if (class80.anIntArray757 == null) {
 						class80.anIntArray757 = new int[class80.anIntArray743.length];
 						for (int i_44_ = 0; i_44_ < class80.anIntArray743.length; i_44_++) {
-							Class120_Sub12_Sub35.method1384(class80.anIntArray743[i_44_], 2);
+							Class32.list(class80.anIntArray743[i_44_]);
 							class80.anIntArray757[i_44_] = ((IntegerNode) GroundTile.aClass75_2643.get(class80.anIntArray743[i_44_])).value;
 						}
 					}
@@ -242,26 +242,26 @@ final class Particle extends ParticleNodeSub {
 				this.anInt3087 += ((long) aShort3089 * (long) anInt3100 >> 23) * i;
 				this.anInt3088 += ((long) aShort3096 * (long) anInt3100 >> 23) * i;
 				this.anInt3090 += ((long) aShort3098 * (long) anInt3100 >> 23) * i;
-				final int i_48_ = this.anInt3087 >> 19;
-				final int i_49_ = this.anInt3090 >> 19;
+				final int tileX = this.anInt3087 >> 19;
+				final int tileZ = this.anInt3090 >> 19;
 				i_1_ = this.anInt3088 >> anInt3086;
-				if (i_1_ > 0 || i_1_ < -65535 || i_48_ < 0 || i_48_ >= Class186.anInt1900 || i_49_ < 0 || i_49_ >= Class120_Sub12_Sub38.anInt3440) {
+				if (i_1_ > 0 || i_1_ < -65535 || tileX < 0 || tileX >= Class186.anInt1900 || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.anInt3440) {
 					method969();
 				} else {
-					final int[][][] is = OverridedJInterface.tileHeightMap;
-					final int i_50_ = is[class108_sub2.anInt2374][i_48_][i_49_];
+					final int[][][] heightMap = OverridedJInterface.tileHeightMap;
+					final int tileHeight = heightMap[class108_sub2.anInt2374][tileX][tileZ];
 					int i_51_;
 					if (class108_sub2.anInt2374 < 3) {
-						i_51_ = is[class108_sub2.anInt2374 + 1][i_48_][i_49_];
+						i_51_ = heightMap[class108_sub2.anInt2374 + 1][tileX][tileZ];
 					} else {
-						i_51_ = is[class108_sub2.anInt2374][i_48_][i_49_] - 1024;
+						i_51_ = heightMap[class108_sub2.anInt2374][tileX][tileZ] - 1024;
 					}
 					if (class80.aBoolean754) {
-						if (class80.anInt726 == -1 && i_1_ > i_50_) {
+						if (class80.anInt726 == -1 && i_1_ > tileHeight) {
 							method969();
 							return;
 						}
-						if (class80.anInt726 >= 0 && i_1_ > is[class80.anInt726][i_48_][i_49_]) {
+						if (class80.anInt726 >= 0 && i_1_ > heightMap[class80.anInt726][tileX][tileZ]) {
 							method969();
 							return;
 						}
@@ -269,36 +269,36 @@ final class Particle extends ParticleNodeSub {
 							method969();
 							return;
 						}
-						if (class80.anInt769 >= 0 && i_1_ < is[class80.anInt769 + 1][i_48_][i_49_]) {
+						if (class80.anInt769 >= 0 && i_1_ < heightMap[class80.anInt769 + 1][tileX][tileZ]) {
 							method969();
 							return;
 						}
 					}
-					if (i_48_ < class108_sub2.anInt2373 || i_48_ > class108_sub2.anInt2384 || i_49_ < class108_sub2.anInt2367 || i_49_ > class108_sub2.anInt2375 || i_1_ > class108_sub2.anInt2369 || i_1_ < class108_sub2.anInt2382) {
+					if (tileX < class108_sub2.anInt2373 || tileX > class108_sub2.anInt2384 || tileZ < class108_sub2.anInt2367 || tileZ > class108_sub2.anInt2375 || i_1_ > class108_sub2.anInt2369 || i_1_ < class108_sub2.anInt2382) {
 						this.aBoolean3097 = true;
-						int i_52_ = 3;
-						if (i_1_ > is[1][i_48_][i_49_]) {
-							i_52_ = 0;
-						} else if (i_1_ > is[2][i_48_][i_49_]) {
-							i_52_ = 1;
-						} else if (i_1_ > is[3][i_48_][i_49_]) {
-							i_52_ = 2;
-						} else if (i_1_ < is[3][i_48_][i_49_] - 1024) {
+						int tileLevel = 3;
+						if (i_1_ > heightMap[1][tileX][tileZ]) {
+							tileLevel = 0;
+						} else if (i_1_ > heightMap[2][tileX][tileZ]) {
+							tileLevel = 1;
+						} else if (i_1_ > heightMap[3][tileX][tileZ]) {
+							tileLevel = 2;
+						} else if (i_1_ < heightMap[3][tileX][tileZ] - 1024) {
 							method969();
 							return;
 						}
-						GroundTile class120_sub18 = LabelGroup.groundTiles[i_52_][i_48_][i_49_];
-						if (class120_sub18 == null) {
-							class120_sub18 = LabelGroup.groundTiles[i_52_][i_48_][i_49_] = new GroundTile(i_52_, i_48_, i_49_);
+						GroundTile groundTile = LabelGroup.groundTiles[tileLevel][tileX][tileZ];
+						if (groundTile == null) {
+							groundTile = LabelGroup.groundTiles[tileLevel][tileX][tileZ] = new GroundTile(tileLevel, tileX, tileZ);
 						}
-						if (class120_sub18.tileParticle == null) {
-							class120_sub18.tileParticle = new TileParticleQueue();
-							class120_sub18.aByte2623 = (byte) (int) (l & 0xffL);
-						} else if (class120_sub18.aByte2623 != (byte) (int) (l & 0xffL)) {
-							class120_sub18.tileParticle.clear();
-							class120_sub18.aByte2623 = (byte) (int) (l & 0xffL);
+						if (groundTile.tileParticle == null) {
+							groundTile.tileParticle = new TileParticleQueue();
+							groundTile.aByte2623 = (byte) (int) (l & 0xffL);
+						} else if (groundTile.aByte2623 != (byte) (int) (l & 0xffL)) {
+							groundTile.tileParticle.clear();
+							groundTile.aByte2623 = (byte) (int) (l & 0xffL);
 						}
-						class120_sub18.tileParticle.insertLast(this);
+						groundTile.tileParticle.insertLast(this);
 					} else {
 						this.aBoolean3097 = false;
 					}

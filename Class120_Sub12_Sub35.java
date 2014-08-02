@@ -78,32 +78,6 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 		return bool;
 	}
 
-	static final Class32 method1384(final int i, final int i_10_) {
-		Class32 class32;
-		try {
-			Class32 class32_11_ = (Class32) SceneGroundObject.aClass21_2841.get(i);
-			if (class32_11_ != null) {
-				return class32_11_;
-			}
-			final byte[] is = Class49.aClass50_440.getFile(1, i);
-			class32_11_ = new Class32();
-			class32_11_.anInt258 = i;
-			if (is != null) {
-				class32_11_.method274(new Buffer(is), (byte) 88);
-			}
-			class32_11_.method271((byte) 43);
-			if (i_10_ == class32_11_.anInt266 && GroundTile.aClass75_2643.get(i) == null) {
-				GroundTile.aClass75_2643.put(new IntegerNode(Class30.anInt236), i);
-				Class154.aClass32Array1437[Class30.anInt236++] = class32_11_;
-			}
-			SceneGroundObject.aClass21_2841.put(class32_11_, i);
-			class32 = class32_11_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.T(").append(i).append(',').append(i_10_).append(')').toString());
-		}
-		return class32;
-	}
-
 	static final void method1385() {
 		if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.gameLevel) {
 			Class2.method76(false, Class116.anInt1118, false, TileParticleQueue.selfPlayer.walkQueueZ[0], TileParticleQueue.selfPlayer.walkQueueX[0], Class3.anInt53, Class173.gameLevel);

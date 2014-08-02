@@ -4,8 +4,8 @@
 
 class Class69_Sub2 extends Class69 {
 	static int anInt2233;
-	static boolean aBoolean2234;
-	static int[] anIntArray2235;
+	static boolean locMemberClient;
+	static int[] mapFunctionZs;
 	static int anInt2236 = 0;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array2237;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array2238;
@@ -14,13 +14,13 @@ class Class69_Sub2 extends Class69 {
 
 	static {
 		anInt2233 = 128;
-		anIntArray2235 = new int[1000];
+		mapFunctionZs = new int[1000];
 		energy = 0;
 	}
 
 	public static void method619(final int i) {
 		try {
-			anIntArray2235 = null;
+			mapFunctionZs = null;
 			if (i != 0) {
 				method619(-112);
 			}

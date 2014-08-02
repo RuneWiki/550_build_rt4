@@ -361,10 +361,7 @@ public class Signlink implements Runnable {
 		return putNode(8, 0, new Object[] { var_class, string, var_classes }, 0);
 	}
 
-	public final Interface4 method1966(final byte i) {
-		if (i <= 82) {
-			return null;
-		}
+	public final Interface4 method1966() {
 		return anInterface4_1297;
 	}
 

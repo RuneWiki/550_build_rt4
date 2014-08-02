@@ -31,7 +31,7 @@ final class FileSystem {
 			if (i_1_ != 13080) {
 				return 64;
 			}
-			int i_4_ = Rasterizer.palette[Class180_Sub7_Sub1.method2401(i_2_, i)];
+			int i_4_ = Rasterizer.palette[LDModel.method2401(i_2_, i)];
 			if (i_0_ > 0) {
 				final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff, false);
 				if (i_5_ != 0) {

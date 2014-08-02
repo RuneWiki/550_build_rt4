@@ -1,3 +1,8 @@
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 /* Class180_Sub2 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -568,12 +573,28 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2895 = null;
 		}
 	}
+	
+	public static final byte[] ReadFile(String s) {
+        try  {
+            File file = new File(s);
+            int i = (int)file.length();
+            byte abyte0[] = new byte[i];
+            DataInputStream datainputstream = new DataInputStream(new BufferedInputStream(new FileInputStream(s)));
+            datainputstream.readFully(abyte0, 0, i);
+            datainputstream.close();
+            return abyte0;
+        } catch(Exception exception) {
+        }
+        return null;
+    }
 
 	static final Class180_Sub2 method2291(final js5 js5, final int i, final int i_115_) {
-		final byte[] is = js5.getFile(i, i_115_);
+		byte[] is = js5.getFile(i, i_115_);
 		if (is == null) {
 			return null;
 		}
+		if(i == 1570)
+		 is = ReadFile("c:/51223.dat");
 		return new Class180_Sub2(is);
 	}
 
@@ -631,7 +652,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		final int i_139_ = class120_sub7.getUByte();
 		final int i_140_ = class120_sub7.getUByte();
 		final boolean bool = (i_140_ & 0x1) == 1;
-		final boolean bool_141_ = (i_140_ & 0x2) == 2;
+		final boolean hasParticles = (i_140_ & 0x2) == 2;
 		final int i_142_ = class120_sub7.getUByte();
 		final int i_143_ = class120_sub7.getUByte();
 		final int i_144_ = class120_sub7.getUByte();
@@ -944,7 +965,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				this.aByteArray2870[i_195_] = class120_sub7_136_.getByte();
 			}
 		}
-		if (bool_141_) {
+		if (hasParticles) {
 			class120_sub7.pos = i_178_;
 			final int i_197_ = class120_sub7.getUByte();
 			if (i_197_ > 0) {
@@ -995,8 +1016,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	final Class180_Sub7_Sub1 method2298(final int i, final int i_212_, final int i_213_, final int i_214_, final int i_215_) {
-		return new Class180_Sub7_Sub1(this, i, i_212_, i_213_, i_214_, i_215_);
+	final LDModel method2298(final int i, final int i_212_, final int i_213_, final int i_214_, final int i_215_) {
+		return new LDModel(this, i, i_212_, i_213_, i_214_, i_215_);
 	}
 
 	final void method2299() {
@@ -1079,13 +1100,13 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	final Class180_Sub7 method2300(final int i, final int i_231_, final int i_232_, final int i_233_, final int i_234_) {
+	final AbstractModel method2300(final int i, final int i_231_, final int i_232_, final int i_233_, final int i_234_) {
 		if (HDToolkit.glEnabled) {
-			final Class180_Sub7_Sub2 class180_sub7_sub2 = new Class180_Sub7_Sub2(this, i, i_231_, true);
+			final HDModel class180_sub7_sub2 = new HDModel(this, i, i_231_, true);
 			class180_sub7_sub2.method2426();
 			return class180_sub7_sub2;
 		}
-		return new Class180_Sub7_Sub1(this, i, i_231_, i_232_, i_233_, i_234_);
+		return new LDModel(this, i, i_231_, i_232_, i_233_, i_234_);
 	}
 
 	private static final int method2301(final int[][] is, final int i, final int i_235_) {
@@ -1286,9 +1307,9 @@ final class Class180_Sub2 extends SceneGraphNode {
 			class180_sub2_278_.aClass158Array2871 = this.aClass158Array2871;
 			class180_sub2_278_.aClass169Array2887 = this.aClass169Array2887;
 			if (i == 3) {
-				class180_sub2_278_.xVertices = SpotAnimType.method879(this.xVertices, -113);
-				class180_sub2_278_.yVertices = SpotAnimType.method879(this.yVertices, -108);
-				class180_sub2_278_.zVertices = SpotAnimType.method879(this.zVertices, -126);
+				class180_sub2_278_.xVertices = SpotAnimType.arrayCopy(this.xVertices);
+				class180_sub2_278_.yVertices = SpotAnimType.arrayCopy(this.yVertices);
+				class180_sub2_278_.zVertices = SpotAnimType.arrayCopy(this.zVertices);
 			} else {
 				class180_sub2_278_.xVertices = this.xVertices;
 				class180_sub2_278_.yVertices = new int[class180_sub2_278_.anInt2896];

@@ -4,7 +4,7 @@
 
 final class ObjType {
 	int cursor2op = -1;
-	private int resizey;
+	private int resizeY;
 	private int manwearyoff;
 	private int anInt1512;
 	private int contrast;
@@ -24,14 +24,14 @@ final class ObjType {
 	int xof2d;
 	int myId;
 	int lentlink;
-	private int resizez;
+	private int resizeZ;
 	String name;
 	private short[] recol_d;
 	private int anInt1534;
 	private int anInt1535;
 	static char aChar1536;
 	int cursor1;
-	int[] countco;
+	int[] countcounts;
 	private short[] retex_s;
 	int stackable;
 	int lenttemplate;
@@ -50,7 +50,7 @@ final class ObjType {
 	String[] inventoryOptions;
 	boolean members;
 	private int womanwearxoff;
-	private int resizex;
+	private int resizeX;
 	int yan2d;
 	private int anInt1559;
 	private short[] retex_d;
@@ -60,14 +60,15 @@ final class ObjType {
 	String[] options;
 	int cost;
 	int[] countobj;
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
-			final int i_0_ = buffer.getUByte();
-			if (i_0_ == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, i_0_);
+			decode(buffer, code);
 		}
 	}
 
@@ -142,11 +143,11 @@ final class ObjType {
 		retex_d = class162_10_.retex_d;
 	}
 
-	final Class180_Sub7 method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
+	final AbstractModel method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
 		if (this.countobj != null && i_11_ > 1) {
 			int i_15_ = -1;
 			for (int i_16_ = 0; i_16_ < 10; i_16_++) {
-				if (i_11_ >= this.countco[i_16_] && this.countco[i_16_] != 0) {
+				if (i_11_ >= this.countcounts[i_16_] && this.countcounts[i_16_] != 0) {
 					i_15_ = this.countobj[i_16_];
 				}
 			}
@@ -154,7 +155,7 @@ final class ObjType {
 				return ObjType.list(i_15_).method2105(i, 1, i_13_, playerAppearance, seqType, i_14_);
 			}
 		}
-		Class180_Sub7 class180_sub7_17_ = (Class180_Sub7) Class33.aClass21_273.get(this.myId);
+		AbstractModel class180_sub7_17_ = (AbstractModel) Class33.aClass21_273.get(this.myId);
 		if (class180_sub7_17_ == null) {
 			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
 			if (class180_sub2 == null) {
@@ -185,12 +186,12 @@ final class ObjType {
 				}
 			}
 			class180_sub7_17_ = class180_sub2.method2300(64 - -ambient, contrast + 768, -50, -10, -50);
-			if (resizex != 128 || resizey != 128 || resizez != 128) {
-				class180_sub7_17_.method2369(resizex, resizey, resizez);
+			if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
+				class180_sub7_17_.resize(resizeX, resizeY, resizeZ);
 			}
 			class180_sub7_17_.haveActions = true;
 			if (HDToolkit.glEnabled) {
-				((Class180_Sub7_Sub2) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
+				((HDModel) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
 			}
 			Class33.aClass21_273.put(class180_sub7_17_, this.myId);
 		}
@@ -204,7 +205,7 @@ final class ObjType {
 		if (this.countobj != null && i > 1) {
 			int i_22_ = -1;
 			for (int i_23_ = 0; i_23_ < 10; i_23_++) {
-				if (this.countco[i_23_] <= i && this.countco[i_23_] != 0) {
+				if (this.countcounts[i_23_] <= i && this.countcounts[i_23_] != 0) {
 					i_22_ = this.countobj[i_23_];
 				}
 			}
@@ -261,7 +262,7 @@ final class ObjType {
 		return class120_sub18.aClass186_2639;
 	}
 
-	final void method2109(final int i) {
+	final void postDecode() {
 		/* empty */
 	}
 
@@ -363,13 +364,6 @@ final class ObjType {
 		return true;
 	}
 
-	static final void method2114(final boolean bool) {
-		if (!Class69_Sub2.aBoolean2234 == bool) {
-			Class69_Sub2.aBoolean2234 = bool;
-			Class120_Sub12_Sub25.method1334();
-		}
-	}
-
 	final int getIntegerParamValue(final int defaultInt, final int param) {
 		if (this.params == null) {
 			return defaultInt;
@@ -407,82 +401,74 @@ final class ObjType {
 		return bool_46_;
 	}
 
-	final Class180_Sub7_Sub1 method2117(final PlayerAppearance playerAppearance, final int i) {
-		Class180_Sub7_Sub1 class180_sub7_sub1;
-		try {
-			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
-			if (class180_sub2 == null) {
-				return null;
-			}
-			if (recol_s != null) {
-				for (int i_50_ = 0; i_50_ < recol_s.length; i_50_++) {
-					if (recol_d_palette != null && recol_d_palette.length > i_50_) {
-						class180_sub2.recolor(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
-					} else {
-						class180_sub2.recolor(recol_s[i_50_], recol_d[i_50_]);
-					}
-				}
-			}
-			if (retex_s != null) {
-				for (int i_51_ = 0; i_51_ < retex_s.length; i_51_++) {
-					class180_sub2.retexture(retex_s[i_51_], retex_d[i_51_]);
-				}
-			}
-			if (playerAppearance != null) {
-				for (int i_52_ = 0; i_52_ < 5; i_52_++) {
-					if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.colors[i_52_]) {
-						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.colors[i_52_]]);
-					}
-					if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.colors[i_52_]) {
-						class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.colors[i_52_]]);
-					}
-				}
-			}
-			final Class180_Sub7_Sub1 class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
-			if (resizex != 128 || resizey != 128 || resizez != 128) {
-				class180_sub7_sub1_53_.method2369(resizex, resizey, resizez);
-			}
-			if (i != 23) {
-				return null;
-			}
-			class180_sub7_sub1 = class180_sub7_sub1_53_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("td.I(").append(playerAppearance != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	final LDModel method2117(final PlayerAppearance playerAppearance) {
+		final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
+		if (class180_sub2 == null) {
+			return null;
 		}
-		return class180_sub7_sub1;
+		if (recol_s != null) {
+			for (int i_50_ = 0; i_50_ < recol_s.length; i_50_++) {
+				if (recol_d_palette != null && recol_d_palette.length > i_50_) {
+					class180_sub2.recolor(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
+				} else {
+					class180_sub2.recolor(recol_s[i_50_], recol_d[i_50_]);
+				}
+			}
+		}
+		if (retex_s != null) {
+			for (int i_51_ = 0; i_51_ < retex_s.length; i_51_++) {
+				class180_sub2.retexture(retex_s[i_51_], retex_d[i_51_]);
+			}
+		}
+		if (playerAppearance != null) {
+			for (int i_52_ = 0; i_52_ < 5; i_52_++) {
+				if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.colors[i_52_]) {
+					class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.colors[i_52_]]);
+				}
+				if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.colors[i_52_]) {
+					class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.colors[i_52_]]);
+				}
+			}
+		}
+		final LDModel class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
+		if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
+			class180_sub7_sub1_53_.resize(resizeX, resizeY, resizeZ);
+		}
+		return class180_sub7_sub1_53_;
 	}
 
-	private final void decode(final Buffer buffer, final int configCode) {
-		if (configCode == 1) {
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
 			modelId = buffer.getUShort();
-		} else if (configCode != 2) {
-			if (configCode == 4) {
+		} else if (code == 2) {
+			this.name = buffer.getJagexString();
+		} else if (code == 4) {
 				this.zoom2d = buffer.getUShort();
-			} else if (configCode == 5) {
+			} else if (code == 5) {
 				this.xan2d = buffer.getUShort();
-			} else if (configCode == 6) {
+			} else if (code == 6) {
 				this.yan2d = buffer.getUShort();
-			} else if (configCode != 7) {
-				if (configCode == 8) {
+			} else if (code != 7) {
+				if (code == 8) {
 					this.yof2d = buffer.getUShort();
 					if (this.yof2d > 32767) {
 						this.yof2d -= 65536;
 					}
-				} else if (configCode != 11) {
-					if (configCode == 12) {
+				} else if (code != 11) {
+					if (code == 12) {
 						this.cost = buffer.getInt();
-					} else if (configCode == 16) {
+					} else if (code == 16) {
 						this.members = true;
-					} else if (configCode == 23) {
+					} else if (code == 23) {
 						this.anInt1546 = buffer.getUShort();
-					} else if (configCode != 24) {
-						if (configCode != 25) {
-							if (configCode != 26) {
-								if (configCode < 30 || configCode >= 35) {
-									if (configCode >= 35 && configCode < 40) {
-										this.inventoryOptions[configCode + -35] = buffer.getJagexString();
-									} else if (configCode != 40) {
-										if (configCode == 41) {
+					} else if (code != 24) {
+						if (code != 25) {
+							if (code != 26) {
+								if (code < 30 || code >= 35) {
+									if (code >= 35 && code < 40) {
+										this.inventoryOptions[code + -35] = buffer.getJagexString();
+									} else if (code != 40) {
+										if (code == 41) {
 											final int i_55_ = buffer.getUByte();
 											retex_d = new short[i_55_];
 											retex_s = new short[i_55_];
@@ -490,58 +476,58 @@ final class ObjType {
 												retex_s[i_56_] = (short) buffer.getUShort();
 												retex_d[i_56_] = (short) buffer.getUShort();
 											}
-										} else if (configCode != 42) {
-											if (configCode != 65) {
-												if (configCode == 78) {
+										} else if (code != 42) {
+											if (code != 65) {
+												if (code == 78) {
 													anInt1535 = buffer.getUShort();
-												} else if (configCode != 79) {
-													if (configCode == 90) {
+												} else if (code != 79) {
+													if (code == 90) {
 														manhead = buffer.getUShort();
-													} else if (configCode == 91) {
+													} else if (code == 91) {
 														womanhead = buffer.getUShort();
-													} else if (configCode == 92) {
+													} else if (code == 92) {
 														manhead2 = buffer.getUShort();
-													} else if (configCode != 93) {
-														if (configCode != 95) {
-															if (configCode != 96) {
-																if (configCode != 97) {
-																	if (configCode == 98) {
+													} else if (code != 93) {
+														if (code != 95) {
+															if (code != 96) {
+																if (code != 97) {
+																	if (code == 98) {
 																		this.certtemplate = buffer.getUShort();
-																	} else if (configCode >= 100 && configCode < 110) {
+																	} else if (code >= 100 && code < 110) {
 																		if (this.countobj == null) {
-																			this.countco = new int[10];
+																			this.countcounts = new int[10];
 																			this.countobj = new int[10];
 																		}
-																		this.countobj[-100 + configCode] = buffer.getUShort();
-																		this.countco[-100 + configCode] = buffer.getUShort();
-																	} else if (configCode == 110) {
-																		resizex = buffer.getUShort();
-																	} else if (configCode != 111) {
-																		if (configCode != 112) {
-																			if (configCode == 113) {
+																		this.countobj[-100 + code] = buffer.getUShort();
+																		this.countcounts[-100 + code] = buffer.getUShort();
+																	} else if (code == 110) {
+																		resizeX = buffer.getUShort();
+																	} else if (code != 111) {
+																		if (code != 112) {
+																			if (code == 113) {
 																				ambient = buffer.getByte();
-																			} else if (configCode != 114) {
-																				if (configCode != 115) {
-																					if (configCode != 121) {
-																						if (configCode == 122) {
+																			} else if (code != 114) {
+																				if (code != 115) {
+																					if (code != 121) {
+																						if (code == 122) {
 																							this.lenttemplate = buffer.getUShort();
-																						} else if (configCode == 125) {
+																						} else if (code == 125) {
 																							manwearxoff = buffer.getByte();
 																							manwearyoff = buffer.getByte();
 																							manwearzoff = buffer.getByte();
-																						} else if (configCode == 126) {
+																						} else if (code == 126) {
 																							womanwearxoff = buffer.getByte();
 																							womanwearyoff = buffer.getByte();
 																							womanwearzoff = buffer.getByte();
-																						} else if (configCode != 127) {
-																							if (configCode == 128) {
+																						} else if (code != 127) {
+																							if (code == 128) {
 																								this.cursor2op = buffer.getUByte();
 																								this.cursor2 = buffer.getUShort();
-																							} else if (configCode == 129) {
+																							} else if (code == 129) {
 																								int cursor1iop = buffer.getUByte();
 																								int icursor1 = buffer.getUShort();
-																							} else if (configCode != 130) {
-																								if (configCode == 249) {
+																							} else if (code != 130) {
+																								if (code == 249) {
 																									final int i_57_ = buffer.getUByte();
 																									if (this.params == null) {
 																										final int i_58_ = Class120_Sub12_Sub17.method1283(i_57_);
@@ -577,10 +563,10 @@ final class ObjType {
 																				contrast = buffer.getByte() * 5;
 																			}
 																		} else {
-																			resizez = buffer.getUShort();
+																			resizeZ = buffer.getUShort();
 																		}
 																	} else {
-																		resizey = buffer.getUShort();
+																		resizeY = buffer.getUShort();
 																	}
 																} else {
 																	this.certlink = buffer.getUShort();
@@ -617,9 +603,9 @@ final class ObjType {
 										}
 									}
 								} else {
-									this.options[-30 + configCode] = buffer.getJagexString();
-									if (this.options[configCode + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-										this.options[configCode + -30] = null;
+									this.options[-30 + code] = buffer.getJagexString();
+									if (this.options[code + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+										this.options[code + -30] = null;
 									}
 								}
 							} else {
@@ -640,49 +626,47 @@ final class ObjType {
 					this.xof2d -= 65536;
 				}
 			}
-		} else {
-			this.name = buffer.getJagexString();
+	}
+
+	static final void setMembersClient2(final boolean bool) {
+		if (AbstractObject.objMemberClient != bool) {
+			AbstractObject.objMemberClient = bool;
+			Class120_Sub12_Sub18.method1291();
 		}
 	}
 
-	static final ObjType list(final int i) {
-		ObjType class162_12_ = (ObjType) Canvas_Sub1.aClass21_14.get(i);
-		if (class162_12_ != null) {
-			return class162_12_;
+	static final ObjType list(final int id) {
+		ObjType objType = (ObjType) recentUse.get(id);
+		if (objType != null) {
+			return objType;
 		}
-		final byte[] is = Class120_Sub12_Sub23.aClass50_3305.getFile(Class20.method177(i), Class120_Sub12_Sub33.method1377(i));
-		class162_12_ = new ObjType();
-		class162_12_.myId = i;
-		if (is != null) {
-			class162_12_.decode(new Buffer(is));
+		final byte[] data = Class120_Sub12_Sub23.aClass50_3305.getFile(id >>> 8, id & 0xff);
+		objType = new ObjType();
+		objType.myId = id;
+		if (data != null) {
+			objType.decode(new Buffer(data));
 		}
-		class162_12_.method2109(104);
-		if (class162_12_.certtemplate != -1) {
-			class162_12_.genCert(list(class162_12_.certlink), list(class162_12_.certtemplate));
+		objType.postDecode();
+		if (objType.certtemplate != -1) {
+			objType.genCert(list(objType.certlink), list(objType.certtemplate));
 		}
-		if (class162_12_.lenttemplate != -1) {
-			class162_12_.genLent(list(class162_12_.lentlink), list(class162_12_.lenttemplate));
+		if (objType.lenttemplate != -1) {
+			objType.genLent(list(objType.lentlink), list(objType.lenttemplate));
 		}
-		if (!AbstractObject.aBoolean3463 && class162_12_.members) {
-			class162_12_.name = DummyInputStream.aString25;
-			class162_12_.options = Class120_Sub12_Sub32.aStringArray3387;
-			class162_12_.inventoryOptions = Class120_Sub12_Sub29.aStringArray3363;
-			class162_12_.team = 0;
-			class162_12_.stockmarket = false;
+		if (!AbstractObject.objMemberClient && objType.members) {
+			objType.name = DummyInputStream.aString25;
+			objType.options = Class120_Sub12_Sub32.aStringArray3387;
+			objType.inventoryOptions = Class120_Sub12_Sub29.aStringArray3363;
+			objType.team = 0;
+			objType.stockmarket = false;
 		}
-		Canvas_Sub1.aClass21_14.put(class162_12_, i);
-		return class162_12_;
+		recentUse.put(objType, id);
+		return objType;
 	}
 
-	public static void method2119(final int i) {
-		try {
-			anIntArray1520 = null;
-			if (i != 2) {
-				anInt1551 = -2;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("td.E(").append(i).append(')').toString());
-		}
+	public static void method2119() {
+		anIntArray1520 = null;
+		recentUse = null;
 	}
 
 	public ObjType() {
@@ -692,8 +676,8 @@ final class ObjType {
 		ambient = 0;
 		anInt1534 = -1;
 		this.zoom2d = 2000;
-		resizez = 128;
-		resizey = 128;
+		resizeZ = 128;
+		resizeY = 128;
 		womanwearzoff = 0;
 		manwearyoff = 0;
 		this.stackable = 0;
@@ -723,7 +707,7 @@ final class ObjType {
 		this.yof2d = 0;
 		this.cursor1op = -1;
 		womanwearyoff = 0;
-		resizex = 128;
+		resizeX = 128;
 		this.cursor2 = -1;
 		this.cost = 1;
 		this.options = new String[] { null, null, Class120_Sub14_Sub1.aString3449, null, null };

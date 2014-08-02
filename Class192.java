@@ -16,26 +16,19 @@ final class Class192 {
 		selectedSpellCursor = -1;
 	}
 
-	static final void method2515(final int i) {
-		try {
-			Npc.aByteArrayArrayArray3754 = null;
-			Class8.aByteArrayArrayArray65 = null;
-			Class110.anIntArrayArrayArray1050 = null;
-			if (i != 1) {
-				method2515(-31);
-			}
-			CanvasWrapper.anIntArray21 = null;
-			Buffer.anIntArray2477 = null;
-			Class99.aByteArrayArrayArray949 = null;
-			Class120_Sub14_Sub5.aByteArrayArrayArray3477 = null;
-			Class120_Sub4.aByteArrayArrayArray2441 = null;
-			StringNode.anIntArray2733 = null;
-			PacketBuffer.anIntArray3120 = null;
-			Class120_Sub12_Sub31.anIntArray3383 = null;
-			Class120_Sub12_Sub34.anIntArray3409 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.B(").append(i).append(')').toString());
-		}
+	static final void method2515() {
+		Npc.aByteArrayArrayArray3754 = null;
+		Class8.aByteArrayArrayArray65 = null;
+		Class110.anIntArrayArrayArray1050 = null;
+		CanvasWrapper.anIntArray21 = null;
+		Buffer.anIntArray2477 = null;
+		Class99.aByteArrayArrayArray949 = null;
+		Class120_Sub14_Sub5.aByteArrayArrayArray3477 = null;
+		Class120_Sub4.aByteArrayArrayArray2441 = null;
+		StringNode.anIntArray2733 = null;
+		PacketBuffer.anIntArray3120 = null;
+		Class120_Sub12_Sub31.anIntArray3383 = null;
+		Class120_Sub12_Sub34.anIntArray3409 = null;
 	}
 
 	public static void method2516(final byte i) {
@@ -43,7 +36,7 @@ final class Class192 {
 			selectedObjName = null;
 			aCalendar2121 = null;
 			if (i < 107) {
-				method2515(44);
+				method2515();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.C(").append(i).append(')').toString());

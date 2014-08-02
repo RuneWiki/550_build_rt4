@@ -6,7 +6,7 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 	static boolean aBoolean3464 = false;
 	static MouseHandler mouseHandler;
 	static int anInt3466 = 0;
-	Class180_Sub3 aClass180_Sub3_3467;
+	SpotAnimation aClass180_Sub3_3467;
 	static boolean[] aBooleanArray3468;
 	static int anInt3469;
 	static boolean aBoolean3470;
@@ -53,7 +53,7 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 		return true;
 	}
 
-	Class120_Sub14_Sub4(final Class180_Sub3 class180_sub3) {
+	Class120_Sub14_Sub4(final SpotAnimation class180_sub3) {
 		this.aClass180_Sub3_3467 = class180_sub3;
 	}
 

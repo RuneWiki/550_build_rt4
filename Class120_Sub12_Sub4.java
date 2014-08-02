@@ -91,9 +91,9 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	}
 
 	static final void method1214() {
-		Canvas_Sub1.aClass21_14.clearSoftReference();
+		ObjType.recentUse.clearSoftReference();
 		Class33.aClass21_273.clearSoftReference();
-		Class180_Sub3.aClass21_2906.clearSoftReference();
+		SpotAnimation.aClass21_2906.clearSoftReference();
 	}
 
 	static final int getDisplayMode() {
@@ -135,7 +135,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		if (js5.method429(Class132_Sub2.crossId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class73.mapdotsId)) {
+		if (js5.method429(MapFunctionType.mapdotsId)) {
 			i_13_++;
 		}
 		if (js5.method429(Class134.scrollbarId)) {

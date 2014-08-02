@@ -40,7 +40,7 @@ final class GroundObjectNode extends NodeSub {
 
 	static final void sendInterfaceCounter() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(156);
-		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub14_Sub20.packetCounter);
+		Class120_Sub12_Sub11.outputStream.putShort(OverlayFrequencyNode.packetCounter);
 	}
 
 	static {

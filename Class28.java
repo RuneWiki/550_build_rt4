@@ -21,12 +21,8 @@ final class Class28 {
 	int anInt185;
 	long bitPacked = 0L;
 
-	static final void method242(final short[] is, final int i, final String[] strings) {
-		try {
-			Class148.method2057(strings, true, -1 + strings.length, is, 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("co.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(strings != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method242(final String[] strings, final short[] is) {
+		Class148.method2057(strings, strings.length - 1, is, 0);
 	}
 
 	static final void method243(final boolean bool) {

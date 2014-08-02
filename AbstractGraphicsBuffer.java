@@ -74,7 +74,7 @@ abstract class AbstractGraphicsBuffer {
 		client.aByte2201 = (byte) 0;
 	}
 
-	abstract void drawClippedImage(Graphics graphics, int x, int i, int i_3_, int y);
+	abstract void drawClippedImage(Graphics graphics, int x, int y, int w, int h);
 
 	static final void method1844(int i, final byte i_6_, int i_7_, int i_8_, final int i_9_, int i_10_) {
 		try {

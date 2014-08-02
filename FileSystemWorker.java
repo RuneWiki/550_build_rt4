@@ -36,7 +36,7 @@ final class FileSystemWorker implements Runnable {
 					fsRequest.buffer = fsRequest.fileSystem.get((int) fsRequest.subUid);
 				}
 			} catch (final Exception exception) {
-				Class180_Sub3.method2312(exception, null);
+				SpotAnimation.method2312(exception, null);
 			}
 			fsRequest.aBoolean3576 = false;
 		}

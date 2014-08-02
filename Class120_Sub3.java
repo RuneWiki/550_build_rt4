@@ -100,8 +100,8 @@ final class Class120_Sub3 extends Node {
 					Class54.anIntArray488[i] = i_25_;
 				}
 				if (i_26_ >= StringNode.anIntArray2735[i]) {
-					if (i_26_ > Class180_Sub6.anIntArray3075[i]) {
-						Class180_Sub6.anIntArray3075[i] = i_26_;
+					if (i_26_ > AnimatedLocation.anIntArray3075[i]) {
+						AnimatedLocation.anIntArray3075[i] = i_26_;
 					}
 				} else {
 					StringNode.anIntArray2735[i] = i_26_;
@@ -167,7 +167,7 @@ final class Class120_Sub3 extends Node {
 			Class134.anIntArray1284[i] += 10;
 			Class54.anIntArray488[i] -= 50;
 			IntegerNode.anIntArray2787[i] += 50;
-			Class180_Sub6.anIntArray3075[i] += 50;
+			AnimatedLocation.anIntArray3075[i] += 50;
 			StringNode.anIntArray2735[i] -= 50;
 		}
 		return true;
@@ -179,7 +179,7 @@ final class Class120_Sub3 extends Node {
 			int i_33_ = -i_27_ + i_31_;
 			if (i_33_ != 0) {
 				if (i_32_ == 0) {
-					Class84.method717(i_27_, false, i_31_, i_30_, i_28_);
+					GZIPDecompressor.method717(i_27_, false, i_31_, i_30_, i_28_);
 					return;
 				}
 			} else {

@@ -368,7 +368,7 @@ final class Js5Worker {
 										continue;
 									}
 								}
-								final Class28 class28 = Class180_Sub3.method2315(i_51_, i_62_, i_58_);
+								final Class28 class28 = SpotAnimation.method2315(i_62_, i_58_, i_51_);
 								if (class28 != null) {
 									final int i_69_ = (int) (class28.bitPacked >> 14) & 0x3f;
 									if (i_69_ == 9) {
@@ -486,7 +486,7 @@ final class Js5Worker {
 										bool = true;
 									}
 								}
-								final Class28 class28 = Class180_Sub3.method2315(i_51_, i_95_, i_91_);
+								final Class28 class28 = SpotAnimation.method2315(i_95_, i_91_, i_51_);
 								if (class28 != null) {
 									final int i_100_ = 0x3f & (int) (class28.bitPacked >> 14);
 									if (i_100_ == 9) {

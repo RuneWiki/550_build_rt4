@@ -11,7 +11,7 @@ import java.util.Date;
 final class Class32 {
 	private boolean aBoolean251 = false;
 	int anInt252;
-	private int anInt253;
+	private int rotation;
 	static int anInt254;
 	int anInt255;
 	static JagexInterface aClass189_256;
@@ -38,39 +38,26 @@ final class Class32 {
 		anInt272 = 0;
 	}
 
-	private final void method268(final Buffer class120_sub7, final int i, final int i_0_) {
-		try {
-			if (i_0_ == 1) {
-				anInt253 = class120_sub7.getUShort();
-			} else if (i_0_ == 2) {
-				class120_sub7.getUByte();
-			} else if (i_0_ != 3) {
-				if (i_0_ == 4) {
-					this.anInt255 = class120_sub7.getUByte();
-					this.anInt268 = class120_sub7.getInt();
-				} else if (i_0_ == 6) {
-					this.anInt266 = class120_sub7.getUByte();
-				} else if (i_0_ != 8) {
-					if (i_0_ != 9) {
-						if (i_0_ == 10) {
-							aBoolean251 = true;
-						}
-					} else {
-						this.anInt264 = 1;
-					}
-				} else {
-					this.anInt267 = 1;
-				}
-			} else {
-				this.anInt257 = class120_sub7.getInt();
-				this.anInt261 = class120_sub7.getInt();
-				this.anInt252 = class120_sub7.getInt();
-			}
-			if (i != 2) {
-				this.anInt267 = 119;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_0_).append(')').toString());
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			rotation = buffer.getUShort();
+		} else if (code == 2) {
+			buffer.getUByte();
+		} else if (code == 3) {
+			this.anInt257 = buffer.getInt();
+			this.anInt261 = buffer.getInt();
+			this.anInt252 = buffer.getInt();
+		} else if (code == 4) {
+			this.anInt255 = buffer.getUByte();
+			this.anInt268 = buffer.getInt();
+		} else if (code == 6) {
+			this.anInt266 = buffer.getUByte();
+		} else if (code == 8) {
+			this.anInt267 = 1;
+		} else if (code == 9) {
+			this.anInt264 = 1;
+		} else if (code == 10) {
+			aBoolean251 = true;
 		}
 	}
 
@@ -103,31 +90,22 @@ final class Class32 {
 		return string;
 	}
 
-	final void method271(final byte i) {
-		try {
-			if (i < 38) {
-				method271((byte) -40);
-			}
-			this.anInt265 = Rasterizer.cosineTable[anInt253];
-			this.anInt262 = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 - -(this.anInt261 * this.anInt261));
-			if (this.anInt268 == 0) {
-				this.anInt268 = 1;
-			}
-			if (this.anInt255 == 0) {
-				this.aLong271 = 2147483647L;
-			} else if (this.anInt255 != 1) {
-				if (this.anInt255 == 2) {
-					this.aLong271 = this.anInt262 * 8 / this.anInt268;
-				}
-			} else {
-				this.aLong271 = this.anInt262 * 8 / this.anInt268;
-				this.aLong271 *= this.aLong271;
-			}
-			if (aBoolean251) {
-				this.anInt262 *= -1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.E(").append(i).append(')').toString());
+	final void postDecode() {
+		this.anInt265 = Rasterizer.cosineTable[rotation];
+		this.anInt262 = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 + this.anInt261 * this.anInt261);
+		if (this.anInt268 == 0) {
+			this.anInt268 = 1;
+		}
+		if (this.anInt255 == 0) {
+			this.aLong271 = 2147483647L;
+		} else if (this.anInt255 == 1) {
+			this.aLong271 = this.anInt262 * 8 / this.anInt268;
+			this.aLong271 *= this.aLong271;
+		} else if (this.anInt255 == 2) {
+			this.aLong271 = this.anInt262 * 8 / this.anInt268;
+		}
+		if (aBoolean251) {
+			this.anInt262 *= -1;
 		}
 	}
 
@@ -179,9 +157,9 @@ final class Class32 {
 		return string;
 	}
 
-	static final Class180_Sub7 method273(final int i, final SeqType seqType, int i_15_, int entitySize, final int i_17_, final Class180_Sub7 class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
+	static final AbstractModel method273(final int i, final SeqType seqType, int i_15_, int entitySize, final int i_17_, final AbstractModel class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
 		final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + entitySize + ((long) i << 48);
-		Class180_Sub7 class180_sub7_25_ = (Class180_Sub7) Class154.aClass21_1438.get(l);
+		AbstractModel class180_sub7_25_ = (AbstractModel) Class154.aClass21_1438.get(l);
 		if (class180_sub7_25_ == null) {
 			int vertexCount;
 			if (entitySize == 1) {
@@ -269,11 +247,11 @@ final class Class32 {
 		}
 		if (class120_sub14_sub18 == null) {
 			class180_sub7_25_ = class180_sub7_25_.method2381(true, true, true);
-			class180_sub7_25_.method2369((i_49_ + -i_48_) / 2, 128, (i_51_ - i_50_) / 2);
+			class180_sub7_25_.resize((i_49_ + -i_48_) / 2, 128, (i_51_ - i_50_) / 2);
 			class180_sub7_25_.method2368((i_48_ + i_49_) / 2, 0, (i_50_ - -i_51_) / 2);
 		} else {
-			class180_sub7_25_ = class180_sub7_25_.method2381(!class120_sub14_sub18.method1578((byte) -39, i_18_), !class120_sub14_sub18.method1579(3, i_18_), true);
-			class180_sub7_25_.method2369((-i_48_ + i_49_) / 2, 128, (i_51_ - i_50_) / 2);
+			class180_sub7_25_ = class180_sub7_25_.method2381(!class120_sub14_sub18.method1578(i_18_), !class120_sub14_sub18.method1579(i_18_), true);
+			class180_sub7_25_.resize((-i_48_ + i_49_) / 2, 128, (i_51_ - i_50_) / 2);
 			class180_sub7_25_.method2368((i_49_ + i_48_) / 2, 0, (i_50_ + i_51_) / 2);
 			class180_sub7_25_.method2389(class120_sub14_sub18, i_18_);
 		}
@@ -281,7 +259,7 @@ final class Class32 {
 			class180_sub7_25_.method2360(i_15_);
 		}
 		if (HDToolkit.glEnabled) {
-			final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_25_;
+			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_25_;
 			if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ + i_48_, i_50_ + i_20_) || Class22.getTileHeight(Class173.gameLevel, i_49_ + i_23_, i_51_ + i_20_) != i_19_) {
 				for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
 					class180_sub7_sub2.anIntArray3856[i_52_] += Class22.getTileHeight(Class173.gameLevel, i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_]) + -i_19_;
@@ -290,7 +268,7 @@ final class Class32 {
 				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 			}
 		} else {
-			final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_25_;
+			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_25_;
 			if (i_19_ != Class22.getTileHeight(Class173.gameLevel, i_48_ + i_23_, i_50_ + i_20_) || i_19_ != Class22.getTileHeight(Class173.gameLevel, i_23_ - -i_49_, i_51_ + i_20_)) {
 				for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
 					class180_sub7_sub1.yVertices[i_53_] += Class22.getTileHeight(Class173.gameLevel, class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_) - i_19_;
@@ -305,20 +283,33 @@ final class Class32 {
 		/* empty */
 	}
 
-	final void method274(final Buffer class120_sub7, final byte i) {
-		try {
-			if (i < 38) {
-				method269(-66);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			for (;;) {
-				final int i_54_ = class120_sub7.getUByte();
-				if (i_54_ == 0) {
-					break;
-				}
-				method268(class120_sub7, 2, i_54_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.A(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
+	}
+
+	static final Class32 list(final int id) {
+		Class32 class32_11_ = (Class32) SceneGroundObject.aClass21_2841.get(id);
+		if (class32_11_ != null) {
+			return class32_11_;
+		}
+		final byte[] is = Class49.aClass50_440.getFile(1, id);
+		class32_11_ = new Class32();
+		class32_11_.anInt258 = id;
+		if (is != null) {
+			class32_11_.decode(new Buffer(is));
+		}
+		class32_11_.postDecode();
+		if (class32_11_.anInt266 == 2 && GroundTile.aClass75_2643.get(id) == null) {
+			GroundTile.aClass75_2643.put(new IntegerNode(Class30.anInt236), id);
+			Class154.aClass32Array1437[Class30.anInt236++] = class32_11_;
+		}
+		SceneGroundObject.aClass21_2841.put(class32_11_, id);
+		return class32_11_;
 	}
 }

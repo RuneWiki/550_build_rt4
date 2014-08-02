@@ -35,10 +35,6 @@ final class Class20 implements ShaderInterface {
 		return i;
 	}
 
-	static final int method177(final int i_0_) {
-		return i_0_ >>> 8;
-	}
-
 	@Override
 	public final void method2() {
 		try {

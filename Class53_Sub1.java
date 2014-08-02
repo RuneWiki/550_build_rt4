@@ -14,11 +14,11 @@ final class Class53_Sub1 extends Class53 {
 	static String aString2213 = "red:";
 	private final int anInt2214;
 	private byte[] aByteArray2215;
-	private MasterIndexInfo aClass52_2216;
+	private MasterIndexInfo masterIndexInfo;
 	static SignlinkNode worldConnectionNode;
 	private AbstractRequest aClass120_Sub14_Sub14_2218;
 	static int anInt2219;
-	private final int anInt2220;
+	private final int indexVersion;
 	private int anInt2221 = 0;
 	private boolean aBoolean2222;
 	private boolean aBoolean2223;
@@ -27,59 +27,37 @@ final class Class53_Sub1 extends Class53 {
 	private long aLong2226 = 0L;
 	private final boolean aBoolean2227;
 
-	final int method463(final int i) {
-		int i_0_;
-		try {
-			if (aClass52_2216 == null) {
-				return 0;
-			}
-			if (!aBoolean2222) {
-				return aClass52_2216.groupLength;
-			}
-			if (i != 1) {
-				return -10;
-			}
-			final Node node = aClass105_2225.getFront();
-			if (node == null) {
-				return 0;
-			}
-			i_0_ = (int) node.uid;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.I(").append(i).append(')').toString());
+	final int method463() {
+		if (masterIndexInfo == null) {
+			return 0;
 		}
-		return i_0_;
+		if (!aBoolean2222) {
+			return masterIndexInfo.groupLength;
+		}
+		final Node node = aClass105_2225.getFront();
+		if (node == null) {
+			return 0;
+		}
+		return (int) node.uid;
 	}
 
-	static final void method464(final int i, final int i_1_, final int i_3_) {
-		if (i_1_ == 0) {
+	static final void method464(final int type, final int x, final int z) {
+		if (type == 0) {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(230);
 		}
-		if (i_1_ == 1) {
+		if (type == 1) {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(207);
 		}
 		Class120_Sub12_Sub11.outputStream.putByteS(++client.aByte2201);
 		Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
-		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_3_);
-		Class120_Sub12_Sub11.outputStream.putLEShortA(i + GameEntity.currentBaseX);
-	}
-
-	static final int method465(final int i, final int i_4_) {
-		int i_5_;
-		try {
-			if (i < 17) {
-				aString2213 = null;
-			}
-			i_5_ = i_4_ >>> 8;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.O(").append(i).append(',').append(i_4_).append(')').toString());
-		}
-		return i_5_;
+		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + x);
+		Class120_Sub12_Sub11.outputStream.putLEShortA(z + GameEntity.currentBaseX);
 	}
 
 	@Override
 	final MasterIndexInfo method462() {
-		if (aClass52_2216 != null) {
-			return aClass52_2216;
+		if (masterIndexInfo != null) {
+			return masterIndexInfo;
 		}
 		if (aClass120_Sub14_Sub14_2218 == null) {
 			if (js5Worker.method357()) {
@@ -96,10 +74,10 @@ final class Class53_Sub1 extends Class53 {
 				if (data == null) {
 					throw new RuntimeException();
 				}
-				aClass52_2216 = new MasterIndexInfo(data, indexCrc);
+				masterIndexInfo = new MasterIndexInfo(data, indexCrc);
 			} catch (final RuntimeException runtimeexception) {
 				js5Worker.crcError();
-				aClass52_2216 = null;
+				masterIndexInfo = null;
 				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
@@ -115,12 +93,12 @@ final class Class53_Sub1 extends Class53 {
 				if (data == null) {
 					throw new RuntimeException();
 				}
-				aClass52_2216 = new MasterIndexInfo(data, indexCrc);
-				if (anInt2220 != aClass52_2216.version) {
+				masterIndexInfo = new MasterIndexInfo(data, indexCrc);
+				if (indexVersion != masterIndexInfo.version) {
 					throw new RuntimeException();
 				}
 			} catch (final RuntimeException runtimeexception) {
-				aClass52_2216 = null;
+				masterIndexInfo = null;
 				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
@@ -131,10 +109,10 @@ final class Class53_Sub1 extends Class53 {
 		}
 		if (aClass51_2209 != null) {
 			anInt2210 = 0;
-			aByteArray2215 = new byte[aClass52_2216.anInt484];
+			aByteArray2215 = new byte[masterIndexInfo.anInt484];
 		}
 		aClass120_Sub14_Sub14_2218 = null;
-		return aClass52_2216;
+		return masterIndexInfo;
 	}
 
 	static final int getMenuOptionCursor() {
@@ -197,7 +175,7 @@ final class Class53_Sub1 extends Class53 {
 		if (aClass105_2225 != null && method462() != null) {
 			for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
 				final int i = (int) node.uid;
-				if (i < 0 || aClass52_2216.anInt484 <= i || aClass52_2216.groupFileCount[i] == 0) {
+				if (i < 0 || masterIndexInfo.anInt484 <= i || masterIndexInfo.groupFileCount[i] == 0) {
 					node.unlink();
 				} else {
 					if (aByteArray2215[i] == 0) {
@@ -288,10 +266,10 @@ final class Class53_Sub1 extends Class53 {
 			if (i != 0) {
 				aClass105_2224 = null;
 			}
-			if (aClass52_2216 == null) {
+			if (masterIndexInfo == null) {
 				return 0;
 			}
-			i_14_ = aClass52_2216.groupLength;
+			i_14_ = masterIndexInfo.groupLength;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.M(").append(i).append(')').toString());
 		}
@@ -357,7 +335,7 @@ final class Class53_Sub1 extends Class53 {
 				Class120_Sub14_Sub24.aCRC32_3658.reset();
 				Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
 				final int i_20_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-				if (aClass52_2216.groupCrcs[i_17_] != i_20_) {
+				if (masterIndexInfo.groupCrcs[i_17_] != i_20_) {
 					throw new RuntimeException();
 				}
 				js5Worker.errorCount = 0;
@@ -371,8 +349,8 @@ final class Class53_Sub1 extends Class53 {
 				}
 				return null;
 			}
-			is[-2 + is.length] = (byte) (aClass52_2216.groupVersions[i_17_] >>> 8);
-			is[is.length + -1] = (byte) aClass52_2216.groupVersions[i_17_];
+			is[-2 + is.length] = (byte) (masterIndexInfo.groupVersions[i_17_] >>> 8);
+			is[is.length + -1] = (byte) masterIndexInfo.groupVersions[i_17_];
 			if (aClass51_2209 != null) {
 				fileSystemWorker.requestWrite(aClass51_2209, is, i_17_);
 				if (aByteArray2215[i_17_] != 1) {
@@ -393,11 +371,11 @@ final class Class53_Sub1 extends Class53 {
 			Class120_Sub14_Sub24.aCRC32_3658.reset();
 			Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
 			final int i_22_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-			if (i_22_ != aClass52_2216.groupCrcs[i_17_]) {
+			if (i_22_ != masterIndexInfo.groupCrcs[i_17_]) {
 				throw new RuntimeException();
 			}
 			final int i_23_ = (is[-1 + is.length] & 0xff) + ((0xff & is[-2 + is.length]) << 8);
-			if ((aClass52_2216.groupVersions[i_17_] & 0xffff) != i_23_) {
+			if ((masterIndexInfo.groupVersions[i_17_] & 0xffff) != i_23_) {
 				throw new RuntimeException();
 			}
 			if (aByteArray2215[i_17_] != 1) {
@@ -444,8 +422,8 @@ final class Class53_Sub1 extends Class53 {
 							node.unlink();
 						}
 					}
-					while (aClass52_2216.groupFileCount.length > anInt2221) {
-						if (aClass52_2216.groupFileCount[anInt2221] == 0) {
+					while (masterIndexInfo.groupFileCount.length > anInt2221) {
+						if (masterIndexInfo.groupFileCount[anInt2221] == 0) {
 							anInt2221++;
 						} else {
 							if (js5Worker.method369()) {
@@ -482,8 +460,8 @@ final class Class53_Sub1 extends Class53 {
 						node.unlink();
 					}
 				}
-				while (anInt2221 < aClass52_2216.groupFileCount.length) {
-					if (aClass52_2216.groupFileCount[anInt2221] == 0) {
+				while (anInt2221 < masterIndexInfo.groupFileCount.length) {
+					if (masterIndexInfo.groupFileCount[anInt2221] == 0) {
 						anInt2221++;
 					} else {
 						if (fileSystemWorker.requestsAwaiting >= 250) {
@@ -534,7 +512,7 @@ final class Class53_Sub1 extends Class53 {
 			aBoolean2222 = true;
 			aClass105_2225 = new Deque();
 		}
-		anInt2220 = i_28_;
+		indexVersion = i_28_;
 		aBoolean2227 = bool;
 		indexCrc = i_27_;
 		fileSystemWorker = fsWorker;

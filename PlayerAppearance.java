@@ -130,8 +130,8 @@ final class PlayerAppearance {
 		}
 	}
 
-	final Class180_Sub7 method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType seqType, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final SeqType class40_22_, final boolean bool_23_, final int i_24_) {
-		Class180_Sub7 class180_sub7;
+	final AbstractModel method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType seqType, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final SeqType class40_22_, final boolean bool_23_, final int i_24_) {
+		AbstractModel class180_sub7;
 		try {
 			if (i_20_ != -7453) {
 				method2040(null, 33, -35, -5, null, -13, -2, true, 67, null, true, -61);
@@ -165,7 +165,7 @@ final class PlayerAppearance {
 					}
 				}
 			}
-			Class180_Sub7 class180_sub7_26_ = (Class180_Sub7) Class43.playerModelsCache.get(l);
+			AbstractModel class180_sub7_26_ = (AbstractModel) Class43.playerModelsCache.get(l);
 			if (class180_sub7_26_ == null) {
 				boolean bool_27_ = false;
 				for (int i_28_ = 0; i_28_ < 12; i_28_++) {
@@ -180,7 +180,7 @@ final class PlayerAppearance {
 				}
 				if (bool_27_) {
 					if (aLong1374 != -1L) {
-						class180_sub7_26_ = (Class180_Sub7) Class43.playerModelsCache.get(aLong1374);
+						class180_sub7_26_ = (AbstractModel) Class43.playerModelsCache.get(aLong1374);
 					}
 					if (class180_sub7_26_ == null) {
 						return null;
@@ -271,7 +271,7 @@ final class PlayerAppearance {
 					}
 					class180_sub7_26_ = class180_sub2.method2300(64, 850, -30, -50, -30);
 					if (HDToolkit.glEnabled) {
-						((Class180_Sub7_Sub2) class180_sub7_26_).method2432(false, false, true, true, false, false, true);
+						((HDModel) class180_sub7_26_).method2432(false, false, true, true, false, false, true);
 					}
 					if (bool_23_) {
 						Class43.playerModelsCache.put(class180_sub7_26_, l);
@@ -295,10 +295,10 @@ final class PlayerAppearance {
 						int i_58_ = class40_55_.frames[i_56_];
 						Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_] = FrameLoader.list(i_58_ >>> 16);
 						i_58_ &= 0xffff;
-						Class73.anIntArray664[i_54_] = i_58_;
+						MapFunctionType.anIntArray664[i_54_] = i_58_;
 						if (Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_] != null) {
-							bool_51_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1579(3, i_58_);
-							bool_50_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1578((byte) -39, i_58_);
+							bool_51_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1579(i_58_);
+							bool_50_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1578(i_58_);
 							bool_52_ |= class40_55_.aBoolean341;
 						}
 						if (!class40_55_.tween && !Class164.forceTween || i_57_ == -1 || class40_55_.frames.length <= i_57_) {
@@ -314,8 +314,8 @@ final class PlayerAppearance {
 							i_59_ &= 0xffff;
 							Class120_Sub14_Sub10.anIntArray3533[i_54_] = i_59_;
 							if (Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_] != null) {
-								bool_51_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1579(i_20_ + 7456, i_59_);
-								bool_50_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1578((byte) -39, i_59_);
+								bool_51_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1579(i_59_);
+								bool_50_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1578(i_59_);
 							}
 						}
 					}
@@ -338,8 +338,8 @@ final class PlayerAppearance {
 				i_60_ &= 0xffff;
 				class120_sub14_sub18 = FrameLoader.list(i_64_);
 				if (class120_sub14_sub18 != null) {
-					bool_51_ |= class120_sub14_sub18.method1579(i_20_ + 7456, i_60_);
-					bool_50_ |= class120_sub14_sub18.method1578((byte) -39, i_60_);
+					bool_51_ |= class120_sub14_sub18.method1579(i_60_);
+					bool_50_ |= class120_sub14_sub18.method1578(i_60_);
 					bool_52_ |= class40_22_.aBoolean341;
 				}
 				if ((class40_22_.tween || Class164.forceTween) && i_17_ != -1 && i_17_ < class40_22_.frames.length) {
@@ -353,8 +353,8 @@ final class PlayerAppearance {
 						class120_sub14_sub18_63_ = class120_sub14_sub18;
 					}
 					if (class120_sub14_sub18_63_ != null) {
-						bool_51_ |= class120_sub14_sub18_63_.method1579(i_20_ ^ ~0x1d1f, i_61_);
-						bool_50_ |= class120_sub14_sub18_63_.method1578((byte) -39, i_61_);
+						bool_51_ |= class120_sub14_sub18_63_.method1579(i_61_);
+						bool_50_ |= class120_sub14_sub18_63_.method1578(i_61_);
 					}
 				}
 			}
@@ -369,8 +369,8 @@ final class PlayerAppearance {
 				class120_sub14_sub18_70_ = FrameLoader.list(i_71_);
 				i_68_ &= 0xffff;
 				if (class120_sub14_sub18_70_ != null) {
-					bool_51_ |= class120_sub14_sub18_70_.method1579(3, i_68_);
-					bool_50_ |= class120_sub14_sub18_70_.method1578((byte) -39, i_68_);
+					bool_51_ |= class120_sub14_sub18_70_.method1579(i_68_);
+					bool_50_ |= class120_sub14_sub18_70_.method1578(i_68_);
 					bool_52_ |= seqType.aBoolean341;
 				}
 				if ((seqType.tween || Class164.forceTween) && (i_18_ ^ 0xffffffff) != 0 && i_18_ < seqType.frames.length) {
@@ -384,17 +384,17 @@ final class PlayerAppearance {
 						class120_sub14_sub18_69_ = class120_sub14_sub18_70_;
 					}
 					if (class120_sub14_sub18_69_ != null) {
-						bool_51_ |= class120_sub14_sub18_69_.method1579(3, i_66_);
-						bool_50_ |= class120_sub14_sub18_69_.method1578((byte) -39, i_66_);
+						bool_51_ |= class120_sub14_sub18_69_.method1579(i_66_);
+						bool_50_ |= class120_sub14_sub18_69_.method1578(i_66_);
 					}
 				}
 			}
-			final Class180_Sub7 class180_sub7_73_ = class180_sub7_26_.method2376(!bool_50_, !bool_51_, !bool_52_);
+			final AbstractModel class180_sub7_73_ = class180_sub7_26_.method2376(!bool_50_, !bool_51_, !bool_52_);
 			int i_74_ = 0;
 			int i_75_ = 1;
 			while (i_53_ > i_74_) {
 				if (Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_] != null) {
-					class180_sub7_73_.method2384(Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_], Class73.anIntArray664[i_74_], Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_74_], Class120_Sub14_Sub10.anIntArray3533[i_74_], -1 + Class71.anIntArray627[i_74_],
+					class180_sub7_73_.method2384(Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_74_], MapFunctionType.anIntArray664[i_74_], Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_74_], Class120_Sub14_Sub10.anIntArray3533[i_74_], -1 + Class71.anIntArray627[i_74_],
 							Class120_Sub12_Sub26.anIntArray3325[i_74_], i_75_, GroundTile.aClass40Array2649[i_74_].aBoolean341, anIntArrayArray1377[i_74_]);
 				}
 				i_74_++;
@@ -422,11 +422,11 @@ final class PlayerAppearance {
 		return class180_sub7;
 	}
 
-	final Class180_Sub7 method2041(final int i, final SeqType seqType, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
-		Class180_Sub7 class180_sub7;
+	final AbstractModel method2041(final int i, final SeqType seqType, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
+		AbstractModel class180_sub7;
 		try {
 			final long l = (long) i_77_ << 32 | i_76_ << 16 | i_80_;
-			Class180_Sub7 class180_sub7_82_ = (Class180_Sub7) Class90.playerHeadModelsCache.get(l);
+			AbstractModel class180_sub7_82_ = (AbstractModel) Class90.playerHeadModelsCache.get(l);
 			if (class180_sub7_82_ == null) {
 				int i_83_ = 0;
 				final Class180_Sub2[] class180_sub2s = new Class180_Sub2[3];
@@ -502,11 +502,11 @@ final class PlayerAppearance {
 		return (anIntArray1376[8] << 10) + (this.colors[0] << 25) + (this.colors[4] << 20) + (anIntArray1376[0] << 15) + (anIntArray1376[11] << 5) - -anIntArray1376[1];
 	}
 
-	final Class180_Sub7 method2044(final SeqType seqType, final int i, final int i_91_, final int i_92_) {
+	final AbstractModel method2044(final SeqType seqType, final int i, final int i_91_, final int i_92_) {
 		if (this.npcId != -1) {
 			return NpcType.list(this.npcId).method2210(i_91_, seqType, (byte) -12, i, i_92_);
 		}
-		Class180_Sub7 class180_sub7_94_ = (Class180_Sub7) Class90.playerHeadModelsCache.get(aLong1365);
+		AbstractModel class180_sub7_94_ = (AbstractModel) Class90.playerHeadModelsCache.get(aLong1365);
 		if (class180_sub7_94_ == null) {
 			boolean bool = false;
 			for (int i_95_ = 0; i_95_ < 12; i_95_++) {

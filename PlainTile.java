@@ -19,8 +19,8 @@ final class PlainTile {
 		synchronized (Class169.keyboardHandler) {
 			anInt1357 = Class120_Sub12_Sub36.anInt3423;
 			Class120_Sub14_Sub15.anInt3582++;
-			if (Class180_Sub6.anInt3074 >= 0) {
-				while (Class180_Sub6.anInt3074 != Class111.anInt1060) {
+			if (AnimatedLocation.anInt3074 >= 0) {
+				while (AnimatedLocation.anInt3074 != Class111.anInt1060) {
 					final int i_0_ = Class120_Sub12_Sub36.anIntArray3416[Class111.anInt1060];
 					Class111.anInt1060 = Class111.anInt1060 - -1 & 0x7f;
 					if (i_0_ >= 0) {
@@ -33,7 +33,7 @@ final class PlainTile {
 				for (int i_1_ = 0; i_1_ < 112; i_1_++) {
 					NodeCache.aBooleanArray299[i_1_] = false;
 				}
-				Class180_Sub6.anInt3074 = Class111.anInt1060;
+				AnimatedLocation.anInt3074 = Class111.anInt1060;
 			}
 			Class120_Sub12_Sub36.anInt3423 = Class120_Sub28.anInt2762;
 		}

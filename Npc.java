@@ -30,7 +30,7 @@ final class Npc extends GameEntity {
 			if (this.npcType != null) {
 				final SeqType seqType = (this.anInt3006 ^ 0xffffffff) == 0 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
 				final SeqType class40_8_ = (this.anInt3004 ^ 0xffffffff) != 0 && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-				Class180_Sub7 class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -102, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
+				AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -102, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 				if (class180_sub7 != null) {
 					this.maxY = class180_sub7.getMaxY();
 					NpcType npcType = this.npcType;
@@ -38,7 +38,7 @@ final class Npc extends GameEntity {
 						npcType = npcType.handleVarp();
 					}
 					if (Class120_Sub6.characterShadowsOn && npcType.aBoolean1653) {
-						final Class180_Sub7 class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005,
+						final AbstractModel class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005,
 								this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
 						if (HDToolkit.glEnabled) {
 							final float f = HDToolkit.method534();
@@ -52,12 +52,12 @@ final class Npc extends GameEntity {
 							class180_sub7_9_.method2265(0, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, -1L, i_7_, this.aClass108_Sub2_2988);
 						}
 					}
-					Class180_Sub7 class180_sub7_11_ = null;
+					AbstractModel class180_sub7_11_ = null;
 					method2327(0, class180_sub7);
 					method2334(class180_sub7, i, 0);
-					if ((this.spotAnimId ^ 0xffffffff) != 0 && (this.spotAnimFrameId ^ 0xffffffff) != 0) {
+					if ((this.spotAnimId ^ 0xffffffff) != 0 && (this.spotAnimFrame ^ 0xffffffff) != 0) {
 						final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-						class180_sub7_11_ = spotAnimType.method882(this.anInt2971, this.anInt2963, this.spotAnimFrameId, (byte) 14);
+						class180_sub7_11_ = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
 						if (class180_sub7_11_ != null) {
 							class180_sub7_11_.method2368(0, -this.anInt2965, 0);
 							if (spotAnimType.aBoolean989) {
@@ -75,7 +75,7 @@ final class Npc extends GameEntity {
 					}
 					if (!HDToolkit.glEnabled) {
 						if (class180_sub7_11_ != null) {
-							class180_sub7 = ((Class180_Sub7_Sub1) class180_sub7).method2392(class180_sub7_11_);
+							class180_sub7 = ((LDModel) class180_sub7).method2392(class180_sub7_11_);
 						}
 						method2337(class180_sub7, class180_sub7_11_);
 						if (this.npcType.size == 1) {
@@ -93,7 +93,7 @@ final class Npc extends GameEntity {
 								class180_sub7_11_.haveActions = true;
 							}
 							if (this.aClass108_Sub2_2988 != null) {
-								final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_11_;
+								final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_11_;
 								this.aClass108_Sub2_2988.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, true, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
 							}
 							class180_sub7_11_.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
@@ -136,7 +136,7 @@ final class Npc extends GameEntity {
 				if (!this.aBoolean3007) {
 					final SeqType seqType = this.anInt3006 != -1 && this.anInt2993 == 0 ? SeqType.list(this.anInt3006) : null;
 					final SeqType class40_16_ = this.anInt3004 == -1 || this.anInt3004 == method2336().anInt218 && seqType != null ? null : SeqType.list(this.anInt3004);
-					final Class180_Sub7 class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -119, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
+					final AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -119, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 					if (class180_sub7 == null) {
 						return;
 					}

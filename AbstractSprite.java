@@ -58,7 +58,6 @@ abstract class AbstractSprite extends NodeSub {
 		boolean bool_24_ = false;
 		Class15.aLong98 = 0L;
 		final int currentDisplayMode = Class120_Sub12_Sub4.getDisplayMode();
-		System.out.println("currentDisplayMode is "+currentDisplayMode+", wanted "+newDisplayMode);
 		if (currentDisplayMode > 0 == newDisplayMode <= 0) {
 			bool_24_ = true;
 		}

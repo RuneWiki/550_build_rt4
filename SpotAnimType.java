@@ -8,7 +8,7 @@ final class SpotAnimType {
 	static int[] anIntArray987 = { 16776960, 16711680, 65280, 65535, 16711935, 16777215 };
 	private int contrast;
 	boolean aBoolean989;
-	private int scaleX;
+	private int resizeX;
 	int animationId = -1;
 	static boolean[][] aBooleanArrayArray992;
 	private short[] recolorModified;
@@ -17,31 +17,26 @@ final class SpotAnimType {
 	private int rotation;
 	int myId;
 	boolean aBoolean998;
-	private int scaleY;
+	private int resizeY;
 	private short[] retextureOriginal;
 	private short[] retextureModified;
 	private short[] recolorOriginal;
+	static ObjectCache aClass21_1798 = new ObjectCache(30);
 	static ObjectCache recentUse = new ObjectCache(64);
 
-	static final boolean method875(final int i, final String string) {
-		boolean bool;
-		try {
-			if (string == null) {
-				return false;
-			}
-			for (int i_0_ = 0; ProducingGraphicsBuffer.friendCount > i_0_; i_0_++) {
-				if (string.equalsIgnoreCase(Class120_Sub16.friendsName[i_0_])) {
-					return true;
-				}
-			}
-			if (string.equalsIgnoreCase(TileParticleQueue.selfPlayer.name)) {
+	static final boolean isFriendOrSelf(final String name) {
+		if (name == null) {
+			return false;
+		}
+		for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
+			if (name.equalsIgnoreCase(Class120_Sub16.friendsName[id])) {
 				return true;
 			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("li.C(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
-		return bool;
+		if (name.equalsIgnoreCase(TileParticleQueue.selfPlayer.name)) {
+			return true;
+		}
+		return false;
 	}
 
 	static final void method876(final byte i) {
@@ -61,72 +56,58 @@ final class SpotAnimType {
 		}
 	}
 
-	private final void decode(final Buffer buffer, final int configCode) {
-		if (configCode == 1) {
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
 			modelId = buffer.getUShort();
-		} else if (configCode == 2) {
+		} else if (code == 2) {
 			this.animationId = buffer.getUShort();
-		} else if (configCode == 4) {
-			scaleX = buffer.getUShort();
-		} else if (configCode == 5) {
-			scaleY = buffer.getUShort();
-		} else if (configCode == 6) {
+		} else if (code == 4) {
+			resizeX = buffer.getUShort();
+		} else if (code == 5) {
+			resizeY = buffer.getUShort();
+		} else if (code == 6) {
 			rotation = buffer.getUShort();
-		} else if (configCode == 7) {
+		} else if (code == 7) {
 			ambient = buffer.getUByte();
-		} else if (configCode == 8) {
+		} else if (code == 8) {
 			contrast = buffer.getUByte();
-		} else if (configCode == 9) {
+		} else if (code == 9) {
 			this.aBoolean989 = true;
-		} else if (configCode == 10) {
+		} else if (code == 10) {
 			this.aBoolean998 = true;
-		} else if (configCode == 40) {
-			final int i_3_ = buffer.getUByte();
-			recolorModified = new short[i_3_];
-			recolorOriginal = new short[i_3_];
-			for (int i_4_ = 0; i_3_ > i_4_; i_4_++) {
-				recolorOriginal[i_4_] = (short) buffer.getUShort();
-				recolorModified[i_4_] = (short) buffer.getUShort();
+		} else if (code == 40) {
+			final int len = buffer.getUByte();
+			recolorModified = new short[len];
+			recolorOriginal = new short[len];
+			for (int id = 0; id < len; id++) {
+				recolorOriginal[id] = (short) buffer.getUShort();
+				recolorModified[id] = (short) buffer.getUShort();
 			}
-		} else if (configCode == 41) {
-			final int i_5_ = buffer.getUByte();
-			retextureOriginal = new short[i_5_];
-			retextureModified = new short[i_5_];
-			for (int i_6_ = 0; i_6_ < i_5_; i_6_++) {
-				retextureOriginal[i_6_] = (short) buffer.getUShort();
-				retextureModified[i_6_] = (short) buffer.getUShort();
+		} else if (code == 41) {
+			final int len = buffer.getUByte();
+			retextureOriginal = new short[len];
+			retextureModified = new short[len];
+			for (int id = 0; id < len; id++) {
+				retextureOriginal[id] = (short) buffer.getUShort();
+				retextureModified[id] = (short) buffer.getUShort();
 			}
 		}
 	}
 
-	public static void method878(final int i) {
-		try {
-			anIntArray987 = null;
-			aShortArray994 = null;
-			if (i == 0) {
-				aBooleanArrayArray992 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("li.E(").append(i).append(')').toString());
-		}
+	public static void method878() {
+		aClass21_1798 = null;
+		anIntArray987 = null;
+		aShortArray994 = null;
+		aBooleanArrayArray992 = null;
 	}
 
-	static final int[] method879(final int[] is, final int i) {
-		int[] is_7_;
-		try {
-			if (is == null) {
-				return null;
-			}
-			if (i > -102) {
-				return null;
-			}
-			final int[] is_8_ = new int[is.length];
-			ArrayUtils.arrayCopy(is, 0, is_8_, 0, is.length);
-			is_7_ = is_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("li.F(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final int[] arrayCopy(final int[] is) {
+		if (is == null) {
+			return null;
 		}
-		return is_7_;
+		final int[] is_8_ = new int[is.length];
+		ArrayUtils.arrayCopy(is, 0, is_8_, 0, is.length);
+		return is_8_;
 	}
 
 	static final void method880(final int i) {
@@ -145,8 +126,8 @@ final class SpotAnimType {
 							for (int i_14_ = 0; element.length > i_14_; i_14_++) {
 								final GroundTile class120_sub18 = element[i_14_];
 								if (class120_sub18 != null) {
-									if (class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309 instanceof Class180_Sub7_Sub2) {
-										final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass36_2650.aClass180_309;
+									if (class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.aClass180_309 instanceof HDModel) {
+										final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass36_2650.aClass180_309;
 										if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass36_2650.bitPacked)) {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										} else {
@@ -154,16 +135,16 @@ final class SpotAnimType {
 										}
 									}
 									if (class120_sub18.aClass186_2639 != null) {
-										if (class120_sub18.aClass186_2639.aClass180_1901 instanceof Class180_Sub7_Sub2) {
-											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass186_2639.aClass180_1901;
+										if (class120_sub18.aClass186_2639.aClass180_1901 instanceof HDModel) {
+											final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass186_2639.aClass180_1901;
 											if ((class120_sub18.aClass186_2639.bitPacked & ~0x7fffffffffffffffL) != 0L) {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 											} else {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											}
 										}
-										if (class120_sub18.aClass186_2639.aClass180_1898 instanceof Class180_Sub7_Sub2) {
-											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass186_2639.aClass180_1898;
+										if (class120_sub18.aClass186_2639.aClass180_1898 instanceof HDModel) {
+											final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass186_2639.aClass180_1898;
 											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass186_2639.bitPacked)) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
@@ -172,16 +153,16 @@ final class SpotAnimType {
 										}
 									}
 									if (class120_sub18.aClass182_2628 != null) {
-										if (class120_sub18.aClass182_2628.aClass180_1800 instanceof Class180_Sub7_Sub2) {
-											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass182_2628.aClass180_1800;
+										if (class120_sub18.aClass182_2628.aClass180_1800 instanceof HDModel) {
+											final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass182_2628.aClass180_1800;
 											if ((~0x7fffffffffffffffL & class120_sub18.aClass182_2628.bitPacked) == 0L) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 											}
 										}
-										if (class120_sub18.aClass182_2628.aClass180_1796 instanceof Class180_Sub7_Sub2) {
-											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass182_2628.aClass180_1796;
+										if (class120_sub18.aClass182_2628.aClass180_1796 instanceof HDModel) {
+											final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass182_2628.aClass180_1796;
 											if (-1L != (class120_sub18.aClass182_2628.bitPacked & ~0x7fffffffffffffffL ^ 0xffffffffffffffffL)) {
 												class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 											} else {
@@ -190,8 +171,8 @@ final class SpotAnimType {
 										}
 									}
 									for (int i_15_ = 0; class120_sub18.anInt2638 > i_15_; i_15_++) {
-										if (class120_sub18.aClass28Array2625[i_15_].aClass180_174 instanceof Class180_Sub7_Sub2) {
-											final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class120_sub18.aClass28Array2625[i_15_].aClass180_174;
+										if (class120_sub18.aClass28Array2625[i_15_].aClass180_174 instanceof HDModel) {
+											final HDModel class180_sub7_sub2 = (HDModel) class120_sub18.aClass28Array2625[i_15_].aClass180_174;
 											if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass28Array2625[i_15_].bitPacked)) {
 												class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 											} else {
@@ -213,85 +194,76 @@ final class SpotAnimType {
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
-			final int configCode = buffer.getUByte();
-			if (configCode == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, configCode);
+			decode(buffer, code);
 		}
 	}
 
-	final Class180_Sub7 method882(final int i, final int i_16_, final int i_17_, final byte i_18_) {
-		Class180_Sub7 class180_sub7;
-		try {
-			Class180_Sub7 class180_sub7_19_ = (Class180_Sub7) Class182.aClass21_1798.get(this.myId);
-			if (class180_sub7_19_ == null) {
-				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class90.aClass50_843, modelId, 0);
-				if (class180_sub2 == null) {
-					return null;
-				}
-				if (recolorOriginal != null) {
-					for (int i_20_ = 0; i_20_ < recolorOriginal.length; i_20_++) {
-						class180_sub2.recolor(recolorOriginal[i_20_], recolorModified[i_20_]);
-					}
-				}
-				if (retextureOriginal != null) {
-					for (int i_21_ = 0; retextureOriginal.length > i_21_; i_21_++) {
-						class180_sub2.retexture(retextureOriginal[i_21_], retextureModified[i_21_]);
-					}
-				}
-				class180_sub7_19_ = class180_sub2.method2300(ambient + 64, 850 + contrast, -30, -50, -30);
-				Class182.aClass21_1798.put(class180_sub7_19_, this.myId);
+	final AbstractModel constructModel(final int nextFrame, final int delay, final int frame) {
+		AbstractModel cachedModel = (AbstractModel) aClass21_1798.get(this.myId);
+		if (cachedModel == null) {
+			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class90.aClass50_843, modelId, 0);
+			if (class180_sub2 == null) {
+				return null;
 			}
-			Class180_Sub7 class180_sub7_22_;
-			if ((this.animationId ^ 0xffffffff) == 0 || (i_17_ ^ 0xffffffff) == 0) {
-				class180_sub7_22_ = class180_sub7_19_.method2381(true, true, true);
-			} else {
-				class180_sub7_22_ = SeqType.list(this.animationId).method324(98, i_17_, i_16_, class180_sub7_19_, i);
-			}
-			if (scaleX != 128 || scaleY != 128) {
-				class180_sub7_22_.method2369(scaleX, scaleY, scaleX);
-			}
-			if (rotation != 0) {
-				if (rotation == 90) {
-					class180_sub7_22_.method2365();
-				}
-				if (rotation == 180) {
-					class180_sub7_22_.method2373();
-				}
-				if (rotation == 270) {
-					class180_sub7_22_.method2372();
+			if (recolorOriginal != null) {
+				for (int i_20_ = 0; i_20_ < recolorOriginal.length; i_20_++) {
+					class180_sub2.recolor(recolorOriginal[i_20_], recolorModified[i_20_]);
 				}
 			}
-			if (i_18_ != 14) {
-				method879(null, -17);
+			if (retextureOriginal != null) {
+				for (int i_21_ = 0; retextureOriginal.length > i_21_; i_21_++) {
+					class180_sub2.retexture(retextureOriginal[i_21_], retextureModified[i_21_]);
+				}
 			}
-			class180_sub7 = class180_sub7_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("li.B(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(')').toString());
+			cachedModel = class180_sub2.method2300(ambient + 64, 850 + contrast, -30, -50, -30);
+			aClass21_1798.put(cachedModel, this.myId);
 		}
-		return class180_sub7;
+		AbstractModel transformedModel;
+		if (this.animationId == -1 || frame == -1) {
+			transformedModel = cachedModel.method2381(true, true, true);
+		} else {
+			transformedModel = SeqType.list(this.animationId).method324(cachedModel, frame, delay, nextFrame);
+		}
+		if (resizeX != 128 || resizeY != 128) {
+			transformedModel.resize(resizeX, resizeY, resizeX);
+		}
+		if (rotation != 0) {
+			if (rotation == 90) {
+				transformedModel.rotate90();
+			}
+			if (rotation == 180) {
+				transformedModel.rotate180();
+			}
+			if (rotation == 270) {
+				transformedModel.rotate270();
+			}
+		}
+		return transformedModel;
 	}
 
 	static final SpotAnimType list(final int id) {
-		SpotAnimType class103_19_ = (SpotAnimType) recentUse.get(id);
-		if (class103_19_ != null) {
-			return class103_19_;
+		SpotAnimType spotAnimType = (SpotAnimType) recentUse.get(id);
+		if (spotAnimType != null) {
+			return spotAnimType;
 		}
-		final byte[] is = Class154.aClass50_1443.getFile(Class127.method1897(id, 101), Class76.method663(id, (byte) -67));
-		class103_19_ = new SpotAnimType();
-		class103_19_.myId = id;
-		if (is != null) {
-			class103_19_.decode(new Buffer(is));
+		final byte[] data = Class154.aClass50_1443.getFile(id >>> 8, id & 0xff);
+		spotAnimType = new SpotAnimType();
+		spotAnimType.myId = id;
+		if (data != null) {
+			spotAnimType.decode(new Buffer(data));
 		}
-		recentUse.put(class103_19_, id);
-		return class103_19_;
+		recentUse.put(spotAnimType, id);
+		return spotAnimType;
 	}
 
 	public SpotAnimType() {
 		this.aBoolean989 = false;
-		scaleX = 128;
-		scaleY = 128;
+		resizeX = 128;
+		resizeY = 128;
 		rotation = 0;
 		this.aBoolean998 = false;
 		contrast = 0;

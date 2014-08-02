@@ -33,7 +33,7 @@ final class OverlayType {
 	}
 
 	static final byte[] method1899(final int i) {
-		Class120_Sub14_Sub20 class120_sub14_sub20 = (Class120_Sub14_Sub20) Class181.aClass35_1784.get(i);
+		OverlayFrequencyNode class120_sub14_sub20 = (OverlayFrequencyNode) Class181.aClass35_1784.get(i);
 		if (class120_sub14_sub20 == null) {
 			final byte[] is_1_ = new byte[512];
 			final Random random = new Random(i);
@@ -41,13 +41,13 @@ final class OverlayType {
 				is_1_[i_2_] = (byte) i_2_;
 			}
 			for (int i_3_ = 0; i_3_ < 255; i_3_++) {
-				final int i_4_ = 255 + -i_3_;
+				final int i_4_ = 255 - i_3_;
 				final int i_5_ = Class28.method244(random, i_4_);
 				final byte i_6_ = is_1_[i_5_];
 				is_1_[i_5_] = is_1_[i_4_];
-				is_1_[i_4_] = is_1_[511 + -i_3_] = i_6_;
+				is_1_[i_4_] = is_1_[511 - i_3_] = i_6_;
 			}
-			class120_sub14_sub20 = new Class120_Sub14_Sub20(is_1_);
+			class120_sub14_sub20 = new OverlayFrequencyNode(is_1_);
 			Class181.aClass35_1784.put(class120_sub14_sub20, i);
 		}
 		return class120_sub14_sub20.aByteArray3623;

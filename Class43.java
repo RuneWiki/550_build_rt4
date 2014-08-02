@@ -17,7 +17,7 @@ final class Class43 {
 
 	static final void method338(final int i, final int i_0_, final int i_1_) {
 		try {
-			Class73.recentUse = new ObjectCache(i);
+			MapFunctionType.recentUse = new ObjectCache(i);
 			Class82.aClass21_786 = new ObjectCache(i_0_);
 			if (i_1_ > -35) {
 				method344((byte) -118);

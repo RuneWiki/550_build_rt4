@@ -49,27 +49,6 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		super(1, true);
 	}
 
-	static final Class80 method1365(final int i, final int i_14_) {
-		Class80 class80;
-		try {
-			Class80 class80_15_ = (Class80) Class120_Sub12_Sub16.aClass21_3251.get(i_14_);
-			if (class80_15_ != null) {
-				return class80_15_;
-			}
-			final byte[] is = Class69.aClass50_619.getFile(i, i_14_);
-			class80_15_ = new Class80();
-			if (is != null) {
-				class80_15_.method698(new Buffer(is), (byte) 63);
-			}
-			class80_15_.method702((byte) -87);
-			Class120_Sub12_Sub16.aClass21_3251.put(class80_15_, i_14_);
-			class80 = class80_15_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sh.S(").append(i).append(',').append(i_14_).append(')').toString());
-		}
-		return class80;
-	}
-
 	public static void method1366(final int i) {
 		try {
 			anIntArray3383 = null;

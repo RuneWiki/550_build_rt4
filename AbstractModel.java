@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class Class180_Sub7 extends SceneGraphNode {
+abstract class AbstractModel extends SceneGraphNode {
 	boolean haveActions = false;
 
 	abstract void method2360(int i);
@@ -49,7 +49,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2364();
 
-	abstract void method2365();
+	abstract void rotate90();
 
 	private static final int method2366(final int[][] is, final int i, final int i_17_) {
 		final int i_18_ = i >> 7;
@@ -68,7 +68,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2368(int i, int i_30_, int i_31_);
 
-	abstract void method2369(int i, int i_32_, int i_33_);
+	abstract void resize(int i, int i_32_, int i_33_);
 
 	private final void method2370(final LabelGroup class120_sub1, final SeqFrame seqFrame, final SeqFrame class1_34_, final int i, final int i_35_, final boolean[] bools, final boolean bool, final boolean bool_36_, final int i_37_, final int[] is) {
 		if (class1_34_ == null || i == 0) {
@@ -227,19 +227,19 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 	@Override
 	abstract void method2265(int i, int i_70_, int i_71_, int i_72_, int i_73_, int i_74_, int i_75_, int i_76_, long l, int i_77_, ParticleEngine class108_sub2);
 
-	abstract void method2372();
+	abstract void rotate270();
 
-	abstract void method2373();
+	abstract void rotate180();
 
 	abstract int method2374();
 
 	abstract boolean method2375();
 
-	abstract Class180_Sub7 method2376(boolean bool, boolean bool_78_, boolean bool_79_);
+	abstract AbstractModel method2376(boolean bool, boolean bool_78_, boolean bool_79_);
 
 	abstract void method2377(int i);
 
-	abstract Class180_Sub7 method2378(boolean bool, boolean bool_80_, boolean bool_81_);
+	abstract AbstractModel method2378(boolean bool, boolean bool_80_, boolean bool_81_);
 
 	abstract void method2379(int i, int i_82_, int i_83_, int i_84_);
 
@@ -259,7 +259,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 		}
 	}
 
-	abstract Class180_Sub7 method2381(boolean bool, boolean bool_90_, boolean bool_91_);
+	abstract AbstractModel method2381(boolean bool, boolean bool_90_, boolean bool_91_);
 
 	abstract void method2382(int i, int[] is, int i_92_, int i_93_, int i_94_, boolean bool, int i_95_, int[] is_96_);
 
@@ -326,7 +326,7 @@ abstract class Class180_Sub7 extends SceneGraphNode {
 
 	abstract void method2388(int i, int[] is, int i_126_, int i_127_, int i_128_, boolean bool);
 
-	public Class180_Sub7() {
+	public AbstractModel() {
 		/* empty */
 	}
 

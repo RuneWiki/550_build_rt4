@@ -36,7 +36,7 @@ class ParticleNode {
 		Class173.hintmapmarkersId = js5.method432("hint_mapmarkers");
 		Class169.mapflagId = js5.method432("mapflag");
 		Class132_Sub2.crossId = js5.method432("cross");
-		Class73.mapdotsId = js5.method432("mapdots");
+		MapFunctionType.mapdotsId = js5.method432("mapdots");
 		Class134.scrollbarId = js5.method432("scrollbar");
 		Class81.nameiconsId = js5.method432("name_icons");
 		Class120_Sub12_Sub7.floorshadowsId = js5.method432("floorshadows");

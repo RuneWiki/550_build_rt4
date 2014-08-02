@@ -81,6 +81,18 @@ final class Class120_Sub14_Sub8_Sub2 extends Class120_Sub14_Sub8 {
 		}
 	}
 
+	static final Class120_Sub14_Sub8_Sub2 method2061(final int i_9_) {
+		Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_10_ = (Class120_Sub14_Sub8_Sub2) Class15.aClass21_95.get(i_9_);
+		if (class120_sub14_sub8_sub2_10_ != null) {
+			return class120_sub14_sub8_sub2_10_;
+		}
+		final byte[] is = ClanMember.aClass50_2576.getFile(i_9_, 0);
+		class120_sub14_sub8_sub2_10_ = new Class120_Sub14_Sub8_Sub2(is);
+		class120_sub14_sub8_sub2_10_.setNameIcons(Class82.aClass107Array785, null);
+		Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
+		return class120_sub14_sub8_sub2_10_;
+	}
+
 	private static final void method1489(final int[] is, final byte[] is_25_, int i, int i_26_, int i_27_, final int i_28_, final int i_29_, final int i_30_, final int i_31_, int i_32_) {
 		i = ((i & 0xff00ff) * i_32_ & ~0xff00ff) + ((i & 0xff00) * i_32_ & 0xff0000) >> 8;
 		i_32_ = 256 - i_32_;

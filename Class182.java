@@ -10,22 +10,14 @@ final class Class182 {
 	int anInt1795;
 	SceneGraphNode aClass180_1796;
 	int anInt1797;
-	static ObjectCache aClass21_1798 = new ObjectCache(30);
 	int anInt1799;
 	SceneGraphNode aClass180_1800;
 	int anInt1801;
 	static CollisionMap[] collisionMaps = new CollisionMap[4];
 
-	public static void method2442(final byte i) {
-		try {
-			aClass21_1798 = null;
-			if (i >= 8) {
-				collisionMaps = null;
-				prefixTitles = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ve.D(").append(i).append(')').toString());
-		}
+	public static void method2442() {
+		collisionMaps = null;
+		prefixTitles = null;
 	}
 
 	static final boolean method2443(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_) {
@@ -57,11 +49,11 @@ final class Class182 {
 			TileParticleQueue.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(Class73.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(MapFunctionType.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
 			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
 				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}
-			Class180_Sub3.method2312(exception, string);
+			SpotAnimation.method2312(exception, string);
 			DummyInputStream.processLogout();
 			return true;
 		}

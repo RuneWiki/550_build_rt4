@@ -5,7 +5,7 @@
 final class Class166 {
 	static int anInt1612 = 0;
 	static final void method2178(final js5 js5, final boolean bool, final js5 class50_0_) {
-		Class69_Sub2.aBoolean2234 = bool;
+		Class69_Sub2.locMemberClient = bool;
 		Class120_Sub12_Sub36.aClass50_3418 = class50_0_;
 		Class120_Sub6.aClass50_2450 = js5;
 	}

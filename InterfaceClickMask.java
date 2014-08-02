@@ -32,7 +32,7 @@ final class InterfaceClickMask extends Node {
 	}
 
 	static final void redrawInterface(final JagexInterface jagexInterface) {
-		if (jagexInterface.redrawCycle == Class84.anInt796) {
+		if (jagexInterface.redrawCycle == GZIPDecompressor.anInt796) {
 			MasterIndexInfo.needInterfaceRedrawWrapper[jagexInterface.redrawId] = true;
 		}
 	}

@@ -61,43 +61,39 @@ final class Class48 {
 		return Class43.playerModelsCache.getCount();
 	}
 
-	static final void method406(final int i, final long l) {
-		try {
-			if ((l ^ 0xffffffffffffffffL) != -1L) {
-				if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.aBoolean3908 || ProducingGraphicsBuffer.friendCount >= 200) {
-					AbstractRequest.method1540("", 0, Class120_Sub11.aString2550);
-				} else {
-					final String string = Class136.longToString(l);
-					for (int i_21_ = 0; ProducingGraphicsBuffer.friendCount > i_21_; i_21_++) {
-						if ((l ^ 0xffffffffffffffffL) == (AbstractSprite.friendsNameAsLong[i_21_] ^ 0xffffffffffffffffL)) {
-							AbstractRequest.method1540("", 0, new StringBuilder(string).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
-							return;
-						}
-					}
-					for (int i_22_ = 0; i_22_ < Class120_Sub12_Sub26.ignoreCount; i_22_++) {
-						if ((l ^ 0xffffffffffffffffL) == (HintIcon.ignoreNamesAsLong[i_22_] ^ 0xffffffffffffffffL)) {
-							AbstractRequest.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(string).append(ClanMember.aString2578).toString());
-							return;
-						}
-					}
-					if (string.equals(TileParticleQueue.selfPlayer.name)) {
-						AbstractRequest.method1540("", 0, Class120_Sub14_Sub23.aString3655);
-					} else {
-						Class120_Sub16.friendsName[ProducingGraphicsBuffer.friendCount] = string;
-						AbstractSprite.friendsNameAsLong[ProducingGraphicsBuffer.friendCount] = l;
-						Class120_Sub12_Sub16.friendsWorld[ProducingGraphicsBuffer.friendCount] = 0;
-						Class79_Sub1.friendsSideText[ProducingGraphicsBuffer.friendCount] = "";
-						Class120_Sub12_Sub30.friendsRank[ProducingGraphicsBuffer.friendCount] = i;
-						Class120_Sub12_Sub9.aBooleanArray3194[ProducingGraphicsBuffer.friendCount] = false;
-						ProducingGraphicsBuffer.friendCount++;
-						Class61.anInt563 = GrandExchangeObject.anInt1494;
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(26);
-						Class120_Sub12_Sub11.outputStream.putLong(l);
+	static final void addFriend(final long nameAsLong) {
+		if (nameAsLong != 0L) {
+			if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.extendFriendsList || ProducingGraphicsBuffer.friendCount >= 200) {
+				AbstractRequest.method1540("", 0, Class120_Sub11.aString2550);
+			} else {
+				final String name = Class136.longToString(nameAsLong);
+				for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
+					if (nameAsLong == AbstractSprite.friendsNameAsLong[id]) {
+						AbstractRequest.method1540("", 0, new StringBuilder(name).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
+						return;
 					}
 				}
+				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
+					if (nameAsLong == HintIcon.ignoreNamesAsLong[id]) {
+						AbstractRequest.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(name).append(ClanMember.aString2578).toString());
+						return;
+					}
+				}
+				if (name.equals(TileParticleQueue.selfPlayer.name)) {
+					AbstractRequest.method1540("", 0, Class120_Sub14_Sub23.aString3655);
+				} else {
+					Class120_Sub16.friendsName[ProducingGraphicsBuffer.friendCount] = name;
+					AbstractSprite.friendsNameAsLong[ProducingGraphicsBuffer.friendCount] = nameAsLong;
+					Class120_Sub12_Sub16.friendsWorld[ProducingGraphicsBuffer.friendCount] = 0;
+					Class79_Sub1.friendsSideText[ProducingGraphicsBuffer.friendCount] = "";
+					Class120_Sub12_Sub30.friendsRank[ProducingGraphicsBuffer.friendCount] = 0;
+					Class120_Sub12_Sub9.aBooleanArray3194[ProducingGraphicsBuffer.friendCount] = false;
+					ProducingGraphicsBuffer.friendCount++;
+					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(26);
+					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fc.B(").append(i).append(',').append(l).append(')').toString());
 		}
 	}
 }

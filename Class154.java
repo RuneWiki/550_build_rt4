@@ -18,33 +18,33 @@ final class Class154 {
 		anInt1442 = 0;
 	}
 
-	static final void addIgnore(final long l, final boolean bool) {
-		if (l != 0L) {
+	static final void addIgnore(final long nameAsLong) {
+		if (nameAsLong != 0L) {
 			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
 				AbstractRequest.method1540("", 0, Class143_Sub1.aString2192);
 			} else {
-				final String string = Class136.longToString(l);
-				for (int i_0_ = 0; Class120_Sub12_Sub26.ignoreCount > i_0_; i_0_++) {
-					if (HintIcon.ignoreNamesAsLong[i_0_] == l) {
-						AbstractRequest.method1540("", 0, new StringBuilder(string).append(Class69_Sub2_Sub1.aString3078).toString());
+				final String name = Class136.longToString(nameAsLong);
+				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
+					if (HintIcon.ignoreNamesAsLong[id] == nameAsLong) {
+						AbstractRequest.method1540("", 0, new StringBuilder(name).append(Class69_Sub2_Sub1.aString3078).toString());
 						return;
 					}
 				}
-				for (int i_1_ = 0; i_1_ < ProducingGraphicsBuffer.friendCount; i_1_++) {
-					if ((AbstractSprite.friendsNameAsLong[i_1_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
-						AbstractRequest.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(string).append(Class54.aString489).toString());
+				for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
+					if (AbstractSprite.friendsNameAsLong[id] == nameAsLong) {
+						AbstractRequest.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(name).append(Class54.aString489).toString());
 						return;
 					}
 				}
-				if (string.equals(TileParticleQueue.selfPlayer.name)) {
+				if (name.equals(TileParticleQueue.selfPlayer.name)) {
 					AbstractRequest.method1540("", 0, Class112.aString1079);
 				} else {
-					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = l;
-					Class84.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(l);
-					Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = bool;
+					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = nameAsLong;
+					GZIPDecompressor.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(nameAsLong);
+					Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = false;
 					Class61.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
-					Class120_Sub12_Sub11.outputStream.putLong(l);
+					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 				}
 			}
 		}

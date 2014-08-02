@@ -33,17 +33,10 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		anInt3407 = -1;
 	}
 
-	public static void method1375(final byte i) {
-		try {
-			menuOptionPrefix = null;
-			anIntArrayArrayArray3388 = null;
-			if (i <= 85) {
-				method1377(-39);
-			}
-			needScreenRedraw = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.T(").append(i).append(')').toString());
-		}
+	public static void method1375() {
+		menuOptionPrefix = null;
+		anIntArrayArrayArray3388 = null;
+		needScreenRedraw = null;
 	}
 
 	public Class120_Sub12_Sub33() {
@@ -92,10 +85,6 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.R(").append(i).append(')').toString());
 		}
-	}
-
-	static final int method1377(final int i_8_) {
-		return 0xff & i_8_;
 	}
 
 	@Override

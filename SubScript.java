@@ -44,7 +44,7 @@ final class SubScript {
 		return string_4_;
 	}
 
-	static final void method2244(final Class120_Sub14_Sub5 class120_sub14_sub5, final Class73 class73) {
+	static final void method2244(final Class120_Sub14_Sub5 class120_sub14_sub5, final MapFunctionType class73) {
 		final LDIndexedSprite class107_sub1 = class73.constructSprite();
 		if (class107_sub1 != null) {
 			int i_5_ = class107_sub1.width;

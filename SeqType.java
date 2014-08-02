@@ -27,8 +27,8 @@ final class SeqType {
 	int priority;
 	static int anInt349;
 
-	final Class180_Sub7 method320(final boolean bool, int i, int i_0_, final Class180_Sub7 class180_sub7, int i_1_, final int i_2_) {
-		Class180_Sub7 class180_sub7_3_;
+	final AbstractModel method320(final boolean bool, int i, int i_0_, final AbstractModel class180_sub7, int i_1_, final int i_2_) {
+		AbstractModel class180_sub7_3_;
 		try {
 			final int i_4_ = this.delays[i_0_];
 			i_0_ = this.frames[i_0_];
@@ -47,54 +47,54 @@ final class SeqType {
 			if (bool) {
 				this.delays = null;
 			}
-			Class180_Sub7 class180_sub7_6_;
+			AbstractModel class180_sub7_6_;
 			if (class120_sub14_sub18_5_ != null) {
-				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578((byte) -39, i_0_) & !class120_sub14_sub18_5_.method1578((byte) -39, i), !class120_sub14_sub18.method1579(3, i_0_) & !class120_sub14_sub18_5_.method1579(3, i), !this.aBoolean341);
+				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_) & !class120_sub14_sub18_5_.method1578(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
 			} else {
-				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578((byte) -39, i_0_), !class120_sub14_sub18.method1579(3, i_0_), !this.aBoolean341);
+				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_), !class120_sub14_sub18.method1579(i_0_), !this.aBoolean341);
 			}
 			if (this.aBoolean341 && HDToolkit.glEnabled) {
 				if (i_1_ != 1) {
 					if (i_1_ == 2) {
-						((Class180_Sub7_Sub2) class180_sub7_6_).method2409();
+						((HDModel) class180_sub7_6_).method2409();
 					} else if (i_1_ == 3) {
-						((Class180_Sub7_Sub2) class180_sub7_6_).method2422();
+						((HDModel) class180_sub7_6_).method2422();
 					}
 				} else {
-					((Class180_Sub7_Sub2) class180_sub7_6_).method2408();
+					((HDModel) class180_sub7_6_).method2408();
 				}
 			} else if (i_1_ != 1) {
 				if (i_1_ != 2) {
 					if (i_1_ == 3) {
-						class180_sub7_6_.method2365();
+						class180_sub7_6_.rotate90();
 					}
 				} else {
-					class180_sub7_6_.method2373();
+					class180_sub7_6_.rotate180();
 				}
 			} else {
-				class180_sub7_6_.method2372();
+				class180_sub7_6_.rotate270();
 			}
 			class180_sub7_6_.method2380(class120_sub14_sub18, i_0_, class120_sub14_sub18_5_, i, i_2_ + -1, i_4_, this.aBoolean341);
 			if (this.aBoolean341 && HDToolkit.glEnabled) {
 				if (i_1_ != 1) {
 					if (i_1_ == 2) {
-						((Class180_Sub7_Sub2) class180_sub7_6_).method2409();
+						((HDModel) class180_sub7_6_).method2409();
 					} else if (i_1_ == 3) {
-						((Class180_Sub7_Sub2) class180_sub7_6_).method2408();
+						((HDModel) class180_sub7_6_).method2408();
 					}
 				} else {
-					((Class180_Sub7_Sub2) class180_sub7_6_).method2422();
+					((HDModel) class180_sub7_6_).method2422();
 				}
 			} else if (i_1_ != 1) {
 				if (i_1_ != 2) {
 					if (i_1_ == 3) {
-						class180_sub7_6_.method2372();
+						class180_sub7_6_.rotate270();
 					}
 				} else {
-					class180_sub7_6_.method2373();
+					class180_sub7_6_.rotate180();
 				}
 			} else {
-				class180_sub7_6_.method2365();
+				class180_sub7_6_.rotate90();
 			}
 			class180_sub7_3_ = class180_sub7_6_;
 		} catch (final RuntimeException runtimeexception) {
@@ -108,7 +108,7 @@ final class SeqType {
 			if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
 				i = Class3.method83(Class32.anInt260, i, 1, ParamType.anInt3544);
 				i_7_ = Class3.method83(Class32.anInt260, i_7_, 1, ParamType.anInt3544);
-				Class84.method717(i, false, i_7_, i_8_, i_9_);
+				GZIPDecompressor.method717(i, false, i_7_, i_8_, i_9_);
 			}
 			if (!bool) {
 				method325(21, -94, -102, -35);
@@ -135,8 +135,8 @@ final class SeqType {
 		}
 	}
 
-	final Class180_Sub7 method323(final boolean bool, final int i, int i_10_, final Class180_Sub7 class180_sub7, final int i_11_) {
-		Class180_Sub7 class180_sub7_12_;
+	final AbstractModel method323(final boolean bool, final int i, int i_10_, final AbstractModel class180_sub7, final int i_11_) {
+		AbstractModel class180_sub7_12_;
 		try {
 			final int i_13_ = this.delays[i_11_];
 			if (bool) {
@@ -174,21 +174,21 @@ final class SeqType {
 					}
 				}
 			}
-			boolean bool_20_ = !class120_sub14_sub18.method1578((byte) -39, i_14_);
-			boolean bool_21_ = !class120_sub14_sub18.method1579(3, i_14_);
+			boolean bool_20_ = !class120_sub14_sub18.method1578(i_14_);
+			boolean bool_21_ = !class120_sub14_sub18.method1579(i_14_);
 			if (class120_sub14_sub18_16_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_16_.method1578((byte) -39, i_18_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_16_.method1579(3, i_18_);
+				bool_20_ = bool_20_ & !class120_sub14_sub18_16_.method1578(i_18_);
+				bool_21_ = bool_21_ & !class120_sub14_sub18_16_.method1579(i_18_);
 			}
 			if (class120_sub14_sub18_15_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_15_.method1578((byte) -39, i_10_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_15_.method1579(3, i_10_);
+				bool_20_ = bool_20_ & !class120_sub14_sub18_15_.method1578(i_10_);
+				bool_21_ = bool_21_ & !class120_sub14_sub18_15_.method1579(i_10_);
 			}
 			if (class120_sub14_sub18_19_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578((byte) -39, i_17_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(3, i_17_);
+				bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578(i_17_);
+				bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
 			}
-			final Class180_Sub7 class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
+			final AbstractModel class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
 			class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i + -1, i_13_, this.aBoolean341);
 			if (class120_sub14_sub18_16_ != null) {
 				class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i + -1, i_13_, this.aBoolean341);
@@ -200,34 +200,28 @@ final class SeqType {
 		return class180_sub7_12_;
 	}
 
-	final Class180_Sub7 method324(final int i, int i_23_, final int i_24_, final Class180_Sub7 class180_sub7, int i_25_) {
-		Class180_Sub7 class180_sub7_26_;
-		try {
-			final int i_27_ = this.delays[i_23_];
-			i_23_ = this.frames[i_23_];
-			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_23_ >> 16);
-			i_23_ &= 0xffff;
-			if (class120_sub14_sub18 == null) {
-				return class180_sub7.method2381(true, true, true);
-			}
-			FrameLoader class120_sub14_sub18_28_ = null;
-			if ((this.tween || Class164.forceTween) && (i_25_ ^ 0xffffffff) != 0 && i_25_ < this.frames.length) {
-				i_25_ = this.frames[i_25_];
-				class120_sub14_sub18_28_ = FrameLoader.list(i_25_ >> 16);
-				i_25_ &= 0xffff;
-			}
-			Class180_Sub7 class180_sub7_29_;
-			if (class120_sub14_sub18_28_ == null) {
-				class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578((byte) -39, i_23_), !class120_sub14_sub18.method1579(3, i_23_), !this.aBoolean341);
-			} else {
-				class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578((byte) -39, i_23_) & !class120_sub14_sub18_28_.method1578((byte) -39, i_25_), !class120_sub14_sub18.method1579(3, i_23_) & !class120_sub14_sub18_28_.method1579(3, i_25_), !this.aBoolean341);
-			}
-			class180_sub7_29_.method2380(class120_sub14_sub18, i_23_, class120_sub14_sub18_28_, i_25_, i_24_ + -1, i_27_, this.aBoolean341);
-			class180_sub7_26_ = class180_sub7_29_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.B(").append(i).append(',').append(i_23_).append(',').append(i_24_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_25_).append(')').toString());
+	final AbstractModel method324(final AbstractModel class180_sub7, int frameId, final int delay, int nextFrameId) {
+		final int i_27_ = this.delays[frameId];
+		frameId = this.frames[frameId];
+		final FrameLoader class120_sub14_sub18 = FrameLoader.list(frameId >> 16);
+		frameId &= 0xffff;
+		if (class120_sub14_sub18 == null) {
+			return class180_sub7.method2381(true, true, true);
 		}
-		return class180_sub7_26_;
+		FrameLoader class120_sub14_sub18_28_ = null;
+		if ((this.tween || Class164.forceTween) && nextFrameId != -1 && nextFrameId < this.frames.length) {
+			nextFrameId = this.frames[nextFrameId];
+			class120_sub14_sub18_28_ = FrameLoader.list(nextFrameId >> 16);
+			nextFrameId &= 0xffff;
+		}
+		AbstractModel class180_sub7_29_;
+		if (class120_sub14_sub18_28_ == null) {
+			class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578(frameId), !class120_sub14_sub18.method1579(frameId), !this.aBoolean341);
+		} else {
+			class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578(frameId) & !class120_sub14_sub18_28_.method1578(nextFrameId), !class120_sub14_sub18.method1579(frameId) & !class120_sub14_sub18_28_.method1579(nextFrameId), !this.aBoolean341);
+		}
+		class180_sub7_29_.method2380(class120_sub14_sub18, frameId, class120_sub14_sub18_28_, nextFrameId, delay - 1, i_27_, this.aBoolean341);
+		return class180_sub7_29_;
 	}
 
 	static final void method325(final int i, final int i_30_, final int i_31_, final int i_32_) {
@@ -307,8 +301,8 @@ final class SeqType {
 		}
 	}
 
-	final Class180_Sub7 method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final Class180_Sub7 class180_sub7) {
-		Class180_Sub7 class180_sub7_52_;
+	final AbstractModel method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final AbstractModel class180_sub7) {
+		AbstractModel class180_sub7_52_;
 		try {
 			final int i_53_ = this.delays[i_50_];
 			i_50_ = this.frames[i_50_];
@@ -324,11 +318,11 @@ final class SeqType {
 				class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
 				i &= 0xffff;
 			}
-			Class180_Sub7 class180_sub7_55_;
+			AbstractModel class180_sub7_55_;
 			if (class120_sub14_sub18_54_ != null) {
-				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578((byte) -39, i_50_) & !class120_sub14_sub18_54_.method1578((byte) -39, i), !class120_sub14_sub18.method1579(i_49_ ^ ~0x66d720ec, i_50_) & !class120_sub14_sub18_54_.method1579(3, i), !this.aBoolean341);
+				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_) & !class120_sub14_sub18_54_.method1578(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
 			} else {
-				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578((byte) -39, i_50_), !class120_sub14_sub18.method1579(3, i_50_), !this.aBoolean341);
+				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_), !class120_sub14_sub18.method1579(i_50_), !this.aBoolean341);
 			}
 			if (i_49_ != -1725374704) {
 				return null;
@@ -336,39 +330,39 @@ final class SeqType {
 			if (!HDToolkit.glEnabled || !this.aBoolean341) {
 				if (i_51_ != 1) {
 					if (i_51_ == 2) {
-						class180_sub7_55_.method2373();
+						class180_sub7_55_.rotate180();
 					} else if (i_51_ == 3) {
-						class180_sub7_55_.method2365();
+						class180_sub7_55_.rotate90();
 					}
 				} else {
-					class180_sub7_55_.method2372();
+					class180_sub7_55_.rotate270();
 				}
 			} else if (i_51_ == 1) {
-				((Class180_Sub7_Sub2) class180_sub7_55_).method2408();
+				((HDModel) class180_sub7_55_).method2408();
 			} else if (i_51_ != 2) {
 				if (i_51_ == 3) {
-					((Class180_Sub7_Sub2) class180_sub7_55_).method2422();
+					((HDModel) class180_sub7_55_).method2422();
 				}
 			} else {
-				((Class180_Sub7_Sub2) class180_sub7_55_).method2409();
+				((HDModel) class180_sub7_55_).method2409();
 			}
 			class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, -1 + i_48_, i_53_, this.aBoolean341);
 			if (!HDToolkit.glEnabled || !this.aBoolean341) {
 				if (i_51_ != 1) {
 					if (i_51_ == 2) {
-						class180_sub7_55_.method2373();
+						class180_sub7_55_.rotate180();
 					} else if (i_51_ == 3) {
-						class180_sub7_55_.method2372();
+						class180_sub7_55_.rotate270();
 					}
 				} else {
-					class180_sub7_55_.method2365();
+					class180_sub7_55_.rotate90();
 				}
 			} else if (i_51_ == 1) {
-				((Class180_Sub7_Sub2) class180_sub7_55_).method2422();
+				((HDModel) class180_sub7_55_).method2422();
 			} else if (i_51_ == 2) {
-				((Class180_Sub7_Sub2) class180_sub7_55_).method2409();
+				((HDModel) class180_sub7_55_).method2409();
 			} else if (i_51_ == 3) {
-				((Class180_Sub7_Sub2) class180_sub7_55_).method2408();
+				((HDModel) class180_sub7_55_).method2408();
 			}
 			class180_sub7_52_ = class180_sub7_55_;
 		} catch (final RuntimeException runtimeexception) {

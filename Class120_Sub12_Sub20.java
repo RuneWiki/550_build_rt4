@@ -230,6 +230,9 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			if (string.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
 			}
+			if (string.equalsIgnoreCase("::test")) {
+				LocType.recentUse.clear();
+			}
 			if (string.equalsIgnoreCase("::wm0")) {
 				AbstractSprite.method1593(0, -1, -1, false);
 			}

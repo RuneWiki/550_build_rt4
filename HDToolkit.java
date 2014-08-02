@@ -115,7 +115,6 @@ final class HDToolkit {
 	}
 
 	static final void method498(final int i, final int i_15_) {
-		System.out.println("a2");
 		anInt543 = i;
 		anInt516 = i_15_;
 		method500();

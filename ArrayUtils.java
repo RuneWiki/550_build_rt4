@@ -131,21 +131,21 @@ final class ArrayUtils {
 		}
 	}
 
-	static final void resetArray(final int[] is, int i, int i_10_) {
-		i_10_ = i + i_10_ - 7;
-		while (i < i_10_) {
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
+	static final void resetArray(final int[] data, int off, int len) {
+		len = off + len - 7;
+		while (off < len) {
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
+			data[off++] = 0;
 		}
-		i_10_ += 7;
-		while (i < i_10_) {
-			is[i++] = 0;
+		len += 7;
+		while (off < len) {
+			data[off++] = 0;
 		}
 	}
 

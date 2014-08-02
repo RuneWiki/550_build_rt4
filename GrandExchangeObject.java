@@ -30,7 +30,7 @@ final class GrandExchangeObject {
 			aStringArray1502 = null;
 			screenRedrawXs = null;
 			if (i != 1) {
-				method2099(null, true, -14, null);
+				method2099(null, null, true);
 			}
 			anIntArray1501 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -38,16 +38,10 @@ final class GrandExchangeObject {
 		}
 	}
 
-	static final void method2099(final js5 js5, final boolean bool, final int i, final js5 class50_1_) {
-		try {
-			Class140.aBoolean1340 = bool;
-			NpcType.aClass50_2099 = class50_1_;
-			if (i == -9746) {
-				Class28.aClass50_181 = js5;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("t.A(").append(js5 != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(',').append(class50_1_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method2099(final js5 js5, final js5 class50_1_, final boolean bool) {
+		Class140.npcMemberClient = bool;
+		NpcType.aClass50_2099 = class50_1_;
+		Class28.aClass50_181 = js5;
 	}
 
 	final int getProgress() {

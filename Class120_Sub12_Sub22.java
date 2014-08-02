@@ -13,54 +13,44 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	static int anInt3302;
 	static Class120_Sub14_Sub8 boldFont;
 
-	static final Class180_Sub7 method1319(final int i, final Class180_Sub7 class180_sub7, final int i_0_, final int i_1_, final byte i_2_, final int i_3_, final int i_4_) {
-		Class180_Sub7 class180_sub7_5_;
-		try {
-			if (i_2_ >= -74) {
-				method1321(96, 45, 101, 59, -98, 60);
+	static final AbstractModel method1319(final int i, final AbstractModel class180_sub7, final int i_0_, final int i_1_, final int i_3_, final int i_4_) {
+		final long l = i_1_;
+		AbstractModel class180_sub7_6_ = (AbstractModel) Class120_Sub14_Sub13.aClass21_3564.get(l);
+		if (class180_sub7_6_ == null) {
+			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
+			if (class180_sub2 == null) {
+				return null;
 			}
-			final long l = i_1_;
-			Class180_Sub7 class180_sub7_6_ = (Class180_Sub7) Class120_Sub14_Sub13.aClass21_3564.get(l);
-			if (class180_sub7_6_ == null) {
-				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
-				if (class180_sub2 == null) {
-					return null;
-				}
-				class180_sub7_6_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-				Class120_Sub14_Sub13.aClass21_3564.put(class180_sub7_6_, l);
-			}
-			final int i_7_ = class180_sub7.method2374();
-			final int i_8_ = class180_sub7.method2383();
-			final int i_9_ = class180_sub7.method2363();
-			final int i_10_ = class180_sub7.method2386();
-			class180_sub7_6_ = class180_sub7_6_.method2381(true, true, true);
-			if (i != 0) {
-				class180_sub7_6_.method2360(i);
-			}
-			if (!HDToolkit.glEnabled) {
-				final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_6_;
-				if (i_3_ != Class22.getTileHeight(Class173.gameLevel, i_7_ + i_4_, i_0_ - -i_9_) || Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_10_ + i_0_) != i_3_) {
-					for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
-						class180_sub7_sub1.yVertices[i_11_] += Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_) + -i_3_;
-					}
-					class180_sub7_sub1.boundsCalculated = false;
-				}
-			} else {
-				final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7_6_;
-				if (Class22.getTileHeight(Class173.gameLevel, i_4_ - -i_7_, i_0_ + i_9_) != i_3_ || i_3_ != Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_0_ - -i_10_)) {
-					for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
-						class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_]);
-					}
-					class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
-					class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
-				}
-			}
-			class180_sub7_5_ = class180_sub7_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ph.R(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			class180_sub7_6_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+			Class120_Sub14_Sub13.aClass21_3564.put(class180_sub7_6_, l);
 		}
-		return class180_sub7_5_;
+		final int i_7_ = class180_sub7.method2374();
+		final int i_8_ = class180_sub7.method2383();
+		final int i_9_ = class180_sub7.method2363();
+		final int i_10_ = class180_sub7.method2386();
+		class180_sub7_6_ = class180_sub7_6_.method2381(true, true, true);
+		if (i != 0) {
+			class180_sub7_6_.method2360(i);
+		}
+		if (!HDToolkit.glEnabled) {
+			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_6_;
+			if (i_3_ != Class22.getTileHeight(Class173.gameLevel, i_7_ + i_4_, i_0_ - -i_9_) || Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_10_ + i_0_) != i_3_) {
+				for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
+					class180_sub7_sub1.yVertices[i_11_] += Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_) + -i_3_;
+				}
+				class180_sub7_sub1.boundsCalculated = false;
+			}
+		} else {
+			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_6_;
+			if (Class22.getTileHeight(Class173.gameLevel, i_4_ - -i_7_, i_0_ + i_9_) != i_3_ || i_3_ != Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_0_ - -i_10_)) {
+				for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
+					class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_]);
+				}
+				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
+				class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
+			}
+		}
+		return class180_sub7_6_;
 	}
 
 	public static void method1320(final byte i) {
@@ -89,7 +79,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 			for (int i_17_ = 0; i_17_ < Class120_Sub12_Sub7.anInt3178; i_17_++) {
 				final int i_18_ = is_15_[i_17_] >> 4 & 0xff;
 				final int i_19_ = anInt3300 * is_16_[i_17_] >> 12;
-				final int i_20_ = i_19_ * Class84.anIntArray800[i_18_] >> 12;
+				final int i_20_ = i_19_ * GZIPDecompressor.anIntArray800[i_18_] >> 12;
 				final int i_21_ = Class120_Sub29.anInt2774 & i_13_ + (i_20_ >> 12);
 				final int i_22_ = i_19_ * FileSystemWorker.anIntArray789[i_18_] >> 12;
 				final int i_23_ = Class32.anInt259 & i_17_ + (i_22_ >> 12);
@@ -190,7 +180,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 			for (int i_45_ = 0; i_45_ < Class120_Sub12_Sub7.anInt3178; i_45_++) {
 				final int i_46_ = is_41_[i_45_] * anInt3300 >> 12;
 				final int i_47_ = is_40_[i_45_] * 255 >> 12 & 0xff;
-				final int i_48_ = i_46_ * Class84.anIntArray800[i_47_] >> 12;
+				final int i_48_ = i_46_ * GZIPDecompressor.anIntArray800[i_47_] >> 12;
 				final int i_49_ = FileSystemWorker.anIntArray789[i_47_] * i_46_ >> 12;
 				final int i_50_ = Class32.anInt259 & (i_49_ >> 12) + i_45_;
 				final int i_51_ = (i_48_ >> 12) + i & Class120_Sub29.anInt2774;

@@ -25,7 +25,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				+ (ParticleEngine.method949() << 23);
 	}
 
-	static final Class164 method1289(final Component component, final byte i, int i_0_, final Signlink signlink, final int i_1_) {
+	static final Class164 method1289(final Component component, int i_0_, final Signlink signlink, final int i_1_) {
 		if (Class178.anInt1771 == 0) {
 			throw new IllegalStateException();
 		}
@@ -35,7 +35,6 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		if (i_0_ < 256) {
 			i_0_ = 256;
 		}
-		Class164 class164;
 		try {
 			final Class164 class164_2_ = (Class164) Class.forName("Class164_Sub1").newInstance();
 			class164_2_.anInt1594 = i_0_;
@@ -57,9 +56,8 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				}
 				Class90.aClass82_850.aClass164Array782[i_1_] = class164_2_;
 			}
-			class164 = class164_2_;
+			return class164_2_;
 		} catch (final Exception exception) {
-			Class164_Sub2 class164_sub2;
 			try {
 				final Class164_Sub2 class164_sub2_3_ = new Class164_Sub2(signlink, i_1_);
 				((Class164) class164_sub2_3_).anInt1594 = i_0_;
@@ -78,13 +76,11 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 					}
 					Class90.aClass82_850.aClass164Array782[i_1_] = class164_sub2_3_;
 				}
-				class164_sub2 = class164_sub2_3_;
+				return class164_sub2_3_;
 			} catch (final Exception exception_4_) {
 				return new Class164();
 			}
-			return class164_sub2;
 		}
-		return class164;
 	}
 
 	static final int method1290(final int i) {
@@ -107,9 +103,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	}
 
 	static final void method1291() {
-		Canvas_Sub1.aClass21_14.clear();
+		ObjType.recentUse.clear();
 		Class33.aClass21_273.clear();
-		Class180_Sub3.aClass21_2906.clear();
+		SpotAnimation.aClass21_2906.clear();
 	}
 
 	public static void method1292(final byte i) {

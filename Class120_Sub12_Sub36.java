@@ -126,11 +126,11 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				}
 				if (bool) {
 					npc.anInt2963 = 0;
-					npc.spotAnimFrameId = 0;
-					npc.anInt2971 = 1;
+					npc.spotAnimFrame = 0;
+					npc.spotAnimNextFrame = 1;
 					npc.anInt2979 = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
 					if (npc.anInt2979 > Class101_Sub2.loopCycle) {
-						npc.spotAnimFrameId = -1;
+						npc.spotAnimFrame = -1;
 					}
 					npc.anInt2965 = bitPacked >> 16;
 					npc.spotAnimId = spotanimId;

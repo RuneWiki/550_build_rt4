@@ -12,23 +12,14 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 	static int[] anIntArray3654;
 	static String aString3655 = "You can't add yourself to your own friend list.";
 
-	final void method1638(final byte i, final Buffer class120_sub7) {
-		do {
-			try {
-				for (;;) {
-					final int i_0_ = class120_sub7.getUByte();
-					if (i_0_ == 0) {
-						break;
-					}
-					method1645(-1, class120_sub7, i_0_);
-				}
-				if (i != -19) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("wh.G(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-		} while (false);
+			decode(buffer, code);
+		}
 	}
 
 	static final void method1639(final int i, final int i_1_, final int i_2_, final int i_3_, final boolean bool, final int i_4_, final int i_5_) {
@@ -52,25 +43,16 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		}
 	}
 
-	final int method1640(final char c, final int i) {
-		int i_6_;
-		try {
-			if (i != -1) {
-				method1644(-128);
-			}
-			if (this.anIntArray3648 == null) {
-				return -1;
-			}
-			for (int i_7_ = 0; this.anIntArray3648.length > i_7_; i_7_++) {
-				if (this.aCharArray3653[i_7_] == c) {
-					return this.anIntArray3648[i_7_];
-				}
-			}
-			i_6_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.C(").append(c).append(',').append(i).append(')').toString());
+	final int method1640(final char c) {
+		if (this.anIntArray3648 == null) {
+			return -1;
 		}
-		return i_6_;
+		for (int i_7_ = 0; this.anIntArray3648.length > i_7_; i_7_++) {
+			if (this.aCharArray3653[i_7_] == c) {
+				return this.anIntArray3648[i_7_];
+			}
+		}
+		return -1;
 	}
 
 	public static void method1641(final int i) {
@@ -96,20 +78,16 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		return -1;
 	}
 
-	final void method1644(final int i) {
-		try {
-			if (this.anIntArray3648 != null) {
-				for (int i_12_ = 0; i_12_ < this.anIntArray3648.length; i_12_++) {
-					this.anIntArray3648[i_12_] = Class191.method2512(this.anIntArray3648[i_12_], 32768);
-				}
+	final void method1644() {
+		if (this.anIntArray3648 != null) {
+			for (int i_12_ = 0; i_12_ < this.anIntArray3648.length; i_12_++) {
+				this.anIntArray3648[i_12_] |= 32768;
 			}
-			if (i == 32768 && this.anIntArray3651 != null) {
-				for (int i_13_ = 0; i_13_ < this.anIntArray3651.length; i_13_++) {
-					this.anIntArray3651[i_13_] = Class191.method2512(this.anIntArray3651[i_13_], 32768);
-				}
+		}
+		if (this.anIntArray3651 != null) {
+			for (int i_13_ = 0; i_13_ < this.anIntArray3651.length; i_13_++) {
+				this.anIntArray3651[i_13_] |= 32768;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.A(").append(i).append(')').toString());
 		}
 	}
 
@@ -117,36 +95,27 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		/* empty */
 	}
 
-	private final void method1645(final int i, final Buffer class120_sub7, final int i_14_) {
-		try {
-			if (i != -1) {
-				method1638((byte) -73, null);
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.aString3650 = buffer.getJagexString();
+		} else if (code == 2) {
+			final int i_18_ = buffer.getUByte();
+			this.anIntArray3651 = new int[i_18_];
+			this.aCharArray3652 = new char[i_18_];
+			for (int i_19_ = 0; i_19_< i_18_; i_19_++) {
+				this.anIntArray3651[i_19_] = buffer.getUShort();
+				final byte i_20_ = buffer.getByte();
+				this.aCharArray3652[i_19_] = i_20_ != 0 ? Class120_Sub12_Sub24.method1328(i_20_) : '\0';
 			}
-			if (i_14_ == 1) {
-				this.aString3650 = class120_sub7.getJagexString();
-			} else if (i_14_ != 2) {
-				if (i_14_ == 3) {
-					final int i_15_ = class120_sub7.getUByte();
-					this.aCharArray3653 = new char[i_15_];
-					this.anIntArray3648 = new int[i_15_];
-					for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
-						this.anIntArray3648[i_16_] = class120_sub7.getUShort();
-						final byte i_17_ = class120_sub7.getByte();
-						this.aCharArray3653[i_16_] = i_17_ != 0 ? Class120_Sub12_Sub24.method1328(i_17_) : '\0';
-					}
-				}
-			} else {
-				final int i_18_ = class120_sub7.getUByte();
-				this.anIntArray3651 = new int[i_18_];
-				this.aCharArray3652 = new char[i_18_];
-				for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
-					this.anIntArray3651[i_19_] = class120_sub7.getUShort();
-					final byte i_20_ = class120_sub7.getByte();
-					this.aCharArray3652[i_19_] = i_20_ != 0 ? Class120_Sub12_Sub24.method1328(i_20_) : '\0';
-				}
+		} else if (code == 3) {
+			final int i_15_ = buffer.getUByte();
+			this.aCharArray3653 = new char[i_15_];
+			this.anIntArray3648 = new int[i_15_];
+			for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
+				this.anIntArray3648[i_16_] = buffer.getUShort();
+				final byte i_17_ = buffer.getByte();
+				this.aCharArray3653[i_16_] = i_17_ != 0 ? Class120_Sub12_Sub24.method1328(i_17_) : '\0';
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.E(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_14_).append(')').toString());
 		}
 	}
 }

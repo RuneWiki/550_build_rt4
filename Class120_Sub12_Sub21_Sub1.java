@@ -4,7 +4,7 @@
 import java.awt.Graphics;
 
 final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
-	static boolean aBoolean3908;
+	static boolean extendFriendsList;
 	static volatile boolean focusIn = true;
 	static String aString3910;
 	static String aString3911 = "level: ";
@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	static {
 		aString3910 = " is already on your friend list.";
 		anIntArray3912 = new int[32];
-		aBoolean3908 = false;
+		extendFriendsList = false;
 	}
 
 	static final void method1312(final boolean bool) {
@@ -39,83 +39,74 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		/* empty */
 	}
 
-	static final int method1313(final int i, final String string, final int i_5_, final String string_6_) {
-		int i_7_;
-		try {
-			final int i_8_ = string_6_.length();
-			if (i != 5379) {
-				return 68;
+	static final int method1313(final String string, final int i_5_, final String string_6_) {
+		final int i_8_ = string_6_.length();
+		int i_9_ = 0;
+		final int i_10_ = string.length();
+		char c = '\0';
+		int i_11_ = 0;
+		char c_12_ = '\0';
+		while (i_8_ > -c + i_9_ || i_10_ > i_11_ + -c_12_) {
+			if (i_8_ <= -c + i_9_) {
+				return -1;
 			}
-			int i_9_ = 0;
-			final int i_10_ = string.length();
-			char c = '\0';
-			int i_11_ = 0;
-			char c_12_ = '\0';
-			while (i_8_ > -c + i_9_ || i_10_ > i_11_ + -c_12_) {
-				if (i_8_ <= -c + i_9_) {
-					return -1;
-				}
-				if (i_10_ <= i_11_ - c_12_) {
-					return 1;
-				}
-				char c_13_;
-				if (c == 0) {
-					c_13_ = string_6_.charAt(i_9_++);
-				} else {
-					c_13_ = c;
-				}
-				char c_14_;
-				if (c_12_ != 0) {
-					c_14_ = c_12_;
-				} else {
-					c_14_ = string.charAt(i_11_++);
-				}
-				c = Class120_Sub12_Sub29.method1354(c_13_, false);
-				c_12_ = Class120_Sub12_Sub29.method1354(c_14_, false);
-				c_13_ = Class22.method198(-99, i_5_, c_13_);
-				c_14_ = Class22.method198(-73, i_5_, c_14_);
-				if (c_14_ != c_13_ && Character.toUpperCase(c_13_) != Character.toUpperCase(c_14_)) {
-					c_13_ = Character.toLowerCase(c_13_);
-					c_14_ = Character.toLowerCase(c_14_);
-					if (c_14_ != c_13_) {
-						return Class120_Sub16.method1661(i + -3617, i_5_, c_13_) - Class120_Sub16.method1661(1762, i_5_, c_14_);
-					}
+			if (i_10_ <= i_11_ - c_12_) {
+				return 1;
+			}
+			char c_13_;
+			if (c == 0) {
+				c_13_ = string_6_.charAt(i_9_++);
+			} else {
+				c_13_ = c;
+			}
+			char c_14_;
+			if (c_12_ != 0) {
+				c_14_ = c_12_;
+			} else {
+				c_14_ = string.charAt(i_11_++);
+			}
+			c = Class120_Sub12_Sub29.method1354(c_13_, false);
+			c_12_ = Class120_Sub12_Sub29.method1354(c_14_, false);
+			c_13_ = Class22.method198(-99, i_5_, c_13_);
+			c_14_ = Class22.method198(-73, i_5_, c_14_);
+			if (c_14_ != c_13_ && Character.toUpperCase(c_13_) != Character.toUpperCase(c_14_)) {
+				c_13_ = Character.toLowerCase(c_13_);
+				c_14_ = Character.toLowerCase(c_14_);
+				if (c_14_ != c_13_) {
+					return Class120_Sub16.method1661(i_5_, c_13_) - Class120_Sub16.method1661(i_5_, c_14_);
 				}
 			}
-			final int i_15_ = Math.min(i_8_, i_10_);
-			for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
-				if (i_5_ == 2) {
-					i_11_ = -1 + i_10_ + -i_16_;
-					i_9_ = i_8_ - 1 + -i_16_;
-				} else {
-					i_9_ = i_11_ = i_16_;
-				}
-				char c_17_ = string_6_.charAt(i_9_);
-				char c_18_ = string.charAt(i_11_);
-				if (c_17_ != c_18_ && Character.toUpperCase(c_17_) != Character.toUpperCase(c_18_)) {
-					c_17_ = Character.toLowerCase(c_17_);
-					c_18_ = Character.toLowerCase(c_18_);
-					if (c_17_ != c_18_) {
-						return Class120_Sub16.method1661(1762, i_5_, c_17_) + -Class120_Sub16.method1661(1762, i_5_, c_18_);
-					}
-				}
-			}
-			final int i_19_ = -i_10_ + i_8_;
-			if (i_19_ != 0) {
-				return i_19_;
-			}
-			for (int i_20_ = 0; i_20_ < i_15_; i_20_++) {
-				final char c_21_ = string_6_.charAt(i_20_);
-				final char c_22_ = string.charAt(i_20_);
-				if (c_21_ != c_22_) {
-					return Class120_Sub16.method1661(i + -3617, i_5_, c_21_) + -Class120_Sub16.method1661(1762, i_5_, c_22_);
-				}
-			}
-			i_7_ = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.IA(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(i_5_).append(',').append(string_6_ != null ? "{...}" : "null").append(')').toString());
 		}
-		return i_7_;
+		final int i_15_ = Math.min(i_8_, i_10_);
+		for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
+			if (i_5_ == 2) {
+				i_11_ = -1 + i_10_ + -i_16_;
+				i_9_ = i_8_ - 1 + -i_16_;
+			} else {
+				i_9_ = i_11_ = i_16_;
+			}
+			char c_17_ = string_6_.charAt(i_9_);
+			char c_18_ = string.charAt(i_11_);
+			if (c_17_ != c_18_ && Character.toUpperCase(c_17_) != Character.toUpperCase(c_18_)) {
+				c_17_ = Character.toLowerCase(c_17_);
+				c_18_ = Character.toLowerCase(c_18_);
+				if (c_17_ != c_18_) {
+					return Class120_Sub16.method1661(i_5_, c_17_) + -Class120_Sub16.method1661(i_5_, c_18_);
+				}
+			}
+		}
+		final int i_19_ = -i_10_ + i_8_;
+		if (i_19_ != 0) {
+			return i_19_;
+		}
+		for (int i_20_ = 0; i_20_ < i_15_; i_20_++) {
+			final char c_21_ = string_6_.charAt(i_20_);
+			final char c_22_ = string.charAt(i_20_);
+			if (c_21_ != c_22_) {
+				return Class120_Sub16.method1661(i_5_, c_21_) + -Class120_Sub16.method1661(i_5_, c_22_);
+			}
+		}
+		return 0;
 	}
 
 	public static void method1314(final byte i) {
@@ -185,7 +176,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 									}
 								}
 							} else {
-								final Class28 class28 = Class180_Sub3.method2315(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+								final Class28 class28 = SpotAnimation.method2315(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 								if (class28 != null) {
 									sceneGraphNode = class28.aClass180_174;
 								}

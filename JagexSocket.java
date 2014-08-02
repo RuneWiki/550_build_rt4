@@ -286,7 +286,7 @@ final class JagexSocket implements Runnable {
 			}
 			buffer = null;
 		} catch (final Exception exception) {
-			Class180_Sub3.method2312(exception, null);
+			SpotAnimation.method2312(exception, null);
 		}
 	}
 

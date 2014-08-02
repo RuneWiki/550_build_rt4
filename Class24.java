@@ -23,7 +23,7 @@ final class Class24 {
 		Class31.anInt244 = 0;
 		Class114.anInt1093 = -1;
 		Class120_Sub22.systemUpdateCycle = 0;
-		Class73.anInt639 = -1;
+		MapFunctionType.anInt639 = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		SeqType.anInt333 = -1;
 		Class88.anInt827 = 0;
@@ -128,7 +128,7 @@ final class Class24 {
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
 		MasterIndexInfo.aBoolean466 = false;
 		Class118.aBoolean1134 = true;
-		Class120_Sub14_Sub20.packetCounter = 0;
+		OverlayFrequencyNode.packetCounter = 0;
 		Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
 		LocType.resetSpriteMenu();
 		Class186.usingSpriteMenu = false;

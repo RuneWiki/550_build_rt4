@@ -11,7 +11,7 @@ final class Js5Request extends AbstractRequest {
 	static Class120_Sub31 aClass120_Sub31_3941;
 
 	static final void method1547(final JagexInterface jagexInterface, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
-		final Class73 class73 = Class73.list(i_1_);
+		final MapFunctionType class73 = MapFunctionType.list(i_1_);
 		if (class73 != null && class73.aBoolean633 && class73.method647()) {
 			if (class73.anIntArray638 != null) {
 				final int[] is = new int[class73.anIntArray638.length];
@@ -162,7 +162,7 @@ final class Js5Request extends AbstractRequest {
 				return i_28_ + -i_29_;
 			}
 			if (i_25_ == 2) {
-				return Class120_Sub12_Sub21_Sub1.method1313(i ^ ~0x5019, class167_sub1.getWorldInfo().region, Class9.language, class167_sub1_26_.getWorldInfo().region);
+				return Class120_Sub12_Sub21_Sub1.method1313(class167_sub1.getWorldInfo().region, Class9.language, class167_sub1_26_.getWorldInfo().region);
 			}
 			if (i_25_ == 3) {
 				if (class167_sub1_26_.activity.equals("-")) {
@@ -174,7 +174,7 @@ final class Js5Request extends AbstractRequest {
 				if (class167_sub1.activity.equals("-")) {
 					return bool ? 1 : -1;
 				}
-				return Class120_Sub12_Sub21_Sub1.method1313(i + 23070, class167_sub1.activity, Class9.language, class167_sub1_26_.activity);
+				return Class120_Sub12_Sub21_Sub1.method1313(class167_sub1.activity, Class9.language, class167_sub1_26_.activity);
 			}
 			if (i_25_ == 4) {
 				return class167_sub1_26_.method2185((byte) -123) ? class167_sub1.method2185((byte) -126) ? 0 : 1 : class167_sub1.method2185((byte) -127) ? -1 : 0;

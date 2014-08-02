@@ -5,13 +5,13 @@
 abstract class Class57 {
 	static js5 aClass50_499;
 	static int anInt500 = 0;
-	static Class84 aClass84_501;
+	static GZIPDecompressor gzipDecompressor;
 	static int worldLen2;
 	static boolean[] interfaceLoaded;
 	static int anInt504 = 0;
 
 	static {
-		aClass84_501 = new Class84();
+		gzipDecompressor = new GZIPDecompressor();
 	}
 
 	public static void method491(final int i) {
@@ -19,7 +19,7 @@ abstract class Class57 {
 			if (i >= -14) {
 				anInt500 = 96;
 			}
-			aClass84_501 = null;
+			gzipDecompressor = null;
 			aClass50_499 = null;
 			interfaceLoaded = null;
 		} catch (final RuntimeException runtimeexception) {

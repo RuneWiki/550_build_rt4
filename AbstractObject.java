@@ -3,7 +3,7 @@
  */
 
 abstract class AbstractObject extends NodeSub {
-	static boolean aBoolean3463;
+	static boolean objMemberClient;
 
 	abstract Object get();
 

@@ -16,15 +16,15 @@ final class AmbientSound extends Node {
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2488;
 	int anInt2489;
 	static int hitmarksId;
-	boolean aBoolean2491;
+	boolean hasVarp;
 	Npc npc;
-	int anInt2493;
+	int hearDistance;
 	int anInt2494;
 	Player player;
 	int anInt2496;
 	LocType location;
 	int anInt2498;
-	int anInt2499;
+	int volume;
 
 	static final void translateToFrench() {
 		World.aString2837 = "Librairie 3D d\u00e9marr\u00e9e";
@@ -92,7 +92,7 @@ final class AmbientSound extends Node {
 		Class120_Sub12_Sub1.aString3137 = "Param\u00e8tres par d\u00e9faut charg\u00e9s";
 		InterfaceListener.aString2538 = "glissement:";
 		Class120_Sub21.aString2669 = " s'est connect\u00e9.";
-		Class180_Sub6.aString3062 = "Impossible de trouver ";
+		AnimatedLocation.aString3062 = "Impossible de trouver ";
 		Class53_Sub1.aString2213 = "rouge:";
 		AbstractIndexedSprite.aString1025 = "Moteur son pr\u00e9par\u00e9";
 		Class120_Sub24.aString2726 = "Sprites charg\u00e9s";
@@ -100,7 +100,7 @@ final class AmbientSound extends Node {
 		Class69.aString618 = "vert:";
 		Class132.aString1250 = " s'est d\u00e9connect\u00e9.";
 		Class158.aString1483 = "cyan:";
-		Class84.aString799 = "Interfaces charg\u00e9es";
+		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
 		Class120_Sub3.aString2428 = "Chargement des fichiers config - ";
 		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
@@ -122,7 +122,7 @@ final class AmbientSound extends Node {
 		Class96.aString915 = "tremblement:";
 	}
 
-	final void method1156() {
+	final void refresh() {
 		final int i_0_ = this.anInt2485;
 		if (this.location == null) {
 			if (this.npc != null) {
@@ -134,32 +134,32 @@ final class AmbientSound extends Node {
 						npcType = npcType.handleVarp();
 					}
 					if (npcType != null) {
-						this.anInt2493 = 128 * npcType.anInt1677;
-						this.anInt2499 = npcType.anInt1658;
+						this.hearDistance = 128 * npcType.ambientSoundHearDistance;
+						this.volume = npcType.ambientSoundVolume;
 					} else {
-						this.anInt2499 = this.anInt2493 = 0;
+						this.volume = this.hearDistance = 0;
 					}
 				}
 			} else if (this.player != null) {
 				this.anInt2485 = Class20.method179(this.player);
-				this.anInt2493 = 128 * this.player.anInt3735;
-				this.anInt2499 = this.player.anInt3739;
+				this.hearDistance = 128 * this.player.ambientSoundHearDistance;
+				this.volume = this.player.ambientSoundVolume;
 			}
 		} else {
 			final LocType locType = this.location.handleVarp();
 			if (locType == null) {
 				this.anInt2489 = 0;
-				this.anInt2493 = 0;
+				this.hearDistance = 0;
 				this.anIntArray2482 = null;
-				this.anInt2499 = 0;
+				this.volume = 0;
 				this.anInt2485 = -1;
 				this.anInt2486 = 0;
 			} else {
-				this.anInt2485 = locType.anInt1833;
+				this.anInt2485 = locType.ambientSoundId;
 				this.anInt2489 = locType.anInt1879;
 				this.anInt2486 = locType.anInt1845;
-				this.anInt2493 = 128 * locType.anInt1832;
-				this.anInt2499 = locType.anInt1839;
+				this.hearDistance = locType.ambientSoundHearDistance * 128;
+				this.volume = locType.ambientSoundVolume;
 				this.anIntArray2482 = locType.anIntArray1870;
 			}
 		}
@@ -183,7 +183,7 @@ final class AmbientSound extends Node {
 	static final void method1158(final int i, final int i_3_) {
 		if (client.cameraType == 2) {
 			OverlayType.renderPitch = i;
-			Class180_Sub3.renderYaw = i_3_;
+			SpotAnimation.renderYaw = i_3_;
 		}
 		DummyOutputStream.aFloat28 = i_3_;
 		Class120_Sub12_Sub21.aFloat3293 = i;

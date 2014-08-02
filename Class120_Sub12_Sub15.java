@@ -44,17 +44,6 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1276(final boolean bool, final byte i) {
-		try {
-			if (!bool == AbstractObject.aBoolean3463) {
-				AbstractObject.aBoolean3463 = bool;
-				Class120_Sub12_Sub18.method1291();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("la.S(").append(bool).append(',').append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void decode(final Buffer buffer, final int i_1_) {
 		final int i_2_ = i_1_;

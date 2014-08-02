@@ -10,12 +10,12 @@ final class Projectile extends SceneGraphNode {
 	private final int anInt2926;
 	private int anInt2927;
 	private boolean aBoolean2928;
-	int anInt2929;
+	int lockonIndex;
 	private double aDouble2930;
 	static ObjectCache aClass21_2931;
 	private final int anInt2932;
 	static int anInt2933 = 0;
-	int anInt2934;
+	int level;
 	private double aDouble2935;
 	private int anInt2936 = -1;
 	double aDouble2937;
@@ -78,7 +78,7 @@ final class Projectile extends SceneGraphNode {
 
 	@Override
 	final void method2265(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final long l, final int i_8_, final ParticleEngine class108_sub2) {
-		final Class180_Sub7 class180_sub7 = method2322();
+		final AbstractModel class180_sub7 = method2322();
 		if (class180_sub7 != null) {
 			method2320(-77, class180_sub7);
 			class180_sub7.method2265(i, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, i_7_, l, i_8_, aClass108_Sub2_2924);
@@ -132,9 +132,9 @@ final class Projectile extends SceneGraphNode {
 		}
 	}
 
-	private final void method2320(final int i, final Class180_Sub7 class180_sub7) {
+	private final void method2320(final int i, final AbstractModel class180_sub7) {
 		if (HDToolkit.glEnabled) {
-			final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7;
+			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
 				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
@@ -142,7 +142,7 @@ final class Projectile extends SceneGraphNode {
 				aClass108_Sub2_2924.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
 			}
 		} else {
-			final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7;
+			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
 				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
@@ -170,9 +170,9 @@ final class Projectile extends SceneGraphNode {
 		}
 	}
 
-	private final Class180_Sub7 method2322() {
+	private final AbstractModel method2322() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(anInt2940);
-		final Class180_Sub7 class180_sub7_17_ = spotAnimType.method882(anInt2936, anInt2945, anInt2925, (byte) 14);
+		final AbstractModel class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);
 		if (class180_sub7_17_ == null) {
 			return null;
 		}
@@ -190,9 +190,9 @@ final class Projectile extends SceneGraphNode {
 		anInt2926 = i_19_;
 		this.anInt2939 = i_22_;
 		anInt2932 = i_25_;
-		this.anInt2934 = i_18_;
+		this.level = i_18_;
 		this.anInt2922 = i_23_;
-		this.anInt2929 = i_26_;
+		this.lockonIndex = i_26_;
 		anInt2940 = i;
 		anInt2948 = i_24_;
 		this.anInt2943 = i_27_;
@@ -207,7 +207,7 @@ final class Projectile extends SceneGraphNode {
 	@Override
 	final void method2266(final int i, final int i_29_, final int i_30_, final int i_31_, final int i_32_) {
 		if (!aBoolean2928) {
-			final Class180_Sub7 class180_sub7 = method2322();
+			final AbstractModel class180_sub7 = method2322();
 			if (class180_sub7 == null) {
 				return;
 			}

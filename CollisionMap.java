@@ -45,8 +45,8 @@ final class CollisionMap {
 	}
 
 	final void method212(int x, int z) {
-		z -= zOffset;
 		x -= xOffset;
+		z -= zOffset;
 		this.collisionFlags[x][z] |= 40000;
 	}
 

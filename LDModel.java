@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub7_Sub1 extends Class180_Sub7 {
+final class LDModel extends AbstractModel {
 	boolean boundsCalculated;
 	private byte aByte3756 = 0;
 	private short minZ;
@@ -15,7 +15,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	int[] zVertices;
 	private byte[] trianglesAlpha;
 	private int[] anIntArray3766;
-	private static Class180_Sub7_Sub1 aClass180_Sub7_Sub1_3767 = new Class180_Sub7_Sub1();
+	private static LDModel aClass180_Sub7_Sub1_3767 = new LDModel();
 	private int anInt3768 = 0;
 	private int[] anIntArray3769;
 	private byte[] aByteArray3770;
@@ -47,8 +47,8 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	private static int[] anIntArray3796;
 	private int[] anIntArray3797;
 	private static short[] aShortArray3798;
-	private static Class180_Sub7_Sub1 aClass180_Sub7_Sub1_3799;
-	private static Class180_Sub7_Sub1 aClass180_Sub7_Sub1_3800;
+	private static LDModel aClass180_Sub7_Sub1_3799;
+	private static LDModel aClass180_Sub7_Sub1_3800;
 	private static int[] anIntArray3801;
 	private static short[] aShortArray3802;
 	private static byte[] aByteArray3803;
@@ -98,13 +98,13 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		anIntArray3796 = new int[1];
 		anIntArray3790 = new int[1];
 		aShortArray3798 = new short[1];
-		aClass180_Sub7_Sub1_3799 = new Class180_Sub7_Sub1();
+		aClass180_Sub7_Sub1_3799 = new LDModel();
 		anIntArray3801 = new int[1];
 		aShortArray3802 = new short[1];
 		anIntArray3804 = new int[1];
 		aByteArray3803 = new byte[1];
 		anIntArray3805 = new int[1];
-		aClass180_Sub7_Sub1_3800 = new Class180_Sub7_Sub1();
+		aClass180_Sub7_Sub1_3800 = new LDModel();
 		anIntArray3812 = new int[8192];
 		anIntArray3821 = new int[8192];
 		anIntArray3819 = new int[12];
@@ -146,7 +146,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final void method2373() {
+	final void rotate180() {
 		for (int i = 0; i < this.anInt3793; i++) {
 			this.xVertices[i] = -this.xVertices[i];
 			this.zVertices[i] = -this.zVertices[i];
@@ -163,7 +163,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final Class180_Sub7 method2376(final boolean bool, final boolean bool_0_, final boolean bool_1_) {
+	final AbstractModel method2376(final boolean bool, final boolean bool_0_, final boolean bool_1_) {
 		if (!bool && aByteArray3782.length < anInt3792) {
 			aByteArray3782 = new byte[anInt3792 + 100];
 		}
@@ -585,7 +585,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final void method2365() {
+	final void rotate90() {
 		for (int i = 0; i < this.anInt3793; i++) {
 			final int i_94_ = this.xVertices[i];
 			this.xVertices[i] = this.zVertices[i];
@@ -614,8 +614,8 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		return minX;
 	}
 
-	final Class180_Sub7 method2392(final Class180_Sub7 class180_sub7) {
-		return new Class180_Sub7_Sub1(new Class180_Sub7_Sub1[] { this, (Class180_Sub7_Sub1) class180_sub7 }, 2);
+	final AbstractModel method2392(final AbstractModel class180_sub7) {
+		return new LDModel(new LDModel[] { this, (LDModel) class180_sub7 }, 2);
 	}
 
 	@Override
@@ -829,7 +829,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final void method2372() {
+	final void rotate270() {
 		for (int i = 0; i < this.anInt3793; i++) {
 			final int i_158_ = this.zVertices[i];
 			this.zVertices[i] = this.xVertices[i];
@@ -1014,7 +1014,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final Class180_Sub7 method2378(final boolean bool, final boolean bool_194_, final boolean bool_195_) {
+	final AbstractModel method2378(final boolean bool, final boolean bool_194_, final boolean bool_195_) {
 		if (!bool && aByteArray3825.length < anInt3792) {
 			aByteArray3825 = new byte[anInt3792 + 100];
 		}
@@ -1047,7 +1047,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final Class180_Sub7 method2381(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
+	final AbstractModel method2381(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
 		if (!bool && aByteArray3803.length < anInt3792) {
 			aByteArray3803 = new byte[anInt3792 + 100];
 		}
@@ -1221,7 +1221,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		}
 	}
 
-	private final Class180_Sub7 method2397(final boolean bool, final boolean bool_238_, final Class180_Sub7_Sub1 class180_sub7_sub1_239_, final byte[] is, final short[] is_240_, final int[] is_241_, final int[] is_242_, final int[] is_243_) {
+	private final AbstractModel method2397(final boolean bool, final boolean bool_238_, final LDModel class180_sub7_sub1_239_, final byte[] is, final short[] is_240_, final int[] is_241_, final int[] is_242_, final int[] is_243_) {
 		class180_sub7_sub1_239_.anInt3793 = this.anInt3793;
 		class180_sub7_sub1_239_.vertexCount = vertexCount;
 		class180_sub7_sub1_239_.anInt3792 = anInt3792;
@@ -1339,7 +1339,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		this.boundsCalculated = true;
 	}
 
-	final Class180_Sub7_Sub1 method2399(final int i, final int i_256_, final int[][] is, final int[][] is_257_, final int i_258_, final int i_259_, final int i_260_, final boolean bool) {
+	final LDModel method2399(final int i, final int i_256_, final int[][] is, final int[][] is_257_, final int i_258_, final int i_259_, final int i_260_, final boolean bool) {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
@@ -1366,9 +1366,9 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 				return this;
 			}
 		}
-		Class180_Sub7_Sub1 class180_sub7_sub1_265_;
+		LDModel class180_sub7_sub1_265_;
 		if (bool) {
-			class180_sub7_sub1_265_ = new Class180_Sub7_Sub1();
+			class180_sub7_sub1_265_ = new LDModel();
 			class180_sub7_sub1_265_.anInt3793 = this.anInt3793;
 			class180_sub7_sub1_265_.vertexCount = vertexCount;
 			class180_sub7_sub1_265_.anInt3792 = anInt3792;
@@ -1394,9 +1394,9 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 			class180_sub7_sub1_265_.aShortArray3761 = aShortArray3761;
 			class180_sub7_sub1_265_.haveActions = this.haveActions;
 			if (i == 3) {
-				class180_sub7_sub1_265_.xVertices = SpotAnimType.method879(this.xVertices, -121);
-				class180_sub7_sub1_265_.yVertices = SpotAnimType.method879(this.yVertices, -121);
-				class180_sub7_sub1_265_.zVertices = SpotAnimType.method879(this.zVertices, -105);
+				class180_sub7_sub1_265_.xVertices = SpotAnimType.arrayCopy(this.xVertices);
+				class180_sub7_sub1_265_.yVertices = SpotAnimType.arrayCopy(this.yVertices);
+				class180_sub7_sub1_265_.zVertices = SpotAnimType.arrayCopy(this.zVertices);
 			} else {
 				class180_sub7_sub1_265_.xVertices = this.xVertices;
 				class180_sub7_sub1_265_.yVertices = new int[class180_sub7_sub1_265_.anInt3793];
@@ -1718,7 +1718,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 	}
 
 	@Override
-	final void method2369(final int i, final int i_422_, final int i_423_) {
+	final void resize(final int i, final int i_422_, final int i_423_) {
 		for (int i_424_ = 0; i_424_ < this.anInt3793; i_424_++) {
 			this.xVertices[i_424_] = this.xVertices[i_424_] * i / 128;
 			this.yVertices[i_424_] = this.yVertices[i_424_] * i_422_ / 128;
@@ -2318,14 +2318,14 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		anIntArrayArray3809 = null;
 	}
 
-	public Class180_Sub7_Sub1() {
+	public LDModel() {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
 		vertexCount = 0;
 		this.anInt3793 = 0;
 	}
 
-	Class180_Sub7_Sub1(final Class180_Sub2 class180_sub2, final int i, final int i_643_, final int i_644_, final int i_645_, final int i_646_) {
+	LDModel(final Class180_Sub2 class180_sub2, final int i, final int i_643_, final int i_644_, final int i_645_, final int i_646_) {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
 		vertexCount = 0;
@@ -2503,7 +2503,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		}
 	}
 
-	private Class180_Sub7_Sub1(final Class180_Sub7_Sub1[] class180_sub7_sub1s, final int i) {
+	private LDModel(final LDModel[] class180_sub7_sub1s, final int i) {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
 		vertexCount = 0;
@@ -2519,7 +2519,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		int i_669_ = 0;
 		aByte3756 = (byte) -1;
 		for (int i_670_ = 0; i_670_ < i; i_670_++) {
-			final Class180_Sub7_Sub1 class180_sub7_sub1_671_ = class180_sub7_sub1s[i_670_];
+			final LDModel class180_sub7_sub1_671_ = class180_sub7_sub1s[i_670_];
 			if (class180_sub7_sub1_671_ != null) {
 				this.anInt3793 += class180_sub7_sub1_671_.anInt3793;
 				anInt3792 += class180_sub7_sub1_671_.anInt3792;
@@ -2584,7 +2584,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		i_669_ = 0;
 		i_668_ = 0;
 		for (int i_672_ = 0; i_672_ < i; i_672_++) {
-			final Class180_Sub7_Sub1 class180_sub7_sub1_673_ = class180_sub7_sub1s[i_672_];
+			final LDModel class180_sub7_sub1_673_ = class180_sub7_sub1s[i_672_];
 			if (class180_sub7_sub1_673_ != null) {
 				for (int i_674_ = 0; i_674_ < class180_sub7_sub1_673_.anInt3792; i_674_++) {
 					trianglesA[anInt3792] = class180_sub7_sub1_673_.trianglesA[i_674_] + this.anInt3793;
@@ -2652,7 +2652,7 @@ final class Class180_Sub7_Sub1 extends Class180_Sub7 {
 		int i_679_ = 0;
 		vertexCount = this.anInt3793;
 		for (int i_680_ = 0; i_680_ < i; i_680_++) {
-			final Class180_Sub7_Sub1 class180_sub7_sub1_681_ = class180_sub7_sub1s[i_680_];
+			final LDModel class180_sub7_sub1_681_ = class180_sub7_sub1s[i_680_];
 			if (class180_sub7_sub1_681_ != null) {
 				for (int i_682_ = 0; i_682_ < class180_sub7_sub1_681_.anInt3768; i_682_++) {
 					if (class180_sub7_sub1_681_.anIntArray3791[i_682_] >= class180_sub7_sub1_681_.vertexCount) {

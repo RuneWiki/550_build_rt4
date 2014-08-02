@@ -24,7 +24,7 @@ final class StringNode extends Node {
 
 	static final void method1720() {
 		SpotAnimType.recentUse.clear();
-		Class182.aClass21_1798.clear();
+		SpotAnimType.aClass21_1798.clear();
 	}
 
 	public StringNode() {
@@ -54,9 +54,9 @@ final class StringNode extends Node {
 			FileSystemRequest.method1545(0, false, false);
 		}
 		if (!titleScreen) {
-			Class84.method718((byte) -12);
+			GZIPDecompressor.method718();
 		}
-		Class174.method2236(60);
+		Class174.method2236();
 		if (HDToolkit.glEnabled) {
 			Class154.method2079(y, true, false, height, x, width);
 			width = Class120_Sub12_Sub27.anInt3339;
@@ -85,7 +85,7 @@ final class StringNode extends Node {
 		final int i_9_ = GroundObjectNode.renderZ;
 		final int i_10_ = OverlayType.renderPitch;
 		final int i_11_ = Class120_Sub12_Sub10.renderY;
-		final int i_12_ = Class180_Sub3.renderYaw;
+		final int i_12_ = SpotAnimation.renderYaw;
 		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[i_13_]) {
 				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * Class181.anIntArray1790[i_13_]);
@@ -102,7 +102,7 @@ final class StringNode extends Node {
 					}
 				}
 				if (i_13_ == 3) {
-					Class180_Sub3.renderYaw = 0x7ff & Class180_Sub3.renderYaw + i_14_;
+					SpotAnimation.renderYaw = 0x7ff & SpotAnimation.renderYaw + i_14_;
 				}
 				if (i_13_ == 2) {
 					GroundObjectNode.renderZ += i_14_;
@@ -118,14 +118,14 @@ final class StringNode extends Node {
 			Rasterizer.calculateByBounds();
 			if (Class158.anInt1475 >= 0) {
 				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 127, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
-				class41.method330(Class132.anInt1257, x, y, width, height, OverlayType.renderPitch, Class180_Sub3.renderYaw, 0);
+				class41.method330(Class132.anInt1257, x, y, width, height, OverlayType.renderPitch, SpotAnimation.renderYaw, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
 		} else {
 			GraphicsHD.clipRect(x, y, x + width, height + y);
 			float f = OverlayType.renderPitch * 0.17578125F;
-			float f_15_ = Class180_Sub3.renderYaw * 0.17578125F;
+			float f_15_ = SpotAnimation.renderYaw * 0.17578125F;
 			if (client.cameraType == 3) {
 				f = Class120_Sub30_Sub1.aFloat3674 * 360.0F / 6.2831855F;
 				f_15_ = 360.0F * SeekableFile.aFloat2139 / 6.2831855F;
@@ -139,7 +139,7 @@ final class StringNode extends Node {
 			if (Class158.anInt1475 >= 0) {
 				HDToolkit.method517();
 				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, (byte) 126, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
-				class41.method331(Class132.anInt1257, x, y, width, height, OverlayType.renderPitch, Class180_Sub3.renderYaw, i_16_);
+				class41.method331(Class132.anInt1257, x, y, width, height, OverlayType.renderPitch, SpotAnimation.renderYaw, i_16_);
 			} else {
 				HDToolkit.method531(i_16_);
 			}
@@ -165,16 +165,16 @@ final class StringNode extends Node {
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;
 		if (!HDToolkit.glEnabled) {
-			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
+			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, Class173.gameLevel - -1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class120_Sub2.method1050();
 			Class120_Sub12_Sub13.method1264();
 			Class69.method612(x, y, width, height, 256, 256);
 			Class143_Sub1.method2027(x, y, width, height, 256, 256);
 		} else {
 			LightManager.method1858(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
-			MouseRecorder.method760(Class180_Sub3.renderYaw, OverlayType.renderPitch, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, 85, FileSystemWorker.renderX);
+			MouseRecorder.method760(SpotAnimation.renderYaw, OverlayType.renderPitch, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, 85, FileSystemWorker.renderX);
 			HDToolkit.anInt542 = Class101_Sub2.loopCycle;
-			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, Class180_Sub3.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, Class180_Sub6.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
+			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, OverlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, 1 + Class173.gameLevel, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class167.aBoolean1620 = true;
 			LightManager.method1859();
 			MouseRecorder.method760(0, 0, 0, 0, 91, 0);
@@ -187,7 +187,7 @@ final class StringNode extends Node {
 		OverlayType.drawOverlay(y, x, height, width);
 		FileSystemWorker.renderX = i_8_;
 		Class120_Sub12_Sub10.renderY = i_11_;
-		Class180_Sub3.renderYaw = i_12_;
+		SpotAnimation.renderYaw = i_12_;
 		OverlayType.renderPitch = i_10_;
 		GroundObjectNode.renderZ = i_9_;
 		if (Class69.aBoolean615 && Class178.js5Worker.getUrgentSize() == 0) {

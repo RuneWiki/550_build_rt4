@@ -248,15 +248,15 @@ final class GraphicsHD {
 		HDToolkit.gl.glClear(16640);
 	}
 
-	static final void fillRect(final int i, final int i_68_, final int i_69_, final int i_70_, final int i_71_) {
+	static final void fillRect(final int x, final int y, final int w, final int h, final int color) {
 		HDToolkit.method499();
-		final float f = i;
-		final float f_72_ = f + i_69_;
-		final float f_73_ = HDToolkit.canvasHeight - i_68_;
-		final float f_74_ = f_73_ - i_70_;
+		final float f = x;
+		final float f_72_ = f + w;
+		final float f_73_ = HDToolkit.canvasHeight - y;
+		final float f_74_ = f_73_ - h;
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(6);
-		gl.glColor3ub((byte) (i_71_ >> 16), (byte) (i_71_ >> 8), (byte) i_71_);
+		gl.glColor3ub((byte) (color >> 16), (byte) (color >> 8), (byte) color);
 		gl.glVertex2f(f, f_73_);
 		gl.glVertex2f(f, f_74_);
 		gl.glVertex2f(f_72_, f_74_);

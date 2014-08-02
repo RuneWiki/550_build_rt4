@@ -65,98 +65,97 @@ final class Class38 {
 	}
 
 	static final boolean method315(final int level) {
-		if (Class120_Sub14_Sub10.landScapeAsSprite == null) {
-			if (!HDToolkit.glEnabled && Class134.landscapeAsSprite != null) {
-				Class120_Sub14_Sub10.landScapeAsSprite = (LDSprite) Class134.landscapeAsSprite;
+		if (Class120_Sub14_Sub10.landScapeAsLDSprite == null) {
+			if (!HDToolkit.glEnabled && Class134.landscapeAsAbstractSprite != null) {
+				Class120_Sub14_Sub10.landScapeAsLDSprite = (LDSprite) Class134.landscapeAsAbstractSprite;
 			} else {
-				Class120_Sub14_Sub10.landScapeAsSprite = new LDSprite(512, 512);
+				Class120_Sub14_Sub10.landScapeAsLDSprite = new LDSprite(512, 512);
 			}
-			final int[] is = Class120_Sub14_Sub10.landScapeAsSprite.pixels;
-			final int i_12_ = is.length;
-			for (int i_13_ = 0; i_13_ < i_12_; i_13_++) {
-				is[i_13_] = 1;
+			final int[] pixels = Class120_Sub14_Sub10.landScapeAsLDSprite.pixels;
+			for (int id = 0; id < pixels.length; id++) {
+				pixels[id] = 1;
 			}
-			for (int i_14_ = 1; i_14_ < 103; i_14_++) {
-				int i_15_ = (103 - i_14_) * 512 * 4 + 24628;
-				for (int i_16_ = 1; i_16_ < 103; i_16_++) {
-					if ((0x18 & Class114.tileSettings[level][i_16_][i_14_]) == 0) {
-						Class120_Sub12_Sub6.method1229(is, i_15_, 512, level, i_16_, i_14_);
+			for (int z = 1; z < 103; z++) {
+				int pixelPos = (103 - z) * 512 * 4 + 24628;
+				for (int x = 1; x < 103; x++) {
+					if ((0x18 & Class114.tileSettings[level][x][z]) == 0) {
+						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, level, x, z);
 					}
-					if (level < 3 && (Class114.tileSettings[level + 1][i_16_][i_14_] & 0x8) != 0) {
-						Class120_Sub12_Sub6.method1229(is, i_15_, 512, 1 + level, i_16_, i_14_);
+					if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0) {
+						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, level + 1, x, z);
 					}
-					i_15_ += 4;
+					pixelPos += 4;
 				}
 			}
-			Class120_Sub24.anInt2718 = 0;
-			for (int i_17_ = 0; i_17_ < 104; i_17_++) {
-				for (int i_18_ = 0; i_18_ < 104; i_18_++) {
-					long bitPacked = Class79_Sub1.method696(level, i_17_ + 0, 0 + i_18_);
+			Class120_Sub24.mapFunctionCount = 0;
+			for (int x = 0; x < 104; x++) {
+				for (int z = 0; z < 104; z++) {
+					long bitPacked = Class79_Sub1.method696(x, z, level);
 					if (bitPacked == 0L) {
-						bitPacked = Class120_Sub11.method1173(level, 0 + i_17_, i_18_ + 0);
+						bitPacked = Class120_Sub11.method1173(x, z, level);
 					}
 					if (bitPacked == 0L) {
-						bitPacked = Class114.method1005(level, i_17_ + 0, 0 + i_18_);
+						bitPacked = Class114.method1005(x, z , level);
 					}
 					if (bitPacked == 0L) {
-						bitPacked = JagexInterface.method2502(level, i_17_ - 0, i_18_ + 0);
+						bitPacked = JagexInterface.method2502(x, z, level);
 					}
 					if (bitPacked != 0L) {
 						final LocType locType = LocType.list(0x7fffffff & (int) (bitPacked >>> 32));
 						if (!locType.members || Class120_Sub12_Sub37.membersClient) {
-							int i_19_ = locType.anInt1840;
+							int mapFunctionId = locType.mapFunctionId;
 							if (locType.childrenIDs != null) {
-								for (int i_20_ = 0; i_20_ < locType.childrenIDs.length; i_20_++) {
-									if ((locType.childrenIDs[i_20_] ^ 0xffffffff) != 0) {
-										final LocType class184_21_ = LocType.list(locType.childrenIDs[i_20_]);
-										if (class184_21_.anInt1840 >= 0) {
-											i_19_ = class184_21_.anInt1840;
+								for (int id = 0; id < locType.childrenIDs.length; id++) {
+									if (locType.childrenIDs[id] != -1) {
+										final LocType varpLocType = LocType.list(locType.childrenIDs[id]);
+										if (varpLocType.mapFunctionId >= 0) {
+											mapFunctionId = varpLocType.mapFunctionId;
 										}
 									}
 								}
 							}
-							if (i_19_ >= 0) {
-								boolean bool_22_ = false;
-								final Class73 class73 = Class73.list(i_19_);
-								int i_23_ = 0 + i_17_;
-								int i_24_ = i_18_ - 0;
-								if (class73 != null && class73.randomizePosition) {
-									bool_22_ = true;
+							if (mapFunctionId >= 0) {
+								boolean randomizePosition = false;
+								final MapFunctionType mapFunctionType = MapFunctionType.list(mapFunctionId);
+								int x2 = x;
+								int z2 = z;
+								if (mapFunctionType != null && mapFunctionType.randomizePosition) {
+									randomizePosition = true;
 								}
-								if (bool_22_) {
-									final int[][] is_25_ = Class182.collisionMaps[level].collisionFlags;
-									for (int i_26_ = 0; i_26_ < 10; i_26_++) {
-										final int i_27_ = (int) (Math.random() * 4.0);
-										if (i_27_ == 0 && i_23_ > 0 && i_23_ > -3 + i_17_ && (is_25_[i_23_ + -1][i_24_] & 0x2c0108) == 0) {
-											i_23_--;
+								if (randomizePosition) {
+									final int[][] collisionFlags = Class182.collisionMaps[level].collisionFlags;
+									for (int id = 0; id < 10; id++) {
+										final int random = (int) (Math.random() * 4.0);
+										if (random == 0 && x2 > 0 && x2 > x - 3 && (collisionFlags[x2 - 1][z2] & 0x2c0108) == 0) {
+											x2--;
 										}
-										if (i_27_ == 1 && i_23_ < 103 && i_23_ < i_17_ - -3 && (is_25_[1 + i_23_][i_24_] & 0x2c0180) == 0) {
-											i_23_++;
+										if (random == 1 && x2 < 103 && x2 < x + 3 && (collisionFlags[x2 + 1][z2] & 0x2c0180) == 0) {
+											x2++;
 										}
-										if (i_27_ == 2 && i_24_ > 0 && i_18_ - 3 < i_24_ && (0x2c0102 & is_25_[i_23_][-1 + i_24_]) == 0) {
-											i_24_--;
+										if (random == 2 && z2 > 0 && z2 > z - 3 && (0x2c0102 & collisionFlags[x2][z2 - 1]) == 0) {
+											z2--;
 										}
-										if (i_27_ == 3 && i_24_ < 103 && 3 + i_18_ > i_24_ && (is_25_[i_23_][1 + i_24_] & 0x2c0120) == 0) {
-											i_24_++;
+										if (random == 3 && z2 < 103 && z2 < 3 + z && (collisionFlags[x2][z2 + 1] & 0x2c0120) == 0) {
+											z2++;
 										}
 									}
 								}
-								Class7.anIntArray62[Class120_Sub24.anInt2718] = locType.myId;
-								Class73.anIntArray661[Class120_Sub24.anInt2718] = i_23_ + 0;
-								Class69_Sub2.anIntArray2235[Class120_Sub24.anInt2718] = 0 + i_24_;
-								Class120_Sub24.anInt2718++;
+								Class7.mapFunctionLocIds[Class120_Sub24.mapFunctionCount] = locType.myId;
+								MapFunctionType.mapFunctionXs[Class120_Sub24.mapFunctionCount] = x2;
+								Class69_Sub2.mapFunctionZs[Class120_Sub24.mapFunctionCount] = z2;
+								Class120_Sub24.mapFunctionCount++;
 							}
 						}
 					}
 				}
 			}
 		}
-		Class120_Sub14_Sub10.landScapeAsSprite.method1617();
+		Class120_Sub14_Sub10.landScapeAsLDSprite.method1617();
 		final int whiteColor = 0xffffff;//-10 - (-238 + -(int) (20.0 * Math.random())) + (228 + (int) (20.0 * Math.random()) << 8) + (-10 + (int) (20.0 * Math.random()) + 238 << 16);
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
-		for (int i_30_ = 1; i_30_ < 103; i_30_++) {
-			for (int i_31_ = 1; i_31_ < 103; i_31_++) {
-				if ((Class114.tileSettings[level][i_31_ - 0][0 + i_30_] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, i_30_, i_31_)) {
+		for (int z = 1; z < 103; z++) {
+			for (int x = 1; x < 103; x++) {
+				if ((Class114.tileSettings[level][x][z] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, z, x)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -164,7 +163,7 @@ final class Class38 {
 					}
 					return false;
 				}
-				if (level < 3 && (Class114.tileSettings[level - -1][i_31_ + 0][0 + i_30_] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, i_30_, i_31_)) {
+				if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, z, x)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -175,23 +174,22 @@ final class Class38 {
 			}
 		}
 		if (HDToolkit.glEnabled) {
-			final int[] is = Class120_Sub14_Sub10.landScapeAsSprite.pixels;
-			final int i_32_ = is.length;
-			for (int i_33_ = 0; i_33_ < i_32_; i_33_++) {
-				if (is[i_33_] == 0) {
-					is[i_33_] = 1;
+			final int[] pixels = Class120_Sub14_Sub10.landScapeAsLDSprite.pixels;
+			for (int id = 0; id < pixels.length; id++) {
+				if (pixels[id] == 0) {
+					pixels[id] = 1;
 				}
 			}
-			Class134.landscapeAsSprite = new HDSprite(Class120_Sub14_Sub10.landScapeAsSprite);
+			Class134.landscapeAsAbstractSprite = new HDSprite(Class120_Sub14_Sub10.landScapeAsLDSprite);
 		} else {
-			Class134.landscapeAsSprite = Class120_Sub14_Sub10.landScapeAsSprite;
+			Class134.landscapeAsAbstractSprite = Class120_Sub14_Sub10.landScapeAsLDSprite;
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsLD.pixels = null;
 		} else {
 			ClanMember.fullscreenGraphics.init2dCanvas();
 		}
-		Class120_Sub14_Sub10.landScapeAsSprite = null;
+		Class120_Sub14_Sub10.landScapeAsLDSprite = null;
 		return true;
 	}
 

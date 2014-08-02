@@ -30,21 +30,21 @@ final class Class88 {
 				aClass105_829 = null;
 			}
 			if (i_3_ == 0) {
-				l = Class114.method1005(i_0_, i_4_, i_2_);
+				l = Class114.method1005(i_4_, i_2_, i_0_);
 			} else if (i_3_ == 1) {
-				l = JagexInterface.method2502(i_0_, i_4_, i_2_);
+				l = JagexInterface.method2502(i_4_, i_2_, i_0_);
 			} else if (i_3_ != 2) {
 				if (i_3_ == 3) {
-					l = Class79_Sub1.method696(i_0_, i_4_, i_2_);
+					l = Class79_Sub1.method696(i_4_, i_2_, i_0_);
 				}
 			} else {
-				l = Class120_Sub11.method1173(i_0_, i_4_, i_2_);
+				l = Class120_Sub11.method1173(i_4_, i_2_, i_0_);
 			}
 			final int i_6_ = ((int) l & 0x7dc53) >> 14;
 			i_5_ = 0x7fffffff & (int) (l >>> 32);
 			final int i_7_ = 0x3 & (int) l >> 20;
 			LocType locType = LocType.list(i_5_);
-			if (locType.method2466(-120)) {
+			if (locType.method2466()) {
 				Class120_Sub12.method1183(i_2_, locType, i_0_, 16157, i_4_);
 			}
 			if ((l ^ 0xffffffffffffffffL) != -1L) {
@@ -89,56 +89,56 @@ final class Class88 {
 					if (i_6_ != 2) {
 						if (i_6_ != 5) {
 							if (i_6_ == 6) {
-								if (!(sceneGraphNode instanceof Class180_Sub6)) {
+								if (!(sceneGraphNode instanceof AnimatedLocation)) {
 									Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, i_7_ + 4, i_1_, locType, (byte) 93, GroundObjectNode.anIntArray3629[i_7_] * 8, i_2_, 4);
 								} else {
-									((Class180_Sub6) sceneGraphNode).method2354(-70);
+									((AnimatedLocation) sceneGraphNode).method2354();
 								}
 							} else if (i_6_ != 7) {
 								if (i_6_ != 8) {
 									if (i_6_ != 11) {
-										if (!(sceneGraphNode instanceof Class180_Sub6)) {
+										if (!(sceneGraphNode instanceof AnimatedLocation)) {
 											Buffer.method1094(i_4_, 0, i_7_, i_1_, locType, (byte) 93, 0, i_2_, i_6_);
 										} else {
-											((Class180_Sub6) sceneGraphNode).method2354(-71);
+											((AnimatedLocation) sceneGraphNode).method2354();
 										}
-									} else if (sceneGraphNode instanceof Class180_Sub6) {
-										((Class180_Sub6) sceneGraphNode).method2354(-58);
+									} else if (sceneGraphNode instanceof AnimatedLocation) {
+										((AnimatedLocation) sceneGraphNode).method2354();
 									} else {
 										Buffer.method1094(i_4_, 0, i_7_ + 4, i_1_, locType, (byte) 93, 0, i_2_, 10);
 									}
 								} else {
-									if (sceneGraphNode instanceof Class180_Sub6) {
-										((Class180_Sub6) sceneGraphNode).method2354(52);
+									if (sceneGraphNode instanceof AnimatedLocation) {
+										((AnimatedLocation) sceneGraphNode).method2354();
 									} else {
 										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + i_7_, i_1_, locType, (byte) 93, 8 * GroundObjectNode.anIntArray3629[i_7_], i_2_, 4);
 									}
-									if (class180_8_ instanceof Class180_Sub6) {
-										((Class180_Sub6) class180_8_).method2354(-122);
+									if (class180_8_ instanceof AnimatedLocation) {
+										((AnimatedLocation) class180_8_).method2354();
 									} else {
 										Buffer.method1094(i_4_, Class55.anIntArray493[i_7_] * 8, 4 + (0x3 & i_7_ + 2), i_1_, locType, (byte) 93, GroundObjectNode.anIntArray3629[i_7_] * 8, i_2_, 4);
 									}
 								}
-							} else if (sceneGraphNode instanceof Class180_Sub6) {
-								((Class180_Sub6) sceneGraphNode).method2354(111);
+							} else if (sceneGraphNode instanceof AnimatedLocation) {
+								((AnimatedLocation) sceneGraphNode).method2354();
 							} else {
 								Buffer.method1094(i_4_, 0, (0x3 & 2 + i_7_) + 4, i_1_, locType, (byte) 93, 0, i_2_, 4);
 							}
-						} else if (!(sceneGraphNode instanceof Class180_Sub6)) {
+						} else if (!(sceneGraphNode instanceof AnimatedLocation)) {
 							Buffer.method1094(i_4_, 8 * Class109.anIntArray1037[i_7_], i_7_, i_1_, locType, (byte) 93, Class147.anIntArray1396[i_7_] * 8, i_2_, 4);
 						} else {
-							((Class180_Sub6) sceneGraphNode).method2354(-64);
+							((AnimatedLocation) sceneGraphNode).method2354();
 						}
 					} else {
-						if (sceneGraphNode instanceof Class180_Sub6) {
-							((Class180_Sub6) sceneGraphNode).method2354(-125);
+						if (sceneGraphNode instanceof AnimatedLocation) {
+							((AnimatedLocation) sceneGraphNode).method2354();
 						} else {
 							Buffer.method1094(i_4_, 0, i_7_ + 4, i_1_, locType, (byte) 93, 0, i_2_, i_6_);
 						}
-						if (!(class180_8_ instanceof Class180_Sub6)) {
+						if (!(class180_8_ instanceof AnimatedLocation)) {
 							Buffer.method1094(i_4_, 0, 0x3 & i_7_ - -1, i_1_, locType, (byte) 93, 0, i_2_, i_6_);
 						} else {
-							((Class180_Sub6) class180_8_).method2354(50);
+							((AnimatedLocation) class180_8_).method2354();
 						}
 					}
 				}

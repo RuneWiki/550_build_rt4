@@ -48,15 +48,15 @@ final class Class101_Sub1 extends Class101 {
 
 	static final void method842(final Deque deque, final int i, final int i_9_, final int i_10_) {
 		try {
-			Class73.aClass105_653.clear();
+			MapFunctionType.aClass105_653.clear();
 			if (i_9_ != 5938) {
 				aClass22_2273 = null;
 			}
 			if (!Class120_Sub12_Sub27.aBoolean3348) {
 				for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getFront(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) deque.getNext()) {
-					final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
+					final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.anInt3473);
 					if (Class9.method116(class73, -1)) {
-						SceneGraphNode.method2271(i, false, class120_sub14_sub5, i_10_, class73);
+						SceneGraphNode.method2271(class120_sub14_sub5, class73, i, i_10_);
 						if (class120_sub14_sub5.aBoolean3476) {
 							SubScript.method2244(class120_sub14_sub5, class73);
 						}

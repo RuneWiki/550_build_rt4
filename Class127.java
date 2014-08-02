@@ -3,7 +3,7 @@
  */
 
 final class Class127 {
-	static boolean aBoolean1211;
+	static boolean recordMouseMovements;
 	private Queue aClass177_1212;
 	static js5 aClass50_1213;
 	static short[] aShortArray1214 = new short[256];
@@ -12,7 +12,7 @@ final class Class127 {
 	static String aString1217;
 
 	static {
-		aBoolean1211 = false;
+		recordMouseMovements = false;
 		anInt1215 = -1;
 		aString1217 = "flash3:";
 	}
@@ -83,20 +83,14 @@ final class Class127 {
 		return class120_sub14_5_;
 	}
 
-	static final void method1891(final int i, final int i_6_, final int i_7_, final int i_8_, final boolean bool, final js5 js5) {
-		try {
-			SeqType.anInt349 = i_7_;
-			Js5Request.anInt3940 = i;
-			Class69.anInt614 = 10000;
-			Class120_Sub14_Sub23.anInt3649 = i_8_;
-			MasterIndexInfo.aClass50_476 = js5;
-			if (i_6_ == -20329) {
-				StringNode.aBoolean2734 = bool;
-				Class120_Sub12_Sub25.anInt3312 = 1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.C(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(bool).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method1891(final js5 js5, final int i, final int i_7_, final int i_8_, final boolean bool) {
+		SeqType.anInt349 = i_7_;
+		Js5Request.anInt3940 = i;
+		Class69.anInt614 = 10000;
+		Class120_Sub14_Sub23.anInt3649 = i_8_;
+		MasterIndexInfo.aClass50_476 = js5;
+		StringNode.aBoolean2734 = bool;
+		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
 
 	static final void method1892() {
@@ -131,10 +125,10 @@ final class Class127 {
 			}
 		}
 		int i_17_ = 192 * i_11_;
-		if ((i_17_ ^ 0xffffffff) < -98049) {
+		if (i_17_ > 98048) {
 			i_17_ = 98048;
 		}
-		if (-32769 < (i_17_ ^ 0xffffffff)) {
+		if (i_17_ < 32768) {
 			i_17_ = 32768;
 		}
 		if (i_17_ > Class26.anInt162) {
@@ -177,46 +171,18 @@ final class Class127 {
 		}
 	}
 
-	final NodeSub method1895(final byte i) {
-		NodeSub class120_sub14;
-		try {
-			final NodeSub class120_sub14_22_ = aClass177_1212.head.nextSub;
-			if (aClass177_1212.head == class120_sub14_22_) {
-				aClass120_Sub14_1216 = null;
-				return null;
-			}
-			aClass120_Sub14_1216 = class120_sub14_22_.nextSub;
-			if (i != -79) {
-				aBoolean1211 = false;
-			}
-			class120_sub14 = class120_sub14_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.J(").append(i).append(')').toString());
+	final NodeSub method1895() {
+		final NodeSub class120_sub14_22_ = aClass177_1212.head.nextSub;
+		if (aClass177_1212.head == class120_sub14_22_) {
+			aClass120_Sub14_1216 = null;
+			return null;
 		}
-		return class120_sub14;
+		aClass120_Sub14_1216 = class120_sub14_22_.nextSub;
+		return class120_sub14_22_;
 	}
 
-	final void method1896(final int i, final Queue queue) {
-		try {
-			if (i == -16646) {
-				aClass177_1212 = queue;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.I(").append(i).append(',').append(queue != null ? "{...}" : "null").append(')').toString());
-		}
-	}
-
-	static final int method1897(final int i, final int i_23_) {
-		int i_24_;
-		try {
-			if (i_23_ <= 28) {
-				method1893(18, 65);
-			}
-			i_24_ = i >>> 8;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.A(").append(i).append(',').append(i_23_).append(')').toString());
-		}
-		return i_24_;
+	final void method1896(final Queue queue) {
+		aClass177_1212 = queue;
 	}
 
 	public Class127() {

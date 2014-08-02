@@ -141,7 +141,7 @@ abstract class AbstractIndexedSprite {
 					if (newDisplayMode == 0 && currentDisplayMode > 0) {
 						JagexInterface.gameShellThread.setPriority(1);
 						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
-						Class180_Sub7_Sub1.method2395();
+						LDModel.method2395();
 						ParticleEngine.method946();
 						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20, (byte) -111);
 						if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -164,7 +164,7 @@ abstract class AbstractIndexedSprite {
 				} else {
 					JagexInterface.gameShellThread.setPriority(5);
 					ClanMember.fullscreenGraphics = null;
-					Class180_Sub7_Sub1.method2404();
+					LDModel.method2404();
 					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200, (byte) -111);
 					if (Class120_Sub12_Sub6.highLightingDetail) {
 						Rasterizer.method852(0.7F);

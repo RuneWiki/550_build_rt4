@@ -131,21 +131,14 @@ final class Class31 {
 		}
 	}
 
-	static final void method267(final int i, final Player class180_sub5_sub1) {
-		try {
-			if (i != 15) {
-				advertSuppressed = false;
+	static final void removePlayerAmbientSound(final Player player) {
+		final AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.get(Varp.stringToLong(player.name));
+		if (ambientSound != null) {
+			if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
+				Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
+				ambientSound.aClass120_Sub30_Sub4_2488 = null;
 			}
-			final AmbientSound class120_sub8 = (AmbientSound) Npc.playerAmbientSounds.get(Varp.stringToLong(class180_sub5_sub1.name));
-			if (class120_sub8 != null) {
-				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
-					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
-					class120_sub8.aClass120_Sub30_Sub4_2488 = null;
-				}
-				class120_sub8.unlink();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("db.F(").append(i).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(')').toString());
+			ambientSound.unlink();
 		}
 	}
 }

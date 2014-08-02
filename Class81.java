@@ -121,7 +121,7 @@ final class Class81 {
 					Class79.anIntArrayArrayArray713 = new int[i_5_][i_6_][];
 					Class79.aByteArrayArrayArray703 = new byte[i_5_][i_6_][];
 					Class79.aByteArrayArrayArray711 = new byte[i_5_][i_6_][];
-					Class73.aClass105_653 = new Deque();
+					MapFunctionType.aClass105_653 = new Deque();
 					Class22.aClass127_130 = new Class127();
 					Class43.method338(1024, 256, -87);
 					MasterIndexInfo.method453(256);

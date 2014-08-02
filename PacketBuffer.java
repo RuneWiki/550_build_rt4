@@ -174,12 +174,12 @@ final class PacketBuffer extends Buffer {
 	}
 
 	static final void method1147() {
-		if (Class84.anIntArray800 == null || FileSystemWorker.anIntArray789 == null) {
+		if (GZIPDecompressor.anIntArray800 == null || FileSystemWorker.anIntArray789 == null) {
 			FileSystemWorker.anIntArray789 = new int[256];
-			Class84.anIntArray800 = new int[256];
+			GZIPDecompressor.anIntArray800 = new int[256];
 			for (int i_4_ = 0; i_4_ < 256; i_4_++) {
 				final double d = i_4_ / 255.0 * 6.283185307179586;
-				Class84.anIntArray800[i_4_] = (int) (Math.sin(d) * 4096.0);
+				GZIPDecompressor.anIntArray800[i_4_] = (int) (Math.sin(d) * 4096.0);
 				FileSystemWorker.anIntArray789[i_4_] = (int) (Math.cos(d) * 4096.0);
 			}
 		}

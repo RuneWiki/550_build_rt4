@@ -68,7 +68,7 @@ final class InvType extends NodeSub {
 			final double d = Math.sqrt(f_23_ * f_23_ + f_24_ * f_24_);
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
 			SeekableFile.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
-			Class180_Sub3.renderYaw = 0x7ff & (int) (SeekableFile.aFloat2139 * 325.949);
+			SpotAnimation.renderYaw = 0x7ff & (int) (SeekableFile.aFloat2139 * 325.949);
 			OverlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
 		}
 	}

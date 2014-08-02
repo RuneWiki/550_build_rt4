@@ -38,13 +38,13 @@ final class Class82 implements Runnable {
 							for (int i = 0; i < 2; i++) {
 								final Class164 class164 = this.aClass164Array782[i];
 								if (class164 != null) {
-									class164.method2133((byte) -120);
+									class164.method2133();
 								}
 							}
 							PacketBuffer.sleepWrapper(10L);
 						}
 					} catch (final Exception exception) {
-						Class180_Sub3.method2312(exception, null);
+						SpotAnimation.method2312(exception, null);
 						this.aBoolean784 = false;
 						break;
 					}
@@ -130,7 +130,7 @@ final class Class82 implements Runnable {
 				final int i_12_ = i_4_ + i_3_ - 5;
 				int i_13_ = 16776960;
 				int i_14_ = i_2_ + i + -8;
-				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_12_, i_14_, 16776960, -1);
+				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(MapFunctionType.fps).toString(), i_12_, i_14_, 16776960, -1);
 				final Runtime runtime = Runtime.getRuntime();
 				i_14_ -= 15;
 				final int i_15_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
@@ -145,7 +145,7 @@ final class Class82 implements Runnable {
 
 	static final void method712(final int i) {
 		try {
-			Class84.aClass120_Sub14_Sub9_798 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = null;
+			GZIPDecompressor.aClass120_Sub14_Sub9_798 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = Class3.aClass120_Sub14_Sub9_54 = RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("im.E(").append(i).append(')').toString());
 		}
@@ -182,21 +182,21 @@ final class Class82 implements Runnable {
 			SceneGroundObject.packetSetFlagPosition = false;
 			Class120_Sub12_Sub26.flagX = 0;
 		}
-		for (int i_19_ = 0; i_19_ < 104; i_19_++) {
-			for (int i_20_ = 0; i_20_ < 104; i_20_++) {
-				FileSystemRequest.anIntArrayArray3933[i_19_][i_20_] = 0;
+		for (int x = 0; x < 104; x++) {
+			for (int z = 0; z < 104; z++) {
+				FileSystemRequest.anIntArrayArray3933[x][z] = 0;
 			}
 		}
-		for (int i_21_ = 0; FileSystemWorker.localPlayerCount > i_21_; i_21_++) {
-			final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_21_]];
-			if (class180_sub5_sub1 != null) {
-				((GameEntity) class180_sub5_sub1).hasMenuAction = false;
+		for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {
+			final Player player = Class118.playersList[Class112.playerIndices[id]];
+			if (player != null) {
+				player.hasMenuAction = false;
 			}
 		}
-		for (int i_22_ = 0; Class148.localNpcCount > i_22_; i_22_++) {
-			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_22_]];
-			if (class180_sub5_sub2 != null) {
-				((GameEntity) class180_sub5_sub2).hasMenuAction = false;
+		for (int id = 0; id < Class148.localNpcCount; id++) {
+			final Npc npc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id]];
+			if (npc != null) {
+				npc.hasMenuAction = false;
 			}
 		}
 	}

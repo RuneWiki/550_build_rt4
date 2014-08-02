@@ -9,7 +9,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	private int[][] anIntArrayArray3529;
 	static Frame fullscreenFrame;
 	boolean aBoolean3531 = true;
-	static LDSprite landScapeAsSprite;
+	static LDSprite landScapeAsLDSprite;
 	static int[] anIntArray3533 = new int[14];
 	static Hashtable aClass75_3534 = new Hashtable(16);
 	int[] anIntArray3535;
@@ -119,7 +119,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 				return true;
 			}
 			if (i != 80) {
-				landScapeAsSprite = null;
+				landScapeAsLDSprite = null;
 			}
 			if (c == '\u20ac' || c == '\u0152' || c == '\u2014' || c == '\u0153' || c == '\u0178') {
 				return true;
@@ -162,21 +162,14 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 		}
 	}
 
-	final void method1508(final int[] is, final byte i, final Buffer class120_sub7) {
-		try {
-			if (anIntArray3528 != null) {
-				for (int i_19_ = 0; i_19_ < anIntArray3528.length && i_19_ < is.length; i_19_++) {
-					final int i_20_ = Class32.anIntArray263[method1502(i_19_, 0)];
-					if (i_20_ > 0) {
-						class120_sub7.method1108(is[i_19_], i_20_);
-					}
-				}
-				if (i != 107) {
-					anIntArrayArray3529 = null;
+	final void method1508(final Buffer class120_sub7, final int[] is) {
+		if (anIntArray3528 != null) {
+			for (int i_19_ = 0; i_19_ < anIntArray3528.length && i_19_ < is.length; i_19_++) {
+				final int i_20_ = Class32.anIntArray263[method1502(i_19_, 0)];
+				if (i_20_ > 0) {
+					class120_sub7.method1108(is[i_19_], i_20_);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.L(").append(is != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -187,7 +180,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 			if (!bool) {
 				method1509(false);
 			}
-			landScapeAsSprite = null;
+			landScapeAsLDSprite = null;
 			aClass75_3534 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.H(").append(bool).append(')').toString());

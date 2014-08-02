@@ -58,24 +58,6 @@ final class Class173 {
 		}
 	}
 
-	static final int method2226(final byte i, final int i_4_) {
-		int i_5_;
-		try {
-			if (i > -93) {
-				aClass120_Sub14_Sub19_1725 = null;
-			}
-			final VarBit varBit = VarBit.list(i_4_);
-			final int i_6_ = varBit.setting;
-			final int i_7_ = varBit.startBit;
-			final int i_8_ = varBit.endBit;
-			final int i_9_ = Class120_Sub14_Sub15.anIntArray3580[-i_7_ + i_8_];
-			i_5_ = i_9_ & Class2.permanentVariable[i_6_] >> i_7_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.B(").append(i).append(',').append(i_4_).append(')').toString());
-		}
-		return i_5_;
-	}
-
 	static final void translateToSpanish() {
 		InterfaceClickMask.aString2660 = "Carregando fontes - ";
 		Class120_Sub19.aString2653 = "M";
@@ -94,7 +76,7 @@ final class Class173 {
 		Class82.aString787 = "Virar para c\u00e1";
 		CursorType.aString1238 = "K";
 		Class69_Sub1.aString2231 = "amarelo:";
-		Class180_Sub6.aString3062 = "N\u00e3o \u00e9 poss\u00edvel encontrar ";
+		AnimatedLocation.aString3062 = "N\u00e3o \u00e9 poss\u00edvel encontrar ";
 		ClanMember.aString2578 = " da sua lista de ignorados primeiro.";
 		Class120_Sub15.aString2594 = "Lista de atualiza\u00e7\u00f5es carregada";
 		Class69_Sub2_Sub1.aString3078 = " j\u00e1 est\u00e1 na sua lista de ignorados.";
@@ -118,7 +100,7 @@ final class Class173 {
 		Class120_Sub14_Sub1.aString3449 = "Pegar";
 		HintIcon.aString807 = "onda:";
 		Class147.aString1398 = "onda2:";
-		Class84.aString799 = "Interfaces carregadas";
+		GZIPDecompressor.aString799 = "Interfaces carregadas";
 		PlayerAppearance.aString1368 = "Mem\u00f3ria alocada";
 		Class11.aString82 = "Conectado ao servidor de atualiza\u00e7\u00e3o";
 		Class36.aString313 = "Carregando...";

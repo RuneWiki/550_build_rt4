@@ -83,8 +83,8 @@ final class Huffman {
 
 	static final js5 method1884(final int i_12_, final boolean bool, final boolean bool_11_, final boolean bool_13_) {
 		FileSystem fileSystem = null;
-		if (Class73.aClass193_663 != null) {
-			fileSystem = new FileSystem(i_12_, Class73.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
+		if (MapFunctionType.aClass193_663 != null) {
+			fileSystem = new FileSystem(i_12_, MapFunctionType.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
 		}
 		Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_);
 		if (bool_13_) {
@@ -93,53 +93,47 @@ final class Huffman {
 		return new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
 	}
 
-	final int method1885(final int i, int i_14_, final int i_15_, final byte[] is, final byte[] is_16_, int i_17_) {
-		int i_18_;
-		try {
-			i_17_ += i_14_;
-			int i_19_ = 0;
-			int i_20_ = i << 3;
-			for (/**/; i_14_ < i_17_; i_14_++) {
-				final int i_21_ = 0xff & is_16_[i_14_];
-				final int i_22_ = anIntArray1205[i_21_];
-				final int i_23_ = aByteArray1206[i_21_];
-				if (i_23_ == 0) {
-					throw new RuntimeException(new StringBuilder("No codeword for data value ").append(i_21_).toString());
-				}
-				int i_24_ = i_20_ >> 3;
-				int i_25_ = 0x7 & i_20_;
-				i_20_ += i_23_;
-				i_19_ &= -i_25_ >> 31;
-				final int i_26_ = i_24_ + (i_23_ + i_25_ - 1 >> 3);
-				i_25_ += 24;
-				is[i_24_] = (byte) (i_19_ = Class191.method2512(i_19_, i_22_ >>> i_25_));
+	final int method1885(final int outOff, final byte[] outBuffer, final byte[] srcBuffer, int srcOff, int srcLength) {
+		//buffer.pos, 0, buffer.buf, is, is.length
+		srcLength += srcOff;
+		int i_19_ = 0;
+		int i_20_ = outOff << 3;
+		for (/**/; srcOff < srcLength; srcOff++) {
+			final int i_21_ = 0xff & srcBuffer[srcOff];
+			final int i_22_ = anIntArray1205[i_21_];
+			final int i_23_ = aByteArray1206[i_21_];
+			if (i_23_ == 0) {
+				throw new RuntimeException(new StringBuilder("No codeword for data value ").append(i_21_).toString());
+			}
+			int i_24_ = i_20_ >> 3;
+			int i_25_ = 0x7 & i_20_;
+			i_20_ += i_23_;
+			i_19_ &= -i_25_ >> 31;
+			final int i_26_ = i_24_ + (i_23_ + i_25_ - 1 >> 3);
+			i_25_ += 24;
+			outBuffer[i_24_] = (byte) (i_19_ = Class191.method2512(i_19_, i_22_ >>> i_25_));
+			if (i_26_ > i_24_) {
+				i_24_++;
+				i_25_ -= 8;
+				outBuffer[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
 				if (i_26_ > i_24_) {
 					i_24_++;
 					i_25_ -= 8;
-					is[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
+					outBuffer[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
 					if (i_26_ > i_24_) {
 						i_24_++;
 						i_25_ -= 8;
-						is[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
-						if (i_26_ > i_24_) {
-							i_24_++;
+						outBuffer[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
+						if (i_24_ < i_26_) {
 							i_25_ -= 8;
-							is[i_24_] = (byte) (i_19_ = i_22_ >>> i_25_);
-							if (i_24_ < i_26_) {
-								i_25_ -= 8;
-								i_24_++;
-								is[i_24_] = (byte) (i_19_ = i_22_ << -i_25_);
-							}
+							i_24_++;
+							outBuffer[i_24_] = (byte) (i_19_ = i_22_ << -i_25_);
 						}
 					}
 				}
 			}
-			i_18_ = -i + (7 + i_20_ >> 3);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.B(").append(i).append(',').append(i_14_).append(',').append(i_15_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_16_ != null ? "{...}" : "null").append(',').append(i_17_).append(')')
-					.toString());
 		}
-		return i_18_;
+		return -outOff + (7 + i_20_ >> 3);
 	}
 
 	final int method1886(int i, final int i_27_, final int i_28_, final byte[] is, final byte[] is_29_, int i_30_) {

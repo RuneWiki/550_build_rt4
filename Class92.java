@@ -15,7 +15,7 @@ final class Class92 {
 			aBooleanArrayArray865 = null;
 			aClass120_Sub14_Sub19_Sub2_862 = null;
 			if (i >= -107) {
-				Class73.list(5);
+				MapFunctionType.list(5);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("k.E(").append(i).append(')').toString());

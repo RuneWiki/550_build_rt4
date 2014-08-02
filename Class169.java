@@ -27,7 +27,7 @@ final class Class169 {
 	}
 
 	Class169(final int i, final int i_0_) {
-		this.aClass32_1650 = Class120_Sub12_Sub35.method1384(i, 2);
+		this.aClass32_1650 = Class32.list(i);
 		this.anInt1647 = i_0_;
 	}
 

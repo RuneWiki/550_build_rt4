@@ -59,25 +59,25 @@ final class Class36 {
 					if (seqType == null || seqType.frames == null) {
 						gameEntity.spotAnimId = -1;
 					} else {
-						if (gameEntity.spotAnimFrameId < 0) {
-							gameEntity.spotAnimFrameId = 0;
+						if (gameEntity.spotAnimFrame < 0) {
+							gameEntity.spotAnimFrame = 0;
 							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, 0, gameEntity == TileParticleQueue.selfPlayer);
 						}
 						gameEntity.anInt2963++;
-						if (seqType.frames.length > gameEntity.spotAnimFrameId && seqType.delays[gameEntity.spotAnimFrameId] < gameEntity.anInt2963) {
+						if (seqType.frames.length > gameEntity.spotAnimFrame && seqType.delays[gameEntity.spotAnimFrame] < gameEntity.anInt2963) {
 							gameEntity.anInt2963 = 1;
-							gameEntity.spotAnimFrameId++;
-							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrameId, TileParticleQueue.selfPlayer == gameEntity);
+							gameEntity.spotAnimFrame++;
+							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrame, TileParticleQueue.selfPlayer == gameEntity);
 						}
-						if (gameEntity.spotAnimFrameId >= seqType.frames.length) {
+						if (gameEntity.spotAnimFrame >= seqType.frames.length) {
 							if (!spotAnimType.aBoolean998) {
 								gameEntity.spotAnimId = -1;
 							} else {
 								gameEntity.anInt2984++;
-								gameEntity.spotAnimFrameId -= seqType.padding;
+								gameEntity.spotAnimFrame -= seqType.padding;
 								if (seqType.resetCycle > gameEntity.anInt2984) {
-									if (gameEntity.spotAnimFrameId >= 0 && seqType.frames.length > gameEntity.spotAnimFrameId) {
-										Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrameId, TileParticleQueue.selfPlayer == gameEntity);
+									if (gameEntity.spotAnimFrame >= 0 && seqType.frames.length > gameEntity.spotAnimFrame) {
+										Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrame, TileParticleQueue.selfPlayer == gameEntity);
 									} else {
 										gameEntity.spotAnimId = -1;
 									}
@@ -86,16 +86,16 @@ final class Class36 {
 								}
 							}
 						}
-						gameEntity.anInt2971 = gameEntity.spotAnimFrameId - -1;
-						if (gameEntity.anInt2971 >= seqType.frames.length) {
+						gameEntity.spotAnimNextFrame = gameEntity.spotAnimFrame - -1;
+						if (gameEntity.spotAnimNextFrame >= seqType.frames.length) {
 							if (!spotAnimType.aBoolean998) {
-								gameEntity.anInt2971 = -1;
+								gameEntity.spotAnimNextFrame = -1;
 							} else {
-								gameEntity.anInt2971 -= seqType.padding;
+								gameEntity.spotAnimNextFrame -= seqType.padding;
 								if (seqType.resetCycle <= 1 + gameEntity.anInt2984) {
-									gameEntity.anInt2971 = -1;
-								} else if (gameEntity.anInt2971 < 0 || gameEntity.anInt2971 >= seqType.frames.length) {
-									gameEntity.anInt2971 = -1;
+									gameEntity.spotAnimNextFrame = -1;
+								} else if (gameEntity.spotAnimNextFrame < 0 || gameEntity.spotAnimNextFrame >= seqType.frames.length) {
+									gameEntity.spotAnimNextFrame = -1;
 								}
 							}
 						}

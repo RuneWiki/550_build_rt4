@@ -263,7 +263,7 @@ final class Light {
 				return false;
 			}
 			for (int i = 0; Class120_Sub12_Sub26.ignoreCount > i; i++) {
-				if (string.equalsIgnoreCase(Class84.ignoreNames[i])) {
+				if (string.equalsIgnoreCase(GZIPDecompressor.ignoreNames[i])) {
 					return true;
 				}
 			}

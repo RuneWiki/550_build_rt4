@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub14_Sub1 extends NodeSub {
-	Projectile aClass180_Sub4_3446;
+	Projectile projectile;
 	static int anInt3447 = 0;
 	static int selectedObjId;
 	static String aString3449 = "Take";
@@ -30,17 +30,6 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 					jagexInterface.frameDelay = 0;
 				}
 			}
-		}
-	}
-
-	static final void method1414(final js5 js5, final int i) {
-		try {
-			ParamType.configClient = js5;
-			if (i != 40) {
-				method1412(-18);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 
@@ -75,7 +64,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				Class120_Sub12_Sub14.tbrefresh();
 			}
 			if (state != 5) {
-				Class79_Sub1.method693();
+				Class79_Sub1.resetTitleScreen();
 			} else {
 				IsaacCipher.drawTitleScreenSprites(Class7.aClass50_63);
 			}
@@ -102,6 +91,6 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 	}
 
 	Class120_Sub14_Sub1(final Projectile class180_sub4) {
-		this.aClass180_Sub4_3446 = class180_sub4;
+		this.projectile = class180_sub4;
 	}
 }

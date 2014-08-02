@@ -20,7 +20,7 @@ final class Class5 implements ShaderInterface {
 	static final void spawnGroundObject(final int x, final int z) {
 		final Deque deque = ClientScript.groundObjects[Class173.gameLevel][x][z];
 		if (deque == null) {
-			Class180_Sub6.resetObjectPile(Class173.gameLevel, x, z);
+			AnimatedLocation.resetObjectPile(Class173.gameLevel, x, z);
 		} else {
 			int highestValue = -99999999;
 			GroundObjectNode mainObject = null;
@@ -36,7 +36,7 @@ final class Class5 implements ShaderInterface {
 				}
 			}
 			if (mainObject == null) {
-				Class180_Sub6.resetObjectPile(Class173.gameLevel, x, z);
+				AnimatedLocation.resetObjectPile(Class173.gameLevel, x, z);
 			} else {
 				deque.addFront(mainObject);
 				SceneGroundObject thirdObject = null;

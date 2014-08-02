@@ -259,22 +259,22 @@ final class ParticleManager extends ParticleNode {
 		ParticleEngine.anInt2360 += this.anInt2333;
 	}
 
-	static final void method941(final long l) {
-		if (0L != l) {
-			for (int i_51_ = 0; i_51_ < ProducingGraphicsBuffer.friendCount; i_51_++) {
-				if ((AbstractSprite.friendsNameAsLong[i_51_] ^ 0xffffffffffffffffL) == (l ^ 0xffffffffffffffffL)) {
+	static final void removeFriend(final long nameAsLong) {
+		if (0L != nameAsLong) {
+			for (int friendId = 0; friendId < ProducingGraphicsBuffer.friendCount; friendId++) {
+				if (AbstractSprite.friendsNameAsLong[friendId] == nameAsLong) {
 					ProducingGraphicsBuffer.friendCount--;
-					for (int i_52_ = i_51_; i_52_ < ProducingGraphicsBuffer.friendCount; i_52_++) {
-						Class120_Sub16.friendsName[i_52_] = Class120_Sub16.friendsName[1 + i_52_];
-						Class120_Sub12_Sub16.friendsWorld[i_52_] = Class120_Sub12_Sub16.friendsWorld[1 + i_52_];
-						Class79_Sub1.friendsSideText[i_52_] = Class79_Sub1.friendsSideText[i_52_ - -1];
-						AbstractSprite.friendsNameAsLong[i_52_] = AbstractSprite.friendsNameAsLong[i_52_ + 1];
-						Class120_Sub12_Sub30.friendsRank[i_52_] = Class120_Sub12_Sub30.friendsRank[i_52_ - -1];
-						Class120_Sub12_Sub9.aBooleanArray3194[i_52_] = Class120_Sub12_Sub9.aBooleanArray3194[i_52_ + 1];
+					for (int nextFriendId = friendId; nextFriendId < ProducingGraphicsBuffer.friendCount; nextFriendId++) {
+						Class120_Sub16.friendsName[nextFriendId] = Class120_Sub16.friendsName[nextFriendId + 1];
+						Class120_Sub12_Sub16.friendsWorld[nextFriendId] = Class120_Sub12_Sub16.friendsWorld[nextFriendId + 1];
+						Class79_Sub1.friendsSideText[nextFriendId] = Class79_Sub1.friendsSideText[nextFriendId + 1];
+						AbstractSprite.friendsNameAsLong[nextFriendId] = AbstractSprite.friendsNameAsLong[nextFriendId + 1];
+						Class120_Sub12_Sub30.friendsRank[nextFriendId] = Class120_Sub12_Sub30.friendsRank[nextFriendId + 1];
+						Class120_Sub12_Sub9.aBooleanArray3194[nextFriendId] = Class120_Sub12_Sub9.aBooleanArray3194[nextFriendId + 1];
 					}
 					Class61.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
-					Class120_Sub12_Sub11.outputStream.putLong(l);
+					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 					break;
 				}
 			}

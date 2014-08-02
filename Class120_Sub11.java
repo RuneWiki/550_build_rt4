@@ -19,21 +19,21 @@ final class Class120_Sub11 extends Node {
 		aString2554 = "Loading defaults - ";
 	}
 
-	static final long method1173(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
+	static final long method1173(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return 0L;
 		}
 		for (int i_2_ = 0; i_2_ < class120_sub18.anInt2638; i_2_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_2_];
-			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
+			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == x && class28.anInt184 == z) {
 				return class28.bitPacked;
 			}
 		}
 		return 0L;
 	}
 
-	static final Class120_Sub14_Sub23 method1174(final int i) {
+	static final Class120_Sub14_Sub23 list(final int i) {
 		Class120_Sub14_Sub23 class120_sub14_sub23_4_ = (Class120_Sub14_Sub23) Class96.aClass35_901.get(i);
 		if (class120_sub14_sub23_4_ != null) {
 			return class120_sub14_sub23_4_;
@@ -46,10 +46,10 @@ final class Class120_Sub11 extends Node {
 		}
 		class120_sub14_sub23_4_ = new Class120_Sub14_Sub23();
 		if (is != null) {
-			class120_sub14_sub23_4_.method1638((byte) -19, new Buffer(is));
+			class120_sub14_sub23_4_.decode(new Buffer(is));
 		}
 		if (-32769 >= (i ^ 0xffffffff)) {
-			class120_sub14_sub23_4_.method1644(32768);
+			class120_sub14_sub23_4_.method1644();
 		}
 		Class96.aClass35_901.put(class120_sub14_sub23_4_, i);
 		return class120_sub14_sub23_4_;
@@ -72,7 +72,7 @@ final class Class120_Sub11 extends Node {
 	static final void processAmbientSounds(final int x, final int z, final int level, final int redrawRate) {//TODO refactor sounds that appear on distance.
 		for (AmbientSound ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
-		}//Location sounds ^
+		}
 		for (AmbientSound ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
 			int i_9_ = 1;
 			final Class29 class29 = ambientSound.npc.method2336();

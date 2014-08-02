@@ -84,26 +84,26 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void fillRect(int i, int i_8_, int i_9_, int i_10_, final int i_11_) {
-		if (i < startX) {
-			i_9_ -= startX - i;
-			i = startX;
+	static final void fillRect(int x, int y, int w, int h, final int color) {
+		if (x < startX) {
+			w -= startX - x;
+			x = startX;
 		}
-		if (i_8_ < startY) {
-			i_10_ -= startY - i_8_;
-			i_8_ = startY;
+		if (y < startY) {
+			h -= startY - y;
+			y = startY;
 		}
-		if (i + i_9_ > endX) {
-			i_9_ = endX - i;
+		if (x + w > endX) {
+			w = endX - x;
 		}
-		if (i_8_ + i_10_ > endY) {
-			i_10_ = endY - i_8_;
+		if (y + h > endY) {
+			h = endY - y;
 		}
-		final int i_12_ = width - i_9_;
-		int i_13_ = i + i_8_ * width;
-		for (int i_14_ = -i_10_; i_14_ < 0; i_14_++) {
-			for (int i_15_ = -i_9_; i_15_ < 0; i_15_++) {
-				pixels[i_13_++] = i_11_;
+		final int i_12_ = width - w;
+		int i_13_ = x + y * width;
+		for (int i_14_ = -h; i_14_ < 0; i_14_++) {
+			for (int i_15_ = -w; i_15_ < 0; i_15_++) {
+				pixels[i_13_++] = color;
 			}
 			i_13_ += i_12_;
 		}

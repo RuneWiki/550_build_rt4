@@ -28,13 +28,10 @@ final class ObjectContainer extends Node {
 		return null;
 	}
 
-	public static void method1666(final byte i) {
-		try {
-			aString2614 = null;
-			aClass29_2620 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nd.A(").append(i).append(')').toString());
-		}
+	public static void method1666() {
+		aString2614 = null;
+		objectContainerCache = null;
+		aClass29_2620 = null;
 	}
 
 	public ObjectContainer() {

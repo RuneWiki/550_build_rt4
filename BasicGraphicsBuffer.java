@@ -22,15 +22,15 @@ public final class BasicGraphicsBuffer extends AbstractGraphicsBuffer {
 		final DataBufferInt databufferint = new DataBufferInt(this.pixels, this.pixels.length);
 		final DirectColorModel directcolormodel = new DirectColorModel(32, 16711680, 65280, 255);
 		final WritableRaster writableraster = Raster.createWritableRaster(directcolormodel.createCompatibleSampleModel(this.width, this.height), databufferint, null);
-		this.image = new BufferedImage(directcolormodel, writableraster, false, new Hashtable());
+		this.image = new BufferedImage(directcolormodel, writableraster, false, new Hashtable<>());
 		this.component = component;
 		init2dCanvas();
 	}
 
 	@Override
-	final void drawClippedImage(final Graphics graphics, final int i_3_, final int i, final int i_2_, final int i_4_) {
+	final void drawClippedImage(final Graphics graphics, final int x, final int y, final int w, final int h) {
 		final Shape shape = graphics.getClip();
-		graphics.clipRect(i_4_, i_2_, i, i_3_);
+		graphics.clipRect(x, y, w, h);
 		graphics.drawImage(this.image, 0, 0, component);
 		graphics.setClip(shape);
 	}

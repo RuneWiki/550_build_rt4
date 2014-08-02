@@ -531,7 +531,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	public static void method1273(final int i) {
 		try {
 			anIntArray3239 = null;
-			Class73.recentUse = null;
+			MapFunctionType.recentUse = null;
 			if (i != 1) {
 				method1273(-45);
 			}

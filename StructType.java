@@ -228,19 +228,19 @@ final class StructType extends NodeSub {
 		NpcType.recentUse.method192(5);
 		Class11.aClass21_80.method192(5);
 		Projectile.aClass21_2931.method192(5);
-		Canvas_Sub1.aClass21_14.method192(5);
+		ObjType.recentUse.method192(5);
 		Class33.aClass21_273.method192(5);
-		Class180_Sub3.aClass21_2906.method192(5);
+		SpotAnimation.aClass21_2906.method192(5);
 		KeyboardHandler.aClass21_1504.method192(5);
 		SceneGraphNode.aClass21_1781.method192(5);
 		SpotAnimType.recentUse.method192(5);
-		Class182.aClass21_1798.method192(5);
+		SpotAnimType.aClass21_1798.method192(5);
 		VarBit.recentUse.method192(5);
 		Varp.recentUse.method192(5);
 		Class120_Sub12_Sub31.aClass21_3378.method192(5);
 		Js5Request.aClass21_3937.method192(5);
 		Class132.aClass21_1255.method192(5);
-		Class73.recentUse.method192(5);
+		MapFunctionType.recentUse.method192(5);
 		Class82.aClass21_786.method192(5);
 		Class159.aClass21_1486.method192(5);
 		Class120_Sub6.aClass21_2443.method192(5);
@@ -250,7 +250,7 @@ final class StructType extends NodeSub {
 		CursorType.spriteCache.method192(5);
 		Class43.playerModelsCache.method192(5);
 		Class90.playerHeadModelsCache.method192(5);		
-		Class180_Sub6.aClass21_3071.method192(50);
+		AnimatedLocation.aClass21_3071.method192(50);
 		LabelGroup.aClass21_2406.method192(50);
 		Class120_Sub12_Sub2.aClass21_3143.method192(50);
 		Class120_Sub14_Sub13.aClass21_3564.method192(5);
@@ -328,33 +328,26 @@ final class StructType extends NodeSub {
 		return i_43_;
 	}
 
-	static final void method1567(final boolean bool, final byte i) {
-		try {
-			if (i != -15) {
-				method1560(41);
-			}
-			Class120_Sub12_Sub34.anIntArray3409 = new int[104];
-			DummyOutputStream.anInt29 = 99;
-			int i_44_;
-			if (bool) {
-				i_44_ = 1;
-			} else {
-				i_44_ = 4;
-			}
-			Buffer.anIntArray2477 = new int[104];
-			Class99.aByteArrayArrayArray949 = new byte[i_44_][104][104];
-			Class8.aByteArrayArrayArray65 = new byte[i_44_][104][104];
-			StringNode.anIntArray2733 = new int[104];
-			Npc.aByteArrayArrayArray3754 = new byte[i_44_][105][105];
-			Class120_Sub12_Sub31.anIntArray3383 = new int[104];
-			Class120_Sub4.aByteArrayArrayArray2441 = new byte[i_44_][104][104];
-			Class110.anIntArrayArrayArray1050 = new int[i_44_][105][105];
-			Class120_Sub14_Sub5.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
-			PacketBuffer.anIntArray3120 = new int[104];
-			CanvasWrapper.anIntArray21 = new int[5];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.F(").append(bool).append(',').append(i).append(')').toString());
+	static final void method1567(final boolean bool) {
+		Class120_Sub12_Sub34.anIntArray3409 = new int[104];
+		DummyOutputStream.anInt29 = 99;
+		int i_44_;
+		if (bool) {
+			i_44_ = 1;
+		} else {
+			i_44_ = 4;
 		}
+		Buffer.anIntArray2477 = new int[104];
+		Class99.aByteArrayArrayArray949 = new byte[i_44_][104][104];
+		Class8.aByteArrayArrayArray65 = new byte[i_44_][104][104];
+		StringNode.anIntArray2733 = new int[104];
+		Npc.aByteArrayArrayArray3754 = new byte[i_44_][105][105];
+		Class120_Sub12_Sub31.anIntArray3383 = new int[104];
+		Class120_Sub4.aByteArrayArrayArray2441 = new byte[i_44_][104][104];
+		Class110.anIntArrayArrayArray1050 = new int[i_44_][105][105];
+		Class120_Sub14_Sub5.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
+		PacketBuffer.anIntArray3120 = new int[104];
+		CanvasWrapper.anIntArray21 = new int[5];
 	}
 
 	final String getStringParamValue(final int param, final String defaultString) {

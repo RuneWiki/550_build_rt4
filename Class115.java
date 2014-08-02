@@ -22,7 +22,7 @@ final class Class115 {
 		Class69_Sub2.anInt2239 = Rasterizer.sineTable[i_2_];
 		ObjectContainer.anInt2616 = Rasterizer.cosineTable[i_2_];
 		Class120_Sub12_Sub30.anInt3377 = Rasterizer.sineTable[i_3_];
-		Class73.anInt637 = Rasterizer.cosineTable[i_3_];
+		MapFunctionType.anInt637 = Rasterizer.cosineTable[i_3_];
 		DisplayModeInfo.anInt1713 = i;
 		PlayerAppearance.anInt1367 = i_0_;
 		Class145.anInt1381 = i_1_;
@@ -77,7 +77,7 @@ final class Class115 {
 		}
 		Class61.anIntArray562 = is_4_;
 		Class31.anIntArray243 = is_5_;
-		Class180_Sub3.anIntArray2921 = is_6_;
+		SpotAnimation.anIntArray2921 = is_6_;
 		IsaacCipher.anIntArray1015 = is_7_;
 		Class89.anIntArray838 = is_8_;
 		JagexInterface.method2500();
@@ -95,8 +95,8 @@ final class Class115 {
 		StructType.method1561(i, i_0_, i_1_, is, i_9_, i_10_, i_11_, i_12_);
 	}
 
-	static final LDSprite[] constructLDSprites(final js5 js5, final int i_24_, final int i) {
-		if (!Class10.decodedSprites(js5, i_24_, i)) {
+	static final LDSprite[] constructLDSprites(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
 		return LabelGroup.constructLDSprites();

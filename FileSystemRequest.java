@@ -168,17 +168,13 @@ final class FileSystemRequest extends AbstractRequest {
 		}
 	}
 
-	static final void method1546(final int i, final boolean bool, final int i_28_, final byte i_29_) {
-		try {
-			if (i_28_ < 8000 || -48001 > (i_28_ ^ 0xffffffff)) {
-				throw new IllegalArgumentException();
-			}
-			Class120_Sub14_Sub13.anInt3569 = i;
-			Class90.aBoolean846 = bool;
-			Class178.anInt1771 = i_28_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("al.A(").append(i).append(',').append(bool).append(',').append(i_28_).append(',').append(i_29_).append(')').toString());
+	static final void method1546(final int i, final int i_28_, final boolean bool) {
+		if (i_28_ < 8000 || i_28_ > 48000) {
+			throw new IllegalArgumentException();
 		}
+		Class120_Sub14_Sub13.anInt3569 = i;
+		Class90.aBoolean846 = bool;
+		Class178.anInt1771 = i_28_;
 	}
 
 	public FileSystemRequest() {

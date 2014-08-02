@@ -193,7 +193,7 @@ final class JagexInterface {
 		this.niActions[i_0_] = string;
 	}
 
-	final Class180_Sub7 method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
+	final AbstractModel method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
 		int i_5_;
 		int i_6_;
 		if (!bool) {
@@ -211,7 +211,7 @@ final class JagexInterface {
 			return null;
 		}
 		if (i_6_ == 1) {
-			Class180_Sub7 class180_sub7_7_ = (Class180_Sub7) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
+			AbstractModel class180_sub7_7_ = (AbstractModel) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
 			if (class180_sub7_7_ == null) {
 				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Decimator.aClass50_1721, i_5_, 0);
 				if (class180_sub2 == null) {
@@ -227,7 +227,7 @@ final class JagexInterface {
 			return class180_sub7_7_;
 		}
 		if (i_6_ == 2) {
-			final Class180_Sub7 class180_sub7_8_ = NpcType.list(i_5_).method2210(i, seqType, (byte) -128, i_4_, i_3_);
+			final AbstractModel class180_sub7_8_ = NpcType.list(i_5_).method2210(i, seqType, (byte) -128, i_4_, i_3_);
 			if (class180_sub7_8_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -238,7 +238,7 @@ final class JagexInterface {
 			if (playerAppearance == null) {
 				return null;
 			}
-			final Class180_Sub7 class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
+			final AbstractModel class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
 			if (class180_sub7_9_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -247,7 +247,7 @@ final class JagexInterface {
 		}
 		if (i_6_ == 4) {
 			final ObjType objType = ObjType.list(i_5_);
-			final Class180_Sub7 class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
+			final AbstractModel class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
 			if (class180_sub7_10_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -255,7 +255,7 @@ final class JagexInterface {
 			return class180_sub7_10_;
 		}
 		if (i_6_ == 6) {
-			final Class180_Sub7 class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, -95, null, seqType, i, null, 0, 0, i_4_);
+			final AbstractModel class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, -95, null, seqType, i, null, 0, 0, i_4_);
 			if (class180_sub7_11_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -269,7 +269,7 @@ final class JagexInterface {
 			final int i_12_ = this.mediaIdDisabled & 0xffff;
 			final int i_13_ = this.anInt1997;
 			final int i_14_ = this.mediaIdDisabled >>> 16;
-			final Class180_Sub7 class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
+			final AbstractModel class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
 			if (class180_sub7_15_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -293,7 +293,7 @@ final class JagexInterface {
 			if (i_17_ == -1) {
 				return null;
 			}
-			AbstractSprite class120_sub14_sub19_18_ = (AbstractSprite) Class180_Sub6.aClass21_3071.get(i_17_);
+			AbstractSprite class120_sub14_sub19_18_ = (AbstractSprite) AnimatedLocation.aClass21_3071.get(i_17_);
 			if (class120_sub14_sub19_18_ != null) {
 				return class120_sub14_sub19_18_;
 			}
@@ -301,7 +301,7 @@ final class JagexInterface {
 			if (class120_sub14_sub19_18_ == null) {
 				Class88.aBoolean835 = true;
 			} else {
-				Class180_Sub6.aClass21_3071.put(class120_sub14_sub19_18_, i_17_);
+				AnimatedLocation.aClass21_3071.put(class120_sub14_sub19_18_, i_17_);
 			}
 			class120_sub14_sub19 = class120_sub14_sub19_18_;
 		} catch (final RuntimeException runtimeexception) {
@@ -566,7 +566,7 @@ final class JagexInterface {
 			return null;
 		}
 		final long l = ((!this.flipHorizontal ? 0L : 1L) << 39) + ((long) this.outline << 36) + i_41_ + ((this.aBoolean2018 ? 1L : 0L) << 35) - -((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
-		AbstractSprite class120_sub14_sub19_42_ = (AbstractSprite) Class180_Sub6.aClass21_3071.get(l);
+		AbstractSprite class120_sub14_sub19_42_ = (AbstractSprite) AnimatedLocation.aClass21_3071.get(l);
 		if (class120_sub14_sub19_42_ != null) {
 			return class120_sub14_sub19_42_;
 		}
@@ -607,7 +607,7 @@ final class JagexInterface {
 		} else {
 			class120_sub14_sub19_42_ = class120_sub14_sub19_sub2;
 		}
-		Class180_Sub6.aClass21_3071.put(class120_sub14_sub19_42_, l);
+		AnimatedLocation.aClass21_3071.put(class120_sub14_sub19_42_, l);
 		return class120_sub14_sub19_42_;
 	}
 
@@ -897,7 +897,7 @@ final class JagexInterface {
 			final Class188 class188 = SceneGraphNode.aClass188Array1782[i];
 			if (Class61.anIntArray562 != null) {
 				for (int i_66_ = 0; i_66_ < Class61.anIntArray562.length; i_66_++) {
-					if (Class61.anIntArray562[i_66_] != -1000000 && (class188.anInt1920 <= Class61.anIntArray562[i_66_] || class188.anInt1928 <= Class61.anIntArray562[i_66_]) && (class188.anInt1913 <= Class180_Sub3.anIntArray2921[i_66_] || class188.anInt1924 <= Class180_Sub3.anIntArray2921[i_66_])
+					if (Class61.anIntArray562[i_66_] != -1000000 && (class188.anInt1920 <= Class61.anIntArray562[i_66_] || class188.anInt1928 <= Class61.anIntArray562[i_66_]) && (class188.anInt1913 <= SpotAnimation.anIntArray2921[i_66_] || class188.anInt1924 <= SpotAnimation.anIntArray2921[i_66_])
 							&& (class188.anInt1913 >= Class31.anIntArray243[i_66_] || class188.anInt1924 >= Class31.anIntArray243[i_66_]) && (class188.anInt1911 <= IsaacCipher.anIntArray1015[i_66_] || class188.anInt1927 <= IsaacCipher.anIntArray1015[i_66_])
 							&& (class188.anInt1911 >= Class89.anIntArray838[i_66_] || class188.anInt1927 >= Class89.anIntArray838[i_66_])) {
 						continue while_176_;
@@ -939,7 +939,7 @@ final class JagexInterface {
 						class188.anInt1922 = (class188.anInt1927 - Class145.anInt1381 << 8) / i_70_;
 						class188.anInt1918 = (class188.anInt1920 - PlayerAppearance.anInt1367 << 8) / i_70_;
 						class188.anInt1917 = (class188.anInt1928 - PlayerAppearance.anInt1367 << 8) / i_70_;
-						Class180_Sub6.aClass188Array3076[CursorType.anInt1237++] = class188;
+						AnimatedLocation.aClass188Array3076[CursorType.anInt1237++] = class188;
 					}
 				}
 			} else if (class188.anInt1915 == 2) {
@@ -977,7 +977,7 @@ final class JagexInterface {
 						class188.anInt1926 = (class188.anInt1924 - DisplayModeInfo.anInt1713 << 8) / i_74_;
 						class188.anInt1918 = (class188.anInt1920 - PlayerAppearance.anInt1367 << 8) / i_74_;
 						class188.anInt1917 = (class188.anInt1928 - PlayerAppearance.anInt1367 << 8) / i_74_;
-						Class180_Sub6.aClass188Array3076[CursorType.anInt1237++] = class188;
+						AnimatedLocation.aClass188Array3076[CursorType.anInt1237++] = class188;
 					}
 				}
 			} else if (class188.anInt1915 == 4) {
@@ -1015,7 +1015,7 @@ final class JagexInterface {
 							class188.anInt1926 = (class188.anInt1924 - DisplayModeInfo.anInt1713 << 8) / i_75_;
 							class188.anInt1914 = (class188.anInt1911 - Class145.anInt1381 << 8) / i_75_;
 							class188.anInt1922 = (class188.anInt1927 - Class145.anInt1381 << 8) / i_75_;
-							Class180_Sub6.aClass188Array3076[CursorType.anInt1237++] = class188;
+							AnimatedLocation.aClass188Array3076[CursorType.anInt1237++] = class188;
 						}
 					}
 				}
@@ -1055,8 +1055,8 @@ final class JagexInterface {
 		return true;
 	}
 
-	static final long method2502(final int i, final int i_87_, final int i_88_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_87_][i_88_];
+	static final long method2502(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.aClass186_2639 == null) {
 			return 0L;
 		}

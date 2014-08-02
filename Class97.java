@@ -180,7 +180,7 @@ final class Class97 {
 			}
 		}
 		class180_sub2.method2287();
-		final Class180_Sub7 class180_sub7 = class180_sub2.method2300(64, 768, -i, -i_27_, -i_28_);
+		final AbstractModel class180_sub7 = class180_sub2.method2300(64, 768, -i, -i_27_, -i_28_);
 		final int i_29_ = (class180_sub7.method2383() - class180_sub7.method2374()) / 2;
 		final int i_30_ = (class180_sub7.getMaxZ() - class180_sub7.getMaxY()) / 2;
 		final int i_31_ = i_29_ > i_30_ ? i_29_ : i_30_;
@@ -618,7 +618,7 @@ final class Class97 {
 			i = i_129_;
 		}
 		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.anInt2856, (short) Rasterizer.anInterface5_973.method20(anInt928, 65535));
-		final Class180_Sub7_Sub1 class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
+		final LDModel class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
 		final int i_130_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
 		final int i_131_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();
 		if (i_130_ > i_131_) {
@@ -735,7 +735,7 @@ final class Class97 {
 				i_149_ = i_149_ * i_155_ - i * i_154_ + 32767 >> 16;
 				i = i_156_;
 			}
-			final Class180_Sub7_Sub1 class180_sub7_sub1 = class180_sub2.method2298(64, 768, -i, -i_148_, -i_149_);
+			final LDModel class180_sub7_sub1 = class180_sub2.method2298(64, 768, -i, -i_148_, -i_149_);
 			final int i_157_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
 			final int i_158_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();
 			final int i_159_ = class180_sub7_sub1.method2374() + i_157_ / 2;

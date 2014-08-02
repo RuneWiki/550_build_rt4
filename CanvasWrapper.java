@@ -92,16 +92,10 @@ final class CanvasWrapper extends Canvas {
 		}
 	}
 
-	public static void method67(final byte i) {
-		try {
-			anInterface3_19 = null;
-			if (i <= -85) {
-				aClass50_18 = null;
-				anIntArray21 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ql.B(").append(i).append(')').toString());
-		}
+	public static void method67() {
+		anInterface3_19 = null;
+		aClass50_18 = null;
+		anIntArray21 = null;
 	}
 
 	@Override

@@ -42,7 +42,7 @@ final class Class71 {
 		}
 		final byte[] is_4_ = new byte[i_3_];
 		if (i != 1) {
-			Class57.aClass84_501.method721(class120_sub7, (byte) -100, is_4_);
+			Class57.gzipDecompressor.decompress(class120_sub7, is_4_);
 		} else {
 			Class19.method170(is_4_, i_3_, is, i_1_, 9);
 		}

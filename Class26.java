@@ -60,7 +60,7 @@ final class Class26 {
 	static final void removeKeyboard(final Component component) {
 		component.removeKeyListener(Class169.keyboardHandler);
 		component.removeFocusListener(Class169.keyboardHandler);
-		Class180_Sub6.anInt3074 = -1;
+		AnimatedLocation.anInt3074 = -1;
 	}
 
 	static final void removeKeyboardHandler() {

@@ -85,11 +85,11 @@ final class ObjectCache {
 		Class41.method333();
 		LightManager.lights = new Light[255];
 		LightManager.lightsPos = 0;
-		Class180_Sub7_Sub2.method2436();
+		HDModel.method2436();
 		Class47.method388();
 		Class54.method479(0);
 		Class120_Sub30_Sub1.method1739(false);
-		Class79_Sub1.method693();
+		Class79_Sub1.resetTitleScreen();
 		Class82.method712(106);
 		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
 			final Player class180_sub5_sub1 = Class118.playersList[i_2_];

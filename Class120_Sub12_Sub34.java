@@ -33,7 +33,7 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 
 	static final boolean method1380(final int i, final int i_3_, final int i_4_) {
 		for (int i_5_ = 0; i_5_ < CursorType.anInt1237; i_5_++) {
-			final Class188 class188 = Class180_Sub6.aClass188Array3076[i_5_];
+			final Class188 class188 = AnimatedLocation.aClass188Array3076[i_5_];
 			if (class188.anInt1921 == 1) {
 				final int i_6_ = class188.anInt1913 - i;
 				if (i_6_ > 0) {

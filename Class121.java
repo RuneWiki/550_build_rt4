@@ -26,7 +26,7 @@ final class Class121 {
 
 	static final void method1839(final int i) {
 		try {
-			Class73.recentUse.clearSoftReference();
+			MapFunctionType.recentUse.clearSoftReference();
 			if (i == -14307) {
 				Class82.aClass21_786.clearSoftReference();
 			}

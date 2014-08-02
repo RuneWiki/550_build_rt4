@@ -138,13 +138,13 @@ final class Class120_Sub22 extends Node {
 				lowerPriority = false;
 			}
 			if (lowerPriority) {
-				player.anInt2971 = 1;
+				player.spotAnimNextFrame = 1;
 				player.anInt2965 = i_20_ >> 16;
 				player.anInt2963 = 0;
-				player.spotAnimFrameId = 0;
+				player.spotAnimFrame = 0;
 				player.anInt2979 = (0xffff & i_20_) + Class101_Sub2.loopCycle;
 				if (Class101_Sub2.loopCycle < player.anInt2979) {
-					player.spotAnimFrameId = -1;
+					player.spotAnimFrame = -1;
 				}
 				player.spotAnimId = spotAnimId;
 				if (player.spotAnimId != -1 && Class101_Sub2.loopCycle == player.anInt2979) {

@@ -231,7 +231,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (hintIcon != null && hintIcon.targetType == 2) {
 				Class137.method1982(height >> 1, 2 * hintIcon.y, i_21_, (hintIcon.x + -GameEntity.currentBaseX << 7) + hintIcon.anInt812, hintIcon.anInt815 + (-Class181.currentBaseZ + hintIcon.z << 7), i_19_, width >> 1);
 				if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0 && Class101_Sub2.loopCycle % 20 < 10) {
-					Class180_Sub6.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + x + Class120_Sub12_Sub38.anInt3434, Class120_Sub15.anInt2588 + y - 28);
+					AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + x + Class120_Sub12_Sub38.anInt3434, Class120_Sub15.anInt2588 + y - 28);
 				}
 			}
 		}
@@ -296,7 +296,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			}
 			if (!bool) {
 				final Class120_Sub14_Sub15 class120_sub14_sub15 = method2030(-926489461, i_32_);
-				class120_sub14_sub15.method1559(1);
+				class120_sub14_sub15.method1559();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("c.K(").append(i).append(',').append(i_31_).append(',').append(i_32_).append(')').toString());

@@ -34,7 +34,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	}
 
 	@Override
-	final void drawClippedImage(final Graphics graphics, final int height, final int width, final int y, final int x) {
+	final void drawClippedImage(final Graphics graphics, final int x, final int y, final int width, final int height) {
 		setPixels(x, y, width, height);
 		final Shape shape = graphics.getClip();
 		graphics.clipRect(x, y, width, height);
@@ -549,10 +549,10 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 					if (class182 != null) {
 						final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
 						if (i_72_ == 2) {
-							class182.aClass180_1800 = new Class180_Sub6(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
-							class182.aClass180_1796 = new Class180_Sub6(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
+							class182.aClass180_1800 = new AnimatedLocation(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
+							class182.aClass180_1796 = new AnimatedLocation(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
 						} else {
-							class182.aClass180_1800 = new Class180_Sub6(i_73_, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
+							class182.aClass180_1800 = new AnimatedLocation(i_73_, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
 						}
 					}
 				}
@@ -563,16 +563,16 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 						if (i_72_ != 4 && i_72_ != 5) {
 							if (i_72_ != 6) {
 								if (i_72_ == 7) {
-									class186.aClass180_1901 = new Class180_Sub6(i_74_, 4, (0x3 & i_71_ - -2) - -4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+									class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, (0x3 & i_71_ - -2) - -4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
 								} else if (i_72_ == 8) {
-									class186.aClass180_1901 = new Class180_Sub6(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
-									class186.aClass180_1898 = new Class180_Sub6(i_74_, 4, (i_71_ - -2 & 0x3) + 4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1898);
+									class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+									class186.aClass180_1898 = new AnimatedLocation(i_74_, 4, (i_71_ - -2 & 0x3) + 4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1898);
 								}
 							} else {
-								class186.aClass180_1901 = new Class180_Sub6(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+								class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
 							}
 						} else {
-							class186.aClass180_1901 = new Class180_Sub6(i_74_, 4, i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+							class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
 						}
 					}
 				}
@@ -580,15 +580,15 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 					if (i_72_ == 11) {
 						i_72_ = 10;
 					}
-					final Class28 class28 = Class180_Sub3.method2315(i_68_, i_66_, i_69_);
+					final Class28 class28 = SpotAnimation.method2315(i_66_, i_69_, i_68_);
 					if (class28 != null) {
-						class28.aClass180_174 = new Class180_Sub6((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
+						class28.aClass180_174 = new AnimatedLocation((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
 					}
 				}
 				if (i_70_ == 3) {
 					final Class36 class36 = Class23.method202(i_68_, i_66_, i_69_);
 					if (class36 != null) {
-						class36.aClass180_309 = new Class180_Sub6(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
+						class36.aClass180_309 = new AnimatedLocation(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
 					}
 				}
 			}

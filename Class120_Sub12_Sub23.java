@@ -21,16 +21,16 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final SeqType seqType, final int x, final int z, final int i_1_, final boolean bool) {
-		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > i_1_ && seqType.anIntArrayArray347[i_1_] != null) {
-			final int i_3_ = seqType.anIntArrayArray347[i_1_][0];
+	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean bool) {
+		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > frame && seqType.anIntArrayArray347[frame] != null) {
+			final int i_3_ = seqType.anIntArrayArray347[frame][0];
 			int i_4_ = i_3_ >> 8;
 			final int i_5_ = (0xe4 & i_3_) >> 5;
 			final int i_6_ = i_3_ & 0x1f;
-			if (seqType.anIntArrayArray347[i_1_].length > 1) {
-				final int i_7_ = (int) (seqType.anIntArrayArray347[i_1_].length * Math.random());
+			if (seqType.anIntArrayArray347[frame].length > 1) {
+				final int i_7_ = (int) (seqType.anIntArrayArray347[frame].length * Math.random());
 				if (i_7_ > 0) {
-					i_4_ = seqType.anIntArrayArray347[i_1_][i_7_];
+					i_4_ = seqType.anIntArrayArray347[frame][i_7_];
 				}
 			}
 			if (i_6_ == 0) {

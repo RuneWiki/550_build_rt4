@@ -31,7 +31,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 	public final synchronized void focusLost(final FocusEvent focusevent) {
 		try {
 			if (Class169.keyboardHandler != null) {
-				Class180_Sub6.anInt3074 = -1;
+				AnimatedLocation.anInt3074 = -1;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("tb.focusLost(").append(focusevent != null ? "{...}" : "null").append(')').toString());
@@ -81,11 +81,11 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 						i = -1;
 					}
 				}
-				if (Class180_Sub6.anInt3074 >= 0 && i >= 0) {
-					Class120_Sub12_Sub36.anIntArray3416[Class180_Sub6.anInt3074] = i;
-					Class180_Sub6.anInt3074 = 1 + Class180_Sub6.anInt3074 & 0x7f;
-					if (Class180_Sub6.anInt3074 == Class111.anInt1060) {
-						Class180_Sub6.anInt3074 = -1;
+				if (AnimatedLocation.anInt3074 >= 0 && i >= 0) {
+					Class120_Sub12_Sub36.anIntArray3416[AnimatedLocation.anInt3074] = i;
+					AnimatedLocation.anInt3074 = 1 + AnimatedLocation.anInt3074 & 0x7f;
+					if (AnimatedLocation.anInt3074 == Class111.anInt1060) {
+						AnimatedLocation.anInt3074 = -1;
 					}
 				}
 				if (i >= 0) {
@@ -117,11 +117,11 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 				} else {
 					i = -1;
 				}
-				if (Class180_Sub6.anInt3074 >= 0 && i >= 0) {
-					Class120_Sub12_Sub36.anIntArray3416[Class180_Sub6.anInt3074] = i ^ 0xffffffff;
-					Class180_Sub6.anInt3074 = 1 + Class180_Sub6.anInt3074 & 0x7f;
-					if (Class111.anInt1060 == Class180_Sub6.anInt3074) {
-						Class180_Sub6.anInt3074 = -1;
+				if (AnimatedLocation.anInt3074 >= 0 && i >= 0) {
+					Class120_Sub12_Sub36.anIntArray3416[AnimatedLocation.anInt3074] = i ^ 0xffffffff;
+					AnimatedLocation.anInt3074 = 1 + AnimatedLocation.anInt3074 & 0x7f;
+					if (Class111.anInt1060 == AnimatedLocation.anInt3074) {
+						AnimatedLocation.anInt3074 = -1;
 					}
 				}
 			}

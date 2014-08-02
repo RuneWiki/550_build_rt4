@@ -18,7 +18,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int[] hitsValue;
 	int x;
 	int anInt2970;
-	int anInt2971;
+	int spotAnimNextFrame;
 	Class150[] aClass150Array2972;
 	byte[] aByteArray2973;
 	private int anInt2974;
@@ -73,7 +73,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int hpBarRatio;
 	int textCycle;
 	int anInt3026;
-	int spotAnimFrameId;
+	int spotAnimFrame;
 	int anInt3028;
 	private int anInt3029;
 	int anInt3030;
@@ -163,7 +163,7 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	final void method2327(final int i, final Class180_Sub7 class180_sub7) {
+	final void method2327(final int i, final AbstractModel class180_sub7) {
 		try {
 			final Class29 class29 = method2336();
 			if (class29.anInt208 != i || class29.anInt209 != 0) {
@@ -463,7 +463,7 @@ abstract class GameEntity extends SceneGraphNode {
 		return size;
 	}
 
-	final void method2334(final Class180_Sub7 class180_sub7, final int i, final int i_47_) {
+	final void method2334(final AbstractModel class180_sub7, final int i, final int i_47_) {
 		try {
 			Class159.anInt1488 = i_47_;
 			Class93.anInt867 = 0;
@@ -670,10 +670,10 @@ abstract class GameEntity extends SceneGraphNode {
 		return ObjectContainer.aClass29_2620;
 	}
 
-	final void method2337(final Class180_Sub7 class180_sub7, final Class180_Sub7 class180_sub7_86_) {
+	final void method2337(final AbstractModel class180_sub7, final AbstractModel class180_sub7_86_) {
 		if (!HDToolkit.glEnabled) {
-			final Class180_Sub7_Sub1 class180_sub7_sub1 = (Class180_Sub7_Sub1) class180_sub7_86_;
-			final Class180_Sub7_Sub1 class180_sub7_sub1_87_ = (Class180_Sub7_Sub1) class180_sub7;
+			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_86_;
+			final LDModel class180_sub7_sub1_87_ = (LDModel) class180_sub7;
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub1_87_.aClass158Array3788 != null || class180_sub7_sub1_87_.aClass169Array3776 != null || class180_sub7_sub1 != null && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
@@ -681,8 +681,8 @@ abstract class GameEntity extends SceneGraphNode {
 				this.aClass108_Sub2_2988.method962(class180_sub7_sub1_87_.aClass158Array3788, class180_sub7_sub1_87_.aClass169Array3776, false, class180_sub7_sub1_87_.xVertices, class180_sub7_sub1_87_.yVertices, class180_sub7_sub1_87_.zVertices);
 			}
 		} else {
-			final Class180_Sub7_Sub2 class180_sub7_sub2 = (Class180_Sub7_Sub2) class180_sub7;
-			final Class180_Sub7_Sub2 class180_sub7_sub2_88_ = (Class180_Sub7_Sub2) class180_sub7_86_;
+			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7;
+			final HDModel class180_sub7_sub2_88_ = (HDModel) class180_sub7_86_;
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null || class180_sub7_sub2_88_ != null && (class180_sub7_sub2_88_.aClass158Array3892 != null || class180_sub7_sub2_88_.aClass169Array3858 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
@@ -736,9 +736,9 @@ abstract class GameEntity extends SceneGraphNode {
 		this.spotAnimId = -1;
 		this.anInt2964 = 0;
 		this.anInt3021 = -1;
-		this.anInt2971 = -1;
+		this.spotAnimNextFrame = -1;
 		this.faceX = 0;
-		this.spotAnimFrameId = 0;
+		this.spotAnimFrame = 0;
 		this.hitsCycle = new int[4];
 		this.maxY = -32768;
 		this.anInt2976 = 0;

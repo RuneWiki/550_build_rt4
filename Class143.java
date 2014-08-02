@@ -276,7 +276,7 @@ class Class143 implements Interface3 {
 		DisplayModeInfo.aString1708 = "Spielwelt erstellt.";
 		Class29.aString196 = ": ";
 		GameEntity.aString3011 = "scrollen:";
-		Class180_Sub6.aString3062 = "Spieler kann nicht gefunden werden: ";
+		AnimatedLocation.aString3062 = "Spieler kann nicht gefunden werden: ";
 		Class120_Sub11.aString2552 = "Titelbild ge\u00f6ffnet.";
 		Class120_Sub3.aString2428 = "Lade Konfiguration - ";
 		AbstractIndexedSprite.aString1025 = "Musik-Engine vorbereitet.";
@@ -311,7 +311,7 @@ class Class143 implements Interface3 {
 		Class121.aString1155 = "Schrifts\u00e4tze geladen.";
 		Class8.aString64 = "Ablegen";
 		PlayerAppearance.aString1368 = "Zugewiesener Speicher.";
-		Class84.aString799 = "Benutzeroberfl\u00e4che geladen.";
+		GZIPDecompressor.aString799 = "Benutzeroberfl\u00e4che geladen.";
 		Class174.aString1733 = "Fertigkeit: ";
 		Class112.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
 		InterfaceListener.aString2538 = "gleiten:";

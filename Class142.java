@@ -15,7 +15,7 @@ final class Class142 {
 		final int i_2_ = varBit.setting;
 		final int i_3_ = varBit.startBit;
 		final int i_4_ = varBit.endBit;
-		int i_5_ = Class120_Sub14_Sub15.anIntArray3580[i_4_ - i_3_];
+		int i_5_ = Class120_Sub14_Sub15.masklookup[i_4_ - i_3_];
 		if (i_0_ < 0 || i_0_ > i_5_) {
 			i_0_ = 0;
 		}
@@ -63,25 +63,16 @@ final class Class142 {
 		} while (false);
 	}
 
-	private final void method2006(final int i, final Buffer class120_sub7, final int i_7_, final int i_8_) {
-		do {
-			try {
-				if (i_8_ == 1) {
-					this.anInt1363 = class120_sub7.getUShort();
-				} else if (i_8_ == 2) {
-					this.anInt1360 = class120_sub7.getMedium();
-				} else if (i_8_ == 3) {
-					this.aBoolean1359 = true;
-				} else if (i_8_ == 4) {
-					this.anInt1363 = -1;
-				}
-				if (i > -115) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("qg.D(").append(i).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
-			}
-		} while (false);
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.anInt1363 = buffer.getUShort();
+		} else if (code == 2) {
+			this.anInt1360 = buffer.getMedium();
+		} else if (code == 3) {
+			this.aBoolean1359 = true;
+		} else if (code == 4) {
+			this.anInt1363 = -1;
+		}
 	}
 
 	static final void method2007(final String string, final String string_15_, final int i, final int i_10_, final int i_11_, final int i_12_, final long l, final boolean bool, final boolean bool_9_, final boolean bool_14_) {
@@ -224,7 +215,7 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1338) {
 								if (jagexInterface.method2501()) {
-									Class164.method2145(jagexInterface, drawX, redrawId, drawY);
+									Class164.drawMinimap(jagexInterface, drawX, drawY, redrawId);
 									if (!HDToolkit.glEnabled) {
 										GraphicsLD.clipRect(i_27_, i_25_, i_24_, i_23_);
 									} else {
@@ -309,7 +300,7 @@ final class Class142 {
 								if (HintIcon.showFps) {
 									final int i_52_ = drawX + jagexInterface.width;
 									int i_53_ = drawY + 15;
-									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(Class73.fps).toString(), i_52_, i_53_, 16776960, -1);
+									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(MapFunctionType.fps).toString(), i_52_, i_53_, 16776960, -1);
 									final Runtime runtime = Runtime.getRuntime();
 									i_53_ += 15;
 									final int i_54_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
@@ -335,7 +326,7 @@ final class Class142 {
 									for (int i_60_ = 0; i_60_ < 29; i_60_++) {
 										i_59_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method474(0);
 										i_57_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method470(true);
-										i_58_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method463(1);
+										i_58_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method463();
 									}
 									final int i_61_ = i_58_ * 100 / i_59_;
 									final int i_62_ = i_57_ * 10000 / i_59_;
@@ -695,7 +686,7 @@ final class Class142 {
 									}
 								} else if (jagexInterface.type == 6) {
 									final boolean bool = Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -90);
-									Class180_Sub7 class180_sub7 = null;
+									AbstractModel class180_sub7 = null;
 									int i_90_;
 									if (bool) {
 										i_90_ = jagexInterface.enabledAnim;
@@ -766,7 +757,7 @@ final class Class142 {
 											final int i_98_ = Rasterizer.sineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
 											if (jagexInterface.newFormat) {
 												if (jagexInterface.aBoolean2046) {
-													((Class180_Sub7_Sub1) class180_sub7).method2400(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_98_ - -i_91_ - -jagexInterface.anInt1977, i_97_ + jagexInterface.anInt1977, jagexInterface.zoom);
+													((LDModel) class180_sub7).method2400(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_98_ - -i_91_ - -jagexInterface.anInt1977, i_97_ + jagexInterface.anInt1977, jagexInterface.zoom);
 												} else {
 													class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_91_ + i_98_ - -jagexInterface.anInt1977, i_97_ - -jagexInterface.anInt1977, -1L);
 												}
@@ -936,52 +927,50 @@ final class Class142 {
 		}
 	}
 
-	final void method2010(final int i, final boolean bool, final Buffer class120_sub7) {
-		try {
-			for (;;) {
-				final int i_120_ = class120_sub7.getUByte();
-				if (i_120_ == 0) {
-					break;
-				}
-				method2006(-126, class120_sub7, i, i_120_);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			if (bool) {
-				this.aBoolean1359 = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.H(").append(i).append(',').append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
-	final LDIndexedSprite method2011(final int i, final boolean bool, final int i_121_) {
-		LDIndexedSprite class107_sub1;
-		try {
-			LDIndexedSprite class107_sub1_122_ = (LDIndexedSprite) Class132.aClass21_1255.get(i_121_ << 16 | this.anInt1363 | (!bool ? 0 : 262144));
-			if (class107_sub1_122_ != null) {
-				return class107_sub1_122_;
-			}
-			Class120_Sub14_Sub22.aClass50_3640.method429(this.anInt1363);
-			class107_sub1_122_ = Class164.constructLDIndexedSprite(Class120_Sub14_Sub22.aClass50_3640, 0, this.anInt1363);
-			if (class107_sub1_122_ != null) {
-				class107_sub1_122_.method914(Class158.anInt1481, Class5.anInt2157, GameEntity.anInt2957);
-				class107_sub1_122_.trimWidth = class107_sub1_122_.width;
-				class107_sub1_122_.trimHeight = class107_sub1_122_.height;
-				if (bool) {
-					class107_sub1_122_.method915();
-				}
-				for (int i_123_ = 0; i_123_ < i_121_; i_123_++) {
-					class107_sub1_122_.method916();
-				}
-				Class132.aClass21_1255.put(class107_sub1_122_, this.anInt1363 | i_121_ << 16 | (!bool ? 0 : 262144));
-			}
-			if (i != -1) {
-				return null;
-			}
-			class107_sub1 = class107_sub1_122_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.C(").append(i).append(',').append(bool).append(',').append(i_121_).append(')').toString());
+	final LDIndexedSprite method2011(final int i_121_, final boolean bool) {
+		LDIndexedSprite class107_sub1_122_ = (LDIndexedSprite) Class132.aClass21_1255.get(i_121_ << 16 | this.anInt1363 | (!bool ? 0 : 262144));
+		if (class107_sub1_122_ != null) {
+			return class107_sub1_122_;
 		}
-		return class107_sub1;
+		Class120_Sub14_Sub22.aClass50_3640.method429(this.anInt1363);
+		class107_sub1_122_ = Class164.constructLDIndexedSprite(Class120_Sub14_Sub22.aClass50_3640, 0, this.anInt1363);
+		if (class107_sub1_122_ != null) {
+			class107_sub1_122_.method914(Class158.anInt1481, Class5.anInt2157, GameEntity.anInt2957);
+			class107_sub1_122_.trimWidth = class107_sub1_122_.width;
+			class107_sub1_122_.trimHeight = class107_sub1_122_.height;
+			if (bool) {
+				class107_sub1_122_.method915();
+			}
+			for (int i_123_ = 0; i_123_ < i_121_; i_123_++) {
+				class107_sub1_122_.method916();
+			}
+			Class132.aClass21_1255.put(class107_sub1_122_, this.anInt1363 | i_121_ << 16 | (!bool ? 0 : 262144));
+		}
+		return class107_sub1_122_;
+	}
+
+	static final Class142 list(final int id) {
+		Class142 class142_19_ = (Class142) Js5Request.aClass21_3937.get(id);
+		if (class142_19_ != null) {
+			return class142_19_;
+		}
+		final byte[] is = Class30.aClass50_233.getFile(34, id);
+		class142_19_ = new Class142();
+		if (is != null) {
+			class142_19_.decode(new Buffer(is));
+		}
+		Js5Request.aClass21_3937.put(class142_19_, id);
+		return class142_19_;
 	}
 
 	public Class142() {

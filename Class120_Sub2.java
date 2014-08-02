@@ -90,8 +90,8 @@ abstract class Class120_Sub2 extends Node {
 	}
 
 	static final boolean method1046(final int i, final int i_15_, final int i_16_, final int i_17_, final int i_18_) {
-		final int i_19_ = i_17_ * Class120_Sub12_Sub30.anInt3377 + i * Class73.anInt637 >> 16;
-		final int i_20_ = i_17_ * Class73.anInt637 - i * Class120_Sub12_Sub30.anInt3377 >> 16;
+		final int i_19_ = i_17_ * Class120_Sub12_Sub30.anInt3377 + i * MapFunctionType.anInt637 >> 16;
+		final int i_20_ = i_17_ * MapFunctionType.anInt637 - i * Class120_Sub12_Sub30.anInt3377 >> 16;
 		int i_21_ = i_15_ * Class69_Sub2.anInt2239 + i_20_ * ObjectContainer.anInt2616 >> 16;
 		final int i_22_ = i_15_ * ObjectContainer.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
 		if (i_21_ < 1) {
@@ -139,10 +139,10 @@ abstract class Class120_Sub2 extends Node {
 
 	static final void method1050() {
 		if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-			Class120_Sub12_Sub29.aClass164_3366.method2133((byte) -128);
+			Class120_Sub12_Sub29.aClass164_3366.method2133();
 		}
 		if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-			Class120_Sub12_Sub3.aClass164_3150.method2133((byte) -116);
+			Class120_Sub12_Sub3.aClass164_3150.method2133();
 		}
 	}
 

@@ -35,7 +35,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 				}
 				i_7_ -= ~0xfff & i_7_;
 				if (anInt3433 == 0) {
-					i_7_ = Class84.anIntArray800[0xff & i_7_ >> 4] - -4096 >> 1;
+					i_7_ = GZIPDecompressor.anIntArray800[0xff & i_7_ >> 4] - -4096 >> 1;
 				} else if (anInt3433 == 2) {
 					i_7_ -= 2048;
 					if (i_7_ < 0) {

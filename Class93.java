@@ -11,32 +11,28 @@ final class Class93 {
 	static JagexInterface aClass189_869;
 	static boolean aBoolean870 = false;
 
-	static final void method770(final long l, final byte i) {
-		try {
-			if ((l ^ 0xffffffffffffffffL) != -1L && i == -67) {
-				for (int i_0_ = 0; i_0_ < Class120_Sub12_Sub26.ignoreCount; i_0_++) {
-					if ((l ^ 0xffffffffffffffffL) == (HintIcon.ignoreNamesAsLong[i_0_] ^ 0xffffffffffffffffL)) {
-						Class120_Sub12_Sub26.ignoreCount--;
-						for (int i_1_ = i_0_; i_1_ < Class120_Sub12_Sub26.ignoreCount; i_1_++) {
-							HintIcon.ignoreNamesAsLong[i_1_] = HintIcon.ignoreNamesAsLong[i_1_ - -1];
-							Class84.ignoreNames[i_1_] = Class84.ignoreNames[1 + i_1_];
-							Class120_Sub14_Sub4.aBooleanArray3468[i_1_] = Class120_Sub14_Sub4.aBooleanArray3468[1 + i_1_];
-						}
-						Class61.anInt563 = GrandExchangeObject.anInt1494;
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(142);
-						Class120_Sub12_Sub11.outputStream.putLong(l);
-						break;
+	static final void removeIgnore(final long nameAsLong) {
+		if (nameAsLong != 0L) {
+			for (int ignoreId = 0; ignoreId < Class120_Sub12_Sub26.ignoreCount; ignoreId++) {
+				if (nameAsLong == HintIcon.ignoreNamesAsLong[ignoreId]) {
+					Class120_Sub12_Sub26.ignoreCount--;
+					for (int nextIgnoreId = ignoreId; nextIgnoreId < Class120_Sub12_Sub26.ignoreCount; nextIgnoreId++) {
+						HintIcon.ignoreNamesAsLong[nextIgnoreId] = HintIcon.ignoreNamesAsLong[nextIgnoreId + 1];
+						GZIPDecompressor.ignoreNames[nextIgnoreId] = GZIPDecompressor.ignoreNames[nextIgnoreId + 1];
+						Class120_Sub14_Sub4.aBooleanArray3468[nextIgnoreId] = Class120_Sub14_Sub4.aBooleanArray3468[nextIgnoreId + 1];
 					}
+					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(142);
+					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
+					break;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ka.F(").append(l).append(',').append(i).append(')').toString());
 		}
 	}
 
-	static final void method771(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final CollisionMap collisionMap, final boolean bool_8_, final int i_9_) {
+	static final void method771(final int rotation, final int i_2_, final int i_3_, final int i_4_, final int x, final int i_6_, final boolean bool, final int z, final CollisionMap collisionMap, final boolean bool_8_, final int i_9_) {
 		try {
-			if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][i_5_][i_7_]) != 0 || (Class114.tileSettings[i_2_][i_5_][i_7_] & 0x10) == 0 && SubScript.method2242(i_7_, i_2_, (byte) 106, i_5_) == Class120_Sub14_Sub4.anInt3469) {
+			if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][x][z]) != 0 || (Class114.tileSettings[i_2_][x][z] & 0x10) == 0 && SubScript.method2242(z, i_2_, (byte) 106, x) == Class120_Sub14_Sub4.anInt3469) {
 				if (DummyOutputStream.anInt29 > i_2_) {
 					DummyOutputStream.anInt29 = i_2_;
 				}
@@ -44,7 +40,7 @@ final class Class93 {
 				if (!HDToolkit.glEnabled || !locType.aBoolean1876) {
 					int i_10_;
 					int i_11_;
-					if (i == 1 || i == 3) {
+					if (rotation == 1 || rotation == 3) {
 						i_11_ = locType.sizeZ;
 						i_10_ = locType.sizeX;
 					} else {
@@ -53,32 +49,32 @@ final class Class93 {
 					}
 					int i_12_;
 					int i_13_;
-					if (i_11_ + i_5_ > 104) {
-						i_12_ = i_5_ - -1;
-						i_13_ = i_5_;
+					if (i_11_ + x > 104) {
+						i_12_ = x - -1;
+						i_13_ = x;
 					} else {
-						i_12_ = i_5_ + (1 + i_11_ >> 1);
-						i_13_ = (i_11_ >> 1) + i_5_;
+						i_12_ = x + (1 + i_11_ >> 1);
+						i_13_ = (i_11_ >> 1) + x;
 					}
 					int i_14_;
 					int i_15_;
-					if (i_7_ - -i_10_ > 104) {
-						i_15_ = i_7_ + 1;
-						i_14_ = i_7_;
+					if (z - -i_10_ > 104) {
+						i_15_ = z + 1;
+						i_14_ = z;
 					} else {
-						i_14_ = (i_10_ >> 1) + i_7_;
-						i_15_ = i_7_ - -(i_10_ - -1 >> 1);
+						i_14_ = (i_10_ >> 1) + z;
+						i_15_ = z - -(i_10_ - -1 >> 1);
 					}
 					final int[][] is = OverridedJInterface.tileHeightMap[i_4_];
-					final int i_16_ = (i_11_ << 6) + (i_5_ << 7);
-					final int i_17_ = (i_10_ << 6) + (i_7_ << 7);
+					final int i_16_ = (i_11_ << 6) + (x << 7);
+					final int i_17_ = (i_10_ << 6) + (z << 7);
 					final int i_18_ = is[i_12_][i_14_] + is[i_13_][i_14_] + is[i_13_][i_15_] + is[i_12_][i_15_] >> 2;
 					int i_19_ = 0;
 					if (HDToolkit.glEnabled && i_4_ != 0) {
 						final int[][] is_20_ = OverridedJInterface.tileHeightMap[0];
 						i_19_ = i_18_ + -(is_20_[i_13_][i_15_] + is_20_[i_13_][i_14_] - (-is_20_[i_12_][i_14_] - is_20_[i_12_][i_15_]) >> 2);
 					}
-					long l = i_5_ | i_7_ << 7 | i_9_ << 14 | i << 20 | 0x40000000;
+					long l = x | z << 7 | i_9_ << 14 | rotation << 20 | 0x40000000;
 					int[][] is_21_ = null;
 					if (bool) {
 						is_21_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
@@ -94,175 +90,175 @@ final class Class93 {
 					if (locType.aBoolean1878) {
 						l |= 0x80000000L;
 					}
-					if (locType.method2466(92)) {
-						Class7.addAmbientSound(locType, i_5_, null, i_7_, null, i, i_2_);
+					if (locType.method2466()) {
+						Class7.addAmbientSound(locType, x, null, z, null, rotation, i_2_);
 					}
 					l |= (long) i_3_ << 32;
 					final boolean bool_22_ = locType.aBoolean1823 & !bool;
 					if (i_9_ == 22) {
 						if (Hashtable.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
 							SceneGraphNode sceneGraphNode;
-							if ((locType.anInt1836 ^ 0xffffffff) != 0 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-								sceneGraphNode = new Class180_Sub6(i_3_, 22, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+							if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+								sceneGraphNode = new AnimatedLocation(i_3_, 22, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 							} else {
-								final Class88 class88 = locType.method2453(i_16_, bool_8_, 22, i_18_, is, is_21_, bool_22_, i, i_17_, -123, null);
+								final Class88 class88 = locType.method2453(i_16_, bool_8_, 22, i_18_, is, is_21_, bool_22_, rotation, i_17_, -123, null);
 								if (HDToolkit.glEnabled && bool_22_) {
 									Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 								}
 								sceneGraphNode = class88.aClass180_826;
 							}
-							Class120_Sub14_Sub24.method1649(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, l, locType.aBoolean1822);
+							Class120_Sub14_Sub24.method1649(i_2_, x, z, i_18_, sceneGraphNode, l, locType.aBoolean1822);
 							if (locType.anInt1821 == 1 && collisionMap != null) {
-								collisionMap.method212(i_5_, i_7_);
+								collisionMap.method212(x, z);
 							}
 						}
 					} else if (i_9_ == 10 || i_9_ == 11) {
 						SceneGraphNode sceneGraphNode;
-						if ((locType.anInt1836 ^ 0xffffffff) == 0 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, 10, i_18_, is, is_21_, bool_22_, i_9_ != 11 ? i : i + 4, i_17_, i_6_ + -118, null);
+						if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, 10, i_18_, is, is_21_, bool_22_, i_9_ != 11 ? rotation : rotation + 4, i_17_, i_6_ + -118, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						} else {
-							sceneGraphNode = new Class180_Sub6(i_3_, 10, i_9_ != 11 ? i : i + 4, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+							sceneGraphNode = new AnimatedLocation(i_3_, 10, i_9_ != 11 ? rotation : rotation + 4, i_4_, x, z, -1, locType.aBoolean1864, null);
 						}
 						if (sceneGraphNode != null) {
-							final boolean bool_23_ = method774(i_2_, i_5_, i_7_, i_18_, i_11_, i_10_, sceneGraphNode, 0, l);
+							final boolean bool_23_ = method774(i_2_, x, z, i_18_, i_11_, i_10_, sceneGraphNode, 0, l);
 							if (locType.aBoolean1858 && bool_23_ && bool_8_) {
 								int i_24_ = 15;
-								if (sceneGraphNode instanceof Class180_Sub7) {
-									i_24_ = ((Class180_Sub7) sceneGraphNode).method2371() / 4;
+								if (sceneGraphNode instanceof AbstractModel) {
+									i_24_ = ((AbstractModel) sceneGraphNode).method2371() / 4;
 									if (i_24_ > 30) {
 										i_24_ = 30;
 									}
 								}
 								for (int i_25_ = 0; i_11_ >= i_25_; i_25_++) {
 									for (int i_26_ = 0; i_26_ <= i_10_; i_26_++) {
-										if (Npc.aByteArrayArrayArray3754[i_2_][i_25_ + i_5_][i_7_ - -i_26_] < i_24_) {
-											Npc.aByteArrayArrayArray3754[i_2_][i_5_ + i_25_][i_26_ + i_7_] = (byte) i_24_;
+										if (Npc.aByteArrayArrayArray3754[i_2_][i_25_ + x][z - -i_26_] < i_24_) {
+											Npc.aByteArrayArrayArray3754[i_2_][x + i_25_][i_26_ + z] = (byte) i_24_;
 										}
 									}
 								}
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(i_5_, i_7_, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
+							collisionMap.method213(x, z, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
 						}
 					} else if (i_9_ >= 12) {
 						SceneGraphNode sceneGraphNode;
-						if (locType.anInt1836 != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, i_9_, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, i_9_, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, i_9_, i_18_, is, is_21_, bool_22_, i, i_17_, -115, null);
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, i_9_, i_18_, is, is_21_, bool_22_, rotation, i_17_, -115, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						method774(i_2_, i_5_, i_7_, i_18_, 1, 1, sceneGraphNode, 0, l);
+						method774(i_2_, x, z, i_18_, 1, 1, sceneGraphNode, 0, l);
 						if (bool_8_ && i_9_ >= 12 && i_9_ <= 17 && i_9_ != 13 && i_2_ > 0 && locType.anInt1866 != 0) {
-							Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 4);
+							Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 4);
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(i_5_, i_7_, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
+							collisionMap.method213(x, z, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
 						}
 					} else if (i_9_ == 0) {
 						SceneGraphNode sceneGraphNode;
-						if ((locType.anInt1836 ^ 0xffffffff) != 0 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, 0, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, 0, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, 0, i_18_, is, is_21_, bool_22_, i, i_17_, -128, null);
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, 0, i_18_, is, is_21_, bool_22_, rotation, i_17_, -128, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						RuntimeException_Sub1.method2530(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, Class53.anIntArray485[i], 0, l);
+						RuntimeException_Sub1.method2530(i_2_, x, z, i_18_, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, l);
 						if (bool_8_) {
-							if (i != 0) {
-								if (i != 1) {
-									if (i != 2) {
-										if (i == 3) {
+							if (rotation != 0) {
+								if (rotation != 1) {
+									if (rotation != 2) {
+										if (rotation == 3) {
 											if (locType.aBoolean1858) {
-												Npc.aByteArrayArrayArray3754[i_2_][i_5_][i_7_] = (byte) 50;
-												Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][i_7_] = (byte) 50;
+												Npc.aByteArrayArrayArray3754[i_2_][x][z] = (byte) 50;
+												Npc.aByteArrayArrayArray3754[i_2_][1 + x][z] = (byte) 50;
 											}
 											if (locType.anInt1866 == 1) {
-												Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 2);
+												Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 2);
 											}
 										}
 									} else {
 										if (locType.aBoolean1858) {
-											Npc.aByteArrayArrayArray3754[i_2_][i_5_ + 1][i_7_] = (byte) 50;
-											Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][1 + i_7_] = (byte) 50;
+											Npc.aByteArrayArrayArray3754[i_2_][x + 1][z] = (byte) 50;
+											Npc.aByteArrayArrayArray3754[i_2_][1 + x][1 + z] = (byte) 50;
 										}
 										if (locType.anInt1866 == 1) {
-											Class110.anIntArrayArrayArray1050[i_2_][i_5_ + 1][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_ + 1][i_7_], 1);
+											Class110.anIntArrayArrayArray1050[i_2_][x + 1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x + 1][z], 1);
 										}
 									}
 								} else {
 									if (locType.aBoolean1858) {
-										Npc.aByteArrayArrayArray3754[i_2_][i_5_][1 + i_7_] = (byte) 50;
-										Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][1 + i_7_] = (byte) 50;
+										Npc.aByteArrayArrayArray3754[i_2_][x][1 + z] = (byte) 50;
+										Npc.aByteArrayArrayArray3754[i_2_][1 + x][1 + z] = (byte) 50;
 									}
 									if (locType.anInt1866 == 1) {
-										Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_ + 1] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_ + 1], 2);
+										Class110.anIntArrayArrayArray1050[i_2_][x][z + 1] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z + 1], 2);
 									}
 								}
 							} else {
 								if (locType.aBoolean1858) {
-									Npc.aByteArrayArrayArray3754[i_2_][i_5_][i_7_] = (byte) 50;
-									Npc.aByteArrayArrayArray3754[i_2_][i_5_][1 + i_7_] = (byte) 50;
+									Npc.aByteArrayArrayArray3754[i_2_][x][z] = (byte) 50;
+									Npc.aByteArrayArrayArray3754[i_2_][x][1 + z] = (byte) 50;
 								}
 								if (locType.anInt1866 == 1) {
-									Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 1);
+									Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 1);
 								}
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method219(i_5_, i_7_, locType.aBoolean1844, !locType.aBoolean1880, i_9_, i);
+							collisionMap.method219(x, z, locType.aBoolean1844, !locType.aBoolean1880, i_9_, rotation);
 						}
 						if (locType.anInt1819 != 16) {
-							Class120_Sub12_Sub2.method1201(i_2_, i_5_, i_7_, locType.anInt1819);
+							Class120_Sub12_Sub2.method1201(i_2_, x, z, locType.anInt1819);
 						}
 					} else if (i_9_ == 1) {
 						SceneGraphNode sceneGraphNode;
-						if (locType.anInt1836 != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, 1, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, 1, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, 1, i_18_, is, is_21_, bool_22_, i, i_17_, -116, null);
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, 1, i_18_, is, is_21_, bool_22_, rotation, i_17_, -116, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						RuntimeException_Sub1.method2530(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, Class156.anIntArray1458[i], 0, l);
+						RuntimeException_Sub1.method2530(i_2_, x, z, i_18_, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, l);
 						if (locType.aBoolean1858 && bool_8_) {
-							if (i == 0) {
-								Npc.aByteArrayArrayArray3754[i_2_][i_5_][i_7_ + 1] = (byte) 50;
-							} else if (i == 1) {
-								Npc.aByteArrayArrayArray3754[i_2_][i_5_ - -1][1 + i_7_] = (byte) 50;
-							} else if (i != 2) {
-								if (i == 3) {
-									Npc.aByteArrayArrayArray3754[i_2_][i_5_][i_7_] = (byte) 50;
+							if (rotation == 0) {
+								Npc.aByteArrayArrayArray3754[i_2_][x][z + 1] = (byte) 50;
+							} else if (rotation == 1) {
+								Npc.aByteArrayArrayArray3754[i_2_][x - -1][1 + z] = (byte) 50;
+							} else if (rotation != 2) {
+								if (rotation == 3) {
+									Npc.aByteArrayArrayArray3754[i_2_][x][z] = (byte) 50;
 								}
 							} else {
-								Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][i_7_] = (byte) 50;
+								Npc.aByteArrayArrayArray3754[i_2_][1 + x][z] = (byte) 50;
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method219(i_5_, i_7_, locType.aBoolean1844, !locType.aBoolean1880, i_9_, i);
+							collisionMap.method219(x, z, locType.aBoolean1844, !locType.aBoolean1880, i_9_, rotation);
 						}
 					} else if (i_9_ == 2) {
-						final int i_27_ = 0x3 & i - -1;
+						final int i_27_ = 0x3 & rotation - -1;
 						SceneGraphNode sceneGraphNode;
 						SceneGraphNode class180_28_;
-						if (locType.anInt1836 != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, 2, i + 4, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
-							class180_28_ = new Class180_Sub6(i_3_, 2, i_27_, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, 2, rotation + 4, i_4_, x, z, -1, locType.aBoolean1864, null);
+							class180_28_ = new AnimatedLocation(i_3_, 2, i_27_, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							Class88 class88 = locType.method2453(i_16_, bool_8_, 2, i_18_, is, is_21_, bool_22_, i + 4, i_17_, i_6_ ^ ~0x71, null);
+							Class88 class88 = locType.method2453(i_16_, bool_8_, 2, i_18_, is, is_21_, bool_22_, rotation + 4, i_17_, i_6_ ^ ~0x71, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
@@ -273,128 +269,128 @@ final class Class93 {
 							}
 							class180_28_ = class88.aClass180_826;
 						}
-						RuntimeException_Sub1.method2530(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, class180_28_, Class53.anIntArray485[i], Class53.anIntArray485[i_27_], l);
+						RuntimeException_Sub1.method2530(i_2_, x, z, i_18_, sceneGraphNode, class180_28_, Class53.anIntArray485[rotation], Class53.anIntArray485[i_27_], l);
 						if (locType.anInt1866 == 1 && bool_8_) {
-							if (i != 0) {
-								if (i != 1) {
-									if (i == 2) {
-										Class110.anIntArrayArrayArray1050[i_2_][i_5_ - -1][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_ - -1][i_7_], 1);
-										Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 2);
-									} else if (i == 3) {
-										Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 2);
-										Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 1);
+							if (rotation != 0) {
+								if (rotation != 1) {
+									if (rotation == 2) {
+										Class110.anIntArrayArrayArray1050[i_2_][x - -1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x - -1][z], 1);
+										Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 2);
+									} else if (rotation == 3) {
+										Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 2);
+										Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 1);
 									}
 								} else {
-									Class110.anIntArrayArrayArray1050[i_2_][i_5_][1 + i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][1 + i_7_], 2);
-									Class110.anIntArrayArrayArray1050[i_2_][i_5_ + 1][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_ + 1][i_7_], 1);
+									Class110.anIntArrayArrayArray1050[i_2_][x][1 + z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][1 + z], 2);
+									Class110.anIntArrayArrayArray1050[i_2_][x + 1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x + 1][z], 1);
 								}
 							} else {
-								Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][i_7_], 1);
-								Class110.anIntArrayArrayArray1050[i_2_][i_5_][1 + i_7_] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][i_5_][1 + i_7_], 2);
+								Class110.anIntArrayArrayArray1050[i_2_][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][z], 1);
+								Class110.anIntArrayArrayArray1050[i_2_][x][1 + z] = Class191.method2512(Class110.anIntArrayArrayArray1050[i_2_][x][1 + z], 2);
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method219(i_5_, i_7_, locType.aBoolean1844, !locType.aBoolean1880, i_9_, i);
+							collisionMap.method219(x, z, locType.aBoolean1844, !locType.aBoolean1880, i_9_, rotation);
 						}
 						if (locType.anInt1819 != 16) {
-							Class120_Sub12_Sub2.method1201(i_2_, i_5_, i_7_, locType.anInt1819);
+							Class120_Sub12_Sub2.method1201(i_2_, x, z, locType.anInt1819);
 						}
 					} else if (i_9_ == 3) {
 						SceneGraphNode sceneGraphNode;
-						if ((locType.anInt1836 ^ 0xffffffff) != 0 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, 3, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, 3, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, 3, i_18_, is, is_21_, bool_22_, i, i_17_, -128, null);
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, 3, i_18_, is, is_21_, bool_22_, rotation, i_17_, -128, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						RuntimeException_Sub1.method2530(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, Class156.anIntArray1458[i], 0, l);
+						RuntimeException_Sub1.method2530(i_2_, x, z, i_18_, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, l);
 						if (locType.aBoolean1858 && bool_8_) {
-							if (i == 0) {
-								Npc.aByteArrayArrayArray3754[i_2_][i_5_][1 + i_7_] = (byte) 50;
-							} else if (i == 1) {
-								Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][1 + i_7_] = (byte) 50;
-							} else if (i == 2) {
-								Npc.aByteArrayArrayArray3754[i_2_][1 + i_5_][i_7_] = (byte) 50;
-							} else if (i == 3) {
-								Npc.aByteArrayArrayArray3754[i_2_][i_5_][i_7_] = (byte) 50;
+							if (rotation == 0) {
+								Npc.aByteArrayArrayArray3754[i_2_][x][1 + z] = (byte) 50;
+							} else if (rotation == 1) {
+								Npc.aByteArrayArrayArray3754[i_2_][1 + x][1 + z] = (byte) 50;
+							} else if (rotation == 2) {
+								Npc.aByteArrayArrayArray3754[i_2_][1 + x][z] = (byte) 50;
+							} else if (rotation == 3) {
+								Npc.aByteArrayArrayArray3754[i_2_][x][z] = (byte) 50;
 							}
 						}
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method219(i_5_, i_7_, locType.aBoolean1844, !locType.aBoolean1880, i_9_, i);
+							collisionMap.method219(x, z, locType.aBoolean1844, !locType.aBoolean1880, i_9_, rotation);
 						}
 					} else if (i_9_ == 9) {
 						SceneGraphNode sceneGraphNode;
-						if (locType.anInt1836 != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-							sceneGraphNode = new Class180_Sub6(i_3_, i_9_, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+							sceneGraphNode = new AnimatedLocation(i_3_, i_9_, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 						} else {
-							final Class88 class88 = locType.method2453(i_16_, bool_8_, i_9_, i_18_, is, is_21_, bool_22_, i, i_17_, -119, null);
+							final Class88 class88 = locType.method2453(i_16_, bool_8_, i_9_, i_18_, is, is_21_, bool_22_, rotation, i_17_, -119, null);
 							if (HDToolkit.glEnabled && bool_22_) {
 								Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						method774(i_2_, i_5_, i_7_, i_18_, 1, 1, sceneGraphNode, 0, l);
+						method774(i_2_, x, z, i_18_, 1, 1, sceneGraphNode, 0, l);
 						if (locType.anInt1821 != 0 && collisionMap != null) {
-							collisionMap.method213(i_5_, i_7_, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
+							collisionMap.method213(x, z, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
 						}
 						if (locType.anInt1819 != 16) {
-							Class120_Sub12_Sub2.method1201(i_2_, i_5_, i_7_, locType.anInt1819);
+							Class120_Sub12_Sub2.method1201(i_2_, x, z, locType.anInt1819);
 						}
 					} else if (i_6_ == 4) {
 						if (i_9_ == 4) {
 							SceneGraphNode sceneGraphNode;
-							if ((locType.anInt1836 ^ 0xffffffff) != 0 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-								sceneGraphNode = new Class180_Sub6(i_3_, 4, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+							if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+								sceneGraphNode = new AnimatedLocation(i_3_, 4, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 							} else {
-								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, i, i_17_, -125, null);
+								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, rotation, i_17_, -125, null);
 								if (HDToolkit.glEnabled && bool_22_) {
 									Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
 								}
 								sceneGraphNode = class88.aClass180_826;
 							}
-							Class11.method127(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, Class53.anIntArray485[i], 0, 0, 0, l);
+							Class11.method127(i_2_, x, z, i_18_, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, 0, 0, l);
 						} else if (i_9_ == 5) {
-							final long l_29_ = Class114.method1005(i_2_, i_5_, i_7_);
+							final long l_29_ = Class114.method1005(x, z, i_2_);
 							int i_30_ = 16;
 							if ((l_29_ ^ 0xffffffffffffffffL) != -1L) {
 								i_30_ = LocType.list((int) (l_29_ >>> 32) & 0x7fffffff).anInt1819;
 							}
 							SceneGraphNode sceneGraphNode;
-							if (locType.anInt1836 == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
-								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, i, i_17_, -116, null);
+							if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, rotation, i_17_, -116, null);
 								if (HDToolkit.glEnabled && bool_22_) {
-									Class47.method389(class88.aClass107_Sub1_830, -(8 * Class109.anIntArray1037[i]) + i_16_, i_19_, i_17_ - Class147.anIntArray1396[i] * 8);
+									Class47.method389(class88.aClass107_Sub1_830, -(8 * Class109.anIntArray1037[rotation]) + i_16_, i_19_, i_17_ - Class147.anIntArray1396[rotation] * 8);
 								}
 								sceneGraphNode = class88.aClass180_826;
 							} else {
-								sceneGraphNode = new Class180_Sub6(i_3_, 4, i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+								sceneGraphNode = new AnimatedLocation(i_3_, 4, rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
 							}
-							Class11.method127(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, Class53.anIntArray485[i], 0, Class109.anIntArray1037[i] * i_30_, Class147.anIntArray1396[i] * i_30_, l);
+							Class11.method127(i_2_, x, z, i_18_, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, Class109.anIntArray1037[rotation] * i_30_, Class147.anIntArray1396[rotation] * i_30_, l);
 						} else if (i_9_ == 6) {
-							final long l_31_ = Class114.method1005(i_2_, i_5_, i_7_);
+							final long l_31_ = Class114.method1005(x, z, i_2_);
 							int i_32_ = 8;
 							if (-1L != (l_31_ ^ 0xffffffffffffffffL)) {
 								i_32_ = LocType.list(0x7fffffff & (int) (l_31_ >>> 32)).anInt1819 / 2;
 							}
 							SceneGraphNode sceneGraphNode;
-							if ((locType.anInt1836 ^ 0xffffffff) == 0 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
-								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, i + 4, i_17_, -117, null);
+							if ((locType.animationId ^ 0xffffffff) == 0 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, rotation + 4, i_17_, -117, null);
 								if (HDToolkit.glEnabled && bool_22_) {
-									Class47.method389(class88.aClass107_Sub1_830, i_16_ - Class55.anIntArray493[i] * 8, i_19_, -(GroundObjectNode.anIntArray3629[i] * 8) + i_17_);
+									Class47.method389(class88.aClass107_Sub1_830, i_16_ - Class55.anIntArray493[rotation] * 8, i_19_, -(GroundObjectNode.anIntArray3629[rotation] * 8) + i_17_);
 								}
 								sceneGraphNode = class88.aClass180_826;
 							} else {
-								sceneGraphNode = new Class180_Sub6(i_3_, 4, i + 4, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+								sceneGraphNode = new AnimatedLocation(i_3_, 4, rotation + 4, i_4_, x, z, -1, locType.aBoolean1864, null);
 							}
-							Class11.method127(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, 256, i, Class55.anIntArray493[i] * i_32_, GroundObjectNode.anIntArray3629[i] * i_32_, l);
+							Class11.method127(i_2_, x, z, i_18_, sceneGraphNode, null, 256, rotation, Class55.anIntArray493[rotation] * i_32_, GroundObjectNode.anIntArray3629[rotation] * i_32_, l);
 						} else if (i_9_ == 7) {
-							final int i_33_ = i - -2 & 0x3;
+							final int i_33_ = rotation + 2 & 0x3;
 							SceneGraphNode sceneGraphNode;
-							if (locType.anInt1836 != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
-								sceneGraphNode = new Class180_Sub6(i_3_, 4, 4 + i_33_, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+							if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+								sceneGraphNode = new AnimatedLocation(i_3_, 4, 4 + i_33_, i_4_, x, z, -1, locType.aBoolean1864, null);
 							} else {
 								final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, 4 + i_33_, i_17_, -123, null);
 								if (HDToolkit.glEnabled && bool_22_) {
@@ -402,20 +398,20 @@ final class Class93 {
 								}
 								sceneGraphNode = class88.aClass180_826;
 							}
-							Class11.method127(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, null, 256, i_33_, 0, 0, l);
+							Class11.method127(i_2_, x, z, i_18_, sceneGraphNode, null, 256, i_33_, 0, 0, l);
 						} else if (i_9_ == 8) {
 							int i_34_ = 8;
-							final long l_35_ = Class114.method1005(i_2_, i_5_, i_7_);
+							final long l_35_ = Class114.method1005(x, z, i_2_);
 							if (0L != l_35_) {
 								i_34_ = LocType.list((int) (l_35_ >>> 32) & 0x7fffffff).anInt1819 / 2;
 							}
-							final int i_36_ = 0x3 & i + 2;
+							final int i_36_ = rotation + 2 & 0x3;
 							SceneGraphNode sceneGraphNode;
 							SceneGraphNode class180_37_;
-							if ((locType.anInt1836 ^ 0xffffffff) == 0 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
-								final int i_38_ = Class55.anIntArray493[i] * 8;
-								final int i_39_ = GroundObjectNode.anIntArray3629[i] * 8;
-								Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, 4 + i, i_17_, -113, null);
+							if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+								final int i_38_ = Class55.anIntArray493[rotation] * 8;
+								final int i_39_ = GroundObjectNode.anIntArray3629[rotation] * 8;
+								Class88 class88 = locType.method2453(i_16_, bool_8_, 4, i_18_, is, is_21_, bool_22_, 4 + rotation, i_17_, -113, null);
 								if (HDToolkit.glEnabled && bool_22_) {
 									Class47.method389(class88.aClass107_Sub1_830, -i_38_ + i_16_, i_19_, -i_39_ + i_17_);
 								}
@@ -426,17 +422,17 @@ final class Class93 {
 								}
 								class180_37_ = class88.aClass180_826;
 							} else {
-								sceneGraphNode = new Class180_Sub6(i_3_, 4, 4 + i, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
-								class180_37_ = new Class180_Sub6(i_3_, 4, 4 + i_36_, i_4_, i_5_, i_7_, -1, locType.aBoolean1864, null);
+								sceneGraphNode = new AnimatedLocation(i_3_, 4, 4 + rotation, i_4_, x, z, -1, locType.aBoolean1864, null);
+								class180_37_ = new AnimatedLocation(i_3_, 4, 4 + i_36_, i_4_, x, z, -1, locType.aBoolean1864, null);
 							}
-							Class11.method127(i_2_, i_5_, i_7_, i_18_, sceneGraphNode, class180_37_, 256, i, i_34_ * Class55.anIntArray493[i], i_34_ * GroundObjectNode.anIntArray3629[i], l);
+							Class11.method127(i_2_, x, z, i_18_, sceneGraphNode, class180_37_, 256, rotation, i_34_ * Class55.anIntArray493[rotation], i_34_ * GroundObjectNode.anIntArray3629[rotation], l);
 						}
 					}
 				}
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ka.E(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(bool).append(',').append(i_7_).append(',').append(collisionMap != null ? "{...}" : "null").append(',')
+					new StringBuilder("ka.E(").append(rotation).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(x).append(',').append(i_6_).append(',').append(bool).append(',').append(z).append(',').append(collisionMap != null ? "{...}" : "null").append(',')
 							.append(bool_8_).append(',').append(i_9_).append(')').toString());
 		}
 	}

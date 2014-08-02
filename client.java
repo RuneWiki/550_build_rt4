@@ -253,13 +253,13 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 25;
 			}
 		} else if (Class140.loadingStage == 45) {
-			FileSystemRequest.method1546(2, Class167.aBoolean1619, 22050, (byte) -122);
+			FileSystemRequest.method1546(2, 22050, Class167.aBoolean1619);
 			Class69_Sub1.aClass120_Sub30_Sub2_2230 = new Class120_Sub30_Sub2();
 			Class69_Sub1.aClass120_Sub30_Sub2_2230.method1774(128, (byte) -84, 9);
-			Class120_Sub12_Sub3.aClass164_3150 = Class120_Sub12_Sub18.method1289(Node.canvas, (byte) -125, 22050, NpcType.gameSignlink, 0);
+			Class120_Sub12_Sub3.aClass164_3150 = Class120_Sub12_Sub18.method1289(Node.canvas, 22050, NpcType.gameSignlink, 0);
 			Class120_Sub12_Sub3.aClass164_3150.method2143(Class69_Sub1.aClass120_Sub30_Sub2_2230);
 			Class120_Sub12_Sub39.method1400(Class69_Sub1.aClass120_Sub30_Sub2_2230, Class120_Sub22.aClass50_2679, Class132.aClass50_1251, false, Class159.aClass50_1490);
-			Class120_Sub12_Sub29.aClass164_3366 = Class120_Sub12_Sub18.method1289(Node.canvas, (byte) -126, 2048, NpcType.gameSignlink, 1);
+			Class120_Sub12_Sub29.aClass164_3366 = Class120_Sub12_Sub18.method1289(Node.canvas, 2048, NpcType.gameSignlink, 1);
 			Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299 = new Class120_Sub30_Sub3();
 			Class120_Sub12_Sub29.aClass164_3366.method2143(Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299);
 			ObjectPile.aClass172_1809 = new Decimator(22050, Class178.anInt1771);
@@ -323,14 +323,14 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 50;
 				Class134.loadingText = new StringBuilder(Class120_Sub3.aString2428).append(i_18_ / 11).append("%").toString();
 			} else {
-				Class120_Sub14_Sub1.method1414(Js5Worker.aClass50_397, 40);
+				ParamType.configClient = Js5Worker.aClass50_397;
 				Class125.method1881(Js5Worker.aClass50_397, 76);
-				SceneGraphNode.method2274(Js5Worker.aClass50_397, 2);
+				OverlayType.aClass50_55 = Js5Worker.aClass50_397;
 				Class186.method2472(-12879, Class120_Sub12_Sub17.aClass50_3258, Js5Worker.aClass50_397);
 				Class166.method2178(Class114.aClass50_1097, true, Class120_Sub12_Sub17.aClass50_3258);
-				GrandExchangeObject.method2099(Class120_Sub12_Sub17.aClass50_3258, true, -9746, Class120_Sub12_Sub29.aClass50_3367);
+				GrandExchangeObject.method2099(Class120_Sub12_Sub17.aClass50_3258, Class120_Sub12_Sub29.aClass50_3367, true);
 				Player.method2340(Class127.aClass50_1213, Class33.aClass120_Sub14_Sub8_Sub2_274, true, Class120_Sub12_Sub17.aClass50_3258);
-				Class76.method665((byte) -69, Js5Worker.aClass50_397);
+				SeqType.aClass50_331 = Js5Worker.aClass50_397;
 				Class191.method2509(Class2.aClass50_50, Class79_Sub1.aClass50_2245, AmbientSound.aClass50_2479, 31779);
 				Class153.method2075((byte) -46, Js5Worker.aClass50_397);
 				Class120_Sub12_Sub13.method1266(-1, Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.aClass50_3258);
@@ -403,7 +403,7 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 80;
 			} else {
 				final Huffman huffman = new Huffman(ParticleNodeSub.aClass50_2400.method428(95, "", "huffman"));
-				Class84.setHuffman(huffman);
+				GZIPDecompressor.setHuffman(huffman);
 				Class134.loadingText = SceneGroundObject.aString2847;
 				OverridedJInterface.loadingBarPercent = 80;
 				Class140.loadingStage = 130;
@@ -427,7 +427,7 @@ public final class client extends GameShell {
 				Class41.method334(Class120_Sub12_Sub17.aClass50_3258);
 				Class140.loadingStage = 135;
 				OverridedJInterface.loadingBarPercent = 95;
-				Class134.loadingText = Class84.aString799;
+				Class134.loadingText = GZIPDecompressor.aString799;
 			}
 		} else if (Class140.loadingStage == 135) {
 			final int i_21_ = Class96.method788(-44);
@@ -502,10 +502,10 @@ public final class client extends GameShell {
 		SeekableFile.removeMouseHandler();
 		Class120_Sub12_Sub31.mouseWheelHandler = null;
 		if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-			Class120_Sub12_Sub3.aClass164_3150.method2136(14680);
+			Class120_Sub12_Sub3.aClass164_3150.method2136();
 		}
 		if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-			Class120_Sub12_Sub29.aClass164_3366.method2136(14680);
+			Class120_Sub12_Sub29.aClass164_3366.method2136();
 		}
 		Class178.js5Worker.closeConnection();
 		Class38.fileSystemWorker.stop();
@@ -571,12 +571,12 @@ public final class client extends GameShell {
 		Class120_Sub12_Sub20.anInt3284 = Signlink.anInt1310;
 		try {
 			if (NpcType.gameSignlink.aClass95_1295 != null) {
-				Class73.aClass193_663 = new SeekableFile(NpcType.gameSignlink.aClass95_1295, 5200, 0);
+				MapFunctionType.aClass193_663 = new SeekableFile(NpcType.gameSignlink.aClass95_1295, 5200, 0);
 				for (int i_22_ = 0; i_22_ < 29; i_22_++) {
 					ClanMember.aClass193Array2581[i_22_] = new SeekableFile(NpcType.gameSignlink.aClass95Array1307[i_22_], 6000, 0);
 				}
 				Class86.aClass193_822 = new SeekableFile(NpcType.gameSignlink.aClass95_1304, 6000, 0);
-				Class120_Sub12_Sub5.aClass51_3164 = new FileSystem(255, Class73.aClass193_663, Class86.aClass193_822, 500000);
+				Class120_Sub12_Sub5.aClass51_3164 = new FileSystem(255, MapFunctionType.aClass193_663, Class86.aClass193_822, 500000);
 				Class10.aClass193_78 = new SeekableFile(NpcType.gameSignlink.aClass95_1296, 24, 0);
 				NpcType.gameSignlink.aClass95_1304 = null;
 				NpcType.gameSignlink.aClass95Array1307 = null;
@@ -587,7 +587,7 @@ public final class client extends GameShell {
 			Class10.aClass193_78 = null;
 			Class86.aClass193_822 = null;
 			Class120_Sub12_Sub5.aClass51_3164 = null;
-			Class73.aClass193_663 = null;
+			MapFunctionType.aClass193_663 = null;
 		}
 		if (AbstractIndexedSprite.modeWhere != 0) {
 			HintIcon.showFps = true;
@@ -775,7 +775,7 @@ public final class client extends GameShell {
 		Class65.method577((byte) 77);
 		FrameLoader.method1582((byte) -49);
 		Class150.method2062();
-		Class10.method120((byte) 116);
+		Class10.method120();
 		Class55.method484(-7103);
 		Class38.method312();
 		Class174.method2232(0);
@@ -797,16 +797,16 @@ public final class client extends GameShell {
 		Class136.method1979(64);
 		Class180_Sub2.method2289();
 		Class88.method745(true);
-		Class180_Sub7_Sub2.method2406();
-		ObjType.method2119(2);
-		Class180_Sub7_Sub1.method2394();
+		HDModel.method2406();
+		ObjType.method2119();
+		LDModel.method2394();
 		KeyboardHandler.method2101(-123);
 		Class148.method2059(1);
 		Class90.method750((byte) 54);
 		Class113.method997();
 		Class37.method310();
 		Class82.method714((byte) -78);
-		Canvas_Sub1.method61((byte) 25);
+		Canvas_Sub1.method61();
 		Class179.method2259(27440);
 		AbstractIndexedSprite.method909(true);
 		Class120_Sub14_Sub8.method1479();
@@ -819,14 +819,14 @@ public final class client extends GameShell {
 		Class120_Sub14_Sub5.method1439(-28811);
 		Class98.method814();
 		Class127.method1894((byte) -128);
-		Class73.method649((byte) -41);
+		MapFunctionType.method649();
 		Class53.method456((byte) 126);
 		MasterIndexInfo.method454();
 		AbstractRequest.method1536(false);
 		Class74.method651(false);
 		GraphicsLD.method2163();
 		Class178.method2258((byte) -106);
-		Class84.method719((byte) 91);
+		GZIPDecompressor.method719();
 		ParamType.method1513(-1);
 		NodeSub.method1409(88);
 		NodeCache.method298(-51);
@@ -837,8 +837,8 @@ public final class client extends GameShell {
 		StructType.method1560(50);
 		Class81.method703();
 		Class154.method2080(-2322);
-		Class29.method256((byte) -63);
-		SpotAnimType.method878(0);
+		Class29.method256();
+		SpotAnimType.method878();
 		Varp.method634(true);
 		Class41.method332();
 		EnumType.method1424(0);
@@ -854,10 +854,10 @@ public final class client extends GameShell {
 		Class142.method2012(0);
 		Class143_Sub1.method2031((byte) 65);
 		Class143.method2017((byte) -10);
-		Class114.method1003((byte) -104);
+		Class114.method1003();
 		Class120_Sub14_Sub13.method1527(51);
 		Class120_Sub14_Sub17.method1574();
-		Class120_Sub14_Sub15.method1555(-104);
+		Class120_Sub14_Sub15.method1555();
 		Rasterizer.method872();
 		Class2.method78((byte) -54);
 		Class15.method146(-128);
@@ -874,10 +874,10 @@ public final class client extends GameShell {
 		Class22.method195(-63361369);
 		InterfaceListener.method1169((byte) -111);
 		ClientScript.method1523(37);
-		SceneGraphNode.method2270((byte) -54);
+		SceneGraphNode.method2270();
 		Class120_Sub9.method1164();
 		Class28.method245(8856);
-		Class182.method2442((byte) 20);
+		Class182.method2442();
 		Class186.method2474(10262);
 		Class36.method308(30900);
 		ObjectPile.method2449();
@@ -901,7 +901,7 @@ public final class client extends GameShell {
 		Class192.method2516((byte) 111);
 		Class120_Sub3.method1058(1);
 		InterfaceChangeNode.method1451(120);
-		ObjectContainer.method1666((byte) 78);
+		ObjectContainer.method1666();
 		AmbientSound.method1157(0);
 		Class110.method977((byte) -97);
 		Class175.method2239();
@@ -909,11 +909,11 @@ public final class client extends GameShell {
 		Class89.method747((byte) 121);
 		TileParticleQueue.method824();
 		Projectile.method2321(13);
-		Class180_Sub3.method2316(-89);
+		SpotAnimation.method2316();
 		Class147.method2056(-23477);
 		SceneGroundObject.method2277(28072);
 		Class120_Sub29.method1729(8);
-		Class180_Sub6.method2351(-1);
+		AnimatedLocation.method2351(-1);
 		VarBit.resetLol();
 		Class140.method1999((byte) 127);
 		Class120_Sub14_Sub24.method1646(0);
@@ -921,7 +921,7 @@ public final class client extends GameShell {
 		IntegerNode.method1832(0);
 		Class59.method543();
 		Class120_Sub4.method1065((byte) 43);
-		CanvasWrapper.method67((byte) -124);
+		CanvasWrapper.method67();
 		Class7.method105(128);
 		ProducingGraphicsBuffer.method1852(-1);
 		Class26.method231((byte) 84);
@@ -937,7 +937,7 @@ public final class client extends GameShell {
 		Class146.method2051();
 		StringNode.method1719(58);
 		Class121.method1836(115);
-		Class76.method664(100);
+		Class76.method664();
 		Class134.method1950(-9077);
 		Class60.method551();
 		Class14.method144();
@@ -961,13 +961,13 @@ public final class client extends GameShell {
 		Class132_Sub1.method1935(2061936524);
 		Class24.method206((byte) -102);
 		Class68.method602();
-		Class120_Sub28.method1724(0);
+		Class120_Sub28.method1724();
 		Class8.method112((byte) -64);
 		Class33.method278(0);
 		Class120_Sub12_Sub11.method1252(-129);
 		Class120_Sub12_Sub23.method1324(-1);
 		Class120_Sub12_Sub7.method1235(false);
-		Class120_Sub12_Sub33.method1375((byte) 89);
+		Class120_Sub12_Sub33.method1375();
 		Class120_Sub12_Sub38.method1396(1);
 		Class120_Sub12_Sub4.method1212(128);
 		Class120_Sub12_Sub32.method1374((byte) -26);
@@ -1234,7 +1234,7 @@ public final class client extends GameShell {
 						final Graphics graphics = Node.canvas.getGraphics();
 						for (int i_39_ = 0; i_39_ < LabelGroup.screenRedrawPos; i_39_++) {
 							if (Class120_Sub12_Sub33.needScreenRedraw[i_39_]) {
-								ClanMember.fullscreenGraphics.drawClippedImage(graphics, Class69_Sub3_Sub1.screenRedrawHeights[i_39_], Class120_Sub16.screenRedrawWidhts[i_39_], Class120_Sub12_Sub38.screenRedrawYs[i_39_], GrandExchangeObject.screenRedrawXs[i_39_]);
+								ClanMember.fullscreenGraphics.drawClippedImage(graphics, GrandExchangeObject.screenRedrawXs[i_39_], Class120_Sub12_Sub38.screenRedrawYs[i_39_], Class120_Sub16.screenRedrawWidhts[i_39_], Class69_Sub3_Sub1.screenRedrawHeights[i_39_]);
 								Class120_Sub12_Sub33.needScreenRedraw[i_39_] = false;
 							}
 						}

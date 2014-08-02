@@ -7,7 +7,7 @@ import javax.media.opengl.GL;
 
 final class Class120_Sub14_Sub15 extends NodeSub {
 	private int anInt3579 = 0;
-	static int[] anIntArray3580 = new int[32];
+	static int[] masklookup = new int[32];
 	private int anInt3581 = -1;
 	static volatile int anInt3582;
 	static int headiconspkId;
@@ -18,7 +18,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	static {
 		int i = 2;
 		for (int i_0_ = 0; i_0_ < 32; i_0_++) {
-			anIntArray3580[i_0_] = i + -1;
+			masklookup[i_0_] = i + -1;
 			i += i;
 		}
 		anInt3582 = 0;
@@ -28,32 +28,26 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 
 	static final void method1554(final int id) {
 		Class90.redrawOldFormatOverridedInterfaces();
-		Class120_Sub28.method1725(false);
-		final int i_2_ = Varp.list(id).setting;
-		if (i_2_ != 0) {
+		Class120_Sub28.refreshLocationNpcAmbientSounds();
+		final int setting = Varp.list(id).setting;
+		if (setting != 0) {
 			final int value = Class2.permanentVariable[id];
-			if (i_2_ == 9) {
+			if (setting == 9) {
 				JagexInterface.inserting = value;
 			}
-			if (i_2_ == 5) {
+			if (setting == 5) {
 				Class69.mouseButtons = value;
 			}
-			if (i_2_ == 6) {
+			if (setting == 6) {
 				Player.chatEffects = value;
 			}
 		}
 	}
 
-	public static void method1555(final int i) {
-		try {
-			if (i < -21) {
-				gameLoadingText = null;
-				aClass105_3584 = null;
-				anIntArray3580 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.F(").append(i).append(')').toString());
-		}
+	public static void method1555() {
+		gameLoadingText = null;
+		aClass105_3584 = null;
+		masklookup = null;
 	}
 
 	static final void method1556(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_) {
@@ -124,43 +118,29 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 
 	@Override
 	protected final void finalize() throws Throwable {
-		try {
-			if (anInt3581 != -1) {
-				Class113.method999(anInt3581, anInt3579, anInt3586);
-				anInt3579 = 0;
-				anInt3581 = -1;
-			}
-			super.finalize();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "qd.finalize()");
+		if (anInt3581 != -1) {
+			Class113.method999(anInt3581, anInt3579, anInt3586);
+			anInt3579 = 0;
+			anInt3581 = -1;
 		}
+		super.finalize();
 	}
 
 	static final int method1558(final int i, final int i_19_, final int i_20_) {
-		int i_21_;
-		try {
-			final int i_22_ = i >> 31 & i_20_ + i_19_;
-			i_21_ = i_22_ + (i + (i >>> 31)) % i_20_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.C(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
-		}
-		return i_21_;
+		final int i_22_ = i >> 31 & i_20_ + i_19_;
+		return i_22_ + (i + (i >>> 31)) % i_20_;
 	}
 
-	final void method1559(final int i) {
-		try {
-			final int i_23_ = Class49.method408();
-			if ((i_23_ & i) == 0) {
-				HDToolkit.method514(anInt3581);
-			}
-			if ((i_23_ & 0x2) == 0) {
-				HDToolkit.method511(0);
-			}
-			if ((i_23_ & 0x4) == 0) {
-				HDToolkit.method521(0);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qd.E(").append(i).append(')').toString());
+	final void method1559() {
+		final int i_23_ = Class49.method408();
+		if ((i_23_ & 0x1) == 0) {
+			HDToolkit.method514(anInt3581);
+		}
+		if ((i_23_ & 0x2) == 0) {
+			HDToolkit.method511(0);
+		}
+		if ((i_23_ & 0x4) == 0) {
+			HDToolkit.method521(0);
 		}
 	}
 

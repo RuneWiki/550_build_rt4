@@ -203,7 +203,7 @@ final class IsaacCipher {
 		StringNode.anIntArray2735 = new int[i_13_];
 		Class134.anIntArray1284 = new int[i_13_];
 		IntegerNode.anIntArray2787 = new int[i_13_];
-		Class180_Sub6.anIntArray3075 = new int[i_13_];
+		AnimatedLocation.anIntArray3075 = new int[i_13_];
 	}
 
 	private final void method906() {

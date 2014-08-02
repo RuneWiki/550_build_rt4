@@ -116,7 +116,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		GroundObjectNode.renderZ = pRenderZ - i_24_;
 		Class120_Sub12_Sub10.renderY = tileHeight - i_21_;
 		FileSystemWorker.renderX = pRenderX - i_23_;
-		Class180_Sub3.renderYaw = yaw;
+		SpotAnimation.renderYaw = yaw;
 		OverlayType.renderPitch = pitch;
 	}
 }

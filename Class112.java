@@ -135,9 +135,9 @@ final class Class112 {
 		if (aClass53_Sub1Array1074[index] != null) {
 			return aClass53_Sub1Array1074[index];
 		}
-		final int i_19_ = masterIndexBuffer.getInt();
-		final int i_20_ = masterIndexBuffer.getInt();
-		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(index, class51_17_, fileSystem, js5Worker, fileSystemWorker, i_19_, i_20_, bool);
+		final int crc = masterIndexBuffer.getInt();
+		final int version = masterIndexBuffer.getInt();
+		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(index, class51_17_, fileSystem, js5Worker, fileSystemWorker, crc, version, bool);
 		aClass53_Sub1Array1074[index] = class53_sub1_21_;
 		return class53_sub1_21_;
 	}
@@ -147,7 +147,7 @@ final class Class112 {
 			return null;
 		}
 		for (Class120_Sub14_Sub5 class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890(); class120_sub14_sub5_22_ != null; class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890()) {
-			final Class73 class73 = Class73.list(class120_sub14_sub5_22_.anInt3473);
+			final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_22_.anInt3473);
 			if (class73 != null && class73.aBoolean659 && class73.method647()) {
 				return class120_sub14_sub5_22_;
 			}

@@ -38,7 +38,7 @@ final class DummyInputStream extends InputStream {
 		Class120_Sub12_Sub6.method1230(2);
 		Class157.anInt1466 = -1;
 		Class120_Sub12_Sub15.aBoolean3247 = false;
-		Class180_Sub6.method2355(true, 14713);
+		AnimatedLocation.clearAmbientSounds(true);
 		Class181.currentBaseZ = 0;
 		Class116.anInt1118 = 0;
 		Class3.anInt53 = 0;
@@ -64,7 +64,7 @@ final class DummyInputStream extends InputStream {
 			}
 		}
 		SpotAnimType.method876((byte) 120);
-		Class120_Sub14_Sub20.packetCounter = 0;
+		OverlayFrequencyNode.packetCounter = 0;
 		Class33.resetVarp();
 		EnumType.method1421(true);
 		try {
@@ -98,35 +98,35 @@ final class DummyInputStream extends InputStream {
 				if ((i_4_ ^ 0xffffffff) == 0) {
 					break;
 				}
-				string = new StringBuilder(string.substring(0, i_4_)).append(Class73.method644(LocType.method2467(jagexInterface, 0))).append(string.substring(2 + i_4_)).toString();
+				string = new StringBuilder(string.substring(0, i_4_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 0))).append(string.substring(2 + i_4_)).toString();
 			}
 			for (;;) {
 				final int i_5_ = string.indexOf("%2");
 				if ((i_5_ ^ 0xffffffff) == 0) {
 					break;
 				}
-				string = new StringBuilder(string.substring(0, i_5_)).append(Class73.method644(LocType.method2467(jagexInterface, 1))).append(string.substring(i_5_ + 2)).toString();
+				string = new StringBuilder(string.substring(0, i_5_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 1))).append(string.substring(i_5_ + 2)).toString();
 			}
 			for (;;) {
 				final int i_6_ = string.indexOf("%3");
 				if (i_6_ == -1) {
 					break;
 				}
-				string = new StringBuilder(string.substring(0, i_6_)).append(Class73.method644(LocType.method2467(jagexInterface, 2))).append(string.substring(i_6_ + 2)).toString();
+				string = new StringBuilder(string.substring(0, i_6_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 2))).append(string.substring(i_6_ + 2)).toString();
 			}
 			for (;;) {
 				final int i_7_ = string.indexOf("%4");
 				if ((i_7_ ^ 0xffffffff) == 0) {
 					break;
 				}
-				string = new StringBuilder(string.substring(0, i_7_)).append(Class73.method644(LocType.method2467(jagexInterface, 3))).append(string.substring(i_7_ + 2)).toString();
+				string = new StringBuilder(string.substring(0, i_7_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 3))).append(string.substring(i_7_ + 2)).toString();
 			}
 			for (;;) {
 				final int i_8_ = string.indexOf("%5");
 				if (i_8_ == -1) {
 					break;
 				}
-				string = new StringBuilder(string.substring(0, i_8_)).append(Class73.method644(LocType.method2467(jagexInterface, 4))).append(string.substring(2 + i_8_)).toString();
+				string = new StringBuilder(string.substring(0, i_8_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 4))).append(string.substring(2 + i_8_)).toString();
 			}
 			for (;;) {
 				final int i_9_ = string.indexOf("%dns");

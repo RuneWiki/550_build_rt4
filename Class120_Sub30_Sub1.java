@@ -17,22 +17,18 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		aBoolean3673 = false;
 	}
 
-	static final void method1738(final int i, final Player class180_sub5_sub1) {
-		try {
-			final AmbientSound class120_sub8 = (AmbientSound) Npc.playerAmbientSounds.get(Varp.stringToLong(class180_sub5_sub1.name));
-			if (class120_sub8 != null) {
-				class120_sub8.method1156();
-			} else {
-				Class7.addAmbientSound(null, class180_sub5_sub1.walkQueueX[0], null, class180_sub5_sub1.walkQueueZ[0], class180_sub5_sub1, 0, Class173.gameLevel);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bn.I(").append(i).append(',').append(class180_sub5_sub1 != null ? "{...}" : "null").append(')').toString());
+	static final void addRefreshPlayerAmbientSound(final Player player) {
+		final AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.get(Varp.stringToLong(player.name));
+		if (ambientSound != null) {
+			ambientSound.refresh();
+		} else {
+			Class7.addAmbientSound(null, player.walkQueueX[0], null, player.walkQueueZ[0], player, 0, Class173.gameLevel);
 		}
 	}
 
 	static final void method1739(final boolean bool) {
 		Class90.anInt848 = 0;
-		Class73.aClass105_653 = null;
+		MapFunctionType.aClass105_653 = null;
 		Class79.aByteArrayArrayArray707 = null;
 		if (!bool || Class79.aClass120_Sub14_Sub22_691 == null) {
 			HintIcon.anInt802 = -1;

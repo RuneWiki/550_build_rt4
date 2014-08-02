@@ -82,7 +82,7 @@ final class Class3 {
 				}
 			}
 			if (!bool) {
-				AbstractRequest.method1540("", 0, new StringBuilder(Class180_Sub6.aString3062).append(string_6_).toString());
+				AbstractRequest.method1540("", 0, new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString());
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.G(").append(i).append(',').append(i_5_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
@@ -141,7 +141,7 @@ final class Class3 {
 		Class178.method2257(false);
 		SceneGraphNode.aClass188Array1782 = new Class188[500];
 		Class49.anInt438 = 0;
-		Class180_Sub6.aClass188Array3076 = new Class188[500];
+		AnimatedLocation.aClass188Array3076 = new Class188[500];
 		CursorType.anInt1237 = 0;
 		JagexSocket.anIntArrayArrayArray419 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		Class111.aClass28Array1057 = new Class28[5000];

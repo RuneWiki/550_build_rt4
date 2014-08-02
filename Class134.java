@@ -3,7 +3,7 @@
  */
 
 final class Class134 {
-	static AbstractSprite landscapeAsSprite;
+	static AbstractSprite landscapeAsAbstractSprite;
 	static boolean aBoolean1277;
 	static int scrollbarId;
 	static byte[][] aByteArrayArray1279;
@@ -25,25 +25,16 @@ final class Class134 {
 		aByteArrayArray1279 = new byte[250][];
 	}
 
-	static final String method1949(final boolean bool, final int i, final boolean bool_0_) {
-		String string;
-		try {
-			if (!bool_0_ || i < 0) {
-				return Integer.toString(i);
-			}
-			if (bool) {
-				return null;
-			}
-			string = Class69_Sub3.method626(i, 10, -1556668830, bool_0_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pj.B(").append(bool).append(',').append(i).append(',').append(bool_0_).append(')').toString());
+	static final String method1949(final int i, final boolean bool_0_) {
+		if (!bool_0_ || i < 0) {
+			return Integer.toString(i);
 		}
-		return string;
+		return Class69_Sub3.method626(i, 10, bool_0_);
 	}
 
 	public static void method1950(final int i) {
 		try {
-			landscapeAsSprite = null;
+			landscapeAsAbstractSprite = null;
 			aByteArrayArray1279 = null;
 			aCharArray1286 = null;
 			anIntArray1284 = null;

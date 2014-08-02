@@ -125,7 +125,7 @@ final class Class188 {
 							Class54.anIntArray488[i_6_] = 1000000;
 							IntegerNode.anIntArray2787[i_6_] = 0;
 							StringNode.anIntArray2735[i_6_] = 1000000;
-							Class180_Sub6.anIntArray3075[i_6_] = 0;
+							AnimatedLocation.anIntArray3075[i_6_] = 0;
 						}
 						if (client.cameraType != 1) {
 							final int i_7_ = Class22.getTileHeight(Class173.gameLevel, FileSystemWorker.renderX, GroundObjectNode.renderZ);
@@ -154,7 +154,7 @@ final class Class188 {
 									i_13_ = -i_12_ + i_9_;
 								}
 								if (i_13_ == 0 && i_11_ == 0 || i_13_ <= -104 || i_13_ >= 104 || i_11_ <= -104 || i_11_ >= 104) {
-									Class180_Sub3.method2312(null, new StringBuilder("RC: ").append(i_9_).append(",").append(i_8_).append(" ").append(i_12_).append(",").append(i_10_).append(" ").append(GameEntity.currentBaseX).append(",").append(Class181.currentBaseZ).toString());
+									SpotAnimation.method2312(null, new StringBuilder("RC: ").append(i_9_).append(",").append(i_8_).append(" ").append(i_12_).append(",").append(i_10_).append(" ").append(GameEntity.currentBaseX).append(",").append(Class181.currentBaseZ).toString());
 								} else if (i_13_ <= i_11_) {
 									int i_14_ = 32768;
 									final int i_15_ = i_13_ * 65536 / i_11_;

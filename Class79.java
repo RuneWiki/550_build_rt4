@@ -264,10 +264,10 @@ class Class79 {
 									final int i_58_ = is[i_56_][i_57_];
 									final int i_59_ = i_58_ & 0x1fff;
 									if (i_59_ != 0) {
-										final Class142 class142 = Class120_Sub12_Sub8.method1240((byte) 1, i_59_ - 1);
+										final Class142 class142 = Class142.list(i_59_ - 1);
 										int i_60_ = i_58_ >> 13 & 0x3;
 										final boolean bool = (i_58_ >> 15 & 0x1) == 1;
-										final LDIndexedSprite class107_sub1 = class142.method2011(-1, bool, i_60_);
+										final LDIndexedSprite class107_sub1 = class142.method2011(i_60_, bool);
 										if (class107_sub1 != null) {
 											int i_61_ = i_50_ * class107_sub1.width / 4;
 											int i_62_ = i_55_ * class107_sub1.height / 4;
@@ -404,7 +404,7 @@ class Class79 {
 	private static final void method686(final Class120_Sub14_Sub5 class120_sub14_sub5, final int i, final int i_91_, final int i_92_, final int i_93_) {
 		class120_sub14_sub5.anInt3478 = anInt708 + (i_92_ + i * (class120_sub14_sub5.anInt3480 - anInt716) >> 16);
 		class120_sub14_sub5.anInt3475 = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.anInt3481 - anInt704) >> 16);
-		final Class73 class73 = Class73.list(class120_sub14_sub5.anInt3473);
+		final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.anInt3473);
 		if (class73.anInt644 != -1) {
 			final AbstractIndexedSprite abstractIndexedSprite = class73.method648(false, true);
 			if (abstractIndexedSprite != null) {
@@ -516,13 +516,13 @@ class Class79 {
 									LocType locType = LocType.list(--i_120_);
 									if (locType.childrenIDs != null) {
 										locType = locType.handleVarp();
-										if (locType == null || locType.anInt1840 == -1) {
+										if (locType == null || locType.mapFunctionId == -1) {
 											continue;
 										}
 									}
-									if ((!locType.members || bool) && locType.anInt1840 != -1) {
+									if ((!locType.members || bool) && locType.mapFunctionId != -1) {
 										final Class120_Sub14_Sub5 class120_sub14_sub5 = new Class120_Sub14_Sub5();
-										class120_sub14_sub5.anInt3473 = locType.anInt1840;
+										class120_sub14_sub5.anInt3473 = locType.mapFunctionId;
 										class120_sub14_sub5.anInt3474 = i_121_;
 										class120_sub14_sub5.anInt3480 = i_113_ * 64 + i_115_;
 										class120_sub14_sub5.anInt3481 = i_114_ * 64 + 64 - i_116_;

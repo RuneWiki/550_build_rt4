@@ -19,94 +19,87 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final AbstractSprite method1224(final int i, final boolean bool, final int i_0_, final boolean bool_1_, final PlayerAppearance playerAppearance, final int i_2_, final int i_3_, final int i_4_, final boolean bool_5_) {
-		LDSprite class120_sub14_sub19_sub2;
-		try {
-			ObjType objType = ObjType.list(i_4_);
-			if (i_0_ > 1 && objType.countobj != null) {
-				int i_6_ = -1;
-				for (int i_7_ = 0; i_7_ < 10; i_7_++) {
-					if (objType.countco[i_7_] <= i_0_ && objType.countco[i_7_] != 0) {
-						i_6_ = objType.countobj[i_7_];
-					}
-				}
-				if ((i_6_ ^ 0xffffffff) != 0) {
-					objType = ObjType.list(i_6_);
+		ObjType objType = ObjType.list(i_4_);
+		if (i_0_ > 1 && objType.countobj != null) {
+			int i_6_ = -1;
+			for (int id = 0; id < 10; id++) {
+				if (objType.countcounts[id] <= i_0_ && objType.countcounts[id] != 0) {
+					i_6_ = objType.countobj[id];
 				}
 			}
-			final Class180_Sub7_Sub1 class180_sub7_sub1 = objType.method2117(playerAppearance, 23);
-			if (class180_sub7_sub1 == null) {
-				return null;
+			if (i_6_ != -1) {
+				objType = ObjType.list(i_6_);
 			}
-			LDSprite class120_sub14_sub19_sub2_8_ = null;
-			if (objType.certtemplate == -1) {
-				if ((objType.lenttemplate ^ 0xffffffff) != 0) {
-					class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(i, false, i_0_, false, playerAppearance, -101, i_3_, objType.lentlink, true);
-					if (class120_sub14_sub19_sub2_8_ == null) {
-						return null;
-					}
-				}
-			} else {
-				class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(1, false, 10, true, playerAppearance, -93, 0, objType.certlink, true);
+		}
+		final LDModel class180_sub7_sub1 = objType.method2117(playerAppearance);
+		if (class180_sub7_sub1 == null) {
+			return null;
+		}
+		LDSprite class120_sub14_sub19_sub2_8_ = null;
+		if (objType.certtemplate == -1) {
+			if (objType.lenttemplate != -1) {
+				class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(i, false, i_0_, false, playerAppearance, -101, i_3_, objType.lentlink, true);
 				if (class120_sub14_sub19_sub2_8_ == null) {
 					return null;
 				}
 			}
-			final int[] is = GraphicsLD.pixels;
-			final int i_9_ = GraphicsLD.height;
-			final int[] is_10_ = new int[4];
-			final int i_11_ = GraphicsLD.width;
-			GraphicsLD.method2169(is_10_);
-			LDSprite class120_sub14_sub19_sub2_12_ = new LDSprite(36, 32);
-			GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
-			Rasterizer.calculateByBounds();
-			Rasterizer.method869(16, 16);
-			Rasterizer.aBoolean971 = false;
-			int i_13_ = objType.zoom2d;
-			if (!bool_1_) {
-				if (i == 2) {
-					i_13_ *= 1.04;
-				}
-			} else {
-				i_13_ = (int) (1.5 * i_13_);
+		} else {
+			class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(1, false, 10, true, playerAppearance, -93, 0, objType.certlink, true);
+			if (class120_sub14_sub19_sub2_8_ == null) {
+				return null;
 			}
-			final int i_14_ = i_13_ * Rasterizer.cosineTable[objType.xan2d] >> 16;
-			final int i_15_ = Rasterizer.sineTable[objType.xan2d] * i_13_ >> 16;
-			class180_sub7_sub1.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - class180_sub7_sub1.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
-			if (i >= 1) {
-				class120_sub14_sub19_sub2_12_.method1613(1);
-				if (i >= 2) {
-					class120_sub14_sub19_sub2_12_.method1613(16777215);
-				}
-				GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
-			}
-			if (i_3_ != 0) {
-				class120_sub14_sub19_sub2_12_.method1607(i_3_);
-			}
-			if (objType.certtemplate == -1) {
-				if (objType.lenttemplate != -1) {
-					GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_8_.pixels, 36, 32);
-					class120_sub14_sub19_sub2_12_.method1587(0, 0);
-					class120_sub14_sub19_sub2_12_ = class120_sub14_sub19_sub2_8_;
-				}
-			} else {
-				class120_sub14_sub19_sub2_8_.method1587(0, 0);
-			}
-			if (bool && (objType.stackable == 1 || i_0_ != 1) && i_0_ != -1) {
-				Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(NodeCache.method305(-41, i_0_), 0, 9, 16776960, 1);
-			}
-			GraphicsLD.init2dCanvas(is, i_11_, i_9_);
-			GraphicsLD.method2172(is_10_);
-			Rasterizer.calculateByBounds();
-			Rasterizer.aBoolean971 = true;
-			if (HDToolkit.glEnabled && !bool_5_) {
-				return new HDSprite(class120_sub14_sub19_sub2_12_);
-			}
-			class120_sub14_sub19_sub2 = class120_sub14_sub19_sub2_12_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dn.V(").append(i).append(',').append(bool).append(',').append(i_0_).append(',').append(bool_1_).append(',').append(playerAppearance != null ? "{...}" : "null").append(',').append(i_2_).append(',').append(i_3_).append(',')
-					.append(i_4_).append(',').append(bool_5_).append(')').toString());
 		}
-		return class120_sub14_sub19_sub2;
+		final int[] is = GraphicsLD.pixels;
+		final int i_9_ = GraphicsLD.height;
+		final int[] is_10_ = new int[4];
+		final int i_11_ = GraphicsLD.width;
+		GraphicsLD.method2169(is_10_);
+		LDSprite class120_sub14_sub19_sub2_12_ = new LDSprite(36, 32);
+		GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
+		Rasterizer.calculateByBounds();
+		Rasterizer.method869(16, 16);
+		Rasterizer.aBoolean971 = false;
+		int i_13_ = objType.zoom2d;
+		if (!bool_1_) {
+			if (i == 2) {
+				i_13_ *= 1.04;
+			}
+		} else {
+			i_13_ = (int) (1.5 * i_13_);
+		}
+		final int i_14_ = i_13_ * Rasterizer.cosineTable[objType.xan2d] >> 16;
+		final int i_15_ = Rasterizer.sineTable[objType.xan2d] * i_13_ >> 16;
+		class180_sub7_sub1.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - class180_sub7_sub1.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
+		if (i >= 1) {
+			class120_sub14_sub19_sub2_12_.method1613(1);
+			if (i >= 2) {
+				class120_sub14_sub19_sub2_12_.method1613(16777215);
+			}
+			GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
+		}
+		if (i_3_ != 0) {
+			class120_sub14_sub19_sub2_12_.method1607(i_3_);
+		}
+		if (objType.certtemplate == -1) {
+			if (objType.lenttemplate != -1) {
+				GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_8_.pixels, 36, 32);
+				class120_sub14_sub19_sub2_12_.method1587(0, 0);
+				class120_sub14_sub19_sub2_12_ = class120_sub14_sub19_sub2_8_;
+			}
+		} else {
+			class120_sub14_sub19_sub2_8_.method1587(0, 0);
+		}
+		if (bool && (objType.stackable == 1 || i_0_ != 1) && i_0_ != -1) {
+			Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(NodeCache.method305(-41, i_0_), 0, 9, 16776960, 1);
+		}
+		GraphicsLD.init2dCanvas(is, i_11_, i_9_);
+		GraphicsLD.method2172(is_10_);
+		Rasterizer.calculateByBounds();
+		Rasterizer.aBoolean971 = true;
+		if (HDToolkit.glEnabled && !bool_5_) {
+			return new HDSprite(class120_sub14_sub19_sub2_12_);
+		}
+		return class120_sub14_sub19_sub2_12_;
 	}
 
 	static final void setCursor(int i) {

@@ -86,7 +86,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				final int i_17_ = i_13_ + -GroundObjectNode.renderZ;
 				final int i_18_ = (int) Math.sqrt(i_17_ * i_17_ + i_15_ * i_15_);
 				OverlayType.renderPitch = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
-				Class180_Sub3.renderYaw = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
+				SpotAnimation.renderYaw = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
 				if (OverlayType.renderPitch < 128) {
 					OverlayType.renderPitch = 128;
 				}
@@ -212,7 +212,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				OverlayType.renderPitch = i_35_;
 			}
 		}
-		int i_37_ = -Class180_Sub3.renderYaw + i_36_;
+		int i_37_ = -SpotAnimation.renderYaw + i_36_;
 		if (i_37_ > 1024) {
 			i_37_ -= 2048;
 		}
@@ -220,14 +220,14 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			i_37_ += 2048;
 		}
 		if (i_37_ > 0) {
-			Class180_Sub3.renderYaw += Class101_Sub1.anInt2272 * i_37_ / 1000 + Class120_Sub12_Sub31.anInt3384;
-			Class180_Sub3.renderYaw &= 0x7ff;
+			SpotAnimation.renderYaw += Class101_Sub1.anInt2272 * i_37_ / 1000 + Class120_Sub12_Sub31.anInt3384;
+			SpotAnimation.renderYaw &= 0x7ff;
 		}
 		if (i_37_ < 0) {
-			Class180_Sub3.renderYaw -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * -i_37_ / 1000);
-			Class180_Sub3.renderYaw &= 0x7ff;
+			SpotAnimation.renderYaw -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * -i_37_ / 1000);
+			SpotAnimation.renderYaw &= 0x7ff;
 		}
-		int i_38_ = -Class180_Sub3.renderYaw + i_36_;
+		int i_38_ = -SpotAnimation.renderYaw + i_36_;
 		if (i_38_ > 1024) {
 			i_38_ -= 2048;
 		}
@@ -235,7 +235,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			i_38_ += 2048;
 		}
 		if (i_38_ < 0 && i_37_ > 0 || i_38_ > 0 && i_37_ < 0) {
-			Class180_Sub3.renderYaw = i_36_;
+			SpotAnimation.renderYaw = i_36_;
 		}
 	}
 

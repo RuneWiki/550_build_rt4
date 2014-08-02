@@ -67,7 +67,7 @@ class Class69 {
 							}
 							OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, i_12_);
 							if (Class120_Sub12_Sub38.anInt3434 > -1) {
-								Class180_Sub6.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(interfaceX - -Class120_Sub12_Sub38.anInt3434 - 12, interfaceY + Class120_Sub15.anInt2588 - 28);
+								AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(interfaceX - -Class120_Sub12_Sub38.anInt3434 - 12, interfaceY + Class120_Sub15.anInt2588 - 28);
 							}
 						}
 					}
@@ -93,13 +93,13 @@ class Class69 {
 							if (hintIcon != null && hintIcon.targetType == 10 && Class112.playerIndices[id] == hintIcon.targetIndex) {
 								OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, 15 + entity.getHeight());
 								if (Class120_Sub12_Sub38.anInt3434 > -1) {
-									Class180_Sub6.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + Class120_Sub12_Sub38.anInt3434 + interfaceX, interfaceY - -Class120_Sub15.anInt2588 + -i_13_);
+									AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + Class120_Sub12_Sub38.anInt3434 + interfaceX, interfaceY - -Class120_Sub15.anInt2588 + -i_13_);
 								}
 							}
 						}
 					}
 				}
-				if (entity.textSpoken != null && (id >= FileSystemWorker.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.method875(-111, ((Player) entity).name))) {
+				if (entity.textSpoken != null && (id >= FileSystemWorker.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.isFriendOrSelf(((Player) entity).name))) {
 					OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, entity.getHeight());
 					if (Class120_Sub12_Sub38.anInt3434 > -1 && Class120_Sub12_Sub19.textCount < AbstractGraphicsBuffer.anInt1166) {
 						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.method1459(entity.textSpoken) / 2;

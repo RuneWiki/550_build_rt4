@@ -238,15 +238,15 @@ final class Class191 {
 				}
 			} else if (Class23.packetType == 158) {
 				final int i_64_ = Canvas_Sub1.inputStream.getUByte();
-				int i_65_ = ((0x77 & i_64_) >> 4) + Class32.anInt254;
-				int i_66_ = Class28.anInt176 + (0x7 & i_64_);
-				final int i_67_ = Canvas_Sub1.inputStream.getUShort();
-				final int i_68_ = Canvas_Sub1.inputStream.getUByte();
+				int x = ((0x77 & i_64_) >> 4) + Class32.anInt254;
+				int z = Class28.anInt176 + (0x7 & i_64_);
+				final int id = Canvas_Sub1.inputStream.getUShort();
+				final int y = Canvas_Sub1.inputStream.getUByte();
 				final int i_69_ = Canvas_Sub1.inputStream.getUShort();
-				if (i_65_ >= 0 && i_66_ >= 0 && i_65_ < 104 && i_66_ < 104) {
-					i_66_ = 64 + 128 * i_66_;
-					i_65_ = 64 + 128 * i_65_;
-					final Class180_Sub3 class180_sub3 = new Class180_Sub3(i_67_, Class173.gameLevel, i_65_, i_66_, -i_68_ + Class22.getTileHeight(Class173.gameLevel, i_65_, i_66_), i_69_, Class101_Sub2.loopCycle);
+				if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+					x = 64 + 128 * x;
+					z = 64 + 128 * z;
+					final SpotAnimation class180_sub3 = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(Class173.gameLevel, x, z) - y, i_69_, Class101_Sub2.loopCycle);
 					Class120_Sub12_Sub7.aClass105_3177.addLast(new Class120_Sub14_Sub4(class180_sub3));
 				}
 			} else if (Class23.packetType == 179) {

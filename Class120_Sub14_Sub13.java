@@ -395,7 +395,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	}
 
 	static final void method1531(final String string) {
-		System.out.println(new StringBuilder("Error: ").append(Class180_Sub6.method2358(string, "\n", "%0a")).toString());
+		System.out.println(new StringBuilder("Error: ").append(AnimatedLocation.method2358(string, "\n", "%0a")).toString());
 	}
 
 	static final void method1532(int i, int i_73_) {

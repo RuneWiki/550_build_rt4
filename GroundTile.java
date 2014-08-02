@@ -39,19 +39,6 @@ final class GroundTile extends Node {
 		aClass75_2643 = new Hashtable(16);
 	}
 
-	static final int method1667(final boolean bool, final int i) {
-		int i_0_;
-		try {
-			if (!bool) {
-				return -12;
-			}
-			i_0_ = 0xff & i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.F(").append(bool).append(',').append(i).append(')').toString());
-		}
-		return i_0_;
-	}
-
 	GroundTile(final int i, final int i_1_, final int i_2_) {
 		this.anInt2635 = 0;
 		this.anInt2642 = this.anInt2636 = i;
@@ -90,20 +77,11 @@ final class GroundTile extends Node {
 		Class120_Sub16.method1660(string, i_7_, string_5_, i, string_6_);
 	}
 
-	static final int method1670(final int i, final int i_8_) {
-		int i_9_;
-		try {
-			final int i_10_ = (i * i >> 12) * i >> 12;
-			if (i_8_ != 14005) {
-				method1667(false, 7);
-			}
-			final int i_11_ = -61440 + i * 6;
-			final int i_12_ = (i * i_11_ >> 12) + 40960;
-			i_9_ = i_10_ * i_12_ >> 12;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.E(").append(i).append(',').append(i_8_).append(')').toString());
-		}
-		return i_9_;
+	static final int method1670(final int i) {
+		final int i_10_ = (i * i >> 12) * i >> 12;
+		final int i_11_ = -61440 + i * 6;
+		final int i_12_ = (i * i_11_ >> 12) + 40960;
+		return i_10_ * i_12_ >> 12;
 	}
 
 	public static void method1672(final int i) {

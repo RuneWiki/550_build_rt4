@@ -108,7 +108,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 				}
 			} else {
 				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1) {
-					Class127.method1891(RuntimeException_Sub1.anInt2142, -20329, 0, Class157.anInt1466, false, Class120_Sub12_Sub36.aClass50_3419);
+					Class127.method1891(Class120_Sub12_Sub36.aClass50_3419, RuntimeException_Sub1.anInt2142, 0, Class157.anInt1466, false);
 				}
 				Class120_Sub12_Sub15.aBoolean3247 = false;
 			}
@@ -185,7 +185,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
 		Class5.method99();
 		Player.method2341();
-		Class84.method716();
+		GZIPDecompressor.method716();
 		Class43.method340(-119);
 		SceneGroundObject.method2275((byte) 29);
 		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();

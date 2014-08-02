@@ -66,8 +66,8 @@ final class Class137 {
 			z -= GroundObjectNode.renderZ;
 			final int i_12_ = Rasterizer.sineTable[OverlayType.renderPitch];
 			final int i_13_ = Rasterizer.cosineTable[OverlayType.renderPitch];
-			final int i_14_ = Rasterizer.sineTable[Class180_Sub3.renderYaw];
-			final int i_15_ = Rasterizer.cosineTable[Class180_Sub3.renderYaw];
+			final int i_14_ = Rasterizer.sineTable[SpotAnimation.renderYaw];
+			final int i_15_ = Rasterizer.cosineTable[SpotAnimation.renderYaw];
 			int i_16_ = z * i_14_ + x * i_15_ >> 16;
 			z = z * i_15_ - i_14_ * x >> 16;
 			x = i_16_;

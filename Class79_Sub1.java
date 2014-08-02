@@ -14,7 +14,7 @@ final class Class79_Sub1 extends Class79 {
 		friendsSideText = new String[200];
 	}
 
-	static final void method693() {
+	static final void resetTitleScreen() {
 		if (Class101_Sub3.titleScreenSpritesDrawn) {
 			Class101_Sub3.titleScreenSpritesDrawn = false;
 			KeyboardHandler.titlebgSprite = null;
@@ -40,8 +40,8 @@ final class Class79_Sub1 extends Class79 {
 		Class33.aClass21_273.clear();
 	}
 
-	static final long method696(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
+	static final long method696(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.aClass36_2650 == null) {
 			return 0L;
 		}

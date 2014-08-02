@@ -22,18 +22,11 @@ final class Class114 {
 	boolean aBoolean1107;
 	boolean aBoolean1108;
 
-	public static void method1003(final byte i) {
-		try {
-			aByteArrayArrayArray1094 = null;
-			if (i != -104) {
-				constructGraphicsBuffer(null, 12, 69);
-			}
-			aString1098 = null;
-			tileSettings = null;
-			aClass50_1097 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mi.A(").append(i).append(')').toString());
-		}
+	public static void method1003() {
+		aByteArrayArrayArray1094 = null;
+		aString1098 = null;
+		tileSettings = null;
+		aClass50_1097 = null;
 	}
 
 	static final DisplayModeInfo[] constructDisplayModes() {
@@ -69,8 +62,8 @@ final class Class114 {
 		return Class65.displayModes;
 	}
 
-	static final long method1005(final int i, final int i_7_, final int i_8_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_7_][i_8_];
+	static final long method1005(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.aClass182_2628 == null) {
 			return 0L;
 		}

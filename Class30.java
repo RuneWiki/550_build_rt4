@@ -23,7 +23,7 @@ final class Class30 {
 	static {
 		anIntArray224 = new int[4096];
 		for (int i = 0; i < 4096; i++) {
-			anIntArray224[i] = GroundTile.method1670(i, 14005);
+			anIntArray224[i] = GroundTile.method1670(i);
 		}
 		packetCounterUpdated = false;
 		anInt236 = 0;
@@ -75,7 +75,7 @@ final class Class30 {
 	static final void method259(final boolean bool, final int x, final int z, final int level, final int redrawRate, final AmbientSound ambientSound) {
 		if (ambientSound.anInt2485 != -1 || ambientSound.anIntArray2482 != null) {
 			int i_6_ = 0;
-			final int i_7_ = ambientSound.anInt2499 * CursorType.anInt1242 >> 8;
+			final int i_7_ = ambientSound.volume * CursorType.anInt1242 >> 8;
 			if (x > ambientSound.anInt2487) {
 				i_6_ += x - ambientSound.anInt2487;
 			} else if (ambientSound.anInt2494 > x) {
@@ -86,7 +86,7 @@ final class Class30 {
 			} else if (ambientSound.anInt2483 > z) {
 				i_6_ += ambientSound.anInt2483 - z;
 			}
-			if (ambientSound.anInt2493 == 0 || ambientSound.anInt2493 < -64 + i_6_ || CursorType.anInt1242 == 0 || ambientSound.anInt2498 != level) {
+			if (ambientSound.hearDistance == 0 || ambientSound.hearDistance < i_6_ - 64 || CursorType.anInt1242 == 0 || ambientSound.anInt2498 != level) {
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 					ambientSound.aClass120_Sub30_Sub4_2488 = null;
@@ -100,9 +100,9 @@ final class Class30 {
 				if (i_6_ < 0) {
 					i_6_ = 0;
 				}
-				final int i_8_ = (-i_6_ + ambientSound.anInt2493) * i_7_ / ambientSound.anInt2493;
+				int i_8_ = (ambientSound.hearDistance - i_6_) * i_7_ / ambientSound.hearDistance;
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
-					ambientSound.aClass120_Sub30_Sub4_2488.method1813(i_8_);
+					ambientSound.aClass120_Sub30_Sub4_2488.setVolume(i_8_);
 				} else if (ambientSound.anInt2485 >= 0) {
 					final Class6 class6 = Class6.method103(Class159.aClass50_1490, ambientSound.anInt2485, 0);
 					if (class6 != null) {
@@ -127,7 +127,7 @@ final class Class30 {
 						}
 					}
 				} else {
-					ambientSound.aClass120_Sub30_Sub4_2478.method1813(i_8_);
+					ambientSound.aClass120_Sub30_Sub4_2478.setVolume(i_8_);
 					if (!ambientSound.aClass120_Sub30_Sub4_2478.hasPrevious()) {
 						ambientSound.aClass120_Sub30_Sub4_2478 = null;
 					}

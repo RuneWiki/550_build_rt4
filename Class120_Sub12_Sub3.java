@@ -29,9 +29,9 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 			if (Class79.aClass177_690 == null) {
 				return null;
 			}
-			Class22.aClass127_130.method1896(-16646, Class79.aClass177_690);
-			final Class120_Sub14_Sub5 class120_sub14_sub5_0_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1895((byte) -79);
-			final Class73 class73 = Class73.list(class120_sub14_sub5_0_.anInt3473);
+			Class22.aClass127_130.method1896(Class79.aClass177_690);
+			final Class120_Sub14_Sub5 class120_sub14_sub5_0_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1895();
+			final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_0_.anInt3473);
 			if (class73 != null && class73.aBoolean659 && class73.method647()) {
 				return class120_sub14_sub5_0_;
 			}

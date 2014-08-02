@@ -38,8 +38,8 @@ final class DisplayModeInfo {
 		for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {
 			final int i_3_ = Class43.anIntArray366[i_2_];
 			if (Class101_Sub2.loopCycle != Class118.playersList[i_3_].anInt2985) {
-				if (Class118.playersList[i_3_].anInt3735 > 0) {
-					Class31.method267(15, Class118.playersList[i_3_]);
+				if (Class118.playersList[i_3_].ambientSoundHearDistance > 0) {
+					Class31.removePlayerAmbientSound(Class118.playersList[i_3_]);
 				}
 				Class118.playersList[i_3_] = null;
 			}

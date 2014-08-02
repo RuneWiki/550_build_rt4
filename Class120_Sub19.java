@@ -14,7 +14,7 @@ final class Class120_Sub19 extends Node {
 		anInt2657 = 0;
 	}
 
-	static final void method1673(final Class120_Sub14_Sub5 class120_sub14_sub5, final int i, final int i_0_, final int i_1_, final boolean bool, final int i_2_, final Class120_Sub16 class120_sub16, final Class73 class73) {
+	static final void method1673(final Class120_Sub14_Sub5 class120_sub14_sub5, final int i, final int i_0_, final int i_1_, final boolean bool, final int i_2_, final Class120_Sub16 class120_sub16, final MapFunctionType class73) {
 		try {
 			Class98 class98 = null;
 			if (i_2_ == 0) {
