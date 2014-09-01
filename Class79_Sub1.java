@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class79_Sub1 extends Class79 {
+final class Class79_Sub1 {
 	static String[] stringArguments;
 	static int anInt2244;
 	static js5 aClass50_2245;
@@ -22,22 +22,11 @@ final class Class79_Sub1 extends Class79 {
 		}
 	}
 
-	public static void method694(final int i) {
-		try {
-			friendsSideText = null;
-			if (i <= 79) {
-				aClass50_2245 = null;
-			}
-			aClass50_2245 = null;
-			anIntArray2246 = null;
-			stringArguments = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kn.D(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method695() {
-		Class33.aClass21_273.clear();
+	public static void method694() {
+		friendsSideText = null;
+		aClass50_2245 = null;
+		anIntArray2246 = null;
+		stringArguments = null;
 	}
 
 	static final long method696(final int x, final int z, final int level) {

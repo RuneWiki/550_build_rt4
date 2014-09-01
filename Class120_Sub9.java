@@ -19,7 +19,7 @@ final class Class120_Sub9 extends Node {
 	private static Buffer aClass120_Sub7_2509;
 	private static ByteBuffer aByteBuffer2510;
 	private final boolean aBoolean2511;
-	private Class104 aClass104_2512;
+	private VertexBuffer aClass104_2512;
 	private static Buffer aClass120_Sub7_2513;
 	private int[] anIntArray2514;
 	private int anInt2515 = 0;
@@ -73,7 +73,7 @@ final class Class120_Sub9 extends Node {
 		}
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7.buf, 0, class120_sub7.pos);
-			aClass104_2512 = new Class104();
+			aClass104_2512 = new VertexBuffer();
 			aClass104_2512.method885(bytebuffer);
 		} else {
 			aByteBuffer2528 = ByteBuffer.allocateDirect(class120_sub7.pos).order(ByteOrder.nativeOrder());
@@ -138,10 +138,8 @@ final class Class120_Sub9 extends Node {
 					if (this.aBoolean2516) {
 						final int[] is_6_ = anIntArrayArray2526[i];
 						if (is_6_ != null) {
-							int[] is_8_;
-							final int i_7_ = (is_8_ = is_6_).length;
-							for (int i_9_ = 0; i_9_ < i_7_; i_9_++) {
-								int i_10_ = is_8_[i_9_];
+							for (int i_9_ = 0; i_9_ < is_6_.length; i_9_++) {
+								int i_10_ = is_6_[i_9_];
 								aClass120_Sub7_2513.putLEInt(i_10_);
 							}
 						}
@@ -160,14 +158,14 @@ final class Class120_Sub9 extends Node {
 		if (aClass120_Sub7_2509.pos != 0 || aClass120_Sub7_2513.pos != 0) {
 			final GL gl = HDToolkit.gl;
 			if (this.anInt2520 == -1 || bool) {
-				HDToolkit.method514(-1);
+				HDToolkit.bindTexture2D(-1);
 				Class120_Sub14_Sub13.method1532(0, 0);
 			} else {
-				Rasterizer.anInterface5_973.method25(64, this.anInt2520);
+				Rasterizer.anInterface5_973.method25(this.anInt2520);
 			}
 			final int i = aBoolean2511 ? 40 : 36;
 			if (aClass104_2512 != null) {
-				aClass104_2512.method887();
+				aClass104_2512.bindArrayBuffer();
 				gl.glVertexPointer(3, 5126, i, 0L);
 				gl.glColorPointer(4, 5121, i, 12L);
 				if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -203,7 +201,7 @@ final class Class120_Sub9 extends Node {
 			if (HDToolkit.vertexBufferAsObject) {
 				gl.glBindBufferARB(34963, 0);
 			}
-			if (aClass120_Sub7_2509.pos != 0) {
+			if (aClass120_Sub7_2509.pos != 0) {//tile buffer
 				if (aByteBuffer2518 == null || aByteBuffer2518.capacity() < aClass120_Sub7_2509.pos) {
 					aByteBuffer2518 = ByteBuffer.allocateDirect(aClass120_Sub7_2509.pos).order(ByteOrder.nativeOrder());
 				} else {
@@ -214,7 +212,7 @@ final class Class120_Sub9 extends Node {
 				HDToolkit.method527(f);
 				gl.glDrawElements(4, aClass120_Sub7_2509.pos / 4, 5125, aByteBuffer2518);
 			}
-			if (aClass120_Sub7_2513.pos != 0) {
+			if (aClass120_Sub7_2513.pos != 0) {//blended tile buffer
 				if (aByteBuffer2510 == null || aByteBuffer2510.capacity() < aClass120_Sub7_2513.pos) {
 					aByteBuffer2510 = ByteBuffer.allocateDirect(aClass120_Sub7_2513.pos).order(ByteOrder.nativeOrder());
 				} else {
@@ -223,9 +221,9 @@ final class Class120_Sub9 extends Node {
 				aByteBuffer2510.put(aClass120_Sub7_2513.buf, 0, aClass120_Sub7_2513.pos);
 				aByteBuffer2510.flip();
 				HDToolkit.method527(f - 100.0F);
-				HDToolkit.method503();
+				HDToolkit.disableDepthMask();
 				gl.glDrawElements(4, aClass120_Sub7_2513.pos / 4, 5125, aByteBuffer2510);
-				HDToolkit.method505();
+				HDToolkit.enableDepthMask();
 			}
 		}
 	}
@@ -309,7 +307,7 @@ final class Class120_Sub9 extends Node {
 		anIntArray2524 = new int[this.anInt2519];
 		anIntArray2504 = new int[this.anInt2519];
 		anIntArrayArray2523 = new int[this.anInt2519][];
-		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt2507));
+		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt2507));
 		if (this.aBoolean2516) {
 			anIntArrayArray2526 = new int[this.anInt2519][];
 			aBooleanArray2522 = new boolean[this.anInt2519];

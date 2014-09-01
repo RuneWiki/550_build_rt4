@@ -5,24 +5,13 @@ import java.io.IOException;
 
 final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	static int anInt3362 = 0;
-	static String[] aStringArray3363 = null;
+	static String[] membersObjInventoryOptions = null;
 	private int anInt3364;
 	private int anInt3365 = 2048;
 	static Class164 aClass164_3366;
 	static js5 aClass50_3367;
 	private int anInt3368;
 	static String[] menuOptionSufix = new String[500];
-
-	static final void method1351(final int i) {
-		try {
-			VarBit.recentUse.clearSoftReference();
-			if (i > -7) {
-				method1355(93, (byte) -60);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.R(").append(i).append(')').toString());
-		}
-	}
 
 	public Class120_Sub12_Sub29() {
 		super(1, false);
@@ -66,11 +55,11 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		try {
 			menuOptionSufix = null;
 			if (!bool) {
-				method1351(19);
+				VarBit.recentUse.clearSoftReference();
 			}
 			aClass50_3367 = null;
 			aClass164_3366 = null;
-			aStringArray3363 = null;
+			membersObjInventoryOptions = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.AA(").append(bool).append(')').toString());
 		}
@@ -80,7 +69,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	final int[][] method1188(final int i) {
 		final int[][] is_5_ = this.aClass109_2559.method975(i);
 		if (this.aClass109_2559.aBoolean1049) {
-			final int[][] is_6_ = method1179(0, i, (byte) -51);
+			final int[][] is_6_ = method1179(0, i);
 			final int[] is_7_ = is_6_[0];
 			final int[] is_8_ = is_6_[1];
 			final int[] is_9_ = is_5_[0];

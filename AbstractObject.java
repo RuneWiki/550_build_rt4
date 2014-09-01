@@ -14,11 +14,11 @@ abstract class AbstractObject extends NodeSub {
 	}
 
 	static final InterfaceChangeNode putInterfaceChange(final int type, final int uid) {
-		InterfaceChangeNode class120_sub14_sub7_4_ = (InterfaceChangeNode) Class120_Sub14_Sub10.aClass75_3534.get((long) type << 32 | uid);
-		if (class120_sub14_sub7_4_ == null) {
-			class120_sub14_sub7_4_ = new InterfaceChangeNode(type, uid);
-			Class120_Sub14_Sub10.aClass75_3534.put(class120_sub14_sub7_4_, class120_sub14_sub7_4_.uid);
+		InterfaceChangeNode interfaceChangeNode = (InterfaceChangeNode) Class120_Sub14_Sub10.interfaceChangeCache.get((long) type << 32 | uid);
+		if (interfaceChangeNode == null) {
+			interfaceChangeNode = new InterfaceChangeNode(type, uid);
+			Class120_Sub14_Sub10.interfaceChangeCache.put(interfaceChangeNode, interfaceChangeNode.uid);
 		}
-		return class120_sub14_sub7_4_;
+		return interfaceChangeNode;
 	}
 }

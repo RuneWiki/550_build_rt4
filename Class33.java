@@ -4,7 +4,7 @@
 
 final class Class33 {
 	static ObjectCache aClass21_273 = new ObjectCache(50);
-	static Class120_Sub14_Sub8_Sub2 aClass120_Sub14_Sub8_Sub2_274;
+	static LDFont smallFont2;//used for objs
 	static js5 aClass50_275;
 	static String aString276 = "green:";
 	static String[] stringStack = new String[1000];
@@ -48,7 +48,7 @@ final class Class33 {
 				aString276 = null;
 			}
 			stringStack = null;
-			aClass120_Sub14_Sub8_Sub2_274 = null;
+			smallFont2 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("df.A(").append(i).append(')').toString());
 		}

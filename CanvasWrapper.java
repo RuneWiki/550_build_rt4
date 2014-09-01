@@ -12,45 +12,44 @@ final class CanvasWrapper extends Canvas {
 	static int[] anIntArray21;
 	private final Component component;
 
-	static final int method65(final String string, final int radix, final boolean bool) {
+	static final int stringToIntRadix(final String string, final int radix, final boolean bool) {
 		if (radix < 2 || radix > 36) {
 			throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(radix).toString());
 		}
-		boolean negate = false;
+		boolean negative = false;
 		boolean bool_3_ = false;
-		final int i_4_ = string.length();
 		int i_5_ = 0;
-		for (int i_6_ = 0; i_4_ > i_6_; i_6_++) {
-			int i_7_ = string.charAt(i_6_);
+		for (int i_6_ = 0; i_6_ < string.length(); i_6_++) {
+			int charValue = string.charAt(i_6_);
 			if (i_6_ == 0) {
-				if (i_7_ == 45) {//-
-					negate = true;
+				if (charValue == 45) {//-
+					negative = true;
 					continue;
 				}
-				if (i_7_ == 43 && bool) {//+
+				if (charValue == 43 && bool) {//+
 					continue;
 				}
 			}
-			if (i_7_ < 48 || i_7_ > 57) {
-				if (i_7_ < 65 || i_7_ > 90) {
-					if (i_7_ >= 97 && i_7_ <= 122) {
-						i_7_ -= 87;
+			if (charValue < 48 || charValue > 57) {//1-9
+				if (charValue < 65 || charValue > 90) {//A-Z
+					if (charValue >= 97 && charValue <= 122) {//a-z
+						charValue -= 87;
 					} else {
 						throw new NumberFormatException();
 					}
 				} else {
-					i_7_ -= 55;
+					charValue -= 55;
 				}
 			} else {
-				i_7_ -= 48;
+				charValue -= 48;
 			}
-			if (radix <= i_7_) {
+			if (radix <= charValue) {
 				throw new NumberFormatException();
 			}
-			if (negate) {
-				i_7_ = -i_7_;
+			if (negative) {
+				charValue = -charValue;
 			}
-			final int i_8_ = i_7_ + radix * i_5_;
+			final int i_8_ = charValue + radix * i_5_;
 			if (i_8_ / radix != i_5_) {
 				throw new NumberFormatException();
 			}

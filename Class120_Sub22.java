@@ -83,7 +83,7 @@ final class Class120_Sub22 extends Node {
 				final long nameAsLong = Varp.stringToLong(player.name);
 				boolean ignore = false;
 				if (staffLevel <= 1) {
-					if (!bool && (VarBit.aBoolean167 && !OverlayType.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
+					if (!bool && (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
 						ignore = true;
 					} else {
 						for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
@@ -106,7 +106,7 @@ final class Class120_Sub22 extends Node {
 						i_18_ = class22.anInt129;
 						message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
 					} else {
-						message = Class120_Sub14_Sub8.method1472(method1705(Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
+						message = AbstractFont.method1472(method1705(Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 					}
 					i_12_ &= 0x7fff;
 					final Class22 class22 = Class22.list(15);
@@ -195,9 +195,9 @@ final class Class120_Sub22 extends Node {
 						if (i_28_ != i_26_) {
 							i_26_ = i_28_;
 							if ((--i_28_ & 0x1) != 0) {
-								class120_sub5_sub1 = class90.method753(is, 47, i_28_ >> 2);
+								class120_sub5_sub1 = class90.method753(is, i_28_ >> 2);
 							} else {
-								class120_sub5_sub1 = class90.method756(3414, is, i_28_ >> 2);
+								class120_sub5_sub1 = class90.method756(is, i_28_ >> 2);
 							}
 							if (class120_sub5_sub1 == null) {
 								bool_25_ = false;

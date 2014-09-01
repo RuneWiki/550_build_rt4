@@ -11,7 +11,6 @@ abstract class Class132 {
 	private int anInt1252;
 	private short[] aShortArray1253;
 	private int anInt1254;
-	static ObjectCache aClass21_1255 = new ObjectCache(64);
 	int anInt1256 = 4;
 	static int anInt1257;
 	private int anInt1258;
@@ -19,100 +18,92 @@ abstract class Class132 {
 
 	abstract void method1922(byte i);
 
-	final void method1923(final int i, final byte i_0_, final int i_1_, final int i_2_) {
-		try {
-			final int[] is = new int[i];
-			final int[] is_3_ = new int[i_2_];
-			for (int i_4_ = 0; i > i_4_; i_4_++) {
-				is[i_4_] = (i_4_ << 12) / i;
-			}
-			final int[] is_5_ = new int[i_1_];
-			for (int i_6_ = 0; i_6_ < i_1_; i_6_++) {
-				is_5_[i_6_] = (i_6_ << 12) / i_1_;
-			}
-			int i_7_ = 0;
-			if (i_0_ < 88) {
-				anInt1258 = -10;
-			}
-			for (/**/; i_2_ > i_7_; i_7_++) {
-				is_3_[i_7_] = (i_7_ << 12) / i_2_;
-			}
-			method1925(255);
-			for (int i_8_ = 0; i_8_ < i_2_; i_8_++) {
-				for (int i_9_ = 0; i_1_ > i_9_; i_9_++) {
-					for (int i_10_ = 0; i_10_ < i; i_10_++) {
-						for (int i_11_ = 0; i_11_ < this.anInt1256; i_11_++) {
-							i_7_ = aShortArray1259[i_11_] << 12;
-							int i_12_ = i_7_ * is_3_[i_8_] >> 12;
-							final int i_13_ = anInt1249 * i_7_ >> 12;
-							int i_14_ = is[i_10_] * i_7_ >> 12;
-							i_12_ *= anInt1249;
-							i_14_ *= anInt1258;
-							final int i_15_ = anInt1258 * i_7_ >> 12;
-							int i_16_ = i_14_ >> 12;
-							int i_17_ = i_7_ * is_5_[i_9_] >> 12;
-							i_14_ &= 0xfff;
-							i_17_ *= anInt1252;
-							final int i_18_ = anInt1252 * i_7_ >> 12;
-							final int i_19_ = Class30.anIntArray224[i_14_];
-							int i_20_ = i_16_ - -1;
-							int i_21_ = i_17_ >> 12;
-							int i_22_ = i_21_ + 1;
-							final int i_23_ = i_14_ + -4096;
-							i_17_ &= 0xfff;
-							if (i_15_ > i_20_) {
-								i_20_ &= 0xff;
-							} else {
-								i_20_ = 0;
-							}
-							i_16_ &= 0xff;
-							final int i_24_ = Class30.anIntArray224[i_17_];
-							if (i_18_ > i_22_) {
-								i_22_ &= 0xff;
-							} else {
-								i_22_ = 0;
-							}
-							i_21_ &= 0xff;
-							final int i_25_ = -4096 + i_17_;
-							int i_26_ = i_12_ >> 12;
-							i_12_ &= 0xfff;
-							final int i_27_ = i_12_ + -4096;
-							final int i_28_ = Class30.anIntArray224[i_12_];
-							int i_29_ = 1 + i_26_;
-							if (i_13_ > i_29_) {
-								i_29_ &= 0xff;
-							} else {
-								i_29_ = 0;
-							}
-							i_26_ &= 0xff;
-							final int i_30_ = aShortArray1253[i_29_];
-							final int i_31_ = aShortArray1253[i_30_ + i_21_];
-							final int i_32_ = aShortArray1253[i_22_ - -i_30_];
-							final int i_33_ = aShortArray1253[i_26_];
-							final int i_34_ = aShortArray1253[i_21_ - -i_33_];
-							final int i_35_ = aShortArray1253[i_22_ - -i_33_];
-							int i_36_ = Class182.method2446((byte) 102, i_17_, i_14_, aShortArray1253[i_16_ + i_34_], i_12_);
-							int i_37_ = Class182.method2446((byte) 102, i_17_, i_23_, aShortArray1253[i_20_ - -i_34_], i_12_);
-							int i_38_ = (i_19_ * (i_37_ - i_36_) >> 12) + i_36_;
-							i_36_ = Class182.method2446((byte) 102, i_25_, i_14_, aShortArray1253[i_35_ + i_16_], i_12_);
-							i_37_ = Class182.method2446((byte) 102, i_25_, i_23_, aShortArray1253[i_20_ - -i_35_], i_12_);
-							int i_39_ = i_36_ - -(i_19_ * (-i_36_ + i_37_) >> 12);
-							final int i_40_ = (i_24_ * (i_39_ - i_38_) >> 12) + i_38_;
-							i_36_ = Class182.method2446((byte) 102, i_17_, i_14_, aShortArray1253[i_16_ - -i_31_], i_27_);
-							i_37_ = Class182.method2446((byte) 102, i_17_, i_23_, aShortArray1253[i_20_ + i_31_], i_27_);
-							i_38_ = i_36_ - -((-i_36_ + i_37_) * i_19_ >> 12);
-							i_36_ = Class182.method2446((byte) 102, i_25_, i_14_, aShortArray1253[i_32_ + i_16_], i_27_);
-							i_37_ = Class182.method2446((byte) 102, i_25_, i_23_, aShortArray1253[i_32_ + i_20_], i_27_);
-							i_39_ = (i_19_ * (i_37_ - i_36_) >> 12) + i_36_;
-							final int i_41_ = i_38_ - -((i_39_ + -i_38_) * i_24_ >> 12);
-							method1927(i_11_, i_40_ - -((i_41_ - i_40_) * i_28_ >> 12), (byte) -24);
+	final void method1923(final int i, final int i_1_, final int i_2_) {
+		final int[] is = new int[i];
+		final int[] is_3_ = new int[i_2_];
+		for (int i_4_ = 0; i > i_4_; i_4_++) {
+			is[i_4_] = (i_4_ << 12) / i;
+		}
+		final int[] is_5_ = new int[i_1_];
+		for (int i_6_ = 0; i_6_ < i_1_; i_6_++) {
+			is_5_[i_6_] = (i_6_ << 12) / i_1_;
+		}
+		for (int i_7_ = 0; i_7_ < i_2_; i_7_++) {
+			is_3_[i_7_] = (i_7_ << 12) / i_2_;
+		}
+		method1925(255);
+		for (int i_8_ = 0; i_8_ < i_2_; i_8_++) {
+			for (int i_9_ = 0; i_1_ > i_9_; i_9_++) {
+				for (int i_10_ = 0; i_10_ < i; i_10_++) {
+					for (int i_11_ = 0; i_11_ < this.anInt1256; i_11_++) {
+						int i_7_ = aShortArray1259[i_11_] << 12;
+						int i_12_ = i_7_ * is_3_[i_8_] >> 12;
+						final int i_13_ = anInt1249 * i_7_ >> 12;
+						int i_14_ = is[i_10_] * i_7_ >> 12;
+						i_12_ *= anInt1249;
+						i_14_ *= anInt1258;
+						final int i_15_ = anInt1258 * i_7_ >> 12;
+						int i_16_ = i_14_ >> 12;
+						int i_17_ = i_7_ * is_5_[i_9_] >> 12;
+						i_14_ &= 0xfff;
+						i_17_ *= anInt1252;
+						final int i_18_ = anInt1252 * i_7_ >> 12;
+						final int i_19_ = Class30.anIntArray224[i_14_];
+						int i_20_ = i_16_ + 1;
+						int i_21_ = i_17_ >> 12;
+						int i_22_ = i_21_ + 1;
+						final int i_23_ = i_14_ + -4096;
+						i_17_ &= 0xfff;
+						if (i_15_ > i_20_) {
+							i_20_ &= 0xff;
+						} else {
+							i_20_ = 0;
 						}
-						method1922((byte) -90);
+						i_16_ &= 0xff;
+						final int i_24_ = Class30.anIntArray224[i_17_];
+						if (i_18_ > i_22_) {
+							i_22_ &= 0xff;
+						} else {
+							i_22_ = 0;
+						}
+						i_21_ &= 0xff;
+						final int i_25_ = -4096 + i_17_;
+						int i_26_ = i_12_ >> 12;
+						i_12_ &= 0xfff;
+						final int i_27_ = i_12_ + -4096;
+						final int i_28_ = Class30.anIntArray224[i_12_];
+						int i_29_ = 1 + i_26_;
+						if (i_13_ > i_29_) {
+							i_29_ &= 0xff;
+						} else {
+							i_29_ = 0;
+						}
+						i_26_ &= 0xff;
+						final int i_30_ = aShortArray1253[i_29_];
+						final int i_31_ = aShortArray1253[i_30_ + i_21_];
+						final int i_32_ = aShortArray1253[i_22_ + i_30_];
+						final int i_33_ = aShortArray1253[i_26_];
+						final int i_34_ = aShortArray1253[i_21_ + i_33_];
+						final int i_35_ = aShortArray1253[i_22_ + i_33_];
+						int i_36_ = Class182.method2446(i_17_, i_14_, aShortArray1253[i_16_ + i_34_], i_12_);
+						int i_37_ = Class182.method2446(i_17_, i_23_, aShortArray1253[i_20_ + i_34_], i_12_);
+						int i_38_ = (i_19_ * (i_37_ - i_36_) >> 12) + i_36_;
+						i_36_ = Class182.method2446(i_25_, i_14_, aShortArray1253[i_35_ + i_16_], i_12_);
+						i_37_ = Class182.method2446(i_25_, i_23_, aShortArray1253[i_20_ + i_35_], i_12_);
+						int i_39_ = i_36_ + (i_19_ * (-i_36_ + i_37_) >> 12);
+						final int i_40_ = (i_24_ * (i_39_ - i_38_) >> 12) + i_38_;
+						i_36_ = Class182.method2446(i_17_, i_14_, aShortArray1253[i_16_ + i_31_], i_27_);
+						i_37_ = Class182.method2446(i_17_, i_23_, aShortArray1253[i_20_ + i_31_], i_27_);
+						i_38_ = i_36_ + ((-i_36_ + i_37_) * i_19_ >> 12);
+						i_36_ = Class182.method2446(i_25_, i_14_, aShortArray1253[i_32_ + i_16_], i_27_);
+						i_37_ = Class182.method2446(i_25_, i_23_, aShortArray1253[i_32_ + i_20_], i_27_);
+						i_39_ = (i_19_ * (i_37_ - i_36_) >> 12) + i_36_;
+						final int i_41_ = i_38_ + ((i_39_ + -i_38_) * i_24_ >> 12);
+						method1927(i_11_, i_40_ + ((i_41_ - i_40_) * i_28_ >> 12), (byte) -24);
 					}
+					method1922((byte) -90);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.M(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
 		}
 	}
 
@@ -182,7 +173,7 @@ abstract class Class132 {
 
 	public static void method1929(final int i) {
 		try {
-			aClass21_1255 = null;
+			MapSceneType.spriteCache = null;
 			if (i == 0) {
 				aClass50_1251 = null;
 				aString1250 = null;
@@ -215,11 +206,11 @@ abstract class Class132 {
 					final int i_71_ = is_66_[i_69_][i_70_] & 0xff;
 					final int i_72_ = is_60_[i_69_][i_70_] & 0xff;
 					if (i_72_ != 0) {
-						final Class124 class124 = Class118.method1025((byte) -127, i_72_ + -1);
+						final OverlayType class124 = OverlayType.list(i_72_ + -1);
 						if ((class124.anInt1197 ^ 0xffffffff) == 0) {
 							continue;
 						}
-						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124, (byte) 118);
+						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 						final int i_73_ = is_63_[i_69_][i_70_];
 						final int[] is_74_ = Class120_Sub12_Sub4.anIntArrayArray3157[i_73_];
 						class120_sub9.anInt2507 += is_74_.length / 2;
@@ -241,10 +232,10 @@ abstract class Class132 {
 						final int i_84_ = 0xff & is_60_[1 + i_69_][i_70_];
 						final int i_85_ = 0xff & is_60_[i_69_ - 1][1 + i_70_];
 						final int i_86_ = 0xff & is_60_[-1 + i_69_][i_70_ - 1];
-						final int i_87_ = 0xff & is_60_[i_69_ - -1][i_70_ - 1];
-						final int i_88_ = is_60_[i_69_ - -1][i_70_ + 1] & 0xff;
+						final int i_87_ = 0xff & is_60_[i_69_ + 1][i_70_ - 1];
+						final int i_88_ = is_60_[i_69_ + 1][i_70_ + 1] & 0xff;
 						if (i_85_ != 0 && i_72_ != i_85_) {
-							final Class124 class124 = Class118.method1025((byte) -128, -1 + i_85_);
+							final OverlayType class124 = OverlayType.list(-1 + i_85_);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								final int i_89_ = is_63_[i_69_ - 1][1 + i_70_];
 								final int i_90_ = is_64_[-1 + i_69_][i_70_ + 1];
@@ -264,11 +255,11 @@ abstract class Class132 {
 							}
 						}
 						if (i_86_ != 0 && i_72_ != i_86_) {
-							final Class124 class124 = Class118.method1025((byte) -126, i_86_ + -1);
+							final OverlayType class124 = OverlayType.list(i_86_ + -1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								final int i_94_ = is_64_[-1 + i_69_][i_70_ - 1];
 								final int i_95_ = is_63_[-1 + i_69_][-1 + i_70_];
-								final int i_96_ = Class120_Sub24.anIntArray2730[i_95_ * 4 - -(3 + i_94_ & 0x3)];
+								final int i_96_ = Class120_Sub24.anIntArray2730[i_95_ * 4 + (3 + i_94_ & 0x3)];
 								final int i_97_ = Class120_Sub24.anIntArray2730[(i_94_ & 0x3) + i_95_ * 4];
 								if (!Class132_Sub1.aBooleanArrayArray2811[i_97_][1] || !Class132_Sub1.aBooleanArrayArray2811[i_96_][0]) {
 									for (int i_98_ = 0; i_98_ < 8; i_98_++) {
@@ -284,11 +275,11 @@ abstract class Class132 {
 							}
 						}
 						if (i_87_ != 0 && i_72_ != i_87_) {
-							final Class124 class124 = Class118.method1025((byte) -128, i_87_ + -1);
+							final OverlayType class124 = OverlayType.list(i_87_ + -1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								final int i_99_ = is_64_[i_69_ + 1][-1 + i_70_];
 								final int i_100_ = is_63_[1 + i_69_][-1 + i_70_];
-								final int i_101_ = Class120_Sub24.anIntArray2730[i_100_ * 4 - -(0x3 & i_99_ + 1)];
+								final int i_101_ = Class120_Sub24.anIntArray2730[i_100_ * 4 + (0x3 & i_99_ + 1)];
 								final int i_102_ = Class120_Sub24.anIntArray2730[(i_99_ & 0x3) + 4 * i_100_];
 								if (!Class132_Sub1.aBooleanArrayArray2811[i_101_][1] || !Class132_Sub1.aBooleanArrayArray2811[i_102_][0]) {
 									for (int i_103_ = 0; i_103_ < 8; i_103_++) {
@@ -304,11 +295,11 @@ abstract class Class132 {
 							}
 						}
 						if (i_88_ != 0 && i_72_ != i_88_) {
-							final Class124 class124 = Class118.method1025((byte) -127, i_88_ - 1);
+							final OverlayType class124 = OverlayType.list(i_88_ - 1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
-								final int i_104_ = is_64_[1 + i_69_][i_70_ - -1];
-								final int i_105_ = is_63_[1 + i_69_][i_70_ - -1];
-								final int i_106_ = Class120_Sub24.anIntArray2730[i_105_ * 4 - -(2 + i_104_ & 0x3)];
+								final int i_104_ = is_64_[1 + i_69_][i_70_ + 1];
+								final int i_105_ = is_63_[1 + i_69_][i_70_ + 1];
+								final int i_106_ = Class120_Sub24.anIntArray2730[i_105_ * 4 + (2 + i_104_ & 0x3)];
 								final int i_107_ = Class120_Sub24.anIntArray2730[(0x3 & 1 + i_104_) + 4 * i_105_];
 								if (!Class132_Sub1.aBooleanArrayArray2811[i_106_][1] || !Class132_Sub1.aBooleanArrayArray2811[i_107_][0]) {
 									for (int i_108_ = 0; i_108_ < 8; i_108_++) {
@@ -324,9 +315,9 @@ abstract class Class132 {
 							}
 						}
 						if (i_81_ != 0 && i_81_ != i_72_) {
-							final Class124 class124 = Class118.method1025((byte) -128, i_81_ - 1);
+							final OverlayType class124 = OverlayType.list(i_81_ - 1);
 							if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
-								i_76_ = Class120_Sub24.anIntArray2730[(is_64_[i_69_][1 + i_70_] - -2 & 0x3) + 4 * is_63_[i_69_][1 + i_70_]];
+								i_76_ = Class120_Sub24.anIntArray2730[(is_64_[i_69_][1 + i_70_] + 2 & 0x3) + 4 * is_63_[i_69_][1 + i_70_]];
 								for (int i_109_ = 0; i_109_ < 8; i_109_++) {
 									if (i_109_ == i_75_) {
 										is_77_[i_75_++] = i_81_;
@@ -339,7 +330,7 @@ abstract class Class132 {
 							}
 						}
 						if (i_82_ != 0 && i_82_ != i_72_) {
-							final Class124 class124 = Class118.method1025((byte) -126, -1 + i_82_);
+							final OverlayType class124 = OverlayType.list(-1 + i_82_);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								i_78_ = Class120_Sub24.anIntArray2730[(is_64_[-1 + i_69_][i_70_] + 3 & 0x3) + 4 * is_63_[-1 + i_69_][i_70_]];
 								for (int i_110_ = 0; i_110_ < 8; i_110_++) {
@@ -354,9 +345,9 @@ abstract class Class132 {
 							}
 						}
 						if (i_83_ != 0 && i_83_ != i_72_) {
-							final Class124 class124 = Class118.method1025((byte) -127, -1 + i_83_);
+							final OverlayType class124 = OverlayType.list(-1 + i_83_);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
-								i_79_ = Class120_Sub24.anIntArray2730[is_63_[i_69_][-1 + i_70_] * 4 - -(is_64_[i_69_][-1 + i_70_] & 0x3)];
+								i_79_ = Class120_Sub24.anIntArray2730[is_63_[i_69_][-1 + i_70_] * 4 + (is_64_[i_69_][-1 + i_70_] & 0x3)];
 								for (int i_111_ = 0; i_111_ < 8; i_111_++) {
 									if (i_75_ == i_111_) {
 										is_77_[i_75_++] = i_83_;
@@ -369,9 +360,9 @@ abstract class Class132 {
 							}
 						}
 						if (i_84_ != 0 && i_84_ != i_72_) {
-							final Class124 class124 = Class118.method1025((byte) -128, i_84_ - 1);
+							final OverlayType class124 = OverlayType.list(i_84_ - 1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
-								i_80_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_69_][i_70_] - -(0x3 & is_64_[1 + i_69_][i_70_] - -1)];
+								i_80_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_69_][i_70_] + (0x3 & is_64_[1 + i_69_][i_70_] + 1)];
 								for (int i_112_ = 0; i_112_ < 8; i_112_++) {
 									if (i_112_ == i_75_) {
 										is_77_[i_75_++] = i_84_;
@@ -389,8 +380,8 @@ abstract class Class132 {
 							final boolean[] bools_115_ = Class132_Sub1.aBooleanArrayArray2811[i_83_ == i_114_ ? i_79_ : 0];
 							final boolean[] bools_116_ = Class132_Sub1.aBooleanArrayArray2811[i_114_ != i_84_ ? 0 : i_80_];
 							final boolean[] bools_117_ = Class132_Sub1.aBooleanArrayArray2811[i_81_ == i_114_ ? i_76_ : 0];
-							final Class124 class124 = Class118.method1025((byte) -128, -1 + i_114_);
-							final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124, (byte) 103);
+							final OverlayType class124 = OverlayType.list(-1 + i_114_);
+							final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 							class120_sub9.anInt2507 += 5;
 							class120_sub9.anInt2507 += -2 + bools_117_.length;
 							class120_sub9.anInt2507 += bools.length + -2;
@@ -417,17 +408,17 @@ abstract class Class132 {
 					final int i_121_ = is_60_[i_118_][i_119_] & 0xff;
 					final int i_122_ = 0xff & is_66_[i_118_][i_119_];
 					if (i_121_ != 0) {
-						final Class124 class124 = Class118.method1025((byte) -127, -1 + i_121_);
+						final OverlayType class124 = OverlayType.list(-1 + i_121_);
 						if ((class124.anInt1197 ^ 0xffffffff) == 0) {
 							continue;
 						}
-						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124, (byte) 110);
+						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 						final byte i_123_ = is_63_[i_118_][i_119_];
 						final byte i_124_ = is_64_[i_118_][i_119_];
-						final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.anInt1203, 13080, class124.anInt1197);
-						final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.anInt1203, 13080, class124.anInt1197);
-						final int i_127_ = FileSystem.method443(is_61_[i_118_ - -1][i_119_ - -1], class124.anInt1203, 13080, class124.anInt1197);
-						final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ - -1], class124.anInt1203, 13080, class124.anInt1197);
+						final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, 13080, class124.anInt1197);
+						final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, 13080, class124.anInt1197);
+						final int i_127_ = FileSystem.method443(is_61_[i_118_ + 1][i_119_ + 1], class124.textureId, 13080, class124.anInt1197);
+						final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ + 1], class124.textureId, 13080, class124.anInt1197);
 						Class22.method196(fs_68_, i_126_, (byte) 123, i_120_, i_128_, i_127_, fs, i_125_, i_123_, i_124_, class120_sub9, i_122_ != 0 && class124.aBoolean1196, fs_67_, is_65_, i_118_, i_119_);
 					}
 					if ((0xff & is_66_[i_118_][i_119_]) != 0 || i_121_ != 0 && is_63_[i_118_][i_119_] == 0) {
@@ -444,15 +435,15 @@ abstract class Class132 {
 						int i_139_ = 0xff & is_60_[-1 + i_118_][i_119_ - 1];
 						int i_140_ = is_60_[-1 + i_118_][1 + i_119_] & 0xff;
 						int i_141_ = 0xff & is_60_[1 + i_118_][i_119_ - 1];
-						int i_142_ = is_60_[i_118_ - -1][1 + i_119_] & 0xff;
+						int i_142_ = is_60_[i_118_ + 1][1 + i_119_] & 0xff;
 						if (i_140_ != 0 && i_121_ != i_140_) {
-							final Class124 class124 = Class118.method1025((byte) -127, i_140_ - 1);
+							final OverlayType class124 = OverlayType.list(i_140_ - 1);
 							if (!class124.aBoolean1196 || (class124.anInt1197 ^ 0xffffffff) == 0) {
 								i_140_ = 0;
 							} else {
 								final int i_143_ = is_64_[i_118_ - 1][i_119_ + 1];
 								final int i_144_ = is_63_[-1 + i_118_][1 + i_119_];
-								final int i_145_ = Class120_Sub24.anIntArray2730[i_144_ * 4 + (0x3 & i_143_ - -3)];
+								final int i_145_ = Class120_Sub24.anIntArray2730[i_144_ * 4 + (0x3 & i_143_ + 3)];
 								final int i_146_ = Class120_Sub24.anIntArray2730[(0x3 & 2 + i_143_) + 4 * i_144_];
 								if (Class132_Sub1.aBooleanArrayArray2811[i_145_][1] && Class132_Sub1.aBooleanArrayArray2811[i_146_][0]) {
 									i_140_ = 0;
@@ -472,11 +463,11 @@ abstract class Class132 {
 							i_140_ = 0;
 						}
 						if (i_139_ != 0 && i_121_ != i_139_) {
-							final Class124 class124 = Class118.method1025((byte) -127, -1 + i_139_);
+							final OverlayType class124 = OverlayType.list(-1 + i_139_);
 							if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
 								final int i_148_ = is_64_[-1 + i_118_][-1 + i_119_];
 								final int i_149_ = is_63_[i_118_ - 1][i_119_ + -1];
-								final int i_150_ = Class120_Sub24.anIntArray2730[i_149_ * 4 - -(0x3 & i_148_)];
+								final int i_150_ = Class120_Sub24.anIntArray2730[i_149_ * 4 + (0x3 & i_148_)];
 								final int i_151_ = Class120_Sub24.anIntArray2730[(i_148_ + 3 & 0x3) + 4 * i_149_];
 								if (Class132_Sub1.aBooleanArrayArray2811[i_150_][1] && Class132_Sub1.aBooleanArrayArray2811[i_151_][0]) {
 									i_139_ = 0;
@@ -498,11 +489,11 @@ abstract class Class132 {
 							i_139_ = 0;
 						}
 						if (i_141_ != 0 && i_141_ != i_121_) {
-							final Class124 class124 = Class118.method1025((byte) -126, -1 + i_141_);
+							final OverlayType class124 = OverlayType.list(-1 + i_141_);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								final int i_153_ = is_64_[1 + i_118_][-1 + i_119_];
 								final int i_154_ = is_63_[i_118_ + 1][-1 + i_119_];
-								final int i_155_ = Class120_Sub24.anIntArray2730[4 * i_154_ - -(0x3 & i_153_)];
+								final int i_155_ = Class120_Sub24.anIntArray2730[4 * i_154_ + (0x3 & i_153_)];
 								final int i_156_ = Class120_Sub24.anIntArray2730[(0x3 & 1 + i_153_) + 4 * i_154_];
 								if (Class132_Sub1.aBooleanArrayArray2811[i_156_][1] && Class132_Sub1.aBooleanArrayArray2811[i_155_][0]) {
 									i_141_ = 0;
@@ -526,11 +517,11 @@ abstract class Class132 {
 						if (i_142_ == 0 || i_142_ == i_121_) {
 							i_142_ = 0;
 						} else {
-							final Class124 class124 = Class118.method1025((byte) -126, -1 + i_142_);
+							final OverlayType class124 = OverlayType.list(-1 + i_142_);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								final int i_158_ = is_64_[1 + i_118_][1 + i_119_];
 								final int i_159_ = is_63_[1 + i_118_][1 + i_119_];
-								final int i_160_ = Class120_Sub24.anIntArray2730[(i_158_ - -1 & 0x3) + i_159_ * 4];
+								final int i_160_ = Class120_Sub24.anIntArray2730[(i_158_ + 1 & 0x3) + i_159_ * 4];
 								final int i_161_ = Class120_Sub24.anIntArray2730[(2 + i_158_ & 0x3) + 4 * i_159_];
 								if (Class132_Sub1.aBooleanArrayArray2811[i_161_][1] && Class132_Sub1.aBooleanArrayArray2811[i_160_][0]) {
 									i_142_ = 0;
@@ -550,9 +541,9 @@ abstract class Class132 {
 							}
 						}
 						if (i_138_ != 0 && i_138_ != i_121_) {
-							final Class124 class124 = Class118.method1025((byte) -126, i_138_ + -1);
+							final OverlayType class124 = OverlayType.list(i_138_ + -1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
-								i_131_ = Class120_Sub24.anIntArray2730[4 * is_63_[i_118_][i_119_ + 1] + (is_64_[i_118_][i_119_ + 1] - -2 & 0x3)];
+								i_131_ = Class120_Sub24.anIntArray2730[4 * is_63_[i_118_][i_119_ + 1] + (is_64_[i_118_][i_119_ + 1] + 2 & 0x3)];
 								for (int i_163_ = 0; i_163_ < 8; i_163_++) {
 									if (i_163_ == i_129_) {
 										is_130_[i_129_++] = i_138_;
@@ -565,7 +556,7 @@ abstract class Class132 {
 							}
 						}
 						if (i_135_ != 0 && i_121_ != i_135_) {
-							final Class124 class124 = Class118.method1025((byte) -128, i_135_ - 1);
+							final OverlayType class124 = OverlayType.list(i_135_ - 1);
 							if (class124.aBoolean1196 && class124.anInt1197 != -1) {
 								i_132_ = Class120_Sub24.anIntArray2730[is_63_[i_118_ - 1][i_119_] * 4 + (3 + is_64_[-1 + i_118_][i_119_] & 0x3)];
 								for (int i_164_ = 0; i_164_ < 8; i_164_++) {
@@ -580,7 +571,7 @@ abstract class Class132 {
 							}
 						}
 						if (i_137_ != 0 && i_121_ != i_137_) {
-							final Class124 class124 = Class118.method1025((byte) -126, i_137_ + -1);
+							final OverlayType class124 = OverlayType.list(i_137_ + -1);
 							if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
 								i_133_ = Class120_Sub24.anIntArray2730[is_63_[i_118_][-1 + i_119_] * 4 + (is_64_[i_118_][-1 + i_119_] & 0x3)];
 								for (int i_165_ = 0; i_165_ < 8; i_165_++) {
@@ -595,9 +586,9 @@ abstract class Class132 {
 							}
 						}
 						if (i_136_ != 0 && i_121_ != i_136_) {
-							final Class124 class124 = Class118.method1025((byte) -127, -1 + i_136_);
+							final OverlayType class124 = OverlayType.list(-1 + i_136_);
 							if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
-								i_134_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_118_][i_119_] - -(is_64_[i_118_ - -1][i_119_] - -1 & 0x3)];
+								i_134_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_118_][i_119_] + (is_64_[i_118_ + 1][i_119_] + 1 & 0x3)];
 								for (int i_166_ = 0; i_166_ < 8; i_166_++) {
 									if (i_129_ == i_166_) {
 										is_130_[i_129_++] = i_136_;
@@ -615,13 +606,13 @@ abstract class Class132 {
 							final boolean[] bools_169_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ != i_135_ ? 0 : i_132_];
 							final boolean[] bools_170_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_137_ ? i_133_ : 0];
 							final boolean[] bools_171_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_136_ ? i_134_ : 0];
-							final Class124 class124 = Class118.method1025((byte) -127, i_168_ + -1);
-							final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124, (byte) 116);
-							final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.anInt1203, 13080, class124.anInt1197) << 8;
-							final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.anInt1203, 13080, class124.anInt1197) << 8;
-							final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.anInt1203, 13080, class124.anInt1197) << 8;
+							final OverlayType class124 = OverlayType.list(i_168_ + -1);
+							final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
+							final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
+							final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
+							final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
 							int i_175_ = 6;
-							final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.anInt1203, 13080, class124.anInt1197) << 8 | 0xff;
+							final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.textureId, 13080, class124.anInt1197) << 8 | 0xff;
 							i_175_ += bools.length + -2;
 							i_175_ += -2 + bools_169_.length;
 							final boolean bool = i_168_ != i_140_ && bools_169_[0] && bools[1];

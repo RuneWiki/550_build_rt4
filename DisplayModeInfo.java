@@ -31,8 +31,8 @@ final class DisplayModeInfo {
 	static final void method2213() {
 		Class120_Sub12_Sub23.anInt3307 = 0;
 		Class154.anInt1441 = 0;
-		Class92.method767(-2);
-		Class179.method2262(-16097);
+		Class92.method767();
+		Class179.method2262();
 		Class174.method2233((byte) -54);
 		Decimator.method2223();
 		for (int i_2_ = 0; Class120_Sub12_Sub23.anInt3307 > i_2_; i_2_++) {

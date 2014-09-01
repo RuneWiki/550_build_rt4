@@ -6,7 +6,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	static js5 aClass50_2839;
 	static int spriteTrimHeight;
 	static ObjectCache aClass21_2841;
-	private int anInt2842 = -32768;
+	private int maxY = -32768;
 	static int anInt2843;
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
 	int amount;
@@ -23,26 +23,15 @@ final class SceneGroundObject extends SceneGraphNode {
 
 	@Override
 	final int getMaxY() {
-		return anInt2842;
+		return maxY;
 	}
 
 	@Override
-	final void method2265(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
 		final AbstractModel class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -1, null, null, 0);
 		if (class180_sub7 != null) {
-			class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
-			anInt2842 = class180_sub7.getMaxY();
-		}
-	}
-
-	static final void method2275(final byte i) {
-		try {
-			if (i != 29) {
-				method2276();
-			}
-			Class154.aClass21_1438.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("he.B(").append(i).append(')').toString());
+			class180_sub7.render(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
+			maxY = class180_sub7.getMaxY();
 		}
 	}
 
@@ -77,18 +66,12 @@ final class SceneGroundObject extends SceneGraphNode {
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
-	public static void method2277(final int i) {
-		try {
-			aClass21_2841 = null;
-			aString2849 = null;
-			aString2847 = null;
-			if (i == 28072) {
-				aClass50_2839 = null;
-				aClass120_Sub9ArrayArray2844 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("he.C(").append(i).append(')').toString());
-		}
+	public static void method2277() {
+		aClass21_2841 = null;
+		aString2849 = null;
+		aString2847 = null;
+		aClass50_2839 = null;
+		aClass120_Sub9ArrayArray2844 = null;
 	}
 
 	@Override

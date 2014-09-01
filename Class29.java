@@ -80,14 +80,14 @@ final class Class29 {
 	}
 
 	static final float[] method251() {
-		final float f = AtmosphereManager.method1012() + AtmosphereManager.method1015();
-		final int i_9_ = AtmosphereManager.method1017();
-		final float f_10_ = (0xff & i_9_ >> 16) / 255.0F;
-		final float f_11_ = (0xff & i_9_ >> 8) / 255.0F;
-		final float f_13_ = (i_9_ & 0xff) / 255.0F;
-		NodeSub.aFloatArray2583[0] = Class120_Sub15.aFloatArray2596[0] * f_10_ * 0.58823526F * f;
-		NodeSub.aFloatArray2583[1] = f * (0.58823526F * (Class120_Sub15.aFloatArray2596[1] * f_11_));
-		NodeSub.aFloatArray2583[2] = 0.58823526F * (Class120_Sub15.aFloatArray2596[2] * f_13_) * f;
+		final float colorMod = AtmosphereManager.getLightingModelAmbient() + AtmosphereManager.getLight0Diffuse();
+		final int screenRgb = AtmosphereManager.getScreenColorRgb();
+		final float red = (screenRgb >> 16 & 0xff) / 255.0F;
+		final float green = (screenRgb >> 8 & 0xff) / 255.0F;
+		final float blue = (screenRgb & 0xff) / 255.0F;
+		NodeSub.aFloatArray2583[0] = Class120_Sub15.aFloatArray2596[0] * red * 0.58823526F * colorMod;
+		NodeSub.aFloatArray2583[1] = Class120_Sub15.aFloatArray2596[1] * green * 0.58823526F * colorMod;
+		NodeSub.aFloatArray2583[2] = Class120_Sub15.aFloatArray2596[2] * blue * 0.58823526F * colorMod;
 		NodeSub.aFloatArray2583[3] = 1.0F;
 		return NodeSub.aFloatArray2583;
 	}
@@ -193,7 +193,7 @@ final class Class29 {
 					this.anInt208 = buffer.getShort();
 				}
 			} else {
-				this.anInt204 = (short) (4 * buffer.getUByte());
+				this.anInt204 = (short) (buffer.getUByte() * 4);
 				this.anInt206 = (short) (buffer.getUByte() * 4);
 			}
 		} else {
@@ -205,18 +205,18 @@ final class Class29 {
 	}
 
 	static final Class29 list(final int id) {
-		Class29 class29_9_ = (Class29) Class120_Sub12_Sub31.aClass21_3378.get(id);
-		if (class29_9_ != null) {
-			return class29_9_;
+		Class29 class29 = (Class29) Class120_Sub12_Sub31.aClass21_3378.get(id);
+		if (class29 != null) {
+			return class29;
 		}
 		final byte[] data = CanvasWrapper.aClass50_18.getFile(32, id);
-		class29_9_ = new Class29();
+		class29 = new Class29();
 		if (data != null) {
-			class29_9_.decode(new Buffer(data));
+			class29.decode(new Buffer(data));
 		}
-		class29_9_.postDecode();
-		Class120_Sub12_Sub31.aClass21_3378.put(class29_9_, id);
-		return class29_9_;
+		class29.postDecode();
+		Class120_Sub12_Sub31.aClass21_3378.put(class29, id);
+		return class29;
 	}
 
 	static final void method254(final int i_17_, final int i_18_, final int i_19_) {

@@ -7,7 +7,7 @@ final class Class132_Sub2_Sub1 extends Class132_Sub2 {
 
 	final byte[] method1943(final int i, final int i_0_, final int i_1_) {
 		aByteArray3731 = new byte[i * i_0_ * i_1_ * 2];
-		method1923(i, (byte) 121, i_0_, i_1_);
+		method1923(i, i_0_, i_1_);
 		return aByteArray3731;
 	}
 

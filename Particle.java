@@ -147,7 +147,7 @@ final class Particle extends ParticleNodeSub {
 					final int i_31_ = (is = class80.anIntArray773).length;
 					for (int i_32_ = 0; i_32_ < i_31_; i_32_++) {
 						final int i_33_ = is[i_32_];
-						Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method114((byte) -128, i_33_);
+						Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method114(i_33_);
 						while (class120_sub14_sub24 != null) {
 							final Class32 class32 = class120_sub14_sub24.aClass169_3659.aClass32_1650;
 							final int i_34_ = i_0_ - class120_sub14_sub24.anInt3667;
@@ -155,7 +155,7 @@ final class Particle extends ParticleNodeSub {
 							final int i_36_ = i_2_ - class120_sub14_sub24.anInt3660;
 							final long l_37_ = i_34_ * i_34_ + i_35_ * i_35_ + i_36_ * i_36_;
 							if (l_37_ > class32.aLong271) {
-								class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113(-5463);
+								class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113();
 							} else {
 								int i_38_ = (int) Math.sqrt(l_37_);
 								if (i_38_ == 0) {
@@ -163,7 +163,7 @@ final class Particle extends ParticleNodeSub {
 								}
 								final long l_39_ = (i_34_ * class120_sub14_sub24.anInt3664 + i_35_ * class32.anInt261 + i_36_ * class120_sub14_sub24.anInt3661) * 65535L / (class32.anInt262 * i_38_);
 								if (l_39_ < class32.anInt265) {
-									class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113(-5463);
+									class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113();
 								} else {
 									int i_40_ = 0;
 									if (class32.anInt255 == 1) {
@@ -197,7 +197,7 @@ final class Particle extends ParticleNodeSub {
 											this.anInt3090 += i_43_ * i >> 15;
 										}
 									}
-									class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113(-5463);
+									class120_sub14_sub24 = (Class120_Sub14_Sub24) ParticleEngine.aClass9_2346.method113();
 								}
 							}
 						}

@@ -570,7 +570,7 @@ final class Rasterizer {
 		endY = i_51_ - i_49_;
 		method868();
 		if (coordinateYLookup.length < endY) {
-			coordinateYLookup = new int[Class120_Sub12_Sub17.method1283(endY)];
+			coordinateYLookup = new int[Class120_Sub12_Sub17.getFarestBitValue(endY)];
 		}
 		int i_52_ = i_49_ * GraphicsLD.width + i;
 		for (int i_53_ = 0; i_53_ < endY; i_53_++) {
@@ -584,14 +584,14 @@ final class Rasterizer {
 	}
 
 	static final void method862(int i, int i_54_, int i_55_, int i_56_, int i_57_, int i_58_, int i_59_, int i_60_, int i_61_, final int i_62_, int i_63_, int i_64_, final int i_65_, int i_66_, int i_67_, final int i_68_, int i_69_, int i_70_, final int i_71_) {
-		final int[] is = anInterface5_973.method19(aFloat968, 274092135, i_71_);
+		final int[] is = anInterface5_973.method19(aFloat968, i_71_);
 		if (is == null || alpha > 10) {
-			final int i_72_ = anInterface5_973.method20(i_71_, 65535);
+			final int i_72_ = anInterface5_973.method20(i_71_);
 			aBoolean974 = true;
 			method856(i, i_54_, i_55_, i_56_, i_57_, i_58_, method853(i_72_, i_59_), method853(i_72_, i_60_), method853(i_72_, i_61_));
 		} else {
-			aBoolean981 = anInterface5_973.method27(0, i_71_);
-			aBoolean976 = anInterface5_973.method17(-1, i_71_);
+			aBoolean981 = anInterface5_973.method27(i_71_);
+			aBoolean976 = anInterface5_973.method17(i_71_);
 			final int i_73_ = i_57_ - i_56_;
 			final int i_74_ = i_54_ - i;
 			final int i_75_ = i_58_ - i_56_;
@@ -2128,13 +2128,13 @@ final class Rasterizer {
 	}
 
 	static final void method871(int i, int i_168_, int i_169_, int i_170_, int i_171_, int i_172_, int i_173_, int i_174_, int i_175_, final int i_176_, int i_177_, int i_178_, final int i_179_, int i_180_, int i_181_, final int i_182_, int i_183_, int i_184_, final int i_185_) {
-		final int[] is = anInterface5_973.method19(aFloat968, 274092135, i_185_);
+		final int[] is = anInterface5_973.method19(aFloat968, i_185_);
 		if (is == null) {
-			final int i_186_ = anInterface5_973.method20(i_185_, 65535);
+			final int i_186_ = anInterface5_973.method20(i_185_);
 			method856(i, i_168_, i_169_, i_170_, i_171_, i_172_, method853(i_186_, i_173_), method853(i_186_, i_174_), method853(i_186_, i_175_));
 		} else {
-			aBoolean981 = anInterface5_973.method27(0, i_185_);
-			aBoolean976 = anInterface5_973.method17(-1, i_185_);
+			aBoolean981 = anInterface5_973.method27(i_185_);
+			aBoolean976 = anInterface5_973.method17(i_185_);
 			final int i_187_ = i_171_ - i_170_;
 			final int i_188_ = i_168_ - i;
 			final int i_189_ = i_172_ - i_170_;

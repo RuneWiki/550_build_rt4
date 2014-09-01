@@ -27,145 +27,132 @@ final class PacketBuffer extends Buffer {
 		}
 	}
 
-	static final void method1143(final int i, final byte i_0_) {
-		try {
-			Class96.anInt919 = 3;
-			Class120_Sub12_Sub9.anInt3195 = i;
-			if (i_0_ <= -86) {
-				Class136.anInt1321 = 100;
-				Class127.anInt1215 = -1;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.KC(").append(i).append(',').append(i_0_).append(')').toString());
-		}
+	static final void method1143(final int i) {
+		Class96.clickedMouseFunctionBlinksLeft = 3;
+		Class120_Sub12_Sub9.clickedMouseFunctionId = i;
+		Class136.clickedMouseFunctionCycle = 100;
+		Class127.anInt1215 = -1;
 	}
 
 	final void startBitAccess() {
 		bitOffset = 8 * this.pos;
 	}
 
-	static final void method1145(final Buffer class120_sub7, final int i) {
-		try {
-			if (-class120_sub7.pos + class120_sub7.buf.length >= 1) {
-				final int i_1_ = class120_sub7.getUByte();
-				if (i_1_ >= 0 && i_1_ <= 11) {
-					int i_2_;
-					if (i_1_ != 11) {
-						if (i_1_ == 10) {
-							i_2_ = 32;
-						} else if (i_1_ == 9) {
-							i_2_ = 31;
-						} else if (i_1_ == 8) {
-							i_2_ = 30;
-						} else if (i_1_ == 7) {
-							i_2_ = 29;
-						} else if (i_1_ == 6) {
-							i_2_ = 28;
-						} else if (i_1_ == 5) {
-							i_2_ = 28;
-						} else if (i_1_ != 4) {
-							if (i_1_ == 3) {
+	static final void method1145(final Buffer buffer) {
+		if (-buffer.pos + buffer.buf.length >= 1) {
+			final int i_1_ = buffer.getUByte();
+			if (i_1_ >= 0 && i_1_ <= 11) {
+				int i_2_;
+				if (i_1_ != 11) {
+					if (i_1_ == 10) {
+						i_2_ = 32;
+					} else if (i_1_ == 9) {
+						i_2_ = 31;
+					} else if (i_1_ == 8) {
+						i_2_ = 30;
+					} else if (i_1_ == 7) {
+						i_2_ = 29;
+					} else if (i_1_ == 6) {
+						i_2_ = 28;
+					} else if (i_1_ == 5) {
+						i_2_ = 28;
+					} else if (i_1_ != 4) {
+						if (i_1_ == 3) {
+							i_2_ = 23;
+						} else if (i_1_ != 2) {
+							if (i_1_ == 1) {
 								i_2_ = 23;
-							} else if (i_1_ != 2) {
-								if (i_1_ == 1) {
-									i_2_ = 23;
-								} else {
-									i_2_ = 19;
-								}
 							} else {
-								i_2_ = 22;
+								i_2_ = 19;
 							}
 						} else {
-							i_2_ = 24;
+							i_2_ = 22;
 						}
 					} else {
-						i_2_ = 33;
+						i_2_ = 24;
 					}
-					if (i_2_ <= class120_sub7.buf.length - class120_sub7.pos) {
-						FileSystemRequest.brightness = class120_sub7.getUByte();
-						if (FileSystemRequest.brightness < 1) {
-							FileSystemRequest.brightness = 1;
-						} else if (FileSystemRequest.brightness > 4) {
-							FileSystemRequest.brightness = 4;
+				} else {
+					i_2_ = 33;
+				}
+				if (i_2_ <= buffer.buf.length - buffer.pos) {
+					FileSystemRequest.brightness = buffer.getUByte();
+					if (FileSystemRequest.brightness < 1) {
+						FileSystemRequest.brightness = 1;
+					} else if (FileSystemRequest.brightness > 4) {
+						FileSystemRequest.brightness = 4;
+					}
+					GameShell.method32(buffer.getUByte() == 1);
+					Class120_Sub12.aBoolean2564 = buffer.getUByte() == 1;
+					Hashtable.showGroundDecorations = buffer.getUByte() == 1;
+					ParticleNodeSub.highDetailTextures = buffer.getUByte() == 1;
+					Class120_Sub12_Sub10.manyIdleAnimations = buffer.getUByte() == 1;
+					Class191.flickeringEffectsOn = buffer.getUByte() == 1;
+					Class120_Sub30_Sub1.manyGroundTextures = buffer.getUByte() == 1;
+					Class120_Sub6.characterShadowsOn = buffer.getUByte() == 1;
+					Class74.sceneryShadowsType = buffer.getUByte();
+					if (Class74.sceneryShadowsType > 2) {
+						Class74.sceneryShadowsType = 2;
+					}
+					if (i_1_ < 2) {
+						Class120_Sub12_Sub6.highLightingDetail = buffer.getUByte() == 1;
+						buffer.getUByte();
+					} else {
+						Class120_Sub12_Sub6.highLightingDetail = buffer.getUByte() == 1;
+					}
+					highWaterDetail = buffer.getUByte() == 1;
+					Decimator.fogEnabled = buffer.getUByte() == 1;
+					AbstractMouseWheelHandler.antiAliasingSamplesWrapper = buffer.getUByte();
+					if (AbstractMouseWheelHandler.antiAliasingSamplesWrapper > 2) {
+						AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 2;
+					}
+					Class36.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
+					Class167.aBoolean1619 = buffer.getUByte() == 1;
+					Class111.anInt1061 = buffer.getUByte();
+					if (Class111.anInt1061 > 127) {
+						Class111.anInt1061 = 127;
+					}
+					RuntimeException_Sub1.anInt2142 = buffer.getUByte();
+					CursorType.ambientSoundsVolume = buffer.getUByte();
+					if (CursorType.ambientSoundsVolume > 127) {
+						CursorType.ambientSoundsVolume = 127;
+					}
+					if (i_1_ >= 1) {
+						Class120_Sub12_Sub18.lastFullscreenWidth = buffer.getUShort();
+						Class120_Sub12_Sub12.lastFullscreenHeight = buffer.getUShort();
+					}
+					if (i_1_ >= 3 && i_1_ < 6) {
+						buffer.getUByte();
+					}
+					if (i_1_ >= 4) {
+						int i_3_ = buffer.getUByte();
+						if (Class120_Sub14_Sub13.maxMemory < 96) {
+							i_3_ = 0;
 						}
-						GameShell.method32(class120_sub7.getUByte() == 1);
-						Class120_Sub12.aBoolean2564 = class120_sub7.getUByte() == 1;
-						Hashtable.showGroundDecorations = class120_sub7.getUByte() == 1;
-						ParticleNodeSub.highDetailTextures = class120_sub7.getUByte() == 1;
-						Class120_Sub12_Sub10.manyIdleAnimations = class120_sub7.getUByte() == 1;
-						Class191.flickeringEffectsOn = class120_sub7.getUByte() == 1;
-						Class120_Sub30_Sub1.manyGroundTextures = class120_sub7.getUByte() == 1;
-						Class120_Sub6.characterShadowsOn = class120_sub7.getUByte() == 1;
-						Class74.sceneryShadowsType = class120_sub7.getUByte();
-						if (Class74.sceneryShadowsType > 2) {
-							Class74.sceneryShadowsType = 2;
-						}
-						if (i_1_ < 2) {
-							Class120_Sub12_Sub6.highLightingDetail = class120_sub7.getUByte() == 1;
-							class120_sub7.getUByte();
-						} else {
-							Class120_Sub12_Sub6.highLightingDetail = class120_sub7.getUByte() == 1;
-						}
-						highWaterDetail = class120_sub7.getUByte() == 1;
-						Decimator.fogEnabled = class120_sub7.getUByte() == 1;
-						AbstractMouseWheelHandler.antiAliasingSamplesWrapper = class120_sub7.getUByte();
-						if (AbstractMouseWheelHandler.antiAliasingSamplesWrapper > 2) {
-							AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 2;
-						}
-						Class36.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
-						Class167.aBoolean1619 = class120_sub7.getUByte() == 1;
-						Class111.anInt1061 = class120_sub7.getUByte();
-						if (Class111.anInt1061 > 127) {
-							Class111.anInt1061 = 127;
-						}
-						RuntimeException_Sub1.anInt2142 = class120_sub7.getUByte();
-						CursorType.anInt1242 = class120_sub7.getUByte();
-						if (CursorType.anInt1242 > 127) {
-							CursorType.anInt1242 = 127;
-						}
-						if (i_1_ >= 1) {
-							Class120_Sub12_Sub18.lastFullscreenWidth = class120_sub7.getUShort();
-							Class120_Sub12_Sub12.lastFullscreenHeight = class120_sub7.getUShort();
-						}
-						if (i_1_ >= 3 && i_1_ < 6) {
-							class120_sub7.getUByte();
-						}
-						if (i_1_ >= 4) {
-							int i_3_ = class120_sub7.getUByte();
-							if (Class120_Sub14_Sub13.maxMemory < 96) {
-								i_3_ = 0;
-							}
-							ParticleEngine.setParticles(i_3_);
-						}
-						if (i_1_ >= 5) {
-							Class120_Sub19.anInt2657 = class120_sub7.getInt();
-						}
-						if (i_1_ >= 6) {
-							Class120_Sub12_Sub19.currentDisplayMode = class120_sub7.getUByte();
-						}
-						if (i_1_ >= 7) {
-							InterfaceClickMask.safeModeEnabled = class120_sub7.getUByte() == 1;
-						}
-						if (i != 2245) {
-							method1145(null, -85);
-						}
-						if (i_1_ >= 8) {
-							Class134.aBoolean1277 = class120_sub7.getUByte() == 1;
-						}
-						if (i_1_ >= 9) {
-							Class140.anInt1343 = class120_sub7.getUByte();
-						}
-						if (i_1_ >= 10) {
-							Class186.hdrEnabled = class120_sub7.getUByte() != 0;
-						}
-						if (i_1_ >= 11) {
-							Class38.cursorsEnabled = class120_sub7.getUByte() != 0;
-						}
+						ParticleEngine.setParticles(i_3_);
+					}
+					if (i_1_ >= 5) {
+						Class120_Sub19.anInt2657 = buffer.getInt();
+					}
+					if (i_1_ >= 6) {
+						Class120_Sub12_Sub19.currentDisplayMode = buffer.getUByte();
+					}
+					if (i_1_ >= 7) {
+						InterfaceClickMask.safeModeEnabled = buffer.getUByte() == 1;
+					}
+					if (i_1_ >= 8) {
+						Class134.aBoolean1277 = buffer.getUByte() == 1;
+					}
+					if (i_1_ >= 9) {
+						Class140.anInt1343 = buffer.getUByte();
+					}
+					if (i_1_ >= 10) {
+						Class186.hdrEnabled = buffer.getUByte() != 0;
+					}
+					if (i_1_ >= 11) {
+						Class38.cursorsEnabled = buffer.getUByte() != 0;
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.NC(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
 	}
 

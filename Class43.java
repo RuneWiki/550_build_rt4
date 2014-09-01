@@ -15,26 +15,9 @@ final class Class43 {
 		playerModelsCache = new ObjectCache(260);
 	}
 
-	static final void method338(final int i, final int i_0_, final int i_1_) {
-		try {
-			MapFunctionType.recentUse = new ObjectCache(i);
-			Class82.aClass21_786 = new ObjectCache(i_0_);
-			if (i_1_ > -35) {
-				method344((byte) -118);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("el.I(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
-	}
-
-	static final void method340(final int i) {
-		try {
-			if (i < -57) {
-				Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("el.F(").append(i).append(')').toString());
-		}
+	static final void resetMapFunctionCache(final int i, final int i_0_) {
+		MapFunctionType.recentUse = new ObjectCache(i);
+		MapFunctionType.spriteCache = new ObjectCache(i_0_);
 	}
 
 	static final void method342() {
@@ -52,7 +35,7 @@ final class Class43 {
 				}
 			}
 		} else {
-			Class142.method2008(Node.interfaceCache[i], i_8_, -1, i_12_, i_9_, i_11_, i_5_, i_6_, i_10_);
+			MapSceneType.method2008(Node.interfaceCache[i], i_8_, -1, i_12_, i_9_, i_11_, i_5_, i_6_, i_10_);
 		}
 	}
 

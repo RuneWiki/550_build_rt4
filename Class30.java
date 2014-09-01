@@ -12,7 +12,6 @@ final class Class30 {
 	private int[][] anIntArrayArray230;
 	static int anInt231;
 	private final int anInt232;
-	static js5 aClass50_233;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_234;
 	private int anInt235 = -1;
 	static int anInt236;
@@ -75,7 +74,7 @@ final class Class30 {
 	static final void method259(final boolean bool, final int x, final int z, final int level, final int redrawRate, final AmbientSound ambientSound) {
 		if (ambientSound.anInt2485 != -1 || ambientSound.anIntArray2482 != null) {
 			int i_6_ = 0;
-			final int i_7_ = ambientSound.volume * CursorType.anInt1242 >> 8;
+			final int i_7_ = ambientSound.volume * CursorType.ambientSoundsVolume >> 8;
 			if (x > ambientSound.anInt2487) {
 				i_6_ += x - ambientSound.anInt2487;
 			} else if (ambientSound.anInt2494 > x) {
@@ -86,7 +85,7 @@ final class Class30 {
 			} else if (ambientSound.anInt2483 > z) {
 				i_6_ += ambientSound.anInt2483 - z;
 			}
-			if (ambientSound.hearDistance == 0 || ambientSound.hearDistance < i_6_ - 64 || CursorType.anInt1242 == 0 || ambientSound.anInt2498 != level) {
+			if (ambientSound.hearDistance == 0 || ambientSound.hearDistance < i_6_ - 64 || CursorType.ambientSoundsVolume == 0 || ambientSound.anInt2498 != level) {
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 					ambientSound.aClass120_Sub30_Sub4_2488 = null;
@@ -139,7 +138,7 @@ final class Class30 {
 	public static void method260(final int i) {
 		try {
 			aClass120_Sub30_Sub2_234 = null;
-			aClass50_233 = null;
+			MapSceneType.configJs5 = null;
 			anIntArray224 = null;
 			anIntArray239 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -147,21 +146,14 @@ final class Class30 {
 		}
 	}
 
-	final void method261(final byte i) {
-		try {
-			for (int i_10_ = 0; i_10_ < anInt225; i_10_++) {
-				anIntArrayArray230[i_10_] = null;
-			}
-			if (i != -49) {
-				method261((byte) 102);
-			}
-			anIntArrayArray230 = null;
-			aClass120_Sub19Array227 = null;
-			aClass105_237.clear();
-			aClass105_237 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("da.A(").append(i).append(')').toString());
+	final void method261() {
+		for (int i_10_ = 0; i_10_ < anInt225; i_10_++) {
+			anIntArrayArray230[i_10_] = null;
 		}
+		anIntArrayArray230 = null;
+		aClass120_Sub19Array227 = null;
+		aClass105_237.clear();
+		aClass105_237 = null;
 	}
 
 	Class30(final int i, final int i_11_, final int i_12_) {

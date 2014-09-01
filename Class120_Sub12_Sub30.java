@@ -7,7 +7,6 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static AbstractSprite[] crossSprites;
 	static String aString3371;
 	static String aString3372;
-	static js5 aClass50_3373;
 	static int[] friendsRank = new int[200];
 	static String aString3375;
 	static int anInt3376;
@@ -70,7 +69,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		try {
 			aString3372 = null;
 			aString3375 = null;
-			aClass50_3373 = null;
+			Class153.aClass50_3373 = null;
 			friendsRank = null;
 			aString3371 = null;
 			crossSprites = null;
@@ -87,7 +86,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		super(0, true);
 	}
 
-	static final void method1363(final int i, final int yaw, final int tileHeight, final int pitch, int zoom, final int pRenderZ, final int screenHeight, final int pRenderX) {
+	static final void method1363(final int pRenderX, final int pRenderY, final int pRenderZ, final int yaw, final int pitch, int zoom, final int screenHeight) {
 		int delta = screenHeight - 334;
 		if (delta < 0) {
 			delta = 0;
@@ -97,8 +96,8 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		final int zoomModifier = delta * (Class61.aShort565 - Class120_Sub12_Sub11.aShort3216) / 100 + Class120_Sub12_Sub11.aShort3216;
 		zoom = zoom * zoomModifier >> 8;
 		final int yawDelta = 2048 - yaw & 0x7ff;
-		int i_21_ = 0;
 		final int pitchDelta = 2048 - pitch & 0x7ff;
+		int i_21_ = 0;
 		int i_23_ = 0;
 		int i_24_ = zoom;
 		if (pitchDelta != 0) {
@@ -113,10 +112,10 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 			i_23_ = i_24_ * i_28_ >> 16;
 			i_24_ = i_24_ * i_27_ >> 16;
 		}
-		GroundObjectNode.renderZ = pRenderZ - i_24_;
-		Class120_Sub12_Sub10.renderY = tileHeight - i_21_;
 		FileSystemWorker.renderX = pRenderX - i_23_;
+		Class120_Sub12_Sub10.renderY = pRenderY - i_21_;
+		GroundObjectNode.renderZ = pRenderZ - i_24_;
 		SpotAnimation.renderYaw = yaw;
-		OverlayType.renderPitch = pitch;
+		UnderlayType.renderPitch = pitch;
 	}
 }

@@ -16,14 +16,14 @@ final class Class120_Sub29 extends Node {
 	static int anInt2774;
 	int anInt2775;
 	int anInt2776;
-	static short[] aShortArray2777;
+	static short[] menuOptionsCode;
 	int anInt2778;
 	int anInt2779;
 	int anInt2780;
 
 	static {
 		anInt2768 = 0;
-		aShortArray2777 = new short[500];
+		menuOptionsCode = new short[500];
 	}
 
 	static final int method1726(final int i, final byte i_0_) {
@@ -113,10 +113,10 @@ final class Class120_Sub29 extends Node {
 								Class120_Sub12_Sub36.anIntArray3417[i_11_] = i_23_;
 								final int i_25_ = 0xff & i_23_ >> 8;
 								final int i_26_ = 0xff & i_23_;
-								LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_25_).append("_").append(i_26_).toString());
-								Class28.anIntArray183[i_11_] = Class65.aClass50_597.method432(new StringBuilder("l").append(i_25_).append("_").append(i_26_).toString());
-								Class111.anIntArray1063[i_11_] = Class65.aClass50_597.method432(new StringBuilder("um").append(i_25_).append("_").append(i_26_).toString());
-								Class76.anIntArray680[i_11_] = Class65.aClass50_597.method432(new StringBuilder("ul").append(i_25_).append("_").append(i_26_).toString());
+								LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("m").append(i_25_).append("_").append(i_26_).toString());
+								Class28.anIntArray183[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("l").append(i_25_).append("_").append(i_26_).toString());
+								Class111.anIntArray1063[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("um").append(i_25_).append("_").append(i_26_).toString());
+								Class76.anIntArray680[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("ul").append(i_25_).append("_").append(i_26_).toString());
 								i_11_++;
 							}
 						}
@@ -162,10 +162,10 @@ final class Class120_Sub29 extends Node {
 					final int i_39_ = (i_37_ << 8) + i_38_;
 					if (!bool_35_ || i_38_ != 49 && i_38_ != 149 && i_38_ != 147 && i_37_ != 50 && (i_37_ != 49 || i_38_ != 47)) {
 						Class120_Sub12_Sub36.anIntArray3417[i_29_] = i_39_;
-						LookupTable.anIntArray495[i_29_] = Class65.aClass50_597.method432(new StringBuilder("m").append(i_37_).append("_").append(i_38_).toString());
-						Class28.anIntArray183[i_29_] = Class65.aClass50_597.method432(new StringBuilder("l").append(i_37_).append("_").append(i_38_).toString());
-						Class111.anIntArray1063[i_29_] = Class65.aClass50_597.method432(new StringBuilder("um").append(i_37_).append("_").append(i_38_).toString());
-						Class76.anIntArray680[i_29_] = Class65.aClass50_597.method432(new StringBuilder("ul").append(i_37_).append("_").append(i_38_).toString());
+						LookupTable.anIntArray495[i_29_] = Class65.aClass50_597.getGroupId(new StringBuilder("m").append(i_37_).append("_").append(i_38_).toString());
+						Class28.anIntArray183[i_29_] = Class65.aClass50_597.getGroupId(new StringBuilder("l").append(i_37_).append("_").append(i_38_).toString());
+						Class111.anIntArray1063[i_29_] = Class65.aClass50_597.getGroupId(new StringBuilder("um").append(i_37_).append("_").append(i_38_).toString());
+						Class76.anIntArray680[i_29_] = Class65.aClass50_597.getGroupId(new StringBuilder("ul").append(i_37_).append("_").append(i_38_).toString());
 					} else {
 						Class120_Sub12_Sub36.anIntArray3417[i_29_] = i_39_;
 						LookupTable.anIntArray495[i_29_] = -1;
@@ -187,10 +187,10 @@ final class Class120_Sub29 extends Node {
 	public static void method1729(final int i) {
 		try {
 			anIntArray2769 = null;
-			aShortArray2777 = null;
+			menuOptionsCode = null;
 			aClass50_2770 = null;
 			if (i != 8) {
-				aShortArray2777 = null;
+				menuOptionsCode = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ta.E(").append(i).append(')').toString());

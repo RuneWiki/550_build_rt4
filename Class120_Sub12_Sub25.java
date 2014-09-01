@@ -110,15 +110,15 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 	static final void method1331() {
 		final GL gl = HDToolkit.gl;
 		gl.glDisableClientState(32886);
-		HDToolkit.method524(false);
+		HDToolkit.toggleLighting(false);
 		gl.glDisable(2929);
 		gl.glPushAttrib(128);
 		gl.glFogf(2915, 3072.0F);
-		HDToolkit.method503();
+		HDToolkit.disableDepthMask();
 		for (int i = 0; i < SceneGroundObject.aClass120_Sub9ArrayArray2844[0].length; i++) {
 			final Class120_Sub9 class120_sub9 = SceneGroundObject.aClass120_Sub9ArrayArray2844[0][i];
-			if (class120_sub9.anInt2520 >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -123)) {
-				gl.glColor4fv(World.method2196(-13316, class120_sub9.anInt2505), 0);
+			if (class120_sub9.anInt2520 >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520), (byte) -123)) {
+				gl.glColor4fv(World.method2196(class120_sub9.anInt2505), 0);
 				final float f = 201.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
 				class120_sub9.method1162(LabelGroup.groundTiles, f, true);
 			}
@@ -127,30 +127,24 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		HDToolkit.method532();
 		gl.glEnable(2929);
 		gl.glPopAttrib();
-		HDToolkit.method505();
+		HDToolkit.enableDepthMask();
 	}
 
-	static final void method1332(final byte i) {
-		try {
-			if (i == -23) {
-				Class173.method2225();
-				for (int i_12_ = 0; i_12_ < 4; i_12_++) {
-					Class182.collisionMaps[i_12_].resetFlags();
-				}
-				System.gc();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.T(").append(i).append(')').toString());
+	static final void method1332() {
+		Class173.method2225();
+		for (int id = 0; id < 4; id++) {
+			Class182.collisionMaps[id].resetFlags();
 		}
+		System.gc();
 	}
 
 	static final void method1333(String string, final boolean bool) {
 		string = string.toLowerCase();
 		int i_13_ = 0;
 		short[] is = new short[16];
-		for (int i_14_ = 0; Node.anInt1143 > i_14_; i_14_++) {
-			final ObjType objType = ObjType.list(i_14_);
-			if ((!bool || objType.stockmarket) && objType.certtemplate == -1 && (objType.lenttemplate ^ 0xffffffff) == 0 && objType.dummyitem == 0 && objType.name.toLowerCase().indexOf(string) != -1) {
+		for (int id = 0; id < Node.objCount; id++) {
+			final ObjType objType = ObjType.list(id);
+			if ((!bool || objType.stockmarket) && objType.certtemplate == -1 && objType.lenttemplate == -1 && objType.dummyobject == 0 && objType.name.toLowerCase().indexOf(string) != -1) {
 				if (i_13_ >= 250) {
 					Buffer.anInt2474 = -1;
 					Class120_Sub12_Sub37.aShortArray3430 = null;
@@ -163,7 +157,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 					}
 					is = is_15_;
 				}
-				is[i_13_++] = (short) i_14_;
+				is[i_13_++] = (short) id;
 			}
 		}
 		Buffer.anInt2474 = i_13_;
@@ -219,7 +213,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						}
 						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
 						Class53_Sub1.worldConnectionNode = null;
-						final long l = Class20.selfNameAsLong = Varp.stringToLong(Class74.loginName);
+						final long l = WaterfallShader.selfNameAsLong = Varp.stringToLong(Class74.loginName);
 						final int nameCode = (int) (l >> 16 & 0x1fL);
 						Class120_Sub12_Sub11.outputStream.pos = 0;
 						Class120_Sub12_Sub11.outputStream.putByte(14);
@@ -287,7 +281,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putJagexString(settings);
 						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
 						Class137.loginStream.putInt(Class120_Sub12_Sub18.method1288());
-						Class120_Sub14_Sub5.aBoolean3471 = true;
+						MapFunctionNode.aBoolean3471 = true;
 						Class137.loginStream.putShort(OverlayFrequencyNode.packetCounter);
 						Class137.loginStream.putInt(AmbientSound.aClass50_2479.getIndexCrc());
 						Class137.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
@@ -311,7 +305,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putInt(Class127.aClass50_1213.getIndexCrc());
 						Class137.loginStream.putInt(Class2.aClass50_50.getIndexCrc());
 						Class137.loginStream.putInt(Class120_Sub2.aClass50_2415.getIndexCrc());
-						Class137.loginStream.putInt(Class20.aClass50_2169.getIndexCrc());
+						Class137.loginStream.putInt(WaterfallShader.aClass50_2169.getIndexCrc());
 						Class137.loginStream.putInt(Class120_Sub12_Sub24.aClass50_3309.getIndexCrc());
 						Class137.loginStream.putInt(Class153.aClass50_1433.getIndexCrc());
 						Class137.loginStream.putInt(AbstractMouseWheelHandler.aClass50_115.getIndexCrc());
@@ -394,7 +388,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
 							
 							VarBit.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
-							OverlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
+							UnderlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
 							

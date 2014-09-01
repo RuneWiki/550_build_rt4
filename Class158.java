@@ -5,10 +5,10 @@
 final class Class158 {
 	static int anInt1475 = -1;
 	int anInt1476;
-	static boolean aBoolean1478 = true;
+	static boolean aBoolean1478 = false;
 	static int anInt1479;
 	Class80 aClass80_1480;
-	static int anInt1481;
+	static int mapSceneRedColorModifier;
 	static long aLong1482;
 	static String aString1483 = "cyan:";
 	int anInt1484;

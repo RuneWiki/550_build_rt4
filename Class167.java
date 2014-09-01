@@ -24,28 +24,14 @@ abstract class Class167 {
 		return bool;
 	}
 
-	static final Class57 method2184(final int i) {
-		Class57 class57;
-		do {
-			Class57 class57_0_;
-			try {
-				Class57 class57_1_;
-				try {
-					if (i > -5) {
-						return null;
-					}
-					class57_1_ = (Class57) Class.forName("Class57_Sub1").newInstance();
-				} catch (final Throwable throwable) {
-					class57 = null;
-					break;
-				}
-				class57_0_ = class57_1_;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("tn.E(").append(i).append(')').toString());
-			}
-			return class57_0_;
-		} while (false);
-		return class57;
+	static final Class57 method2184() {
+		Class57 class57_1_;
+		try {
+			class57_1_ = (Class57) Class.forName("Class57_Sub1").newInstance();
+		} catch (final Throwable throwable) {
+			return null;
+		}
+		return class57_1_;
 	}
 
 	final boolean method2185(final byte i) {

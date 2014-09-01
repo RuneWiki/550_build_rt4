@@ -15,33 +15,24 @@ final class DummyOutputStream extends OutputStream {
 		aClass120_Sub14_Sub18Array31 = new FrameLoader[14];
 	}
 
-	static final int method72(final byte i, final int i_0_) {
-		int i_1_;
-		try {
-			if (AbstractTimer.worldConnection != null) {
-				AbstractTimer.worldConnection.close();
-				AbstractTimer.worldConnection = null;
-			}
-			if (i != 9) {
-				return -10;
-			}
-			OverridedJInterface.anInt2742++;
-			if (OverridedJInterface.anInt2742 > 4) {
-				Decimator.anInt1716 = 0;
-				OverridedJInterface.anInt2742 = 0;
-				return i_0_;
-			}
-			Decimator.anInt1716 = 0;
-			if (Hashtable.anInt675 != Class116.anInt1115) {
-				Class116.anInt1115 = Hashtable.anInt675;
-			} else {
-				Class116.anInt1115 = ObjectPile.anInt1808;
-			}
-			i_1_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ok.C(").append(i).append(',').append(i_0_).append(')').toString());
+	static final int method72(final int i_0_) {
+		if (AbstractTimer.worldConnection != null) {
+			AbstractTimer.worldConnection.close();
+			AbstractTimer.worldConnection = null;
 		}
-		return i_1_;
+		OverridedJInterface.anInt2742++;
+		if (OverridedJInterface.anInt2742 > 4) {
+			Decimator.anInt1716 = 0;
+			OverridedJInterface.anInt2742 = 0;
+			return i_0_;
+		}
+		Decimator.anInt1716 = 0;
+		if (Hashtable.anInt675 != Class116.anInt1115) {
+			Class116.anInt1115 = Hashtable.anInt675;
+		} else {
+			Class116.anInt1115 = ObjectPile.anInt1808;
+		}
+		return -1;
 	}
 
 	@Override

@@ -11,7 +11,6 @@ final class Class82 implements Runnable {
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
 	static AbstractIndexedSprite[] aClass107Array785;
-	static ObjectCache aClass21_786 = new ObjectCache(64);
 	static String aString787 = "Face here";
 
 	static final void addKeyboard(final Component component) {
@@ -66,79 +65,76 @@ final class Class82 implements Runnable {
 		return Class48.worldList[i_0_ - OverridedJInterface.worldOff];
 	}
 
-	static final void method711(final int i, final byte i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		if (Class90.anInt848 < 100) {
-			Class81.method705((byte) -39);
+	static final void drawWorldMapInterface(final int drawX, final int drawY, final int width, final int height) {
+		if (Class90.laodingStage < 100) {
+			Class81.loadWorldMap();
 		}
 		if (HDToolkit.glEnabled) {
-			GraphicsHD.clipRect(i_3_, i_2_, i_3_ + i_4_, i + i_2_);
+			GraphicsHD.clipRect(drawX, drawY, drawX + width, height + drawY);
 		} else {
-			GraphicsLD.clipRect(i_3_, i_2_, i_3_ + i_4_, i + i_2_);
+			GraphicsLD.clipRect(drawX, drawY, drawX + width, height + drawY);
 		}
-		if (Class90.anInt848 < 100) {
-			final int i_6_ = i_4_ / 2 + i_3_;
-			final int i_7_ = -38 + i_2_ - -(i / 2);
+		if (Class90.laodingStage < 100) {//Draw loading
+			final int i_6_ = (width / 2) + drawX;
+			final int i_7_ = (height / 2) + drawY - 38;
 			if (HDToolkit.glEnabled) {
-				GraphicsHD.fillRect(i_3_, i_2_, i_4_, i, 0);
-				GraphicsHD.drawRect(-152 + i_6_, i_7_, 304, 34, 9179409);
-				GraphicsHD.fillRect(i_6_ - 150, i_7_ - -2, Class90.anInt848 * 3, 30, 9179409);
+				GraphicsHD.fillRect(drawX, drawY, width, height, 0);
+				GraphicsHD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
+				GraphicsHD.fillRect(i_6_ - 150, i_7_ + 2, Class90.laodingStage * 3, 30, 9179409);
 			} else {
-				GraphicsLD.fillRect(i_3_, i_2_, i_4_, i, 0);
+				GraphicsLD.fillRect(drawX, drawY, width, height, 0);
 				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
-				GraphicsLD.fillRect(-150 + i_6_, i_7_ + 2, Class90.anInt848 * 3, 30, 9179409);
+				GraphicsLD.fillRect(i_6_ - 150, i_7_ + 2, Class90.laodingStage * 3, 30, 9179409);
 			}
 			Class120_Sub12_Sub22.boldFont.method1478(Class36.aString313, i_6_, i_7_ + 20, 16777215, -1);
 		} else {
-			GroundObjectNode.anInt3628 = (int) (i * 2 / Class79.aFloat696);
-			GroundTile.anInt2627 = Class169.anInt1646 + -(int) (i / Class79.aFloat696);
-			ParamType.anInt3538 = -(int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
-			Class173.anInt1726 = (int) (i_4_ * 2 / Class79.aFloat696);
-			final int i_8_ = -(int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
-			final int i_9_ = Class169.anInt1646 - (int) (i / Class79.aFloat696);
-			if (i_1_ >= -111) {
-				method714((byte) -76);
-			}
-			final int i_10_ = (int) (i_4_ / Class79.aFloat696) + ParticleManager.anInt2336;
-			final int i_11_ = (int) (i / Class79.aFloat696) + Class169.anInt1646;
+			Class173.worldMapPointerWidth = (int) (width * 2 / WorldMapHandler.currentZoom);
+			GroundObjectNode.worldMapPointerHeight = (int) (height * 2 / WorldMapHandler.currentZoom);
+			GroundTile.worldMapLookAtY = (int) (height / WorldMapHandler.currentZoom) - Class169.anInt1646;
+			ParamType.worldMapLookAtX = ParticleManager.anInt2336 - (int) (width / WorldMapHandler.currentZoom);
+			final int i_8_ = -(int) (width / WorldMapHandler.currentZoom) + ParticleManager.anInt2336;
+			final int i_9_ = Class169.anInt1646 - (int) (height / WorldMapHandler.currentZoom);
+			final int i_10_ = (int) (width / WorldMapHandler.currentZoom) + ParticleManager.anInt2336;
+			final int i_11_ = (int) (height / WorldMapHandler.currentZoom) + Class169.anInt1646;
 			if (!HDToolkit.glEnabled) {
-				Class79.method683(i_8_, i_9_, i_10_, i_11_, i_3_, i_2_, i_4_ + i_3_, 1 + i + i_2_);
-				Class79.method685();
-				final Deque deque = Class79.method679();
-				Class101_Sub1.method842(deque, 0, 5938, 0);
+				WorldMapHandler.method683(i_8_, i_9_, i_10_, i_11_, drawX, drawY, width + drawX, 1 + height + drawY);
+				WorldMapHandler.method685();
+				final Deque deque = WorldMapHandler.method679();//gather mapfunctions
+				Class101_Sub1.method842(deque, 0, 0);//draw mapfunctions
 			} else {
-				if (Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 == null || i_4_ != Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.width || Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.height != i) {
+				if (Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 == null || width != Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.width || Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.height != height) {
 					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
-					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = new LDSprite(i_4_, i);
+					Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = new LDSprite(width, height);
 				}
-				GraphicsLD.init2dCanvas(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_4_, i);
-				Class79.method683(i_8_, i_9_, i_10_, i_11_, 0, 0, i_4_, 1 + i);
-				Class79.method685();
-				final Deque deque = Class79.method679();
-				Class101_Sub1.method842(deque, i_3_, 5938, i_2_);
-				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();
-				GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, i_3_, i_2_, i_4_, i);
+				GraphicsLD.init2dCanvas(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, width, height);
+				WorldMapHandler.method683(i_8_, i_9_, i_10_, i_11_, 0, 0, width, 1 + height);
+				WorldMapHandler.method685();
+				final Deque deque = WorldMapHandler.method679();//gather mapfunctions
+				Class101_Sub1.method842(deque, drawX, drawY);//draw mapfunctions
+				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();//flip vertical
+				GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, drawX, drawY, width, height);//drawPixels
 				GraphicsLD.pixels = null;
 			}
-			if (Class96.anInt919 > 0) {
-				Class136.anInt1321--;
-				if (Class136.anInt1321 == 0) {
-					Class136.anInt1321 = 20;
-					Class96.anInt919--;
+			if (Class96.clickedMouseFunctionBlinksLeft > 0) {
+				Class136.clickedMouseFunctionCycle--;
+				if (Class136.clickedMouseFunctionCycle == 0) {
+					Class136.clickedMouseFunctionCycle = 20;
+					Class96.clickedMouseFunctionBlinksLeft--;
 				}
 			}
 			if (HintIcon.showFps) {
-				final int i_12_ = i_4_ + i_3_ - 5;
-				int i_13_ = 16776960;
-				int i_14_ = i_2_ + i + -8;
-				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(MapFunctionType.fps).toString(), i_12_, i_14_, 16776960, -1);
+				final int informationX = width + drawX - 5;
+				int informationY = drawY + height - 8;
+				Class120_Sub12_Sub20.plainFont.method1482("Fps:" + MapFunctionType.fps, informationX, informationY, 16776960, -1);
+				int memColor = 16776960;
 				final Runtime runtime = Runtime.getRuntime();
-				i_14_ -= 15;
-				final int i_15_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				if (-65537 > (i_15_ ^ 0xffffffff)) {
-					i_13_ = 16711680;
+				informationY -= 15;
+				final int memory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				if (memory > 65536) {
+					memColor = 16711680;
 				}
-				Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Mem:").append(i_15_).append("k").toString(), i_12_, i_14_, i_13_, -1);
-				i_14_ -= 15;
+				Class120_Sub12_Sub20.plainFont.method1482("Mem:" + memory + "k", informationX, informationY, memColor, -1);
+				informationY -= 15;
 			}
 		}
 	}
@@ -157,8 +153,8 @@ final class Class82 implements Runnable {
 				aString787 = null;
 			}
 			if (Class32.anInt260 <= i && ParamType.anInt3544 >= i) {
-				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, 1, IdentityKit.anInt1334);
-				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, 1, IdentityKit.anInt1334);
+				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, IdentityKit.anInt1334);
+				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, IdentityKit.anInt1334);
 				ParticleManager.method939(i, i_18_, i_17_, (byte) -30, i_16_);
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -168,7 +164,7 @@ final class Class82 implements Runnable {
 
 	public static void method714(final byte i) {
 		try {
-			aClass21_786 = null;
+			MapFunctionType.spriteCache = null;
 			aClass107Array785 = null;
 			aString787 = null;
 			aClass88_783 = null;

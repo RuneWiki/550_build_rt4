@@ -6,14 +6,14 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	private int[][] anIntArrayArray3283;
 	static int anInt3284;
 	private int[] anIntArray3285;
-	static Class120_Sub14_Sub8 plainFont;
+	static AbstractFont plainFont;
 	private short[] aShortArray3287 = new short[257];
 	private int anInt3288 = 0;
 	private int[] anIntArray3289;
 
 	static final void method1296() {
-		KeyboardHandler.aClass21_1504.clear();
-		SceneGraphNode.aClass21_1781.clear();
+		SeqType.recentUse.clear();
+		FrameLoader.recentUse.clear();
 	}
 
 	private final int[] method1297(final int i, final int i_0_) {
@@ -188,7 +188,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				final Runtime runtime = Runtime.getRuntime();
 				int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
 				AbstractRequest.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
-				SpotAnimType.method880(124);
+				SpotAnimType.method880();
 				Class120_Sub12_Sub21.method1311();
 				for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 					System.gc();
@@ -200,9 +200,9 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
 			}
 			if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
-				System.out.println("oncard_geometry:" + Class113.anInt1082);
-				System.out.println("oncard_2d:" + Class113.anInt1086);
-				System.out.println("oncard_texture:" + Class113.anInt1081);
+				System.out.println("oncard_geometry:" + MemoryManager.anInt1082);
+				System.out.println("oncard_2d:" + MemoryManager.anInt1086);
+				System.out.println("oncard_texture:" + MemoryManager.anInt1081);
 			}
 			if (string.equalsIgnoreCase("::clientdrop")) {
 				TileParticleQueue.dropClient();
@@ -219,10 +219,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				Class178.js5Worker.replaceStreamsWithDummy();
 			}
 			if (string.equalsIgnoreCase("::replacecanvas")) {
-				Class120_Sub3.canvasReplaceRecommended = true;
+				LongNode.canvasReplaceRecommended = true;
 			}
 			if (string.equalsIgnoreCase("::rebuild")) {
-				Class120_Sub14_Sub1.setGameState(25);
+				ProjectileNode.setGameState(25);
 			}
 			if (string.equalsIgnoreCase("::fpson")) {
 				HintIcon.showFps = true;
@@ -234,41 +234,41 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				LocType.recentUse.clear();
 			}
 			if (string.equalsIgnoreCase("::wm0")) {
-				AbstractSprite.method1593(0, -1, -1, false);
+				AbstractSprite.changeDisplayMode(0, -1, -1, false);
 			}
 			if (string.equalsIgnoreCase("::wm1")) {
-				AbstractSprite.method1593(1, -1, -1, false);
+				AbstractSprite.changeDisplayMode(1, -1, -1, false);
 			}
 			if (string.equalsIgnoreCase("::wm2")) {
-				AbstractSprite.method1593(2, -1, -1, false);
+				AbstractSprite.changeDisplayMode(2, -1, -1, false);
 			}
 			if (string.equalsIgnoreCase("::wm3")) {
-				AbstractSprite.method1593(3, 1024, 768, false);
+				AbstractSprite.changeDisplayMode(3, 1024, 768, false);
 			}
 			if (string.startsWith("::setba")) {
-				Class140.anInt1343 = Class31.method265(string.substring(8));
+				Class140.anInt1343 = Class31.stringToBase10(string.substring(8));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
-				Class120_Sub14_Sub5.aBoolean3471 = false;
+				MapFunctionNode.aBoolean3471 = false;
 			}
 			if (string.startsWith("::setparticles")) {
-				ParticleEngine.setParticles(Class31.method265(string.substring(15)));
+				ParticleEngine.setParticles(Class31.stringToBase10(string.substring(15)));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
-				Class120_Sub14_Sub5.aBoolean3471 = false;
+				MapFunctionNode.aBoolean3471 = false;
 			}
 			if (string.startsWith("::fps ")) {
-				Class190.method2506(Class31.method265(string.substring(6)));
+				Class190.method2506(Class31.stringToBase10(string.substring(6)));
 			}
 			if (string.equalsIgnoreCase("::errortest")) {
 				throw new RuntimeException();
 			}
 			if (string.startsWith("::rect_debug")) {
-				Class15.rectDebugType = Class31.method265(string.substring(12).trim());
+				Class15.rectDebugType = Class31.stringToBase10(string.substring(12).trim());
 				AbstractRequest.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
 			}
 			if (string.equalsIgnoreCase("::qa_op_test")) {
 				Class120_Sub30_Sub1.aBoolean3673 = true;
 			}
-			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleManager.method933(!Class34.method290())) {
+			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleManager.setHdr(!Class34.method290())) {
 				AbstractRequest.method1540(null, 0, "Failed to enable hdr");
 			}
 			if (string.equalsIgnoreCase("::tween")) {
@@ -334,7 +334,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		ParticleManager.anInt2320 = i_47_;
 		Class187.anInt1908 = i_48_;
 		ObjectCache.anInt122 = -1;
-		Class20.anInt2174 = -1;
+		WaterfallShader.anInt2174 = -1;
 	}
 
 	public Class120_Sub12_Sub20() {

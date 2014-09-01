@@ -19,7 +19,7 @@ final class TileParticleQueue {
 		} else {
 			Light.aClass46_381 = AbstractTimer.worldConnection;
 			AbstractTimer.worldConnection = null;
-			Class120_Sub14_Sub1.setGameState(40);
+			ProjectileNode.setGameState(40);
 		}
 	}
 

@@ -39,88 +39,78 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1306(final byte i) {
-		try {
-			for (int i_3_ = 0; i_3_ < Class150.anInt1407; i_3_++) {
-				Class81.anIntArray779[i_3_]--;
-				if (Class81.anIntArray779[i_3_] < -10) {
-					Class150.anInt1407--;
-					for (int i_4_ = i_3_; i_4_ < Class150.anInt1407; i_4_++) {
-						Class120_Sub12_Sub16.anIntArray3255[i_4_] = Class120_Sub12_Sub16.anIntArray3255[i_4_ + 1];
-						Class109.aClass6Array1047[i_4_] = Class109.aClass6Array1047[1 + i_4_];
-						LocType.anIntArray1834[i_4_] = LocType.anIntArray1834[i_4_ + 1];
-						Class81.anIntArray779[i_4_] = Class81.anIntArray779[1 + i_4_];
-						Class174.anIntArray1731[i_4_] = Class174.anIntArray1731[i_4_ + 1];
-						FileSystemRequest.anIntArray3926[i_4_] = FileSystemRequest.anIntArray3926[i_4_ + 1];
-					}
-					i_3_--;
-				} else {
-					Class6 class6 = Class109.aClass6Array1047[i_3_];
+	static final void method1306() {
+		for (int i_3_ = 0; i_3_ < Class150.anInt1407; i_3_++) {
+			Class81.anIntArray779[i_3_]--;
+			if (Class81.anIntArray779[i_3_] < -10) {
+				Class150.anInt1407--;
+				for (int i_4_ = i_3_; i_4_ < Class150.anInt1407; i_4_++) {
+					Class120_Sub12_Sub16.anIntArray3255[i_4_] = Class120_Sub12_Sub16.anIntArray3255[i_4_ + 1];
+					Class109.aClass6Array1047[i_4_] = Class109.aClass6Array1047[1 + i_4_];
+					LocType.anIntArray1834[i_4_] = LocType.anIntArray1834[i_4_ + 1];
+					Class81.anIntArray779[i_4_] = Class81.anIntArray779[1 + i_4_];
+					Class174.anIntArray1731[i_4_] = Class174.anIntArray1731[i_4_ + 1];
+					FileSystemRequest.anIntArray3926[i_4_] = FileSystemRequest.anIntArray3926[i_4_ + 1];
+				}
+				i_3_--;
+			} else {
+				Class6 class6 = Class109.aClass6Array1047[i_3_];
+				if (class6 == null) {
+					class6 = Class6.method103(Class159.aClass50_1490, Class120_Sub12_Sub16.anIntArray3255[i_3_], 0);
 					if (class6 == null) {
-						class6 = Class6.method103(Class159.aClass50_1490, Class120_Sub12_Sub16.anIntArray3255[i_3_], 0);
-						if (class6 == null) {
+						continue;
+					}
+					Class81.anIntArray779[i_3_] += class6.method102();
+					Class109.aClass6Array1047[i_3_] = class6;
+				}
+				if (Class81.anIntArray779[i_3_] < 0) {
+					int i_5_;
+					if (Class174.anIntArray1731[i_3_] != 0) {
+						final int i_6_ = 128 * (Class174.anIntArray1731[i_3_] & 0xff);
+						final int i_7_ = (Class174.anIntArray1731[i_3_] & 0xffa0ea) >> 16;
+						int i_8_ = i_7_ * 128 + 64 + -TileParticleQueue.selfPlayer.x;
+						if (i_8_ < 0) {
+							i_8_ = -i_8_;
+						}
+						final int i_9_ = Class174.anIntArray1731[i_3_] >> 8 & 0xff;
+						int i_10_ = -TileParticleQueue.selfPlayer.z + i_9_ * 128 + 64;
+						if (i_10_ < 0) {
+							i_10_ = -i_10_;
+						}
+						int i_11_ = -128 + i_10_ + i_8_;
+						if (i_6_ < i_11_) {
+							Class81.anIntArray779[i_3_] = -100;
 							continue;
 						}
-						Class81.anIntArray779[i_3_] += class6.method102();
-						Class109.aClass6Array1047[i_3_] = class6;
-					}
-					if (Class81.anIntArray779[i_3_] < 0) {
-						int i_5_;
-						if (Class174.anIntArray1731[i_3_] != 0) {
-							final int i_6_ = 128 * (Class174.anIntArray1731[i_3_] & 0xff);
-							final int i_7_ = (Class174.anIntArray1731[i_3_] & 0xffa0ea) >> 16;
-							int i_8_ = i_7_ * 128 + 64 + -TileParticleQueue.selfPlayer.x;
-							if (i_8_ < 0) {
-								i_8_ = -i_8_;
-							}
-							final int i_9_ = Class174.anIntArray1731[i_3_] >> 8 & 0xff;
-							int i_10_ = -TileParticleQueue.selfPlayer.z + i_9_ * 128 + 64;
-							if (i_10_ < 0) {
-								i_10_ = -i_10_;
-							}
-							int i_11_ = -128 + i_10_ + i_8_;
-							if (i_6_ < i_11_) {
-								Class81.anIntArray779[i_3_] = -100;
-								continue;
-							}
-							if (i_11_ < 0) {
-								i_11_ = 0;
-							}
-							i_5_ = (-i_11_ + i_6_) * CursorType.anInt1242 * FileSystemRequest.anIntArray3926[i_3_] / i_6_ >> 8;
-						} else {
-							i_5_ = FileSystemRequest.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
+						if (i_11_ < 0) {
+							i_11_ = 0;
 						}
-						if (i_5_ > 0) {
-							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
-							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_5_);
-							class120_sub30_sub4.method1795(-1 + LocType.anIntArray1834[i_3_]);
-							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
-						}
-						Class81.anIntArray779[i_3_] = -100;
+						i_5_ = (-i_11_ + i_6_) * CursorType.ambientSoundsVolume * FileSystemRequest.anIntArray3926[i_3_] / i_6_ >> 8;
+					} else {
+						i_5_ = FileSystemRequest.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
 					}
+					if (i_5_ > 0) {
+						final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
+						final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_5_);
+						class120_sub30_sub4.method1795(-1 + LocType.anIntArray1834[i_3_]);
+						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
+					}
+					Class81.anIntArray779[i_3_] = -100;
 				}
 			}
-			if (!Class120_Sub12_Sub15.aBoolean3247 || World.method2193(81)) {
-				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !World.method2193(18)) {
-					Class120_Sub12_Sub11.outputStream.putByteIsaac(250);
-					Class120_Sub12_Sub11.outputStream.putInt(Class157.anInt1466);
-					Class157.anInt1466 = -1;
-				}
-			} else {
-				if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1) {
-					Class127.method1891(Class120_Sub12_Sub36.aClass50_3419, RuntimeException_Sub1.anInt2142, 0, Class157.anInt1466, false);
-				}
-				Class120_Sub12_Sub15.aBoolean3247 = false;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.BA(").append(i).append(')').toString());
 		}
-	}
-
-	private static final void method1307() {
-		NpcType.recentUse.clearSoftReference();
-		Class11.aClass21_80.clearSoftReference();
-		Projectile.aClass21_2931.clearSoftReference();
+		if (!Class120_Sub12_Sub15.aBoolean3247 || World.method2193(81)) {
+			if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !World.method2193(18)) {
+				Class120_Sub12_Sub11.outputStream.putByteIsaac(250);
+				Class120_Sub12_Sub11.outputStream.putInt(Class157.anInt1466);
+				Class157.anInt1466 = -1;
+			}
+		} else {
+			if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1) {
+				Class127.method1891(Class120_Sub12_Sub36.aClass50_3419, RuntimeException_Sub1.anInt2142, 0, Class157.anInt1466, false);
+			}
+			Class120_Sub12_Sub15.aBoolean3247 = false;
+		}
 	}
 
 	static final void method1308(final int i, final int i_12_, final int i_13_, final int i_14_, int i_15_, int i_16_) {
@@ -140,13 +130,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1189(final int i) {
-		try {
-			super.method1189(i);
-			this.anIntArray3296 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.N(").append(i).append(')').toString());
-		}
+	final void method1189() {
+		super.method1189();
+		this.anIntArray3296 = null;
 	}
 
 	@Override
@@ -167,27 +153,43 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	}
 
 	static final void method1311() {
-		InterfaceListener.aClass21_2542.clearSoftReference();
 		OverlayType.recentUse.clearSoftReference();
+		UnderlayType.recentUse.clearSoftReference();
 		IdentityKit.recentUse.clearSoftReference();
-		IntegerNode.method1831();
-		method1307();
-		Class120_Sub12_Sub4.method1214();
-		FileSystemWorker.b();
-		Class120_Sub12_Sub7.method1234((byte) 59);
-		Class120_Sub12_Sub29.method1351(-25);
-		Class69_Sub2_Sub1.method622(51);
-		Class120_Sub12_Sub12.method1256((byte) -121);
-		Class120_Sub12_Sub13.method1263(14834);
-		Class121.method1839(-14307);
-		GameEntity.method2324(-115);
-		Class81.method708(-11);
+		LocType.recentUse.clearSoftReference();
+		InterfaceClickMask.aClass21_2663.clearSoftReference();
+		Class167.aClass21_1618.clearSoftReference();
+		Class116.aClass21_1117.clearSoftReference();
+		NpcType.recentUse.clearSoftReference();
+		NpcType.aClass21_80.clearSoftReference();
+		Projectile.aClass21_2931.clearSoftReference();
+		ObjType.recentUse.clearSoftReference();
+		Class33.aClass21_273.clearSoftReference();
+		SpotAnimation.aClass21_2906.clearSoftReference();
+		SeqType.recentUse.clearSoftReference();
+		FrameLoader.recentUse.clearSoftReference();
+		SpotAnimType.recentUse.clearSoftReference();
+		SpotAnimType.modelCache.clearSoftReference();
+		VarBit.recentUse.clearSoftReference();
+		Varp.recentUse.clearSoftReference();
+		Class120_Sub12_Sub31.aClass21_3378.clearSoftReference();
+		MapSceneType.recentUse.clearSoftReference();
+		MapSceneType.spriteCache.clearSoftReference();
+		MapFunctionType.recentUse.clearSoftReference();
+		MapFunctionType.spriteCache.clearSoftReference();
+		Class145.aClass21_1486.clearSoftReference();
+		Class120_Sub6.aClass21_2443.clearSoftReference();
+		Class153.recentUse.clearSoftReference();
 		Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
-		Class5.method99();
-		Player.method2341();
-		GZIPDecompressor.method716();
-		Class43.method340(-119);
-		SceneGroundObject.method2275((byte) 29);
+		CursorType.recentUse.clearSoftReference();
+		CursorType.spriteCache.clearSoftReference();
+		Class43.playerModelsCache.clearSoftReference();
+		Class90.playerHeadModelsCache.clearSoftReference();
+		AnimatedLocation.aClass21_3071.clearSoftReference();
+		LabelGroup.aClass21_2406.clearSoftReference();
+		Class120_Sub12_Sub2.aClass21_3143.clearSoftReference();
+		Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
+		Class154.aClass21_1438.clearSoftReference();
 		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
 		Class15.aClass21_95.clearSoftReference();
 	}

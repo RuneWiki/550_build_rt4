@@ -5,14 +5,14 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
+final class HDFont extends AbstractFont {
 	private int anInt3920;
 	private int[] anIntArray3921;
 	private int anInt3922 = 0;
 	private int anInt3923;
 	private int anInt3924 = -1;
 
-	Class120_Sub14_Sub8_Sub1(final byte[] is, final int[] is_0_, final int[] is_1_, final int[] is_2_, final int[] is_3_, final byte[][] is_4_) {
+	HDFont(final byte[] is, final int[] is_0_, final int[] is_1_, final int[] is_2_, final int[] is_3_, final byte[][] is_4_) {
 		super(is, is_0_, is_1_, is_2_, is_3_);
 		method1487(is_4_);
 		method1488();
@@ -21,7 +21,7 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 	@Override
 	protected final void finalize() throws Throwable {
 		if (anInt3924 != -1) {
-			Class113.method1001(anInt3924, anInt3922, anInt3920);
+			MemoryManager.method1001(anInt3924, anInt3922, anInt3920);
 			anInt3924 = -1;
 			anInt3922 = 0;
 		}
@@ -30,7 +30,7 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 			final int i = (is = anIntArray3921).length;
 			for (int i_5_ = 0; i_5_ < i; i_5_++) {
 				final int i_6_ = is[i_5_];
-				Class113.method996(i_6_, anInt3920);
+				MemoryManager.method996(i_6_, anInt3920);
 			}
 			anIntArray3921 = null;
 		}
@@ -41,7 +41,7 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 	final void method1471(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final boolean bool) {
 		HDToolkit.method504();
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(anInt3924);
+		HDToolkit.bindTexture2D(anInt3924);
 		gl.glColor4ub((byte) (i_11_ >> 16), (byte) (i_11_ >> 8), (byte) i_11_, i_12_ > 255 ? (byte) -1 : (byte) i_12_);
 		gl.glTranslatef(i_7_, HDToolkit.canvasHeight - i_8_, 0.0F);
 		gl.glCallList(anIntArray3921[i]);
@@ -57,13 +57,13 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 			gl.glTranslatef(i_13_, HDToolkit.canvasHeight - i_14_, 0.0F);
 			final float f = i % 16 / 16.0F;
 			final float f_18_ = i / 16 / 16.0F;
-			final float f_19_ = f + (float) this.anIntArray3504[i] / (float) anInt3923;
-			final float f_20_ = f_18_ + (float) this.anIntArray3495[i] / (float) anInt3923;
-			HDToolkit.method514(anInt3924);
+			final float f_19_ = f + (float) this.widths[i] / (float) anInt3923;
+			final float f_20_ = f_18_ + (float) this.heights[i] / (float) anInt3923;
+			HDToolkit.bindTexture2D(anInt3924);
 			final HDSprite class120_sub14_sub19_sub1 = GraphicsHD.aClass120_Sub14_Sub19_Sub1_603;
 			gl.glActiveTexture(33985);
 			gl.glEnable(3553);
-			gl.glBindTexture(3553, class120_sub14_sub19_sub1.anInt3942);
+			gl.glBindTexture(3553, class120_sub14_sub19_sub1.textureId);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
 			final float f_21_ = (float) (i_13_ - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;
@@ -73,16 +73,16 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 			gl.glBegin(6);
 			gl.glMultiTexCoord2f(33985, f_23_, f_22_);
 			gl.glTexCoord2f(f_19_, f_18_);
-			gl.glVertex2f(this.anIntArray3504[i], 0.0F);
+			gl.glVertex2f(this.widths[i], 0.0F);
 			gl.glMultiTexCoord2f(33985, f_21_, f_22_);
 			gl.glTexCoord2f(f, f_18_);
 			gl.glVertex2f(0.0F, 0.0F);
 			gl.glMultiTexCoord2f(33985, f_21_, f_24_);
 			gl.glTexCoord2f(f, f_20_);
-			gl.glVertex2f(0.0F, -this.anIntArray3495[i]);
+			gl.glVertex2f(0.0F, -this.heights[i]);
 			gl.glMultiTexCoord2f(33985, f_23_, f_24_);
 			gl.glTexCoord2f(f_19_, f_20_);
-			gl.glVertex2f(this.anIntArray3504[i], -this.anIntArray3495[i]);
+			gl.glVertex2f(this.widths[i], -this.heights[i]);
 			gl.glEnd();
 			gl.glTexEnvi(8960, 34161, 8448);
 			gl.glTexEnvi(8960, 34176, 5890);
@@ -92,7 +92,7 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 		} else {
 			HDToolkit.method504();
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(anInt3924);
+			HDToolkit.bindTexture2D(anInt3924);
 			gl.glColor3ub((byte) (i_17_ >> 16), (byte) (i_17_ >> 8), (byte) i_17_);
 			gl.glTranslatef(i_13_, HDToolkit.canvasHeight - i_14_, 0.0F);
 			gl.glCallList(anIntArray3921[i]);
@@ -104,15 +104,15 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 		if (anInt3924 == -1) {
 			anInt3923 = 0;
 			for (int i = 0; i < 256; i++) {
-				if (this.anIntArray3495[i] > anInt3923) {
-					anInt3923 = this.anIntArray3495[i];
+				if (this.heights[i] > anInt3923) {
+					anInt3923 = this.heights[i];
 				}
-				if (this.anIntArray3504[i] > anInt3923) {
-					anInt3923 = this.anIntArray3504[i];
+				if (this.widths[i] > anInt3923) {
+					anInt3923 = this.widths[i];
 				}
 			}
 			anInt3923 *= 16;
-			anInt3923 = Class120_Sub12_Sub17.method1283(anInt3923);
+			anInt3923 = Class120_Sub12_Sub17.getFarestBitValue(anInt3923);
 			final int i = anInt3923 / 16;
 			final byte[] is_25_ = new byte[anInt3923 * anInt3923 * 2];
 			for (int i_26_ = 0; i_26_ < 256; i_26_++) {
@@ -120,8 +120,8 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 				final int i_28_ = i_26_ / 16 * i;
 				int i_29_ = (i_28_ * anInt3923 + i_27_) * 2;
 				int i_30_ = 0;
-				final int i_31_ = this.anIntArray3495[i_26_];
-				final int i_32_ = this.anIntArray3504[i_26_];
+				final int i_31_ = this.heights[i_26_];
+				final int i_32_ = this.widths[i_26_];
 				final byte[] is_33_ = is[i_26_];
 				for (int i_34_ = 0; i_34_ < i_31_; i_34_++) {
 					for (int i_35_ = 0; i_35_ < i_32_; i_35_++) {
@@ -141,11 +141,11 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 				final int[] is_36_ = new int[1];
 				gl.glGenTextures(1, is_36_, 0);
 				anInt3924 = is_36_[0];
-				anInt3920 = Class113.anInt1083;
+				anInt3920 = MemoryManager.anInt1083;
 			}
-			HDToolkit.method514(anInt3924);
+			HDToolkit.bindTexture2D(anInt3924);
 			gl.glTexImage2D(3553, 0, 6410, anInt3923, anInt3923, 0, 6410, 5121, bytebuffer);
-			Class113.anInt1086 += bytebuffer.limit() - anInt3922;
+			MemoryManager.anInt1086 += bytebuffer.limit() - anInt3922;
 			anInt3922 = bytebuffer.limit();
 			gl.glTexParameteri(3553, 10241, 9728);
 			gl.glTexParameteri(3553, 10240, 9728);
@@ -159,23 +159,23 @@ final class Class120_Sub14_Sub8_Sub1 extends Class120_Sub14_Sub8 {
 			for (int i = 0; i < 256; i++) {
 				final float f = i % 16 / 16.0F;
 				final float f_37_ = i / 16 / 16.0F;
-				final float f_38_ = f + (float) this.anIntArray3504[i] / (float) anInt3923;
-				final float f_39_ = f_37_ + (float) this.anIntArray3495[i] / (float) anInt3923;
+				final float f_38_ = f + (float) this.widths[i] / (float) anInt3923;
+				final float f_39_ = f_37_ + (float) this.heights[i] / (float) anInt3923;
 				anIntArray3921[i] = gl.glGenLists(1);
 				gl.glNewList(anIntArray3921[i], 4864);
 				gl.glBegin(6);
 				gl.glTexCoord2f(f_38_, f_37_);
-				gl.glVertex2f(this.anIntArray3504[i], 0.0F);
+				gl.glVertex2f(this.widths[i], 0.0F);
 				gl.glTexCoord2f(f, f_37_);
 				gl.glVertex2f(0.0F, 0.0F);
 				gl.glTexCoord2f(f, f_39_);
-				gl.glVertex2f(0.0F, -this.anIntArray3495[i]);
+				gl.glVertex2f(0.0F, -this.heights[i]);
 				gl.glTexCoord2f(f_38_, f_39_);
-				gl.glVertex2f(this.anIntArray3504[i], -this.anIntArray3495[i]);
+				gl.glVertex2f(this.widths[i], -this.heights[i]);
 				gl.glEnd();
 				gl.glEndList();
 			}
-			anInt3920 = Class113.anInt1083;
+			anInt3920 = MemoryManager.anInt1083;
 		}
 	}
 }

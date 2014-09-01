@@ -22,9 +22,9 @@ final class Class41 {
 		i_5_ = i_5_ + i & 0x7ff;
 		if (anInt356 != -1) {
 			if (aClass120_Sub14_Sub19_Sub2_361 == null) {
-				aClass120_Sub14_Sub19_Sub2_361 = Rasterizer.anInterface5_973.method26(false, Rasterizer.aFloat968, false, anInt358, anInt356);
+				aClass120_Sub14_Sub19_Sub2_361 = Rasterizer.anInterface5_973.method26(false, Rasterizer.aFloat968, anInt358, anInt356);
 			}
-			if (!Rasterizer.anInterface5_973.method17(-1, anInt356)) {
+			if (!Rasterizer.anInterface5_973.method17(anInt356)) {
 				GraphicsLD.fillRect(i_0_, i_1_, i_2_, i_3_, i_6_);
 			}
 			if (aClass120_Sub14_Sub19_Sub2_361 != null) {
@@ -62,20 +62,20 @@ final class Class41 {
 		i_17_ = i_17_ + i & 0x7ff;
 		final int i_19_ = i_12_ + i_14_;
 		final int i_20_ = i_13_ + i_15_;
-		HDToolkit.method507(false);
-		HDToolkit.method524(false);
-		HDToolkit.method502(false);
+		HDToolkit.toggleFog(false);
+		HDToolkit.toggleLighting(false);
+		HDToolkit.toggleDepthTest(false);
 		HDToolkit.method509();
 		HDToolkit.method520(i_12_, i_19_, i_13_, i_20_);
-		HDToolkit.method503();
+		HDToolkit.disableDepthMask();
 		for (int i_21_ = anInt353 - 1; i_21_ >= 0; i_21_--) {
 			aClass97Array357[i_21_].method796(aClass97_352);
 		}
 		if (anInt356 != -1) {
-			if (!Rasterizer.anInterface5_973.method17(-1, anInt356)) {
+			if (!Rasterizer.anInterface5_973.method17(anInt356)) {
 				HDToolkit.method529(i_18_);
 			}
-			Rasterizer.anInterface5_973.method28((byte) -103, anInt358, anInt356);
+			Rasterizer.anInterface5_973.method28(anInt358, anInt356);
 			final float f = i_16_ / 512.0F;
 			final float f_22_ = i_17_ / -512.0F;
 			final float f_23_ = (i_14_ - i_15_) / (2.0F * i_15_);
@@ -96,10 +96,10 @@ final class Class41 {
 		for (int i_24_ = anInt353 - 1; i_24_ >= 0; i_24_--) {
 			aClass97Array357[i_24_].method795(i_12_, i_13_, i_14_, i_15_, i_16_, i_17_);
 		}
-		HDToolkit.method505();
-		HDToolkit.method502(true);
-		HDToolkit.method524(true);
-		HDToolkit.method507(true);
+		HDToolkit.enableDepthMask();
+		HDToolkit.toggleDepthTest(true);
+		HDToolkit.toggleLighting(true);
+		HDToolkit.toggleFog(true);
 	}
 
 	public static void method332() {
@@ -132,7 +132,7 @@ final class Class41 {
 	private final void method335(final int i) {
 		if (anInt350 != i) {
 			anInt350 = i;
-			int i_29_ = Deque.method888(i, (byte) 99);
+			int i_29_ = Deque.method888(i);
 			if (i_29_ > 512) {
 				i_29_ = 512;
 			}

@@ -36,7 +36,7 @@ final class ParticleManager extends ParticleNode {
 	private int anInt2344;
 	private int anInt2345;
 
-	static final boolean method933(boolean bool) {
+	static final boolean setHdr(boolean bool) {
 		final boolean bool_1_ = Class34.method290();
 		if (bool != bool_1_) {
 			if (!bool) {
@@ -47,7 +47,7 @@ final class ParticleManager extends ParticleNode {
 			Class186.hdrEnabled = bool;
 			Class120_Sub6.savePreferences(NpcType.gameSignlink);
 			if (!bool_1_ == bool) {
-				((Class143_Sub1) Rasterizer.anInterface5_973).method2025(127);
+				((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 				return true;
 			}
 			return false;
@@ -81,31 +81,22 @@ final class ParticleManager extends ParticleNode {
 		return i_5_;
 	}
 
-	static final Class120_Sub14_Sub8 method937(final int i, final byte[] is) {
-		Class120_Sub14_Sub8 class120_sub14_sub8;
-		try {
-			if (is == null) {
-				return null;
-			}
-			if (i != -11537) {
-				return null;
-			}
-			Class120_Sub14_Sub8 class120_sub14_sub8_8_;
-			if (HDToolkit.glEnabled) {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub1(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
-			} else {
-				class120_sub14_sub8_8_ = new Class120_Sub14_Sub8_Sub2(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
-			}
-			Class53_Sub1.resetSpriteInfo();
-			class120_sub14_sub8 = class120_sub14_sub8_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.G(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
+	static final AbstractFont constructAbstractFont(final byte[] data) {
+		if (data == null) {
+			return null;
 		}
-		return class120_sub14_sub8;
+		AbstractFont abstractFont;
+		if (HDToolkit.glEnabled) {
+			abstractFont = new HDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+		} else {
+			abstractFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+		}
+		Class53_Sub1.resetSpriteInfo();
+		return abstractFont;
 	}
 
 	static final Class120_Sub14_Sub22 method938() {
-		return Class79.aClass120_Sub14_Sub22_691;
+		return WorldMapHandler.aClass120_Sub14_Sub22_691;
 	}
 
 	static final void method939(final int i, final int i_9_, final int i_10_, final byte i_11_, final int i_12_) {

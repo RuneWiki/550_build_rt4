@@ -11,7 +11,7 @@ final class Class49 {
 	int anInt442;
 	ByteBuffer aByteBuffer443;
 	int anInt444 = 0;
-	Class104 aClass104_445;
+	VertexBuffer aClass104_445;
 
 	public static void method407(final int i) {
 		try {

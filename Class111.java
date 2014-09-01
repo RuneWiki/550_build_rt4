@@ -102,17 +102,8 @@ final class Class111 {
 		}
 	}
 
-	static final int method982(final int i, final int i_22_, final String string) {
-		int i_23_;
-		try {
-			if (i != -22511) {
-				method982(100, -72, null);
-			}
-			i_23_ = CanvasWrapper.method65(string, i_22_, true);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.C(").append(i).append(',').append(i_22_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
-		}
-		return i_23_;
+	static final int stringToIntRadix(final String text, final int radix) {
+		return CanvasWrapper.stringToIntRadix(text, radix, true);
 	}
 
 	public static void method983(final int i) {

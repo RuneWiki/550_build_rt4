@@ -2,22 +2,11 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub1 extends NodeSub {
+final class ProjectileNode extends NodeSub {
 	Projectile projectile;
 	static int anInt3447 = 0;
 	static int selectedObjId;
 	static String aString3449 = "Take";
-
-	public static void method1412(final int i) {
-		try {
-			aString3449 = null;
-			if (i != 0) {
-				sortArray(null, null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bb.E(").append(i).append(')').toString());
-		}
-	}
 
 	static final void stopInterfaceAnimation(final int id) {
 		if (js5.loadInterface(id)) {
@@ -42,7 +31,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 			if (Class109.gameState == 0) {
 				Class132_Sub1.loadingTextImage = null;
 				Class23.loadingFont = null;
-				Class20.loadingFontMetrics = null;
+				WaterfallShader.loadingFontMetrics = null;
 			}
 			final boolean bool = state == 5 || state == 10 || state == 28;
 			if (state == 40) {
@@ -58,7 +47,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 				AbstractBuffer.anInt599 = 0;
 				Class145.anInt1379 = 1;
 				Class181.anInt1791 = 0;
-				Class120_Sub30_Sub1.method1739(true);
+				Class120_Sub30_Sub1.method1739();
 			}
 			if (state == 25 || state == 10) {
 				Class120_Sub12_Sub14.tbrefresh();
@@ -90,7 +79,7 @@ final class Class120_Sub14_Sub1 extends NodeSub {
 		}
 	}
 
-	Class120_Sub14_Sub1(final Projectile class180_sub4) {
-		this.projectile = class180_sub4;
+	ProjectileNode(final Projectile projectile) {
+		this.projectile = projectile;
 	}
 }

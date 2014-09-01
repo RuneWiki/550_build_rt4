@@ -136,22 +136,22 @@ final class InterfaceChangeNode extends NodeSub {
 						for (int id = 0; id < Class148.localNpcCount; id++) {
 							final Npc class180_sub5_sub2_26_ = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id]];
 							if (class180_sub5_sub2_26_ != null && !class180_sub5_sub2_26_.hasMenuAction && class180_sub5_sub2_26_ != npc && class180_sub5_sub2_26_.aBoolean2992) {
-								final int i_27_ = class180_sub5_sub2_26_.x + -(64 * (class180_sub5_sub2_26_.npcType.size - 1));
+								final int i_27_ = class180_sub5_sub2_26_.x - 64 * (class180_sub5_sub2_26_.npcType.size - 1);
 								final int i_28_ = class180_sub5_sub2_26_.z - 64 * (class180_sub5_sub2_26_.npcType.size - 1);
 								if (i_27_ >= i_23_ && class180_sub5_sub2_26_.npcType.size <= -(i_27_ - i_23_ >> 7) + npc.npcType.size && i_28_ >= i_24_ && npc.npcType.size - (-i_24_ + i_28_ >> 7) >= class180_sub5_sub2_26_.npcType.size) {
-									FrameLoader.method1580(class180_sub5_sub2_26_.npcType, 106, z, Class120_Sub12_Sub36.localNpcIndices[id], x);
+									FrameLoader.buildNpcMenu(class180_sub5_sub2_26_.npcType, x, z, Class120_Sub12_Sub36.localNpcIndices[id]);
 									class180_sub5_sub2_26_.hasMenuAction = true;
 								}
 							}
 						}
 						for (int i_29_ = 0; i_29_ < FileSystemWorker.localPlayerCount; i_29_++) {
-							final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_29_]];
-							if (class180_sub5_sub1 != null && !class180_sub5_sub1.hasMenuAction && class180_sub5_sub1.aBoolean2992) {
-								final int i_30_ = class180_sub5_sub1.x - 64 * (-1 + class180_sub5_sub1.getSize());
-								final int i_31_ = class180_sub5_sub1.z + -(64 * (class180_sub5_sub1.getSize() + -1));
-								if (i_30_ >= i_23_ && class180_sub5_sub1.getSize() <= npc.npcType.size + -(-i_23_ + i_30_ >> 7) && i_24_ <= i_31_ && class180_sub5_sub1.getSize() <= npc.npcType.size - (i_31_ - i_24_ >> 7)) {
-									IdentityKit.method1984(class180_sub5_sub1, z, Class112.playerIndices[i_29_], x);
-									class180_sub5_sub1.hasMenuAction = true;
+							final Player player = Class118.playersList[Class112.playerIndices[i_29_]];
+							if (player != null && !player.hasMenuAction && player.aBoolean2992) {
+								final int i_30_ = player.x - 64 * (player.getSize() - 1);
+								final int i_31_ = player.z - 64 * (player.getSize() - 1);
+								if (i_30_ >= i_23_ && player.getSize() <= npc.npcType.size + -(-i_23_ + i_30_ >> 7) && i_24_ <= i_31_ && player.getSize() <= npc.npcType.size - (i_31_ - i_24_ >> 7)) {
+									IdentityKit.buildPlayerMenu(player, x, z, Class112.playerIndices[i_29_]);
+									player.hasMenuAction = true;
 								}
 							}
 						}
@@ -159,7 +159,7 @@ final class InterfaceChangeNode extends NodeSub {
 					if (npc.hasMenuAction) {
 						continue;
 					}
-					FrameLoader.method1580(npc.npcType, 120, z, index, x);
+					FrameLoader.buildNpcMenu(npc.npcType, x, z, index);
 					npc.hasMenuAction = true;
 				}
 				if (type == 0) {
@@ -173,7 +173,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int i_35_ = class180_sub5_sub2.x + -(64 * (-1 + class180_sub5_sub2.npcType.size));
 								final int i_36_ = -(64 * (-1 + class180_sub5_sub2.npcType.size)) + class180_sub5_sub2.z;
 								if (i_32_ <= i_35_ && class180_sub5_sub2.npcType.size <= class180_sub5_sub1.getSize() - (i_35_ - i_32_ >> 7) && i_33_ <= i_36_ && class180_sub5_sub2.npcType.size <= class180_sub5_sub1.getSize() + -(i_36_ + -i_33_ >> 7)) {
-									FrameLoader.method1580(class180_sub5_sub2.npcType, 108, z, Class120_Sub12_Sub36.localNpcIndices[i_34_], x);
+									FrameLoader.buildNpcMenu(class180_sub5_sub2.npcType, x, z, Class120_Sub12_Sub36.localNpcIndices[i_34_]);
 									class180_sub5_sub2.hasMenuAction = true;
 								}
 							}
@@ -184,7 +184,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int i_39_ = class180_sub5_sub1_38_.x - (class180_sub5_sub1_38_.getSize() + -1) * 64;
 								final int i_40_ = class180_sub5_sub1_38_.z + 64 + -(64 * class180_sub5_sub1_38_.getSize());
 								if (i_39_ >= i_32_ && class180_sub5_sub1_38_.getSize() <= -(-i_32_ + i_39_ >> 7) + class180_sub5_sub1.getSize() && i_33_ <= i_40_ && class180_sub5_sub1_38_.getSize() <= class180_sub5_sub1.getSize() - (i_40_ - i_33_ >> 7)) {
-									IdentityKit.method1984(class180_sub5_sub1_38_, z, Class112.playerIndices[i_37_], x);
+									IdentityKit.buildPlayerMenu(class180_sub5_sub1_38_, x, z, Class112.playerIndices[i_37_]);
 									class180_sub5_sub1_38_.hasMenuAction = true;
 								}
 							}
@@ -193,7 +193,7 @@ final class InterfaceChangeNode extends NodeSub {
 					if (class180_sub5_sub1.hasMenuAction) {
 						continue;
 					}
-					IdentityKit.method1984(class180_sub5_sub1, z, index, x);
+					IdentityKit.buildPlayerMenu(class180_sub5_sub1, x, z, index);
 					class180_sub5_sub1.hasMenuAction = true;
 				}
 				if (type == 3) {
@@ -205,7 +205,7 @@ final class InterfaceChangeNode extends NodeSub {
 							if (Light.objSelected != 1) {
 								if (Class88.spellSelected) {
 									final ParamType class120_sub14_sub11 = (IdentityKit.selectedSpellParam ^ 0xffffffff) == 0 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-									if ((0x1 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(class120_sub14_sub11.defaultInt, IdentityKit.selectedSpellParam) != class120_sub14_sub11.defaultInt)) {
+									if ((0x1 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
 										InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 48, Class150.selectedSpellTargetCursor);
 									}
 								} else {

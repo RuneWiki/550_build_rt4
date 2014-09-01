@@ -54,12 +54,12 @@ final class Class131 {
 	private Class131(final int i, final Class37[] class37s) {
 		this.anInt1247 = i;
 		aClass37Array1244 = class37s;
-		anInt1245 = Class113.anInt1083;
+		anInt1245 = MemoryManager.anInt1083;
 	}
 
 	@Override
 	protected final void finalize() throws Throwable {
-		Class113.method994(this.anInt1247, aClass37Array1244, anInt1245);
+		MemoryManager.method994(this.anInt1247, aClass37Array1244, anInt1245);
 		super.finalize();
 	}
 

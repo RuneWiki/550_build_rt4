@@ -109,10 +109,10 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2152(final int x, int y, int size, final int color, final int alpha) {
+	static final void drawAlphaCircle(final int x, int y, int size, final int color, final int alpha) {
 		if (alpha != 0) {
 			if (alpha == 256) {
-				method2154(x, y, size, color);
+				drawCircle(x, y, size, color);
 			} else {
 				if (size < 0) {
 					size = -size;
@@ -226,7 +226,7 @@ final class GraphicsLD {
 		}
 	}
 
-	private static final void method2154(final int x, int y, int size, final int color) {
+	private static final void drawCircle(final int x, int y, int size, final int color) {
 		if (size == 0) {
 			setPixel(x, y, color);
 		} else {
@@ -609,18 +609,18 @@ final class GraphicsLD {
 		method2158(i + i_188_ - 1, i_187_, i_189_, i_190_);
 	}
 
-	static final void method2169(final int[] is) {
-		is[0] = startX;
-		is[1] = startY;
-		is[2] = endX;
-		is[3] = endY;
+	static final void copyBounds(final int[] bounds) {
+		bounds[0] = startX;
+		bounds[1] = startY;
+		bounds[2] = endX;
+		bounds[3] = endY;
 	}
 
-	static final void init2dCanvas(final int[] is, final int i, final int i_191_) {
-		pixels = is;
-		width = i;
-		height = i_191_;
-		clipRect(0, 0, i, i_191_);
+	static final void init2dCanvas(final int[] pixs, final int w, final int h) {
+		pixels = pixs;
+		width = w;
+		height = h;
+		clipRect(0, 0, w, h);
 	}
 
 	static final void method2171(int i, final int i_192_, int i_193_, final int i_194_, final int i_195_) {
@@ -647,11 +647,11 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2172(final int[] is) {
-		startX = is[0];
-		startY = is[1];
-		endX = is[2];
-		endY = is[3];
+	static final void setBounds(final int[] bounds) {
+		startX = bounds[0];
+		startY = bounds[1];
+		endX = bounds[2];
+		endY = bounds[3];
 		method2174();
 	}
 

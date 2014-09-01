@@ -5,38 +5,12 @@
 final class Class69_Sub2_Sub1 extends Class69_Sub2 {
 	static String aString3078 = " is already on your ignore list.";
 
-	static final int method620(final String string) {
+	//Used for packets that have string as data type, + 1 because of terminator.
+	static final int getLengthPlusOne(final String string) {
 		return string.length() + 1;
 	}
 
-	public static void method621(final int i) {
-		try {
-			if (i == -4112) {
-				aString3078 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.F(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method622(final int i) {
-		try {
-			Varp.recentUse.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.I(").append(i).append(')').toString());
-		}
-	}
-
-	static final int method623(final int i) {
-		int i_1_;
-		try {
-			if (i != 1) {
-				method623(-54);
-			}
-			i_1_ = Class120_Sub14_Sub15.anInt3582;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hm.H(").append(i).append(')').toString());
-		}
-		return i_1_;
+	static final int getKeyboardIdleCycle() {
+		return Class120_Sub14_Sub15.keyboardIdleCycle;
 	}
 }

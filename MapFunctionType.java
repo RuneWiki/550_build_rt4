@@ -14,27 +14,28 @@ final class MapFunctionType {
 	static int anInt637;
 	int[] anIntArray638;
 	static int anInt639 = 0;
-	int anInt640;
+	int fillRectARGB;
 	private int anInt641;
 	boolean randomizePosition;
 	private int anInt643;
-	int anInt644;
-	String aString645;
-	String[] aStringArray646;
-	private int spriteId;
-	int anInt648;
-	String aString649;
+	int unfocusedSpriteId;
+	String actionSufix;
+	String[] actionPrefixes;
+	private int worldMapSpriteId;
+	int rectARGB;
+	String headerText;
 	private int varBitId;
 	int anInt651;
 	int anInt652;
 	static Deque aClass105_653;
 	private int anInt654;
-	int anInt655;
-	int anInt656;
-	int anInt657;
+	int unfocusedFontColor;
+	int focusedFontColor;
+	int focusedSpriteId;
 	int myId;
 	boolean aBoolean659;
 	private int varpId;
+	static ObjectCache spriteCache = new ObjectCache(64);
 	static ObjectCache recentUse = new ObjectCache(128);
 	static int[] mapFunctionXs;
 	static int fps;
@@ -69,34 +70,34 @@ final class MapFunctionType {
 		return "*";
 	}
 
-	final LDIndexedSprite constructSprite() {
-		LDIndexedSprite class107_sub1_2_ = (LDIndexedSprite) Class82.aClass21_786.get(spriteId | 0x20000);
+	final LDIndexedSprite constructSpriteForWorldMap() {
+		LDIndexedSprite class107_sub1_2_ = (LDIndexedSprite) spriteCache.get(worldMapSpriteId | 0x20000);
 		if (class107_sub1_2_ != null) {
 			return class107_sub1_2_;
 		}
-		Class88.aClass50_834.method429(spriteId);
-		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, spriteId);
+		Class88.aClass50_834.method429(worldMapSpriteId);
+		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, worldMapSpriteId);
 		if (class107_sub1_2_ != null) {
 			class107_sub1_2_.trimWidth = class107_sub1_2_.width;
 			class107_sub1_2_.xOffset = 0;
 			class107_sub1_2_.trimHeight = class107_sub1_2_.height;
 			class107_sub1_2_.yOffset = 0;
-			Class82.aClass21_786.put(class107_sub1_2_, 0x20000 | spriteId);
+			spriteCache.put(class107_sub1_2_, 0x20000 | worldMapSpriteId);
 		}
 		return class107_sub1_2_;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.anInt644 = buffer.getUShort();
+			this.unfocusedSpriteId = buffer.getUShort();
 		} else if (code == 2) {
-			this.anInt657 = buffer.getUShort();
+			this.focusedSpriteId = buffer.getUShort();
 		} else if (code == 3) {
-			this.aString649 = buffer.getJagexString();
+			this.headerText = buffer.getJagexString();
 		} else if (code == 4) {
-			this.anInt655 = buffer.getMedium();
+			this.unfocusedFontColor = buffer.getMedium();
 		} else if (code == 5) {
-			this.anInt656 = buffer.getMedium();
+			this.focusedFontColor = buffer.getMedium();
 		} else if (code == 6) {
 			this.fontType = buffer.getUByte();
 		} else if (code == 7) {
@@ -121,7 +122,7 @@ final class MapFunctionType {
 			anInt643 = buffer.getInt();
 			anInt641 = buffer.getInt();
 		} else if (code >= 10 && code <= 14) {
-			this.aStringArray646[code - 10] = buffer.getJagexString();
+			this.actionPrefixes[code - 10] = buffer.getJagexString();
 		} else if (code == 15) {
 			final int i_4_ = buffer.getUByte();
 			this.anIntArray638 = new int[i_4_ * 2];
@@ -133,9 +134,9 @@ final class MapFunctionType {
 		} else if (code == 16) {
 			this.aBoolean659 = false;
 		} else if (code == 17) {
-			this.aString645 = buffer.getJagexString();
+			this.actionSufix = buffer.getJagexString();
 		} else if (code == 18) {
-			spriteId = buffer.getUShort();
+			worldMapSpriteId = buffer.getUShort();
 		} else if (code == 19) {
 			this.anInt652 = buffer.getUShort();
 		} else if (code == 20) {
@@ -150,9 +151,9 @@ final class MapFunctionType {
 			anInt654 = buffer.getInt();
 			anInt628 = buffer.getInt();
 		} else if (code == 21) {
-			this.anInt648 = buffer.getInt();
+			this.rectARGB = buffer.getInt();
 		} else if (code == 22) {
-			this.anInt640 = buffer.getInt();
+			this.fillRectARGB = buffer.getInt();
 		}
 	}
 
@@ -183,29 +184,29 @@ final class MapFunctionType {
 		return false;
 	}
 
-	final AbstractIndexedSprite method648(final boolean bool, final boolean bool_9_) {
-		final int i = bool ? this.anInt657 : this.anInt644;
-		AbstractIndexedSprite class107_10_ = (AbstractIndexedSprite) Class82.aClass21_786.get(i | (bool ? 65536 : 0));
-		if (class107_10_ != null) {
-			return class107_10_;
+	final AbstractIndexedSprite consturctSprite(final boolean focused, final boolean useLDSprite) {
+		final int spriteId = focused ? this.focusedSpriteId : this.unfocusedSpriteId;
+		AbstractIndexedSprite cachedSprite = (AbstractIndexedSprite) spriteCache.get(spriteId | (focused ? 65536 : 0));
+		if (cachedSprite != null) {
+			return cachedSprite;
 		}
-		if (!Class88.aClass50_834.method429(i)) {
+		if (!Class88.aClass50_834.method429(spriteId)) {
 			return null;
 		}
-		final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, i);
-		if (!HDToolkit.glEnabled || bool_9_) {
-			class107_10_ = class107_sub1;
+		final LDIndexedSprite ldIndexedSprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, spriteId);
+		if (!HDToolkit.glEnabled || useLDSprite) {
+			cachedSprite = ldIndexedSprite;
 		} else {
-			class107_10_ = new HDIndexedSprite(class107_sub1);
+			cachedSprite = new HDIndexedSprite(ldIndexedSprite);
 		}
-		if (class107_10_ != null) {
-			class107_10_.trimHeight = class107_10_.height;
-			class107_10_.yOffset = 0;
-			class107_10_.trimWidth = class107_10_.width;
-			class107_10_.xOffset = 0;
-			Class82.aClass21_786.put(class107_10_, (bool ? 65536 : 0) | i);
+		if (cachedSprite != null) {
+			cachedSprite.trimHeight = cachedSprite.height;
+			cachedSprite.yOffset = 0;
+			cachedSprite.trimWidth = cachedSprite.width;
+			cachedSprite.xOffset = 0;
+			spriteCache.put(cachedSprite, (focused ? 65536 : 0) | spriteId);
 		}
-		return class107_10_;
+		return cachedSprite;
 	}
 
 	static final MapFunctionType list(int id) {
@@ -233,16 +234,16 @@ final class MapFunctionType {
 	public MapFunctionType() {
 		this.fontType = 0;
 		this.aBoolean633 = false;
-		this.anInt644 = -1;
+		this.unfocusedSpriteId = -1;
 		this.randomizePosition = true;
-		this.aStringArray646 = new String[5];
+		this.actionPrefixes = new String[5];
 		this.anInt652 = -1;
 		varBitId = -1;
 		this.aBoolean659 = true;
 		anInt631 = -1;
 		varpId = -1;
-		spriteId = -1;
-		this.anInt656 = -1;
-		this.anInt657 = -1;
+		worldMapSpriteId = -1;
+		this.focusedFontColor = -1;
+		this.focusedSpriteId = -1;
 	}
 }

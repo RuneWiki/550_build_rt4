@@ -225,7 +225,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 		try {
 			aString3137 = null;
 			if (!bool) {
-				method1200(61, 52);
+				method1200(61);
 			}
 			aString3132 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -326,20 +326,11 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 		}
 	}
 
-	static final int method1200(final int i, final int i_91_) {
-		int i_92_;
-		try {
-			if (-16711936 == (i ^ 0xffffffff)) {
-				return -1;
-			}
-			if (i_91_ != 1624671788) {
-				ObjectContainer.getId(-15, 12);
-			}
-			i_92_ = InterfaceClickMask.method1688(106, i);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ac.T(").append(i).append(',').append(i_91_).append(')').toString());
+	static final int method1200(final int i) {
+		if (i == 0xFF00FF) {
+			return -1;
 		}
-		return i_92_;
+		return InterfaceClickMask.method1688(i);
 	}
 
 	public Class120_Sub12_Sub1() {

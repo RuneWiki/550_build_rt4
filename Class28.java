@@ -25,22 +25,11 @@ final class Class28 {
 		Class148.method2057(strings, strings.length - 1, is, 0);
 	}
 
-	static final void method243(final boolean bool) {
-		try {
-			if (!bool) {
-				method243(false);
-			}
-			ObjectContainer.objectContainerCache = new Hashtable(32);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("co.A(").append(bool).append(')').toString());
-		}
-	}
-
 	static final int method244(final Random random, final int i) {
 		if (i <= 0) {
 			throw new IllegalArgumentException();
 		}
-		if (Class179.method2264(i)) {
+		if (Class179.isPowerOfTwo(i)) {
 			return (int) ((random.nextInt() & 0xffffffffL) * i >> 32);
 		}
 		final int i_2_ = -(int) (4294967296L % i) + -2147483648;
@@ -63,7 +52,7 @@ final class Class28 {
 	}
 
 	static final void method247() {
-		OverridedJInterface.aClass105_2746 = new Deque();
+		OverridedJInterface.reflectionCheckDeque = new Deque();
 	}
 
 	public Class28() {

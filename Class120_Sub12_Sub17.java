@@ -112,7 +112,12 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final int method1283(int i) {
+	/*
+	 * 5 -> 8
+	 * 3 -> 4
+	 * 9 -> 16
+	 */ 
+	static final int getFarestBitValue(int i) {//Probably need new name for this, but it will do it job.
 		i = --i | i >>> 1;
 		i |= i >>> 2;
 		i |= i >>> 4;
@@ -191,7 +196,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		}
 		if (jagexInterface.niActions == null || i >= jagexInterface.niActions.length || jagexInterface.niActions[i] == null || jagexInterface.niActions[i].trim().length() == 0) {
 			if (Class120_Sub30_Sub1.aBoolean3673) {
-				return new StringBuilder("Hidden-").append(i).toString();
+				return "Hidden-" + i;
 			}
 			return null;
 		}
@@ -202,7 +207,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	final int[][] method1188(final int i) {
 		final int[][] is_30_ = this.aClass109_2559.method975(i);
 		if (this.aClass109_2559.aBoolean1049) {
-			final int[][] is_31_ = method1179(0, i, (byte) -51);
+			final int[][] is_31_ = method1179(0, i);
 			final int[] is_32_ = is_31_[0];
 			final int[] is_33_ = is_31_[1];
 			final int[] is_34_ = is_30_[0];
@@ -258,7 +263,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			if (i <= 107) {
 				aFloatArray3269 = null;
 			}
-			Class120_Sub12_Sub30.aClass50_3373 = js5;
+			Class153.aClass50_3373 = js5;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("lj.AA(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}

@@ -3,7 +3,7 @@
  */
 
 final class Class69_Sub1 extends Class69 {
-	static int anInt2229;
+	static int renderZWrapper;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_2230;
 	static String aString2231 = "yellow:";
 	static int canvasWidth;

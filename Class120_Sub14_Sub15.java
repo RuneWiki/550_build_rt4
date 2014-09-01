@@ -8,8 +8,8 @@ import javax.media.opengl.GL;
 final class Class120_Sub14_Sub15 extends NodeSub {
 	private int anInt3579 = 0;
 	static int[] masklookup = new int[32];
-	private int anInt3581 = -1;
-	static volatile int anInt3582;
+	private int textureId = -1;
+	static volatile int keyboardIdleCycle;
 	static int headiconspkId;
 	static Deque aClass105_3584;
 	static String gameLoadingText;
@@ -21,14 +21,14 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 			masklookup[i_0_] = i + -1;
 			i += i;
 		}
-		anInt3582 = 0;
+		keyboardIdleCycle = 0;
 		gameLoadingText = null;
 		aClass105_3584 = new Deque();
 	}
 
 	static final void method1554(final int id) {
 		Class90.redrawOldFormatOverridedInterfaces();
-		Class120_Sub28.refreshLocationNpcAmbientSounds();
+		ReflectionCheckNode.refreshLocationNpcAmbientSounds();
 		final int setting = Varp.list(id).setting;
 		if (setting != 0) {
 			final int value = Class2.permanentVariable[id];
@@ -118,10 +118,10 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 
 	@Override
 	protected final void finalize() throws Throwable {
-		if (anInt3581 != -1) {
-			Class113.method999(anInt3581, anInt3579, anInt3586);
+		if (textureId != -1) {
+			MemoryManager.method999(textureId, anInt3579, anInt3586);
 			anInt3579 = 0;
-			anInt3581 = -1;
+			textureId = -1;
 		}
 		super.finalize();
 	}
@@ -134,7 +134,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	final void method1559() {
 		final int i_23_ = Class49.method408();
 		if ((i_23_ & 0x1) == 0) {
-			HDToolkit.method514(anInt3581);
+			HDToolkit.bindTexture2D(textureId);
 		}
 		if ((i_23_ & 0x2) == 0) {
 			HDToolkit.method511(0);
@@ -148,16 +148,16 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		final GL gl = HDToolkit.gl;
 		final int[] is = new int[1];
 		gl.glGenTextures(1, is, 0);
-		anInt3581 = is[0];
-		anInt3586 = Class113.anInt1083;
-		HDToolkit.method514(anInt3581);
-		final int i_24_ = Rasterizer.palette[i];
-		final byte[] is_25_ = { (byte) (i_24_ >> 16), (byte) (i_24_ >> 8), (byte) i_24_, -1 };
+		textureId = is[0];
+		anInt3586 = MemoryManager.anInt1083;
+		HDToolkit.bindTexture2D(textureId);
+		final int palette = Rasterizer.palette[i];
+		final byte[] is_25_ = { (byte) (palette >> 16), (byte) (palette >> 8), (byte) palette, -1 };
 		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_25_);
 		gl.glTexImage2D(3553, 0, 6408, 1, 1, 0, 6408, 5121, bytebuffer);
 		gl.glTexParameteri(3553, 10241, 9729);
 		gl.glTexParameteri(3553, 10240, 9729);
-		Class113.anInt1081 += bytebuffer.limit() - anInt3579;
+		MemoryManager.anInt1081 += bytebuffer.limit() - anInt3579;
 		anInt3579 = bytebuffer.limit();
 	}
 }

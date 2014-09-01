@@ -6,14 +6,13 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 final class Class11 {
-	static ObjectCache aClass21_80 = new ObjectCache(50);
 	static String aString81 = "Examine";
 	static String aString82 = "Connected to update server";
 
 	static final void method124(final double d, final byte i) {
 		try {
 			if (i != -78) {
-				aClass21_80 = null;
+				NpcType.aClass21_80 = null;
 			}
 			if (AbstractGraphicsBuffer.aDouble1172 != d) {
 				for (int i_0_ = 0; i_0_ < 256; i_0_++) {
@@ -32,7 +31,7 @@ final class Class11 {
 			final Graphics graphics = Node.canvas.getGraphics();
 			if (Class23.loadingFont == null) {
 				Class23.loadingFont = new Font("Helvetica", 1, 13);
-				Class20.loadingFontMetrics = Node.canvas.getFontMetrics(Class23.loadingFont);
+				WaterfallShader.loadingFontMetrics = Node.canvas.getFontMetrics(Class23.loadingFont);
 			}
 			if (fillBg) {
 				graphics.setColor(Color.black);
@@ -54,7 +53,7 @@ final class Class11 {
 				imageGraphics.fillRect(2 + fill * 3, 2, 300 - (3 * fill), 30);
 				imageGraphics.setFont(Class23.loadingFont);
 				imageGraphics.setColor(Color.white);
-				imageGraphics.drawString(text, (304 - Class20.loadingFontMetrics.stringWidth(text)) / 2, 22);
+				imageGraphics.drawString(text, (304 - WaterfallShader.loadingFontMetrics.stringWidth(text)) / 2, 22);
 				graphics.drawImage(Class132_Sub1.loadingTextImage, Class69_Sub1.canvasWidth / 2 - 152, Class120_Sub12_Sub5.canvasHeight / 2 - 18, null);
 			} catch (final Exception exception) {
 				final int x = Class69_Sub1.canvasWidth / 2 - 152;
@@ -67,12 +66,12 @@ final class Class11 {
 				graphics.fillRect(fill * 3 + 2 + x, y + 2, 300 - (fill * 3), 30);
 				graphics.setFont(Class23.loadingFont);
 				graphics.setColor(Color.white);
-				graphics.drawString(text, x + ((-Class20.loadingFontMetrics.stringWidth(text) + 304) / 2), 22 + y);
+				graphics.drawString(text, x + ((-WaterfallShader.loadingFontMetrics.stringWidth(text) + 304) / 2), 22 + y);
 			}
 			if (Class120_Sub14_Sub15.gameLoadingText != null) {
 				graphics.setFont(Class23.loadingFont);
 				graphics.setColor(Color.white);
-				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - Class20.loadingFontMetrics.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26);
+				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - WaterfallShader.loadingFontMetrics.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26);
 			}
 		} catch (final Exception exception) {
 			Node.canvas.repaint();
@@ -115,7 +114,7 @@ final class Class11 {
 	public static void method129(final int i) {
 		try {
 			aString81 = null;
-			aClass21_80 = null;
+			NpcType.aClass21_80 = null;
 			aString82 = null;
 			if (i != 34) {
 				aString82 = null;

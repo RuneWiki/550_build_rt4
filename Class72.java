@@ -153,7 +153,7 @@ final class Class72 implements ShaderInterface {
 					} else {
 						i_9_ = i_10_ = i_11_ = 0;
 					}
-					if (HDToolkit.anInt526 < 3) {
+					if (HDToolkit.maxTextureUnits < 3) {
 						i_9_ /= 5;
 						i_10_ /= 5;
 						i_11_ /= 5;
@@ -174,7 +174,7 @@ final class Class72 implements ShaderInterface {
 			gl.glTexImage2D(34069 + i_2_, 0, 6406, 64, 64, 0, 6406, 5121, ByteBuffer.wrap(is_1_));
 			gl.glBindTexture(34067, anIntArray2182[2]);
 			gl.glTexImage2D(34069 + i_2_, 0, 6406, 64, 64, 0, 6406, 5121, ByteBuffer.wrap(is));
-			Class113.anInt1081 += 12288;
+			MemoryManager.anInt1081 += 12288;
 		}
 	}
 
@@ -190,7 +190,7 @@ final class Class72 implements ShaderInterface {
 	}
 
 	public Class72() {
-		if (HDToolkit.aBoolean514 && HDToolkit.anInt526 >= 2) {
+		if (HDToolkit.aBoolean514 && HDToolkit.maxTextureUnits >= 2) {
 			method641();
 			final GL gl = HDToolkit.gl;
 			gl.glBindTexture(34067, anIntArray2182[0]);
@@ -211,7 +211,7 @@ final class Class72 implements ShaderInterface {
 			gl.glTexParameteri(34067, 32882, 33071);
 			gl.glTexParameteri(34067, 10242, 33071);
 			gl.glTexParameteri(34067, 10243, 33071);
-			aBoolean2181 = HDToolkit.anInt526 < 3;
+			aBoolean2181 = HDToolkit.maxTextureUnits < 3;
 		}
 		method640();
 	}

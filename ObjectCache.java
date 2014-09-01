@@ -3,7 +3,7 @@
  */
 
 final class ObjectCache {
-	static Class120_Sub14_Sub8 smallFont;
+	static AbstractFont smallFont;
 	static int anInt122 = -1;
 	private final Hashtable hashtable;
 	static int[] anIntArray124 = new int[14];
@@ -81,14 +81,14 @@ final class ObjectCache {
 		Class110.method976();
 		Class120_Sub14_Sub9.aClass35_3517.clear();
 		Class82.aClass88_783 = new Class88();
-		((Class143_Sub1) Rasterizer.anInterface5_973).method2025(0);
+		((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		Class41.method333();
 		LightManager.lights = new Light[255];
 		LightManager.lightsPos = 0;
 		HDModel.method2436();
 		Class47.method388();
-		Class54.method479(0);
-		Class120_Sub30_Sub1.method1739(false);
+		Class54.method479();
+		Class120_Sub30_Sub1.method1739();
 		Class79_Sub1.resetTitleScreen();
 		Class82.method712(106);
 		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
@@ -99,7 +99,7 @@ final class ObjectCache {
 		}
 		if (HDToolkit.glEnabled) {
 			Class47.method382(104, 104);
-			ParticleManager.method933(Class186.hdrEnabled);
+			ParticleManager.setHdr(Class186.hdrEnabled);
 			ParticleEngine.method964();
 		}
 		Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);
@@ -116,7 +116,7 @@ final class ObjectCache {
 			EnumType.method1421(false);
 		}
 		if (Class109.gameState == 30) {
-			Class120_Sub14_Sub1.setGameState(25);
+			ProjectileNode.setGameState(25);
 		}
 	}
 
@@ -125,7 +125,7 @@ final class ObjectCache {
 			for (AbstractObject class120_sub14_sub3 = (AbstractObject) aClass177_126.peekFirst(); class120_sub14_sub3 != null; class120_sub14_sub3 = (AbstractObject) aClass177_126.peekNext()) {
 				if (!class120_sub14_sub3.isSoftReference()) {
 					if (++class120_sub14_sub3.subUid > i_3_) {
-						final AbstractObject class120_sub14_sub3_4_ = Class125.aClass57_2147.method493(-91, class120_sub14_sub3);
+						final AbstractObject class120_sub14_sub3_4_ = Class125.aClass57_2147.method493(class120_sub14_sub3);
 						hashtable.put(class120_sub14_sub3_4_, class120_sub14_sub3.uid);
 						Class120_Sub12_Sub15.method1275(class120_sub14_sub3, (byte) 116, class120_sub14_sub3_4_);
 						class120_sub14_sub3.unlink();

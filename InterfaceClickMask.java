@@ -58,85 +58,76 @@ final class InterfaceClickMask extends Node {
 		return (0x1 & this.optionMask >> 31) != 0;
 	}
 
-	static final int method1688(final int i, final int i_5_) {
-		int i_6_;
-		try {
-			final double d = (0xff & i_5_ >> 16) / 256.0;
-			final double d_7_ = ((0xff65 & i_5_) >> 8) / 256.0;
-			double d_8_ = d;
-			if (d_7_ < d_8_) {
-				d_8_ = d_7_;
-			}
-			final double d_9_ = (0xff & i_5_) / 256.0;
-			double d_10_ = d;
-			if (d_8_ > d_9_) {
-				d_8_ = d_9_;
-			}
-			if (d_10_ < d_7_) {
-				d_10_ = d_7_;
-			}
-			if (d_9_ > d_10_) {
-				d_10_ = d_9_;
-			}
-			double d_11_ = 0.0;
-			final double d_12_ = (d_8_ + d_10_) / 2.0;
-			double d_13_ = 0.0;
-			int i_14_ = (int) (d_12_ * 256.0);
-			if (i_14_ >= 0) {
-				if (i_14_ > 255) {
-					i_14_ = 255;
-				}
-			} else {
-				i_14_ = 0;
-			}
-			if (d_10_ != d_8_) {
-				if (d != d_10_) {
-					if (d_7_ == d_10_) {
-						d_11_ = 2.0 + (d_9_ - d) / (-d_8_ + d_10_);
-					} else if (d_9_ == d_10_) {
-						d_11_ = 4.0 + (-d_7_ + d) / (-d_8_ + d_10_);
-					}
-				} else {
-					d_11_ = (-d_9_ + d_7_) / (-d_8_ + d_10_);
-				}
-				if (0.5 > d_12_) {
-					d_13_ = (d_10_ - d_8_) / (d_8_ + d_10_);
-				}
-				if (0.5 <= d_12_) {
-					d_13_ = (-d_8_ + d_10_) / (2.0 - d_10_ - d_8_);
-				}
-			}
-			int i_15_ = (int) (256.0 * d_13_);
-			if (i < 72) {
-				return 101;
-			}
-			if (i_15_ < 0) {
-				i_15_ = 0;
-			} else if (i_15_ > 255) {
-				i_15_ = 255;
-			}
-			d_11_ /= 6.0;
-			final int i_16_ = (int) (256.0 * d_11_);
-			if (i_14_ <= 243) {
-				if (i_14_ <= 217) {
-					if (i_14_ <= 192) {
-						if (i_14_ > 179) {
-							i_15_ >>= 1;
-						}
-					} else {
-						i_15_ >>= 2;
-					}
-				} else {
-					i_15_ >>= 3;
-				}
-			} else {
-				i_15_ >>= 4;
-			}
-			i_6_ = (i_14_ >> 1) + (i_15_ >> 5 << 7) + (i_16_ >> 2 << 10);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("on.L(").append(i).append(',').append(i_5_).append(')').toString());
+	static final int method1688(final int rgb) {
+		final double d = (0xff & rgb >> 16) / 256.0;
+		final double d_7_ = ((0xff65 & rgb) >> 8) / 256.0;
+		final double d_9_ = (0xff & rgb) / 256.0;
+		double d_8_ = d;
+		if (d_7_ < d_8_) {
+			d_8_ = d_7_;
 		}
-		return i_6_;
+		double d_10_ = d;
+		if (d_8_ > d_9_) {
+			d_8_ = d_9_;
+		}
+		if (d_10_ < d_7_) {
+			d_10_ = d_7_;
+		}
+		if (d_9_ > d_10_) {
+			d_10_ = d_9_;
+		}
+		double d_11_ = 0.0;
+		final double d_12_ = (d_8_ + d_10_) / 2.0;
+		double d_13_ = 0.0;
+		int i_14_ = (int) (d_12_ * 256.0);
+		if (i_14_ >= 0) {
+			if (i_14_ > 255) {
+				i_14_ = 255;
+			}
+		} else {
+			i_14_ = 0;
+		}
+		if (d_10_ != d_8_) {
+			if (d != d_10_) {
+				if (d_7_ == d_10_) {
+					d_11_ = 2.0 + (d_9_ - d) / (-d_8_ + d_10_);
+				} else if (d_9_ == d_10_) {
+					d_11_ = 4.0 + (-d_7_ + d) / (-d_8_ + d_10_);
+				}
+			} else {
+				d_11_ = (-d_9_ + d_7_) / (-d_8_ + d_10_);
+			}
+			if (0.5 > d_12_) {
+				d_13_ = (d_10_ - d_8_) / (d_8_ + d_10_);
+			}
+			if (0.5 <= d_12_) {
+				d_13_ = (-d_8_ + d_10_) / (2.0 - d_10_ - d_8_);
+			}
+		}
+		int i_15_ = (int) (256.0 * d_13_);
+		if (i_15_ < 0) {
+			i_15_ = 0;
+		} else if (i_15_ > 255) {
+			i_15_ = 255;
+		}
+		d_11_ /= 6.0;
+		final int i_16_ = (int) (256.0 * d_11_);
+		if (i_14_ <= 243) {
+			if (i_14_ <= 217) {
+				if (i_14_ <= 192) {
+					if (i_14_ > 179) {
+						i_15_ >>= 1;
+					}
+				} else {
+					i_15_ >>= 2;
+				}
+			} else {
+				i_15_ >>= 3;
+			}
+		} else {
+			i_15_ >>= 4;
+		}
+		return (i_14_ >> 1) + (i_15_ >> 5 << 7) + (i_16_ >> 2 << 10);
 	}
 
 	static final void method1689(final int i_17_, final int i) {
@@ -154,8 +145,8 @@ final class InterfaceClickMask extends Node {
 	}
 
 	static final void method1693() {
-		Js5Request.aClass21_3937.clear();
-		Class132.aClass21_1255.clear();
+		MapSceneType.recentUse.clear();
+		MapSceneType.spriteCache.clear();
 	}
 
 	final boolean method1694() {

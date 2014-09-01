@@ -96,24 +96,13 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 		return i_21_;
 	}
 
-	static final void method1234(final byte i) {
-		try {
-			SpotAnimType.recentUse.clearSoftReference();
-			if (i != 59) {
-				method1235(false);
-			}
-			SpotAnimType.aClass21_1798.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fa.R(").append(i).append(')').toString());
-		}
-	}
-
 	public static void method1235(final boolean bool) {
 		try {
 			anIntArray3182 = null;
 			aClass105_3177 = null;
 			if (bool) {
-				method1234((byte) -11);
+				SpotAnimType.recentUse.clearSoftReference();
+				SpotAnimType.modelCache.clearSoftReference();
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fa.V(").append(bool).append(')').toString());

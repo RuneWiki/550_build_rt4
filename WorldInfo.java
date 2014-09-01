@@ -34,17 +34,12 @@ final class WorldInfo {
 		}
 	}
 
-	static final void method2066(final byte i, final int i_4_) {
-		try {
-			Class136.anInt1321 = 100;
-			Class96.anInt919 = 3;
-			if (i == -121) {
-				Class120_Sub12_Sub9.anInt3195 = -1;
-				Class127.anInt1215 = i_4_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.C(").append(i).append(',').append(i_4_).append(')').toString());
-		}
+	static final void method2066(final int i_4_) {
+		System.out.println("Here");
+		Class136.clickedMouseFunctionCycle = 100;
+		Class96.clickedMouseFunctionBlinksLeft = 3;
+		Class120_Sub12_Sub9.clickedMouseFunctionId = -1;
+		Class127.anInt1215 = i_4_;
 	}
 
 	static final void method2067(final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_) {

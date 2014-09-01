@@ -84,7 +84,7 @@ final class Class120_Sub11 extends Node {
 				i_9_ = 3;
 			}
 			if (i_9_ != ambientSound.anInt2480) {
-				final int i_10_ = Class20.method178(ambientSound.npc);
+				final int i_10_ = WaterfallShader.method178(ambientSound.npc);
 				if (ambientSound.anInt2485 != i_10_) {
 					if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
@@ -115,7 +115,7 @@ final class Class120_Sub11 extends Node {
 				i_11_ = 0;
 			}
 			if (ambientSound.anInt2480 != i_11_) {
-				final int i_12_ = Class20.method179(ambientSound.player);
+				final int i_12_ = WaterfallShader.method179(ambientSound.player);
 				if (ambientSound.anInt2485 != i_12_) {
 					if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);

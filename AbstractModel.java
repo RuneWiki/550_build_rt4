@@ -66,7 +66,7 @@ abstract class AbstractModel extends SceneGraphNode {
 
 	abstract void method2367(int i, int i_24_, int i_25_, int i_26_, int i_27_, int i_28_, int i_29_, long l);
 
-	abstract void method2368(int i, int i_30_, int i_31_);
+	abstract void translate(int x, int y, int z);
 
 	abstract void resize(int i, int i_32_, int i_33_);
 
@@ -225,7 +225,7 @@ abstract class AbstractModel extends SceneGraphNode {
 	abstract int method2371();
 
 	@Override
-	abstract void method2265(int i, int i_70_, int i_71_, int i_72_, int i_73_, int i_74_, int i_75_, int i_76_, long l, int i_77_, ParticleEngine class108_sub2);
+	abstract void render(int i, int i_70_, int i_71_, int i_72_, int i_73_, int i_74_, int i_75_, int i_76_, long l, int i_77_, ParticleEngine class108_sub2);
 
 	abstract void rotate270();
 
@@ -316,7 +316,7 @@ abstract class AbstractModel extends SceneGraphNode {
 		}
 		i_125_ = (i_125_ >> 1) - i_103_;
 		if (i_125_ != 0) {
-			method2368(0, i_125_, 0);
+			translate(0, i_125_, 0);
 		}
 	}
 

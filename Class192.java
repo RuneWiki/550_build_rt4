@@ -23,7 +23,7 @@ final class Class192 {
 		CanvasWrapper.anIntArray21 = null;
 		Buffer.anIntArray2477 = null;
 		Class99.aByteArrayArrayArray949 = null;
-		Class120_Sub14_Sub5.aByteArrayArrayArray3477 = null;
+		MapFunctionNode.aByteArrayArrayArray3477 = null;
 		Class120_Sub4.aByteArrayArrayArray2441 = null;
 		StringNode.anIntArray2733 = null;
 		PacketBuffer.anIntArray3120 = null;

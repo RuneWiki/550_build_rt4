@@ -205,7 +205,7 @@ class LDSprite extends AbstractSprite {
 		this.pixels = pixels;
 	}
 
-	final void method1607(final int i) {
+	final void shadow(final int i) {
 		for (int i_88_ = this.height - 1; i_88_ > 0; i_88_--) {
 			final int i_89_ = i_88_ * this.width;
 			for (int i_90_ = this.width - 1; i_90_ > 0; i_90_--) {
@@ -806,7 +806,7 @@ class LDSprite extends AbstractSprite {
 		}
 	}
 
-	final void method1613(final int i) {
+	final void outline(final int i) {
 		final int[] is = new int[this.width * this.height];
 		int i_245_ = 0;
 		for (int i_246_ = 0; i_246_ < this.height; i_246_++) {

@@ -9,8 +9,7 @@ final class Class154 {
 	static int anInt1440;
 	static int anInt1441;
 	static int anInt1442;
-	static js5 aClass50_1443;
-
+	
 	static {
 		aClass21_1438 = new ObjectCache(32);
 		anInt1441 = 0;
@@ -50,84 +49,65 @@ final class Class154 {
 		}
 	}
 
-	static final void method2079(int i, final boolean bool, final boolean bool_2_, int i_3_, int i_4_, int i_5_) {
-		try {
-			if (i_5_ < 1) {
-				i_5_ = 1;
+	static final void method2079(int x, int y, int width, int height, final boolean bool) {
+		if (width < 1) {
+			width = 1;
+		}
+		if (height < 1) {
+			height = 1;
+		}
+		if (HDToolkit.glEnabled) {
+			int i_6_ = height - 334;
+			if (i_6_ < 0) {
+				i_6_ = 0;
+			} else if (i_6_ > 100) {
+				i_6_ = 100;
 			}
-			if (i_3_ < 1) {
-				i_3_ = 1;
-			}
-			if (HDToolkit.glEnabled) {
-				int i_6_ = i_3_ - 334;
-				if (i_6_ < 0) {
-					i_6_ = 0;
-				} else if (i_6_ > 100) {
-					i_6_ = 100;
+			int i_7_ = Class169.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - Class169.aShort1651) * i_6_ / 100;
+			if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
+				if (i_7_ > FileSystemRequest.aShort3932) {
+					i_7_ = FileSystemRequest.aShort3932;
 				}
-				int i_7_ = Class169.aShort1651 + (Class120_Sub14_Sub13.aShort3570 + -Class169.aShort1651) * i_6_ / 100;
-				if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
-					if (i_7_ > FileSystemRequest.aShort3932) {
-						i_7_ = FileSystemRequest.aShort3932;
+			} else {
+				i_7_ = Class120_Sub12_Sub16.aShort3250;
+			}
+			int i_8_ = 512 * height * i_7_ / (width * 334);
+			if (i_8_ < RuntimeException_Sub1.aShort2143) {
+				i_8_ = RuntimeException_Sub1.aShort2143;
+				i_7_ = width * i_8_ * 334 / (512 * height);
+				if (i_7_ > FileSystemRequest.aShort3932) {
+					i_7_ = FileSystemRequest.aShort3932;
+					final int i_9_ = height * i_7_ * 512 / (334 * i_8_);
+					final int i_10_ = (width - i_9_) / 2;
+					if (bool) {
+						GraphicsHD.method597();
+						GraphicsHD.fillRect(x, y, i_10_, height, 0);
+						GraphicsHD.fillRect(x + width - i_10_, y, i_10_, height, 0);
 					}
-				} else {
+					width -= i_10_ * 2;
+					x += i_10_;
+				}
+			} else if (i_8_ > GameShell.aShort2) {
+				i_8_ = GameShell.aShort2;
+				i_7_ = i_8_ * width * 334 / (height * 512);
+				if (i_7_ < Class120_Sub12_Sub16.aShort3250) {
 					i_7_ = Class120_Sub12_Sub16.aShort3250;
-				}
-				int i_8_ = 512 * i_3_ * i_7_ / (i_5_ * 334);
-				if (i_8_ < RuntimeException_Sub1.aShort2143) {
-					i_8_ = RuntimeException_Sub1.aShort2143;
-					i_7_ = i_5_ * i_8_ * 334 / (512 * i_3_);
-					if (i_7_ > FileSystemRequest.aShort3932) {
-						i_7_ = FileSystemRequest.aShort3932;
-						final int i_9_ = i_3_ * i_7_ * 512 / (334 * i_8_);
-						final int i_10_ = (-i_9_ + i_5_) / 2;
-						if (bool) {
-							GraphicsHD.method597();
-							GraphicsHD.fillRect(i_4_, i, i_10_, i_3_, 0);
-							GraphicsHD.fillRect(i_4_ - -i_5_ - i_10_, i, i_10_, i_3_, 0);
-						}
-						i_5_ -= i_10_ * 2;
-						i_4_ += i_10_;
+					final int i_11_ = 334 * width * i_8_ / (512 * i_7_);
+					final int i_12_ = (height - i_11_) / 2;
+					if (bool) {
+						GraphicsHD.method597();
+						GraphicsHD.fillRect(x, y, width, i_12_, 0);
+						GraphicsHD.fillRect(x, -i_12_ + y - -height, width, i_12_, 0);
 					}
-				} else if (i_8_ > GameShell.aShort2) {
-					i_8_ = GameShell.aShort2;
-					i_7_ = i_8_ * i_5_ * 334 / (i_3_ * 512);
-					if (i_7_ < Class120_Sub12_Sub16.aShort3250) {
-						i_7_ = Class120_Sub12_Sub16.aShort3250;
-						final int i_11_ = 334 * i_5_ * i_8_ / (512 * i_7_);
-						final int i_12_ = (i_3_ - i_11_) / 2;
-						if (bool) {
-							GraphicsHD.method597();
-							GraphicsHD.fillRect(i_4_, i, i_5_, i_12_, 0);
-							GraphicsHD.fillRect(i_4_, -i_12_ + i - -i_3_, i_5_, i_12_, 0);
-						}
-						i_3_ -= i_12_ * 2;
-						i += i_12_;
-					}
+					height -= i_12_ * 2;
+					y += i_12_;
 				}
-				Class179.anInt1775 = i_3_ * i_7_ / 334;
 			}
-			Class120_Sub28.anInt2751 = i;
-			ObjectContainer.anInt2612 = i_4_;
-			Class120_Sub12_Sub27.anInt3339 = (short) i_5_;
-			if (!bool_2_) {
-				Light.anInt391 = (short) i_3_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sd.B(").append(i).append(',').append(bool).append(',').append(bool_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+			Class179.anInt1775 = height * i_7_ / 334;
 		}
-	}
-
-	public static void method2080(final int i) {
-		try {
-			if (i != -2322) {
-				anInt1440 = -110;
-			}
-			aClass50_1443 = null;
-			aClass21_1438 = null;
-			aClass32Array1437 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sd.C(").append(i).append(')').toString());
-		}
+		ObjectContainer.anInt2612 = x;
+		ReflectionCheckNode.anInt2751 = y;
+		Class120_Sub12_Sub27.anInt3339 = (short) width;
+		Light.anInt391 = (short) height;
 	}
 }

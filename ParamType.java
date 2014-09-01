@@ -3,7 +3,7 @@
  */
 
 final class ParamType extends NodeSub {
-	static int anInt3538;
+	static int worldMapLookAtX;
 	String defaultString;
 	static JagexInterface aClass189_3540;
 	int defaultInt;
@@ -19,11 +19,11 @@ final class ParamType extends NodeSub {
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
-			final int configCode = buffer.getUByte();
-			if (configCode == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, configCode);
+			decode(buffer, code);
 		}
 	}
 
@@ -46,42 +46,24 @@ final class ParamType extends NodeSub {
 		return identifier == 's';
 	}
 
-	static final boolean method1516(final char c, final boolean bool) {
-		boolean bool_2_;
-		try {
-			if (!bool) {
-				method1516('G', true);
-			}
-			bool_2_ = c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jc.H(").append(c).append(',').append(bool).append(')').toString());
-		}
-		return bool_2_;
+	static final boolean isLetter(final char c) {
+		return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
 	}
 
-	static final int method1517(final byte i) {
-		int i_3_;
-		try {
-			if (Class79.aFloat698 == 3.0) {
-				return 37;
-			}
-			if (i > -118) {
-				constructSprites();
-			}
-			if (4.0 == Class79.aFloat698) {
-				return 50;
-			}
-			if (6.0 == Class79.aFloat698) {
-				return 75;
-			}
-			if (8.0 == Class79.aFloat698) {
-				return 100;
-			}
-			i_3_ = 200;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jc.B(").append(i).append(')').toString());
+	static final int getZoomPercent() {
+		if (WorldMapHandler.wantedZoom == 3.0) {
+			return 37;
 		}
-		return i_3_;
+		if (WorldMapHandler.wantedZoom == 4.0) {
+			return 50;
+		}
+		if (WorldMapHandler.wantedZoom == 6.0) {
+			return 75;
+		}
+		if (WorldMapHandler.wantedZoom == 8.0) {
+			return 100;
+		}
+		return 200;
 	}
 
 	static final void method1518(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final boolean bool) {
@@ -282,28 +264,28 @@ final class ParamType extends NodeSub {
 		/* empty */
 	}
 
-	private final void decode(final Buffer buffer, final int configCode) {
-		if (configCode == 1) {
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
 			identifier = Class120_Sub12_Sub24.method1328(buffer.getByte());
-		} else if (configCode == 2) {
+		} else if (code == 2) {
 			this.defaultInt = buffer.getInt();
-		} else if (configCode == 5) {
+		} else if (code == 5) {
 			this.defaultString = buffer.getJagexString();
 		}
 	}
 
-	static final ParamType list(final int i) {
-		ParamType param = (ParamType) recentUse.get(i);
-		if (param != null) {
-			return param;
+	static final ParamType list(final int id) {
+		ParamType paramType = (ParamType) recentUse.get(id);
+		if (paramType != null) {
+			return paramType;
 		}
-		final byte[] is = configClient.getFile(11, i);
-		param = new ParamType();
-		if (is != null) {
-			param.decode(new Buffer(is));
+		final byte[] data = configClient.getFile(11, id);
+		paramType = new ParamType();
+		if (data != null) {
+			paramType.decode(new Buffer(data));
 		}
-		recentUse.put(param, i);
-		return param;
+		recentUse.put(paramType, id);
+		return paramType;
 	}
 
 	static final AbstractSprite[] constructSprites() {

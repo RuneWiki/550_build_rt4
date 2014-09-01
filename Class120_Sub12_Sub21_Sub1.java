@@ -122,108 +122,101 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		}
 	}
 
-	static final void method1315(final int i) {
-		try {
-			if (i != -1122255295) {
-				aString3910 = null;
+	static final void method1315() {
+		for (;;) {
+			final Class120_Sub29 class120_sub29 = (Class120_Sub29) Class120_Sub14_Sub15.aClass105_3584.removeFront();
+			if (class120_sub29 == null) {
+				break;
 			}
-			for (;;) {
-				final Class120_Sub29 class120_sub29 = (Class120_Sub29) Class120_Sub14_Sub15.aClass105_3584.removeFront();
-				if (class120_sub29 == null) {
-					break;
-				}
-				GameEntity class180_sub5;
-				if (class120_sub29.anInt2764 < 0) {
-					final int i_23_ = -class120_sub29.anInt2764 + -1;
-					if (i_23_ == Class167.anInt1616) {
-						class180_sub5 = TileParticleQueue.selfPlayer;
-					} else {
-						class180_sub5 = Class118.playersList[i_23_];
-					}
+			GameEntity class180_sub5;
+			if (class120_sub29.anInt2764 < 0) {
+				final int i_23_ = -class120_sub29.anInt2764 + -1;
+				if (i_23_ == Class167.anInt1616) {
+					class180_sub5 = TileParticleQueue.selfPlayer;
 				} else {
-					final int i_24_ = class120_sub29.anInt2764 + -1;
-					class180_sub5 = Class120_Sub12_Sub11.npcList[i_24_];
+					class180_sub5 = Class118.playersList[i_23_];
 				}
-				if (class180_sub5 != null) {
-					final LocType locType = LocType.list(class120_sub29.anInt2776);
-					if (Class173.gameLevel != 0) {
-						/* empty */
-					}
-					int i_25_;
-					int i_26_;
-					if (class120_sub29.anInt2775 != 1 && class120_sub29.anInt2775 != 3) {
-						i_26_ = locType.sizeZ;
-						i_25_ = locType.sizeX;
-					} else {
-						i_25_ = locType.sizeZ;
-						i_26_ = locType.sizeX;
-					}
-					final int i_27_ = class120_sub29.anInt2780 + (i_25_ + 1 >> 1);
-					final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);
-					final int i_29_ = class120_sub29.anInt2765 - -(i_26_ >> 1);
-					final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
-					final int[][] is = OverridedJInterface.tileHeightMap[Class173.gameLevel];
-					final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
-					SceneGraphNode sceneGraphNode = null;
-					final int i_32_ = CollisionMap.anIntArray153[class120_sub29.anInt2772];
-					if (i_32_ != 0) {
-						if (i_32_ != 1) {
-							if (i_32_ != 2) {
-								if (i_32_ == 3) {
-									final Class36 class36 = Class23.method202(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
-									if (class36 != null) {
-										sceneGraphNode = class36.aClass180_309;
-									}
-								}
-							} else {
-								final Class28 class28 = SpotAnimation.method2315(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
-								if (class28 != null) {
-									sceneGraphNode = class28.aClass180_174;
+			} else {
+				final int i_24_ = class120_sub29.anInt2764 + -1;
+				class180_sub5 = Class120_Sub12_Sub11.npcList[i_24_];
+			}
+			if (class180_sub5 != null) {
+				final LocType locType = LocType.list(class120_sub29.anInt2776);
+				if (Class173.gameLevel != 0) {
+					/* empty */
+				}
+				int i_25_;
+				int i_26_;
+				if (class120_sub29.anInt2775 != 1 && class120_sub29.anInt2775 != 3) {
+					i_26_ = locType.sizeZ;
+					i_25_ = locType.sizeX;
+				} else {
+					i_25_ = locType.sizeZ;
+					i_26_ = locType.sizeX;
+				}
+				final int i_27_ = class120_sub29.anInt2780 + (i_25_ + 1 >> 1);
+				final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);
+				final int i_29_ = class120_sub29.anInt2765 - -(i_26_ >> 1);
+				final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
+				final int[][] is = OverridedJInterface.tileHeightMap[Class173.gameLevel];
+				final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
+				SceneGraphNode sceneGraphNode = null;
+				final int i_32_ = CollisionMap.anIntArray153[class120_sub29.anInt2772];
+				if (i_32_ != 0) {
+					if (i_32_ != 1) {
+						if (i_32_ != 2) {
+							if (i_32_ == 3) {
+								final Class36 class36 = Class23.method202(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+								if (class36 != null) {
+									sceneGraphNode = class36.aClass180_309;
 								}
 							}
 						} else {
-							final Class186 class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
-							if (class186 != null) {
-								sceneGraphNode = class186.aClass180_1901;
+							final Class28 class28 = SpotAnimation.method2315(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
+							if (class28 != null) {
+								sceneGraphNode = class28.aClass180_174;
 							}
 						}
 					} else {
-						final Class182 class182 = Deque.method894(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
-						if (class182 != null) {
-							sceneGraphNode = class182.aClass180_1800;
+						final Class186 class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+						if (class186 != null) {
+							sceneGraphNode = class186.aClass180_1901;
 						}
 					}
-					if (sceneGraphNode != null) {
-						Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
-						class180_sub5.anInt3028 = class120_sub29.anInt2765 * 128 + i_26_ * 64;
-						int i_33_ = class120_sub29.anInt2766;
-						int i_34_ = class120_sub29.anInt2767;
-						class180_sub5.anInt3033 = 128 * class120_sub29.anInt2780 + i_25_ * 64;
-						class180_sub5.anInt2970 = i_31_;
-						class180_sub5.anInt3042 = class120_sub29.anInt2771 - -Class101_Sub2.loopCycle;
-						int i_35_ = class120_sub29.anInt2778;
-						class180_sub5.anObject3047 = sceneGraphNode;
-						class180_sub5.anInt3012 = class120_sub29.anInt2773 + Class101_Sub2.loopCycle;
-						if (i_35_ < i_34_) {
-							final int i_36_ = i_34_;
-							i_34_ = i_35_;
-							i_35_ = i_36_;
-						}
-						class180_sub5.anInt3041 = class120_sub29.anInt2780 + i_35_;
-						class180_sub5.anInt3043 = class120_sub29.anInt2780 - -i_34_;
-						int i_37_ = class120_sub29.anInt2779;
-						if (i_37_ < i_33_) {
-							final int i_38_ = i_33_;
-							i_33_ = i_37_;
-							i_37_ = i_38_;
-						}
-						class180_sub5.anInt3038 = i_37_ + class120_sub29.anInt2765;
-						class180_sub5.anInt3020 = i_33_ + class120_sub29.anInt2765;
+				} else {
+					final Class182 class182 = Deque.method894(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
+					if (class182 != null) {
+						sceneGraphNode = class182.aClass180_1800;
 					}
 				}
+				if (sceneGraphNode != null) {
+					Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
+					class180_sub5.anInt3028 = class120_sub29.anInt2765 * 128 + i_26_ * 64;
+					int i_33_ = class120_sub29.anInt2766;
+					int i_34_ = class120_sub29.anInt2767;
+					class180_sub5.anInt3033 = 128 * class120_sub29.anInt2780 + i_25_ * 64;
+					class180_sub5.anInt2970 = i_31_;
+					class180_sub5.anInt3042 = class120_sub29.anInt2771 - -Class101_Sub2.loopCycle;
+					int i_35_ = class120_sub29.anInt2778;
+					class180_sub5.anObject3047 = sceneGraphNode;
+					class180_sub5.anInt3012 = class120_sub29.anInt2773 + Class101_Sub2.loopCycle;
+					if (i_35_ < i_34_) {
+						final int i_36_ = i_34_;
+						i_34_ = i_35_;
+						i_35_ = i_36_;
+					}
+					class180_sub5.anInt3041 = class120_sub29.anInt2780 + i_35_;
+					class180_sub5.anInt3043 = class120_sub29.anInt2780 - -i_34_;
+					int i_37_ = class120_sub29.anInt2779;
+					if (i_37_ < i_33_) {
+						final int i_38_ = i_33_;
+						i_33_ = i_37_;
+						i_37_ = i_38_;
+					}
+					class180_sub5.anInt3038 = i_37_ + class120_sub29.anInt2765;
+					class180_sub5.anInt3020 = i_33_ + class120_sub29.anInt2765;
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.HA(").append(i).append(')').toString());
 		}
 	}
 

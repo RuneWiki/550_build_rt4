@@ -173,14 +173,9 @@ final class FileSystemWorker implements Runnable {
 		return fsRequest;
 	}
 
-	static final void b() {
-		KeyboardHandler.aClass21_1504.clearSoftReference();
-		SceneGraphNode.aClass21_1781.clearSoftReference();
-	}
-
 	static final void a(final int i, final int i_11_) {
-		Class120_Sub2.anInt2422 = Class79.anInt694 + -i_11_ + Class79.anInt692 - 1;
-		CanvasWrapper.anInt20 = i - Class79.anInt695;
+		Class120_Sub2.anInt2422 = WorldMapHandler.anInt694 + -i_11_ + WorldMapHandler.mapSizeY - 1;
+		CanvasWrapper.anInt20 = i - WorldMapHandler.anInt695;
 	}
 
 	final void stop() {

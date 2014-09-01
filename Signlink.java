@@ -28,22 +28,22 @@ public class Signlink implements Runnable {
 	private static String userHome;
 	private Mouseimp mouseImp;
 	private SignlinkNode current;
-	public FileOnDisk aClass95_1295 = null;
-	public FileOnDisk aClass95_1296;
+	public FileOnDisk cacheDatFile = null;
+	public FileOnDisk randomFile;
 	private Interface4 anInterface4_1297;
 	private final Thread aThread1298;
 	public Applet gameApplet = null;
-	private final String aString1300;
+	private final String gameName;
 	public static String osNameRaw;
-	private final int anInt1302;
+	private final int cacheStoreId;
 	public static String osVersion;
-	public FileOnDisk aClass95_1304;
+	public FileOnDisk masterIndexFile;
 	public static String osName;
 	private SignlinkNode next;
-	public FileOnDisk[] aClass95Array1307;
+	public FileOnDisk[] cacheIndexFiles;
 	private Fullscreenimp14 fsimp14;
 	public static int anInt1310 = 1;
-	private static Hashtable aHashtable1311 = new Hashtable(16);
+	private static Hashtable filesCache = new Hashtable(16);
 	public static Method setFocusCycleRootMethod;
 	static volatile long aLong1313 = 0L;
 	public static Method traversalKeyMethod;
@@ -52,17 +52,11 @@ public class Signlink implements Runnable {
 		return putNode(17, i_0_, new Object[] { component, is, point }, i_1_);
 	}
 
-	public final SignlinkNode method1952(final byte i, final int i_2_) {
-		if (i != -73) {
-			aClass95_1295 = null;
-		}
+	public final SignlinkNode grabHostName(final int i_2_) {
 		return putNode(3, 0, null, i_2_);
 	}
 
-	public final SignlinkNode method1953(final String string, final byte i) {
-		if (i != -88) {
-			return null;
-		}
+	public final SignlinkNode method1953(final String string) {
 		return putNode(16, 0, string, 0);
 	}
 
@@ -174,19 +168,19 @@ public class Signlink implements Runnable {
 					final Method method = Class.forName("java.lang.Runtime").getDeclaredMethod("load0", var_classes);
 					method.setAccessible(true);
 					if (osName.startsWith("linux") || osName.startsWith("sunos")) {
-						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl_dri.so", anInt1302, aString1300, true).toString() });
+						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("libjaggl_dri.so", gameName, cacheStoreId).toString() });
 						final Class var_class = ((Class) currentNode.objectData).getClassLoader().loadClass("com.sun.opengl.impl.x11.DRIHack");
 						var_class.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
-						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.so", anInt1302, aString1300, true).toString() });
+						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("libjaggl.so", gameName, cacheStoreId).toString() });
 						var_class.getMethod("end", new Class[0]).invoke(null, new Object[0]);
 					} else if (!osName.startsWith("mac")) {
 						if (osName.startsWith("win")) {
-							method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jaggl.dll", anInt1302, aString1300, true).toString() });
+							method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("jaggl.dll", gameName, cacheStoreId).toString() });
 						} else {
 							throw new Exception();
 						}
 					} else {
-						method.invoke(runtime, new Object[] { currentNode.objectData, method1962("libjaggl.jnilib", anInt1302, aString1300, true).toString() });
+						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("libjaggl.jnilib", gameName, cacheStoreId).toString() });
 					}
 					method.setAccessible(false);
 				} else if (type == 11) {
@@ -216,7 +210,7 @@ public class Signlink implements Runnable {
 				} else if (type == 15) {
 					final Component component = (Component) currentNode.objectData;
 					final boolean bool = currentNode.integerData != 0;
-					mouseImp.method2081(component, bool);
+					mouseImp.setCursor(component, bool);
 				} else if (type == 16) {
 					try {
 						if (!osName.startsWith("win")) {
@@ -227,7 +221,7 @@ public class Signlink implements Runnable {
 							throw new Exception();
 						}
 						for (int i_9_ = 0; string.length() > i_9_; i_9_++) {
-							if (("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(string.charAt(i_9_)) ^ 0xffffffff) == 0) {
+							if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(string.charAt(i_9_)) == -1) {
 								throw new Exception();
 							}
 						}
@@ -254,9 +248,9 @@ public class Signlink implements Runnable {
 						method.setAccessible(true);
 						if (osName.startsWith("win")) {
 							if (!osArch.startsWith("amd64") && !osArch.startsWith("x86_64")) {
-								method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc.dll", anInt1302, aString1300, true).toString() });
+								method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("jagmisc.dll", gameName, cacheStoreId).toString() });
 							} else {
-								method.invoke(runtime, new Object[] { currentNode.objectData, method1962("jagmisc64.dll", anInt1302, aString1300, true).toString() });
+								method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("jagmisc64.dll", gameName, cacheStoreId).toString() });
 							}
 						}
 						method.setAccessible(false);
@@ -266,20 +260,22 @@ public class Signlink implements Runnable {
 				}
 				currentNode.status = 1;
 			} catch (final ThreadDeath threaddeath) {
+				threaddeath.printStackTrace();
 				throw threaddeath;
 			} catch (final Throwable throwable) {
+				throwable.printStackTrace();
 				currentNode.status = 2;
 			}
 		}
 	}
 
 	private static final FileOnDisk getPreferencesFile(final String game) {
-		final String[] strings = { "c:/rscache/", "/rscache/", userHome, "c:/windows/", "c:/winnt/", "c:/", "/tmp/", "" };
-		for (int i_14_ = 0; i_14_ < strings.length; i_14_++) {
-			final String string_15_ = strings[i_14_];
-			if (string_15_.length() <= 0 || new File(string_15_).exists()) {
+		final String[] dirs = { "c:/rscache/", "/rscache/", userHome, "c:/windows/", "c:/winnt/", "c:/", "/tmp/", "" };
+		for (int id = 0; id < dirs.length; id++) {
+			final String dir = dirs[id];
+			if (dir.length() <= 0 || new File(dir).exists()) {
 				try {
-					return new FileOnDisk(new File(string_15_, "jagex_" + game + "_preferences.dat"), "rw", 10000L);
+					return new FileOnDisk(new File(dir, "jagex_" + game + "_preferences.dat"), "rw", 10000L);
 				} catch (final Exception exception) {
 					continue;
 				}
@@ -296,20 +292,17 @@ public class Signlink implements Runnable {
 		return putNode(5, 0, null, 0);
 	}
 
-	public static final File method1962(final String string, final int i, final String string_17_, final boolean bool) {
-		if (!bool) {
-			return null;
-		}
-		final File file = (File) aHashtable1311.get(string);
+	public static final File getCacheFile(final String fileName, final String game, final int store) {
+		final File file = (File) filesCache.get(fileName);
 		if (file != null) {
 			return file;
 		}
 		final String[] strings = { "c:/rscache/" };
-		final String[] strings_18_ = { new StringBuilder(".jagex_cache_550_").append(i).toString() };
+		final String[] strings_18_ = { new StringBuilder(".jagex_cache_550_").append(store).toString() };
 		for (int i_19_ = 0; i_19_ < 2; i_19_++) {
 			for (final String element : strings_18_) {
 				for (final String string2 : strings) {
-					final String string_22_ = new StringBuilder(string2).append(element).append("/").append(string_17_ != null ? new StringBuilder(string_17_).append("/").toString() : "").append(string).toString();
+					final String string_22_ = new StringBuilder(string2).append(element).append("/").append(game != null ? new StringBuilder(game).append("/").toString() : "").append(fileName).toString();
 					RandomAccessFile randomaccessfile = null;
 					File file_23_;
 					try {
@@ -322,8 +315,8 @@ public class Signlink implements Runnable {
 							continue;
 						}
 						new File(new StringBuilder(string2).append(element).toString()).mkdir();
-						if (string_17_ != null) {
-							new File(new StringBuilder(string2).append(element).append("/").append(string_17_).toString()).mkdir();
+						if (game != null) {
+							new File(new StringBuilder(string2).append(element).append("/").append(game).toString()).mkdir();
 						}
 						randomaccessfile = new RandomAccessFile(file_24_, "rw");
 						final int i_26_ = randomaccessfile.read();
@@ -331,7 +324,7 @@ public class Signlink implements Runnable {
 						randomaccessfile.write(i_26_);
 						randomaccessfile.seek(0L);
 						randomaccessfile.close();
-						aHashtable1311.put(string, file_24_);
+						filesCache.put(fileName, file_24_);
 						file_23_ = file_24_;
 					} catch (final Exception exception) {
 						try {
@@ -354,11 +347,8 @@ public class Signlink implements Runnable {
 		aLong1313 = TimeUtil.getSafeTime() + i;
 	}
 
-	public final SignlinkNode method1964(final String string, final byte i, final Class var_class, final Class[] var_classes) {
-		if (i < 26) {
-			aClass95Array1307 = null;
-		}
-		return putNode(8, 0, new Object[] { var_class, string, var_classes }, 0);
+	public final SignlinkNode getMethodInformation(final Class var_class, final String methodName, final Class[] methodArguments) {
+		return putNode(8, 0, new Object[] { var_class, methodName, methodArguments }, 0);
 	}
 
 	public final Interface4 method1966() {
@@ -384,7 +374,7 @@ public class Signlink implements Runnable {
 		return putNode(12, 0, string, 0);
 	}
 
-	public final void method1971(final byte i) {
+	public final void method1971() {
 		synchronized (this) {
 			closed = true;
 			notifyAll();
@@ -394,22 +384,22 @@ public class Signlink implements Runnable {
 		} catch (final InterruptedException interruptedexception) {
 			/* empty */
 		}
-		if (aClass95_1295 != null) {
+		if (cacheDatFile != null) {
 			try {
-				aClass95_1295.close();
+				cacheDatFile.close();
 			} catch (final IOException ioexception) {
 				/* empty */
 			}
 		}
-		if (aClass95_1304 != null) {
+		if (masterIndexFile != null) {
 			try {
-				aClass95_1304.close();
+				masterIndexFile.close();
 			} catch (final IOException ioexception) {
 				/* empty */
 			}
 		}
-		if (aClass95Array1307 != null) {
-			for (final FileOnDisk element : aClass95Array1307) {
+		if (cacheIndexFiles != null) {
+			for (final FileOnDisk element : cacheIndexFiles) {
 				if (element != null) {
 					try {
 						element.close();
@@ -419,9 +409,9 @@ public class Signlink implements Runnable {
 				}
 			}
 		}
-		if (aClass95_1296 != null) {
+		if (randomFile != null) {
 			try {
-				aClass95_1296.close();
+				randomFile.close();
 			} catch (final IOException ioexception) {
 				/* empty */
 			}
@@ -436,19 +426,19 @@ public class Signlink implements Runnable {
 		return putNode(6, (i_32_ << 16) + i, null, i_30_ + (i_29_ << 16));
 	}
 
-	public final SignlinkNode method1974(final String string, final Class var_class) {
-		return putNode(9, 0, new Object[] { var_class, string }, 0);
+	public final SignlinkNode getFieldInformation(final Class var_class, final String fieldName) {
+		return putNode(9, 0, new Object[] { var_class, fieldName }, 0);
 	}
 
-	public Signlink(final Applet applet, final int i, final String string, final int i_33_) throws Exception {
-		aClass95_1296 = null;
-		aClass95_1304 = null;
+	public Signlink(final Applet applet, final int storeId, final String gName, final int indexAmount) throws Exception {
+		randomFile = null;
+		masterIndexFile = null;
 		closed = false;
 		current = null;
 		next = null;
 		javaVersion = "1.1";
-		anInt1302 = i;
-		aString1300 = string;
+		cacheStoreId = storeId;
+		gameName = gName;
 		javaVendor = "Unknown";
 		gameApplet = applet;
 		try {
@@ -504,12 +494,12 @@ public class Signlink implements Runnable {
 		} catch (final Exception exception) {
 			/* empty */
 		}
-		aClass95_1296 = new FileOnDisk(method1962("random.dat", anInt1302, null, true), "rw", 25L);
-		aClass95_1295 = new FileOnDisk(method1962("main_file_cache.dat2", anInt1302, aString1300, true), "rw", 104857600L);
-		aClass95_1304 = new FileOnDisk(method1962("main_file_cache.idx255", anInt1302, aString1300, true), "rw", 1048576L);
-		aClass95Array1307 = new FileOnDisk[i_33_];
-		for (int i_35_ = 0; i_35_ < i_33_; i_35_++) {
-			aClass95Array1307[i_35_] = new FileOnDisk(method1962(new StringBuilder("main_file_cache.idx").append(i_35_).toString(), anInt1302, aString1300, true), "rw", 1048576L);
+		randomFile = new FileOnDisk(getCacheFile("random.dat", null, cacheStoreId), "rw", 25L);
+		cacheDatFile = new FileOnDisk(getCacheFile("main_file_cache.dat2", gameName, cacheStoreId), "rw", 104857600L);
+		masterIndexFile = new FileOnDisk(getCacheFile("main_file_cache.idx255", gameName, cacheStoreId), "rw", 1048576L);
+		cacheIndexFiles = new FileOnDisk[indexAmount];
+		for (int id = 0; id < indexAmount; id++) {
+			cacheIndexFiles[id] = new FileOnDisk(getCacheFile(new StringBuilder("main_file_cache.idx").append(id).toString(), gameName, cacheStoreId), "rw", 1048576L);
 		}
 		try {
 			fsimp14 = new Fullscreenimp14();
@@ -522,15 +512,13 @@ public class Signlink implements Runnable {
 			/* empty */
 		}
 		ThreadGroup threadgroup = Thread.currentThread().getThreadGroup();
-		for (ThreadGroup threadgroup_36_ = threadgroup.getParent(); threadgroup_36_ != null; threadgroup_36_ = threadgroup.getParent()) {
-			threadgroup = threadgroup_36_;
+		for (ThreadGroup parent = threadgroup.getParent(); parent != null; parent = threadgroup.getParent()) {
+			threadgroup = parent;
 		}
 		final Thread[] threads = new Thread[1000];
 		threadgroup.enumerate(threads);
-		Thread[] threads_38_;
-		final int i_37_ = (threads_38_ = threads).length;
-		for (int i_39_ = 0; i_39_ < i_37_; i_39_++) {
-			final Thread thread = threads_38_[i_39_];
+		for (int id = 0; id < threads.length; id++) {
+			final Thread thread = threads[id];
 			if (thread != null && thread.getName().startsWith("AWT")) {
 				thread.setPriority(1);
 			}
@@ -542,7 +530,7 @@ public class Signlink implements Runnable {
 		aThread1298.start();
 	}
 
-	public final SignlinkNode openConnection(final String string, final int i_40_) {
-		return putNode(1, 0, string, i_40_);
+	public final SignlinkNode openConnection(final String ip, final int port) {
+		return putNode(1, 0, ip, port);
 	}
 }

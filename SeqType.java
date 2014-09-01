@@ -3,11 +3,10 @@
  */
 
 final class SeqType {
-	int anInt326;
+	int myId;
 	boolean[] aBooleanArray327;
 	int shieldDisplayed = -1;
 	private int[] interfaceFrames;
-	static js5 aClass50_331;
 	boolean tween = false;
 	static int anInt333 = 0;
 	int weaponDisplayed;
@@ -25,6 +24,8 @@ final class SeqType {
 	int padding;
 	int[][] anIntArrayArray347;
 	int priority;
+	static js5 aClass50_2286;
+	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt349;
 
 	final AbstractModel method320(final boolean bool, int i, int i_0_, final AbstractModel class180_sub7, int i_1_, final int i_2_) {
@@ -106,8 +107,8 @@ final class SeqType {
 	static final void method321(final boolean bool, int i, int i_7_, final int i_8_, final int i_9_) {
 		try {
 			if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
-				i = Class3.method83(Class32.anInt260, i, 1, ParamType.anInt3544);
-				i_7_ = Class3.method83(Class32.anInt260, i_7_, 1, ParamType.anInt3544);
+				i = Class3.method83(Class32.anInt260, i, ParamType.anInt3544);
+				i_7_ = Class3.method83(Class32.anInt260, i_7_, ParamType.anInt3544);
 				GZIPDecompressor.method717(i, false, i_7_, i_8_, i_9_);
 			}
 			if (!bool) {
@@ -118,86 +119,70 @@ final class SeqType {
 		}
 	}
 
-	final void method322(final Buffer class120_sub7, final boolean bool) {
-		try {
-			if (bool) {
-				this.walkProperties = 76;
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			for (;;) {
-				final int i = class120_sub7.getUByte();
-				if (i == 0) {
-					break;
-				}
-				decode(class120_sub7, i);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.J(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
-	final AbstractModel method323(final boolean bool, final int i, int i_10_, final AbstractModel class180_sub7, final int i_11_) {
-		AbstractModel class180_sub7_12_;
-		try {
-			final int i_13_ = this.delays[i_11_];
-			if (bool) {
-				this.delays = null;
-			}
-			int i_14_ = this.frames[i_11_];
-			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
-			i_14_ &= 0xffff;
-			if (class120_sub14_sub18 == null) {
-				return class180_sub7.method2376(true, true, true);
-			}
-			FrameLoader class120_sub14_sub18_15_ = null;
-			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
-				i_10_ = this.frames[i_10_];
-				class120_sub14_sub18_15_ = FrameLoader.list(i_10_ >> 16);
-				i_10_ &= 0xffff;
-			}
-			FrameLoader class120_sub14_sub18_16_ = null;
-			int i_17_ = 0;
-			int i_18_ = 0;
-			FrameLoader class120_sub14_sub18_19_ = null;
-			if (interfaceFrames != null) {
-				if (i_11_ < interfaceFrames.length) {
-					i_18_ = interfaceFrames[i_11_];
-					if (i_18_ != 65535) {
-						class120_sub14_sub18_16_ = FrameLoader.list(i_18_ >> 16);
-						i_18_ &= 0xffff;
-					}
-				}
-				if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < interfaceFrames.length) {
-					i_17_ = interfaceFrames[i_10_];
-					if (-65536 != (i_17_ ^ 0xffffffff)) {
-						class120_sub14_sub18_19_ = FrameLoader.list(i_17_ >> 16);
-						i_17_ &= 0xffff;
-					}
-				}
-			}
-			boolean bool_20_ = !class120_sub14_sub18.method1578(i_14_);
-			boolean bool_21_ = !class120_sub14_sub18.method1579(i_14_);
-			if (class120_sub14_sub18_16_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_16_.method1578(i_18_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_16_.method1579(i_18_);
-			}
-			if (class120_sub14_sub18_15_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_15_.method1578(i_10_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_15_.method1579(i_10_);
-			}
-			if (class120_sub14_sub18_19_ != null) {
-				bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578(i_17_);
-				bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
-			}
-			final AbstractModel class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
-			class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i + -1, i_13_, this.aBoolean341);
-			if (class120_sub14_sub18_16_ != null) {
-				class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i + -1, i_13_, this.aBoolean341);
-			}
-			class180_sub7_12_ = class180_sub7_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.F(").append(bool).append(',').append(i).append(',').append(i_10_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_11_).append(')').toString());
+	final AbstractModel method323(final AbstractModel class180_sub7, final int i, int i_10_, final int i_11_) {
+		final int i_13_ = this.delays[i_11_];
+		int i_14_ = this.frames[i_11_];
+		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
+		i_14_ &= 0xffff;
+		if (class120_sub14_sub18 == null) {
+			return class180_sub7.method2376(true, true, true);
 		}
-		return class180_sub7_12_;
+		FrameLoader class120_sub14_sub18_15_ = null;
+		if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
+			i_10_ = this.frames[i_10_];
+			class120_sub14_sub18_15_ = FrameLoader.list(i_10_ >> 16);
+			i_10_ &= 0xffff;
+		}
+		FrameLoader class120_sub14_sub18_16_ = null;
+		int i_17_ = 0;
+		int i_18_ = 0;
+		FrameLoader class120_sub14_sub18_19_ = null;
+		if (interfaceFrames != null) {
+			if (i_11_ < interfaceFrames.length) {
+				i_18_ = interfaceFrames[i_11_];
+				if (i_18_ != 65535) {
+					class120_sub14_sub18_16_ = FrameLoader.list(i_18_ >> 16);
+					i_18_ &= 0xffff;
+				}
+			}
+			if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < interfaceFrames.length) {
+				i_17_ = interfaceFrames[i_10_];
+				if (-65536 != (i_17_ ^ 0xffffffff)) {
+					class120_sub14_sub18_19_ = FrameLoader.list(i_17_ >> 16);
+					i_17_ &= 0xffff;
+				}
+			}
+		}
+		boolean bool_20_ = !class120_sub14_sub18.method1578(i_14_);
+		boolean bool_21_ = !class120_sub14_sub18.method1579(i_14_);
+		if (class120_sub14_sub18_16_ != null) {
+			bool_20_ = bool_20_ & !class120_sub14_sub18_16_.method1578(i_18_);
+			bool_21_ = bool_21_ & !class120_sub14_sub18_16_.method1579(i_18_);
+		}
+		if (class120_sub14_sub18_15_ != null) {
+			bool_20_ = bool_20_ & !class120_sub14_sub18_15_.method1578(i_10_);
+			bool_21_ = bool_21_ & !class120_sub14_sub18_15_.method1579(i_10_);
+		}
+		if (class120_sub14_sub18_19_ != null) {
+			bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578(i_17_);
+			bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
+		}
+		final AbstractModel class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
+		class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i + -1, i_13_, this.aBoolean341);
+		if (class120_sub14_sub18_16_ != null) {
+			class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i + -1, i_13_, this.aBoolean341);
+		}
+		return class180_sub7_22_;
 	}
 
 	final AbstractModel method324(final AbstractModel class180_sub7, int frameId, final int delay, int nextFrameId) {
@@ -371,56 +356,43 @@ final class SeqType {
 		return class180_sub7_52_;
 	}
 
-	final void method328(final byte i) {
-		try {
-			if (i == 89) {
-				if (this.speedupType == -1) {
-					if (this.aBooleanArray327 != null) {
-						this.speedupType = 2;
-					} else {
-						this.speedupType = 0;
-					}
-				}
-				if ((this.walkProperties ^ 0xffffffff) == 0) {
-					if (this.aBooleanArray327 != null) {
-						this.walkProperties = 2;
-					} else {
-						this.walkProperties = 0;
-					}
-				}
+	final void postDecode() {
+		if (this.speedupType == -1) {
+			if (this.aBooleanArray327 != null) {
+				this.speedupType = 2;
+			} else {
+				this.speedupType = 0;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.A(").append(i).append(')').toString());
+		}
+		if (this.walkProperties == -1) {
+			if (this.aBooleanArray327 != null) {
+				this.walkProperties = 2;
+			} else {
+				this.walkProperties = 0;
+			}
 		}
 	}
 
-	static final SeqType list(final int i) {
-		SeqType class40_65_ = (SeqType) KeyboardHandler.aClass21_1504.get(i);
-		if (class40_65_ != null) {
-			return class40_65_;
+	static final SeqType list(final int id) {
+		SeqType seqType = (SeqType) recentUse.get(id);
+		if (seqType != null) {
+			return seqType;
 		}
-		final byte[] is = Class101_Sub3.aClass50_2286.getFile(Class120_Sub12_Sub8.method1237(i, 16711680), Class120_Sub12_Sub36.method1390(true, i));
-		class40_65_ = new SeqType();
-		class40_65_.anInt326 = i;
-		if (is != null) {
-			class40_65_.method322(new Buffer(is), false);
+		final byte[] data = aClass50_2286.getFile(id >>> 7, id & 0x7f);
+		seqType = new SeqType();
+		seqType.myId = id;
+		if (data != null) {
+			seqType.decode(new Buffer(data));
 		}
-		class40_65_.method328((byte) 89);
-		KeyboardHandler.aClass21_1504.put(class40_65_, i);
-		return class40_65_;
+		seqType.postDecode();
+		recentUse.put(seqType, id);
+		return seqType;
 	}
 
-	public static void method329(final int i) {
-		try {
-			loginPassword = null;
-			aClass120_Sub14_Sub19Array335 = null;
-			aClass50_331 = null;
-			if (i != 1) {
-				anInt333 = 102;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.C(").append(i).append(')').toString());
-		}
+	public static void method329() {
+		loginPassword = null;
+		aClass120_Sub14_Sub19Array335 = null;
+		StructType.configClient = null;
 	}
 
 	public SeqType() {

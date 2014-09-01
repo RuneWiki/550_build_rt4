@@ -41,7 +41,7 @@ final class Class96 {
 	int anInt916;
 	int anInt917;
 	int anInt918;
-	static int anInt919;
+	static int clickedMouseFunctionBlinksLeft;
 
 	static {
 		aClass35_901 = new NodeCache(64);
@@ -103,156 +103,127 @@ final class Class96 {
 		}
 	}
 
-	static final int method788(final int i) {
-		int i_36_;
+	static final int method788() {
 		try {
-			do {
-				int i_37_;
-				try {
-					if (Decimator.anInt1716 == 0) {
-						if (TimeUtil.getSafeTime() - 5000L < Class158.aLong1482) {
-							return 0;
-						}
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
-						GameShell.aLong4 = TimeUtil.getSafeTime();
-						Decimator.anInt1716 = 1;
-					}
-					if ((TimeUtil.getSafeTime() ^ 0xffffffffffffffffL) < (GameShell.aLong4 + 30000L ^ 0xffffffffffffffffL)) {
-						return DummyOutputStream.method72((byte) 9, 1000);
-					}
-					if (Decimator.anInt1716 == 1) {
-						if (Class53_Sub1.worldConnectionNode.status == 2) {
-							return DummyOutputStream.method72((byte) 9, 1001);
-						}
-						if (Class53_Sub1.worldConnectionNode.status != 1) {
-							return -1;
-						}
-						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
-						Class53_Sub1.worldConnectionNode = null;
-						int i_38_ = 0;
-						if (Class159.worldsLoaded) {
-							i_38_ = anInt900;
-						}
-						Class120_Sub12_Sub11.outputStream.pos = 0;
-						Class120_Sub12_Sub11.outputStream.putByte(23);
-						Class120_Sub12_Sub11.outputStream.putInt(i_38_);
-						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
-						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-							Class120_Sub12_Sub3.aClass164_3150.method2131();
-						}
-						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-							Class120_Sub12_Sub29.aClass164_3366.method2131();
-						}
-						final int i_39_ = AbstractTimer.worldConnection.read();
-						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-							Class120_Sub12_Sub3.aClass164_3150.method2131();
-						}
-						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-							Class120_Sub12_Sub29.aClass164_3366.method2131();
-						}
-						if (i_39_ != 0) {
-							return DummyOutputStream.method72((byte) 9, i_39_);
-						}
-						Decimator.anInt1716 = 2;
-					}
-					if (Decimator.anInt1716 == 2) {
-						if (AbstractTimer.worldConnection.getAvailable() < 2) {
-							return -1;
-						}
-						OverridedJInterface.anInt2740 = AbstractTimer.worldConnection.read();
-						OverridedJInterface.anInt2740 <<= 8;
-						OverridedJInterface.anInt2740 += AbstractTimer.worldConnection.read();
-						Class39.aByteArray324 = new byte[OverridedJInterface.anInt2740];
-						Class132_Sub1.anInt2816 = 0;
-						Decimator.anInt1716 = 3;
-					}
-					if (Decimator.anInt1716 != 3) {
-						break;
-					}
-					int i_40_ = AbstractTimer.worldConnection.getAvailable();
-					if (i_40_ < 1) {
-						return -1;
-					}
-					if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
-						i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
-					}
-					AbstractTimer.worldConnection.read(Class39.aByteArray324, Class132_Sub1.anInt2816, i_40_);
-					Class132_Sub1.anInt2816 += i_40_;
-					if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
-						return -1;
-					}
-					if (!Class54.method477(Class39.aByteArray324)) {
-						return DummyOutputStream.method72((byte) 9, 1002);
-					}
-					int i_41_ = 0;
-					Class86.worlds = new World[Class57.worldLen2];
-					for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
-						final World class167_sub1 = Class82.method710(i_42_);
-						if (class167_sub1 != null) {
-							Class86.worlds[i_41_++] = class167_sub1;
-						}
-					}
-					AbstractTimer.worldConnection.close();
-					Class39.aByteArray324 = null;
-					Decimator.anInt1716 = 0;
-					OverridedJInterface.anInt2742 = 0;
-					AbstractTimer.worldConnection = null;
-					Class158.aLong1482 = TimeUtil.getSafeTime();
-					i_37_ = 0;
-				} catch (final IOException ioexception) {
-					return DummyOutputStream.method72((byte) 9, 1003);
+			if (Decimator.anInt1716 == 0) {
+				if (TimeUtil.getSafeTime() - 5000L < Class158.aLong1482) {
+					return 0;
 				}
-				return i_37_;
-			} while (false);
-			i_36_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.D(").append(i).append(')').toString());
+				Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+				GameShell.aLong4 = TimeUtil.getSafeTime();
+				Decimator.anInt1716 = 1;
+			}
+			if (TimeUtil.getSafeTime() > GameShell.aLong4 + 30000L) {
+				return DummyOutputStream.method72(1000);
+			}
+			if (Decimator.anInt1716 == 1) {
+				if (Class53_Sub1.worldConnectionNode.status == 2) {
+					return DummyOutputStream.method72(1001);
+				}
+				if (Class53_Sub1.worldConnectionNode.status != 1) {
+					return -1;
+				}
+				AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+				Class53_Sub1.worldConnectionNode = null;
+				int i_38_ = 0;
+				if (Class159.worldsLoaded) {
+					i_38_ = anInt900;
+				}
+				Class120_Sub12_Sub11.outputStream.pos = 0;
+				Class120_Sub12_Sub11.outputStream.putByte(23);
+				Class120_Sub12_Sub11.outputStream.putInt(i_38_);
+				AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
+				if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+					Class120_Sub12_Sub3.aClass164_3150.method2131();
+				}
+				if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+					Class120_Sub12_Sub29.aClass164_3366.method2131();
+				}
+				final int i_39_ = AbstractTimer.worldConnection.read();
+				if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+					Class120_Sub12_Sub3.aClass164_3150.method2131();
+				}
+				if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+					Class120_Sub12_Sub29.aClass164_3366.method2131();
+				}
+				if (i_39_ != 0) {
+					return DummyOutputStream.method72(i_39_);
+				}
+				Decimator.anInt1716 = 2;
+			}
+			if (Decimator.anInt1716 == 2) {
+				if (AbstractTimer.worldConnection.getAvailable() < 2) {
+					return -1;
+				}
+				OverridedJInterface.anInt2740 = AbstractTimer.worldConnection.read();
+				OverridedJInterface.anInt2740 <<= 8;
+				OverridedJInterface.anInt2740 += AbstractTimer.worldConnection.read();
+				Class39.aByteArray324 = new byte[OverridedJInterface.anInt2740];
+				Class132_Sub1.anInt2816 = 0;
+				Decimator.anInt1716 = 3;
+			}
+			if (Decimator.anInt1716 != 3) {
+				return -1;
+			}
+			int i_40_ = AbstractTimer.worldConnection.getAvailable();
+			if (i_40_ < 1) {
+				return -1;
+			}
+			if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
+				i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
+			}
+			AbstractTimer.worldConnection.read(Class39.aByteArray324, Class132_Sub1.anInt2816, i_40_);
+			Class132_Sub1.anInt2816 += i_40_;
+			if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
+				return -1;
+			}
+			if (!Class54.method477(Class39.aByteArray324)) {
+				return DummyOutputStream.method72(1002);
+			}
+			int i_41_ = 0;
+			Class86.worlds = new World[Class57.worldLen2];
+			for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
+				final World class167_sub1 = Class82.method710(i_42_);
+				if (class167_sub1 != null) {
+					Class86.worlds[i_41_++] = class167_sub1;
+				}
+			}
+			AbstractTimer.worldConnection.close();
+			Class39.aByteArray324 = null;
+			Decimator.anInt1716 = 0;
+			OverridedJInterface.anInt2742 = 0;
+			AbstractTimer.worldConnection = null;
+			Class158.aLong1482 = TimeUtil.getSafeTime();
+			return 0;
+		} catch (final IOException ioexception) {
+			return DummyOutputStream.method72(1003);
 		}
-		return i_36_;
 	}
 
-	static final int method789(final byte i, final int i_43_, int i_44_) {
-		int i_45_;
-		try {
-			if (i_43_ == -2) {
-				return 12345678;
-			}
-			if (i != -77) {
-				anInt919 = 121;
-			}
-			if ((i_43_ ^ 0xffffffff) == 0) {
-				if (i_44_ < 2) {
-					i_44_ = 2;
-				} else if (i_44_ > 126) {
-					i_44_ = 126;
-				}
-				return i_44_;
-			}
-			i_44_ = i_44_ * (0x7f & i_43_) >> 7;
-			if (i_44_ >= 2) {
-				if (i_44_ > 126) {
-					i_44_ = 126;
-				}
-			} else {
+	static final int method789(final int i_43_, int i_44_) {
+		if (i_43_ == -2) {
+			return 12345678;
+		}
+		if (i_43_ == -1) {
+			if (i_44_ < 2) {
 				i_44_ = 2;
+			} else if (i_44_ > 126) {
+				i_44_ = 126;
 			}
-			i_45_ = (i_43_ & 0xff80) + i_44_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.C(").append(i).append(',').append(i_43_).append(',').append(i_44_).append(')').toString());
+			return i_44_;
 		}
-		return i_45_;
+		i_44_ = i_44_ * (0x7f & i_43_) >> 7;
+		if (i_44_ < 2) {
+			i_44_ = 2;
+		} else if (i_44_ > 126) {
+			i_44_ = 126;
+		}
+		return (i_43_ & 0xff80) + i_44_;
 	}
 
-	public static void method790(final int i) {
-		try {
-			aString915 = null;
-			aClass35_901 = null;
-			if (i != 12345678) {
-				method786(true, -78, false, null, null, null, (byte) 53, null, 73, 58, (byte) 44, 17, true, 46, null, -105, -18, null, null, -57, null, true);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kf.E(").append(i).append(')').toString());
-		}
+	public static void method790() {
+		aString915 = null;
+		aClass35_901 = null;
 	}
 
 	Class96() {

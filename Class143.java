@@ -13,7 +13,7 @@ class Class143 implements Interface3 {
 
 	@Override
 	public final int[] method6(final int i, final float f, final int i_0_, final int i_1_, final boolean bool) {
-		return method2016(i_0_, true).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
+		return method2016(i_0_).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
 	}
 
 	static final void method2013(final int i, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final int i_9_, final int i_10_, final int i_11_) {
@@ -176,7 +176,7 @@ class Class143 implements Interface3 {
 		}
 	}
 
-	Class120_Sub14_Sub13 method2016(final int i, final boolean bool) {
+	Class120_Sub14_Sub13 method2016(final int i) {
 		final NodeSub class120_sub14 = aClass35_2189.get(i);
 		if (class120_sub14 != null) {
 			return (Class120_Sub14_Sub13) class120_sub14;
@@ -202,7 +202,7 @@ class Class143 implements Interface3 {
 
 	@Override
 	public final boolean method7(final int i) {
-		final Class120_Sub14_Sub13 class120_sub14_sub13 = method2016(i, true);
+		final Class120_Sub14_Sub13 class120_sub14_sub13 = method2016(i);
 		return class120_sub14_sub13 != null && class120_sub14_sub13.method1529(this, aClass50_2187);
 	}
 
@@ -211,26 +211,20 @@ class Class143 implements Interface3 {
 		return aClass114Array2186[i];
 	}
 
-	static final boolean method2019(final char c, final int i) {
-		boolean bool;
-		try {
-			if (i > (c ^ 0xffffffff) && c < 128 || c >= 160 && c <= 255) {
-				return true;
-			}
-			if (c != 0) {
-				int i_34_ = 0;
-				for (final char[] cs = Class120_Sub12_Sub32.aCharArray3385; i_34_ < cs.length; i_34_++) {
-					final int i_35_ = cs[i_34_];
-					if (c == i_35_) {
-						return true;
-					}
+	static final boolean method2019(final char c) {
+		if (c > 0 && c < 128 || c >= 160 && c <= 255) {
+			return true;
+		}
+		if (c != 0) {
+			final char[] cs = Class120_Sub12_Sub32.aCharArray3385;
+			for (int i_34_ = 0; i_34_ < cs.length; i_34_++) {
+				final int i_35_ = cs[i_34_];
+				if (c == i_35_) {
+					return true;
 				}
 			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.LA(").append(c).append(',').append(i).append(')').toString());
 		}
-		return bool;
+		return false;
 	}
 
 	static final void translateToGermany() {
@@ -278,7 +272,7 @@ class Class143 implements Interface3 {
 		GameEntity.aString3011 = "scrollen:";
 		AnimatedLocation.aString3062 = "Spieler kann nicht gefunden werden: ";
 		Class120_Sub11.aString2552 = "Titelbild ge\u00f6ffnet.";
-		Class120_Sub3.aString2428 = "Lade Konfiguration - ";
+		LongNode.aString2428 = "Lade Konfiguration - ";
 		AbstractIndexedSprite.aString1025 = "Musik-Engine vorbereitet.";
 		Class120_Sub30_Sub2.aString3679 = "Ladevorgang - bitte warte.";
 		Class65.aString591 = "Angreifen";
@@ -320,12 +314,12 @@ class Class143 implements Interface3 {
 		Class53_Sub1.aString2206 = "blinken2:";
 		ParticleNodeSub.aString2396 = "Mechscape wird geladen - bitte warten...";
 		NodeSub.aString2585 = "Konfig geladen.";
-		Class120_Sub14_Sub1.aString3449 = "Nehmen";
+		ProjectileNode.aString3449 = "Nehmen";
 		Class120_Sub14_Sub23.aString3655 = "Du kannst dich nicht auf deine eigene Freunde-Liste setzen!";
-		Class142.aString1358 = "Texturen geladen.";
+		MapSceneType.aString1358 = "Texturen geladen.";
 		Class69_Sub1.aString2231 = "gelb:";
 		AbstractRequest.aString3575 = "lila:";
-		Class120_Sub3.aString2424 = "Kampfstufe: ";
+		LongNode.aString2424 = "Kampfstufe: ";
 		ClanMember.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}
 

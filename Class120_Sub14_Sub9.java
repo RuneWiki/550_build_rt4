@@ -19,7 +19,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 	private int anInt3527;
 
 	private final void method1492() {
-		if (anInt3520 < 0 || anInt3527 != Class113.anInt1083) {
+		if (anInt3520 < 0 || anInt3527 != MemoryManager.anInt1083) {
 			final GL gl = HDToolkit.gl;
 			final int[] is = new int[1];
 			gl.glGenTextures(1, is, 0);
@@ -28,7 +28,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 			gl.glTexParameteri(34067, 32882, 33071);
 			gl.glTexParameteri(34067, 10242, 33071);
 			gl.glTexParameteri(34067, 10243, 33071);
-			anInt3527 = Class113.anInt1083;
+			anInt3527 = MemoryManager.anInt1083;
 			anInt3524 = 0;
 		}
 	}
@@ -43,7 +43,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 	@Override
 	protected final void finalize() throws Throwable {
 		if (anInt3520 != -1) {
-			Class113.method999(anInt3520, anInt3521, anInt3527);
+			MemoryManager.method999(anInt3520, anInt3521, anInt3527);
 			anInt3520 = -1;
 			anInt3521 = 0;
 		}
@@ -59,7 +59,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 				int i = -1;
 				for (int i_0_ = 0; i_0_ < 6; i_0_++) {
 					final int i_1_ = anIntArray3518[i_0_];
-					anInt3525 = Rasterizer.anInterface5_973.method27(0, i_1_) ? 64 : 128;
+					anInt3525 = Rasterizer.anInterface5_973.method27(i_1_) ? 64 : 128;
 					if (i_0_ > 0) {
 						if (anInt3525 != i) {
 							throw new RuntimeException("");
@@ -67,20 +67,20 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 					} else {
 						i = anInt3525;
 					}
-					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.anInterface5_973.method23(i_1_, (byte) 27));
+					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.anInterface5_973.method23(i_1_));
 					gl.glTexImage2D(34069 + i_0_, 0, 6407, i, i, 0, 32993, 5121, intbuffer);
 				}
 				gl.glTexParameteri(34067, 10241, 9729);
 				gl.glTexParameteri(34067, 10240, 9729);
 				final int i_2_ = i * i * 6 * 3;
-				Class113.anInt1081 += i_2_ - anInt3521;
+				MemoryManager.anInt1081 += i_2_ - anInt3521;
 				anInt3521 = i_2_;
 				anInt3524 = 2;
 			} else if (anInt3524 != 1) {
 				for (int i = 0; i < 6; i++) {
-					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.palette, Rasterizer.anInterface5_973.method20(anIntArray3518[i], 65535), 1);
+					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.palette, Rasterizer.anInterface5_973.method20(anIntArray3518[i]), 1);
 					gl.glTexImage2D(34069 + i, 0, 6407, 1, 1, 0, 32993, 5121, intbuffer);
-					Class113.anInt1081 += 3 - anInt3521;
+					MemoryManager.anInt1081 += 3 - anInt3521;
 					anInt3521 = 3;
 				}
 				anInt3524 = 1;
@@ -95,15 +95,15 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 			return class120_sub14_sub9_5_;
 		}
 		method1492();
-		if (anIntArray3519 == null || anInt3523 != Class113.anInt1083) {
+		if (anIntArray3519 == null || anInt3523 != MemoryManager.anInt1083) {
 			anIntArray3519 = new int[2];
 			gl.glGenTextures(2, anIntArray3519, 0);
 			for (int i = 0; i < 2; i++) {
-				HDToolkit.method514(anIntArray3519[i]);
+				HDToolkit.bindTexture2D(anIntArray3519[i]);
 				gl.glTexParameteri(3553, 10241, 9728);
 				gl.glTexParameteri(3553, 10240, 9728);
 			}
-			anInt3523 = Class113.anInt1083;
+			anInt3523 = MemoryManager.anInt1083;
 		}
 		final int i = class120_sub14_sub9_3_.anInt3525 > class120_sub14_sub9_4_.anInt3525 ? class120_sub14_sub9_3_.anInt3525 : class120_sub14_sub9_4_.anInt3525;
 		if (anInt3525 != i) {
@@ -121,9 +121,9 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		GraphicsHD.method597();
 		Class12.method140(HDToolkit.method528());
 		gl.glPushAttrib(2048);
-		HDToolkit.method507(false);
-		HDToolkit.method524(false);
-		HDToolkit.method502(false);
+		HDToolkit.toggleFog(false);
+		HDToolkit.toggleLighting(false);
+		HDToolkit.toggleDepthTest(false);
 		HDToolkit.method511(1);
 		HDToolkit.method521(1);
 		gl.glDisable(3042);
@@ -161,7 +161,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 				bool = false;
 				break;
 			}
-			HDToolkit.method514(anIntArray3519[0]);
+			HDToolkit.bindTexture2D(anIntArray3519[0]);
 			gl.glBegin(7);
 			gl.glTexCoord2i(0, 0);
 			gl.glMultiTexCoord2i(33985, 0, 0);
@@ -180,9 +180,9 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		gl.glPopMatrix();
 		gl.glMatrixMode(5888);
 		gl.glPopMatrix();
-		HDToolkit.method502(true);
-		HDToolkit.method524(true);
-		HDToolkit.method507(true);
+		HDToolkit.toggleDepthTest(true);
+		HDToolkit.toggleLighting(true);
+		HDToolkit.toggleFog(true);
 		gl.glEnable(3008);
 		gl.glEnable(3042);
 		gl.glPopAttrib();
@@ -198,7 +198,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 
 	private final boolean method1496() {
 		for (int i = 0; i < 6; i++) {
-			if (!Rasterizer.anInterface5_973.method22(anIntArray3518[i], true)) {
+			if (!Rasterizer.anInterface5_973.method22(anIntArray3518[i])) {
 				return false;
 			}
 		}
@@ -206,7 +206,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 	}
 
 	private static final boolean method1497(final GL gl, final int i, final int i_10_, final int i_11_, final int i_12_) {
-		HDToolkit.method514(i_12_);
+		HDToolkit.bindTexture2D(i_12_);
 		gl.glFramebufferTexture2DEXT(36160, 36064, i_10_, i, 0);
 		gl.glReadBuffer(36064);
 		final int i_13_ = gl.glCheckFramebufferStatusEXT(36160);

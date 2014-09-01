@@ -32,8 +32,8 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 		gl.glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
 		if (anIntArray3110 != null) {
 			Class12.method140(anInt3107);
-			int i_4_ = Deque.method888(i_0_, (byte) 108);
-			int i_5_ = Deque.method888(i_1_, (byte) 127);
+			int i_4_ = Deque.method888(i_0_);
+			int i_5_ = Deque.method888(i_1_);
 			int i_6_ = 0;
 			while (i_4_ > 256 || i_5_ > 256) {
 				gl.glViewport(0, 0, i_4_, i_5_);
@@ -53,7 +53,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 					gl.glEnd();
 					gl.glDisable(34037);
 				} else {
-					HDToolkit.method514(anIntArray3110[i_6_ - 1]);
+					HDToolkit.bindTexture2D(anIntArray3110[i_6_ - 1]);
 					gl.glBegin(7);
 					gl.glTexCoord2f(0.0F, 0.0F);
 					gl.glVertex2i(0, 0);
@@ -74,7 +74,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 				i_6_++;
 			}
 			Class12.method139();
-			HDToolkit.method514(anIntArray3110[i_6_ - 1]);
+			HDToolkit.bindTexture2D(anIntArray3110[i_6_ - 1]);
 			Class12.method140(anInt3102);
 			gl.glDrawBuffer(36064);
 			gl.glViewport(0, 0, 256, 256);
@@ -113,7 +113,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 			gl.glEnd();
 		}
 		gl.glDrawBuffer(36065);
-		HDToolkit.method514(anInt3113);
+		HDToolkit.bindTexture2D(anInt3113);
 		final int i_9_ = aClass131_3108.anInt1247;
 		gl.glUseProgramObjectARB(i_9_);
 		gl.glUniform1iARB(gl.glGetUniformLocation(i_9_, "baseTex"), 0);
@@ -129,7 +129,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 		gl.glVertex2i(0, 1);
 		gl.glEnd();
 		gl.glDrawBuffer(36064);
-		HDToolkit.method514(anInt3105);
+		HDToolkit.bindTexture2D(anInt3105);
 		gl.glUniform3fARB(gl.glGetUniformLocation(i_9_, "step"), 0.0F, 0.00390625F, 0.0F);
 		gl.glBegin(7);
 		gl.glTexCoord2f(0.0F, 0.0F);
@@ -158,8 +158,8 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 	@Override
 	final void method1052(final int i, final int i_11_) {
 		final GL gl = HDToolkit.gl;
-		final int i_12_ = Deque.method888(i, (byte) 111);
-		final int i_13_ = Deque.method888(i_11_, (byte) 106);
+		final int i_12_ = Deque.method888(i);
+		final int i_13_ = Deque.method888(i_11_);
 		if (anIntArray3110 != null) {
 			gl.glDeleteTextures(anIntArray3110.length, anIntArray3110, 0);
 			anIntArray3110 = null;
@@ -262,10 +262,10 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 			gl.glDrawBuffer(36064);
 			if (!Class12.method141()) {
 				anInt3103 = Class163.anInt1579;
-				HDToolkit.method514(anInt3113);
+				HDToolkit.bindTexture2D(anInt3113);
 				gl.glTexParameteri(3553, 10241, 9728);
 				gl.glTexParameteri(3553, 10240, 9728);
-				HDToolkit.method514(anInt3105);
+				HDToolkit.bindTexture2D(anInt3105);
 				gl.glTexParameteri(3553, 10241, 9728);
 				gl.glTexParameteri(3553, 10240, 9728);
 				if (!Class12.method141()) {

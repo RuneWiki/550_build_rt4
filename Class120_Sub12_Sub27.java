@@ -13,11 +13,11 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	private int anInt3345;
 	private int anInt3346 = 2;
 	private byte[] aByteArray3347;
-	static boolean aBoolean3348 = false;
+	static boolean disableWorldMapMapFunctions = false;
 	static int[] anIntArray3349;
 	static volatile int currentMouseY;
 	private int anInt3352;
-	static int anInt3353;
+	static int renderYWrapper;
 	static AbstractIndexedSprite logoSprite;
 
 	static {
@@ -28,7 +28,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 
 	@Override
 	final void postDecode() {
-		aByteArray3347 = OverlayType.method1899(anInt3341);
+		aByteArray3347 = UnderlayType.method1899(anInt3341);
 		method1341();
 	}
 

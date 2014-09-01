@@ -12,18 +12,6 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	private int anInt3235;
 	private int anInt3236;
 
-	static final void method1263(final int i) {
-		try {
-			Js5Request.aClass21_3937.clearSoftReference();
-			if (i != 14834) {
-				method1265();
-			}
-			Class132.aClass21_1255.clearSoftReference();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kl.S(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1264() {
 		for (int i = 0; i < ClientScript.anInt3556; i++) {
 			final Class28 class28 = Class111.aClass28Array1057[i];
@@ -97,7 +85,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 
 	static final void method1266(final int i, final js5 js5, final js5 class50_2_) {
 		try {
-			Class154.aClass50_1443 = js5;
+			SpotAnimType.aClass50_1443 = js5;
 			Class90.aClass50_843 = class50_2_;
 			if (i != -1) {
 				method1265();

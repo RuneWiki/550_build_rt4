@@ -6,11 +6,11 @@ import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 
 class HDSprite extends AbstractSprite {
-	int anInt3942;
+	int textureId;
 	private int anInt3943;
 	private int anInt3944 = 0;
 	int anInt3945;
-	private int anInt3946 = -1;
+	private int listId = -1;
 	int anInt3947 = 0;
 	int anInt3948;
 
@@ -18,7 +18,7 @@ class HDSprite extends AbstractSprite {
 	final void method1589(int i, int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
 		HDToolkit.method510();
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		i -= this.offsetX << 4;
 		i_0_ -= this.offsetY << 4;
@@ -28,14 +28,14 @@ class HDSprite extends AbstractSprite {
 			gl.glScalef(i_4_ / 4096.0F, i_4_ / 4096.0F, 0.0F);
 		}
 		gl.glTranslatef(-i / 16.0F, i_0_ / 16.0F, 0.0F);
-		gl.glCallList(anInt3946);
+		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
 
 	final void method1595(final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_) {
 		HDToolkit.method539();
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		float f = (float) this.width / (float) this.anInt3945;
 		float f_9_ = (float) this.height / (float) this.anInt3948;
@@ -65,10 +65,10 @@ class HDSprite extends AbstractSprite {
 		i += this.offsetX;
 		i_15_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_15_, 0.0F);
-		gl.glCallList(anInt3946);
+		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
 
@@ -78,72 +78,103 @@ class HDSprite extends AbstractSprite {
 		i += this.offsetX;
 		i_16_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		gl.glColor4f(1.0F, 1.0F, 1.0F, i_17_ / 256.0F);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_16_, 0.0F);
-		gl.glCallList(anInt3946);
+		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
 
 	@Override
 	protected final void finalize() throws Throwable {
-		if (this.anInt3942 != -1) {
-			Class113.method1001(this.anInt3942, this.anInt3947, anInt3943);
-			this.anInt3942 = -1;
+		if (this.textureId != -1) {
+			MemoryManager.method1001(this.textureId, this.anInt3947, anInt3943);
+			this.textureId = -1;
 			this.anInt3947 = 0;
 		}
-		if (anInt3946 != -1) {
-			Class113.method996(anInt3946, anInt3943);
-			anInt3946 = -1;
+		if (listId != -1) {
+			MemoryManager.method996(listId, anInt3943);
+			listId = -1;
 		}
 		super.finalize();
 	}
 
-	void method1596(final int[] pixels) {
-		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width);
-		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height);
-		final byte[] is_18_ = new byte[this.anInt3945 * this.anInt3948 * 4];
-		int i = 0;
-		int i_19_ = 0;
-		final int i_20_ = (this.anInt3945 - this.width) * 4;
-		for (int i_21_ = 0; i_21_ < this.height; i_21_++) {
-			for (int i_22_ = 0; i_22_ < this.width; i_22_++) {
-				final int i_23_ = pixels[i_19_++];
-				if (i_23_ != 0) {
-					is_18_[i++] = (byte) (i_23_ >> 16);
-					is_18_[i++] = (byte) (i_23_ >> 8);
-					is_18_[i++] = (byte) i_23_;
-					is_18_[i++] = (byte) -1;
+	void method1596(final int[] inputPixels) {
+		/*this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
+		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 4];
+		int pixelId = 0;
+		int inputPixelsId = 0;
+		final int pixelStep = (this.anInt3945 - this.width) * 4;
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				final int rgb = inputPixels[inputPixelsId++];
+				if (rgb != 0) {
+					pixels[pixelId++] = (byte) (rgb >> 16);
+					pixels[pixelId++] = (byte) (rgb >> 8);
+					pixels[pixelId++] = (byte) rgb;
+					pixels[pixelId++] = (byte) -1;
 				} else {
-					i += 4;
+					pixelId += 4;
 				}
 			}
-			i += i_20_;
+			pixelId += pixelStep;
 		}
-		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_18_);
+		final ByteBuffer byteBufferPixels = ByteBuffer.wrap(pixels);
 		final GL gl = HDToolkit.gl;
-		if (this.anInt3942 == -1) {
-			final int[] is_24_ = new int[1];
-			gl.glGenTextures(1, is_24_, 0);
-			this.anInt3942 = is_24_[0];
-			anInt3943 = Class113.anInt1083;
+		if (this.textureId == -1) {
+			final int[] textureIds = new int[1];
+			gl.glGenTextures(1, textureIds, 0);
+			this.textureId = textureIds[0];
+			anInt3943 = MemoryManager.anInt1083;
 		}
-		HDToolkit.method514(this.anInt3942);
-		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, bytebuffer);
-		Class113.anInt1086 += bytebuffer.limit() - this.anInt3947;
-		this.anInt3947 = bytebuffer.limit();
+		HDToolkit.bindTexture2D(this.textureId);
+		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, byteBufferPixels);
+		MemoryManager.anInt1086 += byteBufferPixels.limit() - this.anInt3947;
+		this.anInt3947 = byteBufferPixels.limit();*/
+		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
+		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 3];
+		int pixelId = 0;
+		int inputPixelsId = 0;
+		final int pixelStep = (this.anInt3945 - this.width) * 3;
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				final int rgb = inputPixels[inputPixelsId++];
+				if (rgb != 0) {
+					pixels[pixelId++] = (byte) (rgb >> 16);
+					pixels[pixelId++] = (byte) (rgb >> 8);
+					pixels[pixelId++] = (byte) rgb;
+				} else {
+					pixelId += 3;
+				}
+			}
+			pixelId += pixelStep;
+		}
+		final ByteBuffer byteBufferPixels = ByteBuffer.wrap(pixels);
+		final GL gl = HDToolkit.gl;
+		if (this.textureId == -1) {
+			final int[] textureIds = new int[1];
+			gl.glGenTextures(1, textureIds, 0);
+			this.textureId = textureIds[0];
+			anInt3943 = MemoryManager.anInt1083;
+		}
+		HDToolkit.bindTexture2D(this.textureId);
+		gl.glTexImage2D(3553, 0, 6407, this.anInt3945, this.anInt3948, 0, 6407, 5121, byteBufferPixels);
+		MemoryManager.anInt1086 += byteBufferPixels.limit() - this.anInt3947;
+		this.anInt3947 = byteBufferPixels.limit();
 	}
 
 	private final void method1597() {
 		final float f = (float) this.width / (float) this.anInt3945;
 		final float f_25_ = (float) this.height / (float) this.anInt3948;
 		final GL gl = HDToolkit.gl;
-		if (anInt3946 == -1) {
-			anInt3946 = gl.glGenLists(1);
-			anInt3943 = Class113.anInt1083;
+		if (listId == -1) {
+			listId = gl.glGenLists(1);
+			anInt3943 = MemoryManager.anInt1083;
 		}
-		gl.glNewList(anInt3946, 4864);
+		gl.glNewList(listId, 4864);
 		gl.glBegin(6);
 		gl.glTexCoord2f(f, 0.0F);
 		gl.glVertex2f(this.width, 0.0F);
@@ -160,14 +191,14 @@ class HDSprite extends AbstractSprite {
 	final void method1598(int i, int i_26_, final HDSprite class120_sub14_sub19_sub1_27_) {
 		if (class120_sub14_sub19_sub1_27_ != null) {
 			HDToolkit.method510();
-			HDToolkit.method514(class120_sub14_sub19_sub1_27_.anInt3942);
+			HDToolkit.bindTexture2D(class120_sub14_sub19_sub1_27_.textureId);
 			class120_sub14_sub19_sub1_27_.method1602(1);
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(this.anInt3942);
+			HDToolkit.bindTexture2D(this.textureId);
 			method1602(1);
 			gl.glActiveTexture(33985);
 			gl.glEnable(3553);
-			gl.glBindTexture(3553, class120_sub14_sub19_sub1_27_.anInt3942);
+			gl.glBindTexture(3553, class120_sub14_sub19_sub1_27_.textureId);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
 			final float f = (float) (i - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1_27_.anInt3945;
@@ -203,7 +234,7 @@ class HDSprite extends AbstractSprite {
 	final void method1599(final int i, final int i_33_, final int i_34_, final int i_35_) {
 		HDToolkit.method510();
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		float f = (float) this.width / (float) this.anInt3945;
 		float f_36_ = (float) this.height / (float) this.anInt3948;
@@ -228,14 +259,14 @@ class HDSprite extends AbstractSprite {
 	final void method1600(final int i, final int i_41_, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final HDSprite class120_sub14_sub19_sub1_48_) {
 		if (class120_sub14_sub19_sub1_48_ != null) {
 			HDToolkit.method510();
-			HDToolkit.method514(class120_sub14_sub19_sub1_48_.anInt3942);
+			HDToolkit.bindTexture2D(class120_sub14_sub19_sub1_48_.textureId);
 			class120_sub14_sub19_sub1_48_.method1602(1);
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(this.anInt3942);
+			HDToolkit.bindTexture2D(this.textureId);
 			method1602(1);
 			gl.glActiveTexture(33985);
 			gl.glEnable(3553);
-			gl.glBindTexture(3553, class120_sub14_sub19_sub1_48_.anInt3942);
+			gl.glBindTexture(3553, class120_sub14_sub19_sub1_48_.textureId);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
 			final int i_49_ = -i_42_ / 2;
@@ -309,7 +340,7 @@ class HDSprite extends AbstractSprite {
 				i_68_ = ((i_71_ << 16) - i_73_ + i_77_ - 1) / i_77_;
 			}
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(this.anInt3942);
+			HDToolkit.bindTexture2D(this.textureId);
 			method1602(1);
 			final float f = i;
 			final float f_80_ = f + i_67_;
@@ -338,17 +369,17 @@ class HDSprite extends AbstractSprite {
 		i += this.offsetX;
 		i_86_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_86_, 0.0F);
-		gl.glCallList(anInt3946);
+		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
 
 	final void method1601(int i, int i_87_, final int i_88_, final int i_89_, final int i_90_, final int i_91_) {
 		HDToolkit.method510();
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(2);
 		i -= this.offsetX << 4;
 		i_87_ -= this.offsetY << 4;
@@ -358,7 +389,7 @@ class HDSprite extends AbstractSprite {
 			gl.glScalef(i_91_ / 4096.0F, i_91_ / 4096.0F, 0.0F);
 		}
 		gl.glTranslatef(-i / 16.0F, i_87_ / 16.0F, 0.0F);
-		gl.glCallList(anInt3946);
+		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
 
@@ -368,7 +399,7 @@ class HDSprite extends AbstractSprite {
 		i += this.offsetX;
 		i_92_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_92_, 0.0F);
 		final float f = (float) this.width / (float) this.anInt3945;
@@ -387,7 +418,7 @@ class HDSprite extends AbstractSprite {
 	}
 
 	HDSprite(final int i, final int i_94_, final int i_95_, final int i_96_, final int i_97_, final int i_98_, final int[] is) {
-		this.anInt3942 = -1;
+		this.textureId = -1;
 		this.trimWidth = i;
 		this.trimHeight = i_94_;
 		this.offsetX = i_95_;
@@ -399,7 +430,7 @@ class HDSprite extends AbstractSprite {
 	}
 
 	HDSprite(final LDSprite class120_sub14_sub19_sub2) {
-		this.anInt3942 = -1;
+		this.textureId = -1;
 		this.trimWidth = class120_sub14_sub19_sub2.trimWidth;
 		this.trimHeight = class120_sub14_sub19_sub2.trimHeight;
 		this.offsetX = class120_sub14_sub19_sub2.offsetX;
@@ -439,7 +470,7 @@ class HDSprite extends AbstractSprite {
 				i_101_ = ((i_103_ << 16) - i_105_ + i_109_ - 1) / i_109_;
 			}
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(this.anInt3942);
+			HDToolkit.bindTexture2D(this.textureId);
 			method1602(2);
 			final float f = i;
 			final float f_112_ = f + i_100_;

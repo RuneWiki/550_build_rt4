@@ -2,9 +2,9 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub3 extends Node {
+final class LongNode extends Node {
 	static String aString2424 = "rating: ";
-	long aLong2425;
+	long value;
 	static volatile boolean canvasReplaceRecommended = false;
 	static GrandExchangeObject[] grandExchangeObjects = new GrandExchangeObject[6];
 	static String aString2428 = "Loading config - ";
@@ -311,113 +311,107 @@ final class Class120_Sub3 extends Node {
 		}
 	}
 
-	public Class120_Sub3() {
+	public LongNode() {
 		/* empty */
 	}
 
-	Class120_Sub3(final long l) {
-		this.aLong2425 = l;
+	LongNode(final long l) {
+		this.value = l;
 	}
 
-	static final byte method1060(final byte i, final char c) {
-		byte i_79_;
-		try {
-			byte i_80_;
-			if (c > '\0' && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
-				i_80_ = (byte) c;
-			} else if (c != '\u20ac') {
-				if (c != '\u201a') {
-					if (c != '\u0192') {
-						if (c != '\u201e') {
-							if (c == '\u2026') {
-								i_80_ = (byte) -123;
-							} else if (c == '\u2020') {
-								i_80_ = (byte) -122;
-							} else if (c != '\u2021') {
-								if (c == '\u02c6') {
-									i_80_ = (byte) -120;
-								} else if (c == '\u2030') {
-									i_80_ = (byte) -119;
-								} else if (c != '\u0160') {
-									if (c == '\u2039') {
-										i_80_ = (byte) -117;
-									} else if (c == '\u0152') {
-										i_80_ = (byte) -116;
-									} else if (c != '\u017d') {
-										if (c != '\u2018') {
-											if (c == '\u2019') {
-												i_80_ = (byte) -110;
-											} else if (c != '\u201c') {
-												if (c != '\u201d') {
-													if (c == '\u2022') {
-														i_80_ = (byte) -107;
-													} else if (c != '\u2013') {
-														if (c == '\u2014') {
-															i_80_ = (byte) -105;
-														} else if (c == '\u02dc') {
-															i_80_ = (byte) -104;
-														} else if (c != '\u2122') {
-															if (c != '\u0161') {
-																if (c != '\u203a') {
-																	if (c != '\u0153') {
-																		if (c != '\u017e') {
-																			if (c == '\u0178') {
-																				i_80_ = (byte) -97;
-																			} else {
-																				i_80_ = (byte) 63;
-																			}
+	static final byte method1060(final char c) {
+		byte i_80_;
+		if (c > '\0' && c < '\u0080' || c >= '\u00a0' && c <= '\u00ff') {
+			i_80_ = (byte) c;
+		} else if (c != '\u20ac') {
+			if (c != '\u201a') {
+				if (c != '\u0192') {
+					if (c != '\u201e') {
+						if (c == '\u2026') {
+							i_80_ = (byte) -123;
+						} else if (c == '\u2020') {
+							i_80_ = (byte) -122;
+						} else if (c != '\u2021') {
+							if (c == '\u02c6') {
+								i_80_ = (byte) -120;
+							} else if (c == '\u2030') {
+								i_80_ = (byte) -119;
+							} else if (c != '\u0160') {
+								if (c == '\u2039') {
+									i_80_ = (byte) -117;
+								} else if (c == '\u0152') {
+									i_80_ = (byte) -116;
+								} else if (c != '\u017d') {
+									if (c != '\u2018') {
+										if (c == '\u2019') {
+											i_80_ = (byte) -110;
+										} else if (c != '\u201c') {
+											if (c != '\u201d') {
+												if (c == '\u2022') {
+													i_80_ = (byte) -107;
+												} else if (c != '\u2013') {
+													if (c == '\u2014') {
+														i_80_ = (byte) -105;
+													} else if (c == '\u02dc') {
+														i_80_ = (byte) -104;
+													} else if (c != '\u2122') {
+														if (c != '\u0161') {
+															if (c != '\u203a') {
+																if (c != '\u0153') {
+																	if (c != '\u017e') {
+																		if (c == '\u0178') {
+																			i_80_ = (byte) -97;
 																		} else {
-																			i_80_ = (byte) -98;
+																			i_80_ = (byte) 63;
 																		}
 																	} else {
-																		i_80_ = (byte) -100;
+																		i_80_ = (byte) -98;
 																	}
 																} else {
-																	i_80_ = (byte) -101;
+																	i_80_ = (byte) -100;
 																}
 															} else {
-																i_80_ = (byte) -102;
+																i_80_ = (byte) -101;
 															}
 														} else {
-															i_80_ = (byte) -103;
+															i_80_ = (byte) -102;
 														}
 													} else {
-														i_80_ = (byte) -106;
+														i_80_ = (byte) -103;
 													}
 												} else {
-													i_80_ = (byte) -108;
+													i_80_ = (byte) -106;
 												}
 											} else {
-												i_80_ = (byte) -109;
+												i_80_ = (byte) -108;
 											}
 										} else {
-											i_80_ = (byte) -111;
+											i_80_ = (byte) -109;
 										}
 									} else {
-										i_80_ = (byte) -114;
+										i_80_ = (byte) -111;
 									}
 								} else {
-									i_80_ = (byte) -118;
+									i_80_ = (byte) -114;
 								}
 							} else {
-								i_80_ = (byte) -121;
+								i_80_ = (byte) -118;
 							}
 						} else {
-							i_80_ = (byte) -124;
+							i_80_ = (byte) -121;
 						}
 					} else {
-						i_80_ = (byte) -125;
+						i_80_ = (byte) -124;
 					}
 				} else {
-					i_80_ = (byte) -126;
+					i_80_ = (byte) -125;
 				}
 			} else {
-				i_80_ = (byte) -128;
+				i_80_ = (byte) -126;
 			}
-			i_79_ = i_80_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bg.F(").append(i).append(',').append(c).append(')').toString());
+		} else {
+			i_80_ = (byte) -128;
 		}
-		return i_79_;
+		return i_80_;
 	}
 }

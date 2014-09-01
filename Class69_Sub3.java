@@ -17,17 +17,6 @@ class Class69_Sub3 extends Class69 {
 		}
 	}
 
-	static final void method625(final int i) {
-		try {
-			if (i < 76) {
-				isInTutIsland = -33;
-			}
-			Class11.aClass21_80.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.M(").append(i).append(')').toString());
-		}
-	}
-
 	static final String method626(int i, final int radix, final boolean bool) {
 		if (radix < 2 || radix > 36) {
 			throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(radix).toString());

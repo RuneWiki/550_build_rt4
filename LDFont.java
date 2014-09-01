@@ -2,8 +2,8 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub8_Sub2 extends Class120_Sub14_Sub8 {
-	private byte[][] aByteArrayArray3925;
+final class LDFont extends AbstractFont {
+	private byte[][] paletteIndicators;
 
 	@Override
 	final void method1471(final int i, int i_0_, int i_1_, int i_2_, int i_3_, final int i_4_, final int i_5_, final boolean bool) {
@@ -37,7 +37,7 @@ final class Class120_Sub14_Sub8_Sub2 extends Class120_Sub14_Sub8 {
 			i_7_ += i_12_;
 		}
 		if (i_2_ > 0 && i_3_ > 0) {
-			method1489(GraphicsLD.pixels, aByteArrayArray3925[i], i_4_, i_9_, i_6_, i_2_, i_3_, i_7_, i_8_, i_5_);
+			method1489(GraphicsLD.pixels, paletteIndicators[i], i_4_, i_9_, i_6_, i_2_, i_3_, i_7_, i_8_, i_5_);
 		}
 	}
 
@@ -74,20 +74,20 @@ final class Class120_Sub14_Sub8_Sub2 extends Class120_Sub14_Sub8 {
 		}
 		if (i_15_ > 0 && i_16_ > 0) {
 			if (GraphicsLD.anIntArray1604 != null) {
-				method1490(GraphicsLD.pixels, aByteArrayArray3925[i], i_13_, i_14_, i_15_, i_16_, i_17_, i_21_, i_18_, i_19_, i_20_, GraphicsLD.anIntArray1604, GraphicsLD.anIntArray1605);
+				method1490(GraphicsLD.pixels, paletteIndicators[i], i_13_, i_14_, i_15_, i_16_, i_17_, i_21_, i_18_, i_19_, i_20_, GraphicsLD.anIntArray1604, GraphicsLD.anIntArray1605);
 			} else {
-				method1491(GraphicsLD.pixels, aByteArrayArray3925[i], i_17_, i_21_, i_18_, i_15_, i_16_, i_19_, i_20_);
+				method1491(GraphicsLD.pixels, paletteIndicators[i], i_17_, i_21_, i_18_, i_15_, i_16_, i_19_, i_20_);
 			}
 		}
 	}
 
-	static final Class120_Sub14_Sub8_Sub2 method2061(final int i_9_) {
-		Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_10_ = (Class120_Sub14_Sub8_Sub2) Class15.aClass21_95.get(i_9_);
+	static final LDFont method2061(final int i_9_) {
+		LDFont class120_sub14_sub8_sub2_10_ = (LDFont) Class15.aClass21_95.get(i_9_);
 		if (class120_sub14_sub8_sub2_10_ != null) {
 			return class120_sub14_sub8_sub2_10_;
 		}
 		final byte[] is = ClanMember.aClass50_2576.getFile(i_9_, 0);
-		class120_sub14_sub8_sub2_10_ = new Class120_Sub14_Sub8_Sub2(is);
+		class120_sub14_sub8_sub2_10_ = new LDFont(is);
 		class120_sub14_sub8_sub2_10_.setNameIcons(Class82.aClass107Array785, null);
 		Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
 		return class120_sub14_sub8_sub2_10_;
@@ -110,15 +110,15 @@ final class Class120_Sub14_Sub8_Sub2 extends Class120_Sub14_Sub8 {
 		}
 	}
 
-	Class120_Sub14_Sub8_Sub2(final byte[] is, final int[] is_36_, final int[] is_37_, final int[] is_38_, final int[] is_39_, final byte[][] is_40_) {
-		super(is, is_36_, is_37_, is_38_, is_39_);
-		aByteArrayArray3925 = new byte[256][];
-		aByteArrayArray3925 = is_40_;
+	LDFont(final byte[] data, final int[] xOffs, final int[] yOffs, final int[] widths, final int[] heights, final byte[][] indicators) {
+		super(data, xOffs, yOffs, widths, heights);
+		paletteIndicators = new byte[256][];
+		paletteIndicators = indicators;
 	}
 
-	Class120_Sub14_Sub8_Sub2(final byte[] is) {
-		super(is);
-		aByteArrayArray3925 = new byte[256][];
+	LDFont(final byte[] indicators) {
+		super(indicators);
+		paletteIndicators = new byte[256][];
 	}
 
 	private static final void method1490(final int[] is, final byte[] is_41_, final int i, final int i_42_, final int i_43_, final int i_44_, final int i_45_, int i_46_, int i_47_, final int i_48_, final int i_49_, final int[] is_50_, final int[] is_51_) {

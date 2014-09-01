@@ -44,7 +44,7 @@ final class HDModel extends AbstractModel {
 	private short[] aShortArray3879;
 	boolean aBoolean3880;
 	private int[][] anIntArrayArray3881;
-	private Class104 aClass104_3882;
+	private VertexBuffer aClass104_3882;
 	private static long[] aLongArray3883;
 	private byte[] aByteArray3884;
 	private static HDModel aClass180_Sub7_Sub2_3885 = new HDModel();
@@ -105,14 +105,14 @@ final class HDModel extends AbstractModel {
 		int i_4_ = 0;
 		int i_5_ = 0;
 		if (i != -1) {
-			i_4_ = Rasterizer.anInterface5_973.method24(i & 0xffff, false);
-			i_5_ = Rasterizer.anInterface5_973.method21((byte) -119, i & 0xffff);
+			i_4_ = Rasterizer.anInterface5_973.method24(i & 0xffff);
+			i_5_ = Rasterizer.anInterface5_973.method21(i & 0xffff);
 		}
 		int i_6_ = 0;
 		int i_7_ = 0;
 		if (i_2_ != -1) {
-			i_6_ = Rasterizer.anInterface5_973.method24(i_2_ & 0xffff, false);
-			i_7_ = Rasterizer.anInterface5_973.method21((byte) -119, i_2_ & 0xffff);
+			i_6_ = Rasterizer.anInterface5_973.method24(i_2_ & 0xffff);
+			i_7_ = Rasterizer.anInterface5_973.method21(i_2_ & 0xffff);
 		}
 		if (i_4_ != i_6_ || i_5_ != i_7_) {
 			aClass49_3869.aBoolean439 = false;
@@ -142,7 +142,7 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final long l, final int i_15_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final long l, final int i_15_, final ParticleEngine class108_sub2) {
 		if (anInt3890 != 0) {
 			if (!this.aClass13_3870.aBoolean89) {
 				method2425();
@@ -716,7 +716,7 @@ final class HDModel extends AbstractModel {
 			}
 		}
 		if (HDToolkit.vertexBufferAsObject) {
-			final Class104 class104 = new Class104();
+			final VertexBuffer class104 = new VertexBuffer();
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
 			class104.method885(bytebuffer);
 			aClass49_3863.aBoolean439 = true;
@@ -876,21 +876,21 @@ final class HDModel extends AbstractModel {
 		}
 		int i;
 		int i_189_;
-		if (AtmosphereManager.anInt1130 > 0) {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1130 >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1130 >> 8) >> 3;
+		if (AtmosphereManager.lightingX > 0) {
+			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingX >> 8) >> 3;
+			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingX >> 8) >> 3;
 		} else {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1130 >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1130 >> 8) >> 3;
+			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingX >> 8) >> 3;
+			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingX >> 8) >> 3;
 		}
 		int i_190_;
 		int i_191_;
-		if (AtmosphereManager.anInt1123 > 0) {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1123 >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1123 >> 8) >> 3;
+		if (AtmosphereManager.lightingZ > 0) {
+			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingZ >> 8) >> 3;
+			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingZ >> 8) >> 3;
 		} else {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort94 * AtmosphereManager.anInt1123 >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort87 * AtmosphereManager.anInt1123 >> 8) >> 3;
+			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingZ >> 8) >> 3;
+			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingZ >> 8) >> 3;
 		}
 		final int i_192_ = i_189_ - i + 1;
 		final int i_193_ = i_191_ - i_190_ + 1;
@@ -910,8 +910,8 @@ final class HDModel extends AbstractModel {
 			anIntArray3901 = new int[anInt3890];
 		}
 		for (int i_195_ = 0; i_195_ < anInt3861; i_195_++) {
-			final int i_196_ = (this.anIntArray3878[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.anInt1130 >> 8) >> 3) - i;
-			final int i_197_ = (this.anIntArray3845[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.anInt1123 >> 8) >> 3) - i_190_;
+			final int i_196_ = (this.anIntArray3878[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.lightingX >> 8) >> 3) - i;
+			final int i_197_ = (this.anIntArray3845[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.lightingZ >> 8) >> 3) - i_190_;
 			final int i_198_ = anIntArray3875[i_195_];
 			final int i_199_ = anIntArray3875[i_195_ + 1];
 			for (int i_200_ = i_198_; i_200_ < i_199_; i_200_++) {
@@ -1490,35 +1490,35 @@ final class HDModel extends AbstractModel {
 				}
 				aByte3888 = (byte) 0;
 			}
-			Class104 class104 = null;
+			VertexBuffer class104 = null;
 			if (this.aClass49_3847.aClass104_445 != null) {
-				this.aClass49_3847.aClass104_445.method887();
+				this.aClass49_3847.aClass104_445.bindArrayBuffer();
 				class104 = this.aClass49_3847.aClass104_445;
 				gl.glVertexPointer(3, 5126, this.aClass49_3847.anInt444, this.aClass49_3847.anInt442);
 			}
 			if (aClass49_3869.aClass104_445 != null) {
 				if (class104 != aClass49_3869.aClass104_445) {
-					aClass49_3869.aClass104_445.method887();
+					aClass49_3869.aClass104_445.bindArrayBuffer();
 					class104 = aClass49_3869.aClass104_445;
 				}
 				gl.glColorPointer(4, 5121, aClass49_3869.anInt444, aClass49_3869.anInt442);
 			}
 			if (Class120_Sub12_Sub6.highLightingDetail && aClass49_3848.aClass104_445 != null) {
 				if (class104 != aClass49_3848.aClass104_445) {
-					aClass49_3848.aClass104_445.method887();
+					aClass49_3848.aClass104_445.bindArrayBuffer();
 					class104 = aClass49_3848.aClass104_445;
 				}
 				gl.glNormalPointer(5126, aClass49_3848.anInt444, aClass49_3848.anInt442);
 			}
 			if (aClass49_3854.aClass104_445 != null) {
 				if (class104 != aClass49_3854.aClass104_445) {
-					aClass49_3854.aClass104_445.method887();
+					aClass49_3854.aClass104_445.bindArrayBuffer();
 					class104 = aClass49_3854.aClass104_445;
 				}
 				gl.glTexCoordPointer(2, 5126, aClass49_3854.anInt444, aClass49_3854.anInt442);
 			}
 			if (aClass49_3863.aClass104_445 != null) {
-				aClass49_3863.aClass104_445.method886();
+				aClass49_3863.aClass104_445.bindElementArrayBuffer();
 			}
 			if (this.aClass49_3847.aClass104_445 == null || aClass49_3869.aClass104_445 == null || Class120_Sub12_Sub6.highLightingDetail && aClass49_3848.aClass104_445 == null || aClass49_3854.aClass104_445 == null) {
 				if (HDToolkit.vertexBufferAsObject) {
@@ -1550,10 +1550,10 @@ final class HDModel extends AbstractModel {
 				final int i_421_ = anIntArray3865[i_419_ + 1];
 				final int i_422_ = aShortArray3855[i_420_];
 				if (i_422_ == -1) {
-					HDToolkit.method514(-1);
+					HDToolkit.bindTexture2D(-1);
 					Class120_Sub14_Sub13.method1532(0, 0);
 				} else {
-					Rasterizer.anInterface5_973.method25(64, i_422_ & 0xffff);
+					Rasterizer.anInterface5_973.method25(i_422_ & 0xffff);
 				}
 				if (aClass49_3863.aClass104_445 != null) {
 					gl.glDrawElements(4, (i_421_ - i_420_) * 3, 5125, i_420_ * 12);
@@ -1870,7 +1870,7 @@ final class HDModel extends AbstractModel {
 	private static final int method2423(final int i, final short i_532_, final int i_533_, final byte i_534_) {
 		int i_535_ = Rasterizer.palette[LDModel.method2401(i, i_533_)];
 		if (i_532_ != -1) {
-			final int i_536_ = Rasterizer.anInterface5_973.method24(i_532_ & 0xffff, false);
+			final int i_536_ = Rasterizer.anInterface5_973.method24(i_532_ & 0xffff);
 			if (i_536_ != 0) {
 				int i_537_;
 				if (i_533_ < 0) {
@@ -1888,7 +1888,7 @@ final class HDModel extends AbstractModel {
 					i_535_ = ((i_537_ & 0xff00ff) * i_538_ + (i_535_ & 0xff00ff) * i_539_ & ~0xff00ff) + ((i_537_ & 0xff00) * i_538_ + (i_535_ & 0xff00) * i_539_ & 0xff0000) >> 8;
 				}
 			}
-			int i_540_ = Rasterizer.anInterface5_973.method21((byte) -119, i_532_ & 0xffff);
+			int i_540_ = Rasterizer.anInterface5_973.method21(i_532_ & 0xffff);
 			if (i_540_ != 0) {
 				i_540_ += 256;
 				int i_541_ = ((i_535_ & 0xff0000) >> 16) * i_540_;
@@ -1910,9 +1910,9 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2368(final int i, final int i_544_, final int i_545_) {
+	final void translate(final int x, final int i_544_, final int i_545_) {
 		for (int i_546_ = 0; i_546_ < this.anInt3862; i_546_++) {
-			this.anIntArray3878[i_546_] += i;
+			this.anIntArray3878[i_546_] += x;
 			this.anIntArray3856[i_546_] += i_544_;
 			this.anIntArray3845[i_546_] += i_545_;
 		}
@@ -2187,9 +2187,9 @@ final class HDModel extends AbstractModel {
 			}
 			if (bool_593_) {
 				if (!Class120_Sub12_Sub6.highLightingDetail) {
-					final int i_612_ = (int) AtmosphereManager.aFloatArray1127[0];
-					final int i_613_ = (int) AtmosphereManager.aFloatArray1127[1];
-					final int i_614_ = (int) AtmosphereManager.aFloatArray1127[2];
+					final int i_612_ = (int) AtmosphereManager.light0Position[0];
+					final int i_613_ = (int) AtmosphereManager.light0Position[1];
+					final int i_614_ = (int) AtmosphereManager.light0Position[2];
 					final int i_615_ = (int) Math.sqrt(i_612_ * i_612_ + i_613_ * i_613_ + i_614_ * i_614_);
 					final int i_616_ = (int) (aShort3851 * 1.3F);
 					final int i_617_ = aShort3853 * i_615_ >> 8;
@@ -2330,7 +2330,7 @@ final class HDModel extends AbstractModel {
 				if (HDToolkit.aBoolean520) {
 					final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
 					if (aClass104_3882 == null) {
-						aClass104_3882 = new Class104(true);
+						aClass104_3882 = new VertexBuffer(true);
 						aClass104_3882.method885(bytebuffer);
 					} else {
 						aClass104_3882.method883(bytebuffer);
@@ -2393,7 +2393,7 @@ final class HDModel extends AbstractModel {
 					}
 				}
 			} else if (HDToolkit.vertexBufferAsObject) {
-				final Class104 class104 = new Class104();
+				final VertexBuffer class104 = new VertexBuffer();
 				final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
 				class104.method885(bytebuffer);
 				if (bool_592_) {
@@ -2890,10 +2890,10 @@ final class HDModel extends AbstractModel {
 		this.aBoolean3880 = false;
 		aByte3888 = (byte) 0;
 		anInt3890 = 0;
-		final int[] is = new int[class180_sub2.anInt2856];
-		anIntArray3875 = new int[class180_sub2.anInt2896 + 1];
-		for (int i_721_ = 0; i_721_ < class180_sub2.anInt2856; i_721_++) {
-			if ((class180_sub2.aByteArray2895 == null || class180_sub2.aByteArray2895[i_721_] != 2) && (class180_sub2.aShortArray2850 == null || class180_sub2.aShortArray2850[i_721_] == -1 || !Rasterizer.anInterface5_973.method16(class180_sub2.aShortArray2850[i_721_] & 0xffff, (byte) 26))) {
+		final int[] is = new int[class180_sub2.triangleCount];
+		anIntArray3875 = new int[class180_sub2.vertexCount + 1];
+		for (int i_721_ = 0; i_721_ < class180_sub2.triangleCount; i_721_++) {
+			if ((class180_sub2.aByteArray2895 == null || class180_sub2.aByteArray2895[i_721_] != 2) && (class180_sub2.aShortArray2850 == null || class180_sub2.aShortArray2850[i_721_] == -1 || !Rasterizer.anInterface5_973.method16(class180_sub2.aShortArray2850[i_721_] & 0xffff))) {
 				is[anInt3867++] = i_721_;
 				anIntArray3875[class180_sub2.trianglesA[i_721_]]++;
 				anIntArray3875[class180_sub2.trianglesB[i_721_]]++;
@@ -2911,11 +2911,11 @@ final class HDModel extends AbstractModel {
 			if (class180_sub2.aShortArray2850 != null) {
 				i_728_ = class180_sub2.aShortArray2850[i_723_];
 				if (i_728_ != -1) {
-					i_726_ = Rasterizer.anInterface5_973.method18(i_728_ & 0xffff, 255);
-					i_727_ = Rasterizer.anInterface5_973.method29(i_728_ & 0xffff, 114);
+					i_726_ = Rasterizer.anInterface5_973.method18(i_728_ & 0xffff);
+					i_727_ = Rasterizer.anInterface5_973.method29(i_728_ & 0xffff);
 				}
 			}
-			final boolean bool_729_ = class180_sub2.aByteArray2864 != null && class180_sub2.aByteArray2864[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(-1, i_728_ & 0xffff);
+			final boolean bool_729_ = class180_sub2.aByteArray2864 != null && class180_sub2.aByteArray2864[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(i_728_ & 0xffff);
 			if ((bool || bool_729_) && class180_sub2.aByteArray2879 != null) {
 				i_724_ += class180_sub2.aByteArray2879[i_723_] << 17;
 			}
@@ -2929,12 +2929,12 @@ final class HDModel extends AbstractModel {
 			ls[i_722_] = ((long) i_724_ << 32) + i_725_;
 		}
 		MapFunctionType.method642(is, ls);
-		this.anInt3862 = class180_sub2.anInt2896;
+		this.anInt3862 = class180_sub2.vertexCount;
 		anInt3861 = class180_sub2.anInt2886;
 		this.anIntArray3878 = class180_sub2.xVertices;
 		this.anIntArray3856 = class180_sub2.yVertices;
 		this.anIntArray3845 = class180_sub2.zVertices;
-		anIntArray3850 = class180_sub2.vertexVSkins;
+		anIntArray3850 = class180_sub2.vertexLabelIds;
 		aShortArray3876 = class180_sub2.aShortArray2852;
 		this.aClass158Array3892 = class180_sub2.aClass158Array2871;
 		this.aClass169Array3858 = class180_sub2.aClass169Array2887;
@@ -2951,7 +2951,7 @@ final class HDModel extends AbstractModel {
 		aShortArray3877 = new short[anInt3867];
 		aShortArray3879 = new short[anInt3867];
 		aShortArray3855 = new short[anInt3867];
-		if (class180_sub2.anIntArray2872 != null) {
+		if (class180_sub2.triangleLabelIds != null) {
 			aByteArray3872 = new byte[anInt3867];
 		}
 		if (class180_sub2.aShortArray2867 != null) {
@@ -3314,7 +3314,7 @@ final class HDModel extends AbstractModel {
 				aShortArray3855[i_758_] = (short) -1;
 			}
 			if (aByteArray3872 != null) {
-				aByteArray3872[i_758_] = (byte) class180_sub2.anIntArray2872[i_759_];
+				aByteArray3872[i_758_] = (byte) class180_sub2.triangleLabelIds[i_759_];
 			}
 			aShortArray3857[i_758_] = class180_sub2.triangleColors[i_759_];
 			if (class180_sub2.aByteArray2864 != null) {

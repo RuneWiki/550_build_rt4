@@ -35,7 +35,7 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 			final int i_5_ = 65536 / i_4_;
 			final int[][][] is_6_ = new int[i_2_][][];
 			for (int i_7_ = i + -anInt3436; i - -anInt3436 >= i_7_; i_7_++) {
-				final int[][] is_8_ = method1179(0, i_7_ & Class120_Sub29.anInt2774, (byte) -51);
+				final int[][] is_8_ = method1179(0, i_7_ & Class120_Sub29.anInt2774);
 				final int[][] is_9_ = new int[3][Class120_Sub12_Sub7.anInt3178];
 				int i_10_ = 0;
 				int i_11_ = 0;
@@ -110,16 +110,6 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 			} while (false);
 			this.aBoolean2558 = buffer.getUByte() == 1;
 		} while (false);
-	}
-
-	static int method1397(final int i, final int i_34_) {
-		int i_35_;
-		try {
-			i_35_ = i ^ i_34_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vi.R(").append(i).append(',').append(i_34_).append(')').toString());
-		}
-		return i_35_;
 	}
 
 	@Override

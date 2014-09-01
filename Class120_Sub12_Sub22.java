@@ -11,7 +11,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	private int anInt3300 = 32768;
 	static int redrawRate = 0;
 	static int anInt3302;
-	static Class120_Sub14_Sub8 boldFont;
+	static AbstractFont boldFont;
 
 	static final AbstractModel method1319(final int i, final AbstractModel class180_sub7, final int i_0_, final int i_1_, final int i_3_, final int i_4_) {
 		final long l = i_1_;
@@ -34,17 +34,17 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		}
 		if (!HDToolkit.glEnabled) {
 			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_6_;
-			if (i_3_ != Class22.getTileHeight(Class173.gameLevel, i_7_ + i_4_, i_0_ - -i_9_) || Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_10_ + i_0_) != i_3_) {
+			if (i_3_ != Class22.getTileHeight(i_7_ + i_4_, i_0_ - -i_9_, Class173.gameLevel) || Class22.getTileHeight(i_8_ + i_4_, i_10_ + i_0_, Class173.gameLevel) != i_3_) {
 				for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
-					class180_sub7_sub1.yVertices[i_11_] += Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_) + -i_3_;
+					class180_sub7_sub1.yVertices[i_11_] += Class22.getTileHeight(i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_, Class173.gameLevel) + -i_3_;
 				}
 				class180_sub7_sub1.boundsCalculated = false;
 			}
 		} else {
 			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_6_;
-			if (Class22.getTileHeight(Class173.gameLevel, i_4_ - -i_7_, i_0_ + i_9_) != i_3_ || i_3_ != Class22.getTileHeight(Class173.gameLevel, i_8_ + i_4_, i_0_ - -i_10_)) {
+			if (Class22.getTileHeight(i_4_ - -i_7_, i_0_ + i_9_, Class173.gameLevel) != i_3_ || i_3_ != Class22.getTileHeight(i_8_ + i_4_, i_0_ - -i_10_, Class173.gameLevel)) {
 				for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
-					class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.getTileHeight(Class173.gameLevel, i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_]);
+					class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.getTileHeight(i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_], Class173.gameLevel);
 				}
 				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
 				class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
@@ -90,18 +90,11 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		return is_14_;
 	}
 
-	static final void method1321(final int i, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_) {
-		try {
-			if (i_27_ != 2453) {
-				boldFont = null;
-			}
-			if (Class32.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > IdentityKit.anInt1334) {
-				Class120_Sub12.method1194(i, i_26_, i_28_, i_27_ + -2449, i_29_, i_25_);
-			} else {
-				FileSystem.method446(i_28_, i, 0, i_25_, i_29_, i_26_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ph.T(").append(i).append(',').append(i_25_).append(',').append(i_26_).append(',').append(i_27_).append(',').append(i_28_).append(',').append(i_29_).append(')').toString());
+	static final void method1321(final int i, final int i_25_, final int i_26_, final int i_28_, final int i_29_) {
+		if (Class32.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > IdentityKit.anInt1334) {
+			Class120_Sub12.method1194(i, i_26_, i_28_, i_29_, i_25_);
+		} else {
+			FileSystem.method446(i_28_, i, i_25_, i_29_, i_26_);
 		}
 	}
 
@@ -110,7 +103,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	}
 
 	static final void method1322() {
-		final int leftMargin = Class120_Sub28.leftMargin;
+		final int leftMargin = ReflectionCheckNode.leftMargin;
 		final int topMargin = Class186.topMargin;
 		final int i_33_ = Class120_Sub12_Sub7.frameWidth - Class69_Sub1.canvasWidth - leftMargin;
 		final int i_32_ = PlayerAppearance.frameHeight - Class120_Sub12_Sub5.canvasHeight - topMargin;
@@ -184,7 +177,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				final int i_49_ = FileSystemWorker.anIntArray789[i_47_] * i_46_ >> 12;
 				final int i_50_ = Class32.anInt259 & (i_49_ >> 12) + i_45_;
 				final int i_51_ = (i_48_ >> 12) + i & Class120_Sub29.anInt2774;
-				final int[][] is_52_ = method1179(0, i_51_, (byte) -51);
+				final int[][] is_52_ = method1179(0, i_51_);
 				is_42_[i_45_] = is_52_[0][i_50_];
 				is_43_[i_45_] = is_52_[1][i_50_];
 				is_44_[i_45_] = is_52_[2][i_50_];

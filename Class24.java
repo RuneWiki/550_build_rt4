@@ -26,7 +26,7 @@ final class Class24 {
 		MapFunctionType.anInt639 = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		SeqType.anInt333 = -1;
-		Class88.anInt827 = 0;
+		Class88.timoutCycle = 0;
 		Class23.packetType = -1;
 		Canvas_Sub1.inputStream.pos = 0;
 		for (int i_0_ = 0; i_0_ < Class187.hintIcons.length; i_0_++) {
@@ -43,7 +43,7 @@ final class Class24 {
 		Class164.anInt1590 = (int) (120.0 * Math.random()) - 60;
 		Class120_Sub16.messageCount = 0;
 		DummyOutputStream.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
-		Class120_Sub14_Sub1.anInt3447 = -40 + (int) (Math.random() * 80.0);
+		ProjectileNode.anInt3447 = -40 + (int) (Math.random() * 80.0);
 		Class88.spellSelected = false;
 		Light.objSelected = 0;
 		Class29.anInt195 = (int) (110.0 * Math.random()) - 55;
@@ -59,7 +59,7 @@ final class Class24 {
 			Class120_Sub12_Sub11.npcList[i_3_] = null;
 		}
 		TileParticleQueue.selfPlayer = Class118.playersList[2047] = new Player();
-		FileSystemRequest.aClass105_3928.clear();
+		FileSystemRequest.projectileDeque.clear();
 		Class120_Sub12_Sub7.aClass105_3177.clear();
 		if (ClientScript.groundObjects != null) {
 			for (int i_4_ = 0; i_4_ < 4; i_4_++) {
@@ -74,7 +74,7 @@ final class Class24 {
 		ObjectPile.friendsServerStatus = 0;
 		ProducingGraphicsBuffer.friendCount = 0;
 		Class33.resetVarp();
-		LookupTable.method489((byte) -44);
+		LookupTable.clearInterfaceChanges();
 		Class101_Sub1.anInt2272 = 0;
 		InterfaceListener.anInt2546 = 0;
 		ObjectContainer.anInt2621 = 0;
@@ -106,16 +106,16 @@ final class Class24 {
 			InterfaceListener.playerOptionsOnTop[i_8_] = false;
 			AbstractRequest.playerOptionsIcon[i_8_] = -1;
 		}
-		Class28.method243(true);
+		ObjectContainer.objectContainerCache = new Hashtable(32);
 		Class69.aBoolean615 = true;
 		for (int i_9_ = 0; i_9_ < 100; i_9_++) {
 			MasterIndexInfo.needInterfaceRedrawWrapper[i_9_] = true;
 		}
-		Class120_Sub28.clanMembers = null;
+		ReflectionCheckNode.clanMembers = null;
 		InterfaceChangeNode.clanName = null;
 		Class120_Sub14_Sub13.clanMembersAmount = 0;
 		for (int i_10_ = 0; i_10_ < 6; i_10_++) {
-			Class120_Sub3.grandExchangeObjects[i_10_] = new GrandExchangeObject();
+			LongNode.grandExchangeObjects[i_10_] = new GrandExchangeObject();
 		}
 		for (int i_11_ = 0; i_11_ < 25; i_11_++) {
 			SceneGraphNode.skillsLevel[i_11_] = 0;

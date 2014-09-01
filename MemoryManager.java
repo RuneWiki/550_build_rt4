@@ -3,73 +3,61 @@
  */
 import javax.media.opengl.GL;
 
-final class Class113 {
+/**
+ * Probably not a good name for it, all it does is clear buffers, textures, lists and gc every now and then.
+ */
+final class MemoryManager {
 	static int anInt1081 = 0;
 	static int anInt1082 = 0;
 	static int anInt1083;
 	private static long aLong1084 = 0L;
-	private static Deque aClass105_1085;
+	private static Deque buffersDeque;
 	static int anInt1086 = 0;
-	private static Deque aClass105_1087;
-	private static Deque aClass105_1088;
-	private static Deque aClass105_1089;
-	private static Deque aClass105_1090;
-	private static Deque aClass105_1091;
+	private static Deque texturesDeque;
+	private static Deque texturesDeque2;
+	private static Deque listsDeque;
+	private static Deque objectsARBDeque;
+	private static Deque objectsARBDeque2;
 	private static int[] anIntArray1092;
 
 	static {
 		anInt1083 = 0;
-		aClass105_1085 = new Deque();
-		aClass105_1087 = new Deque();
-		aClass105_1088 = new Deque();
-		aClass105_1089 = new Deque();
-		aClass105_1090 = new Deque();
-		aClass105_1091 = new Deque();
+		buffersDeque = new Deque();
+		texturesDeque = new Deque();
+		texturesDeque2 = new Deque();
+		listsDeque = new Deque();
+		objectsARBDeque = new Deque();
+		objectsARBDeque2 = new Deque();
 		anIntArray1092 = new int[1000];
 	}
-
-	static final synchronized void method994(final int i, final Class37[] class37s, final int i_0_) {
-		if (i_0_ == anInt1083) {
-			aClass105_1090.addLast(new Class120_Sub27(i, class37s));
-		}
-	}
-
 	static final synchronized void method995() {
 		anInt1083++;
-		aClass105_1085.clear();
-		aClass105_1087.clear();
-		aClass105_1088.clear();
-		aClass105_1089.clear();
-		aClass105_1090.clear();
-		aClass105_1091.clear();
+		buffersDeque.clear();
+		texturesDeque.clear();
+		texturesDeque2.clear();
+		listsDeque.clear();
+		objectsARBDeque.clear();
+		objectsARBDeque2.clear();
 		anInt1082 = 0;
 		anInt1086 = 0;
 		anInt1081 = 0;
 	}
 
-	static final synchronized void method996(final int i, final int i_1_) {
-		if (i_1_ == anInt1083) {
-			final IntegerNode class120_sub32 = new IntegerNode();
-			class120_sub32.uid = i;
-			aClass105_1089.addLast(class120_sub32);
-		}
-	}
-
 	public static void method997() {
-		aClass105_1085 = null;
-		aClass105_1087 = null;
-		aClass105_1088 = null;
-		aClass105_1089 = null;
-		aClass105_1090 = null;
-		aClass105_1091 = null;
+		buffersDeque = null;
+		texturesDeque = null;
+		texturesDeque2 = null;
+		listsDeque = null;
+		objectsARBDeque = null;
+		objectsARBDeque2 = null;
 		anIntArray1092 = null;
 	}
 
-	static final synchronized void method998() {
+	static final synchronized void process() {
 		final GL gl = HDToolkit.gl;
 		int i = 0;
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1085.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) buffersDeque.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -85,7 +73,7 @@ final class Class113 {
 			i = 0;
 		}
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1087.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) texturesDeque.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -97,7 +85,7 @@ final class Class113 {
 			}
 		}
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1088.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) texturesDeque2.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -112,7 +100,7 @@ final class Class113 {
 			gl.glDeleteTextures(i, anIntArray1092, 0);
 		}
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1089.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) listsDeque.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -120,7 +108,7 @@ final class Class113 {
 			gl.glDeleteLists(i_2_, 1);
 		}
 		for (;;) {
-			final Class120_Sub27 class120_sub27 = (Class120_Sub27) aClass105_1090.removeFront();
+			final Class120_Sub27 class120_sub27 = (Class120_Sub27) objectsARBDeque.removeFront();
 			if (class120_sub27 == null) {
 				break;
 			}
@@ -130,7 +118,7 @@ final class Class113 {
 			gl.glDeleteObjectARB(class120_sub27.anInt2749);
 		}
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) aClass105_1091.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) objectsARBDeque2.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -139,23 +127,16 @@ final class Class113 {
 		}
 		if (anInt1082 + anInt1086 + anInt1081 > 100663296 && TimeUtil.getSafeTime() > aLong1084 + 60000L) {
 			System.gc();
+			System.out.println("gc memory manager");
 			aLong1084 = TimeUtil.getSafeTime();
 		}
 	}
-
-	static final synchronized void method999(final int i, final int i_5_, final int i_6_) {
-		if (i_6_ == anInt1083) {
-			final IntegerNode class120_sub32 = new IntegerNode(i_5_);
-			class120_sub32.uid = i;
-			aClass105_1088.addLast(class120_sub32);
-		}
-	}
-
-	static final synchronized void method1000(final int i, final int i_7_, final int i_8_) {
+	
+	static final synchronized void method1000(final int id, final int i_7_, final int i_8_) {
 		if (i_8_ == anInt1083) {
 			final IntegerNode class120_sub32 = new IntegerNode(i_7_);
-			class120_sub32.uid = i;
-			aClass105_1085.addLast(class120_sub32);
+			class120_sub32.uid = id;
+			buffersDeque.addLast(class120_sub32);
 		}
 	}
 
@@ -163,7 +144,29 @@ final class Class113 {
 		if (i_10_ == anInt1083) {
 			final IntegerNode class120_sub32 = new IntegerNode(i_9_);
 			class120_sub32.uid = i;
-			aClass105_1087.addLast(class120_sub32);
+			texturesDeque.addLast(class120_sub32);
+		}
+	}
+
+	static final synchronized void method999(final int i, final int i_5_, final int i_6_) {
+		if (i_6_ == anInt1083) {
+			final IntegerNode class120_sub32 = new IntegerNode(i_5_);
+			class120_sub32.uid = i;
+			texturesDeque2.addLast(class120_sub32);
+		}
+	}
+	
+	static final synchronized void method996(final int i, final int i_1_) {
+		if (i_1_ == anInt1083) {
+			final IntegerNode class120_sub32 = new IntegerNode();
+			class120_sub32.uid = i;
+			listsDeque.addLast(class120_sub32);
+		}
+	}
+	
+	static final synchronized void method994(final int i, final Class37[] class37s, final int i_0_) {
+		if (i_0_ == anInt1083) {
+			objectsARBDeque.addLast(new Class120_Sub27(i, class37s));
 		}
 	}
 
@@ -171,7 +174,8 @@ final class Class113 {
 		if (i_11_ == anInt1083) {
 			final IntegerNode class120_sub32 = new IntegerNode();
 			class120_sub32.uid = i;
-			aClass105_1091.addLast(class120_sub32);
+			objectsARBDeque2.addLast(class120_sub32);
 		}
 	}
+
 }

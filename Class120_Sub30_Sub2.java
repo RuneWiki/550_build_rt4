@@ -178,7 +178,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	private final synchronized void method1752(final boolean bool, final int i, final Class120_Sub31 class120_sub31, final boolean bool_22_) {
 		try {
-			method1779(120, bool_22_);
+			method1779(bool_22_);
 			aClass62_3701.method559(class120_sub31.aByteArray2785);
 			aLong3702 = 0L;
 			aBoolean3705 = bool;
@@ -196,17 +196,9 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	final synchronized void method1753(final byte i) {
-		try {
-			Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst();
-			if (i <= 58) {
-				method1734(null, -33, -87);
-			}
-			for (/**/; class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
-				class120_sub22.unlink();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.W(").append(i).append(')').toString());
+	final synchronized void method1753() {
+		for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst(); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
+			class120_sub22.unlink();
 		}
 	}
 
@@ -335,17 +327,8 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	final int method1757(final boolean bool) {
-		int i;
-		try {
-			if (bool) {
-				anIntArray3687 = null;
-			}
-			i = anInt3686;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.AA(").append(bool).append(')').toString());
-		}
-		return i;
+	final int method1757() {
+		return anInt3686;
 	}
 
 	private final void method1758(final byte i, final int i_37_) {
@@ -607,17 +590,8 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	final synchronized boolean method1766(final byte i) {
-		boolean bool;
-		try {
-			if (i != 70) {
-				return true;
-			}
-			bool = aClass62_3701.method562();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.G(").append(i).append(')').toString());
-		}
-		return bool;
+	final synchronized boolean method1766() {
+		return aClass62_3701.method562();
 	}
 
 	@Override
@@ -771,14 +745,8 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	final synchronized void method1770(final int i) {
-		try {
-			if (i == 21229) {
-				method1779(101, true);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.NA(").append(i).append(')').toString());
-		}
+	final synchronized void method1770() {
+		method1779(true);
 	}
 
 	final void method1771(final Class120_Sub6 class120_sub6, final byte i, final boolean bool) {
@@ -971,14 +939,10 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		}
 	}
 
-	private final synchronized void method1779(final int i, final boolean bool) {
-		try {
-			aClass62_3701.method556();
-			aClass120_Sub31_3708 = null;
-			method1768(0, bool);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.M(").append(i).append(',').append(bool).append(')').toString());
-		}
+	private final synchronized void method1779(final boolean bool) {
+		aClass62_3701.method556();
+		aClass120_Sub31_3708 = null;
+		method1768(0, bool);
 	}
 
 	final synchronized boolean method1780(final int i, final int i_92_, final Class120_Sub31 class120_sub31, final js5 js5, final Class90 class90) {
@@ -991,7 +955,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 				is = new int[] { i };
 			}
 			if (i_92_ != 0) {
-				method1757(false);
+				method1757();
 			}
 			for (Class120_Sub11 class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getFirst(); class120_sub11 != null; class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getNext()) {
 				final int i_94_ = (int) class120_sub11.uid;

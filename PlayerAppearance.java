@@ -12,7 +12,7 @@ final class PlayerAppearance {
 	int[] colors;
 	boolean isFemale;
 	static int anInt1372 = 0;
-	static Class98 aClass98_1373;
+	static WorldMapFont aClass98_1373;
 	private long aLong1374;
 	int npcId;
 	private int[] anIntArray1376;
@@ -171,10 +171,10 @@ final class PlayerAppearance {
 				for (int i_28_ = 0; i_28_ < 12; i_28_++) {
 					final int i_29_ = is[i_28_];
 					if ((i_29_ & 0x40000000) != 0) {
-						if (!ObjType.list(i_29_ & 0x3fffffff).method2110((byte) 98, this.isFemale)) {
+						if (!ObjType.list(i_29_ & 0x3fffffff).method2110(this.isFemale)) {
 							bool_27_ = true;
 						}
-					} else if ((~0x7fffffff & i_29_) != 0 && !IdentityKit.list(i_29_ & 0x3fffffff).method1990((byte) -106)) {
+					} else if ((~0x7fffffff & i_29_) != 0 && !IdentityKit.list(i_29_ & 0x3fffffff).method1990()) {
 						bool_27_ = true;
 					}
 				}
@@ -191,12 +191,12 @@ final class PlayerAppearance {
 					for (int i_30_ = 0; i_30_ < 12; i_30_++) {
 						final int i_31_ = is[i_30_];
 						if ((i_31_ & 0x40000000) != 0) {
-							final Class180_Sub2 class180_sub2 = ObjType.list(i_31_ & 0x3fffffff).method2103(this.isFemale, false);
+							final Class180_Sub2 class180_sub2 = ObjType.list(i_31_ & 0x3fffffff).method2103(this.isFemale);
 							if (class180_sub2 != null) {
 								class180_sub2s[i_30_] = class180_sub2;
 							}
 						} else if ((~0x7fffffff & i_31_) != 0) {
-							final Class180_Sub2 class180_sub2 = IdentityKit.list(0x3fffffff & i_31_).method1986((byte) 86);
+							final Class180_Sub2 class180_sub2 = IdentityKit.list(0x3fffffff & i_31_).method1986();
 							if (class180_sub2 != null) {
 								class180_sub2s[i_30_] = class180_sub2;
 							}
@@ -255,7 +255,7 @@ final class PlayerAppearance {
 									class180_sub2s[i_32_].method2293(i_36_, i_38_, i_37_);
 								}
 								if (i_33_ != 0 || i_34_ != 0 || i_35_ != 0) {
-									class180_sub2s[i_32_].method2282(i_33_, i_34_, i_35_);
+									class180_sub2s[i_32_].translate(i_33_, i_34_, i_35_);
 								}
 							}
 						}
@@ -430,7 +430,7 @@ final class PlayerAppearance {
 			if (class180_sub7_82_ == null) {
 				int i_83_ = 0;
 				final Class180_Sub2[] class180_sub2s = new Class180_Sub2[3];
-				if (!IdentityKit.list(i_80_).method1993(-32390) || !IdentityKit.list(i_76_).method1993(i + -32384) || !IdentityKit.list(i_77_).method1993(i ^ 0x7e80)) {
+				if (!IdentityKit.list(i_80_).method1993() || !IdentityKit.list(i_76_).method1993() || !IdentityKit.list(i_77_).method1993()) {
 					return null;
 				}
 				Class180_Sub2 class180_sub2 = IdentityKit.list(i_80_).method1985();
@@ -458,7 +458,7 @@ final class PlayerAppearance {
 				Class90.playerHeadModelsCache.put(class180_sub7_82_, l);
 			}
 			if (seqType != null) {
-				class180_sub7_82_ = seqType.method323(false, i_79_, i_81_, class180_sub7_82_, i_78_);
+				class180_sub7_82_ = seqType.method323(class180_sub7_82_, i_79_, i_81_, i_78_);
 			}
 			if (i != -6) {
 				return null;
@@ -497,7 +497,7 @@ final class PlayerAppearance {
 
 	final int method2043() {
 		if (this.npcId != -1) {
-			return NpcType.list(this.npcId).id + 305419896;
+			return NpcType.list(this.npcId).myId + 305419896;
 		}
 		return (anIntArray1376[8] << 10) + (this.colors[0] << 25) + (this.colors[4] << 20) + (anIntArray1376[0] << 15) + (anIntArray1376[11] << 5) - -anIntArray1376[1];
 	}
@@ -512,10 +512,10 @@ final class PlayerAppearance {
 			for (int i_95_ = 0; i_95_ < 12; i_95_++) {
 				final int i_96_ = anIntArray1376[i_95_];
 				if ((i_96_ & 0x40000000) == 0) {
-					if ((~0x7fffffff & i_96_) != 0 && !IdentityKit.list(i_96_ & 0x3fffffff).method1993(-32390)) {
+					if ((~0x7fffffff & i_96_) != 0 && !IdentityKit.list(i_96_ & 0x3fffffff).method1993()) {
 						bool = true;
 					}
-				} else if (!ObjType.list(0x3fffffff & i_96_).method2116(this.isFemale, 0)) {
+				} else if (!ObjType.list(0x3fffffff & i_96_).method2116(this.isFemale)) {
 					bool = true;
 				}
 			}
@@ -527,7 +527,7 @@ final class PlayerAppearance {
 			for (int i_98_ = 0; i_98_ < 12; i_98_++) {
 				final int i_99_ = anIntArray1376[i_98_];
 				if ((0x40000000 & i_99_) != 0) {
-					final Class180_Sub2 class180_sub2 = ObjType.list(i_99_ & 0x3fffffff).method2107(-20152, this.isFemale);
+					final Class180_Sub2 class180_sub2 = ObjType.list(i_99_ & 0x3fffffff).method2107(this.isFemale);
 					if (class180_sub2 != null) {
 						class180_sub2s[i_97_++] = class180_sub2;
 					}
@@ -551,7 +551,7 @@ final class PlayerAppearance {
 			Class90.playerHeadModelsCache.put(class180_sub7_94_, aLong1365);
 		}
 		if (seqType != null) {
-			class180_sub7_94_ = seqType.method323(false, i, i_91_, class180_sub7_94_, i_92_);
+			class180_sub7_94_ = seqType.method323(class180_sub7_94_, i, i_91_, i_92_);
 		}
 		return class180_sub7_94_;
 	}

@@ -475,16 +475,16 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 								final Light light = new Light(class120_sub7);
 								if (light.anInt376 == 31) {
 									final Class181 class181 = Class120_Sub12_Sub3.method1208(class120_sub7.getUShort(), (byte) -72);
-									light.method347(class181.anInt1789, 1056, class181.anInt1786, class181.anInt1788, class181.anInt1787);
+									light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 								}
-								light.anInt395 += i_20_ << 7;
-								light.anInt373 += i_19_ << 7;
-								final int i_53_ = light.anInt395 >> 7;
-								final int i_54_ = light.anInt373 >> 7;
+								light.x += i_20_ << 7;
+								light.z += i_19_ << 7;
+								final int i_53_ = light.x >> 7;
+								final int i_54_ = light.z >> 7;
 								if (i_53_ >= 0 && i_54_ >= 0 && i_53_ < 104 && i_54_ < 104) {
 									light.aBoolean385 = (Class114.tileSettings[1][i_53_][i_54_] & 0x2) != 0;
-									light.anInt375 = OverridedJInterface.tileHeightMap[light.anInt384][i_53_][i_54_] - light.anInt375;
-									LightManager.method1860(light);
+									light.y = OverridedJInterface.tileHeightMap[light.anInt384][i_53_][i_54_] - light.y;
+									LightManager.addLight(light);
 								}
 							}
 						}
@@ -545,7 +545,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		try {
 			if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
 				if (i_70_ == 0) {
-					final Class182 class182 = Deque.method894(i_68_, i_66_, i_69_);
+					final Class182 class182 = Deque.method894(i_66_, i_69_, i_68_);
 					if (class182 != null) {
 						final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
 						if (i_72_ == 2) {

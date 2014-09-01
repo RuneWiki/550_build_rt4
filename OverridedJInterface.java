@@ -13,147 +13,137 @@ import java.lang.reflect.Method;
 
 final class OverridedJInterface extends Node {
 	static int worldOff;
-	static Class98 aClass98_2739;
+	static WorldMapFont aClass98_2739;
 	static int anInt2740;
 	static int[][][] tileHeightMap;
 	static int anInt2742 = 0;
 	static int[] anIntArray2743 = { 2047, 16383, 65535 };
 	int type;
 	int interfaceId;
-	static Deque aClass105_2746;
+	static Deque reflectionCheckDeque;
 	static int loadingBarPercent;
 
 	static {
 		anInt2740 = 0;
 		loadingBarPercent = 10;
-		aClass105_2746 = new Deque();
+		reflectionCheckDeque = new Deque();
 	}
 
-	static final void method1722(final PacketBuffer class120_sub7_sub1, final boolean bool, final int i) {
-		try {
-			if (!bool) {
-				aClass105_2746 = null;
+	static final void processReflectionChecks(final PacketBuffer packetBuffer) {
+		for (;;) {
+			final ReflectionCheckNode reflectionCheckNode = (ReflectionCheckNode) reflectionCheckDeque.getFront();
+			if (reflectionCheckNode == null) {
+				break;
 			}
-			for (;;) {
-				final Class120_Sub28 class120_sub28 = (Class120_Sub28) aClass105_2746.getFront();
-				if (class120_sub28 == null) {
-					break;
-				}
-				boolean bool_0_ = false;
-				for (int i_1_ = 0; class120_sub28.anInt2753 > i_1_; i_1_++) {
-					if (class120_sub28.aClass185Array2755[i_1_] != null) {
-						if (class120_sub28.aClass185Array2755[i_1_].status == 2) {
-							class120_sub28.anIntArray2763[i_1_] = -5;
-						}
-						if (class120_sub28.aClass185Array2755[i_1_].status == 0) {
-							bool_0_ = true;
-						}
+			boolean shouldNotSend = false;
+			for (int id = 0; id < reflectionCheckNode.count; id++) {
+				if (reflectionCheckNode.fieldsInformationNode[id] != null) {
+					if (reflectionCheckNode.fieldsInformationNode[id].status == 2) {
+						reflectionCheckNode.errorTypes[id] = -5;
 					}
-					if (class120_sub28.aClass185Array2760[i_1_] != null) {
-						if (class120_sub28.aClass185Array2760[i_1_].status == 2) {
-							class120_sub28.anIntArray2763[i_1_] = -6;
-						}
-						if (class120_sub28.aClass185Array2760[i_1_].status == 0) {
-							bool_0_ = true;
-						}
+					if (reflectionCheckNode.fieldsInformationNode[id].status == 0) {
+						shouldNotSend = true;
 					}
 				}
-				if (bool_0_) {
-					break;
+				if (reflectionCheckNode.methodsInformationNode[id] != null) {
+					if (reflectionCheckNode.methodsInformationNode[id].status == 2) {
+						reflectionCheckNode.errorTypes[id] = -6;
+					}
+					if (reflectionCheckNode.methodsInformationNode[id].status == 0) {
+						shouldNotSend = true;
+					}
 				}
-				class120_sub7_sub1.putByteIsaac(i);
-				class120_sub7_sub1.putByte(0);
-				final int i_2_ = class120_sub7_sub1.pos;
-				class120_sub7_sub1.putInt(class120_sub28.anInt2757);
-				for (int i_3_ = 0; i_3_ < class120_sub28.anInt2753; i_3_++) {
-					if (class120_sub28.anIntArray2763[i_3_] != 0) {
-						class120_sub7_sub1.putByte(class120_sub28.anIntArray2763[i_3_]);
-					} else {
-						try {
-							final int i_4_ = class120_sub28.anIntArray2756[i_3_];
-							if (i_4_ == 0) {
-								final Field field = (Field) class120_sub28.aClass185Array2755[i_3_].value;
-								final int i_5_ = field.getInt(null);
-								class120_sub7_sub1.putByte(0);
-								class120_sub7_sub1.putInt(i_5_);
-							} else if (i_4_ == 1) {
-								final Field field = (Field) class120_sub28.aClass185Array2755[i_3_].value;
-								field.setInt(null, class120_sub28.anIntArray2752[i_3_]);
-								class120_sub7_sub1.putByte(0);
-							} else if (i_4_ == 2) {
-								final Field field = (Field) class120_sub28.aClass185Array2755[i_3_].value;
-								final int i_6_ = field.getModifiers();
-								class120_sub7_sub1.putByte(0);
-								class120_sub7_sub1.putInt(i_6_);
+			}
+			if (shouldNotSend) {
+				break;
+			}
+			packetBuffer.putByteIsaac(78);
+			packetBuffer.putByte(0);
+			final int startPos = packetBuffer.pos;
+			packetBuffer.putInt(reflectionCheckNode.uid);
+			for (int id = 0; id < reflectionCheckNode.count; id++) {
+				if (reflectionCheckNode.errorTypes[id] != 0) {
+					packetBuffer.putByte(reflectionCheckNode.errorTypes[id]);
+				} else {
+					try {
+						final int type = reflectionCheckNode.checkTypes[id];
+						if (type == 0) {
+							final Field field = (Field) reflectionCheckNode.fieldsInformationNode[id].value;
+							final int fieldValue = field.getInt(null);
+							packetBuffer.putByte(0);
+							packetBuffer.putInt(fieldValue);
+						} else if (type == 1) {
+							final Field field = (Field) reflectionCheckNode.fieldsInformationNode[id].value;
+							field.setInt(null, reflectionCheckNode.fieldsValue[id]);
+							packetBuffer.putByte(0);
+						} else if (type == 2) {
+							final Field field = (Field) reflectionCheckNode.fieldsInformationNode[id].value;
+							final int fieldModifier = field.getModifiers();
+							packetBuffer.putByte(0);
+							packetBuffer.putInt(fieldModifier);
+						} else if (type == 3) {
+							final Method method = (Method) reflectionCheckNode.methodsInformationNode[id].value;
+							final byte[][] argumentData = reflectionCheckNode.methodsArgumentData[id];
+							final Object[] arguments = new Object[argumentData.length];
+							for (int argId = 0; argId < argumentData.length; argId++) {
+								final ObjectInputStream objectinputstream = new ObjectInputStream(new ByteArrayInputStream(argumentData[argId]));
+								arguments[argId] = objectinputstream.readObject();
 							}
-							if (i_4_ != 3) {
-								if (i_4_ == 4) {
-									final Method method = (Method) class120_sub28.aClass185Array2760[i_3_].value;
-									final int i_7_ = method.getModifiers();
-									class120_sub7_sub1.putByte(0);
-									class120_sub7_sub1.putInt(i_7_);
-								}
+							final Object object = method.invoke(null, arguments);
+							if (object == null) {
+								packetBuffer.putByte(0);
+							} else if (object instanceof Number) {
+								packetBuffer.putByte(1);
+								packetBuffer.putLong(((Number) object).longValue());
+							} else if (object instanceof String) {
+								packetBuffer.putByte(2);
+								packetBuffer.putJagexString((String) object);
 							} else {
-								final Method method = (Method) class120_sub28.aClass185Array2760[i_3_].value;
-								final byte[][] is = class120_sub28.aByteArrayArrayArray2750[i_3_];
-								final Object[] objects = new Object[is.length];
-								for (int i_8_ = 0; i_8_ < is.length; i_8_++) {
-									final ObjectInputStream objectinputstream = new ObjectInputStream(new ByteArrayInputStream(is[i_8_]));
-									objects[i_8_] = objectinputstream.readObject();
-								}
-								final Object object = method.invoke(null, objects);
-								if (object == null) {
-									class120_sub7_sub1.putByte(0);
-								} else if (object instanceof Number) {
-									class120_sub7_sub1.putByte(1);
-									class120_sub7_sub1.putLong(((Number) object).longValue());
-								} else if (object instanceof String) {
-									class120_sub7_sub1.putByte(2);
-									class120_sub7_sub1.putJagexString((String) object);
-								} else {
-									class120_sub7_sub1.putByte(4);
-								}
+								packetBuffer.putByte(4);
 							}
-						} catch (final ClassNotFoundException classnotfoundexception) {
-							class120_sub7_sub1.putByte(-10);
-						} catch (final InvalidClassException invalidclassexception) {
-							class120_sub7_sub1.putByte(-11);
-						} catch (final StreamCorruptedException streamcorruptedexception) {
-							class120_sub7_sub1.putByte(-12);
-						} catch (final OptionalDataException optionaldataexception) {
-							class120_sub7_sub1.putByte(-13);
-						} catch (final IllegalAccessException illegalaccessexception) {
-							class120_sub7_sub1.putByte(-14);
-						} catch (final IllegalArgumentException illegalargumentexception) {
-							class120_sub7_sub1.putByte(-15);
-						} catch (final InvocationTargetException invocationtargetexception) {
-							class120_sub7_sub1.putByte(-16);
-						} catch (final SecurityException securityexception) {
-							class120_sub7_sub1.putByte(-17);
-						} catch (final IOException ioexception) {
-							class120_sub7_sub1.putByte(-18);
-						} catch (final NullPointerException nullpointerexception) {
-							class120_sub7_sub1.putByte(-19);
-						} catch (final Exception exception) {
-							class120_sub7_sub1.putByte(-20);
-						} catch (final Throwable throwable) {
-							class120_sub7_sub1.putByte(-21);
+						} else if (type == 4) {
+							final Method method = (Method) reflectionCheckNode.methodsInformationNode[id].value;
+							final int methodModifier = method.getModifiers();
+							packetBuffer.putByte(0);
+							packetBuffer.putInt(methodModifier);
 						}
+					} catch (final ClassNotFoundException classnotfoundexception) {
+						packetBuffer.putByte(-10);
+					} catch (final InvalidClassException invalidclassexception) {
+						packetBuffer.putByte(-11);
+					} catch (final StreamCorruptedException streamcorruptedexception) {
+						packetBuffer.putByte(-12);
+					} catch (final OptionalDataException optionaldataexception) {
+						packetBuffer.putByte(-13);
+					} catch (final IllegalAccessException illegalaccessexception) {
+						packetBuffer.putByte(-14);
+					} catch (final IllegalArgumentException illegalargumentexception) {
+						packetBuffer.putByte(-15);
+					} catch (final InvocationTargetException invocationtargetexception) {
+						packetBuffer.putByte(-16);
+					} catch (final SecurityException securityexception) {
+						packetBuffer.putByte(-17);
+					} catch (final IOException ioexception) {
+						packetBuffer.putByte(-18);
+					} catch (final NullPointerException nullpointerexception) {
+						packetBuffer.putByte(-19);
+					} catch (final Exception exception) {
+						packetBuffer.putByte(-20);
+					} catch (final Throwable throwable) {
+						packetBuffer.putByte(-21);
 					}
 				}
-				class120_sub7_sub1.putCrc(i_2_);
-				class120_sub7_sub1.putSizedByte(class120_sub7_sub1.pos - i_2_);
-				class120_sub28.unlink();
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rl.A(").append(class120_sub7_sub1 != null ? "{...}" : "null").append(',').append(bool).append(',').append(i).append(')').toString());
+			packetBuffer.putCrc(startPos);
+			packetBuffer.putByteAt(packetBuffer.pos - startPos);
+			reflectionCheckNode.unlink();
 		}
 	}
 
 	public static void method1723(final int i) {
 		try {
 			aClass98_2739 = null;
-			aClass105_2746 = null;
+			reflectionCheckDeque = null;
 			if (i != -11) {
 				tileHeightMap = null;
 			}

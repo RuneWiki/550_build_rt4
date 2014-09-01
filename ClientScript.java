@@ -17,24 +17,18 @@ final class ClientScript extends NodeSub {
 	int intArgumentCount;
 	static int anInt3558 = 0;
 
-	static final void method1522(final int i) {
+	static final void percentToZoom(final int percent) {
 		Class120_Sub2.anInt2422 = -1;
-		if (i != 37) {
-			if (i != 50) {
-				if (i == 75) {
-					Class79.aFloat698 = 6.0F;
-				} else if (i != 100) {
-					if (i == 200) {
-						Class79.aFloat698 = 16.0F;
-					}
-				} else {
-					Class79.aFloat698 = 8.0F;
-				}
-			} else {
-				Class79.aFloat698 = 4.0F;
-			}
-		} else {
-			Class79.aFloat698 = 3.0F;
+		if (percent == 37) {
+			WorldMapHandler.wantedZoom = 3.0F;
+		} else if (percent == 50) {
+			WorldMapHandler.wantedZoom = 4.0F;
+		} else if (percent == 75) {
+			WorldMapHandler.wantedZoom = 6.0F;
+		} else if (percent == 100) {
+			WorldMapHandler.wantedZoom = 8.0F;
+		} else if (percent == 200) {
+			WorldMapHandler.wantedZoom = 16.0F;
 		}
 		Class120_Sub2.anInt2422 = -1;
 	}
@@ -55,7 +49,7 @@ final class ClientScript extends NodeSub {
 	}
 
 	static final ClientScript list(final int id) {
-		ClientScript class120_sub14_sub12_4_ = (ClientScript) OverlayType.aClass35_1219.get(id);
+		ClientScript class120_sub14_sub12_4_ = (ClientScript) UnderlayType.aClass35_1219.get(id);
 		if (class120_sub14_sub12_4_ != null) {
 			return class120_sub14_sub12_4_;
 		}
@@ -64,7 +58,7 @@ final class ClientScript extends NodeSub {
 			return null;
 		}
 		class120_sub14_sub12_4_ = ClientScript.decode(is);
-		OverlayType.aClass35_1219.put(class120_sub14_sub12_4_, id);
+		UnderlayType.aClass35_1219.put(class120_sub14_sub12_4_, id);
 		return class120_sub14_sub12_4_;
 	}
 
@@ -85,7 +79,7 @@ final class ClientScript extends NodeSub {
 			clientScript.aClass75Array3552 = new Hashtable[i_26_];
 			for (int i_27_ = 0; i_26_ > i_27_; i_27_++) {
 				int i_28_ = buffer.getUShort();
-				final Hashtable hashtable = new Hashtable(Class120_Sub12_Sub17.method1283(i_28_));
+				final Hashtable hashtable = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(i_28_));
 				clientScript.aClass75Array3552[i_27_] = hashtable;
 				while (i_28_-- > 0) {
 					final int i_29_ = buffer.getInt();

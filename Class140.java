@@ -99,21 +99,14 @@ final class Class140 {
 		}
 	}
 
-	static final void method1997(final boolean bool, final int i, final int i_22_) {
-		try {
-			if (bool) {
-				updateWorldPlayers(null);
-			}
-			Class2.permanentVariable[i] = i_22_;
-			Class120_Sub3 class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.get(i);
-			if (class120_sub3 == null) {
-				class120_sub3 = new Class120_Sub3(TimeUtil.getSafeTime() - -500L);
-				Class69_Sub3_Sub1.aClass75_3079.put(class120_sub3, i);
-			} else {
-				class120_sub3.aLong2425 = 500L + TimeUtil.getSafeTime();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.E(").append(bool).append(',').append(i).append(',').append(i_22_).append(')').toString());
+	static final void putVarp(final int id, final int value) {
+		Class2.permanentVariable[id] = value;
+		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);
+		if (longNode == null) {
+			longNode = new LongNode(TimeUtil.getSafeTime() + 500L);
+			Class69_Sub3_Sub1.aClass75_3079.put(longNode, id);
+		} else {
+			longNode.value = TimeUtil.getSafeTime() + 500L;
 		}
 	}
 

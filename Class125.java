@@ -4,13 +4,13 @@
 
 final class Class125 implements Interface1 {
 	
-	static Class57 aClass57_2147 = Class167.method2184(-59);
+	static Class57 aClass57_2147 = Class167.method2184();
 	static String[] aStringArray2148 = new String[5];
 	static float aFloat2149;
 	static int[][] anIntArrayArray2150;
 
-	static final AbstractSprite[] constructTransparentSprites(final js5 js5, final int i_0_, final int i_1_) {
-		if (!Class10.decodedSprites(js5, i_1_, i_0_)) {
+	static final AbstractSprite[] constructTransparentSprites(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
 		return Class90.constructTransparentSprites();
@@ -51,17 +51,5 @@ final class Class125 implements Interface1 {
 			return EnumType.list(params[0]).getStringParamValue((int) id);
 		}
 		return null;
-	}
-
-	static final void method1881(final js5 js5, final int i) {
-		try {
-			Class101_Sub4.aClass50_2297 = js5;
-			Buffer.anInt2471 = Class101_Sub4.aClass50_2297.getFileAmount(4);
-			if (i < 26) {
-				aClass57_2147 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oi.D(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
 	}
 }

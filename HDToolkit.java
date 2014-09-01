@@ -4,6 +4,7 @@
 import java.awt.Canvas;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
+import java.util.Arrays;
 import java.util.Locale;
 
 import javax.media.opengl.GL;
@@ -16,28 +17,28 @@ final class HDToolkit {
 	private static int anInt505 = 0;
 	private static int anInt506;
 	static int anInt507;
-	private static boolean aBoolean508;
+	private static boolean depthTestEnabled;
 	static GL gl;
 	static boolean usingBigEndian;
 	private static int anInt511 = -1;
 	private static float aFloat512;
 	static boolean aBoolean513;
 	static boolean aBoolean514;
-	private static int anInt515;
+	private static int maxTextureImageUnits;
 	static int anInt516;
-	private static String aString517;
+	private static String renderer;
 	private static GLDrawable glDrawable;
-	private static String aString519;
+	private static String vendor;
 	static boolean aBoolean520;
 	private static int viewportOffsetY;
 	private static GLContext aGLContext522;
 	static boolean aBoolean523;
 	static int canvasWidth;
 	static boolean aBoolean525;
-	static int anInt526;
+	static int maxTextureUnits;
 	private static int viewportOffsetX;
 	private static boolean aBoolean528;
-	private static boolean aBoolean529;
+	private static boolean lightingEnabled;
 	private static float aFloat530;
 	static boolean aBoolean531;
 	private static float[] aFloatArray532;
@@ -45,33 +46,33 @@ final class HDToolkit {
 	private static float aFloat534;
 	static boolean vertexBufferAsObject;
 	static boolean aBoolean536;
-	static boolean aBoolean537;
+	static boolean allows3DTextureMapping;
 	static int canvasHeight;
-	private static int anInt539;
+	private static int version;
 	static boolean glEnabled;
 	static boolean aBoolean541;
-	static int anInt542;
+	static int loopCycleWrapper;
 	static int anInt543;
 	private static boolean aBoolean544;
 	static boolean aBoolean545;
-	private static int anInt546;
+	private static int texture2D_ID;
 	private static int viewportWidth;
-	private static boolean aBoolean548;
+	private static boolean fogEnabled;
 	private static float aFloat549;
 	static boolean aBoolean550;
 	private static int viewportHeight;
-	private static int anInt552;
+	private static int maxTextureCoords;
 	private static int anInt553;
 
 	static {
-		aBoolean508 = true;
+		depthTestEnabled = true;
 		aFloat534 = 0.0F;
 		aBoolean536 = true;
-		aBoolean529 = true;
-		anInt542 = 0;
+		lightingEnabled = true;
+		loopCycleWrapper = 0;
 		aFloatArray532 = new float[16];
-		anInt546 = -1;
-		aBoolean548 = true;
+		texture2D_ID = -1;
+		fogEnabled = true;
 		anInt506 = -1;
 		glEnabled = false;
 		aFloat530 = 0.0F;
@@ -123,10 +124,10 @@ final class HDToolkit {
 	static final void method499() {
 		Class120_Sub14_Sub13.method1532(0, 0);
 		method515();
-		method514(-1);
-		method524(false);
-		method502(false);
-		method507(false);
+		bindTexture2D(-1);
+		toggleLighting(false);
+		toggleDepthTest(false);
+		toggleFog(false);
 		method509();
 	}
 
@@ -140,18 +141,18 @@ final class HDToolkit {
 		aBoolean528 = false;
 	}
 
-	static final void method502(final boolean bool) {
-		if (bool != aBoolean508) {
-			if (bool) {
+	static final void toggleDepthTest(final boolean value) {
+		if (depthTestEnabled != value) {
+			if (value) {
 				gl.glEnable(2929);
 			} else {
 				gl.glDisable(2929);
 			}
-			aBoolean508 = bool;
+			depthTestEnabled = value;
 		}
 	}
 
-	static final void method503() {
+	static final void disableDepthMask() {
 		gl.glDepthMask(false);
 	}
 
@@ -160,18 +161,18 @@ final class HDToolkit {
 		method515();
 		method511(0);
 		method521(0);
-		method524(false);
-		method502(false);
-		method507(false);
+		toggleLighting(false);
+		toggleDepthTest(false);
+		toggleFog(false);
 		method509();
 	}
 
-	static final void method505() {
+	static final void enableDepthMask() {
 		gl.glDepthMask(true);
 	}
 
 	private static final void method506(final boolean bool) {
-		if (bool != aBoolean536) {
+		if (aBoolean536 != bool) {
 			if (bool) {
 				gl.glEnableClientState(32885);
 			} else {
@@ -181,19 +182,18 @@ final class HDToolkit {
 		}
 	}
 
-	static final void method507(final boolean bool) {
-		if (bool != aBoolean548) {
-			if (bool) {
+	static final void toggleFog(final boolean value) {
+		if (fogEnabled != value) {
+			if (value) {
 				gl.glEnable(2912);
 			} else {
 				gl.glDisable(2912);
 			}
-			aBoolean548 = bool;
+			fogEnabled = value;
 		}
 	}
 
 	private static final int method508(final Canvas canvas, final int i, final GLContext glcontext) {
-		int i_17_;
 		try {
 			if (!canvas.isDisplayable()) {
 				return -1;
@@ -248,19 +248,18 @@ final class HDToolkit {
 				}
 			}
 			gl.glClear(16384);
-			i_17_ = 0;
+			return 0;
 		} catch (final Throwable throwable) {
 			method519();
 			return -5;
 		}
-		return i_17_;
 	}
 
 	static final void method509() {
 		if (aBoolean544) {
-			gl.glMatrixMode(5890);
+			gl.glMatrixMode(5890);//texture
 			gl.glLoadIdentity();
-			gl.glMatrixMode(5888);
+			gl.glMatrixMode(5888);//modelview
 			aBoolean544 = false;
 		}
 	}
@@ -270,31 +269,33 @@ final class HDToolkit {
 		method515();
 		method511(1);
 		method521(1);
-		method524(false);
-		method502(false);
-		method507(false);
+		toggleLighting(false);
+		toggleDepthTest(false);
+		toggleFog(false);
 		method509();
 	}
 
 	static final void method511(final int i) {
-		if (i != anInt505) {
+		if (anInt505 != i) {
+			//8960 = TEXTURE_ENV
+			//34161 = COMBINE_RGB
 			if (i == 0) {
-				gl.glTexEnvi(8960, 34161, 8448);
+				gl.glTexEnvi(8960, 34161, 8448);//MODULATE
 			}
 			if (i == 1) {
-				gl.glTexEnvi(8960, 34161, 7681);
+				gl.glTexEnvi(8960, 34161, 7681);//REPLACE
 			}
 			if (i == 2) {
-				gl.glTexEnvi(8960, 34161, 260);
+				gl.glTexEnvi(8960, 34161, 260);//ADD
 			}
 			if (i == 3) {
-				gl.glTexEnvi(8960, 34161, 34023);
+				gl.glTexEnvi(8960, 34161, 34023);//SUBTRACT
 			}
 			if (i == 4) {
-				gl.glTexEnvi(8960, 34161, 34164);
+				gl.glTexEnvi(8960, 34161, 34164);//ADD_SIGNED
 			}
 			if (i == 5) {
-				gl.glTexEnvi(8960, 34161, 34165);
+				gl.glTexEnvi(8960, 34161, 34165);//INTERPOLATE
 			}
 			anInt505 = i;
 		}
@@ -322,17 +323,17 @@ final class HDToolkit {
 		method496(0, 0, canvasWidth, canvasHeight, i, i_32_, 0.0F, 0.0F, i_33_, i_34_);
 	}
 
-	static final void method514(final int i) {
-		if (i != anInt546) {
-			if (i != -1) {
-				if (anInt546 == -1) {
+	static final void bindTexture2D(final int id) {
+		if (texture2D_ID != id) {
+			if (id == -1) {
+				gl.glDisable(3553);
+			} else {
+				if (texture2D_ID == -1) {
 					gl.glEnable(3553);
 				}
-				gl.glBindTexture(3553, i);
-			} else {
-				gl.glDisable(3553);
+				gl.glBindTexture(3553, id);
 			}
-			anInt546 = i;
+			texture2D_ID = id;
 		}
 	}
 
@@ -349,8 +350,8 @@ final class HDToolkit {
 	}
 
 	public static void method516() {
-		aString517 = null;
-		aString519 = null;
+		renderer = null;
+		vendor = null;
 		gl = null;
 		glDrawable = null;
 		aGLContext522 = null;
@@ -395,7 +396,7 @@ final class HDToolkit {
 			gl = null;
 		}
 		if (aGLContext522 != null) {
-			Class113.method995();
+			MemoryManager.method995();
 			try {
 				if (GLContext.getCurrent() == aGLContext522) {
 					aGLContext522.release();
@@ -453,7 +454,7 @@ final class HDToolkit {
 		gl.glGetIntegerv(3074, is, 1);
 		gl.glDrawBuffer(1026);
 		gl.glReadBuffer(1024);
-		method514(-1);
+		bindTexture2D(-1);
 		gl.glPushAttrib(8192);
 		gl.glDisable(2912);
 		gl.glDisable(3042);
@@ -476,14 +477,14 @@ final class HDToolkit {
 		aBoolean544 = true;
 	}
 
-	static final void method524(final boolean bool) {
-		if (bool != aBoolean529) {
-			if (bool) {
+	static final void toggleLighting(final boolean value) {
+		if (lightingEnabled != value) {
+			if (value) {
 				gl.glEnable(2896);
 			} else {
 				gl.glDisable(2896);
 			}
-			aBoolean529 = bool;
+			lightingEnabled = value;
 		}
 	}
 
@@ -513,10 +514,10 @@ final class HDToolkit {
 	}
 
 	static final int method528() {
-		if (aBoolean531 && (anInt511 <= 0 || anInt506 != Class113.anInt1083)) {
+		if (aBoolean531 && (anInt511 <= 0 || anInt506 != MemoryManager.anInt1083)) {
 			final int[] is = new int[1];
 			gl.glGenFramebuffersEXT(1, is, 0);
-			anInt506 = Class113.anInt1083;
+			anInt506 = MemoryManager.anInt1083;
 			anInt511 = is[0];
 		}
 		return anInt511;
@@ -530,29 +531,29 @@ final class HDToolkit {
 
 	private static final int method530() {
 		int i = 0;
-		aString519 = gl.glGetString(7936);
-		aString517 = gl.glGetString(7937);
-		final String string = aString519.toLowerCase();
-		if (string.indexOf("microsoft") != -1) {
+		vendor = gl.glGetString(7936);
+		renderer = gl.glGetString(7937);
+		final String vendorLowerCase = vendor.toLowerCase();
+		if (vendorLowerCase.indexOf("microsoft") != -1) {
 			i |= 0x1;
 		}
-		if (string.indexOf("brian paul") != -1 || string.indexOf("mesa") != -1) {
+		if (vendorLowerCase.indexOf("brian paul") != -1 || vendorLowerCase.indexOf("mesa") != -1) {
 			i |= 0x1;
 		}
-		final String string_46_ = gl.glGetString(7938);
-		final String[] strings = string_46_.split("[. ]");
+		final String versionString = gl.glGetString(7938);
+		final String[] strings = versionString.split("[. ]");
 		if (strings.length >= 2) {
 			try {
 				final int i_47_ = Integer.parseInt(strings[0]);
 				final int i_48_ = Integer.parseInt(strings[1]);
-				anInt539 = i_47_ * 10 + i_48_;
+				version = i_47_ * 10 + i_48_;
 			} catch (final NumberFormatException numberformatexception) {
 				i |= 0x4;
 			}
 		} else {
 			i |= 0x4;
 		}
-		if (anInt539 < 12) {
+		if (version < 12) {
 			i |= 0x2;
 		}
 		if (!gl.isExtensionAvailable("GL_ARB_multitexture")) {
@@ -563,12 +564,12 @@ final class HDToolkit {
 		}
 		final int[] is = new int[1];
 		gl.glGetIntegerv(34018, is, 0);
-		anInt526 = is[0];
+		maxTextureUnits = is[0];
 		gl.glGetIntegerv(34929, is, 0);
-		anInt552 = is[0];
+		maxTextureCoords = is[0];
 		gl.glGetIntegerv(34930, is, 0);
-		anInt515 = is[0];
-		if (anInt526 < 2 || anInt552 < 2 || anInt515 < 2) {
+		maxTextureImageUnits = is[0];
+		if (maxTextureUnits < 2 || maxTextureCoords < 2 || maxTextureImageUnits < 2) {
 			i |= 0x10;
 		}
 		if (i != 0) {
@@ -582,26 +583,24 @@ final class HDToolkit {
 		aBoolean531 = gl.isExtensionAvailable("GL_EXT_framebuffer_object");
 		gl.isExtensionAvailable("GL_ARB_vertex_shader");
 		aBoolean525 = gl.isExtensionAvailable("GL_ARB_fragment_shader");
-		aBoolean537 = gl.isExtensionAvailable("GL_EXT_texture3D");
+		allows3DTextureMapping = gl.isExtensionAvailable("GL_EXT_texture3D");
 		aBoolean513 = gl.isExtensionAvailable("GL_ARB_texture_rectangle");
 		aBoolean545 = gl.isExtensionAvailable("GL_ARB_texture_float");
 		aBoolean541 = true;
-		final String string_49_ = aString517.toLowerCase(Locale.ENGLISH);
+		final String string_49_ = renderer.toLowerCase(Locale.ENGLISH);
 		if (string_49_.indexOf("radeon") != -1) {
 			int i_50_ = 0;
 			boolean bool = false;
 			final String[] strings_51_ = Class29.splitString(string_49_.replace('/', ' '), ' ');
-			String[] strings_53_;
-			final int i_52_ = (strings_53_ = strings_51_).length;
-			for (int i_54_ = 0; i_54_ < i_52_; i_54_++) {
-				final String string_55_ = strings_53_[i_54_];
+			for (int i_54_ = 0; i_54_ < strings_51_.length; i_54_++) {
+				final String string_55_ = strings_51_[i_54_];
 				if (string_55_.length() >= 4) {
 					if (string_55_.charAt(0) == 'x' && Class120_Sub21.method1697(string_55_.substring(1, 3), (byte) -36)) {
 						bool = true;
 						break;
 					}
 					if (Class120_Sub21.method1697(string_55_.substring(0, 4), (byte) -36)) {
-						i_50_ = Class31.method265(string_55_.substring(0, 4));
+						i_50_ = Class31.stringToBase10(string_55_.substring(0, 4));
 						break;
 					}
 				}
@@ -610,7 +609,7 @@ final class HDToolkit {
 				vertexBufferAsObject = false;
 			}
 			if (i_50_ >= 7000 && i_50_ <= 9250) {
-				aBoolean537 = false;
+				allows3DTextureMapping = false;
 			}
 			if (i_50_ >= 9200 || bool) {
 				aBoolean545 = false;
@@ -637,10 +636,10 @@ final class HDToolkit {
 
 	static final void method532() {
 		if (Class120_Sub12_Sub6.highLightingDetail) {
-			method524(true);
+			toggleLighting(true);
 			method506(true);
 		} else {
-			method524(false);
+			toggleLighting(false);
 			method506(false);
 		}
 	}
@@ -695,7 +694,7 @@ final class HDToolkit {
 	private static final void method538() {
 		aBoolean528 = false;
 		gl.glDisable(3553);
-		anInt546 = -1;
+		texture2D_ID = -1;
 		gl.glTexEnvi(8960, 8704, 34160);
 		gl.glTexEnvi(8960, 34161, 8448);
 		anInt505 = 0;
@@ -704,10 +703,10 @@ final class HDToolkit {
 		gl.glEnable(2896);
 		gl.glEnable(2912);
 		gl.glEnable(2929);
-		aBoolean529 = true;
-		aBoolean508 = true;
-		aBoolean548 = true;
-		Class153.method2070((byte) -2);
+		lightingEnabled = true;
+		depthTestEnabled = true;
+		fogEnabled = true;
+		Class153.method2070();
 		gl.glActiveTexture(33985);
 		gl.glTexEnvi(8960, 8704, 34160);
 		gl.glTexEnvi(8960, 34161, 8448);
@@ -718,7 +717,7 @@ final class HDToolkit {
 		gl.glShadeModel(7425);
 		gl.glClearDepth(1.0F);
 		gl.glDepthFunc(515);
-		method505();
+		enableDepthMask();
 		gl.glMatrixMode(5890);
 		gl.glLoadIdentity();
 		gl.glPolygonMode(1028, 6914);
@@ -744,9 +743,9 @@ final class HDToolkit {
 		method515();
 		method511(0);
 		method521(0);
-		method524(false);
-		method502(false);
-		method507(false);
+		toggleLighting(false);
+		toggleDepthTest(false);
+		toggleFog(false);
 		method509();
 	}
 }

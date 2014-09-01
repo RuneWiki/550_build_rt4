@@ -25,7 +25,7 @@ final class Npc extends GameEntity {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
 		try {
 			if (this.npcType != null) {
 				final SeqType seqType = (this.anInt3006 ^ 0xffffffff) == 0 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
@@ -38,28 +38,28 @@ final class Npc extends GameEntity {
 						npcType = npcType.handleVarp();
 					}
 					if (Class120_Sub6.characterShadowsOn && npcType.aBoolean1653) {
-						final AbstractModel class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964, this.anInt3005,
+						final AbstractModel class180_sub7_9_ = Class32.method273(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.anInt3046 : this.anInt2964, this.y,
 								this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
 						if (HDToolkit.glEnabled) {
 							final float f = HDToolkit.method534();
 							final float f_10_ = HDToolkit.method526();
-							HDToolkit.method503();
+							HDToolkit.disableDepthMask();
 							HDToolkit.method535(f, -150.0F + f_10_);
-							class180_sub7_9_.method2265(0, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, -1L, i_7_, this.aClass108_Sub2_2988);
-							HDToolkit.method505();
+							class180_sub7_9_.render(0, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, -1L, i_7_, this.aClass108_Sub2_2988);
+							HDToolkit.enableDepthMask();
 							HDToolkit.method535(f, f_10_);
 						} else {
-							class180_sub7_9_.method2265(0, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, -1L, i_7_, this.aClass108_Sub2_2988);
+							class180_sub7_9_.render(0, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, -1L, i_7_, this.aClass108_Sub2_2988);
 						}
 					}
 					AbstractModel class180_sub7_11_ = null;
 					method2327(0, class180_sub7);
-					method2334(class180_sub7, i, 0);
+					method2334(class180_sub7, i);
 					if ((this.spotAnimId ^ 0xffffffff) != 0 && (this.spotAnimFrame ^ 0xffffffff) != 0) {
 						final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
 						class180_sub7_11_ = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
 						if (class180_sub7_11_ != null) {
-							class180_sub7_11_.method2368(0, -this.anInt2965, 0);
+							class180_sub7_11_.translate(0, -this.anInt2965, 0);
 							if (spotAnimType.aBoolean989) {
 								if (MouseHandler.anInt1140 != 0) {
 									class180_sub7_11_.method2377(MouseHandler.anInt1140);
@@ -68,7 +68,7 @@ final class Npc extends GameEntity {
 									class180_sub7_11_.method2362(Class159.anInt1488);
 								}
 								if (Class93.anInt867 != 0) {
-									class180_sub7_11_.method2368(0, Class93.anInt867, 0);
+									class180_sub7_11_.translate(0, Class93.anInt867, 0);
 								}
 							}
 						}
@@ -81,13 +81,13 @@ final class Npc extends GameEntity {
 						if (this.npcType.size == 1) {
 							class180_sub7.haveActions = true;
 						}
-						class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
+						class180_sub7.render(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
 					} else {
 						method2337(class180_sub7, class180_sub7_11_);
 						if (this.npcType.size == 1) {
 							class180_sub7.haveActions = true;
 						}
-						class180_sub7.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
+						class180_sub7.render(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
 						if (class180_sub7_11_ != null) {
 							if (this.npcType.size == 1) {
 								class180_sub7_11_.haveActions = true;
@@ -96,7 +96,7 @@ final class Npc extends GameEntity {
 								final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_11_;
 								this.aClass108_Sub2_2988.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, true, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
 							}
-							class180_sub7_11_.method2265(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
+							class180_sub7_11_.render(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, this.aClass108_Sub2_2988);
 						}
 					}
 				}
@@ -168,7 +168,7 @@ final class Npc extends GameEntity {
 	static final void method2348(int i, final int i_17_, final int i_18_, int i_19_) {
 		CanvasWrapper.anInt20 = -1;
 		Class120_Sub2.anInt2422 = -1;
-		final float f = (float) Class79.anInt692 / (float) Class79.anInt700;
+		final float f = (float) WorldMapHandler.mapSizeY / (float) WorldMapHandler.mapSizeX;
 		int i_21_ = i_17_;
 		int i_22_ = i_18_;
 		if (!(f < 1.0F)) {
@@ -178,9 +178,9 @@ final class Npc extends GameEntity {
 		}
 		i -= (i_18_ - i_22_) / 2;
 		i_19_ -= (-i_21_ + i_17_) / 2;
-		ParticleManager.anInt2336 = Class79.anInt700 * i_19_ / i_21_;
-		Class169.anInt1646 = Class79.anInt692 * i / i_22_;
-		Class127.method1889();
+		ParticleManager.anInt2336 = WorldMapHandler.mapSizeX * i_19_ / i_21_;
+		Class169.anInt1646 = WorldMapHandler.mapSizeY * i / i_22_;
+		Class127.fixWorldMapBounds();
 	}
 
 	@Override

@@ -15,7 +15,7 @@ final class Class37 {
 
 	@Override
 	protected final void finalize() throws Throwable {
-		Class113.method1002(this.anInt315, anInt318);
+		MemoryManager.method1002(this.anInt315, anInt318);
 		super.finalize();
 	}
 
@@ -45,6 +45,6 @@ final class Class37 {
 
 	private Class37(final int i, final int i_1_) {
 		this.anInt315 = i;
-		anInt318 = Class113.anInt1083;
+		anInt318 = MemoryManager.anInt1083;
 	}
 }

@@ -42,38 +42,27 @@ final class Class182 {
 	}
 
 	static final boolean method2445() {
-		boolean bool;
 		try {
-			bool = AbstractTimer.method737();
+			return AbstractTimer.method737();
 		} catch (final IOException ioexception) {
 			TileParticleQueue.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(MapFunctionType.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ - -TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
-			for (int i_11_ = 0; AbstractMouseWheelHandler.packetSize > i_11_ && i_11_ < 50; i_11_++) {
+			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(MapFunctionType.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
+			for (int i_11_ = 0; i_11_ < AbstractMouseWheelHandler.packetSize && i_11_ < 50; i_11_++) {
 				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}
 			SpotAnimation.method2312(exception, string);
 			DummyInputStream.processLogout();
 			return true;
 		}
-		return bool;
 	}
 
-	static final int method2446(final byte i, final int i_12_, final int i_13_, final int i_14_, final int i_15_) {
-		int i_16_;
-		try {
-			if (i != 102) {
-				getMouseIdleCycle();
-			}
-			final int i_17_ = i_14_ & 0xf;
-			final int i_18_ = i_17_ >= 4 ? i_17_ == 12 || i_17_ == 14 ? i_13_ : i_15_ : i_12_;
-			final int i_19_ = i_17_ < 8 ? i_13_ : i_12_;
-			i_16_ = ((0x2 & i_17_) != 0 ? -i_18_ : i_18_) + ((0x1 & i_17_) != 0 ? -i_19_ : i_19_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ve.E(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(')').toString());
-		}
-		return i_16_;
+	static final int method2446(final int i_12_, final int i_13_, final int i_14_, final int i_15_) {
+		final int i_17_ = i_14_ & 0xf;
+		final int i_18_ = i_17_ >= 4 ? i_17_ == 12 || i_17_ == 14 ? i_13_ : i_15_ : i_12_;
+		final int i_19_ = i_17_ < 8 ? i_13_ : i_12_;
+		return ((0x2 & i_17_) != 0 ? -i_18_ : i_18_) + ((0x1 & i_17_) != 0 ? -i_19_ : i_19_);
 	}
 
 	public Class182() {

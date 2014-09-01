@@ -20,72 +20,56 @@ final class Class54 {
 		return true;
 	}
 
-	static final Class137 method478(final js5 js5, final int i, final String string, final boolean bool) {
-		Class137 class137;
-		try {
-			final int i_2_ = js5.method432(string);
-			if (i_2_ == -1) {
-				return new Class137(0);
-			}
-			final int[] is = js5.method433(true, i_2_);
-			final Class137 class137_3_ = new Class137(is.length);
-			int i_4_ = 0;
-			if (i != -2) {
-				return null;
-			}
-			int i_5_ = 0;
-			while (class137_3_.anInt1325 > i_4_) {
-				final Buffer class120_sub7 = new Buffer(js5.getFile(i_2_, is[i_5_++]));
-				final int i_6_ = class120_sub7.getInt();
-				final int i_7_ = class120_sub7.getUShort();
-				final int i_8_ = class120_sub7.getUByte();
-				if (!bool && i_8_ == 1) {
-					class137_3_.anInt1325--;
-				} else {
-					class137_3_.anIntArray1322[i_4_] = i_6_;
-					class137_3_.aClass120_Sub14_Sub5Array1324[i_4_] = new Class120_Sub14_Sub5();
-					class137_3_.aClass120_Sub14_Sub5Array1324[i_4_].anInt3473 = i_7_;
-					i_4_++;
-				}
-			}
-			class137 = class137_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+	static final Class137 method478(final js5 js5, final String string, final boolean bool) {
+		final int groupId = js5.getGroupId(string);
+		if (groupId == -1) {
+			return new Class137(0);
 		}
-		return class137;
+		final int[] fileIds = js5.getFileIds(groupId);
+		final Class137 class137_3_ = new Class137(fileIds.length);
+		int i_4_ = 0;
+		int i_5_ = 0;
+		while (i_4_ < class137_3_.anInt1325) {
+			final Buffer class120_sub7 = new Buffer(js5.getFile(groupId, fileIds[i_5_++]));
+			final int i_6_ = class120_sub7.getInt();
+			final int i_7_ = class120_sub7.getUShort();
+			final int i_8_ = class120_sub7.getUByte();
+			if (!bool && i_8_ == 1) {
+				class137_3_.anInt1325--;
+			} else {
+				class137_3_.anIntArray1322[i_4_] = i_6_;
+				class137_3_.aClass120_Sub14_Sub5Array1324[i_4_] = new MapFunctionNode();
+				class137_3_.aClass120_Sub14_Sub5Array1324[i_4_].id = i_7_;
+				i_4_++;
+			}
+		}
+		return class137_3_;
 	}
 
-	static final void method479(final int i) {
-		try {
-			Class118.aClass107Array1138 = null;
-			Class33.aClass120_Sub14_Sub8_Sub2_274 = null;
-			Class82.aClass107Array785 = null;
-			Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = null;
-			Class120_Sub12_Sub30.crossSprites = null;
-			Class120_Sub12_Sub20.plainFont = null;
-			AnimatedLocation.aClass120_Sub14_Sub19Array3073 = null;
-			FileSystemRequest.prayerIconSprites = null;
-			Class120_Sub12_Sub22.boldFont = null;
-			aClass120_Sub14_Sub19Array490 = null;
-			ObjectCache.smallFont = null;
-			Class157.compassSprite = null;
-			SeqType.aClass120_Sub14_Sub19Array335 = null;
-			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
-			Class101_Sub1.aClass120_Sub14_Sub19Array2274 = null;
-			Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = null;
-			Class69_Sub2.aClass120_Sub14_Sub19Array2238 = null;
-			if (i != 0) {
-				method480();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.B(").append(i).append(')').toString());
-		}
+	static final void method479() {
+		Class118.aClass107Array1138 = null;
+		Class33.smallFont2 = null;
+		Class82.aClass107Array785 = null;
+		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = null;
+		Class120_Sub12_Sub30.crossSprites = null;
+		Class120_Sub12_Sub20.plainFont = null;
+		AnimatedLocation.aClass120_Sub14_Sub19Array3073 = null;
+		FileSystemRequest.prayerIconSprites = null;
+		Class120_Sub12_Sub22.boldFont = null;
+		aClass120_Sub14_Sub19Array490 = null;
+		ObjectCache.smallFont = null;
+		Class157.compassSprite = null;
+		SeqType.aClass120_Sub14_Sub19Array335 = null;
+		Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
+		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = null;
+		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = null;
+		Class69_Sub2.aClass120_Sub14_Sub19Array2238 = null;
 	}
 
 	static final void method480() {
-		Class120_Sub30_Sub1.method1739(false);
+		Class120_Sub30_Sub1.method1739();
 		System.gc();
-		Class120_Sub14_Sub1.setGameState(25);
+		ProjectileNode.setGameState(25);
 	}
 
 	public static void method481(final int i) {
@@ -113,7 +97,7 @@ final class Class54 {
 	static final void method483(final js5 js5, final byte i) {
 		try {
 			if (i < -97) {
-				Class76.aClass50_678 = js5;
+				Class145.aClass50_678 = js5;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());

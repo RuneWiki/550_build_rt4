@@ -116,7 +116,7 @@ final class JagexInterface {
 	int[] varpListenerTriggers;
 	boolean shaded;
 	boolean newFormat;
-	static short[] aShortArray2042;
+	static short[] playerMenuActionCodes;
 	int lastSkillTriggersPos;
 	int objSpritePadX;
 	boolean hidden;
@@ -176,7 +176,7 @@ final class JagexInterface {
 
 	static {
 		inserting = 0;
-		aShortArray2042 = new short[] { 43, 29, 60, 31, 22, 14, 24, 12 };
+		playerMenuActionCodes = new short[] { 43, 29, 60, 31, 22, 14, 24, 12 };
 		anInt2053 = 0;
 	}
 
@@ -222,7 +222,7 @@ final class JagexInterface {
 				LabelGroup.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
 			}
 			if (seqType != null) {
-				class180_sub7_7_ = seqType.method323(false, i_4_, i, class180_sub7_7_, i_3_);
+				class180_sub7_7_ = seqType.method323(class180_sub7_7_, i_4_, i, i_3_);
 			}
 			return class180_sub7_7_;
 		}
@@ -332,7 +332,7 @@ final class JagexInterface {
 			if (i != 0) {
 				return null;
 			}
-			class41 = (this.anInt2088 ^ 0xffffffff) != 0 ? Class132_Sub1.method1934(this.anInt2002, (byte) 126, this.anInt2094, this.anInt2088, this.anInt1966) : null;
+			class41 = (this.anInt2088 ^ 0xffffffff) != 0 ? Class132_Sub1.method1934(this.anInt2002, this.anInt2094, this.anInt2088, this.anInt1966) : null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.R(").append(i).append(')').toString());
 		}
@@ -590,13 +590,13 @@ final class JagexInterface {
 			class120_sub14_sub19_sub2.method1616(this.outline);
 		}
 		if (this.outline >= 1) {
-			class120_sub14_sub19_sub2.method1613(1);
+			class120_sub14_sub19_sub2.outline(1);
 		}
 		if (this.outline >= 2) {
-			class120_sub14_sub19_sub2.method1613(16777215);
+			class120_sub14_sub19_sub2.outline(16777215);
 		}
 		if (this.shadow != 0) {
-			class120_sub14_sub19_sub2.method1607(this.shadow);
+			class120_sub14_sub19_sub2.shadow(this.shadow);
 		}
 		if (HDToolkit.glEnabled) {
 			if (!(class120_sub14_sub19_sub2 instanceof LDTransparentSprite)) {
@@ -621,29 +621,6 @@ final class JagexInterface {
 			is_44_[i_45_] = class120_sub7.getInt();
 		}
 		return is_44_;
-	}
-
-	static final Class153 method2494(final byte i, final int i_46_) {
-		Class153 class153;
-		try {
-			Class153 class153_47_ = (Class153) Class120_Sub12_Sub9.aClass21_3196.get(i_46_);
-			if (class153_47_ != null) {
-				return class153_47_;
-			}
-			final byte[] is = Class120_Sub12_Sub30.aClass50_3373.getFile(30, i_46_);
-			class153_47_ = new Class153();
-			if (is != null) {
-				class153_47_.method2077((byte) 85, i_46_, new Buffer(is));
-			}
-			Class120_Sub12_Sub9.aClass21_3196.put(class153_47_, i_46_);
-			if (i != -10) {
-				return null;
-			}
-			class153 = class153_47_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.A(").append(i).append(',').append(i_46_).append(')').toString());
-		}
-		return class153;
 	}
 
 	final void decodeNew(final Buffer buffer) {
@@ -845,8 +822,8 @@ final class JagexInterface {
 		}
 	}
 
-	final Class120_Sub14_Sub8 method2497(final byte i, final AbstractIndexedSprite[] class107s) {
-		Class120_Sub14_Sub8 class120_sub14_sub8;
+	final AbstractFont method2497(final byte i, final AbstractIndexedSprite[] class107s) {
+		AbstractFont class120_sub14_sub8;
 		try {
 			Class88.aBoolean835 = false;
 			if ((this.font ^ 0xffffffff) == 0) {
@@ -855,11 +832,11 @@ final class JagexInterface {
 			if (i != 54) {
 				return null;
 			}
-			Class120_Sub14_Sub8 class120_sub14_sub8_63_ = (Class120_Sub14_Sub8) Class120_Sub12_Sub2.aClass21_3143.get(this.font);
+			AbstractFont class120_sub14_sub8_63_ = (AbstractFont) Class120_Sub12_Sub2.aClass21_3143.get(this.font);
 			if (class120_sub14_sub8_63_ != null) {
 				return class120_sub14_sub8_63_;
 			}
-			class120_sub14_sub8_63_ = Class9.method117(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, 18265, this.font, 0);
+			class120_sub14_sub8_63_ = Class9.constructAbstractFont(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, this.font, 0);
 			if (class120_sub14_sub8_63_ == null) {
 				Class88.aBoolean835 = true;
 			} else {
@@ -875,9 +852,9 @@ final class JagexInterface {
 
 	public static void method2498(final int i) {
 		try {
-			aShortArray2042 = null;
+			playerMenuActionCodes = null;
 			if (i > -54) {
-				aShortArray2042 = null;
+				playerMenuActionCodes = null;
 			}
 			gameShellThread = null;
 		} catch (final RuntimeException runtimeexception) {

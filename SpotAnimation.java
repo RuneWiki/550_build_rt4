@@ -139,7 +139,7 @@ final class SpotAnimation extends SceneGraphNode {
 			string_13_ = AnimatedLocation.method2358(string_13_, "%23", "#");
 			if (Class120_Sub12_Sub18.errorSignlink.gameApplet != null) {
 				final SignlinkNode signlinkNode = Class120_Sub12_Sub18.errorSignlink.method1969(
-						new URL(Class120_Sub12_Sub18.errorSignlink.gameApplet.getCodeBase(), new StringBuilder("clienterror.ws?c=").append(DisplayModeInfo.revision).append("&u=").append(Class20.selfNameAsLong).append("&v1=").append(Signlink.javaVendor).append("&v2=").append(Signlink.javaVersion)
+						new URL(Class120_Sub12_Sub18.errorSignlink.gameApplet.getCodeBase(), new StringBuilder("clienterror.ws?c=").append(DisplayModeInfo.revision).append("&u=").append(WaterfallShader.selfNameAsLong).append("&v1=").append(Signlink.javaVendor).append("&v2=").append(Signlink.javaVersion)
 								.append("&e=").append(string_13_).toString()));
 				while (signlinkNode.status == 0) {
 					PacketBuffer.sleepWrapper(1L);
@@ -184,11 +184,11 @@ final class SpotAnimation extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final long l, final int i_27_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final long l, final int i_27_, final ParticleEngine class108_sub2) {
 		final AbstractModel class180_sub7 = method2313();
 		if (class180_sub7 != null) {
 			method2310(class180_sub7);
-			class180_sub7.method2265(i, i_20_, i_21_, i_22_, i_23_, i_24_, i_25_, i_26_, l, i_27_, particleEngine);
+			class180_sub7.render(i, i_20_, i_21_, i_22_, i_23_, i_24_, i_25_, i_26_, l, i_27_, particleEngine);
 			maxY = class180_sub7.getMaxY();
 		}
 	}

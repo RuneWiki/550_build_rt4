@@ -15,7 +15,6 @@ final class InterfaceListener extends Node {
 	String aString2539;
 	int anInt2540;
 	int anInt2541;
-	static ObjectCache aClass21_2542 = new ObjectCache(64);
 	int anInt2543;
 	static js5 aClass50_2544;
 	static int playerRenderZ;
@@ -46,12 +45,12 @@ final class InterfaceListener extends Node {
 		if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
 			Class186.topMargin = 0;
 			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
-			Class120_Sub28.leftMargin = 0;
+			ReflectionCheckNode.leftMargin = 0;
 			Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
 		} else {
 			Class69_Sub1.canvasWidth = 765;
 			Class120_Sub12_Sub5.canvasHeight = 503;
-			Class120_Sub28.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
+			ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
 			//Class186.topMargin = 0;//original
 			Class186.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 		}
@@ -60,10 +59,10 @@ final class InterfaceListener extends Node {
 		}
 		Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 		if (Class112.frame != container) {
-			Node.canvas.setLocation(Class120_Sub28.leftMargin, Class186.topMargin);
+			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
 		} else {
 			final Insets insets = Class112.frame.getInsets();
-			Node.canvas.setLocation(insets.left - -Class120_Sub28.leftMargin, Class186.topMargin + insets.top);
+			Node.canvas.setLocation(insets.left - -ReflectionCheckNode.leftMargin, Class186.topMargin + insets.top);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			Class101_Sub2.method846(true);
@@ -77,7 +76,7 @@ final class InterfaceListener extends Node {
 			if (i >= -106) {
 				anInt2546 = -128;
 			}
-			aClass21_2542 = null;
+			OverlayType.recentUse = null;
 			aString2538 = null;
 			aClass50_2544 = null;
 			aString2548 = null;
@@ -93,7 +92,7 @@ final class InterfaceListener extends Node {
 		final int i_6_ = i_1_ - 1;
 		final int i_7_ = i_1_ + i_3_;
 		for (int i_8_ = i; i_8_ <= i + 1; i_8_++) {
-			if (i_8_ != Class142.anInt1361) {
+			if (i_8_ != MapSceneType.anInt1361) {
 				for (int i_9_ = i_4_; i_9_ <= i_5_; i_9_++) {
 					if (i_9_ >= 0 && i_9_ < Class186.anInt1900) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {

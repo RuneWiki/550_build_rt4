@@ -13,23 +13,16 @@ final class Class89 {
 		class120_sub14_sub7.anInt3484 = i;
 	}
 
-	public static void method747(final byte i) {
-		try {
-			if (i != 121) {
-				method749(null, 'I', -75);
-			}
-			aClass50_836 = null;
-			anIntArray838 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ji.A(").append(i).append(')').toString());
-		}
+	public static void method747() {
+		aClass50_836 = null;
+		anIntArray838 = null;
 	}
 
-	static final StringBuffer method749(final StringBuffer stringbuffer, final char c, final int i) {
-		final int i_5_ = stringbuffer.length();
-		stringbuffer.setLength(i);
-		for (int i_6_ = i_5_; i_6_ < i; i_6_++) {
-			stringbuffer.setCharAt(i_6_, c);
+	static final StringBuffer increaseStringBufferLength(final StringBuffer stringbuffer, final char fillChar, final int newLength) {
+		final int oldLength = stringbuffer.length();
+		stringbuffer.setLength(newLength);
+		for (int index = oldLength; index < newLength; index++) {
+			stringbuffer.setCharAt(index, fillChar);
 		}
 		return stringbuffer;
 	}

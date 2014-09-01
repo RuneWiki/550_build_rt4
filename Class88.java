@@ -4,7 +4,7 @@
 
 final class Class88 {
 	SceneGraphNode aClass180_826;
-	static int anInt827;
+	static int timoutCycle;
 	static boolean spellSelected = false;
 	static Deque aClass105_829;
 	LDIndexedSprite aClass107_Sub1_830;
@@ -15,7 +15,7 @@ final class Class88 {
 	static boolean aBoolean835;
 
 	static {
-		anInt827 = 0;
+		timoutCycle = 0;
 		aClass105_829 = new Deque();
 		aClass177_831 = new Queue();
 		anIntArray833 = new int[32];
@@ -45,13 +45,13 @@ final class Class88 {
 			final int i_7_ = 0x3 & (int) l >> 20;
 			LocType locType = LocType.list(i_5_);
 			if (locType.method2466()) {
-				Class120_Sub12.method1183(i_2_, locType, i_0_, 16157, i_4_);
+				Class120_Sub12.method1183(locType, i_2_, i_0_, i_4_);
 			}
 			if ((l ^ 0xffffffffffffffffL) != -1L) {
 				SceneGraphNode sceneGraphNode = null;
 				SceneGraphNode class180_8_ = null;
 				if (i_3_ == 0) {
-					final Class182 class182 = Class99.method821(i_0_, i_4_, i_2_);
+					final Class182 class182 = Class99.method821(i_4_, i_2_, i_0_);
 					if (class182 != null) {
 						class180_8_ = class182.aClass180_1796;
 						sceneGraphNode = class182.aClass180_1800;
@@ -60,7 +60,7 @@ final class Class88 {
 						collisionMap.method215(i_7_, i_4_, i_6_, i_2_, !locType.aBoolean1880, locType.aBoolean1844);
 					}
 				} else if (i_3_ == 1) {
-					final Class186 class186 = Class153.method2072(i_0_, i_4_, i_2_);
+					final Class186 class186 = Class153.method2072(i_4_, i_2_, i_0_);
 					if (class186 != null) {
 						sceneGraphNode = class186.aClass180_1901;
 						class180_8_ = class186.aClass180_1898;

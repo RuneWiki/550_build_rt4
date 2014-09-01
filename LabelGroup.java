@@ -24,18 +24,12 @@ final class LabelGroup extends Node {
 	}
 
 	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final int i_7_) {
-		try {
-			if (i_5_ != 84) {
-				method1037();
-			}
-			if (Class32.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
-				Js5Worker.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
-			} else {
-				AbstractMouseWheelHandler.method158(i_7_, i_2_, true, i, i_4_, i_6_, i_3_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("af.C(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
+		if (Class32.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
+			Js5Worker.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
+		} else {
+			AbstractMouseWheelHandler.method158(i_7_, i_2_, i, i_4_, i_6_, i_3_);
 		}
+		//i_5_ dummy arg
 	}
 
 	static final void method1037() {
@@ -48,20 +42,13 @@ final class LabelGroup extends Node {
 		Class48.returnCode = -3;
 	}
 
-	public static void method1038(final int i) {
-		try {
-			if (i != 5) {
-				anIntArray2412 = null;
-			}
-			aClass21_2406 = null;
-			anIntArray2412 = null;
-			anIntArray2409 = null;
-			groundTiles = null;
-			aClass185_2403 = null;
-			aClass50_2413 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("af.A(").append(i).append(')').toString());
-		}
+	public static void method1038() {
+		aClass21_2406 = null;
+		anIntArray2412 = null;
+		anIntArray2409 = null;
+		groundTiles = null;
+		aClass185_2403 = null;
+		aClass50_2413 = null;
 	}
 
 	static final LDSprite[] constructLDSprites() {

@@ -12,11 +12,11 @@ final class Class133 {
 	private ByteBuffer aByteBuffer1263;
 	private byte[] aByteArray1264;
 	private byte[] aByteArray1265;
-	private Class104 aClass104_1266;
+	private VertexBuffer aClass104_1266;
 	int anInt1267;
 	private int[] anIntArray1268;
 	private int[] anIntArray1269;
-	private Class104 aClass104_1270;
+	private VertexBuffer aClass104_1270;
 	int anInt1271;
 	private int[] anIntArray1272;
 	private Hashtable aClass75_1273;
@@ -39,16 +39,16 @@ final class Class133 {
 		aByteArray1264 = new byte[this.anInt1260];
 		aByteArray1265 = new byte[this.anInt1260];
 		aByteArray1274 = new byte[this.anInt1260];
-		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.method1283(this.anInt1260));
+		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt1260));
 	}
 
 	final void method1946() {
 		final GL gl = HDToolkit.gl;
 		if (HDToolkit.vertexBufferAsObject) {
-			aClass104_1266.method887();
+			aClass104_1266.bindArrayBuffer();
 			gl.glInterleavedArrays(10787, 16, 0L);
 			HDToolkit.aBoolean536 = false;
-			aClass104_1270.method886();
+			aClass104_1270.bindElementArrayBuffer();
 			gl.glDrawElements(4, this.anInt1271, 5125, 0L);
 		} else {
 			if (HDToolkit.vertexBufferAsObject) {
@@ -92,10 +92,10 @@ final class Class133 {
 			}
 		}
 		if (HDToolkit.vertexBufferAsObject) {
-			aClass104_1266 = new Class104();
+			aClass104_1266 = new VertexBuffer();
 			ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7_0_.buf);
 			aClass104_1266.method885(bytebuffer);
-			aClass104_1270 = new Class104();
+			aClass104_1270 = new VertexBuffer();
 			bytebuffer = ByteBuffer.wrap(class120_sub7.buf);
 			aClass104_1270.method884(bytebuffer);
 		} else {
@@ -126,9 +126,9 @@ final class Class133 {
 			}
 		}
 		final int i_5_ = light.color;
-		float f_6_ = light.anInt395 - i;
-		float f_7_ = light.anInt375 - i_1_;
-		float f_8_ = light.anInt373 - i_2_;
+		float f_6_ = light.x - i;
+		float f_7_ = light.y - i_1_;
+		float f_8_ = light.z - i_2_;
 		final float f_9_ = (float) Math.sqrt(f_6_ * f_6_ + f_7_ * f_7_ + f_8_ * f_8_);
 		final float f_10_ = 1.0F / f_9_;
 		f_6_ *= f_10_;

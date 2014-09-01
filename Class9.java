@@ -23,120 +23,76 @@ final class Class9 {
 		anInt77 = -1;
 	}
 
-	final NodeSub method113(final int i) {
-		NodeSub class120_sub14;
-		try {
-			if (i != -5463) {
-				aLong69 = 122L;
-			}
-			if (aClass120_Sub14_76 == null) {
-				return null;
-			}
-			for (final NodeSub class120_sub14_0_ = aClass120_Sub14Array75[(int) (anInt73 + -1 & aLong69)]; class120_sub14_0_ != aClass120_Sub14_76; aClass120_Sub14_76 = aClass120_Sub14_76.nextSub) {
-				if (aLong69 == aClass120_Sub14_76.subUid) {
-					final NodeSub class120_sub14_1_ = aClass120_Sub14_76;
-					aClass120_Sub14_76 = aClass120_Sub14_76.nextSub;
-					return class120_sub14_1_;
-				}
-			}
-			aClass120_Sub14_76 = null;
-			class120_sub14 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.A(").append(i).append(')').toString());
+	final NodeSub method113() {
+		if (aClass120_Sub14_76 == null) {
+			return null;
 		}
-		return class120_sub14;
+		for (final NodeSub class120_sub14_0_ = aClass120_Sub14Array75[(int) (anInt73 + -1 & aLong69)]; class120_sub14_0_ != aClass120_Sub14_76; aClass120_Sub14_76 = aClass120_Sub14_76.nextSub) {
+			if (aLong69 == aClass120_Sub14_76.subUid) {
+				final NodeSub class120_sub14_1_ = aClass120_Sub14_76;
+				aClass120_Sub14_76 = aClass120_Sub14_76.nextSub;
+				return class120_sub14_1_;
+			}
+		}
+		aClass120_Sub14_76 = null;
+		return null;
 	}
 
-	final NodeSub method114(final byte i, final long l) {
-		NodeSub class120_sub14;
-		try {
-			if (i > -62) {
-				return null;
+	final NodeSub method114(final long l) {
+		aLong69 = l;
+		final NodeSub class120_sub14_2_ = aClass120_Sub14Array75[(int) (l & anInt73 + -1)];
+		for (aClass120_Sub14_76 = class120_sub14_2_.nextSub; class120_sub14_2_ != aClass120_Sub14_76; aClass120_Sub14_76 = aClass120_Sub14_76.nextSub) {
+			if (l == aClass120_Sub14_76.subUid) {
+				final NodeSub class120_sub14_3_ = aClass120_Sub14_76;
+				aClass120_Sub14_76 = aClass120_Sub14_76.nextSub;
+				return class120_sub14_3_;
 			}
-			aLong69 = l;
-			final NodeSub class120_sub14_2_ = aClass120_Sub14Array75[(int) (l & anInt73 + -1)];
-			for (aClass120_Sub14_76 = class120_sub14_2_.nextSub; class120_sub14_2_ != aClass120_Sub14_76; aClass120_Sub14_76 = aClass120_Sub14_76.nextSub) {
-				if (l == aClass120_Sub14_76.subUid) {
-					final NodeSub class120_sub14_3_ = aClass120_Sub14_76;
-					aClass120_Sub14_76 = aClass120_Sub14_76.nextSub;
-					return class120_sub14_3_;
-				}
-			}
-			aClass120_Sub14_76 = null;
-			class120_sub14 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.F(").append(i).append(',').append(l).append(')').toString());
 		}
-		return class120_sub14;
+		aClass120_Sub14_76 = null;
+		return null;
 	}
 
-	final void method115(final long l, final NodeSub class120_sub14, final int i) {
-		try {
-			if (i != 0) {
-				method115(38L, null, -96);
-			}
-			if (class120_sub14.previousSub != null) {
-				class120_sub14.unlinkSub();
-			}
-			final NodeSub class120_sub14_4_ = aClass120_Sub14Array75[(int) (l & -1 + anInt73)];
-			class120_sub14.previousSub = class120_sub14_4_.previousSub;
-			class120_sub14.subUid = l;
-			class120_sub14.nextSub = class120_sub14_4_;
-			class120_sub14.previousSub.nextSub = class120_sub14;
-			class120_sub14.nextSub.previousSub = class120_sub14;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.E(").append(l).append(',').append(class120_sub14 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	final void method115(final NodeSub nodeSub, final long l) {
+		if (nodeSub.previousSub != null) {
+			nodeSub.unlinkSub();
 		}
+		final NodeSub class120_sub14_4_ = aClass120_Sub14Array75[(int) (l & -1 + anInt73)];
+		nodeSub.previousSub = class120_sub14_4_.previousSub;
+		nodeSub.subUid = l;
+		nodeSub.nextSub = class120_sub14_4_;
+		nodeSub.previousSub.nextSub = nodeSub;
+		nodeSub.nextSub.previousSub = nodeSub;
 	}
 
-	static final boolean method116(final MapFunctionType class73, final int i) {
-		boolean bool;
-		try {
-			if (class73 == null) {
-				return false;
-			}
-			if (!class73.aBoolean629) {
-				return false;
-			}
-			if (!class73.method647()) {
-				return false;
-			}
-			if (Class86.aClass75_823.get(class73.myId) != null) {
-				return false;
-			}
-			if (Class81.aClass75_777.get(class73.anInt652) != null) {
-				return false;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.D(").append(class73 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final boolean method116(final MapFunctionType class73) {
+		if (class73 == null) {
+			return false;
 		}
-		return bool;
+		if (!class73.aBoolean629) {
+			return false;
+		}
+		if (!class73.method647()) {
+			return false;
+		}
+		if (Class86.aClass75_823.get(class73.myId) != null) {
+			return false;
+		}
+		if (Class81.aClass75_777.get(class73.anInt652) != null) {
+			return false;
+		}
+		return true;
 	}
 
-	static final Class120_Sub14_Sub8 method117(final js5 js5, final js5 class50_5_, final int i, final int i_6_, final int i_7_) {
-		Class120_Sub14_Sub8 class120_sub14_sub8;
-		try {
-			if (i != 18265) {
-				return null;
-			}
-			if (!Class10.decodedSprites(js5, i_6_, i_7_)) {
-				return null;
-			}
-			class120_sub14_sub8 = ParticleManager.method937(-11537, class50_5_.getFile(i_6_, i_7_));
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.C(").append(js5 != null ? "{...}" : "null").append(',').append(class50_5_ != null ? "{...}" : "null").append(',').append(i).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
+	static final AbstractFont constructAbstractFont(final js5 spriteJs5, final js5 fontJs5, final int group, final int file) {
+		if (!Class10.decodedSprites(spriteJs5, group, file)) {
+			return null;
 		}
-		return class120_sub14_sub8;
+		return ParticleManager.constructAbstractFont(fontJs5.getFile(group, file));
 	}
 
-	public static void method118(final int i) {
-		try {
-			needInterfaceRedraw = null;
-			aByteArrayArrayArray70 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ak.B(").append(i).append(')').toString());
-		}
+	public static void method118() {
+		needInterfaceRedraw = null;
+		aByteArrayArrayArray70 = null;
 	}
 
 	Class9(final int i) {

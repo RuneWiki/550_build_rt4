@@ -3,7 +3,6 @@
  */
 
 final class Class159 {
-	static ObjectCache aClass21_1486 = new ObjectCache(16);
 	static boolean worldsLoaded = false;
 	static int anInt1488 = 0;
 	static short[][] aShortArrayArray1489;
@@ -42,7 +41,7 @@ final class Class159 {
 			aShortArrayArray1489 = null;
 			aClass50_1490 = null;
 			if (i == 30000) {
-				aClass21_1486 = null;
+				Class145.aClass21_1486 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.B(").append(i).append(')').toString());
@@ -85,10 +84,10 @@ final class Class159 {
 				int i_42_ = (-1 + i_13_) * i_33_;
 				if (i_8_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_8_) {
 					final int[] is = GameEntity.anIntArrayArray3009[i_8_];
-					final int i_43_ = Class3.method83(Class32.anInt260, -i_10_ + i_6_, i_9_ ^ ~0x2897, ParamType.anInt3544);
-					final int i_44_ = Class3.method83(Class32.anInt260, i_6_ + i_10_, 1, ParamType.anInt3544);
-					final int i_45_ = Class3.method83(Class32.anInt260, i_6_ - i_16_, 1, ParamType.anInt3544);
-					final int i_46_ = Class3.method83(Class32.anInt260, i_6_ + i_16_, i_9_ ^ ~0x2897, ParamType.anInt3544);
+					final int i_43_ = Class3.method83(Class32.anInt260, -i_10_ + i_6_, ParamType.anInt3544);
+					final int i_44_ = Class3.method83(Class32.anInt260, i_6_ + i_10_, ParamType.anInt3544);
+					final int i_45_ = Class3.method83(Class32.anInt260, i_6_ - i_16_, ParamType.anInt3544);
+					final int i_46_ = Class3.method83(Class32.anInt260, i_6_ + i_16_, ParamType.anInt3544);
 					AmbientSound.fillArray(is, i_5_, i_43_, i_45_);
 					AmbientSound.fillArray(is, i, i_45_, i_46_);
 					AmbientSound.fillArray(is, i_5_, i_46_, i_44_);
@@ -141,11 +140,11 @@ final class Class159 {
 					i_40_ -= i_30_;
 					i_37_ -= i_30_;
 					if (i_47_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_48_) {
-						final int i_49_ = Class3.method83(Class32.anInt260, i_12_ + i_6_, 1, ParamType.anInt3544);
-						final int i_50_ = Class3.method83(Class32.anInt260, i_6_ + -i_12_, 1, ParamType.anInt3544);
+						final int i_49_ = Class3.method83(Class32.anInt260, i_12_ + i_6_, ParamType.anInt3544);
+						final int i_50_ = Class3.method83(Class32.anInt260, i_6_ + -i_12_, ParamType.anInt3544);
 						if (bool) {
-							final int i_51_ = Class3.method83(Class32.anInt260, i_6_ - -i_15_, 1, ParamType.anInt3544);
-							final int i_52_ = Class3.method83(Class32.anInt260, -i_15_ + i_6_, 1, ParamType.anInt3544);
+							final int i_51_ = Class3.method83(Class32.anInt260, i_6_ - -i_15_, ParamType.anInt3544);
+							final int i_52_ = Class3.method83(Class32.anInt260, -i_15_ + i_6_, ParamType.anInt3544);
 							if (Class120_Sub30_Sub2.anInt3699 <= i_48_) {
 								final int[] is = GameEntity.anIntArrayArray3009[i_48_];
 								AmbientSound.fillArray(is, i_5_, i_50_, i_52_);

@@ -57,108 +57,96 @@ final class Class186 {
 		}
 	}
 
-	static final void method2472(final int i, final js5 js5, final js5 class50_3_) {
-		try {
-			if (i == -12879) {
-				SceneGroundObject.aClass50_2839 = js5;
-				Class147.aClass50_1394 = class50_3_;
-				Class7.anInt61 = Class147.aClass50_1394.getFileAmount(3);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vl.C(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method2472(final js5 js5, final js5 class50_3_) {
+		SceneGroundObject.aClass50_2839 = js5;
+		IdentityKit.configClient = class50_3_;
+		Class7.anInt61 = IdentityKit.configClient.getFileAmount(3);
 	}
 
-	static final void method2473(final int i, final int i_4_, final int i_5_, int i_6_, int i_7_) {
-		try {
-			if (HDToolkit.glEnabled) {
-				GraphicsHD.clipRect(i_6_, i_7_, i_5_ + i_6_, i + i_7_);
-				GraphicsHD.fillRect(i_6_, i_7_, i_5_, i, 0);
+	static final void method2473(int drawX, int drawY, final int width, final int height) {
+		if (HDToolkit.glEnabled) {
+			GraphicsHD.clipRect(drawX, drawY, drawX + width, drawY + height);
+			GraphicsHD.fillRect(drawX, drawY, width, height, 0);
+		} else {
+			GraphicsLD.clipRect(drawX, drawY, drawX + width, drawY + height);
+			GraphicsLD.fillRect(drawX, drawY, width, height, 0);
+		}
+		if (Class90.laodingStage >= 100) {
+			final float f = (float) WorldMapHandler.mapSizeY / (float) WorldMapHandler.mapSizeX;
+			int drawWidth = width;
+			int drawHeight = height;
+			if (f < 1.0F) {
+				drawHeight = (int) (width * f);
 			} else {
-				GraphicsLD.clipRect(i_6_, i_7_, i_6_ + i_5_, i_7_ + i);
-				GraphicsLD.fillRect(i_6_, i_7_, i_5_, i, 0);
+				drawWidth = (int) (height / f);
 			}
-			if (Class90.anInt848 >= 100) {
-				final float f = (float) Class79.anInt692 / (float) Class79.anInt700;
-				if (i_4_ == -18418) {
-					int i_8_ = i_5_;
-					int i_9_ = i;
-					if (f < 1.0F) {
-						i_9_ = (int) (f * i_5_);
-					} else {
-						i_8_ = (int) (i / f);
-					}
-					i_6_ += (i_5_ + -i_8_) / 2;
-					i_7_ += (-i_9_ + i) / 2;
-					if (Class116.aClass120_Sub14_Sub19_1114 == null || i_5_ != Class116.aClass120_Sub14_Sub19_1114.width || i != Class116.aClass120_Sub14_Sub19_1114.height) {
-						final LDSprite class120_sub14_sub19_sub2 = new LDSprite(i_5_, i);
-						GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2.pixels, i_5_, i);
-						if (Class79.aClass120_Sub14_Sub22_691.anInt3635 != -1) {
-							GraphicsLD.fillRect(0, 0, i_5_, i, Class79.aClass120_Sub14_Sub22_691.anInt3635);
-						}
-						Class79.method683(0, 0, Class79.anInt700, Class79.anInt692, 0, 0, i_8_, i_9_);
-						Class79.method685();
-						if (!HDToolkit.glEnabled) {
-							Class116.aClass120_Sub14_Sub19_1114 = class120_sub14_sub19_sub2;
-						} else {
-							Class116.aClass120_Sub14_Sub19_1114 = new HDSprite(class120_sub14_sub19_sub2);
-						}
-						if (!HDToolkit.glEnabled) {
-							ClanMember.fullscreenGraphics.init2dCanvas();
-						} else {
-							GraphicsLD.pixels = null;
-						}
-					}
-					int i_10_ = 16711680;
-					Class116.aClass120_Sub14_Sub19_1114.method1591(i_6_, i_7_);
-					final int i_11_ = Class173.anInt1726 * i_8_ / Class79.anInt700;
-					final int i_12_ = i_7_ + i_9_ * GroundTile.anInt2627 / Class79.anInt692;
-					final int i_13_ = GroundObjectNode.anInt3628 * i_9_ / Class79.anInt692;
-					if (Buffer.gameId == 1) {
-						i_10_ = 16777215;
-					}
-					final int i_14_ = i_6_ - -(ParamType.anInt3538 * i_8_ / Class79.anInt700);
-					if (HDToolkit.glEnabled) {
-						GraphicsHD.fillRect(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
-						GraphicsHD.drawRect(i_14_, i_12_, i_11_, i_13_, i_10_);
-					} else {
-						GraphicsLD.fillRect(i_14_, i_12_, i_11_, i_13_, i_10_, 128);
-						GraphicsLD.drawRect(i_14_, i_12_, i_11_, i_13_, i_10_);
-					}
-					if (Class96.anInt919 > 0) {
-						int i_15_;
-						if (Class136.anInt1321 > 50) {
-							i_15_ = 500 + -(Class136.anInt1321 * 5);
-						} else {
-							i_15_ = Class136.anInt1321 * 5;
-						}
-						for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) Class79.aClass177_690.peekNext()) {
-							final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.anInt3473);
-							if (Class9.method116(class73, -1)) {
-								if (class120_sub14_sub5.anInt3473 == Class127.anInt1215) {
-									final int i_16_ = i_8_ * class120_sub14_sub5.anInt3480 / Class79.anInt700 + i_6_;
-									final int i_17_ = i_7_ + i_9_ * class120_sub14_sub5.anInt3481 / Class79.anInt692;
-									if (!HDToolkit.glEnabled) {
-										GraphicsLD.fillRect(i_16_ - 2, i_17_ + -2, 4, 4, 16776960, i_15_);
-									} else {
-										GraphicsHD.fillRect(i_16_ + -2, i_17_ - 2, 4, 4, 16776960, i_15_);
-									}
-								} else if (Class120_Sub12_Sub9.anInt3195 != -1 && class73.anInt652 == Class120_Sub12_Sub9.anInt3195) {
-									final int i_18_ = i_6_ - -(class120_sub14_sub5.anInt3480 * i_8_ / Class79.anInt700);
-									final int i_19_ = i_7_ + i_9_ * class120_sub14_sub5.anInt3481 / Class79.anInt692;
-									if (!HDToolkit.glEnabled) {
-										GraphicsLD.fillRect(i_18_ + -2, -2 + i_19_, 4, 4, 16776960, i_15_);
-									} else {
-										GraphicsHD.fillRect(-2 + i_18_, -2 + i_19_, 4, 4, 16776960, i_15_);
-									}
-								}
+			drawX += (width - drawWidth) / 2;
+			drawY += (height - drawHeight) / 2;
+			if (Class116.aClass120_Sub14_Sub19_1114 == null || Class116.aClass120_Sub14_Sub19_1114.width != width || Class116.aClass120_Sub14_Sub19_1114.height != height) {
+				final LDSprite ldSprite = new LDSprite(width, height);
+				GraphicsLD.init2dCanvas(ldSprite.pixels, width, height);
+				if (WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3635 != -1) {
+					GraphicsLD.fillRect(0, 0, width, height, WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3635);
+				}
+				WorldMapHandler.method683(0, 0, WorldMapHandler.mapSizeX, WorldMapHandler.mapSizeY, 0, 0, drawWidth, drawHeight);
+				WorldMapHandler.method685();
+				if (!HDToolkit.glEnabled) {
+					Class116.aClass120_Sub14_Sub19_1114 = ldSprite;
+				} else {
+					Class116.aClass120_Sub14_Sub19_1114 = new HDSprite(ldSprite);
+				}
+				if (!HDToolkit.glEnabled) {
+					ClanMember.fullscreenGraphics.init2dCanvas();
+				} else {
+					GraphicsLD.pixels = null;
+				}
+			}
+			int pointerColor = 16711680;
+			Class116.aClass120_Sub14_Sub19_1114.method1591(drawX, drawY);
+			final int pointerX = drawX + ParamType.worldMapLookAtX * drawWidth / WorldMapHandler.mapSizeX;
+			final int pointerY = drawY - GroundTile.worldMapLookAtY * drawHeight / WorldMapHandler.mapSizeY;
+			final int pointerWidth = Class173.worldMapPointerWidth * drawWidth / WorldMapHandler.mapSizeX;
+			final int pointerHeight = GroundObjectNode.worldMapPointerHeight * drawHeight / WorldMapHandler.mapSizeY;
+			if (Buffer.gameId == 1) {
+				pointerColor = 16777215;
+			}
+			if (HDToolkit.glEnabled) {
+				GraphicsHD.fillRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
+				GraphicsHD.drawRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor);
+			} else {
+				GraphicsLD.fillRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
+				GraphicsLD.drawRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor);
+			}
+			if (Class96.clickedMouseFunctionBlinksLeft > 0) {
+				int blinkAlpha;
+				if (Class136.clickedMouseFunctionCycle > 50) {
+					blinkAlpha = 500 - (Class136.clickedMouseFunctionCycle * 5);
+				} else {
+					blinkAlpha = Class136.clickedMouseFunctionCycle * 5;
+				}
+				for (MapFunctionNode mapFunctionNode = (MapFunctionNode) WorldMapHandler.aClass177_690.peekFirst(); mapFunctionNode != null; mapFunctionNode = (MapFunctionNode) WorldMapHandler.aClass177_690.peekNext()) {
+					final MapFunctionType mapFunctionType = MapFunctionType.list(mapFunctionNode.id);
+					if (Class9.method116(mapFunctionType)) {
+						if (mapFunctionNode.id == Class127.anInt1215) {
+							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
+							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
+							if (!HDToolkit.glEnabled) {
+								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+							} else {
+								GraphicsHD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+							}
+						} else if (Class120_Sub12_Sub9.clickedMouseFunctionId != -1 && mapFunctionType.anInt652 == Class120_Sub12_Sub9.clickedMouseFunctionId) {
+							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
+							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
+							if (!HDToolkit.glEnabled) {
+								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+							} else {
+								GraphicsHD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
 						}
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vl.A(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
 		}
 	}
 

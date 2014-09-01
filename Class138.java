@@ -6,7 +6,7 @@ final class Class138 implements ShaderInterface {
 	@Override
 	public final void method3() {
 		if (Class120_Sub12_Sub6.highLightingDetail) {
-			HDToolkit.method524(false);
+			HDToolkit.toggleLighting(false);
 		}
 	}
 
@@ -17,13 +17,12 @@ final class Class138 implements ShaderInterface {
 	@Override
 	public final void method2() {
 		if (Class120_Sub12_Sub6.highLightingDetail) {
-			HDToolkit.method524(true);
+			HDToolkit.toggleLighting(true);
 		}
 	}
 
 	@Override
 	public final void method5(final int i) {
-		/* empty */
 	}
 
 	@Override

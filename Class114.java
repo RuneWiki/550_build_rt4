@@ -2,7 +2,6 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Component;
-import java.util.Arrays;
 
 final class Class114 {
 	static int anInt1093 = 0;
@@ -57,7 +56,7 @@ final class Class114 {
 				final DisplayModeInfo displayModeInfo = Class65.displayModes[i_6_];
 				is[i_6_] = displayModeInfo.height * displayModeInfo.width;
 			}
-			Class120_Sub14_Sub1.sortArray(is, Class65.displayModes);
+			ProjectileNode.sortArray(is, Class65.displayModes);
 		}
 		return Class65.displayModes;
 	}

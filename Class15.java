@@ -7,7 +7,7 @@ final class Class15 {
 	static int rectDebugType = 0;
 	static boolean menuOpen;
 	static long aLong98;
-	static Class120_Sub14_Sub8_Sub2 aClass120_Sub14_Sub8_Sub2_99;
+	static LDFont objSmallFont;
 	static byte[] aByteArray100;
 	static int[] anIntArray101;
 
@@ -42,7 +42,7 @@ final class Class15 {
 			if (i > -98) {
 				aLong98 = -10L;
 			}
-			aClass120_Sub14_Sub8_Sub2_99 = null;
+			objSmallFont = null;
 			aByteArray100 = null;
 			aClass21_95 = null;
 			anIntArray101 = null;

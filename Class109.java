@@ -23,23 +23,17 @@ final class Class109 {
 		continueString = "Continue";
 	}
 
-	final void method972(final byte i) {
-		try {
-			if (i < -47) {
-				for (int i_0_ = 0; anInt1048 > i_0_; i_0_++) {
-					anIntArrayArrayArray1043[i_0_][0] = null;
-					anIntArrayArrayArray1043[i_0_][1] = null;
-					anIntArrayArrayArray1043[i_0_][2] = null;
-					anIntArrayArrayArray1043[i_0_] = null;
-				}
-				anIntArrayArrayArray1043 = null;
-				aClass120_Sub15Array1039 = null;
-				aClass105_1036.clear();
-				aClass105_1036 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("md.A(").append(i).append(')').toString());
+	final void method972() {
+		for (int i_0_ = 0; i_0_ < anInt1048; i_0_++) {
+			anIntArrayArrayArray1043[i_0_][0] = null;
+			anIntArrayArrayArray1043[i_0_][1] = null;
+			anIntArrayArrayArray1043[i_0_][2] = null;
+			anIntArrayArrayArray1043[i_0_] = null;
 		}
+		anIntArrayArrayArray1043 = null;
+		aClass120_Sub15Array1039 = null;
+		aClass105_1036.clear();
+		aClass105_1036 = null;
 	}
 
 	final int[][][] method973(final int i) {

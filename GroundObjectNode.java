@@ -5,7 +5,7 @@
 final class GroundObjectNode extends NodeSub {
 	static int renderZ;
 	static volatile int currentMouseClick;
-	static int anInt3628;
+	static int worldMapPointerHeight;
 	static int[] anIntArray3629 = { -1, -1, 1, 1 };
 	SceneGroundObject aClass180_Sub1_3630;
 	static int[] bitMasks;
@@ -14,7 +14,7 @@ final class GroundObjectNode extends NodeSub {
 		try {
 			anIntArray3629 = null;
 			if (i != 7581)
-				method1627(26, -114, 79, -74, -123, -65, -64, -86);
+				method1627(26, -114, 79, -74, -123, -65, -86);
 			bitMasks = null;
 		} catch (RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, "w.C(" + i + ')');
@@ -25,17 +25,11 @@ final class GroundObjectNode extends NodeSub {
 		aClass180_Sub1_3630 = class180_sub1;
 	}
 
-	static final void method1627(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_5_, int i_6_) {
-		try {
-			if (i_5_ != 4194303)
-				method1626(58);
-			if (i >= Class32.anInt260 && i_4_ <= ParamType.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (IdentityKit.anInt1334 ^ 0xffffffff))
-				Class120_Sub2.method1045(i_0_, i_4_, i_6_, i, i_3_, (byte) -57, i_1_, i_2_);
-			else
-				Class92.method768(i_3_, i_2_, i_1_, i_0_, i, (byte) 105, i_4_, i_6_);
-		} catch (RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, ("w.B(" + i + ',' + i_0_ + ',' + i_1_ + ',' + i_2_ + ',' + i_3_ + ',' + i_4_ + ',' + i_5_ + ',' + i_6_ + ')'));
-		}
+	static final void method1627(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_6_) {
+		if (i >= Class32.anInt260 && i_4_ <= ParamType.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (IdentityKit.anInt1334 ^ 0xffffffff))
+			Class120_Sub2.method1045(i_0_, i_4_, i_6_, i, i_3_, (byte) -57, i_1_, i_2_);
+		else
+			Class92.method768(i_3_, i_2_, i_1_, i_0_, i, i_4_, i_6_);
 	}
 
 	static final void sendInterfaceCounter() {

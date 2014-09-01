@@ -35,8 +35,8 @@ abstract class AbstractRequest extends NodeSub {
 			if (!bool) {
 				for (int i_10_ = 0; i_10_ < 8; i_10_++) {
 					for (int i_11_ = 0; i_11_ < 8; i_11_++) {
-						final int i_12_ = Queue.method2253(i_11_ & 0x7, i_3_, i_10_ & 0x7, 1) + i_0_;
-						final int i_13_ = i_2_ + Deque.method897(i_3_, 7, 0x7 & i_10_, 0x7 & i_11_);
+						final int i_12_ = Queue.method2253(i_11_ & 0x7, i_3_, i_10_ & 0x7) + i_0_;
+						final int i_13_ = i_2_ + Deque.method897(i_3_, 0x7 & i_10_, 0x7 & i_11_);
 						if (i_12_ > 0 && i_12_ < 103 && i_13_ > 0 && i_13_ < 103) {
 							class25s[i_5_].collisionFlags[i_12_][i_13_] = Class120_Sub12_Sub3.method1207(class25s[i_5_].collisionFlags[i_12_][i_13_], -2097153);
 						}
@@ -70,8 +70,8 @@ abstract class AbstractRequest extends NodeSub {
 					for (int i_21_ = 0; i_21_ < 64; i_21_++) {
 						if (i_19_ == i && i_20_ >= i_9_ && 8 + i_9_ >= i_20_ && i_21_ >= i_8_ && i_21_ <= i_8_ + 8) {
 							if (i_9_ - -8 != i_20_ && 8 + i_8_ != i_21_) {
-								final int i_22_ = Queue.method2253(0x7 & i_21_, i_3_, i_20_ & 0x7, 1) + i_0_;
-								final int i_23_ = Deque.method897(i_3_, 7, i_20_ & 0x7, 0x7 & i_21_) + i_2_;
+								final int i_22_ = Queue.method2253(0x7 & i_21_, i_3_, i_20_ & 0x7) + i_0_;
+								final int i_23_ = Deque.method897(i_3_, i_20_ & 0x7, 0x7 & i_21_) + i_2_;
 								Class10.method119(class120_sub7, false, bool, i_5_, i_15_ + i_20_, i_21_ + i_17_, i_23_, i_3_, i_18_, i_16_, i_22_);
 								if (i_20_ == 63 || i_21_ == 63) {
 									final int i_24_ = i_20_ != 63 ? i_20_ : 64;
@@ -180,8 +180,8 @@ abstract class AbstractRequest extends NodeSub {
 										for (int i_42_ = i_39_; i_42_ < 4 + i_39_; i_42_++) {
 											for (int i_43_ = i_40_; i_43_ < 4 + i_40_; i_43_++) {
 												if (i_42_ >= i_9_ && 8 + i_9_ > i_42_ && i_8_ <= i_43_ && i_8_ < 8 + i_8_) {
-													final int i_44_ = i_0_ + Queue.method2253(i_43_ & 0x7, i_3_, i_42_ & 0x7, 1);
-													final int i_45_ = Deque.method897(i_3_, 7, 0x7 & i_42_, 0x7 & i_43_) + i_2_;
+													final int i_44_ = i_0_ + Queue.method2253(i_43_ & 0x7, i_3_, i_42_ & 0x7);
+													final int i_45_ = Deque.method897(i_3_, 0x7 & i_42_, 0x7 & i_43_) + i_2_;
 													if (i_44_ >= 0 && i_44_ < 104 && i_45_ >= 0 && i_45_ < 104) {
 														Class114.aByteArrayArrayArray1094[i_5_][i_44_][i_45_] = i_41_;
 													}
@@ -222,21 +222,21 @@ abstract class AbstractRequest extends NodeSub {
 								final Light light = new Light(class120_sub7);
 								if (light.anInt376 == 31) {
 									final Class181 class181 = Class120_Sub12_Sub3.method1208(class120_sub7.getUShort(), (byte) -107);
-									light.method347(class181.anInt1789, 1056, class181.anInt1786, class181.anInt1788, class181.anInt1787);
+									light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 								}
-								int i_49_ = light.anInt395 >> 7;
-								int i_50_ = light.anInt373 >> 7;
+								int i_49_ = light.x >> 7;
+								int i_50_ = light.z >> 7;
 								if (light.anInt384 == i && i_49_ >= i_9_ && 8 + i_9_ > i_49_ && i_8_ <= i_50_ && 8 + i_8_ > i_50_) {
-									final int i_51_ = (i_0_ << 7) - -StructType.method1566(0x3ff & light.anInt395, i_3_, 0x3ff & light.anInt373, (byte) 24);
-									final int i_52_ = (i_2_ << 7) + Class92.method766(light.anInt373 & 0x3ff, 3, 0x3ff & light.anInt395, i_3_);
-									light.anInt395 = i_51_;
-									light.anInt373 = i_52_;
-									i_50_ = light.anInt373 >> 7;
-									i_49_ = light.anInt395 >> 7;
+									final int i_51_ = (i_0_ << 7) - -StructType.method1566(0x3ff & light.x, i_3_, 0x3ff & light.z, (byte) 24);
+									final int i_52_ = (i_2_ << 7) + Class92.method766(light.z & 0x3ff, 3, 0x3ff & light.x, i_3_);
+									light.x = i_51_;
+									light.z = i_52_;
+									i_50_ = light.z >> 7;
+									i_49_ = light.x >> 7;
 									if (i_49_ >= 0 && i_50_ >= 0 && i_49_ < 104 && i_50_ < 104) {
 										light.aBoolean385 = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
-										light.anInt375 = -light.anInt375 + OverridedJInterface.tileHeightMap[light.anInt384][i_49_][i_50_];
-										LightManager.method1860(light);
+										light.y = -light.y + OverridedJInterface.tileHeightMap[light.anInt384][i_49_][i_50_];
+										LightManager.addLight(light);
 									}
 								}
 							}

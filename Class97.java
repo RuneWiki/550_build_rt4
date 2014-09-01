@@ -92,14 +92,14 @@ final class Class97 {
 			i_18_ = i_18_ * i_24_ - i * i_23_ + 32767 >> 16;
 			i = i_25_;
 		}
-		AtmosphereManager.method1014(-i, -i_17_, i_18_);
-		AtmosphereManager.method1021(16777215, 0.5F, 0.5F, 1.0F);
-		AtmosphereManager.method1016();
+		AtmosphereManager.setLightingPosition(-i, -i_17_, i_18_);
+		AtmosphereManager.setLightingParams(16777215, 0.5F, 0.5F, 1.0F);
+		AtmosphereManager.applyLightingPosition();
 		if (anInt929 != 0) {
 			gl.glScalef(0.8125F, 0.8125F, 1.0F);
 		}
-		Rasterizer.anInterface5_973.method28((byte) -115, anInt931, anInt928);
-		HDToolkit.method524(true);
+		Rasterizer.anInterface5_973.method28(anInt931, anInt928);
+		HDToolkit.toggleLighting(true);
 		if (HDToolkit.vertexBufferAsObject) {
 			gl.glBindBufferARB(34962, 0);
 			gl.glBindBufferARB(34963, 0);
@@ -111,12 +111,12 @@ final class Class97 {
 		gl.glTexCoordPointer(2, 5126, 20, aByteBuffer921.position(12));
 		gl.glDrawElements(5, aByteBuffer927.limit() / 2, 5123, aByteBuffer927.position(0));
 		gl.glEnableClientState(32886);
-		HDToolkit.method524(false);
+		HDToolkit.toggleLighting(false);
 		if (anInt929 != 0) {
 			Class120_Sub14_Sub13.method1532(0, 0);
 			HDToolkit.method511(1);
 			HDToolkit.method521(0);
-			HDToolkit.method514(anInt942);
+			HDToolkit.bindTexture2D(anInt942);
 			gl.glColorMask(true, true, true, false);
 			gl.glTexEnvi(8960, 34176, 34168);
 			gl.glTexEnvi(8960, 34200, 771);
@@ -150,7 +150,7 @@ final class Class97 {
 			gl.glTexEnvi(8960, 34176, 5890);
 		}
 		Class12.method133();
-		HDToolkit.method514(anInt935);
+		HDToolkit.bindTexture2D(anInt935);
 		gl.glCopyTexImage2D(3553, 0, 6408, 0, 0, anInt931, anInt931, 0);
 		GraphicsHD.method594(anIntArray923);
 	}
@@ -200,18 +200,18 @@ final class Class97 {
 			i_28_ = i_28_ * i_37_ - i * i_36_ + 32767 >> 16;
 			i = i_38_;
 		}
-		AtmosphereManager.method1014(-i, i_27_, -i_28_);
-		AtmosphereManager.method1021(16777215, 0.5F, 0.5F, 0.5F);
-		AtmosphereManager.method1016();
-		HDToolkit.method505();
-		HDToolkit.method502(true);
-		HDToolkit.method524(true);
+		AtmosphereManager.setLightingPosition(-i, i_27_, -i_28_);
+		AtmosphereManager.setLightingParams(16777215, 0.5F, 0.5F, 0.5F);
+		AtmosphereManager.applyLightingPosition();
+		HDToolkit.enableDepthMask();
+		HDToolkit.toggleDepthTest(true);
+		HDToolkit.toggleLighting(true);
 		class180_sub7.method2367(0, 0, 0, 0, -i_29_ - class180_sub7.method2374(), -i_30_ - class180_sub7.getMaxY(), 0, -1L);
-		HDToolkit.method524(false);
-		HDToolkit.method502(false);
-		HDToolkit.method503();
+		HDToolkit.toggleLighting(false);
+		HDToolkit.toggleDepthTest(false);
+		HDToolkit.disableDepthMask();
 		Class12.method133();
-		HDToolkit.method514(anInt935);
+		HDToolkit.bindTexture2D(anInt935);
 		gl.glCopyTexImage2D(3553, 0, 6408, 0, 0, anInt931, anInt931, 0);
 		GraphicsHD.method594(anIntArray923);
 		return true;
@@ -265,9 +265,9 @@ final class Class97 {
 		i_57_ += (i_50_ - anInt925) / 2;
 		if (i_56_ < i_51_ && i_56_ + anInt925 > 0 && i_57_ < i_50_ && i_57_ + anInt925 > 0) {
 			if (anInt943 == 0) {
-				Rasterizer.anInterface5_973.method28((byte) -108, anInt931, anInt928);
+				Rasterizer.anInterface5_973.method28(anInt931, anInt928);
 			} else if (anInt935 != -1) {
-				HDToolkit.method514(anInt935);
+				HDToolkit.bindTexture2D(anInt935);
 			} else {
 				return;
 			}
@@ -292,13 +292,13 @@ final class Class97 {
 
 	final void method796(final Class97 class97_60_) {
 		if (anInt943 != 0) {
-			final boolean bool = anInt935 == -1 || anInt938 != Class113.anInt1083;
+			final boolean bool = anInt935 == -1 || anInt938 != MemoryManager.anInt1083;
 			if (aBoolean936 || bool) {
 				if (bool) {
-					anInt938 = Class113.anInt1083;
+					anInt938 = MemoryManager.anInt1083;
 					anInt935 = Class163.method2125(Class163.anInt1570, anInt931, anInt931);
 				} else {
-					HDToolkit.method514(anInt935);
+					HDToolkit.bindTexture2D(anInt935);
 					Class163.method2124(Class163.anInt1570, anInt931, anInt931);
 				}
 				if (anInt943 == 1) {
@@ -352,7 +352,7 @@ final class Class97 {
 			aClass120_Sub14_Sub19_Sub2_920 = null;
 			return false;
 		}
-		int i_68_ = Deque.method888(anInt925, (byte) 115);
+		int i_68_ = Deque.method888(anInt925);
 		if (i_68_ > 512) {
 			i_68_ = 512;
 		}
@@ -401,7 +401,7 @@ final class Class97 {
 			final int[] is_79_ = class180_sub2.trianglesA;
 			final int[] is_80_ = class180_sub2.trianglesB;
 			final int[] is_81_ = class180_sub2.trianglesC;
-			class180_sub2.anInt2896 = 2;
+			class180_sub2.vertexCount = 2;
 			is[0] = 0;
 			is_77_[0] = 128;
 			is_78_[0] = 0;
@@ -417,43 +417,43 @@ final class Class97 {
 					final int i_87_ = Rasterizer.cosineTable[i_86_] >> 9;
 					final int i_88_ = (Rasterizer.sineTable[i_86_] >> 1) * i_83_ >> 23;
 					final int i_89_ = (Rasterizer.sineTable[i_86_] >> 1) * i_84_ >> 23;
-					is[class180_sub2.anInt2896] = i_89_;
-					is_77_[class180_sub2.anInt2896] = i_87_;
-					is_78_[class180_sub2.anInt2896] = -i_88_;
-					class180_sub2.anInt2896++;
+					is[class180_sub2.vertexCount] = i_89_;
+					is_77_[class180_sub2.vertexCount] = i_87_;
+					is_78_[class180_sub2.vertexCount] = -i_88_;
+					class180_sub2.vertexCount++;
 				}
 				if (i > 0) {
 					int i_90_ = i * 15 + 2;
 					int i_91_ = i_90_ - 15;
-					is_79_[class180_sub2.anInt2856] = 0;
-					is_80_[class180_sub2.anInt2856] = i_91_;
-					is_81_[class180_sub2.anInt2856] = i_90_;
-					class180_sub2.anInt2856++;
+					is_79_[class180_sub2.triangleCount] = 0;
+					is_80_[class180_sub2.triangleCount] = i_91_;
+					is_81_[class180_sub2.triangleCount] = i_90_;
+					class180_sub2.triangleCount++;
 					for (int i_92_ = 1; i_92_ < 15; i_92_++) {
 						final int i_93_ = i_91_ + 1;
 						final int i_94_ = i_90_ + 1;
-						is_79_[class180_sub2.anInt2856] = i_91_;
-						is_80_[class180_sub2.anInt2856] = i_93_;
-						is_81_[class180_sub2.anInt2856] = i_90_;
-						class180_sub2.anInt2856++;
-						is_79_[class180_sub2.anInt2856] = i_93_;
-						is_80_[class180_sub2.anInt2856] = i_94_;
-						is_81_[class180_sub2.anInt2856] = i_90_;
-						class180_sub2.anInt2856++;
+						is_79_[class180_sub2.triangleCount] = i_91_;
+						is_80_[class180_sub2.triangleCount] = i_93_;
+						is_81_[class180_sub2.triangleCount] = i_90_;
+						class180_sub2.triangleCount++;
+						is_79_[class180_sub2.triangleCount] = i_93_;
+						is_80_[class180_sub2.triangleCount] = i_94_;
+						is_81_[class180_sub2.triangleCount] = i_90_;
+						class180_sub2.triangleCount++;
 						i_91_ = i_93_;
 						i_90_ = i_94_;
 					}
-					is_79_[class180_sub2.anInt2856] = i_90_;
-					is_80_[class180_sub2.anInt2856] = i_91_;
-					is_81_[class180_sub2.anInt2856] = 1;
-					class180_sub2.anInt2856++;
+					is_79_[class180_sub2.triangleCount] = i_90_;
+					is_80_[class180_sub2.triangleCount] = i_91_;
+					is_81_[class180_sub2.triangleCount] = 1;
+					class180_sub2.triangleCount++;
 				}
 			}
-			class180_sub2.anInt2886 = class180_sub2.anInt2896;
+			class180_sub2.anInt2886 = class180_sub2.vertexCount;
 			class180_sub2.aByteArray2876 = null;
 			class180_sub2.aShortArray2850 = null;
-			class180_sub2.anIntArray2872 = null;
-			class180_sub2.vertexVSkins = null;
+			class180_sub2.triangleLabelIds = null;
+			class180_sub2.vertexLabelIds = null;
 			class180_sub2.aByteArray2879 = null;
 		}
 	}
@@ -549,7 +549,7 @@ final class Class97 {
 	private final boolean method801(final Class97 class97_109_) {
 		if (aClass120_Sub14_Sub19_Sub2_920 == null) {
 			if (anInt943 == 0) {
-				aClass120_Sub14_Sub19_Sub2_920 = Rasterizer.anInterface5_973.method26(true, Rasterizer.aFloat968, false, anInt931, anInt928);
+				aClass120_Sub14_Sub19_Sub2_920 = Rasterizer.anInterface5_973.method26(true, Rasterizer.aFloat968, anInt931, anInt928);
 			} else if (anInt943 == 2) {
 				method807(class97_109_);
 			} else if (anInt943 == 1) {
@@ -584,7 +584,7 @@ final class Class97 {
 		method799();
 		method798();
 		aClass120_Sub14_Sub19_Sub2_920 = new LDTransparentSprite(anInt931, anInt931);
-		GraphicsLD.method2169(anIntArray923);
+		GraphicsLD.copyBounds(anIntArray923);
 		aClass120_Sub14_Sub19_Sub2_920.method1617();
 		Rasterizer.calculateByBounds();
 		GraphicsLD.fillRect(0, 0, anInt931, anInt931, 0);
@@ -617,7 +617,7 @@ final class Class97 {
 			i_122_ = i_122_ * i_128_ - i * i_127_ + 32767 >> 16;
 			i = i_129_;
 		}
-		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.anInt2856, (short) Rasterizer.anInterface5_973.method20(anInt928, 65535));
+		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.triangleCount, (short) Rasterizer.anInterface5_973.method20(anInt928));
 		final LDModel class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
 		final int i_130_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
 		final int i_131_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();
@@ -639,7 +639,7 @@ final class Class97 {
 			}
 		}
 		ClanMember.fullscreenGraphics.init2dCanvas();
-		GraphicsLD.method2172(anIntArray923);
+		GraphicsLD.setBounds(anIntArray923);
 		Rasterizer.calculateByBounds();
 	}
 
@@ -688,7 +688,7 @@ final class Class97 {
 
 	static final void method806() {
 		if (anInt942 != -1) {
-			Class113.method999(anInt942, 0, anInt926);
+			MemoryManager.method999(anInt942, 0, anInt926);
 		}
 		anInt942 = -1;
 		anInt926 = -1;
@@ -702,7 +702,7 @@ final class Class97 {
 		final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class41.aClass50_360, anInt928, 0);
 		if (class180_sub2 != null) {
 			aClass120_Sub14_Sub19_Sub2_920 = new LDSprite(anInt931, anInt931);
-			GraphicsLD.method2169(anIntArray923);
+			GraphicsLD.copyBounds(anIntArray923);
 			aClass120_Sub14_Sub19_Sub2_920.method1617();
 			Rasterizer.calculateByBounds();
 			GraphicsLD.fillRect(0, 0, anInt931, anInt931, 0);
@@ -746,22 +746,22 @@ final class Class97 {
 				class180_sub7_sub1.method2400(0, 0, 0, 0, -i_159_, -i_160_, 0, (i_158_ << 9) / anInt931);
 			}
 			ClanMember.fullscreenGraphics.init2dCanvas();
-			GraphicsLD.method2172(anIntArray923);
+			GraphicsLD.setBounds(anIntArray923);
 			Rasterizer.calculateByBounds();
 		}
 	}
 
 	private static final void method808() {
 		method798();
-		if (anInt942 == -1 || anInt926 != Class113.anInt1083) {
+		if (anInt942 == -1 || anInt926 != MemoryManager.anInt1083) {
 			anInt942 = Class163.method2127(Class163.anInt1576, 128, 128, aByteArray941);
-			anInt926 = Class113.anInt1083;
+			anInt926 = MemoryManager.anInt1083;
 		}
 	}
 
 	private final void method809() {
 		if (anInt935 != -1) {
-			Class113.method999(anInt935, 0, anInt938);
+			MemoryManager.method999(anInt935, 0, anInt938);
 		}
 		aBoolean936 = true;
 		anInt935 = -1;

@@ -18,88 +18,82 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		highLightingDetail = true;
 	}
 
-	static final AbstractSprite method1224(final int i, final boolean bool, final int i_0_, final boolean bool_1_, final PlayerAppearance playerAppearance, final int i_2_, final int i_3_, final int i_4_, final boolean bool_5_) {
-		ObjType objType = ObjType.list(i_4_);
-		if (i_0_ > 1 && objType.countobj != null) {
-			int i_6_ = -1;
+	static final AbstractSprite method1224(final PlayerAppearance playerAppearance, int outlineType, final int objCount, int shadow, final int objId, final boolean drawAmount, final boolean shrink, final boolean useHDSprite) {
+		ObjType objType = ObjType.list(objId);
+		if (objCount > 1 && objType.countobj != null) {
+			int countObjId = -1;
 			for (int id = 0; id < 10; id++) {
-				if (objType.countcounts[id] <= i_0_ && objType.countcounts[id] != 0) {
-					i_6_ = objType.countobj[id];
+				if (objType.countcounts[id] <= objCount && objType.countcounts[id] != 0) {
+					countObjId = objType.countobj[id];
 				}
 			}
-			if (i_6_ != -1) {
-				objType = ObjType.list(i_6_);
+			if (countObjId != -1) {
+				objType = ObjType.list(countObjId);
 			}
 		}
-		final LDModel class180_sub7_sub1 = objType.method2117(playerAppearance);
-		if (class180_sub7_sub1 == null) {
+		final LDModel objModel = objType.method2117(playerAppearance);
+		if (objModel == null) {
 			return null;
 		}
-		LDSprite class120_sub14_sub19_sub2_8_ = null;
-		if (objType.certtemplate == -1) {
-			if (objType.lenttemplate != -1) {
-				class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(i, false, i_0_, false, playerAppearance, -101, i_3_, objType.lentlink, true);
-				if (class120_sub14_sub19_sub2_8_ == null) {
-					return null;
-				}
+		LDSprite certLentTemplateSprite = null;
+		if (objType.certtemplate != -1) {
+			certLentTemplateSprite = (LDSprite) method1224(playerAppearance, 1, 10, 0, objType.certlink, false, true, true);
+			if (certLentTemplateSprite == null) {
+				return null;
 			}
-		} else {
-			class120_sub14_sub19_sub2_8_ = (LDSprite) method1224(1, false, 10, true, playerAppearance, -93, 0, objType.certlink, true);
-			if (class120_sub14_sub19_sub2_8_ == null) {
+		} else if (objType.lenttemplate != -1) {
+			certLentTemplateSprite = (LDSprite) method1224(playerAppearance, outlineType, objCount, shadow, objType.lentlink, false, false, true);
+			if (certLentTemplateSprite == null) {
 				return null;
 			}
 		}
-		final int[] is = GraphicsLD.pixels;
-		final int i_9_ = GraphicsLD.height;
-		final int[] is_10_ = new int[4];
-		final int i_11_ = GraphicsLD.width;
-		GraphicsLD.method2169(is_10_);
-		LDSprite class120_sub14_sub19_sub2_12_ = new LDSprite(36, 32);
-		GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
+		final int[] pixels = GraphicsLD.pixels;
+		final int width = GraphicsLD.width;
+		final int height = GraphicsLD.height;
+		final int[] bounds = new int[4];
+		GraphicsLD.copyBounds(bounds);
+		LDSprite objSprite = new LDSprite(36, 32);
+		GraphicsLD.init2dCanvas(objSprite.pixels, 36, 32);
 		Rasterizer.calculateByBounds();
 		Rasterizer.method869(16, 16);
 		Rasterizer.aBoolean971 = false;
-		int i_13_ = objType.zoom2d;
-		if (!bool_1_) {
-			if (i == 2) {
-				i_13_ *= 1.04;
+		int zoom = objType.zoom2d;
+		if (shrink) {
+			zoom = (int) (1.5 * zoom);
+		} else if (outlineType == 2) {
+			zoom *= 1.04;
+		}
+		final int i_14_ = Rasterizer.cosineTable[objType.xan2d] * zoom >> 16;
+		final int i_15_ = Rasterizer.sineTable[objType.xan2d] * zoom >> 16;
+		objModel.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - objModel.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
+		if (outlineType >= 1) {
+			objSprite.outline(1);
+			if (outlineType >= 2) {
+				objSprite.outline(16777215);
 			}
-		} else {
-			i_13_ = (int) (1.5 * i_13_);
+			GraphicsLD.init2dCanvas(objSprite.pixels, 36, 32);
 		}
-		final int i_14_ = i_13_ * Rasterizer.cosineTable[objType.xan2d] >> 16;
-		final int i_15_ = Rasterizer.sineTable[objType.xan2d] * i_13_ >> 16;
-		class180_sub7_sub1.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - class180_sub7_sub1.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
-		if (i >= 1) {
-			class120_sub14_sub19_sub2_12_.method1613(1);
-			if (i >= 2) {
-				class120_sub14_sub19_sub2_12_.method1613(16777215);
-			}
-			GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_12_.pixels, 36, 32);
+		if (shadow != 0) {
+			objSprite.shadow(shadow);
 		}
-		if (i_3_ != 0) {
-			class120_sub14_sub19_sub2_12_.method1607(i_3_);
+		if (objType.certtemplate != -1) {
+			certLentTemplateSprite.method1587(0, 0);
+		} else if (objType.lenttemplate != -1) {
+			GraphicsLD.init2dCanvas(certLentTemplateSprite.pixels, 36, 32);
+			objSprite.method1587(0, 0);
+			objSprite = certLentTemplateSprite;
 		}
-		if (objType.certtemplate == -1) {
-			if (objType.lenttemplate != -1) {
-				GraphicsLD.init2dCanvas(class120_sub14_sub19_sub2_8_.pixels, 36, 32);
-				class120_sub14_sub19_sub2_12_.method1587(0, 0);
-				class120_sub14_sub19_sub2_12_ = class120_sub14_sub19_sub2_8_;
-			}
-		} else {
-			class120_sub14_sub19_sub2_8_.method1587(0, 0);
+		if (drawAmount && (objType.stackable == 1 || objCount != 1) && objCount != -1) {
+			Class15.objSmallFont.method1466(NodeCache.formatObjCount(objCount), 0, 9, 16776960, 1);
 		}
-		if (bool && (objType.stackable == 1 || i_0_ != 1) && i_0_ != -1) {
-			Class15.aClass120_Sub14_Sub8_Sub2_99.method1466(NodeCache.method305(-41, i_0_), 0, 9, 16776960, 1);
-		}
-		GraphicsLD.init2dCanvas(is, i_11_, i_9_);
-		GraphicsLD.method2172(is_10_);
+		GraphicsLD.init2dCanvas(pixels, width, height);
+		GraphicsLD.setBounds(bounds);
 		Rasterizer.calculateByBounds();
 		Rasterizer.aBoolean971 = true;
-		if (HDToolkit.glEnabled && !bool_5_) {
-			return new HDSprite(class120_sub14_sub19_sub2_12_);
+		if (HDToolkit.glEnabled && !useHDSprite) {
+			return new HDSprite(objSprite);
 		}
-		return class120_sub14_sub19_sub2_12_;
+		return objSprite;
 	}
 
 	static final void setCursor(int i) {
@@ -191,10 +185,10 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		Class78.method670();
 		Class157.shaders = new ShaderInterface[i];
 		Class157.shaders[1] = new Class72();
-		Class157.shaders[2] = new Class60();
+		Class157.shaders[2] = new LavaShader();
 		Class157.shaders[3] = new WaterShader();
 		Class157.shaders[4] = new Class14();
-		Class157.shaders[5] = new Class20();
+		Class157.shaders[5] = new WaterfallShader();
 		Class157.shaders[6] = new Class138();
 		Class157.shaders[7] = new Class5();
 	}
@@ -236,23 +230,23 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		return is_32_;
 	}
 
-	static final void method1229(final int[] is, int i, final int i_43_, final int i_44_, final int i_45_, final int i_46_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i_44_][i_45_][i_46_];
-		if (class120_sub18 != null) {
-			final PlainTile plainTile = class120_sub18.aClass141_2626;
+	static final void method1229(final int[] pixels, int pixelPos, final int pixelStep, final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		if (groundTile != null) {
+			final PlainTile plainTile = groundTile.plainTile;
 			if (plainTile != null) {
 				final int i_47_ = plainTile.anInt1346;
 				if (i_47_ != 0) {
 					for (int i_48_ = 0; i_48_ < 4; i_48_++) {
-						is[i] = i_47_;
-						is[i + 1] = i_47_;
-						is[i + 2] = i_47_;
-						is[i + 3] = i_47_;
-						i += i_43_;
+						pixels[pixelPos] = i_47_;
+						pixels[pixelPos + 1] = i_47_;
+						pixels[pixelPos + 2] = i_47_;
+						pixels[pixelPos + 3] = i_47_;
+						pixelPos += pixelStep;
 					}
 				}
 			} else {
-				final ShapedTile shapedTile = class120_sub18.aClass168_2640;
+				final ShapedTile shapedTile = groundTile.shapedTile;
 				if (shapedTile != null) {
 					final int i_49_ = shapedTile.anInt1622;
 					final int i_50_ = shapedTile.anInt1628;
@@ -263,27 +257,27 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 					int i_55_ = 0;
 					if (i_51_ != 0) {
 						for (int i_56_ = 0; i_56_ < 4; i_56_++) {
-							is[i] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							is[i + 1] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							is[i + 2] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							is[i + 3] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							i += i_43_;
+							pixels[pixelPos] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
+							pixels[pixelPos + 1] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
+							pixels[pixelPos + 2] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
+							pixels[pixelPos + 3] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
+							pixelPos += pixelStep;
 						}
 					} else {
 						for (int i_57_ = 0; i_57_ < 4; i_57_++) {
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								is[i] = i_52_;
+								pixels[pixelPos] = i_52_;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								is[i + 1] = i_52_;
+								pixels[pixelPos + 1] = i_52_;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								is[i + 2] = i_52_;
+								pixels[pixelPos + 2] = i_52_;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								is[i + 3] = i_52_;
+								pixels[pixelPos + 3] = i_52_;
 							}
-							i += i_43_;
+							pixelPos += pixelStep;
 						}
 					}
 				}

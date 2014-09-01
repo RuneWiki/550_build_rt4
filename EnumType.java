@@ -53,7 +53,7 @@ final class EnumType extends NodeSub {
 			defaulInteger = buffer.getInt();
 		} else if (code == 5 || code == 6) {
 			final int i_3_ = buffer.getUShort();
-			params = new Hashtable(Class120_Sub12_Sub17.method1283(i_3_));
+			params = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(i_3_));
 			for (int i_4_ = 0; i_3_ > i_4_; i_4_++) {
 				final int i_5_ = buffer.getInt();
 				Node node;
@@ -112,11 +112,11 @@ final class EnumType extends NodeSub {
 			if (HDToolkit.glEnabled) {
 				Class158.aBoolean1478 = true;
 			}
-			OverlayType.method1900();
-			Class120_Sub14_Sub1.setGameState(28);
+			UnderlayType.method1900();
+			ProjectileNode.setGameState(28);
 		} else {
 			HintIcon.method725(Class7.aClass50_63);
-			Class120_Sub14_Sub1.setGameState(10);
+			ProjectileNode.setGameState(10);
 		}
 	}
 

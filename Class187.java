@@ -36,20 +36,20 @@ final class Class187 {
 		}
 	}
 
-	static final AbstractSprite method2477(final int i, final int i_0_, final boolean bool, final byte i_1_, final PlayerAppearance playerAppearance, final int i_2_, final int i_3_) {
+	static final AbstractSprite method2477(final PlayerAppearance playerAppearance, final int i, final int i_0_, final int i_2_, final int i_3_, final boolean bool) {
 		final int i_4_ = i;
-		final int i_5_ = (!bool ? 0 : 65536) + i_2_ - -(i_0_ << 17) - -(i_3_ << 19);
-		final long l = 3147483667L * i_4_ - -(3849834839L * i_5_);
-		AbstractSprite class120_sub14_sub19_6_ = (AbstractSprite) SpotAnimation.aClass21_2906.get(l);
-		if (class120_sub14_sub19_6_ != null) {
-			return class120_sub14_sub19_6_;
-		}
+		final int i_5_ = (bool ? 65536 : 0) + i_2_ + (i_0_ << 17) + (i_3_ << 19);
+		final long l = 3147483667L * i_4_ + 3849834839L * i_5_;
+		AbstractSprite cachedSprite = (AbstractSprite) SpotAnimation.aClass21_2906.get(l);
+		//if (cachedSprite != null) {
+		//	return cachedSprite;
+		//}
 		Rasterizer.aBoolean974 = false;
-		class120_sub14_sub19_6_ = Class120_Sub12_Sub6.method1224(i_0_, bool, i, false, playerAppearance, -98, i_3_, i_2_, false);
-		if (class120_sub14_sub19_6_ != null && !Rasterizer.aBoolean974) {
-			SpotAnimation.aClass21_2906.put(class120_sub14_sub19_6_, l);
+		cachedSprite = Class120_Sub12_Sub6.method1224(playerAppearance, i_0_, i, i_3_, i_2_, bool, false, false);
+		if (cachedSprite != null && !Rasterizer.aBoolean974) {
+			SpotAnimation.aClass21_2906.put(cachedSprite, l);
 		}
-		return class120_sub14_sub19_6_;
+		return cachedSprite;
 	}
 
 	static final void method2478() {

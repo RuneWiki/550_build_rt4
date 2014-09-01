@@ -50,9 +50,9 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								}
 							}
 						} else {
-							final int i_15_ = (int) AtmosphereManager.aFloatArray1127[0];
-							final int i_16_ = (int) AtmosphereManager.aFloatArray1127[2];
-							final int i_17_ = (int) AtmosphereManager.aFloatArray1127[1];
+							final int i_15_ = (int) AtmosphereManager.light0Position[0];
+							final int i_16_ = (int) AtmosphereManager.light0Position[2];
+							final int i_17_ = (int) AtmosphereManager.light0Position[1];
 							final int i_18_ = (int) Math.sqrt(i_16_ * i_16_ + i_17_ * i_17_ + i_15_ * i_15_);
 							final int i_19_ = 1024 * i_18_ >> 8;
 							for (int i_20_ = 1; i_20_ < 103; i_20_++) {
@@ -101,7 +101,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							if (i_45_ < 104) {
 								final int i_46_ = Class120_Sub4.aByteArrayArrayArray2441[i_9_][i_45_][i_44_] & 0xff;
 								if (i_46_ > 0) {
-									final OverlayType overlayType = OverlayType.list(-1 + i_46_);
+									final UnderlayType overlayType = UnderlayType.list(-1 + i_46_);
 									StringNode.anIntArray2733[i_44_] += overlayType.anInt1218;
 									PacketBuffer.anIntArray3120[i_44_] += overlayType.anInt1222;
 									Class120_Sub12_Sub31.anIntArray3383[i_44_] += overlayType.anInt1229;
@@ -113,7 +113,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							if (i_47_ >= 0) {
 								final int i_48_ = Class120_Sub4.aByteArrayArrayArray2441[i_9_][i_47_][i_44_] & 0xff;
 								if (i_48_ > 0) {
-									final OverlayType overlayType = OverlayType.list(-1 + i_48_);
+									final UnderlayType overlayType = UnderlayType.list(-1 + i_48_);
 									StringNode.anIntArray2733[i_44_] -= overlayType.anInt1218;
 									PacketBuffer.anIntArray3120[i_44_] -= overlayType.anInt1222;
 									Class120_Sub12_Sub31.anIntArray3383[i_44_] -= overlayType.anInt1229;
@@ -146,7 +146,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									i_53_ -= PacketBuffer.anIntArray3120[i_56_];
 								}
 								if (i_54_ >= 0 && i_52_ > 0) {
-									is_6_[i_43_][i_54_] = Class120_Sub14_Sub5.method1442(i_49_ * 256 / i_51_, i_53_ / i_52_, i_50_ / i_52_);
+									is_6_[i_43_][i_54_] = MapFunctionNode.method1442(i_49_ * 256 / i_51_, i_53_ / i_52_, i_50_ / i_52_);
 								}
 							}
 						}
@@ -166,10 +166,10 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									final int i_64_ = OverridedJInterface.tileHeightMap[i_9_][i_57_][i_58_ + 1];
 									if (i_9_ > 0) {
 										boolean bool_65_ = true;
-										if (i_59_ == 0 && Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_][i_57_][i_58_] != 0) {
+										if (i_59_ == 0 && MapFunctionNode.aByteArrayArrayArray3477[i_9_][i_57_][i_58_] != 0) {
 											bool_65_ = false;
 										}
-										if (i_60_ > 0 && !Class118.method1025((byte) -128, i_60_ - 1).aBoolean1195) {
+										if (i_60_ > 0 && !OverlayType.list(i_60_ - 1).aBoolean1195) {
 											bool_65_ = false;
 										}
 										if (bool_65_ && i_61_ == i_62_ && i_63_ == i_61_ && i_61_ == i_64_) {
@@ -190,16 +190,16 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											i_68_ = 127;
 										}
 										final int i_69_ = (0xfc00 & i_66_) + (i_66_ & 0x380) - -i_68_;
-										i_67_ = Rasterizer.palette[Class178.method2256(true, i_69_, 96)];
+										i_67_ = Rasterizer.palette[Class178.method2256(i_69_, 96)];
 									}
 									final int i_70_ = is_8_[1 + i_57_][i_58_];
 									final int i_71_ = is_8_[i_57_ + 1][i_58_ + 1];
 									final int i_72_ = is_8_[i_57_][i_58_ + 1];
 									final int i_73_ = is_8_[i_57_][i_58_];
 									if (i_60_ == 0) {
-										Class120_Sub12.method1191(i_9_, i_57_, i_58_, 0, 0, -1, i_61_, i_62_, i_63_, i_64_, Class178.method2256(true, i_66_, i_73_), Class178.method2256(true, i_66_, i_70_), Class178.method2256(true, i_66_, i_71_), Class178.method2256(true, i_66_, i_72_), 0, 0, 0, 0,
+										Class120_Sub12.method1191(i_9_, i_57_, i_58_, 0, 0, -1, i_61_, i_62_, i_63_, i_64_, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), 0, 0, 0, 0,
 												i_67_, 0);
-										if (HDToolkit.glEnabled && i_9_ > 0 && i_66_ != -1 && OverlayType.list(-1 + i_59_).aBoolean1220) {
+										if (HDToolkit.glEnabled && i_9_ > 0 && i_66_ != -1 && UnderlayType.list(-1 + i_59_).aBoolean1220) {
 											Class47.method384(0, 0, true, false, i_57_, i_58_, i_61_ - OverridedJInterface.tileHeightMap[0][i_57_][i_58_], -OverridedJInterface.tileHeightMap[0][i_57_ + 1][i_58_] + i_62_, -OverridedJInterface.tileHeightMap[0][1 + i_57_][1 + i_58_]
 													+ i_63_, -OverridedJInterface.tileHeightMap[0][i_57_][1 + i_58_] + i_64_);
 										}
@@ -209,8 +209,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 													if ((i_74_ != i_57_ || i_58_ != i_75_) && i_74_ >= 0 && i_74_ < 104 && i_75_ >= 0 && i_75_ < 104) {
 														final int i_76_ = Class99.aByteArrayArrayArray949[i_9_][i_74_][i_75_] & 0xff;
 														if (i_76_ != 0) {
-															final Class124 class124 = Class118.method1025((byte) -128, -1 + i_76_);
-															if ((class124.anInt1203 ^ 0xffffffff) != 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.anInt1203, 255), (byte) -90)) {
+															final OverlayType class124 = OverlayType.list(-1 + i_76_);
+															if ((class124.textureId ^ 0xffffffff) != 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.textureId), (byte) -90)) {
 																NodeCache.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
 																break while_130_;
 															}
@@ -220,18 +220,18 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											}
 										}
 									} else {
-										final int i_77_ = 1 + Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_][i_57_][i_58_];
+										final int i_77_ = 1 + MapFunctionNode.aByteArrayArrayArray3477[i_9_][i_57_][i_58_];
 										final byte i_78_ = Class8.aByteArrayArrayArray65[i_9_][i_57_][i_58_];
-										final Class124 class124 = Class118.method1025((byte) -127, -1 + i_60_);
+										final OverlayType class124 = OverlayType.list(-1 + i_60_);
 										if (HDToolkit.glEnabled && !bool && NodeCache.anIntArrayArray300 != null && i_9_ == 0) {
-											if ((class124.anInt1203 ^ 0xffffffff) == 0 || !Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.anInt1203, 255), (byte) -59)) {
+											if ((class124.textureId ^ 0xffffffff) == 0 || !Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.textureId), (byte) -59)) {
 												while_129_: for (int i_79_ = i_57_ - 1; i_79_ <= 1 + i_57_; i_79_++) {
 													for (int i_80_ = -1 + i_58_; i_58_ - -1 >= i_80_; i_80_++) {
 														if ((i_79_ != i_57_ || i_80_ != i_58_) && i_79_ >= 0 && i_79_ < 104 && i_80_ >= 0 && i_80_ < 104) {
 															final int i_81_ = Class99.aByteArrayArrayArray949[i_9_][i_79_][i_80_] & 0xff;
 															if (i_81_ != 0) {
-																final Class124 class124_82_ = Class118.method1025((byte) -126, -1 + i_81_);
-																if (class124_82_.anInt1203 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124_82_.anInt1203, 255), (byte) -100)) {
+																final OverlayType class124_82_ = OverlayType.list(-1 + i_81_);
+																if (class124_82_.textureId != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124_82_.textureId), (byte) -100)) {
 																	NodeCache.anIntArrayArray300[i_57_][i_58_] = class124_82_.anInt1200 + (class124_82_.anInt1199 << 24);
 																	break while_129_;
 																}
@@ -243,15 +243,15 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 												NodeCache.anIntArrayArray300[i_57_][i_58_] = (class124.anInt1199 << 24) + class124.anInt1200;
 											}
 										}
-										int i_83_ = class124.anInt1203;
-										if (i_83_ >= 0 && !Rasterizer.anInterface5_973.method15(i_83_, i ^ 0x47)) {
+										int i_83_ = class124.textureId;
+										if (i_83_ >= 0 && !Rasterizer.anInterface5_973.method15(i_83_)) {
 											i_83_ = -1;
 										}
 										int i_84_;
 										int i_85_;
 										if (i_83_ >= 0) {
 											i_85_ = -1;
-											i_84_ = Rasterizer.palette[Class96.method789((byte) -77, Rasterizer.anInterface5_973.method20(i_83_, i ^ 0xffb8), 96)];
+											i_84_ = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.method20(i_83_), 96)];
 										} else if (class124.anInt1197 == -1) {
 											i_84_ = 0;
 											i_85_ = -2;
@@ -266,7 +266,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 												i_86_ = 0;
 											}
 											final int i_87_ = i_86_ + (0xfc00 & i_85_) + (0x380 & i_85_);
-											i_84_ = Rasterizer.palette[Class96.method789((byte) -77, i_87_, 96)];
+											i_84_ = Rasterizer.palette[Class96.method789(i_87_, 96)];
 										}
 										if (class124.anInt1198 >= 0) {
 											final int i_88_ = class124.anInt1198;
@@ -279,12 +279,12 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 												i_89_ = 0;
 											}
 											final int i_90_ = (0xfc00 & i_88_) + (0x380 & i_88_) - -i_89_;
-											i_84_ = Rasterizer.palette[Class96.method789((byte) -77, i_90_, 96)];
+											i_84_ = Rasterizer.palette[Class96.method789(i_90_, 96)];
 										}
-										Class120_Sub12.method1191(i_9_, i_57_, i_58_, i_77_, i_78_, i_83_, i_61_, i_62_, i_63_, i_64_, Class178.method2256(true, i_66_, i_73_), Class178.method2256(true, i_66_, i_70_), Class178.method2256(true, i_66_, i_71_), Class178.method2256(true, i_66_, i_72_),
-												Class96.method789((byte) -77, i_85_, i_73_), Class96.method789((byte) -77, i_85_, i_70_), Class96.method789((byte) -77, i_85_, i_71_), Class96.method789((byte) -77, i_85_, i_72_), i_67_, i_84_);
+										Class120_Sub12.method1191(i_9_, i_57_, i_58_, i_77_, i_78_, i_83_, i_61_, i_62_, i_63_, i_64_, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_),
+												Class96.method789(i_85_, i_73_), Class96.method789(i_85_, i_70_), Class96.method789(i_85_, i_71_), Class96.method789(i_85_, i_72_), i_67_, i_84_);
 										if (HDToolkit.glEnabled && i_9_ > 0) {
-											Class47.method384(i_77_, i_78_, i_85_ == -2 || !class124.aBoolean1193, i_66_ == -1 || !OverlayType.list(-1 + i_59_).aBoolean1220, i_57_, i_58_, -OverridedJInterface.tileHeightMap[0][i_57_][i_58_] + i_61_, i_62_
+											Class47.method384(i_77_, i_78_, i_85_ == -2 || !class124.aBoolean1193, i_66_ == -1 || !UnderlayType.list(-1 + i_59_).aBoolean1220, i_57_, i_58_, -OverridedJInterface.tileHeightMap[0][i_57_][i_58_] + i_61_, i_62_
 													- OverridedJInterface.tileHeightMap[0][i_57_ - -1][i_58_], i_63_ + -OverridedJInterface.tileHeightMap[0][1 + i_57_][i_58_ + 1], i_64_ - OverridedJInterface.tileHeightMap[0][i_57_][i_58_ - -1]);
 										}
 									}
@@ -308,13 +308,13 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							}
 						}
 						if (bool) {
-							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_,
+							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_,
 									Class120_Sub12_Sub33.anIntArrayArrayArray3388[0], Class114.tileSettings, Class120_Sub4.aByteArrayArrayArray2441[i_9_], false, OverridedJInterface.tileHeightMap[i_9_]);
 							Class65.method578(i_9_, class120_sub9s);
 						} else {
-							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, null, is_6_, fs_91_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_, null,
+							final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.aByteArrayArrayArray949[i_9_], fs, null, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[i_9_], is_8_, Class8.aByteArrayArrayArray65[i_9_], i_9_, fs_92_, null,
 									Class114.tileSettings, Class120_Sub4.aByteArrayArrayArray2441[i_9_], false, OverridedJInterface.tileHeightMap[i_9_]);
-							final Class120_Sub9[] class120_sub9s_98_ = Class132.method1930(Class114.tileSettings, (byte) -115, Class99.aByteArrayArrayArray949[i_9_], is_8_, fs, i_9_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_], Class8.aByteArrayArrayArray65[i_9_],
+							final Class120_Sub9[] class120_sub9s_98_ = Class132.method1930(Class114.tileSettings, (byte) -115, Class99.aByteArrayArrayArray949[i_9_], is_8_, fs, i_9_, MapFunctionNode.aByteArrayArrayArray3477[i_9_], Class8.aByteArrayArrayArray65[i_9_],
 									OverridedJInterface.tileHeightMap[i_9_], Class120_Sub4.aByteArrayArrayArray2441[i_9_], fs_91_, fs_92_);
 							final Class120_Sub9[] class120_sub9s_99_ = new Class120_Sub9[class120_sub9s.length + class120_sub9s_98_.length];
 							for (int i_100_ = 0; i_100_ < class120_sub9s.length; i_100_++) {
@@ -324,13 +324,13 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								class120_sub9s_99_[i_101_ + class120_sub9s.length] = class120_sub9s_98_[i_101_];
 							}
 							Class65.method578(i_9_, class120_sub9s_99_);
-							Js5Worker.method368((byte) -99, Class8.aByteArrayArrayArray65[i_9_], LightManager.lightsPos, LightManager.lights, OverridedJInterface.tileHeightMap[i_9_], Class120_Sub4.aByteArrayArrayArray2441[i_9_], fs, Class99.aByteArrayArrayArray949[i_9_], fs_92_, fs_91_,
-									i_9_, Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_]);
+							Js5Worker.method368(Class8.aByteArrayArrayArray65[i_9_], LightManager.lightsPos, LightManager.lights, OverridedJInterface.tileHeightMap[i_9_], Class120_Sub4.aByteArrayArrayArray2441[i_9_], fs, Class99.aByteArrayArrayArray949[i_9_], fs_92_, fs_91_, i_9_,
+									MapFunctionNode.aByteArrayArrayArray3477[i_9_]);
 						}
 					}
 					Class120_Sub4.aByteArrayArrayArray2441[i_9_] = null;
 					Class99.aByteArrayArrayArray949[i_9_] = null;
-					Class120_Sub14_Sub5.aByteArrayArrayArray3477[i_9_] = null;
+					MapFunctionNode.aByteArrayArrayArray3477[i_9_] = null;
 					Class8.aByteArrayArrayArray65[i_9_] = null;
 					Npc.aByteArrayArrayArray3754[i_9_] = null;
 				}
@@ -484,52 +484,44 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1346(final AbstractIndexedSprite abstractIndexedSprite, final int i, final JagexInterface jagexInterface, final byte i_141_, final int i_142_, final int i_143_, final int i_144_) {
-		try {
-			if (abstractIndexedSprite != null) {
-				final int i_145_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
-				final int i_146_ = 10 + Math.max(jagexInterface.width / 2, jagexInterface.height / 2);
-				if (i_141_ > -46) {
-					method1348(-32);
-				}
-				final int i_147_ = i_143_ * i_143_ + i_142_ * i_142_;
-				if (i_146_ * i_146_ >= i_147_) {
-					int i_148_ = Rasterizer.sineTable[i_145_];
-					i_148_ = 256 * i_148_ / (256 + Class154.anInt1442);
-					int i_149_ = Rasterizer.cosineTable[i_145_];
-					i_149_ = 256 * i_149_ / (Class154.anInt1442 - -256);
-					final int i_150_ = i_149_ * i_142_ + i_143_ * i_148_ >> 16;
-					final int i_151_ = -(i_142_ * i_148_) + i_143_ * i_149_ >> 16;
-					if (HDToolkit.glEnabled) {
-						((HDIndexedSprite) abstractIndexedSprite).method928(-(abstractIndexedSprite.trimWidth / 2) + i_150_ + jagexInterface.width / 2 + i, jagexInterface.height / 2 + i_144_ + -i_151_ - abstractIndexedSprite.trimHeight / 2, (HDSprite) jagexInterface.method2492(false));
-					} else {
-						((LDIndexedSprite) abstractIndexedSprite).method924(i_150_ + i + jagexInterface.width / 2 - abstractIndexedSprite.trimWidth / 2, -i_151_ + i_144_ - (-(jagexInterface.height / 2) - -(abstractIndexedSprite.trimHeight / 2)), jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
-					}
+	static final void method1346(final AbstractIndexedSprite abstractIndexedSprite, final JagexInterface jagexInterface, final int i, final int i_142_, final int i_143_, final int i_144_) {
+		if (abstractIndexedSprite != null) {
+			final int i_145_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
+			final int i_146_ = 10 + Math.max(jagexInterface.width / 2, jagexInterface.height / 2);
+			final int i_147_ = i_143_ * i_143_ + i_142_ * i_142_;
+			if (i_146_ * i_146_ >= i_147_) {
+				int i_148_ = Rasterizer.sineTable[i_145_];
+				i_148_ = 256 * i_148_ / (256 + Class154.anInt1442);
+				int i_149_ = Rasterizer.cosineTable[i_145_];
+				i_149_ = 256 * i_149_ / (Class154.anInt1442 - -256);
+				final int i_150_ = i_149_ * i_142_ + i_143_ * i_148_ >> 16;
+				final int i_151_ = -(i_142_ * i_148_) + i_143_ * i_149_ >> 16;
+				if (HDToolkit.glEnabled) {
+					((HDIndexedSprite) abstractIndexedSprite).method928(-(abstractIndexedSprite.trimWidth / 2) + i_150_ + jagexInterface.width / 2 + i, jagexInterface.height / 2 + i_144_ + -i_151_ - abstractIndexedSprite.trimHeight / 2, (HDSprite) jagexInterface.method2492(false));
+				} else {
+					((LDIndexedSprite) abstractIndexedSprite).method924(i_150_ + i + jagexInterface.width / 2 - abstractIndexedSprite.trimWidth / 2, -i_151_ + i_144_ - (-(jagexInterface.height / 2) - -(abstractIndexedSprite.trimHeight / 2)), jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rm.R(").append(abstractIndexedSprite != null ? "{...}" : "null").append(',').append(i).append(',').append(jagexInterface != null ? "{...}" : "null").append(',').append(i_141_).append(',').append(i_142_).append(',').append(i_143_)
-					.append(',').append(i_144_).append(')').toString());
 		}
 	}
 
 	static final void method1347(final int i, final int i_152_, final int i_153_, final int i_154_, final byte i_155_, final int i_156_, final int i_157_) {
 		try {
 			if (i_155_ == -9) {
-				final int i_158_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_156_, i_155_ + 10, IdentityKit.anInt1334);
-				final int i_159_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_, 1, IdentityKit.anInt1334);
-				final int i_160_ = Class3.method83(Class32.anInt260, i_154_, 1, ParamType.anInt3544);
-				final int i_161_ = Class3.method83(Class32.anInt260, i, 1, ParamType.anInt3544);
-				final int i_162_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_153_ + i_156_, 1, IdentityKit.anInt1334);
-				final int i_163_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_ + -i_153_, 1, IdentityKit.anInt1334);
+				final int i_158_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_156_, IdentityKit.anInt1334);
+				final int i_159_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_, IdentityKit.anInt1334);
+				final int i_160_ = Class3.method83(Class32.anInt260, i_154_, ParamType.anInt3544);
+				final int i_161_ = Class3.method83(Class32.anInt260, i, ParamType.anInt3544);
+				final int i_162_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_153_ + i_156_, IdentityKit.anInt1334);
+				final int i_163_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_ + -i_153_, IdentityKit.anInt1334);
 				for (int i_164_ = i_158_; i_162_ > i_164_; i_164_++) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_164_], i_152_, i_160_, i_161_);
 				}
 				for (int i_165_ = i_159_; i_165_ > i_163_; i_165_--) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_165_], i_152_, i_160_, i_161_);
 				}
-				final int i_166_ = Class3.method83(Class32.anInt260, i_154_ - -i_153_, 1, ParamType.anInt3544);
-				final int i_167_ = Class3.method83(Class32.anInt260, i + -i_153_, 1, ParamType.anInt3544);
+				final int i_166_ = Class3.method83(Class32.anInt260, i_154_ - -i_153_, ParamType.anInt3544);
+				final int i_167_ = Class3.method83(Class32.anInt260, i + -i_153_, ParamType.anInt3544);
 				for (int i_168_ = i_162_; i_163_ >= i_168_; i_168_++) {
 					final int[] is = GameEntity.anIntArrayArray3009[i_168_];
 					AmbientSound.fillArray(is, i_152_, i_160_, i_166_);

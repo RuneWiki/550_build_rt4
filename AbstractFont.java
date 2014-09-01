@@ -3,18 +3,18 @@
  */
 import java.util.Random;
 
-abstract class Class120_Sub14_Sub8 extends NodeSub {
+abstract class AbstractFont extends NodeSub {
 	private int anInt3494;
-	int[] anIntArray3495;
-	private int[] anIntArray3496;
+	int[] heights;
+	private int[] xOffsets;
 	int anInt3497 = 0;
 	private byte[] aByteArray3498;
 	private AbstractIndexedSprite[] nameIcons;
 	private static StringBuffer aStringBuffer3500 = new StringBuffer(100);
 	private int[] anIntArray3501;
-	private int[] anIntArray3502;
+	private int[] yOffsets;
 	private int[] anIntArray3503;
-	int[] anIntArray3504;
+	int[] widths;
 	private static int anInt3505;
 	private static int anInt3506 = 256;
 	private static int anInt3507;
@@ -108,26 +108,26 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 				if (c == '>' && i != -1) {
 					final String string_19_ = string.substring(i + 1, i_18_).toLowerCase();
 					i = -1;
-					if (string_19_.equals("lt")) {
+					if (string_19_.equals("lt")) {//Less than
 						c = '<';
-					} else if (string_19_.equals("gt")) {
+					} else if (string_19_.equals("gt")) {//Greater than
 						c = '>';
-					} else if (string_19_.equals("nbsp")) {
+					} else if (string_19_.equals("nbsp")) {//No-break space
 						c = '\u00a0';
-					} else if (string_19_.equals("shy")) {
+					} else if (string_19_.equals("shy")) {//Soft hyphen
 						c = '\u00ad';
-					} else if (string_19_.equals("times")) {
+					} else if (string_19_.equals("times")) {//Multiplication sign - x
 						c = '\u00d7';
-					} else if (string_19_.equals("euro")) {
+					} else if (string_19_.equals("euro")) {//Euro
 						c = '\u20ac';
-					} else if (string_19_.equals("copy")) {
+					} else if (string_19_.equals("copy")) {//Copyright sign
 						c = '\u00a9';
-					} else if (string_19_.equals("reg")) {
+					} else if (string_19_.equals("reg")) {//Registered sign
 						c = '\u00ae';
 					} else {
 						if (string_19_.startsWith("img=")) {
 							try {
-								final int i_20_ = Class31.method265(string_19_.substring(4));
+								final int i_20_ = Class31.stringToBase10(string_19_.substring(4));
 								i_16_ += nameIcons[i_20_].trimWidth;
 								i_15_ = 0;
 							} catch (final Exception exception) {
@@ -138,7 +138,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					}
 				}
 				if (i == -1) {
-					final int i_21_ = (char) (Class120_Sub3.method1060((byte) -107, c) & 0xff);
+					final int i_21_ = (char) (LongNode.method1060(c) & 0xff);
 					i_16_ += anIntArray3503[i_21_];
 					if (aByteArray3498 != null && i_15_ != 0) {
 						i_16_ += aByteArray3498[(i_15_ << 8) + i_21_];
@@ -184,7 +184,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					} else {
 						if (string_32_.startsWith("img=")) {
 							try {
-								final int i_33_ = Class31.method265(string_32_.substring(4));
+								final int i_33_ = Class31.stringToBase10(string_32_.substring(4));
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_33_];
 								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : abstractIndexedSprite.trimHeight;
 								if (anInt3506 == 256) {
@@ -204,23 +204,23 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					}
 				}
 				if (i_28_ == -1) {
-					final int i_35_ = (char) (Class120_Sub3.method1060((byte) -70, c) & 0xff);
+					final int i_35_ = (char) (LongNode.method1060(c) & 0xff);
 					if (aByteArray3498 != null && i_29_ != 0) {
 						i += aByteArray3498[(i_29_ << 8) + i_35_];
 					}
-					final int i_36_ = this.anIntArray3504[i_35_];
-					final int i_37_ = this.anIntArray3495[i_35_];
+					final int i_36_ = this.widths[i_35_];
+					final int i_37_ = this.heights[i_35_];
 					if (i_35_ != 32) {
 						if (anInt3506 == 256) {
 							if (anInt3508 != -1) {
-								method1460(i_35_, i + anIntArray3496[i_35_] + 1, i_27_ + anIntArray3502[i_35_] + 1, i_36_, i_37_, anInt3508, true);
+								method1460(i_35_, i + xOffsets[i_35_] + 1, i_27_ + yOffsets[i_35_] + 1, i_36_, i_37_, anInt3508, true);
 							}
-							method1460(i_35_, i + anIntArray3496[i_35_], i_27_ + anIntArray3502[i_35_], i_36_, i_37_, anInt3507, false);
+							method1460(i_35_, i + xOffsets[i_35_], i_27_ + yOffsets[i_35_], i_36_, i_37_, anInt3507, false);
 						} else {
 							if (anInt3508 != -1) {
-								method1471(i_35_, i + anIntArray3496[i_35_] + 1, i_27_ + anIntArray3502[i_35_] + 1, i_36_, i_37_, anInt3508, anInt3506, true);
+								method1471(i_35_, i + xOffsets[i_35_] + 1, i_27_ + yOffsets[i_35_] + 1, i_36_, i_37_, anInt3508, anInt3506, true);
 							}
-							method1471(i_35_, i + anIntArray3496[i_35_], i_27_ + anIntArray3502[i_35_], i_36_, i_37_, anInt3507, anInt3506, false);
+							method1471(i_35_, i + xOffsets[i_35_], i_27_ + yOffsets[i_35_], i_36_, i_37_, anInt3507, anInt3506, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
@@ -491,7 +491,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 									i_116_ = 0;
 								}
 								i_111_++;
-								final int i_117_ = Class31.method265(string_114_.substring(4));
+								final int i_117_ = Class31.stringToBase10(string_114_.substring(4));
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_117_];
 								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : abstractIndexedSprite.trimHeight;
 								if (anInt3506 == 256) {
@@ -511,12 +511,12 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					}
 				}
 				if (i_109_ == -1) {
-					final int i_119_ = (char) (Class120_Sub3.method1060((byte) -111, c) & 0xff);
+					final int i_119_ = (char) (LongNode.method1060(c) & 0xff);
 					if (aByteArray3498 != null && i_110_ != 0) {
 						i += aByteArray3498[(i_110_ << 8) + i_119_];
 					}
-					final int i_120_ = this.anIntArray3504[i_119_];
-					final int i_121_ = this.anIntArray3495[i_119_];
+					final int i_120_ = this.widths[i_119_];
+					final int i_121_ = this.heights[i_119_];
 					int i_122_;
 					if (is != null) {
 						i_122_ = is[i_111_];
@@ -533,14 +533,14 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 					if (i_119_ != 32) {
 						if (anInt3506 == 256) {
 							if (anInt3508 != -1) {
-								method1460(i_119_, i + anIntArray3496[i_119_] + 1 + i_122_, i_107_ + anIntArray3502[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, true);
+								method1460(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, true);
 							}
-							method1460(i_119_, i + anIntArray3496[i_119_] + i_122_, i_107_ + anIntArray3502[i_119_] + i_123_, i_120_, i_121_, anInt3507, false);
+							method1460(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, anInt3507, false);
 						} else {
 							if (anInt3508 != -1) {
-								method1471(i_119_, i + anIntArray3496[i_119_] + 1 + i_122_, i_107_ + anIntArray3502[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, anInt3506, true);
+								method1471(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, anInt3506, true);
 							}
-							method1471(i_119_, i + anIntArray3496[i_119_] + i_122_, i_107_ + anIntArray3502[i_119_] + i_123_, i_120_, i_121_, anInt3507, anInt3506, false);
+							method1471(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, anInt3507, anInt3506, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
@@ -642,10 +642,10 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 		return -i_151_;
 	}
 
-	final void method1478(final String string, final int i, final int i_158_, final int i_159_, final int i_160_) {
-		if (string != null) {
-			method1465(i_159_, i_160_);
-			method1461(string, i - method1459(string) / 2, i_158_);
+	final void method1478(final String text, final int x, final int y, final int color, final int shadow) {
+		if (text != null) {
+			method1465(color, shadow);
+			method1461(text, x - method1459(text) / 2, y);
 		}
 	}
 
@@ -685,23 +685,23 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 	}
 
 	private final int method1484(final char c) {
-		return anIntArray3503[Class120_Sub3.method1060((byte) -103, c) & 0xff];
+		return anIntArray3503[LongNode.method1060(c) & 0xff];
 	}
 
-	Class120_Sub14_Sub8(final byte[] is, final int[] is_169_, final int[] is_170_, final int[] is_171_, final int[] is_172_) {
-		anIntArray3496 = is_169_;
-		anIntArray3502 = is_170_;
-		this.anIntArray3504 = is_171_;
-		this.anIntArray3495 = is_172_;
-		method1458(is);
+	AbstractFont(final byte[] data, final int[] xOffs, final int[] yOffs, final int[] widths, final int[] heights) {
+		xOffsets = xOffs;
+		yOffsets = yOffs;
+		this.widths = widths;
+		this.heights = heights;
+		method1458(data);
 		int i = 2147483647;
 		int i_173_ = -2147483648;
 		for (int i_174_ = 0; i_174_ < 256; i_174_++) {
-			if (anIntArray3502[i_174_] < i && this.anIntArray3495[i_174_] != 0) {
-				i = anIntArray3502[i_174_];
+			if (yOffsets[i_174_] < i && this.heights[i_174_] != 0) {
+				i = yOffsets[i_174_];
 			}
-			if (anIntArray3502[i_174_] + this.anIntArray3495[i_174_] > i_173_) {
-				i_173_ = anIntArray3502[i_174_] + this.anIntArray3495[i_174_];
+			if (yOffsets[i_174_] + this.heights[i_174_] > i_173_) {
+				i_173_ = yOffsets[i_174_] + this.heights[i_174_];
 			}
 		}
 		anInt3494 = this.anInt3497 - i;
@@ -711,27 +711,27 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 	private final void method1485(final String string) {
 		try {
 			if (string.startsWith("col=")) {
-				anInt3507 = Class111.method982(-22511, 16, string.substring(4));
+				anInt3507 = Class111.stringToIntRadix(string.substring(4), 16);
 			} else if (string.equals("/col")) {
 				anInt3507 = anInt3509;
 			} else if (string.startsWith("trans=")) {
-				anInt3506 = Class31.method265(string.substring(6));
+				anInt3506 = Class31.stringToBase10(string.substring(6));
 			} else if (string.equals("/trans")) {
 				anInt3506 = anInt3505;
 			} else if (string.startsWith("str=")) {
-				anInt3513 = Class111.method982(-22511, 16, string.substring(4));
+				anInt3513 = Class111.stringToIntRadix(string.substring(4), 16);
 			} else if (string.equals("str")) {
 				anInt3513 = 8388608;
 			} else if (string.equals("/str")) {
 				anInt3513 = -1;
 			} else if (string.startsWith("u=")) {
-				anInt3514 = Class111.method982(-22511, 16, string.substring(2));
+				anInt3514 = Class111.stringToIntRadix(string.substring(2), 16);
 			} else if (string.equals("u")) {
 				anInt3514 = 0;
 			} else if (string.equals("/u")) {
 				anInt3514 = -1;
 			} else if (string.startsWith("shad=")) {
-				anInt3508 = Class111.method982(-22511, 16, string.substring(5));
+				anInt3508 = Class111.stringToIntRadix(string.substring(5), 16);
 			} else if (string.equals("shad")) {
 				anInt3508 = 0;
 			} else if (string.equals("/shad")) {
@@ -744,7 +744,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 		}
 	}
 
-	Class120_Sub14_Sub8(final byte[] is) {
+	AbstractFont(final byte[] is) {
 		method1458(is);
 	}
 
@@ -752,7 +752,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 		if (string == null) {
 			return 0;
 		}
-		Class89.method749(aStringBuffer3500, ' ', 0);
+		Class89.increaseStringBufferLength(aStringBuffer3500, ' ', 0);
 		int i = 0;
 		int i_175_ = 0;
 		int i_176_ = -1;
@@ -830,7 +830,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 						i_180_ = 174;
 					} else if (string_184_.startsWith("img=")) {
 						try {
-							final int i_185_ = Class31.method265(string_184_.substring(4));
+							final int i_185_ = Class31.stringToBase10(string_184_.substring(4));
 							i += nameIcons[i_185_].trimWidth;
 							i_180_ = 0;
 						} catch (final Exception exception) {
@@ -842,7 +842,7 @@ abstract class Class120_Sub14_Sub8 extends NodeSub {
 				if (i_179_ == -1) {
 					if (c != 0) {
 						aStringBuffer3500.append(c);
-						c = (char) (Class120_Sub3.method1060((byte) 120, c) & 0xff);
+						c = (char) (LongNode.method1060(c) & 0xff);
 						i += anIntArray3503[c];
 						if (aByteArray3498 != null && i_180_ != 0) {
 							i += aByteArray3498[(i_180_ << 8) + c];

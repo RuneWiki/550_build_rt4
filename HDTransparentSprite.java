@@ -12,8 +12,8 @@ final class HDTransparentSprite extends HDSprite {
 
 	@Override
 	final void method1596(final int[] is) {
-		this.anInt3945 = Class120_Sub12_Sub17.method1283(this.width);
-		this.anInt3948 = Class120_Sub12_Sub17.method1283(this.height);
+		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
 		final byte[] is_0_ = new byte[this.anInt3945 * this.anInt3948 * 4];
 		int i = 0;
 		int i_1_ = 0;
@@ -34,14 +34,14 @@ final class HDTransparentSprite extends HDSprite {
 		}
 		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_0_);
 		final GL gl = HDToolkit.gl;
-		if (this.anInt3942 == -1) {
+		if (this.textureId == -1) {
 			final int[] is_6_ = new int[1];
 			gl.glGenTextures(1, is_6_, 0);
-			this.anInt3942 = is_6_[0];
+			this.textureId = is_6_[0];
 		}
-		HDToolkit.method514(this.anInt3942);
+		HDToolkit.bindTexture2D(this.textureId);
 		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, bytebuffer);
-		Class113.anInt1086 += bytebuffer.limit() - this.anInt3947;
+		MemoryManager.anInt1086 += bytebuffer.limit() - this.anInt3947;
 		this.anInt3947 = bytebuffer.limit();
 	}
 

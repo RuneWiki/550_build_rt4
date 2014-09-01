@@ -63,7 +63,7 @@ final class Class157 {
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
 				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleManager.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
 					ObjectCache.anInt122 = i_4_;
-					Class20.anInt2174 = i_5_;
+					WaterfallShader.anInt2174 = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {
 					Rasterizer.aBoolean972 = false;
@@ -83,7 +83,7 @@ final class Class157 {
 									ShapedTile.anIntArray1632[i_13_], ShapedTile.anIntArray1632[i_14_], ShapedTile.anIntArray1632[i_15_], ShapedTile.anIntArray1623[i_13_], ShapedTile.anIntArray1623[i_14_], ShapedTile.anIntArray1623[i_15_], shapedTile.anIntArray1621[i_12_]);
 						}
 					} else {
-						final int i_22_ = Rasterizer.anInterface5_973.method20(shapedTile.anIntArray1621[i_12_], 65535);
+						final int i_22_ = Rasterizer.anInterface5_973.method20(shapedTile.anIntArray1621[i_12_]);
 						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, ParticleManager.method935(i_22_, shapedTile.anIntArray1627[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1625[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
 					}
 				}

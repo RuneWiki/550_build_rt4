@@ -33,7 +33,7 @@ final class DummyInputStream extends InputStream {
 		for (int i = 0; i < 4; i++) {
 			Class182.collisionMaps[i].resetFlags();
 		}
-		Class120_Sub30_Sub1.method1739(false);
+		Class120_Sub30_Sub1.method1739();
 		System.gc();
 		Class120_Sub12_Sub6.method1230(2);
 		Class157.anInt1466 = -1;
@@ -63,7 +63,7 @@ final class DummyInputStream extends InputStream {
 				}
 			}
 		}
-		SpotAnimType.method876((byte) 120);
+		SpotAnimType.method876();
 		OverlayFrequencyNode.packetCounter = 0;
 		Class33.resetVarp();
 		EnumType.method1421(true);

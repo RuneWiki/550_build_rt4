@@ -43,7 +43,7 @@ final class Class191 {
 		if (FileSystem.anInt455 != 2) {
 			if (Class115.anInt1110 == js5.lastClickX && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.lastClickY) {
 				FileSystem.anInt455 = 0;
-				if (Class120_Sub14_Sub4.aBoolean3470 && NodeCache.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
+				if (Class120_Sub14_Sub4.aBoolean3470 && NodeCache.heldKeys[81] && Class186.menuOptionCount > 2) {
 					GameShell.method31(Class186.menuOptionCount - 2);
 				} else {
 					GameShell.method31(Class186.menuOptionCount - 1);
@@ -55,7 +55,7 @@ final class Class191 {
 			}
 		} else if (Class115.anInt1110 == ClientScript.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
 			FileSystem.anInt455 = 0;
-			if (Class120_Sub14_Sub4.aBoolean3470 && NodeCache.aBooleanArray299[81] && Class186.menuOptionCount > 2) {
+			if (Class120_Sub14_Sub4.aBoolean3470 && NodeCache.heldKeys[81] && Class186.menuOptionCount > 2) {
 				GameShell.method31(Class186.menuOptionCount - 2);
 			} else {
 				GameShell.method31(Class186.menuOptionCount - 1);
@@ -65,10 +65,10 @@ final class Class191 {
 
 	static final void method2509(final js5 js5, final js5 class50_0_, final js5 class50_1_, final int i) {
 		try {
-			Class101_Sub3.aClass50_2286 = js5;
+			SeqType.aClass50_2286 = js5;
 			if (i == 31779) {
-				Class132_Sub1.aClass50_2813 = class50_1_;
-				Class179.aClass50_1778 = class50_0_;
+				Class132_Sub1.framesJs5 = class50_1_;
+				Class179.labelsJs5 = class50_0_;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.H(").append(js5 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(',').append(class50_1_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
@@ -130,10 +130,10 @@ final class Class191 {
 				i_8_ *= 64;
 				i_9_ *= 64;
 				i_10_ *= 64;
-				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, -i_14_ + Class22.getTileHeight(Class173.gameLevel, i_8_, i_9_), i_16_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_17_, i_18_, i_19_, i_12_, i_15_);
+				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, -i_14_ + Class22.getTileHeight(i_8_, i_9_, Class173.gameLevel), i_16_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_17_, i_18_, i_19_, i_12_, i_15_);
 				i_11_ *= 64;
-				class180_sub4.method2319(Class22.getTileHeight(Class173.gameLevel, i_10_, i_11_) + -i_15_, i_10_, Class101_Sub2.loopCycle + i_16_, i_11_);
-				FileSystemRequest.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
+				class180_sub4.method2319(Class22.getTileHeight(i_10_, i_11_, Class173.gameLevel) + -i_15_, i_10_, Class101_Sub2.loopCycle + i_16_, i_11_);
+				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (Class23.packetType == 114) {
 			final int i_20_ = Canvas_Sub1.inputStream.getUByte();
@@ -232,9 +232,9 @@ final class Class191 {
 							}
 						}
 					}
-					final Projectile class180_sub4 = new Projectile(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(Class173.gameLevel, i_41_, i_42_) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
-					class180_sub4.method2319(Class22.getTileHeight(Class173.gameLevel, i_43_, i_44_) + -i_49_, i_43_, Class101_Sub2.loopCycle + i_50_, i_44_);
-					FileSystemRequest.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
+					final Projectile class180_sub4 = new Projectile(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(i_41_, i_42_, Class173.gameLevel) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
+					class180_sub4.method2319(Class22.getTileHeight(i_43_, i_44_, Class173.gameLevel) + -i_49_, i_43_, Class101_Sub2.loopCycle + i_50_, i_44_);
+					FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 				}
 			} else if (Class23.packetType == 158) {
 				final int i_64_ = Canvas_Sub1.inputStream.getUByte();
@@ -246,7 +246,7 @@ final class Class191 {
 				if (x >= 0 && z >= 0 && x < 104 && z < 104) {
 					x = 64 + 128 * x;
 					z = 64 + 128 * z;
-					final SpotAnimation class180_sub3 = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(Class173.gameLevel, x, z) - y, i_69_, Class101_Sub2.loopCycle);
+					final SpotAnimation class180_sub3 = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(x, z, Class173.gameLevel) - y, i_69_, Class101_Sub2.loopCycle);
 					Class120_Sub12_Sub7.aClass105_3177.addLast(new Class120_Sub14_Sub4(class180_sub3));
 				}
 			} else if (Class23.packetType == 179) {
@@ -311,9 +311,9 @@ final class Class191 {
 					i_98_ = i_98_ * 128 + 64;
 					i_99_ = 64 + i_99_ * 128;
 					i_96_ = 64 + i_96_ * 128;
-					final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, -i_102_ + Class22.getTileHeight(Class173.gameLevel, i_96_, i_97_), Class101_Sub2.loopCycle + i_104_, i_105_ - -Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
-					class180_sub4.method2319(Class22.getTileHeight(Class173.gameLevel, i_98_, i_99_) - i_103_, i_98_, i_104_ + Class101_Sub2.loopCycle, i_99_);
-					FileSystemRequest.aClass105_3928.addLast(new Class120_Sub14_Sub1(class180_sub4));
+					final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, -i_102_ + Class22.getTileHeight(i_96_, i_97_, Class173.gameLevel), Class101_Sub2.loopCycle + i_104_, i_105_ - -Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
+					class180_sub4.method2319(Class22.getTileHeight(i_98_, i_99_, Class173.gameLevel) - i_103_, i_98_, i_104_ + Class101_Sub2.loopCycle, i_99_);
+					FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 				}
 			} else if (Class23.packetType == 120) {
 				final int i_108_ = Canvas_Sub1.inputStream.getUByteS();
@@ -366,7 +366,7 @@ final class Class191 {
 				final int i_125_ = Canvas_Sub1.inputStream.getUByte();
 				if (i_119_ >= 0 && i_118_ >= 0 && i_119_ < 104 && i_118_ < 104) {
 					final int i_126_ = i_122_ + 1;
-					if (-i_126_ + i_119_ <= TileParticleQueue.selfPlayer.walkQueueX[0] && TileParticleQueue.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= TileParticleQueue.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= TileParticleQueue.selfPlayer.walkQueueZ[0] && CursorType.anInt1242 != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
+					if (-i_126_ + i_119_ <= TileParticleQueue.selfPlayer.walkQueueX[0] && TileParticleQueue.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= TileParticleQueue.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= TileParticleQueue.selfPlayer.walkQueueZ[0] && CursorType.ambientSoundsVolume != 0 && i_123_ > 0 && Class150.anInt1407 < 50 && i_120_ != -1) {
 						Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_120_;
 						LocType.anIntArray1834[Class150.anInt1407] = i_123_;
 						Class81.anIntArray779[Class150.anInt1407] = i_124_;

@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	static char[] aCharArray3385 = { '\u20ac', '\0', '\u201a', '\u0192', '\u201e', '\u2026', '\u2020', '\u2021', '\u02c6', '\u2030', '\u0160', '\u2039', '\u0152', '\0', '\u017d', '\0', '\0', '\u2018', '\u2019', '\u201c', '\u201d', '\u2022', '\u2013', '\u2014', '\u02dc', '\u2122', '\u0161',
 			'\u203a', '\u0153', '\0', '\u017e', '\u0178' };
 	private int anInt3386 = 6;
-	static String[] aStringArray3387 = null;
+	static String[] membersObjOptions = null;
 
 	@Override
 	final void decode(final Buffer buffer, final int i_1_) {
@@ -80,7 +80,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					i_12_ = (-i_10_ + Class120_Sub30_Sub2.anInt3699 << 12) / i_9_;
 					i_11_ = Class120_Sub30_Sub2.anInt3699;
 				}
-				Class120_Sub3.method1056(i_14_, i_12_, i_11_, -1, i_3_, i_13_);
+				LongNode.method1056(i_14_, i_12_, i_11_, -1, i_3_, i_13_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("sl.W(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
@@ -158,7 +158,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 			}
 			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.anInt2979) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
-				if (spotAnimType.aBoolean998 && (spotAnimType.animationId ^ 0xffffffff) != 0) {
+				if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
 					final SeqType seqType = SeqType.list(spotAnimType.animationId);
 					if (gameEntity.anInt3031 > 0 && seqType.speedupType == 0) {
 						gameEntity.anInt3037++;
@@ -389,7 +389,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 
 	public static void method1374(final byte i) {
 		try {
-			aStringArray3387 = null;
+			membersObjOptions = null;
 			aCharArray3385 = null;
 			if (i != -26) {
 				aCharArray3385 = null;
@@ -537,8 +537,8 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		final int[][] is_57_ = this.aClass109_2559.method975(i);
 		while_164_: do {
 			if (this.aClass109_2559.aBoolean1049) {
-				final int[][] is_58_ = method1179(0, i, (byte) -51);
-				final int[][] is_59_ = method1179(1, i, (byte) -51);
+				final int[][] is_58_ = method1179(0, i);
+				final int[][] is_59_ = method1179(1, i);
 				final int[] is_60_ = is_57_[0];
 				final int[] is_61_ = is_57_[1];
 				final int[] is_62_ = is_58_[0];

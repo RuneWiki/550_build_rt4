@@ -98,9 +98,9 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 			int[][] is_15_;
 			if (i_14_ > 0) {
 				final int i_16_ = i % i_14_;
-				is_15_ = method1179(0, i_16_ * Class120_Sub12_Sub2.anInt3145 / i_14_, (byte) -51);
+				is_15_ = method1179(0, i_16_ * Class120_Sub12_Sub2.anInt3145 / i_14_);
 			} else {
-				is_15_ = method1179(0, 0, (byte) -51);
+				is_15_ = method1179(0, 0);
 			}
 			final int[] is_17_ = is_15_[0];
 			final int[] is_18_ = is_15_[1];

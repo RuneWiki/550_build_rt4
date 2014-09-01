@@ -33,7 +33,7 @@ final class FileSystem {
 			}
 			int i_4_ = Rasterizer.palette[LDModel.method2401(i_2_, i)];
 			if (i_0_ > 0) {
-				final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff, false);
+				final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff);
 				if (i_5_ != 0) {
 					int i_6_;
 					if (i >= 0) {
@@ -53,7 +53,7 @@ final class FileSystem {
 						i_4_ = i_6_;
 					}
 				}
-				int i_9_ = Rasterizer.anInterface5_973.method21((byte) -119, i_0_ & 0xffff);
+				int i_9_ = Rasterizer.anInterface5_973.method21(i_0_ & 0xffff);
 				if (i_9_ != 0) {
 					i_9_ += 256;
 					int i_10_ = i_9_ * (0xff & i_4_ >> 16);
@@ -172,7 +172,7 @@ final class FileSystem {
 			anIntArray453 = null;
 			aClass105_456 = null;
 			if (i != 255) {
-				method447(false, '\uff9b');
+				isNumber('\uff9b');
 			}
 			aClass40Array458 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -180,29 +180,14 @@ final class FileSystem {
 		}
 	}
 
-	static final void method446(final int i, final int i_29_, final int i_30_, final int i_31_, final int i_32_, final int i_33_) {
-		try {
-			if (i_30_ == 0) {
-				for (int i_34_ = i; i_34_ <= i_31_; i_34_++) {
-					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_34_], i_32_, i_29_, i_33_);
-				}
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.C(").append(i).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(',').append(i_32_).append(',').append(i_33_).append(')').toString());
+	static final void method446(final int i, final int i_29_, final int i_31_, final int i_32_, final int i_33_) {
+		for (int i_34_ = i; i_34_ <= i_31_; i_34_++) {
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_34_], i_32_, i_29_, i_33_);
 		}
 	}
 
-	static final boolean method447(final boolean bool, final char c) {
-		boolean bool_35_;
-		try {
-			if (bool) {
-				method443(1, -6, -58, 66);
-			}
-			bool_35_ = c >= '0' && c <= '9';
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.I(").append(bool).append(',').append(c).append(')').toString());
-		}
-		return bool_35_;
+	static final boolean isNumber(final char c) {
+		return c >= '0' && c <= '9';
 	}
 
 	@Override
@@ -330,10 +315,10 @@ final class FileSystem {
 		}
 	}
 
-	FileSystem(final int i, final SeekableFile seekableFile, final SeekableFile class193_78_, final int i_79_) {
-		storeId = i;
-		maxLength = i_79_;
-		dataFile = seekableFile;
-		indexFile = class193_78_;
+	FileSystem(final int store, final SeekableFile datFile, final SeekableFile idxFile, final int maxLen) {
+		storeId = store;
+		maxLength = maxLen;
+		dataFile = datFile;
+		indexFile = idxFile;
 	}
 }

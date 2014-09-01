@@ -4,7 +4,7 @@
 import java.awt.Canvas;
 
 class Node {
-	static int anInt1143;
+	static int objCount;
 	Node previous;
 	Node next;
 	static int countryId;
@@ -57,8 +57,8 @@ class Node {
 			int i_17_ = i_15_ * (1 + i_6_);
 			int i_18_ = (-3 + (i_5_ << 1)) * i_9_;
 			if (i >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i) {
-				final int i_19_ = Class3.method83(Class32.anInt260, i_3_ + i_2_, 1, ParamType.anInt3544);
-				final int i_20_ = Class3.method83(Class32.anInt260, i_3_ - i_2_, 1, ParamType.anInt3544);
+				final int i_19_ = Class3.method83(Class32.anInt260, i_3_ + i_2_, ParamType.anInt3544);
+				final int i_20_ = Class3.method83(Class32.anInt260, i_3_ - i_2_, ParamType.anInt3544);
 				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_1_, i_20_, i_19_);
 			}
 			int i_21_ = i_14_ * (i_5_ + -1);
@@ -87,8 +87,8 @@ class Node {
 				final int i_23_ = i_5_ + i;
 				i_18_ -= i_14_;
 				if (i_23_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_22_) {
-					final int i_24_ = Class3.method83(Class32.anInt260, i_6_ + i_3_, 1, ParamType.anInt3544);
-					final int i_25_ = Class3.method83(Class32.anInt260, i_3_ - i_6_, 1, ParamType.anInt3544);
+					final int i_24_ = Class3.method83(Class32.anInt260, i_6_ + i_3_, ParamType.anInt3544);
+					final int i_25_ = Class3.method83(Class32.anInt260, i_3_ - i_6_, ParamType.anInt3544);
 					if (Class120_Sub30_Sub2.anInt3699 <= i_22_) {
 						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_1_, i_25_, i_24_);
 					}

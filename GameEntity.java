@@ -4,7 +4,7 @@
 
 abstract class GameEntity extends SceneGraphNode {
 	int spotAnimId;
-	static int anInt2957;
+	static int mapSceneBlueColorModifier;
 	int[] walkQueueX = new int[10];
 	private boolean aBoolean2959;
 	int anInt2960;
@@ -52,7 +52,7 @@ abstract class GameEntity extends SceneGraphNode {
 	boolean aBoolean3002;
 	int faceZ;
 	int anInt3004;
-	int anInt3005;
+	int y;
 	int anInt3006;
 	boolean aBoolean3007;
 	int anInt3008;
@@ -135,18 +135,6 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();
-		}
-	}
-
-	static final void method2324(final int i) {
-		try {
-			Class159.aClass21_1486.clearSoftReference();
-			Class120_Sub6.aClass21_2443.clearSoftReference();
-			if (i > -107) {
-				method2335(71, -23, -76, 114);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.C(").append(i).append(')').toString());
 		}
 	}
 
@@ -263,9 +251,9 @@ abstract class GameEntity extends SceneGraphNode {
 					if (anInt2966 != 0) {
 						final int i_24_ = 0x7ff & anInt2966 >> 5;
 						final int i_25_ = class180_sub7.getMaxY() / 2;
-						class180_sub7.method2368(0, -i_25_, 0);
+						class180_sub7.translate(0, -i_25_, 0);
 						class180_sub7.method2362(i_24_);
-						class180_sub7.method2368(0, i_25_, 0);
+						class180_sub7.translate(0, i_25_, 0);
 					}
 				}
 				if (class29.anInt221 != 0) {
@@ -360,9 +348,9 @@ abstract class GameEntity extends SceneGraphNode {
 					if (anInt2994 != 0) {
 						final int i_38_ = 0x7ff & anInt2994 >> 5;
 						final int i_39_ = class180_sub7.getMaxY() / 2;
-						class180_sub7.method2368(0, -i_39_, 0);
+						class180_sub7.translate(0, -i_39_, 0);
 						class180_sub7.method2377(i_38_);
-						class180_sub7.method2368(0, i_39_, 0);
+						class180_sub7.translate(0, i_39_, 0);
 					}
 				}
 			}
@@ -378,23 +366,16 @@ abstract class GameEntity extends SceneGraphNode {
 		return -this.maxY;
 	}
 
-	final void method2329(final int i) {
-		try {
-			if (i != -31966) {
-				this.anInt2995 = 51;
-			}
-			this.anInt3031 = 0;
-			this.anInt2960 = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.J(").append(i).append(')').toString());
-		}
+	final void method2329() {
+		this.anInt3031 = 0;
+		this.anInt2960 = 0;
 	}
 
 	final void move(final int dir, final int type) {
 		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).walkProperties == 1) {
 			this.anInt3006 = -1;
 		}
-		if ((this.spotAnimId ^ 0xffffffff) != 0) {
+		if (this.spotAnimId != -1) {
 			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
 			if (spotAnimType.aBoolean998 && SeqType.list(spotAnimType.animationId).walkProperties == 1) {
 				this.spotAnimId = -1;
@@ -443,16 +424,9 @@ abstract class GameEntity extends SceneGraphNode {
 		this.walkQueueZ[0] = z;
 	}
 
-	public static void method2331(final int i) {
-		try {
-			aString3011 = null;
-			if (i != -70) {
-				method2331(54);
-			}
-			anIntArrayArray3009 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.B(").append(i).append(')').toString());
-		}
+	public static void method2331() {
+		aString3011 = null;
+		anIntArrayArray3009 = null;
 	}
 
 	boolean isVisible() {
@@ -463,60 +437,56 @@ abstract class GameEntity extends SceneGraphNode {
 		return size;
 	}
 
-	final void method2334(final AbstractModel class180_sub7, final int i, final int i_47_) {
-		try {
-			Class159.anInt1488 = i_47_;
-			Class93.anInt867 = 0;
-			MouseHandler.anInt1140 = 0;
-			final Class29 class29 = method2336();
-			final int i_48_ = class29.anInt204;
-			final int i_49_ = class29.anInt206;
-			if (i_48_ != 0 && i_49_ != 0) {
-				final int i_50_ = Rasterizer.sineTable[i];
-				final int i_51_ = Rasterizer.cosineTable[i];
-				final int i_52_ = -i_48_ / 2;
-				final int i_53_ = -i_49_ / 2;
-				final int i_54_ = i_51_ * i_53_ - i_52_ * i_50_ >> 16;
-				final int i_55_ = i_51_ * i_52_ + i_53_ * i_50_ >> 16;
-				final int i_56_ = -i_49_ / 2;
-				final int i_57_ = Class22.getTileHeight(Class173.gameLevel, i_55_ + this.x, i_54_ + this.z);
-				final int i_58_ = i_48_ / 2;
-				final int i_59_ = -i_48_ / 2;
-				final int i_60_ = i_50_ * i_56_ - -(i_58_ * i_51_) >> 16;
-				final int i_61_ = i_49_ / 2;
-				final int i_62_ = i_51_ * i_61_ - i_50_ * i_59_ >> 16;
-				final int i_63_ = i_51_ * i_56_ - i_50_ * i_58_ >> 16;
-				final int i_64_ = i_59_ * i_51_ + i_50_ * i_61_ >> 16;
-				final int i_65_ = Class22.getTileHeight(Class173.gameLevel, i_60_ + this.x, i_63_ + this.z);
-				final int i_66_ = Class22.getTileHeight(Class173.gameLevel, this.x - -i_64_, i_62_ + this.z);
-				final int i_67_ = i_48_ / 2;
-				final int i_68_ = i_49_ / 2;
-				final int i_69_ = i_50_ * i_68_ - -(i_67_ * i_51_) >> 16;
-				final int i_70_ = -(i_50_ * i_67_) + i_51_ * i_68_ >> 16;
-				final int i_71_ = Class22.getTileHeight(Class173.gameLevel, i_69_ + this.x, this.z - -i_70_);
-				final int i_72_ = i_71_ > i_66_ ? i_66_ : i_71_;
-				final int i_73_ = i_66_ > i_57_ ? i_57_ : i_66_;
-				final int i_74_ = i_57_ < i_65_ ? i_57_ : i_65_;
-				final int i_75_ = i_65_ >= i_71_ ? i_71_ : i_65_;
-				MouseHandler.anInt1140 = (int) (Math.atan2(i_74_ - i_72_, i_49_) * 325.95) & 0x7ff;
-				if (MouseHandler.anInt1140 != 0) {
-					class180_sub7.method2377(MouseHandler.anInt1140);
-				}
-				Class159.anInt1488 = 0x7ff & (int) (Math.atan2(-i_75_ + i_73_, i_48_) * 325.95);
-				if (Class159.anInt1488 != 0) {
-					class180_sub7.method2362(Class159.anInt1488);
-				}
-				Class93.anInt867 = i_57_ + i_71_;
-				if (Class93.anInt867 > i_66_ + i_65_) {
-					Class93.anInt867 = i_65_ + i_66_;
-				}
-				Class93.anInt867 = -this.anInt3005 + (Class93.anInt867 >> 1);
-				if (Class93.anInt867 != 0) {
-					class180_sub7.method2368(0, Class93.anInt867, 0);
-				}
+	final void method2334(final AbstractModel abstractModel, final int i) {
+		Class159.anInt1488 = 0;
+		Class93.anInt867 = 0;
+		MouseHandler.anInt1140 = 0;
+		final Class29 class29 = method2336();
+		final int i_48_ = class29.anInt204;
+		final int i_49_ = class29.anInt206;
+		if (i_48_ != 0 && i_49_ != 0) {
+			final int i_50_ = Rasterizer.sineTable[i];
+			final int i_51_ = Rasterizer.cosineTable[i];
+			final int i_52_ = -i_48_ / 2;
+			final int i_53_ = -i_49_ / 2;
+			final int i_54_ = i_51_ * i_53_ - i_52_ * i_50_ >> 16;
+			final int i_55_ = i_51_ * i_52_ + i_53_ * i_50_ >> 16;
+			final int i_56_ = -i_49_ / 2;
+			final int i_57_ = Class22.getTileHeight(i_55_ + this.x, i_54_ + this.z, Class173.gameLevel);
+			final int i_58_ = i_48_ / 2;
+			final int i_59_ = -i_48_ / 2;
+			final int i_60_ = i_50_ * i_56_ - -(i_58_ * i_51_) >> 16;
+			final int i_61_ = i_49_ / 2;
+			final int i_62_ = i_51_ * i_61_ - i_50_ * i_59_ >> 16;
+			final int i_63_ = i_51_ * i_56_ - i_50_ * i_58_ >> 16;
+			final int i_64_ = i_59_ * i_51_ + i_50_ * i_61_ >> 16;
+			final int i_65_ = Class22.getTileHeight(this.x + i_60_, i_63_ + this.z, Class173.gameLevel);
+			final int i_66_ = Class22.getTileHeight(this.x + i_64_, i_62_ + this.z, Class173.gameLevel);
+			final int i_67_ = i_48_ / 2;
+			final int i_68_ = i_49_ / 2;
+			final int i_69_ = i_50_ * i_68_ - -(i_67_ * i_51_) >> 16;
+			final int i_70_ = -(i_50_ * i_67_) + i_51_ * i_68_ >> 16;
+			final int i_71_ = Class22.getTileHeight(i_69_ + this.x, this.z - -i_70_, Class173.gameLevel);
+			final int i_72_ = i_71_ > i_66_ ? i_66_ : i_71_;
+			final int i_73_ = i_66_ > i_57_ ? i_57_ : i_66_;
+			final int i_74_ = i_57_ < i_65_ ? i_57_ : i_65_;
+			final int i_75_ = i_65_ >= i_71_ ? i_71_ : i_65_;
+			MouseHandler.anInt1140 = (int) (Math.atan2(i_74_ - i_72_, i_49_) * 325.95) & 0x7ff;
+			if (MouseHandler.anInt1140 != 0) {
+				abstractModel.method2377(MouseHandler.anInt1140);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.E(").append(class180_sub7 != null ? "{...}" : "null").append(',').append(i).append(',').append(i_47_).append(')').toString());
+			Class159.anInt1488 = (int) (Math.atan2(-i_75_ + i_73_, i_48_) * 325.95) & 0x7ff;
+			if (Class159.anInt1488 != 0) {
+				abstractModel.method2362(Class159.anInt1488);
+			}
+			Class93.anInt867 = i_57_ + i_71_;
+			if (Class93.anInt867 > i_66_ + i_65_) {
+				Class93.anInt867 = i_65_ + i_66_;
+			}
+			Class93.anInt867 = -this.y + (Class93.anInt867 >> 1);
+			if (Class93.anInt867 != 0) {
+				abstractModel.translate(0, Class93.anInt867, 0);
+			}
 		}
 	}
 
@@ -693,8 +663,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.aBoolean3007 = true;
 	}
 
-	final void setSize(final int i_89_) {
-		size = i_89_;
+	final void setSize(final int size_) {
+		size = size_;
 	}
 
 	GameEntity() {

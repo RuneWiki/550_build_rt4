@@ -10,7 +10,7 @@ final class Class136 {
 	static int defaultWorldId;
 	static Random aRandom1319;
 	static volatile int mouseIdleCycle;
-	static int anInt1321;
+	static int clickedMouseFunctionCycle;
 
 	static {
 		aString1316 = "glow3:";

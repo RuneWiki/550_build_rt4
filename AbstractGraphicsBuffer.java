@@ -24,7 +24,7 @@ abstract class AbstractGraphicsBuffer {
 	static double aDouble1172;
 	static int anInt1173;
 	static int anInt1174;
-	static int anInt1175;
+	static int mapbackState;
 	static String aString1176;
 
 	static {
@@ -40,38 +40,29 @@ abstract class AbstractGraphicsBuffer {
 		ParamType.recentUse = new NodeCache(64);
 		aDouble1172 = -1.0;
 		anInt1173 = 0;
-		anInt1175 = 0;
+		mapbackState = 0;
 		aString1176 = "Use";
 	}
 
-	static final Class120_Sub9 method1840(final Hashtable hashtable, final Class124 class124, final byte i) {
-		Class120_Sub9 class120_sub9;
-		try {
-			final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.anInt1202 + (1 + class124.anInt1203 << 16);
-			if (i < 86) {
-				return null;
-			}
-			Class120_Sub9 class120_sub9_0_ = (Class120_Sub9) hashtable.get(l);
-			if (class120_sub9_0_ == null) {
-				class120_sub9_0_ = new Class120_Sub9(class124.anInt1203, class124.anInt1202, true, false, class124.anInt1200);
-				hashtable.put(class120_sub9_0_, l);
-			}
-			class120_sub9 = class120_sub9_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.B(").append(hashtable != null ? "{...}" : "null").append(',').append(class124 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final Class120_Sub9 method1840(final Hashtable hashtable, final OverlayType class124) {
+		final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.anInt1202 + (1 + class124.textureId << 16);
+		Class120_Sub9 class120_sub9_0_ = (Class120_Sub9) hashtable.get(l);
+		if (class120_sub9_0_ == null) {
+			class120_sub9_0_ = new Class120_Sub9(class124.textureId, class124.anInt1202, true, false, class124.anInt1200);
+			hashtable.put(class120_sub9_0_, l);
 		}
-		return class120_sub9;
+		return class120_sub9_0_;
 	}
 
 	abstract void drawImage(Graphics graphics, int x, int y);
 
 	static final void method1842() {
-		anInt1175 = 0;
+		mapbackState = 0;
 		SceneGroundObject.packetSetFlagPosition = false;
 		Class65.flagY = 0;
 		Class120_Sub12_Sub15.landscapeSpriteLevel = -1;
 		Class120_Sub12_Sub26.flagX = 0;
-		client.aByte2201 = (byte) 0;
+		client.flagCounter = (byte) 0;
 	}
 
 	abstract void drawClippedImage(Graphics graphics, int x, int y, int w, int h);

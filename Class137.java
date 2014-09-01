@@ -5,7 +5,7 @@
 final class Class137 {
 	int[] anIntArray1322;
 	static int anInt1323 = 0;
-	Class120_Sub14_Sub5[] aClass120_Sub14_Sub5Array1324;
+	MapFunctionNode[] aClass120_Sub14_Sub5Array1324;
 	int anInt1325;
 	static PacketBuffer loginStream = new PacketBuffer(5000);
 
@@ -60,12 +60,12 @@ final class Class137 {
 			Class120_Sub12_Sub38.anInt3434 = -1;
 			Class120_Sub15.anInt2588 = -1;
 		} else {
-			int y = Class22.getTileHeight(Class173.gameLevel, x, z) - yOff;
+			int y = Class22.getTileHeight(x, z, Class173.gameLevel) - yOff;
 			x -= FileSystemWorker.renderX;
 			y -= Class120_Sub12_Sub10.renderY;
 			z -= GroundObjectNode.renderZ;
-			final int i_12_ = Rasterizer.sineTable[OverlayType.renderPitch];
-			final int i_13_ = Rasterizer.cosineTable[OverlayType.renderPitch];
+			final int i_12_ = Rasterizer.sineTable[UnderlayType.renderPitch];
+			final int i_13_ = Rasterizer.cosineTable[UnderlayType.renderPitch];
 			final int i_14_ = Rasterizer.sineTable[SpotAnimation.renderYaw];
 			final int i_15_ = Rasterizer.cosineTable[SpotAnimation.renderYaw];
 			int i_16_ = z * i_14_ + x * i_15_ >> 16;
@@ -92,6 +92,6 @@ final class Class137 {
 	Class137(final int i) {
 		this.anInt1325 = i;
 		this.anIntArray1322 = new int[this.anInt1325];
-		this.aClass120_Sub14_Sub5Array1324 = new Class120_Sub14_Sub5[this.anInt1325];
+		this.aClass120_Sub14_Sub5Array1324 = new MapFunctionNode[this.anInt1325];
 	}
 }

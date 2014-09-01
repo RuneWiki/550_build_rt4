@@ -41,10 +41,10 @@ final class AmbientSound extends Node {
 		Class111.aString1062 = "brillant1:";
 		Class136.aString1316 = "brillant3:";
 		Class120_Sub11.aString2550 = "Votre liste d'amis est pleine (100 noms maximum pour la version gratuite et 200 pour les abonn\u00e9s).";
-		Class120_Sub14_Sub1.aString3449 = "Prendre";
+		ProjectileNode.aString3449 = "Prendre";
 		Class120_Sub11.aString2554 = "Chargement des param\u00e8tres par d\u00e9faut - ";
 		Class174.aString1733 = "comp\u00e9tence ";
-		Class120_Sub3.aString2424 = "classement ";
+		LongNode.aString2424 = "classement ";
 		HintIcon.aString807 = "ondulation:";
 		Class120_Sub14_Sub23.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
 		Class116.aString1116 = "Connexion perdue.";
@@ -57,7 +57,7 @@ final class AmbientSound extends Node {
 		Class8.aString64 = "Jeter";
 		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
 		AbstractRequest.aString3575 = "violet:";
-		Class142.aString1358 = "Textures charg\u00e9es";
+		MapSceneType.aString1358 = "Textures charg\u00e9es";
 		CursorType.aString1238 = "K";
 		Class11.aString81 = "Examiner";
 		Class71.aString626 = "Veuillez patienter...";
@@ -102,7 +102,7 @@ final class AmbientSound extends Node {
 		Class158.aString1483 = "cyan:";
 		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
-		Class120_Sub3.aString2428 = "Chargement des fichiers config - ";
+		LongNode.aString2428 = "Chargement des fichiers config - ";
 		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
 		Class109.continueString = "Continuer";
 		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
@@ -126,7 +126,7 @@ final class AmbientSound extends Node {
 		final int i_0_ = this.anInt2485;
 		if (this.location == null) {
 			if (this.npc != null) {
-				final int i_1_ = Class20.method178(this.npc);
+				final int i_1_ = WaterfallShader.method178(this.npc);
 				if (i_0_ != i_1_) {
 					this.anInt2485 = i_1_;
 					NpcType npcType = this.npc.npcType;
@@ -141,7 +141,7 @@ final class AmbientSound extends Node {
 					}
 				}
 			} else if (this.player != null) {
-				this.anInt2485 = Class20.method179(this.player);
+				this.anInt2485 = WaterfallShader.method179(this.player);
 				this.hearDistance = 128 * this.player.ambientSoundHearDistance;
 				this.volume = this.player.ambientSoundVolume;
 			}
@@ -182,7 +182,7 @@ final class AmbientSound extends Node {
 
 	static final void method1158(final int i, final int i_3_) {
 		if (client.cameraType == 2) {
-			OverlayType.renderPitch = i;
+			UnderlayType.renderPitch = i;
 			SpotAnimation.renderYaw = i_3_;
 		}
 		DummyOutputStream.aFloat28 = i_3_;

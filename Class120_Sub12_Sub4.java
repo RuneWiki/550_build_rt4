@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static final void method1211(final boolean bool, final int i, final int i_0_, final boolean bool_1_, final int i_2_) {
 		try {
-			Js5Request.method1552(bool, i_2_, i_0_, Class86.worlds.length + -1, bool_1_, 0, 1);
+			Js5Request.method1552(i_2_, i_0_, Class86.worlds.length + -1, 0, bool, bool_1_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.W(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(bool_1_).append(',').append(i_2_).append(')').toString());
 		}
@@ -88,12 +88,6 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 				i_9_++;
 			}
 		}
-	}
-
-	static final void method1214() {
-		ObjType.recentUse.clearSoftReference();
-		Class33.aClass21_273.clearSoftReference();
-		SpotAnimation.aClass21_2906.clearSoftReference();
 	}
 
 	static final int getDisplayMode() {
@@ -203,7 +197,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	final int[][] method1188(final int i) {
 		final int[][] is_22_ = this.aClass109_2559.method975(i);
 		if (this.aClass109_2559.aBoolean1049) {
-			final int[][] is_23_ = method1179(0, i, (byte) -51);
+			final int[][] is_23_ = method1179(0, i);
 			final int[] is_24_ = is_23_[0];
 			final int[] is_25_ = is_23_[1];
 			final int[] is_26_ = is_22_[0];

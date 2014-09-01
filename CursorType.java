@@ -11,12 +11,12 @@ final class CursorType {
 	int hotSpotX;
 	static ObjectCache spriteCache = new ObjectCache(2);
 	static ObjectCache recentUse = new ObjectCache(64);
-	static int anInt1242;
+	static int ambientSoundsVolume;
 	static JagexInterface aClass189_1243;
 
 	static {
 		aString1238 = "K";
-		anInt1242 = 127;
+		ambientSoundsVolume = 127;
 	}
 
 	static final void method1914(final int i_0_) {
@@ -54,7 +54,7 @@ final class CursorType {
 			int i_5_ = Class156.lastMouseClick;
 			if (!Class15.menuOpen) {
 				if (i_5_ == 1 && Class186.menuOptionCount > 0) {
-					final short i_6_ = Class120_Sub29.aShortArray2777[Class186.menuOptionCount - 1];
+					final short i_6_ = Class120_Sub29.menuOptionsCode[Class186.menuOptionCount - 1];
 					if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
 						final int i_7_ = Class120_Sub29.anIntArray2769[Class186.menuOptionCount - 1];
 						final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];

@@ -20,7 +20,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 		i += this.xOffset;
 		i_0_ += this.yOffset;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(anInt2311);
+		HDToolkit.bindTexture2D(anInt2311);
 		method926(1);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_0_, 0.0F);
 		gl.glCallList(anInt2307);
@@ -30,12 +30,12 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 	@Override
 	protected final void finalize() throws Throwable {
 		if (anInt2311 != -1) {
-			Class113.method1001(anInt2311, anInt2312, anInt2308);
+			MemoryManager.method1001(anInt2311, anInt2312, anInt2308);
 			anInt2311 = -1;
 			anInt2312 = 0;
 		}
 		if (anInt2307 != -1) {
-			Class113.method996(anInt2307, anInt2308);
+			MemoryManager.method996(anInt2307, anInt2308);
 			anInt2307 = -1;
 		}
 		super.finalize();
@@ -47,7 +47,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 		final GL gl = HDToolkit.gl;
 		if (anInt2307 == -1) {
 			anInt2307 = gl.glGenLists(1);
-			anInt2308 = Class113.anInt1083;
+			anInt2308 = MemoryManager.anInt1083;
 		}
 		gl.glNewList(anInt2307, 4864);
 		gl.glBegin(6);
@@ -69,7 +69,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 		i += this.xOffset;
 		i_2_ += this.yOffset;
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(anInt2311);
+		HDToolkit.bindTexture2D(anInt2311);
 		method926(1);
 		gl.glColor4f(1.0F, 1.0F, 1.0F, i_3_ / 256.0F);
 		gl.glTranslatef(i, HDToolkit.canvasHeight - i_2_, 0.0F);
@@ -92,8 +92,8 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 	}
 
 	private final void method927(final byte[] indicators, final int[] palette) {
-		anInt2309 = Class120_Sub12_Sub17.method1283(this.width);
-		anInt2310 = Class120_Sub12_Sub17.method1283(this.height);
+		anInt2309 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
+		anInt2310 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
 		final byte[] is_5_ = new byte[anInt2309 * anInt2310 * 4];
 		int i = 0;
 		int i_6_ = 0;
@@ -118,25 +118,25 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 			final int[] is_11_ = new int[1];
 			gl.glGenTextures(1, is_11_, 0);
 			anInt2311 = is_11_[0];
-			anInt2308 = Class113.anInt1083;
+			anInt2308 = MemoryManager.anInt1083;
 		}
-		HDToolkit.method514(anInt2311);
+		HDToolkit.bindTexture2D(anInt2311);
 		gl.glTexImage2D(3553, 0, 6408, anInt2309, anInt2310, 0, 6408, 5121, bytebuffer);
-		Class113.anInt1086 += bytebuffer.limit() - anInt2312;
+		MemoryManager.anInt1086 += bytebuffer.limit() - anInt2312;
 		anInt2312 = bytebuffer.limit();
 	}
 
 	final void method928(int i, int i_12_, final HDSprite class120_sub14_sub19_sub1) {
 		if (class120_sub14_sub19_sub1 != null) {
 			HDToolkit.method510();
-			HDToolkit.method514(class120_sub14_sub19_sub1.anInt3942);
+			HDToolkit.bindTexture2D(class120_sub14_sub19_sub1.textureId);
 			class120_sub14_sub19_sub1.method1602(1);
 			final GL gl = HDToolkit.gl;
-			HDToolkit.method514(anInt2311);
+			HDToolkit.bindTexture2D(anInt2311);
 			method926(1);
 			gl.glActiveTexture(33985);
 			gl.glEnable(3553);
-			gl.glBindTexture(3553, class120_sub14_sub19_sub1.anInt3942);
+			gl.glBindTexture(3553, class120_sub14_sub19_sub1.textureId);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
 			final float f = (float) (i - GraphicsHD.startX) / (float) class120_sub14_sub19_sub1.anInt3945;

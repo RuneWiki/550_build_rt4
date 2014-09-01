@@ -6,7 +6,7 @@ final class InvType extends NodeSub {
 	
 	int size = 0;
 	static js5 aClass50_1613;
-	static NodeCache recentUse;
+	static NodeCache recentUse = new NodeCache(64);
 	
 	public static void method2179() {
 		aClass50_1613 = null;
@@ -69,16 +69,16 @@ final class InvType extends NodeSub {
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
 			SeekableFile.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
 			SpotAnimation.renderYaw = 0x7ff & (int) (SeekableFile.aFloat2139 * 325.949);
-			OverlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
+			UnderlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
 		}
 	}
 
-	static final void addMenuOption(final String prefix, final String sufix, final long l, final int i, final int i_26_, final short i_28_, final int cursor) {
+	static final void addMenuOption(final String prefix, final String sufix, final long l, final int i, final int i_26_, final short code, final int cursor) {
 		if (!Class15.menuOpen && Class186.menuOptionCount < 500) {//TODO refactor menu options
 			Class120_Sub12_Sub33.menuOptionPrefix[Class186.menuOptionCount] = prefix;
 			Class120_Sub12_Sub29.menuOptionSufix[Class186.menuOptionCount] = sufix;
 			InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount] = cursor == -1 ? Class192.selectedSpellCursor : cursor;
-			Class120_Sub29.aShortArray2777[Class186.menuOptionCount] = i_28_;
+			Class120_Sub29.menuOptionsCode[Class186.menuOptionCount] = code;
 			Class120_Sub12.aLongArray2562[Class186.menuOptionCount] = l;
 			Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount] = i;
 			Class120_Sub29.anIntArray2769[Class186.menuOptionCount] = i_26_;
@@ -90,7 +90,7 @@ final class InvType extends NodeSub {
 		int i = 0;
 		for (int i_31_ = 0; i_31_ < 104; i_31_++) {
 			for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-				if (Class120_Sub3.method1055(i, i_31_, true, i_32_, LabelGroup.groundTiles)) {
+				if (LongNode.method1055(i, i_31_, true, i_32_, LabelGroup.groundTiles)) {
 					i++;
 				}
 				if (i >= 512) {

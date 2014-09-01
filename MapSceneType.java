@@ -2,13 +2,17 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class142 {
+final class MapSceneType {
 	static String aString1358 = "Loaded textures";
 	boolean aBoolean1359 = false;
 	int anInt1360;
 	static int anInt1361;
-	static JagexInterface aClass189_1362;
-	int anInt1363;
+	static JagexInterface worldMapInterface;
+	int spriteId;
+	static js5 configJs5;
+	static js5 spriteJs5;
+	static ObjectCache spriteCache = new ObjectCache(64);
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	static final void method2004(int i_0_, final int i_1_) {
 		final VarBit varBit = VarBit.list(i_1_);
@@ -23,55 +27,47 @@ final class Class142 {
 		FileSystemRequest.method1544(i_2_, i_0_ << i_3_ & i_5_ | (i_5_ ^ 0xffffffff) & Class30.anIntArray239[i_2_]);
 	}
 
-	static final void method2005(final int i) {
-		do {
-			try {
-				try {
-					if (Class120_Sub12_Sub25.anInt3312 == 1) {
-						int i_6_ = Class30.aClass120_Sub30_Sub2_234.method1757(false);
-						if (i_6_ > 0 && Class30.aClass120_Sub30_Sub2_234.method1766((byte) 70)) {
-							i_6_ -= Class69.anInt614;
-							if (i_6_ < 0) {
-								i_6_ = 0;
-							}
-							Class30.aClass120_Sub30_Sub2_234.method1748(i_6_);
-						} else {
-							Class30.aClass120_Sub30_Sub2_234.method1770(21229);
-							Class30.aClass120_Sub30_Sub2_234.method1753((byte) 99);
-							if (MasterIndexInfo.aClass50_476 != null) {
-								Class120_Sub12_Sub25.anInt3312 = 2;
-							} else {
-								Class120_Sub12_Sub25.anInt3312 = 0;
-							}
-							Js5Request.aClass120_Sub31_3941 = null;
-							Class26.aClass90_163 = null;
-						}
+	static final void method2005() {
+		try {
+			if (Class120_Sub12_Sub25.anInt3312 == 1) {
+				int i_6_ = Class30.aClass120_Sub30_Sub2_234.method1757();
+				if (i_6_ > 0 && Class30.aClass120_Sub30_Sub2_234.method1766()) {
+					i_6_ -= Class69.anInt614;
+					if (i_6_ < 0) {
+						i_6_ = 0;
 					}
-				} catch (final Exception exception) {
-					exception.printStackTrace();
-					Class30.aClass120_Sub30_Sub2_234.method1770(21229);
+					Class30.aClass120_Sub30_Sub2_234.method1748(i_6_);
+				} else {
+					Class30.aClass120_Sub30_Sub2_234.method1770();
+					Class30.aClass120_Sub30_Sub2_234.method1753();
+					if (MasterIndexInfo.aClass50_476 != null) {
+						Class120_Sub12_Sub25.anInt3312 = 2;
+					} else {
+						Class120_Sub12_Sub25.anInt3312 = 0;
+					}
 					Js5Request.aClass120_Sub31_3941 = null;
-					MasterIndexInfo.aClass50_476 = null;
 					Class26.aClass90_163 = null;
-					Class120_Sub12_Sub25.anInt3312 = 0;
-					break;
 				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("qg.I(").append(i).append(')').toString());
 			}
-		} while (false);
+		} catch (final Exception exception) {
+			exception.printStackTrace();
+			Class30.aClass120_Sub30_Sub2_234.method1770();
+			Js5Request.aClass120_Sub31_3941 = null;
+			MasterIndexInfo.aClass50_476 = null;
+			Class26.aClass90_163 = null;
+			Class120_Sub12_Sub25.anInt3312 = 0;
+		}
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.anInt1363 = buffer.getUShort();
+			this.spriteId = buffer.getUShort();
 		} else if (code == 2) {
 			this.anInt1360 = buffer.getMedium();
 		} else if (code == 3) {
 			this.aBoolean1359 = true;
 		} else if (code == 4) {
-			this.anInt1363 = -1;
+			this.spriteId = -1;
 		}
 	}
 
@@ -97,7 +93,7 @@ final class Class142 {
 		class120_sub7.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
 		final Buffer class120_sub7_17_ = new Buffer(350);
 		class120_sub7_17_.putJagexString(string);
-		final int i_18_ = 8 + -(Class69_Sub2_Sub1.method620(string) % 8);
+		final int i_18_ = 8 + -(Class69_Sub2_Sub1.getLengthPlusOne(string) % 8);
 		for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
 			class120_sub7_17_.putByte((int) (Math.random() * 255.0));
 		}
@@ -221,7 +217,7 @@ final class Class142 {
 									} else {
 										GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 									}
-									if ((AbstractGraphicsBuffer.anInt1175 == 0 || AbstractGraphicsBuffer.anInt1175 == 3) && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_) {
+									if ((AbstractGraphicsBuffer.mapbackState == 0 || AbstractGraphicsBuffer.mapbackState == 3) && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_) {
 										int i_41_ = Class115.anInt1110 - drawX;
 										int i_42_ = Class120_Sub12_Sub21.anInt3298 - drawY;
 										final int i_43_ = jagexInterface.anIntArray2079[i_42_];
@@ -267,7 +263,7 @@ final class Class142 {
 								continue;
 							}
 							if (jagexInterface.clientCode == 1400) {
-								Class82.method711(jagexInterface.height, (byte) -114, drawY, drawX, jagexInterface.width);
+								Class82.drawWorldMapInterface(drawX, drawY, jagexInterface.width, jagexInterface.height);
 								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
@@ -278,7 +274,7 @@ final class Class142 {
 								continue;
 							}
 							if (jagexInterface.clientCode == 1401) {
-								Class186.method2473(jagexInterface.height, -18418, jagexInterface.width, drawX, drawY);
+								Class186.method2473(drawX, drawY, jagexInterface.width, jagexInterface.height);
 								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
@@ -298,45 +294,45 @@ final class Class142 {
 							}
 							if (jagexInterface.clientCode == 1405) {
 								if (HintIcon.showFps) {
-									final int i_52_ = drawX + jagexInterface.width;
-									int i_53_ = drawY + 15;
-									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(MapFunctionType.fps).toString(), i_52_, i_53_, 16776960, -1);
+									final int textX = drawX + jagexInterface.width;
+									int textY = drawY + 15;
+									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Fps:").append(MapFunctionType.fps).toString(), textX, textY, 16776960, -1);
 									final Runtime runtime = Runtime.getRuntime();
-									i_53_ += 15;
+									textY += 15;
 									final int i_54_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-									int i_55_ = 16776960;
+									int textColor = 16776960;
 									if (65536 < i_54_) {
-										i_55_ = 16711680;
+										textColor = 16711680;
 									}
-									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Mem:").append(i_54_).append("k").toString(), i_52_, i_53_, i_55_, -1);
-									i_53_ += 15;
+									Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Mem:").append(i_54_).append("k").toString(), textX, textY, textColor, -1);
+									textY += 15;
 									if (HDToolkit.glEnabled) {
-										i_55_ = 16776960;
-										final int i_56_ = (Class113.anInt1081 + Class113.anInt1082 + Class113.anInt1086) / 1024;
-										if (i_56_ > 65536) {
-											i_55_ = 16711680;
+										textColor = 16776960;
+										final int memory = (MemoryManager.anInt1081 + MemoryManager.anInt1082 + MemoryManager.anInt1086) / 1024;
+										if (memory > 65536) {
+											textColor = 16711680;
 										}
-										Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Card:").append(i_56_).append("k").toString(), i_52_, i_53_, i_55_, -1);
-										i_53_ += 15;
+										Class120_Sub12_Sub20.plainFont.method1482(new StringBuilder("Card:").append(memory).append("k").toString(), textX, textY, textColor, -1);
+										textY += 15;
 									}
-									i_55_ = 16776960;
+									textColor = 16776960;
 									int i_57_ = 0;
 									int i_58_ = 0;
-									int i_59_ = 0;
+									int totalGroups = 0;
 									for (int i_60_ = 0; i_60_ < 29; i_60_++) {
-										i_59_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method474(0);
-										i_57_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method470(true);
+										totalGroups += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].getGroupLength();
+										i_57_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method470();
 										i_58_ += Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_60_].method463();
 									}
-									final int i_61_ = i_58_ * 100 / i_59_;
-									final int i_62_ = i_57_ * 10000 / i_59_;
+									final int i_61_ = i_58_ * 100 / totalGroups;
+									final int i_62_ = i_57_ * 10000 / totalGroups;
 									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, -116, 2, 0)).append("% (").append(i_61_).append("%)").toString();
-									ObjectCache.smallFont.method1482(string, i_52_, i_53_, i_55_, -1);
-									i_53_ += 12;
+									ObjectCache.smallFont.method1482(string, textX, textY, textColor, -1);
+									textY += 12;
 									if (ParticleEngine.anInt2360 > 0) {
-										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), i_52_, i_53_, i_55_, -1);
+										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), textX, textY, textColor, -1);
 									}
-									i_53_ += 12;
+									textY += 12;
 									MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
@@ -351,14 +347,14 @@ final class Class142 {
 						}
 						if (!Class15.menuOpen) {
 							if (jagexInterface.type == 0 && jagexInterface.aBoolean1960 && i_37_ <= Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 >= i_35_ && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298 && !Class120_Sub30_Sub1.aBoolean3673) {
-								Class120_Sub29.aShortArray2777[0] = (short) 1006;
+								Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 								Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
 								Class120_Sub12_Sub29.menuOptionSufix[0] = "";
 								InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 								Class186.menuOptionCount = 1;
 							}
 							if (Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298) {
-								Class120_Sub12_Sub9.method1244(jagexInterface, 88, -drawY + Class120_Sub12_Sub21.anInt3298, Class115.anInt1110 - drawX);
+								Class120_Sub12_Sub9.method1244(jagexInterface, -drawY + Class120_Sub12_Sub21.anInt3298, Class115.anInt1110 - drawX);
 							}
 						}
 						if (jagexInterface.type == 0) {
@@ -383,7 +379,7 @@ final class Class142 {
 							final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 							if (class120_sub26 != null) {
 								if (class120_sub26.type == 0 && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && Class120_Sub12_Sub21.anInt3298 >= i_35_ && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_ && !Class120_Sub30_Sub1.aBoolean3673) {
-									Class120_Sub29.aShortArray2777[0] = (short) 1006;
+									Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 									InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 									Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
 									Class120_Sub12_Sub29.menuOptionSufix[0] = "";
@@ -422,9 +418,9 @@ final class Class142 {
 												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Projectile.aClass189_2954 && Class5.anInt2154 == i_63_) {
 													AbstractSprite class120_sub14_sub19;
 													if (Light.objSelected != 1 || i_63_ != ParticleManager.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
-														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 1, jagexInterface.aBoolean1956, (byte) -94, null, i_68_, 3153952);
+														class120_sub14_sub19 = Class187.method2477(null, jagexInterface.objAmounts[i_63_], 1, i_68_, 3153952, jagexInterface.aBoolean1956);
 													} else {
-														class120_sub14_sub19 = Class187.method2477(jagexInterface.objAmounts[i_63_], 2, jagexInterface.aBoolean1956, (byte) -127, null, i_68_, 0);
+														class120_sub14_sub19 = Class187.method2477(null, jagexInterface.objAmounts[i_63_], 2, i_68_, 0, jagexInterface.aBoolean1956);
 													}
 													if (Rasterizer.aBoolean974) {
 														MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
@@ -539,7 +535,7 @@ final class Class142 {
 										GraphicsHD.drawRect(drawX, drawY, jagexInterface.width, jagexInterface.height, i_76_, 256 - (alpha & 0xff));
 									}
 								} else if (jagexInterface.type == 4) {
-									final Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
+									final AbstractFont class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
 									if (class120_sub14_sub8 == null) {
 										if (Class88.aBoolean835) {
 											InterfaceClickMask.redrawInterface(jagexInterface);
@@ -595,9 +591,9 @@ final class Class142 {
 										if (jagexInterface.anInt2030 == -1) {
 											class120_sub14_sub19 = jagexInterface.method2492(false);
 										} else if (jagexInterface.aBoolean2097 && TileParticleQueue.selfPlayer.appearance != null) {
-											class120_sub14_sub19 = Class187.method2477(jagexInterface.anInt2075, jagexInterface.outline, jagexInterface.aBoolean1956, (byte) -63, TileParticleQueue.selfPlayer.appearance, jagexInterface.anInt2030, jagexInterface.shadow);
+											class120_sub14_sub19 = Class187.method2477(TileParticleQueue.selfPlayer.appearance, jagexInterface.anInt2075, jagexInterface.outline, jagexInterface.anInt2030, jagexInterface.shadow, jagexInterface.aBoolean1956);
 										} else {
-											class120_sub14_sub19 = Class187.method2477(jagexInterface.anInt2075, jagexInterface.outline, jagexInterface.aBoolean1956, (byte) -115, null, jagexInterface.anInt2030, jagexInterface.shadow);
+											class120_sub14_sub19 = Class187.method2477(null, jagexInterface.anInt2075, jagexInterface.outline, jagexInterface.anInt2030, jagexInterface.shadow, jagexInterface.aBoolean1956);
 										}
 										if (class120_sub14_sub19 != null) {
 											final int i_78_ = class120_sub14_sub19.trimWidth;
@@ -607,9 +603,9 @@ final class Class142 {
 												final int i_81_ = (jagexInterface.height - (1 + -i_79_)) / i_79_;
 												if (HDToolkit.glEnabled) {
 													GraphicsHD.method591(drawX, drawY, drawX + jagexInterface.width, drawY - -jagexInterface.height);
-													final boolean bool = Class179.method2264(class120_sub14_sub19.width);
+													final boolean bool = Class179.isPowerOfTwo(class120_sub14_sub19.width);
 													final HDSprite class120_sub14_sub19_sub1 = (HDSprite) class120_sub14_sub19;
-													final boolean bool_82_ = Class179.method2264(class120_sub14_sub19.height);
+													final boolean bool_82_ = Class179.isPowerOfTwo(class120_sub14_sub19.height);
 													if (bool && bool_82_) {
 														if (alpha != 0) {
 															class120_sub14_sub19_sub1.method1595(drawX, drawY, 256 - (0xff & alpha), i_80_, i_81_);
@@ -773,8 +769,8 @@ final class Class142 {
 												HDToolkit.method512(i_96_, i_95_, jagexInterface.zoom, jagexInterface.aShort2093, i_93_, i_94_);
 											}
 											HDToolkit.method532();
-											HDToolkit.method502(true);
-											HDToolkit.method507(false);
+											HDToolkit.toggleDepthTest(true);
+											HDToolkit.toggleFog(false);
 											Class99.method822(FileSystemRequest.brightness);
 											if (Class167.aBoolean1620) {
 												GraphicsHD.method597();
@@ -783,7 +779,7 @@ final class Class142 {
 												Class167.aBoolean1620 = false;
 											}
 											if (jagexInterface.aBoolean2003) {
-												HDToolkit.method503();
+												HDToolkit.disableDepthMask();
 											}
 											final int i_99_ = Rasterizer.cosineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
 											final int i_100_ = jagexInterface.zoom * Rasterizer.sineTable[jagexInterface.rotateX] >> 16;
@@ -793,13 +789,13 @@ final class Class142 {
 												class180_sub7.method2367(0, jagexInterface.rotateY, 0, jagexInterface.rotateX, 0, i_100_, i_99_, -1L);
 											}
 											if (jagexInterface.aBoolean2003) {
-												HDToolkit.method505();
+												HDToolkit.enableDepthMask();
 											}
 										}
 									}
 								} else {
 									if (jagexInterface.type == 7) {
-										final Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
+										final AbstractFont class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
 										if (class120_sub14_sub8 == null) {
 											if (Class88.aBoolean835) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
@@ -833,7 +829,7 @@ final class Class142 {
 									}
 									if (jagexInterface.type == 8 && Class49.aClass189_441 == jagexInterface && ParticleNode.anInt1031 == Class120_Sub12_Sub21.anInt3291) {
 										int i_106_ = 0;
-										final Class120_Sub14_Sub8 class120_sub14_sub8 = Class120_Sub12_Sub20.plainFont;
+										final AbstractFont class120_sub14_sub8 = Class120_Sub12_Sub20.plainFont;
 										int i_107_ = 0;
 										String string = jagexInterface.disabledText;
 										string = DummyInputStream.method71(jagexInterface, string);
@@ -937,55 +933,48 @@ final class Class142 {
 		}
 	}
 
-	final LDIndexedSprite method2011(final int i_121_, final boolean bool) {
-		LDIndexedSprite class107_sub1_122_ = (LDIndexedSprite) Class132.aClass21_1255.get(i_121_ << 16 | this.anInt1363 | (!bool ? 0 : 262144));
-		if (class107_sub1_122_ != null) {
-			return class107_sub1_122_;
+	final LDIndexedSprite constructSprite(final int rotation, final boolean flip) {
+		LDIndexedSprite ldIndexedSprite = (LDIndexedSprite) spriteCache.get(rotation << 16 | this.spriteId | (flip ? 262144 : 0));
+		if (ldIndexedSprite != null) {
+			return ldIndexedSprite;
 		}
-		Class120_Sub14_Sub22.aClass50_3640.method429(this.anInt1363);
-		class107_sub1_122_ = Class164.constructLDIndexedSprite(Class120_Sub14_Sub22.aClass50_3640, 0, this.anInt1363);
-		if (class107_sub1_122_ != null) {
-			class107_sub1_122_.method914(Class158.anInt1481, Class5.anInt2157, GameEntity.anInt2957);
-			class107_sub1_122_.trimWidth = class107_sub1_122_.width;
-			class107_sub1_122_.trimHeight = class107_sub1_122_.height;
-			if (bool) {
-				class107_sub1_122_.method915();
+		spriteJs5.method429(this.spriteId);
+		ldIndexedSprite = Class164.constructLDIndexedSprite(spriteJs5, 0, this.spriteId);
+		if (ldIndexedSprite != null) {
+			//ldIndexedSprite.method914(Class158.mapSceneRedColorModifier, Class5.mapSceneGreenColorModifier, GameEntity.mapSceneBlueColorModifier);//TODO commented color random stuff
+			ldIndexedSprite.trimWidth = ldIndexedSprite.width;
+			ldIndexedSprite.trimHeight = ldIndexedSprite.height;
+			if (flip) {
+				ldIndexedSprite.flipVertical();
 			}
-			for (int i_123_ = 0; i_123_ < i_121_; i_123_++) {
-				class107_sub1_122_.method916();
+			for (int id = 0; id < rotation; id++) {
+				ldIndexedSprite.rotate90();
 			}
-			Class132.aClass21_1255.put(class107_sub1_122_, this.anInt1363 | i_121_ << 16 | (!bool ? 0 : 262144));
+			spriteCache.put(ldIndexedSprite, this.spriteId | rotation << 16 | (flip ? 262144 : 0));
 		}
-		return class107_sub1_122_;
+		return ldIndexedSprite;
 	}
 
-	static final Class142 list(final int id) {
-		Class142 class142_19_ = (Class142) Js5Request.aClass21_3937.get(id);
-		if (class142_19_ != null) {
-			return class142_19_;
+	static final MapSceneType list(final int id) {
+		MapSceneType mapSceneType = (MapSceneType) recentUse.get(id);
+		if (mapSceneType != null) {
+			return mapSceneType;
 		}
-		final byte[] is = Class30.aClass50_233.getFile(34, id);
-		class142_19_ = new Class142();
-		if (is != null) {
-			class142_19_.decode(new Buffer(is));
+		final byte[] data = configJs5.getFile(34, id);
+		mapSceneType = new MapSceneType();
+		if (data != null) {
+			mapSceneType.decode(new Buffer(data));
 		}
-		Js5Request.aClass21_3937.put(class142_19_, id);
-		return class142_19_;
+		recentUse.put(mapSceneType, id);
+		return mapSceneType;
 	}
 
-	public Class142() {
+	public MapSceneType() {
 		/* empty */
 	}
 
-	public static void method2012(final int i) {
-		try {
-			aClass189_1362 = null;
-			aString1358 = null;
-			if (i != 0) {
-				aClass189_1362 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qg.E(").append(i).append(')').toString());
-		}
+	public static void method2012() {
+		worldMapInterface = null;
+		aString1358 = null;
 	}
 }

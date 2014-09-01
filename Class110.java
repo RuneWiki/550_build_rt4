@@ -5,7 +5,7 @@
 final class Class110 {
 	static int[][][] anIntArrayArrayArray1050;
 	static int b12fullId;
-	static Class98 aClass98_1052;
+	static WorldMapFont aClass98_1052;
 	static InterfaceClickMask aClass120_Sub20_1053;
 	static boolean objectTagEnabled = false;
 	static MouseRecorder mouseRecorder;
@@ -15,8 +15,8 @@ final class Class110 {
 	}
 
 	static final void method976() {
-		InterfaceListener.aClass21_2542.clear();
 		OverlayType.recentUse.clear();
+		UnderlayType.recentUse.clear();
 		IdentityKit.recentUse.clear();
 		Class120_Sub12_Sub25.method1334();
 		NodeCache.method297();
@@ -27,9 +27,9 @@ final class Class110 {
 		Varp.recentUse.clear();
 		Class120_Sub12_Sub31.aClass21_3378.clear();
 		InterfaceClickMask.method1693();
-		Class120_Sub16.method1658();
+		Class120_Sub16.clearMapFunctions();
 		Class36.method309();
-		Class120_Sub12_Sub9.aClass21_3196.clear();
+		Class153.recentUse.clear();
 		Class120_Sub12_Sub35.aClass21_3411.clear();
 		DisplayModeInfo.method2214();
 		AbstractMouseWheelHandler.method160();
@@ -46,9 +46,9 @@ final class Class110 {
 		SceneGroundObject.aClass21_2841.clear();
 		Class15.aClass21_95.clear();
 		if (!HDToolkit.glEnabled) {
-			((Class143_Sub1) Rasterizer.anInterface5_973).method2025(-45);
+			((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		}
-		OverlayType.aClass35_1219.clear();
+		UnderlayType.aClass35_1219.clear();
 		AmbientSound.aClass50_2479.method419();
 		Class79_Sub1.aClass50_2245.method419();
 		Class33.aClass50_275.method419();

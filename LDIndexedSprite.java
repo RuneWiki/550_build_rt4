@@ -108,24 +108,24 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		}
 	}
 
-	final void method914(final int i, final int i_24_, final int i_25_) {
+	final void method914(final int redMod, final int greenMod, final int blueMod) {
 		for (int i_26_ = 0; i_26_ < this.palette.length; i_26_++) {
 			int i_27_ = this.palette[i_26_] >> 16 & 0xff;
-			i_27_ += i;
+			i_27_ += redMod;
 			if (i_27_ < 0) {
 				i_27_ = 0;
 			} else if (i_27_ > 255) {
 				i_27_ = 255;
 			}
 			int i_28_ = this.palette[i_26_] >> 8 & 0xff;
-			i_28_ += i_24_;
+			i_28_ += greenMod;
 			if (i_28_ < 0) {
 				i_28_ = 0;
 			} else if (i_28_ > 255) {
 				i_28_ = 255;
 			}
 			int i_29_ = this.palette[i_26_] & 0xff;
-			i_29_ += i_25_;
+			i_29_ += blueMod;
 			if (i_29_ < 0) {
 				i_29_ = 0;
 			} else if (i_29_ > 255) {
@@ -135,7 +135,7 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		}
 	}
 
-	final void method915() {
+	final void flipVertical() {
 		final byte[] is = new byte[this.width * this.height];
 		int i = 0;
 		for (int i_30_ = this.height - 1; i_30_ >= 0; i_30_--) {
@@ -147,7 +147,7 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		this.yOffset = this.trimHeight - this.height - this.yOffset;
 	}
 
-	final void method916() {
+	final void rotate90() {
 		final byte[] is = new byte[this.width * this.height];
 		int i = 0;
 		for (int i_32_ = 0; i_32_ < this.width; i_32_++) {

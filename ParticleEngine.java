@@ -214,10 +214,10 @@ final class ParticleEngine extends ParticleNode {
 					}
 					boolean bool = false;
 					if (aBoolean2347 && class108_sub1.aClass80_2323.anInt724 != -1) {
-						Rasterizer.anInterface5_973.method25(64, class108_sub1.aClass80_2323.anInt724);
+						Rasterizer.anInterface5_973.method25(class108_sub1.aClass80_2323.anInt724);
 						bool = true;
 					} else {
-						HDToolkit.method514(-1);
+						HDToolkit.bindTexture2D(-1);
 					}
 					float f = class108_sub1.aClass80_2323.anInt721 * aFloat2393;
 					if (f > 64.0F) {
@@ -493,7 +493,7 @@ final class ParticleEngine extends ParticleNode {
 					Class120_Sub14_Sub24 class120_sub14_sub24 = null;
 					if (class169s[i].aClass32_1650.anInt266 == 1 && anInt2392 < 32) {
 						class120_sub14_sub24 = new Class120_Sub14_Sub24(class169s[i], this);
-						aClass9_2346.method115(class169s[i].aClass32_1650.anInt258, class120_sub14_sub24, 0);
+						aClass9_2346.method115(class120_sub14_sub24, class169s[i].aClass32_1650.anInt258);
 						anInt2392++;
 					}
 					if (class120_sub14_sub24 == null) {

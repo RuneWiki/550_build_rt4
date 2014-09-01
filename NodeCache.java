@@ -5,7 +5,7 @@ import java.awt.Component;
 
 final class NodeCache {
 	private NodeSub emptySub = new NodeSub();
-	static boolean[] aBooleanArray299 = new boolean[112];
+	static boolean[] heldKeys = new boolean[112];
 	static int[][] anIntArrayArray300;
 	static int anInt301;
 	private final Queue recent = new Queue();
@@ -22,13 +22,13 @@ final class NodeCache {
 
 	static final void method297() {
 		NpcType.recentUse.clear();
-		Class11.aClass21_80.clear();
+		NpcType.aClass21_80.clear();
 		Projectile.aClass21_2931.clear();
 	}
 
 	public static void method298(final int i) {
 		try {
-			aBooleanArray299 = null;
+			heldKeys = null;
 			aClass50_303 = null;
 			anIntArrayArray300 = null;
 			if (i != -51) {
@@ -96,14 +96,14 @@ final class NodeCache {
 		Class42.currentMousePress = 0;
 	}
 
-	static final String method305(final int i, final int i_3_) {
-		if (i_3_ < 100000) {
-			return new StringBuilder("<col=ffff00>").append(i_3_).append("</col>").toString();
+	static final String formatObjCount(final int count) {
+		if (count < 100000) {
+			return new StringBuilder("<col=ffff00>").append(count).append("</col>").toString();
 		}
-		if (i_3_ < 10000000) {
-			return new StringBuilder("<col=ffffff>").append(i_3_ / 1000).append(CursorType.aString1238).append("</col>").toString();
+		if (count < 10000000) {
+			return new StringBuilder("<col=ffffff>").append(count / 1000).append(CursorType.aString1238).append("</col>").toString();
 		}
-		return new StringBuilder("<col=00ff80>").append(i_3_ / 1000000).append(EnumType.aString3455).append("</col>").toString();
+		return new StringBuilder("<col=00ff80>").append(count / 1000000).append(EnumType.aString3455).append("</col>").toString();
 	}
 
 	final void clear() {

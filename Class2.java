@@ -17,16 +17,16 @@ final class Class2 {
 				Class120_Sub14_Sub4.anInt3469 = 0;
 			}
 			if (loginScreen) {
-				Class120_Sub14_Sub1.setGameState(28);
+				ProjectileNode.setGameState(28);
 			} else {
-				Class120_Sub14_Sub1.setGameState(25);
+				ProjectileNode.setGameState(25);
 			}
 			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, true);
 			int i_6_ = GameEntity.currentBaseX;
 			int i_7_ = Class181.currentBaseZ;
 			GameEntity.currentBaseX = baseX * 8 - 48;
 			Class181.currentBaseZ = baseZ * 8 - 48;
-			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = Class79.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
+			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = WorldMapHandler.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
 			SceneGraphNode.aClass137_1780 = null;
 			final int zOff = Class181.currentBaseZ - i_7_;
 			final int xOff = GameEntity.currentBaseX - i_6_;
@@ -133,7 +133,7 @@ final class Class2 {
 			}
 			Class132_Sub2.resetMinimapLandscape();
 			Class120_Sub12_Sub7.aClass105_3177.clear();
-			FileSystemRequest.aClass105_3928.clear();
+			FileSystemRequest.projectileDeque.clear();
 			ParticleEngine.method958();
 		}
 	}

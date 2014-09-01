@@ -48,7 +48,7 @@ class Class69 {
 						} else {
 							y = npcType.iconHeight + 15;
 						}
-						OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, y);
+						UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, y);
 						if (Class120_Sub12_Sub38.anInt3434 > -1) {
 							FileSystemRequest.prayerIconSprites[npcType.headIcon].method1587(interfaceX - (-Class120_Sub12_Sub38.anInt3434 - -12), interfaceY + Class120_Sub15.anInt2588 - 30);
 						}
@@ -65,7 +65,7 @@ class Class69 {
 							} else {
 								i_12_ = npcType.iconHeight + 15;
 							}
-							OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, i_12_);
+							UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, i_12_);
 							if (Class120_Sub12_Sub38.anInt3434 > -1) {
 								AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(interfaceX - -Class120_Sub12_Sub38.anInt3434 - 12, interfaceY + Class120_Sub15.anInt2588 - 28);
 							}
@@ -75,7 +75,7 @@ class Class69 {
 					int i_13_ = 30;
 					final Player player = (Player) entity;
 					if (player.anInt3732 != -1 || player.anInt3746 != -1) {
-						OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, 15 + entity.getHeight());
+						UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, 15 + entity.getHeight());
 						if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0) {
 							if (player.anInt3732 != -1) {
 								Class54.aClass120_Sub14_Sub19Array490[player.anInt3732].method1587(interfaceX + Class120_Sub12_Sub38.anInt3434 + -12, Class120_Sub15.anInt2588 + interfaceY + -i_13_);
@@ -91,7 +91,7 @@ class Class69 {
 						final HintIcon[] hintIcons = Class187.hintIcons;
 						for (final HintIcon hintIcon : hintIcons) {
 							if (hintIcon != null && hintIcon.targetType == 10 && Class112.playerIndices[id] == hintIcon.targetIndex) {
-								OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, 15 + entity.getHeight());
+								UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, 15 + entity.getHeight());
 								if (Class120_Sub12_Sub38.anInt3434 > -1) {
 									AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + Class120_Sub12_Sub38.anInt3434 + interfaceX, interfaceY - -Class120_Sub15.anInt2588 + -i_13_);
 								}
@@ -100,7 +100,7 @@ class Class69 {
 					}
 				}
 				if (entity.textSpoken != null && (id >= FileSystemWorker.localPlayerCount || Class69_Sub3_Sub1.anInt3084 == 0 || Class69_Sub3_Sub1.anInt3084 == 3 || Class69_Sub3_Sub1.anInt3084 == 1 && SpotAnimType.isFriendOrSelf(((Player) entity).name))) {
-					OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, entity.getHeight());
+					UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, entity.getHeight());
 					if (Class120_Sub12_Sub38.anInt3434 > -1 && Class120_Sub12_Sub19.textCount < AbstractGraphicsBuffer.anInt1166) {
 						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.method1459(entity.textSpoken) / 2;
 						AbstractGraphicsBuffer.anIntArray1158[Class120_Sub12_Sub19.textCount] = Class120_Sub12_Sub22.boldFont.anInt3497;
@@ -123,7 +123,7 @@ class Class69 {
 						final Npc class180_sub5_sub2 = (Npc) entity;
 						AbstractSprite[] class120_sub14_sub19s = (AbstractSprite[]) Class120_Sub12_Sub2.aClass21_3144.get(class180_sub5_sub2.npcType.anInt1666);
 						if (class120_sub14_sub19s == null) {
-							class120_sub14_sub19s = Class125.constructTransparentSprites(Class7.aClass50_63, 0, class180_sub5_sub2.npcType.anInt1666);
+							class120_sub14_sub19s = Class125.constructTransparentSprites(Class7.aClass50_63, class180_sub5_sub2.npcType.anInt1666, 0);
 							if (class120_sub14_sub19s != null) {
 								Class120_Sub12_Sub2.aClass21_3144.put(class120_sub14_sub19s, class180_sub5_sub2.npcType.anInt1666);
 							}
@@ -139,7 +139,7 @@ class Class69 {
 							i_16_ = entity.getHeight();
 						}
 					}
-					OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, class120_sub14_sub19.height + i_16_ + 10);
+					UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, class120_sub14_sub19.height + i_16_ + 10);
 					if (Class120_Sub12_Sub38.anInt3434 > -1) {
 						final int i_17_ = Class120_Sub12_Sub38.anInt3434 + interfaceX - (class120_sub14_sub19.width >> 1);
 						final int i_18_ = -3 + Class120_Sub15.anInt2588 + interfaceY;
@@ -173,7 +173,7 @@ class Class69 {
 						} else {
 							i_22_ = entity.getHeight() / 2;
 						}
-						OverlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, i_22_);
+						UnderlayType.method1903(entity, interfaceHeight >> 1, i_2_, i_0_, interfaceWidth >> 1, i_22_);
 						if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0) {
 							if (i_21_ == 1) {
 								Class120_Sub15.anInt2588 -= 20;
@@ -348,16 +348,10 @@ class Class69 {
 		}
 	}
 
-	static final void method616(final int i, final int i_37_, final int i_38_, final int i_39_, final int i_40_) {
-		try {
-			if (i < -91) {
-				IdentityKit.anInt1334 = i_39_;
-				ParamType.anInt3544 = i_40_;
-				Class120_Sub30_Sub2.anInt3699 = i_37_;
-				Class32.anInt260 = i_38_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.D(").append(i).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(')').toString());
-		}
+	static final void method616(final int i_37_, final int i_38_, final int i_39_, final int i_40_) {
+		IdentityKit.anInt1334 = i_39_;
+		ParamType.anInt3544 = i_40_;
+		Class120_Sub30_Sub2.anInt3699 = i_37_;
+		Class32.anInt260 = i_38_;
 	}
 }

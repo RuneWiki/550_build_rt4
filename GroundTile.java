@@ -7,8 +7,8 @@ final class GroundTile extends Node {
 	byte aByte2623;
 	boolean aBoolean2624;
 	Class28[] aClass28Array2625 = new Class28[5];
-	PlainTile aClass141_2626;
-	static int anInt2627;
+	PlainTile plainTile;
+	static int worldMapLookAtY;
 	Class182 aClass182_2628;
 	int anInt2629;
 	static SignlinkNode js5ConnectionNode;
@@ -21,7 +21,7 @@ final class GroundTile extends Node {
 	int anInt2637;
 	int anInt2638;
 	Class186 aClass186_2639;
-	ShapedTile aClass168_2640;
+	ShapedTile shapedTile;
 	int[] anIntArray2641 = new int[5];
 	int anInt2642;
 	static Hashtable aClass75_2643;

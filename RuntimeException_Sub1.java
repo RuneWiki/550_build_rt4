@@ -16,7 +16,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		class120_sub26_3_.type = i_0_;
 		class120_sub26_3_.interfaceId = i;
 		Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26_3_, i_2_);
-		Class120_Sub14_Sub1.stopInterfaceAnimation(i);
+		ProjectileNode.stopInterfaceAnimation(i);
 		final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 		if (jagexInterface != null) {
 			InterfaceClickMask.redrawInterface(jagexInterface);
@@ -27,7 +27,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		}
 		final int i_4_ = Class186.menuOptionCount;
 		for (int i_5_ = 0; i_4_ > i_5_; i_5_++) {
-			if (Class150.method2064(Class120_Sub29.aShortArray2777[i_5_])) {
+			if (Class150.method2064(Class120_Sub29.menuOptionsCode[i_5_])) {
 				Class120_Sub16.shiftOptions(i_5_);
 			}
 		}

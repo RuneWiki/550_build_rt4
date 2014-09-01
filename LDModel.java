@@ -362,7 +362,7 @@ final class LDModel extends AbstractModel {
 									if (i_54_ == 0) {
 										i_54_ = 1;
 									}
-									GraphicsLD.method2152(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -380,7 +380,7 @@ final class LDModel extends AbstractModel {
 									if (i_59_ == 0) {
 										i_59_ = 1;
 									}
-									GraphicsLD.method2152(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -533,7 +533,7 @@ final class LDModel extends AbstractModel {
 						if (i_86_ == 0) {
 							i_86_ = 1;
 						}
-						GraphicsLD.method2152(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+						GraphicsLD.drawAlphaCircle(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 						if (i_79_ >= i_12_) {
 							break;
 						}
@@ -565,7 +565,7 @@ final class LDModel extends AbstractModel {
 					if (i_89_ == 0) {
 						i_89_ = 1;
 					}
-					GraphicsLD.method2152(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+					GraphicsLD.drawAlphaCircle(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 					i_88_ = anIntArray3818[i_79_++];
 				}
 			}
@@ -619,7 +619,7 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_99_, final int i_100_, final int i_101_, final int i_102_, final int i_103_, final int i_104_, final int i_105_, final long l, final int i_106_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_99_, final int i_100_, final int i_101_, final int i_102_, final int i_103_, final int i_104_, final int i_105_, final long l, final int i_106_, final ParticleEngine class108_sub2) {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
@@ -839,11 +839,11 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2368(final int i, final int i_159_, final int i_160_) {
+	final void translate(final int x, final int y, final int z) {
 		for (int i_161_ = 0; i_161_ < this.anInt3793; i_161_++) {
-			this.xVertices[i_161_] += i;
-			this.yVertices[i_161_] += i_159_;
-			this.zVertices[i_161_] += i_160_;
+			this.xVertices[i_161_] += x;
+			this.yVertices[i_161_] += y;
+			this.zVertices[i_161_] += z;
 		}
 		this.boundsCalculated = false;
 	}
@@ -958,59 +958,55 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void method2367(final int i, final int i_169_, final int i_170_, final int i_171_, final int i_172_, final int i_173_, final int i_174_, final long l) {
-		try {
-			if (!this.boundsCalculated) {
-				calculateBounds();
-			}
-			final int i_175_ = Rasterizer.anInt967;
-			final int i_176_ = Rasterizer.anInt970;
-			final int i_177_ = Rasterizer.sineTable[i];
-			final int i_178_ = Rasterizer.cosineTable[i];
-			final int i_179_ = Rasterizer.sineTable[i_169_];
-			final int i_180_ = Rasterizer.cosineTable[i_169_];
-			final int i_181_ = Rasterizer.sineTable[i_170_];
-			final int i_182_ = Rasterizer.cosineTable[i_170_];
-			final int i_183_ = Rasterizer.sineTable[i_171_];
-			final int i_184_ = Rasterizer.cosineTable[i_171_];
-			final int i_185_ = i_173_ * i_183_ + i_174_ * i_184_ >> 16;
-			for (int i_186_ = 0; i_186_ < this.anInt3793; i_186_++) {
-				int i_187_ = this.xVertices[i_186_];
-				int i_188_ = this.yVertices[i_186_];
-				int i_189_ = this.zVertices[i_186_];
-				if (i_170_ != 0) {
-					final int i_190_ = i_188_ * i_181_ + i_187_ * i_182_ >> 16;
-					i_188_ = i_188_ * i_182_ - i_187_ * i_181_ >> 16;
-					i_187_ = i_190_;
-				}
-				if (i != 0) {
-					final int i_191_ = i_188_ * i_178_ - i_189_ * i_177_ >> 16;
-					i_189_ = i_188_ * i_177_ + i_189_ * i_178_ >> 16;
-					i_188_ = i_191_;
-				}
-				if (i_169_ != 0) {
-					final int i_192_ = i_189_ * i_179_ + i_187_ * i_180_ >> 16;
-					i_189_ = i_189_ * i_180_ - i_187_ * i_179_ >> 16;
-					i_187_ = i_192_;
-				}
-				i_187_ += i_172_;
-				i_188_ += i_173_;
-				i_189_ += i_174_;
-				final int i_193_ = i_188_ * i_184_ - i_189_ * i_183_ >> 16;
-				i_189_ = i_188_ * i_183_ + i_189_ * i_184_ >> 16;
-				i_188_ = i_193_;
-				anIntArray3836[i_186_] = i_189_ - i_185_;
-				anIntArray3840[i_186_] = i_175_ + (i_187_ << 9) / i_189_;
-				anIntArray3811[i_186_] = i_176_ + (i_188_ << 9) / i_189_;
-				if (anInt3768 > 0) {
-					anIntArray3827[i_186_] = i_187_;
-					anIntArray3820[i_186_] = i_188_;
-					anIntArray3829[i_186_] = i_189_;
-				}
-			}
-			method2391(false, l >= 0L, l, aShort3785, aShort3785 << 1, null);
-		} catch (final RuntimeException runtimeexception) {
-			/* empty */
+		if (!this.boundsCalculated) {
+			calculateBounds();
 		}
+		final int i_175_ = Rasterizer.anInt967;
+		final int i_176_ = Rasterizer.anInt970;
+		final int i_177_ = Rasterizer.sineTable[i];
+		final int i_178_ = Rasterizer.cosineTable[i];
+		final int i_179_ = Rasterizer.sineTable[i_169_];
+		final int i_180_ = Rasterizer.cosineTable[i_169_];
+		final int i_181_ = Rasterizer.sineTable[i_170_];
+		final int i_182_ = Rasterizer.cosineTable[i_170_];
+		final int i_183_ = Rasterizer.sineTable[i_171_];
+		final int i_184_ = Rasterizer.cosineTable[i_171_];
+		final int i_185_ = i_173_ * i_183_ + i_174_ * i_184_ >> 16;
+		for (int i_186_ = 0; i_186_ < this.anInt3793; i_186_++) {
+			int i_187_ = this.xVertices[i_186_];
+			int i_188_ = this.yVertices[i_186_];
+			int i_189_ = this.zVertices[i_186_];
+			if (i_170_ != 0) {
+				final int i_190_ = i_188_ * i_181_ + i_187_ * i_182_ >> 16;
+				i_188_ = i_188_ * i_182_ - i_187_ * i_181_ >> 16;
+				i_187_ = i_190_;
+			}
+			if (i != 0) {
+				final int i_191_ = i_188_ * i_178_ - i_189_ * i_177_ >> 16;
+				i_189_ = i_188_ * i_177_ + i_189_ * i_178_ >> 16;
+				i_188_ = i_191_;
+			}
+			if (i_169_ != 0) {
+				final int i_192_ = i_189_ * i_179_ + i_187_ * i_180_ >> 16;
+				i_189_ = i_189_ * i_180_ - i_187_ * i_179_ >> 16;
+				i_187_ = i_192_;
+			}
+			i_187_ += i_172_;
+			i_188_ += i_173_;
+			i_189_ += i_174_;
+			final int i_193_ = i_188_ * i_184_ - i_189_ * i_183_ >> 16;
+			i_189_ = i_188_ * i_183_ + i_189_ * i_184_ >> 16;
+			i_188_ = i_193_;
+			anIntArray3836[i_186_] = i_189_ - i_185_;
+			anIntArray3840[i_186_] = i_175_ + (i_187_ << 9) / i_189_;
+			anIntArray3811[i_186_] = i_176_ + (i_188_ << 9) / i_189_;
+			if (anInt3768 > 0) {
+				anIntArray3827[i_186_] = i_187_;
+				anIntArray3820[i_186_] = i_188_;
+				anIntArray3829[i_186_] = i_189_;
+			}
+		}
+		method2391(false, l >= 0L, l, aShort3785, aShort3785 << 1, null);
 	}
 
 	@Override
@@ -2331,13 +2327,13 @@ final class LDModel extends AbstractModel {
 		vertexCount = 0;
 		this.anInt3793 = 0;
 		class180_sub2.method2303();
-		class180_sub2.method2283();
-		this.anInt3793 = class180_sub2.anInt2896;
+		class180_sub2.createLabels();
+		this.anInt3793 = class180_sub2.vertexCount;
 		vertexCount = class180_sub2.anInt2886;
 		this.xVertices = class180_sub2.xVertices;
 		this.yVertices = class180_sub2.yVertices;
 		this.zVertices = class180_sub2.zVertices;
-		anInt3792 = class180_sub2.anInt2856;
+		anInt3792 = class180_sub2.triangleCount;
 		trianglesA = class180_sub2.trianglesA;
 		trianglesB = class180_sub2.trianglesB;
 		trianglesC = class180_sub2.trianglesC;
@@ -2345,8 +2341,8 @@ final class LDModel extends AbstractModel {
 		trianglesAlpha = class180_sub2.aByteArray2864;
 		aByte3756 = class180_sub2.aByte2899;
 		aShortArray3777 = class180_sub2.triangleColors;
-		anIntArrayArray3786 = class180_sub2.anIntArrayArray2884;
-		anIntArrayArray3795 = class180_sub2.anIntArrayArray2863;
+		anIntArrayArray3786 = class180_sub2.vertexLabels;
+		anIntArrayArray3795 = class180_sub2.triangleLabels;
 		aShortArray3761 = class180_sub2.aShortArray2867;
 		this.aClass158Array3788 = class180_sub2.aClass158Array2871;
 		this.aClass169Array3776 = class180_sub2.aClass169Array2887;
@@ -2360,7 +2356,7 @@ final class LDModel extends AbstractModel {
 			aShortArray3760 = new short[anInt3792];
 			for (int i_649_ = 0; i_649_ < anInt3792; i_649_++) {
 				final short i_650_ = class180_sub2.aShortArray2850[i_649_];
-				if (i_650_ != -1 && Rasterizer.anInterface5_973.method15(i_650_, 0)) {
+				if (i_650_ != -1 && Rasterizer.anInterface5_973.method15(i_650_)) {
 					aShortArray3760[i_649_] = i_650_;
 				} else {
 					aShortArray3760[i_649_] = (short) -1;

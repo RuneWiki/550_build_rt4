@@ -12,6 +12,8 @@ final class Class153 {
 	static js5 aClass50_1433;
 	int anInt1434;
 	int anInt1435 = 8;
+	static js5 aClass50_3373;
+	static ObjectCache recentUse = new ObjectCache(16);
 	static int anInt1436 = -1;
 
 	static final AbstractIndexedSprite constructAbstractIndexedSprite(final js5 js5, final int groupId) {
@@ -21,27 +23,16 @@ final class Class153 {
 		return Class11.constructAbstractIndexedSprite();
 	}
 
-	static final void method2070(final byte i) {
-		try {
-			Class120_Sub14_Sub13.method1532(0, 0);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.C(").append(i).append(')').toString());
-		}
+	static final void method2070() {
+		Class120_Sub14_Sub13.method1532(0, 0);
 	}
 
-	public static void method2071(final byte i) {
-		try {
-			aClass50_1433 = null;
-			if (i != 56) {
-				anInt1436 = 102;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.G(").append(i).append(')').toString());
-		}
+	public static void method2071() {
+		aClass50_1433 = null;
 	}
 
-	static final Class186 method2072(final int i, final int i_1_, final int i_2_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_1_][i_2_];
+	static final Class186 method2072(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -54,74 +45,52 @@ final class Class153 {
 		return i >> 11 & 0x7f;
 	}
 
-	private final void method2074(final int i, final int i_5_, final Buffer class120_sub7, final int i_6_) {
-		try {
-			if (i != -3) {
-				constructAbstractIndexedSprite(null, 112);
-			}
-			if (i_6_ == 1) {
-				this.anInt1435 = class120_sub7.getUShort();
-			} else if (i_6_ != 2) {
-				if (i_6_ == 3) {
-					this.anInt1427 = class120_sub7.getShort();
-					this.anInt1428 = class120_sub7.getShort();
-					this.anInt1431 = class120_sub7.getShort();
-				} else if (i_6_ != 4) {
-					if (i_6_ == 5) {
-						this.anInt1429 = class120_sub7.getUShort();
-					} else if (i_6_ == 6) {
-						this.anInt1432 = class120_sub7.getMedium();
-					}
-				} else {
-					this.anInt1434 = class120_sub7.getUByte();
-				}
-			} else {
-				this.aBoolean1430 = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.E(").append(i).append(',').append(i_5_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_6_).append(')').toString());
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.anInt1435 = buffer.getUShort();
+		} else if (code == 2) {
+			this.aBoolean1430 = true;
+		} else if (code == 3) {
+			this.anInt1427 = buffer.getShort();
+			this.anInt1428 = buffer.getShort();
+			this.anInt1431 = buffer.getShort();
+		} else if (code == 4) {
+			this.anInt1434 = buffer.getUByte();
+		} else if (code == 5) {
+			this.anInt1429 = buffer.getUShort();
+		} else if (code == 6) {
+			this.anInt1432 = buffer.getMedium();
 		}
 	}
 
-	static final void method2075(final byte i, final js5 js5) {
-		try {
-			CanvasWrapper.aClass50_18 = js5;
-			if (i != -46) {
-				method2072(75, -8, -127);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.D(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
+	static final void method2076(final int i) {
+		if (Class120_Sub14_Sub23.anIntArray3654 == null || Class120_Sub14_Sub23.anIntArray3654.length < i) {
+			Class120_Sub14_Sub23.anIntArray3654 = new int[i];
 		}
 	}
 
-	static final void method2076(final int i, final byte i_7_) {
-		try {
-			if (Class120_Sub14_Sub23.anIntArray3654 == null || Class120_Sub14_Sub23.anIntArray3654.length < i) {
-				Class120_Sub14_Sub23.anIntArray3654 = new int[i];
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			if (i_7_ != -14) {
-				method2070((byte) 57);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.A(").append(i).append(',').append(i_7_).append(')').toString());
+			decode(buffer, code);
 		}
 	}
 
-	final void method2077(final byte i, final int i_8_, final Buffer class120_sub7) {
-		try {
-			for (;;) {
-				final int i_9_ = class120_sub7.getUByte();
-				if (i_9_ == 0) {
-					break;
-				}
-				method2074(i + -88, i_8_, class120_sub7, i_9_);
-			}
-			if (i != 85) {
-				method2070((byte) 103);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sa.I(").append(i).append(',').append(i_8_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	static final Class153 list(final int id) {
+		Class153 class153 = (Class153) recentUse.get(id);
+		if (class153 != null) {
+			return class153;
 		}
+		final byte[] data = aClass50_3373.getFile(30, id);//Has 0 files in 550 cache
+		class153 = new Class153();
+		if (data != null) {
+			class153.decode(new Buffer(data));
+		}
+		recentUse.put(class153, id);
+		return class153;
 	}
 
 	public Class153() {

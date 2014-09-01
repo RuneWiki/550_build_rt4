@@ -5,8 +5,8 @@
 final class FileSystemRequest extends AbstractRequest {
 	static int[] anIntArray3926;
 	int type;
-	static Deque aClass105_3928;
-	static Class98 aClass98_3929;
+	static Deque projectileDeque;
+	static WorldMapFont aClass98_3929;
 	static AbstractSprite[] prayerIconSprites;
 	byte[] buffer;
 	static short aShort3932 = 32767;
@@ -17,7 +17,7 @@ final class FileSystemRequest extends AbstractRequest {
 	static {
 		anIntArray3926 = new int[50];
 		brightness = 3;
-		aClass105_3928 = new Deque();
+		projectileDeque = new Deque();
 	}
 
 	public static void method1543(final int i) {
@@ -26,7 +26,7 @@ final class FileSystemRequest extends AbstractRequest {
 			aClass98_3929 = null;
 			if (i <= -23) {
 				prayerIconSprites = null;
-				aClass105_3928 = null;
+				projectileDeque = null;
 				anIntArray3926 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
@@ -36,12 +36,12 @@ final class FileSystemRequest extends AbstractRequest {
 
 	static final void method1544(final int id, final int value) {
 		Class30.anIntArray239[id] = value;
-		Class120_Sub3 class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.get(id);
-		if (class120_sub3 == null) {
-			class120_sub3 = new Class120_Sub3(4611686018427387905L);
-			Class69_Sub3_Sub1.aClass75_3079.put(class120_sub3, id);
-		} else if (-4611686018427387906L != (class120_sub3.aLong2425 ^ 0xffffffffffffffffL)) {
-			class120_sub3.aLong2425 = TimeUtil.getSafeTime() + 500L | 0x4000000000000000L;
+		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);
+		if (longNode == null) {
+			longNode = new LongNode(0x4000000000000000L);
+			Class69_Sub3_Sub1.aClass75_3079.put(longNode, id);
+		} else if (longNode.value != 0x4000000000000000L) {
+			longNode.value = TimeUtil.getSafeTime() + 500L | 0x4000000000000000L;
 		}
 	}
 
@@ -162,8 +162,8 @@ final class FileSystemRequest extends AbstractRequest {
 					l |= ~0x7fffffffffffffffL;
 				}
 				class180_sub5_sub2.aBoolean2992 = false;
-				class180_sub5_sub2.anInt3005 = Class22.getTileHeight(Class173.gameLevel, class180_sub5_sub2.x, class180_sub5_sub2.z);
-				Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub2.x, class180_sub5_sub2.z, class180_sub5_sub2.anInt3005, 60 + i_16_ * 64 + -64, class180_sub5_sub2, class180_sub5_sub2.anInt3032, l, class180_sub5_sub2.aBoolean3002);
+				class180_sub5_sub2.y = Class22.getTileHeight(class180_sub5_sub2.x, class180_sub5_sub2.z, Class173.gameLevel);
+				Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub2.x, class180_sub5_sub2.z, class180_sub5_sub2.y, 60 + i_16_ * 64 + -64, class180_sub5_sub2, class180_sub5_sub2.anInt3032, l, class180_sub5_sub2.aBoolean3002);
 			}
 		}
 	}

@@ -2,20 +2,18 @@
  * Visit http://jode.sourceforge.net/
  */
 
-class Class79 {
+class WorldMapHandler {
 	private static Hashtable aClass75_688 = new Hashtable(16);
 	static js5 aClass50_689;
 	static Queue aClass177_690;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_691;
-	static int anInt692;
+	static int mapSizeY;
 	static Class137 aClass137_693;
 	static int anInt694;
 	static int anInt695;
-	static float aFloat696;
-	static int anInt697 = (int) (Math.random() * 17.0) - 8;
-	static float aFloat698;
-	static int anInt699 = (int) (Math.random() * 33.0) - 16;
-	static int anInt700;
+	static float currentZoom;
+	static float wantedZoom;
+	static int mapSizeX;
 	static int anInt701;
 	static int[][][] anIntArrayArrayArray702;
 	static byte[][][] aByteArrayArrayArray703;
@@ -28,9 +26,9 @@ class Class79 {
 	static byte[][][] aByteArrayArrayArray710;
 	static byte[][][] aByteArrayArrayArray711;
 	static int anInt712;
-	static int[][][] anIntArrayArrayArray713;
+	static int[][][] underlayColors;
 	static int anInt714;
-	static int[] anIntArray715;
+	static int[] overlayColors;
 	static int anInt716;
 
 	static {
@@ -40,19 +38,17 @@ class Class79 {
 	static final void method675(final js5 js5) {
 		aClass50_689 = js5;
 		aClass75_688.clear();
-		final int i = aClass50_689.method432("details");
-		final int[] is = aClass50_689.method433(true, i);
-		int[] is_1_;
-		final int i_0_ = (is_1_ = is).length;
-		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-			final int i_3_ = is_1_[i_2_];
-			aClass75_688.put(Class55.method485(i_3_, 2951, new Buffer(aClass50_689.getFile(i, i_3_))), i_3_);
+		final int i = aClass50_689.getGroupId("details");
+		final int[] is = aClass50_689.getFileIds(i);
+		for (int i_2_ = 0; i_2_ < is.length; i_2_++) {
+			final int i_3_ = is[i_2_];
+			aClass75_688.put(Class55.method485(new Buffer(aClass50_689.getFile(i, i_3_)), i_3_), i_3_);
 		}
 	}
 
 	static final Class120_Sub14_Sub22 method676(final int i, final int i_4_) {
 		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getFirst(); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getNext()) {
-			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(-129, i, i_4_)) {
+			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(i, i_4_)) {
 				return class120_sub14_sub22;
 			}
 		}
@@ -62,7 +58,7 @@ class Class79 {
 	static final Queue method677(final int i, final int i_5_) {
 		final Queue queue = new Queue();
 		for (Class120_Sub14_Sub22 class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getFirst(); class120_sub14_sub22 != null; class120_sub14_sub22 = (Class120_Sub14_Sub22) aClass75_688.getNext()) {
-			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(-129, i, i_5_)) {
+			if (class120_sub14_sub22.aBoolean3638 && class120_sub14_sub22.method1631(i, i_5_)) {
 				queue.insertLast(class120_sub14_sub22);
 			}
 		}
@@ -72,10 +68,10 @@ class Class79 {
 	private static final void method678(final int i, final int i_6_, final int i_7_, final int i_8_) {
 		int i_9_ = anInt714 - anInt716;
 		int i_10_ = anInt701 - anInt704;
-		if (anInt714 < anInt700) {
+		if (anInt714 < mapSizeX) {
 			i_9_++;
 		}
-		if (anInt701 < anInt692) {
+		if (anInt701 < mapSizeY) {
 			i_10_++;
 		}
 		for (int i_11_ = 0; i_11_ < i_9_; i_11_++) {
@@ -84,7 +80,7 @@ class Class79 {
 			final int i_14_ = i_13_ - i_12_;
 			if (i_14_ > 0) {
 				final int i_15_ = i_11_ + anInt716 >> 6;
-				if (i_15_ < 0 || i_15_ > anIntArrayArrayArray713.length - 1) {
+				if (i_15_ < 0 || i_15_ > underlayColors.length - 1) {
 					i_12_ += anInt708;
 					i_13_ += anInt708;
 					for (int i_16_ = 0; i_16_ < i_10_; i_16_++) {
@@ -97,7 +93,7 @@ class Class79 {
 						} else if ((i_11_ + anInt716 & 0x4) != (i_16_ + anInt704 & 0x4)) {
 							i_20_ = 4936552;
 						} else {
-							i_20_ = anIntArray715[Class23.anInt137 + 1];
+							i_20_ = overlayColors[Class23.anInt137 + 1];
 						}
 						if (i_20_ == 0) {
 							i_20_ = 1;
@@ -105,7 +101,7 @@ class Class79 {
 						GraphicsLD.fillRect(i_12_, i_17_, i_14_, i_19_, i_20_);
 					}
 				} else {
-					final int[][] is = anIntArrayArrayArray713[i_15_];
+					final int[][] is = underlayColors[i_15_];
 					final byte[][] is_21_ = aByteArrayArrayArray711[i_15_];
 					final byte[][] is_22_ = aByteArrayArrayArray710[i_15_];
 					final byte[][] is_23_ = aByteArrayArrayArray703[i_15_];
@@ -113,8 +109,7 @@ class Class79 {
 					final byte[][] is_25_ = aByteArrayArrayArray707[i_15_];
 					i_12_ += anInt708;
 					i_13_ += anInt708;
-					int i_26_ = 0;
-					for (/**/; i_26_ < i_10_; i_26_++) {
+					for (int i_26_ = 0; i_26_ < i_10_; i_26_++) {
 						int i_27_ = i_8_ + i_6_ * i_26_ >> 16;
 						int i_28_ = i_8_ + i_6_ * (i_26_ + 1) >> 16;
 						final int i_29_ = i_28_ - i_27_;
@@ -132,7 +127,7 @@ class Class79 {
 								} else if ((i_11_ + anInt716 & 0x4) != (i_26_ + anInt704 & 0x4)) {
 									i_34_ = 4936552;
 								} else {
-									i_34_ = anIntArray715[Class23.anInt137 + 1];
+									i_34_ = overlayColors[Class23.anInt137 + 1];
 								}
 								if (i_30_ < 0 || i_30_ > is.length - 1) {
 									if (i_34_ == 0) {
@@ -147,8 +142,8 @@ class Class79 {
 							if (i_34_ == 0) {
 								i_34_ = 1;
 							}
-							int i_35_ = is_21_[i_30_] == null ? 0 : anIntArray715[is_21_[i_30_][i_33_] & 0xff];
-							int i_36_ = is_23_[i_30_] == null ? 0 : anIntArray715[is_23_[i_30_][i_33_] & 0xff];
+							int i_35_ = is_21_[i_30_] == null ? 0 : overlayColors[is_21_[i_30_][i_33_] & 0xff];
+							int i_36_ = is_23_[i_30_] == null ? 0 : overlayColors[is_23_[i_30_][i_33_] & 0xff];
 							if (i_35_ == 0 && i_36_ == 0) {
 								GraphicsLD.fillRect(i_12_, i_27_, i_14_, i_29_, i_34_);
 							} else {
@@ -195,7 +190,7 @@ class Class79 {
 									if (i_41_ >= 5 && i_41_ <= 8 || i_41_ >= 13 && i_41_ <= 16 || i_41_ >= 21 && i_41_ <= 24 || i_41_ == 27 || i_41_ == 28) {
 										i_44_ = 13369344;
 										i_41_ -= 4;
-									}
+									}//Draw lines here
 									if (i_41_ == 1) {
 										GraphicsLD.method2158(i_12_, i_27_, i_29_, i_44_);
 									} else if (i_41_ == 2) {
@@ -264,20 +259,20 @@ class Class79 {
 									final int i_58_ = is[i_56_][i_57_];
 									final int i_59_ = i_58_ & 0x1fff;
 									if (i_59_ != 0) {
-										final Class142 class142 = Class142.list(i_59_ - 1);
-										int i_60_ = i_58_ >> 13 & 0x3;
-										final boolean bool = (i_58_ >> 15 & 0x1) == 1;
-										final LDIndexedSprite class107_sub1 = class142.method2011(i_60_, bool);
+										final MapSceneType class142 = MapSceneType.list(i_59_ - 1);
+										int rotation = i_58_ >> 13 & 0x3;
+										boolean invert = (i_58_ >> 15 & 0x1) == 1;
+										final LDIndexedSprite class107_sub1 = class142.constructSprite(rotation, invert);
 										if (class107_sub1 != null) {
 											int i_61_ = i_50_ * class107_sub1.width / 4;
 											int i_62_ = i_55_ * class107_sub1.height / 4;
 											if (class142.aBoolean1359) {
 												int i_63_ = i_58_ >> 16 & 0xf;
 												int i_64_ = i_58_ >> 20 & 0xf;
-												if ((i_60_ & 0x1) == 1) {
-													i_60_ = i_63_;
+												if ((rotation & 0x1) == 1) {
+													rotation = i_63_;
 													i_63_ = i_64_;
-													i_64_ = i_60_;
+													i_64_ = rotation;
 												}
 												i_61_ = i_63_ * i_50_;
 												i_62_ = i_64_ * i_55_;
@@ -300,7 +295,7 @@ class Class79 {
 		}
 	}
 
-	static final Deque method679() {
+	static final Deque method679() {//mapfunctions
 		final int i = anInt714 - anInt716;
 		final int i_65_ = anInt701 - anInt704;
 		final int i_66_ = (anInt709 - anInt708 << 16) / i;
@@ -308,7 +303,7 @@ class Class79 {
 		return method692(i_66_, i_67_, 0, 0);
 	}
 
-	static final void method680(final Buffer class120_sub7) {
+	static final void decodeOverlay(final Buffer class120_sub7) {
 		while (class120_sub7.pos < class120_sub7.buf.length) {
 			boolean bool = false;
 			int i = 0;
@@ -321,8 +316,8 @@ class Class79 {
 			final int i_69_ = class120_sub7.getUByte();
 			final int i_70_ = class120_sub7.getUByte();
 			final int i_71_ = i_69_ * 64 - anInt695;
-			final int i_72_ = anInt692 - 1 - (i_70_ * 64 - anInt694);
-			if (i_71_ >= 0 && i_72_ - 63 >= 0 && i_71_ + 63 < anInt700 && i_72_ < anInt692) {
+			final int i_72_ = mapSizeY - 1 - (i_70_ * 64 - anInt694);
+			if (i_71_ >= 0 && i_72_ - 63 >= 0 && i_71_ + 63 < mapSizeX && i_72_ < mapSizeY) {
 				final int i_73_ = i_71_ >> 6;
 				final int i_74_ = i_72_ >> 6;
 				for (int i_75_ = 0; i_75_ < 64; i_75_++) {
@@ -360,14 +355,14 @@ class Class79 {
 		aClass120_Sub14_Sub22_691 = null;
 		aClass137_693 = null;
 		aClass177_690 = null;
-		anIntArrayArrayArray713 = null;
+		underlayColors = null;
 		aByteArrayArrayArray711 = null;
 		aByteArrayArrayArray710 = null;
 		aByteArrayArrayArray703 = null;
 		aByteArrayArrayArray706 = null;
 		aByteArrayArrayArray707 = null;
 		anIntArrayArrayArray702 = null;
-		anIntArray715 = null;
+		overlayColors = null;
 	}
 
 	static final void method682() {
@@ -401,15 +396,15 @@ class Class79 {
 		method678(i_89_, i_90_, 0, 0);
 	}
 
-	private static final void method686(final Class120_Sub14_Sub5 class120_sub14_sub5, final int i, final int i_91_, final int i_92_, final int i_93_) {
-		class120_sub14_sub5.anInt3478 = anInt708 + (i_92_ + i * (class120_sub14_sub5.anInt3480 - anInt716) >> 16);
-		class120_sub14_sub5.anInt3475 = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.anInt3481 - anInt704) >> 16);
-		final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.anInt3473);
-		if (class73.anInt644 != -1) {
-			final AbstractIndexedSprite abstractIndexedSprite = class73.method648(false, true);
+	private static final void method686(final MapFunctionNode class120_sub14_sub5, final int i, final int i_91_, final int i_92_, final int i_93_) {
+		class120_sub14_sub5.worldMapX = anInt708 + (i_92_ + i * (class120_sub14_sub5.x - anInt716) >> 16);
+		class120_sub14_sub5.worldMapY = anInt705 + (i_93_ + i_91_ * (class120_sub14_sub5.z - anInt704) >> 16);
+		final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5.id);
+		if (class73.unfocusedSpriteId != -1) {
+			final AbstractIndexedSprite abstractIndexedSprite = class73.consturctSprite(false, true);
 			if (abstractIndexedSprite != null) {
-				if (class120_sub14_sub5.anInt3478 - (abstractIndexedSprite.width + 1 >> 1) > anInt709 || class120_sub14_sub5.anInt3478 + (abstractIndexedSprite.width + 1 >> 1) < anInt708 || class120_sub14_sub5.anInt3475 - (abstractIndexedSprite.height + 1 >> 1) > anInt712
-						|| class120_sub14_sub5.anInt3475 + (abstractIndexedSprite.height + 1 >> 1) < anInt705) {
+				if (class120_sub14_sub5.worldMapX - (abstractIndexedSprite.width + 1 >> 1) > anInt709 || class120_sub14_sub5.worldMapX + (abstractIndexedSprite.width + 1 >> 1) < anInt708 || class120_sub14_sub5.worldMapY - (abstractIndexedSprite.height + 1 >> 1) > anInt712
+						|| class120_sub14_sub5.worldMapY + (abstractIndexedSprite.height + 1 >> 1) < anInt705) {
 					class120_sub14_sub5.aBoolean3476 = true;
 				} else {
 					class120_sub14_sub5.aBoolean3476 = false;
@@ -417,7 +412,7 @@ class Class79 {
 				return;
 			}
 		}
-		if (class120_sub14_sub5.anInt3480 < anInt716 || class120_sub14_sub5.anInt3480 > anInt714 || class120_sub14_sub5.anInt3481 < anInt704 || class120_sub14_sub5.anInt3481 > anInt701) {
+		if (class120_sub14_sub5.x < anInt716 || class120_sub14_sub5.x > anInt714 || class120_sub14_sub5.z < anInt704 || class120_sub14_sub5.z > anInt701) {
 			class120_sub14_sub5.aBoolean3476 = true;
 		} else {
 			class120_sub14_sub5.aBoolean3476 = false;
@@ -428,7 +423,7 @@ class Class79 {
 		return (Class120_Sub14_Sub22) aClass75_688.get(i);
 	}
 
-	static final void method688(final Buffer class120_sub7) {
+	static final void decodeOverlay2(final Buffer class120_sub7) {
 		while (class120_sub7.pos < class120_sub7.buf.length) {
 			boolean bool = false;
 			int i = 0;
@@ -441,8 +436,8 @@ class Class79 {
 			final int i_95_ = class120_sub7.getUByte();
 			final int i_96_ = class120_sub7.getUByte();
 			final int i_97_ = i_95_ * 64 - anInt695;
-			final int i_98_ = anInt692 - 1 - (i_96_ * 64 - anInt694);
-			if (i_97_ >= 0 && i_98_ - 63 >= 0 && i_97_ + 63 < anInt700 && i_98_ < anInt692) {
+			final int i_98_ = mapSizeY - 1 - (i_96_ * 64 - anInt694);
+			if (i_97_ >= 0 && i_98_ - 63 >= 0 && i_97_ + 63 < mapSizeX && i_98_ < mapSizeY) {
 				final int i_99_ = i_97_ >> 6;
 				final int i_100_ = i_98_ >> 6;
 				for (int i_101_ = 0; i_101_ < 64; i_101_++) {
@@ -474,7 +469,7 @@ class Class79 {
 		}
 	}
 
-	static final void method689(final Buffer class120_sub7, final boolean bool) {
+	static final void decodeLoc(final Buffer class120_sub7, final boolean membersClient) {
 		while (class120_sub7.pos < class120_sub7.buf.length) {
 			boolean bool_107_ = false;
 			int i = 0;
@@ -487,8 +482,8 @@ class Class79 {
 			final int i_109_ = class120_sub7.getUByte();
 			final int i_110_ = class120_sub7.getUByte();
 			final int i_111_ = i_109_ * 64 - anInt695;
-			final int i_112_ = anInt692 - 1 - (i_110_ * 64 - anInt694);
-			if (i_111_ >= 0 && i_112_ - 63 >= 0 && i_111_ + 63 < anInt700 && i_112_ < anInt692) {
+			final int i_112_ = mapSizeY - 1 - (i_110_ * 64 - anInt694);
+			if (i_111_ >= 0 && i_112_ - 63 >= 0 && i_111_ + 63 < mapSizeX && i_112_ < mapSizeY) {
 				final int i_113_ = i_111_ >> 6;
 				final int i_114_ = i_112_ >> 6;
 				for (int i_115_ = 0; i_115_ < 64; i_115_++) {
@@ -511,22 +506,22 @@ class Class79 {
 									anIntArrayArrayArray702[i_113_][i_114_][(63 - i_116_ << 6) + i_115_] = i_119_;
 								}
 								if ((i_117_ & 0x4) == 4) {
-									int i_120_ = class120_sub7.getUShort();
-									final int i_121_ = class120_sub7.getUByte();
-									LocType locType = LocType.list(--i_120_);
+									int locId = class120_sub7.getUShort();
+									final int level = class120_sub7.getUByte();
+									LocType locType = LocType.list(--locId);
 									if (locType.childrenIDs != null) {
 										locType = locType.handleVarp();
 										if (locType == null || locType.mapFunctionId == -1) {
 											continue;
 										}
 									}
-									if ((!locType.members || bool) && locType.mapFunctionId != -1) {
-										final Class120_Sub14_Sub5 class120_sub14_sub5 = new Class120_Sub14_Sub5();
-										class120_sub14_sub5.anInt3473 = locType.mapFunctionId;
-										class120_sub14_sub5.anInt3474 = i_121_;
-										class120_sub14_sub5.anInt3480 = i_113_ * 64 + i_115_;
-										class120_sub14_sub5.anInt3481 = i_114_ * 64 + 64 - i_116_;
-										aClass177_690.insertLast(class120_sub14_sub5);
+									if ((!locType.members || membersClient) && locType.mapFunctionId != -1) {
+										final MapFunctionNode mapFunctionNode = new MapFunctionNode();
+										mapFunctionNode.id = locType.mapFunctionId;
+										mapFunctionNode.level = level;
+										mapFunctionNode.x = i_113_ * 64 + i_115_;
+										mapFunctionNode.z = i_114_ * 64 + 64 - i_116_;
+										aClass177_690.insertLast(mapFunctionNode);
 									}
 								}
 							}
@@ -552,41 +547,25 @@ class Class79 {
 		}
 	}
 
-	static final void method690(final int i, final int i_124_) {
-		for (int i_125_ = 0; i_125_ < Buffer.anInt2471; i_125_++) {
-			final Class124 class124 = Class118.method1025((byte) -127, i_125_);
-			if (class124 != null) {
-				int i_126_ = class124.anInt1203;
-				if (i_126_ >= 0 && !Rasterizer.anInterface5_973.method15(i_126_, 0)) {
-					i_126_ = -1;
+	static final void setupUnderlayColors() {
+		for (int id = 0; id < OverlayType.overlayAmount; id++) {
+			final OverlayType overlayType = OverlayType.list(id);
+			if (overlayType != null) {
+				int textureId = overlayType.textureId;
+				if (textureId >= 0 && !Rasterizer.anInterface5_973.method15(textureId)) {
+					textureId = -1;
 				}
-				int i_127_;
-				if (class124.anInt1198 >= 0) {
-					final int i_128_ = class124.anInt1198;
-					int i_129_ = (i_128_ & 0x7f) + i_124_;
-					if (i_129_ < 0) {
-						i_129_ = 0;
-					} else if (i_129_ > 127) {
-						i_129_ = 127;
-					}
-					final int i_130_ = (i_128_ + i & 0xfc00) + (i_128_ & 0x380) + i_129_;
-					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, i_130_, 96)];
-				} else if (i_126_ >= 0) {
-					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, Rasterizer.anInterface5_973.method20(i_126_, 65535), 96)];
-				} else if (class124.anInt1197 == -1) {
-					i_127_ = -1;
+				int color;
+				if (overlayType.anInt1198 >= 0) {
+					color = Rasterizer.palette[Class96.method789(overlayType.anInt1198, 96)];
+				} else if (textureId >= 0) {
+					color = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.method20(textureId), 96)];
+				} else if (overlayType.anInt1197 == -1) {
+					color = -1;
 				} else {
-					final int i_131_ = class124.anInt1197;
-					int i_132_ = (i_131_ & 0x7f) + i_124_;
-					if (i_132_ < 0) {
-						i_132_ = 0;
-					} else if (i_132_ > 127) {
-						i_132_ = 127;
-					}
-					final int i_133_ = (i_131_ + i & 0xfc00) + (i_131_ & 0x380) + i_132_;
-					i_127_ = Rasterizer.palette[Class96.method789((byte) -77, i_133_, 96)];
+					color = Rasterizer.palette[Class96.method789(overlayType.anInt1197, 96)];
 				}
-				anIntArray715[i_125_ + 1] = i_127_;
+				overlayColors[id + 1] = color;
 			}
 		}
 	}
@@ -1065,21 +1044,133 @@ class Class79 {
 
 	private static final Deque method692(final int i, final int i_215_, final int i_216_, final int i_217_) {
 		final Deque deque = new Deque();
-		for (Class120_Sub14_Sub5 class120_sub14_sub5 = (Class120_Sub14_Sub5) aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (Class120_Sub14_Sub5) aClass177_690.peekNext()) {
+		for (MapFunctionNode class120_sub14_sub5 = (MapFunctionNode) aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (MapFunctionNode) aClass177_690.peekNext()) {
 			method686(class120_sub14_sub5, i, i_215_, i_216_, i_217_);
 			deque.addLast(class120_sub14_sub5);
 		}
 		final int[] is = new int[3];
 		for (int i_218_ = 0; i_218_ < aClass137_693.anInt1325; i_218_++) {
-			final Class120_Sub14_Sub5 class120_sub14_sub5 = aClass137_693.aClass120_Sub14_Sub5Array1324[i_218_];
-			final boolean bool = aClass120_Sub14_Sub22_691.method1630(aClass137_693.anIntArray1322[i_218_] & 0x3fff, -1, aClass137_693.anIntArray1322[i_218_] >> 28 & 0x3, is, aClass137_693.anIntArray1322[i_218_] >> 14 & 0x3fff);
+			final MapFunctionNode class120_sub14_sub5 = aClass137_693.aClass120_Sub14_Sub5Array1324[i_218_];
+			final boolean bool = aClass120_Sub14_Sub22_691.method1630(aClass137_693.anIntArray1322[i_218_] & 0x3fff, aClass137_693.anIntArray1322[i_218_] >> 28 & 0x3, is, aClass137_693.anIntArray1322[i_218_] >> 14 & 0x3fff);
 			if (bool) {
-				class120_sub14_sub5.anInt3480 = is[1] - anInt695;
-				class120_sub14_sub5.anInt3481 = anInt692 - 1 - (is[2] - anInt694);
+				class120_sub14_sub5.x = is[1] - anInt695;
+				class120_sub14_sub5.z = mapSizeY - 1 - (is[2] - anInt694);
 				method686(class120_sub14_sub5, i, i_215_, i_216_, i_217_);
 				deque.addLast(class120_sub14_sub5);
 			}
 		}
 		return deque;
+	}
+
+	static final void decodeUnderlay(final Buffer buffer) {
+		final byte[][] is = new byte[mapSizeX][mapSizeY];
+		while (buffer.buf.length > buffer.pos) {
+			boolean bool = false;
+			int i_4_ = 0;
+			int i_5_ = 0;
+			if (buffer.getUByte() == 1) {
+				bool = true;
+				i_5_ = buffer.getUByte();
+				i_4_ = buffer.getUByte();
+			}
+			final int i_6_ = buffer.getUByte();
+			final int i_7_ = buffer.getUByte();
+			final int i_8_ = 64 * i_6_ + -anInt695;
+			final int i_9_ = -1 + mapSizeY + anInt694 + -(64 * i_7_);
+			if (i_8_ < 0 || -63 + i_9_ < 0 || i_8_ + 63 >= mapSizeX || i_9_ >= mapSizeY) {
+				if (!bool) {
+					buffer.pos += 4096;
+				} else {
+					buffer.pos += 64;
+				}
+			} else {
+				for (int i_10_ = 0; i_10_ < 64; i_10_++) {
+					final byte[] is_11_ = is[i_10_ + i_8_];
+					for (int i_12_ = 0; i_12_ < 64; i_12_++) {
+						if (!bool || i_10_ >= 8 * i_5_ && i_10_ < 8 + i_5_ * 8 && i_12_ >= i_4_ * 8 && i_12_ < 8 * i_4_ - -8) {
+							is_11_[-i_12_ + i_9_] = buffer.getByte();
+						}
+					}
+				}
+			}
+		}
+		final int i_13_ = mapSizeX;
+		final int i_14_ = mapSizeY;
+		final int[] is_15_ = new int[i_14_];
+		final int[] is_16_ = new int[i_14_];
+		final int[] is_17_ = new int[i_14_];
+		final int[] is_18_ = new int[i_14_];
+		final int[] is_19_ = new int[i_14_];
+		for (int i_20_ = -5; i_13_ > i_20_; i_20_++) {
+			if ((i_20_ & 0x1ff) == 0) {
+				Class120_Sub12_Sub29.ping(true);
+			}
+			for (int i_21_ = 0; i_14_ > i_21_; i_21_++) {
+				final int i_22_ = i_20_ + 5;
+				if (i_13_ > i_22_) {
+					final int i_23_ = 0xff & is[i_22_][i_21_];
+					if (i_23_ > 0) {
+						final UnderlayType underlayType = UnderlayType.list(i_23_ - 1);
+						is_15_[i_21_] += underlayType.anInt1218;
+						is_16_[i_21_] += underlayType.anInt1222;
+						is_17_[i_21_] += underlayType.anInt1229;
+						is_18_[i_21_] += underlayType.anInt1226;
+						is_19_[i_21_]++;
+					}
+				}
+				final int i_24_ = i_20_ - 5;
+				if (i_24_ >= 0) {
+					final int i_25_ = is[i_24_][i_21_] & 0xff;
+					if (i_25_ > 0) {
+						final UnderlayType underlayType = UnderlayType.list(i_25_ - 1);
+						is_15_[i_21_] -= underlayType.anInt1218;
+						is_16_[i_21_] -= underlayType.anInt1222;
+						is_17_[i_21_] -= underlayType.anInt1229;
+						is_18_[i_21_] -= underlayType.anInt1226;
+						is_19_[i_21_]--;
+					}
+				}
+			}
+			if (i_20_ >= 0) {
+				int i_26_ = 0;
+				final int[][] is_27_ = underlayColors[i_20_ >> 6];
+				int i_28_ = 0;
+				int i_29_ = 0;
+				int i_30_ = 0;
+				int i_31_ = 0;
+				for (int i_32_ = -5; i_32_ < i_14_; i_32_++) {
+					final int i_33_ = i_32_ + 5;
+					if (i_33_ < i_14_) {
+						i_26_ += is_15_[i_33_];
+						i_30_ += is_18_[i_33_];
+						i_28_ += is_16_[i_33_];
+						i_29_ += is_19_[i_33_];
+						i_31_ += is_17_[i_33_];
+					}
+					final int i_34_ = i_32_ - 5;
+					if (i_34_ >= 0) {
+						i_26_ -= is_15_[i_34_];
+						i_30_ -= is_18_[i_34_];
+						i_29_ -= is_19_[i_34_];
+						i_28_ -= is_16_[i_34_];
+						i_31_ -= is_17_[i_34_];
+					}
+					if (i_32_ >= 0 && i_29_ > 0) {
+						int[] is_35_ = is_27_[i_32_ >> 6];
+						final int i_36_ = i_30_ != 0 ? MapFunctionNode.method1442(i_26_ * 256 / i_30_, i_28_ / i_29_, i_31_ / i_29_) : 0;
+						if (is[i_20_][i_32_] == 0) {
+							if (is_35_ != null) {
+								is_35_[Class120_Sub12_Sub3.method1207(63, i_20_) + (Class120_Sub12_Sub3.method1207(63, i_32_) << 6)] = 0;
+							}
+						} else {
+							if (is_35_ == null) {
+								is_35_ = is_27_[i_32_ >> 6] = new int[4096];
+							}
+							is_35_[(Class120_Sub12_Sub3.method1207(i_32_, 63) << 6) + Class120_Sub12_Sub3.method1207(i_20_, 63)] = Rasterizer.palette[Class178.method2256(i_36_, 96)];
+						}
+					}
+				}
+			}
+		}
 	}
 }

@@ -32,7 +32,7 @@ final class VarBit {
 			ParticleManager.anInt2336 = i;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
-			Class127.method1889();
+			Class127.fixWorldMapBounds();
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.C(").append(bool).append(',').append(i).append(')').toString());
 		}
@@ -109,13 +109,13 @@ final class VarBit {
 		if (Class26.anInt162 / 256 > i_5_) {
 			i_5_ = Class26.anInt162 / 256;
 		}
-		int i_7_ = OverlayType.renderPitch;
+		int i_7_ = UnderlayType.renderPitch;
 		if (Class120_Sub12_Sub12.aBooleanArray3223[4] && i_5_ < Class181.anIntArray1790[4] + 128) {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
-		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + Class120_Sub14_Sub1.anInt3447;
-		Class120_Sub12_Sub30.method1363(57, i_8_, Class22.getTileHeight(Class173.gameLevel, TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z) - 50, i_5_, 3 * i_5_ + 600, InterfaceListener.playerRenderZ, i, Class69_Sub3_Sub1.playerRenderX);
-		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && OverlayType.renderPitch == i_7_ && SpotAnimation.renderYaw == i_6_) {
+		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + ProjectileNode.anInt3447;
+		Class120_Sub12_Sub30.method1363(Class69_Sub3_Sub1.playerRenderX, Class22.getTileHeight(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel) - 50, InterfaceListener.playerRenderZ, i_8_, i_5_, 3 * i_5_ + 600, i);
+		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && UnderlayType.renderPitch == i_7_ && SpotAnimation.renderYaw == i_6_) {
 			client.cameraType = 1;
 		} else {
 			Class120_Sub12_Sub31.anInt3384 = 10;
@@ -165,20 +165,20 @@ final class VarBit {
 			if (i_9_ < -1024) {
 				i_9_ += 2048;
 			}
-			if (OverlayType.renderPitch > i_7_) {
-				i_7_ += Class120_Sub12_Sub31.anInt3384 + (-i_7_ + OverlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000;
-				if (i_7_ < OverlayType.renderPitch) {
-					OverlayType.renderPitch = i_7_;
+			if (UnderlayType.renderPitch > i_7_) {
+				i_7_ += Class120_Sub12_Sub31.anInt3384 + (-i_7_ + UnderlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000;
+				if (i_7_ < UnderlayType.renderPitch) {
+					UnderlayType.renderPitch = i_7_;
 				}
 			}
 			if (i_9_ > 0) {
 				i_6_ += Class101_Sub1.anInt2272 * i_9_ / 1000 + Class120_Sub12_Sub31.anInt3384;
 				i_6_ &= 0x7ff;
 			}
-			if (OverlayType.renderPitch < i_7_) {
-				i_7_ -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * (i_7_ - OverlayType.renderPitch) / 1000);
-				if (OverlayType.renderPitch < i_7_) {
-					OverlayType.renderPitch = i_7_;
+			if (UnderlayType.renderPitch < i_7_) {
+				i_7_ -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * (i_7_ - UnderlayType.renderPitch) / 1000);
+				if (UnderlayType.renderPitch < i_7_) {
+					UnderlayType.renderPitch = i_7_;
 				}
 			}
 			if (i_9_ < 0) {

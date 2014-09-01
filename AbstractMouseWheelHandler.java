@@ -29,86 +29,79 @@ abstract class AbstractMouseWheelHandler {
 		}
 	}
 
-	static final void method158(final int i, final int i_0_, final boolean bool, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		try {
-			Class153.method2076(i_1_, (byte) -14);
-			int i_5_ = 0;
-			int i_6_ = -i_1_;
-			int i_7_ = i_1_ - i;
-			int i_8_ = i_1_;
-			int i_9_ = -1;
-			int i_10_ = -1;
-			final int[] is = GameEntity.anIntArrayArray3009[i_4_];
-			if (i_7_ < 0) {
-				i_7_ = 0;
+	static final void method158(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
+		Class153.method2076(i_1_);
+		int i_5_ = 0;
+		int i_6_ = -i_1_;
+		int i_7_ = i_1_ - i;
+		int i_8_ = i_1_;
+		int i_9_ = -1;
+		int i_10_ = -1;
+		final int[] is = GameEntity.anIntArrayArray3009[i_4_];
+		if (i_7_ < 0) {
+			i_7_ = 0;
+		}
+		int i_11_ = i_7_;
+		final int i_12_ = i_3_ + -i_7_;
+		AmbientSound.fillArray(is, i_0_, -i_1_ + i_3_, i_12_);
+		final int i_13_ = i_7_ + i_3_;
+		int i_14_ = -i_7_;
+		AmbientSound.fillArray(is, i_2_, i_12_, i_13_);
+		AmbientSound.fillArray(is, i_0_, i_13_, i_3_ + i_1_);
+		while (i_8_ > i_5_) {
+			i_10_ += 2;
+			i_6_ += i_10_;
+			i_9_ += 2;
+			i_14_ += i_9_;
+			if (i_14_ >= 0 && i_11_ >= 1) {
+				Class120_Sub14_Sub23.anIntArray3654[i_11_] = i_5_;
+				i_11_--;
+				i_14_ -= i_11_ << 1;
 			}
-			int i_11_ = i_7_;
-			final int i_12_ = i_3_ + -i_7_;
-			if (!bool) {
-				packetSize = -62;
-			}
-			AmbientSound.fillArray(is, i_0_, -i_1_ + i_3_, i_12_);
-			final int i_13_ = i_7_ + i_3_;
-			int i_14_ = -i_7_;
-			AmbientSound.fillArray(is, i_2_, i_12_, i_13_);
-			AmbientSound.fillArray(is, i_0_, i_13_, i_3_ + i_1_);
-			while (i_8_ > i_5_) {
-				i_10_ += 2;
-				i_6_ += i_10_;
-				i_9_ += 2;
-				i_14_ += i_9_;
-				if (i_14_ >= 0 && i_11_ >= 1) {
-					Class120_Sub14_Sub23.anIntArray3654[i_11_] = i_5_;
-					i_11_--;
-					i_14_ -= i_11_ << 1;
-				}
-				i_5_++;
-				if (i_6_ >= 0) {
-					if (--i_8_ >= i_7_) {
-						final int[] is_15_ = GameEntity.anIntArrayArray3009[i_4_ + i_8_];
-						final int i_16_ = i_3_ - -i_5_;
-						final int[] is_17_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
-						final int i_18_ = -i_5_ + i_3_;
-						AmbientSound.fillArray(is_15_, i_0_, i_18_, i_16_);
-						AmbientSound.fillArray(is_17_, i_0_, i_18_, i_16_);
-					} else {
-						final int[] is_19_ = GameEntity.anIntArrayArray3009[i_8_ + i_4_];
-						final int i_20_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
-						final int[] is_21_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
-						final int i_22_ = i_5_ + i_3_;
-						final int i_23_ = i_3_ - i_20_;
-						final int i_24_ = i_20_ + i_3_;
-						final int i_25_ = -i_5_ + i_3_;
-						AmbientSound.fillArray(is_19_, i_0_, i_25_, i_23_);
-						AmbientSound.fillArray(is_19_, i_2_, i_23_, i_24_);
-						AmbientSound.fillArray(is_19_, i_0_, i_24_, i_22_);
-						AmbientSound.fillArray(is_21_, i_0_, i_25_, i_23_);
-						AmbientSound.fillArray(is_21_, i_2_, i_23_, i_24_);
-						AmbientSound.fillArray(is_21_, i_0_, i_24_, i_22_);
-					}
-					i_6_ -= i_8_ << 1;
-				}
-				final int[] is_26_ = GameEntity.anIntArrayArray3009[i_4_ - -i_5_];
-				final int[] is_27_ = GameEntity.anIntArrayArray3009[-i_5_ + i_4_];
-				final int i_28_ = i_8_ + i_3_;
-				final int i_29_ = -i_8_ + i_3_;
-				if (i_7_ <= i_5_) {
-					AmbientSound.fillArray(is_26_, i_0_, i_29_, i_28_);
-					AmbientSound.fillArray(is_27_, i_0_, i_29_, i_28_);
+			i_5_++;
+			if (i_6_ >= 0) {
+				if (--i_8_ >= i_7_) {
+					final int[] is_15_ = GameEntity.anIntArrayArray3009[i_4_ + i_8_];
+					final int i_16_ = i_3_ - -i_5_;
+					final int[] is_17_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
+					final int i_18_ = -i_5_ + i_3_;
+					AmbientSound.fillArray(is_15_, i_0_, i_18_, i_16_);
+					AmbientSound.fillArray(is_17_, i_0_, i_18_, i_16_);
 				} else {
-					final int i_30_ = i_5_ > i_11_ ? Class120_Sub14_Sub23.anIntArray3654[i_5_] : i_11_;
-					final int i_31_ = i_30_ + i_3_;
-					final int i_32_ = i_3_ - i_30_;
-					AmbientSound.fillArray(is_26_, i_0_, i_29_, i_32_);
-					AmbientSound.fillArray(is_26_, i_2_, i_32_, i_31_);
-					AmbientSound.fillArray(is_26_, i_0_, i_31_, i_28_);
-					AmbientSound.fillArray(is_27_, i_0_, i_29_, i_32_);
-					AmbientSound.fillArray(is_27_, i_2_, i_32_, i_31_);
-					AmbientSound.fillArray(is_27_, i_0_, i_31_, i_28_);
+					final int[] is_19_ = GameEntity.anIntArrayArray3009[i_8_ + i_4_];
+					final int i_20_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
+					final int[] is_21_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
+					final int i_22_ = i_5_ + i_3_;
+					final int i_23_ = i_3_ - i_20_;
+					final int i_24_ = i_20_ + i_3_;
+					final int i_25_ = -i_5_ + i_3_;
+					AmbientSound.fillArray(is_19_, i_0_, i_25_, i_23_);
+					AmbientSound.fillArray(is_19_, i_2_, i_23_, i_24_);
+					AmbientSound.fillArray(is_19_, i_0_, i_24_, i_22_);
+					AmbientSound.fillArray(is_21_, i_0_, i_25_, i_23_);
+					AmbientSound.fillArray(is_21_, i_2_, i_23_, i_24_);
+					AmbientSound.fillArray(is_21_, i_0_, i_24_, i_22_);
 				}
+				i_6_ -= i_8_ << 1;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.E(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
+			final int[] is_26_ = GameEntity.anIntArrayArray3009[i_4_ - -i_5_];
+			final int[] is_27_ = GameEntity.anIntArrayArray3009[-i_5_ + i_4_];
+			final int i_28_ = i_8_ + i_3_;
+			final int i_29_ = -i_8_ + i_3_;
+			if (i_7_ <= i_5_) {
+				AmbientSound.fillArray(is_26_, i_0_, i_29_, i_28_);
+				AmbientSound.fillArray(is_27_, i_0_, i_29_, i_28_);
+			} else {
+				final int i_30_ = i_5_ > i_11_ ? Class120_Sub14_Sub23.anIntArray3654[i_5_] : i_11_;
+				final int i_31_ = i_30_ + i_3_;
+				final int i_32_ = i_3_ - i_30_;
+				AmbientSound.fillArray(is_26_, i_0_, i_29_, i_32_);
+				AmbientSound.fillArray(is_26_, i_2_, i_32_, i_31_);
+				AmbientSound.fillArray(is_26_, i_0_, i_31_, i_28_);
+				AmbientSound.fillArray(is_27_, i_0_, i_29_, i_32_);
+				AmbientSound.fillArray(is_27_, i_2_, i_32_, i_31_);
+				AmbientSound.fillArray(is_27_, i_0_, i_31_, i_28_);
+			}
 		}
 	}
 

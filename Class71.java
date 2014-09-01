@@ -8,17 +8,10 @@ final class Class71 {
 	static String aString626 = "Please wait...";
 	static int[] anIntArray627 = new int[14];
 
-	public static void method638(final byte i) {
-		try {
-			aString624 = null;
-			if (i > -1) {
-				unpack(null);
-			}
-			anIntArray627 = null;
-			aString626 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hj.A(").append(i).append(')').toString());
-		}
+	public static void method638() {
+		aString624 = null;
+		anIntArray627 = null;
+		aString626 = null;
 	}
 
 	static final byte[] unpack(final byte[] is) {

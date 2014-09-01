@@ -59,12 +59,12 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final long l, final int i_11_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final long l, final int i_11_, final ParticleEngine class108_sub2) {
 		try {
 			final SceneGraphNode sceneGraphNode = method2357(-104);
 			if (sceneGraphNode != null) {
 				method2359(true, sceneGraphNode);
-				sceneGraphNode.method2265(i, i_4_, i_5_, i_6_, i_7_, i_8_, i_9_, i_10_, l, i_11_, aClass108_Sub2_3058);
+				sceneGraphNode.render(i, i_4_, i_5_, i_6_, i_7_, i_8_, i_9_, i_10_, l, i_11_, aClass108_Sub2_3058);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception,
@@ -208,7 +208,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					class184_30_ = null;
 				}
 				if (locType.anIntArray1881 != null) {
-					if (aClass40_3070 != null && locType.method2468(aClass40_3070.anInt326)) {
+					if (aClass40_3070 != null && locType.method2468(aClass40_3070.myId)) {
 						return;
 					}
 					i_29_ = locType.method2463(-1);
@@ -222,7 +222,7 @@ final class AnimatedLocation extends SceneGraphNode {
 							i_29_ = class184_30_.animationId;
 						}
 					} else {
-						if (aClass40_3070 != null && class184_30_.method2468(aClass40_3070.anInt326)) {
+						if (aClass40_3070 != null && class184_30_.method2468(aClass40_3070.myId)) {
 							return;
 						}
 						i_29_ = class184_30_.method2463(-1);
@@ -238,7 +238,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			if (i == i_29_) {
 				aClass40_3070 = null;
 			} else {
-				if (aClass40_3070 != null && aClass40_3070.anInt326 == i_29_) {
+				if (aClass40_3070 != null && aClass40_3070.myId == i_29_) {
 					if (aClass40_3070.resetInPlay == 0) {
 						return;
 					}

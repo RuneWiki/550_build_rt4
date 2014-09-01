@@ -54,12 +54,12 @@ abstract class AbstractSprite extends NodeSub {
 		/* empty */
 	}
 
-	static final void method1593(final int newDisplayMode, final int width, final int height, boolean canvasReplaceRecommended) {
-		boolean bool_24_ = false;
+	static final void changeDisplayMode(final int newDisplayMode, final int width, final int height, boolean canvasReplaceRecommended) {
+		boolean changeRenderer = false;
 		Class15.aLong98 = 0L;
 		final int currentDisplayMode = Class120_Sub12_Sub4.getDisplayMode();
 		if (currentDisplayMode > 0 == newDisplayMode <= 0) {
-			bool_24_ = true;
+			changeRenderer = true;
 		}
 		if (newDisplayMode == 3 || currentDisplayMode == 3) {
 			canvasReplaceRecommended = true;
@@ -68,9 +68,9 @@ abstract class AbstractSprite extends NodeSub {
 			canvasReplaceRecommended = true;
 		}
 		if (canvasReplaceRecommended && newDisplayMode > 0) {
-			bool_24_ = true;
+			changeRenderer = true;
 		}
-		AbstractIndexedSprite.method908(newDisplayMode, width, height, currentDisplayMode, canvasReplaceRecommended, bool_24_);
+		AbstractIndexedSprite.changeDisplayMode(newDisplayMode, width, height, currentDisplayMode, canvasReplaceRecommended, changeRenderer);
 	}
 
 	abstract void method1594(int i, int i_26_, int i_27_);

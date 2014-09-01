@@ -69,9 +69,9 @@ final class Class31 {
 
 	static final int method263(final boolean bool) {
 		final long l = TimeUtil.getSafeTime();
-		for (Class120_Sub3 class120_sub3 = bool ? (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.getFirst() : (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.getNext(); class120_sub3 != null; class120_sub3 = (Class120_Sub3) Class69_Sub3_Sub1.aClass75_3079.getNext()) {
-			if (l > (0x3fffffffffffffffL & class120_sub3.aLong2425)) {
-				if ((class120_sub3.aLong2425 & 0x4000000000000000L ^ 0xffffffffffffffffL) == -1L) {
+		for (LongNode class120_sub3 = bool ? (LongNode) Class69_Sub3_Sub1.aClass75_3079.getFirst() : (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext(); class120_sub3 != null; class120_sub3 = (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext()) {
+			if (l > (0x3fffffffffffffffL & class120_sub3.value)) {
+				if ((class120_sub3.value & 0x4000000000000000L) == 0L) {
 					class120_sub3.unlink();
 				} else {
 					final int i_7_ = (int) class120_sub3.uid;
@@ -114,8 +114,8 @@ final class Class31 {
 		}
 	}
 
-	static final int method265(final String string) {
-		return CanvasWrapper.method65(string, 10, true);
+	static final int stringToBase10(final String string) {
+		return CanvasWrapper.stringToIntRadix(string, 10, true);
 	}
 
 	public static void method266(final boolean bool) {
@@ -124,7 +124,7 @@ final class Class31 {
 			aClass107_Sub1_246 = null;
 			anIntArray243 = null;
 			if (bool) {
-				method265(null);
+				stringToBase10(null);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("db.A(").append(bool).append(')').toString());

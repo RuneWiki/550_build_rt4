@@ -5,6 +5,7 @@ import javax.media.opengl.GL;
 
 final class StructType extends NodeSub {
 	private Hashtable params;
+	static js5 configClient;
 	static NodeCache recentUse = new NodeCache(64);
 	static JagexInterface aClass189_3588;
 	static int titlebgId = -1;
@@ -28,7 +29,7 @@ final class StructType extends NodeSub {
 		final int i_7_ = i_4_ + 16;
 		final int i_8_ = i_5_ - 16;
 		final int i_9_ = i_5_ + 16;
-		for (int i_10_ = Class190.anInt2101; i_10_ < Class142.anInt1361; i_10_++) {
+		for (int i_10_ = Class190.anInt2101; i_10_ < MapSceneType.anInt1361; i_10_++) {
 			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_10_];
 			for (int i_11_ = GrandExchangeObject.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
 				for (int i_12_ = Class31.anInt248; i_12_ < Js5Worker.anInt396; i_12_++) {
@@ -102,11 +103,11 @@ final class StructType extends NodeSub {
 				}
 				WaterShader.method163();
 			} else {
-				for (int i_15_ = Class190.anInt2101; i_15_ < Class142.anInt1361; i_15_++) {
+				for (int i_15_ = Class190.anInt2101; i_15_ < MapSceneType.anInt1361; i_15_++) {
 					for (int i_16_ = 0; i_16_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_].length; i_16_++) {
 						final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_][i_16_];
 						final float f = 201.5F - 50.0F * i_15_ - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
-						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520, 255), (byte) -106) && PacketBuffer.highWaterDetail) {
+						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520), (byte) -106) && PacketBuffer.highWaterDetail) {
 							Class69.method614(class120_sub9.anInt2505);
 						}
 						class120_sub9.method1162(LabelGroup.groundTiles, f, false);
@@ -120,7 +121,7 @@ final class StructType extends NodeSub {
 			}
 			gl.glPopMatrix();
 		}
-		for (int i_17_ = Class190.anInt2101; i_17_ < Class142.anInt1361; i_17_++) {
+		for (int i_17_ = Class190.anInt2101; i_17_ < MapSceneType.anInt1361; i_17_++) {
 			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_17_];
 			for (int i_18_ = -Class120_Sub14_Sub13.anInt3563; i_18_ <= 0; i_18_++) {
 				final int i_19_ = Class120_Sub12_Sub26.anInt3332 + i_18_;
@@ -167,7 +168,7 @@ final class StructType extends NodeSub {
 				}
 			}
 		}
-		for (int i_24_ = Class190.anInt2101; i_24_ < Class142.anInt1361; i_24_++) {
+		for (int i_24_ = Class190.anInt2101; i_24_ < MapSceneType.anInt1361; i_24_++) {
 			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_24_];
 			for (int i_25_ = -Class120_Sub14_Sub13.anInt3563; i_25_ <= 0; i_25_++) {
 				final int i_26_ = Class120_Sub12_Sub26.anInt3332 + i_25_;
@@ -218,33 +219,33 @@ final class StructType extends NodeSub {
 	}
 
 	static final void method1562() {
-		InterfaceListener.aClass21_2542.method192(5);
 		OverlayType.recentUse.method192(5);
+		UnderlayType.recentUse.method192(5);
 		IdentityKit.recentUse.method192(5);
 		LocType.recentUse.method192(5);
 		InterfaceClickMask.aClass21_2663.method192(5);
 		Class167.aClass21_1618.method192(5);
 		Class116.aClass21_1117.method192(5);
 		NpcType.recentUse.method192(5);
-		Class11.aClass21_80.method192(5);
+		NpcType.aClass21_80.method192(5);
 		Projectile.aClass21_2931.method192(5);
 		ObjType.recentUse.method192(5);
 		Class33.aClass21_273.method192(5);
 		SpotAnimation.aClass21_2906.method192(5);
-		KeyboardHandler.aClass21_1504.method192(5);
-		SceneGraphNode.aClass21_1781.method192(5);
+		SeqType.recentUse.method192(5);
+		FrameLoader.recentUse.method192(5);
 		SpotAnimType.recentUse.method192(5);
-		SpotAnimType.aClass21_1798.method192(5);
+		SpotAnimType.modelCache.method192(5);
 		VarBit.recentUse.method192(5);
 		Varp.recentUse.method192(5);
 		Class120_Sub12_Sub31.aClass21_3378.method192(5);
-		Js5Request.aClass21_3937.method192(5);
-		Class132.aClass21_1255.method192(5);
+		MapSceneType.recentUse.method192(5);
+		MapSceneType.spriteCache.method192(5);
 		MapFunctionType.recentUse.method192(5);
-		Class82.aClass21_786.method192(5);
-		Class159.aClass21_1486.method192(5);
+		MapFunctionType.spriteCache.method192(5);
+		Class145.aClass21_1486.method192(5);
 		Class120_Sub6.aClass21_2443.method192(5);
-		Class120_Sub12_Sub9.aClass21_3196.method192(5);
+		Class153.recentUse.method192(5);
 		Class120_Sub12_Sub35.aClass21_3411.method192(5);
 		CursorType.recentUse.method192(5);
 		CursorType.spriteCache.method192(5);
@@ -263,7 +264,7 @@ final class StructType extends NodeSub {
 		if (code == 249) {
 			final int i_32_ = buffer.getUByte();
 			if (params == null) {
-				final int i_33_ = Class120_Sub12_Sub17.method1283(i_32_);
+				final int i_33_ = Class120_Sub12_Sub17.getFarestBitValue(i_32_);
 				params = new Hashtable(i_33_);
 			}
 			for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
@@ -280,13 +281,13 @@ final class StructType extends NodeSub {
 		}
 	}
 
-	final int getIntegerParamValue(final int param, final int defaultInteger) {
+	final int getIntegerParamValue(final int param, final int defaultInt) {
 		if (params == null) {
-			return defaultInteger;
+			return defaultInt;
 		}
 		final IntegerNode integerNode = (IntegerNode) params.get(param);
 		if (integerNode == null) {
-			return defaultInteger;
+			return defaultInt;
 		}
 		return integerNode.value;
 	}
@@ -345,7 +346,7 @@ final class StructType extends NodeSub {
 		Class120_Sub12_Sub31.anIntArray3383 = new int[104];
 		Class120_Sub4.aByteArrayArrayArray2441 = new byte[i_44_][104][104];
 		Class110.anIntArrayArrayArray1050 = new int[i_44_][105][105];
-		Class120_Sub14_Sub5.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
+		MapFunctionNode.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
 		PacketBuffer.anIntArray3120 = new int[104];
 		CanvasWrapper.anIntArray21 = new int[5];
 	}
@@ -366,7 +367,7 @@ final class StructType extends NodeSub {
 		if (structType != null) {
 			return structType;
 		}
-		final byte[] data = SeqType.aClass50_331.getFile(26, id);
+		final byte[] data = configClient.getFile(26, id);
 		structType = new StructType();
 		if (data != null) {
 			structType.decode(new Buffer(data));

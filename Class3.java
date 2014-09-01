@@ -7,34 +7,27 @@ final class Class3 {
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_54;
 	static SignlinkNode aClass185_56;
 
-	static final void method79(final int i, final js5 js5, final js5 class50_0_) {
-		try {
-			final int i_1_ = -10 + (int) (Math.random() * 21.0);
-			Class30.aClass50_233 = class50_0_;
-			final int i_2_ = (int) (Math.random() * 41.0) - 20;
-			Class120_Sub14_Sub22.aClass50_3640 = js5;
-			final int i_3_ = (int) (Math.random() * 21.0) - 10;
-			Class30.aClass50_233.getFileAmount(34);
-			final int i_4_ = (int) (21.0 * Math.random()) + -10;
-			Class158.anInt1481 = i_2_ + i_3_;
-			GameEntity.anInt2957 = i_1_ - -i_2_;
-			if (i != -8) {
-				method87(-79, -77L);
-			}
-			Class5.anInt2157 = i_2_ + i_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.E(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method79(final js5 js5, final js5 class50_0_) {
+		MapSceneType.configJs5 = class50_0_;
+		MapSceneType.spriteJs5 = js5;
+		final int i_1_ = (int) (Math.random() * 21.0) - 10;
+		final int i_2_ = (int) (Math.random() * 41.0) - 20;
+		final int i_3_ = (int) (Math.random() * 21.0) - 10;
+		final int i_4_ = (int) (Math.random() * 21.0) - 10;
+		//Class30.aClass50_233.getFileAmount(34); not sure if this is needed
+		Class158.mapSceneRedColorModifier = i_2_ + i_3_;
+		GameEntity.mapSceneBlueColorModifier = i_1_ + i_2_;
+		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
 	}
 
 	public static void method80(final int i) {
 		try {
 			if (i != 1) {
-				method83(33, 116, -90, -67);
+				method83(33, 116, -67);
 			}
 			aClass120_Sub14_Sub9_54 = null;
 			aClass185_56 = null;
-			OverlayType.aClass50_55 = null;
+			UnderlayType.configClient = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.C(").append(i).append(')').toString());
 		}
@@ -89,31 +82,18 @@ final class Class3 {
 		}
 	}
 
-	static final void method82(final byte i) {
-		try {
-			for (int i_8_ = 0; i_8_ < Class148.localNpcCount; i_8_++) {
-				final int i_9_ = Class120_Sub12_Sub36.localNpcIndices[i_8_];
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_9_];
-				if (class180_sub5_sub2 != null) {
-					Class120_Sub12_Sub9.method1245(-29399, class180_sub5_sub2.npcType.size, class180_sub5_sub2);
-				}
+	static final void method82() {
+		for (int id = 0; id < Class148.localNpcCount; id++) {
+			final int index = Class120_Sub12_Sub36.localNpcIndices[id];
+			final Npc npc = Class120_Sub12_Sub11.npcList[index];
+			if (npc != null) {
+				Class120_Sub12_Sub9.method1245(npc, npc.npcType.size);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.D(").append(i).append(')').toString());
 		}
 	}
 
-	static final int method83(final int i, final int i_10_, final int i_11_, final int i_12_) {
-		int i_13_;
-		try {
-			if (i_11_ != 1) {
-				OverlayType.aClass50_55 = null;
-			}
-			i_13_ = i_10_ >= i ? i_10_ > i_12_ ? i_12_ : i_10_ : i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.B(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
-		}
-		return i_13_;
+	static final int method83(final int i, final int i_10_, final int i_12_) {
+		return i_10_ >= i ? i_10_ > i_12_ ? i_12_ : i_10_ : i;
 	}
 
 	static final void method84(final int i, final int i_14_, final int i_15_, final int i_16_, final boolean bool) {
@@ -163,45 +143,28 @@ final class Class3 {
 		Class120_Sub12_Sub15.anInt3248 = -1;
 	}
 
-	static final int[] method86(final int i, final int i_17_, final int i_18_, final float f, final int i_19_, final int i_20_, final boolean bool, final byte i_21_) {
-		int[] is;
-		try {
-			final int[] is_22_ = new int[i_19_];
-			if (i_21_ != -24) {
-				return null;
-			}
-			final Class120_Sub12_Sub12 class120_sub12_sub12 = new Class120_Sub12_Sub12();
-			class120_sub12_sub12.anInt3221 = (int) (4096.0F * f);
-			class120_sub12_sub12.anInt3228 = i_17_;
-			class120_sub12_sub12.aBoolean3226 = bool;
-			class120_sub12_sub12.anInt3229 = i;
-			class120_sub12_sub12.anInt3222 = i_18_;
-			class120_sub12_sub12.anInt3225 = i_20_;
-			class120_sub12_sub12.postDecode();
-			Class22.method199(i_19_, 1, false);
-			class120_sub12_sub12.method1261(is_22_, 0, i_21_ ^ ~0x4a);
-			is = is_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.A(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(f).append(',').append(i_19_).append(',').append(i_20_).append(',').append(bool).append(',').append(i_21_).append(')')
-					.toString());
-		}
-		return is;
+	static final int[] method86(final int i, final int i_17_, final int i_18_, final float f, final int i_19_, final int i_20_, final boolean bool) {
+		final int[] is_22_ = new int[i_19_];
+		final Class120_Sub12_Sub12 class120_sub12_sub12 = new Class120_Sub12_Sub12();
+		class120_sub12_sub12.anInt3221 = (int) (4096.0F * f);
+		class120_sub12_sub12.anInt3228 = i_17_;
+		class120_sub12_sub12.aBoolean3226 = bool;
+		class120_sub12_sub12.anInt3229 = i;
+		class120_sub12_sub12.anInt3222 = i_18_;
+		class120_sub12_sub12.anInt3225 = i_20_;
+		class120_sub12_sub12.postDecode();
+		Class22.method199(i_19_, 1, false);
+		class120_sub12_sub12.method1261(is_22_, 0);
+		return is_22_;
 	}
 
-	static final void method87(final int i, final long l) {
-		try {
-			Class120_Sub12_Sub11.outputStream.pos = 0;
-			Class120_Sub12_Sub11.outputStream.putByte(21);
-			Class120_Sub12_Sub11.outputStream.putLong(l);
-			if (i != 19536) {
-				method83(-67, -6, -68, 36);
-			}
-			Class120_Sub12_Sub35.anInt3410 = -3;
-			Class120_Sub14_Sub4.anInt3466 = 0;
-			AbstractIndexedSprite.anInt1027 = 0;
-			Class154.anInt1440 = 1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.H(").append(i).append(',').append(l).append(')').toString());
-		}
+	static final void method87(final long l) {
+		Class120_Sub12_Sub11.outputStream.pos = 0;
+		Class120_Sub12_Sub11.outputStream.putByte(21);
+		Class120_Sub12_Sub11.outputStream.putLong(l);
+		Class120_Sub12_Sub35.anInt3410 = -3;
+		Class120_Sub14_Sub4.anInt3466 = 0;
+		AbstractIndexedSprite.anInt1027 = 0;
+		Class154.anInt1440 = 1;
 	}
 }

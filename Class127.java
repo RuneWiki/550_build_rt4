@@ -17,59 +17,50 @@ final class Class127 {
 		aString1217 = "flash3:";
 	}
 
-	static final int method1888(final int i, final byte i_0_, final int i_1_, final boolean bool) {
-		int i_2_;
-		try {
-			final ObjectContainer class120_sub17 = (ObjectContainer) ObjectContainer.objectContainerCache.get(i_1_);
-			if (class120_sub17 == null) {
-				return 0;
-			}
-			int i_3_ = 0;
-			if (i_0_ > -22) {
-				return -22;
-			}
-			for (int i_4_ = 0; class120_sub17.objectIds.length > i_4_; i_4_++) {
-				if (class120_sub17.objectIds[i_4_] >= 0 && Node.anInt1143 > class120_sub17.objectIds[i_4_]) {
-					final ObjType objType = ObjType.list(class120_sub17.objectIds[i_4_]);
-					if (objType.params != null) {
-						final IntegerNode class120_sub32 = (IntegerNode) objType.params.get(i);
-						if (class120_sub32 != null) {
-							if (!bool) {
-								i_3_ += class120_sub32.value;
-							} else {
-								i_3_ += class120_sub32.value * class120_sub17.objectCounts[i_4_];
-							}
+	static final int method1888(final int paramId, final int containerId, final boolean multiplyByCount) {
+		final ObjectContainer objectContainer = (ObjectContainer) ObjectContainer.objectContainerCache.get(containerId);
+		if (objectContainer == null) {
+			return 0;
+		}
+		int value = 0;
+		for (int id = 0; id < objectContainer.objectIds.length; id++) {
+			if (objectContainer.objectIds[id] >= 0 && Node.objCount > objectContainer.objectIds[id]) {
+				final ObjType objType = ObjType.list(objectContainer.objectIds[id]);
+				if (objType.params != null) {
+					final IntegerNode integerNode = (IntegerNode) objType.params.get(paramId);
+					if (integerNode != null) {
+						if (!multiplyByCount) {
+							value += integerNode.value;
+						} else {
+							value += integerNode.value * objectContainer.objectCounts[id];
 						}
 					}
 				}
 			}
-			i_2_ = i_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(bool).append(')').toString());
 		}
-		return i_2_;
+		return value;
 	}
 
-	static final void method1889() {
+	static final void fixWorldMapBounds() {
 		if (ParticleManager.anInt2336 < 0) {
 			ParticleManager.anInt2336 = 0;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
-		if (ParticleManager.anInt2336 > Class79.anInt700) {
-			ParticleManager.anInt2336 = Class79.anInt700;
-			Class120_Sub2.anInt2422 = -1;
-			CanvasWrapper.anInt20 = -1;
-		}
 		if (Class169.anInt1646 < 0) {
-			CanvasWrapper.anInt20 = -1;
 			Class169.anInt1646 = 0;
+			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
-		if (Class79.anInt692 < Class169.anInt1646) {
-			Class120_Sub2.anInt2422 = -1;
+		if (ParticleManager.anInt2336 > WorldMapHandler.mapSizeX) {
+			ParticleManager.anInt2336 = WorldMapHandler.mapSizeX;
 			CanvasWrapper.anInt20 = -1;
-			Class169.anInt1646 = Class79.anInt692;
+			Class120_Sub2.anInt2422 = -1;
+		}
+		if (Class169.anInt1646 > WorldMapHandler.mapSizeY) {
+			Class169.anInt1646 = WorldMapHandler.mapSizeY;
+			CanvasWrapper.anInt20 = -1;
+			Class120_Sub2.anInt2422 = -1;
 		}
 	}
 
@@ -109,7 +100,7 @@ final class Class127 {
 		for (/**/; DummyOutputStream.aFloat28 < 0.0F; DummyOutputStream.aFloat28 += 2048.0F) {
 			/* empty */
 		}
-		final int i_12_ = Class22.getTileHeight(Class173.gameLevel, Class69_Sub3_Sub1.playerRenderX, InterfaceListener.playerRenderZ);
+		final int i_12_ = Class22.getTileHeight(Class69_Sub3_Sub1.playerRenderX, InterfaceListener.playerRenderZ, Class173.gameLevel);
 		if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
 			for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
 				for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {

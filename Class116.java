@@ -13,74 +13,67 @@ final class Class116 {
 			{ 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1 },
 			{ 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1 } };
 
-	static final void method1009(final byte i) {
-		try {
-			if (!(Class79.aFloat696 < Class79.aFloat698)) {
-				if (Class79.aFloat696 > Class79.aFloat698) {
-					Class79.aFloat696 -= Class79.aFloat696 / 30.0;
-					if (Class79.aFloat696 < Class79.aFloat698) {
-						Class79.aFloat696 = Class79.aFloat698;
+	static final void handleWorldMapLogic() {
+		if (!(WorldMapHandler.currentZoom < WorldMapHandler.wantedZoom)) {
+			if (WorldMapHandler.currentZoom > WorldMapHandler.wantedZoom) {
+				WorldMapHandler.currentZoom -= WorldMapHandler.currentZoom / 30.0;
+				if (WorldMapHandler.currentZoom < WorldMapHandler.wantedZoom) {
+					WorldMapHandler.currentZoom = WorldMapHandler.wantedZoom;
+				}
+				Class127.fixWorldMapBounds();
+			}
+		} else {
+			WorldMapHandler.currentZoom += WorldMapHandler.currentZoom / 30.0;
+			if (WorldMapHandler.currentZoom > WorldMapHandler.wantedZoom) {
+				WorldMapHandler.currentZoom = WorldMapHandler.wantedZoom;
+			}
+			Class127.fixWorldMapBounds();
+		}
+		if (CanvasWrapper.anInt20 != -1 && Class120_Sub2.anInt2422 != -1) {
+			int i_0_ = -Class169.anInt1646 + Class120_Sub2.anInt2422;
+			int i_1_ = -ParticleManager.anInt2336 + CanvasWrapper.anInt20;
+			if (i_0_ < 2 || i_0_ > 2) {
+				i_0_ >>= 4;
+			}
+			Class169.anInt1646 -= -i_0_;
+			if (i_1_ < 2 || i_1_ > 2) {
+				i_1_ >>= 4;
+			}
+			if (i_1_ == 0 && i_0_ == 0) {
+				Class120_Sub2.anInt2422 = -1;
+				CanvasWrapper.anInt20 = -1;
+			}
+			ParticleManager.anInt2336 += i_1_;
+			Class127.fixWorldMapBounds();
+		}
+		if (Class96.clickedMouseFunctionBlinksLeft > 0) {
+			Class136.clickedMouseFunctionCycle--;
+			if (Class136.clickedMouseFunctionCycle == 0) {
+				Class96.clickedMouseFunctionBlinksLeft--;
+				Class136.clickedMouseFunctionCycle = 100;
+			}
+		} else {
+			Class127.anInt1215 = -1;
+			Class120_Sub12_Sub9.clickedMouseFunctionId = -1;
+		}
+		if (Class80.mouseInsideWorldMap && MapFunctionType.aClass105_653 != null) {
+			for (Class120_Sub16 class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getNext()) {
+				final MapFunctionType mapFunctionType = MapFunctionType.list(class120_sub16.mapFunctionNode.id);
+				if (EnumType.anInt3450 != 0 || !class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY)) {
+					if (class120_sub16.mapFunctionNode.focused) {
+						class120_sub16.mapFunctionNode.focused = false;
+						Class112.method989(16, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function unfocus
 					}
-					Class127.method1889();
-				}
-			} else {
-				Class79.aFloat696 += Class79.aFloat696 / 30.0;
-				if (Class79.aFloat698 < Class79.aFloat696) {
-					Class79.aFloat696 = Class79.aFloat698;
-				}
-				Class127.method1889();
-			}
-			if ((CanvasWrapper.anInt20 ^ 0xffffffff) != 0 && Class120_Sub2.anInt2422 != -1) {
-				int i_0_ = -Class169.anInt1646 + Class120_Sub2.anInt2422;
-				int i_1_ = -ParticleManager.anInt2336 + CanvasWrapper.anInt20;
-				if (i_0_ < 2 || i_0_ > 2) {
-					i_0_ >>= 4;
-				}
-				Class169.anInt1646 -= -i_0_;
-				if (i_1_ < 2 || i_1_ > 2) {
-					i_1_ >>= 4;
-				}
-				if (i_1_ == 0 && i_0_ == 0) {
-					Class120_Sub2.anInt2422 = -1;
-					CanvasWrapper.anInt20 = -1;
-				}
-				ParticleManager.anInt2336 += i_1_;
-				Class127.method1889();
-			}
-			if (Class96.anInt919 > 0) {
-				Class136.anInt1321--;
-				if (Class136.anInt1321 == 0) {
-					Class96.anInt919--;
-					Class136.anInt1321 = 100;
-				}
-			} else {
-				Class127.anInt1215 = -1;
-				Class120_Sub12_Sub9.anInt3195 = -1;
-			}
-			if (Class80.aBoolean742 && MapFunctionType.aClass105_653 != null) {
-				for (Class120_Sub16 class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getNext()) {
-					final MapFunctionType class73 = MapFunctionType.list(class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473);
-					if (EnumType.anInt3450 != 0 || !class120_sub16.method1656(Queue.lastMouseX, -108, Class191.lastMouseY)) {
-						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
-							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = false;
-							Class112.method989(16, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
-						}
-					} else {
-						if (!class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
-							class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472 = true;
-							Class112.method989(15, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
-						}
-						if (class120_sub16.aClass120_Sub14_Sub5_2611.aBoolean3472) {
-							Class112.method989(17, class120_sub16.aClass120_Sub14_Sub5_2611.anInt3473, class73.anInt652);
-						}
+				} else {
+					if (!class120_sub16.mapFunctionNode.focused) {
+						class120_sub16.mapFunctionNode.focused = true;
+						Class112.method989(15, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function focus
+					}
+					if (class120_sub16.mapFunctionNode.focused) {
+						Class112.method989(17, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function focusing
 					}
 				}
 			}
-			if (i > -89) {
-				method1010((byte) -62);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mm.A(").append(i).append(')').toString());
 		}
 	}
 

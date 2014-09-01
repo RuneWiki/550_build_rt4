@@ -7,10 +7,10 @@ import java.awt.Robot;
 import java.awt.image.BufferedImage;
 
 class Mouseimp {
-	private Robot aRobot1444;
+	private Robot robot;
 	private Component aComponent1445;
 
-	void method2081(Component component, final boolean bool) {
+	void setCursor(Component component, final boolean bool) {
 		if (!bool) {
 			if (component == null) {
 				throw new NullPointerException();
@@ -31,7 +31,7 @@ class Mouseimp {
 	}
 
 	Mouseimp() throws Exception {
-		aRobot1444 = new Robot();
+		robot = new Robot();
 	}
 
 	void setCursor(final Point point, final Component component, final int width, final int height, final int[] pixels) {
@@ -45,6 +45,6 @@ class Mouseimp {
 	}
 
 	void moveMouse(final int x, final int y) {
-		aRobot1444.mouseMove(x, y);
+		robot.mouseMove(x, y);
 	}
 }

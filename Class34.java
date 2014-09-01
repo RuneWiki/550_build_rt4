@@ -116,7 +116,7 @@ final class Class34 {
 	}
 
 	static final void method282() {
-		if (aClass120_Sub2_Sub1_295.method1042(59)) {
+		if (aClass120_Sub2_Sub1_295.method1042()) {
 			method285(aClass120_Sub2_Sub1_295, false);
 		}
 	}
@@ -264,7 +264,7 @@ final class Class34 {
 			GraphicsHD.method597();
 			gl.glDisable(3042);
 			gl.glDisable(3008);
-			HDToolkit.method503();
+			HDToolkit.disableDepthMask();
 			int i = 0;
 			int i_9_ = 1;
 			Class120_Sub2 class120_sub2;
@@ -316,12 +316,12 @@ final class Class34 {
 			}
 			gl.glEnable(3008);
 			gl.glEnable(3042);
-			HDToolkit.method505();
+			HDToolkit.enableDepthMask();
 		}
 	}
 
 	static final boolean method290() {
-		if (anInt282 != -1 && aClass120_Sub2_Sub1_295.method1042(89)) {
+		if (anInt282 != -1 && aClass120_Sub2_Sub1_295.method1042()) {
 			return true;
 		}
 		return false;

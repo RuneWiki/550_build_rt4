@@ -2,21 +2,21 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub28 extends Node {
-	byte[][][] aByteArrayArrayArray2750;
+final class ReflectionCheckNode extends Node {
+	byte[][][] methodsArgumentData;
 	static int anInt2751 = 0;
-	int[] anIntArray2752;
-	int anInt2753;
+	int[] fieldsValue;
+	int count;
 	static ClanMember[] clanMembers;
-	SignlinkNode[] aClass185Array2755;
-	int[] anIntArray2756;
-	int anInt2757;
+	SignlinkNode[] fieldsInformationNode;
+	int[] checkTypes;
+	int uid;
 	static int leftMargin;
 	static String[] aStringArray2759 = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-	SignlinkNode[] aClass185Array2760;
+	SignlinkNode[] methodsInformationNode;
 	static int[] anIntArray2761;
 	static int anInt2762;
-	int[] anIntArray2763;
+	int[] errorTypes;
 
 	static {
 		leftMargin = 0;
@@ -43,7 +43,7 @@ final class Class120_Sub28 extends Node {
 		}
 	}
 
-	public Class120_Sub28() {
+	public ReflectionCheckNode() {
 		/* empty */
 	}
 }

@@ -21,7 +21,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 	final int[] method1187(final int i_0_) {
 		final int[] is_1_ = this.aClass30_2563.method258(i_0_);
 		if (this.aClass30_2563.aBoolean238) {
-			method1272((byte) 52, this.aClass30_2563.method257());
+			method1272(this.aClass30_2563.method257());
 		}
 		return is_1_;
 	}
@@ -34,7 +34,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 			final int i_5_ = Class120_Sub12_Sub2.anInt3145;
 			final int[][] is_6_ = new int[i_5_][i_4_];
 			final int[][][] is_7_ = this.aClass109_2559.method973(0);
-			method1272((byte) 126, is_6_);
+			method1272(is_6_);
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub2.anInt3145; i_8_++) {
 				final int[][] is_9_ = is_7_[i_8_];
 				final int[] is_10_ = is_9_[1];
@@ -168,13 +168,13 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					}
 					if (class180_sub5_sub1.anObject3047 == null || Class101_Sub2.loopCycle < class180_sub5_sub1.anInt3042 || class180_sub5_sub1.anInt3012 <= Class101_Sub2.loopCycle) {
 						class180_sub5_sub1.aBoolean2992 = false;
-						class180_sub5_sub1.anInt3005 = Class22.getTileHeight(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z);
-						Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.aBoolean3002);
+						class180_sub5_sub1.y = Class22.getTileHeight(class180_sub5_sub1.x, class180_sub5_sub1.z, Class173.gameLevel);
+						Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.y, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.aBoolean3002);
 					} else {
 						class180_sub5_sub1.playerLimitReached = false;
 						class180_sub5_sub1.aBoolean2992 = false;
-						class180_sub5_sub1.anInt3005 = Class22.getTileHeight(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z);
-						Class26.method230(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.anInt3005, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041, class180_sub5_sub1.anInt3038);
+						class180_sub5_sub1.y = Class22.getTileHeight(class180_sub5_sub1.x, class180_sub5_sub1.z, Class173.gameLevel);
+						Class26.method230(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.y, class180_sub5_sub1, class180_sub5_sub1.anInt3032, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041, class180_sub5_sub1.anInt3038);
 					}
 				}
 			}
@@ -289,7 +289,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 						}
 					}
 					if (i_61_ != 0) {
-						final OverlayType overlayType = OverlayType.list(-1 + (i_61_ & 0xff));
+						final UnderlayType overlayType = UnderlayType.list(-1 + (i_61_ & 0xff));
 						is_56_[i_57_][i_58_] = (overlayType.anInt1227 + 1 << 16) + overlayType.anInt1225;
 					}
 				}
@@ -502,29 +502,25 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		return class120_sub9s;
 	}
 
-	private final void method1272(final byte i, final int[][] is) {
-		try {
-			final int i_112_ = Class120_Sub12_Sub7.anInt3178;
-			final int i_113_ = Class120_Sub12_Sub2.anInt3145;
-			Queue.method2250(is, (byte) 79);
-			Class69.method616(-116, 0, 0, Class120_Sub29.anInt2774, Class32.anInt259);
-			if (aClass101Array3237 != null) {
-				for (final Class101 class101 : aClass101Array3237) {
-					final int i_115_ = class101.anInt964;
-					final int i_116_ = class101.anInt960;
-					if (i_116_ < 0) {
-						if (i_115_ >= 0) {
-							class101.method837(i_112_, i_113_);
-						}
-					} else if (i_115_ < 0) {
-						class101.method834(1380163464, i_112_, i_113_);
-					} else {
-						class101.method833(i_112_, i_113_, (byte) -110);
+	private final void method1272(final int[][] is) {
+		final int i_112_ = Class120_Sub12_Sub7.anInt3178;
+		final int i_113_ = Class120_Sub12_Sub2.anInt3145;
+		GameEntity.anIntArrayArray3009 = is;
+		Class69.method616(0, 0, Class120_Sub29.anInt2774, Class32.anInt259);
+		if (aClass101Array3237 != null) {
+			for (final Class101 class101 : aClass101Array3237) {
+				final int i_115_ = class101.anInt964;
+				final int i_116_ = class101.anInt960;
+				if (i_116_ < 0) {
+					if (i_115_ >= 0) {
+						class101.method837(i_112_, i_113_);
 					}
+				} else if (i_115_ < 0) {
+					class101.method834(i_112_, i_113_);
+				} else {
+					class101.method833(i_112_, i_113_);
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("km.R(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 

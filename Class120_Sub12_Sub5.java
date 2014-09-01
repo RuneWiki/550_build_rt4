@@ -7,22 +7,13 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	private int anInt3161 = 3216;
 	private int anInt3162;
 	static boolean errorPinging = false;
-	static FileSystem aClass51_3164;
+	static FileSystem masterIndexFileSystem;
 	static int canvasHeight;
 	private final int[] anIntArray3166;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array3167;
 
-	static final boolean method1217(final boolean bool, final char c) {
-		boolean bool_0_;
-		try {
-			if (!bool) {
-				aClass120_Sub14_Sub19Array3167 = null;
-			}
-			bool_0_ = c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.U(").append(bool).append(',').append(c).append(')').toString());
-		}
-		return bool_0_;
+	static final boolean isLetterOrNumber(final char c) {
+		return c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
 	}
 
 	static final boolean method1218(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final SceneGraphNode sceneGraphNode, final int i_5_, final long l, final boolean bool) {
@@ -93,7 +84,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 					bool_10_ = true;
 				} catch (final Exception exception) {
 					exception.printStackTrace();
-					Class30.aClass120_Sub30_Sub2_234.method1770(21229);
+					Class30.aClass120_Sub30_Sub2_234.method1770();
 					Class26.aClass90_163 = null;
 					Class120_Sub12_Sub25.anInt3312 = 0;
 					MasterIndexInfo.aClass50_476 = null;
@@ -145,7 +136,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		try {
 			aClass120_Sub14_Sub19Array3167 = null;
 			if (i == -23112) {
-				aClass51_3164 = null;
+				masterIndexFileSystem = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.R(").append(i).append(')').toString());

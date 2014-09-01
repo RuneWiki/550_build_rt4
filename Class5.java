@@ -9,7 +9,7 @@ final class Class5 implements ShaderInterface {
 	static String aString2153 = "Close";
 	static int anInt2154 = 0;
 	private int anInt2156 = -1;
-	static int anInt2157;
+	static int mapSceneGreenColorModifier;
 	static boolean aBoolean2158;
 
 	static {
@@ -53,7 +53,7 @@ final class Class5 implements ShaderInterface {
 					}
 				}
 				final long bitPacked = 0x60000000 + x + (z << 7);
-				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.getTileHeight(Class173.gameLevel, 64 + x * 128, 64 + 128 * z), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
+				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.getTileHeight(64 + x * 128, 64 + 128 * z, Class173.gameLevel), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
 			}
 		}
 	}
@@ -71,41 +71,34 @@ final class Class5 implements ShaderInterface {
 
 	@Override
 	public final void method3() {
-		try {
-			final GL gl = HDToolkit.gl;
-			HDToolkit.method521(1);
-			if (Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 != null && anInt2156 >= 0 && Class120_Sub12_Sub6.highLightingDetail) {
-				gl.glCallList(anInt2156);
-				gl.glActiveTexture(33985);
-				Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297.method1494();
-				gl.glMatrixMode(5890);
-				gl.glLoadIdentity();
-				gl.glRotatef(-(360.0F * Class145.anInt1382) / 2048.0F, 0.0F, 1.0F, 0.0F);
-				gl.glRotatef(-(360.0F * Class120_Sub14_Sub13.anInt3571) / 2048.0F, 1.0F, 0.0F, 0.0F);
-				gl.glScalef(-1.0F, 1.0F, 1.0F);
-				gl.glMatrixMode(5888);
-				gl.glActiveTexture(33984);
-				aBoolean2151 = true;
-			} else {
-				gl.glTexEnvi(8960, 34184, 34167);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "ae.B()");
+		final GL gl = HDToolkit.gl;
+		HDToolkit.method521(1);
+		System.out.println("hey from class5");
+		if (Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 != null && anInt2156 >= 0 && Class120_Sub12_Sub6.highLightingDetail) {
+			gl.glCallList(anInt2156);
+			gl.glActiveTexture(33985);
+			Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297.method1494();
+			gl.glMatrixMode(5890);
+			gl.glLoadIdentity();
+			gl.glRotatef(-(360.0F * Class145.renderYawWrapper) / 2048.0F, 0.0F, 1.0F, 0.0F);
+			gl.glRotatef(-(360.0F * Class120_Sub14_Sub13.renderPitchWrapper) / 2048.0F, 1.0F, 0.0F, 0.0F);
+			gl.glScalef(-1.0F, 1.0F, 1.0F);
+			gl.glMatrixMode(5888);
+			gl.glActiveTexture(33984);
+			aBoolean2151 = true;
+		} else {
+			gl.glTexEnvi(8960, 34184, 34167);
 		}
 	}
 
 	@Override
 	public final void method2() {
-		try {
-			final GL gl = HDToolkit.gl;
-			if (aBoolean2151) {
-				gl.glCallList(anInt2156 + 1);
-				aBoolean2151 = false;
-			} else {
-				gl.glTexEnvi(8960, 34184, 5890);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "ae.A()");
+		final GL gl = HDToolkit.gl;
+		if (aBoolean2151) {
+			gl.glCallList(anInt2156 + 1);
+			aBoolean2151 = false;
+		} else {
+			gl.glTexEnvi(8960, 34184, 5890);
 		}
 	}
 
@@ -116,12 +109,7 @@ final class Class5 implements ShaderInterface {
 
 	@Override
 	public final void method5(final int i) {
-		/* empty */
-	}
-
-	static final void method99() {
-		CursorType.recentUse.clearSoftReference();
-		CursorType.spriteCache.clearSoftReference();
+		System.out.println("hey2 from class5");
 	}
 
 	public Class5() {
@@ -143,7 +131,7 @@ final class Class5 implements ShaderInterface {
 			gl.glEnable(34067);
 			gl.glActiveTexture(33984);
 			gl.glEndList();
-			gl.glNewList(anInt2156 - -1, 4864);
+			gl.glNewList(anInt2156 + 1, 4864);
 			gl.glActiveTexture(33985);
 			gl.glTexEnvi(8960, 34161, 8448);
 			gl.glTexEnvi(8960, 34178, 34166);
@@ -158,18 +146,6 @@ final class Class5 implements ShaderInterface {
 			gl.glMatrixMode(5888);
 			gl.glActiveTexture(33984);
 			gl.glEndList();
-		}
-	}
-
-	public static void method100(final int i) {
-		try {
-			aString2153 = null;
-			if (i != -22938) {
-				method99();
-			}
-			aShortArray2152 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ae.E(").append(i).append(')').toString());
 		}
 	}
 }

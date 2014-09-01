@@ -104,8 +104,8 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 		final int[][] is_30_ = this.aClass109_2559.method975(i);
 		if (this.aClass109_2559.aBoolean1049) {
 			final int[] is_31_ = method1192(i, 2);
-			final int[][] is_32_ = method1179(0, i, (byte) -51);
-			final int[][] is_33_ = method1179(1, i, (byte) -51);
+			final int[][] is_32_ = method1179(0, i);
+			final int[][] is_33_ = method1179(1, i);
 			final int[] is_34_ = is_30_[0];
 			final int[] is_35_ = is_30_[1];
 			final int[] is_36_ = is_30_[2];

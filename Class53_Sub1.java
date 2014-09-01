@@ -6,13 +6,13 @@ final class Class53_Sub1 extends Class53 {
 	private final Js5Worker js5Worker;
 	static String aString2206 = "flash2:";
 	private FileSystemWorker fileSystemWorker;
-	private final FileSystem aClass51_2208;
-	private final FileSystem aClass51_2209;
+	private final FileSystem masterIndexFileSystem;
+	private final FileSystem indexFileSystem;
 	private int anInt2210 = 0;
 	private final int indexCrc;
 	private final Hashtable aClass75_2212 = new Hashtable(16);
 	static String aString2213 = "red:";
-	private final int anInt2214;
+	private final int indexId;
 	private byte[] aByteArray2215;
 	private MasterIndexInfo masterIndexInfo;
 	static SignlinkNode worldConnectionNode;
@@ -48,10 +48,10 @@ final class Class53_Sub1 extends Class53 {
 		if (type == 1) {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(207);
 		}
-		Class120_Sub12_Sub11.outputStream.putByteS(++client.aByte2201);
-		Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.aBooleanArray299[82] ? 0 : 1);
-		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + x);
-		Class120_Sub12_Sub11.outputStream.putLEShortA(z + GameEntity.currentBaseX);
+		Class120_Sub12_Sub11.outputStream.putByteS(++client.flagCounter);
+		Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
+		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + z);
+		Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + x);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ final class Class53_Sub1 extends Class53 {
 			if (js5Worker.method357()) {
 				return null;
 			}
-			aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
+			aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, indexId, (byte) 0, true);
 		}
 		if (aClass120_Sub14_Sub14_2218.aBoolean3576) {
 			return null;
@@ -81,12 +81,12 @@ final class Class53_Sub1 extends Class53 {
 				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
+					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, indexId, (byte) 0, true);
 				}
 				return null;
 			}
-			if (aClass51_2208 != null) {
-				fileSystemWorker.requestWrite(aClass51_2208, data, anInt2214);
+			if (masterIndexFileSystem != null) {
+				fileSystemWorker.requestWrite(masterIndexFileSystem, data, indexId);
 			}
 		} else {
 			try {
@@ -102,12 +102,12 @@ final class Class53_Sub1 extends Class53 {
 				if (js5Worker.method357()) {
 					aClass120_Sub14_Sub14_2218 = null;
 				} else {
-					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, anInt2214, (byte) 0, true);
+					aClass120_Sub14_Sub14_2218 = js5Worker.putRequest(255, indexId, (byte) 0, true);
 				}
 				return null;
 			}
 		}
-		if (aClass51_2209 != null) {
+		if (indexFileSystem != null) {
 			anInt2210 = 0;
 			aByteArray2215 = new byte[masterIndexInfo.anInt484];
 		}
@@ -116,58 +116,33 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!Class120_Sub14_Sub4.aBoolean3470 || !NodeCache.aBooleanArray299[81] || Class186.menuOptionCount <= 2) {
+		if (!Class120_Sub14_Sub4.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
 			return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 1];
 		}
 		return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 2];
 	}
 
-	final int method467(final byte i) {
-		int i_7_;
-		try {
-			if (method462() == null) {
-				if (aClass120_Sub14_Sub14_2218 == null) {
-					return 0;
-				}
-				return aClass120_Sub14_Sub14_2218.getCompletion();
+	final int getCompletion() {
+		if (method462() == null) {
+			if (aClass120_Sub14_Sub14_2218 == null) {
+				return 0;
 			}
-			i_7_ = 100;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.P(").append(i).append(')').toString());
+			return aClass120_Sub14_Sub14_2218.getCompletion();
 		}
-		return i_7_;
+		return 100;
 	}
 
 	@Override
-	final void method459(final int i, final int i_8_) {
-		try {
-			if (i_8_ >= -2) {
-				method471();
-			}
-			if (aClass51_2209 != null) {
-				for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
-					if ((i ^ 0xffffffffffffffffL) == (node.uid ^ 0xffffffffffffffffL)) {
-						return;
-					}
+	final void method459(final int id) {
+		if (indexFileSystem != null) {
+			for (Node node = aClass105_2224.getFront(); node != null; node = aClass105_2224.getNext()) {
+				if (node.uid == id) {
+					return;
 				}
-				final Node node = new Node();
-				node.uid = i;
-				aClass105_2224.addLast(node);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.B(").append(i).append(',').append(i_8_).append(')').toString());
-		}
-	}
-
-	public static void method468(final byte i) {
-		try {
-			if (i == -82) {
-				aString2213 = null;
-				worldConnectionNode = null;
-				aString2206 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.N(").append(i).append(')').toString());
+			final Node node = new Node();
+			node.uid = id;
+			aClass105_2224.addLast(node);
 		}
 	}
 
@@ -192,21 +167,12 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	final int method470(final boolean bool) {
-		int i;
-		try {
-			if (!bool) {
-				aBoolean2222 = true;
-			}
-			i = anInt2210;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.S(").append(bool).append(')').toString());
-		}
-		return i;
+	final int method470() {
+		return anInt2210;
 	}
 
 	final void method471() {
-		if (aClass51_2209 != null) {
+		if (indexFileSystem != null) {
 			aBoolean2223 = true;
 			if (aClass105_2225 == null) {
 				aClass105_2225 = new Deque();
@@ -260,24 +226,15 @@ final class Class53_Sub1 extends Class53 {
 		return is_13_;
 	}
 
-	final int method474(final int i) {
-		int i_14_;
-		try {
-			if (i != 0) {
-				aClass105_2224 = null;
-			}
-			if (masterIndexInfo == null) {
-				return 0;
-			}
-			i_14_ = masterIndexInfo.groupLength;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wb.M(").append(i).append(')').toString());
+	final int getGroupLength() {
+		if (masterIndexInfo == null) {
+			return 0;
 		}
-		return i_14_;
+		return masterIndexInfo.groupLength;
 	}
 
 	@Override
-	final int method458(final int i) {
+	final int getCompletion(final int i) {
 		final AbstractRequest abstractRequest = (AbstractRequest) aClass75_2212.get(i);
 		if (abstractRequest != null) {
 			return abstractRequest.getCompletion();
@@ -293,22 +250,22 @@ final class Class53_Sub1 extends Class53 {
 		}
 		if (class120_sub14_sub14_19_ == null) {
 			if (i_18_ == 0) {
-				if (aClass51_2209 == null || aByteArray2215[i_17_] == -1) {
+				if (indexFileSystem == null || aByteArray2215[i_17_] == -1) {
 					if (!js5Worker.method357()) {
-						class120_sub14_sub14_19_ = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
+						class120_sub14_sub14_19_ = js5Worker.putRequest(indexId, i_17_, (byte) 2, true);
 					} else {
 						return null;
 					}
 				} else {
-					class120_sub14_sub14_19_ = fileSystemWorker.requestRead2(aClass51_2209, i_17_);
+					class120_sub14_sub14_19_ = fileSystemWorker.requestRead2(indexFileSystem, i_17_);
 				}
 			} else if (i_18_ == 1) {
-				if (aClass51_2209 == null) {
+				if (indexFileSystem == null) {
 					throw new RuntimeException();
 				}
-				class120_sub14_sub14_19_ = fileSystemWorker.requestRead(aClass51_2209, i_17_);
+				class120_sub14_sub14_19_ = fileSystemWorker.requestRead(indexFileSystem, i_17_);
 			} else if (i_18_ == 2) {
-				if (aClass51_2209 == null) {
+				if (indexFileSystem == null) {
 					throw new RuntimeException();
 				}
 				if (aByteArray2215[i_17_] != -1) {
@@ -317,7 +274,7 @@ final class Class53_Sub1 extends Class53 {
 				if (js5Worker.method369()) {
 					return null;
 				}
-				class120_sub14_sub14_19_ = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, false);
+				class120_sub14_sub14_19_ = js5Worker.putRequest(indexId, i_17_, (byte) 2, false);
 			} else {
 				throw new RuntimeException();
 			}
@@ -344,15 +301,15 @@ final class Class53_Sub1 extends Class53 {
 				js5Worker.crcError();
 				class120_sub14_sub14_19_.unlink();
 				if (class120_sub14_sub14_19_.aBoolean3573 && !js5Worker.method357()) {
-					final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
+					final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(indexId, i_17_, (byte) 2, true);
 					aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 				}
 				return null;
 			}
 			is[-2 + is.length] = (byte) (masterIndexInfo.groupVersions[i_17_] >>> 8);
 			is[is.length + -1] = (byte) masterIndexInfo.groupVersions[i_17_];
-			if (aClass51_2209 != null) {
-				fileSystemWorker.requestWrite(aClass51_2209, is, i_17_);
+			if (indexFileSystem != null) {
+				fileSystemWorker.requestWrite(indexFileSystem, is, i_17_);
 				if (aByteArray2215[i_17_] != 1) {
 					anInt2210++;
 					aByteArray2215[i_17_] = (byte) 1;
@@ -393,7 +350,7 @@ final class Class53_Sub1 extends Class53 {
 			aByteArray2215[i_17_] = (byte) -1;
 			class120_sub14_sub14_19_.unlink();
 			if (class120_sub14_sub14_19_.aBoolean3573 && !js5Worker.method357()) {
-				final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(anInt2214, i_17_, (byte) 2, true);
+				final Js5Request class120_sub14_sub14_sub2 = js5Worker.putRequest(indexId, i_17_, (byte) 2, true);
 				aClass75_2212.put(class120_sub14_sub14_sub2, i_17_);
 			}
 			return null;
@@ -503,10 +460,11 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
+	//indexId, indexFs, masterIndexFs, js5Worker, fileSystemWorker, crc, version, bool
 	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Js5Worker jw, final FileSystemWorker fsWorker, final int i_27_, final int i_28_, final boolean bool) {
-		aClass51_2209 = fileSystem;
-		anInt2214 = i;
-		if (aClass51_2209 == null) {
+		indexFileSystem = fileSystem;
+		indexId = i;
+		if (indexFileSystem == null) {
 			aBoolean2222 = false;
 		} else {
 			aBoolean2222 = true;
@@ -516,10 +474,10 @@ final class Class53_Sub1 extends Class53 {
 		aBoolean2227 = bool;
 		indexCrc = i_27_;
 		fileSystemWorker = fsWorker;
-		aClass51_2208 = class51_26_;
+		masterIndexFileSystem = class51_26_;
 		js5Worker = jw;
-		if (aClass51_2208 != null) {
-			aClass120_Sub14_Sub14_2218 = fileSystemWorker.requestRead2(aClass51_2208, anInt2214);
+		if (masterIndexFileSystem != null) {
+			aClass120_Sub14_Sub14_2218 = fileSystemWorker.requestRead2(masterIndexFileSystem, indexId);
 		}
 	}
 }

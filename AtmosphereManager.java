@@ -4,135 +4,145 @@
 import javax.media.opengl.GL;
 
 final class AtmosphereManager {
-	private static float aFloat1120;
-	private static int anInt1121;
+	private static float light1Diffuse;
+	private static int screenColorRgb;
 	private static int fogOffset = -1;
-	static int anInt1123;
+	static int lightingZ;
 	static float[] fogColor;
-	private static float aFloat1125;
+	private static float light0Diffuse;
 	static int defaultScreenColorRgb;
-	static float[] aFloatArray1127;
+	static float[] light0Position;
 	static int defaulFogColorRgb;
-	private static float[] aFloatArray1129;
-	static int anInt1130;
-	private static float aFloat1131;
-	private static int anInt1132;
+	private static float[] light1Position;
+	static int lightingX;
+	private static float lightModelAmbient;
+	private static int fogColorRGB;
 
 	static {
-		aFloat1120 = -1.0F;
-		aFloat1125 = -1.0F;
+		light1Diffuse = -1.0F;
+		light0Diffuse = -1.0F;
 		defaultScreenColorRgb = 16777215;
-		aFloatArray1127 = new float[4];
+		light0Position = new float[4];
 		defaulFogColorRgb = 13156520;
 		fogColor = new float[4];
-		anInt1132 = -1;
-		aFloatArray1129 = new float[4];
-		anInt1121 = -1;
+		fogColorRGB = -1;
+		light1Position = new float[4];
+		screenColorRgb = -1;
 	}
 
-	static final void setFogColor(float[] fs) {
-		if (fs == null) {
-			fs = fogColor;
+	static final void setFogColor(float[] params) {
+		if (params == null) {
+			params = fogColor;
 		}
 		final GL gl = HDToolkit.gl;
-		gl.glFogfv(2918, fs, 0);
+		gl.glFogfv(2918, params, 0);//FOG_COLOR
 	}
 
-	static final float method1012() {
-		return aFloat1131;
+	static final float getLightingModelAmbient() {
+		return lightModelAmbient;
 	}
 
-	private static final void method1013() {
-		method1021(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
-		method1014(-50.0F, -60.0F, -50.0F);
-		method1020(defaulFogColorRgb, 0, false);
+	private static final void initDefaults() {
+		setLightingParams(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
+		setLightingPosition(-50.0F, -60.0F, -50.0F);
+		setFogValues(defaulFogColorRgb, 0, false);
 	}
 
-	static final void method1014(final float f, final float f_0_, final float f_1_) {
-		if (aFloatArray1127[0] != f || aFloatArray1127[1] != f_0_ || aFloatArray1127[2] != f_1_) {
-			aFloatArray1127[0] = f;
-			aFloatArray1127[1] = f_0_;
-			aFloatArray1127[2] = f_1_;
-			aFloatArray1129[0] = -f;
-			aFloatArray1129[1] = -f_0_;
-			aFloatArray1129[2] = -f_1_;
-			anInt1130 = (int) (f * 256.0F / f_0_);
-			anInt1123 = (int) (f_1_ * 256.0F / f_0_);
+	static final void setLightingPosition(final float x, final float y, final float z) {
+		if (light0Position[0] != x || light0Position[1] != y || light0Position[2] != z) {
+			light0Position[0] = x;
+			light0Position[1] = y;
+			light0Position[2] = z;
+			light1Position[0] = -x;
+			light1Position[1] = -y;
+			light1Position[2] = -z;
+			lightingX = (int) (x * 256.0F / y);
+			lightingZ = (int) (z * 256.0F / y);
 		}
 	}
 
-	static final float method1015() {
-		return aFloat1125;
+	static final float getLight0Diffuse() {
+		return light0Diffuse;
 	}
 
-	static final void method1016() {
+	static final void applyLightingPosition() {
 		final GL gl = HDToolkit.gl;
-		gl.glLightfv(16384, 4611, aFloatArray1127, 0);
-		gl.glLightfv(16385, 4611, aFloatArray1129, 0);
+		gl.glLightfv(16384, 4611, light0Position, 0);//LIGHT0, POSITION
+		gl.glLightfv(16385, 4611, light1Position, 0);//LIGHT1, POSITION
 	}
 
-	static final int method1017() {
-		return anInt1121;
+	static final int getScreenColorRgb() {
+		return screenColorRgb;
 	}
 
 	static final void method1018() {
 		final GL gl = HDToolkit.gl;
-		gl.glColorMaterial(1028, 5634);
-		gl.glEnable(2903);
-		final float[] fs = { 0.0F, 0.0F, 0.0F, 1.0F };
-		gl.glLightfv(16384, 4608, fs, 0);
-		gl.glEnable(16384);
-		final float[] fs_2_ = { 0.0F, 0.0F, 0.0F, 1.0F };
-		gl.glLightfv(16385, 4608, fs_2_, 0);
-		gl.glEnable(16385);
-		anInt1121 = -1;
-		anInt1132 = -1;
-		method1013();
+		gl.glColorMaterial(1028, 5634);//FRONT, AMBIENT_AND_DIFFUSE
+		gl.glEnable(2903);//COLOR_MATERIAL
+		final float[] light0Params = { 0.0F, 0.0F, 0.0F, 1.0F };
+		gl.glLightfv(16384, 4608, light0Params, 0);//LIGHT0, AMBIENT
+		gl.glEnable(16384);//LIGHT0
+		final float[] light1Params = { 0.0F, 0.0F, 0.0F, 1.0F };
+		gl.glLightfv(16385, 4608, light1Params, 0);//LIGHT1, AMBIENT
+		gl.glEnable(16385);//LIGHT1
+		screenColorRgb = -1;
+		fogColorRGB = -1;
+		initDefaults();
 	}
 
 	public static void method1019() {
-		aFloatArray1127 = null;
-		aFloatArray1129 = null;
+		light0Position = null;
+		light1Position = null;
 		fogColor = null;
 	}
 
-	static final void method1020(final int fogCol, final int fogOff, final boolean force) {
-		if (force || anInt1132 != fogCol || fogOffset != fogOff) {
-			anInt1132 = fogCol;
+	//More info here. http://nehe.gamedev.net/tutorial/cool_looking_fog/19001/
+	static final void setFogValues(int fogCol, int fogOff, boolean force) {
+		fogOff = 600;//TODO looks better with this.
+		if (force || fogColorRGB != fogCol || fogOffset != fogOff) {
+			fogColorRGB = fogCol;
 			fogOffset = fogOff;
 			final GL gl = HDToolkit.gl;
 			fogColor[0] = (fogCol >> 16 & 0xff) / 255.0F;
 			fogColor[1] = (fogCol >> 8 & 0xff) / 255.0F;
 			fogColor[2] = (fogCol & 0xff) / 255.0F;
+			//2917 FOG_MODE
+			//9729 LINEAR
 			gl.glFogi(2917, 9729);
+			//FOG_DENSITY
 			gl.glFogf(2914, 0.95F);
+			//3156 = FOG_HINT
+			//4353 = FASTEST, 4354 = NICEST, 4352 = DONT_CARE
 			gl.glHint(3156, 4353);
-			int i_6_ = 3072 - fogOff;
-			if (i_6_ < 50) {
-				i_6_ = 50;
+			int fogStart = 3072 - fogOff;
+			if (fogStart < 50) {
+				fogStart = 50;
 			}
-			gl.glFogf(2915, i_6_);
+			//FOG_START
+			gl.glFogf(2915, fogStart);
+			//FOG_END
 			gl.glFogf(2916, 3328.0F);
+			//FOG_COLOR
 			gl.glFogfv(2918, fogColor, 0);
 		}
 	}
 
-	static final void method1021(final int i, final float f, final float f_7_, final float f_8_) {
-		if (anInt1121 != i || aFloat1131 != f || aFloat1125 != f_7_ || aFloat1120 != f_8_) {
-			anInt1121 = i;
-			aFloat1131 = f;
-			aFloat1125 = f_7_;
-			aFloat1120 = f_8_;
+	static final void setLightingParams(int screenColor, float ambientMod, float f_7_, float f_8_) {
+		if (screenColorRgb != screenColor || lightModelAmbient != ambientMod || light0Diffuse != f_7_ || light1Diffuse != f_8_) {
+			screenColorRgb = screenColor;
+			lightModelAmbient = ambientMod;
+			light0Diffuse = f_7_;
+			light1Diffuse = f_8_;
 			final GL gl = HDToolkit.gl;
-			final float f_9_ = (i >> 16 & 0xff) / 255.0F;
-			final float f_10_ = (i >> 8 & 0xff) / 255.0F;
-			final float f_11_ = (i & 0xff) / 255.0F;
-			final float[] fs = { f * f_9_, f * f_10_, f * f_11_, 1.0F };
-			gl.glLightModelfv(2899, fs, 0);
-			final float[] fs_12_ = { f_7_ * f_9_, f_7_ * f_10_, f_7_ * f_11_, 1.0F };
-			gl.glLightfv(16384, 4609, fs_12_, 0);
-			final float[] fs_13_ = { -f_8_ * f_9_, -f_8_ * f_10_, -f_8_ * f_11_, 1.0F };
-			gl.glLightfv(16385, 4609, fs_13_, 0);
+			final float red = (screenColor >> 16 & 0xff) / 255.0F;
+			final float green = (screenColor >> 8 & 0xff) / 255.0F;
+			final float blue = (screenColor & 0xff) / 255.0F;
+			final float[] lightModelAmbientParams = { ambientMod * red, ambientMod * green, ambientMod * blue, 1.0F };
+			gl.glLightModelfv(2899, lightModelAmbientParams, 0);//LIGHT_MODEL_AMBIENT
+			final float[] light0Params = { f_7_ * red, f_7_ * green, f_7_ * blue, 1.0F };
+			gl.glLightfv(16384, 4609, light0Params, 0);//LIGHT0, DIFFUSE
+			final float[] light1Params = { -f_8_ * red, -f_8_ * green, -f_8_ * blue, 1.0F };
+			gl.glLightfv(16385, 4609, light1Params, 0);//LIGHT1, DIFFUSE
 		}
 	}
 }

@@ -34,7 +34,7 @@ final class Class86 {
 				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, MasterIndexInfo.anInt478);
 				Class120_Sub12_Sub1.redrawScreen(4 + i, i_0_, i_1_ + Class120_Sub12_Sub22.boldFont.method1459(string), 15);
 			} else {
-				Class120_Sub14_Sub8 class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
+				AbstractFont class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
 				if (class120_sub14_sub8 == null) {
 					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
@@ -91,15 +91,8 @@ final class Class86 {
 		}
 	}
 
-	static final void method731(final int i, final js5 js5) {
-		try {
-			InvType.aClass50_1613 = js5;
-			if (i >= -19) {
-				method728(null, -46, -81);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("je.A(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method731(final js5 js5) {
+		InvType.aClass50_1613 = js5;
 	}
 
 	public static void method732(final boolean bool) {

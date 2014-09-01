@@ -93,79 +93,70 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1255(final Light light, final int[] is, final float[][] fs, final int i, final int i_10_, final Class133 class133, final float[][] fs_11_, final int i_12_, final float[][] fs_13_, final int i_14_, final int[][] is_15_) {
-		try {
-			final int[] is_16_ = new int[is.length / 2];
-			if (i_12_ != 1) {
-				method1250(-43, -91);
+	static final void method1255(final Light light, final int[] is, final float[][] fs, final int i, final int i_10_, final Class133 class133, final float[][] fs_11_, final float[][] fs_13_, final int i_14_, final int[][] is_15_) {
+		final int[] is_16_ = new int[is.length / 2];
+		for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
+			int i_18_ = is[i_17_ + i_17_];
+			int i_19_ = is[1 + i_17_ + i_17_];
+			if (i_14_ == 1) {
+				final int i_20_ = i_18_;
+				i_18_ = i_19_;
+				i_19_ = -i_20_ + 128;
+			} else if (i_14_ == 2) {
+				i_18_ = -i_18_ + 128;
+				i_19_ = 128 + -i_19_;
+			} else if (i_14_ == 3) {
+				final int i_21_ = i_18_;
+				i_18_ = 128 + -i_19_;
+				i_19_ = i_21_;
 			}
-			for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
-				int i_18_ = is[i_17_ + i_17_];
-				int i_19_ = is[1 + i_17_ + i_17_];
-				if (i_14_ == 1) {
-					final int i_20_ = i_18_;
-					i_18_ = i_19_;
-					i_19_ = -i_20_ + 128;
-				} else if (i_14_ == 2) {
-					i_18_ = -i_18_ + 128;
-					i_19_ = 128 + -i_19_;
-				} else if (i_14_ == 3) {
-					final int i_21_ = i_18_;
-					i_18_ = 128 + -i_19_;
-					i_19_ = i_21_;
-				}
-				float f;
-				float f_22_;
-				float f_23_;
-				if (i_18_ != 0 || i_19_ != 0) {
-					if (i_18_ == 128 && i_19_ == 0) {
-						f = fs_11_[1 + i_10_][i];
-						f_23_ = fs[1 + i_10_][i];
-						f_22_ = fs_13_[1 + i_10_][i];
-					} else if (i_18_ != 128 || i_19_ != 128) {
-						if (i_18_ != 0 || i_19_ != 128) {
-							f_22_ = fs_13_[i_10_][i];
-							final float f_24_ = i_18_ / 128.0F;
-							f_23_ = fs[i_10_][i];
-							f_23_ += (-f_23_ + fs[i_10_ - -1][i]) * f_24_;
-							f_22_ += f_24_ * (-f_22_ + fs_13_[1 + i_10_][i]);
-							f = fs_11_[i_10_][i];
-							float f_25_ = fs[i_10_][i - -1];
-							f += (fs_11_[i_10_ + 1][i] - f) * f_24_;
-							final float f_26_ = i_19_ / 128.0F;
-							float f_27_ = fs_13_[i_10_][1 + i];
-							float f_28_ = fs_11_[i_10_][i - -1];
-							f_28_ += (-f_28_ + fs_11_[1 + i_10_][1 + i]) * f_24_;
-							f += (f_28_ - f) * f_26_;
-							f_27_ += (-f_27_ + fs_13_[1 + i_10_][1 + i]) * f_24_;
-							f_25_ += f_24_ * (-f_25_ + fs[1 + i_10_][1 + i]);
-							f_23_ += f_26_ * (-f_23_ + f_25_);
-							f_22_ += (f_27_ - f_22_) * f_26_;
-						} else {
-							f_22_ = fs_13_[i_10_][i + 1];
-							f = fs_11_[i_10_][1 + i];
-							f_23_ = fs[i_10_][i + 1];
-						}
+			float f;
+			float f_22_;
+			float f_23_;
+			if (i_18_ != 0 || i_19_ != 0) {
+				if (i_18_ == 128 && i_19_ == 0) {
+					f = fs_11_[1 + i_10_][i];
+					f_23_ = fs[1 + i_10_][i];
+					f_22_ = fs_13_[1 + i_10_][i];
+				} else if (i_18_ != 128 || i_19_ != 128) {
+					if (i_18_ != 0 || i_19_ != 128) {
+						f_22_ = fs_13_[i_10_][i];
+						final float f_24_ = i_18_ / 128.0F;
+						f_23_ = fs[i_10_][i];
+						f_23_ += (-f_23_ + fs[i_10_ - -1][i]) * f_24_;
+						f_22_ += f_24_ * (-f_22_ + fs_13_[1 + i_10_][i]);
+						f = fs_11_[i_10_][i];
+						float f_25_ = fs[i_10_][i - -1];
+						f += (fs_11_[i_10_ + 1][i] - f) * f_24_;
+						final float f_26_ = i_19_ / 128.0F;
+						float f_27_ = fs_13_[i_10_][1 + i];
+						float f_28_ = fs_11_[i_10_][i - -1];
+						f_28_ += (-f_28_ + fs_11_[1 + i_10_][1 + i]) * f_24_;
+						f += (f_28_ - f) * f_26_;
+						f_27_ += (-f_27_ + fs_13_[1 + i_10_][1 + i]) * f_24_;
+						f_25_ += f_24_ * (-f_25_ + fs[1 + i_10_][1 + i]);
+						f_23_ += f_26_ * (-f_23_ + f_25_);
+						f_22_ += (f_27_ - f_22_) * f_26_;
 					} else {
-						f = fs_11_[1 + i_10_][1 + i];
-						f_23_ = fs[1 + i_10_][1 + i];
-						f_22_ = fs_13_[1 + i_10_][1 + i];
+						f_22_ = fs_13_[i_10_][i + 1];
+						f = fs_11_[i_10_][1 + i];
+						f_23_ = fs[i_10_][i + 1];
 					}
 				} else {
-					f = fs_11_[i_10_][i];
-					f_22_ = fs_13_[i_10_][i];
-					f_23_ = fs[i_10_][i];
+					f = fs_11_[1 + i_10_][1 + i];
+					f_23_ = fs[1 + i_10_][1 + i];
+					f_22_ = fs_13_[1 + i_10_][1 + i];
 				}
-				final int i_29_ = i_18_ + (i_10_ << 7);
-				final int i_30_ = (i << 7) + i_19_;
-				final int i_31_ = Class11.method130(i_18_, i_10_, i_19_, is_15_, i, 13);
-				is_16_[i_17_] = class133.method1948(light, i_29_, i_31_, i_30_, f, f_22_, f_23_);
+			} else {
+				f = fs_11_[i_10_][i];
+				f_22_ = fs_13_[i_10_][i];
+				f_23_ = fs[i_10_][i];
 			}
-			class133.method1944(is_16_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.U(").append(light != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(',').append(fs != null ? "{...}" : "null").append(',').append(i).append(',').append(i_10_).append(',')
-					.append(class133 != null ? "{...}" : "null").append(',').append(fs_11_ != null ? "{...}" : "null").append(',').append(i_12_).append(',').append(fs_13_ != null ? "{...}" : "null").append(',').append(i_14_).append(',').append(is_15_ != null ? "{...}" : "null").append(')')
-					.toString());
+			final int i_29_ = i_18_ + (i_10_ << 7);
+			final int i_30_ = (i << 7) + i_19_;
+			final int i_31_ = Class11.method130(i_18_, i_10_, i_19_, is_15_, i, 13);
+			is_16_[i_17_] = class133.method1948(light, i_29_, i_31_, i_30_, f, f_22_, f_23_);
 		}
+		class133.method1944(is_16_);
 	}
 }

@@ -12,7 +12,7 @@ final class LookupTable {
 		AbstractIndexedSprite.aClass189Array1022 = null;
 		Class43.method343(Class69.rootInterfaceId, 0, 0, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
 		if (AbstractIndexedSprite.aClass189Array1022 != null) {
-			Class142.method2008(AbstractIndexedSprite.aClass189Array1022, Class120_Sub12_Sub38.anInt3438, -1412584499, Class26.aClass189_161.redrawId, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
+			MapSceneType.method2008(AbstractIndexedSprite.aClass189Array1022, Class120_Sub12_Sub38.anInt3438, -1412584499, Class26.aClass189_161.redrawId, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
 			AbstractIndexedSprite.aClass189Array1022 = null;
 		}
 	}
@@ -36,8 +36,8 @@ final class LookupTable {
 		return 6;
 	}
 
-	static final void method489(final byte i) {
-		Class120_Sub14_Sub10.aClass75_3534.clear();
+	static final void clearInterfaceChanges() {
+		Class120_Sub14_Sub10.interfaceChangeCache.clear();
 		AbstractMouseWheelHandler.aClass177_114.clear();
 		Class88.aClass177_831.clear();
 	}

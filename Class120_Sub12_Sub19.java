@@ -46,7 +46,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 				final int i_14_ = i_12_ >> 12;
 				final int i_15_ = i_13_ * i_13_ >> 12;
 				final int i_16_ = i_14_ * i_14_ >> 12;
-				final int i_17_ = (int) (Math.sqrt((i_15_ + i_16_ - -4096) / 4096.0F) * 4096.0);
+				final int i_17_ = (int) (Math.sqrt((i_15_ + i_16_ + 4096) / 4096.0F) * 4096.0);
 				int i_18_;
 				int i_19_;
 				int i_20_;
@@ -61,8 +61,8 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 				}
 				if (aBoolean3277) {
 					i_20_ = 2048 + (i_20_ >> 1);
-					i_18_ = 2048 - -(i_18_ >> 1);
-					i_19_ = 2048 - -(i_19_ >> 1);
+					i_18_ = 2048 + (i_18_ >> 1);
+					i_19_ = 2048 + (i_19_ >> 1);
 				}
 				is_7_[i_10_] = i_20_;
 				is_8_[i_10_] = i_18_;

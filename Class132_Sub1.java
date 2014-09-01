@@ -15,7 +15,7 @@ class Class132_Sub1 extends Class132 {
 	private int anInt2810;
 	static boolean[][] aBooleanArrayArray2811;
 	static int[] spritePalette;
-	static js5 aClass50_2813;
+	static js5 framesJs5;
 	static int anInt2814;
 	private final int anInt2815;
 	static int anInt2816 = 0;
@@ -59,30 +59,24 @@ class Class132_Sub1 extends Class132 {
 		}
 	}
 
-	static final Class41 method1934(final int i, final byte i_4_, final int i_5_, final int i_6_, final int i_7_) {
-		Class41 class41;
-		try {
-			final long l = 0xffffL & i_6_ | (0xffffL & i) << 48 | (0xffffL & i_5_) << 32 | (i_7_ & 0xffffL) << 16;
-			Class41 class41_8_ = (Class41) Class120_Sub6.aClass21_2443.get(l);
-			if (class41_8_ != null) {
-				return class41_8_;
-			}
-			Class97[] class97s = null;
-			final Class145 class145 = Js5Request.method1551(i_6_, (byte) -83);
-			if (class145.anIntArray1383 != null) {
-				class97s = new Class97[class145.anIntArray1383.length];
-				for (int i_9_ = 0; i_9_ < class97s.length; i_9_++) {
-					final Class153 class153 = JagexInterface.method2494((byte) -10, class145.anIntArray1383[i_9_]);
-					class97s[i_9_] = new Class97(class153.anInt1434, class153.anInt1429, class153.anInt1427, class153.anInt1428, class153.anInt1431, class153.anInt1435, class153.anInt1432, class153.aBoolean1430);
-				}
-			}
-			class41_8_ = new Class41(class145.anInt1384, class97s, class145.anInt1380, i, i_5_, i_7_);
-			Class120_Sub6.aClass21_2443.put(class41_8_, l);
-			class41 = class41_8_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.D(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
+	static final Class41 method1934(final int i, final int i_5_, final int i_6_, final int i_7_) {
+		final long l = 0xffffL & i_6_ | (0xffffL & i) << 48 | (0xffffL & i_5_) << 32 | (i_7_ & 0xffffL) << 16;
+		Class41 class41_8_ = (Class41) Class120_Sub6.aClass21_2443.get(l);
+		if (class41_8_ != null) {
+			return class41_8_;
 		}
-		return class41;
+		Class97[] class97s = null;
+		final Class145 class145 = Class145.list(i_6_);
+		if (class145.anIntArray1383 != null) {
+			class97s = new Class97[class145.anIntArray1383.length];
+			for (int i_9_ = 0; i_9_ < class97s.length; i_9_++) {
+				final Class153 class153 = Class153.list(class145.anIntArray1383[i_9_]);
+				class97s[i_9_] = new Class97(class153.anInt1434, class153.anInt1429, class153.anInt1427, class153.anInt1428, class153.anInt1431, class153.anInt1435, class153.anInt1432, class153.aBoolean1430);
+			}
+		}
+		class41_8_ = new Class41(class145.anInt1384, class97s, class145.anInt1380, i, i_5_, i_7_);
+		Class120_Sub6.aClass21_2443.put(class41_8_, l);
+		return class41_8_;
 	}
 
 	@Override
@@ -91,7 +85,7 @@ class Class132_Sub1 extends Class132 {
 			anInt2807 = 0;
 			anInt2803 = 0;
 			if (i != 255) {
-				method1934(-3, (byte) 87, -16, 108, -56);
+				method1934(-3, -16, 108, -56);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.I(").append(i).append(')').toString());
@@ -103,7 +97,7 @@ class Class132_Sub1 extends Class132 {
 			spritePalette = null;
 			loadingTextImage = null;
 			aClass120_Sub15_2805 = null;
-			aClass50_2813 = null;
+			framesJs5 = null;
 			if (i == 2061936524) {
 				aBooleanArrayArray2811 = null;
 			}

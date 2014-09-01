@@ -44,7 +44,7 @@ final class MasterIndexInfo {
 		return jagmiscTimer;
 	}
 
-	static final void method453(final int i) {
+	static final void resetVarBit(final int i) {
 		VarBit.recentUse.clear();
 		VarBit.recentUse = new ObjectCache(i);
 	}

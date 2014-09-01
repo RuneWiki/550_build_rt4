@@ -42,7 +42,7 @@ abstract class Class120_Sub2 extends Node {
 		return i;
 	}
 
-	final boolean method1042(final int i) {
+	final boolean method1042() {
 		return this.aBoolean2418;
 	}
 

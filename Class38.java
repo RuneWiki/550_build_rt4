@@ -11,27 +11,21 @@ final class Class38 {
 	}
 
 	static final void method313(final int i_0_, final int i_1_, final int i_2_) {
-		if (i_1_ != 1012) {
-			if (i_1_ != 1002) {
-				if (i_1_ == 1008) {
-					Class112.method989(12, i_0_, i_2_);
-				} else if (i_1_ != 1003) {
-					if (i_1_ == 1011) {
-						Class112.method989(14, i_0_, i_2_);
-					}
-				} else {
-					Class112.method989(13, i_0_, i_2_);
-				}
-			} else {
-				Class112.method989(11, i_0_, i_2_);
-			}
-		} else {
+		if (i_1_ == 1012) {
 			Class112.method989(10, i_0_, i_2_);
+		} else if (i_1_ == 1002) {
+			Class112.method989(11, i_0_, i_2_);
+		} else if (i_1_ == 1008) {
+			Class112.method989(12, i_0_, i_2_);
+		} else if (i_1_ == 1003) {
+			Class112.method989(13, i_0_, i_2_);
+		} else if (i_1_ == 1011) {
+			Class112.method989(14, i_0_, i_2_);
 		}
 	}
 
 	static final void method314(final int i, final int i_3_, final int i_4_) {
-		for (int i_5_ = 0; i_5_ < Class142.anInt1361; i_5_++) {
+		for (int i_5_ = 0; i_5_ < MapSceneType.anInt1361; i_5_++) {
 			for (int i_6_ = 0; i_6_ < Class186.anInt1900; i_6_++) {
 				for (int i_7_ = 0; i_7_ < Class120_Sub12_Sub38.anInt3440; i_7_++) {
 					final GroundTile class120_sub18 = LabelGroup.groundTiles[i_5_][i_6_][i_7_];
@@ -79,10 +73,10 @@ final class Class38 {
 				int pixelPos = (103 - z) * 512 * 4 + 24628;
 				for (int x = 1; x < 103; x++) {
 					if ((0x18 & Class114.tileSettings[level][x][z]) == 0) {
-						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, level, x, z);
+						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, x, z, level);
 					}
 					if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0) {
-						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, level + 1, x, z);
+						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, x, z, level + 1);
 					}
 					pixelPos += 4;
 				}
@@ -155,7 +149,7 @@ final class Class38 {
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int z = 1; z < 103; z++) {
 			for (int x = 1; x < 103; x++) {
-				if ((Class114.tileSettings[level][x][z] & 0x18) == 0 && !Class190.method2504(whiteColor, level, 0, 0, redColor, z, x)) {
+				if ((Class114.tileSettings[level][x][z] & 0x18) == 0 && !Class190.method2504(x, z, level, 0, 0, whiteColor, redColor)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -163,7 +157,7 @@ final class Class38 {
 					}
 					return false;
 				}
-				if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0 && !Class190.method2504(whiteColor, 1 + level, 0, 0, redColor, z, x)) {
+				if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0 && !Class190.method2504(x, z, level + 1, 0, 0, whiteColor, redColor)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -191,17 +185,6 @@ final class Class38 {
 		}
 		Class120_Sub14_Sub10.landScapeAsLDSprite = null;
 		return true;
-	}
-
-	static final void method316(final int i) {
-		try {
-			if (i != 2883872) {
-				method312();
-			}
-			Projectile.aClass21_2931.clear();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.C(").append(i).append(')').toString());
-		}
 	}
 
 	static final void method317(final int i, final int i_34_, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final byte i_39_, final int i_40_, final int i_41_, final int i_42_) {

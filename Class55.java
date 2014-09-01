@@ -29,24 +29,13 @@ final class Class55 {
 		}
 	}
 
-	static final Class120_Sub14_Sub22 method485(final int i, final int i_3_, final Buffer class120_sub7) {
-		Class120_Sub14_Sub22 class120_sub14_sub22;
-		try {
-			if (i_3_ != 2951) {
-				return null;
-			}
-			final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, class120_sub7.getJagexString(), class120_sub7.getJagexString(), class120_sub7.getInt(), class120_sub7.getInt(), class120_sub7.getUByte() == 1,
-					class120_sub7.getUByte());
-			final int i_5_ = class120_sub7.getUByte();
-			for (int i_6_ = 0; i_5_ > i_6_; i_6_++) {
-				class120_sub14_sub22_4_.aClass105_3641.addLast(new Class120_Sub4(class120_sub7.getUByte(), class120_sub7.getUByte(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(),
-						class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort()));
-			}
-			class120_sub14_sub22_4_.method1636(12800);
-			class120_sub14_sub22 = class120_sub14_sub22_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ge.A(").append(i).append(',').append(i_3_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(')').toString());
+	static final Class120_Sub14_Sub22 method485(final Buffer buffer, final int i) {
+		final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, buffer.getJagexString(), buffer.getJagexString(), buffer.getInt(), buffer.getInt(), buffer.getUByte() == 1, buffer.getUByte());
+		final int i_5_ = buffer.getUByte();
+		for (int i_6_ = 0; i_5_ > i_6_; i_6_++) {
+			class120_sub14_sub22_4_.aClass105_3641.addLast(new Class120_Sub4(buffer.getUByte(), buffer.getUByte(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort()));
 		}
-		return class120_sub14_sub22;
+		class120_sub14_sub22_4_.method1636();
+		return class120_sub14_sub22_4_;
 	}
 }

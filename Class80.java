@@ -28,7 +28,7 @@ final class Class80 {
 	int anInt739;
 	int anInt740;
 	int anInt741;
-	static boolean aBoolean742;
+	static boolean mouseInsideWorldMap;
 	int[] anIntArray743;
 	short aShort744;
 	int anInt745;
@@ -65,7 +65,7 @@ final class Class80 {
 	int anInt776;
 
 	static {
-		aBoolean742 = false;
+		mouseInsideWorldMap = false;
 		aByteArray761 = new byte[520];
 	}
 

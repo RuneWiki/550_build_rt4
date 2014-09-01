@@ -69,7 +69,7 @@ final class Decimator {
 				Class115.anInt1110 = ClientScript.anInt3558;
 				Class120_Sub12_Sub21.anInt3298 = Class31.anInt250;
 			}
-			Class120_Sub29.aShortArray2777[0] = (short) 1006;
+			Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 			Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
 			Class120_Sub12_Sub29.menuOptionSufix[0] = "";
 			Class186.menuOptionCount = 1;
@@ -125,8 +125,8 @@ final class Decimator {
 		if (Class120_Sub12_Sub33.anInt3401 == 1) {
 			Class120_Sub12_Sub33.anInt3401 = 2;
 		}
-		if (Class120_Sub14_Sub5.anInt3479 == 1) {
-			Class120_Sub14_Sub5.anInt3479 = 2;
+		if (MapFunctionNode.anInt3479 == 1) {
+			MapFunctionNode.anInt3479 = 2;
 		}
 		if (Class15.rectDebugType == 3) {
 			for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
@@ -263,7 +263,7 @@ final class Decimator {
 			GraphicsHD.clipRect(x, y, x + jagexInterface.width, y + jagexInterface.height);
 		}
 		final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.anInt1590) & 0x7ff;
-		if (AbstractGraphicsBuffer.anInt1175 >= 3) {
+		if (AbstractGraphicsBuffer.mapbackState >= 3) {
 			if (!HDToolkit.glEnabled) {
 				GraphicsLD.method2156(x, y, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
 			} else {

@@ -52,28 +52,19 @@ abstract class Class53 {
 		}
 	}
 
-	abstract int method458(int i);
+	abstract int getCompletion(int i);
 
-	abstract void method459(int i, int i_4_);
+	abstract void method459(int id);
 
 	abstract byte[] method460(int i_5_);
 
-	static final Class120_Sub14_Sub8_Sub2 method461(final byte[] is, final byte i) {
-		Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2;
-		try {
-			if (is == null) {
-				return null;
-			}
-			if (i > -59) {
-				return null;
-			}
-			final Class120_Sub14_Sub8_Sub2 class120_sub14_sub8_sub2_6_ = new Class120_Sub14_Sub8_Sub2(is, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
-			Class53_Sub1.resetSpriteInfo();
-			class120_sub14_sub8_sub2 = class120_sub14_sub8_sub2_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.G(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final LDFont constructLDFont(final byte[] data) {
+		if (data == null) {
+			return null;
 		}
-		return class120_sub14_sub8_sub2;
+		final LDFont ldFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+		Class53_Sub1.resetSpriteInfo();
+		return ldFont;
 	}
 
 	public Class53() {

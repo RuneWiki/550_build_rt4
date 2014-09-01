@@ -29,19 +29,6 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return is_0_;
 	}
 
-	static final int method1237(final int i, final int i_2_) {
-		int i_3_;
-		try {
-			if (i_2_ != 16711680) {
-				anIntArray3190 = null;
-			}
-			i_3_ = i >>> 7;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.BA(").append(i).append(',').append(i_2_).append(')').toString());
-		}
-		return i_3_;
-	}
-
 	public static void method1238(final int i) {
 		try {
 			anIntArray3187 = null;
@@ -129,13 +116,9 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void method1189(final int i) {
-		try {
-			super.method1189(i);
-			anIntArray3189 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.N(").append(i).append(')').toString());
-		}
+	final void method1189() {
+		super.method1189();
+		anIntArray3189 = null;
 	}
 
 	@Override
@@ -145,36 +128,36 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 
 	static final void synchronizeKeyCodes() {
 		if (Signlink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
-			Class120_Sub12_Sub23.anIntArray3304[188] = 71;
-			Class120_Sub12_Sub23.anIntArray3304[223] = 28;
-			Class120_Sub12_Sub23.anIntArray3304[219] = 42;
-			Class120_Sub12_Sub23.anIntArray3304[192] = 58;
-			Class120_Sub12_Sub23.anIntArray3304[221] = 43;
-			Class120_Sub12_Sub23.anIntArray3304[190] = 72;
-			Class120_Sub12_Sub23.anIntArray3304[189] = 26;
-			Class120_Sub12_Sub23.anIntArray3304[222] = 59;
-			Class120_Sub12_Sub23.anIntArray3304[186] = 57;
-			Class120_Sub12_Sub23.anIntArray3304[220] = 74;
-			Class120_Sub12_Sub23.anIntArray3304[187] = 27;
-			Class120_Sub12_Sub23.anIntArray3304[191] = 73;
+			Class120_Sub12_Sub23.keyCodes[188] = 71;
+			Class120_Sub12_Sub23.keyCodes[223] = 28;
+			Class120_Sub12_Sub23.keyCodes[219] = 42;
+			Class120_Sub12_Sub23.keyCodes[192] = 58;
+			Class120_Sub12_Sub23.keyCodes[221] = 43;
+			Class120_Sub12_Sub23.keyCodes[190] = 72;
+			Class120_Sub12_Sub23.keyCodes[189] = 26;
+			Class120_Sub12_Sub23.keyCodes[222] = 59;
+			Class120_Sub12_Sub23.keyCodes[186] = 57;
+			Class120_Sub12_Sub23.keyCodes[220] = 74;
+			Class120_Sub12_Sub23.keyCodes[187] = 27;
+			Class120_Sub12_Sub23.keyCodes[191] = 73;
 		} else {
-			Class120_Sub12_Sub23.anIntArray3304[61] = 27;
-			Class120_Sub12_Sub23.anIntArray3304[46] = 72;
+			Class120_Sub12_Sub23.keyCodes[61] = 27;
+			Class120_Sub12_Sub23.keyCodes[46] = 72;
 			if (Signlink.traversalKeyMethod == null) {
-				Class120_Sub12_Sub23.anIntArray3304[192] = 58;
-				Class120_Sub12_Sub23.anIntArray3304[222] = 59;
+				Class120_Sub12_Sub23.keyCodes[192] = 58;
+				Class120_Sub12_Sub23.keyCodes[222] = 59;
 			} else {
-				Class120_Sub12_Sub23.anIntArray3304[520] = 59;
-				Class120_Sub12_Sub23.anIntArray3304[192] = 28;
-				Class120_Sub12_Sub23.anIntArray3304[222] = 58;
+				Class120_Sub12_Sub23.keyCodes[520] = 59;
+				Class120_Sub12_Sub23.keyCodes[192] = 28;
+				Class120_Sub12_Sub23.keyCodes[222] = 58;
 			}
-			Class120_Sub12_Sub23.anIntArray3304[92] = 74;
-			Class120_Sub12_Sub23.anIntArray3304[91] = 42;
-			Class120_Sub12_Sub23.anIntArray3304[93] = 43;
-			Class120_Sub12_Sub23.anIntArray3304[45] = 26;
-			Class120_Sub12_Sub23.anIntArray3304[44] = 71;
-			Class120_Sub12_Sub23.anIntArray3304[47] = 73;
-			Class120_Sub12_Sub23.anIntArray3304[59] = 57;
+			Class120_Sub12_Sub23.keyCodes[92] = 74;
+			Class120_Sub12_Sub23.keyCodes[91] = 42;
+			Class120_Sub12_Sub23.keyCodes[93] = 43;
+			Class120_Sub12_Sub23.keyCodes[45] = 26;
+			Class120_Sub12_Sub23.keyCodes[44] = 71;
+			Class120_Sub12_Sub23.keyCodes[47] = 73;
+			Class120_Sub12_Sub23.keyCodes[59] = 57;
 		}
 	}
 

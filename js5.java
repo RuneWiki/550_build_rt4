@@ -11,70 +11,46 @@ final class js5 {
 	static int lastClickX = 0;
 	private Class53 aClass53_450;
 	private Object[] anObjectArray451;
-	private MasterIndexInfo aClass52_452 = null;
+	private MasterIndexInfo masterIndexInfo = null;
 
-	final boolean method410(String string, final byte i, String string_0_) {
-		boolean bool;
-		try {
-			if (!informationLoaded()) {
-				return false;
-			}
-			string = string.toLowerCase();
-			string_0_ = string_0_.toLowerCase();
-			final int i_1_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
-			if (!method436(i_1_)) {
-				return false;
-			}
-			if (i != -99) {
-				method426(true, false, (byte) 79);
-			}
-			final int i_2_ = aClass52_452.groupFileLookupTable[i_1_].lookupIdentifier(Class120_Sub14_Sub13.method1524(string_0_, 0));
-			bool = fileExists(i_1_, i_2_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.T(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(string_0_ != null ? "{...}" : "null").append(')').toString());
+	final boolean method410(String string, String string_0_) {
+		if (!informationLoaded()) {
+			return false;
 		}
-		return bool;
+		string = string.toLowerCase();
+		string_0_ = string_0_.toLowerCase();
+		final int i_1_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+		if (!method436(i_1_)) {
+			return false;
+		}
+		final int i_2_ = masterIndexInfo.groupFileLookupTable[i_1_].lookupIdentifier(Class120_Sub14_Sub13.toHash(string_0_));
+		return fileExists(i_1_, i_2_);
 	}
 
-	private final void method411(final int i, final int i_3_) {
-		try {
-			if (i == 0) {
-				aClass53_450.method459(i_3_, -6);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.G(").append(i).append(',').append(i_3_).append(')').toString());
-		}
+	private final void method411(final int i_3_) {
+		aClass53_450.method459(i_3_);
 	}
 
-	final int method412(String string, final byte i) {
-		int i_4_;
-		try {
-			if (i != -11) {
-				aClass52_452 = null;
-			}
-			if (!informationLoaded()) {
-				return 0;
-			}
-			string = string.toLowerCase();
-			final int i_5_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, i + 11));
-			i_4_ = method416(i_5_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.EA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	final int getCompletion(String string) {
+		if (!informationLoaded()) {
+			return 0;
 		}
-		return i_4_;
+		string = string.toLowerCase();
+		final int groupId = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+		return getCompletion(groupId);
 	}
 
 	final byte[] getFileSmart(final int groupId) {
 		if (!informationLoaded()) {
 			return null;
 		}
-		if (aClass52_452.anIntArray465.length == 1) {
+		if (masterIndexInfo.anIntArray465.length == 1) {
 			return getFile(0, groupId);
 		}
 		if (!method436(groupId)) {
 			return null;
 		}
-		if (aClass52_452.anIntArray465[groupId] == 1) {
+		if (masterIndexInfo.anIntArray465[groupId] == 1) {
 			return getFile(groupId, 0);
 		}
 		throw new RuntimeException();
@@ -85,7 +61,7 @@ final class js5 {
 			return false;
 		}
 		string = string.toLowerCase();
-		final int i_6_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
+		final int i_6_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
 		if (i_6_ < 0) {
 			return false;
 		}
@@ -99,8 +75,8 @@ final class js5 {
 		int i_8_ = 0;
 		int i_9_ = 0;
 		for (int i_10_ = 0; anObjectArray451.length > i_10_; i_10_++) {
-			if (aClass52_452.groupFileCount[i_10_] > 0) {
-				i_9_ += method416(i_10_);
+			if (masterIndexInfo.groupFileCount[i_10_] > 0) {
+				i_9_ += getCompletion(i_10_);
 				i_8_ += 100;
 			}
 		}
@@ -110,14 +86,14 @@ final class js5 {
 		return i_9_ * 100 / i_8_;
 	}
 
-	private final int method416(final int i) {
-		if (!method436(i)) {
+	private final int getCompletion(final int groupId) {
+		if (!method436(groupId)) {
 			return 0;
 		}
-		if (anObjectArray451[i] != null) {
+		if (anObjectArray451[groupId] != null) {
 			return 100;
 		}
-		return aClass53_450.method458(i);
+		return aClass53_450.getCompletion(groupId);
 	}
 
 	static final Buffer method417() {
@@ -140,7 +116,7 @@ final class js5 {
 		class120_sub7_14_.putByte(Class167.aBoolean1619 ? 1 : 0);
 		class120_sub7_14_.putByte(Class111.anInt1061);
 		class120_sub7_14_.putByte(RuntimeException_Sub1.anInt2142);
-		class120_sub7_14_.putByte(CursorType.anInt1242);
+		class120_sub7_14_.putByte(CursorType.ambientSoundsVolume);
 		class120_sub7_14_.putShort(Class120_Sub12_Sub18.lastFullscreenWidth);
 		class120_sub7_14_.putShort(Class120_Sub12_Sub12.lastFullscreenHeight);
 		class120_sub7_14_.putByte(ParticleEngine.method949());
@@ -155,13 +131,13 @@ final class js5 {
 	}
 
 	private final boolean informationLoaded() {
-		if (aClass52_452 == null) {
-			aClass52_452 = aClass53_450.method462();
-			if (aClass52_452 == null) {
+		if (masterIndexInfo == null) {
+			masterIndexInfo = aClass53_450.method462();
+			if (masterIndexInfo == null) {
 				return false;
 			}
-			anObjectArray451 = new Object[aClass52_452.anInt484];
-			anObjectArrayArray448 = new Object[aClass52_452.anInt484][];
+			anObjectArray451 = new Object[masterIndexInfo.anInt484];
+			anObjectArrayArray448 = new Object[masterIndexInfo.anInt484][];
 		}
 		return true;
 	}
@@ -174,35 +150,29 @@ final class js5 {
 		}
 	}
 
-	final byte[] method420(final boolean bool, final int i, final int i_16_) {
-		byte[] is;
-		try {
-			if (!method423(i, i_16_)) {
-				return null;
-			}
-			if (anObjectArrayArray448[i_16_] == null || anObjectArrayArray448[i_16_][i] == null) {
-				boolean bool_17_ = method424(0, null, i_16_);
+	final byte[] getFile2(final int group, final int file) {
+		if (!method423(file, group)) {
+			return null;
+		}
+		if (anObjectArrayArray448[group] == null || anObjectArrayArray448[group][file] == null) {
+			boolean bool_17_ = method424(0, null, group);
+			if (!bool_17_) {
+				method422(group);
+				bool_17_ = method424(0, null, group);
 				if (!bool_17_) {
-					method422(i_16_);
-					bool_17_ = method424(0, null, i_16_);
-					if (!bool_17_) {
-						return null;
-					}
+					return null;
 				}
 			}
-			final byte[] is_18_ = IdentityKit.method1988(anObjectArrayArray448[i_16_][i], bool);
-			is = is_18_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.I(").append(bool).append(',').append(i).append(',').append(i_16_).append(')').toString());
 		}
-		return is;
+		final byte[] is_18_ = IdentityKit.method1988(anObjectArrayArray448[group][file], false);
+		return is_18_;
 	}
 
 	final int method421() {
 		if (!informationLoaded()) {
 			return -1;
 		}
-		return aClass52_452.anIntArray465.length;
+		return masterIndexInfo.anIntArray465.length;
 	}
 
 	private final void method422(final int i_20_) {
@@ -217,7 +187,7 @@ final class js5 {
 		if (!informationLoaded()) {
 			return false;
 		}
-		if (i_22_ < 0 || i < 0 || aClass52_452.anIntArray465.length <= i_22_ || i >= aClass52_452.anIntArray465[i_22_]) {
+		if (i_22_ < 0 || i < 0 || masterIndexInfo.anIntArray465.length <= i_22_ || i >= masterIndexInfo.anIntArray465[i_22_]) {
 			if (Class90.aBoolean845) {
 				throw new IllegalArgumentException(new StringBuilder(String.valueOf(i_22_)).append(",").append(i).toString());
 			}
@@ -235,11 +205,11 @@ final class js5 {
 			if (anObjectArray451[i_23_] == null) {
 				return false;
 			}
-			final int[] is_24_ = aClass52_452.groupFileIds[i_23_];
-			final int i_25_ = aClass52_452.groupFileCount[i_23_];
+			final int[] is_24_ = masterIndexInfo.groupFileIds[i_23_];
+			final int i_25_ = masterIndexInfo.groupFileCount[i_23_];
 			boolean bool_26_ = true;
 			if (anObjectArrayArray448[i_23_] == null) {
-				anObjectArrayArray448[i_23_] = new Object[aClass52_452.anIntArray465[i_23_]];
+				anObjectArrayArray448[i_23_] = new Object[masterIndexInfo.anIntArray465[i_23_]];
 			}
 			final Object[] objects = anObjectArrayArray448[i_23_];
 			for (int i_27_ = i; i_27_ < i_25_; i_27_++) {
@@ -271,7 +241,7 @@ final class js5 {
 			} catch (final RuntimeException runtimeexception) {
 				throw EnumType.method1428(runtimeexception,
 						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2))
-								.append(",").append(aClass52_452.groupCrcs[i_23_]).append(",").append(aClass52_452.indexCrc).toString());
+								.append(",").append(masterIndexInfo.groupCrcs[i_23_]).append(",").append(masterIndexInfo.indexCrc).toString());
 			}
 			if (clearOnUnpack) {
 				anObjectArray451[i_23_] = null;
@@ -353,75 +323,59 @@ final class js5 {
 		return false;
 	}
 
-	final void method426(final boolean bool, final boolean bool_47_, final byte i) {
-		try {
-			if (i != -20) {
-				aClass52_452 = null;
+	final void method426(final boolean clearGroupsHash, final boolean clearFilesHash) {
+		if (informationLoaded()) {
+			if (clearFilesHash) {
+				masterIndexInfo.groupFileLookupTable = null;
+				masterIndexInfo.groupFileHashes = null;
 			}
-			if (informationLoaded()) {
-				if (bool_47_) {
-					aClass52_452.groupFileLookupTable = null;
-					aClass52_452.groupFileHashes = null;
-				}
-				if (bool) {
-					aClass52_452.groupHashes = null;
-					aClass52_452.groupLookupTable = null;
-				}
+			if (clearGroupsHash) {
+				masterIndexInfo.groupHashes = null;
+				masterIndexInfo.groupLookupTable = null;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.S(").append(bool).append(',').append(bool_47_).append(',').append(i).append(')').toString());
 		}
 	}
 
 	final void method427(final int i, String string) {
 		try {
 			if (i <= 6) {
-				method431(86, 36, null);
+				getFileXTEA(86, 36, null);
 			}
 			if (informationLoaded()) {
 				string = string.toLowerCase();
-				final int i_48_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
-				method411(0, i_48_);
+				final int i_48_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+				method411(i_48_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.C(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
-	final byte[] method428(final int i, String string, String string_49_) {
-		byte[] is;
-		try {
-			if (!informationLoaded()) {
-				return null;
-			}
-			string_49_ = string_49_.toLowerCase();
-			if (i < 62) {
-				return null;
-			}
-			string = string.toLowerCase();
-			final int i_50_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string_49_, 0));
-			if (!method436(i_50_)) {
-				return null;
-			}
-			final int i_51_ = aClass52_452.groupFileLookupTable[i_50_].lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
-			is = getFile(i_50_, i_51_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.H(").append(i).append(',').append(string != null ? "{...}" : "null").append(',').append(string_49_ != null ? "{...}" : "null").append(')').toString());
+	final byte[] method428(String string, String string_49_) {
+		if (!informationLoaded()) {
+			return null;
 		}
-		return is;
+		string_49_ = string_49_.toLowerCase();
+		string = string.toLowerCase();
+		final int i_50_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string_49_));
+		if (!method436(i_50_)) {
+			return null;
+		}
+		final int i_51_ = masterIndexInfo.groupFileLookupTable[i_50_].lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+		return getFile(i_50_, i_51_);
 	}
 
 	final boolean method429(final int i) {
 		if (!informationLoaded()) {
 			return false;
 		}
-		if (aClass52_452.anIntArray465.length == 1) {
+		if (masterIndexInfo.anIntArray465.length == 1) {
 			return fileExists(0, i);
 		}
 		if (!method436(i)) {
 			return false;
 		}
-		if (aClass52_452.anIntArray465[i] == 1) {
+		if (masterIndexInfo.anIntArray465[i] == 1) {
 			return fileExists(i, 0);
 		}
 		throw new RuntimeException();
@@ -432,7 +386,7 @@ final class js5 {
 			return false;
 		}
 		boolean bool_54_ = true;
-		for (final int i_55_ : aClass52_452.groupIds) {
+		for (final int i_55_ : masterIndexInfo.groupIds) {
 			if (anObjectArray451[i_55_] == null) {
 				method422(i_55_);
 				if (anObjectArray451[i_55_] == null) {
@@ -443,7 +397,7 @@ final class js5 {
 		return bool_54_;
 	}
 
-	final byte[] method431(final int i, final int i_56_, final int[] is) {
+	final byte[] getFileXTEA(final int i, final int i_56_, final int[] is) {
 		if (!method423(i, i_56_)) {
 			return null;
 		}
@@ -460,46 +414,37 @@ final class js5 {
 		final byte[] is_59_ = IdentityKit.method1988(anObjectArrayArray448[i_56_][i], false);
 		if (clearOnUse) {
 			anObjectArrayArray448[i_56_][i] = null;
-			if (aClass52_452.anIntArray465[i_56_] == 1) {
+			if (masterIndexInfo.anIntArray465[i_56_] == 1) {
 				anObjectArrayArray448[i_56_] = null;
 			}
 		}
 		return is_59_;
 	}
 
-	final int method432(String string) {
+	final int getGroupId(String string) {
 		if (!informationLoaded()) {
 			return -1;
 		}
 		string = string.toLowerCase();
-		final int i_60_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
-		if (!method436(i_60_)) {
+		final int id = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+		if (!method436(id)) {
 			return -1;
 		}
-		return i_60_;
+		return id;
 	}
 
-	final int[] method433(final boolean bool, final int i) {
-		int[] is;
-		try {
-			if (!bool) {
-				method432(null);
-			}
-			if (!method436(i)) {
-				return null;
-			}
-			int[] is_61_ = aClass52_452.groupFileIds[i];
-			if (is_61_ == null) {
-				is_61_ = new int[aClass52_452.groupFileCount[i]];
-				for (int i_62_ = 0; i_62_ < is_61_.length; i_62_++) {
-					is_61_[i_62_] = i_62_;
-				}
-			}
-			is = is_61_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.AA(").append(bool).append(',').append(i).append(')').toString());
+	final int[] getFileIds(final int group) {
+		if (!method436(group)) {
+			return null;
 		}
-		return is;
+		int[] fileIds = masterIndexInfo.groupFileIds[group];
+		if (fileIds == null) {
+			fileIds = new int[masterIndexInfo.groupFileCount[group]];
+			for (int fileId = 0; fileId < fileIds.length; fileId++) {
+				fileIds[fileId] = fileId;
+			}
+		}
+		return fileIds;
 	}
 
 	static final boolean loadInterface(final int group) {
@@ -535,29 +480,20 @@ final class js5 {
 		return true;
 	}
 
-	final boolean method435(String string, final int i) {
-		boolean bool;
-		try {
-			if (!informationLoaded()) {
-				return false;
-			}
-			string = string.toLowerCase();
-			if (i != 2) {
-				method415();
-			}
-			final int i_66_ = aClass52_452.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.method1524(string, 0));
-			bool = allFilesComplete(i_66_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.CA(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	final boolean allFilesComplete(String string) {
+		if (!informationLoaded()) {
+			return false;
 		}
-		return bool;
+		string = string.toLowerCase();
+		final int groupId = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+		return allFilesComplete(groupId);
 	}
 
 	private final boolean method436(final int i) {
 		if (!informationLoaded()) {
 			return false;
 		}
-		if (i < 0 || aClass52_452.anIntArray465.length <= i || aClass52_452.anIntArray465[i] == 0) {
+		if (i < 0 || masterIndexInfo.anIntArray465.length <= i || masterIndexInfo.anIntArray465[i] == 0) {
 			if (!Class90.aBoolean845) {
 				return false;
 			}
@@ -566,24 +502,15 @@ final class js5 {
 		return true;
 	}
 
-	final int method437(final int i, final byte i_68_) {
-		int i_69_;
-		try {
-			if (!informationLoaded()) {
-				return -1;
-			}
-			final int i_70_ = aClass52_452.groupLookupTable.lookupIdentifier(i);
-			if (!method436(i_70_)) {
-				return -1;
-			}
-			if (i_68_ != -115) {
-				return -24;
-			}
-			i_69_ = i_70_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.L(").append(i).append(',').append(i_68_).append(')').toString());
+	final int method437(final int i) {
+		if (!informationLoaded()) {
+			return -1;
 		}
-		return i_69_;
+		final int i_70_ = masterIndexInfo.groupLookupTable.lookupIdentifier(i);
+		if (!method436(i_70_)) {
+			return -1;
+		}
+		return i_70_;
 	}
 
 	final void clearFiles(final int group) {
@@ -598,7 +525,7 @@ final class js5 {
 		if (!informationLoaded()) {
 			throw new IllegalStateException("");
 		}
-		return aClass52_452.indexCrc;
+		return masterIndexInfo.indexCrc;
 	}
 
 	final boolean fileExists(final int group, final int file) {
@@ -622,11 +549,11 @@ final class js5 {
 		if (!method436(i)) {
 			return 0;
 		}
-		return aClass52_452.anIntArray465[i];
+		return masterIndexInfo.anIntArray465[i];
 	}
 
 	final byte[] getFile(final int i, final int i_77_) {
-		return method431(i_77_, i, null);
+		return getFileXTEA(i_77_, i, null);
 	}
 
 	js5(final Class53 class53, final boolean bool, final boolean bool_78_) {

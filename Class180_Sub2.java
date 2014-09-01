@@ -14,14 +14,14 @@ final class Class180_Sub2 extends SceneGraphNode {
 	private static int[] anIntArray2853 = Rasterizer.cosineTable;
 	private short aShort2854;
 	int anInt2855;
-	int anInt2856 = 0;
+	int triangleCount = 0;
 	short[] triangleColors;
 	private static int[] anIntArray2858;
 	byte[] aByteArray2859;
-	int[] vertexVSkins;
+	int[] vertexLabelIds;
 	int[] yVertices;
 	private static int anInt2862 = 0;
-	int[][] anIntArrayArray2863;
+	int[][] triangleLabels;
 	byte[] aByteArray2864;
 	private short aShort2865;
 	short aShort2866;
@@ -30,7 +30,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	private boolean aBoolean2869 = false;
 	byte[] aByteArray2870;
 	Class158[] aClass158Array2871;
-	int[] anIntArray2872;
+	int[] triangleLabelIds;
 	short[] aShortArray2873;
 	private short aShort2874;
 	short[] texTrianglesB;
@@ -42,7 +42,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	int[] zVertices;
 	private static int[] anIntArray2882;
 	private static int[] anIntArray2883;
-	int[][] anIntArrayArray2884;
+	int[][] vertexLabels;
 	byte[] texTrianglesType;
 	int anInt2886;
 	Class169[] aClass169Array2887;
@@ -54,7 +54,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	Class26[] aClass26Array2893;
 	short aShort2894;
 	byte[] aByteArray2895;
-	int anInt2896 = 0;
+	int vertexCount = 0;
 	int[] trianglesA;
 	int[] trianglesC;
 	byte aByte2899 = 0;
@@ -72,7 +72,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	final void method2279(final int i) {
 		final int i_0_ = anIntArray2858[i];
 		final int i_1_ = anIntArray2853[i];
-		for (int i_2_ = 0; i_2_ < this.anInt2896; i_2_++) {
+		for (int i_2_ = 0; i_2_ < this.vertexCount; i_2_++) {
 			final int i_3_ = this.zVertices[i_2_] * i_0_ + this.xVertices[i_2_] * i_1_ >> 16;
 			this.zVertices[i_2_] = this.zVertices[i_2_] * i_1_ - this.xVertices[i_2_] * i_0_ >> 16;
 			this.xVertices[i_2_] = i_3_;
@@ -84,20 +84,20 @@ final class Class180_Sub2 extends SceneGraphNode {
 		final int i_6_ = class180_sub2_4_.xVertices[i];
 		final int i_7_ = class180_sub2_4_.yVertices[i];
 		final int i_8_ = class180_sub2_4_.zVertices[i];
-		for (int i_9_ = 0; i_9_ < this.anInt2896; i_9_++) {
+		for (int i_9_ = 0; i_9_ < this.vertexCount; i_9_++) {
 			if (i_6_ == this.xVertices[i_9_] && i_7_ == this.yVertices[i_9_] && i_8_ == this.zVertices[i_9_]) {
 				this.aShortArray2852[i_9_] |= i_5_;
 				return i_9_;
 			}
 		}
-		this.xVertices[this.anInt2896] = i_6_;
-		this.yVertices[this.anInt2896] = i_7_;
-		this.zVertices[this.anInt2896] = i_8_;
-		this.aShortArray2852[this.anInt2896] = i_5_;
-		if (class180_sub2_4_.vertexVSkins != null) {
-			this.vertexVSkins[this.anInt2896] = class180_sub2_4_.vertexVSkins[i];
+		this.xVertices[this.vertexCount] = i_6_;
+		this.yVertices[this.vertexCount] = i_7_;
+		this.zVertices[this.vertexCount] = i_8_;
+		this.aShortArray2852[this.vertexCount] = i_5_;
+		if (class180_sub2_4_.vertexLabelIds != null) {
+			this.vertexLabelIds[this.vertexCount] = class180_sub2_4_.vertexLabelIds[i];
 		}
-		return this.anInt2896++;
+		return this.vertexCount++;
 	}
 
 	@Override
@@ -109,7 +109,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void method2281() {
-		for (int i = 0; i < this.anInt2896; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_10_ = this.xVertices[i];
 			this.xVertices[i] = this.zVertices[i];
 			this.zVertices[i] = -i_10_;
@@ -117,62 +117,62 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	final void method2282(final int i, final int i_11_, final int i_12_) {
-		for (int i_13_ = 0; i_13_ < this.anInt2896; i_13_++) {
-			this.xVertices[i_13_] += i;
-			this.yVertices[i_13_] += i_11_;
-			this.zVertices[i_13_] += i_12_;
+	final void translate(final int x, final int y, final int z) {
+		for (int id = 0; id < this.vertexCount; id++) {
+			this.xVertices[id] += x;
+			this.yVertices[id] += y;
+			this.zVertices[id] += z;
 		}
 		method2296();
 	}
 
-	final void method2283() {
-		if (this.vertexVSkins != null) {
+	final void createLabels() {
+		if (this.vertexLabelIds != null) {
 			final int[] is = new int[256];
 			int i = 0;
-			for (int i_14_ = 0; i_14_ < this.anInt2896; i_14_++) {
-				final int i_15_ = this.vertexVSkins[i_14_];
+			for (int i_14_ = 0; i_14_ < this.vertexCount; i_14_++) {
+				final int i_15_ = this.vertexLabelIds[i_14_];
 				is[i_15_]++;
 				if (i_15_ > i) {
 					i = i_15_;
 				}
 			}
-			this.anIntArrayArray2884 = new int[i + 1][];
+			this.vertexLabels = new int[i + 1][];
 			for (int i_16_ = 0; i_16_ <= i; i_16_++) {
-				this.anIntArrayArray2884[i_16_] = new int[is[i_16_]];
+				this.vertexLabels[i_16_] = new int[is[i_16_]];
 				is[i_16_] = 0;
 			}
-			for (int i_17_ = 0; i_17_ < this.anInt2896; i_17_++) {
-				final int i_18_ = this.vertexVSkins[i_17_];
-				this.anIntArrayArray2884[i_18_][is[i_18_]++] = i_17_;
+			for (int i_17_ = 0; i_17_ < this.vertexCount; i_17_++) {
+				final int i_18_ = this.vertexLabelIds[i_17_];
+				this.vertexLabels[i_18_][is[i_18_]++] = i_17_;
 			}
-			this.vertexVSkins = null;
+			this.vertexLabelIds = null;
 		}
-		if (this.anIntArray2872 != null) {
+		if (this.triangleLabelIds != null) {
 			final int[] is = new int[256];
 			int i = 0;
-			for (int i_19_ = 0; i_19_ < this.anInt2856; i_19_++) {
-				final int i_20_ = this.anIntArray2872[i_19_];
+			for (int i_19_ = 0; i_19_ < this.triangleCount; i_19_++) {
+				final int i_20_ = this.triangleLabelIds[i_19_];
 				is[i_20_]++;
 				if (i_20_ > i) {
 					i = i_20_;
 				}
 			}
-			this.anIntArrayArray2863 = new int[i + 1][];
+			this.triangleLabels = new int[i + 1][];
 			for (int i_21_ = 0; i_21_ <= i; i_21_++) {
-				this.anIntArrayArray2863[i_21_] = new int[is[i_21_]];
+				this.triangleLabels[i_21_] = new int[is[i_21_]];
 				is[i_21_] = 0;
 			}
-			for (int i_22_ = 0; i_22_ < this.anInt2856; i_22_++) {
-				final int i_23_ = this.anIntArray2872[i_22_];
-				this.anIntArrayArray2863[i_23_][is[i_23_]++] = i_22_;
+			for (int i_22_ = 0; i_22_ < this.triangleCount; i_22_++) {
+				final int i_23_ = this.triangleLabelIds[i_22_];
+				this.triangleLabels[i_23_][is[i_23_]++] = i_22_;
 			}
-			this.anIntArray2872 = null;
+			this.triangleLabelIds = null;
 		}
 	}
 
 	final void method2284() {
-		for (int i = 0; i < this.anInt2896; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			this.xVertices[i] = -this.xVertices[i];
 			this.zVertices[i] = -this.zVertices[i];
 		}
@@ -180,7 +180,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_, final int i_30_, final long l, final int i_31_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_, final int i_30_, final long l, final int i_31_, final ParticleEngine class108_sub2) {
 		/* empty */
 	}
 
@@ -219,7 +219,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 		i_54_ = (i_54_ >> 1) - i_32_;
 		if (i_54_ != 0) {
-			method2282(0, i_54_, 0);
+			translate(0, i_54_, 0);
 		}
 	}
 
@@ -234,7 +234,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void method2286() {
-		for (int i = 0; i < this.anInt2896; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_59_ = this.zVertices[i];
 			this.zVertices[i] = this.xVertices[i];
 			this.xVertices[i] = -i_59_;
@@ -248,10 +248,10 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void method2287() {
-		for (int i = 0; i < this.anInt2896; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			this.zVertices[i] = -this.zVertices[i];
 		}
-		for (int i = 0; i < this.anInt2856; i++) {
+		for (int i = 0; i < this.triangleCount; i++) {
 			final int i_62_ = this.trianglesA[i];
 			this.trianglesA[i] = this.trianglesC[i];
 			this.trianglesC[i] = i_62_;
@@ -262,14 +262,14 @@ final class Class180_Sub2 extends SceneGraphNode {
 	final Class180_Sub2 method2288() {
 		final Class180_Sub2 class180_sub2_63_ = new Class180_Sub2();
 		if (this.aByteArray2895 != null) {
-			class180_sub2_63_.aByteArray2895 = new byte[this.anInt2856];
-			for (int i = 0; i < this.anInt2856; i++) {
+			class180_sub2_63_.aByteArray2895 = new byte[this.triangleCount];
+			for (int i = 0; i < this.triangleCount; i++) {
 				class180_sub2_63_.aByteArray2895[i] = this.aByteArray2895[i];
 			}
 		}
-		class180_sub2_63_.anInt2896 = this.anInt2896;
+		class180_sub2_63_.vertexCount = this.vertexCount;
 		class180_sub2_63_.anInt2886 = this.anInt2886;
-		class180_sub2_63_.anInt2856 = this.anInt2856;
+		class180_sub2_63_.triangleCount = this.triangleCount;
 		class180_sub2_63_.anInt2855 = this.anInt2855;
 		class180_sub2_63_.xVertices = this.xVertices;
 		class180_sub2_63_.yVertices = this.yVertices;
@@ -295,10 +295,10 @@ final class Class180_Sub2 extends SceneGraphNode {
 		class180_sub2_63_.aByteArray2870 = this.aByteArray2870;
 		class180_sub2_63_.aByteArray2859 = this.aByteArray2859;
 		class180_sub2_63_.aByteArray2851 = this.aByteArray2851;
-		class180_sub2_63_.vertexVSkins = this.vertexVSkins;
-		class180_sub2_63_.anIntArray2872 = this.anIntArray2872;
-		class180_sub2_63_.anIntArrayArray2884 = this.anIntArrayArray2884;
-		class180_sub2_63_.anIntArrayArray2863 = this.anIntArrayArray2863;
+		class180_sub2_63_.vertexLabelIds = this.vertexLabelIds;
+		class180_sub2_63_.triangleLabelIds = this.triangleLabelIds;
+		class180_sub2_63_.vertexLabels = this.vertexLabels;
+		class180_sub2_63_.triangleLabels = this.triangleLabels;
 		class180_sub2_63_.aClass26Array2878 = this.aClass26Array2878;
 		class180_sub2_63_.aClass115Array2880 = this.aClass115Array2880;
 		class180_sub2_63_.aShort2894 = this.aShort2894;
@@ -373,8 +373,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		i_80_ += i_77_;
 		final int i_93_ = i_80_;
 		i_80_ += i_78_;
-		this.anInt2896 = i;
-		this.anInt2856 = i_69_;
+		this.vertexCount = i;
+		this.triangleCount = i_69_;
 		this.anInt2855 = i_70_;
 		this.xVertices = new int[i];
 		this.yVertices = new int[i];
@@ -389,7 +389,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.texTrianglesC = new short[i_70_];
 		}
 		if (i_75_ == 1) {
-			this.vertexVSkins = new int[i];
+			this.vertexLabelIds = new int[i];
 		}
 		if (i_71_ == 1) {
 			this.aByteArray2895 = new byte[i_69_];
@@ -405,7 +405,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2864 = new byte[i_69_];
 		}
 		if (i_74_ == 1) {
-			this.anIntArray2872 = new int[i_69_];
+			this.triangleLabelIds = new int[i_69_];
 		}
 		this.triangleColors = new short[i_69_];
 		class120_sub7.pos = i_81_;
@@ -437,7 +437,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			i_95_ = this.yVertices[i_97_];
 			i_96_ = this.zVertices[i_97_];
 			if (i_75_ == 1) {
-				this.vertexVSkins[i_97_] = class120_sub7_68_.getUByte();
+				this.vertexLabelIds[i_97_] = class120_sub7_68_.getUByte();
 			}
 		}
 		class120_sub7.pos = i_89_;
@@ -474,7 +474,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				this.aByteArray2864[i_102_] = class120_sub7_67_.getByte();
 			}
 			if (i_74_ == 1) {
-				this.anIntArray2872[i_102_] = class120_sub7_68_.getUByte();
+				this.triangleLabelIds[i_102_] = class120_sub7_68_.getUByte();
 			}
 		}
 		this.anInt2886 = -1;
@@ -593,14 +593,14 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (is == null) {
 			return null;
 		}
-		if(i == 1570)
-		 is = ReadFile("c:/51223.dat");
+		//if(i == 1570)
+		// is = ReadFile("c:/51223.dat");//TODO
 		return new Class180_Sub2(is);
 	}
 
 	final void retexture(final short i, final short i_116_) {
 		if (this.aShortArray2850 != null) {
-			for (int i_117_ = 0; i_117_ < this.anInt2856; i_117_++) {
+			for (int i_117_ = 0; i_117_ < this.triangleCount; i_117_++) {
 				if (this.aShortArray2850[i_117_] == i) {
 					this.aShortArray2850[i_117_] = i_116_;
 				}
@@ -612,7 +612,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (i_119_ != 0) {
 			final int i_120_ = anIntArray2858[i_119_];
 			final int i_121_ = anIntArray2853[i_119_];
-			for (int i_122_ = 0; i_122_ < this.anInt2896; i_122_++) {
+			for (int i_122_ = 0; i_122_ < this.vertexCount; i_122_++) {
 				final int i_123_ = this.yVertices[i_122_] * i_120_ + this.xVertices[i_122_] * i_121_ >> 16;
 				this.yVertices[i_122_] = this.yVertices[i_122_] * i_121_ - this.xVertices[i_122_] * i_120_ >> 16;
 				this.xVertices[i_122_] = i_123_;
@@ -621,7 +621,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (i != 0) {
 			final int i_124_ = anIntArray2858[i];
 			final int i_125_ = anIntArray2853[i];
-			for (int i_126_ = 0; i_126_ < this.anInt2896; i_126_++) {
+			for (int i_126_ = 0; i_126_ < this.vertexCount; i_126_++) {
 				final int i_127_ = this.yVertices[i_126_] * i_125_ - this.zVertices[i_126_] * i_124_ >> 16;
 				this.zVertices[i_126_] = this.yVertices[i_126_] * i_124_ + this.zVertices[i_126_] * i_125_ >> 16;
 				this.yVertices[i_126_] = i_127_;
@@ -630,7 +630,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (i_118_ != 0) {
 			final int i_128_ = anIntArray2858[i_118_];
 			final int i_129_ = anIntArray2853[i_118_];
-			for (int i_130_ = 0; i_130_ < this.anInt2896; i_130_++) {
+			for (int i_130_ = 0; i_130_ < this.vertexCount; i_130_++) {
 				final int i_131_ = this.zVertices[i_130_] * i_128_ + this.xVertices[i_130_] * i_129_ >> 16;
 				this.zVertices[i_130_] = this.zVertices[i_130_] * i_129_ - this.xVertices[i_130_] * i_128_ >> 16;
 				this.xVertices[i_130_] = i_131_;
@@ -736,8 +736,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		final int i_177_ = i_157_;
 		i_157_ += i_153_ + i_154_ * 2;
 		final int i_178_ = i_157_;
-		this.anInt2896 = i;
-		this.anInt2856 = i_138_;
+		this.vertexCount = i;
+		this.triangleCount = i_138_;
 		this.anInt2855 = i_139_;
 		this.xVertices = new int[i];
 		this.yVertices = new int[i];
@@ -746,7 +746,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		this.trianglesB = new int[i_138_];
 		this.trianglesC = new int[i_138_];
 		if (i_146_ == 1) {
-			this.vertexVSkins = new int[i];
+			this.vertexLabelIds = new int[i];
 		}
 		if (bool) {
 			this.aByteArray2895 = new byte[i_138_];
@@ -760,7 +760,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2864 = new byte[i_138_];
 		}
 		if (i_144_ == 1) {
-			this.anIntArray2872 = new int[i_138_];
+			this.triangleLabelIds = new int[i_138_];
 		}
 		if (i_145_ == 1) {
 			this.aShortArray2850 = new short[i_138_];
@@ -815,7 +815,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			i_180_ = this.yVertices[i_182_];
 			i_181_ = this.zVertices[i_182_];
 			if (i_146_ == 1) {
-				this.vertexVSkins[i_182_] = class120_sub7_135_.getUByte();
+				this.vertexLabelIds[i_182_] = class120_sub7_135_.getUByte();
 			}
 		}
 		class120_sub7.pos = i_168_;
@@ -837,7 +837,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				this.aByteArray2864[i_187_] = class120_sub7_134_.getByte();
 			}
 			if (i_144_ == 1) {
-				this.anIntArray2872[i_187_] = class120_sub7_135_.getUByte();
+				this.triangleLabelIds[i_187_] = class120_sub7_135_.getUByte();
 			}
 			if (i_145_ == 1) {
 				this.aShortArray2850[i_187_] = (short) (class120_sub7_136_.getUShort() - 1);
@@ -987,15 +987,15 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final int method2295(final int i, final int i_203_, final int i_204_, final byte i_205_, final short i_206_, final byte i_207_) {
-		this.trianglesA[this.anInt2856] = i;
-		this.trianglesB[this.anInt2856] = i_203_;
-		this.trianglesC[this.anInt2856] = i_204_;
-		this.aByteArray2895[this.anInt2856] = i_205_;
-		this.aByteArray2876[this.anInt2856] = (byte) -1;
-		this.triangleColors[this.anInt2856] = i_206_;
-		this.aShortArray2850[this.anInt2856] = (short) -1;
-		this.aByteArray2864[this.anInt2856] = i_207_;
-		return this.anInt2856++;
+		this.trianglesA[this.triangleCount] = i;
+		this.trianglesB[this.triangleCount] = i_203_;
+		this.trianglesC[this.triangleCount] = i_204_;
+		this.aByteArray2895[this.triangleCount] = i_205_;
+		this.aByteArray2876[this.triangleCount] = (byte) -1;
+		this.triangleColors[this.triangleCount] = i_206_;
+		this.aShortArray2850[this.triangleCount] = (short) -1;
+		this.aByteArray2864[this.triangleCount] = i_207_;
+		return this.triangleCount++;
 	}
 
 	private final void method2296() {
@@ -1008,7 +1008,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	private final void method2297(final int i) {
 		final int i_208_ = anIntArray2858[i];
 		final int i_209_ = anIntArray2853[i];
-		for (int i_210_ = 0; i_210_ < this.anInt2896; i_210_++) {
+		for (int i_210_ = 0; i_210_ < this.vertexCount; i_210_++) {
 			final int i_211_ = this.yVertices[i_210_] * i_209_ - this.zVertices[i_210_] * i_208_ >> 16;
 			this.zVertices[i_210_] = this.yVertices[i_210_] * i_208_ + this.zVertices[i_210_] * i_209_ >> 16;
 			this.yVertices[i_210_] = i_211_;
@@ -1021,10 +1021,10 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void method2299() {
-		this.vertexVSkins = null;
-		this.anIntArray2872 = null;
-		this.anIntArrayArray2884 = null;
-		this.anIntArrayArray2863 = null;
+		this.vertexLabelIds = null;
+		this.triangleLabelIds = null;
+		this.vertexLabels = null;
+		this.triangleLabels = null;
 	}
 
 	@Override
@@ -1081,18 +1081,18 @@ final class Class180_Sub2 extends SceneGraphNode {
 			}
 		}
 		if (i_219_ >= 3 && bool) {
-			for (int i_229_ = 0; i_229_ < this.anInt2856; i_229_++) {
+			for (int i_229_ = 0; i_229_ < this.triangleCount; i_229_++) {
 				if (anIntArray2882[this.trianglesA[i_229_]] == anInt2862 && anIntArray2882[this.trianglesB[i_229_]] == anInt2862 && anIntArray2882[this.trianglesC[i_229_]] == anInt2862) {
 					if (this.aByteArray2895 == null) {
-						this.aByteArray2895 = new byte[this.anInt2856];
+						this.aByteArray2895 = new byte[this.triangleCount];
 					}
 					this.aByteArray2895[i_229_] = (byte) 2;
 				}
 			}
-			for (int i_230_ = 0; i_230_ < class180_sub2_218_.anInt2856; i_230_++) {
+			for (int i_230_ = 0; i_230_ < class180_sub2_218_.triangleCount; i_230_++) {
 				if (anIntArray2883[class180_sub2_218_.trianglesA[i_230_]] == anInt2862 && anIntArray2883[class180_sub2_218_.trianglesB[i_230_]] == anInt2862 && anIntArray2883[class180_sub2_218_.trianglesC[i_230_]] == anInt2862) {
 					if (class180_sub2_218_.aByteArray2895 == null) {
-						class180_sub2_218_.aByteArray2895 = new byte[class180_sub2_218_.anInt2856];
+						class180_sub2_218_.aByteArray2895 = new byte[class180_sub2_218_.triangleCount];
 					}
 					class180_sub2_218_.aByteArray2895[i_230_] = (byte) 2;
 				}
@@ -1123,16 +1123,16 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final int method2302(final int i, final int i_242_, final int i_243_) {
-		for (int i_244_ = 0; i_244_ < this.anInt2896; i_244_++) {
+		for (int i_244_ = 0; i_244_ < this.vertexCount; i_244_++) {
 			if (this.xVertices[i_244_] == i && this.yVertices[i_244_] == i_242_ && this.zVertices[i_244_] == i_243_) {
 				return i_244_;
 			}
 		}
-		this.xVertices[this.anInt2896] = i;
-		this.yVertices[this.anInt2896] = i_242_;
-		this.zVertices[this.anInt2896] = i_243_;
-		this.anInt2886 = ++this.anInt2896;
-		return this.anInt2896 - 1;
+		this.xVertices[this.vertexCount] = i;
+		this.yVertices[this.vertexCount] = i_242_;
+		this.zVertices[this.vertexCount] = i_243_;
+		this.anInt2886 = ++this.vertexCount;
+		return this.vertexCount - 1;
 	}
 
 	final void method2303() {
@@ -1141,7 +1141,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			for (int i = 0; i < this.anInt2886; i++) {
 				this.aClass26Array2878[i] = new Class26();
 			}
-			for (int i = 0; i < this.anInt2856; i++) {
+			for (int i = 0; i < this.triangleCount; i++) {
 				final int i_245_ = this.trianglesA[i];
 				final int i_246_ = this.trianglesB[i];
 				final int i_247_ = this.trianglesC[i];
@@ -1189,7 +1189,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 					class26.anInt156++;
 				} else if (i_258_ == 1) {
 					if (this.aClass115Array2880 == null) {
-						this.aClass115Array2880 = new Class115[this.anInt2856];
+						this.aClass115Array2880 = new Class115[this.triangleCount];
 					}
 					final Class115 class115 = this.aClass115Array2880[i] = new Class115();
 					class115.anInt1111 = i_254_;
@@ -1269,9 +1269,9 @@ final class Class180_Sub2 extends SceneGraphNode {
 		Class180_Sub2 class180_sub2_278_;
 		if (bool) {
 			class180_sub2_278_ = new Class180_Sub2();
-			class180_sub2_278_.anInt2896 = this.anInt2896;
+			class180_sub2_278_.vertexCount = this.vertexCount;
 			class180_sub2_278_.anInt2886 = this.anInt2886;
-			class180_sub2_278_.anInt2856 = this.anInt2856;
+			class180_sub2_278_.triangleCount = this.triangleCount;
 			class180_sub2_278_.anInt2855 = this.anInt2855;
 			class180_sub2_278_.trianglesA = this.trianglesA;
 			class180_sub2_278_.trianglesB = this.trianglesB;
@@ -1295,10 +1295,10 @@ final class Class180_Sub2 extends SceneGraphNode {
 			class180_sub2_278_.aByteArray2870 = this.aByteArray2870;
 			class180_sub2_278_.aByteArray2859 = this.aByteArray2859;
 			class180_sub2_278_.aByteArray2851 = this.aByteArray2851;
-			class180_sub2_278_.vertexVSkins = this.vertexVSkins;
-			class180_sub2_278_.anIntArray2872 = this.anIntArray2872;
-			class180_sub2_278_.anIntArrayArray2884 = this.anIntArrayArray2884;
-			class180_sub2_278_.anIntArrayArray2863 = this.anIntArrayArray2863;
+			class180_sub2_278_.vertexLabelIds = this.vertexLabelIds;
+			class180_sub2_278_.triangleLabelIds = this.triangleLabelIds;
+			class180_sub2_278_.vertexLabels = this.vertexLabels;
+			class180_sub2_278_.triangleLabels = this.triangleLabels;
 			class180_sub2_278_.aShort2894 = this.aShort2894;
 			class180_sub2_278_.aShort2866 = this.aShort2866;
 			class180_sub2_278_.aClass26Array2878 = this.aClass26Array2878;
@@ -1312,7 +1312,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				class180_sub2_278_.zVertices = SpotAnimType.arrayCopy(this.zVertices);
 			} else {
 				class180_sub2_278_.xVertices = this.xVertices;
-				class180_sub2_278_.yVertices = new int[class180_sub2_278_.anInt2896];
+				class180_sub2_278_.yVertices = new int[class180_sub2_278_.vertexCount];
 				class180_sub2_278_.zVertices = this.zVertices;
 			}
 		} else {
@@ -1331,7 +1331,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				final int i_288_ = i_286_ * (128 - i_283_) + i_287_ * i_283_ >> 7;
 				class180_sub2_278_.yVertices[i_279_] = this.yVertices[i_279_] + i_288_ - i_271_;
 			}
-			for (int i_289_ = class180_sub2_278_.anInt2886; i_289_ < class180_sub2_278_.anInt2896; i_289_++) {
+			for (int i_289_ = class180_sub2_278_.anInt2886; i_289_ < class180_sub2_278_.vertexCount; i_289_++) {
 				final int i_290_ = this.xVertices[i_289_] + i_270_;
 				final int i_291_ = this.zVertices[i_289_] + i_272_;
 				final int i_292_ = i_290_ & 0x7f;
@@ -1363,7 +1363,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 					class180_sub2_278_.yVertices[i_299_] = this.yVertices[i_299_];
 				}
 			}
-			for (int i_310_ = class180_sub2_278_.anInt2886; i_310_ < class180_sub2_278_.anInt2896; i_310_++) {
+			for (int i_310_ = class180_sub2_278_.anInt2886; i_310_ < class180_sub2_278_.vertexCount; i_310_++) {
 				final int i_311_ = (this.yVertices[i_310_] << 16) / aShort2874;
 				if (i_311_ < i_268_) {
 					final int i_312_ = this.xVertices[i_310_] + i_270_;
@@ -1400,7 +1400,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				final int i_333_ = i_331_ * (128 - i_328_) + i_332_ * i_328_ >> 7;
 				class180_sub2_278_.yVertices[i_324_] = this.yVertices[i_324_] + i_333_ - i_271_ + i_323_;
 			}
-			for (int i_334_ = class180_sub2_278_.anInt2886; i_334_ < class180_sub2_278_.anInt2896; i_334_++) {
+			for (int i_334_ = class180_sub2_278_.anInt2886; i_334_ < class180_sub2_278_.vertexCount; i_334_++) {
 				final int i_335_ = this.xVertices[i_334_] + i_270_;
 				final int i_336_ = this.zVertices[i_334_] + i_272_;
 				final int i_337_ = i_335_ & 0x7f;
@@ -1432,7 +1432,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				final int i_356_ = i_354_ - i_355_;
 				class180_sub2_278_.yVertices[i_345_] = ((this.yVertices[i_345_] << 8) / i_344_ * i_356_ >> 8) - (i_271_ - i_354_);
 			}
-			for (int i_357_ = class180_sub2_278_.anInt2886; i_357_ < class180_sub2_278_.anInt2896; i_357_++) {
+			for (int i_357_ = class180_sub2_278_.anInt2886; i_357_ < class180_sub2_278_.vertexCount; i_357_++) {
 				final int i_358_ = this.xVertices[i_357_] + i_270_;
 				final int i_359_ = this.zVertices[i_357_] + i_272_;
 				final int i_360_ = i_358_ & 0x7f;
@@ -1460,7 +1460,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void method2306(final int i, final int i_369_, final int i_370_) {
-		for (int i_371_ = 0; i_371_ < this.anInt2896; i_371_++) {
+		for (int i_371_ = 0; i_371_ < this.vertexCount; i_371_++) {
 			this.xVertices[i_371_] = this.xVertices[i_371_] * i / 128;
 			this.yVertices[i_371_] = this.yVertices[i_371_] * i_369_ / 128;
 			this.zVertices[i_371_] = this.zVertices[i_371_] * i_370_ / 128;
@@ -1469,7 +1469,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	}
 
 	final void recolor(final short i, final short i_372_) {
-		for (int i_373_ = 0; i_373_ < this.anInt2856; i_373_++) {
+		for (int i_373_ = 0; i_373_ < this.triangleCount; i_373_++) {
 			if (this.triangleColors[i_373_] == i) {
 				this.triangleColors[i_373_] = i_372_;
 			}
@@ -1479,7 +1479,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	private final void method2308(final int i) {
 		final int i_374_ = anIntArray2858[i];
 		final int i_375_ = anIntArray2853[i];
-		for (int i_376_ = 0; i_376_ < this.anInt2896; i_376_++) {
+		for (int i_376_ = 0; i_376_ < this.vertexCount; i_376_++) {
 			final int i_377_ = this.yVertices[i_376_] * i_374_ + this.xVertices[i_376_] * i_375_ >> 16;
 			this.yVertices[i_376_] = this.yVertices[i_376_] * i_375_ - this.xVertices[i_376_] * i_374_ >> 16;
 			this.xVertices[i_376_] = i_377_;
@@ -1505,7 +1505,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		this.xVertices = new int[i];
 		this.yVertices = new int[i];
 		this.zVertices = new int[i];
-		this.vertexVSkins = new int[i];
+		this.vertexLabelIds = new int[i];
 		this.trianglesA = new int[i_378_];
 		this.trianglesB = new int[i_378_];
 		this.trianglesC = new int[i_378_];
@@ -1515,7 +1515,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		this.triangleColors = new short[i_378_];
 		this.aShortArray2850 = new short[i_378_];
 		this.aByteArray2876 = new byte[i_378_];
-		this.anIntArray2872 = new int[i_378_];
+		this.triangleLabelIds = new int[i_378_];
 		if (i_379_ > 0) {
 			this.texTrianglesType = new byte[i_379_];
 			this.texTrianglesA = new short[i_379_];
@@ -1540,8 +1540,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		boolean bool_382_ = false;
 		boolean bool_383_ = false;
 		boolean bool_384_ = false;
-		this.anInt2896 = 0;
-		this.anInt2856 = 0;
+		this.vertexCount = 0;
+		this.triangleCount = 0;
 		this.anInt2855 = 0;
 		int i_385_ = 0;
 		int i_386_ = 0;
@@ -1549,8 +1549,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		for (int i_387_ = 0; i_387_ < i; i_387_++) {
 			final Class180_Sub2 class180_sub2_388_ = class180_sub2s[i_387_];
 			if (class180_sub2_388_ != null) {
-				this.anInt2896 += class180_sub2_388_.anInt2896;
-				this.anInt2856 += class180_sub2_388_.anInt2856;
+				this.vertexCount += class180_sub2_388_.vertexCount;
+				this.triangleCount += class180_sub2_388_.triangleCount;
 				this.anInt2855 += class180_sub2_388_.anInt2855;
 				if (class180_sub2_388_.aByteArray2879 != null) {
 					bool_380_ = true;
@@ -1564,7 +1564,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				}
 				bool = bool | class180_sub2_388_.aByteArray2895 != null;
 				bool_381_ = bool_381_ | class180_sub2_388_.aByteArray2864 != null;
-				bool_382_ = bool_382_ | class180_sub2_388_.anIntArray2872 != null;
+				bool_382_ = bool_382_ | class180_sub2_388_.triangleLabelIds != null;
 				bool_383_ = bool_383_ | class180_sub2_388_.aShortArray2850 != null;
 				bool_384_ = bool_384_ | class180_sub2_388_.aByteArray2876 != null;
 				if (class180_sub2_388_.aClass158Array2871 != null) {
@@ -1575,31 +1575,31 @@ final class Class180_Sub2 extends SceneGraphNode {
 				}
 			}
 		}
-		this.xVertices = new int[this.anInt2896];
-		this.yVertices = new int[this.anInt2896];
-		this.zVertices = new int[this.anInt2896];
-		this.vertexVSkins = new int[this.anInt2896];
-		this.aShortArray2852 = new short[this.anInt2896];
-		this.trianglesA = new int[this.anInt2856];
-		this.trianglesB = new int[this.anInt2856];
-		this.trianglesC = new int[this.anInt2856];
+		this.xVertices = new int[this.vertexCount];
+		this.yVertices = new int[this.vertexCount];
+		this.zVertices = new int[this.vertexCount];
+		this.vertexLabelIds = new int[this.vertexCount];
+		this.aShortArray2852 = new short[this.vertexCount];
+		this.trianglesA = new int[this.triangleCount];
+		this.trianglesB = new int[this.triangleCount];
+		this.trianglesC = new int[this.triangleCount];
 		if (bool) {
-			this.aByteArray2895 = new byte[this.anInt2856];
+			this.aByteArray2895 = new byte[this.triangleCount];
 		}
 		if (bool_380_) {
-			this.aByteArray2879 = new byte[this.anInt2856];
+			this.aByteArray2879 = new byte[this.triangleCount];
 		}
 		if (bool_381_) {
-			this.aByteArray2864 = new byte[this.anInt2856];
+			this.aByteArray2864 = new byte[this.triangleCount];
 		}
 		if (bool_382_) {
-			this.anIntArray2872 = new int[this.anInt2856];
+			this.triangleLabelIds = new int[this.triangleCount];
 		}
 		if (bool_383_) {
-			this.aShortArray2850 = new short[this.anInt2856];
+			this.aShortArray2850 = new short[this.triangleCount];
 		}
 		if (bool_384_) {
-			this.aByteArray2876 = new byte[this.anInt2856];
+			this.aByteArray2876 = new byte[this.triangleCount];
 		}
 		if (i_385_ > 0) {
 			this.aClass158Array2871 = new Class158[i_385_];
@@ -1607,8 +1607,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (i_386_ > 0) {
 			this.aClass169Array2887 = new Class169[i_386_];
 		}
-		this.triangleColors = new short[this.anInt2856];
-		this.aShortArray2867 = new short[this.anInt2856];
+		this.triangleColors = new short[this.triangleCount];
+		this.aShortArray2867 = new short[this.triangleCount];
 		if (this.anInt2855 > 0) {
 			this.texTrianglesType = new byte[this.anInt2855];
 			this.texTrianglesA = new short[this.anInt2855];
@@ -1623,8 +1623,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2859 = new byte[this.anInt2855];
 			this.aByteArray2851 = new byte[this.anInt2855];
 		}
-		this.anInt2896 = 0;
-		this.anInt2856 = 0;
+		this.vertexCount = 0;
+		this.triangleCount = 0;
 		this.anInt2855 = 0;
 		i_385_ = 0;
 		i_386_ = 0;
@@ -1632,36 +1632,36 @@ final class Class180_Sub2 extends SceneGraphNode {
 			final short i_390_ = (short) (1 << i_389_);
 			final Class180_Sub2 class180_sub2_391_ = class180_sub2s[i_389_];
 			if (class180_sub2_391_ != null) {
-				for (int i_392_ = 0; i_392_ < class180_sub2_391_.anInt2856; i_392_++) {
+				for (int i_392_ = 0; i_392_ < class180_sub2_391_.triangleCount; i_392_++) {
 					if (bool && class180_sub2_391_.aByteArray2895 != null) {
-						this.aByteArray2895[this.anInt2856] = class180_sub2_391_.aByteArray2895[i_392_];
+						this.aByteArray2895[this.triangleCount] = class180_sub2_391_.aByteArray2895[i_392_];
 					}
 					if (bool_380_) {
 						if (class180_sub2_391_.aByteArray2879 != null) {
-							this.aByteArray2879[this.anInt2856] = class180_sub2_391_.aByteArray2879[i_392_];
+							this.aByteArray2879[this.triangleCount] = class180_sub2_391_.aByteArray2879[i_392_];
 						} else {
-							this.aByteArray2879[this.anInt2856] = class180_sub2_391_.aByte2899;
+							this.aByteArray2879[this.triangleCount] = class180_sub2_391_.aByte2899;
 						}
 					}
 					if (bool_381_ && class180_sub2_391_.aByteArray2864 != null) {
-						this.aByteArray2864[this.anInt2856] = class180_sub2_391_.aByteArray2864[i_392_];
+						this.aByteArray2864[this.triangleCount] = class180_sub2_391_.aByteArray2864[i_392_];
 					}
-					if (bool_382_ && class180_sub2_391_.anIntArray2872 != null) {
-						this.anIntArray2872[this.anInt2856] = class180_sub2_391_.anIntArray2872[i_392_];
+					if (bool_382_ && class180_sub2_391_.triangleLabelIds != null) {
+						this.triangleLabelIds[this.triangleCount] = class180_sub2_391_.triangleLabelIds[i_392_];
 					}
 					if (bool_383_) {
 						if (class180_sub2_391_.aShortArray2850 != null) {
-							this.aShortArray2850[this.anInt2856] = class180_sub2_391_.aShortArray2850[i_392_];
+							this.aShortArray2850[this.triangleCount] = class180_sub2_391_.aShortArray2850[i_392_];
 						} else {
-							this.aShortArray2850[this.anInt2856] = (short) -1;
+							this.aShortArray2850[this.triangleCount] = (short) -1;
 						}
 					}
-					this.triangleColors[this.anInt2856] = class180_sub2_391_.triangleColors[i_392_];
-					this.aShortArray2867[this.anInt2856] = i_390_;
-					this.trianglesA[this.anInt2856] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesA[i_392_], i_390_);
-					this.trianglesB[this.anInt2856] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesB[i_392_], i_390_);
-					this.trianglesC[this.anInt2856] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesC[i_392_], i_390_);
-					this.anInt2856++;
+					this.triangleColors[this.triangleCount] = class180_sub2_391_.triangleColors[i_392_];
+					this.aShortArray2867[this.triangleCount] = i_390_;
+					this.trianglesA[this.triangleCount] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesA[i_392_], i_390_);
+					this.trianglesB[this.triangleCount] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesB[i_392_], i_390_);
+					this.trianglesC[this.triangleCount] = method2280(class180_sub2_391_, class180_sub2_391_.trianglesC[i_392_], i_390_);
+					this.triangleCount++;
 				}
 				if (class180_sub2_391_.aClass158Array2871 != null) {
 					for (int i_393_ = 0; i_393_ < class180_sub2_391_.aClass158Array2871.length; i_393_++) {
@@ -1682,12 +1682,12 @@ final class Class180_Sub2 extends SceneGraphNode {
 			}
 		}
 		int i_399_ = 0;
-		this.anInt2886 = this.anInt2896;
+		this.anInt2886 = this.vertexCount;
 		for (int i_400_ = 0; i_400_ < i; i_400_++) {
 			final Class180_Sub2 class180_sub2_401_ = class180_sub2s[i_400_];
 			final short i_402_ = (short) (1 << i_400_);
 			if (class180_sub2_401_ != null) {
-				for (int i_403_ = 0; i_403_ < class180_sub2_401_.anInt2856; i_403_++) {
+				for (int i_403_ = 0; i_403_ < class180_sub2_401_.triangleCount; i_403_++) {
 					if (bool_384_) {
 						this.aByteArray2876[i_399_++] = (byte) (class180_sub2_401_.aByteArray2876 != null && class180_sub2_401_.aByteArray2876[i_403_] != -1 ? class180_sub2_401_.aByteArray2876[i_403_] + this.anInt2855 : -1);
 					}
@@ -1722,19 +1722,19 @@ final class Class180_Sub2 extends SceneGraphNode {
 
 	Class180_Sub2(final Class180_Sub2 class180_sub2_406_, final boolean bool, final boolean bool_407_, final boolean bool_408_, final boolean bool_409_) {
 		this.anInt2886 = 0;
-		this.anInt2896 = class180_sub2_406_.anInt2896;
+		this.vertexCount = class180_sub2_406_.vertexCount;
 		this.anInt2886 = class180_sub2_406_.anInt2886;
-		this.anInt2856 = class180_sub2_406_.anInt2856;
+		this.triangleCount = class180_sub2_406_.triangleCount;
 		this.anInt2855 = class180_sub2_406_.anInt2855;
 		if (bool) {
 			this.xVertices = class180_sub2_406_.xVertices;
 			this.yVertices = class180_sub2_406_.yVertices;
 			this.zVertices = class180_sub2_406_.zVertices;
 		} else {
-			this.xVertices = new int[this.anInt2896];
-			this.yVertices = new int[this.anInt2896];
-			this.zVertices = new int[this.anInt2896];
-			for (int i = 0; i < this.anInt2896; i++) {
+			this.xVertices = new int[this.vertexCount];
+			this.yVertices = new int[this.vertexCount];
+			this.zVertices = new int[this.vertexCount];
+			for (int i = 0; i < this.vertexCount; i++) {
 				this.xVertices[i] = class180_sub2_406_.xVertices[i];
 				this.yVertices[i] = class180_sub2_406_.yVertices[i];
 				this.zVertices[i] = class180_sub2_406_.zVertices[i];
@@ -1743,29 +1743,29 @@ final class Class180_Sub2 extends SceneGraphNode {
 		if (bool_407_) {
 			this.triangleColors = class180_sub2_406_.triangleColors;
 		} else {
-			this.triangleColors = new short[this.anInt2856];
-			for (int i = 0; i < this.anInt2856; i++) {
+			this.triangleColors = new short[this.triangleCount];
+			for (int i = 0; i < this.triangleCount; i++) {
 				this.triangleColors[i] = class180_sub2_406_.triangleColors[i];
 			}
 		}
 		if (bool_408_ || class180_sub2_406_.aShortArray2850 == null) {
 			this.aShortArray2850 = class180_sub2_406_.aShortArray2850;
 		} else {
-			this.aShortArray2850 = new short[this.anInt2856];
-			for (int i = 0; i < this.anInt2856; i++) {
+			this.aShortArray2850 = new short[this.triangleCount];
+			for (int i = 0; i < this.triangleCount; i++) {
 				this.aShortArray2850[i] = class180_sub2_406_.aShortArray2850[i];
 			}
 		}
 		if (bool_409_) {
 			this.aByteArray2864 = class180_sub2_406_.aByteArray2864;
 		} else {
-			this.aByteArray2864 = new byte[this.anInt2856];
+			this.aByteArray2864 = new byte[this.triangleCount];
 			if (class180_sub2_406_.aByteArray2864 == null) {
-				for (int i = 0; i < this.anInt2856; i++) {
+				for (int i = 0; i < this.triangleCount; i++) {
 					this.aByteArray2864[i] = (byte) 0;
 				}
 			} else {
-				for (int i = 0; i < this.anInt2856; i++) {
+				for (int i = 0; i < this.triangleCount; i++) {
 					this.aByteArray2864[i] = class180_sub2_406_.aByteArray2864[i];
 				}
 			}
@@ -1789,10 +1789,10 @@ final class Class180_Sub2 extends SceneGraphNode {
 		this.aByteArray2870 = class180_sub2_406_.aByteArray2870;
 		this.aByteArray2859 = class180_sub2_406_.aByteArray2859;
 		this.aByteArray2851 = class180_sub2_406_.aByteArray2851;
-		this.vertexVSkins = class180_sub2_406_.vertexVSkins;
-		this.anIntArray2872 = class180_sub2_406_.anIntArray2872;
-		this.anIntArrayArray2884 = class180_sub2_406_.anIntArrayArray2884;
-		this.anIntArrayArray2863 = class180_sub2_406_.anIntArrayArray2863;
+		this.vertexLabelIds = class180_sub2_406_.vertexLabelIds;
+		this.triangleLabelIds = class180_sub2_406_.triangleLabelIds;
+		this.vertexLabels = class180_sub2_406_.vertexLabels;
+		this.triangleLabels = class180_sub2_406_.triangleLabels;
 		this.aClass26Array2878 = class180_sub2_406_.aClass26Array2878;
 		this.aClass115Array2880 = class180_sub2_406_.aClass115Array2880;
 		this.aClass26Array2893 = class180_sub2_406_.aClass26Array2893;

@@ -32,7 +32,7 @@ final class Class7 {
 					ambientSound.player = player;
 					ambientSound.anInt2487 = (x + player.getSize()) * 128;
 					ambientSound.anInt2481 = (z + player.getSize()) * 128;
-					ambientSound.anInt2485 = Class20.method179(player);
+					ambientSound.anInt2485 = WaterfallShader.method179(player);
 					ambientSound.volume = player.ambientSoundVolume;
 					ambientSound.hearDistance = player.ambientSoundHearDistance * 128;
 					Npc.playerAmbientSounds.put(ambientSound, Varp.stringToLong(player.name));
@@ -47,7 +47,7 @@ final class Class7 {
 				if (npcType != null) {
 					ambientSound.anInt2487 = (x + npcType.size) * 128;
 					ambientSound.anInt2481 = (z + npcType.size) * 128;
-					ambientSound.anInt2485 = Class20.method178(npc);
+					ambientSound.anInt2485 = WaterfallShader.method178(npc);
 					ambientSound.volume = npcType.ambientSoundVolume;
 					ambientSound.hearDistance = npcType.ambientSoundHearDistance * 128;
 				}

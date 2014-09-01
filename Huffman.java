@@ -81,16 +81,16 @@ final class Huffman {
 		return is_9_;
 	}
 
-	static final js5 method1884(final int i_12_, final boolean bool, final boolean bool_11_, final boolean bool_13_) {
+	static final js5 method1884(final int indexId, final boolean bool, final boolean bool_11_, final boolean bool_13_) {
 		FileSystem fileSystem = null;
 		if (MapFunctionType.aClass193_663 != null) {
-			fileSystem = new FileSystem(i_12_, MapFunctionType.aClass193_663, ClanMember.aClass193Array2581[i_12_], 1000000);
+			fileSystem = new FileSystem(indexId, MapFunctionType.aClass193_663, ClanMember.aClass193Array2581[indexId], 1000000);
 		}
-		Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.aClass51_3164, fileSystem, i_12_);
+		Class120_Sub12_Sub26.aClass53_Sub1Array3337[indexId] = EnumType.aClass112_3460.method993(Class120_Sub12_Sub5.masterIndexFileSystem, fileSystem, indexId);
 		if (bool_13_) {
-			Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_].method471();
+			Class120_Sub12_Sub26.aClass53_Sub1Array3337[indexId].method471();
 		}
-		return new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[i_12_], bool_11_, bool);
+		return new js5(Class120_Sub12_Sub26.aClass53_Sub1Array3337[indexId], bool_11_, bool);
 	}
 
 	final int method1885(final int outOff, final byte[] outBuffer, final byte[] srcBuffer, int srcOff, int srcLength) {
@@ -267,7 +267,7 @@ final class Huffman {
 			class120_sub12_sub12.postDecode();
 			Class22.method199(i_39_, i, false);
 			for (int i_43_ = 0; i_43_ < i; i_43_++) {
-				class120_sub12_sub12.method1261(is_42_[i_43_], i_43_, -126);
+				class120_sub12_sub12.method1261(is_42_[i_43_], i_43_);
 			}
 			is = is_42_;
 		} catch (final RuntimeException runtimeexception) {

@@ -10,7 +10,7 @@ final class Class22 {
 
 	public static void method195(final int i) {
 		try {
-			OverlayType.recentUse = null;
+			UnderlayType.recentUse = null;
 			if (i != -63361369) {
 				method198(-8, -105, '\uffc0');
 			}
@@ -214,7 +214,7 @@ final class Class22 {
 		}
 	}
 
-	static final int getTileHeight(final int level, final int x, final int z) {
+	static final int getTileHeight(final int x, final int z, final int level) {
 		if (OverridedJInterface.tileHeightMap == null) {
 			return 0;
 		}

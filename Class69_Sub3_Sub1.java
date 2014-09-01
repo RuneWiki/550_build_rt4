@@ -18,131 +18,112 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 		aShortArray3085 = new short[256];
 	}
 
-	public static void method629(final int i) {
-		try {
-			aClass75_3079 = null;
-			aShortArray3085 = null;
-			if (i >= -27) {
-				aClass75_3079 = null;
-			}
-			aClass189_3080 = null;
-			screenRedrawHeights = null;
-			anIntArray3082 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("un.F(").append(i).append(')').toString());
-		}
-	}
-
 	static final boolean updatePacketCounter(final int i_0_) {
 		OverlayFrequencyNode.packetCounter = 1 + i_0_ & 0xffff;
 		Class30.packetCounterUpdated = true;
 		return true;
 	}
 
-	static final void method631(final byte i) {
+	static final void method631() {
 		do {
-			try {
-				if (Class154.anInt1440 != 0) {
-					try {
-						if (++Class120_Sub14_Sub4.anInt3466 > 2000) {
-							if (AbstractTimer.worldConnection != null) {
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-							}
-							if (AbstractIndexedSprite.anInt1027 < 1) {
-								Class120_Sub14_Sub4.anInt3466 = 0;
-								Class154.anInt1440 = 1;
-								AbstractIndexedSprite.anInt1027++;
-								if (Class158.anInt1479 != Class71.anInt625) {
-									Class158.anInt1479 = Class71.anInt625;
-								} else {
-									Class158.anInt1479 = GameEntity.anInt3045;
-								}
-							} else {
-								Class120_Sub12_Sub35.anInt3410 = -5;
-								Class154.anInt1440 = 0;
-								break;
-							}
-						}
-						if (Class154.anInt1440 == 1) {
-							Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
-							Class154.anInt1440 = 2;
-						}
-						if (Class154.anInt1440 == 2) {
-							if (Class53_Sub1.worldConnectionNode.status == 2) {
-								throw new IOException();
-							}
-							if (Class53_Sub1.worldConnectionNode.status != 1) {
-								break;
-							}
-							AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
-							Class53_Sub1.worldConnectionNode = null;
-							AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
-							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131();
-							}
-							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131();
-							}
-							final int i_1_ = AbstractTimer.worldConnection.read();
-							if (Class120_Sub12_Sub3.aClass164_3150 != null) {
-								Class120_Sub12_Sub3.aClass164_3150.method2131();
-							}
-							if (Class120_Sub12_Sub29.aClass164_3366 != null) {
-								Class120_Sub12_Sub29.aClass164_3366.method2131();
-							}
-							if (i_1_ != 21) {
-								Class120_Sub12_Sub35.anInt3410 = i_1_;
-								Class154.anInt1440 = 0;
-								AbstractTimer.worldConnection.close();
-								AbstractTimer.worldConnection = null;
-								break;
-							}
-							Class154.anInt1440 = 3;
-						}
-						if (Class154.anInt1440 == 3) {
-							if (AbstractTimer.worldConnection.getAvailable() < 1) {
-								break;
-							}
-							Js5Worker.aStringArray399 = new String[AbstractTimer.worldConnection.read()];
-							Class154.anInt1440 = 4;
-						}
-						if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Js5Worker.aStringArray399.length) {
-							Canvas_Sub1.inputStream.pos = 0;
-							AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Js5Worker.aStringArray399.length * 8);
-							for (int i_2_ = 0; i_2_ < Js5Worker.aStringArray399.length; i_2_++) {
-								Js5Worker.aStringArray399[i_2_] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
-							}
-							Class154.anInt1440 = 0;
-							Class120_Sub12_Sub35.anInt3410 = 21;
-							AbstractTimer.worldConnection.close();
-							AbstractTimer.worldConnection = null;
-						}
-					} catch (final IOException ioexception) {
+			if (Class154.anInt1440 != 0) {
+				try {
+					if (++Class120_Sub14_Sub4.anInt3466 > 2000) {
 						if (AbstractTimer.worldConnection != null) {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
-						if (AbstractIndexedSprite.anInt1027 >= 1) {
-							Class154.anInt1440 = 0;
-							Class120_Sub12_Sub35.anInt3410 = -4;
-						} else {
+						if (AbstractIndexedSprite.anInt1027 < 1) {
 							Class120_Sub14_Sub4.anInt3466 = 0;
 							Class154.anInt1440 = 1;
+							AbstractIndexedSprite.anInt1027++;
 							if (Class158.anInt1479 != Class71.anInt625) {
 								Class158.anInt1479 = Class71.anInt625;
 							} else {
 								Class158.anInt1479 = GameEntity.anInt3045;
 							}
-							AbstractIndexedSprite.anInt1027++;
+						} else {
+							Class120_Sub12_Sub35.anInt3410 = -5;
+							Class154.anInt1440 = 0;
 							break;
 						}
 					}
+					if (Class154.anInt1440 == 1) {
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+						Class154.anInt1440 = 2;
+					}
+					if (Class154.anInt1440 == 2) {
+						if (Class53_Sub1.worldConnectionNode.status == 2) {
+							throw new IOException();
+						}
+						if (Class53_Sub1.worldConnectionNode.status != 1) {
+							break;
+						}
+						AbstractTimer.worldConnection = new JagexSocket((Socket) Class53_Sub1.worldConnectionNode.value, NpcType.gameSignlink);
+						Class53_Sub1.worldConnectionNode = null;
+						AbstractTimer.worldConnection.put(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
+						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
+						}
+						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
+						}
+						final int i_1_ = AbstractTimer.worldConnection.read();
+						if (Class120_Sub12_Sub3.aClass164_3150 != null) {
+							Class120_Sub12_Sub3.aClass164_3150.method2131();
+						}
+						if (Class120_Sub12_Sub29.aClass164_3366 != null) {
+							Class120_Sub12_Sub29.aClass164_3366.method2131();
+						}
+						if (i_1_ != 21) {
+							Class120_Sub12_Sub35.anInt3410 = i_1_;
+							Class154.anInt1440 = 0;
+							AbstractTimer.worldConnection.close();
+							AbstractTimer.worldConnection = null;
+							break;
+						}
+						Class154.anInt1440 = 3;
+					}
+					if (Class154.anInt1440 == 3) {
+						if (AbstractTimer.worldConnection.getAvailable() < 1) {
+							break;
+						}
+						Js5Worker.aStringArray399 = new String[AbstractTimer.worldConnection.read()];
+						Class154.anInt1440 = 4;
+					}
+					if (Class154.anInt1440 == 4 && AbstractTimer.worldConnection.getAvailable() >= 8 * Js5Worker.aStringArray399.length) {
+						Canvas_Sub1.inputStream.pos = 0;
+						AbstractTimer.worldConnection.read(Canvas_Sub1.inputStream.buf, 0, Js5Worker.aStringArray399.length * 8);
+						for (int i_2_ = 0; i_2_ < Js5Worker.aStringArray399.length; i_2_++) {
+							Js5Worker.aStringArray399[i_2_] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
+						}
+						Class154.anInt1440 = 0;
+						Class120_Sub12_Sub35.anInt3410 = 21;
+						AbstractTimer.worldConnection.close();
+						AbstractTimer.worldConnection = null;
+					}
+				} catch (final IOException ioexception) {
+					if (AbstractTimer.worldConnection != null) {
+						AbstractTimer.worldConnection.close();
+						AbstractTimer.worldConnection = null;
+					}
+					if (AbstractIndexedSprite.anInt1027 >= 1) {
+						Class154.anInt1440 = 0;
+						Class120_Sub12_Sub35.anInt3410 = -4;
+					} else {
+						Class120_Sub14_Sub4.anInt3466 = 0;
+						Class154.anInt1440 = 1;
+						if (Class158.anInt1479 != Class71.anInt625) {
+							Class158.anInt1479 = Class71.anInt625;
+						} else {
+							Class158.anInt1479 = GameEntity.anInt3045;
+						}
+						AbstractIndexedSprite.anInt1027++;
+						break;
+					}
 				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("un.G(").append(i).append(')').toString());
 			}
+			break;
 		} while (false);
 	}
 }

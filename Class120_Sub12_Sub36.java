@@ -45,7 +45,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 			final int[] is_4_ = is_1_[2];
 			for (int i_5_ = 0; Class120_Sub12_Sub7.anInt3178 > i_5_; i_5_++) {
 				method1392((byte) -51, i, i_5_);
-				final int[][] is_6_ = method1179(0, WorldInfo.anInt1420, (byte) -51);
+				final int[][] is_6_ = method1179(0, WorldInfo.anInt1420);
 				is_2_[i_5_] = is_6_[0][Class120_Sub12_Sub14.anInt3240];
 				is_3_[i_5_] = is_6_[1][Class120_Sub12_Sub14.anInt3240];
 				is_4_[i_5_] = is_6_[2][Class120_Sub12_Sub14.anInt3240];
@@ -156,19 +156,6 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.textCycle = 100;
 			}
 		}
-	}
-
-	static final int method1390(final boolean bool, final int i) {
-		int i_24_;
-		try {
-			if (!bool) {
-				anIntArray3417 = null;
-			}
-			i_24_ = 0x7f & i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.W(").append(bool).append(',').append(i).append(')').toString());
-		}
-		return i_24_;
 	}
 
 	static final String[] addNumbers(final String[] strings) {

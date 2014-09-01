@@ -47,13 +47,13 @@ abstract class Class57 {
 		Class153.anInt1436 = Class173.gameLevel;
 	}
 
-	abstract AbstractObject method493(int i, AbstractObject class120_sub14_sub3);
+	abstract AbstractObject method493(AbstractObject abstractObject);
 
 	static final void method494(final int i, final int i_1_) {
 		Class120_Sub30_Sub2.anInt3688 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2110;
 		Queue.anInt1768 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2112;
 		ProducingGraphicsBuffer.anInt2798 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2107;
-		AtmosphereManager.method1014(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
+		AtmosphereManager.setLightingPosition(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 	}
 	
 	static final void sortArray(final int len, final Object[] objects, final int off, final int[] is) {//TODO figure out what kinda algo it uses, etc?

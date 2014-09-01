@@ -27,14 +27,7 @@ final class Class101_Sub2 extends Class101 {
 	}
 
 	@Override
-	final void method834(final int i, final int i_0_, final int i_1_) {
-		try {
-			if (i != 1380163464) {
-				anInt2280 = 42;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("de.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
+	final void method834(final int i_0_, final int i_1_) {
 	}
 
 	@Override
@@ -47,14 +40,7 @@ final class Class101_Sub2 extends Class101 {
 	}
 
 	@Override
-	final void method833(final int i, final int i_7_, final byte i_8_) {
-		try {
-			if (i_8_ > -108) {
-				method833(-89, -122, (byte) 27);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("de.A(").append(i).append(',').append(i_7_).append(',').append(i_8_).append(')').toString());
-		}
+	final void method833(final int i, final int i_7_) {
 	}
 
 	Class101_Sub2(final int i, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_) {

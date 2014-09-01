@@ -26,44 +26,44 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		}
 	}
 
-	static final void method1739(final boolean bool) {
-		Class90.anInt848 = 0;
+	static final void method1739() {
+		Class90.laodingStage = 0;
 		MapFunctionType.aClass105_653 = null;
-		Class79.aByteArrayArrayArray707 = null;
-		if (!bool || Class79.aClass120_Sub14_Sub22_691 == null) {
+		WorldMapHandler.aByteArrayArrayArray707 = null;
+		if (WorldMapHandler.aClass120_Sub14_Sub22_691 == null) {
 			HintIcon.anInt802 = -1;
 		} else {
-			HintIcon.anInt802 = Class79.aClass120_Sub14_Sub22_691.anInt3634;
+			HintIcon.anInt802 = WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3634;
 		}
-		Class142.aClass189_1362 = null;
-		Class79.anIntArray715 = null;
-		Class79.anIntArrayArrayArray702 = null;
-		Class79.aByteArrayArrayArray703 = null;
-		Class79.aByteArrayArrayArray711 = null;
-		Class79.anIntArrayArrayArray713 = null;
-		Class79.aByteArrayArrayArray706 = null;
-		Class79.aByteArrayArrayArray710 = null;
-		Class79.aClass120_Sub14_Sub22_691 = null;
-		Class79.aClass177_690.clear();
+		MapSceneType.worldMapInterface = null;
+		WorldMapHandler.overlayColors = null;
+		WorldMapHandler.anIntArrayArrayArray702 = null;
+		WorldMapHandler.aByteArrayArrayArray703 = null;
+		WorldMapHandler.aByteArrayArrayArray711 = null;
+		WorldMapHandler.underlayColors = null;
+		WorldMapHandler.aByteArrayArrayArray706 = null;
+		WorldMapHandler.aByteArrayArrayArray710 = null;
+		WorldMapHandler.aClass120_Sub14_Sub22_691 = null;
+		WorldMapHandler.aClass177_690.clear();
 		Class112.aClass98_1070 = null;
 		OverridedJInterface.aClass98_2739 = null;
 		FileSystemRequest.aClass98_3929 = null;
-		Class124.aClass98_1201 = null;
+		OverlayType.aClass98_1201 = null;
 		PlayerAppearance.aClass98_1373 = null;
 		Class116.aClass120_Sub14_Sub19_1114 = null;
 		CanvasWrapper.anInt20 = -1;
-		Class79.aClass137_693 = null;
+		WorldMapHandler.aClass137_693 = null;
 		World.aClass98_2833 = null;
 		Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290 = null;
 		Class110.aClass98_1052 = null;
 		Class92.aClass98_863 = null;
 		Class120_Sub2.anInt2422 = -1;
-		Class120_Sub16.method1658();
+		Class120_Sub16.clearMapFunctions();
 		Class22.aClass127_130 = null;
 		Class86.aClass75_823 = null;
 		Class81.aClass75_777 = null;
-		Class43.method338(128, 64, -61);
-		MasterIndexInfo.method453(64);
+		Class43.resetMapFunctionCache(128, 64);
+		MasterIndexInfo.resetVarBit(64);
 	}
 
 	@Override
@@ -230,7 +230,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	public static void method1742(final int i) {
 		try {
 			if (i != 1970740129) {
-				method1739(false);
+				method1739();
 			}
 			aShortArrayArray3668 = null;
 		} catch (final RuntimeException runtimeexception) {

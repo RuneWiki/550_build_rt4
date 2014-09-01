@@ -15,7 +15,7 @@ final class Class120_Sub16 extends Node {
 	static int[] screenRedrawWidhts = new int[100];
 	int anInt2609;
 	static int messageCount = 0;
-	Class120_Sub14_Sub5 aClass120_Sub14_Sub5_2611;
+	MapFunctionNode mapFunctionNode;
 
 	static {
 		friendsName = new String[200];
@@ -33,28 +33,19 @@ final class Class120_Sub16 extends Node {
 		}
 	}
 
-	final boolean method1656(final int i, final int i_0_, final int i_1_) {
-		boolean bool;
-		try {
-			if (this.anInt2602 <= i && i <= this.anInt2605 && i_1_ >= this.anInt2603 && this.anInt2604 >= i_1_) {
-				return true;
-			}
-			if (i_0_ >= -99) {
-				method1659(-106, 125, -30);
-			}
-			if (i >= this.anInt2601 && i <= this.anInt2609 && this.anInt2606 <= i_1_ && i_1_ <= this.anInt2607) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
+	final boolean inBounds(final int mouseX, final int mouseY) {
+		if (mouseX >= this.anInt2602 && mouseX <= this.anInt2605 && mouseY >= this.anInt2603 && mouseY <= this.anInt2604) {
+			return true;
 		}
-		return bool;
+		if (mouseX >= this.anInt2601 && mouseX <= this.anInt2609 && mouseY >= this.anInt2606 && mouseY <= this.anInt2607) {
+			return true;
+		}
+		return false;
 	}
 
-	static final void method1658() {
+	static final void clearMapFunctions() {
 		MapFunctionType.recentUse.clear();
-		Class82.aClass21_786.clear();
+		MapFunctionType.spriteCache.clear();
 	}
 
 	static final int method1659(final int i, final int i_2_, final int i_3_) {
@@ -112,7 +103,7 @@ final class Class120_Sub16 extends Node {
 			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionPrefix, i + 1, Class120_Sub12_Sub33.menuOptionPrefix, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.menuOptionSufix, i + 1, Class120_Sub12_Sub29.menuOptionSufix, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub29.aShortArray2777, i + 1, Class120_Sub29.aShortArray2777, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsCode, i + 1, Class120_Sub29.menuOptionsCode, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub12.aLongArray2562, i + 1, Class120_Sub12.aLongArray2562, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub29.anIntArray2769, i + 1, Class120_Sub29.anIntArray2769, i, Class186.menuOptionCount - i);
@@ -127,24 +118,24 @@ final class Class120_Sub16 extends Node {
 		Class114.anInt1093 = -1;
 		MapFunctionType.anInt639 = -1;
 		SeqType.anInt333 = -1;
-		Class88.anInt827 = 0;
+		Class88.timoutCycle = 0;
 		Canvas_Sub1.inputStream.pos = 0;
 		Class120_Sub22.systemUpdateCycle = 0;
 		AbstractMouseWheelHandler.packetSize = 0;
-		Class8.method111((byte) 0);
-		for (int i_14_ = 0; i_14_ < Class118.playersList.length; i_14_++) {
-			if (Class118.playersList[i_14_] != null) {
-				Class118.playersList[i_14_].facingEntityIndex = -1;
+		Class8.resetMapback();
+		for (int id = 0; id < Class118.playersList.length; id++) {
+			if (Class118.playersList[id] != null) {
+				Class118.playersList[id].facingEntityIndex = -1;
 			}
 		}
-		for (int i_15_ = 0; i_15_ < Class120_Sub12_Sub11.npcList.length; i_15_++) {
-			if (Class120_Sub12_Sub11.npcList[i_15_] != null) {
-				Class120_Sub12_Sub11.npcList[i_15_].facingEntityIndex = -1;
+		for (int id = 0; id < Class120_Sub12_Sub11.npcList.length; id++) {
+			if (Class120_Sub12_Sub11.npcList[id] != null) {
+				Class120_Sub12_Sub11.npcList[id].facingEntityIndex = -1;
 			}
 		}
-		Class28.method243(true);
+		ObjectContainer.objectContainerCache = new Hashtable(32);
 		client.cameraType = 1;
-		Class120_Sub14_Sub1.setGameState(30);
+		ProjectileNode.setGameState(30);
 		for (int i_16_ = 0; i_16_ < 100; i_16_++) {
 			MasterIndexInfo.needInterfaceRedrawWrapper[i_16_] = true;
 		}
@@ -152,25 +143,25 @@ final class Class120_Sub16 extends Node {
 	}
 
 	static final void removeAmbientSoundNpc(final Npc npc) {
-		for (AmbientSound class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
-			if (npc == class120_sub8.npc) {
-				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
-					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
-					class120_sub8.aClass120_Sub30_Sub4_2488 = null;
+		for (AmbientSound ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
+			if (npc == ambientSound.npc) {
+				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
+					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
+					ambientSound.aClass120_Sub30_Sub4_2488 = null;
 				}
-				class120_sub8.unlink();
+				ambientSound.unlink();
 				break;
 			}
 		}
 	}
 
-	Class120_Sub16(final Class120_Sub14_Sub5 class120_sub14_sub5) {
+	Class120_Sub16(final MapFunctionNode class120_sub14_sub5) {
 		this.anInt2603 = 2147483647;
 		this.anInt2609 = -2147483648;
 		this.anInt2607 = -2147483648;
 		this.anInt2601 = 2147483647;
 		this.anInt2605 = -2147483648;
 		this.anInt2606 = 2147483647;
-		this.aClass120_Sub14_Sub5_2611 = class120_sub14_sub5;
+		this.mapFunctionNode = class120_sub14_sub5;
 	}
 }

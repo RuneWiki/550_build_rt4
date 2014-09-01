@@ -36,7 +36,7 @@ final class Projectile extends SceneGraphNode {
 	private int anInt2952;
 	double aDouble2953;
 	static JagexInterface aClass189_2954;
-	static int anInt2955;
+	static int renderXWrapper;
 
 	static {
 		aClass21_2931 = new ObjectCache(5);
@@ -77,11 +77,11 @@ final class Projectile extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2265(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final long l, final int i_8_, final ParticleEngine class108_sub2) {
+	final void render(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final long l, final int i_8_, final ParticleEngine class108_sub2) {
 		final AbstractModel class180_sub7 = method2322();
 		if (class180_sub7 != null) {
 			method2320(-77, class180_sub7);
-			class180_sub7.method2265(i, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, i_7_, l, i_8_, aClass108_Sub2_2924);
+			class180_sub7.render(i, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, i_7_, l, i_8_, aClass108_Sub2_2924);
 			anInt2952 = class180_sub7.getMaxY();
 		}
 	}

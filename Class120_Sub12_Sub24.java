@@ -35,9 +35,9 @@ final class Class120_Sub12_Sub24 extends Class120_Sub12 {
 	}
 
 	static final char method1328(final byte i) {
-		int i_2_ = 0xff & i;
+		int i_2_ = i & 0xff;
 		if (i_2_ == 0) {
-			throw new IllegalArgumentException(new StringBuilder("Non cp1252 character 0x").append(Integer.toString(i_2_, 16)).append(" provided").toString());
+			throw new IllegalArgumentException("Non cp1252 character 0x" + Integer.toString(i_2_, 16) + " provided");
 		}
 		if (i_2_ >= 128 && i_2_ < 160) {
 			int i_3_ = Class120_Sub12_Sub32.aCharArray3385[i_2_ - 128];

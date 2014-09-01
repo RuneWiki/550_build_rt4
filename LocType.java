@@ -14,7 +14,7 @@ final class LocType {
 	boolean aBoolean1823;
 	private int anInt1824;
 	int cursor1op = -1;
-	int anInt1826;
+	int mapSceneId;
 	int sizeZ;
 	private short[] aShortArray1828;
 	private int[] anIntArray1829;
@@ -295,7 +295,7 @@ final class LocType {
 			final Class180_Sub2 class180_sub2_30_ = new Class180_Sub2(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, aShortArray1860 == null, aShortArray1837 == null, true);
 			if (i_20_ == 4 && i > 3) {
 				class180_sub2_30_.method2279(256);
-				class180_sub2_30_.method2282(45, 0, -45);
+				class180_sub2_30_.translate(45, 0, -45);
 			}
 			i &= 0x3;
 			if (i == 1) {
@@ -325,7 +325,7 @@ final class LocType {
 				class180_sub2_30_.method2306(anInt1856, anInt1875, anInt1873);
 			}
 			if (bool_29_) {
-				class180_sub2_30_.method2282(anInt1838, anInt1855, anInt1859);
+				class180_sub2_30_.translate(anInt1838, anInt1855, anInt1859);
 			}
 			class180_sub2 = class180_sub2_30_;
 		} catch (final RuntimeException runtimeexception) {
@@ -363,10 +363,10 @@ final class LocType {
 
 	static final void method2458() {
 		if (Class109.gameState == 10 && HDToolkit.glEnabled) {
-			Class120_Sub14_Sub1.setGameState(28);
+			ProjectileNode.setGameState(28);
 		}
 		if (Class109.gameState == 30) {
-			Class120_Sub14_Sub1.setGameState(25);
+			ProjectileNode.setGameState(25);
 		}
 	}
 
@@ -453,7 +453,7 @@ final class LocType {
 			}
 			if (i == 4 && i_37_ > 3) {
 				class180_sub7_sub2_51_.method2417(256);
-				class180_sub7_sub2_51_.method2368(45, 0, -45);
+				class180_sub7_sub2_51_.translate(45, 0, -45);
 			}
 			i_37_ &= 0x3;
 			if (i_37_ == 1) {
@@ -477,7 +477,7 @@ final class LocType {
 				class180_sub7_sub2_51_.resize(anInt1856, anInt1875, anInt1873);
 			}
 			if (anInt1838 != 0 || anInt1855 != 0 || anInt1859 != 0) {
-				class180_sub7_sub2_51_.method2368(anInt1838, anInt1855, anInt1859);
+				class180_sub7_sub2_51_.translate(anInt1838, anInt1855, anInt1859);
 			}
 			if (i_39_ != class180_sub7_sub2_51_.method2407()) {
 				class180_sub7_sub2_51_.method2415(i_39_);
@@ -835,7 +835,7 @@ final class LocType {
 		} else if (code == 101) {
 			this.anInt1869 = buffer.getUByte();
 		} else if (code == 102) {
-			this.anInt1826 = buffer.getUShort();
+			this.mapSceneId = buffer.getUShort();
 		} else if (code == 103) {
 			this.anInt1866 = 0;
 		} else if (code == 104) {
@@ -862,7 +862,7 @@ final class LocType {
 		} else if (code == 249) {
 			final int i_81_ = buffer.getUByte();
 			if (params == null) {
-				final int i_82_ = Class120_Sub12_Sub17.method1283(i_81_);
+				final int i_82_ = Class120_Sub12_Sub17.getFarestBitValue(i_81_);
 				params = new Hashtable(i_82_);
 			}
 			for (int i_83_ = 0; i_83_ < i_81_; i_83_++) {
@@ -1104,7 +1104,7 @@ final class LocType {
 		locType.postDecode();
 		if (!Class69_Sub2.locMemberClient && locType.members) {
 			locType.actions = null;
-		}//TODO
+		}
 		if (locType.aBoolean1880) {
 			locType.anInt1821 = 0;
 			locType.aBoolean1844 = false;
@@ -1152,7 +1152,7 @@ final class LocType {
 		this.cursor1 = -1;
 		this.anInt1835 = -1;
 		aBoolean1868 = false;
-		this.anInt1826 = -1;
+		this.mapSceneId = -1;
 		anInt1846 = -1;
 		anInt1873 = 128;
 		anInt1843 = 0;

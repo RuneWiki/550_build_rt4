@@ -7,72 +7,73 @@ import java.nio.ByteOrder;
 import javax.media.opengl.GL;
 
 final class Class94 {
-	private final int anInt871;
+	private final int textureId;
 	private int anInt872 = -1;
-	private static byte[] aByteArray873 = new byte[16384];
-	private Class104 aClass104_874;
+	private static byte[] pixels = new byte[16384];
+	private VertexBuffer aClass104_874;
 	boolean aBoolean875 = true;
 	private ByteBuffer aByteBuffer876;
-	private Class104 aClass104_877;
+	private VertexBuffer aClass104_877;
 	private ByteBuffer aByteBuffer878;
 
 	final boolean method776(final LDIndexedSprite class107_sub1, final int i, final int i_0_) {
-		final byte[] is = class107_sub1.paletteIndicators;
-		final int i_1_ = class107_sub1.width;
-		int i_2_ = i * 128 + 1 + (i_0_ * 128 + 1) * i_1_;
+		final byte[] paletteIndicators = class107_sub1.paletteIndicators;
+		final int width = class107_sub1.width;
+		int i_2_ = i * 128 + 1 + (i_0_ * 128 + 1) * width;
 		int i_3_ = 0;
 		for (int i_4_ = -128; i_4_ < 0; i_4_++) {
 			i_3_ = (i_3_ << 8) - i_3_;
 			for (int i_5_ = -128; i_5_ < 0; i_5_++) {
-				if (is[i_2_++] != 0) {
+				if (paletteIndicators[i_2_++] != 0) {
 					i_3_++;
 				}
 			}
-			i_2_ += i_1_ - 128;
+			i_2_ += width - 128;
 		}
 		if (i_3_ == anInt872) {
 			return false;
 		}
 		anInt872 = i_3_;
-		i_2_ = i * 128 + 1 + (i_0_ * 128 + 1) * i_1_;
+		i_2_ = i * 128 + 1 + (i_0_ * 128 + 1) * width;
 		int i_6_ = 0;
 		for (int i_7_ = -128; i_7_ < 0; i_7_++) {
 			for (int i_8_ = -128; i_8_ < 0; i_8_++) {
-				if (is[i_2_] != 0) {
-					aByteArray873[i_6_++] = (byte) 68;
+				if (paletteIndicators[i_2_] != 0) {
+					pixels[i_6_++] = (byte) 68;
 				} else {
 					int i_9_ = 0;
-					if (is[i_2_ - 1] != 0) {
+					if (paletteIndicators[i_2_ - 1] != 0) {
 						i_9_++;
 					}
-					if (is[i_2_ + 1] != 0) {
+					if (paletteIndicators[i_2_ + 1] != 0) {
 						i_9_++;
 					}
-					if (is[i_2_ - i_1_] != 0) {
+					if (paletteIndicators[i_2_ - width] != 0) {
 						i_9_++;
 					}
-					if (is[i_2_ + i_1_] != 0) {
+					if (paletteIndicators[i_2_ + width] != 0) {
 						i_9_++;
 					}
-					aByteArray873[i_6_++] = (byte) (17 * i_9_);
+					pixels[i_6_++] = (byte) (17 * i_9_);
 				}
 				i_2_++;
 			}
-			i_2_ += i_1_ - 128;
+			i_2_ += width - 128;
 		}
 		final GL gl = HDToolkit.gl;
-		final ByteBuffer bytebuffer = ByteBuffer.wrap(aByteArray873);
-		bytebuffer.limit(16384);
-		HDToolkit.method514(anInt871);
-		gl.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, bytebuffer);
+		final ByteBuffer byteBuffer = ByteBuffer.wrap(pixels);
+		byteBuffer.limit(16384);
+		HDToolkit.bindTexture2D(textureId);
+		//glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.ByteBuffer pixels) 
+		gl.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, byteBuffer);//TEXTURE_2D, 0, ALPHA, 128, 1228, 0, ALPHA, UNSIGNED_BYTE, 
 		return true;
 	}
 
 	final void method777() {
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method514(anInt871);
+		HDToolkit.bindTexture2D(textureId);
 		if (aClass104_877 != null) {
-			aClass104_877.method887();
+			aClass104_877.bindArrayBuffer();
 			gl.glInterleavedArrays(10791, 20, 0L);
 			HDToolkit.aBoolean536 = false;
 		} else {
@@ -83,7 +84,7 @@ final class Class94 {
 			HDToolkit.aBoolean536 = false;
 		}
 		if (aClass104_874 != null) {
-			aClass104_874.method886();
+			aClass104_874.bindElementArrayBuffer();
 			gl.glDrawElements(4, 384, 5125, 0L);
 		} else {
 			if (HDToolkit.vertexBufferAsObject) {
@@ -114,7 +115,7 @@ final class Class94 {
 		}
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7.buf, 0, class120_sub7.pos);
-			aClass104_877 = new Class104();
+			aClass104_877 = new VertexBuffer();
 			aClass104_877.method885(bytebuffer);
 		} else {
 			aByteBuffer876 = ByteBuffer.allocateDirect(class120_sub7.pos).order(ByteOrder.nativeOrder());
@@ -143,7 +144,7 @@ final class Class94 {
 		}
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7_13_.buf, 0, class120_sub7_13_.pos);
-			aClass104_874 = new Class104();
+			aClass104_874 = new VertexBuffer();
 			aClass104_874.method884(bytebuffer);
 		} else {
 			aByteBuffer878 = ByteBuffer.allocateDirect(class120_sub7_13_.pos).order(ByteOrder.nativeOrder());
@@ -153,19 +154,19 @@ final class Class94 {
 	}
 
 	public static void method779() {
-		aByteArray873 = null;
+		pixels = null;
 	}
 
 	public Class94() {
 		final GL gl = HDToolkit.gl;
 		final int[] is = new int[1];
 		gl.glGenTextures(1, is, 0);
-		anInt871 = is[0];
-		Class113.anInt1081 += 16384;
-		HDToolkit.method514(anInt871);
-		gl.glTexParameteri(3553, 10241, 9729);
-		gl.glTexParameteri(3553, 10240, 9729);
-		gl.glTexParameteri(3553, 10242, 33071);
-		gl.glTexParameteri(3553, 10243, 33071);
+		textureId = is[0];
+		MemoryManager.anInt1081 += 16384;
+		HDToolkit.bindTexture2D(textureId);
+		gl.glTexParameteri(3553, 10241, 9729);//TEXTURE_2D, TEXTURE_MIN_FILTER, LINEAR
+		gl.glTexParameteri(3553, 10240, 9729);//TEXTURE_2D, TEXTURE_MAG_FILTER, LINEAR
+		gl.glTexParameteri(3553, 10242, 33071);//TEXTURE_2D, TEXTURE_WRAP_S, CLAMP_TO_EDGE
+		gl.glTexParameteri(3553, 10243, 33071);//TEXTURE_2D, TEXTURE_WRAP_T, CLAMP_TO_EDGE
 	}
 }

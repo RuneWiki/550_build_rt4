@@ -7,7 +7,6 @@ class Buffer extends Node {
 	static String[] playerOptions;
 	byte[] buf;
 	int pos;
-	static int anInt2471;
 	static int gameId;
 	static int anInt2473 = 0;
 	static int anInt2474;
@@ -396,13 +395,9 @@ class Buffer extends Node {
 		return (0xff & this.buf[this.pos - 1]) + (this.buf[this.pos - 3] << 16 & 0xff0000) + ((this.buf[this.pos - 2] & 0xff) << 8);
 	}
 
-	static final void method1121(final int i) {
-		try {
-			if (i == -3 && Class86.loginStep == 5) {
-				Class86.loginStep = 6;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fd.NB(").append(i).append(')').toString());
+	static final void method1121() {
+		if (Class86.loginStep == 5) {
+			Class86.loginStep = 6;
 		}
 	}
 
@@ -535,7 +530,7 @@ class Buffer extends Node {
 		return this.buf[this.pos++];
 	}
 
-	final void putSizedByte(final int i_113_) {
+	final void putByteAt(final int i_113_) {
 		this.buf[this.pos - i_113_ - 1] = (byte) i_113_;
 	}
 }

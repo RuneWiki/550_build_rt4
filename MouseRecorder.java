@@ -18,18 +18,12 @@ final class MouseRecorder implements Runnable {
 		aString854 = "K";
 	}
 
-	static final void method760(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		try {
-			if (i_3_ > 65) {
-				Class69_Sub1.anInt2229 = i_2_;
-				Projectile.anInt2955 = i_4_;
-				Class120_Sub12_Sub27.anInt3353 = i_1_;
-				Class145.anInt1382 = i;
-				Class120_Sub14_Sub13.anInt3571 = i_0_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jm.E(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
-		}
+	static final void setupShaderRenderValues(final int x, final int y, final int z, final int yaw, final int pitch) {
+		Projectile.renderXWrapper = x;
+		Class120_Sub12_Sub27.renderYWrapper = y;
+		Class69_Sub1.renderZWrapper = z;
+		Class145.renderYawWrapper = yaw;
+		Class120_Sub14_Sub13.renderPitchWrapper = pitch;
 	}
 
 	public static void method762(final byte i) {

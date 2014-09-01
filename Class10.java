@@ -44,7 +44,7 @@ final class Class10 {
 						buffer.getUByte();
 					} else {
 						Class99.aByteArrayArrayArray949[level][x][z] = buffer.getByte();
-						Class120_Sub14_Sub5.aByteArrayArrayArray3477[level][x][z] = (byte) ((i_9_ - 2) / 4);
+						MapFunctionNode.aByteArrayArrayArray3477[level][x][z] = (byte) ((i_9_ - 2) / 4);
 						Class8.aByteArrayArrayArray65[level][x][z] = (byte) Class120_Sub12_Sub3.method1207(3, i_5_ + -2 + i_9_);
 					}
 				} else if (i_9_ <= 81) {

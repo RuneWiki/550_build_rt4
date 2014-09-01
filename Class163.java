@@ -36,7 +36,7 @@ final class Class163 {
 		final GL gl = HDToolkit.gl;
 		final int i_14_ = method2126();
 		if (i == 3553) {
-			HDToolkit.method514(i_14_);
+			HDToolkit.bindTexture2D(i_14_);
 		} else {
 			gl.glBindTexture(i, i_14_);
 		}

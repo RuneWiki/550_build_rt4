@@ -23,23 +23,17 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 		}
 	}
 
-	static final Class120_Sub14_Sub5 method1206(final byte i) {
-		Class120_Sub14_Sub5 class120_sub14_sub5;
-		try {
-			if (Class79.aClass177_690 == null) {
-				return null;
-			}
-			Class22.aClass127_130.method1896(Class79.aClass177_690);
-			final Class120_Sub14_Sub5 class120_sub14_sub5_0_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1895();
-			final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_0_.anInt3473);
-			if (class73 != null && class73.aBoolean659 && class73.method647()) {
-				return class120_sub14_sub5_0_;
-			}
-			class120_sub14_sub5 = Class112.method992();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.U(").append(i).append(')').toString());
+	static final MapFunctionNode method1206() {
+		if (WorldMapHandler.aClass177_690 == null) {
+			return null;
 		}
-		return class120_sub14_sub5;
+		Class22.aClass127_130.method1896(WorldMapHandler.aClass177_690);
+		final MapFunctionNode class120_sub14_sub5_0_ = (MapFunctionNode) Class22.aClass127_130.method1895();
+		final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_0_.id);
+		if (class73 != null && class73.aBoolean659 && class73.method647()) {
+			return class120_sub14_sub5_0_;
+		}
+		return Class112.method992();
 	}
 
 	static int method1207(final int i, final int i_1_) {
@@ -106,7 +100,7 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	final int[][] method1188(final int i) {
 		final int[][] is_10_ = this.aClass109_2559.method975(i);
 		if (this.aClass109_2559.aBoolean1049) {
-			final int[][] is_11_ = method1179(0, i, (byte) -51);
+			final int[][] is_11_ = method1179(0, i);
 			final int[] is_12_ = is_11_[1];
 			final int[] is_13_ = is_11_[0];
 			final int[] is_14_ = is_10_[0];

@@ -11,7 +11,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 	boolean aBoolean3531 = true;
 	static LDSprite landScapeAsLDSprite;
 	static int[] anIntArray3533 = new int[14];
-	static Hashtable aClass75_3534 = new Hashtable(16);
+	static Hashtable interfaceChangeCache = new Hashtable(16);
 	int[] anIntArray3535;
 	private String[] aStringArray3536;
 	static int menuHeight;
@@ -109,26 +109,17 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 		}
 	}
 
-	static final boolean method1504(final int i, final char c) {
-		boolean bool;
-		try {
-			if (c >= ' ' && c <= '~') {
-				return true;
-			}
-			if (c >= '\u00a0' && c <= '\u00ff') {
-				return true;
-			}
-			if (i != 80) {
-				landScapeAsLDSprite = null;
-			}
-			if (c == '\u20ac' || c == '\u0152' || c == '\u2014' || c == '\u0153' || c == '\u0178') {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.F(").append(i).append(',').append(c).append(')').toString());
+	static final boolean method1504(final char c) {
+		if (c >= ' ' && c <= '~') {
+			return true;
 		}
-		return bool;
+		if (c >= '\u00a0' && c <= '\u00ff') {
+			return true;
+		}
+		if (c == '\u20ac' || c == '\u0152' || c == '\u2014' || c == '\u0153' || c == '\u0178') {
+			return true;
+		}
+		return false;
 	}
 
 	final void decode(final Buffer buffer) {
@@ -150,7 +141,6 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 			}
 		}
 		stringbuffer.append(aStringArray3536[aStringArray3536.length - 1]);
-		System.out.println("hey = " + stringbuffer.toString());
 		return stringbuffer.toString();
 	}
 
@@ -181,7 +171,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {
 				method1509(false);
 			}
 			landScapeAsLDSprite = null;
-			aClass75_3534 = null;
+			interfaceChangeCache = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.H(").append(bool).append(')').toString());
 		}

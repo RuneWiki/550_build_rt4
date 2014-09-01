@@ -137,8 +137,8 @@ final class SeekableFile {
 	}
 
 	final void seek(final long pos) throws IOException {
-		if (-1L < (pos ^ 0xffffffffffffffffL)) {
-			throw new IOException(new StringBuilder("Invalid seek to ").append(pos).append(" in file ").append(getFile()).toString());
+		if (pos < 0L) {
+			throw new IOException("Invalid seek to " + pos + " in file " + getFile());
 		}
 		position = pos;
 	}

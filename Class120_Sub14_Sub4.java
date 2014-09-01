@@ -46,9 +46,9 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 			if (i_2_ != 0) {
 				i_5_ = (i_5_ << i_2_ & 0xf) + (i_5_ >> 4 + -i_2_);
 			}
-			Class120_Sub14_Sub5.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, i_5_, true, i_7_, i, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, i_6_, i_1_);
+			MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, i_5_, true, i_7_, i, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, i_6_, i_1_);
 		} else {
-			Class120_Sub14_Sub5.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], i_2_, 0, true, 0, i, TileParticleQueue.selfPlayer.walkQueueZ[0], 1 + i_3_, 0, i_1_);
+			MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], i_2_, 0, true, 0, i, TileParticleQueue.selfPlayer.walkQueueZ[0], 1 + i_3_, 0, i_1_);
 		}
 		return true;
 	}
@@ -61,7 +61,7 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 		if (i_8_ < 0) {
 			return false;
 		}
-		int i_9_ = Class120_Sub29.aShortArray2777[i_8_];
+		int i_9_ = Class120_Sub29.menuOptionsCode[i_8_];
 		if (i_9_ >= 2000) {
 			i_9_ -= 2000;
 		}

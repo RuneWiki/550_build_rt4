@@ -6,7 +6,7 @@ final class Class173 {
 	static boolean[] aBooleanArray1723;
 	static int anInt1724;
 	static AbstractSprite aClass120_Sub14_Sub19_1725;
-	static int anInt1726;
+	static int worldMapPointerWidth;
 	static int hintmapmarkersId;
 	static int anInt1728 = 0;
 	static int gameLevel;
@@ -97,7 +97,7 @@ final class Class173 {
 		Class120_Sub12_Sub27.aString3338 = "Verificando atualiza\u00e7\u00f5es - ";
 		Class29.aString196 = " ";
 		Class120_Sub11.aString2552 = "Tela t\u00edtulo aberta";
-		Class120_Sub14_Sub1.aString3449 = "Pegar";
+		ProjectileNode.aString3449 = "Pegar";
 		HintIcon.aString807 = "onda:";
 		Class147.aString1398 = "onda2:";
 		GZIPDecompressor.aString799 = "Interfaces carregadas";
@@ -109,7 +109,7 @@ final class Class173 {
 		Class120_Sub30_Sub2.aString3679 = "Carregando. Aguarde.";
 		Class143_Sub1.aString2192 = "Sua lista de ignorados est\u00e1 cheia. O limite \u00e9 100 usu\u00e1rios.";
 		Class54.aString489 = " da sua lista de amigos primeiro.";
-		Class120_Sub3.aString2424 = "qualifica\u00e7\u00e3o: ";
+		LongNode.aString2424 = "qualifica\u00e7\u00e3o: ";
 		ClanMember.aString2574 = "branco:";
 		Class191.aString2105 = "Conectando ao servidor de atualiza\u00e7\u00e3o";
 		Class158.aString1483 = "cyan:";
@@ -144,12 +144,12 @@ final class Class173 {
 		InterfaceListener.aString2538 = "deslizamento:";
 		Class120_Sub12_Sub15.aString3244 = "Oculto";
 		Class120_Sub21.aString2669 = " entrou no jogo.";
-		Class120_Sub3.aString2428 = "Carregando config - ";
+		LongNode.aString2428 = "Carregando config - ";
 		IntegerNode.aString2788 = "Carregando interfaces - ";
 		Class53_Sub1.aString2206 = "flash2:";
 		Class61.aString568 = "deseja negociar com voc\u00ea.";
 		Class53_Sub1.aString2213 = "vermelho:";
-		Class142.aString1358 = "Texturas carregadas";
+		MapSceneType.aString1358 = "Texturas carregadas";
 		DisplayModeInfo.aString1708 = "Universo de jogo criado";
 		Js5Worker.aString398 = "Carregando pacote de palavras - ";
 	}

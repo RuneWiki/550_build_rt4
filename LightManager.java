@@ -3,6 +3,7 @@
  */
 import javax.media.opengl.GL;
 
+//https://www.it.uu.se/edu/course/homepage/grafik1/vt05/assignments/source/a4/Lightsource.hh
 final class LightManager {
 	private static int anInt1177;
 	private static int anInt1178;
@@ -15,11 +16,11 @@ final class LightManager {
 	private static int anInt1185;
 	private static int[] anIntArray1186;
 	private static int anInt1187;
-	private static boolean[] aBooleanArray1188;
+	private static boolean[] lightEnabled;
 	private static int anInt1189;
 	private static int anInt1190;
 	private static int[] anIntArray1191;
-	private static float[] aFloatArray1192 = { 0.0F, 0.0F, 0.0F, 1.0F };
+	private static float[] position = { 0.0F, 0.0F, 0.0F, 1.0F };
 
 	static final void method1856(final int i, final int i_0_, final int i_1_) {
 		anInt1187 = i;
@@ -53,11 +54,11 @@ final class LightManager {
 	static final void method1859() {
 		for (int i = 0; i < 4; i++) {
 			anIntArray1186[i] = -1;
-			method1871(i);
+			disableLight(i);
 		}
 	}
 
-	static final void method1860(final Light light) {
+	static final void addLight(final Light light) {
 		if (lightsPos >= 255) {
 			System.out.println("Number of lights added exceeds maximum!");
 		} else {
@@ -88,7 +89,7 @@ final class LightManager {
 					if (!aBooleanArray1183[i_16_]) {
 						anIntArray1186[i_16_] = anIntArray1191[i_15_];
 						aBooleanArray1183[i_16_] = true;
-						method1872(i_16_, lights[anIntArray1191[i_15_]], i, i_5_, i_6_);
+						updateLight(i_16_, lights[anIntArray1191[i_15_]], i, i_5_, i_6_);
 						break;
 					}
 				}
@@ -96,7 +97,7 @@ final class LightManager {
 			for (int i_17_ = 0; i_17_ < 4; i_17_++) {
 				if (!aBooleanArray1183[i_17_]) {
 					anIntArray1186[i_17_] = -1;
-					method1871(i_17_);
+					disableLight(i_17_);
 				}
 			}
 			anInt1180 = i_7_;
@@ -107,7 +108,7 @@ final class LightManager {
 		}
 	}
 
-	static final void method1862(final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_) {
+	static final void method1862(final int xOff, final int yOff, final int zOff, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_) {
 		if (Class120_Sub12_Sub6.highLightingDetail && (anInt1180 != i_20_ || anInt1185 != i_21_ || anInt1190 != i_22_ || anInt1181 != i_23_ || anInt1189 != i_24_)) {
 			for (int i_25_ = 0; i_25_ < 4; i_25_++) {
 				aBooleanArray1183[i_25_] = false;
@@ -144,11 +145,11 @@ final class LightManager {
 				}
 			}
 			for (int i_34_ = 0; i_34_ < i_27_; i_34_++) {
-				for (int i_35_ = 0; i_35_ < 4; i_35_++) {
-					if (!aBooleanArray1183[i_35_]) {
-						anIntArray1186[i_35_] = anIntArray1191[i_34_];
-						aBooleanArray1183[i_35_] = true;
-						method1872(i_35_, lights[anIntArray1191[i_34_]], i, i_18_, i_19_);
+				for (int lightId = 0; lightId < 4; lightId++) {
+					if (!aBooleanArray1183[lightId]) {
+						anIntArray1186[lightId] = anIntArray1191[i_34_];
+						aBooleanArray1183[lightId] = true;
+						updateLight(lightId, lights[anIntArray1191[i_34_]], xOff, yOff, zOff);
 						break;
 					}
 				}
@@ -156,7 +157,7 @@ final class LightManager {
 			for (int i_36_ = 0; i_36_ < 4; i_36_++) {
 				if (!aBooleanArray1183[i_36_]) {
 					anIntArray1186[i_36_] = -1;
-					method1871(i_36_);
+					disableLight(i_36_);
 				}
 			}
 			anInt1180 = i_20_;
@@ -173,9 +174,9 @@ final class LightManager {
 			Class120_Sub14_Sub13.method1532(0, 0);
 			HDToolkit.method511(0);
 			HDToolkit.method509();
-			HDToolkit.method514(HDToolkit.anInt507);
+			HDToolkit.bindTexture2D(HDToolkit.anInt507);
 			gl.glDepthMask(false);
-			HDToolkit.method524(false);
+			HDToolkit.toggleLighting(false);
 			gl.glBlendFunc(774, 1);
 			gl.glFogfv(2918, new float[] { 0.0F, 0.0F, 0.0F, 0.0F }, 0);
 			gl.glTexEnvi(8960, 34176, 34166);
@@ -188,8 +189,8 @@ final class LightManager {
 				}
 				if (light.aClass133_380 != null) {
 					int i_40_ = 0;
-					int i_41_ = (light.anInt373 >> 7) - light.anInt370;
-					int i_42_ = (light.anInt373 >> 7) + light.anInt370;
+					int i_41_ = (light.z >> 7) - light.anInt370;
+					int i_42_ = (light.z >> 7) + light.anInt370;
 					if (i_42_ >= Js5Worker.anInt396) {
 						i_42_ = Js5Worker.anInt396 - 1;
 					}
@@ -199,7 +200,7 @@ final class LightManager {
 					}
 					while_96_: for (int i_43_ = i_41_; i_43_ <= i_42_; i_43_++) {
 						final int i_44_ = light.aShortArray372[i_40_++];
-						int i_45_ = (light.anInt395 >> 7) - light.anInt370 + (i_44_ >> 8);
+						int i_45_ = (light.x >> 7) - light.anInt370 + (i_44_ >> 8);
 						int i_46_ = i_45_ + (i_44_ & 0xff) - 1;
 						if (i_45_ < GrandExchangeObject.anInt1493) {
 							i_45_ = GrandExchangeObject.anInt1493;
@@ -255,22 +256,22 @@ final class LightManager {
 					}
 				}
 				anIntArray1186[i_52_] = -1;
-				method1871(i_52_);
+				disableLight(i_52_);
 			}
 		}
 	}
 
 	static final void method1865() {
 		final GL gl = HDToolkit.gl;
-		for (int i = 0; i < 4; i++) {
-			final int i_56_ = 16388 + i;
-			gl.glLightfv(i_56_, 4608, new float[] { 0.0F, 0.0F, 0.0F, 1.0F }, 0);
-			gl.glLightf(i_56_, 4616, 0.0F);
-			gl.glLightf(i_56_, 4615, 0.0F);
+		for (int id = 0; id < 4; id++) {
+			final int lightId = 16388 + id;
+			gl.glLightfv(lightId, 4608, new float[] { 0.0F, 0.0F, 0.0F, 1.0F }, 0);//LIGHT*, AMBIENT
+			gl.glLightf(lightId, 4616, 0.0F);//LIGHT*, LINEAR_ATTENUATION
+			gl.glLightf(lightId, 4615, 0.0F);//LIGHT*, CONSTANT_ATTENUATION
 		}
-		for (int i = 0; i < 4; i++) {
-			anIntArray1186[i] = -1;
-			method1871(i);
+		for (int id = 0; id < 4; id++) {
+			anIntArray1186[id] = -1;
+			disableLight(id);
 		}
 	}
 
@@ -299,7 +300,7 @@ final class LightManager {
 	static final void method1867() {
 		lights = new Light[255];
 		anIntArray1186 = new int[4];
-		aBooleanArray1188 = new boolean[4];
+		lightEnabled = new boolean[4];
 		anIntArray1191 = new int[4];
 		aBooleanArray1183 = new boolean[4];
 		anIntArrayArrayArray1182 = new int[anInt1187][anInt1177][anInt1178];
@@ -309,15 +310,15 @@ final class LightManager {
 		lights = null;
 		anIntArrayArrayArray1182 = null;
 		anIntArray1186 = null;
-		aBooleanArray1188 = null;
-		aFloatArray1192 = null;
+		lightEnabled = null;
+		position = null;
 		anIntArray1191 = null;
 		aBooleanArray1183 = null;
 	}
 
 	static final void method1869() {
-		for (int i = 0; i < lightsPos; i++) {
-			final Light light = lights[i];
+		for (int id = 0; id < lightsPos; id++) {
+			final Light light = lights[id];
 			int i_63_ = light.anInt384;
 			if (light.aBoolean371) {
 				i_63_ = 0;
@@ -328,18 +329,18 @@ final class LightManager {
 			}
 			for (int i_65_ = i_63_; i_65_ <= i_64_; i_65_++) {
 				int i_66_ = 0;
-				int i_67_ = (light.anInt373 >> 7) - light.anInt370;
+				int i_67_ = (light.z >> 7) - light.anInt370;
 				if (i_67_ < 0) {
 					i_66_ -= i_67_;
 					i_67_ = 0;
 				}
-				int i_68_ = (light.anInt373 >> 7) + light.anInt370;
+				int i_68_ = (light.z >> 7) + light.anInt370;
 				if (i_68_ > anInt1178 - 1) {
 					i_68_ = anInt1178 - 1;
 				}
 				for (int i_69_ = i_67_; i_69_ <= i_68_; i_69_++) {
 					final int i_70_ = light.aShortArray372[i_66_++];
-					int i_71_ = (light.anInt395 >> 7) - light.anInt370 + (i_70_ >> 8);
+					int i_71_ = (light.x >> 7) - light.anInt370 + (i_70_ >> 8);
 					int i_72_ = i_71_ + (i_70_ & 0xff) - 1;
 					if (i_71_ < 0) {
 						i_71_ = 0;
@@ -350,13 +351,13 @@ final class LightManager {
 					for (int i_73_ = i_71_; i_73_ <= i_72_; i_73_++) {
 						final int i_74_ = anIntArrayArrayArray1182[i_65_][i_73_][i_69_];
 						if ((i_74_ & 0xff) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | i + 1;
+							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1;
 						} else if ((i_74_ & 0xff00) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | i + 1 << 8;
+							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 8;
 						} else if ((i_74_ & 0xff0000) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | i + 1 << 16;
+							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 16;
 						} else if ((i_74_ & ~0xffffff) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | i + 1 << 24;
+							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 24;
 						}
 					}
 				}
@@ -367,33 +368,33 @@ final class LightManager {
 	static final void method1870() {
 		lights = null;
 		anIntArray1186 = null;
-		aBooleanArray1188 = null;
+		lightEnabled = null;
 		anIntArray1191 = null;
 		aBooleanArray1183 = null;
 		anIntArrayArrayArray1182 = null;
 	}
 
-	private static final void method1871(final int i) {
-		if (aBooleanArray1188[i]) {
-			aBooleanArray1188[i] = false;
-			final int i_75_ = i + 16384 + 4;
+	private static final void disableLight(final int id) {
+		if (lightEnabled[id]) {
+			lightEnabled[id] = false;
+			final int lightId = id + 16384 + 4;
 			final GL gl = HDToolkit.gl;
-			gl.glDisable(i_75_);
+			gl.glDisable(lightId);
 		}
 	}
 
-	private static final void method1872(final int i, final Light light, final int i_76_, final int i_77_, final int i_78_) {
-		final int i_79_ = i + 16384 + 4;
+	private static final void updateLight(final int id, final Light light, final int xOff, final int yOff, final int zOff) {
+		final int lightId = id + 16384 + 4;//16384 - 16391
 		final GL gl = HDToolkit.gl;
-		if (!aBooleanArray1188[i]) {
-			gl.glEnable(i_79_);
-			aBooleanArray1188[i] = true;
+		if (!lightEnabled[id]) {
+			gl.glEnable(lightId);
+			lightEnabled[id] = true;
 		}
-		gl.glLightf(i_79_, 4617, light.aFloat387);
-		gl.glLightfv(i_79_, 4609, light.aFloatArray377, 0);
-		aFloatArray1192[0] = light.anInt395 - i_76_;
-		aFloatArray1192[1] = light.anInt375 - i_77_;
-		aFloatArray1192[2] = light.anInt373 - i_78_;
-		gl.glLightfv(i_79_, 4611, aFloatArray1192, 0);
+		gl.glLightf(lightId, 4617, light.quadraticAttenuation);//LIGHT*, QUADRATIC_ATTENUATION
+		gl.glLightfv(lightId, 4609, light.diffuse, 0);//LIGHT*, DIFFUSE
+		position[0] = light.x - xOff;
+		position[1] = light.y - yOff;
+		position[2] = light.z - zOff;
+		gl.glLightfv(lightId, 4611, position, 0);//LIGHT*, POSITION
 	}
 }

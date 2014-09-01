@@ -7,7 +7,7 @@ final class Class112 {
 	static int[] playerIndices = new int[2048];
 	private final FileSystemWorker fileSystemWorker;
 	static int[] anIntArray1069;
-	static Class98 aClass98_1070;
+	static WorldMapFont aClass98_1070;
 	private final Js5Worker js5Worker;
 	private Buffer masterIndexBuffer;
 	private Js5Request masterIndexRequest;
@@ -109,45 +109,45 @@ final class Class112 {
 			if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
 				int i_15_ = 0;
 				int i_16_ = 0;
-				if (Class142.aClass189_1362 != null) {
-					i_15_ = Class142.aClass189_1362.x;
-					i_16_ = Class142.aClass189_1362.y;
+				if (MapSceneType.worldMapInterface != null) {
+					i_15_ = MapSceneType.worldMapInterface.x;
+					i_16_ = MapSceneType.worldMapInterface.y;
 				}
-				TileParticleQueue.intArguments[1] = Class191.lastMouseY - i_16_;
 				TileParticleQueue.intArguments[0] = Queue.lastMouseX - i_15_;
+				TileParticleQueue.intArguments[1] = Class191.lastMouseY - i_16_;
 			}
 			World.method2194(class120_sub14_sub12, 200000);
 		}
 	}
 
 	static final void getRunesSpriteId(final js5 js5) {
-		Class120_Sub14_Sub13.runesId = js5.method432("runes");
+		Class120_Sub14_Sub13.runesId = js5.getGroupId("runes");
 	}
 
-	private final Class53_Sub1 method991(final FileSystem fileSystem, final FileSystem class51_17_, final boolean bool, final int index) {
+	private final Class53_Sub1 method991(final FileSystem masterIndexFs, final FileSystem indexFs, final boolean bool, final int indexId) {
 		if (masterIndexBuffer == null) {
 			throw new RuntimeException();
 		}
-		masterIndexBuffer.pos = 5 + index * 8;
+		masterIndexBuffer.pos = 5 + indexId * 8;
 		if (masterIndexBuffer.buf.length <= masterIndexBuffer.pos) {
 			throw new RuntimeException();
 		}
-		if (aClass53_Sub1Array1074[index] != null) {
-			return aClass53_Sub1Array1074[index];
+		if (aClass53_Sub1Array1074[indexId] != null) {
+			return aClass53_Sub1Array1074[indexId];
 		}
 		final int crc = masterIndexBuffer.getInt();
 		final int version = masterIndexBuffer.getInt();
-		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(index, class51_17_, fileSystem, js5Worker, fileSystemWorker, crc, version, bool);
-		aClass53_Sub1Array1074[index] = class53_sub1_21_;
+		final Class53_Sub1 class53_sub1_21_ = new Class53_Sub1(indexId, indexFs, masterIndexFs, js5Worker, fileSystemWorker, crc, version, bool);
+		aClass53_Sub1Array1074[indexId] = class53_sub1_21_;
 		return class53_sub1_21_;
 	}
 
-	static final Class120_Sub14_Sub5 method992() {
-		if (Class79.aClass177_690 == null) {
+	static final MapFunctionNode method992() {
+		if (WorldMapHandler.aClass177_690 == null) {
 			return null;
 		}
-		for (Class120_Sub14_Sub5 class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890(); class120_sub14_sub5_22_ != null; class120_sub14_sub5_22_ = (Class120_Sub14_Sub5) Class22.aClass127_130.method1890()) {
-			final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_22_.anInt3473);
+		for (MapFunctionNode class120_sub14_sub5_22_ = (MapFunctionNode) Class22.aClass127_130.method1890(); class120_sub14_sub5_22_ != null; class120_sub14_sub5_22_ = (MapFunctionNode) Class22.aClass127_130.method1890()) {
+			final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_22_.id);
 			if (class73 != null && class73.aBoolean659 && class73.method647()) {
 				return class120_sub14_sub5_22_;
 			}
@@ -155,8 +155,8 @@ final class Class112 {
 		return null;
 	}
 
-	final Class53_Sub1 method993(final FileSystem fileSystem, final FileSystem class51_23_, final int i) {
-		return method991(fileSystem, class51_23_, true, i);
+	final Class53_Sub1 method993(final FileSystem masterIndexFs, final FileSystem indexFs, final int id) {
+		return method991(masterIndexFs, indexFs, true, id);
 	}
 
 	Class112(final Js5Worker jw, final FileSystemWorker fsw) {

@@ -38,73 +38,83 @@ final class ObjectContainer extends Node {
 		/* empty */
 	}
 
-	static final int getCount(final int type, final int id) {
-		final ObjectContainer container = (ObjectContainer) objectContainerCache.get(type);
-		if (container == null) {
+	static final int getCount(final int type, final int objId) {
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
 			return 0;
 		}
-		if (id == -1) {
+		if (objId == -1) {
 			return 0;
 		}
 		int amount = 0;
-		for (int i_15_ = 0; i_15_ < container.objectCounts.length; i_15_++) {
-			if (id == container.objectIds[i_15_]) {
-				amount += container.objectCounts[i_15_];
+		for (int id = 0; id < objectContainer.objectCounts.length; id++) {
+			if (objId == objectContainer.objectIds[id]) {
+				amount += objectContainer.objectCounts[id];
 			}
 		}
 		return amount;
 	}
 
 	static final int getIndexCount(final int type, final int index) {
-		final ObjectContainer container = (ObjectContainer) objectContainerCache.get(type);
-		if (container == null) {
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
 			return 0;
 		}
-		if (index < 0 || index >= container.objectCounts.length) {
+		if (index < 0 || index >= objectContainer.objectCounts.length) {
 			return 0;
 		}
-		return container.objectCounts[index];
+		return objectContainer.objectCounts[index];
 	}
 
 	static final int getId(final int type, final int index) {
-		final ObjectContainer container = (ObjectContainer) objectContainerCache.get(type);
-		if (container == null) {
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
 			return -1;
 		}
-		if (index < 0 || index >= container.objectIds.length) {
+		if (index < 0 || index >= objectContainer.objectIds.length) {
 			return -1;
 		}
-		return container.objectIds[index];
+		return objectContainer.objectIds[index];
 	}
 
-	static final void addObject(final int type, final int index, final int id, final int count) {
-		ObjectContainer container = (ObjectContainer) objectContainerCache.get(type);
-		if (container == null) {
-			container = new ObjectContainer();
-			objectContainerCache.put(container, type);
+	static final void addObject(final int objId, final int objCount, final int index, final int type) {
+		ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
+			objectContainer = new ObjectContainer();
+			objectContainerCache.put(objectContainer, type);
 		}
-		if (container.objectIds.length <= index) {
-			final int[] is = new int[index + 1];
-			final int[] is_5_ = new int[index + 1];
-			for (int i_6_ = 0; container.objectIds.length > i_6_; i_6_++) {
-				is[i_6_] = container.objectIds[i_6_];
-				is_5_[i_6_] = container.objectCounts[i_6_];
+		if (objectContainer.objectIds.length <= index) {
+			final int[] ids = new int[index + 1];
+			final int[] counts = new int[index + 1];
+			for (int id = 0; id < objectContainer.objectIds.length; id++) {
+				ids[id] = objectContainer.objectIds[id];
+				counts[id] = objectContainer.objectCounts[id];
 			}
-			for (int i_7_ = container.objectIds.length; i_7_ < index; i_7_++) {
-				is[i_7_] = -1;
-				is_5_[i_7_] = 0;
+			for (int id = objectContainer.objectIds.length; id < index; id++) {
+				ids[id] = -1;
+				counts[id] = 0;
 			}
-			container.objectCounts = is_5_;
-			container.objectIds = is;
+			objectContainer.objectCounts = counts;
+			objectContainer.objectIds = ids;
 		}
-		container.objectIds[index] = id;
-		container.objectCounts[index] = count;
+		objectContainer.objectIds[index] = objId;
+		objectContainer.objectCounts[index] = objCount;
 	}
 
 	static final void remove(final int type) {
-		final ObjectContainer container = (ObjectContainer) objectContainerCache.get(type);
-		if (container != null) {
-			container.unlink();
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer != null) {
+			objectContainer.unlink();
+		}
+	}
+
+	static final void reset(final int type) {
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer != null) {
+			for (int id = 0; id < objectContainer.objectIds.length; id++) {
+				objectContainer.objectIds[id] = -1;
+				objectContainer.objectCounts[id] = 0;
+			}
 		}
 	}
 }

@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.PixelGrabber;
 
-final class Class98 {
+final class WorldMapFont {
 	private byte[] aByteArray944;
 	private boolean aBoolean945 = false;
 	private int anInt946 = 0;
@@ -80,7 +80,7 @@ final class Class98 {
 			if (aBoolean945) {
 				method820(GraphicsLD.pixels, is, i_4_, i_9_, i_10_, i_7_, i_8_, i_11_, i_12_);
 			} else {
-				method816(GraphicsLD.pixels, is, i_4_, i_9_, i_10_, i_7_, i_8_, i_11_, i_12_);
+				plotLetter(GraphicsLD.pixels, is, i_4_, i_9_, i_10_, i_7_, i_8_, i_11_, i_12_);
 			}
 		}
 	}
@@ -97,11 +97,11 @@ final class Class98 {
 		final int i_18_ = method811(string) / 2;
 		final int i_19_ = method813();
 		if (i - i_18_ <= GraphicsLD.endX && i + i_18_ >= GraphicsLD.startX && i_16_ - i_19_ <= GraphicsLD.endY && i_16_ >= 0) {
-			method818(string, i - i_18_, i_16_, i_17_, bool);
+			drawString(string, i - i_18_, i_16_, i_17_, bool);
 		}
 	}
 
-	private final void method816(final int[] is, final byte[] is_20_, final int i, int i_21_, int i_22_, int i_23_, final int i_24_, final int i_25_, final int i_26_) {
+	private final void plotLetter(final int[] is, final byte[] is_20_, final int i, int i_21_, int i_22_, int i_23_, final int i_24_, final int i_25_, final int i_26_) {
 		final int i_27_ = -(i_23_ >> 2);
 		i_23_ = -(i_23_ & 0x3);
 		for (int i_28_ = -i_24_; i_28_ < 0; i_28_++) {
@@ -143,7 +143,7 @@ final class Class98 {
 		return aByteArray944[8] - 1;
 	}
 
-	private final void method818(final String string, int i, final int i_31_, final int i_32_, boolean bool) {
+	private final void drawString(final String string, int i, final int i_31_, final int i_32_, boolean bool) {
 		if (aBoolean945 || i_32_ == 0) {
 			bool = false;
 		}
@@ -274,11 +274,11 @@ final class Class98 {
 		}
 	}
 
-	Class98(final int i, final boolean bool, final Component component) {
+	WorldMapFont(final int size, final boolean style, final Component component) {
 		aByteArray944 = new byte[100000];
 		anInt946 = anInt947 * 9;
 		aBoolean945 = false;
-		Font font = new Font("Helvetica", bool ? 1 : 0, i);
+		Font font = new Font("Helvetica", style ? 1 : 0, size);
 		FontMetrics fontmetrics = component.getFontMetrics(font);
 		for (int i_70_ = 0; i_70_ < anInt947; i_70_++) {
 			method819(
@@ -287,10 +287,10 @@ final class Class98 {
 					"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\u00a3$%^&*()-_=+[{]};:'@#~,<.>/?\\| \u00c4\u00cb\u00cf\u00d6\u00dc\u00e4\u00eb\u00ef\u00f6\u00fc\u00ff\u00df\u00c1\u00c0\u00c9\u00c8\u00cd\u00cc\u00d3\u00d2\u00da\u00d9\u00e1\u00e0\u00e9\u00e8\u00ed\u00ec\u00f3\u00f2\u00fa\u00f9\u00c2\u00ca\u00ce\u00d4\u00db\u00e2\u00ea\u00ee\u00f4\u00fb\u00c6\u00e6\u00e3\u00c3\u00f5\u00d5\u00e7\u00c7"
 							.charAt(i_70_), i_70_, false);
 		}
-		if (bool && aBoolean945) {
+		if (style && aBoolean945) {
 			anInt946 = anInt947 * 9;
 			aBoolean945 = false;
-			font = new Font("Helvetica", 0, i);
+			font = new Font("Helvetica", 0, size);
 			fontmetrics = component.getFontMetrics(font);
 			for (int i_71_ = 0; i_71_ < anInt947; i_71_++) {
 				method819(

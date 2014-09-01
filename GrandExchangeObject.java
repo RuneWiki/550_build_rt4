@@ -40,7 +40,7 @@ final class GrandExchangeObject {
 
 	static final void method2099(final js5 js5, final js5 class50_1_, final boolean bool) {
 		Class140.npcMemberClient = bool;
-		NpcType.aClass50_2099 = class50_1_;
+		NpcType.configClient = class50_1_;
 		Class28.aClass50_181 = js5;
 	}
 

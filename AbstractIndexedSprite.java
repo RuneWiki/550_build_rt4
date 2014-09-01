@@ -23,8 +23,8 @@ abstract class AbstractIndexedSprite {
 		aString1025 = "Prepared sound engine";
 	}
 
-	static final void method908(final int newDisplayMode, final int width, final int height, final int currentDisplayMode, final boolean canvasReplaceRecommended, final boolean bool_4_) {
-		if (bool_4_) {
+	static final void changeDisplayMode(final int newDisplayMode, final int width, final int height, final int currentDisplayMode, final boolean canvasReplaceRecommended, final boolean changeRenderer) {
+		if (changeRenderer) {
 			HDToolkit.method519();
 		}
 		if (Class120_Sub14_Sub10.fullscreenFrame != null && (newDisplayMode != 3 || width != Class120_Sub12_Sub18.lastFullscreenWidth || height != Class120_Sub12_Sub12.lastFullscreenHeight)) {
@@ -40,7 +40,7 @@ abstract class AbstractIndexedSprite {
 			}
 		}
 		if (newDisplayMode == 3 && Class120_Sub14_Sub10.fullscreenFrame == null) {
-			method908(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, currentDisplayMode, true, true);
+			changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, currentDisplayMode, true, true);
 		} else {
 			Container container;
 			if (Class120_Sub14_Sub10.fullscreenFrame == null) {
@@ -62,10 +62,10 @@ abstract class AbstractIndexedSprite {
 			if (newDisplayMode >= 2) {
 				Class186.topMargin = 0;
 				Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
-				Class120_Sub28.leftMargin = 0;
+				ReflectionCheckNode.leftMargin = 0;
 				Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
 			} else {
-				Class120_Sub28.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
+				ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
 				Class69_Sub1.canvasWidth = 765;
 				Class120_Sub12_Sub5.canvasHeight = 503;
 				//Class186.topMargin = 0;//original
@@ -89,16 +89,16 @@ abstract class AbstractIndexedSprite {
 				}
 				Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (container != Class112.frame) {
-					Node.canvas.setLocation(Class120_Sub28.leftMargin, Class186.topMargin);
+					Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
 				} else {
 					final Insets insets = Class112.frame.getInsets();
-					Node.canvas.setLocation(Class120_Sub28.leftMargin + insets.left, Class186.topMargin + insets.top);
+					Node.canvas.setLocation(ReflectionCheckNode.leftMargin + insets.left, Class186.topMargin + insets.top);
 				}
 			}
 			if (newDisplayMode == 0 && currentDisplayMode > 0) {
 				HDToolkit.destroy(Node.canvas);
 			}
-			if (bool_4_ && newDisplayMode > 0) {
+			if (changeRenderer && newDisplayMode > 0) {
 				Node.canvas.setIgnoreRepaint(true);
 				if (!Class42.aBoolean363) {
 					Class173.method2225();
@@ -108,7 +108,7 @@ abstract class AbstractIndexedSprite {
 					if (Class109.gameState != 5) {
 						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
 					} else {
-						OverlayType.method1909(Class120_Sub12_Sub22.boldFont, true);
+						UnderlayType.method1909(Class120_Sub12_Sub22.boldFont, true);
 					}
 					try {
 						final Graphics graphics = Node.canvas.getGraphics();
@@ -135,7 +135,7 @@ abstract class AbstractIndexedSprite {
 				}
 			}
 			if (!HDToolkit.glEnabled && newDisplayMode > 0) {
-				method908(0, -1, -1, currentDisplayMode, true, true);
+				changeDisplayMode(0, -1, -1, currentDisplayMode, true, true);
 			} else {
 				if (newDisplayMode <= 0 || currentDisplayMode != 0) {
 					if (newDisplayMode == 0 && currentDisplayMode > 0) {
@@ -143,7 +143,7 @@ abstract class AbstractIndexedSprite {
 						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 						LDModel.method2395();
 						ParticleEngine.method946();
-						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20, (byte) -111);
+						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20);
 						if (Class120_Sub12_Sub6.highLightingDetail) {
 							if (FileSystemRequest.brightness == 1) {
 								Rasterizer.method852(0.9F);
@@ -165,7 +165,7 @@ abstract class AbstractIndexedSprite {
 					JagexInterface.gameShellThread.setPriority(5);
 					ClanMember.fullscreenGraphics = null;
 					LDModel.method2404();
-					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200, (byte) -111);
+					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200);
 					if (Class120_Sub12_Sub6.highLightingDetail) {
 						Rasterizer.method852(0.7F);
 					}
@@ -178,7 +178,7 @@ abstract class AbstractIndexedSprite {
 				}
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
-				if (bool_4_) {
+				if (changeRenderer) {
 					ObjectCache.method191();
 				}
 				if (newDisplayMode < 2) {
@@ -204,7 +204,7 @@ abstract class AbstractIndexedSprite {
 		try {
 			aClass189Array1022 = null;
 			if (!bool) {
-				method908(-84, 73, 124, -89, true, true);
+				changeDisplayMode(-84, 73, 124, -89, true, true);
 			}
 			aString1025 = null;
 		} catch (final RuntimeException runtimeexception) {

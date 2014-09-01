@@ -94,7 +94,7 @@ final class GraphicsHD {
 			throw new IllegalStateException();
 		}
 		HDToolkit.method499();
-		HDToolkit.method514(class120_sub14_sub19_sub1.anInt3942);
+		HDToolkit.bindTexture2D(class120_sub14_sub19_sub1.textureId);
 		HDToolkit.method511(1);
 		HDToolkit.method521(0);
 		final float f = i + 0.3F;
@@ -210,13 +210,13 @@ final class GraphicsHD {
 		aClass120_Sub14_Sub19_Sub1_603 = class120_sub14_sub19_sub1;
 	}
 
-	static final void method596(final int[] is, final int i, final int i_60_, final int i_61_, final int i_62_) {
+	static final void method596(final int[] pixels, final int x, final int y, final int w, final int h) {
 		HDToolkit.method499();
 		final GL gl = HDToolkit.gl;
-		gl.glRasterPos2i(i, HDToolkit.canvasHeight - i_60_ - i_62_);
+		gl.glRasterPos2i(x, HDToolkit.canvasHeight - y - h);
 		gl.glDisable(3042);
 		gl.glDisable(3008);
-		gl.glDrawPixels(i_61_, i_62_, 32993, HDToolkit.usingBigEndian ? 33639 : 5121, IntBuffer.wrap(is));
+		gl.glDrawPixels(w, h, 32993, HDToolkit.usingBigEndian ? 33639 : 5121, IntBuffer.wrap(pixels));
 		gl.glEnable(3008);
 		gl.glEnable(3042);
 	}

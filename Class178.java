@@ -6,28 +6,19 @@ final class Class178 {
 	static int anInt1771;
 	static Js5Worker js5Worker;
 
-	static final int method2256(final boolean bool, final int i, int i_0_) {
-		int i_1_;
-		try {
-			if ((i ^ 0xffffffff) == 0) {
-				return 12345678;
-			}
-			i_0_ = (i & 0x7f) * i_0_ >> 7;
-			if (i_0_ >= 2) {
-				if (i_0_ > 126) {
-					i_0_ = 126;
-				}
-			} else {
-				i_0_ = 2;
-			}
-			if (!bool) {
-				return 59;
-			}
-			i_1_ = i_0_ + (i & 0xff80);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("um.A(").append(bool).append(',').append(i).append(',').append(i_0_).append(')').toString());
+	static final int method2256(final int i, int i_0_) {
+		if (i == -1) {
+			return 12345678;
 		}
-		return i_1_;
+		i_0_ = (i & 0x7f) * i_0_ >> 7;
+		if (i_0_ >= 2) {
+			if (i_0_ > 126) {
+				i_0_ = 126;
+			}
+		} else {
+			i_0_ = 2;
+		}
+		return i_0_ + (i & 0xff80);
 	}
 
 	static final void method2257(final boolean bool) {
@@ -40,7 +31,7 @@ final class Class178 {
 			OverridedJInterface.tileHeightMap = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
 			Canvas_Sub1.aClass120_Sub9ArrayArray17 = SceneGroundObject.aClass120_Sub9ArrayArray2844;
 		}
-		Class142.anInt1361 = LabelGroup.groundTiles.length;
+		MapSceneType.anInt1361 = LabelGroup.groundTiles.length;
 	}
 
 	public static void method2258(final byte i) {
