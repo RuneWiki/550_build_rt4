@@ -1,8 +1,16 @@
-﻿# Eclipse Project #
+# Eclipse Project #
 .buildpath
 .classpath
 .project
 /.settings
+
+# IntelliJ Files #
+.idea/
+.idea_modules/
+out/
+*.ipr
+*.iws
+*.iml
 
 # Binary files #
 *.class
