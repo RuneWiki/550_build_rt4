@@ -56,7 +56,7 @@ final class Class116 {
 			Class127.anInt1215 = -1;
 			Class120_Sub12_Sub9.clickedMouseFunctionId = -1;
 		}
-		if (Class80.mouseInsideWorldMap && MapFunctionType.aClass105_653 != null) {
+		if (ParticleType.mouseInsideWorldMap && MapFunctionType.aClass105_653 != null) {
 			for (Class120_Sub16 class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getNext()) {
 				final MapFunctionType mapFunctionType = MapFunctionType.list(class120_sub16.mapFunctionNode.id);
 				if (EnumType.anInt3450 != 0 || !class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY)) {

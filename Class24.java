@@ -123,7 +123,7 @@ final class Class24 {
 			Class120_Sub12_Sub38.skillsXp[i_11_] = 0;
 		}
 		if (HDToolkit.glEnabled) {
-			Class158.aBoolean1478 = true;
+			ModelParticle.aBoolean1478 = true;
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
 		MasterIndexInfo.aBoolean466 = false;

@@ -26,12 +26,12 @@ final class Class31 {
 			}
 			boolean newNpc = false;
 			if (Class120_Sub12_Sub11.npcList[index] == null) {
-				newNpc = true;
 				Class120_Sub12_Sub11.npcList[index] = new Npc();
+				newNpc = true;
 			}
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = index;
-			npc.anInt2985 = Class101_Sub2.loopCycle;
+			npc.lastUpdateCycle = Class101_Sub2.loopCycle;
 			if (npc.npcType != null && npc.npcType.hasAmbientSound()) {
 				Class120_Sub16.removeAmbientSoundNpc(npc);
 			}
@@ -59,7 +59,7 @@ final class Class31 {
 			if (npc.anInt3010 == 0) {
 				npc.anInt3032 = 0;
 			}
-			npc.method2323(i_3_ + TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0] - -i_1_, npc.getSize(), i_5_ == 1);
+			npc.method2323(TileParticleQueue.selfPlayer.walkQueueX[0] + i_3_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_1_, npc.getSize(), i_5_ == 1);
 			if (npc.npcType.hasAmbientSound()) {
 				Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 			}
@@ -84,33 +84,28 @@ final class Class31 {
 		return -1;
 	}
 
-	static final void method264(final int i, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
-		try {
-			if (i == -1 && i_13_ >= 1 && i_10_ >= 1 && i_13_ <= 102 && i_10_ <= 102) {
-				if (!Class143_Sub1.method2021() && (0x2 & Class114.tileSettings[0][i_13_][i_10_]) == 0) {
-					int i_15_ = i_8_;
-					if ((0x8 & Class114.tileSettings[i_8_][i_13_][i_10_]) != 0) {
-						i_15_ = 0;
-					}
-					if (i_15_ != Class120_Sub14_Sub4.anInt3469) {
-						return;
-					}
+	static final void method264(final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
+		if (i_13_ >= 1 && i_10_ >= 1 && i_13_ <= 102 && i_10_ <= 102) {
+			if (!Class143_Sub1.method2021() && (0x2 & Class114.tileSettings[0][i_13_][i_10_]) == 0) {
+				int i_15_ = i_8_;
+				if ((0x8 & Class114.tileSettings[i_8_][i_13_][i_10_]) != 0) {
+					i_15_ = 0;
 				}
-				int i_16_ = i_8_;
-				if (i_16_ < 3 && (Class114.tileSettings[1][i_13_][i_10_] & 0x2) == 2) {
-					i_16_++;
-				}
-				Class88.method743((byte) -116, i_8_, i_16_, i_10_, Class182.collisionMaps[i_8_], i_11_, i_13_);
-				if (i_12_ >= 0) {
-					final boolean bool = Hashtable.showGroundDecorations;
-					Hashtable.showGroundDecorations = true;
-					Class93.method771(i_9_, i_8_, i_12_, i_16_, i_13_, 4, false, i_10_, Class182.collisionMaps[i_8_], false, i_14_);
-					Hashtable.showGroundDecorations = bool;
+				if (i_15_ != SpotAnimationNode.anInt3469) {
+					return;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("db.E(").append(i).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')')
-					.toString());
+			int i_16_ = i_8_;
+			if (i_16_ < 3 && (Class114.tileSettings[1][i_13_][i_10_] & 0x2) == 2) {
+				i_16_++;
+			}
+			Class88.method743(Class182.collisionMaps[i_8_], i_8_, i_16_, i_10_, i_11_, i_13_);
+			if (i_12_ >= 0) {
+				final boolean bool = Hashtable.showGroundDecorations;
+				Hashtable.showGroundDecorations = true;
+				Class93.method771(i_9_, i_8_, i_12_, i_16_, i_13_, 4, false, i_10_, Class182.collisionMaps[i_8_], false, i_14_);
+				Hashtable.showGroundDecorations = bool;
+			}
 		}
 	}
 

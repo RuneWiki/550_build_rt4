@@ -30,7 +30,7 @@ final class Npc extends GameEntity {
 			if (this.npcType != null) {
 				final SeqType seqType = (this.anInt3006 ^ 0xffffffff) == 0 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
 				final SeqType class40_8_ = (this.anInt3004 ^ 0xffffffff) != 0 && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-				AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -102, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
+				AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 				if (class180_sub7 != null) {
 					this.maxY = class180_sub7.getMaxY();
 					NpcType npcType = this.npcType;
@@ -59,7 +59,7 @@ final class Npc extends GameEntity {
 						final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
 						class180_sub7_11_ = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
 						if (class180_sub7_11_ != null) {
-							class180_sub7_11_.translate(0, -this.anInt2965, 0);
+							class180_sub7_11_.translate(0, -this.spotAnimHeight, 0);
 							if (spotAnimType.aBoolean989) {
 								if (MouseHandler.anInt1140 != 0) {
 									class180_sub7_11_.method2377(MouseHandler.anInt1140);
@@ -136,7 +136,7 @@ final class Npc extends GameEntity {
 				if (!this.aBoolean3007) {
 					final SeqType seqType = this.anInt3006 != -1 && this.anInt2993 == 0 ? SeqType.list(this.anInt3006) : null;
 					final SeqType class40_16_ = this.anInt3004 == -1 || this.anInt3004 == method2336().anInt218 && seqType != null ? null : SeqType.list(this.anInt3004);
-					final AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, -119, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
+					final AbstractModel class180_sub7 = this.npcType.method2212(this.anInt2964, this.anInt2998, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.anInt3021, this.anInt3046, this.anInt3044);
 					if (class180_sub7 == null) {
 						return;
 					}

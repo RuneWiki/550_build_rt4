@@ -54,7 +54,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 			aShortArray3429 = null;
 			IdentityKit.recentUse = null;
 			if (bool) {
-				method1394((byte) 2, -94, -94, -62, -123);
+				method1394(-94, -94, -62, -123);
 			}
 			anIntArray3425 = null;
 			aShortArray3430 = null;
@@ -90,18 +90,12 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void method1394(final byte i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(10, i_14_);
-			class120_sub14_sub7.method1454();
-			if (i == -48) {
-				class120_sub14_sub7.anInt3492 = i_11_;
-				class120_sub14_sub7.anInt3486 = i_12_;
-				class120_sub14_sub7.anInt3484 = i_13_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vb.R(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
-		}
+	static final void method1394(final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(10, i_14_);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3492 = i_11_;
+		class120_sub14_sub7.anInt3486 = i_12_;
+		class120_sub14_sub7.anInt3484 = i_13_;
 	}
 
 	static final String method1395(long l, final boolean bool, final int i, final int i_15_, final int i_16_) {

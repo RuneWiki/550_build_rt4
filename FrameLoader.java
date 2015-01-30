@@ -161,11 +161,11 @@ final class FrameLoader extends NodeSub {
 			if (npcType.childrenIDs != null) {
 				npcType = npcType.handleVarp();
 			}
-			if (npcType != null && npcType.aBoolean1688) {
+			if (npcType != null && npcType.canRightClick) {
 				String string = npcType.name;
-				if (npcType.anInt1674 != 0) {
+				if (npcType.combatLevel != 0) {
 					final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : LongNode.aString2424;
-					string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, npcType.anInt1674)).append(" (").append(string_14_).append(npcType.anInt1674).append(")").toString();
+					string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, npcType.combatLevel)).append(" (").append(string_14_).append(npcType.combatLevel).append(")").toString();
 				}
 				if (Light.objSelected != 1) {
 					if (Class88.spellSelected) {
@@ -174,67 +174,67 @@ final class FrameLoader extends NodeSub {
 							InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 42, Class150.selectedSpellTargetCursor);
 						}
 					} else {
-						String[] strings = npcType.actions;
-						if (MouseHandler.showNumbersOnActions) {
-							strings = Class120_Sub12_Sub36.addNumbers(strings);
+						String[] options = npcType.options;
+						if (MouseHandler.showNumbersOnOptions) {
+							options = Class120_Sub12_Sub36.addNumbers(options);
 						}
-						if (strings != null) {
-							for (int i_15_ = 4; i_15_ >= 0; i_15_--) {
-								if (strings[i_15_] != null && (Buffer.gameId != 0 || !strings[i_15_].equalsIgnoreCase(Class65.aString591))) {
-									short i_16_ = 0;
-									int i_17_ = -1;
-									if (i_15_ == npcType.anInt1673) {
-										i_17_ = npcType.anInt1695;
+						if (options != null) {
+							for (int optionId = 4; optionId >= 0; optionId--) {
+								if (options[optionId] != null && (Buffer.gameId != 0 || !options[optionId].equalsIgnoreCase(Class65.aString591))) {
+									short code = 0;
+									int cursorId = -1;
+									if (optionId == npcType.cursor1op) {
+										cursorId = npcType.cursor1;
 									}
-									if (npcType.anInt1655 == i_15_) {
-										i_17_ = npcType.anInt1690;
+									if (optionId == npcType.cursor2op) {
+										cursorId = npcType.cursor2;
 									}
-									if (i_15_ == 0) {
-										i_16_ = (short) 39;
+									if (optionId == 0) {
+										code = (short) 39;
 									}
-									if (i_15_ == 1) {
-										i_16_ = (short) 8;
+									if (optionId == 1) {
+										code = (short) 8;
 									}
-									if (i_15_ == 2) {
-										i_16_ = (short) 36;
+									if (optionId == 2) {
+										code = (short) 36;
 									}
-									if (i_15_ == 3) {
-										i_16_ = (short) 25;
+									if (optionId == 3) {
+										code = (short) 25;
 									}
-									if (i_15_ == 4) {
-										i_16_ = (short) 59;
+									if (optionId == 4) {
+										code = (short) 59;
 									}
-									InvType.addMenuOption(strings[i_15_], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, i_16_, i_17_);
+									InvType.addMenuOption(options[optionId], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, code, cursorId);
 								}
 							}
 						}
-						if (Buffer.gameId == 0 && strings != null) {
-							for (int i_18_ = 4; i_18_ >= 0; i_18_--) {
-								if (strings[i_18_] != null && strings[i_18_].equalsIgnoreCase(Class65.aString591)) {
-									short i_19_ = 0;
-									if (TileParticleQueue.selfPlayer.combatLevel < npcType.anInt1674) {
-										i_19_ = (short) 2000;
+						if (Buffer.gameId == 0 && options != null) {
+							for (int actionId = 4; actionId >= 0; actionId--) {
+								if (options[actionId] != null && options[actionId].equalsIgnoreCase(Class65.aString591)) {
+									short combatModifier = 0;
+									if (TileParticleQueue.selfPlayer.combatLevel < npcType.combatLevel) {
+										combatModifier = (short) 2000;
 									}
-									short i_20_ = 0;
-									if (i_18_ == 0) {
-										i_20_ = (short) 39;
+									short code = 0;
+									if (actionId == 0) {
+										code = (short) 39;
 									}
-									if (i_18_ == 1) {
-										i_20_ = (short) 8;
+									if (actionId == 1) {
+										code = (short) 8;
 									}
-									if (i_18_ == 2) {
-										i_20_ = (short) 36;
+									if (actionId == 2) {
+										code = (short) 36;
 									}
-									if (i_18_ == 3) {
-										i_20_ = (short) 25;
+									if (actionId == 3) {
+										code = (short) 25;
 									}
-									if (i_18_ == 4) {
-										i_20_ = (short) 59;
+									if (actionId == 4) {
+										code = (short) 59;
 									}
-									if (i_20_ != 0) {
-										i_20_ += i_19_;
+									if (code != 0) {
+										code += combatModifier;
 									}
-									InvType.addMenuOption(strings[i_18_], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, i_20_, npcType.anInt1668);
+									InvType.addMenuOption(options[actionId], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, code, npcType.anInt1668);
 								}
 							}
 						}
@@ -248,9 +248,9 @@ final class FrameLoader extends NodeSub {
 	}
 
 	static final int method1581(final int x, final int z, final int brightness, int redrawRate) {
-		if (Class158.aBoolean1478) {
+		if (ModelParticle.aBoolean1478) {
 			redrawRate = 1000000;
-			Class158.aBoolean1478 = false;
+			ModelParticle.aBoolean1478 = false;
 		}
 		final Class191 class191 = IdentityKit.aClass191ArrayArray1337[x][z];
 		final float f = class191.aFloat2102 * (0.7F + 0.1F * brightness);

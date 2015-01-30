@@ -138,8 +138,8 @@ final class Class14 implements ShaderInterface {
 					aFloatArray2163[0] = 0.0F;
 					aFloatArray2163[1] = 0.0F;
 					aFloatArray2163[2] = 0.0F;
-					aFloatArray2163[3] = HDToolkit.loopCycleWrapper * 0.005F;
-					gl.glTexGenfv(8194, 9473, aFloatArray2163, 0);
+					aFloatArray2163[3] = HDToolkit.loopCycleWrapper * 0.005F;//Water moving speed?
+					gl.glTexGenfv(8194, 9473, aFloatArray2163, 0);//R, OBJECT_PLANE
 					anInt2160 = HDToolkit.loopCycleWrapper;
 				}
 			} else {

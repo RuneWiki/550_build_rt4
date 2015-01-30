@@ -243,11 +243,11 @@ final class LongNode extends Node {
 		}
 	}
 
-	static final void method1057(final Buffer class120_sub7, final int i_45_) {
-		if (Class10.aClass193_78 != null) {
+	static final void randomFileWrite(final Buffer buffer, final int off) {
+		if (Class10.randomFile != null) {
 			try {
-				Class10.aClass193_78.seek(0L);
-				Class10.aClass193_78.write(class120_sub7.buf, i_45_, 24);
+				Class10.randomFile.seek(0L);
+				Class10.randomFile.write(buffer.buf, off, 24);
 			} catch (final Exception exception) {
 				/* empty */
 			}

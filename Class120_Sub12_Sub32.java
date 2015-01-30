@@ -87,30 +87,30 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1370(final Player player, final int[] is, final int[] is_15_, final int[] is_16_) {
-		for (int id = 0; id < is_16_.length; id++) {
-			final int i_18_ = is_16_[id];
-			final int i_19_ = is_15_[id];
-			int i_20_ = is[id];
-			for (int i_21_ = 0; i_20_ != 0 && i_21_ < player.aClass150Array2972.length; i_21_++) {
-				if ((0x1 & i_20_) != 0) {
-					if (i_18_ != -1) {
-						final SeqType seqType = SeqType.list(i_18_);
+	static final void method1370(final Player player, final int[] seqIds, final int[] delays, final int[] is) {
+		for (int arrayId = 0; arrayId < seqIds.length; arrayId++) {
+			final int seqId = seqIds[arrayId];
+			final int delay = delays[arrayId];
+			int adas = is[arrayId];
+			for (int i_21_ = 0; adas != 0 && i_21_ < player.aClass150Array2972.length; i_21_++) {
+				if ((0x1 & adas) != 0) {
+					if (seqId != -1) {
+						final SeqType seqType = SeqType.list(seqId);
 						Class150 class150 = player.aClass150Array2972[i_21_];
 						final int i_22_ = seqType.resetInPlay;
 						if (class150 != null) {
-							if (class150.anInt1406 != i_18_) {
-								if (seqType.priority >= SeqType.list(class150.anInt1406).priority) {
+							if (class150.seqId != seqId) {
+								if (seqType.priority >= SeqType.list(class150.seqId).priority) {
 									class150 = player.aClass150Array2972[i_21_] = null;
 								}
 							} else if (i_22_ == 0) {
 								class150 = player.aClass150Array2972[i_21_] = null;
 							} else if (i_22_ == 1) {
-								class150.anInt1413 = 0;
-								class150.anInt1414 = 1;
-								class150.anInt1410 = 0;
+								class150.frameId = 0;
+								class150.nextFrameId = 1;
+								class150.frameDelay = 0;
 								class150.anInt1416 = 0;
-								class150.delay = i_19_;
+								class150.delay = delay;
 								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, TileParticleQueue.selfPlayer == player);
 							} else if (i_22_ == 2) {
 								class150.anInt1416 = 0;
@@ -118,19 +118,19 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 						}
 						if (class150 == null) {
 							class150 = player.aClass150Array2972[i_21_] = new Class150();
-							class150.anInt1406 = i_18_;
-							class150.anInt1410 = 0;
+							class150.seqId = seqId;
+							class150.frameDelay = 0;
 							class150.anInt1416 = 0;
-							class150.delay = i_19_;
-							class150.anInt1414 = 1;
-							class150.anInt1413 = 0;
+							class150.delay = delay;
+							class150.nextFrameId = 1;
+							class150.frameId = 0;
 							Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == TileParticleQueue.selfPlayer);
 						}
 					} else {
 						player.aClass150Array2972[i_21_] = null;
 					}
 				}
-				i_20_ >>>= 1;
+				adas >>>= 1;
 			}
 		}
 	}
@@ -156,7 +156,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					return;
 				}
 			}
-			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.anInt2979) {
+			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.spotAnimDelay) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
 				if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
 					final SeqType seqType = SeqType.list(spotAnimType.animationId);

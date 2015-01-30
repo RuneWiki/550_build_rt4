@@ -11,19 +11,16 @@ final class MillisTimer extends AbstractTimer {
 	private long aLong2265;
 
 	@Override
-	final long method739(final int i) {
-		if (i != 0) {
-			sleep(86, 59);
-		}
+	final long method739() {
 		return aLong2265;
 	}
 
-	private final long method742(final int i) {
+	private final long method742() {
 		final long l = 1000000L * TimeUtil.getSafeTime();
-		final long l_0_ = l + -aLong2263;
-		long l_1_ = i;
+		final long l_0_ = l - aLong2263;
+		long l_1_ = 0;
 		aLong2263 = l;
-		if (-5000000000L < l_0_ && -5000000001L < (l_0_ ^ 0xffffffffffffffffL)) {
+		if (l_0_ > -5000000000L && l_0_ < 5000000000L) {
 			aLongArray2261[anInt2262] = l_0_;
 			if (anInt2264 < 10) {
 				anInt2264++;
@@ -37,7 +34,7 @@ final class MillisTimer extends AbstractTimer {
 	}
 
 	@Override
-	final void method738(final int i) {
+	final void method738() {
 		if (aLong2260 > aLong2265) {
 			aLong2265 += -aLong2265 + aLong2260;
 		}
@@ -47,7 +44,7 @@ final class MillisTimer extends AbstractTimer {
 	@Override
 	final int sleep(final int i, final int i_4_) {
 		PacketBuffer.sleepWrapper(i);
-		aLong2265 += method742(0);
+		aLong2265 += method742();
 		final long l = 1000000L * i_4_;
 		if (aLong2260 > aLong2265) {
 			PacketBuffer.sleepWrapper((-aLong2265 + aLong2260) / 1000000L);

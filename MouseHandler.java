@@ -10,7 +10,7 @@ import java.awt.event.MouseMotionListener;
 final class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
 	static int anInt1140;
 	static byte selfClanRank;
-	static boolean showNumbersOnActions = false;
+	static boolean showNumbersOnOptions = false;
 
 	static {
 		anInt1140 = 0;
@@ -18,7 +18,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseEntered(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 			Class136.mouseIdleCycle = 0;
@@ -43,7 +43,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseExited(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			GrandExchangeObject.currentMouseX = -1;
 			Class120_Sub12_Sub27.currentMouseY = -1;
 			Class136.mouseIdleCycle = 0;
@@ -52,7 +52,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseReleased(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			Class136.mouseIdleCycle = 0;
 			Class42.currentMousePress = 0;
 		}
@@ -63,7 +63,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseDragged(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 			Class136.mouseIdleCycle = 0;
@@ -72,16 +72,16 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void focusLost(final FocusEvent focusevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			Class42.currentMousePress = 0;
 		}
 	}
 
 	@Override
 	public final synchronized void mousePressed(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			Class192.currentClickX = mouseevent.getX();
-			Class80.currentClickY = mouseevent.getY();
+			ParticleType.currentClickY = mouseevent.getY();
 			Class186.currentClickTime = TimeUtil.getSafeTime();
 			Class136.mouseIdleCycle = 0;
 			if (mouseevent.isMetaDown()) {
@@ -111,7 +111,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 
 	@Override
 	public final synchronized void mouseMoved(final MouseEvent mouseevent) {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
+		if (SpotAnimationNode.mouseHandler != null) {
 			GrandExchangeObject.currentMouseX = mouseevent.getX();
 			Class120_Sub12_Sub27.currentMouseY = mouseevent.getY();
 			Class136.mouseIdleCycle = 0;

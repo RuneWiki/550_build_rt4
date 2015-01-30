@@ -173,14 +173,12 @@ public class Signlink implements Runnable {
 						var_class.getMethod("begin", new Class[0]).invoke(null, new Object[0]);
 						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("libjaggl.so", gameName, cacheStoreId).toString() });
 						var_class.getMethod("end", new Class[0]).invoke(null, new Object[0]);
-					} else if (!osName.startsWith("mac")) {
-						if (osName.startsWith("win")) {
-							method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("jaggl.dll", gameName, cacheStoreId).toString() });
-						} else {
-							throw new Exception();
-						}
-					} else {
+					} else if (osName.startsWith("mac")) {
 						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("libjaggl.jnilib", gameName, cacheStoreId).toString() });
+					} else if (osName.startsWith("win")) {
+						method.invoke(runtime, new Object[] { currentNode.objectData, getCacheFile("jaggl.dll", gameName, cacheStoreId).toString() });
+					} else {
+						throw new Exception();
 					}
 					method.setAccessible(false);
 				} else if (type == 11) {

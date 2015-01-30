@@ -34,7 +34,7 @@ final class Class86 {
 				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, 4 + i, i_0_ - -15, 16777215, 0, Class136.aRandom1319, MasterIndexInfo.anInt478);
 				Class120_Sub12_Sub1.redrawScreen(4 + i, i_0_, i_1_ + Class120_Sub12_Sub22.boldFont.method1459(string), 15);
 			} else {
-				AbstractFont class120_sub14_sub8 = jagexInterface.method2497((byte) 54, Class82.aClass107Array785);
+				AbstractFont class120_sub14_sub8 = jagexInterface.method2497(Class82.aClass107Array785);
 				if (class120_sub14_sub8 == null) {
 					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
@@ -68,9 +68,9 @@ final class Class86 {
 			}
 			if (!bool && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
 				if (is_5_ == null) {
-					Class158.anInt1475 = -1;
+					ModelParticle.anInt1475 = -1;
 				} else {
-					Class158.anInt1475 = is_5_[0];
+					ModelParticle.anInt1475 = is_5_[0];
 					PlainTile.anInt1356 = is_5_[3];
 					Class143_Sub1.anInt2197 = is_5_[2];
 					Class120_Sub12.anInt2560 = is_5_[1];

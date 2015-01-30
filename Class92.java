@@ -3,7 +3,7 @@
  */
 
 final class Class92 {
-	static LDSprite aClass120_Sub14_Sub19_Sub2_862;
+	static LDSprite torchFlamesSprite;
 	static WorldMapFont aClass98_863;
 	static int anInt864;
 	static boolean[][] aBooleanArrayArray865 = { new boolean[0], { true, false, true }, { true, false, false, true }, { false, false, true, true }, { true, true, false }, { false, true, true }, { true, false, false, true }, { false, false, false, true, true }, { false, true, true },
@@ -13,7 +13,7 @@ final class Class92 {
 		try {
 			aClass98_863 = null;
 			aBooleanArrayArray865 = null;
-			aClass120_Sub14_Sub19_Sub2_862 = null;
+			torchFlamesSprite = null;
 			if (i >= -107) {
 				MapFunctionType.list(5);
 			}

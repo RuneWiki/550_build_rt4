@@ -54,7 +54,7 @@ final class HDModel extends AbstractModel {
 	private static HDModel aClass180_Sub7_Sub2_3889 = new HDModel();
 	private int anInt3890;
 	private static HDModel aClass180_Sub7_Sub2_3891 = new HDModel();
-	Class158[] aClass158Array3892;
+	ModelParticle[] aClass158Array3892;
 	private static HDModel aClass180_Sub7_Sub2_3893 = new HDModel();
 	private static HDModel aClass180_Sub7_Sub2_3894 = new HDModel();
 	private static HDModel aClass180_Sub7_Sub2_3895 = new HDModel();

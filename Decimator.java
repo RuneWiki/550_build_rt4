@@ -203,7 +203,7 @@ final class Decimator {
 
 	Decimator(int i, int i_21_) {
 		if (i != i_21_) {
-			final int i_22_ = PlayerAppearance.method2035(i, (byte) 26, i_21_);
+			final int i_22_ = PlayerAppearance.method2035(i, i_21_);
 			i /= i_22_;
 			anIntArrayArray1719 = new int[i][14];
 			i_21_ /= i_22_;

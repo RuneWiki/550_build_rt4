@@ -5,14 +5,14 @@ import java.awt.Frame;
 
 final class Class150 {
 	static int[] anIntArray1405;
-	int anInt1406;
+	int seqId;
 	static int anInt1407 = 0;
 	static int anInt1408;
-	int anInt1410;
+	int frameDelay;
 	int delay;
 	static int[] anIntArray1412 = new int[4096];
-	int anInt1413;
-	int anInt1414;
+	int frameId;
+	int nextFrameId;
 	static String clanOwner;
 	int anInt1416;
 	static int selectedSpellTargetCursor;

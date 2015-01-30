@@ -122,7 +122,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 		}
 		HDToolkit.bindTexture2D(anInt2311);
 		gl.glTexImage2D(3553, 0, 6408, anInt2309, anInt2310, 0, 6408, 5121, bytebuffer);
-		MemoryManager.anInt1086 += bytebuffer.limit() - anInt2312;
+		MemoryManager.memory2d += bytebuffer.limit() - anInt2312;
 		anInt2312 = bytebuffer.limit();
 	}
 

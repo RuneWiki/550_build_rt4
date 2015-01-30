@@ -18,67 +18,67 @@ final class GraphicsLD {
 		endY = 0;
 	}
 
-	static final void method2150(int i, int i_0_, int i_1_, int i_2_, final int i_3_) {
-		i_1_ -= i;
-		i_2_ -= i_0_;
-		if (i_2_ == 0) {
-			if (i_1_ >= 0) {
-				method2160(i, i_0_, i_1_ + 1, i_3_);
+	static final void drawLine(int x1, int y1, int x2, int y2, final int color) {
+		x2 -= x1;
+		y2 -= y1;
+		if (y2 == 0) {
+			if (x2 >= 0) {
+				drawHorizontalLine(x1, y1, x2 + 1, color);
 			} else {
-				method2160(i + i_1_, i_0_, -i_1_ + 1, i_3_);
+				drawHorizontalLine(x1 + x2, y1, 1 - x2, color);
 			}
-		} else if (i_1_ == 0) {
-			if (i_2_ >= 0) {
-				method2158(i, i_0_, i_2_ + 1, i_3_);
+		} else if (x2 == 0) {
+			if (y2 >= 0) {
+				drawVerticalLine(x1, y1, y2 + 1, color);
 			} else {
-				method2158(i, i_0_ + i_2_, -i_2_ + 1, i_3_);
+				drawVerticalLine(x1, y1 + y2, 1 - y2, color);
 			}
 		} else {
-			if (i_1_ + i_2_ < 0) {
-				i += i_1_;
-				i_1_ = -i_1_;
-				i_0_ += i_2_;
-				i_2_ = -i_2_;
+			if (x2 + y2 < 0) {
+				x1 += x2;
+				x2 = -x2;
+				y1 += y2;
+				y2 = -y2;
 			}
-			if (i_1_ > i_2_) {
-				i_0_ <<= 16;
-				i_0_ += 32768;
-				i_2_ <<= 16;
-				final int i_4_ = (int) Math.floor((double) i_2_ / (double) i_1_ + 0.5);
-				i_1_ += i;
-				if (i < startX) {
-					i_0_ += i_4_ * (startX - i);
-					i = startX;
+			if (x2 > y2) {
+				y1 <<= 16;
+				y1 += 32768;
+				y2 <<= 16;
+				final int i_4_ = (int) Math.floor((double) y2 / (double) x2 + 0.5);
+				x2 += x1;
+				if (x1 < startX) {
+					y1 += i_4_ * (startX - x1);
+					x1 = startX;
 				}
-				if (i_1_ >= endX) {
-					i_1_ = endX - 1;
+				if (x2 >= endX) {
+					x2 = endX - 1;
 				}
-				for (/**/; i <= i_1_; i++) {
-					final int i_5_ = i_0_ >> 16;
+				for (/**/; x1 <= x2; x1++) {
+					final int i_5_ = y1 >> 16;
 					if (i_5_ >= startY && i_5_ < endY) {
-						pixels[i + i_5_ * width] = i_3_;
+						pixels[x1 + i_5_ * width] = color;
 					}
-					i_0_ += i_4_;
+					y1 += i_4_;
 				}
 			} else {
-				i <<= 16;
-				i += 32768;
-				i_1_ <<= 16;
-				final int i_6_ = (int) Math.floor((double) i_1_ / (double) i_2_ + 0.5);
-				i_2_ += i_0_;
-				if (i_0_ < startY) {
-					i += i_6_ * (startY - i_0_);
-					i_0_ = startY;
+				x1 <<= 16;
+				x1 += 32768;
+				x2 <<= 16;
+				final int i_6_ = (int) Math.floor((double) x2 / (double) y2 + 0.5);
+				y2 += y1;
+				if (y1 < startY) {
+					x1 += i_6_ * (startY - y1);
+					y1 = startY;
 				}
-				if (i_2_ >= endY) {
-					i_2_ = endY - 1;
+				if (y2 >= endY) {
+					y2 = endY - 1;
 				}
-				for (/**/; i_0_ <= i_2_; i_0_++) {
-					final int i_7_ = i >> 16;
+				for (/**/; y1 <= y2; y1++) {
+					final int i_7_ = x1 >> 16;
 					if (i_7_ >= startX && i_7_ < endX) {
-						pixels[i_7_ + i_0_ * width] = i_3_;
+						pixels[i_7_ + y1 * width] = color;
 					}
-					i += i_6_;
+					x1 += i_6_;
 				}
 			}
 		}
@@ -335,7 +335,7 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2158(final int i, int i_93_, int i_94_, final int i_95_) {
+	static final void drawVerticalLine(final int i, int i_93_, int i_94_, final int i_95_) {
 		if (i >= startX && i < endX) {
 			if (i_93_ < startY) {
 				i_94_ -= startY - i_93_;
@@ -354,47 +354,47 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void fillRect(int i, int i_98_, int i_99_, int i_100_, int i_101_, final int i_102_) {
-		if (i < startX) {
-			i_99_ -= startX - i;
-			i = startX;
+	static final void fillRect(int x, int y, int w, int h, int color, final int alpha) {
+		if (x < startX) {
+			w -= startX - x;
+			x = startX;
 		}
-		if (i_98_ < startY) {
-			i_100_ -= startY - i_98_;
-			i_98_ = startY;
+		if (y < startY) {
+			h -= startY - y;
+			y = startY;
 		}
-		if (i + i_99_ > endX) {
-			i_99_ = endX - i;
+		if (x + w > endX) {
+			w = endX - x;
 		}
-		if (i_98_ + i_100_ > endY) {
-			i_100_ = endY - i_98_;
+		if (y + h > endY) {
+			h = endY - y;
 		}
-		i_101_ = ((i_101_ & 0xff00ff) * i_102_ >> 8 & 0xff00ff) + ((i_101_ & 0xff00) * i_102_ >> 8 & 0xff00);
-		final int i_103_ = 256 - i_102_;
-		final int i_104_ = width - i_99_;
-		int i_105_ = i + i_98_ * width;
-		for (int i_106_ = 0; i_106_ < i_100_; i_106_++) {
-			for (int i_107_ = -i_99_; i_107_ < 0; i_107_++) {
+		color = ((color & 0xff00ff) * alpha >> 8 & 0xff00ff) + ((color & 0xff00) * alpha >> 8 & 0xff00);
+		final int i_103_ = 256 - alpha;
+		final int i_104_ = width - w;
+		int i_105_ = x + y * width;
+		for (int i_106_ = 0; i_106_ < h; i_106_++) {
+			for (int i_107_ = -w; i_107_ < 0; i_107_++) {
 				int i_108_ = pixels[i_105_];
 				i_108_ = ((i_108_ & 0xff00ff) * i_103_ >> 8 & 0xff00ff) + ((i_108_ & 0xff00) * i_103_ >> 8 & 0xff00);
-				pixels[i_105_++] = i_101_ + i_108_;
+				pixels[i_105_++] = color + i_108_;
 			}
 			i_105_ += i_104_;
 		}
 	}
 
-	static final void method2160(int i, final int i_109_, int i_110_, final int i_111_) {
-		if (i_109_ >= startY && i_109_ < endY) {
-			if (i < startX) {
-				i_110_ -= startX - i;
-				i = startX;
+	static final void drawHorizontalLine(int x, final int y, int length, final int color) {
+		if (y >= startY && y < endY) {
+			if (x < startX) {
+				length -= startX - x;
+				x = startX;
 			}
-			if (i + i_110_ > endX) {
-				i_110_ = endX - i;
+			if (x + length > endX) {
+				length = endX - x;
 			}
-			final int i_112_ = i + i_109_ * width;
-			for (int i_113_ = 0; i_113_ < i_110_; i_113_++) {
-				pixels[i_112_ + i_113_] = i_111_;
+			final int i_112_ = x + y * width;
+			for (int i_113_ = 0; i_113_ < length; i_113_++) {
+				pixels[i_112_ + i_113_] = color;
 			}
 		}
 	}
@@ -437,21 +437,21 @@ final class GraphicsLD {
 		}
 	}
 
-	private static final void method2162(final int i, int i_138_, int i_139_, final int i_140_, final int i_141_) {
-		if (i >= startX && i < endX) {
-			if (i_138_ < startY) {
-				i_139_ -= startY - i_138_;
-				i_138_ = startY;
+	private static final void drawVerticalLine(final int x, int y, int length, final int color, final int alpha) {
+		if (x >= startX && x < endX) {
+			if (y < startY) {
+				length -= startY - y;
+				y = startY;
 			}
-			if (i_138_ + i_139_ > endY) {
-				i_139_ = endY - i_138_;
+			if (y + length > endY) {
+				length = endY - y;
 			}
-			final int i_142_ = 256 - i_141_;
-			final int i_143_ = (i_140_ >> 16 & 0xff) * i_141_;
-			final int i_144_ = (i_140_ >> 8 & 0xff) * i_141_;
-			final int i_145_ = (i_140_ & 0xff) * i_141_;
-			int i_146_ = i + i_138_ * width;
-			for (int i_147_ = 0; i_147_ < i_139_; i_147_++) {
+			final int i_142_ = 256 - alpha;
+			final int i_143_ = (color >> 16 & 0xff) * alpha;
+			final int i_144_ = (color >> 8 & 0xff) * alpha;
+			final int i_145_ = (color & 0xff) * alpha;
+			int i_146_ = x + y * width;
+			for (int i_147_ = 0; i_147_ < length; i_147_++) {
 				final int i_148_ = (pixels[i_146_] >> 16 & 0xff) * i_142_;
 				final int i_149_ = (pixels[i_146_] >> 8 & 0xff) * i_142_;
 				final int i_150_ = (pixels[i_146_] & 0xff) * i_142_;
@@ -593,20 +593,20 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void drawRect(final int i, final int i_182_, final int i_183_, final int i_184_, final int i_185_, final int i_186_) {
-		method2171(i, i_182_, i_183_, i_185_, i_186_);
-		method2171(i, i_182_ + i_184_ - 1, i_183_, i_185_, i_186_);
-		if (i_184_ >= 3) {
-			method2162(i, i_182_ + 1, i_184_ - 2, i_185_, i_186_);
-			method2162(i + i_183_ - 1, i_182_ + 1, i_184_ - 2, i_185_, i_186_);
+	static final void drawRect(final int x, final int y, final int w, final int h, final int color, final int alpha) {
+		drawHorizontalLine(x, y, w, color, alpha);
+		drawHorizontalLine(x, y + h - 1, w, color, alpha);
+		if (h >= 3) {
+			drawVerticalLine(x, y + 1, h - 2, color, alpha);
+			drawVerticalLine(x + w - 1, y + 1, h - 2, color, alpha);
 		}
 	}
 
-	static final void drawRect(final int i, final int i_187_, final int i_188_, final int i_189_, final int i_190_) {
-		method2160(i, i_187_, i_188_, i_190_);
-		method2160(i, i_187_ + i_189_ - 1, i_188_, i_190_);
-		method2158(i, i_187_, i_189_, i_190_);
-		method2158(i + i_188_ - 1, i_187_, i_189_, i_190_);
+	static final void drawRect(final int x, final int y, final int w, final int h, final int color) {
+		drawHorizontalLine(x, y, w, color);
+		drawHorizontalLine(x, y + h - 1, w, color);
+		drawVerticalLine(x, y, h, color);
+		drawVerticalLine(x + w - 1, y, h, color);
 	}
 
 	static final void copyBounds(final int[] bounds) {
@@ -623,21 +623,21 @@ final class GraphicsLD {
 		clipRect(0, 0, w, h);
 	}
 
-	static final void method2171(int i, final int i_192_, int i_193_, final int i_194_, final int i_195_) {
-		if (i_192_ >= startY && i_192_ < endY) {
-			if (i < startX) {
-				i_193_ -= startX - i;
-				i = startX;
+	static final void drawHorizontalLine(int x, final int y, int length, final int color, final int alpha) {
+		if (y >= startY && y < endY) {
+			if (x < startX) {
+				length -= startX - x;
+				x = startX;
 			}
-			if (i + i_193_ > endX) {
-				i_193_ = endX - i;
+			if (x + length > endX) {
+				length = endX - x;
 			}
-			final int i_196_ = 256 - i_195_;
-			final int i_197_ = (i_194_ >> 16 & 0xff) * i_195_;
-			final int i_198_ = (i_194_ >> 8 & 0xff) * i_195_;
-			final int i_199_ = (i_194_ & 0xff) * i_195_;
-			int i_200_ = i + i_192_ * width;
-			for (int i_201_ = 0; i_201_ < i_193_; i_201_++) {
+			final int i_196_ = 256 - alpha;
+			final int i_197_ = (color >> 16 & 0xff) * alpha;
+			final int i_198_ = (color >> 8 & 0xff) * alpha;
+			final int i_199_ = (color & 0xff) * alpha;
+			int i_200_ = x + y * width;
+			for (int i_201_ = 0; i_201_ < length; i_201_++) {
 				final int i_202_ = (pixels[i_200_] >> 16 & 0xff) * i_196_;
 				final int i_203_ = (pixels[i_200_] >> 8 & 0xff) * i_196_;
 				final int i_204_ = (pixels[i_200_] & 0xff) * i_196_;
@@ -687,97 +687,97 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void method2176(int i, int i_207_, int i_208_, int i_209_, final int i_210_, final int i_211_) {
-		i_208_ -= i;
-		i_209_ -= i_207_;
-		if (i_209_ == 0) {
-			if (i_208_ >= 0) {
-				method2171(i, i_207_, i_208_, i_210_, i_211_);
+	static final void drawLine(int x1, int y1, int x2, int y2, final int color, final int alpha) {
+		x2 -= x1;
+		y2 -= y1;
+		if (y2 == 0) {
+			if (x2 >= 0) {
+				drawHorizontalLine(x1, y1, x2, color, alpha);
 			} else {
-				method2171(i + i_208_ + 1, i_207_, -i_208_, i_210_, i_211_);
+				drawHorizontalLine(x1 + x2 + 1, y1, -x2, color, alpha);
 			}
-		} else if (i_208_ == 0) {
-			if (i_209_ >= 0) {
-				method2162(i, i_207_, i_209_, i_210_, i_211_);
+		} else if (x2 == 0) {
+			if (y2 >= 0) {
+				drawVerticalLine(x1, y1, y2, color, alpha);
 			} else {
-				method2162(i, i_207_ + i_209_ + 1, -i_209_, i_210_, i_211_);
+				drawVerticalLine(x1, y1 + y2 + 1, -y2, color, alpha);
 			}
 		} else {
 			boolean bool = false;
-			if (i_208_ + i_209_ < 0) {
-				i += i_208_;
-				i_208_ = -i_208_;
-				i_207_ += i_209_;
-				i_209_ = -i_209_;
+			if (x2 + y2 < 0) {
+				x1 += x2;
+				x2 = -x2;
+				y1 += y2;
+				y2 = -y2;
 				bool = true;
 			}
-			final int i_212_ = 256 - i_211_;
-			final int i_213_ = (i_210_ >> 16 & 0xff) * i_211_;
-			final int i_214_ = (i_210_ >> 8 & 0xff) * i_211_;
-			final int i_215_ = (i_210_ & 0xff) * i_211_;
-			if (i_208_ > i_209_) {
-				i_207_ <<= 16;
-				i_207_ += 32768;
-				i_209_ <<= 16;
-				final int i_216_ = (int) Math.floor((double) i_209_ / (double) i_208_ + 0.5);
-				i_208_ += i;
+			final int i_212_ = 256 - alpha;
+			final int i_213_ = (color >> 16 & 0xff) * alpha;
+			final int i_214_ = (color >> 8 & 0xff) * alpha;
+			final int i_215_ = (color & 0xff) * alpha;
+			if (x2 > y2) {
+				y1 <<= 16;
+				y1 += 32768;
+				y2 <<= 16;
+				final int i_216_ = (int) Math.floor((double) y2 / (double) x2 + 0.5);
+				x2 += x1;
 				if (bool) {
-					i_207_ += i_216_;
-					i++;
+					y1 += i_216_;
+					x1++;
 				}
-				if (i < startX) {
-					i_207_ += i_216_ * (startX - i);
-					i = startX;
+				if (x1 < startX) {
+					y1 += i_216_ * (startX - x1);
+					x1 = startX;
 				}
-				if (i_208_ >= endX) {
-					i_208_ = endX - 1;
+				if (x2 >= endX) {
+					x2 = endX - 1;
 				}
 				if (!bool) {
-					i_208_--;
+					x2--;
 				}
-				for (/**/; i <= i_208_; i++) {
-					final int i_217_ = i_207_ >> 16;
+				for (/**/; x1 <= x2; x1++) {
+					final int i_217_ = y1 >> 16;
 					if (i_217_ >= startY && i_217_ < endY) {
-						final int i_218_ = i + i_217_ * width;
+						final int i_218_ = x1 + i_217_ * width;
 						final int i_219_ = (pixels[i_218_] >> 16 & 0xff) * i_212_;
 						final int i_220_ = (pixels[i_218_] >> 8 & 0xff) * i_212_;
 						final int i_221_ = (pixels[i_218_] & 0xff) * i_212_;
 						final int i_222_ = (i_213_ + i_219_ >> 8 << 16) + (i_214_ + i_220_ >> 8 << 8) + (i_215_ + i_221_ >> 8);
 						pixels[i_218_] = i_222_;
 					}
-					i_207_ += i_216_;
+					y1 += i_216_;
 				}
 			} else {
-				i <<= 16;
-				i += 32768;
-				i_208_ <<= 16;
-				final int i_223_ = (int) Math.floor((double) i_208_ / (double) i_209_ + 0.5);
-				i_209_ += i_207_;
+				x1 <<= 16;
+				x1 += 32768;
+				x2 <<= 16;
+				final int i_223_ = (int) Math.floor((double) x2 / (double) y2 + 0.5);
+				y2 += y1;
 				if (bool) {
-					i += i_223_;
-					i_207_++;
+					x1 += i_223_;
+					y1++;
 				}
-				if (i_207_ < startY) {
-					i += i_223_ * (startY - i_207_);
-					i_207_ = startY;
+				if (y1 < startY) {
+					x1 += i_223_ * (startY - y1);
+					y1 = startY;
 				}
-				if (i_209_ >= endY) {
-					i_209_ = endY - 1;
+				if (y2 >= endY) {
+					y2 = endY - 1;
 				}
 				if (!bool) {
-					i_209_--;
+					y2--;
 				}
-				for (/**/; i_207_ <= i_209_; i_207_++) {
-					final int i_224_ = i >> 16;
+				for (/**/; y1 <= y2; y1++) {
+					final int i_224_ = x1 >> 16;
 					if (i_224_ >= startX && i_224_ < endX) {
-						final int i_225_ = i_224_ + i_207_ * width;
+						final int i_225_ = i_224_ + y1 * width;
 						final int i_226_ = (pixels[i_225_] >> 16 & 0xff) * i_212_;
 						final int i_227_ = (pixels[i_225_] >> 8 & 0xff) * i_212_;
 						final int i_228_ = (pixels[i_225_] & 0xff) * i_212_;
 						final int i_229_ = (i_213_ + i_226_ >> 8 << 16) + (i_214_ + i_227_ >> 8 << 8) + (i_215_ + i_228_ >> 8);
 						pixels[i_225_] = i_229_;
 					}
-					i += i_223_;
+					x1 += i_223_;
 				}
 			}
 		}

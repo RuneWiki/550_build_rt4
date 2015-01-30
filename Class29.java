@@ -227,7 +227,7 @@ final class Class29 {
 	}
 
 	static final long method255() {
-		return Class101_Sub2.gameShellTimer.method739(0);
+		return Class101_Sub2.gameShellTimer.method739();
 	}
 
 	public static void method256() {

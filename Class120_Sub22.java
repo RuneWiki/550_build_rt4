@@ -44,11 +44,11 @@ final class Class120_Sub22 extends Node {
 			player.faceZ = Canvas_Sub1.inputStream.getUShort();
 		}
 		if ((mask & 0x800) != 0) {
-			final int i_7_ = Canvas_Sub1.inputStream.getUByteA();
-			final int[] is = new int[i_7_];
-			final int[] is_8_ = new int[i_7_];
-			final int[] is_9_ = new int[i_7_];
-			for (int i_10_ = 0; i_10_ < i_7_; i_10_++) {
+			final int len = Canvas_Sub1.inputStream.getUByteA();
+			final int[] is = new int[len];
+			final int[] is_8_ = new int[len];
+			final int[] is_9_ = new int[len];
+			for (int i_10_ = 0; i_10_ < len; i_10_++) {
 				int i_11_ = Canvas_Sub1.inputStream.getUShort();
 				if (i_11_ == 65535) {
 					i_11_ = -1;
@@ -57,7 +57,7 @@ final class Class120_Sub22 extends Node {
 				is_8_[i_10_] = Canvas_Sub1.inputStream.getUByteS();
 				is_9_[i_10_] = Canvas_Sub1.inputStream.getULEShortA();
 			}
-			Class120_Sub12_Sub32.method1370(player, is_9_, is_8_, is);
+			Class120_Sub12_Sub32.method1370(player, is, is_8_, is_9_);
 		}
 		if ((mask & 0x10) != 0) {
 			player.textSpoken = Canvas_Sub1.inputStream.getJagexString();
@@ -81,20 +81,20 @@ final class Class120_Sub22 extends Node {
 			final int i_15_ = Canvas_Sub1.inputStream.pos;
 			if (player.name != null && player.appearance != null) {
 				final long nameAsLong = Varp.stringToLong(player.name);
-				boolean ignore = false;
+				boolean ignored = false;
 				if (staffLevel <= 1) {
-					if (!bool && (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || Class120_Sub14_Sub4.aBoolean3464)) {
-						ignore = true;
+					if (!bool && (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || SpotAnimationNode.aBoolean3464)) {
+						ignored = true;
 					} else {
 						for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 							if (nameAsLong == HintIcon.ignoreNamesAsLong[id]) {
-								ignore = true;
+								ignored = true;
 								break;
 							}
 						}
 					}
 				}
-				if (!ignore && Class69_Sub3.isInTutIsland == 0) {
+				if (!ignored && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
 					int i_18_ = -1;
 					Canvas_Sub1.inputStream.getBufferReverse(Class120_Sub12_Sub19.aClass120_Sub7_3278.buf, 0, i_14_);
@@ -109,9 +109,6 @@ final class Class120_Sub22 extends Node {
 						message = AbstractFont.method1472(method1705(Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 					}
 					i_12_ &= 0x7fff;
-					final Class22 class22 = Class22.list(15);
-					i_18_ = class22.anInt129;
-					message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
 					player.textSpoken = message.trim();
 					player.anInt2995 = i_12_ & 0xff;
 					player.textCycle = 150;
@@ -129,9 +126,9 @@ final class Class120_Sub22 extends Node {
 		}
 		if ((0x100 & mask) != 0) {
 			int spotAnimId = Canvas_Sub1.inputStream.getULEShort();
-			final int i_20_ = Canvas_Sub1.inputStream.getInt();
+			final int bitPacked = Canvas_Sub1.inputStream.getInt();
 			boolean lowerPriority = true;
-			if (spotAnimId== 65535) {
+			if (spotAnimId == 65535) {
 				spotAnimId = -1;
 			}
 			if (spotAnimId != -1 && player.spotAnimId != -1 && SeqType.list(SpotAnimType.list(spotAnimId).animationId).priority < SeqType.list(SpotAnimType.list(player.spotAnimId).animationId).priority) {
@@ -139,15 +136,15 @@ final class Class120_Sub22 extends Node {
 			}
 			if (lowerPriority) {
 				player.spotAnimNextFrame = 1;
-				player.anInt2965 = i_20_ >> 16;
+				player.spotAnimHeight = bitPacked >> 16;
 				player.anInt2963 = 0;
 				player.spotAnimFrame = 0;
-				player.anInt2979 = (0xffff & i_20_) + Class101_Sub2.loopCycle;
-				if (Class101_Sub2.loopCycle < player.anInt2979) {
+				player.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
+				if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
 					player.spotAnimFrame = -1;
 				}
 				player.spotAnimId = spotAnimId;
-				if (player.spotAnimId != -1 && Class101_Sub2.loopCycle == player.anInt2979) {
+				if (player.spotAnimId != -1 && Class101_Sub2.loopCycle == player.spotAnimDelay) {
 					final int spotAnimAnimationId = SpotAnimType.list(player.spotAnimId).animationId;
 					if (spotAnimAnimationId != -1) {
 						final SeqType seqType = SeqType.list(spotAnimAnimationId);

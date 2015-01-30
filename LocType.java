@@ -3,7 +3,7 @@
  */
 
 final class LocType {
-	private short[] aShortArray1815;
+	private short[] recolorModified;
 	private int anInt1816;
 	private int[] types;
 	static JagexInterface aClass189_1818 = null;
@@ -16,7 +16,7 @@ final class LocType {
 	int cursor1op = -1;
 	int mapSceneId;
 	int sizeZ;
-	private short[] aShortArray1828;
+	private short[] retextureModified;
 	private int[] anIntArray1829;
 	private boolean aBoolean1830;
 	int anInt1831;
@@ -25,7 +25,7 @@ final class LocType {
 	static int[] anIntArray1834 = new int[50];
 	int anInt1835;
 	int animationId;
-	private short[] aShortArray1837;
+	private short[] retextureOriginal;
 	private int anInt1838;
 	int ambientSoundVolume;
 	int mapFunctionId;
@@ -34,21 +34,21 @@ final class LocType {
 	private int anInt1843;
 	boolean aBoolean1844;
 	int anInt1845;
-	private int anInt1846;
+	private int varpId;
 	int cursor2op;
 	String name;
-	String[] actions;
+	String[] options;
 	private int[] modelIds;
 	boolean members;
 	int[] childrenIDs;
 	boolean aBoolean1853;
-	private int anInt1854;
+	private int varbitId;
 	private int anInt1855;
 	private int anInt1856;
 	int anInt1857;
 	boolean aBoolean1858;
 	private int anInt1859;
-	private short[] aShortArray1860;
+	private short[] recolorOriginal;
 	static int modeWhat = 0;
 	boolean aBoolean1862;
 	boolean aBoolean1863;
@@ -59,7 +59,7 @@ final class LocType {
 	private boolean aBoolean1868;
 	int anInt1869;
 	int[] anIntArray1870;
-	private byte[] aByteArray1871;
+	private byte[] recolorPalette;
 	boolean aBoolean1872;
 	private int anInt1873;
 	int cursor1;
@@ -100,107 +100,97 @@ final class LocType {
 		return bool_0_;
 	}
 
-	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final int i_10_, final LDIndexedSprite class107_sub1) {
-		Class88 class88;
-		try {
-			if (i_10_ > -112) {
-				resetSpriteMenu();
-			}
-			if (!HDToolkit.glEnabled) {
-				long l;
-				if (types == null) {
-					l = i_8_ + (this.myId << 10);
-				} else {
-					l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
-				}
-				boolean bool_11_;
-				if (!bool || !aBoolean1830) {
-					bool_11_ = false;
-				} else {
-					l |= ~0x7fffffffffffffffL;
-					bool_11_ = true;
-				}
-				SceneGraphNode sceneGraphNode = (SceneGraphNode) Class167.aClass21_1618.get(l);
-				if (sceneGraphNode == null) {
-					final Class180_Sub2 class180_sub2 = method2455(i_8_, (byte) -46, i_4_);
-					if (class180_sub2 == null) {
-						Class82.aClass88_783.aClass180_826 = null;
-						return Class82.aClass88_783;
-					}
-					class180_sub2.method2299();
-					if (i_4_ == 10 && i_8_ > 3) {
-						class180_sub2.method2279(256);
-					}
-					if (!bool_11_) {
-						sceneGraphNode = new LDModel(class180_sub2, 64 - -anInt1843, anInt1824 * 5 + 768, -50, -10, -50);
-					} else {
-						class180_sub2.aShort2894 = (short) (anInt1843 + 64);
-						class180_sub2.aShort2866 = (short) (5 * anInt1824 + 768);
-						sceneGraphNode = class180_sub2;
-						class180_sub2.method2303();
-					}
-					Class167.aClass21_1618.put(sceneGraphNode, l);
-				}
-				if (bool_11_) {
-					sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2288();
-				}
-				if (aByte1820 != 0) {
-					if (sceneGraphNode instanceof LDModel) {
-						sceneGraphNode = ((LDModel) sceneGraphNode).method2399(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true);
-					} else if (sceneGraphNode instanceof Class180_Sub2) {
-						sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2305(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true, false);
-					}
-				}
-				Class82.aClass88_783.aClass180_826 = sceneGraphNode;
-				return Class82.aClass88_783;
-			}
+	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final LDIndexedSprite class107_sub1) {
+		if (!HDToolkit.glEnabled) {
 			long l;
-			if (types != null) {
-				l = i_8_ + (this.myId << 10) + (i_4_ << 3);
+			if (types == null) {
+				l = i_8_ + (this.myId << 10);
 			} else {
-				l = (this.myId << 10) + i_8_;
+				l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
 			}
-			Class88 class88_12_ = (Class88) Class167.aClass21_1618.get(l);
-			HDModel class180_sub7_sub2;
-			LDIndexedSprite class107_sub1_13_;
-			if (class88_12_ != null) {
-				class180_sub7_sub2 = (HDModel) class88_12_.aClass180_826;
-				class107_sub1_13_ = class88_12_.aClass107_Sub1_830;
+			boolean bool_11_;
+			if (!bool || !aBoolean1830) {
+				bool_11_ = false;
 			} else {
-				class180_sub7_sub2 = method2459(i_4_, false, i_8_, false);
-				if (class180_sub7_sub2 == null) {
+				l |= ~0x7fffffffffffffffL;
+				bool_11_ = true;
+			}
+			SceneGraphNode sceneGraphNode = (SceneGraphNode) Class167.aClass21_1618.get(l);
+			if (sceneGraphNode == null) {
+				final Class180_Sub2 class180_sub2 = method2455(i_8_, (byte) -46, i_4_);
+				if (class180_sub2 == null) {
 					Class82.aClass88_783.aClass180_826 = null;
-					Class82.aClass88_783.aClass107_Sub1_830 = null;
 					return Class82.aClass88_783;
 				}
+				class180_sub2.method2299();
 				if (i_4_ == 10 && i_8_ > 3) {
-					class180_sub7_sub2.method2360(256);
+					class180_sub2.method2279(256);
 				}
-				if (!bool_7_) {
-					class107_sub1_13_ = null;
+				if (!bool_11_) {
+					sceneGraphNode = new LDModel(class180_sub2, 64 - -anInt1843, anInt1824 * 5 + 768, -50, -10, -50);
 				} else {
-					class107_sub1_13_ = class180_sub7_sub2.method2414(class107_sub1);
+					class180_sub2.aShort2894 = (short) (anInt1843 + 64);
+					class180_sub2.aShort2866 = (short) (5 * anInt1824 + 768);
+					sceneGraphNode = class180_sub2;
+					class180_sub2.method2303();
 				}
-				class88_12_ = new Class88();
-				class88_12_.aClass180_826 = class180_sub7_sub2;
-				class88_12_.aClass107_Sub1_830 = class107_sub1_13_;
-				Class167.aClass21_1618.put(class88_12_, l);
+				Class167.aClass21_1618.put(sceneGraphNode, l);
 			}
-			final boolean bool_14_ = bool & aBoolean1830;
-			final HDModel class180_sub7_sub2_15_ = class180_sub7_sub2.method2412(aByte1820 != 3, aByte1820 == 0, true, true, true, true, !bool_14_, true, true, true, true);
+			if (bool_11_) {
+				sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2288();
+			}
 			if (aByte1820 != 0) {
-				class180_sub7_sub2_15_.method2419(aByte1820, aShort1867, class180_sub7_sub2, is, is_6_, i, i_5_, i_9_);
+				if (sceneGraphNode instanceof LDModel) {
+					sceneGraphNode = ((LDModel) sceneGraphNode).method2399(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true);
+				} else if (sceneGraphNode instanceof Class180_Sub2) {
+					sceneGraphNode = ((Class180_Sub2) sceneGraphNode).method2305(aByte1820, aShort1867, is, is_6_, i, i_5_, i_9_, true, false);
+				}
 			}
-			class180_sub7_sub2_15_.method2432(this.anInt1835 == 0 && !this.aBoolean1863, true, true, true, this.anInt1835 == 0, true, false);
-			class180_sub7_sub2_15_.aBoolean3880 = bool_14_;
-			Class82.aClass88_783.aClass180_826 = class180_sub7_sub2_15_;
-			Class82.aClass88_783.aClass107_Sub1_830 = class107_sub1_13_;
-			class88 = Class82.aClass88_783;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.Q(").append(i).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_6_ != null ? "{...}" : "null").append(',')
-					.append(bool_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(',').append(class107_sub1 != null ? "{...}" : "null").append(')').toString());
+			Class82.aClass88_783.aClass180_826 = sceneGraphNode;
+			return Class82.aClass88_783;
 		}
-		return class88;
+		long l;
+		if (types != null) {
+			l = i_8_ + (this.myId << 10) + (i_4_ << 3);
+		} else {
+			l = (this.myId << 10) + i_8_;
+		}
+		Class88 class88_12_ = (Class88) Class167.aClass21_1618.get(l);
+		HDModel class180_sub7_sub2;
+		LDIndexedSprite class107_sub1_13_;
+		if (class88_12_ != null) {
+			class180_sub7_sub2 = (HDModel) class88_12_.aClass180_826;
+			class107_sub1_13_ = class88_12_.aClass107_Sub1_830;
+		} else {
+			class180_sub7_sub2 = method2459(i_4_, false, i_8_, false);
+			if (class180_sub7_sub2 == null) {
+				Class82.aClass88_783.aClass180_826 = null;
+				Class82.aClass88_783.aClass107_Sub1_830 = null;
+				return Class82.aClass88_783;
+			}
+			if (i_4_ == 10 && i_8_ > 3) {
+				class180_sub7_sub2.method2360(256);
+			}
+			if (!bool_7_) {
+				class107_sub1_13_ = null;
+			} else {
+				class107_sub1_13_ = class180_sub7_sub2.method2414(class107_sub1);
+			}
+			class88_12_ = new Class88();
+			class88_12_.aClass180_826 = class180_sub7_sub2;
+			class88_12_.aClass107_Sub1_830 = class107_sub1_13_;
+			Class167.aClass21_1618.put(class88_12_, l);
+		}
+		final boolean bool_14_ = bool & aBoolean1830;
+		final HDModel class180_sub7_sub2_15_ = class180_sub7_sub2.method2412(aByte1820 != 3, aByte1820 == 0, true, true, true, true, !bool_14_, true, true, true, true);
+		if (aByte1820 != 0) {
+			class180_sub7_sub2_15_.method2419(aByte1820, aShort1867, class180_sub7_sub2, is, is_6_, i, i_5_, i_9_);
+		}
+		class180_sub7_sub2_15_.method2432(this.anInt1835 == 0 && !this.aBoolean1863, true, true, true, this.anInt1835 == 0, true, false);
+		class180_sub7_sub2_15_.aBoolean3880 = bool_14_;
+		Class82.aClass88_783.aClass180_826 = class180_sub7_sub2_15_;
+		Class82.aClass88_783.aClass107_Sub1_830 = class107_sub1_13_;
+		return Class82.aClass88_783;
 	}
 
 	final int getIntegerParamValue(final int param, final int defaultInt) {
@@ -292,7 +282,7 @@ final class LocType {
 			} else {
 				bool_29_ = true;
 			}
-			final Class180_Sub2 class180_sub2_30_ = new Class180_Sub2(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, aShortArray1860 == null, aShortArray1837 == null, true);
+			final Class180_Sub2 class180_sub2_30_ = new Class180_Sub2(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, recolorOriginal == null, retextureOriginal == null, true);
 			if (i_20_ == 4 && i > 3) {
 				class180_sub2_30_.method2279(256);
 				class180_sub2_30_.translate(45, 0, -45);
@@ -307,18 +297,18 @@ final class LocType {
 			} else {
 				class180_sub2_30_.method2284();
 			}
-			if (aShortArray1860 != null) {
-				for (int i_31_ = 0; i_31_ < aShortArray1860.length; i_31_++) {
-					if (aByteArray1871 == null || aByteArray1871.length <= i_31_) {
-						class180_sub2_30_.recolor(aShortArray1860[i_31_], aShortArray1815[i_31_]);
+			if (recolorOriginal != null) {
+				for (int i_31_ = 0; i_31_ < recolorOriginal.length; i_31_++) {
+					if (recolorPalette == null || recolorPalette.length <= i_31_) {
+						class180_sub2_30_.recolor(recolorOriginal[i_31_], recolorModified[i_31_]);
 					} else {
-						class180_sub2_30_.recolor(aShortArray1860[i_31_], Class127.aShortArray1214[aByteArray1871[i_31_] & 0xff]);
+						class180_sub2_30_.recolor(recolorOriginal[i_31_], Class127.aShortArray1214[recolorPalette[i_31_] & 0xff]);
 					}
 				}
 			}
-			if (aShortArray1837 != null) {
-				for (int i_32_ = 0; aShortArray1837.length > i_32_; i_32_++) {
-					class180_sub2_30_.retexture(aShortArray1837[i_32_], aShortArray1828[i_32_]);
+			if (retextureOriginal != null) {
+				for (int i_32_ = 0; retextureOriginal.length > i_32_; i_32_++) {
+					class180_sub2_30_.retexture(retextureOriginal[i_32_], retextureModified[i_32_]);
 				}
 			}
 			if (bool_28_) {
@@ -336,10 +326,10 @@ final class LocType {
 
 	final LocType handleVarp() {
 		int i_34_ = -1;
-		if (anInt1854 != -1) {
-			i_34_ = VarBit.getVarbitValue(anInt1854);
-		} else if (anInt1846 != -1) {
-			i_34_ = Class2.permanentVariable[anInt1846];
+		if (varbitId != -1) {
+			i_34_ = VarBit.getVarbitValue(varbitId);
+		} else if (varpId != -1) {
+			i_34_ = Class2.permanentVariable[varpId];
 		}
 		if (i_34_ < 0 || this.childrenIDs.length + -1 <= i_34_ || this.childrenIDs[i_34_] == -1) {
 			final int i_35_ = this.childrenIDs[-1 + this.childrenIDs.length];
@@ -443,8 +433,8 @@ final class LocType {
 				bool_48_ = !bool_48_;
 			}
 			final boolean bool_50_ = i_37_ == 0 && anInt1856 == 128 && anInt1873 == 128 && anInt1838 == 0 && anInt1859 == 0 && !bool_48_;
-			final HDModel class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, aShortArray1860 == null, true, class180_sub7_sub2_41_.method2407() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.method2429() == i_40_, true, !bool_48_,
-					aShortArray1837 == null);
+			final HDModel class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, recolorOriginal == null, true, class180_sub7_sub2_41_.method2407() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.method2429() == i_40_, true, !bool_48_,
+					retextureOriginal == null);
 			if (bool_38_) {
 				getStringParamValue(-89, null);
 			}
@@ -463,14 +453,14 @@ final class LocType {
 			} else if (i_37_ == 3) {
 				class180_sub7_sub2_51_.method2408();
 			}
-			if (aShortArray1860 != null) {
-				for (int i_52_ = 0; aShortArray1860.length > i_52_; i_52_++) {
-					class180_sub7_sub2_51_.method2427(aShortArray1860[i_52_], aShortArray1815[i_52_]);
+			if (recolorOriginal != null) {
+				for (int i_52_ = 0; recolorOriginal.length > i_52_; i_52_++) {
+					class180_sub7_sub2_51_.method2427(recolorOriginal[i_52_], recolorModified[i_52_]);
 				}
 			}
-			if (aShortArray1837 != null) {
-				for (int i_53_ = 0; aShortArray1837.length > i_53_; i_53_++) {
-					class180_sub7_sub2_51_.method2405(aShortArray1837[i_53_], aShortArray1828[i_53_]);
+			if (retextureOriginal != null) {
+				for (int i_53_ = 0; retextureOriginal.length > i_53_; i_53_++) {
+					class180_sub7_sub2_51_.method2405(retextureOriginal[i_53_], retextureModified[i_53_]);
 				}
 			}
 			if (anInt1856 != 128 || anInt1875 != 128 || anInt1873 != 128) {
@@ -713,31 +703,31 @@ final class LocType {
 		if (code == 39) {
 			anInt1824 = 5 * buffer.getByte();
 		} else if (code >= 30 && code < 35) {
-			this.actions[-30 + code] = buffer.getJagexString();
-			if (this.actions[code + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-				this.actions[code - 30] = null;
+			this.options[code - 30] = buffer.getJagexString();
+			if (this.options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+				this.options[code - 30] = null;
 			}
 		} else if (code == 40) {
-			final int i_90_ = buffer.getUByte();
-			aShortArray1860 = new short[i_90_];
-			aShortArray1815 = new short[i_90_];
-			for (int i_91_ = 0; i_91_ < i_90_; i_91_++) {
-				aShortArray1860[i_91_] = (short) buffer.getUShort();
-				aShortArray1815[i_91_] = (short) buffer.getUShort();
+			final int len = buffer.getUByte();
+			recolorOriginal = new short[len];
+			recolorModified = new short[len];
+			for (int id = 0; id < len; id++) {
+				recolorOriginal[id] = (short) buffer.getUShort();
+				recolorModified[id] = (short) buffer.getUShort();
 			}
 		} else if (code == 41) {
-			final int i_88_ = buffer.getUByte();
-			aShortArray1828 = new short[i_88_];
-			aShortArray1837 = new short[i_88_];
-			for (int i_89_ = 0; i_89_ < i_88_; i_89_++) {
-				aShortArray1837[i_89_] = (short) buffer.getUShort();
-				aShortArray1828[i_89_] = (short) buffer.getUShort();
+			final int len = buffer.getUByte();
+			retextureOriginal = new short[len];
+			retextureModified = new short[len];
+			for (int id = 0; id < len; id++) {
+				retextureOriginal[id] = (short) buffer.getUShort();
+				retextureModified[id] = (short) buffer.getUShort();
 			}
 		} else if (code == 42) {
 			final int i_74_ = buffer.getUByte();
-			aByteArray1871 = new byte[i_74_];
+			recolorPalette = new byte[i_74_];
 			for (int i_75_ = 0; i_75_ < i_74_; i_75_++) {
-				aByteArray1871[i_75_] = buffer.getByte();
+				recolorPalette[i_75_] = buffer.getByte();
 			}
 		} else if (code == 62) {
 			aBoolean1868 = true;
@@ -765,13 +755,13 @@ final class LocType {
 			this.anInt1831 = buffer.getUByte();
 		} else if (code == 77 || code == 92) {
 			int i_85_ = -1;
-			anInt1854 = buffer.getUShort();
-			if (anInt1854 == 65535) {
-				anInt1854 = -1;
+			varbitId = buffer.getUShort();
+			if (varbitId == 65535) {
+				varbitId = -1;
 			}
-			anInt1846 = buffer.getUShort();
-			if (anInt1846 == 65535) {
-				anInt1846 = -1;
+			varpId = buffer.getUShort();
+			if (varpId == 65535) {
+				varpId = -1;
 			}
 			if (code == 92) {
 				i_85_ = buffer.getUShort();
@@ -855,9 +845,9 @@ final class LocType {
 		} else if (code == 107) {
 			this.mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
-			this.actions[code - 150] = buffer.getJagexString();
-			if (!Class69_Sub2.locMemberClient || this.actions[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-				this.actions[code - 150] = null;
+			this.options[code - 150] = buffer.getJagexString();
+			if (!Class69_Sub2.locMemberClient || this.options[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+				this.options[code - 150] = null;
 			}
 		} else if (code == 249) {
 			final int i_81_ = buffer.getUByte();
@@ -1061,7 +1051,7 @@ final class LocType {
 				this.anInt1835 = 1;
 			}
 			for (int i_123_ = 0; i_123_ < 5; i_123_++) {
-				if (this.actions[i_123_] != null) {
+				if (this.options[i_123_] != null) {
 					this.anInt1835 = 1;
 					break;
 				}
@@ -1103,7 +1093,7 @@ final class LocType {
 		}
 		locType.postDecode();
 		if (!Class69_Sub2.locMemberClient && locType.members) {
-			locType.actions = null;
+			locType.options = null;
 		}
 		if (locType.aBoolean1880) {
 			locType.anInt1821 = 0;
@@ -1124,14 +1114,14 @@ final class LocType {
 		this.members = false;
 		this.anInt1857 = 0;
 		this.cursor2op = -1;
-		this.actions = new String[5];
+		this.options = new String[5];
 		this.sizeX = 1;
 		this.anInt1831 = -1;
 		anInt1838 = 0;
 		aBoolean1830 = false;
 		anInt1816 = 0;
 		this.anInt1821 = 2;
-		anInt1854 = -1;
+		varbitId = -1;
 		this.aBoolean1858 = true;
 		this.cursor2 = -1;
 		this.aBoolean1844 = true;
@@ -1153,7 +1143,7 @@ final class LocType {
 		this.anInt1835 = -1;
 		aBoolean1868 = false;
 		this.mapSceneId = -1;
-		anInt1846 = -1;
+		varpId = -1;
 		anInt1873 = 128;
 		anInt1843 = 0;
 		anInt1859 = 0;

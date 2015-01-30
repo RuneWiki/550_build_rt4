@@ -28,19 +28,19 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 		do {
 			if (Class154.anInt1440 != 0) {
 				try {
-					if (++Class120_Sub14_Sub4.anInt3466 > 2000) {
+					if (++SpotAnimationNode.anInt3466 > 2000) {
 						if (AbstractTimer.worldConnection != null) {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 						if (AbstractIndexedSprite.anInt1027 < 1) {
-							Class120_Sub14_Sub4.anInt3466 = 0;
+							SpotAnimationNode.anInt3466 = 0;
 							Class154.anInt1440 = 1;
 							AbstractIndexedSprite.anInt1027++;
-							if (Class158.anInt1479 != Class71.anInt625) {
-								Class158.anInt1479 = Class71.anInt625;
+							if (ModelParticle.anInt1479 != Class71.anInt625) {
+								ModelParticle.anInt1479 = Class71.anInt625;
 							} else {
-								Class158.anInt1479 = GameEntity.anInt3045;
+								ModelParticle.anInt1479 = GameEntity.anInt3045;
 							}
 						} else {
 							Class120_Sub12_Sub35.anInt3410 = -5;
@@ -49,7 +49,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 						}
 					}
 					if (Class154.anInt1440 == 1) {
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticle.anInt1479);
 						Class154.anInt1440 = 2;
 					}
 					if (Class154.anInt1440 == 2) {
@@ -111,12 +111,12 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 						Class154.anInt1440 = 0;
 						Class120_Sub12_Sub35.anInt3410 = -4;
 					} else {
-						Class120_Sub14_Sub4.anInt3466 = 0;
+						SpotAnimationNode.anInt3466 = 0;
 						Class154.anInt1440 = 1;
-						if (Class158.anInt1479 != Class71.anInt625) {
-							Class158.anInt1479 = Class71.anInt625;
+						if (ModelParticle.anInt1479 != Class71.anInt625) {
+							ModelParticle.anInt1479 = Class71.anInt625;
 						} else {
-							Class158.anInt1479 = GameEntity.anInt3045;
+							ModelParticle.anInt1479 = GameEntity.anInt3045;
 						}
 						AbstractIndexedSprite.anInt1027++;
 						break;

@@ -26,33 +26,6 @@ final class Class120_Sub29 extends Node {
 		menuOptionsCode = new short[500];
 	}
 
-	static final int method1726(final int i, final byte i_0_) {
-		int i_1_;
-		try {
-			if (i < 0) {
-				return 0;
-			}
-			final ObjectContainer class120_sub17 = (ObjectContainer) ObjectContainer.objectContainerCache.get(i);
-			if (i_0_ != -38) {
-				method1729(-64);
-			}
-			if (class120_sub17 == null) {
-				return InvType.list(i).size;
-			}
-			int i_2_ = 0;
-			for (int i_3_ = 0; class120_sub17.objectIds.length > i_3_; i_3_++) {
-				if ((class120_sub17.objectIds[i_3_] ^ 0xffffffff) == 0) {
-					i_2_++;
-				}
-			}
-			i_2_ += InvType.list(i).size + -class120_sub17.objectIds.length;
-			i_1_ = i_2_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ta.C(").append(i).append(',').append(i_0_).append(')').toString());
-		}
-		return i_1_;
-	}
-
 	static final void receiveRegionData(final boolean bool) {
 		Class134.dynamicMapRegion = bool;
 		if (Class134.dynamicMapRegion) {

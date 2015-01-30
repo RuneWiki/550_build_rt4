@@ -59,7 +59,7 @@ final class FileSystemRequest extends AbstractRequest {
 			if (class180_sub5_sub2 != null && class180_sub5_sub2.isVisible() && class180_sub5_sub2.npcType.method2199()) {
 				final int npcSize = class180_sub5_sub2.getSize();
 				if (bool_4_) {
-					if (!class180_sub5_sub2.npcType.aBoolean1706) {
+					if (!class180_sub5_sub2.npcType.render) {
 						continue;
 					}
 				} else if (!class180_sub5_sub2.npcType.aBoolean1656 == bool_3_ || size != 0 && size != npcSize) {
@@ -104,7 +104,7 @@ final class FileSystemRequest extends AbstractRequest {
 			if (class180_sub5_sub2 != null && class180_sub5_sub2.isVisible() && class180_sub5_sub2.npcType.method2199()) {
 				final int i_16_ = class180_sub5_sub2.getSize();
 				if (bool_4_) {
-					if (!class180_sub5_sub2.npcType.aBoolean1706) {
+					if (!class180_sub5_sub2.npcType.render) {
 						continue;
 					}
 				} else if (bool_3_ != class180_sub5_sub2.npcType.aBoolean1656 || size != 0 && size != i_16_) {
@@ -158,7 +158,7 @@ final class FileSystemRequest extends AbstractRequest {
 						continue;
 					}
 				}
-				if (!class180_sub5_sub2.npcType.aBoolean1688) {
+				if (!class180_sub5_sub2.npcType.canRightClick) {
 					l |= ~0x7fffffffffffffffL;
 				}
 				class180_sub5_sub2.aBoolean2992 = false;

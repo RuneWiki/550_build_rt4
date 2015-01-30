@@ -73,7 +73,7 @@ final class ParticleEngine extends ParticleNode {
 		aFloat2393 = 1.0F;
 	}
 
-	private final void method943(final Class158[] class158s, final boolean bool, final int[] is, final int[] is_0_, final int[] is_1_) {
+	private final void method943(final ModelParticle[] class158s, final boolean bool, final int[] is, final int[] is_0_, final int[] is_1_) {
 		for (int i = 0; i < 8; i++) {
 			aBooleanArray2386[i] = false;
 		}
@@ -213,18 +213,18 @@ final class ParticleEngine extends ParticleNode {
 						}
 					}
 					boolean bool = false;
-					if (aBoolean2347 && class108_sub1.aClass80_2323.anInt724 != -1) {
-						Rasterizer.anInterface5_973.method25(class108_sub1.aClass80_2323.anInt724);
+					if (aBoolean2347 && class108_sub1.particleType.anInt724 != -1) {
+						Rasterizer.anInterface5_973.method25(class108_sub1.particleType.anInt724);
 						bool = true;
 					} else {
 						HDToolkit.bindTexture2D(-1);
 					}
-					float f = class108_sub1.aClass80_2323.anInt721 * aFloat2393;
+					float f = class108_sub1.particleType.anInt721 * aFloat2393;
 					if (f > 64.0F) {
 						f = 64.0F;
 					}
 					gl.glPointSize(f);
-					method950(gl, i_22_, bool, class108_sub1.aClass80_2323.aBoolean750);
+					method950(gl, i_22_, bool, class108_sub1.particleType.aBoolean750);
 				}
 				method957();
 			}
@@ -519,7 +519,7 @@ final class ParticleEngine extends ParticleNode {
 		aFloat2393 = i_63_ / 334.0F;
 	}
 
-	final void method962(final Class158[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
+	final void method962(final ModelParticle[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
 		if (!this.aBoolean2356) {
 			method943(class158s, bool, xVertices, yVertices, zVertices);
 			method960(class169s, bool, xVertices, yVertices, zVertices);
@@ -556,7 +556,7 @@ final class ParticleEngine extends ParticleNode {
 			method955(i_67_, i_68_);
 			if (aBoolean2391) {
 				for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
-					for (int i_69_ = 0; i_69_ < class108_sub1.aClass80_2323.anInt740; i_69_++) {
+					for (int i_69_ = 0; i_69_ < class108_sub1.particleType.anInt740; i_69_++) {
 						class108_sub1.method940(1, i_67_, true, i_68_, this.aLong2359);
 					}
 				}

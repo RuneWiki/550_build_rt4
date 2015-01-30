@@ -101,7 +101,7 @@ class HDSprite extends AbstractSprite {
 	}
 
 	void method1596(final int[] inputPixels) {
-		/*this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
+		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
 		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
 		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 4];
 		int pixelId = 0;
@@ -131,38 +131,7 @@ class HDSprite extends AbstractSprite {
 		}
 		HDToolkit.bindTexture2D(this.textureId);
 		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, byteBufferPixels);
-		MemoryManager.anInt1086 += byteBufferPixels.limit() - this.anInt3947;
-		this.anInt3947 = byteBufferPixels.limit();*/
-		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
-		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
-		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 3];
-		int pixelId = 0;
-		int inputPixelsId = 0;
-		final int pixelStep = (this.anInt3945 - this.width) * 3;
-		for (int y = 0; y < this.height; y++) {
-			for (int x = 0; x < this.width; x++) {
-				final int rgb = inputPixels[inputPixelsId++];
-				if (rgb != 0) {
-					pixels[pixelId++] = (byte) (rgb >> 16);
-					pixels[pixelId++] = (byte) (rgb >> 8);
-					pixels[pixelId++] = (byte) rgb;
-				} else {
-					pixelId += 3;
-				}
-			}
-			pixelId += pixelStep;
-		}
-		final ByteBuffer byteBufferPixels = ByteBuffer.wrap(pixels);
-		final GL gl = HDToolkit.gl;
-		if (this.textureId == -1) {
-			final int[] textureIds = new int[1];
-			gl.glGenTextures(1, textureIds, 0);
-			this.textureId = textureIds[0];
-			anInt3943 = MemoryManager.anInt1083;
-		}
-		HDToolkit.bindTexture2D(this.textureId);
-		gl.glTexImage2D(3553, 0, 6407, this.anInt3945, this.anInt3948, 0, 6407, 5121, byteBufferPixels);
-		MemoryManager.anInt1086 += byteBufferPixels.limit() - this.anInt3947;
+		MemoryManager.memory2d += byteBufferPixels.limit() - this.anInt3947;
 		this.anInt3947 = byteBufferPixels.limit();
 	}
 
@@ -429,15 +398,15 @@ class HDSprite extends AbstractSprite {
 		method1597();
 	}
 
-	HDSprite(final LDSprite class120_sub14_sub19_sub2) {
+	HDSprite(final LDSprite ldSprite) {
 		this.textureId = -1;
-		this.trimWidth = class120_sub14_sub19_sub2.trimWidth;
-		this.trimHeight = class120_sub14_sub19_sub2.trimHeight;
-		this.offsetX = class120_sub14_sub19_sub2.offsetX;
-		this.offsetY = class120_sub14_sub19_sub2.offsetY;
-		this.width = class120_sub14_sub19_sub2.width;
-		this.height = class120_sub14_sub19_sub2.height;
-		method1596(class120_sub14_sub19_sub2.pixels);
+		this.trimWidth = ldSprite.trimWidth;
+		this.trimHeight = ldSprite.trimHeight;
+		this.offsetX = ldSprite.offsetX;
+		this.offsetY = ldSprite.offsetY;
+		this.width = ldSprite.width;
+		this.height = ldSprite.height;
+		method1596(ldSprite.pixels);
 		method1597();
 	}
 

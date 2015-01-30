@@ -6,43 +6,43 @@ import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 
 final class HDTransparentSprite extends HDSprite {
-	HDTransparentSprite(final LDSprite class120_sub14_sub19_sub2) {
-		super(class120_sub14_sub19_sub2);
+	HDTransparentSprite(final LDSprite ldSprite) {
+		super(ldSprite);
 	}
 
 	@Override
-	final void method1596(final int[] is) {
+	final void method1596(final int[] inputPixels) {
 		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
 		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
-		final byte[] is_0_ = new byte[this.anInt3945 * this.anInt3948 * 4];
-		int i = 0;
-		int i_1_ = 0;
-		final int i_2_ = (this.anInt3945 - this.width) * 4;
-		for (int i_3_ = 0; i_3_ < this.height; i_3_++) {
-			for (int i_4_ = 0; i_4_ < this.width; i_4_++) {
-				final int i_5_ = is[i_1_++];
-				if (i_5_ != 0) {
-					is_0_[i++] = (byte) (i_5_ >> 16);
-					is_0_[i++] = (byte) (i_5_ >> 8);
-					is_0_[i++] = (byte) i_5_;
-					is_0_[i++] = (byte) (i_5_ >> 24);
+		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 4];
+		int pixelId = 0;
+		int inputPixelsId = 0;
+		final int pixelStep = (this.anInt3945 - this.width) * 4;
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				final int rgba = inputPixels[inputPixelsId++];
+				if (rgba != 0) {
+					pixels[pixelId++] = (byte) (rgba >> 16);
+					pixels[pixelId++] = (byte) (rgba >> 8);
+					pixels[pixelId++] = (byte) rgba;
+					pixels[pixelId++] = (byte) (rgba >> 24);
 				} else {
-					i += 4;
+					pixelId += 4;
 				}
 			}
-			i += i_2_;
+			pixelId += pixelStep;
 		}
-		final ByteBuffer bytebuffer = ByteBuffer.wrap(is_0_);
+		final ByteBuffer byteBufferPixels = ByteBuffer.wrap(pixels);
 		final GL gl = HDToolkit.gl;
 		if (this.textureId == -1) {
-			final int[] is_6_ = new int[1];
-			gl.glGenTextures(1, is_6_, 0);
-			this.textureId = is_6_[0];
+			final int[] textureIds = new int[1];
+			gl.glGenTextures(1, textureIds, 0);
+			this.textureId = textureIds[0];
 		}
 		HDToolkit.bindTexture2D(this.textureId);
-		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, bytebuffer);
-		MemoryManager.anInt1086 += bytebuffer.limit() - this.anInt3947;
-		this.anInt3947 = bytebuffer.limit();
+		gl.glTexImage2D(3553, 0, 6408, this.anInt3945, this.anInt3948, 0, 6408, 5121, byteBufferPixels);
+		MemoryManager.memory2d += byteBufferPixels.limit() - this.anInt3947;
+		this.anInt3947 = byteBufferPixels.limit();
 	}
 
 	HDTransparentSprite(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int[] is) {

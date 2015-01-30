@@ -292,7 +292,7 @@ class Class143 implements Interface3 {
 		Class120_Sub21.aString2669 = " loggt sich ein.";
 		Class132.aString1250 = " loggt sich aus.";
 		Class120_Sub12_Sub15.aString3244 = "Versteckt";
-		Class158.aString1483 = "blaugr\u00fcn:";
+		ModelParticle.aString1483 = "blaugr\u00fcn:";
 		Class120_Sub15.aString2594 = "Update-Liste geladen.";
 		Class109.aString1038 = "Eingabeprozedur geladen.";
 		Class71.aString626 = "Bitte warte...";

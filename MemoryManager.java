@@ -7,12 +7,12 @@ import javax.media.opengl.GL;
  * Probably not a good name for it, all it does is clear buffers, textures, lists and gc every now and then.
  */
 final class MemoryManager {
-	static int anInt1081 = 0;
-	static int anInt1082 = 0;
+	static int textureMemory = 0;
+	static int geometryMemory = 0;
 	static int anInt1083;
 	private static long aLong1084 = 0L;
 	private static Deque buffersDeque;
-	static int anInt1086 = 0;
+	static int memory2d = 0;
 	private static Deque texturesDeque;
 	private static Deque texturesDeque2;
 	private static Deque listsDeque;
@@ -30,6 +30,7 @@ final class MemoryManager {
 		objectsARBDeque2 = new Deque();
 		anIntArray1092 = new int[1000];
 	}
+	
 	static final synchronized void method995() {
 		anInt1083++;
 		buffersDeque.clear();
@@ -38,9 +39,9 @@ final class MemoryManager {
 		listsDeque.clear();
 		objectsARBDeque.clear();
 		objectsARBDeque2.clear();
-		anInt1082 = 0;
-		anInt1086 = 0;
-		anInt1081 = 0;
+		geometryMemory = 0;
+		memory2d = 0;
+		textureMemory = 0;
 	}
 
 	public static void method997() {
@@ -62,7 +63,7 @@ final class MemoryManager {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1082 -= class120_sub32.value;
+			geometryMemory -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteBuffersARB(i, anIntArray1092, 0);
 				i = 0;
@@ -78,7 +79,7 @@ final class MemoryManager {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1086 -= class120_sub32.value;
+			memory2d -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteTextures(i, anIntArray1092, 0);
 				i = 0;
@@ -90,7 +91,7 @@ final class MemoryManager {
 				break;
 			}
 			anIntArray1092[i++] = (int) class120_sub32.uid;
-			anInt1081 -= class120_sub32.value;
+			textureMemory -= class120_sub32.value;
 			if (i == 1000) {
 				gl.glDeleteTextures(i, anIntArray1092, 0);
 				i = 0;
@@ -113,7 +114,7 @@ final class MemoryManager {
 				break;
 			}
 			for (int i_3_ = 0; i_3_ < class120_sub27.aClass37Array2748.length; i_3_++) {
-				gl.glDetachObjectARB(class120_sub27.anInt2749, class120_sub27.aClass37Array2748[i_3_].anInt315);
+				gl.glDetachObjectARB(class120_sub27.anInt2749, class120_sub27.aClass37Array2748[i_3_].shaderId);
 			}
 			gl.glDeleteObjectARB(class120_sub27.anInt2749);
 		}
@@ -125,7 +126,7 @@ final class MemoryManager {
 			final int i_4_ = (int) class120_sub32.uid;
 			gl.glDeleteObjectARB(i_4_);
 		}
-		if (anInt1082 + anInt1086 + anInt1081 > 100663296 && TimeUtil.getSafeTime() > aLong1084 + 60000L) {
+		if (geometryMemory + memory2d + textureMemory > 100663296 && TimeUtil.getSafeTime() > aLong1084 + 60000L) {
 			System.gc();
 			System.out.println("gc memory manager");
 			aLong1084 = TimeUtil.getSafeTime();
@@ -164,7 +165,7 @@ final class MemoryManager {
 		}
 	}
 	
-	static final synchronized void method994(final int i, final Class37[] class37s, final int i_0_) {
+	static final synchronized void method994(final int i, final Shader[] class37s, final int i_0_) {
 		if (i_0_ == anInt1083) {
 			objectsARBDeque.addLast(new Class120_Sub27(i, class37s));
 		}

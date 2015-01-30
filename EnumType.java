@@ -110,7 +110,7 @@ final class EnumType extends NodeSub {
 				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
 			}
 			if (HDToolkit.glEnabled) {
-				Class158.aBoolean1478 = true;
+				ModelParticle.aBoolean1478 = true;
 			}
 			UnderlayType.method1900();
 			ProjectileNode.setGameState(28);

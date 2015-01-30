@@ -43,43 +43,34 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 		}
 	}
 
-	static final boolean method1382(final JagexInterface jagexInterface, final byte i) {
-		boolean bool;
-		try {
-			if (jagexInterface.requiredValues == null) {
-				return false;
-			}
-			if (i > -89) {
-				anInt3410 = -79;
-			}
-			for (int i_7_ = 0; i_7_ < jagexInterface.requiredValues.length; i_7_++) {
-				final int i_8_ = LocType.method2467(jagexInterface, i_7_);
-				final int i_9_ = jagexInterface.valueCompareType[i_7_];
-				if (jagexInterface.requiredValues[i_7_] != 2) {
-					if (jagexInterface.requiredValues[i_7_] == 3) {
-						if (i_8_ <= i_9_) {
-							return false;
-						}
-					} else if (jagexInterface.requiredValues[i_7_] == 4) {
-						if (i_8_ == i_9_) {
-							return false;
-						}
-					} else if (i_9_ != i_8_) {
+	static final boolean isIntefaceEnabled(final JagexInterface jagexInterface) {
+		if (jagexInterface.valueCompareType == null) {
+			return false;
+		}
+		for (int id = 0; id < jagexInterface.valueCompareType.length; id++) {
+			final int value = LocType.method2467(jagexInterface, id);
+			final int requiredValue = jagexInterface.requiredValues[id];
+			if (jagexInterface.valueCompareType[id] != 2) {
+				if (jagexInterface.valueCompareType[id] == 3) {
+					if (value <= requiredValue) {
 						return false;
 					}
-				} else if (i_8_ >= i_9_) {
+				} else if (jagexInterface.valueCompareType[id] == 4) {
+					if (value == requiredValue) {
+						return false;
+					}
+				} else if (requiredValue != value) {
 					return false;
 				}
+			} else if (value >= requiredValue) {
+				return false;
 			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.U(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
 		}
-		return bool;
+		return true;
 	}
 
 	static final void method1385() {
-		if (!Class143_Sub1.method2021() && Class120_Sub14_Sub4.anInt3469 != Class173.gameLevel) {
+		if (!Class143_Sub1.method2021() && SpotAnimationNode.anInt3469 != Class173.gameLevel) {
 			Class2.method76(false, Class116.anInt1118, false, TileParticleQueue.selfPlayer.walkQueueZ[0], TileParticleQueue.selfPlayer.walkQueueX[0], Class3.anInt53, Class173.gameLevel);
 		} else {
 			Class120_Sub12_Sub5.method1219();

@@ -4,15 +4,15 @@
 import javax.media.opengl.GL;
 
 final class IdentityKit {
-	private short[] originalModelColors;
-	private short[] modifiedModelColors;
-	private short[] originalModelTextures;
+	private short[] recolorOriginal;
+	private short[] recolorModified;
+	private short[] retextureOriginal;
 	static int selectedSpellParam;
 	boolean noInterface = false;
-	private short[] modifiedModelTextures;
-	private int[] models;
+	private short[] retextureModified;
+	private int[] modelIds;
 	static int anInt1334 = 100;
-	private final int[] headModels = { -1, -1, -1, -1, -1 };
+	private final int[] headModelIds = { -1, -1, -1, -1, -1 };
 	int partId = -1;
 	static js5 configClient;
 	static ObjectCache recentUse = new ObjectCache(64);
@@ -84,52 +84,52 @@ final class IdentityKit {
 	}
 
 	final Class180_Sub2 method1985() {
-		final Class180_Sub2[] class180_sub2s = new Class180_Sub2[5];
-		int i_12_ = 0;
-		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
-			if (headModels[i_13_] != -1) {
-				class180_sub2s[i_12_++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, headModels[i_13_], 0);
+		final Class180_Sub2[] models = new Class180_Sub2[5];
+		int pos = 0;
+		for (int id = 0; id < 5; id++) {
+			if (headModelIds[id] != -1) {
+				models[pos++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, headModelIds[id], 0);
 			}
 		}
-		final Class180_Sub2 class180_sub2_14_ = new Class180_Sub2(class180_sub2s, i_12_);
-		if (originalModelColors != null) {
-			for (int i_15_ = 0; originalModelColors.length > i_15_; i_15_++) {
-				class180_sub2_14_.recolor(originalModelColors[i_15_], modifiedModelColors[i_15_]);
+		final Class180_Sub2 model = new Class180_Sub2(models, pos);
+		if (recolorOriginal != null) {
+			for (int id = 0; id < recolorOriginal.length; id++) {
+				model.recolor(recolorOriginal[id], recolorModified[id]);
 			}
 		}
-		if (originalModelTextures != null) {
-			for (int i_16_ = 0; i_16_ < originalModelTextures.length; i_16_++) {
-				class180_sub2_14_.retexture(originalModelTextures[i_16_], modifiedModelTextures[i_16_]);
+		if (retextureOriginal != null) {
+			for (int id = 0; id < retextureOriginal.length; id++) {
+				model.retexture(retextureOriginal[id], retextureModified[id]);
 			}
 		}
-		return class180_sub2_14_;
+		return model;
 	}
 
 	final Class180_Sub2 method1986() {
-		if (models == null) {
+		if (modelIds == null) {
 			return null;
 		}
-		final Class180_Sub2[] class180_sub2s = new Class180_Sub2[models.length];
-		for (int i_17_ = 0; models.length > i_17_; i_17_++) {
-			class180_sub2s[i_17_] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, models[i_17_], 0);
+		final Class180_Sub2[] models = new Class180_Sub2[modelIds.length];
+		for (int id = 0; id < modelIds.length; id++) {
+			models[id] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, modelIds[id], 0);
 		}
-		Class180_Sub2 class180_sub2_18_;
-		if (class180_sub2s.length != 1) {
-			class180_sub2_18_ = new Class180_Sub2(class180_sub2s, class180_sub2s.length);
+		Class180_Sub2 model;
+		if (models.length != 1) {
+			model = new Class180_Sub2(models, models.length);
 		} else {
-			class180_sub2_18_ = class180_sub2s[0];
+			model = models[0];
 		}
-		if (originalModelColors != null) {
-			for (int i_19_ = 0; i_19_ < originalModelColors.length; i_19_++) {
-				class180_sub2_18_.recolor(originalModelColors[i_19_], modifiedModelColors[i_19_]);
+		if (recolorOriginal != null) {
+			for (int id = 0; id < recolorOriginal.length; id++) {
+				model.recolor(recolorOriginal[id], recolorModified[id]);
 			}
 		}
-		if (originalModelTextures != null) {
-			for (int i_20_ = 0; i_20_< originalModelTextures.length; i_20_++) {
-				class180_sub2_18_.retexture(originalModelTextures[i_20_], modifiedModelTextures[i_20_]);
+		if (retextureOriginal != null) {
+			for (int id = 0; id< retextureOriginal.length; id++) {
+				model.retexture(retextureOriginal[id], retextureModified[id]);
 			}
 		}
-		return class180_sub2_18_;
+		return model;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
@@ -137,35 +137,35 @@ final class IdentityKit {
 			this.partId = buffer.getUByte();
 		}
 		if (code == 2) {
-			final int modelLen = buffer.getUByte();
-			models = new int[modelLen];
-			for (int id = 0; id < modelLen; id++) {
-				models[id] = buffer.getUShort();
+			final int len = buffer.getUByte();
+			modelIds = new int[len];
+			for (int id = 0; id < len; id++) {
+				modelIds[id] = buffer.getUShort();
 			}
 		}
 		if (code == 3) {
 			this.noInterface = true;
 		}
 		if (code == 40) {
-			final int colorLen = buffer.getUByte();
-			modifiedModelColors = new short[colorLen];
-			originalModelColors = new short[colorLen];
-			for (int id = 0; id < colorLen; id++) {
-				originalModelColors[id] = (short) buffer.getUShort();
-				modifiedModelColors[id] = (short) buffer.getUShort();
+			final int len = buffer.getUByte();
+			recolorOriginal = new short[len];
+			recolorModified = new short[len];
+			for (int id = 0; id < len; id++) {
+				recolorOriginal[id] = (short) buffer.getUShort();
+				recolorModified[id] = (short) buffer.getUShort();
 			}
 		}
 		if (code == 41) {
-			final int textureLen = buffer.getUByte();
-			modifiedModelTextures = new short[textureLen];
-			originalModelTextures = new short[textureLen];
-			for (int id = 0; id < textureLen; id++) {
-				originalModelTextures[id] = (short) buffer.getUShort();
-				modifiedModelTextures[id] = (short) buffer.getUShort();
+			final int len = buffer.getUByte();
+			retextureOriginal = new short[len];
+			retextureModified = new short[len];
+			for (int id = 0; id < len; id++) {
+				retextureOriginal[id] = (short) buffer.getUShort();
+				retextureModified[id] = (short) buffer.getUShort();
 			}
 		}
 		if (code >= 60 && code < 70) {
-			headModels[code - 60] = buffer.getUShort();
+			headModelIds[code - 60] = buffer.getUShort();
 		}
 	}
 
@@ -712,11 +712,11 @@ final class IdentityKit {
 								if (class108_sub3_sub1 == null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub1.aClass80_2323.anInt721;
+									i_94_ = class108_sub1.particleType.anInt721;
 									continue;
 								}
 							}
-							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.aClass108_Sub1_3099 != class108_sub1 || class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass80_2323.anInt721 != i_94_)) {
+							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.aClass108_Sub1_3099 != class108_sub1 || class108_sub3_sub1_95_.aClass108_Sub1_3099.particleType.anInt721 != i_94_)) {
 								for (int i_96_ = 0; i_96_ < i_93_; i_96_++) {
 									ParticleEngine.anIntArray2389[i_96_] = 0;
 								}
@@ -754,8 +754,8 @@ final class IdentityKit {
 									}
 								}
 								boolean bool_103_ = false;
-								if (ParticleEngine.aBoolean2347 && class108_sub1.aClass80_2323.anInt724 != -1) {
-									Rasterizer.anInterface5_973.method25(class108_sub1.aClass80_2323.anInt724);
+								if (ParticleEngine.aBoolean2347 && class108_sub1.particleType.anInt724 != -1) {
+									Rasterizer.anInterface5_973.method25(class108_sub1.particleType.anInt724);
 									bool_103_ = true;
 								} else {
 									HDToolkit.bindTexture2D(-1);
@@ -765,11 +765,11 @@ final class IdentityKit {
 									f_104_ = 64.0F;
 								}
 								gl.glPointSize(f_104_);
-								class108_sub1.aClass108_Sub2_2340.method950(gl, i_93_, bool_103_, class108_sub1.aClass80_2323.aBoolean750);
+								class108_sub1.aClass108_Sub2_2340.method950(gl, i_93_, bool_103_, class108_sub1.particleType.aBoolean750);
 								if (class108_sub3_sub1_95_ != null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass80_2323.anInt721;
+									i_94_ = class108_sub3_sub1_95_.aClass108_Sub1_3099.particleType.anInt721;
 								}
 							}
 							if (class108_sub3_sub1_95_ == null) {
@@ -804,7 +804,7 @@ final class IdentityKit {
 									if (size == 0) {
 										size = 1;
 									}
-									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -948,12 +948,12 @@ final class IdentityKit {
 	}
 
 	final boolean method1990() {
-		if (models == null) {
+		if (modelIds == null) {
 			return true;
 		}
 		boolean bool_130_ = true;
-		for (int i_131_ = 0; i_131_ < models.length; i_131_++) {
-			if (!SceneGroundObject.aClass50_2839.fileExists(models[i_131_], 0)) {
+		for (int i_131_ = 0; i_131_ < modelIds.length; i_131_++) {
+			if (!SceneGroundObject.aClass50_2839.fileExists(modelIds[i_131_], 0)) {
 				bool_130_ = false;
 			}
 		}
@@ -978,7 +978,7 @@ final class IdentityKit {
 				}
 				if (jagexInterface.type == 6) {
 					if (jagexInterface.disabledAnim != -1 || jagexInterface.enabledAnim != -1) {
-						final boolean enabled = Class120_Sub12_Sub35.method1382(jagexInterface, (byte) -122);
+						final boolean enabled = Class120_Sub12_Sub35.isIntefaceEnabled(jagexInterface);
 						int animation;
 						if (enabled) {
 							animation = jagexInterface.enabledAnim;
@@ -1037,7 +1037,7 @@ final class IdentityKit {
 	final boolean method1993() {
 		boolean bool_137_ = true;
 		for (int i_138_ = 0; i_138_ < 5; i_138_++) {
-			if (headModels[i_138_] != -1 && !SceneGroundObject.aClass50_2839.fileExists(headModels[i_138_], 0)) {
+			if (headModelIds[i_138_] != -1 && !SceneGroundObject.aClass50_2839.fileExists(headModelIds[i_138_], 0)) {
 				bool_137_ = false;
 			}
 		}

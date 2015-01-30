@@ -2,11 +2,11 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub4 extends NodeSub {
+final class SpotAnimationNode extends NodeSub {
 	static boolean aBoolean3464 = false;
 	static MouseHandler mouseHandler;
 	static int anInt3466 = 0;
-	SpotAnimation aClass180_Sub3_3467;
+	SpotAnimation spotAnimation;
 	static boolean[] aBooleanArray3468;
 	static int anInt3469;
 	static boolean aBoolean3470;
@@ -53,8 +53,8 @@ final class Class120_Sub14_Sub4 extends NodeSub {
 		return true;
 	}
 
-	Class120_Sub14_Sub4(final SpotAnimation class180_sub3) {
-		this.aClass180_Sub3_3467 = class180_sub3;
+	SpotAnimationNode(final SpotAnimation spotAnimation) {
+		this.spotAnimation = spotAnimation;
 	}
 
 	static final boolean method1438(final int i_8_) {

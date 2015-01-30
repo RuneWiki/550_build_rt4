@@ -173,36 +173,36 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		if (Class86.staffLevel >= 2) {
 			if (string.equalsIgnoreCase("::gc")) {
 				Class120_Sub12_Sub21.method1311();
-				for (int i_40_ = 0; i_40_ < 10; i_40_++) {
+				for (int id = 0; id < 10; id++) {
 					System.gc();
 				}
 				final Runtime runtime = Runtime.getRuntime();
-				final int i_41_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, new StringBuilder("mem=").append(i_41_).append("k").toString());
+				final int usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, "mem=" + usedMemory + "k");
 			}
 			if (string.equalsIgnoreCase("::mm")) {
-				Class120_Sub12_Sub21.method1311();
+				/*Class120_Sub12_Sub21.method1311(); //It doesn't make sense if you clean memory then print before cleanup?
 				for (int i_42_ = 0; i_42_ < 10; i_42_++) {
 					System.gc();
-				}
+				}*/
 				final Runtime runtime = Runtime.getRuntime();
-				int i_43_ = (int) ((runtime.totalMemory() + -runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, "Memory before cleanup=" + i_43_ + "k");
+				int usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, "Memory before cleanup=" + usedMemory + "k");
 				SpotAnimType.method880();
 				Class120_Sub12_Sub21.method1311();
 				for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 					System.gc();
 				}
-				i_43_ = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, "Memory after cleanup=" + i_43_ + "k");
+				usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+				AbstractRequest.method1540(null, 0, "Memory after cleanup=" + usedMemory + "k");
 			}
 			if (string.equalsIgnoreCase("::pcachesize")) {
 				AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
 			}
 			if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
-				System.out.println("oncard_geometry:" + MemoryManager.anInt1082);
-				System.out.println("oncard_2d:" + MemoryManager.anInt1086);
-				System.out.println("oncard_texture:" + MemoryManager.anInt1081);
+				System.out.println("oncard_geometry:" + MemoryManager.geometryMemory);
+				System.out.println("oncard_2d:" + MemoryManager.memory2d);
+				System.out.println("oncard_texture:" + MemoryManager.textureMemory);
 			}
 			if (string.equalsIgnoreCase("::clientdrop")) {
 				TileParticleQueue.dropClient();
@@ -229,9 +229,6 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (string.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
-			}
-			if (string.equalsIgnoreCase("::test")) {
-				LocType.recentUse.clear();
 			}
 			if (string.equalsIgnoreCase("::wm0")) {
 				AbstractSprite.changeDisplayMode(0, -1, -1, false);
@@ -263,10 +260,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (string.startsWith("::rect_debug")) {
 				Class15.rectDebugType = Class31.stringToBase10(string.substring(12).trim());
-				AbstractRequest.method1540(null, 0, new StringBuilder("rect_debug=").append(Class15.rectDebugType).toString());
+				AbstractRequest.method1540(null, 0, "rect_debug=" + Class15.rectDebugType);
 			}
 			if (string.equalsIgnoreCase("::qa_op_test")) {
-				Class120_Sub30_Sub1.aBoolean3673 = true;
+				Class120_Sub30_Sub1.qaOpTestEnabled = true;
 			}
 			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleManager.setHdr(!Class34.method290())) {
 				AbstractRequest.method1540(null, 0, "Failed to enable hdr");
@@ -281,12 +278,12 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 			}
 			if (string.equalsIgnoreCase("::shiftclick")) {
-				if (Class120_Sub14_Sub4.aBoolean3470) {
+				if (SpotAnimationNode.aBoolean3470) {
 					System.out.println("Shift-click disabled.");
-					Class120_Sub14_Sub4.aBoolean3470 = false;
+					SpotAnimationNode.aBoolean3470 = false;
 				} else {
 					System.out.println("Shift-click ENABLED!");
-					Class120_Sub14_Sub4.aBoolean3470 = true;
+					SpotAnimationNode.aBoolean3470 = true;
 				}
 			}
 			if (string.equalsIgnoreCase("::getcgcoord")) {

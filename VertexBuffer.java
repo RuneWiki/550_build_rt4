@@ -41,7 +41,7 @@ final class VertexBuffer {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34963, bufferId);//ELEMENT_ARRAY_BUFFER
 		gl.glBufferDataARB(34963, bytebuffer.limit(), bytebuffer, useStreamDraw ? 35040 : 35044);//ELEMENT_ARRAY_BUFFER, STREAM_DRAW : STATIC_DRAW
-		MemoryManager.anInt1082 += bytebuffer.limit() - anInt1005;
+		MemoryManager.geometryMemory += bytebuffer.limit() - anInt1005;
 		anInt1005 = bytebuffer.limit();
 	}
 
@@ -49,7 +49,7 @@ final class VertexBuffer {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34962, bufferId);//ARRAY_BUFFER
 		gl.glBufferDataARB(34962, bytebuffer.limit(), bytebuffer, useStreamDraw ? 35040 : 35044);//ARRAY_BUFFER, STREAM_DRAW : STATIC_DRAW
-		MemoryManager.anInt1082 += bytebuffer.limit() - anInt1005;
+		MemoryManager.geometryMemory += bytebuffer.limit() - anInt1005;
 		anInt1005 = bytebuffer.limit();
 	}
 

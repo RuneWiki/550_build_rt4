@@ -54,8 +54,8 @@ final class InvType extends NodeSub {
 			final int i_14_ = 2 * Class9.anInt67;
 			for (int i_15_ = 0; i_15_ < 3; i_15_++) {
 				final int i_16_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_] * 3;
-				final int i_17_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ - -1][i_15_] * 3;
-				final int i_18_ = 3 * (Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ - -2][i_15_] + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + -Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][3 + i_14_][i_15_]);
+				final int i_17_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 1][i_15_] * 3;
+				final int i_18_ = 3 * (Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + -Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][3 + i_14_][i_15_]);
 				final int i_19_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_];
 				final int i_20_ = -i_16_ + i_17_;
 				final int i_21_ = -i_18_ + i_17_ + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][2 + i_14_][i_15_] + -i_19_;

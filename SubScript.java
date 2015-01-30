@@ -33,7 +33,7 @@ final class SubScript {
 			string_4_ = new StringBuilder(AbstractGraphicsBuffer.aString1176).append(Class29.aString196).append(Class192.selectedObjName).append(" ->").toString();
 		} else if (Class88.spellSelected && Class186.menuOptionCount < 2) {
 			string_4_ = new StringBuilder(Class101.aString963).append(Class29.aString196).append(Light.aString369).append(" ->").toString();
-		} else if (!Class120_Sub14_Sub4.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
+		} else if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
 			string_4_ = Class121.getMenuOptionName(-1 + Class186.menuOptionCount);
 		} else {
 			string_4_ = Class121.getMenuOptionName(Class186.menuOptionCount + -2);

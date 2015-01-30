@@ -19,27 +19,12 @@ abstract class Class120_Sub2 extends Node {
 		anInt2422 = -1;
 	}
 
-	final int method1040(final byte i) {
-		int i_0_;
-		try {
-			if (i != -103) {
-				return -66;
-			}
-			i_0_ = 1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.K(").append(i).append(')').toString());
-		}
-		return i_0_;
+	final int method1040() {
+		return 1;
 	}
 
 	int method1041() {
-		int i;
-		try {
-			i = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "bc.G()");
-		}
-		return i;
+		return 0;
 	}
 
 	final boolean method1042() {
@@ -48,44 +33,22 @@ abstract class Class120_Sub2 extends Node {
 
 	abstract void method1043(int i);
 
-	public static void method1044(final int i) {
-		try {
-			aClass50_2415 = null;
-			if (i != 17616) {
-				anInt2421 = -50;
-			}
-			aStringArray2423 = null;
-			aStringArray2420 = null;
-			anIntArrayArray2416 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.L(").append(i).append(')').toString());
+	static final void method1045(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_6_, final int i_7_) {
+		final int i_8_ = i_2_ - -i_7_;
+		final int i_9_ = i_4_ - i_7_;
+		final int i_10_ = i_3_ + i_7_;
+		final int i_11_ = i_1_ + -i_7_;
+		for (int i_12_ = i_2_; i_8_ > i_12_; i_12_++) {
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_12_], i, i_3_, i_1_);
 		}
-	}
-
-	static final void method1045(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final int i_7_) {
-		try {
-			final int i_8_ = i_2_ - -i_7_;
-			final int i_9_ = i_4_ - i_7_;
-			final int i_10_ = i_3_ + i_7_;
-			final int i_11_ = i_1_ + -i_7_;
-			for (int i_12_ = i_2_; i_8_ > i_12_; i_12_++) {
-				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_12_], i, i_3_, i_1_);
-			}
-			if (i_5_ != -57) {
-				method1046(30, 23, -109, 75, 35);
-			}
-			for (int i_13_ = i_4_; i_9_ < i_13_; i_13_--) {
-				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_13_], i, i_3_, i_1_);
-			}
-			for (int i_14_ = i_8_; i_14_ <= i_9_; i_14_++) {
-				final int[] is = GameEntity.anIntArrayArray3009[i_14_];
-				AmbientSound.fillArray(is, i, i_3_, i_10_);
-				AmbientSound.fillArray(is, i_6_, i_10_, i_11_);
-				AmbientSound.fillArray(is, i, i_11_, i_1_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.M(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')')
-					.toString());
+		for (int i_13_ = i_4_; i_9_ < i_13_; i_13_--) {
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_13_], i, i_3_, i_1_);
+		}
+		for (int i_14_ = i_8_; i_14_ <= i_9_; i_14_++) {
+			final int[] is = GameEntity.anIntArrayArray3009[i_14_];
+			AmbientSound.fillArray(is, i, i_3_, i_10_);
+			AmbientSound.fillArray(is, i_6_, i_10_, i_11_);
+			AmbientSound.fillArray(is, i, i_11_, i_1_);
 		}
 	}
 
@@ -146,30 +109,15 @@ abstract class Class120_Sub2 extends Node {
 		}
 	}
 
-	final boolean method1051(final int i) {
-		boolean bool;
-		try {
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.J(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1051() {
+		return false;
 	}
 
 	abstract void method1052(int i, int i_33_);
 
 	abstract boolean method1053();
 
-	final boolean method1054(final byte i) {
-		boolean bool;
-		try {
-			if (i != -12) {
-				return true;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bc.O(").append(i).append(')').toString());
-		}
-		return bool;
+	final boolean method1054() {
+		return false;
 	}
 }

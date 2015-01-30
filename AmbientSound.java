@@ -99,7 +99,7 @@ final class AmbientSound extends Node {
 		IntegerNode.aString2788 = "Chargement des interfaces - ";
 		Class69.aString618 = "vert:";
 		Class132.aString1250 = " s'est d\u00e9connect\u00e9.";
-		Class158.aString1483 = "cyan:";
+		ModelParticle.aString1483 = "cyan:";
 		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
 		LongNode.aString2428 = "Chargement des fichiers config - ";

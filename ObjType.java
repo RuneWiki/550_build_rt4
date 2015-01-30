@@ -9,7 +9,7 @@ final class ObjType {
 	private int anInt1512;
 	private int contrast;
 	private int womanwearyoff;
-	private byte[] recol_d_palette;
+	private byte[] recolorPalette;
 	private int manhead2;
 	private int modelId;
 	int dummyobject = 0;
@@ -26,18 +26,18 @@ final class ObjType {
 	int lentlink;
 	private int resizeZ;
 	String name;
-	private short[] recol_d;
+	private short[] recolorModified;
 	private int anInt1534;
 	private int anInt1535;
 	static char aChar1536;
 	int cursor1;
 	int[] countcounts;
-	private short[] retex_s;
+	private short[] retextureOriginal;
 	int stackable;
 	int lenttemplate;
 	private int manhead;
 	private int manwearzoff;
-	private short[] recol_s;
+	private short[] recolorOriginal;
 	int xan2d;
 	int anInt1546;
 	private int womanhead;
@@ -53,7 +53,7 @@ final class ObjType {
 	private int resizeX;
 	int yan2d;
 	private int anInt1559;
-	private short[] retex_d;
+	private short[] retextureModified;
 	int yof2d;
 	int team;
 	int certlink;
@@ -102,14 +102,14 @@ final class ObjType {
 		if (isWoman && (womanwearxoff != 0 || womanwearyoff != 0 || womanwearzoff != 0)) {
 			class180_sub2_4_.translate(womanwearxoff, womanwearyoff, womanwearzoff);
 		}
-		if (recol_s != null) {
-			for (int i_7_ = 0; i_7_ < recol_s.length; i_7_++) {
-				class180_sub2_4_.recolor(recol_s[i_7_], recol_d[i_7_]);
+		if (recolorOriginal != null) {
+			for (int i_7_ = 0; i_7_ < recolorOriginal.length; i_7_++) {
+				class180_sub2_4_.recolor(recolorOriginal[i_7_], recolorModified[i_7_]);
 			}
 		}
-		if (retex_s != null) {
-			for (int i_8_ = 0; i_8_ < retex_s.length; i_8_++) {
-				class180_sub2_4_.retexture(retex_s[i_8_], retex_d[i_8_]);
+		if (retextureOriginal != null) {
+			for (int i_8_ = 0; i_8_ < retextureOriginal.length; i_8_++) {
+				class180_sub2_4_.retexture(retextureOriginal[i_8_], retextureModified[i_8_]);
 			}
 		}
 		return class180_sub2_4_;
@@ -117,13 +117,13 @@ final class ObjType {
 
 	final void genCert(final ObjType class162_9_, final ObjType class162_10_) {
 		this.cost = class162_9_.cost;
-		recol_d_palette = class162_10_.recol_d_palette;
-		recol_d = class162_10_.recol_d;
-		retex_s = class162_10_.retex_s;
+		recolorPalette = class162_10_.recolorPalette;
+		recolorModified = class162_10_.recolorModified;
+		retextureOriginal = class162_10_.retextureOriginal;
 		this.yan2d = class162_10_.yan2d;
 		this.xan2d = class162_10_.xan2d;
 		this.xof2d = class162_10_.xof2d;
-		recol_s = class162_10_.recol_s;
+		recolorOriginal = class162_10_.recolorOriginal;
 		modelId = class162_10_.modelId;
 		this.name = class162_9_.name;
 		this.stackable = 1;
@@ -131,7 +131,7 @@ final class ObjType {
 		this.members = class162_9_.members;
 		this.yof2d = class162_10_.yof2d;
 		this.zoom2d = class162_10_.zoom2d;
-		retex_d = class162_10_.retex_d;
+		retextureModified = class162_10_.retextureModified;
 	}
 
 	final AbstractModel method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
@@ -152,18 +152,18 @@ final class ObjType {
 			if (class180_sub2 == null) {
 				return null;
 			}
-			if (recol_s != null) {
-				for (int i_18_ = 0; recol_s.length > i_18_; i_18_++) {
-					if (recol_d_palette == null || i_18_ >= recol_d_palette.length) {
-						class180_sub2.recolor(recol_s[i_18_], recol_d[i_18_]);
+			if (recolorOriginal != null) {
+				for (int i_18_ = 0; recolorOriginal.length > i_18_; i_18_++) {
+					if (recolorPalette == null || i_18_ >= recolorPalette.length) {
+						class180_sub2.recolor(recolorOriginal[i_18_], recolorModified[i_18_]);
 					} else {
-						class180_sub2.recolor(recol_s[i_18_], NodeSub.aShortArray2584[recol_d_palette[i_18_] & 0xff]);
+						class180_sub2.recolor(recolorOriginal[i_18_], NodeSub.aShortArray2584[recolorPalette[i_18_] & 0xff]);
 					}
 				}
 			}
-			if (retex_s != null) {
-				for (int i_19_ = 0; i_19_ < retex_s.length; i_19_++) {
-					class180_sub2.retexture(retex_s[i_19_], retex_d[i_19_]);
+			if (retextureOriginal != null) {
+				for (int i_19_ = 0; i_19_ < retextureOriginal.length; i_19_++) {
+					class180_sub2.retexture(retextureOriginal[i_19_], retextureModified[i_19_]);
 				}
 			}
 			if (playerAppearance != null) {
@@ -223,14 +223,14 @@ final class ObjType {
 			final Class180_Sub2[] class180_sub2s = { class180_sub2_26_, class180_sub2_27_ };
 			class180_sub2_26_ = new Class180_Sub2(class180_sub2s, 2);
 		}
-		if (recol_s != null) {
-			for (int i_28_ = 0; i_28_ < recol_s.length; i_28_++) {
-				class180_sub2_26_.recolor(recol_s[i_28_], recol_d[i_28_]);
+		if (recolorOriginal != null) {
+			for (int i_28_ = 0; i_28_ < recolorOriginal.length; i_28_++) {
+				class180_sub2_26_.recolor(recolorOriginal[i_28_], recolorModified[i_28_]);
 			}
 		}
-		if (retex_s != null) {
-			for (int i_29_ = 0; i_29_ < retex_s.length; i_29_++) {
-				class180_sub2_26_.retexture(retex_s[i_29_], retex_d[i_29_]);
+		if (retextureOriginal != null) {
+			for (int i_29_ = 0; i_29_ < retextureOriginal.length; i_29_++) {
+				class180_sub2_26_.retexture(retextureOriginal[i_29_], retextureModified[i_29_]);
 			}
 		}
 		return class180_sub2_26_;
@@ -294,7 +294,7 @@ final class ObjType {
 		womanwearyoff = class162_39_.womanwearyoff;
 		anInt1512 = class162_39_.anInt1512;
 		this.params = class162_39_.params;
-		recol_s = class162_39_.recol_s;
+		recolorOriginal = class162_39_.recolorOriginal;
 		this.zan2d = class162_40_.zan2d;
 		womanhead2 = class162_39_.womanhead2;
 		manwearyoff = class162_39_.manwearyoff;
@@ -305,13 +305,13 @@ final class ObjType {
 		modelId = class162_40_.modelId;
 		this.inventoryOptions = new String[5];
 		this.members = class162_39_.members;
-		recol_d = class162_39_.recol_d;
+		recolorModified = class162_39_.recolorModified;
 		womanwearzoff = class162_39_.womanwearzoff;
 		this.yof2d = class162_40_.yof2d;
-		retex_d = class162_39_.retex_d;
+		retextureModified = class162_39_.retextureModified;
 		this.xan2d = class162_40_.xan2d;
 		this.anInt1546 = class162_39_.anInt1546;
-		retex_s = class162_39_.retex_s;
+		retextureOriginal = class162_39_.retextureOriginal;
 		womanwearxoff = class162_39_.womanwearxoff;
 		womanhead = class162_39_.womanhead;
 		this.zoom2d = class162_40_.zoom2d;
@@ -319,7 +319,7 @@ final class ObjType {
 		this.options = class162_39_.options;
 		this.name = class162_39_.name;
 		this.cost = 0;
-		recol_d_palette = class162_39_.recol_d_palette;
+		recolorPalette = class162_39_.recolorPalette;
 		if (class162_39_.inventoryOptions != null) {
 			for (int i_41_ = 0; i_41_ < 4; i_41_++) {
 				this.inventoryOptions[i_41_] = class162_39_.inventoryOptions[i_41_];
@@ -373,18 +373,18 @@ final class ObjType {
 		if (class180_sub2 == null) {
 			return null;
 		}
-		if (recol_s != null) {
-			for (int i_50_ = 0; i_50_ < recol_s.length; i_50_++) {
-				if (recol_d_palette != null && recol_d_palette.length > i_50_) {
-					class180_sub2.recolor(recol_s[i_50_], NodeSub.aShortArray2584[0xff & recol_d_palette[i_50_]]);
+		if (recolorOriginal != null) {
+			for (int i_50_ = 0; i_50_ < recolorOriginal.length; i_50_++) {
+				if (recolorPalette != null && recolorPalette.length > i_50_) {
+					class180_sub2.recolor(recolorOriginal[i_50_], NodeSub.aShortArray2584[0xff & recolorPalette[i_50_]]);
 				} else {
-					class180_sub2.recolor(recol_s[i_50_], recol_d[i_50_]);
+					class180_sub2.recolor(recolorOriginal[i_50_], recolorModified[i_50_]);
 				}
 			}
 		}
-		if (retex_s != null) {
-			for (int i_51_ = 0; i_51_ < retex_s.length; i_51_++) {
-				class180_sub2.retexture(retex_s[i_51_], retex_d[i_51_]);
+		if (retextureOriginal != null) {
+			for (int i_51_ = 0; i_51_ < retextureOriginal.length; i_51_++) {
+				class180_sub2.retexture(retextureOriginal[i_51_], retextureModified[i_51_]);
 			}
 		}
 		if (playerAppearance != null) {
@@ -438,15 +438,15 @@ final class ObjType {
 				if (code != 26) {
 					if (code < 30 || code >= 35) {
 						if (code >= 35 && code < 40) {
-							this.inventoryOptions[code + -35] = buffer.getJagexString();
+							this.inventoryOptions[code - 35] = buffer.getJagexString();
 						} else if (code != 40) {
 							if (code == 41) {
 								final int i_55_ = buffer.getUByte();
-								retex_d = new short[i_55_];
-								retex_s = new short[i_55_];
+								retextureOriginal = new short[i_55_];
+								retextureModified = new short[i_55_];
 								for (int i_56_ = 0; i_56_ < i_55_; i_56_++) {
-									retex_s[i_56_] = (short) buffer.getUShort();
-									retex_d[i_56_] = (short) buffer.getUShort();
+									retextureOriginal[i_56_] = (short) buffer.getUShort();
+									retextureModified[i_56_] = (short) buffer.getUShort();
 								}
 							} else if (code != 42) {
 								if (code != 65) {
@@ -559,25 +559,25 @@ final class ObjType {
 									this.stockmarket = true;
 								}
 							} else {
-								final int i_61_ = buffer.getUByte();
-								recol_d_palette = new byte[i_61_];
-								for (int i_62_ = 0; i_62_ < i_61_; i_62_++) {
-									recol_d_palette[i_62_] = buffer.getByte();
+								final int len = buffer.getUByte();
+								recolorPalette = new byte[len];
+								for (int i_62_ = 0; i_62_ < len; i_62_++) {
+									recolorPalette[i_62_] = buffer.getByte();
 								}
 							}
 						} else {
-							final int i_63_ = buffer.getUByte();
-							recol_s = new short[i_63_];
-							recol_d = new short[i_63_];
-							for (int i_64_ = 0; i_63_ > i_64_; i_64_++) {
-								recol_s[i_64_] = (short) buffer.getUShort();
-								recol_d[i_64_] = (short) buffer.getUShort();
+							final int len = buffer.getUByte();
+							recolorOriginal = new short[len];
+							recolorModified = new short[len];
+							for (int i_64_ = 0; len > i_64_; i_64_++) {
+								recolorOriginal[i_64_] = (short) buffer.getUShort();
+								recolorModified[i_64_] = (short) buffer.getUShort();
 							}
 						}
 					} else {
-						this.options[-30 + code] = buffer.getJagexString();
-						if (this.options[code + -30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-							this.options[code + -30] = null;
+						this.options[code - 30] = buffer.getJagexString();
+						if (this.options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
+							this.options[code - 30] = null;
 						}
 					}
 				} else {

@@ -86,42 +86,42 @@ final class InterfaceChangeNode extends NodeSub {
 					if (Light.objSelected == 1) {
 						InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=00ffff>").append(locType.name).toString(), bitPacked, x, z, (short) 16, Class120_Sub12_Sub10.anInt3205);
 					} else if (Class88.spellSelected) {
-						final ParamType class120_sub14_sub11 = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-						if ((0x4 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || locType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
+						final ParamType paramType = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
+						if ((0x4 & GroundTile.selectedSpellUseMask) != 0 && (paramType == null || locType.getIntegerParamValue(IdentityKit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
 							InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=00ffff>").append(locType.name).toString(), bitPacked, x, z, (short) 4, Class150.selectedSpellTargetCursor);
 						}
 					} else {
-						String[] actions = locType.actions;
-						if (MouseHandler.showNumbersOnActions) {
-							actions = Class120_Sub12_Sub36.addNumbers(actions);
+						String[] options = locType.options;
+						if (MouseHandler.showNumbersOnOptions) {
+							options = Class120_Sub12_Sub36.addNumbers(options);
 						}
-						if (actions != null) {
-							for (int actionId = 4; actionId >= 0; actionId--) {
-								if (actions[actionId] != null) {
-									short opcode = 0;
-									if (actionId == 0) {
-										opcode = (short) 41;
+						if (options != null) {
+							for (int optionId = 4; optionId >= 0; optionId--) {
+								if (options[optionId] != null) {
+									short code = 0;
+									if (optionId == 0) {
+										code = (short) 41;
 									}
-									if (actionId == 1) {
-										opcode = (short) 37;
+									if (optionId == 1) {
+										code = (short) 37;
 									}
-									if (actionId == 2) {
-										opcode = (short) 32;
+									if (optionId == 2) {
+										code = (short) 32;
 									}
-									if (actionId == 3) {
-										opcode = (short) 40;
+									if (optionId == 3) {
+										code = (short) 40;
 									}
-									if (actionId == 4) {
-										opcode = (short) 1005;
+									if (optionId == 4) {
+										code = (short) 1005;
 									}
 									int cursorId = -1;
-									if (actionId == locType.cursor1op) {
+									if (optionId == locType.cursor1op) {
 										cursorId = locType.cursor1;
 									}
-									if (actionId == locType.cursor2op) {
+									if (optionId == locType.cursor2op) {
 										cursorId = locType.cursor2;
 									}
-									InvType.addMenuOption(actions[actionId], "<col=00ffff>" + locType.name, bitPacked, x, z, opcode, cursorId);
+									InvType.addMenuOption(options[optionId], "<col=00ffff>" + locType.name, bitPacked, x, z, code, cursorId);
 								}
 							}
 						}
@@ -209,36 +209,36 @@ final class InterfaceChangeNode extends NodeSub {
 										InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 48, Class150.selectedSpellTargetCursor);
 									}
 								} else {
-									String[] strings = objType.options;
-									if (MouseHandler.showNumbersOnActions) {
-										strings = Class120_Sub12_Sub36.addNumbers(strings);
+									String[] options = objType.options;
+									if (MouseHandler.showNumbersOnOptions) {
+										options = Class120_Sub12_Sub36.addNumbers(options);
 									}
-									for (int i_42_ = 4; i_42_ >= 0; i_42_--) {
-										if (strings != null && strings[i_42_] != null) {
-											int i_43_ = -1;
-											if (objType.cursor1op == i_42_) {
-												i_43_ = objType.cursor1;
+									for (int optionId = 4; optionId >= 0; optionId--) {
+										if (options != null && options[optionId] != null) {
+											int cursorId = -1;
+											if (objType.cursor1op == optionId) {
+												cursorId = objType.cursor1;
 											}
-											if (objType.cursor2op == i_42_) {
-												i_43_ = objType.cursor2;
+											if (objType.cursor2op == optionId) {
+												cursorId = objType.cursor2;
 											}
-											short i_44_ = 0;
-											if (i_42_ == 0) {
-												i_44_ = (short) 45;
+											short code = 0;
+											if (optionId == 0) {
+												code = (short) 45;
 											}
-											if (i_42_ == 1) {
-												i_44_ = (short) 46;
+											if (optionId == 1) {
+												code = (short) 46;
 											}
-											if (i_42_ == 2) {
-												i_44_ = (short) 38;
+											if (optionId == 2) {
+												code = (short) 38;
 											}
-											if (i_42_ == 3) {
-												i_44_ = (short) 6;
+											if (optionId == 3) {
+												code = (short) 6;
 											}
-											if (i_42_ == 4) {
-												i_44_ = (short) 44;
+											if (optionId == 4) {
+												code = (short) 44;
 											}
-											InvType.addMenuOption(strings[i_42_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objectId, x, z, i_44_, i_43_);
+											InvType.addMenuOption(options[optionId], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objectId, x, z, code, cursorId);
 										}
 									}
 									InvType.addMenuOption(Class11.aString81, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 1004, Class120_Sub12_Sub11.anInt3211);

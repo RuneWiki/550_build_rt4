@@ -202,16 +202,16 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 								break while_198_;
 							}
 						} else {
-							aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1357(buffer, 116);
+							aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1357(buffer);
 							continue while_200_;
 						}
 						aClass101Array3237[i_41_] = Class120_Sub12_Sub30.method1362(buffer);
 						continue while_200_;
 					} while (false);
-					aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1356(buffer, 0);
+					aClass101Array3237[i_41_] = Class120_Sub12_Sub29.method1356(buffer);
 					continue while_200_;
 				} while (false);
-				aClass101Array3237[i_41_] = Class187.method2475(buffer, true);
+				aClass101Array3237[i_41_] = Class187.method2475(buffer);
 			}
 		} else if (i_40_ == 1) {
 			this.aBoolean2558 = buffer.getUByte() == 1;

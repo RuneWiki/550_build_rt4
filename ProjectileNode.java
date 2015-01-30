@@ -65,7 +65,7 @@ final class ProjectileNode extends NodeSub {
 				} else {
 					Class157.anInt1466 = AbstractSprite.anInt3620;
 					if (RuntimeException_Sub1.anInt2142 != 0) {
-						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.aClass50_3419, 2, (byte) -127, 255, AbstractSprite.anInt3620, false);
+						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.aClass50_3419, 2, 255, AbstractSprite.anInt3620, false);
 					} else {
 						Class120_Sub12_Sub6.method1230(2);
 					}

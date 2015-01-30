@@ -3,7 +3,7 @@
  */
 
 final class JagexInterface {
-	Object[] anObjectArray1929;
+	Object[] onInventoryUpdateListener;
 	int maxScrollHorizontal;
 	JagexInterface aClass189_1931 = null;
 	Object[] anObjectArray1932;
@@ -25,7 +25,7 @@ final class JagexInterface {
 	int width;
 	int[] anIntArray1949;
 	String disabledText = "";
-	Object[] mouseDraggedListener;
+	Object[] onMouseDragListener;
 	static Thread gameShellThread;
 	Object[] anObjectArray1953;
 	Object[] keyPressedListener;
@@ -45,7 +45,7 @@ final class JagexInterface {
 	int redrawCycle;
 	int rotateSpeed;
 	int[][] cs1opcodes;
-	boolean aBoolean1971;
+	boolean clicked;
 	int enabledColor;
 	int[] anIntArray1973;
 	int alpha;
@@ -67,7 +67,7 @@ final class JagexInterface {
 	int enabledAnim;
 	int[] stringScriptValuesTriggers;
 	int[] cursors;
-	Object[] anObjectArray1993;
+	Object[] onHeldListener;
 	String actionSufix;
 	int type;
 	int actionType;
@@ -98,13 +98,13 @@ final class JagexInterface {
 	int horizontalScrollPosition;
 	int[] skillListernerTriggers;
 	int verticalScrollPosition;
-	Object[] mouseWheelListener;
+	Object[] onMouseWheelListener;
 	int disabledColor;
 	int shadow;
 	static int inserting;
 	int anInt2028;
 	int parent;
-	int anInt2030;
+	int objId;
 	int modelTypeDisabled;
 	Object[] anObjectArray2032;
 	int anInt2033;
@@ -112,7 +112,7 @@ final class JagexInterface {
 	boolean aBoolean2035;
 	Object[] anObjectArray2036;
 	int anInt2037;
-	int[] requiredValues;
+	int[] valueCompareType;
 	int[] varpListenerTriggers;
 	boolean shaded;
 	boolean newFormat;
@@ -124,15 +124,15 @@ final class JagexInterface {
 	int rotateX;
 	byte[] aByteArray2048;
 	int anInt2049;
-	Object[] anObjectArray2050;
+	Object[] onVarpUpdateListener;
 	byte dynamicXValue;
 	String[] niActions;
 	static int anInt2053;
-	Object[] skillUpdateListener;
+	Object[] onSkillUpdateListener;
 	int disabledSpriteId;
 	String[] oiActions;
 	int verticalSpacing;
-	Object[] mouseFocusListener;
+	Object[] onMouseOverListener;
 	int height;
 	int originalHeight;
 	int originalY;
@@ -145,20 +145,20 @@ final class JagexInterface {
 	static int anInt2068 = 0;
 	int anInt2069;
 	int rotation;
-	int[] valueCompareType;
+	int[] requiredValues;
 	JagexInterface[] components;
 	int x;
-	Object[] mouseUnfocusListener;
-	int anInt2075;
+	Object[] onMouseLeaveListener;
+	int objCount;
 	int anInt2076;
 	int objSpritePadY;
 	int anInt2078;
 	int[] anIntArray2079;
-	Object[] mouseClickFocusListener;
+	Object[] onClickListener;
 	int disabledMouseOverColor;
 	int redrawId;
 	int componentIndex;
-	Object[] mouseClickUnfocusListener;
+	Object[] onReleaseListener;
 	int anInt2085;
 	Object[] anObjectArray2086;
 	int enabledMouseOverColor;
@@ -227,7 +227,7 @@ final class JagexInterface {
 			return class180_sub7_7_;
 		}
 		if (i_6_ == 2) {
-			final AbstractModel class180_sub7_8_ = NpcType.list(i_5_).method2210(i, seqType, (byte) -128, i_4_, i_3_);
+			final AbstractModel class180_sub7_8_ = NpcType.list(i_5_).method2210(seqType, i, i_4_, i_3_);
 			if (class180_sub7_8_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -255,7 +255,7 @@ final class JagexInterface {
 			return class180_sub7_10_;
 		}
 		if (i_6_ == 6) {
-			final AbstractModel class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, -95, null, seqType, i, null, 0, 0, i_4_);
+			final AbstractModel class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, null, seqType, i, null, 0, 0, i_4_);
 			if (class180_sub7_11_ == null) {
 				Class88.aBoolean835 = true;
 				return null;
@@ -297,7 +297,7 @@ final class JagexInterface {
 			if (class120_sub14_sub19_18_ != null) {
 				return class120_sub14_sub19_18_;
 			}
-			class120_sub14_sub19_18_ = Class80.method700(i_17_, 0, (byte) 124, Class89.aClass50_836);
+			class120_sub14_sub19_18_ = ParticleType.method700(i_17_, 0, (byte) 124, Class89.aClass50_836);
 			if (class120_sub14_sub19_18_ == null) {
 				Class88.aBoolean835 = true;
 			} else {
@@ -365,11 +365,11 @@ final class JagexInterface {
 		}
 		final int valueCompareCount = buffer.getUByte();
 		if (valueCompareCount > 0) {
-			this.requiredValues = new int[valueCompareCount];
 			this.valueCompareType = new int[valueCompareCount];
+			this.requiredValues = new int[valueCompareCount];
 			for (int id = 0; id < valueCompareCount; id++) {
-				this.requiredValues[id] = buffer.getUByte();
-				this.valueCompareType[id] = buffer.getUShort();
+				this.valueCompareType[id] = buffer.getUByte();
+				this.requiredValues[id] = buffer.getUShort();
 			}
 		}
 		final int cs1length = buffer.getUByte();
@@ -380,7 +380,7 @@ final class JagexInterface {
 				this.cs1opcodes[i_27_] = new int[i_28_];
 				for (int i_29_ = 0; i_28_ > i_29_; i_29_++) {
 					this.cs1opcodes[i_27_][i_29_] = buffer.getUShort();
-					if (65535 == this.cs1opcodes[i_27_][i_29_]) {
+					if (this.cs1opcodes[i_27_][i_29_] == 65535) {
 						this.cs1opcodes[i_27_][i_29_] = -1;
 					}
 				}
@@ -611,16 +611,16 @@ final class JagexInterface {
 		return class120_sub14_sub19_42_;
 	}
 
-	private final int[] method2493(final Buffer class120_sub7) {
-		final int i_43_ = class120_sub7.getUByte();
-		if (i_43_ == 0) {
+	private final int[] decodeListenerValues(final Buffer buffer) {
+		final int len = buffer.getUByte();
+		if (len == 0) {
 			return null;
 		}
-		final int[] is_44_ = new int[i_43_];
-		for (int i_45_ = 0; i_45_ < i_43_; i_45_++) {
-			is_44_[i_45_] = class120_sub7.getInt();
+		final int[] values = new int[len];
+		for (int id = 0; id < len; id++) {
+			values[id] = buffer.getInt();
 		}
-		return is_44_;
+		return values;
 	}
 
 	final void decodeNew(final Buffer buffer) {
@@ -779,75 +779,59 @@ final class JagexInterface {
 			}
 		}
 		this.clickMask = new InterfaceClickMask(clickMask, paramId);
-		this.onloadListener = method2503(buffer);
-		this.mouseFocusListener = method2503(buffer);
-		this.mouseUnfocusListener = method2503(buffer);
-		this.onSpellDeselectionListener = method2503(buffer);
-		this.onSpellSelectionListener = method2503(buffer);
-		this.anObjectArray2050 = method2503(buffer);
-		this.anObjectArray1929 = method2503(buffer);
-		this.skillUpdateListener = method2503(buffer);
-		this.anObjectArray1998 = method2503(buffer);
-		this.anObjectArray2006 = method2503(buffer);
-		this.anObjectArray1953 = method2503(buffer);
-		this.mouseClickFocusListener = method2503(buffer);
-		this.anObjectArray1993 = method2503(buffer);
-		this.mouseClickUnfocusListener = method2503(buffer);
-		this.mouseDraggedListener = method2503(buffer);
-		this.anObjectArray1959 = method2503(buffer);
-		this.anObjectArray1947 = method2503(buffer);
-		this.mouseWheelListener = method2503(buffer);
-		this.anObjectArray2062 = method2503(buffer);
-		this.anObjectArray2032 = method2503(buffer);
-		this.varpListenerTriggers = method2493(buffer);
-		this.inventoryListenerTriggers = method2493(buffer);
-		this.skillListernerTriggers = method2493(buffer);
-		this.integerScriptsValuesTriggers = method2493(buffer);
-		this.stringScriptValuesTriggers = method2493(buffer);
+		this.onloadListener = decodeListener(buffer);
+		this.onMouseOverListener = decodeListener(buffer);
+		this.onMouseLeaveListener = decodeListener(buffer);
+		this.onSpellDeselectionListener = decodeListener(buffer);
+		this.onSpellSelectionListener = decodeListener(buffer);
+		this.onVarpUpdateListener = decodeListener(buffer);
+		this.onInventoryUpdateListener = decodeListener(buffer);
+		this.onSkillUpdateListener = decodeListener(buffer);
+		this.anObjectArray1998 = decodeListener(buffer);
+		this.anObjectArray2006 = decodeListener(buffer);
+		this.anObjectArray1953 = decodeListener(buffer);
+		this.onClickListener = decodeListener(buffer);
+		this.onHeldListener = decodeListener(buffer);
+		this.onReleaseListener = decodeListener(buffer);
+		this.onMouseDragListener = decodeListener(buffer);
+		this.anObjectArray1959 = decodeListener(buffer);
+		this.anObjectArray1947 = decodeListener(buffer);
+		this.onMouseWheelListener = decodeListener(buffer);
+		this.anObjectArray2062 = decodeListener(buffer);
+		this.anObjectArray2032 = decodeListener(buffer);
+		this.varpListenerTriggers = decodeListenerValues(buffer);
+		this.inventoryListenerTriggers = decodeListenerValues(buffer);
+		this.skillListernerTriggers = decodeListenerValues(buffer);
+		this.integerScriptsValuesTriggers = decodeListenerValues(buffer);
+		this.stringScriptValuesTriggers = decodeListenerValues(buffer);
 	}
 
-	final void method2496(final int i, final byte i_60_, final int i_61_) {
-		try {
-			int i_62_ = this.objIds[i];
-			this.objIds[i] = this.objIds[i_61_];
-			this.objIds[i_61_] = i_62_;
-			if (i_60_ <= 53) {
-				method2501();
-			}
-			i_62_ = this.objAmounts[i];
-			this.objAmounts[i] = this.objAmounts[i_61_];
-			this.objAmounts[i_61_] = i_62_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.D(").append(i).append(',').append(i_60_).append(',').append(i_61_).append(')').toString());
-		}
+	final void swapObj(final int newIndex, final int oldIndex) {
+		int i_62_ = this.objIds[newIndex];
+		this.objIds[newIndex] = this.objIds[oldIndex];
+		this.objIds[oldIndex] = i_62_;
+		i_62_ = this.objAmounts[newIndex];
+		this.objAmounts[newIndex] = this.objAmounts[oldIndex];
+		this.objAmounts[oldIndex] = i_62_;
 	}
 
-	final AbstractFont method2497(final byte i, final AbstractIndexedSprite[] class107s) {
-		AbstractFont class120_sub14_sub8;
-		try {
-			Class88.aBoolean835 = false;
-			if ((this.font ^ 0xffffffff) == 0) {
-				return null;
-			}
-			if (i != 54) {
-				return null;
-			}
-			AbstractFont class120_sub14_sub8_63_ = (AbstractFont) Class120_Sub12_Sub2.aClass21_3143.get(this.font);
-			if (class120_sub14_sub8_63_ != null) {
-				return class120_sub14_sub8_63_;
-			}
-			class120_sub14_sub8_63_ = Class9.constructAbstractFont(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, this.font, 0);
-			if (class120_sub14_sub8_63_ == null) {
-				Class88.aBoolean835 = true;
-			} else {
-				class120_sub14_sub8_63_.setNameIcons(class107s, null);
-				Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.font);
-			}
-			class120_sub14_sub8 = class120_sub14_sub8_63_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.M(").append(i).append(',').append(class107s != null ? "{...}" : "null").append(')').toString());
+	final AbstractFont method2497(final AbstractIndexedSprite[] class107s) {
+		Class88.aBoolean835 = false;
+		if (this.font == -1) {
+			return null;
 		}
-		return class120_sub14_sub8;
+		AbstractFont class120_sub14_sub8_63_ = (AbstractFont) Class120_Sub12_Sub2.aClass21_3143.get(this.font);
+		if (class120_sub14_sub8_63_ != null) {
+			return class120_sub14_sub8_63_;
+		}
+		class120_sub14_sub8_63_ = Class9.constructAbstractFont(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, this.font, 0);
+		if (class120_sub14_sub8_63_ == null) {
+			Class88.aBoolean835 = true;
+		} else {
+			class120_sub14_sub8_63_.setNameIcons(class107s, null);
+			Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.font);
+		}
+		return class120_sub14_sub8_63_;
 	}
 
 	public static void method2498(final int i) {
@@ -1040,24 +1024,22 @@ final class JagexInterface {
 		return class120_sub18.aClass186_2639.bitPacked;
 	}
 
-	private final Object[] method2503(final Buffer class120_sub7) {
-		final int i_89_ = class120_sub7.getUByte();
-		if (i_89_ == 0) {
+	private final Object[] decodeListener(final Buffer buffer) {
+		final int len = buffer.getUByte();
+		if (len == 0) {
 			return null;
 		}
-		final Object[] objects_90_ = new Object[i_89_];
-		for (int i_91_ = 0; i_89_ > i_91_; i_91_++) {
-			final int i_92_ = class120_sub7.getUByte();
-			if (i_92_ != 0) {
-				if (i_92_ == 1) {
-					objects_90_[i_91_] = class120_sub7.getJagexString();
-				}
-			} else {
-				objects_90_[i_91_] = new Integer(class120_sub7.getInt());
+		final Object[] values = new Object[len];
+		for (int id = 0; id < len; id++) {
+			final int type = buffer.getUByte();
+			if (type == 0) {
+				values[id] = new Integer(buffer.getInt());
+			} else if (type == 1) {
+				values[id] = buffer.getJagexString();
 			}
 		}
 		this.aBoolean1940 = true;
-		return objects_90_;
+		return values;
 	}
 
 	static final JagexInterface getComponent(final int bitPacked, final int componentIndex) {
@@ -1073,7 +1055,7 @@ final class JagexInterface {
 
 	public JagexInterface() {
 		this.cursorId = -1;
-		this.aBoolean1971 = false;
+		this.clicked = false;
 		this.aBoolean1939 = false;
 		this.aBoolean1940 = false;
 		this.alpha = 0;
@@ -1114,7 +1096,7 @@ final class JagexInterface {
 		this.height = 0;
 		this.anInt2028 = 0;
 		this.targetCursorId = -1;
-		this.anInt2030 = -1;
+		this.objId = -1;
 		this.anInt2066 = 0;
 		this.aBoolean1956 = true;
 		this.aShort2065 = (short) 3000;
@@ -1138,7 +1120,7 @@ final class JagexInterface {
 		this.objSpritePadY = 0;
 		this.anInt1982 = 1;
 		mediaIdEnabled = -1;
-		this.anInt2075 = 0;
+		this.objCount = 0;
 		this.font = -1;
 		this.spellNameni = "";
 		this.anInt2064 = 0;

@@ -103,11 +103,11 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		if (Class174.currentCursorId != i) {
 			if (i != -1) {
 				final CursorType cursorType = CursorType.list(i);
-				final LDSprite class120_sub14_sub19_sub2 = cursorType.getCursor();
-				if (class120_sub14_sub19_sub2 == null) {
+				final LDSprite cursorSprite = cursorType.getCursorSprite();
+				if (cursorSprite == null) {
 					i = -1;
 				} else {
-					NpcType.gameSignlink.setCursor(new Point(cursorType.hotSpotX, cursorType.hotSpotY), class120_sub14_sub19_sub2.trimHeight, class120_sub14_sub19_sub2.method1609(), class120_sub14_sub19_sub2.trimWidth, Node.canvas);
+					NpcType.gameSignlink.setCursor(new Point(cursorType.hotSpotX, cursorType.hotSpotY), cursorSprite.trimHeight, cursorSprite.method1609(), cursorSprite.trimWidth, Node.canvas);
 					Class174.currentCursorId = i;
 				}
 			}

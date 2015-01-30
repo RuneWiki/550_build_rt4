@@ -51,22 +51,14 @@ final class Class120_Sub15 extends Node {
 		}
 	}
 
-	static final void method1654(final int i, final js5 js5, final int i_3_, final byte i_4_, final int i_5_, final int i_6_, final boolean bool) {
-		try {
-			Class69.anInt614 = i_3_;
-			Class120_Sub14_Sub23.anInt3649 = i_6_;
-			MasterIndexInfo.aClass50_476 = js5;
-			StringNode.aBoolean2734 = bool;
-			SeqType.anInt349 = i;
-			Js5Request.anInt3940 = i_5_;
-			Class120_Sub12_Sub25.anInt3312 = 1;
-			if (i_4_ >= -126) {
-				method1653(-15);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mc.B(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(bool).append(')')
-					.toString());
-		}
+	static final void method1654(final int i, final js5 js5, final int i_3_, final int i_5_, final int i_6_, final boolean bool) {
+		Class69.anInt614 = i_3_;
+		Class120_Sub14_Sub23.anInt3649 = i_6_;
+		MasterIndexInfo.aClass50_476 = js5;
+		StringNode.aBoolean2734 = bool;
+		SeqType.anInt349 = i;
+		Js5Request.anInt3940 = i_5_;
+		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
 
 	Class120_Sub15(final int i, final int i_7_) {

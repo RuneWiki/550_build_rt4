@@ -2,9 +2,8 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Frame;
-import java.util.Arrays;
 
-final class Class120_Sub14_Sub10 extends NodeSub {
+final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 	private int[] anIntArray3528;
 	private int[][] anIntArrayArray3529;
 	static Frame fullscreenFrame;

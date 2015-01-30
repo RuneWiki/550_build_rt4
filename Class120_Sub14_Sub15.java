@@ -18,7 +18,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	static {
 		int i = 2;
 		for (int i_0_ = 0; i_0_ < 32; i_0_++) {
-			masklookup[i_0_] = i + -1;
+			masklookup[i_0_] = i - 1;
 			i += i;
 		}
 		keyboardIdleCycle = 0;
@@ -157,7 +157,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		gl.glTexImage2D(3553, 0, 6408, 1, 1, 0, 6408, 5121, bytebuffer);
 		gl.glTexParameteri(3553, 10241, 9729);
 		gl.glTexParameteri(3553, 10240, 9729);
-		MemoryManager.anInt1081 += bytebuffer.limit() - anInt3579;
+		MemoryManager.textureMemory += bytebuffer.limit() - anInt3579;
 		anInt3579 = bytebuffer.limit();
 	}
 }

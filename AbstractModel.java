@@ -14,11 +14,11 @@ abstract class AbstractModel extends SceneGraphNode {
 				method2380(class120_sub14_sub18, i, class120_sub14_sub18_0_, i_1_, i_2_, i_3_, bool);
 			} else if (method2375()) {
 				final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-				final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+				final LabelGroup class120_sub1 = seqFrame.labelGroup;
 				SeqFrame class1_10_ = null;
 				if (class120_sub14_sub18_0_ != null) {
 					class1_10_ = class120_sub14_sub18_0_.seqFrames[i_1_];
-					if (class1_10_.aClass120_Sub1_48 != class120_sub1) {
+					if (class1_10_.labelGroup != class120_sub1) {
 						class1_10_ = null;
 					}
 				}
@@ -26,7 +26,7 @@ abstract class AbstractModel extends SceneGraphNode {
 				SeqFrame class1_12_ = null;
 				if (class120_sub14_sub18_6_ != null) {
 					class1_12_ = class120_sub14_sub18_6_.seqFrames[i_7_];
-					if (class1_12_.aClass120_Sub1_48 != class120_sub1) {
+					if (class1_12_.labelGroup != class120_sub1) {
 						class1_12_ = null;
 					}
 				}
@@ -246,11 +246,11 @@ abstract class AbstractModel extends SceneGraphNode {
 	final void method2380(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
 		if (i != -1 && method2375()) {
 			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+			final LabelGroup class120_sub1 = seqFrame.labelGroup;
 			SeqFrame class1_89_ = null;
 			if (class120_sub14_sub18_85_ != null) {
 				class1_89_ = class120_sub14_sub18_85_.seqFrames[i_86_];
-				if (class1_89_.aClass120_Sub1_48 != class120_sub1) {
+				if (class1_89_.labelGroup != class120_sub1) {
 					class1_89_ = null;
 				}
 			}
@@ -265,14 +265,14 @@ abstract class AbstractModel extends SceneGraphNode {
 
 	abstract int method2383();
 
-	final void method2384(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_97_, final int i_98_, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
-		if (i != -1 && method2375()) {
-			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+	final void method2384(final FrameLoader frameLoader, final int frameId, final FrameLoader nextFrameLoader, final int nextFrame, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
+		if (frameId != -1 && method2375()) {
+			final SeqFrame seqFrame = frameLoader.seqFrames[frameId];
+			final LabelGroup class120_sub1 = seqFrame.labelGroup;
 			SeqFrame class1_102_ = null;
-			if (class120_sub14_sub18_97_ != null) {
-				class1_102_ = class120_sub14_sub18_97_.seqFrames[i_98_];
-				if (class1_102_.aClass120_Sub1_48 != class120_sub1) {
+			if (nextFrameLoader != null) {
+				class1_102_ = nextFrameLoader.seqFrames[nextFrame];
+				if (class1_102_.labelGroup != class120_sub1) {
 					class1_102_ = null;
 				}
 			}
@@ -333,7 +333,7 @@ abstract class AbstractModel extends SceneGraphNode {
 	final void method2389(final FrameLoader class120_sub14_sub18, final int i) {
 		if (i != -1 && method2375()) {
 			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-			final LabelGroup class120_sub1 = seqFrame.aClass120_Sub1_48;
+			final LabelGroup class120_sub1 = seqFrame.labelGroup;
 			for (int i_129_ = 0; i_129_ < seqFrame.anInt43; i_129_++) {
 				final short i_130_ = seqFrame.aShortArray35[i_129_];
 				if (class120_sub1.aBooleanArray2407[i_130_]) {

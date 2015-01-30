@@ -73,7 +73,6 @@ final class Class5 implements ShaderInterface {
 	public final void method3() {
 		final GL gl = HDToolkit.gl;
 		HDToolkit.method521(1);
-		System.out.println("hey from class5");
 		if (Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 != null && anInt2156 >= 0 && Class120_Sub12_Sub6.highLightingDetail) {
 			gl.glCallList(anInt2156);
 			gl.glActiveTexture(33985);
@@ -89,6 +88,7 @@ final class Class5 implements ShaderInterface {
 		} else {
 			gl.glTexEnvi(8960, 34184, 34167);
 		}
+		System.out.println("Hey from Class5");
 	}
 
 	@Override
@@ -109,7 +109,6 @@ final class Class5 implements ShaderInterface {
 
 	@Override
 	public final void method5(final int i) {
-		System.out.println("hey2 from class5");
 	}
 
 	public Class5() {

@@ -16,26 +16,26 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		aString3371 = "Loading textures - ";
 	}
 
-	static final void method1358(final Buffer class120_sub7) {
-		final byte[] is = new byte[24];
-		if (Class10.aClass193_78 != null) {
+	static final void randomFileRead(final Buffer buffer) {
+		final byte[] data = new byte[24];
+		if (Class10.randomFile != null) {
 			try {
-				Class10.aClass193_78.seek(0L);
-				Class10.aClass193_78.read(is);
+				Class10.randomFile.seek(0L);
+				Class10.randomFile.read(data);
 				int i_0_;
-				for (i_0_ = 0; i_0_ < 24 && is[i_0_] == 0; i_0_++) {
+				for (i_0_ = 0; i_0_ < 24 && data[i_0_] == 0; i_0_++) {
 					/* empty */
 				}
 				if (i_0_ >= 24) {
 					throw new IOException();
 				}
 			} catch (final Exception exception) {
-				for (int i_1_ = 0; i_1_ < 24; i_1_++) {
-					is[i_1_] = (byte) -1;
+				for (int id = 0; id < 24; id++) {
+					data[id] = (byte) -1;
 				}
 			}
 		}
-		class120_sub7.putBuffer(is, 0, 24);
+		buffer.putBuffer(data, 0, 24);
 	}
 
 	private final int method1359(final int i, final int i_2_, final int i_3_) {

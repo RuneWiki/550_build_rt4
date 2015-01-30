@@ -131,7 +131,7 @@ final class Player extends GameEntity {
 			}
 			final SeqType seqType = this.anInt3006 == -1 || this.anInt2993 != 0 ? null : SeqType.list(this.anInt3006);
 			final SeqType class40_23_ = this.anInt3004 != -1 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-			final AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, -7453, false, this.anInt2998, seqType, false, this.anInt3044);
+			final AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_23_, this.anInt2964, false, this.anInt2998, seqType, false, this.anInt3044);
 			if (class180_sub7 == null) {
 				return;
 			}
@@ -165,7 +165,7 @@ final class Player extends GameEntity {
 			final Class29 class29 = method2336();
 			final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
 			final SeqType class40_34_ = (this.anInt3004 ^ 0xffffffff) != 0 && !this.playerLimitReached && (this.anInt3004 != method2336().anInt218 || seqType == null) ? SeqType.list(this.anInt3004) : null;
-			AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, -7453, bool, this.anInt2998, seqType, true, this.anInt3044);
+			AbstractModel class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.anInt3046, this.anInt3013, this.anInt3021, class40_34_, this.anInt2964, bool, this.anInt2998, seqType, true, this.anInt3044);
 			final int i_35_ = Class48.getPlayersCacheSize();
 			if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && i_35_ > 50) {
 				SpotAnimType.method880();
@@ -233,7 +233,7 @@ final class Player extends GameEntity {
 					final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
 					spotAnimModel = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
 					if (spotAnimModel != null) {
-						spotAnimModel.translate(0, -this.anInt2965, 0);
+						spotAnimModel.translate(0, -this.spotAnimHeight, 0);
 						if (spotAnimType.aBoolean989) {
 							if (MouseHandler.anInt1140 != 0) {
 								spotAnimModel.method2377(MouseHandler.anInt1140);

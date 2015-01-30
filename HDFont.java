@@ -145,7 +145,7 @@ final class HDFont extends AbstractFont {
 			}
 			HDToolkit.bindTexture2D(anInt3924);
 			gl.glTexImage2D(3553, 0, 6410, anInt3923, anInt3923, 0, 6410, 5121, bytebuffer);
-			MemoryManager.anInt1086 += bytebuffer.limit() - anInt3922;
+			MemoryManager.memory2d += bytebuffer.limit() - anInt3922;
 			anInt3922 = bytebuffer.limit();
 			gl.glTexParameteri(3553, 10241, 9728);
 			gl.glTexParameteri(3553, 10240, 9728);

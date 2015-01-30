@@ -192,40 +192,40 @@ class WorldMapHandler {
 										i_41_ -= 4;
 									}//Draw lines here
 									if (i_41_ == 1) {
-										GraphicsLD.method2158(i_12_, i_27_, i_29_, i_44_);
+										GraphicsLD.drawVerticalLine(i_12_, i_27_, i_29_, i_44_);
 									} else if (i_41_ == 2) {
-										GraphicsLD.method2160(i_12_, i_27_, i_14_, i_44_);
+										GraphicsLD.drawHorizontalLine(i_12_, i_27_, i_14_, i_44_);
 									} else if (i_41_ == 3) {
-										GraphicsLD.method2158(i_42_, i_27_, i_29_, i_44_);
+										GraphicsLD.drawVerticalLine(i_42_, i_27_, i_29_, i_44_);
 									} else if (i_41_ == 4) {
-										GraphicsLD.method2160(i_12_, i_43_, i_14_, i_44_);
+										GraphicsLD.drawHorizontalLine(i_12_, i_43_, i_14_, i_44_);
 									} else if (i_41_ == 9) {
-										GraphicsLD.method2158(i_12_, i_27_, i_29_, 16777215);
-										GraphicsLD.method2160(i_12_, i_27_, i_14_, i_44_);
+										GraphicsLD.drawVerticalLine(i_12_, i_27_, i_29_, 16777215);
+										GraphicsLD.drawHorizontalLine(i_12_, i_27_, i_14_, i_44_);
 									} else if (i_41_ == 10) {
-										GraphicsLD.method2158(i_42_, i_27_, i_29_, 16777215);
-										GraphicsLD.method2160(i_12_, i_27_, i_14_, i_44_);
+										GraphicsLD.drawVerticalLine(i_42_, i_27_, i_29_, 16777215);
+										GraphicsLD.drawHorizontalLine(i_12_, i_27_, i_14_, i_44_);
 									} else if (i_41_ == 11) {
-										GraphicsLD.method2158(i_42_, i_27_, i_29_, 16777215);
-										GraphicsLD.method2160(i_12_, i_43_, i_14_, i_44_);
+										GraphicsLD.drawVerticalLine(i_42_, i_27_, i_29_, 16777215);
+										GraphicsLD.drawHorizontalLine(i_12_, i_43_, i_14_, i_44_);
 									} else if (i_41_ == 12) {
-										GraphicsLD.method2158(i_12_, i_27_, i_29_, 16777215);
-										GraphicsLD.method2160(i_12_, i_43_, i_14_, i_44_);
+										GraphicsLD.drawVerticalLine(i_12_, i_27_, i_29_, 16777215);
+										GraphicsLD.drawHorizontalLine(i_12_, i_43_, i_14_, i_44_);
 									} else if (i_41_ == 17) {
-										GraphicsLD.method2160(i_12_, i_27_, 1, i_44_);
+										GraphicsLD.drawHorizontalLine(i_12_, i_27_, 1, i_44_);
 									} else if (i_41_ == 18) {
-										GraphicsLD.method2160(i_42_, i_27_, 1, i_44_);
+										GraphicsLD.drawHorizontalLine(i_42_, i_27_, 1, i_44_);
 									} else if (i_41_ == 19) {
-										GraphicsLD.method2160(i_42_, i_43_, 1, i_44_);
+										GraphicsLD.drawHorizontalLine(i_42_, i_43_, 1, i_44_);
 									} else if (i_41_ == 20) {
-										GraphicsLD.method2160(i_12_, i_43_, 1, i_44_);
+										GraphicsLD.drawHorizontalLine(i_12_, i_43_, 1, i_44_);
 									} else if (i_41_ == 25) {
 										for (int i_45_ = 0; i_45_ < i_29_; i_45_++) {
-											GraphicsLD.method2160(i_12_ + i_45_, i_43_ - i_45_, 1, i_44_);
+											GraphicsLD.drawHorizontalLine(i_12_ + i_45_, i_43_ - i_45_, 1, i_44_);
 										}
 									} else if (i_41_ == 26) {
 										for (int i_46_ = 0; i_46_ < i_29_; i_46_++) {
-											GraphicsLD.method2160(i_12_ + i_46_, i_27_ + i_46_, 1, i_44_);
+											GraphicsLD.drawHorizontalLine(i_12_ + i_46_, i_27_ + i_46_, 1, i_44_);
 										}
 									}
 								}

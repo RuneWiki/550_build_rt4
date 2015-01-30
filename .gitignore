@@ -4,6 +4,9 @@
 .project
 /.settings
 
+# Docs #
+/jogl-1.1.1-docs
+
 # IntelliJ Files #
 .idea/
 .idea_modules/

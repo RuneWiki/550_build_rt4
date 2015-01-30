@@ -27,14 +27,14 @@ final class Class111 {
 			i = 10;
 		}
 		DummyOutputStream.anInt32 += i * 128;
-		if (InterfaceChangeNode.anIntArray3485.length < DummyOutputStream.anInt32) {
+		if (DummyOutputStream.anInt32 > InterfaceChangeNode.anIntArray3485.length) {
 			DummyOutputStream.anInt32 -= InterfaceChangeNode.anIntArray3485.length;
 			final int i_2_ = (int) (Math.random() * 12.0);
 			Class96.method787(JagexSocket.runesSprite[i_2_]);
 		}
 		int i_3_ = 0;
 		final int i_4_ = 128 * i;
-		final int i_5_ = 128 * (-i + 256);
+		final int i_5_ = 128 * (256 - i);
 		for (int i_6_ = 0; i_6_ < i_5_; i_6_++) {
 			int i_7_ = Light.anIntArray392[i_4_ + i_3_] - i * InterfaceChangeNode.anIntArray3485[DummyOutputStream.anInt32 + i_3_ & -1 + InterfaceChangeNode.anIntArray3485.length] / 6;
 			if (i_7_ < 0) {
@@ -42,7 +42,7 @@ final class Class111 {
 			}
 			Light.anIntArray392[i_3_++] = i_7_;
 		}
-		for (int i_6_ = -i + 256; i_6_ < 256; i_6_++) {
+		for (int i_6_ = 256 - i; i_6_ < 256; i_6_++) {
 			final int i_8_ = 128 * i_6_;
 			for (int i_9_ = 0; i_9_ < 128; i_9_++) {
 				final int i_10_ = (int) (Math.random() * 100.0);
@@ -53,10 +53,10 @@ final class Class111 {
 				}
 			}
 		}
-		for (int i_6_ = 0; i_6_ < -i + 256; i_6_++) {
-			Class120_Sub15.anIntArray2597[i_6_] = Class120_Sub15.anIntArray2597[i_6_ - -i];
+		for (int i_6_ = 0; i_6_ < 256 - i; i_6_++) {
+			Class120_Sub15.anIntArray2597[i_6_] = Class120_Sub15.anIntArray2597[i_6_ + i];
 		}
-		for (int i_6_ = -i + 256; i_6_ < 256; i_6_++) {
+		for (int i_6_ = 256 - i; i_6_ < 256; i_6_++) {
 			Class120_Sub15.anIntArray2597[i_6_] = (int) (16.0 * Math.sin(MouseRecorder.anInt852 / 14.0) + 14.0 * Math.sin(MouseRecorder.anInt852 / 15.0) + 12.0 * Math.sin(MouseRecorder.anInt852 / 16.0));
 			MouseRecorder.anInt852++;
 		}
@@ -123,34 +123,30 @@ final class Class111 {
 		}
 	}
 
-	static final void method984(final GameEntity class180_sub5, final int i) {
-		try {
-			if (Class101_Sub2.loopCycle == class180_sub5.anInt2961 || class180_sub5.anInt3006 == -1 || class180_sub5.anInt2993 != 0 || class180_sub5.anInt3044 + 1 > SeqType.list(class180_sub5.anInt3006).delays[class180_sub5.anInt2964]) {
-				final int i_24_ = class180_sub5.anInt2961 - class180_sub5.anInt3035;
-				final int i_25_ = Class101_Sub2.loopCycle - class180_sub5.anInt3035;
-				final int i_26_ = 128 * class180_sub5.anInt2967 + 64 * class180_sub5.getSize();
-				final int i_27_ = class180_sub5.anInt3034 * 128 - -(64 * class180_sub5.getSize());
-				final int i_28_ = class180_sub5.anInt3015 * 128 + 64 * class180_sub5.getSize();
-				final int i_29_ = 128 * class180_sub5.anInt3026 + class180_sub5.getSize() * 64;
-				class180_sub5.z = ((-i_25_ + i_24_) * i_27_ + i_25_ * i_29_) / i_24_;
-				class180_sub5.x = (i_26_ * (i_24_ - i_25_) - -(i_28_ * i_25_)) / i_24_;
-			}
-			if (class180_sub5.anInt3008 == 0) {
-				class180_sub5.anInt3019 = 1024;
-			}
-			if (class180_sub5.anInt3008 == 1) {
-				class180_sub5.anInt3019 = 1536;
-			}
-			if (class180_sub5.anInt3008 == 2) {
-				class180_sub5.anInt3019 = 0;
-			}
-			class180_sub5.anInt3037 = i;
-			if (class180_sub5.anInt3008 == 3) {
-				class180_sub5.anInt3019 = 512;
-			}
-			class180_sub5.anInt3032 = class180_sub5.anInt3019;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.D(").append(class180_sub5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final void method984(final GameEntity gameEntity) {
+		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.anInt3006 == -1 || gameEntity.anInt2993 != 0 || gameEntity.anInt3044 + 1 > SeqType.list(gameEntity.anInt3006).delays[gameEntity.anInt2964]) {
+			final int i_24_ = gameEntity.anInt2961 - gameEntity.anInt3035;
+			final int i_25_ = Class101_Sub2.loopCycle - gameEntity.anInt3035;
+			final int i_27_ = gameEntity.anInt3034 * 128 + 64 * gameEntity.getSize();
+			final int i_28_ = gameEntity.anInt3015 * 128 + 64 * gameEntity.getSize();
+			final int i_26_ = 128 * gameEntity.anInt2967 + gameEntity.getSize() * 64;
+			final int i_29_ = 128 * gameEntity.anInt3026 + gameEntity.getSize() * 64;
+			gameEntity.x = (i_26_ * (i_24_ - i_25_) + i_28_ * i_25_) / i_24_;
+			gameEntity.z = (i_27_ * (i_24_ - i_25_) + i_25_ * i_29_) / i_24_;
 		}
+		if (gameEntity.anInt3008 == 0) {
+			gameEntity.anInt3019 = 1024;
+		}
+		if (gameEntity.anInt3008 == 1) {
+			gameEntity.anInt3019 = 1536;
+		}
+		if (gameEntity.anInt3008 == 2) {
+			gameEntity.anInt3019 = 0;
+		}
+		if (gameEntity.anInt3008 == 3) {
+			gameEntity.anInt3019 = 512;
+		}
+		gameEntity.anInt3037 = 0;
+		gameEntity.anInt3032 = gameEntity.anInt3019;
 	}
 }

@@ -8,11 +8,11 @@ final class Light {
 	boolean aBoolean371;
 	short[] aShortArray372;
 	int z;
-	int color;
+	int colorRgb;
 	int y;
 	int anInt376;
 	float[] diffuse;
-	private int anInt378;
+	private int flickeringType;
 	static int anInt379;
 	Class133 aClass133_380;
 	static JagexSocket aClass46_381;
@@ -31,7 +31,7 @@ final class Light {
 	int x;
 
 	final void method347(final int i, final int i_1_, final int i_2_, final int i_3_) {
-		anInt378 = i_2_;
+		flickeringType = i_2_;
 		anInt386 = i_3_;
 		anInt388 = i_1_;
 		anInt389 = i;
@@ -42,83 +42,83 @@ final class Light {
 		if (i_4_ == 2) {
 			anInt389 = 2048;
 			anInt388 = 0;
-			anInt378 = 1;
+			flickeringType = 1;
 			anInt386 = 2048;
 		} else if (i_4_ == 3) {
 			anInt388 = 0;
 			anInt386 = 4096;
-			anInt378 = 1;
+			flickeringType = 1;
 			anInt389 = 2048;
 		} else if (i_4_ == 4) {
 			anInt388 = 0;
 			anInt389 = 2048;
-			anInt378 = 4;
+			flickeringType = 4;
 			anInt386 = 2048;
 		} else if (i_4_ == 5) {
-			anInt378 = 4;
+			flickeringType = 4;
 			anInt389 = 2048;
 			anInt386 = 8192;
 			anInt388 = 0;
 		} else if (i_4_ == 12) {
 			anInt389 = 2048;
-			anInt378 = 2;
+			flickeringType = 2;
 			anInt386 = 2048;
 			anInt388 = 0;
 		} else if (i_4_ == 13) {
 			anInt386 = 8192;
 			anInt389 = 2048;
-			anInt378 = 2;
+			flickeringType = 2;
 			anInt388 = 0;
 		} else if (i_4_ == 10) {
 			anInt389 = 512;
-			anInt378 = 3;
+			flickeringType = 3;
 			anInt388 = 1536;
 			anInt386 = 2048;
 		} else if (i_4_ == 11) {
-			anInt378 = 3;
+			flickeringType = 3;
 			anInt386 = 4096;
 			anInt389 = 512;
 			anInt388 = 1536;
 		} else if (i_4_ == 6) {
 			anInt389 = 768;
 			anInt388 = 1280;
-			anInt378 = 3;
+			flickeringType = 3;
 			anInt386 = 2048;
 		} else if (i_4_ == 7) {
 			anInt389 = 768;
 			anInt388 = 1280;
 			anInt386 = 4096;
-			anInt378 = 3;
+			flickeringType = 3;
 		} else if (i_4_ == 8) {
 			anInt386 = 2048;
-			anInt378 = 3;
+			flickeringType = 3;
 			anInt389 = 1024;
 			anInt388 = 1024;
 		} else if (i_4_ == 9) {
 			anInt386 = 4096;
 			anInt388 = 1024;
 			anInt389 = 1024;
-			anInt378 = 3;
+			flickeringType = 3;
 		} else if (i_4_ == 14) {
 			anInt386 = 2048;
 			anInt388 = 1280;
-			anInt378 = 1;
+			flickeringType = 1;
 			anInt389 = 768;
 		} else if (i_4_ == 15) {
 			anInt389 = 512;
 			anInt386 = 4096;
 			anInt388 = 1536;
-			anInt378 = 1;
+			flickeringType = 1;
 		} else if (i_4_ == 16) {
 			anInt386 = 8192;
 			anInt388 = 1792;
-			anInt378 = 1;
+			flickeringType = 1;
 			anInt389 = 256;
 		} else {
 			anInt386 = 2048;
 			anInt388 = 0;
 			anInt389 = 2048;
-			anInt378 = 0;
+			flickeringType = 0;
 		}
 	}
 
@@ -128,18 +128,18 @@ final class Light {
 	}
 
 	final void method350(boolean bool, final int i) {
-		final int i_7_ = 0x7ff & anInt390 + (anInt386 * i / 50);
-		final int i_8_ = anInt378;
+		final int i_7_ = anInt390 + (anInt386 * i / 50) & 0x7ff;
+		int type = flickeringType;
 		int i_9_ = 0;
-		if (i_8_ == 1) {
+		if (type == 1) {
 			i_9_ = 1024 + (Rasterizer.sineTable[i_7_] >> 6);
-		} else if (i_8_ == 2) {
+		} else if (type == 2) {
 			i_9_ = i_7_;
-		} else if (i_8_ == 3) {
+		} else if (type == 3) {
 			i_9_ = JavaObject.anIntArray3916[i_7_] >> 1;
-		} else if (i_8_ == 4) {
+		} else if (type == 4) {
 			i_9_ = i_7_ >> 10 << 11;
-		} else if (i_8_ == 5) {
+		} else if (type == 5) {
 			i_9_ = (i_7_ < 1024 ? i_7_ : -i_7_ + 2048) << 1;
 		} else {
 			i_9_ = 2048;
@@ -149,9 +149,9 @@ final class Light {
 		}
 		this.aFloat394 = ((i_9_ * anInt389 >> 11) + anInt388) / 2048.0F;
 		float f = this.aFloat394 / 255.0F;
-		this.diffuse[0] = (0xff & this.color >> 16) * f;
-		this.diffuse[1] = (0xff & this.color >> 8) * f;
-		this.diffuse[2] = (0xff & this.color) * f;
+		this.diffuse[0] = (0xff & this.colorRgb >> 16) * f;
+		this.diffuse[1] = (0xff & this.colorRgb >> 8) * f;
+		this.diffuse[2] = (0xff & this.colorRgb) * f;
 	}
 
 	static final boolean isIgnored(final String name) {
@@ -214,7 +214,7 @@ final class Light {
 		for (int i = 0; i < this.aShortArray372.length; i++) {
 			this.aShortArray372[i] = (short) buffer.getUShort();
 		}
-		this.color = Rasterizer.palette[buffer.getUShort()];
+		this.colorRgb = Rasterizer.palette[buffer.getUShort()];
 		final int i = buffer.getUByte();
 		this.anInt376 = 0x1f & i;
 		anInt390 = 0x700 & i << 3;

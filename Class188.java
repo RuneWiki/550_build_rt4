@@ -72,7 +72,7 @@ final class Class188 {
 			if (AbstractIndexedSprite.modeWhere != 0) {
 				GameEntity.anInt3045 = Class157.worldId + 50000;
 				Class71.anInt625 = Class157.worldId + 40000;
-				Class158.anInt1479 = Class71.anInt625;
+				ModelParticle.anInt1479 = Class71.anInt625;
 			}
 			return true;
 		}

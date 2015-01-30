@@ -49,16 +49,9 @@ class NodeSub extends Node {
 		return true;
 	}
 
-	static final void method1411(final int i, final boolean bool) {
-		try {
-			if (bool) {
-				aString2585 = null;
-			}
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
-			class120_sub14_sub7.method1453();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lh.IA(").append(i).append(',').append(bool).append(')').toString());
-		}
+	static final void method1411(final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
+		class120_sub14_sub7.method1453();
 	}
 
 	public NodeSub() {

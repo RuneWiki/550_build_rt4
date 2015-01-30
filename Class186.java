@@ -39,7 +39,7 @@ final class Class186 {
 		Class120_Sub12_Sub36.method1389();
 		for (int i_0_ = 0; Class120_Sub12_Sub23.anInt3307 > i_0_; i_0_++) {
 			final int i_1_ = Class43.anIntArray366[i_0_];
-			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].anInt2985) {
+			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].lastUpdateCycle) {
 				if (Class120_Sub12_Sub11.npcList[i_1_].npcType.hasAmbientSound()) {
 					Class120_Sub16.removeAmbientSoundNpc(Class120_Sub12_Sub11.npcList[i_1_]);
 				}

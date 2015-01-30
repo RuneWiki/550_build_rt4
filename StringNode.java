@@ -114,8 +114,8 @@ final class StringNode extends Node {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(x, y, x + width, y + height);
 			Rasterizer.calculateByBounds();
-			if (Class158.anInt1475 >= 0) {//Skyboxes in 550?
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
+			if (ModelParticle.anInt1475 >= 0) {//Skyboxes in 550?
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticle.anInt1475, PlainTile.anInt1356);
 				class41.method330(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
@@ -134,9 +134,9 @@ final class StringNode extends Node {
 			} else {
 				i_16_ = FrameLoader.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			}
-			if (Class158.anInt1475 >= 0) {//Skyboxes in 550?
+			if (ModelParticle.anInt1475 >= 0) {//Skyboxes in 550?
 				HDToolkit.method517();
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, Class158.anInt1475, PlainTile.anInt1356);
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticle.anInt1475, PlainTile.anInt1356);
 				class41.method331(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, i_16_);
 			} else {
 				HDToolkit.method531(i_16_);

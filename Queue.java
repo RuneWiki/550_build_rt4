@@ -79,7 +79,7 @@ final class Queue {
 		Class120_Sub12_Sub11.outputStream.putByte(i_8_);
 		Class120_Sub12_Sub11.outputStream.putShort(i);
 		Class120_Sub12_Sub11.outputStream.putShort(i_7_);
-		Class120_Sub14_Sub4.anInt3466 = 0;
+		SpotAnimationNode.anInt3466 = 0;
 		Class154.anInt1440 = 1;
 		Class120_Sub12_Sub35.anInt3410 = -3;
 		AbstractIndexedSprite.anInt1027 = 0;

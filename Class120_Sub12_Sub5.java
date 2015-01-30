@@ -53,54 +53,40 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		}
 	}
 
-	static final boolean method1220(final byte i) {
-		boolean bool;
+	static final boolean method1220() {
 		try {
-			do {
-				boolean bool_10_;
-				try {
-					if (Class120_Sub12_Sub25.anInt3312 != 2) {
-						break;
-					}
-					if (Js5Request.aClass120_Sub31_3941 == null) {
-						Js5Request.aClass120_Sub31_3941 = Class120_Sub31.method1830(MasterIndexInfo.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
-						if (Js5Request.aClass120_Sub31_3941 == null) {
-							return false;
-						}
-					}
-					if (Class26.aClass90_163 == null) {
-						Class26.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, MasterIndexInfo.aClass50_469);
-					}
-					if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, 0, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
-						break;
-					}
-					Class30.aClass120_Sub30_Sub2_234.method1778();
-					Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.anInt3940);
-					Class30.aClass120_Sub30_Sub2_234.method1773(StringNode.aBoolean2734, Js5Request.aClass120_Sub31_3941, (byte) 119);
-					Class26.aClass90_163 = null;
-					Js5Request.aClass120_Sub31_3941 = null;
-					MasterIndexInfo.aClass50_476 = null;
-					Class120_Sub12_Sub25.anInt3312 = 0;
-					bool_10_ = true;
-				} catch (final Exception exception) {
-					exception.printStackTrace();
-					Class30.aClass120_Sub30_Sub2_234.method1770();
-					Class26.aClass90_163 = null;
-					Class120_Sub12_Sub25.anInt3312 = 0;
-					MasterIndexInfo.aClass50_476 = null;
-					Js5Request.aClass120_Sub31_3941 = null;
-					break;
-				}
-				return bool_10_;
-			} while (false);
-			if (i <= 125) {
+			if (Class120_Sub12_Sub25.anInt3312 != 2) {
 				return false;
 			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.S(").append(i).append(')').toString());
+			if (Js5Request.aClass120_Sub31_3941 == null) {
+				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.method1830(MasterIndexInfo.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
+				if (Js5Request.aClass120_Sub31_3941 == null) {
+					return false;
+				}
+			}
+			if (Class26.aClass90_163 == null) {
+				Class26.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, MasterIndexInfo.aClass50_469);
+			}
+			if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, 0, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
+				return false;
+			}
+			Class30.aClass120_Sub30_Sub2_234.method1778();
+			Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.anInt3940);
+			Class30.aClass120_Sub30_Sub2_234.method1773(StringNode.aBoolean2734, Js5Request.aClass120_Sub31_3941, (byte) 119);
+			Class26.aClass90_163 = null;
+			Js5Request.aClass120_Sub31_3941 = null;
+			MasterIndexInfo.aClass50_476 = null;
+			Class120_Sub12_Sub25.anInt3312 = 0;
+			return true;
+		} catch (final Exception exception) {
+			exception.printStackTrace();
+			Class30.aClass120_Sub30_Sub2_234.method1770();
+			Class26.aClass90_163 = null;
+			Class120_Sub12_Sub25.anInt3312 = 0;
+			MasterIndexInfo.aClass50_476 = null;
+			Js5Request.aClass120_Sub31_3941 = null;
+			return false;
 		}
-		return bool;
 	}
 
 	public Class120_Sub12_Sub5() {

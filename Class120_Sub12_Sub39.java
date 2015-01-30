@@ -354,7 +354,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 	}
 
 	static final void setMouseIdleCycle(final int i_19_) {
-		synchronized (Class120_Sub14_Sub4.mouseHandler) {
+		synchronized (SpotAnimationNode.mouseHandler) {
 			Class136.mouseIdleCycle = i_19_;
 		}
 	}

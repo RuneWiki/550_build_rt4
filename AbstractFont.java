@@ -232,14 +232,14 @@ abstract class AbstractFont extends NodeSub {
 						if (HDToolkit.glEnabled) {
 							GraphicsHD.method598(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, anInt3513);
 						} else {
-							GraphicsLD.method2160(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, anInt3513);
+							GraphicsLD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, anInt3513);
 						}
 					}
 					if (anInt3514 != -1) {
 						if (HDToolkit.glEnabled) {
 							GraphicsHD.method598(i, i_27_ + this.anInt3497 + 1, i_38_, anInt3514);
 						} else {
-							GraphicsLD.method2160(i, i_27_ + this.anInt3497 + 1, i_38_, anInt3514);
+							GraphicsLD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, anInt3514);
 						}
 					}
 					i += i_38_;
@@ -552,14 +552,14 @@ abstract class AbstractFont extends NodeSub {
 						if (HDToolkit.glEnabled) {
 							GraphicsHD.method598(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, anInt3513);
 						} else {
-							GraphicsLD.method2160(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, anInt3513);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, anInt3513);
 						}
 					}
 					if (anInt3514 != -1) {
 						if (HDToolkit.glEnabled) {
 							GraphicsHD.method598(i, i_107_ + this.anInt3497, i_124_, anInt3514);
 						} else {
-							GraphicsLD.method2160(i, i_107_ + this.anInt3497, i_124_, anInt3514);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, anInt3514);
 						}
 					}
 					i += i_124_;

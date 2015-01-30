@@ -125,7 +125,7 @@ final class Class133 {
 				return class120_sub32.value;
 			}
 		}
-		final int i_5_ = light.color;
+		final int i_5_ = light.colorRgb;
 		float f_6_ = light.x - i;
 		float f_7_ = light.y - i_1_;
 		float f_8_ = light.z - i_2_;

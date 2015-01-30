@@ -112,7 +112,7 @@ final class Class173 {
 		LongNode.aString2424 = "qualifica\u00e7\u00e3o: ";
 		ClanMember.aString2574 = "branco:";
 		Class191.aString2105 = "Conectando ao servidor de atualiza\u00e7\u00e3o";
-		Class158.aString1483 = "cyan:";
+		ModelParticle.aString1483 = "cyan:";
 		Class120_Sub6.aString2444 = "Dados da lista de mundos carregados";
 		Class29.aString217 = "Carregando tela t\u00edtulo - ";
 		Class120_Sub11.aString2554 = "Carregando padr\u00f5es - ";

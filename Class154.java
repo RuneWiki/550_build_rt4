@@ -40,7 +40,7 @@ final class Class154 {
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = nameAsLong;
 					GZIPDecompressor.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(nameAsLong);
-					Class120_Sub14_Sub4.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = false;
+					SpotAnimationNode.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = false;
 					Class61.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
 					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);

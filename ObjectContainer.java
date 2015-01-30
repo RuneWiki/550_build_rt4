@@ -117,4 +117,22 @@ final class ObjectContainer extends Node {
 			}
 		}
 	}
+
+	static final int getFreeSpaces(final int type) {
+		if (type < 0) {
+			return 0;
+		}
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
+			return InvType.list(type).size;
+		}
+		int freeSpaces = 0;
+		for (int id = 0; id < objectContainer.objectIds.length; id++) {
+			if (objectContainer.objectIds[id] == -1) {
+				freeSpaces++;
+			}
+		}
+		freeSpaces += InvType.list(type).size - objectContainer.objectIds.length;
+		return freeSpaces;
+	}
 }

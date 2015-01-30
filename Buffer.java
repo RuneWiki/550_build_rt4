@@ -149,59 +149,50 @@ class Buffer extends Node {
 		this.buf[this.pos++] = (byte) (i_16_ >> 16);
 	}
 
-	static final void method1094(final int i, final int i_17_, final int i_18_, final int i_19_, final LocType locType, final byte i_20_, final int i_21_, final int i_22_, final int i_23_) {
-		try {
-			final int i_24_ = 0x3 & i_18_;
-			int i_25_;
-			int i_26_;
-			if (i_24_ != 1 && i_24_ != 3) {
-				i_25_ = locType.sizeX;
-				i_26_ = locType.sizeZ;
-			} else {
-				i_25_ = locType.sizeZ;
-				i_26_ = locType.sizeX;
-			}
-			int i_27_;
-			int i_28_;
-			if (i_25_ + i <= 104) {
-				i_28_ = (i_25_ >> 1) + i;
-				i_27_ = i + (i_25_ - -1 >> 1);
-			} else {
-				i_27_ = i - -1;
-				i_28_ = i;
-			}
-			int i_29_;
-			int i_30_;
-			if (i_22_ - -i_26_ <= 104) {
-				i_30_ = (i_26_ >> 1) + i_22_;
-				i_29_ = (1 + i_26_ >> 1) + i_22_;
-			} else {
-				i_29_ = 1 + i_22_;
-				i_30_ = i_22_;
-			}
-			final int i_31_ = (i_26_ << 6) + (i_22_ << 7);
-			final int[][] is = OverridedJInterface.tileHeightMap[i_19_];
-			final int i_32_ = (i << 7) - -(i_25_ << 6);
-			final int i_33_ = is[i_28_][i_29_] + is[i_27_][i_30_] + is[i_28_][i_30_] - -is[i_27_][i_29_] >> 2;
-			int i_34_ = 0;
-			if (i_20_ != 93) {
-				anInt2474 = 36;
-			}
-			if (i_19_ != 0) {
-				final int[][] is_35_ = OverridedJInterface.tileHeightMap[0];
-				i_34_ = -(is_35_[i_28_][i_29_] + is_35_[i_28_][i_30_] - (-is_35_[i_27_][i_30_] + -is_35_[i_27_][i_29_]) >> 2) + i_33_;
-			}
-			int[][] is_36_ = null;
-			if (i_19_ < 3) {
-				is_36_ = OverridedJInterface.tileHeightMap[i_19_ - -1];
-			}
-			final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, i_20_ ^ ~0x2d, null);
-			Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("fd.R(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(locType != null ? "{...}" : "null").append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_)
-							.append(')').toString());
+	static final void method1094(final LocType locType, final int i, final int i_17_, final int i_18_, final int i_19_, final int i_21_, final int i_22_, final int i_23_) {
+		final int i_24_ = 0x3 & i_18_;
+		int i_25_;
+		int i_26_;
+		if (i_24_ != 1 && i_24_ != 3) {
+			i_25_ = locType.sizeX;
+			i_26_ = locType.sizeZ;
+		} else {
+			i_25_ = locType.sizeZ;
+			i_26_ = locType.sizeX;
 		}
+		int i_27_;
+		int i_28_;
+		if (i_25_ + i <= 104) {
+			i_28_ = (i_25_ >> 1) + i;
+			i_27_ = i + (i_25_ - -1 >> 1);
+		} else {
+			i_27_ = i - -1;
+			i_28_ = i;
+		}
+		int i_29_;
+		int i_30_;
+		if (i_22_ - -i_26_ <= 104) {
+			i_30_ = (i_26_ >> 1) + i_22_;
+			i_29_ = (1 + i_26_ >> 1) + i_22_;
+		} else {
+			i_29_ = 1 + i_22_;
+			i_30_ = i_22_;
+		}
+		final int i_31_ = (i_26_ << 6) + (i_22_ << 7);
+		final int[][] is = OverridedJInterface.tileHeightMap[i_19_];
+		final int i_32_ = (i << 7) - -(i_25_ << 6);
+		final int i_33_ = is[i_28_][i_29_] + is[i_27_][i_30_] + is[i_28_][i_30_] - -is[i_27_][i_29_] >> 2;
+		int i_34_ = 0;
+		if (i_19_ != 0) {
+			final int[][] is_35_ = OverridedJInterface.tileHeightMap[0];
+			i_34_ = -(is_35_[i_28_][i_29_] + is_35_[i_28_][i_30_] - (-is_35_[i_27_][i_30_] + -is_35_[i_27_][i_29_]) >> 2) + i_33_;
+		}
+		int[][] is_36_ = null;
+		if (i_19_ < 3) {
+			is_36_ = OverridedJInterface.tileHeightMap[i_19_ - -1];
+		}
+		final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, null);
+		Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
 	}
 
 	final String getJagexString() {
@@ -212,9 +203,9 @@ class Buffer extends Node {
 		return DisplayModeInfo.method2215(this.buf, i_37_, -1 + -i_37_ + this.pos);
 	}
 
-	final void putBuffer(final byte[] is, final int i, final int i_38_) {
-		for (int i_40_ = i; i_40_ < i_38_ + i; i_40_++) {
-			this.buf[this.pos++] = is[i_40_];
+	final void putBuffer(final byte[] buffer, final int off, final int len) {
+		for (int id = off; id < len + off; id++) {
+			this.buf[this.pos++] = buffer[id];
 		}
 	}
 

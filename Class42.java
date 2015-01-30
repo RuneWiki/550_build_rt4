@@ -37,11 +37,11 @@ final class Class42 {
 					final int i_11_ = (Class120_Sub12_Sub36.anIntArray3417[i_1_] & 0xff) * 64 - Class181.currentBaseZ + z;
 					int npcId = class120_sub7.getUShort();
 					final NpcType npcType = NpcType.list(npcId);
-					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.aByte1700 & 0x1) > 0 && Class120_Sub14_Sub4.anInt3469 == level && i_9_ >= 0 && npcType.size + i_9_ < 104 && i_11_ >= 0 && i_11_ + npcType.size < 104) {
+					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.aByte1700 & 0x1) > 0 && SpotAnimationNode.anInt3469 == level && i_9_ >= 0 && npcType.size + i_9_ < 104 && i_11_ >= 0 && i_11_ + npcType.size < 104) {
 						Class120_Sub12_Sub11.npcList[index] = new Npc();
 						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[index];
 						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = index;
-						class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+						class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 						class180_sub5_sub2.setNpcType(npcType);
 						class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
 						class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = Class15.anIntArray101[class180_sub5_sub2.npcType.aByte1652];

@@ -91,7 +91,7 @@ final class JavaObject extends AbstractObject {
 			}
 			if (InterfaceChangeNode.lastMousePress == 0) {
 				if (!Class120_Sub11.aBoolean2551) {
-					if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(Class186.menuOptionCount - 1) || Class186.menuOptionCount <= 2) {
+					if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(Class186.menuOptionCount - 1) || Class186.menuOptionCount <= 2) {
 						if (Class186.menuOptionCount > 0) {
 							Class191.method2508();
 						}

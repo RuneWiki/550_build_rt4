@@ -8,13 +8,13 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	private final Class120_Sub30_Sub2 aClass120_Sub30_Sub2_3670;
 	static int anInt3671 = 2;
 	static int anInt3672;
-	static boolean aBoolean3673;
+	static boolean qaOpTestEnabled;
 	static float aFloat3674;
 	Class120_Sub30_Sub3 aClass120_Sub30_Sub3_3675 = new Class120_Sub30_Sub3();
 	static boolean manyGroundTextures = true;
 
 	static {
-		aBoolean3673 = false;
+		qaOpTestEnabled = false;
 	}
 
 	static final void addRefreshPlayerAmbientSound(final Player player) {

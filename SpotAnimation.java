@@ -41,16 +41,16 @@ final class SpotAnimation extends SceneGraphNode {
 			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ == 0) {
 				Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-				class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+				class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 			} else {
 				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_5_ == 0) {
 					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
 				} else if (i_5_ == 1) {
 					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
 					class180_sub5_sub2.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
@@ -59,7 +59,7 @@ final class SpotAnimation extends SceneGraphNode {
 					}
 				} else if (i_5_ == 2) {
 					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.anInt2985 = Class101_Sub2.loopCycle;
+					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
 						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
 						class180_sub5_sub2.move(i_8_, 0);

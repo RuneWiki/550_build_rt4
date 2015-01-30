@@ -25,18 +25,18 @@ final class HDToolkit {
 	static boolean aBoolean513;
 	static boolean aBoolean514;
 	private static int maxTextureImageUnits;
-	static int anInt516;
+	static int viewportOffsetY;
 	private static String renderer;
 	private static GLDrawable glDrawable;
 	private static String vendor;
 	static boolean aBoolean520;
-	private static int viewportOffsetY;
+	private static int viewportY;
 	private static GLContext aGLContext522;
 	static boolean aBoolean523;
 	static int canvasWidth;
 	static boolean aBoolean525;
 	static int maxTextureUnits;
-	private static int viewportOffsetX;
+	private static int viewportX;
 	private static boolean aBoolean528;
 	private static boolean lightingEnabled;
 	private static float aFloat530;
@@ -52,7 +52,7 @@ final class HDToolkit {
 	static boolean glEnabled;
 	static boolean aBoolean541;
 	static int loopCycleWrapper;
-	static int anInt543;
+	static int viewportOffsetX;
 	private static boolean aBoolean544;
 	static boolean aBoolean545;
 	private static int texture2D_ID;
@@ -90,7 +90,7 @@ final class HDToolkit {
 		gl.glMatrixMode(5889);
 		gl.glLoadIdentity();
 		method518(i_8_ * aFloat549, i_9_ * aFloat549, -i_11_ * aFloat549, -i_10_ * aFloat549, 50.0F, 3584.0F);
-		method497(i, canvasHeight - i_0_ - i_2_, i_1_, i_2_);
+		setViewport(i, canvasHeight - i_0_ - i_2_, i_1_, i_2_);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
 		gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
@@ -107,18 +107,18 @@ final class HDToolkit {
 		Class120_Sub30_Sub1.anInt3672 = i_11_;
 	}
 
-	private static final void method497(int i, int i_12_, int i_13_, int i_14_) {
-		viewportOffsetX = i;
-		viewportOffsetY = i_12_;
-		viewportWidth = i_13_;
-		viewportHeight = i_14_;
-		method500();
+	private static final void setViewport(int x, int y, int width, int height) {
+		viewportX = x;
+		viewportY = y;
+		viewportWidth = width;
+		viewportHeight = height;
+		refreshViewport();
 	}
 
-	static final void method498(final int i, final int i_15_) {
-		anInt543 = i;
-		anInt516 = i_15_;
-		method500();
+	static final void setViewportOffset(final int x, final int y) {
+		viewportOffsetX = x;
+		viewportOffsetY = y;
+		refreshViewport();
 	}
 
 	static final void method499() {
@@ -131,8 +131,8 @@ final class HDToolkit {
 		method509();
 	}
 
-	private static final void method500() {
-		gl.glViewport(viewportOffsetX + anInt543, viewportOffsetY + anInt516, viewportWidth, viewportHeight);
+	private static final void refreshViewport() {
+		gl.glViewport(viewportX + viewportOffsetX, viewportY + viewportOffsetY, viewportWidth, viewportHeight);
 	}
 
 	static final void setCanvasSize(final int i, final int i_16_) {
@@ -257,9 +257,9 @@ final class HDToolkit {
 
 	static final void method509() {
 		if (aBoolean544) {
-			gl.glMatrixMode(5890);//texture
+			gl.glMatrixMode(5890);//TEXTURE
 			gl.glLoadIdentity();
-			gl.glMatrixMode(5888);//modelview
+			gl.glMatrixMode(5888);//MODELVIEW
 			aBoolean544 = false;
 		}
 	}
@@ -312,7 +312,7 @@ final class HDToolkit {
 		final float f_30_ = f * (256.0F / i_24_);
 		final float f_31_ = f * (256.0F / i_25_);
 		gl.glOrtho(i_26_ * f_30_, i_27_ * f_30_, -i_29_ * f_31_, -i_28_ * f_31_, 50 - i_23_, 3584 - i_23_);
-		method497(0, 0, canvasWidth, canvasHeight);
+		setViewport(0, 0, canvasWidth, canvasHeight);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
 		gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
@@ -339,11 +339,11 @@ final class HDToolkit {
 
 	private static final void method515() {
 		if (!aBoolean528) {
-			gl.glMatrixMode(5889);
+			gl.glMatrixMode(5889);//PROJECTION
 			gl.glLoadIdentity();
 			gl.glOrtho(0.0, canvasWidth, 0.0, canvasHeight, -1.0, 1.0);
-			method497(0, 0, canvasWidth, canvasHeight);
-			gl.glMatrixMode(5888);
+			setViewport(0, 0, canvasWidth, canvasHeight);
+			gl.glMatrixMode(5888);//MODELVIEW
 			gl.glLoadIdentity();
 			aBoolean528 = true;
 		}
@@ -429,20 +429,22 @@ final class HDToolkit {
 		gl.glOrtho(i, i_41_, i_43_, i_42_, -1.0, 1.0);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
-		method497(anInt543, anInt516, canvasWidth, canvasHeight);
+		setViewport(viewportOffsetX, viewportOffsetY, canvasWidth, canvasHeight);
 		aBoolean528 = false;
 	}
 
 	static final void method521(final int i) {
-		if (i != anInt553) {
+		if (anInt553 != i) {
+			//sets a texture environment parameter.
+			//TEXTURE_ENV, COMBINE_ALPHA, 
 			if (i == 0) {
-				gl.glTexEnvi(8960, 34162, 8448);
+				gl.glTexEnvi(8960, 34162, 8448);//MODULATE
 			}
 			if (i == 1) {
-				gl.glTexEnvi(8960, 34162, 7681);
+				gl.glTexEnvi(8960, 34162, 7681);//REPLACE
 			}
 			if (i == 2) {
-				gl.glTexEnvi(8960, 34162, 260);
+				gl.glTexEnvi(8960, 34162, 260);//ADD
 			}
 			anInt553 = i;
 		}
@@ -531,8 +533,8 @@ final class HDToolkit {
 
 	private static final int method530() {
 		int i = 0;
-		vendor = gl.glGetString(7936);
-		renderer = gl.glGetString(7937);
+		vendor = gl.glGetString(7936);//VENDOR
+		renderer = gl.glGetString(7937);//RENDERER
 		final String vendorLowerCase = vendor.toLowerCase();
 		if (vendorLowerCase.indexOf("microsoft") != -1) {
 			i |= 0x1;
@@ -540,7 +542,7 @@ final class HDToolkit {
 		if (vendorLowerCase.indexOf("brian paul") != -1 || vendorLowerCase.indexOf("mesa") != -1) {
 			i |= 0x1;
 		}
-		final String versionString = gl.glGetString(7938);
+		final String versionString = gl.glGetString(7938);//VERSION
 		final String[] strings = versionString.split("[. ]");
 		if (strings.length >= 2) {
 			try {
@@ -562,13 +564,13 @@ final class HDToolkit {
 		if (!gl.isExtensionAvailable("GL_ARB_texture_env_combine")) {
 			i |= 0x20;
 		}
-		final int[] is = new int[1];
-		gl.glGetIntegerv(34018, is, 0);
-		maxTextureUnits = is[0];
-		gl.glGetIntegerv(34929, is, 0);
-		maxTextureCoords = is[0];
-		gl.glGetIntegerv(34930, is, 0);
-		maxTextureImageUnits = is[0];
+		final int[] params = new int[1];
+		gl.glGetIntegerv(34018, params, 0);
+		maxTextureUnits = params[0];
+		gl.glGetIntegerv(34929, params, 0);
+		maxTextureCoords = params[0];
+		gl.glGetIntegerv(34930, params, 0);
+		maxTextureImageUnits = params[0];
 		if (maxTextureUnits < 2 || maxTextureCoords < 2 || maxTextureImageUnits < 2) {
 			i |= 0x10;
 		}
@@ -595,11 +597,11 @@ final class HDToolkit {
 			for (int i_54_ = 0; i_54_ < strings_51_.length; i_54_++) {
 				final String string_55_ = strings_51_[i_54_];
 				if (string_55_.length() >= 4) {
-					if (string_55_.charAt(0) == 'x' && Class120_Sub21.method1697(string_55_.substring(1, 3), (byte) -36)) {
+					if (string_55_.charAt(0) == 'x' && Class120_Sub21.isValidStringBase10(string_55_.substring(1, 3))) {
 						bool = true;
 						break;
 					}
-					if (Class120_Sub21.method1697(string_55_.substring(0, 4), (byte) -36)) {
+					if (Class120_Sub21.isValidStringBase10(string_55_.substring(0, 4))) {
 						i_50_ = Class31.stringToBase10(string_55_.substring(0, 4));
 						break;
 					}
@@ -628,8 +630,8 @@ final class HDToolkit {
 		return 0;
 	}
 
-	static final void method531(final int i) {
-		gl.glClearColor((i >> 16 & 0xff) / 255.0F, (i >> 8 & 0xff) / 255.0F, (i & 0xff) / 255.0F, 0.0F);
+	static final void method531(final int rgb) {
+		gl.glClearColor((rgb >> 16 & 0xff) / 255.0F, (rgb >> 8 & 0xff) / 255.0F, (rgb & 0xff) / 255.0F, 0.0F);
 		gl.glClear(16640);
 		gl.glClearColor(0.0F, 0.0F, 0.0F, 0.0F);
 	}

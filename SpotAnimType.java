@@ -72,8 +72,8 @@ final class SpotAnimType {
 			this.aBoolean998 = true;
 		} else if (code == 40) {
 			final int len = buffer.getUByte();
-			recolorModified = new short[len];
 			recolorOriginal = new short[len];
+			recolorModified = new short[len];
 			for (int id = 0; id < len; id++) {
 				recolorOriginal[id] = (short) buffer.getUShort();
 				recolorModified[id] = (short) buffer.getUShort();

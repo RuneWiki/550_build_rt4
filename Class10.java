@@ -3,7 +3,7 @@
  */
 
 final class Class10 {
-	static SeekableFile aClass193_78;
+	static SeekableFile randomFile;
 	static js5 aClass50_79;
 
 	static final void method119(final Buffer buffer, final boolean bool_0_, final boolean bool_1_, final int level, final int i_2_, final int i_3_, final int z, final int i_5_, final int zOff, final int xOff, final int x) {
@@ -15,11 +15,11 @@ final class Class10 {
 				final int i_9_ = buffer.getUByte();
 				if (i_9_ == 0) {
 					if (bool_1_) {
-						OverridedJInterface.tileHeightMap[0][xOff + x][zOff + z] = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][x + xOff][z + zOff];
+						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][x + xOff][z + zOff];
 					} else if (level != 0) {
-						OverridedJInterface.tileHeightMap[level][x + xOff][zOff + z] = -240 + OverridedJInterface.tileHeightMap[level - 1][x + xOff][z + zOff];
+						OverridedJInterface.tileHeightMap[level][x + xOff][z + zOff] = -240 + OverridedJInterface.tileHeightMap[level - 1][x + xOff][z + zOff];
 					} else {
-						OverridedJInterface.tileHeightMap[0][xOff + x][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238, -70) * 8;
+						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238, -70) * 8;
 					}
 					break;
 				}
@@ -30,12 +30,12 @@ final class Class10 {
 							i_10_ = 0;
 						}
 						if (level == 0) {
-							OverridedJInterface.tileHeightMap[0][xOff + x][z - -zOff] = 8 * -i_10_;
+							OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = 8 * -i_10_;
 						} else {
-							OverridedJInterface.tileHeightMap[level][x + xOff][zOff + z] = -(i_10_ * 8) + OverridedJInterface.tileHeightMap[-1 + level][xOff + x][zOff + z];
+							OverridedJInterface.tileHeightMap[level][x + xOff][z + zOff] = -(i_10_ * 8) + OverridedJInterface.tileHeightMap[-1 + level][xOff + x][zOff + z];
 						}
 					} else {
-						OverridedJInterface.tileHeightMap[0][xOff + x][zOff + z] = 8 * i_10_ + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][xOff + x][zOff + z];
+						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = 8 * i_10_ + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][xOff + x][zOff + z];
 					}
 					break;
 				}
@@ -73,7 +73,7 @@ final class Class10 {
 	}
 
 	public static void method120() {
-		aClass193_78 = null;
+		randomFile = null;
 		aClass50_79 = null;
 	}
 

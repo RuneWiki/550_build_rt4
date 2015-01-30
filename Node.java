@@ -109,27 +109,18 @@ class Node {
 		return true;
 	}
 
-	static final String method1033(final byte i, final int i_26_) {
-		String string;
-		try {
-			if (i != 126) {
-				return null;
-			}
-			String string_27_ = Integer.toString(i_26_);
-			for (int i_28_ = string_27_.length() - 3; i_28_ > 0; i_28_ -= 3) {
-				string_27_ = new StringBuilder(string_27_.substring(0, i_28_)).append(",").append(string_27_.substring(i_28_)).toString();
-			}
-			if (string_27_.length() > 9) {
-				return new StringBuilder(" <col=00ff80>").append(string_27_.substring(0, string_27_.length() - 8)).append(Class120_Sub19.aString2653).append(" (").append(string_27_).append(")</col>").toString();
-			}
-			if (string_27_.length() > 6) {
-				return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, -4 + string_27_.length())).append(MouseRecorder.aString854).append(" (").append(string_27_).append(")</col>").toString();
-			}
-			string = new StringBuilder(" <col=ffff00>").append(string_27_).append("</col>").toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ni.WA(").append(i).append(',').append(i_26_).append(')').toString());
+	static final String method1033(final int count) {
+		String string_27_ = Integer.toString(count);
+		for (int i_28_ = string_27_.length() - 3; i_28_ > 0; i_28_ -= 3) {
+			string_27_ = new StringBuilder(string_27_.substring(0, i_28_)).append(",").append(string_27_.substring(i_28_)).toString();
 		}
-		return string;
+		if (string_27_.length() > 9) {
+			return new StringBuilder(" <col=00ff80>").append(string_27_.substring(0, string_27_.length() - 8)).append(Class120_Sub19.aString2653).append(" (").append(string_27_).append(")</col>").toString();
+		}
+		if (string_27_.length() > 6) {
+			return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, string_27_.length() - 4)).append(MouseRecorder.aString854).append(" (").append(string_27_).append(")</col>").toString();
+		}
+		return new StringBuilder(" <col=ffff00>").append(string_27_).append("</col>").toString();
 	}
 
 	final void unlink() {

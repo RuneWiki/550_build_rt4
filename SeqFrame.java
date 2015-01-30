@@ -18,7 +18,7 @@ final class SeqFrame {
 	private static short[] aShortArray45 = new short[500];
 	private static short[] aShortArray46;
 	short[] aShortArray47;
-	LabelGroup aClass120_Sub1_48;
+	LabelGroup labelGroup;
 
 	static {
 		aShortArray41 = new short[500];
@@ -37,8 +37,8 @@ final class SeqFrame {
 
 	SeqFrame(final byte[] is, final LabelGroup class120_sub1) {
 		this.aBoolean42 = false;
-		this.aClass120_Sub1_48 = null;
-		this.aClass120_Sub1_48 = class120_sub1;
+		this.labelGroup = null;
+		this.labelGroup = class120_sub1;
 		final Buffer class120_sub7 = new Buffer(is);
 		final Buffer class120_sub7_0_ = new Buffer(is);
 		class120_sub7.pos = 2;
@@ -48,7 +48,7 @@ final class SeqFrame {
 		int i_3_ = -1;
 		class120_sub7_0_.pos = class120_sub7.pos + i;
 		for (int i_4_ = 0; i_4_ < i; i_4_++) {
-			final int i_5_ = this.aClass120_Sub1_48.types[i_4_];
+			final int i_5_ = this.labelGroup.types[i_4_];
 			if (i_5_ == 0) {
 				i_2_ = i_4_;
 			}

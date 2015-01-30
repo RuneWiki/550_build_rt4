@@ -40,14 +40,14 @@ final class Class26 {
 	}
 
 	static final void handleMouse() {
-		synchronized (Class120_Sub14_Sub4.mouseHandler) {
+		synchronized (SpotAnimationNode.mouseHandler) {
 			Class136.mouseIdleCycle++;
 			InterfaceChangeNode.lastMousePress = Class42.currentMousePress;
 			Queue.lastMouseX = GrandExchangeObject.currentMouseX;
 			Class191.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
 			Class156.lastMouseClick = GroundObjectNode.currentMouseClick;
 			js5.lastClickX = Class192.currentClickX;
-			Class120_Sub12_Sub36.lastClickY = Class80.currentClickY;
+			Class120_Sub12_Sub36.lastClickY = ParticleType.currentClickY;
 			Class120_Sub12_Sub2.lastClickTime = Class186.currentClickTime;
 			GroundObjectNode.currentMouseClick = 0;
 		}

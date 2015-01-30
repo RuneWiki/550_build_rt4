@@ -67,17 +67,10 @@ class Class164 {
 		aBoolean1602 = true;
 	}
 
-	static final void method2132(final int i, final int i_4_, final boolean bool) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
-			class120_sub14_sub7.method1454();
-			class120_sub14_sub7.anInt3484 = i_4_;
-			if (!bool) {
-				rebuildMap();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tj.N(").append(i).append(',').append(i_4_).append(',').append(bool).append(')').toString());
-		}
+	static final void method2132(final int i, final int i_4_) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.anInt3484 = i_4_;
 	}
 
 	final synchronized void method2133() {
@@ -472,22 +465,14 @@ class Class164 {
 		aClass120_Sub30_1583 = class120_sub30;
 	}
 
-	final synchronized void method2144(final byte i) {
-		do {
-			try {
-				aBoolean1602 = true;
-				try {
-					method2146();
-				} catch (final Exception exception) {
-					method2139();
-					aLong1601 = TimeUtil.getSafeTime() + 2000L;
-					break;
-				}
-				break;
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("tj.A(").append(i).append(')').toString());
-			}
-		} while (false);
+	final synchronized void method2144() {
+		aBoolean1602 = true;
+		try {
+			method2146();
+		} catch (final Exception exception) {
+			method2139();
+			aLong1601 = TimeUtil.getSafeTime() + 2000L;
+		}
 	}
 
 	static final void drawMinimap(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int redrawId) {
@@ -557,7 +542,7 @@ class Class164 {
 					if (npcType != null && npcType.childrenIDs != null) {
 						npcType = npcType.handleVarp();
 					}
-					if (npcType != null && npcType.aBoolean1671 && npcType.aBoolean1688) {
+					if (npcType != null && npcType.displayOnMinimap && npcType.canRightClick) {
 						final int npcX = (npc.x / 32) - (TileParticleQueue.selfPlayer.x / 32);
 						final int npcY = (npc.z / 32) - (TileParticleQueue.selfPlayer.z / 32);
 						if (npcType.mapFunctionId != -1) {

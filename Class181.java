@@ -24,25 +24,16 @@ final class Class181 {
 		}
 	}
 
-	static final String method2439(final byte i) {
-		String string;
-		try {
-			String string_0_ = "www";
-			if (AbstractIndexedSprite.modeWhere != 0) {
-				string_0_ = "www-wtqa";
-			}
-			String string_1_ = "";
-			if (Class120_Sub12_Sub25.settings != null) {
-				string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
-			}
-			if (i != 104) {
-				return null;
-			}
-			string = new StringBuilder("http://").append(string_0_).append(".runescape.com/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/").toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.B(").append(i).append(')').toString());
+	static final String method2439() {
+		String host = "www";
+		if (AbstractIndexedSprite.modeWhere != 0) {
+			host = "www-wtqa";
 		}
-		return string;
+		String settings = "";
+		if (Class120_Sub12_Sub25.settings != null) {
+			settings = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
+		}
+		return "http://" + host + ".runescape.com/l=" + Class9.language + "/a=" + Class120_Sub12_Sub33.affiliateId + settings + "/";
 	}
 
 	private final void method2440(final int i, final int i_2_, final Buffer class120_sub7, final byte i_3_) {

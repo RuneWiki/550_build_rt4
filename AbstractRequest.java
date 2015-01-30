@@ -339,12 +339,12 @@ abstract class AbstractRequest extends NodeSub {
 		}
 		if (is != null) {
 			PlainTile.anInt1356 = is[3];
-			Class158.anInt1475 = is[0];
+			ModelParticle.anInt1475 = is[0];
 			Class143_Sub1.anInt2197 = is[2];
 			Class132.anInt1257 = is[4];
 			Class120_Sub12.anInt2560 = is[1];
 		} else {
-			Class158.anInt1475 = -1;
+			ModelParticle.anInt1475 = -1;
 		}
 	}
 

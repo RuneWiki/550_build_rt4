@@ -87,8 +87,8 @@ final class FileSystem {
 						return false;
 					}
 					indexFile.seek(6 * index);
-					indexFile.read(Class80.aByteArray761, 0, 6);
-					sector = (0xff & Class80.aByteArray761[5]) + ((Class80.aByteArray761[4] & 0xff) << 8) + ((Class80.aByteArray761[3] & 0xff) << 16);
+					indexFile.read(ParticleType.aByteArray761, 0, 6);
+					sector = (0xff & ParticleType.aByteArray761[5]) + ((ParticleType.aByteArray761[4] & 0xff) << 8) + ((ParticleType.aByteArray761[3] & 0xff) << 16);
 					if (sector <= 0 || sector > dataFile.length() / 520L) {
 						return false;
 					}
@@ -98,30 +98,30 @@ final class FileSystem {
 						sector = 1;
 					}
 				}
-				Class80.aByteArray761[5] = (byte) sector;
-				Class80.aByteArray761[0] = (byte) (len >> 16);
-				Class80.aByteArray761[1] = (byte) (len >> 8);
+				ParticleType.aByteArray761[5] = (byte) sector;
+				ParticleType.aByteArray761[0] = (byte) (len >> 16);
+				ParticleType.aByteArray761[1] = (byte) (len >> 8);
 				int i_19_ = 0;
-				Class80.aByteArray761[4] = (byte) (sector >> 8);
+				ParticleType.aByteArray761[4] = (byte) (sector >> 8);
 				int i_20_ = 0;
-				Class80.aByteArray761[2] = (byte) len;
-				Class80.aByteArray761[3] = (byte) (sector >> 16);
+				ParticleType.aByteArray761[2] = (byte) len;
+				ParticleType.aByteArray761[3] = (byte) (sector >> 16);
 				indexFile.seek(6 * index);
-				indexFile.write(Class80.aByteArray761, 0, 6);
+				indexFile.write(ParticleType.aByteArray761, 0, 6);
 				int i_21_;
 				for (/**/; i_20_ < len; i_20_ += i_21_) {
 					int i_22_ = 0;
 					if (exists) {
 						dataFile.seek(520 * sector);
 						try {
-							dataFile.read(Class80.aByteArray761, 0, 8);
+							dataFile.read(ParticleType.aByteArray761, 0, 8);
 						} catch (final EOFException eofexception) {
 							break;
 						}
-						i_22_ = (Class80.aByteArray761[6] & 0xff) + ((Class80.aByteArray761[4] & 0xff) << 16) + ((Class80.aByteArray761[5] & 0xff) << 8);
-						final int i_23_ = ((Class80.aByteArray761[2] & 0xff) << 8) + (0xff & Class80.aByteArray761[3]);
-						final int i_24_ = 0xff & Class80.aByteArray761[7];
-						i_21_ = (Class80.aByteArray761[1] & 0xff) + ((Class80.aByteArray761[0] & 0xff) << 8);
+						i_22_ = (ParticleType.aByteArray761[6] & 0xff) + ((ParticleType.aByteArray761[4] & 0xff) << 16) + ((ParticleType.aByteArray761[5] & 0xff) << 8);
+						final int i_23_ = ((ParticleType.aByteArray761[2] & 0xff) << 8) + (0xff & ParticleType.aByteArray761[3]);
+						final int i_24_ = 0xff & ParticleType.aByteArray761[7];
+						i_21_ = (ParticleType.aByteArray761[1] & 0xff) + ((ParticleType.aByteArray761[0] & 0xff) << 8);
 						if (index != i_21_ || i_19_ != i_23_ || i_24_ != storeId) {
 							return false;
 						}
@@ -139,17 +139,17 @@ final class FileSystem {
 							i_22_++;
 						}
 					}
-					Class80.aByteArray761[1] = (byte) index;
+					ParticleType.aByteArray761[1] = (byte) index;
 					if (len + -i_20_ <= 512) {
 						i_22_ = 0;
 					}
-					Class80.aByteArray761[5] = (byte) (i_22_ >> 8);
-					Class80.aByteArray761[4] = (byte) (i_22_ >> 16);
-					Class80.aByteArray761[6] = (byte) i_22_;
-					Class80.aByteArray761[0] = (byte) (index >> 8);
-					Class80.aByteArray761[2] = (byte) (i_19_ >> 8);
-					Class80.aByteArray761[7] = (byte) storeId;
-					Class80.aByteArray761[3] = (byte) i_19_;
+					ParticleType.aByteArray761[5] = (byte) (i_22_ >> 8);
+					ParticleType.aByteArray761[4] = (byte) (i_22_ >> 16);
+					ParticleType.aByteArray761[6] = (byte) i_22_;
+					ParticleType.aByteArray761[0] = (byte) (index >> 8);
+					ParticleType.aByteArray761[2] = (byte) (i_19_ >> 8);
+					ParticleType.aByteArray761[7] = (byte) storeId;
+					ParticleType.aByteArray761[3] = (byte) i_19_;
 					i_19_++;
 					i_21_ = len + -i_20_;
 					dataFile.seek(520 * sector);
@@ -157,7 +157,7 @@ final class FileSystem {
 						i_21_ = 512;
 					}
 					sector = i_22_;
-					dataFile.write(Class80.aByteArray761, 0, 8);
+					dataFile.write(ParticleType.aByteArray761, 0, 8);
 					dataFile.write(buffer, i_20_, i_21_);
 				}
 			} catch (final IOException ioexception) {
@@ -246,9 +246,9 @@ final class FileSystem {
 					return null;
 				}
 				indexFile.seek(i * 6);
-				indexFile.read(Class80.aByteArray761, 0, 6);
-				final int i_50_ = (Class80.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & Class80.aByteArray761[1] << 8) - -(0xff & Class80.aByteArray761[2]);
-				int i_51_ = (Class80.aByteArray761[5] & 0xff) + ((Class80.aByteArray761[4] & 0xff) << 8) + (0xff0000 & Class80.aByteArray761[3] << 16);
+				indexFile.read(ParticleType.aByteArray761, 0, 6);
+				final int i_50_ = (ParticleType.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & ParticleType.aByteArray761[1] << 8) - -(0xff & ParticleType.aByteArray761[2]);
+				int i_51_ = (ParticleType.aByteArray761[5] & 0xff) + ((ParticleType.aByteArray761[4] & 0xff) << 8) + (0xff0000 & ParticleType.aByteArray761[3] << 16);
 				if (i_50_ < 0 || i_50_ > maxLength) {
 					final byte[] is_52_ = null;
 					final byte[] is_53_ = is_52_;
@@ -273,11 +273,11 @@ final class FileSystem {
 					if (i_61_ > 512) {
 						i_61_ = 512;
 					}
-					dataFile.read(Class80.aByteArray761, 0, i_61_ - -8);
-					final int i_62_ = (0xff & Class80.aByteArray761[3]) + ((Class80.aByteArray761[2] & 0xff) << 8);
-					final int i_63_ = (0xff & Class80.aByteArray761[6]) + ((0xff & Class80.aByteArray761[5]) << 8) + (0xff0000 & Class80.aByteArray761[4] << 16);
-					final int i_64_ = (Class80.aByteArray761[1] & 0xff) + (0xff00 & Class80.aByteArray761[0] << 8);
-					final int i_65_ = 0xff & Class80.aByteArray761[7];
+					dataFile.read(ParticleType.aByteArray761, 0, i_61_ - -8);
+					final int i_62_ = (0xff & ParticleType.aByteArray761[3]) + ((ParticleType.aByteArray761[2] & 0xff) << 8);
+					final int i_63_ = (0xff & ParticleType.aByteArray761[6]) + ((0xff & ParticleType.aByteArray761[5]) << 8) + (0xff0000 & ParticleType.aByteArray761[4] << 16);
+					final int i_64_ = (ParticleType.aByteArray761[1] & 0xff) + (0xff00 & ParticleType.aByteArray761[0] << 8);
+					final int i_65_ = 0xff & ParticleType.aByteArray761[7];
 					if (i != i_64_ || i_62_ != i_57_ || i_65_ != storeId) {
 						final byte[] is_66_ = null;
 						final byte[] is_67_ = is_66_;
@@ -289,7 +289,7 @@ final class FileSystem {
 						return is_69_;
 					}
 					for (int i_70_ = 0; i_61_ > i_70_; i_70_++) {
-						is_56_[i_58_++] = Class80.aByteArray761[8 + i_70_];
+						is_56_[i_58_++] = ParticleType.aByteArray761[8 + i_70_];
 					}
 					i_57_++;
 					i_51_ = i_63_;

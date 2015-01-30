@@ -15,7 +15,7 @@ final class Class3 {
 		final int i_3_ = (int) (Math.random() * 21.0) - 10;
 		final int i_4_ = (int) (Math.random() * 21.0) - 10;
 		//Class30.aClass50_233.getFileAmount(34); not sure if this is needed
-		Class158.mapSceneRedColorModifier = i_2_ + i_3_;
+		ModelParticle.mapSceneRedColorModifier = i_2_ + i_3_;
 		GameEntity.mapSceneBlueColorModifier = i_1_ + i_2_;
 		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
 	}
@@ -163,7 +163,7 @@ final class Class3 {
 		Class120_Sub12_Sub11.outputStream.putByte(21);
 		Class120_Sub12_Sub11.outputStream.putLong(l);
 		Class120_Sub12_Sub35.anInt3410 = -3;
-		Class120_Sub14_Sub4.anInt3466 = 0;
+		SpotAnimationNode.anInt3466 = 0;
 		AbstractIndexedSprite.anInt1027 = 0;
 		Class154.anInt1440 = 1;
 	}

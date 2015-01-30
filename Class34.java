@@ -48,9 +48,9 @@ final class Class34 {
 			if (i_2_ > i) {
 				i = i_2_;
 			}
-			bool |= class120_sub2.method1051(-66);
-			bool_1_ |= class120_sub2.method1054((byte) -12);
-			i_0_ += class120_sub2.method1040((byte) -103);
+			bool |= class120_sub2.method1051();
+			bool_1_ |= class120_sub2.method1054();
+			i_0_ += class120_sub2.method1040();
 		}
 		int i_3_;
 		if (i == 2) {
@@ -208,7 +208,7 @@ final class Class34 {
 				aBoolean286 = true;
 			}
 		}
-		HDToolkit.method498(-anInt280, anInt279 + anInt281 - HDToolkit.canvasHeight);
+		HDToolkit.setViewportOffset(-anInt280, anInt279 + anInt281 - HDToolkit.canvasHeight);
 		return aBoolean286;
 	}
 
@@ -270,12 +270,12 @@ final class Class34 {
 			Class120_Sub2 class120_sub2;
 			for (Class120_Sub2 class120_sub2_10_ = (Class120_Sub2) aClass105_284.getFront(); class120_sub2_10_ != null; class120_sub2_10_ = class120_sub2) {
 				class120_sub2 = (Class120_Sub2) aClass105_284.getNext();
-				final int i_11_ = class120_sub2_10_.method1040((byte) -103);
+				final int i_11_ = class120_sub2_10_.method1040();
 				for (int i_12_ = 0; i_12_ < i_11_; i_12_++) {
 					class120_sub2_10_.method1048(i_12_, anInt283, anInt281, anIntArray292[i], anInt294);
 					if (class120_sub2 == null && i_12_ == i_11_ - 1) {
 						anInt279 = HDToolkit.canvasHeight - anInt279;
-						HDToolkit.method498(0, 0);
+						HDToolkit.setViewportOffset(0, 0);
 						gl.glDrawBuffer(36064);
 						Class12.method139();
 						gl.glBegin(7);

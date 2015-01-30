@@ -103,6 +103,8 @@ final class AtmosphereManager {
 			fogColorRGB = fogCol;
 			fogOffset = fogOff;
 			final GL gl = HDToolkit.gl;
+			byte lowestFogStart = 50;
+			//short baseFogStart = 3584; This is unused because it was originally this but to avoid math jagex simplified it.
 			fogColor[0] = (fogCol >> 16 & 0xff) / 255.0F;
 			fogColor[1] = (fogCol >> 8 & 0xff) / 255.0F;
 			fogColor[2] = (fogCol & 0xff) / 255.0F;
@@ -114,34 +116,34 @@ final class AtmosphereManager {
 			//3156 = FOG_HINT
 			//4353 = FASTEST, 4354 = NICEST, 4352 = DONT_CARE
 			gl.glHint(3156, 4353);
-			int fogStart = 3072 - fogOff;
-			if (fogStart < 50) {
-				fogStart = 50;
+			int fogStart = 3072 - fogOff;//baseFogStart - 512 - fogOff
+			if (fogStart < lowestFogStart) {
+				fogStart = lowestFogStart;
 			}
 			//FOG_START
 			gl.glFogf(2915, fogStart);
 			//FOG_END
-			gl.glFogf(2916, 3328.0F);
+			gl.glFogf(2916, 3328.0F);//baseFogStart - 256
 			//FOG_COLOR
 			gl.glFogfv(2918, fogColor, 0);
 		}
 	}
 
-	static final void setLightingParams(int screenColor, float ambientMod, float f_7_, float f_8_) {
-		if (screenColorRgb != screenColor || lightModelAmbient != ambientMod || light0Diffuse != f_7_ || light1Diffuse != f_8_) {
+	static final void setLightingParams(int screenColor, float ambientMod, float l0Diffuse, float l1Diffuse) {
+		if (screenColorRgb != screenColor || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
 			screenColorRgb = screenColor;
 			lightModelAmbient = ambientMod;
-			light0Diffuse = f_7_;
-			light1Diffuse = f_8_;
+			light0Diffuse = l0Diffuse;
+			light1Diffuse = l1Diffuse;
 			final GL gl = HDToolkit.gl;
 			final float red = (screenColor >> 16 & 0xff) / 255.0F;
 			final float green = (screenColor >> 8 & 0xff) / 255.0F;
 			final float blue = (screenColor & 0xff) / 255.0F;
 			final float[] lightModelAmbientParams = { ambientMod * red, ambientMod * green, ambientMod * blue, 1.0F };
 			gl.glLightModelfv(2899, lightModelAmbientParams, 0);//LIGHT_MODEL_AMBIENT
-			final float[] light0Params = { f_7_ * red, f_7_ * green, f_7_ * blue, 1.0F };
+			final float[] light0Params = { l0Diffuse * red, l0Diffuse * green, l0Diffuse * blue, 1.0F };
 			gl.glLightfv(16384, 4609, light0Params, 0);//LIGHT0, DIFFUSE
-			final float[] light1Params = { -f_8_ * red, -f_8_ * green, -f_8_ * blue, 1.0F };
+			final float[] light1Params = { -l1Diffuse * red, -l1Diffuse * green, -l1Diffuse * blue, 1.0F };
 			gl.glLightfv(16385, 4609, light1Params, 0);//LIGHT1, DIFFUSE
 		}
 	}

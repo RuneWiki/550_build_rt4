@@ -29,7 +29,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	private short aShort2868;
 	private boolean aBoolean2869 = false;
 	byte[] aByteArray2870;
-	Class158[] aClass158Array2871;
+	ModelParticle[] aClass158Array2871;
 	int[] triangleLabelIds;
 	short[] aShortArray2873;
 	private short aShort2874;
@@ -969,11 +969,11 @@ final class Class180_Sub2 extends SceneGraphNode {
 			class120_sub7.pos = i_178_;
 			final int i_197_ = class120_sub7.getUByte();
 			if (i_197_ > 0) {
-				this.aClass158Array2871 = new Class158[i_197_];
+				this.aClass158Array2871 = new ModelParticle[i_197_];
 				for (int i_198_ = 0; i_198_ < i_197_; i_198_++) {
 					final int i_199_ = class120_sub7.getUShort();
 					final int i_200_ = class120_sub7.getUShort();
-					this.aClass158Array2871[i_198_] = new Class158(i_199_, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
+					this.aClass158Array2871[i_198_] = new ModelParticle(i_199_, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
 				}
 			}
 			final int i_201_ = class120_sub7.getUByte();
@@ -1602,7 +1602,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2876 = new byte[this.triangleCount];
 		}
 		if (i_385_ > 0) {
-			this.aClass158Array2871 = new Class158[i_385_];
+			this.aClass158Array2871 = new ModelParticle[i_385_];
 		}
 		if (i_386_ > 0) {
 			this.aClass169Array2887 = new Class169[i_386_];
@@ -1668,7 +1668,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 						final int i_394_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1485, i_390_);
 						final int i_395_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1484, i_390_);
 						final int i_396_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1476, i_390_);
-						this.aClass158Array2871[i_385_] = new Class158(class180_sub2_391_.aClass158Array2871[i_393_].aClass80_1480, i_394_, i_395_, i_396_);
+						this.aClass158Array2871[i_385_] = new ModelParticle(class180_sub2_391_.aClass158Array2871[i_393_].particleType, i_394_, i_395_, i_396_);
 						i_385_++;
 					}
 				}

@@ -35,7 +35,6 @@ final class WorldInfo {
 	}
 
 	static final void method2066(final int i_4_) {
-		System.out.println("Here");
 		Class136.clickedMouseFunctionCycle = 100;
 		Class96.clickedMouseFunctionBlinksLeft = 3;
 		Class120_Sub12_Sub9.clickedMouseFunctionId = -1;

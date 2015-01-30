@@ -31,7 +31,7 @@ final class Class33 {
 			return null;
 		}
 		if (jagexInterface.selectedActionName == null || jagexInterface.selectedActionName.trim().length() == 0) {
-			if (Class120_Sub30_Sub1.aBoolean3673) {
+			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
 				return "Hidden-use";
 			}
 			return null;

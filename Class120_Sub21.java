@@ -40,36 +40,14 @@ final class Class120_Sub21 extends Node {
 		}
 	}
 
-	static final boolean method1697(final String string, final byte i) {
-		boolean bool;
-		try {
-			if (i != -36) {
-				method1696(66);
-			}
-			bool = Huffman.method1882(10, 55, true, string);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pl.A(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
-		return bool;
+	static final boolean isValidStringBase10(final String string) {
+		return Huffman.isValidStringRadix(string, 10, true);
 	}
 
-	static final void method1698(final byte i, final js5 js5, final js5 class50_4_) {
-		try {
-			Class31.aClass50_241 = js5;
-			Class88.aClass50_834 = class50_4_;
-			Class31.aClass50_241.getFileAmount(36);
-			if (i != -11) {
-				aString2665 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pl.F(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_4_ != null ? "{...}" : "null").append(')').toString());
-		}
-	}
-
-	static final void joinClanChat(final long l) {
-		if (l != 0L) {
+	static final void joinClanChat(final long value) {
+		if (value != 0L) {
 			Class120_Sub12_Sub11.outputStream.putByteIsaac(218);
-			Class120_Sub12_Sub11.outputStream.putLong(l);
+			Class120_Sub12_Sub11.outputStream.putLong(value);
 		}
 	}
 
@@ -313,7 +291,7 @@ final class Class120_Sub21 extends Node {
 								if (jagexInterface.rotateX != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.rotateY || interfaceChangeNode.anInt3486 != jagexInterface.zoom) {
 									jagexInterface.rotateY = interfaceChangeNode.anInt3492;
 									jagexInterface.zoom = interfaceChangeNode.anInt3486;
-									if (jagexInterface.anInt2030 != -1) {
+									if (jagexInterface.objId != -1) {
 										if (jagexInterface.anInt2069 > 0) {
 											jagexInterface.zoom = 32 * jagexInterface.zoom / jagexInterface.anInt2069;
 										} else if (jagexInterface.originalWidth > 0) {
@@ -325,9 +303,9 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 9) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.anInt2030 != interfaceChangeNode.anInt3484 || jagexInterface.anInt2075 != interfaceChangeNode.anInt3492) {
-									jagexInterface.anInt2075 = interfaceChangeNode.anInt3492;
-									jagexInterface.anInt2030 = interfaceChangeNode.anInt3484;
+								if (jagexInterface.objId != interfaceChangeNode.anInt3484 || jagexInterface.objCount != interfaceChangeNode.anInt3492) {
+									jagexInterface.objCount = interfaceChangeNode.anInt3492;
+									jagexInterface.objId = interfaceChangeNode.anInt3484;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
 							} else if (type == 10) {
@@ -409,15 +387,15 @@ final class Class120_Sub21 extends Node {
 											final int i_34_ = ClanMember.anInt2572;
 											while (i_34_ != i_33_) {
 												if (i_34_ < i_33_) {
-													jagexInterface.method2496(i_33_, (byte) 89, i_33_ - 1);
+													jagexInterface.swapObj(i_33_, i_33_ - 1);
 													i_33_--;
 												} else if (i_33_ < i_34_) {
-													jagexInterface.method2496(i_33_, (byte) 89, 1 + i_33_);
+													jagexInterface.swapObj(i_33_, 1 + i_33_);
 													i_33_++;
 												}
 											}
 										} else {
-											jagexInterface.method2496(Class5.anInt2154, (byte) 88, ClanMember.anInt2572);
+											jagexInterface.swapObj(Class5.anInt2154, ClanMember.anInt2572);
 										}
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(6);
 										Class120_Sub12_Sub11.outputStream.putLEShortA(ClanMember.anInt2572);
@@ -425,7 +403,7 @@ final class Class120_Sub21 extends Node {
 										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.aClass189_2954.bitPacked);
 										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.anInt2154);
 									}
-								} else if (Class69.mouseButtons != 1 && !Class120_Sub14_Sub4.method1438(Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
+								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
 									if (Class186.menuOptionCount > 0) {
 										Class191.method2508();
 									}

@@ -52,14 +52,14 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 						final int i_10_ = seqType.resetInPlay;
 						Class150 class150 = npc.aClass150Array2972[i_9_];
 						if (class150 != null) {
-							if (class150.anInt1406 == i_6_) {
+							if (class150.seqId == i_6_) {
 								if (i_10_ != 0) {
 									if (i_10_ == 1) {
 										class150.anInt1416 = 0;
-										class150.anInt1414 = 1;
-										class150.anInt1410 = 0;
+										class150.nextFrameId = 1;
+										class150.frameDelay = 0;
 										class150.delay = i_8_;
-										class150.anInt1413 = 0;
+										class150.frameId = 0;
 										Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 									} else if (i_10_ == 2) {
 										class150.anInt1416 = 0;
@@ -67,16 +67,16 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 								} else {
 									class150 = npc.aClass150Array2972[i_9_] = null;
 								}
-							} else if (seqType.priority >= SeqType.list(class150.anInt1406).priority) {
+							} else if (seqType.priority >= SeqType.list(class150.seqId).priority) {
 								class150 = npc.aClass150Array2972[i_9_] = null;
 							}
 						}
 						if (class150 == null) {
 							class150 = npc.aClass150Array2972[i_9_] = new Class150();
-							class150.anInt1406 = i_6_;
-							class150.anInt1413 = 0;
-							class150.anInt1410 = 0;
-							class150.anInt1414 = 1;
+							class150.seqId = i_6_;
+							class150.frameId = 0;
+							class150.frameDelay = 0;
+							class150.nextFrameId = 1;
 							class150.anInt1416 = 0;
 							class150.delay = i_8_;
 							Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);

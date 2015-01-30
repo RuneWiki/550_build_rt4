@@ -191,17 +191,17 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class48.returnCode = -5;
 							break;
 						}
-						if (Class158.anInt1479 != Class71.anInt625) {
-							Class158.anInt1479 = Class71.anInt625;
+						if (ModelParticle.anInt1479 != Class71.anInt625) {
+							ModelParticle.anInt1479 = Class71.anInt625;
 						} else {
-							Class158.anInt1479 = GameEntity.anInt3045;
+							ModelParticle.anInt1479 = GameEntity.anInt3045;
 						}
 						Class121.anInt1153++;
 						Class86.loginStep = 1;
 						Class150.anInt1408 = 0;
 					}
 					if (Class86.loginStep == 1) {
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, Class158.anInt1479);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticle.anInt1479);
 						Class86.loginStep = 2;
 					}
 					if (Class86.loginStep == 2) {
@@ -277,7 +277,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putShort(Class69_Sub1.canvasWidth);
 						Class137.loginStream.putShort(Class120_Sub12_Sub5.canvasHeight);
 						Class137.loginStream.putByte(Class36.antiAliasingSamples);
-						Class120_Sub12_Sub30.method1358(Class137.loginStream);
+						Class120_Sub12_Sub30.randomFileRead(Class137.loginStream);
 						Class137.loginStream.putJagexString(settings);
 						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
 						Class137.loginStream.putInt(Class120_Sub12_Sub18.method1288());
@@ -315,8 +315,8 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putBuffer(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 						AbstractTimer.worldConnection.put(Class137.loginStream.buf, 0, Class137.loginStream.pos);
 						Class120_Sub12_Sub11.outputStream.initIsaac(is);
-						for (int i_20_ = 0; i_20_ < 4; i_20_++) {
-							is[i_20_] += 50;
+						for (int id = 0; id < 4; id++) {
+							is[id] += 50;
 						}
 						Canvas_Sub1.inputStream.initIsaac(is);
 						Class86.loginStep = 4;
@@ -390,7 +390,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							VarBit.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
 							UnderlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
-							Class120_Sub14_Sub4.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
+							SpotAnimationNode.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
 							
 							Class127.recordMouseMovements = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class167.anInt1616 = Canvas_Sub1.inputStream.getUShort();
@@ -442,10 +442,10 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 					if (Class121.anInt1153 < 1) {
 						Class121.anInt1153++;
 						Class86.loginStep = 1;
-						if (Class71.anInt625 != Class158.anInt1479) {
-							Class158.anInt1479 = Class71.anInt625;
+						if (Class71.anInt625 != ModelParticle.anInt1479) {
+							ModelParticle.anInt1479 = Class71.anInt625;
 						} else {
-							Class158.anInt1479 = GameEntity.anInt3045;
+							ModelParticle.anInt1479 = GameEntity.anInt3045;
 						}
 						Class150.anInt1408 = 0;
 					} else {

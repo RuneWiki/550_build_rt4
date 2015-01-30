@@ -534,69 +534,62 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			anIntArray2796 = null;
 			intStack = null;
 			if (i != -1) {
-				method1853(-97, 89, (byte) -55, -120, 58, -53, -53, -56);
+				method1853(-97, 89, -120, 58, -53, -53, -56);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.L(").append(i).append(')').toString());
 		}
 	}
 
-	static final void method1853(final int i, final int i_66_, final byte i_67_, final int i_68_, final int i_69_, final int i_70_, final int i_71_, int i_72_) {
-		try {
-			if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
-				if (i_70_ == 0) {
-					final Class182 class182 = Deque.method894(i_66_, i_69_, i_68_);
-					if (class182 != null) {
-						final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
-						if (i_72_ == 2) {
-							class182.aClass180_1800 = new AnimatedLocation(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
-							class182.aClass180_1796 = new AnimatedLocation(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
-						} else {
-							class182.aClass180_1800 = new AnimatedLocation(i_73_, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
-						}
+	static final void method1853(final int i, final int i_66_, final int i_68_, final int i_69_, final int i_70_, final int i_71_, int i_72_) {
+		if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
+			if (i_70_ == 0) {
+				final Class182 class182 = Deque.method894(i_66_, i_69_, i_68_);
+				if (class182 != null) {
+					final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
+					if (i_72_ == 2) {
+						class182.aClass180_1800 = new AnimatedLocation(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
+						class182.aClass180_1796 = new AnimatedLocation(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
+					} else {
+						class182.aClass180_1800 = new AnimatedLocation(i_73_, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
 					}
 				}
-				if (i_70_ == 1) {
-					final Class186 class186 = ObjType.method2108(i_68_, i_66_, i_69_);
-					if (class186 != null) {
-						final int i_74_ = 0x7fffffff & (int) (class186.bitPacked >>> 32);
-						if (i_72_ != 4 && i_72_ != 5) {
-							if (i_72_ != 6) {
-								if (i_72_ == 7) {
-									class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, (0x3 & i_71_ - -2) - -4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
-								} else if (i_72_ == 8) {
-									class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
-									class186.aClass180_1898 = new AnimatedLocation(i_74_, 4, (i_71_ - -2 & 0x3) + 4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1898);
-								}
-							} else {
+			}
+			if (i_70_ == 1) {
+				final Class186 class186 = ObjType.method2108(i_68_, i_66_, i_69_);
+				if (class186 != null) {
+					final int i_74_ = 0x7fffffff & (int) (class186.bitPacked >>> 32);
+					if (i_72_ != 4 && i_72_ != 5) {
+						if (i_72_ != 6) {
+							if (i_72_ == 7) {
+								class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, (0x3 & i_71_ - -2) - -4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+							} else if (i_72_ == 8) {
 								class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+								class186.aClass180_1898 = new AnimatedLocation(i_74_, 4, (i_71_ - -2 & 0x3) + 4, i_68_, i_66_, i_69_, i, false, class186.aClass180_1898);
 							}
 						} else {
-							class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
+							class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
 						}
-					}
-				}
-				if (i_70_ == 2) {
-					if (i_72_ == 11) {
-						i_72_ = 10;
-					}
-					final Class28 class28 = SpotAnimation.method2315(i_66_, i_69_, i_68_);
-					if (class28 != null) {
-						class28.aClass180_174 = new AnimatedLocation((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
-					}
-				}
-				if (i_70_ == 3) {
-					final Class36 class36 = Class23.method202(i_68_, i_66_, i_69_);
-					if (class36 != null) {
-						class36.aClass180_309 = new AnimatedLocation(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
+					} else {
+						class186.aClass180_1901 = new AnimatedLocation(i_74_, 4, i_71_, i_68_, i_66_, i_69_, i, false, class186.aClass180_1901);
 					}
 				}
 			}
-			if (i_67_ > -16) {
-				method1852(91);
+			if (i_70_ == 2) {
+				if (i_72_ == 11) {
+					i_72_ = 10;
+				}
+				final Class28 class28 = SpotAnimation.method2315(i_66_, i_69_, i_68_);
+				if (class28 != null) {
+					class28.aClass180_174 = new AnimatedLocation((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.P(").append(i).append(',').append(i_66_).append(',').append(i_67_).append(',').append(i_68_).append(',').append(i_69_).append(',').append(i_70_).append(',').append(i_71_).append(',').append(i_72_).append(')').toString());
+			if (i_70_ == 3) {
+				final Class36 class36 = Class23.method202(i_68_, i_66_, i_69_);
+				if (class36 != null) {
+					class36.aClass180_309 = new AnimatedLocation(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
+				}
+			}
 		}
 	}
 

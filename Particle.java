@@ -29,7 +29,7 @@ final class Particle extends ParticleNodeSub {
 				int i_1_ = this.anInt3088 >> anInt3086;
 				final int i_2_ = this.anInt3090 >> anInt3086;
 				final ParticleEngine class108_sub2 = this.aClass108_Sub1_3099.aClass108_Sub2_2340;
-				final Class80 class80 = this.aClass108_Sub1_3099.aClass80_2323;
+				final ParticleType class80 = this.aClass108_Sub1_3099.particleType;
 				if (class80.anInt729 != 0) {
 					if (aShort3095 - aShort3093 <= class80.anInt735) {
 						int i_3_ = (this.color >> 8 & 0xff00) + (anInt3092 >> 16 & 0xff) + class80.anInt728 * i;

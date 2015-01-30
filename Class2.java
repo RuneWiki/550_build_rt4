@@ -9,12 +9,12 @@ final class Class2 {
 	static int[] permanentVariable = new int[2500];
 
 	static final void method76(final boolean loginScreen, final int baseX, final boolean bool_1_, final int playerZ, final int playerX, final int baseZ, final int level) {
-		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || Class120_Sub14_Sub4.anInt3469 != level && !Class143_Sub1.method2021()) {
+		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || SpotAnimationNode.anInt3469 != level && !Class143_Sub1.method2021()) {
 			Class3.anInt53 = baseZ;
-			Class120_Sub14_Sub4.anInt3469 = level;
+			SpotAnimationNode.anInt3469 = level;
 			Class116.anInt1118 = baseX;
 			if (Class143_Sub1.method2021()) {
-				Class120_Sub14_Sub4.anInt3469 = 0;
+				SpotAnimationNode.anInt3469 = 0;
 			}
 			if (loginScreen) {
 				ProjectileNode.setGameState(28);
@@ -129,7 +129,7 @@ final class Class2 {
 			}
 			Class150.anInt1407 = 0;
 			if (HDToolkit.glEnabled && loginScreen && (Math.abs(xOff) > 104 || Math.abs(zOff) > 104)) {
-				Class158.aBoolean1478 = true;
+				ModelParticle.aBoolean1478 = true;
 			}
 			Class132_Sub2.resetMinimapLandscape();
 			Class120_Sub12_Sub7.aClass105_3177.clear();

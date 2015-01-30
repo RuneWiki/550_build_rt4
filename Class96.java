@@ -70,7 +70,7 @@ final class Class96 {
 	}
 
 	static final void method787(final LDIndexedSprite class107_sub1) {
-		for (int i_25_ = 0; InterfaceChangeNode.anIntArray3485.length > i_25_; i_25_++) {
+		for (int i_25_ = 0; i_25_ < InterfaceChangeNode.anIntArray3485.length; i_25_++) {
 			InterfaceChangeNode.anIntArray3485[i_25_] = 0;
 		}
 		for (int i_27_ = 0; i_27_ < 5000; i_27_++) {
@@ -106,7 +106,7 @@ final class Class96 {
 	static final int method788() {
 		try {
 			if (Decimator.anInt1716 == 0) {
-				if (TimeUtil.getSafeTime() - 5000L < Class158.aLong1482) {
+				if (TimeUtil.getSafeTime() - 5000L < ModelParticle.aLong1482) {
 					return 0;
 				}
 				Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
@@ -193,7 +193,7 @@ final class Class96 {
 			Decimator.anInt1716 = 0;
 			OverridedJInterface.anInt2742 = 0;
 			AbstractTimer.worldConnection = null;
-			Class158.aLong1482 = TimeUtil.getSafeTime();
+			ModelParticle.aLong1482 = TimeUtil.getSafeTime();
 			return 0;
 		} catch (final IOException ioexception) {
 			return DummyOutputStream.method72(1003);

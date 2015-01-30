@@ -162,7 +162,7 @@ final class Class94 {
 		final int[] is = new int[1];
 		gl.glGenTextures(1, is, 0);
 		textureId = is[0];
-		MemoryManager.anInt1081 += 16384;
+		MemoryManager.textureMemory += 16384;
 		HDToolkit.bindTexture2D(textureId);
 		gl.glTexParameteri(3553, 10241, 9729);//TEXTURE_2D, TEXTURE_MIN_FILTER, LINEAR
 		gl.glTexParameteri(3553, 10240, 9729);//TEXTURE_2D, TEXTURE_MAG_FILTER, LINEAR

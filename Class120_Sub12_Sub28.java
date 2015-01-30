@@ -153,7 +153,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					}
 					for (int i_57_ = 1; i_57_ < 103; i_57_++) {
 						for (int i_58_ = 1; i_58_ < 103; i_58_++) {
-							if (bool || Class143_Sub1.method2021() || (Class114.tileSettings[0][i_57_][i_58_] & 0x2) != 0 || (Class114.tileSettings[i_9_][i_57_][i_58_] & 0x10) == 0 && SubScript.method2242(i_58_, i_9_, (byte) 122, i_57_) == Class120_Sub14_Sub4.anInt3469) {
+							if (bool || Class143_Sub1.method2021() || (Class114.tileSettings[0][i_57_][i_58_] & 0x2) != 0 || (Class114.tileSettings[i_9_][i_57_][i_58_] & 0x10) == 0 && SubScript.method2242(i_58_, i_9_, (byte) 122, i_57_) == SpotAnimationNode.anInt3469) {
 								if (DummyOutputStream.anInt29 > i_9_) {
 									DummyOutputStream.anInt29 = i_9_;
 								}
@@ -471,17 +471,10 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1345(final String string, final int i, final byte i_140_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
-			class120_sub14_sub7.method1454();
-			class120_sub14_sub7.aString3493 = string;
-			if (i_140_ != 108) {
-				method1347(29, -18, -113, -61, (byte) -52, -14, -88);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rm.V(").append(string != null ? "{...}" : "null").append(',').append(i).append(',').append(i_140_).append(')').toString());
-		}
+	static final void method1345(final String string, final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
+		class120_sub14_sub7.method1454();
+		class120_sub14_sub7.aString3493 = string;
 	}
 
 	static final void method1346(final AbstractIndexedSprite abstractIndexedSprite, final JagexInterface jagexInterface, final int i, final int i_142_, final int i_143_, final int i_144_) {

@@ -22,7 +22,7 @@ final class PlainTile {
 			if (AnimatedLocation.anInt3074 >= 0) {
 				while (AnimatedLocation.anInt3074 != Class111.anInt1060) {
 					final int i_0_ = Class120_Sub12_Sub36.anIntArray3416[Class111.anInt1060];
-					Class111.anInt1060 = Class111.anInt1060 - -1 & 0x7f;
+					Class111.anInt1060 = Class111.anInt1060 + 1 & 0x7f;
 					if (i_0_ >= 0) {
 						NodeCache.heldKeys[i_0_] = true;
 					} else {

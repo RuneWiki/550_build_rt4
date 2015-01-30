@@ -318,7 +318,7 @@ class Class69 {
 	}
 
 	static final void method613() {
-		Class101_Sub2.gameShellTimer.method738(70);
+		Class101_Sub2.gameShellTimer.method738();
 		for (int i_35_ = 0; i_35_ < 32; i_35_++) {
 			GameShell.mainRedrawCache[i_35_] = 0L;
 		}
@@ -329,9 +329,9 @@ class Class69 {
 	}
 
 	static final void method614(final int i) {
-		Class120_Sub15.aFloatArray2596[0] = Class120_Sub12_Sub3.method1207(i >> 16, 255) / 255.0F;
-		Class120_Sub15.aFloatArray2596[2] = Class120_Sub12_Sub3.method1207(255, i) / 255.0F;
-		Class120_Sub15.aFloatArray2596[1] = Class120_Sub12_Sub3.method1207(255, i >> 8) / 255.0F;
+		Class120_Sub15.aFloatArray2596[0] = Class120_Sub12_Sub3.method1207(i >> 16, 0xff) / 255.0F;
+		Class120_Sub15.aFloatArray2596[1] = Class120_Sub12_Sub3.method1207(i >> 8, 0xff) / 255.0F;
+		Class120_Sub15.aFloatArray2596[2] = Class120_Sub12_Sub3.method1207(i, 0xff) / 255.0F;
 		Class120_Sub12_Sub31.method1364(3);
 		Class120_Sub12_Sub31.method1364(4);
 	}

@@ -98,7 +98,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (l >>> 32));
 				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + i_2_);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
-				Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+				SpotAnimationNode.method1437(i_2_, l, i_1_);
 			}
 			if (i_4_ == 46) {
 				Class120_Sub12_Sub7.crossIndex = 0;
@@ -231,7 +231,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
 				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
 				Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-				Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+				SpotAnimationNode.method1437(i_2_, l, i_1_);
 			}
 			if (i_4_ == 6) {
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -347,8 +347,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
 				if (jagexInterface.cs1opcodes != null && jagexInterface.cs1opcodes[0][0] == 5) {
 					final int i_5_ = jagexInterface.cs1opcodes[0][1];
-					if (jagexInterface.valueCompareType[0] != Class2.permanentVariable[i_5_]) {
-						Class2.permanentVariable[i_5_] = jagexInterface.valueCompareType[0];
+					if (jagexInterface.requiredValues[0] != Class2.permanentVariable[i_5_]) {
+						Class2.permanentVariable[i_5_] = jagexInterface.requiredValues[0];
 						Class120_Sub14_Sub15.method1554(i_5_);
 					}
 				}
@@ -363,7 +363,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
 				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
-				Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+				SpotAnimationNode.method1437(i_2_, l, i_1_);
 			}
 			if (i_4_ == 39) {
 				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
@@ -503,7 +503,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putShortA((int) (l >>> 32) & 0x7fffffff);
 					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
 					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
-					Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+					SpotAnimationNode.method1437(i_2_, l, i_1_);
 				}
 				if (i_4_ == 34) {
 					final JagexInterface jagexInterface = JagexInterface.getComponent(i_2_, i_1_);
@@ -589,7 +589,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.heldKeys[82] ? 0 : 1);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
 						Class120_Sub12_Sub11.outputStream.putLEShort(ProjectileNode.selectedObjId);
-						Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+						SpotAnimationNode.method1437(i_2_, l, i_1_);
 					}
 					if (i_4_ == 44) {
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -636,7 +636,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + i_1_);
-						Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+						SpotAnimationNode.method1437(i_2_, l, i_1_);
 					}
 					if (i_4_ == 41) {
 						Class120_Sub14_Sub22.crossState = 2;
@@ -648,7 +648,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_1_ + GameEntity.currentBaseX);
 						Class120_Sub12_Sub11.outputStream.putShortA(i_2_ - -Class181.currentBaseZ);
-						Class120_Sub14_Sub4.method1437(i_2_, l, i_1_);
+						SpotAnimationNode.method1437(i_2_, l, i_1_);
 					}
 					if (i_4_ == 50) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(177);
@@ -1184,7 +1184,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	abstract void mainRedraw();
 
-	final void startApplication(final String gameName, final int cacheStoreId, final int revision, final int cacheIndexCount, final int height, final int width) {
+	final void startApplication(final String gameName, final int cacheStoreId, final int revision, final int cacheIndexCount, final int width, final int height) {
 		try {
 			Class186.topMargin = 0;
 			DisplayModeInfo.revision = revision;

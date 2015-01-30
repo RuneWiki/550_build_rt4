@@ -52,9 +52,9 @@ abstract class SceneGraphNode {
 			}
 			Class59.method542(is, class73.anInt651, class73.anInt651 >>> 24);
 			for (int i_25_ = 0; -1 + is.length / 2 > i_25_; i_25_++) {
-				GraphicsLD.method2176(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], class73.anInt630, class73.anInt630 >>> 24);
+				GraphicsLD.drawLine(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], class73.anInt630, class73.anInt630 >>> 24);
 			}
-			GraphicsLD.method2176(is[is.length - 2], is[is.length + -1], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24);
+			GraphicsLD.drawLine(is[is.length - 2], is[is.length + -1], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24);
 		} else if (class120_sub14_sub5.aBoolean3476) {
 			return;
 		}
@@ -114,43 +114,43 @@ abstract class SceneGraphNode {
 		MapFunctionType.aClass105_653.addLast(class120_sub16);
 	}
 
-	static final void updateInterfacePosition(final JagexInterface jagexInterface, final int width, final int height) {
+	static final void updateInterfacePosition(final JagexInterface jagexInterface, final int screenWidth, final int screenHeight) {
 		if (jagexInterface.dynamicXValue == 0) {
 			jagexInterface.x = jagexInterface.originalX;
 		} else if (jagexInterface.dynamicXValue == 1) {
-			jagexInterface.x = jagexInterface.originalX + (width - jagexInterface.width) / 2;
+			jagexInterface.x = jagexInterface.originalX + (screenWidth - jagexInterface.width) / 2;
 		} else if (jagexInterface.dynamicXValue == 2) {
-			jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + width;
+			jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + screenWidth;
 		} else if (jagexInterface.dynamicXValue == 3) {
-			jagexInterface.x = jagexInterface.originalX * width >> 14;
+			jagexInterface.x = jagexInterface.originalX * screenWidth >> 14;
 		} else if (jagexInterface.dynamicXValue == 4) {
-			jagexInterface.x = (jagexInterface.originalX * width >> 14) + (width - jagexInterface.width) / 2;
+			jagexInterface.x = (jagexInterface.originalX * screenWidth >> 14) + (screenWidth - jagexInterface.width) / 2;
 		} else {
-			jagexInterface.x = -(width * jagexInterface.originalX >> 14) + -jagexInterface.width + width;
+			jagexInterface.x = -(screenWidth * jagexInterface.originalX >> 14) + -jagexInterface.width + screenWidth;
 		}
 		if (jagexInterface.dynamicYValue == 0) {
 			jagexInterface.y = jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 1) {
-			jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + height) / 2;
+			jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + screenHeight) / 2;
 		} else if (jagexInterface.dynamicYValue == 2) {
-			jagexInterface.y = height + -jagexInterface.height - jagexInterface.originalY;
+			jagexInterface.y = screenHeight + -jagexInterface.height - jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 3) {
-			jagexInterface.y = height * jagexInterface.originalY >> 14;
+			jagexInterface.y = screenHeight * jagexInterface.originalY >> 14;
 		} else if (jagexInterface.dynamicYValue == 4) {
-			jagexInterface.y = (jagexInterface.originalY * height >> 14) + (height - jagexInterface.height) / 2;
+			jagexInterface.y = (jagexInterface.originalY * screenHeight >> 14) + (screenHeight - jagexInterface.height) / 2;
 		} else {
-			jagexInterface.y = -(jagexInterface.originalY * height >> 14) + height + -jagexInterface.height;
+			jagexInterface.y = -(jagexInterface.originalY * screenHeight >> 14) + screenHeight + -jagexInterface.height;
 		}
-		if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
+		if (Class120_Sub30_Sub1.qaOpTestEnabled && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
 			if (jagexInterface.x < 0) {
 				jagexInterface.x = 0;
-			} else if (jagexInterface.x + jagexInterface.width > width) {
-				jagexInterface.x = width - jagexInterface.width;
+			} else if (jagexInterface.x + jagexInterface.width > screenWidth) {
+				jagexInterface.x = screenWidth - jagexInterface.width;
 			}
 			if (jagexInterface.y < 0) {
 				jagexInterface.y = 0;
-			} else if (jagexInterface.height + jagexInterface.y > height) {
-				jagexInterface.y = height - jagexInterface.height;
+			} else if (jagexInterface.height + jagexInterface.y > screenHeight) {
+				jagexInterface.y = screenHeight - jagexInterface.height;
 			}
 		}
 	}

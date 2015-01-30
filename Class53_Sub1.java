@@ -116,7 +116,7 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!Class120_Sub14_Sub4.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
+		if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
 			return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 1];
 		}
 		return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 2];

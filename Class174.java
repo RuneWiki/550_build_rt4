@@ -51,50 +51,43 @@ final class Class174 {
 		}
 	}
 
-	static final void method2233(final byte i) {
-		try {
-			if (i >= 0) {
-				longToString(-9L);
+	static final void method2233() {
+		while (Canvas_Sub1.inputStream.getBitsLeft(AbstractMouseWheelHandler.packetSize) >= 11) {
+			final int index = Canvas_Sub1.inputStream.getBitValue(11);
+			if (index == 2047) {
+				break;
 			}
-			while (Canvas_Sub1.inputStream.getBitsLeft(AbstractMouseWheelHandler.packetSize) >= 11) {
-				final int i_3_ = Canvas_Sub1.inputStream.getBitValue(11);
-				if (i_3_ == 2047) {
-					break;
+			boolean newPlayer = false;
+			if (Class118.playersList[index] == null) {
+				Class118.playersList[index] = new Player();
+				if (StringNode.playerAppearanceBuffers[index] != null) {
+					Class118.playersList[index].decodeAppearance(StringNode.playerAppearanceBuffers[index]);
 				}
-				boolean bool = false;
-				if (Class118.playersList[i_3_] == null) {
-					bool = true;
-					Class118.playersList[i_3_] = new Player();
-					if (StringNode.playerAppearanceBuffers[i_3_] != null) {
-						Class118.playersList[i_3_].decodeAppearance(StringNode.playerAppearanceBuffers[i_3_]);
-					}
-				}
-				Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_3_;
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
-				class180_sub5_sub1.anInt2985 = Class101_Sub2.loopCycle;
-				final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
-				if (bool) {
-					class180_sub5_sub1.anInt3019 = class180_sub5_sub1.anInt3032 = i_4_;
-				}
-				int i_5_ = Canvas_Sub1.inputStream.getBitValue(5);
-				if (i_5_ > 15) {
-					i_5_ -= 32;
-				}
-				final int i_6_ = Canvas_Sub1.inputStream.getBitValue(1);
-				final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
-				if (i_7_ == 1) {
-					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
-				}
-				int i_8_ = Canvas_Sub1.inputStream.getBitValue(5);
-				if (i_8_ > 15) {
-					i_8_ -= 32;
-				}
-				class180_sub5_sub1.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + i_5_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
+				newPlayer = true;
 			}
-			Canvas_Sub1.inputStream.endBitAccess();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.F(").append(i).append(')').toString());
+			Class112.playerIndices[FileSystemWorker.localPlayerCount++] = index;
+			final Player class180_sub5_sub1 = Class118.playersList[index];
+			class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+			final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
+			if (newPlayer) {
+				class180_sub5_sub1.anInt3019 = class180_sub5_sub1.anInt3032 = i_4_;
+			}
+			int i_5_ = Canvas_Sub1.inputStream.getBitValue(5);
+			if (i_5_ > 15) {
+				i_5_ -= 32;
+			}
+			final int i_6_ = Canvas_Sub1.inputStream.getBitValue(1);
+			final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
+			if (i_7_ == 1) {
+				Class169.anIntArray1648[Class154.anInt1441++] = index;
+			}
+			int i_8_ = Canvas_Sub1.inputStream.getBitValue(5);
+			if (i_8_ > 15) {
+				i_8_ -= 32;
+			}
+			class180_sub5_sub1.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + i_5_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
 		}
+		Canvas_Sub1.inputStream.endBitAccess();
 	}
 
 	static final String longToString(long l) {
@@ -118,8 +111,8 @@ final class Class174 {
 	}
 
 	static final void method2236() {
-		for (Class120_Sub14_Sub4 class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (Class120_Sub14_Sub4) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
-			final SpotAnimation class180_sub3 = class120_sub14_sub4.aClass180_Sub3_3467;
+		for (SpotAnimationNode class120_sub14_sub4 = (SpotAnimationNode) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (SpotAnimationNode) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
+			final SpotAnimation class180_sub3 = class120_sub14_sub4.spotAnimation;
 			if (class180_sub3.level == Class173.gameLevel && !class180_sub3.finishedAnimating) {
 				if (Class101_Sub2.loopCycle >= class180_sub3.startCycle) {
 					class180_sub3.animate(Class120_Sub12_Sub22.redrawRate);

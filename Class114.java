@@ -70,18 +70,16 @@ final class Class114 {
 	}
 
 	static final AbstractGraphicsBuffer constructGraphicsBuffer(final Component component, final int width, final int height) {
-		AbstractGraphicsBuffer abstractGraphicsBuffer;
 		try {
 			final Class var_class = Class.forName("BasicGraphicsBuffer");
 			final AbstractGraphicsBuffer instance = (AbstractGraphicsBuffer) var_class.newInstance();
 			instance.init(component, width, height);
-			abstractGraphicsBuffer = instance;
+			return instance;
 		} catch (final Throwable throwable) {
 			final ProducingGraphicsBuffer instance = new ProducingGraphicsBuffer();
 			instance.init(component, width, height);
 			return instance;
 		}
-		return abstractGraphicsBuffer;
 	}
 
 	public Class114() {

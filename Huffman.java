@@ -10,57 +10,48 @@ final class Huffman {
 	static int menuDrawX;
 	private int[] anIntArray1210;
 
-	static final boolean method1882(final int i, final int i_0_, final boolean bool, final String string) {
-		boolean bool_1_;
-		try {
-			if (i < 2 || i > 36) {
-				throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(i).toString());
-			}
-			boolean bool_2_ = false;
-			boolean bool_3_ = false;
-			if (i_0_ != 55) {
-				method1884(24, true, false, false);
-			}
-			final int i_4_ = string.length();
-			int i_5_ = 0;
-			for (int i_6_ = 0; i_4_ > i_6_; i_6_++) {
-				int i_7_ = string.charAt(i_6_);
-				if (i_6_ == 0) {
-					if (i_7_ == 45) {
-						bool_2_ = true;
-						continue;
-					}
-					if (i_7_ == 43 && bool) {
-						continue;
-					}
-				}
-				if (i_7_ >= 48 && i_7_ <= 57) {
-					i_7_ -= 48;
-				} else if (i_7_ >= 65 && i_7_ <= 90) {
-					i_7_ -= 55;
-				} else if (i_7_ >= 97 && i_7_ <= 122) {
-					i_7_ -= 87;
-				} else {
-					return false;
-				}
-				if (i_7_ >= i) {
-					return false;
-				}
-				if (bool_2_) {
-					i_7_ = -i_7_;
-				}
-				final int i_8_ = i_7_ + i * i_5_;
-				if (i_8_ / i != i_5_) {
-					return false;
-				}
-				bool_3_ = true;
-				i_5_ = i_8_;
-			}
-			bool_1_ = bool_3_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.C(").append(i).append(',').append(i_0_).append(',').append(bool).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+	static final boolean isValidStringRadix(final String string, final int radix, final boolean bool) {
+		if (radix < 2 || radix > 36) {
+			throw new IllegalArgumentException("Invalid radix:" + radix);
 		}
-		return bool_1_;
+		boolean bool_2_ = false;
+		boolean bool_3_ = false;
+		final int i_4_ = string.length();
+		int i_5_ = 0;
+		for (int i_6_ = 0; i_4_ > i_6_; i_6_++) {
+			int i_7_ = string.charAt(i_6_);
+			if (i_6_ == 0) {
+				if (i_7_ == 45) {
+					bool_2_ = true;
+					continue;
+				}
+				if (i_7_ == 43 && bool) {
+					continue;
+				}
+			}
+			if (i_7_ >= 48 && i_7_ <= 57) {
+				i_7_ -= 48;
+			} else if (i_7_ >= 65 && i_7_ <= 90) {
+				i_7_ -= 55;
+			} else if (i_7_ >= 97 && i_7_ <= 122) {
+				i_7_ -= 87;
+			} else {
+				return false;
+			}
+			if (i_7_ >= radix) {
+				return false;
+			}
+			if (bool_2_) {
+				i_7_ = -i_7_;
+			}
+			final int i_8_ = i_7_ + radix * i_5_;
+			if (i_8_ / radix != i_5_) {
+				return false;
+			}
+			bool_3_ = true;
+			i_5_ = i_8_;
+		}
+		return bool_3_;
 	}
 
 	static final byte[] method1883(final int i, final byte[] is) {

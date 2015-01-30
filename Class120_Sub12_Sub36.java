@@ -128,13 +128,13 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 					npc.anInt2963 = 0;
 					npc.spotAnimFrame = 0;
 					npc.spotAnimNextFrame = 1;
-					npc.anInt2979 = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
-					if (npc.anInt2979 > Class101_Sub2.loopCycle) {
+					npc.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
+					if (npc.spotAnimDelay > Class101_Sub2.loopCycle) {
 						npc.spotAnimFrame = -1;
 					}
-					npc.anInt2965 = bitPacked >> 16;
+					npc.spotAnimHeight = bitPacked >> 16;
 					npc.spotAnimId = spotanimId;
-					if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.anInt2979) {
+					if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.spotAnimDelay) {
 						final int spotanimAnimationId = SpotAnimType.list(npc.spotAnimId).animationId;
 						if (spotanimAnimationId != -1) {
 							final SeqType seqType = SeqType.list(spotanimAnimationId);

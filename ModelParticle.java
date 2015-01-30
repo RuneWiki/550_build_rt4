@@ -2,12 +2,12 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class158 {
+final class ModelParticle {
 	static int anInt1475 = -1;
 	int anInt1476;
 	static boolean aBoolean1478 = false;
 	static int anInt1479;
-	Class80 aClass80_1480;
+	ParticleType particleType;
 	static int mapSceneRedColorModifier;
 	static long aLong1482;
 	static String aString1483 = "cyan:";
@@ -32,32 +32,25 @@ final class Class158 {
 		}
 	}
 
-	public static void method2091(final int i) {
-		try {
-			if (i >= -47) {
-				method2090(58, -57, -61, 71, -64, 3);
-			}
-			aString1483 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sk.B(").append(i).append(')').toString());
-		}
+	public static void method2091() {
+		aString1483 = null;
 	}
 
-	Class158(final int i, final int i_5_, final int i_6_, final int i_7_) {
-		final Class80 class80 = Class80.list(i);
+	ModelParticle(final int particleId, final int i_5_, final int i_6_, final int i_7_) {
+		final ParticleType particleType = ParticleType.list(particleId);
 		this.anInt1476 = i_7_;
 		this.anInt1484 = i_6_;
 		this.anInt1485 = i_5_;
-		if (!HDToolkit.glEnabled && (class80.anInt765 ^ 0xffffffff) != 0) {
-			this.aClass80_1480 = Class80.list(class80.anInt765);
+		if (!HDToolkit.glEnabled && particleType.lowDetailsParticleSubId != -1) {
+			this.particleType = ParticleType.list(particleType.lowDetailsParticleSubId);
 		} else {
-			this.aClass80_1480 = class80;
+			this.particleType = particleType;
 		}
 	}
 
-	Class158(final Class80 class80, final int i, final int i_8_, final int i_9_) {
+	ModelParticle(final ParticleType particleType, final int i, final int i_8_, final int i_9_) {
 		this.anInt1485 = i;
-		this.aClass80_1480 = class80;
+		this.particleType = particleType;
 		this.anInt1476 = i_9_;
 		this.anInt1484 = i_8_;
 	}

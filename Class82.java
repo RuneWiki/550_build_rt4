@@ -112,7 +112,7 @@ final class Class82 implements Runnable {
 				final Deque deque = WorldMapHandler.method679();//gather mapfunctions
 				Class101_Sub1.method842(deque, drawX, drawY);//draw mapfunctions
 				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();//flip vertical
-				GraphicsHD.method596(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, drawX, drawY, width, height);//drawPixels
+				GraphicsHD.drawPixels(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, drawX, drawY, width, height);//drawPixels
 				GraphicsLD.pixels = null;
 			}
 			if (Class96.clickedMouseFunctionBlinksLeft > 0) {

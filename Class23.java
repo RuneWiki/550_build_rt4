@@ -72,7 +72,7 @@ final class Class23 {
 		if (jagexInterface.dynamicHeightValue == 4) {
 			jagexInterface.height = jagexInterface.anInt2085 * jagexInterface.width / jagexInterface.anInt1982;
 		}
-		if (Class120_Sub30_Sub1.aBoolean3673 && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
+		if (Class120_Sub30_Sub1.qaOpTestEnabled && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
 			if (jagexInterface.height >= 5 || jagexInterface.width >= 5) {
 				if (jagexInterface.height <= 0) {
 					jagexInterface.height = 5;

@@ -11,17 +11,8 @@ final class Class187 {
 		anInt1908 = 0;
 	}
 
-	static final Class101_Sub1 method2475(final Buffer class120_sub7, final boolean bool) {
-		Class101_Sub1 class101_sub1;
-		try {
-			if (!bool) {
-				aClass50_1907 = null;
-			}
-			class101_sub1 = new Class101_Sub1(class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getShort(), class120_sub7.getMedium(), class120_sub7.getMedium(), class120_sub7.getUByte());
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wc.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
-		}
-		return class101_sub1;
+	static final Class101_Sub1 method2475(final Buffer buffer) {
+		return new Class101_Sub1(buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getMedium(), buffer.getMedium(), buffer.getUByte());
 	}
 
 	public static void method2476(final byte i) {
@@ -41,9 +32,9 @@ final class Class187 {
 		final int i_5_ = (bool ? 65536 : 0) + i_2_ + (i_0_ << 17) + (i_3_ << 19);
 		final long l = 3147483667L * i_4_ + 3849834839L * i_5_;
 		AbstractSprite cachedSprite = (AbstractSprite) SpotAnimation.aClass21_2906.get(l);
-		//if (cachedSprite != null) {
-		//	return cachedSprite;
-		//}
+		if (cachedSprite != null) {
+			return cachedSprite;
+		}
 		Rasterizer.aBoolean974 = false;
 		cachedSprite = Class120_Sub12_Sub6.method1224(playerAppearance, i_0_, i, i_3_, i_2_, bool, false, false);
 		if (cachedSprite != null && !Rasterizer.aBoolean974) {

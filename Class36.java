@@ -14,7 +14,7 @@ final class Class36 {
 
 	static final void method307(final GameEntity gameEntity) {
 		gameEntity.aBoolean3002 = false;
-		if ((gameEntity.anInt3004 ^ 0xffffffff) != 0) {
+		if (gameEntity.anInt3004 != -1) {
 			final SeqType seqType = SeqType.list(gameEntity.anInt3004);
 			if (seqType == null || seqType.frames == null) {
 				gameEntity.anInt3004 = -1;
@@ -31,17 +31,17 @@ final class Class36 {
 					gameEntity.anInt3046 = 0;
 					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.anInt3046, TileParticleQueue.selfPlayer == gameEntity);
 				}
-				gameEntity.anInt3021 = 1 + gameEntity.anInt3046;
+				gameEntity.anInt3021 = gameEntity.anInt3046 + 1;
 				if (gameEntity.anInt3021 >= seqType.frames.length) {
 					gameEntity.anInt3021 = 0;
 				}
 			}
 		}
 		do {
-			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.anInt2979) {
+			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.spotAnimDelay) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
 				final int i_0_ = spotAnimType.animationId;
-				if ((i_0_ ^ 0xffffffff) == 0) {
+				if (i_0_ == -1) {
 					gameEntity.spotAnimId = -1;
 				} else {
 					final SeqType seqType = SeqType.list(i_0_);
@@ -52,7 +52,7 @@ final class Class36 {
 								break;
 							}
 						} else if (seqType.speedupType == 1 && gameEntity.anInt3031 > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
-							gameEntity.anInt2979 = Class101_Sub2.loopCycle + 1;
+							gameEntity.spotAnimDelay = Class101_Sub2.loopCycle + 1;
 							break;
 						}
 					}
@@ -103,7 +103,7 @@ final class Class36 {
 				}
 			}
 		} while (false);
-		if ((gameEntity.anInt3006 ^ 0xffffffff) != 0 && gameEntity.anInt2993 <= 1) {
+		if (gameEntity.anInt3006 != -1 && gameEntity.anInt2993 <= 1) {
 			final SeqType seqType = SeqType.list(gameEntity.anInt3006);
 			if (seqType.speedupType != 3) {
 				if (seqType.speedupType == 1 && gameEntity.anInt3031 > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
@@ -113,7 +113,7 @@ final class Class36 {
 				gameEntity.anInt3006 = -1;
 			}
 		}
-		if ((gameEntity.anInt3006 ^ 0xffffffff) != 0 && gameEntity.anInt2993 == 0) {
+		if (gameEntity.anInt3006 != -1 && gameEntity.anInt2993 == 0) {
 			final SeqType seqType = SeqType.list(gameEntity.anInt3006);
 			if (seqType != null && seqType.frames != null) {
 				gameEntity.anInt3044++;
@@ -160,22 +160,22 @@ final class Class36 {
 				if (class150.delay > 0) {
 					class150.delay--;
 				} else {
-					final SeqType seqType = SeqType.list(class150.anInt1406);
+					final SeqType seqType = SeqType.list(class150.seqId);
 					if (seqType == null || seqType.frames == null) {
 						gameEntity.aClass150Array2972[i_1_] = null;
 					} else {
-						class150.anInt1410++;
-						if (seqType.frames.length > class150.anInt1413 && seqType.delays[class150.anInt1413] < class150.anInt1410) {
-							class150.anInt1410 = 1;
-							class150.anInt1413++;
-							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.anInt1413, gameEntity == TileParticleQueue.selfPlayer);
+						class150.frameDelay++;
+						if (seqType.frames.length > class150.frameId && seqType.delays[class150.frameId] < class150.frameDelay) {
+							class150.frameDelay = 1;
+							class150.frameId++;
+							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.frameId, gameEntity == TileParticleQueue.selfPlayer);
 						}
-						if (class150.anInt1413 >= seqType.frames.length) {
-							class150.anInt1413 -= seqType.padding;
+						if (class150.frameId >= seqType.frames.length) {
+							class150.frameId -= seqType.padding;
 							class150.anInt1416++;
 							if (seqType.resetCycle > class150.anInt1416) {
-								if (class150.anInt1413 >= 0 && seqType.frames.length > class150.anInt1413) {
-									Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.anInt1413, gameEntity == TileParticleQueue.selfPlayer);
+								if (class150.frameId >= 0 && seqType.frames.length > class150.frameId) {
+									Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.frameId, gameEntity == TileParticleQueue.selfPlayer);
 								} else {
 									gameEntity.aClass150Array2972[i_1_] = null;
 								}
@@ -183,13 +183,13 @@ final class Class36 {
 								gameEntity.aClass150Array2972[i_1_] = null;
 							}
 						}
-						class150.anInt1414 = class150.anInt1413 + 1;
-						if (seqType.frames.length <= class150.anInt1414) {
-							class150.anInt1414 -= seqType.padding;
+						class150.nextFrameId = class150.frameId + 1;
+						if (seqType.frames.length <= class150.nextFrameId) {
+							class150.nextFrameId -= seqType.padding;
 							if (class150.anInt1416 - -1 >= seqType.resetCycle) {
-								class150.anInt1414 = -1;
-							} else if (class150.anInt1414 < 0 || class150.anInt1414 >= seqType.frames.length) {
-								class150.anInt1414 = -1;
+								class150.nextFrameId = -1;
+							} else if (class150.nextFrameId < 0 || class150.nextFrameId >= seqType.frames.length) {
+								class150.nextFrameId = -1;
 							}
 						}
 					}

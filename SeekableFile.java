@@ -37,9 +37,9 @@ final class SeekableFile {
 	}
 
 	static final void removeMouseHandler() {
-		if (Class120_Sub14_Sub4.mouseHandler != null) {
-			synchronized (Class120_Sub14_Sub4.mouseHandler) {
-				Class120_Sub14_Sub4.mouseHandler = null;
+		if (SpotAnimationNode.mouseHandler != null) {
+			synchronized (SpotAnimationNode.mouseHandler) {
+				SpotAnimationNode.mouseHandler = null;
 			}
 		}
 	}

@@ -36,7 +36,7 @@ final class LDModel extends AbstractModel {
 	private short aShort3785;
 	private int[][] anIntArrayArray3786;
 	private int[] trianglesB;
-	Class158[] aClass158Array3788;
+	ModelParticle[] aClass158Array3788;
 	private static int[] anIntArray3789 = new int[1];
 	private static int[] anIntArray3790;
 	private int[] anIntArray3791;
@@ -362,7 +362,7 @@ final class LDModel extends AbstractModel {
 									if (i_54_ == 0) {
 										i_54_ = 1;
 									}
-									GraphicsLD.drawAlphaCircle(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -380,7 +380,7 @@ final class LDModel extends AbstractModel {
 									if (i_59_ == 0) {
 										i_59_ = 1;
 									}
-									GraphicsLD.drawAlphaCircle(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -533,7 +533,7 @@ final class LDModel extends AbstractModel {
 						if (i_86_ == 0) {
 							i_86_ = 1;
 						}
-						GraphicsLD.drawAlphaCircle(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+						GraphicsLD.drawAlphaCircle(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 						if (i_79_ >= i_12_) {
 							break;
 						}
@@ -565,7 +565,7 @@ final class LDModel extends AbstractModel {
 					if (i_89_ == 0) {
 						i_89_ = 1;
 					}
-					GraphicsLD.drawAlphaCircle(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.aClass80_2323.anInt721 << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+					GraphicsLD.drawAlphaCircle(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 					i_88_ = anIntArray3818[i_79_++];
 				}
 			}
@@ -2568,7 +2568,7 @@ final class LDModel extends AbstractModel {
 			anIntArray3766 = new int[anInt3768];
 		}
 		if (i_668_ > 0) {
-			this.aClass158Array3788 = new Class158[i_668_];
+			this.aClass158Array3788 = new ModelParticle[i_668_];
 		}
 		if (i_669_ > 0) {
 			this.aClass169Array3776 = new Class169[i_669_];
@@ -2614,7 +2614,7 @@ final class LDModel extends AbstractModel {
 				}
 				if (class180_sub7_sub1_673_.aClass158Array3788 != null) {
 					for (int i_675_ = 0; i_675_ < class180_sub7_sub1_673_.aClass158Array3788.length; i_675_++) {
-						this.aClass158Array3788[i_668_] = new Class158(class180_sub7_sub1_673_.aClass158Array3788[i_675_].aClass80_1480, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1485 + this.anInt3793, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1484 + this.anInt3793,
+						this.aClass158Array3788[i_668_] = new ModelParticle(class180_sub7_sub1_673_.aClass158Array3788[i_675_].particleType, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1485 + this.anInt3793, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1484 + this.anInt3793,
 								class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1476 + this.anInt3793);
 						i_668_++;
 					}

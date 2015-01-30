@@ -136,7 +136,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			if (aClass40_3070 != null) {
 				class88 = locType.method2461(i_21_, is_23_, anInt3052, i ^ 0x70ac, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
 			} else {
-				class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, -115, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
+				class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
 			}
 			if (class88 == null) {
 				anInt3072 = anInt3052;
@@ -481,7 +481,7 @@ final class AnimatedLocation extends SceneGraphNode {
 						locType = locType.handleVarp();
 					}
 					if (locType != null) {
-						Buffer.method1094(anInt3049, 0, anInt3055, anInt3060, locType, (byte) 93, 0, anInt3069, anInt3051);
+						Buffer.method1094(locType, anInt3049, 0, anInt3055, anInt3060, 0, anInt3069, anInt3051);
 					}
 				}
 			} else {

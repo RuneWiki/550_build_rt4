@@ -15,9 +15,9 @@ final class NodeCache {
 	private final int defaultCapacity;
 
 	static final void addMouse(final Component component) {
-		component.addMouseListener(Class120_Sub14_Sub4.mouseHandler);
-		component.addMouseMotionListener(Class120_Sub14_Sub4.mouseHandler);
-		component.addFocusListener(Class120_Sub14_Sub4.mouseHandler);
+		component.addMouseListener(SpotAnimationNode.mouseHandler);
+		component.addMouseMotionListener(SpotAnimationNode.mouseHandler);
+		component.addFocusListener(SpotAnimationNode.mouseHandler);
 	}
 
 	static final void method297() {
@@ -90,9 +90,9 @@ final class NodeCache {
 	}
 
 	static final void removeMouse(final Component component) {
-		component.removeMouseListener(Class120_Sub14_Sub4.mouseHandler);
-		component.removeMouseMotionListener(Class120_Sub14_Sub4.mouseHandler);
-		component.removeFocusListener(Class120_Sub14_Sub4.mouseHandler);
+		component.removeMouseListener(SpotAnimationNode.mouseHandler);
+		component.removeMouseMotionListener(SpotAnimationNode.mouseHandler);
+		component.removeFocusListener(SpotAnimationNode.mouseHandler);
 		Class42.currentMousePress = 0;
 	}
 

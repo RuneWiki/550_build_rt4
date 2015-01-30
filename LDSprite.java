@@ -1057,36 +1057,36 @@ class LDSprite extends AbstractSprite {
 	}
 
 	@Override
-	void method1592(int i, int i_308_) {
-		i += this.trimWidth - this.width - this.offsetX;
-		i_308_ += this.offsetY;
-		int i_309_ = i + i_308_ * GraphicsLD.width;
+	void method1592(int x, int y) {
+		x += this.trimWidth - this.width - this.offsetX;
+		y += this.offsetY;
+		int i_309_ = x + y * GraphicsLD.width;
 		int i_310_ = this.width - 1;
 		int i_311_ = this.height;
 		int i_312_ = this.width;
 		int i_313_ = GraphicsLD.width - i_312_;
 		int i_314_ = i_312_ + i_312_;
-		if (i_308_ < GraphicsLD.startY) {
-			final int i_315_ = GraphicsLD.startY - i_308_;
+		if (y < GraphicsLD.startY) {
+			final int i_315_ = GraphicsLD.startY - y;
 			i_311_ -= i_315_;
-			i_308_ = GraphicsLD.startY;
+			y = GraphicsLD.startY;
 			i_310_ += i_315_ * i_312_;
 			i_309_ += i_315_ * GraphicsLD.width;
 		}
-		if (i_308_ + i_311_ > GraphicsLD.endY) {
-			i_311_ -= i_308_ + i_311_ - GraphicsLD.endY;
+		if (y + i_311_ > GraphicsLD.endY) {
+			i_311_ -= y + i_311_ - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_316_ = GraphicsLD.startX - i;
+		if (x < GraphicsLD.startX) {
+			final int i_316_ = GraphicsLD.startX - x;
 			i_312_ -= i_316_;
-			i = GraphicsLD.startX;
+			x = GraphicsLD.startX;
 			i_310_ -= i_316_;
 			i_309_ += i_316_;
 			i_314_ -= i_316_;
 			i_313_ += i_316_;
 		}
-		if (i + i_312_ > GraphicsLD.endX) {
-			final int i_317_ = i + i_312_ - GraphicsLD.endX;
+		if (x + i_312_ > GraphicsLD.endX) {
+			final int i_317_ = x + i_312_ - GraphicsLD.endX;
 			i_312_ -= i_317_;
 			i_314_ -= i_317_;
 			i_313_ += i_317_;

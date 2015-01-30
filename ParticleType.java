@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class80 {
+final class ParticleType {
 	int anInt717 = 0;
 	boolean aBoolean718;
 	int anInt719;
@@ -51,7 +51,7 @@ final class Class80 {
 	private int anInt762;
 	short aShort763;
 	private int anInt764;
-	int anInt765;
+	int lowDetailsParticleSubId;
 	private int anInt766;
 	int anInt767;
 	int anInt768;
@@ -90,25 +90,25 @@ final class Class80 {
 		}
 	}
 
-	static final void method699(final int i_1_, final int i_2_) {
+	static final void method699(final int drawX, final int drawY) {
 		if (FileSystem.anInt459 > 0) {
 			Class111.method981(FileSystem.anInt459);
 			FileSystem.anInt459 = 0;
 		}
 		int i_3_ = 0;
-		int i_4_ = GraphicsLD.width * i_1_;
+		int yPixelPointer = GraphicsLD.width * drawY;
 		int i_6_ = 0;
-		for (int i_7_ = 1; i_7_ < 255; i_7_++) {
-			int i_8_ = (256 - i_7_) * Class120_Sub15.anIntArray2597[i_7_] / 256;
+		for (int y = 1; y < 255; y++) {
+			int i_8_ = (256 - y) * Class120_Sub15.anIntArray2597[y] / 256;
 			if (i_8_ < 0) {
 				i_8_ = 0;
 			}
 			i_3_ += i_8_;
-			for (int i_9_ = i_8_; i_9_ < 128; i_9_++) {
-				final int i_10_ = GraphicsLD.pixels[i_2_ + i_4_++];
+			for (int x = i_8_; x < 128; x++) {
+				final int i_10_ = GraphicsLD.pixels[drawX + yPixelPointer++];
 				int i_11_ = Light.anIntArray392[i_3_++];
 				if (i_11_ == 0) {
-					Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = i_10_;
+					Class92.torchFlamesSprite.pixels[i_6_++] = i_10_;
 				} else {
 					int i_12_ = i_11_ + 18;
 					if (i_12_ > 255) {
@@ -119,18 +119,18 @@ final class Class80 {
 						i_13_ = 255;
 					}
 					i_11_ = Class76.anIntArray679[i_11_];
-					Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_) - -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
+					Class92.torchFlamesSprite.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_) - -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
 				}
 			}
-			for (int i_14_ = 0; i_8_ > i_14_; i_14_++) {
-				Class92.aClass120_Sub14_Sub19_Sub2_862.pixels[i_6_++] = GraphicsLD.pixels[i_2_ + i_4_++];
+			for (int i_14_ = 0; i_14_ < i_8_; i_14_++) {
+				Class92.torchFlamesSprite.pixels[i_6_++] = GraphicsLD.pixels[drawX + yPixelPointer++];
 			}
-			i_4_ += -128 + GraphicsLD.width;
+			yPixelPointer += GraphicsLD.width - 128;
 		}
 		if (!HDToolkit.glEnabled) {
-			Class92.aClass120_Sub14_Sub19_Sub2_862.method1591(i_2_, i_1_);
+			Class92.torchFlamesSprite.method1591(drawX, drawY);
 		} else {
-			GraphicsHD.method596(Class92.aClass120_Sub14_Sub19_Sub2_862.pixels, i_2_, i_1_, Class92.aClass120_Sub14_Sub19_Sub2_862.width, Class92.aClass120_Sub14_Sub19_Sub2_862.height);
+			GraphicsHD.drawPixels(Class92.torchFlamesSprite.pixels, drawX, drawY, Class92.torchFlamesSprite.width, Class92.torchFlamesSprite.height);
 		}
 	}
 
@@ -187,7 +187,7 @@ final class Class80 {
 									this.anInt772 = buffer.getUShort();
 									this.aBoolean760 = buffer.getUByte() == 1;
 								} else if (code == 17) {
-									this.anInt765 = buffer.getUShort();
+									this.lowDetailsParticleSubId = buffer.getUShort();
 								} else if (code != 18) {
 									if (code == 19) {
 										this.anInt746 = buffer.getUByte();
@@ -282,16 +282,16 @@ final class Class80 {
 						this.anInt735 = 1;
 					}
 					this.anInt728 = (((0xffe5a4 & this.anInt729) >> 16) + -this.anInt737 - this.anInt719 / 2 << 8) / this.anInt735;
-					final Class80 class80_24_ = this;
+					final ParticleType class80_24_ = this;
 					class80_24_.anInt728 = class80_24_.anInt728 + (this.anInt728 > 0 ? -4 : 4);
 					this.anInt730 = (((0xff61 & this.anInt729) >> 8) - this.anInt725 - this.anInt767 / 2 << 8) / this.anInt735;
-					final Class80 class80_25_ = this;
+					final ParticleType class80_25_ = this;
 					class80_25_.anInt730 = class80_25_.anInt730 + (this.anInt730 <= 0 ? 4 : -4);
 					this.anInt720 = (-(this.anInt774 / 2) + -this.anInt723 + (this.anInt729 >> 24 & 0xff) << 8) / this.anInt731;
-					final Class80 class80_26_ = this;
+					final ParticleType class80_26_ = this;
 					class80_26_.anInt720 = class80_26_.anInt720 + (this.anInt720 > 0 ? -4 : 4);
 					this.anInt745 = (-(this.anInt722 / 2) - this.anInt758 + (this.anInt729 & 0xff) << 8) / this.anInt735;
-					final Class80 class80_27_ = this;
+					final ParticleType class80_27_ = this;
 					class80_27_.anInt745 = class80_27_.anInt745 + (this.anInt745 > 0 ? -4 : 4);
 				}
 			}
@@ -300,13 +300,13 @@ final class Class80 {
 		}
 	}
 
-	static final Class80 list(final int id) {
-		Class80 class80_15_ = (Class80) Class120_Sub12_Sub16.aClass21_3251.get(id);
+	static final ParticleType list(final int id) {
+		ParticleType class80_15_ = (ParticleType) Class120_Sub12_Sub16.aClass21_3251.get(id);
 		if (class80_15_ != null) {
 			return class80_15_;
 		}
 		final byte[] is = Class69.aClass50_619.getFile(0, id);
-		class80_15_ = new Class80();
+		class80_15_ = new ParticleType();
 		if (is != null) {
 			class80_15_.decode(new Buffer(is));
 		}
@@ -315,14 +315,14 @@ final class Class80 {
 		return class80_15_;
 	}
 
-	public Class80() {
+	public ParticleType() {
 		this.anInt724 = -1;
 		this.anInt733 = -1;
 		this.anInt740 = 0;
 		this.aBoolean718 = true;
 		this.anInt755 = -1;
 		this.aBoolean736 = true;
-		this.anInt765 = -1;
+		this.lowDetailsParticleSubId = -1;
 		anInt732 = 100;
 		this.aBoolean754 = false;
 		this.anInt769 = -2;

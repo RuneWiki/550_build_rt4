@@ -38,7 +38,7 @@ final class Class101_Sub3 extends Class101 {
 		final int i_8_ = anInt2288 * i >> 12;
 		final int i_9_ = anInt2289 * i_6_ >> 12;
 		final int i_10_ = i_6_ * anInt2292 >> 12;
-		Class158.method2090(i_7_, this.anInt964, i_9_, this.anInt959, i_10_, i_8_);
+		ModelParticle.method2090(i_7_, this.anInt964, i_9_, this.anInt959, i_10_, i_8_);
 	}
 
 	static final void method848() {

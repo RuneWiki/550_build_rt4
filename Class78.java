@@ -44,7 +44,7 @@ final class Class78 {
 			gl.glTexParameteri(32879, 10241, 9729);
 			gl.glTexParameteri(32879, 10240, 9729);
 			anInt684 = textureIds[0];
-			MemoryManager.anInt1081 += aByteBuffer686.limit() * 2;
+			MemoryManager.textureMemory += aByteBuffer686.limit() * 2;
 		} else {
 			anIntArray682 = new int[64];
 			gl.glGenTextures(64, anIntArray682, 0);
@@ -55,7 +55,7 @@ final class Class78 {
 				gl.glTexParameteri(3553, 10241, 9729);
 				gl.glTexParameteri(3553, 10240, 9729);
 			}
-			MemoryManager.anInt1081 += aByteBuffer686.limit() * 2;
+			MemoryManager.textureMemory += aByteBuffer686.limit() * 2;
 		}
 	}
 
@@ -70,7 +70,7 @@ final class Class78 {
 			gl.glTexParameteri(32879, 10241, 9729);
 			gl.glTexParameteri(32879, 10240, 9729);
 			anInt681 = is[0];
-			MemoryManager.anInt1081 += aByteBuffer683.limit() * 2;
+			MemoryManager.textureMemory += aByteBuffer683.limit() * 2;
 		} else {
 			anIntArray687 = new int[64];
 			gl.glGenTextures(64, anIntArray687, 0);
@@ -81,7 +81,7 @@ final class Class78 {
 				gl.glTexParameteri(3553, 10241, 9729);
 				gl.glTexParameteri(3553, 10240, 9729);
 			}
-			MemoryManager.anInt1081 += aByteBuffer683.limit() * 2;
+			MemoryManager.textureMemory += aByteBuffer683.limit() * 2;
 		}
 	}
 
@@ -91,26 +91,26 @@ final class Class78 {
 			final int[] is = { anInt684 };
 			gl.glDeleteTextures(1, is, 0);
 			anInt684 = -1;
-			MemoryManager.anInt1081 -= aByteBuffer686.limit() * 2;
+			MemoryManager.textureMemory -= aByteBuffer686.limit() * 2;
 		}
 		if (anIntArray682 != null) {
 			final GL gl = HDToolkit.gl;
 			gl.glDeleteTextures(64, anIntArray682, 0);
 			anIntArray682 = null;
-			MemoryManager.anInt1081 -= aByteBuffer686.limit() * 2;
+			MemoryManager.textureMemory -= aByteBuffer686.limit() * 2;
 		}
 		if (anInt681 != -1) {
 			final GL gl = HDToolkit.gl;
 			final int[] is = { anInt681 };
 			gl.glDeleteTextures(1, is, 0);
 			anInt681 = -1;
-			MemoryManager.anInt1081 -= aByteBuffer683.limit() * 2;
+			MemoryManager.textureMemory -= aByteBuffer683.limit() * 2;
 		}
 		if (anIntArray687 != null) {
 			final GL gl = HDToolkit.gl;
 			gl.glDeleteTextures(64, anIntArray687, 0);
 			anIntArray687 = null;
-			MemoryManager.anInt1081 -= aByteBuffer683.limit() * 2;
+			MemoryManager.textureMemory -= aByteBuffer683.limit() * 2;
 		}
 	}
 

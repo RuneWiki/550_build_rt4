@@ -33,15 +33,15 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void drawRect(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
+	static final void drawRect(final int x, final int y, final int w, final int h, final int color, final int alpha) {
 		HDToolkit.method499();
-		final float f = i + 0.3F;
-		final float f_12_ = f + (i_8_ - 1);
-		final float f_13_ = HDToolkit.canvasHeight - (i_7_ + 0.3F);
-		final float f_14_ = f_13_ - (i_9_ - 1);
+		final float f = x + 0.3F;
+		final float f_12_ = f + (w - 1);
+		final float f_13_ = HDToolkit.canvasHeight - (y + 0.3F);
+		final float f_14_ = f_13_ - (h - 1);
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(2);
-		gl.glColor4ub((byte) (i_10_ >> 16), (byte) (i_10_ >> 8), (byte) i_10_, i_11_ > 255 ? (byte) -1 : (byte) i_11_);
+		gl.glColor4ub((byte) (color >> 16), (byte) (color >> 8), (byte) color, alpha > 255 ? (byte) -1 : (byte) alpha);
 		gl.glVertex2f(f, f_13_);
 		gl.glVertex2f(f, f_14_);
 		gl.glVertex2f(f_12_, f_14_);
@@ -113,15 +113,15 @@ final class GraphicsHD {
 		gl.glTexEnvi(8960, 34176, 5890);
 	}
 
-	static final void drawRect(final int i, final int i_39_, final int i_40_, final int i_41_, final int i_42_) {
+	static final void drawRect(final int x, final int y, final int w, final int h, final int color) {
 		HDToolkit.method499();
-		final float f = i + 0.3F;
-		final float f_43_ = f + (i_40_ - 1);
-		final float f_44_ = HDToolkit.canvasHeight - (i_39_ + 0.3F);
-		final float f_45_ = f_44_ - (i_41_ - 1);
+		final float f = x + 0.3F;
+		final float f_43_ = f + (w - 1);
+		final float f_44_ = HDToolkit.canvasHeight - (y + 0.3F);
+		final float f_45_ = f_44_ - (h - 1);
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(2);
-		gl.glColor3ub((byte) (i_42_ >> 16), (byte) (i_42_ >> 8), (byte) i_42_);
+		gl.glColor3ub((byte) (color >> 16), (byte) (color >> 8), (byte) color);
 		gl.glVertex2f(f, f_44_);
 		gl.glVertex2f(f, f_45_);
 		gl.glVertex2f(f_43_, f_45_);
@@ -129,15 +129,15 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void fillRect(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_) {
+	static final void fillRect(final int x, final int y, final int w, final int h, final int color, final int alpha) {
 		HDToolkit.method499();
-		final float f = i;
-		final float f_51_ = f + i_47_;
-		final float f_52_ = HDToolkit.canvasHeight - i_46_;
-		final float f_53_ = f_52_ - i_48_;
+		final float f = x;
+		final float f_51_ = f + w;
+		final float f_52_ = HDToolkit.canvasHeight - y;
+		final float f_53_ = f_52_ - h;
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(6);
-		gl.glColor4ub((byte) (i_49_ >> 16), (byte) (i_49_ >> 8), (byte) i_49_, i_50_ > 255 ? (byte) -1 : (byte) i_50_);
+		gl.glColor4ub((byte) (color >> 16), (byte) (color >> 8), (byte) color, alpha > 255 ? (byte) -1 : (byte) alpha);
 		gl.glVertex2f(f, f_52_);
 		gl.glVertex2f(f, f_53_);
 		gl.glVertex2f(f_51_, f_53_);
@@ -163,7 +163,7 @@ final class GraphicsHD {
 		if (startX > endX || startY > endY) {
 			gl.glScissor(0, 0, 0, 0);
 		} else {
-			gl.glScissor(HDToolkit.anInt543 + startX, HDToolkit.anInt516 + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
+			gl.glScissor(HDToolkit.viewportOffsetX + startX, HDToolkit.viewportOffsetY + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
 		}
 		method601();
 	}
@@ -190,7 +190,7 @@ final class GraphicsHD {
 		if (startX > endX || startY > endY) {
 			gl.glScissor(0, 0, 0, 0);
 		} else {
-			gl.glScissor(HDToolkit.anInt543 + startX, HDToolkit.anInt516 + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
+			gl.glScissor(HDToolkit.viewportOffsetX + startX, HDToolkit.viewportOffsetY + HDToolkit.canvasHeight - endY, endX - startX, endY - startY);
 		}
 		method601();
 	}
@@ -210,7 +210,7 @@ final class GraphicsHD {
 		aClass120_Sub14_Sub19_Sub1_603 = class120_sub14_sub19_sub1;
 	}
 
-	static final void method596(final int[] pixels, final int x, final int y, final int w, final int h) {
+	static final void drawPixels(final int[] pixels, final int x, final int y, final int w, final int h) {
 		HDToolkit.method499();
 		final GL gl = HDToolkit.gl;
 		gl.glRasterPos2i(x, HDToolkit.canvasHeight - y - h);

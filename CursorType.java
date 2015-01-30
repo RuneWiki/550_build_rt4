@@ -75,7 +75,7 @@ final class CursorType {
 						}
 					}
 				}
-				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || Class120_Sub14_Sub4.method1438(Class186.menuOptionCount + -1))) {
+				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || SpotAnimationNode.method1438(Class186.menuOptionCount + -1))) {
 					i_5_ = 2;
 				}
 				if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
@@ -127,7 +127,7 @@ final class CursorType {
 		/* empty */
 	}
 
-	final LDSprite getCursor() {
+	final LDSprite getCursorSprite() {
 		LDSprite ldSprite = (LDSprite) spriteCache.get(graphic);
 		if (ldSprite != null) {
 			return ldSprite;

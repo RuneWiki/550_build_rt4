@@ -315,13 +315,13 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 						method1569(Class163.anInt1567, Class163.anInt1573, i, i, Class163.anInt1570, Class163.anInt1580, fs);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
-						MemoryManager.anInt1081 += fs.length * 4 / 3 - anInt3605;
+						MemoryManager.textureMemory += fs.length * 4 / 3 - anInt3605;
 						anInt3605 = fs.length * 4 / 3;
 					} else {
 						gl.glTexImage2D(3553, 0, 34842, i, i, 0, 6408, 5126, FloatBuffer.wrap(fs));
 						gl.glTexParameteri(3553, 10241, 9729);
 						gl.glTexParameteri(3553, 10240, 9729);
-						MemoryManager.anInt1081 += fs.length - anInt3605;
+						MemoryManager.textureMemory += fs.length - anInt3605;
 						anInt3605 = fs.length;
 					}
 				} else {
@@ -331,7 +331,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 						method1571(Class163.anInt1567, Class163.anInt1570, i, i, Class163.anInt1571, i_83_, is);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
-						MemoryManager.anInt1081 += is.length * 4 / 3 - anInt3605;
+						MemoryManager.textureMemory += is.length * 4 / 3 - anInt3605;
 						anInt3605 = is.length * 4 / 3;
 					} else if (anInt3597 == 1) {
 						int i_84_ = 0;
@@ -345,13 +345,13 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 						}
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
-						MemoryManager.anInt1081 += is.length * 4 / 3 - anInt3605;
+						MemoryManager.textureMemory += is.length * 4 / 3 - anInt3605;
 						anInt3605 = is.length * 4 / 3;
 					} else {
 						gl.glTexImage2D(3553, 0, 6408, i, i, 0, 32993, i_83_, IntBuffer.wrap(is));
 						gl.glTexParameteri(3553, 10241, 9729);
 						gl.glTexParameteri(3553, 10240, 9729);
-						MemoryManager.anInt1081 += is.length - anInt3605;
+						MemoryManager.textureMemory += is.length - anInt3605;
 						anInt3605 = is.length;
 					}
 				}

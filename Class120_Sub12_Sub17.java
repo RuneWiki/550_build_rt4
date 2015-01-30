@@ -195,7 +195,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			return null;
 		}
 		if (jagexInterface.niActions == null || i >= jagexInterface.niActions.length || jagexInterface.niActions[i] == null || jagexInterface.niActions[i].trim().length() == 0) {
-			if (Class120_Sub30_Sub1.aBoolean3673) {
+			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
 				return "Hidden-" + i;
 			}
 			return null;

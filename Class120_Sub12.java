@@ -127,7 +127,7 @@ abstract class Class120_Sub12 extends Node {
 			}
 			if (class120_sub24.anInt2720 == 0) {
 				if (class120_sub24.anInt2723 < 0 || Class167.method2190(class120_sub24.anInt2723, class120_sub24.anInt2728, -110)) {
-					Class31.method264(-1, class120_sub24.anInt2722, class120_sub24.anInt2729, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2723, class120_sub24.anInt2731, class120_sub24.anInt2728);
+					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2729, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2723, class120_sub24.anInt2731, class120_sub24.anInt2728);
 					class120_sub24.unlink();
 				}
 			} else {
@@ -135,7 +135,7 @@ abstract class Class120_Sub12 extends Node {
 					class120_sub24.anInt2732--;
 				}
 				if (class120_sub24.anInt2732 == 0 && class120_sub24.anInt2731 >= 1 && class120_sub24.anInt2725 >= 1 && class120_sub24.anInt2731 <= 102 && class120_sub24.anInt2725 <= 102 && (class120_sub24.anInt2719 < 0 || Class167.method2190(class120_sub24.anInt2719, class120_sub24.anInt2727, -102))) {
-					Class31.method264(-1, class120_sub24.anInt2722, class120_sub24.anInt2717, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2719, class120_sub24.anInt2731, class120_sub24.anInt2727);
+					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2717, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2719, class120_sub24.anInt2731, class120_sub24.anInt2727);
 					class120_sub24.anInt2732 = -1;
 					if (class120_sub24.anInt2719 == class120_sub24.anInt2723 && class120_sub24.anInt2723 == -1) {
 						class120_sub24.unlink();

@@ -174,7 +174,7 @@ final class Class72 implements ShaderInterface {
 			gl.glTexImage2D(34069 + i_2_, 0, 6406, 64, 64, 0, 6406, 5121, ByteBuffer.wrap(is_1_));
 			gl.glBindTexture(34067, anIntArray2182[2]);
 			gl.glTexImage2D(34069 + i_2_, 0, 6406, 64, 64, 0, 6406, 5121, ByteBuffer.wrap(is));
-			MemoryManager.anInt1081 += 12288;
+			MemoryManager.textureMemory += 12288;
 		}
 	}
 

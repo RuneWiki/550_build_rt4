@@ -22,25 +22,18 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		}
 	}
 
-	static final void method1639(final int i, final int i_1_, final int i_2_, final int i_3_, final boolean bool, final int i_4_, final int i_5_) {
-		try {
-			Class134.anInt1280 = i_5_;
-			Class99.anInt951 = i_1_;
-			ObjectContainer.anInt2621 = i_2_;
-			if (i_4_ != 0) {
-				method1639(6, 117, 100, 73, true, 14, -115);
-			}
-			SpotAnimType.anInt986 = i_3_;
-			NpcType.anInt1660 = i;
-			if (bool && ObjectContainer.anInt2621 >= 100) {
-				FileSystemWorker.renderX = 128 * Class99.anInt951 + 64;
-				GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
-				Class120_Sub12_Sub10.renderY = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel) - SpotAnimType.anInt986;
-			}
-			client.cameraType = 2;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.B(").append(i).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(bool).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+	static final void method1639(final int i, final int i_1_, final int i_2_, final int i_3_, final boolean bool, final int i_5_) {
+		Class134.anInt1280 = i_5_;
+		Class99.anInt951 = i_1_;
+		ObjectContainer.anInt2621 = i_2_;
+		SpotAnimType.anInt986 = i_3_;
+		NpcType.anInt1660 = i;
+		if (bool && ObjectContainer.anInt2621 >= 100) {
+			FileSystemWorker.renderX = 128 * Class99.anInt951 + 64;
+			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
+			Class120_Sub12_Sub10.renderY = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel) - SpotAnimType.anInt986;
 		}
+		client.cameraType = 2;
 	}
 
 	final int method1640(final char c) {

@@ -39,8 +39,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					int i_5_ = i_4_ * (jagexInterface.objSpritePadX + 32);
 					int i_6_ = i_3_ * (jagexInterface.objSpritePadY + 32);
 					if (i_2_ < 20) {
-						i_6_ += jagexInterface.spriteYs[i_2_];
 						i_5_ += jagexInterface.spriteXs[i_2_];
+						i_6_ += jagexInterface.spriteYs[i_2_];
 					}
 					if (i_1_ >= i_5_ && i_0_ >= i_6_ && i_5_ + 32 > i_1_ && i_0_ < 32 + i_6_) {
 						ClanMember.anInt2572 = i_2_;
@@ -55,29 +55,29 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 										InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
 									}
 								} else {
-									String[] strings = objType.inventoryOptions;
-									if (MouseHandler.showNumbersOnActions) {
-										strings = Class120_Sub12_Sub36.addNumbers(strings);
+									String[] options = objType.inventoryOptions;
+									if (MouseHandler.showNumbersOnOptions) {
+										options = Class120_Sub12_Sub36.addNumbers(options);
 									}
 									if (class120_sub20.method1694()) {
 										for (int i_7_ = 4; i_7_ >= 3; i_7_--) {
-											if (strings != null && strings[i_7_] != null) {
+											if (options != null && options[i_7_] != null) {
 												short i_8_;
 												if (i_7_ == 3) {
 													i_8_ = (short) 10;
 												} else {
 													i_8_ = (short) 51;
 												}
-												InvType.addMenuOption(strings[i_7_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_8_, -1);
+												InvType.addMenuOption(options[i_7_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_8_, -1);
 											}
 										}
 									}
 									if (class120_sub20.method1687()) {
 										InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.anInt3205);
 									}
-									if (class120_sub20.method1694() && strings != null) {
+									if (class120_sub20.method1694() && options != null) {
 										for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
-											if (strings[i_9_] != null) {
+											if (options[i_9_] != null) {
 												short i_10_ = 0;
 												if (i_9_ == 0) {
 													i_10_ = (short) 58;
@@ -88,17 +88,17 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 												if (i_9_ == 2) {
 													i_10_ = (short) 17;
 												}
-												InvType.addMenuOption(strings[i_9_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_10_, -1);
+												InvType.addMenuOption(options[i_9_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_10_, -1);
 											}
 										}
 									}
-									strings = jagexInterface.oiActions;
-									if (MouseHandler.showNumbersOnActions) {
-										strings = Class120_Sub12_Sub36.addNumbers(strings);
+									options = jagexInterface.oiActions;
+									if (MouseHandler.showNumbersOnOptions) {
+										options = Class120_Sub12_Sub36.addNumbers(options);
 									}
-									if (strings != null) {
+									if (options != null) {
 										for (int i_11_ = 4; i_11_ >= 0; i_11_--) {
-											if (strings[i_11_] != null) {
+											if (options[i_11_] != null) {
 												short i_12_ = 0;
 												if (i_11_ == 0) {
 													i_12_ = (short) 30;
@@ -115,7 +115,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 												if (i_11_ == 4) {
 													i_12_ = (short) 49;
 												}
-												InvType.addMenuOption(strings[i_11_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_12_, -1);
+												InvType.addMenuOption(options[i_11_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_12_, -1);
 											}
 										}
 									}
@@ -209,7 +209,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 		} else if (gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
 			Class120_Sub12_Sub32.method1371(gameEntity);
 		} else {
-			Class111.method984(gameEntity, 0);
+			Class111.method984(gameEntity);
 		}
 		if (gameEntity.x < 128 || gameEntity.z < 128 || gameEntity.x >= 13184 || gameEntity.z >= 13184) {
 			gameEntity.anInt2961 = 0;

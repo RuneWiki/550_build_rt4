@@ -12,7 +12,7 @@ abstract class GameEntity extends SceneGraphNode {
 	private int anInt2962 = 0;
 	int anInt2963;
 	int anInt2964;
-	int anInt2965;
+	int spotAnimHeight;
 	private int anInt2966;
 	int anInt2967;
 	int[] hitsValue;
@@ -26,13 +26,13 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2976;
 	private int size;
 	static int currentBaseX;
-	int anInt2979;
+	int spotAnimDelay;
 	private boolean aBoolean2980;
 	int facingEntityIndex;
 	int anInt2982;
 	int anInt2983;
 	int anInt2984;
-	int anInt2985;
+	int lastUpdateCycle;
 	boolean hasMenuAction;
 	int anInt2987;
 	ParticleEngine aClass108_Sub2_2988;
@@ -131,7 +131,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.z = this.walkQueueZ[0] * 128 + 64 * size;
 		this.anInt2960 = 0;
 		if (HDToolkit.glEnabled && this == TileParticleQueue.selfPlayer) {
-			Class158.aBoolean1478 = true;
+			ModelParticle.aBoolean1478 = true;
 		}
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();
@@ -722,7 +722,7 @@ abstract class GameEntity extends SceneGraphNode {
 		anInt3029 = 0;
 		this.anInt3022 = 0;
 		this.anInt2990 = 0;
-		this.anInt2985 = 0;
+		this.lastUpdateCycle = 0;
 		this.faceZ = 0;
 		this.anInt3042 = 0;
 		this.anInt3046 = 0;
