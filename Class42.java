@@ -49,7 +49,7 @@ final class Class42 {
 						if (class180_sub5_sub2.anInt3010 == 0) {
 							class180_sub5_sub2.anInt3032 = 0;
 						}
-						class180_sub5_sub2.anInt2982 = class180_sub5_sub2.npcType.anInt1692;
+						class180_sub5_sub2.entityRenderDataId = class180_sub5_sub2.npcType.anInt1692;
 						class180_sub5_sub2.method2323(i_9_, i_11_, class180_sub5_sub2.getSize(), true);
 					}
 				}

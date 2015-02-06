@@ -479,20 +479,20 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 
 	static final void method1346(final AbstractIndexedSprite abstractIndexedSprite, final JagexInterface jagexInterface, final int i, final int i_142_, final int i_143_, final int i_144_) {
 		if (abstractIndexedSprite != null) {
-			final int i_145_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
+			final int i_145_ = Class164.minimapRandomRotation + (int) DummyOutputStream.aFloat28 & 0x7ff;
 			final int i_146_ = 10 + Math.max(jagexInterface.width / 2, jagexInterface.height / 2);
 			final int i_147_ = i_143_ * i_143_ + i_142_ * i_142_;
 			if (i_146_ * i_146_ >= i_147_) {
 				int i_148_ = Rasterizer.sineTable[i_145_];
-				i_148_ = 256 * i_148_ / (256 + Class154.anInt1442);
+				i_148_ = 256 * i_148_ / (256 + Class154.minimapRandomZoom);
 				int i_149_ = Rasterizer.cosineTable[i_145_];
-				i_149_ = 256 * i_149_ / (Class154.anInt1442 - -256);
+				i_149_ = 256 * i_149_ / (Class154.minimapRandomZoom - -256);
 				final int i_150_ = i_149_ * i_142_ + i_143_ * i_148_ >> 16;
 				final int i_151_ = -(i_142_ * i_148_) + i_143_ * i_149_ >> 16;
 				if (HDToolkit.glEnabled) {
-					((HDIndexedSprite) abstractIndexedSprite).method928(-(abstractIndexedSprite.trimWidth / 2) + i_150_ + jagexInterface.width / 2 + i, jagexInterface.height / 2 + i_144_ + -i_151_ - abstractIndexedSprite.trimHeight / 2, (HDSprite) jagexInterface.method2492(false));
+					((HDIndexedSprite) abstractIndexedSprite).method928(-(abstractIndexedSprite.trimWidth / 2) + i_150_ + jagexInterface.width / 2 + i, jagexInterface.height / 2 + i_144_ + -i_151_ - abstractIndexedSprite.trimHeight / 2, (HDSprite) jagexInterface.constructSpriteFromId(false));
 				} else {
-					((LDIndexedSprite) abstractIndexedSprite).method924(i_150_ + i + jagexInterface.width / 2 - abstractIndexedSprite.trimWidth / 2, -i_151_ + i_144_ - (-(jagexInterface.height / 2) - -(abstractIndexedSprite.trimHeight / 2)), jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+					((LDIndexedSprite) abstractIndexedSprite).method924(i_150_ + i + jagexInterface.width / 2 - abstractIndexedSprite.trimWidth / 2, -i_151_ + i_144_ - (-(jagexInterface.height / 2) - -(abstractIndexedSprite.trimHeight / 2)), jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				}
 			}
 		}

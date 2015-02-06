@@ -2,10 +2,10 @@
  * Visit http://jode.sourceforge.net/
  */
 
-abstract class AbstractModel extends SceneGraphNode {
+abstract class AbstractModelRenderer extends SceneGraphNode {
 	boolean haveActions = false;
 
-	abstract void method2360(int i);
+	abstract void rotate(int i);
 
 	final void method2361(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameLoader class120_sub14_sub18_4_, final int i_5_,
 			final FrameLoader class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
@@ -45,7 +45,7 @@ abstract class AbstractModel extends SceneGraphNode {
 
 	abstract void method2362(int i);
 
-	abstract int method2363();
+	abstract int getMaxZ();
 
 	abstract void method2364();
 
@@ -231,15 +231,15 @@ abstract class AbstractModel extends SceneGraphNode {
 
 	abstract void rotate180();
 
-	abstract int method2374();
+	abstract int getMaxX();
 
 	abstract boolean method2375();
 
-	abstract AbstractModel method2376(boolean bool, boolean bool_78_, boolean bool_79_);
+	abstract AbstractModelRenderer method2376(boolean bool, boolean bool_78_, boolean bool_79_);
 
 	abstract void method2377(int i);
 
-	abstract AbstractModel method2378(boolean bool, boolean bool_80_, boolean bool_81_);
+	abstract AbstractModelRenderer method2378(boolean bool, boolean bool_80_, boolean bool_81_);
 
 	abstract void method2379(int i, int i_82_, int i_83_, int i_84_);
 
@@ -259,11 +259,11 @@ abstract class AbstractModel extends SceneGraphNode {
 		}
 	}
 
-	abstract AbstractModel method2381(boolean bool, boolean bool_90_, boolean bool_91_);
+	abstract AbstractModelRenderer method2381(boolean bool, boolean bool_90_, boolean bool_91_);
 
 	abstract void method2382(int i, int[] is, int i_92_, int i_93_, int i_94_, boolean bool, int i_95_, int[] is_96_);
 
-	abstract int method2383();
+	abstract int getMinX();
 
 	final void method2384(final FrameLoader frameLoader, final int frameId, final FrameLoader nextFrameLoader, final int nextFrame, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
 		if (frameId != -1 && method2375()) {
@@ -320,13 +320,13 @@ abstract class AbstractModel extends SceneGraphNode {
 		}
 	}
 
-	abstract int method2386();
+	abstract int getMinZ();
 
-	abstract int getMaxZ();
+	abstract int getMinY();
 
 	abstract void method2388(int i, int[] is, int i_126_, int i_127_, int i_128_, boolean bool);
 
-	public AbstractModel() {
+	public AbstractModelRenderer() {
 		/* empty */
 	}
 

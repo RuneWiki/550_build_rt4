@@ -4,8 +4,8 @@
 
 final class PlayerAppearance {
 	static int hintmapedgeId;
-	private long bitPacked;
-	private int anInt1366;
+	private long appearanceHash;
+	private int entityRenderDataId;
 	static int anInt1367;
 	static String aString1368 = "Allocated memory";
 	static int frameHeight;
@@ -13,9 +13,9 @@ final class PlayerAppearance {
 	boolean isFemale;
 	static int anInt1372 = 0;
 	static WorldMapFont aClass98_1373;
-	private long aLong1374;
+	private long lastCachedModelHash;
 	int npcId;
-	private int[] anIntArray1376;
+	private int[] appearanceData;
 	private int[][] anIntArrayArray1377;
 
 	public static void method2034(final int i) {
@@ -43,36 +43,36 @@ final class PlayerAppearance {
 		return i;
 	}
 
-	final void method2036(final int i_5_, final int i_6_) {
-		final int i_7_ = Class120_Sub12_Sub3.anIntArray3148[i_5_];
-		if (anIntArray1376[i_7_] != 0 && IdentityKit.list(i_6_) != null) {
-			anIntArray1376[i_7_] = Class191.method2512(-2147483648, i_6_);
-			updateBitPacked();
+	final void setAppearanceData(final int index, final int data) {
+		final int i_7_ = Class120_Sub12_Sub3.anIntArray3148[index];
+		if (appearanceData[i_7_] != 0 && IdentityKit.list(data) != null) {
+			appearanceData[i_7_] = Class191.method2512(-2147483648, data);
+			updateApperanceHash();
 		}
 	}
 
 	final void setFemaleGender(final boolean bool) {
 		this.isFemale = bool;
-		updateBitPacked();
+		updateApperanceHash();
 	}
 
-	private final void updateBitPacked() {
-		final long l = bitPacked;
+	private final void updateApperanceHash() {
+		final long l = appearanceHash;
 		final long[] ls = SeekableFile.aLongArray2137;
-		bitPacked = -1L;
-		bitPacked = bitPacked >>> 8 ^ ls[(int) (0xffL & (anInt1366 >> 8 ^ bitPacked))];
-		bitPacked = ls[(int) (0xffL & (bitPacked ^ anInt1366))] ^ bitPacked >>> 8;
+		appearanceHash = -1L;
+		appearanceHash = appearanceHash >>> 8 ^ ls[(int) (0xffL & (entityRenderDataId >> 8 ^ appearanceHash))];
+		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ entityRenderDataId))] ^ appearanceHash >>> 8;
 		for (int i_8_ = 0; i_8_ < 12; i_8_++) {
-			bitPacked = bitPacked >>> 8 ^ ls[(int) ((anIntArray1376[i_8_] >> 24 ^ bitPacked) & 0xffL)];
-			bitPacked = bitPacked >>> 8 ^ ls[(int) ((anIntArray1376[i_8_] >> 16 ^ bitPacked) & 0xffL)];
-			bitPacked = ls[(int) (0xffL & (bitPacked ^ anIntArray1376[i_8_] >> 8))] ^ bitPacked >>> 8;
-			bitPacked = ls[(int) (0xffL & (bitPacked ^ anIntArray1376[i_8_]))] ^ bitPacked >>> 8;
+			appearanceHash = appearanceHash >>> 8 ^ ls[(int) ((appearanceData[i_8_] >> 24 ^ appearanceHash) & 0xffL)];
+			appearanceHash = appearanceHash >>> 8 ^ ls[(int) ((appearanceData[i_8_] >> 16 ^ appearanceHash) & 0xffL)];
+			appearanceHash = ls[(int) (0xffL & (appearanceHash ^ appearanceData[i_8_] >> 8))] ^ appearanceHash >>> 8;
+			appearanceHash = ls[(int) (0xffL & (appearanceHash ^ appearanceData[i_8_]))] ^ appearanceHash >>> 8;
 		}
 		for (int i_9_ = 0; i_9_ < 5; i_9_++) {
-			bitPacked = bitPacked >>> 8 ^ ls[(int) (0xffL & (this.colors[i_9_] ^ bitPacked))];
+			appearanceHash = appearanceHash >>> 8 ^ ls[(int) (0xffL & (this.colors[i_9_] ^ appearanceHash))];
 		}
-		bitPacked = ls[(int) (0xffL & (bitPacked ^ (!this.isFemale ? 0 : 1)))] ^ bitPacked >>> 8;
-		if (l != 0L && bitPacked != l) {
+		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ (!this.isFemale ? 0 : 1)))] ^ appearanceHash >>> 8;
+		if (l != 0L && appearanceHash != l) {
 			Class43.playerModelsCache.remove(l);
 		}
 	}
@@ -99,115 +99,122 @@ final class PlayerAppearance {
 		} else {
 			GraphicsHD.fillRect(i_11_, 16 + i_13_, 16, i - 32, Varp.anInt623);
 			GraphicsHD.fillRect(i_11_, i_13_ - (-16 + -i_16_), 16, i_15_, JagexSocket.anInt414);
-			GraphicsHD.method587(i_11_, i_16_ + 16 + i_13_, i_15_, Class39.anInt322);
-			GraphicsHD.method587(1 + i_11_, 16 + i_13_ + i_16_, i_15_, Class39.anInt322);
-			GraphicsHD.method598(i_11_, 16 + i_13_ - -i_16_, 16, Class39.anInt322);
-			GraphicsHD.method598(i_11_, i_16_ + i_13_ + 17, 16, Class39.anInt322);
-			GraphicsHD.method587(i_11_ - -15, i_13_ - (-16 + -i_16_), i_15_, Class120_Sub19.anInt2655);
-			GraphicsHD.method587(14 + i_11_, 17 + i_13_ + i_16_, i_15_ - 1, Class120_Sub19.anInt2655);
-			GraphicsHD.method598(i_11_, i_15_ + 15 + i_13_ + i_16_, 16, Class120_Sub19.anInt2655);
-			GraphicsHD.method598(i_11_ + 1, i_15_ + 14 + i_13_ - -i_16_, 15, Class120_Sub19.anInt2655);
+			GraphicsHD.drawVerticalLine(i_11_, i_16_ + 16 + i_13_, i_15_, Class39.anInt322);
+			GraphicsHD.drawVerticalLine(1 + i_11_, 16 + i_13_ + i_16_, i_15_, Class39.anInt322);
+			GraphicsHD.drawHorizontalLine(i_11_, 16 + i_13_ - -i_16_, 16, Class39.anInt322);
+			GraphicsHD.drawHorizontalLine(i_11_, i_16_ + i_13_ + 17, 16, Class39.anInt322);
+			GraphicsHD.drawVerticalLine(i_11_ - -15, i_13_ - (-16 + -i_16_), i_15_, Class120_Sub19.anInt2655);
+			GraphicsHD.drawVerticalLine(14 + i_11_, 17 + i_13_ + i_16_, i_15_ - 1, Class120_Sub19.anInt2655);
+			GraphicsHD.drawHorizontalLine(i_11_, i_15_ + 15 + i_13_ + i_16_, 16, Class120_Sub19.anInt2655);
+			GraphicsHD.drawHorizontalLine(i_11_ + 1, i_15_ + 14 + i_13_ - -i_16_, 15, Class120_Sub19.anInt2655);
 		}
 	}
 
-	final AbstractModel method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType seqType, final int i_19_, final boolean bool, final int i_21_, final SeqType class40_22_, final boolean bool_23_, final int i_24_) {
+	final AbstractModelRenderer method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType idleSeqType, final int i_19_, final boolean bool, final int i_21_, final SeqType animSeqType, final boolean bool_23_, final int i_24_) {
 		if (this.npcId != -1) {
-			return NpcType.list(this.npcId).method2212(i_19_, i_21_, seqType, class40_22_, i_17_, class150s, i_18_, i, i_24_);
+			return NpcType.list(this.npcId).method2212(i_19_, i_21_, idleSeqType, animSeqType, i_17_, class150s, i_18_, i, i_24_);
 		}
-		int[] is = anIntArray1376;
-		long l = bitPacked;
-		if (class40_22_ != null && (class40_22_.shieldDisplayed >= 0 || class40_22_.weaponDisplayed >= 0)) {
-			is = new int[12];
-			for (int i_25_ = 0; i_25_ < 12; i_25_++) {
-				is[i_25_] = anIntArray1376[i_25_];
+		int[] appData = appearanceData;
+		long hash = appearanceHash;
+		if (animSeqType != null && (animSeqType.shieldDisplayed >= 0 || animSeqType.weaponDisplayed >= 0)) {
+			appData = new int[12];
+			for (int id = 0; id < 12; id++) {
+				appData[id] = appearanceData[id];
 			}
-			if (class40_22_.shieldDisplayed >= 0) {
-				if (class40_22_.shieldDisplayed == 65535) {
-					is[5] = 0;
-					l ^= ~0xffffffffL;
+			if (animSeqType.shieldDisplayed >= 0) {
+				if (animSeqType.shieldDisplayed == 65535) {//65535 to remove
+					appData[5] = 0;
+					hash ^= ~0xffffffffL;
 				} else {
-					is[5] = Class191.method2512(class40_22_.shieldDisplayed, 0x40000000);
-					l ^= (long) is[5] << 32;
+					appData[5] = animSeqType.shieldDisplayed | 0x40000000;
+					hash ^= (long) appData[5] << 32;
 				}
 			}
-			if (class40_22_.weaponDisplayed >= 0) {
-				if (class40_22_.weaponDisplayed == 65535) {
-					is[3] = 0;
-					l ^= 0xffffffffL;
+			if (animSeqType.weaponDisplayed >= 0) {
+				if (animSeqType.weaponDisplayed == 65535) {//65535 to remove
+					appData[3] = 0;
+					hash ^= 0xffffffffL;
 				} else {
-					is[3] = Class191.method2512(class40_22_.weaponDisplayed, 0x40000000);
-					l ^= is[3];
+					appData[3] = animSeqType.weaponDisplayed | 0x40000000;
+					hash ^= appData[3];
 				}
 			}
 		}
-		AbstractModel class180_sub7_26_ = (AbstractModel) Class43.playerModelsCache.get(l);
-		if (class180_sub7_26_ == null) {
-			boolean bool_27_ = false;
-			for (int i_28_ = 0; i_28_ < 12; i_28_++) {
-				final int i_29_ = is[i_28_];
-				if ((i_29_ & 0x40000000) != 0) {
-					if (!ObjType.list(i_29_ & 0x3fffffff).method2110(this.isFemale)) {
-						bool_27_ = true;
+		AbstractModelRenderer cachedModel = (AbstractModelRenderer) Class43.playerModelsCache.get(hash);
+		if (cachedModel == null) {
+			boolean failedToDownload = false;
+			for (int id = 0; id < 12; id++) {
+				final int data = appData[id];
+				if ((data & 0x40000000) != 0) {//check if it's an object
+					if (!ObjType.list(data & 0x3fffffff).modelsDownloaded(this.isFemale)) {
+						failedToDownload = true;
 					}
-				} else if ((~0x7fffffff & i_29_) != 0 && !IdentityKit.list(i_29_ & 0x3fffffff).method1990()) {
-					bool_27_ = true;
+				} else if ((~0x7fffffff & data) != 0 && !IdentityKit.list(data & 0x3fffffff).modelsDownloaded()) {//checks
+					failedToDownload = true;
 				}
 			}
-			if (bool_27_) {
-				if (aLong1374 != -1L) {
-					class180_sub7_26_ = (AbstractModel) Class43.playerModelsCache.get(aLong1374);
+			if (failedToDownload) {
+				//if failed to download latest models for appearance display newest that we got, if not return null
+				if (lastCachedModelHash != -1L) {
+					cachedModel = (AbstractModelRenderer) Class43.playerModelsCache.get(lastCachedModelHash);
 				}
-				if (class180_sub7_26_ == null) {
+				if (cachedModel == null) {
 					return null;
 				}
 			}
-			if (class180_sub7_26_ == null) {
-				final Class180_Sub2[] class180_sub2s = new Class180_Sub2[12];
-				for (int i_30_ = 0; i_30_ < 12; i_30_++) {
-					final int i_31_ = is[i_30_];
-					if ((i_31_ & 0x40000000) != 0) {
-						final Class180_Sub2 class180_sub2 = ObjType.list(i_31_ & 0x3fffffff).method2103(this.isFemale);
-						if (class180_sub2 != null) {
-							class180_sub2s[i_30_] = class180_sub2;
+			if (cachedModel == null) {
+				final Model[] playerModels = new Model[12];
+				for (int id = 0; id < 12; id++) {
+					final int data = appData[id];
+					if ((data & 0x40000000) != 0) {//check if it's an object
+						final Model objectModel = ObjType.list(data & 0x3fffffff).method2103(this.isFemale);
+						if (objectModel != null) {
+							playerModels[id] = objectModel;
 						}
-					} else if ((~0x7fffffff & i_31_) != 0) {
-						final Class180_Sub2 class180_sub2 = IdentityKit.list(0x3fffffff & i_31_).method1986();
-						if (class180_sub2 != null) {
-							class180_sub2s[i_30_] = class180_sub2;
+					} else if ((~0x7fffffff & data) != 0) {
+						final Model kitModel = IdentityKit.list(0x3fffffff & data).method1986();
+						if (kitModel != null) {
+							playerModels[id] = kitModel;
 						}
 					}
 				}
-				Class29 class29 = null;
-				if (anInt1366 != -1) {
-					class29 = Class29.list(anInt1366);
+				EntityRenderData entityRenderData = null;
+				if (entityRenderDataId != -1) {
+					entityRenderData = EntityRenderData.list(entityRenderDataId);
+					/*int i_15_ = 4;
+					entityRenderData.anIntArrayArray215 = new int[12][];
+					entityRenderData.anIntArrayArray215[i_15_] = new int[6];
+					//for (int i_16_ = 0; i_16_ < 6; i_16_++) {
+						entityRenderData.anIntArrayArray215[i_15_][4] = 1024;
+					//}*/
 				}
-				if (class29 != null && class29.anIntArrayArray215 != null) {
-					for (int i_32_ = 0; i_32_ < class29.anIntArrayArray215.length; i_32_++) {
-						if (class29.anIntArrayArray215[i_32_] != null && class180_sub2s[i_32_] != null) {
-							final int i_33_ = class29.anIntArrayArray215[i_32_][0];
-							final int i_34_ = class29.anIntArrayArray215[i_32_][1];
-							final int i_35_ = class29.anIntArrayArray215[i_32_][2];
-							final int i_36_ = class29.anIntArrayArray215[i_32_][3];
-							final int i_37_ = class29.anIntArrayArray215[i_32_][5];
-							final int i_38_ = class29.anIntArrayArray215[i_32_][4];
+				if (entityRenderData != null && entityRenderData.modelRotateTranslate != null) {
+					for (int id = 0; id < entityRenderData.modelRotateTranslate.length; id++) {
+						if (entityRenderData.modelRotateTranslate[id] != null && playerModels[id] != null) {
+							final int translateX = entityRenderData.modelRotateTranslate[id][0];
+							final int translateY = entityRenderData.modelRotateTranslate[id][1];
+							final int translateZ = entityRenderData.modelRotateTranslate[id][2];
+							final int rotateX = entityRenderData.modelRotateTranslate[id][3];
+							final int rotateZ = entityRenderData.modelRotateTranslate[id][5];
+							final int rotateY = entityRenderData.modelRotateTranslate[id][4];
 							if (anIntArrayArray1377 == null) {
-								anIntArrayArray1377 = new int[class29.anIntArrayArray215.length][];
+								anIntArrayArray1377 = new int[entityRenderData.modelRotateTranslate.length][];
 							}
-							if (anIntArrayArray1377[i_32_] == null) {
-								final int[] is_39_ = anIntArrayArray1377[i_32_] = new int[15];
-								if (i_36_ == 0 && i_38_ == 0 && i_37_ == 0) {
-									is_39_[13] = -i_34_;
+							if (anIntArrayArray1377[id] == null) {
+								final int[] is_39_ = anIntArrayArray1377[id] = new int[15];
+								if (rotateX == 0 && rotateY == 0 && rotateZ == 0) {
+									is_39_[13] = -translateY;
 									is_39_[0] = is_39_[4] = is_39_[8] = 32768;
-									is_39_[14] = -i_35_;
-									is_39_[12] = -i_33_;
+									is_39_[14] = -translateZ;
+									is_39_[12] = -translateX;
 								} else {
-									final int i_40_ = Rasterizer.cosineTable[i_36_] >> 1;
-									final int i_41_ = Rasterizer.sineTable[i_36_] >> 1;
-									final int i_42_ = Rasterizer.cosineTable[i_38_] >> 1;
-									final int i_43_ = Rasterizer.sineTable[i_37_] >> 1;
-									final int i_44_ = Rasterizer.sineTable[i_38_] >> 1;
+									final int i_40_ = Rasterizer.cosineTable[rotateX] >> 1;
+									final int i_41_ = Rasterizer.sineTable[rotateX] >> 1;
+									final int i_42_ = Rasterizer.cosineTable[rotateY] >> 1;
+									final int i_43_ = Rasterizer.sineTable[rotateZ] >> 1;
+									final int i_44_ = Rasterizer.sineTable[rotateY] >> 1;
 									final int i_45_ = i_41_ * i_43_ - -16384 >> 15;
-									final int i_46_ = Rasterizer.cosineTable[i_37_] >> 1;
+									final int i_46_ = Rasterizer.cosineTable[rotateZ] >> 1;
 									final int i_47_ = 16384 + i_46_ * i_41_ >> 15;
 									is_39_[3] = 16384 + i_40_ * i_43_ >> 15;
 									is_39_[1] = 16384 + -i_43_ * i_42_ - -(i_44_ * i_47_) >> 15;
@@ -215,27 +222,27 @@ final class PlayerAppearance {
 									is_39_[7] = 16384 + -i_43_ * -i_44_ - -(i_42_ * i_47_) >> 15;
 									is_39_[6] = i_45_ * i_42_ + -i_44_ * i_46_ + 16384 >> 15;
 									is_39_[4] = 16384 + i_40_ * i_46_ >> 15;
-									is_39_[13] = 16384 + -i_35_ * is_39_[7] + is_39_[1] * -i_33_ - -(is_39_[4] * -i_34_) >> 15;
+									is_39_[13] = 16384 + -translateZ * is_39_[7] + is_39_[1] * -translateX - -(is_39_[4] * -translateY) >> 15;
 									is_39_[5] = -i_41_;
 									is_39_[2] = i_40_ * i_44_ + 16384 >> 15;
 									is_39_[0] = 16384 + i_42_ * i_46_ + i_44_ * i_45_ >> 15;
-									is_39_[12] = is_39_[3] * -i_34_ + is_39_[0] * -i_33_ + -i_35_ * is_39_[6] + 16384 >> 15;
-									is_39_[14] = 16384 + is_39_[8] * -i_35_ + -i_33_ * is_39_[2] + -i_34_ * is_39_[5] >> 15;
+									is_39_[12] = is_39_[3] * -translateY + is_39_[0] * -translateX + -translateZ * is_39_[6] + 16384 >> 15;
+									is_39_[14] = 16384 + is_39_[8] * -translateZ + -translateX * is_39_[2] + -translateY * is_39_[5] >> 15;
 								}
-								is_39_[10] = i_34_;
-								is_39_[9] = i_33_;
-								is_39_[11] = i_35_;
+								is_39_[10] = translateY;
+								is_39_[9] = translateX;
+								is_39_[11] = translateZ;
 							}
-							if (i_36_ != 0 || i_38_ != 0 || i_37_ != 0) {
-								class180_sub2s[i_32_].method2293(i_36_, i_38_, i_37_);
+							if (rotateX != 0 || rotateY != 0 || rotateZ != 0) {
+								playerModels[id].method2293(rotateX, rotateY, rotateZ);
 							}
-							if (i_33_ != 0 || i_34_ != 0 || i_35_ != 0) {
-								class180_sub2s[i_32_].translate(i_33_, i_34_, i_35_);
+							if (translateX != 0 || translateY != 0 || translateZ != 0) {
+								playerModels[id].translate(translateX, translateY, translateZ);
 							}
 						}
 					}
 				}
-				final Class180_Sub2 class180_sub2 = new Class180_Sub2(class180_sub2s, class180_sub2s.length);
+				final Model class180_sub2 = new Model(playerModels, playerModels.length);
 				for (int i_48_ = 0; i_48_ < 5; i_48_++) {
 					if (Class159.aShortArrayArray1489[i_48_].length > this.colors[i_48_]) {
 						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_48_], Class159.aShortArrayArray1489[i_48_][this.colors[i_48_]]);
@@ -244,13 +251,13 @@ final class PlayerAppearance {
 						class180_sub2.recolor(SpotAnimType.aShortArray994[i_48_], Class120_Sub30_Sub1.aShortArrayArray3668[i_48_][this.colors[i_48_]]);
 					}
 				}
-				class180_sub7_26_ = class180_sub2.method2300(64, 850, -30, -50, -30);
+				cachedModel = class180_sub2.toRenderer(64, 850, -30, -50, -30);
 				if (HDToolkit.glEnabled) {
-					((HDModel) class180_sub7_26_).method2432(false, false, true, true, false, false, true);
+					((HDModelRenderer) cachedModel).method2432(false, false, true, true, false, false, true);
 				}
 				if (bool_23_) {
-					Class43.playerModelsCache.put(class180_sub7_26_, l);
-					aLong1374 = l;
+					Class43.playerModelsCache.put(cachedModel, hash);
+					lastCachedModelHash = hash;
 				}
 			}
 		}
@@ -296,32 +303,32 @@ final class PlayerAppearance {
 				}
 			}
 		}
-		if (!bool_49_ && class40_22_ == null && seqType == null) {
+		if (!bool_49_ && animSeqType == null && idleSeqType == null) {
 			if (bool) {
-				return class180_sub7_26_.method2376(false, false, false);
+				return cachedModel.method2376(false, false, false);
 			}
-			return class180_sub7_26_;
+			return cachedModel;
 		}
 		int i_60_ = -1;
 		int i_61_ = -1;
 		FrameLoader class120_sub14_sub18 = null;
 		int i_62_ = 0;
 		FrameLoader class120_sub14_sub18_63_ = null;
-		if (class40_22_ != null) {
-			i_60_ = class40_22_.frames[i_19_];
+		if (animSeqType != null) {
+			i_60_ = animSeqType.frames[i_19_];
 			final int i_64_ = i_60_ >>> 16;
 			i_60_ &= 0xffff;
 			class120_sub14_sub18 = FrameLoader.list(i_64_);
 			if (class120_sub14_sub18 != null) {
 				bool_51_ |= class120_sub14_sub18.method1579(i_60_);
 				bool_50_ |= class120_sub14_sub18.method1578(i_60_);
-				bool_52_ |= class40_22_.aBoolean341;
+				bool_52_ |= animSeqType.aBoolean341;
 			}
-			if ((class40_22_.tween || Class164.forceTween) && i_17_ != -1 && i_17_ < class40_22_.frames.length) {
-				i_61_ = class40_22_.frames[i_17_];
+			if ((animSeqType.tween || Class164.forceTween) && i_17_ != -1 && i_17_ < animSeqType.frames.length) {
+				i_61_ = animSeqType.frames[i_17_];
 				final int i_65_ = i_61_ >>> 16;
 				i_61_ &= 0xffff;
-				i_62_ = class40_22_.delays[i_19_];
+				i_62_ = animSeqType.delays[i_19_];
 				if (i_65_ != i_64_) {
 					class120_sub14_sub18_63_ = FrameLoader.list(i_61_ >>> 16);
 				} else {
@@ -338,19 +345,19 @@ final class PlayerAppearance {
 		int i_68_ = -1;
 		FrameLoader class120_sub14_sub18_69_ = null;
 		FrameLoader class120_sub14_sub18_70_ = null;
-		if (seqType != null) {
-			i_68_ = seqType.frames[i];
+		if (idleSeqType != null) {
+			i_68_ = idleSeqType.frames[i];
 			final int i_71_ = i_68_ >>> 16;
 			class120_sub14_sub18_70_ = FrameLoader.list(i_71_);
 			i_68_ &= 0xffff;
 			if (class120_sub14_sub18_70_ != null) {
 				bool_51_ |= class120_sub14_sub18_70_.method1579(i_68_);
 				bool_50_ |= class120_sub14_sub18_70_.method1578(i_68_);
-				bool_52_ |= seqType.aBoolean341;
+				bool_52_ |= idleSeqType.aBoolean341;
 			}
-			if ((seqType.tween || Class164.forceTween) && i_18_ != -1 && i_18_ < seqType.frames.length) {
-				i_67_ = seqType.delays[i];
-				i_66_ = seqType.frames[i_18_];
+			if ((idleSeqType.tween || Class164.forceTween) && i_18_ != -1 && i_18_ < idleSeqType.frames.length) {
+				i_67_ = idleSeqType.delays[i];
+				i_66_ = idleSeqType.frames[i_18_];
 				final int i_72_ = i_66_ >>> 16;
 				i_66_ &= 0xffff;
 				if (i_72_ != i_71_) {
@@ -364,7 +371,7 @@ final class PlayerAppearance {
 				}
 			}
 		}
-		final AbstractModel class180_sub7_73_ = class180_sub7_26_.method2376(!bool_50_, !bool_51_, !bool_52_);
+		final AbstractModelRenderer class180_sub7_73_ = cachedModel.method2376(!bool_50_, !bool_51_, !bool_52_);
 		int i_74_ = 0;
 		int i_75_ = 1;
 		while (i_53_ > i_74_) {
@@ -375,13 +382,13 @@ final class PlayerAppearance {
 			i_75_ <<= 1;
 		}
 		if (class120_sub14_sub18 != null && class120_sub14_sub18_70_ != null) {
-			class180_sub7_73_.method2361(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, class40_22_.aBooleanArray327, seqType.aBoolean341 | class40_22_.aBoolean341);
+			class180_sub7_73_.method2361(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, animSeqType.aBooleanArray327, idleSeqType.aBoolean341 | animSeqType.aBoolean341);
 		} else if (class120_sub14_sub18 == null) {
 			if (class120_sub14_sub18_70_ != null) {
-				class180_sub7_73_.method2380(class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, seqType.aBoolean341);
+				class180_sub7_73_.method2380(class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, idleSeqType.aBoolean341);
 			}
 		} else {
-			class180_sub7_73_.method2380(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, class40_22_.aBoolean341);
+			class180_sub7_73_.method2380(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, animSeqType.aBoolean341);
 		}
 		for (int id = 0; id < i_53_; id++) {
 			Class120_Sub21.aClass120_Sub14_Sub18Array2667[id] = null;
@@ -391,18 +398,18 @@ final class PlayerAppearance {
 		return class180_sub7_73_;
 	}
 
-	final AbstractModel method2041(final int i, final SeqType seqType, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
-		AbstractModel class180_sub7;
+	final AbstractModelRenderer method2041(final int i, final SeqType seqType, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
+		AbstractModelRenderer class180_sub7;
 		try {
 			final long l = (long) i_77_ << 32 | i_76_ << 16 | i_80_;
-			AbstractModel class180_sub7_82_ = (AbstractModel) Class90.playerHeadModelsCache.get(l);
+			AbstractModelRenderer class180_sub7_82_ = (AbstractModelRenderer) Class90.playerHeadModelsCache.get(l);
 			if (class180_sub7_82_ == null) {
 				int i_83_ = 0;
-				final Class180_Sub2[] class180_sub2s = new Class180_Sub2[3];
+				final Model[] class180_sub2s = new Model[3];
 				if (!IdentityKit.list(i_80_).method1993() || !IdentityKit.list(i_76_).method1993() || !IdentityKit.list(i_77_).method1993()) {
 					return null;
 				}
-				Class180_Sub2 class180_sub2 = IdentityKit.list(i_80_).method1985();
+				Model class180_sub2 = IdentityKit.list(i_80_).method1985();
 				if (class180_sub2 != null) {
 					class180_sub2s[i_83_++] = class180_sub2;
 				}
@@ -414,7 +421,7 @@ final class PlayerAppearance {
 				if (class180_sub2 != null) {
 					class180_sub2s[i_83_++] = class180_sub2;
 				}
-				class180_sub2 = new Class180_Sub2(class180_sub2s, i_83_);
+				class180_sub2 = new Model(class180_sub2s, i_83_);
 				for (int i_84_ = 0; i_84_ < 5; i_84_++) {
 					if (Class159.aShortArrayArray1489[i_84_].length > this.colors[i_84_]) {
 						class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_84_], Class159.aShortArrayArray1489[i_84_][this.colors[i_84_]]);
@@ -423,7 +430,7 @@ final class PlayerAppearance {
 						class180_sub2.recolor(SpotAnimType.aShortArray994[i_84_], Class120_Sub30_Sub1.aShortArrayArray3668[i_84_][this.colors[i_84_]]);
 					}
 				}
-				class180_sub7_82_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+				class180_sub7_82_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
 				Class90.playerHeadModelsCache.put(class180_sub7_82_, l);
 			}
 			if (seqType != null) {
@@ -441,8 +448,8 @@ final class PlayerAppearance {
 	}
 
 	final void method2042(final int i_85_, int[] is, final int i_86_, final int[] is_87_, final boolean bool) {
-		if (anInt1366 != i_86_) {
-			anInt1366 = i_86_;
+		if (entityRenderDataId != i_86_) {
+			entityRenderDataId = i_86_;
 			anIntArrayArray1377 = null;
 		}
 		if (is == null) {
@@ -457,29 +464,29 @@ final class PlayerAppearance {
 				}
 			}
 		}
-		anIntArray1376 = is;
+		appearanceData = is;
 		this.colors = is_87_;
 		this.isFemale = bool;
 		this.npcId = i_85_;
-		updateBitPacked();
+		updateApperanceHash();
 	}
 
 	final int method2043() {
 		if (this.npcId != -1) {
 			return NpcType.list(this.npcId).myId + 0x12345678;
 		}
-		return (anIntArray1376[8] << 10) + (this.colors[0] << 25) + (this.colors[4] << 20) + (anIntArray1376[0] << 15) + (anIntArray1376[11] << 5) - -anIntArray1376[1];
+		return (appearanceData[8] << 10) + (this.colors[0] << 25) + (this.colors[4] << 20) + (appearanceData[0] << 15) + (appearanceData[11] << 5) - -appearanceData[1];
 	}
 
-	final AbstractModel method2044(final SeqType seqType, final int i, final int i_91_, final int i_92_) {
+	final AbstractModelRenderer method2044(final SeqType seqType, final int i, final int i_91_, final int i_92_) {
 		if (this.npcId != -1) {
 			return NpcType.list(this.npcId).method2210(seqType, i_91_, i, i_92_);
 		}
-		AbstractModel class180_sub7_94_ = (AbstractModel) Class90.playerHeadModelsCache.get(bitPacked);
+		AbstractModelRenderer class180_sub7_94_ = (AbstractModelRenderer) Class90.playerHeadModelsCache.get(appearanceHash);
 		if (class180_sub7_94_ == null) {
 			boolean bool = false;
 			for (int i_95_ = 0; i_95_ < 12; i_95_++) {
-				final int i_96_ = anIntArray1376[i_95_];
+				final int i_96_ = appearanceData[i_95_];
 				if ((i_96_ & 0x40000000) == 0) {
 					if ((~0x7fffffff & i_96_) != 0 && !IdentityKit.list(i_96_ & 0x3fffffff).method1993()) {
 						bool = true;
@@ -491,23 +498,23 @@ final class PlayerAppearance {
 			if (bool) {
 				return null;
 			}
-			final Class180_Sub2[] class180_sub2s = new Class180_Sub2[12];
+			final Model[] class180_sub2s = new Model[12];
 			int i_97_ = 0;
 			for (int i_98_ = 0; i_98_ < 12; i_98_++) {
-				final int i_99_ = anIntArray1376[i_98_];
+				final int i_99_ = appearanceData[i_98_];
 				if ((0x40000000 & i_99_) != 0) {
-					final Class180_Sub2 class180_sub2 = ObjType.list(i_99_ & 0x3fffffff).method2107(this.isFemale);
+					final Model class180_sub2 = ObjType.list(i_99_ & 0x3fffffff).method2107(this.isFemale);
 					if (class180_sub2 != null) {
 						class180_sub2s[i_97_++] = class180_sub2;
 					}
 				} else if ((~0x7fffffff & i_99_) != 0) {
-					final Class180_Sub2 class180_sub2 = IdentityKit.list(0x3fffffff & i_99_).method1985();
+					final Model class180_sub2 = IdentityKit.list(0x3fffffff & i_99_).method1985();
 					if (class180_sub2 != null) {
 						class180_sub2s[i_97_++] = class180_sub2;
 					}
 				}
 			}
-			final Class180_Sub2 class180_sub2 = new Class180_Sub2(class180_sub2s, i_97_);
+			final Model class180_sub2 = new Model(class180_sub2s, i_97_);
 			for (int i_100_ = 0; i_100_ < 5; i_100_++) {
 				if (Class159.aShortArrayArray1489[i_100_].length > this.colors[i_100_]) {
 					class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_100_], Class159.aShortArrayArray1489[i_100_][this.colors[i_100_]]);
@@ -516,8 +523,8 @@ final class PlayerAppearance {
 					class180_sub2.recolor(SpotAnimType.aShortArray994[i_100_], Class120_Sub30_Sub1.aShortArrayArray3668[i_100_][this.colors[i_100_]]);
 				}
 			}
-			class180_sub7_94_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-			Class90.playerHeadModelsCache.put(class180_sub7_94_, bitPacked);
+			class180_sub7_94_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
+			Class90.playerHeadModelsCache.put(class180_sub7_94_, appearanceHash);
 		}
 		if (seqType != null) {
 			class180_sub7_94_ = seqType.method323(class180_sub7_94_, i, i_91_, i_92_);
@@ -527,7 +534,7 @@ final class PlayerAppearance {
 
 	final void setColor(final int index, final int color) {
 		this.colors[index] = color;
-		updateBitPacked();
+		updateApperanceHash();
 	}
 
 	public PlayerAppearance() {

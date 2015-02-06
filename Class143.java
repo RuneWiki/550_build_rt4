@@ -240,8 +240,8 @@ class Class143 implements Interface3 {
 		Class120_Sub12_Sub1.aString3137 = "Standardinstellungen geladen";
 		selectString = "Ausw\u00e4hlen";
 		Class120_Sub12_Sub27.aString3338 = "Suche nach Updates - ";
-		Class36.aString313 = "Lade...";
-		Class29.aString217 = "Lade Titelbild - ";
+		GroundDecoration.aString313 = "Lade...";
+		EntityRenderData.aString217 = "Lade Titelbild - ";
 		Class109.continueString = "Weiter";
 		Class120_Sub14_Sub24.aString3665 = "Lade Sprites - ";
 		Class120_Sub12_Sub25.aString3319 = "Bitte entferne ";
@@ -268,11 +268,11 @@ class Class143 implements Interface3 {
 		InterfaceClickMask.aString2660 = "Lade Schrifts\u00e4tze - ";
 		ClanMember.aString2574 = "weiss:";
 		DisplayModeInfo.aString1708 = "Spielwelt erstellt.";
-		Class29.aString196 = ": ";
+		EntityRenderData.aString196 = ": ";
 		GameEntity.aString3011 = "scrollen:";
 		AnimatedLocation.aString3062 = "Spieler kann nicht gefunden werden: ";
 		Class120_Sub11.aString2552 = "Titelbild ge\u00f6ffnet.";
-		LongNode.aString2428 = "Lade Konfiguration - ";
+		LongNode.loadingConfigString = "Lade Konfiguration - ";
 		AbstractIndexedSprite.aString1025 = "Musik-Engine vorbereitet.";
 		Class120_Sub30_Sub2.aString3679 = "Ladevorgang - bitte warte.";
 		Class65.aString591 = "Angreifen";
@@ -299,14 +299,14 @@ class Class143 implements Interface3 {
 		Class116.aString1116 = "Verbindung abgebrochen.";
 		Class157.aString1462 = "Abbrechen";
 		Class147.aString1398 = "welle2:";
-		Class120_Sub12_Sub21_Sub1.aString3911 = "Stufe: ";
+		Class120_Sub12_Sub21_Sub1.levelString = "Stufe: ";
 		MouseRecorder.aString854 = "T";
 		Class11.aString81 = "Untersuchen";
 		Class121.aString1155 = "Schrifts\u00e4tze geladen.";
 		Class8.aString64 = "Ablegen";
 		PlayerAppearance.aString1368 = "Zugewiesener Speicher.";
 		GZIPDecompressor.aString799 = "Benutzeroberfl\u00e4che geladen.";
-		Class174.aString1733 = "Fertigkeit: ";
+		Class174.skillString = "Fertigkeit: ";
 		Class112.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
 		InterfaceListener.aString2538 = "gleiten:";
 		Class120_Sub12_Sub21_Sub1.aString3910 = " steht bereits auf deiner Freunde-Liste!";
@@ -319,7 +319,7 @@ class Class143 implements Interface3 {
 		MapSceneType.aString1358 = "Texturen geladen.";
 		Class69_Sub1.aString2231 = "gelb:";
 		AbstractRequest.aString3575 = "lila:";
-		LongNode.aString2424 = "Kampfstufe: ";
+		LongNode.ratingString = "Kampfstufe: ";
 		ClanMember.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}
 

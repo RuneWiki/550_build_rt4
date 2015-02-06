@@ -19,15 +19,15 @@ final class GraphicsHD {
 		endX = 0;
 	}
 
-	static final void method582(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
+	static final void drawLine(final int x1, final int y1, final int x2, final int y2, final int color) {
 		HDToolkit.method499();
-		final float f = i + 0.3F;
-		final float f_4_ = i_1_ + 0.3F;
-		final float f_5_ = HDToolkit.canvasHeight - (i_0_ + 0.3F);
-		final float f_6_ = HDToolkit.canvasHeight - (i_2_ + 0.3F);
+		final float f = x1 + 0.3F;
+		final float f_4_ = x2 + 0.3F;
+		final float f_5_ = HDToolkit.canvasHeight - (y1 + 0.3F);
+		final float f_6_ = HDToolkit.canvasHeight - (y2 + 0.3F);
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(2);
-		gl.glColor3ub((byte) (i_3_ >> 16), (byte) (i_3_ >> 8), (byte) i_3_);
+		gl.glColor3ub((byte) (color >> 16), (byte) (color >> 8), (byte) color);
 		gl.glVertex2f(f, f_5_);
 		gl.glVertex2f(f_4_, f_6_);
 		gl.glEnd();
@@ -62,21 +62,21 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void method585(final int[] is) {
-		is[0] = startX;
-		is[1] = startY;
-		is[2] = endX;
-		is[3] = endY;
+	static final void copyBounds(final int[] bounds) {
+		bounds[0] = startX;
+		bounds[1] = startY;
+		bounds[2] = endX;
+		bounds[3] = endY;
 	}
 
-	static final void method586(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_) {
+	static final void drawLine(final int x1, final int y1, final int x2, final int y2, final int color, final int lineWidth) {
 		final GL gl = HDToolkit.gl;
-		gl.glLineWidth(i_25_);
-		method582(i, i_21_, i_22_, i_23_, i_24_);
+		gl.glLineWidth(lineWidth);
+		drawLine(x1, y1, x2, y2, color);
 		gl.glLineWidth(1.0F);
 	}
 
-	static final void method587(final int i, final int i_26_, final int i_27_, final int i_28_) {
+	static final void drawVerticalLine(final int i, final int i_26_, final int i_27_, final int i_28_) {
 		HDToolkit.method499();
 		final float f = i + 0.3F;
 		final float f_29_ = HDToolkit.canvasHeight - (i_26_ + 0.3F);
@@ -129,7 +129,7 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void fillRect(final int x, final int y, final int w, final int h, final int color, final int alpha) {
+	static final void fillRectAlpha(final int x, final int y, final int w, final int h, final int color, final int alpha) {
 		HDToolkit.method499();
 		final float f = x;
 		final float f_51_ = f + w;
@@ -199,7 +199,7 @@ final class GraphicsHD {
 		aClass120_Sub14_Sub19_Sub1_603 = null;
 	}
 
-	static final void method594(final int[] is) {
+	static final void setBounds(final int[] is) {
 		clipRect(is[0], is[1], is[2], is[3]);
 	}
 
@@ -231,14 +231,14 @@ final class GraphicsHD {
 		method601();
 	}
 
-	static final void method598(final int i, final int i_63_, final int i_64_, final int i_65_) {
+	static final void drawHorizontalLine(final int x, final int y, final int length, final int color) {
 		HDToolkit.method499();
-		final float f = i + 0.3F;
-		final float f_66_ = f + i_64_;
-		final float f_67_ = HDToolkit.canvasHeight - (i_63_ + 0.3F);
+		final float f = x + 0.3F;
+		final float f_66_ = f + length;
+		final float f_67_ = HDToolkit.canvasHeight - (y + 0.3F);
 		final GL gl = HDToolkit.gl;
 		gl.glBegin(1);
-		gl.glColor3ub((byte) (i_65_ >> 16), (byte) (i_65_ >> 8), (byte) i_65_);
+		gl.glColor3ub((byte) (color >> 16), (byte) (color >> 8), (byte) color);
 		gl.glVertex2f(f, f_67_);
 		gl.glVertex2f(f_66_, f_67_);
 		gl.glEnd();

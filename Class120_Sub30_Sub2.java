@@ -945,42 +945,32 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 		method1768(0, bool);
 	}
 
-	final synchronized boolean method1780(final int i, final int i_92_, final Class120_Sub31 class120_sub31, final js5 js5, final Class90 class90) {
-		boolean bool;
-		try {
-			class120_sub31.method1828();
-			boolean bool_93_ = true;
-			int[] is = null;
-			if (i > 0) {
-				is = new int[] { i };
-			}
-			if (i_92_ != 0) {
-				method1757();
-			}
-			for (Class120_Sub11 class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getFirst(); class120_sub11 != null; class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getNext()) {
-				final int i_94_ = (int) class120_sub11.uid;
-				Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.get(i_94_);
-				if (class120_sub22 == null) {
-					class120_sub22 = NodeCache.method300(i_94_, js5, i_92_ ^ 0x70);
-					if (class120_sub22 == null) {
-						bool_93_ = false;
-						continue;
-					}
-					aClass75_3695.put(class120_sub22, i_94_);
-				}
-				if (!class120_sub22.method1702(is, class90, i_92_ + -34, class120_sub11.aByteArray2555)) {
-					bool_93_ = false;
-				}
-			}
-			if (bool_93_) {
-				class120_sub31.method1829();
-			}
-			bool = bool_93_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ld.T(").append(i).append(',').append(i_92_).append(',').append(class120_sub31 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(class90 != null ? "{...}" : "null").append(')').toString());
+	final synchronized boolean method1780(final int i, final Class120_Sub31 class120_sub31, final js5 js5, final Class90 class90) {
+		class120_sub31.method1828();
+		boolean bool_93_ = true;
+		int[] is = null;
+		if (i > 0) {
+			is = new int[] { i };
 		}
-		return bool;
+		for (Class120_Sub11 class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getFirst(); class120_sub11 != null; class120_sub11 = (Class120_Sub11) class120_sub31.aClass75_2786.getNext()) {
+			final int i_94_ = (int) class120_sub11.uid;
+			Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.get(i_94_);
+			if (class120_sub22 == null) {
+				class120_sub22 = NodeCache.method300(js5, i_94_);
+				if (class120_sub22 == null) {
+					bool_93_ = false;
+					continue;
+				}
+				aClass75_3695.put(class120_sub22, i_94_);
+			}
+			if (!class120_sub22.method1702(class90, is, class120_sub11.aByteArray2555)) {
+				bool_93_ = false;
+			}
+		}
+		if (bool_93_) {
+			class120_sub31.method1829();
+		}
+		return bool_93_;
 	}
 
 	public Class120_Sub30_Sub2() {

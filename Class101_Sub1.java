@@ -20,7 +20,7 @@ final class Class101_Sub1 extends Class101 {
 		final int i_3_ = anInt2270 * i >> 12;
 		final int i_4_ = i_0_ * anInt2267 >> 12;
 		final int i_5_ = i_0_ * anInt2268 >> 12;
-		Varp.method635(i_3_, this.anInt960, i_2_, this.anInt964, (byte) 75, this.anInt959, i_5_, i_4_);
+		Varp.method635(i_3_, this.anInt960, i_2_, this.anInt964, this.anInt959, i_5_, i_4_);
 	}
 
 	public static void method839(final byte i) {
@@ -74,13 +74,13 @@ final class Class101_Sub1 extends Class101 {
 
 	static final void method843(final String string, final int i, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final AbstractFont class120_sub14_sub8, final JagexInterface jagexInterface) {
 		final int i_29_ = i_27_ * i_27_ + i_25_ * i_25_;
-		final int i_30_ = (int) DummyOutputStream.aFloat28 + Class164.anInt1590 & 0x7ff;
+		final int i_30_ = (int) DummyOutputStream.aFloat28 + Class164.minimapRandomRotation & 0x7ff;
 		final int i_31_ = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) - -10;
 		if (i_31_ * i_31_ >= i_29_) {
 			int i_32_ = Rasterizer.cosineTable[i_30_];
-			i_32_ = i_32_ * 256 / (256 + Class154.anInt1442);
+			i_32_ = i_32_ * 256 / (256 + Class154.minimapRandomZoom);
 			int i_33_ = Rasterizer.sineTable[i_30_];
-			i_33_ = i_33_ * 256 / (Class154.anInt1442 + 256);
+			i_33_ = i_33_ * 256 / (Class154.minimapRandomZoom + 256);
 			int i_34_ = i_33_ * i_25_ - -(i_32_ * i_27_) >> 16;
 			final int i_35_ = class120_sub14_sub8.method1468(string, 100);
 			final int i_36_ = class120_sub14_sub8.method1480(string, 100, 0);
@@ -88,9 +88,9 @@ final class Class101_Sub1 extends Class101 {
 			i_34_ -= i_35_ / 2;
 			if (-jagexInterface.width <= i_34_ && i_34_ <= jagexInterface.width && -jagexInterface.height <= i_37_ && i_37_ <= jagexInterface.height) {
 				if (HDToolkit.glEnabled) {
-					GraphicsHD.method595((HDSprite) jagexInterface.method2492(false));
+					GraphicsHD.method595((HDSprite) jagexInterface.constructSpriteFromId(false));
 				} else {
-					GraphicsLD.method2164(jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+					GraphicsLD.method2164(jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				}
 				class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(jagexInterface.width / 2)), i_24_ + jagexInterface.height / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
 				if (!HDToolkit.glEnabled) {

@@ -8,7 +8,7 @@ final class Class120_Sub29 extends Node {
 	int anInt2766;
 	int anInt2767;
 	static int anInt2768;
-	static int[] anIntArray2769 = new int[500];
+	static int[] menuOptionsData3 = new int[500];
 	static js5 aClass50_2770;
 	int anInt2771;
 	int anInt2772;
@@ -153,33 +153,15 @@ final class Class120_Sub29 extends Node {
 		}
 	}
 
-	static final int method1728(final int i) {
-		return i & 0x3ff;
+	public static void method1729() {
+		menuOptionsData3 = null;
+		menuOptionsCode = null;
+		aClass50_2770 = null;
 	}
 
-	public static void method1729(final int i) {
-		try {
-			anIntArray2769 = null;
-			menuOptionsCode = null;
-			aClass50_2770 = null;
-			if (i != 8) {
-				menuOptionsCode = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ta.E(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method1730(final boolean bool, final int i) {
-		try {
-			if (!bool) {
-				method1730(true, 77);
-			}
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i);
-			class120_sub14_sub7.method1453();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ta.B(").append(bool).append(',').append(i).append(')').toString());
-		}
+	static final void method1730(final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i);
+		class120_sub14_sub7.method1453();
 	}
 
 	public Class120_Sub29() {

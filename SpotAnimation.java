@@ -80,9 +80,9 @@ final class SpotAnimation extends SceneGraphNode {
 		}
 	}
 
-	private final void method2310(final AbstractModel class180_sub7) {
+	private final void method2310(final AbstractModelRenderer class180_sub7) {
 		if (!HDToolkit.glEnabled) {
-			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7;
+			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7;
 			if ((particleEngine == null || particleEngine.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
 				particleEngine = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
@@ -90,12 +90,12 @@ final class SpotAnimation extends SceneGraphNode {
 				particleEngine.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
 			}
 		} else {
-			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7;
+			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
 			if ((particleEngine == null || particleEngine.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
 				particleEngine = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
 			if (particleEngine != null) {
-				particleEngine.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
+				particleEngine.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
 			}
 		}
 		aBoolean2913 = true;
@@ -155,9 +155,9 @@ final class SpotAnimation extends SceneGraphNode {
 		}
 	}
 
-	private final AbstractModel method2313() {
+	private final AbstractModelRenderer method2313() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(myId);
-		AbstractModel class180_sub7_14_;
+		AbstractModelRenderer class180_sub7_14_;
 		if (this.finishedAnimating) {
 			class180_sub7_14_ = spotAnimType.constructModel(-1, 0, -1);
 		} else {
@@ -172,7 +172,7 @@ final class SpotAnimation extends SceneGraphNode {
 	@Override
 	final void method2266(final int i, final int i_16_, final int i_17_, final int i_18_, final int i_19_) {
 		if (!aBoolean2913) {
-			final AbstractModel class180_sub7 = method2313();
+			final AbstractModelRenderer class180_sub7 = method2313();
 			if (class180_sub7 == null) {
 				return;
 			}
@@ -185,7 +185,7 @@ final class SpotAnimation extends SceneGraphNode {
 
 	@Override
 	final void render(final int i, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final long l, final int i_27_, final ParticleEngine class108_sub2) {
-		final AbstractModel class180_sub7 = method2313();
+		final AbstractModelRenderer class180_sub7 = method2313();
 		if (class180_sub7 != null) {
 			method2310(class180_sub7);
 			class180_sub7.render(i, i_20_, i_21_, i_22_, i_23_, i_24_, i_25_, i_26_, l, i_27_, particleEngine);

@@ -2,38 +2,38 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class36 {
+final class GroundDecoration {
 	static int antiAliasingSamples = 0;
-	long bitPacked;
-	SceneGraphNode aClass180_309;
-	int anInt310;
-	int anInt311;
-	int anInt312;
+	long bitPackedUid;
+	SceneGraphNode sceneGraphNode;
+	int renderZ;
+	int renderX;
+	int renderY;
 	static String aString313 = "Loading...";
 	boolean aBoolean314 = false;
 
 	static final void method307(final GameEntity gameEntity) {
 		gameEntity.aBoolean3002 = false;
-		if (gameEntity.anInt3004 != -1) {
-			final SeqType seqType = SeqType.list(gameEntity.anInt3004);
+		if (gameEntity.idleAnimId != -1) {
+			final SeqType seqType = SeqType.list(gameEntity.idleAnimId);
 			if (seqType == null || seqType.frames == null) {
-				gameEntity.anInt3004 = -1;
+				gameEntity.idleAnimId = -1;
 			} else {
 				gameEntity.anInt2998++;
-				if (gameEntity.anInt3046 < seqType.frames.length && seqType.delays[gameEntity.anInt3046] < gameEntity.anInt2998) {
-					gameEntity.anInt3021++;
+				if (gameEntity.idleAnimCurrentFrame < seqType.frames.length && seqType.delays[gameEntity.idleAnimCurrentFrame] < gameEntity.anInt2998) {
+					gameEntity.idleAnimNextFrame++;
 					gameEntity.anInt2998 = 1;
-					gameEntity.anInt3046++;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.anInt3046, gameEntity == TileParticleQueue.selfPlayer);
+					gameEntity.idleAnimCurrentFrame++;
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
-				if (gameEntity.anInt3046 >= seqType.frames.length) {
+				if (gameEntity.idleAnimCurrentFrame >= seqType.frames.length) {
 					gameEntity.anInt2998 = 0;
-					gameEntity.anInt3046 = 0;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.anInt3046, TileParticleQueue.selfPlayer == gameEntity);
+					gameEntity.idleAnimCurrentFrame = 0;
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, TileParticleQueue.selfPlayer == gameEntity);
 				}
-				gameEntity.anInt3021 = gameEntity.anInt3046 + 1;
-				if (gameEntity.anInt3021 >= seqType.frames.length) {
-					gameEntity.anInt3021 = 0;
+				gameEntity.idleAnimNextFrame = gameEntity.idleAnimCurrentFrame + 1;
+				if (gameEntity.idleAnimNextFrame >= seqType.frames.length) {
+					gameEntity.idleAnimNextFrame = 0;
 				}
 			}
 		}
@@ -103,39 +103,39 @@ final class Class36 {
 				}
 			}
 		} while (false);
-		if (gameEntity.anInt3006 != -1 && gameEntity.anInt2993 <= 1) {
-			final SeqType seqType = SeqType.list(gameEntity.anInt3006);
+		if (gameEntity.animId != -1 && gameEntity.animDelay <= 1) {
+			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType.speedupType != 3) {
 				if (seqType.speedupType == 1 && gameEntity.anInt3031 > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
-					gameEntity.anInt2993 = 2;
+					gameEntity.animDelay = 2;
 				}
 			} else if (gameEntity.anInt3031 > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
-				gameEntity.anInt3006 = -1;
+				gameEntity.animId = -1;
 			}
 		}
-		if (gameEntity.anInt3006 != -1 && gameEntity.anInt2993 == 0) {
-			final SeqType seqType = SeqType.list(gameEntity.anInt3006);
+		if (gameEntity.animId != -1 && gameEntity.animDelay == 0) {
+			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType != null && seqType.frames != null) {
 				gameEntity.anInt3044++;
-				if (seqType.frames.length > gameEntity.anInt2964 && gameEntity.anInt3044 > seqType.delays[gameEntity.anInt2964]) {
-					gameEntity.anInt2964++;
+				if (seqType.frames.length > gameEntity.animCurrentFrame && gameEntity.anInt3044 > seqType.delays[gameEntity.animCurrentFrame]) {
+					gameEntity.animCurrentFrame++;
 					gameEntity.anInt3044 = 1;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.anInt2964, gameEntity == TileParticleQueue.selfPlayer);
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
-				if (gameEntity.anInt2964 >= seqType.frames.length) {
+				if (gameEntity.animCurrentFrame >= seqType.frames.length) {
 					gameEntity.anInt2999++;
-					gameEntity.anInt2964 -= seqType.padding;
+					gameEntity.animCurrentFrame -= seqType.padding;
 					if (seqType.resetCycle > gameEntity.anInt2999) {
-						if (gameEntity.anInt2964 < 0 || gameEntity.anInt2964 >= seqType.frames.length) {
-							gameEntity.anInt3006 = -1;
+						if (gameEntity.animCurrentFrame < 0 || gameEntity.animCurrentFrame >= seqType.frames.length) {
+							gameEntity.animId = -1;
 						} else {
-							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.anInt2964, gameEntity == TileParticleQueue.selfPlayer);
+							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
 						}
 					} else {
-						gameEntity.anInt3006 = -1;
+						gameEntity.animId = -1;
 					}
 				}
-				gameEntity.anInt3013 = 1 + gameEntity.anInt2964;
+				gameEntity.anInt3013 = 1 + gameEntity.animCurrentFrame;
 				if (gameEntity.anInt3013 >= seqType.frames.length) {
 					gameEntity.anInt3013 -= seqType.padding;
 					if (1 + gameEntity.anInt2999 < seqType.resetCycle) {
@@ -148,11 +148,11 @@ final class Class36 {
 				}
 				gameEntity.aBoolean3002 = seqType.aBoolean344;
 			} else {
-				gameEntity.anInt3006 = -1;
+				gameEntity.animId = -1;
 			}
 		}
-		if (gameEntity.anInt2993 > 0) {
-			gameEntity.anInt2993--;
+		if (gameEntity.animDelay > 0) {
+			gameEntity.animDelay--;
 		}
 		for (int i_1_ = 0; i_1_ < gameEntity.aClass150Array2972.length; i_1_++) {
 			final Class150 class150 = gameEntity.aClass150Array2972[i_1_];
@@ -214,7 +214,7 @@ final class Class36 {
 		Class120_Sub6.aClass21_2443.clear();
 	}
 
-	public Class36() {
+	public GroundDecoration() {
 		/* empty */
 	}
 }

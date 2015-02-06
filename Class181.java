@@ -12,16 +12,9 @@ final class Class181 {
 	static int[] anIntArray1790 = new int[5];
 	static int anInt1791 = 0;
 
-	public static void method2438(final int i) {
-		try {
-			aClass35_1784 = null;
-			if (i != 0) {
-				anIntArray1790 = null;
-			}
-			anIntArray1790 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.A(").append(i).append(')').toString());
-		}
+	public static void method2438() {
+		aClass35_1784 = null;
+		anIntArray1790 = null;
 	}
 
 	static final String method2439() {
@@ -36,44 +29,43 @@ final class Class181 {
 		return "http://" + host + ".runescape.com/l=" + Class9.language + "/a=" + Class120_Sub12_Sub33.affiliateId + settings + "/";
 	}
 
-	private final void method2440(final int i, final int i_2_, final Buffer class120_sub7, final byte i_3_) {
-		try {
-			if (i_2_ != 1) {
-				if (i_2_ == 2) {
-					this.anInt1787 = class120_sub7.getUShort();
-				} else if (i_2_ != 3) {
-					if (i_2_ == 4) {
-						this.anInt1786 = class120_sub7.getShort();
-					}
-				} else {
-					this.anInt1789 = class120_sub7.getUShort();
-				}
-			} else {
-				this.anInt1788 = class120_sub7.getUByte();
-			}
-			if (i_3_ != -12) {
-				this.anInt1788 = 63;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.C(").append(i).append(',').append(i_2_).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i_3_).append(')').toString());
+	private final void decode(final Buffer buffer, final int code) {
+		if (code == 1) {
+			this.anInt1788 = buffer.getUByte();
+		}
+		if (code == 2) {
+			this.anInt1787 = buffer.getUShort();
+		}
+		if (code == 3) {
+			this.anInt1789 = buffer.getUShort();
+		}
+		if (code == 4) {
+			this.anInt1786 = buffer.getShort();
 		}
 	}
 
-	final void method2441(final boolean bool, final Buffer class120_sub7, final int i) {
-		try {
-			for (;;) {
-				final int i_4_ = class120_sub7.getUByte();
-				if (i_4_ == 0) {
-					break;
-				}
-				method2440(i, i_4_, class120_sub7, (byte) -12);
+	final void decode(final Buffer buffer) {
+		for (;;) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
+				break;
 			}
-			if (!bool) {
-				method2438(-34);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vd.D(").append(bool).append(',').append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+			decode(buffer, code);
 		}
+	}
+
+	static final Class181 list(final int id) {
+		Class181 class181 = (Class181) Class120_Sub12_Sub35.aClass21_3411.get(id);
+		if (class181 != null) {
+			return class181;
+		}
+		final byte[] is = Class101.aClass50_966.getFile(31, id);
+		class181 = new Class181();
+		if (is != null) {
+			class181.decode(new Buffer(is));
+		}
+		Class120_Sub12_Sub35.aClass21_3411.put(class181, id);
+		return class181;
 	}
 
 	public Class181() {

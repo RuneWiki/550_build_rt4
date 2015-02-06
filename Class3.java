@@ -33,52 +33,45 @@ final class Class3 {
 		}
 	}
 
-	static final void method81(final int i, final byte i_5_, final String string) {
-		try {
-			if (i_5_ < 40) {
-				aClass120_Sub14_Sub9_54 = null;
-			}
-			final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string, -8251));
-			boolean bool = false;
-			for (int i_7_ = 0; i_7_ < FileSystemWorker.localPlayerCount; i_7_++) {
-				final Player class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_7_]];
-				if (class180_sub5_sub1 != null && class180_sub5_sub1.name != null && class180_sub5_sub1.name.equalsIgnoreCase(string_6_)) {
-					bool = true;
-					if (i == 1) {
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
-						Class120_Sub12_Sub11.outputStream.putShortA(Class112.playerIndices[i_7_]);
-						Class120_Sub12_Sub11.outputStream.putByteA(0);
-					} else if (i != 4) {
-						if (i != 5) {
-							if (i != 6) {
-								if (i == 7) {
-									Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
-									Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
-									Class120_Sub12_Sub11.outputStream.putByte(0);
-								}
-							} else {
-								Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
-								Class120_Sub12_Sub11.outputStream.putLEShort(Class112.playerIndices[i_7_]);
-								Class120_Sub12_Sub11.outputStream.putByteS(0);
+	static final void method81(final String string, final int i) {
+		final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string));
+		boolean foundPlayer = false;
+		for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {
+			final Player player = Class118.playersList[Class112.playerIndices[id]];
+			if (player != null && player.name != null && player.name.equalsIgnoreCase(string_6_)) {
+				foundPlayer = true;
+				if (i == 1) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
+					Class120_Sub12_Sub11.outputStream.putShortA(Class112.playerIndices[id]);
+					Class120_Sub12_Sub11.outputStream.putByteA(0);
+				} else if (i != 4) {
+					if (i != 5) {
+						if (i != 6) {
+							if (i == 7) {
+								Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
+								Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
+								Class120_Sub12_Sub11.outputStream.putByte(0);
 							}
 						} else {
-							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
-							Class120_Sub12_Sub11.outputStream.putByteA(0);
-							Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
+							Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
+							Class120_Sub12_Sub11.outputStream.putLEShort(Class112.playerIndices[id]);
+							Class120_Sub12_Sub11.outputStream.putByteS(0);
 						}
 					} else {
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
-						Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[i_7_]);
-						Class120_Sub12_Sub11.outputStream.putByte(0);
+						Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
+						Class120_Sub12_Sub11.outputStream.putByteA(0);
+						Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
 					}
-					break;
+				} else {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
+					Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
+					Class120_Sub12_Sub11.outputStream.putByte(0);
 				}
+				break;
 			}
-			if (!bool) {
-				AbstractRequest.method1540("", 0, new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString());
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.G(").append(i).append(',').append(i_5_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+		}
+		if (!foundPlayer) {
+			AbstractRequest.method1540("", 0, new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString());
 		}
 	}
 

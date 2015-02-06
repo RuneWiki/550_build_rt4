@@ -20,7 +20,7 @@ final class Class97 {
 	private int anInt931;
 	private final int anInt932;
 	private final int anInt933;
-	private static Class180_Sub2 aClass180_Sub2_934;
+	private static Model aClass180_Sub2_934;
 	private int anInt935 = -1;
 	private boolean aBoolean936;
 	private int anInt937;
@@ -58,7 +58,7 @@ final class Class97 {
 		method800();
 		method808();
 		final GL gl = HDToolkit.gl;
-		GraphicsHD.method585(anIntArray923);
+		GraphicsHD.copyBounds(anIntArray923);
 		GraphicsHD.method597();
 		gl.glClearColor(((anInt929 & 0xff0000) >> 16) / 255.0F, ((anInt929 & 0xff00) >> 8) / 255.0F, (anInt929 & 0xff) / 255.0F, 0.0F);
 		gl.glClear(16640);
@@ -92,9 +92,9 @@ final class Class97 {
 			i_18_ = i_18_ * i_24_ - i * i_23_ + 32767 >> 16;
 			i = i_25_;
 		}
-		AtmosphereManager.setLightingPosition(-i, -i_17_, i_18_);
-		AtmosphereManager.setLightingParams(16777215, 0.5F, 0.5F, 1.0F);
-		AtmosphereManager.applyLightingPosition();
+		AtmosphereManager.setLightPosition(-i, -i_17_, i_18_);
+		AtmosphereManager.setLightParams(16777215, 0.5F, 0.5F, 1.0F);
+		AtmosphereManager.applyLightPosition();
 		if (anInt929 != 0) {
 			gl.glScalef(0.8125F, 0.8125F, 1.0F);
 		}
@@ -152,16 +152,16 @@ final class Class97 {
 		Class12.method133();
 		HDToolkit.bindTexture2D(anInt935);
 		gl.glCopyTexImage2D(3553, 0, 6408, 0, 0, anInt931, anInt931, 0);
-		GraphicsHD.method594(anIntArray923);
+		GraphicsHD.setBounds(anIntArray923);
 	}
 
 	private final boolean method793(final Class97 class97_26_) {
-		final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class41.aClass50_360, anInt928, 0);
+		final Model class180_sub2 = Model.get(Class41.aClass50_360, anInt928, 0);
 		if (class180_sub2 == null) {
 			return false;
 		}
 		final GL gl = HDToolkit.gl;
-		GraphicsHD.method585(anIntArray923);
+		GraphicsHD.copyBounds(anIntArray923);
 		GraphicsHD.method597();
 		gl.glClearColor(0.0F, 0.0F, 0.0F, 0.0F);
 		gl.glClear(16640);
@@ -180,9 +180,9 @@ final class Class97 {
 			}
 		}
 		class180_sub2.method2287();
-		final AbstractModel class180_sub7 = class180_sub2.method2300(64, 768, -i, -i_27_, -i_28_);
-		final int i_29_ = (class180_sub7.method2383() - class180_sub7.method2374()) / 2;
-		final int i_30_ = (class180_sub7.getMaxZ() - class180_sub7.getMaxY()) / 2;
+		final AbstractModelRenderer class180_sub7 = class180_sub2.toRenderer(64, 768, -i, -i_27_, -i_28_);
+		final int i_29_ = (class180_sub7.getMinX() - class180_sub7.getMaxX()) / 2;
+		final int i_30_ = (class180_sub7.getMinY() - class180_sub7.getMaxY()) / 2;
 		final int i_31_ = i_29_ > i_30_ ? i_29_ : i_30_;
 		Class12.method136(-i_31_, i_31_, -i_31_, i_31_, 2048.0F, -2048.0F, anInt931, anInt931);
 		if (anInt937 != 0) {
@@ -200,20 +200,20 @@ final class Class97 {
 			i_28_ = i_28_ * i_37_ - i * i_36_ + 32767 >> 16;
 			i = i_38_;
 		}
-		AtmosphereManager.setLightingPosition(-i, i_27_, -i_28_);
-		AtmosphereManager.setLightingParams(16777215, 0.5F, 0.5F, 0.5F);
-		AtmosphereManager.applyLightingPosition();
+		AtmosphereManager.setLightPosition(-i, i_27_, -i_28_);
+		AtmosphereManager.setLightParams(16777215, 0.5F, 0.5F, 0.5F);
+		AtmosphereManager.applyLightPosition();
 		HDToolkit.enableDepthMask();
 		HDToolkit.toggleDepthTest(true);
 		HDToolkit.toggleLighting(true);
-		class180_sub7.method2367(0, 0, 0, 0, -i_29_ - class180_sub7.method2374(), -i_30_ - class180_sub7.getMaxY(), 0, -1L);
+		class180_sub7.method2367(0, 0, 0, 0, -i_29_ - class180_sub7.getMaxX(), -i_30_ - class180_sub7.getMaxY(), 0, -1L);
 		HDToolkit.toggleLighting(false);
 		HDToolkit.toggleDepthTest(false);
 		HDToolkit.disableDepthMask();
 		Class12.method133();
 		HDToolkit.bindTexture2D(anInt935);
 		gl.glCopyTexImage2D(3553, 0, 6408, 0, 0, anInt931, anInt931, 0);
-		GraphicsHD.method594(anIntArray923);
+		GraphicsHD.setBounds(anIntArray923);
 		return true;
 	}
 
@@ -394,7 +394,7 @@ final class Class97 {
 
 	private static final void method799() {
 		if (aClass180_Sub2_934 == null) {
-			final Class180_Sub2 class180_sub2 = aClass180_Sub2_934 = new Class180_Sub2(260, 480, 0);
+			final Model class180_sub2 = aClass180_Sub2_934 = new Model(260, 480, 0);
 			final int[] is = class180_sub2.xVertices;
 			final int[] is_77_ = class180_sub2.yVertices;
 			final int[] is_78_ = class180_sub2.zVertices;
@@ -571,6 +571,7 @@ final class Class97 {
 		if (i_116_ > 1024) {
 			i_116_ -= 2048;
 		}
+		System.out.println("here");
 		int i_118_ = i_116_ * i_112_ / 512;
 		int i_119_ = i_117_ * i_112_ / -512;
 		i_118_ += (i_112_ - anInt925) / 2;
@@ -618,9 +619,9 @@ final class Class97 {
 			i = i_129_;
 		}
 		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.triangleCount, (short) Rasterizer.anInterface5_973.method20(anInt928));
-		final LDModel class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
-		final int i_130_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
-		final int i_131_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();
+		final LDModelRenderer class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
+		final int i_130_ = class180_sub7_sub1.getMinX() - class180_sub7_sub1.getMaxX();
+		final int i_131_ = class180_sub7_sub1.getMinY() - class180_sub7_sub1.getMaxY();
 		if (i_130_ > i_131_) {
 			final int i_132_ = anInt929 != 0 ? (i_130_ * 16 << 9) / (anInt931 * 13) : (i_130_ << 9) / anInt931;
 			class180_sub7_sub1.method2400(0, 0, 0, 0, 0, 0, 0, i_132_);
@@ -699,7 +700,7 @@ final class Class97 {
 	}
 
 	private final void method807(final Class97 class97_147_) {
-		final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class41.aClass50_360, anInt928, 0);
+		final Model class180_sub2 = Model.get(Class41.aClass50_360, anInt928, 0);
 		if (class180_sub2 != null) {
 			aClass120_Sub14_Sub19_Sub2_920 = new LDSprite(anInt931, anInt931);
 			GraphicsLD.copyBounds(anIntArray923);
@@ -735,10 +736,10 @@ final class Class97 {
 				i_149_ = i_149_ * i_155_ - i * i_154_ + 32767 >> 16;
 				i = i_156_;
 			}
-			final LDModel class180_sub7_sub1 = class180_sub2.method2298(64, 768, -i, -i_148_, -i_149_);
-			final int i_157_ = class180_sub7_sub1.method2383() - class180_sub7_sub1.method2374();
-			final int i_158_ = class180_sub7_sub1.getMaxZ() - class180_sub7_sub1.getMaxY();
-			final int i_159_ = class180_sub7_sub1.method2374() + i_157_ / 2;
+			final LDModelRenderer class180_sub7_sub1 = class180_sub2.method2298(64, 768, -i, -i_148_, -i_149_);
+			final int i_157_ = class180_sub7_sub1.getMinX() - class180_sub7_sub1.getMaxX();
+			final int i_158_ = class180_sub7_sub1.getMinY() - class180_sub7_sub1.getMaxY();
+			final int i_159_ = class180_sub7_sub1.getMaxX() + i_157_ / 2;
 			final int i_160_ = class180_sub7_sub1.getMaxY() + i_158_ / 2;
 			if (i_157_ > i_158_) {
 				class180_sub7_sub1.method2400(0, 0, 0, 0, -i_159_, -i_160_, 0, (i_157_ << 9) / anInt931);

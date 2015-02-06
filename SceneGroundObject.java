@@ -28,7 +28,7 @@ final class SceneGroundObject extends SceneGraphNode {
 
 	@Override
 	final void render(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
-		final AbstractModel class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -1, null, null, 0);
+		final AbstractModelRenderer class180_sub7 = ObjType.list(this.id).method2105(0, this.amount, -1, null, null, 0);
 		if (class180_sub7 != null) {
 			class180_sub7.render(i, i_0_, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, l, i_7_, class108_sub2);
 			maxY = class180_sub7.getMaxY();

@@ -228,12 +228,11 @@ final class IsaacCipher {
 		}
 	}
 
-	static final long method907(final String string) {
-		final int i_17_ = string.length();
-		long l_18_ = 0L;
-		for (int i_19_ = 0; i_19_ < i_17_; i_19_++) {
-			l_18_ = string.charAt(i_19_) + (l_18_ << 5) - l_18_;
+	static final long toHash(final String string) {
+		long hash = 0L;
+		for (int charId = 0; charId < string.length(); charId++) {
+			hash = string.charAt(charId) + (hash << 5) - hash;
 		}
-		return l_18_;
+		return hash;
 	}
 }

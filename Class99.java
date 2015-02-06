@@ -21,10 +21,10 @@ final class Class99 {
 	}
 
 	static final void method822(final int i) {
-		AtmosphereManager.setLightingParams(AtmosphereManager.defaultScreenColorRgb, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
-		AtmosphereManager.setLightingPosition(-50.0F, -60.0F, -50.0F);
+		AtmosphereManager.setLightParams(AtmosphereManager.defaultScreenColorRgb, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
+		AtmosphereManager.setLightPosition(-50.0F, -60.0F, -50.0F);
 		AtmosphereManager.setFogValues(AtmosphereManager.defaulFogColorRgb, 0, false);
-		AtmosphereManager.applyLightingPosition();
+		AtmosphereManager.applyLightPosition();
 	}
 
 	public static void method823() {

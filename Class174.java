@@ -5,7 +5,7 @@
 final class Class174 {
 	static int[] anIntArray1731 = new int[50];
 	ParticleNode head = new ParticleNode();
-	static String aString1733 = "skill: ";
+	static String skillString = "skill: ";
 	private ParticleNode next;
 	static int currentCursorId = -1;
 	
@@ -45,7 +45,7 @@ final class Class174 {
 			if (i != 0) {
 				method2232(70);
 			}
-			aString1733 = null;
+			skillString = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
 		}

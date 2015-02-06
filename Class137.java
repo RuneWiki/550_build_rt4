@@ -44,15 +44,8 @@ final class Class137 {
 		}
 	}
 
-	public static void method1981(final byte i) {
-		try {
-			loginStream = null;
-			if (i != -97) {
-				loginStream = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("po.A(").append(i).append(')').toString());
-		}
+	public static void method1981() {
+		loginStream = null;
 	}
 
 	static final void method1982(final int i_4_, final int yOff, final int i_6_, int x, int z, final int i_9_, final int i_10_) {

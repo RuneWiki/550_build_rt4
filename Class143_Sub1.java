@@ -294,9 +294,9 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
 				jagexInterface.modelTypeDisabled = 5;
 				jagexInterface.mediaIdDisabled = 2047 + ((int) Varp.stringToLong(TileParticleQueue.selfPlayer.name) << 11);
-				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.anInt3046;
-				jagexInterface.disabledAnim = TileParticleQueue.selfPlayer.anInt3004;
-				jagexInterface.nextFrame = TileParticleQueue.selfPlayer.anInt3021;
+				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.idleAnimCurrentFrame;
+				jagexInterface.disabledAnim = TileParticleQueue.selfPlayer.idleAnimId;
+				jagexInterface.nextFrame = TileParticleQueue.selfPlayer.idleAnimNextFrame;
 				jagexInterface.frameDelay = 0;
 			}
 		}

@@ -17,6 +17,6 @@ final class Class121 {
 		if (Class120_Sub12_Sub29.menuOptionSufix[option].length() <= 0) {
 			return Class120_Sub12_Sub33.menuOptionPrefix[option];
 		}
-		return Class120_Sub12_Sub33.menuOptionPrefix[option] + Class29.aString196 + Class120_Sub12_Sub29.menuOptionSufix[option];
+		return Class120_Sub12_Sub33.menuOptionPrefix[option] + EntityRenderData.aString196 + Class120_Sub12_Sub29.menuOptionSufix[option];
 	}
 }

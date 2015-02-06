@@ -72,7 +72,7 @@ final class ObjType {
 		}
 	}
 
-	final Class180_Sub2 method2103(final boolean isWoman) {
+	final Model method2103(final boolean isWoman) {
 		int i = this.anInt1546;
 		int i_2_ = anInt1512;
 		int i_3_ = anInt1535;
@@ -84,16 +84,16 @@ final class ObjType {
 		if (i == -1) {
 			return null;
 		}
-		Class180_Sub2 class180_sub2_4_ = Class180_Sub2.method2291(Class111.aClass50_1064, i, 0);
+		Model class180_sub2_4_ = Model.get(Class111.aClass50_1064, i, 0);
 		if (i_2_ != -1) {
-			final Class180_Sub2 class180_sub2_5_ = Class180_Sub2.method2291(Class111.aClass50_1064, i_2_, 0);
+			final Model class180_sub2_5_ = Model.get(Class111.aClass50_1064, i_2_, 0);
 			if (i_3_ == -1) {
-				final Class180_Sub2[] class180_sub2s = { class180_sub2_4_, class180_sub2_5_ };
-				class180_sub2_4_ = new Class180_Sub2(class180_sub2s, 2);
+				final Model[] class180_sub2s = { class180_sub2_4_, class180_sub2_5_ };
+				class180_sub2_4_ = new Model(class180_sub2s, 2);
 			} else {
-				final Class180_Sub2 class180_sub2_6_ = Class180_Sub2.method2291(Class111.aClass50_1064, i_3_, 0);
-				final Class180_Sub2[] class180_sub2s = { class180_sub2_4_, class180_sub2_5_, class180_sub2_6_ };
-				class180_sub2_4_ = new Class180_Sub2(class180_sub2s, 3);
+				final Model class180_sub2_6_ = Model.get(Class111.aClass50_1064, i_3_, 0);
+				final Model[] class180_sub2s = { class180_sub2_4_, class180_sub2_5_, class180_sub2_6_ };
+				class180_sub2_4_ = new Model(class180_sub2s, 3);
 			}
 		}
 		if (!isWoman && (manwearxoff != 0 || manwearyoff != 0 || manwearzoff != 0)) {
@@ -134,7 +134,7 @@ final class ObjType {
 		retextureModified = class162_10_.retextureModified;
 	}
 
-	final AbstractModel method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
+	final AbstractModelRenderer method2105(final int i, final int i_11_, final int i_13_, final PlayerAppearance playerAppearance, final SeqType seqType, final int i_14_) {
 		if (this.countobj != null && i_11_ > 1) {
 			int i_15_ = -1;
 			for (int i_16_ = 0; i_16_ < 10; i_16_++) {
@@ -146,9 +146,9 @@ final class ObjType {
 				return ObjType.list(i_15_).method2105(i, 1, i_13_, playerAppearance, seqType, i_14_);
 			}
 		}
-		AbstractModel class180_sub7_17_ = (AbstractModel) Class33.aClass21_273.get(this.myId);
+		AbstractModelRenderer class180_sub7_17_ = (AbstractModelRenderer) Class33.aClass21_273.get(this.myId);
 		if (class180_sub7_17_ == null) {
-			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
+			final Model class180_sub2 = Model.get(Class111.aClass50_1064, modelId, 0);
 			if (class180_sub2 == null) {
 				return null;
 			}
@@ -176,13 +176,13 @@ final class ObjType {
 					}
 				}
 			}
-			class180_sub7_17_ = class180_sub2.method2300(ambient + 64, contrast + 768, -50, -10, -50);
+			class180_sub7_17_ = class180_sub2.toRenderer(ambient + 64, contrast + 768, -50, -10, -50);
 			if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
 				class180_sub7_17_.resize(resizeX, resizeY, resizeZ);
 			}
 			class180_sub7_17_.haveActions = true;
 			if (HDToolkit.glEnabled) {
-				((HDModel) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
+				((HDModelRenderer) class180_sub7_17_).method2432(false, false, false, true, false, false, true);
 			}
 			Class33.aClass21_273.put(class180_sub7_17_, this.myId);
 		}
@@ -207,7 +207,7 @@ final class ObjType {
 		return this;
 	}
 
-	final Class180_Sub2 method2107(final boolean isWoman) {
+	final Model method2107(final boolean isWoman) {
 		int i_25_ = manhead;
 		int i_24_ = manhead2;
 		if (isWoman) {
@@ -217,11 +217,11 @@ final class ObjType {
 		if (i_25_ == -1) {
 			return null;
 		}
-		Class180_Sub2 class180_sub2_26_ = Class180_Sub2.method2291(Class111.aClass50_1064, i_25_, 0);
+		Model class180_sub2_26_ = Model.get(Class111.aClass50_1064, i_25_, 0);
 		if (i_24_ != -1) {
-			final Class180_Sub2 class180_sub2_27_ = Class180_Sub2.method2291(Class111.aClass50_1064, i_24_, 0);
-			final Class180_Sub2[] class180_sub2s = { class180_sub2_26_, class180_sub2_27_ };
-			class180_sub2_26_ = new Class180_Sub2(class180_sub2s, 2);
+			final Model class180_sub2_27_ = Model.get(Class111.aClass50_1064, i_24_, 0);
+			final Model[] class180_sub2s = { class180_sub2_26_, class180_sub2_27_ };
+			class180_sub2_26_ = new Model(class180_sub2s, 2);
 		}
 		if (recolorOriginal != null) {
 			for (int i_28_ = 0; i_28_ < recolorOriginal.length; i_28_++) {
@@ -248,7 +248,7 @@ final class ObjType {
 		/* empty */
 	}
 
-	final boolean method2110(final boolean isWoman) {
+	final boolean modelsDownloaded(final boolean isWoman) {
 		int i_33_ = anInt1512;
 		int i_34_ = anInt1535;
 		int i_35_ = this.anInt1546;
@@ -261,13 +261,13 @@ final class ObjType {
 			return true;
 		}
 		boolean bool_36_ = true;
-		if (!Class111.aClass50_1064.fileExists(i_35_, 0)) {
+		if (!Class111.aClass50_1064.requestDownload(i_35_, 0)) {
 			bool_36_ = false;
 		}
-		if (i_33_ != -1 && !Class111.aClass50_1064.fileExists(i_33_, 0)) {
+		if (i_33_ != -1 && !Class111.aClass50_1064.requestDownload(i_33_, 0)) {
 			bool_36_ = false;
 		}
-		if (i_34_ != -1 && !Class111.aClass50_1064.fileExists(i_34_, 0)) {
+		if (i_34_ != -1 && !Class111.aClass50_1064.requestDownload(i_34_, 0)) {
 			bool_36_ = false;
 		}
 		return bool_36_;
@@ -359,17 +359,17 @@ final class ObjType {
 			return true;
 		}
 		boolean bool_49_ = true;
-		if (!Class111.aClass50_1064.fileExists(i_47_, 0)) {
+		if (!Class111.aClass50_1064.requestDownload(i_47_, 0)) {
 			bool_49_ = false;
 		}
-		if (i_48_ != -1 && !Class111.aClass50_1064.fileExists(i_48_, 0)) {
+		if (i_48_ != -1 && !Class111.aClass50_1064.requestDownload(i_48_, 0)) {
 			bool_49_ = false;
 		}
 		return bool_49_;
 	}
 
-	final LDModel method2117(final PlayerAppearance playerAppearance) {
-		final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class111.aClass50_1064, modelId, 0);
+	final LDModelRenderer method2117(final PlayerAppearance playerAppearance) {
+		final Model class180_sub2 = Model.get(Class111.aClass50_1064, modelId, 0);
 		if (class180_sub2 == null) {
 			return null;
 		}
@@ -397,7 +397,7 @@ final class ObjType {
 				}
 			}
 		}
-		final LDModel class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
+		final LDModelRenderer class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
 		if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
 			class180_sub7_sub1_53_.resize(resizeX, resizeY, resizeZ);
 		}

@@ -29,7 +29,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	final LDSprite method1525(final double d, final int i, final int i_4_, final Interface3 interface3, final js5 js5, final int i_5_, final boolean bool) {
 		LDSprite class120_sub14_sub19_sub2;
 		try {
-			Class11.method124(d, (byte) -78);
+			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
 			if (i >= -35) {
@@ -108,7 +108,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		int[] is;
 		try {
 			final int[] is_22_ = new int[i_21_ * i * 4];
-			Class11.method124(d, (byte) -78);
+			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
 			Class22.method199(i, i_21_, false);
@@ -268,7 +268,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	final boolean method1529(final Interface3 interface3, final js5 js5) {
 		if (Class120_Sub12_Sub25.anInt3316 > 0) {
 			for (int i_53_ = 0; i_53_ < anIntArray3568.length; i_53_++) {
-				if (!js5.fileExists(Class120_Sub12_Sub25.anInt3316, anIntArray3568[i_53_])) {
+				if (!js5.requestDownload(Class120_Sub12_Sub25.anInt3316, anIntArray3568[i_53_])) {
 					return false;
 				}
 			}
@@ -290,7 +290,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final js5 js5, final int i_56_, final double d, final int i_57_, final boolean bool) {
 		LDTransparentSprite class120_sub14_sub19_sub2_sub1;
 		try {
-			Class11.method124(d, (byte) -78);
+			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
 			Class22.method199(i_57_, i, false);
@@ -411,7 +411,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	final int[] method1533(final double d, final boolean bool, final int i, final js5 js5, final Interface3 interface3, final int i_75_, final boolean bool_76_, final int i_77_) {
 		int[] is;
 		try {
-			Class11.method124(d, (byte) -78);
+			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
 			Class22.method199(i_77_, i_75_, false);
@@ -556,8 +556,8 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		aClass120_Sub12_3562 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
 	}
 
-	static final LDSprite method1534(final js5 js5, final int i_105_, final int i_106_) {
-		if (!Class10.decodedSprites(js5, i_105_, i_106_)) {
+	static final LDSprite constructLDSprite(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
 		return HintIcon.constructLDSprite();

@@ -132,13 +132,13 @@ final class Decimator {
 			for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
 				if (Class9.needInterfaceRedraw[id]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
+						GraphicsHD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					} else {
 						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					}
 				} else if (Class120_Sub12_Sub33.needScreenRedraw[id]) {
 					if (HDToolkit.glEnabled) {
-						GraphicsHD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
+						GraphicsHD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					} else {
 						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					}
@@ -258,24 +258,24 @@ final class Decimator {
 		}
 	}
 
-	static final void method2224(final JagexInterface jagexInterface, final int x, final int y, final int redrawId) {
+	static final void drawCompassContents(final JagexInterface jagexInterface, final int x, final int y, final int redrawId) {
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.clipRect(x, y, x + jagexInterface.width, y + jagexInterface.height);
 		}
-		final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.anInt1590) & 0x7ff;
+		final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.minimapRandomRotation) & 0x7ff;
 		if (AbstractGraphicsBuffer.mapbackState >= 3) {
 			if (!HDToolkit.glEnabled) {
-				GraphicsLD.method2156(x, y, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+				GraphicsLD.method2156(x, y, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			} else {
-				final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
-				if (class120_sub14_sub19 != null) {
-					class120_sub14_sub19.method1587(x, y);
+				final AbstractSprite sprite = jagexInterface.constructSpriteFromId(false);
+				if (sprite != null) {
+					sprite.method1587(x, y);
 				}
 			}
 		} else if (!HDToolkit.glEnabled) {
-			((LDSprite) Class157.compassSprite).method1604(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+			((LDSprite) Class157.compassSprite).method1604(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 		} else {
-			((HDSprite) Class157.compassSprite).method1600(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, (HDSprite) jagexInterface.method2492(false));
+			((HDSprite) Class157.compassSprite).method1600(x, y, jagexInterface.width, jagexInterface.height, Class157.compassSprite.width / 2, Class157.compassSprite.height / 2, i_42_, 256, (HDSprite) jagexInterface.constructSpriteFromId(false));
 		}
 		Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 	}

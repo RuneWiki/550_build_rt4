@@ -75,12 +75,12 @@ final class Class120_Sub11 extends Node {
 		}
 		for (AmbientSound ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
 			int i_9_ = 1;
-			final Class29 class29 = ambientSound.npc.method2336();
-			if (ambientSound.npc.anInt3004 == class29.anInt218) {
+			final EntityRenderData class29 = ambientSound.npc.getEntityRenderData();
+			if (ambientSound.npc.idleAnimId == class29.anInt218) {
 				i_9_ = 0;
-			} else if (ambientSound.npc.anInt3004 == class29.anInt190 || ambientSound.npc.anInt3004 == class29.anInt188 || ambientSound.npc.anInt3004 == class29.anInt216 || ambientSound.npc.anInt3004 == class29.anInt223) {
+			} else if (ambientSound.npc.idleAnimId == class29.anInt190 || ambientSound.npc.idleAnimId == class29.anInt188 || ambientSound.npc.idleAnimId == class29.anInt216 || ambientSound.npc.idleAnimId == class29.anInt223) {
 				i_9_ = 2;
-			} else if (ambientSound.npc.anInt3004 == class29.anInt212 || ambientSound.npc.anInt3004 == class29.anInt192 || ambientSound.npc.anInt3004 == class29.anInt219 || class29.anInt210 == ambientSound.npc.anInt3004) {
+			} else if (ambientSound.npc.idleAnimId == class29.anInt212 || ambientSound.npc.idleAnimId == class29.anInt192 || ambientSound.npc.idleAnimId == class29.anInt219 || class29.anInt210 == ambientSound.npc.idleAnimId) {
 				i_9_ = 3;
 			}
 			if (i_9_ != ambientSound.anInt2480) {
@@ -102,10 +102,10 @@ final class Class120_Sub11 extends Node {
 		}
 		for (AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.getFirst(); ambientSound != null; ambientSound = (AmbientSound) Npc.playerAmbientSounds.getNext()) {
 			int i_11_ = 1;
-			final Class29 class29 = ambientSound.player.method2336();
-			if (class29.anInt218 != ambientSound.player.anInt3004) {
-				if (class29.anInt190 != ambientSound.player.anInt3004 && class29.anInt188 != ambientSound.player.anInt3004 && ambientSound.player.anInt3004 != class29.anInt216 && ambientSound.player.anInt3004 != class29.anInt223) {
-					if (ambientSound.player.anInt3004 == class29.anInt212 || ambientSound.player.anInt3004 == class29.anInt192 || ambientSound.player.anInt3004 == class29.anInt219 || ambientSound.player.anInt3004 == class29.anInt210) {
+			final EntityRenderData class29 = ambientSound.player.getEntityRenderData();
+			if (class29.anInt218 != ambientSound.player.idleAnimId) {
+				if (class29.anInt190 != ambientSound.player.idleAnimId && class29.anInt188 != ambientSound.player.idleAnimId && ambientSound.player.idleAnimId != class29.anInt216 && ambientSound.player.idleAnimId != class29.anInt223) {
+					if (ambientSound.player.idleAnimId == class29.anInt212 || ambientSound.player.idleAnimId == class29.anInt192 || ambientSound.player.idleAnimId == class29.anInt219 || ambientSound.player.idleAnimId == class29.anInt210) {
 						i_11_ = 3;
 					}
 				} else {

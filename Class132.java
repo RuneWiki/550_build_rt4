@@ -10,7 +10,7 @@ abstract class Class132 {
 	static js5 aClass50_1251;
 	private int anInt1252;
 	private short[] aShortArray1253;
-	private int anInt1254;
+	private int seed;
 	int anInt1256 = 4;
 	static int anInt1257;
 	private int anInt1258;
@@ -107,24 +107,17 @@ abstract class Class132 {
 		}
 	}
 
-	private final void method1924(final boolean bool) {
-		try {
-			if (!bool) {
-				aShortArray1253 = null;
-			}
-			final Random random = new Random(anInt1254);
-			for (int i = 0; i < 255; i++) {
-				aShortArray1253[i] = (short) i;
-			}
-			for (int i = 0; i < 255; i++) {
-				final int i_42_ = -i + 255;
-				final int i_43_ = Class28.method244(random, i_42_);
-				final short i_44_ = aShortArray1253[i_43_];
-				aShortArray1253[i_43_] = aShortArray1253[i_42_];
-				aShortArray1253[i_42_] = aShortArray1253[256 + i_42_] = i_44_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.K(").append(bool).append(')').toString());
+	private final void method1924() {
+		final Random random = new Random(seed);
+		for (int i = 0; i < 255; i++) {
+			aShortArray1253[i] = (short) i;
+		}
+		for (int i = 0; i < 255; i++) {
+			final int i_42_ = -i + 255;
+			final int i_43_ = Class28.method244(random, i_42_);
+			final short i_44_ = aShortArray1253[i_43_];
+			aShortArray1253[i_43_] = aShortArray1253[i_42_];
+			aShortArray1253[i_42_] = aShortArray1253[256 + i_42_] = i_44_;
 		}
 	}
 
@@ -184,17 +177,17 @@ abstract class Class132 {
 	}
 
 	Class132(final int i, final int i_56_, final int i_57_, final int i_58_, final int i_59_) {
-		anInt1254 = 0;
+		seed = 0;
 		anInt1252 = 4;
 		aShortArray1253 = new short[512];
 		anInt1258 = 4;
 		this.anInt1256 = i_56_;
 		anInt1258 = i_57_;
 		anInt1252 = i_58_;
-		anInt1254 = i;
+		seed = i;
 		anInt1249 = i_59_;
 		method1926(-15508);
-		method1924(true);
+		method1924();
 	}
 
 	static final Class120_Sub9[] method1930(final byte[][][] is, final byte i, final byte[][] is_60_, final int[][] is_61_, final float[][] fs, final int i_62_, final byte[][] is_63_, final byte[][] is_64_, final int[][] is_65_, final byte[][] is_66_, final float[][] fs_67_, final float[][] fs_68_) {

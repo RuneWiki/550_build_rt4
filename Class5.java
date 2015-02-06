@@ -25,10 +25,10 @@ final class Class5 implements ShaderInterface {
 			int highestValue = -99999999;
 			GroundObjectNode mainObject = null;
 			for (GroundObjectNode object = (GroundObjectNode) deque.getFront(); object != null; object = (GroundObjectNode) deque.getNext()) {
-				final ObjType objType = ObjType.list(object.aClass180_Sub1_3630.id);
+				final ObjType objType = ObjType.list(object.sceneGroundObject.id);
 				int cost = objType.cost;
 				if (objType.stackable == 1) {
-					cost *= object.aClass180_Sub1_3630.amount - -1;
+					cost *= object.sceneGroundObject.amount - -1;
 				}
 				if (highestValue< cost) {
 					highestValue = cost;
@@ -42,8 +42,8 @@ final class Class5 implements ShaderInterface {
 				SceneGroundObject thirdObject = null;
 				SceneGroundObject secondObject = null;
 				for (GroundObjectNode object = (GroundObjectNode) deque.getFront(); object != null; object = (GroundObjectNode) deque.getNext()) {
-					final SceneGroundObject class180_sub1_6_ = object.aClass180_Sub1_3630;
-					if (mainObject.aClass180_Sub1_3630.id != class180_sub1_6_.id) {
+					final SceneGroundObject class180_sub1_6_ = object.sceneGroundObject;
+					if (mainObject.sceneGroundObject.id != class180_sub1_6_.id) {
 						if (secondObject == null) {
 							secondObject = class180_sub1_6_;
 						}
@@ -53,7 +53,7 @@ final class Class5 implements ShaderInterface {
 					}
 				}
 				final long bitPacked = 0x60000000 + x + (z << 7);
-				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.getTileHeight(64 + x * 128, 64 + 128 * z, Class173.gameLevel), mainObject.aClass180_Sub1_3630, bitPacked, secondObject, thirdObject);
+				Class136.addObjectPile(Class173.gameLevel, x, z, Class22.getTileHeight(64 + x * 128, 64 + 128 * z, Class173.gameLevel), mainObject.sceneGroundObject, bitPacked, secondObject, thirdObject);
 			}
 		}
 	}

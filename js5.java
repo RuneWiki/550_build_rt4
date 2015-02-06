@@ -24,7 +24,7 @@ final class js5 {
 			return false;
 		}
 		final int i_2_ = masterIndexInfo.groupFileLookupTable[i_1_].lookupIdentifier(Class120_Sub14_Sub13.toHash(string_0_));
-		return fileExists(i_1_, i_2_);
+		return requestDownload(i_1_, i_2_);
 	}
 
 	private final void method411(final int i_3_) {
@@ -157,7 +157,7 @@ final class js5 {
 		if (anObjectArrayArray448[group] == null || anObjectArrayArray448[group][file] == null) {
 			boolean bool_17_ = method424(0, null, group);
 			if (!bool_17_) {
-				method422(group);
+				requestDownload(group);
 				bool_17_ = method424(0, null, group);
 				if (!bool_17_) {
 					return null;
@@ -175,11 +175,11 @@ final class js5 {
 		return masterIndexInfo.anIntArray465.length;
 	}
 
-	private final void method422(final int i_20_) {
+	private final void requestDownload(final int group) {
 		if (!clearOnUnpack) {
-			anObjectArray451[i_20_] = Class143_Sub1.method2026(aClass53_450.method460(i_20_), false, 136);
+			anObjectArray451[group] = Class143_Sub1.method2026(aClass53_450.method460(group), false, 136);
 		} else {
-			anObjectArray451[i_20_] = aClass53_450.method460(i_20_);
+			anObjectArray451[group] = aClass53_450.method460(group);
 		}
 	}
 
@@ -316,7 +316,7 @@ final class js5 {
 		if (anObjectArray451[i] != null) {
 			return true;
 		}
-		method422(i);
+		requestDownload(i);
 		if (anObjectArray451[i] != null) {
 			return true;
 		}
@@ -370,13 +370,13 @@ final class js5 {
 			return false;
 		}
 		if (masterIndexInfo.anIntArray465.length == 1) {
-			return fileExists(0, i);
+			return requestDownload(0, i);
 		}
 		if (!method436(i)) {
 			return false;
 		}
 		if (masterIndexInfo.anIntArray465[i] == 1) {
-			return fileExists(i, 0);
+			return requestDownload(i, 0);
 		}
 		throw new RuntimeException();
 	}
@@ -388,7 +388,7 @@ final class js5 {
 		boolean bool_54_ = true;
 		for (final int i_55_ : masterIndexInfo.groupIds) {
 			if (anObjectArray451[i_55_] == null) {
-				method422(i_55_);
+				requestDownload(i_55_);
 				if (anObjectArray451[i_55_] == null) {
 					bool_54_ = false;
 				}
@@ -404,7 +404,7 @@ final class js5 {
 		if (anObjectArrayArray448[i_56_] == null || anObjectArrayArray448[i_56_][i] == null) {
 			boolean bool = method424(0, is, i_56_);
 			if (!bool) {
-				method422(i_56_);
+				requestDownload(i_56_);
 				bool = method424(0, is, i_56_);
 				if (!bool) {
 					return null;
@@ -528,7 +528,7 @@ final class js5 {
 		return masterIndexInfo.indexCrc;
 	}
 
-	final boolean fileExists(final int group, final int file) {
+	final boolean requestDownload(final int group, final int file) {
 		if (!method423(file, group)) {
 			return false;
 		}
@@ -538,7 +538,7 @@ final class js5 {
 		if (anObjectArray451[group] != null) {
 			return true;
 		}
-		method422(group);
+		requestDownload(group);
 		if (anObjectArray451[group] != null) {
 			return true;
 		}

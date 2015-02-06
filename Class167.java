@@ -76,7 +76,7 @@ abstract class Class167 {
 	public static void method2188(final byte i) {
 		try {
 			if (i != 122) {
-				constructLDSprite();
+				constructLDSpriteAlpha();
 			}
 			aClass21_1618 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -84,7 +84,7 @@ abstract class Class167 {
 		}
 	}
 
-	static final LDSprite constructLDSprite() {
+	static final LDSprite constructLDSpriteAlpha() {
 		final byte[] paletteIndicators = Class145.spritePaletteIndicators[0];
 		final int pixelAmt = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
 		LDSprite sprite;

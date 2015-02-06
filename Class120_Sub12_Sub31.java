@@ -3,7 +3,6 @@
  */
 
 final class Class120_Sub12_Sub31 extends Class120_Sub12 {
-	static ObjectCache aClass21_3378;
 	private int anInt3379 = 4096;
 	static int anInt3380;
 	static AbstractMouseWheelHandler mouseWheelHandler;
@@ -13,7 +12,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 
 	static {
 		anInt3380 = 0;
-		aClass21_3378 = new ObjectCache(64);
+		EntityRenderData.recentUse = new ObjectCache(64);
 	}
 
 	static final void method1364(final int i) {
@@ -49,16 +48,10 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		super(1, true);
 	}
 
-	public static void method1366(final int i) {
-		try {
-			anIntArray3383 = null;
-			mouseWheelHandler = null;
-			if (i == 1) {
-				aClass21_3378 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sh.V(").append(i).append(')').toString());
-		}
+	public static void method1366() {
+		anIntArray3383 = null;
+		mouseWheelHandler = null;
+		EntityRenderData.recentUse = null;
 	}
 
 	static final int method1368(final JagexInterface jagexInterface, final int i) {

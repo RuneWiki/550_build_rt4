@@ -32,7 +32,7 @@ final class NodeCache {
 			aClass50_303 = null;
 			anIntArrayArray300 = null;
 			if (i != -51) {
-				method300(-82, null, -71);
+				method300(null, -82);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.C(").append(i).append(')').toString());
@@ -43,21 +43,12 @@ final class NodeCache {
 		return hashtable.getFirst();
 	}
 
-	static final Class120_Sub22 method300(final int i, final js5 js5, final int i_0_) {
-		Class120_Sub22 class120_sub22;
-		try {
-			if (i_0_ != 112) {
-				method300(81, null, -127);
-			}
-			final byte[] is = js5.getFileSmart(i);
-			if (is == null) {
-				return null;
-			}
-			class120_sub22 = new Class120_Sub22(is);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dj.F(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	static final Class120_Sub22 method300(final js5 js5, final int i) {
+		final byte[] is = js5.getFileSmart(i);
+		if (is == null) {
+			return null;
 		}
-		return class120_sub22;
+		return new Class120_Sub22(is);
 	}
 
 	final void put(final NodeSub nodeSub, final long uid) {

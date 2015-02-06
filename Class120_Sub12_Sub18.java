@@ -119,8 +119,8 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		final int width = Class120_Sub24.menuWidth;
 		if (Class157.aClass120_Sub14_Sub19_1472 == null || Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 == null) {
 			if (Class7.aClass50_63.method429(client.anInt2199) && Class7.aClass50_63.method429(Class114.anInt1099)) {
-				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, client.anInt2199, 0);
-				Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class114.anInt1099, 0);
+				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class7.aClass50_63, client.anInt2199, 0);
+				Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class7.aClass50_63, Class114.anInt1099, 0);
 				if (HDToolkit.glEnabled) {
 					if (!(Class157.aClass120_Sub14_Sub19_1472 instanceof LDTransparentSprite)) {
 						Class157.aClass120_Sub14_Sub19_1472 = new HDSprite((LDSprite) Class157.aClass120_Sub14_Sub19_1472);
@@ -136,7 +136,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 			} else if (!HDToolkit.glEnabled) {
 				GraphicsLD.fillRect(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			} else {
-				GraphicsHD.fillRect(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
+				GraphicsHD.fillRectAlpha(drawX, drawY, width, 20, Class140.anInt1345, 256 - Class89.anInt837);
 			}
 		}
 		if (Class157.aClass120_Sub14_Sub19_1472 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 != null) {
@@ -151,7 +151,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.fillRect(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		} else {
-			GraphicsHD.fillRect(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
+			GraphicsHD.fillRectAlpha(drawX, 20 + drawY, width, height - 20, Class140.anInt1345, 256 - Class89.anInt837);
 		}
 		final int mouseX = Queue.lastMouseX;
 		final int mouseY = Class191.lastMouseY;
@@ -161,15 +161,15 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				if (!HDToolkit.glEnabled) {
 					GraphicsLD.fillRect(drawX, i_17_ + -12, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				} else {
-					GraphicsHD.fillRect(drawX, -12 + i_17_, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
+					GraphicsHD.fillRectAlpha(drawX, -12 + i_17_, width, 15, Class120_Sub12_Sub3.anInt3147, -Class88.anInt832 + 256);
 				}
 			}
 		}
 		if ((Class173.aClass120_Sub14_Sub19_1725 == null || FrameLoader.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && Class7.aClass50_63.method429(Class24.anInt146) && Class7.aClass50_63.method429(Class92.anInt864)
 				&& Class7.aClass50_63.method429(Class31.anInt240)) {
-			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class24.anInt146, 0);
-			FrameLoader.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class92.anInt864, 0);
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.method1340(Class7.aClass50_63, Class31.anInt240, 0);
+			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class7.aClass50_63, Class24.anInt146, 0);
+			FrameLoader.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class7.aClass50_63, Class92.anInt864, 0);
+			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class7.aClass50_63, Class31.anInt240, 0);
 			if (HDToolkit.glEnabled) {
 				if (Class173.aClass120_Sub14_Sub19_1725 instanceof LDTransparentSprite) {
 					Class173.aClass120_Sub14_Sub19_1725 = new HDTransparentSprite((LDSprite) Class173.aClass120_Sub14_Sub19_1725);

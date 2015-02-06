@@ -5,26 +5,26 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class HDModel extends AbstractModel {
+final class HDModelRenderer extends AbstractModelRenderer {
 	private short[] aShortArray3844;
-	int[] anIntArray3845;
+	int[] zVertices;
 	private short[] aShortArray3846;
 	Class49 aClass49_3847;
 	private Class49 aClass49_3848;
 	private short[] aShortArray3849;
 	private int[] anIntArray3850;
-	private short aShort3851;
+	private short ambient;
 	private short[] aShortArray3852;
-	private short aShort3853;
+	private short contrast;
 	private Class49 aClass49_3854;
 	private short[] aShortArray3855;
-	int[] anIntArray3856;
+	int[] yVertices;
 	private short[] aShortArray3857;
 	Class169[] aClass169Array3858;
 	private Class152 aClass152_3859;
 	private byte aByte3860;
 	private int anInt3861;
-	int anInt3862 = 0;
+	int vertexCount = 0;
 	private Class49 aClass49_3863;
 	private short[] aShortArray3864;
 	private int[] anIntArray3865;
@@ -32,7 +32,7 @@ final class HDModel extends AbstractModel {
 	private int anInt3867;
 	private float[] aFloatArray3868;
 	private Class49 aClass49_3869;
-	Class13 aClass13_3870;
+	ModelBounds modelBounds;
 	private static Buffer aClass120_Sub7_3871 = new Buffer(10000);
 	private byte[] aByteArray3872;
 	private short[] aShortArray3873;
@@ -40,24 +40,24 @@ final class HDModel extends AbstractModel {
 	private int[] anIntArray3875;
 	private short[] aShortArray3876;
 	private short[] aShortArray3877;
-	int[] anIntArray3878;
+	int[] xVertices;
 	private short[] aShortArray3879;
 	boolean aBoolean3880;
 	private int[][] anIntArrayArray3881;
 	private VertexBuffer aClass104_3882;
 	private static long[] aLongArray3883;
 	private byte[] aByteArray3884;
-	private static HDModel aClass180_Sub7_Sub2_3885 = new HDModel();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3885 = new HDModelRenderer();
 	private int[][] anIntArrayArray3886;
 	private static ByteBuffer aByteBuffer3887;
 	private byte aByte3888;
-	private static HDModel aClass180_Sub7_Sub2_3889 = new HDModel();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3889 = new HDModelRenderer();
 	private int anInt3890;
-	private static HDModel aClass180_Sub7_Sub2_3891 = new HDModel();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3891 = new HDModelRenderer();
 	ModelParticle[] aClass158Array3892;
-	private static HDModel aClass180_Sub7_Sub2_3893 = new HDModel();
-	private static HDModel aClass180_Sub7_Sub2_3894 = new HDModel();
-	private static HDModel aClass180_Sub7_Sub2_3895 = new HDModel();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3893 = new HDModelRenderer();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3894 = new HDModelRenderer();
+	private static HDModelRenderer aClass180_Sub7_Sub2_3895 = new HDModelRenderer();
 	private static int anInt3896;
 	private static boolean aBoolean3897 = false;
 	private static int anInt3898;
@@ -89,11 +89,11 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2363() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+	final int getMaxZ() {
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort88;
+		return this.modelBounds.maxZ;
 	}
 
 	final void method2405(final short i, final short i_2_) {
@@ -134,22 +134,22 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2374() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+	final int getMaxX() {
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort90;
+		return this.modelBounds.maxX;
 	}
 
 	@Override
 	final void render(final int i, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final long l, final int i_15_, final ParticleEngine class108_sub2) {
 		if (anInt3890 != 0) {
-			if (!this.aClass13_3870.aBoolean89) {
-				method2425();
+			if (!this.modelBounds.boundsCalculated) {
+				calculateBounds();
 			}
-			final int i_16_ = this.aClass13_3870.aShort93;
-			final int i_17_ = this.aClass13_3870.aShort94;
-			final int i_18_ = this.aClass13_3870.aShort87;
+			final int i_16_ = this.modelBounds.aShort93;
+			final int i_17_ = this.modelBounds.maxY;
+			final int i_18_ = this.modelBounds.minY;
 			if (class108_sub2 != null) {
 				class108_sub2.method965(i, i_15_, i_12_, i_13_, i_14_);
 			}
@@ -200,10 +200,10 @@ final class HDModel extends AbstractModel {
 												i_32_ = -999999;
 												i_33_ = 999999;
 												i_34_ = -999999;
-												final int i_35_ = this.aClass13_3870.aShort90;
-												final int i_36_ = this.aClass13_3870.aShort91;
-												final int i_37_ = this.aClass13_3870.aShort88;
-												final int i_38_ = this.aClass13_3870.aShort92;
+												final int i_35_ = this.modelBounds.maxX;
+												final int i_36_ = this.modelBounds.minX;
+												final int i_37_ = this.modelBounds.maxZ;
+												final int i_38_ = this.modelBounds.minZ;
 												final int[] is = { i_35_, i_36_, i_35_, i_36_, i_35_, i_36_, i_35_, i_36_ };
 												final int[] is_39_ = { i_37_, i_37_, i_38_, i_38_, i_37_, i_37_, i_38_, i_38_ };
 												final int[] is_40_ = { i_17_, i_17_, i_17_, i_17_, i_18_, i_18_, i_18_, i_18_ };
@@ -251,9 +251,9 @@ final class HDModel extends AbstractModel {
 															anIntArray3901 = new int[anInt3890];
 														}
 														for (int i_49_ = 0; i_49_ < anInt3861; i_49_++) {
-															int i_50_ = this.anIntArray3878[i_49_];
-															int i_51_ = this.anIntArray3856[i_49_];
-															int i_52_ = this.anIntArray3845[i_49_];
+															int i_50_ = this.xVertices[i_49_];
+															int i_51_ = this.yVertices[i_49_];
+															int i_52_ = this.zVertices[i_49_];
 															if (i != 0) {
 																final int i_53_ = i_52_ * i_29_ + i_50_ * i_30_ >> 16;
 																i_52_ = i_52_ * i_30_ - i_50_ * i_29_ >> 16;
@@ -335,9 +335,9 @@ final class HDModel extends AbstractModel {
 					final int i_73_ = (is_74_ = is_72_).length;
 					for (int i_75_ = 0; i_75_ < i_73_; i_75_++) {
 						final int i_76_ = is_74_[i_75_];
-						anInt3896 += this.anIntArray3878[i_76_];
-						anInt3898 += this.anIntArray3856[i_76_];
-						anInt3904 += this.anIntArray3845[i_76_];
+						anInt3896 += this.xVertices[i_76_];
+						anInt3898 += this.yVertices[i_76_];
+						anInt3904 += this.zVertices[i_76_];
 						i_69_++;
 					}
 				}
@@ -364,9 +364,9 @@ final class HDModel extends AbstractModel {
 					for (int i_82_ = 0; i_82_ < i_80_; i_82_++) {
 						final int i_83_ = is_81_[i_82_];
 						final int i_84_ = i_83_;
-						this.anIntArray3878[i_84_] += i_65_;
-						this.anIntArray3856[i_84_] += i_66_;
-						this.anIntArray3845[i_84_] += i_67_;
+						this.xVertices[i_84_] += i_65_;
+						this.yVertices[i_84_] += i_66_;
+						this.zVertices[i_84_] += i_67_;
 					}
 				}
 			}
@@ -380,33 +380,33 @@ final class HDModel extends AbstractModel {
 					for (int i_90_ = 0; i_90_ < i_88_; i_90_++) {
 						final int i_91_ = is_89_[i_90_];
 						final int i_92_ = i_91_;
-						this.anIntArray3878[i_92_] -= anInt3896;
-						this.anIntArray3856[i_92_] -= anInt3898;
-						this.anIntArray3845[i_92_] -= anInt3904;
+						this.xVertices[i_92_] -= anInt3896;
+						this.yVertices[i_92_] -= anInt3898;
+						this.zVertices[i_92_] -= anInt3904;
 						if (i_67_ != 0) {
 							final int i_93_ = Rasterizer.sineTable[i_67_];
 							final int i_94_ = Rasterizer.cosineTable[i_67_];
-							final int i_95_ = this.anIntArray3856[i_92_] * i_93_ + this.anIntArray3878[i_92_] * i_94_ + 32767 >> 16;
-							this.anIntArray3856[i_92_] = this.anIntArray3856[i_92_] * i_94_ - this.anIntArray3878[i_92_] * i_93_ + 32767 >> 16;
-							this.anIntArray3878[i_92_] = i_95_;
+							final int i_95_ = this.yVertices[i_92_] * i_93_ + this.xVertices[i_92_] * i_94_ + 32767 >> 16;
+							this.yVertices[i_92_] = this.yVertices[i_92_] * i_94_ - this.xVertices[i_92_] * i_93_ + 32767 >> 16;
+							this.xVertices[i_92_] = i_95_;
 						}
 						if (i_65_ != 0) {
 							final int i_96_ = Rasterizer.sineTable[i_65_];
 							final int i_97_ = Rasterizer.cosineTable[i_65_];
-							final int i_98_ = this.anIntArray3856[i_92_] * i_97_ - this.anIntArray3845[i_92_] * i_96_ + 32767 >> 16;
-							this.anIntArray3845[i_92_] = this.anIntArray3856[i_92_] * i_96_ + this.anIntArray3845[i_92_] * i_97_ + 32767 >> 16;
-							this.anIntArray3856[i_92_] = i_98_;
+							final int i_98_ = this.yVertices[i_92_] * i_97_ - this.zVertices[i_92_] * i_96_ + 32767 >> 16;
+							this.zVertices[i_92_] = this.yVertices[i_92_] * i_96_ + this.zVertices[i_92_] * i_97_ + 32767 >> 16;
+							this.yVertices[i_92_] = i_98_;
 						}
 						if (i_66_ != 0) {
 							final int i_99_ = Rasterizer.sineTable[i_66_];
 							final int i_100_ = Rasterizer.cosineTable[i_66_];
-							final int i_101_ = this.anIntArray3845[i_92_] * i_99_ + this.anIntArray3878[i_92_] * i_100_ + 32767 >> 16;
-							this.anIntArray3845[i_92_] = this.anIntArray3845[i_92_] * i_100_ - this.anIntArray3878[i_92_] * i_99_ + 32767 >> 16;
-							this.anIntArray3878[i_92_] = i_101_;
+							final int i_101_ = this.zVertices[i_92_] * i_99_ + this.xVertices[i_92_] * i_100_ + 32767 >> 16;
+							this.zVertices[i_92_] = this.zVertices[i_92_] * i_100_ - this.xVertices[i_92_] * i_99_ + 32767 >> 16;
+							this.xVertices[i_92_] = i_101_;
 						}
-						this.anIntArray3878[i_92_] += anInt3896;
-						this.anIntArray3856[i_92_] += anInt3898;
-						this.anIntArray3845[i_92_] += anInt3904;
+						this.xVertices[i_92_] += anInt3896;
+						this.yVertices[i_92_] += anInt3898;
+						this.zVertices[i_92_] += anInt3904;
 					}
 				}
 			}
@@ -465,15 +465,15 @@ final class HDModel extends AbstractModel {
 					for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
 						final int i_128_ = is_126_[i_127_];
 						final int i_129_ = i_128_;
-						this.anIntArray3878[i_129_] -= anInt3896;
-						this.anIntArray3856[i_129_] -= anInt3898;
-						this.anIntArray3845[i_129_] -= anInt3904;
-						this.anIntArray3878[i_129_] = this.anIntArray3878[i_129_] * i_65_ >> 7;
-						this.anIntArray3856[i_129_] = this.anIntArray3856[i_129_] * i_66_ >> 7;
-						this.anIntArray3845[i_129_] = this.anIntArray3845[i_129_] * i_67_ >> 7;
-						this.anIntArray3878[i_129_] += anInt3896;
-						this.anIntArray3856[i_129_] += anInt3898;
-						this.anIntArray3845[i_129_] += anInt3904;
+						this.xVertices[i_129_] -= anInt3896;
+						this.yVertices[i_129_] -= anInt3898;
+						this.zVertices[i_129_] -= anInt3904;
+						this.xVertices[i_129_] = this.xVertices[i_129_] * i_65_ >> 7;
+						this.yVertices[i_129_] = this.yVertices[i_129_] * i_66_ >> 7;
+						this.zVertices[i_129_] = this.zVertices[i_129_] * i_67_ >> 7;
+						this.xVertices[i_129_] += anInt3896;
+						this.yVertices[i_129_] += anInt3898;
+						this.zVertices[i_129_] += anInt3904;
 					}
 				}
 			}
@@ -541,31 +541,31 @@ final class HDModel extends AbstractModel {
 
 	@Override
 	final int getMaxY() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort94;
+		return this.modelBounds.maxY;
 	}
 
-	final int method2407() {
-		return aShort3851;
+	final int getAmbient() {
+		return ambient;
 	}
 
 	final void method2408() {
 		if (aShortArray3873 == null) {
 			rotate270();
 		} else {
-			for (int i = 0; i < this.anInt3862; i++) {
-				final int i_151_ = this.anIntArray3845[i];
-				this.anIntArray3845[i] = this.anIntArray3878[i];
-				this.anIntArray3878[i] = -i_151_;
+			for (int i = 0; i < this.vertexCount; i++) {
+				final int i_151_ = this.zVertices[i];
+				this.zVertices[i] = this.xVertices[i];
+				this.xVertices[i] = -i_151_;
 			}
 			for (int i = 0; i < anInt3890; i++) {
 				final int i_152_ = aShortArray3844[i];
 				aShortArray3844[i] = aShortArray3873[i];
 				aShortArray3873[i] = (short) -i_152_;
 			}
-			this.aClass13_3870.aBoolean89 = false;
+			this.modelBounds.boundsCalculated = false;
 			this.aClass49_3847.aBoolean439 = false;
 			if (aClass49_3848 != null) {
 				aClass49_3848.aBoolean439 = false;
@@ -575,10 +575,10 @@ final class HDModel extends AbstractModel {
 
 	@Override
 	final int method2371() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort93;
+		return this.modelBounds.aShort93;
 	}
 
 	@Override
@@ -586,6 +586,14 @@ final class HDModel extends AbstractModel {
 		if (anInt3890 != 0) {
 			final GL gl = HDToolkit.gl;
 			gl.glPushMatrix();
+			//45 / 256 = 0.17578125F
+			/**
+			 * Dane: that's to convert rs degree to normal degree
+	 		   Dane: every 256 rs degrees is 45 degrees
+			   Dane: lol
+			   Dane: 256 * 8 = 2048
+			   Dane: 45 * 8 = 360
+			 */
 			if (i_155_ != 0) {
 				gl.glRotatef(i_155_ * 0.17578125F, 1.0F, 0.0F, 0.0F);
 			}
@@ -605,15 +613,15 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2360(final int i) {
+	final void rotate(final int i) {
 		final int i_159_ = Rasterizer.sineTable[i];
 		final int i_160_ = Rasterizer.cosineTable[i];
-		for (int i_161_ = 0; i_161_ < this.anInt3862; i_161_++) {
-			final int i_162_ = this.anIntArray3845[i_161_] * i_159_ + this.anIntArray3878[i_161_] * i_160_ >> 16;
-			this.anIntArray3845[i_161_] = this.anIntArray3845[i_161_] * i_160_ - this.anIntArray3878[i_161_] * i_159_ >> 16;
-			this.anIntArray3878[i_161_] = i_162_;
+		for (int i_161_ = 0; i_161_ < this.vertexCount; i_161_++) {
+			final int i_162_ = this.zVertices[i_161_] * i_159_ + this.xVertices[i_161_] * i_160_ >> 16;
+			this.zVertices[i_161_] = this.zVertices[i_161_] * i_160_ - this.xVertices[i_161_] * i_159_ >> 16;
+			this.xVertices[i_161_] = i_162_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -621,15 +629,15 @@ final class HDModel extends AbstractModel {
 		if (aShortArray3873 == null) {
 			rotate180();
 		} else {
-			for (int i = 0; i < this.anInt3862; i++) {
-				this.anIntArray3878[i] = -this.anIntArray3878[i];
-				this.anIntArray3845[i] = -this.anIntArray3845[i];
+			for (int i = 0; i < this.vertexCount; i++) {
+				this.xVertices[i] = -this.xVertices[i];
+				this.zVertices[i] = -this.zVertices[i];
 			}
 			for (int i = 0; i < anInt3890; i++) {
 				aShortArray3873[i] = (short) -aShortArray3873[i];
 				aShortArray3844[i] = (short) -aShortArray3844[i];
 			}
-			this.aClass13_3870.aBoolean89 = false;
+			this.modelBounds.boundsCalculated = false;
 			this.aClass49_3847.aBoolean439 = false;
 			if (aClass49_3848 != null) {
 				aClass49_3848.aBoolean439 = false;
@@ -638,8 +646,8 @@ final class HDModel extends AbstractModel {
 	}
 
 	final void method2410() {
-		for (int i = 0; i < this.anInt3862; i++) {
-			this.anIntArray3845[i] = -this.anIntArray3845[i];
+		for (int i = 0; i < this.vertexCount; i++) {
+			this.zVertices[i] = -this.zVertices[i];
 		}
 		if (aShortArray3844 != null) {
 			for (int i = 0; i < anInt3890; i++) {
@@ -651,7 +659,7 @@ final class HDModel extends AbstractModel {
 			aShortArray3866[i] = aShortArray3879[i];
 			aShortArray3879[i] = i_163_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 		if (aClass49_3848 != null) {
 			aClass49_3848.aBoolean439 = false;
@@ -664,10 +672,10 @@ final class HDModel extends AbstractModel {
 		if (anIntArrayArray3881 == null) {
 			return false;
 		}
-		for (int i = 0; i < this.anInt3862; i++) {
-			this.anIntArray3878[i] <<= 4;
-			this.anIntArray3856[i] <<= 4;
-			this.anIntArray3845[i] <<= 4;
+		for (int i = 0; i < this.vertexCount; i++) {
+			this.xVertices[i] <<= 4;
+			this.yVertices[i] <<= 4;
+			this.zVertices[i] <<= 4;
 		}
 		anInt3896 = 0;
 		anInt3898 = 0;
@@ -677,7 +685,7 @@ final class HDModel extends AbstractModel {
 
 	@Override
 	final boolean method2268() {
-		if (this.aBoolean3880 && this.anIntArray3878 != null && aShortArray3873 != null) {
+		if (this.aBoolean3880 && this.xVertices != null && aShortArray3873 != null) {
 			return true;
 		}
 		return false;
@@ -687,12 +695,12 @@ final class HDModel extends AbstractModel {
 	final void method2377(final int i) {
 		final int i_164_ = Rasterizer.sineTable[i];
 		final int i_165_ = Rasterizer.cosineTable[i];
-		for (int i_166_ = 0; i_166_ < this.anInt3862; i_166_++) {
-			final int i_167_ = this.anIntArray3856[i_166_] * i_165_ - this.anIntArray3845[i_166_] * i_164_ >> 16;
-			this.anIntArray3845[i_166_] = this.anIntArray3856[i_166_] * i_164_ + this.anIntArray3845[i_166_] * i_165_ >> 16;
-			this.anIntArray3856[i_166_] = i_167_;
+		for (int i_166_ = 0; i_166_ < this.vertexCount; i_166_++) {
+			final int i_167_ = this.yVertices[i_166_] * i_165_ - this.zVertices[i_166_] * i_164_ >> 16;
+			this.zVertices[i_166_] = this.yVertices[i_166_] * i_164_ + this.zVertices[i_166_] * i_165_ >> 16;
+			this.yVertices[i_166_] = i_167_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -732,36 +740,36 @@ final class HDModel extends AbstractModel {
 		}
 	}
 
-	final HDModel method2412(final boolean bool, final boolean bool_168_, final boolean bool_169_, final boolean bool_170_, final boolean bool_171_, final boolean bool_172_, final boolean bool_173_, final boolean bool_174_, final boolean bool_175_, final boolean bool_176_,
+	final HDModelRenderer method2412(final boolean bool, final boolean bool_168_, final boolean bool_169_, final boolean bool_170_, final boolean bool_171_, final boolean bool_172_, final boolean bool_173_, final boolean bool_174_, final boolean bool_175_, final boolean bool_176_,
 			final boolean bool_177_) {
-		final HDModel class180_sub7_sub2_178_ = new HDModel();
-		class180_sub7_sub2_178_.anInt3862 = this.anInt3862;
+		final HDModelRenderer class180_sub7_sub2_178_ = new HDModelRenderer();
+		class180_sub7_sub2_178_.vertexCount = this.vertexCount;
 		class180_sub7_sub2_178_.anInt3861 = anInt3861;
 		class180_sub7_sub2_178_.anInt3890 = anInt3890;
 		class180_sub7_sub2_178_.anInt3867 = anInt3867;
 		if (bool) {
-			class180_sub7_sub2_178_.anIntArray3878 = this.anIntArray3878;
-			class180_sub7_sub2_178_.anIntArray3845 = this.anIntArray3845;
+			class180_sub7_sub2_178_.xVertices = this.xVertices;
+			class180_sub7_sub2_178_.zVertices = this.zVertices;
 		} else {
-			class180_sub7_sub2_178_.anIntArray3878 = SpotAnimType.arrayCopy(this.anIntArray3878);
-			class180_sub7_sub2_178_.anIntArray3845 = SpotAnimType.arrayCopy(this.anIntArray3845);
+			class180_sub7_sub2_178_.xVertices = SpotAnimType.arrayCopy(this.xVertices);
+			class180_sub7_sub2_178_.zVertices = SpotAnimType.arrayCopy(this.zVertices);
 		}
 		if (bool_168_) {
-			class180_sub7_sub2_178_.anIntArray3856 = this.anIntArray3856;
+			class180_sub7_sub2_178_.yVertices = this.yVertices;
 		} else {
-			class180_sub7_sub2_178_.anIntArray3856 = SpotAnimType.arrayCopy(this.anIntArray3856);
+			class180_sub7_sub2_178_.yVertices = SpotAnimType.arrayCopy(this.yVertices);
 		}
 		if (bool && bool_168_) {
 			class180_sub7_sub2_178_.aClass49_3847 = this.aClass49_3847;
-			class180_sub7_sub2_178_.aClass13_3870 = this.aClass13_3870;
+			class180_sub7_sub2_178_.modelBounds = this.modelBounds;
 		} else {
 			class180_sub7_sub2_178_.aClass49_3847 = new Class49();
-			class180_sub7_sub2_178_.aClass13_3870 = new Class13();
+			class180_sub7_sub2_178_.modelBounds = new ModelBounds();
 		}
 		if (bool_169_) {
 			class180_sub7_sub2_178_.aShortArray3857 = aShortArray3857;
 		} else {
-			class180_sub7_sub2_178_.aShortArray3857 = Class120_Sub12_Sub8.method1236(aShortArray3857, (byte) 119);
+			class180_sub7_sub2_178_.aShortArray3857 = Class120_Sub12_Sub8.arrayCopy(aShortArray3857);
 		}
 		if (bool_170_) {
 			class180_sub7_sub2_178_.aByteArray3884 = aByteArray3884;
@@ -779,10 +787,10 @@ final class HDModel extends AbstractModel {
 			class180_sub7_sub2_178_.aShortArray3844 = aShortArray3844;
 			class180_sub7_sub2_178_.aShortArray3849 = aShortArray3849;
 		} else {
-			class180_sub7_sub2_178_.aShortArray3873 = Class120_Sub12_Sub8.method1236(aShortArray3873, (byte) 121);
-			class180_sub7_sub2_178_.aShortArray3852 = Class120_Sub12_Sub8.method1236(aShortArray3852, (byte) 119);
-			class180_sub7_sub2_178_.aShortArray3844 = Class120_Sub12_Sub8.method1236(aShortArray3844, (byte) -120);
-			class180_sub7_sub2_178_.aShortArray3849 = Class120_Sub12_Sub8.method1236(aShortArray3849, (byte) -85);
+			class180_sub7_sub2_178_.aShortArray3873 = Class120_Sub12_Sub8.arrayCopy(aShortArray3873);
+			class180_sub7_sub2_178_.aShortArray3852 = Class120_Sub12_Sub8.arrayCopy(aShortArray3852);
+			class180_sub7_sub2_178_.aShortArray3844 = Class120_Sub12_Sub8.arrayCopy(aShortArray3844);
+			class180_sub7_sub2_178_.aShortArray3849 = Class120_Sub12_Sub8.arrayCopy(aShortArray3849);
 		}
 		if (Class120_Sub12_Sub6.highLightingDetail) {
 			if (bool_172_ && bool_173_ && bool_174_) {
@@ -808,15 +816,15 @@ final class HDModel extends AbstractModel {
 			class180_sub7_sub2_178_.aShortArray3879 = aShortArray3879;
 			class180_sub7_sub2_178_.aClass49_3863 = aClass49_3863;
 		} else {
-			class180_sub7_sub2_178_.aShortArray3866 = Class120_Sub12_Sub8.method1236(aShortArray3866, (byte) -105);
-			class180_sub7_sub2_178_.aShortArray3877 = Class120_Sub12_Sub8.method1236(aShortArray3877, (byte) 126);
-			class180_sub7_sub2_178_.aShortArray3879 = Class120_Sub12_Sub8.method1236(aShortArray3879, (byte) 127);
+			class180_sub7_sub2_178_.aShortArray3866 = Class120_Sub12_Sub8.arrayCopy(aShortArray3866);
+			class180_sub7_sub2_178_.aShortArray3877 = Class120_Sub12_Sub8.arrayCopy(aShortArray3877);
+			class180_sub7_sub2_178_.aShortArray3879 = Class120_Sub12_Sub8.arrayCopy(aShortArray3879);
 			class180_sub7_sub2_178_.aClass49_3863 = new Class49();
 		}
 		if (bool_177_) {
 			class180_sub7_sub2_178_.aShortArray3855 = aShortArray3855;
 		} else {
-			class180_sub7_sub2_178_.aShortArray3855 = Class120_Sub12_Sub8.method1236(aShortArray3855, (byte) 119);
+			class180_sub7_sub2_178_.aShortArray3855 = Class120_Sub12_Sub8.arrayCopy(aShortArray3855);
 		}
 		class180_sub7_sub2_178_.anIntArray3850 = anIntArray3850;
 		class180_sub7_sub2_178_.anIntArrayArray3881 = anIntArrayArray3881;
@@ -825,8 +833,8 @@ final class HDModel extends AbstractModel {
 		class180_sub7_sub2_178_.anIntArray3865 = anIntArray3865;
 		class180_sub7_sub2_178_.aShortArray3864 = aShortArray3864;
 		class180_sub7_sub2_178_.anIntArray3875 = anIntArray3875;
-		class180_sub7_sub2_178_.aShort3851 = aShort3851;
-		class180_sub7_sub2_178_.aShort3853 = aShort3853;
+		class180_sub7_sub2_178_.ambient = ambient;
+		class180_sub7_sub2_178_.contrast = contrast;
 		class180_sub7_sub2_178_.aClass158Array3892 = this.aClass158Array3892;
 		class180_sub7_sub2_178_.aClass169Array3858 = this.aClass169Array3858;
 		class180_sub7_sub2_178_.aShortArray3876 = aShortArray3876;
@@ -834,7 +842,7 @@ final class HDModel extends AbstractModel {
 		return class180_sub7_sub2_178_;
 	}
 
-	private final short method2413(final Class180_Sub2 class180_sub2, final int i, final long l, final int i_179_, final int i_180_, final int i_181_, final int i_182_, final float f, final float f_183_) {
+	private final short method2413(final Model class180_sub2, final int i, final long l, final int i_179_, final int i_180_, final int i_181_, final int i_182_, final float f, final float f_183_) {
 		final int i_184_ = anIntArray3875[i];
 		final int i_185_ = anIntArray3875[i + 1];
 		int i_186_ = 0;
@@ -860,37 +868,37 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2386() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+	final int getMinZ() {
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort92;
+		return this.modelBounds.minZ;
 	}
 
 	final LDIndexedSprite method2414(final LDIndexedSprite class107_sub1) {
 		if (anInt3890 == 0) {
 			return null;
 		}
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
 		int i;
 		int i_189_;
-		if (AtmosphereManager.lightingX > 0) {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingX >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingX >> 8) >> 3;
+		if (AtmosphereManager.lightX > 0) {
+			i = this.modelBounds.maxX - (this.modelBounds.minY * AtmosphereManager.lightX >> 8) >> 3;
+			i_189_ = this.modelBounds.minX - (this.modelBounds.maxY * AtmosphereManager.lightX >> 8) >> 3;
 		} else {
-			i = this.aClass13_3870.aShort90 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingX >> 8) >> 3;
-			i_189_ = this.aClass13_3870.aShort91 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingX >> 8) >> 3;
+			i = this.modelBounds.maxX - (this.modelBounds.maxY * AtmosphereManager.lightX >> 8) >> 3;
+			i_189_ = this.modelBounds.minX - (this.modelBounds.minY * AtmosphereManager.lightX >> 8) >> 3;
 		}
 		int i_190_;
 		int i_191_;
-		if (AtmosphereManager.lightingZ > 0) {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingZ >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingZ >> 8) >> 3;
+		if (AtmosphereManager.lightZ > 0) {
+			i_190_ = this.modelBounds.maxZ - (this.modelBounds.minY * AtmosphereManager.lightZ >> 8) >> 3;
+			i_191_ = this.modelBounds.minZ - (this.modelBounds.maxY * AtmosphereManager.lightZ >> 8) >> 3;
 		} else {
-			i_190_ = this.aClass13_3870.aShort88 - (this.aClass13_3870.aShort94 * AtmosphereManager.lightingZ >> 8) >> 3;
-			i_191_ = this.aClass13_3870.aShort92 - (this.aClass13_3870.aShort87 * AtmosphereManager.lightingZ >> 8) >> 3;
+			i_190_ = this.modelBounds.maxZ - (this.modelBounds.maxY * AtmosphereManager.lightZ >> 8) >> 3;
+			i_191_ = this.modelBounds.minZ - (this.modelBounds.minY * AtmosphereManager.lightZ >> 8) >> 3;
 		}
 		final int i_192_ = i_189_ - i + 1;
 		final int i_193_ = i_191_ - i_190_ + 1;
@@ -910,8 +918,8 @@ final class HDModel extends AbstractModel {
 			anIntArray3901 = new int[anInt3890];
 		}
 		for (int i_195_ = 0; i_195_ < anInt3861; i_195_++) {
-			final int i_196_ = (this.anIntArray3878[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.lightingX >> 8) >> 3) - i;
-			final int i_197_ = (this.anIntArray3845[i_195_] - (this.anIntArray3856[i_195_] * AtmosphereManager.lightingZ >> 8) >> 3) - i_190_;
+			final int i_196_ = (this.xVertices[i_195_] - (this.yVertices[i_195_] * AtmosphereManager.lightX >> 8) >> 3) - i;
+			final int i_197_ = (this.zVertices[i_195_] - (this.yVertices[i_195_] * AtmosphereManager.lightZ >> 8) >> 3) - i_190_;
 			final int i_198_ = anIntArray3875[i_195_];
 			final int i_199_ = anIntArray3875[i_195_ + 1];
 			for (int i_200_ = i_198_; i_200_ < i_199_; i_200_++) {
@@ -942,13 +950,13 @@ final class HDModel extends AbstractModel {
 		return class107_sub1_194_;
 	}
 
-	final void method2415(final int i) {
-		aShort3851 = (short) i;
+	final void setAmbient(final int i) {
+		ambient = (short) i;
 		aClass49_3869.aBoolean439 = false;
 	}
 
 	@Override
-	final AbstractModel method2381(final boolean bool, final boolean bool_212_, final boolean bool_213_) {
+	final AbstractModelRenderer method2381(final boolean bool, final boolean bool_212_, final boolean bool_213_) {
 		return method2433(bool, bool_212_, bool_213_, aClass180_Sub7_Sub2_3893, aClass180_Sub7_Sub2_3891);
 	}
 
@@ -1016,9 +1024,9 @@ final class HDModel extends AbstractModel {
 					for (int i_242_ = 0; i_242_ < i_240_; i_242_++) {
 						final int i_243_ = is_241_[i_242_];
 						if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_243_]) != 0) {
-							anInt3896 += this.anIntArray3878[i_243_];
-							anInt3898 += this.anIntArray3856[i_243_];
-							anInt3904 += this.anIntArray3845[i_243_];
+							anInt3896 += this.xVertices[i_243_];
+							anInt3898 += this.yVertices[i_243_];
+							anInt3904 += this.zVertices[i_243_];
 							i_236_++;
 						}
 					}
@@ -1056,9 +1064,9 @@ final class HDModel extends AbstractModel {
 						final int i_253_ = is_251_[i_252_];
 						final int i_254_ = i_253_;
 						if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_254_]) != 0) {
-							this.anIntArray3878[i_254_] += i_230_;
-							this.anIntArray3856[i_254_] += i_231_;
-							this.anIntArray3845[i_254_] += i_232_;
+							this.xVertices[i_254_] += i_230_;
+							this.yVertices[i_254_] += i_231_;
+							this.zVertices[i_254_] += i_232_;
 						}
 					}
 				}
@@ -1149,15 +1157,15 @@ final class HDModel extends AbstractModel {
 							final int i_301_ = is_299_[i_300_];
 							final int i_302_ = i_301_;
 							if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_302_]) != 0) {
-								int i_303_ = is_287_[0] * this.anIntArray3878[i_302_] + is_287_[1] * this.anIntArray3856[i_302_] + is_287_[2] * this.anIntArray3845[i_302_] + 16384 >> 15;
-								int i_304_ = is_287_[3] * this.anIntArray3878[i_302_] + is_287_[4] * this.anIntArray3856[i_302_] + is_287_[5] * this.anIntArray3845[i_302_] + 16384 >> 15;
-								int i_305_ = is_287_[6] * this.anIntArray3878[i_302_] + is_287_[7] * this.anIntArray3856[i_302_] + is_287_[8] * this.anIntArray3845[i_302_] + 16384 >> 15;
+								int i_303_ = is_287_[0] * this.xVertices[i_302_] + is_287_[1] * this.yVertices[i_302_] + is_287_[2] * this.zVertices[i_302_] + 16384 >> 15;
+								int i_304_ = is_287_[3] * this.xVertices[i_302_] + is_287_[4] * this.yVertices[i_302_] + is_287_[5] * this.zVertices[i_302_] + 16384 >> 15;
+								int i_305_ = is_287_[6] * this.xVertices[i_302_] + is_287_[7] * this.yVertices[i_302_] + is_287_[8] * this.zVertices[i_302_] + 16384 >> 15;
 								i_303_ += i_292_;
 								i_304_ += i_293_;
 								i_305_ += i_294_;
-								this.anIntArray3878[i_302_] = i_303_;
-								this.anIntArray3856[i_302_] = i_304_;
-								this.anIntArray3845[i_302_] = i_305_;
+								this.xVertices[i_302_] = i_303_;
+								this.yVertices[i_302_] = i_304_;
+								this.zVertices[i_302_] = i_305_;
 							}
 						}
 					}
@@ -1173,33 +1181,33 @@ final class HDModel extends AbstractModel {
 							final int i_312_ = is_310_[i_311_];
 							final int i_313_ = i_312_;
 							if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_313_]) != 0) {
-								this.anIntArray3878[i_313_] -= anInt3896;
-								this.anIntArray3856[i_313_] -= anInt3898;
-								this.anIntArray3845[i_313_] -= anInt3904;
+								this.xVertices[i_313_] -= anInt3896;
+								this.yVertices[i_313_] -= anInt3898;
+								this.zVertices[i_313_] -= anInt3904;
 								if (i_232_ != 0) {
 									final int i_314_ = Rasterizer.sineTable[i_232_];
 									final int i_315_ = Rasterizer.cosineTable[i_232_];
-									final int i_316_ = this.anIntArray3856[i_313_] * i_314_ + this.anIntArray3878[i_313_] * i_315_ + 32767 >> 16;
-									this.anIntArray3856[i_313_] = this.anIntArray3856[i_313_] * i_315_ - this.anIntArray3878[i_313_] * i_314_ + 32767 >> 16;
-									this.anIntArray3878[i_313_] = i_316_;
+									final int i_316_ = this.yVertices[i_313_] * i_314_ + this.xVertices[i_313_] * i_315_ + 32767 >> 16;
+									this.yVertices[i_313_] = this.yVertices[i_313_] * i_315_ - this.xVertices[i_313_] * i_314_ + 32767 >> 16;
+									this.xVertices[i_313_] = i_316_;
 								}
 								if (i_230_ != 0) {
 									final int i_317_ = Rasterizer.sineTable[i_230_];
 									final int i_318_ = Rasterizer.cosineTable[i_230_];
-									final int i_319_ = this.anIntArray3856[i_313_] * i_318_ - this.anIntArray3845[i_313_] * i_317_ + 32767 >> 16;
-									this.anIntArray3845[i_313_] = this.anIntArray3856[i_313_] * i_317_ + this.anIntArray3845[i_313_] * i_318_ + 32767 >> 16;
-									this.anIntArray3856[i_313_] = i_319_;
+									final int i_319_ = this.yVertices[i_313_] * i_318_ - this.zVertices[i_313_] * i_317_ + 32767 >> 16;
+									this.zVertices[i_313_] = this.yVertices[i_313_] * i_317_ + this.zVertices[i_313_] * i_318_ + 32767 >> 16;
+									this.yVertices[i_313_] = i_319_;
 								}
 								if (i_231_ != 0) {
 									final int i_320_ = Rasterizer.sineTable[i_231_];
 									final int i_321_ = Rasterizer.cosineTable[i_231_];
-									final int i_322_ = this.anIntArray3845[i_313_] * i_320_ + this.anIntArray3878[i_313_] * i_321_ + 32767 >> 16;
-									this.anIntArray3845[i_313_] = this.anIntArray3845[i_313_] * i_321_ - this.anIntArray3878[i_313_] * i_320_ + 32767 >> 16;
-									this.anIntArray3878[i_313_] = i_322_;
+									final int i_322_ = this.zVertices[i_313_] * i_320_ + this.xVertices[i_313_] * i_321_ + 32767 >> 16;
+									this.zVertices[i_313_] = this.zVertices[i_313_] * i_321_ - this.xVertices[i_313_] * i_320_ + 32767 >> 16;
+									this.xVertices[i_313_] = i_322_;
 								}
-								this.anIntArray3878[i_313_] += anInt3896;
-								this.anIntArray3856[i_313_] += anInt3898;
-								this.anIntArray3845[i_313_] += anInt3904;
+								this.xVertices[i_313_] += anInt3896;
+								this.yVertices[i_313_] += anInt3898;
+								this.zVertices[i_313_] += anInt3904;
 							}
 						}
 					}
@@ -1323,15 +1331,15 @@ final class HDModel extends AbstractModel {
 							final int i_379_ = is_377_[i_378_];
 							final int i_380_ = i_379_;
 							if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_380_]) != 0) {
-								int i_381_ = is_365_[0] * this.anIntArray3878[i_380_] + is_365_[1] * this.anIntArray3856[i_380_] + is_365_[2] * this.anIntArray3845[i_380_] + 16384 >> 15;
-								int i_382_ = is_365_[3] * this.anIntArray3878[i_380_] + is_365_[4] * this.anIntArray3856[i_380_] + is_365_[5] * this.anIntArray3845[i_380_] + 16384 >> 15;
-								int i_383_ = is_365_[6] * this.anIntArray3878[i_380_] + is_365_[7] * this.anIntArray3856[i_380_] + is_365_[8] * this.anIntArray3845[i_380_] + 16384 >> 15;
+								int i_381_ = is_365_[0] * this.xVertices[i_380_] + is_365_[1] * this.yVertices[i_380_] + is_365_[2] * this.zVertices[i_380_] + 16384 >> 15;
+								int i_382_ = is_365_[3] * this.xVertices[i_380_] + is_365_[4] * this.yVertices[i_380_] + is_365_[5] * this.zVertices[i_380_] + 16384 >> 15;
+								int i_383_ = is_365_[6] * this.xVertices[i_380_] + is_365_[7] * this.yVertices[i_380_] + is_365_[8] * this.zVertices[i_380_] + 16384 >> 15;
 								i_381_ += i_370_;
 								i_382_ += i_371_;
 								i_383_ += i_372_;
-								this.anIntArray3878[i_380_] = i_381_;
-								this.anIntArray3856[i_380_] = i_382_;
-								this.anIntArray3845[i_380_] = i_383_;
+								this.xVertices[i_380_] = i_381_;
+								this.yVertices[i_380_] = i_382_;
+								this.zVertices[i_380_] = i_383_;
 							}
 						}
 					}
@@ -1347,15 +1355,15 @@ final class HDModel extends AbstractModel {
 							final int i_390_ = is_388_[i_389_];
 							final int i_391_ = i_390_;
 							if (aShortArray3876 == null || (i_233_ & aShortArray3876[i_391_]) != 0) {
-								this.anIntArray3878[i_391_] -= anInt3896;
-								this.anIntArray3856[i_391_] -= anInt3898;
-								this.anIntArray3845[i_391_] -= anInt3904;
-								this.anIntArray3878[i_391_] = this.anIntArray3878[i_391_] * i_230_ >> 7;
-								this.anIntArray3856[i_391_] = this.anIntArray3856[i_391_] * i_231_ >> 7;
-								this.anIntArray3845[i_391_] = this.anIntArray3845[i_391_] * i_232_ >> 7;
-								this.anIntArray3878[i_391_] += anInt3896;
-								this.anIntArray3856[i_391_] += anInt3898;
-								this.anIntArray3845[i_391_] += anInt3904;
+								this.xVertices[i_391_] -= anInt3896;
+								this.yVertices[i_391_] -= anInt3898;
+								this.zVertices[i_391_] -= anInt3904;
+								this.xVertices[i_391_] = this.xVertices[i_391_] * i_230_ >> 7;
+								this.yVertices[i_391_] = this.yVertices[i_391_] * i_231_ >> 7;
+								this.zVertices[i_391_] = this.zVertices[i_391_] * i_232_ >> 7;
+								this.xVertices[i_391_] += anInt3896;
+								this.yVertices[i_391_] += anInt3898;
+								this.zVertices[i_391_] += anInt3904;
 							}
 						}
 					}
@@ -1429,21 +1437,21 @@ final class HDModel extends AbstractModel {
 
 	final void method2417(final int i) {
 		if (aShortArray3873 == null) {
-			method2360(i);
+			rotate(i);
 		} else {
 			final int i_413_ = Rasterizer.sineTable[i];
 			final int i_414_ = Rasterizer.cosineTable[i];
-			for (int i_415_ = 0; i_415_ < this.anInt3862; i_415_++) {
-				final int i_416_ = this.anIntArray3845[i_415_] * i_413_ + this.anIntArray3878[i_415_] * i_414_ >> 16;
-				this.anIntArray3845[i_415_] = this.anIntArray3845[i_415_] * i_414_ - this.anIntArray3878[i_415_] * i_413_ >> 16;
-				this.anIntArray3878[i_415_] = i_416_;
+			for (int i_415_ = 0; i_415_ < this.vertexCount; i_415_++) {
+				final int i_416_ = this.zVertices[i_415_] * i_413_ + this.xVertices[i_415_] * i_414_ >> 16;
+				this.zVertices[i_415_] = this.zVertices[i_415_] * i_414_ - this.xVertices[i_415_] * i_413_ >> 16;
+				this.xVertices[i_415_] = i_416_;
 			}
 			for (int i_417_ = 0; i_417_ < anInt3890; i_417_++) {
 				final int i_418_ = aShortArray3844[i_417_] * i_413_ + aShortArray3873[i_417_] * i_414_ >> 16;
 				aShortArray3844[i_417_] = (short) (aShortArray3844[i_417_] * i_414_ - aShortArray3873[i_417_] * i_413_ >> 16);
 				aShortArray3873[i_417_] = (short) i_418_;
 			}
-			this.aClass13_3870.aBoolean89 = false;
+			this.modelBounds.boundsCalculated = false;
 			this.aClass49_3847.aBoolean439 = false;
 			if (aClass49_3848 != null) {
 				aClass49_3848.aBoolean439 = false;
@@ -1463,9 +1471,9 @@ final class HDModel extends AbstractModel {
 			}
 			if (aByte3888 != 0) {
 				if ((aByte3888 & 0x1) != 0) {
-					this.anIntArray3878 = null;
-					this.anIntArray3856 = null;
-					this.anIntArray3845 = null;
+					this.xVertices = null;
+					this.yVertices = null;
+					this.zVertices = null;
 					aShortArray3864 = null;
 					anIntArray3875 = null;
 				}
@@ -1566,43 +1574,43 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2383() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+	final int getMinX() {
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort91;
+		return this.modelBounds.minX;
 	}
 
 	@Override
 	final void method2364() {
-		for (int i = 0; i < this.anInt3862; i++) {
-			this.anIntArray3878[i] = this.anIntArray3878[i] + 7 >> 4;
-			this.anIntArray3856[i] = this.anIntArray3856[i] + 7 >> 4;
-			this.anIntArray3845[i] = this.anIntArray3845[i] + 7 >> 4;
+		for (int i = 0; i < this.vertexCount; i++) {
+			this.xVertices[i] = this.xVertices[i] + 7 >> 4;
+			this.yVertices[i] = this.yVertices[i] + 7 >> 4;
+			this.zVertices[i] = this.zVertices[i] + 7 >> 4;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
 	@Override
 	final void resize(final int i, final int i_423_, final int i_424_) {
-		for (int i_425_ = 0; i_425_ < this.anInt3862; i_425_++) {
-			this.anIntArray3878[i_425_] = this.anIntArray3878[i_425_] * i >> 7;
-			this.anIntArray3856[i_425_] = this.anIntArray3856[i_425_] * i_423_ >> 7;
-			this.anIntArray3845[i_425_] = this.anIntArray3845[i_425_] * i_424_ >> 7;
+		for (int i_425_ = 0; i_425_ < this.vertexCount; i_425_++) {
+			this.xVertices[i_425_] = this.xVertices[i_425_] * i >> 7;
+			this.yVertices[i_425_] = this.yVertices[i_425_] * i_423_ >> 7;
+			this.zVertices[i_425_] = this.zVertices[i_425_] * i_424_ >> 7;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
-	final void method2419(final int i, final int i_426_, final HDModel class180_sub7_sub2_427_, final int[][] is, final int[][] is_428_, final int i_429_, final int i_430_, final int i_431_) {
-		if (!class180_sub7_sub2_427_.aClass13_3870.aBoolean89) {
-			class180_sub7_sub2_427_.method2425();
+	final void method2419(final int i, final int i_426_, final HDModelRenderer class180_sub7_sub2_427_, final int[][] is, final int[][] is_428_, final int i_429_, final int i_430_, final int i_431_) {
+		if (!class180_sub7_sub2_427_.modelBounds.boundsCalculated) {
+			class180_sub7_sub2_427_.calculateBounds();
 		}
-		int i_432_ = i_429_ + class180_sub7_sub2_427_.aClass13_3870.aShort90;
-		int i_433_ = i_429_ + class180_sub7_sub2_427_.aClass13_3870.aShort91;
-		int i_434_ = i_431_ + class180_sub7_sub2_427_.aClass13_3870.aShort88;
-		int i_435_ = i_431_ + class180_sub7_sub2_427_.aClass13_3870.aShort92;
+		int i_432_ = i_429_ + class180_sub7_sub2_427_.modelBounds.maxX;
+		int i_433_ = i_429_ + class180_sub7_sub2_427_.modelBounds.minX;
+		int i_434_ = i_431_ + class180_sub7_sub2_427_.modelBounds.maxZ;
+		int i_435_ = i_431_ + class180_sub7_sub2_427_.modelBounds.minZ;
 		if (i != 1 && i != 2 && i != 3 && i != 5 || i_432_ >= 0 && i_433_ + 128 >> 7 < is.length && i_434_ >= 0 && i_435_ + 128 >> 7 < is[0].length) {
 			if (i == 4 || i == 5) {
 				if (is_428_ == null || i_432_ < 0 || i_433_ + 128 >> 7 >= is_428_.length || i_434_ < 0 || i_435_ + 128 >> 7 >= is_428_[0].length) {
@@ -1619,8 +1627,8 @@ final class HDModel extends AbstractModel {
 			}
 			if (i == 1) {
 				for (int i_436_ = 0; i_436_ < anInt3861; i_436_++) {
-					final int i_437_ = this.anIntArray3878[i_436_] + i_429_;
-					final int i_438_ = this.anIntArray3845[i_436_] + i_431_;
+					final int i_437_ = this.xVertices[i_436_] + i_429_;
+					final int i_438_ = this.zVertices[i_436_] + i_431_;
 					final int i_439_ = i_437_ & 0x7f;
 					final int i_440_ = i_438_ & 0x7f;
 					final int i_441_ = i_437_ >> 7;
@@ -1628,15 +1636,15 @@ final class HDModel extends AbstractModel {
 					final int i_443_ = is[i_441_][i_442_] * (128 - i_439_) + is[i_441_ + 1][i_442_] * i_439_ >> 7;
 					final int i_444_ = is[i_441_][i_442_ + 1] * (128 - i_439_) + is[i_441_ + 1][i_442_ + 1] * i_439_ >> 7;
 					final int i_445_ = i_443_ * (128 - i_440_) + i_444_ * i_440_ >> 7;
-					this.anIntArray3856[i_436_] = this.anIntArray3856[i_436_] + i_445_ - i_430_;
+					this.yVertices[i_436_] = this.yVertices[i_436_] + i_445_ - i_430_;
 				}
 			} else if (i == 2) {
-				final int i_446_ = class180_sub7_sub2_427_.aClass13_3870.aShort94;
+				final int i_446_ = class180_sub7_sub2_427_.modelBounds.maxY;
 				for (int i_447_ = 0; i_447_ < anInt3861; i_447_++) {
-					final int i_448_ = (this.anIntArray3856[i_447_] << 16) / i_446_;
+					final int i_448_ = (this.yVertices[i_447_] << 16) / i_446_;
 					if (i_448_ < i_426_) {
-						final int i_449_ = this.anIntArray3878[i_447_] + i_429_;
-						final int i_450_ = this.anIntArray3845[i_447_] + i_431_;
+						final int i_449_ = this.xVertices[i_447_] + i_429_;
+						final int i_450_ = this.zVertices[i_447_] + i_431_;
 						final int i_451_ = i_449_ & 0x7f;
 						final int i_452_ = i_450_ & 0x7f;
 						final int i_453_ = i_449_ >> 7;
@@ -1644,7 +1652,7 @@ final class HDModel extends AbstractModel {
 						final int i_455_ = is[i_453_][i_454_] * (128 - i_451_) + is[i_453_ + 1][i_454_] * i_451_ >> 7;
 						final int i_456_ = is[i_453_][i_454_ + 1] * (128 - i_451_) + is[i_453_ + 1][i_454_ + 1] * i_451_ >> 7;
 						final int i_457_ = i_455_ * (128 - i_452_) + i_456_ * i_452_ >> 7;
-						this.anIntArray3856[i_447_] = this.anIntArray3856[i_447_] + (i_457_ - i_430_) * (i_426_ - i_448_) / i_426_;
+						this.yVertices[i_447_] = this.yVertices[i_447_] + (i_457_ - i_430_) * (i_426_ - i_448_) / i_426_;
 					}
 				}
 			} else if (i == 3) {
@@ -1652,10 +1660,10 @@ final class HDModel extends AbstractModel {
 				final int i_459_ = (i_426_ >> 8 & 0xff) * 4;
 				method2385(is, i_429_, i_430_, i_431_, i_458_, i_459_);
 			} else if (i == 4) {
-				final int i_460_ = class180_sub7_sub2_427_.aClass13_3870.aShort87 - class180_sub7_sub2_427_.aClass13_3870.aShort94;
+				final int i_460_ = class180_sub7_sub2_427_.modelBounds.minY - class180_sub7_sub2_427_.modelBounds.maxY;
 				for (int i_461_ = 0; i_461_ < anInt3861; i_461_++) {
-					final int i_462_ = this.anIntArray3878[i_461_] + i_429_;
-					final int i_463_ = this.anIntArray3845[i_461_] + i_431_;
+					final int i_462_ = this.xVertices[i_461_] + i_429_;
+					final int i_463_ = this.zVertices[i_461_] + i_431_;
 					final int i_464_ = i_462_ & 0x7f;
 					final int i_465_ = i_463_ & 0x7f;
 					final int i_466_ = i_462_ >> 7;
@@ -1663,13 +1671,13 @@ final class HDModel extends AbstractModel {
 					final int i_468_ = is_428_[i_466_][i_467_] * (128 - i_464_) + is_428_[i_466_ + 1][i_467_] * i_464_ >> 7;
 					final int i_469_ = is_428_[i_466_][i_467_ + 1] * (128 - i_464_) + is_428_[i_466_ + 1][i_467_ + 1] * i_464_ >> 7;
 					final int i_470_ = i_468_ * (128 - i_465_) + i_469_ * i_465_ >> 7;
-					this.anIntArray3856[i_461_] = this.anIntArray3856[i_461_] + i_470_ - i_430_ + i_460_;
+					this.yVertices[i_461_] = this.yVertices[i_461_] + i_470_ - i_430_ + i_460_;
 				}
 			} else if (i == 5) {
-				final int i_471_ = class180_sub7_sub2_427_.aClass13_3870.aShort87 - class180_sub7_sub2_427_.aClass13_3870.aShort94;
+				final int i_471_ = class180_sub7_sub2_427_.modelBounds.minY - class180_sub7_sub2_427_.modelBounds.maxY;
 				for (int i_472_ = 0; i_472_ < anInt3861; i_472_++) {
-					final int i_473_ = this.anIntArray3878[i_472_] + i_429_;
-					final int i_474_ = this.anIntArray3845[i_472_] + i_431_;
+					final int i_473_ = this.xVertices[i_472_] + i_429_;
+					final int i_474_ = this.zVertices[i_472_] + i_431_;
 					final int i_475_ = i_473_ & 0x7f;
 					final int i_476_ = i_474_ & 0x7f;
 					final int i_477_ = i_473_ >> 7;
@@ -1681,11 +1689,11 @@ final class HDModel extends AbstractModel {
 					i_480_ = is_428_[i_477_][i_478_ + 1] * (128 - i_475_) + is_428_[i_477_ + 1][i_478_ + 1] * i_475_ >> 7;
 					final int i_482_ = i_479_ * (128 - i_476_) + i_480_ * i_476_ >> 7;
 					final int i_483_ = i_481_ - i_482_;
-					this.anIntArray3856[i_472_] = ((this.anIntArray3856[i_472_] << 8) / i_471_ * i_483_ >> 8) - (i_430_ - i_481_);
+					this.yVertices[i_472_] = ((this.yVertices[i_472_] << 8) / i_471_ * i_483_ >> 8) - (i_430_ - i_481_);
 				}
 			}
 			this.aClass49_3847.aBoolean439 = false;
-			this.aClass13_3870.aBoolean89 = false;
+			this.modelBounds.boundsCalculated = false;
 		}
 	}
 
@@ -1695,8 +1703,8 @@ final class HDModel extends AbstractModel {
 		return is_484_;
 	}
 
-	final void method2421(final int i) {
-		aShort3853 = (short) i;
+	final void setContrast(final int i) {
+		contrast = (short) i;
 		if (aClass49_3848 != null) {
 			aClass49_3848.aBoolean439 = false;
 		}
@@ -1704,12 +1712,12 @@ final class HDModel extends AbstractModel {
 
 	@Override
 	final void method2267(final SceneGraphNode sceneGraphNode, final int i, final int i_485_, final int i_486_, final boolean bool) {
-		final HDModel class180_sub7_sub2_487_ = (HDModel) sceneGraphNode;
+		final HDModelRenderer class180_sub7_sub2_487_ = (HDModelRenderer) sceneGraphNode;
 		if (anInt3867 != 0 && class180_sub7_sub2_487_.anInt3867 != 0) {
 			final int i_488_ = class180_sub7_sub2_487_.anInt3861;
-			final int[] is = class180_sub7_sub2_487_.anIntArray3878;
-			final int[] is_489_ = class180_sub7_sub2_487_.anIntArray3856;
-			final int[] is_490_ = class180_sub7_sub2_487_.anIntArray3845;
+			final int[] is = class180_sub7_sub2_487_.xVertices;
+			final int[] is_489_ = class180_sub7_sub2_487_.yVertices;
+			final int[] is_490_ = class180_sub7_sub2_487_.zVertices;
 			final short[] is_491_ = class180_sub7_sub2_487_.aShortArray3873;
 			final short[] is_492_ = class180_sub7_sub2_487_.aShortArray3852;
 			final short[] is_493_ = class180_sub7_sub2_487_.aShortArray3844;
@@ -1746,21 +1754,21 @@ final class HDModel extends AbstractModel {
 			}
 			final int[] is_503_ = class180_sub7_sub2_487_.anIntArray3875;
 			final short[] is_504_ = class180_sub7_sub2_487_.aShortArray3864;
-			if (!class180_sub7_sub2_487_.aClass13_3870.aBoolean89) {
-				class180_sub7_sub2_487_.method2425();
+			if (!class180_sub7_sub2_487_.modelBounds.boundsCalculated) {
+				class180_sub7_sub2_487_.calculateBounds();
 			}
-			final int i_505_ = class180_sub7_sub2_487_.aClass13_3870.aShort94;
-			final int i_506_ = class180_sub7_sub2_487_.aClass13_3870.aShort87;
-			final int i_507_ = class180_sub7_sub2_487_.aClass13_3870.aShort90;
-			final int i_508_ = class180_sub7_sub2_487_.aClass13_3870.aShort91;
-			final int i_509_ = class180_sub7_sub2_487_.aClass13_3870.aShort88;
-			final int i_510_ = class180_sub7_sub2_487_.aClass13_3870.aShort92;
+			final int i_505_ = class180_sub7_sub2_487_.modelBounds.maxY;
+			final int i_506_ = class180_sub7_sub2_487_.modelBounds.minY;
+			final int i_507_ = class180_sub7_sub2_487_.modelBounds.maxX;
+			final int i_508_ = class180_sub7_sub2_487_.modelBounds.minX;
+			final int i_509_ = class180_sub7_sub2_487_.modelBounds.maxZ;
+			final int i_510_ = class180_sub7_sub2_487_.modelBounds.minZ;
 			for (int i_511_ = 0; i_511_ < anInt3861; i_511_++) {
-				final int i_512_ = this.anIntArray3856[i_511_] - i_485_;
+				final int i_512_ = this.yVertices[i_511_] - i_485_;
 				if (i_512_ >= i_505_ && i_512_ <= i_506_) {
-					final int i_513_ = this.anIntArray3878[i_511_] - i;
+					final int i_513_ = this.xVertices[i_511_] - i;
 					if (i_513_ >= i_507_ && i_513_ <= i_508_) {
-						final int i_514_ = this.anIntArray3845[i_511_] - i_486_;
+						final int i_514_ = this.zVertices[i_511_] - i_486_;
 						if (i_514_ >= i_509_ && i_514_ <= i_510_) {
 							int i_515_ = -1;
 							int i_516_ = anIntArray3875[i_511_];
@@ -1786,17 +1794,17 @@ final class HDModel extends AbstractModel {
 										if (i_520_ != -1) {
 											if (is_495_ == null) {
 												aClass152_3859 = new Class152();
-												is_495_ = aClass152_3859.aShortArray1425 = Class120_Sub12_Sub8.method1236(aShortArray3873, (byte) -35);
-												is_496_ = aClass152_3859.aShortArray1423 = Class120_Sub12_Sub8.method1236(aShortArray3852, (byte) -50);
-												is_497_ = aClass152_3859.aShortArray1424 = Class120_Sub12_Sub8.method1236(aShortArray3844, (byte) -60);
-												is_498_ = aClass152_3859.aShortArray1426 = Class120_Sub12_Sub8.method1236(aShortArray3849, (byte) 127);
+												is_495_ = aClass152_3859.aShortArray1425 = Class120_Sub12_Sub8.arrayCopy(aShortArray3873);
+												is_496_ = aClass152_3859.aShortArray1423 = Class120_Sub12_Sub8.arrayCopy(aShortArray3852);
+												is_497_ = aClass152_3859.aShortArray1424 = Class120_Sub12_Sub8.arrayCopy(aShortArray3844);
+												is_498_ = aClass152_3859.aShortArray1426 = Class120_Sub12_Sub8.arrayCopy(aShortArray3849);
 											}
 											if (is_499_ == null) {
 												final Class152 class152 = class180_sub7_sub2_487_.aClass152_3859 = new Class152();
-												is_499_ = class152.aShortArray1425 = Class120_Sub12_Sub8.method1236(is_491_, (byte) -128);
-												is_500_ = class152.aShortArray1423 = Class120_Sub12_Sub8.method1236(is_492_, (byte) -107);
-												is_501_ = class152.aShortArray1424 = Class120_Sub12_Sub8.method1236(is_493_, (byte) 121);
-												is_502_ = class152.aShortArray1426 = Class120_Sub12_Sub8.method1236(is_494_, (byte) 126);
+												is_499_ = class152.aShortArray1425 = Class120_Sub12_Sub8.arrayCopy(is_491_);
+												is_500_ = class152.aShortArray1423 = Class120_Sub12_Sub8.arrayCopy(is_492_);
+												is_501_ = class152.aShortArray1424 = Class120_Sub12_Sub8.arrayCopy(is_493_);
+												is_502_ = class152.aShortArray1426 = Class120_Sub12_Sub8.arrayCopy(is_494_);
 											}
 											short i_522_ = aShortArray3873[i_515_];
 											short i_523_ = aShortArray3852[i_515_];
@@ -1849,17 +1857,17 @@ final class HDModel extends AbstractModel {
 		if (aShortArray3873 == null) {
 			rotate90();
 		} else {
-			for (int i = 0; i < this.anInt3862; i++) {
-				final int i_530_ = this.anIntArray3878[i];
-				this.anIntArray3878[i] = this.anIntArray3845[i];
-				this.anIntArray3845[i] = -i_530_;
+			for (int i = 0; i < this.vertexCount; i++) {
+				final int i_530_ = this.xVertices[i];
+				this.xVertices[i] = this.zVertices[i];
+				this.zVertices[i] = -i_530_;
 			}
 			for (int i = 0; i < anInt3890; i++) {
 				final int i_531_ = aShortArray3873[i];
 				aShortArray3873[i] = aShortArray3844[i];
 				aShortArray3844[i] = (short) -i_531_;
 			}
-			this.aClass13_3870.aBoolean89 = false;
+			this.modelBounds.boundsCalculated = false;
 			this.aClass49_3847.aBoolean439 = false;
 			if (aClass49_3848 != null) {
 				aClass49_3848.aBoolean439 = false;
@@ -1868,7 +1876,7 @@ final class HDModel extends AbstractModel {
 	}
 
 	private static final int method2423(final int i, final short i_532_, final int i_533_, final byte i_534_) {
-		int i_535_ = Rasterizer.palette[LDModel.method2401(i, i_533_)];
+		int i_535_ = Rasterizer.palette[LDModelRenderer.method2401(i, i_533_)];
 		if (i_532_ != -1) {
 			final int i_536_ = Rasterizer.anInterface5_973.method24(i_532_ & 0xffff);
 			if (i_536_ != 0) {
@@ -1911,22 +1919,22 @@ final class HDModel extends AbstractModel {
 
 	@Override
 	final void translate(final int x, final int i_544_, final int i_545_) {
-		for (int i_546_ = 0; i_546_ < this.anInt3862; i_546_++) {
-			this.anIntArray3878[i_546_] += x;
-			this.anIntArray3856[i_546_] += i_544_;
-			this.anIntArray3845[i_546_] += i_545_;
+		for (int i_546_ = 0; i_546_ < this.vertexCount; i_546_++) {
+			this.xVertices[i_546_] += x;
+			this.yVertices[i_546_] += i_544_;
+			this.zVertices[i_546_] += i_545_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
 	@Override
 	final void rotate180() {
-		for (int i = 0; i < this.anInt3862; i++) {
-			this.anIntArray3878[i] = -this.anIntArray3878[i];
-			this.anIntArray3845[i] = -this.anIntArray3845[i];
+		for (int i = 0; i < this.vertexCount; i++) {
+			this.xVertices[i] = -this.xVertices[i];
+			this.zVertices[i] = -this.zVertices[i];
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -1986,62 +1994,62 @@ final class HDModel extends AbstractModel {
 		return fs_559_;
 	}
 
-	private final void method2425() {
-		int i = 32767;
-		int i_560_ = 32767;
-		int i_561_ = 32767;
-		int i_562_ = -32768;
-		int i_563_ = -32768;
-		int i_564_ = -32768;
+	private final void calculateBounds() {
+		int maxX = 32767;
+		int maxY = 32767;
+		int maxZ = 32767;
+		int minX = -32768;
+		int minY = -32768;
+		int minZ = -32768;
 		int i_565_ = 0;
 		int i_566_ = 0;
-		for (int i_567_ = 0; i_567_ < anInt3861; i_567_++) {
-			final int i_568_ = this.anIntArray3878[i_567_];
-			final int i_569_ = this.anIntArray3856[i_567_];
-			final int i_570_ = this.anIntArray3845[i_567_];
-			if (i_568_ < i) {
-				i = i_568_;
+		for (int vertexId = 0; vertexId < anInt3861; vertexId++) {
+			final int xVertex = this.xVertices[vertexId];
+			final int yVertex = this.yVertices[vertexId];
+			final int zVertex = this.zVertices[vertexId];
+			if (maxX > xVertex) {
+				maxX = xVertex;
 			}
-			if (i_568_ > i_562_) {
-				i_562_ = i_568_;
+			if (minX < xVertex) {
+				minX = xVertex;
 			}
-			if (i_569_ < i_560_) {
-				i_560_ = i_569_;
+			if (maxY > yVertex) {
+				maxY = yVertex;
 			}
-			if (i_569_ > i_563_) {
-				i_563_ = i_569_;
+			if (minY < yVertex) {
+				minY = yVertex;
 			}
-			if (i_570_ < i_561_) {
-				i_561_ = i_570_;
+			if (maxZ > zVertex) {
+				maxZ = zVertex;
 			}
-			if (i_570_ > i_564_) {
-				i_564_ = i_570_;
+			if (minZ < zVertex) {
+				minZ = zVertex;
 			}
-			int i_571_ = i_568_ * i_568_ + i_570_ * i_570_;
+			int i_571_ = xVertex * xVertex + zVertex * zVertex;
 			if (i_571_ > i_565_) {
 				i_565_ = i_571_;
 			}
-			i_571_ = i_568_ * i_568_ + i_570_ * i_570_ + i_569_ * i_569_;
+			i_571_ = xVertex * xVertex + zVertex * zVertex + yVertex * yVertex;
 			if (i_571_ > i_566_) {
 				i_566_ = i_571_;
 			}
 		}
-		this.aClass13_3870.aShort90 = (short) i;
-		this.aClass13_3870.aShort91 = (short) i_562_;
-		this.aClass13_3870.aShort94 = (short) i_560_;
-		this.aClass13_3870.aShort87 = (short) i_563_;
-		this.aClass13_3870.aShort88 = (short) i_561_;
-		this.aClass13_3870.aShort92 = (short) i_564_;
-		this.aClass13_3870.aShort93 = (short) (int) (Math.sqrt(i_565_) + 0.99);
+		this.modelBounds.maxX = (short) maxX;
+		this.modelBounds.minX = (short) minX;
+		this.modelBounds.maxY = (short) maxY;
+		this.modelBounds.minY = (short) minY;
+		this.modelBounds.maxZ = (short) maxZ;
+		this.modelBounds.minZ = (short) minZ;
+		this.modelBounds.aShort93 = (short) (int) (Math.sqrt(i_565_) + 0.99);
 		Math.sqrt(i_566_);
-		this.aClass13_3870.aBoolean89 = true;
+		this.modelBounds.boundsCalculated = true;
 	}
 
 	final void method2426() {
 		if (anIntArray3850 != null) {
 			final int[] is = new int[256];
 			int i = 0;
-			for (int i_572_ = 0; i_572_ < this.anInt3862; i_572_++) {
+			for (int i_572_ = 0; i_572_ < this.vertexCount; i_572_++) {
 				final int i_573_ = anIntArray3850[i_572_] & 0xff;
 				is[i_573_]++;
 				if (i_573_ > i) {
@@ -2053,7 +2061,7 @@ final class HDModel extends AbstractModel {
 				anIntArrayArray3881[i_574_] = new int[is[i_574_]];
 				is[i_574_] = 0;
 			}
-			for (int i_575_ = 0; i_575_ < this.anInt3862; i_575_++) {
+			for (int i_575_ = 0; i_575_ < this.vertexCount; i_575_++) {
 				final int i_576_ = anIntArray3850[i_575_] & 0xff;
 				anIntArrayArray3881[i_576_][is[i_576_]++] = i_575_;
 			}
@@ -2107,18 +2115,18 @@ final class HDModel extends AbstractModel {
 		return true;
 	}
 
-	final int method2429() {
-		return aShort3853;
+	final int getContrast() {
+		return contrast;
 	}
 
 	@Override
 	final void rotate90() {
-		for (int i = 0; i < this.anInt3862; i++) {
-			final int i_591_ = this.anIntArray3878[i];
-			this.anIntArray3878[i] = this.anIntArray3845[i];
-			this.anIntArray3845[i] = -i_591_;
+		for (int i = 0; i < this.vertexCount; i++) {
+			final int i_591_ = this.xVertices[i];
+			this.xVertices[i] = this.zVertices[i];
+			this.zVertices[i] = -i_591_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -2149,9 +2157,9 @@ final class HDModel extends AbstractModel {
 			if (bool_592_) {
 				if (HDToolkit.usingBigEndian) {
 					for (int i_596_ = 0; i_596_ < anInt3861; i_596_++) {
-						final int i_597_ = Float.floatToRawIntBits(this.anIntArray3878[i_596_]);
-						final int i_598_ = Float.floatToRawIntBits(this.anIntArray3856[i_596_]);
-						final int i_599_ = Float.floatToRawIntBits(this.anIntArray3845[i_596_]);
+						final int i_597_ = Float.floatToRawIntBits(this.xVertices[i_596_]);
+						final int i_598_ = Float.floatToRawIntBits(this.yVertices[i_596_]);
+						final int i_599_ = Float.floatToRawIntBits(this.zVertices[i_596_]);
 						final int i_600_ = anIntArray3875[i_596_];
 						final int i_601_ = anIntArray3875[i_596_ + 1];
 						for (int i_602_ = i_600_; i_602_ < i_601_; i_602_++) {
@@ -2167,9 +2175,9 @@ final class HDModel extends AbstractModel {
 					}
 				} else {
 					for (int i_604_ = 0; i_604_ < anInt3861; i_604_++) {
-						final int i_605_ = Float.floatToRawIntBits(this.anIntArray3878[i_604_]);
-						final int i_606_ = Float.floatToRawIntBits(this.anIntArray3856[i_604_]);
-						final int i_607_ = Float.floatToRawIntBits(this.anIntArray3845[i_604_]);
+						final int i_605_ = Float.floatToRawIntBits(this.xVertices[i_604_]);
+						final int i_606_ = Float.floatToRawIntBits(this.yVertices[i_604_]);
+						final int i_607_ = Float.floatToRawIntBits(this.zVertices[i_604_]);
 						final int i_608_ = anIntArray3875[i_604_];
 						final int i_609_ = anIntArray3875[i_604_ + 1];
 						for (int i_610_ = i_608_; i_610_ < i_609_; i_610_++) {
@@ -2187,12 +2195,12 @@ final class HDModel extends AbstractModel {
 			}
 			if (bool_593_) {
 				if (!Class120_Sub12_Sub6.highLightingDetail) {
-					final int i_612_ = (int) AtmosphereManager.light0Position[0];
-					final int i_613_ = (int) AtmosphereManager.light0Position[1];
-					final int i_614_ = (int) AtmosphereManager.light0Position[2];
-					final int i_615_ = (int) Math.sqrt(i_612_ * i_612_ + i_613_ * i_613_ + i_614_ * i_614_);
-					final int i_616_ = (int) (aShort3851 * 1.3F);
-					final int i_617_ = aShort3853 * i_615_ >> 8;
+					final int lightX = (int) AtmosphereManager.light0Position[0];
+					final int lightY = (int) AtmosphereManager.light0Position[1];
+					final int lightZ = (int) AtmosphereManager.light0Position[2];
+					final int i_615_ = (int) Math.sqrt(lightX * lightX + lightY * lightY + lightZ * lightZ);
+					final int i_616_ = (int) (ambient * 1.3F);
+					final int i_617_ = contrast * i_615_ >> 8;
 					for (int i_618_ = 0; i_618_ < anInt3867; i_618_++) {
 						final int i_619_ = aShortArray3866[i_618_];
 						final int i_620_ = aShortArray3849[i_619_];
@@ -2201,9 +2209,9 @@ final class HDModel extends AbstractModel {
 							i_621_ = -1 - i_620_;
 						} else {
 							if (i_620_ != 0) {
-								i_621_ = i_616_ + (i_612_ * aShortArray3873[i_619_] + i_613_ * aShortArray3852[i_619_] + i_614_ * aShortArray3844[i_619_]) / (i_617_ * i_620_);
+								i_621_ = i_616_ + (lightX * aShortArray3873[i_619_] + lightY * aShortArray3852[i_619_] + lightZ * aShortArray3844[i_619_]) / (i_617_ * i_620_);
 							} else {
-								i_621_ = i_616_ + (i_612_ * aShortArray3873[i_619_] + i_613_ * aShortArray3852[i_619_] + i_614_ * aShortArray3844[i_619_]) / (i_617_ + i_617_ / 2);
+								i_621_ = i_616_ + (lightX * aShortArray3873[i_619_] + lightY * aShortArray3852[i_619_] + lightZ * aShortArray3844[i_619_]) / (i_617_ + i_617_ / 2);
 							}
 							if (i_621_ < 0) {
 								i_621_ = 0;
@@ -2219,9 +2227,9 @@ final class HDModel extends AbstractModel {
 							i_624_ = -1 - i_623_;
 						} else {
 							if (i_623_ != 0) {
-								i_624_ = i_616_ + (i_612_ * aShortArray3873[i_622_] + i_613_ * aShortArray3852[i_622_] + i_614_ * aShortArray3844[i_622_]) / (i_617_ * i_623_);
+								i_624_ = i_616_ + (lightX * aShortArray3873[i_622_] + lightY * aShortArray3852[i_622_] + lightZ * aShortArray3844[i_622_]) / (i_617_ * i_623_);
 							} else {
-								i_624_ = i_616_ + (i_612_ * aShortArray3873[i_622_] + i_613_ * aShortArray3852[i_622_] + i_614_ * aShortArray3844[i_622_]) / (i_617_ + i_617_ / 2);
+								i_624_ = i_616_ + (lightX * aShortArray3873[i_622_] + lightY * aShortArray3852[i_622_] + lightZ * aShortArray3844[i_622_]) / (i_617_ + i_617_ / 2);
 							}
 							if (i_624_ < 0) {
 								i_624_ = 0;
@@ -2237,9 +2245,9 @@ final class HDModel extends AbstractModel {
 							i_627_ = -1 - i_626_;
 						} else {
 							if (i_626_ != 0) {
-								i_627_ = i_616_ + (i_612_ * aShortArray3873[i_625_] + i_613_ * aShortArray3852[i_625_] + i_614_ * aShortArray3844[i_625_]) / (i_617_ * i_626_);
+								i_627_ = i_616_ + (lightX * aShortArray3873[i_625_] + lightY * aShortArray3852[i_625_] + lightZ * aShortArray3844[i_625_]) / (i_617_ * i_626_);
 							} else {
-								i_627_ = i_616_ + (i_612_ * aShortArray3873[i_625_] + i_613_ * aShortArray3852[i_625_] + i_614_ * aShortArray3844[i_625_]) / (i_617_ + i_617_ / 2);
+								i_627_ = i_616_ + (lightX * aShortArray3873[i_625_] + lightY * aShortArray3852[i_625_] + lightZ * aShortArray3844[i_625_]) / (i_617_ + i_617_ / 2);
 							}
 							if (i_627_ < 0) {
 								i_627_ = 0;
@@ -2263,7 +2271,7 @@ final class HDModel extends AbstractModel {
 					aShortArray3844 = null;
 				} else {
 					for (int i_631_ = 0; i_631_ < anInt3867; i_631_++) {
-						final int i_632_ = method2423(aShortArray3857[i_631_], aShortArray3855[i_631_], aShort3851, aByteArray3884[i_631_]);
+						final int i_632_ = method2423(aShortArray3857[i_631_], aShortArray3855[i_631_], ambient, aByteArray3884[i_631_]);
 						aClass120_Sub7_3871.pos = aClass49_3869.anInt442 + aShortArray3866[i_631_] * i;
 						aClass120_Sub7_3871.putInt(i_632_);
 						aClass120_Sub7_3871.pos = aClass49_3869.anInt442 + aShortArray3877[i_631_] * i;
@@ -2274,8 +2282,8 @@ final class HDModel extends AbstractModel {
 				}
 			}
 			if (bool_594_) {
-				final float f = 3.0F / aShort3853;
-				final float f_633_ = 3.0F / (aShort3853 + aShort3853 / 2);
+				final float f = 3.0F / contrast;
+				final float f_633_ = 3.0F / (contrast + contrast / 2);
 				aClass120_Sub7_3871.pos = aClass49_3848.anInt442;
 				if (HDToolkit.usingBigEndian) {
 					for (int i_634_ = 0; i_634_ < anInt3890; i_634_++) {
@@ -2453,7 +2461,7 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final AbstractModel method2378(final boolean bool, final boolean bool_642_, final boolean bool_643_) {
+	final AbstractModelRenderer method2378(final boolean bool, final boolean bool_642_, final boolean bool_643_) {
 		return method2433(bool, bool_642_, bool_643_, aClass180_Sub7_Sub2_3895, aClass180_Sub7_Sub2_3894);
 	}
 
@@ -2486,21 +2494,21 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final int getMaxZ() {
-		if (!this.aClass13_3870.aBoolean89) {
-			method2425();
+	final int getMinY() {
+		if (!this.modelBounds.boundsCalculated) {
+			calculateBounds();
 		}
-		return this.aClass13_3870.aShort87;
+		return this.modelBounds.minY;
 	}
 
 	@Override
 	final void rotate270() {
-		for (int i = 0; i < this.anInt3862; i++) {
-			final int i_658_ = this.anIntArray3845[i];
-			this.anIntArray3845[i] = this.anIntArray3878[i];
-			this.anIntArray3878[i] = -i_658_;
+		for (int i = 0; i < this.vertexCount; i++) {
+			final int i_658_ = this.zVertices[i];
+			this.zVertices[i] = this.xVertices[i];
+			this.xVertices[i] = -i_658_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -2508,12 +2516,12 @@ final class HDModel extends AbstractModel {
 	final void method2362(final int i) {
 		final int i_659_ = Rasterizer.sineTable[i];
 		final int i_660_ = Rasterizer.cosineTable[i];
-		for (int i_661_ = 0; i_661_ < this.anInt3862; i_661_++) {
-			final int i_662_ = this.anIntArray3856[i_661_] * i_659_ + this.anIntArray3878[i_661_] * i_660_ >> 16;
-			this.anIntArray3856[i_661_] = this.anIntArray3856[i_661_] * i_660_ - this.anIntArray3878[i_661_] * i_659_ >> 16;
-			this.anIntArray3878[i_661_] = i_662_;
+		for (int i_661_ = 0; i_661_ < this.vertexCount; i_661_++) {
+			final int i_662_ = this.yVertices[i_661_] * i_659_ + this.xVertices[i_661_] * i_660_ >> 16;
+			this.yVertices[i_661_] = this.yVertices[i_661_] * i_660_ - this.xVertices[i_661_] * i_659_ >> 16;
+			this.xVertices[i_661_] = i_662_;
 		}
-		this.aClass13_3870.aBoolean89 = false;
+		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
 	}
 
@@ -2531,12 +2539,12 @@ final class HDModel extends AbstractModel {
 			}
 			if (bool) {
 				if (this.aClass49_3847.aBoolean439) {
-					if (!this.aClass13_3870.aBoolean89) {
-						method2425();
+					if (!this.modelBounds.boundsCalculated) {
+						calculateBounds();
 					}
-					this.anIntArray3878 = null;
-					this.anIntArray3856 = null;
-					this.anIntArray3845 = null;
+					this.xVertices = null;
+					this.yVertices = null;
+					this.zVertices = null;
 					aShortArray3864 = null;
 					anIntArray3875 = null;
 				} else {
@@ -2588,36 +2596,36 @@ final class HDModel extends AbstractModel {
 	}
 
 	@Override
-	final AbstractModel method2376(final boolean bool, final boolean bool_670_, final boolean bool_671_) {
+	final AbstractModelRenderer method2376(final boolean bool, final boolean bool_670_, final boolean bool_671_) {
 		return method2433(bool, bool_670_, bool_671_, aClass180_Sub7_Sub2_3889, aClass180_Sub7_Sub2_3885);
 	}
 
-	private final AbstractModel method2433(final boolean bool, final boolean bool_672_, final boolean bool_673_, final HDModel class180_sub7_sub2_674_, final HDModel class180_sub7_sub2_675_) {
-		class180_sub7_sub2_674_.anInt3862 = this.anInt3862;
+	private final AbstractModelRenderer method2433(final boolean bool, final boolean bool_672_, final boolean bool_673_, final HDModelRenderer class180_sub7_sub2_674_, final HDModelRenderer class180_sub7_sub2_675_) {
+		class180_sub7_sub2_674_.vertexCount = this.vertexCount;
 		class180_sub7_sub2_674_.anInt3861 = anInt3861;
 		class180_sub7_sub2_674_.anInt3890 = anInt3890;
 		class180_sub7_sub2_674_.anInt3867 = anInt3867;
-		class180_sub7_sub2_674_.aShort3851 = aShort3851;
-		class180_sub7_sub2_674_.aShort3853 = aShort3853;
+		class180_sub7_sub2_674_.ambient = ambient;
+		class180_sub7_sub2_674_.contrast = contrast;
 		class180_sub7_sub2_674_.aByte3860 = (byte) (0x1 | (bool && bool_672_ ? 0 : 2) | (bool_673_ ? 0 : 4));
-		if (class180_sub7_sub2_674_.anIntArray3878 == null || class180_sub7_sub2_674_.anIntArray3878.length < this.anInt3862) {
-			class180_sub7_sub2_674_.anIntArray3878 = new int[this.anInt3862 + 100];
-			class180_sub7_sub2_674_.anIntArray3856 = new int[this.anInt3862 + 100];
-			class180_sub7_sub2_674_.anIntArray3845 = new int[this.anInt3862 + 100];
+		if (class180_sub7_sub2_674_.xVertices == null || class180_sub7_sub2_674_.xVertices.length < this.vertexCount) {
+			class180_sub7_sub2_674_.xVertices = new int[this.vertexCount + 100];
+			class180_sub7_sub2_674_.yVertices = new int[this.vertexCount + 100];
+			class180_sub7_sub2_674_.zVertices = new int[this.vertexCount + 100];
 		}
-		for (int i = 0; i < this.anInt3862; i++) {
-			class180_sub7_sub2_674_.anIntArray3878[i] = this.anIntArray3878[i];
-			class180_sub7_sub2_674_.anIntArray3856[i] = this.anIntArray3856[i];
-			class180_sub7_sub2_674_.anIntArray3845[i] = this.anIntArray3845[i];
+		for (int i = 0; i < this.vertexCount; i++) {
+			class180_sub7_sub2_674_.xVertices[i] = this.xVertices[i];
+			class180_sub7_sub2_674_.yVertices[i] = this.yVertices[i];
+			class180_sub7_sub2_674_.zVertices[i] = this.zVertices[i];
 		}
 		if (class180_sub7_sub2_674_.aClass49_3847 == null) {
 			class180_sub7_sub2_674_.aClass49_3847 = new Class49();
 		}
 		class180_sub7_sub2_674_.aClass49_3847.aBoolean439 = false;
-		if (class180_sub7_sub2_674_.aClass13_3870 == null) {
-			class180_sub7_sub2_674_.aClass13_3870 = new Class13();
+		if (class180_sub7_sub2_674_.modelBounds == null) {
+			class180_sub7_sub2_674_.modelBounds = new ModelBounds();
 		}
-		class180_sub7_sub2_674_.aClass13_3870.aBoolean89 = false;
+		class180_sub7_sub2_674_.modelBounds.boundsCalculated = false;
 		if (bool) {
 			class180_sub7_sub2_674_.aByteArray3884 = aByteArray3884;
 		} else {
@@ -2738,10 +2746,10 @@ final class HDModel extends AbstractModel {
 			anInt3896 = 0;
 			anInt3898 = 0;
 			anInt3904 = 0;
-			for (int i_694_ = 0; i_694_ < this.anInt3862; i_694_++) {
-				anInt3896 += this.anIntArray3878[i_694_];
-				anInt3898 += this.anIntArray3856[i_694_];
-				anInt3904 += this.anIntArray3845[i_694_];
+			for (int i_694_ = 0; i_694_ < this.vertexCount; i_694_++) {
+				anInt3896 += this.xVertices[i_694_];
+				anInt3898 += this.yVertices[i_694_];
+				anInt3904 += this.zVertices[i_694_];
 				i_693_++;
 			}
 			if (i_693_ > 0) {
@@ -2754,52 +2762,52 @@ final class HDModel extends AbstractModel {
 				anInt3904 = i_692_;
 			}
 		} else if (i == 1) {
-			for (int i_695_ = 0; i_695_ < this.anInt3862; i_695_++) {
-				this.anIntArray3878[i_695_] += i_690_;
-				this.anIntArray3856[i_695_] += i_691_;
-				this.anIntArray3845[i_695_] += i_692_;
+			for (int i_695_ = 0; i_695_ < this.vertexCount; i_695_++) {
+				this.xVertices[i_695_] += i_690_;
+				this.yVertices[i_695_] += i_691_;
+				this.zVertices[i_695_] += i_692_;
 			}
 		} else if (i == 2) {
-			for (int i_696_ = 0; i_696_ < this.anInt3862; i_696_++) {
-				this.anIntArray3878[i_696_] -= anInt3896;
-				this.anIntArray3856[i_696_] -= anInt3898;
-				this.anIntArray3845[i_696_] -= anInt3904;
+			for (int i_696_ = 0; i_696_ < this.vertexCount; i_696_++) {
+				this.xVertices[i_696_] -= anInt3896;
+				this.yVertices[i_696_] -= anInt3898;
+				this.zVertices[i_696_] -= anInt3904;
 				if (i_692_ != 0) {
 					final int i_697_ = Rasterizer.sineTable[i_692_];
 					final int i_698_ = Rasterizer.cosineTable[i_692_];
-					final int i_699_ = this.anIntArray3856[i_696_] * i_697_ + this.anIntArray3878[i_696_] * i_698_ + 32767 >> 16;
-					this.anIntArray3856[i_696_] = this.anIntArray3856[i_696_] * i_698_ - this.anIntArray3878[i_696_] * i_697_ + 32767 >> 16;
-					this.anIntArray3878[i_696_] = i_699_;
+					final int i_699_ = this.yVertices[i_696_] * i_697_ + this.xVertices[i_696_] * i_698_ + 32767 >> 16;
+					this.yVertices[i_696_] = this.yVertices[i_696_] * i_698_ - this.xVertices[i_696_] * i_697_ + 32767 >> 16;
+					this.xVertices[i_696_] = i_699_;
 				}
 				if (i_690_ != 0) {
 					final int i_700_ = Rasterizer.sineTable[i_690_];
 					final int i_701_ = Rasterizer.cosineTable[i_690_];
-					final int i_702_ = this.anIntArray3856[i_696_] * i_701_ - this.anIntArray3845[i_696_] * i_700_ + 32767 >> 16;
-					this.anIntArray3845[i_696_] = this.anIntArray3856[i_696_] * i_700_ + this.anIntArray3845[i_696_] * i_701_ + 32767 >> 16;
-					this.anIntArray3856[i_696_] = i_702_;
+					final int i_702_ = this.yVertices[i_696_] * i_701_ - this.zVertices[i_696_] * i_700_ + 32767 >> 16;
+					this.zVertices[i_696_] = this.yVertices[i_696_] * i_700_ + this.zVertices[i_696_] * i_701_ + 32767 >> 16;
+					this.yVertices[i_696_] = i_702_;
 				}
 				if (i_691_ != 0) {
 					final int i_703_ = Rasterizer.sineTable[i_691_];
 					final int i_704_ = Rasterizer.cosineTable[i_691_];
-					final int i_705_ = this.anIntArray3845[i_696_] * i_703_ + this.anIntArray3878[i_696_] * i_704_ + 32767 >> 16;
-					this.anIntArray3845[i_696_] = this.anIntArray3845[i_696_] * i_704_ - this.anIntArray3878[i_696_] * i_703_ + 32767 >> 16;
-					this.anIntArray3878[i_696_] = i_705_;
+					final int i_705_ = this.zVertices[i_696_] * i_703_ + this.xVertices[i_696_] * i_704_ + 32767 >> 16;
+					this.zVertices[i_696_] = this.zVertices[i_696_] * i_704_ - this.xVertices[i_696_] * i_703_ + 32767 >> 16;
+					this.xVertices[i_696_] = i_705_;
 				}
-				this.anIntArray3878[i_696_] += anInt3896;
-				this.anIntArray3856[i_696_] += anInt3898;
-				this.anIntArray3845[i_696_] += anInt3904;
+				this.xVertices[i_696_] += anInt3896;
+				this.yVertices[i_696_] += anInt3898;
+				this.zVertices[i_696_] += anInt3904;
 			}
 		} else if (i == 3) {
-			for (int i_706_ = 0; i_706_ < this.anInt3862; i_706_++) {
-				this.anIntArray3878[i_706_] -= anInt3896;
-				this.anIntArray3856[i_706_] -= anInt3898;
-				this.anIntArray3845[i_706_] -= anInt3904;
-				this.anIntArray3878[i_706_] = this.anIntArray3878[i_706_] * i_690_ / 128;
-				this.anIntArray3856[i_706_] = this.anIntArray3856[i_706_] * i_691_ / 128;
-				this.anIntArray3845[i_706_] = this.anIntArray3845[i_706_] * i_692_ / 128;
-				this.anIntArray3878[i_706_] += anInt3896;
-				this.anIntArray3856[i_706_] += anInt3898;
-				this.anIntArray3845[i_706_] += anInt3904;
+			for (int i_706_ = 0; i_706_ < this.vertexCount; i_706_++) {
+				this.xVertices[i_706_] -= anInt3896;
+				this.yVertices[i_706_] -= anInt3898;
+				this.zVertices[i_706_] -= anInt3904;
+				this.xVertices[i_706_] = this.xVertices[i_706_] * i_690_ / 128;
+				this.yVertices[i_706_] = this.yVertices[i_706_] * i_691_ / 128;
+				this.zVertices[i_706_] = this.zVertices[i_706_] * i_692_ / 128;
+				this.xVertices[i_706_] += anInt3896;
+				this.yVertices[i_706_] += anInt3898;
+				this.zVertices[i_706_] += anInt3904;
 			}
 		} else if (i == 5) {
 			for (int i_707_ = 0; i_707_ < anInt3867; i_707_++) {
@@ -2844,12 +2852,12 @@ final class HDModel extends AbstractModel {
 	}
 
 	static final void method2436() {
-		aClass180_Sub7_Sub2_3885 = new HDModel();
-		aClass180_Sub7_Sub2_3889 = new HDModel();
-		aClass180_Sub7_Sub2_3891 = new HDModel();
-		aClass180_Sub7_Sub2_3893 = new HDModel();
-		aClass180_Sub7_Sub2_3894 = new HDModel();
-		aClass180_Sub7_Sub2_3895 = new HDModel();
+		aClass180_Sub7_Sub2_3885 = new HDModelRenderer();
+		aClass180_Sub7_Sub2_3889 = new HDModelRenderer();
+		aClass180_Sub7_Sub2_3891 = new HDModelRenderer();
+		aClass180_Sub7_Sub2_3893 = new HDModelRenderer();
+		aClass180_Sub7_Sub2_3894 = new HDModelRenderer();
+		aClass180_Sub7_Sub2_3895 = new HDModelRenderer();
 	}
 
 	private static final int method2437(final float f, final float f_715_, final float f_716_) {
@@ -2874,7 +2882,7 @@ final class HDModel extends AbstractModel {
 		return 5;
 	}
 
-	private HDModel() {
+	private HDModelRenderer() {
 		anInt3861 = 0;
 		aByte3860 = (byte) 0;
 		anInt3867 = 0;
@@ -2883,7 +2891,7 @@ final class HDModel extends AbstractModel {
 		anInt3890 = 0;
 	}
 
-	HDModel(final Class180_Sub2 class180_sub2, final int i, final int i_720_, final boolean bool) {
+	HDModelRenderer(final Model class180_sub2, final int ambient_, final int contrast_, final boolean bool) {
 		anInt3861 = 0;
 		aByte3860 = (byte) 0;
 		anInt3867 = 0;
@@ -2915,7 +2923,7 @@ final class HDModel extends AbstractModel {
 					i_727_ = Rasterizer.anInterface5_973.method29(i_728_ & 0xffff);
 				}
 			}
-			final boolean bool_729_ = class180_sub2.aByteArray2864 != null && class180_sub2.aByteArray2864[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(i_728_ & 0xffff);
+			final boolean bool_729_ = class180_sub2.trianglesAlpha != null && class180_sub2.trianglesAlpha[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(i_728_ & 0xffff);
 			if ((bool || bool_729_) && class180_sub2.aByteArray2879 != null) {
 				i_724_ += class180_sub2.aByteArray2879[i_723_] << 17;
 			}
@@ -2929,11 +2937,11 @@ final class HDModel extends AbstractModel {
 			ls[i_722_] = ((long) i_724_ << 32) + i_725_;
 		}
 		MapFunctionType.method642(is, ls);
-		this.anInt3862 = class180_sub2.vertexCount;
+		this.vertexCount = class180_sub2.vertexCount;
 		anInt3861 = class180_sub2.anInt2886;
-		this.anIntArray3878 = class180_sub2.xVertices;
-		this.anIntArray3856 = class180_sub2.yVertices;
-		this.anIntArray3845 = class180_sub2.zVertices;
+		this.xVertices = class180_sub2.xVertices;
+		this.yVertices = class180_sub2.yVertices;
+		this.zVertices = class180_sub2.zVertices;
 		anIntArray3850 = class180_sub2.vertexLabelIds;
 		aShortArray3876 = class180_sub2.aShortArray2852;
 		this.aClass158Array3892 = class180_sub2.aClass158Array2871;
@@ -2957,7 +2965,7 @@ final class HDModel extends AbstractModel {
 		if (class180_sub2.aShortArray2867 != null) {
 			aShortArray3846 = new short[anInt3867];
 		}
-		this.aClass13_3870 = new Class13();
+		this.modelBounds = new ModelBounds();
 		this.aClass49_3847 = new Class49();
 		aClass49_3869 = new Class49();
 		if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -2965,8 +2973,8 @@ final class HDModel extends AbstractModel {
 		}
 		aClass49_3854 = new Class49();
 		aClass49_3863 = new Class49();
-		aShort3851 = (short) i;
-		aShort3853 = (short) i_720_;
+		ambient = (short) ambient_;
+		contrast = (short) contrast_;
 		aShortArray3864 = new short[i_730_];
 		aLongArray3883 = new long[i_730_];
 		int i_731_ = 0;
@@ -3088,10 +3096,10 @@ final class HDModel extends AbstractModel {
 				i_762_ = class180_sub2.aByteArray2876[i_759_];
 			}
 			int i_763_;
-			if (class180_sub2.aByteArray2864 == null) {
+			if (class180_sub2.trianglesAlpha == null) {
 				i_763_ = 0;
 			} else {
-				i_763_ = class180_sub2.aByteArray2864[i_759_] & 0xff;
+				i_763_ = class180_sub2.trianglesAlpha[i_759_] & 0xff;
 			}
 			float f = 0.0F;
 			float f_764_ = 0.0F;
@@ -3317,8 +3325,8 @@ final class HDModel extends AbstractModel {
 				aByteArray3872[i_758_] = (byte) class180_sub2.triangleLabelIds[i_759_];
 			}
 			aShortArray3857[i_758_] = class180_sub2.triangleColors[i_759_];
-			if (class180_sub2.aByteArray2864 != null) {
-				aByteArray3884[i_758_] = class180_sub2.aByteArray2864[i_759_];
+			if (class180_sub2.trianglesAlpha != null) {
+				aByteArray3884[i_758_] = class180_sub2.trianglesAlpha[i_759_];
 			}
 			if (class180_sub2.aShortArray2867 != null) {
 				aShortArray3846[i_758_] = class180_sub2.aShortArray2867[i_759_];

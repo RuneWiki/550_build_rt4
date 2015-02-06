@@ -131,7 +131,7 @@ abstract class AbstractIndexedSprite {
 					}
 				}
 				if (Class42.aBoolean363) {
-					HDToolkit.method537(Node.canvas, 2 * Class36.antiAliasingSamples);
+					HDToolkit.method537(Node.canvas, 2 * GroundDecoration.antiAliasingSamples);
 				}
 			}
 			if (!HDToolkit.glEnabled && newDisplayMode > 0) {
@@ -141,7 +141,7 @@ abstract class AbstractIndexedSprite {
 					if (newDisplayMode == 0 && currentDisplayMode > 0) {
 						JagexInterface.gameShellThread.setPriority(1);
 						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
-						LDModel.method2395();
+						LDModelRenderer.method2395();
 						ParticleEngine.method946();
 						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20);
 						if (Class120_Sub12_Sub6.highLightingDetail) {
@@ -164,7 +164,7 @@ abstract class AbstractIndexedSprite {
 				} else {
 					JagexInterface.gameShellThread.setPriority(5);
 					ClanMember.fullscreenGraphics = null;
-					LDModel.method2404();
+					LDModelRenderer.method2404();
 					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200);
 					if (Class120_Sub12_Sub6.highLightingDetail) {
 						Rasterizer.method852(0.7F);

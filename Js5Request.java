@@ -15,30 +15,30 @@ final class Js5Request extends AbstractRequest {
 			if (mapFunctionType.anIntArray638 != null) {
 				final int[] is = new int[mapFunctionType.anIntArray638.length];
 				for (int i_5_ = 0; i_5_ < is.length / 2; i_5_++) {
-					final int i_6_ = (int) DummyOutputStream.aFloat28 - -Class164.anInt1590 & 0x7ff;
+					final int i_6_ = (int) DummyOutputStream.aFloat28 - -Class164.minimapRandomRotation & 0x7ff;
 					int i_7_ = Rasterizer.cosineTable[i_6_];
-					i_7_ = 256 * i_7_ / (Class154.anInt1442 + 256);
+					i_7_ = 256 * i_7_ / (Class154.minimapRandomZoom + 256);
 					int i_8_ = Rasterizer.sineTable[i_6_];
-					i_8_ = 256 * i_8_ / (Class154.anInt1442 + 256);
+					i_8_ = 256 * i_8_ / (Class154.minimapRandomZoom + 256);
 					is[i_5_ * 2] = interfaceX + jagexInterface.width / 2 - -((mapFunctionY - -(mapFunctionType.anIntArray638[1 + 2 * i_5_] * 4)) * i_8_ + i_7_ * (mapFunctionX - -(mapFunctionType.anIntArray638[2 * i_5_] * 4)) >> 16);
 					is[i_5_ * 2 + 1] = interfaceY - (-(jagexInterface.height / 2) - -(-(i_8_ * (mapFunctionX + 4 * mapFunctionType.anIntArray638[i_5_ * 2])) + i_7_ * (mapFunctionY + 4 * mapFunctionType.anIntArray638[i_5_ * 2 + 1]) >> 16));
 				}
 				if (HDToolkit.glEnabled) {
-					Class68.method608(is, mapFunctionType.anInt651, mapFunctionType.anInt651 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+					Class68.method608(is, mapFunctionType.anInt651, mapFunctionType.anInt651 >>> 24, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				} else {
-					Class59.method544(is, mapFunctionType.anInt651, mapFunctionType.anInt651 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+					Class59.method544(is, mapFunctionType.anInt651, mapFunctionType.anInt651 >>> 24, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				}
 				for (int i_9_ = 0; -1 + is.length / 2 > i_9_; i_9_++) {
 					if (!HDToolkit.glEnabled) {
-						GraphicsLD.method2165(is[2 * i_9_], is[i_9_ * 2 + 1], is[2 + i_9_ * 2], is[2 * i_9_ + 3], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+						GraphicsLD.method2165(is[2 * i_9_], is[i_9_ * 2 + 1], is[2 + i_9_ * 2], is[2 * i_9_ + 3], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 					} else {
-						GraphicsHD.method588(is[2 * i_9_], is[2 * i_9_ + 1], is[(1 + i_9_) * 2], is[1 + 2 * i_9_ + 2], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false));
+						GraphicsHD.method588(is[2 * i_9_], is[2 * i_9_ + 1], is[(1 + i_9_) * 2], is[1 + 2 * i_9_ + 2], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, (HDSprite) jagexInterface.constructSpriteFromId(false));
 					}
 				}
 				if (!HDToolkit.glEnabled) {
-					GraphicsLD.method2165(is[is.length - 2], is[-1 + is.length], is[0], is[1], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+					GraphicsLD.method2165(is[is.length - 2], is[-1 + is.length], is[0], is[1], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				} else {
-					GraphicsHD.method588(is[is.length - 2], is[-1 + is.length], is[0], is[1], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, (HDSprite) jagexInterface.method2492(false));
+					GraphicsHD.method588(is[is.length - 2], is[-1 + is.length], is[0], is[1], mapFunctionType.anInt630, mapFunctionType.anInt630 >>> 24, (HDSprite) jagexInterface.constructSpriteFromId(false));
 				}
 			}
 			AbstractIndexedSprite abstractIndexedSprite = null;

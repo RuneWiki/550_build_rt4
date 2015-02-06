@@ -15,29 +15,29 @@ abstract class AbstractFont extends NodeSub {
 	private int[] yOffsets;
 	private int[] anIntArray3503;
 	int[] widths;
-	private static int anInt3505;
-	private static int anInt3506 = 256;
-	private static int anInt3507;
-	private static int anInt3508;
-	private static int anInt3509;
-	private static int anInt3510;
+	private static int oldTransparency;
+	private static int transparency = 256;
+	private static int color;
+	private static int shadowColor;
+	private static int oldColor;
+	private static int oldShadowColor;
 	private static int anInt3511 = 0;
 	private int anInt3512;
-	private static int anInt3513;
-	private static int anInt3514;
+	private static int strikethroughColor;
+	private static int underlineColor;
 	private static int anInt3515;
 	private static String[] aStringArray3516;
 
 	static {
-		anInt3505 = 256;
-		anInt3507 = 0;
+		oldTransparency = 256;
+		color = 0;
 		anInt3515 = 0;
-		anInt3510 = -1;
-		anInt3514 = -1;
-		anInt3513 = -1;
+		oldShadowColor = -1;
+		underlineColor = -1;
+		strikethroughColor = -1;
 		aStringArray3516 = new String[100];
-		anInt3508 = -1;
-		anInt3509 = 0;
+		shadowColor = -1;
+		oldColor = 0;
 	}
 
 	private final void method1458(final byte[] is) {
@@ -187,10 +187,10 @@ abstract class AbstractFont extends NodeSub {
 								final int i_33_ = Class31.stringToBase10(string_32_.substring(4));
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_33_];
 								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : abstractIndexedSprite.trimHeight;
-								if (anInt3506 == 256) {
+								if (transparency == 256) {
 									abstractIndexedSprite.method910(i, i_27_ + this.anInt3497 - i_34_);
 								} else {
-									abstractIndexedSprite.method911(i, i_27_ + this.anInt3497 - i_34_, anInt3506);
+									abstractIndexedSprite.method911(i, i_27_ + this.anInt3497 - i_34_, transparency);
 								}
 								i += abstractIndexedSprite.trimWidth;
 								i_29_ = 0;
@@ -198,52 +198,52 @@ abstract class AbstractFont extends NodeSub {
 								/* empty */
 							}
 						} else {
-							method1485(string_32_);
+							setEffectsFromText(string_32_);
 						}
 						continue;
 					}
 				}
 				if (i_28_ == -1) {
-					final int i_35_ = (char) (LongNode.method1060(c) & 0xff);
+					final int charId = (char) (LongNode.method1060(c) & 0xff);
 					if (aByteArray3498 != null && i_29_ != 0) {
-						i += aByteArray3498[(i_29_ << 8) + i_35_];
+						i += aByteArray3498[(i_29_ << 8) + charId];
 					}
-					final int i_36_ = this.widths[i_35_];
-					final int i_37_ = this.heights[i_35_];
-					if (i_35_ != 32) {
-						if (anInt3506 == 256) {
-							if (anInt3508 != -1) {
-								method1460(i_35_, i + xOffsets[i_35_] + 1, i_27_ + yOffsets[i_35_] + 1, i_36_, i_37_, anInt3508, true);
+					final int i_36_ = this.widths[charId];
+					final int i_37_ = this.heights[charId];
+					if (charId != 32) {
+						if (transparency == 256) {
+							if (shadowColor != -1) {
+								method1460(charId, i + xOffsets[charId] + 1, i_27_ + yOffsets[charId] + 1, i_36_, i_37_, shadowColor, true);
 							}
-							method1460(i_35_, i + xOffsets[i_35_], i_27_ + yOffsets[i_35_], i_36_, i_37_, anInt3507, false);
+							method1460(charId, i + xOffsets[charId], i_27_ + yOffsets[charId], i_36_, i_37_, color, false);
 						} else {
-							if (anInt3508 != -1) {
-								method1471(i_35_, i + xOffsets[i_35_] + 1, i_27_ + yOffsets[i_35_] + 1, i_36_, i_37_, anInt3508, anInt3506, true);
+							if (shadowColor != -1) {
+								method1471(charId, i + xOffsets[charId] + 1, i_27_ + yOffsets[charId] + 1, i_36_, i_37_, shadowColor, transparency, true);
 							}
-							method1471(i_35_, i + xOffsets[i_35_], i_27_ + yOffsets[i_35_], i_36_, i_37_, anInt3507, anInt3506, false);
+							method1471(charId, i + xOffsets[charId], i_27_ + yOffsets[charId], i_36_, i_37_, color, transparency, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
 						i += anInt3511 >> 8;
 						anInt3511 &= 0xff;
 					}
-					final int i_38_ = anIntArray3503[i_35_];
-					if (anInt3513 != -1) {
+					final int i_38_ = anIntArray3503[charId];
+					if (strikethroughColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.method598(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, anInt3513);
+							GraphicsHD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, strikethroughColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, anInt3513);
+							GraphicsLD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, strikethroughColor);
 						}
 					}
-					if (anInt3514 != -1) {
+					if (underlineColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.method598(i, i_27_ + this.anInt3497 + 1, i_38_, anInt3514);
+							GraphicsHD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, underlineColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, anInt3514);
+							GraphicsLD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, underlineColor);
 						}
 					}
 					i += i_38_;
-					i_29_ = i_35_;
+					i_29_ = charId;
 				}
 			}
 		}
@@ -287,11 +287,11 @@ abstract class AbstractFont extends NodeSub {
 	}
 
 	private final void method1465(final int i, final int i_57_) {
-		anInt3513 = -1;
-		anInt3514 = -1;
-		anInt3508 = anInt3510 = i_57_;
-		anInt3507 = anInt3509 = i;
-		anInt3506 = anInt3505 = 256;
+		strikethroughColor = -1;
+		underlineColor = -1;
+		shadowColor = oldShadowColor = i_57_;
+		color = oldColor = i;
+		transparency = oldTransparency = 256;
 		anInt3515 = 0;
 		anInt3511 = 0;
 	}
@@ -307,7 +307,7 @@ abstract class AbstractFont extends NodeSub {
 		if (string == null) {
 			return 0;
 		}
-		method1483(i_64_, i_65_, i_66_);
+		setFontEffects(i_64_, i_65_, i_66_);
 		if (i_69_ == 0) {
 			i_69_ = this.anInt3497;
 		}
@@ -382,7 +382,7 @@ abstract class AbstractFont extends NodeSub {
 			return 0;
 		}
 		random.setSeed(i_87_);
-		method1483(i_85_, i_86_, 192 + (random.nextInt() & 0x1f));
+		setFontEffects(i_85_, i_86_, 192 + (random.nextInt() & 0x1f));
 		final int i_88_ = string.length();
 		final int[] is = new int[i_88_];
 		int i_89_ = 0;
@@ -494,10 +494,10 @@ abstract class AbstractFont extends NodeSub {
 								final int i_117_ = Class31.stringToBase10(string_114_.substring(4));
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_117_];
 								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : abstractIndexedSprite.trimHeight;
-								if (anInt3506 == 256) {
+								if (transparency == 256) {
 									abstractIndexedSprite.method910(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
 								} else {
-									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, anInt3506);
+									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, transparency);
 								}
 								i += abstractIndexedSprite.trimWidth;
 								i_110_ = 0;
@@ -505,7 +505,7 @@ abstract class AbstractFont extends NodeSub {
 								/* empty */
 							}
 						} else {
-							method1485(string_114_);
+							setEffectsFromText(string_114_);
 						}
 						continue;
 					}
@@ -531,16 +531,16 @@ abstract class AbstractFont extends NodeSub {
 					}
 					i_111_++;
 					if (i_119_ != 32) {
-						if (anInt3506 == 256) {
-							if (anInt3508 != -1) {
-								method1460(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, true);
+						if (transparency == 256) {
+							if (shadowColor != -1) {
+								method1460(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, true);
 							}
-							method1460(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, anInt3507, false);
+							method1460(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, color, false);
 						} else {
-							if (anInt3508 != -1) {
-								method1471(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, anInt3508, anInt3506, true);
+							if (shadowColor != -1) {
+								method1471(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, transparency, true);
 							}
-							method1471(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, anInt3507, anInt3506, false);
+							method1471(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, color, transparency, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
@@ -548,18 +548,18 @@ abstract class AbstractFont extends NodeSub {
 						anInt3511 &= 0xff;
 					}
 					final int i_124_ = anIntArray3503[i_119_];
-					if (anInt3513 != -1) {
+					if (strikethroughColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.method598(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, anInt3513);
+							GraphicsHD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, strikethroughColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, anInt3513);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, strikethroughColor);
 						}
 					}
-					if (anInt3514 != -1) {
+					if (underlineColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.method598(i, i_107_ + this.anInt3497, i_124_, anInt3514);
+							GraphicsHD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, underlineColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, anInt3514);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, underlineColor);
 						}
 					}
 					i += i_124_;
@@ -574,7 +574,7 @@ abstract class AbstractFont extends NodeSub {
 			return 0;
 		}
 		random.setSeed(i_132_);
-		method1483(i_128_, i_129_, 192 + (random.nextInt() & 0x1f));
+		setFontEffects(i_128_, i_129_, 192 + (random.nextInt() & 0x1f));
 		final int i_133_ = string.length();
 		final int[] is_134_ = new int[i_133_];
 		int i_135_ = 0;
@@ -674,12 +674,12 @@ abstract class AbstractFont extends NodeSub {
 		}
 	}
 
-	private final void method1483(final int i, final int i_167_, final int i_168_) {
-		anInt3513 = -1;
-		anInt3514 = -1;
-		anInt3508 = anInt3510 = i_167_;
-		anInt3507 = anInt3509 = i;
-		anInt3506 = anInt3505 = i_168_;
+	private final void setFontEffects(final int col, final int shad, final int trans) {
+		strikethroughColor = -1;
+		underlineColor = -1;
+		shadowColor = oldShadowColor = shad;
+		color = oldColor = col;
+		transparency = oldTransparency = trans;
 		anInt3515 = 0;
 		anInt3511 = 0;
 	}
@@ -708,36 +708,36 @@ abstract class AbstractFont extends NodeSub {
 		anInt3512 = i_173_ - this.anInt3497;
 	}
 
-	private final void method1485(final String string) {
+	private final void setEffectsFromText(final String string) {
 		try {
 			if (string.startsWith("col=")) {
-				anInt3507 = Class111.stringToIntRadix(string.substring(4), 16);
+				color = Class111.stringToIntRadix(string.substring(4), 16);
 			} else if (string.equals("/col")) {
-				anInt3507 = anInt3509;
+				color = oldColor;
 			} else if (string.startsWith("trans=")) {
-				anInt3506 = Class31.stringToBase10(string.substring(6));
+				transparency = Class31.stringToBase10(string.substring(6));
 			} else if (string.equals("/trans")) {
-				anInt3506 = anInt3505;
+				transparency = oldTransparency;
 			} else if (string.startsWith("str=")) {
-				anInt3513 = Class111.stringToIntRadix(string.substring(4), 16);
+				strikethroughColor = Class111.stringToIntRadix(string.substring(4), 16);
 			} else if (string.equals("str")) {
-				anInt3513 = 8388608;
+				strikethroughColor = 8388608;
 			} else if (string.equals("/str")) {
-				anInt3513 = -1;
+				strikethroughColor = -1;
 			} else if (string.startsWith("u=")) {
-				anInt3514 = Class111.stringToIntRadix(string.substring(2), 16);
+				underlineColor = Class111.stringToIntRadix(string.substring(2), 16);
 			} else if (string.equals("u")) {
-				anInt3514 = 0;
+				underlineColor = 0;
 			} else if (string.equals("/u")) {
-				anInt3514 = -1;
+				underlineColor = -1;
 			} else if (string.startsWith("shad=")) {
-				anInt3508 = Class111.stringToIntRadix(string.substring(5), 16);
+				shadowColor = Class111.stringToIntRadix(string.substring(5), 16);
 			} else if (string.equals("shad")) {
-				anInt3508 = 0;
+				shadowColor = 0;
 			} else if (string.equals("/shad")) {
-				anInt3508 = anInt3510;
+				shadowColor = oldShadowColor;
 			} else if (string.equals("br")) {
-				method1483(anInt3509, anInt3510, anInt3505);
+				setFontEffects(oldColor, oldShadowColor, oldTransparency);
 			}
 		} catch (final Exception exception) {
 			/* empty */

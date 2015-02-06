@@ -38,15 +38,15 @@ final class Class24 {
 		for (int i_1_ = 0; i_1_ < 100; i_1_++) {
 			GrandExchangeObject.aStringArray1502[i_1_] = null;
 		}
-		Class154.anInt1442 = -20 + (int) (Math.random() * 30.0);
+		Class154.minimapRandomZoom = -20 + (int) (Math.random() * 30.0);
 		Class23.anInt136 = -50 + (int) (100.0 * Math.random());
-		Class164.anInt1590 = (int) (120.0 * Math.random()) - 60;
+		Class164.minimapRandomRotation = (int) (120.0 * Math.random()) - 60;
 		Class120_Sub16.messageCount = 0;
 		DummyOutputStream.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
 		ProjectileNode.anInt3447 = -40 + (int) (Math.random() * 80.0);
 		Class88.spellSelected = false;
 		Light.objSelected = 0;
-		Class29.anInt195 = (int) (110.0 * Math.random()) - 55;
+		EntityRenderData.anInt195 = (int) (110.0 * Math.random()) - 55;
 		Class150.anInt1407 = 0;
 		AbstractGraphicsBuffer.method1842();
 		FileSystemWorker.localPlayerCount = 0;
@@ -96,7 +96,7 @@ final class Class24 {
 		}
 		Class69.rootInterfaceId = -1;
 		Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
-		Class43.method342();
+		Class43.createJInterfaceCache();
 		Class156.aClass189_1454 = null;
 		Class186.menuOptionCount = 0;
 		Class15.menuOpen = false;

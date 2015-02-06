@@ -36,31 +36,21 @@ final class Class109 {
 		aClass105_1036 = null;
 	}
 
-	final int[][][] method973(final int i) {
-		int[][][] is;
-		try {
-			if (anInt1048 != anInt1040) {
-				throw new RuntimeException("Can only retrieve a full image cache");
-			}
-			for (int i_1_ = i; anInt1048 > i_1_; i_1_++) {
-				aClass120_Sub15Array1039[i_1_] = Class132_Sub1.aClass120_Sub15_2805;
-			}
-			is = anIntArrayArrayArray1043;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("md.B(").append(i).append(')').toString());
+	final int[][][] method973() {
+		if (anInt1048 != anInt1040) {
+			throw new RuntimeException("Can only retrieve a full image cache");
 		}
-		return is;
+		for (int i_1_ = 0; i_1_ < anInt1048; i_1_++) {
+			aClass120_Sub15Array1039[i_1_] = Class132_Sub1.aClass120_Sub15_2805;
+		}
+		return anIntArrayArrayArray1043;
 	}
 
-	public static void method974(final int i) {
-		try {
-			aClass6Array1047 = null;
-			anIntArray1037 = null;
-			continueString = null;
-			aString1038 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("md.C(").append(i).append(')').toString());
-		}
+	public static void method974() {
+		aClass6Array1047 = null;
+		anIntArray1037 = null;
+		continueString = null;
+		aString1038 = null;
 	}
 
 	final int[][] method975(final int i) {

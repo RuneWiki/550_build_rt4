@@ -84,7 +84,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			aStringArray3536 = Class29.splitString(buffer.getJagexString(), '<');
+			aStringArray3536 = EntityRenderData.splitString(buffer.getJagexString(), '<');
 		} else if (code == 2) {
 			final int i_14_ = buffer.getUByte();
 			this.anIntArray3535 = new int[i_14_];

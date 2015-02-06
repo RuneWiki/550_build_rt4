@@ -111,7 +111,7 @@ final class Class186 {
 				pointerColor = 16777215;
 			}
 			if (HDToolkit.glEnabled) {
-				GraphicsHD.fillRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
+				GraphicsHD.fillRectAlpha(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
 				GraphicsHD.drawRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor);
 			} else {
 				GraphicsLD.fillRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
@@ -133,7 +133,7 @@ final class Class186 {
 							if (!HDToolkit.glEnabled) {
 								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {
-								GraphicsHD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+								GraphicsHD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
 						} else if (Class120_Sub12_Sub9.clickedMouseFunctionId != -1 && mapFunctionType.anInt652 == Class120_Sub12_Sub9.clickedMouseFunctionId) {
 							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
@@ -141,7 +141,7 @@ final class Class186 {
 							if (!HDToolkit.glEnabled) {
 								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {
-								GraphicsHD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+								GraphicsHD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
 						}
 					}

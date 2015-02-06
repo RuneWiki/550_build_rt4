@@ -21,16 +21,9 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 		aString3665 = "Loading sprites - ";
 	}
 
-	public static void method1646(final int i) {
-		try {
-			aString3665 = null;
-			if (i != 0) {
-				aString3665 = null;
-			}
-			aCRC32_3658 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wn.E(").append(i).append(')').toString());
-		}
+	public static void method1646() {
+		aString3665 = null;
+		aCRC32_3658 = null;
 	}
 
 	static final void method1647(final int i_0_, final int i_1_) {
@@ -67,32 +60,26 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 		}
 	}
 
-	static final void method1649(final int i, final int i_8_, final int i_9_, final int i_10_, final SceneGraphNode sceneGraphNode, final long l, final boolean bool) {
+	static final void addGroundDecoration(final SceneGraphNode sceneGraphNode, final int x, final int y, final int z, final int level, final long bitPackedUid, final boolean bool) {
 		if (sceneGraphNode != null) {
-			final Class36 class36 = new Class36();
-			class36.aClass180_309 = sceneGraphNode;
-			class36.anInt311 = i_8_ * 128 + 64;
-			class36.anInt310 = i_9_ * 128 + 64;
-			class36.anInt312 = i_10_;
-			class36.bitPacked = l;
-			class36.aBoolean314 = bool;
-			if (LabelGroup.groundTiles[i][i_8_][i_9_] == null) {
-				LabelGroup.groundTiles[i][i_8_][i_9_] = new GroundTile(i, i_8_, i_9_);
+			final GroundDecoration groundDecoration = new GroundDecoration();
+			groundDecoration.sceneGraphNode = sceneGraphNode;
+			groundDecoration.renderX = x * 128 + 64;
+			groundDecoration.renderZ = z * 128 + 64;
+			groundDecoration.renderY = y;
+			groundDecoration.bitPackedUid = bitPackedUid;
+			groundDecoration.aBoolean314 = bool;
+			if (LabelGroup.groundTiles[level][x][z] == null) {
+				LabelGroup.groundTiles[level][x][z] = new GroundTile(level, x, z);
 			}
-			LabelGroup.groundTiles[i][i_8_][i_9_].aClass36_2650 = class36;
+			LabelGroup.groundTiles[level][x][z].groundDecoration = groundDecoration;
 		}
 	}
 
-	final void method1650(final int i, final int i_11_, final int i_12_, final int i_13_) {
-		try {
-			this.anInt3663 = i_11_;
-			if (i == -30263) {
-				this.anInt3656 = i_13_;
-				this.anInt3657 = i_12_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wn.D(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(')').toString());
-		}
+	final void method1650(final int i_11_, final int i_12_, final int i_13_) {
+		this.anInt3663 = i_11_;
+		this.anInt3656 = i_13_;
+		this.anInt3657 = i_12_;
 	}
 
 	Class120_Sub14_Sub24(final Class169 class169, final ParticleEngine class108_sub2) {

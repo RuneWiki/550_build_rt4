@@ -154,7 +154,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 			}
 			final int i_29_ = i_18_ + (i_10_ << 7);
 			final int i_30_ = (i << 7) + i_19_;
-			final int i_31_ = Class11.method130(i_18_, i_10_, i_19_, is_15_, i, 13);
+			final int i_31_ = Class11.method130(i_18_, i_10_, i_19_, is_15_, i);
 			is_16_[i_17_] = class133.method1948(light, i_29_, i_31_, i_30_, f, f_22_, f_23_);
 		}
 		class133.method1944(is_16_);

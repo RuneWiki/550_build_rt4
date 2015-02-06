@@ -33,21 +33,12 @@ final class Class120_Sub6 extends Node {
 		aClass21_2443 = new ObjectCache(4);
 	}
 
-	static final String method1068(final String string, final int i) {
-		String string_0_;
-		try {
-			if (i != -8251) {
-				aString2444 = null;
-			}
-			String string_1_ = Class174.longToString(Varp.stringToLong(string));
-			if (string_1_ == null) {
-				string_1_ = "";
-			}
-			string_0_ = string_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.G(").append(string != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final String method1068(final String string) {
+		String string_1_ = Class174.longToString(Varp.stringToLong(string));
+		if (string_1_ == null) {
+			string_1_ = "";
 		}
-		return string_0_;
+		return string_1_;
 	}
 
 	static final void savePreferences(final Signlink signlink) {

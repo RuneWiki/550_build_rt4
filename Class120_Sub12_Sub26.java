@@ -47,7 +47,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	}
 
 	static final void method1337() {
-		AnimatedLocation.aClass21_3071.clear();
+		JagexInterface.spriteCache.clear();
 		LabelGroup.aClass21_2406.clear();
 		Class120_Sub12_Sub2.aClass21_3143.clear();
 	}
@@ -70,7 +70,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 			final int i_6_ = (i - -i_4_) * anInt3329 >> 12;
 			int i_7_ = FileSystemWorker.anIntArray789[(0xffafc & 255 * i_6_) >> 12];
 			if (i_5_ != -46) {
-				method1340(null, 23, 112);
+				constructLDSpriteAlpha(null, 23, 112);
 			}
 			i_7_ = (i_7_ << 12) / anInt3329;
 			i_7_ = (i_7_ << 12) / anInt3322;
@@ -87,11 +87,11 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 		PacketBuffer.method1147();
 	}
 
-	static final LDSprite method1340(final js5 js5, final int i, final int i_8_) {
-		if (!Class10.decodedSprites(js5, i, i_8_)) {
+	static final LDSprite constructLDSpriteAlpha(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
-		return Class167.constructLDSprite();
+		return Class167.constructLDSpriteAlpha();
 	}
 
 	public Class120_Sub12_Sub26() {

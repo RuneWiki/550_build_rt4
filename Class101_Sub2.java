@@ -51,7 +51,7 @@ final class Class101_Sub2 extends Class101 {
 		anInt2281 = i_11_;
 	}
 
-	static final void method846(final boolean bool) {
-		Class120_Sub12_Sub12.method1258(bool, Class69_Sub1.canvasWidth, Class69.rootInterfaceId, Class120_Sub12_Sub5.canvasHeight);
+	static final void method846(final boolean activateResizeListener) {
+		Class120_Sub12_Sub12.method1258(Class69.rootInterfaceId, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight, activateResizeListener);
 	}
 }

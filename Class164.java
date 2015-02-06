@@ -10,7 +10,7 @@ class Class164 {
 	int[] anIntArray1587;
 	static long serverSessionKey = 0L;
 	private boolean aBoolean1589 = false;
-	static int anInt1590 = 0;
+	static int minimapRandomRotation = 0;
 	private int anInt1591;
 	private int anInt1592;
 	private int anInt1593;
@@ -218,7 +218,7 @@ class Class164 {
 						i_10_ = 10;
 						i_9_ = 10;
 					}
-					bool &= Npc.method2349(0, i_10_, i_9_, is);
+					bool &= Npc.method2349(i_10_, i_9_, is);
 				}
 				if (HDToolkit.glEnabled) {
 					is = Class101_Sub1.aByteArrayArray2271[i_8_];
@@ -229,7 +229,7 @@ class Class164 {
 							i_11_ = 10;
 							i_12_ = 10;
 						}
-						bool &= Npc.method2349(0, i_12_, i_11_, is);
+						bool &= Npc.method2349(i_12_, i_11_, is);
 					}
 				}
 			}
@@ -430,7 +430,7 @@ class Class164 {
 		return i;
 	}
 
-	static final LDIndexedSprite constructLDIndexedSprite(final js5 js5, final int file, final int group) {
+	static final LDIndexedSprite constructLDIndexedSprite(final js5 js5, final int group, final int file) {
 		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
@@ -475,7 +475,7 @@ class Class164 {
 		}
 	}
 
-	static final void drawMinimap(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int redrawId) {
+	static final void drawMinimapContents(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int redrawId) {
 		Class120_Sub2.method1050();
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.clipRect(interfaceX, interfaceY, interfaceX + jagexInterface.width, interfaceY + jagexInterface.height);
@@ -484,21 +484,21 @@ class Class164 {
 		}
 		if (AbstractGraphicsBuffer.mapbackState == 2 || AbstractGraphicsBuffer.mapbackState == 5 || Class134.landscapeAsAbstractSprite == null) {
 			if (HDToolkit.glEnabled) {
-				final AbstractSprite class120_sub14_sub19 = jagexInterface.method2492(false);
+				final AbstractSprite class120_sub14_sub19 = jagexInterface.constructSpriteFromId(false);
 				if (class120_sub14_sub19 != null) {
 					class120_sub14_sub19.method1587(interfaceX, interfaceY);
 				}
 			} else {
-				GraphicsLD.method2156(interfaceX, interfaceY, 0, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+				GraphicsLD.method2156(interfaceX, interfaceY, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			}
 		} else {
-			final int i_42_ = (int) (DummyOutputStream.aFloat28 + anInt1590) & 0x7ff;
+			final int i_42_ = (int) (DummyOutputStream.aFloat28 + minimapRandomRotation) & 0x7ff;
 			final int i_43_ = 464 - (TileParticleQueue.selfPlayer.z / 32);
 			final int i_44_ = 48 + (TileParticleQueue.selfPlayer.x / 32);
 			if (HDToolkit.glEnabled) {
-				((HDSprite) Class134.landscapeAsAbstractSprite).method1600(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.anInt1442, (HDSprite) jagexInterface.method2492(false));
+				((HDSprite) Class134.landscapeAsAbstractSprite).method1600(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.minimapRandomZoom, (HDSprite) jagexInterface.constructSpriteFromId(false));
 			} else {
-				((LDSprite) Class134.landscapeAsAbstractSprite).method1606(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.anInt1442, jagexInterface.anIntArray2079, jagexInterface.anIntArray1949);
+				((LDSprite) Class134.landscapeAsAbstractSprite).method1606(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.minimapRandomZoom, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			}
 			if (SceneGraphNode.aClass137_1780 != null) {
 				for (int i_45_ = 0; i_45_ < SceneGraphNode.aClass137_1780.anInt1325; i_45_++) {

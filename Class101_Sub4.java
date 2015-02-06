@@ -25,18 +25,11 @@ final class Class101_Sub4 extends Class101 {
 		return Long.toString(id);
 	}
 
-	public static void method850(final byte i) {
-		try {
-			OverlayType.configClient = null;
-			interfaceJs5 = null;
-			anIntArray2296 = null;
-			anIntArray2304 = null;
-			if (i > -21) {
-				interfaceJs5 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("in.H(").append(i).append(')').toString());
-		}
+	public static void method850() {
+		OverlayType.configClient = null;
+		interfaceJs5 = null;
+		anIntArray2296 = null;
+		anIntArray2304 = null;
 	}
 
 	@Override

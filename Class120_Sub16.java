@@ -21,16 +21,9 @@ final class Class120_Sub16 extends Node {
 		friendsName = new String[200];
 	}
 
-	public static void method1655(final boolean bool) {
-		try {
-			screenRedrawWidhts = null;
-			friendsName = null;
-			if (!bool) {
-				method1659(-16, -103, 22);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.H(").append(bool).append(')').toString());
-		}
+	public static void method1655() {
+		screenRedrawWidhts = null;
+		friendsName = null;
 	}
 
 	final boolean inBounds(final int mouseX, final int mouseY) {
@@ -48,24 +41,15 @@ final class Class120_Sub16 extends Node {
 		MapFunctionType.spriteCache.clear();
 	}
 
-	static final int method1659(final int i, final int i_2_, final int i_3_) {
-		int i_4_;
-		try {
-			int i_5_ = SubScript.method2246(i_2_ + 91923, 0, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, 0, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, 0, i, 1) + -128 >> 2);
-			i_5_ = (int) (0.3 * i_5_) - -35;
-			if (i_3_ >= -30) {
-				method1655(false);
-			}
-			if (i_5_ < 10) {
-				i_5_ = 10;
-			} else if (i_5_ > 60) {
-				i_5_ = 60;
-			}
-			i_4_ = i_5_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nb.D(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+	static final int method1659(final int i, final int i_2_) {
+		int i_5_ = SubScript.method2246(i_2_ + 91923, 0, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, 0, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, 0, i, 1) + -128 >> 2);
+		i_5_ = (int) (0.3 * i_5_) - -35;
+		if (i_5_ < 10) {
+			i_5_ = 10;
+		} else if (i_5_ > 60) {
+			i_5_ = 60;
 		}
-		return i_4_;
+		return i_5_;
 	}
 
 	static final void method1660(final String name, final int i, final String string_6_, final int type, final String message) {
@@ -85,13 +69,13 @@ final class Class120_Sub16 extends Node {
 		messageCount++;
 	}
 
-	static final int method1661(final int i_11_, char c) {
+	static final int method1661(final int language, char c) {
 		int i_13_ = c << 4;
 		if (Character.isUpperCase(c) || Character.isTitleCase(c)) {
 			c = Character.toLowerCase(c);
 			i_13_ = 1 + (c << 4);
 		}
-		if (c == 241 && i_11_ == 0) {
+		if (c == 241 && language == 0) {
 			i_13_ = 1762;
 		}
 		return i_13_;
@@ -104,9 +88,9 @@ final class Class120_Sub16 extends Node {
 			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.menuOptionSufix, i + 1, Class120_Sub12_Sub29.menuOptionSufix, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, Class186.menuOptionCount - i);
 			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsCode, i + 1, Class120_Sub29.menuOptionsCode, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12.aLongArray2562, i + 1, Class120_Sub12.aLongArray2562, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.anIntArray3182, i + 1, Class120_Sub12_Sub7.anIntArray3182, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub29.anIntArray2769, i + 1, Class120_Sub29.anIntArray2769, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12.menuOptionsData1, i + 1, Class120_Sub12.menuOptionsData1, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.menuOptionsData2, i + 1, Class120_Sub12_Sub7.menuOptionsData2, i, Class186.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsData3, i + 1, Class120_Sub29.menuOptionsData3, i, Class186.menuOptionCount - i);
 		}
 	}
 

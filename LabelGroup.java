@@ -4,7 +4,7 @@
 
 final class LabelGroup extends Node {
 	int[] types;
-	static SignlinkNode aClass185_2403;
+	static SignlinkNode hostNameNode;
 	int length;
 	int[] anIntArray2405;
 	static ObjectCache aClass21_2406;
@@ -23,13 +23,12 @@ final class LabelGroup extends Node {
 		screenRedrawPos = 0;
 	}
 
-	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final int i_7_) {
+	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_6_, final int i_7_) {
 		if (Class32.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
-			Js5Worker.method356(i, i_7_, i_6_, i_2_, i_5_ + -85, i_4_, i_3_);
+			Js5Worker.method356(i, i_7_, i_6_, i_2_, i_4_, i_3_);
 		} else {
 			AbstractMouseWheelHandler.method158(i_7_, i_2_, i, i_4_, i_6_, i_3_);
 		}
-		//i_5_ dummy arg
 	}
 
 	static final void method1037() {
@@ -47,7 +46,7 @@ final class LabelGroup extends Node {
 		anIntArray2412 = null;
 		anIntArray2409 = null;
 		groundTiles = null;
-		aClass185_2403 = null;
+		hostNameNode = null;
 		aClass50_2413 = null;
 	}
 

@@ -3,11 +3,11 @@
  */
 
 final class LongNode extends Node {
-	static String aString2424 = "rating: ";
+	static String ratingString = "rating: ";
 	long value;
 	static volatile boolean canvasReplaceRecommended = false;
 	static GrandExchangeObject[] grandExchangeObjects = new GrandExchangeObject[6];
-	static String aString2428 = "Loading config - ";
+	static String loadingConfigString = "Loading config - ";
 
 	static final boolean method1055(final int i, final int i_0_, final boolean bool_1_, final int i_2_, final GroundTile[][][] class120_sub18s) {
 		final byte i_4_ = bool_1_ ? (byte) 1 : (byte) (0xff & InterfaceChangeNode.anInt3490);
@@ -257,8 +257,8 @@ final class LongNode extends Node {
 	public static void method1058(final int i) {
 		try {
 			grandExchangeObjects = null;
-			aString2424 = null;
-			aString2428 = null;
+			ratingString = null;
+			loadingConfigString = null;
 			if (i != 1) {
 				method1058(58);
 			}

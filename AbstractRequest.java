@@ -4,7 +4,7 @@
 
 abstract class AbstractRequest extends NodeSub {
 	boolean aBoolean3573;
-	static Class180_Sub2[] aClass180_Sub2Array3574 = new Class180_Sub2[4];
+	static Model[] aClass180_Sub2Array3574 = new Model[4];
 	static String aString3575 = "purple:";
 	volatile boolean aBoolean3576 = true;
 	boolean aBoolean3577;
@@ -221,14 +221,14 @@ abstract class AbstractRequest extends NodeSub {
 							for (int i_48_ = 0; i_47_ > i_48_; i_48_++) {
 								final Light light = new Light(class120_sub7);
 								if (light.anInt376 == 31) {
-									final Class181 class181 = Class120_Sub12_Sub3.method1208(class120_sub7.getUShort(), (byte) -107);
+									final Class181 class181 = Class181.list(class120_sub7.getUShort());
 									light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 								}
 								int i_49_ = light.x >> 7;
 								int i_50_ = light.z >> 7;
 								if (light.anInt384 == i && i_49_ >= i_9_ && 8 + i_9_ > i_49_ && i_8_ <= i_50_ && 8 + i_8_ > i_50_) {
-									final int i_51_ = (i_0_ << 7) - -StructType.method1566(0x3ff & light.x, i_3_, 0x3ff & light.z, (byte) 24);
-									final int i_52_ = (i_2_ << 7) + Class92.method766(light.z & 0x3ff, 3, 0x3ff & light.x, i_3_);
+									final int i_51_ = (i_0_ << 7) + StructType.method1566(light.x & 0x3ff, light.z & 0x3ff, i_3_);
+									final int i_52_ = (i_2_ << 7) + Class92.method766(light.x & 0x3ff, light.z & 0x3ff, i_3_);
 									light.x = i_51_;
 									light.z = i_52_;
 									i_50_ = light.z >> 7;

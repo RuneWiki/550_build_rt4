@@ -19,6 +19,7 @@ final class Class41 {
 
 	final void method330(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, int i_5_, final int i_6_) {
 		method335(i_3_);
+		System.out.println("here2");
 		i_5_ = i_5_ + i & 0x7ff;
 		if (anInt356 != -1) {
 			if (aClass120_Sub14_Sub19_Sub2_361 == null) {

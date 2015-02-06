@@ -140,13 +140,13 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	}
 
 	static final void method1371(final GameEntity gameEntity) {
-		final Class29 class29 = gameEntity.method2336();
-		gameEntity.anInt3004 = class29.anInt218;
+		final EntityRenderData class29 = gameEntity.getEntityRenderData();
+		gameEntity.idleAnimId = class29.anInt218;
 		if (gameEntity.anInt2960 == 0) {
 			gameEntity.anInt3037 = 0;
 		} else {
-			if (gameEntity.anInt3006 != -1 && gameEntity.anInt2993 == 0) {
-				final SeqType seqType = SeqType.list(gameEntity.anInt3006);
+			if (gameEntity.animId != -1 && gameEntity.animDelay == 0) {
+				final SeqType seqType = SeqType.list(gameEntity.animId);
 				if (gameEntity.anInt3031 > 0 && seqType.speedupType == 0) {
 					gameEntity.anInt3037++;
 					return;
@@ -220,7 +220,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				if (i_27_ == -1) {
 					i_27_ = class29.anInt205;
 				}
-				gameEntity.anInt3004 = i_27_;
+				gameEntity.idleAnimId = i_27_;
 				int i_29_ = 4;
 				boolean bool = true;
 				if (gameEntity instanceof Npc) {
@@ -262,28 +262,28 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				}
 				if (i_29_ < 8 || (class29.anInt190 ^ 0xffffffff) == 0) {
 					if (class29.anInt212 != -1 && i_30_ == 0) {
-						if (class29.anInt187 == gameEntity.anInt3004 && (class29.anInt192 ^ 0xffffffff) != 0) {
-							gameEntity.anInt3004 = class29.anInt192;
-						} else if (gameEntity.anInt3004 != class29.anInt213 || (class29.anInt210 ^ 0xffffffff) == 0) {
-							if (class29.anInt200 == gameEntity.anInt3004 && class29.anInt219 != -1) {
-								gameEntity.anInt3004 = class29.anInt219;
+						if (class29.anInt187 == gameEntity.idleAnimId && (class29.anInt192 ^ 0xffffffff) != 0) {
+							gameEntity.idleAnimId = class29.anInt192;
+						} else if (gameEntity.idleAnimId != class29.anInt213 || (class29.anInt210 ^ 0xffffffff) == 0) {
+							if (class29.anInt200 == gameEntity.idleAnimId && class29.anInt219 != -1) {
+								gameEntity.idleAnimId = class29.anInt219;
 							} else {
-								gameEntity.anInt3004 = class29.anInt212;
+								gameEntity.idleAnimId = class29.anInt212;
 							}
 						} else {
-							gameEntity.anInt3004 = class29.anInt210;
+							gameEntity.idleAnimId = class29.anInt210;
 						}
 					}
-				} else if (gameEntity.anInt3004 == class29.anInt187 && (class29.anInt188 ^ 0xffffffff) != 0) {
-					gameEntity.anInt3004 = class29.anInt188;
-				} else if (class29.anInt213 != gameEntity.anInt3004 || (class29.anInt223 ^ 0xffffffff) == 0) {
-					if (class29.anInt200 == gameEntity.anInt3004 && (class29.anInt216 ^ 0xffffffff) != 0) {
-						gameEntity.anInt3004 = class29.anInt216;
+				} else if (gameEntity.idleAnimId == class29.anInt187 && (class29.anInt188 ^ 0xffffffff) != 0) {
+					gameEntity.idleAnimId = class29.anInt188;
+				} else if (class29.anInt213 != gameEntity.idleAnimId || (class29.anInt223 ^ 0xffffffff) == 0) {
+					if (class29.anInt200 == gameEntity.idleAnimId && (class29.anInt216 ^ 0xffffffff) != 0) {
+						gameEntity.idleAnimId = class29.anInt216;
 					} else {
-						gameEntity.anInt3004 = class29.anInt190;
+						gameEntity.idleAnimId = class29.anInt190;
 					}
 				} else {
-					gameEntity.anInt3004 = class29.anInt223;
+					gameEntity.idleAnimId = class29.anInt223;
 				}
 				if ((class29.anInt201 ^ 0xffffffff) != 0) {
 					i_29_ <<= 7;

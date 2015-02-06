@@ -78,7 +78,7 @@ final class Projectile extends SceneGraphNode {
 
 	@Override
 	final void render(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final long l, final int i_8_, final ParticleEngine class108_sub2) {
-		final AbstractModel class180_sub7 = method2322();
+		final AbstractModelRenderer class180_sub7 = method2322();
 		if (class180_sub7 != null) {
 			method2320(-77, class180_sub7);
 			class180_sub7.render(i, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, i_7_, l, i_8_, aClass108_Sub2_2924);
@@ -132,17 +132,17 @@ final class Projectile extends SceneGraphNode {
 		}
 	}
 
-	private final void method2320(final int i, final AbstractModel class180_sub7) {
+	private final void method2320(final int i, final AbstractModelRenderer class180_sub7) {
 		if (HDToolkit.glEnabled) {
-			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7;
+			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
 				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
 			if (aClass108_Sub2_2924 != null) {
-				aClass108_Sub2_2924.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
+				aClass108_Sub2_2924.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
 			}
 		} else {
-			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7;
+			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
 				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
 			}
@@ -170,9 +170,9 @@ final class Projectile extends SceneGraphNode {
 		}
 	}
 
-	private final AbstractModel method2322() {
+	private final AbstractModelRenderer method2322() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(anInt2940);
-		final AbstractModel class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);
+		final AbstractModelRenderer class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);
 		if (class180_sub7_17_ == null) {
 			return null;
 		}
@@ -207,7 +207,7 @@ final class Projectile extends SceneGraphNode {
 	@Override
 	final void method2266(final int i, final int i_29_, final int i_30_, final int i_31_, final int i_32_) {
 		if (!aBoolean2928) {
-			final AbstractModel class180_sub7 = method2322();
+			final AbstractModelRenderer class180_sub7 = method2322();
 			if (class180_sub7 == null) {
 				return;
 			}

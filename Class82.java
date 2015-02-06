@@ -86,7 +86,7 @@ final class Class82 implements Runnable {
 				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
 				GraphicsLD.fillRect(i_6_ - 150, i_7_ + 2, Class90.laodingStage * 3, 30, 9179409);
 			}
-			Class120_Sub12_Sub22.boldFont.method1478(Class36.aString313, i_6_, i_7_ + 20, 16777215, -1);
+			Class120_Sub12_Sub22.boldFont.method1478(GroundDecoration.aString313, i_6_, i_7_ + 20, 16777215, -1);
 		} else {
 			Class173.worldMapPointerWidth = (int) (width * 2 / WorldMapHandler.currentZoom);
 			GroundObjectNode.worldMapPointerHeight = (int) (height * 2 / WorldMapHandler.currentZoom);

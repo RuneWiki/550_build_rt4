@@ -86,11 +86,11 @@ final class WaterfallShader implements ShaderInterface {
 			}
 		}
 		int i_6_ = npcType.anInt1682;
-		final Class29 class29 = npc.method2336();
-		if (npc.anInt3004 == class29.anInt218) {
+		final EntityRenderData class29 = npc.getEntityRenderData();
+		if (npc.idleAnimId == class29.anInt218) {
 			i_6_ = npcType.anInt1681;
-		} else if (npc.anInt3004 != class29.anInt190 && npc.anInt3004 != class29.anInt188 && npc.anInt3004 != class29.anInt216 && class29.anInt223 != npc.anInt3004) {
-			if (npc.anInt3004 == class29.anInt212 || class29.anInt192 == npc.anInt3004 || class29.anInt219 == npc.anInt3004 || npc.anInt3004 == class29.anInt210) {
+		} else if (npc.idleAnimId != class29.anInt190 && npc.idleAnimId != class29.anInt188 && npc.idleAnimId != class29.anInt216 && class29.anInt223 != npc.idleAnimId) {
+			if (npc.idleAnimId == class29.anInt212 || class29.anInt192 == npc.idleAnimId || class29.anInt219 == npc.idleAnimId || npc.idleAnimId == class29.anInt210) {
 				i_6_ = npcType.anInt1657;
 			}
 		} else {
@@ -101,11 +101,11 @@ final class WaterfallShader implements ShaderInterface {
 
 	static final int method179(final Player player) {
 		int i_8_ = player.anInt3734;
-		final Class29 class29 = player.method2336();
-		if (player.anInt3004 != class29.anInt218) {
-			if (class29.anInt190 == player.anInt3004 || player.anInt3004 == class29.anInt188 || class29.anInt216 == player.anInt3004 || player.anInt3004 == class29.anInt223) {
+		final EntityRenderData class29 = player.getEntityRenderData();
+		if (player.idleAnimId != class29.anInt218) {
+			if (class29.anInt190 == player.idleAnimId || player.idleAnimId == class29.anInt188 || class29.anInt216 == player.idleAnimId || player.idleAnimId == class29.anInt223) {
 				i_8_ = player.anInt3742;
-			} else if (class29.anInt212 == player.anInt3004 || player.anInt3004 == class29.anInt192 || player.anInt3004 == class29.anInt219 || class29.anInt210 == player.anInt3004) {
+			} else if (class29.anInt212 == player.idleAnimId || player.idleAnimId == class29.anInt192 || player.idleAnimId == class29.anInt219 || class29.anInt210 == player.idleAnimId) {
 				i_8_ = player.anInt3736;
 			}
 		} else {

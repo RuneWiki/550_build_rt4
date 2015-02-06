@@ -67,7 +67,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			if (Class26.aClass90_163 == null) {
 				Class26.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, MasterIndexInfo.aClass50_469);
 			}
-			if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, 0, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
+			if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
 				return false;
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1778();
@@ -177,7 +177,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
 			DummyOutputStream.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
-		final int playerZ = TileParticleQueue.selfPlayer.z + Class29.anInt195;
+		final int playerZ = TileParticleQueue.selfPlayer.z + EntityRenderData.anInt195;
 		final int playerX = TileParticleQueue.selfPlayer.x + Class23.anInt136;
 		if (Class69_Sub3_Sub1.playerRenderX - playerX < -500 || Class69_Sub3_Sub1.playerRenderX - playerX > 500 || InterfaceListener.playerRenderZ - playerZ < -500 || InterfaceListener.playerRenderZ - playerZ > 500) {
 			InterfaceListener.playerRenderZ = playerZ;

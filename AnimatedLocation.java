@@ -25,7 +25,6 @@ final class AnimatedLocation extends SceneGraphNode {
 	private int anInt3068;
 	private final int anInt3069;
 	private SeqType aClass40_3070;
-	static ObjectCache aClass21_3071 = new ObjectCache(200);
 	private int anInt3072;
 	static AbstractSprite[] aClass120_Sub14_Sub19Array3073;
 	static int anInt3074 = 0;
@@ -134,7 +133,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			final boolean bool_25_ = aClass107_Sub1_3065 == null;
 			Class88 class88;
 			if (aClass40_3070 != null) {
-				class88 = locType.method2461(i_21_, is_23_, anInt3052, i ^ 0x70ac, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
+				class88 = locType.method2461(i_21_, is_23_, anInt3052, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
 			} else {
 				class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
 			}
@@ -179,12 +178,12 @@ final class AnimatedLocation extends SceneGraphNode {
 	public static void method2351(final int i) {
 		try {
 			if (i != -1) {
-				aClass21_3071 = null;
+				JagexInterface.spriteCache = null;
 			}
 			aString3062 = null;
 			aClass188Array3076 = null;
 			aClass120_Sub14_Sub19Array3073 = null;
-			aClass21_3071 = null;
+			JagexInterface.spriteCache = null;
 			anIntArray3075 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ri.F(").append(i).append(')').toString());
@@ -411,7 +410,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	private final void method2359(final boolean bool, final SceneGraphNode sceneGraphNode) {
 		try {
 			if (!HDToolkit.glEnabled) {
-				final LDModel class180_sub7_sub1 = (LDModel) sceneGraphNode;
+				final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) sceneGraphNode;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
 					LocType locType = LocType.list(anInt3064);
 					if (locType.childrenIDs != null) {
@@ -425,7 +424,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					aClass108_Sub2_3058.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
 				}
 			} else {
-				final HDModel class180_sub7_sub2 = (HDModel) sceneGraphNode;
+				final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) sceneGraphNode;
 				if ((aClass108_Sub2_3058 == null || aClass108_Sub2_3058.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
 					LocType locType = LocType.list(anInt3064);
 					if (locType.childrenIDs != null) {
@@ -436,7 +435,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					}
 				}
 				if (aClass108_Sub2_3058 != null) {
-					aClass108_Sub2_3058.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
+					aClass108_Sub2_3058.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
 				}
 			}
 			aBoolean3063 = bool;

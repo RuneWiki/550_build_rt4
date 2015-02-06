@@ -25,16 +25,9 @@ final class Class15 {
 		anIntArray101 = new int[] { 768, 1024, 1280, 512, 1536, 256, 0, 1792 };
 	}
 
-	static final void method145(final js5 js5, final int i) {
-		try {
-			if (i != 1024) {
-				method145(null, 7);
-			}
-			Varp.aClass50_1517 = js5;
-			Class120_Sub12_Sub22.anInt3302 = Varp.aClass50_1517.getFileAmount(16);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("be.A(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	static final void method145(final js5 js5) {
+		Varp.aClass50_1517 = js5;
+		Class120_Sub12_Sub22.anInt3302 = Varp.aClass50_1517.getFileAmount(16);
 	}
 
 	public static void method146(final int i) {

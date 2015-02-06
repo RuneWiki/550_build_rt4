@@ -79,30 +79,24 @@ final class DummyInputStream extends InputStream {
 		return -1;
 	}
 
-	public static void method70(final boolean bool) {
-		try {
-			aClass189_26 = null;
-			if (!bool) {
-				anIntArray24 = null;
-				aString25 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ia.B(").append(bool).append(')').toString());
-		}
+	public static void method70() {
+		aClass189_26 = null;
+		anIntArray24 = null;
+		aString25 = null;
 	}
 
 	static final String method71(final JagexInterface jagexInterface, String string) {
 		if (string.indexOf("%") != -1) {
 			for (;;) {
 				final int i_4_ = string.indexOf("%1");
-				if ((i_4_ ^ 0xffffffff) == 0) {
+				if (i_4_ == -1) {
 					break;
 				}
 				string = new StringBuilder(string.substring(0, i_4_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 0))).append(string.substring(2 + i_4_)).toString();
 			}
 			for (;;) {
 				final int i_5_ = string.indexOf("%2");
-				if ((i_5_ ^ 0xffffffff) == 0) {
+				if (i_5_ == -1) {
 					break;
 				}
 				string = new StringBuilder(string.substring(0, i_5_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 1))).append(string.substring(i_5_ + 2)).toString();
@@ -116,7 +110,7 @@ final class DummyInputStream extends InputStream {
 			}
 			for (;;) {
 				final int i_7_ = string.indexOf("%4");
-				if ((i_7_ ^ 0xffffffff) == 0) {
+				if (i_7_ == -1) {
 					break;
 				}
 				string = new StringBuilder(string.substring(0, i_7_)).append(MapFunctionType.amountToString(LocType.method2467(jagexInterface, 3))).append(string.substring(i_7_ + 2)).toString();
@@ -130,15 +124,15 @@ final class DummyInputStream extends InputStream {
 			}
 			for (;;) {
 				final int i_9_ = string.indexOf("%dns");
-				if ((i_9_ ^ 0xffffffff) == 0) {
+				if (i_9_ == -1) {
 					break;
 				}
 				String string_10_ = "";
-				if (LabelGroup.aClass185_2403 != null) {
-					if (LabelGroup.aClass185_2403.value != null) {
-						string_10_ = (String) LabelGroup.aClass185_2403.value;
+				if (LabelGroup.hostNameNode != null) {
+					if (LabelGroup.hostNameNode.value != null) {
+						string_10_ = (String) LabelGroup.hostNameNode.value;
 					} else {
-						string_10_ = Class125.method1879(LabelGroup.aClass185_2403.integerData);
+						string_10_ = Class125.method1879(LabelGroup.hostNameNode.integerData);
 					}
 				}
 				string = new StringBuilder(string.substring(0, i_9_)).append(string_10_).append(string.substring(i_9_ + 4)).toString();

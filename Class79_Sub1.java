@@ -31,9 +31,9 @@ final class Class79_Sub1 {
 
 	static final long method696(final int x, final int z, final int level) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
-		if (class120_sub18 == null || class120_sub18.aClass36_2650 == null) {
+		if (class120_sub18 == null || class120_sub18.groundDecoration == null) {
 			return 0L;
 		}
-		return class120_sub18.aClass36_2650.bitPacked;
+		return class120_sub18.groundDecoration.bitPackedUid;
 	}
 }

@@ -23,15 +23,8 @@ final class Class120_Sub12_Sub24 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1327(final byte i) {
-		try {
-			aClass50_3309 = null;
-			if (i > -78) {
-				aClass50_3309 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qb.R(").append(i).append(')').toString());
-		}
+	public static void method1327() {
+		aClass50_3309 = null;
 	}
 
 	static final char method1328(final byte i) {

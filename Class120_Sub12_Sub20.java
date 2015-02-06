@@ -325,11 +325,11 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1302(final int i, final int i_47_, final int i_48_) {
+	static final void method1302(final int level, final int x, final int z) {
 		Class120_Sub12_Sub7.aBoolean3181 = true;
-		Projectile.anInt2933 = i;
-		ParticleManager.anInt2320 = i_47_;
-		Class187.anInt1908 = i_48_;
+		Projectile.anInt2933 = level;
+		ParticleManager.anInt2320 = x;
+		Class187.anInt1908 = z;
 		ObjectCache.anInt122 = -1;
 		WaterfallShader.anInt2174 = -1;
 	}

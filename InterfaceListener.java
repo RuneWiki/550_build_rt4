@@ -6,15 +6,15 @@ import java.awt.Insets;
 
 final class InterfaceListener extends Node {
 	JagexInterface aClass189_2532;
-	int anInt2533;
+	int keyCode;
 	JagexInterface aClass189_2534;
-	int anInt2535;
-	boolean aBoolean2536;
+	int keyChar;
+	boolean mouseUsed;
 	Object[] objectData;
 	static String aString2538 = "slide:";
 	String aString2539;
 	int anInt2540;
-	int anInt2541;
+	int actionId;
 	int anInt2543;
 	static js5 aClass50_2544;
 	static int playerRenderZ;

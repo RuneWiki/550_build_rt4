@@ -73,15 +73,15 @@ final class InvType extends NodeSub {
 		}
 	}
 
-	static final void addMenuOption(final String prefix, final String sufix, final long l, final int i, final int i_26_, final short code, final int cursor) {
-		if (!Class15.menuOpen && Class186.menuOptionCount < 500) {//TODO refactor menu options
+	static final void addMenuOption(final String prefix, final String sufix, final long data1, final int data2, final int data3, final short code, final int cursor) {
+		if (!Class15.menuOpen && Class186.menuOptionCount < 500) {
 			Class120_Sub12_Sub33.menuOptionPrefix[Class186.menuOptionCount] = prefix;
 			Class120_Sub12_Sub29.menuOptionSufix[Class186.menuOptionCount] = sufix;
 			InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount] = cursor == -1 ? Class192.selectedSpellCursor : cursor;
 			Class120_Sub29.menuOptionsCode[Class186.menuOptionCount] = code;
-			Class120_Sub12.aLongArray2562[Class186.menuOptionCount] = l;
-			Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount] = i;
-			Class120_Sub29.anIntArray2769[Class186.menuOptionCount] = i_26_;
+			Class120_Sub12.menuOptionsData1[Class186.menuOptionCount] = data1;
+			Class120_Sub12_Sub7.menuOptionsData2[Class186.menuOptionCount] = data2;
+			Class120_Sub29.menuOptionsData3[Class186.menuOptionCount] = data3;
 			Class186.menuOptionCount++;
 		}
 	}

@@ -36,9 +36,9 @@ final class EnumType extends NodeSub {
 
 	private final void method1418() {
 		aClass75_3459 = new Hashtable(params.getCapacity());
-		for (StringNode class120_sub25 = (StringNode) params.getFirst(); class120_sub25 != null; class120_sub25 = (StringNode) params.getNext()) {
-			final Class120_Sub21 class120_sub21 = new Class120_Sub21(class120_sub25.value, (int) class120_sub25.uid);
-			aClass75_3459.put(class120_sub21, IsaacCipher.method907(class120_sub25.value));
+		for (StringNode stringNode = (StringNode) params.getFirst(); stringNode != null; stringNode = (StringNode) params.getNext()) {
+			final Class120_Sub21 class120_sub21 = new Class120_Sub21(stringNode.value, (int) stringNode.uid);
+			aClass75_3459.put(class120_sub21, IsaacCipher.toHash(stringNode.value));
 		}
 	}
 
@@ -52,30 +52,30 @@ final class EnumType extends NodeSub {
 		} else if (code == 4) {
 			defaulInteger = buffer.getInt();
 		} else if (code == 5 || code == 6) {
-			final int i_3_ = buffer.getUShort();
-			params = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(i_3_));
-			for (int i_4_ = 0; i_3_ > i_4_; i_4_++) {
-				final int i_5_ = buffer.getInt();
+			final int paramCount = buffer.getUShort();
+			params = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(paramCount));
+			for (int paramId = 0; paramId < paramCount; paramId++) {
+				final int paramUid = buffer.getInt();
 				Node node;
 				if (code == 5) {
 					node = new StringNode(buffer.getJagexString());
 				} else {
 					node = new IntegerNode(buffer.getInt());
 				}
-				params.put(node, i_5_);
+				params.put(node, paramUid);
 			}
 		}
 	}
 
-	final boolean method1420(final int i_6_) {
+	final boolean method1420(final int paramId) {
 		if (params == null) {
 			return false;
 		}
 		if (aClass75_3459 == null) {
 			method1423();
 		}
-		final IntegerNode class120_sub32 = (IntegerNode) aClass75_3459.get(i_6_);
-		if (class120_sub32 == null) {
+		final IntegerNode integerNode = (IntegerNode) aClass75_3459.get(paramId);
+		if (integerNode == null) {
 			return false;
 		}
 		return true;
@@ -86,12 +86,12 @@ final class EnumType extends NodeSub {
 			if (Class69.rootInterfaceId != -1) {
 				Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 			}
-			for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-				Class120_Sub19.removeOverridedInterface(class120_sub26, true);
+			for (OverridedJInterface overridedJInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedJInterface != null; overridedJInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+				Class120_Sub19.removeOverridedInterface(overridedJInterface, true);
 			}
 			Class69.rootInterfaceId = -1;
 			Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
-			Class43.method342();
+			Class43.createJInterfaceCache();
 			Class69.rootInterfaceId = GameShell.loginscreenId;
 			Class101_Sub2.method846(false);
 			Class132_Sub1.method1931();
@@ -139,17 +139,10 @@ final class EnumType extends NodeSub {
 		}
 	}
 
-	public static void method1424(final int i) {
-		try {
-			if (i != 0) {
-				method1428(null, null);
-			}
-			aClass112_3460 = null;
-			aString3455 = null;
-			aClass120_Sub14_Sub18Array3453 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw method1428(runtimeexception, new StringBuilder("cj.G(").append(i).append(')').toString());
-		}
+	public static void method1424() {
+		aClass112_3460 = null;
+		aString3455 = null;
+		aClass120_Sub14_Sub18Array3453 = null;
 	}
 
 	final void decode(final Buffer buffer) {
@@ -197,7 +190,7 @@ final class EnumType extends NodeSub {
 		if (aClass75_3459 == null) {
 			method1418();
 		}
-		for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.get(IsaacCipher.method907(string)); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.poll()) {
+		for (Class120_Sub21 class120_sub21 = (Class120_Sub21) aClass75_3459.get(IsaacCipher.toHash(string)); class120_sub21 != null; class120_sub21 = (Class120_Sub21) aClass75_3459.poll()) {
 			if (class120_sub21.aString2666.equals(string)) {
 				return true;
 			}

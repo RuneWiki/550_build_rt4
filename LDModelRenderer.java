@@ -2,12 +2,12 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class LDModel extends AbstractModel {
+final class LDModelRenderer extends AbstractModelRenderer {
 	boolean boundsCalculated;
 	private byte aByte3756 = 0;
-	private short minZ;
+	private short maxZ;
 	private int[] trianglesC;
-	private short maxX;
+	private short minX;
 	private short[] aShortArray3760;
 	private short[] aShortArray3761;
 	private byte[] aByteArray3762;
@@ -15,21 +15,21 @@ final class LDModel extends AbstractModel {
 	int[] zVertices;
 	private byte[] trianglesAlpha;
 	private int[] anIntArray3766;
-	private static LDModel aClass180_Sub7_Sub1_3767 = new LDModel();
+	private static LDModelRenderer aClass180_Sub7_Sub1_3767 = new LDModelRenderer();
 	private int anInt3768 = 0;
 	private int[] anIntArray3769;
 	private byte[] aByteArray3770;
-	private short maxZ;
+	private short minZ;
 	private short minY;
 	private int[] trianglesA;
 	private boolean aBoolean3774 = false;
 	int[] yVertices;
 	Class169[] aClass169Array3776;
 	private short[] aShortArray3777;
-	private short minX;
+	private short maxX;
 	private int[] anIntArray3779;
 	private int[] anIntArray3780;
-	private int vertexCount;
+	private int anInt3781;
 	private static byte[] aByteArray3782;
 	private short[] aShortArray3783;
 	int[] xVertices;
@@ -41,14 +41,14 @@ final class LDModel extends AbstractModel {
 	private static int[] anIntArray3790;
 	private int[] anIntArray3791;
 	private int anInt3792;
-	int anInt3793;
+	int vertexCount;
 	private short maxY;
 	private int[][] anIntArrayArray3795;
 	private static int[] anIntArray3796;
 	private int[] anIntArray3797;
 	private static short[] aShortArray3798;
-	private static LDModel aClass180_Sub7_Sub1_3799;
-	private static LDModel aClass180_Sub7_Sub1_3800;
+	private static LDModelRenderer aClass180_Sub7_Sub1_3799;
+	private static LDModelRenderer aClass180_Sub7_Sub1_3800;
 	private static int[] anIntArray3801;
 	private static short[] aShortArray3802;
 	private static byte[] aByteArray3803;
@@ -98,13 +98,13 @@ final class LDModel extends AbstractModel {
 		anIntArray3796 = new int[1];
 		anIntArray3790 = new int[1];
 		aShortArray3798 = new short[1];
-		aClass180_Sub7_Sub1_3799 = new LDModel();
+		aClass180_Sub7_Sub1_3799 = new LDModelRenderer();
 		anIntArray3801 = new int[1];
 		aShortArray3802 = new short[1];
 		anIntArray3804 = new int[1];
 		aByteArray3803 = new byte[1];
 		anIntArray3805 = new int[1];
-		aClass180_Sub7_Sub1_3800 = new LDModel();
+		aClass180_Sub7_Sub1_3800 = new LDModelRenderer();
 		anIntArray3812 = new int[8192];
 		anIntArray3821 = new int[8192];
 		anIntArray3819 = new int[12];
@@ -147,7 +147,7 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void rotate180() {
-		for (int i = 0; i < this.anInt3793; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			this.xVertices[i] = -this.xVertices[i];
 			this.zVertices[i] = -this.zVertices[i];
 		}
@@ -155,7 +155,7 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final int getMaxZ() {
+	final int getMinY() {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
@@ -163,7 +163,7 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final AbstractModel method2376(final boolean bool, final boolean bool_0_, final boolean bool_1_) {
+	final AbstractModelRenderer method2376(final boolean bool, final boolean bool_0_, final boolean bool_1_) {
 		if (!bool && aByteArray3782.length < anInt3792) {
 			aByteArray3782 = new byte[anInt3792 + 100];
 		}
@@ -193,11 +193,11 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2383() {
+	final int getMinX() {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		return maxX;
+		return minX;
 	}
 
 	private final void method2391(final boolean bool, boolean bool_9_, final long l, final int i, final int i_10_, final ParticleEngine class108_sub2) {
@@ -573,10 +573,10 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final void method2360(final int i) {
+	final void rotate(final int i) {
 		final int i_90_ = Rasterizer.sineTable[i];
 		final int i_91_ = Rasterizer.cosineTable[i];
-		for (int i_92_ = 0; i_92_ < this.anInt3793; i_92_++) {
+		for (int i_92_ = 0; i_92_ < this.vertexCount; i_92_++) {
 			final int i_93_ = this.zVertices[i_92_] * i_90_ + this.xVertices[i_92_] * i_91_ >> 16;
 			this.zVertices[i_92_] = this.zVertices[i_92_] * i_91_ - this.xVertices[i_92_] * i_90_ >> 16;
 			this.xVertices[i_92_] = i_93_;
@@ -586,7 +586,7 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void rotate90() {
-		for (int i = 0; i < this.anInt3793; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_94_ = this.xVertices[i];
 			this.xVertices[i] = this.zVertices[i];
 			this.zVertices[i] = -i_94_;
@@ -598,7 +598,7 @@ final class LDModel extends AbstractModel {
 	final void method2377(final int i) {
 		final int i_95_ = Rasterizer.sineTable[i];
 		final int i_96_ = Rasterizer.cosineTable[i];
-		for (int i_97_ = 0; i_97_ < this.anInt3793; i_97_++) {
+		for (int i_97_ = 0; i_97_ < this.vertexCount; i_97_++) {
 			final int i_98_ = this.yVertices[i_97_] * i_96_ - this.zVertices[i_97_] * i_95_ >> 16;
 			this.zVertices[i_97_] = this.yVertices[i_97_] * i_95_ + this.zVertices[i_97_] * i_96_ >> 16;
 			this.yVertices[i_97_] = i_98_;
@@ -607,15 +607,15 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2374() {
+	final int getMaxX() {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		return minX;
+		return maxX;
 	}
 
-	final AbstractModel method2392(final AbstractModel class180_sub7) {
-		return new LDModel(new LDModel[] { this, (LDModel) class180_sub7 }, 2);
+	final AbstractModelRenderer method2392(final AbstractModelRenderer class180_sub7) {
+		return new LDModelRenderer(new LDModelRenderer[] { this, (LDModelRenderer) class180_sub7 }, 2);
 	}
 
 	@Override
@@ -686,8 +686,8 @@ final class LDModel extends AbstractModel {
 									i_128_ = -999999;
 									i_129_ = 999999;
 									i_130_ = -999999;
-									final int[] is = new int[] { minX, maxX, minX, maxX, minX, maxX, minX, maxX };
-									final int[] is_131_ = new int[] { minZ, minZ, maxZ, maxZ, minZ, minZ, maxZ, maxZ };
+									final int[] is = new int[] { maxX, minX, maxX, minX, maxX, minX, maxX, minX };
+									final int[] is_131_ = new int[] { maxZ, maxZ, minZ, minZ, maxZ, maxZ, minZ, minZ };
 									final int[] is_132_ = new int[] { maxY, maxY, maxY, maxY, minY, minY, minY, minY };
 									for (int i_133_ = 0; i_133_ < 8; i_133_++) {
 										int i_134_ = is[i_133_];
@@ -733,7 +733,7 @@ final class LDModel extends AbstractModel {
 									}
 								}
 							}
-							for (int i_141_ = 0; i_141_ < this.anInt3793; i_141_++) {
+							for (int i_141_ = 0; i_141_ < this.vertexCount; i_141_++) {
 								int i_142_ = this.xVertices[i_141_];
 								int i_143_ = this.yVertices[i_141_];
 								int i_144_ = this.zVertices[i_141_];
@@ -809,7 +809,7 @@ final class LDModel extends AbstractModel {
 	final void method2362(final int i) {
 		final int i_154_ = Rasterizer.sineTable[i];
 		final int i_155_ = Rasterizer.cosineTable[i];
-		for (int i_156_ = 0; i_156_ < this.anInt3793; i_156_++) {
+		for (int i_156_ = 0; i_156_ < this.vertexCount; i_156_++) {
 			final int i_157_ = this.yVertices[i_156_] * i_154_ + this.xVertices[i_156_] * i_155_ >> 16;
 			this.yVertices[i_156_] = this.yVertices[i_156_] * i_155_ - this.xVertices[i_156_] * i_154_ >> 16;
 			this.xVertices[i_156_] = i_157_;
@@ -830,7 +830,7 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void rotate270() {
-		for (int i = 0; i < this.anInt3793; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_158_ = this.zVertices[i];
 			this.zVertices[i] = this.xVertices[i];
 			this.xVertices[i] = -i_158_;
@@ -840,7 +840,7 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void translate(final int x, final int y, final int z) {
-		for (int i_161_ = 0; i_161_ < this.anInt3793; i_161_++) {
+		for (int i_161_ = 0; i_161_ < this.vertexCount; i_161_++) {
 			this.xVertices[i_161_] += x;
 			this.yVertices[i_161_] += y;
 			this.zVertices[i_161_] += z;
@@ -901,11 +901,11 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2363() {
+	final int getMaxZ() {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		return minZ;
+		return maxZ;
 	}
 
 	public static void method2394() {
@@ -972,7 +972,7 @@ final class LDModel extends AbstractModel {
 		final int i_183_ = Rasterizer.sineTable[i_171_];
 		final int i_184_ = Rasterizer.cosineTable[i_171_];
 		final int i_185_ = i_173_ * i_183_ + i_174_ * i_184_ >> 16;
-		for (int i_186_ = 0; i_186_ < this.anInt3793; i_186_++) {
+		for (int i_186_ = 0; i_186_ < this.vertexCount; i_186_++) {
 			int i_187_ = this.xVertices[i_186_];
 			int i_188_ = this.yVertices[i_186_];
 			int i_189_ = this.zVertices[i_186_];
@@ -1010,7 +1010,7 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final AbstractModel method2378(final boolean bool, final boolean bool_194_, final boolean bool_195_) {
+	final AbstractModelRenderer method2378(final boolean bool, final boolean bool_194_, final boolean bool_195_) {
 		if (!bool && aByteArray3825.length < anInt3792) {
 			aByteArray3825 = new byte[anInt3792 + 100];
 		}
@@ -1043,7 +1043,7 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final AbstractModel method2381(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
+	final AbstractModelRenderer method2381(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
 		if (!bool && aByteArray3803.length < anInt3792) {
 			aByteArray3803 = new byte[anInt3792 + 100];
 		}
@@ -1217,17 +1217,17 @@ final class LDModel extends AbstractModel {
 		}
 	}
 
-	private final AbstractModel method2397(final boolean bool, final boolean bool_238_, final LDModel class180_sub7_sub1_239_, final byte[] is, final short[] is_240_, final int[] is_241_, final int[] is_242_, final int[] is_243_) {
-		class180_sub7_sub1_239_.anInt3793 = this.anInt3793;
-		class180_sub7_sub1_239_.vertexCount = vertexCount;
+	private final AbstractModelRenderer method2397(final boolean bool, final boolean bool_238_, final LDModelRenderer class180_sub7_sub1_239_, final byte[] is, final short[] is_240_, final int[] is_241_, final int[] is_242_, final int[] is_243_) {
+		class180_sub7_sub1_239_.vertexCount = this.vertexCount;
+		class180_sub7_sub1_239_.anInt3781 = anInt3781;
 		class180_sub7_sub1_239_.anInt3792 = anInt3792;
 		class180_sub7_sub1_239_.anInt3768 = anInt3768;
-		if (class180_sub7_sub1_239_.xVertices == null || class180_sub7_sub1_239_.xVertices.length < this.anInt3793) {
-			class180_sub7_sub1_239_.xVertices = new int[this.anInt3793 + 100];
-			class180_sub7_sub1_239_.yVertices = new int[this.anInt3793 + 100];
-			class180_sub7_sub1_239_.zVertices = new int[this.anInt3793 + 100];
+		if (class180_sub7_sub1_239_.xVertices == null || class180_sub7_sub1_239_.xVertices.length < this.vertexCount) {
+			class180_sub7_sub1_239_.xVertices = new int[this.vertexCount + 100];
+			class180_sub7_sub1_239_.yVertices = new int[this.vertexCount + 100];
+			class180_sub7_sub1_239_.zVertices = new int[this.vertexCount + 100];
 		}
-		for (int i = 0; i < this.anInt3793; i++) {
+		for (int i = 0; i < this.vertexCount; i++) {
 			class180_sub7_sub1_239_.xVertices[i] = this.xVertices[i];
 			class180_sub7_sub1_239_.yVertices[i] = this.yVertices[i];
 			class180_sub7_sub1_239_.zVertices[i] = this.zVertices[i];
@@ -1285,35 +1285,35 @@ final class LDModel extends AbstractModel {
 	}
 
 	private final void calculateBounds() {
-		int minX = 32767;
-		int minY = 32767;
-		int minZ = 32767;
-		int maxX = -32768;
-		int maxY = -32768;
-		int maxZ = -32768;
+		int maxX = 32767;
+		int maxY = 32767;
+		int maxZ = 32767;
+		int minX = -32768;
+		int minY = -32768;
+		int minZ = -32768;
 		int i_249_ = 0;
 		int i_250_ = 0;
-		for (int i_251_ = 0; i_251_ < vertexCount; i_251_++) {
-			final int xVertex = this.xVertices[i_251_];
-			final int yVertex = this.yVertices[i_251_];
-			final int zVertex = this.zVertices[i_251_];
-			if (xVertex < minX) {
-				minX = xVertex;
-			}
-			if (xVertex > maxX) {
+		for (int vertexId = 0; vertexId < anInt3781; vertexId++) {
+			final int xVertex = this.xVertices[vertexId];
+			final int yVertex = this.yVertices[vertexId];
+			final int zVertex = this.zVertices[vertexId];
+			if (maxX > xVertex) {
 				maxX = xVertex;
 			}
-			if (yVertex < minY) {
-				minY = yVertex;
+			if (minX < xVertex) {
+				minX = xVertex;
 			}
-			if (yVertex > maxY) {
+			if (maxY > yVertex) {
 				maxY = yVertex;
 			}
-			if (zVertex < minZ) {
-				minZ = zVertex;
+			if (minY < yVertex) {
+				minY = yVertex;
 			}
-			if (zVertex > maxZ) {
+			if (maxZ > zVertex) {
 				maxZ = zVertex;
+			}
+			if (minZ < zVertex) {
+				minZ = zVertex;
 			}
 			int i_255_ = xVertex * xVertex + zVertex * zVertex;
 			if (i_255_ > i_249_) {
@@ -1324,25 +1324,25 @@ final class LDModel extends AbstractModel {
 				i_250_ = i_255_;
 			}
 		}
-		this.minX = (short) minX;
 		this.maxX = (short) maxX;
-		this.maxY = (short) minY;
-		this.minY = (short) maxY;
-		this.minZ = (short) minZ;
+		this.minX = (short) minX;
+		this.maxY = (short) maxY;
+		this.minY = (short) minY;
 		this.maxZ = (short) maxZ;
+		this.minZ = (short) minZ;
 		this.aShort3763 = (short) (int) (Math.sqrt(i_249_) + 0.99);
 		this.aShort3785 = (short) (int) (Math.sqrt(i_250_) + 0.99);
 		this.boundsCalculated = true;
 	}
 
-	final LDModel method2399(final int i, final int i_256_, final int[][] is, final int[][] is_257_, final int i_258_, final int i_259_, final int i_260_, final boolean bool) {
+	final LDModelRenderer method2399(final int i, final int i_256_, final int[][] is, final int[][] is_257_, final int i_258_, final int i_259_, final int i_260_, final boolean bool) {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		int i_261_ = i_258_ + minX;
-		int i_262_ = i_258_ + maxX;
-		int i_263_ = i_260_ + minZ;
-		int i_264_ = i_260_ + maxZ;
+		int i_261_ = i_258_ + maxX;
+		int i_262_ = i_258_ + minX;
+		int i_263_ = i_260_ + maxZ;
+		int i_264_ = i_260_ + minZ;
 		if ((i == 1 || i == 2 || i == 3 || i == 5) && (i_261_ < 0 || i_262_ + 128 >> 7 >= is.length || i_263_ < 0 || i_264_ + 128 >> 7 >= is[0].length)) {
 			return this;
 		}
@@ -1362,11 +1362,11 @@ final class LDModel extends AbstractModel {
 				return this;
 			}
 		}
-		LDModel class180_sub7_sub1_265_;
+		LDModelRenderer class180_sub7_sub1_265_;
 		if (bool) {
-			class180_sub7_sub1_265_ = new LDModel();
-			class180_sub7_sub1_265_.anInt3793 = this.anInt3793;
-			class180_sub7_sub1_265_.vertexCount = vertexCount;
+			class180_sub7_sub1_265_ = new LDModelRenderer();
+			class180_sub7_sub1_265_.vertexCount = this.vertexCount;
+			class180_sub7_sub1_265_.anInt3781 = anInt3781;
 			class180_sub7_sub1_265_.anInt3792 = anInt3792;
 			class180_sub7_sub1_265_.anInt3768 = anInt3768;
 			class180_sub7_sub1_265_.trianglesA = trianglesA;
@@ -1395,14 +1395,14 @@ final class LDModel extends AbstractModel {
 				class180_sub7_sub1_265_.zVertices = SpotAnimType.arrayCopy(this.zVertices);
 			} else {
 				class180_sub7_sub1_265_.xVertices = this.xVertices;
-				class180_sub7_sub1_265_.yVertices = new int[class180_sub7_sub1_265_.anInt3793];
+				class180_sub7_sub1_265_.yVertices = new int[class180_sub7_sub1_265_.vertexCount];
 				class180_sub7_sub1_265_.zVertices = this.zVertices;
 			}
 		} else {
 			class180_sub7_sub1_265_ = this;
 		}
 		if (i == 1) {
-			for (int i_266_ = 0; i_266_ < class180_sub7_sub1_265_.vertexCount; i_266_++) {
+			for (int i_266_ = 0; i_266_ < class180_sub7_sub1_265_.anInt3781; i_266_++) {
 				final int i_267_ = this.xVertices[i_266_] + i_258_;
 				final int i_268_ = this.zVertices[i_266_] + i_260_;
 				final int i_269_ = i_267_ & 0x7f;
@@ -1414,7 +1414,7 @@ final class LDModel extends AbstractModel {
 				final int i_275_ = i_273_ * (128 - i_270_) + i_274_ * i_270_ >> 7;
 				class180_sub7_sub1_265_.yVertices[i_266_] = this.yVertices[i_266_] + i_275_ - i_259_;
 			}
-			for (int i_276_ = class180_sub7_sub1_265_.vertexCount; i_276_ < class180_sub7_sub1_265_.anInt3793; i_276_++) {
+			for (int i_276_ = class180_sub7_sub1_265_.anInt3781; i_276_ < class180_sub7_sub1_265_.vertexCount; i_276_++) {
 				final int i_277_ = this.xVertices[i_276_] + i_258_;
 				final int i_278_ = this.zVertices[i_276_] + i_260_;
 				final int i_279_ = i_277_ & 0x7f;
@@ -1429,7 +1429,7 @@ final class LDModel extends AbstractModel {
 				}
 			}
 		} else if (i == 2) {
-			for (int i_286_ = 0; i_286_ < class180_sub7_sub1_265_.vertexCount; i_286_++) {
+			for (int i_286_ = 0; i_286_ < class180_sub7_sub1_265_.anInt3781; i_286_++) {
 				final int i_287_ = (this.yVertices[i_286_] << 16) / maxY;
 				if (i_287_ < i_256_) {
 					final int i_288_ = this.xVertices[i_286_] + i_258_;
@@ -1446,7 +1446,7 @@ final class LDModel extends AbstractModel {
 					class180_sub7_sub1_265_.yVertices[i_286_] = this.yVertices[i_286_];
 				}
 			}
-			for (int i_297_ = class180_sub7_sub1_265_.vertexCount; i_297_ < class180_sub7_sub1_265_.anInt3793; i_297_++) {
+			for (int i_297_ = class180_sub7_sub1_265_.anInt3781; i_297_ < class180_sub7_sub1_265_.vertexCount; i_297_++) {
 				final int i_298_ = (this.yVertices[i_297_] << 16) / maxY;
 				if (i_298_ < i_256_) {
 					final int i_299_ = this.xVertices[i_297_] + i_258_;
@@ -1471,7 +1471,7 @@ final class LDModel extends AbstractModel {
 			class180_sub7_sub1_265_.method2385(is, i_258_, i_259_, i_260_, i_308_, i_309_);
 		} else if (i == 4) {
 			final int i_310_ = minY - maxY;
-			for (int i_311_ = 0; i_311_ < vertexCount; i_311_++) {
+			for (int i_311_ = 0; i_311_ < anInt3781; i_311_++) {
 				final int i_312_ = this.xVertices[i_311_] + i_258_;
 				final int i_313_ = this.zVertices[i_311_] + i_260_;
 				final int i_314_ = i_312_ & 0x7f;
@@ -1483,7 +1483,7 @@ final class LDModel extends AbstractModel {
 				final int i_320_ = i_318_ * (128 - i_315_) + i_319_ * i_315_ >> 7;
 				class180_sub7_sub1_265_.yVertices[i_311_] = this.yVertices[i_311_] + i_320_ - i_259_ + i_310_;
 			}
-			for (int i_321_ = class180_sub7_sub1_265_.vertexCount; i_321_ < class180_sub7_sub1_265_.anInt3793; i_321_++) {
+			for (int i_321_ = class180_sub7_sub1_265_.anInt3781; i_321_ < class180_sub7_sub1_265_.vertexCount; i_321_++) {
 				final int i_322_ = this.xVertices[i_321_] + i_258_;
 				final int i_323_ = this.zVertices[i_321_] + i_260_;
 				final int i_324_ = i_322_ & 0x7f;
@@ -1499,7 +1499,7 @@ final class LDModel extends AbstractModel {
 			}
 		} else if (i == 5) {
 			final int i_331_ = minY - maxY;
-			for (int i_332_ = 0; i_332_ < vertexCount; i_332_++) {
+			for (int i_332_ = 0; i_332_ < anInt3781; i_332_++) {
 				final int i_333_ = this.xVertices[i_332_] + i_258_;
 				final int i_334_ = this.zVertices[i_332_] + i_260_;
 				final int i_335_ = i_333_ & 0x7f;
@@ -1515,7 +1515,7 @@ final class LDModel extends AbstractModel {
 				final int i_343_ = i_341_ - i_342_;
 				class180_sub7_sub1_265_.yVertices[i_332_] = ((this.yVertices[i_332_] << 8) / i_331_ * i_343_ >> 8) - (i_259_ - i_341_);
 			}
-			for (int i_344_ = class180_sub7_sub1_265_.vertexCount; i_344_ < class180_sub7_sub1_265_.anInt3793; i_344_++) {
+			for (int i_344_ = class180_sub7_sub1_265_.anInt3781; i_344_ < class180_sub7_sub1_265_.vertexCount; i_344_++) {
 				final int i_345_ = this.xVertices[i_344_] + i_258_;
 				final int i_346_ = this.zVertices[i_344_] + i_260_;
 				final int i_347_ = i_345_ & 0x7f;
@@ -1715,7 +1715,7 @@ final class LDModel extends AbstractModel {
 
 	@Override
 	final void resize(final int i, final int i_422_, final int i_423_) {
-		for (int i_424_ = 0; i_424_ < this.anInt3793; i_424_++) {
+		for (int i_424_ = 0; i_424_ < this.vertexCount; i_424_++) {
 			this.xVertices[i_424_] = this.xVertices[i_424_] * i / 128;
 			this.yVertices[i_424_] = this.yVertices[i_424_] * i_422_ / 128;
 			this.zVertices[i_424_] = this.zVertices[i_424_] * i_423_ / 128;
@@ -1739,7 +1739,7 @@ final class LDModel extends AbstractModel {
 			final int i_440_ = Rasterizer.sineTable[i_427_];
 			final int i_441_ = Rasterizer.cosineTable[i_427_];
 			final int i_442_ = i_429_ * i_440_ + i_430_ * i_441_ >> 16;
-			for (int i_443_ = 0; i_443_ < this.anInt3793; i_443_++) {
+			for (int i_443_ = 0; i_443_ < this.vertexCount; i_443_++) {
 				int i_444_ = this.xVertices[i_443_];
 				int i_445_ = this.yVertices[i_443_];
 				int i_446_ = this.zVertices[i_443_];
@@ -2153,11 +2153,11 @@ final class LDModel extends AbstractModel {
 	}
 
 	@Override
-	final int method2386() {
+	final int getMinZ() {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		return maxZ;
+		return minZ;
 	}
 
 	static final int method2401(final int i, int i_614_) {
@@ -2197,7 +2197,7 @@ final class LDModel extends AbstractModel {
 			anInt3822 = 0;
 			anInt3841 = 0;
 			anInt3816 = 0;
-			for (int i_623_ = 0; i_623_ < this.anInt3793; i_623_++) {
+			for (int i_623_ = 0; i_623_ < this.vertexCount; i_623_++) {
 				anInt3822 += this.xVertices[i_623_];
 				anInt3841 += this.yVertices[i_623_];
 				anInt3816 += this.zVertices[i_623_];
@@ -2213,13 +2213,13 @@ final class LDModel extends AbstractModel {
 				anInt3816 = i_621_;
 			}
 		} else if (i == 1) {
-			for (int i_624_ = 0; i_624_ < this.anInt3793; i_624_++) {
+			for (int i_624_ = 0; i_624_ < this.vertexCount; i_624_++) {
 				this.xVertices[i_624_] += i_619_;
 				this.yVertices[i_624_] += i_620_;
 				this.zVertices[i_624_] += i_621_;
 			}
 		} else if (i == 2) {
-			for (int i_625_ = 0; i_625_ < this.anInt3793; i_625_++) {
+			for (int i_625_ = 0; i_625_ < this.vertexCount; i_625_++) {
 				this.xVertices[i_625_] -= anInt3822;
 				this.yVertices[i_625_] -= anInt3841;
 				this.zVertices[i_625_] -= anInt3816;
@@ -2249,7 +2249,7 @@ final class LDModel extends AbstractModel {
 				this.zVertices[i_625_] += anInt3816;
 			}
 		} else if (i == 3) {
-			for (int i_635_ = 0; i_635_ < this.anInt3793; i_635_++) {
+			for (int i_635_ = 0; i_635_ < this.vertexCount; i_635_++) {
 				this.xVertices[i_635_] -= anInt3822;
 				this.yVertices[i_635_] -= anInt3841;
 				this.zVertices[i_635_] -= anInt3816;
@@ -2314,22 +2314,22 @@ final class LDModel extends AbstractModel {
 		anIntArrayArray3809 = null;
 	}
 
-	public LDModel() {
+	public LDModelRenderer() {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
-		vertexCount = 0;
-		this.anInt3793 = 0;
+		anInt3781 = 0;
+		this.vertexCount = 0;
 	}
 
-	LDModel(final Class180_Sub2 class180_sub2, final int i, final int i_643_, final int i_644_, final int i_645_, final int i_646_) {
+	LDModelRenderer(final Model class180_sub2, final int ambient, final int contrast, final int lightX, final int lightY, final int lightZ) {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
-		vertexCount = 0;
-		this.anInt3793 = 0;
+		anInt3781 = 0;
+		this.vertexCount = 0;
 		class180_sub2.method2303();
 		class180_sub2.createLabels();
-		this.anInt3793 = class180_sub2.vertexCount;
-		vertexCount = class180_sub2.anInt2886;
+		this.vertexCount = class180_sub2.vertexCount;
+		anInt3781 = class180_sub2.anInt2886;
 		this.xVertices = class180_sub2.xVertices;
 		this.yVertices = class180_sub2.yVertices;
 		this.zVertices = class180_sub2.zVertices;
@@ -2338,7 +2338,7 @@ final class LDModel extends AbstractModel {
 		trianglesB = class180_sub2.trianglesB;
 		trianglesC = class180_sub2.trianglesC;
 		aByteArray3762 = class180_sub2.aByteArray2879;
-		trianglesAlpha = class180_sub2.aByteArray2864;
+		trianglesAlpha = class180_sub2.trianglesAlpha;
 		aByte3756 = class180_sub2.aByte2899;
 		aShortArray3777 = class180_sub2.triangleColors;
 		anIntArrayArray3786 = class180_sub2.vertexLabels;
@@ -2347,8 +2347,8 @@ final class LDModel extends AbstractModel {
 		this.aClass158Array3788 = class180_sub2.aClass158Array2871;
 		this.aClass169Array3776 = class180_sub2.aClass169Array2887;
 		aShortArray3783 = class180_sub2.aShortArray2852;
-		final int i_647_ = (int) Math.sqrt(i_644_ * i_644_ + i_645_ * i_645_ + i_646_ * i_646_);
-		final int i_648_ = i_643_ * i_647_ >> 8;
+		final int lightMagnitude = (int) Math.sqrt(lightX * lightX + lightY * lightY + lightZ * lightZ);
+		final int lightIntensity = contrast * lightMagnitude >> 8;
 		anIntArray3779 = new int[anInt3792];
 		anIntArray3780 = new int[anInt3792];
 		anIntArray3769 = new int[anInt3792];
@@ -2412,10 +2412,10 @@ final class LDModel extends AbstractModel {
 				i_657_ = class180_sub2.aByteArray2895[i_656_];
 			}
 			byte i_658_;
-			if (class180_sub2.aByteArray2864 == null) {
+			if (class180_sub2.trianglesAlpha == null) {
 				i_658_ = (byte) 0;
 			} else {
-				i_658_ = class180_sub2.aByteArray2864[i_656_];
+				i_658_ = class180_sub2.trianglesAlpha[i_656_];
 			}
 			short i_659_;
 			if (aShortArray3760 == null) {
@@ -2438,25 +2438,25 @@ final class LDModel extends AbstractModel {
 					} else {
 						class26 = class180_sub2.aClass26Array2878[trianglesA[i_656_]];
 					}
-					int i_661_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156) << 17;
+					int i_661_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3779[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
 					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesB[i_656_]] != null) {
 						class26 = class180_sub2.aClass26Array2893[trianglesB[i_656_]];
 					} else {
 						class26 = class180_sub2.aClass26Array2878[trianglesB[i_656_]];
 					}
-					i_661_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156) << 17;
+					i_661_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3780[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
 					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesC[i_656_]] != null) {
 						class26 = class180_sub2.aClass26Array2893[trianglesC[i_656_]];
 					} else {
 						class26 = class180_sub2.aClass26Array2878[trianglesC[i_656_]];
 					}
-					i_661_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156) << 17;
+					i_661_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3769[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
 				} else if (i_657_ == 1) {
 					final Class115 class115 = class180_sub2.aClass115Array2880[i_656_];
-					final int i_662_ = i + (i_644_ * class115.anInt1111 + i_645_ * class115.anInt1109 + i_646_ * class115.anInt1112) / (i_648_ + i_648_ / 2) << 17;
+					final int i_662_ = ambient + (lightX * class115.anInt1111 + lightY * class115.anInt1109 + lightZ * class115.anInt1112) / (lightIntensity + lightIntensity / 2) << 17;
 					anIntArray3779[i_656_] = i_662_ | method2401(class180_sub2.triangleColors[i_656_] & 0xffff, i_662_ >> 17);
 					anIntArray3769[i_656_] = -1;
 				} else if (i_657_ == 3) {
@@ -2472,25 +2472,25 @@ final class LDModel extends AbstractModel {
 				} else {
 					class26 = class180_sub2.aClass26Array2878[trianglesA[i_656_]];
 				}
-				int i_663_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156);
+				int i_663_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156);
 				anIntArray3779[i_656_] = method2403(i_663_);
 				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesB[i_656_]] != null) {
 					class26 = class180_sub2.aClass26Array2893[trianglesB[i_656_]];
 				} else {
 					class26 = class180_sub2.aClass26Array2878[trianglesB[i_656_]];
 				}
-				i_663_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156);
+				i_663_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156);
 				anIntArray3780[i_656_] = method2403(i_663_);
 				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesC[i_656_]] != null) {
 					class26 = class180_sub2.aClass26Array2893[trianglesC[i_656_]];
 				} else {
 					class26 = class180_sub2.aClass26Array2878[trianglesC[i_656_]];
 				}
-				i_663_ = i + (i_644_ * class26.anInt157 + i_645_ * class26.anInt155 + i_646_ * class26.anInt160) / (i_648_ * class26.anInt156);
+				i_663_ = ambient + (lightX * class26.anInt157 + lightY * class26.anInt155 + lightZ * class26.anInt160) / (lightIntensity * class26.anInt156);
 				anIntArray3769[i_656_] = method2403(i_663_);
 			} else if (i_657_ == 1) {
 				final Class115 class115 = class180_sub2.aClass115Array2880[i_656_];
-				final int i_664_ = i + (i_644_ * class115.anInt1111 + i_645_ * class115.anInt1109 + i_646_ * class115.anInt1112) / (i_648_ + i_648_ / 2);
+				final int i_664_ = ambient + (lightX * class115.anInt1111 + lightY * class115.anInt1109 + lightZ * class115.anInt1112) / (lightIntensity + lightIntensity / 2);
 				anIntArray3779[i_656_] = method2403(i_664_);
 				anIntArray3769[i_656_] = -1;
 			} else {
@@ -2499,25 +2499,25 @@ final class LDModel extends AbstractModel {
 		}
 	}
 
-	private LDModel(final LDModel[] class180_sub7_sub1s, final int i) {
+	private LDModelRenderer(final LDModelRenderer[] class180_sub7_sub1s, final int i) {
 		this.boundsCalculated = false;
 		anInt3792 = 0;
-		vertexCount = 0;
-		this.anInt3793 = 0;
+		anInt3781 = 0;
+		this.vertexCount = 0;
 		boolean bool = false;
 		boolean bool_665_ = false;
 		boolean bool_666_ = false;
 		boolean bool_667_ = false;
-		this.anInt3793 = 0;
+		this.vertexCount = 0;
 		anInt3792 = 0;
 		anInt3768 = 0;
 		int i_668_ = 0;
 		int i_669_ = 0;
 		aByte3756 = (byte) -1;
 		for (int i_670_ = 0; i_670_ < i; i_670_++) {
-			final LDModel class180_sub7_sub1_671_ = class180_sub7_sub1s[i_670_];
+			final LDModelRenderer class180_sub7_sub1_671_ = class180_sub7_sub1s[i_670_];
 			if (class180_sub7_sub1_671_ != null) {
-				this.anInt3793 += class180_sub7_sub1_671_.anInt3793;
+				this.vertexCount += class180_sub7_sub1_671_.vertexCount;
 				anInt3792 += class180_sub7_sub1_671_.anInt3792;
 				anInt3768 += class180_sub7_sub1_671_.anInt3768;
 				if (class180_sub7_sub1_671_.aByteArray3762 != null) {
@@ -2541,9 +2541,9 @@ final class LDModel extends AbstractModel {
 				}
 			}
 		}
-		this.xVertices = new int[this.anInt3793];
-		this.yVertices = new int[this.anInt3793];
-		this.zVertices = new int[this.anInt3793];
+		this.xVertices = new int[this.vertexCount];
+		this.yVertices = new int[this.vertexCount];
+		this.zVertices = new int[this.vertexCount];
 		trianglesA = new int[anInt3792];
 		trianglesB = new int[anInt3792];
 		trianglesC = new int[anInt3792];
@@ -2574,18 +2574,18 @@ final class LDModel extends AbstractModel {
 			this.aClass169Array3776 = new Class169[i_669_];
 		}
 		aShortArray3777 = new short[anInt3792];
-		this.anInt3793 = 0;
+		this.vertexCount = 0;
 		anInt3792 = 0;
 		anInt3768 = 0;
 		i_669_ = 0;
 		i_668_ = 0;
 		for (int i_672_ = 0; i_672_ < i; i_672_++) {
-			final LDModel class180_sub7_sub1_673_ = class180_sub7_sub1s[i_672_];
+			final LDModelRenderer class180_sub7_sub1_673_ = class180_sub7_sub1s[i_672_];
 			if (class180_sub7_sub1_673_ != null) {
 				for (int i_674_ = 0; i_674_ < class180_sub7_sub1_673_.anInt3792; i_674_++) {
-					trianglesA[anInt3792] = class180_sub7_sub1_673_.trianglesA[i_674_] + this.anInt3793;
-					trianglesB[anInt3792] = class180_sub7_sub1_673_.trianglesB[i_674_] + this.anInt3793;
-					trianglesC[anInt3792] = class180_sub7_sub1_673_.trianglesC[i_674_] + this.anInt3793;
+					trianglesA[anInt3792] = class180_sub7_sub1_673_.trianglesA[i_674_] + this.vertexCount;
+					trianglesB[anInt3792] = class180_sub7_sub1_673_.trianglesB[i_674_] + this.vertexCount;
+					trianglesC[anInt3792] = class180_sub7_sub1_673_.trianglesC[i_674_] + this.vertexCount;
 					anIntArray3779[anInt3792] = class180_sub7_sub1_673_.anIntArray3779[i_674_];
 					anIntArray3780[anInt3792] = class180_sub7_sub1_673_.anIntArray3780[i_674_];
 					anIntArray3769[anInt3792] = class180_sub7_sub1_673_.anIntArray3769[i_674_];
@@ -2614,59 +2614,59 @@ final class LDModel extends AbstractModel {
 				}
 				if (class180_sub7_sub1_673_.aClass158Array3788 != null) {
 					for (int i_675_ = 0; i_675_ < class180_sub7_sub1_673_.aClass158Array3788.length; i_675_++) {
-						this.aClass158Array3788[i_668_] = new ModelParticle(class180_sub7_sub1_673_.aClass158Array3788[i_675_].particleType, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1485 + this.anInt3793, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1484 + this.anInt3793,
-								class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1476 + this.anInt3793);
+						this.aClass158Array3788[i_668_] = new ModelParticle(class180_sub7_sub1_673_.aClass158Array3788[i_675_].particleType, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1485 + this.vertexCount, class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1484 + this.vertexCount,
+								class180_sub7_sub1_673_.aClass158Array3788[i_675_].anInt1476 + this.vertexCount);
 						i_668_++;
 					}
 				}
 				if (class180_sub7_sub1_673_.aClass169Array3776 != null) {
 					for (int i_676_ = 0; i_676_ < class180_sub7_sub1_673_.aClass169Array3776.length; i_676_++) {
-						this.aClass169Array3776[i_669_] = new Class169(class180_sub7_sub1_673_.aClass169Array3776[i_676_].aClass32_1650, class180_sub7_sub1_673_.aClass169Array3776[i_676_].anInt1647 + this.anInt3793);
+						this.aClass169Array3776[i_669_] = new Class169(class180_sub7_sub1_673_.aClass169Array3776[i_676_].aClass32_1650, class180_sub7_sub1_673_.aClass169Array3776[i_676_].anInt1647 + this.vertexCount);
 						i_669_++;
 					}
 				}
 				for (int i_677_ = 0; i_677_ < class180_sub7_sub1_673_.anInt3768; i_677_++) {
-					if (class180_sub7_sub1_673_.anIntArray3791[i_677_] < class180_sub7_sub1_673_.vertexCount) {
-						anIntArray3791[anInt3768] = class180_sub7_sub1_673_.anIntArray3791[i_677_] + this.anInt3793;
+					if (class180_sub7_sub1_673_.anIntArray3791[i_677_] < class180_sub7_sub1_673_.anInt3781) {
+						anIntArray3791[anInt3768] = class180_sub7_sub1_673_.anIntArray3791[i_677_] + this.vertexCount;
 					}
-					if (class180_sub7_sub1_673_.anIntArray3797[i_677_] < class180_sub7_sub1_673_.vertexCount) {
-						anIntArray3797[anInt3768] = class180_sub7_sub1_673_.anIntArray3797[i_677_] + this.anInt3793;
+					if (class180_sub7_sub1_673_.anIntArray3797[i_677_] < class180_sub7_sub1_673_.anInt3781) {
+						anIntArray3797[anInt3768] = class180_sub7_sub1_673_.anIntArray3797[i_677_] + this.vertexCount;
 					}
-					if (class180_sub7_sub1_673_.anIntArray3766[i_677_] < class180_sub7_sub1_673_.vertexCount) {
-						anIntArray3766[anInt3768] = class180_sub7_sub1_673_.anIntArray3766[i_677_] + this.anInt3793;
+					if (class180_sub7_sub1_673_.anIntArray3766[i_677_] < class180_sub7_sub1_673_.anInt3781) {
+						anIntArray3766[anInt3768] = class180_sub7_sub1_673_.anIntArray3766[i_677_] + this.vertexCount;
 					}
 					anInt3768++;
 				}
-				for (int i_678_ = 0; i_678_ < class180_sub7_sub1_673_.vertexCount; i_678_++) {
-					this.xVertices[this.anInt3793] = class180_sub7_sub1_673_.xVertices[i_678_];
-					this.yVertices[this.anInt3793] = class180_sub7_sub1_673_.yVertices[i_678_];
-					this.zVertices[this.anInt3793] = class180_sub7_sub1_673_.zVertices[i_678_];
-					this.anInt3793++;
+				for (int i_678_ = 0; i_678_ < class180_sub7_sub1_673_.anInt3781; i_678_++) {
+					this.xVertices[this.vertexCount] = class180_sub7_sub1_673_.xVertices[i_678_];
+					this.yVertices[this.vertexCount] = class180_sub7_sub1_673_.yVertices[i_678_];
+					this.zVertices[this.vertexCount] = class180_sub7_sub1_673_.zVertices[i_678_];
+					this.vertexCount++;
 				}
 			}
 		}
 		int i_679_ = 0;
-		vertexCount = this.anInt3793;
+		anInt3781 = this.vertexCount;
 		for (int i_680_ = 0; i_680_ < i; i_680_++) {
-			final LDModel class180_sub7_sub1_681_ = class180_sub7_sub1s[i_680_];
+			final LDModelRenderer class180_sub7_sub1_681_ = class180_sub7_sub1s[i_680_];
 			if (class180_sub7_sub1_681_ != null) {
 				for (int i_682_ = 0; i_682_ < class180_sub7_sub1_681_.anInt3768; i_682_++) {
-					if (class180_sub7_sub1_681_.anIntArray3791[i_682_] >= class180_sub7_sub1_681_.vertexCount) {
-						anIntArray3791[i_679_] = class180_sub7_sub1_681_.anIntArray3791[i_682_] - class180_sub7_sub1_681_.vertexCount + this.anInt3793;
+					if (class180_sub7_sub1_681_.anIntArray3791[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
+						anIntArray3791[i_679_] = class180_sub7_sub1_681_.anIntArray3791[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
 					}
-					if (class180_sub7_sub1_681_.anIntArray3797[i_682_] >= class180_sub7_sub1_681_.vertexCount) {
-						anIntArray3797[i_679_] = class180_sub7_sub1_681_.anIntArray3797[i_682_] - class180_sub7_sub1_681_.vertexCount + this.anInt3793;
+					if (class180_sub7_sub1_681_.anIntArray3797[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
+						anIntArray3797[i_679_] = class180_sub7_sub1_681_.anIntArray3797[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
 					}
-					if (class180_sub7_sub1_681_.anIntArray3766[i_682_] >= class180_sub7_sub1_681_.vertexCount) {
-						anIntArray3766[i_679_] = class180_sub7_sub1_681_.anIntArray3766[i_682_] - class180_sub7_sub1_681_.vertexCount + this.anInt3793;
+					if (class180_sub7_sub1_681_.anIntArray3766[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
+						anIntArray3766[i_679_] = class180_sub7_sub1_681_.anIntArray3766[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
 					}
 					i_679_++;
 				}
-				for (int i_683_ = class180_sub7_sub1_681_.vertexCount; i_683_ < class180_sub7_sub1_681_.anInt3793; i_683_++) {
-					this.xVertices[this.anInt3793] = class180_sub7_sub1_681_.xVertices[i_683_];
-					this.yVertices[this.anInt3793] = class180_sub7_sub1_681_.yVertices[i_683_];
-					this.zVertices[this.anInt3793] = class180_sub7_sub1_681_.zVertices[i_683_];
-					this.anInt3793++;
+				for (int i_683_ = class180_sub7_sub1_681_.anInt3781; i_683_ < class180_sub7_sub1_681_.vertexCount; i_683_++) {
+					this.xVertices[this.vertexCount] = class180_sub7_sub1_681_.xVertices[i_683_];
+					this.yVertices[this.vertexCount] = class180_sub7_sub1_681_.yVertices[i_683_];
+					this.zVertices[this.vertexCount] = class180_sub7_sub1_681_.zVertices[i_683_];
+					this.vertexCount++;
 				}
 			}
 		}

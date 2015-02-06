@@ -19,7 +19,7 @@ final class Class10 {
 					} else if (level != 0) {
 						OverridedJInterface.tileHeightMap[level][x + xOff][z + zOff] = -240 + OverridedJInterface.tileHeightMap[level - 1][x + xOff][z + zOff];
 					} else {
-						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238, -70) * 8;
+						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238) * 8;
 					}
 					break;
 				}

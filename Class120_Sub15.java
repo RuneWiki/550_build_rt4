@@ -35,20 +35,13 @@ final class Class120_Sub15 extends Node {
 		return i & 0x7f;
 	}
 
-	public static void method1653(final int i) {
-		try {
-			anIntArray2591 = null;
-			anIntArray2597 = null;
-			if (i != -3909) {
-				anIntArray2597 = null;
-			}
-			aString2594 = null;
-			aString2589 = null;
-			aClass120_Sub14_Sub18Array2595 = null;
-			aFloatArray2596 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mc.A(").append(i).append(')').toString());
-		}
+	public static void method1653() {
+		anIntArray2591 = null;
+		anIntArray2597 = null;
+		aString2594 = null;
+		aString2589 = null;
+		aClass120_Sub14_Sub18Array2595 = null;
+		aFloatArray2596 = null;
 	}
 
 	static final void method1654(final int i, final js5 js5, final int i_3_, final int i_5_, final int i_6_, final boolean bool) {

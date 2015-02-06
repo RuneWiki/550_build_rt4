@@ -35,17 +35,17 @@ final class IdentityKit {
 						markCombatDifference = false;
 					}
 				}
-				final String identifier = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : LongNode.aString2424;
+				final String identifier = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.levelString : LongNode.ratingString;
 				if (player.anInt3733 <= player.combatLevel) {
-					string = new StringBuilder(player.getTitledName()).append(markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>").append(" (").append(identifier).append(player.combatLevel).append(")").toString();
+					string = player.getTitledName() + (markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + ")";
 				} else {
-					string = new StringBuilder(player.getTitledName()).append(markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>").append(" (").append(identifier).append(player.combatLevel).append("+").append(-player.combatLevel + player.anInt3733).append(")").toString();
+					string = player.getTitledName() + (markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + "+" + (player.anInt3733 - player.combatLevel) + ")";
 				}
 			} else {
-				string = player.getTitledName() + " (" + Class174.aString1733 + player.skill + ")";
+				string = player.getTitledName() + " (" + Class174.skillString + player.skill + ")";
 			}
 			if (Light.objSelected == 1) {
-				InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, Class192.selectedObjName + " -> <col=ffffff>" + string, index, x, z, (short) 21, Class120_Sub12_Sub10.anInt3205);
+				InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, Class192.selectedObjName + " -> <col=ffffff>" + string, index, x, z, (short) 21, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 			} else if (Class88.spellSelected) {
 				if ((0x8 & GroundTile.selectedSpellUseMask) != 0) {
 					InvType.addMenuOption(Class101.aString963, Light.aString369 + " -> <col=ffffff>" + string, index, x, z, (short) 5, Class150.selectedSpellTargetCursor);
@@ -83,15 +83,15 @@ final class IdentityKit {
 		}
 	}
 
-	final Class180_Sub2 method1985() {
-		final Class180_Sub2[] models = new Class180_Sub2[5];
+	final Model method1985() {
+		final Model[] models = new Model[5];
 		int pos = 0;
 		for (int id = 0; id < 5; id++) {
 			if (headModelIds[id] != -1) {
-				models[pos++] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, headModelIds[id], 0);
+				models[pos++] = Model.get(SceneGroundObject.aClass50_2839, headModelIds[id], 0);
 			}
 		}
-		final Class180_Sub2 model = new Class180_Sub2(models, pos);
+		final Model model = new Model(models, pos);
 		if (recolorOriginal != null) {
 			for (int id = 0; id < recolorOriginal.length; id++) {
 				model.recolor(recolorOriginal[id], recolorModified[id]);
@@ -105,17 +105,17 @@ final class IdentityKit {
 		return model;
 	}
 
-	final Class180_Sub2 method1986() {
+	final Model method1986() {
 		if (modelIds == null) {
 			return null;
 		}
-		final Class180_Sub2[] models = new Class180_Sub2[modelIds.length];
+		final Model[] models = new Model[modelIds.length];
 		for (int id = 0; id < modelIds.length; id++) {
-			models[id] = Class180_Sub2.method2291(SceneGroundObject.aClass50_2839, modelIds[id], 0);
+			models[id] = Model.get(SceneGroundObject.aClass50_2839, modelIds[id], 0);
 		}
-		Class180_Sub2 model;
+		Model model;
 		if (models.length != 1) {
-			model = new Class180_Sub2(models, models.length);
+			model = new Model(models, models.length);
 		} else {
 			model = models[0];
 		}
@@ -208,7 +208,7 @@ final class IdentityKit {
 						if (i_32_ != Class120_Sub12_Sub19.anInt3281) {
 							Class120_Sub12_Sub19.anInt3281 = i_32_;
 							Class69.method614(i_32_);
-							AtmosphereManager.setFogColor(Class29.method251());
+							AtmosphereManager.setFogColor(EntityRenderData.method251());
 						}
 						final int i_33_ = i_31_ >>> 24 << 2;
 						if (i_33_ != FrameLoader.anInt3612) {
@@ -323,15 +323,15 @@ final class IdentityKit {
 						}
 					}
 					if (bool_42_) {
-						final Class36 class36 = class120_sub18_27_.aClass36_2650;
-						if (class36 != null && (class36.bitPacked & 0x80000000L) != 0L) {
+						final GroundDecoration class36 = class120_sub18_27_.groundDecoration;
+						if (class36 != null && (class36.bitPackedUid & 0x80000000L) != 0L) {
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
+							class36.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class36.renderX - DisplayModeInfo.anInt1713, class36.renderY - PlayerAppearance.anInt1367, class36.renderZ - Class145.anInt1381, class36.bitPackedUid,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
@@ -437,17 +437,17 @@ final class IdentityKit {
 						}
 					}
 					if (bool_42_) {
-						final Class36 class36 = class120_sub18_27_.aClass36_2650;
-						if (class36 != null && (class36.bitPacked & 0x80000000L) == 0L) {
-							if (HDToolkit.glEnabled && class36.aBoolean314) {
+						final GroundDecoration groundDecoration = class120_sub18_27_.groundDecoration;
+						if (groundDecoration != null && (groundDecoration.bitPackedUid & 0x80000000L) == 0L) {
+							if (HDToolkit.glEnabled && groundDecoration.aBoolean314) {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class36.aClass180_309.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class36.anInt311 - DisplayModeInfo.anInt1713, class36.anInt312 - PlayerAppearance.anInt1367, class36.anInt310 - Class145.anInt1381, class36.bitPacked,
+							groundDecoration.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, groundDecoration.renderX - DisplayModeInfo.anInt1713, groundDecoration.renderY - PlayerAppearance.anInt1367, groundDecoration.renderZ - Class145.anInt1381, groundDecoration.bitPackedUid,
 									i_29_, null);
-							if (HDToolkit.glEnabled && class36.aBoolean314) {
+							if (HDToolkit.glEnabled && groundDecoration.aBoolean314) {
 								HDToolkit.method527(f);
 							}
 						}
@@ -947,13 +947,13 @@ final class IdentityKit {
 		}
 	}
 
-	final boolean method1990() {
+	final boolean modelsDownloaded() {
 		if (modelIds == null) {
 			return true;
 		}
 		boolean bool_130_ = true;
-		for (int i_131_ = 0; i_131_ < modelIds.length; i_131_++) {
-			if (!SceneGroundObject.aClass50_2839.fileExists(modelIds[i_131_], 0)) {
+		for (int id = 0; id < modelIds.length; id++) {
+			if (!SceneGroundObject.aClass50_2839.requestDownload(modelIds[id], 0)) {
 				bool_130_ = false;
 			}
 		}
@@ -1037,7 +1037,7 @@ final class IdentityKit {
 	final boolean method1993() {
 		boolean bool_137_ = true;
 		for (int i_138_ = 0; i_138_ < 5; i_138_++) {
-			if (headModelIds[i_138_] != -1 && !SceneGroundObject.aClass50_2839.fileExists(headModelIds[i_138_], 0)) {
+			if (headModelIds[i_138_] != -1 && !SceneGroundObject.aClass50_2839.requestDownload(headModelIds[i_138_], 0)) {
 				bool_137_ = false;
 			}
 		}

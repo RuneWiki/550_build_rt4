@@ -20,7 +20,7 @@ final class Class43 {
 		MapFunctionType.spriteCache = new ObjectCache(i_0_);
 	}
 
-	static final void method342() {
+	static final void createJInterfaceCache() {
 		Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
 		Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
 	}

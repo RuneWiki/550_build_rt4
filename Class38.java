@@ -47,10 +47,10 @@ final class Class38 {
 								class28.aClass180_174 = class28.aClass180_174.method2269(i, i_3_, i_4_);
 							}
 						}
-						final Class36 class36 = class120_sub18.aClass36_2650;
-						if (class36 != null && class36.aClass180_309.method2268()) {
-							GroundTile.method1668(class36.aClass180_309, i_5_, i_6_, i_7_);
-							class36.aClass180_309 = class36.aClass180_309.method2269(i, i_3_, i_4_);
+						final GroundDecoration class36 = class120_sub18.groundDecoration;
+						if (class36 != null && class36.sceneGraphNode.method2268()) {
+							GroundTile.method1668(class36.sceneGraphNode, i_5_, i_6_, i_7_);
+							class36.sceneGraphNode = class36.sceneGraphNode.method2269(i, i_3_, i_4_);
 						}
 					}
 				}

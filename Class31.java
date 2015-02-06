@@ -54,7 +54,7 @@ final class Class31 {
 			}
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 			npc.setSize(npc.npcType.size);
-			npc.anInt2982 = npc.npcType.anInt1692;
+			npc.entityRenderDataId = npc.npcType.anInt1692;
 			npc.anInt3010 = npc.npcType.anInt1672;
 			if (npc.anInt3010 == 0) {
 				npc.anInt3032 = 0;
@@ -103,7 +103,7 @@ final class Class31 {
 			if (i_12_ >= 0) {
 				final boolean bool = Hashtable.showGroundDecorations;
 				Hashtable.showGroundDecorations = true;
-				Class93.method771(i_9_, i_8_, i_12_, i_16_, i_13_, 4, false, i_10_, Class182.collisionMaps[i_8_], false, i_14_);
+				Class93.spawnLocation(i_9_, i_8_, i_12_, i_16_, i_13_, false, i_10_, Class182.collisionMaps[i_8_], false, i_14_);
 				Hashtable.showGroundDecorations = bool;
 			}
 		}

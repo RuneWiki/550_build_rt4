@@ -7,7 +7,7 @@ import java.io.FileInputStream;
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class180_Sub2 extends SceneGraphNode {
+final class Model extends SceneGraphNode {
 	short[] aShortArray2850;
 	byte[] aByteArray2851;
 	short[] aShortArray2852;
@@ -22,7 +22,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 	int[] yVertices;
 	private static int anInt2862 = 0;
 	int[][] triangleLabels;
-	byte[] aByteArray2864;
+	byte[] trianglesAlpha;
 	private short aShort2865;
 	short aShort2866;
 	short[] aShortArray2867;
@@ -80,7 +80,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	private final int method2280(final Class180_Sub2 class180_sub2_4_, final int i, final short i_5_) {
+	private final int method2280(final Model class180_sub2_4_, final int i, final short i_5_) {
 		final int i_6_ = class180_sub2_4_.xVertices[i];
 		final int i_7_ = class180_sub2_4_.yVertices[i];
 		final int i_8_ = class180_sub2_4_.zVertices[i];
@@ -244,7 +244,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 
 	@Override
 	final SceneGraphNode method2269(final int i, final int i_60_, final int i_61_) {
-		return method2300(this.aShort2894, this.aShort2866, i, i_60_, i_61_);
+		return toRenderer(this.aShort2894, this.aShort2866, i, i_60_, i_61_);
 	}
 
 	final void method2287() {
@@ -259,8 +259,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	final Class180_Sub2 method2288() {
-		final Class180_Sub2 class180_sub2_63_ = new Class180_Sub2();
+	final Model method2288() {
+		final Model class180_sub2_63_ = new Model();
 		if (this.aByteArray2895 != null) {
 			class180_sub2_63_.aByteArray2895 = new byte[this.triangleCount];
 			for (int i = 0; i < this.triangleCount; i++) {
@@ -278,7 +278,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		class180_sub2_63_.trianglesB = this.trianglesB;
 		class180_sub2_63_.trianglesC = this.trianglesC;
 		class180_sub2_63_.aByteArray2879 = this.aByteArray2879;
-		class180_sub2_63_.aByteArray2864 = this.aByteArray2864;
+		class180_sub2_63_.trianglesAlpha = this.trianglesAlpha;
 		class180_sub2_63_.aByteArray2876 = this.aByteArray2876;
 		class180_sub2_63_.triangleColors = this.triangleColors;
 		class180_sub2_63_.aShortArray2850 = this.aShortArray2850;
@@ -315,7 +315,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		anIntArray2853 = null;
 	}
 
-	private final void method2290(final byte[] is) {
+	private final void decodeOld(final byte[] is) {
 		boolean bool = false;
 		boolean bool_64_ = false;
 		final Buffer class120_sub7 = new Buffer(is);
@@ -323,7 +323,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		final Buffer class120_sub7_66_ = new Buffer(is);
 		final Buffer class120_sub7_67_ = new Buffer(is);
 		final Buffer class120_sub7_68_ = new Buffer(is);
-		class120_sub7.pos = is.length - 18;
+		class120_sub7.pos = is.length - 18;//footer data
 		final int i = class120_sub7.getUShort();
 		final int i_69_ = class120_sub7.getUShort();
 		final int i_70_ = class120_sub7.getUByte();
@@ -402,7 +402,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByte2899 = (byte) i_72_;
 		}
 		if (i_73_ == 1) {
-			this.aByteArray2864 = new byte[i_69_];
+			this.trianglesAlpha = new byte[i_69_];
 		}
 		if (i_74_ == 1) {
 			this.triangleLabelIds = new int[i_69_];
@@ -471,7 +471,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				this.aByteArray2879[i_102_] = class120_sub7_66_.getByte();
 			}
 			if (i_73_ == 1) {
-				this.aByteArray2864[i_102_] = class120_sub7_67_.getByte();
+				this.trianglesAlpha[i_102_] = class120_sub7_67_.getByte();
 			}
 			if (i_74_ == 1) {
 				this.triangleLabelIds[i_102_] = class120_sub7_68_.getUByte();
@@ -588,14 +588,14 @@ final class Class180_Sub2 extends SceneGraphNode {
         return null;
     }
 
-	static final Class180_Sub2 method2291(final js5 js5, final int i, final int i_115_) {
-		byte[] is = js5.getFile(i, i_115_);
-		if (is == null) {
+	static final Model get(final js5 js5, final int group, final int file) {
+		byte[] data = js5.getFile(group, file);
+		if (data == null) {
 			return null;
 		}
 		//if(i == 1570)
 		// is = ReadFile("c:/51223.dat");//TODO
-		return new Class180_Sub2(is);
+		return new Model(data);
 	}
 
 	final void retexture(final short i, final short i_116_) {
@@ -638,7 +638,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	private final void method2294(final byte[] is) {
+	private final void decodeNew(final byte[] is) {
 		final Buffer class120_sub7 = new Buffer(is);
 		final Buffer class120_sub7_132_ = new Buffer(is);
 		final Buffer class120_sub7_133_ = new Buffer(is);
@@ -646,7 +646,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		final Buffer class120_sub7_135_ = new Buffer(is);
 		final Buffer class120_sub7_136_ = new Buffer(is);
 		final Buffer class120_sub7_137_ = new Buffer(is);
-		class120_sub7.pos = is.length - 23;
+		class120_sub7.pos = is.length - 23;//footer data
 		final int i = class120_sub7.getUShort();
 		final int i_138_ = class120_sub7.getUShort();
 		final int i_139_ = class120_sub7.getUByte();
@@ -757,7 +757,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByte2899 = (byte) i_142_;
 		}
 		if (i_143_ == 1) {
-			this.aByteArray2864 = new byte[i_138_];
+			this.trianglesAlpha = new byte[i_138_];
 		}
 		if (i_144_ == 1) {
 			this.triangleLabelIds = new int[i_138_];
@@ -834,7 +834,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 				this.aByteArray2879[i_187_] = class120_sub7_133_.getByte();
 			}
 			if (i_143_ == 1) {
-				this.aByteArray2864[i_187_] = class120_sub7_134_.getByte();
+				this.trianglesAlpha[i_187_] = class120_sub7_134_.getByte();
 			}
 			if (i_144_ == 1) {
 				this.triangleLabelIds[i_187_] = class120_sub7_135_.getUByte();
@@ -971,9 +971,9 @@ final class Class180_Sub2 extends SceneGraphNode {
 			if (i_197_ > 0) {
 				this.aClass158Array2871 = new ModelParticle[i_197_];
 				for (int i_198_ = 0; i_198_ < i_197_; i_198_++) {
-					final int i_199_ = class120_sub7.getUShort();
+					final int particleId = class120_sub7.getUShort();
 					final int i_200_ = class120_sub7.getUShort();
-					this.aClass158Array2871[i_198_] = new ModelParticle(i_199_, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
+					this.aClass158Array2871[i_198_] = new ModelParticle(particleId, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
 				}
 			}
 			final int i_201_ = class120_sub7.getUByte();
@@ -986,15 +986,15 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	final int method2295(final int i, final int i_203_, final int i_204_, final byte i_205_, final short i_206_, final byte i_207_) {
-		this.trianglesA[this.triangleCount] = i;
-		this.trianglesB[this.triangleCount] = i_203_;
-		this.trianglesC[this.triangleCount] = i_204_;
+	final int addTriangle(final int a, final int b, final int c, final byte i_205_, final short color, final byte alpha) {
+		this.trianglesA[this.triangleCount] = a;
+		this.trianglesB[this.triangleCount] = b;
+		this.trianglesC[this.triangleCount] = c;
 		this.aByteArray2895[this.triangleCount] = i_205_;
 		this.aByteArray2876[this.triangleCount] = (byte) -1;
-		this.triangleColors[this.triangleCount] = i_206_;
+		this.triangleColors[this.triangleCount] = color;
 		this.aShortArray2850[this.triangleCount] = (short) -1;
-		this.aByteArray2864[this.triangleCount] = i_207_;
+		this.trianglesAlpha[this.triangleCount] = alpha;
 		return this.triangleCount++;
 	}
 
@@ -1016,8 +1016,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	final LDModel method2298(final int i, final int i_212_, final int i_213_, final int i_214_, final int i_215_) {
-		return new LDModel(this, i, i_212_, i_213_, i_214_, i_215_);
+	final LDModelRenderer method2298(final int i, final int i_212_, final int i_213_, final int i_214_, final int i_215_) {
+		return new LDModelRenderer(this, i, i_212_, i_213_, i_214_, i_215_);
 	}
 
 	final void method2299() {
@@ -1029,7 +1029,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 
 	@Override
 	final void method2267(final SceneGraphNode sceneGraphNode, final int i, final int i_216_, final int i_217_, final boolean bool) {
-		final Class180_Sub2 class180_sub2_218_ = (Class180_Sub2) sceneGraphNode;
+		final Model class180_sub2_218_ = (Model) sceneGraphNode;
 		class180_sub2_218_.method2304();
 		class180_sub2_218_.method2303();
 		anInt2862++;
@@ -1100,13 +1100,13 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	final AbstractModel method2300(final int i, final int i_231_, final int i_232_, final int i_233_, final int i_234_) {
+	final AbstractModelRenderer toRenderer(final int baseLightness, final int baseIntensity, final int lightX, final int lightY, final int lightZ) {
 		if (HDToolkit.glEnabled) {
-			final HDModel class180_sub7_sub2 = new HDModel(this, i, i_231_, true);
+			final HDModelRenderer class180_sub7_sub2 = new HDModelRenderer(this, baseLightness, baseIntensity, true);
 			class180_sub7_sub2.method2426();
 			return class180_sub7_sub2;
 		}
-		return new LDModel(this, i, i_231_, i_232_, i_233_, i_234_);
+		return new LDModelRenderer(this, baseLightness, baseIntensity, lightX, lightY, lightZ);
 	}
 
 	private static final int method2301(final int[][] is, final int i, final int i_235_) {
@@ -1122,15 +1122,15 @@ final class Class180_Sub2 extends SceneGraphNode {
 		return i_240_ * (128 - i_239_) + i_241_ * i_239_ >> 7;
 	}
 
-	final int method2302(final int i, final int i_242_, final int i_243_) {
+	final int addVertex(final int x, final int y, final int z) {
 		for (int i_244_ = 0; i_244_ < this.vertexCount; i_244_++) {
-			if (this.xVertices[i_244_] == i && this.yVertices[i_244_] == i_242_ && this.zVertices[i_244_] == i_243_) {
+			if (this.xVertices[i_244_] == x && this.yVertices[i_244_] == y && this.zVertices[i_244_] == z) {
 				return i_244_;
 			}
 		}
-		this.xVertices[this.vertexCount] = i;
-		this.yVertices[this.vertexCount] = i_242_;
-		this.zVertices[this.vertexCount] = i_243_;
+		this.xVertices[this.vertexCount] = x;
+		this.yVertices[this.vertexCount] = y;
+		this.zVertices[this.vertexCount] = z;
 		this.anInt2886 = ++this.vertexCount;
 		return this.vertexCount - 1;
 	}
@@ -1241,7 +1241,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	final Class180_Sub2 method2305(final int i, final int i_268_, final int[][] is, final int[][] is_269_, final int i_270_, final int i_271_, final int i_272_, final boolean bool, final boolean bool_273_) {
+	final Model method2305(final int i, final int i_268_, final int[][] is, final int[][] is_269_, final int i_270_, final int i_271_, final int i_272_, final boolean bool, final boolean bool_273_) {
 		method2304();
 		int i_274_ = i_270_ + aShort2854;
 		int i_275_ = i_270_ + aShort2902;
@@ -1266,9 +1266,9 @@ final class Class180_Sub2 extends SceneGraphNode {
 				return this;
 			}
 		}
-		Class180_Sub2 class180_sub2_278_;
+		Model class180_sub2_278_;
 		if (bool) {
-			class180_sub2_278_ = new Class180_Sub2();
+			class180_sub2_278_ = new Model();
 			class180_sub2_278_.vertexCount = this.vertexCount;
 			class180_sub2_278_.anInt2886 = this.anInt2886;
 			class180_sub2_278_.triangleCount = this.triangleCount;
@@ -1278,7 +1278,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			class180_sub2_278_.trianglesC = this.trianglesC;
 			class180_sub2_278_.aByteArray2895 = this.aByteArray2895;
 			class180_sub2_278_.aByteArray2879 = this.aByteArray2879;
-			class180_sub2_278_.aByteArray2864 = this.aByteArray2864;
+			class180_sub2_278_.trianglesAlpha = this.trianglesAlpha;
 			class180_sub2_278_.aByteArray2876 = this.aByteArray2876;
 			class180_sub2_278_.triangleColors = this.triangleColors;
 			class180_sub2_278_.aShortArray2850 = this.aShortArray2850;
@@ -1487,20 +1487,20 @@ final class Class180_Sub2 extends SceneGraphNode {
 		method2296();
 	}
 
-	private Class180_Sub2() {
+	private Model() {
 		this.anInt2886 = 0;
 	}
 
-	private Class180_Sub2(final byte[] is) {
+	private Model(final byte[] buffer) {
 		this.anInt2886 = 0;
-		if (is[is.length - 1] == -1 && is[is.length - 2] == -1) {
-			method2294(is);
+		if (buffer[buffer.length - 1] == -1 && buffer[buffer.length - 2] == -1) {
+			decodeNew(buffer);
 		} else {
-			method2290(is);
+			decodeOld(buffer);
 		}
 	}
 
-	Class180_Sub2(final int i, final int i_378_, final int i_379_) {
+	Model(final int i, final int i_378_, final int i_379_) {
 		this.anInt2886 = 0;
 		this.xVertices = new int[i];
 		this.yVertices = new int[i];
@@ -1511,7 +1511,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		this.trianglesC = new int[i_378_];
 		this.aByteArray2895 = new byte[i_378_];
 		this.aByteArray2879 = new byte[i_378_];
-		this.aByteArray2864 = new byte[i_378_];
+		this.trianglesAlpha = new byte[i_378_];
 		this.triangleColors = new short[i_378_];
 		this.aShortArray2850 = new short[i_378_];
 		this.aByteArray2876 = new byte[i_378_];
@@ -1532,7 +1532,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	Class180_Sub2(final Class180_Sub2[] class180_sub2s, final int i) {
+	Model(final Model[] class180_sub2s, final int i) {
 		this.anInt2886 = 0;
 		boolean bool = false;
 		boolean bool_380_ = false;
@@ -1547,7 +1547,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		int i_386_ = 0;
 		this.aByte2899 = (byte) -1;
 		for (int i_387_ = 0; i_387_ < i; i_387_++) {
-			final Class180_Sub2 class180_sub2_388_ = class180_sub2s[i_387_];
+			final Model class180_sub2_388_ = class180_sub2s[i_387_];
 			if (class180_sub2_388_ != null) {
 				this.vertexCount += class180_sub2_388_.vertexCount;
 				this.triangleCount += class180_sub2_388_.triangleCount;
@@ -1563,7 +1563,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 					}
 				}
 				bool = bool | class180_sub2_388_.aByteArray2895 != null;
-				bool_381_ = bool_381_ | class180_sub2_388_.aByteArray2864 != null;
+				bool_381_ = bool_381_ | class180_sub2_388_.trianglesAlpha != null;
 				bool_382_ = bool_382_ | class180_sub2_388_.triangleLabelIds != null;
 				bool_383_ = bool_383_ | class180_sub2_388_.aShortArray2850 != null;
 				bool_384_ = bool_384_ | class180_sub2_388_.aByteArray2876 != null;
@@ -1590,7 +1590,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 			this.aByteArray2879 = new byte[this.triangleCount];
 		}
 		if (bool_381_) {
-			this.aByteArray2864 = new byte[this.triangleCount];
+			this.trianglesAlpha = new byte[this.triangleCount];
 		}
 		if (bool_382_) {
 			this.triangleLabelIds = new int[this.triangleCount];
@@ -1630,7 +1630,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		i_386_ = 0;
 		for (int i_389_ = 0; i_389_ < i; i_389_++) {
 			final short i_390_ = (short) (1 << i_389_);
-			final Class180_Sub2 class180_sub2_391_ = class180_sub2s[i_389_];
+			final Model class180_sub2_391_ = class180_sub2s[i_389_];
 			if (class180_sub2_391_ != null) {
 				for (int i_392_ = 0; i_392_ < class180_sub2_391_.triangleCount; i_392_++) {
 					if (bool && class180_sub2_391_.aByteArray2895 != null) {
@@ -1643,8 +1643,8 @@ final class Class180_Sub2 extends SceneGraphNode {
 							this.aByteArray2879[this.triangleCount] = class180_sub2_391_.aByte2899;
 						}
 					}
-					if (bool_381_ && class180_sub2_391_.aByteArray2864 != null) {
-						this.aByteArray2864[this.triangleCount] = class180_sub2_391_.aByteArray2864[i_392_];
+					if (bool_381_ && class180_sub2_391_.trianglesAlpha != null) {
+						this.trianglesAlpha[this.triangleCount] = class180_sub2_391_.trianglesAlpha[i_392_];
 					}
 					if (bool_382_ && class180_sub2_391_.triangleLabelIds != null) {
 						this.triangleLabelIds[this.triangleCount] = class180_sub2_391_.triangleLabelIds[i_392_];
@@ -1684,7 +1684,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		int i_399_ = 0;
 		this.anInt2886 = this.vertexCount;
 		for (int i_400_ = 0; i_400_ < i; i_400_++) {
-			final Class180_Sub2 class180_sub2_401_ = class180_sub2s[i_400_];
+			final Model class180_sub2_401_ = class180_sub2s[i_400_];
 			final short i_402_ = (short) (1 << i_400_);
 			if (class180_sub2_401_ != null) {
 				for (int i_403_ = 0; i_403_ < class180_sub2_401_.triangleCount; i_403_++) {
@@ -1720,7 +1720,7 @@ final class Class180_Sub2 extends SceneGraphNode {
 		}
 	}
 
-	Class180_Sub2(final Class180_Sub2 class180_sub2_406_, final boolean bool, final boolean bool_407_, final boolean bool_408_, final boolean bool_409_) {
+	Model(final Model class180_sub2_406_, final boolean bool, final boolean bool_407_, final boolean bool_408_, final boolean bool_409_) {
 		this.anInt2886 = 0;
 		this.vertexCount = class180_sub2_406_.vertexCount;
 		this.anInt2886 = class180_sub2_406_.anInt2886;
@@ -1757,16 +1757,16 @@ final class Class180_Sub2 extends SceneGraphNode {
 			}
 		}
 		if (bool_409_) {
-			this.aByteArray2864 = class180_sub2_406_.aByteArray2864;
+			this.trianglesAlpha = class180_sub2_406_.trianglesAlpha;
 		} else {
-			this.aByteArray2864 = new byte[this.triangleCount];
-			if (class180_sub2_406_.aByteArray2864 == null) {
+			this.trianglesAlpha = new byte[this.triangleCount];
+			if (class180_sub2_406_.trianglesAlpha == null) {
 				for (int i = 0; i < this.triangleCount; i++) {
-					this.aByteArray2864[i] = (byte) 0;
+					this.trianglesAlpha[i] = (byte) 0;
 				}
 			} else {
 				for (int i = 0; i < this.triangleCount; i++) {
-					this.aByteArray2864[i] = class180_sub2_406_.aByteArray2864[i];
+					this.trianglesAlpha[i] = class180_sub2_406_.trianglesAlpha[i];
 				}
 			}
 		}

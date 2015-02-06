@@ -76,7 +76,7 @@ final class MapFunctionType {
 			return class107_sub1_2_;
 		}
 		Class88.aClass50_834.method429(worldMapSpriteId);
-		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, worldMapSpriteId);
+		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, worldMapSpriteId, 0);
 		if (class107_sub1_2_ != null) {
 			class107_sub1_2_.trimWidth = class107_sub1_2_.width;
 			class107_sub1_2_.xOffset = 0;
@@ -193,7 +193,7 @@ final class MapFunctionType {
 		if (!Class88.aClass50_834.method429(spriteId)) {
 			return null;
 		}
-		final LDIndexedSprite ldIndexedSprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, 0, spriteId);
+		final LDIndexedSprite ldIndexedSprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, spriteId, 0);
 		if (!HDToolkit.glEnabled || useLDSprite) {
 			cachedSprite = ldIndexedSprite;
 		} else {

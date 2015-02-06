@@ -31,7 +31,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 				objType = ObjType.list(countObjId);
 			}
 		}
-		final LDModel objModel = objType.method2117(playerAppearance);
+		final LDModelRenderer objModel = objType.method2117(playerAppearance);
 		if (objModel == null) {
 			return null;
 		}

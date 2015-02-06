@@ -25,10 +25,10 @@ final class Class110 {
 		StringNode.method1720();
 		VarBit.recentUse.clear();
 		Varp.recentUse.clear();
-		Class120_Sub12_Sub31.aClass21_3378.clear();
+		EntityRenderData.recentUse.clear();
 		InterfaceClickMask.method1693();
 		Class120_Sub16.clearMapFunctions();
-		Class36.method309();
+		GroundDecoration.method309();
 		Class153.recentUse.clear();
 		Class120_Sub12_Sub35.aClass21_3411.clear();
 		DisplayModeInfo.method2214();
@@ -41,7 +41,7 @@ final class Class110 {
 			OverlayFrequencyNode.anInt3624 = 0;
 		}
 		Class120_Sub14_Sub13.aClass21_3564.clear();
-		Class154.aClass21_1438.clear();
+		Class154.shadowModelCache.clear();
 		Class120_Sub12_Sub16.aClass21_3251.clear();
 		SceneGroundObject.aClass21_2841.clear();
 		Class15.aClass21_95.clear();
@@ -63,17 +63,11 @@ final class Class110 {
 		Class120_Sub12_Sub2.aClass21_3144.clear();
 	}
 
-	public static void method977(final byte i) {
-		try {
-			aClass98_1052 = null;
-			mouseRecorder = null;
-			if (i < -65) {
-				aClass120_Sub20_1053 = null;
-				anIntArrayArrayArray1050 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("me.B(").append(i).append(')').toString());
-		}
+	public static void method977() {
+		aClass98_1052 = null;
+		mouseRecorder = null;
+		aClass120_Sub20_1053 = null;
+		anIntArrayArrayArray1050 = null;
 	}
 
 	static final void method978(final boolean bool, String string) {
@@ -110,37 +104,28 @@ final class Class110 {
 		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
 	}
 
-	static final int method979(int i, final int i_8_) {
-		int i_9_;
-		try {
-			int i_10_ = 0;
-			if (i < 0 || i >= 65536) {
-				i >>>= 16;
-				i_10_ += 16;
-			}
-			if (i_8_ >= -59) {
-				aClass98_1052 = null;
-			}
-			if (i >= 256) {
-				i >>>= 8;
-				i_10_ += 8;
-			}
-			if (i >= 16) {
-				i >>>= 4;
-				i_10_ += 4;
-			}
-			if (i >= 4) {
-				i_10_ += 2;
-				i >>>= 2;
-			}
-			if (i >= 1) {
-				i_10_++;
-				i >>>= 1;
-			}
-			i_9_ = i_10_ - -i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("me.E(").append(i).append(',').append(i_8_).append(')').toString());
+	static final int method979(int i) {
+		int i_10_ = 0;
+		if (i < 0 || i >= 65536) {
+			i >>>= 16;
+			i_10_ += 16;
 		}
-		return i_9_;
+		if (i >= 256) {
+			i >>>= 8;
+			i_10_ += 8;
+		}
+		if (i >= 16) {
+			i >>>= 4;
+			i_10_ += 4;
+		}
+		if (i >= 4) {
+			i_10_ += 2;
+			i >>>= 2;
+		}
+		if (i >= 1) {
+			i_10_++;
+			i >>>= 1;
+		}
+		return i_10_ + i;
 	}
 }

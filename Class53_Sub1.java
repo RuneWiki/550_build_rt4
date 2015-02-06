@@ -195,7 +195,7 @@ final class Class53_Sub1 extends Class53 {
 		if (class120_sub18.aClass186_2639 != null && class120_sub18.aClass186_2639.bitPacked == l) {
 			return true;
 		}
-		if (class120_sub18.aClass36_2650 != null && class120_sub18.aClass36_2650.bitPacked == l) {
+		if (class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.bitPackedUid == l) {
 			return true;
 		}
 		for (int i_11_ = 0; i_11_ < class120_sub18.anInt2638; i_11_++) {

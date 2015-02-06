@@ -13,7 +13,7 @@ abstract class SceneGraphNode {
 
 	abstract void render(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_5_, int i_6_, long l, int i_7_, ParticleEngine class108_sub2);
 
-	abstract void method2266(int i, int i_8_, int i_9_, int i_10_, int i_11_);
+	abstract void method2266(int i, int i_8_, int i_9_, int i_10_, int i_11_);//Something to do with particles
 
 	void method2267(final SceneGraphNode class180_12_, final int i, final int i_13_, final int i_14_, final boolean bool) {
 		/* empty */
@@ -52,9 +52,9 @@ abstract class SceneGraphNode {
 			}
 			Class59.method542(is, class73.anInt651, class73.anInt651 >>> 24);
 			for (int i_25_ = 0; -1 + is.length / 2 > i_25_; i_25_++) {
-				GraphicsLD.drawLine(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], class73.anInt630, class73.anInt630 >>> 24);
+				GraphicsLD.drawLineAlpha(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], class73.anInt630, class73.anInt630 >>> 24);
 			}
-			GraphicsLD.drawLine(is[is.length - 2], is[is.length + -1], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24);
+			GraphicsLD.drawLineAlpha(is[is.length - 2], is[is.length + -1], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24);
 		} else if (class120_sub14_sub5.aBoolean3476) {
 			return;
 		}

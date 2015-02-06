@@ -7,7 +7,7 @@ final class GroundObjectNode extends NodeSub {
 	static volatile int currentMouseClick;
 	static int worldMapPointerHeight;
 	static int[] anIntArray3629 = { -1, -1, 1, 1 };
-	SceneGroundObject aClass180_Sub1_3630;
+	SceneGroundObject sceneGroundObject;
 	static int[] bitMasks;
 
 	public static void method1626(int i) {
@@ -21,8 +21,8 @@ final class GroundObjectNode extends NodeSub {
 		}
 	}
 
-	GroundObjectNode(SceneGroundObject class180_sub1) {
-		aClass180_Sub1_3630 = class180_sub1;
+	GroundObjectNode(SceneGroundObject groundObject) {
+		sceneGroundObject = groundObject;
 	}
 
 	static final void method1627(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_6_) {

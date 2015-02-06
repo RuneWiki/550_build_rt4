@@ -13,40 +13,40 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	static int anInt3302;
 	static AbstractFont boldFont;
 
-	static final AbstractModel method1319(final int i, final AbstractModel class180_sub7, final int i_0_, final int i_1_, final int i_3_, final int i_4_) {
+	static final AbstractModelRenderer method1319(final int i, final AbstractModelRenderer class180_sub7, final int i_0_, final int i_1_, final int i_3_, final int i_4_) {
 		final long l = i_1_;
-		AbstractModel class180_sub7_6_ = (AbstractModel) Class120_Sub14_Sub13.aClass21_3564.get(l);
+		AbstractModelRenderer class180_sub7_6_ = (AbstractModelRenderer) Class120_Sub14_Sub13.aClass21_3564.get(l);
 		if (class180_sub7_6_ == null) {
-			final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
+			final Model class180_sub2 = Model.get(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
 			if (class180_sub2 == null) {
 				return null;
 			}
-			class180_sub7_6_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+			class180_sub7_6_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
 			Class120_Sub14_Sub13.aClass21_3564.put(class180_sub7_6_, l);
 		}
-		final int i_7_ = class180_sub7.method2374();
-		final int i_8_ = class180_sub7.method2383();
-		final int i_9_ = class180_sub7.method2363();
-		final int i_10_ = class180_sub7.method2386();
+		final int i_7_ = class180_sub7.getMaxX();
+		final int i_8_ = class180_sub7.getMinX();
+		final int i_9_ = class180_sub7.getMaxZ();
+		final int i_10_ = class180_sub7.getMinZ();
 		class180_sub7_6_ = class180_sub7_6_.method2381(true, true, true);
 		if (i != 0) {
-			class180_sub7_6_.method2360(i);
+			class180_sub7_6_.rotate(i);
 		}
 		if (!HDToolkit.glEnabled) {
-			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_6_;
+			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7_6_;
 			if (i_3_ != Class22.getTileHeight(i_7_ + i_4_, i_0_ - -i_9_, Class173.gameLevel) || Class22.getTileHeight(i_8_ + i_4_, i_10_ + i_0_, Class173.gameLevel) != i_3_) {
-				for (int i_11_ = 0; class180_sub7_sub1.anInt3793 > i_11_; i_11_++) {
+				for (int i_11_ = 0; class180_sub7_sub1.vertexCount > i_11_; i_11_++) {
 					class180_sub7_sub1.yVertices[i_11_] += Class22.getTileHeight(i_4_ + class180_sub7_sub1.xVertices[i_11_], class180_sub7_sub1.zVertices[i_11_] + i_0_, Class173.gameLevel) + -i_3_;
 				}
 				class180_sub7_sub1.boundsCalculated = false;
 			}
 		} else {
-			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_6_;
+			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7_6_;
 			if (Class22.getTileHeight(i_4_ - -i_7_, i_0_ + i_9_, Class173.gameLevel) != i_3_ || i_3_ != Class22.getTileHeight(i_8_ + i_4_, i_0_ - -i_10_, Class173.gameLevel)) {
-				for (int i_12_ = 0; i_12_ < class180_sub7_sub2.anInt3862; i_12_++) {
-					class180_sub7_sub2.anIntArray3856[i_12_] += -i_3_ + Class22.getTileHeight(i_4_ + class180_sub7_sub2.anIntArray3878[i_12_], i_0_ + class180_sub7_sub2.anIntArray3845[i_12_], Class173.gameLevel);
+				for (int i_12_ = 0; i_12_ < class180_sub7_sub2.vertexCount; i_12_++) {
+					class180_sub7_sub2.yVertices[i_12_] += -i_3_ + Class22.getTileHeight(i_4_ + class180_sub7_sub2.xVertices[i_12_], i_0_ + class180_sub7_sub2.zVertices[i_12_], Class173.gameLevel);
 				}
-				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
+				class180_sub7_sub2.modelBounds.boundsCalculated = false;
 				class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
 			}
 		}

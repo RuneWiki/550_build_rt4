@@ -11,16 +11,9 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	private int anInt3152 = 4096;
 	private int anInt3153 = 4096;
 
-	public static void method1205(final int i) {
-		try {
-			if (i != 0) {
-				method1208(59, (byte) -94);
-			}
-			aClass164_3150 = null;
-			anIntArray3148 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.W(").append(i).append(')').toString());
-		}
+	public static void method1205() {
+		aClass164_3150 = null;
+		anIntArray3148 = null;
 	}
 
 	static final MapFunctionNode method1206() {
@@ -64,29 +57,6 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 
 	public Class120_Sub12_Sub3() {
 		super(1, false);
-	}
-
-	static final Class181 method1208(final int i, final byte i_5_) {
-		Class181 class181;
-		try {
-			Class181 class181_6_ = (Class181) Class120_Sub12_Sub35.aClass21_3411.get(i);
-			if (class181_6_ != null) {
-				return class181_6_;
-			}
-			if (i_5_ >= -46) {
-				return null;
-			}
-			final byte[] is = Class101.aClass50_966.getFile(31, i);
-			class181_6_ = new Class181();
-			if (is != null) {
-				class181_6_.method2441(true, new Buffer(is), i);
-			}
-			Class120_Sub12_Sub35.aClass21_3411.put(class181_6_, i);
-			class181 = class181_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.S(").append(i).append(',').append(i_5_).append(')').toString());
-		}
-		return class181;
 	}
 
 	static final AbstractIndexedSprite[] constructIndexedSprites(final js5 js5, final int i, final int i_8_) {

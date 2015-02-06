@@ -22,24 +22,18 @@ final class Class92 {
 		}
 	}
 
-	static final int method766(final int i, final int i_0_, final int i_1_, int i_2_) {
-		int i_3_;
-		try {
-			i_2_ &= i_0_;
-			if (i_2_ == 0) {
-				return i;
-			}
-			if (i_2_ == 1) {
-				return -i_1_ + 1023;
-			}
-			if (i_2_ == 2) {
-				return -i + 1023;
-			}
-			i_3_ = i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("k.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+	static final int method766(final int x, final int z, int rot) {
+		rot &= 3;
+		if (rot == 0) {
+			return z;
 		}
-		return i_3_;
+		if (rot == 1) {
+			return 1023 - x;
+		}
+		if (rot == 2) {
+			return 1023 - z;
+		}
+		return x;
 	}
 
 	static final void method767() {

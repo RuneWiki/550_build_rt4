@@ -134,20 +134,11 @@ final class ParticleType {
 		}
 	}
 
-	static final AbstractSprite method700(final int i, final int i_15_, final byte i_16_, final js5 js5) {
-		AbstractSprite class120_sub14_sub19;
-		try {
-			if (!Class10.decodedSprites(js5, i, i_15_)) {
-				return null;
-			}
-			if (i_16_ != 124) {
-				aByteArray761 = null;
-			}
-			class120_sub14_sub19 = Class42.constructAbstractSprite();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.B(").append(i).append(',').append(i_15_).append(',').append(i_16_).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
+	static final AbstractSprite constructAbstractSprite(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
+			return null;
 		}
-		return class120_sub14_sub19;
+		return Class42.constructAbstractSprite();
 	}
 
 	private final void decode(final Buffer buffer, final int code) {

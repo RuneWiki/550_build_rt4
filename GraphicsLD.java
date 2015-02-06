@@ -298,23 +298,23 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void clipRect(int i, int i_83_, int i_84_, int i_85_) {
-		if (i < 0) {
-			i = 0;
+	static final void clipRect(int x1, int y1, int x2, int y2) {
+		if (x1 < 0) {
+			x1 = 0;
 		}
-		if (i_83_ < 0) {
-			i_83_ = 0;
+		if (y1 < 0) {
+			y1 = 0;
 		}
-		if (i_84_ > width) {
-			i_84_ = width;
+		if (x2 > width) {
+			x2 = width;
 		}
-		if (i_85_ > height) {
-			i_85_ = height;
+		if (y2 > height) {
+			y2 = height;
 		}
-		startX = i;
-		startY = i_83_;
-		endX = i_84_;
-		endY = i_85_;
+		startX = x1;
+		startY = y1;
+		endX = x2;
+		endY = y2;
 		method2174();
 	}
 
@@ -392,16 +392,16 @@ final class GraphicsLD {
 			if (x + length > endX) {
 				length = endX - x;
 			}
-			final int i_112_ = x + y * width;
-			for (int i_113_ = 0; i_113_ < length; i_113_++) {
-				pixels[i_112_ + i_113_] = color;
+			final int pixelId = x + y * width;
+			for (int id = 0; id < length; id++) {
+				pixels[pixelId + id] = color;
 			}
 		}
 	}
 
-	static final void method2161(int i, int i_114_, final int i_115_, final int i_116_, final int i_117_, final int i_118_) {
-		final int i_119_ = i_115_ - i;
-		final int i_120_ = i_116_ - i_114_;
+	static final void drawLine(int x1, int y1, final int x2, final int y2, final int color, final int lineWidth) {
+		final int i_119_ = x2 - x1;
+		final int i_120_ = y2 - y1;
 		final int i_121_ = i_119_ >= 0 ? i_119_ : -i_119_;
 		final int i_122_ = i_120_ >= 0 ? i_120_ : -i_120_;
 		int i_123_ = i_121_;
@@ -416,28 +416,28 @@ final class GraphicsLD {
 			} else {
 				i_125_ = -i_125_;
 			}
-			final int i_126_ = i_118_ * i_125_ >> 17;
-			final int i_127_ = i_118_ * i_125_ + 1 >> 17;
-			final int i_128_ = i_118_ * i_124_ >> 17;
-			final int i_129_ = i_118_ * i_124_ + 1 >> 17;
-			i -= Rasterizer.method861();
-			i_114_ -= Rasterizer.method859();
-			final int i_130_ = i + i_126_;
-			final int i_131_ = i - i_127_;
-			final int i_132_ = i + i_119_ - i_127_;
-			final int i_133_ = i + i_119_ + i_126_;
-			final int i_134_ = i_114_ + i_128_;
-			final int i_135_ = i_114_ - i_129_;
-			final int i_136_ = i_114_ + i_120_ - i_129_;
-			final int i_137_ = i_114_ + i_120_ + i_128_;
+			final int i_126_ = lineWidth * i_125_ >> 17;
+			final int i_127_ = lineWidth * i_125_ + 1 >> 17;
+			final int i_128_ = lineWidth * i_124_ >> 17;
+			final int i_129_ = lineWidth * i_124_ + 1 >> 17;
+			x1 -= Rasterizer.method861();
+			y1 -= Rasterizer.method859();
+			final int i_130_ = x1 + i_126_;
+			final int i_131_ = x1 - i_127_;
+			final int i_132_ = x1 + i_119_ - i_127_;
+			final int i_133_ = x1 + i_119_ + i_126_;
+			final int i_134_ = y1 + i_128_;
+			final int i_135_ = y1 - i_129_;
+			final int i_136_ = y1 + i_120_ - i_129_;
+			final int i_137_ = y1 + i_120_ + i_128_;
 			Rasterizer.method855(i_130_, i_131_, i_132_);
-			Rasterizer.method863(i_134_, i_135_, i_136_, i_130_, i_131_, i_132_, i_117_);
+			Rasterizer.method863(i_134_, i_135_, i_136_, i_130_, i_131_, i_132_, color);
 			Rasterizer.method855(i_130_, i_132_, i_133_);
-			Rasterizer.method863(i_134_, i_136_, i_137_, i_130_, i_132_, i_133_, i_117_);
+			Rasterizer.method863(i_134_, i_136_, i_137_, i_130_, i_132_, i_133_, color);
 		}
 	}
 
-	private static final void drawVerticalLine(final int x, int y, int length, final int color, final int alpha) {
+	private static final void drawVerticalLineAlpha(final int x, int y, int length, final int color, final int alpha) {
 		if (x >= startX && x < endX) {
 			if (y < startY) {
 				length -= startY - y;
@@ -577,28 +577,28 @@ final class GraphicsLD {
 		}
 	}
 
-	static final void method2166(final int i, final int i_179_, final int i_180_, final int i_181_) {
-		if (startX < i) {
-			startX = i;
+	static final void method2166(final int x1, final int y1, final int x2, final int y2) {
+		if (startX < x1) {
+			startX = x1;
 		}
-		if (startY < i_179_) {
-			startY = i_179_;
+		if (startY < y1) {
+			startY = y1;
 		}
-		if (endX > i_180_) {
-			endX = i_180_;
+		if (endX > x2) {
+			endX = x2;
 		}
-		if (endY > i_181_) {
-			endY = i_181_;
+		if (endY > y2) {
+			endY = y2;
 		}
 		method2174();
 	}
 
-	static final void drawRect(final int x, final int y, final int w, final int h, final int color, final int alpha) {
-		drawHorizontalLine(x, y, w, color, alpha);
-		drawHorizontalLine(x, y + h - 1, w, color, alpha);
+	static final void drawRectAlpha(final int x, final int y, final int w, final int h, final int color, final int alpha) {
+		drawHorizontalLineAlpha(x, y, w, color, alpha);
+		drawHorizontalLineAlpha(x, y + h - 1, w, color, alpha);
 		if (h >= 3) {
-			drawVerticalLine(x, y + 1, h - 2, color, alpha);
-			drawVerticalLine(x + w - 1, y + 1, h - 2, color, alpha);
+			drawVerticalLineAlpha(x, y + 1, h - 2, color, alpha);
+			drawVerticalLineAlpha(x + w - 1, y + 1, h - 2, color, alpha);
 		}
 	}
 
@@ -623,7 +623,7 @@ final class GraphicsLD {
 		clipRect(0, 0, w, h);
 	}
 
-	static final void drawHorizontalLine(int x, final int y, int length, final int color, final int alpha) {
+	static final void drawHorizontalLineAlpha(int x, final int y, int length, final int color, final int alpha) {
 		if (y >= startY && y < endY) {
 			if (x < startX) {
 				length -= startX - x;
@@ -687,20 +687,20 @@ final class GraphicsLD {
 		method2174();
 	}
 
-	static final void drawLine(int x1, int y1, int x2, int y2, final int color, final int alpha) {
+	static final void drawLineAlpha(int x1, int y1, int x2, int y2, final int color, final int alpha) {
 		x2 -= x1;
 		y2 -= y1;
 		if (y2 == 0) {
 			if (x2 >= 0) {
-				drawHorizontalLine(x1, y1, x2, color, alpha);
+				drawHorizontalLineAlpha(x1, y1, x2, color, alpha);
 			} else {
-				drawHorizontalLine(x1 + x2 + 1, y1, -x2, color, alpha);
+				drawHorizontalLineAlpha(x1 + x2 + 1, y1, -x2, color, alpha);
 			}
 		} else if (x2 == 0) {
 			if (y2 >= 0) {
-				drawVerticalLine(x1, y1, y2, color, alpha);
+				drawVerticalLineAlpha(x1, y1, y2, color, alpha);
 			} else {
-				drawVerticalLine(x1, y1 + y2 + 1, -y2, color, alpha);
+				drawVerticalLineAlpha(x1, y1 + y2 + 1, -y2, color, alpha);
 			}
 		} else {
 			boolean bool = false;

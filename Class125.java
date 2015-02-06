@@ -24,17 +24,10 @@ final class Class125 implements Interface1 {
 		return new StringBuilder(String.valueOf(0xff & i_2_ >> 24)).append(".").append(0xff & i_2_ >> 16).append(".").append(0xff & i_2_ >> 8).append(".").append(0xff & i_2_).toString();
 	}
 
-	public static void method1880(final byte i) {
-		try {
-			if (i <= 106) {
-				aStringArray2148 = null;
-			}
-			aStringArray2148 = null;
-			anIntArrayArray2150 = null;
-			aClass57_2147 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oi.A(").append(i).append(')').toString());
-		}
+	public static void method1880() {
+		aStringArray2148 = null;
+		anIntArrayArray2150 = null;
+		aClass57_2147 = null;
 	}
 
 	@Override

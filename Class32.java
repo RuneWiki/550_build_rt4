@@ -157,10 +157,10 @@ final class Class32 {
 		return string;
 	}
 
-	static final AbstractModel method273(final int i, final SeqType seqType, int i_15_, int entitySize, final int i_17_, final AbstractModel class180_sub7, int i_18_, final int i_19_, final int i_20_, final boolean bool, final int i_21_, final int i_22_, final int i_23_) {
-		final long l = ((long) i_21_ << 32) + (i_17_ << 24) + (i_22_ << 16) + entitySize + ((long) i << 48);
-		AbstractModel class180_sub7_25_ = (AbstractModel) Class154.aClass21_1438.get(l);
-		if (class180_sub7_25_ == null) {
+	static final AbstractModelRenderer constructShadowModel(int shadowColor2, final SeqType seqType, int playerRotation, int entitySize, int colMod1, final AbstractModelRenderer playerModel, int frame, final int playerY, final int playerZ, boolean bool, int shadowColor1, final int colMod2, final int playerX) {
+		final long uid = ((long) shadowColor1 << 32) + (colMod1 << 24) + (colMod2 << 16) + entitySize + ((long) shadowColor2 << 48);
+		AbstractModelRenderer cachedModel = (AbstractModelRenderer) Class154.shadowModelCache.get(uid);
+		if (cachedModel == null) {
 			int vertexCount;
 			if (entitySize == 1) {
 				vertexCount = 9;
@@ -173,110 +173,111 @@ final class Class32 {
 			} else {
 				vertexCount = 21;
 			}
-			final int[] is = { 64, 96, 128};
-			final int[][] is_28_ = new int[3][vertexCount];
-			final Class180_Sub2 class180_sub2 = new Class180_Sub2(3 * vertexCount + 1, 2 * vertexCount * 3 + -vertexCount, 0);
-			final int i_29_ = class180_sub2.method2302(0, 0, 0);
-			for (int i_30_ = 0; i_30_ < 3; i_30_++) {
-				final int i_31_ = is[i_30_];
-				final int i_32_ = is[i_30_];
-				for (int i_33_ = 0; i_33_ < vertexCount; i_33_++) {
-					final int i_34_ = (i_33_ << 11) / vertexCount;
-					final int i_35_ = Rasterizer.sineTable[i_34_] * i_31_ + i_23_ >> 16;
-					final int i_36_ = Rasterizer.cosineTable[i_34_] * i_32_ + i_20_ >> 16;
-					is_28_[i_30_][i_33_] = class180_sub2.method2302(i_35_, 0, i_36_);
+			final int[] shadowLayerSizes = { 64, 96, 128};
+			final int[][] shadowVerticesIds = new int[3][vertexCount];
+			final Model shadowModel = new Model(3 * vertexCount + 1, 2 * vertexCount * 3 - vertexCount, 0);
+			final int vertexId = shadowModel.addVertex(0, 0, 0);
+			for (int layerId = 0; layerId < 3; layerId++) {
+				final int shadowLayerSize = shadowLayerSizes[layerId];
+				//final int i_32_ = shadowLayerSize[layerId];
+				for (int vId = 0; vId < vertexCount; vId++) {
+					final int rotation = (vId << 11) / vertexCount;
+					final int shadowX = Rasterizer.sineTable[rotation] * shadowLayerSize + playerX >> 16;
+					final int shadowZ = Rasterizer.cosineTable[rotation] * shadowLayerSize + playerZ >> 16;//Used to be i_32_, but no need?
+					shadowVerticesIds[layerId][vId] = shadowModel.addVertex(shadowX, 0, shadowZ);
 				}
 			}
-			for (int i_37_ = 0; i_37_ < 3; i_37_++) {
-				final int i_38_ = (256 * i_37_ + 128) / 3;
-				final int i_39_ = 256 - i_38_;
-				final byte i_40_ = (byte) (i_38_ * i_17_ + i_39_ * i_22_ >> 8);
-				final short i_41_ = (short) ((0xfc0000 & i_38_ * (i & 0xfc00) + i_39_ * (0xfc00 & i_21_)) + (0x38000 & (i & 0x380) * i_38_ + i_39_ * (0x380 & i_21_)) + (0x7f00 & (i_21_ & 0x7f) * i_39_ + i_38_ * (0x7f & i)) >> 8);
-				for (int i_42_ = 0; vertexCount > i_42_; i_42_++) {
-					if (i_37_ != 0) {
-						class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_ - 1][(1 + i_42_) % vertexCount], is_28_[i_37_][(i_42_ + 1) % vertexCount], (byte) 1, i_41_, i_40_);
-						class180_sub2.method2295(is_28_[i_37_ - 1][i_42_], is_28_[i_37_][(i_42_ - -1) % vertexCount], is_28_[i_37_][i_42_], (byte) 1, i_41_, i_40_);
+			for (int layerId = 0; layerId < 3; layerId++) {
+				final int alpha0 = (256 * layerId + 128) / 3;
+				final int alpha1 = 256 - alpha0;
+				final byte triangleAlpha = (byte) (alpha0 * colMod1 + alpha1 * colMod2 >> 8);//TODO finish this?
+				final short triangleColor = (short) ((0xfc0000 & alpha0 * (shadowColor2 & 0xfc00) + alpha1 * (0xfc00 & shadowColor1)) + (0x38000 & (shadowColor2 & 0x380) * alpha0 + alpha1 * (0x380 & shadowColor1)) + (0x7f00 & (shadowColor1 & 0x7f) * alpha1 + alpha0 * (0x7f & shadowColor2)) >> 8);
+				for (int vId = 0; vId < vertexCount; vId++) {
+					if (layerId != 0) {
+						shadowModel.addTriangle(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId - 1][(1 + vId) % vertexCount], shadowVerticesIds[layerId][(vId + 1) % vertexCount], (byte) 1, triangleColor, triangleAlpha);
+						shadowModel.addTriangle(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId][(vId - -1) % vertexCount], shadowVerticesIds[layerId][vId], (byte) 1, triangleColor, triangleAlpha);
 					} else {
-						class180_sub2.method2295(i_29_, is_28_[0][(1 + i_42_) % vertexCount], is_28_[0][i_42_], (byte) 1, i_41_, i_40_);
+						shadowModel.addTriangle(vertexId, shadowVerticesIds[0][(1 + vId) % vertexCount], shadowVerticesIds[0][vId], (byte) 1, triangleColor, triangleAlpha);
 					}
 				}
 			}
-			class180_sub7_25_ = class180_sub2.method2300(64, 768, -50, -10, -50);
-			Class154.aClass21_1438.put(class180_sub7_25_, l);
+			cachedModel = shadowModel.toRenderer(64, 768, -50, -10, -50);
+			Class154.shadowModelCache.put(cachedModel, uid);
 		}
 		final int i_43_ = 64 * entitySize - 1;
-		int i_44_ = -i_43_;
-		int i_45_ = i_43_;
-		int i_46_ = -i_43_;
-		int i_47_ = i_43_;
+		int minX = -i_43_;
+		int maxX = i_43_;
+		int minZ = -i_43_;
+		int maxZ = i_43_;
 		if (bool) {
-			if (i_15_ > 128 && i_15_ < 896) {
-				i_44_ -= 128;
+			if (playerRotation > 128 && playerRotation < 896) {
+				minX -= 128;
 			}
-			if (i_15_ > 1664 || i_15_ < 384) {
-				i_46_ -= 128;
+			if (playerRotation > 1664 || playerRotation < 384) {
+				minZ -= 128;
 			}
-			if (i_15_ > 1152 && i_15_ < 1920) {
-				i_45_ += 128;
+			if (playerRotation > 1152 && playerRotation < 1920) {
+				maxX += 128;
 			}
-			if (i_15_ > 640 && i_15_ < 1408) {
-				i_47_ += 128;
+			if (playerRotation > 640 && playerRotation < 1408) {
+				maxZ += 128;
 			}
 		}
-		int i_48_ = class180_sub7.method2374();
-		int i_49_ = class180_sub7.method2383();
-		int i_50_ = class180_sub7.method2363();
-		if (i_45_ < i_49_) {
-			i_49_ = i_45_;
+		int xBound1 = playerModel.getMaxX();
+		int xBound2 = playerModel.getMinX();
+		int zBound1 = playerModel.getMaxZ();
+		int zBound2 = playerModel.getMinZ();
+		if (xBound1 < minX) {
+			xBound1 = minX;
 		}
-		if (i_46_ > i_50_) {
-			i_50_ = i_46_;
+		if (xBound2 > maxX) {
+			xBound2 = maxX;
 		}
-		int i_51_ = class180_sub7.method2386();
-		if (i_48_ < i_44_) {
-			i_48_ = i_44_;
+		if (zBound1 < minZ) {
+			zBound1 = minZ;
 		}
-		if (i_51_ > i_47_) {
-			i_51_ = i_47_;
+		if (zBound2 > maxZ) {
+			zBound2 = maxZ;
 		}
-		FrameLoader class120_sub14_sub18 = null;
+		FrameLoader frameLoader = null;
 		if (seqType != null) {
-			i_18_ = seqType.frames[i_18_];
-			class120_sub14_sub18 = FrameLoader.list(i_18_ >> 16);
-			i_18_ &= 0xffff;
+			frame = seqType.frames[frame];
+			frameLoader = FrameLoader.list(frame >> 16);
+			frame &= 0xffff;
 		}
-		if (class120_sub14_sub18 == null) {
-			class180_sub7_25_ = class180_sub7_25_.method2381(true, true, true);
-			class180_sub7_25_.resize((i_49_ + -i_48_) / 2, 128, (i_51_ - i_50_) / 2);
-			class180_sub7_25_.translate((i_48_ + i_49_) / 2, 0, (i_50_ - -i_51_) / 2);
+		if (frameLoader == null) {
+			cachedModel = cachedModel.method2381(true, true, true);
+			cachedModel.resize((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
+			cachedModel.translate((xBound1 + xBound2) / 2, 0, (zBound1 + zBound2) / 2);
 		} else {
-			class180_sub7_25_ = class180_sub7_25_.method2381(!class120_sub14_sub18.method1578(i_18_), !class120_sub14_sub18.method1579(i_18_), true);
-			class180_sub7_25_.resize((-i_48_ + i_49_) / 2, 128, (i_51_ - i_50_) / 2);
-			class180_sub7_25_.translate((i_49_ + i_48_) / 2, 0, (i_50_ + i_51_) / 2);
-			class180_sub7_25_.method2389(class120_sub14_sub18, i_18_);
+			cachedModel = cachedModel.method2381(!frameLoader.method1578(frame), !frameLoader.method1579(frame), true);
+			cachedModel.resize((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
+			cachedModel.translate((xBound2 + xBound1) / 2, 0, (zBound1 + zBound2) / 2);
+			cachedModel.method2389(frameLoader, frame);//animate
 		}
-		if (i_15_ != 0) {
-			class180_sub7_25_.method2360(i_15_);
+		if (playerRotation != 0) {
+			cachedModel.rotate(playerRotation);
 		}
+		//Blend the shadow model to the ground.
 		if (HDToolkit.glEnabled) {
-			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7_25_;
-			if (i_19_ != Class22.getTileHeight(i_23_ + i_48_, i_50_ + i_20_, Class173.gameLevel) || Class22.getTileHeight(i_49_ + i_23_, i_51_ + i_20_, Class173.gameLevel) != i_19_) {
-				for (int i_52_ = 0; class180_sub7_sub2.anInt3862 > i_52_; i_52_++) {
-					class180_sub7_sub2.anIntArray3856[i_52_] += Class22.getTileHeight(i_23_ + class180_sub7_sub2.anIntArray3878[i_52_], i_20_ + class180_sub7_sub2.anIntArray3845[i_52_], Class173.gameLevel) + -i_19_;
+			final HDModelRenderer modelRenderer = (HDModelRenderer) cachedModel;
+			if (playerY != Class22.getTileHeight(playerX + xBound1, playerZ + zBound1, Class173.gameLevel) || Class22.getTileHeight(playerX + xBound2, playerZ + zBound2, Class173.gameLevel) != playerY) {
+				for (int vertexId = 0; vertexId < modelRenderer.vertexCount; vertexId++) {
+					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(playerX + modelRenderer.xVertices[vertexId], playerZ + modelRenderer.zVertices[vertexId], Class173.gameLevel) - playerY;
 				}
-				class180_sub7_sub2.aClass49_3847.aBoolean439 = false;
-				class180_sub7_sub2.aClass13_3870.aBoolean89 = false;
+				modelRenderer.aClass49_3847.aBoolean439 = false;
+				modelRenderer.modelBounds.boundsCalculated = false;
 			}
 		} else {
-			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_25_;
-			if (i_19_ != Class22.getTileHeight(i_48_ + i_23_, i_50_ + i_20_, Class173.gameLevel) || i_19_ != Class22.getTileHeight(i_23_ - -i_49_, i_51_ + i_20_, Class173.gameLevel)) {
-				for (int i_53_ = 0; class180_sub7_sub1.anInt3793 > i_53_; i_53_++) {
-					class180_sub7_sub1.yVertices[i_53_] += Class22.getTileHeight(class180_sub7_sub1.xVertices[i_53_] - -i_23_, class180_sub7_sub1.zVertices[i_53_] + i_20_, Class173.gameLevel) - i_19_;
+			final LDModelRenderer modelRenderer = (LDModelRenderer) cachedModel;
+			if (playerY != Class22.getTileHeight(playerX + xBound1, playerZ + zBound1, Class173.gameLevel) || playerY != Class22.getTileHeight(playerX + xBound2, playerZ + zBound2, Class173.gameLevel)) {
+				for (int vertexId = 0; vertexId < modelRenderer.vertexCount; vertexId++) {
+					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(playerX + modelRenderer.xVertices[vertexId], playerZ + modelRenderer.zVertices[vertexId], Class173.gameLevel) - playerY;
 				}
-				class180_sub7_sub1.boundsCalculated = false;
+				modelRenderer.boundsCalculated = false;
 			}
 		}
-		return class180_sub7_25_;
+		return cachedModel;
 	}
 
 	public Class32() {
@@ -294,22 +295,22 @@ final class Class32 {
 	}
 
 	static final Class32 list(final int id) {
-		Class32 class32_11_ = (Class32) SceneGroundObject.aClass21_2841.get(id);
-		if (class32_11_ != null) {
-			return class32_11_;
+		Class32 class32 = (Class32) SceneGroundObject.aClass21_2841.get(id);
+		if (class32 != null) {
+			return class32;
 		}
 		final byte[] is = Class49.aClass50_440.getFile(1, id);
-		class32_11_ = new Class32();
-		class32_11_.anInt258 = id;
+		class32 = new Class32();
+		class32.anInt258 = id;
 		if (is != null) {
-			class32_11_.decode(new Buffer(is));
+			class32.decode(new Buffer(is));
 		}
-		class32_11_.postDecode();
-		if (class32_11_.anInt266 == 2 && GroundTile.aClass75_2643.get(id) == null) {
+		class32.postDecode();
+		if (class32.anInt266 == 2 && GroundTile.aClass75_2643.get(id) == null) {
 			GroundTile.aClass75_2643.put(new IntegerNode(Class30.anInt236), id);
-			Class154.aClass32Array1437[Class30.anInt236++] = class32_11_;
+			Class154.aClass32Array1437[Class30.anInt236++] = class32;
 		}
-		SceneGroundObject.aClass21_2841.put(class32_11_, id);
-		return class32_11_;
+		SceneGroundObject.aClass21_2841.put(class32, id);
+		return class32;
 	}
 }

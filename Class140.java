@@ -39,21 +39,21 @@ final class Class140 {
 		Class31.spriteTrimWidth = buffer.getUShort();
 		SceneGroundObject.spriteTrimHeight = buffer.getUShort();
 		final int paletteSize = (0xff & buffer.getUByte()) + 1;
-		for (int i_3_ = 0; i_3_ < Class93.spriteAmount; i_3_++) {
-			Projectile.spriteXOffsets[i_3_] = buffer.getUShort();
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			Projectile.spriteXOffsets[id] = buffer.getUShort();
 		}
-		for (int i_4_ = 0; i_4_ < Class93.spriteAmount; i_4_++) {
-			GroundTile.spriteYOffsets[i_4_] = buffer.getUShort();
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			GroundTile.spriteYOffsets[id] = buffer.getUShort();
 		}
-		for (int i_5_ = 0; i_5_ < Class93.spriteAmount; i_5_++) {
-			Class120_Sub12_Sub11.spriteWidths[i_5_] = buffer.getUShort();
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			Class120_Sub12_Sub11.spriteWidths[id] = buffer.getUShort();
 		}
-		for (int i_6_ = 0; i_6_ < Class93.spriteAmount; i_6_++) {
-			Class120_Sub12_Sub39.spriteHeights[i_6_] = buffer.getUShort();
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			Class120_Sub12_Sub39.spriteHeights[id] = buffer.getUShort();
 		}
 		buffer.pos = data.length - 7 - (paletteSize - 1) * 3 - (Class93.spriteAmount * 8);
 		Class132_Sub1.spritePalette = new int[paletteSize];
-		for (int id = 1; paletteSize > id; id++) {
+		for (int id = 1; id < paletteSize; id++) {
 			Class132_Sub1.spritePalette[id] = buffer.getMedium();
 			if (Class132_Sub1.spritePalette[id] == 0) {
 				Class132_Sub1.spritePalette[id] = 1;

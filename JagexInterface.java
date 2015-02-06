@@ -14,22 +14,22 @@ final class JagexInterface {
 	int maxScrollVertical;
 	int y;
 	boolean aBoolean1939;
-	boolean aBoolean1940;
+	boolean hasListener;
 	int cursorId;
 	Object[] anObjectArray1942;
 	boolean flipVertical;
 	Object[] anObjectArray1944;
 	int disabledAnim;
 	int currentFrame;
-	Object[] anObjectArray1947;
+	Object[] onComponentSwapListener;
 	int width;
-	int[] anIntArray1949;
+	int[] lengthOfSpriteLookupTable;
 	String disabledText = "";
 	Object[] onMouseDragListener;
 	static Thread gameShellThread;
-	Object[] anObjectArray1953;
+	Object[] onMouseFocusedListener;
 	Object[] keyPressedListener;
-	byte[] aByteArray1955;
+	byte[] keyHeldMask;
 	boolean aBoolean1956;
 	int[] spriteIDs;
 	boolean flipHorizontal;
@@ -41,13 +41,13 @@ final class JagexInterface {
 	String spellNameni;
 	int frameDelay = 0;
 	int anInt1966;
-	int thickness;
+	int lineWidth;
 	int redrawCycle;
 	int rotateSpeed;
 	int[][] cs1opcodes;
 	boolean clicked;
 	int enabledColor;
-	int[] anIntArray1973;
+	int[] lastPressedKeyCycles;
 	int alpha;
 	int clientCode;
 	Object[] privateChatUpdateListener;
@@ -59,7 +59,7 @@ final class JagexInterface {
 	int anInt1982;
 	int[] objAmounts;
 	Object[] anObjectArray1984;
-	int[] anIntArray1985;
+	int[] keyPressDelay;
 	int[] spriteYs;
 	private int mediaTypeEnabled;
 	int[] spriteXs;
@@ -72,7 +72,7 @@ final class JagexInterface {
 	int type;
 	int actionType;
 	int anInt1997;
-	Object[] anObjectArray1998;
+	Object[] onLoopCycleListener;
 	int bitPacked;
 	Object[] onSpellDeselectionListener;
 	boolean aBoolean2001;
@@ -92,7 +92,7 @@ final class JagexInterface {
 	int originalX;
 	private int mediaIdEnabled;
 	byte dynamicYValue;
-	boolean aBoolean2018;
+	boolean hasAlpha;
 	boolean filled;
 	int targetCursorId;
 	int horizontalScrollPosition;
@@ -106,7 +106,7 @@ final class JagexInterface {
 	int parent;
 	int objId;
 	int modelTypeDisabled;
-	Object[] anObjectArray2032;
+	Object[] stringScriptValuesListener;
 	int anInt2033;
 	Object[] onloadListener;
 	boolean aBoolean2035;
@@ -122,7 +122,7 @@ final class JagexInterface {
 	boolean hidden;
 	boolean aBoolean2046;
 	int rotateX;
-	byte[] aByteArray2048;
+	byte[] keyCodes;
 	int anInt2049;
 	Object[] onVarpUpdateListener;
 	byte dynamicXValue;
@@ -136,7 +136,7 @@ final class JagexInterface {
 	int height;
 	int originalHeight;
 	int originalY;
-	Object[] anObjectArray2062;
+	Object[] integerScriptValuesListener;
 	int[] inventoryListenerTriggers;
 	int anInt2064;
 	short aShort2065;
@@ -153,7 +153,7 @@ final class JagexInterface {
 	int anInt2076;
 	int objSpritePadY;
 	int anInt2078;
-	int[] anIntArray2079;
+	int[] startOfSpriteLookupTable;
 	Object[] onClickListener;
 	int disabledMouseOverColor;
 	int redrawId;
@@ -169,10 +169,11 @@ final class JagexInterface {
 	byte dynamicHeightValue;
 	short aShort2093;
 	int anInt2094;
-	String selectedActionName;
-	int[] integerScriptsValuesTriggers;
+	String selectedSpellName;
+	int[] integerScriptValuesTriggers;
 	boolean aBoolean2097;
 	int nextFrame;
+	static ObjectCache spriteCache = new ObjectCache(200);
 
 	static {
 		inserting = 0;
@@ -180,20 +181,7 @@ final class JagexInterface {
 		anInt2053 = 0;
 	}
 
-	final void setAction(final String string, final int i_0_) {
-		if (this.niActions == null || i_0_ >= this.niActions.length) {
-			final String[] strings = new String[i_0_ + 1];
-			if (this.niActions != null) {
-				for (int i_1_ = 0; this.niActions.length > i_1_; i_1_++) {
-					strings[i_1_] = this.niActions[i_1_];
-				}
-			}
-			this.niActions = strings;
-		}
-		this.niActions[i_0_] = string;
-	}
-
-	final AbstractModel method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
+	final AbstractModelRenderer method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
 		int i_5_;
 		int i_6_;
 		if (!bool) {
@@ -203,7 +191,7 @@ final class JagexInterface {
 			i_5_ = mediaIdEnabled;
 			i_6_ = mediaTypeEnabled;
 		}
-		Class88.aBoolean835 = false;
+		Class88.interfaceSpriteIsNull = false;
 		if (i_6_ == 0) {
 			return null;
 		}
@@ -211,14 +199,14 @@ final class JagexInterface {
 			return null;
 		}
 		if (i_6_ == 1) {
-			AbstractModel class180_sub7_7_ = (AbstractModel) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
+			AbstractModelRenderer class180_sub7_7_ = (AbstractModelRenderer) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
 			if (class180_sub7_7_ == null) {
-				final Class180_Sub2 class180_sub2 = Class180_Sub2.method2291(Decimator.aClass50_1721, i_5_, 0);
+				final Model class180_sub2 = Model.get(Decimator.aClass50_1721, i_5_, 0);
 				if (class180_sub2 == null) {
-					Class88.aBoolean835 = true;
+					Class88.interfaceSpriteIsNull = true;
 					return null;
 				}
-				class180_sub7_7_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+				class180_sub7_7_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
 				LabelGroup.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
 			}
 			if (seqType != null) {
@@ -227,9 +215,9 @@ final class JagexInterface {
 			return class180_sub7_7_;
 		}
 		if (i_6_ == 2) {
-			final AbstractModel class180_sub7_8_ = NpcType.list(i_5_).method2210(seqType, i, i_4_, i_3_);
+			final AbstractModelRenderer class180_sub7_8_ = NpcType.list(i_5_).method2210(seqType, i, i_4_, i_3_);
 			if (class180_sub7_8_ == null) {
-				Class88.aBoolean835 = true;
+				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
 			return class180_sub7_8_;
@@ -238,26 +226,26 @@ final class JagexInterface {
 			if (playerAppearance == null) {
 				return null;
 			}
-			final AbstractModel class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
+			final AbstractModelRenderer class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
 			if (class180_sub7_9_ == null) {
-				Class88.aBoolean835 = true;
+				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
 			return class180_sub7_9_;
 		}
 		if (i_6_ == 4) {
 			final ObjType objType = ObjType.list(i_5_);
-			final AbstractModel class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
+			final AbstractModelRenderer class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
 			if (class180_sub7_10_ == null) {
-				Class88.aBoolean835 = true;
+				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
 			return class180_sub7_10_;
 		}
 		if (i_6_ == 6) {
-			final AbstractModel class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, null, seqType, i, null, 0, 0, i_4_);
+			final AbstractModelRenderer class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, null, seqType, i, null, 0, 0, i_4_);
 			if (class180_sub7_11_ == null) {
-				Class88.aBoolean835 = true;
+				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
 			return class180_sub7_11_;
@@ -269,9 +257,9 @@ final class JagexInterface {
 			final int i_12_ = this.mediaIdDisabled & 0xffff;
 			final int i_13_ = this.anInt1997;
 			final int i_14_ = this.mediaIdDisabled >>> 16;
-			final AbstractModel class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
+			final AbstractModelRenderer class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
 			if (class180_sub7_15_ == null) {
-				Class88.aBoolean835 = true;
+				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
 			return class180_sub7_15_;
@@ -279,46 +267,50 @@ final class JagexInterface {
 		return null;
 	}
 
-	final AbstractSprite method2487(final byte i, final int i_16_) {
-		AbstractSprite class120_sub14_sub19;
-		try {
-			Class88.aBoolean835 = false;
-			if (i_16_ < 0 || i_16_ >= this.spriteIDs.length) {
-				return null;
-			}
-			if (i <= 106) {
-				method2499(110, -113);
-			}
-			final int i_17_ = this.spriteIDs[i_16_];
-			if (i_17_ == -1) {
-				return null;
-			}
-			AbstractSprite class120_sub14_sub19_18_ = (AbstractSprite) AnimatedLocation.aClass21_3071.get(i_17_);
-			if (class120_sub14_sub19_18_ != null) {
-				return class120_sub14_sub19_18_;
-			}
-			class120_sub14_sub19_18_ = ParticleType.method700(i_17_, 0, (byte) 124, Class89.aClass50_836);
-			if (class120_sub14_sub19_18_ == null) {
-				Class88.aBoolean835 = true;
-			} else {
-				AnimatedLocation.aClass21_3071.put(class120_sub14_sub19_18_, i_17_);
-			}
-			class120_sub14_sub19 = class120_sub14_sub19_18_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.Q(").append(i).append(',').append(i_16_).append(')').toString());
+	final AbstractSprite method2487(final int i_16_) {
+		Class88.interfaceSpriteIsNull = false;
+		if (i_16_ < 0 || i_16_ >= this.spriteIDs.length) {
+			return null;
 		}
-		return class120_sub14_sub19;
+		final int i_17_ = this.spriteIDs[i_16_];
+		if (i_17_ == -1) {
+			return null;
+		}
+		AbstractSprite class120_sub14_sub19_18_ = (AbstractSprite) spriteCache.get(i_17_);
+		if (class120_sub14_sub19_18_ != null) {
+			return class120_sub14_sub19_18_;
+		}
+		class120_sub14_sub19_18_ = ParticleType.constructAbstractSprite(Class89.aClass50_836, i_17_, 0);
+		if (class120_sub14_sub19_18_ == null) {
+			Class88.interfaceSpriteIsNull = true;
+		} else {
+			spriteCache.put(class120_sub14_sub19_18_, i_17_);
+		}
+		return class120_sub14_sub19_18_;
+	}
+	
+	final void setAction(final String action, final int index) {
+		if (this.niActions == null || index >= this.niActions.length) {
+			final String[] newArray = new String[index + 1];
+			if (this.niActions != null) {
+				for (int id = 0; id < this.niActions.length; id++) {
+					newArray[id] = this.niActions[id];
+				}
+			}
+			this.niActions = newArray;
+		}
+		this.niActions[index] = action;
 	}
 
-	final void setCursor(final int index, final int cursor) {
-		if (this.cursors == null || this.cursors.length <= index) {
-			final int[] newArray = new int[1 + index];
+	final void setCursor(final int cursor, final int index) {
+		if (this.cursors == null || index >= this.cursors.length) {
+			final int[] newArray = new int[index + 1];
 			if (this.cursors != null) {
-				for (int i_21_ = 0; i_21_ < this.cursors.length; i_21_++) {
-					newArray[i_21_] = this.cursors[i_21_];
+				for (int id = 0; id < this.cursors.length; id++) {
+					newArray[id] = this.cursors[id];
 				}
-				for (int i_22_ = this.cursors.length; i_22_< index; i_22_++) {
-					newArray[i_22_] = -1;
+				for (int id = this.cursors.length; id < index; id++) {
+					newArray[id] = -1;
 				}
 			}
 			this.cursors = newArray;
@@ -326,17 +318,8 @@ final class JagexInterface {
 		this.cursors[index] = cursor;
 	}
 
-	final Class41 method2489(final int i) {
-		Class41 class41;
-		try {
-			if (i != 0) {
-				return null;
-			}
-			class41 = (this.anInt2088 ^ 0xffffffff) != 0 ? Class132_Sub1.method1934(this.anInt2002, this.anInt2094, this.anInt2088, this.anInt1966) : null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.R(").append(i).append(')').toString());
-		}
-		return class41;
+	final Class41 method2489() {
+		return this.anInt2088 != -1 ? Class132_Sub1.method1934(this.anInt2002, this.anInt2094, this.anInt2088, this.anInt1966) : null;
 	}
 
 	final void decodeOld(final Buffer buffer) {
@@ -360,7 +343,7 @@ final class JagexInterface {
 			this.parent = this.parent + (~0xffff & this.bitPacked);
 		}
 		this.mouseOverId = buffer.getUShort();
-		if ((this.mouseOverId ^ 0xffffffff) == -65536) {
+		if (this.mouseOverId == 65535) {
 			this.mouseOverId = -1;
 		}
 		final int valueCompareCount = buffer.getUByte();
@@ -523,7 +506,7 @@ final class JagexInterface {
 			this.disabledText = buffer.getJagexString();
 		}
 		if (this.actionType == 2 || this.type == 2) {
-			this.selectedActionName = buffer.getJagexString();
+			this.selectedSpellName = buffer.getJagexString();
 			this.spellNameoi = buffer.getJagexString();
 			final int i_40_ = 0x3f & buffer.getUShort();
 			clickMask |= i_40_ << 11;
@@ -554,61 +537,61 @@ final class JagexInterface {
 		this.clickMask = new InterfaceClickMask(clickMask, -1);
 	}
 
-	final AbstractSprite method2492(final boolean bool) {
-		Class88.aBoolean835 = false;
-		int i_41_;
-		if (!bool) {
-			i_41_ = this.disabledSpriteId;
+	final AbstractSprite constructSpriteFromId(final boolean enabled) {
+		Class88.interfaceSpriteIsNull = false;
+		int spriteId;
+		if (enabled) {
+			spriteId = this.enabledSpriteId;
 		} else {
-			i_41_ = this.enabledSpriteId;
+			spriteId = this.disabledSpriteId;
 		}
-		if (i_41_ == -1) {
+		if (spriteId == -1) {
 			return null;
 		}
-		final long l = ((!this.flipHorizontal ? 0L : 1L) << 39) + ((long) this.outline << 36) + i_41_ + ((this.aBoolean2018 ? 1L : 0L) << 35) - -((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
-		AbstractSprite class120_sub14_sub19_42_ = (AbstractSprite) AnimatedLocation.aClass21_3071.get(l);
-		if (class120_sub14_sub19_42_ != null) {
-			return class120_sub14_sub19_42_;
+		final long spriteUid = ((this.flipHorizontal ? 1L : 00L) << 39) + ((long) this.outline << 36) + spriteId + ((this.hasAlpha ? 1L : 0L) << 35) + ((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
+		AbstractSprite cachedSprite = (AbstractSprite) spriteCache.get(spriteUid);
+		if (cachedSprite != null) {
+			return cachedSprite;
 		}
-		LDSprite class120_sub14_sub19_sub2;
-		if (!this.aBoolean2018) {
-			class120_sub14_sub19_sub2 = Class120_Sub14_Sub13.method1534(Class89.aClass50_836, i_41_, 0);
+		LDSprite ldSprite;
+		if (this.hasAlpha) {
+			ldSprite = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class89.aClass50_836, spriteId, 0);
 		} else {
-			class120_sub14_sub19_sub2 = Class120_Sub12_Sub26.method1340(Class89.aClass50_836, i_41_, 0);
+			ldSprite = Class120_Sub14_Sub13.constructLDSprite(Class89.aClass50_836, spriteId, 0);
 		}
-		if (class120_sub14_sub19_sub2 == null) {
-			Class88.aBoolean835 = true;
+		if (ldSprite == null) {
+			Class88.interfaceSpriteIsNull = true;
 			return null;
 		}
 		if (this.flipVertical) {
-			class120_sub14_sub19_sub2.method1608();
+			ldSprite.method1608();
 		}
 		if (this.flipHorizontal) {
-			class120_sub14_sub19_sub2.method1603();
+			ldSprite.method1603();
 		}
 		if (this.outline > 0) {
-			class120_sub14_sub19_sub2.method1616(this.outline);
+			ldSprite.method1616(this.outline);
 		}
 		if (this.outline >= 1) {
-			class120_sub14_sub19_sub2.outline(1);
+			ldSprite.outline(1);
 		}
 		if (this.outline >= 2) {
-			class120_sub14_sub19_sub2.outline(16777215);
+			ldSprite.outline(16777215);
 		}
 		if (this.shadow != 0) {
-			class120_sub14_sub19_sub2.shadow(this.shadow);
+			ldSprite.shadow(this.shadow);
 		}
 		if (HDToolkit.glEnabled) {
-			if (!(class120_sub14_sub19_sub2 instanceof LDTransparentSprite)) {
-				class120_sub14_sub19_42_ = new HDSprite(class120_sub14_sub19_sub2);
+			if (!(ldSprite instanceof LDTransparentSprite)) {
+				cachedSprite = new HDSprite(ldSprite);
 			} else {
-				class120_sub14_sub19_42_ = new HDTransparentSprite(class120_sub14_sub19_sub2);
+				cachedSprite = new HDTransparentSprite(ldSprite);
 			}
 		} else {
-			class120_sub14_sub19_42_ = class120_sub14_sub19_sub2;
+			cachedSprite = ldSprite;
 		}
-		AnimatedLocation.aClass21_3071.put(class120_sub14_sub19_42_, l);
-		return class120_sub14_sub19_42_;
+		spriteCache.put(cachedSprite, spriteUid);
+		return cachedSprite;
 	}
 
 	private final int[] decodeListenerValues(final Buffer buffer) {
@@ -657,7 +640,7 @@ final class JagexInterface {
 			this.rotation = buffer.getUShort();
 			final int i_48_ = buffer.getUByte();
 			this.aBoolean2001 = (i_48_ & 0x1) != 0;
-			this.aBoolean2018 = (i_48_ & 0x2) != 0;
+			this.hasAlpha = (i_48_ & 0x2) != 0;
 			this.alpha = buffer.getUByte();
 			this.outline = buffer.getUByte();
 			this.shadow = buffer.getInt();
@@ -710,27 +693,27 @@ final class JagexInterface {
 			this.alpha = buffer.getUByte();
 		}
 		if (this.type == 9) {
-			this.thickness = buffer.getUByte();
+			this.lineWidth = buffer.getUByte();
 			this.disabledColor = buffer.getInt();
 			this.aBoolean1989 = buffer.getUByte() == 1;
 		}
 		final int clickMask = buffer.getMedium();
 		int i_50_ = buffer.getUByte();
 		if (i_50_ != 0) {
-			this.aByteArray2048 = new byte[10];
-			this.anIntArray1985 = new int[10];
-			this.aByteArray1955 = new byte[10];
+			this.keyCodes = new byte[10];
+			this.keyPressDelay = new int[10];
+			this.keyHeldMask = new byte[10];
 			for (/**/; i_50_ != 0; i_50_ = buffer.getUByte()) {
-				final int i_51_ = -1 + (i_50_ >> 4);
+				final int i_51_ = (i_50_ >> 4) - 1;
 				i_50_ = buffer.getUByte() | i_50_ << 8;
 				i_50_ &= 0xfff;
 				if (i_50_ != 4095) {
-					this.anIntArray1985[i_51_] = i_50_;
+					this.keyPressDelay[i_51_] = i_50_;
 				} else {
-					this.anIntArray1985[i_51_] = -1;
+					this.keyPressDelay[i_51_] = -1;
 				}
-				this.aByteArray2048[i_51_] = buffer.getByte();
-				this.aByteArray1955[i_51_] = buffer.getByte();
+				this.keyCodes[i_51_] = buffer.getByte();
+				this.keyHeldMask[i_51_] = buffer.getByte();
 			}
 		}
 		this.spellNameni = buffer.getJagexString();
@@ -763,7 +746,7 @@ final class JagexInterface {
 		this.anInt1962 = buffer.getUByte();
 		this.anInt2066 = buffer.getUByte();
 		this.aBoolean1939 = buffer.getUByte() == 1;
-		this.selectedActionName = buffer.getJagexString();
+		this.selectedSpellName = buffer.getJagexString();
 		if (Class153.method2073(clickMask) != 0) {
 			paramId = buffer.getUShort();
 			if (paramId == 65535) {
@@ -787,22 +770,22 @@ final class JagexInterface {
 		this.onVarpUpdateListener = decodeListener(buffer);
 		this.onInventoryUpdateListener = decodeListener(buffer);
 		this.onSkillUpdateListener = decodeListener(buffer);
-		this.anObjectArray1998 = decodeListener(buffer);
+		this.onLoopCycleListener = decodeListener(buffer);
 		this.anObjectArray2006 = decodeListener(buffer);
-		this.anObjectArray1953 = decodeListener(buffer);
+		this.onMouseFocusedListener = decodeListener(buffer);
 		this.onClickListener = decodeListener(buffer);
 		this.onHeldListener = decodeListener(buffer);
 		this.onReleaseListener = decodeListener(buffer);
 		this.onMouseDragListener = decodeListener(buffer);
 		this.anObjectArray1959 = decodeListener(buffer);
-		this.anObjectArray1947 = decodeListener(buffer);
+		this.onComponentSwapListener = decodeListener(buffer);
 		this.onMouseWheelListener = decodeListener(buffer);
-		this.anObjectArray2062 = decodeListener(buffer);
-		this.anObjectArray2032 = decodeListener(buffer);
+		this.integerScriptValuesListener = decodeListener(buffer);
+		this.stringScriptValuesListener = decodeListener(buffer);
 		this.varpListenerTriggers = decodeListenerValues(buffer);
 		this.inventoryListenerTriggers = decodeListenerValues(buffer);
 		this.skillListernerTriggers = decodeListenerValues(buffer);
-		this.integerScriptsValuesTriggers = decodeListenerValues(buffer);
+		this.integerScriptValuesTriggers = decodeListenerValues(buffer);
 		this.stringScriptValuesTriggers = decodeListenerValues(buffer);
 	}
 
@@ -816,7 +799,7 @@ final class JagexInterface {
 	}
 
 	final AbstractFont method2497(final AbstractIndexedSprite[] class107s) {
-		Class88.aBoolean835 = false;
+		Class88.interfaceSpriteIsNull = false;
 		if (this.font == -1) {
 			return null;
 		}
@@ -826,7 +809,7 @@ final class JagexInterface {
 		}
 		class120_sub14_sub8_63_ = Class9.constructAbstractFont(Class89.aClass50_836, Class120_Sub12_Sub11.aClass50_3213, this.font, 0);
 		if (class120_sub14_sub8_63_ == null) {
-			Class88.aBoolean835 = true;
+			Class88.interfaceSpriteIsNull = true;
 		} else {
 			class120_sub14_sub8_63_.setNameIcons(class107s, null);
 			Class120_Sub12_Sub2.aClass21_3143.put(class120_sub14_sub8_63_, this.font);
@@ -834,16 +817,9 @@ final class JagexInterface {
 		return class120_sub14_sub8_63_;
 	}
 
-	public static void method2498(final int i) {
-		try {
-			playerMenuActionCodes = null;
-			if (i > -54) {
-				playerMenuActionCodes = null;
-			}
-			gameShellThread = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wf.H(").append(i).append(')').toString());
-		}
+	public static void method2498() {
+		playerMenuActionCodes = null;
+		gameShellThread = null;
 	}
 
 	static final void method2499(final int i_64_, final int i_65_) {
@@ -984,34 +960,35 @@ final class JagexInterface {
 		}
 	}
 
-	final boolean method2501() {
-		if (this.anIntArray2079 != null) {
+	//Calculates length of orb type sprites and where it starts for checking bounds.
+	final boolean calculatedSpriteVars() {//TODO new naming.
+		if (this.startOfSpriteLookupTable != null) {
 			return true;
 		}
-		final LDIndexedSprite class107_sub1 = Class164.constructLDIndexedSprite(Class89.aClass50_836, 0, this.disabledSpriteId);
-		if (class107_sub1 == null) {
+		final LDIndexedSprite sprite = Class164.constructLDIndexedSprite(Class89.aClass50_836, this.disabledSpriteId, 0);
+		if (sprite == null) {
 			return false;
 		}
-		class107_sub1.method923();
-		this.anIntArray1949 = new int[class107_sub1.height];
-		this.anIntArray2079 = new int[class107_sub1.height];
-		for (int i_82_ = 0; i_82_ < class107_sub1.height; i_82_++) {
-			int i_83_ = 0;
-			for (int i_84_ = 0; i_84_ < class107_sub1.width; i_84_++) {
-				if (class107_sub1.paletteIndicators[i_84_ + i_82_ * class107_sub1.width] != 0) {
-					i_83_ = i_84_;
+		sprite.method923();
+		this.lengthOfSpriteLookupTable = new int[sprite.height];
+		this.startOfSpriteLookupTable = new int[sprite.height];
+		for (int y = 0; y < sprite.height; y++) {
+			int notBlackPixel = 0;
+			for (int x = 0; x < sprite.width; x++) {
+				if (sprite.paletteIndicators[x + y * sprite.width] != 0) {
+					notBlackPixel = x;
 					break;
 				}
 			}
-			int i_85_ = class107_sub1.width;
-			for (int i_86_ = i_83_; class107_sub1.width > i_86_; i_86_++) {
-				if (class107_sub1.paletteIndicators[class107_sub1.width * i_82_ + i_86_] == 0) {
-					i_85_ = i_86_;
+			int blackPixel = sprite.width;
+			for (int x = notBlackPixel; x < sprite.width; x++) {
+				if (sprite.paletteIndicators[sprite.width * y + x] == 0) {
+					blackPixel = x;
 					break;
 				}
 			}
-			this.anIntArray2079[i_82_] = i_83_;
-			this.anIntArray1949[i_82_] = i_85_ + -i_83_;
+			this.startOfSpriteLookupTable[y] = notBlackPixel;//use y to get x
+			this.lengthOfSpriteLookupTable[y] = blackPixel - notBlackPixel;//use y to get length
 		}
 		return true;
 	}
@@ -1038,7 +1015,7 @@ final class JagexInterface {
 				values[id] = buffer.getJagexString();
 			}
 		}
-		this.aBoolean1940 = true;
+		this.hasListener = true;
 		return values;
 	}
 
@@ -1057,7 +1034,7 @@ final class JagexInterface {
 		this.cursorId = -1;
 		this.clicked = false;
 		this.aBoolean1939 = false;
-		this.aBoolean1940 = false;
+		this.hasListener = false;
 		this.alpha = 0;
 		this.translateX = 0;
 		this.tooltip = Class120_Sub12_Sub28.okString;
@@ -1068,7 +1045,7 @@ final class JagexInterface {
 		this.aBoolean1989 = false;
 		this.aBoolean2003 = false;
 		this.horizontalAlignment = 0;
-		this.aBoolean2018 = false;
+		this.hasAlpha = false;
 		this.enabledText = "";
 		this.anInt1997 = -1;
 		this.verticalScrollPosition = 0;
@@ -1085,7 +1062,7 @@ final class JagexInterface {
 		this.aBoolean2035 = false;
 		this.anInt2007 = 0;
 		this.aBoolean2046 = false;
-		this.thickness = 1;
+		this.lineWidth = 1;
 		this.anInt2033 = 0;
 		this.mouseOverId = -1;
 		this.shadow = 0;
@@ -1149,7 +1126,7 @@ final class JagexInterface {
 		this.aBoolean2097 = false;
 		this.translateY = 0;
 		this.anInt2088 = -1;
-		this.selectedActionName = "";
+		this.selectedSpellName = "";
 		this.nextFrame = 1;
 		this.anInt2085 = 1;
 	}

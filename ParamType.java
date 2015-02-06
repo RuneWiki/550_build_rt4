@@ -312,6 +312,6 @@ final class ParamType extends NodeSub {
 		Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
 		Class120_Sub12_Sub11.outputStream.putShort(Class69_Sub1.canvasWidth);
 		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub12_Sub5.canvasHeight);
-		Class120_Sub12_Sub11.outputStream.putByte(Class36.antiAliasingSamples);
+		Class120_Sub12_Sub11.outputStream.putByte(GroundDecoration.antiAliasingSamples);
 	}
 }

@@ -117,7 +117,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		}
 		class120_sub14_sub9_3_.method1494();
 		class120_sub14_sub9_4_.method1494();
-		GraphicsHD.method585(anIntArray3522);
+		GraphicsHD.copyBounds(anIntArray3522);
 		GraphicsHD.method597();
 		Class12.method140(HDToolkit.method528());
 		gl.glPushAttrib(2048);
@@ -192,7 +192,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		gl.glTexEnvi(8960, 34162, 8448);
 		gl.glDisable(3553);
 		gl.glActiveTexture(33984);
-		GraphicsHD.method594(anIntArray3522);
+		GraphicsHD.setBounds(anIntArray3522);
 		return bool ? this : class120_sub14_sub9_5_;
 	}
 

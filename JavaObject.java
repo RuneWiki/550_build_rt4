@@ -99,13 +99,13 @@ final class JavaObject extends AbstractObject {
 						Class120_Sub12_Sub28.determineMenuSize();
 					}
 				} else {
-					if (Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947 != null) {
+					if (Class120_Sub12_Sub4.aClass189_3156.onComponentSwapListener != null) {
 						final InterfaceListener class120_sub10 = new InterfaceListener();
 						class120_sub10.aClass189_2532 = LocType.aClass189_1818;
 						class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.aClass189_3156;
 						class120_sub10.anInt2543 = i_7_;
 						class120_sub10.anInt2540 = i_8_;
-						class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.anObjectArray1947;
+						class120_sub10.objectData = Class120_Sub12_Sub4.aClass189_3156.onComponentSwapListener;
 						Class88.method744(class120_sub10);
 					}
 					if (LocType.aClass189_1818 != null && client.method58(Class120_Sub12_Sub4.aClass189_3156) != null) {

@@ -84,7 +84,7 @@ final class InterfaceChangeNode extends NodeSub {
 						continue;
 					}
 					if (Light.objSelected == 1) {
-						InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=00ffff>").append(locType.name).toString(), bitPacked, x, z, (short) 16, Class120_Sub12_Sub10.anInt3205);
+						InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=00ffff>").append(locType.name).toString(), bitPacked, x, z, (short) 16, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 					} else if (Class88.spellSelected) {
 						final ParamType paramType = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
 						if ((0x4 & GroundTile.selectedSpellUseMask) != 0 && (paramType == null || locType.getIntegerParamValue(IdentityKit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
@@ -200,12 +200,12 @@ final class InterfaceChangeNode extends NodeSub {
 					final Deque deque = ClientScript.groundObjects[Class173.gameLevel][x][z];
 					if (deque != null) {
 						for (GroundObjectNode groundObjectNode = (GroundObjectNode) deque.getLast(); groundObjectNode != null; groundObjectNode = (GroundObjectNode) deque.getPrevious()) {
-							final int objectId = groundObjectNode.aClass180_Sub1_3630.id;
+							final int objectId = groundObjectNode.sceneGroundObject.id;
 							final ObjType objType = ObjType.list(objectId);
 							if (Light.objSelected != 1) {
 								if (Class88.spellSelected) {
-									final ParamType class120_sub14_sub11 = (IdentityKit.selectedSpellParam ^ 0xffffffff) == 0 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-									if ((0x1 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
+									final ParamType parakType = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
+									if ((0x1 & GroundTile.selectedSpellUseMask) != 0 && (parakType == null || objType.getIntegerParamValue(IdentityKit.selectedSpellParam, parakType.defaultInt) != parakType.defaultInt)) {
 										InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 48, Class150.selectedSpellTargetCursor);
 									}
 								} else {
@@ -244,7 +244,7 @@ final class InterfaceChangeNode extends NodeSub {
 									InvType.addMenuOption(Class11.aString81, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 1004, Class120_Sub12_Sub11.anInt3211);
 								}
 							} else {
-								InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 28, Class120_Sub12_Sub10.anInt3205);
+								InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objectId, x, z, (short) 28, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 							}
 						}
 					}

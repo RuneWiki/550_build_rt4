@@ -150,16 +150,10 @@ final class Class127 {
 		LabelGroup.groundTiles[3][i][i_18_] = null;
 	}
 
-	public static void method1894(final byte i) {
-		try {
-			aShortArray1214 = null;
-			if (i <= -127) {
-				aClass50_1213 = null;
-				aString1217 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("om.K(").append(i).append(')').toString());
-		}
+	public static void method1894() {
+		aShortArray1214 = null;
+		aClass50_1213 = null;
+		aString1217 = null;
 	}
 
 	final NodeSub method1895() {

@@ -28,8 +28,8 @@ final class SeqType {
 	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt349;
 
-	final AbstractModel method320(final boolean bool, int i, int i_0_, final AbstractModel class180_sub7, int i_1_, final int i_2_) {
-		AbstractModel class180_sub7_3_;
+	final AbstractModelRenderer method320(final boolean bool, int i, int i_0_, final AbstractModelRenderer class180_sub7, int i_1_, final int i_2_) {
+		AbstractModelRenderer class180_sub7_3_;
 		try {
 			final int i_4_ = this.delays[i_0_];
 			i_0_ = this.frames[i_0_];
@@ -48,7 +48,7 @@ final class SeqType {
 			if (bool) {
 				this.delays = null;
 			}
-			AbstractModel class180_sub7_6_;
+			AbstractModelRenderer class180_sub7_6_;
 			if (class120_sub14_sub18_5_ != null) {
 				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_) & !class120_sub14_sub18_5_.method1578(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
 			} else {
@@ -57,12 +57,12 @@ final class SeqType {
 			if (this.aBoolean341 && HDToolkit.glEnabled) {
 				if (i_1_ != 1) {
 					if (i_1_ == 2) {
-						((HDModel) class180_sub7_6_).method2409();
+						((HDModelRenderer) class180_sub7_6_).method2409();
 					} else if (i_1_ == 3) {
-						((HDModel) class180_sub7_6_).method2422();
+						((HDModelRenderer) class180_sub7_6_).method2422();
 					}
 				} else {
-					((HDModel) class180_sub7_6_).method2408();
+					((HDModelRenderer) class180_sub7_6_).method2408();
 				}
 			} else if (i_1_ != 1) {
 				if (i_1_ != 2) {
@@ -79,12 +79,12 @@ final class SeqType {
 			if (this.aBoolean341 && HDToolkit.glEnabled) {
 				if (i_1_ != 1) {
 					if (i_1_ == 2) {
-						((HDModel) class180_sub7_6_).method2409();
+						((HDModelRenderer) class180_sub7_6_).method2409();
 					} else if (i_1_ == 3) {
-						((HDModel) class180_sub7_6_).method2408();
+						((HDModelRenderer) class180_sub7_6_).method2408();
 					}
 				} else {
-					((HDModel) class180_sub7_6_).method2422();
+					((HDModelRenderer) class180_sub7_6_).method2422();
 				}
 			} else if (i_1_ != 1) {
 				if (i_1_ != 2) {
@@ -129,7 +129,7 @@ final class SeqType {
 		}
 	}
 
-	final AbstractModel method323(final AbstractModel class180_sub7, final int i, int i_10_, final int i_11_) {
+	final AbstractModelRenderer method323(final AbstractModelRenderer class180_sub7, final int i, int i_10_, final int i_11_) {
 		final int i_13_ = this.delays[i_11_];
 		int i_14_ = this.frames[i_11_];
 		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
@@ -177,7 +177,7 @@ final class SeqType {
 			bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578(i_17_);
 			bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
 		}
-		final AbstractModel class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
+		final AbstractModelRenderer class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
 		class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i + -1, i_13_, this.aBoolean341);
 		if (class120_sub14_sub18_16_ != null) {
 			class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i + -1, i_13_, this.aBoolean341);
@@ -185,7 +185,7 @@ final class SeqType {
 		return class180_sub7_22_;
 	}
 
-	final AbstractModel method324(final AbstractModel class180_sub7, int frameId, final int delay, int nextFrameId) {
+	final AbstractModelRenderer method324(final AbstractModelRenderer class180_sub7, int frameId, final int delay, int nextFrameId) {
 		final int i_27_ = this.delays[frameId];
 		frameId = this.frames[frameId];
 		final FrameLoader class120_sub14_sub18 = FrameLoader.list(frameId >> 16);
@@ -199,7 +199,7 @@ final class SeqType {
 			class120_sub14_sub18_28_ = FrameLoader.list(nextFrameId >> 16);
 			nextFrameId &= 0xffff;
 		}
-		AbstractModel class180_sub7_29_;
+		AbstractModelRenderer class180_sub7_29_;
 		if (class120_sub14_sub18_28_ == null) {
 			class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578(frameId), !class120_sub14_sub18.method1579(frameId), !this.aBoolean341);
 		} else {
@@ -286,8 +286,8 @@ final class SeqType {
 		}
 	}
 
-	final AbstractModel method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final AbstractModel class180_sub7) {
-		AbstractModel class180_sub7_52_;
+	final AbstractModelRenderer method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final AbstractModelRenderer class180_sub7) {
+		AbstractModelRenderer class180_sub7_52_;
 		try {
 			final int i_53_ = this.delays[i_50_];
 			i_50_ = this.frames[i_50_];
@@ -303,7 +303,7 @@ final class SeqType {
 				class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
 				i &= 0xffff;
 			}
-			AbstractModel class180_sub7_55_;
+			AbstractModelRenderer class180_sub7_55_;
 			if (class120_sub14_sub18_54_ != null) {
 				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_) & !class120_sub14_sub18_54_.method1578(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
 			} else {
@@ -323,13 +323,13 @@ final class SeqType {
 					class180_sub7_55_.rotate270();
 				}
 			} else if (i_51_ == 1) {
-				((HDModel) class180_sub7_55_).method2408();
+				((HDModelRenderer) class180_sub7_55_).method2408();
 			} else if (i_51_ != 2) {
 				if (i_51_ == 3) {
-					((HDModel) class180_sub7_55_).method2422();
+					((HDModelRenderer) class180_sub7_55_).method2422();
 				}
 			} else {
-				((HDModel) class180_sub7_55_).method2409();
+				((HDModelRenderer) class180_sub7_55_).method2409();
 			}
 			class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, -1 + i_48_, i_53_, this.aBoolean341);
 			if (!HDToolkit.glEnabled || !this.aBoolean341) {
@@ -343,11 +343,11 @@ final class SeqType {
 					class180_sub7_55_.rotate90();
 				}
 			} else if (i_51_ == 1) {
-				((HDModel) class180_sub7_55_).method2422();
+				((HDModelRenderer) class180_sub7_55_).method2422();
 			} else if (i_51_ == 2) {
-				((HDModel) class180_sub7_55_).method2409();
+				((HDModelRenderer) class180_sub7_55_).method2409();
 			} else if (i_51_ == 3) {
-				((HDModel) class180_sub7_55_).method2408();
+				((HDModelRenderer) class180_sub7_55_).method2408();
 			}
 			class180_sub7_52_ = class180_sub7_55_;
 		} catch (final RuntimeException runtimeexception) {
@@ -391,8 +391,8 @@ final class SeqType {
 
 	public static void method329() {
 		loginPassword = null;
+		aClass50_2286 = null;
 		aClass120_Sub14_Sub19Array335 = null;
-		StructType.configClient = null;
 	}
 
 	public SeqType() {

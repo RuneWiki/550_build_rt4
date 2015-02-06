@@ -593,7 +593,7 @@ final class HDToolkit {
 		if (string_49_.indexOf("radeon") != -1) {
 			int i_50_ = 0;
 			boolean bool = false;
-			final String[] strings_51_ = Class29.splitString(string_49_.replace('/', ' '), ' ');
+			final String[] strings_51_ = EntityRenderData.splitString(string_49_.replace('/', ' '), ' ');
 			for (int i_54_ = 0; i_54_ < strings_51_.length; i_54_++) {
 				final String string_55_ = strings_51_[i_54_];
 				if (string_55_.length() >= 4) {

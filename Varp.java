@@ -53,34 +53,20 @@ final class Varp {
 		}
 	}
 
-	public static void method634(final boolean bool) {
-		try {
-			if (bool) {
-				aShortArray620 = null;
-				aClass50_1517 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hi.F(").append(bool).append(')').toString());
-		}
+	public static void method634() {
+		aShortArray620 = null;
+		aClass50_1517 = null;
 	}
 
-	static final void method635(final int i, final int i_11_, final int i_12_, final int i_13_, final byte i_14_, final int i_15_, final int i_16_, final int i_17_) {
-		try {
-			if (i == i_17_) {
-				LabelGroup.method1036(i, i_13_, i_16_, i_11_, (byte) 84, i_12_, i_15_);
+	static final void method635(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_15_, final int i_16_, final int i_17_) {
+		if (i == i_17_) {
+			LabelGroup.method1036(i, i_13_, i_16_, i_11_, i_12_, i_15_);
+		} else {
+			if (i_12_ + -i >= Class32.anInt260 && ParamType.anInt3544 >= i + i_12_ && i_16_ + -i_17_ >= Class120_Sub30_Sub2.anInt3699 && i_17_ + i_16_ <= IdentityKit.anInt1334) {
+				Class120_Sub30_Sub1.method1743(i_12_, i_15_, i_13_, i_16_, i, i_11_, i_17_);
 			} else {
-				if (i_12_ + -i >= Class32.anInt260 && ParamType.anInt3544 >= i + i_12_ && i_16_ + -i_17_ >= Class120_Sub30_Sub2.anInt3699 && i_17_ + i_16_ <= IdentityKit.anInt1334) {
-					Class120_Sub30_Sub1.method1743(i_14_ + -75, i_12_, i_15_, i_13_, i_16_, i, i_11_, i_17_);
-				} else {
-					Class159.method2095(i_11_, i_13_, i_12_, i_17_, i_16_, i_14_ + -10466, i, i_15_);
-				}
-				if (i_14_ != 75) {
-					method635(-23, -127, -74, 66, (byte) -74, 10, 23, -35);
-				}
+				Class159.method2095(i_11_, i_13_, i_12_, i_17_, i_16_, i, i_15_);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hi.A(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(',').append(i_17_).append(')')
-					.toString());
 		}
 	}
 

@@ -73,7 +73,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 										}
 									}
 									if (class120_sub20.method1687()) {
-										InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.anInt3205);
+										InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 									}
 									if (class120_sub20.method1694() && options != null) {
 										for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
@@ -215,7 +215,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			gameEntity.anInt2961 = 0;
 			gameEntity.anInt3035 = 0;
 			gameEntity.spotAnimId = -1;
-			gameEntity.anInt3006 = -1;
+			gameEntity.animId = -1;
 			gameEntity.x = gameEntity.walkQueueX[0] * 128 + (gameEntity.getSize() * 64);
 			gameEntity.z = gameEntity.walkQueueZ[0] * 128 + (gameEntity.getSize() * 64);
 			gameEntity.method2329();
@@ -224,13 +224,13 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			gameEntity.spotAnimId = -1;
 			gameEntity.anInt2961 = 0;
 			gameEntity.anInt3035 = 0;
-			gameEntity.anInt3006 = -1;
+			gameEntity.animId = -1;
 			gameEntity.x = gameEntity.walkQueueX[0] * 128 + (gameEntity.getSize() * 64);
 			gameEntity.z = gameEntity.walkQueueZ[0] * 128 + (gameEntity.getSize() * 64);
 			gameEntity.method2329();
 		}
 		ProducingGraphicsBuffer.method1850(gameEntity);
-		Class36.method307(gameEntity);
+		GroundDecoration.method307(gameEntity);
 	}
 
 	public Class120_Sub12_Sub9() {

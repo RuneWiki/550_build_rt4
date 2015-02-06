@@ -85,7 +85,7 @@ final class ObjectCache {
 		Class41.method333();
 		LightManager.lights = new Light[255];
 		LightManager.lightsPos = 0;
-		HDModel.method2436();
+		HDModelRenderer.method2436();
 		Class47.method388();
 		Class54.method479();
 		Class120_Sub30_Sub1.method1739();
@@ -177,54 +177,54 @@ final class ObjectCache {
 	}
 
 	static final void method194(final InterfaceListener listener, final int i) {
-		final Object[] objects = listener.objectData;
-		final int i_7_ = ((Integer) objects[0]).intValue();
-		final ClientScript class120_sub14_sub12 = ClientScript.list(i_7_);
-		if (class120_sub14_sub12 != null) {
-			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
-			int i_8_ = 0;
-			TileParticleQueue.intArguments = new int[class120_sub14_sub12.intArgumentCount];
-			int i_9_ = 0;
-			for (int i_10_ = 1; objects.length > i_10_; i_10_++) {
-				if (objects[i_10_] instanceof Integer) {
-					int i_11_ = ((Integer) objects[i_10_]).intValue();
-					if (i_11_ == -2147483647) {
-						i_11_ = listener.anInt2543;
+		final Object[] objectData = listener.objectData;
+		final int scriptId = ((Integer) objectData[0]).intValue();
+		final ClientScript clientScript = ClientScript.list(scriptId);
+		if (clientScript != null) {
+			Class79_Sub1.stringArguments = new String[clientScript.stringArgumentCount];
+			TileParticleQueue.intArguments = new int[clientScript.intArgumentCount];
+			int intArgAmount = 0;
+			int stringArgAmount = 0;
+			for (int id = 1; id < objectData.length; id++) {
+				if (objectData[id] instanceof Integer) {
+					int intValue = ((Integer) objectData[id]).intValue();
+					if (intValue == -2147483647) {
+						intValue = listener.anInt2543;
 					}
-					if ((i_11_ ^ 0xffffffff) == 2147483645) {
-						i_11_ = listener.anInt2540;
+					if (intValue == -2147483646) {
+						intValue = listener.anInt2540;
 					}
-					if (i_11_ == -2147483645) {
-						i_11_ = listener.aClass189_2534 != null ? listener.aClass189_2534.bitPacked : -1;
+					if (intValue == -2147483645) {
+						intValue = listener.aClass189_2534 != null ? listener.aClass189_2534.bitPacked : -1;
 					}
-					if (-2147483644 == i_11_) {
-						i_11_ = listener.anInt2541;
+					if (intValue == -2147483644) {
+						intValue = listener.actionId;
 					}
-					if ((i_11_ ^ 0xffffffff) == 2147483642) {
-						i_11_ = listener.aClass189_2534 == null ? -1 : listener.aClass189_2534.componentIndex;
+					if (intValue == -2147483643) {
+						intValue = listener.aClass189_2534 == null ? -1 : listener.aClass189_2534.componentIndex;
 					}
-					if ((i_11_ ^ 0xffffffff) == 2147483641) {
-						i_11_ = listener.aClass189_2532 != null ? listener.aClass189_2532.bitPacked : -1;
+					if (intValue == -2147483642) {
+						intValue = listener.aClass189_2532 != null ? listener.aClass189_2532.bitPacked : -1;
 					}
-					if (2147483640 == (i_11_ ^ 0xffffffff)) {
-						i_11_ = listener.aClass189_2532 != null ? listener.aClass189_2532.componentIndex : -1;
+					if (intValue == -2147483641) {
+						intValue = listener.aClass189_2532 != null ? listener.aClass189_2532.componentIndex : -1;
 					}
-					if (2147483639 == (i_11_ ^ 0xffffffff)) {
-						i_11_ = listener.anInt2533;
+					if (intValue == -2147483640) {
+						intValue = listener.keyCode;
 					}
-					if (i_11_ == -2147483639) {
-						i_11_ = listener.anInt2535;
+					if (intValue == -2147483639) {
+						intValue = listener.keyChar;
 					}
-					TileParticleQueue.intArguments[i_8_++] = i_11_;
-				} else if (objects[i_10_] instanceof String) {
-					String string = (String) objects[i_10_];
-					if (string.equals("event_opbase")) {
-						string = listener.aString2539;
+					TileParticleQueue.intArguments[intArgAmount++] = intValue;
+				} else if (objectData[id] instanceof String) {
+					String stringValue = (String) objectData[id];
+					if (stringValue.equals("event_opbase")) {
+						stringValue = listener.aString2539;
 					}
-					Class79_Sub1.stringArguments[i_9_++] = string;
+					Class79_Sub1.stringArguments[stringArgAmount++] = stringValue;
 				}
 			}
-			World.method2194(class120_sub14_sub12, i);
+			World.method2194(clientScript, i);
 		}
 	}
 }

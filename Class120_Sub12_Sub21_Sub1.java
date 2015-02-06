@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	static boolean extendFriendsList;
 	static volatile boolean focusIn = true;
 	static String aString3910;
-	static String aString3911 = "level: ";
+	static String levelString = "level: ";
 	static int[] anIntArray3912;
 
 	static {
@@ -16,21 +16,21 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		extendFriendsList = false;
 	}
 
-	static final void method1312(final boolean bool) {
-		byte[][] is;
-		if (HDToolkit.glEnabled && bool) {
-			is = Class101_Sub1.aByteArrayArray2271;
+	static final void method1312(final boolean underwater) {
+		byte[][] data;
+		if (HDToolkit.glEnabled && underwater) {
+			data = Class101_Sub1.aByteArrayArray2271;
 		} else {
-			is = Class134.aByteArrayArray1287;
+			data = Class134.aByteArrayArray1287;
 		}
 		final int i_0_ = RuntimeException_Sub1.aByteArrayArray2140.length;
-		for (int i_1_ = 0; i_0_ > i_1_; i_1_++) {
-			final byte[] is_2_ = is[i_1_];
+		for (int i_1_ = 0; i_1_ < i_0_; i_1_++) {
+			final byte[] is_2_ = data[i_1_];
 			if (is_2_ != null) {
 				final int i_3_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) - GameEntity.currentBaseX;
-				final int i_4_ = 64 * (0xff & Class120_Sub12_Sub36.anIntArray3417[i_1_]) - Class181.currentBaseZ;
+				final int i_4_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] & 0xff) - Class181.currentBaseZ;
 				Class120_Sub2.method1050();
-				CollisionMap.method222(bool, is_2_, i_4_, i_3_, Class182.collisionMaps);
+				CollisionMap.decodeObjectMap(underwater, is_2_, i_4_, i_3_, Class182.collisionMaps);
 			}
 		}
 	}
@@ -39,7 +39,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		/* empty */
 	}
 
-	static final int method1313(final String string, final int i_5_, final String string_6_) {
+	static final int method1313(final String string, final int language, final String string_6_) {
 		final int i_8_ = string_6_.length();
 		int i_9_ = 0;
 		final int i_10_ = string.length();
@@ -67,19 +67,19 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			}
 			c = Class120_Sub12_Sub29.method1354(c_13_, false);
 			c_12_ = Class120_Sub12_Sub29.method1354(c_14_, false);
-			c_13_ = Class22.method198(-99, i_5_, c_13_);
-			c_14_ = Class22.method198(-73, i_5_, c_14_);
+			c_13_ = Class22.method198(-99, language, c_13_);
+			c_14_ = Class22.method198(-73, language, c_14_);
 			if (c_14_ != c_13_ && Character.toUpperCase(c_13_) != Character.toUpperCase(c_14_)) {
 				c_13_ = Character.toLowerCase(c_13_);
 				c_14_ = Character.toLowerCase(c_14_);
 				if (c_14_ != c_13_) {
-					return Class120_Sub16.method1661(i_5_, c_13_) - Class120_Sub16.method1661(i_5_, c_14_);
+					return Class120_Sub16.method1661(language, c_13_) - Class120_Sub16.method1661(language, c_14_);
 				}
 			}
 		}
 		final int i_15_ = Math.min(i_8_, i_10_);
 		for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
-			if (i_5_ == 2) {
+			if (language == 2) {
 				i_11_ = -1 + i_10_ + -i_16_;
 				i_9_ = i_8_ - 1 + -i_16_;
 			} else {
@@ -91,7 +91,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				c_17_ = Character.toLowerCase(c_17_);
 				c_18_ = Character.toLowerCase(c_18_);
 				if (c_17_ != c_18_) {
-					return Class120_Sub16.method1661(i_5_, c_17_) + -Class120_Sub16.method1661(i_5_, c_18_);
+					return Class120_Sub16.method1661(language, c_17_) + -Class120_Sub16.method1661(language, c_18_);
 				}
 			}
 		}
@@ -103,7 +103,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			final char c_21_ = string_6_.charAt(i_20_);
 			final char c_22_ = string.charAt(i_20_);
 			if (c_21_ != c_22_) {
-				return Class120_Sub16.method1661(i_5_, c_21_) + -Class120_Sub16.method1661(i_5_, c_22_);
+				return Class120_Sub16.method1661(language, c_21_) + -Class120_Sub16.method1661(language, c_22_);
 			}
 		}
 		return 0;
@@ -111,10 +111,10 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 
 	public static void method1314(final byte i) {
 		try {
-			aString3911 = null;
+			levelString = null;
 			aString3910 = null;
 			if (i < 112) {
-				aString3911 = null;
+				levelString = null;
 			}
 			anIntArray3912 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -166,9 +166,9 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					if (i_32_ != 1) {
 						if (i_32_ != 2) {
 							if (i_32_ == 3) {
-								final Class36 class36 = Class23.method202(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+								final GroundDecoration class36 = Class23.method202(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 								if (class36 != null) {
-									sceneGraphNode = class36.aClass180_309;
+									sceneGraphNode = class36.sceneGraphNode;
 								}
 							}
 						} else {

@@ -146,7 +146,7 @@ final class Class191 {
 				final Deque deque = ClientScript.groundObjects[Class173.gameLevel][i_21_][i_22_];
 				if (deque != null) {
 					for (GroundObjectNode class120_sub14_sub21 = (GroundObjectNode) deque.getFront(); class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObjectNode) deque.getNext()) {
-						final SceneGroundObject class180_sub1 = class120_sub14_sub21.aClass180_Sub1_3630;
+						final SceneGroundObject class180_sub1 = class120_sub14_sub21.sceneGroundObject;
 						if (class180_sub1.id == (0x7fff & i_23_) && i_24_ == class180_sub1.amount) {
 							class180_sub1.amount = i_25_;
 							break;
@@ -215,12 +215,12 @@ final class Class191 {
 						}
 					}
 					if (class180_sub5 != null) {
-						final Class29 class29 = class180_sub5.method2336();
-						if (class29.anIntArrayArray215 != null && class29.anIntArrayArray215[i_54_] != null) {
-							i_48_ -= class29.anIntArrayArray215[i_54_][1];
-							int i_59_ = class29.anIntArrayArray215[i_54_][0];
+						final EntityRenderData class29 = class180_sub5.getEntityRenderData();
+						if (class29.modelRotateTranslate != null && class29.modelRotateTranslate[i_54_] != null) {
+							i_48_ -= class29.modelRotateTranslate[i_54_][1];
+							int i_59_ = class29.modelRotateTranslate[i_54_][0];
 							final int i_60_ = Rasterizer.sineTable[class180_sub5.anInt3032];
-							int i_61_ = class29.anIntArrayArray215[i_54_][2];
+							int i_61_ = class29.modelRotateTranslate[i_54_][2];
 							final int i_62_ = Rasterizer.cosineTable[class180_sub5.anInt3032];
 							final int i_63_ = i_59_ * i_62_ + i_60_ * i_61_ >> 16;
 							i_61_ = -(i_59_ * i_60_) + i_62_ * i_61_ >> 16;
@@ -322,7 +322,7 @@ final class Class191 {
 				final Deque deque = ClientScript.groundObjects[Class173.gameLevel][i_109_][i_110_];
 				if (deque != null) {
 					for (GroundObjectNode class120_sub14_sub21 = (GroundObjectNode) deque.getFront(); class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObjectNode) deque.getNext()) {
-						if ((i_111_ & 0x7fff) == class120_sub14_sub21.aClass180_Sub1_3630.id) {
+						if ((i_111_ & 0x7fff) == class120_sub14_sub21.sceneGroundObject.id) {
 							class120_sub14_sub21.unlink();
 							break;
 						}
@@ -445,9 +445,9 @@ final class Class191 {
 			this.anInt2112 = class120_sub7.getShort();
 			this.anInt2107 = class120_sub7.getShort();
 		} else {
-			this.anInt2107 = -50;
 			this.anInt2110 = -50;
 			this.anInt2112 = -60;
+			this.anInt2107 = -50;
 		}
 		if ((i & 0x20) == 0) {
 			this.anInt2111 = AtmosphereManager.defaulFogColorRgb;

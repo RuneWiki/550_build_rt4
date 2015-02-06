@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 	static int crossIndex = 0;
 	static int floorshadowsId;
 	static boolean aBoolean3181 = false;
-	static int[] anIntArray3182 = new int[500];
+	static int[] menuOptionsData2 = new int[500];
 	static int anInt3183 = -1;
 	static int anInt3184;
 	static int frameWidth;
@@ -98,7 +98,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 
 	public static void method1235(final boolean bool) {
 		try {
-			anIntArray3182 = null;
+			menuOptionsData2 = null;
 			aClass105_3177 = null;
 			if (bool) {
 				SpotAnimType.recentUse.clearSoftReference();

@@ -753,7 +753,7 @@ abstract class AbstractTimer {
 			final int i_122_ = Canvas_Sub1.inputStream.getShortA();
 			final int i_123_ = Canvas_Sub1.inputStream.getLEShort();
 			if (Class69_Sub3_Sub1.updatePacketCounter(i_121_)) {
-				Class29.method254(i_120_, i_122_, i_123_);
+				EntityRenderData.method254(i_120_, i_122_, i_123_);
 			}
 			Class23.packetType = -1;
 			return true;
@@ -919,8 +919,8 @@ abstract class AbstractTimer {
 			return true;
 		}
 		if (Class23.packetType == 103) {
-			final int i_158_ = Canvas_Sub1.inputStream.getInt();
-			LabelGroup.aClass185_2403 = NpcType.gameSignlink.grabHostName(i_158_);
+			final int host = Canvas_Sub1.inputStream.getInt();
+			LabelGroup.hostNameNode = NpcType.gameSignlink.grabHostName(host);
 			Class23.packetType = -1;
 			return true;
 		}
@@ -1116,12 +1116,12 @@ abstract class AbstractTimer {
 		if (Class23.packetType == 229) {
 			for (int index = 0; index < Class118.playersList.length; index++) {
 				if (Class118.playersList[index] != null) {
-					Class118.playersList[index].anInt3006 = -1;
+					Class118.playersList[index].animId = -1;
 				}
 			}
 			for (int index = 0; index < Class120_Sub12_Sub11.npcList.length; index++) {
 				if (Class120_Sub12_Sub11.npcList[index] != null) {
-					Class120_Sub12_Sub11.npcList[index].anInt3006 = -1;
+					Class120_Sub12_Sub11.npcList[index].animId = -1;
 				}
 			}
 			Class23.packetType = -1;
@@ -1698,7 +1698,7 @@ abstract class AbstractTimer {
 			final int i_293_ = Canvas_Sub1.inputStream.getInt1();
 			final int i_294_ = Canvas_Sub1.inputStream.getULEShortA();
 			if (Class69_Sub3_Sub1.updatePacketCounter(i_294_)) {
-				Class29.method250(i_293_, i_292_);
+				EntityRenderData.method250(i_293_, i_292_);
 			}
 			Class23.packetType = -1;
 			return true;

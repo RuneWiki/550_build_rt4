@@ -26,6 +26,7 @@ final class CursorType {
 
 	public static void method1915() {
 		aString1238 = null;
+		recentUse = null;
 		aClass189_1243 = null;
 		aString1239 = null;
 	}
@@ -56,8 +57,8 @@ final class CursorType {
 				if (i_5_ == 1 && Class186.menuOptionCount > 0) {
 					final short i_6_ = Class120_Sub29.menuOptionsCode[Class186.menuOptionCount - 1];
 					if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
-						final int i_7_ = Class120_Sub29.anIntArray2769[Class186.menuOptionCount - 1];
-						final int i_8_ = Class120_Sub12_Sub7.anIntArray3182[Class186.menuOptionCount - 1];
+						final int i_7_ = Class120_Sub29.menuOptionsData3[Class186.menuOptionCount - 1];
+						final int i_8_ = Class120_Sub12_Sub7.menuOptionsData2[Class186.menuOptionCount - 1];
 						final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
 						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
 						if (class120_sub20.method1681() || class120_sub20.method1691()) {
@@ -132,7 +133,7 @@ final class CursorType {
 		if (ldSprite != null) {
 			return ldSprite;
 		}
-		ldSprite = Class120_Sub12_Sub26.method1340(FileSystemWorker.aClass50_794, graphic, 0);
+		ldSprite = Class120_Sub12_Sub26.constructLDSpriteAlpha(FileSystemWorker.aClass50_794, graphic, 0);
 		if (ldSprite != null) {
 			spriteCache.put(ldSprite, graphic);
 		}

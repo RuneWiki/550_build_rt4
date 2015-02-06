@@ -179,39 +179,33 @@ final class Class120_Sub22 extends Node {
 		}
 	}
 
-	final boolean method1702(final int[] is, final Class90 class90, final int i, final byte[] is_24_) {
-		boolean bool;
-		try {
-			boolean bool_25_ = true;
-			int i_26_ = 0;
-			Class120_Sub5_Sub1 class120_sub5_sub1 = null;
-			for (int i_27_ = 0; i_27_ < 128; i_27_++) {
-				if (is_24_ == null || is_24_[i_27_] != 0) {
-					int i_28_ = anIntArray2678[i_27_];
-					if (i_28_ != 0) {
-						if (i_28_ != i_26_) {
-							i_26_ = i_28_;
-							if ((--i_28_ & 0x1) != 0) {
-								class120_sub5_sub1 = class90.method753(is, i_28_ >> 2);
-							} else {
-								class120_sub5_sub1 = class90.method756(is, i_28_ >> 2);
-							}
-							if (class120_sub5_sub1 == null) {
-								bool_25_ = false;
-							}
+	final boolean method1702(final Class90 class90, final int[] is, final byte[] is_24_) {
+		boolean bool_25_ = true;
+		int i_26_ = 0;
+		Class120_Sub5_Sub1 class120_sub5_sub1 = null;
+		for (int i_27_ = 0; i_27_ < 128; i_27_++) {
+			if (is_24_ == null || is_24_[i_27_] != 0) {
+				int i_28_ = anIntArray2678[i_27_];
+				if (i_28_ != 0) {
+					if (i_28_ != i_26_) {
+						i_26_ = i_28_;
+						if ((--i_28_ & 0x1) != 0) {
+							class120_sub5_sub1 = class90.method753(is, i_28_ >> 2);
+						} else {
+							class120_sub5_sub1 = class90.method756(is, i_28_ >> 2);
 						}
-						if (class120_sub5_sub1 != null) {
-							this.aClass120_Sub5_Sub1Array2673[i_27_] = class120_sub5_sub1;
-							anIntArray2678[i_27_] = 0;
+						if (class120_sub5_sub1 == null) {
+							bool_25_ = false;
 						}
+					}
+					if (class120_sub5_sub1 != null) {
+						this.aClass120_Sub5_Sub1Array2673[i_27_] = class120_sub5_sub1;
+						anIntArray2678[i_27_] = 0;
 					}
 				}
 			}
-			bool = bool_25_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.F(").append(is != null ? "{...}" : "null").append(',').append(class90 != null ? "{...}" : "null").append(',').append(i).append(',').append(is_24_ != null ? "{...}" : "null").append(')').toString());
 		}
-		return bool;
+		return bool_25_;
 	}
 
 	public static void method1703(final int i) {

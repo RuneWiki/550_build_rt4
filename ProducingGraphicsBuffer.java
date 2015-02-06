@@ -51,7 +51,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 
 	static final void method1850(final GameEntity gameEntity) {
 		if (gameEntity.anInt3010 != 0) {
-			final Class29 class29 = gameEntity.method2336();
+			final EntityRenderData class29 = gameEntity.getEntityRenderData();
 			if (gameEntity.facingEntityIndex != -1 && gameEntity.facingEntityIndex < 32768) {
 				final Npc npc = Class120_Sub12_Sub11.npcList[gameEntity.facingEntityIndex];
 				if (npc != null) {
@@ -88,7 +88,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			final int i_10_ = 0x7ff & -gameEntity.anInt3032 + gameEntity.anInt3019;
 			if (i_10_ != 0) {
 				if (class29.anInt189 != 0) {
-					gameEntity.anInt3004 = -1;
+					gameEntity.idleAnimId = -1;
 					final int i_11_ = gameEntity.anInt3019 << 5;
 					if (gameEntity.anInt2983 != i_11_) {
 						gameEntity.anInt3030 = 0;
@@ -187,27 +187,27 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 						if (gameEntity.anInt2960 > 0) {
 							if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 2) {
 								if (class29.anInt194 != -1) {
-									gameEntity.anInt3004 = class29.anInt194;
+									gameEntity.idleAnimId = class29.anInt194;
 								} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
-									gameEntity.anInt3004 = class29.anInt190;
+									gameEntity.idleAnimId = class29.anInt190;
 								}
 							} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 0) {
 								if ((class29.anInt203 ^ 0xffffffff) == 0) {
 									if (class29.anInt212 != -1) {
-										gameEntity.anInt3004 = class29.anInt212;
+										gameEntity.idleAnimId = class29.anInt212;
 									}
 								} else {
-									gameEntity.anInt3004 = class29.anInt203;
+									gameEntity.idleAnimId = class29.anInt203;
 								}
 							}
 						}
-						if ((gameEntity.anInt3004 ^ 0xffffffff) == 0) {
+						if ((gameEntity.idleAnimId ^ 0xffffffff) == 0) {
 							if (class29.anInt202 == -1) {
 								if ((class29.anInt193 ^ 0xffffffff) != 0) {
-									gameEntity.anInt3004 = class29.anInt193;
+									gameEntity.idleAnimId = class29.anInt193;
 								}
 							} else {
-								gameEntity.anInt3004 = class29.anInt202;
+								gameEntity.idleAnimId = class29.anInt202;
 							}
 						}
 					} else {
@@ -215,31 +215,31 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 2) {
 								if ((class29.anInt211 ^ 0xffffffff) == 0) {
 									if (class29.anInt190 != -1) {
-										gameEntity.anInt3004 = class29.anInt190;
+										gameEntity.idleAnimId = class29.anInt190;
 									}
 								} else {
-									gameEntity.anInt3004 = class29.anInt211;
+									gameEntity.idleAnimId = class29.anInt211;
 								}
 							} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 0) {
 								if (class29.anInt198 != -1) {
-									gameEntity.anInt3004 = class29.anInt198;
+									gameEntity.idleAnimId = class29.anInt198;
 								} else if (class29.anInt212 != -1) {
-									gameEntity.anInt3004 = class29.anInt212;
+									gameEntity.idleAnimId = class29.anInt212;
 								}
 							}
 						}
-						if ((gameEntity.anInt3004 ^ 0xffffffff) == 0) {
+						if ((gameEntity.idleAnimId ^ 0xffffffff) == 0) {
 							if ((class29.anInt222 ^ 0xffffffff) == 0) {
 								if ((class29.anInt191 ^ 0xffffffff) != 0) {
-									gameEntity.anInt3004 = class29.anInt191;
+									gameEntity.idleAnimId = class29.anInt191;
 								}
 							} else {
-								gameEntity.anInt3004 = class29.anInt222;
+								gameEntity.idleAnimId = class29.anInt222;
 							}
 						}
 					}
-					if (gameEntity.anInt3004 == -1) {
-						gameEntity.anInt3004 = class29.anInt205;
+					if (gameEntity.idleAnimId == -1) {
+						gameEntity.idleAnimId = class29.anInt205;
 					}
 				} else {
 					gameEntity.anInt3017++;
@@ -251,27 +251,27 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							gameEntity.anInt3032 = gameEntity.anInt3019;
 						}
 						if (gameEntity.anInt3017 > 25 || bool) {
-							gameEntity.anInt3004 = class29.anInt205;
+							gameEntity.idleAnimId = class29.anInt205;
 							if (gameEntity.anInt2960 > 0) {
 								if (gameEntity.aByteArray2973[-1 + gameEntity.anInt2960] == 2) {
 									if ((class29.anInt211 ^ 0xffffffff) != 0) {
-										gameEntity.anInt3004 = class29.anInt211;
+										gameEntity.idleAnimId = class29.anInt211;
 									} else if (class29.anInt190 != -1) {
-										gameEntity.anInt3004 = class29.anInt190;
+										gameEntity.idleAnimId = class29.anInt190;
 									}
 								} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] != 0) {
 									if ((class29.anInt222 ^ 0xffffffff) != 0) {
-										gameEntity.anInt3004 = class29.anInt222;
+										gameEntity.idleAnimId = class29.anInt222;
 									}
 								} else if (class29.anInt198 == -1) {
 									if (class29.anInt212 != -1) {
-										gameEntity.anInt3004 = class29.anInt212;
+										gameEntity.idleAnimId = class29.anInt212;
 									}
 								} else {
-									gameEntity.anInt3004 = class29.anInt198;
+									gameEntity.idleAnimId = class29.anInt198;
 								}
 							} else if ((class29.anInt191 ^ 0xffffffff) != 0) {
-								gameEntity.anInt3004 = class29.anInt191;
+								gameEntity.idleAnimId = class29.anInt191;
 							}
 						}
 					} else {
@@ -282,25 +282,25 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							gameEntity.anInt3032 = gameEntity.anInt3019;
 						}
 						if (gameEntity.anInt3017 > 25 || bool) {
-							gameEntity.anInt3004 = class29.anInt205;
+							gameEntity.idleAnimId = class29.anInt205;
 							if (gameEntity.anInt2960 <= 0) {
 								if (class29.anInt193 != -1) {
-									gameEntity.anInt3004 = class29.anInt193;
+									gameEntity.idleAnimId = class29.anInt193;
 								}
 							} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 2) {
 								if ((class29.anInt194 ^ 0xffffffff) != 0) {
-									gameEntity.anInt3004 = class29.anInt194;
+									gameEntity.idleAnimId = class29.anInt194;
 								} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
-									gameEntity.anInt3004 = class29.anInt190;
+									gameEntity.idleAnimId = class29.anInt190;
 								}
 							} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] != 0) {
 								if (class29.anInt202 != -1) {
-									gameEntity.anInt3004 = class29.anInt202;
+									gameEntity.idleAnimId = class29.anInt202;
 								}
 							} else if ((class29.anInt203 ^ 0xffffffff) != 0) {
-								gameEntity.anInt3004 = class29.anInt203;
+								gameEntity.idleAnimId = class29.anInt203;
 							} else if ((class29.anInt212 ^ 0xffffffff) != 0) {
-								gameEntity.anInt3004 = class29.anInt212;
+								gameEntity.idleAnimId = class29.anInt212;
 							}
 						}
 					}
@@ -474,7 +474,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							for (int i_52_ = 0; i_52_ < i_51_; i_52_++) {
 								final Light light = new Light(class120_sub7);
 								if (light.anInt376 == 31) {
-									final Class181 class181 = Class120_Sub12_Sub3.method1208(class120_sub7.getUShort(), (byte) -72);
+									final Class181 class181 = Class181.list(class120_sub7.getUShort());
 									light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 								}
 								light.x += i_20_ << 7;
@@ -585,24 +585,24 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 			if (i_70_ == 3) {
-				final Class36 class36 = Class23.method202(i_68_, i_66_, i_69_);
+				final GroundDecoration class36 = Class23.method202(i_66_, i_69_, i_68_);
 				if (class36 != null) {
-					class36.aClass180_309 = new AnimatedLocation(0x7fffffff & (int) (class36.bitPacked >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.aClass180_309);
+					class36.sceneGraphNode = new AnimatedLocation(0x7fffffff & (int) (class36.bitPackedUid >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.sceneGraphNode);
 				}
 			}
 		}
 	}
 
-	static final void method1854(final JagexInterface jagexInterface, final boolean bool) {
+	static final void method1854(final JagexInterface jagexInterface, final boolean activateResizeListener) {
 		final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.width : jagexInterface.maxScrollHorizontal;
 		final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.height : jagexInterface.maxScrollVertical;
-		WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], bool, i, jagexInterface.bitPacked, i_76_);
+		WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], activateResizeListener, i, i_76_, jagexInterface.bitPacked);
 		if (jagexInterface.components != null) {
-			WorldInfo.method2065(jagexInterface.components, bool, i, jagexInterface.bitPacked, i_76_);
+			WorldInfo.method2065(jagexInterface.components, activateResizeListener, i, i_76_, jagexInterface.bitPacked);
 		}
-		final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
-		if (class120_sub26 != null) {
-			Class120_Sub12_Sub12.method1258(bool, i, class120_sub26.interfaceId, i_76_);
+		final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
+		if (overridedInterface != null) {
+			Class120_Sub12_Sub12.method1258(overridedInterface.interfaceId, i, i_76_, activateResizeListener);
 		}
 	}
 

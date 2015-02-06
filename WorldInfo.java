@@ -9,12 +9,12 @@ final class WorldInfo {
 	static String aString1421;
 	String region;
 
-	static final void method2065(final JagexInterface[] class189s, final boolean bool, final int i, final int i_0_, final int i_1_) {
+	static final void method2065(final JagexInterface[] class189s, final boolean activateResizeListener, final int width, final int height, final int parent) {
 		for (final JagexInterface class1892 : class189s) {
 			final JagexInterface jagexInterface = class1892;
-			if (jagexInterface != null && jagexInterface.parent == i_0_) {
-				Class23.updateInterfaceSize(jagexInterface, bool, i, i_1_);
-				SceneGraphNode.updateInterfacePosition(jagexInterface, i, i_1_);
+			if (jagexInterface != null && jagexInterface.parent == parent) {
+				Class23.updateInterfaceSize(jagexInterface, width, height, activateResizeListener);
+				SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {
 					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.height;
 				}
@@ -28,7 +28,7 @@ final class WorldInfo {
 					jagexInterface.verticalScrollPosition = 0;
 				}
 				if (jagexInterface.type == 0) {
-					ProducingGraphicsBuffer.method1854(jagexInterface, bool);
+					ProducingGraphicsBuffer.method1854(jagexInterface, activateResizeListener);
 				}
 			}
 		}
@@ -88,7 +88,7 @@ final class WorldInfo {
 		try {
 			aString1421 = null;
 			if (bool) {
-				method2065(null, false, 101, -99, 41);
+				method2065(null, false, 101, 41, -99);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.A(").append(bool).append(')').toString());

@@ -11,15 +11,9 @@ final class StructType extends NodeSub {
 	static int titlebgId = -1;
 	static int anInt3590 = -1;
 
-	public static void method1560(final int i) {
-		try {
-			aClass189_3588 = null;
-			if (i < 45) {
-				method1562();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.G(").append(i).append(')').toString());
-		}
+	public static void method1560() {
+		aClass189_3588 = null;
+		configClient = null;
 	}
 
 	static final void method1561(final int i, final int i_0_, final int i_1_, final byte[][][] is, final int i_2_, final byte i_3_, final int i_4_, final int i_5_) {
@@ -54,9 +48,9 @@ final class StructType extends NodeSub {
 										class186.aClass180_1898.method2266(class186.anInt1896, i_10_, class186.anInt1894, class186.anInt1893, class186.anInt1891);
 									}
 								}
-								if (class120_sub18.aClass36_2650 != null) {
-									final Class36 class36 = class120_sub18.aClass36_2650;
-									class36.aClass180_309.method2266(0, i_10_, class36.anInt312, class36.anInt311, class36.anInt310);
+								if (class120_sub18.groundDecoration != null) {
+									final GroundDecoration class36 = class120_sub18.groundDecoration;
+									class36.sceneGraphNode.method2266(0, i_10_, class36.renderY, class36.renderX, class36.renderZ);
 								}
 								if (class120_sub18.aClass28Array2625 != null) {
 									for (int i_13_ = 0; i_13_ < class120_sub18.anInt2638; i_13_++) {
@@ -97,7 +91,7 @@ final class StructType extends NodeSub {
 					if (class120_sub9.anInt2505 != Class120_Sub12_Sub19.anInt3281) {
 						Class120_Sub12_Sub19.anInt3281 = class120_sub9.anInt2505;
 						Class69.method614(class120_sub9.anInt2505);
-						AtmosphereManager.setFogColor(Class29.method251());
+						AtmosphereManager.setFogColor(EntityRenderData.method251());
 					}
 					class120_sub9.method1162(LabelGroup.groundTiles, f, false);
 				}
@@ -238,7 +232,7 @@ final class StructType extends NodeSub {
 		SpotAnimType.modelCache.method192(5);
 		VarBit.recentUse.method192(5);
 		Varp.recentUse.method192(5);
-		Class120_Sub12_Sub31.aClass21_3378.method192(5);
+		EntityRenderData.recentUse.method192(5);
 		MapSceneType.recentUse.method192(5);
 		MapSceneType.spriteCache.method192(5);
 		MapFunctionType.recentUse.method192(5);
@@ -251,32 +245,32 @@ final class StructType extends NodeSub {
 		CursorType.spriteCache.method192(5);
 		Class43.playerModelsCache.method192(5);
 		Class90.playerHeadModelsCache.method192(5);		
-		AnimatedLocation.aClass21_3071.method192(50);
+		JagexInterface.spriteCache.method192(50);
 		LabelGroup.aClass21_2406.method192(50);
 		Class120_Sub12_Sub2.aClass21_3143.method192(50);
 		Class120_Sub14_Sub13.aClass21_3564.method192(5);
-		Class154.aClass21_1438.method192(5);
+		Class154.shadowModelCache.method192(5);
 		Class120_Sub12_Sub2.aClass21_3144.method192(5);
 		Class15.aClass21_95.method192(5);
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 249) {
-			final int i_32_ = buffer.getUByte();
+			final int paramsSize = buffer.getUByte();
 			if (params == null) {
-				final int i_33_ = Class120_Sub12_Sub17.getFarestBitValue(i_32_);
+				final int i_33_ = Class120_Sub12_Sub17.getFarestBitValue(paramsSize);
 				params = new Hashtable(i_33_);
 			}
-			for (int i_34_ = 0; i_32_ > i_34_; i_34_++) {
-				final boolean bool = buffer.getUByte() == 1;
-				final int i_35_ = buffer.getMedium();
+			for (int paramId = 0; paramId < paramsSize; paramId++) {
+				final boolean isString = buffer.getUByte() == 1;
+				final int paramUid = buffer.getMedium();
 				Node node;
-				if (bool) {
+				if (isString) {
 					node = new StringNode(buffer.getJagexString());
 				} else {
 					node = new IntegerNode(buffer.getInt());
 				}
-				params.put(node, i_35_);
+				params.put(node, paramUid);
 			}
 		}
 	}
@@ -306,27 +300,18 @@ final class StructType extends NodeSub {
 		}
 	}
 
-	static final int method1566(final int i, int i_40_, final int i_41_, final byte i_42_) {
-		int i_43_;
-		try {
-			i_40_ &= 0x3;
-			if (i_40_ == 0) {
-				return i;
-			}
-			if (i_42_ != 24) {
-				aClass189_3588 = null;
-			}
-			if (i_40_ == 1) {
-				return i_41_;
-			}
-			if (i_40_ == 2) {
-				return -i + 1023;
-			}
-			i_43_ = 1023 + -i_41_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ro.B(").append(i).append(',').append(i_40_).append(',').append(i_41_).append(',').append(i_42_).append(')').toString());
+	static final int method1566(final int x, final int z, int rot) {
+		rot &= 0x3;
+		if (rot == 0) {
+			return x;
 		}
-		return i_43_;
+		if (rot == 1) {
+			return z;
+		}
+		if (rot == 2) {
+			return 1023 - x;
+		}
+		return 1023 - z;
 	}
 
 	static final void method1567(final boolean bool) {

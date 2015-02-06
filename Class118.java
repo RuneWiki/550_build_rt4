@@ -50,13 +50,13 @@ final class Class118 {
 						21150, -28918, -28898, -22006, -21986, -12918, -12898 } };
 	}
 
-	static final Class36 method1022(final int i, final int i_0_, final int i_1_) {
+	static final GroundDecoration method1022(final int i, final int i_0_, final int i_1_) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 == null) {
 			return null;
 		}
-		final Class36 class36 = class120_sub18.aClass36_2650;
-		class120_sub18.aClass36_2650 = null;
+		final GroundDecoration class36 = class120_sub18.groundDecoration;
+		class120_sub18.groundDecoration = null;
 		return class36;
 	}
 

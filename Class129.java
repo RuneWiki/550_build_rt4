@@ -16,7 +16,7 @@ final class Class129 {
 
 	private static final int method1911(final int i, final int i_0_) {
 		int i_1_;
-		for (i_1_ = (int) Math.pow(i, 1.0 / i_0_) + 1; NpcType.method2201(6, i_0_, i_1_) > i; i_1_--) {
+		for (i_1_ = (int) Math.pow(i, 1.0 / i_0_) + 1; NpcType.method2201(i_0_, i_1_) > i; i_1_--) {
 			/* empty */
 		}
 		return i_1_;
@@ -110,7 +110,7 @@ final class Class129 {
 			int i = 0;
 			int i_20_ = Class120_Sub23.method1717(5) + 1;
 			while (i < anInt1230) {
-				final int i_21_ = Class120_Sub23.method1717(Class110.method979(anInt1230 - i, -107));
+				final int i_21_ = Class120_Sub23.method1717(Class110.method979(anInt1230 - i));
 				for (int i_22_ = 0; i_22_ < i_21_; i_22_++) {
 					anIntArray1233[i++] = i_20_;
 				}

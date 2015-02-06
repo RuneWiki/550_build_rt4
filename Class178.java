@@ -34,14 +34,7 @@ final class Class178 {
 		MapSceneType.anInt1361 = LabelGroup.groundTiles.length;
 	}
 
-	public static void method2258(final byte i) {
-		try {
-			if (i > -85) {
-				anInt1771 = -119;
-			}
-			js5Worker = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("um.B(").append(i).append(')').toString());
-		}
+	public static void method2258() {
+		js5Worker = null;
 	}
 }

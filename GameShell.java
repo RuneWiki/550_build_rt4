@@ -42,11 +42,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	static final void method31(final int i_0_) {
 		if (i_0_ >= 0) {
-			final int i_1_ = Class120_Sub12_Sub7.anIntArray3182[i_0_];
-			final int i_2_ = Class120_Sub29.anIntArray2769[i_0_];
-			final int i_3_ = (int) Class120_Sub12.aLongArray2562[i_0_];
+			final int i_1_ = Class120_Sub12_Sub7.menuOptionsData2[i_0_];
+			final int i_2_ = Class120_Sub29.menuOptionsData3[i_0_];
+			final int i_3_ = (int) Class120_Sub12.menuOptionsData1[i_0_];
 			int i_4_ = Class120_Sub29.menuOptionsCode[i_0_];
-			final long l = Class120_Sub12.aLongArray2562[i_0_];
+			final long l = Class120_Sub12.menuOptionsData1[i_0_];
 			if (i_4_ >= 2000) {
 				i_4_ -= 2000;
 			}
@@ -136,11 +136,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(72);
 				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
 			}
-			if (i_4_ == 19) {
-				if (i_3_ == 0) {
+			if (i_4_ == 19) {//Cast spell on scene
+				if (i_3_ == 0) {//From minimap
 					MapFunctionNode.anInt3479 = 1;
 					Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
-				} else if (i_3_ == 1) {
+				} else if (i_3_ == 1) {//From game screen
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
 					Class120_Sub12_Sub11.outputStream.putShortA(i_2_ + Class181.currentBaseZ);
 					Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.anInt420);
@@ -432,8 +432,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.anInt2219);// 2
 							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.aFloat28);// 4
 							Class120_Sub12_Sub11.outputStream.putByte(57);// 5
-							Class120_Sub12_Sub11.outputStream.putByte(Class164.anInt1590);// 6
-							Class120_Sub12_Sub11.outputStream.putByte(Class154.anInt1442);// 7
+							Class120_Sub12_Sub11.outputStream.putByte(Class164.minimapRandomRotation);// 6
+							Class120_Sub12_Sub11.outputStream.putByte(Class154.minimapRandomZoom);// 7
 							Class120_Sub12_Sub11.outputStream.putByte(89);// 8
 							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.x);// 10
 							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.z);// 12
@@ -509,8 +509,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					final JagexInterface jagexInterface = JagexInterface.getComponent(i_2_, i_1_);
 					if (jagexInterface != null) {
 						Node.deselectSpell();
-						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-						MouseRecorder.selectSpell(class120_sub20.method1685(), class120_sub20.paramId, jagexInterface.cursorId, i_1_, jagexInterface.targetCursorId, i_2_);
+						final InterfaceClickMask interfaceClickMask = client.getClickMask(jagexInterface);
+						MouseRecorder.selectSpell(interfaceClickMask.method1685(), interfaceClickMask.paramId, jagexInterface.cursorId, i_1_, jagexInterface.targetCursorId, i_2_);
 						Light.objSelected = 0;
 						Class101.aString963 = Class33.method277(jagexInterface);
 						if (Class101.aString963 == null) {
@@ -604,6 +604,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
 					}
 					if (i_4_ == 23 || i_4_ == 1009) {
+						//23 are 0-4 actions
+						//1009 are 5-9 actions.
 						Class120_Sub14_Sub22.method1629(i_2_, i_1_, i_3_, Class120_Sub12_Sub29.menuOptionSufix[i_0_]);
 					}
 					if (i_4_ == 1010) {
@@ -817,7 +819,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				element.method923();
 			}
 		}
-		final LDSprite compassSprite = Class120_Sub14_Sub13.method1534(js5, Class9.compassId, 0);
+		final LDSprite compassSprite = Class120_Sub14_Sub13.constructLDSprite(js5, Class9.compassId, 0);
 		compassSprite.method1615();
 		if (!HDToolkit.glEnabled) {
 			Class157.compassSprite = compassSprite;

@@ -57,7 +57,7 @@ final class Class59 {
 					i_11_ = is[i_13_] + is_9_[i_13_] + GraphicsLD.startX;
 				}
 			}
-			GraphicsLD.drawHorizontalLine(i_10_, i_12_, i_11_ - i_10_, i, i_8_);
+			GraphicsLD.drawHorizontalLineAlpha(i_10_, i_12_, i_11_ - i_10_, i, i_8_);
 		}
 	}
 

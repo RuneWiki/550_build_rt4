@@ -19,14 +19,14 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	static int crossState = 0;
 	String displayName;
 
-	static final void method1629(final int bitPacked, final int componentIndex, final int actionId, final String string) {
+	static final void method1629(final int bitPacked, final int componentIndex, final int actionId, final String menuOptionSuffix) {
 		final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
 		if (jagexInterface != null) {
 			if (jagexInterface.anObjectArray2006 != null) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
-				class120_sub10.anInt2541 = actionId;
+				class120_sub10.actionId = actionId;
 				class120_sub10.aClass189_2534 = jagexInterface;
-				class120_sub10.aString2539 = string;
+				class120_sub10.aString2539 = menuOptionSuffix;
 				class120_sub10.objectData = jagexInterface.anObjectArray2006;
 				Class88.method744(class120_sub10);
 			}
@@ -193,8 +193,8 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 			}
 			final int i_45_ = (i_19_ << 7) - -i;
 			final int i_46_ = i_26_ + (i_23_ << 7);
-			final int i_47_ = Class11.method130(i_26_, i_23_, i, is, i_19_, 13);
-			i_31_ = class120_sub9.method1166(i_46_, i_47_, i_45_, f_36_, f_35_, f_37_, !bool ? i_34_ : ~0xff & i_34_, is_21_ == null ? 0.0F : (-Class11.method130(i_26_, i_23_, i, is_21_, i_19_, 13) + i_47_) / f);
+			final int i_47_ = Class11.method130(i_26_, i_23_, i, is, i_19_);
+			i_31_ = class120_sub9.method1166(i_46_, i_47_, i_45_, f_36_, f_35_, f_37_, !bool ? i_34_ : ~0xff & i_34_, is_21_ == null ? 0.0F : (-Class11.method130(i_26_, i_23_, i, is_21_, i_19_) + i_47_) / f);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, "wg.E(");
 		}

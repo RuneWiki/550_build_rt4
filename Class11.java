@@ -9,20 +9,13 @@ final class Class11 {
 	static String aString81 = "Examine";
 	static String aString82 = "Connected to update server";
 
-	static final void method124(final double d, final byte i) {
-		try {
-			if (i != -78) {
-				NpcType.aClass21_80 = null;
+	static final void method124(double d) {
+		if (AbstractGraphicsBuffer.aDouble1172 != d) {
+			for (int i_0_ = 0; i_0_ < 256; i_0_++) {
+				final int i_1_ = (int) (255.0 * Math.pow(i_0_ / 255.0, d));
+				Class79_Sub1.anIntArray2246[i_0_] = i_1_ > 255 ? 255 : i_1_;
 			}
-			if (AbstractGraphicsBuffer.aDouble1172 != d) {
-				for (int i_0_ = 0; i_0_ < 256; i_0_++) {
-					final int i_1_ = (int) (255.0 * Math.pow(i_0_ / 255.0, d));
-					Class79_Sub1.anIntArray2246[i_0_] = i_1_ > 255 ? 255 : i_1_;
-				}
-				AbstractGraphicsBuffer.aDouble1172 = d;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.A(").append(d).append(',').append(i).append(')').toString());
+			AbstractGraphicsBuffer.aDouble1172 = d;
 		}
 	}
 
@@ -111,31 +104,15 @@ final class Class11 {
 		return indexedSprite;
 	}
 
-	public static void method129(final int i) {
-		try {
-			aString81 = null;
-			NpcType.aClass21_80 = null;
-			aString82 = null;
-			if (i != 34) {
-				aString82 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.D(").append(i).append(')').toString());
-		}
+	public static void method129() {
+		aString81 = null;
+		NpcType.aClass21_80 = null;
+		aString82 = null;
 	}
 
-	static final int method130(final int i, final int i_16_, final int i_17_, final int[][] is, final int i_18_, final int i_19_) {
-		int i_20_;
-		try {
-			if (i_19_ != 13) {
-				aString82 = null;
-			}
-			final int i_21_ = i * is[i_16_ - -1][i_18_] + is[i_16_][i_18_] * (128 - i) >> 7;
-			final int i_22_ = is[i_16_][1 + i_18_] * (-i + 128) + i * is[i_16_ + 1][1 + i_18_] >> 7;
-			i_20_ = i_21_ * (128 - i_17_) + i_22_ * i_17_ >> 7;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ao.G(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(is != null ? "{...}" : "null").append(',').append(i_18_).append(',').append(i_19_).append(')').toString());
-		}
-		return i_20_;
+	static final int method130(final int i, final int i_16_, final int i_17_, final int[][] is, final int i_18_) {
+		final int i_21_ = i * is[i_16_ - -1][i_18_] + is[i_16_][i_18_] * (128 - i) >> 7;
+		final int i_22_ = is[i_16_][1 + i_18_] * (-i + 128) + i * is[i_16_ + 1][1 + i_18_] >> 7;
+		return i_21_ * (128 - i_17_) + i_22_ * i_17_ >> 7;
 	}
 }

@@ -11,7 +11,7 @@ final class ObjectContainer extends Node {
 	int[] objectIds = { -1 };
 	int[] objectCounts = new int[1];
 	static Hashtable objectContainerCache = new Hashtable(32);
-	static Class29 aClass29_2620 = new Class29();
+	static EntityRenderData defaultEntityRenderData = new EntityRenderData();
 	static int anInt2621;
 
 	static final JagexInterface method1665(final JagexInterface jagexInterface) {
@@ -31,7 +31,7 @@ final class ObjectContainer extends Node {
 	public static void method1666() {
 		aString2614 = null;
 		objectContainerCache = null;
-		aClass29_2620 = null;
+		defaultEntityRenderData = null;
 	}
 
 	public ObjectContainer() {

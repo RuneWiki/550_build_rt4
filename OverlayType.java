@@ -30,11 +30,11 @@ final class OverlayType {
 
 	final void decode(final Buffer buffer, final int id) {
 		for (;;) {
-			final int i_4_ = buffer.getUByte();
-			if (i_4_ == 0) {
+			final int code = buffer.getUByte();
+			if (code == 0) {
 				break;
 			}
-			decode(buffer, i_4_, id);
+			decode(buffer, code, id);
 		}
 	}
 
@@ -71,7 +71,7 @@ final class OverlayType {
 
 	static final void setupOverlay(final js5 js5) {
 		configClient = js5;
-		OverlayType.overlayAmount = configClient.getFileAmount(4);
+		overlayAmount = configClient.getFileAmount(4);
 	}
 
 	static final OverlayType list(final int id) {

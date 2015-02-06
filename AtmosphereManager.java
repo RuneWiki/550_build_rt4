@@ -7,14 +7,14 @@ final class AtmosphereManager {
 	private static float light1Diffuse;
 	private static int screenColorRgb;
 	private static int fogOffset = -1;
-	static int lightingZ;
+	static int lightZ;
 	static float[] fogColor;
 	private static float light0Diffuse;
 	static int defaultScreenColorRgb;
 	static float[] light0Position;
 	static int defaulFogColorRgb;
 	private static float[] light1Position;
-	static int lightingX;
+	static int lightX;
 	private static float lightModelAmbient;
 	private static int fogColorRGB;
 
@@ -43,12 +43,12 @@ final class AtmosphereManager {
 	}
 
 	private static final void initDefaults() {
-		setLightingParams(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
-		setLightingPosition(-50.0F, -60.0F, -50.0F);
+		setLightParams(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
+		setLightPosition(-50.0F, -60.0F, -50.0F);
 		setFogValues(defaulFogColorRgb, 0, false);
 	}
 
-	static final void setLightingPosition(final float x, final float y, final float z) {
+	static final void setLightPosition(final float x, final float y, final float z) {
 		if (light0Position[0] != x || light0Position[1] != y || light0Position[2] != z) {
 			light0Position[0] = x;
 			light0Position[1] = y;
@@ -56,8 +56,8 @@ final class AtmosphereManager {
 			light1Position[0] = -x;
 			light1Position[1] = -y;
 			light1Position[2] = -z;
-			lightingX = (int) (x * 256.0F / y);
-			lightingZ = (int) (z * 256.0F / y);
+			lightX = (int) (x * 256.0F / y);
+			lightZ = (int) (z * 256.0F / y);
 		}
 	}
 
@@ -65,7 +65,7 @@ final class AtmosphereManager {
 		return light0Diffuse;
 	}
 
-	static final void applyLightingPosition() {
+	static final void applyLightPosition() {
 		final GL gl = HDToolkit.gl;
 		gl.glLightfv(16384, 4611, light0Position, 0);//LIGHT0, POSITION
 		gl.glLightfv(16385, 4611, light1Position, 0);//LIGHT1, POSITION
@@ -129,7 +129,7 @@ final class AtmosphereManager {
 		}
 	}
 
-	static final void setLightingParams(int screenColor, float ambientMod, float l0Diffuse, float l1Diffuse) {
+	static final void setLightParams(int screenColor, float ambientMod, float l0Diffuse, float l1Diffuse) {
 		if (screenColorRgb != screenColor || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
 			screenColorRgb = screenColor;
 			lightModelAmbient = ambientMod;

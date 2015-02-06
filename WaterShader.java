@@ -137,7 +137,7 @@ final class WaterShader implements ShaderInterface {
 				gl.glTexGenfv(8194, 9474, aFloatArray2167, 0);//R, EYE_PLANE\
 				gl.glActiveTexture(33986);//TEXTURE2
 			}
-			gl.glTexEnvfv(8960, 8705, Class29.method251(), 0);//TEXTURE_ENV, TEXTURE_ENV_COLOR
+			gl.glTexEnvfv(8960, 8705, EntityRenderData.method251(), 0);//TEXTURE_ENV, TEXTURE_ENV_COLOR
 			if (i >= 0) {
 				aFloatArray2167[0] = 0.0F;
 				aFloatArray2167[1] = 1.0F / Class69_Sub2.anInt2233;

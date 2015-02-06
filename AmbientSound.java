@@ -31,7 +31,7 @@ final class AmbientSound extends Node {
 		NpcType.aString1685 = "clignotant3:";
 		Class120_Sub12_Sub18.aString3272 = "Chargement de RuneScape en cours - veuillez patienter...";
 		Class156.aString1457 = "brillant2:";
-		Class120_Sub12_Sub21_Sub1.aString3911 = "niveau ";
+		Class120_Sub12_Sub21_Sub1.levelString = "niveau ";
 		GameEntity.aString3011 = "d\u00e9roulement:";
 		Class120_Sub12_Sub27.aString3338 = "V\u00e9rification des mises \u00e0 jour - ";
 		Class109.aString1038 = "Gestionnaire de saisie charg\u00e9";
@@ -43,8 +43,8 @@ final class AmbientSound extends Node {
 		Class120_Sub11.aString2550 = "Votre liste d'amis est pleine (100 noms maximum pour la version gratuite et 200 pour les abonn\u00e9s).";
 		ProjectileNode.aString3449 = "Prendre";
 		Class120_Sub11.aString2554 = "Chargement des param\u00e8tres par d\u00e9faut - ";
-		Class174.aString1733 = "comp\u00e9tence ";
-		LongNode.aString2424 = "classement ";
+		Class174.skillString = "comp\u00e9tence ";
+		LongNode.ratingString = "classement ";
 		HintIcon.aString807 = "ondulation:";
 		Class120_Sub14_Sub23.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
 		Class116.aString1116 = "Connexion perdue.";
@@ -76,7 +76,7 @@ final class AmbientSound extends Node {
 		Class120_Sub12_Sub25.aString3319 = "Veuillez commencer par supprimer ";
 		Class121.aString1155 = "Polices charg\u00e9es";
 		Class120_Sub12_Sub28.okString = "OK";
-		Class29.aString217 = "Chargement de l'\u00e9cran-titre - ";
+		EntityRenderData.aString217 = "Chargement de l'\u00e9cran-titre - ";
 		Class143_Sub1.aString2192 = "Votre liste noire est pleine (100 noms maximum).";
 		NodeSub.aString2585 = "Fichiers config charg\u00e9s";
 		Js5Worker.aString400 = "D\u00e9marrage de la librairie 3D";
@@ -85,7 +85,7 @@ final class AmbientSound extends Node {
 		Class61.aString568 = "voudrait faire un \u00e9change avec vous.";
 		Class120_Sub30_Sub2.aString3679 = "Chargement en cours. Veuillez patienter.";
 		MouseRecorder.aString854 = "K";
-		Class29.aString196 = " ";
+		EntityRenderData.aString196 = " ";
 		Class120_Sub14_Sub24.aString3665 = "Chargement des sprites - ";
 		Class114.aString1098 = "Chargement de la liste des serveurs";
 		Class120_Sub19.aString2653 = "M";
@@ -102,14 +102,14 @@ final class AmbientSound extends Node {
 		ModelParticle.aString1483 = "cyan:";
 		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
-		LongNode.aString2428 = "Chargement des fichiers config - ";
+		LongNode.loadingConfigString = "Chargement des fichiers config - ";
 		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
 		Class109.continueString = "Continuer";
 		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
 		Class143.selectString = "S\u00e9lectionner";
 		Class54.aString489 = " de votre liste d'amis.";
 		ClanMember.aString2574 = "blanc:";
-		Class36.aString313 = "Chargement en cours...";
+		GroundDecoration.aString313 = "Chargement en cours...";
 		Class120_Sub11.aString2552 = "\u00c9cran-titre ouvert";
 		Class120_Sub12_Sub30.aString3371 = "Chargement des textures - ";
 		Class120_Sub12_Sub15.aString3244 = "Cach\u00e9";

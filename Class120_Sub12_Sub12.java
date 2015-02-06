@@ -105,9 +105,9 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void method1258(final boolean bool, final int i_4_, final int i_5_, final int i_6_) {
-		if (js5.loadInterface(i_5_)) {
-			WorldInfo.method2065(Node.interfaceCache[i_5_], bool, i_4_, -1, i_6_);
+	static final void method1258(final int id, final int width, final int height, final boolean activateResizeListener) {
+		if (js5.loadInterface(id)) {
+			WorldInfo.method2065(Node.interfaceCache[id], activateResizeListener, width, height, -1);
 		}
 	}
 
@@ -295,21 +295,21 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 					final String string_76_ = Class120_Sub12_Sub33.menuOptionPrefix[i_75_];
 					Class120_Sub12_Sub33.menuOptionPrefix[i_75_] = Class120_Sub12_Sub33.menuOptionPrefix[i_75_ + 1];
 					Class120_Sub12_Sub33.menuOptionPrefix[i_75_ + 1] = string_76_;
-					int i_77_ = Class120_Sub12_Sub7.anIntArray3182[i_75_];
-					Class120_Sub12_Sub7.anIntArray3182[i_75_] = Class120_Sub12_Sub7.anIntArray3182[1 + i_75_];
-					Class120_Sub12_Sub7.anIntArray3182[i_75_ + 1] = i_77_;
-					i_77_ = Class120_Sub29.anIntArray2769[i_75_];
-					Class120_Sub29.anIntArray2769[i_75_] = Class120_Sub29.anIntArray2769[1 + i_75_];
-					Class120_Sub29.anIntArray2769[i_75_ + 1] = i_77_;
+					int i_77_ = Class120_Sub12_Sub7.menuOptionsData2[i_75_];
+					Class120_Sub12_Sub7.menuOptionsData2[i_75_] = Class120_Sub12_Sub7.menuOptionsData2[1 + i_75_];
+					Class120_Sub12_Sub7.menuOptionsData2[i_75_ + 1] = i_77_;
+					i_77_ = Class120_Sub29.menuOptionsData3[i_75_];
+					Class120_Sub29.menuOptionsData3[i_75_] = Class120_Sub29.menuOptionsData3[1 + i_75_];
+					Class120_Sub29.menuOptionsData3[i_75_ + 1] = i_77_;
 					i_77_ = InterfaceChangeNode.menuOptionsCursorId[i_75_];
 					InterfaceChangeNode.menuOptionsCursorId[i_75_] = InterfaceChangeNode.menuOptionsCursorId[1 + i_75_];
 					InterfaceChangeNode.menuOptionsCursorId[i_75_ + 1] = i_77_;
 					final short i_78_ = Class120_Sub29.menuOptionsCode[i_75_];
 					Class120_Sub29.menuOptionsCode[i_75_] = Class120_Sub29.menuOptionsCode[i_75_ + 1];
 					Class120_Sub29.menuOptionsCode[i_75_ + 1] = i_78_;
-					final long l = Class120_Sub12.aLongArray2562[i_75_];
-					Class120_Sub12.aLongArray2562[i_75_] = Class120_Sub12.aLongArray2562[1 + i_75_];
-					Class120_Sub12.aLongArray2562[i_75_ + 1] = l;
+					final long l = Class120_Sub12.menuOptionsData1[i_75_];
+					Class120_Sub12.menuOptionsData1[i_75_] = Class120_Sub12.menuOptionsData1[1 + i_75_];
+					Class120_Sub12.menuOptionsData1[i_75_ + 1] = l;
 				}
 			}
 		}

@@ -57,11 +57,11 @@ final class Class145 {
 			int i_12_ = Math.min(jagexInterface.width / 2, jagexInterface.height / 2);
 			if (dist > i_12_ * i_12_) {
 				i_12_ -= 10;
-				final int i_13_ = Class164.anInt1590 + (int) DummyOutputStream.aFloat28 & 0x7ff;
+				final int i_13_ = Class164.minimapRandomRotation + (int) DummyOutputStream.aFloat28 & 0x7ff;
 				int i_14_ = Rasterizer.cosineTable[i_13_];
-				i_14_ = 256 * i_14_ / (Class154.anInt1442 + 256);
+				i_14_ = 256 * i_14_ / (Class154.minimapRandomZoom + 256);
 				int i_15_ = Rasterizer.sineTable[i_13_];
-				i_15_ = i_15_ * 256 / (Class154.anInt1442 + 256);
+				i_15_ = i_15_ * 256 / (Class154.minimapRandomZoom + 256);
 				final int i_16_ = i_14_ * playerY + -(playerX * i_15_) >> 16;
 				final int i_17_ = playerX * i_14_ + i_15_ * playerY >> 16;
 				final double d = Math.atan2(i_17_, i_16_);

@@ -44,14 +44,10 @@ final class Class120_Sub4 extends Node {
 		is[1] = -anInt2433 + this.anInt2438 + i_7_;
 	}
 
-	public static void method1065(final byte i) {
-		try {
-			aClass105_2435 = null;
-			aByteArrayArrayArray2441 = null;
-			aClass105_2439 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("e.D(").append(i).append(')').toString());
-		}
+	public static void method1065() {
+		aClass105_2435 = null;
+		aByteArrayArrayArray2441 = null;
+		aClass105_2439 = null;
 	}
 
 	final void method1066(final int i, final int i_9_, final int[] is) {

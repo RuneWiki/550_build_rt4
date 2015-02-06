@@ -507,7 +507,7 @@ final class ParticleEngine extends ParticleNode {
 			for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
 				for (int i = 0; i < class169s.length; i++) {
 					if (aBooleanArray2383[i] && class169s[i] == class120_sub14_sub24.aClass169_3659) {
-						class120_sub14_sub24.method1650(-30263, is_62_[class120_sub14_sub24.aClass169_3659.anInt1647], is_61_[class120_sub14_sub24.aClass169_3659.anInt1647], is[class120_sub14_sub24.aClass169_3659.anInt1647]);
+						class120_sub14_sub24.method1650(is_62_[class120_sub14_sub24.aClass169_3659.anInt1647], is_61_[class120_sub14_sub24.aClass169_3659.anInt1647], is[class120_sub14_sub24.aClass169_3659.anInt1647]);
 						break;
 					}
 				}

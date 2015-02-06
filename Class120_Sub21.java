@@ -26,18 +26,11 @@ final class Class120_Sub21 extends Node {
 		class120_sub14_sub7.anInt3486 = i_0_;
 	}
 
-	public static void method1696(final int i) {
-		try {
-			anInterface1_2668 = null;
-			aString2665 = null;
-			aString2669 = null;
-			if (i != 26213) {
-				skillTriggersPos = 107;
-			}
-			aClass120_Sub14_Sub18Array2667 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pl.D(").append(i).append(')').toString());
-		}
+	public static void method1696() {
+		anInterface1_2668 = null;
+		aString2665 = null;
+		aString2669 = null;
+		aClass120_Sub14_Sub18Array2667 = null;
 	}
 
 	static final boolean isValidStringBase10(final String string) {
@@ -417,13 +410,12 @@ final class Class120_Sub21 extends Node {
 						}
 						Class111.aBoolean1058 = false;
 						LocType.aClass189_1818 = null;
-						ObjType.anInt1551 = 0;
 						final JagexInterface jagexInterface = CursorType.aClass189_1243;
 						CursorType.aClass189_1243 = null;
 						final JagexInterface class189_35_ = Class49.aClass189_441;
 						Class49.aClass189_441 = null;
 						WorldInfo.aBoolean1419 = false;
-						for (/**/; Class120_Sub12_Sub13.method1265() && ObjType.anInt1551 < 128; ObjType.anInt1551++) {
+						for (ObjType.anInt1551 = 0; Class120_Sub12_Sub13.method1265() && ObjType.anInt1551 < 128; ObjType.anInt1551++) {
 							Class134.anIntArray1285[ObjType.anInt1551] = NodeCache.anInt301;
 							Class120_Sub19.anIntArray2658[ObjType.anInt1551] = ObjType.aChar1536;
 						}
@@ -590,7 +582,7 @@ final class Class120_Sub21 extends Node {
 							Class120_Sub12_Sub7.anInt3184 = 0;
 							final int i_48_ = (int) (8.0 * Math.random());
 							if ((0x2 & i_48_) == 2) {
-								Class29.anInt195 += Class120_Sub30_Sub1.anInt3671;
+								EntityRenderData.anInt195 += Class120_Sub30_Sub1.anInt3671;
 							}
 							if ((i_48_ & 0x1) == 1) {
 								Class23.anInt136 += Class120_Sub14_Sub22.anInt3637;
@@ -599,10 +591,10 @@ final class Class120_Sub21 extends Node {
 								ProjectileNode.anInt3447 += Class30.anInt231;
 							}
 						}
-						if (Class29.anInt195 < -55) {
+						if (EntityRenderData.anInt195 < -55) {
 							Class120_Sub30_Sub1.anInt3671 = 2;
 						}
-						if (Class29.anInt195 > 55) {
+						if (EntityRenderData.anInt195 > 55) {
 							Class120_Sub30_Sub1.anInt3671 = -2;
 						}
 						if (Class23.anInt136 < -50) {
@@ -612,22 +604,22 @@ final class Class120_Sub21 extends Node {
 							Class120_Sub14_Sub24.anInt3666 = 0;
 							final int i_49_ = (int) (8.0 * Math.random());
 							if ((i_49_ & 0x1) == 1) {
-								Class164.anInt1590 += Class143.anInt2188;
+								Class164.minimapRandomRotation += Class143.anInt2188;
 							}
 							if ((i_49_ & 0x2) == 2) {
-								Class154.anInt1442 += Class132_Sub1.anInt2814;
+								Class154.minimapRandomZoom += Class132_Sub1.anInt2814;
 							}
 						}
-						if (Class154.anInt1442 < -20) {
+						if (Class154.minimapRandomZoom < -20) {
 							Class132_Sub1.anInt2814 = 1;
 						}
 						if (Class23.anInt136 > 50) {
 							Class120_Sub14_Sub22.anInt3637 = -2;
 						}
-						if (Class164.anInt1590 < -60) {
+						if (Class164.minimapRandomRotation < -60) {
 							Class143.anInt2188 = 2;
 						}
-						if (Class164.anInt1590 > 60) {
+						if (Class164.minimapRandomRotation > 60) {
 							Class143.anInt2188 = -2;
 						}
 						if (ProjectileNode.anInt3447 < -40) {
@@ -636,7 +628,7 @@ final class Class120_Sub21 extends Node {
 						if (ProjectileNode.anInt3447 > 40) {
 							Class30.anInt231 = -1;
 						}
-						if (Class154.anInt1442 > 10) {
+						if (Class154.minimapRandomZoom > 10) {
 							Class132_Sub1.anInt2814 = -1;
 						}
 						if (Class65.pingTimer > 50) {

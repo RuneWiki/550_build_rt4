@@ -8,7 +8,7 @@ abstract class Class120_Sub12 extends Node {
 	Class109 aClass109_2559;
 	static int anInt2560;
 	Class120_Sub12[] aClass120_Sub12Array2561;
-	static long[] aLongArray2562 = new long[500];
+	static long[] menuOptionsData1 = new long[500];
 	Class30 aClass30_2563;
 	static boolean aBoolean2564 = true;
 	static int[] anIntArray2565 = new int[4096];

@@ -89,28 +89,19 @@ final class NpcType {
 		recentUse = null;
 	}
 
-	static final int method2201(final int i, int i_2_, int i_3_) {
-		int i_4_;
-		try {
-			if (i != 6) {
-				return -34;
+	static final int method2201(int i_2_, int i_3_) {
+		int i_5_ = 1;
+		while (i_2_ > 1) {
+			if ((0x1 & i_2_) != 0) {
+				i_5_ *= i_3_;
 			}
-			int i_5_ = 1;
-			while (i_2_ > 1) {
-				if ((0x1 & i_2_) != 0) {
-					i_5_ *= i_3_;
-				}
-				i_2_ >>= 1;
-				i_3_ *= i_3_;
-			}
-			if (i_2_ == 1) {
-				return i_3_ * i_5_;
-			}
-			i_4_ = i_5_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ua.B(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
+			i_2_ >>= 1;
+			i_3_ *= i_3_;
 		}
-		return i_4_;
+		if (i_2_ == 1) {
+			return i_3_ * i_5_;
+		}
+		return i_5_;
 	}
 
 	final String getStringParamValue(final int param, final String defaultString) {
@@ -368,7 +359,7 @@ final class NpcType {
 		return list(this.childrenIDs[value]);
 	}
 
-	final AbstractModel method2210(final SeqType seqType, final int i, final int i_39_, final int i_40_) {
+	final AbstractModelRenderer method2210(final SeqType seqType, final int i, final int i_39_, final int i_40_) {
 		if (this.childrenIDs != null) {
 			final NpcType class170_41_ = handleVarp();
 			if (class170_41_ == null) {
@@ -379,24 +370,24 @@ final class NpcType {
 		if (headModelIds == null) {
 			return null;
 		}
-		AbstractModel class180_sub7_42_ = (AbstractModel) Projectile.aClass21_2931.get(this.myId);
+		AbstractModelRenderer class180_sub7_42_ = (AbstractModelRenderer) Projectile.aClass21_2931.get(this.myId);
 		if (class180_sub7_42_ == null) {
 			boolean bool = false;
 			for (int i_43_ = 0; headModelIds.length > i_43_; i_43_++) {
-				if (!Class28.aClass50_181.fileExists(headModelIds[i_43_], 0)) {
+				if (!Class28.aClass50_181.requestDownload(headModelIds[i_43_], 0)) {
 					bool = true;
 				}
 			}
 			if (bool) {
 				return null;
 			}
-			final Class180_Sub2[] class180_sub2s = new Class180_Sub2[headModelIds.length];
+			final Model[] class180_sub2s = new Model[headModelIds.length];
 			for (int i_44_ = 0; i_44_ < headModelIds.length; i_44_++) {
-				class180_sub2s[i_44_] = Class180_Sub2.method2291(Class28.aClass50_181, headModelIds[i_44_], 0);
+				class180_sub2s[i_44_] = Model.get(Class28.aClass50_181, headModelIds[i_44_], 0);
 			}
-			Class180_Sub2 class180_sub2;
+			Model class180_sub2;
 			if (class180_sub2s.length != 1) {
-				class180_sub2 = new Class180_Sub2(class180_sub2s, class180_sub2s.length);
+				class180_sub2 = new Model(class180_sub2s, class180_sub2s.length);
 			} else {
 				class180_sub2 = class180_sub2s[0];
 			}
@@ -414,7 +405,7 @@ final class NpcType {
 					class180_sub2.retexture(retextureOriginal[i_46_], retextureModified[i_46_]);
 				}
 			}
-			class180_sub7_42_ = class180_sub2.method2300(64, 768, -50, -10, -50);
+			class180_sub7_42_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
 			Projectile.aClass21_2931.put(class180_sub7_42_, this.myId);
 		}
 		if (seqType != null) {
@@ -431,7 +422,7 @@ final class NpcType {
 		}
 	}
 
-	final AbstractModel method2212(final int i, final int i_47_, final SeqType seqType, final SeqType class40_49_, final int i_50_, final Class150[] class150s, final int i_51_, final int i_52_, final int i_53_) {
+	final AbstractModelRenderer method2212(final int i, final int i_47_, final SeqType seqType, final SeqType class40_49_, final int i_50_, final Class150[] class150s, final int i_51_, final int i_52_, final int i_53_) {
 		if (this.childrenIDs != null) {
 			final NpcType class170_54_ = handleVarp();
 			if (class170_54_ == null) {
@@ -439,41 +430,41 @@ final class NpcType {
 			}
 			return class170_54_.method2212(i, i_47_, seqType, class40_49_, i_50_, class150s, i_51_, i_52_, i_53_);
 		}
-		AbstractModel class180_sub7_55_ = (AbstractModel) aClass21_80.get(this.myId);
+		AbstractModelRenderer class180_sub7_55_ = (AbstractModelRenderer) aClass21_80.get(this.myId);
 		if (class180_sub7_55_ == null) {
 			boolean bool = false;
 			for (int i_56_ = 0; i_56_ < modelIds.length; i_56_++) {
-				if (modelIds[i_56_] != -1 && !Class28.aClass50_181.fileExists(modelIds[i_56_], 0)) {
+				if (modelIds[i_56_] != -1 && !Class28.aClass50_181.requestDownload(modelIds[i_56_], 0)) {
 					bool = true;
 				}
 			}
 			if (bool) {
 				return null;
 			}
-			final Class180_Sub2[] class180_sub2s = new Class180_Sub2[modelIds.length];
+			final Model[] class180_sub2s = new Model[modelIds.length];
 			for (int i_57_ = 0; i_57_ < modelIds.length; i_57_++) {
 				if (modelIds[i_57_] != -1) {
-					class180_sub2s[i_57_] = Class180_Sub2.method2291(Class28.aClass50_181, modelIds[i_57_], 0);
+					class180_sub2s[i_57_] = Model.get(Class28.aClass50_181, modelIds[i_57_], 0);
 					if (anIntArrayArray1670 != null && anIntArrayArray1670[i_57_] != null && class180_sub2s[i_57_] != null) {
 						class180_sub2s[i_57_].translate(anIntArrayArray1670[i_57_][0], anIntArrayArray1670[i_57_][1], anIntArrayArray1670[i_57_][2]);
 					}
 				}
 			}
-			Class29 class29 = null;
+			EntityRenderData class29 = null;
 			if (this.anInt1692 != -1) {
-				class29 = Class29.list(this.anInt1692);
+				class29 = EntityRenderData.list(this.anInt1692);
 			}
-			if (class29 != null && class29.anIntArrayArray215 != null) {
-				for (int i_58_ = 0; class29.anIntArrayArray215.length > i_58_; i_58_++) {
-					if (class29.anIntArrayArray215[i_58_] != null && i_58_ < class180_sub2s.length && class180_sub2s[i_58_] != null) {
-						final int i_59_ = class29.anIntArrayArray215[i_58_][0];
-						final int i_60_ = class29.anIntArrayArray215[i_58_][3];
-						final int i_61_ = class29.anIntArrayArray215[i_58_][2];
-						final int i_62_ = class29.anIntArrayArray215[i_58_][1];
-						final int i_63_ = class29.anIntArrayArray215[i_58_][4];
-						final int i_64_ = class29.anIntArrayArray215[i_58_][5];
+			if (class29 != null && class29.modelRotateTranslate != null) {
+				for (int i_58_ = 0; class29.modelRotateTranslate.length > i_58_; i_58_++) {
+					if (class29.modelRotateTranslate[i_58_] != null && i_58_ < class180_sub2s.length && class180_sub2s[i_58_] != null) {
+						final int i_59_ = class29.modelRotateTranslate[i_58_][0];
+						final int i_60_ = class29.modelRotateTranslate[i_58_][3];
+						final int i_61_ = class29.modelRotateTranslate[i_58_][2];
+						final int i_62_ = class29.modelRotateTranslate[i_58_][1];
+						final int i_63_ = class29.modelRotateTranslate[i_58_][4];
+						final int i_64_ = class29.modelRotateTranslate[i_58_][5];
 						if (anIntArrayArray1659 == null) {
-							anIntArrayArray1659 = new int[class29.anIntArrayArray215.length][];
+							anIntArrayArray1659 = new int[class29.modelRotateTranslate.length][];
 						}
 						if (anIntArrayArray1659[i_58_] == null) {
 							final int[] is = anIntArrayArray1659[i_58_] = new int[15];
@@ -517,11 +508,11 @@ final class NpcType {
 					}
 				}
 			}
-			Class180_Sub2 class180_sub2;
+			Model class180_sub2;
 			if (class180_sub2s.length == 1) {
 				class180_sub2 = class180_sub2s[0];
 			} else {
-				class180_sub2 = new Class180_Sub2(class180_sub2s, class180_sub2s.length);
+				class180_sub2 = new Model(class180_sub2s, class180_sub2s.length);
 			}
 			if (recolorOriginal != null) {
 				for (int i_73_ = 0; recolorOriginal.length > i_73_; i_73_++) {
@@ -537,9 +528,9 @@ final class NpcType {
 					class180_sub2.retexture(retextureOriginal[i_74_], retextureModified[i_74_]);
 				}
 			}
-			class180_sub7_55_ = class180_sub2.method2300(ambient + 64, contrast + 850, -30, -50, -30);
+			class180_sub7_55_ = class180_sub2.toRenderer(ambient + 64, contrast + 850, -30, -50, -30);
 			if (HDToolkit.glEnabled) {
-				((HDModel) class180_sub7_55_).method2432(false, false, false, true, false, false, true);
+				((HDModelRenderer) class180_sub7_55_).method2432(false, false, false, true, false, false, true);
 			}
 			aClass21_80.put(class180_sub7_55_, this.myId);
 		}
@@ -586,7 +577,7 @@ final class NpcType {
 			}
 		}
 		if (!bool && class40_49_ == null && seqType == null) {
-			final AbstractModel class180_sub7_85_ = class180_sub7_55_.method2376(true, true, true);
+			final AbstractModelRenderer class180_sub7_85_ = class180_sub7_55_.method2376(true, true, true);
 			if (resizeX != 128 || resizeY != 128) {
 				class180_sub7_85_.resize(resizeX, resizeY, resizeX);
 			}
@@ -654,7 +645,7 @@ final class NpcType {
 				}
 			}
 		}
-		final AbstractModel class180_sub7_99_ = class180_sub7_55_.method2376(!bool_75_, !bool_76_, !bool_77_);
+		final AbstractModelRenderer class180_sub7_99_ = class180_sub7_55_.method2376(!bool_75_, !bool_76_, !bool_77_);
 		int i_100_ = 1;
 		for (int i_101_ = 0; i_101_ < i_78_; i_101_++) {
 			if (EnumType.aClass120_Sub14_Sub18Array3453[i_101_] != null) {

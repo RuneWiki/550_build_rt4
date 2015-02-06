@@ -12,14 +12,14 @@ final class Class88 {
 	static int anInt832;
 	static int[] anIntArray833;
 	static js5 aClass50_834;
-	static boolean aBoolean835;
+	static boolean interfaceSpriteIsNull;
 
 	static {
 		timoutCycle = 0;
 		aClass105_829 = new Deque();
 		aClass177_831 = new Queue();
 		anIntArray833 = new int[32];
-		aBoolean835 = false;
+		interfaceSpriteIsNull = false;
 	}
 
 	static final void method743(final CollisionMap collisionMap, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
@@ -40,7 +40,7 @@ final class Class88 {
 		i_5_ = 0x7fffffff & (int) (l >>> 32);
 		final int i_7_ = 0x3 & (int) l >> 20;
 		LocType locType = LocType.list(i_5_);
-		if (locType.method2466()) {
+		if (locType.hasAmbientSound()) {
 			Class120_Sub12.method1183(locType, i_2_, i_0_, i_4_);
 		}
 		if ((l ^ 0xffffffffffffffffL) != -1L) {
@@ -70,9 +70,9 @@ final class Class88 {
 					collisionMap.method214(i_7_, i_2_, locType.sizeZ, i_4_, locType.sizeX, locType.aBoolean1844, !locType.aBoolean1880);
 				}
 			} else if (i_3_ == 3) {
-				final Class36 class36 = Class118.method1022(i_0_, i_4_, i_2_);
+				final GroundDecoration class36 = Class118.method1022(i_0_, i_4_, i_2_);
 				if (class36 != null) {
-					sceneGraphNode = class36.aClass180_309;
+					sceneGraphNode = class36.sceneGraphNode;
 				}
 				if (locType.anInt1821 == 1) {
 					collisionMap.method228(i_4_, i_2_);

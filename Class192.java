@@ -44,29 +44,29 @@ final class Class192 {
 	}
 
 	static final void method2517(final Player player, final int animationId, final int delay) {
-		if (player.anInt3006 != animationId || animationId == -1) {
-			if (animationId == -1 || player.anInt3006 == -1 || SeqType.list(animationId).priority >= SeqType.list(player.anInt3006).priority) {
-				player.anInt3006 = animationId;
+		if (player.animId != animationId || animationId == -1) {
+			if (animationId == -1 || player.animId == -1 || SeqType.list(animationId).priority >= SeqType.list(player.animId).priority) {
+				player.animId = animationId;
 				player.anInt3044 = 0;
-				player.anInt2993 = delay;
-				player.anInt2964 = 0;
+				player.animDelay = delay;
+				player.animCurrentFrame = 0;
 				player.anInt3013 = 1;
 				player.anInt2999 = 0;
 				player.anInt3031 = player.anInt2960;
-				if (player.anInt3006 != -1) {
-					Class120_Sub12_Sub23.method1323(SeqType.list(player.anInt3006), player.x, player.z, player.anInt2964, player == TileParticleQueue.selfPlayer);
+				if (player.animId != -1) {
+					Class120_Sub12_Sub23.method1323(SeqType.list(player.animId), player.x, player.z, player.animCurrentFrame, player == TileParticleQueue.selfPlayer);
 				}
 			}
 		} else {
 			final SeqType seqType = SeqType.list(animationId);
 			final int i_2_ = seqType.resetInPlay;
 			if (i_2_ == 1) {
-				player.anInt2993 = delay;
-				player.anInt2964 = 0;
+				player.animDelay = delay;
+				player.animCurrentFrame = 0;
 				player.anInt3044 = 0;
 				player.anInt3013 = 1;
 				player.anInt2999 = 0;
-				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.anInt2964, player == TileParticleQueue.selfPlayer);
+				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.animCurrentFrame, player == TileParticleQueue.selfPlayer);
 			}
 			if (i_2_ == 2) {
 				player.anInt2999 = 0;

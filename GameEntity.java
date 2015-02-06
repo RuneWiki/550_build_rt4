@@ -11,7 +11,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2961;
 	private int anInt2962 = 0;
 	int anInt2963;
-	int anInt2964;
+	int animCurrentFrame;
 	int spotAnimHeight;
 	private int anInt2966;
 	int anInt2967;
@@ -29,7 +29,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int spotAnimDelay;
 	private boolean aBoolean2980;
 	int facingEntityIndex;
-	int anInt2982;
+	int entityRenderDataId;
 	int anInt2983;
 	int anInt2984;
 	int lastUpdateCycle;
@@ -40,7 +40,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2990;
 	int[] hitsType;
 	boolean aBoolean2992;
-	int anInt2993;
+	int animDelay;
 	private int anInt2994;
 	int anInt2995;
 	int anInt2996;
@@ -51,9 +51,9 @@ abstract class GameEntity extends SceneGraphNode {
 	int z;
 	boolean aBoolean3002;
 	int faceZ;
-	int anInt3004;
+	int idleAnimId;
 	int y;
-	int anInt3006;
+	int animId;
 	boolean aBoolean3007;
 	int anInt3008;
 	static int[][] anIntArrayArray3009;
@@ -68,7 +68,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int maxY;
 	int anInt3019;
 	int anInt3020;
-	int anInt3021;
+	int idleAnimNextFrame;
 	int anInt3022;
 	int hpBarRatio;
 	int textCycle;
@@ -92,12 +92,12 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3043;
 	int anInt3044;
 	static int anInt3045;
-	int anInt3046;
+	int idleAnimCurrentFrame;
 	Object anObject3047;
 
 	final void method2323(final int x, final int z, final int size, final boolean bool) {
-		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).walkProperties == 1) {
-			this.anInt3006 = -1;
+		if (this.animId != -1 && SeqType.list(this.animId).walkProperties == 1) {
+			this.animId = -1;
 		}
 		if (this.spotAnimId != -1) {
 			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
@@ -138,7 +138,7 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	abstract int method2325();
+	abstract int getEntityRenderDataId();
 
 	final void addHit(final int damage, final int type, final int cycle) {
 		for (int id = 0; id < 4; id++) {
@@ -151,9 +151,9 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	final void method2327(final int i, final AbstractModel class180_sub7) {
+	final void method2327(final int i, final AbstractModelRenderer class180_sub7) {
 		try {
-			final Class29 class29 = method2336();
+			final EntityRenderData class29 = getEntityRenderData();
 			if (class29.anInt208 != i || class29.anInt209 != 0) {
 				int i_10_ = 0;
 				int i_11_ = 0;
@@ -372,8 +372,8 @@ abstract class GameEntity extends SceneGraphNode {
 	}
 
 	final void move(final int dir, final int type) {
-		if (this.anInt3006 != -1 && SeqType.list(this.anInt3006).walkProperties == 1) {
-			this.anInt3006 = -1;
+		if (this.animId != -1 && SeqType.list(this.animId).walkProperties == 1) {
+			this.animId = -1;
 		}
 		if (this.spotAnimId != -1) {
 			final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
@@ -437,11 +437,11 @@ abstract class GameEntity extends SceneGraphNode {
 		return size;
 	}
 
-	final void method2334(final AbstractModel abstractModel, final int i) {
+	final void method2334(final AbstractModelRenderer abstractModel, final int i) {
 		Class159.anInt1488 = 0;
 		Class93.anInt867 = 0;
 		MouseHandler.anInt1140 = 0;
-		final Class29 class29 = method2336();
+		final EntityRenderData class29 = getEntityRenderData();
 		final int i_48_ = class29.anInt204;
 		final int i_49_ = class29.anInt206;
 		if (i_48_ != 0 && i_49_ != 0) {
@@ -632,18 +632,18 @@ abstract class GameEntity extends SceneGraphNode {
 		return true;
 	}
 
-	final Class29 method2336() {
-		final int i_85_ = method2325();
-		if (i_85_ != -1) {
-			return Class29.list(i_85_);
+	final EntityRenderData getEntityRenderData() {
+		final int id = getEntityRenderDataId();
+		if (id != -1) {
+			return EntityRenderData.list(id);
 		}
-		return ObjectContainer.aClass29_2620;
+		return ObjectContainer.defaultEntityRenderData;
 	}
 
-	final void method2337(final AbstractModel class180_sub7, final AbstractModel class180_sub7_86_) {
+	final void method2337(final AbstractModelRenderer class180_sub7, final AbstractModelRenderer class180_sub7_86_) {
 		if (!HDToolkit.glEnabled) {
-			final LDModel class180_sub7_sub1 = (LDModel) class180_sub7_86_;
-			final LDModel class180_sub7_sub1_87_ = (LDModel) class180_sub7;
+			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7_86_;
+			final LDModelRenderer class180_sub7_sub1_87_ = (LDModelRenderer) class180_sub7;
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub1_87_.aClass158Array3788 != null || class180_sub7_sub1_87_.aClass169Array3776 != null || class180_sub7_sub1 != null && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
@@ -651,13 +651,13 @@ abstract class GameEntity extends SceneGraphNode {
 				this.aClass108_Sub2_2988.method962(class180_sub7_sub1_87_.aClass158Array3788, class180_sub7_sub1_87_.aClass169Array3776, false, class180_sub7_sub1_87_.xVertices, class180_sub7_sub1_87_.yVertices, class180_sub7_sub1_87_.zVertices);
 			}
 		} else {
-			final HDModel class180_sub7_sub2 = (HDModel) class180_sub7;
-			final HDModel class180_sub7_sub2_88_ = (HDModel) class180_sub7_86_;
+			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
+			final HDModelRenderer class180_sub7_sub2_88_ = (HDModelRenderer) class180_sub7_86_;
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null || class180_sub7_sub2_88_ != null && (class180_sub7_sub2_88_.aClass158Array3892 != null || class180_sub7_sub2_88_.aClass169Array3858 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
 			if (this.aClass108_Sub2_2988 != null) {
-				this.aClass108_Sub2_2988.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.anIntArray3878, class180_sub7_sub2.anIntArray3856, class180_sub7_sub2.anIntArray3845);
+				this.aClass108_Sub2_2988.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
 			}
 		}
 		this.aBoolean3007 = true;
@@ -683,8 +683,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt2984 = 0;
 		this.anInt2996 = 0;
 		this.anInt2960 = 0;
-		this.anInt2982 = -1;
-		this.anInt3006 = -1;
+		this.entityRenderDataId = -1;
+		this.animId = -1;
 		this.anInt3012 = 0;
 		this.anInt3013 = -1;
 		this.anInt2998 = 0;
@@ -694,18 +694,18 @@ abstract class GameEntity extends SceneGraphNode {
 		this.textSpoken = null;
 		this.aBoolean2997 = false;
 		this.aByteArray2973 = new byte[10];
-		this.anInt2993 = 0;
+		this.animDelay = 0;
 		this.aBoolean3002 = false;
 		this.anInt2999 = 0;
-		this.anInt3004 = -1;
+		this.idleAnimId = -1;
 		this.anInt2987 = 0;
 		this.textCycle = 100;
 		this.anInt3030 = 0;
 		this.anInt2995 = 0;
 		this.anInt3031 = 0;
 		this.spotAnimId = -1;
-		this.anInt2964 = 0;
-		this.anInt3021 = -1;
+		this.animCurrentFrame = 0;
+		this.idleAnimNextFrame = -1;
 		this.spotAnimNextFrame = -1;
 		this.faceX = 0;
 		this.spotAnimFrame = 0;
@@ -725,7 +725,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.lastUpdateCycle = 0;
 		this.faceZ = 0;
 		this.anInt3042 = 0;
-		this.anInt3046 = 0;
+		this.idleAnimCurrentFrame = 0;
 		this.anInt3044 = 0;
 		this.aBoolean3007 = false;
 	}

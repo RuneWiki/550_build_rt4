@@ -91,7 +91,7 @@ final class Class120_Sub19 extends Node {
 				GraphicsLD.fillRect(i_11_, i_10_, i_7_ + 10, 1 + i_6_ - -(i_4_ * class98.method817()) - i_10_, class73.fillRectARGB, class73.fillRectARGB >>> 24);
 			}
 			if (class73.rectARGB != 0) {
-				GraphicsLD.drawRect(i_11_, i_10_, i_7_ + 10, -i_10_ + class98.method817() * i_4_ + i_6_ + 1, class73.rectARGB, class73.rectARGB >>> 24);
+				GraphicsLD.drawRectAlpha(i_11_, i_10_, i_7_ + 10, -i_10_ + class98.method817() * i_4_ + i_6_ + 1, class73.rectARGB, class73.rectARGB >>> 24);
 			}
 			for (int i_12_ = 0; i_12_ < i_4_; i_12_++) {
 				String string = Class125.aStringArray2148[i_12_];
@@ -108,23 +108,16 @@ final class Class120_Sub19 extends Node {
 		}
 	}
 
-	public static void method1674(final int i) {
-		try {
-			aString2653 = null;
-			anIntArray2658 = null;
-			if (i != 6530) {
-				anInt2657 = -121;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ol.D(").append(i).append(')').toString());
-		}
+	public static void method1674() {
+		aString2653 = null;
+		anIntArray2658 = null;
 	}
 
-	static final void removeOverridedInterface(final OverridedJInterface class120_sub26, final boolean bool) {
+	static final void removeOverridedInterface(final OverridedJInterface class120_sub26, final boolean uncache) {
 		final int uid = (int) class120_sub26.uid;
 		final int interfaceId = class120_sub26.interfaceId;
 		class120_sub26.unlink();
-		if (bool) {
+		if (uncache) {
 			Class120_Sub12_Sub32.uncacheJInterface(interfaceId);
 		}
 		Class120_Sub15.clearClickMasks(interfaceId);

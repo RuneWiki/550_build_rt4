@@ -888,42 +888,42 @@ final class CollisionMap {
 		return true;
 	}
 
-	static final void method222(final boolean bool, final byte[] is, final int i_82_, final int i_83_, final CollisionMap[] class25s) {
-		final Buffer class120_sub7 = new Buffer(is);
-		int i_84_ = -1;
+	static final void decodeObjectMap(final boolean underwater, final byte[] data, final int baseZ, final int baseX, final CollisionMap[] collisionMaps) {
+		final Buffer buffer = new Buffer(data);
+		int locationId = -1;
 		for (;;) {
-			final int i_85_ = class120_sub7.method1100();
-			if (i_85_ == 0) {
+			final int val1 = buffer.method1100();
+			if (val1 == 0) {
 				break;
 			}
-			i_84_ += i_85_;
-			int i_86_ = 0;
+			locationId += val1;
+			int positionInfo = 0;
 			for (;;) {
-				final int i_87_ = class120_sub7.getUSmart();
-				if (i_87_ == 0) {
+				final int val2 = buffer.getUSmart();
+				if (val2 == 0) {
 					break;
 				}
-				i_86_ += -1 + i_87_;
-				final int i_88_ = 0x3f & i_86_;
-				final int i_89_ = 0x3f & i_86_ >> 6;
-				final int i_90_ = class120_sub7.getUByte();
-				final int i_91_ = i_90_ & 0x3;
-				final int i_92_ = i_90_ >> 2;
-				final int i_93_ = i_89_ + i_83_;
-				final int i_94_ = i_88_ + i_82_;
-				final int i_95_ = i_86_ >> 12;
-				if (i_93_ > 0 && i_94_ > 0 && i_93_ < 103 && i_94_ < 103) {
+				positionInfo += val2 - 1;
+				final int x = 0x3f & positionInfo >> 6;
+				final int z = 0x3f & positionInfo;
+				final int level = positionInfo >> 12;
+				final int renderInfo = buffer.getUByte();
+				final int rotation = renderInfo & 0x3;
+				final int type = renderInfo >> 2;
+				final int posX = x + baseX;
+				final int posZ = z + baseZ;
+				if (posX > 0 && posZ > 0 && posX < 103 && posZ < 103) {
 					CollisionMap collisionMap = null;
-					if (!bool) {
-						int i_96_ = i_95_;
-						if ((0x2 & Class114.tileSettings[1][i_93_][i_94_]) == 2) {
-							i_96_--;
+					if (!underwater) {
+						int transformedLevel = level;
+						if ((0x2 & Class114.tileSettings[1][posX][posZ]) == 2) {
+							transformedLevel--;
 						}
-						if (i_96_ >= 0) {
-							collisionMap = class25s[i_96_];
+						if (transformedLevel >= 0) {
+							collisionMap = collisionMaps[transformedLevel];
 						}
 					}
-					Class93.method771(i_91_, i_95_, i_84_, i_95_, i_93_, 4, bool, i_94_, collisionMap, !bool, i_92_);
+					Class93.spawnLocation(rotation, level, locationId, level, posX, underwater, posZ, collisionMap, !underwater, type);
 				}
 			}
 		}

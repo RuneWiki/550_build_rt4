@@ -35,15 +35,8 @@ final class Class148 {
 		}
 	}
 
-	public static void method2059(final int i) {
-		try {
-			if (i != 1) {
-				method2059(113);
-			}
-			worldsInfo = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rc.B(").append(i).append(')').toString());
-		}
+	public static void method2059() {
+		worldsInfo = null;
 	}
 
 	static final int encodeText(final Buffer buffer, final String string) {

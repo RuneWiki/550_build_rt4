@@ -29,7 +29,7 @@ final class FrameLoader extends NodeSub {
 		Class74.sceneryShadowsType = 2;
 		Class111.anInt1061 = 127;
 		Class120_Sub12_Sub12.lastFullscreenHeight = 0;
-		Class36.antiAliasingSamples = 0;
+		GroundDecoration.antiAliasingSamples = 0;
 		Class120_Sub12_Sub10.manyIdleAnimations = true;
 		AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 0;
 		RuntimeException_Sub1.anInt2142 = 255;
@@ -164,7 +164,7 @@ final class FrameLoader extends NodeSub {
 			if (npcType != null && npcType.canRightClick) {
 				String string = npcType.name;
 				if (npcType.combatLevel != 0) {
-					final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.aString3911 : LongNode.aString2424;
+					final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.levelString : LongNode.ratingString;
 					string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, npcType.combatLevel)).append(" (").append(string_14_).append(npcType.combatLevel).append(")").toString();
 				}
 				if (Light.objSelected != 1) {
@@ -241,7 +241,7 @@ final class FrameLoader extends NodeSub {
 						InvType.addMenuOption(Class11.aString81, new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
 					}
 				} else {
-					InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 33, Class120_Sub12_Sub10.anInt3205);
+					InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 				}
 			}
 		}

@@ -11,16 +11,9 @@ final class Class101_Sub3 extends Class101 {
 	static boolean titleScreenSpritesDrawn;
 	private final int anInt2292;
 
-	public static void method847(final int i) {
-		try {
-			SeqType.aClass50_2286 = null;
-			if (i == -1) {
-				aClass120_Sub14_Sub19_Sub2_2290 = null;
-				aString2285 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gg.I(").append(i).append(')').toString());
-		}
+	public static void method847() {
+		aClass120_Sub14_Sub19_Sub2_2290 = null;
+		aString2285 = null;
 	}
 
 	@Override

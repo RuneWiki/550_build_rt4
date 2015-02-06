@@ -4,17 +4,17 @@
 
 final class Class154 {
 	static Class32[] aClass32Array1437 = new Class32[8];
-	static ObjectCache aClass21_1438;
+	static ObjectCache shadowModelCache;
 	static boolean aBoolean1439 = false;
 	static int anInt1440;
 	static int anInt1441;
-	static int anInt1442;
+	static int minimapRandomZoom;
 	
 	static {
-		aClass21_1438 = new ObjectCache(32);
+		shadowModelCache = new ObjectCache(32);
 		anInt1441 = 0;
 		anInt1440 = 0;
-		anInt1442 = 0;
+		minimapRandomZoom = 0;
 	}
 
 	static final void addIgnore(final long nameAsLong) {

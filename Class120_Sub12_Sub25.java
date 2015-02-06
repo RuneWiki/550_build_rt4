@@ -93,18 +93,11 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	public static void method1330(final int i) {
-		try {
-			settings = null;
-			if (i != 0) {
-				method1334();
-			}
-			anIntArray3320 = null;
-			aString3319 = null;
-			aByteArrayArray3318 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qj.AA(").append(i).append(')').toString());
-		}
+	public static void method1330() {
+		settings = null;
+		anIntArray3320 = null;
+		aString3319 = null;
+		aByteArrayArray3318 = null;
 	}
 
 	static final void method1331() {
@@ -276,7 +269,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class137.loginStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
 						Class137.loginStream.putShort(Class69_Sub1.canvasWidth);
 						Class137.loginStream.putShort(Class120_Sub12_Sub5.canvasHeight);
-						Class137.loginStream.putByte(Class36.antiAliasingSamples);
+						Class137.loginStream.putByte(GroundDecoration.antiAliasingSamples);
 						Class120_Sub12_Sub30.randomFileRead(Class137.loginStream);
 						Class137.loginStream.putJagexString(settings);
 						Class137.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);

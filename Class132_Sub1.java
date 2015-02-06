@@ -27,17 +27,13 @@ class Class132_Sub1 extends Class132 {
 	}
 
 	static final void method1931() {
-		for (int i_0_ = 0; i_0_ < 100; i_0_++) {
-			MasterIndexInfo.needInterfaceRedrawWrapper[i_0_] = true;
+		for (int id = 0; id < 100; id++) {
+			MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 		}
 	}
 
 	void method1932(final int i, final byte i_1_) {
-		try {
-			aByteArray2808[i] = i_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.G(").append(i).append(',').append(i_1_).append(')').toString());
-		}
+		aByteArray2808[i] = i_1_;
 	}
 
 	@Override

@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 	static AbstractSprite aClass120_Sub14_Sub19_3202;
 	static boolean manyIdleAnimations = true;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_3204;
-	static int anInt3205 = -1;
+	static int selectedObjectTargetCursor = -1;
 
 	static final void method1247(final int i, final int i_0_, final CollisionMap[] class25s, final byte[] is, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final boolean bool, final int i_6_) {
 		final Buffer class120_sub7 = new Buffer(is);
@@ -47,7 +47,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 								collisionMap = class25s[i_19_];
 							}
 						}
-						Class93.method771(i_16_ - -i_1_ & 0x3, i, i_7_, i, i_17_, 4, bool, i_18_, collisionMap, !bool, i_15_);
+						Class93.spawnLocation(i_16_ - -i_1_ & 0x3, i, i_7_, i, i_17_, bool, i_18_, collisionMap, !bool, i_15_);
 					}
 				}
 			}

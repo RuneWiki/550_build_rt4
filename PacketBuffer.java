@@ -105,7 +105,7 @@ final class PacketBuffer extends Buffer {
 					if (AbstractMouseWheelHandler.antiAliasingSamplesWrapper > 2) {
 						AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 2;
 					}
-					Class36.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
+					GroundDecoration.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
 					Class167.aBoolean1619 = buffer.getUByte() == 1;
 					Class111.anInt1061 = buffer.getUByte();
 					if (Class111.anInt1061 > 127) {

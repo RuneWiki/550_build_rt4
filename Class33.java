@@ -30,13 +30,13 @@ final class Class33 {
 		if (client.getClickMask(jagexInterface).method1685() == 0) {
 			return null;
 		}
-		if (jagexInterface.selectedActionName == null || jagexInterface.selectedActionName.trim().length() == 0) {
+		if (jagexInterface.selectedSpellName == null || jagexInterface.selectedSpellName.trim().length() == 0) {
 			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
 				return "Hidden-use";
 			}
 			return null;
 		}
-		return jagexInterface.selectedActionName;
+		return jagexInterface.selectedSpellName;
 	}
 
 	public static void method278(final int i) {

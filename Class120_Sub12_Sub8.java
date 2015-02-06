@@ -14,19 +14,13 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		super(0, false);
 	}
 
-	static final short[] method1236(final short[] is, final byte i) {
-		short[] is_0_;
-		try {
-			if (is == null) {
-				return null;
-			}
-			final short[] is_1_ = new short[is.length];
-			ArrayUtils.arrayCopy(is, 0, is_1_, 0, is.length);
-			is_0_ = is_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.S(").append(is != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final short[] arrayCopy(final short[] source) {
+		if (source == null) {
+			return null;
 		}
-		return is_0_;
+		final short[] dest = new short[source.length];
+		ArrayUtils.arrayCopy(source, 0, dest, 0, source.length);
+		return dest;
 	}
 
 	public static void method1238(final int i) {
@@ -98,10 +92,11 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	}
 
 	static final void method1241(final JagexInterface jagexInterface, final int i, final int i_20_) {
-		if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface, 26) != null) {
+		if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface) != null) {
 			Class120_Sub12_Sub4.aClass189_3156 = jagexInterface;
-			Class26.aClass189_161 = method1243(jagexInterface, 26);
+			Class26.aClass189_161 = method1243(jagexInterface);
 			Class120_Sub11.aBoolean2551 = false;
+			System.out.println("he class120128 todo");
 			SceneGroundObject.anInt2843 = 0;
 			AbstractGraphicsBuffer.anInt1173 = i;
 			client.anInt2203 = i_20_;
@@ -161,20 +156,11 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		}
 	}
 
-	private static final JagexInterface method1243(final JagexInterface jagexInterface, final int i) {
-		JagexInterface class189_24_;
-		try {
-			JagexInterface class189_25_ = client.method58(jagexInterface);
-			if (i != 26) {
-				anIntArray3187 = null;
-			}
-			if (class189_25_ == null) {
-				class189_25_ = jagexInterface.aClass189_1931;
-			}
-			class189_24_ = class189_25_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.AA(").append(jagexInterface != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	private static final JagexInterface method1243(final JagexInterface jagexInterface) {
+		JagexInterface class189_25_ = client.method58(jagexInterface);
+		if (class189_25_ == null) {
+			class189_25_ = jagexInterface.aClass189_1931;
 		}
-		return class189_24_;
+		return class189_25_;
 	}
 }

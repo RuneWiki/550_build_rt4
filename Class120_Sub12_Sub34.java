@@ -27,7 +27,7 @@ final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 			width = Class69_Sub1.canvasWidth;
 			height = Class120_Sub12_Sub5.canvasHeight;
 		}
-		Class23.updateInterfaceSize(jagexInterface, false, width, height);
+		Class23.updateInterfaceSize(jagexInterface, width, height, false);
 		SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 	}
 

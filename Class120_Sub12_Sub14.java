@@ -33,7 +33,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 			final int i_4_ = Class120_Sub12_Sub7.anInt3178;
 			final int i_5_ = Class120_Sub12_Sub2.anInt3145;
 			final int[][] is_6_ = new int[i_5_][i_4_];
-			final int[][][] is_7_ = this.aClass109_2559.method973(0);
+			final int[][][] is_7_ = this.aClass109_2559.method973();
 			method1272(is_6_);
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub2.anInt3145; i_8_++) {
 				final int[][] is_9_ = is_7_[i_8_];
@@ -116,7 +116,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				if (size == 0 || size == i_29_) {
 					class180_sub5_sub1.playerLimitReached = false;
 					class180_sub5_sub1.aBoolean2992 = true;
-					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && class180_sub5_sub1.anInt3004 == class180_sub5_sub1.method2336().anInt218) {
+					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && class180_sub5_sub1.idleAnimId == class180_sub5_sub1.getEntityRenderData().anInt218) {
 						class180_sub5_sub1.playerLimitReached = true;
 					}
 					if (i_29_ == 1) {

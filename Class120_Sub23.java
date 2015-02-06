@@ -41,7 +41,7 @@ final class Class120_Sub23 extends Node {
 	private final float[] method1707(final int i) {
 		method1709(aByteArrayArray2704[i], 0);
 		method1712();
-		final int i_0_ = method1717(Class110.method979(anIntArray2684.length - 1, -90));
+		final int i_0_ = method1717(Class110.method979(anIntArray2684.length - 1));
 		final boolean bool = aBooleanArray2705[i_0_];
 		final int i_1_ = bool ? anInt2690 : anInt2682;
 		boolean bool_2_ = false;
@@ -129,7 +129,7 @@ final class Class120_Sub23 extends Node {
 				fs[4 * i_27_ + 3] = (f - f_29_) * f_31_ - (f_28_ - f_30_) * f_32_;
 				fs[4 * i_27_ + 1] = (f_28_ - f_30_) * f_31_ + (f - f_29_) * f_32_;
 			}
-			final int i_33_ = Class110.method979(i_1_ - 1, -91);
+			final int i_33_ = Class110.method979(i_1_ - 1);
 			for (int i_34_ = 0; i_34_ < i_33_ - 3; i_34_++) {
 				final int i_35_ = i_1_ >> i_34_ + 2;
 				final int i_36_ = 8 << i_34_;
@@ -288,7 +288,7 @@ final class Class120_Sub23 extends Node {
 				fs_80_[2 * i_81_ + 1] = -(float) Math.sin((4 * i_81_ + 2) * 3.141592653589793 / i_73_);
 			}
 			final int[] is_82_ = new int[i_76_];
-			final int i_83_ = Class110.method979(i_76_ - 1, -67);
+			final int i_83_ = Class110.method979(i_76_ - 1);
 			for (int i_84_ = 0; i_84_ < i_76_; i_84_++) {
 				is_82_[i_84_] = ClanMember.method1405(i_84_, i_83_);
 			}
@@ -444,7 +444,7 @@ final class Class120_Sub23 extends Node {
 
 	static final Class120_Sub23 method1716(final js5 js5, final int i, final int i_106_) {
 		if (!method1708(js5)) {
-			js5.fileExists(i, i_106_);
+			js5.requestDownload(i, i_106_);
 			return null;
 		}
 		final byte[] is = js5.getFile(i, i_106_);

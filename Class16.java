@@ -132,7 +132,7 @@ final class Class16 {
 			anIntArray106[i_27_] = anIntArray108[i_27_];
 		}
 		final int i_28_ = anIntArray113[anInt110 - 1];
-		final int i_29_ = Class110.method979(i_28_ - 1, -111);
+		final int i_29_ = Class110.method979(i_28_ - 1);
 		anIntArray107[0] = Class120_Sub23.method1717(i_29_);
 		anIntArray107[1] = Class120_Sub23.method1717(i_29_);
 		int i_30_ = 2;

@@ -22,7 +22,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			return true;
 		}
 		if (anInt3295 >= 0) {
-			final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.constructLDSprite(Class10.aClass50_79, anInt3295) : Class120_Sub14_Sub13.method1534(Class10.aClass50_79, Class120_Sub12_Sub25.anInt3316, anInt3295);
+			final LDSprite class120_sub14_sub19_sub2 = Class120_Sub12_Sub25.anInt3316 < 0 ? IsaacCipher.constructLDSprite(Class10.aClass50_79, anInt3295) : Class120_Sub14_Sub13.constructLDSprite(Class10.aClass50_79, Class120_Sub12_Sub25.anInt3316, anInt3295);
 			class120_sub14_sub19_sub2.method1615();
 			this.anIntArray3296 = class120_sub14_sub19_sub2.pixels;
 			this.anInt3292 = class120_sub14_sub19_sub2.width;
@@ -172,7 +172,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		SpotAnimType.modelCache.clearSoftReference();
 		VarBit.recentUse.clearSoftReference();
 		Varp.recentUse.clearSoftReference();
-		Class120_Sub12_Sub31.aClass21_3378.clearSoftReference();
+		EntityRenderData.recentUse.clearSoftReference();
 		MapSceneType.recentUse.clearSoftReference();
 		MapSceneType.spriteCache.clearSoftReference();
 		MapFunctionType.recentUse.clearSoftReference();
@@ -185,11 +185,11 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		CursorType.spriteCache.clearSoftReference();
 		Class43.playerModelsCache.clearSoftReference();
 		Class90.playerHeadModelsCache.clearSoftReference();
-		AnimatedLocation.aClass21_3071.clearSoftReference();
+		JagexInterface.spriteCache.clearSoftReference();
 		LabelGroup.aClass21_2406.clearSoftReference();
 		Class120_Sub12_Sub2.aClass21_3143.clearSoftReference();
 		Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
-		Class154.aClass21_1438.clearSoftReference();
+		Class154.shadowModelCache.clearSoftReference();
 		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
 		Class15.aClass21_95.clearSoftReference();
 	}

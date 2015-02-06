@@ -40,16 +40,8 @@ final class DummyOutputStream extends OutputStream {
 		throw new IOException();
 	}
 
-	public static void method74(final int i) {
-		try {
-			CursorType.recentUse = null;
-			aClass120_Sub14_Sub18Array31 = null;
-			aClass120_Sub19_27 = null;
-			if (i > -50) {
-				anInt29 = 121;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ok.B(").append(i).append(')').toString());
-		}
+	public static void method74() {
+		aClass120_Sub14_Sub18Array31 = null;
+		aClass120_Sub19_27 = null;
 	}
 }

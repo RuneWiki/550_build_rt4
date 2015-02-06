@@ -124,7 +124,7 @@ final class Class111 {
 	}
 
 	static final void method984(final GameEntity gameEntity) {
-		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.anInt3006 == -1 || gameEntity.anInt2993 != 0 || gameEntity.anInt3044 + 1 > SeqType.list(gameEntity.anInt3006).delays[gameEntity.anInt2964]) {
+		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.anInt3044 + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animCurrentFrame]) {
 			final int i_24_ = gameEntity.anInt2961 - gameEntity.anInt3035;
 			final int i_25_ = Class101_Sub2.loopCycle - gameEntity.anInt3035;
 			final int i_27_ = gameEntity.anInt3034 * 128 + 64 * gameEntity.getSize();

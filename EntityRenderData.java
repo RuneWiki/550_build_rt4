@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class29 {
+final class EntityRenderData {
 	int anInt187;
 	int anInt188 = -1;
 	int anInt189;
@@ -31,7 +31,7 @@ final class Class29 {
 	int anInt212;
 	int anInt213;
 	int anInt214;
-	int[][] anIntArrayArray215;
+	int[][] modelRotateTranslate;
 	int anInt216;
 	static String aString217;
 	int anInt218;
@@ -40,6 +40,7 @@ final class Class29 {
 	int anInt221;
 	int anInt222;
 	int anInt223;
+	static ObjectCache recentUse;
 
 	static {
 		aString196 = " ";
@@ -108,115 +109,119 @@ final class Class29 {
 			this.anInt192 = buffer.getUShort();
 		} else if (code == 4) {
 			this.anInt210 = buffer.getUShort();
-		} else if (code != 5) {
-			if (code == 6) {
-				this.anInt190 = buffer.getUShort();
-			} else if (code == 7) {
-				this.anInt188 = buffer.getUShort();
-			} else if (code == 8) {
-				this.anInt223 = buffer.getUShort();
-			} else if (code == 9) {
-				this.anInt216 = buffer.getUShort();
-			} else if (code != 26) {
-				if (code == 27) {
-					if (this.anIntArrayArray215 == null) {
-						this.anIntArrayArray215 = new int[12][];
-					}
-					final int i_15_ = buffer.getUByte();
-					this.anIntArrayArray215[i_15_] = new int[6];
-					for (int i_16_ = 0; i_16_ < 6; i_16_++) {
-						this.anIntArrayArray215[i_15_][i_16_] = buffer.getShort();
-					}
-				} else if (code == 29) {
-					this.anInt189 = buffer.getUByte();
-				} else if (code == 30) {
-					this.anInt220 = buffer.getUShort();
-				} else if (code == 31) {
-					this.anInt214 = buffer.getUByte();
-				} else if (code == 32) {
-					this.anInt197 = buffer.getUShort();
-				} else if (code != 33) {
-					if (code == 34) {
-						this.anInt221 = buffer.getUByte();
-					} else if (code == 35) {
-						this.anInt207 = buffer.getUShort();
-					} else if (code == 36) {
-						this.anInt209 = buffer.getShort();
-					} else if (code != 37) {
-						if (code != 38) {
-							if (code == 39) {
-								this.anInt191 = buffer.getUShort();
-							} else if (code == 40) {
-								this.anInt187 = buffer.getUShort();
-							} else if (code == 41) {
-								this.anInt213 = buffer.getUShort();
-							} else if (code != 42) {
-								if (code != 43) {
-									if (code == 44) {
-										buffer.getUShort();
-									} else if (code != 45) {
-										if (code == 46) {
-											this.anInt203 = buffer.getUShort();
-										} else if (code != 47) {
-											if (code != 48) {
-												if (code == 49) {
-													this.anInt211 = buffer.getUShort();
-												} else if (code != 50) {
-													if (code == 51) {
-														this.anInt222 = buffer.getUShort();
-													}
-												} else {
-													this.anInt202 = buffer.getUShort();
+		} else if (code == 5) {
+			this.anInt219 = buffer.getUShort();
+		} else if (code == 6) {
+			this.anInt190 = buffer.getUShort();
+		} else if (code == 7) {
+			this.anInt188 = buffer.getUShort();
+		} else if (code == 8) {
+			this.anInt223 = buffer.getUShort();
+		} else if (code == 9) {
+			this.anInt216 = buffer.getUShort();
+		} else if (code != 26) {
+			if (code == 27) {
+				if (this.modelRotateTranslate == null) {
+					this.modelRotateTranslate = new int[12][];
+				}
+				final int bodyId = buffer.getUByte();
+				this.modelRotateTranslate[bodyId] = new int[6];
+				for (int type = 0; type < 6; type++) {
+					//0 rot x
+					//1 rot y
+					//2 rot z
+					//3 translate x
+					//4 translate y
+					//5 translate z
+					this.modelRotateTranslate[bodyId][type] = buffer.getShort();
+				}
+			} else if (code == 29) {
+				this.anInt189 = buffer.getUByte();
+			} else if (code == 30) {
+				this.anInt220 = buffer.getUShort();
+			} else if (code == 31) {
+				this.anInt214 = buffer.getUByte();
+			} else if (code == 32) {
+				this.anInt197 = buffer.getUShort();
+			} else if (code != 33) {
+				if (code == 34) {
+					this.anInt221 = buffer.getUByte();
+				} else if (code == 35) {
+					this.anInt207 = buffer.getUShort();
+				} else if (code == 36) {
+					this.anInt209 = buffer.getShort();
+				} else if (code != 37) {
+					if (code != 38) {
+						if (code == 39) {
+							this.anInt191 = buffer.getUShort();
+						} else if (code == 40) {
+							this.anInt187 = buffer.getUShort();
+						} else if (code == 41) {
+							this.anInt213 = buffer.getUShort();
+						} else if (code != 42) {
+							if (code != 43) {
+								if (code == 44) {
+									buffer.getUShort();
+								} else if (code != 45) {
+									if (code == 46) {
+										this.anInt203 = buffer.getUShort();
+									} else if (code != 47) {
+										if (code != 48) {
+											if (code == 49) {
+												this.anInt211 = buffer.getUShort();
+											} else if (code != 50) {
+												if (code == 51) {
+													this.anInt222 = buffer.getUShort();
 												}
 											} else {
-												this.anInt194 = buffer.getUShort();
+												this.anInt202 = buffer.getUShort();
 											}
 										} else {
-											this.anInt198 = buffer.getUShort();
+											this.anInt194 = buffer.getUShort();
 										}
 									} else {
-										buffer.getUShort();
+										this.anInt198 = buffer.getUShort();
 									}
 								} else {
 									buffer.getUShort();
 								}
 							} else {
-								this.anInt200 = buffer.getUShort();
+								buffer.getUShort();
 							}
 						} else {
-							this.anInt193 = buffer.getUShort();
+							this.anInt200 = buffer.getUShort();
 						}
 					} else {
-						this.anInt201 = buffer.getUByte();
+						this.anInt193 = buffer.getUShort();
 					}
 				} else {
-					this.anInt208 = buffer.getShort();
+					this.anInt201 = buffer.getUByte();
 				}
 			} else {
-				this.anInt204 = (short) (buffer.getUByte() * 4);
-				this.anInt206 = (short) (buffer.getUByte() * 4);
+				this.anInt208 = buffer.getShort();
 			}
 		} else {
-			this.anInt219 = buffer.getUShort();
+			this.anInt204 = (short) (buffer.getUByte() * 4);
+			this.anInt206 = (short) (buffer.getUByte() * 4);
 		}
 	}
 
 	final void postDecode() {
 	}
 
-	static final Class29 list(final int id) {
-		Class29 class29 = (Class29) Class120_Sub12_Sub31.aClass21_3378.get(id);
-		if (class29 != null) {
-			return class29;
+	static final EntityRenderData list(final int id) {
+		EntityRenderData entityRenderData = (EntityRenderData) recentUse.get(id);
+		if (entityRenderData != null) {
+			return entityRenderData;
 		}
 		final byte[] data = CanvasWrapper.aClass50_18.getFile(32, id);
-		class29 = new Class29();
+		entityRenderData = new EntityRenderData();
 		if (data != null) {
-			class29.decode(new Buffer(data));
+			entityRenderData.decode(new Buffer(data));
 		}
-		class29.postDecode();
-		Class120_Sub12_Sub31.aClass21_3378.put(class29, id);
-		return class29;
+		entityRenderData.postDecode();
+		recentUse.put(entityRenderData, id);
+		return entityRenderData;
 	}
 
 	static final void method254(final int i_17_, final int i_18_, final int i_19_) {
@@ -236,7 +241,7 @@ final class Class29 {
 		aString196 = null;
 	}
 
-	public Class29() {
+	public EntityRenderData() {
 		this.anInt203 = -1;
 		this.anInt211 = -1;
 		this.anInt212 = -1;

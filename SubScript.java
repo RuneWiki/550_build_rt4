@@ -30,13 +30,13 @@ final class SubScript {
 	static final String method2243() {
 		String string_4_;
 		if (Light.objSelected == 1 && Class186.menuOptionCount < 2) {
-			string_4_ = new StringBuilder(AbstractGraphicsBuffer.aString1176).append(Class29.aString196).append(Class192.selectedObjName).append(" ->").toString();
+			string_4_ = new StringBuilder(AbstractGraphicsBuffer.aString1176).append(EntityRenderData.aString196).append(Class192.selectedObjName).append(" ->").toString();
 		} else if (Class88.spellSelected && Class186.menuOptionCount < 2) {
-			string_4_ = new StringBuilder(Class101.aString963).append(Class29.aString196).append(Light.aString369).append(" ->").toString();
+			string_4_ = new StringBuilder(Class101.aString963).append(EntityRenderData.aString196).append(Light.aString369).append(" ->").toString();
 		} else if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
-			string_4_ = Class121.getMenuOptionName(-1 + Class186.menuOptionCount);
+			string_4_ = Class121.getMenuOptionName(Class186.menuOptionCount - 1);
 		} else {
-			string_4_ = Class121.getMenuOptionName(Class186.menuOptionCount + -2);
+			string_4_ = Class121.getMenuOptionName(Class186.menuOptionCount - 2);
 		}
 		if (Class186.menuOptionCount > 2) {
 			string_4_ = new StringBuilder(string_4_).append("<col=ffffff> / ").append(-2 + Class186.menuOptionCount).append(Class120_Sub11.aString2553).toString();
@@ -106,7 +106,7 @@ final class SubScript {
 					GraphicsLD.fillRect(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.fillRectARGB, class73.fillRectARGB >>> 24);
 				}
 				if (class73.rectARGB != 0) {
-					GraphicsLD.drawRect(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.rectARGB, class73.rectARGB >>> 24);
+					GraphicsLD.drawRectAlpha(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.rectARGB, class73.rectARGB >>> 24);
 				}
 				for (int i_20_ = 0; i_8_ > i_20_; i_20_++) {
 					String string = Class125.aStringArray2148[i_20_];

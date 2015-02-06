@@ -76,16 +76,9 @@ final class Class136 {
 		LabelGroup.groundTiles[level][x][z].objectPile = objectPile;
 	}
 
-	public static void method1979(final int i) {
-		try {
-			aString1316 = null;
-			if (i != 64) {
-				addObjectPile(-90, -53, -118, 99, null, -12L, null, null);
-			}
-			aRandom1319 = null;
-			anIntArray1315 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pn.B(").append(i).append(')').toString());
-		}
+	public static void method1979() {
+		aString1316 = null;
+		aRandom1319 = null;
+		anIntArray1315 = null;
 	}
 }

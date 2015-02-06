@@ -97,7 +97,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getUShortA()));
 				npc.setSize(npc.npcType.size);
 				npc.anInt3010 = npc.npcType.anInt1672;
-				npc.anInt2982 = npc.npcType.anInt1692;
+				npc.entityRenderDataId = npc.npcType.anInt1692;
 				if (npc.npcType.hasAmbientSound()) {
 					Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 				}
