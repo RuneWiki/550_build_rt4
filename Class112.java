@@ -82,7 +82,7 @@ final class Class112 {
 							final int i_10_ = (i_9_ / 8 << 8) + i_8_ / 8;
 							for (int i_11_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_11_; i_11_++) {
 								if (i_10_ == Class120_Sub12_Sub36.anIntArray3417[i_11_] && is[i_11_] != null) {
-									Class120_Sub12_Sub10.method1247(level, x * 8, Class182.collisionMaps, is[i_11_], i_7_, 8 * (0x7 & i_8_), (0x7 & i_9_) * 8, i_6_, bool, z * 8);
+									Class120_Sub12_Sub10.method1247(level, x * 8, WallLocation.collisionMaps, is[i_11_], i_7_, 8 * (0x7 & i_8_), (0x7 & i_9_) * 8, i_6_, bool, z * 8);
 									break;
 								}
 							}

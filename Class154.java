@@ -8,40 +8,38 @@ final class Class154 {
 	static boolean aBoolean1439 = false;
 	static int anInt1440;
 	static int anInt1441;
-	static int minimapRandomZoom;
 	
 	static {
 		shadowModelCache = new ObjectCache(32);
 		anInt1441 = 0;
 		anInt1440 = 0;
-		minimapRandomZoom = 0;
 	}
 
 	static final void addIgnore(final long nameAsLong) {
 		if (nameAsLong != 0L) {
 			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
-				AbstractRequest.method1540("", 0, Class143_Sub1.aString2192);
+				AbstractRequest.pushMessage(Class143_Sub1.aString2192, "", 0);
 			} else {
 				final String name = Class136.longToString(nameAsLong);
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 					if (HintIcon.ignoreNamesAsLong[id] == nameAsLong) {
-						AbstractRequest.method1540("", 0, new StringBuilder(name).append(Class69_Sub2_Sub1.aString3078).toString());
+						AbstractRequest.pushMessage(new StringBuilder(name).append(Class69_Sub2_Sub1.aString3078).toString(), "", 0);
 						return;
 					}
 				}
 				for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
 					if (AbstractSprite.friendsNameAsLong[id] == nameAsLong) {
-						AbstractRequest.method1540("", 0, new StringBuilder(Class120_Sub12_Sub25.aString3319).append(name).append(Class54.aString489).toString());
+						AbstractRequest.pushMessage(new StringBuilder(Class120_Sub12_Sub25.aString3319).append(name).append(TextRepository.aString489).toString(), "", 0);
 						return;
 					}
 				}
 				if (name.equals(TileParticleQueue.selfPlayer.name)) {
-					AbstractRequest.method1540("", 0, Class112.aString1079);
+					AbstractRequest.pushMessage(Class112.aString1079, "", 0);
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = nameAsLong;
 					GZIPDecompressor.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(nameAsLong);
 					SpotAnimationNode.aBooleanArray3468[Class120_Sub12_Sub26.ignoreCount++] = false;
-					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					client.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(197);
 					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 				}
@@ -80,7 +78,7 @@ final class Class154 {
 					final int i_9_ = height * i_7_ * 512 / (334 * i_8_);
 					final int i_10_ = (width - i_9_) / 2;
 					if (bool) {
-						GraphicsHD.method597();
+						GraphicsHD.clipRect();
 						GraphicsHD.fillRect(x, y, i_10_, height, 0);
 						GraphicsHD.fillRect(x + width - i_10_, y, i_10_, height, 0);
 					}
@@ -95,7 +93,7 @@ final class Class154 {
 					final int i_11_ = 334 * width * i_8_ / (512 * i_7_);
 					final int i_12_ = (height - i_11_) / 2;
 					if (bool) {
-						GraphicsHD.method597();
+						GraphicsHD.clipRect();
 						GraphicsHD.fillRect(x, y, width, i_12_, 0);
 						GraphicsHD.fillRect(x, -i_12_ + y - -height, width, i_12_, 0);
 					}

@@ -11,7 +11,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	private int anInt3295 = -1;
 	int[] anIntArray3296;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_3297;
-	static int anInt3298;
+	static int menuMouseY;
 
 	static {
 		aFloat3293 = 128.0F;
@@ -99,8 +99,8 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 				}
 			}
 		}
-		if (!Class120_Sub12_Sub15.aBoolean3247 || World.method2193(81)) {
-			if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !World.method2193(18)) {
+		if (!Class120_Sub12_Sub15.aBoolean3247 || World.method2193()) {
+			if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1 && !World.method2193()) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(250);
 				Class120_Sub12_Sub11.outputStream.putInt(Class157.anInt1466);
 				Class157.anInt1466 = -1;

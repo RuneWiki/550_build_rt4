@@ -8,7 +8,6 @@ class Class143 implements Interface3 {
 	static volatile long lastCanvasReplace = 0L;
 	private final Class114[] aClass114Array2186;
 	private final js5 aClass50_2187;
-	static int anInt2188 = 2;
 	private final NodeCache aClass35_2189 = new NodeCache(256);
 
 	@Override
@@ -32,7 +31,7 @@ class Class143 implements Interface3 {
 		boolean bool_18_ = false;
 		Class150.anIntArray1412[i_17_] = i_6_;
 		Class120_Sub12.anIntArray2565[i_17_++] = i_4_;
-		final int[][] is = Class182.collisionMaps[Class173.gameLevel].collisionFlags;
+		final int[][] is = WallLocation.collisionMaps[Class173.gameLevel].collisionFlags;
 		while (i_17_ != i_16_) {
 			i_15_ = Class150.anIntArray1412[i_16_];
 			i_14_ = Class120_Sub12.anIntArray2565[i_16_];
@@ -42,16 +41,16 @@ class Class143 implements Interface3 {
 				break;
 			}
 			if (i_5_ != 0) {
-				if ((i_5_ < 5 || i_5_ == 10) && Class182.collisionMaps[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, i, 2, i_5_ + -1)) {
+				if ((i_5_ < 5 || i_5_ == 10) && WallLocation.collisionMaps[Class173.gameLevel].method220(i_7_, i_9_, i_14_, i_15_, i, 2, i_5_ + -1)) {
 					bool_18_ = true;
 					break;
 				}
-				if (i_5_ < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i, i_15_, i_7_, i_14_, i_5_ - 1, i_9_, 2)) {
+				if (i_5_ < 10 && WallLocation.collisionMaps[Class173.gameLevel].method223(i, i_15_, i_7_, i_14_, i_5_ - 1, i_9_, 2)) {
 					bool_18_ = true;
 					break;
 				}
 			}
-			if (i_3_ != 0 && i_11_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
+			if (i_3_ != 0 && i_11_ != 0 && WallLocation.collisionMaps[Class173.gameLevel].method216(i_14_, -1, i_10_, 2, i_7_, i, i_11_, i_3_, i_15_)) {
 				bool_18_ = true;
 				break;
 			}
@@ -225,102 +224,6 @@ class Class143 implements Interface3 {
 			}
 		}
 		return false;
-	}
-
-	static final void translateToGermany() {
-		Class101_Sub3.aString2285 = "Fallen lassen";
-		Class156.aString1457 = "leuchten2:";
-		Class5.aString2153 = "Schlie\u00dfen";
-		Class11.aString82 = "Verbindung zum Update-Server hergestellt.";
-		Class53_Sub1.aString2213 = "rot:";
-		MouseRecorder.aString853 = "Speicher wird zugewiesen.";
-		Class120_Sub11.aString2553 = " weitere Optionen";
-		SceneGroundObject.aString2847 = "Wordpack geladen.";
-		CursorType.aString1239 = "Titelbild geladen.";
-		Class120_Sub12_Sub1.aString3137 = "Standardinstellungen geladen";
-		selectString = "Ausw\u00e4hlen";
-		Class120_Sub12_Sub27.aString3338 = "Suche nach Updates - ";
-		GroundDecoration.aString313 = "Lade...";
-		EntityRenderData.aString217 = "Lade Titelbild - ";
-		Class109.continueString = "Weiter";
-		Class120_Sub14_Sub24.aString3665 = "Lade Sprites - ";
-		Class120_Sub12_Sub25.aString3319 = "Bitte entferne ";
-		Class120_Sub12_Sub30.aString3371 = "Lade Texturen - ";
-		DummyInputStream.aString25 = "Gegenstand f\u00fcr Mitglieder";
-		AbstractGraphicsBuffer.aString1176 = "Benutzen";
-		Class120_Sub6.aString2444 = "Liste der Welten geladen";
-		Class120_Sub12_Sub18.aString3272 = "RuneScape wird geladen - bitte warten...";
-		Class120_Sub19.aString2653 = "M";
-		Js5Worker.aString398 = "Lade Wordpack - ";
-		Class191.aString2105 = "Verbindung mit Update-Server...";
-		Js5Worker.aString400 = "Starte 3D-Softwarebibliothek.";
-		HintIcon.aString807 = "welle:";
-		Class143_Sub1.aString2192 = "Deine Ignorieren-Liste ist voll, du kannst nur 100 Spieler darauf eintragen.";
-		Class120_Sub12_Sub28.okString = "Okay";
-		Class96.aString915 = "sch\u00fctteln:";
-		IntegerNode.aString2788 = "Lade Benutzeroberfl\u00e4che - ";
-		Class120_Sub11.aString2554 = "Lade Standardeinstellungen - ";
-		Class69_Sub2_Sub1.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
-		World.aString2837 = "3D-Softwarebibliothek gestartet.";
-		EnumType.aString3455 = "M";
-		Class24.aString142 = "Bitte warte - es wird versucht, die Verbindung wiederherzustellen.";
-		Class69.aString618 = "gr\u00fcn:";
-		InterfaceClickMask.aString2660 = "Lade Schrifts\u00e4tze - ";
-		ClanMember.aString2574 = "weiss:";
-		DisplayModeInfo.aString1708 = "Spielwelt erstellt.";
-		EntityRenderData.aString196 = ": ";
-		GameEntity.aString3011 = "scrollen:";
-		AnimatedLocation.aString3062 = "Spieler kann nicht gefunden werden: ";
-		Class120_Sub11.aString2552 = "Titelbild ge\u00f6ffnet.";
-		LongNode.loadingConfigString = "Lade Konfiguration - ";
-		AbstractIndexedSprite.aString1025 = "Musik-Engine vorbereitet.";
-		Class120_Sub30_Sub2.aString3679 = "Ladevorgang - bitte warte.";
-		Class65.aString591 = "Angreifen";
-		Class120_Sub11.aString2550 = "Deine Freunde-Liste ist voll! Maximale Eintr\u00e4ge: Mitglieder 200/freie Spieler 100";
-		Class54.aString489 = " zuerst von deiner Freunde-Liste!";
-		Class111.aString1062 = "leuchten1:";
-		Class114.aString1098 = "Lade Liste der Welten";
-		NpcType.aString1685 = "blinken3:";
-		Class136.aString1316 = "leuchten3:";
-		Class61.aString568 = "m\u00f6chte mit dir handeln.";
-		Class82.aString787 = "Hierhin drehen";
-		CursorType.aString1238 = "T";
-		Class120_Sub24.aString2726 = "Sprites geladen.";
-		Class120_Sub12_Sub1.aString3132 = "Hierhin gehen";
-		Class111.aString1056 = "W\u00e4hl eine Option";
-		Class147.aString1397 = "blinken1:";
-		Class120_Sub21.aString2669 = " loggt sich ein.";
-		Class132.aString1250 = " loggt sich aus.";
-		Class120_Sub12_Sub15.aString3244 = "Versteckt";
-		ModelParticle.aString1483 = "blaugr\u00fcn:";
-		Class120_Sub15.aString2594 = "Update-Liste geladen.";
-		Class109.aString1038 = "Eingabeprozedur geladen.";
-		Class71.aString626 = "Bitte warte...";
-		Class116.aString1116 = "Verbindung abgebrochen.";
-		Class157.aString1462 = "Abbrechen";
-		Class147.aString1398 = "welle2:";
-		Class120_Sub12_Sub21_Sub1.levelString = "Stufe: ";
-		MouseRecorder.aString854 = "T";
-		Class11.aString81 = "Untersuchen";
-		Class121.aString1155 = "Schrifts\u00e4tze geladen.";
-		Class8.aString64 = "Ablegen";
-		PlayerAppearance.aString1368 = "Zugewiesener Speicher.";
-		GZIPDecompressor.aString799 = "Benutzeroberfl\u00e4che geladen.";
-		Class174.skillString = "Fertigkeit: ";
-		Class112.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
-		InterfaceListener.aString2538 = "gleiten:";
-		Class120_Sub12_Sub21_Sub1.aString3910 = " steht bereits auf deiner Freunde-Liste!";
-		SceneGroundObject.aString2849 = "Bitte entferne ";
-		Class53_Sub1.aString2206 = "blinken2:";
-		ParticleNodeSub.aString2396 = "Mechscape wird geladen - bitte warten...";
-		NodeSub.aString2585 = "Konfig geladen.";
-		ProjectileNode.aString3449 = "Nehmen";
-		Class120_Sub14_Sub23.aString3655 = "Du kannst dich nicht auf deine eigene Freunde-Liste setzen!";
-		MapSceneType.aString1358 = "Texturen geladen.";
-		Class69_Sub1.aString2231 = "gelb:";
-		AbstractRequest.aString3575 = "lila:";
-		LongNode.ratingString = "Kampfstufe: ";
-		ClanMember.aString2578 = " zuerst von deiner Ignorieren-Liste!";
 	}
 
 	Class143(final js5 js5, final js5 class50_36_, final js5 class50_37_) {

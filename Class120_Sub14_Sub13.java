@@ -35,7 +35,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			if (i >= -35) {
 				aShort3570 = (short) 117;
 			}
-			Class22.method199(i_4_, i_5_, false);
+			Class22.method199(i_4_, i_5_);
 			final LDSprite class120_sub14_sub19_sub2_6_ = new LDSprite(i_4_, i_5_);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 				element.method1190(i_5_, i_4_);
@@ -111,7 +111,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
-			Class22.method199(i, i_21_, false);
+			Class22.method199(i, i_21_);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 				element.method1190(i_21_, i);
 			}
@@ -207,7 +207,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		CanvasWrapper.anInterface3_19 = interface3;
 		final float[] fs_40_ = new float[4 * i_39_ * i];
 		Class10.aClass50_79 = js5;
-		Class22.method199(i_39_, i, false);
+		Class22.method199(i_39_, i);
 		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 			element.method1190(i, i_39_);
 		}
@@ -293,7 +293,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
-			Class22.method199(i_57_, i, false);
+			Class22.method199(i_57_, i);
 			final LDTransparentSprite class120_sub14_sub19_sub2_sub1_58_ = new LDTransparentSprite(i_57_, i);
 			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
 				element.method1190(i, i_57_);
@@ -378,7 +378,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	}
 
 	static final void method1531(final String string) {
-		System.out.println(new StringBuilder("Error: ").append(AnimatedLocation.method2358(string, "\n", "%0a")).toString());
+		System.out.println(new StringBuilder("Error: ").append(AnimatedLocation.replaceAll(string, "%0a", "\n")).toString());
 	}
 
 	static final void method1532(int shaderId, int i_73_) {
@@ -414,7 +414,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			Class11.method124(d);
 			CanvasWrapper.anInterface3_19 = interface3;
 			Class10.aClass50_79 = js5;
-			Class22.method199(i_77_, i_75_, false);
+			Class22.method199(i_77_, i_75_);
 			final int[] is_78_ = new int[i_77_ * i_75_];
 			Class120_Sub12[] class120_sub12s;
 			int i_79_ = (class120_sub12s = aClass120_Sub12Array3565).length;

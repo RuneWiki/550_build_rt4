@@ -9,7 +9,7 @@ final class FileSystem {
 	private SeekableFile dataFile = null;
 	static int anInt455;
 	static Deque aClass105_456;
-	static int anInt457;
+	static int minimapClickX;
 	static SeqType[] aClass40Array458;
 	static int anInt459 = 0;
 	static float aFloat460;
@@ -87,8 +87,8 @@ final class FileSystem {
 						return false;
 					}
 					indexFile.seek(6 * index);
-					indexFile.read(ParticleType.aByteArray761, 0, 6);
-					sector = (0xff & ParticleType.aByteArray761[5]) + ((ParticleType.aByteArray761[4] & 0xff) << 8) + ((ParticleType.aByteArray761[3] & 0xff) << 16);
+					indexFile.read(EmitterType.aByteArray761, 0, 6);
+					sector = (0xff & EmitterType.aByteArray761[5]) + ((EmitterType.aByteArray761[4] & 0xff) << 8) + ((EmitterType.aByteArray761[3] & 0xff) << 16);
 					if (sector <= 0 || sector > dataFile.length() / 520L) {
 						return false;
 					}
@@ -98,30 +98,30 @@ final class FileSystem {
 						sector = 1;
 					}
 				}
-				ParticleType.aByteArray761[5] = (byte) sector;
-				ParticleType.aByteArray761[0] = (byte) (len >> 16);
-				ParticleType.aByteArray761[1] = (byte) (len >> 8);
+				EmitterType.aByteArray761[5] = (byte) sector;
+				EmitterType.aByteArray761[0] = (byte) (len >> 16);
+				EmitterType.aByteArray761[1] = (byte) (len >> 8);
 				int i_19_ = 0;
-				ParticleType.aByteArray761[4] = (byte) (sector >> 8);
+				EmitterType.aByteArray761[4] = (byte) (sector >> 8);
 				int i_20_ = 0;
-				ParticleType.aByteArray761[2] = (byte) len;
-				ParticleType.aByteArray761[3] = (byte) (sector >> 16);
+				EmitterType.aByteArray761[2] = (byte) len;
+				EmitterType.aByteArray761[3] = (byte) (sector >> 16);
 				indexFile.seek(6 * index);
-				indexFile.write(ParticleType.aByteArray761, 0, 6);
+				indexFile.write(EmitterType.aByteArray761, 0, 6);
 				int i_21_;
 				for (/**/; i_20_ < len; i_20_ += i_21_) {
 					int i_22_ = 0;
 					if (exists) {
 						dataFile.seek(520 * sector);
 						try {
-							dataFile.read(ParticleType.aByteArray761, 0, 8);
+							dataFile.read(EmitterType.aByteArray761, 0, 8);
 						} catch (final EOFException eofexception) {
 							break;
 						}
-						i_22_ = (ParticleType.aByteArray761[6] & 0xff) + ((ParticleType.aByteArray761[4] & 0xff) << 16) + ((ParticleType.aByteArray761[5] & 0xff) << 8);
-						final int i_23_ = ((ParticleType.aByteArray761[2] & 0xff) << 8) + (0xff & ParticleType.aByteArray761[3]);
-						final int i_24_ = 0xff & ParticleType.aByteArray761[7];
-						i_21_ = (ParticleType.aByteArray761[1] & 0xff) + ((ParticleType.aByteArray761[0] & 0xff) << 8);
+						i_22_ = (EmitterType.aByteArray761[6] & 0xff) + ((EmitterType.aByteArray761[4] & 0xff) << 16) + ((EmitterType.aByteArray761[5] & 0xff) << 8);
+						final int i_23_ = ((EmitterType.aByteArray761[2] & 0xff) << 8) + (0xff & EmitterType.aByteArray761[3]);
+						final int i_24_ = 0xff & EmitterType.aByteArray761[7];
+						i_21_ = (EmitterType.aByteArray761[1] & 0xff) + ((EmitterType.aByteArray761[0] & 0xff) << 8);
 						if (index != i_21_ || i_19_ != i_23_ || i_24_ != storeId) {
 							return false;
 						}
@@ -139,17 +139,17 @@ final class FileSystem {
 							i_22_++;
 						}
 					}
-					ParticleType.aByteArray761[1] = (byte) index;
+					EmitterType.aByteArray761[1] = (byte) index;
 					if (len + -i_20_ <= 512) {
 						i_22_ = 0;
 					}
-					ParticleType.aByteArray761[5] = (byte) (i_22_ >> 8);
-					ParticleType.aByteArray761[4] = (byte) (i_22_ >> 16);
-					ParticleType.aByteArray761[6] = (byte) i_22_;
-					ParticleType.aByteArray761[0] = (byte) (index >> 8);
-					ParticleType.aByteArray761[2] = (byte) (i_19_ >> 8);
-					ParticleType.aByteArray761[7] = (byte) storeId;
-					ParticleType.aByteArray761[3] = (byte) i_19_;
+					EmitterType.aByteArray761[5] = (byte) (i_22_ >> 8);
+					EmitterType.aByteArray761[4] = (byte) (i_22_ >> 16);
+					EmitterType.aByteArray761[6] = (byte) i_22_;
+					EmitterType.aByteArray761[0] = (byte) (index >> 8);
+					EmitterType.aByteArray761[2] = (byte) (i_19_ >> 8);
+					EmitterType.aByteArray761[7] = (byte) storeId;
+					EmitterType.aByteArray761[3] = (byte) i_19_;
 					i_19_++;
 					i_21_ = len + -i_20_;
 					dataFile.seek(520 * sector);
@@ -157,7 +157,7 @@ final class FileSystem {
 						i_21_ = 512;
 					}
 					sector = i_22_;
-					dataFile.write(ParticleType.aByteArray761, 0, 8);
+					dataFile.write(EmitterType.aByteArray761, 0, 8);
 					dataFile.write(buffer, i_20_, i_21_);
 				}
 			} catch (final IOException ioexception) {
@@ -209,16 +209,16 @@ final class FileSystem {
 			GraphicsHD.fillRect(x + 1, y + 1, width - 2, 16, 0);
 			GraphicsHD.drawRect(x + 1, y + 18, width - 2, height - 19, 0);
 		}
-		Class120_Sub12_Sub22.boldFont.method1466(Class111.aString1056, x + 3, y + 14, 6116423, -1);
+		Class120_Sub12_Sub22.boldFont.method1466(TextRepository.aString1056, x + 3, y + 14, 6116423, -1);
 		final int mouseX = Queue.lastMouseX;
 		final int mouseY = Class191.lastMouseY;
-		for (int optionId = 0; optionId < Class186.menuOptionCount; optionId++) {
-			final int optionY = y + 31 + (15 * (Class186.menuOptionCount - 1 - optionId));
+		for (int optionId = 0; optionId < WallDecoration.menuOptionCount; optionId++) {
+			final int optionY = y + 31 + (15 * (WallDecoration.menuOptionCount - 1 - optionId));
 			int optionColor = 16777215;
 			if (mouseX > x && x + width > mouseX && mouseY > optionY - 13 && mouseY < 3 + optionY) {
 				optionColor = 16776960;
 			}
-			Class120_Sub12_Sub22.boldFont.method1466(Class121.getMenuOptionName(optionId), x + 3, optionY, optionColor, 0);
+			Class120_Sub12_Sub22.boldFont.method1466(client.getMenuOptionText(optionId), x + 3, optionY, optionColor, 0);
 		}
 		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 	}
@@ -246,9 +246,9 @@ final class FileSystem {
 					return null;
 				}
 				indexFile.seek(i * 6);
-				indexFile.read(ParticleType.aByteArray761, 0, 6);
-				final int i_50_ = (ParticleType.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & ParticleType.aByteArray761[1] << 8) - -(0xff & ParticleType.aByteArray761[2]);
-				int i_51_ = (ParticleType.aByteArray761[5] & 0xff) + ((ParticleType.aByteArray761[4] & 0xff) << 8) + (0xff0000 & ParticleType.aByteArray761[3] << 16);
+				indexFile.read(EmitterType.aByteArray761, 0, 6);
+				final int i_50_ = (EmitterType.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & EmitterType.aByteArray761[1] << 8) - -(0xff & EmitterType.aByteArray761[2]);
+				int i_51_ = (EmitterType.aByteArray761[5] & 0xff) + ((EmitterType.aByteArray761[4] & 0xff) << 8) + (0xff0000 & EmitterType.aByteArray761[3] << 16);
 				if (i_50_ < 0 || i_50_ > maxLength) {
 					final byte[] is_52_ = null;
 					final byte[] is_53_ = is_52_;
@@ -273,11 +273,11 @@ final class FileSystem {
 					if (i_61_ > 512) {
 						i_61_ = 512;
 					}
-					dataFile.read(ParticleType.aByteArray761, 0, i_61_ - -8);
-					final int i_62_ = (0xff & ParticleType.aByteArray761[3]) + ((ParticleType.aByteArray761[2] & 0xff) << 8);
-					final int i_63_ = (0xff & ParticleType.aByteArray761[6]) + ((0xff & ParticleType.aByteArray761[5]) << 8) + (0xff0000 & ParticleType.aByteArray761[4] << 16);
-					final int i_64_ = (ParticleType.aByteArray761[1] & 0xff) + (0xff00 & ParticleType.aByteArray761[0] << 8);
-					final int i_65_ = 0xff & ParticleType.aByteArray761[7];
+					dataFile.read(EmitterType.aByteArray761, 0, i_61_ - -8);
+					final int i_62_ = (0xff & EmitterType.aByteArray761[3]) + ((EmitterType.aByteArray761[2] & 0xff) << 8);
+					final int i_63_ = (0xff & EmitterType.aByteArray761[6]) + ((0xff & EmitterType.aByteArray761[5]) << 8) + (0xff0000 & EmitterType.aByteArray761[4] << 16);
+					final int i_64_ = (EmitterType.aByteArray761[1] & 0xff) + (0xff00 & EmitterType.aByteArray761[0] << 8);
+					final int i_65_ = 0xff & EmitterType.aByteArray761[7];
 					if (i != i_64_ || i_62_ != i_57_ || i_65_ != storeId) {
 						final byte[] is_66_ = null;
 						final byte[] is_67_ = is_66_;
@@ -289,7 +289,7 @@ final class FileSystem {
 						return is_69_;
 					}
 					for (int i_70_ = 0; i_61_ > i_70_; i_70_++) {
-						is_56_[i_58_++] = ParticleType.aByteArray761[8 + i_70_];
+						is_56_[i_58_++] = EmitterType.aByteArray761[8 + i_70_];
 					}
 					i_57_++;
 					i_51_ = i_63_;

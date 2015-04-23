@@ -73,15 +73,15 @@ class HDSprite extends AbstractSprite {
 	}
 
 	@Override
-	final void method1594(int i, int i_16_, final int i_17_) {
+	final void drawSpriteTransparency(int x, int i_16_, final int i_17_) {
 		HDToolkit.method539();
-		i += this.offsetX;
+		x += this.offsetX;
 		i_16_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
 		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
 		gl.glColor4f(1.0F, 1.0F, 1.0F, i_17_ / 256.0F);
-		gl.glTranslatef(i, HDToolkit.canvasHeight - i_16_, 0.0F);
+		gl.glTranslatef(x, HDToolkit.canvasHeight - i_16_, 0.0F);
 		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}
@@ -238,22 +238,20 @@ class HDSprite extends AbstractSprite {
 			gl.glBindTexture(3553, class120_sub14_sub19_sub1_48_.textureId);
 			gl.glTexEnvi(8960, 34161, 7681);
 			gl.glTexEnvi(8960, 34176, 34168);
-			final int i_49_ = -i_42_ / 2;
-			final int i_50_ = -i_43_ / 2;
-			final int i_51_ = -i_49_;
-			final int i_52_ = -i_50_;
+			final int i_49_ = i_42_ / 2;
+			final int i_50_ = i_43_ / 2;
 			int i_53_ = (int) (Math.sin(i_46_ / 326.11) * 65536.0);
 			int i_54_ = (int) (Math.cos(i_46_ / 326.11) * 65536.0);
 			i_53_ = i_53_ * i_47_ >> 8;
 			i_54_ = i_54_ * i_47_ >> 8;
-			final int i_55_ = (i_44_ << 16) + i_50_ * i_53_ + i_49_ * i_54_;
-			final int i_56_ = (i_45_ << 16) + i_50_ * i_54_ - i_49_ * i_53_;
-			final int i_57_ = (i_44_ << 16) + i_50_ * i_53_ + i_51_ * i_54_;
-			final int i_58_ = (i_45_ << 16) + i_50_ * i_54_ - i_51_ * i_53_;
-			final int i_59_ = (i_44_ << 16) + i_52_ * i_53_ + i_49_ * i_54_;
-			final int i_60_ = (i_45_ << 16) + i_52_ * i_54_ - i_49_ * i_53_;
-			final int i_61_ = (i_44_ << 16) + i_52_ * i_53_ + i_51_ * i_54_;
-			final int i_62_ = (i_45_ << 16) + i_52_ * i_54_ - i_51_ * i_53_;
+			final int i_55_ = (i_44_ << 16) - i_50_ * i_53_ - i_49_ * i_54_;
+			final int i_56_ = (i_45_ << 16) - i_50_ * i_54_ + i_49_ * i_53_;
+			final int i_57_ = (i_44_ << 16) - i_50_ * i_53_ + i_49_ * i_54_;
+			final int i_58_ = (i_45_ << 16) - i_50_ * i_54_ - i_49_ * i_53_;
+			final int i_59_ = (i_44_ << 16) + i_50_ * i_53_ - i_49_ * i_54_;
+			final int i_60_ = (i_45_ << 16) + i_50_ * i_54_ + i_49_ * i_53_;
+			final int i_61_ = (i_44_ << 16) + i_50_ * i_53_ + i_49_ * i_54_;
+			final int i_62_ = (i_45_ << 16) + i_50_ * i_54_ - i_49_ * i_53_;
 			final float f = (float) class120_sub14_sub19_sub1_48_.width / (float) class120_sub14_sub19_sub1_48_.anInt3945;
 			final float f_63_ = (float) class120_sub14_sub19_sub1_48_.height / (float) class120_sub14_sub19_sub1_48_.anInt3948;
 			gl.glBegin(6);
@@ -333,14 +331,14 @@ class HDSprite extends AbstractSprite {
 	}
 
 	@Override
-	final void method1587(int i, int i_86_) {
+	final void drawSprite(int x, int i_86_) {
 		HDToolkit.method510();
-		i += this.offsetX;
+		x += this.offsetX;
 		i_86_ += this.offsetY;
 		final GL gl = HDToolkit.gl;
 		HDToolkit.bindTexture2D(this.textureId);
 		method1602(1);
-		gl.glTranslatef(i, HDToolkit.canvasHeight - i_86_, 0.0F);
+		gl.glTranslatef(x, HDToolkit.canvasHeight - i_86_, 0.0F);
 		gl.glCallList(listId);
 		gl.glLoadIdentity();
 	}

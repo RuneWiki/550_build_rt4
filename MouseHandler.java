@@ -81,8 +81,8 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 	public final synchronized void mousePressed(final MouseEvent mouseevent) {
 		if (SpotAnimationNode.mouseHandler != null) {
 			Class192.currentClickX = mouseevent.getX();
-			ParticleType.currentClickY = mouseevent.getY();
-			Class186.currentClickTime = TimeUtil.getSafeTime();
+			EmitterType.currentClickY = mouseevent.getY();
+			WallDecoration.currentClickTime = TimeUtil.getSafeTime();
 			Class136.mouseIdleCycle = 0;
 			if (mouseevent.isMetaDown()) {
 				GroundObjectNode.currentMouseClick = 2;

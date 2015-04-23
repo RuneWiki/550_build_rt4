@@ -19,7 +19,7 @@ final class IdentityKit {
 	static Class191[][] aClass191ArrayArray1337;
 
 	static final void buildPlayerMenu(final Player player, final int x, final int z, final int index) {
-		if (TileParticleQueue.selfPlayer != player && Class186.menuOptionCount < 400) {
+		if (TileParticleQueue.selfPlayer != player && WallDecoration.menuOptionCount < 400) {
 			String string;
 			if (player.skill == 0) {
 				boolean markCombatDifference = true;
@@ -35,20 +35,20 @@ final class IdentityKit {
 						markCombatDifference = false;
 					}
 				}
-				final String identifier = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.levelString : LongNode.ratingString;
+				final String identifier = Buffer.gameId != 1 ? TextRepository.level : TextRepository.rating;
 				if (player.anInt3733 <= player.combatLevel) {
 					string = player.getTitledName() + (markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + ")";
 				} else {
 					string = player.getTitledName() + (markCombatDifference ? Class81.method704(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + "+" + (player.anInt3733 - player.combatLevel) + ")";
 				}
 			} else {
-				string = player.getTitledName() + " (" + Class174.skillString + player.skill + ")";
+				string = player.getTitledName() + " (" + TextRepository.skill + player.skill + ")";
 			}
 			if (Light.objSelected == 1) {
-				InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, Class192.selectedObjName + " -> <col=ffffff>" + string, index, x, z, (short) 21, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+				InvType.addMenuOption(TextRepository.use, Class192.selectedObjName + " -> <col=ffffff>" + string, index, x, z, (short) 21, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 			} else if (Class88.spellSelected) {
 				if ((0x8 & GroundTile.selectedSpellUseMask) != 0) {
-					InvType.addMenuOption(Class101.aString963, Light.aString369 + " -> <col=ffffff>" + string, index, x, z, (short) 5, Class150.selectedSpellTargetCursor);
+					InvType.addMenuOption(Class101.selectedSpellPrefix, Light.selectedSpellName + " -> <col=ffffff>" + string, index, x, z, (short) 5, Class150.selectedSpellTargetCursor);
 				}
 			} else {
 				for (int optionId = 7; optionId >= 0; optionId--) {
@@ -74,24 +74,24 @@ final class IdentityKit {
 					}
 				}
 			}
-			for (int id = 0; id < Class186.menuOptionCount; id++) {
+			for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 				if (Class120_Sub29.menuOptionsCode[id] == 26) {
-					Class120_Sub12_Sub29.menuOptionSufix[id] = "<col=ffffff>" + string;
+					Class120_Sub12_Sub29.menuOptionSuffix[id] = "<col=ffffff>" + string;
 					break;
 				}
 			}
 		}
 	}
 
-	final Model method1985() {
+	final Model constructHeadModel() {
 		final Model[] models = new Model[5];
-		int pos = 0;
+		int modelPos = 0;
 		for (int id = 0; id < 5; id++) {
 			if (headModelIds[id] != -1) {
-				models[pos++] = Model.get(SceneGroundObject.aClass50_2839, headModelIds[id], 0);
+				models[modelPos++] = Model.get(SceneGroundObject.aClass50_2839, headModelIds[id], 0);
 			}
 		}
-		final Model model = new Model(models, pos);
+		final Model model = new Model(models, modelPos);
 		if (recolorOriginal != null) {
 			for (int id = 0; id < recolorOriginal.length; id++) {
 				model.recolor(recolorOriginal[id], recolorModified[id]);
@@ -105,7 +105,7 @@ final class IdentityKit {
 		return model;
 	}
 
-	final Model method1986() {
+	final Model constructModel() {
 		if (modelIds == null) {
 			return null;
 		}
@@ -278,7 +278,7 @@ final class IdentityKit {
 								Class157.method2088(class120_sub18_40_.shapedTile, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i, i_28_, true);
 							}
 						}
-						final Class182 class182 = class120_sub18_40_.aClass182_2628;
+						final WallLocation class182 = class120_sub18_40_.wallLocation;
 						if (class182 != null) {
 							if (HDToolkit.glEnabled) {
 								if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0) {
@@ -287,8 +287,8 @@ final class IdentityKit {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 							}
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.bitPacked, i_29_, null);
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+									class182.bitPackedUid, i_29_, null);
 						}
 						for (int i_41_ = 0; i_41_ < class120_sub18_40_.anInt2638; i_41_++) {
 							final Class28 class28 = class120_sub18_40_.aClass28Array2625[i_41_];
@@ -340,8 +340,8 @@ final class IdentityKit {
 					}
 					int i_43_ = 0;
 					int i_44_ = 0;
-					final Class182 class182 = class120_sub18_27_.aClass182_2628;
-					final Class186 class186 = class120_sub18_27_.aClass186_2639;
+					final WallLocation class182 = class120_sub18_27_.wallLocation;
+					final WallDecoration class186 = class120_sub18_27_.wallDecoration;
 					if (class182 != null || class186 != null) {
 						if (Class120_Sub12_Sub26.anInt3332 == i) {
 							i_43_++;
@@ -368,7 +368,7 @@ final class IdentityKit {
 								class120_sub18_27_.anInt2648 = 6 - class120_sub18_27_.anInt2637;
 							} else if (class182.anInt1799 == 64) {
 								class120_sub18_27_.anInt2633 = 12;
-								class120_sub18_27_.anInt2637 = Class121.anIntArray1152[i_43_];
+								class120_sub18_27_.anInt2637 = client.anIntArray1152[i_43_];
 								class120_sub18_27_.anInt2648 = 12 - class120_sub18_27_.anInt2637;
 							} else {
 								class120_sub18_27_.anInt2633 = 9;
@@ -382,15 +382,15 @@ final class IdentityKit {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.bitPacked, i_29_, null);
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+									class182.bitPackedUid, i_29_, null);
 						}
 						if ((class182.anInt1792 & i_44_) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.bitPacked, i_29_, null);
+							class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+									class182.bitPackedUid, i_29_, null);
 						}
 					}
 					if (class186 != null && !Js5Worker.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
@@ -401,12 +401,12 @@ final class IdentityKit {
 							if (HDToolkit.glEnabled) {
 								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 							}
-							class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
+							class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.renderX - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.renderY - PlayerAppearance.anInt1367, class186.renderZ
 									- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 						} else if (class186.anInt1895 == 256) {
-							final int i_45_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
-							final int i_46_ = class186.anInt1894 - PlayerAppearance.anInt1367;
-							final int i_47_ = class186.anInt1891 - Class145.anInt1381;
+							final int i_45_ = class186.renderX - DisplayModeInfo.anInt1713;
+							final int i_46_ = class186.renderY - PlayerAppearance.anInt1367;
+							final int i_47_ = class186.renderZ - Class145.anInt1381;
 							final int i_48_ = class186.anInt1896;
 							int i_49_;
 							if (i_48_ == 1 || i_48_ == 2) {
@@ -507,14 +507,14 @@ final class IdentityKit {
 						}
 					}
 					if (bool_56_) {
-						final Class182 class182 = class120_sub18_27_.aClass182_2628;
+						final WallLocation class182 = class120_sub18_27_.wallLocation;
 						if (!GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 							do {
 								if (HDToolkit.glEnabled) {
-									if ((class182.bitPacked & 0xfc000L) == 16384L) {
-										int i_58_ = class182.anInt1797 - DisplayModeInfo.anInt1713;
-										int i_59_ = class182.anInt1795 - Class145.anInt1381;
-										final int i_60_ = (int) (class182.bitPacked >> 20 & 0x3L);
+									if ((class182.bitPackedUid & 0xfc000L) == 16384L) {
+										int i_58_ = class182.renderX - DisplayModeInfo.anInt1713;
+										int i_59_ = class182.renderZ - Class145.anInt1381;
+										final int i_60_ = (int) (class182.bitPackedUid >> 20 & 0x3L);
 										if (i_60_ == 0) {
 											i_58_ -= 64;
 											i_59_ += 64;
@@ -525,14 +525,14 @@ final class IdentityKit {
 										} else if (i_60_ == 1) {
 											i_58_ += 64;
 											i_59_ += 64;
-											if (i_59_ < -i_58_ && i < Class186.anInt1900 - 1 && i_28_ < Class120_Sub12_Sub38.anInt3440 - 1) {
+											if (i_59_ < -i_58_ && i < WallDecoration.anInt1900 - 1 && i_28_ < Class120_Sub12_Sub38.anInt3440 - 1) {
 												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i + 1, i_28_ + 1);
 												break;
 											}
 										} else if (i_60_ == 2) {
 											i_58_ += 64;
 											i_59_ -= 64;
-											if (i_59_ > i_58_ && i < Class186.anInt1900 - 1 && i_28_ > 0) {
+											if (i_59_ > i_58_ && i < WallDecoration.anInt1900 - 1 && i_28_ > 0) {
 												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i + 1, i_28_ - 1);
 												break;
 											}
@@ -548,8 +548,8 @@ final class IdentityKit {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
 							} while (false);
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-									class182.bitPacked, i_29_, null);
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+									class182.bitPackedUid, i_29_, null);
 						}
 						class120_sub18_27_.anInt2633 = 0;
 					}
@@ -590,7 +590,7 @@ final class IdentityKit {
 										}
 									}
 								}
-								Class39.aClass28Array323[i_62_++] = class28;
+								client.aClass28Array323[i_62_++] = class28;
 								int i_68_ = Class120_Sub12_Sub26.anInt3332 - class28.anInt180;
 								final int i_69_ = class28.anInt182 - Class120_Sub12_Sub26.anInt3332;
 								if (i_69_ > i_68_) {
@@ -609,7 +609,7 @@ final class IdentityKit {
 							int i_72_ = -50;
 							int i_73_ = -1;
 							for (int i_74_ = 0; i_74_ < i_62_; i_74_++) {
-								final Class28 class28 = Class39.aClass28Array323[i_74_];
+								final Class28 class28 = client.aClass28Array323[i_74_];
 								if (class28.anInt173 != Class120_Sub12_Sub9.anInt3193) {
 									if (class28.anInt171 > i_72_) {
 										i_72_ = class28.anInt171;
@@ -617,8 +617,8 @@ final class IdentityKit {
 									} else if (class28.anInt171 == i_72_) {
 										final int i_75_ = class28.anInt178 - DisplayModeInfo.anInt1713;
 										final int i_76_ = class28.anInt185 - Class145.anInt1381;
-										final int i_77_ = Class39.aClass28Array323[i_73_].anInt178 - DisplayModeInfo.anInt1713;
-										final int i_78_ = Class39.aClass28Array323[i_73_].anInt185 - Class145.anInt1381;
+										final int i_77_ = client.aClass28Array323[i_73_].anInt178 - DisplayModeInfo.anInt1713;
+										final int i_78_ = client.aClass28Array323[i_73_].anInt185 - Class145.anInt1381;
 										if (i_75_ * i_75_ + i_76_ * i_76_ > i_77_ * i_77_ + i_78_ * i_78_) {
 											i_73_ = i_74_;
 										}
@@ -628,7 +628,7 @@ final class IdentityKit {
 							if (i_73_ == -1) {
 								break;
 							}
-							final Class28 class28 = Class39.aClass28Array323[i_73_];
+							final Class28 class28 = client.aClass28Array323[i_73_];
 							class28.anInt173 = Class120_Sub12_Sub9.anInt3193;
 							if (!HintIcon.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.aClass180_174.getMaxY())) {
 								if (HDToolkit.glEnabled) {
@@ -696,27 +696,27 @@ final class IdentityKit {
 						}
 						final int i_93_ = i_91_ - i_92_ + 2;
 						Particle class108_sub3_sub1 = null;
-						ParticleManager class108_sub1 = null;
+						ParticleEmitter class108_sub1 = null;
 						int i_94_ = -1;
 						Particle class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekFirst();
 						for (/**/; true; class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekNext()) {
 							if (class108_sub3_sub1_95_ != null) {
-								if (class108_sub3_sub1_95_.aClass108_Sub1_3099 == null || class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass108_Sub2_2340.aBoolean2356) {
+								if (class108_sub3_sub1_95_.aClass108_Sub1_3099 == null || class108_sub3_sub1_95_.aClass108_Sub1_3099.particleEngine.aBoolean2356) {
 									class108_sub3_sub1_95_.unlink();
 									continue;
 								}
-								if ((byte) (int) (class108_sub3_sub1_95_.aClass108_Sub1_3099.aClass108_Sub2_2340.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
+								if ((byte) (int) (class108_sub3_sub1_95_.aClass108_Sub1_3099.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
 									class120_sub18_27_.tileParticle = null;
 									break;
 								}
 								if (class108_sub3_sub1 == null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub1.particleType.anInt721;
+									i_94_ = class108_sub1.emitterType.size;
 									continue;
 								}
 							}
-							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.aClass108_Sub1_3099 != class108_sub1 || class108_sub3_sub1_95_.aClass108_Sub1_3099.particleType.anInt721 != i_94_)) {
+							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.aClass108_Sub1_3099 != class108_sub1 || class108_sub3_sub1_95_.aClass108_Sub1_3099.emitterType.size != i_94_)) {
 								for (int i_96_ = 0; i_96_ < i_93_; i_96_++) {
 									ParticleEngine.anIntArray2389[i_96_] = 0;
 								}
@@ -754,8 +754,8 @@ final class IdentityKit {
 									}
 								}
 								boolean bool_103_ = false;
-								if (ParticleEngine.aBoolean2347 && class108_sub1.particleType.anInt724 != -1) {
-									Rasterizer.anInterface5_973.method25(class108_sub1.particleType.anInt724);
+								if (ParticleEngine.aBoolean2347 && class108_sub1.emitterType.anInt724 != -1) {
+									Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.anInt724);
 									bool_103_ = true;
 								} else {
 									HDToolkit.bindTexture2D(-1);
@@ -765,11 +765,11 @@ final class IdentityKit {
 									f_104_ = 64.0F;
 								}
 								gl.glPointSize(f_104_);
-								class108_sub1.aClass108_Sub2_2340.method950(gl, i_93_, bool_103_, class108_sub1.particleType.aBoolean750);
+								class108_sub1.particleEngine.method950(gl, i_93_, bool_103_, class108_sub1.emitterType.aBoolean750);
 								if (class108_sub3_sub1_95_ != null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub3_sub1_95_.aClass108_Sub1_3099.particleType.anInt721;
+									i_94_ = class108_sub3_sub1_95_.aClass108_Sub1_3099.emitterType.size;
 								}
 							}
 							if (class108_sub3_sub1_95_ == null) {
@@ -783,8 +783,8 @@ final class IdentityKit {
 						final ParticleNodeSub class108_sub3 = class120_sub18_27_.tileParticle.head;
 						for (ParticleNodeSub class108_sub3_107_ = class108_sub3.nextSub; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.nextSub) {
 							final Particle class108_sub3_sub1 = (Particle) class108_sub3_107_;
-							if (class108_sub3_sub1.aClass108_Sub1_3099 != null && !class108_sub3_sub1.aClass108_Sub1_3099.aClass108_Sub2_2340.aBoolean2356) {
-								if ((byte) (int) (class108_sub3_sub1.aClass108_Sub1_3099.aClass108_Sub2_2340.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
+							if (class108_sub3_sub1.aClass108_Sub1_3099 != null && !class108_sub3_sub1.aClass108_Sub1_3099.particleEngine.aBoolean2356) {
+								if ((byte) (int) (class108_sub3_sub1.aClass108_Sub1_3099.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
 									class120_sub18_27_.tileParticle = null;
 									break;
 								}
@@ -804,7 +804,7 @@ final class IdentityKit {
 									if (size == 0) {
 										size = 1;
 									}
-									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.particleType.anInt721 << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.emitterType.size << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -856,18 +856,18 @@ final class IdentityKit {
 						}
 					}
 					if (class120_sub18_27_.anInt2646 != 0) {
-						final Class186 class186 = class120_sub18_27_.aClass186_2639;
+						final WallDecoration class186 = class120_sub18_27_.wallDecoration;
 						if (class186 != null && !Js5Worker.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
 							if ((class186.anInt1895 & class120_sub18_27_.anInt2646) != 0) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
 								}
-								class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.anInt1893 - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.anInt1894 - PlayerAppearance.anInt1367, class186.anInt1891
+								class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.renderX - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.renderY - PlayerAppearance.anInt1367, class186.renderZ
 										- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.anInt1895 == 256) {
-								final int i_119_ = class186.anInt1893 - DisplayModeInfo.anInt1713;
-								final int i_120_ = class186.anInt1894 - PlayerAppearance.anInt1367;
-								final int i_121_ = class186.anInt1891 - Class145.anInt1381;
+								final int i_119_ = class186.renderX - DisplayModeInfo.anInt1713;
+								final int i_120_ = class186.renderY - PlayerAppearance.anInt1367;
+								final int i_121_ = class186.renderZ - Class145.anInt1381;
 								final int i_122_ = class186.anInt1896;
 								int i_123_;
 								if (i_122_ == 1 || i_122_ == 2) {
@@ -894,21 +894,21 @@ final class IdentityKit {
 								}
 							}
 						}
-						final Class182 class182 = class120_sub18_27_.aClass182_2628;
+						final WallLocation class182 = class120_sub18_27_.wallLocation;
 						if (class182 != null) {
 							if ((class182.anInt1792 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1866(class182.anInt1792, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-										class182.bitPacked, i_29_, null);
+								class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+										class182.bitPackedUid, i_29_, null);
 							}
 							if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 								if (HDToolkit.glEnabled) {
 									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.anInt1797 - DisplayModeInfo.anInt1713, class182.anInt1801 - PlayerAppearance.anInt1367, class182.anInt1795 - Class145.anInt1381,
-										class182.bitPacked, i_29_, null);
+								class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+										class182.bitPackedUid, i_29_, null);
 							}
 						}
 					}

@@ -23,11 +23,11 @@ final class Class120_Sub9 extends Node {
 	private static Buffer aClass120_Sub7_2513;
 	private int[] anIntArray2514;
 	private int anInt2515 = 0;
-	boolean aBoolean2516;
-	private final float aFloat2517;
+	boolean blend;
+	private final float textureSize;//need new name? TODO
 	private static ByteBuffer aByteBuffer2518;
 	int anInt2519 = 0;
-	int anInt2520;
+	int textureId;
 	private int[] anIntArray2521;
 	private boolean[] aBooleanArray2522;
 	private int[][] anIntArrayArray2523;
@@ -51,8 +51,8 @@ final class Class120_Sub9 extends Node {
 				class120_sub7.putFloatAsInt(aFloatArray2501[i]);
 				class120_sub7.putFloatAsInt(aFloatArray2529[i]);
 				class120_sub7.putFloatAsInt(aFloatArray2503[i]);
-				class120_sub7.putFloatAsInt(anIntArray2506[i] / aFloat2517);
-				class120_sub7.putFloatAsInt(anIntArray2521[i] / aFloat2517);
+				class120_sub7.putFloatAsInt(anIntArray2506[i] / textureSize);
+				class120_sub7.putFloatAsInt(anIntArray2521[i] / textureSize);
 				if (aBoolean2511) {
 					class120_sub7.putFloatAsInt(aFloatArray2530[i]);
 				}
@@ -64,8 +64,8 @@ final class Class120_Sub9 extends Node {
 				class120_sub7.putFloatAsLEInt(aFloatArray2501[i]);
 				class120_sub7.putFloatAsLEInt(aFloatArray2529[i]);
 				class120_sub7.putFloatAsLEInt(aFloatArray2503[i]);
-				class120_sub7.putFloatAsLEInt(anIntArray2506[i] / aFloat2517);
-				class120_sub7.putFloatAsLEInt(anIntArray2521[i] / aFloat2517);
+				class120_sub7.putFloatAsLEInt(anIntArray2506[i] / textureSize);
+				class120_sub7.putFloatAsLEInt(anIntArray2521[i] / textureSize);
 				if (aBoolean2511) {
 					class120_sub7.putFloatAsLEInt(aFloatArray2530[i]);
 				}
@@ -108,7 +108,7 @@ final class Class120_Sub9 extends Node {
 				if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 					final int[] is = anIntArrayArray2523[i];
 					Buffer class120_sub7;
-					if (this.aBoolean2516) {
+					if (this.blend) {
 						final int[] is_0_ = anIntArrayArray2526[i];
 						if (is_0_ != null) {
 							int[] is_2_;
@@ -135,7 +135,7 @@ final class Class120_Sub9 extends Node {
 				if (class120_sub18 != null && class120_sub18.aBoolean2647) {
 					final int[] is = anIntArrayArray2523[i];
 					Buffer class120_sub7;
-					if (this.aBoolean2516) {
+					if (this.blend) {
 						final int[] is_6_ = anIntArrayArray2526[i];
 						if (is_6_ != null) {
 							for (int i_9_ = 0; i_9_ < is_6_.length; i_9_++) {
@@ -157,11 +157,11 @@ final class Class120_Sub9 extends Node {
 		}
 		if (aClass120_Sub7_2509.pos != 0 || aClass120_Sub7_2513.pos != 0) {
 			final GL gl = HDToolkit.gl;
-			if (this.anInt2520 == -1 || bool) {
+			if (this.textureId == -1 || bool) {
 				HDToolkit.bindTexture2D(-1);
 				Class120_Sub14_Sub13.method1532(0, 0);
 			} else {
-				Rasterizer.anInterface5_973.method25(this.anInt2520);
+				Rasterizer.anInterface5_973.method25(this.textureId);
 			}
 			final int i = aBoolean2511 ? 40 : 36;
 			if (aClass104_2512 != null) {
@@ -243,7 +243,7 @@ final class Class120_Sub9 extends Node {
 	}
 
 	final int method1165(final int i, final int i_12_, final int i_13_, final int[] is, final int[] is_14_, final boolean bool) {
-		if (this.aBoolean2516) {
+		if (this.blend) {
 			anIntArrayArray2526[anInt2502] = is_14_;
 			aBooleanArray2522[anInt2502] = bool;
 			if (is_14_ != null) {
@@ -308,7 +308,7 @@ final class Class120_Sub9 extends Node {
 		anIntArray2504 = new int[this.anInt2519];
 		anIntArrayArray2523 = new int[this.anInt2519][];
 		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt2507));
-		if (this.aBoolean2516) {
+		if (this.blend) {
 			anIntArrayArray2526 = new int[this.anInt2519][];
 			aBooleanArray2522 = new boolean[this.anInt2519];
 		}
@@ -318,9 +318,9 @@ final class Class120_Sub9 extends Node {
 		anInt2508 = 0;
 		this.anInt2507 = 0;
 		this.anInt2527 = 0;
-		this.anInt2520 = i;
-		aFloat2517 = f;
-		this.aBoolean2516 = bool;
+		this.textureId = i;
+		textureSize = f;
+		this.blend = bool;
 		aBoolean2511 = bool_21_;
 		this.anInt2505 = i_22_;
 	}

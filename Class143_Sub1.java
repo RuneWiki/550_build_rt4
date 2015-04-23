@@ -17,7 +17,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		if (HDToolkit.glEnabled) {
 			return true;
 		}
-		return Class61.aBoolean566;
+		return client.aBoolean566;
 	}
 
 	final void method2022(final boolean bool) {
@@ -138,14 +138,14 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		return class120_sub14_sub17.method1575(this, aClass50_2196);
 	}
 
-	static final void method2027(final int x, final int y, final int width, final int height, final int i_19_, final int i_21_) {
-		final HintIcon[] class85s = Class187.hintIcons;
-		for (int i_26_ = 0; i_26_ < class85s.length; i_26_++) {
-			final HintIcon hintIcon = class85s[i_26_];
+	static final void method2027(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int i_19_, final int i_21_) {
+		final HintIcon[] hintIcons = Class187.hintIcons;
+		for (int id = 0; id < hintIcons.length; id++) {
+			final HintIcon hintIcon = hintIcons[id];
 			if (hintIcon != null && hintIcon.targetType == 2) {
-				Class137.method1982(height >> 1, 2 * hintIcon.y, i_21_, (hintIcon.x + -GameEntity.currentBaseX << 7) + hintIcon.anInt812, hintIcon.anInt815 + (-Class181.currentBaseZ + hintIcon.z << 7), i_19_, width >> 1);
-				if ((Class120_Sub12_Sub38.anInt3434 ^ 0xffffffff) < 0 && Class101_Sub2.loopCycle % 20 < 10) {
-					AnimatedLocation.aClass120_Sub14_Sub19Array3073[hintIcon.iconType].method1587(-12 + x + Class120_Sub12_Sub38.anInt3434, Class120_Sub15.anInt2588 + y - 28);
+				MapFunctionGroup.worldToScreen((hintIcon.x - GameEntity.currentBaseX << 7) + hintIcon.offX, hintIcon.y * 2, (hintIcon.z - Class181.currentBaseZ << 7) + hintIcon.offY, interfaceWidth >> 1, interfaceHeight >> 1, i_21_, i_19_);
+				if (Class120_Sub12_Sub38.screenX > -1 && Class101_Sub2.loopCycle % 20 < 10) {
+					AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
 				}
 			}
 		}
@@ -284,16 +284,16 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		} else if (clientCode == 327) {
 			jagexInterface.rotateX = 150;
 			jagexInterface.rotateY = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
-			jagexInterface.mediaIdDisabled = -1;
+			jagexInterface.modelIdDisabled = -1;
 			jagexInterface.modelTypeDisabled = 5;
 		} else if (clientCode == 328) {
 			if (TileParticleQueue.selfPlayer.name == null) {
-				jagexInterface.mediaIdDisabled = 0;
+				jagexInterface.modelIdDisabled = 0;
 			} else {
 				jagexInterface.rotateX = 150;
 				jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
 				jagexInterface.modelTypeDisabled = 5;
-				jagexInterface.mediaIdDisabled = 2047 + ((int) Varp.stringToLong(TileParticleQueue.selfPlayer.name) << 11);
+				jagexInterface.modelIdDisabled = 2047 + ((int) Varp.stringToLong(TileParticleQueue.selfPlayer.name) << 11);
 				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.idleAnimCurrentFrame;
 				jagexInterface.disabledAnim = TileParticleQueue.selfPlayer.idleAnimId;
 				jagexInterface.nextFrame = TileParticleQueue.selfPlayer.idleAnimNextFrame;

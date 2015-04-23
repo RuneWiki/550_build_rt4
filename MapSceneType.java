@@ -4,7 +4,7 @@
 
 final class MapSceneType {
 	static String aString1358 = "Loaded textures";
-	boolean aBoolean1359 = false;
+	boolean enlarge = false;//Not sure TODO 
 	int anInt1360;
 	static int anInt1361;
 	static JagexInterface worldMapInterface;
@@ -65,7 +65,7 @@ final class MapSceneType {
 		} else if (code == 2) {
 			this.anInt1360 = buffer.getMedium();
 		} else if (code == 3) {
-			this.aBoolean1359 = true;
+			this.enlarge = true;
 		} else if (code == 4) {
 			this.spriteId = -1;
 		}
@@ -119,7 +119,7 @@ final class MapSceneType {
 		}
 		for (int i_28_ = 0; i_28_ < class189s.length; i_28_++) {
 			final JagexInterface jagexInterface = class189s[i_28_];
-			if (jagexInterface != null && (i_20_ == jagexInterface.parent || (i_20_ ^ 0xffffffff) == 1412584498 && jagexInterface == Class120_Sub12_Sub4.aClass189_3156)) {
+			if (jagexInterface != null && (i_20_ == jagexInterface.parent || (i_20_ ^ 0xffffffff) == 1412584498 && jagexInterface == Class120_Sub12_Sub4.draggedComponent)) {
 				int redrawId;
 				if (i_22_ == -1) {
 					GrandExchangeObject.screenRedrawXs[LabelGroup.screenRedrawPos] = jagexInterface.x + i;
@@ -142,35 +142,35 @@ final class MapSceneType {
 					if (Class120_Sub30_Sub1.qaOpTestEnabled && (client.getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0) && alpha > 127) {
 						alpha = 127;
 					}
-					if (jagexInterface == Class120_Sub12_Sub4.aClass189_3156) {
-						if (-1412584499 != i_20_ && !jagexInterface.aBoolean1939) {
+					if (jagexInterface == Class120_Sub12_Sub4.draggedComponent) {
+						if (-1412584499 != i_20_ && !jagexInterface.keepDragAlpha) {
 							Class120_Sub12_Sub38.anInt3438 = i;
 							Class111.anInt1065 = i_26_;
 							AbstractIndexedSprite.aClass189Array1022 = class189s;
 							continue;
 						}
-						if (!jagexInterface.aBoolean1939) {
+						if (!jagexInterface.keepDragAlpha) {
 							alpha = 128;
 						}
-						if (Class120_Sub11.aBoolean2551 && Class111.aBoolean1058) {
-							int i_33_ = Class191.lastMouseY;
-							int i_34_ = Queue.lastMouseX;
-							i_33_ -= client.anInt2203;
-							i_34_ -= AbstractGraphicsBuffer.anInt1173;
-							if (Class120_Sub12_Sub35.anInt3413 > i_33_) {
-								i_33_ = Class120_Sub12_Sub35.anInt3413;
+						if (Class120_Sub11.draggingComponent && Class111.aBoolean1058) {
+							int newComponentX = Queue.lastMouseX;
+							newComponentX -= AbstractGraphicsBuffer.clickedComponentX;
+							int newComponentY = Class191.lastMouseY;
+							newComponentY -= client.clickedComponentY;
+							if (newComponentX < Class120_Sub12_Sub7.anInt3183) {
+								newComponentX = Class120_Sub12_Sub7.anInt3183;
 							}
-							if (i_34_ < Class120_Sub12_Sub7.anInt3183) {
-								i_34_ = Class120_Sub12_Sub7.anInt3183;
+							if (newComponentY < Class120_Sub12_Sub35.anInt3413) {
+								newComponentY = Class120_Sub12_Sub35.anInt3413;
 							}
-							if (i_33_ + jagexInterface.height > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
-								i_33_ = Class120_Sub12_Sub35.anInt3413 - (-Class26.aClass189_161.height - -jagexInterface.height);
+							if (newComponentX + jagexInterface.width > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
+								newComponentX = Class26.aClass189_161.width - jagexInterface.width + Class120_Sub12_Sub7.anInt3183;
 							}
-							if (Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 < i_34_ + jagexInterface.width) {
-								i_34_ = -jagexInterface.width + Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183;
+							if (newComponentY + jagexInterface.height > Class120_Sub12_Sub35.anInt3413 + Class26.aClass189_161.height) {
+								newComponentY = Class26.aClass189_161.height - jagexInterface.height + Class120_Sub12_Sub35.anInt3413;
 							}
-							drawX = i_34_;
-							drawY = i_33_;
+							drawX = newComponentX;
+							drawY = newComponentY;
 						}
 					}
 					int i_35_;
@@ -198,7 +198,7 @@ final class MapSceneType {
 						if (jagexInterface.clientCode != 0) {
 							if (jagexInterface.clientCode == 1337 || jagexInterface.clientCode == 1403) {
 								LookupTable.anInt497 = drawX;
-								DummyInputStream.aClass189_26 = jagexInterface;
+								DummyInputStream.fixedGameScreenInterface = jagexInterface;
 								StructType.anInt3590 = drawY;
 								StringNode.method1721(drawX, drawY, jagexInterface.width, jagexInterface.height, jagexInterface.clientCode == 1403);
 								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
@@ -217,36 +217,32 @@ final class MapSceneType {
 									} else {
 										GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 									}
-									if ((AbstractGraphicsBuffer.mapbackState == 0 || AbstractGraphicsBuffer.mapbackState == 3) && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_) {
-										//anInt1110 - mouseX/clickX
-										//anInt3298 - mouseY/clickY
-										int mouseAtPixelX = Class115.anInt1110 - drawX;
-										int mouseAtPixelY = Class120_Sub12_Sub21.anInt3298 - drawY;
+									if ((AbstractGraphicsBuffer.mapbackState == 0 || AbstractGraphicsBuffer.mapbackState == 3) && !Class15.menuOpen && Class115.menuMouseX >= i_37_ && i_35_ <= Class120_Sub12_Sub21.menuMouseY && i_36_ > Class115.menuMouseX && Class120_Sub12_Sub21.menuMouseY < i_38_) {
+										int mouseAtPixelX = Class115.menuMouseX - drawX;
+										int mouseAtPixelY = Class120_Sub12_Sub21.menuMouseY - drawY;
 										final int spriteStartX = jagexInterface.startOfSpriteLookupTable[mouseAtPixelY];
 										if (spriteStartX <= mouseAtPixelX && jagexInterface.lengthOfSpriteLookupTable[mouseAtPixelY] + spriteStartX >= mouseAtPixelX) {
 											mouseAtPixelX -= jagexInterface.width / 2;
 											mouseAtPixelY -= jagexInterface.height / 2;
-											final int rotation = Class164.minimapRandomRotation + (int) DummyOutputStream.aFloat28 & 0x7ff;
-											int sinRot = Rasterizer.sineTable[rotation];
-											sinRot = (Class154.minimapRandomZoom + 256) * sinRot >> 8;
-											int cosRot = Rasterizer.cosineTable[rotation];
-											cosRot = (Class154.minimapRandomZoom + 256) * cosRot >> 8;
-											final int i_47_ = sinRot * mouseAtPixelY + (mouseAtPixelX * cosRot) >> 11;
-											final int i_48_ = cosRot * mouseAtPixelY - (mouseAtPixelX * sinRot) >> 11;
-											final int mouseAtX = TileParticleQueue.selfPlayer.x + (i_47_ - (64 * TileParticleQueue.selfPlayer.getSize())) + 64 >> 7;
-											final int mouseAtY = TileParticleQueue.selfPlayer.z - (i_48_ + (64 * TileParticleQueue.selfPlayer.getSize())) + 64 >> 7;
-											if (Class88.spellSelected && (0x40 & GroundTile.selectedSpellUseMask) != 0) {
-												final JagexInterface class189_51_ = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.anInt420);
+											final int rotation = (int) DummyOutputStream.aFloat28 & 0x7ff;
+											int sinRot = Rasterizer.sinTable[rotation];
+											int cosRot = Rasterizer.cosTable[rotation];
+											final int offX = sinRot * mouseAtPixelY + mouseAtPixelX * cosRot >> 11;
+											final int offY = cosRot * mouseAtPixelY - mouseAtPixelX * sinRot >> 11;
+											final int mouseAtX = TileParticleQueue.selfPlayer.x + (offX - (64 * TileParticleQueue.selfPlayer.getSize())) + 64 >> 7;
+											final int mouseAtY = TileParticleQueue.selfPlayer.z - (offY + (64 * TileParticleQueue.selfPlayer.getSize())) + 64 >> 7;
+											if (Class88.spellSelected && (GroundTile.selectedSpellUseMask & 0x40) != 0) {
+												final JagexInterface class189_51_ = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
 												if (class189_51_ != null) {
-													InvType.addMenuOption(Class101.aString963, " ->", 1L, mouseAtX, mouseAtY, (short) 19, Class150.selectedSpellTargetCursor);
+													InvType.addMenuOption(Class101.selectedSpellPrefix, " ->", 1L, mouseAtX, mouseAtY, (short) 19, Class150.selectedSpellTargetCursor);
 												} else {
 													Node.deselectSpell();
 												}
 											} else {
 												if (Buffer.gameId == 1) {
-													InvType.addMenuOption(Class82.aString787, "", 1L, mouseAtX, mouseAtY, (short) 47, -1);
+													InvType.addMenuOption(TextRepository.faceHere, "", 1L, mouseAtX, mouseAtY, (short) 47, -1);
 												}
-												InvType.addMenuOption(Npc.aString3752, "", 1L, mouseAtX, mouseAtY, (short) 26, -1);
+												InvType.addMenuOption(TextRepository.walkText, "", 1L, mouseAtX, mouseAtY, (short) 26, -1);
 											}
 										}
 									}
@@ -276,7 +272,7 @@ final class MapSceneType {
 								continue;
 							}
 							if (jagexInterface.clientCode == 1401) {
-								Class186.method2473(drawX, drawY, jagexInterface.width, jagexInterface.height);
+								WallDecoration.method2473(drawX, drawY, jagexInterface.width, jagexInterface.height);
 								MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 								Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								if (!HDToolkit.glEnabled) {
@@ -288,7 +284,7 @@ final class MapSceneType {
 							}
 							if (jagexInterface.clientCode == 1402) {
 								if (!HDToolkit.glEnabled) {
-									ParticleType.method699(drawX, drawY);
+									EmitterType.method699(drawX, drawY);
 									MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 									Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;
 								}
@@ -348,15 +344,15 @@ final class MapSceneType {
 							}
 						}
 						if (!Class15.menuOpen) {
-							if (jagexInterface.type == 0 && jagexInterface.aBoolean1960 && i_37_ <= Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 >= i_35_ && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298 && !Class120_Sub30_Sub1.qaOpTestEnabled) {
+							if (jagexInterface.type == 0 && jagexInterface.aBoolean1960 && i_37_ <= Class115.menuMouseX && Class120_Sub12_Sub21.menuMouseY >= i_35_ && Class115.menuMouseX < i_36_ && i_38_ > Class120_Sub12_Sub21.menuMouseY && !Class120_Sub30_Sub1.qaOpTestEnabled) {
 								Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 								Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
-								Class120_Sub12_Sub29.menuOptionSufix[0] = "";
+								Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 								InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
-								Class186.menuOptionCount = 1;
+								WallDecoration.menuOptionCount = 1;
 							}
-							if (Class115.anInt1110 >= i_37_ && i_35_ <= Class120_Sub12_Sub21.anInt3298 && Class115.anInt1110 < i_36_ && i_38_ > Class120_Sub12_Sub21.anInt3298) {
-								Class120_Sub12_Sub9.method1244(jagexInterface, -drawY + Class120_Sub12_Sub21.anInt3298, Class115.anInt1110 - drawX);
+							if (Class115.menuMouseX >= i_37_ && i_35_ <= Class120_Sub12_Sub21.menuMouseY && Class115.menuMouseX < i_36_ && i_38_ > Class120_Sub12_Sub21.menuMouseY) {
+								Class120_Sub12_Sub9.method1244(jagexInterface, -drawY + Class120_Sub12_Sub21.menuMouseY, Class115.menuMouseX - drawX);
 							}
 						}
 						if (jagexInterface.type == 0) {
@@ -380,18 +376,18 @@ final class MapSceneType {
 							}
 							final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
 							if (class120_sub26 != null) {
-								if (class120_sub26.type == 0 && !Class15.menuOpen && Class115.anInt1110 >= i_37_ && Class120_Sub12_Sub21.anInt3298 >= i_35_ && i_36_ > Class115.anInt1110 && Class120_Sub12_Sub21.anInt3298 < i_38_ && !Class120_Sub30_Sub1.qaOpTestEnabled) {
+								if (class120_sub26.type == 0 && !Class15.menuOpen && Class115.menuMouseX >= i_37_ && Class120_Sub12_Sub21.menuMouseY >= i_35_ && i_36_ > Class115.menuMouseX && Class120_Sub12_Sub21.menuMouseY < i_38_ && !Class120_Sub30_Sub1.qaOpTestEnabled) {
 									Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 									InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 									Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
-									Class120_Sub12_Sub29.menuOptionSufix[0] = "";
-									Class186.menuOptionCount = 1;
+									Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
+									WallDecoration.menuOptionCount = 1;
 								}
 								Class43.method343(class120_sub26.interfaceId, i_35_, drawY, drawX, i_38_, i_37_, i_36_, redrawId);
 							}
 							if (HDToolkit.glEnabled && jagexInterface.clientCode == 1407) {
 								Class34.method289();
-								Class167.aBoolean1620 = true;
+								Class167.clearDepthBuffer = true;
 							}
 							if (HDToolkit.glEnabled) {
 								GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
@@ -419,7 +415,7 @@ final class MapSceneType {
 												final int i_68_ = jagexInterface.objIds[i_63_] - 1;
 												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Projectile.aClass189_2954 && Class5.anInt2154 == i_63_) {
 													AbstractSprite class120_sub14_sub19;
-													if (Light.objSelected != 1 || i_63_ != ParticleManager.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
+													if (Light.objSelected != 1 || i_63_ != ParticleEmitter.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
 														class120_sub14_sub19 = Class187.method2477(null, jagexInterface.objAmounts[i_63_], 1, i_68_, 3153952, jagexInterface.aBoolean1956);
 													} else {
 														class120_sub14_sub19 = Class187.method2477(null, jagexInterface.objAmounts[i_63_], 2, i_68_, 0, jagexInterface.aBoolean1956);
@@ -441,7 +437,7 @@ final class MapSceneType {
 																i_70_ = 0;
 																i_69_ = 0;
 															}
-															class120_sub14_sub19.method1594(i_69_ + i_67_, i_66_ - -i_70_, 128);
+															class120_sub14_sub19.drawSpriteTransparency(i_69_ + i_67_, i_66_ - -i_70_, 128);
 															if ((i_20_ ^ 0xffffffff) != 0) {
 																final JagexInterface class189_71_ = class189s[0xffff & i_20_];
 																int i_72_;
@@ -479,9 +475,9 @@ final class MapSceneType {
 																}
 															}
 														} else if (jagexInterface == Class32.aClass189_256 && i_63_ == Huffman.anInt1204) {
-															class120_sub14_sub19.method1594(i_67_, i_66_, 128);
+															class120_sub14_sub19.drawSpriteTransparency(i_67_, i_66_, 128);
 														} else {
-															class120_sub14_sub19.method1587(i_67_, i_66_);
+															class120_sub14_sub19.drawSprite(i_67_, i_66_);
 														}
 													} else {
 														InterfaceClickMask.redrawInterface(jagexInterface);
@@ -494,7 +490,7 @@ final class MapSceneType {
 														InterfaceClickMask.redrawInterface(jagexInterface);
 													}
 												} else {
-													class120_sub14_sub19.method1587(i_67_, i_66_);
+													class120_sub14_sub19.drawSprite(i_67_, i_66_);
 												}
 											}
 											i_63_++;
@@ -529,7 +525,7 @@ final class MapSceneType {
 										if (HDToolkit.glEnabled) {
 											GraphicsHD.fillRectAlpha(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
 										} else {
-											GraphicsLD.fillRect(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
+											GraphicsLD.fillRectAlpha(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
 										}
 									} else if (!HDToolkit.glEnabled) {
 										GraphicsLD.drawRectAlpha(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
@@ -570,7 +566,7 @@ final class MapSceneType {
 											}
 										}
 										if (Class156.aClass189_1454 == jagexInterface) {
-											text = Class71.aString626;
+											text = TextRepository.aString626;
 											color = jagexInterface.disabledColor;
 										}
 										if (!jagexInterface.newFormat) {
@@ -586,7 +582,7 @@ final class MapSceneType {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
 										} else {
-											class120_sub14_sub19.method1587(drawX, drawY);
+											class120_sub14_sub19.drawSprite(drawX, drawY);
 										}
 									} else if (jagexInterface.anInt2088 < 0) {
 										AbstractSprite class120_sub14_sub19;
@@ -619,9 +615,9 @@ final class MapSceneType {
 															for (int i_83_ = 0; i_80_ > i_83_; i_83_++) {
 																for (int i_84_ = 0; i_81_ > i_84_; i_84_++) {
 																	if (alpha != 0) {
-																		class120_sub14_sub19.method1594(i_83_ * i_78_ + drawX, i_84_ * i_79_ + drawY, -(0xff & alpha) + 256);
+																		class120_sub14_sub19.drawSpriteTransparency(i_83_ * i_78_ + drawX, i_84_ * i_79_ + drawY, -(0xff & alpha) + 256);
 																	} else {
-																		class120_sub14_sub19.method1587(i_78_ * i_83_ + drawX, i_84_ * i_79_ + drawY);
+																		class120_sub14_sub19.drawSprite(i_78_ * i_83_ + drawX, i_84_ * i_79_ + drawY);
 																	}
 																}
 															}
@@ -645,15 +641,15 @@ final class MapSceneType {
 													}
 													GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
 												} else {
-													GraphicsLD.method2166(drawX, drawY, jagexInterface.width + drawX, drawY + jagexInterface.height);
-													for (int i_87_ = 0; i_80_ > i_87_; i_87_++) {
+													GraphicsLD.setBounds(drawX, drawY, jagexInterface.width + drawX, drawY + jagexInterface.height);
+													for (int i_87_ = 0; i_87_ < i_80_; i_87_++) {
 														for (int i_88_ = 0; i_88_ < i_81_; i_88_++) {
 															if (jagexInterface.rotation != 0) {
 																class120_sub14_sub19.method1590(drawY - -(i_88_ * i_79_) + i_79_ / 2, jagexInterface.rotation, i_87_ * i_78_ + drawX - -(i_78_ / 2), 4096);
 															} else if (alpha == 0) {
-																class120_sub14_sub19.method1587(drawX - -(i_87_ * i_78_), drawY + i_88_ * i_79_);
+																class120_sub14_sub19.drawSprite(drawX - -(i_87_ * i_78_), drawY + i_88_ * i_79_);
 															} else {
-																class120_sub14_sub19.method1594(i_87_ * i_78_ + drawX, i_79_ * i_88_ + drawY, 256 - (alpha & 0xff));
+																class120_sub14_sub19.drawSpriteTransparency(i_87_ * i_78_ + drawX, i_79_ * i_88_ + drawY, 256 - (alpha & 0xff));
 															}
 														}
 													}
@@ -664,11 +660,11 @@ final class MapSceneType {
 												if (jagexInterface.rotation != 0) {
 													class120_sub14_sub19.method1590(drawY + jagexInterface.height / 2, jagexInterface.rotation, jagexInterface.width / 2 + drawX, i_89_);
 												} else if (alpha != 0) {
-													class120_sub14_sub19.method1585(drawX, drawY, jagexInterface.width, jagexInterface.height, -(alpha & 0xff) + 256);
+													class120_sub14_sub19.method1585(drawX, drawY, jagexInterface.width, jagexInterface.height, 256 - (alpha & 0xff));
 												} else if (jagexInterface.width != i_78_ || i_79_ != jagexInterface.height) {
 													class120_sub14_sub19.method1588(drawX, drawY, jagexInterface.width, jagexInterface.height);
 												} else {
-													class120_sub14_sub19.method1587(drawX, drawY);
+													class120_sub14_sub19.drawSprite(drawX, drawY);
 												}
 											}
 										} else if (Class88.interfaceSpriteIsNull) {
@@ -683,20 +679,20 @@ final class MapSceneType {
 										}
 									}
 								} else if (jagexInterface.type == 6) {
-									final boolean bool = Class120_Sub12_Sub35.isIntefaceEnabled(jagexInterface);
+									final boolean interfaceEnabled = Class120_Sub12_Sub35.isIntefaceEnabled(jagexInterface);
 									AbstractModelRenderer class180_sub7 = null;
-									int i_90_;
-									if (bool) {
-										i_90_ = jagexInterface.enabledAnim;
+									int animationId;
+									if (interfaceEnabled) {
+										animationId = jagexInterface.enabledAnim;
 									} else {
-										i_90_ = jagexInterface.disabledAnim;
+										animationId = jagexInterface.disabledAnim;
 									}
 									int i_91_ = 0;
 									if (jagexInterface.objId != -1) {
 										ObjType objType = ObjType.list(jagexInterface.objId);
 										if (objType != null) {
 											objType = objType.method2106(jagexInterface.objCount);
-											final SeqType seqType = i_90_ != -1 ? SeqType.list(i_90_) : null;
+											final SeqType seqType = animationId != -1 ? SeqType.list(animationId) : null;
 											if (jagexInterface.aBoolean2097 && TileParticleQueue.selfPlayer.appearance != null) {
 												class180_sub7 = objType.method2105(jagexInterface.currentFrame, 1, jagexInterface.nextFrame, TileParticleQueue.selfPlayer.appearance, seqType, jagexInterface.frameDelay);
 											} else {
@@ -709,26 +705,26 @@ final class MapSceneType {
 											}
 										}
 									} else if (jagexInterface.modelTypeDisabled != 5) {
-										if ((i_90_ ^ 0xffffffff) != 0) {
-											final SeqType seqType = SeqType.list(i_90_);
-											class180_sub7 = jagexInterface.method2486(seqType, TileParticleQueue.selfPlayer.appearance, jagexInterface.nextFrame, jagexInterface.currentFrame, jagexInterface.frameDelay, bool);
+										if (animationId != -1) {
+											final SeqType seqType = SeqType.list(animationId);
+											class180_sub7 = jagexInterface.method2486(seqType, TileParticleQueue.selfPlayer.appearance, jagexInterface.nextFrame, jagexInterface.currentFrame, jagexInterface.frameDelay, interfaceEnabled);
 											if (class180_sub7 == null && Class88.interfaceSpriteIsNull) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
 										} else {
-											class180_sub7 = jagexInterface.method2486(null, TileParticleQueue.selfPlayer.appearance, -1, -1, 0, bool);
+											class180_sub7 = jagexInterface.method2486(null, TileParticleQueue.selfPlayer.appearance, -1, -1, 0, interfaceEnabled);
 											if (class180_sub7 == null && Class88.interfaceSpriteIsNull) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
 										}
-									} else if (jagexInterface.mediaIdDisabled != -1) {
-										int i_92_ = jagexInterface.mediaIdDisabled & 0x7ff;
-										if (Class167.anInt1616 == i_92_) {
+									} else if (jagexInterface.modelIdDisabled != -1) {
+										int i_92_ = jagexInterface.modelIdDisabled & 0x7ff;
+										if (Class167.selfPlayerIndex == i_92_) {
 											i_92_ = 2047;
 										}
 										final Player class180_sub5_sub1 = Class118.playersList[i_92_];
-										final SeqType seqType = i_90_ == -1 ? null : SeqType.list(i_90_);
-										if (class180_sub5_sub1 != null && (int) Varp.stringToLong(class180_sub5_sub1.name) << 11 == (~0x7ff & jagexInterface.mediaIdDisabled)) {
+										final SeqType seqType = animationId == -1 ? null : SeqType.list(animationId);
+										if (class180_sub5_sub1 != null && (int) Varp.stringToLong(class180_sub5_sub1.name) << 11 == (~0x7ff & jagexInterface.modelIdDisabled)) {
 											class180_sub7 = class180_sub5_sub1.appearance.method2040(null, 0, -1, -1, null, jagexInterface.currentFrame, false, 0, seqType, true, 0);
 										}
 									} else {
@@ -747,17 +743,17 @@ final class MapSceneType {
 										} else {
 											i_94_ = (jagexInterface.height << 8) / jagexInterface.anInt2007;
 										}
-										final int i_95_ = drawY - -(jagexInterface.height / 2) - -(jagexInterface.translateY * i_94_ >> 8);
-										final int i_96_ = (jagexInterface.translateX * i_93_ >> 8) + jagexInterface.width / 2 + drawX;
+										int posX = (jagexInterface.translateX * i_93_ >> 8) + (jagexInterface.width / 2) + drawX;
+										int posY = (jagexInterface.translateY * i_94_ >> 8) + (jagexInterface.height / 2) + drawY;
 										if (!HDToolkit.glEnabled) {
-											Rasterizer.method869(i_96_, i_95_);
-											final int i_97_ = jagexInterface.zoom * Rasterizer.cosineTable[jagexInterface.rotateX] >> 16;
-											final int i_98_ = Rasterizer.sineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
+											Rasterizer.method869(posX, posY);
+											final int i_98_ = Rasterizer.sinTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
+											final int i_97_ = Rasterizer.cosTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
 											if (jagexInterface.newFormat) {
 												if (jagexInterface.aBoolean2046) {
-													((LDModelRenderer) class180_sub7).method2400(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_98_ - -i_91_ - -jagexInterface.anInt1977, i_97_ + jagexInterface.anInt1977, jagexInterface.zoom);
+													((LDModelRenderer) class180_sub7).method2400(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.xOffset2d, i_98_ - -i_91_ - -jagexInterface.yOffset2d, i_97_ + jagexInterface.yOffset2d, jagexInterface.zoom);
 												} else {
-													class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, i_91_ + i_98_ - -jagexInterface.anInt1977, i_97_ - -jagexInterface.anInt1977, -1L);
+													class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.xOffset2d, i_91_ + i_98_ - -jagexInterface.yOffset2d, i_97_ - -jagexInterface.yOffset2d, -1L);
 												}
 											} else {
 												class180_sub7.method2367(0, jagexInterface.rotateY, 0, jagexInterface.rotateX, 0, i_98_, i_97_, -1L);
@@ -765,32 +761,32 @@ final class MapSceneType {
 											Rasterizer.method868();
 										} else {
 											if (!jagexInterface.aBoolean2046) {
-												HDToolkit.method513(i_96_, i_95_, i_93_, i_94_);
+												HDToolkit.method513(posX, posY, i_93_, i_94_);
 												HDToolkit.method535(jagexInterface.aShort2065, 1.5F * jagexInterface.aShort2093);
 											} else {
-												HDToolkit.method512(i_96_, i_95_, jagexInterface.zoom, jagexInterface.aShort2093, i_93_, i_94_);
+												HDToolkit.method512(posX, posY, jagexInterface.zoom, jagexInterface.aShort2093, i_93_, i_94_);
 											}
 											HDToolkit.method532();
 											HDToolkit.toggleDepthTest(true);
 											HDToolkit.toggleFog(false);
 											Class99.method822(FileSystemRequest.brightness);
-											if (Class167.aBoolean1620) {
-												GraphicsHD.method597();
-												HDToolkit.method517();
+											if (Class167.clearDepthBuffer) {
+												GraphicsHD.clipRect();
+												HDToolkit.clearDepthBuffer();
 												GraphicsHD.clipRect(i_27_, i_25_, i_24_, i_23_);
-												Class167.aBoolean1620 = false;
+												Class167.clearDepthBuffer = false;
 											}
-											if (jagexInterface.aBoolean2003) {
+											if (jagexInterface.ignoreDepthMask) {
 												HDToolkit.disableDepthMask();
 											}
-											final int i_99_ = Rasterizer.cosineTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
-											final int i_100_ = jagexInterface.zoom * Rasterizer.sineTable[jagexInterface.rotateX] >> 16;
+											final int i_99_ = Rasterizer.cosTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
+											final int i_100_ = Rasterizer.sinTable[jagexInterface.rotateX] * jagexInterface.zoom >> 16;
 											if (jagexInterface.newFormat) {
-												class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.anInt2076, jagexInterface.anInt1977 + i_91_ + i_100_, i_99_ + jagexInterface.anInt1977, -1L);
+												class180_sub7.method2367(0, jagexInterface.rotateY, jagexInterface.rotateZ, jagexInterface.rotateX, jagexInterface.xOffset2d, jagexInterface.yOffset2d + i_91_ + i_100_, i_99_ + jagexInterface.yOffset2d, -1L);
 											} else {
 												class180_sub7.method2367(0, jagexInterface.rotateY, 0, jagexInterface.rotateX, 0, i_100_, i_99_, -1L);
 											}
-											if (jagexInterface.aBoolean2003) {
+											if (jagexInterface.ignoreDepthMask) {
 												HDToolkit.enableDepthMask();
 											}
 										}
@@ -815,14 +811,14 @@ final class MapSceneType {
 													} else {
 														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.method1033(jagexInterface.objAmounts[i_101_])).toString();
 													}
-													final int i_104_ = drawX + i_103_ * (115 + jagexInterface.objSpritePadX);
-													final int i_105_ = (jagexInterface.objSpritePadY + 12) * i_102_ + drawY;
+													final int i_104_ = drawX + i_103_ * (jagexInterface.objSpritePadX + 115);
+													final int i_105_ = drawY + i_102_ * (jagexInterface.objSpritePadY + 12);
 													if (jagexInterface.horizontalAlignment == 0) {
-														class120_sub14_sub8.method1466(string, i_104_, i_105_, jagexInterface.disabledColor, !jagexInterface.shaded ? -1 : 0);
+														class120_sub14_sub8.method1466(string, i_104_, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
 													} else if (jagexInterface.horizontalAlignment == 1) {
-														class120_sub14_sub8.method1478(string, i_104_ + 57, i_105_, jagexInterface.disabledColor, !jagexInterface.shaded ? -1 : 0);
+														class120_sub14_sub8.method1478(string, i_104_ + 57, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
 													} else {
-														class120_sub14_sub8.method1482(string, i_104_ + 114, i_105_, jagexInterface.disabledColor, !jagexInterface.shaded ? -1 : 0);
+														class120_sub14_sub8.method1482(string, i_104_ + 114, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
 													}
 												}
 												i_101_++;
@@ -889,31 +885,31 @@ final class MapSceneType {
 										}
 									}
 									if (jagexInterface.type == 9) {
-										int i_116_;
-										int i_117_;
-										int i_118_;
-										int i_119_;
-										if (jagexInterface.aBoolean1989) {
-											i_117_ = jagexInterface.width + drawX;
-											i_116_ = drawX;
-											i_118_ = drawY;
-											i_119_ = jagexInterface.height + drawY;
+										int x1;
+										int x2;
+										int y1;
+										int y2;
+										if (jagexInterface.invertYAxis) {
+											x1 = drawX;
+											x2 = drawX + jagexInterface.width;
+											y1 = drawY + jagexInterface.height;
+											y2 = drawY;
 										} else {
-											i_116_ = drawX;
-											i_117_ = drawX + jagexInterface.width;
-											i_118_ = drawY + jagexInterface.height;
-											i_119_ = drawY;
+											x1 = drawX;
+											x2 = drawX + jagexInterface.width;
+											y1 = drawY;
+											y2 = drawY + jagexInterface.height;
 										}
 										if (jagexInterface.lineWidth == 1) {
 											if (HDToolkit.glEnabled) {
-												GraphicsHD.drawLine(i_116_, i_119_, i_117_, i_118_, jagexInterface.disabledColor);
+												GraphicsHD.drawLine(x1, y1, x2, y2, jagexInterface.disabledColor);
 											} else {
-												GraphicsLD.drawLine(i_116_, i_119_, i_117_, i_118_, jagexInterface.disabledColor);
+												GraphicsLD.drawLine(x1, y1, x2, y2, jagexInterface.disabledColor);
 											}
 										} else if (HDToolkit.glEnabled) {
-											GraphicsHD.drawLine(i_116_, i_119_, i_117_, i_118_, jagexInterface.disabledColor, jagexInterface.lineWidth);
+											GraphicsHD.drawLine(x1, y1, x2, y2, jagexInterface.disabledColor, jagexInterface.lineWidth);
 										} else {
-											GraphicsLD.drawLine(i_116_, i_119_, i_117_, i_118_, jagexInterface.disabledColor, jagexInterface.lineWidth);
+											GraphicsLD.drawLine(x1, y1, x2, y2, jagexInterface.disabledColor, jagexInterface.lineWidth);
 										}
 									}
 								}

@@ -16,14 +16,12 @@ class Class132_Sub1 extends Class132 {
 	static boolean[][] aBooleanArrayArray2811;
 	static int[] spritePalette;
 	static js5 framesJs5;
-	static int anInt2814;
 	private final int anInt2815;
 	static int anInt2816 = 0;
 	private int anInt2817;
 
 	static {
 		aBooleanArrayArray2811 = new boolean[][] { { true, true, true }, new boolean[2], { false, true }, { true, false }, { false, true, true }, { true, false, true }, { false, true, false }, { true, false, false } };
-		anInt2814 = 1;
 	}
 
 	static final void method1931() {

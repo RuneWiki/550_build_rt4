@@ -26,20 +26,20 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		aClass105_3584 = new Deque();
 	}
 
-	static final void method1554(final int id) {
+	static final void postVarpChange(final int varpId) {
 		Class90.redrawOldFormatOverridedInterfaces();
 		ReflectionCheckNode.refreshLocationNpcAmbientSounds();
-		final int setting = Varp.list(id).setting;
+		final int setting = Varp.list(varpId).setting;
 		if (setting != 0) {
-			final int value = Class2.permanentVariable[id];
-			if (setting == 9) {
-				JagexInterface.inserting = value;
-			}
+			final int value = Class2.permanentVariable[varpId];
 			if (setting == 5) {
 				Class69.mouseButtons = value;
 			}
 			if (setting == 6) {
-				Player.chatEffects = value;
+				Player.chatEffectsEnabled = value;
+			}
+			if (setting == 9) {
+				JagexInterface.inserting = value;
 			}
 		}
 	}
@@ -109,8 +109,8 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 				len = maxLen;
 			}
 			final byte[] buf = new byte[len];
-			buffer.pos += Class39.huffman.method1886(0, buffer.pos, 125, buffer.buf, buf, len);
-			return DisplayModeInfo.method2215(buf, 0, len);
+			buffer.pos += client.huffman.method1886(0, buffer.pos, 125, buffer.buf, buf, len);
+			return DisplayModeInfo.bufferToString(buf, 0, len);
 		} catch (final Exception exception) {
 			return "Cabbage";
 		}

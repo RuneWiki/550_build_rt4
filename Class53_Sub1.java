@@ -4,20 +4,18 @@
 
 final class Class53_Sub1 extends Class53 {
 	private final Js5Worker js5Worker;
-	static String aString2206 = "flash2:";
 	private FileSystemWorker fileSystemWorker;
 	private final FileSystem masterIndexFileSystem;
 	private final FileSystem indexFileSystem;
 	private int anInt2210 = 0;
 	private final int indexCrc;
 	private final Hashtable aClass75_2212 = new Hashtable(16);
-	static String aString2213 = "red:";
 	private final int indexId;
 	private byte[] aByteArray2215;
 	private MasterIndexInfo masterIndexInfo;
 	static SignlinkNode worldConnectionNode;
 	private AbstractRequest aClass120_Sub14_Sub14_2218;
-	static int anInt2219;
+	static int minimapClickY;
 	private final int indexVersion;
 	private int anInt2221 = 0;
 	private boolean aBoolean2222;
@@ -50,8 +48,8 @@ final class Class53_Sub1 extends Class53 {
 		}
 		Class120_Sub12_Sub11.outputStream.putByteS(++client.flagCounter);
 		Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-		Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + z);
-		Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + x);
+		Class120_Sub12_Sub11.outputStream.putShort(z + Class181.currentBaseZ);
+		Class120_Sub12_Sub11.outputStream.putLEShortA(x + GameEntity.currentBaseX);
 	}
 
 	@Override
@@ -116,10 +114,10 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || Class186.menuOptionCount <= 2) {
-			return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 1];
+		if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
+			return InterfaceChangeNode.menuOptionsCursorId[WallDecoration.menuOptionCount - 1];
 		}
-		return InterfaceChangeNode.menuOptionsCursorId[Class186.menuOptionCount - 2];
+		return InterfaceChangeNode.menuOptionsCursorId[WallDecoration.menuOptionCount - 2];
 	}
 
 	final int getCompletion() {
@@ -180,26 +178,26 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	static final boolean bitPackedMatch(final int i, final int i_9_, final int i_10_, final long l) {// TODO
+	static final boolean bitPackedMatch(final int x, final int z, final int level, final long bitPacked) {// TODO
 																										// think
 																										// of
 																										// new
 																										// name
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_9_][i_10_];
-		if (class120_sub18 == null) {
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		if (groundTile == null) {
 			return false;
 		}
-		if (class120_sub18.aClass182_2628 != null && class120_sub18.aClass182_2628.bitPacked == l) {
+		if (groundTile.wallLocation != null && groundTile.wallLocation.bitPackedUid == bitPacked) {
 			return true;
 		}
-		if (class120_sub18.aClass186_2639 != null && class120_sub18.aClass186_2639.bitPacked == l) {
+		if (groundTile.wallDecoration != null && groundTile.wallDecoration.bitPacked == bitPacked) {
 			return true;
 		}
-		if (class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.bitPackedUid == l) {
+		if (groundTile.groundDecoration != null && groundTile.groundDecoration.bitPackedUid == bitPacked) {
 			return true;
 		}
-		for (int i_11_ = 0; i_11_ < class120_sub18.anInt2638; i_11_++) {
-			if (class120_sub18.aClass28Array2625[i_11_].bitPacked == l) {
+		for (int i_11_ = 0; i_11_ < groundTile.anInt2638; i_11_++) {
+			if (groundTile.aClass28Array2625[i_11_].bitPacked == bitPacked) {
 				return true;
 			}
 		}

@@ -256,7 +256,7 @@ final class Huffman {
 			class120_sub12_sub12.anInt3221 = (int) (f * 4096.0F);
 			class120_sub12_sub12.aBoolean3226 = bool;
 			class120_sub12_sub12.postDecode();
-			Class22.method199(i_39_, i, false);
+			Class22.method199(i_39_, i);
 			for (int i_43_ = 0; i_43_ < i; i_43_++) {
 				class120_sub12_sub12.method1261(is_42_[i_43_], i_43_);
 			}

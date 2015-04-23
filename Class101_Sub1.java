@@ -72,27 +72,25 @@ final class Class101_Sub1 extends Class101 {
 		anInt2267 = i_19_;
 	}
 
-	static final void method843(final String string, final int i, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final AbstractFont class120_sub14_sub8, final JagexInterface jagexInterface) {
-		final int i_29_ = i_27_ * i_27_ + i_25_ * i_25_;
-		final int i_30_ = (int) DummyOutputStream.aFloat28 + Class164.minimapRandomRotation & 0x7ff;
-		final int i_31_ = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) - -10;
-		if (i_31_ * i_31_ >= i_29_) {
-			int i_32_ = Rasterizer.cosineTable[i_30_];
-			i_32_ = i_32_ * 256 / (256 + Class154.minimapRandomZoom);
-			int i_33_ = Rasterizer.sineTable[i_30_];
-			i_33_ = i_33_ * 256 / (Class154.minimapRandomZoom + 256);
-			int i_34_ = i_33_ * i_25_ - -(i_32_ * i_27_) >> 16;
-			final int i_35_ = class120_sub14_sub8.method1468(string, 100);
-			final int i_36_ = class120_sub14_sub8.method1480(string, 100, 0);
-			final int i_37_ = -(i_33_ * i_27_) + i_25_ * i_32_ >> 16;
-			i_34_ -= i_35_ / 2;
-			if (-jagexInterface.width <= i_34_ && i_34_ <= jagexInterface.width && -jagexInterface.height <= i_37_ && i_37_ <= jagexInterface.height) {
+	static final void drawTextOnMinimap(final AbstractFont font, final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int mapFunctionX, final int mapFunctionY, final String text, final int color, final int yOff) {
+		final int maxDist = mapFunctionX * mapFunctionX + mapFunctionY * mapFunctionY;
+		final int dist = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
+		if (dist * dist >= maxDist) {
+			final int rot = (int) DummyOutputStream.aFloat28 & 0x7ff;
+			int rotSin = Rasterizer.sinTable[rot];
+			int rotCos = Rasterizer.cosTable[rot];
+			int posX = rotSin * mapFunctionY + rotCos * mapFunctionX >> 16;
+			final int posY = rotCos * mapFunctionY - rotSin * mapFunctionX >> 16;
+			final int i_35_ = font.method1468(text, 100);
+			final int i_36_ = font.method1480(text, 100, 0);
+			posX -= i_35_ / 2;
+			if (-jagexInterface.width <= posX && posX <= jagexInterface.width && -jagexInterface.height <= posY && posY <= jagexInterface.height) {
 				if (HDToolkit.glEnabled) {
 					GraphicsHD.method595((HDSprite) jagexInterface.constructSpriteFromId(false));
 				} else {
 					GraphicsLD.method2164(jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				}
-				class120_sub14_sub8.method1467(string, i_34_ - (-i_26_ + -(jagexInterface.width / 2)), i_24_ + jagexInterface.height / 2 + -i_37_ + -i_28_ + -i_36_, i_35_, 50, i, 0, 256, 1, 0, 0);
+				font.method1467(text, posX + interfaceX + jagexInterface.width / 2, interfaceY + jagexInterface.height / 2 - posY - yOff - i_36_, i_35_, 50, color, 0, 256, 1, 0, 0);
 				if (!HDToolkit.glEnabled) {
 					GraphicsLD.method2174();
 				} else {

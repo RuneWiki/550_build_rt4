@@ -11,12 +11,12 @@ final class Model extends SceneGraphNode {
 	short[] aShortArray2850;
 	byte[] aByteArray2851;
 	short[] aShortArray2852;
-	private static int[] anIntArray2853 = Rasterizer.cosineTable;
+	private static int[] cosinTable = Rasterizer.cosTable;
 	private short aShort2854;
 	int anInt2855;
 	int triangleCount = 0;
 	short[] triangleColors;
-	private static int[] anIntArray2858;
+	private static int[] sinTable;
 	byte[] aByteArray2859;
 	int[] vertexLabelIds;
 	int[] yVertices;
@@ -29,7 +29,7 @@ final class Model extends SceneGraphNode {
 	private short aShort2868;
 	private boolean aBoolean2869 = false;
 	byte[] aByteArray2870;
-	ModelParticle[] aClass158Array2871;
+	ModelParticleEmitter[] aClass158Array2871;
 	int[] triangleLabelIds;
 	short[] aShortArray2873;
 	private short aShort2874;
@@ -64,14 +64,14 @@ final class Model extends SceneGraphNode {
 	short[] aShortArray2903;
 
 	static {
-		anIntArray2858 = Rasterizer.sineTable;
+		sinTable = Rasterizer.sinTable;
 		anIntArray2883 = new int[10000];
 		anIntArray2882 = new int[10000];
 	}
 
 	final void method2279(final int i) {
-		final int i_0_ = anIntArray2858[i];
-		final int i_1_ = anIntArray2853[i];
+		final int i_0_ = sinTable[i];
+		final int i_1_ = cosinTable[i];
 		for (int i_2_ = 0; i_2_ < this.vertexCount; i_2_++) {
 			final int i_3_ = this.zVertices[i_2_] * i_0_ + this.xVertices[i_2_] * i_1_ >> 16;
 			this.zVertices[i_2_] = this.zVertices[i_2_] * i_1_ - this.xVertices[i_2_] * i_0_ >> 16;
@@ -117,11 +117,11 @@ final class Model extends SceneGraphNode {
 		method2296();
 	}
 
-	final void translate(final int x, final int y, final int z) {
+	final void translate(final int xOff, final int yOff, final int zOff) {
 		for (int id = 0; id < this.vertexCount; id++) {
-			this.xVertices[id] += x;
-			this.yVertices[id] += y;
-			this.zVertices[id] += z;
+			this.xVertices[id] += xOff;
+			this.yVertices[id] += yOff;
+			this.zVertices[id] += zOff;
 		}
 		method2296();
 	}
@@ -311,8 +311,8 @@ final class Model extends SceneGraphNode {
 	public static void method2289() {
 		anIntArray2882 = null;
 		anIntArray2883 = null;
-		anIntArray2858 = null;
-		anIntArray2853 = null;
+		sinTable = null;
+		cosinTable = null;
 	}
 
 	private final void decodeOld(final byte[] is) {
@@ -595,7 +595,7 @@ final class Model extends SceneGraphNode {
 		}
 		//if(i == 1570)
 		// is = ReadFile("c:/51223.dat");//TODO
-		return new Model(data);
+		return new Model(data, group);
 	}
 
 	final void retexture(final short i, final short i_116_) {
@@ -608,32 +608,32 @@ final class Model extends SceneGraphNode {
 		}
 	}
 
-	final void method2293(final int i, final int i_118_, final int i_119_) {
-		if (i_119_ != 0) {
-			final int i_120_ = anIntArray2858[i_119_];
-			final int i_121_ = anIntArray2853[i_119_];
-			for (int i_122_ = 0; i_122_ < this.vertexCount; i_122_++) {
-				final int i_123_ = this.yVertices[i_122_] * i_120_ + this.xVertices[i_122_] * i_121_ >> 16;
-				this.yVertices[i_122_] = this.yVertices[i_122_] * i_121_ - this.xVertices[i_122_] * i_120_ >> 16;
-				this.xVertices[i_122_] = i_123_;
-			}
-		}
-		if (i != 0) {
-			final int i_124_ = anIntArray2858[i];
-			final int i_125_ = anIntArray2853[i];
+	final void rotate(final int xRot, final int yRot, final int zRot) {
+		if (xRot != 0) {
+			final int i_124_ = sinTable[xRot];
+			final int i_125_ = cosinTable[xRot];
 			for (int i_126_ = 0; i_126_ < this.vertexCount; i_126_++) {
 				final int i_127_ = this.yVertices[i_126_] * i_125_ - this.zVertices[i_126_] * i_124_ >> 16;
 				this.zVertices[i_126_] = this.yVertices[i_126_] * i_124_ + this.zVertices[i_126_] * i_125_ >> 16;
 				this.yVertices[i_126_] = i_127_;
 			}
 		}
-		if (i_118_ != 0) {
-			final int i_128_ = anIntArray2858[i_118_];
-			final int i_129_ = anIntArray2853[i_118_];
+		if (yRot != 0) {
+			final int i_128_ = sinTable[yRot];
+			final int i_129_ = cosinTable[yRot];
 			for (int i_130_ = 0; i_130_ < this.vertexCount; i_130_++) {
 				final int i_131_ = this.zVertices[i_130_] * i_128_ + this.xVertices[i_130_] * i_129_ >> 16;
 				this.zVertices[i_130_] = this.zVertices[i_130_] * i_129_ - this.xVertices[i_130_] * i_128_ >> 16;
 				this.xVertices[i_130_] = i_131_;
+			}
+		}
+		if (zRot != 0) {
+			final int i_120_ = sinTable[zRot];
+			final int i_121_ = cosinTable[zRot];
+			for (int i_122_ = 0; i_122_ < this.vertexCount; i_122_++) {
+				final int i_123_ = this.yVertices[i_122_] * i_120_ + this.xVertices[i_122_] * i_121_ >> 16;
+				this.yVertices[i_122_] = this.yVertices[i_122_] * i_121_ - this.xVertices[i_122_] * i_120_ >> 16;
+				this.xVertices[i_122_] = i_123_;
 			}
 		}
 	}
@@ -965,15 +965,23 @@ final class Model extends SceneGraphNode {
 				this.aByteArray2870[i_195_] = class120_sub7_136_.getByte();
 			}
 		}
-		if (hasParticles) {
+		if(modelId == 1570) {
+			this.aClass158Array2871 = new ModelParticleEmitter[1];
+			for (int i_198_ = 0; i_198_ < 1; i_198_++) {
+				final int particleId = 0;
+				final int i_200_ = 1;
+				this.aClass158Array2871[i_198_] = new ModelParticleEmitter(particleId, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
+			}
+		}
+		if (hasParticles) {//51222 and 51223
 			class120_sub7.pos = i_178_;
 			final int i_197_ = class120_sub7.getUByte();
 			if (i_197_ > 0) {
-				this.aClass158Array2871 = new ModelParticle[i_197_];
+				this.aClass158Array2871 = new ModelParticleEmitter[i_197_];
 				for (int i_198_ = 0; i_198_ < i_197_; i_198_++) {
 					final int particleId = class120_sub7.getUShort();
 					final int i_200_ = class120_sub7.getUShort();
-					this.aClass158Array2871[i_198_] = new ModelParticle(particleId, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
+					this.aClass158Array2871[i_198_] = new ModelParticleEmitter(particleId, this.trianglesA[i_200_], this.trianglesB[i_200_], this.trianglesC[i_200_]);
 				}
 			}
 			final int i_201_ = class120_sub7.getUByte();
@@ -1006,8 +1014,8 @@ final class Model extends SceneGraphNode {
 	}
 
 	private final void method2297(final int i) {
-		final int i_208_ = anIntArray2858[i];
-		final int i_209_ = anIntArray2853[i];
+		final int i_208_ = sinTable[i];
+		final int i_209_ = cosinTable[i];
 		for (int i_210_ = 0; i_210_ < this.vertexCount; i_210_++) {
 			final int i_211_ = this.yVertices[i_210_] * i_209_ - this.zVertices[i_210_] * i_208_ >> 16;
 			this.zVertices[i_210_] = this.yVertices[i_210_] * i_208_ + this.zVertices[i_210_] * i_209_ >> 16;
@@ -1477,8 +1485,8 @@ final class Model extends SceneGraphNode {
 	}
 
 	private final void method2308(final int i) {
-		final int i_374_ = anIntArray2858[i];
-		final int i_375_ = anIntArray2853[i];
+		final int i_374_ = sinTable[i];
+		final int i_375_ = cosinTable[i];
 		for (int i_376_ = 0; i_376_ < this.vertexCount; i_376_++) {
 			final int i_377_ = this.yVertices[i_376_] * i_374_ + this.xVertices[i_376_] * i_375_ >> 16;
 			this.yVertices[i_376_] = this.yVertices[i_376_] * i_375_ - this.xVertices[i_376_] * i_374_ >> 16;
@@ -1490,9 +1498,12 @@ final class Model extends SceneGraphNode {
 	private Model() {
 		this.anInt2886 = 0;
 	}
+	
+	public int modelId = -1;
 
-	private Model(final byte[] buffer) {
+	private Model(final byte[] buffer, int id) {
 		this.anInt2886 = 0;
+		modelId = id;
 		if (buffer[buffer.length - 1] == -1 && buffer[buffer.length - 2] == -1) {
 			decodeNew(buffer);
 		} else {
@@ -1602,7 +1613,7 @@ final class Model extends SceneGraphNode {
 			this.aByteArray2876 = new byte[this.triangleCount];
 		}
 		if (i_385_ > 0) {
-			this.aClass158Array2871 = new ModelParticle[i_385_];
+			this.aClass158Array2871 = new ModelParticleEmitter[i_385_];
 		}
 		if (i_386_ > 0) {
 			this.aClass169Array2887 = new Class169[i_386_];
@@ -1668,7 +1679,7 @@ final class Model extends SceneGraphNode {
 						final int i_394_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1485, i_390_);
 						final int i_395_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1484, i_390_);
 						final int i_396_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass158Array2871[i_393_].anInt1476, i_390_);
-						this.aClass158Array2871[i_385_] = new ModelParticle(class180_sub2_391_.aClass158Array2871[i_393_].particleType, i_394_, i_395_, i_396_);
+						this.aClass158Array2871[i_385_] = new ModelParticleEmitter(class180_sub2_391_.aClass158Array2871[i_393_].emitterType, i_394_, i_395_, i_396_);
 						i_385_++;
 					}
 				}

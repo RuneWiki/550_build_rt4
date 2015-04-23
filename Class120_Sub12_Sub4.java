@@ -5,7 +5,7 @@
 final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	static float aFloat3154;
 	private int anInt3155 = 0;
-	static JagexInterface aClass189_3156;
+	static JagexInterface draggedComponent;
 	static int[][] anIntArrayArray3157 = { { 0, 128, 0, 0, 128, 0, 128, 128 }, { 0, 128, 0, 0, 128, 0 }, { 0, 0, 64, 128, 0, 128 }, { 128, 128, 64, 128, 128, 0 }, { 0, 0, 128, 0, 128, 128, 64, 128 }, { 0, 128, 0, 0, 128, 0, 64, 128 }, { 64, 128, 0, 128, 0, 0, 64, 0 }, { 0, 0, 64, 0, 0, 64 },
 			{ 128, 0, 128, 128, 0, 128, 0, 64, 64, 0 }, { 0, 128, 0, 0, 32, 64, 64, 96, 128, 128 }, { 0, 0, 128, 0, 128, 128, 64, 96, 32, 64 }, { 0, 0, 128, 0, 96, 32, 32, 32 } };
 	static long lastJs5ConnectionTime;
@@ -13,24 +13,20 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static {
 		aFloat3154 = 0.0F;
-		aClass189_3156 = null;
+		draggedComponent = null;
 	}
 
 	public Class120_Sub12_Sub4() {
 		super(1, false);
 	}
 
-	static final void method1211(final boolean bool, final int i, final int i_0_, final boolean bool_1_, final int i_2_) {
-		try {
-			Js5Request.method1552(i_2_, i_0_, Class86.worlds.length + -1, 0, bool, bool_1_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.W(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(bool_1_).append(',').append(i_2_).append(')').toString());
-		}
+	static final void method1211(final boolean bool, final int i_0_, final boolean bool_1_, final int i_2_) {
+		Js5Request.method1552(i_2_, i_0_, Class86.worlds.length - 1, 0, bool, bool_1_);
 	}
 
 	public static void method1212(final int i) {
 		try {
-			aClass189_3156 = null;
+			draggedComponent = null;
 			anIntArrayArray3157 = null;
 			if (i != 128) {
 				aFloat3154 = -0.33160633F;
@@ -55,14 +51,14 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 							if (class150.seqId == i_6_) {
 								if (i_10_ != 0) {
 									if (i_10_ == 1) {
-										class150.anInt1416 = 0;
+										class150.cyclesElapsed = 0;
 										class150.nextFrameId = 1;
 										class150.frameDelay = 0;
 										class150.delay = i_8_;
 										class150.frameId = 0;
 										Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 									} else if (i_10_ == 2) {
-										class150.anInt1416 = 0;
+										class150.cyclesElapsed = 0;
 									}
 								} else {
 									class150 = npc.aClass150Array2972[i_9_] = null;
@@ -77,7 +73,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 							class150.frameId = 0;
 							class150.frameDelay = 0;
 							class150.nextFrameId = 1;
-							class150.anInt1416 = 0;
+							class150.cyclesElapsed = 0;
 							class150.delay = i_8_;
 							Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
 						}

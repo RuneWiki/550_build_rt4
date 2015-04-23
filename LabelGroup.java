@@ -35,7 +35,7 @@ final class LabelGroup extends Node {
 		Class57.anInt504 = 0;
 		Class86.loginStep = 1;
 		Class120_Sub12_Sub5.errorPinging = false;
-		Class121.anInt1153 = 0;
+		client.anInt1153 = 0;
 		Class150.anInt1408 = 0;
 		Class120_Sub22.anInt2672 = -1;
 		Class48.returnCode = -3;

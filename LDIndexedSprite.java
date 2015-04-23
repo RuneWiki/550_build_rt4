@@ -590,7 +590,7 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		}
 	}
 
-	final void method918(int i, int i_128_, int i_129_, int i_130_) {
+	final void method918(int x, int y, int i_129_, int i_130_) {
 		final int i_131_ = this.width;
 		final int i_132_ = this.height;
 		int i_133_ = 0;
@@ -601,12 +601,12 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		final int i_138_ = (i_136_ << 16) / i_130_;
 		if (this.xOffset > 0) {
 			final int i_139_ = ((this.xOffset << 16) + i_137_ - 1) / i_137_;
-			i += i_139_;
+			x += i_139_;
 			i_133_ += i_139_ * i_137_ - (this.xOffset << 16);
 		}
 		if (this.yOffset > 0) {
 			final int i_140_ = ((this.yOffset << 16) + i_138_ - 1) / i_138_;
-			i_128_ += i_140_;
+			y += i_140_;
 			i_134_ += i_140_ * i_138_ - (this.yOffset << 16);
 		}
 		if (i_131_ < i_135_) {
@@ -615,24 +615,24 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		if (i_132_ < i_136_) {
 			i_130_ = ((i_132_ << 16) - i_134_ + i_138_ - 1) / i_138_;
 		}
-		int i_141_ = i + i_128_ * GraphicsLD.width;
+		int i_141_ = x + y * GraphicsLD.width;
 		int i_142_ = GraphicsLD.width - i_129_;
-		if (i_128_ + i_130_ > GraphicsLD.endY) {
-			i_130_ -= i_128_ + i_130_ - GraphicsLD.endY;
+		if (y + i_130_ > GraphicsLD.endY) {
+			i_130_ -= y + i_130_ - GraphicsLD.endY;
 		}
-		if (i_128_ < GraphicsLD.startY) {
-			final int i_143_ = GraphicsLD.startY - i_128_;
+		if (y < GraphicsLD.startY) {
+			final int i_143_ = GraphicsLD.startY - y;
 			i_130_ -= i_143_;
 			i_141_ += i_143_ * GraphicsLD.width;
 			i_134_ += i_138_ * i_143_;
 		}
-		if (i + i_129_ > GraphicsLD.endX) {
-			final int i_144_ = i + i_129_ - GraphicsLD.endX;
+		if (x + i_129_ > GraphicsLD.endX) {
+			final int i_144_ = x + i_129_ - GraphicsLD.endX;
 			i_129_ -= i_144_;
 			i_142_ += i_144_;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_145_ = GraphicsLD.startX - i;
+		if (x < GraphicsLD.startX) {
+			final int i_145_ = GraphicsLD.startX - x;
 			i_129_ -= i_145_;
 			i_141_ += i_145_;
 			i_133_ += i_137_ * i_145_;
@@ -692,14 +692,14 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		method921(GraphicsLD.pixels, this.paletteIndicators, this.palette, i_152_, i_153_, i_160_, i_161_, i_147_, i_148_, i_156_, i_157_, i_150_, i_149_);
 	}
 
-	private static final void method920(final int[] is, final byte[] is_165_, final int[] is_166_, int i, int i_167_, int i_168_, final int i_169_, final int i_170_, final int i_171_, final int i_172_, final int i_173_, final int i_174_) {
+	private static final void method920(final int[] dest, final byte[] indicators, final int[] palette, int i, int i_167_, int i_168_, final int i_169_, final int i_170_, final int i_171_, final int i_172_, final int i_173_, final int i_174_) {
 		final int i_175_ = i;
 		for (int i_176_ = -i_171_; i_176_ < 0; i_176_++) {
 			final int i_177_ = (i_167_ >> 16) * i_174_;
 			for (int i_178_ = -i_170_; i_178_ < 0; i_178_++) {
-				final int i_179_ = is_165_[(i >> 16) + i_177_];
+				final int i_179_ = indicators[(i >> 16) + i_177_];
 				if (i_179_ != 0) {
-					is[i_168_++] = is_166_[i_179_ & 0xff];
+					dest[i_168_++] = palette[i_179_ & 0xff];
 				} else {
 					i_168_++;
 				}

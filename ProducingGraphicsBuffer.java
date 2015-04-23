@@ -64,7 +64,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			}
 			if (gameEntity.facingEntityIndex >= 32768) {
 				int index = gameEntity.facingEntityIndex - 32768;
-				if (index == Class167.anInt1616) {
+				if (index == Class167.selfPlayerIndex) {
 					index = 2047;
 				}
 				final Player player = Class118.playersList[index];
@@ -464,7 +464,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							if (class191 == null) {
 								class191 = new Class191();
 							}
-							class191.method2510(class120_sub7, -27409);
+							class191.method2510(class120_sub7);
 						} else {
 							throw new IllegalStateException();
 						}
@@ -544,9 +544,9 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	static final void method1853(final int i, final int i_66_, final int i_68_, final int i_69_, final int i_70_, final int i_71_, int i_72_) {
 		if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
 			if (i_70_ == 0) {
-				final Class182 class182 = Deque.method894(i_66_, i_69_, i_68_);
+				final WallLocation class182 = Deque.method894(i_66_, i_69_, i_68_);
 				if (class182 != null) {
-					final int i_73_ = (int) (class182.bitPacked >>> 32) & 0x7fffffff;
+					final int i_73_ = (int) (class182.bitPackedUid >>> 32) & 0x7fffffff;
 					if (i_72_ == 2) {
 						class182.aClass180_1800 = new AnimatedLocation(i_73_, 2, 4 + i_71_, i_68_, i_66_, i_69_, i, false, class182.aClass180_1800);
 						class182.aClass180_1796 = new AnimatedLocation(i_73_, 2, 1 + i_71_ & 0x3, i_68_, i_66_, i_69_, i, false, class182.aClass180_1796);
@@ -556,7 +556,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 			if (i_70_ == 1) {
-				final Class186 class186 = ObjType.method2108(i_68_, i_66_, i_69_);
+				final WallDecoration class186 = ObjType.method2108(i_68_, i_66_, i_69_);
 				if (class186 != null) {
 					final int i_74_ = 0x7fffffff & (int) (class186.bitPacked >>> 32);
 					if (i_72_ != 4 && i_72_ != 5) {

@@ -25,25 +25,25 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
 			Class156.aClass189_1454 = null;
 		}
-		final int i_4_ = Class186.menuOptionCount;
+		final int i_4_ = WallDecoration.menuOptionCount;
 		for (int i_5_ = 0; i_4_ > i_5_; i_5_++) {
 			if (Class150.method2064(Class120_Sub29.menuOptionsCode[i_5_])) {
 				Class120_Sub16.shiftOptions(i_5_);
 			}
 		}
-		if (Class186.menuOptionCount == 1) {
+		if (WallDecoration.menuOptionCount == 1) {
 			Class15.menuOpen = false;
 			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
 		} else {
 			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
-			int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
-			for (int i_7_ = 0; Class186.menuOptionCount > i_7_; i_7_++) {
-				final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_7_));
+			int i_6_ = Class120_Sub12_Sub22.boldFont.method1459(TextRepository.aString1056);
+			for (int i_7_ = 0; WallDecoration.menuOptionCount > i_7_; i_7_++) {
+				final int i_8_ = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(i_7_));
 				if (i_6_ < i_8_) {
 					i_6_ = i_8_;
 				}
 			}
-			Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + Class186.menuOptionCount * 15;
+			Class120_Sub14_Sub10.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + WallDecoration.menuOptionCount * 15;
 			Class120_Sub24.menuWidth = 8 + i_6_;
 		}
 		if (jagexInterface != null) {
@@ -65,23 +65,23 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		}
 	}
 
-	static final void method2530(final int i, final int i_9_, final int i_10_, final int i_11_, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_12_, final int i_13_, final int i_14_, final long l) {
+	static final void addWallLocation(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_12_, final int i_13_, final int i_14_, final long bitPackedUid) {
 		if (sceneGraphNode != null || class180_12_ != null) {
-			final Class182 class182 = new Class182();
-			class182.bitPacked = l;
-			class182.anInt1797 = i_9_ * 128 + 64;
-			class182.anInt1795 = i_10_ * 128 + 64;
-			class182.anInt1801 = i_11_;
-			class182.aClass180_1800 = sceneGraphNode;
-			class182.aClass180_1796 = class180_12_;
-			class182.anInt1799 = i_13_;
-			class182.anInt1792 = i_14_;
-			for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-				if (LabelGroup.groundTiles[i_15_][i_9_][i_10_] == null) {
-					LabelGroup.groundTiles[i_15_][i_9_][i_10_] = new GroundTile(i_15_, i_9_, i_10_);
+			final WallLocation wallLocation = new WallLocation();
+			wallLocation.bitPackedUid = bitPackedUid;
+			wallLocation.renderX = x * 128 + 64;
+			wallLocation.renderZ = z * 128 + 64;
+			wallLocation.renderY = y;
+			wallLocation.aClass180_1800 = sceneGraphNode;
+			wallLocation.aClass180_1796 = class180_12_;
+			wallLocation.anInt1799 = i_13_;
+			wallLocation.anInt1792 = i_14_;
+			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
+				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[i][i_9_][i_10_].aClass182_2628 = class182;
+			LabelGroup.groundTiles[level][x][z].wallLocation = wallLocation;
 		}
 	}
 

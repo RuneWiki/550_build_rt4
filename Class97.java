@@ -59,7 +59,7 @@ final class Class97 {
 		method808();
 		final GL gl = HDToolkit.gl;
 		GraphicsHD.copyBounds(anIntArray923);
-		GraphicsHD.method597();
+		GraphicsHD.clipRect();
 		gl.glClearColor(((anInt929 & 0xff0000) >> 16) / 255.0F, ((anInt929 & 0xff00) >> 8) / 255.0F, (anInt929 & 0xff) / 255.0F, 0.0F);
 		gl.glClear(16640);
 		int i = 0;
@@ -78,16 +78,16 @@ final class Class97 {
 		}
 		Class12.method137(-1.0F, 1.0F, -1.0F, 1.0F, anInt931, anInt931);
 		if (anInt937 != 0) {
-			final int i_19_ = Rasterizer.sineTable[anInt937];
-			final int i_20_ = Rasterizer.cosineTable[anInt937];
+			final int i_19_ = Rasterizer.sinTable[anInt937];
+			final int i_20_ = Rasterizer.cosTable[anInt937];
 			final int i_21_ = i_17_ * i_20_ - i_18_ * i_19_ + 32767 >> 16;
 			i_18_ = i_17_ * i_19_ + i_18_ * i_20_ + 32767 >> 16;
 			i_17_ = i_21_;
 		}
 		if (anInt924 != 0) {
 			final int i_22_ = anInt924 - 1024 & 0x7ff;
-			final int i_23_ = Rasterizer.sineTable[i_22_];
-			final int i_24_ = Rasterizer.cosineTable[i_22_];
+			final int i_23_ = Rasterizer.sinTable[i_22_];
+			final int i_24_ = Rasterizer.cosTable[i_22_];
 			final int i_25_ = i_18_ * i_23_ + i * i_24_ + 32767 >> 16;
 			i_18_ = i_18_ * i_24_ - i * i_23_ + 32767 >> 16;
 			i = i_25_;
@@ -162,7 +162,7 @@ final class Class97 {
 		}
 		final GL gl = HDToolkit.gl;
 		GraphicsHD.copyBounds(anIntArray923);
-		GraphicsHD.method597();
+		GraphicsHD.clipRect();
 		gl.glClearColor(0.0F, 0.0F, 0.0F, 0.0F);
 		gl.glClear(16640);
 		int i = 0;
@@ -186,16 +186,16 @@ final class Class97 {
 		final int i_31_ = i_29_ > i_30_ ? i_29_ : i_30_;
 		Class12.method136(-i_31_, i_31_, -i_31_, i_31_, 2048.0F, -2048.0F, anInt931, anInt931);
 		if (anInt937 != 0) {
-			final int i_32_ = Rasterizer.sineTable[anInt937];
-			final int i_33_ = Rasterizer.cosineTable[anInt937];
+			final int i_32_ = Rasterizer.sinTable[anInt937];
+			final int i_33_ = Rasterizer.cosTable[anInt937];
 			final int i_34_ = i_27_ * i_33_ - i_28_ * i_32_ + 32767 >> 16;
 			i_28_ = i_27_ * i_32_ + i_28_ * i_33_ + 32767 >> 16;
 			i_27_ = i_34_;
 		}
 		if (anInt924 != 0) {
 			final int i_35_ = anInt924 - 1024 & 0x7ff;
-			final int i_36_ = Rasterizer.sineTable[i_35_];
-			final int i_37_ = Rasterizer.cosineTable[i_35_];
+			final int i_36_ = Rasterizer.sinTable[i_35_];
+			final int i_37_ = Rasterizer.cosTable[i_35_];
 			final int i_38_ = i_28_ * i_36_ + i * i_37_ + 32767 >> 16;
 			i_28_ = i_28_ * i_37_ - i * i_36_ + 32767 >> 16;
 			i = i_38_;
@@ -410,13 +410,13 @@ final class Class97 {
 			is_78_[1] = 0;
 			for (int i = 0; i <= 16; i++) {
 				final int i_82_ = i * 1024 / 16;
-				final int i_83_ = Rasterizer.sineTable[i_82_] >> 1;
-				final int i_84_ = Rasterizer.cosineTable[i_82_] >> 1;
+				final int i_83_ = Rasterizer.sinTable[i_82_] >> 1;
+				final int i_84_ = Rasterizer.cosTable[i_82_] >> 1;
 				for (int i_85_ = 1; i_85_ < 16; i_85_++) {
 					final int i_86_ = i_85_ * 1024 / 16;
-					final int i_87_ = Rasterizer.cosineTable[i_86_] >> 9;
-					final int i_88_ = (Rasterizer.sineTable[i_86_] >> 1) * i_83_ >> 23;
-					final int i_89_ = (Rasterizer.sineTable[i_86_] >> 1) * i_84_ >> 23;
+					final int i_87_ = Rasterizer.cosTable[i_86_] >> 9;
+					final int i_88_ = (Rasterizer.sinTable[i_86_] >> 1) * i_83_ >> 23;
+					final int i_89_ = (Rasterizer.sinTable[i_86_] >> 1) * i_84_ >> 23;
 					is[class180_sub2.vertexCount] = i_89_;
 					is_77_[class180_sub2.vertexCount] = i_87_;
 					is_78_[class180_sub2.vertexCount] = -i_88_;
@@ -489,13 +489,13 @@ final class Class97 {
 			float f_96_ = 0.05882353F;
 			for (int i = 0; i <= 16; i++) {
 				final int i_97_ = i * 1024 / 16;
-				final float f_98_ = Rasterizer.sineTable[i_97_] / 65535.0F;
-				final float f_99_ = Rasterizer.cosineTable[i_97_] / 65535.0F;
+				final float f_98_ = Rasterizer.sinTable[i_97_] / 65535.0F;
+				final float f_99_ = Rasterizer.cosTable[i_97_] / 65535.0F;
 				for (int i_100_ = 1; i_100_ < 16; i_100_++) {
 					final int i_101_ = i_100_ * 1024 / 16;
-					final float f_102_ = Rasterizer.cosineTable[i_101_] / 65535.0F;
-					final float f_103_ = Rasterizer.sineTable[i_101_] * f_98_ / 65535.0F;
-					final float f_104_ = Rasterizer.sineTable[i_101_] * f_99_ / 65535.0F;
+					final float f_102_ = Rasterizer.cosTable[i_101_] / 65535.0F;
+					final float f_103_ = Rasterizer.sinTable[i_101_] * f_98_ / 65535.0F;
+					final float f_104_ = Rasterizer.sinTable[i_101_] * f_99_ / 65535.0F;
 					if (HDToolkit.usingBigEndian) {
 						class120_sub7_95_.putFloatAsInt(f_104_);
 						class120_sub7_95_.putFloatAsInt(f_102_);
@@ -604,16 +604,16 @@ final class Class97 {
 			}
 		}
 		if (anInt937 != 0) {
-			final int i_123_ = Rasterizer.sineTable[anInt937];
-			final int i_124_ = Rasterizer.cosineTable[anInt937];
+			final int i_123_ = Rasterizer.sinTable[anInt937];
+			final int i_124_ = Rasterizer.cosTable[anInt937];
 			final int i_125_ = i_121_ * i_124_ - i_122_ * i_123_ + 32767 >> 16;
 			i_122_ = i_121_ * i_123_ + i_122_ * i_124_ + 32767 >> 16;
 			i_121_ = i_125_;
 		}
 		if (anInt924 != 0) {
 			final int i_126_ = anInt924 - 1024 & 0x7ff;
-			final int i_127_ = Rasterizer.sineTable[i_126_];
-			final int i_128_ = Rasterizer.cosineTable[i_126_];
+			final int i_127_ = Rasterizer.sinTable[i_126_];
+			final int i_128_ = Rasterizer.cosTable[i_126_];
 			final int i_129_ = i_122_ * i_127_ + i * i_128_ + 32767 >> 16;
 			i_122_ = i_122_ * i_128_ - i * i_127_ + 32767 >> 16;
 			i = i_129_;
@@ -722,16 +722,16 @@ final class Class97 {
 				}
 			}
 			if (anInt937 != 0) {
-				final int i_150_ = Rasterizer.sineTable[anInt937];
-				final int i_151_ = Rasterizer.cosineTable[anInt937];
+				final int i_150_ = Rasterizer.sinTable[anInt937];
+				final int i_151_ = Rasterizer.cosTable[anInt937];
 				final int i_152_ = i_148_ * i_151_ - i_149_ * i_150_ + 32767 >> 16;
 				i_149_ = i_148_ * i_150_ + i_149_ * i_151_ + 32767 >> 16;
 				i_148_ = i_152_;
 			}
 			if (anInt924 != 0) {
 				final int i_153_ = anInt924 - 1024 & 0x7ff;
-				final int i_154_ = Rasterizer.sineTable[i_153_];
-				final int i_155_ = Rasterizer.cosineTable[i_153_];
+				final int i_154_ = Rasterizer.sinTable[i_153_];
+				final int i_155_ = Rasterizer.cosTable[i_153_];
 				final int i_156_ = i_149_ * i_154_ + i * i_155_ + 32767 >> 16;
 				i_149_ = i_149_ * i_155_ - i * i_154_ + 32767 >> 16;
 				i = i_156_;

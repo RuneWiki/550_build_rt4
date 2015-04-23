@@ -8,7 +8,7 @@ final class Class93 {
 			-2, -1, 0, 5, 11, 0, 4, 0, 0, -1, 12, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 8, 0, 0, -1, 0, 0, 0, 0, 0, -1, -2, 0, 0 };
 	static int anInt867 = 0;
 	static int spriteAmount;
-	static JagexInterface aClass189_869;
+	static JagexInterface staticActiveComponent2;
 	static boolean aBoolean870 = false;
 
 	static final void removeIgnore(final long nameAsLong) {
@@ -21,7 +21,7 @@ final class Class93 {
 						GZIPDecompressor.ignoreNames[nextIgnoreId] = GZIPDecompressor.ignoreNames[nextIgnoreId + 1];
 						SpotAnimationNode.aBooleanArray3468[nextIgnoreId] = SpotAnimationNode.aBooleanArray3468[nextIgnoreId + 1];
 					}
-					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					client.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(142);
 					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 					break;
@@ -31,7 +31,7 @@ final class Class93 {
 	}
 
 	static final void spawnLocation(final int rotation, final int level, final int locationId, final int level2, final int x, final boolean bool, final int z, final CollisionMap collisionMap, final boolean bool_8_, final int type) {
-		if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][x][z]) != 0 || (Class114.tileSettings[level][x][z] & 0x10) == 0 && SubScript.method2242(z, level, (byte) 106, x) == SpotAnimationNode.anInt3469) {
+		if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][x][z]) != 0 || (Class114.tileSettings[level][x][z] & 0x10) == 0 && SubScript.method2242(x, z, level) == SpotAnimationNode.anInt3469) {
 			if (DummyOutputStream.anInt29 > level) {
 				DummyOutputStream.anInt29 = level;
 			}
@@ -90,7 +90,7 @@ final class Class93 {
 					bitPackedUid |= 0x80000000L;
 				}
 				if (locType.hasAmbientSound()) {
-					Class7.addAmbientSound(locType, x, null, z, null, rotation, level);
+					AmbientSound.addAmbientSound(locType, x, null, z, null, rotation, level);
 				}
 				bitPackedUid |= (long) locationId << 32;
 				final boolean bool_22_ = locType.aBoolean1823 & !bool;
@@ -157,7 +157,7 @@ final class Class93 {
 					}
 					method774(level, x, z, y, 1, 1, sceneGraphNode, 0, bitPackedUid);
 					if (bool_8_ && type >= 12 && type <= 17 && type != 13 && level > 0 && locType.anInt1866 != 0) {
-						Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 4);
+						Class110.tileOccludeFlags[level][x][z] |= 0x4;
 					}
 					if (locType.anInt1821 != 0 && collisionMap != null) {
 						collisionMap.method213(x, z, i_10_, i_11_, locType.aBoolean1844, !locType.aBoolean1880);
@@ -173,7 +173,7 @@ final class Class93 {
 						}
 						sceneGraphNode = class88.aClass180_826;
 					}
-					RuntimeException_Sub1.method2530(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, bitPackedUid);
+					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, bitPackedUid);
 					if (bool_8_) {
 						if (rotation != 0) {
 							if (rotation != 1) {
@@ -184,7 +184,7 @@ final class Class93 {
 											Npc.aByteArrayArrayArray3754[level][1 + x][z] = (byte) 50;
 										}
 										if (locType.anInt1866 == 1) {
-											Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 2);
+											Class110.tileOccludeFlags[level][x][z] |= 0x2;
 										}
 									}
 								} else {
@@ -193,7 +193,7 @@ final class Class93 {
 										Npc.aByteArrayArrayArray3754[level][1 + x][1 + z] = (byte) 50;
 									}
 									if (locType.anInt1866 == 1) {
-										Class110.anIntArrayArrayArray1050[level][x + 1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x + 1][z], 1);
+										Class110.tileOccludeFlags[level][x + 1][z] |= 0x1;
 									}
 								}
 							} else {
@@ -202,7 +202,7 @@ final class Class93 {
 									Npc.aByteArrayArrayArray3754[level][1 + x][1 + z] = (byte) 50;
 								}
 								if (locType.anInt1866 == 1) {
-									Class110.anIntArrayArrayArray1050[level][x][z + 1] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z + 1], 2);
+									Class110.tileOccludeFlags[level][x][z + 1] |= 0x2;
 								}
 							}
 						} else {
@@ -211,7 +211,7 @@ final class Class93 {
 								Npc.aByteArrayArrayArray3754[level][x][1 + z] = (byte) 50;
 							}
 							if (locType.anInt1866 == 1) {
-								Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 1);
+								Class110.tileOccludeFlags[level][x][z] |= 0x1;
 							}
 						}
 					}
@@ -232,7 +232,7 @@ final class Class93 {
 						}
 						sceneGraphNode = class88.aClass180_826;
 					}
-					RuntimeException_Sub1.method2530(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
+					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
 					if (locType.aBoolean1858 && bool_8_) {
 						if (rotation == 0) {
 							Npc.aByteArrayArrayArray3754[level][x][z + 1] = (byte) 50;
@@ -268,24 +268,24 @@ final class Class93 {
 						}
 						class180_28_ = class88.aClass180_826;
 					}
-					RuntimeException_Sub1.method2530(level, x, z, y, sceneGraphNode, class180_28_, Class53.anIntArray485[rotation], Class53.anIntArray485[i_27_], bitPackedUid);
+					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, class180_28_, Class53.anIntArray485[rotation], Class53.anIntArray485[i_27_], bitPackedUid);
 					if (locType.anInt1866 == 1 && bool_8_) {
 						if (rotation != 0) {
 							if (rotation != 1) {
 								if (rotation == 2) {
-									Class110.anIntArrayArrayArray1050[level][x - -1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x - -1][z], 1);
-									Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 2);
+									Class110.tileOccludeFlags[level][x + 1][z] |= 0x1;
+									Class110.tileOccludeFlags[level][x][z] |= 0x2;
 								} else if (rotation == 3) {
-									Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 2);
-									Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 1);
+									Class110.tileOccludeFlags[level][x][z] |= 0x2;
+									Class110.tileOccludeFlags[level][x][z] |= 0x1;
 								}
 							} else {
-								Class110.anIntArrayArrayArray1050[level][x][1 + z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][1 + z], 2);
-								Class110.anIntArrayArrayArray1050[level][x + 1][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x + 1][z], 1);
+								Class110.tileOccludeFlags[level][x][z + 1] |= 0x2;
+								Class110.tileOccludeFlags[level][x + 1][z] |= 0x1;
 							}
 						} else {
-							Class110.anIntArrayArrayArray1050[level][x][z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][z], 1);
-							Class110.anIntArrayArrayArray1050[level][x][1 + z] = Class191.method2512(Class110.anIntArrayArrayArray1050[level][x][1 + z], 2);
+							Class110.tileOccludeFlags[level][x][z] |= 0x1;
+							Class110.tileOccludeFlags[level][x][z + 1] |= 0x2;
 						}
 					}
 					if (locType.anInt1821 != 0 && collisionMap != null) {
@@ -305,7 +305,7 @@ final class Class93 {
 						}
 						sceneGraphNode = class88.aClass180_826;
 					}
-					RuntimeException_Sub1.method2530(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
+					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
 					if (locType.aBoolean1858 && bool_8_) {
 						if (rotation == 0) {
 							Npc.aByteArrayArrayArray3754[level][x][1 + z] = (byte) 50;
@@ -349,26 +349,26 @@ final class Class93 {
 						}
 						sceneGraphNode = class88.aClass180_826;
 					}
-					Class11.method127(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, 0, 0, bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, 0, 0, bitPackedUid);
 				} else if (type == 5) {
-					final long l_29_ = Class114.method1005(x, z, level);
+					final long wallLocUid = Class114.getWallLocationUid(x, z, level);
 					int i_30_ = 16;
-					if ((l_29_ ^ 0xffffffffffffffffL) != -1L) {
-						i_30_ = LocType.list((int) (l_29_ >>> 32) & 0x7fffffff).anInt1819;
+					if (wallLocUid != 0L) {
+						i_30_ = LocType.list((int) (wallLocUid >>> 32) & 0x7fffffff).anInt1819;
 					}
 					SceneGraphNode sceneGraphNode;
 					if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, rotation, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
-							Class47.method389(class88.aClass107_Sub1_830, -(8 * Class109.anIntArray1037[rotation]) + i_16_, i_19_, i_17_ - Class147.anIntArray1396[rotation] * 8);
+							Class47.method389(class88.aClass107_Sub1_830, -(8 * Class109.anIntArray1037[rotation]) + i_16_, i_19_, i_17_ - client.anIntArray1396[rotation] * 8);
 						}
 						sceneGraphNode = class88.aClass180_826;
 					} else {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					}
-					Class11.method127(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, Class109.anIntArray1037[rotation] * i_30_, Class147.anIntArray1396[rotation] * i_30_, bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, Class53.anIntArray485[rotation], 0, Class109.anIntArray1037[rotation] * i_30_, client.anIntArray1396[rotation] * i_30_, bitPackedUid);
 				} else if (type == 6) {
-					final long l_31_ = Class114.method1005(x, z, level);
+					final long l_31_ = Class114.getWallLocationUid(x, z, level);
 					int i_32_ = 8;
 					if (-1L != (l_31_ ^ 0xffffffffffffffffL)) {
 						i_32_ = LocType.list(0x7fffffff & (int) (l_31_ >>> 32)).anInt1819 / 2;
@@ -383,7 +383,7 @@ final class Class93 {
 					} else {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, rotation + 4, level2, x, z, -1, locType.aBoolean1864, null);
 					}
-					Class11.method127(level, x, z, y, sceneGraphNode, null, 256, rotation, Class55.anIntArray493[rotation] * i_32_, GroundObjectNode.anIntArray3629[rotation] * i_32_, bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, 256, rotation, Class55.anIntArray493[rotation] * i_32_, GroundObjectNode.anIntArray3629[rotation] * i_32_, bitPackedUid);
 				} else if (type == 7) {
 					final int i_33_ = rotation + 2 & 0x3;
 					SceneGraphNode sceneGraphNode;
@@ -396,10 +396,10 @@ final class Class93 {
 						}
 						sceneGraphNode = class88.aClass180_826;
 					}
-					Class11.method127(level, x, z, y, sceneGraphNode, null, 256, i_33_, 0, 0, bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, 256, i_33_, 0, 0, bitPackedUid);
 				} else if (type == 8) {
 					int i_34_ = 8;
-					final long l_35_ = Class114.method1005(x, z, level);
+					final long l_35_ = Class114.getWallLocationUid(x, z, level);
 					if (0L != l_35_) {
 						i_34_ = LocType.list((int) (l_35_ >>> 32) & 0x7fffffff).anInt1819 / 2;
 					}
@@ -423,7 +423,7 @@ final class Class93 {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, 4 + rotation, level2, x, z, -1, locType.aBoolean1864, null);
 						class180_37_ = new AnimatedLocation(locationId, 4, 4 + i_36_, level2, x, z, -1, locType.aBoolean1864, null);
 					}
-					Class11.method127(level, x, z, y, sceneGraphNode, class180_37_, 256, rotation, i_34_ * Class55.anIntArray493[rotation], i_34_ * GroundObjectNode.anIntArray3629[rotation], bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, class180_37_, 256, rotation, i_34_ * Class55.anIntArray493[rotation], i_34_ * GroundObjectNode.anIntArray3629[rotation], bitPackedUid);
 				}
 			}
 		}
@@ -438,7 +438,7 @@ final class Class93 {
 
 	public static void method773(final int i) {
 		try {
-			aClass189_869 = null;
+			staticActiveComponent2 = null;
 			packetSizes = null;
 			if (i != 1) {
 				spriteAmount = 33;
@@ -473,7 +473,7 @@ final class Class93 {
 		Class150.anIntArray1412[i_64_] = i_56_;
 		Class120_Sub12.anIntArray2565[i_64_++] = i;
 		boolean bool_66_ = false;
-		final int[][] is = Class182.collisionMaps[Class173.gameLevel].collisionFlags;
+		final int[][] is = WallLocation.collisionMaps[Class173.gameLevel].collisionFlags;
 		while (i_64_ != i_65_) {
 			i_63_ = Class120_Sub12.anIntArray2565[i_65_];
 			i_62_ = Class150.anIntArray1412[i_65_];
@@ -483,8 +483,8 @@ final class Class93 {
 				break;
 			}
 			if (i_55_ != 0) {
-				if (i_55_ >= 5 && i_55_ != 10 || !Class182.collisionMaps[Class173.gameLevel].method220(i_54_, i_53_, i_63_, i_62_, i_51_, 1, -1 + i_55_)) {
-					if (i_55_ < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i_51_, i_62_, i_54_, i_63_, i_55_ + -1, i_53_, 1)) {
+				if (i_55_ >= 5 && i_55_ != 10 || !WallLocation.collisionMaps[Class173.gameLevel].method220(i_54_, i_53_, i_63_, i_62_, i_51_, 1, -1 + i_55_)) {
+					if (i_55_ < 10 && WallLocation.collisionMaps[Class173.gameLevel].method223(i_51_, i_62_, i_54_, i_63_, i_55_ + -1, i_53_, 1)) {
 						bool_66_ = true;
 						break;
 					}
@@ -493,7 +493,7 @@ final class Class93 {
 					break;
 				}
 			}
-			if (i_59_ != 0 && i_52_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_63_, -1, i_57_, 1, i_54_, i_51_, i_52_, i_59_, i_62_)) {
+			if (i_59_ != 0 && i_52_ != 0 && WallLocation.collisionMaps[Class173.gameLevel].method216(i_63_, -1, i_57_, 1, i_54_, i_51_, i_52_, i_59_, i_62_)) {
 				bool_66_ = true;
 				break;
 			}

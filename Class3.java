@@ -5,7 +5,7 @@
 final class Class3 {
 	static int anInt53;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_54;
-	static SignlinkNode aClass185_56;
+	static SignlinkNode openUrlRequest;
 
 	static final void method79(final js5 js5, final js5 class50_0_) {
 		MapSceneType.configJs5 = class50_0_;
@@ -15,7 +15,7 @@ final class Class3 {
 		final int i_3_ = (int) (Math.random() * 21.0) - 10;
 		final int i_4_ = (int) (Math.random() * 21.0) - 10;
 		//Class30.aClass50_233.getFileAmount(34); not sure if this is needed
-		ModelParticle.mapSceneRedColorModifier = i_2_ + i_3_;
+		ModelParticleEmitter.mapSceneRedColorModifier = i_2_ + i_3_;
 		GameEntity.mapSceneBlueColorModifier = i_1_ + i_2_;
 		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
 	}
@@ -26,7 +26,7 @@ final class Class3 {
 				method83(33, 116, -67);
 			}
 			aClass120_Sub14_Sub9_54 = null;
-			aClass185_56 = null;
+			openUrlRequest = null;
 			UnderlayType.configClient = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.C(").append(i).append(')').toString());
@@ -71,13 +71,13 @@ final class Class3 {
 			}
 		}
 		if (!foundPlayer) {
-			AbstractRequest.method1540("", 0, new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString());
+			AbstractRequest.pushMessage(new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString(), "", 0);
 		}
 	}
 
 	static final void method82() {
 		for (int id = 0; id < Class148.localNpcCount; id++) {
-			final int index = Class120_Sub12_Sub36.localNpcIndices[id];
+			final int index = Class120_Sub12_Sub36.npcIndices[id];
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			if (npc != null) {
 				Class120_Sub12_Sub9.method1245(npc, npc.npcType.size);
@@ -90,18 +90,18 @@ final class Class3 {
 	}
 
 	static final void method84(final int i, final int i_14_, final int i_15_, final int i_16_, final boolean bool) {
-		Class186.anInt1900 = i_14_;
+		WallDecoration.anInt1900 = i_14_;
 		Class120_Sub12_Sub38.anInt3440 = i_15_;
 		Class120_Sub14_Sub13.anInt3563 = i_16_;
-		Class86.aClass120_Sub18ArrayArrayArray820 = new GroundTile[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
-		Class120_Sub12_Sub33.anIntArrayArrayArray3388 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		Class86.aClass120_Sub18ArrayArrayArray820 = new GroundTile[i][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class120_Sub12_Sub33.anIntArrayArrayArray3388 = new int[i][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		if (HDToolkit.glEnabled) {
 			SceneGroundObject.aClass120_Sub9ArrayArray2844 = new Class120_Sub9[4][];
 		}
 		if (bool) {
-			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new GroundTile[1][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			NodeCache.anIntArrayArray300 = new int[Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			Class24.anIntArrayArrayArray140 = new int[1][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new GroundTile[1][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+			NodeCache.anIntArrayArray300 = new int[WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+			Class24.anIntArrayArrayArray140 = new int[1][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 			if (HDToolkit.glEnabled) {
 				IntegerNode.aClass120_Sub9ArrayArray2789 = new Class120_Sub9[1][];
 			}
@@ -116,13 +116,13 @@ final class Class3 {
 		Class49.anInt438 = 0;
 		AnimatedLocation.aClass188Array3076 = new Class188[500];
 		CursorType.anInt1237 = 0;
-		JagexSocket.anIntArrayArrayArray419 = new int[i][Class186.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		JagexSocket.anIntArrayArrayArray419 = new int[i][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		Class111.aClass28Array1057 = new Class28[5000];
 		ClientScript.anInt3556 = 0;
-		Class39.aClass28Array323 = new Class28[100];
+		client.aClass28Array323 = new Class28[100];
 		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1];
 		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
-		Class114.aByteArrayArrayArray1094 = new byte[i][Class186.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class114.aByteArrayArrayArray1094 = new byte[i][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
 	}
 
 	static final void smoothCamera() {
@@ -146,7 +146,7 @@ final class Class3 {
 		class120_sub12_sub12.anInt3222 = i_18_;
 		class120_sub12_sub12.anInt3225 = i_20_;
 		class120_sub12_sub12.postDecode();
-		Class22.method199(i_19_, 1, false);
+		Class22.method199(i_19_, 1);
 		class120_sub12_sub12.method1261(is_22_, 0);
 		return is_22_;
 	}

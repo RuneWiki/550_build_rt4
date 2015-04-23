@@ -69,14 +69,14 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 
 	static final void method1278(final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
 		InterfaceListener.anInt2546 = i_10_;
-		Class121.anInt1154 = i_7_;
+		client.anInt1154 = i_7_;
 		Class101_Sub1.anInt2272 = i_11_;
 		Class120_Sub12_Sub31.anInt3384 = i_8_;
 		Class109.anInt1042 = i_9_;
 		if (Class101_Sub1.anInt2272 >= 100) {
 			final int i_12_ = Class109.anInt1042 * 128 + 64;
 			final int i_13_ = 64 + 128 * InterfaceListener.anInt2546;
-			final int i_14_ = Class22.getTileHeight(i_12_, i_13_, Class173.gameLevel) + -Class121.anInt1154;
+			final int i_14_ = Class22.getTileHeight(i_12_, i_13_, Class173.gameLevel) + -client.anInt1154;
 			final int i_15_ = i_12_ - FileSystemWorker.renderX;
 			final int i_16_ = -Class120_Sub12_Sub10.renderY + i_14_;
 			final int i_17_ = i_13_ + -GroundObjectNode.renderZ;
@@ -180,7 +180,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		}
 		i_29_ = 128 * InterfaceListener.anInt2546 + 64;
 		i_28_ = 64 + Class109.anInt1042 * 128;
-		i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - Class121.anInt1154;
+		i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - client.anInt1154;
 		final int i_31_ = -GroundObjectNode.renderZ + i_29_;
 		final int i_32_ = -Class120_Sub12_Sub10.renderY + i_30_;
 		final int i_33_ = i_28_ + -FileSystemWorker.renderX;

@@ -126,8 +126,8 @@ final class MapFunctionType {
 		} else if (code == 15) {
 			final int i_4_ = buffer.getUByte();
 			this.anIntArray638 = new int[i_4_ * 2];
-			for (int i_5_ = 0; 2 * i_4_ > i_5_; i_5_++) {
-				this.anIntArray638[i_5_] = buffer.getShort();
+			for (int id = 0; id < i_4_ * 2; id++) {
+				this.anIntArray638[id] = buffer.getShort();
 			}
 			this.anInt630 = buffer.getInt();
 			this.anInt651 = buffer.getInt();
@@ -200,10 +200,10 @@ final class MapFunctionType {
 			cachedSprite = new HDIndexedSprite(ldIndexedSprite);
 		}
 		if (cachedSprite != null) {
-			cachedSprite.trimHeight = cachedSprite.height;
-			cachedSprite.yOffset = 0;
 			cachedSprite.trimWidth = cachedSprite.width;
+			cachedSprite.trimHeight = cachedSprite.height;
 			cachedSprite.xOffset = 0;
+			cachedSprite.yOffset = 0;
 			spriteCache.put(cachedSprite, (focused ? 65536 : 0) | spriteId);
 		}
 		return cachedSprite;

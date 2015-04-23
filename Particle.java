@@ -16,7 +16,7 @@ final class Particle extends ParticleNodeSub {
 	private short aShort3096;
 	boolean aBoolean3097 = false;
 	private short aShort3098;
-	ParticleManager aClass108_Sub1_3099;
+	ParticleEmitter aClass108_Sub1_3099;
 	private int anInt3100;
 
 	final void method968(final long l, final int i) {
@@ -26,10 +26,10 @@ final class Particle extends ParticleNodeSub {
 				method969();
 			} else {
 				final int i_0_ = this.anInt3087 >> anInt3086;
-				int i_1_ = this.anInt3088 >> anInt3086;
+				final int i_1_ = this.anInt3088 >> anInt3086;
 				final int i_2_ = this.anInt3090 >> anInt3086;
-				final ParticleEngine class108_sub2 = this.aClass108_Sub1_3099.aClass108_Sub2_2340;
-				final ParticleType class80 = this.aClass108_Sub1_3099.particleType;
+				final ParticleEngine class108_sub2 = this.aClass108_Sub1_3099.particleEngine;
+				final EmitterType class80 = this.aClass108_Sub1_3099.emitterType;
 				if (class80.anInt729 != 0) {
 					if (aShort3095 - aShort3093 <= class80.anInt735) {
 						int i_3_ = (this.color >> 8 & 0xff00) + (anInt3092 >> 16 & 0xff) + class80.anInt728 * i;
@@ -244,8 +244,8 @@ final class Particle extends ParticleNodeSub {
 				this.anInt3090 += ((long) aShort3098 * (long) anInt3100 >> 23) * i;
 				final int tileX = this.anInt3087 >> 19;
 				final int tileZ = this.anInt3090 >> 19;
-				i_1_ = this.anInt3088 >> anInt3086;
-				if (i_1_ > 0 || i_1_ < -65535 || tileX < 0 || tileX >= Class186.anInt1900 || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.anInt3440) {
+				final int tileY = this.anInt3088 >> anInt3086;
+				if (tileY > 0 || tileY < -65535 || tileX < 0 || tileX >= WallDecoration.anInt1900 || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.anInt3440) {
 					method969();
 				} else {
 					final int[][][] heightMap = OverridedJInterface.tileHeightMap;
@@ -257,33 +257,33 @@ final class Particle extends ParticleNodeSub {
 						i_51_ = heightMap[class108_sub2.anInt2374][tileX][tileZ] - 1024;
 					}
 					if (class80.aBoolean754) {
-						if (class80.anInt726 == -1 && i_1_ > tileHeight) {
+						if (class80.anInt726 == -1 && tileY > tileHeight) {
 							method969();
 							return;
 						}
-						if (class80.anInt726 >= 0 && i_1_ > heightMap[class80.anInt726][tileX][tileZ]) {
+						if (class80.anInt726 >= 0 && tileY > heightMap[class80.anInt726][tileX][tileZ]) {
 							method969();
 							return;
 						}
-						if (class80.anInt769 == -1 && i_1_ < i_51_) {
+						if (class80.anInt769 == -1 && tileY < i_51_) {
 							method969();
 							return;
 						}
-						if (class80.anInt769 >= 0 && i_1_ < heightMap[class80.anInt769 + 1][tileX][tileZ]) {
+						if (class80.anInt769 >= 0 && tileY < heightMap[class80.anInt769 + 1][tileX][tileZ]) {
 							method969();
 							return;
 						}
 					}
-					if (tileX < class108_sub2.anInt2373 || tileX > class108_sub2.anInt2384 || tileZ < class108_sub2.anInt2367 || tileZ > class108_sub2.anInt2375 || i_1_ > class108_sub2.anInt2369 || i_1_ < class108_sub2.anInt2382) {
+					if (tileX < class108_sub2.anInt2373 || tileX > class108_sub2.anInt2384 || tileZ < class108_sub2.anInt2367 || tileZ > class108_sub2.anInt2375 || tileY > class108_sub2.anInt2369 || tileY < class108_sub2.anInt2382) {
 						this.aBoolean3097 = true;
 						int tileLevel = 3;
-						if (i_1_ > heightMap[1][tileX][tileZ]) {
+						if (tileY > heightMap[1][tileX][tileZ]) {
 							tileLevel = 0;
-						} else if (i_1_ > heightMap[2][tileX][tileZ]) {
+						} else if (tileY > heightMap[2][tileX][tileZ]) {
 							tileLevel = 1;
-						} else if (i_1_ > heightMap[3][tileX][tileZ]) {
+						} else if (tileY > heightMap[3][tileX][tileZ]) {
 							tileLevel = 2;
-						} else if (i_1_ < heightMap[3][tileX][tileZ] - 1024) {
+						} else if (tileY < heightMap[3][tileX][tileZ] - 1024) {
 							method969();
 							return;
 						}
@@ -308,7 +308,7 @@ final class Particle extends ParticleNodeSub {
 	}
 
 	private final void method969() {
-		this.aClass108_Sub1_3099.aClass108_Sub2_2340.aClass108_Sub3_Sub1Array2355[this.aShort3094] = null;
+		this.aClass108_Sub1_3099.particleEngine.aClass108_Sub3_Sub1Array2355[this.aShort3094] = null;
 		ParticleEngine.aClass108_Sub3_Sub1Array2350[ParticleEngine.anInt2354] = this;
 		ParticleEngine.anInt2354 = ParticleEngine.anInt2354 + 1 & 0x3ff;
 		this.aClass108_Sub1_3099 = null;
@@ -317,17 +317,17 @@ final class Particle extends ParticleNodeSub {
 	}
 
 	private final void method970() {
-		final int i = this.aClass108_Sub1_3099.aClass108_Sub2_2340.anInt2348;
-		if (this.aClass108_Sub1_3099.aClass108_Sub2_2340.aClass108_Sub3_Sub1Array2355[i] != null) {
-			this.aClass108_Sub1_3099.aClass108_Sub2_2340.aClass108_Sub3_Sub1Array2355[i].method969();
+		final int i = this.aClass108_Sub1_3099.particleEngine.anInt2348;
+		if (this.aClass108_Sub1_3099.particleEngine.aClass108_Sub3_Sub1Array2355[i] != null) {
+			this.aClass108_Sub1_3099.particleEngine.aClass108_Sub3_Sub1Array2355[i].method969();
 		}
-		this.aClass108_Sub1_3099.aClass108_Sub2_2340.aClass108_Sub3_Sub1Array2355[i] = this;
-		this.aShort3094 = (short) this.aClass108_Sub1_3099.aClass108_Sub2_2340.anInt2348;
-		this.aClass108_Sub1_3099.aClass108_Sub2_2340.anInt2348 = i + 1 & 0x1fff;
+		this.aClass108_Sub1_3099.particleEngine.aClass108_Sub3_Sub1Array2355[i] = this;
+		this.aShort3094 = (short) this.aClass108_Sub1_3099.particleEngine.anInt2348;
+		this.aClass108_Sub1_3099.particleEngine.anInt2348 = i + 1 & 0x1fff;
 		this.aClass108_Sub1_3099.aClass174_2337.insertLast(this);
 	}
 
-	final void method971(final ParticleManager class108_sub1, final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_) {
+	final void method971(final ParticleEmitter class108_sub1, final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_) {
 		this.aClass108_Sub1_3099 = class108_sub1;
 		this.anInt3087 = i << anInt3086;
 		this.anInt3088 = i_53_ << anInt3086;
@@ -341,7 +341,7 @@ final class Particle extends ParticleNodeSub {
 		method970();
 	}
 
-	Particle(final ParticleManager class108_sub1, final int i, final int i_61_, final int i_62_, final int i_63_, final int i_64_, final int i_65_, final int i_66_, final int i_67_, final int i_68_) {
+	Particle(final ParticleEmitter class108_sub1, final int i, final int i_61_, final int i_62_, final int i_63_, final int i_64_, final int i_65_, final int i_66_, final int i_67_, final int i_68_) {
 		this.aClass108_Sub1_3099 = class108_sub1;
 		this.anInt3087 = i << anInt3086;
 		this.anInt3088 = i_61_ << anInt3086;

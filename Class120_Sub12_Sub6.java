@@ -63,8 +63,8 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		} else if (outlineType == 2) {
 			zoom *= 1.04;
 		}
-		final int i_14_ = Rasterizer.cosineTable[objType.xan2d] * zoom >> 16;
-		final int i_15_ = Rasterizer.sineTable[objType.xan2d] * zoom >> 16;
+		final int i_14_ = Rasterizer.cosTable[objType.xan2d] * zoom >> 16;
+		final int i_15_ = Rasterizer.sinTable[objType.xan2d] * zoom >> 16;
 		objModel.method2367(0, objType.yan2d, objType.zan2d, objType.xan2d, objType.xof2d, i_15_ - objModel.getMaxY() / 2 + objType.yof2d, objType.yof2d + i_14_, -1L);
 		if (outlineType >= 1) {
 			objSprite.outline(1);
@@ -77,10 +77,10 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			objSprite.shadow(shadow);
 		}
 		if (objType.certtemplate != -1) {
-			certLentTemplateSprite.method1587(0, 0);
+			certLentTemplateSprite.drawSprite(0, 0);
 		} else if (objType.lenttemplate != -1) {
 			GraphicsLD.init2dCanvas(certLentTemplateSprite.pixels, 36, 32);
-			objSprite.method1587(0, 0);
+			objSprite.drawSprite(0, 0);
 			objSprite = certLentTemplateSprite;
 		}
 		if (drawAmount && (objType.stackable == 1 || objCount != 1) && objCount != -1) {
@@ -125,28 +125,21 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		anInt3175 = 0;
 	}
 
-	static final void method1226(final int i, final int i_17_, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_) {
-		try {
-			final Class120_Sub29 class120_sub29 = new Class120_Sub29();
-			class120_sub29.anInt2766 = i_22_;
-			class120_sub29.anInt2771 = i_19_;
-			class120_sub29.anInt2778 = i_27_;
-			class120_sub29.anInt2780 = i_28_;
-			class120_sub29.anInt2772 = i_20_;
-			class120_sub29.anInt2779 = i_21_;
-			class120_sub29.anInt2776 = i_24_;
-			if (i_23_ >= 70) {
-				class120_sub29.anInt2767 = i;
-				class120_sub29.anInt2773 = i_18_;
-				class120_sub29.anInt2765 = i_26_;
-				class120_sub29.anInt2764 = i_17_;
-				class120_sub29.anInt2775 = i_25_;
-				Class120_Sub14_Sub15.aClass105_3584.addLast(class120_sub29);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dn.S(").append(i).append(',').append(i_17_).append(',').append(i_18_).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(',').append(i_22_).append(',').append(i_23_).append(',')
-					.append(i_24_).append(',').append(i_25_).append(',').append(i_26_).append(',').append(i_27_).append(',').append(i_28_).append(')').toString());
-		}
+	static final void method1226(final int i, final int i_17_, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_) {
+		final Class120_Sub29 class120_sub29 = new Class120_Sub29();
+		class120_sub29.anInt2766 = i_22_;
+		class120_sub29.anInt2771 = i_19_;
+		class120_sub29.anInt2778 = i_27_;
+		class120_sub29.anInt2780 = i_28_;
+		class120_sub29.anInt2772 = i_20_;
+		class120_sub29.anInt2779 = i_21_;
+		class120_sub29.anInt2776 = i_24_;
+		class120_sub29.anInt2767 = i;
+		class120_sub29.anInt2773 = i_18_;
+		class120_sub29.anInt2765 = i_26_;
+		class120_sub29.anInt2764 = i_17_;
+		class120_sub29.anInt2775 = i_25_;
+		Class120_Sub14_Sub15.aClass105_3584.addLast(class120_sub29);
 	}
 
 	@Override
@@ -193,16 +186,9 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		Class157.shaders[7] = new Class5();
 	}
 
-	public static void method1228(final int i) {
-		try {
-			aClass120_Sub14_Sub22_3174 = null;
-			if (i != 0) {
-				aClass120_Sub14_Sub22_3174 = null;
-			}
-			aClass120_Sub14_Sub19Array3168 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dn.AA(").append(i).append(')').toString());
-		}
+	public static void method1228() {
+		aClass120_Sub14_Sub22_3174 = null;
+		aClass120_Sub14_Sub19Array3168 = null;
 	}
 
 	@Override
@@ -230,52 +216,52 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		return is_32_;
 	}
 
-	static final void method1229(final int[] pixels, int pixelPos, final int pixelStep, final int x, final int z, final int level) {
+	static final void pushTilesPixels(final int[] pixels, int pixelPos, final int pixelStep, final int x, final int z, final int level) {
 		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
 		if (groundTile != null) {
 			final PlainTile plainTile = groundTile.plainTile;
 			if (plainTile != null) {
-				final int i_47_ = plainTile.anInt1346;
-				if (i_47_ != 0) {
-					for (int i_48_ = 0; i_48_ < 4; i_48_++) {
-						pixels[pixelPos] = i_47_;
-						pixels[pixelPos + 1] = i_47_;
-						pixels[pixelPos + 2] = i_47_;
-						pixels[pixelPos + 3] = i_47_;
+				final int color = plainTile.minimapColor;
+				if (color != 0) {
+					for (int loops = 0; loops < 4; loops++) {
+						pixels[pixelPos] = color;
+						pixels[pixelPos + 1] = color;
+						pixels[pixelPos + 2] = color;
+						pixels[pixelPos + 3] = color;
 						pixelPos += pixelStep;
 					}
 				}
 			} else {
 				final ShapedTile shapedTile = groundTile.shapedTile;
 				if (shapedTile != null) {
-					final int i_49_ = shapedTile.anInt1622;
-					final int i_50_ = shapedTile.anInt1628;
-					final int i_51_ = shapedTile.anInt1638;
-					final int i_52_ = shapedTile.anInt1626;
-					final int[] is_53_ = Class116.anIntArrayArray1119[i_49_];
-					final int[] is_54_ = ParticleNodeSub.anIntArrayArray2401[i_50_];
+					final int shape = shapedTile.shape;
+					final int rotation = shapedTile.rotation;
+					final int overlayColor = shapedTile.overlayMinimapColor;
+					final int underlayColor = shapedTile.underlayMinimapColor;
+					final int[] is_53_ = Class116.anIntArrayArray1119[shape];
+					final int[] is_54_ = ParticleNodeSub.anIntArrayArray2401[rotation];
 					int i_55_ = 0;
-					if (i_51_ != 0) {
+					if (overlayColor != 0) {
 						for (int i_56_ = 0; i_56_ < 4; i_56_++) {
-							pixels[pixelPos] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							pixels[pixelPos + 1] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							pixels[pixelPos + 2] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
-							pixels[pixelPos + 3] = is_53_[is_54_[i_55_++]] == 0 ? i_51_ : i_52_;
+							pixels[pixelPos] = is_53_[is_54_[i_55_++]] == 0 ? overlayColor : underlayColor;
+							pixels[pixelPos + 1] = is_53_[is_54_[i_55_++]] == 0 ? overlayColor : underlayColor;
+							pixels[pixelPos + 2] = is_53_[is_54_[i_55_++]] == 0 ? overlayColor : underlayColor;
+							pixels[pixelPos + 3] = is_53_[is_54_[i_55_++]] == 0 ? overlayColor : underlayColor;
 							pixelPos += pixelStep;
 						}
 					} else {
 						for (int i_57_ = 0; i_57_ < 4; i_57_++) {
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								pixels[pixelPos] = i_52_;
+								pixels[pixelPos] = underlayColor;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								pixels[pixelPos + 1] = i_52_;
+								pixels[pixelPos + 1] = underlayColor;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								pixels[pixelPos + 2] = i_52_;
+								pixels[pixelPos + 2] = underlayColor;
 							}
 							if (is_53_[is_54_[i_55_++]] != 0) {
-								pixels[pixelPos + 3] = i_52_;
+								pixels[pixelPos + 3] = underlayColor;
 							}
 							pixelPos += pixelStep;
 						}

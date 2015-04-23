@@ -47,8 +47,8 @@ final class Class26 {
 			Class191.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
 			Class156.lastMouseClick = GroundObjectNode.currentMouseClick;
 			js5.lastClickX = Class192.currentClickX;
-			Class120_Sub12_Sub36.lastClickY = ParticleType.currentClickY;
-			Class120_Sub12_Sub2.lastClickTime = Class186.currentClickTime;
+			Class120_Sub12_Sub36.lastClickY = EmitterType.currentClickY;
+			Class120_Sub12_Sub2.lastClickTime = WallDecoration.currentClickTime;
 			GroundObjectNode.currentMouseClick = 0;
 		}
 	}

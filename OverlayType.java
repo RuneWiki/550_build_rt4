@@ -5,7 +5,7 @@
 final class OverlayType {
 	boolean aBoolean1193 = true;
 	int anInt1194;
-	boolean aBoolean1195 = true;
+	boolean occlude = true;
 	boolean aBoolean1196;
 	int anInt1197;
 	int anInt1198;
@@ -40,7 +40,7 @@ final class OverlayType {
 
 	private final void decode(final Buffer buffer, final int code, final int id) {
 		if (code == 1) {
-			this.anInt1197 = Class120_Sub12_Sub1.method1200(buffer.getMedium());
+			this.anInt1197 = Class120_Sub12_Sub1.method1200(buffer.getMedium());//color
 		} else if (code == 2) {
 			this.textureId = buffer.getUByte();
 		} else if (code == 3) {
@@ -49,7 +49,7 @@ final class OverlayType {
 				this.textureId = -1;
 			}
 		} else if (code == 5) {
-			this.aBoolean1195 = false;
+			this.occlude = false;
 		} else if (code == 7) {
 			this.anInt1198 = Class120_Sub12_Sub1.method1200(buffer.getMedium());
 		} else if (code == 8) {

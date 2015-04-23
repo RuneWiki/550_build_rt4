@@ -4,25 +4,25 @@
 
 final class Class115 {
 	int anInt1109;
-	static int anInt1110;
+	static int menuMouseX;
 	int anInt1111;
 	int anInt1112;
 
 	static final void method1007(int i, final int i_0_, int i_1_, final int i_2_, final int i_3_, final byte[][][] is, final int[] is_4_, final int[] is_5_, final int[] is_6_, final int[] is_7_, final int[] is_8_, final int i_9_, final byte i_10_, final int i_11_, final int i_12_) {
 		if (i < 0) {
 			i = 0;
-		} else if (i >= Class186.anInt1900 * 128) {
-			i = Class186.anInt1900 * 128 - 1;
+		} else if (i >= WallDecoration.anInt1900 * 128) {
+			i = WallDecoration.anInt1900 * 128 - 1;
 		}
 		if (i_1_ < 0) {
 			i_1_ = 0;
 		} else if (i_1_ >= Class120_Sub12_Sub38.anInt3440 * 128) {
 			i_1_ = Class120_Sub12_Sub38.anInt3440 * 128 - 1;
 		}
-		Class69_Sub2.anInt2239 = Rasterizer.sineTable[i_2_];
-		ObjectContainer.anInt2616 = Rasterizer.cosineTable[i_2_];
-		Class120_Sub12_Sub30.anInt3377 = Rasterizer.sineTable[i_3_];
-		MapFunctionType.anInt637 = Rasterizer.cosineTable[i_3_];
+		Class69_Sub2.anInt2239 = Rasterizer.sinTable[i_2_];
+		ObjectContainer.anInt2616 = Rasterizer.cosTable[i_2_];
+		Class120_Sub12_Sub30.anInt3377 = Rasterizer.sinTable[i_3_];
+		MapFunctionType.anInt637 = Rasterizer.cosTable[i_3_];
 		DisplayModeInfo.anInt1713 = i;
 		PlayerAppearance.anInt1367 = i_0_;
 		Class145.anInt1381 = i_1_;
@@ -37,8 +37,8 @@ final class Class115 {
 			Class31.anInt248 = 0;
 		}
 		Class53.anInt487 = Class120_Sub12_Sub26.anInt3332 + Class120_Sub14_Sub13.anInt3563;
-		if (Class53.anInt487 > Class186.anInt1900) {
-			Class53.anInt487 = Class186.anInt1900;
+		if (Class53.anInt487 > WallDecoration.anInt1900) {
+			Class53.anInt487 = WallDecoration.anInt1900;
 		}
 		Js5Worker.anInt396 = Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563;
 		if (Js5Worker.anInt396 > Class120_Sub12_Sub38.anInt3440) {
@@ -56,7 +56,7 @@ final class Class115 {
 				final int i_17_ = (i_15_ - Class120_Sub14_Sub13.anInt3563 << 7) - (Class145.anInt1381 & 0x7f);
 				final int i_18_ = Class120_Sub12_Sub26.anInt3332 - Class120_Sub14_Sub13.anInt3563 + i_14_;
 				final int i_19_ = Class112.anInt1080 - Class120_Sub14_Sub13.anInt3563 + i_15_;
-				if (i_18_ >= 0 && i_19_ >= 0 && i_18_ < Class186.anInt1900 && i_19_ < Class120_Sub12_Sub38.anInt3440) {
+				if (i_18_ >= 0 && i_19_ >= 0 && i_18_ < WallDecoration.anInt1900 && i_19_ < Class120_Sub12_Sub38.anInt3440) {
 					int i_20_;
 					if (Class24.anIntArrayArrayArray140 != null) {
 						i_20_ = Class24.anIntArrayArrayArray140[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
@@ -75,7 +75,7 @@ final class Class115 {
 				SpotAnimType.aBooleanArrayArray992[i_22_][i_23_] = ClanMember.aBooleanArrayArray2573[i_22_][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_][i_23_ + 1] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_ + 1];
 			}
 		}
-		Class61.anIntArray562 = is_4_;
+		client.anIntArray562 = is_4_;
 		Class31.anIntArray243 = is_5_;
 		SpotAnimation.anIntArray2921 = is_6_;
 		IsaacCipher.anIntArray1015 = is_7_;

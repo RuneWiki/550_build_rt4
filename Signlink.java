@@ -42,7 +42,7 @@ public class Signlink implements Runnable {
 	private SignlinkNode next;
 	public FileOnDisk[] cacheIndexFiles;
 	private Fullscreenimp14 fsimp14;
-	public static int anInt1310 = 1;
+	public static int clientType = 1;//1 - normal, 2 - ?, 3 - unsigned
 	private static Hashtable filesCache = new Hashtable(16);
 	public static Method setFocusCycleRootMethod;
 	static volatile long aLong1313 = 0L;
@@ -56,7 +56,7 @@ public class Signlink implements Runnable {
 		return putNode(3, 0, null, i_2_);
 	}
 
-	public final SignlinkNode method1953(final String string) {
+	public final SignlinkNode requestUrl(final String string) {
 		return putNode(16, 0, string, 0);
 	}
 
@@ -214,16 +214,16 @@ public class Signlink implements Runnable {
 						if (!osName.startsWith("win")) {
 							throw new Exception();
 						}
-						final String string = (String) currentNode.objectData;
-						if (!string.startsWith("http://") && !string.startsWith("https://")) {
+						final String url = (String) currentNode.objectData;
+						if (!url.startsWith("http://") && !url.startsWith("https://")) {
 							throw new Exception();
 						}
-						for (int i_9_ = 0; string.length() > i_9_; i_9_++) {
-							if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(string.charAt(i_9_)) == -1) {
+						for (int id = 0; id < url.length(); id++) {
+							if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*".indexOf(url.charAt(id)) == -1) {
 								throw new Exception();
 							}
 						}
-						Runtime.getRuntime().exec(new StringBuilder("cmd /c start \"j\" \"").append(string).append("\"").toString());
+						Runtime.getRuntime().exec("cmd /c start \"j\" \"" + url + "\"");
 						currentNode.value = null;
 					} catch (final Exception exception) {
 						currentNode.value = exception;

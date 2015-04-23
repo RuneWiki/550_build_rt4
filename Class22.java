@@ -8,16 +8,9 @@ final class Class22 {
 	static Class127 aClass127_130;
 	int[] anIntArray133;
 
-	public static void method195(final int i) {
-		try {
-			UnderlayType.recentUse = null;
-			if (i != -63361369) {
-				method198(-8, -105, '\uffc0');
-			}
-			aClass127_130 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.C(").append(i).append(')').toString());
-		}
+	public static void method195() {
+		UnderlayType.recentUse = null;
+		aClass127_130 = null;
 	}
 
 	static final void method196(final float[][] fs, final int i, final byte i_0_, final int i_1_, final int i_2_, final int i_3_, final float[][] fs_4_, final int i_5_, final byte i_6_, final byte i_7_, final Class120_Sub9 class120_sub9, final boolean bool, final float[][] fs_8_, final int[][] is,
@@ -214,126 +207,116 @@ final class Class22 {
 		}
 	}
 
-	static final int getTileHeight(final int x, final int z, final int level) {
+	static final int getTileHeight(int x, int z, int level) {
 		if (OverridedJInterface.tileHeightMap == null) {
 			return 0;
 		}
-		final int i_42_ = x >> 7;
-		final int i_43_ = z >> 7;
-		if (i_42_ < 0 || i_43_ < 0 || i_42_ > 103 || i_43_ > 103) {
+		final int tileX = x >> 7;
+		final int tileZ = z >> 7;
+		if (tileX < 0 || tileZ < 0 || tileX > 103 || tileZ > 103) {
 			return 0;
 		}
-		int i_44_ = level;
-		if (i_44_ < 3 && (0x2 & Class114.tileSettings[1][i_42_][i_43_]) == 2) {
-			i_44_++;
+		if (level < 3 && (Class114.tileSettings[1][tileX][tileZ] & 0x2) == 2) {
+			level++;
 		}
-		final int i_45_ = z & 0x7f;
 		final int i_46_ = x & 0x7f;
-		final int i_47_ = OverridedJInterface.tileHeightMap[i_44_][i_42_][i_43_] * (-i_46_ + 128) - -(i_46_ * OverridedJInterface.tileHeightMap[i_44_][i_42_ + 1][i_43_]) >> 7;
-		final int i_48_ = OverridedJInterface.tileHeightMap[i_44_][i_42_ + 1][i_43_ - -1] * i_46_ + (128 - i_46_) * OverridedJInterface.tileHeightMap[i_44_][i_42_][1 + i_43_] >> 7;
-		return i_48_ * i_45_ + i_47_ * (128 + -i_45_) >> 7;
+		final int i_45_ = z & 0x7f;
+		final int y = OverridedJInterface.tileHeightMap[level][tileX][tileZ];
+		final int northY = OverridedJInterface.tileHeightMap[level][tileX][tileZ + 1];
+		final int eastY = OverridedJInterface.tileHeightMap[level][tileX + 1][tileZ];
+		final int northEastY = OverridedJInterface.tileHeightMap[level][tileX + 1][tileZ + 1];
+		final int i_47_ = y * (128 - i_46_) + (i_46_ * eastY) >> 7;
+		final int i_48_ = northEastY * i_46_ + (128 - i_46_) * northY >> 7;
+		return i_48_ * i_45_ + i_47_ * (128 - i_45_) >> 7;
 	}
 
-	static final char method198(final int i, final int i_49_, final char c) {
-		char c_50_;
-		try {
-			if (c >= '\u00c0' && c <= '\u00ff') {
-				if (c >= '\u00c0' && c <= '\u00c6') {
-					return 'A';
-				}
-				if (c == '\u00c7') {
-					return 'C';
-				}
-				if (c >= '\u00c8' && c <= '\u00cb') {
-					return 'E';
-				}
-				if (c >= '\u00cc' && c <= '\u00cf') {
-					return 'I';
-				}
-				if (c == '\u00d1' && i_49_ != 0) {
-					return 'N';
-				}
-				if (c >= '\u00d2' && c <= '\u00d6') {
-					return 'O';
-				}
-				if (c >= '\u00d9' && c <= '\u00dc') {
-					return 'U';
-				}
-				if (c == '\u00dd') {
-					return 'Y';
-				}
-				if (c == '\u00df') {
-					return 's';
-				}
-				if (c >= '\u00e0' && c <= '\u00e6') {
-					return 'a';
-				}
-				if (c == '\u00e7') {
-					return 'c';
-				}
-				if (c >= '\u00e8' && c <= '\u00eb') {
-					return 'e';
-				}
-				if (c >= '\u00ec' && c <= '\u00ef') {
-					return 'i';
-				}
-				if (c == '\u00f1' && i_49_ != 0) {
-					return 'n';
-				}
-				if (c >= '\u00f2' && c <= '\u00f6') {
-					return 'o';
-				}
-				if (c >= '\u00f9' && c <= '\u00fc') {
-					return 'u';
-				}
-				if (c == '\u00fd' || c == '\u00ff') {
-					return 'y';
-				}
+	static final char method198(final int i_49_, final char c) {
+		if (c >= '\u00c0' && c <= '\u00ff') {
+			if (c >= '\u00c0' && c <= '\u00c6') {
+				return 'A';
 			}
-			if (c == '\u0152') {
+			if (c == '\u00c7') {
+				return 'C';
+			}
+			if (c >= '\u00c8' && c <= '\u00cb') {
+				return 'E';
+			}
+			if (c >= '\u00cc' && c <= '\u00cf') {
+				return 'I';
+			}
+			if (c == '\u00d1' && i_49_ != 0) {
+				return 'N';
+			}
+			if (c >= '\u00d2' && c <= '\u00d6') {
 				return 'O';
 			}
-			if (c == '\u0153') {
-				return 'o';
+			if (c >= '\u00d9' && c <= '\u00dc') {
+				return 'U';
 			}
-			if (c == '\u0178') {
+			if (c == '\u00dd') {
 				return 'Y';
 			}
-			c_50_ = c;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.D(").append(i).append(',').append(i_49_).append(',').append(c).append(')').toString());
+			if (c == '\u00df') {
+				return 's';
+			}
+			if (c >= '\u00e0' && c <= '\u00e6') {
+				return 'a';
+			}
+			if (c == '\u00e7') {
+				return 'c';
+			}
+			if (c >= '\u00e8' && c <= '\u00eb') {
+				return 'e';
+			}
+			if (c >= '\u00ec' && c <= '\u00ef') {
+				return 'i';
+			}
+			if (c == '\u00f1' && i_49_ != 0) {
+				return 'n';
+			}
+			if (c >= '\u00f2' && c <= '\u00f6') {
+				return 'o';
+			}
+			if (c >= '\u00f9' && c <= '\u00fc') {
+				return 'u';
+			}
+			if (c == '\u00fd' || c == '\u00ff') {
+				return 'y';
+			}
 		}
-		return c_50_;
+		if (c == '\u0152') {
+			return 'O';
+		}
+		if (c == '\u0153') {
+			return 'o';
+		}
+		if (c == '\u0178') {
+			return 'Y';
+		}
+		return c;
 	}
 
-	static final void method199(final int i, final int i_51_, final boolean bool) {
-		try {
-			if (i != Class120_Sub12_Sub7.anInt3178) {
-				Class90.anIntArray849 = new int[i];
-				for (int i_52_ = 0; i > i_52_; i_52_++) {
-					Class90.anIntArray849[i_52_] = (i_52_ << 12) / i;
+	static final void method199(final int i, final int i_51_) {
+		if (i != Class120_Sub12_Sub7.anInt3178) {
+			Class90.anIntArray849 = new int[i];
+			for (int i_52_ = 0; i > i_52_; i_52_++) {
+				Class90.anIntArray849[i_52_] = (i_52_ << 12) / i;
+			}
+			Class32.anInt259 = i + -1;
+			Class120_Sub12_Sub7.anInt3178 = i;
+			Class120_Sub12_Sub26.anInt3331 = i * 32;
+		}
+		if (i_51_ != Class120_Sub12_Sub2.anInt3145) {
+			if (i_51_ != Class120_Sub12_Sub7.anInt3178) {
+				Class150.anIntArray1405 = new int[i_51_];
+				for (int i_53_ = 0; i_53_ < i_51_; i_53_++) {
+					Class150.anIntArray1405[i_53_] = (i_53_ << 12) / i_51_;
 				}
-				Class32.anInt259 = i + -1;
-				Class120_Sub12_Sub7.anInt3178 = i;
-				Class120_Sub12_Sub26.anInt3331 = i * 32;
+			} else {
+				Class150.anIntArray1405 = Class90.anIntArray849;
 			}
-			if (i_51_ != Class120_Sub12_Sub2.anInt3145) {
-				if (i_51_ != Class120_Sub12_Sub7.anInt3178) {
-					Class150.anIntArray1405 = new int[i_51_];
-					for (int i_53_ = 0; i_53_ < i_51_; i_53_++) {
-						Class150.anIntArray1405[i_53_] = (i_53_ << 12) / i_51_;
-					}
-				} else {
-					Class150.anIntArray1405 = Class90.anIntArray849;
-				}
-				Class120_Sub29.anInt2774 = -1 + i_51_;
-				Class120_Sub12_Sub2.anInt3145 = i_51_;
-			}
-			if (bool) {
-				aClass127_130 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cd.A(").append(i).append(',').append(i_51_).append(',').append(bool).append(')').toString());
+			Class120_Sub29.anInt2774 = -1 + i_51_;
+			Class120_Sub12_Sub2.anInt3145 = i_51_;
 		}
 	}
 

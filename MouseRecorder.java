@@ -51,8 +51,8 @@ final class MouseRecorder implements Runnable {
 		}
 	}
 
-	static final void selectSpell(final int i, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_) {
-		final JagexInterface jagexInterface = JagexInterface.getComponent(i_10_, i_8_);
+	static final void selectSpell(final int mask, final int param, final int cursor, final int componentIndex, final int targetCursor, final int bitPacked) {
+		final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
 		if (jagexInterface != null && jagexInterface.onSpellSelectionListener != null) {
 			final InterfaceListener class120_sub10 = new InterfaceListener();
 			class120_sub10.objectData = jagexInterface.onSpellSelectionListener;
@@ -60,12 +60,12 @@ final class MouseRecorder implements Runnable {
 			Class88.method744(class120_sub10);
 		}
 		Class88.spellSelected = true;
-		Class192.selectedSpellCursor = i_7_;
-		IdentityKit.selectedSpellParam = i_6_;
-		JagexSocket.anInt420 = i_8_;
-		Class150.selectedSpellTargetCursor = i_9_;
-		AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked = i_10_;
-		GroundTile.selectedSpellUseMask = i;
+		Class192.selectedSpellCursor = cursor;
+		IdentityKit.selectedSpellParam = param;
+		JagexSocket.selectedSpellComponextIndex = componentIndex;
+		Class150.selectedSpellTargetCursor = targetCursor;
+		AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked = bitPacked;
+		GroundTile.selectedSpellUseMask = mask;
 		InterfaceClickMask.redrawInterface(jagexInterface);
 	}
 

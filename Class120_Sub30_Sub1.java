@@ -6,7 +6,6 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	static short[][] aShortArrayArray3668;
 	Deque aClass105_3669 = new Deque();
 	private final Class120_Sub30_Sub2 aClass120_Sub30_Sub2_3670;
-	static int anInt3671 = 2;
 	static int anInt3672;
 	static boolean qaOpTestEnabled;
 	static float aFloat3674;
@@ -22,7 +21,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 		if (ambientSound != null) {
 			ambientSound.refresh();
 		} else {
-			Class7.addAmbientSound(null, player.walkQueueX[0], null, player.walkQueueZ[0], player, 0, Class173.gameLevel);
+			AmbientSound.addAmbientSound(null, player.walkQueueX[0], null, player.walkQueueZ[0], player, 0, Class173.gameLevel);
 		}
 	}
 

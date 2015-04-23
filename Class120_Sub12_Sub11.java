@@ -66,29 +66,22 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		anInt3207 = 0xff0 & i_9_ << 4;
 	}
 
-	public static void method1252(final int i) {
-		try {
-			npcList = null;
-			outputStream = null;
-			js5Connection = null;
-			aClass50_3213 = null;
-			spriteWidths = null;
-			if (i != -129) {
-				translateStrings(-27);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hk.S(").append(i).append(')').toString());
-		}
+	public static void method1252() {
+		npcList = null;
+		outputStream = null;
+		js5Connection = null;
+		aClass50_3213 = null;
+		spriteWidths = null;
 	}
 
 	static final void translateStrings(final int langId) {
 		if (langId != 0) {
 			if (langId == 1) {
-				Class143.translateToGermany();
+				TextRepository.translateToGermany();
 			} else if (langId == 2) {
-				AmbientSound.translateToFrench();
+				TextRepository.translateToFrench();
 			} else {
-				Class173.translateToSpanish();
+				TextRepository.translateToSpanish();
 			}
 		}
 	}

@@ -39,7 +39,7 @@ final class IntegerNode extends Node {
 
 	static final boolean method1833(final JagexInterface jagexInterface) {
 		if (jagexInterface.clientCode == 205) {
-			Class31.anInt244 = 250;
+			Class31.logoutCycle = 250;
 			return true;
 		}
 		return false;

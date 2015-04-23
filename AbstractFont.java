@@ -1,6 +1,7 @@
 /* Class120_Sub14_Sub8 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import java.util.Arrays;
 import java.util.Random;
 
 abstract class AbstractFont extends NodeSub {

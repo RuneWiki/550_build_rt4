@@ -15,7 +15,7 @@ final class JagexSocket implements Runnable {
 	private boolean closed = false;
 	private int tcycle = 0;
 	static int[][][] anIntArrayArrayArray419;
-	static int anInt420 = -1;
+	static int selectedSpellComponextIndex = -1;
 	private byte[] buffer;
 	private final Socket socket;
 	static boolean aBoolean423 = false;
@@ -65,13 +65,13 @@ final class JagexSocket implements Runnable {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
-						if (Class137.anInt1323 >= 1) {
+						if (MapFunctionGroup.anInt1323 >= 1) {
 							Class48.returnCode = -5;
 							FrameLoader.anInt3609 = 0;
 							return;
 						}
 						FrameLoader.anInt3609 = 1;
-						Class137.anInt1323++;
+						MapFunctionGroup.anInt1323++;
 						if (Hashtable.anInt675 != Class116.anInt1115) {
 							Class116.anInt1115 = Hashtable.anInt675;
 						} else {
@@ -139,8 +139,8 @@ final class JagexSocket implements Runnable {
 						AbstractTimer.worldConnection.close();
 						AbstractTimer.worldConnection = null;
 					}
-					if (Class137.anInt1323 < 1) {
-						Class137.anInt1323++;
+					if (MapFunctionGroup.anInt1323 < 1) {
+						MapFunctionGroup.anInt1323++;
 						Class79_Sub1.anInt2244 = 0;
 						if (Class116.anInt1115 == Hashtable.anInt675) {
 							Class116.anInt1115 = ObjectPile.anInt1808;

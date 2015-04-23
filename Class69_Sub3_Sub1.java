@@ -10,7 +10,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 	static int[] screenRedrawHeights = new int[100];
 	static int[] anIntArray3082;
 	static int playerRenderX;
-	static int anInt3084 = 0;
+	static int publicChatSetting = 0;
 	static short[] aShortArray3085;
 
 	static {
@@ -37,10 +37,10 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							SpotAnimationNode.anInt3466 = 0;
 							Class154.anInt1440 = 1;
 							AbstractIndexedSprite.anInt1027++;
-							if (ModelParticle.anInt1479 != Class71.anInt625) {
-								ModelParticle.anInt1479 = Class71.anInt625;
+							if (ModelParticleEmitter.anInt1479 != Class71.anInt625) {
+								ModelParticleEmitter.anInt1479 = Class71.anInt625;
 							} else {
-								ModelParticle.anInt1479 = GameEntity.anInt3045;
+								ModelParticleEmitter.anInt1479 = GameEntity.anInt3045;
 							}
 						} else {
 							Class120_Sub12_Sub35.anInt3410 = -5;
@@ -49,7 +49,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 						}
 					}
 					if (Class154.anInt1440 == 1) {
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticle.anInt1479);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticleEmitter.anInt1479);
 						Class154.anInt1440 = 2;
 					}
 					if (Class154.anInt1440 == 2) {
@@ -113,10 +113,10 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 					} else {
 						SpotAnimationNode.anInt3466 = 0;
 						Class154.anInt1440 = 1;
-						if (ModelParticle.anInt1479 != Class71.anInt625) {
-							ModelParticle.anInt1479 = Class71.anInt625;
+						if (ModelParticleEmitter.anInt1479 != Class71.anInt625) {
+							ModelParticleEmitter.anInt1479 = Class71.anInt625;
 						} else {
-							ModelParticle.anInt1479 = GameEntity.anInt3045;
+							ModelParticleEmitter.anInt1479 = GameEntity.anInt3045;
 						}
 						AbstractIndexedSprite.anInt1027++;
 						break;

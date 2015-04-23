@@ -7,7 +7,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	static int spriteTrimHeight;
 	static ObjectCache aClass21_2841;
 	private int maxY = -32768;
-	static int anInt2843;
+	static int componentPressedCycles;
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
 	int amount;
 	int id;
@@ -51,7 +51,7 @@ final class SceneGroundObject extends SceneGraphNode {
 		StructType.aClass189_3588 = null;
 		LookupTable.anInt497 = -1;
 		if (HDToolkit.glEnabled) {
-			Class167.aBoolean1620 = true;
+			Class167.clearDepthBuffer = true;
 		}
 		StructType.anInt3590 = -1;
 		if (Class69.rootInterfaceId != -1) {
@@ -59,9 +59,9 @@ final class SceneGroundObject extends SceneGraphNode {
 			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
-			GraphicsHD.method597();
+			GraphicsHD.clipRect();
 		} else {
-			GraphicsLD.method2175();
+			GraphicsLD.clipRect();
 		}
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}

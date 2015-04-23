@@ -73,11 +73,11 @@ final class ParticleEngine extends ParticleNode {
 		aFloat2393 = 1.0F;
 	}
 
-	private final void method943(final ModelParticle[] class158s, final boolean bool, final int[] is, final int[] is_0_, final int[] is_1_) {
+	private final void method943(final ModelParticleEmitter[] class158s, final boolean bool, final int[] is, final int[] is_0_, final int[] is_1_) {
 		for (int i = 0; i < 8; i++) {
 			aBooleanArray2386[i] = false;
 		}
-		while_116_: for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
+		while_116_: for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
 			if (class158s != null) {
 				for (int i = 0; i < class158s.length; i++) {
 					if (class108_sub1.aClass158_2322 == class158s[i]) {
@@ -99,13 +99,13 @@ final class ParticleEngine extends ParticleNode {
 		if (class158s != null) {
 			for (int i = 0; i < class158s.length && anInt2365 != 8; i++) {
 				if (!aBooleanArray2386[i]) {
-					final ParticleManager class108_sub1 = new ParticleManager(class158s[i], this, this.aLong2359);
+					final ParticleEmitter class108_sub1 = new ParticleEmitter(class158s[i], this, this.aLong2359);
 					aClass174_2357.insertLast(class108_sub1);
 					anInt2365++;
 					aBooleanArray2386[i] = true;
 				}
 			}
-			for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
+			for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
 				for (int i = 0; i < class158s.length; i++) {
 					if (aBooleanArray2386[i] && class158s[i] == class108_sub1.aClass158_2322) {
 						class108_sub1.method942(is[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1485], is[class108_sub1.aClass158_2322.anInt1485], is_0_[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1484], -74,
@@ -120,7 +120,7 @@ final class ParticleEngine extends ParticleNode {
 	final void method944(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {
 		if (!this.aBoolean2356) {
 			if (i != this.anInt2377) {
-				for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
+				for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
 					class108_sub1.aBoolean2329 = true;
 				}
 			}
@@ -138,8 +138,8 @@ final class ParticleEngine extends ParticleNode {
 		anInt2354 = 0;
 		aClass174_2361 = new Class174();
 		aClass108_Sub3_Sub1Array2350 = new Particle[1024];
-		Class120_Sub30_Sub2.method1777(js5);
-		NpcType.method2208(js5);
+		Class69.aClass50_619 = js5;
+		Class49.aClass50_440 = js5;
 	}
 
 	static final void method946() {
@@ -174,7 +174,7 @@ final class ParticleEngine extends ParticleNode {
 			} else {
 				final ParticleNode class108 = aClass174_2357.head;
 				for (ParticleNode class108_23_ = class108.next; class108_23_ != class108; class108_23_ = class108_23_.next) {
-					final ParticleManager class108_sub1 = (ParticleManager) class108_23_;
+					final ParticleEmitter class108_sub1 = (ParticleEmitter) class108_23_;
 					for (int i_24_ = 0; i_24_ < i_22_; i_24_++) {
 						anIntArray2389[i_24_] = 0;
 					}
@@ -213,18 +213,18 @@ final class ParticleEngine extends ParticleNode {
 						}
 					}
 					boolean bool = false;
-					if (aBoolean2347 && class108_sub1.particleType.anInt724 != -1) {
-						Rasterizer.anInterface5_973.method25(class108_sub1.particleType.anInt724);
+					if (aBoolean2347 && class108_sub1.emitterType.anInt724 != -1) {
+						Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.anInt724);
 						bool = true;
 					} else {
 						HDToolkit.bindTexture2D(-1);
 					}
-					float f = class108_sub1.particleType.anInt721 * aFloat2393;
+					float f = class108_sub1.emitterType.size * aFloat2393;
 					if (f > 64.0F) {
 						f = 64.0F;
 					}
 					gl.glPointSize(f);
-					method950(gl, i_22_, bool, class108_sub1.particleType.aBoolean750);
+					method950(gl, i_22_, bool, class108_sub1.emitterType.aBoolean750);
 				}
 				method957();
 			}
@@ -519,7 +519,7 @@ final class ParticleEngine extends ParticleNode {
 		aFloat2393 = i_63_ / 334.0F;
 	}
 
-	final void method962(final ModelParticle[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
+	final void method962(final ModelParticleEmitter[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
 		if (!this.aBoolean2356) {
 			method943(class158s, bool, xVertices, yVertices, zVertices);
 			method960(class169s, bool, xVertices, yVertices, zVertices);
@@ -551,19 +551,19 @@ final class ParticleEngine extends ParticleNode {
 				this.anInt2382 = this.anInt2369 - 1024;
 			}
 			aBoolean2370 = true;
-			final int i_67_ = Rasterizer.sineTable[this.anInt2377];
-			final int i_68_ = Rasterizer.cosineTable[this.anInt2377];
+			final int i_67_ = Rasterizer.sinTable[this.anInt2377];
+			final int i_68_ = Rasterizer.cosTable[this.anInt2377];
 			method955(i_67_, i_68_);
 			if (aBoolean2391) {
-				for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
-					for (int i_69_ = 0; i_69_ < class108_sub1.particleType.anInt740; i_69_++) {
+				for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
+					for (int i_69_ = 0; i_69_ < class108_sub1.emitterType.anInt740; i_69_++) {
 						class108_sub1.method940(1, i_67_, true, i_68_, this.aLong2359);
 					}
 				}
 				aBoolean2391 = false;
 			}
 			final int i_70_ = (int) (l - this.aLong2359);
-			for (ParticleManager class108_sub1 = (ParticleManager) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleManager) aClass174_2357.peekNext()) {
+			for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
 				class108_sub1.method940(i_70_, i_67_, i < 10, i_68_, l);
 			}
 		}

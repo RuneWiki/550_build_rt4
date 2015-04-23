@@ -3,16 +3,16 @@
  */
 import java.io.IOException;
 
-final class Class182 {
+final class WallLocation {
 	int anInt1792;
 	static String[] prefixTitles;
-	long bitPacked = 0L;
-	int anInt1795;
+	long bitPackedUid = 0L;
+	int renderZ;
 	SceneGraphNode aClass180_1796;
-	int anInt1797;
+	int renderX;
 	int anInt1799;
 	SceneGraphNode aClass180_1800;
-	int anInt1801;
+	int renderY;
 	static CollisionMap[] collisionMaps = new CollisionMap[4];
 
 	public static void method2442() {
@@ -65,7 +65,7 @@ final class Class182 {
 		return ((0x2 & i_17_) != 0 ? -i_18_ : i_18_) + ((0x1 & i_17_) != 0 ? -i_19_ : i_19_);
 	}
 
-	public Class182() {
+	public WallLocation() {
 		/* empty */
 	}
 }

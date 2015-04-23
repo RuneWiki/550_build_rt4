@@ -19,9 +19,9 @@ class ParticleNode {
 	}
 
 	static final void tele(final int x, final int z, final int level) {
-		final String string = new StringBuilder("::tele ").append(level).append(",").append(x >> 6).append(",").append(z >> 6).append(",").append(x & 0x3f).append(",").append(z & 0x3f).toString();
-		System.out.println(string);
-		Class120_Sub12_Sub20.method1301(string);
+		final String teleCommand = "::tele " + level + "," + (x >> 6) + "," + (z >> 6) + "," + (x & 0x3f) + "," + (z & 0x3f);
+		System.out.println(teleCommand);
+		Class120_Sub12_Sub20.execuseCommand(teleCommand);
 	}
 
 	static final void getSpriteIds(final js5 js5) {

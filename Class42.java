@@ -40,7 +40,7 @@ final class Class42 {
 					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.aByte1700 & 0x1) > 0 && SpotAnimationNode.anInt3469 == level && i_9_ >= 0 && npcType.size + i_9_ < 104 && i_11_ >= 0 && i_11_ + npcType.size < 104) {
 						Class120_Sub12_Sub11.npcList[index] = new Npc();
 						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[index];
-						Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = index;
+						Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
 						class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 						class180_sub5_sub2.setNpcType(npcType);
 						class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);

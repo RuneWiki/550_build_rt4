@@ -54,14 +54,10 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1248(final byte i) {
-		try {
-			aClass120_Sub14_Sub9_3204 = null;
-			npcAmbientSounds = null;
-			aClass120_Sub14_Sub19_3202 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fl.S(").append(i).append(')').toString());
-		}
+	public static void method1248() {
+		aClass120_Sub14_Sub9_3204 = null;
+		npcAmbientSounds = null;
+		aClass120_Sub14_Sub19_3202 = null;
 	}
 
 	@Override

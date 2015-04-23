@@ -358,8 +358,8 @@ final class HDToolkit {
 		aFloatArray532 = null;
 	}
 
-	static final void method517() {
-		gl.glClear(256);
+	static final void clearDepthBuffer() {
+		gl.glClear(256);//GL_DEPTH_BUFFER_BIT
 	}
 
 	private static final void method518(final float f, final float f_35_, final float f_36_, final float f_37_, final float f_38_, final float f_39_) {

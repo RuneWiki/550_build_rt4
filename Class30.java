@@ -10,7 +10,6 @@ final class Class30 {
 	private int anInt228 = 0;
 	static boolean packetCounterUpdated;
 	private int[][] anIntArrayArray230;
-	static int anInt231;
 	private final int anInt232;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_234;
 	private int anInt235 = -1;
@@ -26,7 +25,6 @@ final class Class30 {
 		}
 		packetCounterUpdated = false;
 		anInt236 = 0;
-		anInt231 = 1;
 		anIntArray239 = new int[2500];
 	}
 

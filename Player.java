@@ -3,7 +3,7 @@
  */
 
 final class Player extends GameEntity {
-	int anInt3732;
+	int pkIcon;
 	int anInt3733 = 0;
 	int anInt3734;
 	int ambientSoundHearDistance;
@@ -17,47 +17,48 @@ final class Player extends GameEntity {
 	boolean playerLimitReached;
 	int team;
 	String name;
-	int anInt3746;
+	int prayerIcon;
 	int combatLevel;
-	static int chatEffects = 0;
+	static int chatEffectsEnabled = 0;
 	PlayerAppearance appearance;
 
 	final void decodeAppearance(final Buffer buffer) {
 		buffer.pos = 0;
 		int newNpcId = -1;
 		final int i_1_ = buffer.getUByte();
-		final boolean bool = (0x4 & i_1_) != 0;
 		final int isFemale = i_1_ & 0x1;
-		final int i_3_ = super.getSize();
+		final boolean inGamesArena = (i_1_ & 0x4) != 0;
 		setSize(1 + ((0x3e & i_1_) >> 3));
 		titleId = (byte) (i_1_ >> 6 & 0x3);
+		final int oldSize = super.getSize();
 		final int[] is = new int[12];
-		this.x += (getSize() - i_3_) * 64;
-		this.z += (getSize() - i_3_) * 64;
-		this.anInt3732 = buffer.getByte();
-		this.anInt3746 = buffer.getByte();
+		this.x += (getSize() - oldSize) * 64;
+		this.z += (getSize() - oldSize) * 64;
+		this.pkIcon = buffer.getByte();
+		this.prayerIcon = buffer.getByte();
 		this.team = 0;
-		for (int i_4_ = 0; i_4_ < 12; i_4_++) {
-			final int i_5_ = buffer.getUByte();
-			if (i_5_ == 0) {
-				is[i_4_] = 0;
+		for (int id = 0; id < 12; id++) {
+			final int val1 = buffer.getUByte();
+			if (val1 == 0) {
+				is[id] = 0;
 			} else {
-				final int i_6_ = buffer.getUByte();
-				int objectId = (i_5_ << 8) + i_6_;
-				if (i_4_ == 0 && 65535 == objectId) {
+				final int val2 = buffer.getUByte();
+				int data = (val1 << 8) + val2;
+				//data can be object or appearance id
+				if (id == 0 && data == 65535) {
 					newNpcId = buffer.getUShort();
 					this.team = buffer.getUByte();
 					break;
 				}
-				if (objectId >= 32768) {
-					objectId = KeyboardHandler.anIntArray1506[objectId - 32768];
-					is[i_4_] = Class191.method2512(1073741824, objectId);
-					final int team = ObjType.list(objectId).team;
+				if (data >= 32768) {
+					data = KeyboardHandler.anIntArray1506[data - 32768];
+					is[id] = data | 0x40000000;
+					final int team = ObjType.list(data).team;
 					if (team != 0) {
 						this.team = team;
 					}
 				} else {
-					is[i_4_] = Class191.method2512(-2147483648, objectId - 256);
+					is[id] = (data - 256) | -0x80000000;
 				}
 			}
 		}
@@ -73,19 +74,19 @@ final class Player extends GameEntity {
 		final long nameAsLong = buffer.getLong();
 		this.name = Class136.longToString(nameAsLong);
 		this.combatLevel = buffer.getUByte();
-		if (!bool) {
+		if (inGamesArena) {
+			this.skill = buffer.getUShort();
+			this.anInt3733 = this.combatLevel;
+			this.anInt3738 = -1;
+		} else {
 			this.skill = 0;
 			this.anInt3733 = buffer.getUByte();
 			this.anInt3738 = buffer.getUByte();
 			if (this.anInt3738 == 255) {
 				this.anInt3738 = -1;
 			}
-		} else {
-			this.skill = buffer.getUShort();
-			this.anInt3733 = this.combatLevel;
-			this.anInt3738 = -1;
 		}
-		final int i_12_ = this.ambientSoundHearDistance;
+		final int oldHearDistance = this.ambientSoundHearDistance;
 		this.ambientSoundHearDistance = buffer.getUByte();
 		if (this.ambientSoundHearDistance != 0) {
 			final int i_13_ = this.anInt3736;
@@ -98,7 +99,7 @@ final class Player extends GameEntity {
 			this.anInt3734 = buffer.getUShort();
 			this.anInt3742 = buffer.getUShort();
 			this.ambientSoundVolume = buffer.getUByte();
-			if (this.ambientSoundHearDistance != i_12_ || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.ambientSoundVolume != i_17_) {
+			if (this.ambientSoundHearDistance != oldHearDistance || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.ambientSoundVolume != i_17_) {
 				Class120_Sub30_Sub1.addRefreshPlayerAmbientSound(this);
 			}
 		} else {
@@ -107,9 +108,9 @@ final class Player extends GameEntity {
 		if (this.appearance == null) {
 			this.appearance = new PlayerAppearance();
 		}
-		final int thisNpcId = this.appearance.npcId;
+		final int npcId = this.appearance.npcId;
 		this.appearance.method2042(newNpcId, is, this.entityRenderDataId, colors, isFemale == 1);
-		if (newNpcId != thisNpcId) {
+		if (newNpcId != npcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
 		}
@@ -150,7 +151,7 @@ final class Player extends GameEntity {
 		Node.objCount = Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_) + i_25_ * 256;
 		Class15.objSmallFont = class120_sub14_sub8_sub2;
 		Class120_Sub12_Sub29.membersObjInventoryOptions = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
-		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, ProjectileNode.aString3449, null, null };
+		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, TextRepository.take, null, null };
 	}
 
 	@Override
@@ -162,8 +163,8 @@ final class Player extends GameEntity {
 	final void render(final int i, final int i_26_, final int i_27_, final int i_28_, final int i_29_, final int i_30_, final int i_31_, final int i_32_, final long l, final int i_33_, final ParticleEngine class108_sub2) {
 		if (this.appearance != null) {
 			final SeqType animSeq = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
-			final EntityRenderData class29 = getEntityRenderData();
-			final boolean bool = class29.anInt204 != 0 || class29.anInt206 != 0 || class29.anInt208 != 0 || class29.anInt209 != 0;
+			final EntityRenderData renderData = getEntityRenderData();
+			final boolean bool = renderData.anInt204 != 0 || renderData.anInt206 != 0 || renderData.anInt208 != 0 || renderData.anInt209 != 0;
 			final SeqType idleSeq = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().anInt218 || animSeq == null) ? SeqType.list(this.idleAnimId) : null;
 			AbstractModelRenderer playerModel = this.appearance.method2040(this.aClass150Array2972, this.idleAnimCurrentFrame, this.anInt3013, this.idleAnimNextFrame, idleSeq, this.animCurrentFrame, bool, this.anInt2998, animSeq, true, this.anInt3044);
 			final int playerCount = Class48.getPlayersCacheSize();
@@ -182,7 +183,7 @@ final class Player extends GameEntity {
 			}
 			if (playerModel != null) {
 				this.maxY = playerModel.getMaxY();
-				if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).aBoolean1653)) {
+				if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).hasShadow)) {
 					final AbstractModelRenderer shadowModel = Class32.constructShadowModel(0, idleSeq == null ? animSeq : idleSeq, i, super.getSize(), 240, playerModel, idleSeq != null ? this.idleAnimCurrentFrame : this.animCurrentFrame, this.y, this.z, this.aBoolean3002, 0, 160, this.x);
 					if (!HDToolkit.glEnabled) {
 						shadowModel.render(0, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, -1L, i_33_, null);
@@ -211,9 +212,9 @@ final class Player extends GameEntity {
 							if (hintIcon.targetType == 2) {
 								final int hintX = 2 + 4 * (hintIcon.x - GameEntity.currentBaseX) - (TileParticleQueue.selfPlayer.x / 32);
 								final int hintY = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (TileParticleQueue.selfPlayer.z / 32);
-								int i_44_ = hintIcon.showDistance * 4;
-								i_44_ *= i_44_;
-								renderHintIcon(i_28_, hintY, null, i_27_, i_33_, i_26_, i, i_30_, hintX, i_31_, hintIcon.modelId, i_29_, i_44_, playerModel, i_32_);
+								int showDistance = hintIcon.showDistance * 4;
+								showDistance *= showDistance;
+								renderHintIcon(i_28_, hintY, null, i_27_, i_33_, i_26_, i, i_30_, hintX, i_31_, hintIcon.modelId, i_29_, showDistance, playerModel, i_32_);
 							}
 							if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && Class118.playersList.length > hintIcon.targetIndex) {
 								final Player player = Class118.playersList[hintIcon.targetIndex];
@@ -236,10 +237,10 @@ final class Player extends GameEntity {
 						spotAnimModel.translate(0, -this.spotAnimHeight, 0);
 						if (spotAnimType.aBoolean989) {
 							if (MouseHandler.anInt1140 != 0) {
-								spotAnimModel.method2377(MouseHandler.anInt1140);
+								spotAnimModel.rotateX(MouseHandler.anInt1140);
 							}
 							if (Class159.anInt1488 != 0) {
-								spotAnimModel.method2362(Class159.anInt1488);
+								spotAnimModel.rotateZ(Class159.anInt1488);
 							}
 							if (Class93.anInt867 != 0) {
 								spotAnimModel.translate(0, Class93.anInt867, 0);
@@ -256,9 +257,9 @@ final class Player extends GameEntity {
 						if (!(this.anObject3047 instanceof AnimatedLocation)) {
 							locationModel = (AbstractModelRenderer) this.anObject3047;
 						} else {
-							locationModel = (AbstractModelRenderer) ((AnimatedLocation) this.anObject3047).method2357(-80);
+							locationModel = (AbstractModelRenderer) ((AnimatedLocation) this.anObject3047).method2357();
 						}
-						locationModel.translate(this.anInt3033 + -this.x, this.anInt2970 + -this.y, -this.z + this.anInt3028);
+						locationModel.translate(this.anInt3033 - this.x, this.anInt2970 - this.y, this.anInt3028 - this.z);
 						if (this.anInt3019 == 512) {
 							locationModel.rotate270();
 						} else if (this.anInt3019 == 1024) {
@@ -270,10 +271,10 @@ final class Player extends GameEntity {
 				}
 				if (!HDToolkit.glEnabled) {
 					if (spotAnimModel != null) {
-						playerModel = ((LDModelRenderer) playerModel).method2392(spotAnimModel);
+						playerModel = ((LDModelRenderer) playerModel).mergeModel(spotAnimModel);
 					}
 					if (locationModel != null) {
-						playerModel = ((LDModelRenderer) playerModel).method2392(locationModel);
+						playerModel = ((LDModelRenderer) playerModel).mergeModel(locationModel);
 					}
 					method2337(playerModel, spotAnimModel);
 					playerModel.haveActions = true;
@@ -292,16 +293,14 @@ final class Player extends GameEntity {
 					}
 				}
 				if (locationModel != null) {
-					if (this.anInt3019 != 512) {
-						if (this.anInt3019 == 1024) {
-							locationModel.rotate180();
-						} else if (this.anInt3019 == 1536) {
-							locationModel.rotate270();
-						}
-					} else {
+					if (this.anInt3019 == 512) {
 						locationModel.rotate90();
+					} else if (this.anInt3019 == 1024) {
+						locationModel.rotate180();
+					} else if (this.anInt3019 == 1536) {
+						locationModel.rotate270();
 					}
-					locationModel.translate(this.x - this.anInt3033, this.y - this.anInt2970, -this.anInt3028 + this.z);
+					locationModel.translate(this.x - this.anInt3033, this.y - this.anInt2970, this.z - this.anInt3028);
 				}
 			}
 		}
@@ -317,8 +316,8 @@ final class Player extends GameEntity {
 
 	final String getTitledName() {
 		String name = this.name;
-		if (Class182.prefixTitles != null) {
-			name = Class182.prefixTitles[titleId] + name;
+		if (WallLocation.prefixTitles != null) {
+			name = WallLocation.prefixTitles[titleId] + name;
 		}
 		if (Class53.suffixTitles != null) {
 			name = name + Class53.suffixTitles[titleId];
@@ -377,13 +376,13 @@ final class Player extends GameEntity {
 		}
 		final JagexInterface jagexInterface = Node.interfaceCache[parent][child];
 		if (i_71_ != -1 || jagexInterface.type != 0) {
-			for (int i_75_ = 0; i_75_ < Class186.menuOptionCount; i_75_++) {
+			for (int i_75_ = 0; i_75_ < WallDecoration.menuOptionCount; i_75_++) {
 				if (Class120_Sub12_Sub7.menuOptionsData2[i_75_] == i_71_ && jagexInterface.bitPacked == Class120_Sub29.menuOptionsData3[i_75_] && (Class120_Sub29.menuOptionsCode[i_75_] == 1 || Class120_Sub29.menuOptionsCode[i_75_] == 1009 || Class120_Sub29.menuOptionsCode[i_75_] == 34 || Class120_Sub29.menuOptionsCode[i_75_] == 23 || Class120_Sub29.menuOptionsCode[i_75_] == 3)) {
 					return true;
 				}
 			}
 		} else {
-			for (int i_76_ = 0; i_76_ < Class186.menuOptionCount; i_76_++) {
+			for (int i_76_ = 0; i_76_ < WallDecoration.menuOptionCount; i_76_++) {
 				if (Class120_Sub29.menuOptionsCode[i_76_] == 1 || Class120_Sub29.menuOptionsCode[i_76_] == 1009 || Class120_Sub29.menuOptionsCode[i_76_] == 34 || Class120_Sub29.menuOptionsCode[i_76_] == 23 || Class120_Sub29.menuOptionsCode[i_76_] == 3) {
 					for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.menuOptionsData3[i_76_]); class189_77_ != null; class189_77_ = ObjectContainer.method1665(class189_77_)) {
 						if (class189_77_.bitPacked == jagexInterface.bitPacked) {
@@ -400,7 +399,7 @@ final class Player extends GameEntity {
 		this.anInt3734 = -1;
 		this.ambientSoundHearDistance = 0;
 		this.anInt3738 = -1;
-		this.anInt3732 = -1;
+		this.pkIcon = -1;
 		this.ambientSoundVolume = 255;
 		this.anInt3736 = -1;
 		this.team = 0;
@@ -409,6 +408,6 @@ final class Player extends GameEntity {
 		this.anInt3740 = -1;
 		this.playerLimitReached = false;
 		this.combatLevel = 0;
-		this.anInt3746 = -1;
+		this.prayerIcon = -1;
 	}
 }

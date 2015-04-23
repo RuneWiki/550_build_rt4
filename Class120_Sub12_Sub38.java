@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub38 extends Class120_Sub12 {
-	static int anInt3434 = -1;
+	static int screenX = -1;
 	private int anInt3435;
 	private int anInt3436 = 1;
 	static GroundTile[][][] aClass120_Sub18ArrayArrayArray3437;

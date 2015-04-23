@@ -3,90 +3,94 @@
  */
 
 class LDSprite extends AbstractSprite {
+	
 	int[] pixels;
 
-	final void method1603() {
-		final int[] is = this.pixels;
-		for (int i = this.height - 1; i >= 0; i--) {
-			int i_0_ = i * this.width;
-			for (int i_1_ = (i + 1) * this.width; i_0_ < i_1_; i_0_++) {
-				i_1_--;
-				final int i_2_ = is[i_0_];
-				is[i_0_] = is[i_1_];
-				is[i_1_] = i_2_;
-			}
-		}
-		this.offsetX = this.trimWidth - this.width - this.offsetX;
-	}
-
 	@Override
-	void method1594(int i, int i_3_, final int i_4_) {
-		i += this.offsetX;
-		i_3_ += this.offsetY;
-		int i_5_ = i + i_3_ * GraphicsLD.width;
-		int i_6_ = 0;
-		int i_7_ = this.height;
-		int i_8_ = this.width;
-		int i_9_ = GraphicsLD.width - i_8_;
-		int i_10_ = 0;
-		if (i_3_ < GraphicsLD.startY) {
-			final int i_11_ = GraphicsLD.startY - i_3_;
-			i_7_ -= i_11_;
-			i_3_ = GraphicsLD.startY;
-			i_6_ += i_11_ * i_8_;
-			i_5_ += i_11_ * GraphicsLD.width;
+	void drawSpriteTransparency(int x, int y, final int transparency) {
+		x += this.offsetX;
+		y += this.offsetY;
+		int destPixelId = x + y * GraphicsLD.width;
+		int srcPixelId = 0;
+		int spriteHeight = this.height;
+		int spriteWidth = this.width;
+		int destPixelStep = GraphicsLD.width - spriteWidth;
+		int srcPixelStep = 0;
+		if (y < GraphicsLD.startY) {
+			final int outOfBoundsY = GraphicsLD.startY - y;
+			spriteHeight -= outOfBoundsY;
+			y = GraphicsLD.startY;
+			srcPixelId += outOfBoundsY * spriteWidth;
+			destPixelId += outOfBoundsY * GraphicsLD.width;
 		}
-		if (i_3_ + i_7_ > GraphicsLD.endY) {
-			i_7_ -= i_3_ + i_7_ - GraphicsLD.endY;
+		if (y + spriteHeight > GraphicsLD.endY) {
+			spriteHeight -= y + spriteHeight - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_12_ = GraphicsLD.startX - i;
-			i_8_ -= i_12_;
-			i = GraphicsLD.startX;
-			i_6_ += i_12_;
-			i_5_ += i_12_;
-			i_10_ += i_12_;
-			i_9_ += i_12_;
+		if (x < GraphicsLD.startX) {
+			final int outOfBoundsX = GraphicsLD.startX - x;
+			spriteWidth -= outOfBoundsX;
+			x = GraphicsLD.startX;
+			srcPixelId += outOfBoundsX;
+			destPixelId += outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
-		if (i + i_8_ > GraphicsLD.endX) {
-			final int i_13_ = i + i_8_ - GraphicsLD.endX;
-			i_8_ -= i_13_;
-			i_10_ += i_13_;
-			i_9_ += i_13_;
+		if (x + spriteWidth > GraphicsLD.endX) {
+			final int outOfBoundsX = x + spriteWidth - GraphicsLD.endX;
+			spriteWidth -= outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
-		if (i_8_ > 0 && i_7_ > 0) {
-			method1605(GraphicsLD.pixels, this.pixels, 0, i_6_, i_5_, i_8_, i_7_, i_9_, i_10_, i_4_);
+		if (spriteWidth > 0 && spriteHeight > 0) {
+			plotPixels(GraphicsLD.pixels, this.pixels, 0, srcPixelId, destPixelId, spriteWidth, spriteHeight, destPixelStep, srcPixelStep, transparency);
+		}
+	}
+	
+	private static final void plotPixels(final int[] destPixels, final int[] srcPixels, int srcPixel, int srcPixelId, int destPixelId, final int width, final int height, final int destPixelStep, final int srcPixelStep, final int transparency) {
+		final int transDelta = 256 - transparency;
+		for (int heightLoop = -height; heightLoop < 0; heightLoop++) {
+			for (int widthLoop = -width; widthLoop < 0; widthLoop++) {
+				srcPixel = srcPixels[srcPixelId++];
+				if (srcPixel != 0) {
+					final int destPixel = destPixels[destPixelId];
+					destPixels[destPixelId++] = ((srcPixel & 0xff00ff) * transparency + (destPixel & 0xff00ff) * transDelta & ~0xff00ff) + ((srcPixel & 0xff00) * transparency + (destPixel & 0xff00) * transDelta & 0xff0000) >> 8;
+				} else {
+					destPixelId++;
+				}
+			}
+			destPixelId += destPixelStep;
+			srcPixelId += srcPixelStep;
 		}
 	}
 
-	void method1604(int i, int i_14_, final int i_15_, final int i_16_, final int i_17_, final int i_18_, final int i_19_, final int i_20_, final int[] is, final int[] is_21_) {
+	void method1604(int x, int y, int width, final int height, final int spriteCenterX, final int spriteCenterY, final int rotation, int zoom, final int[] is, final int[] is_21_) {
 		try {
-			final int i_22_ = -i_15_ / 2;
-			final int i_23_ = -i_16_ / 2;
-			int i_24_ = (int) (Math.sin(i_19_ / 326.11) * 65536.0);
-			int i_25_ = (int) (Math.cos(i_19_ / 326.11) * 65536.0);
-			i_24_ = i_24_ * i_20_ >> 8;
-			i_25_ = i_25_ * i_20_ >> 8;
-			int i_26_ = (i_17_ << 16) + i_23_ * i_24_ + i_22_ * i_25_;
-			int i_27_ = (i_18_ << 16) + i_23_ * i_25_ - i_22_ * i_24_;
-			int i_28_ = i + i_14_ * GraphicsLD.width;
-			for (i_14_ = 0; i_14_ < i_16_; i_14_++) {
-				final int i_29_ = is[i_14_];
+			final int negCenterX = -width / 2;
+			final int negCenterY = -height / 2;
+			int sinRot = (int) (Math.sin(rotation / 326.11) * 65536.0);
+			int cosRot = (int) (Math.cos(rotation / 326.11) * 65536.0);
+			sinRot = sinRot * zoom >> 8;
+			cosRot = cosRot * zoom >> 8;
+			int i_26_ = (spriteCenterX << 16) + negCenterY * sinRot + negCenterX * cosRot;
+			int i_27_ = (spriteCenterY << 16) + negCenterY * cosRot - negCenterX * sinRot;
+			int i_28_ = x + y * GraphicsLD.width;
+			for (y = 0; y < height; y++) {
+				final int i_29_ = is[y];
 				int i_30_ = i_28_ + i_29_;
-				int i_31_ = i_26_ + i_25_ * i_29_;
-				int i_32_ = i_27_ - i_24_ * i_29_;
-				for (i = -is_21_[i_14_]; i < 0; i++) {
+				int i_31_ = i_26_ + cosRot * i_29_;
+				int i_32_ = i_27_ - sinRot * i_29_;
+				for (x = -is_21_[y]; x < 0; x++) {
 					final int i_33_ = this.pixels[(i_31_ >> 16) + (i_32_ >> 16) * this.width];
 					if (i_33_ != 0) {
 						GraphicsLD.pixels[i_30_++] = i_33_;
 					} else {
 						i_30_++;
 					}
-					i_31_ += i_25_;
-					i_32_ -= i_24_;
+					i_31_ += cosRot;
+					i_32_ -= sinRot;
 				}
-				i_26_ += i_24_;
-				i_27_ += i_25_;
+				i_26_ += sinRot;
+				i_27_ += cosRot;
 				i_28_ += GraphicsLD.width;
 			}
 		} catch (final Exception exception) {
@@ -148,53 +152,6 @@ class LDSprite extends AbstractSprite {
 		}
 	}
 
-	private static final void method1605(final int[] is, final int[] is_52_, int i, int i_53_, int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_) {
-		final int i_60_ = 256 - i_59_;
-		for (int i_61_ = -i_56_; i_61_ < 0; i_61_++) {
-			for (int i_62_ = -i_55_; i_62_ < 0; i_62_++) {
-				i = is_52_[i_53_++];
-				if (i != 0) {
-					final int i_63_ = is[i_54_];
-					is[i_54_++] = ((i & 0xff00ff) * i_59_ + (i_63_ & 0xff00ff) * i_60_ & ~0xff00ff) + ((i & 0xff00) * i_59_ + (i_63_ & 0xff00) * i_60_ & 0xff0000) >> 8;
-				} else {
-					i_54_++;
-				}
-			}
-			i_54_ += i_57_;
-			i_53_ += i_58_;
-		}
-	}
-
-	void method1606(int i, int i_64_, final int i_65_, final int i_66_, final int i_67_, final int i_68_, final int i_69_, final int i_70_, final int[] is, final int[] is_71_) {
-		try {
-			final int i_72_ = -i_65_ / 2;
-			final int i_73_ = -i_66_ / 2;
-			int i_74_ = (int) (Math.sin(i_69_ / 326.11) * 65536.0);
-			int i_75_ = (int) (Math.cos(i_69_ / 326.11) * 65536.0);
-			i_74_ = i_74_ * i_70_ >> 8;
-			i_75_ = i_75_ * i_70_ >> 8;
-			int i_76_ = (i_67_ << 16) + i_73_ * i_74_ + i_72_ * i_75_;
-			int i_77_ = (i_68_ << 16) + i_73_ * i_75_ - i_72_ * i_74_;
-			int i_78_ = i + i_64_ * GraphicsLD.width;
-			for (i_64_ = 0; i_64_ < i_66_; i_64_++) {
-				final int i_79_ = is[i_64_];
-				int i_80_ = i_78_ + i_79_;
-				int i_81_ = i_76_ + i_75_ * i_79_;
-				int i_82_ = i_77_ - i_74_ * i_79_;
-				for (i = -is_71_[i_64_]; i < 0; i++) {
-					GraphicsLD.pixels[i_80_++] = this.pixels[(i_81_ >> 16) + (i_82_ >> 16) * this.width];
-					i_81_ += i_75_;
-					i_82_ -= i_74_;
-				}
-				i_76_ += i_74_;
-				i_77_ += i_75_;
-				i_78_ += GraphicsLD.width;
-			}
-		} catch (final Exception exception) {
-			/* empty */
-		}
-	}
-
 	LDSprite(final int trimWidth, final int trimHeight, final int offsetX, final int offsetY, final int width, final int height, final int[] pixels) {
 		this.trimWidth = trimWidth;
 		this.trimHeight = trimHeight;
@@ -205,44 +162,58 @@ class LDSprite extends AbstractSprite {
 		this.pixels = pixels;
 	}
 
-	final void shadow(final int i) {
-		for (int i_88_ = this.height - 1; i_88_ > 0; i_88_--) {
-			final int i_89_ = i_88_ * this.width;
-			for (int i_90_ = this.width - 1; i_90_ > 0; i_90_--) {
-				if (this.pixels[i_90_ + i_89_] == 0 && this.pixels[i_90_ + i_89_ - 1 - this.width] != 0) {
-					this.pixels[i_90_ + i_89_] = i;
+	final void shadow(final int color) {
+		for (int y = this.height - 1; y > 0; y--) {
+			final int pixelPos = y * this.width;
+			for (int x = this.width - 1; x > 0; x--) {
+				if (this.pixels[x + pixelPos] == 0 && this.pixels[x + pixelPos - 1 - this.width] != 0) {
+					this.pixels[x + pixelPos] = color;
 				}
 			}
 		}
 	}
+	
+	final void flipHorizontal() {
+		final int[] pixels = this.pixels;
+		for (int y = this.height - 1; y >= 0; y--) {
+			int pixelId = y * this.width;
+			for (int pixelIdNext = (y + 1) * this.width; pixelId < pixelIdNext; pixelId++) {
+				pixelIdNext--;
+				final int oldPixel = pixels[pixelId];
+				pixels[pixelId] = pixels[pixelIdNext];
+				pixels[pixelIdNext] = oldPixel;
+			}
+		}
+		this.offsetX = this.trimWidth - this.width - this.offsetX;
+	}
 
-	final void method1608() {
-		final int[] is = this.pixels;
-		for (int i = (this.height >> 1) - 1; i >= 0; i--) {
-			int i_91_ = i * this.width;
-			int i_92_ = (this.height - i - 1) * this.width;
-			for (int i_93_ = -this.width; i_93_ < 0; i_93_++) {
-				final int i_94_ = is[i_91_];
-				is[i_91_] = is[i_92_];
-				is[i_92_] = i_94_;
-				i_91_++;
-				i_92_++;
+	final void flipVertical() {
+		final int[] pixels = this.pixels;
+		for (int y = (this.height >> 1) - 1; y >= 0; y--) {
+			int pixelId = y * this.width;
+			int pixelIdNext = (this.height - y - 1) * this.width;
+			for (int widthLoop = -this.width; widthLoop < 0; widthLoop++) {
+				final int oldPixel = pixels[pixelId];
+				pixels[pixelId] = pixels[pixelIdNext];
+				pixels[pixelIdNext] = oldPixel;
+				pixelId++;
+				pixelIdNext++;
 			}
 		}
 		this.offsetY = this.trimHeight - this.height - this.offsetY;
 	}
 
 	int[] method1609() {
-		final int[] is = new int[this.trimWidth * this.trimHeight];
-		for (int i = 0; i < this.height; i++) {
-			int i_95_ = i * this.width;
-			int i_96_ = this.offsetX + (i + this.offsetY) * this.trimWidth;
-			for (int i_97_ = 0; i_97_ < this.width; i_97_++) {
-				final int i_98_ = this.pixels[i_95_++];
-				is[i_96_++] = i_98_ != 0 ? ~0xffffff | i_98_ : 0;
+		final int[] pixels = new int[this.trimWidth * this.trimHeight];
+		for (int y = 0; y < this.height; y++) {
+			int srcPixelPos = y * this.width;
+			int destPixelPos = this.offsetX + (y + this.offsetY) * this.trimWidth;
+			for (int x = 0; x < this.width; x++) {
+				final int pixel = this.pixels[srcPixelPos++];
+				pixels[destPixelPos++] = pixel != 0 ? ~0xffffff | pixel : 0;
 			}
 		}
-		return is;
+		return pixels;
 	}
 
 	final void method1610(int i, int i_99_, final int[] is, final int[] is_100_) {
@@ -348,34 +319,64 @@ class LDSprite extends AbstractSprite {
 		}
 	}
 
-	void method1612(int i, int i_135_, final int i_136_, final int i_137_, final int i_138_, final int i_139_, final double d, final int i_140_) {
+	void method1612(int x, int y, final int width, final int height, final int xOff, final int yOff, final double rotation, final int zoom) {
 		try {
-			final int i_141_ = -i_136_ / 2;
-			final int i_142_ = -i_137_ / 2;
-			int i_143_ = (int) (Math.sin(d) * 65536.0);
-			int i_144_ = (int) (Math.cos(d) * 65536.0);
-			i_143_ = i_143_ * i_140_ >> 8;
-			i_144_ = i_144_ * i_140_ >> 8;
-			int i_145_ = (i_138_ << 16) + i_142_ * i_143_ + i_141_ * i_144_;
-			int i_146_ = (i_139_ << 16) + i_142_ * i_144_ - i_141_ * i_143_;
-			int i_147_ = i + i_135_ * GraphicsLD.width;
-			for (i_135_ = 0; i_135_ < i_137_; i_135_++) {
-				int i_148_ = i_147_;
-				int i_149_ = i_145_;
-				int i_150_ = i_146_;
-				for (i = -i_136_; i < 0; i++) {
-					final int i_151_ = this.pixels[(i_149_ >> 16) + (i_150_ >> 16) * this.width];
-					if (i_151_ != 0) {
-						GraphicsLD.pixels[i_148_++] = i_151_;
+			final int centerX = width / 2;
+			final int centerY = height / 2;
+			int rotSin = (int) (Math.sin(rotation) * 65536.0);
+			int rotCos = (int) (Math.cos(rotation) * 65536.0);
+			rotSin = rotSin * zoom >> 8;
+			rotCos = rotCos * zoom >> 8;
+			int posX = (xOff << 16) - centerY * rotSin - centerX * rotCos;
+			int posY = (yOff << 16) - centerY * rotCos + centerX * rotSin;
+			int pixelId = x + y * GraphicsLD.width;
+			for (y = 0; y < height; y++) {
+				int destPixelId = pixelId;
+				int srcX = posX;
+				int srcY = posY;
+				for (x = 0; x < width; x++) {
+					final int pixel = this.pixels[(srcX >> 16) + (srcY >> 16) * this.width];
+					if (pixel != 0) {
+						GraphicsLD.pixels[destPixelId++] = pixel;
 					} else {
-						i_148_++;
+						destPixelId++;
 					}
-					i_149_ += i_144_;
-					i_150_ -= i_143_;
+					srcX += rotCos;
+					srcY -= rotSin;
 				}
-				i_145_ += i_143_;
-				i_146_ += i_144_;
-				i_147_ += GraphicsLD.width;
+				posX += rotSin;
+				posY += rotCos;
+				pixelId += GraphicsLD.width;
+			}
+		} catch (final Exception exception) {
+			/* empty */
+		}
+	}
+	
+	void method1606(int x, int y, final int width, final int height, final int xOff, final int yOff, final int rotation, final int zoom, final int[] yOffs, final int[] xOffs) {
+		try {
+			final int centerX = width / 2;
+			final int centerY = height / 2;
+			int rotSin = (int) (Math.sin(rotation / 326.11) * 65536.0);
+			int rotCos = (int) (Math.cos(rotation / 326.11) * 65536.0);
+			rotSin = rotSin * zoom >> 8;
+			rotCos = rotCos * zoom >> 8;
+			int posX = (xOff << 16) - centerY * rotSin - centerX * rotCos;
+			int posY = (yOff << 16) - centerY * rotCos + centerX * rotSin;
+			int pixelId = x + y * GraphicsLD.width;
+			for (y = 0; y < height; y++) {
+				final int spriteYPos = yOffs[y];
+				int destPixelId = pixelId + spriteYPos;
+				int srcX = posX + rotCos * spriteYPos;
+				int srcY = posY - rotSin * spriteYPos;
+				for (x = 0; x < xOffs[y]; x++) {
+					GraphicsLD.pixels[destPixelId++] = this.pixels[(srcX >> 16) + (srcY >> 16) * this.width];
+					srcX += rotCos;
+					srcY -= rotSin;
+				}
+				posX += rotSin;
+				posY += rotCos;
+				pixelId += GraphicsLD.width;
 			}
 		} catch (final Exception exception) {
 			/* empty */
@@ -806,27 +807,27 @@ class LDSprite extends AbstractSprite {
 		}
 	}
 
-	final void outline(final int i) {
-		final int[] is = new int[this.width * this.height];
-		int i_245_ = 0;
-		for (int i_246_ = 0; i_246_ < this.height; i_246_++) {
-			for (int i_247_ = 0; i_247_ < this.width; i_247_++) {
-				int i_248_ = this.pixels[i_245_];
-				if (i_248_ == 0) {
-					if (i_247_ > 0 && this.pixels[i_245_ - 1] != 0) {
-						i_248_ = i;
-					} else if (i_246_ > 0 && this.pixels[i_245_ - this.width] != 0) {
-						i_248_ = i;
-					} else if (i_247_ < this.width - 1 && this.pixels[i_245_ + 1] != 0) {
-						i_248_ = i;
-					} else if (i_246_ < this.height - 1 && this.pixels[i_245_ + this.width] != 0) {
-						i_248_ = i;
+	final void outline(final int color) {
+		final int[] pixels = new int[this.width * this.height];
+		int pixelPos = 0;
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				int pixel = this.pixels[pixelPos];
+				if (pixel == 0) {
+					if (x > 0 && this.pixels[pixelPos - 1] != 0) {
+						pixel = color;
+					} else if (y > 0 && this.pixels[pixelPos - this.width] != 0) {
+						pixel = color;
+					} else if (x < this.width - 1 && this.pixels[pixelPos + 1] != 0) {
+						pixel = color;
+					} else if (y < this.height - 1 && this.pixels[pixelPos + this.width] != 0) {
+						pixel = color;
 					}
 				}
-				is[i_245_++] = i_248_;
+				pixels[pixelPos++] = pixel;
 			}
 		}
-		this.pixels = is;
+		this.pixels = pixels;
 	}
 
 	private static final void method1614(final int[] is, final int[] is_249_, int i, int i_250_, int i_251_, int i_252_, final int i_253_, final int i_254_, final int i_255_) {
@@ -963,42 +964,42 @@ class LDSprite extends AbstractSprite {
 	}
 
 	@Override
-	void method1587(int i, int i_279_) {
-		i += this.offsetX;
-		i_279_ += this.offsetY;
-		int i_280_ = i + i_279_ * GraphicsLD.width;
-		int i_281_ = 0;
-		int i_282_ = this.height;
-		int i_283_ = this.width;
-		int i_284_ = GraphicsLD.width - i_283_;
-		int i_285_ = 0;
-		if (i_279_ < GraphicsLD.startY) {
-			final int i_286_ = GraphicsLD.startY - i_279_;
-			i_282_ -= i_286_;
-			i_279_ = GraphicsLD.startY;
-			i_281_ += i_286_ * i_283_;
-			i_280_ += i_286_ * GraphicsLD.width;
+	void drawSprite(int x, int y) {
+		x += this.offsetX;
+		y += this.offsetY;
+		int destPixelId = x + y * GraphicsLD.width;
+		int srcPixelId = 0;
+		int spriteHeight = this.height;
+		int spriteWidth = this.width;
+		int destPixelStep = GraphicsLD.width - spriteWidth;
+		int srcPixelStep = 0;
+		if (y < GraphicsLD.startY) {
+			final int outOfBoundsY = GraphicsLD.startY - y;
+			spriteHeight -= outOfBoundsY;
+			y = GraphicsLD.startY;
+			srcPixelId += outOfBoundsY * spriteWidth;
+			destPixelId += outOfBoundsY * GraphicsLD.width;
 		}
-		if (i_279_ + i_282_ > GraphicsLD.endY) {
-			i_282_ -= i_279_ + i_282_ - GraphicsLD.endY;
+		if (y + spriteHeight > GraphicsLD.endY) {
+			spriteHeight -= y + spriteHeight - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_287_ = GraphicsLD.startX - i;
-			i_283_ -= i_287_;
-			i = GraphicsLD.startX;
-			i_281_ += i_287_;
-			i_280_ += i_287_;
-			i_285_ += i_287_;
-			i_284_ += i_287_;
+		if (x < GraphicsLD.startX) {
+			final int outOfBoundsX = GraphicsLD.startX - x;
+			spriteWidth -= outOfBoundsX;
+			x = GraphicsLD.startX;
+			srcPixelId += outOfBoundsX;
+			destPixelId += outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
-		if (i + i_283_ > GraphicsLD.endX) {
-			final int i_288_ = i + i_283_ - GraphicsLD.endX;
-			i_283_ -= i_288_;
-			i_285_ += i_288_;
-			i_284_ += i_288_;
+		if (x + spriteWidth > GraphicsLD.endX) {
+			final int i_288_ = x + spriteWidth - GraphicsLD.endX;
+			spriteWidth -= i_288_;
+			srcPixelStep += i_288_;
+			destPixelStep += i_288_;
 		}
-		if (i_283_ > 0 && i_282_ > 0) {
-			method1618(GraphicsLD.pixels, this.pixels, 0, i_281_, i_280_, i_283_, i_282_, i_284_, i_285_);
+		if (spriteWidth > 0 && spriteHeight > 0) {
+			plotPixels(GraphicsLD.pixels, this.pixels, 0, srcPixelId, destPixelId, spriteWidth, spriteHeight, destPixelStep, srcPixelStep);
 		}
 	}
 
@@ -1107,46 +1108,46 @@ class LDSprite extends AbstractSprite {
 		this.offsetX = this.offsetY = 0;
 	}
 
-	private static final void method1618(final int[] is, final int[] is_319_, int i, int i_320_, int i_321_, int i_322_, final int i_323_, final int i_324_, final int i_325_) {
-		final int i_326_ = -(i_322_ >> 2);
-		i_322_ = -(i_322_ & 0x3);
-		for (int i_327_ = -i_323_; i_327_ < 0; i_327_++) {
-			for (int i_328_ = i_326_; i_328_ < 0; i_328_++) {
-				i = is_319_[i_320_++];
-				if (i != 0) {
-					is[i_321_++] = i;
+	private static final void plotPixels(final int[] destPixels, final int[] srcPixels, int color, int srcPixelId, int destPixelId, int spriteWidth, final int spriteHeight, final int destPixelStep, final int srcPixelStep) {
+		final int widthLoops = -(spriteWidth >> 2);
+		spriteWidth = -(spriteWidth & 0x3);
+		for (int heightLoop = -spriteHeight; heightLoop < 0; heightLoop++) {
+			for (int widthLoop = widthLoops; widthLoop < 0; widthLoop++) {
+				color = srcPixels[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = color;
 				} else {
-					i_321_++;
+					destPixelId++;
 				}
-				i = is_319_[i_320_++];
-				if (i != 0) {
-					is[i_321_++] = i;
+				color = srcPixels[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = color;
 				} else {
-					i_321_++;
+					destPixelId++;
 				}
-				i = is_319_[i_320_++];
-				if (i != 0) {
-					is[i_321_++] = i;
+				color = srcPixels[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = color;
 				} else {
-					i_321_++;
+					destPixelId++;
 				}
-				i = is_319_[i_320_++];
-				if (i != 0) {
-					is[i_321_++] = i;
+				color = srcPixels[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = color;
 				} else {
-					i_321_++;
-				}
-			}
-			for (int i_329_ = i_322_; i_329_ < 0; i_329_++) {
-				i = is_319_[i_320_++];
-				if (i != 0) {
-					is[i_321_++] = i;
-				} else {
-					i_321_++;
+					destPixelId++;
 				}
 			}
-			i_321_ += i_324_;
-			i_320_ += i_325_;
+			for (int widthLoop = spriteWidth; widthLoop < 0; widthLoop++) {
+				color = srcPixels[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = color;
+				} else {
+					destPixelId++;
+				}
+			}
+			destPixelId += destPixelStep;
+			srcPixelId += srcPixelStep;
 		}
 	}
 

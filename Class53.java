@@ -25,18 +25,18 @@ abstract class Class53 {
 			int i_1_ = 0;
 			long l = 0L;
 			if (class120_sub24.anInt2721 == 0) {
-				l = Class114.method1005(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+				l = Class114.getWallLocationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
 			}
 			if (i < -83) {
 				if (class120_sub24.anInt2721 == 1) {
-					l = JagexInterface.method2502(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+					l = JagexInterface.getWallDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
 				}
 				int i_2_ = 0;
 				if (class120_sub24.anInt2721 == 2) {
 					l = Class120_Sub11.method1173(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
 				}
 				if (class120_sub24.anInt2721 == 3) {
-					l = Class79_Sub1.method696(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+					l = Class79_Sub1.getGroundDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
 				}
 				if (l != 0L) {
 					i_1_ = (0x7fc95 & (int) l) >> 14;

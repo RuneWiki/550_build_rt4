@@ -26,7 +26,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	private final int anInt3069;
 	private SeqType aClass40_3070;
 	private int anInt3072;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array3073;
+	static AbstractSprite[] hintHeadIconsSprites;
 	static int anInt3074 = 0;
 	static int[] anIntArray3075 = new int[2];
 	static Class188[] aClass188Array3076;
@@ -42,7 +42,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			}
 			if (!aBoolean3063) {
 				if (sceneGraphNode == null) {
-					sceneGraphNode = method2357(-67);
+					sceneGraphNode = method2357();
 				}
 				if (sceneGraphNode == null) {
 					return;
@@ -60,7 +60,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	@Override
 	final void render(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final long l, final int i_11_, final ParticleEngine class108_sub2) {
 		try {
-			final SceneGraphNode sceneGraphNode = method2357(-104);
+			final SceneGraphNode sceneGraphNode = method2357();
 			if (sceneGraphNode != null) {
 				method2359(true, sceneGraphNode);
 				sceneGraphNode.render(i, i_4_, i_5_, i_6_, i_7_, i_8_, i_9_, i_10_, l, i_11_, aClass108_Sub2_3058);
@@ -73,106 +73,97 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	private final SceneGraphNode method2350(final boolean bool, final int i) {
-		SceneGraphNode sceneGraphNode;
-		try {
-			final boolean bool_12_ = OverridedJInterface.tileHeightMap != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
-			LocType locType = LocType.list(anInt3064);
-			if (locType.childrenIDs != null) {
-				locType = locType.handleVarp();
-			}
-			if (locType == null) {
-				if (HDToolkit.glEnabled && !bool_12_) {
-					method2354();
-				}
-				anInt3072 = anInt3052;
-				anInt3050 = -1;
-				return null;
-			}
-			if (!aBoolean3054 && locType.myId != anInt3050) {
-				method2352(-1, -1);
-			}
-			final int i_13_ = 0x3 & anInt3055;
-			if (i != 6335) {
-				aClass188Array3076 = null;
-			}
-			int i_14_;
-			int i_15_;
-			if (i_13_ != 1 && i_13_ != 3) {
-				i_14_ = locType.sizeX;
-				i_15_ = locType.sizeZ;
-			} else {
-				i_14_ = locType.sizeZ;
-				i_15_ = locType.sizeX;
-			}
-			final int i_16_ = (i_15_ >> 1) + anInt3069;
-			final int i_17_ = anInt3049 + (1 + i_14_ >> 1);
-			final int i_18_ = anInt3049 + (i_14_ >> 1);
-			final int i_19_ = anInt3069 - -(1 + i_15_ >> 1);
-			method2353(128 * i_16_, -127, 128 * i_18_);
-			final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.forceTween) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
-			if (bool && !bool_20_) {
-				anInt3072 = anInt3052;
-				anInt3050 = locType.myId;
-				return null;
-			}
-			final int i_21_ = (i_14_ << 6) + (anInt3049 << 7);
-			int[][] is = null;
-			final int i_22_ = (anInt3069 << 7) - -(i_15_ << 6);
-			final int[][] is_23_ = OverridedJInterface.tileHeightMap[anInt3060];
-			if (!bool_12_) {
-				if (anInt3060 < 3) {
-					is = OverridedJInterface.tileHeightMap[anInt3060 + 1];
-				}
-			} else {
-				is = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
-			}
-			final int i_24_ = is_23_[i_18_][i_16_] + is_23_[i_17_][i_16_] - -is_23_[i_18_][i_19_] - -is_23_[i_17_][i_19_] >> 2;
-			if (HDToolkit.glEnabled && bool_20_) {
-				Class47.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
-			}
-			final boolean bool_25_ = aClass107_Sub1_3065 == null;
-			Class88 class88;
-			if (aClass40_3070 != null) {
-				class88 = locType.method2461(i_21_, is_23_, anInt3052, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
-			} else {
-				class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
-			}
-			if (class88 == null) {
-				anInt3072 = anInt3052;
-				anInt3050 = locType.myId;
-				return null;
-			}
-			if (HDToolkit.glEnabled && bool_20_) {
-				int i_26_ = 0;
-				if (bool_25_) {
-					Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
-				}
-				if (anInt3060 != 0) {
-					final int[][] is_27_ = OverridedJInterface.tileHeightMap[0];
-					i_26_ = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
-				}
-				final LDIndexedSprite class107_sub1 = class88.aClass107_Sub1_830;
-				if (aBoolean3066 && Class47.method391(class107_sub1, i_21_, i_26_, i_22_)) {
-					aBoolean3066 = false;
-				}
-				if (!aBoolean3066) {
-					Class47.method389(class107_sub1, i_21_, i_26_, i_22_);
-					if (bool_25_) {
-						Class31.aClass107_Sub1_246 = null;
-					}
-					anInt3068 = i_22_;
-					aClass107_Sub1_3065 = class107_sub1;
-					anInt3061 = i_26_;
-					anInt3059 = i_21_;
-				}
-			}
-			anInt3050 = locType.myId;
-			anInt3072 = anInt3052;
-			sceneGraphNode = class88.aClass180_826;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ri.B(").append(bool).append(',').append(i).append(')').toString());
+		final boolean bool_12_ = OverridedJInterface.tileHeightMap != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
+		LocType locType = LocType.list(anInt3064);
+		if (locType.childrenIDs != null) {
+			locType = locType.handleVarp();
 		}
-		return sceneGraphNode;
+		if (locType == null) {
+			if (HDToolkit.glEnabled && !bool_12_) {
+				method2354();
+			}
+			anInt3072 = anInt3052;
+			anInt3050 = -1;
+			return null;
+		}
+		if (!aBoolean3054 && locType.myId != anInt3050) {
+			method2352(-1, -1);
+		}
+		final int i_13_ = 0x3 & anInt3055;
+		int i_14_;
+		int i_15_;
+		if (i_13_ != 1 && i_13_ != 3) {
+			i_14_ = locType.sizeX;
+			i_15_ = locType.sizeZ;
+		} else {
+			i_14_ = locType.sizeZ;
+			i_15_ = locType.sizeX;
+		}
+		final int i_16_ = (i_15_ >> 1) + anInt3069;
+		final int i_17_ = anInt3049 + (1 + i_14_ >> 1);
+		final int i_18_ = anInt3049 + (i_14_ >> 1);
+		final int i_19_ = anInt3069 - -(1 + i_15_ >> 1);
+		method2353(128 * i_16_, -127, 128 * i_18_);
+		final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (anInt3052 != anInt3072 || aClass40_3070 != null && (aClass40_3070.aBoolean340 || Class164.forceTween) && anInt3052 != anInt3057) && Class74.sceneryShadowsType >= 2);
+		if (bool && !bool_20_) {
+			anInt3072 = anInt3052;
+			anInt3050 = locType.myId;
+			return null;
+		}
+		int[][] is = null;
+		final int i_21_ = (anInt3049 << 7) + (i_14_ << 6);
+		final int i_22_ = (anInt3069 << 7) + (i_15_ << 6);
+		final int[][] is_23_ = OverridedJInterface.tileHeightMap[anInt3060];
+		if (!bool_12_) {
+			if (anInt3060 < 3) {
+				is = OverridedJInterface.tileHeightMap[anInt3060 + 1];
+			}
+		} else {
+			is = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
+		}
+		final int i_24_ = is_23_[i_18_][i_16_] + is_23_[i_17_][i_16_] - -is_23_[i_18_][i_19_] - -is_23_[i_17_][i_19_] >> 2;
+		if (HDToolkit.glEnabled && bool_20_) {
+			Class47.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
+		}
+		final boolean bool_25_ = aClass107_Sub1_3065 == null;
+		Class88 class88;
+		if (aClass40_3070 != null) {
+			class88 = locType.method2461(i_21_, is_23_, anInt3052, i_22_, i_24_, bool_20_, anInt3055, anInt3051, anInt3048, is, aClass40_3070, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065, anInt3057);
+		} else {
+			class88 = locType.method2453(i_21_, false, anInt3051, i_24_, is_23_, is, bool_20_, anInt3055, i_22_, bool_25_ ? Class31.aClass107_Sub1_246 : aClass107_Sub1_3065);
+		}
+		if (class88 == null) {
+			anInt3072 = anInt3052;
+			anInt3050 = locType.myId;
+			return null;
+		}
+		if (HDToolkit.glEnabled && bool_20_) {
+			int i_26_ = 0;
+			if (bool_25_) {
+				Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
+			}
+			if (anInt3060 != 0) {
+				final int[][] is_27_ = OverridedJInterface.tileHeightMap[0];
+				i_26_ = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
+			}
+			final LDIndexedSprite class107_sub1 = class88.aClass107_Sub1_830;
+			if (aBoolean3066 && Class47.method391(class107_sub1, i_21_, i_26_, i_22_)) {
+				aBoolean3066 = false;
+			}
+			if (!aBoolean3066) {
+				Class47.method389(class107_sub1, i_21_, i_26_, i_22_);
+				if (bool_25_) {
+					Class31.aClass107_Sub1_246 = null;
+				}
+				anInt3068 = i_22_;
+				aClass107_Sub1_3065 = class107_sub1;
+				anInt3061 = i_26_;
+				anInt3059 = i_21_;
+			}
+		}
+		anInt3050 = locType.myId;
+		anInt3072 = anInt3052;
+		return class88.aClass180_826;
 	}
 
 	public static void method2351(final int i) {
@@ -182,7 +173,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			}
 			aString3062 = null;
 			aClass188Array3076 = null;
-			aClass120_Sub14_Sub19Array3073 = null;
+			hintHeadIconsSprites = null;
 			JagexInterface.spriteCache = null;
 			anIntArray3075 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -376,35 +367,20 @@ final class AnimatedLocation extends SceneGraphNode {
 		return objectPile;
 	}
 
-	final SceneGraphNode method2357(final int i) {
-		SceneGraphNode sceneGraphNode;
-		try {
-			if (i >= -65) {
-				method2351(-126);
-			}
-			sceneGraphNode = method2350(false, 6335);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ri.G(").append(i).append(')').toString());
-		}
-		return sceneGraphNode;
+	final SceneGraphNode method2357() {
+		return method2350(false, 6335);
 	}
 
-	static final String method2358(String string, final String string_39_, final String string_40_) {
-		for (int i_41_ = string.indexOf(string_40_); (i_41_ ^ 0xffffffff) != 0; i_41_ = string.indexOf(string_40_, i_41_ - -string_39_.length())) {
-			string = new StringBuilder(string.substring(0, i_41_)).append(string_39_).append(string.substring(i_41_ + string_40_.length())).toString();
+	static final String replaceAll(String text, final String from, final String to) {
+		for (int toReplaceIndex = text.indexOf(from); toReplaceIndex != -1; toReplaceIndex = text.indexOf(from, toReplaceIndex + to.length())) {
+			text = new StringBuilder(text.substring(0, toReplaceIndex)).append(to).append(text.substring(toReplaceIndex + from.length())).toString();
 		}
-		return string;
+		return text;
 	}
 
 	@Override
 	final int getMaxY() {
-		int i;
-		try {
-			i = anInt3053;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "ri.MA()");
-		}
-		return i;
+		return anInt3053;
 	}
 
 	private final void method2359(final boolean bool, final SceneGraphNode sceneGraphNode) {

@@ -8,7 +8,7 @@ class WorldMapHandler {
 	static Queue aClass177_690;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_691;
 	static int mapSizeY;
-	static Class137 aClass137_693;
+	static MapFunctionGroup aClass137_693;
 	static int anInt694;
 	static int anInt695;
 	static float currentZoom;
@@ -266,7 +266,7 @@ class WorldMapHandler {
 										if (class107_sub1 != null) {
 											int i_61_ = i_50_ * class107_sub1.width / 4;
 											int i_62_ = i_55_ * class107_sub1.height / 4;
-											if (class142.aBoolean1359) {
+											if (class142.enlarge) {
 												int i_63_ = i_58_ >> 16 & 0xf;
 												int i_64_ = i_58_ >> 20 & 0xf;
 												if ((rotation & 0x1) == 1) {
@@ -366,9 +366,9 @@ class WorldMapHandler {
 	}
 
 	static final void method682() {
-		for (int i = 0; i < aClass137_693.anInt1325; i++) {
-			if (aClass137_693.aClass120_Sub14_Sub5Array1324[i] != null) {
-				aClass177_690.insertLast(aClass137_693.aClass120_Sub14_Sub5Array1324[i]);
+		for (int i = 0; i < aClass137_693.length; i++) {
+			if (aClass137_693.nodes[i] != null) {
+				aClass177_690.insertLast(aClass137_693.nodes[i]);
 			}
 		}
 	}
@@ -1049,9 +1049,9 @@ class WorldMapHandler {
 			deque.addLast(class120_sub14_sub5);
 		}
 		final int[] is = new int[3];
-		for (int i_218_ = 0; i_218_ < aClass137_693.anInt1325; i_218_++) {
-			final MapFunctionNode class120_sub14_sub5 = aClass137_693.aClass120_Sub14_Sub5Array1324[i_218_];
-			final boolean bool = aClass120_Sub14_Sub22_691.method1630(aClass137_693.anIntArray1322[i_218_] & 0x3fff, aClass137_693.anIntArray1322[i_218_] >> 28 & 0x3, is, aClass137_693.anIntArray1322[i_218_] >> 14 & 0x3fff);
+		for (int i_218_ = 0; i_218_ < aClass137_693.length; i_218_++) {
+			final MapFunctionNode class120_sub14_sub5 = aClass137_693.nodes[i_218_];
+			final boolean bool = aClass120_Sub14_Sub22_691.method1630(aClass137_693.coordinates[i_218_] & 0x3fff, aClass137_693.coordinates[i_218_] >> 28 & 0x3, is, aClass137_693.coordinates[i_218_] >> 14 & 0x3fff);
 			if (bool) {
 				class120_sub14_sub5.x = is[1] - anInt695;
 				class120_sub14_sub5.z = mapSizeY - 1 - (is[2] - anInt694);

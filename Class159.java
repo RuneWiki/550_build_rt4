@@ -8,44 +8,29 @@ final class Class159 {
 	static short[][] aShortArrayArray1489;
 	static js5 aClass50_1490;
 
-	static final synchronized byte[] method2092(final int i, final int i_0_) {
-		byte[] is;
-		try {
-			if (i_0_ == 100 && JavaObject.anInt3913 > 0) {
-				final byte[] is_1_ = Class101_Sub2.aByteArrayArray2278[--JavaObject.anInt3913];
-				Class101_Sub2.aByteArrayArray2278[JavaObject.anInt3913] = null;
-				return is_1_;
-			}
-			if (i < 88) {
-				method2093(-126);
-			}
-			if (i_0_ == 5000 && Class118.anInt1133 > 0) {
-				final byte[] is_2_ = Class134.aByteArrayArray1279[--Class118.anInt1133];
-				Class134.aByteArrayArray1279[Class118.anInt1133] = null;
-				return is_2_;
-			}
-			if (i_0_ == 30000 && Class120_Sub12_Sub6.anInt3173 > 0) {
-				final byte[] is_3_ = Class43.aByteArrayArray365[--Class120_Sub12_Sub6.anInt3173];
-				Class43.aByteArrayArray365[Class120_Sub12_Sub6.anInt3173] = null;
-				return is_3_;
-			}
-			is = new byte[i_0_];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.A(").append(i).append(',').append(i_0_).append(')').toString());
+	static final synchronized byte[] method2092(final int i_0_) {
+		if (i_0_ == 100 && JavaObject.anInt3913 > 0) {
+			final byte[] is_1_ = Class101_Sub2.aByteArrayArray2278[--JavaObject.anInt3913];
+			Class101_Sub2.aByteArrayArray2278[JavaObject.anInt3913] = null;
+			return is_1_;
 		}
-		return is;
+		if (i_0_ == 5000 && Class118.anInt1133 > 0) {
+			final byte[] is_2_ = Class134.aByteArrayArray1279[--Class118.anInt1133];
+			Class134.aByteArrayArray1279[Class118.anInt1133] = null;
+			return is_2_;
+		}
+		if (i_0_ == 30000 && Class120_Sub12_Sub6.anInt3173 > 0) {
+			final byte[] is_3_ = Class43.aByteArrayArray365[--Class120_Sub12_Sub6.anInt3173];
+			Class43.aByteArrayArray365[Class120_Sub12_Sub6.anInt3173] = null;
+			return is_3_;
+		}
+		return new byte[i_0_];
 	}
 
-	public static void method2093(final int i) {
-		try {
-			aShortArrayArray1489 = null;
-			aClass50_1490 = null;
-			if (i == 30000) {
-				Class145.aClass21_1486 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.B(").append(i).append(')').toString());
-		}
+	public static void method2093() {
+		aShortArrayArray1489 = null;
+		aClass50_1490 = null;
+		Class145.aClass21_1486 = null;
 	}
 
 	static final void method2095(final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_, final int i_11_) {
@@ -167,18 +152,11 @@ final class Class159 {
 		}
 	}
 
-	static final void method2096(final int i, final int i_53_, final boolean bool, final int i_54_, final int i_55_) {
-		try {
-			if (bool) {
-				method2092(-15, -78);
-			}
-			if (-i + i_55_ < Class32.anInt260 || ParamType.anInt3544 < i_55_ + i || -i + i_54_ < Class120_Sub30_Sub2.anInt3699 || i_54_ + i > IdentityKit.anInt1334) {
-				Class120_Sub12_Sub23.method1325(i_54_, i_55_, i, i_53_, -127);
-			} else {
-				CollisionMap.method211(i_54_, i_55_, i, i_53_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sm.D(").append(i).append(',').append(i_53_).append(',').append(bool).append(',').append(i_54_).append(',').append(i_55_).append(')').toString());
+	static final void method2096(final int i, final int i_53_, final int i_54_, final int i_55_) {
+		if (-i + i_55_ < Class32.anInt260 || ParamType.anInt3544 < i_55_ + i || -i + i_54_ < Class120_Sub30_Sub2.anInt3699 || i_54_ + i > IdentityKit.anInt1334) {
+			Class120_Sub12_Sub23.method1325(i_54_, i_55_, i, i_53_);
+		} else {
+			CollisionMap.method211(i_54_, i_55_, i, i_53_);
 		}
 	}
 }

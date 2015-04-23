@@ -9,14 +9,13 @@ class Node {
 	Node next;
 	static int countryId;
 	long uid;
-	static String aString1148 = "purple:";
 	static Canvas canvas;
 	static JagexInterface[][] interfaceCache;
 	static int[] anIntArray1151 = { 1, 4 };
 
 	static final void deselectSpell() {
 		if (Class88.spellSelected) {
-			final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.anInt420);
+			final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
 			if (jagexInterface != null && jagexInterface.onSpellDeselectionListener != null) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.objectData = jagexInterface.onSpellDeselectionListener;
@@ -31,7 +30,7 @@ class Node {
 
 	public static void method1030(final int i) {
 		try {
-			aString1148 = null;
+			TextRepository.aString1148 = null;
 			canvas = null;
 			interfaceCache = null;
 			anIntArray1151 = null;

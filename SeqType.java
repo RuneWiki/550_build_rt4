@@ -155,9 +155,9 @@ final class SeqType {
 					i_18_ &= 0xffff;
 				}
 			}
-			if ((this.tween || Class164.forceTween) && (i_10_ ^ 0xffffffff) != 0 && i_10_ < interfaceFrames.length) {
+			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < interfaceFrames.length) {
 				i_17_ = interfaceFrames[i_10_];
-				if (-65536 != (i_17_ ^ 0xffffffff)) {
+				if (i_17_ != 65535) {
 					class120_sub14_sub18_19_ = FrameLoader.list(i_17_ >> 16);
 					i_17_ &= 0xffff;
 				}
@@ -178,9 +178,9 @@ final class SeqType {
 			bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
 		}
 		final AbstractModelRenderer class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
-		class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i + -1, i_13_, this.aBoolean341);
+		class180_sub7_22_.method2380(class120_sub14_sub18, i_14_, class120_sub14_sub18_15_, i_10_, i - 1, i_13_, this.aBoolean341);
 		if (class120_sub14_sub18_16_ != null) {
-			class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i + -1, i_13_, this.aBoolean341);
+			class180_sub7_22_.method2380(class120_sub14_sub18_16_, i_18_, class120_sub14_sub18_19_, i_17_, i - 1, i_13_, this.aBoolean341);
 		}
 		return class180_sub7_22_;
 	}

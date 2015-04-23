@@ -15,7 +15,7 @@ final class Class120_Sub4 extends Node {
 	int anInt2438;
 	static Deque aClass105_2439 = new Deque();
 	private final int anInt2440;
-	static byte[][][] aByteArrayArrayArray2441;
+	static byte[][][] tileUnderlayIds;
 
 	final boolean method1061(final int i_0_, final int i_1_, final int i_2_) {
 		if (anInt2430 != i_2_ || i_0_ < anInt2433 || i_0_ > anInt2440 || i_1_ < anInt2437 || anInt2436 < i_1_) {
@@ -46,7 +46,7 @@ final class Class120_Sub4 extends Node {
 
 	public static void method1065() {
 		aClass105_2435 = null;
-		aByteArrayArrayArray2441 = null;
+		tileUnderlayIds = null;
 		aClass105_2439 = null;
 	}
 

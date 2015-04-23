@@ -9,41 +9,14 @@ final class Class127 {
 	static short[] aShortArray1214 = new short[256];
 	static int anInt1215;
 	private NodeSub aClass120_Sub14_1216;
-	static String aString1217;
-
 	static {
 		recordMouseMovements = false;
 		anInt1215 = -1;
-		aString1217 = "flash3:";
-	}
-
-	static final int method1888(final int paramId, final int containerId, final boolean multiplyByCount) {
-		final ObjectContainer objectContainer = (ObjectContainer) ObjectContainer.objectContainerCache.get(containerId);
-		if (objectContainer == null) {
-			return 0;
-		}
-		int value = 0;
-		for (int id = 0; id < objectContainer.objectIds.length; id++) {
-			if (objectContainer.objectIds[id] >= 0 && Node.objCount > objectContainer.objectIds[id]) {
-				final ObjType objType = ObjType.list(objectContainer.objectIds[id]);
-				if (objType.params != null) {
-					final IntegerNode integerNode = (IntegerNode) objType.params.get(paramId);
-					if (integerNode != null) {
-						if (!multiplyByCount) {
-							value += integerNode.value;
-						} else {
-							value += integerNode.value * objectContainer.objectCounts[id];
-						}
-					}
-				}
-			}
-		}
-		return value;
 	}
 
 	static final void fixWorldMapBounds() {
-		if (ParticleManager.anInt2336 < 0) {
-			ParticleManager.anInt2336 = 0;
+		if (ParticleEmitter.anInt2336 < 0) {
+			ParticleEmitter.anInt2336 = 0;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
@@ -52,8 +25,8 @@ final class Class127 {
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
-		if (ParticleManager.anInt2336 > WorldMapHandler.mapSizeX) {
-			ParticleManager.anInt2336 = WorldMapHandler.mapSizeX;
+		if (ParticleEmitter.anInt2336 > WorldMapHandler.mapSizeX) {
+			ParticleEmitter.anInt2336 = WorldMapHandler.mapSizeX;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
@@ -153,7 +126,7 @@ final class Class127 {
 	public static void method1894() {
 		aShortArray1214 = null;
 		aClass50_1213 = null;
-		aString1217 = null;
+		TextRepository.aString1217 = null;
 	}
 
 	final NodeSub method1895() {

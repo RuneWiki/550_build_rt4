@@ -64,23 +64,23 @@ final class Class48 {
 	static final void addFriend(final long nameAsLong) {
 		if (nameAsLong != 0L) {
 			if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.extendFriendsList || ProducingGraphicsBuffer.friendCount >= 200) {
-				AbstractRequest.method1540("", 0, Class120_Sub11.aString2550);
+				AbstractRequest.pushMessage(TextRepository.aString2550, "", 0);
 			} else {
 				final String name = Class136.longToString(nameAsLong);
 				for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
 					if (nameAsLong == AbstractSprite.friendsNameAsLong[id]) {
-						AbstractRequest.method1540("", 0, new StringBuilder(name).append(Class120_Sub12_Sub21_Sub1.aString3910).toString());
+						AbstractRequest.pushMessage(new StringBuilder(name).append(TextRepository.aString3910).toString(), "", 0);
 						return;
 					}
 				}
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 					if (nameAsLong == HintIcon.ignoreNamesAsLong[id]) {
-						AbstractRequest.method1540("", 0, new StringBuilder(SceneGroundObject.aString2849).append(name).append(ClanMember.aString2578).toString());
+						AbstractRequest.pushMessage(new StringBuilder(SceneGroundObject.aString2849).append(name).append(TextRepository.aString2578).toString(), "", 0);
 						return;
 					}
 				}
 				if (name.equals(TileParticleQueue.selfPlayer.name)) {
-					AbstractRequest.method1540("", 0, Class120_Sub14_Sub23.aString3655);
+					AbstractRequest.pushMessage(Class120_Sub14_Sub23.aString3655, "", 0);
 				} else {
 					Class120_Sub16.friendsName[ProducingGraphicsBuffer.friendCount] = name;
 					AbstractSprite.friendsNameAsLong[ProducingGraphicsBuffer.friendCount] = nameAsLong;
@@ -89,7 +89,7 @@ final class Class48 {
 					Class120_Sub12_Sub30.friendsRank[ProducingGraphicsBuffer.friendCount] = 0;
 					Class120_Sub12_Sub9.aBooleanArray3194[ProducingGraphicsBuffer.friendCount] = false;
 					ProducingGraphicsBuffer.friendCount++;
-					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					client.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(26);
 					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 				}

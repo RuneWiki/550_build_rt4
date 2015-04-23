@@ -68,53 +68,46 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1325(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
-		try {
-			int i_15_ = 0;
-			if (i_14_ >= -120) {
-				anInt3308 = 35;
-			}
-			int i_16_ = i_12_;
-			int i_17_ = -1;
-			int i_18_ = -i_12_;
-			final int i_19_ = Class3.method83(Class32.anInt260, i_12_ + i_11_, ParamType.anInt3544);
-			final int i_20_ = Class3.method83(Class32.anInt260, i_11_ - i_12_, ParamType.anInt3544);
-			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_13_, i_20_, i_19_);
-			while (i_16_ > i_15_) {
-				i_17_ += 2;
-				i_18_ += i_17_;
-				if (i_18_ > 0) {
-					i_16_--;
-					i_18_ -= i_16_ << 1;
-					final int i_21_ = -i_16_ + i;
-					final int i_22_ = i_16_ + i;
-					if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= IdentityKit.anInt1334) {
-						final int i_23_ = Class3.method83(Class32.anInt260, i_11_ + i_15_, ParamType.anInt3544);
-						final int i_24_ = Class3.method83(Class32.anInt260, i_11_ - i_15_, ParamType.anInt3544);
-						if (IdentityKit.anInt1334 >= i_22_) {
-							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
-						}
-						if (Class120_Sub30_Sub2.anInt3699 <= i_21_) {
-							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_21_], i_13_, i_24_, i_23_);
-						}
+	static final void method1325(final int i, final int i_11_, final int i_12_, final int i_13_) {
+		int i_15_ = 0;
+		int i_16_ = i_12_;
+		int i_17_ = -1;
+		int i_18_ = -i_12_;
+		final int i_19_ = Class3.method83(Class32.anInt260, i_12_ + i_11_, ParamType.anInt3544);
+		final int i_20_ = Class3.method83(Class32.anInt260, i_11_ - i_12_, ParamType.anInt3544);
+		AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_13_, i_20_, i_19_);
+		while (i_16_ > i_15_) {
+			i_17_ += 2;
+			i_18_ += i_17_;
+			if (i_18_ > 0) {
+				i_16_--;
+				i_18_ -= i_16_ << 1;
+				final int i_21_ = -i_16_ + i;
+				final int i_22_ = i_16_ + i;
+				if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= IdentityKit.anInt1334) {
+					final int i_23_ = Class3.method83(Class32.anInt260, i_11_ + i_15_, ParamType.anInt3544);
+					final int i_24_ = Class3.method83(Class32.anInt260, i_11_ - i_15_, ParamType.anInt3544);
+					if (IdentityKit.anInt1334 >= i_22_) {
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
 					}
-				}
-				i_15_++;
-				final int i_25_ = i - i_15_;
-				final int i_26_ = i + i_15_;
-				if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= IdentityKit.anInt1334) {
-					final int i_27_ = Class3.method83(Class32.anInt260, i_11_ - -i_16_, ParamType.anInt3544);
-					final int i_28_ = Class3.method83(Class32.anInt260, i_11_ - i_16_, ParamType.anInt3544);
-					if (i_26_ <= IdentityKit.anInt1334) {
-						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
-					}
-					if (Class120_Sub30_Sub2.anInt3699 <= i_25_) {
-						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_25_], i_13_, i_28_, i_27_);
+					if (Class120_Sub30_Sub2.anInt3699 <= i_21_) {
+						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_21_], i_13_, i_24_, i_23_);
 					}
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.R(").append(i).append(',').append(i_11_).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(')').toString());
+			i_15_++;
+			final int i_25_ = i - i_15_;
+			final int i_26_ = i + i_15_;
+			if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= IdentityKit.anInt1334) {
+				final int i_27_ = Class3.method83(Class32.anInt260, i_11_ - -i_16_, ParamType.anInt3544);
+				final int i_28_ = Class3.method83(Class32.anInt260, i_11_ - i_16_, ParamType.anInt3544);
+				if (i_26_ <= IdentityKit.anInt1334) {
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
+				}
+				if (Class120_Sub30_Sub2.anInt3699 <= i_25_) {
+					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_25_], i_13_, i_28_, i_27_);
+				}
+			}
 		}
 	}
 

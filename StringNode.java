@@ -71,7 +71,7 @@ final class StringNode extends Node {
 			if (Class26.anInt162 / 256 > i_6_) {
 				i_6_ = Class26.anInt162 / 256;
 			}
-			final int i_7_ = (int) DummyOutputStream.aFloat28 + ProjectileNode.anInt3447 & 0x7ff;
+			final int i_7_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
 				i_6_ = Class181.anIntArray1790[4] + 128;
 			}
@@ -114,8 +114,8 @@ final class StringNode extends Node {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(x, y, x + width, y + height);
 			Rasterizer.calculateByBounds();
-			if (ModelParticle.anInt1475 >= 0) {//Skyboxes in 550?
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticle.anInt1475, PlainTile.anInt1356);
+			if (ModelParticleEmitter.anInt1475 >= 0) {//Skyboxes in 550?
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticleEmitter.anInt1475, PlainTile.anInt1356);
 				class41.method330(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
@@ -134,9 +134,9 @@ final class StringNode extends Node {
 			} else {
 				i_16_ = FrameLoader.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			}
-			if (ModelParticle.anInt1475 >= 0) {//Skyboxes in 550?
-				HDToolkit.method517();
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticle.anInt1475, PlainTile.anInt1356);
+			if (ModelParticleEmitter.anInt1475 >= 0) {//Skyboxes in 550?
+				HDToolkit.clearDepthBuffer();
+				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticleEmitter.anInt1475, PlainTile.anInt1356);
 				class41.method331(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, i_16_);
 			} else {
 				HDToolkit.method531(i_16_);
@@ -147,18 +147,18 @@ final class StringNode extends Node {
 			HDToolkit.toggleDepthTest(true);
 			HDToolkit.toggleFog(true);
 		}
-		if (Class15.menuOpen || Class115.anInt1110 < x || Class115.anInt1110 >= width + x || y > Class120_Sub12_Sub21.anInt3298 || Class120_Sub12_Sub21.anInt3298 >= height + y) {
+		if (Class15.menuOpen || Class115.menuMouseX < x || Class115.menuMouseX >= width + x || y > Class120_Sub12_Sub21.menuMouseY || Class120_Sub12_Sub21.menuMouseY >= height + y) {
 			Class5.aBoolean2158 = false;
-			Class186.actionsLen = 0;
+			WallDecoration.actionsLen = 0;
 		} else {
-			Class186.actionsLen = 0;
+			WallDecoration.actionsLen = 0;
 			Class5.aBoolean2158 = true;
 			final int i_17_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_18_ = Class120_Sub30_Sub1.anInt3672;
 			final int i_19_ = Class190.anInt2100;
 			final int i_20_ = IntegerNode.anInt2792;
-			Class173.anInt1728 = i_20_ + (-i_20_ + i_17_) * (Class115.anInt1110 + -x) / width;
-			Class2.anInt49 = i_19_ + (-y + Class120_Sub12_Sub21.anInt3298) * (-i_19_ + i_18_) / height;
+			Class173.anInt1728 = i_20_ + (-i_20_ + i_17_) * (Class115.menuMouseX + -x) / width;
+			Class2.anInt49 = i_19_ + (-y + Class120_Sub12_Sub21.menuMouseY) * (-i_19_ + i_18_) / height;
 		}
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;
@@ -173,7 +173,7 @@ final class StringNode extends Node {
 			MouseRecorder.setupShaderRenderValues(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, SpotAnimation.renderYaw, UnderlayType.renderPitch);
 			HDToolkit.loopCycleWrapper = Class101_Sub2.loopCycle;
 			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, UnderlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, Class173.gameLevel + 1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
-			Class167.aBoolean1620 = true;
+			Class167.clearDepthBuffer = true;
 			LightManager.method1859();
 			MouseRecorder.setupShaderRenderValues(0, 0, 0, 0, 0);
 			Class120_Sub2.method1050();
@@ -182,7 +182,7 @@ final class StringNode extends Node {
 			Class120_Sub12_Sub13.method1264();
 		}
 		((Class143_Sub1) Rasterizer.anInterface5_973).method2023(Class120_Sub12_Sub22.redrawRate);
-		UnderlayType.drawOverlay(y, x, height, width);
+		UnderlayType.drawOverlay(x, y, width, height);
 		FileSystemWorker.renderX = i_8_;
 		Class120_Sub12_Sub10.renderY = i_11_;
 		SpotAnimation.renderYaw = i_12_;
@@ -192,15 +192,15 @@ final class StringNode extends Node {
 			Class69.aBoolean615 = false;
 		}
 		if (Class69.aBoolean615) {
-			if (!HDToolkit.glEnabled) {
-				GraphicsLD.fillRect(x, y, width, height, 0);
-			} else {
+			if (HDToolkit.glEnabled) {
 				GraphicsHD.fillRect(x, y, width, height, 0);
+			} else {
+				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
-			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
+			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.loadingPleaseWait, false);
 		}
-		if (!titleScreen && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.anInt1110 && width + x > Class115.anInt1110 && y <= Class120_Sub12_Sub21.anInt3298 && y + height > Class120_Sub12_Sub21.anInt3298) {
-			InterfaceChangeNode.build3dScreenMenu(height, Class115.anInt1110, y, x, width, Class120_Sub12_Sub21.anInt3298);
+		if (!titleScreen && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.menuMouseX && width + x > Class115.menuMouseX && y <= Class120_Sub12_Sub21.menuMouseY && y + height > Class120_Sub12_Sub21.menuMouseY) {
+			InterfaceChangeNode.build3dScreenMenu(x, y, width, height, Class115.menuMouseX, Class120_Sub12_Sub21.menuMouseY);
 		}
 	}
 

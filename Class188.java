@@ -30,18 +30,16 @@ final class Class188 {
 		MasterIndexInfo.aClass50_476 = null;
 	}
 
-	static final void method2482(final String string, final boolean bool) {
-		if (bool) {
-			do {
-				if (HDToolkit.glEnabled && Class99.openwinjsEnabled) {
-					try {
-						JSHelper.call(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
-					} catch (final Throwable throwable) {
-						break;
-					}
-					return;
+	static final void openUrl(final String string, final boolean newTab) {
+		if (newTab) {
+			if (HDToolkit.glEnabled && Class99.openwinjsEnabled) {
+				try {
+					JSHelper.call(new Object[] { new URL(Class31.gameApplet.getCodeBase(), string).toString() }, NpcType.gameSignlink.gameApplet, "openjs");
+				} catch (final Throwable throwable) {
+					/* empty */
 				}
-			} while (false);
+				return;
+			}
 			try {
 				Class31.gameApplet.getAppletContext().showDocument(new URL(Class31.gameApplet.getCodeBase(), string), "_blank");
 			} catch (final Exception exception) {
@@ -66,13 +64,13 @@ final class Class188 {
 		if (class167_sub1 == null) {
 			return false;
 		}
-		if (Signlink.anInt1310 == 1 || Signlink.anInt1310 == 2 || AbstractIndexedSprite.modeWhere == 2) {
+		if (Signlink.clientType == 1 || Signlink.clientType == 2 || AbstractIndexedSprite.modeWhere == 2) {
 			Class120_Sub12_Sub30.aString3375 = class167_sub1.ip;
 			Class157.worldId = class167_sub1.worldId;
 			if (AbstractIndexedSprite.modeWhere != 0) {
 				GameEntity.anInt3045 = Class157.worldId + 50000;
 				Class71.anInt625 = Class157.worldId + 40000;
-				ModelParticle.anInt1479 = Class71.anInt625;
+				ModelParticleEmitter.anInt1479 = Class71.anInt625;
 			}
 			return true;
 		}

@@ -3,7 +3,7 @@
  */
 
 abstract class SceneGraphNode {
-	static Class137 aClass137_1780;
+	static MapFunctionGroup mapFunctionGroup;
 	static Class188[] aClass188Array1782;
 	static int[] skillsLevel = new int[25];
 
@@ -28,7 +28,7 @@ abstract class SceneGraphNode {
 	}
 
 	public static void method2270() {
-		aClass137_1780 = null;
+		mapFunctionGroup = null;
 		skillsLevel = null;
 		FrameLoader.recentUse = null;
 		aClass188Array1782 = null;

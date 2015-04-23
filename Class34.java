@@ -261,7 +261,7 @@ final class Class34 {
 		if (aBoolean286) {
 			final GL gl = HDToolkit.gl;
 			HDToolkit.method510();
-			GraphicsHD.method597();
+			GraphicsHD.clipRect();
 			gl.glDisable(3042);
 			gl.glDisable(3008);
 			HDToolkit.disableDepthMask();

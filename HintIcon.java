@@ -8,15 +8,14 @@ final class HintIcon {
 	int x;
 	int iconType;
 	static long[] ignoreNamesAsLong = new long[100];
-	static String aString807 = "wave:";
 	int targetIndex;
 	int targetType;
 	int showDistance;
 	int modelId = -1;
-	int anInt812;
+	int offX;
 	int z;
 	int y;
-	int anInt815;
+	int offY;
 
 	static final LDSprite constructLDSprite() {
 		final byte[] indicators = Class145.spritePaletteIndicators[0];
@@ -107,7 +106,7 @@ final class HintIcon {
 			if (i != 255) {
 				SpotAnimType.list(-118);
 			}
-			aString807 = null;
+			TextRepository.aString807 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("jd.C(").append(i).append(')').toString());
 		}

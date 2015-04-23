@@ -32,7 +32,7 @@ abstract class AbstractSprite extends NodeSub {
 		}
 	}
 
-	abstract void method1587(int i, int i_4_);
+	abstract void drawSprite(int x, int y);
 
 	abstract void method1588(int i, int i_5_, int i_6_, int i_7_);
 
@@ -40,8 +40,8 @@ abstract class AbstractSprite extends NodeSub {
 
 	final void method1590(int i, final int i_14_, int i_15_, final int i_16_) {
 		final int i_17_ = this.trimWidth << 3;
-		i_15_ = (i_17_ & 0xf) + (i_15_ << 4);
 		final int i_18_ = this.trimHeight << 3;
+		i_15_ = (i_17_ & 0xf) + (i_15_ << 4);
 		i = (i_18_ & 0xf) + (i << 4);
 		method1589(i_17_, i_18_, i_15_, i, i_14_, i_16_);
 	}
@@ -73,5 +73,5 @@ abstract class AbstractSprite extends NodeSub {
 		AbstractIndexedSprite.changeDisplayMode(newDisplayMode, width, height, currentDisplayMode, canvasReplaceRecommended, changeRenderer);
 	}
 
-	abstract void method1594(int i, int i_26_, int i_27_);
+	abstract void drawSpriteTransparency(int x, int y, int transparency);
 }

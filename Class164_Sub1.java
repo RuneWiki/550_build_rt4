@@ -35,7 +35,7 @@ final class Class164_Sub1 extends Class164 {
 			aSourceDataLine2825.start();
 			anInt2826 = i;
 		} catch (final LineUnavailableException lineunavailableexception) {
-			if (Class120_Sub12_Sub3.method1210(-31511, i) != 1) {
+			if (Class120_Sub12_Sub3.method1210(i) != 1) {
 				method2134(Class120_Sub12_Sub17.getFarestBitValue(i));
 			} else {
 				aSourceDataLine2825 = null;

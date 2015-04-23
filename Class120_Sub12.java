@@ -12,7 +12,6 @@ abstract class Class120_Sub12 extends Node {
 	Class30 aClass30_2563;
 	static boolean aBoolean2564 = true;
 	static int[] anIntArray2565 = new int[4096];
-	static String aString2566 = "yellow:";
 	static int[] anIntArray2567 = new int[14];
 	static byte[][] spriteAlphas;
 	static float aFloat2569;
@@ -99,18 +98,18 @@ abstract class Class120_Sub12 extends Node {
 		OverridedJInterface.reflectionCheckDeque.addLast(reflectionCheckNode);
 	}
 
-	static final void method1183(final LocType locType, final int i, final int i_17_, final int i_19_) {
-		for (AmbientSound class120_sub8 = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); class120_sub8 != null; class120_sub8 = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
-			if (class120_sub8.anInt2498 == i_17_ && class120_sub8.anInt2494 == i_19_ * 128 && class120_sub8.anInt2483 == i * 128 && locType.myId == class120_sub8.location.myId) {
-				if (class120_sub8.aClass120_Sub30_Sub4_2488 != null) {
-					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2488);
-					class120_sub8.aClass120_Sub30_Sub4_2488 = null;
+	static final void method1183(final LocType locType, final int x, final int z, final int level) {
+		for (AmbientSound ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
+			if (ambientSound.anInt2498 == level && ambientSound.anInt2494 == x * 128 && ambientSound.anInt2483 == z * 128 && locType.myId == ambientSound.location.myId) {
+				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
+					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
+					ambientSound.aClass120_Sub30_Sub4_2488 = null;
 				}
-				if (class120_sub8.aClass120_Sub30_Sub4_2478 != null) {
-					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(class120_sub8.aClass120_Sub30_Sub4_2478);
-					class120_sub8.aClass120_Sub30_Sub4_2478 = null;
+				if (ambientSound.aClass120_Sub30_Sub4_2478 != null) {
+					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2478);
+					ambientSound.aClass120_Sub30_Sub4_2478 = null;
 				}
-				class120_sub8.unlink();
+				ambientSound.unlink();
 				break;
 			}
 		}
@@ -126,7 +125,7 @@ abstract class Class120_Sub12 extends Node {
 				class120_sub24.anInt2720--;
 			}
 			if (class120_sub24.anInt2720 == 0) {
-				if (class120_sub24.anInt2723 < 0 || Class167.method2190(class120_sub24.anInt2723, class120_sub24.anInt2728, -110)) {
+				if (class120_sub24.anInt2723 < 0 || Class167.method2190(class120_sub24.anInt2723, class120_sub24.anInt2728)) {
 					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2729, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2723, class120_sub24.anInt2731, class120_sub24.anInt2728);
 					class120_sub24.unlink();
 				}
@@ -134,7 +133,7 @@ abstract class Class120_Sub12 extends Node {
 				if (class120_sub24.anInt2732 > 0) {
 					class120_sub24.anInt2732--;
 				}
-				if (class120_sub24.anInt2732 == 0 && class120_sub24.anInt2731 >= 1 && class120_sub24.anInt2725 >= 1 && class120_sub24.anInt2731 <= 102 && class120_sub24.anInt2725 <= 102 && (class120_sub24.anInt2719 < 0 || Class167.method2190(class120_sub24.anInt2719, class120_sub24.anInt2727, -102))) {
+				if (class120_sub24.anInt2732 == 0 && class120_sub24.anInt2731 >= 1 && class120_sub24.anInt2725 >= 1 && class120_sub24.anInt2731 <= 102 && class120_sub24.anInt2725 <= 102 && (class120_sub24.anInt2719 < 0 || Class167.method2190(class120_sub24.anInt2719, class120_sub24.anInt2727))) {
 					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2717, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2719, class120_sub24.anInt2731, class120_sub24.anInt2727);
 					class120_sub24.anInt2732 = -1;
 					if (class120_sub24.anInt2719 == class120_sub24.anInt2723 && class120_sub24.anInt2723 == -1) {
@@ -182,31 +181,31 @@ abstract class Class120_Sub12 extends Node {
 		}
 	}
 
-	static final void method1191(final int i, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final int i_39_, final int i_40_, final int i_41_, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int i_52_, final int i_53_) {
-		if (i_37_ == 0) {
-			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, i_52_, false);
-			for (int i_54_ = i; i_54_ >= 0; i_54_--) {
-				if (LabelGroup.groundTiles[i_54_][i_35_][i_36_] == null) {
-					LabelGroup.groundTiles[i_54_][i_35_][i_36_] = new GroundTile(i_54_, i_35_, i_36_);
+	static final void setTile(final int level, final int x, final int z, final int tileType, final int i_38_, final int i_39_, final int tileHeight, final int tileHeightEast, final int tileHeightNorthEast, final int tileHeightNorth, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int overlayMinimapColor, final int underlayMinimapColor) {
+		if (tileType == 0) {
+			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, overlayMinimapColor, false);
+			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
+				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[i][i_35_][i_36_].plainTile = plainTile;
-		} else if (i_37_ == 1) {
-			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, i_53_, i_40_ == i_41_ && i_40_ == i_42_ && i_40_ == i_43_);
-			for (int i_55_ = i; i_55_ >= 0; i_55_--) {
-				if (LabelGroup.groundTiles[i_55_][i_35_][i_36_] == null) {
-					LabelGroup.groundTiles[i_55_][i_35_][i_36_] = new GroundTile(i_55_, i_35_, i_36_);
+			LabelGroup.groundTiles[level][x][z].plainTile = plainTile;
+		} else if (tileType == 1) {
+			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, underlayMinimapColor, tileHeight == tileHeightEast && tileHeight == tileHeightNorthEast && tileHeight == tileHeightNorth);
+			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
+				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[i][i_35_][i_36_].plainTile = plainTile;
+			LabelGroup.groundTiles[level][x][z].plainTile = plainTile;
 		} else {
-			final ShapedTile shapedTile = new ShapedTile(i_37_, i_38_, i_39_, i_35_, i_36_, i_40_, i_41_, i_42_, i_43_, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, i_52_, i_53_);
-			for (int i_56_ = i; i_56_ >= 0; i_56_--) {
-				if (LabelGroup.groundTiles[i_56_][i_35_][i_36_] == null) {
-					LabelGroup.groundTiles[i_56_][i_35_][i_36_] = new GroundTile(i_56_, i_35_, i_36_);
+			final ShapedTile shapedTile = new ShapedTile(tileType, i_38_, i_39_, x, z, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, overlayMinimapColor, underlayMinimapColor);
+			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
+				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[i][i_35_][i_36_].shapedTile = shapedTile;
+			LabelGroup.groundTiles[level][x][z].shapedTile = shapedTile;
 		}
 	}
 

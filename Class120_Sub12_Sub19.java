@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 	private boolean aBoolean3277;
 	static Buffer aClass120_Sub7_3278;
 	private int anInt3279 = 4096;
-	static int textCount = 0;
+	static int textOnScreenCount = 0;
 	static int anInt3281 = -1;
 	static int currentDisplayMode = 0;
 

@@ -6,9 +6,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 final class Class11 {
-	static String aString81 = "Examine";
-	static String aString82 = "Connected to update server";
-
 	static final void method124(double d) {
 		if (AbstractGraphicsBuffer.aDouble1172 != d) {
 			for (int i_0_ = 0; i_0_ < 256; i_0_++) {
@@ -71,25 +68,25 @@ final class Class11 {
 		}
 	}
 
-	static final void method127(final int i, final int i_6_, final int i_7_, final int i_8_, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final long l) {
+	static final void addWallDecoration(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final long bitPackedUid) {
 		if (sceneGraphNode != null) {
-			final Class186 class186 = new Class186();
-			class186.bitPacked = l;
-			class186.anInt1893 = i_6_ * 128 + 64;
-			class186.anInt1891 = i_7_ * 128 + 64;
-			class186.anInt1894 = i_8_;
-			class186.aClass180_1901 = sceneGraphNode;
-			class186.aClass180_1898 = class180_9_;
-			class186.anInt1895 = i_10_;
-			class186.anInt1896 = i_11_;
-			class186.anInt1905 = i_12_;
-			class186.anInt1892 = i_13_;
-			for (int i_14_ = i; i_14_ >= 0; i_14_--) {
-				if (LabelGroup.groundTiles[i_14_][i_6_][i_7_] == null) {
-					LabelGroup.groundTiles[i_14_][i_6_][i_7_] = new GroundTile(i_14_, i_6_, i_7_);
+			final WallDecoration wallDecoration = new WallDecoration();
+			wallDecoration.bitPacked = bitPackedUid;
+			wallDecoration.renderX = x * 128 + 64;
+			wallDecoration.renderZ = z * 128 + 64;
+			wallDecoration.renderY = y;
+			wallDecoration.aClass180_1901 = sceneGraphNode;
+			wallDecoration.aClass180_1898 = class180_9_;
+			wallDecoration.anInt1895 = i_10_;
+			wallDecoration.anInt1896 = i_11_;
+			wallDecoration.anInt1905 = i_12_;
+			wallDecoration.anInt1892 = i_13_;
+			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
+				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[i][i_6_][i_7_].aClass186_2639 = class186;
+			LabelGroup.groundTiles[level][x][z].wallDecoration = wallDecoration;
 		}
 	}
 
@@ -105,9 +102,9 @@ final class Class11 {
 	}
 
 	public static void method129() {
-		aString81 = null;
+		TextRepository.examine = null;
 		NpcType.aClass21_80 = null;
-		aString82 = null;
+		TextRepository.connectedToUpdateServer = null;
 	}
 
 	static final int method130(final int i, final int i_16_, final int i_17_, final int[][] is, final int i_18_) {

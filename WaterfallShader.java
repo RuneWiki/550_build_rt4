@@ -79,7 +79,7 @@ final class WaterfallShader implements ShaderInterface {
 
 	static final int method178(final Npc npc) {
 		NpcType npcType = npc.npcType;
-		if (npcType.childrenIDs != null) {
+		if (npcType.transmogrificationIds != null) {
 			npcType = npcType.handleVarp();
 			if (npcType == null) {
 				return -1;

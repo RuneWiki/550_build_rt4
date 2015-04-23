@@ -28,7 +28,7 @@ final class SpotAnimation extends SceneGraphNode {
 		final int i_0_ = Canvas_Sub1.inputStream.getBitValue(8);
 		if (i_0_ < Class148.localNpcCount) {
 			for (int i_1_ = i_0_; Class148.localNpcCount > i_1_; i_1_++) {
-				Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class120_Sub12_Sub36.localNpcIndices[i_1_];
+				Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class120_Sub12_Sub36.npcIndices[i_1_];
 			}
 		}
 		if (i_0_ > Class148.localNpcCount) {
@@ -36,20 +36,20 @@ final class SpotAnimation extends SceneGraphNode {
 		}
 		Class148.localNpcCount = 0;
 		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-			final int i_3_ = Class120_Sub12_Sub36.localNpcIndices[i_2_];
+			final int i_3_ = Class120_Sub12_Sub36.npcIndices[i_2_];
 			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
 			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ == 0) {
-				Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+				Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 				class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 			} else {
 				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_5_ == 0) {
-					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
 				} else if (i_5_ == 1) {
-					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
 					class180_sub5_sub2.move(i_6_, 1);
@@ -58,7 +58,7 @@ final class SpotAnimation extends SceneGraphNode {
 						Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
 					}
 				} else if (i_5_ == 2) {
-					Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = i_3_;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 					if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
 						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
@@ -133,10 +133,10 @@ final class SpotAnimation extends SceneGraphNode {
 				string_13_ = new StringBuilder(string_13_).append(string).toString();
 			}
 			Class120_Sub14_Sub13.method1531(string_13_);
-			string_13_ = AnimatedLocation.method2358(string_13_, "%3a", ":");
-			string_13_ = AnimatedLocation.method2358(string_13_, "%40", "@");
-			string_13_ = AnimatedLocation.method2358(string_13_, "%26", "&");
-			string_13_ = AnimatedLocation.method2358(string_13_, "%23", "#");
+			string_13_ = AnimatedLocation.replaceAll(string_13_, ":", "%3a");
+			string_13_ = AnimatedLocation.replaceAll(string_13_, "@", "%40");
+			string_13_ = AnimatedLocation.replaceAll(string_13_, "&", "%26");
+			string_13_ = AnimatedLocation.replaceAll(string_13_, "#", "%23");
 			if (Class120_Sub12_Sub18.errorSignlink.gameApplet != null) {
 				final SignlinkNode signlinkNode = Class120_Sub12_Sub18.errorSignlink.method1969(
 						new URL(Class120_Sub12_Sub18.errorSignlink.gameApplet.getCodeBase(), new StringBuilder("clienterror.ws?c=").append(DisplayModeInfo.revision).append("&u=").append(WaterfallShader.selfNameAsLong).append("&v1=").append(Signlink.javaVendor).append("&v2=").append(Signlink.javaVersion)
@@ -157,16 +157,16 @@ final class SpotAnimation extends SceneGraphNode {
 
 	private final AbstractModelRenderer method2313() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(myId);
-		AbstractModelRenderer class180_sub7_14_;
+		AbstractModelRenderer abstractModel;
 		if (this.finishedAnimating) {
-			class180_sub7_14_ = spotAnimType.constructModel(-1, 0, -1);
+			abstractModel = spotAnimType.constructModel(-1, 0, -1);
 		} else {
-			class180_sub7_14_ = spotAnimType.constructModel(-1, delay, frame);
+			abstractModel = spotAnimType.constructModel(-1, delay, frame);
 		}
-		if (class180_sub7_14_ == null) {
+		if (abstractModel == null) {
 			return null;
 		}
-		return class180_sub7_14_;
+		return abstractModel;
 	}
 
 	@Override

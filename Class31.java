@@ -6,7 +6,7 @@ final class Class31 {
 	static int anInt240;
 	static js5 aClass50_241;
 	static int[] anIntArray243;
-	static int anInt244 = 0;
+	static int logoutCycle = 0;
 	static GameShell gameApplet = null;
 	static LDIndexedSprite aClass107_Sub1_246;
 	static int spriteTrimWidth;
@@ -30,7 +30,7 @@ final class Class31 {
 				newNpc = true;
 			}
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
-			Class120_Sub12_Sub36.localNpcIndices[Class148.localNpcCount++] = index;
+			Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
 			npc.lastUpdateCycle = Class101_Sub2.loopCycle;
 			if (npc.npcType != null && npc.npcType.hasAmbientSound()) {
 				Class120_Sub16.removeAmbientSoundNpc(npc);
@@ -61,7 +61,7 @@ final class Class31 {
 			}
 			npc.method2323(TileParticleQueue.selfPlayer.walkQueueX[0] + i_3_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_1_, npc.getSize(), i_5_ == 1);
 			if (npc.npcType.hasAmbientSound()) {
-				Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
+				AmbientSound.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 			}
 		}
 		Canvas_Sub1.inputStream.endBitAccess();
@@ -99,11 +99,11 @@ final class Class31 {
 			if (i_16_ < 3 && (Class114.tileSettings[1][i_13_][i_10_] & 0x2) == 2) {
 				i_16_++;
 			}
-			Class88.method743(Class182.collisionMaps[i_8_], i_8_, i_16_, i_10_, i_11_, i_13_);
+			Class88.method743(WallLocation.collisionMaps[i_8_], i_8_, i_16_, i_10_, i_11_, i_13_);
 			if (i_12_ >= 0) {
 				final boolean bool = Hashtable.showGroundDecorations;
 				Hashtable.showGroundDecorations = true;
-				Class93.spawnLocation(i_9_, i_8_, i_12_, i_16_, i_13_, false, i_10_, Class182.collisionMaps[i_8_], false, i_14_);
+				Class93.spawnLocation(i_9_, i_8_, i_12_, i_16_, i_13_, false, i_10_, WallLocation.collisionMaps[i_8_], false, i_14_);
 				Hashtable.showGroundDecorations = bool;
 			}
 		}

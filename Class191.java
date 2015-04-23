@@ -6,7 +6,6 @@ final class Class191 {
 	float aFloat2102;
 	static boolean flickeringEffectsOn = true;
 	float aFloat2104;
-	static String aString2105;
 	float aFloat2106;
 	int anInt2107;
 	float aFloat2108;
@@ -23,85 +22,57 @@ final class Class191 {
 	static int[] torchesFlamesPalette;
 
 	static {
-		aString2105 = "Connecting to update server";
 		torchesFlamesPalette = new int[] { 12543016, 15504954, 15914854, 16773818 };
 	}
 
-	public static void method2507(final byte i) {
-		try {
-			torchesFlamesPalette = null;
-			aString2105 = null;
-			if (i != -64) {
-				constructLDIndexedSprites(null, -113);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.F(").append(i).append(')').toString());
-		}
+	public static void method2507() {
+		torchesFlamesPalette = null;
+		TextRepository.aString2105 = null;
 	}
 
 	static final void method2508() {
 		if (FileSystem.anInt455 != 2) {
-			if (Class115.anInt1110 == js5.lastClickX && Class120_Sub12_Sub21.anInt3298 == Class120_Sub12_Sub36.lastClickY) {
+			if (Class115.menuMouseX == js5.lastClickX && Class120_Sub12_Sub21.menuMouseY == Class120_Sub12_Sub36.lastClickY) {
 				FileSystem.anInt455 = 0;
-				if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && Class186.menuOptionCount > 2) {
-					GameShell.method31(Class186.menuOptionCount - 2);
+				if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
+					GameShell.method31(WallDecoration.menuOptionCount - 2);
 				} else {
-					GameShell.method31(Class186.menuOptionCount - 1);
+					GameShell.method31(WallDecoration.menuOptionCount - 1);
 				}
 			} else {
 				FileSystem.anInt455 = 2;
 				Class31.anInt250 = Class120_Sub12_Sub36.lastClickY;
 				ClientScript.anInt3558 = js5.lastClickX;
 			}
-		} else if (Class115.anInt1110 == ClientScript.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.anInt3298) {
+		} else if (Class115.menuMouseX == ClientScript.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.menuMouseY) {
 			FileSystem.anInt455 = 0;
-			if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && Class186.menuOptionCount > 2) {
-				GameShell.method31(Class186.menuOptionCount - 2);
+			if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
+				GameShell.method31(WallDecoration.menuOptionCount - 2);
 			} else {
-				GameShell.method31(Class186.menuOptionCount - 1);
+				GameShell.method31(WallDecoration.menuOptionCount - 1);
 			}
 		}
 	}
 
-	static final void method2509(final js5 js5, final js5 class50_0_, final js5 class50_1_, final int i) {
-		try {
-			SeqType.aClass50_2286 = js5;
-			if (i == 31779) {
-				Class132_Sub1.framesJs5 = class50_1_;
-				Class179.labelsJs5 = class50_0_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.H(").append(js5 != null ? "{...}" : "null").append(',').append(class50_0_ != null ? "{...}" : "null").append(',').append(class50_1_ != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	static final void method2509(final js5 js5, final js5 class50_0_, final js5 class50_1_) {
+		SeqType.aClass50_2286 = js5;
+		Class132_Sub1.framesJs5 = class50_1_;
+		Class179.labelsJs5 = class50_0_;
 	}
 
-	final void method2510(final Buffer class120_sub7, final int i) {
-		try {
-			this.aFloat2108 = class120_sub7.getUByte() * 8 / 255.0F;
-			if (i != -27409) {
-				method2509(null, null, null, -51);
-			}
-			this.aFloat2114 = class120_sub7.getUByte() * 8 / 255.0F;
-			this.aFloat2116 = 8 * class120_sub7.getUByte() / 255.0F;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.B(").append(class120_sub7 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	final void method2510(final Buffer buffer) {
+		this.aFloat2108 = buffer.getUByte() * 8 / 255.0F;
+		this.aFloat2114 = buffer.getUByte() * 8 / 255.0F;
+		this.aFloat2116 = buffer.getUByte() * 8 / 255.0F;
 	}
 
-	static final void method2511(final js5 js5, final int i, final js5 class50_2_, final js5 class50_3_, final js5 class50_4_) {
-		try {
-			Class89.aClass50_836 = js5;
-			if (i != 5) {
-				lastMouseY = -56;
-			}
-			Decimator.aClass50_1721 = class50_4_;
-			Class101_Sub4.interfaceJs5 = class50_3_;
-			Class120_Sub12_Sub11.aClass50_3213 = class50_2_;
-			Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
-			Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wj.E(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(',').append(class50_2_ != null ? "{...}" : "null").append(',').append(class50_3_ != null ? "{...}" : "null").append(',').append(class50_4_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method2511(final js5 js5, final js5 class50_2_, final js5 class50_3_, final js5 class50_4_) {
+		Class89.aClass50_836 = js5;
+		Decimator.aClass50_1721 = class50_4_;
+		Class101_Sub4.interfaceJs5 = class50_3_;
+		Class120_Sub12_Sub11.aClass50_3213 = class50_2_;
+		Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
+		Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
 	}
 
 	static int method2512(final int i, final int i_5_) {
@@ -171,7 +142,7 @@ final class Class191 {
 			final int i_38_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_39_ = Canvas_Sub1.inputStream.getUShort();
 			if (!HDToolkit.glEnabled) {
-				Class120_Sub12_Sub6.method1226(i_33_, i_26_, i_30_, i_38_, i_32_, i_35_, i_36_, 101, i_39_, i_34_, i_28_, i_37_, i_29_);
+				Class120_Sub12_Sub6.method1226(i_33_, i_26_, i_30_, i_38_, i_32_, i_35_, i_36_, i_39_, i_34_, i_28_, i_37_, i_29_);
 			}
 		} else if (Class23.packetType == 111) {
 			final int i_40_ = Canvas_Sub1.inputStream.getUByte();
@@ -208,7 +179,7 @@ final class Class191 {
 						final int i_57_ = -i_45_ - 1;
 						i_54_ = (i_57_ & 0x7c23) >> 11;
 						final int i_58_ = 0x7ff & i_57_;
-						if (i_58_ == Class167.anInt1616) {
+						if (i_58_ == Class167.selfPlayerIndex) {
 							class180_sub5 = TileParticleQueue.selfPlayer;
 						} else {
 							class180_sub5 = Class118.playersList[i_58_];
@@ -219,9 +190,9 @@ final class Class191 {
 						if (class29.modelRotateTranslate != null && class29.modelRotateTranslate[i_54_] != null) {
 							i_48_ -= class29.modelRotateTranslate[i_54_][1];
 							int i_59_ = class29.modelRotateTranslate[i_54_][0];
-							final int i_60_ = Rasterizer.sineTable[class180_sub5.anInt3032];
+							final int i_60_ = Rasterizer.sinTable[class180_sub5.anInt3032];
 							int i_61_ = class29.modelRotateTranslate[i_54_][2];
-							final int i_62_ = Rasterizer.cosineTable[class180_sub5.anInt3032];
+							final int i_62_ = Rasterizer.cosTable[class180_sub5.anInt3032];
 							final int i_63_ = i_59_ * i_62_ + i_60_ * i_61_ >> 16;
 							i_61_ = -(i_59_ * i_60_) + i_62_ * i_61_ >> 16;
 							i_59_ = i_63_;
@@ -275,7 +246,7 @@ final class Class191 {
 		} else if (Class23.packetType == 115) {
 			final int i_86_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_87_ = Canvas_Sub1.inputStream.getUByte();
-			LocType.list(i_86_).method2460(i_87_, 23428);
+			LocType.list(i_86_).method2460(i_87_);
 		} else if (Class23.packetType == 232) {
 			final int i_88_ = Canvas_Sub1.inputStream.getUByteC();
 			final int i_89_ = Class28.anInt176 + (i_88_ & 0x7);
@@ -381,7 +352,7 @@ final class Class191 {
 			final int i_130_ = Canvas_Sub1.inputStream.getUByteA();
 			final int i_131_ = ((i_130_ & 0x7a) >> 4) + Class32.anInt254;
 			final int i_132_ = Class28.anInt176 + (0x7 & i_130_);
-			if (i_131_ >= 0 && i_132_ >= 0 && i_131_ < 104 && i_132_ < 104 && i_128_ != Class167.anInt1616) {
+			if (i_131_ >= 0 && i_132_ >= 0 && i_131_ < 104 && i_132_ < 104 && i_128_ != Class167.selfPlayerIndex) {
 				final SceneGroundObject class180_sub1 = new SceneGroundObject();
 				class180_sub1.amount = i_129_;
 				class180_sub1.id = i_127_;

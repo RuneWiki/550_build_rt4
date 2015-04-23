@@ -42,7 +42,7 @@ final class Class120_Sub16 extends Node {
 	}
 
 	static final int method1659(final int i, final int i_2_) {
-		int i_5_ = SubScript.method2246(i_2_ + 91923, 0, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, 0, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, 0, i, 1) + -128 >> 2);
+		int i_5_ = SubScript.method2246(i_2_ + 91923, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, i, 1) + -128 >> 2);
 		i_5_ = (int) (0.3 * i_5_) - -35;
 		if (i_5_ < 10) {
 			i_5_ = 10;
@@ -52,18 +52,18 @@ final class Class120_Sub16 extends Node {
 		return i_5_;
 	}
 
-	static final void method1660(final String name, final int i, final String string_6_, final int type, final String message) {
-		for (int i_10_ = 99; i_10_ > 0; i_10_--) {
-			Class136.anIntArray1315[i_10_] = Class136.anIntArray1315[i_10_ - 1];
-			Class76.aStringArray677[i_10_] = Class76.aStringArray677[i_10_ - 1];
-			GrandExchangeObject.aStringArray1502[i_10_] = GrandExchangeObject.aStringArray1502[i_10_ - 1];
-			Class120_Sub2.aStringArray2423[i_10_] = Class120_Sub2.aStringArray2423[i_10_ - 1];
-			Class120_Sub12_Sub36.anIntArray3422[i_10_] = Class120_Sub12_Sub36.anIntArray3422[i_10_- 1];
+	static final void pushMessage(final String message, final String name, final String string_6_, final int type, final int quickChatId) {
+		for (int id = 99; id > 0; id--) {
+			Class136.anIntArray1315[id] = Class136.anIntArray1315[id - 1];
+			Class76.aStringArray677[id] = Class76.aStringArray677[id - 1];
+			GrandExchangeObject.aStringArray1502[id] = GrandExchangeObject.aStringArray1502[id - 1];
+			Class120_Sub2.aStringArray2423[id] = Class120_Sub2.aStringArray2423[id - 1];
+			Class120_Sub12_Sub36.anIntArray3422[id] = Class120_Sub12_Sub36.anIntArray3422[id- 1];
 		}
 		Class136.anIntArray1315[0] = type;
 		Class76.aStringArray677[0] = name;
 		GrandExchangeObject.aStringArray1502[0] = message;
-		Class120_Sub12_Sub36.anIntArray3422[0] = i;
+		Class120_Sub12_Sub36.anIntArray3422[0] = quickChatId;
 		Class120_Sub2.aStringArray2423[0] = string_6_;
 		Class166.anInt1612 = GrandExchangeObject.anInt1494;
 		messageCount++;
@@ -82,21 +82,21 @@ final class Class120_Sub16 extends Node {
 	}
 
 	static final void shiftOptions(final int i) {
-		Class186.menuOptionCount--;
-		if (Class186.menuOptionCount != i) {
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionPrefix, i + 1, Class120_Sub12_Sub33.menuOptionPrefix, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.menuOptionSufix, i + 1, Class120_Sub12_Sub29.menuOptionSufix, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsCode, i + 1, Class120_Sub29.menuOptionsCode, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12.menuOptionsData1, i + 1, Class120_Sub12.menuOptionsData1, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.menuOptionsData2, i + 1, Class120_Sub12_Sub7.menuOptionsData2, i, Class186.menuOptionCount - i);
-			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsData3, i + 1, Class120_Sub29.menuOptionsData3, i, Class186.menuOptionCount - i);
+		WallDecoration.menuOptionCount--;
+		if (WallDecoration.menuOptionCount != i) {
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub33.menuOptionPrefix, i + 1, Class120_Sub12_Sub33.menuOptionPrefix, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub29.menuOptionSuffix, i + 1, Class120_Sub12_Sub29.menuOptionSuffix, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(InterfaceChangeNode.menuOptionsCursorId, i + 1, InterfaceChangeNode.menuOptionsCursorId, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsCode, i + 1, Class120_Sub29.menuOptionsCode, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12.menuOptionsData1, i + 1, Class120_Sub12.menuOptionsData1, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub12_Sub7.menuOptionsData2, i + 1, Class120_Sub12_Sub7.menuOptionsData2, i, WallDecoration.menuOptionCount - i);
+			ArrayUtils.arrayCopy(Class120_Sub29.menuOptionsData3, i + 1, Class120_Sub29.menuOptionsData3, i, WallDecoration.menuOptionCount - i);
 		}
 	}
 
 	static final void method1663() {
 		Class15.menuOpen = false;
-		Class186.menuOptionCount = 0;
+		WallDecoration.menuOptionCount = 0;
 		Class23.packetType = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		Class114.anInt1093 = -1;

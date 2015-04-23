@@ -109,18 +109,18 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 								class150.frameId = 0;
 								class150.nextFrameId = 1;
 								class150.frameDelay = 0;
-								class150.anInt1416 = 0;
+								class150.cyclesElapsed = 0;
 								class150.delay = delay;
 								Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, TileParticleQueue.selfPlayer == player);
 							} else if (i_22_ == 2) {
-								class150.anInt1416 = 0;
+								class150.cyclesElapsed = 0;
 							}
 						}
 						if (class150 == null) {
 							class150 = player.aClass150Array2972[i_21_] = new Class150();
 							class150.seqId = seqId;
 							class150.frameDelay = 0;
-							class150.anInt1416 = 0;
+							class150.cyclesElapsed = 0;
 							class150.delay = delay;
 							class150.nextFrameId = 1;
 							class150.frameId = 0;

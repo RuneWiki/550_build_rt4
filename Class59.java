@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /* Class59 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

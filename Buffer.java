@@ -200,7 +200,7 @@ class Buffer extends Node {
 		while (this.buf[this.pos++] != 0) {
 			/* empty */
 		}
-		return DisplayModeInfo.method2215(this.buf, i_37_, -1 + -i_37_ + this.pos);
+		return DisplayModeInfo.bufferToString(this.buf, i_37_, -1 + -i_37_ + this.pos);
 	}
 
 	final void putBuffer(final byte[] buffer, final int off, final int len) {
@@ -370,7 +370,7 @@ class Buffer extends Node {
 	}
 
 	Buffer(final int i) {
-		this.buf = Class159.method2092(126, i);
+		this.buf = Class159.method2092(i);
 		this.pos = 0;
 	}
 
@@ -498,7 +498,7 @@ class Buffer extends Node {
 		while (this.buf[this.pos++] != 0) {
 			/* empty */
 		}
-		return DisplayModeInfo.method2215(this.buf, i_106_, -1 + this.pos + -i_106_);
+		return DisplayModeInfo.bufferToString(this.buf, i_106_, -1 + this.pos + -i_106_);
 	}
 
 	final void getBufferReverse(final byte[] buffer, final int off, final int len) {

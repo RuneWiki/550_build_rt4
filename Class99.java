@@ -3,21 +3,20 @@
  */
 
 final class Class99 {
-	static byte[][][] aByteArrayArrayArray949;
-	static boolean aBoolean950;
+	static byte[][][] tileOverlayIds;
+	static boolean openUrlNewTab;
 	static int anInt951;
-	static String aString952 = "wave2:";
 	static boolean openwinjsEnabled;
 	static int anInt954;
 
-	static final Class182 method821(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
-		if (class120_sub18 == null) {
+	static final WallLocation removeWallLocation(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		if (groundTile == null) {
 			return null;
 		}
-		final Class182 class182 = class120_sub18.aClass182_2628;
-		class120_sub18.aClass182_2628 = null;
-		return class182;
+		final WallLocation wallLocation = groundTile.wallLocation;
+		groundTile.wallLocation = null;
+		return wallLocation;
 	}
 
 	static final void method822(final int i) {
@@ -28,7 +27,7 @@ final class Class99 {
 	}
 
 	public static void method823() {
-		aByteArrayArrayArray949 = null;
-		aString952 = null;
+		tileOverlayIds = null;
+		TextRepository.aString952 = null;
 	}
 }

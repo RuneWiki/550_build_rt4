@@ -13,7 +13,7 @@ final class JagexInterface {
 	String enabledText;
 	int maxScrollVertical;
 	int y;
-	boolean aBoolean1939;
+	boolean keepDragAlpha;
 	boolean hasListener;
 	int cursorId;
 	Object[] anObjectArray1942;
@@ -33,10 +33,10 @@ final class JagexInterface {
 	boolean aBoolean1956;
 	int[] spriteIDs;
 	boolean flipHorizontal;
-	Object[] anObjectArray1959;
+	Object[] onComponentDraggedListener;
 	boolean aBoolean1960;
-	int mediaIdDisabled;
-	int anInt1962;
+	int modelIdDisabled;
+	int pixelsBeforeDrag;
 	byte dynamicWidthValue;
 	String spellNameni;
 	int frameDelay = 0;
@@ -51,7 +51,7 @@ final class JagexInterface {
 	int alpha;
 	int clientCode;
 	Object[] privateChatUpdateListener;
-	int anInt1977;
+	int yOffset2d;
 	int[] objIds;
 	String spellNameoi;
 	Object[] onSpellSelectionListener;
@@ -61,9 +61,9 @@ final class JagexInterface {
 	Object[] anObjectArray1984;
 	int[] keyPressDelay;
 	int[] spriteYs;
-	private int mediaTypeEnabled;
+	private int modelTypeEnabled;
 	int[] spriteXs;
-	boolean aBoolean1989;
+	boolean invertYAxis;
 	int enabledAnim;
 	int[] stringScriptValuesTriggers;
 	int[] cursors;
@@ -77,7 +77,7 @@ final class JagexInterface {
 	Object[] onSpellDeselectionListener;
 	boolean aBoolean2001;
 	int anInt2002;
-	boolean aBoolean2003;
+	boolean ignoreDepthMask;
 	int anInt2004;
 	int zoom;
 	Object[] anObjectArray2006;
@@ -90,9 +90,9 @@ final class JagexInterface {
 	Object[] anObjectArray2013;
 	int originalWidth;
 	int originalX;
-	private int mediaIdEnabled;
+	private int modelIdEnabled;
 	byte dynamicYValue;
-	boolean hasAlpha;
+	boolean isAlphaSprite;
 	boolean filled;
 	int targetCursorId;
 	int horizontalScrollPosition;
@@ -140,7 +140,7 @@ final class JagexInterface {
 	int[] inventoryListenerTriggers;
 	int anInt2064;
 	short aShort2065;
-	int anInt2066;
+	int cyclesBeforeDrag;
 	int font;
 	static int anInt2068 = 0;
 	int anInt2069;
@@ -150,7 +150,7 @@ final class JagexInterface {
 	int x;
 	Object[] onMouseLeaveListener;
 	int objCount;
-	int anInt2076;
+	int xOffset2d;//x offset 2d
 	int objSpritePadY;
 	int anInt2078;
 	int[] startOfSpriteLookupTable;
@@ -169,7 +169,7 @@ final class JagexInterface {
 	byte dynamicHeightValue;
 	short aShort2093;
 	int anInt2094;
-	String selectedSpellName;
+	String spellPrefix;
 	int[] integerScriptValuesTriggers;
 	boolean aBoolean2097;
 	int nextFrame;
@@ -181,88 +181,88 @@ final class JagexInterface {
 		anInt2053 = 0;
 	}
 
-	final AbstractModelRenderer method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int i, final int i_3_, final int i_4_, final boolean bool) {
-		int i_5_;
-		int i_6_;
-		if (!bool) {
-			i_6_ = this.modelTypeDisabled;
-			i_5_ = this.mediaIdDisabled;
+	final AbstractModelRenderer method2486(final SeqType seqType, final PlayerAppearance playerAppearance, final int nextFrame, final int currentFrame, final int frameDelay, final boolean interfaceEnabled) {
+		int modelId;
+		int modelType;
+		if (interfaceEnabled) {
+			modelId = modelIdEnabled;
+			modelType = modelTypeEnabled;
 		} else {
-			i_5_ = mediaIdEnabled;
-			i_6_ = mediaTypeEnabled;
+			modelId = modelIdDisabled;
+			modelType = modelTypeDisabled;
 		}
 		Class88.interfaceSpriteIsNull = false;
-		if (i_6_ == 0) {
+		if (modelType == 0) {
 			return null;
 		}
-		if (i_6_ == 1 && i_5_ == -1) {
+		if (modelType == 1 && modelId == -1) {
 			return null;
 		}
-		if (i_6_ == 1) {
-			AbstractModelRenderer class180_sub7_7_ = (AbstractModelRenderer) LabelGroup.aClass21_2406.get(i_5_ + (i_6_ << 16));
-			if (class180_sub7_7_ == null) {
-				final Model class180_sub2 = Model.get(Decimator.aClass50_1721, i_5_, 0);
-				if (class180_sub2 == null) {
+		if (modelType == 1) {//Simple model
+			AbstractModelRenderer cachedModel = (AbstractModelRenderer) LabelGroup.aClass21_2406.get(modelId + (modelType << 16));
+			if (cachedModel == null) {
+				final Model model = Model.get(Decimator.aClass50_1721, modelId, 0);
+				if (model == null) {
 					Class88.interfaceSpriteIsNull = true;
 					return null;
 				}
-				class180_sub7_7_ = class180_sub2.toRenderer(64, 768, -50, -10, -50);
-				LabelGroup.aClass21_2406.put(class180_sub7_7_, i_5_ + (i_6_ << 16));
+				cachedModel = model.toRenderer(64, 768, -50, -10, -50);
+				LabelGroup.aClass21_2406.put(cachedModel, modelId + (modelType << 16));
 			}
 			if (seqType != null) {
-				class180_sub7_7_ = seqType.method323(class180_sub7_7_, i_4_, i, i_3_);
+				cachedModel = seqType.method323(cachedModel, frameDelay, nextFrame, currentFrame);
 			}
-			return class180_sub7_7_;
+			return cachedModel;
 		}
-		if (i_6_ == 2) {
-			final AbstractModelRenderer class180_sub7_8_ = NpcType.list(i_5_).method2210(seqType, i, i_4_, i_3_);
-			if (class180_sub7_8_ == null) {
+		if (modelType == 2) {//Npc head model
+			final AbstractModelRenderer npcModel = NpcType.list(modelId).method2210(seqType, nextFrame, frameDelay, currentFrame);
+			if (npcModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
-			return class180_sub7_8_;
+			return npcModel;
 		}
-		if (i_6_ == 3) {
+		if (modelType == 3) {//Player model
 			if (playerAppearance == null) {
 				return null;
 			}
-			final AbstractModelRenderer class180_sub7_9_ = playerAppearance.method2044(seqType, i_4_, i, i_3_);
-			if (class180_sub7_9_ == null) {
+			final AbstractModelRenderer playerModel = playerAppearance.method2044(seqType, frameDelay, nextFrame, currentFrame);
+			if (playerModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
-			return class180_sub7_9_;
+			return playerModel;
 		}
-		if (i_6_ == 4) {
-			final ObjType objType = ObjType.list(i_5_);
-			final AbstractModelRenderer class180_sub7_10_ = objType.method2105(i_3_, 10, i, playerAppearance, seqType, i_4_);
-			if (class180_sub7_10_ == null) {
+		if (modelType == 4) {//Object model
+			final ObjType objType = ObjType.list(modelId);
+			final AbstractModelRenderer objectModel = objType.method2105(currentFrame, 10, nextFrame, playerAppearance, seqType, frameDelay);
+			if (objectModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
-			return class180_sub7_10_;
+			return objectModel;
 		}
-		if (i_6_ == 6) {
-			final AbstractModelRenderer class180_sub7_11_ = NpcType.list(i_5_).method2212(i_3_, 0, null, seqType, i, null, 0, 0, i_4_);
-			if (class180_sub7_11_ == null) {
+		if (modelType == 6) {//Npc model
+			final AbstractModelRenderer npcModel = NpcType.list(modelId).method2212(currentFrame, 0, null, seqType, nextFrame, null, 0, 0, frameDelay);
+			if (npcModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
-			return class180_sub7_11_;
+			return npcModel;
 		}
-		if (i_6_ == 7) {
+		if (modelType == 7) {//Player head model
 			if (playerAppearance == null) {
 				return null;
 			}
-			final int i_12_ = this.mediaIdDisabled & 0xffff;
+			final int i_14_ = this.modelIdDisabled >>> 16;
+			final int i_12_ = this.modelIdDisabled & 0xffff;
 			final int i_13_ = this.anInt1997;
-			final int i_14_ = this.mediaIdDisabled >>> 16;
-			final AbstractModelRenderer class180_sub7_15_ = playerAppearance.method2041(-6, seqType, i_12_, i_13_, i_3_, i_4_, i_14_, i);
-			if (class180_sub7_15_ == null) {
+			final AbstractModelRenderer playerModel = playerAppearance.method2041(seqType, i_12_, i_13_, currentFrame, frameDelay, i_14_, nextFrame);
+			if (playerModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
 			}
-			return class180_sub7_15_;
+			return playerModel;
 		}
 		return null;
 	}
@@ -280,7 +280,7 @@ final class JagexInterface {
 		if (class120_sub14_sub19_18_ != null) {
 			return class120_sub14_sub19_18_;
 		}
-		class120_sub14_sub19_18_ = ParticleType.constructAbstractSprite(Class89.aClass50_836, i_17_, 0);
+		class120_sub14_sub19_18_ = EmitterType.constructAbstractSprite(Class89.aClass50_836, i_17_, 0);
 		if (class120_sub14_sub19_18_ == null) {
 			Class88.interfaceSpriteIsNull = true;
 		} else {
@@ -454,14 +454,14 @@ final class JagexInterface {
 		}
 		if (this.type == 6) {
 			this.modelTypeDisabled = 1;
-			this.mediaIdDisabled = buffer.getUShort();
-			if (this.mediaIdDisabled == 65535) {
-				this.mediaIdDisabled = -1;
+			this.modelIdDisabled = buffer.getUShort();
+			if (this.modelIdDisabled == 65535) {
+				this.modelIdDisabled = -1;
 			}
-			mediaTypeEnabled = 1;
-			mediaIdEnabled = buffer.getUShort();
-			if (mediaIdEnabled == 65535) {
-				mediaIdEnabled = -1;
+			modelTypeEnabled = 1;
+			modelIdEnabled = buffer.getUShort();
+			if (modelIdEnabled == 65535) {
+				modelIdEnabled = -1;
 			}
 			this.disabledAnim = buffer.getUShort();
 			if (this.disabledAnim == 65535) {
@@ -506,7 +506,7 @@ final class JagexInterface {
 			this.disabledText = buffer.getJagexString();
 		}
 		if (this.actionType == 2 || this.type == 2) {
-			this.selectedSpellName = buffer.getJagexString();
+			this.spellPrefix = buffer.getJagexString();
 			this.spellNameoi = buffer.getJagexString();
 			final int i_40_ = 0x3f & buffer.getUShort();
 			clickMask |= i_40_ << 11;
@@ -524,7 +524,7 @@ final class JagexInterface {
 					this.tooltip = Class143.selectString;
 				}
 				if (this.actionType == 6) {
-					this.tooltip = Class109.continueString;
+					this.tooltip = TextRepository.continueString;
 				}
 			}
 		}
@@ -548,13 +548,13 @@ final class JagexInterface {
 		if (spriteId == -1) {
 			return null;
 		}
-		final long spriteUid = ((this.flipHorizontal ? 1L : 00L) << 39) + ((long) this.outline << 36) + spriteId + ((this.hasAlpha ? 1L : 0L) << 35) + ((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
+		final long spriteUid = ((this.flipHorizontal ? 1L : 00L) << 39) + ((long) this.outline << 36) + spriteId + ((this.isAlphaSprite ? 1L : 0L) << 35) + ((this.flipVertical ? 1L : 0L) << 38) + ((long) this.shadow << 40);
 		AbstractSprite cachedSprite = (AbstractSprite) spriteCache.get(spriteUid);
 		if (cachedSprite != null) {
 			return cachedSprite;
 		}
 		LDSprite ldSprite;
-		if (this.hasAlpha) {
+		if (this.isAlphaSprite) {
 			ldSprite = Class120_Sub12_Sub26.constructLDSpriteAlpha(Class89.aClass50_836, spriteId, 0);
 		} else {
 			ldSprite = Class120_Sub14_Sub13.constructLDSprite(Class89.aClass50_836, spriteId, 0);
@@ -564,10 +564,10 @@ final class JagexInterface {
 			return null;
 		}
 		if (this.flipVertical) {
-			ldSprite.method1608();
+			ldSprite.flipVertical();
 		}
 		if (this.flipHorizontal) {
-			ldSprite.method1603();
+			ldSprite.flipHorizontal();
 		}
 		if (this.outline > 0) {
 			ldSprite.method1616(this.outline);
@@ -582,10 +582,10 @@ final class JagexInterface {
 			ldSprite.shadow(this.shadow);
 		}
 		if (HDToolkit.glEnabled) {
-			if (!(ldSprite instanceof LDTransparentSprite)) {
-				cachedSprite = new HDSprite(ldSprite);
-			} else {
+			if (ldSprite instanceof LDTransparentSprite) {//Could be "this.isAlphaSprite"? instead of instanceof
 				cachedSprite = new HDTransparentSprite(ldSprite);
+			} else {
+				cachedSprite = new HDSprite(ldSprite);
 			}
 		} else {
 			cachedSprite = ldSprite;
@@ -638,9 +638,9 @@ final class JagexInterface {
 		if (this.type == 5) {
 			this.disabledSpriteId = buffer.getInt();
 			this.rotation = buffer.getUShort();
-			final int i_48_ = buffer.getUByte();
-			this.aBoolean2001 = (i_48_ & 0x1) != 0;
-			this.hasAlpha = (i_48_ & 0x2) != 0;
+			final int spriteFlag = buffer.getUByte();
+			this.aBoolean2001 = (spriteFlag & 0x1) != 0;
+			this.isAlphaSprite = (spriteFlag & 0x2) != 0;
 			this.alpha = buffer.getUByte();
 			this.outline = buffer.getUByte();
 			this.shadow = buffer.getInt();
@@ -650,9 +650,9 @@ final class JagexInterface {
 		}
 		if (this.type == 6) {
 			this.modelTypeDisabled = 1;
-			this.mediaIdDisabled = buffer.getUShort();
-			if (this.mediaIdDisabled == 65535) {
-				this.mediaIdDisabled = -1;
+			this.modelIdDisabled = buffer.getUShort();
+			if (this.modelIdDisabled == 65535) {
+				this.modelIdDisabled = -1;
 			}
 			this.translateX = buffer.getShort();
 			this.translateY = buffer.getShort();
@@ -667,7 +667,7 @@ final class JagexInterface {
 			this.aBoolean2046 = buffer.getUByte() == 1;
 			this.aShort2093 = (short) buffer.getUShort();
 			this.aShort2065 = (short) buffer.getUShort();
-			this.aBoolean2003 = buffer.getUByte() == 1;
+			this.ignoreDepthMask = buffer.getUByte() == 1;
 			if (this.dynamicWidthValue != 0) {
 				this.anInt2069 = buffer.getUShort();
 			}
@@ -695,7 +695,7 @@ final class JagexInterface {
 		if (this.type == 9) {
 			this.lineWidth = buffer.getUByte();
 			this.disabledColor = buffer.getInt();
-			this.aBoolean1989 = buffer.getUByte() == 1;
+			this.invertYAxis = buffer.getUByte() == 1;
 		}
 		final int clickMask = buffer.getMedium();
 		int i_50_ = buffer.getUByte();
@@ -743,10 +743,10 @@ final class JagexInterface {
 			this.actionSufix = null;
 		}
 		int paramId = -1;
-		this.anInt1962 = buffer.getUByte();
-		this.anInt2066 = buffer.getUByte();
-		this.aBoolean1939 = buffer.getUByte() == 1;
-		this.selectedSpellName = buffer.getJagexString();
+		this.pixelsBeforeDrag = buffer.getUByte();
+		this.cyclesBeforeDrag = buffer.getUByte();
+		this.keepDragAlpha = buffer.getUByte() == 1;
+		this.spellPrefix = buffer.getJagexString();
 		if (Class153.method2073(clickMask) != 0) {
 			paramId = buffer.getUShort();
 			if (paramId == 65535) {
@@ -777,7 +777,7 @@ final class JagexInterface {
 		this.onHeldListener = decodeListener(buffer);
 		this.onReleaseListener = decodeListener(buffer);
 		this.onMouseDragListener = decodeListener(buffer);
-		this.anObjectArray1959 = decodeListener(buffer);
+		this.onComponentDraggedListener = decodeListener(buffer);
 		this.onComponentSwapListener = decodeListener(buffer);
 		this.onMouseWheelListener = decodeListener(buffer);
 		this.integerScriptValuesListener = decodeListener(buffer);
@@ -832,9 +832,9 @@ final class JagexInterface {
 		CursorType.anInt1237 = 0;
 		while_176_: for (int i = 0; i < Class49.anInt438; i++) {
 			final Class188 class188 = SceneGraphNode.aClass188Array1782[i];
-			if (Class61.anIntArray562 != null) {
-				for (int i_66_ = 0; i_66_ < Class61.anIntArray562.length; i_66_++) {
-					if (Class61.anIntArray562[i_66_] != -1000000 && (class188.anInt1920 <= Class61.anIntArray562[i_66_] || class188.anInt1928 <= Class61.anIntArray562[i_66_]) && (class188.anInt1913 <= SpotAnimation.anIntArray2921[i_66_] || class188.anInt1924 <= SpotAnimation.anIntArray2921[i_66_])
+			if (client.anIntArray562 != null) {
+				for (int i_66_ = 0; i_66_ < client.anIntArray562.length; i_66_++) {
+					if (client.anIntArray562[i_66_] != -1000000 && (class188.anInt1920 <= client.anIntArray562[i_66_] || class188.anInt1928 <= client.anIntArray562[i_66_]) && (class188.anInt1913 <= SpotAnimation.anIntArray2921[i_66_] || class188.anInt1924 <= SpotAnimation.anIntArray2921[i_66_])
 							&& (class188.anInt1913 >= Class31.anIntArray243[i_66_] || class188.anInt1924 >= Class31.anIntArray243[i_66_]) && (class188.anInt1911 <= IsaacCipher.anIntArray1015[i_66_] || class188.anInt1927 <= IsaacCipher.anIntArray1015[i_66_])
 							&& (class188.anInt1911 >= Class89.anIntArray838[i_66_] || class188.anInt1927 >= Class89.anIntArray838[i_66_])) {
 						continue while_176_;
@@ -993,12 +993,12 @@ final class JagexInterface {
 		return true;
 	}
 
-	static final long method2502(final int x, final int z, final int level) {
+	static final long getWallDecorationUid(final int x, final int z, final int level) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
-		if (class120_sub18 == null || class120_sub18.aClass186_2639 == null) {
+		if (class120_sub18 == null || class120_sub18.wallDecoration == null) {
 			return 0L;
 		}
-		return class120_sub18.aClass186_2639.bitPacked;
+		return class120_sub18.wallDecoration.bitPacked;
 	}
 
 	private final Object[] decodeListener(final Buffer buffer) {
@@ -1033,19 +1033,19 @@ final class JagexInterface {
 	public JagexInterface() {
 		this.cursorId = -1;
 		this.clicked = false;
-		this.aBoolean1939 = false;
+		this.keepDragAlpha = false;
 		this.hasListener = false;
 		this.alpha = 0;
 		this.translateX = 0;
 		this.tooltip = Class120_Sub12_Sub28.okString;
-		this.anInt1962 = 0;
+		this.pixelsBeforeDrag = 0;
 		this.dynamicWidthValue = (byte) 0;
 		this.maxScrollHorizontal = 0;
 		this.bitPacked = -1;
-		this.aBoolean1989 = false;
-		this.aBoolean2003 = false;
+		this.invertYAxis = false;
+		this.ignoreDepthMask = false;
 		this.horizontalAlignment = 0;
-		this.hasAlpha = false;
+		this.isAlphaSprite = false;
 		this.enabledText = "";
 		this.anInt1997 = -1;
 		this.verticalScrollPosition = 0;
@@ -1074,12 +1074,12 @@ final class JagexInterface {
 		this.anInt2028 = 0;
 		this.targetCursorId = -1;
 		this.objId = -1;
-		this.anInt2066 = 0;
+		this.cyclesBeforeDrag = 0;
 		this.aBoolean1956 = true;
 		this.aShort2065 = (short) 3000;
 		this.anInt2049 = -1;
 		this.horizontalScrollPosition = 0;
-		mediaTypeEnabled = 1;
+		modelTypeEnabled = 1;
 		this.verticalSpacing = 0;
 		this.shaded = false;
 		this.lastSkillTriggersPos = 0;
@@ -1096,7 +1096,7 @@ final class JagexInterface {
 		this.disabledAnim = -1;
 		this.objSpritePadY = 0;
 		this.anInt1982 = 1;
-		mediaIdEnabled = -1;
+		modelIdEnabled = -1;
 		this.objCount = 0;
 		this.font = -1;
 		this.spellNameni = "";
@@ -1107,13 +1107,13 @@ final class JagexInterface {
 		this.anInt2069 = 0;
 		this.enabledMouseOverColor = 0;
 		this.redrawId = -1;
-		this.anInt2076 = 0;
+		this.xOffset2d = 0;
 		this.newFormat = false;
 		this.aBoolean1960 = false;
 		this.modelTypeDisabled = 1;
 		this.rotation = 0;
 		this.redrawCycle = -1;
-		this.anInt1977 = 0;
+		this.yOffset2d = 0;
 		this.rotateY = 0;
 		this.anInt2037 = 0;
 		this.x = 0;
@@ -1126,7 +1126,7 @@ final class JagexInterface {
 		this.aBoolean2097 = false;
 		this.translateY = 0;
 		this.anInt2088 = -1;
-		this.selectedSpellName = "";
+		this.spellPrefix = "";
 		this.nextFrame = 1;
 		this.anInt2085 = 1;
 	}

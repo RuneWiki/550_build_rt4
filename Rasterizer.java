@@ -16,9 +16,9 @@ final class Rasterizer {
 	private static int[] anIntArray977;
 	private static int endY;
 	private static int[] coordinateYLookup;
-	static int[] cosineTable;
+	static int[] cosTable;
 	private static boolean aBoolean981;
-	static int[] sineTable;
+	static int[] sinTable;
 	static int anInt983;
 	static int[] anIntArray984;
 
@@ -29,11 +29,11 @@ final class Rasterizer {
 		aFloat968 = 1.0F;
 		anIntArray977 = new int[512];
 		aBoolean981 = false;
-		cosineTable = new int[2048];
+		cosTable = new int[2048];
 		aBoolean976 = false;
 		coordinateYLookup = new int[1024];
 		anIntArray984 = new int[2048];
-		sineTable = new int[2048];
+		sinTable = new int[2048];
 		for (int i = 1; i < 512; i++) {
 			anIntArray977[i] = 32768 / i;
 		}
@@ -41,8 +41,8 @@ final class Rasterizer {
 			anIntArray984[i] = 65536 / i;
 		}
 		for (int i = 0; i < 2048; i++) {
-			sineTable[i] = (int) (65536.0 * Math.sin(i * 0.0030679615));
-			cosineTable[i] = (int) (65536.0 * Math.cos(i * 0.0030679615));
+			sinTable[i] = (int) (65536.0 * Math.sin(i * 0.0030679615));
+			cosTable[i] = (int) (65536.0 * Math.cos(i * 0.0030679615));
 		}
 	}
 
@@ -2610,8 +2610,8 @@ final class Rasterizer {
 		anInterface5_973 = null;
 		anIntArray977 = null;
 		anIntArray984 = null;
-		sineTable = null;
-		cosineTable = null;
+		sinTable = null;
+		cosTable = null;
 	}
 
 	private static final void method873(final int[] is, final int[] is_214_, int i, int i_215_, int i_216_, int i_217_, int i_218_, int i_219_, int i_220_, int i_221_, int i_222_, int i_223_, final int i_224_, final int i_225_, final int i_226_) {

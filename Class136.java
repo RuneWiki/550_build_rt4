@@ -5,7 +5,6 @@ import java.util.Random;
 
 final class Class136 {
 	static int[] anIntArray1315 = new int[100];
-	static String aString1316;
 	static boolean aBoolean1317 = false;
 	static int defaultWorldId;
 	static Random aRandom1319;
@@ -13,7 +12,6 @@ final class Class136 {
 	static int clickedMouseFunctionCycle;
 
 	static {
-		aString1316 = "glow3:";
 		defaultWorldId = 1;
 		aRandom1319 = new Random();
 		mouseIdleCycle = 0;
@@ -77,7 +75,7 @@ final class Class136 {
 	}
 
 	public static void method1979() {
-		aString1316 = null;
+		TextRepository.aString1316 = null;
 		aRandom1319 = null;
 		anIntArray1315 = null;
 	}

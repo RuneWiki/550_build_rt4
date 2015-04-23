@@ -11,7 +11,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	static Class164 aClass164_3366;
 	static js5 aClass50_3367;
 	private int anInt3368;
-	static String[] menuOptionSufix = new String[500];
+	static String[] menuOptionSuffix = new String[500];
 
 	public Class120_Sub12_Sub29() {
 		super(1, false);
@@ -53,7 +53,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 
 	public static void method1353(final boolean bool) {
 		try {
-			menuOptionSufix = null;
+			menuOptionSuffix = null;
 			if (!bool) {
 				VarBit.recentUse.clearSoftReference();
 			}
@@ -95,7 +95,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 				return 'e';
 			}
 			if (bool) {
-				menuOptionSufix = null;
+				menuOptionSuffix = null;
 			}
 			if (c == '\u00df') {
 				return 's';
@@ -118,17 +118,8 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		anInt3365 = -anInt3364 + anInt3368;
 	}
 
-	static final boolean method1355(final int i, final byte i_15_) {
-		boolean bool;
-		try {
-			if (i_15_ > -47) {
-				aClass50_3367 = null;
-			}
-			bool = i == 4 || i == 8;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.V(").append(i).append(',').append(i_15_).append(')').toString());
-		}
-		return bool;
+	static final boolean method1355(final int i) {
+		return i == 4 || i == 8;
 	}
 
 	static final Class101_Sub3 method1356(final Buffer buffer) {

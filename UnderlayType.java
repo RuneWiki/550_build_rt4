@@ -102,7 +102,7 @@ final class UnderlayType {
 	static final void method1901(final int i, final int i_16_, final int i_17_, final int i_18_, final boolean bool, final int i_19_) {
 		try {
 			if (i == i_19_) {
-				Class159.method2096(i_19_, i_17_, false, i_18_, i_16_);
+				Class159.method2096(i_19_, i_17_, i_18_, i_16_);
 			} else {
 				if (Class32.anInt260 > -i_19_ + i_16_ || ParamType.anInt3544 < i_16_ - -i_19_ || i_18_ + -i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_18_ - -i) {
 					Node.method1031(i_18_, i, i_17_, i_19_, i_16_, -43);
@@ -130,8 +130,8 @@ final class UnderlayType {
 		}
 	}
 
-	static final void method1903(final GameEntity class180_sub5, final int i, final int i_20_, final int i_21_, final int i_22_, final int i_23_) {
-		Class137.method1982(i, i_23_, i_20_, class180_sub5.x, class180_sub5.z, i_21_, i_22_);
+	static final void worldToScreenEntity(final GameEntity gameEntity, final int xOff, final int height, final int zOff, final int i_20_, final int i_21_) {
+		MapFunctionGroup.worldToScreen(gameEntity.x, height, gameEntity.z, xOff, zOff, i_20_, i_21_);
 	}
 
 	final void decode(final Buffer buffer) {
@@ -144,12 +144,12 @@ final class UnderlayType {
 		}
 	}
 
-	static final void drawOverlay(final int i, final int i_26_, final int i_27_, final int i_28_) {
+	static final void drawOverlay(final int x, final int y, final int width, final int height) {
 		if (Class120_Sub14_Sub22.crossState == 1) {
-			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100].method1587(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
+			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100].drawSprite(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
 		}
 		if (Class120_Sub14_Sub22.crossState == 2) {
-			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100 + 4].method1587(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
+			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100 + 4].drawSprite(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
 		}
 		FileSystem.checkPlayerLocation();
 	}
@@ -257,7 +257,7 @@ final class UnderlayType {
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
 			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 		}
-		font.method1478(Buffer.gameId != 1 ? Class120_Sub12_Sub18.aString3272 : ParticleNodeSub.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
+		font.method1478(Buffer.gameId != 1 ? TextRepository.aString3272 : ParticleNodeSub.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
 		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);

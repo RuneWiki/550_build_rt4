@@ -15,33 +15,31 @@ abstract class AbstractGraphicsBuffer {
 	static int[] anIntArray1163;
 	static int gameLoopLength;
 	Image image;
-	static int anInt1166 = 50;
+	static int maxTextOnScreen = 50;
 	static String[] aStringArray1167;
 	int[] pixels;
 	int height;
 	int width;
 	static int[] anIntArray1171;
 	static double aDouble1172;
-	static int anInt1173;
+	static int clickedComponentX;
 	static int anInt1174;
 	static int mapbackState;
-	static String aString1176;
-
+	
 	static {
-		anIntArray1158 = new int[anInt1166];
+		anIntArray1158 = new int[maxTextOnScreen];
 		anInt1157 = -1;
-		anIntArray1162 = new int[anInt1166];
-		anIntArray1159 = new int[anInt1166];
-		anIntArray1161 = new int[anInt1166];
-		aStringArray1167 = new String[anInt1166];
-		anIntArray1163 = new int[anInt1166];
-		anIntArray1171 = new int[anInt1166];
-		anIntArray1156 = new int[anInt1166];
+		anIntArray1162 = new int[maxTextOnScreen];
+		anIntArray1159 = new int[maxTextOnScreen];
+		anIntArray1161 = new int[maxTextOnScreen];
+		aStringArray1167 = new String[maxTextOnScreen];
+		anIntArray1163 = new int[maxTextOnScreen];
+		anIntArray1171 = new int[maxTextOnScreen];
+		anIntArray1156 = new int[maxTextOnScreen];
 		ParamType.recentUse = new NodeCache(64);
 		aDouble1172 = -1.0;
-		anInt1173 = 0;
+		clickedComponentX = 0;
 		mapbackState = 0;
-		aString1176 = "Use";
 	}
 
 	static final Class120_Sub9 method1840(final Hashtable hashtable, final OverlayType class124) {
@@ -134,23 +132,17 @@ abstract class AbstractGraphicsBuffer {
 		GraphicsLD.init2dCanvas(this.pixels, this.width, this.height);
 	}
 
-	public static void method1848(final int i) {
-		try {
-			anIntArray1171 = null;
-			aStringArray1167 = null;
-			ParamType.recentUse = null;
-			if (i == 84167136) {
-				aString1176 = null;
-				anIntArray1158 = null;
-				anIntArray1156 = null;
-				anIntArray1162 = null;
-				anIntArray1161 = null;
-				anIntArray1159 = null;
-				anIntArray1163 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.H(").append(i).append(')').toString());
-		}
+	public static void method1848() {
+		anIntArray1171 = null;
+		aStringArray1167 = null;
+		ParamType.recentUse = null;
+		TextRepository.use = null;
+		anIntArray1158 = null;
+		anIntArray1156 = null;
+		anIntArray1162 = null;
+		anIntArray1161 = null;
+		anIntArray1159 = null;
+		anIntArray1163 = null;
 	}
 
 	protected AbstractGraphicsBuffer() {

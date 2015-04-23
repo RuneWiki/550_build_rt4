@@ -23,21 +23,15 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return dest;
 	}
 
-	public static void method1238(final int i) {
-		try {
-			anIntArray3187 = null;
-			if (i == 23086) {
-				anIntArray3190 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.V(").append(i).append(')').toString());
-		}
+	public static void method1238() {
+		anIntArray3187 = null;
+		anIntArray3190 = null;
 	}
 
 	@Override
 	final int[][] method1188(final int i) {
 		final int[][] is_5_ = this.aClass109_2559.method975(i);
-		if (this.aClass109_2559.aBoolean1049 && method1239(187)) {
+		if (this.aClass109_2559.aBoolean1049 && method1239()) {
 			int i_6_ = anInt3186 * (Class120_Sub12_Sub2.anInt3145 != anInt3188 ? i * anInt3188 / Class120_Sub12_Sub2.anInt3145 : i);
 			final int[] is_7_ = is_5_[0];
 			final int[] is_8_ = is_5_[2];
@@ -62,44 +56,34 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return is_5_;
 	}
 
-	private final boolean method1239(final int i) {
-		boolean bool;
-		try {
-			if (i != 187) {
-				return true;
-			}
+	private final boolean method1239() {
+		if (anIntArray3189 != null) {
+			return true;
+		}
+		if (anInt3191 >= 0) {
+			final int i_15_ = Class120_Sub12_Sub2.anInt3145;
+			final int i_16_ = Class120_Sub12_Sub7.anInt3178;
+			final int i_17_ = CanvasWrapper.anInterface3_19.method8(anInt3191).aBoolean1100 ? 64 : 128;
+			anIntArray3189 = CanvasWrapper.anInterface3_19.method6(i_17_, 1.0F, anInt3191, i_17_, false);
+			anInt3188 = i_17_;
+			anInt3186 = i_17_;
+			Class22.method199(i_16_, i_15_);
 			if (anIntArray3189 != null) {
 				return true;
 			}
-			if (anInt3191 >= 0) {
-				final int i_15_ = Class120_Sub12_Sub2.anInt3145;
-				final int i_16_ = Class120_Sub12_Sub7.anInt3178;
-				final int i_17_ = CanvasWrapper.anInterface3_19.method8(anInt3191).aBoolean1100 ? 64 : 128;
-				anIntArray3189 = CanvasWrapper.anInterface3_19.method6(i_17_, 1.0F, anInt3191, i_17_, false);
-				anInt3188 = i_17_;
-				anInt3186 = i_17_;
-				Class22.method199(i_16_, i_15_, false);
-				if (anIntArray3189 != null) {
-					return true;
-				}
-				return false;
-			}
-			bool = false;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fi.U(").append(i).append(')').toString());
+			return false;
 		}
-		return bool;
+		return false;
 	}
 
-	static final void method1241(final JagexInterface jagexInterface, final int i, final int i_20_) {
-		if (Class120_Sub12_Sub4.aClass189_3156 == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface) != null) {
-			Class120_Sub12_Sub4.aClass189_3156 = jagexInterface;
+	static final void dragComponent(final JagexInterface jagexInterface, final int i, final int i_20_) {
+		if (Class120_Sub12_Sub4.draggedComponent == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface) != null) {
+			Class120_Sub12_Sub4.draggedComponent = jagexInterface;
 			Class26.aClass189_161 = method1243(jagexInterface);
-			Class120_Sub11.aBoolean2551 = false;
-			System.out.println("he class120128 todo");
-			SceneGroundObject.anInt2843 = 0;
-			AbstractGraphicsBuffer.anInt1173 = i;
-			client.anInt2203 = i_20_;
+			Class120_Sub11.draggingComponent = false;
+			SceneGroundObject.componentPressedCycles = 0;
+			AbstractGraphicsBuffer.clickedComponentX = i;
+			client.clickedComponentY = i_20_;
 		}
 	}
 

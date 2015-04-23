@@ -3,7 +3,7 @@
  */
 
 final class Class110 {
-	static int[][][] anIntArrayArrayArray1050;
+	static int[][][] tileOccludeFlags;
 	static int b12fullId;
 	static WorldMapFont aClass98_1052;
 	static InterfaceClickMask aClass120_Sub20_1053;
@@ -18,9 +18,9 @@ final class Class110 {
 		OverlayType.recentUse.clear();
 		UnderlayType.recentUse.clear();
 		IdentityKit.recentUse.clear();
-		Class120_Sub12_Sub25.method1334();
-		NodeCache.method297();
-		Class120_Sub12_Sub18.method1291();
+		Class120_Sub12_Sub25.clearLocCache();
+		NodeCache.clearNpcCache();
+		Class120_Sub12_Sub18.clearObjCache();
 		Class120_Sub12_Sub20.method1296();
 		StringNode.method1720();
 		VarBit.recentUse.clear();
@@ -67,7 +67,7 @@ final class Class110 {
 		aClass98_1052 = null;
 		mouseRecorder = null;
 		aClass120_Sub20_1053 = null;
-		anIntArrayArrayArray1050 = null;
+		tileOccludeFlags = null;
 	}
 
 	static final void method978(final boolean bool, String string) {
@@ -102,30 +102,5 @@ final class Class110 {
 			strings[i_7_] = Class120_Sub14_Sub10.list(is[i_7_]).method1510();
 		}
 		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
-	}
-
-	static final int method979(int i) {
-		int i_10_ = 0;
-		if (i < 0 || i >= 65536) {
-			i >>>= 16;
-			i_10_ += 16;
-		}
-		if (i >= 256) {
-			i >>>= 8;
-			i_10_ += 8;
-		}
-		if (i >= 16) {
-			i >>>= 4;
-			i_10_ += 4;
-		}
-		if (i >= 4) {
-			i_10_ += 2;
-			i >>>= 2;
-		}
-		if (i >= 1) {
-			i_10_++;
-			i >>>= 1;
-		}
-		return i_10_ + i;
 	}
 }

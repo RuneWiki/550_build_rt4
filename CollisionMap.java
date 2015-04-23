@@ -282,7 +282,7 @@ final class CollisionMap {
 
 	final boolean method216(final int i, final int i_40_, final int i_41_, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_) {
 		if (i_42_ > 1) {
-			if (Class182.method2443(i, i_44_, i_45_, i_42_, i_43_, i_46_, -111, i_47_, i_42_)) {
+			if (WallLocation.method2443(i, i_44_, i_45_, i_42_, i_43_, i_46_, -111, i_47_, i_42_)) {
 				return true;
 			}
 			return method224(i_45_, i_42_, i_47_, i_46_, i_42_, i, i_44_, i_41_, i_43_);

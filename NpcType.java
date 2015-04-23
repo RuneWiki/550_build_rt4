@@ -4,7 +4,7 @@
 
 final class NpcType {
 	byte aByte1652;
-	boolean aBoolean1653;
+	boolean hasShadow;
 	private short[] recolorOriginal;
 	int cursor2op = -1;
 	boolean aBoolean1656;
@@ -30,13 +30,12 @@ final class NpcType {
 	int anInt1676;
 	int ambientSoundHearDistance;
 	private int[] modelIds;
-	int[] childrenIDs;
+	int[] transmogrificationIds;
 	private short[] retextureOriginal;
 	int anInt1681;
 	int anInt1682;
 	short aShort1683;
 	private int ambient;
-	static String aString1685 = "flash3:";
 	int myId;
 	static Signlink gameSignlink;
 	boolean canRightClick;
@@ -63,7 +62,7 @@ final class NpcType {
 	static ObjectCache recentUse = new ObjectCache(64);
 
 	final boolean method2199() {
-		if (this.childrenIDs == null) {
+		if (this.transmogrificationIds == null) {
 			return true;
 		}
 		int i_0_ = -1;
@@ -72,8 +71,8 @@ final class NpcType {
 		} else if (varpId != -1) {
 			i_0_ = Class2.permanentVariable[varpId];
 		}
-		if (i_0_ < 0 || i_0_ >= this.childrenIDs.length - 1 || this.childrenIDs[i_0_] == -1) {
-			final int i_1_ = this.childrenIDs[this.childrenIDs.length - 1];
+		if (i_0_ < 0 || i_0_ >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[i_0_] == -1) {
+			final int i_1_ = this.transmogrificationIds[this.transmogrificationIds.length - 1];
 			if (i_1_ == -1) {
 				return false;
 			}
@@ -83,25 +82,10 @@ final class NpcType {
 	}
 
 	public static void method2200() {
-		aString1685 = null;
+		TextRepository.aString1685 = null;
 		configClient = null;
 		gameSignlink = null;
 		recentUse = null;
-	}
-
-	static final int method2201(int i_2_, int i_3_) {
-		int i_5_ = 1;
-		while (i_2_ > 1) {
-			if ((0x1 & i_2_) != 0) {
-				i_5_ *= i_3_;
-			}
-			i_2_ >>= 1;
-			i_3_ *= i_3_;
-		}
-		if (i_2_ == 1) {
-			return i_3_ * i_5_;
-		}
-		return i_5_;
 	}
 
 	final String getStringParamValue(final int param, final String defaultString) {
@@ -121,18 +105,18 @@ final class NpcType {
 			modelIds = new int[len];
 			for (int id = 0; id < len; id++) {
 				modelIds[id] = buffer.getUShort();
-				if (modelIds[id] == 65535) {
+				if (modelIds[id] == 0xffff) {
 					modelIds[id] = -1;
 				}
 			}
 		} else if (code == 2) {
-			this.name = buffer.getJagexString();
+			name = buffer.getJagexString();
 		} else if (code == 12) {
-			this.size = buffer.getUByte();
+			size = buffer.getUByte();
 		} else if (code >= 30 && code < 35) {
-			this.options[code - 30] = buffer.getJagexString();
-			if (this.options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-				this.options[code - 30] = null;
+			options[code - 30] = buffer.getJagexString();
+			if (options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+				options[code - 30] = null;
 			}
 		} else if (code == 40) {
 			final int len = buffer.getUByte();
@@ -163,65 +147,65 @@ final class NpcType {
 				headModelIds[id] = buffer.getUShort();
 			}
 		} else if (code == 93) {
-			this.displayOnMinimap = false;
+			displayOnMinimap = false;
 		} else if (code == 95) {
-			this.combatLevel = buffer.getUShort();
+			combatLevel = buffer.getUShort();
 		} else if (code == 97) {
 			resizeX = buffer.getUShort();
 		} else if (code == 98) {
 			resizeY = buffer.getUShort();
 		} else if (code == 99) {
-			this.render = true;
+			render = true;
 		} else if (code == 100) {
 			ambient = buffer.getByte();
 		} else if (code == 101) {
 			contrast = buffer.getByte() * 5;
 		} else if (code == 102) {
-			this.headIcon = buffer.getUShort();
+			headIcon = buffer.getUShort();
 		} else if (code == 103) {
-			this.anInt1672 = buffer.getUShort();
+			anInt1672 = buffer.getUShort();
 		} else if (code == 106 || code == 118) {
 			varbitId = buffer.getUShort();
 			int i_13_ = -1;
-			if (varbitId == 65535) {
+			if (varbitId == 0xffff) {
 				varbitId = -1;
 			}
 			varpId = buffer.getUShort();
-			if (varpId == 65535) {
+			if (varpId == 0xffff) {
 				varpId = -1;
 			}
 			if (code == 118) {
 				i_13_ = buffer.getUShort();
-				if (i_13_ == 65535) {
+				if (i_13_ == 0xffff) {
 					i_13_ = -1;
 				}
 			}
 			final int len = buffer.getUByte();
-			this.childrenIDs = new int[len + 2];
+			transmogrificationIds = new int[len + 2];
 			for (int id = 0; id <= len; id++) {
-				this.childrenIDs[id] = buffer.getUShort();
-				if (this.childrenIDs[id] == 65535) {
-					this.childrenIDs[id] = -1;
+				transmogrificationIds[id] = buffer.getUShort();
+				if (transmogrificationIds[id] == 0xffff) {
+					transmogrificationIds[id] = -1;
 				}
 			}
-			this.childrenIDs[len + 1] = i_13_;
+			transmogrificationIds[len + 1] = i_13_;
 		} else if (code == 107) {
-			this.canRightClick = false;
+			canRightClick = false;
 		} else if (code == 109) {
-			this.aBoolean1701 = false;
+			aBoolean1701 = false;
 		} else if (code == 111) {
-			this.aBoolean1653 = false;
+			hasShadow = false;
 		} else if (code == 113) {
-			this.aShort1683 = (short) buffer.getUShort();
-			this.aShort1662 = (short) buffer.getUShort();
+			aShort1683 = (short) buffer.getUShort();
+			aShort1662 = (short) buffer.getUShort();
 		} else if (code == 114) {
-			this.aByte1694 = buffer.getByte();
-			this.aByte1699 = buffer.getByte();
+			aByte1694 = buffer.getByte();
+			aByte1699 = buffer.getByte();
 		} else if (code == 115) {
 			buffer.getUByte();
 			buffer.getUByte();
 		} else if (code == 119) {
-			this.aByte1700 = buffer.getByte();
+			aByte1700 = buffer.getByte();
 		} else if (code == 121) {
 			anIntArrayArray1670 = new int[modelIds.length][];
 			final int i_20_ = buffer.getUByte();
@@ -233,51 +217,51 @@ final class NpcType {
 				is[2] = buffer.getByte();
 			}
 		} else if (code == 122) {
-			this.anInt1666 = buffer.getUShort();
+			anInt1666 = buffer.getUShort();
 		} else if (code == 123) {
-			this.iconHeight = buffer.getUShort();
+			iconHeight = buffer.getUShort();
 		} else if (code == 125) {
-			this.aByte1652 = buffer.getByte();
+			aByte1652 = buffer.getByte();
 		} else if (code == 127) {
-			this.anInt1692 = buffer.getUShort();
+			anInt1692 = buffer.getUShort();
 		} else if (code == 128) {
 			buffer.getUByte();
 		} else if (code == 134) {
-			this.anInt1681 = buffer.getUShort();
-			if (this.anInt1681 == 65535) {
-				this.anInt1681 = -1;
+			anInt1681 = buffer.getUShort();
+			if (anInt1681 == 65535) {
+				anInt1681 = -1;
 			}
-			this.anInt1657 = buffer.getUShort();
-			if (this.anInt1657 == 65535) {
-				this.anInt1657 = -1;
+			anInt1657 = buffer.getUShort();
+			if (anInt1657 == 65535) {
+				anInt1657 = -1;
 			}
-			this.anInt1682 = buffer.getUShort();
-			if (this.anInt1682 == 65535) {
-				this.anInt1682 = -1;
+			anInt1682 = buffer.getUShort();
+			if (anInt1682 == 65535) {
+				anInt1682 = -1;
 			}
-			this.anInt1676 = buffer.getUShort();
-			if (this.anInt1676 == 65535) {
-				this.anInt1676 = -1;
+			anInt1676 = buffer.getUShort();
+			if (anInt1676 == 65535) {
+				anInt1676 = -1;
 			}
-			this.ambientSoundHearDistance = buffer.getUByte();
+			ambientSoundHearDistance = buffer.getUByte();
 		} else if (code == 135) {
-			this.cursor1op = buffer.getUByte();
-			this.cursor1 = buffer.getUShort();
+			cursor1op = buffer.getUByte();
+			cursor1 = buffer.getUShort();
 		} else if (code == 136) {
-			this.cursor2op = buffer.getUByte();
-			this.cursor2 = buffer.getUShort();
+			cursor2op = buffer.getUByte();
+			cursor2 = buffer.getUShort();
 		} else if (code == 137) {
-			this.anInt1668 = buffer.getUShort();
+			anInt1668 = buffer.getUShort();
 		} else if (code == 140) {
-			this.ambientSoundVolume = buffer.getUByte();
+			ambientSoundVolume = buffer.getUByte();
 		} else if (code == 141) {
-			this.aBoolean1656 = true;
+			aBoolean1656 = true;
 		} else if (code == 142) {
-			this.mapFunctionId = buffer.getUShort();
+			mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
-			this.options[code - 150] = buffer.getJagexString();
-			if (!Class140.npcMemberClient || this.options[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.aString3244)) {
-				this.options[code - 150] = null;
+			options[code - 150] = buffer.getJagexString();
+			if (!Class140.npcMemberClient || options[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+				options[code - 150] = null;
 			}
 		} else if (code == 249) {
 			final int i_16_ = buffer.getUByte();
@@ -300,15 +284,15 @@ final class NpcType {
 	}
 
 	final boolean hasAmbientSound() {
-		if (this.childrenIDs == null) {
+		if (this.transmogrificationIds == null) {
 			if (this.anInt1681 == -1 && this.anInt1682 == -1 && this.anInt1676 == -1) {
 				return false;
 			}
 			return true;
 		}
-		for (int id = 0; id < this.childrenIDs.length; id++) {
-			if (this.childrenIDs[id] != -1) {
-				final NpcType npcType = list(this.childrenIDs[id]);
+		for (int id = 0; id < this.transmogrificationIds.length; id++) {
+			if (this.transmogrificationIds[id] != -1) {
+				final NpcType npcType = list(this.transmogrificationIds[id]);
 				if (npcType.anInt1681 != -1 || npcType.anInt1682 != -1 || npcType.anInt1676 != -1) {
 					return true;
 				}
@@ -338,10 +322,6 @@ final class NpcType {
 		}
 	}
 
-	static final void method2208(final js5 js5) {
-		Class49.aClass50_440 = js5;
-	}
-
 	final NpcType handleVarp() {
 		int value = -1;
 		if (varbitId != -1) {
@@ -349,18 +329,18 @@ final class NpcType {
 		} else if (varpId != -1) {
 			value = Class2.permanentVariable[varpId];
 		}
-		if (value < 0 || value >= -1 + this.childrenIDs.length || this.childrenIDs[value] == -1) {
-			final int newId = this.childrenIDs[this.childrenIDs.length - 1];
+		if (value < 0 || value >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[value] == -1) {
+			final int newId = this.transmogrificationIds[this.transmogrificationIds.length - 1];
 			if (newId == -1) {
 				return null;
 			}
 			return list(newId);
 		}
-		return list(this.childrenIDs[value]);
+		return list(this.transmogrificationIds[value]);
 	}
 
 	final AbstractModelRenderer method2210(final SeqType seqType, final int i, final int i_39_, final int i_40_) {
-		if (this.childrenIDs != null) {
+		if (this.transmogrificationIds != null) {
 			final NpcType class170_41_ = handleVarp();
 			if (class170_41_ == null) {
 				return null;
@@ -423,7 +403,7 @@ final class NpcType {
 	}
 
 	final AbstractModelRenderer method2212(final int i, final int i_47_, final SeqType seqType, final SeqType class40_49_, final int i_50_, final Class150[] class150s, final int i_51_, final int i_52_, final int i_53_) {
-		if (this.childrenIDs != null) {
+		if (this.transmogrificationIds != null) {
 			final NpcType class170_54_ = handleVarp();
 			if (class170_54_ == null) {
 				return null;
@@ -469,12 +449,12 @@ final class NpcType {
 						if (anIntArrayArray1659[i_58_] == null) {
 							final int[] is = anIntArrayArray1659[i_58_] = new int[15];
 							if (i_60_ != 0 || i_63_ != 0 || i_64_ != 0) {
-								final int i_65_ = Rasterizer.cosineTable[i_60_] >> 1;
-								final int i_66_ = Rasterizer.sineTable[i_60_] >> 1;
-								final int i_67_ = Rasterizer.cosineTable[i_63_] >> 1;
-								final int i_68_ = Rasterizer.sineTable[i_63_] >> 1;
-								final int i_69_ = Rasterizer.cosineTable[i_64_] >> 1;
-								final int i_70_ = Rasterizer.sineTable[i_64_] >> 1;
+								final int i_65_ = Rasterizer.cosTable[i_60_] >> 1;
+								final int i_66_ = Rasterizer.sinTable[i_60_] >> 1;
+								final int i_67_ = Rasterizer.cosTable[i_63_] >> 1;
+								final int i_68_ = Rasterizer.sinTable[i_63_] >> 1;
+								final int i_69_ = Rasterizer.cosTable[i_64_] >> 1;
+								final int i_70_ = Rasterizer.sinTable[i_64_] >> 1;
 								final int i_71_ = 16384 + i_69_ * i_66_ >> 15;
 								is[8] = i_67_ * i_65_ - -16384 >> 15;
 								is[5] = -i_66_;
@@ -500,7 +480,7 @@ final class NpcType {
 							is[9] = i_59_;
 						}
 						if (i_60_ != 0 || i_63_ != 0 || i_64_ != 0) {
-							class180_sub2s[i_58_].method2293(i_60_, i_63_, i_64_);
+							class180_sub2s[i_58_].rotate(i_60_, i_63_, i_64_);
 						}
 						if (i_59_ != 0 || i_62_ != 0 || i_61_ != 0) {
 							class180_sub2s[i_58_].translate(i_59_, i_62_, i_61_);
@@ -676,7 +656,7 @@ final class NpcType {
 	static final void setMembersClient3(final boolean bool) {
 		if (Class140.npcMemberClient != bool) {
 			Class140.npcMemberClient = bool;
-			NodeCache.method297();
+			NodeCache.clearNpcCache();
 		}
 	}
 
@@ -696,7 +676,7 @@ final class NpcType {
 	}
 
 	public NpcType() {
-		this.aBoolean1653 = true;
+		this.hasShadow = true;
 		this.anInt1657 = -1;
 		this.anInt1681 = -1;
 		this.headIcon = -1;

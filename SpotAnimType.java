@@ -123,36 +123,36 @@ final class SpotAnimType {
 										class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 									}
 								}
-								if (class120_sub18.aClass186_2639 != null) {
-									if (class120_sub18.aClass186_2639.aClass180_1901 instanceof HDModelRenderer) {
-										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass186_2639.aClass180_1901;
-										if ((class120_sub18.aClass186_2639.bitPacked & ~0x7fffffffffffffffL) != 0L) {
+								if (class120_sub18.wallDecoration != null) {
+									if (class120_sub18.wallDecoration.aClass180_1901 instanceof HDModelRenderer) {
+										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.wallDecoration.aClass180_1901;
+										if ((class120_sub18.wallDecoration.bitPacked & ~0x7fffffffffffffffL) != 0L) {
 											class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 										} else {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										}
 									}
-									if (class120_sub18.aClass186_2639.aClass180_1898 instanceof HDModelRenderer) {
-										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass186_2639.aClass180_1898;
-										if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass186_2639.bitPacked)) {
+									if (class120_sub18.wallDecoration.aClass180_1898 instanceof HDModelRenderer) {
+										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.wallDecoration.aClass180_1898;
+										if (0L == (~0x7fffffffffffffffL & class120_sub18.wallDecoration.bitPacked)) {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										} else {
 											class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 										}
 									}
 								}
-								if (class120_sub18.aClass182_2628 != null) {
-									if (class120_sub18.aClass182_2628.aClass180_1800 instanceof HDModelRenderer) {
-										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass182_2628.aClass180_1800;
-										if ((~0x7fffffffffffffffL & class120_sub18.aClass182_2628.bitPacked) == 0L) {
+								if (class120_sub18.wallLocation != null) {
+									if (class120_sub18.wallLocation.aClass180_1800 instanceof HDModelRenderer) {
+										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.wallLocation.aClass180_1800;
+										if ((~0x7fffffffffffffffL & class120_sub18.wallLocation.bitPackedUid) == 0L) {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										} else {
 											class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 										}
 									}
-									if (class120_sub18.aClass182_2628.aClass180_1796 instanceof HDModelRenderer) {
-										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass182_2628.aClass180_1796;
-										if (-1L != (class120_sub18.aClass182_2628.bitPacked & ~0x7fffffffffffffffL ^ 0xffffffffffffffffL)) {
+									if (class120_sub18.wallLocation.aClass180_1796 instanceof HDModelRenderer) {
+										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.wallLocation.aClass180_1796;
+										if (-1L != (class120_sub18.wallLocation.bitPackedUid & ~0x7fffffffffffffffL ^ 0xffffffffffffffffL)) {
 											class180_sub7_sub2.method2432(true, true, true, true, true, true, true);
 										} else {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
@@ -191,21 +191,21 @@ final class SpotAnimType {
 	final AbstractModelRenderer constructModel(final int nextFrame, final int delay, final int frame) {
 		AbstractModelRenderer cachedModel = (AbstractModelRenderer) modelCache.get(this.myId);
 		if (cachedModel == null) {
-			final Model class180_sub2 = Model.get(Class90.aClass50_843, modelId, 0);
-			if (class180_sub2 == null) {
+			final Model model = Model.get(Class90.aClass50_843, modelId, 0);
+			if (model == null) {
 				return null;
 			}
 			if (recolorOriginal != null) {
-				for (int i_20_ = 0; i_20_ < recolorOriginal.length; i_20_++) {
-					class180_sub2.recolor(recolorOriginal[i_20_], recolorModified[i_20_]);
+				for (int id = 0; id < recolorOriginal.length; id++) {
+					model.recolor(recolorOriginal[id], recolorModified[id]);
 				}
 			}
 			if (retextureOriginal != null) {
-				for (int i_21_ = 0; retextureOriginal.length > i_21_; i_21_++) {
-					class180_sub2.retexture(retextureOriginal[i_21_], retextureModified[i_21_]);
+				for (int id = 0; retextureOriginal.length > id; id++) {
+					model.retexture(retextureOriginal[id], retextureModified[id]);
 				}
 			}
-			cachedModel = class180_sub2.toRenderer(ambient + 64, 850 + contrast, -30, -50, -30);
+			cachedModel = model.toRenderer(ambient + 64, contrast + 850, -30, -50, -30);
 			modelCache.put(cachedModel, this.myId);
 		}
 		AbstractModelRenderer transformedModel;

@@ -3,15 +3,13 @@
  */
 
 final class Class71 {
-	static String aString624 = "wave:";
 	static int anInt625;
-	static String aString626 = "Please wait...";
 	static int[] anIntArray627 = new int[14];
 
 	public static void method638() {
-		aString624 = null;
+		TextRepository.aString624 = null;
 		anIntArray627 = null;
-		aString626 = null;
+		TextRepository.aString626 = null;
 	}
 
 	static final byte[] unpack(final byte[] is) {

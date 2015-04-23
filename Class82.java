@@ -11,8 +11,6 @@ final class Class82 implements Runnable {
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
 	static AbstractIndexedSprite[] aClass107Array785;
-	static String aString787 = "Face here";
-
 	static final void addKeyboard(final Component component) {
 		final Method method = Signlink.traversalKeyMethod;
 		if (method != null) {
@@ -91,10 +89,10 @@ final class Class82 implements Runnable {
 			Class173.worldMapPointerWidth = (int) (width * 2 / WorldMapHandler.currentZoom);
 			GroundObjectNode.worldMapPointerHeight = (int) (height * 2 / WorldMapHandler.currentZoom);
 			GroundTile.worldMapLookAtY = (int) (height / WorldMapHandler.currentZoom) - Class169.anInt1646;
-			ParamType.worldMapLookAtX = ParticleManager.anInt2336 - (int) (width / WorldMapHandler.currentZoom);
-			final int i_8_ = -(int) (width / WorldMapHandler.currentZoom) + ParticleManager.anInt2336;
+			ParamType.worldMapLookAtX = ParticleEmitter.anInt2336 - (int) (width / WorldMapHandler.currentZoom);
+			final int i_8_ = -(int) (width / WorldMapHandler.currentZoom) + ParticleEmitter.anInt2336;
 			final int i_9_ = Class169.anInt1646 - (int) (height / WorldMapHandler.currentZoom);
-			final int i_10_ = (int) (width / WorldMapHandler.currentZoom) + ParticleManager.anInt2336;
+			final int i_10_ = (int) (width / WorldMapHandler.currentZoom) + ParticleEmitter.anInt2336;
 			final int i_11_ = (int) (height / WorldMapHandler.currentZoom) + Class169.anInt1646;
 			if (!HDToolkit.glEnabled) {
 				WorldMapHandler.method683(i_8_, i_9_, i_10_, i_11_, drawX, drawY, width + drawX, 1 + height + drawY);
@@ -111,7 +109,7 @@ final class Class82 implements Runnable {
 				WorldMapHandler.method685();
 				final Deque deque = WorldMapHandler.method679();//gather mapfunctions
 				Class101_Sub1.method842(deque, drawX, drawY);//draw mapfunctions
-				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.method1608();//flip vertical
+				Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.flipVertical();//flip vertical
 				GraphicsHD.drawPixels(Class101_Sub3.aClass120_Sub14_Sub19_Sub2_2290.pixels, drawX, drawY, width, height);//drawPixels
 				GraphicsLD.pixels = null;
 			}
@@ -150,12 +148,12 @@ final class Class82 implements Runnable {
 	static final void method713(final int i, int i_16_, int i_17_, final int i_18_, final boolean bool) {
 		try {
 			if (bool) {
-				aString787 = null;
+				TextRepository.faceHere = null;
 			}
 			if (Class32.anInt260 <= i && ParamType.anInt3544 >= i) {
 				i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, IdentityKit.anInt1334);
 				i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, IdentityKit.anInt1334);
-				ParticleManager.method939(i, i_18_, i_17_, (byte) -30, i_16_);
+				ParticleEmitter.method939(i, i_18_, i_17_, (byte) -30, i_16_);
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("im.C(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(bool).append(')').toString());
@@ -166,7 +164,7 @@ final class Class82 implements Runnable {
 		try {
 			MapFunctionType.spriteCache = null;
 			aClass107Array785 = null;
-			aString787 = null;
+			TextRepository.faceHere = null;
 			aClass88_783 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("im.F(").append(i).append(')').toString());
@@ -190,7 +188,7 @@ final class Class82 implements Runnable {
 			}
 		}
 		for (int id = 0; id < Class148.localNpcCount; id++) {
-			final Npc npc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id]];
+			final Npc npc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[id]];
 			if (npc != null) {
 				npc.hasMenuAction = false;
 			}

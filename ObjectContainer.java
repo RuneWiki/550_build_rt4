@@ -4,7 +4,6 @@
 
 final class ObjectContainer extends Node {
 	static int anInt2612 = 0;
-	static String aString2614 = "glow3:";
 	static int anInt2615 = 0;
 	static int anInt2616;
 	static int canvasRefreshCycle = 500;
@@ -29,7 +28,7 @@ final class ObjectContainer extends Node {
 	}
 
 	public static void method1666() {
-		aString2614 = null;
+		TextRepository.aString2614 = null;
 		objectContainerCache = null;
 		defaultEntityRenderData = null;
 	}
@@ -134,5 +133,29 @@ final class ObjectContainer extends Node {
 		}
 		freeSpaces += InvType.list(type).size - objectContainer.objectIds.length;
 		return freeSpaces;
+	}
+
+	static final int getTotalParam(final int paramId, final int type, final boolean multiplyByCount) {
+		final ObjectContainer objectContainer = (ObjectContainer) objectContainerCache.get(type);
+		if (objectContainer == null) {
+			return 0;
+		}
+		int value = 0;
+		for (int id = 0; id < objectContainer.objectIds.length; id++) {
+			if (objectContainer.objectIds[id] >= 0 && Node.objCount > objectContainer.objectIds[id]) {
+				final ObjType objType = ObjType.list(objectContainer.objectIds[id]);
+				if (objType.params != null) {
+					final IntegerNode integerNode = (IntegerNode) objType.params.get(paramId);
+					if (integerNode != null) {
+						if (!multiplyByCount) {
+							value += integerNode.value;
+						} else {
+							value += integerNode.value * objectContainer.objectCounts[id];
+						}
+					}
+				}
+			}
+		}
+		return value;
 	}
 }

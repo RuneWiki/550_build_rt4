@@ -13,16 +13,10 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 	int anInt3662;
 	int anInt3663;
 	int anInt3664;
-	static String aString3665;
-	static int anInt3666 = 0;
 	int anInt3667;
 
-	static {
-		aString3665 = "Loading sprites - ";
-	}
-
 	public static void method1646() {
-		aString3665 = null;
+		TextRepository.aString3665 = null;
 		aCRC32_3658 = null;
 	}
 
@@ -49,7 +43,7 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 			}
 		}
 		for (int id = 0; id < Class148.localNpcCount; id++) {
-			final int index = Class120_Sub12_Sub36.localNpcIndices[id];
+			final int index = Class120_Sub12_Sub36.npcIndices[id];
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			if (npc != null && npc.textCycle > 0) {
 				npc.textCycle--;

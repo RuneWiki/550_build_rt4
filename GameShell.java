@@ -40,40 +40,40 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	abstract void mainLoop();
 
-	static final void method31(final int i_0_) {
-		if (i_0_ >= 0) {
-			final int i_1_ = Class120_Sub12_Sub7.menuOptionsData2[i_0_];
-			final int i_2_ = Class120_Sub29.menuOptionsData3[i_0_];
-			final int i_3_ = (int) Class120_Sub12.menuOptionsData1[i_0_];
-			int i_4_ = Class120_Sub29.menuOptionsCode[i_0_];
-			final long l = Class120_Sub12.menuOptionsData1[i_0_];
-			if (i_4_ >= 2000) {
-				i_4_ -= 2000;
+	static final void method31(final int option) {
+		if (option >= 0) {
+			final int data1 = (int) Class120_Sub12.menuOptionsData1[option];
+			final int data2 = Class120_Sub12_Sub7.menuOptionsData2[option];
+			final int data3 = Class120_Sub29.menuOptionsData3[option];
+			int code = Class120_Sub29.menuOptionsCode[option];
+			final long data1AsLong = Class120_Sub12.menuOptionsData1[option];
+			if (code >= 2000) {
+				code -= 2000;
 			}
-			if (i_4_ == 24) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 24) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
-					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 17) {
+			if (code == 17) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(95);
-				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-				Class120_Sub12_Sub11.outputStream.putInt2(i_2_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
+				Class120_Sub12_Sub11.outputStream.putShort(data1);
+				Class120_Sub12_Sub11.outputStream.putInt2(data3);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 33) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 33) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
@@ -82,89 +82,89 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(160);
 					Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.heldKeys[82] ? 0 : 1);
 					Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
-					Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putShort(ParticleManager.selectedObjSlot);
+					Class120_Sub12_Sub11.outputStream.putLEShort(data1);
+					Class120_Sub12_Sub11.outputStream.putShort(ParticleEmitter.selectedObjSlot);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(ProjectileNode.selectedObjId);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 40) {
+			if (code == 40) {
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub14_Sub22.crossState = 2;
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(134);
 				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (l >>> 32));
-				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + i_2_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
-				SpotAnimationNode.method1437(i_2_, l, i_1_);
+				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (data1AsLong >>> 32));
+				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
+				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
-			if (i_4_ == 46) {
+			if (code == 46) {
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub14_Sub22.crossState = 2;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(227);
-				Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
+				Class120_Sub12_Sub11.outputStream.putShort(data2 + GameEntity.currentBaseX);
 				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
-			if (i_4_ == 21) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 21) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(123);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putInt(PlainTile.selectedObjInterface);
-					Class120_Sub12_Sub11.outputStream.putShortA(ParticleManager.selectedObjSlot);
+					Class120_Sub12_Sub11.outputStream.putShortA(ParticleEmitter.selectedObjSlot);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(ProjectileNode.selectedObjId);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 1004) {
+			if (code == 1004) {
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub14_Sub22.crossState = 2;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(72);
-				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+				Class120_Sub12_Sub11.outputStream.putShort(data1);
 			}
-			if (i_4_ == 19) {//Cast spell on scene
-				if (i_3_ == 0) {//From minimap
+			if (code == 19) {//Cast spell on scene
+				if (data1 == 0) {//From minimap
 					MapFunctionNode.anInt3479 = 1;
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
-				} else if (i_3_ == 1) {//From game screen
+					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
+				} else if (data1 == 1) {//From game screen
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
-					Class120_Sub12_Sub11.outputStream.putShortA(i_2_ + Class181.currentBaseZ);
-					Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.anInt420);
+					Class120_Sub12_Sub11.outputStream.putShortA(data3 + Class181.currentBaseZ);
+					Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-					Class120_Sub12_Sub11.outputStream.putLEShort(i_1_ + GameEntity.currentBaseX);
+					Class120_Sub12_Sub11.outputStream.putLEShort(data2 + GameEntity.currentBaseX);
 				}
 			}
-			if (i_4_ == 28) {
+			if (code == 28) {
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub14_Sub22.crossState = 2;
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(119);
 				Class120_Sub12_Sub11.outputStream.putInt2(PlainTile.selectedObjInterface);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putShortA(ProjectileNode.selectedObjId);
-				Class120_Sub12_Sub11.outputStream.putLEShort(ParticleManager.selectedObjSlot);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + i_1_);
+				Class120_Sub12_Sub11.outputStream.putLEShort(ParticleEmitter.selectedObjSlot);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+				Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + data2);
 				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
-			if (i_4_ == 36) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 36) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
@@ -172,12 +172,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(37);
 					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 12) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 12) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -185,438 +185,438 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(4);
 					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
-					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					Class120_Sub12_Sub11.outputStream.putShortA(data1);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 10) {
+			if (code == 10) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(102);
-				Class120_Sub12_Sub11.outputStream.putInt(i_2_);
-				Class120_Sub12_Sub11.outputStream.putShortA(i_1_);
-				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+				Class120_Sub12_Sub11.outputStream.putInt(data3);
+				Class120_Sub12_Sub11.outputStream.putShortA(data2);
+				Class120_Sub12_Sub11.outputStream.putShort(data1);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 25) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 25) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(33);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 1007) {
+			if (code == 1007) {
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub14_Sub22.crossState = 2;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(176);
-				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+				Class120_Sub12_Sub11.outputStream.putShort(data1);
 			}
-			if (i_4_ == 4) {
+			if (code == 4) {
 				Class120_Sub14_Sub22.crossState = 2;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(89);
-				Class120_Sub12_Sub11.outputStream.putShort((int) (l >>> 32) & 0x7fffffff);
+				Class120_Sub12_Sub11.outputStream.putShort((int) (data1AsLong >>> 32) & 0x7fffffff);
 				Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + i_1_);
-				Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
+				Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
+				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-				SpotAnimationNode.method1437(i_2_, l, i_1_);
+				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
-			if (i_4_ == 6) {
+			if (code == 6) {
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub14_Sub22.crossState = 2;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(232);
-				Class120_Sub12_Sub11.outputStream.putLEShort(i_2_ - -Class181.currentBaseZ);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data3 - -Class181.currentBaseZ);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-				Class120_Sub12_Sub11.outputStream.putLEShort(i_1_ + GameEntity.currentBaseX);
-				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data2 + GameEntity.currentBaseX);
+				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
-			if (i_4_ == 42) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 42) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(155);
-					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
-					Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
+					Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 31) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 31) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
-					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 47) {
-				if (i_3_ == 0) {
+			if (code == 47) {
+				if (data1 == 0) {
 					Class120_Sub12_Sub33.anInt3401 = 1;
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
+					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
 				} else if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX - -i_1_);
-					Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ - -i_2_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX - -data2);
+					Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ - -data3);
 				} else {
-					ParticleNode.tele(GameEntity.currentBaseX + i_1_, Class181.currentBaseZ + i_2_, Class173.gameLevel);
+					ParticleNode.tele(GameEntity.currentBaseX + data2, Class181.currentBaseZ + data3, Class173.gameLevel);
 				}
 			}
-			if (i_4_ == 59) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 59) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(53);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 51) {
+			if (code == 51) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(88);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+				Class120_Sub12_Sub11.outputStream.putInt1(data3);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 13) {
+			if (code == 13) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(242);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+				Class120_Sub12_Sub11.outputStream.putInt1(data3);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 3 && Class156.aClass189_1454 == null) {
-				JagexInterface.method2499(i_1_, i_2_);
-				Class156.aClass189_1454 = JagexInterface.getComponent(i_2_, i_1_);
+			if (code == 3 && Class156.aClass189_1454 == null) {
+				JagexInterface.method2499(data2, data3);
+				Class156.aClass189_1454 = JagexInterface.getComponent(data3, data2);
 				InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
 			}
-			if (i_4_ == 1) {
+			if (code == 1) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(40);
-				Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
-				Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
-				Class120_Sub12_Sub11.outputStream.putLEShort(i_1_);
+				Class120_Sub12_Sub11.outputStream.putInt1(data3);
+				Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.selectedSpellComponextIndex);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 				Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 			}
-			if (i_4_ == 29) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 29) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(148);
-					Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
+					Class120_Sub12_Sub11.outputStream.putShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 11) {
+			if (code == 11) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
-				Class120_Sub12_Sub11.outputStream.putInt(i_2_);
-				final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+				Class120_Sub12_Sub11.outputStream.putInt(data3);
+				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 				if (jagexInterface.cs1opcodes != null && jagexInterface.cs1opcodes[0][0] == 5) {
 					final int i_5_ = jagexInterface.cs1opcodes[0][1];
 					if (jagexInterface.requiredValues[0] != Class2.permanentVariable[i_5_]) {
 						Class2.permanentVariable[i_5_] = jagexInterface.requiredValues[0];
-						Class120_Sub14_Sub15.method1554(i_5_);
+						Class120_Sub14_Sub15.postVarpChange(i_5_);
 					}
 				}
 			}
-			if (i_4_ == 32) {
+			if (code == 32) {
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub14_Sub22.crossState = 2;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(159);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data2 - -GameEntity.currentBaseX);
+				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-				Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
-				SpotAnimationNode.method1437(i_2_, l, i_1_);
+				Class120_Sub12_Sub11.outputStream.putLEShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
+				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
-			if (i_4_ == 39) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+			if (code == 39) {
+				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 				if (class180_sub5_sub2 != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(245);
-					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 				}
 			}
-			if (i_4_ == 15) {
+			if (code == 15) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(58);
-				Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-				Class120_Sub12_Sub11.outputStream.putInt2(i_2_);
-				Class120_Sub12_Sub11.outputStream.putShort(ParticleManager.selectedObjSlot);
-				Class120_Sub12_Sub11.outputStream.putShort(i_1_);
+				Class120_Sub12_Sub11.outputStream.putShort(data1);
+				Class120_Sub12_Sub11.outputStream.putInt2(data3);
+				Class120_Sub12_Sub11.outputStream.putShort(ParticleEmitter.selectedObjSlot);
+				Class120_Sub12_Sub11.outputStream.putShort(data2);
 				Class120_Sub12_Sub11.outputStream.putShortA(ProjectileNode.selectedObjId);
 				Class120_Sub12_Sub11.outputStream.putInt2(PlainTile.selectedObjInterface);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 57) {
-				final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+			if (code == 57) {
+				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 				boolean bool = true;
 				if (jagexInterface.clientCode > 0) {
 					bool = IntegerNode.method1833(jagexInterface);
 				}
 				if (bool) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
-					Class120_Sub12_Sub11.outputStream.putInt(i_2_);
+					Class120_Sub12_Sub11.outputStream.putInt(data3);
 				}
 			}
-			if (i_4_ == 30) {
+			if (code == 30) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(81);
-				Class120_Sub12_Sub11.outputStream.putLEShort(i_1_);
-				Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-				Class120_Sub12_Sub11.outputStream.putLEInt(i_2_);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data2);
+				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+				Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-				Huffman.anInt1204 = i_1_;
+				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				Huffman.anInt1204 = data2;
 			}
-			if (i_4_ == 14) {
-				final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+			if (code == 14) {
+				final Player class180_sub5_sub1 = Class118.playersList[data1];
 				if (class180_sub5_sub1 != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
-					Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
+					Class120_Sub12_Sub11.outputStream.putLEShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 				}
 			}
-			if (i_4_ == 26) {
-				if (i_3_ != 0) {
-					if (i_3_ == 1) {
+			if (code == 26) {
+				if (data1 != 0) {
+					if (data1 == 1) {
 						if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
-							Class53_Sub1.method464(1, i_1_, i_2_);
-							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.anInt457);// 1
-							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.anInt2219);// 2
+							Class53_Sub1.method464(1, data2, data3);
+							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.minimapClickX);// 1
+							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.minimapClickY);// 2
 							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.aFloat28);// 4
 							Class120_Sub12_Sub11.outputStream.putByte(57);// 5
-							Class120_Sub12_Sub11.outputStream.putByte(Class164.minimapRandomRotation);// 6
-							Class120_Sub12_Sub11.outputStream.putByte(Class154.minimapRandomZoom);// 7
+							Class120_Sub12_Sub11.outputStream.putByte(69);// 6 deleted
+							Class120_Sub12_Sub11.outputStream.putByte(68);// 7 deleted
 							Class120_Sub12_Sub11.outputStream.putByte(89);// 8
 							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.x);// 10
 							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.z);// 12
-							Class120_Sub12_Sub11.outputStream.putByte(Class101_Sub2.anInt2276);// 13
+							Class120_Sub12_Sub11.outputStream.putByte(0);// 13
 							Class120_Sub12_Sub11.outputStream.putByte(63);// 14
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 						} else {
-							ParticleNode.tele(i_1_ + GameEntity.currentBaseX, i_2_ + Class181.currentBaseZ, Class173.gameLevel);
+							ParticleNode.tele(data2 + GameEntity.currentBaseX, data3 + Class181.currentBaseZ, Class173.gameLevel);
 						}
 					}
 				} else {
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, i_1_, i_2_);
+					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
 				}
 			}
-			if (i_4_ == 9) {
+			if (code == 9) {
 				Node.deselectSpell();
-				final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
-				ParticleManager.selectedObjSlot = i_1_;
+				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
+				ParticleEmitter.selectedObjSlot = data2;
 				Light.objSelected = 1;
-				PlainTile.selectedObjInterface = i_2_;
-				ProjectileNode.selectedObjId = i_3_;
+				PlainTile.selectedObjInterface = data3;
+				ProjectileNode.selectedObjId = data1;
 				InterfaceClickMask.redrawInterface(jagexInterface);
-				Class192.selectedObjName = "<col=ff9040>" + ObjType.list(i_3_).name + "<col=ffffff>";
+				Class192.selectedObjName = "<col=ff9040>" + ObjType.list(data1).name + "<col=ffffff>";
 				if (Class192.selectedObjName == null) {
 					Class192.selectedObjName = "null";
 				}
 			} else {
-				if (i_4_ == 1012 || i_4_ == 1002 || i_4_ == 1008 || i_4_ == 1003 || i_4_ == 1011) {
-					Class38.method313(i_3_, i_4_, i_1_);
+				if (code == 1012 || code == 1002 || code == 1008 || code == 1003 || code == 1011) {
+					Class38.method313(data1, code, data2);
 				}
-				if (i_4_ == 48) {
+				if (code == 48) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(28);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(i_2_ + Class181.currentBaseZ);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data3 + Class181.currentBaseZ);
 					Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
-					Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-					Class120_Sub12_Sub11.outputStream.putLEShort(i_1_ - -GameEntity.currentBaseX);
+					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
+					Class120_Sub12_Sub11.outputStream.putShort(data1);
+					Class120_Sub12_Sub11.outputStream.putLEShort(data2 - -GameEntity.currentBaseX);
 					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 				}
-				if (i_4_ == 5) {
-					final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+				if (code == 5) {
+					final Player class180_sub5_sub1 = Class118.playersList[data1];
 					if (class180_sub5_sub1 != null) {
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(224);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.anInt420);
+						Class120_Sub12_Sub11.outputStream.putShortA(data1);
+						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.selectedSpellComponextIndex);
 						Class120_Sub12_Sub11.outputStream.putLEInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 					}
 				}
-				if (i_4_ == 37) {
+				if (code == 37) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(48);
-					Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
-					Class120_Sub12_Sub11.outputStream.putShortA((int) (l >>> 32) & 0x7fffffff);
+					Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + data2);
+					Class120_Sub12_Sub11.outputStream.putShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + i_2_);
-					SpotAnimationNode.method1437(i_2_, l, i_1_);
+					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+					SpotAnimationNode.method1437(data3, data1AsLong, data2);
 				}
-				if (i_4_ == 34) {
-					final JagexInterface jagexInterface = JagexInterface.getComponent(i_2_, i_1_);
+				if (code == 34) {
+					final JagexInterface jagexInterface = JagexInterface.getComponent(data3, data2);
 					if (jagexInterface != null) {
 						Node.deselectSpell();
 						final InterfaceClickMask interfaceClickMask = client.getClickMask(jagexInterface);
-						MouseRecorder.selectSpell(interfaceClickMask.method1685(), interfaceClickMask.paramId, jagexInterface.cursorId, i_1_, jagexInterface.targetCursorId, i_2_);
+						MouseRecorder.selectSpell(interfaceClickMask.method1685(), interfaceClickMask.paramId, jagexInterface.cursorId, data2, jagexInterface.targetCursorId, data3);
 						Light.objSelected = 0;
-						Class101.aString963 = Class33.method277(jagexInterface);
-						if (Class101.aString963 == null) {
-							Class101.aString963 = "Null";
+						Class101.selectedSpellPrefix = Class33.getSpellPrefix(jagexInterface);
+						if (Class101.selectedSpellPrefix == null) {
+							Class101.selectedSpellPrefix = "Null";
 						}
-						if (!jagexInterface.newFormat) {
-							Light.aString369 = new StringBuilder("<col=00ff00>").append(jagexInterface.spellNameoi).append("<col=ffffff>").toString();
+						if (jagexInterface.newFormat) {
+							Light.selectedSpellName = jagexInterface.spellNameni + "<col=ffffff>";
 						} else {
-							Light.aString369 = new StringBuilder(jagexInterface.spellNameni).append("<col=ffffff>").toString();
+							Light.selectedSpellName = "<col=00ff00>" + jagexInterface.spellNameoi + "<col=ffffff>";
 						}
 					}
 				} else {
-					if (i_4_ == 49) {
+					if (code == 49) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(145);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_1_);
-						Class120_Sub12_Sub11.outputStream.putInt2(i_2_);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.putShortA(data2);
+						Class120_Sub12_Sub11.outputStream.putInt2(data3);
+						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 58) {
+					if (code == 58) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(214);
-						Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
-						Class120_Sub12_Sub11.outputStream.putInt(i_2_);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
+						Class120_Sub12_Sub11.outputStream.putShortA(data1);
+						Class120_Sub12_Sub11.outputStream.putInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 8) {
-						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+					if (code == 8) {
+						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 						if (class180_sub5_sub2 != null) {
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(12);
-							Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
+							Class120_Sub12_Sub11.outputStream.putLEShort(data1);
 							Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), i_1_);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
 						}
 					}
-					if (i_4_ == 35) {
+					if (code == 35) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(103);
-						Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
-						Class120_Sub12_Sub11.outputStream.putLEShort(i_1_);
-						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+						Class120_Sub12_Sub11.outputStream.putInt1(data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
+						Class120_Sub12_Sub11.outputStream.putShort(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 43) {
-						final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+					if (code == 43) {
+						final Player class180_sub5_sub1 = Class118.playersList[data1];
 						if (class180_sub5_sub1 != null) {
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
-							Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
+							Class120_Sub12_Sub11.outputStream.putShortA(data1);
 							Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 						}
 					}
-					if (i_4_ == 16) {
+					if (code == 16) {
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(116);
-						Class120_Sub12_Sub11.outputStream.putShort(ParticleManager.selectedObjSlot);
-						Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_ - -GameEntity.currentBaseX);
-						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (l >>> 32) & 0x7fffffff);
+						Class120_Sub12_Sub11.outputStream.putShort(ParticleEmitter.selectedObjSlot);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(data2 - -GameEntity.currentBaseX);
+						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
 						Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.heldKeys[82] ? 0 : 1);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
+						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
 						Class120_Sub12_Sub11.outputStream.putLEShort(ProjectileNode.selectedObjId);
-						SpotAnimationNode.method1437(i_2_, l, i_1_);
+						SpotAnimationNode.method1437(data3, data1AsLong, data2);
 					}
-					if (i_4_ == 44) {
+					if (code == 44) {
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(3);
 						Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
-						Class120_Sub12_Sub11.outputStream.putLEShort(i_3_);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_1_ + GameEntity.currentBaseX);
-						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(data1);
+						Class120_Sub12_Sub11.outputStream.putShortA(data2 + GameEntity.currentBaseX);
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 					}
-					if (i_4_ == 23 || i_4_ == 1009) {
+					if (code == 23 || code == 1009) {
 						//23 are 0-4 actions
 						//1009 are 5-9 actions.
-						Class120_Sub14_Sub22.method1629(i_2_, i_1_, i_3_, Class120_Sub12_Sub29.menuOptionSufix[i_0_]);
+						Class120_Sub14_Sub22.method1629(data3, data2, data1, Class120_Sub12_Sub29.menuOptionSuffix[option]);
 					}
-					if (i_4_ == 1010) {
+					if (code == 1010) {
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub14_Sub22.crossState = 2;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
-						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
 						if (class180_sub5_sub2 != null) {
 							NpcType npcType = class180_sub5_sub2.npcType;
-							if (npcType.childrenIDs != null) {
+							if (npcType.transmogrificationIds != null) {
 								npcType = npcType.handleVarp();
 							}
 							if (npcType != null) {
@@ -625,76 +625,76 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							}
 						}
 					}
-					if (i_4_ == 7) {
+					if (code == 7) {
 						Class90.removeOverridedInterfaces();
 					}
-					if (i_4_ == 1005) {
+					if (code == 1005) {
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(60);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_2_ + Class181.currentBaseZ);
-						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
+						Class120_Sub12_Sub11.outputStream.putShortA(data3 + Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.putLEShort((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + i_1_);
-						SpotAnimationNode.method1437(i_2_, l, i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + data2);
+						SpotAnimationNode.method1437(data3, data1AsLong, data2);
 					}
-					if (i_4_ == 41) {
+					if (code == 41) {
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(92);
 						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort((int) (l >>> 32) & 0x7fffffff);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_1_ + GameEntity.currentBaseX);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_2_ - -Class181.currentBaseZ);
-						SpotAnimationNode.method1437(i_2_, l, i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShort((int) (data1AsLong >>> 32) & 0x7fffffff);
+						Class120_Sub12_Sub11.outputStream.putShortA(data2 + GameEntity.currentBaseX);
+						Class120_Sub12_Sub11.outputStream.putShortA(data3 - -Class181.currentBaseZ);
+						SpotAnimationNode.method1437(data3, data1AsLong, data2);
 					}
-					if (i_4_ == 50) {
+					if (code == 50) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(177);
-						Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
-						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+						Class120_Sub12_Sub11.outputStream.putInt1(data3);
+						Class120_Sub12_Sub11.outputStream.putShort(data1);
 						Class120_Sub12_Sub11.outputStream.putLEInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-						Class120_Sub12_Sub11.outputStream.putLEShort(i_1_);
-						Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.anInt420);
+						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
+						Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 20) {
+					if (code == 20) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(124);
-						Class120_Sub12_Sub11.outputStream.putLEShortA(i_1_);
-						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.outputStream.putLEInt(i_2_);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+						Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 2) {
+					if (code == 2) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(205);
-						Class120_Sub12_Sub11.outputStream.putInt1(i_2_);
-						Class120_Sub12_Sub11.outputStream.putLEShort(i_1_);
-						Class120_Sub12_Sub11.outputStream.putShortA(i_3_);
+						Class120_Sub12_Sub11.outputStream.putInt1(data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
+						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 45) {
+					if (code == 45) {
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(54);
 						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + i_2_);
-						Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-						Class120_Sub12_Sub11.outputStream.putShort(i_1_ + GameEntity.currentBaseX);
-						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
+						Class120_Sub12_Sub11.outputStream.putShort(data1);
+						Class120_Sub12_Sub11.outputStream.putShort(data2 + GameEntity.currentBaseX);
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 					}
-					if (i_4_ == 22) {
-						final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+					if (code == 22) {
+						final Player class180_sub5_sub1 = Class118.playersList[data1];
 						if (class180_sub5_sub1 != null) {
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub14_Sub22.crossState = 2;
@@ -702,12 +702,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
 							Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.heldKeys[82] ? 0 : 1);
-							Class120_Sub12_Sub11.outputStream.putShort(i_3_);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+							Class120_Sub12_Sub11.outputStream.putShort(data1);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 						}
 					}
-					if (i_4_ == 60) {
-						final Player class180_sub5_sub1 = Class118.playersList[i_3_];
+					if (code == 60) {
+						final Player class180_sub5_sub1 = Class118.playersList[data1];
 						if (class180_sub5_sub1 != null) {
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub7.crossIndex = 0;
@@ -715,43 +715,43 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(223);
 							Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-							Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), i_1_);
+							Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
 						}
 					}
-					if (i_4_ == 1001) {
-						final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
-						if (jagexInterface == null || 100000 > jagexInterface.objAmounts[i_1_]) {
+					if (code == 1001) {
+						final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
+						if (jagexInterface == null || 100000 > jagexInterface.objAmounts[data2]) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(72);
-							Class120_Sub12_Sub11.outputStream.putShort(i_3_);
+							Class120_Sub12_Sub11.outputStream.putShort(data1);
 						} else {
-							AbstractRequest.method1540("", 0, new StringBuilder(String.valueOf(jagexInterface.objAmounts[i_1_])).append(" x ").append(ObjType.list(i_3_).name).toString());
+							AbstractRequest.pushMessage(new StringBuilder(String.valueOf(jagexInterface.objAmounts[data2])).append(" x ").append(ObjType.list(data1).name).toString(), "", 0);
 						}
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(i_2_);
-						Huffman.anInt1204 = i_1_;
+						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						Huffman.anInt1204 = data2;
 					}
-					if (i_4_ == 18) {
+					if (code == 18) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
-						Class120_Sub12_Sub11.outputStream.putInt(i_2_);
-						final JagexInterface jagexInterface = Class74.getJagexInterface(i_2_);
+						Class120_Sub12_Sub11.outputStream.putInt(data3);
+						final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 						if (jagexInterface.cs1opcodes != null && jagexInterface.cs1opcodes[0][0] == 5) {
 							final int i_6_ = jagexInterface.cs1opcodes[0][1];
 							Class2.permanentVariable[i_6_] = -Class2.permanentVariable[i_6_] + 1;
-							Class120_Sub14_Sub15.method1554(i_6_);
+							Class120_Sub14_Sub15.postVarpChange(i_6_);
 						}
 					}
-					if (i_4_ == 38) {
+					if (code == 38) {
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub14_Sub22.crossState = 2;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(8);
-						Class120_Sub12_Sub11.outputStream.putLEShortA(i_3_);
-						Class120_Sub12_Sub11.outputStream.putShort(i_2_ + Class181.currentBaseZ);
-						Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + i_1_);
+						Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
+						Class120_Sub12_Sub11.outputStream.putShort(data3 + Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + data2);
 						Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_2_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_1_);
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 					}
 					if (Light.objSelected != 0) {
 						Light.objSelected = 0;
@@ -769,7 +769,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	static final void method32(final boolean bool) {
-		Class61.aBoolean566 = bool;
+		client.aBoolean566 = bool;
 		Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 	}
 
@@ -801,9 +801,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	static final void constructSprites(final js5 js5) {
 		Class69_Sub2.aClass120_Sub14_Sub19Array2238 = Class125.constructTransparentSprites(js5, AmbientSound.hitmarksId, 0);
 		SeqType.aClass120_Sub14_Sub19Array335 = Class125.constructTransparentSprites(js5, Class120_Sub12_Sub25.hitbardefaultId, 0);
-		Class54.aClass120_Sub14_Sub19Array490 = Class125.constructTransparentSprites(js5, Class120_Sub14_Sub15.headiconspkId, 0);
+		Class54.pkIconSprites = Class125.constructTransparentSprites(js5, Class120_Sub14_Sub15.headiconspkId, 0);
 		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, MasterIndexInfo.headiconsprayerId, 0);
-		AnimatedLocation.aClass120_Sub14_Sub19Array3073 = Class125.constructTransparentSprites(js5, Class120_Sub21.hintheadiconsId, 0);
+		AnimatedLocation.hintHeadIconsSprites = Class125.constructTransparentSprites(js5, Class120_Sub21.hintheadiconsId, 0);
 		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = Class125.constructTransparentSprites(js5, Class173.hintmapmarkersId, 0);
 		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, Class169.mapflagId, 0);
 		Class120_Sub12_Sub30.crossSprites = Class167.constructSprites(js5, Class132_Sub2.crossId, 0);
@@ -890,9 +890,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		Node.canvas.setVisible(true);
 		if (Class112.frame == container) {
 			final Insets insets = Class112.frame.getInsets();
-			Node.canvas.setLocation(insets.left + ReflectionCheckNode.leftMargin, Class186.topMargin + insets.top);
+			Node.canvas.setLocation(insets.left + ReflectionCheckNode.leftMargin, WallDecoration.topMargin + insets.top);
 		} else {
-			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
+			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, WallDecoration.topMargin);
 		}
 		Node.canvas.addFocusListener(this);
 		Node.canvas.requestFocus();
@@ -1007,9 +1007,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Node.canvas.setVisible(true);
 			if (Class112.frame != null && Class120_Sub14_Sub10.fullscreenFrame == null) {
 				final Insets insets = Class112.frame.getInsets();
-				Node.canvas.setLocation(insets.left + ReflectionCheckNode.leftMargin, Class186.topMargin + insets.top);
+				Node.canvas.setLocation(insets.left + ReflectionCheckNode.leftMargin, WallDecoration.topMargin + insets.top);
 			} else {
-				Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
+				Node.canvas.setLocation(ReflectionCheckNode.leftMargin, WallDecoration.topMargin);
 			}
 		}
 		mainRedraw();
@@ -1098,7 +1098,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			}
 			ReflectionCheckNode.leftMargin = 0;
 			Class31.gameApplet = this;
-			Class186.topMargin = 0;
+			WallDecoration.topMargin = 0;
 			Class120_Sub12_Sub7.frameWidth = Class69_Sub1.canvasWidth = width;
 			DisplayModeInfo.revision = i;
 			PlayerAppearance.frameHeight = Class120_Sub12_Sub5.canvasHeight = height;
@@ -1188,7 +1188,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	final void startApplication(final String gameName, final int cacheStoreId, final int revision, final int cacheIndexCount, final int width, final int height) {
 		try {
-			Class186.topMargin = 0;
+			WallDecoration.topMargin = 0;
 			DisplayModeInfo.revision = revision;
 			PlayerAppearance.frameHeight = Class120_Sub12_Sub5.canvasHeight = height;
 			Class120_Sub12_Sub7.frameWidth = Class69_Sub1.canvasWidth = width;

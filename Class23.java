@@ -6,32 +6,28 @@ import java.awt.Font;
 final class Class23 {
 	static int anInt134;
 	static Font loadingFont;
-	static int anInt136;
 	static int anInt137 = 0;
 	static int packetType;
 
 	static {
-		anInt136 = 0;
 		anInt134 = 0;
 		packetType = 0;
 	}
 
-	static final void method200(final int i, final JagexInterface jagexInterface, final int i_0_, final int i_1_, final int i_3_, final AbstractSprite class120_sub14_sub19) {
-		if (class120_sub14_sub19 != null) {
-			final int i_4_ = (int) DummyOutputStream.aFloat28 + Class164.minimapRandomRotation & 0x7ff;
-			final int i_5_ = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
-			final int i_6_ = i_3_ * i_3_ + i_1_ * i_1_;
-			if (i_6_ <= i_5_ * i_5_) {
-				int i_7_ = Rasterizer.sineTable[i_4_];
-				i_7_ = 256 * i_7_ / (Class154.minimapRandomZoom + 256);
-				int i_8_ = Rasterizer.cosineTable[i_4_];
-				i_8_ = 256 * i_8_ / (Class154.minimapRandomZoom + 256);
-				final int i_9_ = i_1_ * i_8_ + i_3_ * i_7_ >> 16;
-				final int i_10_ = i_8_ * i_3_ + -(i_1_ * i_7_) >> 16;
+	static final void drawSpriteOnMinimap(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int iconX, final int iconY, final AbstractSprite abstractSprite) {
+		if (abstractSprite != null) {
+			final int dist = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
+			final int maxDist = iconY * iconY + iconX * iconX;
+			if (maxDist <= dist * dist) {
+				final int rot = (int) DummyOutputStream.aFloat28 & 0x7ff;
+				final int rotSin = Rasterizer.sinTable[rot];
+				final int rotCos = Rasterizer.cosTable[rot];
+				final int posX = iconX * rotCos + iconY * rotSin >> 16;
+				final int posY = iconY * rotCos - iconX * rotSin >> 16;
 				if (!HDToolkit.glEnabled) {
-					((LDSprite) class120_sub14_sub19).method1610(-(class120_sub14_sub19.trimWidth / 2) + i + jagexInterface.width / 2 - -i_9_, -(class120_sub14_sub19.trimHeight / 2) + -i_10_ + jagexInterface.height / 2 + i_0_, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
+					((LDSprite) abstractSprite).method1610(interfaceX + posX + jagexInterface.width / 2 - abstractSprite.trimWidth / 2, interfaceY + jagexInterface.height / 2 - abstractSprite.trimHeight / 2 - posY, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				} else {
-					((HDSprite) class120_sub14_sub19).method1598(-(class120_sub14_sub19.trimWidth / 2) + jagexInterface.width / 2 + i + i_9_, -(class120_sub14_sub19.trimHeight / 2) + -i_10_ + jagexInterface.height / 2 + i_0_, (HDSprite) jagexInterface.constructSpriteFromId(false));
+					((HDSprite) abstractSprite).method1598(interfaceX + posX + jagexInterface.width / 2 - abstractSprite.trimWidth / 2, interfaceY + jagexInterface.height / 2 - abstractSprite.trimHeight / 2 - posY, (HDSprite) jagexInterface.constructSpriteFromId(false));
 				}
 			}
 		}
@@ -86,7 +82,7 @@ final class Class23 {
 			}
 		}
 		if (jagexInterface.clientCode == 1337) {
-			DummyInputStream.aClass189_26 = jagexInterface;
+			DummyInputStream.fixedGameScreenInterface = jagexInterface;
 		}
 		if (activateResizeListener && jagexInterface.onResizeListener != null && (oldWidth != jagexInterface.width || oldHeight != jagexInterface.height)) {
 			final InterfaceListener interfaceListener = new InterfaceListener();

@@ -55,7 +55,7 @@ final class FileSystemRequest extends AbstractRequest {
 
 	static final void method1545(final int size, final boolean bool_3_, final boolean bool_4_) {
 		for (int i_5_ = 0; i_5_ < Class148.localNpcCount; i_5_++) {
-			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_5_]];
+			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[i_5_]];
 			if (class180_sub5_sub2 != null && class180_sub5_sub2.isVisible() && class180_sub5_sub2.npcType.method2199()) {
 				final int npcSize = class180_sub5_sub2.getSize();
 				if (bool_4_) {
@@ -99,8 +99,8 @@ final class FileSystemRequest extends AbstractRequest {
 			}
 		}
 		for (int i_15_ = 0; i_15_ < Class148.localNpcCount; i_15_++) {
-			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_15_]];
-			long l = 0x20000000L | (long) Class120_Sub12_Sub36.localNpcIndices[i_15_] << 32;
+			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[i_15_]];
+			long l = 0x20000000L | (long) Class120_Sub12_Sub36.npcIndices[i_15_] << 32;
 			if (class180_sub5_sub2 != null && class180_sub5_sub2.isVisible() && class180_sub5_sub2.npcType.method2199()) {
 				final int i_16_ = class180_sub5_sub2.getSize();
 				if (bool_4_) {

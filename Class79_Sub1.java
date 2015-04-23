@@ -29,7 +29,7 @@ final class Class79_Sub1 {
 		stringArguments = null;
 	}
 
-	static final long method696(final int x, final int z, final int level) {
+	static final long getGroundDecorationUid(final int x, final int z, final int level) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.groundDecoration == null) {
 			return 0L;

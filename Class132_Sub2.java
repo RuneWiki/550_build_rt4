@@ -97,7 +97,7 @@ class Class132_Sub2 extends Class132 {
 
 	static final void getTitleSpriteIds(final js5 js5) {
 		StructType.titlebgId = js5.getGroupId("titlebg");
-		ParticleManager.logoId = js5.getGroupId("logo");
+		ParticleEmitter.logoId = js5.getGroupId("logo");
 	}
 
 	static final void method1942(final PlainTile plainTile, final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_, final boolean bool) {
@@ -151,7 +151,7 @@ class Class132_Sub2 extends Class132 {
 						final int i_36_ = Rasterizer.anInt970 + (i_27_ << 9) / i_23_;
 						Rasterizer.alpha = 0;
 						if ((i_33_ - i_35_) * (i_32_ - i_36_) - (i_34_ - i_36_) * (i_31_ - i_35_) > 0) {
-							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleManager.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
+							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
 								ObjectCache.anInt122 = i_14_;
 								WaterfallShader.anInt2174 = i_15_;
 							}
@@ -172,12 +172,12 @@ class Class132_Sub2 extends Class132 {
 									}
 								} else {
 									final int i_37_ = Rasterizer.anInterface5_973.method20(plainTile.anInt1348);
-									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, ParticleManager.method935(i_37_, plainTile.anInt1351), ParticleManager.method935(i_37_, plainTile.anInt1353), ParticleManager.method935(i_37_, plainTile.anInt1347));
+									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, ParticleEmitter.method935(i_37_, plainTile.anInt1351), ParticleEmitter.method935(i_37_, plainTile.anInt1353), ParticleEmitter.method935(i_37_, plainTile.anInt1347));
 								}
 							}
 						}
 						if ((i_29_ - i_31_) * (i_36_ - i_32_) - (i_30_ - i_32_) * (i_35_ - i_31_) > 0) {
-							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleManager.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
+							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
 								ObjectCache.anInt122 = i_14_;
 								WaterfallShader.anInt2174 = i_15_;
 							}
@@ -194,7 +194,7 @@ class Class132_Sub2 extends Class132 {
 									Rasterizer.method871(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.anInt1348);
 								} else {
 									final int i_38_ = Rasterizer.anInterface5_973.method20(plainTile.anInt1348);
-									Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, ParticleManager.method935(i_38_, plainTile.anInt1349), ParticleManager.method935(i_38_, plainTile.anInt1347), ParticleManager.method935(i_38_, plainTile.anInt1353));
+									Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, ParticleEmitter.method935(i_38_, plainTile.anInt1349), ParticleEmitter.method935(i_38_, plainTile.anInt1347), ParticleEmitter.method935(i_38_, plainTile.anInt1353));
 								}
 							}
 						}

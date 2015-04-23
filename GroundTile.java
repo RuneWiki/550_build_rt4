@@ -3,13 +3,12 @@
  */
 
 final class GroundTile extends Node {
-	static String aString2622 = "flash1:";
 	byte aByte2623;
 	boolean aBoolean2624;
 	Class28[] aClass28Array2625 = new Class28[5];
 	PlainTile plainTile;
 	static int worldMapLookAtY;
-	Class182 aClass182_2628;
+	WallLocation wallLocation;
 	int anInt2629;
 	static SignlinkNode js5ConnectionNode;
 	boolean aBoolean2631;
@@ -20,7 +19,7 @@ final class GroundTile extends Node {
 	int anInt2636;
 	int anInt2637;
 	int anInt2638;
-	Class186 aClass186_2639;
+	WallDecoration wallDecoration;
 	ShapedTile shapedTile;
 	int[] anIntArray2641 = new int[5];
 	int anInt2642;
@@ -47,34 +46,30 @@ final class GroundTile extends Node {
 	}
 
 	static final void method1668(final SceneGraphNode sceneGraphNode, final int i, final int i_3_, final int i_4_) {
-		if (i_3_ < Class186.anInt1900) {
+		if (i_3_ < WallDecoration.anInt1900) {
 			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, 0, true);
 			}
 		}
-		if (i_4_ < Class186.anInt1900) {
+		if (i_4_ < WallDecoration.anInt1900) {
 			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 0, 0, 128, true);
 			}
 		}
-		if (i_3_ < Class186.anInt1900 && i_4_ < Class120_Sub12_Sub38.anInt3440) {
+		if (i_3_ < WallDecoration.anInt1900 && i_4_ < Class120_Sub12_Sub38.anInt3440) {
 			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, 128, true);
 			}
 		}
-		if (i_3_ < Class186.anInt1900 && i_4_ > 0) {
+		if (i_3_ < WallDecoration.anInt1900 && i_4_ > 0) {
 			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ - 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, -128, true);
 			}
 		}
-	}
-
-	static final void method1669(final int i, final String string, final String string_5_, final String string_6_, final int i_7_) {
-		Class120_Sub16.method1660(string, i_7_, string_5_, i, string_6_);
 	}
 
 	static final int method1670(final int i) {
@@ -89,7 +84,7 @@ final class GroundTile extends Node {
 			spriteYOffsets = null;
 			aClass75_2643 = null;
 			js5ConnectionNode = null;
-			aString2622 = null;
+			TextRepository.aString2622 = null;
 			if (i != 14888) {
 				aClass40Array2649 = null;
 			}

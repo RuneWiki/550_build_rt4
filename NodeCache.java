@@ -20,7 +20,7 @@ final class NodeCache {
 		component.addFocusListener(SpotAnimationNode.mouseHandler);
 	}
 
-	static final void method297() {
+	static final void clearNpcCache() {
 		NpcType.recentUse.clear();
 		NpcType.aClass21_80.clear();
 		Projectile.aClass21_2931.clear();

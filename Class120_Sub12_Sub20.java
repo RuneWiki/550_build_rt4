@@ -169,115 +169,115 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1301(final String string) {
+	static final void execuseCommand(final String command) {
 		if (Class86.staffLevel >= 2) {
-			if (string.equalsIgnoreCase("::gc")) {
+			if (command.equalsIgnoreCase("::gc")) {
 				Class120_Sub12_Sub21.method1311();
 				for (int id = 0; id < 10; id++) {
 					System.gc();
 				}
 				final Runtime runtime = Runtime.getRuntime();
 				final int usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, "mem=" + usedMemory + "k");
+				AbstractRequest.pushMessage("mem=" + usedMemory + "k", null, 0);
 			}
-			if (string.equalsIgnoreCase("::mm")) {
+			if (command.equalsIgnoreCase("::mm")) {
 				/*Class120_Sub12_Sub21.method1311(); //It doesn't make sense if you clean memory then print before cleanup?
 				for (int i_42_ = 0; i_42_ < 10; i_42_++) {
 					System.gc();
 				}*/
 				final Runtime runtime = Runtime.getRuntime();
 				int usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, "Memory before cleanup=" + usedMemory + "k");
+				AbstractRequest.pushMessage("Memory before cleanup=" + usedMemory + "k", null, 0);
 				SpotAnimType.method880();
 				Class120_Sub12_Sub21.method1311();
 				for (int i_44_ = 0; i_44_ < 10; i_44_++) {
 					System.gc();
 				}
 				usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
-				AbstractRequest.method1540(null, 0, "Memory after cleanup=" + usedMemory + "k");
+				AbstractRequest.pushMessage("Memory after cleanup=" + usedMemory + "k", null, 0);
 			}
-			if (string.equalsIgnoreCase("::pcachesize")) {
-				AbstractRequest.method1540(null, 0, "Number of player models in cache:" + Class48.getPlayersCacheSize());
+			if (command.equalsIgnoreCase("::pcachesize")) {
+				AbstractRequest.pushMessage("Number of player models in cache:" + Class48.getPlayersCacheSize(), null, 0);
 			}
-			if (HDToolkit.glEnabled && string.equalsIgnoreCase("::cardmem")) {
+			if (HDToolkit.glEnabled && command.equalsIgnoreCase("::cardmem")) {
 				System.out.println("oncard_geometry:" + MemoryManager.geometryMemory);
 				System.out.println("oncard_2d:" + MemoryManager.memory2d);
 				System.out.println("oncard_texture:" + MemoryManager.textureMemory);
 			}
-			if (string.equalsIgnoreCase("::clientdrop")) {
+			if (command.equalsIgnoreCase("::clientdrop")) {
 				TileParticleQueue.dropClient();
 			}
-			if (string.equalsIgnoreCase("::clientjs5drop")) {
+			if (command.equalsIgnoreCase("::clientjs5drop")) {
 				Class178.js5Worker.closeConnection();
 			}
-			if (string.equalsIgnoreCase("::serverjs5drop")) {
+			if (command.equalsIgnoreCase("::serverjs5drop")) {
 				Class178.js5Worker.sendDropConnection();
 			}
-			if (string.equalsIgnoreCase("::breakcon")) {
+			if (command.equalsIgnoreCase("::breakcon")) {
 				NpcType.gameSignlink.method1963(5000);
 				AbstractTimer.worldConnection.replaceStreamsWithDummy();
 				Class178.js5Worker.replaceStreamsWithDummy();
 			}
-			if (string.equalsIgnoreCase("::replacecanvas")) {
+			if (command.equalsIgnoreCase("::replacecanvas")) {
 				LongNode.canvasReplaceRecommended = true;
 			}
-			if (string.equalsIgnoreCase("::rebuild")) {
+			if (command.equalsIgnoreCase("::rebuild")) {
 				ProjectileNode.setGameState(25);
 			}
-			if (string.equalsIgnoreCase("::fpson")) {
+			if (command.equalsIgnoreCase("::fpson")) {
 				HintIcon.showFps = true;
 			}
-			if (string.equalsIgnoreCase("::fpsoff")) {
+			if (command.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
 			}
-			if (string.equalsIgnoreCase("::wm0")) {
+			if (command.equalsIgnoreCase("::wm0")) {
 				AbstractSprite.changeDisplayMode(0, -1, -1, false);
 			}
-			if (string.equalsIgnoreCase("::wm1")) {
+			if (command.equalsIgnoreCase("::wm1")) {
 				AbstractSprite.changeDisplayMode(1, -1, -1, false);
 			}
-			if (string.equalsIgnoreCase("::wm2")) {
+			if (command.equalsIgnoreCase("::wm2")) {
 				AbstractSprite.changeDisplayMode(2, -1, -1, false);
 			}
-			if (string.equalsIgnoreCase("::wm3")) {
+			if (command.equalsIgnoreCase("::wm3")) {
 				AbstractSprite.changeDisplayMode(3, 1024, 768, false);
 			}
-			if (string.startsWith("::setba")) {
-				Class140.anInt1343 = Class31.stringToBase10(string.substring(8));
+			if (command.startsWith("::setba")) {
+				Class140.anInt1343 = Class31.stringToBase10(command.substring(8));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
 				MapFunctionNode.aBoolean3471 = false;
 			}
-			if (string.startsWith("::setparticles")) {
-				ParticleEngine.setParticles(Class31.stringToBase10(string.substring(15)));
+			if (command.startsWith("::setparticles")) {
+				ParticleEngine.setParticles(Class31.stringToBase10(command.substring(15)));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
 				MapFunctionNode.aBoolean3471 = false;
 			}
-			if (string.startsWith("::fps ")) {
-				Class190.method2506(Class31.stringToBase10(string.substring(6)));
+			if (command.startsWith("::fps ")) {
+				Class190.method2506(Class31.stringToBase10(command.substring(6)));
 			}
-			if (string.equalsIgnoreCase("::errortest")) {
+			if (command.equalsIgnoreCase("::errortest")) {
 				throw new RuntimeException();
 			}
-			if (string.startsWith("::rect_debug")) {
-				Class15.rectDebugType = Class31.stringToBase10(string.substring(12).trim());
-				AbstractRequest.method1540(null, 0, "rect_debug=" + Class15.rectDebugType);
+			if (command.startsWith("::rect_debug")) {
+				Class15.rectDebugType = Class31.stringToBase10(command.substring(12).trim());
+				AbstractRequest.pushMessage("rect_debug=" + Class15.rectDebugType, null, 0);
 			}
-			if (string.equalsIgnoreCase("::qa_op_test")) {
+			if (command.equalsIgnoreCase("::qa_op_test")) {
 				Class120_Sub30_Sub1.qaOpTestEnabled = true;
 			}
-			if (string.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleManager.setHdr(!Class34.method290())) {
-				AbstractRequest.method1540(null, 0, "Failed to enable hdr");
+			if (command.startsWith("::hdr") && HDToolkit.glEnabled && !ParticleEmitter.setHdr(!Class34.method290())) {
+				AbstractRequest.pushMessage("Failed to enable hdr", null, 0);
 			}
-			if (string.equalsIgnoreCase("::tween")) {
+			if (command.equalsIgnoreCase("::tween")) {
 				if (Class164.forceTween) {
 					Class164.forceTween = false;
-					AbstractRequest.method1540(null, 0, "Forced tweening disabled.");
+					AbstractRequest.pushMessage("Forced tweening disabled.", null, 0);
 				} else {
 					Class164.forceTween = true;
-					AbstractRequest.method1540(null, 0, "Forced tweening ENABLED!");
+					AbstractRequest.pushMessage("Forced tweening ENABLED!", null, 0);
 				}
 			}
-			if (string.equalsIgnoreCase("::shiftclick")) {
+			if (command.equalsIgnoreCase("::shiftclick")) {
 				if (SpotAnimationNode.aBoolean3470) {
 					System.out.println("Shift-click disabled.");
 					SpotAnimationNode.aBoolean3470 = false;
@@ -286,16 +286,16 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 					SpotAnimationNode.aBoolean3470 = true;
 				}
 			}
-			if (string.equalsIgnoreCase("::getcgcoord")) {
-				AbstractRequest.method1540(null, 0, new StringBuilder("x:").append(TileParticleQueue.selfPlayer.x >> 7).append(" z:").append(TileParticleQueue.selfPlayer.z >> 7).append(" groundh:").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]).toString());
+			if (command.equalsIgnoreCase("::getcgcoord")) {
+				AbstractRequest.pushMessage("x:" + (TileParticleQueue.selfPlayer.x >> 7) + " z:" + (TileParticleQueue.selfPlayer.z >> 7) + " groundh:" + OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
-			if (string.equalsIgnoreCase("::getheight")) {
-				AbstractRequest.method1540(null, 0, new StringBuilder("Height: ").append(OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]).toString());
+			if (command.equalsIgnoreCase("::getheight")) {
+				AbstractRequest.pushMessage("Height: " + OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
 		}
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(216);
-		Class120_Sub12_Sub11.outputStream.putByte(string.length() - 1);
-		Class120_Sub12_Sub11.outputStream.putJagexString(string.substring(2));
+		Class120_Sub12_Sub11.outputStream.putByte(command.length() - 1);
+		Class120_Sub12_Sub11.outputStream.putJagexString(command.substring(2));
 	}
 
 	@Override
@@ -328,7 +328,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	static final void method1302(final int level, final int x, final int z) {
 		Class120_Sub12_Sub7.aBoolean3181 = true;
 		Projectile.anInt2933 = level;
-		ParticleManager.anInt2320 = x;
+		ParticleEmitter.anInt2320 = x;
 		Class187.anInt1908 = z;
 		ObjectCache.anInt122 = -1;
 		WaterfallShader.anInt2174 = -1;

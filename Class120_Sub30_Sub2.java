@@ -5,7 +5,7 @@
 final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	private final int[] anIntArray3677 = new int[16];
 	int[] anIntArray3678;
-	static String aString3679 = "Loading - please wait.";
+	static String loadingPleaseWait = "Loading - please wait.";
 	private final int[] anIntArray3680;
 	private final int[] anIntArray3681;
 	private final int[] anIntArray3682;
@@ -297,7 +297,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 			if (class120_sub6 != null) {
 				aClass120_Sub6ArrayArray3700[i_33_][i_32_] = null;
 				if (i != -199) {
-					aString3679 = null;
+					loadingPleaseWait = null;
 				}
 				if ((0x2 & this.anIntArray3692[i_33_]) != 0) {
 					for (Class120_Sub6 class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getFront(); class120_sub6_34_ != null; class120_sub6_34_ = (Class120_Sub6) aClass120_Sub30_Sub1_3707.aClass105_3669.getNext()) {
@@ -459,7 +459,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 						if (i_52_ < 64) {
 							this.anIntArray3692[i_51_] = Class120_Sub12_Sub3.method1207(this.anIntArray3692[i_51_], -2);
 						} else {
-							this.anIntArray3692[i_51_] = Class191.method2512(this.anIntArray3692[i_51_], 1);
+							this.anIntArray3692[i_51_] |= 0x1;
 						}
 					}
 					if (i_50_ == 65) {
@@ -467,7 +467,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 							method1751(i_51_, (byte) -117);
 							this.anIntArray3692[i_51_] = Class120_Sub12_Sub3.method1207(this.anIntArray3692[i_51_], -3);
 						} else {
-							this.anIntArray3692[i_51_] = Class191.method2512(this.anIntArray3692[i_51_], 2);
+							this.anIntArray3692[i_51_] |= 0x2;
 						}
 					}
 					if (i_50_ == 99) {
@@ -514,7 +514,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 							method1750((byte) 93, i_51_);
 							this.anIntArray3692[i_51_] = Class120_Sub12_Sub3.method1207(this.anIntArray3692[i_51_], -5);
 						} else {
-							this.anIntArray3692[i_51_] = Class191.method2512(this.anIntArray3692[i_51_], 4);
+							this.anIntArray3692[i_51_] |= 0x4;
 						}
 					}
 					if (i_50_ == 17) {
@@ -922,15 +922,11 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	public static void method1776(final int i) {
 		try {
 			if (i == 16990) {
-				aString3679 = null;
+				loadingPleaseWait = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ld.JA(").append(i).append(')').toString());
 		}
-	}
-
-	static final void method1777(final js5 js5) {
-		Class69.aClass50_619 = js5;
 	}
 
 	final synchronized void method1778() {

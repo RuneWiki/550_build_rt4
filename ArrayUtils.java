@@ -1,7 +1,7 @@
 /* Class4 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-
+//http://en.wikipedia.org/wiki/Duff%27s_device
 final class ArrayUtils {
 	static final void fillArray(final short[] is, int i, int i_0_, final short i_1_) {
 		i_0_ = i + i_0_ - 7;

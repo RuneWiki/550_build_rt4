@@ -95,7 +95,7 @@ final class Projectile extends SceneGraphNode {
 		Class120_Sub12_Sub36.anIntArrayArrayArray3420 = new int[4][13][13];
 		FileSystemRequest.anIntArrayArray3933 = new int[104][104];
 		for (int i_10_ = 0; i_10_ < 4; i_10_++) {
-			Class182.collisionMaps[i_10_] = new CollisionMap(104, 104);
+			WallLocation.collisionMaps[i_10_] = new CollisionMap(104, 104);
 		}
 		Class114.tileSettings = new byte[4][104][104];
 		Class9.aByteArrayArrayArray70 = new byte[4][104][104];
@@ -176,7 +176,7 @@ final class Projectile extends SceneGraphNode {
 		if (class180_sub7_17_ == null) {
 			return null;
 		}
-		class180_sub7_17_.method2377(anInt2927);
+		class180_sub7_17_.rotateX(anInt2927);
 		return class180_sub7_17_;
 	}
 

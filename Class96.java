@@ -37,7 +37,6 @@ final class Class96 {
 	int anInt912;
 	byte[] aByteArray913;
 	byte[] aByteArray914;
-	static String aString915 = "shake:";
 	int anInt916;
 	int anInt917;
 	int anInt918;
@@ -106,7 +105,7 @@ final class Class96 {
 	static final int method788() {
 		try {
 			if (Decimator.anInt1716 == 0) {
-				if (TimeUtil.getSafeTime() - 5000L < ModelParticle.aLong1482) {
+				if (TimeUtil.getSafeTime() - 5000L < ModelParticleEmitter.aLong1482) {
 					return 0;
 				}
 				Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
@@ -158,7 +157,7 @@ final class Class96 {
 				OverridedJInterface.anInt2740 = AbstractTimer.worldConnection.read();
 				OverridedJInterface.anInt2740 <<= 8;
 				OverridedJInterface.anInt2740 += AbstractTimer.worldConnection.read();
-				Class39.aByteArray324 = new byte[OverridedJInterface.anInt2740];
+				client.aByteArray324 = new byte[OverridedJInterface.anInt2740];
 				Class132_Sub1.anInt2816 = 0;
 				Decimator.anInt1716 = 3;
 			}
@@ -172,12 +171,12 @@ final class Class96 {
 			if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
 				i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
 			}
-			AbstractTimer.worldConnection.read(Class39.aByteArray324, Class132_Sub1.anInt2816, i_40_);
+			AbstractTimer.worldConnection.read(client.aByteArray324, Class132_Sub1.anInt2816, i_40_);
 			Class132_Sub1.anInt2816 += i_40_;
 			if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
 				return -1;
 			}
-			if (!Class54.method477(Class39.aByteArray324)) {
+			if (!Class54.method477(client.aByteArray324)) {
 				return DummyOutputStream.method72(1002);
 			}
 			int i_41_ = 0;
@@ -189,11 +188,11 @@ final class Class96 {
 				}
 			}
 			AbstractTimer.worldConnection.close();
-			Class39.aByteArray324 = null;
+			client.aByteArray324 = null;
 			Decimator.anInt1716 = 0;
 			OverridedJInterface.anInt2742 = 0;
 			AbstractTimer.worldConnection = null;
-			ModelParticle.aLong1482 = TimeUtil.getSafeTime();
+			ModelParticleEmitter.aLong1482 = TimeUtil.getSafeTime();
 			return 0;
 		} catch (final IOException ioexception) {
 			return DummyOutputStream.method72(1003);
@@ -222,7 +221,7 @@ final class Class96 {
 	}
 
 	public static void method790() {
-		aString915 = null;
+		TextRepository.aString915 = null;
 		aClass35_901 = null;
 	}
 

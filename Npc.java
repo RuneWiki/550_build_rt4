@@ -5,7 +5,6 @@
 final class Npc extends GameEntity {
 	static Hashtable playerAmbientSounds = new Hashtable(16);
 	NpcType npcType;
-	static String aString3752;
 	static js5 aClass50_3753;
 	static byte[][][] aByteArrayArrayArray3754;
 
@@ -33,10 +32,10 @@ final class Npc extends GameEntity {
 			if (class180_sub7 != null) {
 				this.maxY = class180_sub7.getMaxY();
 				NpcType npcType = this.npcType;
-				if (npcType.childrenIDs != null) {
+				if (npcType.transmogrificationIds != null) {
 					npcType = npcType.handleVarp();
 				}
-				if (Class120_Sub6.characterShadowsOn && npcType.aBoolean1653) {
+				if (Class120_Sub6.characterShadowsOn && npcType.hasShadow) {
 					final AbstractModelRenderer class180_sub7_9_ = Class32.constructShadowModel(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.idleAnimCurrentFrame : this.animCurrentFrame, this.y, this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
 					if (HDToolkit.glEnabled) {
 						final float f = HDToolkit.method534();
@@ -60,10 +59,10 @@ final class Npc extends GameEntity {
 						class180_sub7_11_.translate(0, -this.spotAnimHeight, 0);
 						if (spotAnimType.aBoolean989) {
 							if (MouseHandler.anInt1140 != 0) {
-								class180_sub7_11_.method2377(MouseHandler.anInt1140);
+								class180_sub7_11_.rotateX(MouseHandler.anInt1140);
 							}
 							if (Class159.anInt1488 != 0) {
-								class180_sub7_11_.method2362(Class159.anInt1488);
+								class180_sub7_11_.rotateZ(Class159.anInt1488);
 							}
 							if (Class93.anInt867 != 0) {
 								class180_sub7_11_.translate(0, Class93.anInt867, 0);
@@ -73,7 +72,7 @@ final class Npc extends GameEntity {
 				}
 				if (!HDToolkit.glEnabled) {
 					if (class180_sub7_11_ != null) {
-						class180_sub7 = ((LDModelRenderer) class180_sub7).method2392(class180_sub7_11_);
+						class180_sub7 = ((LDModelRenderer) class180_sub7).mergeModel(class180_sub7_11_);
 					}
 					method2337(class180_sub7, class180_sub7_11_);
 					if (this.npcType.size == 1) {
@@ -132,7 +131,7 @@ final class Npc extends GameEntity {
 	}
 
 	public static void method2347() {
-		aString3752 = null;
+		TextRepository.walkText = null;
 		aClass50_3753 = null;
 		playerAmbientSounds = null;
 		aByteArrayArrayArray3754 = null;
@@ -151,14 +150,14 @@ final class Npc extends GameEntity {
 		}
 		i -= (i_18_ - i_22_) / 2;
 		i_19_ -= (-i_21_ + i_17_) / 2;
-		ParticleManager.anInt2336 = WorldMapHandler.mapSizeX * i_19_ / i_21_;
+		ParticleEmitter.anInt2336 = WorldMapHandler.mapSizeX * i_19_ / i_21_;
 		Class169.anInt1646 = WorldMapHandler.mapSizeY * i / i_22_;
 		Class127.fixWorldMapBounds();
 	}
 
 	@Override
 	final int getEntityRenderDataId() {
-		if (this.npcType.childrenIDs != null) {
+		if (this.npcType.transmogrificationIds != null) {
 			final NpcType npcType = this.npcType.handleVarp();
 			if (npcType != null && npcType.anInt1692 != -1) {
 				return npcType.anInt1692;

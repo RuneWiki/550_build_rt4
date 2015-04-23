@@ -19,12 +19,12 @@ final class Class192 {
 	static final void method2515() {
 		Npc.aByteArrayArrayArray3754 = null;
 		Class8.aByteArrayArrayArray65 = null;
-		Class110.anIntArrayArrayArray1050 = null;
+		Class110.tileOccludeFlags = null;
 		CanvasWrapper.anIntArray21 = null;
 		Buffer.anIntArray2477 = null;
-		Class99.aByteArrayArrayArray949 = null;
+		Class99.tileOverlayIds = null;
 		MapFunctionNode.aByteArrayArrayArray3477 = null;
-		Class120_Sub4.aByteArrayArrayArray2441 = null;
+		Class120_Sub4.tileUnderlayIds = null;
 		StringNode.anIntArray2733 = null;
 		PacketBuffer.anIntArray3120 = null;
 		Class120_Sub12_Sub31.anIntArray3383 = null;

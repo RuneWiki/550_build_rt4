@@ -5,7 +5,6 @@
 abstract class AbstractRequest extends NodeSub {
 	boolean aBoolean3573;
 	static Model[] aClass180_Sub2Array3574 = new Model[4];
-	static String aString3575 = "purple:";
 	volatile boolean aBoolean3576 = true;
 	boolean aBoolean3577;
 	static int[] playerOptionsIcon = new int[8];
@@ -19,7 +18,7 @@ abstract class AbstractRequest extends NodeSub {
 				method1542(true);
 			}
 			aClass180_Sub2Array3574 = null;
-			aString3575 = null;
+			TextRepository.aString3575 = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.O(").append(bool).append(')').toString());
 		}
@@ -211,7 +210,7 @@ abstract class AbstractRequest extends NodeSub {
 							if (class191 == null) {
 								class191 = new Class191();
 							}
-							class191.method2510(class120_sub7, -27409);
+							class191.method2510(class120_sub7);
 						} else {
 							throw new IllegalStateException();
 						}
@@ -282,8 +281,8 @@ abstract class AbstractRequest extends NodeSub {
 		return i_57_;
 	}
 
-	static final void method1540(final String string, final int i, final String string_65_) {
-		Class120_Sub16.method1660(string, -1, null, i, string_65_);
+	static final void pushMessage(final String message, final String name, final int type) {
+		Class120_Sub16.pushMessage(message, name, null, type, -1);
 	}
 
 	static final LDIndexedSprite[] constructLDIndexedSprites() {
@@ -322,7 +321,7 @@ abstract class AbstractRequest extends NodeSub {
 							for (int i_80_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_80_; i_80_++) {
 								if (Class120_Sub12_Sub36.anIntArray3417[i_80_] == i_79_ && is_69_[i_80_] != null) {
 									bool_73_ = true;
-									final int[] is_81_ = method1538(i_75_, Class182.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
+									final int[] is_81_ = method1538(i_75_, WallLocation.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, 24, i_70_, bool, i_78_);
 									if (is == null && is_81_ != null) {
 										is = is_81_;
 									}
@@ -339,12 +338,12 @@ abstract class AbstractRequest extends NodeSub {
 		}
 		if (is != null) {
 			PlainTile.anInt1356 = is[3];
-			ModelParticle.anInt1475 = is[0];
+			ModelParticleEmitter.anInt1475 = is[0];
 			Class143_Sub1.anInt2197 = is[2];
 			Class132.anInt1257 = is[4];
 			Class120_Sub12.anInt2560 = is[1];
 		} else {
-			ModelParticle.anInt1475 = -1;
+			ModelParticleEmitter.anInt1475 = -1;
 		}
 	}
 

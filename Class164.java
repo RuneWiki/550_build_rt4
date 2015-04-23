@@ -10,7 +10,7 @@ class Class164 {
 	int[] anIntArray1587;
 	static long serverSessionKey = 0L;
 	private boolean aBoolean1589 = false;
-	static int minimapRandomRotation = 0;
+	static int minimapRandomaRotation = 0;
 	private int anInt1591;
 	private int anInt1592;
 	private int anInt1593;
@@ -194,14 +194,14 @@ class Class164 {
 				}
 			}
 		}
-		if (SceneGraphNode.aClass137_1780 == null) {
-			if (Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 == null || !Class120_Sub12_Sub24.aClass50_3309.method414(new StringBuilder(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName).append("_labels").toString())) {
-				SceneGraphNode.aClass137_1780 = new Class137(0);
-			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete(new StringBuilder(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName).append("_labels").toString())) {
+		if (SceneGraphNode.mapFunctionGroup == null) {
+			if (Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 == null || !Class120_Sub12_Sub24.aClass50_3309.method414(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
+				SceneGraphNode.mapFunctionGroup = new MapFunctionGroup(0);
+			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
 				AbstractBuffer.anInt599++;
 				bool = false;
 			} else {
-				SceneGraphNode.aClass137_1780 = Class54.method478(Class120_Sub12_Sub24.aClass50_3309, new StringBuilder(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName).append("_labels").toString(), Class120_Sub12_Sub37.membersClient);
+				SceneGraphNode.mapFunctionGroup = Class54.createMapFunctionGroup(Class120_Sub12_Sub24.aClass50_3309, Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels", Class120_Sub12_Sub37.membersClient);
 			}
 		}
 		if (!bool) {
@@ -212,13 +212,13 @@ class Class164 {
 			for (int i_8_ = 0; i_8_ < RuntimeException_Sub1.aByteArrayArray2140.length; i_8_++) {
 				byte[] is = Class134.aByteArrayArray1287[i_8_];
 				if (is != null) {
-					int i_9_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_8_] >> 8) - GameEntity.currentBaseX;
-					int i_10_ = -Class181.currentBaseZ + 64 * (0xff & Class120_Sub12_Sub36.anIntArray3417[i_8_]);
+					int x = (Class120_Sub12_Sub36.anIntArray3417[i_8_] >> 8) * 64 - GameEntity.currentBaseX;
+					int z = (Class120_Sub12_Sub36.anIntArray3417[i_8_] & 0xff) * 64 - Class181.currentBaseZ;
 					if (Class134.dynamicMapRegion) {
-						i_10_ = 10;
-						i_9_ = 10;
+						x = 10;
+						z = 10;
 					}
-					bool &= Npc.method2349(i_10_, i_9_, is);
+					bool &= Npc.method2349(z, x, is);
 				}
 				if (HDToolkit.glEnabled) {
 					is = Class101_Sub1.aByteArrayArray2271[i_8_];
@@ -238,7 +238,7 @@ class Class164 {
 			} else {
 				boolean bool_13_ = false;
 				if (Class120_Sub12_Sub28.anInt3361 != 0) {
-					Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(Class120_Sub30_Sub2.aString3679).append("<br>(100%)").toString(), true);
+					Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(Class120_Sub30_Sub2.loadingPleaseWait).append("<br>(100%)").toString(), true);
 				}
 				Class120_Sub2.method1050();
 				Class110.method976();
@@ -252,7 +252,7 @@ class Class164 {
 				}
 				Class3.method84(4, 104, 104, !HDToolkit.glEnabled ? 25 : 28, bool_13_);
 				for (int i_15_ = 0; i_15_ < 4; i_15_++) {
-					Class182.collisionMaps[i_15_].resetFlags();
+					WallLocation.collisionMaps[i_15_].resetFlags();
 				}
 				for (int i_16_ = 0; i_16_ < 4; i_16_++) {
 					for (int i_17_ = 0; i_17_ < 104; i_17_++) {
@@ -305,7 +305,7 @@ class Class164 {
 				}
 				Class110.method976();
 				Class120_Sub12_Sub29.ping(true);
-				Class120_Sub12_Sub28.method1344(Class182.collisionMaps, (byte) 71, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.anIntArrayArrayArray3420 : null, false);
+				Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.anIntArrayArrayArray3420 : null, false);
 				if (HDToolkit.glEnabled) {
 					LightManager.method1869();
 				}
@@ -314,8 +314,8 @@ class Class164 {
 				if (i_25_ > Class173.gameLevel) {
 					i_25_ = Class173.gameLevel;
 				}
-				if (i_25_ < -1 + Class173.gameLevel) {
-					i_25_ = Class173.gameLevel + -1;
+				if (i_25_ < Class173.gameLevel - 1) {
+					i_25_ = Class173.gameLevel - 1;
 				}
 				if (Class143_Sub1.method2021()) {
 					Class5.method98(0);
@@ -338,7 +338,7 @@ class Class164 {
 					}
 					Class110.method976();
 					Class120_Sub12_Sub29.ping(true);
-					Class120_Sub12_Sub28.method1344(Class182.collisionMaps, (byte) 71, !Class134.dynamicMapRegion ? null : Class120_Sub12_Sub36.anIntArrayArrayArray3420, true);
+					Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, !Class134.dynamicMapRegion ? null : Class120_Sub12_Sub36.anIntArrayArrayArray3420, true);
 					Class120_Sub12_Sub29.ping(true);
 					Class192.method2515();
 					Class178.method2257(false);
@@ -389,7 +389,7 @@ class Class164 {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(113);
 					}
 				}
-				Decimator.method2221(false);
+				Decimator.method2221();
 				Class120_Sub2.method1050();
 				Class69.method613();
 			}
@@ -484,31 +484,31 @@ class Class164 {
 		}
 		if (AbstractGraphicsBuffer.mapbackState == 2 || AbstractGraphicsBuffer.mapbackState == 5 || Class134.landscapeAsAbstractSprite == null) {
 			if (HDToolkit.glEnabled) {
-				final AbstractSprite class120_sub14_sub19 = jagexInterface.constructSpriteFromId(false);
-				if (class120_sub14_sub19 != null) {
-					class120_sub14_sub19.method1587(interfaceX, interfaceY);
+				final AbstractSprite abstractSprite = jagexInterface.constructSpriteFromId(false);
+				if (abstractSprite != null) {
+					abstractSprite.drawSprite(interfaceX, interfaceY);
 				}
 			} else {
-				GraphicsLD.method2156(interfaceX, interfaceY, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
+				GraphicsLD.fillPixels(interfaceX, interfaceY, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			}
 		} else {
-			final int i_42_ = (int) (DummyOutputStream.aFloat28 + minimapRandomRotation) & 0x7ff;
-			final int i_43_ = 464 - (TileParticleQueue.selfPlayer.z / 32);
-			final int i_44_ = 48 + (TileParticleQueue.selfPlayer.x / 32);
+			final int rotation = (int) DummyOutputStream.aFloat28 & 0x7ff;
+			final int spriteX = 48 + (TileParticleQueue.selfPlayer.x / 32);
+			final int spriteY = 464 - (TileParticleQueue.selfPlayer.z / 32);
 			if (HDToolkit.glEnabled) {
-				((HDSprite) Class134.landscapeAsAbstractSprite).method1600(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.minimapRandomZoom, (HDSprite) jagexInterface.constructSpriteFromId(false));
+				((HDSprite) Class134.landscapeAsAbstractSprite).method1600(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, spriteX, spriteY, rotation, 256, (HDSprite) jagexInterface.constructSpriteFromId(false));
 			} else {
-				((LDSprite) Class134.landscapeAsAbstractSprite).method1606(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, i_44_, i_43_, i_42_, 256 + Class154.minimapRandomZoom, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
+				((LDSprite) Class134.landscapeAsAbstractSprite).method1606(interfaceX, interfaceY, jagexInterface.width, jagexInterface.height, spriteX, spriteY, rotation, 256, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			}
-			if (SceneGraphNode.aClass137_1780 != null) {
-				for (int i_45_ = 0; i_45_ < SceneGraphNode.aClass137_1780.anInt1325; i_45_++) {
-					if (SceneGraphNode.aClass137_1780.aClass120_Sub14_Sub5Array1324[i_45_] != null && SceneGraphNode.aClass137_1780.anIntArray1322[i_45_] >> 28 == Class173.gameLevel) {
-						final int i_46_ = (SceneGraphNode.aClass137_1780.anIntArray1322[i_45_] >> 14 & 0x3fff) - GameEntity.currentBaseX;
-						final int i_47_ = (SceneGraphNode.aClass137_1780.anIntArray1322[i_45_] & 0x3fff) - Class181.currentBaseZ;
-						if (i_46_ >= 0 && i_46_ < 104 && i_47_ >= 0 && i_47_ < 104) {
-							final int i_48_ = -(TileParticleQueue.selfPlayer.x / 32) + i_46_ * 4 + 2;
-							final int i_49_ = -(TileParticleQueue.selfPlayer.z / 32) + i_47_ * 4 + 2;
-							Js5Request.method1547(jagexInterface, SceneGraphNode.aClass137_1780.aClass120_Sub14_Sub5Array1324[i_45_].id, interfaceX, interfaceY, i_48_, i_49_);
+			if (SceneGraphNode.mapFunctionGroup != null) {
+				for (int id = 0; id < SceneGraphNode.mapFunctionGroup.length; id++) {
+					if (SceneGraphNode.mapFunctionGroup.nodes[id] != null && SceneGraphNode.mapFunctionGroup.coordinates[id] >> 28 == Class173.gameLevel) {
+						final int functionX = (SceneGraphNode.mapFunctionGroup.coordinates[id] >> 14 & 0x3fff) - GameEntity.currentBaseX;
+						final int functionY = (SceneGraphNode.mapFunctionGroup.coordinates[id] & 0x3fff) - Class181.currentBaseZ;
+						if (functionX >= 0 && functionX < 104 && functionY >= 0 && functionY < 104) {
+							final int iconX = functionX * 4 - (TileParticleQueue.selfPlayer.x / 32) + 2;
+							final int iconY = functionY * 4 - (TileParticleQueue.selfPlayer.z / 32) + 2;
+							Js5Request.drawMapFunctionOnMinimap(jagexInterface, SceneGraphNode.mapFunctionGroup.nodes[id].id, interfaceX, interfaceY, iconX, iconY);
 						}
 					}
 				}
@@ -523,7 +523,7 @@ class Class164 {
 						continue;
 					}
 				}
-				Js5Request.method1547(jagexInterface, locType.mapFunctionId, interfaceX, interfaceY, mapFunctionX, mapFunctionY);
+				Js5Request.drawMapFunctionOnMinimap(jagexInterface, locType.mapFunctionId, interfaceX, interfaceY, mapFunctionX, mapFunctionY);
 			}
 			for (int x = 0; x < 104; x++) {
 				for (int z = 0; z < 104; z++) {
@@ -531,24 +531,24 @@ class Class164 {
 					if (deque != null) {
 						final int iconX = (x * 4) - (TileParticleQueue.selfPlayer.x / 32) + 2;
 						final int iconY = (z * 4) - (TileParticleQueue.selfPlayer.z / 32) + 2;
-						Class23.method200(interfaceX, jagexInterface, interfaceY, iconX, iconY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[0]);
+						Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, iconX, iconY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[0]);
 					}
 				}
 			}
 			for (int id = 0; id < Class148.localNpcCount; id++) {
-				final Npc npc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[id]];
+				final Npc npc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[id]];
 				if (npc != null && npc.isVisible()) {
 					NpcType npcType = npc.npcType;
-					if (npcType != null && npcType.childrenIDs != null) {
+					if (npcType != null && npcType.transmogrificationIds != null) {
 						npcType = npcType.handleVarp();
 					}
 					if (npcType != null && npcType.displayOnMinimap && npcType.canRightClick) {
 						final int npcX = (npc.x / 32) - (TileParticleQueue.selfPlayer.x / 32);
 						final int npcY = (npc.z / 32) - (TileParticleQueue.selfPlayer.z / 32);
 						if (npcType.mapFunctionId != -1) {
-							Js5Request.method1547(jagexInterface, npcType.mapFunctionId, interfaceX, interfaceY, npcX, npcY);
+							Js5Request.drawMapFunctionOnMinimap(jagexInterface, npcType.mapFunctionId, interfaceX, interfaceY, npcX, npcY);
 						} else {
-							Class23.method200(interfaceX, jagexInterface, interfaceY, npcX, npcY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[1]);
+							Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, npcX, npcY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[1]);
 						}
 					}
 				}
@@ -578,54 +578,54 @@ class Class164 {
 						isTeam = true;
 					}
 					if (isFriend) {
-						Class23.method200(interfaceX, jagexInterface, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[3]);
+						Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[3]);
 					} else if (isClanM8) {
-						Class23.method200(interfaceX, jagexInterface, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[5]);
-					} else if (!isTeam) {
-						Class23.method200(interfaceX, jagexInterface, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[2]);
+						Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[5]);
+					} else if (isTeam) {
+						Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[4]);
 					} else {
-						Class23.method200(interfaceX, jagexInterface, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[4]);
+						Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, playerX, playerY, Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168[2]);
 					}
 				}
 			}
-			final HintIcon[] hintIcons = Class187.hintIcons;
-			for (int id = 0; id < hintIcons.length; id++) {
-				final HintIcon hintIcon = hintIcons[id];
+			for (final HintIcon hintIcon : Class187.hintIcons) {
 				if (hintIcon != null && hintIcon.targetType != 0 && Class101_Sub2.loopCycle % 20 < 10) {
 					if (hintIcon.targetType == 1 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class120_Sub12_Sub11.npcList.length) {
 						final Npc npc = Class120_Sub12_Sub11.npcList[hintIcon.targetIndex];
 						if (npc != null) {
-							final int npcX = (npc.x / 32) - (TileParticleQueue.selfPlayer.x / 32);
-							final int npcY = (npc.z / 32) - (TileParticleQueue.selfPlayer.z / 32);
-							Class145.method2048(jagexInterface, 360000, interfaceX, npcY, interfaceY, npcX, hintIcon.iconType);
+							final int targetX = npc.x / 32 - TileParticleQueue.selfPlayer.x / 32;
+							final int targetY = npc.z / 32 - TileParticleQueue.selfPlayer.z / 32;
+							Class145.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 						}
 					}
 					if (hintIcon.targetType == 2) {
-						final int i_70_ = -(TileParticleQueue.selfPlayer.z / 32) + 4 * (hintIcon.z - Class181.currentBaseZ) + 2;
-						int i_71_ = 4 * hintIcon.showDistance;
-						final int i_72_ = -(TileParticleQueue.selfPlayer.x / 32) + 4 * (-GameEntity.currentBaseX + hintIcon.x) - -2;
-						i_71_ *= i_71_;
-						Class145.method2048(jagexInterface, i_71_, interfaceX, i_70_, interfaceY, i_72_, hintIcon.iconType);
+						final int targetX = (hintIcon.x - GameEntity.currentBaseX) * 4 - TileParticleQueue.selfPlayer.x / 32 + 2;
+						final int targetY = (hintIcon.z - Class181.currentBaseZ) * 4 - TileParticleQueue.selfPlayer.z / 32 + 2;
+						int showDistance = hintIcon.showDistance * 4;
+						showDistance *= showDistance;
+						Class145.drawHintIconOnMinimap(jagexInterface, showDistance, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 					}
 					if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class118.playersList.length) {
 						final Player player = Class118.playersList[hintIcon.targetIndex];
 						if (player != null) {
-							final int playerX = (player.x / 32) - (TileParticleQueue.selfPlayer.x / 32);
-							final int playerY = (player.z / 32) - (TileParticleQueue.selfPlayer.z / 32);
-							Class145.method2048(jagexInterface, 360000, interfaceX, playerY, interfaceY, playerX, hintIcon.iconType);
+							final int targetX = player.x / 32 - TileParticleQueue.selfPlayer.x / 32;
+							final int targetY = player.z / 32 - TileParticleQueue.selfPlayer.z / 32;
+							Class145.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 						}
 					}
 				}
 			}
 			if (Class120_Sub12_Sub26.flagX != 0) {
-				final int flagX = -(TileParticleQueue.selfPlayer.x / 32) + Class120_Sub12_Sub26.flagX * 4 + 2 - 2 - -(2 * TileParticleQueue.selfPlayer.getSize());
-				final int flagY = 2 + Class65.flagY * 4 - TileParticleQueue.selfPlayer.z / 32 - (2 + -(2 * TileParticleQueue.selfPlayer.getSize()));
-				Class23.method200(interfaceX, jagexInterface, interfaceY, flagX, flagY, Class101_Sub1.aClass120_Sub14_Sub19Array2274[SceneGroundObject.packetSetFlagPosition ? 1 : 0]);
+				int flagX = Class120_Sub12_Sub26.flagX;
+				int flagY = Class65.flagY;
+				final int x = flagX * 4 - TileParticleQueue.selfPlayer.x / 32 + 2 - 2 + (TileParticleQueue.selfPlayer.getSize() * 2);
+				final int y = flagY * 4 - TileParticleQueue.selfPlayer.z / 32 + 2 - 2 + (TileParticleQueue.selfPlayer.getSize() * 2);
+				Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, x, y, Class101_Sub1.aClass120_Sub14_Sub19Array2274[SceneGroundObject.packetSetFlagPosition ? 1 : 0]);
 			}
 			if (!HDToolkit.glEnabled) {
-				GraphicsLD.fillRect((jagexInterface.width / 2) + interfaceX - 1, (jagexInterface.height / 2) + interfaceY - 1, 3, 3, 16777215);
+				GraphicsLD.fillRect(interfaceX + jagexInterface.width / 2 - 1, interfaceY + jagexInterface.height / 2 - 1, 3, 3, 16777215);
 			} else {
-				GraphicsHD.fillRect((jagexInterface.width / 2) + interfaceX - 1, (jagexInterface.height / 2) + interfaceY - 1, 3, 3, 16777215);
+				GraphicsHD.fillRect(interfaceX + jagexInterface.width / 2 - 1, interfaceY + jagexInterface.height / 2 - 1, 3, 3, 16777215);
 			}
 		}
 		Class120_Sub12_Sub33.needScreenRedraw[redrawId] = true;

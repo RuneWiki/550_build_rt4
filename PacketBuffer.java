@@ -146,7 +146,7 @@ final class PacketBuffer extends Buffer {
 						Class140.anInt1343 = buffer.getUByte();
 					}
 					if (i_1_ >= 10) {
-						Class186.hdrEnabled = buffer.getUByte() != 0;
+						WallDecoration.hdrEnabled = buffer.getUByte() != 0;
 					}
 					if (i_1_ >= 11) {
 						Class38.cursorsEnabled = buffer.getUByte() != 0;

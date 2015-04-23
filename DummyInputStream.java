@@ -6,12 +6,11 @@ import java.io.InputStream;
 final class DummyInputStream extends InputStream {
 	static boolean focus;
 	static int[] anIntArray24;
-	static String aString25 = "Members object";
-	static JagexInterface aClass189_26;
+	static JagexInterface fixedGameScreenInterface;
 
 	static {
 		anIntArray24 = new int[] { 2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1 };
-		aClass189_26 = null;
+		fixedGameScreenInterface = null;
 	}
 
 	static final int getLanguageId(final String lang) {
@@ -31,7 +30,7 @@ final class DummyInputStream extends InputStream {
 		Class110.method976();
 		Class173.method2225();
 		for (int i = 0; i < 4; i++) {
-			Class182.collisionMaps[i].resetFlags();
+			WallLocation.collisionMaps[i].resetFlags();
 		}
 		Class120_Sub30_Sub1.method1739();
 		System.gc();
@@ -80,9 +79,9 @@ final class DummyInputStream extends InputStream {
 	}
 
 	public static void method70() {
-		aClass189_26 = null;
+		fixedGameScreenInterface = null;
 		anIntArray24 = null;
-		aString25 = null;
+		TextRepository.membersObject = null;
 	}
 
 	static final String method71(final JagexInterface jagexInterface, String string) {

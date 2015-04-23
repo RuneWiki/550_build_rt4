@@ -26,102 +26,6 @@ final class AmbientSound extends Node {
 	int anInt2498;
 	int volume;
 
-	static final void translateToFrench() {
-		World.aString2837 = "Librairie 3D d\u00e9marr\u00e9e";
-		NpcType.aString1685 = "clignotant3:";
-		Class120_Sub12_Sub18.aString3272 = "Chargement de RuneScape en cours - veuillez patienter...";
-		Class156.aString1457 = "brillant2:";
-		Class120_Sub12_Sub21_Sub1.levelString = "niveau ";
-		GameEntity.aString3011 = "d\u00e9roulement:";
-		Class120_Sub12_Sub27.aString3338 = "V\u00e9rification des mises \u00e0 jour - ";
-		Class109.aString1038 = "Gestionnaire de saisie charg\u00e9";
-		Class53_Sub1.aString2206 = "clignotant2:";
-		AbstractGraphicsBuffer.aString1176 = "Utiliser";
-		Class147.aString1398 = "ondulation2:";
-		Class111.aString1062 = "brillant1:";
-		Class136.aString1316 = "brillant3:";
-		Class120_Sub11.aString2550 = "Votre liste d'amis est pleine (100 noms maximum pour la version gratuite et 200 pour les abonn\u00e9s).";
-		ProjectileNode.aString3449 = "Prendre";
-		Class120_Sub11.aString2554 = "Chargement des param\u00e8tres par d\u00e9faut - ";
-		Class174.skillString = "comp\u00e9tence ";
-		LongNode.ratingString = "classement ";
-		HintIcon.aString807 = "ondulation:";
-		Class120_Sub14_Sub23.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
-		Class116.aString1116 = "Connexion perdue.";
-		Class5.aString2153 = "Fermer";
-		ClanMember.aString2578 = " de votre liste noire.";
-		DisplayModeInfo.aString1708 = "Monde de jeu cr\u00e9\u00e9";
-		Class11.aString82 = "Connect\u00e9 au serveur de mise \u00e0 jour";
-		Class120_Sub12_Sub1.aString3132 = "Atteindre";
-		Class120_Sub15.aString2594 = "Liste des mises \u00e0 jour charg\u00e9e";
-		Class8.aString64 = "Jeter";
-		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
-		AbstractRequest.aString3575 = "violet:";
-		MapSceneType.aString1358 = "Textures charg\u00e9es";
-		CursorType.aString1238 = "K";
-		Class11.aString81 = "Examiner";
-		Class71.aString626 = "Veuillez patienter...";
-		Class24.aString142 = "Veuillez patienter - tentative de r\u00e9tablissement.";
-		Js5Worker.aString398 = "Chargement du module texte - ";
-		Class65.aString591 = "Attaquer";
-		Class120_Sub12_Sub21_Sub1.aString3910 = " est d\u00e9j\u00e0 dans votre liste d'amis.";
-		PlayerAppearance.aString1368 = "M\u00e9moire attribu\u00e9e";
-		DummyInputStream.aString25 = "Objet d'abonn\u00e9s";
-		Class69_Sub2_Sub1.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
-		Class69_Sub1.aString2231 = "jaune:";
-		MouseRecorder.aString853 = "M\u00e9moire en cours d'attribution";
-		Class120_Sub6.aString2444 = "Liste des serveurs charg\u00e9e";
-		Class101_Sub3.aString2285 = "Poser";
-		Class147.aString1397 = "clignotant1:";
-		Class120_Sub12_Sub25.aString3319 = "Veuillez commencer par supprimer ";
-		Class121.aString1155 = "Polices charg\u00e9es";
-		Class120_Sub12_Sub28.okString = "OK";
-		EntityRenderData.aString217 = "Chargement de l'\u00e9cran-titre - ";
-		Class143_Sub1.aString2192 = "Votre liste noire est pleine (100 noms maximum).";
-		NodeSub.aString2585 = "Fichiers config charg\u00e9s";
-		Js5Worker.aString400 = "D\u00e9marrage de la librairie 3D";
-		ParticleNodeSub.aString2396 = "Chargement de Mechscape en cours - veuillez patienter...";
-		Class120_Sub11.aString2553 = " autres options";
-		Class61.aString568 = "voudrait faire un \u00e9change avec vous.";
-		Class120_Sub30_Sub2.aString3679 = "Chargement en cours. Veuillez patienter.";
-		MouseRecorder.aString854 = "K";
-		EntityRenderData.aString196 = " ";
-		Class120_Sub14_Sub24.aString3665 = "Chargement des sprites - ";
-		Class114.aString1098 = "Chargement de la liste des serveurs";
-		Class120_Sub19.aString2653 = "M";
-		Class120_Sub12_Sub1.aString3137 = "Param\u00e8tres par d\u00e9faut charg\u00e9s";
-		InterfaceListener.aString2538 = "glissement:";
-		Class120_Sub21.aString2669 = " s'est connect\u00e9.";
-		AnimatedLocation.aString3062 = "Impossible de trouver ";
-		Class53_Sub1.aString2213 = "rouge:";
-		AbstractIndexedSprite.aString1025 = "Moteur son pr\u00e9par\u00e9";
-		Class120_Sub24.aString2726 = "Sprites charg\u00e9s";
-		IntegerNode.aString2788 = "Chargement des interfaces - ";
-		Class69.aString618 = "vert:";
-		Class132.aString1250 = " s'est d\u00e9connect\u00e9.";
-		ModelParticle.aString1483 = "cyan:";
-		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
-		InterfaceClickMask.aString2660 = "Chargement des polices - ";
-		LongNode.loadingConfigString = "Chargement des fichiers config - ";
-		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
-		Class109.continueString = "Continuer";
-		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
-		Class143.selectString = "S\u00e9lectionner";
-		Class54.aString489 = " de votre liste d'amis.";
-		ClanMember.aString2574 = "blanc:";
-		GroundDecoration.aString313 = "Chargement en cours...";
-		Class120_Sub11.aString2552 = "\u00c9cran-titre ouvert";
-		Class120_Sub12_Sub30.aString3371 = "Chargement des textures - ";
-		Class120_Sub12_Sub15.aString3244 = "Cach\u00e9";
-		Class82.aString787 = "Regarder dans cette direction";
-		Class112.aString1079 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste noire.";
-		EnumType.aString3455 = "M";
-		Class111.aString1056 = "Choisir une option";
-		Class157.aString1462 = "Annuler";
-		Class191.aString2105 = "Connexion au serveur de mise \u00e0 jour en cours";
-		Class96.aString915 = "tremblement:";
-	}
-
 	final void refresh() {
 		final int i_0_ = this.anInt2485;
 		if (this.location == null) {
@@ -130,7 +34,7 @@ final class AmbientSound extends Node {
 				if (i_0_ != i_1_) {
 					this.anInt2485 = i_1_;
 					NpcType npcType = this.npc.npcType;
-					if (npcType.childrenIDs != null) {
+					if (npcType.transmogrificationIds != null) {
 						npcType = npcType.handleVarp();
 					}
 					if (npcType != null) {
@@ -166,6 +70,65 @@ final class AmbientSound extends Node {
 		if (this.anInt2485 != i_0_ && this.aClass120_Sub30_Sub4_2488 != null) {
 			Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(this.aClass120_Sub30_Sub4_2488);
 			this.aClass120_Sub30_Sub4_2488 = null;
+		}
+	}
+
+	static final void addAmbientSound(final LocType locType, final int x, final Npc npc, final int z, final Player player, final int rotation, final int level) {
+		final AmbientSound ambientSound = new AmbientSound();
+		ambientSound.anInt2498 = level;
+		ambientSound.anInt2483 = z * 128;
+		ambientSound.anInt2494 = x * 128;
+		if (locType == null) {
+			if (npc == null) {
+				if (player != null) {
+					ambientSound.player = player;
+					ambientSound.anInt2487 = (x + player.getSize()) * 128;
+					ambientSound.anInt2481 = (z + player.getSize()) * 128;
+					ambientSound.anInt2485 = WaterfallShader.method179(player);
+					ambientSound.volume = player.ambientSoundVolume;
+					ambientSound.hearDistance = player.ambientSoundHearDistance * 128;
+					Npc.playerAmbientSounds.put(ambientSound, Varp.stringToLong(player.name));
+				}
+			} else {
+				ambientSound.npc = npc;
+				NpcType npcType = npc.npcType;
+				if (npcType.transmogrificationIds != null) {
+					ambientSound.hasVarp = true;
+					npcType = npcType.handleVarp();
+				}
+				if (npcType != null) {
+					ambientSound.anInt2487 = (x + npcType.size) * 128;
+					ambientSound.anInt2481 = (z + npcType.size) * 128;
+					ambientSound.anInt2485 = WaterfallShader.method178(npc);
+					ambientSound.volume = npcType.ambientSoundVolume;
+					ambientSound.hearDistance = npcType.ambientSoundHearDistance * 128;
+				}
+				Class120_Sub12_Sub10.npcAmbientSounds.addLast(ambientSound);
+			}
+		} else {
+			ambientSound.anInt2486 = locType.anInt1845;
+			ambientSound.anInt2489 = locType.anInt1879;
+			ambientSound.anIntArray2482 = locType.anIntArray1870;
+			ambientSound.volume = locType.ambientSoundVolume;
+			int xSize = locType.sizeX;
+			ambientSound.hearDistance = locType.ambientSoundHearDistance * 128;
+			ambientSound.location = locType;
+			int zSize = locType.sizeZ;
+			if (rotation == 1 || rotation == 3) {
+				xSize = locType.sizeZ;
+				zSize = locType.sizeX;
+			}
+			ambientSound.anInt2487 = (x + xSize) * 128;
+			ambientSound.anInt2485 = locType.ambientSoundId;
+			ambientSound.anInt2481 = (z + zSize) * 128;
+			if (locType.childrenIDs != null) {
+				ambientSound.hasVarp = true;
+				ambientSound.refresh();
+			}
+			if (ambientSound.anIntArray2482 != null) {
+				ambientSound.anInt2496 = (int) ((ambientSound.anInt2486 - ambientSound.anInt2489) * Math.random()) + ambientSound.anInt2489;
+			}
+			Class101_Sub1.locationAmbientSounds.addLast(ambientSound);
 		}
 	}
 

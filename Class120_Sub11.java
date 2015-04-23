@@ -4,20 +4,9 @@
 
 final class Class120_Sub11 extends Node {
 	static int anInt2549 = 0;
-	static String aString2550;
-	static boolean aBoolean2551;
-	static String aString2552;
-	static String aString2553 = " more options";
-	static String aString2554;
+	static boolean draggingComponent;
 	byte[] aByteArray2555;
 	static short[] aShortArray2556 = { 960, 957, -21568, -21571, 22464 };
-
-	static {
-		aString2552 = "Opened title screen";
-		aString2550 = "Your friend list is full. Max of 100 for free users, and 200 for members.";
-		aBoolean2551 = false;
-		aString2554 = "Loading defaults - ";
-	}
 
 	static final long method1173(final int x, final int z, final int level) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
@@ -57,12 +46,12 @@ final class Class120_Sub11 extends Node {
 
 	public static void method1175(final byte i) {
 		try {
-			aString2550 = null;
+			TextRepository.aString2550 = null;
 			if (i == -58) {
-				aString2553 = null;
+				TextRepository.aString2553 = null;
 				aShortArray2556 = null;
-				aString2554 = null;
-				aString2552 = null;
+				TextRepository.aString2554 = null;
+				TextRepository.aString2552 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("j.E(").append(i).append(')').toString());

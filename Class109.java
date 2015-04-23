@@ -5,7 +5,6 @@
 final class Class109 {
 	private Deque aClass105_1036;
 	static int[] anIntArray1037;
-	static String aString1038 = "Loaded input handler";
 	private Class120_Sub15[] aClass120_Sub15Array1039;
 	private final int anInt1040;
 	private int anInt1041;
@@ -13,14 +12,12 @@ final class Class109 {
 	private int[][][] anIntArrayArrayArray1043;
 	static int gameState = 0;
 	private int anInt1045 = -1;
-	static String continueString;
 	static Class6[] aClass6Array1047 = new Class6[50];
 	private final int anInt1048;
 	boolean aBoolean1049;
 
 	static {
 		anIntArray1037 = new int[] { 1, 0, -1, 0 };
-		continueString = "Continue";
 	}
 
 	final void method972() {
@@ -49,8 +46,8 @@ final class Class109 {
 	public static void method974() {
 		aClass6Array1047 = null;
 		anIntArray1037 = null;
-		continueString = null;
-		aString1038 = null;
+		TextRepository.continueString = null;
+		TextRepository.aString1038 = null;
 	}
 
 	final int[][] method975(final int i) {

@@ -2,11 +2,11 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class137 {
-	int[] anIntArray1322;
+final class MapFunctionGroup {
+	int[] coordinates;
 	static int anInt1323 = 0;
-	MapFunctionNode[] aClass120_Sub14_Sub5Array1324;
-	int anInt1325;
+	MapFunctionNode[] nodes;
+	int length;
 	static PacketBuffer loginStream = new PacketBuffer(5000);
 
 	static final void method1980(final JagexInterface[] class189s, final int i) {
@@ -48,43 +48,44 @@ final class Class137 {
 		loginStream = null;
 	}
 
-	static final void method1982(final int i_4_, final int yOff, final int i_6_, int x, int z, final int i_9_, final int i_10_) {
+	static final void worldToScreen(int x, final int heightMod, int z, final int screenOffX, final int screenOffY, final int i_6_, final int i_9_) {
 		if (x < 128 || z < 128 || x > 13056 || z > 13056) {
-			Class120_Sub12_Sub38.anInt3434 = -1;
-			Class120_Sub15.anInt2588 = -1;
+			Class120_Sub12_Sub38.screenX = -1;
+			Class120_Sub15.screenY = -1;
 		} else {
-			int y = Class22.getTileHeight(x, z, Class173.gameLevel) - yOff;
+			int y = Class22.getTileHeight(x, z, Class173.gameLevel) - heightMod;
 			x -= FileSystemWorker.renderX;
 			y -= Class120_Sub12_Sub10.renderY;
 			z -= GroundObjectNode.renderZ;
-			final int i_12_ = Rasterizer.sineTable[UnderlayType.renderPitch];
-			final int i_13_ = Rasterizer.cosineTable[UnderlayType.renderPitch];
-			final int i_14_ = Rasterizer.sineTable[SpotAnimation.renderYaw];
-			final int i_15_ = Rasterizer.cosineTable[SpotAnimation.renderYaw];
-			int i_16_ = z * i_14_ + x * i_15_ >> 16;
-			z = z * i_15_ - i_14_ * x >> 16;
-			x = i_16_;
-			i_16_ = -(z * i_12_) + i_13_ * y >> 16;
-			z = i_12_ * y + z * i_13_ >> 16;
-			y = i_16_;
+			final int pitchSin = Rasterizer.sinTable[UnderlayType.renderPitch];
+			final int pitchCos = Rasterizer.cosTable[UnderlayType.renderPitch];
+			final int yawSin = Rasterizer.sinTable[SpotAnimation.renderYaw];
+			final int yawCos = Rasterizer.cosTable[SpotAnimation.renderYaw];
+			int rot = x * yawCos + z * yawSin >> 16;
+			z = z * yawCos - yawSin * x >> 16;
+			x = rot;
+			rot = y * pitchCos - z * pitchSin >> 16;
+			z = y * pitchSin + z * pitchCos >> 16;
+			y = rot;
 			if (z < 50) {
-				Class120_Sub15.anInt2588 = -1;
-				Class120_Sub12_Sub38.anInt3434 = -1;
+				Class120_Sub15.screenY = -1;
+				Class120_Sub12_Sub38.screenX = -1;
 			} else if (HDToolkit.glEnabled) {
-				final int i_17_ = i_6_ * 512 >> 8;
-				Class120_Sub12_Sub38.anInt3434 = i_10_ + i_17_ * x / z;
-				final int i_18_ = i_9_ * 512 >> 8;
-				Class120_Sub15.anInt2588 = i_4_ - -(i_18_ * y / z);
+				//Both are linked from save variable.
+				final int screenWidth1 = i_6_ * 512 >> 8;
+				final int screenWidth2 = i_9_ * 512 >> 8;
+				Class120_Sub12_Sub38.screenX = screenOffX + (x * screenWidth1) / z;
+				Class120_Sub15.screenY = screenOffY + (y * screenWidth2) / z;
 			} else {
-				Class120_Sub12_Sub38.anInt3434 = i_10_ - -((x << 9) / z);
-				Class120_Sub15.anInt2588 = i_4_ + (y << 9) / z;
+				Class120_Sub12_Sub38.screenX = screenOffX + (x << 9) / z;
+				Class120_Sub15.screenY = screenOffY + (y << 9) / z;
 			}
 		}
 	}
 
-	Class137(final int i) {
-		this.anInt1325 = i;
-		this.anIntArray1322 = new int[this.anInt1325];
-		this.aClass120_Sub14_Sub5Array1324 = new MapFunctionNode[this.anInt1325];
+	MapFunctionGroup(final int len) {
+		this.length = len;
+		this.coordinates = new int[this.length];
+		this.nodes = new MapFunctionNode[this.length];
 	}
 }

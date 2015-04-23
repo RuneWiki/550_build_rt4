@@ -91,7 +91,7 @@ final class Class32 {
 	}
 
 	final void postDecode() {
-		this.anInt265 = Rasterizer.cosineTable[rotation];
+		this.anInt265 = Rasterizer.cosTable[rotation];
 		this.anInt262 = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 + this.anInt261 * this.anInt261);
 		if (this.anInt268 == 0) {
 			this.anInt268 = 1;
@@ -175,23 +175,23 @@ final class Class32 {
 			}
 			final int[] shadowLayerSizes = { 64, 96, 128};
 			final int[][] shadowVerticesIds = new int[3][vertexCount];
-			final Model shadowModel = new Model(3 * vertexCount + 1, 2 * vertexCount * 3 - vertexCount, 0);
+			final Model shadowModel = new Model(3 * vertexCount + 1, 2 * vertexCount * 3 - vertexCount, 0);//Makes a polygon
 			final int vertexId = shadowModel.addVertex(0, 0, 0);
 			for (int layerId = 0; layerId < 3; layerId++) {
 				final int shadowLayerSize = shadowLayerSizes[layerId];
 				//final int i_32_ = shadowLayerSize[layerId];
 				for (int vId = 0; vId < vertexCount; vId++) {
 					final int rotation = (vId << 11) / vertexCount;
-					final int shadowX = Rasterizer.sineTable[rotation] * shadowLayerSize + playerX >> 16;
-					final int shadowZ = Rasterizer.cosineTable[rotation] * shadowLayerSize + playerZ >> 16;//Used to be i_32_, but no need?
+					final int shadowX = Rasterizer.sinTable[rotation] * shadowLayerSize + playerX >> 16;
+					final int shadowZ = Rasterizer.cosTable[rotation] * shadowLayerSize + playerZ >> 16;//Used to be i_32_, but no need?
 					shadowVerticesIds[layerId][vId] = shadowModel.addVertex(shadowX, 0, shadowZ);
 				}
 			}
 			for (int layerId = 0; layerId < 3; layerId++) {
-				final int alpha0 = (256 * layerId + 128) / 3;
-				final int alpha1 = 256 - alpha0;
-				final byte triangleAlpha = (byte) (alpha0 * colMod1 + alpha1 * colMod2 >> 8);//TODO finish this?
-				final short triangleColor = (short) ((0xfc0000 & alpha0 * (shadowColor2 & 0xfc00) + alpha1 * (0xfc00 & shadowColor1)) + (0x38000 & (shadowColor2 & 0x380) * alpha0 + alpha1 * (0x380 & shadowColor1)) + (0x7f00 & (shadowColor1 & 0x7f) * alpha1 + alpha0 * (0x7f & shadowColor2)) >> 8);
+				final int factor = (256 * layerId + 128) / 3;
+				final int f1 = 256 - factor;
+				final byte triangleAlpha = (byte) (factor * colMod1 + f1 * colMod2 >> 8);//TODO finish this?
+				final short triangleColor = (short) ((0xfc0000 & factor * (shadowColor2 & 0xfc00) + f1 * (0xfc00 & shadowColor1)) + (0x38000 & (shadowColor2 & 0x380) * factor + f1 * (0x380 & shadowColor1)) + (0x7f00 & (shadowColor1 & 0x7f) * f1 + factor * (0x7f & shadowColor2)) >> 8);
 				for (int vId = 0; vId < vertexCount; vId++) {
 					if (layerId != 0) {
 						shadowModel.addTriangle(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId - 1][(1 + vId) % vertexCount], shadowVerticesIds[layerId][(vId + 1) % vertexCount], (byte) 1, triangleColor, triangleAlpha);
@@ -256,7 +256,7 @@ final class Class32 {
 			cachedModel.method2389(frameLoader, frame);//animate
 		}
 		if (playerRotation != 0) {
-			cachedModel.rotate(playerRotation);
+			cachedModel.rotateY(playerRotation);
 		}
 		//Blend the shadow model to the ground.
 		if (HDToolkit.glEnabled) {

@@ -3,24 +3,20 @@
  */
 
 final class Class120_Sub15 extends Node {
-	static int anInt2588;
-	static String aString2589;
+	static int screenY;
 	static int[] anIntArray2591 = { 19, 55, 38, 155, 255, 110, 137, 205, 76 };
 	int anInt2592;
 	int anInt2593;
-	static String aString2594;
 	static FrameLoader[] aClass120_Sub14_Sub18Array2595 = new FrameLoader[14];
 	static float[] aFloatArray2596;
 	static int[] anIntArray2597;
 	static float aFloat2598;
 
 	static {
-		aString2594 = "Loaded update list";
-		aString2589 = "red:";
 		anIntArray2597 = new int[256];
 		aFloatArray2596 = new float[] { 0.073F, 0.169F, 0.24F, 1.0F };
 		aFloat2598 = 0.0F;
-		anInt2588 = -1;
+		screenY = -1;
 	}
 
 	static final void clearClickMasks(final int id) {
@@ -38,8 +34,8 @@ final class Class120_Sub15 extends Node {
 	public static void method1653() {
 		anIntArray2591 = null;
 		anIntArray2597 = null;
-		aString2594 = null;
-		aString2589 = null;
+		TextRepository.aString2594 = null;
+		TextRepository.aString2589 = null;
 		aClass120_Sub14_Sub18Array2595 = null;
 		aFloatArray2596 = null;
 	}

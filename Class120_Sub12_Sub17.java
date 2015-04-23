@@ -21,14 +21,14 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		anInt3264 = -1;
 	}
 
-	static final Class28 method1281(final int i, final int i_0_, final int i_1_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
+	static final Class28 method1281(final int x, final int z, final int level) {
+		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}
 		for (int i_2_ = 0; i_2_ < class120_sub18.anInt2638; i_2_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_2_];
-			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i_0_ && class28.anInt184 == i_1_) {
+			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == x && class28.anInt184 == z) {
 				Class120_Sub14_Sub10.method1499(class28);
 				return class28;
 			}
@@ -190,17 +190,17 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		}
 	}
 
-	static final String method1285(final JagexInterface jagexInterface, final int i) {
-		if (!client.getClickMask(jagexInterface).method1678(i) && jagexInterface.anObjectArray2006 == null) {
+	static final String getActionNI(final JagexInterface jagexInterface, final int actionId) {
+		if (!client.getClickMask(jagexInterface).method1678(actionId) && jagexInterface.anObjectArray2006 == null) {
 			return null;
 		}
-		if (jagexInterface.niActions == null || i >= jagexInterface.niActions.length || jagexInterface.niActions[i] == null || jagexInterface.niActions[i].trim().length() == 0) {
+		if (jagexInterface.niActions == null || actionId >= jagexInterface.niActions.length || jagexInterface.niActions[actionId] == null || jagexInterface.niActions[actionId].trim().length() == 0) {
 			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
-				return "Hidden-" + i;
+				return "Hidden-" + actionId;
 			}
 			return null;
 		}
-		return jagexInterface.niActions[i];
+		return jagexInterface.niActions[actionId];
 	}
 
 	@Override
@@ -246,26 +246,12 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		return is_30_;
 	}
 
-	public static void method1286(final int i) {
-		try {
-			aClass50_3258 = null;
-			if (i != 12288) {
-				anInt3257 = 47;
-			}
-			aFloatArray3269 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lj.U(").append(i).append(')').toString());
-		}
+	public static void method1286() {
+		aClass50_3258 = null;
+		aFloatArray3269 = null;
 	}
 
-	static final void method1287(final js5 js5, final byte i) {
-		try {
-			if (i <= 107) {
-				aFloatArray3269 = null;
-			}
-			Class153.aClass50_3373 = js5;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lj.AA(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	static final void method1287(final js5 js5) {
+		Class153.aClass50_3373 = js5;
 	}
 }

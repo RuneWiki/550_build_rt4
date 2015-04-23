@@ -11,8 +11,6 @@ final class EntityRenderData {
 	int anInt192;
 	int anInt193;
 	int anInt194 = -1;
-	static int anInt195 = 0;
-	static String aString196;
 	int anInt197 = 0;
 	int anInt198 = -1;
 	static int[] anIntArray199 = { 4, 4, 1, 2, 6, 4, 2, 48, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
@@ -33,7 +31,6 @@ final class EntityRenderData {
 	int anInt214;
 	int[][] modelRotateTranslate;
 	int anInt216;
-	static String aString217;
 	int anInt218;
 	int anInt219;
 	int anInt220;
@@ -41,11 +38,6 @@ final class EntityRenderData {
 	int anInt222;
 	int anInt223;
 	static ObjectCache recentUse;
-
-	static {
-		aString196 = " ";
-		aString217 = "Loading title screen - ";
-	}
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
@@ -237,8 +229,8 @@ final class EntityRenderData {
 
 	public static void method256() {
 		anIntArray199 = null;
-		aString217 = null;
-		aString196 = null;
+		TextRepository.aString217 = null;
+		TextRepository.useSeperator = null;
 	}
 
 	public EntityRenderData() {

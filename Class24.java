@@ -20,7 +20,7 @@ final class Class24 {
 		Class110.mouseRecorder.cacheIndex = 0;
 		EnumType.aLong3462 = 0L;
 		Class28.method247();
-		Class31.anInt244 = 0;
+		Class31.logoutCycle = 0;
 		Class114.anInt1093 = -1;
 		Class120_Sub22.systemUpdateCycle = 0;
 		MapFunctionType.anInt639 = -1;
@@ -29,43 +29,38 @@ final class Class24 {
 		Class88.timoutCycle = 0;
 		Class23.packetType = -1;
 		Canvas_Sub1.inputStream.pos = 0;
-		for (int i_0_ = 0; i_0_ < Class187.hintIcons.length; i_0_++) {
-			Class187.hintIcons[i_0_] = null;
+		for (int id = 0; id < Class187.hintIcons.length; id++) {
+			Class187.hintIcons[id] = null;
 		}
 		Class15.menuOpen = false;
-		Class186.menuOptionCount = 0;
+		WallDecoration.menuOptionCount = 0;
 		Class120_Sub12_Sub39.setMouseIdleCycle(0);
-		for (int i_1_ = 0; i_1_ < 100; i_1_++) {
-			GrandExchangeObject.aStringArray1502[i_1_] = null;
+		for (int id = 0; id < 100; id++) {
+			GrandExchangeObject.aStringArray1502[id] = null;
 		}
-		Class154.minimapRandomZoom = -20 + (int) (Math.random() * 30.0);
-		Class23.anInt136 = -50 + (int) (100.0 * Math.random());
-		Class164.minimapRandomRotation = (int) (120.0 * Math.random()) - 60;
 		Class120_Sub16.messageCount = 0;
 		DummyOutputStream.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
-		ProjectileNode.anInt3447 = -40 + (int) (Math.random() * 80.0);
 		Class88.spellSelected = false;
 		Light.objSelected = 0;
-		EntityRenderData.anInt195 = (int) (110.0 * Math.random()) - 55;
 		Class150.anInt1407 = 0;
 		AbstractGraphicsBuffer.method1842();
 		FileSystemWorker.localPlayerCount = 0;
 		Class148.localNpcCount = 0;
-		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
-			Class118.playersList[i_2_] = null;
-			StringNode.playerAppearanceBuffers[i_2_] = null;
+		for (int id = 0; id < 2048; id++) {
+			Class118.playersList[id] = null;
+			StringNode.playerAppearanceBuffers[id] = null;
 		}
-		for (int i_3_ = 0; -32769 < (i_3_ ^ 0xffffffff); i_3_++) {
-			Class120_Sub12_Sub11.npcList[i_3_] = null;
+		for (int id = 0; id < 32768; id++) {
+			Class120_Sub12_Sub11.npcList[id] = null;
 		}
 		TileParticleQueue.selfPlayer = Class118.playersList[2047] = new Player();
 		FileSystemRequest.projectileDeque.clear();
 		Class120_Sub12_Sub7.aClass105_3177.clear();
 		if (ClientScript.groundObjects != null) {
-			for (int i_4_ = 0; i_4_ < 4; i_4_++) {
-				for (int i_5_ = 0; i_5_ < 104; i_5_++) {
-					for (int i_6_ = 0; i_6_ < 104; i_6_++) {
-						ClientScript.groundObjects[i_4_][i_5_][i_6_] = null;
+			for (int level = 0; level < 4; level++) {
+				for (int x = 0; x < 104; x++) {
+					for (int z = 0; z < 104; z++) {
+						ClientScript.groundObjects[level][x][z] = null;
 					}
 				}
 			}
@@ -79,59 +74,59 @@ final class Class24 {
 		InterfaceListener.anInt2546 = 0;
 		ObjectContainer.anInt2621 = 0;
 		NpcType.anInt1660 = 0;
-		Class121.anInt1154 = 0;
+		client.anInt1154 = 0;
 		Class109.anInt1042 = 0;
 		Class99.anInt951 = 0;
 		SpotAnimType.anInt986 = 0;
 		Class134.anInt1280 = 0;
 		Class120_Sub12_Sub31.anInt3384 = 0;
-		for (int i_7_ = 0; Class120_Sub12_Sub25.anIntArray3320.length > i_7_; i_7_++) {
-			Class120_Sub12_Sub25.anIntArray3320[i_7_] = -1;
+		for (int id = 0; id < Class120_Sub12_Sub25.anIntArray3320.length; id++) {
+			Class120_Sub12_Sub25.anIntArray3320[id] = -1;
 		}
 		if (Class69.rootInterfaceId != -1) {
 			Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 		}
-		for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-			Class120_Sub19.removeOverridedInterface(class120_sub26, true);
+		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+			Class120_Sub19.removeOverridedInterface(overridedInterface, true);
 		}
 		Class69.rootInterfaceId = -1;
 		Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
 		Class43.createJInterfaceCache();
 		Class156.aClass189_1454 = null;
-		Class186.menuOptionCount = 0;
+		WallDecoration.menuOptionCount = 0;
 		Class15.menuOpen = false;
 		Class26.aClass144_159.method2042(-1, null, -1, new int[5], false);
-		for (int i_8_ = 0; i_8_ < 8; i_8_++) {
-			Buffer.playerOptions[i_8_] = null;
-			InterfaceListener.playerOptionsOnTop[i_8_] = false;
-			AbstractRequest.playerOptionsIcon[i_8_] = -1;
+		for (int id = 0; id < 8; id++) {
+			Buffer.playerOptions[id] = null;
+			InterfaceListener.playerOptionsOnTop[id] = false;
+			AbstractRequest.playerOptionsIcon[id] = -1;
 		}
 		ObjectContainer.objectContainerCache = new Hashtable(32);
 		Class69.aBoolean615 = true;
-		for (int i_9_ = 0; i_9_ < 100; i_9_++) {
-			MasterIndexInfo.needInterfaceRedrawWrapper[i_9_] = true;
+		for (int id = 0; id < 100; id++) {
+			MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 		}
 		ReflectionCheckNode.clanMembers = null;
 		InterfaceChangeNode.clanName = null;
 		Class120_Sub14_Sub13.clanMembersAmount = 0;
-		for (int i_10_ = 0; i_10_ < 6; i_10_++) {
-			LongNode.grandExchangeObjects[i_10_] = new GrandExchangeObject();
+		for (int id = 0; id < 6; id++) {
+			LongNode.grandExchangeObjects[id] = new GrandExchangeObject();
 		}
-		for (int i_11_ = 0; i_11_ < 25; i_11_++) {
-			SceneGraphNode.skillsLevel[i_11_] = 0;
-			Decimator.skillsBaseLevel[i_11_] = 0;
-			Class120_Sub12_Sub38.skillsXp[i_11_] = 0;
+		for (int id = 0; id < 25; id++) {
+			SceneGraphNode.skillsLevel[id] = 0;
+			Decimator.skillsBaseLevel[id] = 0;
+			Class120_Sub12_Sub38.skillsXp[id] = 0;
 		}
 		if (HDToolkit.glEnabled) {
-			ModelParticle.aBoolean1478 = true;
+			ModelParticleEmitter.instantScreenFade = true;
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
 		MasterIndexInfo.aBoolean466 = false;
 		Class118.aBoolean1134 = true;
 		OverlayFrequencyNode.packetCounter = 0;
-		Npc.aString3752 = Class120_Sub12_Sub1.aString3132;
+		TextRepository.walkText = Class120_Sub12_Sub1.aString3132;
 		LocType.resetSpriteMenu();
-		Class186.usingSpriteMenu = false;
+		WallDecoration.usingSpriteMenu = false;
 		ParamType.sendDisplayInfo();
 	}
 
@@ -159,27 +154,12 @@ final class Class24 {
 		return Class120_Sub12.aBoolean2564 ? 2 : 1;
 	}
 
-	static final int method208(final int i, final int i_13_, final int i_14_, final int i_15_, final boolean bool) {
-		int i_16_;
-		try {
-			if (!bool) {
-				return -3;
-			}
-			final int i_17_ = 65536 + -Rasterizer.cosineTable[1024 * i_15_ / i] >> 1;
-			i_16_ = ((-i_17_ + 65536) * i_14_ >> 16) - -(i_17_ * i_13_ >> 16);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cg.A(").append(i).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(bool).append(')').toString());
-		}
-		return i_16_;
+	static final int method208(final int i, final int i_13_, final int i_14_, final int i_15_) {
+		final int i_17_ = 65536 - Rasterizer.cosTable[1024 * i_15_ / i] >> 1;
+		return ((65536 - i_17_) * i_14_ >> 16) + (i_17_ * i_13_ >> 16);
 	}
 
 	static final void method209(final int i, final long[] ls, final Object[] objects) {
-		try {
-			if (i == -4391) {
-				Class132_Sub2.method1939(ls, (byte) 24, -1 + ls.length, 0, objects);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cg.C(").append(i).append(',').append(ls != null ? "{...}" : "null").append(',').append(objects != null ? "{...}" : "null").append(')').toString());
-		}
+		Class132_Sub2.method1939(ls, (byte) 24, -1 + ls.length, 0, objects);
 	}
 }

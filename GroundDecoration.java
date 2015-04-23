@@ -29,7 +29,7 @@ final class GroundDecoration {
 				if (gameEntity.idleAnimCurrentFrame >= seqType.frames.length) {
 					gameEntity.anInt2998 = 0;
 					gameEntity.idleAnimCurrentFrame = 0;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, TileParticleQueue.selfPlayer == gameEntity);
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
 				gameEntity.idleAnimNextFrame = gameEntity.idleAnimCurrentFrame + 1;
 				if (gameEntity.idleAnimNextFrame >= seqType.frames.length) {
@@ -154,15 +154,15 @@ final class GroundDecoration {
 		if (gameEntity.animDelay > 0) {
 			gameEntity.animDelay--;
 		}
-		for (int i_1_ = 0; i_1_ < gameEntity.aClass150Array2972.length; i_1_++) {
-			final Class150 class150 = gameEntity.aClass150Array2972[i_1_];
+		for (int id = 0; id < gameEntity.aClass150Array2972.length; id++) {
+			final Class150 class150 = gameEntity.aClass150Array2972[id];
 			if (class150 != null) {
 				if (class150.delay > 0) {
 					class150.delay--;
 				} else {
 					final SeqType seqType = SeqType.list(class150.seqId);
 					if (seqType == null || seqType.frames == null) {
-						gameEntity.aClass150Array2972[i_1_] = null;
+						gameEntity.aClass150Array2972[id] = null;
 					} else {
 						class150.frameDelay++;
 						if (seqType.frames.length > class150.frameId && seqType.delays[class150.frameId] < class150.frameDelay) {
@@ -172,21 +172,21 @@ final class GroundDecoration {
 						}
 						if (class150.frameId >= seqType.frames.length) {
 							class150.frameId -= seqType.padding;
-							class150.anInt1416++;
-							if (seqType.resetCycle > class150.anInt1416) {
+							class150.cyclesElapsed++;
+							if (seqType.resetCycle > class150.cyclesElapsed) {
 								if (class150.frameId >= 0 && seqType.frames.length > class150.frameId) {
 									Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.frameId, gameEntity == TileParticleQueue.selfPlayer);
 								} else {
-									gameEntity.aClass150Array2972[i_1_] = null;
+									gameEntity.aClass150Array2972[id] = null;
 								}
 							} else {
-								gameEntity.aClass150Array2972[i_1_] = null;
+								gameEntity.aClass150Array2972[id] = null;
 							}
 						}
 						class150.nextFrameId = class150.frameId + 1;
 						if (seqType.frames.length <= class150.nextFrameId) {
 							class150.nextFrameId -= seqType.padding;
-							if (class150.anInt1416 - -1 >= seqType.resetCycle) {
+							if (class150.cyclesElapsed + 1 >= seqType.resetCycle) {
 								class150.nextFrameId = -1;
 							} else if (class150.nextFrameId < 0 || class150.nextFrameId >= seqType.frames.length) {
 								class150.nextFrameId = -1;

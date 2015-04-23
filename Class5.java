@@ -60,7 +60,7 @@ final class Class5 implements ShaderInterface {
 
 	static final void method98(final int i) {
 		Class190.anInt2101 = i;
-		for (int i_7_ = 0; i_7_ < Class186.anInt1900; i_7_++) {
+		for (int i_7_ = 0; i_7_ < WallDecoration.anInt1900; i_7_++) {
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.anInt3440; i_8_++) {
 				if (LabelGroup.groundTiles[i][i_7_][i_8_] == null) {
 					LabelGroup.groundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
@@ -88,7 +88,7 @@ final class Class5 implements ShaderInterface {
 		} else {
 			gl.glTexEnvi(8960, 34184, 34167);
 		}
-		System.out.println("Hey from Class5");
+		//Thread.dumpStack();
 	}
 
 	@Override

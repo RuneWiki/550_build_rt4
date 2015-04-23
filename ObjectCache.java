@@ -99,7 +99,7 @@ final class ObjectCache {
 		}
 		if (HDToolkit.glEnabled) {
 			Class47.method382(104, 104);
-			ParticleManager.setHdr(Class186.hdrEnabled);
+			ParticleEmitter.setHdr(WallDecoration.hdrEnabled);
 			ParticleEngine.method964();
 		}
 		Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);

@@ -26,9 +26,9 @@ final class Class157 {
 	}
 
 	static final void method2088(final ShapedTile shapedTile, final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool) {
-		int i_6_ = shapedTile.anIntArray1637.length;
+		int i_6_ = shapedTile.xVertices.length;
 		for (int i_7_ = 0; i_7_ < i_6_; i_7_++) {
-			int i_8_ = shapedTile.anIntArray1637[i_7_] - DisplayModeInfo.anInt1713;
+			int i_8_ = shapedTile.xVertices[i_7_] - DisplayModeInfo.anInt1713;
 			int i_9_ = shapedTile.anIntArray1639[i_7_] - PlayerAppearance.anInt1367;
 			int i_10_ = shapedTile.anIntArray1635[i_7_] - Class145.anInt1381;
 			int i_11_ = i_10_ * i_2_ + i_8_ * i_3_ >> 16;
@@ -61,7 +61,7 @@ final class Class157 {
 			final int i_20_ = ShapedTile.anIntArray1636[i_14_];
 			final int i_21_ = ShapedTile.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
-				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleManager.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
+				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
 					ObjectCache.anInt122 = i_4_;
 					WaterfallShader.anInt2174 = i_5_;
 				}
@@ -84,25 +84,19 @@ final class Class157 {
 						}
 					} else {
 						final int i_22_ = Rasterizer.anInterface5_973.method20(shapedTile.anIntArray1621[i_12_]);
-						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, ParticleManager.method935(i_22_, shapedTile.anIntArray1627[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1625[i_12_]), ParticleManager.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
+						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, ParticleEmitter.method935(i_22_, shapedTile.anIntArray1627[i_12_]), ParticleEmitter.method935(i_22_, shapedTile.anIntArray1625[i_12_]), ParticleEmitter.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
 					}
 				}
 			}
 		}
 	}
 
-	public static void method2089(final int i) {
-		try {
-			anIntArray1461 = null;
-			if (i >= 50) {
-				shaders = null;
-				aString1462 = null;
-				compassSprite = null;
-				aClass120_Sub14_Sub19_1472 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("si.C(").append(i).append(')').toString());
-		}
+	public static void method2089() {
+		anIntArray1461 = null;
+		shaders = null;
+		aString1462 = null;
+		compassSprite = null;
+		aClass120_Sub14_Sub19_1472 = null;
 	}
 
 	public Class157() {

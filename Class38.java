@@ -26,11 +26,11 @@ final class Class38 {
 
 	static final void method314(final int i, final int i_3_, final int i_4_) {
 		for (int i_5_ = 0; i_5_ < MapSceneType.anInt1361; i_5_++) {
-			for (int i_6_ = 0; i_6_ < Class186.anInt1900; i_6_++) {
+			for (int i_6_ = 0; i_6_ < WallDecoration.anInt1900; i_6_++) {
 				for (int i_7_ = 0; i_7_ < Class120_Sub12_Sub38.anInt3440; i_7_++) {
 					final GroundTile class120_sub18 = LabelGroup.groundTiles[i_5_][i_6_][i_7_];
 					if (class120_sub18 != null) {
-						final Class182 class182 = class120_sub18.aClass182_2628;
+						final WallLocation class182 = class120_sub18.wallLocation;
 						if (class182 != null && class182.aClass180_1800.method2268()) {
 							InterfaceListener.method1170(class182.aClass180_1800, i_5_, i_6_, i_7_, 1, 1);
 							if (class182.aClass180_1796 != null && class182.aClass180_1796.method2268()) {
@@ -73,10 +73,10 @@ final class Class38 {
 				int pixelPos = (103 - z) * 512 * 4 + 24628;
 				for (int x = 1; x < 103; x++) {
 					if ((0x18 & Class114.tileSettings[level][x][z]) == 0) {
-						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, x, z, level);
+						Class120_Sub12_Sub6.pushTilesPixels(pixels, pixelPos, 512, x, z, level);
 					}
 					if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0) {
-						Class120_Sub12_Sub6.method1229(pixels, pixelPos, 512, x, z, level + 1);
+						Class120_Sub12_Sub6.pushTilesPixels(pixels, pixelPos, 512, x, z, level + 1);
 					}
 					pixelPos += 4;
 				}
@@ -84,15 +84,15 @@ final class Class38 {
 			Class120_Sub24.mapFunctionCount = 0;
 			for (int x = 0; x < 104; x++) {
 				for (int z = 0; z < 104; z++) {
-					long bitPacked = Class79_Sub1.method696(x, z, level);
+					long bitPacked = Class79_Sub1.getGroundDecorationUid(x, z, level);
 					if (bitPacked == 0L) {
 						bitPacked = Class120_Sub11.method1173(x, z, level);
 					}
 					if (bitPacked == 0L) {
-						bitPacked = Class114.method1005(x, z , level);
+						bitPacked = Class114.getWallLocationUid(x, z , level);
 					}
 					if (bitPacked == 0L) {
-						bitPacked = JagexInterface.method2502(x, z, level);
+						bitPacked = JagexInterface.getWallDecorationUid(x, z, level);
 					}
 					if (bitPacked != 0L) {
 						final LocType locType = LocType.list(0x7fffffff & (int) (bitPacked >>> 32));
@@ -117,7 +117,7 @@ final class Class38 {
 									randomizePosition = true;
 								}
 								if (randomizePosition) {
-									final int[][] collisionFlags = Class182.collisionMaps[level].collisionFlags;
+									final int[][] collisionFlags = WallLocation.collisionMaps[level].collisionFlags;
 									for (int id = 0; id < 10; id++) {
 										final int random = (int) (Math.random() * 4.0);
 										if (random == 0 && x2 > 0 && x2 > x - 3 && (collisionFlags[x2 - 1][z2] & 0x2c0108) == 0) {

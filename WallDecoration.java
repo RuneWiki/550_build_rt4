@@ -2,13 +2,13 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class186 {
+final class WallDecoration {
 	static int topMargin;
 	static int actionsLen;
-	int anInt1891;
+	int renderZ;
 	int anInt1892;
-	int anInt1893;
-	int anInt1894;
+	int renderX;
+	int renderY;
 	int anInt1895;
 	int anInt1896;
 	static volatile long currentClickTime = 0L;
@@ -17,14 +17,12 @@ final class Class186 {
 	static int anInt1900;
 	SceneGraphNode aClass180_1901;
 	static boolean hdrEnabled;
-	static String aString1903;
 	long bitPacked = 0L;
 	int anInt1905;
 	static int menuOptionCount;
 
 	static {
 		topMargin = 0;
-		aString1903 = "scroll:";
 		usingSpriteMenu = false;
 		actionsLen = 0;
 		hdrEnabled = false;
@@ -51,7 +49,7 @@ final class Class186 {
 			throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
 		}
 		for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
-			if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.localNpcIndices[i_2_]] == null) {
+			if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[i_2_]] == null) {
 				throw new RuntimeException(new StringBuilder("gnp2 pos:").append(i_2_).append(" size:").append(Class148.localNpcCount).toString());
 			}
 		}
@@ -114,7 +112,7 @@ final class Class186 {
 				GraphicsHD.fillRectAlpha(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
 				GraphicsHD.drawRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor);
 			} else {
-				GraphicsLD.fillRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
+				GraphicsLD.fillRectAlpha(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor, 128);
 				GraphicsLD.drawRect(pointerX, pointerY, pointerWidth, pointerHeight, pointerColor);
 			}
 			if (Class96.clickedMouseFunctionBlinksLeft > 0) {
@@ -131,7 +129,7 @@ final class Class186 {
 							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
 							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
 							if (!HDToolkit.glEnabled) {
-								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+								GraphicsLD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {
 								GraphicsHD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
@@ -139,7 +137,7 @@ final class Class186 {
 							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
 							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
 							if (!HDToolkit.glEnabled) {
-								GraphicsLD.fillRect(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
+								GraphicsLD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {
 								GraphicsHD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
@@ -153,14 +151,14 @@ final class Class186 {
 	public static void method2474(final int i) {
 		try {
 			if (i == 10262) {
-				aString1903 = null;
+				TextRepository.aString1903 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("vl.B(").append(i).append(')').toString());
 		}
 	}
 
-	public Class186() {
+	public WallDecoration() {
 		/* empty */
 	}
 }

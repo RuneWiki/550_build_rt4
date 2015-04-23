@@ -40,7 +40,7 @@ final class FrameLoader extends NodeSub {
 		}
 		InterfaceClickMask.safeModeEnabled = false;
 		Class120_Sub12_Sub19.currentDisplayMode = 0;
-		Class186.hdrEnabled = false;
+		WallDecoration.hdrEnabled = false;
 		Class140.anInt1343 = 0;
 		Class38.cursorsEnabled = true;
 		Class120_Sub19.anInt2657 = 0;
@@ -157,21 +157,21 @@ final class FrameLoader extends NodeSub {
 	}
 
 	static final void buildNpcMenu(NpcType npcType, final int x, final int z, final int index) {
-		if (Class186.menuOptionCount < 400) {
-			if (npcType.childrenIDs != null) {
+		if (WallDecoration.menuOptionCount < 400) {
+			if (npcType.transmogrificationIds != null) {
 				npcType = npcType.handleVarp();
 			}
 			if (npcType != null && npcType.canRightClick) {
 				String string = npcType.name;
 				if (npcType.combatLevel != 0) {
-					final String string_14_ = Buffer.gameId != 1 ? Class120_Sub12_Sub21_Sub1.levelString : LongNode.ratingString;
+					final String string_14_ = Buffer.gameId != 1 ? TextRepository.level : TextRepository.rating;
 					string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, npcType.combatLevel)).append(" (").append(string_14_).append(npcType.combatLevel).append(")").toString();
 				}
 				if (Light.objSelected != 1) {
 					if (Class88.spellSelected) {
 						final ParamType class120_sub14_sub11 = IdentityKit.selectedSpellParam != -1 ? ParamType.list(IdentityKit.selectedSpellParam) : null;
 						if ((0x2 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || npcType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
-							InvType.addMenuOption(Class101.aString963, new StringBuilder(Light.aString369).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 42, Class150.selectedSpellTargetCursor);
+							InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 42, Class150.selectedSpellTargetCursor);
 						}
 					} else {
 						String[] options = npcType.options;
@@ -238,19 +238,19 @@ final class FrameLoader extends NodeSub {
 								}
 							}
 						}
-						InvType.addMenuOption(Class11.aString81, new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
+						InvType.addMenuOption(TextRepository.examine, new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
 					}
 				} else {
-					InvType.addMenuOption(AbstractGraphicsBuffer.aString1176, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+					InvType.addMenuOption(TextRepository.use, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 				}
 			}
 		}
 	}
 
 	static final int method1581(final int x, final int z, final int brightness, int redrawRate) {
-		if (ModelParticle.aBoolean1478) {
+		if (ModelParticleEmitter.instantScreenFade) {
 			redrawRate = 1000000;
-			ModelParticle.aBoolean1478 = false;
+			ModelParticleEmitter.instantScreenFade = false;
 		}
 		final Class191 class191 = IdentityKit.aClass191ArrayArray1337[x][z];
 		final float f = class191.aFloat2102 * (0.7F + 0.1F * brightness);
@@ -269,7 +269,7 @@ final class FrameLoader extends NodeSub {
 		if (i_25_ != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != f_26_ || Class132_Sub2.aFloat2821 != f_27_ || Light.anInt379 != i_28_ || i_29_ != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 || Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Varp.aFloat622 != f_31_) {
 			Class132.anInt1248 = Class9.anInt72;
 			Class156.anInt1453 = Deque.anInt1007;
-			Class120_Sub12_Sub39.aFloat3444 = Class147.aFloat1395;
+			Class120_Sub12_Sub39.aFloat3444 = client.aFloat1395;
 			MouseRecorder.aFloat856 = AbstractBuffer.aFloat600;
 			Class120_Sub12_Sub1.aFloat3124 = ParticleNode.aFloat1034;
 			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
@@ -305,7 +305,7 @@ final class FrameLoader extends NodeSub {
 				Deque.anInt1007 = Light.anInt379;
 				Class57.anInt500 = 65536;
 				GZIPDecompressor.aClass120_Sub14_Sub9_798 = null;
-				Class147.aFloat1395 = Class132_Sub2.aFloat2821;
+				client.aFloat1395 = Class132_Sub2.aFloat2821;
 				Class9.anInt72 = Class120_Sub12_Sub17.anInt3257;
 			} else {
 				final int i_33_ = 65536 - Class57.anInt500 >> 8;
@@ -315,7 +315,7 @@ final class FrameLoader extends NodeSub {
 				Class9.anInt72 = (i_33_ * (0xff00ff & Class132.anInt1248) - -((Class120_Sub12_Sub17.anInt3257 & 0xff00ff) * i_35_) & ~0xff00ff) + (i_35_ * (0xff00 & Class120_Sub12_Sub17.anInt3257) + (Class132.anInt1248 & 0xff00) * i_33_ & 0xff0000) >> 8;
 				final float f_36_ = (-Class57.anInt500 + 65536) / 65536.0F;
 				Class120_Sub12_Sub23.aFloat3306 = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
-				Class147.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
+				client.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
 				Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
 				AbstractBuffer.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
 				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
@@ -344,9 +344,9 @@ final class FrameLoader extends NodeSub {
 		}
 	}
 
-	static final boolean method1583(final int i, final int i_37_, final LocType locType, final int i_38_, final int i_39_, final int i_40_, int rotation) {
-		final MapSceneType class142 = MapSceneType.list(locType.mapSceneId);
-		if (class142.spriteId == -1) {
+	static final boolean method1583(final LocType locType, final int x, final int z, final int xOff, final int zOff, int rotation) {
+		final MapSceneType mapSceneType = MapSceneType.list(locType.mapSceneId);
+		if (mapSceneType.spriteId == -1) {
 			return true;
 		}
 		if (!locType.aBoolean1862) {
@@ -355,29 +355,26 @@ final class FrameLoader extends NodeSub {
 			rotation += locType.anInt1869;
 			rotation &= 0x3;
 		}
-		if (i_38_ != 4) {
-			return true;
-		}
-		final LDIndexedSprite class107_sub1 = class142.constructSprite(rotation, locType.aBoolean1872);
-		if (class107_sub1 == null) {
+		final LDIndexedSprite mapSceneSprite = mapSceneType.constructSprite(rotation, locType.flipMapSceneSprite);
+		if (mapSceneSprite == null) {
 			return false;
 		}
-		int i_42_ = locType.sizeX;
-		int i_43_ = locType.sizeZ;
+		int sizeX = locType.sizeX;
+		int sizeZ = locType.sizeZ;
 		if ((rotation & 0x1) == 1) {
-			i_42_ = locType.sizeZ;
-			i_43_ = locType.sizeX;
+			sizeX = locType.sizeZ;
+			sizeZ = locType.sizeX;
 		}
-		int i_44_ = class107_sub1.trimWidth;
-		int i_45_ = class107_sub1.trimHeight;
-		if (class142.aBoolean1359) {
-			i_44_ = 4 * i_42_;
-			i_45_ = 4 * i_43_;
+		int i_44_ = mapSceneSprite.trimWidth;
+		int i_45_ = mapSceneSprite.trimHeight;
+		if (mapSceneType.enlarge) {
+			i_44_ = 4 * sizeX;
+			i_45_ = 4 * sizeZ;
 		}
-		if (class142.anInt1360 == 0) {
-			class107_sub1.method918(i_39_ * 4 + 48, 48 + (-i_37_ + 104 + -i_43_) * 4, i_44_, i_45_);
+		if (mapSceneType.anInt1360 == 0) {
+			mapSceneSprite.method918(x * 4 + 48, (104 - z - sizeZ) * 4 + 48, i_44_, i_45_);
 		} else {
-			class107_sub1.method919(4 * i_39_ + 48, (-i_43_ + -i_37_ + 104) * 4 + 48, i_44_, i_45_, class142.anInt1360);
+			mapSceneSprite.method919(x * 4 + 48, (104 - z - sizeZ) * 4 + 48, i_44_, i_45_, mapSceneType.anInt1360);
 		}
 		return true;
 	}

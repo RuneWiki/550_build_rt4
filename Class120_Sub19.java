@@ -88,7 +88,7 @@ final class Class120_Sub19 extends Node {
 			final int i_10_ = i_6_ + 2 ;
 			final int i_11_ = -(i_7_ / 2) + class120_sub14_sub5.worldMapX + -5;
 			if (class73.fillRectARGB != 0) {
-				GraphicsLD.fillRect(i_11_, i_10_, i_7_ + 10, 1 + i_6_ - -(i_4_ * class98.method817()) - i_10_, class73.fillRectARGB, class73.fillRectARGB >>> 24);
+				GraphicsLD.fillRectAlpha(i_11_, i_10_, i_7_ + 10, 1 + i_6_ - -(i_4_ * class98.method817()) - i_10_, class73.fillRectARGB, class73.fillRectARGB >>> 24);
 			}
 			if (class73.rectARGB != 0) {
 				GraphicsLD.drawRectAlpha(i_11_, i_10_, i_7_ + 10, -i_10_ + class98.method817() * i_4_ + i_6_ + 1, class73.rectARGB, class73.rectARGB >>> 24);
@@ -125,21 +125,21 @@ final class Class120_Sub19 extends Node {
 		if (jagexInterface != null) {
 			InterfaceClickMask.redrawInterface(jagexInterface);
 		}
-		for (int option = 0; option < Class186.menuOptionCount; option++) {
+		for (int option = 0; option < WallDecoration.menuOptionCount; option++) {
 			if (Class150.method2064(Class120_Sub29.menuOptionsCode[option])) {
 				Class120_Sub16.shiftOptions(option);
 			}
 		}
-		if (Class186.menuOptionCount != 1) {
+		if (WallDecoration.menuOptionCount != 1) {
 			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
-			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(Class111.aString1056);
-			for (int i_19_ = 0; Class186.menuOptionCount > i_19_; i_19_++) {
-				final int i_20_ = Class120_Sub12_Sub22.boldFont.method1459(Class121.getMenuOptionName(i_19_));
+			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(TextRepository.aString1056);
+			for (int i_19_ = 0; WallDecoration.menuOptionCount > i_19_; i_19_++) {
+				final int i_20_ = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(i_19_));
 				if (i_20_ > i_18_) {
 					i_18_ = i_20_;
 				}
 			}
-			Class120_Sub14_Sub10.menuHeight = (Class186.usingSpriteMenu ? 26 : 22) + 15 * Class186.menuOptionCount;
+			Class120_Sub14_Sub10.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + 15 * WallDecoration.menuOptionCount;
 			Class120_Sub24.menuWidth = 8 + i_18_;
 		} else {
 			Class15.menuOpen = false;

@@ -58,7 +58,6 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3008;
 	static int[][] anIntArrayArray3009;
 	int anInt3010;
-	static String aString3011 = "scroll:";
 	int anInt3012;
 	int anInt3013;
 	private int anInt3014;
@@ -131,7 +130,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.z = this.walkQueueZ[0] * 128 + 64 * size;
 		this.anInt2960 = 0;
 		if (HDToolkit.glEnabled && this == TileParticleQueue.selfPlayer) {
-			ModelParticle.aBoolean1478 = true;
+			ModelParticleEmitter.instantScreenFade = true;
 		}
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();
@@ -252,7 +251,7 @@ abstract class GameEntity extends SceneGraphNode {
 						final int i_24_ = 0x7ff & anInt2966 >> 5;
 						final int i_25_ = class180_sub7.getMaxY() / 2;
 						class180_sub7.translate(0, -i_25_, 0);
-						class180_sub7.method2362(i_24_);
+						class180_sub7.rotateZ(i_24_);
 						class180_sub7.translate(0, i_25_, 0);
 					}
 				}
@@ -349,7 +348,7 @@ abstract class GameEntity extends SceneGraphNode {
 						final int i_38_ = 0x7ff & anInt2994 >> 5;
 						final int i_39_ = class180_sub7.getMaxY() / 2;
 						class180_sub7.translate(0, -i_39_, 0);
-						class180_sub7.method2377(i_38_);
+						class180_sub7.rotateX(i_38_);
 						class180_sub7.translate(0, i_39_, 0);
 					}
 				}
@@ -425,7 +424,7 @@ abstract class GameEntity extends SceneGraphNode {
 	}
 
 	public static void method2331() {
-		aString3011 = null;
+		TextRepository.aString3011 = null;
 		anIntArrayArray3009 = null;
 	}
 
@@ -442,21 +441,21 @@ abstract class GameEntity extends SceneGraphNode {
 		Class93.anInt867 = 0;
 		MouseHandler.anInt1140 = 0;
 		final EntityRenderData class29 = getEntityRenderData();
-		final int i_48_ = class29.anInt204;
-		final int i_49_ = class29.anInt206;
+		int i_48_ = class29.anInt204;
+		int i_49_ = class29.anInt206;
 		if (i_48_ != 0 && i_49_ != 0) {
-			final int i_50_ = Rasterizer.sineTable[i];
-			final int i_51_ = Rasterizer.cosineTable[i];
+			final int i_50_ = Rasterizer.sinTable[i];
+			final int i_51_ = Rasterizer.cosTable[i];
 			final int i_52_ = -i_48_ / 2;
 			final int i_53_ = -i_49_ / 2;
 			final int i_54_ = i_51_ * i_53_ - i_52_ * i_50_ >> 16;
 			final int i_55_ = i_51_ * i_52_ + i_53_ * i_50_ >> 16;
-			final int i_56_ = -i_49_ / 2;
 			final int i_57_ = Class22.getTileHeight(i_55_ + this.x, i_54_ + this.z, Class173.gameLevel);
 			final int i_58_ = i_48_ / 2;
-			final int i_59_ = -i_48_ / 2;
-			final int i_60_ = i_50_ * i_56_ - -(i_58_ * i_51_) >> 16;
 			final int i_61_ = i_49_ / 2;
+			final int i_59_ = -i_48_ / 2;
+			final int i_56_ = -i_49_ / 2;
+			final int i_60_ = i_50_ * i_56_ + i_58_ * i_51_ >> 16;
 			final int i_62_ = i_51_ * i_61_ - i_50_ * i_59_ >> 16;
 			final int i_63_ = i_51_ * i_56_ - i_50_ * i_58_ >> 16;
 			final int i_64_ = i_59_ * i_51_ + i_50_ * i_61_ >> 16;
@@ -466,24 +465,24 @@ abstract class GameEntity extends SceneGraphNode {
 			final int i_68_ = i_49_ / 2;
 			final int i_69_ = i_50_ * i_68_ - -(i_67_ * i_51_) >> 16;
 			final int i_70_ = -(i_50_ * i_67_) + i_51_ * i_68_ >> 16;
-			final int i_71_ = Class22.getTileHeight(i_69_ + this.x, this.z - -i_70_, Class173.gameLevel);
+			final int i_71_ = Class22.getTileHeight(this.x + i_69_, this.z - -i_70_, Class173.gameLevel);
 			final int i_72_ = i_71_ > i_66_ ? i_66_ : i_71_;
 			final int i_73_ = i_66_ > i_57_ ? i_57_ : i_66_;
 			final int i_74_ = i_57_ < i_65_ ? i_57_ : i_65_;
 			final int i_75_ = i_65_ >= i_71_ ? i_71_ : i_65_;
 			MouseHandler.anInt1140 = (int) (Math.atan2(i_74_ - i_72_, i_49_) * 325.95) & 0x7ff;
 			if (MouseHandler.anInt1140 != 0) {
-				abstractModel.method2377(MouseHandler.anInt1140);
+				abstractModel.rotateX(MouseHandler.anInt1140);
 			}
-			Class159.anInt1488 = (int) (Math.atan2(-i_75_ + i_73_, i_48_) * 325.95) & 0x7ff;
+			Class159.anInt1488 = (int) (Math.atan2(i_73_ - i_75_, i_48_) * 325.95) & 0x7ff;
 			if (Class159.anInt1488 != 0) {
-				abstractModel.method2362(Class159.anInt1488);
+				abstractModel.rotateZ(Class159.anInt1488);
 			}
 			Class93.anInt867 = i_57_ + i_71_;
 			if (Class93.anInt867 > i_66_ + i_65_) {
 				Class93.anInt867 = i_65_ + i_66_;
 			}
-			Class93.anInt867 = -this.y + (Class93.anInt867 >> 1);
+			Class93.anInt867 = (Class93.anInt867 >> 1) - this.y;
 			if (Class93.anInt867 != 0) {
 				abstractModel.translate(0, Class93.anInt867, 0);
 			}
@@ -663,8 +662,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.aBoolean3007 = true;
 	}
 
-	final void setSize(final int size_) {
-		size = size_;
+	final void setSize(final int size) {
+		this.size = size;
 	}
 
 	GameEntity() {

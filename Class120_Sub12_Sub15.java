@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 	static int anInt3241 = -1;
 	static js5 aClass50_3242;
 	static int landscapeSpriteLevel = -1;
-	static String aString3244 = "Hidden";
+	static String hiddenString = "Hidden";
 	static long[] aLongArray3245;
 	private int anInt3246 = 4;
 	static boolean aBoolean3247 = false;
@@ -19,7 +19,7 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 
 	public static void method1274(final boolean bool) {
 		try {
-			aString3244 = null;
+			hiddenString = null;
 			if (bool) {
 				method1275(null, (byte) 83, null);
 			}

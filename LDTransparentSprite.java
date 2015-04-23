@@ -83,10 +83,10 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	@Override
-	final void method1594(int i, int i_34_, final int i_35_) {
-		i += this.offsetX;
+	final void drawSpriteTransparency(int x, int i_34_, final int i_35_) {
+		x += this.offsetX;
 		i_34_ += this.offsetY;
-		int i_36_ = i + i_34_ * GraphicsLD.width;
+		int i_36_ = x + i_34_ * GraphicsLD.width;
 		int i_37_ = 0;
 		int i_38_ = this.height;
 		int i_39_ = this.width;
@@ -102,17 +102,17 @@ final class LDTransparentSprite extends LDSprite {
 		if (i_34_ + i_38_ > GraphicsLD.endY) {
 			i_38_ -= i_34_ + i_38_ - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_43_ = GraphicsLD.startX - i;
+		if (x < GraphicsLD.startX) {
+			final int i_43_ = GraphicsLD.startX - x;
 			i_39_ -= i_43_;
-			i = GraphicsLD.startX;
+			x = GraphicsLD.startX;
 			i_37_ += i_43_;
 			i_36_ += i_43_;
 			i_41_ += i_43_;
 			i_40_ += i_43_;
 		}
-		if (i + i_39_ > GraphicsLD.endX) {
-			final int i_44_ = i + i_39_ - GraphicsLD.endX;
+		if (x + i_39_ > GraphicsLD.endX) {
+			final int i_44_ = x + i_39_ - GraphicsLD.endX;
 			i_39_ -= i_44_;
 			i_41_ += i_44_;
 			i_40_ += i_44_;
@@ -592,7 +592,7 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	@Override
-	final void method1604(int i, int i_184_, final int i_185_, final int i_186_, final int i_187_, final int i_188_, final int i_189_, final int i_190_, final int[] is, final int[] is_191_) {
+	final void method1604(int x, int i_184_, final int i_185_, final int i_186_, final int i_187_, final int i_188_, final int i_189_, final int i_190_, final int[] is, final int[] is_191_) {
 		try {
 			final int i_192_ = -i_185_ / 2;
 			final int i_193_ = -i_186_ / 2;
@@ -602,13 +602,13 @@ final class LDTransparentSprite extends LDSprite {
 			i_195_ = i_195_ * i_190_ >> 8;
 			int i_196_ = (i_187_ << 16) + i_193_ * i_194_ + i_192_ * i_195_;
 			int i_197_ = (i_188_ << 16) + i_193_ * i_195_ - i_192_ * i_194_;
-			int i_198_ = i + i_184_ * GraphicsLD.width;
+			int i_198_ = x + i_184_ * GraphicsLD.width;
 			for (i_184_ = 0; i_184_ < i_186_; i_184_++) {
 				final int i_199_ = is[i_184_];
 				int i_200_ = i_198_ + i_199_;
 				int i_201_ = i_196_ + i_195_ * i_199_;
 				int i_202_ = i_197_ - i_194_ * i_199_;
-				for (i = -is_191_[i_184_]; i < 0; i++) {
+				for (x = -is_191_[i_184_]; x < 0; x++) {
 					final int i_203_ = this.pixels[(i_201_ >> 16) + (i_202_ >> 16) * this.width];
 					final int i_204_ = GraphicsLD.pixels[i_200_];
 					final int i_205_ = i_203_ >>> 24;
@@ -856,10 +856,10 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	@Override
-	final void method1587(int i, int i_336_) {
-		i += this.offsetX;
+	final void drawSprite(int x, int i_336_) {
+		x += this.offsetX;
 		i_336_ += this.offsetY;
-		int i_337_ = i + i_336_ * GraphicsLD.width;
+		int i_337_ = x + i_336_ * GraphicsLD.width;
 		int i_338_ = 0;
 		int i_339_ = this.height;
 		int i_340_ = this.width;
@@ -875,17 +875,17 @@ final class LDTransparentSprite extends LDSprite {
 		if (i_336_ + i_339_ > GraphicsLD.endY) {
 			i_339_ -= i_336_ + i_339_ - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_344_ = GraphicsLD.startX - i;
+		if (x < GraphicsLD.startX) {
+			final int i_344_ = GraphicsLD.startX - x;
 			i_340_ -= i_344_;
-			i = GraphicsLD.startX;
+			x = GraphicsLD.startX;
 			i_338_ += i_344_;
 			i_337_ += i_344_;
 			i_342_ += i_344_;
 			i_341_ += i_344_;
 		}
-		if (i + i_340_ > GraphicsLD.endX) {
-			final int i_345_ = i + i_340_ - GraphicsLD.endX;
+		if (x + i_340_ > GraphicsLD.endX) {
+			final int i_345_ = x + i_340_ - GraphicsLD.endX;
 			i_340_ -= i_345_;
 			i_342_ += i_345_;
 			i_341_ += i_345_;

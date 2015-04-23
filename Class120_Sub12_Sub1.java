@@ -221,16 +221,9 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 		return frame;
 	}
 
-	public static void method1197(final boolean bool) {
-		try {
-			aString3137 = null;
-			if (!bool) {
-				method1200(61);
-			}
-			aString3132 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ac.U(").append(bool).append(')').toString());
-		}
+	public static void method1197() {
+		aString3137 = null;
+		aString3132 = null;
 	}
 
 	private final void method1198(final int i, final int i_55_, int i_56_, final int i_57_, final int i_58_, final Random random, final int[][] is) {

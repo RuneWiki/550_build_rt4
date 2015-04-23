@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class ParticleManager extends ParticleNode {
+final class ParticleEmitter extends ParticleNode {
 	private int anInt2314;
 	int anInt2315;
 	private int anInt2316;
@@ -11,8 +11,8 @@ final class ParticleManager extends ParticleNode {
 	static int selectedObjSlot;
 	static int anInt2320 = 0;
 	int anInt2321;
-	ModelParticle aClass158_2322;
-	ParticleType particleType;
+	ModelParticleEmitter aClass158_2322;
+	EmitterType emitterType;
 	private int anInt2324;
 	private int anInt2325;
 	private int anInt2326;
@@ -29,7 +29,7 @@ final class ParticleManager extends ParticleNode {
 	Class174 aClass174_2337;
 	private int anInt2338;
 	boolean aBoolean2339 = false;
-	ParticleEngine aClass108_Sub2_2340;
+	ParticleEngine particleEngine;
 	private int anInt2341;
 	private int anInt2342;
 	private int anInt2343;
@@ -44,7 +44,7 @@ final class ParticleManager extends ParticleNode {
 			} else if (!Class34.method288() || !Class34.method286() || !Class34.method280()) {
 				bool = false;
 			}
-			Class186.hdrEnabled = bool;
+			WallDecoration.hdrEnabled = bool;
 			Class120_Sub6.savePreferences(NpcType.gameSignlink);
 			if (!bool_1_ == bool) {
 				((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
@@ -65,20 +65,11 @@ final class ParticleManager extends ParticleNode {
 		return (i & 0xff80) + i_2_;
 	}
 
-	static final int method936(final int i, final int i_3_, final int i_4_) {
-		int i_5_;
-		try {
-			int i_6_ = i + i_4_ * 57;
-			if (i_3_ != 25528) {
-				return 27;
-			}
-			i_6_ = i_6_ << 13 ^ i_6_;
-			final int i_7_ = 1376312589 + (789221 + i_6_ * i_6_ * 15731) * i_6_ & 0x7fffffff;
-			i_5_ = (i_7_ & 0x7fd13c7) >> 19;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.J(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(')').toString());
-		}
-		return i_5_;
+	static final int method936(final int i, final int i_4_) {
+		int i_6_ = i + i_4_ * 57;
+		i_6_ = i_6_ << 13 ^ i_6_;
+		final int i_7_ = 1376312589 + (789221 + i_6_ * i_6_ * 15731) * i_6_ & 0x7fffffff;
+		return (i_7_ & 0x7fd13c7) >> 19;
 	}
 
 	static final AbstractFont constructAbstractFont(final byte[] data) {
@@ -119,20 +110,20 @@ final class ParticleManager extends ParticleNode {
 
 	final void method940(final int i, final int i_15_, boolean bool, final int i_16_, final long l) {
 		if (!this.aBoolean2339) {
-			if (ParticleEngine.particleSetting >= this.particleType.anInt746) {
+			if (ParticleEngine.particleSetting >= this.emitterType.anInt746) {
 				if (OverridedJInterface.anIntArray2743[ParticleEngine.particleSetting] >= ParticleEngine.anInt2351) {
 					if (anInt2341 != anInt2342 || anInt2342 != anInt2325 || anInt2332 != anInt2326 || anInt2332 != anInt2316 || anInt2338 != anInt2317 || anInt2344 != anInt2317) {
-						if ((this.particleType.anInt772 ^ 0xffffffff) != 0) {
+						if ((this.emitterType.anInt772 ^ 0xffffffff) != 0) {
 							int i_18_ = (int) (l + -aLong2330);
-							if (this.particleType.aBoolean760 || i_18_ <= this.particleType.anInt772) {
-								i_18_ %= this.particleType.anInt772;
+							if (this.emitterType.aBoolean760 || i_18_ <= this.emitterType.anInt772) {
+								i_18_ %= this.emitterType.anInt772;
 							} else {
 								bool = false;
 							}
-							if (!this.particleType.aBoolean718 && this.particleType.anInt755 > i_18_) {
+							if (!this.emitterType.aBoolean718 && this.emitterType.anInt755 > i_18_) {
 								bool = false;
 							}
-							if (this.particleType.aBoolean718 && i_18_ >= this.particleType.anInt755) {
+							if (this.emitterType.aBoolean718 && i_18_ >= this.emitterType.anInt755) {
 								bool = false;
 							}
 						}
@@ -149,7 +140,7 @@ final class ParticleManager extends ParticleNode {
 			bool = false;
 		}
 		if (bool) {
-			anInt2334 += (int) ((this.particleType.anInt768 + (this.particleType.anInt734 - this.particleType.anInt768) * Math.random()) * i);
+			anInt2334 += (int) ((this.emitterType.anInt768 + (this.emitterType.anInt734 - this.emitterType.anInt768) * Math.random()) * i);
 			if (anInt2334 > 63) {
 				final int i_19_ = anInt2334 >> 6;
 				anInt2334 &= 0x3f;
@@ -173,8 +164,8 @@ final class ParticleManager extends ParticleNode {
 					anInt2314 = 32767 * anInt2314 / i_26_;
 					anInt2327 = anInt2327 * 32767 / i_26_;
 					anInt2335 = anInt2335 * 32767 / i_26_;
-					if (this.particleType.aShort753 <= 0 && this.particleType.aShort763 <= 0) {
-						if (this.aClass108_Sub2_2340.anInt2377 != 0) {
+					if (this.emitterType.aShort753 <= 0 && this.emitterType.aShort763 <= 0) {
+						if (this.particleEngine.anInt2377 != 0) {
 							final int i_27_ = anInt2335 * i_15_ - -(anInt2314 * i_16_) >> 16;
 							anInt2335 = i_16_ * anInt2335 + -(anInt2314 * i_15_) >> 16;
 							anInt2314 = i_27_;
@@ -182,11 +173,11 @@ final class ParticleManager extends ParticleNode {
 					} else {
 						int i_28_ = (int) (Math.atan2(anInt2335, anInt2314) * 2047.0 / 6.283185307179586);
 						final int i_29_ = (int) (Math.atan2(anInt2327, Math.sqrt(anInt2335 * anInt2335 + anInt2314 * anInt2314)) * 2047.0 / 6.283185307179586);
-						anInt2343 = -this.particleType.aShort744 + this.particleType.aShort753;
-						anInt2324 = -this.particleType.aShort759 + this.particleType.aShort763;
-						anInt2345 = this.particleType.aShort759 + (i_29_ + -(anInt2324 / 2));
-						i_28_ -= this.aClass108_Sub2_2340.anInt2377;
-						anInt2331 = -(anInt2343 / 2) + this.particleType.aShort744 + i_28_;
+						anInt2343 = -this.emitterType.aShort744 + this.emitterType.aShort753;
+						anInt2324 = -this.emitterType.aShort759 + this.emitterType.aShort763;
+						anInt2345 = this.emitterType.aShort759 + (i_29_ + -(anInt2324 / 2));
+						i_28_ -= this.particleEngine.anInt2377;
+						anInt2331 = -(anInt2343 / 2) + this.emitterType.aShort744 + i_28_;
 					}
 					this.aBoolean2329 = false;
 				}
@@ -194,7 +185,7 @@ final class ParticleManager extends ParticleNode {
 					int i_31_;
 					int i_32_;
 					int i_33_;
-					if (this.particleType.aShort753 <= 0 && this.particleType.aShort763 <= 0) {
+					if (this.emitterType.aShort753 <= 0 && this.emitterType.aShort763 <= 0) {
 						i_33_ = anInt2327;
 						i_31_ = anInt2314;
 						i_32_ = anInt2335;
@@ -203,12 +194,12 @@ final class ParticleManager extends ParticleNode {
 						int i_35_ = (int) (Math.random() * anInt2324) + anInt2345;
 						i_35_ &= 0x3ff;
 						i_34_ &= 0x7ff;
-						final int i_36_ = Rasterizer.sineTable[i_35_] >> 1;
-						final int i_37_ = Rasterizer.cosineTable[i_34_] >> 1;
+						final int i_36_ = Rasterizer.sinTable[i_35_] >> 1;
+						final int i_37_ = Rasterizer.cosTable[i_34_] >> 1;
 						i_31_ = i_37_ * i_36_ >> 15;
-						final int i_38_ = Rasterizer.sineTable[i_34_] >> 1;
+						final int i_38_ = Rasterizer.sinTable[i_34_] >> 1;
 						i_32_ = i_38_ * i_36_ >> 15;
-						final int i_39_ = Rasterizer.cosineTable[i_35_] >> 1;
+						final int i_39_ = Rasterizer.cosTable[i_35_] >> 1;
 						i_33_ = -1 * i_39_;
 					}
 					final int i_40_ = (int) (255.0 * Math.random());
@@ -218,26 +209,26 @@ final class ParticleManager extends ParticleNode {
 					int i_44_ = i_43_ * anInt2344 + i_42_ * anInt2317 + anInt2338 * i_41_ >> 8;
 					final int i_45_ = i_43_ * anInt2316 + anInt2332 * i_42_ + anInt2326 * i_41_ >> 8;
 					int i_46_ = i_41_ * anInt2341 - -(i_42_ * anInt2342) + i_43_ * anInt2325 >> 8;
-					if (this.aClass108_Sub2_2340.anInt2377 != 0) {
+					if (this.particleEngine.anInt2377 != 0) {
 						final int i_47_ = i_15_ * i_44_ + i_46_ * i_16_ >> 16;
 						i_44_ = -(i_46_ * i_15_) + i_16_ * i_44_ >> 16;
 						i_46_ = i_47_;
 					}
-					final int i_48_ = (int) (Math.random() * (-this.particleType.anInt739 + this.particleType.anInt776)) + this.particleType.anInt739;
-					final int i_49_ = (int) ((-this.particleType.anInt756 + this.particleType.anInt738) * Math.random()) + this.particleType.anInt756;
+					final int i_48_ = (int) (Math.random() * (-this.emitterType.anInt739 + this.emitterType.anInt776)) + this.emitterType.anInt739;
+					final int i_49_ = (int) ((-this.emitterType.anInt756 + this.emitterType.anInt738) * Math.random()) + this.emitterType.anInt756;
 					int i_50_;
-					if (!this.particleType.aBoolean736) {
-						i_50_ = (int) (Math.random() * this.particleType.anInt774 + this.particleType.anInt723) << 24 | (int) (Math.random() * this.particleType.anInt722 + this.particleType.anInt758) | (int) (this.particleType.anInt767 * Math.random() + this.particleType.anInt725) << 8 | (int) (this.particleType.anInt737 + Math.random() * this.particleType.anInt719) << 16;
+					if (!this.emitterType.aBoolean736) {
+						i_50_ = (int) (Math.random() * this.emitterType.anInt774 + this.emitterType.anInt723) << 24 | (int) (Math.random() * this.emitterType.anInt722 + this.emitterType.anInt758) | (int) (this.emitterType.anInt767 * Math.random() + this.emitterType.anInt725) << 8 | (int) (this.emitterType.anInt737 + Math.random() * this.emitterType.anInt719) << 16;
 					} else {
 						final double d = Math.random();
-						i_50_ = (int) (this.particleType.anInt774 * d + this.particleType.anInt723) << 24 | (int) (this.particleType.anInt737 + d * this.particleType.anInt719) << 16 | (int) (d * this.particleType.anInt767 + this.particleType.anInt725) << 8 | (int) (this.particleType.anInt722 * d + this.particleType.anInt758);
+						i_50_ = (int) (this.emitterType.anInt774 * d + this.emitterType.anInt723) << 24 | (int) (this.emitterType.anInt737 + d * this.emitterType.anInt719) << 16 | (int) (d * this.emitterType.anInt767 + this.emitterType.anInt725) << 8 | (int) (this.emitterType.anInt722 * d + this.emitterType.anInt758);
 					}
 					if (ParticleEngine.anInt2354 == ParticleEngine.anInt2353) {
-						new Particle(this, this.aClass108_Sub2_2340.anInt2379 - -i_46_, this.aClass108_Sub2_2340.anInt2372 - -i_45_, this.aClass108_Sub2_2340.anInt2368 + i_44_, i_31_, i_33_, i_32_, i_48_, i_49_, i_50_);
+						new Particle(this, this.particleEngine.anInt2379 - -i_46_, this.particleEngine.anInt2372 - -i_45_, this.particleEngine.anInt2368 + i_44_, i_31_, i_33_, i_32_, i_48_, i_49_, i_50_);
 					} else {
 						final Particle class108_sub3_sub1 = ParticleEngine.aClass108_Sub3_Sub1Array2350[ParticleEngine.anInt2353];
 						ParticleEngine.anInt2353 = 0x3ff & ParticleEngine.anInt2353 - -1;
-						class108_sub3_sub1.method971(this, this.aClass108_Sub2_2340.anInt2379 - -i_46_, this.aClass108_Sub2_2340.anInt2372 + i_45_, i_44_ + this.aClass108_Sub2_2340.anInt2368, i_31_, i_33_, i_32_, i_48_, i_49_, i_50_);
+						class108_sub3_sub1.method971(this, this.particleEngine.anInt2379 - -i_46_, this.particleEngine.anInt2372 + i_45_, i_44_ + this.particleEngine.anInt2368, i_31_, i_33_, i_32_, i_48_, i_49_, i_50_);
 					}
 				}
 			}
@@ -263,7 +254,7 @@ final class ParticleManager extends ParticleNode {
 						Class120_Sub12_Sub30.friendsRank[nextFriendId] = Class120_Sub12_Sub30.friendsRank[nextFriendId + 1];
 						Class120_Sub12_Sub9.aBooleanArray3194[nextFriendId] = Class120_Sub12_Sub9.aBooleanArray3194[nextFriendId + 1];
 					}
-					Class61.anInt563 = GrandExchangeObject.anInt1494;
+					client.anInt563 = GrandExchangeObject.anInt1494;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(172);
 					Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
 					break;
@@ -282,9 +273,9 @@ final class ParticleManager extends ParticleNode {
 		anInt2342 = i_58_;
 		anInt2316 = i_55_;
 		anInt2326 = i_53_;
-		final int i_62_ = this.aClass108_Sub2_2340.anInt2372 + (anInt2326 - -anInt2332 + anInt2316) / 3;
-		final int i_63_ = this.aClass108_Sub2_2340.anInt2379 + (anInt2342 + anInt2341 - -anInt2325) / 3;
-		final int i_64_ = (anInt2344 + anInt2317 + anInt2338) / 3 - -this.aClass108_Sub2_2340.anInt2368;
+		final int i_62_ = this.particleEngine.anInt2372 + (anInt2326 - -anInt2332 + anInt2316) / 3;
+		final int i_63_ = this.particleEngine.anInt2379 + (anInt2342 + anInt2341 - -anInt2325) / 3;
+		final int i_64_ = (anInt2344 + anInt2317 + anInt2338) / 3 - -this.particleEngine.anInt2368;
 		if (this.anInt2315 != i_63_ || i_62_ != this.anInt2318 || i_64_ != this.anInt2321) {
 			this.anInt2321 = i_64_;
 			this.aBoolean2329 = true;
@@ -293,12 +284,12 @@ final class ParticleManager extends ParticleNode {
 		}
 	}
 
-	ParticleManager(final ModelParticle class158, final ParticleEngine class108_sub2, final long l) {
+	ParticleEmitter(final ModelParticleEmitter class158, final ParticleEngine class108_sub2, final long l) {
 		this.aBoolean2329 = true;
 		this.aClass158_2322 = class158;
-		this.aClass108_Sub2_2340 = class108_sub2;
+		this.particleEngine = class108_sub2;
 		this.aClass174_2337 = new Class174();
-		this.particleType = this.aClass158_2322.particleType;
+		this.emitterType = this.aClass158_2322.emitterType;
 		aLong2330 = l;
 		anInt2334 += Math.random() * 64.0;
 	}

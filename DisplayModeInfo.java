@@ -59,7 +59,7 @@ final class DisplayModeInfo {
 		CursorType.spriteCache.clear();
 	}
 
-	static final String method2215(final byte[] buf, final int off, final int len) {
+	static final String bufferToString(final byte[] buf, final int off, final int len) {
 		final char[] charSequence = new char[len];
 		int charAmount = 0;
 		for (int id = 0; id < len; id++) {

@@ -14,7 +14,7 @@ final class Class150 {
 	int frameId;
 	int nextFrameId;
 	static String clanOwner;
-	int anInt1416;
+	int cyclesElapsed;
 	static int selectedSpellTargetCursor;
 
 	static {

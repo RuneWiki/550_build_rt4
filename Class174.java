@@ -5,7 +5,6 @@
 final class Class174 {
 	static int[] anIntArray1731 = new int[50];
 	ParticleNode head = new ParticleNode();
-	static String skillString = "skill: ";
 	private ParticleNode next;
 	static int currentCursorId = -1;
 	
@@ -45,7 +44,7 @@ final class Class174 {
 			if (i != 0) {
 				method2232(70);
 			}
-			skillString = null;
+			TextRepository.skill = null;
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
 		}
@@ -66,26 +65,26 @@ final class Class174 {
 				newPlayer = true;
 			}
 			Class112.playerIndices[FileSystemWorker.localPlayerCount++] = index;
-			final Player class180_sub5_sub1 = Class118.playersList[index];
-			class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+			final Player player = Class118.playersList[index];
+			player.lastUpdateCycle = Class101_Sub2.loopCycle;
 			final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
 			if (newPlayer) {
-				class180_sub5_sub1.anInt3019 = class180_sub5_sub1.anInt3032 = i_4_;
+				player.anInt3019 = player.anInt3032 = i_4_;
 			}
-			int i_5_ = Canvas_Sub1.inputStream.getBitValue(5);
-			if (i_5_ > 15) {
-				i_5_ -= 32;
+			int x = Canvas_Sub1.inputStream.getBitValue(5);
+			if (x > 15) {
+				x -= 32;
 			}
 			final int i_6_ = Canvas_Sub1.inputStream.getBitValue(1);
 			final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_7_ == 1) {
 				Class169.anIntArray1648[Class154.anInt1441++] = index;
 			}
-			int i_8_ = Canvas_Sub1.inputStream.getBitValue(5);
-			if (i_8_ > 15) {
-				i_8_ -= 32;
+			int z = Canvas_Sub1.inputStream.getBitValue(5);
+			if (z > 15) {
+				z -= 32;
 			}
-			class180_sub5_sub1.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + i_5_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_8_, i_6_ == 1);
+			player.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + x, TileParticleQueue.selfPlayer.walkQueueZ[0] + z, i_6_ == 1);
 		}
 		Canvas_Sub1.inputStream.endBitAccess();
 	}

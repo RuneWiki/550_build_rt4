@@ -61,12 +61,12 @@ final class Class114 {
 		return Class65.displayModes;
 	}
 
-	static final long method1005(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
-		if (class120_sub18 == null || class120_sub18.aClass182_2628 == null) {
+	static final long getWallLocationUid(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		if (groundTile == null || groundTile.wallLocation == null) {
 			return 0L;
 		}
-		return class120_sub18.aClass182_2628.bitPacked;
+		return groundTile.wallLocation.bitPackedUid;
 	}
 
 	static final AbstractGraphicsBuffer constructGraphicsBuffer(final Component component, final int width, final int height) {

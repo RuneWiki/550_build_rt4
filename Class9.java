@@ -87,7 +87,7 @@ final class Class9 {
 		if (!Class10.decodedSprites(spriteJs5, group, file)) {
 			return null;
 		}
-		return ParticleManager.constructAbstractFont(fontJs5.getFile(group, file));
+		return ParticleEmitter.constructAbstractFont(fontJs5.getFile(group, file));
 	}
 
 	public static void method118() {

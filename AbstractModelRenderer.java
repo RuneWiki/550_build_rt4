@@ -5,7 +5,7 @@
 abstract class AbstractModelRenderer extends SceneGraphNode {
 	boolean haveActions = false;
 
-	abstract void rotate(int i);
+	abstract void rotateY(int i);
 
 	final void method2361(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameLoader class120_sub14_sub18_4_, final int i_5_,
 			final FrameLoader class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
@@ -43,7 +43,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 		/* empty */
 	}
 
-	abstract void method2362(int i);
+	abstract void rotateZ(int i);
 
 	abstract int getMaxZ();
 
@@ -237,7 +237,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract AbstractModelRenderer method2376(boolean bool, boolean bool_78_, boolean bool_79_);
 
-	abstract void method2377(int i);
+	abstract void rotateX(int i);
 
 	abstract AbstractModelRenderer method2378(boolean bool, boolean bool_80_, boolean bool_81_);
 
@@ -301,13 +301,13 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 		if (i_106_ != 0) {
 			final int i_123_ = (int) (Math.atan2(i_119_ - i_120_, i_106_) * 325.95) & 0x7ff;
 			if (i_123_ != 0) {
-				method2377(i_123_);
+				rotateX(i_123_);
 			}
 		}
 		if (i_105_ != 0) {
 			final int i_124_ = (int) (Math.atan2(i_122_ - i_121_, i_105_) * 325.95) & 0x7ff;
 			if (i_124_ != 0) {
-				method2362(i_124_);
+				rotateZ(i_124_);
 			}
 		}
 		int i_125_ = i_109_ + i_118_;

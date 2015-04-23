@@ -5,16 +5,13 @@ import java.io.IOException;
 
 final class Class120_Sub21 extends Node {
 	static int hintheadiconsId;
-	static String aString2665 = "glow1:";
 	String aString2666;
 	static FrameLoader[] aClass120_Sub14_Sub18Array2667;
 	static Interface1 anInterface1_2668 = null;
-	static String aString2669;
 	static int skillTriggersPos;
 
 	static {
 		aClass120_Sub14_Sub18Array2667 = new FrameLoader[14];
-		aString2669 = " has logged in.";
 		skillTriggersPos = 0;
 	}
 
@@ -28,8 +25,8 @@ final class Class120_Sub21 extends Node {
 
 	public static void method1696() {
 		anInterface1_2668 = null;
-		aString2665 = null;
-		aString2669 = null;
+		TextRepository.aString2665 = null;
+		TextRepository.aString2669 = null;
 		aClass120_Sub14_Sub18Array2667 = null;
 	}
 
@@ -49,14 +46,14 @@ final class Class120_Sub21 extends Node {
 			Class120_Sub22.systemUpdateCycle--;
 			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 		}
-		if (Class31.anInt244 > 0) {
-			Class31.anInt244--;
+		if (Class31.logoutCycle > 0) {
+			Class31.logoutCycle--;
 		}
 		if (Class120_Sub12_Sub5.errorPinging) {
 			Class120_Sub12_Sub5.errorPinging = false;
 			TileParticleQueue.dropClient();
 		} else {
-			for (int i_5_ = 0; i_5_ < 100 && Class182.method2445(); i_5_++) {
+			for (int id = 0; id < 100 && WallLocation.method2445(); id++) {
 				/* empty */
 			}
 			if (Class109.gameState == 30) {
@@ -223,7 +220,7 @@ final class Class120_Sub21 extends Node {
 						Class3.method82();
 						Class120_Sub14_Sub24.updateEntityText();
 						for (int i_18_ = Class31.method263(true); i_18_ != -1; i_18_ = Class31.method263(false)) {
-							Class120_Sub14_Sub15.method1554(i_18_);
+							Class120_Sub14_Sub15.postVarpChange(i_18_);
 							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(VarBit.anInt165++, 31)] = i_18_;
 						}
 						for (InterfaceChangeNode interfaceChangeNode = InterfaceChangeNode.poll(); interfaceChangeNode != null; interfaceChangeNode = InterfaceChangeNode.poll()) {
@@ -246,8 +243,8 @@ final class Class120_Sub21 extends Node {
 								final int i_21_ = interfaceChangeNode.anInt3484;
 								final int i_22_ = interfaceChangeNode.anInt3492;
 								final int i_23_ = interfaceChangeNode.anInt3486;
-								if (jagexInterface.modelTypeDisabled != i_21_ || i_22_ != jagexInterface.mediaIdDisabled || jagexInterface.anInt1997 != i_23_) {
-									jagexInterface.mediaIdDisabled = i_22_;
+								if (jagexInterface.modelTypeDisabled != i_21_ || i_22_ != jagexInterface.modelIdDisabled || jagexInterface.anInt1997 != i_23_) {
+									jagexInterface.modelIdDisabled = i_22_;
 									jagexInterface.anInt1997 = i_23_;
 									jagexInterface.modelTypeDisabled = i_21_;
 									InterfaceClickMask.redrawInterface(jagexInterface);
@@ -303,9 +300,9 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 10) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.anInt2076 != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.anInt1977 || jagexInterface.rotateZ != interfaceChangeNode.anInt3486) {
-									jagexInterface.anInt1977 = interfaceChangeNode.anInt3492;
-									jagexInterface.anInt2076 = interfaceChangeNode.anInt3484;
+								if (jagexInterface.xOffset2d != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.yOffset2d || jagexInterface.rotateZ != interfaceChangeNode.anInt3486) {
+									jagexInterface.yOffset2d = interfaceChangeNode.anInt3492;
+									jagexInterface.xOffset2d = interfaceChangeNode.anInt3484;
 									jagexInterface.rotateZ = interfaceChangeNode.anInt3486;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
@@ -396,8 +393,8 @@ final class Class120_Sub21 extends Node {
 										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.aClass189_2954.bitPacked);
 										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.anInt2154);
 									}
-								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(Class186.menuOptionCount + -1) || Class186.menuOptionCount <= 2) {
-									if (Class186.menuOptionCount > 0) {
+								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1) || WallDecoration.menuOptionCount <= 2) {
+									if (WallDecoration.menuOptionCount > 0) {
 										Class191.method2508();
 									}
 								} else {
@@ -409,7 +406,7 @@ final class Class120_Sub21 extends Node {
 							}
 						}
 						Class111.aBoolean1058 = false;
-						LocType.aClass189_1818 = null;
+						LocType.draggedOnComponent = null;
 						final JagexInterface jagexInterface = CursorType.aClass189_1243;
 						CursorType.aClass189_1243 = null;
 						final JagexInterface class189_35_ = Class49.aClass189_441;
@@ -472,7 +469,7 @@ final class Class120_Sub21 extends Node {
 						if (MapSceneType.worldMapInterface == null) {
 							EnumType.anInt3450 = 0;
 						}
-						if (Class120_Sub12_Sub4.aClass189_3156 != null) {
+						if (Class120_Sub12_Sub4.draggedComponent != null) {
 							JavaObject.method1435();
 						}
 						if (Class86.staffLevel > 0 && NodeCache.heldKeys[82] && NodeCache.heldKeys[81] && AbstractBuffer.mouseWheelRotation != 0) {
@@ -513,7 +510,7 @@ final class Class120_Sub21 extends Node {
 								if (ObjectCache.anInt122 != -1) {
 									Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
 									Class120_Sub12_Sub11.outputStream.putShortA(WaterfallShader.anInt2174 + Class181.currentBaseZ);
-									Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.anInt420);
+									Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.selectedSpellComponextIndex);
 									Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 									Class120_Sub12_Sub11.outputStream.putLEShort(ObjectCache.anInt122 + GameEntity.currentBaseX);
 									Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -560,77 +557,22 @@ final class Class120_Sub21 extends Node {
 						for (int i_45_ = 0; i_45_ < 5; i_45_++) {
 							LabelGroup.anIntArray2412[i_45_]++;
 						}
-						final int i_46_ = Class182.getMouseIdleCycle();
-						final int i_47_ = Class69_Sub2_Sub1.getKeyboardIdleCycle();
-						if (i_46_ > 15000 && i_47_ > 15000) {
-							Class31.anInt244 = 250;
+						final int mouseIdle = WallLocation.getMouseIdleCycle();
+						final int keyboardIdle = Class69_Sub2_Sub1.getKeyboardIdleCycle();
+						if (mouseIdle > 15000 && keyboardIdle > 15000) {
+							Class31.logoutCycle = 250;
 							Class120_Sub12_Sub39.setMouseIdleCycle(14500);
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(91);
 						}
-						if (Class3.aClass185_56 != null && Class3.aClass185_56.status == 1) {
-							if (Class3.aClass185_56.value != null) {
-								Class188.method2482(WorldInfo.aString1421, Class99.aBoolean950);
+						if (Class3.openUrlRequest != null && Class3.openUrlRequest.status == 1) {
+							if (Class3.openUrlRequest.value != null) {
+								Class188.openUrl(WorldInfo.openUrl, Class99.openUrlNewTab);
 							}
-							WorldInfo.aString1421 = null;
-							Class3.aClass185_56 = null;
-							Class99.aBoolean950 = false;
+							WorldInfo.openUrl = null;
+							Class3.openUrlRequest = null;
+							Class99.openUrlNewTab = false;
 						}
-						Class120_Sub12_Sub7.anInt3184++;
 						Class65.pingTimer++;
-						Class120_Sub14_Sub24.anInt3666++;
-						if (Class120_Sub12_Sub7.anInt3184 > 500) {
-							Class120_Sub12_Sub7.anInt3184 = 0;
-							final int i_48_ = (int) (8.0 * Math.random());
-							if ((0x2 & i_48_) == 2) {
-								EntityRenderData.anInt195 += Class120_Sub30_Sub1.anInt3671;
-							}
-							if ((i_48_ & 0x1) == 1) {
-								Class23.anInt136 += Class120_Sub14_Sub22.anInt3637;
-							}
-							if ((0x4 & i_48_) == 4) {
-								ProjectileNode.anInt3447 += Class30.anInt231;
-							}
-						}
-						if (EntityRenderData.anInt195 < -55) {
-							Class120_Sub30_Sub1.anInt3671 = 2;
-						}
-						if (EntityRenderData.anInt195 > 55) {
-							Class120_Sub30_Sub1.anInt3671 = -2;
-						}
-						if (Class23.anInt136 < -50) {
-							Class120_Sub14_Sub22.anInt3637 = 2;
-						}
-						if (Class120_Sub14_Sub24.anInt3666 > 500) {
-							Class120_Sub14_Sub24.anInt3666 = 0;
-							final int i_49_ = (int) (8.0 * Math.random());
-							if ((i_49_ & 0x1) == 1) {
-								Class164.minimapRandomRotation += Class143.anInt2188;
-							}
-							if ((i_49_ & 0x2) == 2) {
-								Class154.minimapRandomZoom += Class132_Sub1.anInt2814;
-							}
-						}
-						if (Class154.minimapRandomZoom < -20) {
-							Class132_Sub1.anInt2814 = 1;
-						}
-						if (Class23.anInt136 > 50) {
-							Class120_Sub14_Sub22.anInt3637 = -2;
-						}
-						if (Class164.minimapRandomRotation < -60) {
-							Class143.anInt2188 = 2;
-						}
-						if (Class164.minimapRandomRotation > 60) {
-							Class143.anInt2188 = -2;
-						}
-						if (ProjectileNode.anInt3447 < -40) {
-							Class30.anInt231 = 1;
-						}
-						if (ProjectileNode.anInt3447 > 40) {
-							Class30.anInt231 = -1;
-						}
-						if (Class154.minimapRandomZoom > 10) {
-							Class132_Sub1.anInt2814 = -1;
-						}
 						if (Class65.pingTimer > 50) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(137);
 						}

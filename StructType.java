@@ -34,18 +34,18 @@ final class StructType extends NodeSub {
 							class120_sub18.aBoolean2624 = false;
 							class120_sub18.anInt2633 = 0;
 							if (i_11_ >= i_6_ && i_11_ <= i_7_ && i_12_ >= i_8_ && i_12_ <= i_9_) {
-								if (class120_sub18.aClass182_2628 != null) {
-									final Class182 class182 = class120_sub18.aClass182_2628;
-									class182.aClass180_1800.method2266(0, i_10_, class182.anInt1801, class182.anInt1797, class182.anInt1795);
+								if (class120_sub18.wallLocation != null) {
+									final WallLocation class182 = class120_sub18.wallLocation;
+									class182.aClass180_1800.method2266(0, i_10_, class182.renderY, class182.renderX, class182.renderZ);
 									if (class182.aClass180_1796 != null) {
-										class182.aClass180_1796.method2266(0, i_10_, class182.anInt1801, class182.anInt1797, class182.anInt1795);
+										class182.aClass180_1796.method2266(0, i_10_, class182.renderY, class182.renderX, class182.renderZ);
 									}
 								}
-								if (class120_sub18.aClass186_2639 != null) {
-									final Class186 class186 = class120_sub18.aClass186_2639;
-									class186.aClass180_1901.method2266(class186.anInt1896, i_10_, class186.anInt1894, class186.anInt1893, class186.anInt1891);
+								if (class120_sub18.wallDecoration != null) {
+									final WallDecoration class186 = class120_sub18.wallDecoration;
+									class186.aClass180_1901.method2266(class186.anInt1896, i_10_, class186.renderY, class186.renderX, class186.renderZ);
 									if (class186.aClass180_1898 != null) {
-										class186.aClass180_1898.method2266(class186.anInt1896, i_10_, class186.anInt1894, class186.anInt1893, class186.anInt1891);
+										class186.aClass180_1898.method2266(class186.anInt1896, i_10_, class186.renderY, class186.renderX, class186.renderZ);
 									}
 								}
 								if (class120_sub18.groundDecoration != null) {
@@ -87,7 +87,7 @@ final class StructType extends NodeSub {
 				FrameLoader.anInt3612 = -1;
 				for (int i_14_ = 0; i_14_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[0].length; i_14_++) {
 					final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[0][i_14_];
-					final float f = 251.5F - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
+					final float f = 251.5F - (class120_sub9.blend ? 1.0F : 0.5F);
 					if (class120_sub9.anInt2505 != Class120_Sub12_Sub19.anInt3281) {
 						Class120_Sub12_Sub19.anInt3281 = class120_sub9.anInt2505;
 						Class69.method614(class120_sub9.anInt2505);
@@ -100,8 +100,8 @@ final class StructType extends NodeSub {
 				for (int i_15_ = Class190.anInt2101; i_15_ < MapSceneType.anInt1361; i_15_++) {
 					for (int i_16_ = 0; i_16_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_].length; i_16_++) {
 						final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_][i_16_];
-						final float f = 201.5F - 50.0F * i_15_ - (class120_sub9.aBoolean2516 ? 1.0F : 0.5F);
-						if (class120_sub9.anInt2520 != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.anInt2520), (byte) -106) && PacketBuffer.highWaterDetail) {
+						final float f = 201.5F - 50.0F * i_15_ - (class120_sub9.blend ? 1.0F : 0.5F);
+						if (class120_sub9.textureId != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.textureId)) && PacketBuffer.highWaterDetail) {
 							Class69.method614(class120_sub9.anInt2505);
 						}
 						class120_sub9.method1162(LabelGroup.groundTiles, f, false);
@@ -324,13 +324,13 @@ final class StructType extends NodeSub {
 			i_44_ = 4;
 		}
 		Buffer.anIntArray2477 = new int[104];
-		Class99.aByteArrayArrayArray949 = new byte[i_44_][104][104];
+		Class99.tileOverlayIds = new byte[i_44_][104][104];
 		Class8.aByteArrayArrayArray65 = new byte[i_44_][104][104];
 		StringNode.anIntArray2733 = new int[104];
 		Npc.aByteArrayArrayArray3754 = new byte[i_44_][105][105];
 		Class120_Sub12_Sub31.anIntArray3383 = new int[104];
-		Class120_Sub4.aByteArrayArrayArray2441 = new byte[i_44_][104][104];
-		Class110.anIntArrayArrayArray1050 = new int[i_44_][105][105];
+		Class120_Sub4.tileUnderlayIds = new byte[i_44_][104][104];
+		Class110.tileOccludeFlags = new int[i_44_][105][105];
 		MapFunctionNode.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
 		PacketBuffer.anIntArray3120 = new int[104];
 		CanvasWrapper.anIntArray21 = new int[5];

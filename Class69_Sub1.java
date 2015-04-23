@@ -5,13 +5,12 @@
 final class Class69_Sub1 extends Class69 {
 	static int renderZWrapper;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_2230;
-	static String aString2231 = "yellow:";
 	static int canvasWidth;
 
 	public static void method617(final byte i) {
 		try {
 			aClass120_Sub30_Sub2_2230 = null;
-			aString2231 = null;
+			TextRepository.aString2231 = null;
 			if (i >= -55) {
 				canvasWidth = -41;
 			}

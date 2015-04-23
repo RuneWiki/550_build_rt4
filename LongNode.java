@@ -3,12 +3,10 @@
  */
 
 final class LongNode extends Node {
-	static String ratingString = "rating: ";
 	long value;
 	static volatile boolean canvasReplaceRecommended = false;
 	static GrandExchangeObject[] grandExchangeObjects = new GrandExchangeObject[6];
-	static String loadingConfigString = "Loading config - ";
-
+	
 	static final boolean method1055(final int i, final int i_0_, final boolean bool_1_, final int i_2_, final GroundTile[][][] class120_sub18s) {
 		final byte i_4_ = bool_1_ ? (byte) 1 : (byte) (0xff & InterfaceChangeNode.anInt3490);
 		if (Class9.aByteArrayArrayArray70[Class173.gameLevel][i_0_][i_2_] == i_4_) {
@@ -37,20 +35,20 @@ final class LongNode extends Node {
 			while_127_: for (int i_14_ = Class173.gameLevel - -1; i_14_ <= 3; i_14_++) {
 				if ((0x8 & Class114.tileSettings[i_14_][i_7_][i_12_]) == 0) {
 					if (bool_11_ && class120_sub18s[i_14_][i_7_][i_12_] != null) {
-						if (class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628 != null) {
+						if (class120_sub18s[i_14_][i_7_][i_12_].wallLocation != null) {
 							final int i_15_ = Class120_Sub12_Sub18.method1294(26957, i_8_);
-							if (class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1799 == i_15_ || i_15_ == class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1792) {
+							if (class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1799 == i_15_ || i_15_ == class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1792) {
 								continue;
 							}
 							if (i_9_ != 0) {
 								final int i_16_ = Class120_Sub12_Sub18.method1294(26957, i_9_);
-								if (i_16_ == class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1799 || class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1792 == i_16_) {
+								if (i_16_ == class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1799 || class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1792 == i_16_) {
 									continue;
 								}
 							}
 							if (i_10_ != 0) {
 								final int i_17_ = Class120_Sub12_Sub18.method1294(26957, i_10_);
-								if (class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1799 == i_17_ || i_17_ == class120_sub18s[i_14_][i_7_][i_12_].aClass182_2628.anInt1792) {
+								if (class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1799 == i_17_ || i_17_ == class120_sub18s[i_14_][i_7_][i_12_].wallLocation.anInt1792) {
 									continue;
 								}
 							}
@@ -184,7 +182,7 @@ final class LongNode extends Node {
 				}
 			} else {
 				if (i_32_ != 0) {
-					ParticleManager.method939(i_27_, i_30_, i, (byte) -75, i_28_);
+					ParticleEmitter.method939(i_27_, i_30_, i, (byte) -75, i_28_);
 				}
 				return;
 			}
@@ -257,8 +255,8 @@ final class LongNode extends Node {
 	public static void method1058(final int i) {
 		try {
 			grandExchangeObjects = null;
-			ratingString = null;
-			loadingConfigString = null;
+			TextRepository.rating = null;
+			TextRepository.loadingConfig = null;
 			if (i != 1) {
 				method1058(58);
 			}

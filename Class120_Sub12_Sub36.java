@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub36 extends Class120_Sub12 {
-	static int[] localNpcIndices;
+	static int[] npcIndices;
 	static int[] anIntArray3416;
 	static int[] anIntArray3417;
 	static js5 aClass50_3418;
@@ -15,7 +15,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	static int lastClickY;
 
 	static {
-		localNpcIndices = new int[1024];
+		npcIndices = new int[1024];
 		anIntArray3422 = new int[100];
 		lastClickY = 0;
 		anIntArray3416 = new int[128];
@@ -27,7 +27,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		anIntArray3416 = null;
 		anIntArray3417 = null;
 		anIntArray3422 = null;
-		localNpcIndices = null;
+		npcIndices = null;
 		anIntArrayArrayArray3420 = null;
 		aClass50_3418 = null;
 	}
@@ -99,7 +99,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.anInt3010 = npc.npcType.anInt1672;
 				npc.entityRenderDataId = npc.npcType.anInt1692;
 				if (npc.npcType.hasAmbientSound()) {
-					Class7.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
+					AmbientSound.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 				}
 			}
 			if ((mask & 0x200) != 0) {
@@ -181,22 +181,22 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 			final int i_31_ = Class90.anIntArray849[i_30_];
 			final int i_32_ = Class150.anIntArray1405[i_29_];
 			final float f = (float) Math.atan2(-2048 + i_31_, i_32_ - 2048);
-			if (-3.141592653589793 <= f && -2.356194490192345 >= f) {
+			if (-Math.PI <= f && -2.356194490192345 >= f) {
 				Class120_Sub12_Sub14.anInt3240 = i_30_;
 				WorldInfo.anInt1420 = i_29_;
-			} else if (-1.5707963267948966 >= f && f >= -2.356194490192345) {
+			} else if (-Math.PI / 2 >= f && f >= -2.356194490192345) {
 				WorldInfo.anInt1420 = i_30_;
 				Class120_Sub12_Sub14.anInt3240 = i_29_;
-			} else if (!(-0.7853981633974483 >= f) || !(f >= -1.5707963267948966)) {
-				if (0.0F >= f && f >= -0.7853981633974483) {
+			} else if (!(-Math.PI / 4 >= f) || !(f >= -Math.PI / 2)) {
+				if (0.0F >= f && f >= -Math.PI / 4) {
 					WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 - i_29_;
 					Class120_Sub12_Sub14.anInt3240 = i_30_;
-				} else if (!(f >= 0.0F) || !(f <= 0.7853981633974483)) {
-					if (!(f >= 0.7853981633974483) || !(f <= 1.5707963267948966)) {
-						if (f >= 1.5707963267948966 && f <= 2.356194490192345) {
+				} else if (!(f >= 0.0F) || !(f <= Math.PI / 4)) {
+					if (!(f >= Math.PI / 4) || !(f <= Math.PI / 2)) {
+						if (f >= Math.PI / 2 && f <= 2.356194490192345) {
 							Class120_Sub12_Sub14.anInt3240 = i_29_;
 							WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 + -i_30_;
-						} else if (2.356194490192345 <= f && 3.141592653589793 >= f) {
+						} else if (2.356194490192345 <= f && Math.PI >= f) {
 							WorldInfo.anInt1420 = i_29_;
 							Class120_Sub12_Sub14.anInt3240 = -i_30_ + Class120_Sub12_Sub7.anInt3178;
 						}

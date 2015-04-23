@@ -118,7 +118,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		class120_sub14_sub9_3_.method1494();
 		class120_sub14_sub9_4_.method1494();
 		GraphicsHD.copyBounds(anIntArray3522);
-		GraphicsHD.method597();
+		GraphicsHD.clipRect();
 		Class12.method140(HDToolkit.method528());
 		gl.glPushAttrib(2048);
 		HDToolkit.toggleFog(false);

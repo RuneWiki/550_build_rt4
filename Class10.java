@@ -43,7 +43,7 @@ final class Class10 {
 					if (bool_0_) {
 						buffer.getUByte();
 					} else {
-						Class99.aByteArrayArrayArray949[level][x][z] = buffer.getByte();
+						Class99.tileOverlayIds[level][x][z] = buffer.getByte();
 						MapFunctionNode.aByteArrayArrayArray3477[level][x][z] = (byte) ((i_9_ - 2) / 4);
 						Class8.aByteArrayArrayArray65[level][x][z] = (byte) Class120_Sub12_Sub3.method1207(3, i_5_ + -2 + i_9_);
 					}
@@ -52,7 +52,7 @@ final class Class10 {
 						Class114.tileSettings[level][x][z] = (byte) (i_9_ - 49);
 					}
 				} else if (!bool_0_) {
-					Class120_Sub4.aByteArrayArrayArray2441[level][x][z] = (byte) (i_9_ - 81);
+					Class120_Sub4.tileUnderlayIds[level][x][z] = (byte) (i_9_ - 81);
 				}
 			}
 		} else {

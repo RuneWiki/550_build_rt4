@@ -30,17 +30,17 @@ final class MapFunctionNode extends NodeSub {
 	}
 
 	static final void method1441() {
-		final int[] is = new int[Node.objCount];
-		int i_9_ = 0;
+		final int[] objectIds = new int[Node.objCount];
+		int pos = 0;
 		for (int id = 0; id < Node.objCount; id++) {
 			final ObjType objType = ObjType.list(id);
-			if (objType.anInt1546 >= 0 || objType.anInt1553 >= 0) {
-				is[i_9_++] = id;
+			if (objType.manWear >= 0 || objType.womanWear >= 0) {
+				objectIds[pos++] = id;
 			}
 		}
-		KeyboardHandler.anIntArray1506 = new int[i_9_];
-		for (int i_11_ = 0; i_9_ > i_11_; i_11_++) {
-			KeyboardHandler.anIntArray1506[i_11_] = is[i_11_];
+		KeyboardHandler.anIntArray1506 = new int[pos];
+		for (int id = 0; id < pos; id++) {
+			KeyboardHandler.anIntArray1506[id] = objectIds[id];
 		}
 	}
 

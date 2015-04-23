@@ -51,14 +51,14 @@ final class CursorType {
 	}
 
 	static final void method1918() {
-		if (Projectile.aClass189_2954 == null && Class120_Sub12_Sub4.aClass189_3156 == null && EnumType.anInt3450 <= 0) {
+		if (Projectile.aClass189_2954 == null && Class120_Sub12_Sub4.draggedComponent == null && EnumType.anInt3450 <= 0) {
 			int i_5_ = Class156.lastMouseClick;
 			if (!Class15.menuOpen) {
-				if (i_5_ == 1 && Class186.menuOptionCount > 0) {
-					final short i_6_ = Class120_Sub29.menuOptionsCode[Class186.menuOptionCount - 1];
+				if (i_5_ == 1 && WallDecoration.menuOptionCount > 0) {
+					final short i_6_ = Class120_Sub29.menuOptionsCode[WallDecoration.menuOptionCount - 1];
 					if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
-						final int i_7_ = Class120_Sub29.menuOptionsData3[Class186.menuOptionCount - 1];
-						final int i_8_ = Class120_Sub12_Sub7.menuOptionsData2[Class186.menuOptionCount - 1];
+						final int i_7_ = Class120_Sub29.menuOptionsData3[WallDecoration.menuOptionCount - 1];
+						final int i_8_ = Class120_Sub12_Sub7.menuOptionsData2[WallDecoration.menuOptionCount - 1];
 						final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
 						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
 						if (class120_sub20.method1681() || class120_sub20.method1691()) {
@@ -76,13 +76,13 @@ final class CursorType {
 						}
 					}
 				}
-				if (i_5_ == 1 && (Class69.mouseButtons == 1 && Class186.menuOptionCount > 2 || SpotAnimationNode.method1438(Class186.menuOptionCount + -1))) {
+				if (i_5_ == 1 && (Class69.mouseButtons == 1 && WallDecoration.menuOptionCount > 2 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1))) {
 					i_5_ = 2;
 				}
-				if (i_5_ == 2 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
+				if (i_5_ == 2 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
 					Class120_Sub12_Sub28.determineMenuSize();
 				}
-				if (i_5_ == 1 && Class186.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
+				if (i_5_ == 1 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
 					Class191.method2508();
 				}
 			} else {
@@ -101,14 +101,14 @@ final class CursorType {
 					final int i_14_ = Class120_Sub12_Sub36.lastClickY;
 					final int i_15_ = Class120_Sub24.menuWidth;
 					int i_16_ = -1;
-					for (int i_17_ = 0; Class186.menuOptionCount > i_17_; i_17_++) {
-						if (!Class186.usingSpriteMenu) {
-							final int i_18_ = (Class186.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
+					for (int i_17_ = 0; WallDecoration.menuOptionCount > i_17_; i_17_++) {
+						if (!WallDecoration.usingSpriteMenu) {
+							final int i_18_ = (WallDecoration.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
 							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
 								i_16_ = i_17_;
 							}
 						} else {
-							final int i_19_ = 15 * (-i_17_ + Class186.menuOptionCount + -1) + 33 + i_12_;
+							final int i_19_ = 15 * (-i_17_ + WallDecoration.menuOptionCount + -1) + 33 + i_12_;
 							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_19_ + -13 < i_14_ && i_19_ + 3 > i_14_) {
 								i_16_ = i_17_;
 							}

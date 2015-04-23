@@ -7,7 +7,7 @@ abstract class Class101 {
 	int anInt960;
 	static int anInt961;
 	static float aFloat962;
-	static String aString963 = null;
+	static String selectedSpellPrefix = null;
 	int anInt964;
 	static float aFloat965;
 	static js5 aClass50_966;
@@ -25,7 +25,7 @@ abstract class Class101 {
 	abstract void method834(int i_5_, int i_6_);
 
 	static final void method835(final boolean bool) {
-		AtmosphereManager.setLightParams(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, Class147.aFloat1395);
+		AtmosphereManager.setLightParams(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, client.aFloat1395);
 		AtmosphereManager.setFogValues(Deque.anInt1007, CollisionMap.anInt151, bool);
 		AtmosphereManager.setLightPosition(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
 		AtmosphereManager.applyLightPosition();

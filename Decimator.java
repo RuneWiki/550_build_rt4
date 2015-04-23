@@ -1,11 +1,13 @@
+import java.util.Arrays;
+
 /* Class172 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
 final class Decimator {
 	static int anInt1716;
-	private int anInt1717;
-	private int anInt1718;
+	private int newFrequency;
+	private int oldFrequency;
 	private int[][] anIntArrayArray1719;
 	static int[] skillsBaseLevel = new int[25];
 	static js5 aClass50_1721;
@@ -13,39 +15,21 @@ final class Decimator {
 
 	static {
 		anInt1716 = 0;
-		fogEnabled = true;
+		fogEnabled = false;
 	}
 
-	final int method2217(int i, final byte i_0_) {
-		int i_1_;
-		try {
-			if (i_0_ > -126) {
-				method2219(-29L);
-			}
-			if (anIntArrayArray1719 != null) {
-				i = (int) ((long) anInt1717 * (long) i / anInt1718);
-			}
-			i_1_ = i;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.E(").append(i).append(',').append(i_0_).append(')').toString());
+	final int method2217(int i) {
+		if (anIntArrayArray1719 != null) {
+			i = (int) ((long) newFrequency * (long) i / oldFrequency);
 		}
-		return i_1_;
+		return i;
 	}
 
-	final int method2218(final int i, int i_2_) {
-		int i_3_;
-		try {
-			if (i >= -124) {
-				method2219(103L);
-			}
-			if (anIntArrayArray1719 != null) {
-				i_2_ = (int) ((long) anInt1717 * (long) i_2_ / anInt1718) + 6;
-			}
-			i_3_ = i_2_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.A(").append(i).append(',').append(i_2_).append(')').toString());
+	final int method2218(int i_2_) {
+		if (anIntArrayArray1719 != null) {
+			i_2_ = (int) ((long) newFrequency * (long) i_2_ / oldFrequency) + 6;
 		}
-		return i_3_;
+		return i_2_;
 	}
 
 	static final void method2219(final long l) {
@@ -59,21 +43,21 @@ final class Decimator {
 		if (!Class15.menuOpen) {
 			if (FileSystem.anInt455 == 0) {
 				if (Class156.lastMouseClick == 0) {
-					Class120_Sub12_Sub21.anInt3298 = Class191.lastMouseY;
-					Class115.anInt1110 = Queue.lastMouseX;
+					Class115.menuMouseX = Queue.lastMouseX;
+					Class120_Sub12_Sub21.menuMouseY = Class191.lastMouseY;
 				} else {
-					Class120_Sub12_Sub21.anInt3298 = Class120_Sub12_Sub36.lastClickY;
-					Class115.anInt1110 = js5.lastClickX;
+					Class115.menuMouseX = js5.lastClickX;
+					Class120_Sub12_Sub21.menuMouseY = Class120_Sub12_Sub36.lastClickY;
 				}
 			} else {
-				Class115.anInt1110 = ClientScript.anInt3558;
-				Class120_Sub12_Sub21.anInt3298 = Class31.anInt250;
+				Class115.menuMouseX = ClientScript.anInt3558;
+				Class120_Sub12_Sub21.menuMouseY = Class31.anInt250;
 			}
 			Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 			Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
-			Class120_Sub12_Sub29.menuOptionSufix[0] = "";
-			Class186.menuOptionCount = 1;
+			Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 			InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
+			WallDecoration.menuOptionCount = 1;
 		}
 		ParticleEngine.process(Class101_Sub2.loopCycle);
 		if (Class69.rootInterfaceId != -1) {
@@ -92,32 +76,30 @@ final class Decimator {
 		StructType.anInt3590 = -1;
 		StructType.aClass189_3588 = null;
 		if (HDToolkit.glEnabled) {
-			Class167.aBoolean1620 = true;
+			Class167.clearDepthBuffer = true;
 		}
 		if (Class69.rootInterfaceId != -1) {
 			LabelGroup.screenRedrawPos = 0;
 			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
-			GraphicsHD.method597();
+			GraphicsHD.clipRect();
 		} else {
-			GraphicsLD.method2175();
+			GraphicsLD.clipRect();
 		}
-		Class120_Sub12_Sub12.method1262();
+		Class120_Sub12_Sub12.sortMenuOptions();
 		if (Class15.menuOpen) {
-			if (Class186.usingSpriteMenu) {
-				Class120_Sub12_Sub18.method1293();
+			if (WallDecoration.usingSpriteMenu) {
+				Class120_Sub12_Sub18.drawSpriteMenu();
 			} else {
 				FileSystem.drawMenu();
 			}
-		} else if (Class69_Sub3_Sub1.aClass189_3080 == null) {
-			if (LookupTable.anInt497 != -1) {
-				Class86.method728(null, LookupTable.anInt497, StructType.anInt3590);
-			}
-		} else {
+		} else if (Class69_Sub3_Sub1.aClass189_3080 != null) {
 			Class86.method728(Class69_Sub3_Sub1.aClass189_3080, Class9.anInt68, Class90.anInt847);
+		} else if (LookupTable.anInt497 != -1) {
+			Class86.method728(null, LookupTable.anInt497, StructType.anInt3590);
 		}
-		int cursor = !Class15.menuOpen ? Class53_Sub1.getMenuOptionCursor() : -1;
+		int cursor = Class15.menuOpen ? -1 : Class53_Sub1.getMenuOptionCursor();
 		if (cursor == -1) {
 			cursor = AbstractIndexedSprite.defaultCursorId;
 		}
@@ -134,13 +116,13 @@ final class Decimator {
 					if (HDToolkit.glEnabled) {
 						GraphicsHD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					} else {
-						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
+						GraphicsLD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);
 					}
 				} else if (Class120_Sub12_Sub33.needScreenRedraw[id]) {
 					if (HDToolkit.glEnabled) {
 						GraphicsHD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					} else {
-						GraphicsLD.fillRect(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
+						GraphicsLD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711680, 128);
 					}
 				}
 			}
@@ -151,7 +133,7 @@ final class Decimator {
 
 	final byte[] method2220(byte[] is) {
 		if (anIntArrayArray1719 != null) {
-			final int i_8_ = (int) ((long) anInt1717 * (long) is.length / anInt1718) - -14;
+			final int i_8_ = (int) ((long) newFrequency * (long) is.length / oldFrequency) - -14;
 			int i_9_ = 0;
 			final int[] is_10_ = new int[i_8_];
 			int i_11_ = 0;
@@ -163,10 +145,10 @@ final class Decimator {
 				for (int i_17_ = 0; i_17_ < 14; i_17_++) {
 					is_10_[i_9_ + i_17_] += is_16_[i_17_] * i_15_;
 				}
-				i_11_ += anInt1717;
-				final int i_18_ = i_11_ / anInt1718;
+				i_11_ += newFrequency;
+				final int i_18_ = i_11_ / oldFrequency;
 				i_9_ += i_18_;
-				i_11_ -= anInt1718 * i_18_;
+				i_11_ -= oldFrequency * i_18_;
 			}
 			is = new byte[i_8_];
 			for (int i_19_ = 0; i_8_ > i_19_; i_19_++) {
@@ -185,65 +167,52 @@ final class Decimator {
 		return is;
 	}
 
-	static final void method2221(final boolean bool) {
-		do {
-			try {
-				if (HintIcon.anInt802 != -1) {
-					ParticleNode.method932(false, -1, -1, HintIcon.anInt802);
-					HintIcon.anInt802 = -1;
-				}
-				if (bool) {
-					break;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("ud.B(").append(bool).append(')').toString());
-			}
-		} while (false);
+	static final void method2221() {
+		if (HintIcon.anInt802 != -1) {
+			ParticleNode.method932(false, -1, -1, HintIcon.anInt802);
+			HintIcon.anInt802 = -1;
+		}
 	}
 
-	Decimator(int i, int i_21_) {
-		if (i != i_21_) {
-			final int i_22_ = PlayerAppearance.method2035(i, i_21_);
-			i /= i_22_;
-			anIntArrayArray1719 = new int[i][14];
-			i_21_ /= i_22_;
-			anInt1718 = i;
-			anInt1717 = i_21_;
-			for (int i_23_ = 0; i_23_ < i; i_23_++) {
-				final double d = 6.0 + (double) i_23_ / (double) i;
+	Decimator(int oldFreq, int newFreq) {
+		if (oldFreq != newFreq) {
+			final int i_22_ = PlayerAppearance.method2035(oldFreq, newFreq);
+			oldFreq /= i_22_;
+			newFreq /= i_22_;
+			oldFrequency = oldFreq;
+			newFrequency = newFreq;
+			anIntArrayArray1719 = new int[oldFreq][14];
+			for (int i_23_ = 0; i_23_ < oldFreq; i_23_++) {
 				final int[] is = anIntArrayArray1719[i_23_];
-				int i_24_ = (int) Math.floor(-7.0 + d + 1.0);
+				final double d = 6.0 + (double) i_23_ / (double) oldFreq;
+				int i_24_ = (int) Math.floor(d - 7.0 + 1.0);
+				if (i_24_ < 0) {
+					i_24_ = 0;
+				}
+				
 				int i_25_ = (int) Math.ceil(7.0 + d);
 				if (i_25_ > 14) {
 					i_25_ = 14;
 				}
-				final double d_26_ = (double) i_21_ / (double) i;
-				if (i_24_ < 0) {
-					i_24_ = 0;
-				}
+				
+				final double d_26_ = (double) newFreq / (double) oldFreq;
 				for (/**/; i_24_ < i_25_; i_24_++) {
-					final double d_27_ = (-d + i_24_) * 3.141592653589793;
+					final double d_27_ = (i_24_ - d) * Math.PI;
 					double d_28_ = d_26_;
-					if (-1.0E-4 > d_27_ || 1.0E-4 < d_27_) {
+					if (d_27_ < -1.0E-4 || d_27_ > 1.0E-4) {
 						d_28_ *= Math.sin(d_27_) / d_27_;
 					}
-					d_28_ *= Math.cos(0.2243994752564138 * (i_24_ - d)) * 0.46 + 0.54;
+					d_28_ *= Math.cos((Math.PI / 14) * (i_24_ - d)) * 0.46 + 0.54;
 					is[i_24_] = (int) Math.floor(0.5 + 65536.0 * d_28_);
 				}
 			}
+			System.out.println(Arrays.toString(anIntArrayArray1719));
 		}
 	}
 
-	public static void method2222(final boolean bool) {
-		try {
-			skillsBaseLevel = null;
-			if (bool) {
-				aClass50_1721 = null;
-			}
-			aClass50_1721 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ud.H(").append(bool).append(')').toString());
-		}
+	public static void method2222() {
+		skillsBaseLevel = null;
+		aClass50_1721 = null;
 	}
 
 	static final void method2223() {
@@ -262,14 +231,14 @@ final class Decimator {
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.clipRect(x, y, x + jagexInterface.width, y + jagexInterface.height);
 		}
-		final int i_42_ = (int) (DummyOutputStream.aFloat28 + Class164.minimapRandomRotation) & 0x7ff;
+		final int i_42_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
 		if (AbstractGraphicsBuffer.mapbackState >= 3) {
 			if (!HDToolkit.glEnabled) {
-				GraphicsLD.method2156(x, y, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
+				GraphicsLD.fillPixels(x, y, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 			} else {
 				final AbstractSprite sprite = jagexInterface.constructSpriteFromId(false);
 				if (sprite != null) {
-					sprite.method1587(x, y);
+					sprite.drawSprite(x, y);
 				}
 			}
 		} else if (!HDToolkit.glEnabled) {

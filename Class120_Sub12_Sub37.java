@@ -29,7 +29,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 				if (anInt3428 != 0) {
 					final int i_8_ = i_3_ * i_3_ + i_6_ * i_6_ >> 12;
 					i_7_ = (int) (4096.0 * Math.sqrt(i_8_ / 4096.0F));
-					i_7_ = (int) (anInt3426 * i_7_ * 3.141592653589793);
+					i_7_ = (int) (anInt3426 * i_7_ * Math.PI);
 				} else {
 					i_7_ = (i_5_ + -i_2_) * anInt3426;
 				}

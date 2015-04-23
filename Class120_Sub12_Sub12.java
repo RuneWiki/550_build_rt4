@@ -22,28 +22,21 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		lastFullscreenHeight = 0;
 	}
 
-	private final void method1257(final byte i) {
-		try {
-			if (this.anInt3221 <= 0) {
-				if (aShortArray3218 != null && aShortArray3218.length == this.anInt3228) {
-					aShortArray3224 = new short[this.anInt3228];
-					for (int i_0_ = 0; i_0_ < this.anInt3228; i_0_++) {
-						aShortArray3224[i_0_] = (short) (int) Math.pow(2.0, i_0_);
-					}
-				}
-			} else {
+	private final void method1257() {
+		if (this.anInt3221 <= 0) {
+			if (aShortArray3218 != null && aShortArray3218.length == this.anInt3228) {
 				aShortArray3224 = new short[this.anInt3228];
-				aShortArray3218 = new short[this.anInt3228];
-				for (int i_1_ = 0; i_1_ < this.anInt3228; i_1_++) {
-					aShortArray3218[i_1_] = (short) (int) (Math.pow(this.anInt3221 / 4096.0F, i_1_) * 4096.0);
-					aShortArray3224[i_1_] = (short) (int) Math.pow(2.0, i_1_);
+				for (int i_0_ = 0; i_0_ < this.anInt3228; i_0_++) {
+					aShortArray3224[i_0_] = (short) (int) Math.pow(2.0, i_0_);
 				}
 			}
-			if (i <= 34) {
-				method1187(-79);
+		} else {
+			aShortArray3224 = new short[this.anInt3228];
+			aShortArray3218 = new short[this.anInt3228];
+			for (int i_1_ = 0; i_1_ < this.anInt3228; i_1_++) {
+				aShortArray3218[i_1_] = (short) (int) (Math.pow(this.anInt3221 / 4096.0F, i_1_) * 4096.0);
+				aShortArray3224[i_1_] = (short) (int) Math.pow(2.0, i_1_);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jj.U(").append(i).append(')').toString());
 		}
 	}
 
@@ -272,7 +265,7 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 	@Override
 	final void postDecode() {
 		aByteArray3219 = UnderlayType.method1899(this.anInt3222);
-		method1257((byte) 114);
+		method1257();
 		for (int i_73_ = -1 + this.anInt3228; i_73_ >= 1; i_73_--) {
 			final short i_74_ = aShortArray3218[i_73_];
 			if (i_74_ > 8 || i_74_ < -8) {
@@ -282,34 +275,34 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1262() {
-		boolean bool = false;
-		while (!bool) {
-			bool = true;
-			for (int i_75_ = 0; i_75_ < Class186.menuOptionCount - 1; i_75_++) {
-				if (Class120_Sub29.menuOptionsCode[i_75_] < 1000 && Class120_Sub29.menuOptionsCode[1 + i_75_] > 1000) {
-					bool = false;
-					final String string = Class120_Sub12_Sub29.menuOptionSufix[i_75_];
-					Class120_Sub12_Sub29.menuOptionSufix[i_75_] = Class120_Sub12_Sub29.menuOptionSufix[i_75_ + 1];
-					Class120_Sub12_Sub29.menuOptionSufix[i_75_ + 1] = string;
-					final String string_76_ = Class120_Sub12_Sub33.menuOptionPrefix[i_75_];
-					Class120_Sub12_Sub33.menuOptionPrefix[i_75_] = Class120_Sub12_Sub33.menuOptionPrefix[i_75_ + 1];
-					Class120_Sub12_Sub33.menuOptionPrefix[i_75_ + 1] = string_76_;
-					int i_77_ = Class120_Sub12_Sub7.menuOptionsData2[i_75_];
-					Class120_Sub12_Sub7.menuOptionsData2[i_75_] = Class120_Sub12_Sub7.menuOptionsData2[1 + i_75_];
-					Class120_Sub12_Sub7.menuOptionsData2[i_75_ + 1] = i_77_;
-					i_77_ = Class120_Sub29.menuOptionsData3[i_75_];
-					Class120_Sub29.menuOptionsData3[i_75_] = Class120_Sub29.menuOptionsData3[1 + i_75_];
-					Class120_Sub29.menuOptionsData3[i_75_ + 1] = i_77_;
-					i_77_ = InterfaceChangeNode.menuOptionsCursorId[i_75_];
-					InterfaceChangeNode.menuOptionsCursorId[i_75_] = InterfaceChangeNode.menuOptionsCursorId[1 + i_75_];
-					InterfaceChangeNode.menuOptionsCursorId[i_75_ + 1] = i_77_;
-					final short i_78_ = Class120_Sub29.menuOptionsCode[i_75_];
-					Class120_Sub29.menuOptionsCode[i_75_] = Class120_Sub29.menuOptionsCode[i_75_ + 1];
-					Class120_Sub29.menuOptionsCode[i_75_ + 1] = i_78_;
-					final long l = Class120_Sub12.menuOptionsData1[i_75_];
-					Class120_Sub12.menuOptionsData1[i_75_] = Class120_Sub12.menuOptionsData1[1 + i_75_];
-					Class120_Sub12.menuOptionsData1[i_75_ + 1] = l;
+	static final void sortMenuOptions() {
+		boolean stopSorting = false;
+		while (!stopSorting) {
+			stopSorting = true;
+			for (int id = 0; id < WallDecoration.menuOptionCount - 1; id++) {
+				if (Class120_Sub29.menuOptionsCode[id] < 1000 && Class120_Sub29.menuOptionsCode[id + 1] > 1000) {
+					stopSorting = false;
+					final String suffix = Class120_Sub12_Sub29.menuOptionSuffix[id];
+					Class120_Sub12_Sub29.menuOptionSuffix[id] = Class120_Sub12_Sub29.menuOptionSuffix[id + 1];
+					Class120_Sub12_Sub29.menuOptionSuffix[id + 1] = suffix;
+					final String prefix = Class120_Sub12_Sub33.menuOptionPrefix[id];
+					Class120_Sub12_Sub33.menuOptionPrefix[id] = Class120_Sub12_Sub33.menuOptionPrefix[id + 1];
+					Class120_Sub12_Sub33.menuOptionPrefix[id + 1] = prefix;
+					final long data1 = Class120_Sub12.menuOptionsData1[id];
+					Class120_Sub12.menuOptionsData1[id] = Class120_Sub12.menuOptionsData1[id + 1];
+					Class120_Sub12.menuOptionsData1[id + 1] = data1;
+					final int data2 = Class120_Sub12_Sub7.menuOptionsData2[id];
+					Class120_Sub12_Sub7.menuOptionsData2[id] = Class120_Sub12_Sub7.menuOptionsData2[id + 1];
+					Class120_Sub12_Sub7.menuOptionsData2[id + 1] = data2;
+					final int data3 = Class120_Sub29.menuOptionsData3[id];
+					Class120_Sub29.menuOptionsData3[id] = Class120_Sub29.menuOptionsData3[id + 1];
+					Class120_Sub29.menuOptionsData3[id + 1] = data3;
+					final int cursor = InterfaceChangeNode.menuOptionsCursorId[id];
+					InterfaceChangeNode.menuOptionsCursorId[id] = InterfaceChangeNode.menuOptionsCursorId[id + 1];
+					InterfaceChangeNode.menuOptionsCursorId[id + 1] = cursor;
+					final short code = Class120_Sub29.menuOptionsCode[id];
+					Class120_Sub29.menuOptionsCode[id] = Class120_Sub29.menuOptionsCode[id + 1];
+					Class120_Sub29.menuOptionsCode[id + 1] = code;
 				}
 			}
 		}

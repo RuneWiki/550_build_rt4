@@ -16,7 +16,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	static final void method1201(final int i, final int i_0_, final int i_1_, final int i_2_) {
 		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
 		if (class120_sub18 != null) {
-			final Class186 class186 = class120_sub18.aClass186_2639;
+			final WallDecoration class186 = class120_sub18.wallDecoration;
 			if (class186 != null) {
 				class186.anInt1905 = class186.anInt1905 * i_2_ / 16;
 				class186.anInt1892 = class186.anInt1892 * i_2_ / 16;

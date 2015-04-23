@@ -6,11 +6,9 @@ final class ClanMember extends Node {
 	int world;
 	static int anInt2572 = 0;
 	static boolean[][] aBooleanArrayArray2573;
-	static String aString2574 = "white:";
 	byte rank;
 	static js5 aClass50_2576;
 	static AbstractGraphicsBuffer fullscreenGraphics;
-	static String aString2578 = " from your ignore list first.";
 	String sideText;
 	String name;
 	static SeekableFile[] aClass193Array2581 = new SeekableFile[29];
@@ -20,7 +18,7 @@ final class ClanMember extends Node {
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {
-				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= Class186.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
+				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= WallDecoration.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
 					return false;
 				}
 				final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_10_][i_11_];
@@ -95,20 +93,13 @@ final class ClanMember extends Node {
 		return i_23_;
 	}
 
-	public static void method1406(final int i) {
-		try {
-			aClass50_2576 = null;
-			aBooleanArrayArray2573 = null;
-			if (i != -31470) {
-				JagexInterface.getComponent(-57, 16);
-			}
-			fullscreenGraphics = null;
-			aString2574 = null;
-			aString2578 = null;
-			aClass193Array2581 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("l.B(").append(i).append(')').toString());
-		}
+	public static void method1406() {
+		aClass50_2576 = null;
+		aBooleanArrayArray2573 = null;
+		fullscreenGraphics = null;
+		TextRepository.aString2574 = null;
+		TextRepository.aString2578 = null;
+		aClass193Array2581 = null;
 	}
 
 	public ClanMember() {

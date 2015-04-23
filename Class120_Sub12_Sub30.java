@@ -93,28 +93,28 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		} else if (delta > 100) {
 			delta = 100;
 		}
-		final int zoomModifier = delta * (Class61.aShort565 - Class120_Sub12_Sub11.aShort3216) / 100 + Class120_Sub12_Sub11.aShort3216;
+		final int zoomModifier = delta * (client.aShort565 - Class120_Sub12_Sub11.aShort3216) / 100 + Class120_Sub12_Sub11.aShort3216;
 		zoom = zoom * zoomModifier >> 8;
 		final int yawDelta = 2048 - yaw & 0x7ff;
 		final int pitchDelta = 2048 - pitch & 0x7ff;
-		int i_21_ = 0;
-		int i_23_ = 0;
-		int i_24_ = zoom;
+		int yOff = 0;
+		int xOff = 0;
+		int zOff = zoom;
 		if (pitchDelta != 0) {
-			final int i_25_ = Rasterizer.sineTable[pitchDelta];
-			final int i_26_ = Rasterizer.cosineTable[pitchDelta];
-			i_21_ = -i_24_ * i_25_ >> 16;
-			i_24_ = i_24_ * i_26_ >> 16;
+			final int pitchSin = Rasterizer.sinTable[pitchDelta];
+			final int pitchCos = Rasterizer.cosTable[pitchDelta];
+			yOff = -zOff * pitchSin >> 16;
+			zOff = zOff * pitchCos >> 16;
 		}
 		if (yawDelta != 0) {
-			final int i_27_ = Rasterizer.cosineTable[yawDelta];
-			final int i_28_ = Rasterizer.sineTable[yawDelta];
-			i_23_ = i_24_ * i_28_ >> 16;
-			i_24_ = i_24_ * i_27_ >> 16;
+			final int yawSin = Rasterizer.sinTable[yawDelta];
+			final int yawCos = Rasterizer.cosTable[yawDelta];
+			xOff = zOff * yawSin >> 16;
+			zOff = zOff * yawCos >> 16;
 		}
-		FileSystemWorker.renderX = pRenderX - i_23_;
-		Class120_Sub12_Sub10.renderY = pRenderY - i_21_;
-		GroundObjectNode.renderZ = pRenderZ - i_24_;
+		FileSystemWorker.renderX = pRenderX - xOff;
+		Class120_Sub12_Sub10.renderY = pRenderY - yOff;
+		GroundObjectNode.renderZ = pRenderZ - zOff;
 		SpotAnimation.renderYaw = yaw;
 		UnderlayType.renderPitch = pitch;
 	}

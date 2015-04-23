@@ -4,7 +4,6 @@
 import java.util.Random;
 
 final class Class120_Sub12_Sub27 extends Class120_Sub12 {
-	static String aString3338;
 	static int anInt3339 = 0;
 	private int anInt3340;
 	private int anInt3341;
@@ -21,7 +20,6 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	static AbstractIndexedSprite logoSprite;
 
 	static {
-		aString3338 = "Checking for updates - ";
 		anIntArray3349 = new int[] { 7, 8, 9, 10, 11, 12, 13, 15 };
 		currentMouseY = -1;
 	}
@@ -234,10 +232,10 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 		try {
 			CursorType.spriteCache = null;
 			logoSprite = null;
-			aString3338 = null;
+			TextRepository.aString3338 = null;
 			anIntArray3349 = null;
 			if (i <= 39) {
-				aString3338 = null;
+				TextRepository.aString3338 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("rh.T(").append(i).append(')').toString());

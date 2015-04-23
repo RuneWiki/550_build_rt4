@@ -6,12 +6,9 @@ import java.awt.Graphics;
 final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	static boolean extendFriendsList;
 	static volatile boolean focusIn = true;
-	static String aString3910;
-	static String levelString = "level: ";
 	static int[] anIntArray3912;
 
 	static {
-		aString3910 = " is already on your friend list.";
 		anIntArray3912 = new int[32];
 		extendFriendsList = false;
 	}
@@ -30,7 +27,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				final int i_3_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) - GameEntity.currentBaseX;
 				final int i_4_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] & 0xff) - Class181.currentBaseZ;
 				Class120_Sub2.method1050();
-				CollisionMap.decodeObjectMap(underwater, is_2_, i_4_, i_3_, Class182.collisionMaps);
+				CollisionMap.decodeObjectMap(underwater, is_2_, i_4_, i_3_, WallLocation.collisionMaps);
 			}
 		}
 	}
@@ -67,8 +64,8 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			}
 			c = Class120_Sub12_Sub29.method1354(c_13_, false);
 			c_12_ = Class120_Sub12_Sub29.method1354(c_14_, false);
-			c_13_ = Class22.method198(-99, language, c_13_);
-			c_14_ = Class22.method198(-73, language, c_14_);
+			c_13_ = Class22.method198(language, c_13_);
+			c_14_ = Class22.method198(language, c_14_);
 			if (c_14_ != c_13_ && Character.toUpperCase(c_13_) != Character.toUpperCase(c_14_)) {
 				c_13_ = Character.toLowerCase(c_13_);
 				c_14_ = Character.toLowerCase(c_14_);
@@ -111,10 +108,10 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 
 	public static void method1314(final byte i) {
 		try {
-			levelString = null;
-			aString3910 = null;
+			TextRepository.level = null;
+			TextRepository.aString3910 = null;
 			if (i < 112) {
-				levelString = null;
+				TextRepository.level = null;
 			}
 			anIntArray3912 = null;
 		} catch (final RuntimeException runtimeexception) {
@@ -131,7 +128,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			GameEntity class180_sub5;
 			if (class120_sub29.anInt2764 < 0) {
 				final int i_23_ = -class120_sub29.anInt2764 + -1;
-				if (i_23_ == Class167.anInt1616) {
+				if (i_23_ == Class167.selfPlayerIndex) {
 					class180_sub5 = TileParticleQueue.selfPlayer;
 				} else {
 					class180_sub5 = Class118.playersList[i_23_];
@@ -178,13 +175,13 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 							}
 						}
 					} else {
-						final Class186 class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+						final WallDecoration class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
 						if (class186 != null) {
 							sceneGraphNode = class186.aClass180_1901;
 						}
 					}
 				} else {
-					final Class182 class182 = Deque.method894(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
+					final WallLocation class182 = Deque.method894(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 					if (class182 != null) {
 						sceneGraphNode = class182.aClass180_1800;
 					}

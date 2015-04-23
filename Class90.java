@@ -94,14 +94,10 @@ final class Class90 {
 		return class120_sub5_sub1_10_;
 	}
 
-	static final void method755(final int i, final int i_11_, final String string) {
-		try {
-			Class120_Sub12_Sub11.outputStream.putByteIsaac(i);
-			Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
-			Class120_Sub12_Sub11.outputStream.putByteC(i_11_);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jk.J(").append(i).append(',').append(i_11_).append(',').append(string != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method755(final String string, final int i_11_) {
+		Class120_Sub12_Sub11.outputStream.putByteIsaac(215);
+		Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
+		Class120_Sub12_Sub11.outputStream.putByteC(i_11_);
 	}
 
 	final Class120_Sub5_Sub1 method756(final int[] is, final int i_12_) {
@@ -140,9 +136,9 @@ final class Class90 {
 
 	static final void removeOverridedInterfaces() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
-		for (OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); class120_sub26 != null; class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-			if (class120_sub26.type == 0) {
-				Class120_Sub19.removeOverridedInterface(class120_sub26, true);
+		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
+			if (overridedInterface.type == 0) {
+				Class120_Sub19.removeOverridedInterface(overridedInterface, true);
 			}
 		}
 		if (Class156.aClass189_1454 != null) {

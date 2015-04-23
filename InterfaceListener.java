@@ -11,7 +11,6 @@ final class InterfaceListener extends Node {
 	int keyChar;
 	boolean mouseUsed;
 	Object[] objectData;
-	static String aString2538 = "slide:";
 	String aString2539;
 	int anInt2540;
 	int actionId;
@@ -19,12 +18,7 @@ final class InterfaceListener extends Node {
 	static js5 aClass50_2544;
 	static int playerRenderZ;
 	static int anInt2546;
-	static boolean[] playerOptionsOnTop;
-	static String aString2548 = "slide:";
-
-	static {
-		playerOptionsOnTop = new boolean[8];
-	}
+	static boolean[] playerOptionsOnTop = new boolean[8];
 
 	static final void updateCanvasPosition() {
 		Container container;
@@ -43,7 +37,7 @@ final class InterfaceListener extends Node {
 			PlayerAppearance.frameHeight -= insets.bottom + insets.top;
 		}
 		if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
-			Class186.topMargin = 0;
+			WallDecoration.topMargin = 0;
 			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
 			ReflectionCheckNode.leftMargin = 0;
 			Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
@@ -52,17 +46,17 @@ final class InterfaceListener extends Node {
 			Class120_Sub12_Sub5.canvasHeight = 503;
 			ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
 			//Class186.topMargin = 0;//original
-			Class186.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
+			WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 		}
 		if (HDToolkit.glEnabled) {
 			HDToolkit.setCanvasSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 		}
 		Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 		if (Class112.frame != container) {
-			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
+			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, WallDecoration.topMargin);
 		} else {
 			final Insets insets = Class112.frame.getInsets();
-			Node.canvas.setLocation(insets.left - -ReflectionCheckNode.leftMargin, Class186.topMargin + insets.top);
+			Node.canvas.setLocation(insets.left - -ReflectionCheckNode.leftMargin, WallDecoration.topMargin + insets.top);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			Class101_Sub2.method846(true);
@@ -70,19 +64,12 @@ final class InterfaceListener extends Node {
 		Class120_Sub12_Sub22.method1322();
 	}
 
-	public static void method1169(final byte i) {
-		try {
-			playerOptionsOnTop = null;
-			if (i >= -106) {
-				anInt2546 = -128;
-			}
-			OverlayType.recentUse = null;
-			aString2538 = null;
-			aClass50_2544 = null;
-			aString2548 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("io.B(").append(i).append(')').toString());
-		}
+	public static void method1169() {
+		playerOptionsOnTop = null;
+		OverlayType.recentUse = null;
+		TextRepository.aString2538 = null;
+		aClass50_2544 = null;
+		TextRepository.aString2548 = null;
 	}
 
 	static final void method1170(final SceneGraphNode sceneGraphNode, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
@@ -94,14 +81,14 @@ final class InterfaceListener extends Node {
 		for (int i_8_ = i; i_8_ <= i + 1; i_8_++) {
 			if (i_8_ != MapSceneType.anInt1361) {
 				for (int i_9_ = i_4_; i_9_ <= i_5_; i_9_++) {
-					if (i_9_ >= 0 && i_9_ < Class186.anInt1900) {
+					if (i_9_ >= 0 && i_9_ < WallDecoration.anInt1900) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
 								final GroundTile class120_sub18 = LabelGroup.groundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
 									final int i_11_ = (OverridedJInterface.tileHeightMap[i_8_][i_9_][i_10_] + OverridedJInterface.tileHeightMap[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.tileHeightMap[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.tileHeightMap[i_8_][i_9_ + 1][i_10_ + 1])
 											/ 4 - (OverridedJInterface.tileHeightMap[i][i_0_][i_1_] + OverridedJInterface.tileHeightMap[i][i_0_ + 1][i_1_] + OverridedJInterface.tileHeightMap[i][i_0_][i_1_ + 1] + OverridedJInterface.tileHeightMap[i][i_0_ + 1][i_1_ + 1]) / 4;
-									final Class182 class182 = class120_sub18.aClass182_2628;
+									final WallLocation class182 = class120_sub18.wallLocation;
 									if (class182 != null) {
 										if (class182.aClass180_1800.method2268()) {
 											sceneGraphNode.method2267(class182.aClass180_1800, (i_9_ - i_0_) * 128 + (1 - i_2_) * 64, i_11_, (i_10_ - i_1_) * 128 + (1 - i_3_) * 64, bool);
@@ -129,39 +116,21 @@ final class InterfaceListener extends Node {
 		}
 	}
 
-	static final int method1171(final int i, final int i_15_, final boolean bool, final int i_16_) {
-		int i_17_;
-		try {
-			if (i_15_ == i) {
-				return i;
-			}
-			if (bool) {
-				aClass50_2544 = null;
-			}
-			final int i_18_ = 128 + -i_16_;
-			final int i_19_ = i_16_ * ((~0xff00ff & i_15_) >>> 7) + ((~0xff00ff & i) >>> 7) * i_18_ & ~0xff00ff;
-			final int i_20_ = ~0xff00ff & i_16_ * (i_15_ & 0xff00ff) + (i & 0xff00ff) * i_18_;
-			i_17_ = i_19_ + (i_20_ >> 7);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("io.D(").append(i).append(',').append(i_15_).append(',').append(bool).append(',').append(i_16_).append(')').toString());
+	static final int method1171(final int i, final int i_15_, final int i_16_) {
+		if (i_15_ == i) {
+			return i;
 		}
-		return i_17_;
+		final int i_18_ = 128 + -i_16_;
+		final int i_19_ = i_16_ * ((~0xff00ff & i_15_) >>> 7) + ((~0xff00ff & i) >>> 7) * i_18_ & ~0xff00ff;
+		final int i_20_ = ~0xff00ff & i_16_ * (i_15_ & 0xff00ff) + (i & 0xff00ff) * i_18_;
+		return i_19_ + (i_20_ >> 7);
 	}
 
-	static final int method1172(final byte i, final int i_21_, final int i_22_) {
-		int i_23_;
-		try {
-			final int i_24_ = ParticleManager.method936(i_22_ - 1, 25528, i_21_ - 1) + ParticleManager.method936(i_22_ + 1, 25528, i_21_ - 1) - -ParticleManager.method936(-1 + i_22_, 25528, i_21_ + 1) - -ParticleManager.method936(1 + i_22_, 25528, 1 + i_21_);
-			if (i >= -48) {
-				return 6;
-			}
-			final int i_25_ = ParticleManager.method936(-1 + i_22_, 25528, i_21_) - (-ParticleManager.method936(i_22_ + 1, 25528, i_21_) - ParticleManager.method936(i_22_, 25528, i_21_ - 1) - ParticleManager.method936(i_22_, 25528, 1 + i_21_));
-			final int i_26_ = ParticleManager.method936(i_22_, 25528, i_21_);
-			i_23_ = i_24_ / 16 + i_25_ / 8 + i_26_ / 4;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("io.A(").append(i).append(',').append(i_21_).append(',').append(i_22_).append(')').toString());
-		}
-		return i_23_;
+	static final int method1172(final int i_21_, final int i_22_) {
+		final int i_24_ = ParticleEmitter.method936(i_22_ - 1, i_21_ - 1) + ParticleEmitter.method936(i_22_ + 1, i_21_ - 1) - -ParticleEmitter.method936(i_22_ - 1, i_21_ + 1) - -ParticleEmitter.method936(1 + i_22_, 1 + i_21_);
+		final int i_25_ = ParticleEmitter.method936(i_22_ - 1, i_21_) - (-ParticleEmitter.method936(i_22_ + 1, i_21_) - ParticleEmitter.method936(i_22_, i_21_ - 1) - ParticleEmitter.method936(i_22_, 1 + i_21_));
+		final int i_26_ = ParticleEmitter.method936(i_22_, i_21_);
+		return i_24_ / 16 + i_25_ / 8 + i_26_ / 4;
 	}
 
 	public InterfaceListener() {

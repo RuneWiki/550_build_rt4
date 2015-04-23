@@ -100,7 +100,7 @@ final class js5 {
 		final Buffer class120_sub7_14_ = new Buffer(34);
 		class120_sub7_14_.putByte(11);
 		class120_sub7_14_.putByte(FileSystemRequest.brightness);
-		class120_sub7_14_.putByte(Class61.aBoolean566 ? 1 : 0);
+		class120_sub7_14_.putByte(client.aBoolean566 ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
 		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
 		class120_sub7_14_.putByte(ParticleNodeSub.highDetailTextures ? 1 : 0);
@@ -125,7 +125,7 @@ final class js5 {
 		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class134.aBoolean1277 ? 1 : 0);
 		class120_sub7_14_.putByte(Class140.anInt1343);
-		class120_sub7_14_.putByte(Class186.hdrEnabled ? 1 : 0);
+		class120_sub7_14_.putByte(WallDecoration.hdrEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class38.cursorsEnabled ? 1 : 0);
 		return class120_sub7_14_;
 	}

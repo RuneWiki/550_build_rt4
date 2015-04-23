@@ -6,7 +6,7 @@ final class WorldInfo {
 	int country;
 	static boolean aBoolean1419 = false;
 	static int anInt1420 = 0;
-	static String aString1421;
+	static String openUrl;
 	String region;
 
 	static final void method2065(final JagexInterface[] class189s, final boolean activateResizeListener, final int width, final int height, final int parent) {
@@ -86,7 +86,7 @@ final class WorldInfo {
 
 	public static void method2068(final boolean bool) {
 		try {
-			aString1421 = null;
+			openUrl = null;
 			if (bool) {
 				method2065(null, false, 101, 41, -99);
 			}

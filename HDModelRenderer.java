@@ -54,7 +54,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	private static HDModelRenderer aClass180_Sub7_Sub2_3889 = new HDModelRenderer();
 	private int anInt3890;
 	private static HDModelRenderer aClass180_Sub7_Sub2_3891 = new HDModelRenderer();
-	ModelParticle[] aClass158Array3892;
+	ModelParticleEmitter[] aClass158Array3892;
 	private static HDModelRenderer aClass180_Sub7_Sub2_3893 = new HDModelRenderer();
 	private static HDModelRenderer aClass180_Sub7_Sub2_3894 = new HDModelRenderer();
 	private static HDModelRenderer aClass180_Sub7_Sub2_3895 = new HDModelRenderer();
@@ -172,8 +172,8 @@ final class HDModelRenderer extends AbstractModelRenderer {
 									int i_29_ = 0;
 									int i_30_ = 0;
 									if (i != 0) {
-										i_29_ = Rasterizer.sineTable[i];
-										i_30_ = Rasterizer.cosineTable[i];
+										i_29_ = Rasterizer.sinTable[i];
+										i_30_ = Rasterizer.cosTable[i];
 									}
 									while_99_: do {
 										if (l > 0L && Class5.aBoolean2158 && i_22_ > 0) {
@@ -244,7 +244,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 												}
 												if (Class173.anInt1728 >= i_31_ && Class173.anInt1728 <= i_32_ && Class2.anInt49 >= i_33_ && Class2.anInt49 <= i_34_) {
 													if (this.haveActions) {
-														Class120_Sub12_Sub21.actions[Class186.actionsLen++] = l;
+														Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
 													} else {
 														if (anIntArray3905.length < anInt3890) {
 															anIntArray3905 = new int[anInt3890];
@@ -289,7 +289,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 															final short i_63_ = aShortArray3877[i_61_];
 															final short i_64_ = aShortArray3879[i_61_];
 															if (method2428(Class173.anInt1728, Class2.anInt49, anIntArray3901[i_62_], anIntArray3901[i_63_], anIntArray3901[i_64_], anIntArray3905[i_62_], anIntArray3905[i_63_], anIntArray3905[i_64_])) {
-																Class120_Sub12_Sub21.actions[Class186.actionsLen++] = l;
+																Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
 																break;
 															}
 														}
@@ -384,22 +384,22 @@ final class HDModelRenderer extends AbstractModelRenderer {
 						this.yVertices[i_92_] -= anInt3898;
 						this.zVertices[i_92_] -= anInt3904;
 						if (i_67_ != 0) {
-							final int i_93_ = Rasterizer.sineTable[i_67_];
-							final int i_94_ = Rasterizer.cosineTable[i_67_];
+							final int i_93_ = Rasterizer.sinTable[i_67_];
+							final int i_94_ = Rasterizer.cosTable[i_67_];
 							final int i_95_ = this.yVertices[i_92_] * i_93_ + this.xVertices[i_92_] * i_94_ + 32767 >> 16;
 							this.yVertices[i_92_] = this.yVertices[i_92_] * i_94_ - this.xVertices[i_92_] * i_93_ + 32767 >> 16;
 							this.xVertices[i_92_] = i_95_;
 						}
 						if (i_65_ != 0) {
-							final int i_96_ = Rasterizer.sineTable[i_65_];
-							final int i_97_ = Rasterizer.cosineTable[i_65_];
+							final int i_96_ = Rasterizer.sinTable[i_65_];
+							final int i_97_ = Rasterizer.cosTable[i_65_];
 							final int i_98_ = this.yVertices[i_92_] * i_97_ - this.zVertices[i_92_] * i_96_ + 32767 >> 16;
 							this.zVertices[i_92_] = this.yVertices[i_92_] * i_96_ + this.zVertices[i_92_] * i_97_ + 32767 >> 16;
 							this.yVertices[i_92_] = i_98_;
 						}
 						if (i_66_ != 0) {
-							final int i_99_ = Rasterizer.sineTable[i_66_];
-							final int i_100_ = Rasterizer.cosineTable[i_66_];
+							final int i_99_ = Rasterizer.sinTable[i_66_];
+							final int i_100_ = Rasterizer.cosTable[i_66_];
 							final int i_101_ = this.zVertices[i_92_] * i_99_ + this.xVertices[i_92_] * i_100_ + 32767 >> 16;
 							this.zVertices[i_92_] = this.zVertices[i_92_] * i_100_ - this.xVertices[i_92_] * i_99_ + 32767 >> 16;
 							this.xVertices[i_92_] = i_101_;
@@ -427,22 +427,22 @@ final class HDModelRenderer extends AbstractModelRenderer {
 									break;
 								}
 								if (i_67_ != 0) {
-									final int i_113_ = Rasterizer.sineTable[i_67_];
-									final int i_114_ = Rasterizer.cosineTable[i_67_];
+									final int i_113_ = Rasterizer.sinTable[i_67_];
+									final int i_114_ = Rasterizer.cosTable[i_67_];
 									final int i_115_ = aShortArray3852[i_112_] * i_113_ + aShortArray3873[i_112_] * i_114_ + 32767 >> 16;
 									aShortArray3852[i_112_] = (short) (aShortArray3852[i_112_] * i_114_ - aShortArray3873[i_112_] * i_113_ + 32767 >> 16);
 									aShortArray3873[i_112_] = (short) i_115_;
 								}
 								if (i_65_ != 0) {
-									final int i_116_ = Rasterizer.sineTable[i_65_];
-									final int i_117_ = Rasterizer.cosineTable[i_65_];
+									final int i_116_ = Rasterizer.sinTable[i_65_];
+									final int i_117_ = Rasterizer.cosTable[i_65_];
 									final int i_118_ = aShortArray3852[i_112_] * i_117_ - aShortArray3844[i_112_] * i_116_ + 32767 >> 16;
 									aShortArray3844[i_112_] = (short) (aShortArray3852[i_112_] * i_116_ + aShortArray3844[i_112_] * i_117_ + 32767 >> 16);
 									aShortArray3852[i_112_] = (short) i_118_;
 								}
 								if (i_66_ != 0) {
-									final int i_119_ = Rasterizer.sineTable[i_66_];
-									final int i_120_ = Rasterizer.cosineTable[i_66_];
+									final int i_119_ = Rasterizer.sinTable[i_66_];
+									final int i_120_ = Rasterizer.cosTable[i_66_];
 									final int i_121_ = aShortArray3844[i_112_] * i_119_ + aShortArray3873[i_112_] * i_120_ + 32767 >> 16;
 									aShortArray3844[i_112_] = (short) (aShortArray3844[i_112_] * i_120_ - aShortArray3873[i_112_] * i_119_ + 32767 >> 16);
 									aShortArray3873[i_112_] = (short) i_121_;
@@ -613,9 +613,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void rotate(final int i) {
-		final int i_159_ = Rasterizer.sineTable[i];
-		final int i_160_ = Rasterizer.cosineTable[i];
+	final void rotateY(final int i) {
+		final int i_159_ = Rasterizer.sinTable[i];
+		final int i_160_ = Rasterizer.cosTable[i];
 		for (int i_161_ = 0; i_161_ < this.vertexCount; i_161_++) {
 			final int i_162_ = this.zVertices[i_161_] * i_159_ + this.xVertices[i_161_] * i_160_ >> 16;
 			this.zVertices[i_161_] = this.zVertices[i_161_] * i_160_ - this.xVertices[i_161_] * i_159_ >> 16;
@@ -692,9 +692,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2377(final int i) {
-		final int i_164_ = Rasterizer.sineTable[i];
-		final int i_165_ = Rasterizer.cosineTable[i];
+	final void rotateX(final int i) {
+		final int i_164_ = Rasterizer.sinTable[i];
+		final int i_165_ = Rasterizer.cosTable[i];
 		for (int i_166_ = 0; i_166_ < this.vertexCount; i_166_++) {
 			final int i_167_ = this.yVertices[i_166_] * i_165_ - this.zVertices[i_166_] * i_164_ >> 16;
 			this.zVertices[i_166_] = this.yVertices[i_166_] * i_164_ + this.zVertices[i_166_] * i_165_ >> 16;
@@ -1092,12 +1092,12 @@ final class HDModelRenderer extends AbstractModelRenderer {
 					aBoolean3897 = false;
 				}
 				final int[] is_264_ = new int[9];
-				final int i_265_ = Rasterizer.cosineTable[i_230_] >> 1;
-				final int i_266_ = Rasterizer.sineTable[i_230_] >> 1;
-				final int i_267_ = Rasterizer.cosineTable[i_231_] >> 1;
-				final int i_268_ = Rasterizer.sineTable[i_231_] >> 1;
-				final int i_269_ = Rasterizer.cosineTable[i_232_] >> 1;
-				final int i_270_ = Rasterizer.sineTable[i_232_] >> 1;
+				final int i_265_ = Rasterizer.cosTable[i_230_] >> 1;
+				final int i_266_ = Rasterizer.sinTable[i_230_] >> 1;
+				final int i_267_ = Rasterizer.cosTable[i_231_] >> 1;
+				final int i_268_ = Rasterizer.sinTable[i_231_] >> 1;
+				final int i_269_ = Rasterizer.cosTable[i_232_] >> 1;
+				final int i_270_ = Rasterizer.sinTable[i_232_] >> 1;
 				final int i_271_ = i_266_ * i_269_ + 16384 >> 15;
 				final int i_272_ = i_266_ * i_270_ + 16384 >> 15;
 				is_264_[0] = i_267_ * i_269_ + i_268_ * i_272_ + 16384 >> 15;
@@ -1185,22 +1185,22 @@ final class HDModelRenderer extends AbstractModelRenderer {
 								this.yVertices[i_313_] -= anInt3898;
 								this.zVertices[i_313_] -= anInt3904;
 								if (i_232_ != 0) {
-									final int i_314_ = Rasterizer.sineTable[i_232_];
-									final int i_315_ = Rasterizer.cosineTable[i_232_];
+									final int i_314_ = Rasterizer.sinTable[i_232_];
+									final int i_315_ = Rasterizer.cosTable[i_232_];
 									final int i_316_ = this.yVertices[i_313_] * i_314_ + this.xVertices[i_313_] * i_315_ + 32767 >> 16;
 									this.yVertices[i_313_] = this.yVertices[i_313_] * i_315_ - this.xVertices[i_313_] * i_314_ + 32767 >> 16;
 									this.xVertices[i_313_] = i_316_;
 								}
 								if (i_230_ != 0) {
-									final int i_317_ = Rasterizer.sineTable[i_230_];
-									final int i_318_ = Rasterizer.cosineTable[i_230_];
+									final int i_317_ = Rasterizer.sinTable[i_230_];
+									final int i_318_ = Rasterizer.cosTable[i_230_];
 									final int i_319_ = this.yVertices[i_313_] * i_318_ - this.zVertices[i_313_] * i_317_ + 32767 >> 16;
 									this.zVertices[i_313_] = this.yVertices[i_313_] * i_317_ + this.zVertices[i_313_] * i_318_ + 32767 >> 16;
 									this.yVertices[i_313_] = i_319_;
 								}
 								if (i_231_ != 0) {
-									final int i_320_ = Rasterizer.sineTable[i_231_];
-									final int i_321_ = Rasterizer.cosineTable[i_231_];
+									final int i_320_ = Rasterizer.sinTable[i_231_];
+									final int i_321_ = Rasterizer.cosTable[i_231_];
 									final int i_322_ = this.zVertices[i_313_] * i_320_ + this.xVertices[i_313_] * i_321_ + 32767 >> 16;
 									this.zVertices[i_313_] = this.zVertices[i_313_] * i_321_ - this.xVertices[i_313_] * i_320_ + 32767 >> 16;
 									this.xVertices[i_313_] = i_322_;
@@ -1230,22 +1230,22 @@ final class HDModelRenderer extends AbstractModelRenderer {
 											break;
 										}
 										if (i_232_ != 0) {
-											final int i_334_ = Rasterizer.sineTable[i_232_];
-											final int i_335_ = Rasterizer.cosineTable[i_232_];
+											final int i_334_ = Rasterizer.sinTable[i_232_];
+											final int i_335_ = Rasterizer.cosTable[i_232_];
 											final int i_336_ = aShortArray3852[i_333_] * i_334_ + aShortArray3873[i_333_] * i_335_ + 32767 >> 16;
 											aShortArray3852[i_333_] = (short) (aShortArray3852[i_333_] * i_335_ - aShortArray3873[i_333_] * i_334_ + 32767 >> 16);
 											aShortArray3873[i_333_] = (short) i_336_;
 										}
 										if (i_230_ != 0) {
-											final int i_337_ = Rasterizer.sineTable[i_230_];
-											final int i_338_ = Rasterizer.cosineTable[i_230_];
+											final int i_337_ = Rasterizer.sinTable[i_230_];
+											final int i_338_ = Rasterizer.cosTable[i_230_];
 											final int i_339_ = aShortArray3852[i_333_] * i_338_ - aShortArray3844[i_333_] * i_337_ + 32767 >> 16;
 											aShortArray3844[i_333_] = (short) (aShortArray3852[i_333_] * i_337_ + aShortArray3844[i_333_] * i_338_ + 32767 >> 16);
 											aShortArray3852[i_333_] = (short) i_339_;
 										}
 										if (i_231_ != 0) {
-											final int i_340_ = Rasterizer.sineTable[i_231_];
-											final int i_341_ = Rasterizer.cosineTable[i_231_];
+											final int i_340_ = Rasterizer.sinTable[i_231_];
+											final int i_341_ = Rasterizer.cosTable[i_231_];
 											final int i_342_ = aShortArray3844[i_333_] * i_340_ + aShortArray3873[i_333_] * i_341_ + 32767 >> 16;
 											aShortArray3844[i_333_] = (short) (aShortArray3844[i_333_] * i_341_ - aShortArray3873[i_333_] * i_340_ + 32767 >> 16);
 											aShortArray3873[i_333_] = (short) i_342_;
@@ -1437,10 +1437,10 @@ final class HDModelRenderer extends AbstractModelRenderer {
 
 	final void method2417(final int i) {
 		if (aShortArray3873 == null) {
-			rotate(i);
+			rotateY(i);
 		} else {
-			final int i_413_ = Rasterizer.sineTable[i];
-			final int i_414_ = Rasterizer.cosineTable[i];
+			final int i_413_ = Rasterizer.sinTable[i];
+			final int i_414_ = Rasterizer.cosTable[i];
 			for (int i_415_ = 0; i_415_ < this.vertexCount; i_415_++) {
 				final int i_416_ = this.zVertices[i_415_] * i_413_ + this.xVertices[i_415_] * i_414_ >> 16;
 				this.zVertices[i_415_] = this.zVertices[i_415_] * i_414_ - this.xVertices[i_415_] * i_413_ >> 16;
@@ -2513,9 +2513,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2362(final int i) {
-		final int i_659_ = Rasterizer.sineTable[i];
-		final int i_660_ = Rasterizer.cosineTable[i];
+	final void rotateZ(final int i) {
+		final int i_659_ = Rasterizer.sinTable[i];
+		final int i_660_ = Rasterizer.cosTable[i];
 		for (int i_661_ = 0; i_661_ < this.vertexCount; i_661_++) {
 			final int i_662_ = this.yVertices[i_661_] * i_659_ + this.xVertices[i_661_] * i_660_ >> 16;
 			this.yVertices[i_661_] = this.yVertices[i_661_] * i_660_ - this.xVertices[i_661_] * i_659_ >> 16;
@@ -2773,22 +2773,22 @@ final class HDModelRenderer extends AbstractModelRenderer {
 				this.yVertices[i_696_] -= anInt3898;
 				this.zVertices[i_696_] -= anInt3904;
 				if (i_692_ != 0) {
-					final int i_697_ = Rasterizer.sineTable[i_692_];
-					final int i_698_ = Rasterizer.cosineTable[i_692_];
+					final int i_697_ = Rasterizer.sinTable[i_692_];
+					final int i_698_ = Rasterizer.cosTable[i_692_];
 					final int i_699_ = this.yVertices[i_696_] * i_697_ + this.xVertices[i_696_] * i_698_ + 32767 >> 16;
 					this.yVertices[i_696_] = this.yVertices[i_696_] * i_698_ - this.xVertices[i_696_] * i_697_ + 32767 >> 16;
 					this.xVertices[i_696_] = i_699_;
 				}
 				if (i_690_ != 0) {
-					final int i_700_ = Rasterizer.sineTable[i_690_];
-					final int i_701_ = Rasterizer.cosineTable[i_690_];
+					final int i_700_ = Rasterizer.sinTable[i_690_];
+					final int i_701_ = Rasterizer.cosTable[i_690_];
 					final int i_702_ = this.yVertices[i_696_] * i_701_ - this.zVertices[i_696_] * i_700_ + 32767 >> 16;
 					this.zVertices[i_696_] = this.yVertices[i_696_] * i_700_ + this.zVertices[i_696_] * i_701_ + 32767 >> 16;
 					this.yVertices[i_696_] = i_702_;
 				}
 				if (i_691_ != 0) {
-					final int i_703_ = Rasterizer.sineTable[i_691_];
-					final int i_704_ = Rasterizer.cosineTable[i_691_];
+					final int i_703_ = Rasterizer.sinTable[i_691_];
+					final int i_704_ = Rasterizer.cosTable[i_691_];
 					final int i_705_ = this.zVertices[i_696_] * i_703_ + this.xVertices[i_696_] * i_704_ + 32767 >> 16;
 					this.zVertices[i_696_] = this.zVertices[i_696_] * i_704_ - this.xVertices[i_696_] * i_703_ + 32767 >> 16;
 					this.xVertices[i_696_] = i_705_;

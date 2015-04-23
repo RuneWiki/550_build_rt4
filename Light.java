@@ -3,7 +3,7 @@
  */
 
 final class Light {
-	static String aString369 = null;
+	static String selectedSpellName = null;
 	int anInt370;
 	boolean aBoolean371;
 	short[] aShortArray372;
@@ -132,7 +132,7 @@ final class Light {
 		int type = flickeringType;
 		int i_9_ = 0;
 		if (type == 1) {
-			i_9_ = 1024 + (Rasterizer.sineTable[i_7_] >> 6);
+			i_9_ = 1024 + (Rasterizer.sinTable[i_7_] >> 6);
 		} else if (type == 2) {
 			i_9_ = i_7_;
 		} else if (type == 3) {
@@ -167,7 +167,7 @@ final class Light {
 	}
 
 	public static void method352() {
-		aString369 = null;
+		selectedSpellName = null;
 		anIntArray392 = null;
 		InvType.recentUse = null;
 		aClass46_381 = null;

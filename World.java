@@ -9,34 +9,20 @@ final class World extends Class167 {
 	String activity;
 	static int[] anIntArray2835;
 	String ip;
-	static String aString2837 = "Started 3d Library";
 	int worldId;
 
-	public static void method2192(final int i) {
-		try {
-			anIntArray2832 = null;
-			aString2837 = null;
-			aClass98_2833 = null;
-			anIntArray2835 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gb.L(").append(i).append(')').toString());
-		}
+	public static void method2192() {
+		anIntArray2832 = null;
+		TextRepository.aString2837 = null;
+		aClass98_2833 = null;
+		anIntArray2835 = null;
 	}
 
-	static final boolean method2193(final int i) {
-		boolean bool;
-		try {
-			if (Class120_Sub12_Sub25.anInt3312 != 0) {
-				return true;
-			}
-			if (i < 17) {
-				anIntArray2835 = null;
-			}
-			bool = Class30.aClass120_Sub30_Sub2_234.method1766();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gb.K(").append(i).append(')').toString());
+	static final boolean method2193() {
+		if (Class120_Sub12_Sub25.anInt3312 != 0) {
+			return true;
 		}
-		return bool;
+		return Class30.aClass120_Sub30_Sub2_234.method1766();
 	}
 
 	static final void method2194(ClientScript clientScript, final int i) {
@@ -65,8 +51,8 @@ final class World extends Class167 {
 						continue;
 					}
 					if (opcode == 2) {
-						final int i_8_ = intValues[opcodeIndex];
-						Class140.putVarp(i_8_, ProducingGraphicsBuffer.intStack[--intStackIndex]);
+						final int id = intValues[opcodeIndex];
+						Class140.putVarp(id, ProducingGraphicsBuffer.intStack[--intStackIndex]);
 						continue;
 					}
 					if (opcode == 3) {
@@ -286,7 +272,7 @@ final class World extends Class167 {
 						if (opcode >= 1000 && opcode < 1100 || opcode >= 2000 && opcode < 2100) {
 							JagexInterface jagexInterface;
 							if (opcode < 2000) {
-								jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							} else {
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 								opcode -= 1000;
@@ -295,22 +281,20 @@ final class World extends Class167 {
 								intStackIndex -= 4;
 								jagexInterface.originalX = ProducingGraphicsBuffer.intStack[intStackIndex];
 								jagexInterface.originalY = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-								int i_28_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-								if (i_28_ >= 0) {
-									if (i_28_ > 5) {
-										i_28_ = 5;
-									}
-								} else {
-									i_28_ = 0;
+								int dynamicX = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+								if (dynamicX < 0) {
+									dynamicX = 0;
+								} else if (dynamicX > 5) {
+									dynamicX = 5;
 								}
-								int i_29_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-								jagexInterface.dynamicXValue = (byte) i_28_;
-								if (i_29_ < 0) {
-									i_29_ = 0;
-								} else if (i_29_ > 5) {
-									i_29_ = 5;
+								int dynamicY = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
+								jagexInterface.dynamicXValue = (byte) dynamicX;
+								if (dynamicY < 0) {
+									dynamicY = 0;
+								} else if (dynamicY > 5) {
+									dynamicY = 5;
 								}
-								jagexInterface.dynamicYValue = (byte) i_29_;
+								jagexInterface.dynamicYValue = (byte) dynamicY;
 								InterfaceClickMask.redrawInterface(jagexInterface);
 								Class120_Sub12_Sub34.updateInterface(jagexInterface);
 								if (jagexInterface.componentIndex == -1) {
@@ -375,7 +359,7 @@ final class World extends Class167 {
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 								opcode -= 1000;
 							} else {
-								jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							}
 							if (opcode == 1100) {
 								intStackIndex -= 2;
@@ -394,13 +378,13 @@ final class World extends Class167 {
 									jagexInterface.horizontalScrollPosition = 0;
 								}
 								InterfaceClickMask.redrawInterface(jagexInterface);
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
-									Class7.method108(jagexInterface.bitPacked, 12);
+								if (jagexInterface.componentIndex == -1) {
+									Class7.method108(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1101) {
 								jagexInterface.disabledColor = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								if (jagexInterface.componentIndex == -1) {
 									Class120_Sub29.method1730(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1102) {
@@ -423,21 +407,21 @@ final class World extends Class167 {
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1108) {
 								jagexInterface.modelTypeDisabled = 1;
-								jagexInterface.mediaIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.modelIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								if (jagexInterface.componentIndex == -1) {
 									Class33.method276(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1109) {
 								intStackIndex -= 6;
-								jagexInterface.anInt2076 = ProducingGraphicsBuffer.intStack[intStackIndex];
-								jagexInterface.anInt1977 = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+								jagexInterface.xOffset2d = ProducingGraphicsBuffer.intStack[intStackIndex];
+								jagexInterface.yOffset2d = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 								jagexInterface.rotateX = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 								jagexInterface.rotateY = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
 								jagexInterface.rotateZ = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
 								jagexInterface.zoom = ProducingGraphicsBuffer.intStack[intStackIndex + 5];
 								InterfaceClickMask.redrawInterface(jagexInterface);
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								if (jagexInterface.componentIndex == -1) {
 									ParamType.method1514(jagexInterface.bitPacked);
 									Class48.method401(jagexInterface.bitPacked);
 								}
@@ -450,7 +434,7 @@ final class World extends Class167 {
 									jagexInterface.currentFrame = 0;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								if (jagexInterface.componentIndex == -1) {
 									GameShell.method47(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1111) {
@@ -462,7 +446,7 @@ final class World extends Class167 {
 									jagexInterface.disabledText = string;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								if (jagexInterface.componentIndex == -1) {
 									Class187.method2479(jagexInterface.bitPacked, 3);
 								}
 							} else if (opcode == 1113) {
@@ -503,7 +487,7 @@ final class World extends Class167 {
 								jagexInterface.aShort2065 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1122) {
-								jagexInterface.hasAlpha = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+								jagexInterface.isAlphaSprite = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1123) {
 								jagexInterface.zoom = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -515,14 +499,13 @@ final class World extends Class167 {
 								if (opcode != 1124) {
 									break;
 								}
-								final int i_34_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-								jagexInterface.aBoolean1989 = i_34_ == 1;
+								jagexInterface.invertYAxis = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							}
 						} else if (opcode >= 1200 && opcode < 1300 || opcode >= 2200 && opcode < 2300) {
 							JagexInterface jagexInterface;
 							if (opcode < 2000) {
-								jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							} else {
 								opcode -= 1000;
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
@@ -530,28 +513,28 @@ final class World extends Class167 {
 							InterfaceClickMask.redrawInterface(jagexInterface);
 							if (opcode == 1200 || opcode == 1205 || opcode == 1208 || opcode == 1209) {
 								intStackIndex -= 2;
-								final int i_35_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-								final int i_36_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+								final int objCount = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+								final int objId = ProducingGraphicsBuffer.intStack[intStackIndex];
 								if (jagexInterface.componentIndex == -1) {
 									GameShell.method43(jagexInterface.bitPacked);
 									ParamType.method1514(jagexInterface.bitPacked);
 									Class48.method401(jagexInterface.bitPacked);
 								}
-								if ((i_36_ ^ 0xffffffff) == 0) {
+								if (objId == -1) {
 									jagexInterface.modelTypeDisabled = 1;
-									jagexInterface.mediaIdDisabled = -1;
+									jagexInterface.modelIdDisabled = -1;
 									jagexInterface.objId = -1;
 								} else {
-									jagexInterface.objCount = i_35_;
+									jagexInterface.objCount = objCount;
 									if (opcode == 1208 || opcode == 1209) {
 										jagexInterface.aBoolean2097 = true;
 									} else {
 										jagexInterface.aBoolean2097 = false;
 									}
-									jagexInterface.objId = i_36_;
-									final ObjType objType = ObjType.list(i_36_);
-									jagexInterface.anInt1977 = objType.yof2d;
-									jagexInterface.anInt2076 = objType.xof2d;
+									jagexInterface.objId = objId;
+									final ObjType objType = ObjType.list(objId);
+									jagexInterface.yOffset2d = objType.yof2d;
+									jagexInterface.xOffset2d = objType.xof2d;
 									jagexInterface.rotateX = objType.xan2d;
 									jagexInterface.rotateY = objType.yan2d;
 									jagexInterface.zoom = objType.zoom2d;
@@ -569,25 +552,25 @@ final class World extends Class167 {
 								}
 							} else if (opcode == 1201) {
 								jagexInterface.modelTypeDisabled = 2;
-								jagexInterface.mediaIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								jagexInterface.modelIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								if (jagexInterface.componentIndex == -1) {
 									Class33.method276(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1202) {
 								jagexInterface.modelTypeDisabled = 3;
-								jagexInterface.mediaIdDisabled = TileParticleQueue.selfPlayer.appearance.method2043();
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								jagexInterface.modelIdDisabled = TileParticleQueue.selfPlayer.appearance.method2043();
+								if (jagexInterface.componentIndex == -1) {
 									Class33.method276(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1203) {
 								jagexInterface.modelTypeDisabled = 6;
-								jagexInterface.mediaIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
-								if ((jagexInterface.componentIndex ^ 0xffffffff) == 0) {
+								jagexInterface.modelIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								if (jagexInterface.componentIndex == -1) {
 									Class33.method276(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1204) {
 								jagexInterface.modelTypeDisabled = 5;
-								jagexInterface.mediaIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.modelIdDisabled = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								if (jagexInterface.componentIndex == -1) {
 									Class33.method276(jagexInterface.bitPacked);
 								}
@@ -610,13 +593,13 @@ final class World extends Class167 {
 						} else if (opcode >= 1300 && opcode < 1400 || opcode >= 2300 && opcode < 2400) {
 							JagexInterface jagexInterface;
 							if (opcode < 2000) {
-								jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							} else {
 								opcode -= 1000;
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 							}
 							if (opcode == 1300) {
-								final int i_37_ = -1 + ProducingGraphicsBuffer.intStack[--intStackIndex];
+								final int i_37_ = ProducingGraphicsBuffer.intStack[--intStackIndex] - 1;
 								if (i_37_ < 0 || i_37_ > 9) {
 									stringStackIndex--;
 								} else {
@@ -628,15 +611,15 @@ final class World extends Class167 {
 								final int i_39_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 								jagexInterface.aClass189_1931 = JagexInterface.getComponent(i_39_, i_38_);
 							} else if (opcode == 1302) {
-								jagexInterface.aBoolean1939 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+								jagexInterface.keepDragAlpha = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 							} else if (opcode == 1303) {
-								jagexInterface.anInt1962 = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.pixelsBeforeDrag = ProducingGraphicsBuffer.intStack[--intStackIndex];
 							} else if (opcode == 1304) {
-								jagexInterface.anInt2066 = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.cyclesBeforeDrag = ProducingGraphicsBuffer.intStack[--intStackIndex];
 							} else if (opcode == 1305) {
 								jagexInterface.spellNameni = Class33.stringStack[--stringStackIndex];
 							} else if (opcode == 1306) {
-								jagexInterface.selectedSpellName = Class33.stringStack[--stringStackIndex];
+								jagexInterface.spellPrefix = Class33.stringStack[--stringStackIndex];
 							} else if (opcode == 1307) {
 								jagexInterface.niActions = null;
 							} else if (opcode == 1308) {
@@ -657,7 +640,7 @@ final class World extends Class167 {
 						} else if (opcode >= 1400 && opcode < 1500 || opcode >= 2400 && opcode < 2500) {
 							JagexInterface jagexInterface;
 							if (opcode < 2000) {
-								jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							} else {
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 								opcode -= 1000;
@@ -697,7 +680,7 @@ final class World extends Class167 {
 								} else if (opcode != 1403) {
 									if (opcode != 1404) {
 										if (opcode == 1405) {
-											jagexInterface.anObjectArray1959 = objects;
+											jagexInterface.onComponentDraggedListener = objects;
 										} else if (opcode != 1406) {
 											if (opcode == 1407) {
 												jagexInterface.onVarpUpdateListener = objects;
@@ -783,7 +766,7 @@ final class World extends Class167 {
 							}
 						} else if (opcode >= 1600) {
 							if (opcode < 1700) {
-								final JagexInterface jagexInterface = !bool ? Class93.aClass189_869 : ParamType.aClass189_3540;
+								final JagexInterface jagexInterface = !bool ? Class93.staticActiveComponent2 : ParamType.staticActiveComponent1;
 								if (opcode == 1600) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.verticalScrollPosition;
 								} else if (opcode == 1601) {
@@ -805,9 +788,9 @@ final class World extends Class167 {
 								} else if (opcode == 1609) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.alpha;
 								} else if (opcode == 1610) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.anInt2076;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.xOffset2d;
 								} else if (opcode == 1611) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.anInt1977;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.yOffset2d;
 								} else {
 									if (opcode != 1612) {
 										break;
@@ -815,7 +798,7 @@ final class World extends Class167 {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.disabledSpriteId;
 								}
 							} else if (opcode < 1800) {
-								final JagexInterface jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+								final JagexInterface jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 								if (opcode == 1700) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.objId;
 								} else if (opcode == 1701) {
@@ -831,7 +814,7 @@ final class World extends Class167 {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.componentIndex;
 								}
 							} else if (opcode < 1900) {
-								final JagexInterface jagexInterface = !bool ? Class93.aClass189_869 : ParamType.aClass189_3540;
+								final JagexInterface jagexInterface = !bool ? Class93.staticActiveComponent2 : ParamType.staticActiveComponent1;
 								if (opcode == 1800) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = client.getClickMask(jagexInterface).method1685();
 								} else if (opcode == 1801) {
@@ -892,8 +875,8 @@ final class World extends Class167 {
 															Class33.stringStack[stringStackIndex++] = class120_sub14_sub2.getStringParamValue(i_49_);
 														} else if (opcode == 3408) {
 															intStackIndex -= 4;
-															final int i_50_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 															final int i_51_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+															final int i_50_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 															final int i_52_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 															final int i_53_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
 															final EnumType class120_sub14_sub2 = EnumType.list(i_52_);
@@ -917,7 +900,7 @@ final class World extends Class167 {
 															if (class120_sub14_sub2.aChar3451 != i_54_) {
 																throw new RuntimeException("C3409-1");
 															}
-															ProducingGraphicsBuffer.intStack[intStackIndex++] = !class120_sub14_sub2.method1420(i_56_) ? 0 : 1;
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub2.method1420(i_56_) ? 1 : 0;
 														} else if (opcode == 3410) {
 															final String string = Class33.stringStack[--stringStackIndex];
 															final int i_57_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -1002,14 +985,14 @@ final class World extends Class167 {
 																			}
 																			if (opcode < 5100) {
 																				if (opcode == 5000) {
-																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Class69_Sub3_Sub1.anInt3084;
+																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Class69_Sub3_Sub1.publicChatSetting;
 																				} else if (opcode == 5001) {
 																					intStackIndex -= 3;
-																					Class69_Sub3_Sub1.anInt3084 = ProducingGraphicsBuffer.intStack[intStackIndex];
+																					Class69_Sub3_Sub1.publicChatSetting = ProducingGraphicsBuffer.intStack[intStackIndex];
 																					Class120_Sub12_Sub31.anInt3382 = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																					KeyboardHandler.anInt1507 = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																					Class120_Sub12_Sub11.outputStream.putByteIsaac(234);
-																					Class120_Sub12_Sub11.outputStream.putByte(Class69_Sub3_Sub1.anInt3084);
+																					Class120_Sub12_Sub11.outputStream.putByte(Class69_Sub3_Sub1.publicChatSetting);
 																					Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub31.anInt3382);
 																					Class120_Sub12_Sub11.outputStream.putByte(KeyboardHandler.anInt1507);
 																				} else if (opcode == 5002) {
@@ -1022,15 +1005,15 @@ final class World extends Class167 {
 																					Class120_Sub12_Sub11.outputStream.putByte(i_75_ + -1);
 																					Class120_Sub12_Sub11.outputStream.putByte(i_76_);
 																				} else if (opcode == 5003) {
-																					final int i_77_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																					String string = null;
-																					if (i_77_ < 100) {
-																						string = GrandExchangeObject.aStringArray1502[i_77_];
+																					final int id = ProducingGraphicsBuffer.intStack[--intStackIndex];
+																					String text = null;
+																					if (id < 100) {
+																						text = GrandExchangeObject.aStringArray1502[id];
 																					}
-																					if (string == null) {
-																						string = "";
+																					if (text == null) {
+																						text = "";
 																					}
-																					Class33.stringStack[stringStackIndex++] = string;
+																					Class33.stringStack[stringStackIndex++] = text;
 																				} else if (opcode == 5004) {
 																					int i_78_ = -1;
 																					final int i_79_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -1043,157 +1026,127 @@ final class World extends Class167 {
 																				} else if (opcode == 5008) {
 																					String string = Class33.stringStack[--stringStackIndex];
 																					if (string.startsWith("::")) {
-																						Class120_Sub12_Sub20.method1301(string);
+																						Class120_Sub12_Sub20.execuseCommand(string);
 																					} else if (Class86.staffLevel != 0 || (!VarBit.aBoolean167 || UnderlayType.aBoolean1228) && !SpotAnimationNode.aBoolean3464) {
 																						String string_80_ = string.toLowerCase();
-																						int i_81_ = 0;
-																						int i_82_ = 0;
-																						if (string_80_.startsWith(Class120_Sub12.aString2566)) {
-																							string = string.substring(Class120_Sub12.aString2566.length());
-																							i_81_ = 0;
-																						} else if (string_80_.startsWith(Class120_Sub15.aString2589)) {
-																							i_81_ = 1;
-																							string = string.substring(Class120_Sub15.aString2589.length());
-																						} else if (!string_80_.startsWith(Class33.aString276)) {
-																							if (!string_80_.startsWith(Class111.aString1066)) {
-																								if (string_80_.startsWith(Node.aString1148)) {
-																									string = string.substring(Node.aString1148.length());
-																									i_81_ = 4;
-																								} else if (!string_80_.startsWith(Class118.aString1137)) {
-																									if (!string_80_.startsWith(GroundTile.aString2622)) {
-																										if (!string_80_.startsWith(SubScript.aString1766)) {
-																											if (string_80_.startsWith(Class127.aString1217)) {
-																												string = string.substring(Class127.aString1217.length());
-																												i_81_ = 8;
-																											} else if (string_80_.startsWith(Class120_Sub21.aString2665)) {
-																												string = string.substring(Class120_Sub21.aString2665.length());
-																												i_81_ = 9;
-																											} else if (string_80_.startsWith(Class7.aString60)) {
-																												i_81_ = 10;
-																												string = string.substring(Class7.aString60.length());
-																											} else if (string_80_.startsWith(ObjectContainer.aString2614)) {
-																												string = string.substring(ObjectContainer.aString2614.length());
-																												i_81_ = 11;
-																											} else if (Class9.language != 0) {
-																												if (!string_80_.startsWith(Class69_Sub1.aString2231)) {
-																													if (!string_80_.startsWith(Class53_Sub1.aString2213)) {
-																														if (string_80_.startsWith(Class69.aString618)) {
-																															i_81_ = 2;
-																															string = string.substring(Class69.aString618.length());
-																														} else if (!string_80_.startsWith(ModelParticle.aString1483)) {
-																															if (!string_80_.startsWith(AbstractRequest.aString3575)) {
-																																if (string_80_.startsWith(ClanMember.aString2574)) {
-																																	string = string.substring(ClanMember.aString2574.length());
-																																	i_81_ = 5;
-																																} else if (!string_80_.startsWith(Class147.aString1397)) {
-																																	if (string_80_.startsWith(Class53_Sub1.aString2206)) {
-																																		i_81_ = 7;
-																																		string = string.substring(Class53_Sub1.aString2206.length());
-																																	} else if (string_80_.startsWith(NpcType.aString1685)) {
-																																		string = string.substring(NpcType.aString1685.length());
-																																		i_81_ = 8;
-																																	} else if (!string_80_.startsWith(Class111.aString1062)) {
-																																		if (!string_80_.startsWith(Class156.aString1457)) {
-																																			if (string_80_.startsWith(Class136.aString1316)) {
-																																				i_81_ = 11;
-																																				string = string.substring(Class136.aString1316.length());
-																																			}
-																																		} else {
-																																			string = string.substring(Class156.aString1457.length());
-																																			i_81_ = 10;
-																																		}
-																																	} else {
-																																		i_81_ = 9;
-																																		string = string.substring(Class111.aString1062.length());
-																																	}
-																																} else {
-																																	string = string.substring(Class147.aString1397.length());
-																																	i_81_ = 6;
-																																}
-																															} else {
-																																i_81_ = 4;
-																																string = string.substring(AbstractRequest.aString3575.length());
-																															}
-																														} else {
-																															i_81_ = 3;
-																															string = string.substring(ModelParticle.aString1483.length());
-																														}
-																													} else {
-																														string = string.substring(Class53_Sub1.aString2213.length());
-																														i_81_ = 1;
-																													}
-																												} else {
-																													string = string.substring(Class69_Sub1.aString2231.length());
-																													i_81_ = 0;
-																												}
-																											}
-																										} else {
-																											i_81_ = 7;
-																											string = string.substring(SubScript.aString1766.length());
-																										}
-																									} else {
-																										string = string.substring(GroundTile.aString2622.length());
-																										i_81_ = 6;
-																									}
-																								} else {
-																									string = string.substring(Class118.aString1137.length());
-																									i_81_ = 5;
-																								}
-																							} else {
-																								string = string.substring(Class111.aString1066.length());
-																								i_81_ = 3;
+																						int colorEffect = 0;
+																						int movementEffect = 0;
+																						if (string_80_.startsWith(TextRepository.aString2566)) {
+																							colorEffect = 0;
+																							string = string.substring(TextRepository.aString2566.length());
+																						} else if (string_80_.startsWith(TextRepository.aString2589)) {
+																							colorEffect = 1;
+																							string = string.substring(TextRepository.aString2589.length());
+																						} else if (string_80_.startsWith(TextRepository.aString276)) {
+																							colorEffect = 2;
+																							string = string.substring(TextRepository.aString276.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1066)) {
+																							colorEffect = 3;
+																							string = string.substring(TextRepository.aString1066.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1148)) {
+																							colorEffect = 4;
+																							string = string.substring(TextRepository.aString1148.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1137)) {
+																							colorEffect = 5;
+																							string = string.substring(TextRepository.aString1137.length());
+																						} else if (string_80_.startsWith(TextRepository.aString2622)) {
+																							colorEffect = 6;
+																							string = string.substring(TextRepository.aString2622.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1766)) {
+																							colorEffect = 7;
+																							string = string.substring(TextRepository.aString1766.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1217)) {
+																							colorEffect = 8;
+																							string = string.substring(TextRepository.aString1217.length());
+																						} else if (string_80_.startsWith(TextRepository.aString2665)) {
+																							colorEffect = 9;
+																							string = string.substring(TextRepository.aString2665.length());
+																						} else if (string_80_.startsWith(TextRepository.aString60)) {
+																							colorEffect = 10;
+																							string = string.substring(TextRepository.aString60.length());
+																						} else if (string_80_.startsWith(TextRepository.aString2614)) {
+																							string = string.substring(TextRepository.aString2614.length());
+																							colorEffect = 11;
+																						} else if (Class9.language != 0) {
+																							if (string_80_.startsWith(TextRepository.aString2231)) {
+																								colorEffect = 0;
+																								string = string.substring(TextRepository.aString2231.length());
+																							} else if (string_80_.startsWith(TextRepository.aString2213)) {
+																								colorEffect = 1;
+																								string = string.substring(TextRepository.aString2213.length());
+																							} else if (string_80_.startsWith(TextRepository.aString618)) {
+																								colorEffect = 2;
+																								string = string.substring(TextRepository.aString618.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1483)) {
+																								colorEffect = 3;
+																								string = string.substring(TextRepository.aString1483.length());
+																							} else if (string_80_.startsWith(TextRepository.aString3575)) {
+																								colorEffect = 4;
+																								string = string.substring(TextRepository.aString3575.length());
+																							} else if (string_80_.startsWith(TextRepository.aString2574)) {
+																								colorEffect = 5;
+																								string = string.substring(TextRepository.aString2574.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1397)) {
+																								colorEffect = 6;
+																								string = string.substring(TextRepository.aString1397.length());
+																							} else if (string_80_.startsWith(TextRepository.aString2206)) {
+																								colorEffect = 7;
+																								string = string.substring(TextRepository.aString2206.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1685)) {
+																								colorEffect = 8;
+																								string = string.substring(TextRepository.aString1685.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1062)) {
+																								colorEffect = 9;
+																								string = string.substring(TextRepository.aString1062.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1457)) {
+																								colorEffect = 10;
+																								string = string.substring(TextRepository.aString1457.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1316)) {
+																								colorEffect = 11;
+																								string = string.substring(TextRepository.aString1316.length());
 																							}
-																						} else {
-																							string = string.substring(Class33.aString276.length());
-																							i_81_ = 2;
 																						}
 																						string_80_ = string.toLowerCase();
-																						if (string_80_.startsWith(Class71.aString624)) {
-																							string = string.substring(Class71.aString624.length());
-																							i_82_ = 1;
-																						} else if (string_80_.startsWith(Class99.aString952)) {
-																							i_82_ = 2;
-																							string = string.substring(Class99.aString952.length());
-																						} else if (string_80_.startsWith(Class39.aString325)) {
-																							i_82_ = 3;
-																							string = string.substring(Class39.aString325.length());
-																						} else if (!string_80_.startsWith(Class186.aString1903)) {
-																							if (string_80_.startsWith(InterfaceListener.aString2548)) {
-																								i_82_ = 5;
-																								string = string.substring(InterfaceListener.aString2548.length());
-																							} else if (Class9.language != 0) {
-																								if (!string_80_.startsWith(HintIcon.aString807)) {
-																									if (string_80_.startsWith(Class147.aString1398)) {
-																										string = string.substring(Class147.aString1398.length());
-																										i_82_ = 2;
-																									} else if (!string_80_.startsWith(Class96.aString915)) {
-																										if (string_80_.startsWith(GameEntity.aString3011)) {
-																											i_82_ = 4;
-																											string = string.substring(GameEntity.aString3011.length());
-																										} else if (string_80_.startsWith(InterfaceListener.aString2538)) {
-																											string = string.substring(InterfaceListener.aString2538.length());
-																											i_82_ = 5;
-																										}
-																									} else {
-																										i_82_ = 3;
-																										string = string.substring(Class96.aString915.length());
-																									}
-																								} else {
-																									string = string.substring(HintIcon.aString807.length());
-																									i_82_ = 1;
-																								}
+																						if (string_80_.startsWith(TextRepository.aString624)) {
+																							movementEffect = 1;
+																							string = string.substring(TextRepository.aString624.length());
+																						} else if (string_80_.startsWith(TextRepository.aString952)) {
+																							movementEffect = 2;
+																							string = string.substring(TextRepository.aString952.length());
+																						} else if (string_80_.startsWith(TextRepository.aString325)) {
+																							movementEffect = 3;
+																							string = string.substring(TextRepository.aString325.length());
+																						} else if (string_80_.startsWith(TextRepository.aString1903)) {
+																							movementEffect = 4;
+																							string = string.substring(TextRepository.aString1903.length());
+																						} else if (string_80_.startsWith(TextRepository.aString2548)) {
+																							movementEffect = 5;
+																							string = string.substring(TextRepository.aString2548.length());
+																						} else if (Class9.language != 0) {
+																							if (string_80_.startsWith(TextRepository.aString807)) {
+																								movementEffect = 1;
+																								string = string.substring(TextRepository.aString807.length());
+																							} else if (string_80_.startsWith(TextRepository.aString1398)) {
+																								movementEffect = 2;
+																								string = string.substring(TextRepository.aString1398.length());
+																							} else if (string_80_.startsWith(TextRepository.aString915)) {
+																								movementEffect = 3;
+																								string = string.substring(TextRepository.aString915.length());
+																							} else if (string_80_.startsWith(TextRepository.aString3011)) {
+																								movementEffect = 4;
+																								string = string.substring(TextRepository.aString3011.length());
+																							} else if (string_80_.startsWith(TextRepository.aString2538)) {
+																								movementEffect = 5;
+																								string = string.substring(TextRepository.aString2538.length());
 																							}
-																						} else {
-																							string = string.substring(Class186.aString1903.length());
-																							i_82_ = 4;
 																						}
 																						Class120_Sub12_Sub11.outputStream.putByteIsaac(186);
 																						Class120_Sub12_Sub11.outputStream.putByte(0);
-																						final int i_83_ = Class120_Sub12_Sub11.outputStream.pos;
-																						Class120_Sub12_Sub11.outputStream.putByte(i_81_);
-																						Class120_Sub12_Sub11.outputStream.putByte(i_82_);
+																						final int startOff = Class120_Sub12_Sub11.outputStream.pos;
+																						Class120_Sub12_Sub11.outputStream.putByte(colorEffect);
+																						Class120_Sub12_Sub11.outputStream.putByte(movementEffect);
 																						Class148.encodeText(Class120_Sub12_Sub11.outputStream, string);
-																						Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos + -i_83_);
+																						Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - startOff);
 																					}
 																				} else if (opcode == 5009) {
 																					stringStackIndex -= 2;
@@ -1553,7 +1506,7 @@ final class World extends Class167 {
 																									}
 																								}
 																								if (HDToolkit.glEnabled) {
-																									ModelParticle.aBoolean1478 = true;
+																									ModelParticleEmitter.instantScreenFade = true;
 																									if (!Class120_Sub12_Sub6.highLightingDetail) {
 																										LocType.method2458();
 																									}
@@ -1563,7 +1516,7 @@ final class World extends Class167 {
 																								MapFunctionNode.aBoolean3471 = false;
 																							} else if (opcode == 6002) {
 																								GameShell.method32(ProducingGraphicsBuffer.intStack[--intStackIndex] == 1);
-																								Class120_Sub12_Sub25.method1334();
+																								Class120_Sub12_Sub25.clearLocCache();
 																								LocType.method2458();
 																								Class57.method492();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
@@ -1644,7 +1597,7 @@ final class World extends Class167 {
 																							} else if (opcode == 6015) {
 																								Decimator.fogEnabled = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								if (HDToolkit.glEnabled) {
-																									ModelParticle.aBoolean1478 = true;
+																									ModelParticleEmitter.instantScreenFade = true;
 																								}
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
 																								MapFunctionNode.aBoolean3471 = false;
@@ -1741,7 +1694,7 @@ final class World extends Class167 {
 																									if (i_146_ < 0 || i_146_ > 1) {
 																										i_146_ = 0;
 																									}
-																									ParticleManager.setHdr(i_146_ == 1);
+																									ParticleEmitter.setHdr(i_146_ == 1);
 																								}
 																							} else {
 																								if (opcode != 6028) {
@@ -1804,7 +1757,7 @@ final class World extends Class167 {
 																									ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 																								}
 																							} else if (opcode == 6127) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class186.hdrEnabled ? 1 : 0;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = WallDecoration.hdrEnabled ? 1 : 0;
 																							} else {
 																								if (opcode != 6128) {
 																									break;
@@ -1941,7 +1894,7 @@ final class World extends Class167 {
 																									final boolean bool_155_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1] == 1;
 																									final int i_156_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																									final boolean bool_157_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3] == 1;
-																									Class120_Sub12_Sub4.method1211(bool_155_, 80, i_154_, bool_157_, i_156_);
+																									Class120_Sub12_Sub4.method1211(bool_155_, i_154_, bool_157_, i_156_);
 																								}
 																							} else if (opcode >= 6700) {
 																								if (opcode >= 6900) {
@@ -1996,9 +1949,9 @@ final class World extends Class167 {
 																							if (Class120_Sub12_Sub11.aShort3216 <= 0) {
 																								Class120_Sub12_Sub11.aShort3216 = (short) 256;
 																							}
-																							Class61.aShort565 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																							if (Class61.aShort565 <= 0) {
-																								Class61.aShort565 = (short) 320;
+																							client.aShort565 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+																							if (client.aShort565 <= 0) {
+																								client.aShort565 = (short) 320;
 																							}
 																						} else if (opcode == 6202) {
 																							intStackIndex -= 4;
@@ -2027,12 +1980,12 @@ final class World extends Class167 {
 																								GameShell.aShort2 = (short) 32767;
 																							}
 																						} else if (opcode == 6203) {
-																							Class154.method2079(0, 0, DummyInputStream.aClass189_26.width, DummyInputStream.aClass189_26.height, false);
+																							Class154.method2079(0, 0, DummyInputStream.fixedGameScreenInterface.width, DummyInputStream.fixedGameScreenInterface.height, false);
 																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub27.anInt3339;
 																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Light.anInt391;
 																						} else if (opcode == 6204) {
 																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub11.aShort3216;
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class61.aShort565;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.aShort565;
 																						} else {
 																							if (opcode != 6205) {
 																								break;
@@ -2046,14 +1999,14 @@ final class World extends Class167 {
 																						final int i_163_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																						final int i_164_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																						final int i_165_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-																						Class120_Sub14_Sub23.method1639(i_164_, -GameEntity.currentBaseX + ((i_162_ & 0xffffb19) >> 14), i_165_, i_163_, false, (i_162_ & 0x3fff) + -Class181.currentBaseZ);
+																						Class120_Sub14_Sub23.method1639(i_164_, ((i_162_ & 0xffffb19) >> 14) - GameEntity.currentBaseX, i_165_, i_163_, false, (i_162_ & 0x3fff) - Class181.currentBaseZ);
 																					} else if (opcode == 5501) {
 																						intStackIndex -= 4;
 																						final int i_166_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 																						final int i_167_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																						final int i_168_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																						final int i_169_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-																						Class120_Sub12_Sub16.method1278(i_167_, i_168_, ((i_166_ & 0xffff699) >> 14) - GameEntity.currentBaseX, -Class181.currentBaseZ + (0x3fff & i_166_), i_169_);
+																						Class120_Sub12_Sub16.method1278(i_167_, i_168_, ((i_166_ & 0xffff699) >> 14) - GameEntity.currentBaseX, (0x3fff & i_166_) - Class181.currentBaseZ, i_169_);
 																					} else if (opcode == 5502) {
 																						intStackIndex -= 6;
 																						final int i_170_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -2105,9 +2058,9 @@ final class World extends Class167 {
 																					}
 																				} else if (opcode == 5400) {
 																					stringStackIndex -= 2;
-																					final String string = Class33.stringStack[1 + stringStackIndex];
-																					final int i_174_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																					final String string_175_ = Class33.stringStack[stringStackIndex];
+																					final String string = Class33.stringStack[stringStackIndex + 1];
+																					final int i_174_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																					Class120_Sub12_Sub11.outputStream.putByteIsaac(243);
 																					Class120_Sub12_Sub11.outputStream.putByte(1 + Class69_Sub2_Sub1.getLengthPlusOne(string_175_) + Class69_Sub2_Sub1.getLengthPlusOne(string));
 																					Class120_Sub12_Sub11.outputStream.putJagexString(string_175_);
@@ -2151,7 +2104,7 @@ final class World extends Class167 {
 																					if (Class112.frame != null) {
 																						System.exit(0);
 																					} else {
-																						Class188.method2482(Class181.method2439(), false);
+																						Class188.openUrl(Class181.method2439(), false);
 																					}
 																				} else if (opcode == 5419) {
 																					String string = "";
@@ -2164,7 +2117,7 @@ final class World extends Class167 {
 																					}
 																					Class33.stringStack[stringStackIndex++] = string;
 																				} else if (opcode == 5420) {
-																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Signlink.anInt1310 == 3 ? 1 : 0;
+																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Signlink.clientType == 3 ? 1 : 0;
 																				} else if (opcode == 5421) {
 																					if (Class120_Sub14_Sub10.fullscreenFrame != null) {
 																						AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
@@ -2172,12 +2125,12 @@ final class World extends Class167 {
 																					final String string = Class33.stringStack[--stringStackIndex];
 																					final boolean bool_186_ = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																					final String string_187_ = new StringBuilder(Class181.method2439()).append(string).toString();
-																					if (Class112.frame == null && (!bool_186_ || Signlink.anInt1310 == 3 || !Signlink.osName.startsWith("win") || FileSystem.haveInternetExplorer6)) {
-																						Class188.method2482(string_187_, bool_186_);
+																					if (Class112.frame == null && (!bool_186_ || Signlink.clientType == 3 || !Signlink.osName.startsWith("win") || FileSystem.haveInternetExplorer6)) {
+																						Class188.openUrl(string_187_, bool_186_);
 																					} else {
-																						WorldInfo.aString1421 = string_187_;
-																						Class99.aBoolean950 = bool_186_;
-																						Class3.aClass185_56 = NpcType.gameSignlink.method1953(string_187_);
+																						WorldInfo.openUrl = string_187_;
+																						Class99.openUrlNewTab = bool_186_;
+																						Class3.openUrlRequest = NpcType.gameSignlink.requestUrl(string_187_);
 																					}
 																				} else if (opcode == 5422) {
 																					stringStackIndex -= 2;
@@ -2185,10 +2138,10 @@ final class World extends Class167 {
 																					final String string_188_ = Class33.stringStack[stringStackIndex + 1];
 																					final int i_189_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																					if (string.length() > 0) {
-																						if (Class182.prefixTitles == null) {
-																							Class182.prefixTitles = new String[Node.anIntArray1151[Buffer.gameId]];
+																						if (WallLocation.prefixTitles == null) {
+																							WallLocation.prefixTitles = new String[Node.anIntArray1151[Buffer.gameId]];
 																						}
-																						Class182.prefixTitles[i_189_] = string;
+																						WallLocation.prefixTitles[i_189_] = string;
 																					}
 																					if (string_188_.length() > 0) {
 																						if (Class53.suffixTitles == null) {
@@ -2216,10 +2169,10 @@ final class World extends Class167 {
 																					Class7.aClass50_63.method429(Class24.anInt146);
 																					Class7.aClass50_63.method429(Class92.anInt864);
 																					Class7.aClass50_63.method429(Class31.anInt240);
-																					Class186.usingSpriteMenu = true;
+																					WallDecoration.usingSpriteMenu = true;
 																				} else if (opcode == 5425) {
 																					LocType.resetSpriteMenu();
-																					Class186.usingSpriteMenu = false;
+																					WallDecoration.usingSpriteMenu = false;
 																				} else if (opcode == 5426) {
 																					AbstractIndexedSprite.defaultCursorId = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																				} else if (opcode == 5427) {
@@ -2231,8 +2184,8 @@ final class World extends Class167 {
 																						break;
 																					}
 																					intStackIndex -= 2;
-																					final int i_190_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																					final int i_191_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+																					final int i_190_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Player.method2345(i_191_, i_190_) ? 1 : 0;
 																				}
 																			} else if (opcode == 5200) {
@@ -2260,7 +2213,7 @@ final class World extends Class167 {
 																				ProducingGraphicsBuffer.intStack[intStackIndex++] = Class173.worldMapPointerWidth;
 																				ProducingGraphicsBuffer.intStack[intStackIndex++] = GroundObjectNode.worldMapPointerHeight;
 																			} else if (opcode == 5209) {
-																				ProducingGraphicsBuffer.intStack[intStackIndex++] = ParticleManager.anInt2336 + WorldMapHandler.anInt695;
+																				ProducingGraphicsBuffer.intStack[intStackIndex++] = ParticleEmitter.anInt2336 + WorldMapHandler.anInt695;
 																				ProducingGraphicsBuffer.intStack[intStackIndex++] = WorldMapHandler.anInt694 + -Class169.anInt1646 + -1 + WorldMapHandler.mapSizeY;
 																			} else if (opcode == 5210) {
 																				final int i_193_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -2304,7 +2257,7 @@ final class World extends Class167 {
 																				}
 																			} else if (opcode == 5214) {
 																				final int i_197_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleManager.method938();
+																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleEmitter.method938();
 																				if (class120_sub14_sub22 != null) {
 																					final boolean bool_198_ = class120_sub14_sub22.method1630(0x3fff & i_197_, i_197_ >> 28 & 0x3, anIntArray2832, i_197_ >> 14 & 0x3fff);
 																					if (bool_198_) {
@@ -2342,12 +2295,12 @@ final class World extends Class167 {
 																				final int i_203_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																				FileSystemWorker.a((i_203_ & 0xfffc9be) >> 14, 0x3fff & i_203_);
 																			} else if (opcode == 5222) {
-																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleManager.method938();
+																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleEmitter.method938();
 																				if (class120_sub14_sub22 == null) {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																				} else {
-																					final boolean bool_204_ = class120_sub14_sub22.method1635(WorldMapHandler.anInt695 + ParticleManager.anInt2336, WorldMapHandler.mapSizeY - (1 + Class169.anInt1646 + -WorldMapHandler.anInt694), anIntArray2832);
+																					final boolean bool_204_ = class120_sub14_sub22.method1635(WorldMapHandler.anInt695 + ParticleEmitter.anInt2336, WorldMapHandler.mapSizeY - (1 + Class169.anInt1646 + -WorldMapHandler.anInt694), anIntArray2832);
 																					if (!bool_204_) {
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
@@ -2363,7 +2316,7 @@ final class World extends Class167 {
 																				ParticleNode.method932(false, i_205_ & 0x3fff, i_205_ >> 14 & 0x3fff, i_206_);
 																			} else if (opcode == 5224) {
 																				final int i_207_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleManager.method938();
+																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleEmitter.method938();
 																				if (class120_sub14_sub22 == null) {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
@@ -2379,7 +2332,7 @@ final class World extends Class167 {
 																				}
 																			} else if (opcode == 5225) {
 																				final int i_209_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleManager.method938();
+																				final Class120_Sub14_Sub22 class120_sub14_sub22 = ParticleEmitter.method938();
 																				if (class120_sub14_sub22 != null) {
 																					final boolean bool_210_ = class120_sub14_sub22.method1635((i_209_ & 0xfffdf1a) >> 14, i_209_ & 0x3fff, anIntArray2832);
 																					if (bool_210_) {
@@ -2492,8 +2445,8 @@ final class World extends Class167 {
 																	Class33.stringStack[stringStackIndex++] = ObjType.list(i_224_).name;
 																} else if (opcode == 4201) {
 																	intStackIndex -= 2;
-																	final int i_225_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																	final int i_226_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+																	final int i_225_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																	final ObjType objType = ObjType.list(i_226_);
 																	if (i_225_ < 1 || i_225_ > 5 || objType.options[i_225_ - 1] == null) {
 																		Class33.stringStack[stringStackIndex++] = "";
@@ -2537,8 +2490,8 @@ final class World extends Class167 {
 																	ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjType.list(i_233_).members ? 1 : 0;
 																} else if (opcode == 4208) {
 																	intStackIndex -= 2;
-																	final int i_234_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																	final int i_235_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+																	final int i_234_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																	final ParamType class120_sub14_sub11 = ParamType.list(i_234_);
 																	if (class120_sub14_sub11.isString()) {
 																		Class33.stringStack[stringStackIndex++] = ObjType.list(i_235_).getStringParam(i_234_, class120_sub14_sub11.defaultString);
@@ -2843,13 +2796,13 @@ final class World extends Class167 {
 													} else if (opcode == 3604) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														final int i_309_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-														Class90.method755(215, i_309_, string);
+														Class90.method755(string, i_309_);
 													} else if (opcode == 3605) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														Class48.addFriend(Varp.stringToLong(string));
 													} else if (opcode == 3606) {
 														final String string = Class33.stringStack[--stringStackIndex];
-														ParticleManager.removeFriend(Varp.stringToLong(string));
+														ParticleEmitter.removeFriend(Varp.stringToLong(string));
 													} else if (opcode == 3607) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														Class154.addIgnore(Varp.stringToLong(string));
@@ -3075,18 +3028,18 @@ final class World extends Class167 {
 												} else if (opcode == 3329) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = SpotAnimationNode.aBoolean3464 ? 1 : 0;
 												} else if (opcode == 3330) {
-													final int i_341_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjectContainer.getFreeSpaces(i_341_);
+													final int type = ProducingGraphicsBuffer.intStack[--intStackIndex];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjectContainer.getFreeSpaces(type);
 												} else if (opcode == 3331) {
 													intStackIndex -= 2;
-													final int i_343_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-													final int i_342_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class127.method1888(i_342_, i_343_, false);
+													final int type = ProducingGraphicsBuffer.intStack[intStackIndex];
+													final int paramId = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjectContainer.getTotalParam(paramId, type, false);
 												} else if (opcode == 3332) {
 													intStackIndex -= 2;
-													final int i_345_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-													final int i_344_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class127.method1888(i_344_, i_345_, true);
+													final int type = ProducingGraphicsBuffer.intStack[intStackIndex];
+													final int paramId = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjectContainer.getTotalParam(paramId, type, true);
 												} else if (opcode == 3333) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = AbstractMouseWheelHandler.anInt116;
 												} else if (opcode == 3335) {
@@ -3096,9 +3049,9 @@ final class World extends Class167 {
 													int i_346_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 													final int i_347_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 													final int i_348_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+													final int i_349_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
 													i_346_ += i_347_ << 14;
 													i_346_ += i_348_ << 28;
-													final int i_349_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
 													i_346_ += i_349_;
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = i_346_;
 												} else {
@@ -3121,7 +3074,7 @@ final class World extends Class167 {
 											}
 										} else if (opcode == 3100) {
 											final String string = Class33.stringStack[--stringStackIndex];
-											AbstractRequest.method1540("", 0, string);
+											AbstractRequest.pushMessage(string, "", 0);
 										} else if (opcode == 3101) {
 											intStackIndex -= 2;
 											Class192.method2517(TileParticleQueue.selfPlayer, ProducingGraphicsBuffer.intStack[intStackIndex], ProducingGraphicsBuffer.intStack[intStackIndex + 1]);
@@ -3154,13 +3107,13 @@ final class World extends Class167 {
 											final int i_354_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 											final int i_353_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 											final JagexInterface jagexInterface = Class74.getJagexInterface(i_353_);
-											Class120_Sub12_Sub8.method1241(jagexInterface, i_352_, i_354_);
+											Class120_Sub12_Sub8.dragComponent(jagexInterface, i_352_, i_354_);
 										} else if (opcode == 3109) {
 											intStackIndex -= 2;
 											final int i_356_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 											final int i_355_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-											final JagexInterface jagexInterface = !bool ? Class93.aClass189_869 : ParamType.aClass189_3540;
-											Class120_Sub12_Sub8.method1241(jagexInterface, i_356_, i_355_);
+											final JagexInterface jagexInterface = !bool ? Class93.staticActiveComponent2 : ParamType.staticActiveComponent1;
+											Class120_Sub12_Sub8.dragComponent(jagexInterface, i_356_, i_355_);
 										} else {
 											if (opcode != 3110) {
 												break;
@@ -3174,7 +3127,7 @@ final class World extends Class167 {
 										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.objId;
 									} else if (opcode == 2701) {
 										final JagexInterface jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
-										if ((jagexInterface.objId ^ 0xffffffff) == 0) {
+										if (jagexInterface.objId == -1) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.objCount;
@@ -3192,14 +3145,14 @@ final class World extends Class167 {
 										if (jagexInterface.components == null) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
-											int i_359_ = jagexInterface.components.length;
-											for (int i_360_ = 0; jagexInterface.components.length > i_360_; i_360_++) {
-												if (jagexInterface.components[i_360_] == null) {
-													i_359_ = i_360_;
+											int freeComponentId = jagexInterface.components.length;
+											for (int id = 0; id < jagexInterface.components.length; id++) {
+												if (jagexInterface.components[id] == null) {
+													freeComponentId = id;
 													break;
 												}
 											}
-											ProducingGraphicsBuffer.intStack[intStackIndex++] = i_359_;
+											ProducingGraphicsBuffer.intStack[intStackIndex++] = freeComponentId;
 										}
 									} else {
 										if (opcode != 2704 && opcode != 2705) {
@@ -3238,9 +3191,9 @@ final class World extends Class167 {
 									} else if (opcode == 2609) {
 										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.alpha;
 									} else if (opcode == 2610) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.anInt2076;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.xOffset2d;
 									} else if (opcode == 2611) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.anInt1977;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.yOffset2d;
 									} else {
 										if (opcode != 2612) {
 											break;
@@ -3268,7 +3221,7 @@ final class World extends Class167 {
 								}
 							}
 						} else {
-							final JagexInterface jagexInterface = bool ? ParamType.aClass189_3540 : Class93.aClass189_869;
+							final JagexInterface jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 							if (opcode == 1500) {
 								ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.x;
 							} else if (opcode == 1501) {
@@ -3318,80 +3271,80 @@ final class World extends Class167 {
 					intStackIndex -= 3;
 					final int bitPacked = ProducingGraphicsBuffer.intStack[intStackIndex];
 					final int type = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-					final int i_370_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+					final int index = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 					if (type == 0) {
 						throw new RuntimeException();
 					}
 					final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
 					if (jagexInterface.components == null) {
-						jagexInterface.components = new JagexInterface[1 + i_370_];
+						jagexInterface.components = new JagexInterface[index + 1];
 					}
-					if (i_370_ >= jagexInterface.components.length) {
-						final JagexInterface[] class189s = new JagexInterface[i_370_ + 1];
-						for (int i_373_ = 0; i_373_ < jagexInterface.components.length; i_373_++) {
-							class189s[i_373_] = jagexInterface.components[i_373_];
+					if (index >= jagexInterface.components.length) {
+						final JagexInterface[] expandedComponents = new JagexInterface[index + 1];
+						for (int id = 0; id < jagexInterface.components.length; id++) {
+							expandedComponents[id] = jagexInterface.components[id];
 						}
-						jagexInterface.components = class189s;
+						jagexInterface.components = expandedComponents;
 					}
-					if (i_370_ > 0 && jagexInterface.components[i_370_ - 1] == null) {
-						throw new RuntimeException("Gap at:" + (i_370_ - 1));
+					if (index > 0 && jagexInterface.components[index - 1] == null) {
+						throw new RuntimeException("Gap at:" + (index - 1));
 					}
-					final JagexInterface class189_374_ = new JagexInterface();
-					class189_374_.parent = class189_374_.bitPacked = jagexInterface.bitPacked;
-					class189_374_.newFormat = true;
-					class189_374_.componentIndex = i_370_;
-					class189_374_.type = type;
-					jagexInterface.components[i_370_] = class189_374_;
+					final JagexInterface newComponent = new JagexInterface();
+					newComponent.parent = newComponent.bitPacked = jagexInterface.bitPacked;
+					newComponent.newFormat = true;
+					newComponent.componentIndex = index;
+					newComponent.type = type;
+					jagexInterface.components[index] = newComponent;
 					if (bool) {
-						ParamType.aClass189_3540 = class189_374_;
+						ParamType.staticActiveComponent1 = newComponent;
 					} else {
-						Class93.aClass189_869 = class189_374_;
+						Class93.staticActiveComponent2 = newComponent;
 					}
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				} else if (opcode == 101) {
-					final JagexInterface jagexInterface = !bool ? Class93.aClass189_869 : ParamType.aClass189_3540;
-					if (jagexInterface.componentIndex == -1) {
+					final JagexInterface activeComponent = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
+					if (activeComponent.componentIndex == -1) {
 						if (!bool) {
 							throw new RuntimeException("Tried to cc_delete static active-component!");
 						}
 						throw new RuntimeException("Tried to .cc_delete static .active-component!");
 					}
-					final JagexInterface class189_375_ = Class74.getJagexInterface(jagexInterface.bitPacked);
-					class189_375_.components[jagexInterface.componentIndex] = null;
-					InterfaceClickMask.redrawInterface(class189_375_);
+					final JagexInterface jagexInterface = Class74.getJagexInterface(activeComponent.bitPacked);
+					jagexInterface.components[activeComponent.componentIndex] = null;
+					InterfaceClickMask.redrawInterface(jagexInterface);
 				} else if (opcode == 102) {
 					final JagexInterface jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 					jagexInterface.components = null;
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				} else if (opcode == 200) {
 					intStackIndex -= 2;
-					final int i_376_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-					final int i_377_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-					final JagexInterface jagexInterface = JagexInterface.getComponent(i_376_, i_377_);
-					if (jagexInterface == null || i_377_ == -1) {
+					final int bitPacked = ProducingGraphicsBuffer.intStack[intStackIndex];
+					final int componentIndex = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+					final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
+					if (jagexInterface == null || componentIndex == -1) {
 						ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 					} else {
 						ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
 						if (bool) {
-							ParamType.aClass189_3540 = jagexInterface;
+							ParamType.staticActiveComponent1 = jagexInterface;
 						} else {
-							Class93.aClass189_869 = jagexInterface;
+							Class93.staticActiveComponent2 = jagexInterface;
 						}
 					}
 				} else {
 					if (opcode != 201) {
 						break;
 					}
-					final int i_378_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-					final JagexInterface jagexInterface = Class74.getJagexInterface(i_378_);
+					final int bitPacked = ProducingGraphicsBuffer.intStack[--intStackIndex];
+					final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
 					if (jagexInterface == null) {
 						ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 					} else {
 						ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
 						if (bool) {
-							ParamType.aClass189_3540 = jagexInterface;
+							ParamType.staticActiveComponent1 = jagexInterface;
 						} else {
-							Class93.aClass189_869 = jagexInterface;
+							Class93.staticActiveComponent2 = jagexInterface;
 						}
 					}
 				}
@@ -3409,12 +3362,12 @@ final class World extends Class167 {
 					stringbuffer.append("%0a - non-existant gosub script-num: ").append(Integer.toString(i_380_));
 				}
 				if (AbstractIndexedSprite.modeWhere != 0) {
-					AbstractRequest.method1540("", 0, new StringBuilder("Clientscript error in: ").append(clientScript.name).toString());
+					AbstractRequest.pushMessage(new StringBuilder("Clientscript error in: ").append(clientScript.name).toString(), "", 0);
 				}
 				SpotAnimation.method2312(exception, new StringBuilder("CS2 - scr:").append(clientScript.uid).append(" op:").append(opcode).append(stringbuffer.toString()).toString());
 			} else {
 				if (AbstractIndexedSprite.modeWhere != 0) {
-					AbstractRequest.method1540("", 0, "Clientscript error - check log for details");
+					AbstractRequest.pushMessage("Clientscript error - check log for details", "", 0);
 				}
 				SpotAnimation.method2312(exception, new StringBuilder("CS2 - scr:").append(clientScript.uid).append(" op:").append(opcode).toString());
 			}

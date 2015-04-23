@@ -8,7 +8,6 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	int anInt3634;
 	int anInt3635;
 	int anInt3636 = 12800;
-	static int anInt3637 = 2;
 	boolean aBoolean3638 = true;
 	static short[] aShortArray3639;
 	Deque aClass105_3641;
@@ -170,9 +169,9 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 						f_41_ += f_38_ * (fs_20_[i_23_ + 1][1 + i_19_] - f_41_);
 						f_37_ += (f_42_ - f_37_) * f_39_;
 						f_35_ += f_39_ * (-f_35_ + f_41_);
-						final int i_43_ = InterfaceListener.method1171(i_30_, i_22_, false, i_26_);
-						final int i_44_ = InterfaceListener.method1171(i_28_, i_29_, false, i_26_);
-						i_34_ = InterfaceListener.method1171(i_43_, i_44_, false, i);
+						final int i_43_ = InterfaceListener.method1171(i_30_, i_22_, i_26_);
+						final int i_44_ = InterfaceListener.method1171(i_28_, i_29_, i_26_);
+						i_34_ = InterfaceListener.method1171(i_43_, i_44_, i);
 					} else {
 						f_37_ = fs_24_[i_23_][i_19_ - -1];
 						i_34_ = i_28_;

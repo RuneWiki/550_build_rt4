@@ -4,13 +4,13 @@
 
 final class ShapedTile {
 	int[] anIntArray1621;
-	int anInt1622;
+	int shape;
 	static int[] anIntArray1623 = new int[6];
 	int[] anIntArray1624;
 	int[] anIntArray1625;
-	int anInt1626;
+	int underlayMinimapColor;
 	int[] anIntArray1627;
-	int anInt1628;
+	int rotation;
 	boolean aBoolean1629 = true;
 	static int[] anIntArray1630 = new int[6];
 	private static int[][] anIntArrayArray1631;
@@ -19,8 +19,8 @@ final class ShapedTile {
 	int[] anIntArray1634;
 	int[] anIntArray1635;
 	static int[] anIntArray1636 = new int[6];
-	int[] anIntArray1637;
-	int anInt1638;
+	int[] xVertices;
+	int overlayMinimapColor;
 	int[] anIntArray1639;
 	static int[] anIntArray1640;
 	int[] anIntArray1641;
@@ -45,24 +45,24 @@ final class ShapedTile {
 		anIntArrayArray1642 = null;
 	}
 
-	ShapedTile(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_,
-			final int i_16_, final int i_17_) {
-		if (i_4_ != i_5_ || i_4_ != i_6_ || i_4_ != i_7_) {
+	ShapedTile(final int shape, final int i_0_, final int i_1_, final int x, final int z, final int tileHeight, final int tileHeightEast, final int tileHeightNorthEast, final int tileHeightNorth, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_,
+			final int overlayMinimapColor, final int underlayMinimapColor) {
+		if (tileHeight != tileHeightEast || tileHeight != tileHeightNorthEast || tileHeight != tileHeightNorth) {
 			this.aBoolean1629 = false;
 		}
-		this.anInt1622 = i;
-		this.anInt1628 = i_0_;
-		this.anInt1638 = i_16_;
-		this.anInt1626 = i_17_;
-		final int[] is = anIntArrayArray1631[i];
+		this.shape = shape;
+		this.rotation = i_0_;
+		this.overlayMinimapColor = overlayMinimapColor;
+		this.underlayMinimapColor = underlayMinimapColor;
+		final int[] is = anIntArrayArray1631[shape];
 		final int i_22_ = is.length;
-		this.anIntArray1637 = new int[i_22_];
+		this.xVertices = new int[i_22_];
 		this.anIntArray1639 = new int[i_22_];
 		this.anIntArray1635 = new int[i_22_];
 		final int[] is_23_ = new int[i_22_];
 		final int[] is_24_ = new int[i_22_];
-		final int i_25_ = i_2_ * 128;
-		final int i_26_ = i_3_ * 128;
+		final int i_25_ = x * 128;
+		final int i_26_ = z * 128;
 		for (int i_27_ = 0; i_27_ < i_22_; i_27_++) {
 			int i_28_ = is[i_27_];
 			if ((i_28_ & 0x1) == 0 && i_28_ <= 8) {
@@ -82,107 +82,107 @@ final class ShapedTile {
 			if (i_28_ == 1) {
 				i_29_ = i_25_;
 				i_30_ = i_26_;
-				i_31_ = i_4_;
+				i_31_ = tileHeight;
 				i_32_ = i_8_;
 				i_33_ = i_12_;
 			} else if (i_28_ == 2) {
 				i_29_ = i_25_ + 64;
 				i_30_ = i_26_;
-				i_31_ = i_4_ + i_5_ >> 1;
+				i_31_ = tileHeight + tileHeightEast >> 1;
 				i_32_ = i_8_ + i_9_ >> 1;
 				i_33_ = i_12_ + i_13_ >> 1;
 			} else if (i_28_ == 3) {
 				i_29_ = i_25_ + 128;
 				i_30_ = i_26_;
-				i_31_ = i_5_;
+				i_31_ = tileHeightEast;
 				i_32_ = i_9_;
 				i_33_ = i_13_;
 			} else if (i_28_ == 4) {
 				i_29_ = i_25_ + 128;
 				i_30_ = i_26_ + 64;
-				i_31_ = i_5_ + i_6_ >> 1;
+				i_31_ = tileHeightEast + tileHeightNorthEast >> 1;
 				i_32_ = i_9_ + i_10_ >> 1;
 				i_33_ = i_13_ + i_14_ >> 1;
 			} else if (i_28_ == 5) {
 				i_29_ = i_25_ + 128;
 				i_30_ = i_26_ + 128;
-				i_31_ = i_6_;
+				i_31_ = tileHeightNorthEast;
 				i_32_ = i_10_;
 				i_33_ = i_14_;
 			} else if (i_28_ == 6) {
 				i_29_ = i_25_ + 64;
 				i_30_ = i_26_ + 128;
-				i_31_ = i_6_ + i_7_ >> 1;
+				i_31_ = tileHeightNorthEast + tileHeightNorth >> 1;
 				i_32_ = i_10_ + i_11_ >> 1;
 				i_33_ = i_14_ + i_15_ >> 1;
 			} else if (i_28_ == 7) {
 				i_29_ = i_25_;
 				i_30_ = i_26_ + 128;
-				i_31_ = i_7_;
+				i_31_ = tileHeightNorth;
 				i_32_ = i_11_;
 				i_33_ = i_15_;
 			} else if (i_28_ == 8) {
 				i_29_ = i_25_;
 				i_30_ = i_26_ + 64;
-				i_31_ = i_7_ + i_4_ >> 1;
+				i_31_ = tileHeightNorth + tileHeight >> 1;
 				i_32_ = i_11_ + i_8_ >> 1;
 				i_33_ = i_15_ + i_12_ >> 1;
 			} else if (i_28_ == 9) {
 				i_29_ = i_25_ + 64;
 				i_30_ = i_26_ + 32;
-				i_31_ = i_4_ + i_5_ >> 1;
+				i_31_ = tileHeight + tileHeightEast >> 1;
 				i_32_ = i_8_ + i_9_ >> 1;
 				i_33_ = i_12_ + i_13_ >> 1;
 			} else if (i_28_ == 10) {
 				i_29_ = i_25_ + 96;
 				i_30_ = i_26_ + 64;
-				i_31_ = i_5_ + i_6_ >> 1;
+				i_31_ = tileHeightEast + tileHeightNorthEast >> 1;
 				i_32_ = i_9_ + i_10_ >> 1;
 				i_33_ = i_13_ + i_14_ >> 1;
 			} else if (i_28_ == 11) {
 				i_29_ = i_25_ + 64;
 				i_30_ = i_26_ + 96;
-				i_31_ = i_6_ + i_7_ >> 1;
+				i_31_ = tileHeightNorthEast + tileHeightNorth >> 1;
 				i_32_ = i_10_ + i_11_ >> 1;
 				i_33_ = i_14_ + i_15_ >> 1;
 			} else if (i_28_ == 12) {
 				i_29_ = i_25_ + 32;
 				i_30_ = i_26_ + 64;
-				i_31_ = i_7_ + i_4_ >> 1;
+				i_31_ = tileHeightNorth + tileHeight >> 1;
 				i_32_ = i_11_ + i_8_ >> 1;
 				i_33_ = i_15_ + i_12_ >> 1;
 			} else if (i_28_ == 13) {
 				i_29_ = i_25_ + 32;
 				i_30_ = i_26_ + 32;
-				i_31_ = i_4_;
+				i_31_ = tileHeight;
 				i_32_ = i_8_;
 				i_33_ = i_12_;
 			} else if (i_28_ == 14) {
 				i_29_ = i_25_ + 96;
 				i_30_ = i_26_ + 32;
-				i_31_ = i_5_;
+				i_31_ = tileHeightEast;
 				i_32_ = i_9_;
 				i_33_ = i_13_;
 			} else if (i_28_ == 15) {
 				i_29_ = i_25_ + 96;
 				i_30_ = i_26_ + 96;
-				i_31_ = i_6_;
+				i_31_ = tileHeightNorthEast;
 				i_32_ = i_10_;
 				i_33_ = i_14_;
 			} else {
 				i_29_ = i_25_ + 32;
 				i_30_ = i_26_ + 96;
-				i_31_ = i_7_;
+				i_31_ = tileHeightNorth;
 				i_32_ = i_11_;
 				i_33_ = i_15_;
 			}
-			this.anIntArray1637[i_27_] = i_29_;
+			this.xVertices[i_27_] = i_29_;
 			this.anIntArray1639[i_27_] = i_31_;
 			this.anIntArray1635[i_27_] = i_30_;
 			is_23_[i_27_] = i_32_;
 			is_24_[i_27_] = i_33_;
 		}
-		final int[] is_34_ = anIntArrayArray1642[i];
+		final int[] is_34_ = anIntArrayArray1642[shape];
 		final int i_35_ = is_34_.length / 4;
 		this.anIntArray1634 = new int[i_35_];
 		this.anIntArray1633 = new int[i_35_];
@@ -228,25 +228,25 @@ final class ShapedTile {
 				}
 			}
 		}
-		int i_42_ = i_4_;
-		int i_43_ = i_5_;
-		if (i_5_ < i_42_) {
-			i_42_ = i_5_;
+		int i_42_ = tileHeight;
+		int i_43_ = tileHeightEast;
+		if (tileHeightEast < i_42_) {
+			i_42_ = tileHeightEast;
 		}
-		if (i_5_ > i_43_) {
-			i_43_ = i_5_;
+		if (tileHeightEast > i_43_) {
+			i_43_ = tileHeightEast;
 		}
-		if (i_6_ < i_42_) {
-			i_42_ = i_6_;
+		if (tileHeightNorthEast < i_42_) {
+			i_42_ = tileHeightNorthEast;
 		}
-		if (i_6_ > i_43_) {
-			i_43_ = i_6_;
+		if (tileHeightNorthEast > i_43_) {
+			i_43_ = tileHeightNorthEast;
 		}
-		if (i_7_ < i_42_) {
-			i_42_ = i_7_;
+		if (tileHeightNorth < i_42_) {
+			i_42_ = tileHeightNorth;
 		}
-		if (i_7_ > i_43_) {
-			i_43_ = i_7_;
+		if (tileHeightNorth > i_43_) {
+			i_43_ = tileHeightNorth;
 		}
 		i_42_ /= 14;
 		i_43_ /= 14;

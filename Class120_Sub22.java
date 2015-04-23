@@ -63,11 +63,11 @@ final class Class120_Sub22 extends Node {
 			player.textSpoken = Canvas_Sub1.inputStream.getJagexString();
 			if (player.textSpoken.charAt(0) != '~') {
 				if (player == TileParticleQueue.selfPlayer) {
-					AbstractRequest.method1540(player.getTitledName(), 2, player.textSpoken);
+					AbstractRequest.pushMessage(player.textSpoken, player.getTitledName(), 2);
 				}
 			} else {
 				player.textSpoken = player.textSpoken.substring(1);
-				AbstractRequest.method1540(player.getTitledName(), 2, player.textSpoken);
+				AbstractRequest.pushMessage(player.textSpoken, player.getTitledName(), 2);
 			}
 			player.anInt2995 = 0;
 			player.anInt2976 = 0;
@@ -114,11 +114,11 @@ final class Class120_Sub22 extends Node {
 					player.textCycle = 150;
 					player.anInt2976 = i_12_ >> 8;
 					if (staffLevel == 2) {
-						Class120_Sub16.method1660(new StringBuilder("<img=1>").append(player.getTitledName()).toString(), i_18_, null, bool ? 17 : 1, message);
+						Class120_Sub16.pushMessage(message, new StringBuilder("<img=1>").append(player.getTitledName()).toString(), null, bool ? 17 : 1, i_18_);
 					} else if (staffLevel == 1) {
-						Class120_Sub16.method1660(new StringBuilder("<img=0>").append(player.getTitledName()).toString(), i_18_, null, bool ? 17 : 1, message);
+						Class120_Sub16.pushMessage(message, new StringBuilder("<img=0>").append(player.getTitledName()).toString(), null, bool ? 17 : 1, i_18_);
 					} else {
-						Class120_Sub16.method1660(player.getTitledName(), i_18_, null, bool ? 17 : 2, message);
+						Class120_Sub16.pushMessage(message, player.getTitledName(), null, bool ? 17 : 2, i_18_);
 					}
 				}
 			}

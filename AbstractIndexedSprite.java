@@ -60,7 +60,7 @@ abstract class AbstractIndexedSprite {
 				PlayerAppearance.frameHeight -= insets.top + insets.bottom;
 			}
 			if (newDisplayMode >= 2) {
-				Class186.topMargin = 0;
+				WallDecoration.topMargin = 0;
 				Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
 				ReflectionCheckNode.leftMargin = 0;
 				Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
@@ -69,7 +69,7 @@ abstract class AbstractIndexedSprite {
 				Class69_Sub1.canvasWidth = 765;
 				Class120_Sub12_Sub5.canvasHeight = 503;
 				//Class186.topMargin = 0;//original
-				Class186.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
+				WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 			}
 			if (canvasReplaceRecommended) {
 				Class26.removeKeyboard(Node.canvas);
@@ -89,10 +89,10 @@ abstract class AbstractIndexedSprite {
 				}
 				Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (container != Class112.frame) {
-					Node.canvas.setLocation(ReflectionCheckNode.leftMargin, Class186.topMargin);
+					Node.canvas.setLocation(ReflectionCheckNode.leftMargin, WallDecoration.topMargin);
 				} else {
 					final Insets insets = Class112.frame.getInsets();
-					Node.canvas.setLocation(ReflectionCheckNode.leftMargin + insets.left, Class186.topMargin + insets.top);
+					Node.canvas.setLocation(ReflectionCheckNode.leftMargin + insets.left, WallDecoration.topMargin + insets.top);
 				}
 			}
 			if (newDisplayMode == 0 && currentDisplayMode > 0) {
@@ -106,7 +106,7 @@ abstract class AbstractIndexedSprite {
 					ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 					GraphicsLD.clearPixels();
 					if (Class109.gameState != 5) {
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.aString3679, false);
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.loadingPleaseWait, false);
 					} else {
 						UnderlayType.method1909(Class120_Sub12_Sub22.boldFont, true);
 					}

@@ -74,7 +74,7 @@ final class CanvasWrapper extends Canvas {
 			Class79_Sub1.anInt2244 = 0;
 			FrameLoader.anInt3609 = 1;
 			Class48.returnCode = -3;
-			Class137.anInt1323 = 0;
+			MapFunctionGroup.anInt1323 = 0;
 			final Buffer class120_sub7 = new Buffer(128);
 			class120_sub7.putByte(10);
 			class120_sub7.putInt((int) (9.9999999E7 * Math.random()));

@@ -5,7 +5,7 @@
 final class ParamType extends NodeSub {
 	static int worldMapLookAtX;
 	String defaultString;
-	static JagexInterface aClass189_3540;
+	static JagexInterface staticActiveComponent1;
 	int defaultInt;
 	private char identifier;
 	static js5 configClient;
@@ -30,7 +30,7 @@ final class ParamType extends NodeSub {
 	public static void method1513(final int i) {
 		try {
 			if (i == -1) {
-				aClass189_3540 = null;
+				staticActiveComponent1 = null;
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("jc.A(").append(i).append(')').toString());
@@ -82,7 +82,7 @@ final class ParamType extends NodeSub {
 		Class120_Sub12.anIntArray2565[i_18_++] = i_7_;
 		int i_19_ = 0;
 		boolean bool_20_ = false;
-		final int[][] is = Class182.collisionMaps[Class173.gameLevel].collisionFlags;
+		final int[][] is = WallLocation.collisionMaps[Class173.gameLevel].collisionFlags;
 		while_92_: while (i_19_ != i_18_) {
 			i_17_ = Class120_Sub12.anIntArray2565[i_19_];
 			i_16_ = Class150.anIntArray1412[i_19_];
@@ -92,8 +92,8 @@ final class ParamType extends NodeSub {
 				break;
 			}
 			if (i != 0) {
-				if (i >= 5 && i != 10 || !Class182.collisionMaps[Class173.gameLevel].method220(i_10_, i_13_, i_17_, i_16_, i_4_, i_12_, -1 + i)) {
-					if (i < 10 && Class182.collisionMaps[Class173.gameLevel].method223(i_4_, i_16_, i_10_, i_17_, -1 + i, i_13_, i_12_)) {
+				if (i >= 5 && i != 10 || !WallLocation.collisionMaps[Class173.gameLevel].method220(i_10_, i_13_, i_17_, i_16_, i_4_, i_12_, -1 + i)) {
+					if (i < 10 && WallLocation.collisionMaps[Class173.gameLevel].method223(i_4_, i_16_, i_10_, i_17_, -1 + i, i_13_, i_12_)) {
 						bool_20_ = true;
 						break;
 					}
@@ -102,7 +102,7 @@ final class ParamType extends NodeSub {
 					break;
 				}
 			}
-			if (i_6_ != 0 && i_9_ != 0 && Class182.collisionMaps[Class173.gameLevel].method216(i_17_, -1, i_11_, i_12_, i_10_, i_4_, i_9_, i_6_, i_16_)) {
+			if (i_6_ != 0 && i_9_ != 0 && WallLocation.collisionMaps[Class173.gameLevel].method216(i_17_, -1, i_11_, i_12_, i_10_, i_4_, i_9_, i_6_, i_16_)) {
 				bool_20_ = true;
 				break;
 			}

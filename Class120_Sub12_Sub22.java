@@ -30,7 +30,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		final int i_10_ = class180_sub7.getMinZ();
 		class180_sub7_6_ = class180_sub7_6_.method2381(true, true, true);
 		if (i != 0) {
-			class180_sub7_6_.rotate(i);
+			class180_sub7_6_.rotateY(i);
 		}
 		if (!HDToolkit.glEnabled) {
 			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7_6_;
@@ -104,7 +104,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 
 	static final void method1322() {
 		final int leftMargin = ReflectionCheckNode.leftMargin;
-		final int topMargin = Class186.topMargin;
+		final int topMargin = WallDecoration.topMargin;
 		final int i_33_ = Class120_Sub12_Sub7.frameWidth - Class69_Sub1.canvasWidth - leftMargin;
 		final int i_32_ = PlayerAppearance.frameHeight - Class120_Sub12_Sub5.canvasHeight - topMargin;
 		if (leftMargin > 0 || i_33_ > 0 || topMargin > 0 || i_32_ > 0) {

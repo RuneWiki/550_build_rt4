@@ -221,7 +221,7 @@ final class GraphicsHD {
 		gl.glEnable(3042);
 	}
 
-	static final void method597() {
+	static final void clipRect() {
 		startX = 0;
 		startY = 0;
 		endX = HDToolkit.canvasWidth;

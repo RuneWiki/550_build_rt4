@@ -95,21 +95,12 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 		return is_10_;
 	}
 
-	static final int method1210(final int i, int i_22_) {
-		int i_23_;
-		try {
-			if (i != -31511) {
-				anInt3147 = -1;
-			}
-			i_22_ = ((i_22_ & ~0x55555554) >>> 1) + (0x55555555 & i_22_);
-			i_22_ = (0x33333333 & i_22_) - -(~0x4ccccccc & i_22_ >>> 2);
-			i_22_ = 0xf0f0f0f & (i_22_ >>> 4) + i_22_;
-			i_22_ += i_22_ >>> 8;
-			i_22_ += i_22_ >>> 16;
-			i_23_ = i_22_ & 0xff;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ca.T(").append(i).append(',').append(i_22_).append(')').toString());
-		}
-		return i_23_;
+	static final int method1210(int i_22_) {
+		i_22_ = ((i_22_ & ~0x55555554) >>> 1) + (0x55555555 & i_22_);
+		i_22_ = (0x33333333 & i_22_) - -(~0x4ccccccc & i_22_ >>> 2);
+		i_22_ = 0xf0f0f0f & (i_22_ >>> 4) + i_22_;
+		i_22_ += i_22_ >>> 8;
+		i_22_ += i_22_ >>> 16;
+		return i_22_ & 0xff;
 	}
 }

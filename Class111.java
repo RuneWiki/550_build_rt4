@@ -3,19 +3,15 @@
  */
 
 final class Class111 {
-	static String aString1056;
 	static Class28[] aClass28Array1057;
 	static boolean aBoolean1058;
 	static int anInt1060 = 0;
 	static int anInt1061 = 127;
-	static String aString1062 = "glow1:";
 	static int[] anIntArray1063;
 	static js5 aClass50_1064;
 	static int anInt1065;
-	static String aString1066 = "cyan:";
-
+	
 	static {
-		aString1056 = "Choose Option";
 		aBoolean1058 = false;
 	}
 
@@ -109,10 +105,10 @@ final class Class111 {
 	public static void method983(final int i) {
 		try {
 			aClass28Array1057 = null;
-			aString1056 = null;
-			aString1066 = null;
+			TextRepository.aString1056 = null;
+			TextRepository.aString1066 = null;
 			anIntArray1063 = null;
-			aString1062 = null;
+			TextRepository.aString1062 = null;
 			aClass50_1064 = null;
 			ParamType.configClient = null;
 			if (i != 212098599) {

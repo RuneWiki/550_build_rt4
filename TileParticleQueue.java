@@ -14,7 +14,7 @@ final class TileParticleQueue {
 	}
 
 	static final void dropClient() {
-		if (Class31.anInt244 > 0) {
+		if (Class31.logoutCycle > 0) {
 			DummyInputStream.processLogout();
 		} else {
 			Light.aClass46_381 = AbstractTimer.worldConnection;

@@ -31,14 +31,14 @@ final class Class153 {
 		aClass50_1433 = null;
 	}
 
-	static final Class186 method2072(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
-		if (class120_sub18 == null) {
+	static final WallDecoration removeWallDecoration(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		if (groundTile == null) {
 			return null;
 		}
-		final Class186 class186 = class120_sub18.aClass186_2639;
-		class120_sub18.aClass186_2639 = null;
-		return class186;
+		final WallDecoration wallDecoration = groundTile.wallDecoration;
+		groundTile.wallDecoration = null;
+		return wallDecoration;
 	}
 
 	static final int method2073(final int i) {

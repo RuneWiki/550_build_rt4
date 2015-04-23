@@ -4,10 +4,8 @@
 
 final class ProjectileNode extends NodeSub {
 	Projectile projectile;
-	static int anInt3447 = 0;
 	static int selectedObjId;
-	static String aString3449 = "Take";
-
+	
 	static final void stopInterfaceAnimation(final int id) {
 		if (js5.loadInterface(id)) {
 			final JagexInterface[] class189s = Node.interfaceCache[id];

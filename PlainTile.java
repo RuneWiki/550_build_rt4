@@ -3,7 +3,7 @@
  */
 
 final class PlainTile {
-	int anInt1346;
+	int minimapColor;
 	int anInt1347;
 	int anInt1348;
 	int anInt1349;
@@ -39,23 +39,16 @@ final class PlainTile {
 		}
 	}
 
-	public static void method2002(final int i) {
-		try {
-			SpotAnimType.recentUse = null;
-			spriteHasAlpha = null;
-			if (i != 0) {
-				anInt1357 = 119;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qf.C(").append(i).append(')').toString());
-		}
+	public static void method2002() {
+		SpotAnimType.recentUse = null;
+		spriteHasAlpha = null;
 	}
 
-	PlainTile(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool) {
+	PlainTile(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int minimapColor, final boolean bool) {
 		this.anInt1353 = i_4_;
 		this.anInt1349 = i;
 		this.anInt1348 = i_5_;
-		this.anInt1346 = i_6_;
+		this.minimapColor = minimapColor;
 		this.anInt1351 = i_3_;
 		this.aBoolean1352 = bool;
 		this.anInt1347 = i_2_;

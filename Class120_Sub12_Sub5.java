@@ -177,11 +177,11 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
 			DummyOutputStream.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
-		final int playerZ = TileParticleQueue.selfPlayer.z + EntityRenderData.anInt195;
-		final int playerX = TileParticleQueue.selfPlayer.x + Class23.anInt136;
+		final int playerX = TileParticleQueue.selfPlayer.x;
+		final int playerZ = TileParticleQueue.selfPlayer.z;
 		if (Class69_Sub3_Sub1.playerRenderX - playerX < -500 || Class69_Sub3_Sub1.playerRenderX - playerX > 500 || InterfaceListener.playerRenderZ - playerZ < -500 || InterfaceListener.playerRenderZ - playerZ > 500) {
-			InterfaceListener.playerRenderZ = playerZ;
 			Class69_Sub3_Sub1.playerRenderX = playerX;
+			InterfaceListener.playerRenderZ = playerZ;
 		}
 		if (Class69_Sub3_Sub1.playerRenderX != playerX) {
 			final int i_30_ = playerX - Class69_Sub3_Sub1.playerRenderX;

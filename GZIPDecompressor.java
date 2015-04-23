@@ -45,7 +45,7 @@ final class GZIPDecompressor {
 				if (class180_sub4.lockonIndex < 0) {
 					final int i_3_ = -class180_sub4.lockonIndex - 1;
 					Player player;
-					if (Class167.anInt1616 == i_3_) {
+					if (Class167.selfPlayerIndex == i_3_) {
 						player = TileParticleQueue.selfPlayer;
 					} else {
 						player = Class118.playersList[i_3_];
@@ -68,7 +68,7 @@ final class GZIPDecompressor {
 	}
 
 	static final void setHuffman(final Huffman huffman) {
-		Class39.huffman = huffman;
+		client.huffman = huffman;
 	}
 
 	final void decompress(final Buffer buffer, final byte[] output) {

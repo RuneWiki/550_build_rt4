@@ -13,15 +13,15 @@ final class Class74 {
 	}
 
 	static final JagexInterface getJagexInterface(final int bitPacked) {
-		final int parent = bitPacked >> 16;
-		final int child = bitPacked & 0xffff;
-		if (Node.interfaceCache[parent] == null || Node.interfaceCache[parent][child] == null) {
-			final boolean loaded = js5.loadInterface(parent);
+		final int interfaceId = bitPacked >> 16;
+		final int componentId = bitPacked & 0xffff;
+		if (Node.interfaceCache[interfaceId] == null || Node.interfaceCache[interfaceId][componentId] == null) {
+			final boolean loaded = js5.loadInterface(interfaceId);
 			if (!loaded) {
 				return null;
 			}
 		}
-		return Node.interfaceCache[parent][child];
+		return Node.interfaceCache[interfaceId][componentId];
 	}
 
 	public static void method651() {

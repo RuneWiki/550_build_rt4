@@ -6,7 +6,6 @@ final class Class33 {
 	static ObjectCache aClass21_273 = new ObjectCache(50);
 	static LDFont smallFont2;//used for objs
 	static js5 aClass50_275;
-	static String aString276 = "green:";
 	static String[] stringStack = new String[1000];
 	static int anInt278 = 0;
 
@@ -26,26 +25,26 @@ final class Class33 {
 		class120_sub14_sub7.method1453();
 	}
 
-	static final String method277(final JagexInterface jagexInterface) {
+	static final String getSpellPrefix(final JagexInterface jagexInterface) {
 		if (client.getClickMask(jagexInterface).method1685() == 0) {
 			return null;
 		}
-		if (jagexInterface.selectedSpellName == null || jagexInterface.selectedSpellName.trim().length() == 0) {
+		if (jagexInterface.spellPrefix == null || jagexInterface.spellPrefix.trim().length() == 0) {
 			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
 				return "Hidden-use";
 			}
 			return null;
 		}
-		return jagexInterface.selectedSpellName;
+		return jagexInterface.spellPrefix;
 	}
 
 	public static void method278(final int i) {
 		try {
 			aClass21_273 = null;
-			aString276 = null;
+			TextRepository.aString276 = null;
 			aClass50_275 = null;
 			if (i != 0) {
-				aString276 = null;
+				TextRepository.aString276 = null;
 			}
 			stringStack = null;
 			smallFont2 = null;

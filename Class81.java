@@ -67,19 +67,19 @@ final class Class81 {
 					i_3_ += (int) (Math.random() * 10.0) - 5;
 					Class169.anInt1646 = i_3_;
 					i_4_ += -5 + (int) (Math.random() * 10.0);
-					ParticleManager.anInt2336 = i_4_;
+					ParticleEmitter.anInt2336 = i_4_;
 				} else if (Class120_Sub12_Sub33.anInt3407 != -1 && Class86.anInt818 != -1) {
 					WorldMapHandler.aClass120_Sub14_Sub22_691.method1632(is, Class86.anInt818, Class120_Sub12_Sub33.anInt3407);
 					Class120_Sub12_Sub33.anInt3407 = Class86.anInt818 = -1;
 					JagexSocket.aBoolean423 = false;
 					if (is != null) {
 						Class169.anInt1646 = -1 + WorldMapHandler.mapSizeY - is[2] - -WorldMapHandler.anInt694;
-						ParticleManager.anInt2336 = is[1] + -WorldMapHandler.anInt695;
+						ParticleEmitter.anInt2336 = is[1] + -WorldMapHandler.anInt695;
 					}
 				} else {
 					WorldMapHandler.aClass120_Sub14_Sub22_691.method1632(is, 0x3fff & WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3633, 0x3fff & WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3633 >> 14);
 					Class169.anInt1646 = WorldMapHandler.anInt694 - (is[2] - (-1 + WorldMapHandler.mapSizeY));
-					ParticleManager.anInt2336 = -WorldMapHandler.anInt695 + is[1];
+					ParticleEmitter.anInt2336 = -WorldMapHandler.anInt695 + is[1];
 				}
 				if (WorldMapHandler.aClass120_Sub14_Sub22_691.zoom == 37) {
 					WorldMapHandler.wantedZoom = WorldMapHandler.currentZoom = 3.0F;
@@ -131,12 +131,12 @@ final class Class81 {
 				Class69.method613();
 			} else if (Class90.laodingStage == 60) {
 				if (!WorldMapHandler.aClass50_689.method414(new StringBuilder(WorldMapHandler.aClass120_Sub14_Sub22_691.configName).append("_labels").toString())) {
-					WorldMapHandler.aClass137_693 = new Class137(0);
+					WorldMapHandler.aClass137_693 = new MapFunctionGroup(0);
 				} else {
 					if (!WorldMapHandler.aClass50_689.allFilesComplete(new StringBuilder(WorldMapHandler.aClass120_Sub14_Sub22_691.configName).append("_labels").toString())) {
 						return;
 					}
-					WorldMapHandler.aClass137_693 = Class54.method478(WorldMapHandler.aClass50_689, new StringBuilder(WorldMapHandler.aClass120_Sub14_Sub22_691.configName).append("_labels").toString(), Class120_Sub12_Sub37.membersClient);
+					WorldMapHandler.aClass137_693 = Class54.createMapFunctionGroup(WorldMapHandler.aClass50_689, new StringBuilder(WorldMapHandler.aClass120_Sub14_Sub22_691.configName).append("_labels").toString(), Class120_Sub12_Sub37.membersClient);
 				}
 				WorldMapHandler.method682();
 				Class90.laodingStage = 70;

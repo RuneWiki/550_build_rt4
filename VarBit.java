@@ -12,7 +12,7 @@ final class VarBit {
 	int endBit;
 	static js5 aClass50_3056;
 	static ObjectCache recentUse = new ObjectCache(64);
-	static Class aClass170;
+	static Class runetimeClass;
 
 	static {
 		anInt165 = 0;
@@ -29,7 +29,7 @@ final class VarBit {
 			if (bool) {
 				anInt166 = -76;
 			}
-			ParticleManager.anInt2336 = i;
+			ParticleEmitter.anInt2336 = i;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 			Class127.fixWorldMapBounds();
@@ -56,13 +56,13 @@ final class VarBit {
 		}
 	}
 
-	static final int getVarbitValue(final int varBitId) {
-		final VarBit varBit = list(varBitId);
+	static final int getVarbitValue(final int id) {
+		final VarBit varBit = list(id);
 		final int setting = varBit.setting;
-		final int start = varBit.startBit;
-		final int end = varBit.endBit;
-		final int mask = Class120_Sub14_Sub15.masklookup[end - start];
-		return mask & Class2.permanentVariable[setting] >> start;
+		final int startBit = varBit.startBit;
+		final int endBit = varBit.endBit;
+		final int mask = Class120_Sub14_Sub15.masklookup[endBit - startBit];
+		return Class2.permanentVariable[setting] >> startBit & mask;
 	}
 
 	static final VarBit list(final int id) {
@@ -85,18 +85,18 @@ final class VarBit {
 
 	static final void calculateMaxMemory() {
 		try {
-			final Method method = (aClass170 == null ? aClass170 = forClassName("java.lang.Runtime") : aClass170).getMethod("maxMemory", new Class[0]);
+			final Method method = (runetimeClass == null ? runetimeClass = forClassName("java.lang.Runtime") : runetimeClass).getMethod("maxMemory", new Class[0]);
 			if (method != null) {
 				try {
 					final Runtime runtime = Runtime.getRuntime();
 					final Long maxMemory = (Long) method.invoke(runtime, null);
 					Class120_Sub14_Sub13.maxMemory = 1 + (int) (maxMemory.longValue() / 1048576L);
 				} catch (final Throwable throwable) {
-					/* empty */
+					throwable.printStackTrace();
 				}
 			}
 		} catch (final Exception exception) {
-			/* empty */
+			exception.printStackTrace();
 		}
 	}
 
@@ -113,7 +113,7 @@ final class VarBit {
 		if (Class120_Sub12_Sub12.aBooleanArray3223[4] && i_5_ < Class181.anIntArray1790[4] + 128) {
 			i_5_ = Class181.anIntArray1790[4] + 128;
 		}
-		final int i_8_ = 0x7ff & (int) DummyOutputStream.aFloat28 + ProjectileNode.anInt3447;
+		final int i_8_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
 		Class120_Sub12_Sub30.method1363(Class69_Sub3_Sub1.playerRenderX, Class22.getTileHeight(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel) - 50, InterfaceListener.playerRenderZ, i_8_, i_5_, 3 * i_5_ + 600, i);
 		if (FileSystemWorker.renderX == i_2_ && i_4_ == Class120_Sub12_Sub10.renderY && i_3_ == GroundObjectNode.renderZ && UnderlayType.renderPitch == i_7_ && SpotAnimation.renderYaw == i_6_) {
 			client.cameraType = 1;
