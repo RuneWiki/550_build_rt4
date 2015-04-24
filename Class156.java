@@ -14,10 +14,4 @@ final class Class156 {
 		anIntArray1458 = new int[] { 16, 32, 64, 128 };
 	}
 
-	public static void method2086() {
-		TextRepository.aString1457 = null;
-		aClass50_1456 = null;
-		anIntArray1458 = null;
-		aClass189_1454 = null;
-	}
 }

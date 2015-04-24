@@ -11,10 +11,6 @@ final class Shader {
 	private static int[] anIntArray317 = new int[2];
 	private final int anInt318;
 
-	public static void method310() {
-		anIntArray317 = null;
-	}
-
 	@Override
 	protected final void finalize() throws Throwable {
 		MemoryManager.method1002(this.shaderId, anInt318);

@@ -140,20 +140,6 @@ final class OverridedJInterface extends Node {
 		}
 	}
 
-	public static void method1723(final int i) {
-		try {
-			aClass98_2739 = null;
-			reflectionCheckDeque = null;
-			if (i != -11) {
-				tileHeightMap = null;
-			}
-			anIntArray2743 = null;
-			tileHeightMap = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rl.B(").append(i).append(')').toString());
-		}
-	}
-
 	public OverridedJInterface() {
 		/* empty */
 	}

@@ -53,11 +53,6 @@ final class Varp {
 		}
 	}
 
-	public static void method634() {
-		aShortArray620 = null;
-		aClass50_1517 = null;
-	}
-
 	static final void method635(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_15_, final int i_16_, final int i_17_) {
 		if (i == i_17_) {
 			LabelGroup.method1036(i, i_13_, i_16_, i_11_, i_12_, i_15_);

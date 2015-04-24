@@ -44,10 +44,6 @@ final class MapFunctionGroup {
 		}
 	}
 
-	public static void method1981() {
-		loginStream = null;
-	}
-
 	static final void worldToScreen(int x, final int heightMod, int z, final int screenOffX, final int screenOffY, final int i_6_, final int i_9_) {
 		if (x < 128 || z < 128 || x > 13056 || z > 13056) {
 			Class120_Sub12_Sub38.screenX = -1;

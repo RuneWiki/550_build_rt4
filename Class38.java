@@ -6,11 +6,7 @@ final class Class38 {
 	static FileSystemWorker fileSystemWorker;
 	static boolean cursorsEnabled = true;
 
-	public static void method312() {
-		fileSystemWorker = null;
-	}
-
-	static final void method313(final int i_0_, final int i_1_, final int i_2_) {
+	static final void handleMapFunctionAction(final int i_0_, final int i_1_, final int i_2_) {
 		if (i_1_ == 1012) {
 			Class112.method989(10, i_0_, i_2_);
 		} else if (i_1_ == 1002) {

@@ -6,7 +6,6 @@ final class Class116 {
 	static int anInt1113 = 0;
 	static AbstractSprite aClass120_Sub14_Sub19_1114;
 	static int anInt1115;
-	static String aString1116 = "Connection lost.";
 	static ObjectCache aClass21_1117 = new ObjectCache(50);
 	static int anInt1118;
 	static int[][] anIntArrayArray1119 = { new int[16], { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 },
@@ -77,14 +76,4 @@ final class Class116 {
 		}
 	}
 
-	public static void method1010(final byte i) {
-		try {
-			aClass21_1117 = null;
-			anIntArrayArray1119 = null;
-			aString1116 = null;
-			aClass120_Sub14_Sub19_1114 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mm.B(").append(i).append(')').toString());
-		}
-	}
 }

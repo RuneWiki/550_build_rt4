@@ -195,10 +195,6 @@ final class GraphicsHD {
 		method601();
 	}
 
-	public static void method593() {
-		aClass120_Sub14_Sub19_Sub1_603 = null;
-	}
-
 	static final void setBounds(final int[] is) {
 		clipRect(is[0], is[1], is[2], is[3]);
 	}

@@ -6,11 +6,6 @@ final class Canvas_Sub1 {
 	static PacketBuffer inputStream = new PacketBuffer(5000);
 	static Class120_Sub9[][] aClass120_Sub9ArrayArray17;
 
-	public static void method61() {
-		inputStream = null;
-		aClass120_Sub9ArrayArray17 = null;
-	}
-
 	static final int method62(final int i, final int i_1_) {
 		final int i_3_ = i_1_ >>> 31;
 		return (i_3_ + i_1_) / i - i_3_;

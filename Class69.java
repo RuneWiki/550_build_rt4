@@ -48,7 +48,7 @@ class Class69 {
 						}
 						UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, y, interfaceHeight >> 1, i_2_, i_0_);
 						if (Class120_Sub12_Sub38.screenX > -1) {
-							FileSystemRequest.prayerIconSprites[npcType.headIcon].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 30);
+							FileSystemRequest.prayerIconSprites[npcType.headIcon].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 30);
 						}
 					}
 					final HintIcon[] hintIcons = Class187.hintIcons;
@@ -62,7 +62,7 @@ class Class69 {
 							}
 							UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, y, interfaceHeight >> 1, i_2_, i_0_);
 							if (Class120_Sub12_Sub38.screenX > -1) {
-								AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
+								AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
 							}
 						}
 					}
@@ -73,11 +73,11 @@ class Class69 {
 						UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, gameEntity.getHeight() + 15, interfaceHeight >> 1, i_2_, i_0_);
 						if (Class120_Sub12_Sub38.screenX > -1) {
 							if (player.pkIcon != -1) {
-								Class54.pkIconSprites[player.pkIcon].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
+								Class54.pkIconSprites[player.pkIcon].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
 								yOff += 25;
 							}
 							if (player.prayerIcon != -1) {
-								FileSystemRequest.prayerIconSprites[player.prayerIcon].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
+								FileSystemRequest.prayerIconSprites[player.prayerIcon].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
 								yOff += 25;
 							}
 						}
@@ -88,7 +88,7 @@ class Class69 {
 							if (hintIcon != null && hintIcon.targetType == 10 && Class112.playerIndices[id] == hintIcon.targetIndex) {
 								UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, gameEntity.getHeight() + 15, interfaceHeight >> 1, i_2_, i_0_);
 								if (Class120_Sub12_Sub38.screenX > -1) {
-									AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
+									AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - yOff);
 								}
 							}
 						}
@@ -138,7 +138,7 @@ class Class69 {
 					if (Class120_Sub12_Sub38.screenX > -1) {
 						final int i_17_ = Class120_Sub12_Sub38.screenX + interfaceX - (class120_sub14_sub19.width >> 1);
 						final int i_18_ = -3 + Class120_Sub15.screenY + interfaceY;
-						class120_sub14_sub19.drawSprite(i_17_, i_18_);
+						class120_sub14_sub19.drawReg(i_17_, i_18_);
 						final int i_19_ = gameEntity.hpBarRatio * class120_sub14_sub19.width / 255;
 						final int i_20_ = class120_sub14_sub19.height;
 						if (!HDToolkit.glEnabled) {
@@ -146,7 +146,7 @@ class Class69 {
 						} else {
 							GraphicsHD.method591(i_17_, i_18_, i_17_ + i_19_, i_20_ + i_18_);
 						}
-						class120_sub14_sub19_15_.drawSprite(i_17_, i_18_);
+						class120_sub14_sub19_15_.drawReg(i_17_, i_18_);
 						if (HDToolkit.glEnabled) {
 							GraphicsHD.clipRect(interfaceX, interfaceY, interfaceWidth + interfaceX, interfaceHeight + interfaceY);
 						} else {
@@ -181,7 +181,7 @@ class Class69 {
 								Class120_Sub12_Sub38.screenX += 15;
 								Class120_Sub15.screenY -= 10;
 							}
-							Class69_Sub2.aClass120_Sub14_Sub19Array2238[gameEntity.hitsType[i_21_]].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, interfaceY - (-Class120_Sub15.screenY + 12));
+							Class69_Sub2.aClass120_Sub14_Sub19Array2238[gameEntity.hitsType[i_21_]].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, interfaceY - (-Class120_Sub15.screenY + 12));
 							ObjectCache.smallFont.method1478(Integer.toString(gameEntity.hitsValue[i_21_]), interfaceX - -Class120_Sub12_Sub38.screenX + -1, 3 + interfaceY - -Class120_Sub15.screenY, 16777215, 0);
 						}
 					}
@@ -329,18 +329,6 @@ class Class69 {
 		Class120_Sub15.aFloatArray2596[2] = Class120_Sub12_Sub3.method1207(i, 0xff) / 255.0F;
 		Class120_Sub12_Sub31.method1364(3);
 		Class120_Sub12_Sub31.method1364(4);
-	}
-
-	public static void method615(final int i) {
-		try {
-			TextRepository.aString618 = null;
-			aClass50_619 = null;
-			if (i != 0) {
-				method613();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hh.C(").append(i).append(')').toString());
-		}
 	}
 
 	static final void method616(final int i_37_, final int i_38_, final int i_39_, final int i_40_) {

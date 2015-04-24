@@ -589,11 +589,6 @@ final class ObjType {
 		return objType;
 	}
 
-	public static void method2119() {
-		anIntArray1520 = null;
-		recentUse = null;
-	}
-
 	public ObjType() {
 		manhead2 = -1;
 		this.cursor1 = -1;

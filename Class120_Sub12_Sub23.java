@@ -56,18 +56,6 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		return Class90.anIntArray849;
 	}
 
-	public static void method1324(final int i) {
-		try {
-			aClass50_3305 = null;
-			keyCodes = null;
-			if (i != -1) {
-				anInt3307 = 95;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pk.U(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1325(final int i, final int i_11_, final int i_12_, final int i_13_) {
 		int i_15_ = 0;
 		int i_16_ = i_12_;

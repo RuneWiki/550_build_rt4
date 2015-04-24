@@ -25,18 +25,6 @@ abstract class AbstractTimer {
 		SceneGraphNode.aClass188Array1782[Class49.anInt438++] = class188;
 	}
 
-	public static void method736(final int i) {
-		try {
-			worldConnection = null;
-			aClass105_824 = null;
-			if (i >= -22) {
-				method736(-120);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jf.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final boolean method737() throws IOException {
 		if (worldConnection == null) {
 			return false;

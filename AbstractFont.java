@@ -189,7 +189,7 @@ abstract class AbstractFont extends NodeSub {
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_33_];
 								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : abstractIndexedSprite.trimHeight;
 								if (transparency == 256) {
-									abstractIndexedSprite.method910(i, i_27_ + this.anInt3497 - i_34_);
+									abstractIndexedSprite.drawReg(i, i_27_ + this.anInt3497 - i_34_);
 								} else {
 									abstractIndexedSprite.method911(i, i_27_ + this.anInt3497 - i_34_, transparency);
 								}
@@ -496,7 +496,7 @@ abstract class AbstractFont extends NodeSub {
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_117_];
 								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : abstractIndexedSprite.trimHeight;
 								if (transparency == 256) {
-									abstractIndexedSprite.method910(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
+									abstractIndexedSprite.drawReg(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
 								} else {
 									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, transparency);
 								}
@@ -648,11 +648,6 @@ abstract class AbstractFont extends NodeSub {
 			method1465(color, shadow);
 			method1461(text, x - method1459(text) / 2, y);
 		}
-	}
-
-	public static void method1479() {
-		aStringBuffer3500 = null;
-		aStringArray3516 = null;
 	}
 
 	final int method1480(final String string, final int i, int i_161_) {

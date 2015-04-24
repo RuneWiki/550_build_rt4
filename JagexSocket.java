@@ -30,19 +30,6 @@ final class JagexSocket implements Runnable {
 		aBigInteger415 = new BigInteger("7162900525229798032761816791230527296329313291232324290237849263501208207972894053929065636522363163621000728841182238772712427862772219676577293600221789");
 	}
 
-	public static void method372(final int i) {
-		try {
-			aBigInteger415 = null;
-			anIntArrayArrayArray419 = null;
-			if (i != 14420) {
-				method372(31);
-			}
-			runesSprite = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eo.C(").append(i).append(')').toString());
-		}
-	}
-
 	final void read(final byte[] buf, int off, int len) throws IOException {
 		if (!closed) {
 			while (len > 0) {

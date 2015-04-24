@@ -15,18 +15,6 @@ final class Class187 {
 		return new Class101_Sub1(buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getMedium(), buffer.getMedium(), buffer.getUByte());
 	}
 
-	public static void method2476(final byte i) {
-		try {
-			aClass50_1907 = null;
-			hintIcons = null;
-			if (i != 80) {
-				method2478();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wc.E(").append(i).append(')').toString());
-		}
-	}
-
 	static final AbstractSprite method2477(final PlayerAppearance playerAppearance, final int i, final int i_0_, final int i_2_, final int i_3_, final boolean bool) {
 		final int i_4_ = i;
 		final int i_5_ = (bool ? 65536 : 0) + i_2_ + (i_0_ << 17) + (i_3_ << 19);

@@ -588,37 +588,16 @@ final class LocType {
 		return Class82.aClass88_783;
 	}
 
-	public static void method2462(final int i) {
-		try {
-			anIntArray1834 = null;
-			if (i != 20259) {
-				modeWhat = -11;
+	final int method2463() {
+		if (this.anIntArray1881 != null) {
+			int i_71_ = (int) (anInt1816 * Math.random());
+			int i_72_;
+			for (i_72_ = 0; anIntArray1829[i_72_] <= i_71_; i_72_++) {
+				i_71_ -= anIntArray1829[i_72_];
 			}
-			draggedOnComponent = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.S(").append(i).append(')').toString());
+			return this.anIntArray1881[i_72_];
 		}
-	}
-
-	final int method2463(final int i) {
-		int i_70_;
-		try {
-			if (i != -1) {
-				this.childrenIDs = null;
-			}
-			if (this.anIntArray1881 != null) {
-				int i_71_ = (int) (anInt1816 * Math.random());
-				int i_72_;
-				for (i_72_ = 0; anIntArray1829[i_72_] <= i_71_; i_72_++) {
-					i_71_ -= anIntArray1829[i_72_];
-				}
-				return this.anIntArray1881[i_72_];
-			}
-			i_70_ = -1;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.O(").append(i).append(')').toString());
-		}
-		return i_70_;
+		return -1;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {

@@ -19,11 +19,6 @@ final class VarBit {
 		aBoolean167 = false;
 	}
 	
-	public static void resetLol() {
-		recentUse = null;
-		aClass50_3056 = null;
-	}
-
 	static final void method236(final boolean bool, final int i) {
 		try {
 			if (bool) {

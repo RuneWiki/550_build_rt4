@@ -817,11 +817,6 @@ final class JagexInterface {
 		return class120_sub14_sub8_63_;
 	}
 
-	public static void method2498() {
-		playerMenuActionCodes = null;
-		gameShellThread = null;
-	}
-
 	static final void method2499(final int i_64_, final int i_65_) {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(178);
 		Class120_Sub12_Sub11.outputStream.putLEShort(i_64_);

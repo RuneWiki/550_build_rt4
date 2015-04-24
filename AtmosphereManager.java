@@ -90,12 +90,6 @@ final class AtmosphereManager {
 		initDefaults();
 	}
 
-	public static void method1019() {
-		light0Position = null;
-		light1Position = null;
-		fogColor = null;
-	}
-
 	//More info here. http://nehe.gamedev.net/tutorial/cool_looking_fog/19001/
 	static final void setFogValues(int fogCol, int fogOff, boolean force) {
 		fogOff = 600;//TODO looks better with this.

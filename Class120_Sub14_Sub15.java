@@ -44,12 +44,6 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		}
 	}
 
-	public static void method1555() {
-		gameLoadingText = null;
-		aClass105_3584 = null;
-		masklookup = null;
-	}
-
 	static final void method1556(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_) {
 		for (int i_9_ = i_6_; i_6_ + i_7_ >= i_9_; i_9_++) {
 			for (int i_10_ = i; i_10_ <= i + i_5_; i_10_++) {

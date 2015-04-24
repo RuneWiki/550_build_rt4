@@ -58,16 +58,4 @@ final class Class173 {
 		}
 	}
 
-	public static void method2229(final byte i) {
-		try {
-			aClass120_Sub14_Sub19_1725 = null;
-			if (i != 59) {
-				anInt1728 = 57;
-			}
-			anIntArray1730 = null;
-			aBooleanArray1723 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uf.E(").append(i).append(')').toString());
-		}
-	}
 }

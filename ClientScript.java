@@ -15,6 +15,7 @@ final class ClientScript extends NodeSub {
 	int stringArgumentCount;
 	static int anInt3556 = 0;
 	int intArgumentCount;
+	static NodeCache recentUse;
 	static int anInt3558 = 0;
 
 	static final void percentToZoom(final int percent) {
@@ -33,33 +34,22 @@ final class ClientScript extends NodeSub {
 		Class120_Sub2.anInt2422 = -1;
 	}
 
-	public static void method1523(final int i) {
-		try {
-			if (i != 37) {
-				anInt3556 = -109;
-			}
-			groundObjects = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jl.A(").append(i).append(')').toString());
-		}
-	}
-
 	public ClientScript() {
 		/* empty */
 	}
 
 	static final ClientScript list(final int id) {
-		ClientScript class120_sub14_sub12_4_ = (ClientScript) UnderlayType.aClass35_1219.get(id);
-		if (class120_sub14_sub12_4_ != null) {
-			return class120_sub14_sub12_4_;
+		ClientScript clientScript = (ClientScript) recentUse.get(id);
+		if (clientScript != null) {
+			return clientScript;
 		}
 		final byte[] is = IsaacCipher.aClass50_1019.getFile(id, 0);
 		if (is == null || is.length <= 1) {
 			return null;
 		}
-		class120_sub14_sub12_4_ = ClientScript.decode(is);
-		UnderlayType.aClass35_1219.put(class120_sub14_sub12_4_, id);
-		return class120_sub14_sub12_4_;
+		clientScript = decode(is);
+		recentUse.put(clientScript, id);
+		return clientScript;
 	}
 
 	static final ClientScript decode(final byte[] data) {

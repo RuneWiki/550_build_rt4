@@ -964,7 +964,7 @@ class LDSprite extends AbstractSprite {
 	}
 
 	@Override
-	void drawSprite(int x, int y) {
+	void drawReg(int x, int y) {
 		x += this.offsetX;
 		y += this.offsetY;
 		int destPixelId = x + y * GraphicsLD.width;
@@ -993,10 +993,10 @@ class LDSprite extends AbstractSprite {
 			destPixelStep += outOfBoundsX;
 		}
 		if (x + spriteWidth > GraphicsLD.endX) {
-			final int i_288_ = x + spriteWidth - GraphicsLD.endX;
-			spriteWidth -= i_288_;
-			srcPixelStep += i_288_;
-			destPixelStep += i_288_;
+			final int outOfBoundsX = x + spriteWidth - GraphicsLD.endX;
+			spriteWidth -= outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
 		if (spriteWidth > 0 && spriteHeight > 0) {
 			plotPixels(GraphicsLD.pixels, this.pixels, 0, srcPixelId, destPixelId, spriteWidth, spriteHeight, destPixelStep, srcPixelStep);

@@ -69,30 +69,11 @@ final class Class120_Sub6 extends Node {
 		return i_2_ & 0xff;
 	}
 
-	final void method1071(final int i) {
-		try {
-			this.aClass120_Sub30_Sub4_2446 = null;
-			this.aClass157_2462 = null;
-			if (i != 338) {
-				this.anInt2452 = -99;
-			}
-			this.aClass120_Sub22_2459 = null;
-			this.aClass120_Sub5_Sub1_2447 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.A(").append(i).append(')').toString());
-		}
-	}
-
-	public static void method1072(final boolean bool) {
-		try {
-			aString2444 = null;
-			aClass21_2443 = null;
-			if (!bool) {
-				aClass50_2450 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ej.F(").append(bool).append(')').toString());
-		}
+	final void method1071() {
+		this.aClass120_Sub30_Sub4_2446 = null;
+		this.aClass157_2462 = null;
+		this.aClass120_Sub22_2459 = null;
+		this.aClass120_Sub5_Sub1_2447 = null;
 	}
 
 	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_) {

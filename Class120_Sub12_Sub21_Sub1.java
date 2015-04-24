@@ -106,19 +106,6 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		return 0;
 	}
 
-	public static void method1314(final byte i) {
-		try {
-			TextRepository.level = null;
-			TextRepository.aString3910 = null;
-			if (i < 112) {
-				TextRepository.level = null;
-			}
-			anIntArray3912 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.GA(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1315() {
 		for (;;) {
 			final Class120_Sub29 class120_sub29 = (Class120_Sub29) Class120_Sub14_Sub15.aClass105_3584.removeFront();

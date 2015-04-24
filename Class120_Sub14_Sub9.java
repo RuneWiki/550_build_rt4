@@ -33,13 +33,6 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		}
 	}
 
-	public static void method1493() {
-		aClass35_3517 = null;
-		anIntArray3519 = null;
-		aFloatArray3526 = null;
-		anIntArray3522 = null;
-	}
-
 	@Override
 	protected final void finalize() throws Throwable {
 		if (anInt3520 != -1) {

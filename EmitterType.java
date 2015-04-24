@@ -69,17 +69,6 @@ final class EmitterType {
 		aByteArray761 = new byte[520];
 	}
 
-	public static void method697(final int i) {
-		try {
-			if (i != -1) {
-				currentClickY = -23;
-			}
-			aByteArray761 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ik.D(").append(i).append(')').toString());
-		}
-	}
-
 	final void decode(final Buffer buffer) {
 		for (;;) {
 			final int code = buffer.getUByte();

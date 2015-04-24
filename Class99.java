@@ -26,8 +26,4 @@ final class Class99 {
 		AtmosphereManager.applyLightPosition();
 	}
 
-	public static void method823() {
-		tileOverlayIds = null;
-		TextRepository.aString952 = null;
-	}
 }

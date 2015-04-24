@@ -35,8 +35,4 @@ final class Class8 {
 		SceneGroundObject.packetSetFlagPosition = false;
 	}
 
-	public static void method112() {
-		aString64 = null;
-		aByteArrayArrayArray65 = null;
-	}
 }

@@ -21,12 +21,6 @@ class Buffer extends Node {
 		languageArray = new String[] { "en", "de", "fr", "pt" };
 	}
 
-	public static void method1076() {
-		anIntArray2477 = null;
-		languageArray = null;
-		playerOptions = null;
-	}
-
 	final void putJagexString(final String string) {
 		final int i_0_ = string.indexOf('\0');
 		if (i_0_ >= 0) {
@@ -67,20 +61,20 @@ class Buffer extends Node {
 		return getUByte();
 	}
 
-	final void method1082(final int i) {
-		if ((~0x7f & i) != 0) {
-			if ((~0x3fff & i) != 0) {
-				if ((i & ~0x1fffff) != 0) {
-					if ((~0xfffffff & i) != 0) {
-						putByte(i >>> 28 | 0x80);
+	final void putVarLength(final int value) {
+		if ((~0x7f & value) != 0) {
+			if ((~0x3fff & value) != 0) {
+				if ((value & ~0x1fffff) != 0) {
+					if ((~0xfffffff & value) != 0) {
+						putByte(value >>> 28 | 0x80);
 					}
-					putByte(0x80 | i >>> 21);
+					putByte(0x80 | value >>> 21);
 				}
-				putByte(0x80 | i >>> 14);
+				putByte(0x80 | value >>> 14);
 			}
-			putByte(i >>> 7 | 0x80);
+			putByte(value >>> 7 | 0x80);
 		}
-		putByte(0x7f & i);
+		putByte(0x7f & value);
 	}
 
 	final void putByte(final int i) {
@@ -324,7 +318,7 @@ class Buffer extends Node {
 		return (byte) (128 - this.buf[this.pos++]);
 	}
 
-	final int method1111() {
+	final int getVarLength() {
 		int i_69_ = this.buf[this.pos++];
 		int i_70_ = 0;
 		for (/**/; i_69_ < 0; i_69_ = this.buf[this.pos++]) {

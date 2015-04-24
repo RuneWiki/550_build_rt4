@@ -142,20 +142,6 @@ final class Class88 {
 		ObjectCache.method194(interfaceListener, 200000);
 	}
 
-	public static void method745(final boolean bool) {
-		try {
-			if (!bool) {
-				anInt832 = -38;
-			}
-			aClass105_829 = null;
-			aClass50_834 = null;
-			anIntArray833 = null;
-			aClass177_831 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jh.C(").append(bool).append(')').toString());
-		}
-	}
-
 	public Class88() {
 		/* empty */
 	}

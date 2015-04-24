@@ -153,10 +153,6 @@ final class Class94 {
 		}
 	}
 
-	public static void method779() {
-		pixels = null;
-	}
-
 	public Class94() {
 		final GL gl = HDToolkit.gl;
 		final int[] is = new int[1];

@@ -66,14 +66,6 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 		anInt3207 = 0xff0 & i_9_ << 4;
 	}
 
-	public static void method1252() {
-		npcList = null;
-		outputStream = null;
-		js5Connection = null;
-		aClass50_3213 = null;
-		spriteWidths = null;
-	}
-
 	static final void translateStrings(final int langId) {
 		if (langId != 0) {
 			if (langId == 1) {

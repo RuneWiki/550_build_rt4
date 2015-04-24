@@ -27,12 +27,6 @@ final class ObjectContainer extends Node {
 		return null;
 	}
 
-	public static void method1666() {
-		TextRepository.aString2614 = null;
-		objectContainerCache = null;
-		defaultEntityRenderData = null;
-	}
-
 	public ObjectContainer() {
 		/* empty */
 	}

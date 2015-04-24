@@ -18,18 +18,6 @@ final class PlayerAppearance {
 	private int[] appearanceData;
 	private int[][] anIntArrayArray1377;
 
-	public static void method2034(final int i) {
-		try {
-			aString1368 = null;
-			aClass98_1373 = null;
-			if (i != -22374) {
-				method2034(-62);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qk.G(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method2035(int i, int i_1_) {
 		if (i_1_ > i) {
 			final int i_3_ = i;
@@ -79,11 +67,11 @@ final class PlayerAppearance {
 
 	static final void method2039(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
 		int i_15_ = (-32 + i) * i / i_12_;
-		Class118.aClass107Array1138[0].method910(i_11_, i_13_);
+		Class118.aClass107Array1138[0].drawReg(i_11_, i_13_);
 		if (i_15_ < 8) {
 			i_15_ = 8;
 		}
-		Class118.aClass107Array1138[1].method910(i_11_, i + i_13_ - 16);
+		Class118.aClass107Array1138[1].drawReg(i_11_, i + i_13_ - 16);
 		final int i_16_ = i_14_ * (-32 + i - i_15_) / (-i + i_12_);
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.fillRect(i_11_, i_13_ - -16, 16, i + -32, Varp.anInt623);

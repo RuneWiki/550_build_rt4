@@ -166,13 +166,6 @@ final class Light {
 		return false;
 	}
 
-	public static void method352() {
-		selectedSpellName = null;
-		anIntArray392 = null;
-		InvType.recentUse = null;
-		aClass46_381 = null;
-	}
-
 	static final boolean isShowingVideoAd() {
 		if (Class48.jsEnabled) {
 			boolean bool_11_ = false;

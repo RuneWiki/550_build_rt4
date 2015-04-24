@@ -30,17 +30,4 @@ final class Class15 {
 		Class120_Sub12_Sub22.anInt3302 = Varp.aClass50_1517.getFileAmount(16);
 	}
 
-	public static void method146(final int i) {
-		try {
-			if (i > -98) {
-				aLong98 = -10L;
-			}
-			objSmallFont = null;
-			aByteArray100 = null;
-			aClass21_95 = null;
-			anIntArray101 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("be.B(").append(i).append(')').toString());
-		}
-	}
 }

@@ -20,20 +20,6 @@ final class FileSystemRequest extends AbstractRequest {
 		projectileDeque = new Deque();
 	}
 
-	public static void method1543(final int i) {
-		try {
-			anIntArrayArray3933 = null;
-			aClass98_3929 = null;
-			if (i <= -23) {
-				prayerIconSprites = null;
-				projectileDeque = null;
-				anIntArray3926 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("al.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1544(final int id, final int value) {
 		Class30.anIntArray239[id] = value;
 		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);

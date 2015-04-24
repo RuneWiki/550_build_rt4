@@ -15,11 +15,6 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 	int anInt3664;
 	int anInt3667;
 
-	public static void method1646() {
-		TextRepository.aString3665 = null;
-		aCRC32_3658 = null;
-	}
-
 	static final void method1647(final int i_0_, final int i_1_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i_0_);
 		class120_sub14_sub7.method1454();

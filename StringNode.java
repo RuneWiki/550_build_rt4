@@ -9,19 +9,6 @@ final class StringNode extends Node {
 	String value;
 	static Buffer[] playerAppearanceBuffers = new Buffer[2048];
 
-	public static void method1719(final int i) {
-		try {
-			playerAppearanceBuffers = null;
-			anIntArray2733 = null;
-			if (i <= 39) {
-				method1719(20);
-			}
-			anIntArray2735 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rk.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1720() {
 		SpotAnimType.recentUse.clear();
 		SpotAnimType.modelCache.clear();
@@ -122,11 +109,11 @@ final class StringNode extends Node {
 			}
 		} else {
 			GraphicsHD.clipRect(x, y, x + width, height + y);
-			float f = UnderlayType.renderPitch * 0.17578125F;
-			float f_15_ = SpotAnimation.renderYaw * 0.17578125F;
+			float pitchAsDegrees = UnderlayType.renderPitch * 0.17578125F;
+			float yawAsDegrees = SpotAnimation.renderYaw * 0.17578125F;
 			if (client.cameraType == 3) {
-				f = Class120_Sub30_Sub1.aFloat3674 * 360.0F / 6.2831855F;
-				f_15_ = 360.0F * SeekableFile.aFloat2139 / 6.2831855F;
+				pitchAsDegrees = Class120_Sub30_Sub1.aFloat3674 * 360.0F / 6.2831855F;
+				yawAsDegrees = SeekableFile.aFloat2139 * 360.0F / 6.2831855F;
 			}
 			int i_16_;
 			if (Class109.gameState == 10) {
@@ -141,7 +128,7 @@ final class StringNode extends Node {
 			} else {
 				HDToolkit.method531(i_16_);
 			}
-			HDToolkit.method496(x, y, width, height, x - -(width / 2), y + height / 2, f, f_15_, Class179.anInt1775, Class179.anInt1775);
+			HDToolkit.method496(x, y, width, height, x + width / 2, y + height / 2, pitchAsDegrees, yawAsDegrees, Class179.anInt1775, Class179.anInt1775);
 			Class101.method835(false);
 			HDToolkit.method532();
 			HDToolkit.toggleDepthTest(true);

@@ -31,10 +31,6 @@ final class ModelParticleEmitter {
 		}
 	}
 
-	public static void method2091() {
-		TextRepository.aString1483 = null;
-	}
-
 	ModelParticleEmitter(final int particleId, final int i_5_, final int i_6_, final int i_7_) {
 		final EmitterType emitterType = EmitterType.list(particleId);
 		this.anInt1476 = i_7_;

@@ -246,11 +246,6 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		return is_30_;
 	}
 
-	public static void method1286() {
-		aClass50_3258 = null;
-		aFloatArray3269 = null;
-	}
-
 	static final void method1287(final js5 js5) {
 		Class153.aClass50_3373 = js5;
 	}

@@ -13,17 +13,6 @@ final class Class49 {
 	int anInt444 = 0;
 	VertexBuffer aClass104_445;
 
-	public static void method407(final int i) {
-		try {
-			aClass189_441 = null;
-			if (i == 0) {
-				aClass50_440 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.A(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method408() {
 		if (Class173.anInt1724 == 0) {
 			return 0;

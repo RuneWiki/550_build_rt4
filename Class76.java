@@ -7,10 +7,4 @@ final class Class76 {
 	static int[] anIntArray679;
 	static int[] anIntArray680;
 
-	public static void method664() {
-		Class145.aClass50_678 = null;
-		anIntArray679 = null;
-		aStringArray677 = null;
-		anIntArray680 = null;
-	}
 }

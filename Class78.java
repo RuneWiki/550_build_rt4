@@ -19,13 +19,6 @@ final class Class78 {
 		anInt684 = -1;
 	}
 
-	public static void method669() {
-		anIntArray682 = null;
-		anIntArray687 = null;
-		aByteBuffer686 = null;
-		aByteBuffer683 = null;
-	}
-
 	static final void method670() {
 		allows3DTextureMapping = HDToolkit.allows3DTextureMapping;
 		method674();

@@ -166,21 +166,6 @@ final class AnimatedLocation extends SceneGraphNode {
 		return class88.aClass180_826;
 	}
 
-	public static void method2351(final int i) {
-		try {
-			if (i != -1) {
-				JagexInterface.spriteCache = null;
-			}
-			aString3062 = null;
-			aClass188Array3076 = null;
-			hintHeadIconsSprites = null;
-			JagexInterface.spriteCache = null;
-			anIntArray3075 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ri.F(").append(i).append(')').toString());
-		}
-	}
-
 	private final void method2352(final int i, final int i_28_) {
 		try {
 			int i_29_ = i_28_;
@@ -201,7 +186,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					if (aClass40_3070 != null && locType.method2468(aClass40_3070.myId)) {
 						return;
 					}
-					i_29_ = locType.method2463(-1);
+					i_29_ = locType.method2463();
 					if (anInt3050 != locType.myId) {
 						bool = locType.aBoolean1864;
 					}
@@ -215,7 +200,7 @@ final class AnimatedLocation extends SceneGraphNode {
 						if (aClass40_3070 != null && class184_30_.method2468(aClass40_3070.myId)) {
 							return;
 						}
-						i_29_ = class184_30_.method2463(-1);
+						i_29_ = class184_30_.method2463();
 						if (class184_30_.myId != anInt3050) {
 							bool = class184_30_.aBoolean1864;
 						}

@@ -25,14 +25,6 @@ final class Class90 {
 		laodingStage = 0;
 	}
 
-	public static void method750() {
-		anIntArray849 = null;
-		aClass50_843 = null;
-		aClass82_850 = null;
-		aCalendar844 = null;
-		playerHeadModelsCache = null;
-	}
-
 	private final Class120_Sub5_Sub1 method752(final int i, final int[] is, final int i_2_) {
 		int i_4_ = i_2_ ^ (i >>> 12 | (0x30000fff & i) << 4);
 		i_4_ |= i << 16;

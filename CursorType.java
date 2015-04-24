@@ -5,8 +5,6 @@
 final class CursorType {
 	int hotSpotY;
 	static int anInt1237 = 0;
-	static String aString1238;
-	static String aString1239 = "Loaded title screen";
 	private int graphic;
 	int hotSpotX;
 	static ObjectCache spriteCache = new ObjectCache(2);
@@ -15,20 +13,12 @@ final class CursorType {
 	static JagexInterface aClass189_1243;
 
 	static {
-		aString1238 = "K";
 		ambientSoundsVolume = 127;
 	}
 
 	static final void method1914(final int i_0_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i_0_);
 		class120_sub14_sub7.method1453();
-	}
-
-	public static void method1915() {
-		aString1238 = null;
-		recentUse = null;
-		aClass189_1243 = null;
-		aString1239 = null;
 	}
 
 	final void decode(final Buffer buffer) {

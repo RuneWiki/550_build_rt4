@@ -148,16 +148,6 @@ final class WallDecoration {
 		}
 	}
 
-	public static void method2474(final int i) {
-		try {
-			if (i == 10262) {
-				TextRepository.aString1903 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vl.B(").append(i).append(')').toString());
-		}
-	}
-
 	public WallDecoration() {
 		/* empty */
 	}

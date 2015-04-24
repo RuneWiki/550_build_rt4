@@ -28,17 +28,6 @@ class Node {
 		}
 	}
 
-	public static void method1030(final int i) {
-		try {
-			TextRepository.aString1148 = null;
-			canvas = null;
-			interfaceCache = null;
-			anIntArray1151 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ni.TA(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1031(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
 		try {
 			int i_5_ = i_0_;

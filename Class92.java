@@ -9,19 +9,6 @@ final class Class92 {
 	static boolean[][] aBooleanArrayArray865 = { new boolean[0], { true, false, true }, { true, false, false, true }, { false, false, true, true }, { true, true, false }, { false, true, true }, { true, false, false, true }, { false, false, false, true, true }, { false, true, true },
 			{ true, false, true, true, true }, { false, true, true, true, true }, { false, true, true, true, true, false } };
 
-	public static void method765(final byte i) {
-		try {
-			aClass98_863 = null;
-			aBooleanArrayArray865 = null;
-			torchFlamesSprite = null;
-			if (i >= -107) {
-				MapFunctionType.list(5);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("k.E(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method766(final int x, final int z, int rot) {
 		rot &= 3;
 		if (rot == 0) {

@@ -59,7 +59,4 @@ final class Class131 {
 		super.finalize();
 	}
 
-	public static void method1921() {
-		anIntArray1246 = null;
-	}
 }

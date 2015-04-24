@@ -379,25 +379,6 @@ final class Class120_Sub23 extends Node {
 		return value;
 	}
 
-	public static void method1713() {
-		source = null;
-		codeBooks = null;
-		floors = null;
-		residues = null;
-		mappings = null;
-		modeBlockFlags = null;
-		modeMappings = null;
-		aFloatArray2697 = null;
-		aFloatArray2688 = null;
-		aFloatArray2695 = null;
-		aFloatArray2689 = null;
-		aFloatArray2692 = null;
-		aFloatArray2706 = null;
-		aFloatArray2683 = null;
-		anIntArray2696 = null;
-		anIntArray2709 = null;
-	}
-
 	static final float float32unpack(final int x) {
 		int mantissa = x & 0x1fffff;
 		final int e = (x & 0x7fe00000) >> 21;
@@ -506,13 +487,13 @@ final class Class120_Sub23 extends Node {
 		int msb;
 		for (/**/; bits >= 8 - bitIndex; bits -= msb) {
 			msb = 8 - bitIndex;
-			value += (source[byteIndex] >> bitIndex & (1 << msb) - 1) << bitsRead;
+			value += (source[byteIndex] >> bitIndex & ((1 << msb) - 1)) << bitsRead;
 			bitIndex = 0;
 			byteIndex++;
 			bitsRead += msb;
 		}
 		if (bits > 0) {
-			value += (source[byteIndex] >> bitIndex & (1 << bits) - 1) << bitsRead;
+			value += (source[byteIndex] >> bitIndex & ((1 << bits) - 1)) << bitsRead;
 			bitIndex += bits;
 		}
 		return value;

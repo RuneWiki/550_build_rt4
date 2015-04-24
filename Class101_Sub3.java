@@ -11,11 +11,6 @@ final class Class101_Sub3 extends Class101 {
 	static boolean titleScreenSpritesDrawn;
 	private final int anInt2292;
 
-	public static void method847() {
-		aClass120_Sub14_Sub19_Sub2_2290 = null;
-		aString2285 = null;
-	}
-
 	@Override
 	final void method833(final int i, final int i_0_) {
 		final int i_2_ = anInt2287 * i >> 12;

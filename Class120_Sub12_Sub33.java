@@ -33,12 +33,6 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		anInt3407 = -1;
 	}
 
-	public static void method1375() {
-		menuOptionPrefix = null;
-		anIntArrayArrayArray3388 = null;
-		needScreenRedraw = null;
-	}
-
 	public Class120_Sub12_Sub33() {
 		super(0, true);
 		anInt3397 = 1024;
@@ -48,48 +42,42 @@ final class Class120_Sub12_Sub33 extends Class120_Sub12 {
 		anInt3390 = 8;
 	}
 
-	private final void method1376(final int i) {
-		try {
-			final Random random = new Random(anInt3390);
-			anInt3392 = 4096 / anInt3390;
-			anIntArray3403 = new int[1 + anInt3390];
-			anIntArrayArray3395 = new int[anInt3390][anInt3398 + 1];
-			anIntArrayArray3405 = new int[anInt3390][anInt3398];
-			anIntArray3403[0] = 0;
-			anInt3404 = 4096 / anInt3398;
-			final int i_0_ = anInt3404 / 2;
-			anInt3402 = anInt3389 / 2;
-			final int i_1_ = anInt3392 / 2;
-			if (i == -1) {
-				for (int i_2_ = 0; anInt3390 > i_2_; i_2_++) {
-					if (i_2_ > 0) {
-						int i_3_ = anInt3392;
-						final int i_4_ = (-2048 + Class28.method244(random, 4096)) * anInt3408 >> 12;
-						i_3_ += i_4_ * i_1_ >> 12;
-						anIntArray3403[i_2_] = i_3_ + anIntArray3403[i_2_ - 1];
-					}
-					anIntArrayArray3395[i_2_][0] = 0;
-					for (int i_5_ = 0; i_5_ < anInt3398; i_5_++) {
-						if (i_5_ > 0) {
-							int i_6_ = anInt3404;
-							final int i_7_ = (Class28.method244(random, 4096) - 2048) * anInt3400 >> 12;
-							i_6_ += i_0_ * i_7_ >> 12;
-							anIntArrayArray3395[i_2_][i_5_] = anIntArrayArray3395[i_2_][i_5_ + -1] - -i_6_;
-						}
-						anIntArrayArray3405[i_2_][i_5_] = anInt3396 <= 0 ? 4096 : -Class28.method244(random, anInt3396) + 4096;
-					}
-					anIntArrayArray3395[i_2_][anInt3398] = 4096;
-				}
-				anIntArray3403[anInt3390] = 4096;
+	private final void method1376() {
+		final Random random = new Random(anInt3390);
+		anInt3392 = 4096 / anInt3390;
+		anIntArray3403 = new int[1 + anInt3390];
+		anIntArrayArray3395 = new int[anInt3390][anInt3398 + 1];
+		anIntArrayArray3405 = new int[anInt3390][anInt3398];
+		anIntArray3403[0] = 0;
+		anInt3404 = 4096 / anInt3398;
+		final int i_0_ = anInt3404 / 2;
+		anInt3402 = anInt3389 / 2;
+		final int i_1_ = anInt3392 / 2;
+		for (int i_2_ = 0; anInt3390 > i_2_; i_2_++) {
+			if (i_2_ > 0) {
+				int i_3_ = anInt3392;
+				final int i_4_ = (-2048 + Class28.method244(random, 4096)) * anInt3408 >> 12;
+				i_3_ += i_4_ * i_1_ >> 12;
+				anIntArray3403[i_2_] = i_3_ + anIntArray3403[i_2_ - 1];
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sn.R(").append(i).append(')').toString());
+			anIntArrayArray3395[i_2_][0] = 0;
+			for (int i_5_ = 0; i_5_ < anInt3398; i_5_++) {
+				if (i_5_ > 0) {
+					int i_6_ = anInt3404;
+					final int i_7_ = (Class28.method244(random, 4096) - 2048) * anInt3400 >> 12;
+					i_6_ += i_0_ * i_7_ >> 12;
+					anIntArrayArray3395[i_2_][i_5_] = anIntArrayArray3395[i_2_][i_5_ + -1] - -i_6_;
+				}
+				anIntArrayArray3405[i_2_][i_5_] = anInt3396 <= 0 ? 4096 : -Class28.method244(random, anInt3396) + 4096;
+			}
+			anIntArrayArray3395[i_2_][anInt3398] = 4096;
 		}
+		anIntArray3403[anInt3390] = 4096;
 	}
 
 	@Override
 	final void postDecode() {
-		method1376(-1);
+		method1376();
 	}
 
 	@Override

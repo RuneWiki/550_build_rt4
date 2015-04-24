@@ -90,21 +90,15 @@ final class ParticleEmitter extends ParticleNode {
 		return WorldMapHandler.aClass120_Sub14_Sub22_691;
 	}
 
-	static final void method939(final int i, final int i_9_, final int i_10_, final byte i_11_, final int i_12_) {
-		try {
-			if (i_11_ <= -20) {
-				if (i_10_ >= i_12_) {
-					for (int i_13_ = i_12_; i_13_ < i_10_; i_13_++) {
-						GameEntity.anIntArrayArray3009[i_13_][i] = i_9_;
-					}
-				} else {
-					for (int i_14_ = i_10_; i_14_ < i_12_; i_14_++) {
-						GameEntity.anIntArrayArray3009[i_14_][i] = i_9_;
-					}
-				}
+	static final void method939(final int i, final int i_9_, final int i_10_, final int i_12_) {
+		if (i_10_ >= i_12_) {
+			for (int i_13_ = i_12_; i_13_ < i_10_; i_13_++) {
+				GameEntity.anIntArrayArray3009[i_13_][i] = i_9_;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bi.F(").append(i).append(',').append(i_9_).append(',').append(i_10_).append(',').append(i_11_).append(',').append(i_12_).append(')').toString());
+		} else {
+			for (int i_14_ = i_10_; i_14_ < i_12_; i_14_++) {
+				GameEntity.anIntArrayArray3009[i_14_][i] = i_9_;
+			}
 		}
 	}
 

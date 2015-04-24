@@ -44,16 +44,6 @@ final class MemoryManager {
 		textureMemory = 0;
 	}
 
-	public static void method997() {
-		buffersDeque = null;
-		texturesDeque = null;
-		texturesDeque2 = null;
-		listsDeque = null;
-		objectsARBDeque = null;
-		objectsARBDeque2 = null;
-		anIntArray1092 = null;
-	}
-
 	static final synchronized void process() {
 		final GL gl = HDToolkit.gl;
 		int i = 0;

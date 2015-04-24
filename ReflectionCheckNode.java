@@ -24,12 +24,6 @@ final class ReflectionCheckNode extends Node {
 		anIntArray2761 = new int[14];
 	}
 
-	public static void method1724() {
-		aStringArray2759 = null;
-		clanMembers = null;
-		anIntArray2761 = null;
-	}
-
 	static final void refreshLocationNpcAmbientSounds() {
 		for (AmbientSound ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
 			if (ambientSound.hasVarp) {

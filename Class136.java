@@ -74,9 +74,4 @@ final class Class136 {
 		LabelGroup.groundTiles[level][x][z].objectPile = objectPile;
 	}
 
-	public static void method1979() {
-		TextRepository.aString1316 = null;
-		aRandom1319 = null;
-		anIntArray1315 = null;
-	}
 }

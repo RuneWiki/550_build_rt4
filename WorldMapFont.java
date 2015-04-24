@@ -89,10 +89,6 @@ final class WorldMapFont {
 		return aByteArray944[6];
 	}
 
-	public static void method814() {
-		anIntArray948 = null;
-	}
-
 	final void method815(final String string, final int i, final int i_16_, final int i_17_, final boolean bool) {
 		final int i_18_ = method811(string) / 2;
 		final int i_19_ = method813();

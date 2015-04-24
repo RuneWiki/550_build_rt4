@@ -23,7 +23,7 @@ final class Class154 {
 				final String name = Class136.longToString(nameAsLong);
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 					if (HintIcon.ignoreNamesAsLong[id] == nameAsLong) {
-						AbstractRequest.pushMessage(new StringBuilder(name).append(Class69_Sub2_Sub1.aString3078).toString(), "", 0);
+						AbstractRequest.pushMessage(new StringBuilder(name).append(TextRepository.aString3078).toString(), "", 0);
 						return;
 					}
 				}

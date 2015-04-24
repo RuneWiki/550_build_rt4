@@ -298,22 +298,11 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 		}
 	}
 
-	static final boolean method1400(final Class120_Sub30_Sub2 class120_sub30_sub2, final js5 js5, final js5 class50_13_, final boolean bool, final js5 class50_14_) {
-		boolean bool_15_;
-		try {
-			Class30.aClass120_Sub30_Sub2_234 = class120_sub30_sub2;
-			if (bool) {
-				method1401(41);
-			}
-			Class57.aClass50_499 = js5;
-			Class120_Sub29.aClass50_2770 = class50_14_;
-			MasterIndexInfo.aClass50_469 = class50_13_;
-			bool_15_ = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.S(").append(class120_sub30_sub2 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_13_ != null ? "{...}" : "null").append(',').append(bool).append(',')
-					.append(class50_14_ != null ? "{...}" : "null").append(')').toString());
-		}
-		return bool_15_;
+	static final void method1400(final Class120_Sub30_Sub2 class120_sub30_sub2, final js5 js5, final js5 class50_13_, final boolean bool, final js5 class50_14_) {
+		Class30.aClass120_Sub30_Sub2_234 = class120_sub30_sub2;
+		Class57.aClass50_499 = js5;
+		Class120_Sub29.aClass50_2770 = class50_14_;
+		MasterIndexInfo.aClass50_469 = class50_13_;
 	}
 
 	@Override
@@ -322,17 +311,6 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 			method1398(1, (byte) -68);
 		}
 		method1399(43);
-	}
-
-	public static void method1401(final int i) {
-		try {
-			if (i < 108) {
-				method1400(null, null, null, true, null);
-			}
-			spriteHeights = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vm.V(").append(i).append(')').toString());
-		}
 	}
 
 	@Override

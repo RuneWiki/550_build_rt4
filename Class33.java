@@ -38,18 +38,4 @@ final class Class33 {
 		return jagexInterface.spellPrefix;
 	}
 
-	public static void method278(final int i) {
-		try {
-			aClass21_273 = null;
-			TextRepository.aString276 = null;
-			aClass50_275 = null;
-			if (i != 0) {
-				TextRepository.aString276 = null;
-			}
-			stringStack = null;
-			smallFont2 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("df.A(").append(i).append(')').toString());
-		}
-	}
 }

@@ -3,15 +3,15 @@
  */
 
 final class IsaacCipher {
-	private int anInt1010;
+	private int count;
 	static js5 aClass50_1011;
-	private int anInt1012;
+	private int c;
 	static int crossY = 0;
-	private int anInt1014;
+	private int b;
 	static int[] anIntArray1015;
-	private int anInt1016;
-	private final int[] anIntArray1017;
-	private final int[] anIntArray1018 = new int[256];
+	private int a;
+	private final int[] rsl;
+	private final int[] mem;
 	static js5 aClass50_1019;
 
 	static final void drawTitleScreenSprites(final js5 js5) {
@@ -23,172 +23,152 @@ final class IsaacCipher {
 			}
 			KeyboardHandler.titlebgSprite = Class26.constructAbstractSprite(js5, StructType.titlebgId);
 			final int canvasHeight = Class120_Sub12_Sub5.canvasHeight;
-			final int i_1_ = 956 * canvasHeight / 503;
-			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_1_) / 2, 0, i_1_, canvasHeight);
+			final int x = 956 * canvasHeight / 503;
+			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - x) / 2, 0, x, canvasHeight);
 			Class120_Sub12_Sub27.logoSprite = Class153.constructAbstractIndexedSprite(js5, ParticleEmitter.logoId);
-			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 - (Class120_Sub12_Sub27.logoSprite.width / 2), 18);
+			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 - (Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 			Class101_Sub3.titleScreenSpritesDrawn = true;
 		}
 	}
 
-	private final void method901(final int i) {
-		try {
-			int i_3_;
-			int i_4_;
-			int i_5_;
-			int i_6_;
-			int i_7_;
-			int i_8_;
-			int i_9_;
-			int i_2_ = i_3_ = i_4_ = i_5_ = i_6_ = i_7_ = i_8_ = i_9_ = -1640531527;
-			int i_10_ = 0;
-			if (i == 1) {
-				for (/**/; i_10_ < 4; i_10_++) {
-					i_2_ ^= i_3_ << 11;
-					i_5_ += i_2_;
-					i_3_ += i_4_;
-					i_3_ ^= i_4_ >>> 2;
-					i_4_ += i_5_;
-					i_4_ ^= i_5_ << 8;
-					i_6_ += i_3_;
-					i_5_ += i_6_;
-					i_5_ ^= i_6_ >>> 16;
-					i_8_ += i_5_;
-					i_7_ += i_4_;
-					i_6_ += i_7_;
-					i_6_ ^= i_7_ << 10;
-					i_7_ += i_8_;
-					i_7_ ^= i_8_ >>> 4;
-					i_9_ += i_6_;
-					i_8_ += i_9_;
-					i_2_ += i_7_;
-					i_8_ ^= i_9_ << 8;
-					i_3_ += i_8_;
-					i_9_ += i_2_;
-					i_9_ ^= i_2_ >>> 9;
-					i_2_ += i_3_;
-					i_4_ += i_9_;
-				}
-				for (i_10_ = 0; i_10_ < 256; i_10_ += 8) {
-					i_9_ += anIntArray1017[i_10_ + 7];
-					i_8_ += anIntArray1017[6 + i_10_];
-					i_3_ += anIntArray1017[i_10_ + 1];
-					i_6_ += anIntArray1017[i_10_ + 4];
-					i_7_ += anIntArray1017[i_10_ - -5];
-					i_2_ += anIntArray1017[i_10_];
-					i_2_ ^= i_3_ << 11;
-					i_5_ += anIntArray1017[3 + i_10_];
-					i_4_ += anIntArray1017[i_10_ + 2];
-					i_3_ += i_4_;
-					i_3_ ^= i_4_ >>> 2;
-					i_6_ += i_3_;
-					i_5_ += i_2_;
-					i_4_ += i_5_;
-					i_4_ ^= i_5_ << 8;
-					i_7_ += i_4_;
-					i_5_ += i_6_;
-					i_5_ ^= i_6_ >>> 16;
-					i_8_ += i_5_;
-					i_6_ += i_7_;
-					i_6_ ^= i_7_ << 10;
-					i_9_ += i_6_;
-					i_7_ += i_8_;
-					i_7_ ^= i_8_ >>> 4;
-					i_8_ += i_9_;
-					i_8_ ^= i_9_ << 8;
-					i_2_ += i_7_;
-					i_9_ += i_2_;
-					i_9_ ^= i_2_ >>> 9;
-					i_3_ += i_8_;
-					i_2_ += i_3_;
-					i_4_ += i_9_;
-					anIntArray1018[i_10_] = i_2_;
-					anIntArray1018[i_10_ - -1] = i_3_;
-					anIntArray1018[i_10_ + 2] = i_4_;
-					anIntArray1018[i_10_ + 3] = i_5_;
-					anIntArray1018[4 + i_10_] = i_6_;
-					anIntArray1018[5 + i_10_] = i_7_;
-					anIntArray1018[i_10_ + 6] = i_8_;
-					anIntArray1018[7 + i_10_] = i_9_;
-				}
-				for (i_10_ = 0; i_10_ < 256; i_10_ += 8) {
-					i_6_ += anIntArray1018[4 + i_10_];
-					i_5_ += anIntArray1018[3 + i_10_];
-					i_3_ += anIntArray1018[i_10_ - -1];
-					i_4_ += anIntArray1018[2 + i_10_];
-					i_8_ += anIntArray1018[6 + i_10_];
-					i_7_ += anIntArray1018[i_10_ + 5];
-					i_2_ += anIntArray1018[i_10_];
-					i_9_ += anIntArray1018[i_10_ - -7];
-					i_2_ ^= i_3_ << 11;
-					i_5_ += i_2_;
-					i_3_ += i_4_;
-					i_3_ ^= i_4_ >>> 2;
-					i_6_ += i_3_;
-					i_4_ += i_5_;
-					i_4_ ^= i_5_ << 8;
-					i_5_ += i_6_;
-					i_5_ ^= i_6_ >>> 16;
-					i_7_ += i_4_;
-					i_6_ += i_7_;
-					i_8_ += i_5_;
-					i_6_ ^= i_7_ << 10;
-					i_9_ += i_6_;
-					i_7_ += i_8_;
-					i_7_ ^= i_8_ >>> 4;
-					i_2_ += i_7_;
-					i_8_ += i_9_;
-					i_8_ ^= i_9_ << 8;
-					i_3_ += i_8_;
-					i_9_ += i_2_;
-					i_9_ ^= i_2_ >>> 9;
-					i_2_ += i_3_;
-					anIntArray1018[i_10_] = i_2_;
-					anIntArray1018[i_10_ + 1] = i_3_;
-					i_4_ += i_9_;
-					anIntArray1018[2 + i_10_] = i_4_;
-					anIntArray1018[3 + i_10_] = i_5_;
-					anIntArray1018[4 + i_10_] = i_6_;
-					anIntArray1018[i_10_ + 5] = i_7_;
-					anIntArray1018[6 + i_10_] = i_8_;
-					anIntArray1018[i_10_ + 7] = i_9_;
-				}
-				method906();
-				anInt1010 = 256;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.C(").append(i).append(')').toString());
+	private final void init() {
+		int b;
+		int c;
+		int d;
+		int e;
+		int f;
+		int g;
+		int h;
+		int a = b = c = d = e = f = g = h = -1640531527;
+		for (int id = 0; id < 4; id++) {
+			a ^= b << 11;
+			d += a;
+			b += c;
+			b ^= c >>> 2;
+			c += d;
+			c ^= d << 8;
+			e += b;
+			d += e;
+			d ^= e >>> 16;
+			g += d;
+			f += c;
+			e += f;
+			e ^= f << 10;
+			f += g;
+			f ^= g >>> 4;
+			h += e;
+			g += h;
+			a += f;
+			g ^= h << 8;
+			b += g;
+			h += a;
+			h ^= a >>> 9;
+			a += b;
+			c += h;
 		}
+		for (int id = 0; id < 256; id += 8) {
+			a += rsl[id];
+			b += rsl[id + 1];
+			c += rsl[id + 2];
+			d += rsl[id + 3];
+			e += rsl[id + 4];
+			f += rsl[id + 5];
+			g += rsl[id + 6];
+			h += rsl[id + 7];
+			a ^= b << 11;
+			b += c;
+			b ^= c >>> 2;
+			e += b;
+			d += a;
+			c += d;
+			c ^= d << 8;
+			f += c;
+			d += e;
+			d ^= e >>> 16;
+			g += d;
+			e += f;
+			e ^= f << 10;
+			h += e;
+			f += g;
+			f ^= g >>> 4;
+			g += h;
+			g ^= h << 8;
+			a += f;
+			h += a;
+			h ^= a >>> 9;
+			b += g;
+			a += b;
+			c += h;
+			mem[id] = a;
+			mem[id + 1] = b;
+			mem[id + 2] = c;
+			mem[id + 3] = d;
+			mem[id + 4] = e;
+			mem[id + 5] = f;
+			mem[id + 6] = g;
+			mem[id + 7] = h;
+		}
+		for (int id = 0; id < 256; id += 8) {
+			a += mem[id];
+			b += mem[id + 1];
+			c += mem[id + 2];
+			d += mem[id + 3];
+			e += mem[id + 4];
+			f += mem[id + 5];
+			g += mem[id + 6];
+			h += mem[id + 7];
+			a ^= b << 11;
+			d += a;
+			b += c;
+			b ^= c >>> 2;
+			e += b;
+			c += d;
+			c ^= d << 8;
+			d += e;
+			d ^= e >>> 16;
+			f += c;
+			e += f;
+			g += d;
+			e ^= f << 10;
+			h += e;
+			f += g;
+			f ^= g >>> 4;
+			a += f;
+			g += h;
+			g ^= h << 8;
+			b += g;
+			h += a;
+			h ^= a >>> 9;
+			c += h;
+			a += b;
+			mem[id] = a;
+			mem[id + 1] = b;
+			mem[id + 2] = c;
+			mem[id + 3] = d;
+			mem[id + 4] = e;
+			mem[id + 5] = f;
+			mem[id + 6] = g;
+			mem[id + 7] = h;
+		}
+		isaac();
+		count = 256;
 	}
 
-	public static void method902(final int i) {
-		try {
-			anIntArray1015 = null;
-			if (i != 2) {
-				method902(-26);
-			}
-			aClass50_1011 = null;
-			aClass50_1019 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("m.F(").append(i).append(')').toString());
+	final int val() {
+		if (count-- == 0) {
+			isaac();
+			count = 255;
 		}
+		return 0;//rsl[count];
 	}
 
-	final int method903() {
-		if (anInt1010-- == 0) {
-			method906();
-			anInt1010 = 255;
+	IsaacCipher(final int[] seed) {
+		mem = new int[256];
+		rsl = new int[256];
+		for (int id = 0; id < seed.length; id++) {
+			rsl[id] = seed[id];
 		}
-		return 0;
-		//return anIntArray1017[anInt1010];
-	}
-
-	IsaacCipher(final int[] is) {
-		anIntArray1017 = new int[256];
-		for (int i = 0; i < is.length; i++) {
-			anIntArray1017[i] = is[i];
-		}
-		method901(1);
+		init();
 	}
 
 	static final LDSprite constructLDSprite(final js5 js5, final int groupId) {
@@ -206,25 +186,23 @@ final class IsaacCipher {
 		AnimatedLocation.anIntArray3075 = new int[i_13_];
 	}
 
-	private final void method906() {
-		anInt1014 += ++anInt1012;
-		for (int i_14_ = 0; i_14_ < 256; i_14_++) {
-			final int i_15_ = anIntArray1018[i_14_];
-			if ((0x2 & i_14_) == 0) {
-				if ((i_14_ & 0x1) != 0) {
-					anInt1016 ^= anInt1016 >>> 6;
-				} else {
-					anInt1016 ^= anInt1016 << 13;
-				}
-			} else if ((i_14_ & 0x1) != 0) {
-				anInt1016 ^= anInt1016 >>> 16;
-			} else {
-				anInt1016 ^= anInt1016 << 2;
+	private final void isaac() {
+		b += ++c;
+		for (int id = 0; id < 256; id++) {
+			final int x = mem[id];
+			if ((id & 0x3) == 0) {
+				a ^= a << 13;
+			} else if ((id & 0x3) == 1) {
+				a ^= a >>> 6;
+			} else if ((id & 0x3) == 2) {
+				a ^= a << 2;
+			} else if ((id & 0x3) == 3) {
+				a ^= a >>> 16;
 			}
-			anInt1016 += anIntArray1018[0xff & i_14_ + 128];
+			a += mem[id + 128 & 0xff];
 			int i_16_;
-			anIntArray1018[i_14_] = i_16_ = anInt1014 + anIntArray1018[Class120_Sub12_Sub3.method1207(i_15_, 1020) >> 2] - -anInt1016;
-			anIntArray1017[i_14_] = anInt1014 = anIntArray1018[Class120_Sub12_Sub3.method1207(255, i_16_ >> 8 >> 2)] - -i_15_;
+			mem[id] = i_16_ = mem[(x & 0x3fc) >> 2] + a + b;
+			rsl[id] = b = mem[(i_16_ >> 8 >> 2) & 0xff] + x;
 		}
 	}
 

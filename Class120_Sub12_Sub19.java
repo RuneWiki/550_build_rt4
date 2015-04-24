@@ -72,17 +72,6 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 		return is_3_;
 	}
 
-	public static void method1295(final boolean bool) {
-		try {
-			aClass120_Sub7_3278 = null;
-			if (!bool) {
-				anInt3281 = 79;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("no.R(").append(bool).append(')').toString());
-		}
-	}
-
 	public Class120_Sub12_Sub19() {
 		super(1, false);
 		aBoolean3277 = true;

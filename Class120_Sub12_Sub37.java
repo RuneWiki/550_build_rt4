@@ -49,20 +49,6 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 		return is_1_;
 	}
 
-	public static void method1393(final boolean bool) {
-		try {
-			aShortArray3429 = null;
-			IdentityKit.recentUse = null;
-			if (bool) {
-				method1394(-94, -94, -62, -123);
-			}
-			anIntArray3425 = null;
-			aShortArray3430 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vb.T(").append(bool).append(')').toString());
-		}
-	}
-
 	@Override
 	final void postDecode() {
 		PacketBuffer.method1147();

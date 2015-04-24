@@ -147,15 +147,4 @@ final class Class2 {
 		}
 	}
 
-	public static void method78(final byte i) {
-		try {
-			permanentVariable = null;
-			if (i == -54) {
-				anIntArray51 = null;
-				aClass50_50 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("aa.C(").append(i).append(')').toString());
-		}
-	}
 }

@@ -12,11 +12,6 @@ final class Class181 {
 	static int[] anIntArray1790 = new int[5];
 	static int anInt1791 = 0;
 
-	public static void method2438() {
-		aClass35_1784 = null;
-		anIntArray1790 = null;
-	}
-
 	static final String method2439() {
 		String host = "www";
 		if (AbstractIndexedSprite.modeWhere != 0) {

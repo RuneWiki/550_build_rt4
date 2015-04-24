@@ -13,17 +13,6 @@ final class JavaObject extends AbstractObject {
 		clickMaskCache = new Hashtable(512);
 	}
 
-	public static void method1433(final int i) {
-		try {
-			if (i == 0) {
-				clickMaskCache = null;
-				anIntArray3916 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ei.F(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method1434(final js5 js5) {
 		int i_1_ = 0;
 		if (js5.method429(StructType.titlebgId)) {

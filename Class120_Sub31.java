@@ -73,9 +73,9 @@ final class Class120_Sub31 extends Node {
 
 	private Class120_Sub31(final Buffer class120_sub7) {
 		class120_sub7.pos = class120_sub7.buf.length - 3;
-		final int i = class120_sub7.getUByte();
-		final int i_15_ = class120_sub7.getUShort();
-		int i_16_ = 14 + i * 10;
+		final int ntracks = class120_sub7.getUByte();
+		final int tickdiv = class120_sub7.getUShort();
+		int i_16_ = 14 + ntracks * 10;
 		class120_sub7.pos = 0;
 		int i_17_ = 0;
 		int i_18_ = 0;
@@ -85,7 +85,7 @@ final class Class120_Sub31 extends Node {
 		int i_22_ = 0;
 		int i_23_ = 0;
 		int i_24_ = 0;
-		while_14_: for (int i_25_ = 0; i_25_ < i; i_25_++) {
+		while_14_: for (int i_25_ = 0; i_25_ < ntracks; i_25_++) {
 			int i_26_ = -1;
 			for (;;) {
 				final int i_27_ = class120_sub7.getUByte();
@@ -123,9 +123,9 @@ final class Class120_Sub31 extends Node {
 		i_16_ += 2 * (i_19_ + i_20_ + i_18_ + i_21_ + i_23_);
 		i_16_ += i_22_ + i_24_;
 		final int i_28_ = class120_sub7.pos;
-		final int i_29_ = i + i_17_ + i_18_ + i_19_ + i_20_ + i_21_ + i_22_ + i_23_ + i_24_;
+		final int i_29_ = ntracks + i_17_ + i_18_ + i_19_ + i_20_ + i_21_ + i_22_ + i_23_ + i_24_;
 		for (int i_30_ = 0; i_30_ < i_29_; i_30_++) {
-			class120_sub7.method1111();
+			class120_sub7.getVarLength();
 		}
 		i_16_ += class120_sub7.pos - i_28_;
 		int i_31_ = class120_sub7.pos;
@@ -217,11 +217,15 @@ final class Class120_Sub31 extends Node {
 		class120_sub7.pos += i_17_ * 3;
 		this.aByteArray2785 = new byte[i_16_];
 		final Buffer class120_sub7_68_ = new Buffer(this.aByteArray2785);
-		class120_sub7_68_.putInt(1297377380);
-		class120_sub7_68_.putInt(6);
-		class120_sub7_68_.putShort(i > 1 ? 1 : 0);
-		class120_sub7_68_.putShort(i);
-		class120_sub7_68_.putShort(i_15_);
+		class120_sub7_68_.putInt(1297377380);//header id
+		class120_sub7_68_.putInt(6);//header len
+		class120_sub7_68_.putShort(ntracks > 1 ? 1 : 0);//type
+		/**
+		 * 0 = single track file format 
+		   1 = multiple track file format 
+		 */
+		class120_sub7_68_.putShort(ntracks);//num
+		class120_sub7_68_.putShort(tickdiv);
 		class120_sub7.pos = i_28_;
 		int i_69_ = 0;
 		int i_70_ = 0;
@@ -232,15 +236,15 @@ final class Class120_Sub31 extends Node {
 		int i_75_ = 0;
 		final int[] is = new int[128];
 		i_44_ = 0;
-		for (int i_76_ = 0; i_76_ < i; i_76_++) {
-			class120_sub7_68_.putInt(1297379947);
+		for (int i_76_ = 0; i_76_ < ntracks; i_76_++) {
+			class120_sub7_68_.putInt(1297379947);//mtrk
 			class120_sub7_68_.pos += 4;
 			final int i_77_ = class120_sub7_68_.pos;
 			int i_78_ = -1;
 			while_15_: do {
 				for (;;) {
-					final int i_79_ = class120_sub7.method1111();
-					class120_sub7_68_.method1082(i_79_);
+					final int i_79_ = class120_sub7.getVarLength();
+					class120_sub7_68_.putVarLength(i_79_);
 					final int i_80_ = class120_sub7.buf[i_46_++] & 0xff;
 					final boolean bool = i_80_ != i_78_;
 					i_78_ = i_80_ & 0xf;

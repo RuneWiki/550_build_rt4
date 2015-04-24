@@ -70,20 +70,6 @@ final class Class54 {
 		ProjectileNode.setGameState(25);
 	}
 
-	public static void method481(final int i) {
-		try {
-			TextRepository.aString489 = null;
-			EnumType.recentUse = null;
-			if (i < 124) {
-				method477(null);
-			}
-			pkIconSprites = null;
-			anIntArray488 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gd.D(").append(i).append(')').toString());
-		}
-	}
-
 	static final void redrawScreen(final int x, final int y, final int widght, final int height) {
 		for (int id = 0; LabelGroup.screenRedrawPos > id; id++) {
 			if (Class120_Sub16.screenRedrawWidhts[id] + GrandExchangeObject.screenRedrawXs[id] > x && GrandExchangeObject.screenRedrawXs[id] < x + widght && y < Class120_Sub12_Sub38.screenRedrawYs[id] - -Class69_Sub3_Sub1.screenRedrawHeights[id] && height + y > Class120_Sub12_Sub38.screenRedrawYs[id]) {

@@ -145,7 +145,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			if (hintIcon != null && hintIcon.targetType == 2) {
 				MapFunctionGroup.worldToScreen((hintIcon.x - GameEntity.currentBaseX << 7) + hintIcon.offX, hintIcon.y * 2, (hintIcon.z - Class181.currentBaseZ << 7) + hintIcon.offY, interfaceWidth >> 1, interfaceHeight >> 1, i_21_, i_19_);
 				if (Class120_Sub12_Sub38.screenX > -1 && Class101_Sub2.loopCycle % 20 < 10) {
-					AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawSprite(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
+					AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
 				}
 			}
 		}

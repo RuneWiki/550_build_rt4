@@ -257,7 +257,7 @@ final class FrameLoader extends NodeSub {
 		final int i_25_ = class191.anInt2109;
 		final float f_26_ = class191.aFloat2106;
 		final float f_27_ = class191.aFloat2104;
-		final int i_28_ = class191.anInt2111;
+		final int i_28_ = class191.fogColorRgb;
 		int i_29_ = class191.anInt2118;
 		if (!Decimator.fogEnabled) {
 			i_29_ = 0;
@@ -331,17 +331,6 @@ final class FrameLoader extends NodeSub {
 			}
 		}
 		return Deque.anInt1007;
-	}
-
-	public static void method1582(final byte i) {
-		try {
-			aClass120_Sub14_Sub19_3611 = null;
-			if (i != -49) {
-				anInt3612 = -125;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("te.D(").append(i).append(')').toString());
-		}
 	}
 
 	static final boolean method1583(final LocType locType, final int x, final int z, final int xOff, final int zOff, int rotation) {

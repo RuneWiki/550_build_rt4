@@ -19,12 +19,6 @@ final class Class12 {
 		return anIntArray83[0];
 	}
 
-	public static void method132() {
-		anIntArray83 = null;
-		anIntArray84 = null;
-		anIntArray85 = null;
-	}
-
 	static final void method133() {
 		final GL gl = HDToolkit.gl;
 		gl.glMatrixMode(5889);

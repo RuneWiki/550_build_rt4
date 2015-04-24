@@ -164,18 +164,6 @@ abstract class Class132 {
 		return i_54_;
 	}
 
-	public static void method1929(final int i) {
-		try {
-			MapSceneType.spriteCache = null;
-			if (i == 0) {
-				aClass50_1251 = null;
-				aString1250 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.O(").append(i).append(')').toString());
-		}
-	}
-
 	Class132(final int i, final int i_56_, final int i_57_, final int i_58_, final int i_59_) {
 		seed = 0;
 		anInt1252 = 4;

@@ -27,9 +27,4 @@ final class Class120_Sub24 extends Node {
 		anIntArray2730 = new int[] { 1, 1, 1, 1, 4, 1, 1, 5, 6, 1, 5, 0, 7, 0, 4, 1, 7, 2, 1, 1, 6, 1, 1, 3, 6, 1, 7, 0, 0, 6, 7, 0, 1, 7, 6, 1, 1, 1, 5, 4, 3, 2, 1, 1, 0, 4, 1, 5 };
 	}
 
-	public static void method1718() {
-		anIntArray2730 = null;
-		aStringArray2716 = null;
-		aString2726 = null;
-	}
 }

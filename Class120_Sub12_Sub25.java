@@ -93,13 +93,6 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	public static void method1330() {
-		settings = null;
-		anIntArray3320 = null;
-		aString3319 = null;
-		aByteArrayArray3318 = null;
-	}
-
 	static final void method1331() {
 		final GL gl = HDToolkit.gl;
 		gl.glDisableClientState(32886);

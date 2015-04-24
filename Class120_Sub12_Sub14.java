@@ -524,15 +524,4 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1273(final int i) {
-		try {
-			anIntArray3239 = null;
-			MapFunctionType.recentUse = null;
-			if (i != 1) {
-				method1273(-45);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("km.V(").append(i).append(')').toString());
-		}
-	}
 }

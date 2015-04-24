@@ -13,19 +13,6 @@ final class Class169 {
 	Class32 aClass32_1650;
 	static short aShort1651 = 256;
 
-	public static void method2198(final boolean bool) {
-		try {
-			keyboardHandler = null;
-			aClass50_1649 = null;
-			anIntArray1648 = null;
-			if (!bool) {
-				method2198(false);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("u.A(").append(bool).append(')').toString());
-		}
-	}
-
 	Class169(final int i, final int i_0_) {
 		this.aClass32_1650 = Class32.list(i);
 		this.anInt1647 = i_0_;

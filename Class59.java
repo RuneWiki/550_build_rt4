@@ -67,10 +67,6 @@ final class Class59 {
 		method547(is, 0, is.length, i, i_14_, null, null);
 	}
 
-	public static void method543() {
-		anIntArray560 = null;
-	}
-
 	static final void method544(final int[] is, final int i, final int i_15_, final int[] is_16_, final int[] is_17_) {
 		method547(is, 0, is.length, i, i_15_, is_16_, is_17_);
 	}

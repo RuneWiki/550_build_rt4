@@ -12,19 +12,6 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 	static int anInt3440;
 	static int[] screenRedrawYs = new int[100];
 
-	public static void method1396(final int i) {
-		try {
-			if (i != 1) {
-				method1396(-73);
-			}
-			aClass120_Sub18ArrayArrayArray3437 = null;
-			skillsXp = null;
-			screenRedrawYs = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vi.S(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final int[][] method1188(final int i) {
 		final int[][] is_1_ = this.aClass109_2559.method975(i);

@@ -24,7 +24,4 @@ final class Class74 {
 		return Node.interfaceCache[interfaceId][componentId];
 	}
 
-	public static void method651() {
-		loginName = null;
-	}
 }

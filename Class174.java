@@ -38,18 +38,6 @@ final class Class174 {
 		return count;
 	}
 
-	public static void method2232(final int i) {
-		try {
-			anIntArray1731 = null;
-			if (i != 0) {
-				method2232(70);
-			}
-			TextRepository.skill = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ug.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method2233() {
 		while (Canvas_Sub1.inputStream.getBitsLeft(AbstractMouseWheelHandler.packetSize) >= 11) {
 			final int index = Canvas_Sub1.inputStream.getBitValue(11);

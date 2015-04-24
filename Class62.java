@@ -27,7 +27,7 @@ final class Class62 {
 	}
 
 	final void method557(final int i) {
-		final int i_0_ = aClass120_Sub7_569.method1111();
+		final int i_0_ = aClass120_Sub7_569.getVarLength();
 		this.anIntArray572[i] += i_0_;
 	}
 
@@ -107,10 +107,6 @@ final class Class62 {
 		return i_6_;
 	}
 
-	public static void method565() {
-		aByteArray570 = null;
-	}
-
 	final int method566() {
 		return anIntArray574.length;
 	}
@@ -125,7 +121,7 @@ final class Class62 {
 			i_9_ = anIntArray575[i];
 		}
 		if (i_9_ == 240 || i_9_ == 247) {
-			final int i_10_ = aClass120_Sub7_569.method1111();
+			final int i_10_ = aClass120_Sub7_569.getVarLength();
 			if (i_9_ == 247 && i_10_ > 0) {
 				final int i_11_ = aClass120_Sub7_569.buf[aClass120_Sub7_569.pos] & 0xff;
 				if (i_11_ >= 241 && i_11_ <= 243 || i_11_ == 246 || i_11_ == 248 || i_11_ >= 250 && i_11_ <= 252 || i_11_ == 254) {
@@ -152,7 +148,7 @@ final class Class62 {
 	private final int method570(final int i, final int i_13_) {
 		if (i_13_ == 255) {
 			final int i_14_ = aClass120_Sub7_569.getUByte();
-			int i_15_ = aClass120_Sub7_569.method1111();
+			int i_15_ = aClass120_Sub7_569.getVarLength();
 			if (i_14_ == 47) {
 				aClass120_Sub7_569.pos += i_15_;
 				return 1;

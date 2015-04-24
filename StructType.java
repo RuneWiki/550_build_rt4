@@ -11,11 +11,6 @@ final class StructType extends NodeSub {
 	static int titlebgId = -1;
 	static int anInt3590 = -1;
 
-	public static void method1560() {
-		aClass189_3588 = null;
-		configClient = null;
-	}
-
 	static final void method1561(final int i, final int i_0_, final int i_1_, final byte[][][] is, final int i_2_, final byte i_3_, final int i_4_, final int i_5_) {
 		Class120_Sub12_Sub9.anInt3193++;
 		ObjectContainer.anInt2615 = 0;

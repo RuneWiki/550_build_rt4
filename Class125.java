@@ -24,12 +24,6 @@ final class Class125 implements Interface1 {
 		return new StringBuilder(String.valueOf(0xff & i_2_ >> 24)).append(".").append(0xff & i_2_ >> 16).append(".").append(0xff & i_2_ >> 8).append(".").append(0xff & i_2_).toString();
 	}
 
-	public static void method1880() {
-		aStringArray2148 = null;
-		anIntArrayArray2150 = null;
-		aClass57_2147 = null;
-	}
-
 	@Override
 	public final String method1(final long id, final int[] params, final int type) {
 		if (type == 0) {

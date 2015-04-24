@@ -23,10 +23,6 @@ final class Class120_Sub12_Sub24 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1327() {
-		aClass50_3309 = null;
-	}
-
 	static final char method1328(final byte i) {
 		int i_2_ = i & 0xff;
 		if (i_2_ == 0) {

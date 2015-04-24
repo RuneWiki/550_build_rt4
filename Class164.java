@@ -486,7 +486,7 @@ class Class164 {
 			if (HDToolkit.glEnabled) {
 				final AbstractSprite abstractSprite = jagexInterface.constructSpriteFromId(false);
 				if (abstractSprite != null) {
-					abstractSprite.drawSprite(interfaceX, interfaceY);
+					abstractSprite.drawReg(interfaceX, interfaceY);
 				}
 			} else {
 				GraphicsLD.fillPixels(interfaceX, interfaceY, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);

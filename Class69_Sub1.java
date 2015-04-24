@@ -7,18 +7,6 @@ final class Class69_Sub1 extends Class69 {
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_2230;
 	static int canvasWidth;
 
-	public static void method617(final byte i) {
-		try {
-			aClass120_Sub30_Sub2_2230 = null;
-			TextRepository.aString2231 = null;
-			if (i >= -55) {
-				canvasWidth = -41;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cb.F(").append(i).append(')').toString());
-		}
-	}
-
 	static final boolean method618(final int i, final int i_0_, final int i_1_) {
 		final int i_2_ = JagexSocket.anIntArrayArrayArray419[i][i_0_][i_1_];
 		if (i_2_ == -Class120_Sub12_Sub9.anInt3193) {

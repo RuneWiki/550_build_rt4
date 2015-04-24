@@ -16,20 +16,6 @@ final class Class179 {
 		aBoolean1779 = true;
 	}
 
-	public static void method2259(final int i) {
-		try {
-			subScripts = null;
-			aByteArrayArray1777 = null;
-			if (i == 27440) {
-				anIntArrayArray1774 = null;
-				aClient1776 = null;
-				labelsJs5 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("va.F(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method2260(final int i) {
 		Class120_Sub2.anInt2422 = -1;
 		Class120_Sub2.anInt2422 = -1;

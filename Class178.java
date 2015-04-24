@@ -34,7 +34,4 @@ final class Class178 {
 		MapSceneType.anInt1361 = LabelGroup.groundTiles.length;
 	}
 
-	public static void method2258() {
-		js5Worker = null;
-	}
 }

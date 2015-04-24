@@ -40,17 +40,6 @@ final class Class28 {
 		return Class120_Sub14_Sub15.method1558(i_3_, -1, i);
 	}
 
-	public static void method245(final int i) {
-		try {
-			aClass50_181 = null;
-			if (i == 8856) {
-				anIntArray183 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("co.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method247() {
 		OverridedJInterface.reflectionCheckDeque = new Deque();
 	}

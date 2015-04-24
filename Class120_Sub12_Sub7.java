@@ -77,8 +77,4 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 		return -i_23_;
 	}
 
-	public static void method1235() {
-		menuOptionsData2 = null;
-		aClass105_3177 = null;
-	}
 }

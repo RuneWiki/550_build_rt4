@@ -60,13 +60,6 @@ final class GZIPDecompressor {
 		}
 	}
 
-	public static void method719() {
-		anIntArray800 = null;
-		ignoreNames = null;
-		aClass120_Sub14_Sub9_798 = null;
-		aString799 = null;
-	}
-
 	static final void setHuffman(final Huffman huffman) {
 		client.huffman = huffman;
 	}

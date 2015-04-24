@@ -28,17 +28,6 @@ final class Class26 {
 		return ClanMember.method1403(i, i_5_, i_6_, i_7_ - i_5_ + 1, i_8_ - i_6_ + 1, i_1_, i_2_, i_3_, sceneGraphNode, i_4_, true, l);
 	}
 
-	public static void method231(final byte i) {
-		try {
-			aClass35_158 = null;
-			aClass189_161 = null;
-			aClass90_163 = null;
-			aClass144_159 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ci.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final void handleMouse() {
 		synchronized (SpotAnimationNode.mouseHandler) {
 			Class136.mouseIdleCycle++;

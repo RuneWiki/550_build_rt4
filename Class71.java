@@ -6,12 +6,6 @@ final class Class71 {
 	static int anInt625;
 	static int[] anIntArray627 = new int[14];
 
-	public static void method638() {
-		TextRepository.aString624 = null;
-		anIntArray627 = null;
-		TextRepository.aString626 = null;
-	}
-
 	static final byte[] unpack(final byte[] is) {
 		final Buffer class120_sub7 = new Buffer(is);
 		final int i = class120_sub7.getUByte();

@@ -8,11 +8,6 @@ final class Class22 {
 	static Class127 aClass127_130;
 	int[] anIntArray133;
 
-	public static void method195() {
-		UnderlayType.recentUse = null;
-		aClass127_130 = null;
-	}
-
 	static final void method196(final float[][] fs, final int i, final byte i_0_, final int i_1_, final int i_2_, final int i_3_, final float[][] fs_4_, final int i_5_, final byte i_6_, final byte i_7_, final Class120_Sub9 class120_sub9, final boolean bool, final float[][] fs_8_, final int[][] is,
 			final int i_9_, final int i_10_) {
 		try {

@@ -35,17 +35,17 @@ abstract class Class101 {
 		Class120_Sub2_Sub1.aFloat3111 = ParticleNode.aFloat1034;
 	}
 
-	static final void method836(final int i, int i_8_) {
-		final VarBit varBit = VarBit.list(i);
-		final int i_9_ = varBit.setting;
-		final int i_10_ = varBit.startBit;
-		final int i_11_ = varBit.endBit;
-		int i_12_ = Class120_Sub14_Sub15.masklookup[i_11_ - i_10_];
-		if (i_8_ < 0 || i_8_ > i_12_) {
-			i_8_ = 0;
+	static final void setVarbit(final int id, int value) {
+		final VarBit varBit = VarBit.list(id);
+		final int setting = varBit.setting;
+		final int start = varBit.startBit;
+		final int end = varBit.endBit;
+		int mask = Class120_Sub14_Sub15.masklookup[end - start];
+		if (value < 0 || value > mask) {
+			value = 0;
 		}
-		i_12_ <<= i_10_;
-		Class140.putVarp(i_9_, i_8_ << i_10_ & i_12_ | Class2.permanentVariable[i_9_] & (i_12_ ^ 0xffffffff));
+		mask <<= start;
+		Class140.setVarp(setting, value << start & mask | Class2.permanentVariable[setting] & (mask ^ 0xffffffff));
 	}
 
 	abstract void method837(int i, int i_13_);

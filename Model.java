@@ -308,13 +308,6 @@ final class Model extends SceneGraphNode {
 		return class180_sub2_63_;
 	}
 
-	public static void method2289() {
-		anIntArray2882 = null;
-		anIntArray2883 = null;
-		sinTable = null;
-		cosinTable = null;
-	}
-
 	private final void decodeOld(final byte[] is) {
 		boolean bool = false;
 		boolean bool_64_ = false;

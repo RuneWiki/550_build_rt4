@@ -220,11 +220,6 @@ final class Class96 {
 		return (i_43_ & 0xff80) + i_44_;
 	}
 
-	public static void method790() {
-		TextRepository.aString915 = null;
-		aClass35_901 = null;
-	}
-
 	Class96() {
 		this.anIntArray890 = new int[257];
 		this.aBooleanArray893 = new boolean[256];

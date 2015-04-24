@@ -130,13 +130,6 @@ final class Npc extends GameEntity {
 		}
 	}
 
-	public static void method2347() {
-		TextRepository.walkText = null;
-		aClass50_3753 = null;
-		playerAmbientSounds = null;
-		aByteArrayArrayArray3754 = null;
-	}
-
 	static final void method2348(int i, final int i_17_, final int i_18_, int i_19_) {
 		CanvasWrapper.anInt20 = -1;
 		Class120_Sub2.anInt2422 = -1;

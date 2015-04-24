@@ -22,11 +22,6 @@ final class Class146 {
 		return 1.0F - (float) Math.pow(10.0, -f_1_ / 20.0F);
 	}
 
-	public static void method2051() {
-		aFloatArrayArray1386 = null;
-		anIntArrayArray1387 = null;
-	}
-
 	final int method2052(final int i, final float f) {
 		if (i == 0) {
 			float f_2_ = anIntArray1393[0] + (anIntArray1393[1] - anIntArray1393[0]) * f;

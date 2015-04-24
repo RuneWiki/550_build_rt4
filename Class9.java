@@ -90,11 +90,6 @@ final class Class9 {
 		return ParticleEmitter.constructAbstractFont(fontJs5.getFile(group, file));
 	}
 
-	public static void method118() {
-		needInterfaceRedraw = null;
-		aByteArrayArrayArray70 = null;
-	}
-
 	Class9(final int i) {
 		anInt73 = i;
 		aClass120_Sub14Array75 = new NodeSub[i];

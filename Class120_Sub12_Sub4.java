@@ -24,18 +24,6 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		Js5Request.method1552(i_2_, i_0_, Class86.worlds.length - 1, 0, bool, bool_1_);
 	}
 
-	public static void method1212(final int i) {
-		try {
-			draggedComponent = null;
-			anIntArrayArray3157 = null;
-			if (i != 128) {
-				aFloat3154 = -0.33160633F;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cf.U(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1213(final Npc npc, final int[] is, final int[] is_3_, final int[] is_4_) {
 		for (int i_5_ = 0; i_5_ < is.length; i_5_++) {
 			final int i_6_ = is[i_5_];

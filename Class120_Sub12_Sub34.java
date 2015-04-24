@@ -5,17 +5,6 @@
 final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 	static int[] anIntArray3409;
 
-	public static void method1378(final int i) {
-		try {
-			if (i != 8) {
-				updateInterface(null);
-			}
-			anIntArray3409 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tc.S(").append(i).append(')').toString());
-		}
-	}
-
 	static final void updateInterface(final JagexInterface jagexInterface) {
 		final JagexInterface class189_0_ = ObjectContainer.method1665(jagexInterface);
 		int width;

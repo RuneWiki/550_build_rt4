@@ -51,20 +51,6 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1353(final boolean bool) {
-		try {
-			menuOptionSuffix = null;
-			if (!bool) {
-				VarBit.recentUse.clearSoftReference();
-			}
-			aClass50_3367 = null;
-			aClass164_3366 = null;
-			membersObjInventoryOptions = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.AA(").append(bool).append(')').toString());
-		}
-	}
-
 	@Override
 	final int[][] method1188(final int i) {
 		final int[][] is_5_ = this.aClass109_2559.method975(i);

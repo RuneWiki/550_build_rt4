@@ -227,12 +227,6 @@ final class EntityRenderData {
 		return Class101_Sub2.gameShellTimer.method739();
 	}
 
-	public static void method256() {
-		anIntArray199 = null;
-		TextRepository.aString217 = null;
-		TextRepository.useSeperator = null;
-	}
-
 	public EntityRenderData() {
 		this.anInt203 = -1;
 		this.anInt211 = -1;

@@ -35,16 +35,6 @@ final class ShapedTile {
 				{ 1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3 }, { 1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5 } };
 	}
 
-	public static void method2197() {
-		anIntArray1630 = null;
-		anIntArray1636 = null;
-		anIntArray1640 = null;
-		anIntArray1632 = null;
-		anIntArray1623 = null;
-		anIntArrayArray1631 = null;
-		anIntArrayArray1642 = null;
-	}
-
 	ShapedTile(final int shape, final int i_0_, final int i_1_, final int x, final int z, final int tileHeight, final int tileHeightEast, final int tileHeightNorthEast, final int tileHeightNorth, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_,
 			final int overlayMinimapColor, final int underlayMinimapColor) {
 		if (tileHeight != tileHeightEast || tileHeight != tileHeightNorthEast || tileHeight != tileHeightNorth) {

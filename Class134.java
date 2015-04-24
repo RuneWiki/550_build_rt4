@@ -32,19 +32,4 @@ final class Class134 {
 		return Class69_Sub3.method626(i, 10, bool_0_);
 	}
 
-	public static void method1950(final int i) {
-		try {
-			landscapeAsAbstractSprite = null;
-			aByteArrayArray1279 = null;
-			aCharArray1286 = null;
-			anIntArray1284 = null;
-			loadingText = null;
-			if (i == -9077) {
-				aByteArrayArray1287 = null;
-				anIntArray1285 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pj.A(").append(i).append(')').toString());
-		}
-	}
 }

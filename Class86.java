@@ -95,18 +95,4 @@ final class Class86 {
 		InvType.aClass50_1613 = js5;
 	}
 
-	public static void method732(final boolean bool) {
-		try {
-			aClass120_Sub18ArrayArrayArray820 = null;
-			worlds = null;
-			Varp.recentUse = null;
-			if (bool) {
-				method732(false);
-			}
-			aClass75_823 = null;
-			aClass193_822 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("je.E(").append(bool).append(')').toString());
-		}
-	}
 }

@@ -331,7 +331,7 @@ class HDSprite extends AbstractSprite {
 	}
 
 	@Override
-	final void drawSprite(int x, int i_86_) {
+	final void drawReg(int x, int i_86_) {
 		HDToolkit.method510();
 		x += this.offsetX;
 		i_86_ += this.offsetY;

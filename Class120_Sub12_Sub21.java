@@ -140,18 +140,6 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		return anInt3295;
 	}
 
-	public static void method1310(final int i) {
-		try {
-			actions = null;
-			if (i != 1) {
-				aFloat3293 = -2.1219447F;
-			}
-			aClass120_Sub14_Sub9_3297 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.T(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1311() {
 		OverlayType.recentUse.clearSoftReference();
 		UnderlayType.recentUse.clearSoftReference();

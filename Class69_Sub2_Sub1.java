@@ -3,8 +3,7 @@
  */
 
 final class Class69_Sub2_Sub1 extends Class69_Sub2 {
-	static String aString3078 = " is already on your ignore list.";
-
+	
 	//Used for packets that have string as data type, + 1 because of terminator.
 	static final int getLengthPlusOne(final String string) {
 		return string.length() + 1;

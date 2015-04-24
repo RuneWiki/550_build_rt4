@@ -306,16 +306,6 @@ final class LightManager {
 		anIntArrayArrayArray1182 = new int[anInt1187][anInt1177][anInt1178];
 	}
 
-	public static void method1868() {
-		lights = null;
-		anIntArrayArrayArray1182 = null;
-		anIntArray1186 = null;
-		lightEnabled = null;
-		position = null;
-		anIntArray1191 = null;
-		aBooleanArray1183 = null;
-	}
-
 	static final void method1869() {
 		for (int id = 0; id < lightsPos; id++) {
 			final Light light = lights[id];

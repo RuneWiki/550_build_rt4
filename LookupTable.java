@@ -42,11 +42,6 @@ final class LookupTable {
 		Class88.aClass177_831.clear();
 	}
 
-	public static void method490() {
-		LocType.recentUse = null;
-		anIntArray495 = null;
-	}
-
 	LookupTable(final int[] hashes) {
 		int size;
 		for (size = 1; hashes.length + (hashes.length >> 1) >= size; size <<= 1) {

@@ -95,10 +95,6 @@ final class Class14 implements ShaderInterface {
 		textureId = textureIds[0];
 	}
 
-	public static void method144() {
-		aFloatArray2162 = null;
-	}
-
 	@Override
 	public final void method2() {
 		HDToolkit.gl.glCallList(anInt2161 + 1);

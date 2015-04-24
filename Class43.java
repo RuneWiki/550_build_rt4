@@ -39,18 +39,6 @@ final class Class43 {
 		}
 	}
 
-	public static void method344(final byte i) {
-		try {
-			playerModelsCache = null;
-			aByteArrayArray365 = null;
-			if (i == 93) {
-				anIntArray366 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("el.H(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method345(final String string) {
 		System.out.println("Bad " + string + ", Usage: worldid, <live/rc/wip>, <english/german>, <game0/game1>");
 		System.exit(1);

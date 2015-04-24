@@ -436,18 +436,6 @@ final class Class93 {
 		return Class53.constructLDFont(fontJs5.getFile(group, file));
 	}
 
-	public static void method773(final int i) {
-		try {
-			staticActiveComponent2 = null;
-			packetSizes = null;
-			if (i != 1) {
-				spriteAmount = 33;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ka.D(").append(i).append(')').toString());
-		}
-	}
-
 	private static final boolean method774(final int i, final int i_43_, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final SceneGraphNode sceneGraphNode, final int i_48_, final long l) {
 		if (sceneGraphNode == null) {
 			return true;

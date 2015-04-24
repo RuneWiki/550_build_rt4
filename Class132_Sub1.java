@@ -86,20 +86,6 @@ class Class132_Sub1 extends Class132 {
 		}
 	}
 
-	public static void method1935(final int i) {
-		try {
-			spritePalette = null;
-			loadingTextImage = null;
-			aClass120_Sub15_2805 = null;
-			framesJs5 = null;
-			if (i == 2061936524) {
-				aBooleanArrayArray2811 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.C(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void method1927(final int i, final int i_10_, final byte i_11_) {
 		try {

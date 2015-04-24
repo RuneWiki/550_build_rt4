@@ -10,17 +10,6 @@ final class GroundObjectNode extends NodeSub {
 	SceneGroundObject sceneGroundObject;
 	static int[] bitMasks;
 
-	public static void method1626(int i) {
-		try {
-			anIntArray3629 = null;
-			if (i != 7581)
-				method1627(26, -114, 79, -74, -123, -65, -86);
-			bitMasks = null;
-		} catch (RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "w.C(" + i + ')');
-		}
-	}
-
 	GroundObjectNode(SceneGroundObject groundObject) {
 		sceneGroundObject = groundObject;
 	}

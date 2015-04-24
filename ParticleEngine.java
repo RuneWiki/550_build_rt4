@@ -325,20 +325,6 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	public static void method951() {
-		aClass174_2361 = null;
-		aClass108_Sub3_Sub1Array2350 = null;
-		aClass9_2346 = null;
-		aBooleanArray2386 = null;
-		aBooleanArray2383 = null;
-		aShortArrayArray2378 = null;
-		aShortArrayArray2387 = null;
-		anIntArray2389 = null;
-		anIntArray2390 = null;
-		aClass120_Sub7_2381 = null;
-		aByteBuffer2394 = null;
-	}
-
 	static final void setParticles(final int i) {
 		particleSetting = i;
 	}

@@ -143,17 +143,6 @@ final class SeekableFile {
 		position = pos;
 	}
 
-	public static void method2523(final byte i) {
-		try {
-			aLongArray2137 = null;
-			if (i != 35) {
-				removeMouseHandler();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wl.I(").append(i).append(')').toString());
-		}
-	}
-
 	private final void method2524() throws IOException {
 		if (0L != (aLong2133 ^ 0xffffffffffffffffL)) {
 			if ((aLong2133 ^ 0xffffffffffffffffL) != (aLong2135 ^ 0xffffffffffffffffL)) {

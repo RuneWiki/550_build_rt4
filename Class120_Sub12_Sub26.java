@@ -28,22 +28,13 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 		aClass53_Sub1Array3337 = new Class53_Sub1[29];
 	}
 
-	private final boolean method1336(final int i, final int i_0_, final int i_1_) {
-		boolean bool;
-		try {
-			final int i_2_ = (-i + i_0_) * anInt3329 >> 12;
-			if (i_1_ < 84) {
-				anInt3331 = -62;
-			}
-			int i_3_ = FileSystemWorker.anIntArray789[0xff & 255 * i_2_ >> 12];
-			i_3_ = (i_3_ << 12) / anInt3329;
-			i_3_ = (i_3_ << 12) / anInt3322;
-			i_3_ = anInt3336 * i_3_ >> 12;
-			bool = i_3_ > i - -i_0_ && -i_3_ < i - -i_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rg.T(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
-		return bool;
+	private final boolean method1336(final int i, final int i_0_) {
+		final int i_2_ = (-i + i_0_) * anInt3329 >> 12;
+		int i_3_ = FileSystemWorker.anIntArray789[0xff & 255 * i_2_ >> 12];
+		i_3_ = (i_3_ << 12) / anInt3329;
+		i_3_ = (i_3_ << 12) / anInt3322;
+		i_3_ = anInt3336 * i_3_ >> 12;
+		return i_3_ > i - -i_0_ && -i_3_ < i - -i_0_;
 	}
 
 	static final void method1337() {
@@ -52,34 +43,13 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 		Class120_Sub12_Sub2.aClass21_3143.clear();
 	}
 
-	public static void method1338(final int i) {
-		try {
-			if (i == -9465) {
-				anIntArray3325 = null;
-				mainLoopTimeCache = null;
-				aClass53_Sub1Array3337 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rg.V(").append(i).append(')').toString());
-		}
-	}
-
-	private final boolean method1339(final int i, final int i_4_, final byte i_5_) {
-		boolean bool;
-		try {
-			final int i_6_ = (i - -i_4_) * anInt3329 >> 12;
-			int i_7_ = FileSystemWorker.anIntArray789[(0xffafc & 255 * i_6_) >> 12];
-			if (i_5_ != -46) {
-				constructLDSpriteAlpha(null, 23, 112);
-			}
-			i_7_ = (i_7_ << 12) / anInt3329;
-			i_7_ = (i_7_ << 12) / anInt3322;
-			i_7_ = i_7_ * anInt3336 >> 12;
-			bool = i_7_ > -i_4_ + i && i + -i_4_ > -i_7_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rg.S(").append(i).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
-		}
-		return bool;
+	private final boolean method1339(final int i, final int i_4_) {
+		final int i_6_ = (i - -i_4_) * anInt3329 >> 12;
+		int i_7_ = FileSystemWorker.anIntArray789[(0xffafc & 255 * i_6_) >> 12];
+		i_7_ = (i_7_ << 12) / anInt3329;
+		i_7_ = (i_7_ << 12) / anInt3322;
+		i_7_ = i_7_ * anInt3336 >> 12;
+		return i_7_ > -i_4_ + i && i + -i_4_ > -i_7_;
 	}
 
 	@Override
@@ -175,7 +145,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 				i_18_ = i_18_ <= 2048 ? i_18_ : -4096 + i_18_;
 				i_19_ = i_19_ < -2048 ? 4096 + i_19_ : i_19_;
 				i_19_ = i_19_ <= 2048 ? i_19_ : i_19_ + -4096;
-				is_12_[i_14_] = !method1336(i_16_, i_17_, 92) && !method1339(i_19_, i_18_, (byte) -46) ? 0 : 4096;
+				is_12_[i_14_] = !method1336(i_16_, i_17_) && !method1339(i_19_, i_18_) ? 0 : 4096;
 			}
 		}
 		return is_12_;

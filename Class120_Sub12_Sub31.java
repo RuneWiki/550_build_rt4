@@ -48,12 +48,6 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 		super(1, true);
 	}
 
-	public static void method1366() {
-		anIntArray3383 = null;
-		mouseWheelHandler = null;
-		EntityRenderData.recentUse = null;
-	}
-
 	static final int method1368(final JagexInterface jagexInterface, final int i) {
 		if (!client.getClickMask(jagexInterface).method1678(i) && jagexInterface.anObjectArray2006 == null) {
 			return -1;

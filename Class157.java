@@ -91,14 +91,6 @@ final class Class157 {
 		}
 	}
 
-	public static void method2089() {
-		anIntArray1461 = null;
-		shaders = null;
-		aString1462 = null;
-		compassSprite = null;
-		aClass120_Sub14_Sub19_1472 = null;
-	}
-
 	public Class157() {
 		/* empty */
 	}

@@ -200,19 +200,7 @@ abstract class AbstractIndexedSprite {
 		}
 	}
 
-	public static void method909(final boolean bool) {
-		try {
-			aClass189Array1022 = null;
-			if (!bool) {
-				changeDisplayMode(-84, 73, 124, -89, true, true);
-			}
-			aString1025 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ma.H(").append(bool).append(')').toString());
-		}
-	}
-
-	abstract void method910(int i, int i_6_);
+	abstract void drawReg(int i, int i_6_);
 
 	abstract void method911(int i, int i_7_, int i_8_);
 

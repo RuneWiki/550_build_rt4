@@ -12,19 +12,6 @@ final class Class101_Sub2 extends Class101 {
 	static int loopCycle = 0;
 	private final int anInt2284;
 
-	public static void method845(final int i) {
-		try {
-			aByteArrayArray2278 = null;
-			aClass50_2277 = null;
-			if (i != -1739218740) {
-				method846(false);
-			}
-			gameShellTimer = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("de.H(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void method834(final int i_0_, final int i_1_) {
 	}
@@ -35,7 +22,7 @@ final class Class101_Sub2 extends Class101 {
 		final int i_4_ = anInt2284 * i >> 12;
 		final int i_5_ = anInt2281 * i_2_ >> 12;
 		final int i_6_ = anInt2280 * i_2_ >> 12;
-		Class120_Sub12_Sub32.method1369(i_6_, i_5_, this.anInt964, 118, i_3_, i_4_);
+		Class120_Sub12_Sub32.method1369(i_6_, i_5_, this.anInt964, i_3_, i_4_);
 	}
 
 	@Override

@@ -41,7 +41,7 @@ final class HDToolkit {
 	private static boolean lightingEnabled;
 	private static float aFloat530;
 	static boolean aBoolean531;
-	private static float[] aFloatArray532;
+	private static float[] matrices;
 	private static float aFloat533;
 	private static float aFloat534;
 	static boolean vertexBufferAsObject;
@@ -58,7 +58,7 @@ final class HDToolkit {
 	private static int texture2D_ID;
 	private static int viewportWidth;
 	private static boolean fogEnabled;
-	private static float aFloat549;
+	private static float viewportZoom;
 	static boolean aBoolean550;
 	private static int viewportHeight;
 	private static int maxTextureCoords;
@@ -70,41 +70,42 @@ final class HDToolkit {
 		aBoolean536 = true;
 		lightingEnabled = true;
 		loopCycleWrapper = 0;
-		aFloatArray532 = new float[16];
+		matrices = new float[16];
 		texture2D_ID = -1;
 		fogEnabled = true;
 		anInt506 = -1;
 		glEnabled = false;
 		aFloat530 = 0.0F;
 		aBoolean544 = false;
-		aFloat549 = 0.09765625F;
+		viewportZoom = 25F/256;
 		aBoolean528 = false;
 		anInt553 = 0;
 	}
 
-	static final void method496(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final float f, final float f_5_, final int i_6_, final int i_7_) {
-		final int i_8_ = (i - i_3_ << 8) / i_6_;
-		final int i_9_ = (i + i_1_ - i_3_ << 8) / i_6_;
-		final int i_10_ = (i_0_ - i_4_ << 8) / i_7_;
-		final int i_11_ = (i_0_ + i_2_ - i_4_ << 8) / i_7_;
-		gl.glMatrixMode(5889);
+	static final void method496(final int x, final int y, final int width, final int height, final int centerX, final int centerY, final float pitch, final float yaw, int z1, int z2) {
+		final int left = (x - centerX << 8) / z1;
+		final int right = (x + width - centerX << 8) / z1;
+		final int top = (y - centerY << 8) / z2;
+		final int bottom = (y + height - centerY << 8) / z2;
+		//System.out.println(left+":"+right+":"+top+":"+bottom);
+		gl.glMatrixMode(5889);//GL_PROJECTION
 		gl.glLoadIdentity();
-		method518(i_8_ * aFloat549, i_9_ * aFloat549, -i_11_ * aFloat549, -i_10_ * aFloat549, 50.0F, 3584.0F);
-		setViewport(i, canvasHeight - i_0_ - i_2_, i_1_, i_2_);
-		gl.glMatrixMode(5888);
+		loadFrustumMatrix(left * viewportZoom, right * viewportZoom, -bottom * viewportZoom, -top * viewportZoom, 50.0F, 3584.0F);
+		setViewport(x, canvasHeight - y - height, width, height);
+		gl.glMatrixMode(5888);//GL_MODELVIEW
 		gl.glLoadIdentity();
-		gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
-		if (f != 0.0F) {
-			gl.glRotatef(f, 1.0F, 0.0F, 0.0F);
+		gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);//roll
+		if (pitch != 0.0F) {
+			gl.glRotatef(pitch, 1.0F, 0.0F, 0.0F);
 		}
-		if (f_5_ != 0.0F) {
-			gl.glRotatef(f_5_, 0.0F, 1.0F, 0.0F);
+		if (yaw != 0.0F) {
+			gl.glRotatef(yaw, 0.0F, 1.0F, 0.0F);
 		}
 		aBoolean528 = false;
-		IntegerNode.anInt2792 = i_8_;
-		Class120_Sub12_Sub16.anInt3253 = i_9_;
-		Class190.anInt2100 = i_10_;
-		Class120_Sub30_Sub1.anInt3672 = i_11_;
+		IntegerNode.anInt2792 = left;
+		Class120_Sub12_Sub16.anInt3253 = right;
+		Class190.anInt2100 = top;
+		Class120_Sub30_Sub1.anInt3672 = bottom;
 	}
 
 	private static final void setViewport(int x, int y, int width, int height) {
@@ -123,7 +124,7 @@ final class HDToolkit {
 
 	static final void method499() {
 		Class120_Sub14_Sub13.method1532(0, 0);
-		method515();
+		setOrthoProjection();
 		bindTexture2D(-1);
 		toggleLighting(false);
 		toggleDepthTest(false);
@@ -158,7 +159,7 @@ final class HDToolkit {
 
 	static final void method504() {
 		Class120_Sub14_Sub13.method1532(0, 0);
-		method515();
+		setOrthoProjection();
 		method511(0);
 		method521(0);
 		toggleLighting(false);
@@ -266,7 +267,7 @@ final class HDToolkit {
 
 	static final void method510() {
 		Class120_Sub14_Sub13.method1532(0, 0);
-		method515();
+		setOrthoProjection();
 		method511(1);
 		method521(1);
 		toggleLighting(false);
@@ -301,17 +302,17 @@ final class HDToolkit {
 		}
 	}
 
-	static final void method512(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_) {
-		final int i_26_ = -i;
-		final int i_27_ = canvasWidth - i;
-		final int i_28_ = -i_21_;
-		final int i_29_ = canvasHeight - i_21_;
+	static final void method512(final int i, final int i_21_, final int i_22_, final int near, final int i_24_, final int i_25_) {
+		final int left = -i;
+		final int right = canvasWidth - i;
+		final int top = -i_21_;
+		final int bottom = canvasHeight - i_21_;
 		gl.glMatrixMode(5889);
 		gl.glLoadIdentity();
 		final float f = i_22_ / 512.0F;
 		final float f_30_ = f * (256.0F / i_24_);
 		final float f_31_ = f * (256.0F / i_25_);
-		gl.glOrtho(i_26_ * f_30_, i_27_ * f_30_, -i_29_ * f_31_, -i_28_ * f_31_, 50 - i_23_, 3584 - i_23_);
+		gl.glOrtho(left * f_30_, right * f_30_, -bottom * f_31_, -top * f_31_, 50 - near, 3584 - near);
 		setViewport(0, 0, canvasWidth, canvasHeight);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
@@ -337,7 +338,7 @@ final class HDToolkit {
 		}
 	}
 
-	private static final void method515() {
+	private static final void setOrthoProjection() {
 		if (!aBoolean528) {
 			gl.glMatrixMode(5889);//PROJECTION
 			gl.glLoadIdentity();
@@ -349,38 +350,29 @@ final class HDToolkit {
 		}
 	}
 
-	public static void method516() {
-		renderer = null;
-		vendor = null;
-		gl = null;
-		glDrawable = null;
-		aGLContext522 = null;
-		aFloatArray532 = null;
-	}
-
 	static final void clearDepthBuffer() {
 		gl.glClear(256);//GL_DEPTH_BUFFER_BIT
 	}
 
-	private static final void method518(final float f, final float f_35_, final float f_36_, final float f_37_, final float f_38_, final float f_39_) {
-		final float f_40_ = f_38_ * 2.0F;
-		aFloatArray532[0] = f_40_ / (f_35_ - f);
-		aFloatArray532[1] = 0.0F;
-		aFloatArray532[2] = 0.0F;
-		aFloatArray532[3] = 0.0F;
-		aFloatArray532[4] = 0.0F;
-		aFloatArray532[5] = f_40_ / (f_37_ - f_36_);
-		aFloatArray532[6] = 0.0F;
-		aFloatArray532[7] = 0.0F;
-		aFloatArray532[8] = (f_35_ + f) / (f_35_ - f);
-		aFloatArray532[9] = (f_37_ + f_36_) / (f_37_ - f_36_);
-		aFloatArray532[10] = aFloat512 = -(f_39_ + f_38_) / (f_39_ - f_38_);
-		aFloatArray532[11] = -1.0F;
-		aFloatArray532[12] = 0.0F;
-		aFloatArray532[13] = 0.0F;
-		aFloatArray532[14] = aFloat533 = -(f_40_ * f_39_) / (f_39_ - f_38_);
-		aFloatArray532[15] = 0.0F;
-		gl.glLoadMatrixf(aFloatArray532, 0);
+	private static final void loadFrustumMatrix(final float left, final float right, final float bottom, final float top, final float nearMod, final float far) {
+		final float near = nearMod * 2.0F;
+		matrices[0] = near / (right - left);
+		matrices[1] = 0.0F;
+		matrices[2] = 0.0F;
+		matrices[3] = 0.0F;
+		matrices[4] = 0.0F;
+		matrices[5] = near / (top - bottom);
+		matrices[6] = 0.0F;
+		matrices[7] = 0.0F;
+		matrices[8] = (right + left) / (right - left);
+		matrices[9] = (top + bottom) / (top - bottom);
+		matrices[10] = aFloat512 = -(far + nearMod) / (far - nearMod);
+		matrices[11] = -1.0F;
+		matrices[12] = 0.0F;
+		matrices[13] = 0.0F;
+		matrices[14] = aFloat533 = -(near * far) / (far - nearMod);
+		matrices[15] = 0.0F;
+		gl.glLoadMatrixf(matrices, 0);
 		aFloat534 = 0.0F;
 		aFloat530 = 0.0F;
 	}
@@ -669,14 +661,14 @@ final class HDToolkit {
 				final float f_58_ = f / (f_57_ + f);
 				final float f_59_ = f_58_ * f_58_;
 				final float f_60_ = -aFloat533 * (1.0F - f_58_) * (1.0F - f_58_) / f_57_;
-				aFloatArray532[10] = aFloat512 + f_60_;
-				aFloatArray532[14] = aFloat533 * f_59_;
+				matrices[10] = aFloat512 + f_60_;
+				matrices[14] = aFloat533 * f_59_;
 			} else {
-				aFloatArray532[10] = aFloat512;
-				aFloatArray532[14] = aFloat533;
+				matrices[10] = aFloat512;
+				matrices[14] = aFloat533;
 			}
 			gl.glMatrixMode(5889);
-			gl.glLoadMatrixf(aFloatArray532, 0);
+			gl.glLoadMatrixf(matrices, 0);
 			gl.glMatrixMode(5888);
 		}
 	}
@@ -742,7 +734,7 @@ final class HDToolkit {
 
 	static final void method539() {
 		Class120_Sub14_Sub13.method1532(0, 0);
-		method515();
+		setOrthoProjection();
 		method511(0);
 		method521(0);
 		toggleLighting(false);

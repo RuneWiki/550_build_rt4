@@ -166,7 +166,7 @@ class Class143 implements Interface3 {
 				if (string.length() == 0) {
 					string_30_ = new StringBuilder(string_30_).append("; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0").toString();
 				} else {
-					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(Class32.method270(94608000000L + TimeUtil.getSafeTime(), 1)).append("; Max-Age=").append(94608000L).toString();
+					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(Class32.method270(94608000000L + TimeUtil.getSafeTime())).append("; Max-Age=").append(94608000L).toString();
 				}
 				JSHelper.eval(new StringBuilder("document.cookie=\"").append(string_30_).append("\"").toString(), NpcType.gameSignlink.gameApplet);
 			} catch (final Throwable throwable) {
@@ -187,16 +187,6 @@ class Class143 implements Interface3 {
 		final Class120_Sub14_Sub13 class120_sub14_sub13_31_ = new Class120_Sub14_Sub13(new Buffer(is));
 		aClass35_2189.put(class120_sub14_sub13_31_, i);
 		return class120_sub14_sub13_31_;
-	}
-
-	public static void method2017(final byte i) {
-		try {
-			if (i == -10) {
-				selectString = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qi.JA(").append(i).append(')').toString());
-		}
 	}
 
 	@Override

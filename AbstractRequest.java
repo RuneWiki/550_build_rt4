@@ -11,19 +11,6 @@ abstract class AbstractRequest extends NodeSub {
 
 	abstract byte[] getBuffer();
 
-	public static void method1536(final boolean bool) {
-		try {
-			playerOptionsIcon = null;
-			if (bool) {
-				method1542(true);
-			}
-			aClass180_Sub2Array3574 = null;
-			TextRepository.aString3575 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ng.O(").append(bool).append(')').toString());
-		}
-	}
-
 	abstract int getCompletion();
 
 	private static final int[] method1538(final int i, final CollisionMap[] class25s, final byte[] is, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool, final int i_6_) {

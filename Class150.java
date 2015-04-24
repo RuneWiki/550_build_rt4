@@ -22,12 +22,6 @@ final class Class150 {
 		clanOwner = null;
 	}
 
-	public static void method2062() {
-		clanOwner = null;
-		anIntArray1405 = null;
-		anIntArray1412 = null;
-	}
-
 	static final void revertFrame(final Signlink signlink, final Frame frame) {
 		for (;;) {
 			final SignlinkNode signlinkNode = signlink.revertFrame(frame);

@@ -22,10 +22,6 @@ final class Class164_Sub2 extends Class164 {
 		anInterface4_2831.method10(component, Class178.anInt1771, Class90.aBoolean846);
 	}
 
-	public static void method2149() {
-		anInterface4_2831 = null;
-	}
-
 	@Override
 	final int method2137() {
 		return anInterface4_2831.method11(anInt2830);

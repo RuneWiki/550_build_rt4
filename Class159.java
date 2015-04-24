@@ -27,12 +27,6 @@ final class Class159 {
 		return new byte[i_0_];
 	}
 
-	public static void method2093() {
-		aShortArrayArray1489 = null;
-		aClass50_1490 = null;
-		Class145.aClass21_1486 = null;
-	}
-
 	static final void method2095(final int i, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_, final int i_11_) {
 		int i_12_ = 0;
 		final int i_13_ = i_7_ - i_11_;

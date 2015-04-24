@@ -102,10 +102,6 @@ final class Class41 {
 		HDToolkit.toggleFog(true);
 	}
 
-	public static void method332() {
-		aClass50_360 = null;
-	}
-
 	static final void method333() {
 		Class97.method806();
 	}

@@ -48,17 +48,6 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		return -1;
 	}
 
-	public static void method1641(final int i) {
-		try {
-			if (i == 32768) {
-				aString3655 = null;
-				anIntArray3654 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wh.D(").append(i).append(')').toString());
-		}
-	}
-
 	final int method1643(final char c) {
 		if (this.anIntArray3651 == null) {
 			return -1;

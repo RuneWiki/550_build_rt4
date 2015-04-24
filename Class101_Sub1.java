@@ -23,23 +23,6 @@ final class Class101_Sub1 extends Class101 {
 		Varp.method635(i_3_, this.anInt960, i_2_, this.anInt964, this.anInt959, i_5_, i_4_);
 	}
 
-	public static void method839(final byte i) {
-		try {
-			if (i >= 3) {
-				locationAmbientSounds = null;
-				aClass120_Sub14_Sub19Array2274 = null;
-				aClass22_2273 = null;
-				aByteArrayArray2271 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("am.L(").append(i).append(')').toString());
-		}
-	}
-
-	static final int method841(final int i_7_) {
-		return i_7_ >>> 10;
-	}
-
 	static final void method842(final Deque deque, final int i, final int i_10_) {
 		MapFunctionType.aClass105_653.clear();
 		if (!Class120_Sub12_Sub27.disableWorldMapMapFunctions) {

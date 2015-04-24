@@ -158,19 +158,6 @@ final class Js5Worker {
 		return getUrgentSize() >= 20;
 	}
 
-	public static void method359(final int i) {
-		try {
-			aString400 = null;
-			aString398 = null;
-			if (i == -29587) {
-				aStringArray399 = null;
-				aClass50_397 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("en.C(").append(i).append(')').toString());
-		}
-	}
-
 	final void replaceStreamsWithDummy() {
 		if (js5Connection != null) {
 			js5Connection.replaceStreamsWithDummy();

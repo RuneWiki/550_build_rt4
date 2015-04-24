@@ -78,12 +78,6 @@ final class DummyInputStream extends InputStream {
 		return -1;
 	}
 
-	public static void method70() {
-		fixedGameScreenInterface = null;
-		anIntArray24 = null;
-		TextRepository.membersObject = null;
-	}
-
 	static final String method71(final JagexInterface jagexInterface, String string) {
 		if (string.indexOf("%") != -1) {
 			for (;;) {

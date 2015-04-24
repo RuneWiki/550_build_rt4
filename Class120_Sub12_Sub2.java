@@ -147,15 +147,4 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1204(final int i) {
-		try {
-			if (i != 18253) {
-				lastClickTime = -116L;
-			}
-			aClass21_3144 = null;
-			aClass21_3143 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bl.U(").append(i).append(')').toString());
-		}
-	}
 }

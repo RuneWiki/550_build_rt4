@@ -15,26 +15,14 @@ final class WallLocation {
 	int renderY;
 	static CollisionMap[] collisionMaps = new CollisionMap[4];
 
-	public static void method2442() {
-		collisionMaps = null;
-		prefixTitles = null;
-	}
-
-	static final boolean method2443(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_) {
-		boolean bool;
-		try {
-			if (i_0_ + i_4_ <= i_6_ || i_7_ + i_6_ <= i_0_) {
-				return false;
-			}
-			if (i >= i_1_ + i_3_ || i_3_ >= i_2_ + i) {
-				return false;
-			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ve.B(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(',').append(i_7_).append(')').toString());
+	static final boolean method2443(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_6_, final int i_7_) {
+		if (i_0_ + i_4_ <= i_6_ || i_7_ + i_6_ <= i_0_) {
+			return false;
 		}
-		return bool;
+		if (i >= i_1_ + i_3_ || i_3_ >= i_2_ + i) {
+			return false;
+		}
+		return true;
 	}
 
 	static final int getMouseIdleCycle() {

@@ -11,7 +11,7 @@ final class Class191 {
 	float aFloat2108;
 	int anInt2109;
 	int anInt2110;
-	int anInt2111;
+	int fogColorRgb;
 	int anInt2112;
 	static int lastMouseY = 0;
 	float aFloat2114 = 0.25F;
@@ -23,11 +23,6 @@ final class Class191 {
 
 	static {
 		torchesFlamesPalette = new int[] { 12543016, 15504954, 15914854, 16773818 };
-	}
-
-	public static void method2507() {
-		torchesFlamesPalette = null;
-		TextRepository.aString2105 = null;
 	}
 
 	static final void method2508() {
@@ -382,7 +377,7 @@ final class Class191 {
 		this.aFloat2102 = 1.1523438F;
 		this.anInt2112 = -60;
 		this.aFloat2106 = 0.69921875F;
-		this.anInt2111 = AtmosphereManager.defaulFogColorRgb;
+		this.fogColorRgb = AtmosphereManager.defaulFogColorRgb;
 		if (World.anIntArray2835 != null) {
 			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(World.anIntArray2835[0], World.anIntArray2835[1], World.anIntArray2835[2], World.anIntArray2835[3], World.anIntArray2835[4], World.anIntArray2835[5]);
 		}
@@ -421,9 +416,9 @@ final class Class191 {
 			this.anInt2107 = -50;
 		}
 		if ((i & 0x20) == 0) {
-			this.anInt2111 = AtmosphereManager.defaulFogColorRgb;
+			this.fogColorRgb = AtmosphereManager.defaulFogColorRgb;
 		} else {
-			this.anInt2111 = class120_sub7.getInt();
+			this.fogColorRgb = class120_sub7.getInt();
 		}
 		if ((0x40 & i) != 0) {
 			this.anInt2118 = class120_sub7.getUShort();

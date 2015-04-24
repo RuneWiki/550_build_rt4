@@ -19,10 +19,6 @@ final class LavaShader implements ShaderInterface {
 		return 0;
 	}
 
-	public static void method551() {
-		aFloatArray2178 = null;
-	}
-
 	@Override
 	public final void method2() {
 		if (anInt2175 >= 0) {

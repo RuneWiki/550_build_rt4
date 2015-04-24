@@ -21,13 +21,6 @@ final class Class114 {
 	boolean aBoolean1107;
 	boolean aBoolean1108;
 
-	public static void method1003() {
-		aByteArrayArrayArray1094 = null;
-		aString1098 = null;
-		tileSettings = null;
-		aClass50_1097 = null;
-	}
-
 	static final DisplayModeInfo[] constructDisplayModes() {
 		if (Class65.displayModes == null) {
 			final DisplayModeInfo[] class171s_0_ = EnumType.getDisplayModes(NpcType.gameSignlink);

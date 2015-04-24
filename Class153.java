@@ -27,10 +27,6 @@ final class Class153 {
 		Class120_Sub14_Sub13.method1532(0, 0);
 	}
 
-	public static void method2071() {
-		aClass50_1433 = null;
-	}
-
 	static final WallDecoration removeWallDecoration(final int x, final int z, final int level) {
 		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
 		if (groundTile == null) {

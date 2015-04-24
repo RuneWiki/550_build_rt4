@@ -37,11 +37,6 @@ final class ObjectPile {
 		return dest;
 	}
 
-	public static void method2449() {
-		aClass172_1809 = null;
-		aShortArray1804 = null;
-	}
-
 	public ObjectPile() {
 		/* empty */
 	}

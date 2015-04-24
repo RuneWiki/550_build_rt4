@@ -349,22 +349,6 @@ class WorldMapHandler {
 		}
 	}
 
-	public static void method681() {
-		aClass50_689 = null;
-		aClass75_688 = null;
-		aClass120_Sub14_Sub22_691 = null;
-		aClass137_693 = null;
-		aClass177_690 = null;
-		underlayColors = null;
-		aByteArrayArrayArray711 = null;
-		aByteArrayArrayArray710 = null;
-		aByteArrayArrayArray703 = null;
-		aByteArrayArrayArray706 = null;
-		aByteArrayArrayArray707 = null;
-		anIntArrayArrayArray702 = null;
-		overlayColors = null;
-	}
-
 	static final void method682() {
 		for (int i = 0; i < aClass137_693.length; i++) {
 			if (aClass137_693.nodes[i] != null) {

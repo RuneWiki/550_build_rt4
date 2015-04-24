@@ -41,11 +41,6 @@ final class InterfaceClickMask extends Node {
 		return 0x7 & this.optionMask >> 18;
 	}
 
-	public static void method1684() {
-		aClass21_2663 = null;
-		aString2660 = null;
-	}
-
 	final int method1685() {
 		return optionMask >> 11 & 0x7f;
 	}

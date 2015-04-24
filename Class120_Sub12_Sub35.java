@@ -84,15 +84,4 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 		super(1, true);
 	}
 
-	public static void method1386(final byte i) {
-		try {
-			aShortArrayArray3414 = null;
-			aClass21_3411 = null;
-			if (i != -39) {
-				aClass21_3411 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.W(").append(i).append(')').toString());
-		}
-	}
 }

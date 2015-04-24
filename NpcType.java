@@ -81,13 +81,6 @@ final class NpcType {
 		return true;
 	}
 
-	public static void method2200() {
-		TextRepository.aString1685 = null;
-		configClient = null;
-		gameSignlink = null;
-		recentUse = null;
-	}
-
 	final String getStringParamValue(final int param, final String defaultString) {
 		if (params == null) {
 			return defaultString;

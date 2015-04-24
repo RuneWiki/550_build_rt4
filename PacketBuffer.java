@@ -173,28 +173,17 @@ final class PacketBuffer extends Buffer {
 	}
 
 	final int getUByteIsaac() {
-		return 0xff & this.buf[this.pos++] - isaacCipher.method903();
+		return 0xff & this.buf[this.pos++] - isaacCipher.val();
 	}
 
 	final void getBytesIsaac(final byte[] buf, final int off, final int len) {
 		for (int id = 0; id < len; id++) {
-			buf[id + off] = (byte) (this.buf[this.pos++] - isaacCipher.method903());
-		}
-	}
-
-	public static void method1150(final byte i) {
-		try {
-			anIntArray3120 = null;
-			if (i < 59) {
-				highWaterDetail = true;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wa.JC(").append(i).append(')').toString());
+			buf[id + off] = (byte) (this.buf[this.pos++] - isaacCipher.val());
 		}
 	}
 
 	final void putByteIsaac(final int i_8_) {
-		this.buf[this.pos++] = (byte) (isaacCipher.method903() + i_8_);
+		this.buf[this.pos++] = (byte) (isaacCipher.val() + i_8_);
 	}
 
 	final int getBitsLeft(final int i) {

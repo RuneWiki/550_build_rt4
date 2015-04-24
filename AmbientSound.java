@@ -132,17 +132,6 @@ final class AmbientSound extends Node {
 		}
 	}
 
-	public static void method1157(final int i) {
-		try {
-			if (i != 0) {
-				method1157(-41);
-			}
-			aClass50_2479 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gn.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1158(final int i, final int i_3_) {
 		if (client.cameraType == 2) {
 			UnderlayType.renderPitch = i;

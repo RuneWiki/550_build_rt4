@@ -72,7 +72,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1778();
 			Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.anInt3940);
-			Class30.aClass120_Sub30_Sub2_234.method1773(StringNode.aBoolean2734, Js5Request.aClass120_Sub31_3941, (byte) 119);
+			Class30.aClass120_Sub30_Sub2_234.method1773(Js5Request.aClass120_Sub31_3941, StringNode.aBoolean2734);
 			Class26.aClass90_163 = null;
 			Js5Request.aClass120_Sub31_3941 = null;
 			MasterIndexInfo.aClass50_476 = null;
@@ -116,17 +116,6 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			} while (false);
 			anInt3160 = buffer.getUShort();
 		} while (false);
-	}
-
-	public static void method1221(final int i) {
-		try {
-			aClass120_Sub14_Sub19Array3167 = null;
-			if (i == -23112) {
-				masterIndexFileSystem = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ck.R(").append(i).append(')').toString());
-		}
 	}
 
 	@Override

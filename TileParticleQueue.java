@@ -8,11 +8,6 @@ final class TileParticleQueue {
 	static Player selfPlayer;
 	private ParticleNodeSub current;
 
-	public static void method824() {
-		intArguments = null;
-		selfPlayer = null;
-	}
-
 	static final void dropClient() {
 		if (Class31.logoutCycle > 0) {
 			DummyInputStream.processLogout();

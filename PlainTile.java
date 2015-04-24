@@ -39,11 +39,6 @@ final class PlainTile {
 		}
 	}
 
-	public static void method2002() {
-		SpotAnimType.recentUse = null;
-		spriteHasAlpha = null;
-	}
-
 	PlainTile(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int minimapColor, final boolean bool) {
 		this.anInt1353 = i_4_;
 		this.anInt1349 = i;

@@ -23,67 +23,63 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void method1369(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_) {
-		try {
-			final int i_7_ = i_6_ + -i_5_;
-			final int i_8_ = i_2_ + -i;
-			if (i_7_ == 0) {
-				if (i_8_ != 0) {
-					Class82.method713(i_5_, i, i_2_, i_3_, false);
-				}
-			} else if (i_8_ == 0) {
-				SeqType.method321(true, i_5_, i_6_, i_3_, i);
-			} else {
-				final int i_9_ = (i_8_ << 12) / i_7_;
-				final int i_10_ = -(i_5_ * i_9_ >> 12) + i;
-				int i_11_;
-				int i_12_;
-				if (i_5_ >= Class32.anInt260) {
-					if (ParamType.anInt3544 >= i_5_) {
-						i_12_ = i_5_;
-						i_11_ = i;
-					} else {
-						i_12_ = ParamType.anInt3544;
-						i_11_ = (ParamType.anInt3544 * i_9_ >> 12) + i_10_;
-					}
-				} else {
-					i_11_ = i_10_ - -(Class32.anInt260 * i_9_ >> 12);
-					i_12_ = Class32.anInt260;
-				}
-				int i_13_;
-				int i_14_;
-				if (i_6_ >= Class32.anInt260) {
-					if (i_6_ <= ParamType.anInt3544) {
-						i_13_ = i_6_;
-						i_14_ = i_2_;
-					} else {
-						i_13_ = ParamType.anInt3544;
-						i_14_ = (i_9_ * ParamType.anInt3544 >> 12) + i_10_;
-					}
-				} else {
-					i_13_ = Class32.anInt260;
-					i_14_ = i_10_ + (Class32.anInt260 * i_9_ >> 12);
-				}
-				if (Class120_Sub30_Sub2.anInt3699 > i_14_) {
-					i_13_ = (Class120_Sub30_Sub2.anInt3699 + -i_10_ << 12) / i_9_;
-					i_14_ = Class120_Sub30_Sub2.anInt3699;
-				} else if (IdentityKit.anInt1334 < i_14_) {
-					i_13_ = (IdentityKit.anInt1334 + -i_10_ << 12) / i_9_;
-					i_14_ = IdentityKit.anInt1334;
-				}
-				if (Class120_Sub30_Sub2.anInt3699 <= i_11_) {
-					if (i_11_ > IdentityKit.anInt1334) {
-						i_11_ = IdentityKit.anInt1334;
-						i_12_ = (-i_10_ + IdentityKit.anInt1334 << 12) / i_9_;
-					}
-				} else {
-					i_12_ = (-i_10_ + Class120_Sub30_Sub2.anInt3699 << 12) / i_9_;
-					i_11_ = Class120_Sub30_Sub2.anInt3699;
-				}
-				LongNode.method1056(i_14_, i_12_, i_11_, -1, i_3_, i_13_);
+	static final void method1369(final int i, final int i_2_, final int i_3_, final int i_5_, final int i_6_) {
+		final int i_7_ = i_6_ + -i_5_;
+		final int i_8_ = i_2_ + -i;
+		if (i_7_ == 0) {
+			if (i_8_ != 0) {
+				Class82.method713(i_5_, i, i_2_, i_3_);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sl.W(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+		} else if (i_8_ == 0) {
+			SeqType.method321(true, i_5_, i_6_, i_3_, i);
+		} else {
+			final int i_9_ = (i_8_ << 12) / i_7_;
+			final int i_10_ = -(i_5_ * i_9_ >> 12) + i;
+			int i_11_;
+			int i_12_;
+			if (i_5_ >= Class32.anInt260) {
+				if (ParamType.anInt3544 >= i_5_) {
+					i_12_ = i_5_;
+					i_11_ = i;
+				} else {
+					i_12_ = ParamType.anInt3544;
+					i_11_ = (ParamType.anInt3544 * i_9_ >> 12) + i_10_;
+				}
+			} else {
+				i_11_ = i_10_ - -(Class32.anInt260 * i_9_ >> 12);
+				i_12_ = Class32.anInt260;
+			}
+			int i_13_;
+			int i_14_;
+			if (i_6_ >= Class32.anInt260) {
+				if (i_6_ <= ParamType.anInt3544) {
+					i_13_ = i_6_;
+					i_14_ = i_2_;
+				} else {
+					i_13_ = ParamType.anInt3544;
+					i_14_ = (i_9_ * ParamType.anInt3544 >> 12) + i_10_;
+				}
+			} else {
+				i_13_ = Class32.anInt260;
+				i_14_ = i_10_ + (Class32.anInt260 * i_9_ >> 12);
+			}
+			if (Class120_Sub30_Sub2.anInt3699 > i_14_) {
+				i_13_ = (Class120_Sub30_Sub2.anInt3699 + -i_10_ << 12) / i_9_;
+				i_14_ = Class120_Sub30_Sub2.anInt3699;
+			} else if (IdentityKit.anInt1334 < i_14_) {
+				i_13_ = (IdentityKit.anInt1334 + -i_10_ << 12) / i_9_;
+				i_14_ = IdentityKit.anInt1334;
+			}
+			if (Class120_Sub30_Sub2.anInt3699 <= i_11_) {
+				if (i_11_ > IdentityKit.anInt1334) {
+					i_11_ = IdentityKit.anInt1334;
+					i_12_ = (-i_10_ + IdentityKit.anInt1334 << 12) / i_9_;
+				}
+			} else {
+				i_12_ = (-i_10_ + Class120_Sub30_Sub2.anInt3699 << 12) / i_9_;
+				i_11_ = Class120_Sub30_Sub2.anInt3699;
+			}
+			LongNode.method1056(i_14_, i_12_, i_11_, -1, i_3_, i_13_);
 		}
 	}
 
@@ -385,18 +381,6 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	static final void method1373(final int i) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
 		class120_sub14_sub7.method1453();
-	}
-
-	public static void method1374(final byte i) {
-		try {
-			membersObjOptions = null;
-			aCharArray3385 = null;
-			if (i != -26) {
-				aCharArray3385 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sl.U(").append(i).append(')').toString());
-		}
 	}
 
 	@Override

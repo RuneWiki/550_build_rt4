@@ -11,13 +11,6 @@ final class World extends Class167 {
 	String ip;
 	int worldId;
 
-	public static void method2192() {
-		anIntArray2832 = null;
-		TextRepository.aString2837 = null;
-		aClass98_2833 = null;
-		anIntArray2835 = null;
-	}
-
 	static final boolean method2193() {
 		if (Class120_Sub12_Sub25.anInt3312 != 0) {
 			return true;
@@ -25,7 +18,7 @@ final class World extends Class167 {
 		return Class30.aClass120_Sub30_Sub2_234.method1766();
 	}
 
-	static final void method2194(ClientScript clientScript, final int i) {
+	static final void executeScript(ClientScript clientScript, final int i) {
 		Buffer.subScriptAmount = 0;
 		int intStackIndex = 0;
 		int opcodeIndex = -1;
@@ -52,7 +45,7 @@ final class World extends Class167 {
 					}
 					if (opcode == 2) {
 						final int id = intValues[opcodeIndex];
-						Class140.putVarp(id, ProducingGraphicsBuffer.intStack[--intStackIndex]);
+						Class140.setVarp(id, ProducingGraphicsBuffer.intStack[--intStackIndex]);
 						continue;
 					}
 					if (opcode == 3) {
@@ -112,7 +105,7 @@ final class World extends Class167 {
 					}
 					if (opcode == 27) {
 						final int i_10_ = intValues[opcodeIndex];
-						Class101.method836(i_10_, ProducingGraphicsBuffer.intStack[--intStackIndex]);
+						Class101.setVarbit(i_10_, ProducingGraphicsBuffer.intStack[--intStackIndex]);
 						continue;
 					}
 					if (opcode == 31) {
@@ -1635,7 +1628,7 @@ final class World extends Class167 {
 																									i_141_ = 255;
 																								}
 																								if (RuntimeException_Sub1.anInt2142 != i_141_) {
-																									if (RuntimeException_Sub1.anInt2142 != 0 || (Class157.anInt1466 ^ 0xffffffff) == 0) {
+																									if (RuntimeException_Sub1.anInt2142 != 0 || Class157.anInt1466 == -1) {
 																										if (i_141_ == 0) {
 																											Class188.method2481();
 																											Class120_Sub12_Sub15.aBoolean3247 = false;

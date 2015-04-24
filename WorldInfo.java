@@ -45,7 +45,7 @@ final class WorldInfo {
 		try {
 			if (i_11_ == -17731) {
 				if (i_7_ == i && i_8_ == i_9_ && i_13_ == i_6_ && i_5_ == i_10_) {
-					Class120_Sub12_Sub32.method1369(i_9_, i_10_, i_12_, -29, i, i_6_);
+					Class120_Sub12_Sub32.method1369(i_9_, i_10_, i_12_, i, i_6_);
 				} else {
 					int i_14_ = i;
 					int i_15_ = i_9_;
@@ -72,7 +72,7 @@ final class WorldInfo {
 						final int i_36_ = i_26_ * i_28_;
 						final int i_37_ = (i_36_ + i_30_ + i_32_ >> 12) + i;
 						final int i_38_ = (i_33_ + i_35_ - -i_34_ >> 12) + i_9_;
-						Class120_Sub12_Sub32.method1369(i_15_, i_38_, i_12_, -40, i_14_, i_37_);
+						Class120_Sub12_Sub32.method1369(i_15_, i_38_, i_12_, i_14_, i_37_);
 						i_15_ = i_38_;
 						i_14_ = i_37_;
 					}
@@ -84,14 +84,4 @@ final class WorldInfo {
 		}
 	}
 
-	public static void method2068(final boolean bool) {
-		try {
-			openUrl = null;
-			if (bool) {
-				method2065(null, false, 101, 41, -99);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rf.A(").append(bool).append(')').toString());
-		}
-	}
 }

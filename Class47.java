@@ -112,12 +112,6 @@ final class Class47 {
 		}
 	}
 
-	public static void method390() {
-		aClass107_Sub1_432 = null;
-		floorshadowSprites = null;
-		aClass94ArrayArray433 = null;
-	}
-
 	static final boolean method391(final LDIndexedSprite class107_sub1, final int i, final int i_51_, final int i_52_) {
 		if (class107_sub1 == null) {
 			return false;

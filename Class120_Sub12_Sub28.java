@@ -504,10 +504,6 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1348() {
-		okString = null;
-	}
-
 	@Override
 	final void decode(final Buffer buffer, final int i_170_) {
 		while_137_: do {

@@ -18,17 +18,6 @@ abstract class AbstractMouseWheelHandler {
 
 	abstract void removeListener(Component component);
 
-	public static void method157(final int i) {
-		try {
-			aClass50_115 = null;
-			if (i == 11170) {
-				aClass177_114 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bh.F(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method158(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
 		Class153.method2076(i_1_);
 		int i_5_ = 0;

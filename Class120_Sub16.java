@@ -5,15 +5,15 @@
 final class Class120_Sub16 extends Node {
 	static String[] friendsName;
 	static int menuDrawY;
-	int anInt2601;
-	int anInt2602 = 2147483647;
-	int anInt2603;
-	int anInt2604 = -2147483648;
-	int anInt2605;
-	int anInt2606;
-	int anInt2607;
+	int textStartX;
+	int startX = 2147483647;
+	int startY;
+	int endY = -2147483648;
+	int endX;
+	int textStartY;
+	int textEndY;
 	static int[] screenRedrawWidhts = new int[100];
-	int anInt2609;
+	int textEndX;
 	static int messageCount = 0;
 	MapFunctionNode mapFunctionNode;
 
@@ -21,16 +21,11 @@ final class Class120_Sub16 extends Node {
 		friendsName = new String[200];
 	}
 
-	public static void method1655() {
-		screenRedrawWidhts = null;
-		friendsName = null;
-	}
-
 	final boolean inBounds(final int mouseX, final int mouseY) {
-		if (mouseX >= this.anInt2602 && mouseX <= this.anInt2605 && mouseY >= this.anInt2603 && mouseY <= this.anInt2604) {
+		if (mouseX >= this.startX && mouseX <= this.endX && mouseY >= this.startY && mouseY <= this.endY) {
 			return true;
 		}
-		if (mouseX >= this.anInt2601 && mouseX <= this.anInt2609 && mouseY >= this.anInt2606 && mouseY <= this.anInt2607) {
+		if (mouseX >= this.textStartX && mouseX <= this.textEndX && mouseY >= this.textStartY && mouseY <= this.textEndY) {
 			return true;
 		}
 		return false;
@@ -140,12 +135,12 @@ final class Class120_Sub16 extends Node {
 	}
 
 	Class120_Sub16(final MapFunctionNode class120_sub14_sub5) {
-		this.anInt2603 = 2147483647;
-		this.anInt2609 = -2147483648;
-		this.anInt2607 = -2147483648;
-		this.anInt2601 = 2147483647;
-		this.anInt2605 = -2147483648;
-		this.anInt2606 = 2147483647;
+		this.startY = 2147483647;
+		this.textEndX = -2147483648;
+		this.textEndY = -2147483648;
+		this.textStartX = 2147483647;
+		this.endX = -2147483648;
+		this.textStartY = 2147483647;
 		this.mapFunctionNode = class120_sub14_sub5;
 	}
 }

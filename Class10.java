@@ -72,11 +72,6 @@ final class Class10 {
 		}
 	}
 
-	public static void method120() {
-		randomFile = null;
-		aClass50_79 = null;
-	}
-
 	static final boolean decodedSprites(final js5 js5, final int group, final int file) {
 		final byte[] data = js5.getFile(group, file);
 		if (data == null) {

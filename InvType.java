@@ -8,10 +8,6 @@ final class InvType extends NodeSub {
 	static js5 aClass50_1613;
 	static NodeCache recentUse = new NodeCache(64);
 	
-	public static void method2179() {
-		aClass50_1613 = null;
-	}
-
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 2) {
 			this.size = buffer.getUShort();

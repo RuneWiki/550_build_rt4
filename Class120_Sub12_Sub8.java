@@ -23,11 +23,6 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 		return dest;
 	}
 
-	public static void method1238() {
-		anIntArray3187 = null;
-		anIntArray3190 = null;
-	}
-
 	@Override
 	final int[][] method1188(final int i) {
 		final int[][] is_5_ = this.aClass109_2559.method975(i);

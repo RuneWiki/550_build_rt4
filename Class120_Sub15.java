@@ -27,19 +27,6 @@ final class Class120_Sub15 extends Node {
 		}
 	}
 
-	static final int method1652(final int i) {
-		return i & 0x7f;
-	}
-
-	public static void method1653() {
-		anIntArray2591 = null;
-		anIntArray2597 = null;
-		TextRepository.aString2594 = null;
-		TextRepository.aString2589 = null;
-		aClass120_Sub14_Sub18Array2595 = null;
-		aFloatArray2596 = null;
-	}
-
 	static final void method1654(final int i, final js5 js5, final int i_3_, final int i_5_, final int i_6_, final boolean bool) {
 		Class69.anInt614 = i_3_;
 		Class120_Sub14_Sub23.anInt3649 = i_6_;

@@ -58,10 +58,4 @@ final class Class118 {
 		return groundDecoration;
 	}
 
-	public static void method1023() {
-		TextRepository.aString1137 = null;
-		aShortArrayArray1136 = null;
-		playersList = null;
-		aClass107Array1138 = null;
-	}
 }

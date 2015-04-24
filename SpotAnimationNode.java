@@ -18,15 +18,6 @@ final class SpotAnimationNode extends NodeSub {
 		aBoolean3470 = false;
 	}
 
-	public static void method1436(final int i) {
-		try {
-			aBooleanArray3468 = null;
-			mouseHandler = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ed.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final boolean method1437(final int i, final long l, final int i_1_) {
 		final int i_2_ = (0x35960c & (int) l) >> 20;
 		final int i_3_ = 0x1f & (int) l >> 14;

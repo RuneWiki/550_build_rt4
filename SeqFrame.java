@@ -26,15 +26,6 @@ final class SeqFrame {
 		aShortArray44 = new short[500];
 	}
 
-	public static void method75() {
-		aShortArray46 = null;
-		aShortArray45 = null;
-		aShortArray34 = null;
-		aShortArray41 = null;
-		aShortArray44 = null;
-		aByteArray39 = null;
-	}
-
 	SeqFrame(final byte[] is, final LabelGroup class120_sub1) {
 		this.aBoolean42 = false;
 		this.labelGroup = null;

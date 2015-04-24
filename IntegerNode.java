@@ -23,20 +23,6 @@ final class IntegerNode extends Node {
 		Class116.aClass21_1117.clearSoftReference();
 	}
 
-	public static void method1832(final int i) {
-		try {
-			aString2788 = null;
-			anIntArray2791 = null;
-			aClass120_Sub9ArrayArray2789 = null;
-			anIntArray2787 = null;
-			if (i != 0) {
-				method1831();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("v.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final boolean method1833(final JagexInterface jagexInterface) {
 		if (jagexInterface.clientCode == 205) {
 			Class31.logoutCycle = 250;

@@ -93,15 +93,6 @@ final class ClanMember extends Node {
 		return i_23_;
 	}
 
-	public static void method1406() {
-		aClass50_2576 = null;
-		aBooleanArrayArray2573 = null;
-		fullscreenGraphics = null;
-		TextRepository.aString2574 = null;
-		TextRepository.aString2578 = null;
-		aClass193Array2581 = null;
-	}
-
 	public ClanMember() {
 		/* empty */
 	}

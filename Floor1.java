@@ -100,14 +100,8 @@ final class Floor1 {
 		}
 	}
 
-	public static void method151() {
-		xList = null;
-		yList = null;
-		step2Flags = null;
-	}
-
 	final boolean decodedFloor() {
-		if (Class120_Sub23.getBit() != 0) {
+		if (Class120_Sub23.getBit() == 0) {
 			return false;
 		}
 		final int i = alXList.length;

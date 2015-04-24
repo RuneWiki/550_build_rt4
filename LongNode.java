@@ -182,7 +182,7 @@ final class LongNode extends Node {
 				}
 			} else {
 				if (i_32_ != 0) {
-					ParticleEmitter.method939(i_27_, i_30_, i, (byte) -75, i_28_);
+					ParticleEmitter.method939(i_27_, i_30_, i, i_28_);
 				}
 				return;
 			}
@@ -252,60 +252,39 @@ final class LongNode extends Node {
 		}
 	}
 
-	public static void method1058(final int i) {
-		try {
-			grandExchangeObjects = null;
-			TextRepository.rating = null;
-			TextRepository.loadingConfig = null;
-			if (i != 1) {
-				method1058(58);
+	static final void method1059(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int i_52_, final int i_53_) {
+		if (i_53_ == i_49_ && i_47_ == i_52_ && i_50_ == i_51_ && i_46_ == i) {
+			method1056(i, i_53_, i_47_, -1, i_48_, i_51_);
+		} else {
+			int i_54_ = i_53_;
+			int i_55_ = i_47_;
+			final int i_56_ = 3 * i_53_;
+			final int i_57_ = 3 * i_47_;
+			final int i_58_ = 3 * i_49_;
+			final int i_59_ = i_50_ * 3;
+			final int i_60_ = i_52_ * 3;
+			final int i_61_ = 3 * i_46_;
+			final int i_62_ = -i_53_ + i_58_ + i_51_ + -i_59_;
+			final int i_63_ = i_60_ + -i_61_ + i - i_47_;
+			final int i_64_ = -i_58_ + i_59_ + -i_58_ - -i_56_;
+			final int i_65_ = -i_60_ + i_61_ + -i_60_ - -i_57_;
+			final int i_66_ = -i_57_ + i_60_;
+			final int i_67_ = -i_56_ + i_58_;
+			for (int i_68_ = 128; i_68_ <= 4096; i_68_ += 128) {
+				final int i_69_ = i_68_ * i_68_ >> 12;
+				final int i_70_ = i_68_ * i_69_ >> 12;
+				final int i_71_ = i_70_ * i_62_;
+				final int i_72_ = i_69_ * i_64_;
+				final int i_73_ = i_67_ * i_68_;
+				final int i_74_ = i_65_ * i_69_;
+				final int i_75_ = (i_73_ + i_72_ + i_71_ >> 12) + i_53_;
+				final int i_76_ = i_63_ * i_70_;
+				final int i_77_ = i_66_ * i_68_;
+				final int i_78_ = (i_77_ + i_76_ + i_74_ >> 12) + i_47_;
+				method1056(i_78_, i_54_, i_55_, -1, i_48_, i_75_);
+				i_54_ = i_75_;
+				i_55_ = i_78_;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bg.A(").append(i).append(')').toString());
-		}
-	}
-
-	static final void method1059(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int i_52_, final int i_53_, final boolean bool) {
-		try {
-			if (i_53_ == i_49_ && i_47_ == i_52_ && i_50_ == i_51_ && i_46_ == i) {
-				method1056(i, i_53_, i_47_, -1, i_48_, i_51_);
-			} else {
-				int i_54_ = i_53_;
-				int i_55_ = i_47_;
-				final int i_56_ = 3 * i_53_;
-				final int i_57_ = 3 * i_47_;
-				final int i_58_ = 3 * i_49_;
-				final int i_59_ = i_50_ * 3;
-				final int i_60_ = i_52_ * 3;
-				final int i_61_ = 3 * i_46_;
-				final int i_62_ = -i_53_ + i_58_ + i_51_ + -i_59_;
-				final int i_63_ = i_60_ + -i_61_ + i - i_47_;
-				final int i_64_ = -i_58_ + i_59_ + -i_58_ - -i_56_;
-				final int i_65_ = -i_60_ + i_61_ + -i_60_ - -i_57_;
-				final int i_66_ = -i_57_ + i_60_;
-				final int i_67_ = -i_56_ + i_58_;
-				for (int i_68_ = 128; i_68_ <= 4096; i_68_ += 128) {
-					final int i_69_ = i_68_ * i_68_ >> 12;
-					final int i_70_ = i_68_ * i_69_ >> 12;
-					final int i_71_ = i_70_ * i_62_;
-					final int i_72_ = i_69_ * i_64_;
-					final int i_73_ = i_67_ * i_68_;
-					final int i_74_ = i_65_ * i_69_;
-					final int i_75_ = (i_73_ + i_72_ + i_71_ >> 12) + i_53_;
-					final int i_76_ = i_63_ * i_70_;
-					final int i_77_ = i_66_ * i_68_;
-					final int i_78_ = (i_77_ + i_76_ + i_74_ >> 12) + i_47_;
-					method1056(i_78_, i_54_, i_55_, -1, i_48_, i_75_);
-					i_54_ = i_75_;
-					i_55_ = i_78_;
-				}
-			}
-			if (!bool) {
-				method1058(34);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bg.C(").append(i).append(',').append(i_46_).append(',').append(i_47_).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(i_52_).append(',')
-					.append(i_53_).append(',').append(bool).append(')').toString());
 		}
 	}
 

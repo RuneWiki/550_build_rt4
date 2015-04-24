@@ -153,18 +153,6 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 		return i_13_;
 	}
 
-	public static void method1260(final byte i) {
-		try {
-			aBooleanArray3223 = null;
-			anIntArray3220 = null;
-			if (i >= -123) {
-				aBooleanArray3223 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jj.V(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final int[] method1187(final int i_24_) {
 		final int[] is_25_ = this.aClass30_2563.method258(i_24_);

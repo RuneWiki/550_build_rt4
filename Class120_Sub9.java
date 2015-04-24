@@ -235,13 +235,6 @@ final class Class120_Sub9 extends Node {
 		aByteBuffer2510 = null;
 	}
 
-	public static void method1164() {
-		aClass120_Sub7_2509 = null;
-		aClass120_Sub7_2513 = null;
-		aByteBuffer2518 = null;
-		aByteBuffer2510 = null;
-	}
-
 	final int method1165(final int i, final int i_12_, final int i_13_, final int[] is, final int[] is_14_, final boolean bool) {
 		if (this.blend) {
 			anIntArrayArray2526[anInt2502] = is_14_;

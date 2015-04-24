@@ -265,14 +265,4 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 		return is_24_;
 	}
 
-	public static void method1246(final int i) {
-		try {
-			aBooleanArray3194 = null;
-			if (i == 23665) {
-				Class153.recentUse = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fj.T(").append(i).append(')').toString());
-		}
-	}
 }

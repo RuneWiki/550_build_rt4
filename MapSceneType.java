@@ -477,7 +477,7 @@ final class MapSceneType {
 														} else if (jagexInterface == Class32.aClass189_256 && i_63_ == Huffman.anInt1204) {
 															class120_sub14_sub19.drawSpriteTransparency(i_67_, i_66_, 128);
 														} else {
-															class120_sub14_sub19.drawSprite(i_67_, i_66_);
+															class120_sub14_sub19.drawReg(i_67_, i_66_);
 														}
 													} else {
 														InterfaceClickMask.redrawInterface(jagexInterface);
@@ -490,7 +490,7 @@ final class MapSceneType {
 														InterfaceClickMask.redrawInterface(jagexInterface);
 													}
 												} else {
-													class120_sub14_sub19.drawSprite(i_67_, i_66_);
+													class120_sub14_sub19.drawReg(i_67_, i_66_);
 												}
 											}
 											i_63_++;
@@ -582,7 +582,7 @@ final class MapSceneType {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
 										} else {
-											class120_sub14_sub19.drawSprite(drawX, drawY);
+											class120_sub14_sub19.drawReg(drawX, drawY);
 										}
 									} else if (jagexInterface.anInt2088 < 0) {
 										AbstractSprite class120_sub14_sub19;
@@ -617,7 +617,7 @@ final class MapSceneType {
 																	if (alpha != 0) {
 																		class120_sub14_sub19.drawSpriteTransparency(i_83_ * i_78_ + drawX, i_84_ * i_79_ + drawY, -(0xff & alpha) + 256);
 																	} else {
-																		class120_sub14_sub19.drawSprite(i_78_ * i_83_ + drawX, i_84_ * i_79_ + drawY);
+																		class120_sub14_sub19.drawReg(i_78_ * i_83_ + drawX, i_84_ * i_79_ + drawY);
 																	}
 																}
 															}
@@ -647,7 +647,7 @@ final class MapSceneType {
 															if (jagexInterface.rotation != 0) {
 																class120_sub14_sub19.method1590(drawY - -(i_88_ * i_79_) + i_79_ / 2, jagexInterface.rotation, i_87_ * i_78_ + drawX - -(i_78_ / 2), 4096);
 															} else if (alpha == 0) {
-																class120_sub14_sub19.drawSprite(drawX - -(i_87_ * i_78_), drawY + i_88_ * i_79_);
+																class120_sub14_sub19.drawReg(drawX - -(i_87_ * i_78_), drawY + i_88_ * i_79_);
 															} else {
 																class120_sub14_sub19.drawSpriteTransparency(i_87_ * i_78_ + drawX, i_79_ * i_88_ + drawY, 256 - (alpha & 0xff));
 															}
@@ -664,7 +664,7 @@ final class MapSceneType {
 												} else if (jagexInterface.width != i_78_ || i_79_ != jagexInterface.height) {
 													class120_sub14_sub19.method1588(drawX, drawY, jagexInterface.width, jagexInterface.height);
 												} else {
-													class120_sub14_sub19.drawSprite(drawX, drawY);
+													class120_sub14_sub19.drawReg(drawX, drawY);
 												}
 											}
 										} else if (Class88.interfaceSpriteIsNull) {
@@ -971,8 +971,4 @@ final class MapSceneType {
 		/* empty */
 	}
 
-	public static void method2012() {
-		worldMapInterface = null;
-		aString1358 = null;
-	}
 }

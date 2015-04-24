@@ -31,18 +31,6 @@ final class Class192 {
 		Class120_Sub12_Sub34.anIntArray3409 = null;
 	}
 
-	public static void method2516(final byte i) {
-		try {
-			selectedObjName = null;
-			aCalendar2121 = null;
-			if (i < 107) {
-				method2515();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wk.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method2517(final Player player, final int animationId, final int delay) {
 		if (player.animId != animationId || animationId == -1) {
 			if (animationId == -1 || player.animId == -1 || SeqType.list(animationId).priority >= SeqType.list(player.animId).priority) {

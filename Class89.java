@@ -13,11 +13,6 @@ final class Class89 {
 		class120_sub14_sub7.anInt3484 = i;
 	}
 
-	public static void method747() {
-		aClass50_836 = null;
-		anIntArray838 = null;
-	}
-
 	static final StringBuffer increaseStringBufferLength(final StringBuffer stringbuffer, final char fillChar, final int newLength) {
 		final int oldLength = stringbuffer.length();
 		stringbuffer.setLength(newLength);

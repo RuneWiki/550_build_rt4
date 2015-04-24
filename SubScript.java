@@ -37,20 +37,20 @@ final class SubScript {
 		return string_4_;
 	}
 
-	static final void method2244(final MapFunctionNode class120_sub14_sub5, final MapFunctionType class73) {
-		final LDIndexedSprite class107_sub1 = class73.constructSpriteForWorldMap();
-		if (class107_sub1 != null) {
-			int i_5_ = class107_sub1.width;
-			if (class107_sub1.height > class107_sub1.width) {
-				i_5_ = class107_sub1.height;
+	static final void method2244(final MapFunctionNode mapFunctionNode, final MapFunctionType mapFunctionType) {
+		final LDIndexedSprite mapFunctionSprite = mapFunctionType.constructSpriteForWorldMap();
+		if (mapFunctionSprite != null) {
+			int i_5_ = mapFunctionSprite.width;
+			if (i_5_ < mapFunctionSprite.height) {
+				i_5_ = mapFunctionSprite.height;
 			}
-			int i_6_ = class120_sub14_sub5.worldMapX;
-			int i_7_ = class120_sub14_sub5.worldMapY;
+			int i_6_ = mapFunctionNode.worldMapX;
+			int i_7_ = mapFunctionNode.worldMapY;
 			int i_8_ = 0;
 			int i_9_ = 0;
 			int i_10_ = 0;
-			if (class73.headerText != null) {
-				i_8_ = ObjectCache.smallFont.method1486(class73.headerText, null, Class125.aStringArray2148);
+			if (mapFunctionType.headerText != null) {
+				i_8_ = ObjectCache.smallFont.method1486(mapFunctionType.headerText, null, Class125.aStringArray2148);
 				for (int i_11_ = 0; i_11_ < i_8_; i_11_++) {
 					String string = Class125.aStringArray2148[i_11_];
 					if (i_8_ - 1 > i_11_) {
@@ -63,7 +63,7 @@ final class SubScript {
 				}
 				i_10_ = (i_8_ + -1) * Class112.aClass98_1070.method817() + Class112.aClass98_1070.method813() / 2;
 			}
-			int i_13_ = class120_sub14_sub5.worldMapX;
+			int i_13_ = mapFunctionNode.worldMapX;
 			if (WorldMapHandler.anInt708 + i_5_ <= i_6_) {
 				if (-i_5_ + WorldMapHandler.anInt709 < i_6_) {
 					i_13_ = -5 + -i_5_ + WorldMapHandler.anInt709 - i_5_ / 2 - i_9_ / 2;
@@ -73,7 +73,7 @@ final class SubScript {
 				i_6_ = i_5_ + WorldMapHandler.anInt708;
 				i_13_ = 5 + i_9_ / 2 + i_5_ / 2 + WorldMapHandler.anInt708 - -i_5_;
 			}
-			int i_14_ = class120_sub14_sub5.worldMapY - i_10_ / 2;
+			int i_14_ = mapFunctionNode.worldMapY - i_10_ / 2;
 			if (i_7_ >= i_5_ + WorldMapHandler.anInt705) {
 				if (-i_5_ + WorldMapHandler.anInt712 < i_7_) {
 					i_14_ = -i_5_ + WorldMapHandler.anInt712 - (i_5_ / 2 + i_10_);
@@ -87,44 +87,44 @@ final class SubScript {
 			int i_16_ = -2;
 			i_5_ >>= 1;
 			int i_17_ = -2;
-			final int i_18_ = (int) (Math.atan2(i_6_ - class120_sub14_sub5.worldMapX, -class120_sub14_sub5.worldMapY + i_7_) / Math.PI * 32767.0) & 0xffff;
+			final int i_18_ = (int) (Math.atan2(i_6_ - mapFunctionNode.worldMapX, -mapFunctionNode.worldMapY + i_7_) / Math.PI * 32767.0) & 0xffff;
 			int i_19_ = -2;
-			class107_sub1.method917(class107_sub1.trimWidth << 3, class107_sub1.trimHeight << 3, i_5_ + (i_6_ << 4), i_5_ + (i_7_ << 4), i_18_, 4096);
-			if (class73.headerText != null) {
+			mapFunctionSprite.method917(mapFunctionSprite.trimWidth << 3, mapFunctionSprite.trimHeight << 3, i_5_ + (i_6_ << 4), i_5_ + (i_7_ << 4), i_18_, 4096);
+			if (mapFunctionType.headerText != null) {
 				i_16_ = i_14_ - Class112.aClass98_1070.method813() - 3;
 				i_15_ = i_13_ + -(i_9_ / 2) - 5;
 				i_19_ = i_8_ * Class112.aClass98_1070.method817() + i_16_;
 				i_17_ = i_9_ + i_15_ + 10;
-				if (class73.fillRectARGB != 0) {
-					GraphicsLD.fillRectAlpha(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.fillRectARGB, class73.fillRectARGB >>> 24);
+				if (mapFunctionType.fillRectARGB != 0) {
+					GraphicsLD.fillRectAlpha(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, mapFunctionType.fillRectARGB, mapFunctionType.fillRectARGB >>> 24);
 				}
-				if (class73.rectARGB != 0) {
-					GraphicsLD.drawRectAlpha(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, class73.rectARGB, class73.rectARGB >>> 24);
+				if (mapFunctionType.rectARGB != 0) {
+					GraphicsLD.drawRectAlpha(i_15_, i_16_, -i_15_ + i_17_, -i_16_ + i_19_, mapFunctionType.rectARGB, mapFunctionType.rectARGB >>> 24);
 				}
 				for (int i_20_ = 0; i_8_ > i_20_; i_20_++) {
 					String string = Class125.aStringArray2148[i_20_];
 					if (i_20_ < i_8_ - 1) {
 						string = string.substring(0, -4 + string.length());
 					}
-					Class112.aClass98_1070.method815(string, i_13_, i_14_, class73.unfocusedFontColor, true);
+					Class112.aClass98_1070.method815(string, i_13_, i_14_, mapFunctionType.unfocusedFontColor, true);
 					i_14_ += Class112.aClass98_1070.method817();
 				}
 			}
 			if (Queue.lastMouseX > -i_5_ + i_6_ && i_6_ - -i_5_ > Queue.lastMouseX && Class191.lastMouseY > -i_5_ + i_7_ && Class191.lastMouseY < i_7_ - -i_5_ || Queue.lastMouseX > i_15_ && i_17_ > Queue.lastMouseX && i_16_ < Class191.lastMouseY && Class191.lastMouseY < i_19_) {
-				if (class73.actionPrefixes[4] != null) {
-					InvType.addMenuOption(class73.actionPrefixes[4], class73.actionSufix, class120_sub14_sub5.id, 0, 0, (short) 1011, -1);
+				if (mapFunctionType.actionPrefixes[4] != null) {
+					InvType.addMenuOption(mapFunctionType.actionPrefixes[4], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1011, -1);
 				}
-				if (class73.actionPrefixes[3] != null) {
-					InvType.addMenuOption(class73.actionPrefixes[3], class73.actionSufix, class120_sub14_sub5.id, 0, 0, (short) 1003, -1);
+				if (mapFunctionType.actionPrefixes[3] != null) {
+					InvType.addMenuOption(mapFunctionType.actionPrefixes[3], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1003, -1);
 				}
-				if (class73.actionPrefixes[2] != null) {
-					InvType.addMenuOption(class73.actionPrefixes[2], class73.actionSufix, class120_sub14_sub5.id, 0, 0, (short) 1008, -1);
+				if (mapFunctionType.actionPrefixes[2] != null) {
+					InvType.addMenuOption(mapFunctionType.actionPrefixes[2], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1008, -1);
 				}
-				if (class73.actionPrefixes[1] != null) {
-					InvType.addMenuOption(class73.actionPrefixes[1], class73.actionSufix, class120_sub14_sub5.id, 0, 0, (short) 1002, -1);
+				if (mapFunctionType.actionPrefixes[1] != null) {
+					InvType.addMenuOption(mapFunctionType.actionPrefixes[1], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1002, -1);
 				}
-				if (class73.actionPrefixes[0] != null) {
-					InvType.addMenuOption(class73.actionPrefixes[0], class73.actionSufix, class120_sub14_sub5.id, 0, 0, (short) 1012, -1);
+				if (mapFunctionType.actionPrefixes[0] != null) {
+					InvType.addMenuOption(mapFunctionType.actionPrefixes[0], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1012, -1);
 				}
 			}
 		}
@@ -132,11 +132,6 @@ final class SubScript {
 
 	public SubScript() {
 		/* empty */
-	}
-
-	public static void method2245() {
-		aShortArrayArray1764 = null;
-		TextRepository.aString1766 = null;
 	}
 
 	static final int method2246(final int i, final int i_22_, final int i_23_) {

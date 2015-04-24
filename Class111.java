@@ -102,23 +102,6 @@ final class Class111 {
 		return CanvasWrapper.stringToIntRadix(text, radix, true);
 	}
 
-	public static void method983(final int i) {
-		try {
-			aClass28Array1057 = null;
-			TextRepository.aString1056 = null;
-			TextRepository.aString1066 = null;
-			anIntArray1063 = null;
-			TextRepository.aString1062 = null;
-			aClass50_1064 = null;
-			ParamType.configClient = null;
-			if (i != 212098599) {
-				aClass50_1064 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("mf.A(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method984(final GameEntity gameEntity) {
 		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.anInt3044 + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animCurrentFrame]) {
 			final int i_24_ = gameEntity.anInt2961 - gameEntity.anInt3035;

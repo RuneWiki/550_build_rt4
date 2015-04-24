@@ -5,7 +5,6 @@ import java.util.Random;
 
 final class UnderlayType {
 	int anInt1218;
-	static NodeCache aClass35_1219;
 	boolean aBoolean1220;
 	static short[][] aShortArrayArray1221 = {
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 24, 44, 64, 84, 104, 304, 678, 698, 550, 934, 954, 6448, 6946, 6966, 2352, 2726, 2746, 10544, 10918, 10938, 10304, 10550, 10570, 14640, 15014, 15034, 19760, 20134, 20154, -29392, -29018, -28998, 31024, 31270, 31290, -24272, -23898, -23878, -19152, -18778, -18758, -14032, -13658, -13638, -6864, -6490, -6470, 516, 536, 6788, 6808, 11012, 11032, 14980, 15000, 21124, 21144, -28924, -28904, -22012, -21992,
@@ -28,7 +27,7 @@ final class UnderlayType {
 	static ObjectCache recentUse = new ObjectCache(64);
 
 	static {
-		aClass35_1219 = new NodeCache(128);
+		ClientScript.recentUse = new NodeCache(128);
 		aBoolean1228 = false;
 	}
 
@@ -118,18 +117,6 @@ final class UnderlayType {
 		}
 	}
 
-	public static void method1902(final byte i) {
-		try {
-			aClass35_1219 = null;
-			aShortArrayArray1221 = null;
-			if (i != -110) {
-				renderPitch = 115;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pa.D(").append(i).append(')').toString());
-		}
-	}
-
 	static final void worldToScreenEntity(final GameEntity gameEntity, final int xOff, final int height, final int zOff, final int i_20_, final int i_21_) {
 		MapFunctionGroup.worldToScreen(gameEntity.x, height, gameEntity.z, xOff, zOff, i_20_, i_21_);
 	}
@@ -146,10 +133,10 @@ final class UnderlayType {
 
 	static final void drawOverlay(final int x, final int y, final int width, final int height) {
 		if (Class120_Sub14_Sub22.crossState == 1) {
-			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100].drawSprite(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
+			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100].drawReg(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
 		}
 		if (Class120_Sub14_Sub22.crossState == 2) {
-			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100 + 4].drawSprite(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
+			Class120_Sub12_Sub30.crossSprites[Class120_Sub12_Sub7.crossIndex / 100 + 4].drawReg(Class120_Sub12_Sub35.crossX - 8, IsaacCipher.crossY - 8);
 		}
 		FileSystem.checkPlayerLocation();
 	}
@@ -255,7 +242,7 @@ final class UnderlayType {
 			final int i = Class120_Sub12_Sub5.canvasHeight;
 			final int i_40_ = 956 * i / 503;
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
-			Class120_Sub12_Sub27.logoSprite.method910(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
+			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 		}
 		font.method1478(Buffer.gameId != 1 ? TextRepository.aString3272 : ParticleNodeSub.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
 		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;

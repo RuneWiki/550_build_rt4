@@ -908,54 +908,6 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		return maxZ;
 	}
 
-	public static void method2394() {
-		aClass180_Sub7_Sub1_3767 = null;
-		aByteArray3782 = null;
-		aShortArray3798 = null;
-		anIntArray3790 = null;
-		anIntArray3789 = null;
-		anIntArray3796 = null;
-		aClass180_Sub7_Sub1_3799 = null;
-		aByteArray3803 = null;
-		aShortArray3802 = null;
-		anIntArray3804 = null;
-		anIntArray3805 = null;
-		anIntArray3801 = null;
-		aClass180_Sub7_Sub1_3800 = null;
-		aByteArray3825 = null;
-		aShortArray3824 = null;
-		anIntArray3830 = null;
-		anIntArray3817 = null;
-		anIntArray3808 = null;
-		aBooleanArray3823 = null;
-		aBooleanArray3831 = null;
-		anIntArray3840 = null;
-		anIntArray3811 = null;
-		anIntArray3836 = null;
-		anIntArray3812 = null;
-		anIntArray3806 = null;
-		anIntArray3834 = null;
-		anIntArray3821 = null;
-		anIntArray3818 = null;
-		anIntArray3827 = null;
-		anIntArray3820 = null;
-		anIntArray3829 = null;
-		anIntArray3832 = null;
-		anIntArrayArray3813 = null;
-		anIntArray3815 = null;
-		anIntArrayArray3809 = null;
-		anIntArray3826 = null;
-		anIntArray3810 = null;
-		anIntArray3819 = null;
-		anIntArrayArray3838 = null;
-		anIntArray3828 = null;
-		anIntArray3839 = null;
-		anIntArray3807 = null;
-		anIntArray3843 = null;
-		anIntArray3837 = null;
-		anIntArray3842 = null;
-	}
-
 	@Override
 	final void method2367(final int i, final int i_169_, final int i_170_, final int i_171_, final int i_172_, final int i_173_, final int i_174_, final long l) {
 		if (!this.boundsCalculated) {

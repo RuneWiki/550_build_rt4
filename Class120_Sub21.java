@@ -23,13 +23,6 @@ final class Class120_Sub21 extends Node {
 		class120_sub14_sub7.anInt3486 = i_0_;
 	}
 
-	public static void method1696() {
-		anInterface1_2668 = null;
-		TextRepository.aString2665 = null;
-		TextRepository.aString2669 = null;
-		aClass120_Sub14_Sub18Array2667 = null;
-	}
-
 	static final boolean isValidStringBase10(final String string) {
 		return Huffman.isValidStringRadix(string, 10, true);
 	}

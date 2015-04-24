@@ -228,17 +228,4 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	public static void method1343(final int i) {
-		try {
-			CursorType.spriteCache = null;
-			logoSprite = null;
-			TextRepository.aString3338 = null;
-			anIntArray3349 = null;
-			if (i <= 39) {
-				TextRepository.aString3338 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rh.T(").append(i).append(')').toString());
-		}
-	}
 }

@@ -49,12 +49,6 @@ final class MasterIndexInfo {
 		VarBit.recentUse = new ObjectCache(i);
 	}
 
-	public static void method454() {
-		aClass50_476 = null;
-		aClass50_469 = null;
-		needInterfaceRedrawWrapper = null;
-	}
-
 	private final void decode(final byte[] data) {
 		final Buffer buffer = new Buffer(Class71.unpack(data));
 		final int protocol = buffer.getUByte();

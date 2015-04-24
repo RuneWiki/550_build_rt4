@@ -21,17 +21,6 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		anIntArray3416 = new int[128];
 	}
 
-	public static void method1388() {
-		aClass50_3419 = null;
-		aByteArrayArray3421 = null;
-		anIntArray3416 = null;
-		anIntArray3417 = null;
-		anIntArray3422 = null;
-		npcIndices = null;
-		anIntArrayArrayArray3420 = null;
-		aClass50_3418 = null;
-	}
-
 	public Class120_Sub12_Sub36() {
 		super(1, false);
 	}

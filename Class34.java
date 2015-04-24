@@ -244,12 +244,6 @@ final class Class34 {
 		return false;
 	}
 
-	public static void method287() {
-		aClass105_284 = null;
-		anIntArray292 = null;
-		aClass120_Sub2_Sub1_295 = null;
-	}
-
 	static final boolean method288() {
 		if (anInt282 != -1) {
 			return true;

@@ -11,11 +11,6 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	private int anInt3152 = 4096;
 	private int anInt3153 = 4096;
 
-	public static void method1205() {
-		aClass164_3150 = null;
-		anIntArray3148 = null;
-	}
-
 	static final MapFunctionNode method1206() {
 		if (WorldMapHandler.aClass177_690 == null) {
 			return null;

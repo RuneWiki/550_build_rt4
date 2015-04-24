@@ -43,13 +43,6 @@ final class Class109 {
 		return anIntArrayArrayArray1043;
 	}
 
-	public static void method974() {
-		aClass6Array1047 = null;
-		anIntArray1037 = null;
-		TextRepository.continueString = null;
-		TextRepository.aString1038 = null;
-	}
-
 	final int[][] method975(final int i) {
 		if (anInt1040 != anInt1048) {
 			if (anInt1048 != 1) {

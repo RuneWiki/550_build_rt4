@@ -529,18 +529,6 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		graphics.drawImage(this.image, x, y, this);
 	}
 
-	public static void method1852(final int i) {
-		try {
-			anIntArray2796 = null;
-			intStack = null;
-			if (i != -1) {
-				method1853(-97, 89, -120, 58, -53, -53, -56);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tm.L(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1853(final int i, final int i_66_, final int i_68_, final int i_69_, final int i_70_, final int i_71_, int i_72_) {
 		if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
 			if (i_70_ == 0) {

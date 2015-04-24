@@ -93,30 +93,22 @@ final class Class112 {
 		}
 	}
 
-	public static void method988() {
-		playerIndices = null;
-		aClass98_1070 = null;
-		frame = null;
-		aString1079 = null;
-		anIntArray1069 = null;
-	}
-
 	static final void method989(final int i, final int i_12_, final int i_14_) {
 		final ClientScript class120_sub14_sub12 = Class120_Sub12_Sub16.method1277(i, i_12_, i_14_);
 		if (class120_sub14_sub12 != null) {
 			TileParticleQueue.intArguments = new int[class120_sub14_sub12.intArgumentCount];
 			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
 			if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
-				int i_15_ = 0;
-				int i_16_ = 0;
+				int x = 0;
+				int y = 0;
 				if (MapSceneType.worldMapInterface != null) {
-					i_15_ = MapSceneType.worldMapInterface.x;
-					i_16_ = MapSceneType.worldMapInterface.y;
+					x = MapSceneType.worldMapInterface.x;
+					y = MapSceneType.worldMapInterface.y;
 				}
-				TileParticleQueue.intArguments[0] = Queue.lastMouseX - i_15_;
-				TileParticleQueue.intArguments[1] = Class191.lastMouseY - i_16_;
+				TileParticleQueue.intArguments[0] = Queue.lastMouseX - x;
+				TileParticleQueue.intArguments[1] = Class191.lastMouseY - y;
 			}
-			World.method2194(class120_sub14_sub12, 200000);
+			World.executeScript(class120_sub14_sub12, 200000);
 		}
 	}
 

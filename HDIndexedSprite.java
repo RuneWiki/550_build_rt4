@@ -15,7 +15,7 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 	private int anInt2313 = 0;
 
 	@Override
-	final void method910(int i, int i_0_) {
+	final void drawReg(int i, int i_0_) {
 		HDToolkit.method510();
 		i += this.xOffset;
 		i_0_ += this.yOffset;

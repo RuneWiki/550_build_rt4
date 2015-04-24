@@ -153,12 +153,6 @@ final class Class120_Sub29 extends Node {
 		}
 	}
 
-	public static void method1729() {
-		menuOptionsData3 = null;
-		menuOptionsCode = null;
-		aClass50_2770 = null;
-	}
-
 	static final void method1730(final int i) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i);
 		class120_sub14_sub7.method1453();

@@ -27,7 +27,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 	private float aFloat3607;
 	private final boolean aBoolean3608;
 
-	private static final void method1569(final int i, final int i_0_, int width, int height, final int i_3_, final int i_4_, final float[] fs) {
+	private static final void method1569(final int target, final int internalFormat, int width, int height, final int externalFormat, final int i_4_, final float[] fs) {
 		if (width == 0 || width == -2147483648 || !Class179.isPowerOfTwo(width)) {
 			throw new InvalidParameterException("width must be power of 2");
 		}
@@ -35,30 +35,30 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			throw new InvalidParameterException("height must be power of 2");
 		}
 		int i_5_;
-		if (i_3_ == 6406) {
+		if (externalFormat == 6406) {
 			i_5_ = 1;
-		} else if (i_3_ == 6409) {
+		} else if (externalFormat == 6409) {
 			i_5_ = 1;
-		} else if (i_3_ == 32841) {
+		} else if (externalFormat == 32841) {
 			i_5_ = 1;
-		} else if (i_3_ == 6410) {
+		} else if (externalFormat == 6410) {
 			i_5_ = 2;
-		} else if (i_3_ == 6407) {
+		} else if (externalFormat == 6407) {
 			i_5_ = 3;
-		} else if (i_3_ == 6408) {
+		} else if (externalFormat == 6408) {
 			i_5_ = 4;
 		} else {
 			throw new InvalidParameterException("Invalid external format");
 		}
 		final GL gl = HDToolkit.gl;
-		int i_6_ = 0;
+		int level = 0;
 		int i_7_ = width < height ? width : height;
 		int i_8_ = width >> 1;
 		int i_9_ = height >> 1;
 		float[] fs_10_ = fs;
 		float[] fs_11_ = new float[i_8_ * i_9_ * i_5_];
 		for (;;) {
-			gl.glTexImage2D(i, i_6_, i_0_, width, height, 0, i_3_, 5126, FloatBuffer.wrap(fs_10_));
+			gl.glTexImage2D(target, level, internalFormat, width, height, 0, externalFormat, 5126, FloatBuffer.wrap(fs_10_));//GL_FLOAT
 			if (i_7_ <= 1) {
 				break;
 			}
@@ -92,7 +92,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			i_8_ >>= 1;
 			i_9_ >>= 1;
 			i_7_ >>= 1;
-			i_6_++;
+			level++;
 		}
 	}
 
@@ -284,10 +284,6 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			anIntArray3593 = anIntArray3596;
 			anIntArray3596 = is;
 		}
-	}
-
-	public static void method1574() {
-		anIntArray3596 = null;
 	}
 
 	final boolean method1575(final Interface3 interface3, final js5 js5) {

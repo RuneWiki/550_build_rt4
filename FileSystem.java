@@ -167,19 +167,6 @@ final class FileSystem {
 		}
 	}
 
-	public static void method445(final int i) {
-		try {
-			anIntArray453 = null;
-			aClass105_456 = null;
-			if (i != 255) {
-				isNumber('\uff9b');
-			}
-			aClass40Array458 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.H(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method446(final int i, final int i_29_, final int i_31_, final int i_32_, final int i_33_) {
 		for (int i_34_ = i; i_34_ <= i_31_; i_34_++) {
 			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_34_], i_32_, i_29_, i_33_);

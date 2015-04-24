@@ -27,16 +27,6 @@ final class ParamType extends NodeSub {
 		}
 	}
 
-	public static void method1513(final int i) {
-		try {
-			if (i == -1) {
-				staticActiveComponent1 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jc.A(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1514(final int i_1_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_1_);
 		class120_sub14_sub7.method1453();

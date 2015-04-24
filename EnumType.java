@@ -8,7 +8,6 @@ final class EnumType extends NodeSub {
 	private int defaulInteger;
 	static FrameLoader[] aClass120_Sub14_Sub18Array3453 = new FrameLoader[14];
 	static int worldLen;
-	static String aString3455 = "M";
 	static int anInt3456;
 	private String defaultString = "null";
 	char aChar3458;
@@ -137,12 +136,6 @@ final class EnumType extends NodeSub {
 			final IntegerNode class120_sub32_8_ = new IntegerNode((int) class120_sub32.uid);
 			aClass75_3459.put(class120_sub32_8_, class120_sub32.value);
 		}
-	}
-
-	public static void method1424() {
-		aClass112_3460 = null;
-		aString3455 = null;
-		aClass120_Sub14_Sub18Array3453 = null;
 	}
 
 	final void decode(final Buffer buffer) {

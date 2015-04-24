@@ -159,16 +159,6 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1300(final int i) {
-		try {
-			if (i < -83) {
-				plainFont = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.AA(").append(i).append(')').toString());
-		}
-	}
-
 	static final void execuseCommand(final String command) {
 		if (Class86.staffLevel >= 2) {
 			if (command.equalsIgnoreCase("::gc")) {
@@ -212,6 +202,11 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (command.equalsIgnoreCase("::serverjs5drop")) {
 				Class178.js5Worker.sendDropConnection();
+			}
+			if (command.equalsIgnoreCase("test")) {
+				int i_108_ = 0;
+				int i_109_ = 100;
+				ObjectPile.method2447(i_109_, i_108_);
 			}
 			if (command.equalsIgnoreCase("::breakcon")) {
 				NpcType.gameSignlink.method1963(5000);

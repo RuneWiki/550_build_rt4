@@ -21,18 +21,7 @@ abstract class AbstractSprite extends NodeSub {
 
 	abstract void method1585(int i, int i_0_, int i_1_, int i_2_, int i_3_);
 
-	public static void method1586(final int i) {
-		try {
-			friendsNameAsLong = null;
-			if (i != 16) {
-				method1586(52);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uj.MA(").append(i).append(')').toString());
-		}
-	}
-
-	abstract void drawSprite(int x, int y);
+	abstract void drawReg(int x, int y);
 
 	abstract void method1588(int i, int i_5_, int i_6_, int i_7_);
 

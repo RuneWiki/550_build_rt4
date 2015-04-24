@@ -17,31 +17,14 @@ final class Class120_Sub12_Sub15 extends Class120_Sub12 {
 		aLongArray3245 = new long[100];
 	}
 
-	public static void method1274(final boolean bool) {
-		try {
-			hiddenString = null;
-			if (bool) {
-				method1275(null, (byte) 83, null);
-			}
-			aClass50_3242 = null;
-			aLongArray3245 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("la.R(").append(bool).append(')').toString());
+	static final void method1275(final NodeSub class120_sub14, final NodeSub class120_sub14_0_) {
+		if (class120_sub14_0_.previousSub != null) {
+			class120_sub14_0_.unlinkSub();
 		}
-	}
-
-	static final void method1275(final NodeSub class120_sub14, final byte i, final NodeSub class120_sub14_0_) {
-		try {
-			if (class120_sub14_0_.previousSub != null) {
-				class120_sub14_0_.unlinkSub();
-			}
-			class120_sub14_0_.nextSub = class120_sub14.nextSub;
-			class120_sub14_0_.previousSub = class120_sub14;
-			class120_sub14_0_.previousSub.nextSub = class120_sub14_0_;
-			class120_sub14_0_.nextSub.previousSub = class120_sub14_0_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("la.T(").append(class120_sub14 != null ? "{...}" : "null").append(',').append(i).append(',').append(class120_sub14_0_ != null ? "{...}" : "null").append(')').toString());
-		}
+		class120_sub14_0_.nextSub = class120_sub14.nextSub;
+		class120_sub14_0_.previousSub = class120_sub14;
+		class120_sub14_0_.previousSub.nextSub = class120_sub14_0_;
+		class120_sub14_0_.nextSub.previousSub = class120_sub14_0_;
 	}
 
 	@Override

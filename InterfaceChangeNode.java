@@ -30,13 +30,6 @@ final class InterfaceChangeNode extends NodeSub {
 		return (int) this.uid;
 	}
 
-	public static void method1451() {
-		clanName = null;
-		anIntArrayArray3488 = null;
-		menuOptionsCursorId = null;
-		anIntArray3485 = null;
-	}
-
 	static final void build3dScreenMenu(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int i_2_, final int i_7_) {
 		if (Light.objSelected == 0) {
 			final int i_8_ = IntegerNode.anInt2792;

@@ -679,14 +679,6 @@ final class Class97 {
 		method791(GraphicsLD.pixels, 0, anInt929, i_142_, i_143_, i_140_, i_141_, i_136_, i_137_, i_138_, i_139_, 128);
 	}
 
-	public static void method805() {
-		aByteBuffer921 = null;
-		aByteBuffer927 = null;
-		aClass180_Sub2_934 = null;
-		aByteArray941 = null;
-		anIntArray923 = null;
-	}
-
 	static final void method806() {
 		if (anInt942 != -1) {
 			MemoryManager.method999(anInt942, 0, anInt926);

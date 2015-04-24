@@ -65,46 +65,46 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 		}
 	}
 
-	private static final void method913(final int[] is, final byte[] is_12_, final int[] is_13_, int i, int i_14_, int i_15_, int i_16_, final int i_17_, final int i_18_, final int i_19_) {
-		final int i_20_ = -(i_16_ >> 2);
-		i_16_ = -(i_16_ & 0x3);
-		for (int i_21_ = -i_17_; i_21_ < 0; i_21_++) {
-			for (int i_22_ = i_20_; i_22_ < 0; i_22_++) {
-				i = is_12_[i_14_++];
-				if (i != 0) {
-					is[i_15_++] = is_13_[i & 0xff];
+	private static final void plotPixels(final int[] destPixels, final byte[] paletteIndicators, final int[] palette, int color, int srcPixelId, int destPixelId, int spriteWidth, final int spriteHeight, final int destPixelStep, final int srcPixelStep) {
+		final int widthLoops = -(spriteWidth >> 2);
+		spriteWidth = -(spriteWidth & 0x3);
+		for (int heightLoop = -spriteHeight; heightLoop < 0; heightLoop++) {
+			for (int widthLoop = widthLoops; widthLoop < 0; widthLoop++) {
+				color = paletteIndicators[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = palette[color & 0xff];
 				} else {
-					i_15_++;
+					destPixelId++;
 				}
-				i = is_12_[i_14_++];
-				if (i != 0) {
-					is[i_15_++] = is_13_[i & 0xff];
+				color = paletteIndicators[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = palette[color & 0xff];
 				} else {
-					i_15_++;
+					destPixelId++;
 				}
-				i = is_12_[i_14_++];
-				if (i != 0) {
-					is[i_15_++] = is_13_[i & 0xff];
+				color = paletteIndicators[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = palette[color & 0xff];
 				} else {
-					i_15_++;
+					destPixelId++;
 				}
-				i = is_12_[i_14_++];
-				if (i != 0) {
-					is[i_15_++] = is_13_[i & 0xff];
+				color = paletteIndicators[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = palette[color & 0xff];
 				} else {
-					i_15_++;
-				}
-			}
-			for (int i_23_ = i_16_; i_23_ < 0; i_23_++) {
-				i = is_12_[i_14_++];
-				if (i != 0) {
-					is[i_15_++] = is_13_[i & 0xff];
-				} else {
-					i_15_++;
+					destPixelId++;
 				}
 			}
-			i_15_ += i_18_;
-			i_14_ += i_19_;
+			for (int widthLoop = spriteWidth; widthLoop < 0; widthLoop++) {
+				color = paletteIndicators[srcPixelId++];
+				if (color != 0) {
+					destPixels[destPixelId++] = palette[color & 0xff];
+				} else {
+					destPixelId++;
+				}
+			}
+			destPixelId += destPixelStep;
+			srcPixelId += srcPixelStep;
 		}
 	}
 
@@ -775,42 +775,42 @@ final class LDIndexedSprite extends AbstractIndexedSprite {
 	}
 
 	@Override
-	final void method910(int i, int i_223_) {
-		i += this.xOffset;
-		i_223_ += this.yOffset;
-		int i_224_ = i + i_223_ * GraphicsLD.width;
-		int i_225_ = 0;
-		int i_226_ = this.height;
-		int i_227_ = this.width;
-		int i_228_ = GraphicsLD.width - i_227_;
-		int i_229_ = 0;
-		if (i_223_ < GraphicsLD.startY) {
-			final int i_230_ = GraphicsLD.startY - i_223_;
-			i_226_ -= i_230_;
-			i_223_ = GraphicsLD.startY;
-			i_225_ += i_230_ * i_227_;
-			i_224_ += i_230_ * GraphicsLD.width;
+	final void drawReg(int x, int y) {
+		x += this.xOffset;
+		y += this.yOffset;
+		int destPixelId = x + y * GraphicsLD.width;
+		int srcPixelId = 0;
+		int spriteHeight = this.height;
+		int spriteWidth = this.width;
+		int destPixelStep = GraphicsLD.width - spriteWidth;
+		int srcPixelStep = 0;
+		if (y < GraphicsLD.startY) {
+			final int outOfBoundsY = GraphicsLD.startY - y;
+			spriteHeight -= outOfBoundsY;
+			y = GraphicsLD.startY;
+			srcPixelId += outOfBoundsY * spriteWidth;
+			destPixelId += outOfBoundsY * GraphicsLD.width;
 		}
-		if (i_223_ + i_226_ > GraphicsLD.endY) {
-			i_226_ -= i_223_ + i_226_ - GraphicsLD.endY;
+		if (y + spriteHeight > GraphicsLD.endY) {
+			spriteHeight -= y + spriteHeight - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_231_ = GraphicsLD.startX - i;
-			i_227_ -= i_231_;
-			i = GraphicsLD.startX;
-			i_225_ += i_231_;
-			i_224_ += i_231_;
-			i_229_ += i_231_;
-			i_228_ += i_231_;
+		if (x < GraphicsLD.startX) {
+			final int outOfBoundsX = GraphicsLD.startX - x;
+			spriteWidth -= outOfBoundsX;
+			x = GraphicsLD.startX;
+			srcPixelId += outOfBoundsX;
+			destPixelId += outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
-		if (i + i_227_ > GraphicsLD.endX) {
-			final int i_232_ = i + i_227_ - GraphicsLD.endX;
-			i_227_ -= i_232_;
-			i_229_ += i_232_;
-			i_228_ += i_232_;
+		if (x + spriteWidth > GraphicsLD.endX) {
+			final int outOfBoundsX = x + spriteWidth - GraphicsLD.endX;
+			spriteWidth -= outOfBoundsX;
+			srcPixelStep += outOfBoundsX;
+			destPixelStep += outOfBoundsX;
 		}
-		if (i_227_ > 0 && i_226_ > 0) {
-			method913(GraphicsLD.pixels, this.paletteIndicators, this.palette, 0, i_225_, i_224_, i_227_, i_226_, i_228_, i_229_);
+		if (spriteWidth > 0 && spriteHeight > 0) {
+			plotPixels(GraphicsLD.pixels, this.paletteIndicators, this.palette, 0, srcPixelId, destPixelId, spriteWidth, spriteHeight, destPixelStep, srcPixelStep);
 		}
 	}
 

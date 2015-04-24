@@ -77,10 +77,10 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			objSprite.shadow(shadow);
 		}
 		if (objType.certtemplate != -1) {
-			certLentTemplateSprite.drawSprite(0, 0);
+			certLentTemplateSprite.drawReg(0, 0);
 		} else if (objType.lenttemplate != -1) {
 			GraphicsLD.init2dCanvas(certLentTemplateSprite.pixels, 36, 32);
-			objSprite.drawSprite(0, 0);
+			objSprite.drawReg(0, 0);
 			objSprite = certLentTemplateSprite;
 		}
 		if (drawAmount && (objType.stackable == 1 || objCount != 1) && objCount != -1) {
@@ -184,11 +184,6 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		Class157.shaders[5] = new WaterfallShader();
 		Class157.shaders[6] = new Class138();
 		Class157.shaders[7] = new Class5();
-	}
-
-	public static void method1228() {
-		aClass120_Sub14_Sub22_3174 = null;
-		aClass120_Sub14_Sub19Array3168 = null;
 	}
 
 	@Override

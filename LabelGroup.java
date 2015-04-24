@@ -41,15 +41,6 @@ final class LabelGroup extends Node {
 		Class48.returnCode = -3;
 	}
 
-	public static void method1038() {
-		aClass21_2406 = null;
-		anIntArray2412 = null;
-		anIntArray2409 = null;
-		groundTiles = null;
-		hostNameNode = null;
-		aClass50_2413 = null;
-	}
-
 	static final LDSprite[] constructLDSprites() {
 		final LDSprite[] sprites = new LDSprite[Class93.spriteAmount];
 		for (int i_9_ = 0; i_9_ < Class93.spriteAmount; i_9_++) {

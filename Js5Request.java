@@ -65,15 +65,6 @@ final class Js5Request extends AbstractRequest {
 		}
 	}
 
-	public static void method1549(final int i) {
-		try {
-			MapSceneType.recentUse = null;
-			aClass120_Sub31_3941 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ul.I(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method1550() {
 		JavaObject.anIntArray3916 = Class3.method86(8, 4, 35, 0.4F, 2048, 8, true);
 	}

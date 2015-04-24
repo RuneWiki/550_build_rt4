@@ -856,7 +856,7 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	@Override
-	final void drawSprite(int x, int i_336_) {
+	final void drawReg(int x, int i_336_) {
 		x += this.offsetX;
 		i_336_ += this.offsetY;
 		int i_337_ = x + i_336_ * GraphicsLD.width;

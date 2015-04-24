@@ -71,7 +71,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 			this.aClass120_Sub30_Sub3_3675.method1731(i);
 			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.getFront();
 			while_211_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.getNext()) {
-				if (!aClass120_Sub30_Sub2_3670.method1760(37, class120_sub6)) {
+				if (!aClass120_Sub30_Sub2_3670.method1760(class120_sub6)) {
 					int i_0_ = i;
 					while_209_: do {
 						do {
@@ -113,7 +113,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 					class120_sub6.anInt2458 += i_4_ * i_5_ - 1048576;
 					if (aClass120_Sub30_Sub2_3670.anIntArray3683[class120_sub6.anInt2465] != 0) {
 						class120_sub6.aClass120_Sub30_Sub4_2446 = Class120_Sub30_Sub4.method1820(class120_sub6.aClass120_Sub5_Sub1_2447, class120_sub30_sub4.method1804(), 0, class120_sub30_sub4.method1824());
-						aClass120_Sub30_Sub2_3670.method1771(class120_sub6, (byte) 70, class120_sub6.aClass120_Sub22_2459.aShortArray2680[class120_sub6.anInt2460] < 0);
+						aClass120_Sub30_Sub2_3670.method1771(class120_sub6, class120_sub6.aClass120_Sub22_2459.aShortArray2680[class120_sub6.anInt2460] < 0);
 						class120_sub6.aClass120_Sub30_Sub4_2446.method1815(i_7_, class120_sub30_sub4.method1817());
 					} else {
 						class120_sub6.aClass120_Sub30_Sub4_2446 = Class120_Sub30_Sub4.method1820(class120_sub6.aClass120_Sub5_Sub1_2447, class120_sub30_sub4.method1804(), class120_sub30_sub4.method1817(), class120_sub30_sub4.method1824());
@@ -181,7 +181,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 			this.aClass120_Sub30_Sub3_3675.method1734(is, i, i_8_);
 			Class120_Sub6 class120_sub6 = (Class120_Sub6) this.aClass105_3669.getFront();
 			while_213_: for (/**/; class120_sub6 != null; class120_sub6 = (Class120_Sub6) this.aClass105_3669.getNext()) {
-				if (!aClass120_Sub30_Sub2_3670.method1760(102, class120_sub6)) {
+				if (!aClass120_Sub30_Sub2_3670.method1760(class120_sub6)) {
 					int i_9_ = i;
 					int i_10_ = i_8_;
 					while (class120_sub6.anInt2466 < i_10_) {
@@ -210,7 +210,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 				if (i_11_ >= i_13_) {
 					if (aClass120_Sub30_Sub2_3670.anIntArray3683[class120_sub6.anInt2465] != 0) {
 						class120_sub6.aClass120_Sub30_Sub4_2446 = Class120_Sub30_Sub4.method1820(class120_sub6.aClass120_Sub5_Sub1_2447, class120_sub6.aClass120_Sub30_Sub4_2446.method1804(), 0, class120_sub6.aClass120_Sub30_Sub4_2446.method1824());
-						aClass120_Sub30_Sub2_3670.method1771(class120_sub6, (byte) 93, class120_sub6.aClass120_Sub22_2459.aShortArray2680[class120_sub6.anInt2460] < 0);
+						aClass120_Sub30_Sub2_3670.method1771(class120_sub6, class120_sub6.aClass120_Sub22_2459.aShortArray2680[class120_sub6.anInt2460] < 0);
 					} else {
 						class120_sub6.aClass120_Sub30_Sub4_2446 = Class120_Sub30_Sub4.method1820(class120_sub6.aClass120_Sub5_Sub1_2447, class120_sub6.aClass120_Sub30_Sub4_2446.method1804(), class120_sub6.aClass120_Sub30_Sub4_2446.method1817(), class120_sub6.aClass120_Sub30_Sub4_2446.method1824());
 					}
@@ -223,17 +223,6 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 			class120_sub6.aClass120_Sub30_Sub4_2446.method1731(i_11_);
 		} catch (final RuntimeException runtimeexception) {
 			throw EnumType.method1428(runtimeexception, new StringBuilder("bn.B(").append(i).append(',').append(i_11_).append(',').append(class120_sub6 != null ? "{...}" : "null").append(')').toString());
-		}
-	}
-
-	public static void method1742(final int i) {
-		try {
-			if (i != 1970740129) {
-				method1739();
-			}
-			aShortArrayArray3668 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bn.A(").append(i).append(')').toString());
 		}
 	}
 

@@ -68,7 +68,4 @@ final class Class163 {
 		return method2122(anInt1567, i, i_19_, i_20_, anInt1578, anInt1578, i, anInt1581, is);
 	}
 
-	public static void method2128() {
-		anIntArray1582 = null;
-	}
 }

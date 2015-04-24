@@ -18,16 +18,4 @@ class Class69_Sub2 extends Class69 {
 		energy = 0;
 	}
 
-	public static void method619(final int i) {
-		try {
-			mapFunctionZs = null;
-			if (i != 0) {
-				method619(-112);
-			}
-			aClass120_Sub14_Sub19Array2237 = null;
-			aClass120_Sub14_Sub19Array2238 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dg.J(").append(i).append(')').toString());
-		}
-	}
 }

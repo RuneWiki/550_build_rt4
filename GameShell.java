@@ -462,7 +462,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 			} else {
 				if (code == 1012 || code == 1002 || code == 1008 || code == 1003 || code == 1011) {
-					Class38.method313(data1, code, data2);
+					Class38.handleMapFunctionAction(data1, code, data2);
 				}
 				if (code == 48) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -838,10 +838,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class69_Sub2.aClass120_Sub14_Sub19Array2237[id] = new HDSprite(hintmapedges[id]);
 			}
 		}
-	}
-
-	public static void method35() {
-		mainRedrawCache = null;
 	}
 
 	@Override

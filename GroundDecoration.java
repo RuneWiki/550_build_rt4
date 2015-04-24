@@ -198,17 +198,6 @@ final class GroundDecoration {
 		}
 	}
 
-	public static void method308(final int i) {
-		try {
-			aString313 = null;
-			if (i != 30900) {
-				method309();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dm.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method309() {
 		Class145.aClass21_1486.clear();
 		Class120_Sub6.aClass21_2443.clear();

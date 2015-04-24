@@ -162,20 +162,6 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 		}
 	}
 
-	public static void method1509(final boolean bool) {
-		try {
-			anIntArray3533 = null;
-			fullscreenFrame = null;
-			if (!bool) {
-				method1509(false);
-			}
-			landScapeAsLDSprite = null;
-			interfaceChangeCache = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.H(").append(bool).append(')').toString());
-		}
-	}
-
 	final String method1510() {
 		final StringBuffer stringbuffer = new StringBuffer(80);
 		if (aStringArray3536 == null) {

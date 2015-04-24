@@ -158,18 +158,6 @@ final class Projectile extends SceneGraphNode {
 		return anInt2952;
 	}
 
-	public static void method2321(final int i) {
-		try {
-			spriteXOffsets = null;
-			if (i == 13) {
-				aClass21_2931 = null;
-				aClass189_2954 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oc.F(").append(i).append(')').toString());
-		}
-	}
-
 	private final AbstractModelRenderer method2322() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(anInt2940);
 		final AbstractModelRenderer class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);

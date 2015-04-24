@@ -99,7 +99,7 @@ final class Class140 {
 		}
 	}
 
-	static final void putVarp(final int id, final int value) {
+	static final void setVarp(final int id, final int value) {
 		Class2.permanentVariable[id] = value;
 		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);
 		if (longNode == null) {
@@ -124,14 +124,6 @@ final class Class140 {
 			}
 		}
 		return null;
-	}
-
-	public static void method1999(final byte i) {
-		try {
-			anIntArray1341 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qe.C(").append(i).append(')').toString());
-		}
 	}
 
 	Class140(final Hashtable hashtable) {

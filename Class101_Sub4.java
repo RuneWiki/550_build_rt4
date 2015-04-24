@@ -25,13 +25,6 @@ final class Class101_Sub4 extends Class101 {
 		return Long.toString(id);
 	}
 
-	public static void method850() {
-		OverlayType.configClient = null;
-		interfaceJs5 = null;
-		anIntArray2296 = null;
-		anIntArray2304 = null;
-	}
-
 	@Override
 	final void method837(final int i, final int i_2_) {
 		final int i_3_ = i * anInt2298 >> 12;

@@ -94,17 +94,6 @@ final class Class175 {
 		aClass146_1751.method2054(class120_sub7, aClass63_1759);
 	}
 
-	public static void method2239() {
-		anIntArray1747 = null;
-		anIntArray1754 = null;
-		anIntArray1741 = null;
-		anIntArray1758 = null;
-		anIntArray1756 = null;
-		anIntArray1757 = null;
-		anIntArray1760 = null;
-		anIntArray1755 = null;
-	}
-
 	final int[] method2240(final int i, final int i_2_) {
 		ArrayUtils.resetArray(anIntArray1747, 0, i);
 		if (i_2_ < 10) {

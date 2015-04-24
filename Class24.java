@@ -130,20 +130,6 @@ final class Class24 {
 		ParamType.sendDisplayInfo();
 	}
 
-	public static void method206(final byte i) {
-		try {
-			aClass50_145 = null;
-			anIntArrayArrayArray140 = null;
-			if (i != -102) {
-				aFloat144 = 0.38711727F;
-			}
-			aClass50_143 = null;
-			aString142 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cg.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final int method207() {
 		if (MasterIndexInfo.aBoolean466) {
 			return 0;

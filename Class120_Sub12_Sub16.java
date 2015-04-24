@@ -20,7 +20,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 
 	static final ClientScript method1277(final int i, final int i_2_, final int i_3_) {
 		int i_5_ = i_2_ << 8 | i;
-		ClientScript class120_sub14_sub12_6_ = (ClientScript) UnderlayType.aClass35_1219.get((long) i_5_ << 16);
+		ClientScript class120_sub14_sub12_6_ = (ClientScript) ClientScript.recentUse.get((long) i_5_ << 16);
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
@@ -31,11 +31,11 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
 			class120_sub14_sub12_6_.anInt3546 = i;
-			UnderlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
 		i_5_ = i | i_3_ + 65536 << 8;
-		class120_sub14_sub12_6_ = (ClientScript) UnderlayType.aClass35_1219.get((long) i_5_ << 16);
+		class120_sub14_sub12_6_ = (ClientScript) ClientScript.recentUse.get((long) i_5_ << 16);
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
@@ -46,11 +46,11 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
 			class120_sub14_sub12_6_.anInt3546 = i;
-			UnderlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
 		i_5_ = i | 0xffff00;
-		class120_sub14_sub12_6_ = (ClientScript) UnderlayType.aClass35_1219.get((long) i_5_ << 16);
+		class120_sub14_sub12_6_ = (ClientScript) ClientScript.recentUse.get((long) i_5_ << 16);
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
@@ -61,7 +61,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
 			class120_sub14_sub12_6_.anInt3546 = i;
-			UnderlayType.aClass35_1219.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
+			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
 		return null;
@@ -135,7 +135,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 	static final void method1279() {
 		int i_28_ = Class99.anInt951 * 128 + 64;
 		int i_29_ = 64 + 128 * Class134.anInt1280;
-		int i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) + -SpotAnimType.anInt986;
+		int i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - SpotAnimType.anInt986;
 		if (ObjectContainer.anInt2621 >= 100) {
 			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
 			FileSystemWorker.renderX = Class99.anInt951 * 128 + 64;
@@ -229,20 +229,6 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		}
 		if (i_38_ < 0 && i_37_ > 0 || i_38_ > 0 && i_37_ < 0) {
 			SpotAnimation.renderYaw = i_36_;
-		}
-	}
-
-	public static void method1280(final int i) {
-		try {
-			aClass21_3251 = null;
-			aCharArray3254 = null;
-			if (i != -6473) {
-				anIntArray3255 = null;
-			}
-			friendsWorld = null;
-			anIntArray3255 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lf.T(").append(i).append(')').toString());
 		}
 	}
 

@@ -91,12 +91,6 @@ final class CanvasWrapper extends Canvas {
 		}
 	}
 
-	public static void method67() {
-		anInterface3_19 = null;
-		aClass50_18 = null;
-		anIntArray21 = null;
-	}
-
 	@Override
 	public final void paint(final Graphics graphics) {
 		component.paint(graphics);

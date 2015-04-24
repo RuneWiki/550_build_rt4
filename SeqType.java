@@ -389,12 +389,6 @@ final class SeqType {
 		return seqType;
 	}
 
-	public static void method329() {
-		loginPassword = null;
-		aClass50_2286 = null;
-		aClass120_Sub14_Sub19Array335 = null;
-	}
-
 	public SeqType() {
 		this.walkProperties = -1;
 		this.aBoolean340 = false;

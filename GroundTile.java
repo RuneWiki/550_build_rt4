@@ -79,18 +79,4 @@ final class GroundTile extends Node {
 		return i_10_ * i_12_ >> 12;
 	}
 
-	public static void method1672(final int i) {
-		try {
-			spriteYOffsets = null;
-			aClass75_2643 = null;
-			js5ConnectionNode = null;
-			TextRepository.aString2622 = null;
-			if (i != 14888) {
-				aClass40Array2649 = null;
-			}
-			aClass40Array2649 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("nh.A(").append(i).append(')').toString());
-		}
-	}
 }

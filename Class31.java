@@ -113,19 +113,6 @@ final class Class31 {
 		return CanvasWrapper.stringToIntRadix(string, 10, true);
 	}
 
-	public static void method266(final boolean bool) {
-		try {
-			aClass50_241 = null;
-			aClass107_Sub1_246 = null;
-			anIntArray243 = null;
-			if (bool) {
-				stringToBase10(null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("db.A(").append(bool).append(')').toString());
-		}
-	}
-
 	static final void removePlayerAmbientSound(final Player player) {
 		final AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.get(Varp.stringToLong(player.name));
 		if (ambientSound != null) {

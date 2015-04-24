@@ -34,17 +34,6 @@ final class Class48 {
 		class120_sub14_sub7.method1453();
 	}
 
-	public static void method402(final byte i) {
-		try {
-			if (i >= -122) {
-				method404(-52, 126, 125, 19);
-			}
-			worldList = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fc.D(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method404(final int i_16_, final int i_17_, final int i_18_, final int i_19_) {
 		if (Class111.anInt1061 != 0 && i_18_ != 0 && Class150.anInt1407 < 50 && i_17_ != -1) {
 			Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_17_;

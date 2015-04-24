@@ -25,19 +25,6 @@ final class GrandExchangeObject {
 		return (0x8 & progress) != 8 ? 0 : 1;
 	}
 
-	public static void method2098(final int i) {
-		try {
-			aStringArray1502 = null;
-			screenRedrawXs = null;
-			if (i != 1) {
-				method2099(null, null, true);
-			}
-			anIntArray1501 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("t.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method2099(final js5 js5, final js5 class50_1_, final boolean bool) {
 		Class140.npcMemberClient = bool;
 		NpcType.configClient = class50_1_;

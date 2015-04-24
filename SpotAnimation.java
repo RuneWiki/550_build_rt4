@@ -124,7 +124,7 @@ final class SpotAnimation extends SceneGraphNode {
 		try {
 			String string_13_ = "";
 			if (throwable != null) {
-				string_13_ = Class32.method272(false, throwable);
+				string_13_ = Class32.method272(throwable);
 			}
 			if (string != null) {
 				if (throwable != null) {
@@ -205,12 +205,6 @@ final class SpotAnimation extends SceneGraphNode {
 			}
 		}
 		return null;
-	}
-
-	public static void method2316() {
-		anIntArray2921 = null;
-		aClass21_2906 = null;
-		anIntArray2918 = null;
 	}
 
 	@Override

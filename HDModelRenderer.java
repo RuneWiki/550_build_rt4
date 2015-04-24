@@ -119,20 +119,6 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		}
 	}
 
-	public static void method2406() {
-		aLongArray3883 = null;
-		aClass120_Sub7_3871 = null;
-		aByteBuffer3887 = null;
-		aClass180_Sub7_Sub2_3885 = null;
-		aClass180_Sub7_Sub2_3889 = null;
-		aClass180_Sub7_Sub2_3891 = null;
-		aClass180_Sub7_Sub2_3893 = null;
-		aClass180_Sub7_Sub2_3894 = null;
-		aClass180_Sub7_Sub2_3895 = null;
-		anIntArray3905 = null;
-		anIntArray3901 = null;
-	}
-
 	@Override
 	final int getMaxX() {
 		if (!this.modelBounds.boundsCalculated) {

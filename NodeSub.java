@@ -32,16 +32,6 @@ class NodeSub extends Node {
 		}
 	}
 
-	public static void method1409(final int i) {
-		try {
-			aShortArray2584 = null;
-			aFloatArray2583 = null;
-			aString2585 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lh.HA(").append(i).append(')').toString());
-		}
-	}
-
 	final boolean hasPreviousSub() {
 		if (this.previousSub == null) {
 			return false;

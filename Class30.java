@@ -133,17 +133,6 @@ final class Class30 {
 		}
 	}
 
-	public static void method260(final int i) {
-		try {
-			aClass120_Sub30_Sub2_234 = null;
-			MapSceneType.configJs5 = null;
-			anIntArray224 = null;
-			anIntArray239 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("da.B(").append(i).append(')').toString());
-		}
-	}
-
 	final void method261() {
 		for (int i_10_ = 0; i_10_ < anInt225; i_10_++) {
 			anIntArrayArray230[i_10_] = null;

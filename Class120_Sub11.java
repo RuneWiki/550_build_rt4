@@ -44,20 +44,6 @@ final class Class120_Sub11 extends Node {
 		return class120_sub14_sub23_4_;
 	}
 
-	public static void method1175(final byte i) {
-		try {
-			TextRepository.aString2550 = null;
-			if (i == -58) {
-				TextRepository.aString2553 = null;
-				aShortArray2556 = null;
-				TextRepository.aString2554 = null;
-				TextRepository.aString2552 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("j.E(").append(i).append(')').toString());
-		}
-	}
-
 	static final void processAmbientSounds(final int x, final int z, final int level, final int redrawRate) {//TODO refactor sounds that appear on distance.
 		for (AmbientSound ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);

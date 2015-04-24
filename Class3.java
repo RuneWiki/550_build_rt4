@@ -20,19 +20,6 @@ final class Class3 {
 		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
 	}
 
-	public static void method80(final int i) {
-		try {
-			if (i != 1) {
-				method83(33, 116, -67);
-			}
-			aClass120_Sub14_Sub9_54 = null;
-			openUrlRequest = null;
-			UnderlayType.configClient = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ab.C(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method81(final String string, final int i) {
 		final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string));
 		boolean foundPlayer = false;

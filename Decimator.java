@@ -210,11 +210,6 @@ final class Decimator {
 		}
 	}
 
-	public static void method2222() {
-		skillsBaseLevel = null;
-		aClass50_1721 = null;
-	}
-
 	static final void method2223() {
 		for (int id = 0; id < Class154.anInt1441; id++) {
 			final int index = Class169.anIntArray1648[id];
@@ -238,7 +233,7 @@ final class Decimator {
 			} else {
 				final AbstractSprite sprite = jagexInterface.constructSpriteFromId(false);
 				if (sprite != null) {
-					sprite.drawSprite(x, y);
+					sprite.drawReg(x, y);
 				}
 			}
 		} else if (!HDToolkit.glEnabled) {

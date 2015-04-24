@@ -15,16 +15,6 @@ class ParticleNodeSub extends ParticleNode {
 		highDetailTextures = true;
 	}
 
-	public static void method966(final int i) {
-		try {
-			anIntArrayArray2401 = null;
-			aString2396 = null;
-			aClass50_2400 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("r.I(").append(i).append(')').toString());
-		}
-	}
-
 	public ParticleNodeSub() {
 		/* empty */
 	}

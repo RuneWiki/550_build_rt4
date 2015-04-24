@@ -231,11 +231,6 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 		}
 	}
 
-	public static void method1637() {
-		MapSceneType.spriteJs5 = null;
-		aShortArray3639 = null;
-	}
-
 	Class120_Sub14_Sub22(final int i, final String string, final String string_50_, final int i_51_, final int i_52_, final boolean bool, final int i_53_) {
 		this.anInt3642 = 0;
 		this.anInt3635 = -1;

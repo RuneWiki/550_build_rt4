@@ -53,18 +53,6 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		return class180_sub7_6_;
 	}
 
-	public static void method1320(final byte i) {
-		try {
-			if (i >= -81) {
-				anInt3302 = 63;
-			}
-			aClass120_Sub30_Sub3_3299 = null;
-			boldFont = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ph.U(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final void postDecode() {
 		PacketBuffer.method1147();

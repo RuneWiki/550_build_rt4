@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /* Class180 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -27,20 +29,13 @@ abstract class SceneGraphNode {
 		return this;
 	}
 
-	public static void method2270() {
-		mapFunctionGroup = null;
-		skillsLevel = null;
-		FrameLoader.recentUse = null;
-		aClass188Array1782 = null;
-	}
-
-	static final void method2271(final MapFunctionNode class120_sub14_sub5, final MapFunctionType class73, final int i, final int i_18_) {
-		if (class73.anIntArray638 != null) {
+	static final void method2271(final MapFunctionNode mapFunctionNode, final MapFunctionType mapFunction, int i, int i_18_) {
+		if (mapFunction.anIntArray638 != null) {
 			boolean bool_19_ = false;
-			final int[] is = new int[class73.anIntArray638.length];
+			final int[] is = new int[mapFunction.anIntArray638.length];
 			for (int i_20_ = 0; is.length / 2 > i_20_; i_20_++) {
-				final int i_21_ = class73.anIntArray638[i_20_ * 2] + class120_sub14_sub5.x;
-				final int i_22_ = class120_sub14_sub5.z + -class73.anIntArray638[1 + 2 * i_20_];
+				final int i_21_ = mapFunction.anIntArray638[i_20_ * 2] + mapFunctionNode.x;
+				final int i_22_ = mapFunctionNode.z + -mapFunction.anIntArray638[1 + 2 * i_20_];
 				final int i_23_ = is[i_20_ * 2] = WorldMapHandler.anInt708 + (i_21_ + -WorldMapHandler.anInt716) * (WorldMapHandler.anInt709 - WorldMapHandler.anInt708) / (WorldMapHandler.anInt714 - WorldMapHandler.anInt716);
 				final int i_24_ = is[1 + 2 * i_20_] = WorldMapHandler.anInt705 + (i_22_ + -WorldMapHandler.anInt704) * (-WorldMapHandler.anInt705 + WorldMapHandler.anInt712) / (WorldMapHandler.anInt701 - WorldMapHandler.anInt704);
 				if (WorldMapHandler.anInt708 < i_23_ && i_23_ < WorldMapHandler.anInt709 && WorldMapHandler.anInt705 < i_24_ && i_24_ < WorldMapHandler.anInt712) {
@@ -50,65 +45,65 @@ abstract class SceneGraphNode {
 			if (!bool_19_) {
 				return;
 			}
-			Class59.method542(is, class73.anInt651, class73.anInt651 >>> 24);
+			Class59.method542(is, mapFunction.anInt651, mapFunction.anInt651 >>> 24);
 			for (int i_25_ = 0; -1 + is.length / 2 > i_25_; i_25_++) {
-				GraphicsLD.drawLineAlpha(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], class73.anInt630, class73.anInt630 >>> 24);
+				GraphicsLD.drawLineAlpha(is[i_25_ * 2], is[1 + i_25_ * 2], is[2 * (1 + i_25_)], is[1 + (1 + i_25_) * 2], mapFunction.anInt630, mapFunction.anInt630 >>> 24);
 			}
-			GraphicsLD.drawLineAlpha(is[is.length - 2], is[is.length + -1], is[0], is[1], class73.anInt630, class73.anInt630 >>> 24);
-		} else if (class120_sub14_sub5.aBoolean3476) {
+			GraphicsLD.drawLineAlpha(is[is.length - 2], is[is.length + -1], is[0], is[1], mapFunction.anInt630, mapFunction.anInt630 >>> 24);
+		} else if (mapFunctionNode.aBoolean3476) {
 			return;
 		}
-		final Class120_Sub16 class120_sub16 = new Class120_Sub16(class120_sub14_sub5);
-		LDIndexedSprite class107_sub1 = null;
-		if (class73.unfocusedSpriteId != -1) {
-			if (!class120_sub14_sub5.focused || class73.focusedSpriteId == -1) {
-				class107_sub1 = (LDIndexedSprite) class73.consturctSprite(false, true);
+		final Class120_Sub16 class120_sub16 = new Class120_Sub16(mapFunctionNode);
+		LDIndexedSprite mapFunctionSprite = null;
+		if (mapFunction.unfocusedSpriteId != -1) {
+			if (!mapFunctionNode.focused || mapFunction.focusedSpriteId == -1) {
+				mapFunctionSprite = (LDIndexedSprite) mapFunction.consturctSprite(false, true);
 			} else {
-				class107_sub1 = (LDIndexedSprite) class73.consturctSprite(true, true);
+				mapFunctionSprite = (LDIndexedSprite) mapFunction.consturctSprite(true, true);
 			}
-			if (class107_sub1 != null) {
-				if (Class96.clickedMouseFunctionBlinksLeft > 0 && (Class127.anInt1215 != -1 && class120_sub14_sub5.id == Class127.anInt1215 || Class120_Sub12_Sub9.clickedMouseFunctionId != -1 && class73.anInt652 == Class120_Sub12_Sub9.clickedMouseFunctionId)) {
+			if (mapFunctionSprite != null) {
+				if (Class96.clickedMouseFunctionBlinksLeft > 0 && (Class127.anInt1215 != -1 && mapFunctionNode.id == Class127.anInt1215 || Class120_Sub12_Sub9.clickedMouseFunctionId != -1 && mapFunction.anInt652 == Class120_Sub12_Sub9.clickedMouseFunctionId)) {
 					int alpha;
 					if (Class136.clickedMouseFunctionCycle <= 50) {
 						alpha = Class136.clickedMouseFunctionCycle * 3;
 					} else {
 						alpha = 300 - 3 * Class136.clickedMouseFunctionCycle;
 					}
-					GraphicsLD.drawAlphaCircle(class120_sub14_sub5.worldMapX, class120_sub14_sub5.worldMapY, class107_sub1.width / 2 + 7, 16776960, alpha);
-					GraphicsLD.drawAlphaCircle(class120_sub14_sub5.worldMapX, class120_sub14_sub5.worldMapY, class107_sub1.width / 2 + 5, 16776960, alpha);
-					GraphicsLD.drawAlphaCircle(class120_sub14_sub5.worldMapX, class120_sub14_sub5.worldMapY, class107_sub1.width / 2 + 3, 16776960, alpha);
-					GraphicsLD.drawAlphaCircle(class120_sub14_sub5.worldMapX, class120_sub14_sub5.worldMapY, class107_sub1.width / 2 + 1, 16776960, alpha);
-					GraphicsLD.drawAlphaCircle(class120_sub14_sub5.worldMapX, class120_sub14_sub5.worldMapY, class107_sub1.width / 2, 16776960, alpha);
+					GraphicsLD.drawAlphaCircle(mapFunctionNode.worldMapX, mapFunctionNode.worldMapY, mapFunctionSprite.width / 2 + 7, 16776960, alpha);
+					GraphicsLD.drawAlphaCircle(mapFunctionNode.worldMapX, mapFunctionNode.worldMapY, mapFunctionSprite.width / 2 + 5, 16776960, alpha);
+					GraphicsLD.drawAlphaCircle(mapFunctionNode.worldMapX, mapFunctionNode.worldMapY, mapFunctionSprite.width / 2 + 3, 16776960, alpha);
+					GraphicsLD.drawAlphaCircle(mapFunctionNode.worldMapX, mapFunctionNode.worldMapY, mapFunctionSprite.width / 2 + 1, 16776960, alpha);
+					GraphicsLD.drawAlphaCircle(mapFunctionNode.worldMapX, mapFunctionNode.worldMapY, mapFunctionSprite.width / 2, 16776960, alpha);
 				}
-				class107_sub1.method910(class120_sub14_sub5.worldMapX - (class107_sub1.width >> 1), class120_sub14_sub5.worldMapY - (class107_sub1.height >> 1));
-				class120_sub16.anInt2605 = i + class120_sub14_sub5.worldMapX + (class107_sub1.width >> 1);
-				class120_sub16.anInt2602 = i + class120_sub14_sub5.worldMapX - (class107_sub1.width >> 1);
-				class120_sub16.anInt2604 = i_18_ + class120_sub14_sub5.worldMapY + (class107_sub1.height >> 1);
-				class120_sub16.anInt2603 = i_18_ + class120_sub14_sub5.worldMapY - (class107_sub1.height >> 1);
+				mapFunctionSprite.drawReg(mapFunctionNode.worldMapX - (mapFunctionSprite.width >> 1), mapFunctionNode.worldMapY - (mapFunctionSprite.height >> 1));
+				class120_sub16.startX = i + mapFunctionNode.worldMapX - (mapFunctionSprite.width >> 1);
+				class120_sub16.startY = i_18_ + mapFunctionNode.worldMapY - (mapFunctionSprite.height >> 1);
+				class120_sub16.endX = i + mapFunctionNode.worldMapX + (mapFunctionSprite.width >> 1);
+				class120_sub16.endY = i_18_ + mapFunctionNode.worldMapY + (mapFunctionSprite.height >> 1);
 			}
 		}
-		if (class73.headerText != null) {
-			if (class107_sub1 != null) {
-				Class120_Sub19.method1673(class120_sub14_sub5, class120_sub16, class73, i, 5 + (class107_sub1.height >> 1), i_18_, false);
+		if (mapFunction.headerText != null) {
+			if (mapFunctionSprite != null) {
+				Class120_Sub19.method1673(mapFunctionNode, class120_sub16, mapFunction, i, 5 + (mapFunctionSprite.height >> 1), i_18_, false);
 			} else {
-				Class120_Sub19.method1673(class120_sub14_sub5, class120_sub16, class73, i, 0, i_18_, true);
+				Class120_Sub19.method1673(mapFunctionNode, class120_sub16, mapFunction, i, 0, i_18_, true);
 			}
 		}
-		if (class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY) && class73.actionPrefixes != null) {
-			if (class73.actionPrefixes[4] != null) {
-				InvType.addMenuOption(class73.actionPrefixes[4], class73.actionSufix, class120_sub14_sub5.id, class73.anInt652, 0, (short) 1011, -1);
+		if (class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY) && mapFunction.actionPrefixes != null) {
+			if (mapFunction.actionPrefixes[4] != null) {
+				InvType.addMenuOption(mapFunction.actionPrefixes[4], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1011, -1);
 			}
-			if (class73.actionPrefixes[3] != null) {
-				InvType.addMenuOption(class73.actionPrefixes[3], class73.actionSufix, class120_sub14_sub5.id, class73.anInt652, 0, (short) 1003, -1);
+			if (mapFunction.actionPrefixes[3] != null) {
+				InvType.addMenuOption(mapFunction.actionPrefixes[3], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1003, -1);
 			}
-			if (class73.actionPrefixes[2] != null) {
-				InvType.addMenuOption(class73.actionPrefixes[2], class73.actionSufix, class120_sub14_sub5.id, class73.anInt652, 0, (short) 1008, -1);
+			if (mapFunction.actionPrefixes[2] != null) {
+				InvType.addMenuOption(mapFunction.actionPrefixes[2], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1008, -1);
 			}
-			if (class73.actionPrefixes[1] != null) {
-				InvType.addMenuOption(class73.actionPrefixes[1], class73.actionSufix, class120_sub14_sub5.id, class73.anInt652, 0, (short) 1002, -1);
+			if (mapFunction.actionPrefixes[1] != null) {
+				InvType.addMenuOption(mapFunction.actionPrefixes[1], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1002, -1);
 			}
-			if (class73.actionPrefixes[0] != null) {
-				InvType.addMenuOption(class73.actionPrefixes[0], class73.actionSufix, class120_sub14_sub5.id, class73.anInt652, 0, (short) 1012, -1);
+			if (mapFunction.actionPrefixes[0] != null) {
+				InvType.addMenuOption(mapFunction.actionPrefixes[0], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1012, -1);
 			}
 		}
 		MapFunctionType.aClass105_653.addLast(class120_sub16);

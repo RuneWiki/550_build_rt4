@@ -12,10 +12,6 @@ final class Class68 {
 	private static int anInt612;
 	private static int anInt613;
 
-	public static void method602() {
-		anIntArray608 = null;
-	}
-
 	private static final void method603(final int i, final int i_0_, final int[] is, final int[] is_1_) {
 		method609();
 		while (method611()) {

@@ -100,18 +100,6 @@ final class HintIcon {
 		Class92.torchFlamesSprite = new LDSprite(128, 254);
 	}
 
-	public static void method726(final int i) {
-		try {
-			ignoreNamesAsLong = null;
-			if (i != 255) {
-				SpotAnimType.list(-118);
-			}
-			TextRepository.aString807 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jd.C(").append(i).append(')').toString());
-		}
-	}
-
 	public HintIcon() {
 		/* empty */
 	}

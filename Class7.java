@@ -7,12 +7,6 @@ final class Class7 {
 	static int[] mapFunctionLocIds = new int[1000];
 	static js5 aClass50_63;
 
-	public static void method105() {
-		mapFunctionLocIds = null;
-		aClass50_63 = null;
-		TextRepository.aString60 = null;
-	}
-
 	static final String decodeText(final Buffer buffer) {
 		return Class120_Sub14_Sub15.decodeText(buffer, 32767);
 	}

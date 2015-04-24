@@ -56,15 +56,6 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		return class120_sub26_3_;
 	}
 
-	public static void method2529(final int i) {
-		aClass120_Sub14_Sub9_2145 = null;
-		aByteArrayArray2140 = null;
-		aClass120_Sub14_Sub19_2144 = null;
-		if (i != -16553) {
-			overrideInterface(2, 79, 61);
-		}
-	}
-
 	static final void addWallLocation(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_12_, final int i_13_, final int i_14_, final long bitPackedUid) {
 		if (sceneGraphNode != null || class180_12_ != null) {
 			final WallLocation wallLocation = new WallLocation();

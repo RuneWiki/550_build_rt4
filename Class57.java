@@ -14,19 +14,6 @@ abstract class Class57 {
 		gzipDecompressor = new GZIPDecompressor();
 	}
 
-	public static void method491(final int i) {
-		try {
-			if (i >= -14) {
-				anInt500 = 96;
-			}
-			gzipDecompressor = null;
-			aClass50_499 = null;
-			interfaceLoaded = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("gh.D(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method492() {
 		final int i_0_ = Class24.method207();
 		if (i_0_ != 0) {

@@ -102,14 +102,6 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		SpotAnimation.aClass21_2906.clear();
 	}
 
-	public static void method1292(final byte i) {
-		TextRepository.aString3272 = null;
-		if (i == -98) {
-			errorSignlink = null;
-			skillTriggers = null;
-		}
-	}
-
 	static final void drawSpriteMenu() {
 		final int drawX = Huffman.menuDrawX;
 		final int drawY = Class120_Sub16.menuDrawY;
@@ -140,9 +132,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		if (Class157.aClass120_Sub14_Sub19_1472 != null && Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 != null) {
 			final int i_12_ = (width + -(Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width * 2)) / Class157.aClass120_Sub14_Sub19_1472.width;
 			for (int i_13_ = 0; i_13_ < i_12_; i_13_++) {
-				Class157.aClass120_Sub14_Sub19_1472.drawSprite(i_13_ * Class157.aClass120_Sub14_Sub19_1472.width + drawX + Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, drawY);
+				Class157.aClass120_Sub14_Sub19_1472.drawReg(i_13_ * Class157.aClass120_Sub14_Sub19_1472.width + drawX + Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, drawY);
 			}
-			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.drawSprite(drawX, drawY);
+			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.drawReg(drawX, drawY);
 			Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.method1592(width + drawX - Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202.width, drawY);
 		}
 		Class120_Sub12_Sub22.boldFont.method1466(TextRepository.aString1056, drawX - -3, 14 + drawY, Class120_Sub12_Sub3.anInt3151, -1);
@@ -189,14 +181,14 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		if (Class173.aClass120_Sub14_Sub19_1725 != null && FrameLoader.aClass120_Sub14_Sub19_3611 != null && RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 != null) {
 			final int i_18_ = (-(2 * RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width) + width) / Class173.aClass120_Sub14_Sub19_1725.width;
 			for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
-				Class173.aClass120_Sub14_Sub19_1725.drawSprite(RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width + drawX - -(Class173.aClass120_Sub14_Sub19_1725.width * i_19_), height + drawY - Class173.aClass120_Sub14_Sub19_1725.height);
+				Class173.aClass120_Sub14_Sub19_1725.drawReg(RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width + drawX - -(Class173.aClass120_Sub14_Sub19_1725.width * i_19_), height + drawY - Class173.aClass120_Sub14_Sub19_1725.height);
 			}
 			final int i_20_ = (-RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height + -20 + height) / FrameLoader.aClass120_Sub14_Sub19_3611.height;
 			for (int i_21_ = 0; i_21_ < i_20_; i_21_++) {
-				FrameLoader.aClass120_Sub14_Sub19_3611.drawSprite(drawX, 20 + drawY + FrameLoader.aClass120_Sub14_Sub19_3611.height * i_21_);
+				FrameLoader.aClass120_Sub14_Sub19_3611.drawReg(drawX, 20 + drawY + FrameLoader.aClass120_Sub14_Sub19_3611.height * i_21_);
 				FrameLoader.aClass120_Sub14_Sub19_3611.method1592(-FrameLoader.aClass120_Sub14_Sub19_3611.width + drawX - -width, i_21_ * FrameLoader.aClass120_Sub14_Sub19_3611.height + 20 + drawY);
 			}
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.drawSprite(drawX, height + drawY - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
+			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.drawReg(drawX, height + drawY - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
 			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.method1592(width + drawX - RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.width, height + drawY + -RuntimeException_Sub1.aClass120_Sub14_Sub19_2144.height);
 		}
 		for (int i_22_ = 0; WallDecoration.menuOptionCount > i_22_; i_22_++) {

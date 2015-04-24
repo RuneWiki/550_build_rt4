@@ -7,9 +7,9 @@ final class Residue {
 	private final int partitionSize;
 	private final int end;
 	private final int classBook;
-	private final int type;
+	private final int type = Class120_Sub23.getInt(16);
 	private final int classifications;
-	private final int begin;
+	private final int begin = Class120_Sub23.getInt(24);
 
 	final void decodeResidue(final float[] a, final int i, final boolean bool) {
 		for (int i_0_ = 0; i_0_ < i; i_0_++) {
@@ -67,8 +67,6 @@ final class Residue {
 	}
 
 	Residue() {
-		type = Class120_Sub23.getInt(16);
-		begin = Class120_Sub23.getInt(24);
 		end = Class120_Sub23.getInt(24);
 		partitionSize = Class120_Sub23.getInt(24) + 1;
 		classifications = Class120_Sub23.getInt(6) + 1;

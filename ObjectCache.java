@@ -51,15 +51,6 @@ final class ObjectCache {
 		}
 	}
 
-	public static void method188(final int i) {
-		try {
-			smallFont = null;
-			anIntArray124 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cc.J(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method189(final js5 js5, final js5 class50_1_) {
 		FileSystemWorker.aClass50_794 = class50_1_;
 		LabelGroup.aClass50_2413 = js5;
@@ -90,7 +81,7 @@ final class ObjectCache {
 		Class54.method479();
 		Class120_Sub30_Sub1.method1739();
 		Class79_Sub1.resetTitleScreen();
-		Class82.method712(106);
+		Class82.method712();
 		for (int i_2_ = 0; i_2_ < 2048; i_2_++) {
 			final Player class180_sub5_sub1 = Class118.playersList[i_2_];
 			if (class180_sub5_sub1 != null) {
@@ -127,7 +118,7 @@ final class ObjectCache {
 					if (++class120_sub14_sub3.subUid > i_3_) {
 						final AbstractObject class120_sub14_sub3_4_ = Class125.aClass57_2147.method493(class120_sub14_sub3);
 						hashtable.put(class120_sub14_sub3_4_, class120_sub14_sub3.uid);
-						Class120_Sub12_Sub15.method1275(class120_sub14_sub3, (byte) 116, class120_sub14_sub3_4_);
+						Class120_Sub12_Sub15.method1275(class120_sub14_sub3, class120_sub14_sub3_4_);
 						class120_sub14_sub3.unlink();
 						class120_sub14_sub3.unlinkSub();
 					}
@@ -224,7 +215,7 @@ final class ObjectCache {
 					Class79_Sub1.stringArguments[stringArgAmount++] = stringValue;
 				}
 			}
-			World.method2194(clientScript, i);
+			World.executeScript(clientScript, i);
 		}
 	}
 }

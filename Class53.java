@@ -7,18 +7,6 @@ abstract class Class53 {
 	static String[] suffixTitles;
 	static int anInt487;
 
-	public static void method456(final byte i) {
-		try {
-			suffixTitles = null;
-			anIntArray485 = null;
-			if (i != 126) {
-				method457(null, (byte) -77);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.E(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method457(final Class120_Sub24 class120_sub24, final byte i) {
 		try {
 			int i_0_ = -1;

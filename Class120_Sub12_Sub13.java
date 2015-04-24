@@ -95,17 +95,6 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1267(final int i) {
-		try {
-			overridedInterfaces = null;
-			if (i != -1) {
-				anInt3233 = -5;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kl.T(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	final int[] method1187(final int i_3_) {
 		final int[] is_4_ = this.aClass30_2563.method258(i_3_);

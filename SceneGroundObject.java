@@ -66,14 +66,6 @@ final class SceneGroundObject extends SceneGraphNode {
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}
 
-	public static void method2277() {
-		aClass21_2841 = null;
-		aString2849 = null;
-		aString2847 = null;
-		aClass50_2839 = null;
-		aClass120_Sub9ArrayArray2844 = null;
-	}
-
 	@Override
 	final void method2266(final int i, final int i_9_, final int i_10_, final int i_11_, final int i_12_) {
 		/* empty */

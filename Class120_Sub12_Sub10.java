@@ -54,12 +54,6 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 		}
 	}
 
-	public static void method1248() {
-		aClass120_Sub14_Sub9_3204 = null;
-		npcAmbientSounds = null;
-		aClass120_Sub14_Sub19_3202 = null;
-	}
-
 	@Override
 	final int[] method1187(final int i_20_) {
 		final int[] is_21_ = this.aClass30_2563.method258(i_20_);

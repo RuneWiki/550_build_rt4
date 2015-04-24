@@ -458,12 +458,6 @@ final class GraphicsLD {
 		}
 	}
 
-	public static void method2163() {
-		pixels = null;
-		anIntArray1604 = null;
-		anIntArray1605 = null;
-	}
-
 	static final void method2164(final int[] is, final int[] is_152_) {
 		int delta = endY - startY;
 		if (is.length != delta || is_152_.length != delta) {

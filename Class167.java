@@ -37,10 +37,6 @@ abstract class Class167 {
 		return (this.flag & 0x4) != 0;
 	}
 
-	public static void method2188() {
-		aClass21_1618 = null;
-	}
-
 	static final LDSprite constructLDSpriteAlpha() {
 		final byte[] paletteIndicators = Class145.spritePaletteIndicators[0];
 		final int pixelAmt = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];

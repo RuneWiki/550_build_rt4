@@ -101,12 +101,6 @@ final class Class11 {
 		return indexedSprite;
 	}
 
-	public static void method129() {
-		TextRepository.examine = null;
-		NpcType.aClass21_80 = null;
-		TextRepository.connectedToUpdateServer = null;
-	}
-
 	static final int method130(final int i, final int i_16_, final int i_17_, final int[][] is, final int i_18_) {
 		final int i_21_ = i * is[i_16_ - -1][i_18_] + is[i_16_][i_18_] * (128 - i) >> 7;
 		final int i_22_ = is[i_16_][1 + i_18_] * (-i + 128) + i * is[i_16_ + 1][1 + i_18_] >> 7;

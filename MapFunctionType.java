@@ -71,20 +71,20 @@ final class MapFunctionType {
 	}
 
 	final LDIndexedSprite constructSpriteForWorldMap() {
-		LDIndexedSprite class107_sub1_2_ = (LDIndexedSprite) spriteCache.get(worldMapSpriteId | 0x20000);
-		if (class107_sub1_2_ != null) {
-			return class107_sub1_2_;
+		LDIndexedSprite sprite = (LDIndexedSprite) spriteCache.get(worldMapSpriteId | 0x20000);
+		if (sprite != null) {
+			return sprite;
 		}
 		Class88.aClass50_834.method429(worldMapSpriteId);
-		class107_sub1_2_ = Class164.constructLDIndexedSprite(Class88.aClass50_834, worldMapSpriteId, 0);
-		if (class107_sub1_2_ != null) {
-			class107_sub1_2_.trimWidth = class107_sub1_2_.width;
-			class107_sub1_2_.xOffset = 0;
-			class107_sub1_2_.trimHeight = class107_sub1_2_.height;
-			class107_sub1_2_.yOffset = 0;
-			spriteCache.put(class107_sub1_2_, 0x20000 | worldMapSpriteId);
+		sprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, worldMapSpriteId, 0);
+		if (sprite != null) {
+			sprite.xOffset = 0;
+			sprite.yOffset = 0;
+			sprite.trimWidth = sprite.width;
+			sprite.trimHeight = sprite.height;
+			spriteCache.put(sprite, 0x20000 | worldMapSpriteId);
 		}
-		return class107_sub1_2_;
+		return sprite;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
@@ -222,13 +222,6 @@ final class MapFunctionType {
 		}
 		recentUse.put(mapFunctionType, id);
 		return mapFunctionType;
-	}
-
-	public static void method649() {
-		aClass193_663 = null;
-		anIntArray664 = null;
-		mapFunctionXs = null;
-		aClass105_653 = null;
 	}
 
 	public MapFunctionType() {

@@ -123,12 +123,6 @@ final class Class127 {
 		LabelGroup.groundTiles[3][i][i_18_] = null;
 	}
 
-	public static void method1894() {
-		aShortArray1214 = null;
-		aClass50_1213 = null;
-		TextRepository.aString1217 = null;
-	}
-
 	final NodeSub method1895() {
 		final NodeSub class120_sub14_22_ = aClass177_1212.head.nextSub;
 		if (aClass177_1212.head == class120_sub14_22_) {

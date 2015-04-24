@@ -100,10 +100,6 @@ final class Class23 {
 		return class120_sub18.groundDecoration;
 	}
 
-	public static void method203() {
-		loadingFont = null;
-	}
-
 	static final void method204(final Npc npc, final int i, final int i_18_) {
 		if (i == npc.animId && i != -1) {
 			final SeqType seqType = SeqType.list(i);

@@ -48,7 +48,7 @@ final class Class110 {
 		if (!HDToolkit.glEnabled) {
 			((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		}
-		UnderlayType.aClass35_1219.clear();
+		ClientScript.recentUse.clear();
 		AmbientSound.aClass50_2479.method419();
 		Class79_Sub1.aClass50_2245.method419();
 		Class33.aClass50_275.method419();
@@ -61,13 +61,6 @@ final class Class110 {
 		InterfaceListener.aClass50_2544.method419();
 		IsaacCipher.aClass50_1019.method419();
 		Class120_Sub12_Sub2.aClass21_3144.clear();
-	}
-
-	public static void method977() {
-		aClass98_1052 = null;
-		mouseRecorder = null;
-		aClass120_Sub20_1053 = null;
-		tileOccludeFlags = null;
 	}
 
 	static final void method978(final boolean bool, String string) {

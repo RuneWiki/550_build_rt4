@@ -44,12 +44,6 @@ final class Class120_Sub4 extends Node {
 		is[1] = -anInt2433 + this.anInt2438 + i_7_;
 	}
 
-	public static void method1065() {
-		aClass105_2435 = null;
-		tileUnderlayIds = null;
-		aClass105_2439 = null;
-	}
-
 	final void method1066(final int i, final int i_9_, final int[] is) {
 		is[1] = i_9_ - -anInt2433 + -this.anInt2438;
 		is[0] = anInt2430;

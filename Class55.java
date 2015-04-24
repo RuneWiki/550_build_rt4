@@ -17,18 +17,6 @@ final class Class55 {
 		anIntArray493 = new int[] { 1, -1, -1, 1 };
 	}
 
-	public static void method484(final int i) {
-		try {
-			anIntArray493 = null;
-			skillsXpForLevel = null;
-			if (i != -7103) {
-				method484(-15);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ge.B(").append(i).append(')').toString());
-		}
-	}
-
 	static final Class120_Sub14_Sub22 method485(final Buffer buffer, final int i) {
 		final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, buffer.getJagexString(), buffer.getJagexString(), buffer.getInt(), buffer.getInt(), buffer.getUByte() == 1, buffer.getUByte());
 		final int i_5_ = buffer.getUByte();

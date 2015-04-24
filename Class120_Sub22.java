@@ -208,17 +208,6 @@ final class Class120_Sub22 extends Node {
 		return bool_25_;
 	}
 
-	public static void method1703(final int i) {
-		try {
-			aClass50_2679 = null;
-			if (i > -37) {
-				method1701(null, -2, 34);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.D(").append(i).append(')').toString());
-		}
-	}
-
 	private static final char method1704(final char c) {
 		if (c == '\u00b5' || c == '\u0192') {
 			return c;
@@ -382,7 +371,7 @@ final class Class120_Sub22 extends Node {
 				} else {
 					i_59_ = is_54_[i_60_++];
 				}
-				i_61_ = class120_sub7.method1111();
+				i_61_ = class120_sub7.getVarLength();
 			}
 			this.aShortArray2680[i_62_] += Class120_Sub12_Sub3.method1207(32768, i_61_ - 1 << 14);
 			anIntArray2678[i_62_] = i_61_;

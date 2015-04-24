@@ -64,14 +64,6 @@ final class InterfaceListener extends Node {
 		Class120_Sub12_Sub22.method1322();
 	}
 
-	public static void method1169() {
-		playerOptionsOnTop = null;
-		OverlayType.recentUse = null;
-		TextRepository.aString2538 = null;
-		aClass50_2544 = null;
-		TextRepository.aString2548 = null;
-	}
-
 	static final void method1170(final SceneGraphNode sceneGraphNode, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
 		boolean bool = true;
 		int i_4_ = i_0_;

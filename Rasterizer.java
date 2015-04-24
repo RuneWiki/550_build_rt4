@@ -2604,16 +2604,6 @@ final class Rasterizer {
 		}
 	}
 
-	public static void method872() {
-		coordinateYLookup = null;
-		palette = null;
-		anInterface5_973 = null;
-		anIntArray977 = null;
-		anIntArray984 = null;
-		sinTable = null;
-		cosTable = null;
-	}
-
 	private static final void method873(final int[] is, final int[] is_214_, int i, int i_215_, int i_216_, int i_217_, int i_218_, int i_219_, int i_220_, int i_221_, int i_222_, int i_223_, final int i_224_, final int i_225_, final int i_226_) {
 		if (aBoolean972) {
 			if (i_218_ > anInt983) {

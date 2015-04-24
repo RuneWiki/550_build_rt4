@@ -89,13 +89,6 @@ final class SpotAnimType {
 		}
 	}
 
-	public static void method878() {
-		modelCache = null;
-		anIntArray987 = null;
-		aShortArray994 = null;
-		aBooleanArrayArray992 = null;
-	}
-
 	static final int[] arrayCopy(final int[] is) {
 		if (is == null) {
 			return null;

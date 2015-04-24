@@ -132,19 +132,6 @@ abstract class AbstractGraphicsBuffer {
 		GraphicsLD.init2dCanvas(this.pixels, this.width, this.height);
 	}
 
-	public static void method1848() {
-		anIntArray1171 = null;
-		aStringArray1167 = null;
-		ParamType.recentUse = null;
-		TextRepository.use = null;
-		anIntArray1158 = null;
-		anIntArray1156 = null;
-		anIntArray1162 = null;
-		anIntArray1161 = null;
-		anIntArray1159 = null;
-		anIntArray1163 = null;
-	}
-
 	protected AbstractGraphicsBuffer() {
 		/* empty */
 	}

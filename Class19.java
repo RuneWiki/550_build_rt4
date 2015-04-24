@@ -64,10 +64,6 @@ final class Class19 {
 		return (byte) method169(1, class96);
 	}
 
-	public static void method172() {
-		aClass96_120 = null;
-	}
-
 	private static final void method173(final Class96 class96) {
 		int i = 0;
 		int[] is = null;

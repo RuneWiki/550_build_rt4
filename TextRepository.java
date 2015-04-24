@@ -29,7 +29,7 @@ final class TextRepository {//Custom class
 		TextRepository.rating = "classement ";
 		TextRepository.aString807 = "ondulation:";
 		Class120_Sub14_Sub23.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
-		Class116.aString1116 = "Connexion perdue.";
+		TextRepository.aString1116 = "Connexion perdue.";
 		Class5.aString2153 = "Fermer";
 		TextRepository.aString2578 = " de votre liste noire.";
 		DisplayModeInfo.aString1708 = "Monde de jeu cr\u00e9\u00e9";
@@ -40,7 +40,7 @@ final class TextRepository {//Custom class
 		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
 		TextRepository.aString3575 = "violet:";
 		MapSceneType.aString1358 = "Textures charg\u00e9es";
-		CursorType.aString1238 = "K";
+		TextRepository.aString1238 = "K";
 		TextRepository.examine = "Examiner";
 		TextRepository.aString626 = "Veuillez patienter...";
 		Class24.aString142 = "Veuillez patienter - tentative de r\u00e9tablissement.";
@@ -49,7 +49,7 @@ final class TextRepository {//Custom class
 		TextRepository.aString3910 = " est d\u00e9j\u00e0 dans votre liste d'amis.";
 		PlayerAppearance.aString1368 = "M\u00e9moire attribu\u00e9e";
 		TextRepository.membersObject = "Objet d'abonn\u00e9s";
-		Class69_Sub2_Sub1.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
+		TextRepository.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
 		TextRepository.aString2231 = "jaune:";
 		MouseRecorder.aString853 = "M\u00e9moire en cours d'attribution";
 		Class120_Sub6.aString2444 = "Liste des serveurs charg\u00e9e";
@@ -85,7 +85,7 @@ final class TextRepository {//Custom class
 		GZIPDecompressor.aString799 = "Interfaces charg\u00e9es";
 		InterfaceClickMask.aString2660 = "Chargement des polices - ";
 		TextRepository.loadingConfig = "Chargement des fichiers config - ";
-		CursorType.aString1239 = "\u00c9cran-titre charg\u00e9";
+		TextRepository.aString1239 = "\u00c9cran-titre charg\u00e9";
 		TextRepository.continueString = "Continuer";
 		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
 		Class143.selectString = "S\u00e9lectionner";
@@ -97,7 +97,7 @@ final class TextRepository {//Custom class
 		Class120_Sub12_Sub15.hiddenString = "Cach\u00e9";
 		TextRepository.faceHere = "Regarder dans cette direction";
 		Class112.aString1079 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste noire.";
-		EnumType.aString3455 = "M";
+		TextRepository.aString3455 = "M";
 		TextRepository.aString1056 = "Choisir une option";
 		Class157.aString1462 = "Annuler";
 		TextRepository.aString2105 = "Connexion au serveur de mise \u00e0 jour en cours";
@@ -113,7 +113,7 @@ final class TextRepository {//Custom class
 		MouseRecorder.aString853 = "Speicher wird zugewiesen.";
 		TextRepository.aString2553 = " weitere Optionen";
 		SceneGroundObject.aString2847 = "Wordpack geladen.";
-		CursorType.aString1239 = "Titelbild geladen.";
+		TextRepository.aString1239 = "Titelbild geladen.";
 		Class120_Sub12_Sub1.aString3137 = "Standardinstellungen geladen";
 		Class143.selectString = "Ausw\u00e4hlen";
 		TextRepository.aString3338 = "Suche nach Updates - ";
@@ -137,9 +137,9 @@ final class TextRepository {//Custom class
 		TextRepository.aString915 = "sch\u00fctteln:";
 		IntegerNode.aString2788 = "Lade Benutzeroberfl\u00e4che - ";
 		TextRepository.aString2554 = "Lade Standardeinstellungen - ";
-		Class69_Sub2_Sub1.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
+		TextRepository.aString3078 = " steht bereits auf deiner Ignorieren-Liste!";
 		TextRepository.aString2837 = "3D-Softwarebibliothek gestartet.";
-		EnumType.aString3455 = "M";
+		TextRepository.aString3455 = "M";
 		Class24.aString142 = "Bitte warte - es wird versucht, die Verbindung wiederherzustellen.";
 		TextRepository.aString618 = "gr\u00fcn:";
 		InterfaceClickMask.aString2660 = "Lade Schrifts\u00e4tze - ";
@@ -161,7 +161,7 @@ final class TextRepository {//Custom class
 		TextRepository.aString1316 = "leuchten3:";
 		TextRepository.aString568 = "m\u00f6chte mit dir handeln.";
 		TextRepository.faceHere = "Hierhin drehen";
-		CursorType.aString1238 = "T";
+		TextRepository.aString1238 = "T";
 		Class120_Sub24.aString2726 = "Sprites geladen.";
 		Class120_Sub12_Sub1.aString3132 = "Hierhin gehen";
 		TextRepository.aString1056 = "W\u00e4hl eine Option";
@@ -173,7 +173,7 @@ final class TextRepository {//Custom class
 		TextRepository.aString2594 = "Update-Liste geladen.";
 		TextRepository.aString1038 = "Eingabeprozedur geladen.";
 		TextRepository.aString626 = "Bitte warte...";
-		Class116.aString1116 = "Verbindung abgebrochen.";
+		TextRepository.aString1116 = "Verbindung abgebrochen.";
 		Class157.aString1462 = "Abbrechen";
 		TextRepository.aString1398 = "welle2:";
 		TextRepository.level = "Stufe: ";
@@ -216,16 +216,16 @@ final class TextRepository {//Custom class
 		use = "Usar";
 		TextRepository.aString3665 = "Carregando sprites - ";
 		TextRepository.faceHere = "Virar para c\u00e1";
-		CursorType.aString1238 = "K";
+		TextRepository.aString1238 = "K";
 		TextRepository.aString2231 = "amarelo:";
 		AnimatedLocation.aString3062 = "N\u00e3o \u00e9 poss\u00edvel encontrar ";
 		TextRepository.aString2578 = " da sua lista de ignorados primeiro.";
 		TextRepository.aString2594 = "Lista de atualiza\u00e7\u00f5es carregada";
-		Class69_Sub2_Sub1.aString3078 = " j\u00e1 est\u00e1 na sua lista de ignorados.";
+		TextRepository.aString3078 = " j\u00e1 est\u00e1 na sua lista de ignorados.";
 		TextRepository.continueString = "Continuar";
 		aString1155 = "Fontes carregadas";
 		Class65.aString591 = "Atacar";
-		Class116.aString1116 = "Conex\u00e3o perdida.";
+		TextRepository.aString1116 = "Conex\u00e3o perdida.";
 		TextRepository.skill = "habilidade: ";
 		Class24.aString142 = "Tentando reestabelecer conex\u00e3o. Aguarde.";
 		Js5Worker.aString400 = "Iniciando biblioteca 3D";
@@ -233,7 +233,7 @@ final class TextRepository {//Custom class
 		Class101_Sub3.aString2285 = "Largar";
 		TextRepository.aString3272 = "RuneScape carregando. Aguarde...";
 		TextRepository.aString1062 = "brilho1:";
-		EnumType.aString3455 = "M";
+		TextRepository.aString3455 = "M";
 		TextRepository.aString1316 = "brilho3:";
 		TextRepository.aString618 = "verde:";
 		TextRepository.aString3338 = "Verificando atualiza\u00e7\u00f5es - ";
@@ -270,7 +270,7 @@ final class TextRepository {//Custom class
 		TextRepository.aString1457 = "brilho2:";
 		Class112.aString1079 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de ignorados.";
 		Class120_Sub24.aString2726 = "Sprites carregados";
-		CursorType.aString1239 = "Tela t\u00edtulo carregada";
+		TextRepository.aString1239 = "Tela t\u00edtulo carregada";
 		Class157.aString1462 = "Cancelar";
 		TextRepository.aString1397 = "flash1:";
 		Class114.aString1098 = "Carregando dados da lista de mundos";
@@ -359,4 +359,9 @@ final class TextRepository {//Custom class
 	static String connectedToUpdateServer = "Connected to update server";
 	static String aString489 = " from your friend list first.";
 	static String aString2105 = "Connecting to update server";
+	static String aString1116 = "Connection lost.";
+	static String aString3455 = "M";
+	static String aString1238 = "K";
+	static String aString1239 = "Loaded title screen";
+	static String aString3078 = " is already on your ignore list.";
 }

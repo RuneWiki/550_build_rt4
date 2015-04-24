@@ -22,20 +22,6 @@ final class Class65 {
 		return i >>> 8;
 	}
 
-	public static void method577(final byte i) {
-		try {
-			aClass50_597 = null;
-			anIntArrayArray594 = null;
-			displayModes = null;
-			aString591 = null;
-			if (i <= 60) {
-				method578(-105, null);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hb.A(").append(i).append(')').toString());
-		}
-	}
-
 	static final void method578(final int i, final Class120_Sub9[] class120_sub9s) {
 		Canvas_Sub1.aClass120_Sub9ArrayArray17[i] = class120_sub9s;
 	}

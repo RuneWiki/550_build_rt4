@@ -423,11 +423,6 @@ abstract class GameEntity extends SceneGraphNode {
 		this.walkQueueZ[0] = z;
 	}
 
-	public static void method2331() {
-		TextRepository.aString3011 = null;
-		anIntArrayArray3009 = null;
-	}
-
 	boolean isVisible() {
 		return false;
 	}

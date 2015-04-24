@@ -15,10 +15,6 @@ final class MapFunctionNode extends NodeSub {
 	int x;
 	int z;
 
-	public static void method1439() {
-		aByteArrayArrayArray3477 = null;
-	}
-
 	static final void setFlagPosition(final int i, final int i_0_, final int i_1_, final boolean bool, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_7_, final int i_8_) {
 		if (TileParticleQueue.selfPlayer.getSize() == 2) {
 			Class143.method2013(i_8_, i_2_, i_4_, i_5_, i, bool, i_3_, i_0_, i_1_, i_7_);

@@ -157,11 +157,6 @@ final class FileSystemWorker implements Runnable {
 		return i_6_;
 	}
 
-	public static void a() {
-		anIntArray789 = null;
-		aClass50_794 = null;
-	}
-
 	final FileSystemRequest requestWrite(final FileSystem fileSystem, final byte[] buffer, final int id) {
 		final FileSystemRequest fsRequest = new FileSystemRequest();
 		fsRequest.subUid = id;

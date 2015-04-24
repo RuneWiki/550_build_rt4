@@ -6,17 +6,6 @@ class Class69_Sub3 extends Class69 {
 	static int isInTutIsland = 0;
 	static String[] aStringArray2242 = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
 
-	public static void method624(final byte i) {
-		try {
-			aStringArray2242 = null;
-			if (i < 34) {
-				aStringArray2242 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("hn.J(").append(i).append(')').toString());
-		}
-	}
-
 	static final String method626(int i, final int radix, final boolean bool) {
 		if (radix < 2 || radix > 36) {
 			throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(radix).toString());

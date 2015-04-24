@@ -17,13 +17,13 @@ final class Class120_Sub19 extends Node {
 	static final void method1673(final MapFunctionNode class120_sub14_sub5, final Class120_Sub16 class120_sub16, final MapFunctionType class73, final int i, final int i_0_, final int i_1_, final boolean bool) {
 		WorldMapFont class98 = null;
 		if (class73.fontType == 0) {
-			if (3.0 == WorldMapHandler.currentZoom) {
+			if (WorldMapHandler.currentZoom == 3.0) {
 				class98 = PlayerAppearance.aClass98_1373;
 			}
 			if (WorldMapHandler.currentZoom == 4.0) {
 				class98 = Class92.aClass98_863;
 			}
-			if (6.0 == WorldMapHandler.currentZoom) {
+			if (WorldMapHandler.currentZoom == 6.0) {
 				class98 = Class112.aClass98_1070;
 			}
 			if (WorldMapHandler.currentZoom >= 8.0) {
@@ -81,10 +81,10 @@ final class Class120_Sub19 extends Node {
 					i_7_ = i_9_;
 				}
 			}
-			class120_sub16.anInt2601 = class120_sub14_sub5.worldMapX + -(i_7_ / 2) - -i;
-			class120_sub16.anInt2609 = i + class120_sub14_sub5.worldMapX + i_7_ / 2;
-			class120_sub16.anInt2606 = i_6_ + i_1_;
-			class120_sub16.anInt2607 = i_1_ + i_6_ + class98.method817() * i_4_;
+			class120_sub16.textStartX = i + class120_sub14_sub5.worldMapX + -(i_7_ / 2) ;
+			class120_sub16.textEndX = i + class120_sub14_sub5.worldMapX + i_7_ / 2;
+			class120_sub16.textStartY = i_1_ + i_6_;
+			class120_sub16.textEndY = i_1_ + i_6_ + class98.method817() * i_4_;
 			final int i_10_ = i_6_ + 2 ;
 			final int i_11_ = -(i_7_ / 2) + class120_sub14_sub5.worldMapX + -5;
 			if (class73.fillRectARGB != 0) {
@@ -96,7 +96,7 @@ final class Class120_Sub19 extends Node {
 			for (int i_12_ = 0; i_12_ < i_4_; i_12_++) {
 				String string = Class125.aStringArray2148[i_12_];
 				if (i_4_ - 1 > i_12_) {
-					string = string.substring(0, -4 + string.length());
+					string = string.substring(0, string.length() - 4);
 				}
 				final int i_13_ = class98.method811(string);
 				if (i_7_ < i_13_) {
@@ -106,11 +106,6 @@ final class Class120_Sub19 extends Node {
 				i_5_ += class98.method817();
 			}
 		}
-	}
-
-	public static void method1674() {
-		aString2653 = null;
-		anIntArray2658 = null;
 	}
 
 	static final void removeOverridedInterface(final OverridedJInterface class120_sub26, final boolean uncache) {

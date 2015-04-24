@@ -7,11 +7,6 @@ final class Class81 {
 	static int nameiconsId;
 	static int[] anIntArray779 = new int[50];
 
-	public static void method703() {
-		aClass75_777 = null;
-		anIntArray779 = null;
-	}
-
 	static final String method704(final int i, final int i_1_) {
 		final int i_2_ = i - i_1_;
 		if (i_2_ < -9) {

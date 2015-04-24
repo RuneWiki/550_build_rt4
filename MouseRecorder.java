@@ -26,17 +26,6 @@ final class MouseRecorder implements Runnable {
 		Class120_Sub14_Sub13.renderPitchWrapper = pitch;
 	}
 
-	public static void method762(final byte i) {
-		try {
-			aString853 = null;
-			if (i == -59) {
-				aString854 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jm.C(").append(i).append(')').toString());
-		}
-	}
-
 	@Override
 	public final void run() {
 		while (this.running) {

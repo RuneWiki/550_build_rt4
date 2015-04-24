@@ -40,8 +40,4 @@ final class DummyOutputStream extends OutputStream {
 		throw new IOException();
 	}
 
-	public static void method74() {
-		aClass120_Sub14_Sub18Array31 = null;
-		aClass120_Sub19_27 = null;
-	}
 }

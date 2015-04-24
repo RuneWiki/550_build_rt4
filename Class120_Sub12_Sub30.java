@@ -65,19 +65,6 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		return is_8_;
 	}
 
-	public static void method1361(final int i) {
-		try {
-			aString3372 = null;
-			aString3375 = null;
-			Class153.aClass50_3373 = null;
-			friendsRank = null;
-			aString3371 = null;
-			crossSprites = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("se.W(").append(i).append(')').toString());
-		}
-	}
-
 	static final Class101_Sub4 method1362(final Buffer buffer) {
 		return new Class101_Sub4(buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getShort(), buffer.getMedium(), buffer.getUByte());
 	}

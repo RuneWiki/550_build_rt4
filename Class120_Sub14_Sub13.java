@@ -195,14 +195,6 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		return is;
 	}
 
-	public static void method1527(final int i) {
-		try {
-			aClass21_3564 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.G(").append(i).append(')').toString());
-		}
-	}
-
 	final float[] method1528(final int i, final boolean bool, final Interface3 interface3, final js5 js5, final int i_39_) {
 		CanvasWrapper.anInterface3_19 = interface3;
 		final float[] fs_40_ = new float[4 * i_39_ * i];

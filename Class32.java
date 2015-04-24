@@ -61,33 +61,16 @@ final class Class32 {
 		}
 	}
 
-	public static void method269(final int i) {
-		try {
-			if (i == -20507) {
-				aClass189_256 = null;
-				anIntArray263 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.D(").append(i).append(')').toString());
-		}
-	}
-
-	static final String method270(final long l, final int i) {
-		String string;
-		try {
-			Class90.aCalendar844.setTime(new Date(l));
-			final int i_1_ = Class90.aCalendar844.get(7);
-			final int i_2_ = Class90.aCalendar844.get(5);
-			final int i_3_ = Class90.aCalendar844.get(2);
-			final int i_4_ = Class90.aCalendar844.get(i);
-			final int i_5_ = Class90.aCalendar844.get(11);
-			final int i_6_ = Class90.aCalendar844.get(12);
-			final int i_7_ = Class90.aCalendar844.get(13);
-			string = new StringBuilder(Class69_Sub3.aStringArray2242[i_1_ - 1]).append(", ").append(i_2_ / 10).append(i_2_ % 10).append("-").append(ReflectionCheckNode.aStringArray2759[i_3_]).append("-").append(i_4_).append(" ").append(i_5_ / 10).append(i_5_ % 10).append(":").append(i_6_ / 10).append(i_6_ % 10).append(":").append(i_7_ / 10).append(i_7_ % 10).append(" GMT").toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("dc.G(").append(l).append(',').append(i).append(')').toString());
-		}
-		return string;
+	static final String method270(final long l) {
+		Class90.aCalendar844.setTime(new Date(l));
+		final int i_1_ = Class90.aCalendar844.get(7);
+		final int i_2_ = Class90.aCalendar844.get(5);
+		final int i_3_ = Class90.aCalendar844.get(2);
+		final int i_4_ = Class90.aCalendar844.get(1);
+		final int i_5_ = Class90.aCalendar844.get(11);
+		final int i_6_ = Class90.aCalendar844.get(12);
+		final int i_7_ = Class90.aCalendar844.get(13);
+		return new StringBuilder(Class69_Sub3.aStringArray2242[i_1_ - 1]).append(", ").append(i_2_ / 10).append(i_2_ % 10).append("-").append(ReflectionCheckNode.aStringArray2759[i_3_]).append("-").append(i_4_).append(" ").append(i_5_ / 10).append(i_5_ % 10).append(":").append(i_6_ / 10).append(i_6_ % 10).append(":").append(i_7_ / 10).append(i_7_ % 10).append(" GMT").toString();
 	}
 
 	final void postDecode() {
@@ -109,10 +92,7 @@ final class Class32 {
 		}
 	}
 
-	static final String method272(final boolean bool, Throwable throwable) throws IOException {
-		if (bool) {
-			anInt259 = -122;
-		}
+	static final String method272(Throwable throwable) throws IOException {
 		String string;
 		if (!(throwable instanceof RuntimeException_Sub1)) {
 			string = "";
