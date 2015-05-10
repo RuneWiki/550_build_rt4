@@ -36,78 +36,74 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		return null;
 	}
 
-	private final void method1282(int i, final int i_3_, final int i_4_, final byte i_5_) {
+	private final void method1282(int i, final int i_3_, final int i_4_) {
 		while_170_: do {
-			try {
-				final int i_6_ = i_3_ > 2048 ? i_4_ + i_3_ + -(i_3_ * i_4_ >> 12) : i_3_ * (i_4_ + 4096) >> 12;
-				if (i_6_ > 0) {
-					final int i_7_ = -i_6_ + i_3_ + i_3_;
-					final int i_8_ = (i_6_ + -i_7_ << 12) / i_6_;
-					i *= 6;
-					final int i_9_ = i >> 12;
-					int i_10_ = i_6_;
-					final int i_11_ = i + -(i_9_ << 12);
-					i_10_ = i_8_ * i_10_ >> 12;
-					i_10_ = i_10_ * i_11_ >> 12;
-					final int i_12_ = i_6_ + -i_10_;
-					final int i_13_ = i_7_ + i_10_;
-					final int i_14_ = i_9_;
-					while_169_: do {
-						while_168_: do {
-							while_167_: do {
-								do {
-									if (i_14_ != 0) {
-										if (i_14_ != 1) {
-											if (i_14_ != 2) {
-												if (i_14_ != 3) {
-													if (i_14_ != 4) {
-														if (i_14_ != 5) {
-															break while_170_;
-														}
-													} else {
-														break while_168_;
+			final int i_6_ = i_3_ > 2048 ? i_4_ + i_3_ + -(i_3_ * i_4_ >> 12) : i_3_ * (i_4_ + 4096) >> 12;
+			if (i_6_ > 0) {
+				final int i_7_ = -i_6_ + i_3_ + i_3_;
+				final int i_8_ = (i_6_ + -i_7_ << 12) / i_6_;
+				i *= 6;
+				final int i_9_ = i >> 12;
+				int i_10_ = i_6_;
+				final int i_11_ = i + -(i_9_ << 12);
+				i_10_ = i_8_ * i_10_ >> 12;
+				i_10_ = i_10_ * i_11_ >> 12;
+				final int i_12_ = i_6_ + -i_10_;
+				final int i_13_ = i_7_ + i_10_;
+				final int i_14_ = i_9_;
+				while_169_: do {
+					while_168_: do {
+						while_167_: do {
+							do {
+								if (i_14_ != 0) {
+									if (i_14_ != 1) {
+										if (i_14_ != 2) {
+											if (i_14_ != 3) {
+												if (i_14_ != 4) {
+													if (i_14_ != 5) {
+														break while_170_;
 													}
-													break while_169_;
+												} else {
+													break while_168_;
 												}
-											} else {
-												break;
+												break while_169_;
 											}
-											break while_167_;
+										} else {
+											break;
 										}
-									} else {
-										anInt3260 = i_13_;
-										anInt3259 = i_6_;
-										anInt3267 = i_7_;
-										break while_170_;
+										break while_167_;
 									}
-									anInt3260 = i_6_;
-									anInt3259 = i_12_;
+								} else {
+									anInt3260 = i_13_;
+									anInt3259 = i_6_;
 									anInt3267 = i_7_;
 									break while_170_;
-								} while (false);
-								anInt3259 = i_7_;
+								}
 								anInt3260 = i_6_;
-								anInt3267 = i_13_;
+								anInt3259 = i_12_;
+								anInt3267 = i_7_;
 								break while_170_;
 							} while (false);
 							anInt3259 = i_7_;
-							anInt3260 = i_12_;
-							anInt3267 = i_6_;
+							anInt3260 = i_6_;
+							anInt3267 = i_13_;
 							break while_170_;
 						} while (false);
-						anInt3259 = i_13_;
-						anInt3260 = i_7_;
+						anInt3259 = i_7_;
+						anInt3260 = i_12_;
 						anInt3267 = i_6_;
 						break while_170_;
 					} while (false);
+					anInt3259 = i_13_;
 					anInt3260 = i_7_;
-					anInt3259 = i_6_;
-					anInt3267 = i_12_;
-				} else {
-					anInt3259 = anInt3260 = anInt3267 = i_3_;
-				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("lj.R(").append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(i_5_).append(')').toString());
+					anInt3267 = i_6_;
+					break while_170_;
+				} while (false);
+				anInt3260 = i_7_;
+				anInt3259 = i_6_;
+				anInt3267 = i_12_;
+			} else {
+				anInt3259 = anInt3260 = anInt3267 = i_3_;
 			}
 		} while (false);
 	}
@@ -152,55 +148,35 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 		super(1, false);
 	}
 
-	private final void method1284(final int i, final int i_19_, final int i_20_, final int i_21_) {
-		try {
-			int i_22_ = i_19_ >= i_21_ ? i_19_ : i_21_;
-			i_22_ = i_22_ < i ? i : i_22_;
-			int i_23_ = i_21_ < i_19_ ? i_21_ : i_19_;
-			i_23_ = i_23_ > i ? i : i_23_;
-			anInt3263 = (i_22_ + i_23_) / 2;
-			if (i_20_ != -2) {
-				method1284(-23, 40, -83, -78);
-			}
-			final int i_24_ = -i_23_ + i_22_;
-			if (i_24_ <= 0) {
-				anInt3261 = 0;
-			} else {
-				final int i_25_ = (-i + i_22_ << 12) / i_24_;
-				final int i_26_ = (-i_21_ + i_22_ << 12) / i_24_;
-				final int i_27_ = (i_22_ - i_19_ << 12) / i_24_;
-				if (i_22_ != i_21_) {
-					if (i_22_ == i_19_) {
-						anInt3261 = i != i_23_ ? 12288 + -i_25_ : 4096 + i_26_;
-					} else {
-						anInt3261 = i_23_ != i_21_ ? 20480 + -i_26_ : i_27_ + 12288;
-					}
+	private final void method1284(final int i, final int i_19_, final int i_21_) {
+		int i_22_ = i_19_ >= i_21_ ? i_19_ : i_21_;
+		i_22_ = i_22_ < i ? i : i_22_;
+		int i_23_ = i_21_ < i_19_ ? i_21_ : i_19_;
+		i_23_ = i_23_ > i ? i : i_23_;
+		anInt3263 = (i_22_ + i_23_) / 2;
+		final int i_24_ = -i_23_ + i_22_;
+		if (i_24_ <= 0) {
+			anInt3261 = 0;
+		} else {
+			final int i_25_ = (-i + i_22_ << 12) / i_24_;
+			final int i_26_ = (-i_21_ + i_22_ << 12) / i_24_;
+			final int i_27_ = (i_22_ - i_19_ << 12) / i_24_;
+			if (i_22_ != i_21_) {
+				if (i_22_ == i_19_) {
+					anInt3261 = i != i_23_ ? 12288 + -i_25_ : 4096 + i_26_;
 				} else {
-					anInt3261 = i_19_ == i_23_ ? 20480 + i_25_ : -i_27_ + 4096;
+					anInt3261 = i_23_ != i_21_ ? 20480 + -i_26_ : i_27_ + 12288;
 				}
-				anInt3261 /= 6;
-			}
-			if (anInt3263 <= 0 || anInt3263 >= 4096) {
-				anInt3266 = 0;
 			} else {
-				anInt3266 = (i_24_ << 12) / (anInt3263 <= 2048 ? 2 * anInt3263 : 8192 + -(2 * anInt3263));
+				anInt3261 = i_19_ == i_23_ ? 20480 + i_25_ : -i_27_ + 4096;
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("lj.W(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(',').append(i_21_).append(')').toString());
+			anInt3261 /= 6;
 		}
-	}
-
-	static final String getActionNI(final JagexInterface jagexInterface, final int actionId) {
-		if (!client.getClickMask(jagexInterface).method1678(actionId) && jagexInterface.anObjectArray2006 == null) {
-			return null;
+		if (anInt3263 <= 0 || anInt3263 >= 4096) {
+			anInt3266 = 0;
+		} else {
+			anInt3266 = (i_24_ << 12) / (anInt3263 <= 2048 ? 2 * anInt3263 : 8192 + -(2 * anInt3263));
 		}
-		if (jagexInterface.niActions == null || actionId >= jagexInterface.niActions.length || jagexInterface.niActions[actionId] == null || jagexInterface.niActions[actionId].trim().length() == 0) {
-			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
-				return "Hidden-" + actionId;
-			}
-			return null;
-		}
-		return jagexInterface.niActions[actionId];
 	}
 
 	@Override
@@ -215,7 +191,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			final int[] is_36_ = is_30_[1];
 			final int[] is_37_ = is_30_[2];
 			for (int i_38_ = 0; Class120_Sub12_Sub7.anInt3178 > i_38_; i_38_++) {
-				method1284(is_35_[i_38_], is_33_[i_38_], -2, is_32_[i_38_]);
+				method1284(is_35_[i_38_], is_33_[i_38_], is_32_[i_38_]);
 				anInt3263 += anInt3262;
 				anInt3266 += anInt3268;
 				if (anInt3266 < 0) {
@@ -237,7 +213,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 				for (/**/; anInt3261 > 4096; anInt3261 -= 4096) {
 					/* empty */
 				}
-				method1282(anInt3261, anInt3263, anInt3266, (byte) -100);
+				method1282(anInt3261, anInt3263, anInt3266);
 				is_34_[i_38_] = anInt3259;
 				is_36_[i_38_] = anInt3260;
 				is_37_[i_38_] = anInt3267;

@@ -6,7 +6,7 @@ final class Class15 {
 	static ObjectCache aClass21_95;
 	static int rectDebugType = 0;
 	static boolean menuOpen;
-	static long aLong98;
+	static long frameSizeRevertTime;
 	static LDFont objSmallFont;
 	static byte[] aByteArray100;
 	static int[] anIntArray101;
@@ -14,7 +14,7 @@ final class Class15 {
 	static {
 		aClass21_95 = new ObjectCache(4);
 		menuOpen = false;
-		aLong98 = 0L;
+		frameSizeRevertTime = 0L;
 		aByteArray100 = new byte[32896];
 		int i = 0;
 		for (int i_0_ = 0; i_0_ < 256; i_0_++) {

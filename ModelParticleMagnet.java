@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class169 {
+final class ModelParticleMagnet {
 	static int anInt1643 = -1;
 	static int mapflagId;
 	static KeyboardHandler keyboardHandler = new KeyboardHandler();
@@ -10,16 +10,16 @@ final class Class169 {
 	int anInt1647;
 	static int[] anIntArray1648 = new int[2048];
 	static js5 aClass50_1649;
-	Class32 aClass32_1650;
+	MagnetType magnetType;
 	static short aShort1651 = 256;
 
-	Class169(final int i, final int i_0_) {
-		this.aClass32_1650 = Class32.list(i);
+	ModelParticleMagnet(final int magnetId, final int i_0_) {
+		this.magnetType = MagnetType.list(magnetId);
 		this.anInt1647 = i_0_;
 	}
 
-	Class169(final Class32 class32, final int i) {
+	ModelParticleMagnet(final MagnetType magnetType, final int i) {
 		this.anInt1647 = i;
-		this.aClass32_1650 = class32;
+		this.magnetType = magnetType;
 	}
 }

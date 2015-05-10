@@ -51,8 +51,8 @@ final class JavaObject extends AbstractObject {
 			if (mouseX < Class120_Sub12_Sub7.anInt3183) {
 				mouseX = Class120_Sub12_Sub7.anInt3183;
 			}
-			if (Class120_Sub12_Sub4.draggedComponent.width + mouseX > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
-				mouseX = Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.draggedComponent.width;
+			if (Class120_Sub12_Sub4.draggedComponent.width + mouseX > Normal.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
+				mouseX = Normal.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.draggedComponent.width;
 			}
 			int mouseY = Class191.lastMouseY;
 			mouseY -= client.clickedComponentY;
@@ -60,21 +60,21 @@ final class JavaObject extends AbstractObject {
 				mouseY = Class120_Sub12_Sub35.anInt3413;
 			}
 			final int i_4_ = mouseX - Class120_Sub12_Sub17.anInt3264;
-			if (Class120_Sub12_Sub4.draggedComponent.height + mouseY > Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height) {
-				mouseY = Class120_Sub12_Sub35.anInt3413 - -Class26.aClass189_161.height + -Class120_Sub12_Sub4.draggedComponent.height;
+			if (Class120_Sub12_Sub4.draggedComponent.height + mouseY > Class120_Sub12_Sub35.anInt3413 - -Normal.aClass189_161.height) {
+				mouseY = Class120_Sub12_Sub35.anInt3413 - -Normal.aClass189_161.height + -Class120_Sub12_Sub4.draggedComponent.height;
 			}
 			final int i_5_ = mouseY - Class9.anInt77;
 			int offset = Class120_Sub12_Sub4.draggedComponent.pixelsBeforeDrag;
 			if (SceneGroundObject.componentPressedCycles > Class120_Sub12_Sub4.draggedComponent.cyclesBeforeDrag && (i_4_ > offset || i_4_ < -offset || i_5_ > offset || i_5_ < -offset)) {
 				Class120_Sub11.draggingComponent = true;
 			}
-			final int i_7_ = Class26.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
-			final int i_8_ = Class26.aClass189_161.horizontalScrollPosition + mouseY - Class120_Sub12_Sub35.anInt3413;
+			final int i_7_ = Normal.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
+			final int i_8_ = Normal.aClass189_161.horizontalScrollPosition + mouseY - Class120_Sub12_Sub35.anInt3413;
 			if (Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener != null && Class120_Sub11.draggingComponent) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
-				class120_sub10.anInt2540 = i_8_;
-				class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.draggedComponent;
-				class120_sub10.anInt2543 = i_7_;
+				class120_sub10.data2 = i_8_;
+				class120_sub10.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
+				class120_sub10.data1 = i_7_;
 				class120_sub10.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener;
 				Class88.method744(class120_sub10);
 			}
@@ -90,10 +90,10 @@ final class JavaObject extends AbstractObject {
 				} else {
 					if (Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener != null) {
 						final InterfaceListener class120_sub10 = new InterfaceListener();
-						class120_sub10.aClass189_2532 = LocType.draggedOnComponent;
-						class120_sub10.aClass189_2534 = Class120_Sub12_Sub4.draggedComponent;
-						class120_sub10.anInt2543 = i_7_;
-						class120_sub10.anInt2540 = i_8_;
+						class120_sub10.draggedOnComponent = LocType.draggedOnComponent;
+						class120_sub10.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
+						class120_sub10.data1 = i_7_;
+						class120_sub10.data2 = i_8_;
 						class120_sub10.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener;
 						Class88.method744(class120_sub10);
 					}

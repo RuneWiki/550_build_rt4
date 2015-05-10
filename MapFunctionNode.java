@@ -25,7 +25,7 @@ final class MapFunctionNode extends NodeSub {
 		}
 	}
 
-	static final void method1441() {
+	static final void calculateEquipmentLookupTable() {
 		final int[] objectIds = new int[Node.objCount];
 		int pos = 0;
 		for (int id = 0; id < Node.objCount; id++) {
@@ -34,9 +34,9 @@ final class MapFunctionNode extends NodeSub {
 				objectIds[pos++] = id;
 			}
 		}
-		KeyboardHandler.anIntArray1506 = new int[pos];
+		KeyboardHandler.equipmentLookupTable = new int[pos];
 		for (int id = 0; id < pos; id++) {
-			KeyboardHandler.anIntArray1506[id] = objectIds[id];
+			KeyboardHandler.equipmentLookupTable[id] = objectIds[id];
 		}
 	}
 

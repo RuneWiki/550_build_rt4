@@ -6,7 +6,7 @@ final class Class190 {
 	static int anInt2100;
 	static int anInt2101 = 0;
 
-	static final boolean method2504(final int x, final int z, final int level, final int xOff, final int zOff, final int whiteColor, final int redColor) {
+	static final boolean pushMinimapPixels(final int x, final int z, final int level, final int xOff, final int zOff, final int whiteColor, final int redColor) {
 		long bitPacked = Class114.getWallLocationUid(x + xOff, z + zOff, level);
 		if (bitPacked != 0L) {
 			final int rotation = (int) (bitPacked >> 20) & 0x3;
@@ -77,7 +77,7 @@ final class Class190 {
 						pixels[pixelPos + 1536 + 3] = color;
 					}
 				}
-			} else if (!FrameLoader.method1583(locType, x, z, xOff, zOff, rotation)) {
+			} else if (!FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}
@@ -107,7 +107,7 @@ final class Class190 {
 						pixels[pixelPos + 1536 + 3] = color;
 					}
 				}
-			} else if (!FrameLoader.method1583(locType, x, z, xOff, zOff, rotation)) {
+			} else if (!FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}
@@ -116,14 +116,14 @@ final class Class190 {
 			final int rotation = (int) (bitPacked >> 20) & 0x3;
 			final int locId = (int) (bitPacked >>> 32) & 0x7fffffff;
 			final LocType locType = LocType.list(locId);
-			if (locType.mapSceneId != -1 && !FrameLoader.method1583(locType, x, z, xOff, zOff, rotation)) {
+			if (locType.mapSceneId != -1 && !FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	static final void method2506(final int i) {
-		Class120_Sub12_Sub1.sleepModifier2 = 1000 / i;
+	static final void setFps(final int fps) {
+		Class120_Sub12_Sub1.sleepModifier2 = 1000 / fps;
 	}
 }

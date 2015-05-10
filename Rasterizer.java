@@ -565,14 +565,14 @@ final class Rasterizer {
 		return coordinateYLookup[0] / GraphicsLD.width;
 	}
 
-	private static final void calculateYLookupArray(final int i, final int i_49_, final int i_50_, final int i_51_) {
-		anInt983 = i_50_ - i;
-		endY = i_51_ - i_49_;
+	private static final void calculateYLookupArray(final int startX, final int startY, final int i_50_, final int i_51_) {
+		anInt983 = i_50_ - startX;
+		endY = i_51_ - startY;
 		method868();
 		if (coordinateYLookup.length < endY) {
 			coordinateYLookup = new int[Class120_Sub12_Sub17.getFarestBitValue(endY)];
 		}
-		int i_52_ = i_49_ * GraphicsLD.width + i;
+		int i_52_ = startY * GraphicsLD.width + startX;
 		for (int i_53_ = 0; i_53_ < endY; i_53_++) {
 			coordinateYLookup[i_53_] = i_52_;
 			i_52_ += GraphicsLD.width;

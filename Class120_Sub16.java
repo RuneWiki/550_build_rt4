@@ -31,11 +31,6 @@ final class Class120_Sub16 extends Node {
 		return false;
 	}
 
-	static final void clearMapFunctions() {
-		MapFunctionType.recentUse.clear();
-		MapFunctionType.spriteCache.clear();
-	}
-
 	static final int method1659(final int i, final int i_2_) {
 		int i_5_ = SubScript.method2246(i_2_ + 91923, i - -45365, 4) + -128 + (SubScript.method2246(37821 + i_2_, i + 10294, 2) + -128 >> 1) + (SubScript.method2246(i_2_, i, 1) + -128 >> 2);
 		i_5_ = (int) (0.3 * i_5_) - -35;

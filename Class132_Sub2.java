@@ -11,29 +11,18 @@ class Class132_Sub2 extends Class132 {
 	static int crossId;
 
 	@Override
-	final void method1927(final int i, final int i_0_, final byte i_1_) {
-		try {
-			anInt2818 += i_0_ * anIntArray2822[i] >> 12;
-			if (i_1_ >= -17) {
-				method1942(null, 60, 96, -23, -83, 95, -53, 52, true);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.F(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(')').toString());
-		}
+	final void method1927(final int i, final int i_0_) {
+		anInt2818 += i_0_ * anIntArray2822[i] >> 12;
 	}
 
 	@Override
-	final void method1922(final byte i) {
-		try {
-			anInt2818 = Math.abs(anInt2818);
-			if (anInt2818 >= 4096) {
-				anInt2818 = 4095;
-			}
-			method1938(anInt2819++, (byte) (anInt2818 >> 4));
-			anInt2818 = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.E(").append(i).append(')').toString());
+	final void method1922() {
+		anInt2818 = Math.abs(anInt2818);
+		if (anInt2818 >= 4096) {
+			anInt2818 = 4095;
 		}
+		method1938(anInt2819++, (byte) (anInt2818 >> 4));
+		anInt2818 = 0;
 	}
 
 	static final void resetMinimapLandscape() {
@@ -42,57 +31,42 @@ class Class132_Sub2 extends Class132 {
 	}
 
 	void method1938(final int i, final byte i_2_) {
-		try {
-			aByteArray2820[anInt2819++] = (byte) (127 + Class120_Sub12_Sub3.method1207(i_2_ >> 1, 127));
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.A(").append(i).append(',').append(i_2_).append(')').toString());
-		}
+		aByteArray2820[anInt2819++] = (byte) (127 + Class120_Sub12_Sub3.method1207(i_2_ >> 1, 127));
 	}
 
-	static final void method1939(final long[] ls, final byte i, final int i_3_, final int i_4_, final Object[] objects) {
-		try {
-			if (i_4_ < i_3_) {
-				final int i_5_ = (i_3_ + i_4_) / 2;
-				int i_6_ = i_4_;
-				final long l = ls[i_5_];
-				ls[i_5_] = ls[i_3_];
-				ls[i_3_] = l;
-				final Object object = objects[i_5_];
-				objects[i_5_] = objects[i_3_];
-				objects[i_3_] = object;
-				for (int i_7_ = i_4_; i_3_ > i_7_; i_7_++) {
-					if ((ls[i_7_] ^ 0xffffffffffffffffL) > ((0x1 & i_7_) + l ^ 0xffffffffffffffffL)) {
-						final long l_8_ = ls[i_7_];
-						ls[i_7_] = ls[i_6_];
-						ls[i_6_] = l_8_;
-						final Object object_9_ = objects[i_7_];
-						objects[i_7_] = objects[i_6_];
-						objects[i_6_++] = object_9_;
-					}
+	static final void method1939(final long[] ls, final int i_3_, final int i_4_, final Object[] objects) {
+		if (i_4_ < i_3_) {
+			final int i_5_ = (i_3_ + i_4_) / 2;
+			int i_6_ = i_4_;
+			final long l = ls[i_5_];
+			ls[i_5_] = ls[i_3_];
+			ls[i_3_] = l;
+			final Object object = objects[i_5_];
+			objects[i_5_] = objects[i_3_];
+			objects[i_3_] = object;
+			for (int i_7_ = i_4_; i_3_ > i_7_; i_7_++) {
+				if ((ls[i_7_] ^ 0xffffffffffffffffL) > ((0x1 & i_7_) + l ^ 0xffffffffffffffffL)) {
+					final long l_8_ = ls[i_7_];
+					ls[i_7_] = ls[i_6_];
+					ls[i_6_] = l_8_;
+					final Object object_9_ = objects[i_7_];
+					objects[i_7_] = objects[i_6_];
+					objects[i_6_++] = object_9_;
 				}
-				ls[i_3_] = ls[i_6_];
-				ls[i_6_] = l;
-				objects[i_3_] = objects[i_6_];
-				objects[i_6_] = object;
-				method1939(ls, (byte) -50, i_6_ - 1, i_4_, objects);
-				method1939(ls, (byte) -71, i_3_, 1 + i_6_, objects);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.H(").append(ls != null ? "{...}" : "null").append(',').append(i).append(',').append(i_3_).append(',').append(i_4_).append(',').append(objects != null ? "{...}" : "null").append(')').toString());
+			ls[i_3_] = ls[i_6_];
+			ls[i_6_] = l;
+			objects[i_3_] = objects[i_6_];
+			objects[i_6_] = object;
+			method1939(ls, i_6_ - 1, i_4_, objects);
+			method1939(ls, i_3_, 1 + i_6_, objects);
 		}
 	}
 
 	@Override
-	final void method1925(final int i) {
-		try {
-			anInt2819 = 0;
-			if (i != 255) {
-				anIntArray2822 = null;
-			}
-			anInt2818 = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("rn.I(").append(i).append(')').toString());
-		}
+	final void method1925() {
+		anInt2819 = 0;
+		anInt2818 = 0;
 	}
 
 	static final void getTitleSpriteIds(final js5 js5) {

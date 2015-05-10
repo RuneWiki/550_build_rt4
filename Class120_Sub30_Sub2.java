@@ -5,7 +5,6 @@
 final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	private final int[] anIntArray3677 = new int[16];
 	int[] anIntArray3678;
-	static String loadingPleaseWait = "Loading - please wait.";
 	private final int[] anIntArray3680;
 	private final int[] anIntArray3681;
 	private final int[] anIntArray3682;
@@ -720,7 +719,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 
 	final synchronized void method1778() {
 		for (Class120_Sub22 class120_sub22 = (Class120_Sub22) aClass75_3695.getFirst(); class120_sub22 != null; class120_sub22 = (Class120_Sub22) aClass75_3695.getNext()) {
-			class120_sub22.method1706(true);
+			class120_sub22.method1706();
 		}
 	}
 

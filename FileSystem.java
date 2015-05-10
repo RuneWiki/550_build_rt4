@@ -25,57 +25,48 @@ final class FileSystem {
 		aClass105_456 = new Deque();
 	}
 
-	static final int method443(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		int i_3_;
-		try {
-			if (i_1_ != 13080) {
-				return 64;
-			}
-			int i_4_ = Rasterizer.palette[LDModelRenderer.method2401(i_2_, i)];
-			if (i_0_ > 0) {
-				final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff);
-				if (i_5_ != 0) {
-					int i_6_;
-					if (i >= 0) {
-						if (i > 127) {
-							i_6_ = 16777215;
-						} else {
-							i_6_ = 131586 * i;
-						}
+	static final int method443(final int i, final int i_0_, final int i_2_) {
+		int i_4_ = Rasterizer.palette[LDModelRenderer.method2401(i_2_, i)];
+		if (i_0_ > 0) {
+			final int i_5_ = Rasterizer.anInterface5_973.method24(i_0_ & 0xffff);
+			if (i_5_ != 0) {
+				int i_6_;
+				if (i >= 0) {
+					if (i > 127) {
+						i_6_ = 16777215;
 					} else {
-						i_6_ = 0;
+						i_6_ = 131586 * i;
 					}
-					if (i_5_ != 256) {
-						final int i_7_ = i_5_;
-						final int i_8_ = 256 - i_5_;
-						i_4_ = (i_8_ * (0xff00ff & i_4_) + i_7_ * (0xff00ff & i_6_) & ~0xff00ff) - -((0xff00 & i_6_) * i_7_ - -((i_4_ & 0xff00) * i_8_) & 0xff0000) >> 8;
-					} else {
-						i_4_ = i_6_;
-					}
+				} else {
+					i_6_ = 0;
 				}
-				int i_9_ = Rasterizer.anInterface5_973.method21(i_0_ & 0xffff);
-				if (i_9_ != 0) {
-					i_9_ += 256;
-					int i_10_ = i_9_ * (0xff & i_4_ >> 16);
-					if (65535 < i_10_) {
-						i_10_ = 65535;
-					}
-					int i_11_ = ((0xff00 & i_4_) >> 8) * i_9_;
-					if (-65536 > (i_11_ ^ 0xffffffff)) {
-						i_11_ = 65535;
-					}
-					int i_12_ = (0xff & i_4_) * i_9_;
-					if ((i_12_ ^ 0xffffffff) < -65536) {
-						i_12_ = 65535;
-					}
-					i_4_ = (i_10_ << 8 & 0xff0066) - (-(0xff00 & i_11_) + -(i_12_ >> 8));
+				if (i_5_ != 256) {
+					final int i_7_ = i_5_;
+					final int i_8_ = 256 - i_5_;
+					i_4_ = (i_8_ * (0xff00ff & i_4_) + i_7_ * (0xff00ff & i_6_) & ~0xff00ff) - -((0xff00 & i_6_) * i_7_ - -((i_4_ & 0xff00) * i_8_) & 0xff0000) >> 8;
+				} else {
+					i_4_ = i_6_;
 				}
 			}
-			i_3_ = i_4_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fm.A(").append(i).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+			int i_9_ = Rasterizer.anInterface5_973.method21(i_0_ & 0xffff);
+			if (i_9_ != 0) {
+				i_9_ += 256;
+				int i_10_ = i_9_ * (0xff & i_4_ >> 16);
+				if (65535 < i_10_) {
+					i_10_ = 65535;
+				}
+				int i_11_ = ((0xff00 & i_4_) >> 8) * i_9_;
+				if (-65536 > (i_11_ ^ 0xffffffff)) {
+					i_11_ = 65535;
+				}
+				int i_12_ = (0xff & i_4_) * i_9_;
+				if ((i_12_ ^ 0xffffffff) < -65536) {
+					i_12_ = 65535;
+				}
+				i_4_ = (i_10_ << 8 & 0xff0066) - (-(0xff00 & i_11_) + -(i_12_ >> 8));
+			}
 		}
-		return i_3_;
+		return i_4_;
 	}
 
 	private final boolean save(final byte[] buffer, final int index, final int len, boolean exists) {

@@ -8,28 +8,28 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Date;
 
-final class Class32 {
+final class MagnetType {
 	private boolean aBoolean251 = false;
 	int anInt252;
-	private int rotation;
+	private int theta;
 	static int anInt254;
-	int anInt255;
+	int effectType;
 	static JagexInterface aClass189_256;
 	int anInt257;
 	int anInt258;
 	static int anInt259;
 	static int anInt260;
-	int anInt261;
-	int anInt262;
+	int localDirectionY;
+	int directionLength;
 	static int[] anIntArray263 = { 2, 2, 4, 0, 1, 8, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 };
-	int anInt264 = 0;
-	int anInt265;
-	int anInt266;
-	int anInt267 = 0;
-	int anInt268;
+	int constantStrength = 0;
+	int cosTheta;
+	int visibility;
+	int constantSpeed = 0;
+	int strength;
 	static int anInt269;
 	static int p11fullId;
-	long aLong271;
+	long maxRange;
 	static int anInt272;
 
 	static {
@@ -40,22 +40,22 @@ final class Class32 {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			rotation = buffer.getUShort();
+			theta = buffer.getUShort();
 		} else if (code == 2) {
 			buffer.getUByte();
 		} else if (code == 3) {
 			this.anInt257 = buffer.getInt();
-			this.anInt261 = buffer.getInt();
+			this.localDirectionY = buffer.getInt();
 			this.anInt252 = buffer.getInt();
 		} else if (code == 4) {
-			this.anInt255 = buffer.getUByte();
-			this.anInt268 = buffer.getInt();
+			this.effectType = buffer.getUByte();
+			this.strength = buffer.getInt();
 		} else if (code == 6) {
-			this.anInt266 = buffer.getUByte();
+			this.visibility = buffer.getUByte();
 		} else if (code == 8) {
-			this.anInt267 = 1;
+			this.constantSpeed = 1;
 		} else if (code == 9) {
-			this.anInt264 = 1;
+			this.constantStrength = 1;
 		} else if (code == 10) {
 			aBoolean251 = true;
 		}
@@ -74,21 +74,21 @@ final class Class32 {
 	}
 
 	final void postDecode() {
-		this.anInt265 = Rasterizer.cosTable[rotation];
-		this.anInt262 = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 + this.anInt261 * this.anInt261);
-		if (this.anInt268 == 0) {
-			this.anInt268 = 1;
+		this.cosTheta = Rasterizer.cosTable[theta];
+		this.directionLength = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 + this.localDirectionY * this.localDirectionY);
+		if (this.strength == 0) {
+			this.strength = 1;
 		}
-		if (this.anInt255 == 0) {
-			this.aLong271 = 2147483647L;
-		} else if (this.anInt255 == 1) {
-			this.aLong271 = this.anInt262 * 8 / this.anInt268;
-			this.aLong271 *= this.aLong271;
-		} else if (this.anInt255 == 2) {
-			this.aLong271 = this.anInt262 * 8 / this.anInt268;
+		if (this.effectType == 0) {
+			this.maxRange = 2147483647L;
+		} else if (this.effectType == 1) {
+			this.maxRange = this.directionLength * 8 / this.strength;
+			this.maxRange *= this.maxRange;
+		} else if (this.effectType == 2) {
+			this.maxRange = this.directionLength * 8 / this.strength;
 		}
 		if (aBoolean251) {
-			this.anInt262 *= -1;
+			this.directionLength *= -1;
 		}
 	}
 
@@ -174,10 +174,10 @@ final class Class32 {
 				final short triangleColor = (short) ((0xfc0000 & factor * (shadowColor2 & 0xfc00) + f1 * (0xfc00 & shadowColor1)) + (0x38000 & (shadowColor2 & 0x380) * factor + f1 * (0x380 & shadowColor1)) + (0x7f00 & (shadowColor1 & 0x7f) * f1 + factor * (0x7f & shadowColor2)) >> 8);
 				for (int vId = 0; vId < vertexCount; vId++) {
 					if (layerId != 0) {
-						shadowModel.addTriangle(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId - 1][(1 + vId) % vertexCount], shadowVerticesIds[layerId][(vId + 1) % vertexCount], (byte) 1, triangleColor, triangleAlpha);
-						shadowModel.addTriangle(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId][(vId - -1) % vertexCount], shadowVerticesIds[layerId][vId], (byte) 1, triangleColor, triangleAlpha);
+						shadowModel.addFace(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId - 1][(1 + vId) % vertexCount], shadowVerticesIds[layerId][(vId + 1) % vertexCount], (byte) 1, triangleColor, triangleAlpha);
+						shadowModel.addFace(shadowVerticesIds[layerId - 1][vId], shadowVerticesIds[layerId][(vId - -1) % vertexCount], shadowVerticesIds[layerId][vId], (byte) 1, triangleColor, triangleAlpha);
 					} else {
-						shadowModel.addTriangle(vertexId, shadowVerticesIds[0][(1 + vId) % vertexCount], shadowVerticesIds[0][vId], (byte) 1, triangleColor, triangleAlpha);
+						shadowModel.addFace(vertexId, shadowVerticesIds[0][(1 + vId) % vertexCount], shadowVerticesIds[0][vId], (byte) 1, triangleColor, triangleAlpha);
 					}
 				}
 			}
@@ -260,7 +260,7 @@ final class Class32 {
 		return cachedModel;
 	}
 
-	public Class32() {
+	public MagnetType() {
 		/* empty */
 	}
 
@@ -274,21 +274,21 @@ final class Class32 {
 		}
 	}
 
-	static final Class32 list(final int id) {
-		Class32 class32 = (Class32) SceneGroundObject.aClass21_2841.get(id);
+	static final MagnetType list(final int id) {
+		MagnetType class32 = (MagnetType) SceneGroundObject.aClass21_2841.get(id);
 		if (class32 != null) {
 			return class32;
 		}
 		final byte[] is = Class49.aClass50_440.getFile(1, id);
-		class32 = new Class32();
+		class32 = new MagnetType();
 		class32.anInt258 = id;
 		if (is != null) {
 			class32.decode(new Buffer(is));
 		}
 		class32.postDecode();
-		if (class32.anInt266 == 2 && GroundTile.aClass75_2643.get(id) == null) {
-			GroundTile.aClass75_2643.put(new IntegerNode(Class30.anInt236), id);
-			Class154.aClass32Array1437[Class30.anInt236++] = class32;
+		if (class32.visibility == 2 && GroundTile.globalMagnets.get(id) == null) {
+			GroundTile.globalMagnets.put(new IntegerNode(Class30.anInt236), id);
+			Class154.globalMagnets[Class30.anInt236++] = class32;
 		}
 		SceneGroundObject.aClass21_2841.put(class32, id);
 		return class32;

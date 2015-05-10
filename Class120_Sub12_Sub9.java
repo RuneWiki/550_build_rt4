@@ -10,7 +10,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	private boolean aBoolean3197 = true;
 	static int anInt3199 = 0;
 
-	static final void method1244(final JagexInterface jagexInterface, final int i_0_, final int i_1_) {
+	static final void method1244(final JagexInterface jagexInterface, final int x, final int y) {
 		if (jagexInterface.actionType == 1) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 57, -1);
 		}
@@ -42,7 +42,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 						i_5_ += jagexInterface.spriteXs[i_2_];
 						i_6_ += jagexInterface.spriteYs[i_2_];
 					}
-					if (i_1_ >= i_5_ && i_0_ >= i_6_ && i_5_ + 32 > i_1_ && i_0_ < 32 + i_6_) {
+					if (x >= i_5_ && y >= i_6_ && i_5_ + 32 > x && y < 32 + i_6_) {
 						ClanMember.anInt2572 = i_2_;
 						StructType.aClass189_3588 = jagexInterface;
 						if (jagexInterface.objIds[i_2_] > 0) {
@@ -137,9 +137,9 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 				}
 			} else {
 				for (int i_13_ = 9; i_13_ >= 5; i_13_--) {
-					final String string = Class120_Sub12_Sub17.getActionNI(jagexInterface, i_13_);
+					final String string = JagexInterface.getActionNI(jagexInterface, i_13_);
 					if (string != null) {
-						InvType.addMenuOption(string, jagexInterface.spellNameni, 1 + i_13_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1009, Class120_Sub12_Sub31.method1368(jagexInterface, i_13_));
+						InvType.addMenuOption(string, jagexInterface.spellNameni, 1 + i_13_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1009, JagexInterface.getCursor(jagexInterface, i_13_));
 					}
 				}
 				final String string = Class33.getSpellPrefix(jagexInterface);
@@ -147,9 +147,9 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					InvType.addMenuOption(string, jagexInterface.spellNameni, 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 34, -1);
 				}
 				for (int i_14_ = 4; i_14_ >= 0; i_14_--) {
-					final String string_15_ = Class120_Sub12_Sub17.getActionNI(jagexInterface, i_14_);
+					final String string_15_ = JagexInterface.getActionNI(jagexInterface, i_14_);
 					if (string_15_ != null) {
-						InvType.addMenuOption(string_15_, jagexInterface.spellNameni, 1 + i_14_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 23, Class120_Sub12_Sub31.method1368(jagexInterface, i_14_));
+						InvType.addMenuOption(string_15_, jagexInterface.spellNameni, 1 + i_14_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 23, JagexInterface.getCursor(jagexInterface, i_14_));
 					}
 				}
 				if (client.getClickMask(jagexInterface).method1686()) {
@@ -172,7 +172,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 				ArrayUtils.arrayCopy(is_18_, 0, is_17_, 0, Class120_Sub12_Sub7.anInt3178);
 			} else {
 				for (int i_19_ = 0; Class120_Sub12_Sub7.anInt3178 > i_19_; i_19_++) {
-					is_17_[i_19_] = is_18_[Class32.anInt259 - i_19_];
+					is_17_[i_19_] = is_18_[MagnetType.anInt259 - i_19_];
 				}
 			}
 		}
@@ -230,7 +230,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			gameEntity.method2329();
 		}
 		ProducingGraphicsBuffer.method1850(gameEntity);
-		GroundDecoration.method307(gameEntity);
+		GroundDecoration.animateEntity(gameEntity);
 	}
 
 	public Class120_Sub12_Sub9() {
@@ -250,9 +250,9 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			final int[] is_31_ = is_24_[2];
 			if (aBoolean3197) {
 				for (int i_32_ = 0; Class120_Sub12_Sub7.anInt3178 > i_32_; i_32_++) {
-					is_28_[i_32_] = is_26_[Class32.anInt259 - i_32_];
-					is_30_[i_32_] = is_27_[Class32.anInt259 + -i_32_];
-					is_31_[i_32_] = is_29_[-i_32_ + Class32.anInt259];
+					is_28_[i_32_] = is_26_[MagnetType.anInt259 - i_32_];
+					is_30_[i_32_] = is_27_[MagnetType.anInt259 + -i_32_];
+					is_31_[i_32_] = is_29_[-i_32_ + MagnetType.anInt259];
 				}
 			} else {
 				for (int i_33_ = 0; Class120_Sub12_Sub7.anInt3178 > i_33_; i_33_++) {

@@ -7,8 +7,7 @@ class Class69 {
 	static boolean aBoolean615 = true;
 	static int rootInterfaceId;
 	static int mouseButtons = 0;
-	static js5 aClass50_619;
-
+	
 	static {
 		rootInterfaceId = -1;
 	}
@@ -314,11 +313,11 @@ class Class69 {
 
 	static final void method613() {
 		Class101_Sub2.gameShellTimer.method738();
-		for (int i_35_ = 0; i_35_ < 32; i_35_++) {
-			GameShell.mainRedrawCache[i_35_] = 0L;
+		for (int id = 0; id < 32; id++) {
+			GameShell.mainRedrawCache[id] = 0L;
 		}
-		for (int i_35_ = 0; i_35_ < 32; i_35_++) {
-			Class120_Sub12_Sub26.mainLoopTimeCache[i_35_] = 0L;
+		for (int id = 0; id < 32; id++) {
+			Class120_Sub12_Sub26.mainLoopTimeCache[id] = 0L;
 		}
 		Class112.gameLoopCount = 0;
 	}
@@ -335,6 +334,6 @@ class Class69 {
 		IdentityKit.anInt1334 = i_39_;
 		ParamType.anInt3544 = i_40_;
 		Class120_Sub30_Sub2.anInt3699 = i_37_;
-		Class32.anInt260 = i_38_;
+		MagnetType.anInt260 = i_38_;
 	}
 }

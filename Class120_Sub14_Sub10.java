@@ -47,39 +47,21 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 		return anIntArray3528.length;
 	}
 
-	final int method1501(final int i, final int i_5_, final int i_6_) {
-		int i_7_;
-		try {
-			if (i_5_ != 0) {
-				method1506(null);
-			}
-			if (anIntArray3528 == null || i_6_ < 0 || i_6_ > anIntArray3528.length) {
-				return -1;
-			}
-			if (anIntArrayArray3529[i_6_] == null || i < 0 || i > anIntArrayArray3529[i_6_].length) {
-				return -1;
-			}
-			i_7_ = anIntArrayArray3529[i_6_][i];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.G(").append(i).append(',').append(i_5_).append(',').append(i_6_).append(')').toString());
+	final int method1501(final int i, final int i_6_) {
+		if (anIntArray3528 == null || i_6_ < 0 || i_6_ > anIntArray3528.length) {
+			return -1;
 		}
-		return i_7_;
+		if (anIntArrayArray3529[i_6_] == null || i < 0 || i > anIntArrayArray3529[i_6_].length) {
+			return -1;
+		}
+		return anIntArrayArray3529[i_6_][i];
 	}
 
-	final int method1502(final int i, final int i_8_) {
-		int i_9_;
-		try {
-			if (i_8_ != 0) {
-				return -72;
-			}
-			if (anIntArray3528 == null || i < 0 || i > anIntArray3528.length) {
-				return -1;
-			}
-			i_9_ = anIntArray3528[i];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ij.B(").append(i).append(',').append(i_8_).append(')').toString());
+	final int method1502(final int i) {
+		if (anIntArray3528 == null || i < 0 || i > anIntArray3528.length) {
+			return -1;
 		}
-		return i_9_;
+		return anIntArray3528[i];
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
@@ -154,7 +136,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 	final void method1508(final Buffer class120_sub7, final int[] is) {
 		if (anIntArray3528 != null) {
 			for (int i_19_ = 0; i_19_ < anIntArray3528.length && i_19_ < is.length; i_19_++) {
-				final int i_20_ = Class32.anIntArray263[method1502(i_19_, 0)];
+				final int i_20_ = MagnetType.anIntArray263[method1502(i_19_)];
 				if (i_20_ > 0) {
 					class120_sub7.method1108(is[i_19_], i_20_);
 				}
@@ -176,7 +158,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 	}
 
 	static final Class120_Sub14_Sub10 list(final int id) {
-		Class120_Sub14_Sub10 class120_sub14_sub10_0_ = (Class120_Sub14_Sub10) Class26.aClass35_158.get(id);
+		Class120_Sub14_Sub10 class120_sub14_sub10_0_ = (Class120_Sub14_Sub10) Normal.aClass35_158.get(id);
 		if (class120_sub14_sub10_0_ != null) {
 			return class120_sub14_sub10_0_;
 		}
@@ -193,7 +175,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 		if (id >= 32768) {
 			class120_sub14_sub10_0_.method1507();
 		}
-		Class26.aClass35_158.put(class120_sub14_sub10_0_, id);
+		Normal.aClass35_158.put(class120_sub14_sub10_0_, id);
 		return class120_sub14_sub10_0_;
 	}
 

@@ -27,8 +27,8 @@ final class Npc extends GameEntity {
 	final void render(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
 		if (this.npcType != null) {
 			final SeqType seqType = (this.animId ^ 0xffffffff) == 0 || this.animDelay != 0 ? null : SeqType.list(this.animId);
-			final SeqType class40_8_ = (this.idleAnimId ^ 0xffffffff) != 0 && (this.idleAnimId != getEntityRenderData().anInt218 || seqType == null) ? SeqType.list(this.idleAnimId) : null;
-			AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animCurrentFrame, this.anInt2998, class40_8_, seqType, this.anInt3013, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimCurrentFrame, this.anInt3044);
+			final SeqType class40_8_ = (this.idleAnimId ^ 0xffffffff) != 0 && (this.idleAnimId != getEntityRenderData().idleAnimationId || seqType == null) ? SeqType.list(this.idleAnimId) : null;
+			AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_8_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animCurrentFrameDelay);
 			if (class180_sub7 != null) {
 				this.maxY = class180_sub7.getMaxY();
 				NpcType npcType = this.npcType;
@@ -36,7 +36,7 @@ final class Npc extends GameEntity {
 					npcType = npcType.handleVarp();
 				}
 				if (Class120_Sub6.characterShadowsOn && npcType.hasShadow) {
-					final AbstractModelRenderer class180_sub7_9_ = Class32.constructShadowModel(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.idleAnimCurrentFrame : this.animCurrentFrame, this.y, this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
+					final AbstractModelRenderer class180_sub7_9_ = MagnetType.constructShadowModel(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.idleAnimFrame : this.animFrame, this.y, this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
 					if (HDToolkit.glEnabled) {
 						final float f = HDToolkit.method534();
 						final float f_10_ = HDToolkit.method526();
@@ -50,11 +50,11 @@ final class Npc extends GameEntity {
 					}
 				}
 				AbstractModelRenderer class180_sub7_11_ = null;
-				method2327(0, class180_sub7);
+				method2327(class180_sub7);
 				method2334(class180_sub7, i);
 				if ((this.spotAnimId ^ 0xffffffff) != 0 && (this.spotAnimFrame ^ 0xffffffff) != 0) {
 					final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-					class180_sub7_11_ = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
+					class180_sub7_11_ = spotAnimType.constructModel(this.spotAnimNextFrame, this.spotAnimFrameDelay, this.spotAnimFrame);
 					if (class180_sub7_11_ != null) {
 						class180_sub7_11_.translate(0, -this.spotAnimHeight, 0);
 						if (spotAnimType.aBoolean989) {
@@ -117,8 +117,8 @@ final class Npc extends GameEntity {
 		if (this.npcType != null) {
 			if (!this.aBoolean3007) {
 				final SeqType seqType = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
-				final SeqType class40_16_ = this.idleAnimId == -1 || this.idleAnimId == getEntityRenderData().anInt218 && seqType != null ? null : SeqType.list(this.idleAnimId);
-				final AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animCurrentFrame, this.anInt2998, class40_16_, seqType, this.anInt3013, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimCurrentFrame, this.anInt3044);
+				final SeqType class40_16_ = this.idleAnimId == -1 || this.idleAnimId == getEntityRenderData().idleAnimationId && seqType != null ? null : SeqType.list(this.idleAnimId);
+				final AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_16_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animCurrentFrameDelay);
 				if (class180_sub7 == null) {
 					return;
 				}
@@ -144,7 +144,7 @@ final class Npc extends GameEntity {
 		i -= (i_18_ - i_22_) / 2;
 		i_19_ -= (-i_21_ + i_17_) / 2;
 		ParticleEmitter.anInt2336 = WorldMapHandler.mapSizeX * i_19_ / i_21_;
-		Class169.anInt1646 = WorldMapHandler.mapSizeY * i / i_22_;
+		ModelParticleMagnet.anInt1646 = WorldMapHandler.mapSizeY * i / i_22_;
 		Class127.fixWorldMapBounds();
 	}
 
@@ -193,7 +193,7 @@ final class Npc extends GameEntity {
 						final LocType locType = LocType.list(i_26_);
 						if (i_33_ != 22 || Hashtable.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
 							bool_29_ = true;
-							if (!locType.method2452(true)) {
+							if (!locType.modelsCached()) {
 								bool_25_ = false;
 								Class181.anInt1791++;
 							}

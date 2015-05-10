@@ -14,7 +14,6 @@ final class Class28 {
 	int anInt178;
 	int anInt179;
 	int anInt180;
-	static js5 aClass50_181;
 	int anInt182;
 	static int[] anIntArray183;
 	int anInt184;

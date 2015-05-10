@@ -5,16 +5,16 @@ import java.awt.Container;
 import java.awt.Insets;
 
 final class InterfaceListener extends Node {
-	JagexInterface aClass189_2532;
+	JagexInterface draggedOnComponent;
 	int keyCode;
-	JagexInterface aClass189_2534;
+	JagexInterface jagexInterface;
 	int keyChar;
 	boolean mouseUsed;
 	Object[] objectData;
-	String aString2539;
-	int anInt2540;
+	String actionOption;
+	int data2;
 	int actionId;
-	int anInt2543;
+	int data1;
 	static js5 aClass50_2544;
 	static int playerRenderZ;
 	static int anInt2546;
@@ -31,22 +31,22 @@ final class InterfaceListener extends Node {
 		}
 		Class120_Sub12_Sub7.frameWidth = container.getSize().width;
 		PlayerAppearance.frameHeight = container.getSize().height;
-		if (Class112.frame == container) {
+		if (container == Class112.frame) {
 			final Insets insets = Class112.frame.getInsets();
 			Class120_Sub12_Sub7.frameWidth -= insets.left + insets.right;
 			PlayerAppearance.frameHeight -= insets.bottom + insets.top;
 		}
 		if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
-			WallDecoration.topMargin = 0;
 			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
+			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
+			WallDecoration.topMargin = 0;
 			ReflectionCheckNode.leftMargin = 0;
-			Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
 		} else {
 			Class69_Sub1.canvasWidth = 765;
 			Class120_Sub12_Sub5.canvasHeight = 503;
+			WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 			ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
 			//Class186.topMargin = 0;//original
-			WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 		}
 		if (HDToolkit.glEnabled) {
 			HDToolkit.setCanvasSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
@@ -56,12 +56,12 @@ final class InterfaceListener extends Node {
 			Node.canvas.setLocation(ReflectionCheckNode.leftMargin, WallDecoration.topMargin);
 		} else {
 			final Insets insets = Class112.frame.getInsets();
-			Node.canvas.setLocation(insets.left - -ReflectionCheckNode.leftMargin, WallDecoration.topMargin + insets.top);
+			Node.canvas.setLocation(ReflectionCheckNode.leftMargin + insets.left, WallDecoration.topMargin + insets.top);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			Class101_Sub2.method846(true);
 		}
-		Class120_Sub12_Sub22.method1322();
+		Class120_Sub12_Sub22.redrawMargins();
 	}
 
 	static final void method1170(final SceneGraphNode sceneGraphNode, final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {

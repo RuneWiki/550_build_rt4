@@ -8,7 +8,6 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	private int anInt3140 = 4096;
 	private final int[] anIntArray3141;
 	private int anInt3142 = 4096;
-	static ObjectCache aClass21_3143 = new ObjectCache(20);
 	static ObjectCache aClass21_3144 = new ObjectCache(4);
 	static int anInt3145;
 	static long lastClickTime = 0L;
@@ -136,15 +135,8 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void method1203(final int i, final js5 js5) {
-		try {
-			Class101.aClass50_966 = js5;
-			if (i != 2) {
-				aClass21_3143 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bl.S(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method1203(final js5 js5) {
+		Class101.aClass50_966 = js5;
 	}
 
 }

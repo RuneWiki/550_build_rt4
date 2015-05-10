@@ -26,8 +26,8 @@ final class Class110 {
 		VarBit.recentUse.clear();
 		Varp.recentUse.clear();
 		EntityRenderData.recentUse.clear();
-		InterfaceClickMask.method1693();
-		Class120_Sub16.clearMapFunctions();
+		MapSceneType.clear();
+		MapFunctionType.clear();
 		GroundDecoration.method309();
 		Class153.recentUse.clear();
 		Class120_Sub12_Sub35.aClass21_3411.clear();
@@ -42,7 +42,7 @@ final class Class110 {
 		}
 		Class120_Sub14_Sub13.aClass21_3564.clear();
 		Class154.shadowModelCache.clear();
-		Class120_Sub12_Sub16.aClass21_3251.clear();
+		EmitterType.recentUse.clear();
 		SceneGroundObject.aClass21_2841.clear();
 		Class15.aClass21_95.clear();
 		if (!HDToolkit.glEnabled) {
@@ -68,7 +68,7 @@ final class Class110 {
 		string = string.toLowerCase();
 		final int i_1_ = bool ? 32768 : 0;
 		int i_2_ = 0;
-		final int i_3_ = (bool ? Class192.anInt2120 : Class32.anInt269) + i_1_;
+		final int i_3_ = (bool ? Class192.anInt2120 : MagnetType.anInt269) + i_1_;
 		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
 			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class120_Sub14_Sub10.list(i_4_);
 			if (class120_sub14_sub10.aBoolean3531 && class120_sub14_sub10.method1510().toLowerCase().indexOf(string) != -1) {

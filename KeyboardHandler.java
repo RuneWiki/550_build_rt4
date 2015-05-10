@@ -10,13 +10,13 @@ import java.math.BigInteger;
 final class KeyboardHandler implements KeyListener, FocusListener {
 	static int[] anIntArray1503;
 	static BigInteger aBigInteger1505 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
-	static int[] anIntArray1506;
+	static int[] equipmentLookupTable;
 	static int anInt1507 = 0;
 	static AbstractSprite titlebgSprite;
 
 	@Override
 	public final synchronized void focusLost(final FocusEvent focusevent) {
-		if (Class169.keyboardHandler != null) {
+		if (ModelParticleMagnet.keyboardHandler != null) {
 			AnimatedLocation.anInt3074 = -1;
 		}
 	}
@@ -27,7 +27,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 
 	@Override
 	public final void keyTyped(final KeyEvent keyevent) {
-		if (Class169.keyboardHandler != null) {
+		if (ModelParticleMagnet.keyboardHandler != null) {
 			final char c = keyevent.getKeyChar();
 			if (c != '\0' && c != '\uffff' && Class143.method2019(c)) {
 				final int i = ReflectionCheckNode.anInt2762 + 1 & 0x7f;
@@ -48,7 +48,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 
 	@Override
 	public final synchronized void keyPressed(final KeyEvent keyevent) {
-		if (Class169.keyboardHandler != null) {
+		if (ModelParticleMagnet.keyboardHandler != null) {
 			Class120_Sub14_Sub15.keyboardIdleCycle = 0;
 			int i = keyevent.getKeyCode();
 			if (i < 0 || i >= Class120_Sub12_Sub23.keyCodes.length) {
@@ -83,7 +83,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 
 	@Override
 	public final synchronized void keyReleased(final KeyEvent keyevent) {
-		if (Class169.keyboardHandler != null) {
+		if (ModelParticleMagnet.keyboardHandler != null) {
 			Class120_Sub14_Sub15.keyboardIdleCycle = 0;
 			int keyCode = keyevent.getKeyCode();
 			if (keyCode >= 0 && keyCode < Class120_Sub12_Sub23.keyCodes.length) {

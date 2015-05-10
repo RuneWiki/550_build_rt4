@@ -84,52 +84,46 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 		class120_sub14_sub7.anInt3484 = i_13_;
 	}
 
-	static final String method1395(long l, final boolean bool, final int i, final int i_15_, final int i_16_) {
-		String string;
-		try {
-			char c = ',';
-			char c_17_ = '.';
-			boolean bool_18_ = false;
-			if (i_16_ == 0) {
-				c_17_ = ',';
-				c = '.';
-			}
-			if (i_16_ == 2) {
-				c_17_ = '\u00a0';
-			}
-			if (-1L < (l ^ 0xffffffffffffffffL)) {
-				bool_18_ = true;
-				l = -l;
-			}
-			final StringBuffer stringbuffer = new StringBuffer(26);
-			if (i_15_ > 0) {
-				for (int i_19_ = 0; i_19_ < i_15_; i_19_++) {
-					final int i_20_ = (int) l;
-					l /= 10L;
-					stringbuffer.append((char) (i_20_ + 48 - (int) l * 10));
-				}
-				stringbuffer.append(c);
-			}
-			int i_21_ = 0;
-			for (;;) {
-				final int i_22_ = (int) l;
-				l /= 10L;
-				stringbuffer.append((char) (-(10 * (int) l) + i_22_ + 48));
-				if (-1L == (l ^ 0xffffffffffffffffL)) {
-					break;
-				}
-				if (bool && ++i_21_ % 3 == 0) {
-					stringbuffer.append(c_17_);
-				}
-			}
-			if (bool_18_) {
-				stringbuffer.append('-');
-			}
-			string = stringbuffer.reverse().toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vb.S(").append(l).append(',').append(bool).append(',').append(i).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
+	static final String method1395(long l, final boolean bool, final int i_15_, final int i_16_) {
+		char c = ',';
+		char c_17_ = '.';
+		boolean bool_18_ = false;
+		if (i_16_ == 0) {
+			c_17_ = ',';
+			c = '.';
 		}
-		return string;
+		if (i_16_ == 2) {
+			c_17_ = '\u00a0';
+		}
+		if (-1L < (l ^ 0xffffffffffffffffL)) {
+			bool_18_ = true;
+			l = -l;
+		}
+		final StringBuffer stringbuffer = new StringBuffer(26);
+		if (i_15_ > 0) {
+			for (int i_19_ = 0; i_19_ < i_15_; i_19_++) {
+				final int i_20_ = (int) l;
+				l /= 10L;
+				stringbuffer.append((char) (i_20_ + 48 - (int) l * 10));
+			}
+			stringbuffer.append(c);
+		}
+		int i_21_ = 0;
+		for (;;) {
+			final int i_22_ = (int) l;
+			l /= 10L;
+			stringbuffer.append((char) (-(10 * (int) l) + i_22_ + 48));
+			if (-1L == (l ^ 0xffffffffffffffffL)) {
+				break;
+			}
+			if (bool && ++i_21_ % 3 == 0) {
+				stringbuffer.append(c_17_);
+			}
+		}
+		if (bool_18_) {
+			stringbuffer.append('-');
+		}
+		return stringbuffer.reverse().toString();
 	}
 
 	public Class120_Sub12_Sub37() {

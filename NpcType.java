@@ -3,7 +3,7 @@
  */
 
 final class NpcType {
-	byte aByte1652;
+	byte spawnDirection;
 	boolean hasShadow;
 	private short[] recolorOriginal;
 	int cursor2op = -1;
@@ -57,6 +57,8 @@ final class NpcType {
 	private byte[] recolorPalette;
 	String name;
 	boolean render;
+	static boolean npcMemberClient;
+	static js5 aClass50_181;
 	static ObjectCache aClass21_80 = new ObjectCache(50);
 	static js5 configClient;
 	static ObjectCache recentUse = new ObjectCache(64);
@@ -108,7 +110,7 @@ final class NpcType {
 			size = buffer.getUByte();
 		} else if (code >= 30 && code < 35) {
 			options[code - 30] = buffer.getJagexString();
-			if (options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+			if (options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
 				options[code - 30] = null;
 			}
 		} else if (code == 40) {
@@ -214,7 +216,7 @@ final class NpcType {
 		} else if (code == 123) {
 			iconHeight = buffer.getUShort();
 		} else if (code == 125) {
-			aByte1652 = buffer.getByte();
+			spawnDirection = buffer.getByte();
 		} else if (code == 127) {
 			anInt1692 = buffer.getUShort();
 		} else if (code == 128) {
@@ -253,7 +255,7 @@ final class NpcType {
 			mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
 			options[code - 150] = buffer.getJagexString();
-			if (!Class140.npcMemberClient || options[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+			if (!NpcType.npcMemberClient || options[code - 150].equalsIgnoreCase(TextRepository.hidden)) {
 				options[code - 150] = null;
 			}
 		} else if (code == 249) {
@@ -347,7 +349,7 @@ final class NpcType {
 		if (class180_sub7_42_ == null) {
 			boolean bool = false;
 			for (int i_43_ = 0; headModelIds.length > i_43_; i_43_++) {
-				if (!Class28.aClass50_181.requestDownload(headModelIds[i_43_], 0)) {
+				if (!aClass50_181.requestDownload(headModelIds[i_43_], 0)) {
 					bool = true;
 				}
 			}
@@ -356,7 +358,7 @@ final class NpcType {
 			}
 			final Model[] class180_sub2s = new Model[headModelIds.length];
 			for (int i_44_ = 0; i_44_ < headModelIds.length; i_44_++) {
-				class180_sub2s[i_44_] = Model.get(Class28.aClass50_181, headModelIds[i_44_], 0);
+				class180_sub2s[i_44_] = Model.get(aClass50_181, headModelIds[i_44_], 0);
 			}
 			Model class180_sub2;
 			if (class180_sub2s.length != 1) {
@@ -407,7 +409,7 @@ final class NpcType {
 		if (class180_sub7_55_ == null) {
 			boolean bool = false;
 			for (int i_56_ = 0; i_56_ < modelIds.length; i_56_++) {
-				if (modelIds[i_56_] != -1 && !Class28.aClass50_181.requestDownload(modelIds[i_56_], 0)) {
+				if (modelIds[i_56_] != -1 && !aClass50_181.requestDownload(modelIds[i_56_], 0)) {
 					bool = true;
 				}
 			}
@@ -417,7 +419,7 @@ final class NpcType {
 			final Model[] class180_sub2s = new Model[modelIds.length];
 			for (int i_57_ = 0; i_57_ < modelIds.length; i_57_++) {
 				if (modelIds[i_57_] != -1) {
-					class180_sub2s[i_57_] = Model.get(Class28.aClass50_181, modelIds[i_57_], 0);
+					class180_sub2s[i_57_] = Model.get(aClass50_181, modelIds[i_57_], 0);
 					if (anIntArrayArray1670 != null && anIntArrayArray1670[i_57_] != null && class180_sub2s[i_57_] != null) {
 						class180_sub2s[i_57_].translate(anIntArrayArray1670[i_57_][0], anIntArrayArray1670[i_57_][1], anIntArrayArray1670[i_57_][2]);
 					}
@@ -647,8 +649,8 @@ final class NpcType {
 	}
 
 	static final void setMembersClient3(final boolean bool) {
-		if (Class140.npcMemberClient != bool) {
-			Class140.npcMemberClient = bool;
+		if (NpcType.npcMemberClient != bool) {
+			NpcType.npcMemberClient = bool;
 			NodeCache.clearNpcCache();
 		}
 	}
@@ -681,7 +683,7 @@ final class NpcType {
 		this.ambientSoundHearDistance = 0;
 		this.anInt1672 = 32;
 		this.canRightClick = true;
-		this.aByte1652 = (byte) 7;
+		this.spawnDirection = (byte) 7;
 		ambient = 0;
 		this.anInt1666 = -1;
 		resizeX = 128;

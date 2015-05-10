@@ -63,9 +63,9 @@ final class NanoTimer extends AbstractTimer {
 			}
 			return i_5_;
 		}
-		PacketBuffer.sleepWrapper((-aLong2248 + aLong2249) / 1000000L);
+		PacketBuffer.sleepWrapper((aLong2249 - aLong2248) / 1000000L);
 		aLong2250 += aLong2249 - aLong2248;
-		aLong2248 += -aLong2248 + aLong2249;
+		aLong2248 += aLong2249 - aLong2248;
 		aLong2249 += l;
 		return 1;
 	}

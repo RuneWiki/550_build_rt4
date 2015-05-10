@@ -70,20 +70,20 @@ final class Class30 {
 	}
 
 	static final void method259(final boolean bool, final int x, final int z, final int level, final int redrawRate, final AmbientSound ambientSound) {
-		if (ambientSound.anInt2485 != -1 || ambientSound.anIntArray2482 != null) {
-			int i_6_ = 0;
-			final int i_7_ = ambientSound.volume * CursorType.ambientSoundsVolume >> 8;
-			if (x > ambientSound.anInt2487) {
-				i_6_ += x - ambientSound.anInt2487;
-			} else if (ambientSound.anInt2494 > x) {
-				i_6_ += ambientSound.anInt2494 - x;
+		if (ambientSound.id != -1 || ambientSound.anIntArray2482 != null) {
+			int distance = 0;
+			final int volume = ambientSound.volume * CursorType.ambientSoundsVolume >> 8;
+			if (x > ambientSound.entityX) {
+				distance += x - ambientSound.entityX;
+			} else if (ambientSound.x > x) {
+				distance += ambientSound.x - x;
 			}
-			if (z > ambientSound.anInt2481) {
-				i_6_ += z - ambientSound.anInt2481;
-			} else if (ambientSound.anInt2483 > z) {
-				i_6_ += ambientSound.anInt2483 - z;
+			if (z > ambientSound.entityZ) {
+				distance += z - ambientSound.entityZ;
+			} else if (ambientSound.z > z) {
+				distance += ambientSound.z - z;
 			}
-			if (ambientSound.hearDistance == 0 || ambientSound.hearDistance < i_6_ - 64 || CursorType.ambientSoundsVolume == 0 || ambientSound.anInt2498 != level) {
+			if (ambientSound.hearDistance == 0 || ambientSound.hearDistance < distance - 64 || CursorType.ambientSoundsVolume == 0 || ambientSound.level != level) {
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 					ambientSound.aClass120_Sub30_Sub4_2488 = null;
@@ -93,15 +93,15 @@ final class Class30 {
 					ambientSound.aClass120_Sub30_Sub4_2478 = null;
 				}
 			} else if (!bool) {
-				i_6_ -= 64;
-				if (i_6_ < 0) {
-					i_6_ = 0;
+				distance -= 64;
+				if (distance < 0) {
+					distance = 0;
 				}
-				int i_8_ = (ambientSound.hearDistance - i_6_) * i_7_ / ambientSound.hearDistance;
+				int i_8_ = (ambientSound.hearDistance - distance) * volume / ambientSound.hearDistance;
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					ambientSound.aClass120_Sub30_Sub4_2488.setVolume(i_8_);
-				} else if (ambientSound.anInt2485 >= 0) {
-					final Class6 class6 = Class6.method103(Class159.aClass50_1490, ambientSound.anInt2485, 0);
+				} else if (ambientSound.id >= 0) {
+					final Class6 class6 = Class6.method103(Class159.aClass50_1490, ambientSound.id, 0);
 					if (class6 != null) {
 						final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 						final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);

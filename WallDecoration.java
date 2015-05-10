@@ -61,32 +61,32 @@ final class WallDecoration {
 		Class7.anInt61 = IdentityKit.configClient.getFileAmount(3);
 	}
 
-	static final void method2473(int drawX, int drawY, final int width, final int height) {
+	static final void method2473(int drawX, int drawY, final int interfaceWidth, final int interfaceHeight) {
 		if (HDToolkit.glEnabled) {
-			GraphicsHD.clipRect(drawX, drawY, drawX + width, drawY + height);
-			GraphicsHD.fillRect(drawX, drawY, width, height, 0);
+			GraphicsHD.clipRect(drawX, drawY, drawX + interfaceWidth, drawY + interfaceHeight);
+			GraphicsHD.fillRect(drawX, drawY, interfaceWidth, interfaceHeight, 0);
 		} else {
-			GraphicsLD.clipRect(drawX, drawY, drawX + width, drawY + height);
-			GraphicsLD.fillRect(drawX, drawY, width, height, 0);
+			GraphicsLD.clipRect(drawX, drawY, drawX + interfaceWidth, drawY + interfaceHeight);
+			GraphicsLD.fillRect(drawX, drawY, interfaceWidth, interfaceHeight, 0);
 		}
 		if (Class90.laodingStage >= 100) {
 			final float f = (float) WorldMapHandler.mapSizeY / (float) WorldMapHandler.mapSizeX;
-			int drawWidth = width;
-			int drawHeight = height;
+			int width = interfaceWidth;
+			int height = interfaceHeight;
 			if (f < 1.0F) {
-				drawHeight = (int) (width * f);
+				height = (int) (interfaceWidth * f);
 			} else {
-				drawWidth = (int) (height / f);
+				width = (int) (interfaceHeight / f);
 			}
-			drawX += (width - drawWidth) / 2;
-			drawY += (height - drawHeight) / 2;
-			if (Class116.aClass120_Sub14_Sub19_1114 == null || Class116.aClass120_Sub14_Sub19_1114.width != width || Class116.aClass120_Sub14_Sub19_1114.height != height) {
-				final LDSprite ldSprite = new LDSprite(width, height);
-				GraphicsLD.init2dCanvas(ldSprite.pixels, width, height);
-				if (WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3635 != -1) {
-					GraphicsLD.fillRect(0, 0, width, height, WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3635);
+			drawX += (interfaceWidth - width) / 2;
+			drawY += (interfaceHeight - height) / 2;
+			//if (Class116.aClass120_Sub14_Sub19_1114 == null || Class116.aClass120_Sub14_Sub19_1114.width != interfaceWidth || Class116.aClass120_Sub14_Sub19_1114.height != interfaceHeight) {
+				final LDSprite ldSprite = new LDSprite(interfaceWidth, interfaceHeight);
+				GraphicsLD.init2dCanvas(ldSprite.pixels, interfaceWidth, interfaceHeight);
+				if (WorldMapHandler.aClass120_Sub14_Sub22_691.backgroundColor != -1) {
+					GraphicsLD.fillRect(0, 0, interfaceWidth, interfaceHeight, WorldMapHandler.aClass120_Sub14_Sub22_691.backgroundColor);
 				}
-				WorldMapHandler.method683(0, 0, WorldMapHandler.mapSizeX, WorldMapHandler.mapSizeY, 0, 0, drawWidth, drawHeight);
+				WorldMapHandler.method683(0, 0, WorldMapHandler.mapSizeX, WorldMapHandler.mapSizeY, 0, 0, width, height);
 				WorldMapHandler.method685();
 				if (!HDToolkit.glEnabled) {
 					Class116.aClass120_Sub14_Sub19_1114 = ldSprite;
@@ -98,13 +98,13 @@ final class WallDecoration {
 				} else {
 					GraphicsLD.pixels = null;
 				}
-			}
+			//}
 			int pointerColor = 16711680;
 			Class116.aClass120_Sub14_Sub19_1114.method1591(drawX, drawY);
-			final int pointerX = drawX + ParamType.worldMapLookAtX * drawWidth / WorldMapHandler.mapSizeX;
-			final int pointerY = drawY - GroundTile.worldMapLookAtY * drawHeight / WorldMapHandler.mapSizeY;
-			final int pointerWidth = Class173.worldMapPointerWidth * drawWidth / WorldMapHandler.mapSizeX;
-			final int pointerHeight = GroundObjectNode.worldMapPointerHeight * drawHeight / WorldMapHandler.mapSizeY;
+			final int pointerX = drawX + ParamType.worldMapLookAtX * width / WorldMapHandler.mapSizeX;
+			final int pointerY = drawY - GroundTile.worldMapLookAtY * height / WorldMapHandler.mapSizeY;
+			final int pointerWidth = Class173.worldMapPointerWidth * width / WorldMapHandler.mapSizeX;
+			final int pointerHeight = GroundObjectNode.worldMapPointerHeight * height / WorldMapHandler.mapSizeY;
 			if (Buffer.gameId == 1) {
 				pointerColor = 16777215;
 			}
@@ -122,20 +122,20 @@ final class WallDecoration {
 				} else {
 					blinkAlpha = Class136.clickedMouseFunctionCycle * 5;
 				}
-				for (MapFunctionNode mapFunctionNode = (MapFunctionNode) WorldMapHandler.aClass177_690.peekFirst(); mapFunctionNode != null; mapFunctionNode = (MapFunctionNode) WorldMapHandler.aClass177_690.peekNext()) {
+				for (MapFunctionNode mapFunctionNode = (MapFunctionNode) WorldMapHandler.mapFunctionsQueue.peekFirst(); mapFunctionNode != null; mapFunctionNode = (MapFunctionNode) WorldMapHandler.mapFunctionsQueue.peekNext()) {
 					final MapFunctionType mapFunctionType = MapFunctionType.list(mapFunctionNode.id);
 					if (Class9.method116(mapFunctionType)) {
 						if (mapFunctionNode.id == Class127.anInt1215) {
-							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
-							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
+							final int blinkX = drawX + width * mapFunctionNode.x / WorldMapHandler.mapSizeX;
+							final int blinkY = drawY + height * mapFunctionNode.z / WorldMapHandler.mapSizeY;
 							if (!HDToolkit.glEnabled) {
 								GraphicsLD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {
 								GraphicsHD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							}
 						} else if (Class120_Sub12_Sub9.clickedMouseFunctionId != -1 && mapFunctionType.anInt652 == Class120_Sub12_Sub9.clickedMouseFunctionId) {
-							final int blinkX = drawX + drawWidth * mapFunctionNode.x / WorldMapHandler.mapSizeX;
-							final int blinkY = drawY + drawHeight * mapFunctionNode.z / WorldMapHandler.mapSizeY;
+							final int blinkX = drawX + width * mapFunctionNode.x / WorldMapHandler.mapSizeX;
+							final int blinkY = drawY + height * mapFunctionNode.z / WorldMapHandler.mapSizeY;
 							if (!HDToolkit.glEnabled) {
 								GraphicsLD.fillRectAlpha(blinkX - 2, blinkY - 2, 4, 4, 16776960, blinkAlpha);
 							} else {

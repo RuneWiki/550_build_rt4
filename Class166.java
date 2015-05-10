@@ -4,6 +4,7 @@
 
 final class Class166 {
 	static int anInt1612 = 0;
+	
 	static final void method2178(final js5 js5, final boolean bool, final js5 class50_0_) {
 		Class69_Sub2.locMemberClient = bool;
 		Class120_Sub12_Sub36.aClass50_3418 = class50_0_;
@@ -17,16 +18,16 @@ final class Class166 {
 		gameEntity.x += (i_1_ - gameEntity.x) / i;
 		gameEntity.z += (i_2_ - gameEntity.z) / i;
 		if (gameEntity.anInt3008 == 0) {
-			gameEntity.anInt3019 = 1024;
+			gameEntity.newFaceDegrees = 1024;
 		}
 		if (gameEntity.anInt3008 == 1) {
-			gameEntity.anInt3019 = 1536;
+			gameEntity.newFaceDegrees = 1536;
 		}
 		if (gameEntity.anInt3008 == 2) {
-			gameEntity.anInt3019 = 0;
+			gameEntity.newFaceDegrees = 0;
 		}
 		if (gameEntity.anInt3008 == 3) {
-			gameEntity.anInt3019 = 512;
+			gameEntity.newFaceDegrees = 512;
 		}
 		gameEntity.anInt3037 = 0;
 	}

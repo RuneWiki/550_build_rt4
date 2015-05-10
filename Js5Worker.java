@@ -6,9 +6,7 @@ import java.io.IOException;
 final class Js5Worker {
 	static int anInt396;
 	static js5 aClass50_397;
-	static String aString398 = "Loading wordpack - ";
 	static String[] aStringArray399;
-	static String aString400 = "Starting 3d Library";
 	private final Queue urgentQueue = new Queue();
 	private final Queue aClass177_402 = new Queue();
 	private final Queue prefetchQueue = new Queue();
@@ -59,10 +57,10 @@ final class Js5Worker {
 		int i_11_ = i_7_;
 		if (Class120_Sub30_Sub2.anInt3699 <= i_6_ && i_6_ <= IdentityKit.anInt1334) {
 			final int[] is = GameEntity.anIntArrayArray3009[i_6_];
-			final int i_12_ = Class3.method83(Class32.anInt260, i_2_ - i, ParamType.anInt3544);
-			final int i_13_ = Class3.method83(Class32.anInt260, i + i_2_, ParamType.anInt3544);
-			final int i_14_ = Class3.method83(Class32.anInt260, -i_7_ + i_2_, ParamType.anInt3544);
-			final int i_15_ = Class3.method83(Class32.anInt260, i_2_ + i_7_, ParamType.anInt3544);
+			final int i_12_ = Class3.method83(MagnetType.anInt260, i_2_ - i, ParamType.anInt3544);
+			final int i_13_ = Class3.method83(MagnetType.anInt260, i + i_2_, ParamType.anInt3544);
+			final int i_14_ = Class3.method83(MagnetType.anInt260, -i_7_ + i_2_, ParamType.anInt3544);
+			final int i_15_ = Class3.method83(MagnetType.anInt260, i_2_ + i_7_, ParamType.anInt3544);
 			AmbientSound.fillArray(is, i_3_, i_12_, i_14_);
 			AmbientSound.fillArray(is, i_5_, i_14_, i_15_);
 			AmbientSound.fillArray(is, i_3_, i_15_, i_13_);
@@ -88,8 +86,8 @@ final class Js5Worker {
 				final int i_20_ = i_6_ - -i_8_;
 				if (Class120_Sub30_Sub2.anInt3699 <= i_20_ && i_19_ <= IdentityKit.anInt1334) {
 					if (i_8_ >= i_7_) {
-						final int i_21_ = Class3.method83(Class32.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
-						final int i_22_ = Class3.method83(Class32.anInt260, i_2_ - i_9_, ParamType.anInt3544);
+						final int i_21_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
+						final int i_22_ = Class3.method83(MagnetType.anInt260, i_2_ - i_9_, ParamType.anInt3544);
 						if (IdentityKit.anInt1334 >= i_20_) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_20_], i_3_, i_22_, i_21_);
 						}
@@ -98,10 +96,10 @@ final class Js5Worker {
 						}
 					} else {
 						final int i_23_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
-						final int i_24_ = Class3.method83(Class32.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
-						final int i_25_ = Class3.method83(Class32.anInt260, i_2_ - i_9_, ParamType.anInt3544);
-						final int i_26_ = Class3.method83(Class32.anInt260, i_2_ - -i_23_, ParamType.anInt3544);
-						final int i_27_ = Class3.method83(Class32.anInt260, i_2_ - i_23_, ParamType.anInt3544);
+						final int i_24_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
+						final int i_25_ = Class3.method83(MagnetType.anInt260, i_2_ - i_9_, ParamType.anInt3544);
+						final int i_26_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_23_, ParamType.anInt3544);
+						final int i_27_ = Class3.method83(MagnetType.anInt260, i_2_ - i_23_, ParamType.anInt3544);
 						if (IdentityKit.anInt1334 >= i_20_) {
 							final int[] is = GameEntity.anIntArrayArray3009[i_20_];
 							AmbientSound.fillArray(is, i_3_, i_25_, i_27_);
@@ -122,9 +120,9 @@ final class Js5Worker {
 			if (Class120_Sub30_Sub2.anInt3699 <= i_28_ && IdentityKit.anInt1334 >= i_29_) {
 				int i_30_ = i_8_ + i_2_;
 				int i_31_ = -i_8_ + i_2_;
-				if (i_30_ >= Class32.anInt260 && ParamType.anInt3544 >= i_31_) {
-					i_30_ = Class3.method83(Class32.anInt260, i_30_, ParamType.anInt3544);
-					i_31_ = Class3.method83(Class32.anInt260, i_31_, ParamType.anInt3544);
+				if (i_30_ >= MagnetType.anInt260 && ParamType.anInt3544 >= i_31_) {
+					i_30_ = Class3.method83(MagnetType.anInt260, i_30_, ParamType.anInt3544);
+					i_31_ = Class3.method83(MagnetType.anInt260, i_31_, ParamType.anInt3544);
 					if (i_9_ >= i_7_) {
 						if (IdentityKit.anInt1334 >= i_28_) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_28_], i_3_, i_31_, i_30_);
@@ -134,8 +132,8 @@ final class Js5Worker {
 						}
 					} else {
 						final int i_32_ = i_11_ >= i_9_ ? i_11_ : Class120_Sub14_Sub23.anIntArray3654[i_9_];
-						final int i_33_ = Class3.method83(Class32.anInt260, i_2_ - -i_32_, ParamType.anInt3544);
-						final int i_34_ = Class3.method83(Class32.anInt260, i_2_ - i_32_, ParamType.anInt3544);
+						final int i_33_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_32_, ParamType.anInt3544);
+						final int i_34_ = Class3.method83(MagnetType.anInt260, i_2_ - i_32_, ParamType.anInt3544);
 						if (IdentityKit.anInt1334 >= i_28_) {
 							final int[] is = GameEntity.anIntArrayArray3009[i_28_];
 							AmbientSound.fillArray(is, i_3_, i_31_, i_34_);

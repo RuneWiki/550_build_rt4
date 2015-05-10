@@ -7,7 +7,6 @@ abstract class Class167 {
 	int location;
 	static int selfPlayerIndex = -1;
 	int players;
-	static ObjectCache aClass21_1618 = new ObjectCache(30);
 	static boolean aBoolean1619 = true;
 	static boolean clearDepthBuffer = false;
 

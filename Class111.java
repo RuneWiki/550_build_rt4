@@ -103,29 +103,29 @@ final class Class111 {
 	}
 
 	static final void method984(final GameEntity gameEntity) {
-		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.anInt3044 + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animCurrentFrame]) {
+		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.animCurrentFrameDelay + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animFrame]) {
 			final int i_24_ = gameEntity.anInt2961 - gameEntity.anInt3035;
 			final int i_25_ = Class101_Sub2.loopCycle - gameEntity.anInt3035;
-			final int i_27_ = gameEntity.anInt3034 * 128 + 64 * gameEntity.getSize();
-			final int i_28_ = gameEntity.anInt3015 * 128 + 64 * gameEntity.getSize();
-			final int i_26_ = 128 * gameEntity.anInt2967 + gameEntity.getSize() * 64;
-			final int i_29_ = 128 * gameEntity.anInt3026 + gameEntity.getSize() * 64;
+			final int i_27_ = gameEntity.anInt3034 * 128 + gameEntity.getSize() * 64;
+			final int i_28_ = gameEntity.anInt3015 * 128 + gameEntity.getSize() * 64;
+			final int i_26_ = gameEntity.anInt2967 * 128 + gameEntity.getSize() * 64;
+			final int i_29_ = gameEntity.anInt3026 * 128 + gameEntity.getSize() * 64;
 			gameEntity.x = (i_26_ * (i_24_ - i_25_) + i_28_ * i_25_) / i_24_;
 			gameEntity.z = (i_27_ * (i_24_ - i_25_) + i_25_ * i_29_) / i_24_;
 		}
 		if (gameEntity.anInt3008 == 0) {
-			gameEntity.anInt3019 = 1024;
+			gameEntity.newFaceDegrees = 1024;
 		}
 		if (gameEntity.anInt3008 == 1) {
-			gameEntity.anInt3019 = 1536;
+			gameEntity.newFaceDegrees = 1536;
 		}
 		if (gameEntity.anInt3008 == 2) {
-			gameEntity.anInt3019 = 0;
+			gameEntity.newFaceDegrees = 0;
 		}
 		if (gameEntity.anInt3008 == 3) {
-			gameEntity.anInt3019 = 512;
+			gameEntity.newFaceDegrees = 512;
 		}
 		gameEntity.anInt3037 = 0;
-		gameEntity.anInt3032 = gameEntity.anInt3019;
+		gameEntity.faceDegrees = gameEntity.newFaceDegrees;
 	}
 }

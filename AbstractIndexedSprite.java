@@ -72,12 +72,12 @@ abstract class AbstractIndexedSprite {
 				WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
 			}
 			if (canvasReplaceRecommended) {
-				Class26.removeKeyboard(Node.canvas);
+				Normal.removeKeyboard(Node.canvas);
 				NodeCache.removeMouse(Node.canvas);
 				if (Class120_Sub12_Sub31.mouseWheelHandler != null) {
 					Class120_Sub12_Sub31.mouseWheelHandler.removeListener(Node.canvas);
 				}
-				Class179.aClient1776.addCanvas();
+				Class179.clientInstance.addCanvas();
 				Class82.addKeyboard(Node.canvas);
 				NodeCache.addMouse(Node.canvas);
 				if (Class120_Sub12_Sub31.mouseWheelHandler != null) {
@@ -106,9 +106,9 @@ abstract class AbstractIndexedSprite {
 					ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 					GraphicsLD.clearPixels();
 					if (Class109.gameState != 5) {
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.loadingPleaseWait, false);
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, false);
 					} else {
-						UnderlayType.method1909(Class120_Sub12_Sub22.boldFont, true);
+						UnderlayType.drawTitleScreen(Class120_Sub12_Sub22.boldFont, true);
 					}
 					try {
 						final Graphics graphics = Node.canvas.getGraphics();
@@ -116,13 +116,13 @@ abstract class AbstractIndexedSprite {
 					} catch (final Exception exception) {
 						/* empty */
 					}
-					Class120_Sub12_Sub22.method1322();
+					Class120_Sub12_Sub22.redrawMargins();
 					if (currentDisplayMode != 0) {
 						ClanMember.fullscreenGraphics = null;
 					} else {
 						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 					}
-					final SignlinkNode signlinkNode = NpcType.gameSignlink.method1967(Class179.aClient1776.getClass());
+					final SignlinkNode signlinkNode = NpcType.gameSignlink.method1967(Class179.clientInstance.getClass());
 					while (signlinkNode.status == 0) {
 						PacketBuffer.sleepWrapper(100L);
 					}

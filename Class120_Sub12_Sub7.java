@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub7 extends Class120_Sub12 {
-	static Deque aClass105_3177;
+	static Deque spotAnimationDeque;
 	static int anInt3178;
 	static int crossIndex = 0;
 	static int floorshadowsId;
@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 	static int frameWidth;
 
 	static {
-		aClass105_3177 = new Deque();
+		spotAnimationDeque = new Deque();
 	}
 
 	static final void method1231(final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_) {

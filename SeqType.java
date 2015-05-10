@@ -28,94 +28,78 @@ final class SeqType {
 	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt349;
 
-	final AbstractModelRenderer method320(final boolean bool, int i, int i_0_, final AbstractModelRenderer class180_sub7, int i_1_, final int i_2_) {
-		AbstractModelRenderer class180_sub7_3_;
-		try {
-			final int i_4_ = this.delays[i_0_];
-			i_0_ = this.frames[i_0_];
-			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_0_ >> 16);
-			i_0_ &= 0xffff;
-			if (class120_sub14_sub18 == null) {
-				return class180_sub7.method2376(true, true, true);
-			}
-			FrameLoader class120_sub14_sub18_5_ = null;
-			i_1_ &= 0x3;
-			if ((this.tween || Class164.forceTween) && i != -1 && this.frames.length > i) {
-				i = this.frames[i];
-				class120_sub14_sub18_5_ = FrameLoader.list(i >> 16);
-				i &= 0xffff;
-			}
-			if (bool) {
-				this.delays = null;
-			}
-			AbstractModelRenderer class180_sub7_6_;
-			if (class120_sub14_sub18_5_ != null) {
-				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_) & !class120_sub14_sub18_5_.method1578(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
-			} else {
-				class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_), !class120_sub14_sub18.method1579(i_0_), !this.aBoolean341);
-			}
-			if (this.aBoolean341 && HDToolkit.glEnabled) {
-				if (i_1_ != 1) {
-					if (i_1_ == 2) {
-						((HDModelRenderer) class180_sub7_6_).method2409();
-					} else if (i_1_ == 3) {
-						((HDModelRenderer) class180_sub7_6_).method2422();
-					}
-				} else {
-					((HDModelRenderer) class180_sub7_6_).method2408();
-				}
-			} else if (i_1_ != 1) {
-				if (i_1_ != 2) {
-					if (i_1_ == 3) {
-						class180_sub7_6_.rotate90();
-					}
-				} else {
-					class180_sub7_6_.rotate180();
-				}
-			} else {
-				class180_sub7_6_.rotate270();
-			}
-			class180_sub7_6_.method2380(class120_sub14_sub18, i_0_, class120_sub14_sub18_5_, i, i_2_ + -1, i_4_, this.aBoolean341);
-			if (this.aBoolean341 && HDToolkit.glEnabled) {
-				if (i_1_ != 1) {
-					if (i_1_ == 2) {
-						((HDModelRenderer) class180_sub7_6_).method2409();
-					} else if (i_1_ == 3) {
-						((HDModelRenderer) class180_sub7_6_).method2408();
-					}
-				} else {
+	final AbstractModelRenderer method320(final AbstractModelRenderer class180_sub7, int i, int i_0_, int i_1_, final int i_2_) {
+		final int i_4_ = this.delays[i_0_];
+		i_0_ = this.frames[i_0_];
+		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_0_ >> 16);
+		i_0_ &= 0xffff;
+		if (class120_sub14_sub18 == null) {
+			return class180_sub7.method2376(true, true, true);
+		}
+		FrameLoader class120_sub14_sub18_5_ = null;
+		i_1_ &= 0x3;
+		if ((this.tween || Class164.forceTween) && i != -1 && this.frames.length > i) {
+			i = this.frames[i];
+			class120_sub14_sub18_5_ = FrameLoader.list(i >> 16);
+			i &= 0xffff;
+		}
+		AbstractModelRenderer class180_sub7_6_;
+		if (class120_sub14_sub18_5_ != null) {
+			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_) & !class120_sub14_sub18_5_.method1578(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
+		} else {
+			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_), !class120_sub14_sub18.method1579(i_0_), !this.aBoolean341);
+		}
+		if (this.aBoolean341 && HDToolkit.glEnabled) {
+			if (i_1_ != 1) {
+				if (i_1_ == 2) {
+					((HDModelRenderer) class180_sub7_6_).method2409();
+				} else if (i_1_ == 3) {
 					((HDModelRenderer) class180_sub7_6_).method2422();
 				}
-			} else if (i_1_ != 1) {
-				if (i_1_ != 2) {
-					if (i_1_ == 3) {
-						class180_sub7_6_.rotate270();
-					}
-				} else {
-					class180_sub7_6_.rotate180();
+			} else {
+				((HDModelRenderer) class180_sub7_6_).method2408();
+			}
+		} else if (i_1_ != 1) {
+			if (i_1_ != 2) {
+				if (i_1_ == 3) {
+					class180_sub7_6_.rotate90();
 				}
 			} else {
-				class180_sub7_6_.rotate90();
+				class180_sub7_6_.rotate180();
 			}
-			class180_sub7_3_ = class180_sub7_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.I(").append(bool).append(',').append(i).append(',').append(i_0_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+		} else {
+			class180_sub7_6_.rotate270();
 		}
-		return class180_sub7_3_;
+		class180_sub7_6_.method2380(class120_sub14_sub18, i_0_, class120_sub14_sub18_5_, i, i_2_ + -1, i_4_, this.aBoolean341);
+		if (this.aBoolean341 && HDToolkit.glEnabled) {
+			if (i_1_ != 1) {
+				if (i_1_ == 2) {
+					((HDModelRenderer) class180_sub7_6_).method2409();
+				} else if (i_1_ == 3) {
+					((HDModelRenderer) class180_sub7_6_).method2408();
+				}
+			} else {
+				((HDModelRenderer) class180_sub7_6_).method2422();
+			}
+		} else if (i_1_ != 1) {
+			if (i_1_ != 2) {
+				if (i_1_ == 3) {
+					class180_sub7_6_.rotate270();
+				}
+			} else {
+				class180_sub7_6_.rotate180();
+			}
+		} else {
+			class180_sub7_6_.rotate90();
+		}
+		return class180_sub7_6_;
 	}
 
-	static final void method321(final boolean bool, int i, int i_7_, final int i_8_, final int i_9_) {
-		try {
-			if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
-				i = Class3.method83(Class32.anInt260, i, ParamType.anInt3544);
-				i_7_ = Class3.method83(Class32.anInt260, i_7_, ParamType.anInt3544);
-				GZIPDecompressor.method717(i, false, i_7_, i_8_, i_9_);
-			}
-			if (!bool) {
-				method325(21, -94, -102, -35);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.E(").append(bool).append(',').append(i).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(')').toString());
+	static final void method321(int i, int i_7_, final int i_8_, final int i_9_) {
+		if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
+			i = Class3.method83(MagnetType.anInt260, i, ParamType.anInt3544);
+			i_7_ = Class3.method83(MagnetType.anInt260, i_7_, ParamType.anInt3544);
+			GZIPDecompressor.method717(i, i_7_, i_8_, i_9_);
 		}
 	}
 
@@ -219,24 +203,24 @@ final class SeqType {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			final int i_35_ = buffer.getUShort();
-			this.delays = new int[i_35_];
-			for (int i_36_ = 0; i_36_ < i_35_; i_36_++) {
-				this.delays[i_36_] = buffer.getUShort();
+			final int len = buffer.getUShort();
+			this.delays = new int[len];
+			for (int id = 0; id < len; id++) {
+				this.delays[id] = buffer.getUShort();
 			}
-			this.frames = new int[i_35_];
-			for (int i_37_ = 0; i_37_ < i_35_; i_37_++) {
-				this.frames[i_37_] = buffer.getUShort();
+			this.frames = new int[len];
+			for (int id = 0; id < len; id++) {
+				this.frames[id] = buffer.getUShort();
 			}
-			for (int i_38_ = 0; i_38_ < i_35_; i_38_++) {
-				this.frames[i_38_] = (buffer.getUShort() << 16) + this.frames[i_38_];
+			for (int id = 0; id < len; id++) {
+				this.frames[id] = (buffer.getUShort() << 16) + this.frames[id];
 			}
 		} else if (code == 2) {
 			this.padding = buffer.getUShort();
 		} else if (code == 3) {
 			this.aBooleanArray327 = new boolean[256];
-			final int i_46_ = buffer.getUByte();
-			for (int i_47_ = 0; i_46_ > i_47_; i_47_++) {
+			final int len = buffer.getUByte();
+			for (int id = 0; id < len; id++) {
 				this.aBooleanArray327[buffer.getUByte()] = true;
 			}
 		} else if (code == 4) {
@@ -256,13 +240,13 @@ final class SeqType {
 		} else if (code == 11) {
 			this.resetInPlay = buffer.getUByte();
 		} else if (code == 12) {
-			final int i_43_ = buffer.getUByte();
-			interfaceFrames = new int[i_43_];
-			for (int i_44_ = 0; i_43_ > i_44_; i_44_++) {
-				interfaceFrames[i_44_] = buffer.getUShort();
+			final int len = buffer.getUByte();
+			interfaceFrames = new int[len];
+			for (int id = 0; id < len; id++) {
+				interfaceFrames[id] = buffer.getUShort();
 			}
-			for (int i_45_ = 0; i_45_ < i_43_; i_45_++) {
-				interfaceFrames[i_45_] = (buffer.getUShort() << 16) + interfaceFrames[i_45_];
+			for (int id = 0; id < len; id++) {
+				interfaceFrames[id] = (buffer.getUShort() << 16) + interfaceFrames[id];
 			}
 		} else if (code == 13) {
 			final int i_39_ = buffer.getUShort();
@@ -286,74 +270,65 @@ final class SeqType {
 		}
 	}
 
-	final AbstractModelRenderer method327(int i, final int i_48_, final int i_49_, int i_50_, int i_51_, final AbstractModelRenderer class180_sub7) {
-		AbstractModelRenderer class180_sub7_52_;
-		try {
-			final int i_53_ = this.delays[i_50_];
-			i_50_ = this.frames[i_50_];
-			final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_50_ >> 16);
-			i_50_ &= 0xffff;
-			if (class120_sub14_sub18 == null) {
-				return class180_sub7.method2378(true, true, true);
-			}
-			i_51_ &= 0x3;
-			FrameLoader class120_sub14_sub18_54_ = null;
-			if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
-				i = this.frames[i];
-				class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
-				i &= 0xffff;
-			}
-			AbstractModelRenderer class180_sub7_55_;
-			if (class120_sub14_sub18_54_ != null) {
-				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_) & !class120_sub14_sub18_54_.method1578(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
-			} else {
-				class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_), !class120_sub14_sub18.method1579(i_50_), !this.aBoolean341);
-			}
-			if (i_49_ != -1725374704) {
-				return null;
-			}
-			if (!HDToolkit.glEnabled || !this.aBoolean341) {
-				if (i_51_ != 1) {
-					if (i_51_ == 2) {
-						class180_sub7_55_.rotate180();
-					} else if (i_51_ == 3) {
-						class180_sub7_55_.rotate90();
-					}
-				} else {
-					class180_sub7_55_.rotate270();
-				}
-			} else if (i_51_ == 1) {
-				((HDModelRenderer) class180_sub7_55_).method2408();
-			} else if (i_51_ != 2) {
-				if (i_51_ == 3) {
-					((HDModelRenderer) class180_sub7_55_).method2422();
-				}
-			} else {
-				((HDModelRenderer) class180_sub7_55_).method2409();
-			}
-			class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, -1 + i_48_, i_53_, this.aBoolean341);
-			if (!HDToolkit.glEnabled || !this.aBoolean341) {
-				if (i_51_ != 1) {
-					if (i_51_ == 2) {
-						class180_sub7_55_.rotate180();
-					} else if (i_51_ == 3) {
-						class180_sub7_55_.rotate270();
-					}
-				} else {
+	final AbstractModelRenderer method327(int i, final int i_48_, int i_50_, int i_51_, final AbstractModelRenderer class180_sub7) {
+		final int i_53_ = this.delays[i_50_];
+		i_50_ = this.frames[i_50_];
+		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_50_ >> 16);
+		i_50_ &= 0xffff;
+		if (class120_sub14_sub18 == null) {
+			return class180_sub7.method2378(true, true, true);
+		}
+		i_51_ &= 0x3;
+		FrameLoader class120_sub14_sub18_54_ = null;
+		if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
+			i = this.frames[i];
+			class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
+			i &= 0xffff;
+		}
+		AbstractModelRenderer class180_sub7_55_;
+		if (class120_sub14_sub18_54_ != null) {
+			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_) & !class120_sub14_sub18_54_.method1578(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
+		} else {
+			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_), !class120_sub14_sub18.method1579(i_50_), !this.aBoolean341);
+		}
+		if (!HDToolkit.glEnabled || !this.aBoolean341) {
+			if (i_51_ != 1) {
+				if (i_51_ == 2) {
+					class180_sub7_55_.rotate180();
+				} else if (i_51_ == 3) {
 					class180_sub7_55_.rotate90();
 				}
-			} else if (i_51_ == 1) {
-				((HDModelRenderer) class180_sub7_55_).method2422();
-			} else if (i_51_ == 2) {
-				((HDModelRenderer) class180_sub7_55_).method2409();
-			} else if (i_51_ == 3) {
-				((HDModelRenderer) class180_sub7_55_).method2408();
+			} else {
+				class180_sub7_55_.rotate270();
 			}
-			class180_sub7_52_ = class180_sub7_55_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("eg.H(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
+		} else if (i_51_ == 1) {
+			((HDModelRenderer) class180_sub7_55_).method2408();
+		} else if (i_51_ != 2) {
+			if (i_51_ == 3) {
+				((HDModelRenderer) class180_sub7_55_).method2422();
+			}
+		} else {
+			((HDModelRenderer) class180_sub7_55_).method2409();
 		}
-		return class180_sub7_52_;
+		class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, -1 + i_48_, i_53_, this.aBoolean341);
+		if (!HDToolkit.glEnabled || !this.aBoolean341) {
+			if (i_51_ != 1) {
+				if (i_51_ == 2) {
+					class180_sub7_55_.rotate180();
+				} else if (i_51_ == 3) {
+					class180_sub7_55_.rotate270();
+				}
+			} else {
+				class180_sub7_55_.rotate90();
+			}
+		} else if (i_51_ == 1) {
+			((HDModelRenderer) class180_sub7_55_).method2422();
+		} else if (i_51_ == 2) {
+			((HDModelRenderer) class180_sub7_55_).method2409();
+		} else if (i_51_ == 3) {
+			((HDModelRenderer) class180_sub7_55_).method2408();
+		}
+		return class180_sub7_55_;
 	}
 
 	final void postDecode() {

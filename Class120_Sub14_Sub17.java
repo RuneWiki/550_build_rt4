@@ -101,7 +101,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			return null;
 		}
 		final int i = bool ? 64 : 128;
-		return this.aClass120_Sub14_Sub13_3602.method1533(1.0, aBoolean3591, 30319, js5, interface3, i, false, i);
+		return this.aClass120_Sub14_Sub13_3602.method1533(1.0, aBoolean3591, js5, interface3, i, false, i);
 	}
 
 	private static final void method1571(final int i, final int i_20_, int width, int height, final int i_23_, final int i_24_, final int[] is) {
@@ -174,7 +174,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 				return null;
 			}
 			anInt3600 = bool ? 64 : 128;
-			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, 30319, js5, interface3, anInt3600, true, anInt3600);
+			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, js5, interface3, anInt3600, true, anInt3600);
 			aFloat3607 = f;
 			if (aBoolean3606) {
 				final int[] is = new int[anInt3600];
@@ -308,7 +308,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 				if (aBoolean3603 && Class34.method290()) {
 					final float[] fs = this.aClass120_Sub14_Sub13_3602.method1528(i, aBoolean3591, interface3, js5, i);
 					if (anInt3597 == 2) {
-						method1569(Class163.anInt1567, Class163.anInt1573, i, i, Class163.anInt1570, Class163.anInt1580, fs);
+						method1569(Class163.GL_TEXTURE_2D, Class163.GL_RGBA_FLOAT16, i, i, Class163.GL_RGBA, Class163.GL_FLOAT, fs);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += fs.length * 4 / 3 - anInt3605;
@@ -322,9 +322,9 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 					}
 				} else {
 					final int i_83_ = HDToolkit.usingBigEndian ? 33639 : 5121;
-					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) 58, i, js5, 0.7, interface3, aBoolean3591);
+					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, i, js5, 0.7, interface3, aBoolean3591);
 					if (anInt3597 == 2) {
-						method1571(Class163.anInt1567, Class163.anInt1570, i, i, Class163.anInt1571, i_83_, is);
+						method1571(Class163.GL_TEXTURE_2D, Class163.GL_RGBA, i, i, Class163.GL_BGRA, i_83_, is);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += is.length * 4 / 3 - anInt3605;
@@ -337,7 +337,7 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 							if (i == 0) {
 								break;
 							}
-							is = this.aClass120_Sub14_Sub13_3602.method1526(i, (byte) -120, i, js5, 0.7, interface3, aBoolean3591);
+							is = this.aClass120_Sub14_Sub13_3602.method1526(i, i, js5, 0.7, interface3, aBoolean3591);
 						}
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);

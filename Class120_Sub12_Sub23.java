@@ -21,7 +21,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean bool) {
+	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean selPlayer) {
 		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > frame && seqType.anIntArrayArray347[frame] != null) {
 			final int i_3_ = seqType.anIntArrayArray347[frame][0];
 			int i_4_ = i_3_ >> 8;
@@ -34,7 +34,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				}
 			}
 			if (i_6_ == 0) {
-				if (bool) {
+				if (selPlayer) {
 					Class48.method404(0, i_4_, i_5_, 255);
 				}
 			} else if (CursorType.ambientSoundsVolume != 0) {
@@ -61,8 +61,8 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		int i_16_ = i_12_;
 		int i_17_ = -1;
 		int i_18_ = -i_12_;
-		final int i_19_ = Class3.method83(Class32.anInt260, i_12_ + i_11_, ParamType.anInt3544);
-		final int i_20_ = Class3.method83(Class32.anInt260, i_11_ - i_12_, ParamType.anInt3544);
+		final int i_19_ = Class3.method83(MagnetType.anInt260, i_12_ + i_11_, ParamType.anInt3544);
+		final int i_20_ = Class3.method83(MagnetType.anInt260, i_11_ - i_12_, ParamType.anInt3544);
 		AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_13_, i_20_, i_19_);
 		while (i_16_ > i_15_) {
 			i_17_ += 2;
@@ -73,8 +73,8 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				final int i_21_ = -i_16_ + i;
 				final int i_22_ = i_16_ + i;
 				if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= IdentityKit.anInt1334) {
-					final int i_23_ = Class3.method83(Class32.anInt260, i_11_ + i_15_, ParamType.anInt3544);
-					final int i_24_ = Class3.method83(Class32.anInt260, i_11_ - i_15_, ParamType.anInt3544);
+					final int i_23_ = Class3.method83(MagnetType.anInt260, i_11_ + i_15_, ParamType.anInt3544);
+					final int i_24_ = Class3.method83(MagnetType.anInt260, i_11_ - i_15_, ParamType.anInt3544);
 					if (IdentityKit.anInt1334 >= i_22_) {
 						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
 					}
@@ -87,8 +87,8 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			final int i_25_ = i - i_15_;
 			final int i_26_ = i + i_15_;
 			if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= IdentityKit.anInt1334) {
-				final int i_27_ = Class3.method83(Class32.anInt260, i_11_ - -i_16_, ParamType.anInt3544);
-				final int i_28_ = Class3.method83(Class32.anInt260, i_11_ - i_16_, ParamType.anInt3544);
+				final int i_27_ = Class3.method83(MagnetType.anInt260, i_11_ - -i_16_, ParamType.anInt3544);
+				final int i_28_ = Class3.method83(MagnetType.anInt260, i_11_ - i_16_, ParamType.anInt3544);
 				if (i_26_ <= IdentityKit.anInt1334) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
 				}

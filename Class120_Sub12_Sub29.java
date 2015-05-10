@@ -71,32 +71,23 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		return is_5_;
 	}
 
-	static final char method1354(final char c, final boolean bool) {
-		char c_14_;
-		try {
-			if (c == '\u00c6') {
-				return 'E';
-			}
-			if (c == '\u00e6') {
-				return 'e';
-			}
-			if (bool) {
-				menuOptionSuffix = null;
-			}
-			if (c == '\u00df') {
-				return 's';
-			}
-			if (c == '\u0152') {
-				return 'E';
-			}
-			if (c == '\u0153') {
-				return 'e';
-			}
-			c_14_ = '\0';
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("sc.T(").append(c).append(',').append(bool).append(')').toString());
+	static final char normalizeLatinCharacters(final char character) {
+		if (character == '\u00c6') {
+			return 'E';
 		}
-		return c_14_;
+		if (character == '\u00e6') {
+			return 'e';
+		}
+		if (character == '\u00df') {
+			return 's';
+		}
+		if (character == '\u0152') {
+			return 'E';
+		}
+		if (character == '\u0153') {
+			return 'e';
+		}
+		return '\0';
 	}
 
 	@Override

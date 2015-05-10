@@ -39,8 +39,8 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 
 	static final void method1337() {
 		JagexInterface.spriteCache.clear();
-		LabelGroup.aClass21_2406.clear();
-		Class120_Sub12_Sub2.aClass21_3143.clear();
+		JagexInterface.modelCache.clear();
+		JagexInterface.fontCache.clear();
 	}
 
 	private final boolean method1339(final int i, final int i_4_) {

@@ -8,7 +8,7 @@ import javax.media.opengl.GL;
 final class Shader {
 	int shaderId;
 	static int FRAGMENT_SHADER_ID = 35632;
-	private static int[] anIntArray317 = new int[2];
+	private static int[] params = new int[2];
 	private final int anInt318;
 
 	@Override
@@ -22,19 +22,19 @@ final class Shader {
 		final int shaderId = gl.glCreateShaderObjectARB(shaderType);
 		gl.glShaderSourceARB(shaderId, 1, new String[] { string }, new int[] { string.length() }, 0);
 		gl.glCompileShaderARB(shaderId);
-		gl.glGetObjectParameterivARB(shaderId, 35713, anIntArray317, 0);//return values, 1 for OK, 0 for problems.
-		System.out.println(Arrays.toString(anIntArray317));
-		if (anIntArray317[0] == 0) {
-			if (anIntArray317[0] == 0) {
+		gl.glGetObjectParameterivARB(shaderId, 35713, params, 0);//return values, 1 for OK, 0 for problems.
+		System.out.println(Arrays.toString(params));
+		if (params[0] == 0) {
+			if (params[0] == 0) {
 				System.out.println("Shader compile failed:");
 			}
-			gl.glGetObjectParameterivARB(shaderId, 35716, anIntArray317, 1);
-			if (anIntArray317[1] > 1) {
-				final byte[] is = new byte[anIntArray317[1]];
-				gl.glGetInfoLogARB(shaderId, anIntArray317[1], anIntArray317, 0, is, 0);
+			gl.glGetObjectParameterivARB(shaderId, 35716, params, 1);
+			if (params[1] > 1) {
+				final byte[] is = new byte[params[1]];
+				gl.glGetInfoLogARB(shaderId, params[1], params, 0, is, 0);
 				System.out.println(new String(is));
 			}
-			if (anIntArray317[0] == 0) {
+			if (params[0] == 0) {
 				gl.glDeleteObjectARB(shaderId);
 				return null;
 			}

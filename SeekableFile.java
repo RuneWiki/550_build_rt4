@@ -104,31 +104,24 @@ final class SeekableFile {
 		}
 	}
 
-	private final void method2520(final int i) throws IOException {
-		try {
-			anInt2134 = 0;
-			if (aLong2135 != position) {
-				aClass95_2132.seek(position);
-				aLong2135 = position;
+	private final void method2520() throws IOException {
+		anInt2134 = 0;
+		if (aLong2135 != position) {
+			aClass95_2132.seek(position);
+			aLong2135 = position;
+		}
+		aLong2130 = position;
+		int i_6_;
+		for (/**/; anInt2134 < aByteArray2126.length; anInt2134 += i_6_) {
+			int i_7_ = -anInt2134 + aByteArray2126.length;
+			if ((i_7_ ^ 0xffffffff) < -200000001) {
+				i_7_ = 200000000;
 			}
-			aLong2130 = position;
-			if (i != 8) {
-				aLongArray2137 = null;
+			i_6_ = aClass95_2132.read(aByteArray2126, anInt2134, i_7_);
+			if (i_6_ == -1) {
+				break;
 			}
-			int i_6_;
-			for (/**/; anInt2134 < aByteArray2126.length; anInt2134 += i_6_) {
-				int i_7_ = -anInt2134 + aByteArray2126.length;
-				if ((i_7_ ^ 0xffffffff) < -200000001) {
-					i_7_ = 200000000;
-				}
-				i_6_ = aClass95_2132.read(aByteArray2126, anInt2134, i_7_);
-				if (i_6_ == -1) {
-					break;
-				}
-				aLong2135 += i_6_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wl.G(").append(i).append(')').toString());
+			aLong2135 += i_6_;
 		}
 	}
 
@@ -213,7 +206,7 @@ final class SeekableFile {
 				}
 			} else if (len > 0) {
 				int i_16_ = len;
-				method2520(8);
+				method2520();
 				if (anInt2134 < i_16_) {
 					i_16_ = anInt2134;
 				}

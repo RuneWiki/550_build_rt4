@@ -8,7 +8,7 @@ import java.nio.FloatBuffer;
 import javax.media.opengl.GL;
 
 final class ParticleEngine extends ParticleNode {
-	static Class9 aClass9_2346;
+	static Class9 activeMagnets;
 	static boolean aBoolean2347;
 	int anInt2348 = 0;
 	private final long startLoopCycle;
@@ -28,7 +28,7 @@ final class ParticleEngine extends ParticleNode {
 	static int runningParticleCount;
 	static int anInt2364;
 	private int anInt2365 = 0;
-	Deque aClass105_2366 = new Deque();
+	Deque localMagnets = new Deque();
 	int anInt2367;
 	int anInt2368;
 	int anInt2369;
@@ -36,7 +36,7 @@ final class ParticleEngine extends ParticleNode {
 	private final int sizeZ;
 	int anInt2372;
 	int anInt2373;
-	int anInt2374;
+	int level;
 	int anInt2375;
 	private final int sizeX;
 	int anInt2377;
@@ -63,7 +63,7 @@ final class ParticleEngine extends ParticleNode {
 		anInt2354 = 0;
 		aBoolean2362 = false;
 		runningParticleCount = 0;
-		aClass9_2346 = new Class9(8);
+		activeMagnets = new Class9(8);
 		aBooleanArray2383 = new boolean[8];
 		anInt2380 = 0;
 		aBooleanArray2386 = new boolean[8];
@@ -126,7 +126,7 @@ final class ParticleEngine extends ParticleNode {
 			}
 			aLong2352 = this.aLong2359;
 			this.anInt2377 = i;
-			this.anInt2374 = i_2_;
+			this.level = i_2_;
 			this.anInt2379 = i_3_;
 			this.anInt2372 = i_4_;
 			this.anInt2368 = i_5_;
@@ -138,7 +138,7 @@ final class ParticleEngine extends ParticleNode {
 		anInt2354 = 0;
 		aClass174_2361 = new Class174();
 		aClass108_Sub3_Sub1Array2350 = new Particle[1024];
-		Class69.aClass50_619 = js5;
+		EmitterType.aClass50_619 = js5;
 		Class49.aClass50_440 = js5;
 	}
 
@@ -186,9 +186,9 @@ final class ParticleEngine extends ParticleNode {
 					for (ParticleNode class108_27_ = class108_26_.next; class108_27_ != class108_26_; class108_27_ = class108_27_.next) {
 						final Particle class108_sub3_sub1 = (Particle) class108_27_;
 						if (!class108_sub3_sub1.aBoolean3097) {
-							final int i_28_ = (class108_sub3_sub1.anInt3087 >> 12) - i_14_;
-							final int i_29_ = (class108_sub3_sub1.anInt3088 >> 12) - i_15_;
-							int i_30_ = (class108_sub3_sub1.anInt3090 >> 12) - i_16_;
+							final int i_28_ = (class108_sub3_sub1.positionX >> 12) - i_14_;
+							final int i_29_ = (class108_sub3_sub1.positionY >> 12) - i_15_;
+							int i_30_ = (class108_sub3_sub1.positionZ >> 12) - i_16_;
 							i_30_ = i_30_ * i_9_ - i_28_ * i_8_ >> 16;
 							i_30_ = (i_29_ * i_6_ + i_30_ * i_7_ >> 16) - i_21_;
 							if (i_30_ < 0) {
@@ -213,18 +213,18 @@ final class ParticleEngine extends ParticleNode {
 						}
 					}
 					boolean bool = false;
-					if (aBoolean2347 && class108_sub1.emitterType.anInt724 != -1) {
-						Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.anInt724);
+					if (aBoolean2347 && class108_sub1.emitterType.texture != -1) {
+						Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.texture);
 						bool = true;
 					} else {
 						HDToolkit.bindTexture2D(-1);
 					}
-					float f = class108_sub1.emitterType.size * aFloat2393;
+					float f = class108_sub1.emitterType.minSize * aFloat2393;
 					if (f > 64.0F) {
 						f = 64.0F;
 					}
 					gl.glPointSize(f);
-					method950(gl, i_22_, bool, class108_sub1.emitterType.aBoolean750);
+					method950(gl, i_22_, bool, class108_sub1.emitterType.disableHDLighting);
 				}
 				method957();
 			}
@@ -246,9 +246,9 @@ final class ParticleEngine extends ParticleNode {
 				if (i_33_ > 0) {
 					for (int i_34_ = i_33_ - 1; i_34_ >= 0; i_34_--) {
 						final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_32_][i_34_]];
-						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
-						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
-						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionX >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionY >> 12);
+						aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionZ >> 12);
 						final int i_35_ = class108_sub3_sub1.color;
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_35_ >> 8));
@@ -259,9 +259,9 @@ final class ParticleEngine extends ParticleNode {
 						final int i_36_ = anIntArray2389[i_32_] - 32 - 1;
 						for (int i_37_ = anIntArray2390[i_36_] - 1; i_37_ >= 0; i_37_--) {
 							final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_36_][i_37_]];
-							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3087 >> 12);
-							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3088 >> 12);
-							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.anInt3090 >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionX >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionY >> 12);
+							aClass120_Sub7_2381.putFloatAsInt(class108_sub3_sub1.positionZ >> 12);
 							final int i_38_ = class108_sub3_sub1.color;
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_38_ >> 8));
@@ -277,9 +277,9 @@ final class ParticleEngine extends ParticleNode {
 				if (i_40_ > 0) {
 					for (int i_41_ = i_40_ - 1; i_41_ >= 0; i_41_--) {
 						final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2378[i_39_][i_41_]];
-						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
-						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
-						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionX >> 12);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionY >> 12);
+						aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionZ >> 12);
 						final int i_42_ = class108_sub3_sub1.color;
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 16));
 						aClass120_Sub7_2381.putByte((byte) (i_42_ >> 8));
@@ -290,9 +290,9 @@ final class ParticleEngine extends ParticleNode {
 						final int i_43_ = anIntArray2389[i_39_] - 32 - 1;
 						for (int i_44_ = anIntArray2390[i_43_] - 1; i_44_ >= 0; i_44_--) {
 							final Particle class108_sub3_sub1 = this.aClass108_Sub3_Sub1Array2355[aShortArrayArray2387[i_43_][i_44_]];
-							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3087 >> 12);
-							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3088 >> 12);
-							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.anInt3090 >> 12);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionX >> 12);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionY >> 12);
+							aClass120_Sub7_2381.putFloatAsLEInt(class108_sub3_sub1.positionZ >> 12);
 							final int i_45_ = class108_sub3_sub1.color;
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 16));
 							aClass120_Sub7_2381.putByte((byte) (i_45_ >> 8));
@@ -331,8 +331,8 @@ final class ParticleEngine extends ParticleNode {
 
 	final void method953() {
 		this.aBoolean2356 = true;
-		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
-			if (class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt266 == 1) {
+		for (ParticleMagnet class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getNext()) {
+			if (class120_sub14_sub24.modelParticleMagnet.magnetType.visibility == 1) {
 				class120_sub14_sub24.unlinkSub();
 			}
 		}
@@ -340,7 +340,7 @@ final class ParticleEngine extends ParticleNode {
 		this.anInt2348 = 0;
 		aClass174_2357 = new Class174();
 		anInt2365 = 0;
-		this.aClass105_2366 = new Deque();
+		this.localMagnets = new Deque();
 		anInt2385 = 0;
 		unlink();
 	}
@@ -372,18 +372,18 @@ final class ParticleEngine extends ParticleNode {
 	}
 
 	private final void method955(final int i, final int i_55_) {
-		for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
-			class120_sub14_sub24.anInt3667 = class120_sub14_sub24.anInt3656 + this.anInt2379;
-			class120_sub14_sub24.anInt3662 = class120_sub14_sub24.anInt3657 + this.anInt2372;
-			class120_sub14_sub24.anInt3660 = class120_sub14_sub24.anInt3663 + this.anInt2368;
+		for (ParticleMagnet class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getNext()) {
+			class120_sub14_sub24.positionX = class120_sub14_sub24.anInt3656 + this.anInt2379;
+			class120_sub14_sub24.positionY = class120_sub14_sub24.anInt3657 + this.anInt2372;
+			class120_sub14_sub24.positionZ = class120_sub14_sub24.anInt3663 + this.anInt2368;
 			if (this.anInt2377 != 0) {
-				final int i_56_ = class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt257;
-				final int i_57_ = class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt252;
-				class120_sub14_sub24.anInt3664 = i_57_ * i + i_56_ * i_55_ >> 16;
-				class120_sub14_sub24.anInt3661 = i_57_ * i_55_ - i_56_ * i >> 16;
+				final int i_56_ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt257;
+				final int i_57_ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt252;
+				class120_sub14_sub24.localDirectionX = i_57_ * i + i_56_ * i_55_ >> 16;
+				class120_sub14_sub24.localDirectionZ = i_57_ * i_55_ - i_56_ * i >> 16;
 			} else {
-				class120_sub14_sub24.anInt3664 = class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt257;
-				class120_sub14_sub24.anInt3661 = class120_sub14_sub24.aClass169_3659.aClass32_1650.anInt252;
+				class120_sub14_sub24.localDirectionX = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt257;
+				class120_sub14_sub24.localDirectionZ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt252;
 			}
 		}
 	}
@@ -428,8 +428,8 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	static final void method958() {
-		aClass9_2346 = new Class9(8);
+	static final void clear() {
+		activeMagnets = new Class9(8);
 		anInt2392 = 0;
 		for (ParticleEngine class108_sub2 = (ParticleEngine) aClass174_2361.peekFirst(); class108_sub2 != null; class108_sub2 = (ParticleEngine) aClass174_2361.peekNext()) {
 			class108_sub2.method953();
@@ -451,14 +451,14 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	private final void method960(final Class169[] class169s, final boolean bool, final int[] is, final int[] is_61_, final int[] is_62_) {
+	private final void method960(final ModelParticleMagnet[] class169s, final boolean bool, final int[] is, final int[] is_61_, final int[] is_62_) {
 		for (int i = 0; i < 8; i++) {
 			aBooleanArray2383[i] = false;
 		}
-		while_118_: for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
+		while_118_: for (ParticleMagnet class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getNext()) {
 			if (class169s != null) {
 				for (int i = 0; i < class169s.length; i++) {
-					if (class120_sub14_sub24.aClass169_3659 == class169s[i]) {
+					if (class120_sub14_sub24.modelParticleMagnet == class169s[i]) {
 						aBooleanArray2383[i] = true;
 						continue while_118_;
 					}
@@ -476,24 +476,24 @@ final class ParticleEngine extends ParticleNode {
 		if (class169s != null) {
 			for (int i = 0; i < class169s.length && anInt2385 != 8; i++) {
 				if (!aBooleanArray2383[i]) {
-					Class120_Sub14_Sub24 class120_sub14_sub24 = null;
-					if (class169s[i].aClass32_1650.anInt266 == 1 && anInt2392 < 32) {
-						class120_sub14_sub24 = new Class120_Sub14_Sub24(class169s[i], this);
-						aClass9_2346.method115(class120_sub14_sub24, class169s[i].aClass32_1650.anInt258);
+					ParticleMagnet class120_sub14_sub24 = null;
+					if (class169s[i].magnetType.visibility == 1 && anInt2392 < 32) {
+						class120_sub14_sub24 = new ParticleMagnet(class169s[i], this);
+						activeMagnets.put(class120_sub14_sub24, class169s[i].magnetType.anInt258);
 						anInt2392++;
 					}
 					if (class120_sub14_sub24 == null) {
-						class120_sub14_sub24 = new Class120_Sub14_Sub24(class169s[i], this);
+						class120_sub14_sub24 = new ParticleMagnet(class169s[i], this);
 					}
-					this.aClass105_2366.addLast(class120_sub14_sub24);
+					this.localMagnets.addLast(class120_sub14_sub24);
 					anInt2385++;
 					aBooleanArray2383[i] = true;
 				}
 			}
-			for (Class120_Sub14_Sub24 class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (Class120_Sub14_Sub24) this.aClass105_2366.getNext()) {
+			for (ParticleMagnet class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getNext()) {
 				for (int i = 0; i < class169s.length; i++) {
-					if (aBooleanArray2383[i] && class169s[i] == class120_sub14_sub24.aClass169_3659) {
-						class120_sub14_sub24.method1650(is_62_[class120_sub14_sub24.aClass169_3659.anInt1647], is_61_[class120_sub14_sub24.aClass169_3659.anInt1647], is[class120_sub14_sub24.aClass169_3659.anInt1647]);
+					if (aBooleanArray2383[i] && class169s[i] == class120_sub14_sub24.modelParticleMagnet) {
+						class120_sub14_sub24.method1650(is_62_[class120_sub14_sub24.modelParticleMagnet.anInt1647], is_61_[class120_sub14_sub24.modelParticleMagnet.anInt1647], is[class120_sub14_sub24.modelParticleMagnet.anInt1647]);
 						break;
 					}
 				}
@@ -505,7 +505,7 @@ final class ParticleEngine extends ParticleNode {
 		aFloat2393 = i_63_ / 334.0F;
 	}
 
-	final void method962(final ModelParticleEmitter[] class158s, final Class169[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
+	final void method962(final ModelParticleEmitter[] class158s, final ModelParticleMagnet[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
 		if (!this.aBoolean2356) {
 			method943(class158s, bool, xVertices, yVertices, zVertices);
 			method960(class169s, bool, xVertices, yVertices, zVertices);
@@ -530,9 +530,9 @@ final class ParticleEngine extends ParticleNode {
 			this.anInt2367 = this.anInt2368 - (sizeZ << 6) >> 7;
 			this.anInt2375 = (this.anInt2368 + (sizeZ << 6) >> 7) - 1;
 			this.anInt2369 = this.anInt2372;
-			if (this.anInt2374 < 3) {
-				this.anInt2382 = OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2384][this.anInt2367]
-						+ OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.tileHeightMap[this.anInt2374 + 1][this.anInt2384][this.anInt2375] >> 2;
+			if (this.level < 3) {
+				this.anInt2382 = OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2384][this.anInt2367]
+						+ OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2384][this.anInt2375] >> 2;
 			} else {
 				this.anInt2382 = this.anInt2369 - 1024;
 			}
@@ -542,7 +542,7 @@ final class ParticleEngine extends ParticleNode {
 			method955(i_67_, i_68_);
 			if (aBoolean2391) {
 				for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
-					for (int i_69_ = 0; i_69_ < class108_sub1.emitterType.anInt740; i_69_++) {
+					for (int i_69_ = 0; i_69_ < class108_sub1.emitterType.startupUpdates; i_69_++) {
 						class108_sub1.method940(1, i_67_, true, i_68_, this.aLong2359);
 					}
 				}

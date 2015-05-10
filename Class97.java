@@ -296,10 +296,10 @@ final class Class97 {
 			if (aBoolean936 || bool) {
 				if (bool) {
 					anInt938 = MemoryManager.anInt1083;
-					anInt935 = Class163.method2125(Class163.anInt1570, anInt931, anInt931);
+					anInt935 = Class163.method2125(Class163.GL_RGBA, anInt931, anInt931);
 				} else {
 					HDToolkit.bindTexture2D(anInt935);
-					Class163.method2124(Class163.anInt1570, anInt931, anInt931);
+					Class163.method2124(Class163.GL_RGBA, anInt931, anInt931);
 				}
 				if (anInt943 == 1) {
 					method792(class97_60_);
@@ -398,9 +398,9 @@ final class Class97 {
 			final int[] is = class180_sub2.xVertices;
 			final int[] is_77_ = class180_sub2.yVertices;
 			final int[] is_78_ = class180_sub2.zVertices;
-			final int[] is_79_ = class180_sub2.trianglesA;
-			final int[] is_80_ = class180_sub2.trianglesB;
-			final int[] is_81_ = class180_sub2.trianglesC;
+			final int[] is_79_ = class180_sub2.facesA;
+			final int[] is_80_ = class180_sub2.facesB;
+			final int[] is_81_ = class180_sub2.facesC;
 			class180_sub2.vertexCount = 2;
 			is[0] = 0;
 			is_77_[0] = 128;
@@ -449,12 +449,12 @@ final class Class97 {
 					class180_sub2.triangleCount++;
 				}
 			}
-			class180_sub2.anInt2886 = class180_sub2.vertexCount;
-			class180_sub2.aByteArray2876 = null;
-			class180_sub2.aShortArray2850 = null;
-			class180_sub2.triangleLabelIds = null;
+			class180_sub2.highestVertexId = class180_sub2.vertexCount;
+			class180_sub2.faceTextureIndex = null;
+			class180_sub2.faceTextures = null;
+			class180_sub2.faceLabelIds = null;
 			class180_sub2.vertexLabelIds = null;
-			class180_sub2.aByteArray2879 = null;
+			class180_sub2.facePriorities = null;
 		}
 	}
 
@@ -618,7 +618,7 @@ final class Class97 {
 			i_122_ = i_122_ * i_128_ - i * i_127_ + 32767 >> 16;
 			i = i_129_;
 		}
-		ArrayUtils.fillArray(aClass180_Sub2_934.triangleColors, 0, aClass180_Sub2_934.triangleCount, (short) Rasterizer.anInterface5_973.method20(anInt928));
+		ArrayUtils.fillArray(aClass180_Sub2_934.faceColors, 0, aClass180_Sub2_934.triangleCount, (short) Rasterizer.anInterface5_973.method20(anInt928));
 		final LDModelRenderer class180_sub7_sub1 = aClass180_Sub2_934.method2298(64, 512, -i, -i_121_, -i_122_);
 		final int i_130_ = class180_sub7_sub1.getMinX() - class180_sub7_sub1.getMaxX();
 		final int i_131_ = class180_sub7_sub1.getMinY() - class180_sub7_sub1.getMaxY();
@@ -747,7 +747,7 @@ final class Class97 {
 	private static final void method808() {
 		method798();
 		if (anInt942 == -1 || anInt926 != MemoryManager.anInt1083) {
-			anInt942 = Class163.method2127(Class163.anInt1576, 128, 128, aByteArray941);
+			anInt942 = Class163.method2127(Class163.GL_ALPHA, 128, 128, aByteArray941);
 			anInt926 = MemoryManager.anInt1083;
 		}
 	}

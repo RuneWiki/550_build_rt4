@@ -43,7 +43,7 @@ final class StringNode extends Node {
 		if (!titleScreen) {
 			GZIPDecompressor.method718();
 		}
-		Class174.method2236();
+		Class174.processSpotAnimations();
 		if (HDToolkit.glEnabled) {
 			Class154.method2079(x, y, width, height, true);
 			x = ObjectContainer.anInt2612;
@@ -55,8 +55,8 @@ final class StringNode extends Node {
 		ParticleEngine.anInt2358 = y;
 		if (client.cameraType == 1) {
 			int i_6_ = (int) Class120_Sub12_Sub21.aFloat3293;
-			if (Class26.anInt162 / 256 > i_6_) {
-				i_6_ = Class26.anInt162 / 256;
+			if (Normal.anInt162 / 256 > i_6_) {
+				i_6_ = Normal.anInt162 / 256;
 			}
 			final int i_7_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
 			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
@@ -156,7 +156,7 @@ final class StringNode extends Node {
 			Class69.method612(x, y, width, height, 256, 256);
 			Class143_Sub1.method2027(x, y, width, height, 256, 256);
 		} else {
-			LightManager.method1858(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
+			LightManager.update(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
 			MouseRecorder.setupShaderRenderValues(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, SpotAnimation.renderYaw, UnderlayType.renderPitch);
 			HDToolkit.loopCycleWrapper = Class101_Sub2.loopCycle;
 			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, UnderlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, Class173.gameLevel + 1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
@@ -184,7 +184,7 @@ final class StringNode extends Node {
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
-			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(Class120_Sub30_Sub2.loadingPleaseWait, false);
+			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, false);
 		}
 		if (!titleScreen && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.menuMouseX && width + x > Class115.menuMouseX && y <= Class120_Sub12_Sub21.menuMouseY && y + height > Class120_Sub12_Sub21.menuMouseY) {
 			InterfaceChangeNode.build3dScreenMenu(x, y, width, height, Class115.menuMouseX, Class120_Sub12_Sub21.menuMouseY);

@@ -19,18 +19,11 @@ final class VarBit {
 		aBoolean167 = false;
 	}
 	
-	static final void method236(final boolean bool, final int i) {
-		try {
-			if (bool) {
-				anInt166 = -76;
-			}
-			ParticleEmitter.anInt2336 = i;
-			CanvasWrapper.anInt20 = -1;
-			Class120_Sub2.anInt2422 = -1;
-			Class127.fixWorldMapBounds();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("cm.C(").append(bool).append(',').append(i).append(')').toString());
-		}
+	static final void method236(final int i) {
+		ParticleEmitter.anInt2336 = i;
+		CanvasWrapper.anInt20 = -1;
+		Class120_Sub2.anInt2422 = -1;
+		Class127.fixWorldMapBounds();
 	}
 
 	final void decode(final Buffer buffer) {
@@ -101,8 +94,8 @@ final class VarBit {
 		int i_4_ = Class120_Sub12_Sub10.renderY;
 		int i_5_ = (int) Class120_Sub12_Sub21.aFloat3293;
 		int i_6_ = SpotAnimation.renderYaw;
-		if (Class26.anInt162 / 256 > i_5_) {
-			i_5_ = Class26.anInt162 / 256;
+		if (Normal.anInt162 / 256 > i_5_) {
+			i_5_ = Normal.anInt162 / 256;
 		}
 		int i_7_ = UnderlayType.renderPitch;
 		if (Class120_Sub12_Sub12.aBooleanArray3223[4] && i_5_ < Class181.anIntArray1790[4] + 128) {

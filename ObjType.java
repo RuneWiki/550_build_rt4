@@ -441,7 +441,7 @@ final class ObjType {
 			womanWear2 = buffer.getUShort();
 		} else if (code >= 30 && code < 35) {
 			this.options[code - 30] = buffer.getJagexString();
-			if (this.options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+			if (this.options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
 				this.options[code - 30] = null;
 			}
 		} else if (code >= 35 && code < 40) {

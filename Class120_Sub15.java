@@ -9,11 +9,10 @@ final class Class120_Sub15 extends Node {
 	int anInt2593;
 	static FrameLoader[] aClass120_Sub14_Sub18Array2595 = new FrameLoader[14];
 	static float[] aFloatArray2596;
-	static int[] anIntArray2597;
+	static int[] anIntArray2597 = new int[256];
 	static float aFloat2598;
 
 	static {
-		anIntArray2597 = new int[256];
 		aFloatArray2596 = new float[] { 0.073F, 0.169F, 0.24F, 1.0F };
 		aFloat2598 = 0.0F;
 		screenY = -1;

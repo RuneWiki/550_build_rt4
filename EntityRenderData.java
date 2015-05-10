@@ -3,7 +3,7 @@
  */
 
 final class EntityRenderData {
-	int anInt187;
+	int turnAnimation1;
 	int anInt188 = -1;
 	int anInt189;
 	int anInt190;
@@ -14,12 +14,12 @@ final class EntityRenderData {
 	int anInt197 = 0;
 	int anInt198 = -1;
 	static int[] anIntArray199 = { 4, 4, 1, 2, 6, 4, 2, 48, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-	int anInt200;
+	int turnAnimation2;
 	int anInt201;
 	int anInt202;
 	int anInt203;
 	int anInt204;
-	int anInt205;
+	int walkAnimation;
 	int anInt206;
 	int anInt207;
 	int anInt208;
@@ -27,11 +27,11 @@ final class EntityRenderData {
 	int anInt210;
 	int anInt211;
 	int anInt212;
-	int anInt213;
+	int turnAnimation3;
 	int anInt214;
 	int[][] modelRotateTranslate;
 	int anInt216;
-	int anInt218;
+	int idleAnimationId;
 	int anInt219;
 	int anInt220;
 	int anInt221;
@@ -87,13 +87,13 @@ final class EntityRenderData {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.anInt218 = buffer.getUShort();
-			this.anInt205 = buffer.getUShort();
-			if (this.anInt218 == 65535) {
-				this.anInt218 = -1;
+			this.idleAnimationId = buffer.getUShort();
+			this.walkAnimation = buffer.getUShort();
+			if (this.idleAnimationId == 65535) {
+				this.idleAnimationId = -1;
 			}
-			if (this.anInt205 == 65535) {
-				this.anInt205 = -1;
+			if (this.walkAnimation == 65535) {
+				this.walkAnimation = -1;
 			}
 		} else if (code == 2) {
 			this.anInt212 = buffer.getUShort();
@@ -147,9 +147,9 @@ final class EntityRenderData {
 						if (code == 39) {
 							this.anInt191 = buffer.getUShort();
 						} else if (code == 40) {
-							this.anInt187 = buffer.getUShort();
+							this.turnAnimation1 = buffer.getUShort();
 						} else if (code == 41) {
-							this.anInt213 = buffer.getUShort();
+							this.turnAnimation3 = buffer.getUShort();
 						} else if (code != 42) {
 							if (code != 43) {
 								if (code == 44) {
@@ -181,7 +181,7 @@ final class EntityRenderData {
 								buffer.getUShort();
 							}
 						} else {
-							this.anInt200 = buffer.getUShort();
+							this.turnAnimation2 = buffer.getUShort();
 						}
 					} else {
 						this.anInt193 = buffer.getUShort();
@@ -233,20 +233,20 @@ final class EntityRenderData {
 		this.anInt212 = -1;
 		this.anInt201 = -1;
 		this.anInt204 = 0;
-		this.anInt213 = -1;
+		this.turnAnimation3 = -1;
 		this.anInt189 = 0;
 		this.anInt207 = 0;
 		this.anInt202 = -1;
-		this.anInt205 = -1;
+		this.walkAnimation = -1;
 		this.anInt206 = 0;
 		this.anInt210 = -1;
-		this.anInt187 = -1;
+		this.turnAnimation1 = -1;
 		this.anInt208 = 0;
 		this.anInt192 = -1;
-		this.anInt200 = -1;
+		this.turnAnimation2 = -1;
 		this.anInt216 = -1;
 		this.anInt219 = -1;
-		this.anInt218 = -1;
+		this.idleAnimationId = -1;
 		this.anInt222 = -1;
 		this.anInt191 = -1;
 		this.anInt193 = -1;

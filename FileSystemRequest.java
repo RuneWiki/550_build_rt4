@@ -149,7 +149,7 @@ final class FileSystemRequest extends AbstractRequest {
 				}
 				class180_sub5_sub2.aBoolean2992 = false;
 				class180_sub5_sub2.y = Class22.getTileHeight(class180_sub5_sub2.x, class180_sub5_sub2.z, Class173.gameLevel);
-				Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub2.x, class180_sub5_sub2.z, class180_sub5_sub2.y, 60 + i_16_ * 64 + -64, class180_sub5_sub2, class180_sub5_sub2.anInt3032, l, class180_sub5_sub2.aBoolean3002);
+				Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub2.x, class180_sub5_sub2.z, class180_sub5_sub2.y, 60 + i_16_ * 64 + -64, class180_sub5_sub2, class180_sub5_sub2.faceDegrees, l, class180_sub5_sub2.aBoolean3002);
 			}
 		}
 	}

@@ -16,13 +16,6 @@ final class IntegerNode extends Node {
 		killtime = 0L;
 	}
 
-	static final void method1831() {
-		LocType.recentUse.clearSoftReference();
-		InterfaceClickMask.aClass21_2663.clearSoftReference();
-		Class167.aClass21_1618.clearSoftReference();
-		Class116.aClass21_1117.clearSoftReference();
-	}
-
 	static final boolean method1833(final JagexInterface jagexInterface) {
 		if (jagexInterface.clientCode == 205) {
 			Class31.logoutCycle = 250;

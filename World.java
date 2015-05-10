@@ -139,10 +139,10 @@ final class World extends Class167 {
 						continue;
 					}
 					if (opcode == 37) {
-						final int i_11_ = intValues[opcodeIndex];
-						stringStackIndex -= i_11_;
-						final String string = Class120_Sub12_Sub21_Sub1.method1317(false, Class33.stringStack, stringStackIndex, i_11_);
-						Class33.stringStack[stringStackIndex++] = string;
+						final int stringLength = intValues[opcodeIndex];
+						stringStackIndex -= stringLength;
+						final String mergedString = Class120_Sub12_Sub21_Sub1.mergeStrings(Class33.stringStack, stringStackIndex, stringLength);
+						Class33.stringStack[stringStackIndex++] = mergedString;
 						continue;
 					}
 					if (opcode == 38) {
@@ -440,7 +440,7 @@ final class World extends Class167 {
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
 								if (jagexInterface.componentIndex == -1) {
-									Class187.method2479(jagexInterface.bitPacked, 3);
+									Class187.method2479(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1113) {
 								jagexInterface.font = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -667,95 +667,67 @@ final class World extends Class167 {
 							jagexInterface.hasListener = true;
 							if (opcode == 1400) {
 								jagexInterface.onClickListener = objects;
-							} else if (opcode != 1401) {
-								if (opcode == 1402) {
-									jagexInterface.onReleaseListener = objects;
-								} else if (opcode != 1403) {
-									if (opcode != 1404) {
-										if (opcode == 1405) {
-											jagexInterface.onComponentDraggedListener = objects;
-										} else if (opcode != 1406) {
-											if (opcode == 1407) {
-												jagexInterface.onVarpUpdateListener = objects;
-												jagexInterface.varpListenerTriggers = is_42_;
-											} else if (opcode == 1408) {
-												jagexInterface.onLoopCycleListener = objects;
-											} else if (opcode == 1409) {
-												jagexInterface.anObjectArray2006 = objects;
-											} else if (opcode != 1410) {
-												if (opcode != 1411) {
-													if (opcode == 1412) {
-														jagexInterface.onMouseFocusedListener = objects;
-													} else if (opcode != 1414) {
-														if (opcode != 1415) {
-															if (opcode == 1416) {
-																jagexInterface.onSpellSelectionListener = objects;
-															} else if (opcode == 1417) {
-																jagexInterface.onMouseWheelListener = objects;
-															} else if (opcode != 1418) {
-																if (opcode != 1419) {
-																	if (opcode != 1420) {
-																		if (opcode == 1421) {
-																			jagexInterface.anObjectArray2036 = objects;
-																		} else if (opcode != 1422) {
-																			if (opcode == 1423) {
-																				jagexInterface.anObjectArray2013 = objects;
-																			} else if (opcode == 1424) {
-																				jagexInterface.anObjectArray1932 = objects;
-																			} else if (opcode != 1425) {
-																				if (opcode == 1426) {
-																					jagexInterface.anObjectArray1942 = objects;
-																				} else if (opcode != 1427) {
-																					if (opcode == 1428) {
-																						jagexInterface.integerScriptValuesListener = objects;
-																						jagexInterface.integerScriptValuesTriggers = is_42_;
-																					} else if (opcode == 1429) {
-																						jagexInterface.stringScriptValuesListener = objects;
-																						jagexInterface.stringScriptValuesTriggers = is_42_;
-																					}
-																				} else {
-																					jagexInterface.onResizeListener = objects;
-																				}
-																			} else {
-																				jagexInterface.anObjectArray1984 = objects;
-																			}
-																		} else {
-																			jagexInterface.anObjectArray2086 = objects;
-																		}
-																	} else {
-																		jagexInterface.privateChatUpdateListener = objects;
-																	}
-																} else {
-																	jagexInterface.keyPressedListener = objects;
-																}
-															} else {
-																jagexInterface.anObjectArray1944 = objects;
-															}
-														} else {
-															jagexInterface.onSkillUpdateListener = objects;
-															jagexInterface.skillListernerTriggers = is_42_;
-														}
-													} else {
-														jagexInterface.inventoryListenerTriggers = is_42_;
-														jagexInterface.onInventoryUpdateListener = objects;
-													}
-												} else {
-													jagexInterface.onHeldListener = objects;
-												}
-											} else {
-												jagexInterface.onComponentSwapListener = objects;
-											}
-										} else {
-											jagexInterface.onSpellDeselectionListener = objects;
-										}
-									} else {
-										jagexInterface.onMouseLeaveListener = objects;
-									}
-								} else {
-									jagexInterface.onMouseOverListener = objects;
-								}
-							} else {
+							} else if (opcode == 1401) {
 								jagexInterface.onMouseDragListener = objects;
+							} else if (opcode == 1402) {
+								jagexInterface.onReleaseListener = objects;
+							} else if (opcode == 1403) {
+								jagexInterface.onMouseOverListener = objects;
+							} else if (opcode == 1404) {
+								jagexInterface.onMouseLeaveListener = objects;
+							} else if (opcode == 1405) {
+								jagexInterface.onComponentDraggedListener = objects;
+							} else if (opcode == 1406) {
+								jagexInterface.onSpellDeselectionListener = objects;
+							} else if (opcode == 1407) {
+								jagexInterface.onVarpUpdateListener = objects;
+								jagexInterface.varpListenerTriggers = is_42_;
+							} else if (opcode == 1408) {
+								jagexInterface.onLoopCycleListener = objects;
+							} else if (opcode == 1409) {
+								jagexInterface.onComponentClickListener = objects;
+							} else if (opcode == 1410) {
+								jagexInterface.onComponentSwapListener = objects;
+							} else if (opcode == 1411) {
+								jagexInterface.onHeldListener = objects;
+							} else if (opcode == 1412) {
+								jagexInterface.onMouseFocusedListener = objects;
+							} else if (opcode == 1414) {
+								jagexInterface.inventoryListenerTriggers = is_42_;
+								jagexInterface.onInventoryUpdateListener = objects;
+							} else if (opcode == 1415) {
+								jagexInterface.onSkillUpdateListener = objects;
+								jagexInterface.skillListernerTriggers = is_42_;
+							} else if (opcode == 1416) {
+								jagexInterface.onSpellSelectionListener = objects;
+							} else if (opcode == 1417) {
+								jagexInterface.onMouseWheelListener = objects;
+							} else if (opcode == 1418) {
+								jagexInterface.onGameMessageReceived = objects;
+							} else if (opcode == 1419) {
+								jagexInterface.keyPressedListener = objects;
+							} else if (opcode == 1420) {
+								jagexInterface.privateChatUpdateListener = objects;
+							} else if (opcode == 1421) {
+								jagexInterface.onClanChatUpdateListener = objects;
+							} else if (opcode == 1422) {
+								jagexInterface.miscInformationUpdateListener = objects;
+							} else if (opcode == 1423) {
+								jagexInterface.anObjectArray2013 = objects;
+							} else if (opcode == 1424) {
+								jagexInterface.onInterfaceOverridingUpdate = objects;
+							} else if (opcode == 1425) {
+								jagexInterface.onGrandExchangeUpdateListener = objects;
+							} else if (opcode == 1426) {
+								jagexInterface.anObjectArray1942 = objects;
+							} else if (opcode == 1427) {
+								jagexInterface.onResizeListener = objects;
+							} else if (opcode == 1428) {
+								jagexInterface.integerScriptValuesListener = objects;
+								jagexInterface.integerScriptValuesTriggers = is_42_;
+							} else if (opcode == 1429) {
+								jagexInterface.stringScriptValuesListener = objects;
+								jagexInterface.stringScriptValuesTriggers = is_42_;
 							}
 						} else if (opcode >= 1600) {
 							if (opcode < 1700) {
@@ -1304,7 +1276,7 @@ final class World extends Class167 {
 																					intStackIndex -= 2;
 																					final int i_114_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 																					final int i_115_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																					final int i_116_ = Class120_Sub14_Sub10.list(i_114_).method1502(i_115_, 0);
+																					final int i_116_ = Class120_Sub14_Sub10.list(i_114_).method1502(i_115_);
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = i_116_;
 																				} else if (opcode == 5068) {
 																					intStackIndex -= 2;
@@ -1322,10 +1294,10 @@ final class World extends Class167 {
 																					final int i_122_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																					final int i_123_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																					final Class120_Sub14_Sub10 class120_sub14_sub10 = Class120_Sub14_Sub10.list(i_121_);
-																					if (class120_sub14_sub10.method1502(i_123_, 0) != 0) {
+																					if (class120_sub14_sub10.method1502(i_123_) != 0) {
 																						throw new RuntimeException("bad command");
 																					}
-																					ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub10.method1501(i_122_, 0, i_123_);
+																					ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub10.method1501(i_122_, i_123_);
 																				} else if (opcode == 5071) {
 																					final String string = Class33.stringStack[--stringStackIndex];
 																					final boolean bool_124_ = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
@@ -1928,9 +1900,9 @@ final class World extends Class167 {
 																							}
 																						} else if (opcode == 6200) {
 																							intStackIndex -= 2;
-																							Class169.aShort1651 = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
-																							if (Class169.aShort1651 <= 0) {
-																								Class169.aShort1651 = (short) 256;
+																							ModelParticleMagnet.aShort1651 = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
+																							if (ModelParticleMagnet.aShort1651 <= 0) {
+																								ModelParticleMagnet.aShort1651 = (short) 256;
 																							}
 																							Class120_Sub14_Sub13.aShort3570 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																							if (Class120_Sub14_Sub13.aShort3570 <= 0) {
@@ -1983,7 +1955,7 @@ final class World extends Class167 {
 																							if (opcode != 6205) {
 																								break;
 																							}
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class169.aShort1651;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = ModelParticleMagnet.aShort1651;
 																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub14_Sub13.aShort3570;
 																						}
 																					} else if (opcode == 5500) {
@@ -2011,7 +1983,7 @@ final class World extends Class167 {
 																						if (Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157].length >> 1 <= 1 + i_171_) {
 																							throw new RuntimeException();
 																						}
-																						Class32.anInt272 = 0;
+																						MagnetType.anInt272 = 0;
 																						PlayerAppearance.anInt1372 = i_171_;
 																						JagexInterface.anInt2053 = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																						Class120_Sub12_Sub6.anInt3176 = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
@@ -2207,7 +2179,7 @@ final class World extends Class167 {
 																				ProducingGraphicsBuffer.intStack[intStackIndex++] = GroundObjectNode.worldMapPointerHeight;
 																			} else if (opcode == 5209) {
 																				ProducingGraphicsBuffer.intStack[intStackIndex++] = ParticleEmitter.anInt2336 + WorldMapHandler.anInt695;
-																				ProducingGraphicsBuffer.intStack[intStackIndex++] = WorldMapHandler.anInt694 + -Class169.anInt1646 + -1 + WorldMapHandler.mapSizeY;
+																				ProducingGraphicsBuffer.intStack[intStackIndex++] = WorldMapHandler.anInt694 + -ModelParticleMagnet.anInt1646 + -1 + WorldMapHandler.mapSizeY;
 																			} else if (opcode == 5210) {
 																				final int i_193_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																				final Class120_Sub14_Sub22 class120_sub14_sub22 = WorldMapHandler.method687(i_193_);
@@ -2293,7 +2265,7 @@ final class World extends Class167 {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																				} else {
-																					final boolean bool_204_ = class120_sub14_sub22.method1635(WorldMapHandler.anInt695 + ParticleEmitter.anInt2336, WorldMapHandler.mapSizeY - (1 + Class169.anInt1646 + -WorldMapHandler.anInt694), anIntArray2832);
+																					final boolean bool_204_ = class120_sub14_sub22.method1635(WorldMapHandler.anInt695 + ParticleEmitter.anInt2336, WorldMapHandler.mapSizeY - (1 + ModelParticleMagnet.anInt1646 + -WorldMapHandler.anInt694), anIntArray2832);
 																					if (!bool_204_) {
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
@@ -2642,7 +2614,7 @@ final class World extends Class167 {
 																}
 																final boolean bool_266_ = ProducingGraphicsBuffer.intStack[--intStackIndex] != 0;
 																final int i_267_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																Class33.stringStack[stringStackIndex++] = Class120_Sub12_Sub37.method1395(i_267_, bool_266_, -7, 0, Class9.language);
+																Class33.stringStack[stringStackIndex++] = Class120_Sub12_Sub37.method1395(i_267_, bool_266_, 0, Class9.language);
 															}
 														} else if (opcode == 4000) {
 															intStackIndex -= 2;
@@ -3070,7 +3042,7 @@ final class World extends Class167 {
 											AbstractRequest.pushMessage(string, "", 0);
 										} else if (opcode == 3101) {
 											intStackIndex -= 2;
-											Class192.method2517(TileParticleQueue.selfPlayer, ProducingGraphicsBuffer.intStack[intStackIndex], ProducingGraphicsBuffer.intStack[intStackIndex + 1]);
+											Class192.animatePlayer(TileParticleQueue.selfPlayer, ProducingGraphicsBuffer.intStack[intStackIndex], ProducingGraphicsBuffer.intStack[intStackIndex + 1]);
 										} else if (opcode == 3103) {
 											Class90.removeOverridedInterfaces();
 										} else if (opcode == 3104) {
@@ -3093,7 +3065,7 @@ final class World extends Class167 {
 										} else if (opcode == 3107) {
 											final int i_351_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 											final String string = Class33.stringStack[--stringStackIndex];
-											Class3.method81(string, i_351_);
+											Class3.executePlayerAction(string, i_351_);
 										} else if (opcode == 3108) {
 											intStackIndex -= 3;
 											final int i_352_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -3105,7 +3077,7 @@ final class World extends Class167 {
 											intStackIndex -= 2;
 											final int i_356_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 											final int i_355_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-											final JagexInterface jagexInterface = !bool ? Class93.staticActiveComponent2 : ParamType.staticActiveComponent1;
+											final JagexInterface jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
 											Class120_Sub12_Sub8.dragComponent(jagexInterface, i_356_, i_355_);
 										} else {
 											if (opcode != 3110) {
@@ -3126,9 +3098,9 @@ final class World extends Class167 {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.objCount;
 										}
 									} else if (opcode == 2702) {
-										final int i_358_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-										final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_358_);
-										if (class120_sub26 == null) {
+										final int uid = ProducingGraphicsBuffer.intStack[--intStackIndex];
+										final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(uid);
+										if (overridedInterface == null) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
@@ -3152,10 +3124,10 @@ final class World extends Class167 {
 											break;
 										}
 										intStackIndex -= 2;
-										final int i_361_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-										final int i_362_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-										final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_361_);
-										if (class120_sub26 == null || class120_sub26.interfaceId != i_362_) {
+										final int uid = ProducingGraphicsBuffer.intStack[intStackIndex];
+										final int interfaceId = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+										final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(uid);
+										if (overridedInterface == null || overridedInterface.interfaceId != interfaceId) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
@@ -3205,7 +3177,7 @@ final class World extends Class167 {
 								} else if (opcode == 2503) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.height;
 								} else if (opcode == 2504) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = !jagexInterface.hidden ? 0 : 1;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.hidden ? 1 : 0;
 								} else {
 									if (opcode != 2505) {
 										break;

@@ -47,7 +47,7 @@ final class SpotAnimation extends SceneGraphNode {
 				if (i_5_ == 0) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
-					Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
 				} else if (i_5_ == 1) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
@@ -55,7 +55,7 @@ final class SpotAnimation extends SceneGraphNode {
 					class180_sub5_sub2.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_7_ == 1) {
-						Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
 					}
 				} else if (i_5_ == 2) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
@@ -71,7 +71,7 @@ final class SpotAnimation extends SceneGraphNode {
 					}
 					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_11_ == 1) {
-						Class169.anIntArray1648[Class154.anInt1441++] = i_3_;
+						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
 					}
 				} else if (i_5_ == 3) {
 					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_3_;
@@ -124,7 +124,7 @@ final class SpotAnimation extends SceneGraphNode {
 		try {
 			String string_13_ = "";
 			if (throwable != null) {
-				string_13_ = Class32.method272(throwable);
+				string_13_ = MagnetType.method272(throwable);
 			}
 			if (string != null) {
 				if (throwable != null) {

@@ -5,7 +5,6 @@
 final class Class143_Sub1 extends Class143 implements Interface5 {
 	private int anInt2190;
 	private boolean aBoolean2191 = false;
-	static String aString2192 = "Your ignore list is full. Max of 100 users.";
 	private NodeCache aClass35_2193;
 	private final js5 aClass50_2194;
 	static int[][][] anIntArrayArrayArray2195 = new int[2][][];
@@ -84,9 +83,9 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			return null;
 		}
 		if (!bool) {
-			return class120_sub14_sub17.aClass120_Sub14_Sub13_3602.method1525(f, -37, i, this, aClass50_2196, i, false);
+			return class120_sub14_sub17.aClass120_Sub14_Sub13_3602.method1525(f, i, this, aClass50_2196, i, false);
 		}
-		return class120_sub14_sub17.aClass120_Sub14_Sub13_3602.method1530(i, this, aClass50_2196, -127, f, i, false);
+		return class120_sub14_sub17.aClass120_Sub14_Sub13_3602.method1530(i, this, aClass50_2196, f, i, false);
 	}
 
 	@Override
@@ -202,7 +201,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 
 	static final int method2029(final js5 js5, final js5 class50_35_) {
 		int i_37_ = 0;
-		if (class50_35_.method429(Class32.p11fullId)) {
+		if (class50_35_.method429(MagnetType.p11fullId)) {
 			i_37_++;
 		}
 		if (class50_35_.method429(Class191.p12fullId)) {
@@ -211,7 +210,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		if (class50_35_.method429(Class110.b12fullId)) {
 			i_37_++;
 		}
-		if (js5.method429(Class32.p11fullId)) {
+		if (js5.method429(MagnetType.p11fullId)) {
 			i_37_++;
 		}
 		if (js5.method429(Class191.p12fullId)) {
@@ -263,23 +262,23 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		final int clientCode = jagexInterface.clientCode;
 		if (clientCode == 324) {
 			if (Class120_Sub12_Sub15.anInt3241 == -1) {
-				Class169.anInt1643 = jagexInterface.enabledSpriteId;
+				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
 				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
 			}
-			if (!Class26.aClass144_159.isFemale) {
-				jagexInterface.disabledSpriteId = Class169.anInt1643;
+			if (!Normal.aClass144_159.isFemale) {
+				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;
 			} else {
 				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
 			}
 		} else if (clientCode == 325) {
 			if (Class120_Sub12_Sub15.anInt3241 == -1) {
 				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
-				Class169.anInt1643 = jagexInterface.enabledSpriteId;
+				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
 			}
-			if (!Class26.aClass144_159.isFemale) {
+			if (!Normal.aClass144_159.isFemale) {
 				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
 			} else {
-				jagexInterface.disabledSpriteId = Class169.anInt1643;
+				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;
 			}
 		} else if (clientCode == 327) {
 			jagexInterface.rotateX = 150;
@@ -294,7 +293,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
 				jagexInterface.modelTypeDisabled = 5;
 				jagexInterface.modelIdDisabled = 2047 + ((int) Varp.stringToLong(TileParticleQueue.selfPlayer.name) << 11);
-				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.idleAnimCurrentFrame;
+				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.idleAnimFrame;
 				jagexInterface.disabledAnim = TileParticleQueue.selfPlayer.idleAnimId;
 				jagexInterface.nextFrame = TileParticleQueue.selfPlayer.idleAnimNextFrame;
 				jagexInterface.frameDelay = 0;

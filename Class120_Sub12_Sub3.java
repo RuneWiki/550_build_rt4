@@ -12,10 +12,10 @@ final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	private int anInt3153 = 4096;
 
 	static final MapFunctionNode method1206() {
-		if (WorldMapHandler.aClass177_690 == null) {
+		if (WorldMapHandler.mapFunctionsQueue == null) {
 			return null;
 		}
-		Class22.aClass127_130.method1896(WorldMapHandler.aClass177_690);
+		Class22.aClass127_130.method1896(WorldMapHandler.mapFunctionsQueue);
 		final MapFunctionNode class120_sub14_sub5_0_ = (MapFunctionNode) Class22.aClass127_130.method1895();
 		final MapFunctionType class73 = MapFunctionType.list(class120_sub14_sub5_0_.id);
 		if (class73 != null && class73.aBoolean659 && class73.method647()) {

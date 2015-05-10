@@ -119,7 +119,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 									i_40_ = Math.max(i_32_, i_39_);
 									i_41_ = Math.min(i_30_, i_38_);
 								}
-								method1198(-i_37_ + i_26_, i_41_ + -i_40_, i_11_ + i_40_, i_37_, -1, random, is_8_);
+								method1198(-i_37_ + i_26_, i_41_ + -i_40_, i_11_ + i_40_, i_37_, random, is_8_);
 							}
 						}
 					}
@@ -135,10 +135,10 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 					is_42_[1] = i_25_;
 					is_42_[2] = i_24_ + i_26_;
 					is_42_[0] = i_10_;
-					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, -1, random, is_8_);
+					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, random, is_8_);
 					i_10_ = i_25_;
 				} else {
-					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, -1, random, is_8_);
+					method1198(i_24_, i_23_, i_9_ + i_10_, i_26_, random, is_8_);
 					if (bool_14_) {
 						break;
 					}
@@ -221,96 +221,91 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 		return frame;
 	}
 
-	private final void method1198(final int i, final int i_55_, int i_56_, final int i_57_, final int i_58_, final Random random, final int[][] is) {
-		try {
-			final int i_59_ = anInt3129 > 0 ? 4096 + -Class28.method244(random, anInt3129) : 4096;
-			final int i_60_ = anInt3130 * anInt3127 >> 12;
-			final int i_61_ = anInt3130 + -((i_60_ ^ 0xffffffff) < i_58_ ? Class28.method244(random, i_60_) : 0);
-			if (Class120_Sub12_Sub7.anInt3178 <= i_56_) {
-				i_56_ -= Class120_Sub12_Sub7.anInt3178;
-			}
-			if (i_61_ > 0) {
-				if (i > 0 && i_55_ > 0) {
-					final int i_62_ = i_55_ / 2;
-					final int i_63_ = i / 2;
-					final int i_64_ = i_62_ >= i_61_ ? i_61_ : i_62_;
-					final int i_65_ = i_61_ > i_63_ ? i_63_ : i_61_;
-					final int i_66_ = i_56_ + i_64_;
-					final int i_67_ = -(i_64_ * 2) + i_55_;
-					for (int i_68_ = 0; i_68_ < i; i_68_++) {
-						final int[] is_69_ = is[i_68_ - -i_57_];
-						if (i_65_ > i_68_) {
-							final int i_70_ = i_68_ * i_59_ / i_65_;
-							if (anInt3128 != 0) {
-								for (int i_71_ = 0; i_71_ < i_64_; i_71_++) {
-									final int i_72_ = i_59_ * i_71_ / i_64_;
-									is_69_[Class120_Sub12_Sub3.method1207(i_71_ + i_56_, Class32.anInt259)] = is_69_[Class120_Sub12_Sub3.method1207(-1 + -i_71_ + i_55_ + i_56_, Class32.anInt259)] = i_70_ <= i_72_ ? i_70_ : i_72_;
-								}
-							} else {
-								for (int i_73_ = 0; i_64_ > i_73_; i_73_++) {
-									final int i_74_ = i_59_ * i_73_ / i_64_;
-									is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, i_73_ + i_56_)] = is_69_[Class120_Sub12_Sub3.method1207(i_56_ + i_55_ - (i_73_ + 1), Class32.anInt259)] = i_74_ * i_70_ >> 12;
-								}
-							}
-							if (i_66_ - -i_67_ > Class120_Sub12_Sub7.anInt3178) {
-								final int i_75_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
-								ArrayUtils.fillArray(is_69_, i_66_, i_75_, i_70_);
-								ArrayUtils.fillArray(is_69_, 0, i_67_ + -i_75_, i_70_);
-							} else {
-								ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_70_);
+	private final void method1198(final int i, final int i_55_, int i_56_, final int i_57_, final Random random, final int[][] is) {
+		final int i_59_ = anInt3129 > 0 ? 4096 + -Class28.method244(random, anInt3129) : 4096;
+		final int i_60_ = anInt3130 * anInt3127 >> 12;
+		final int i_61_ = anInt3130 + -((i_60_ ^ 0xffffffff) < -1 ? Class28.method244(random, i_60_) : 0);
+		if (Class120_Sub12_Sub7.anInt3178 <= i_56_) {
+			i_56_ -= Class120_Sub12_Sub7.anInt3178;
+		}
+		if (i_61_ > 0) {
+			if (i > 0 && i_55_ > 0) {
+				final int i_62_ = i_55_ / 2;
+				final int i_63_ = i / 2;
+				final int i_64_ = i_62_ >= i_61_ ? i_61_ : i_62_;
+				final int i_65_ = i_61_ > i_63_ ? i_63_ : i_61_;
+				final int i_66_ = i_56_ + i_64_;
+				final int i_67_ = -(i_64_ * 2) + i_55_;
+				for (int i_68_ = 0; i_68_ < i; i_68_++) {
+					final int[] is_69_ = is[i_68_ - -i_57_];
+					if (i_65_ > i_68_) {
+						final int i_70_ = i_68_ * i_59_ / i_65_;
+						if (anInt3128 != 0) {
+							for (int i_71_ = 0; i_71_ < i_64_; i_71_++) {
+								final int i_72_ = i_59_ * i_71_ / i_64_;
+								is_69_[Class120_Sub12_Sub3.method1207(i_71_ + i_56_, MagnetType.anInt259)] = is_69_[Class120_Sub12_Sub3.method1207(-1 + -i_71_ + i_55_ + i_56_, MagnetType.anInt259)] = i_70_ <= i_72_ ? i_70_ : i_72_;
 							}
 						} else {
-							final int i_76_ = i + -i_68_ - 1;
-							if (i_65_ > i_76_) {
-								final int i_77_ = i_76_ * i_59_ / i_65_;
-								if (anInt3128 != 0) {
-									for (int i_78_ = 0; i_64_ > i_78_; i_78_++) {
-										final int i_79_ = i_59_ * i_78_ / i_64_;
-										is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, i_78_ + i_56_)] = is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, -i_78_ + i_56_ - -i_55_ - 1)] = i_77_ > i_79_ ? i_79_ : i_77_;
-									}
-								} else {
-									for (int i_80_ = 0; i_80_ < i_64_; i_80_++) {
-										final int i_81_ = i_80_ * i_59_ / i_64_;
-										is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, i_56_ - -i_80_)] = is_69_[Class120_Sub12_Sub3.method1207(-1 + -i_80_ + i_55_ + i_56_, Class32.anInt259)] = i_77_ * i_81_ >> 12;
-									}
-								}
-								if (Class120_Sub12_Sub7.anInt3178 < i_67_ + i_66_) {
-									final int i_82_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
-									ArrayUtils.fillArray(is_69_, i_66_, i_82_, i_77_);
-									ArrayUtils.fillArray(is_69_, 0, i_67_ + -i_82_, i_77_);
-								} else {
-									ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_77_);
+							for (int i_73_ = 0; i_64_ > i_73_; i_73_++) {
+								final int i_74_ = i_59_ * i_73_ / i_64_;
+								is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, i_73_ + i_56_)] = is_69_[Class120_Sub12_Sub3.method1207(i_56_ + i_55_ - (i_73_ + 1), MagnetType.anInt259)] = i_74_ * i_70_ >> 12;
+							}
+						}
+						if (i_66_ - -i_67_ > Class120_Sub12_Sub7.anInt3178) {
+							final int i_75_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
+							ArrayUtils.fillArray(is_69_, i_66_, i_75_, i_70_);
+							ArrayUtils.fillArray(is_69_, 0, i_67_ + -i_75_, i_70_);
+						} else {
+							ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_70_);
+						}
+					} else {
+						final int i_76_ = i + -i_68_ - 1;
+						if (i_65_ > i_76_) {
+							final int i_77_ = i_76_ * i_59_ / i_65_;
+							if (anInt3128 != 0) {
+								for (int i_78_ = 0; i_64_ > i_78_; i_78_++) {
+									final int i_79_ = i_59_ * i_78_ / i_64_;
+									is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, i_78_ + i_56_)] = is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, -i_78_ + i_56_ - -i_55_ - 1)] = i_77_ > i_79_ ? i_79_ : i_77_;
 								}
 							} else {
-								for (int i_83_ = 0; i_83_ < i_64_; i_83_++) {
-									is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, i_56_ - -i_83_)] = is_69_[Class120_Sub12_Sub3.method1207(Class32.anInt259, -i_83_ + i_55_ + i_56_ + -1)] = i_59_ * i_83_ / i_64_;
+								for (int i_80_ = 0; i_80_ < i_64_; i_80_++) {
+									final int i_81_ = i_80_ * i_59_ / i_64_;
+									is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, i_56_ - -i_80_)] = is_69_[Class120_Sub12_Sub3.method1207(-1 + -i_80_ + i_55_ + i_56_, MagnetType.anInt259)] = i_77_ * i_81_ >> 12;
 								}
-								if (i_66_ - -i_67_ <= Class120_Sub12_Sub7.anInt3178) {
-									ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_59_);
-								} else {
-									final int i_84_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
-									ArrayUtils.fillArray(is_69_, i_66_, i_84_, i_59_);
-									ArrayUtils.fillArray(is_69_, 0, -i_84_ + i_67_, i_59_);
-								}
+							}
+							if (Class120_Sub12_Sub7.anInt3178 < i_67_ + i_66_) {
+								final int i_82_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
+								ArrayUtils.fillArray(is_69_, i_66_, i_82_, i_77_);
+								ArrayUtils.fillArray(is_69_, 0, i_67_ + -i_82_, i_77_);
+							} else {
+								ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_77_);
+							}
+						} else {
+							for (int i_83_ = 0; i_83_ < i_64_; i_83_++) {
+								is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, i_56_ - -i_83_)] = is_69_[Class120_Sub12_Sub3.method1207(MagnetType.anInt259, -i_83_ + i_55_ + i_56_ + -1)] = i_59_ * i_83_ / i_64_;
+							}
+							if (i_66_ - -i_67_ <= Class120_Sub12_Sub7.anInt3178) {
+								ArrayUtils.fillArray(is_69_, i_66_, i_67_, i_59_);
+							} else {
+								final int i_84_ = -i_66_ + Class120_Sub12_Sub7.anInt3178;
+								ArrayUtils.fillArray(is_69_, i_66_, i_84_, i_59_);
+								ArrayUtils.fillArray(is_69_, 0, -i_84_ + i_67_, i_59_);
 							}
 						}
 					}
 				}
-			} else if (Class120_Sub12_Sub7.anInt3178 >= i_55_ + i_56_) {
-				for (int i_85_ = 0; i > i_85_; i_85_++) {
-					ArrayUtils.fillArray(is[i_85_ + i_57_], i_56_, i_55_, i_59_);
-				}
-			} else {
-				final int i_86_ = Class120_Sub12_Sub7.anInt3178 - i_56_;
-				for (int i_87_ = 0; i_87_ < i; i_87_++) {
-					final int[] is_88_ = is[i_87_ + i_57_];
-					ArrayUtils.fillArray(is_88_, i_56_, i_86_, i_59_);
-					ArrayUtils.fillArray(is_88_, 0, -i_86_ + i_55_, i_59_);
-				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ac.R(").append(i).append(',').append(i_55_).append(',').append(i_56_).append(',').append(i_57_).append(',').append(i_58_).append(',').append(random != null ? "{...}" : "null").append(',').append(is != null ? "{...}" : "null").append(')').toString());
+		} else if (Class120_Sub12_Sub7.anInt3178 >= i_55_ + i_56_) {
+			for (int i_85_ = 0; i > i_85_; i_85_++) {
+				ArrayUtils.fillArray(is[i_85_ + i_57_], i_56_, i_55_, i_59_);
+			}
+		} else {
+			final int i_86_ = Class120_Sub12_Sub7.anInt3178 - i_56_;
+			for (int i_87_ = 0; i_87_ < i; i_87_++) {
+				final int[] is_88_ = is[i_87_ + i_57_];
+				ArrayUtils.fillArray(is_88_, i_56_, i_86_, i_59_);
+				ArrayUtils.fillArray(is_88_, 0, -i_86_ + i_55_, i_59_);
+			}
 		}
 	}
 

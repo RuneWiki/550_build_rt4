@@ -171,73 +171,69 @@ final class LongNode extends Node {
 		return true;
 	}
 
-	static final void method1056(int i, int i_27_, int i_28_, final int i_29_, final int i_30_, int i_31_) {
-		try {
-			int i_32_ = -i_28_ + i;
-			int i_33_ = -i_27_ + i_31_;
-			if (i_33_ != 0) {
-				if (i_32_ == 0) {
-					GZIPDecompressor.method717(i_27_, false, i_31_, i_30_, i_28_);
-					return;
-				}
-			} else {
-				if (i_32_ != 0) {
-					ParticleEmitter.method939(i_27_, i_30_, i, i_28_);
-				}
+	static final void method1056(int i, int i_27_, int i_28_, final int i_30_, int i_31_) {
+		int i_32_ = -i_28_ + i;
+		int i_33_ = -i_27_ + i_31_;
+		if (i_33_ != 0) {
+			if (i_32_ == 0) {
+				GZIPDecompressor.method717(i_27_, i_31_, i_30_, i_28_);
 				return;
 			}
-			if (i_29_ < (i_33_ ^ 0xffffffff)) {
-				i_33_ = -i_33_;
+		} else {
+			if (i_32_ != 0) {
+				ParticleEmitter.method939(i_27_, i_30_, i, i_28_);
 			}
-			if (i_32_ < 0) {
-				i_32_ = -i_32_;
-			}
-			final boolean bool = i_32_ > i_33_;
-			if (bool) {
-				final int i_34_ = i_27_;
-				i_27_ = i_28_;
-				i_28_ = i_34_;
-				final int i_35_ = i_31_;
-				i_31_ = i;
-				i = i_35_;
-			}
-			if (i_31_ < i_27_) {
-				final int i_36_ = i_27_;
-				i_27_ = i_31_;
-				final int i_37_ = i_28_;
-				i_28_ = i;
-				i = i_37_;
-				i_31_ = i_36_;
-			}
-			int i_38_ = i_28_;
-			final int i_39_ = i_31_ + -i_27_;
-			int i_40_ = i + -i_28_;
-			final int i_41_ = i > i_28_ ? 1 : -1;
-			if (i_40_ < 0) {
-				i_40_ = -i_40_;
-			}
-			int i_42_ = -(i_39_ >> 1);
-			if (bool) {
-				for (int i_43_ = i_27_; i_43_ <= i_31_; i_43_++) {
-					i_42_ += i_40_;
-					GameEntity.anIntArrayArray3009[i_43_][i_38_] = i_30_;
-					if (i_42_ > 0) {
-						i_38_ += i_41_;
-						i_42_ -= i_39_;
-					}
-				}
-			} else {
-				for (int i_44_ = i_27_; i_44_ <= i_31_; i_44_++) {
-					i_42_ += i_40_;
-					GameEntity.anIntArrayArray3009[i_38_][i_44_] = i_30_;
-					if (i_42_ > 0) {
-						i_38_ += i_41_;
-						i_42_ -= i_39_;
-					}
+			return;
+		}
+		if (-1 < (i_33_ ^ 0xffffffff)) {
+			i_33_ = -i_33_;
+		}
+		if (i_32_ < 0) {
+			i_32_ = -i_32_;
+		}
+		final boolean bool = i_32_ > i_33_;
+		if (bool) {
+			final int i_34_ = i_27_;
+			i_27_ = i_28_;
+			i_28_ = i_34_;
+			final int i_35_ = i_31_;
+			i_31_ = i;
+			i = i_35_;
+		}
+		if (i_31_ < i_27_) {
+			final int i_36_ = i_27_;
+			i_27_ = i_31_;
+			final int i_37_ = i_28_;
+			i_28_ = i;
+			i = i_37_;
+			i_31_ = i_36_;
+		}
+		int i_38_ = i_28_;
+		final int i_39_ = i_31_ + -i_27_;
+		int i_40_ = i + -i_28_;
+		final int i_41_ = i > i_28_ ? 1 : -1;
+		if (i_40_ < 0) {
+			i_40_ = -i_40_;
+		}
+		int i_42_ = -(i_39_ >> 1);
+		if (bool) {
+			for (int i_43_ = i_27_; i_43_ <= i_31_; i_43_++) {
+				i_42_ += i_40_;
+				GameEntity.anIntArrayArray3009[i_43_][i_38_] = i_30_;
+				if (i_42_ > 0) {
+					i_38_ += i_41_;
+					i_42_ -= i_39_;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("bg.D(").append(i).append(',').append(i_27_).append(',').append(i_28_).append(',').append(i_29_).append(',').append(i_30_).append(',').append(i_31_).append(')').toString());
+		} else {
+			for (int i_44_ = i_27_; i_44_ <= i_31_; i_44_++) {
+				i_42_ += i_40_;
+				GameEntity.anIntArrayArray3009[i_38_][i_44_] = i_30_;
+				if (i_42_ > 0) {
+					i_38_ += i_41_;
+					i_42_ -= i_39_;
+				}
+			}
 		}
 	}
 
@@ -254,7 +250,7 @@ final class LongNode extends Node {
 
 	static final void method1059(final int i, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int i_52_, final int i_53_) {
 		if (i_53_ == i_49_ && i_47_ == i_52_ && i_50_ == i_51_ && i_46_ == i) {
-			method1056(i, i_53_, i_47_, -1, i_48_, i_51_);
+			method1056(i, i_53_, i_47_, i_48_, i_51_);
 		} else {
 			int i_54_ = i_53_;
 			int i_55_ = i_47_;
@@ -281,7 +277,7 @@ final class LongNode extends Node {
 				final int i_76_ = i_63_ * i_70_;
 				final int i_77_ = i_66_ * i_68_;
 				final int i_78_ = (i_77_ + i_76_ + i_74_ >> 12) + i_47_;
-				method1056(i_78_, i_54_, i_55_, -1, i_48_, i_75_);
+				method1056(i_78_, i_54_, i_55_, i_48_, i_75_);
 				i_54_ = i_75_;
 				i_55_ = i_78_;
 			}

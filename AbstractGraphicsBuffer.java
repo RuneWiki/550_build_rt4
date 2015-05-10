@@ -65,58 +65,54 @@ abstract class AbstractGraphicsBuffer {
 
 	abstract void drawClippedImage(Graphics graphics, int x, int y, int w, int h);
 
-	static final void method1844(int i, final byte i_6_, int i_7_, int i_8_, final int i_9_, int i_10_) {
-		try {
-			if (IdentityKit.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
-				boolean bool;
-				if (Class32.anInt260 > i_10_) {
-					i_10_ = Class32.anInt260;
-					bool = false;
-				} else if (i_10_ > ParamType.anInt3544) {
-					i_10_ = ParamType.anInt3544;
-					bool = false;
-				} else {
-					bool = true;
+	static final void method1844(int i, int i_7_, int i_8_, final int i_9_, int i_10_) {
+		if (IdentityKit.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
+			boolean bool;
+			if (MagnetType.anInt260 > i_10_) {
+				i_10_ = MagnetType.anInt260;
+				bool = false;
+			} else if (i_10_ > ParamType.anInt3544) {
+				i_10_ = ParamType.anInt3544;
+				bool = false;
+			} else {
+				bool = true;
+			}
+			boolean bool_11_;
+			if (i < MagnetType.anInt260) {
+				i = MagnetType.anInt260;
+				bool_11_ = false;
+			} else if (ParamType.anInt3544 < i) {
+				i = ParamType.anInt3544;
+				bool_11_ = false;
+			} else {
+				bool_11_ = true;
+			}
+			if (Class120_Sub30_Sub2.anInt3699 <= i_8_) {
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_8_++], i_9_, i_10_, i);
+			} else {
+				i_8_ = Class120_Sub30_Sub2.anInt3699;
+			}
+			if (IdentityKit.anInt1334 < i_7_) {
+				i_7_ = IdentityKit.anInt1334;
+			} else {
+				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_7_--], i_9_, i_10_, i);
+			}
+			if (bool && bool_11_) {
+				for (int i_12_ = i_8_; i_12_ <= i_7_; i_12_++) {
+					final int[] is = GameEntity.anIntArrayArray3009[i_12_];
+					is[i_10_] = is[i] = i_9_;
 				}
-				boolean bool_11_;
-				if (i < Class32.anInt260) {
-					i = Class32.anInt260;
-					bool_11_ = false;
-				} else if (ParamType.anInt3544 < i) {
-					i = ParamType.anInt3544;
-					bool_11_ = false;
-				} else {
-					bool_11_ = true;
-				}
-				if (Class120_Sub30_Sub2.anInt3699 <= i_8_) {
-					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_8_++], i_9_, i_10_, i);
-				} else {
-					i_8_ = Class120_Sub30_Sub2.anInt3699;
-				}
-				if (IdentityKit.anInt1334 < i_7_) {
-					i_7_ = IdentityKit.anInt1334;
-				} else {
-					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_7_--], i_9_, i_10_, i);
-				}
-				if (bool && bool_11_) {
-					for (int i_12_ = i_8_; i_12_ <= i_7_; i_12_++) {
-						final int[] is = GameEntity.anIntArrayArray3009[i_12_];
-						is[i_10_] = is[i] = i_9_;
+			} else if (!bool) {
+				if (bool_11_) {
+					for (int i_13_ = i_8_; i_13_ <= i_7_; i_13_++) {
+						GameEntity.anIntArrayArray3009[i_13_][i] = i_9_;
 					}
-				} else if (!bool) {
-					if (bool_11_) {
-						for (int i_13_ = i_8_; i_13_ <= i_7_; i_13_++) {
-							GameEntity.anIntArrayArray3009[i_13_][i] = i_9_;
-						}
-					}
-				} else {
-					for (int i_14_ = i_8_; i_14_ <= i_7_; i_14_++) {
-						GameEntity.anIntArrayArray3009[i_14_][i_10_] = i_9_;
-					}
+				}
+			} else {
+				for (int i_14_ = i_8_; i_14_ <= i_7_; i_14_++) {
+					GameEntity.anIntArrayArray3009[i_14_][i_10_] = i_9_;
 				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ob.C(").append(i).append(',').append(i_6_).append(',').append(i_7_).append(',').append(i_8_).append(',').append(i_9_).append(',').append(i_10_).append(')').toString());
 		}
 	}
 

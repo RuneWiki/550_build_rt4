@@ -3,7 +3,7 @@
  */
 
 final class Class154 {
-	static Class32[] aClass32Array1437 = new Class32[8];
+	static MagnetType[] globalMagnets = new MagnetType[8];
 	static ObjectCache shadowModelCache;
 	static boolean aBoolean1439 = false;
 	static int anInt1440;
@@ -18,7 +18,7 @@ final class Class154 {
 	static final void addIgnore(final long nameAsLong) {
 		if (nameAsLong != 0L) {
 			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
-				AbstractRequest.pushMessage(Class143_Sub1.aString2192, "", 0);
+				AbstractRequest.pushMessage(TextRepository.aString2192, "", 0);
 			} else {
 				final String name = Class136.longToString(nameAsLong);
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
@@ -34,7 +34,7 @@ final class Class154 {
 					}
 				}
 				if (name.equals(TileParticleQueue.selfPlayer.name)) {
-					AbstractRequest.pushMessage(Class112.aString1079, "", 0);
+					AbstractRequest.pushMessage(TextRepository.aString1079, "", 0);
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = nameAsLong;
 					GZIPDecompressor.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(nameAsLong);
@@ -61,7 +61,7 @@ final class Class154 {
 			} else if (i_6_ > 100) {
 				i_6_ = 100;
 			}
-			int i_7_ = Class169.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - Class169.aShort1651) * i_6_ / 100;
+			int i_7_ = ModelParticleMagnet.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - ModelParticleMagnet.aShort1651) * i_6_ / 100;
 			if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
 				if (i_7_ > FileSystemRequest.aShort3932) {
 					i_7_ = FileSystemRequest.aShort3932;

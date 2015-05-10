@@ -94,10 +94,10 @@ final class Class38 {
 						final LocType locType = LocType.list(0x7fffffff & (int) (bitPacked >>> 32));
 						if (!locType.members || Class120_Sub12_Sub37.membersClient) {
 							int mapFunctionId = locType.mapFunctionId;
-							if (locType.childrenIDs != null) {
-								for (int id = 0; id < locType.childrenIDs.length; id++) {
-									if (locType.childrenIDs[id] != -1) {
-										final LocType varpLocType = LocType.list(locType.childrenIDs[id]);
+							if (locType.transmogrificationIds != null) {
+								for (int id = 0; id < locType.transmogrificationIds.length; id++) {
+									if (locType.transmogrificationIds[id] != -1) {
+										final LocType varpLocType = LocType.list(locType.transmogrificationIds[id]);
 										if (varpLocType.mapFunctionId >= 0) {
 											mapFunctionId = varpLocType.mapFunctionId;
 										}
@@ -145,7 +145,7 @@ final class Class38 {
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int z = 1; z < 103; z++) {
 			for (int x = 1; x < 103; x++) {
-				if ((Class114.tileSettings[level][x][z] & 0x18) == 0 && !Class190.method2504(x, z, level, 0, 0, whiteColor, redColor)) {
+				if ((Class114.tileSettings[level][x][z] & 0x18) == 0 && !Class190.pushMinimapPixels(x, z, level, 0, 0, whiteColor, redColor)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -153,7 +153,7 @@ final class Class38 {
 					}
 					return false;
 				}
-				if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0 && !Class190.method2504(x, z, level + 1, 0, 0, whiteColor, redColor)) {
+				if (level < 3 && (Class114.tileSettings[level + 1][x][z] & 0x8) != 0 && !Class190.pushMinimapPixels(x, z, level + 1, 0, 0, whiteColor, redColor)) {
 					if (HDToolkit.glEnabled) {
 						GraphicsLD.pixels = null;
 					} else {
@@ -183,32 +183,27 @@ final class Class38 {
 		return true;
 	}
 
-	static final void method317(final int i, final int i_34_, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final byte i_39_, final int i_40_, final int i_41_, final int i_42_) {
-		try {
-			Class120_Sub24 class120_sub24 = null;
-			for (Class120_Sub24 class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24_43_ != null; class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-				if (i_34_ == class120_sub24_43_.anInt2722 && i_36_ == class120_sub24_43_.anInt2731 && class120_sub24_43_.anInt2725 == i_38_ && i_41_ == class120_sub24_43_.anInt2721) {
-					class120_sub24 = class120_sub24_43_;
-					break;
-				}
+	static final void method317(final int i, final int i_34_, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final int i_40_, final int i_41_, final int i_42_) {
+		Class120_Sub24 class120_sub24 = null;
+		for (Class120_Sub24 class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24_43_ != null; class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
+			if (i_34_ == class120_sub24_43_.anInt2722 && i_36_ == class120_sub24_43_.anInt2731 && class120_sub24_43_.anInt2725 == i_38_ && i_41_ == class120_sub24_43_.anInt2721) {
+				class120_sub24 = class120_sub24_43_;
+				break;
 			}
-			if (class120_sub24 == null) {
-				class120_sub24 = new Class120_Sub24();
-				class120_sub24.anInt2725 = i_38_;
-				class120_sub24.anInt2722 = i_34_;
-				class120_sub24.anInt2721 = i_41_;
-				class120_sub24.anInt2731 = i_36_;
-				Class53.method457(class120_sub24, (byte) -112);
-				Class120_Sub4.aClass105_2439.addLast(class120_sub24);
-			}
-			class120_sub24.anInt2732 = i_42_;
-			class120_sub24.anInt2719 = i;
-			class120_sub24.anInt2720 = i_37_;
-			class120_sub24.anInt2717 = i_35_;
-			class120_sub24.anInt2727 = i_40_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ee.E(").append(i).append(',').append(i_34_).append(',').append(i_35_).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',')
-					.append(i_41_).append(',').append(i_42_).append(')').toString());
 		}
+		if (class120_sub24 == null) {
+			class120_sub24 = new Class120_Sub24();
+			class120_sub24.anInt2725 = i_38_;
+			class120_sub24.anInt2722 = i_34_;
+			class120_sub24.anInt2721 = i_41_;
+			class120_sub24.anInt2731 = i_36_;
+			Class53.method457(class120_sub24);
+			Class120_Sub4.aClass105_2439.addLast(class120_sub24);
+		}
+		class120_sub24.anInt2732 = i_42_;
+		class120_sub24.anInt2719 = i;
+		class120_sub24.anInt2720 = i_37_;
+		class120_sub24.anInt2717 = i_35_;
+		class120_sub24.anInt2727 = i_40_;
 	}
 }

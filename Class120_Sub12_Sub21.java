@@ -113,19 +113,12 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1308(final int i, final int i_12_, final int i_13_, final int i_14_, int i_15_, int i_16_) {
-		try {
-			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_15_++], i_12_, i_13_, i_14_);
-			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_16_--], i_12_, i_13_, i_14_);
-			if (i != -1) {
-				aClass120_Sub14_Sub9_3297 = null;
-			}
-			for (int i_17_ = i_15_; i_16_ >= i_17_; i_17_++) {
-				final int[] is = GameEntity.anIntArrayArray3009[i_17_];
-				is[i_13_] = is[i_14_] = i_12_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("og.W(").append(i).append(',').append(i_12_).append(',').append(i_13_).append(',').append(i_14_).append(',').append(i_15_).append(',').append(i_16_).append(')').toString());
+	static final void method1308(final int i_12_, final int i_13_, final int i_14_, int i_15_, int i_16_) {
+		AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_15_++], i_12_, i_13_, i_14_);
+		AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_16_--], i_12_, i_13_, i_14_);
+		for (int i_17_ = i_15_; i_16_ >= i_17_; i_17_++) {
+			final int[] is = GameEntity.anIntArrayArray3009[i_17_];
+			is[i_13_] = is[i_14_] = i_12_;
 		}
 	}
 
@@ -145,9 +138,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		UnderlayType.recentUse.clearSoftReference();
 		IdentityKit.recentUse.clearSoftReference();
 		LocType.recentUse.clearSoftReference();
-		InterfaceClickMask.aClass21_2663.clearSoftReference();
-		Class167.aClass21_1618.clearSoftReference();
-		Class116.aClass21_1117.clearSoftReference();
+		LocType.aClass21_2663.clearSoftReference();
+		LocType.aClass21_1618.clearSoftReference();
+		LocType.aClass21_1117.clearSoftReference();
 		NpcType.recentUse.clearSoftReference();
 		NpcType.aClass21_80.clearSoftReference();
 		Projectile.aClass21_2931.clearSoftReference();
@@ -174,8 +167,8 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		Class43.playerModelsCache.clearSoftReference();
 		Class90.playerHeadModelsCache.clearSoftReference();
 		JagexInterface.spriteCache.clearSoftReference();
-		LabelGroup.aClass21_2406.clearSoftReference();
-		Class120_Sub12_Sub2.aClass21_3143.clearSoftReference();
+		JagexInterface.modelCache.clearSoftReference();
+		JagexInterface.fontCache.clearSoftReference();
 		Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
 		Class154.shadowModelCache.clearSoftReference();
 		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();

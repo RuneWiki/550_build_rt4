@@ -122,13 +122,14 @@ final class Light {
 		}
 	}
 
-	private final void method349() {
-		final int i_5_ = 64 + (this.anInt370 << 7);
-		this.quadraticAttenuation = 1.0F / (i_5_ * i_5_);
+	private final void calcAttenuation() {
+		final int distance = 64 + (this.anInt370 << 7);
+		System.out.println(anInt370);
+		this.quadraticAttenuation = 1.0F / (distance * distance);
 	}
 
-	final void method350(boolean bool, final int i) {
-		final int i_7_ = anInt390 + (anInt386 * i / 50) & 0x7ff;
+	final void update(boolean flickeringEffectsDisabled, final int loopCycle) {
+		final int i_7_ = anInt390 + (anInt386 * loopCycle / 50) & 0x7ff;
 		int type = flickeringType;
 		int i_9_ = 0;
 		if (type == 1) {
@@ -144,7 +145,7 @@ final class Light {
 		} else {
 			i_9_ = 2048;
 		}
-		if (bool) {
+		if (flickeringEffectsDisabled) {
 			i_9_ = 2048;
 		}
 		this.aFloat394 = ((i_9_ * anInt389 >> 11) + anInt388) / 2048.0F;
@@ -202,7 +203,7 @@ final class Light {
 		this.z = buffer.getUShort();
 		this.y = buffer.getUShort();
 		this.anInt370 = buffer.getUByte();
-		method349();
+		calcAttenuation();
 		this.aShortArray372 = new short[this.anInt370 * 2 + 1];
 		for (int i = 0; i < this.aShortArray372.length; i++) {
 			this.aShortArray372[i] = (short) buffer.getUShort();

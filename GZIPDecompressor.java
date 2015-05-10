@@ -7,7 +7,6 @@ final class GZIPDecompressor {
 	static int anInt796 = -2;
 	private Inflater inflater;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_798;
-	static String aString799 = "Loaded interfaces";
 	static int[] anIntArray800;
 	static String[] ignoreNames = new String[100];
 
@@ -15,18 +14,11 @@ final class GZIPDecompressor {
 		this(-1, 1000000, 1000000);
 	}
 
-	static final void method717(final int i, final boolean bool, final int i_0_, final int i_1_, final int i_2_) {
-		try {
-			if (bool) {
-				ignoreNames = null;
-			}
-			if (i_0_ >= i) {
-				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i, i_0_);
-			} else {
-				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i_0_, i);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("jb.F(").append(i).append(',').append(bool).append(',').append(i_0_).append(',').append(i_1_).append(',').append(i_2_).append(')').toString());
+	static final void method717(final int i, final int i_0_, final int i_1_, final int i_2_) {
+		if (i_0_ >= i) {
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i, i_0_);
+		} else {
+			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_2_], i_1_, i_0_, i);
 		}
 	}
 

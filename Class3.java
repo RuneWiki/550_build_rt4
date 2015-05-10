@@ -20,37 +20,31 @@ final class Class3 {
 		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
 	}
 
-	static final void method81(final String string, final int i) {
-		final String string_6_ = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(string));
+	static final void executePlayerAction(final String name, final int action) {
+		final String formattedName = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(name));
 		boolean foundPlayer = false;
 		for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {
 			final Player player = Class118.playersList[Class112.playerIndices[id]];
-			if (player != null && player.name != null && player.name.equalsIgnoreCase(string_6_)) {
+			if (player != null && player.name != null && player.name.equalsIgnoreCase(formattedName)) {
 				foundPlayer = true;
-				if (i == 1) {
+				if (action == 1) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
 					Class120_Sub12_Sub11.outputStream.putShortA(Class112.playerIndices[id]);
 					Class120_Sub12_Sub11.outputStream.putByteA(0);
-				} else if (i != 4) {
-					if (i != 5) {
-						if (i != 6) {
-							if (i == 7) {
-								Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
-								Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
-								Class120_Sub12_Sub11.outputStream.putByte(0);
-							}
-						} else {
-							Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
-							Class120_Sub12_Sub11.outputStream.putLEShort(Class112.playerIndices[id]);
-							Class120_Sub12_Sub11.outputStream.putByteS(0);
-						}
-					} else {
-						Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
-						Class120_Sub12_Sub11.outputStream.putByteA(0);
-						Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
-					}
-				} else {
+				} else if (action == 4) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
+					Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
+					Class120_Sub12_Sub11.outputStream.putByte(0);
+				} else if (action == 5) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
+					Class120_Sub12_Sub11.outputStream.putByteA(0);
+					Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
+				} else if (action == 6) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
+					Class120_Sub12_Sub11.outputStream.putLEShort(Class112.playerIndices[id]);
+					Class120_Sub12_Sub11.outputStream.putByteS(0);
+				} else if (action == 7) {
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
 					Class120_Sub12_Sub11.outputStream.putShort(Class112.playerIndices[id]);
 					Class120_Sub12_Sub11.outputStream.putByte(0);
 				}
@@ -58,7 +52,7 @@ final class Class3 {
 			}
 		}
 		if (!foundPlayer) {
-			AbstractRequest.pushMessage(new StringBuilder(AnimatedLocation.aString3062).append(string_6_).toString(), "", 0);
+			AbstractRequest.pushMessage(TextRepository.aString3062 + formattedName, "", 0);
 		}
 	}
 

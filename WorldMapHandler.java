@@ -5,7 +5,7 @@
 class WorldMapHandler {
 	private static Hashtable aClass75_688 = new Hashtable(16);
 	static js5 aClass50_689;
-	static Queue aClass177_690;
+	static Queue mapFunctionsQueue;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_691;
 	static int mapSizeY;
 	static MapFunctionGroup aClass137_693;
@@ -15,12 +15,12 @@ class WorldMapHandler {
 	static float wantedZoom;
 	static int mapSizeX;
 	static int anInt701;
-	static int[][][] anIntArrayArrayArray702;
+	static int[][][] mapscenesLoc;
 	static byte[][][] aByteArrayArrayArray703;
 	static int anInt704;
 	static int anInt705;
 	static byte[][][] aByteArrayArrayArray706;
-	static byte[][][] aByteArrayArrayArray707;
+	static byte[][][] wallsLoc;
 	static int anInt708;
 	static int anInt709;
 	static byte[][][] aByteArrayArrayArray710;
@@ -32,7 +32,7 @@ class WorldMapHandler {
 	static int anInt716;
 
 	static {
-		aClass177_690 = new Queue();
+		mapFunctionsQueue = new Queue();
 	}
 
 	static final void method675(final js5 js5) {
@@ -88,8 +88,8 @@ class WorldMapHandler {
 						final int i_18_ = (i_8_ + i_6_ * (i_16_ + 1) >> 16) + anInt705;
 						final int i_19_ = i_18_ - i_17_;
 						int i_20_;
-						if (aClass120_Sub14_Sub22_691.anInt3635 != -1) {
-							i_20_ = aClass120_Sub14_Sub22_691.anInt3635;
+						if (aClass120_Sub14_Sub22_691.backgroundColor != -1) {
+							i_20_ = aClass120_Sub14_Sub22_691.backgroundColor;
 						} else if ((i_11_ + anInt716 & 0x4) != (i_16_ + anInt704 & 0x4)) {
 							i_20_ = 4936552;
 						} else {
@@ -106,7 +106,7 @@ class WorldMapHandler {
 					final byte[][] is_22_ = aByteArrayArrayArray710[i_15_];
 					final byte[][] is_23_ = aByteArrayArrayArray703[i_15_];
 					final byte[][] is_24_ = aByteArrayArrayArray706[i_15_];
-					final byte[][] is_25_ = aByteArrayArrayArray707[i_15_];
+					final byte[][] is_25_ = wallsLoc[i_15_];
 					i_12_ += anInt708;
 					i_13_ += anInt708;
 					for (int i_26_ = 0; i_26_ < i_10_; i_26_++) {
@@ -122,8 +122,8 @@ class WorldMapHandler {
 							final int i_33_ = (i_31_ << 6) + i_32_;
 							int i_34_;
 							if (i_30_ < 0 || i_30_ > is.length - 1 || is[i_30_] == null) {
-								if (aClass120_Sub14_Sub22_691.anInt3635 != -1) {
-									i_34_ = aClass120_Sub14_Sub22_691.anInt3635;
+								if (aClass120_Sub14_Sub22_691.backgroundColor != -1) {
+									i_34_ = aClass120_Sub14_Sub22_691.backgroundColor;
 								} else if ((i_11_ + anInt716 & 0x4) != (i_26_ + anInt704 & 0x4)) {
 									i_34_ = 4936552;
 								} else {
@@ -243,8 +243,8 @@ class WorldMapHandler {
 				i_48_ += anInt708;
 				i_49_ += anInt708;
 				final int i_51_ = i_47_ + anInt716 >> 6;
-				if (i_51_ >= 0 && i_51_ <= anIntArrayArrayArray702.length - 1) {
-					final int[][] is = anIntArrayArrayArray702[i_51_];
+				if (i_51_ >= 0 && i_51_ <= mapscenesLoc.length - 1) {
+					final int[][] is = mapscenesLoc[i_51_];
 					for (int i_52_ = -2; i_52_ < i_10_ + 2; i_52_++) {
 						int i_53_ = i_8_ + i_6_ * i_52_ >> 16;
 						int i_54_ = i_8_ + i_6_ * (i_52_ + 1) >> 16;
@@ -261,8 +261,8 @@ class WorldMapHandler {
 									if (i_59_ != 0) {
 										final MapSceneType class142 = MapSceneType.list(i_59_ - 1);
 										int rotation = i_58_ >> 13 & 0x3;
-										boolean invert = (i_58_ >> 15 & 0x1) == 1;
-										final LDIndexedSprite class107_sub1 = class142.constructSprite(rotation, invert);
+										boolean flipVertical = (i_58_ >> 15 & 0x1) == 1;
+										final LDIndexedSprite class107_sub1 = class142.constructSprite(rotation, flipVertical);
 										if (class107_sub1 != null) {
 											int i_61_ = i_50_ * class107_sub1.width / 4;
 											int i_62_ = i_55_ * class107_sub1.height / 4;
@@ -303,18 +303,18 @@ class WorldMapHandler {
 		return method692(i_66_, i_67_, 0, 0);
 	}
 
-	static final void decodeOverlay(final Buffer class120_sub7) {
-		while (class120_sub7.pos < class120_sub7.buf.length) {
+	static final void decodeOverlay(final Buffer buffer) {
+		while (buffer.pos < buffer.buf.length) {
 			boolean bool = false;
 			int i = 0;
 			int i_68_ = 0;
-			if (class120_sub7.getUByte() == 1) {
+			if (buffer.getUByte() == 1) {
 				bool = true;
-				i = class120_sub7.getUByte();
-				i_68_ = class120_sub7.getUByte();
+				i = buffer.getUByte();
+				i_68_ = buffer.getUByte();
 			}
-			final int i_69_ = class120_sub7.getUByte();
-			final int i_70_ = class120_sub7.getUByte();
+			final int i_69_ = buffer.getUByte();
+			final int i_70_ = buffer.getUByte();
 			final int i_71_ = i_69_ * 64 - anInt695;
 			final int i_72_ = mapSizeY - 1 - (i_70_ * 64 - anInt694);
 			if (i_71_ >= 0 && i_72_ - 63 >= 0 && i_71_ + 63 < mapSizeX && i_72_ < mapSizeY) {
@@ -323,13 +323,13 @@ class WorldMapHandler {
 				for (int i_75_ = 0; i_75_ < 64; i_75_++) {
 					for (int i_76_ = 0; i_76_ < 64; i_76_++) {
 						if (!bool || i_75_ >= i * 8 && i_75_ < i * 8 + 8 && i_76_ >= i_68_ * 8 && i_76_ < i_68_ * 8 + 8) {
-							final byte i_77_ = class120_sub7.getByte();
+							final byte i_77_ = buffer.getByte();
 							if (i_77_ != 0) {
 								if (aByteArrayArrayArray711[i_73_][i_74_] == null) {
 									aByteArrayArrayArray711[i_73_][i_74_] = new byte[4096];
 								}
 								aByteArrayArrayArray711[i_73_][i_74_][(63 - i_76_ << 6) + i_75_] = i_77_;
-								final byte i_78_ = class120_sub7.getByte();
+								final byte i_78_ = buffer.getByte();
 								if (aByteArrayArrayArray710[i_73_][i_74_] == null) {
 									aByteArrayArrayArray710[i_73_][i_74_] = new byte[4096];
 								}
@@ -340,9 +340,9 @@ class WorldMapHandler {
 				}
 			} else {
 				for (int i_79_ = 0; i_79_ < (bool ? 64 : 4096); i_79_++) {
-					final byte i_80_ = class120_sub7.getByte();
+					final byte i_80_ = buffer.getByte();
 					if (i_80_ != 0) {
-						class120_sub7.pos++;
+						buffer.pos++;
 					}
 				}
 			}
@@ -352,20 +352,20 @@ class WorldMapHandler {
 	static final void method682() {
 		for (int i = 0; i < aClass137_693.length; i++) {
 			if (aClass137_693.nodes[i] != null) {
-				aClass177_690.insertLast(aClass137_693.nodes[i]);
+				mapFunctionsQueue.insertLast(aClass137_693.nodes[i]);
 			}
 		}
 	}
 
-	static final void method683(final int i, final int i_81_, final int i_82_, final int i_83_, final int i_84_, final int i_85_, final int i_86_, final int i_87_) {
+	static final void method683(final int i, final int i_81_, final int mapSizeX, final int mapSizeY, final int offX, final int offY, final int width, final int height) {
 		anInt716 = i;
 		anInt704 = i_81_;
-		anInt714 = i_82_;
-		anInt701 = i_83_;
-		anInt708 = i_84_;
-		anInt705 = i_85_;
-		anInt709 = i_86_;
-		anInt712 = i_87_;
+		anInt714 = mapSizeX;
+		anInt701 = mapSizeY;
+		anInt708 = offX;
+		anInt705 = offY;
+		anInt709 = width;
+		anInt712 = height;
 	}
 
 	static final void method684(final int i) {
@@ -453,47 +453,47 @@ class WorldMapHandler {
 		}
 	}
 
-	static final void decodeLoc(final Buffer class120_sub7, final boolean membersClient) {
-		while (class120_sub7.pos < class120_sub7.buf.length) {
+	static final void decodeLoc(final Buffer buffer, final boolean membersClient) {
+		while (buffer.pos < buffer.buf.length) {
 			boolean bool_107_ = false;
 			int i = 0;
 			int i_108_ = 0;
-			if (class120_sub7.getUByte() == 1) {
+			if (buffer.getUByte() == 1) {
 				bool_107_ = true;
-				i = class120_sub7.getUByte();
-				i_108_ = class120_sub7.getUByte();
+				i = buffer.getUByte();
+				i_108_ = buffer.getUByte();
 			}
-			final int i_109_ = class120_sub7.getUByte();
-			final int i_110_ = class120_sub7.getUByte();
+			final int i_109_ = buffer.getUByte();
+			final int i_110_ = buffer.getUByte();
 			final int i_111_ = i_109_ * 64 - anInt695;
 			final int i_112_ = mapSizeY - 1 - (i_110_ * 64 - anInt694);
 			if (i_111_ >= 0 && i_112_ - 63 >= 0 && i_111_ + 63 < mapSizeX && i_112_ < mapSizeY) {
-				final int i_113_ = i_111_ >> 6;
-				final int i_114_ = i_112_ >> 6;
+				final int x = i_111_ >> 6;
+				final int y = i_112_ >> 6;
 				for (int i_115_ = 0; i_115_ < 64; i_115_++) {
 					for (int i_116_ = 0; i_116_ < 64; i_116_++) {
 						if (!bool_107_ || i_115_ >= i * 8 && i_115_ < i * 8 + 8 && i_116_ >= i_108_ * 8 && i_116_ < i_108_ * 8 + 8) {
-							final int i_117_ = class120_sub7.getUByte();
+							final int i_117_ = buffer.getUByte();
 							if (i_117_ != 0) {
 								if ((i_117_ & 0x1) == 1) {
-									final int i_118_ = class120_sub7.getUByte();
-									if (aByteArrayArrayArray707[i_113_][i_114_] == null) {
-										aByteArrayArrayArray707[i_113_][i_114_] = new byte[4096];
+									final int i_118_ = buffer.getUByte();
+									if (wallsLoc[x][y] == null) {
+										wallsLoc[x][y] = new byte[4096];
 									}
-									aByteArrayArrayArray707[i_113_][i_114_][(63 - i_116_ << 6) + i_115_] = (byte) i_118_;
+									wallsLoc[x][y][(63 - i_116_ << 6) + i_115_] = (byte) i_118_;
 								}
 								if ((i_117_ & 0x2) == 2) {
-									final int i_119_ = class120_sub7.getMedium();
-									if (anIntArrayArrayArray702[i_113_][i_114_] == null) {
-										anIntArrayArrayArray702[i_113_][i_114_] = new int[4096];
+									final int i_119_ = buffer.getMedium();
+									if (mapscenesLoc[x][y] == null) {
+										mapscenesLoc[x][y] = new int[4096];
 									}
-									anIntArrayArrayArray702[i_113_][i_114_][(63 - i_116_ << 6) + i_115_] = i_119_;
+									mapscenesLoc[x][y][(63 - i_116_ << 6) + i_115_] = i_119_;
 								}
 								if ((i_117_ & 0x4) == 4) {
-									int locId = class120_sub7.getUShort();
-									final int level = class120_sub7.getUByte();
+									int locId = buffer.getUShort();
+									final int level = buffer.getUByte();
 									LocType locType = LocType.list(--locId);
-									if (locType.childrenIDs != null) {
+									if (locType.transmogrificationIds != null) {
 										locType = locType.handleVarp();
 										if (locType == null || locType.mapFunctionId == -1) {
 											continue;
@@ -503,9 +503,9 @@ class WorldMapHandler {
 										final MapFunctionNode mapFunctionNode = new MapFunctionNode();
 										mapFunctionNode.id = locType.mapFunctionId;
 										mapFunctionNode.level = level;
-										mapFunctionNode.x = i_113_ * 64 + i_115_;
-										mapFunctionNode.z = i_114_ * 64 + 64 - i_116_;
-										aClass177_690.insertLast(mapFunctionNode);
+										mapFunctionNode.x = x * 64 + i_115_;
+										mapFunctionNode.z = y * 64 + 64 - i_116_;
+										mapFunctionsQueue.insertLast(mapFunctionNode);
 									}
 								}
 							}
@@ -514,16 +514,16 @@ class WorldMapHandler {
 				}
 			} else {
 				for (int i_122_ = 0; i_122_ < (bool_107_ ? 64 : 4096); i_122_++) {
-					final int i_123_ = class120_sub7.getUByte();
+					final int i_123_ = buffer.getUByte();
 					if (i_123_ != 0) {
 						if ((i_123_ & 0x1) == 1) {
-							class120_sub7.pos++;
+							buffer.pos++;
 						}
 						if ((i_123_ & 0x2) == 2) {
-							class120_sub7.pos += 2;
+							buffer.pos += 2;
 						}
 						if ((i_123_ & 0x4) == 4) {
-							class120_sub7.pos += 3;
+							buffer.pos += 3;
 						}
 					}
 				}
@@ -531,7 +531,7 @@ class WorldMapHandler {
 		}
 	}
 
-	static final void setupUnderlayColors() {
+	static final void setupOverlayColors() {
 		for (int id = 0; id < OverlayType.overlayAmount; id++) {
 			final OverlayType overlayType = OverlayType.list(id);
 			if (overlayType != null) {
@@ -1028,7 +1028,7 @@ class WorldMapHandler {
 
 	private static final Deque method692(final int i, final int i_215_, final int i_216_, final int i_217_) {
 		final Deque deque = new Deque();
-		for (MapFunctionNode class120_sub14_sub5 = (MapFunctionNode) aClass177_690.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (MapFunctionNode) aClass177_690.peekNext()) {
+		for (MapFunctionNode class120_sub14_sub5 = (MapFunctionNode) mapFunctionsQueue.peekFirst(); class120_sub14_sub5 != null; class120_sub14_sub5 = (MapFunctionNode) mapFunctionsQueue.peekNext()) {
 			method686(class120_sub14_sub5, i, i_215_, i_216_, i_217_);
 			deque.addLast(class120_sub14_sub5);
 		}

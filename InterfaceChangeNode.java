@@ -36,7 +36,7 @@ final class InterfaceChangeNode extends NodeSub {
 			final int i_9_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_10_ = Class190.anInt2100;
 			final int i_12_ = Class120_Sub30_Sub1.anInt3672;
-			final int i_11_ = (i_9_ - i_8_) * (i_2_ - interfaceX) / interfaceWidth + i_8_;
+			final int i_11_ = i_8_ + (i_9_ - i_8_) * (i_2_ - interfaceX) / interfaceWidth;
 			final int i_13_ = i_10_ + (i_12_ - i_10_) * (i_7_ - interfaceY) / interfaceHeight;
 			if (Class88.spellSelected && (GroundTile.selectedSpellUseMask & 0x40) != 0) {
 				final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
@@ -63,7 +63,7 @@ final class InterfaceChangeNode extends NodeSub {
 				oldBitPacked = bitPacked;
 				if (type == 2 && Class53_Sub1.bitPackedMatch(x, z, Class173.gameLevel, bitPacked)) {
 					LocType locType = LocType.list(index);
-					if (locType.childrenIDs != null) {
+					if (locType.transmogrificationIds != null) {
 						locType = locType.handleVarp();
 					}
 					if (locType == null) {
@@ -256,7 +256,7 @@ final class InterfaceChangeNode extends NodeSub {
 		IsaacCipher.aClass50_1011 = js5;
 		Class120_Sub21.anInterface1_2668 = interface1;
 		if (Class24.aClass50_143 != null) {
-			Class32.anInt269 = Class24.aClass50_143.getFileAmount(1);
+			MagnetType.anInt269 = Class24.aClass50_143.getFileAmount(1);
 		}
 		if (IsaacCipher.aClass50_1011 != null) {
 			Class192.anInt2120 = IsaacCipher.aClass50_1011.getFileAmount(1);

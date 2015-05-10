@@ -209,6 +209,11 @@ final class MapFunctionType {
 		return cachedSprite;
 	}
 
+	static final void clear() {
+		recentUse.clear();
+		spriteCache.clear();
+	}
+
 	static final MapFunctionType list(int id) {
 		MapFunctionType mapFunctionType = (MapFunctionType) recentUse.get(id);
 		if (mapFunctionType != null) {

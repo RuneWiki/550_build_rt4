@@ -13,7 +13,6 @@ final class Class120_Sub24 extends Node {
 	int anInt2723;
 	static int menuWidth;
 	int anInt2725;
-	static String aString2726 = "Loaded sprites";
 	int anInt2727;
 	int anInt2728;
 	int anInt2729;

@@ -33,7 +33,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 			final int[] is_3_ = is_1_[1];
 			final int[] is_4_ = is_1_[2];
 			for (int i_5_ = 0; Class120_Sub12_Sub7.anInt3178 > i_5_; i_5_++) {
-				method1392((byte) -51, i, i_5_);
+				method1392(i, i_5_);
 				final int[][] is_6_ = method1179(0, WorldInfo.anInt1420);
 				is_2_[i_5_] = is_6_[0][Class120_Sub12_Sub14.anInt3240];
 				is_3_[i_5_] = is_6_[1][Class120_Sub12_Sub14.anInt3240];
@@ -45,7 +45,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 
 	static final void method1389() {
 		for (int id = 0; id < Class154.anInt1441; id++) {
-			final int index = Class169.anIntArray1648[id];
+			final int index = ModelParticleMagnet.anIntArray1648[id];
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			int mask = Canvas_Sub1.inputStream.getUByte();
 			if ((mask & 0x1) != 0) {
@@ -114,7 +114,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 					bool = false;
 				}
 				if (bool) {
-					npc.anInt2963 = 0;
+					npc.spotAnimFrameDelay = 0;
 					npc.spotAnimFrame = 0;
 					npc.spotAnimNextFrame = 1;
 					npc.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
@@ -165,49 +165,43 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		}
 	}
 
-	private final void method1392(final byte i, final int i_29_, final int i_30_) {
-		try {
-			final int i_31_ = Class90.anIntArray849[i_30_];
-			final int i_32_ = Class150.anIntArray1405[i_29_];
-			final float f = (float) Math.atan2(-2048 + i_31_, i_32_ - 2048);
-			if (-Math.PI <= f && -2.356194490192345 >= f) {
+	private final void method1392(final int i_29_, final int i_30_) {
+		final int i_31_ = Class90.anIntArray849[i_30_];
+		final int i_32_ = Class150.anIntArray1405[i_29_];
+		final float f = (float) Math.atan2(-2048 + i_31_, i_32_ - 2048);
+		if (-Math.PI <= f && -2.356194490192345 >= f) {
+			Class120_Sub12_Sub14.anInt3240 = i_30_;
+			WorldInfo.anInt1420 = i_29_;
+		} else if (-Math.PI / 2 >= f && f >= -2.356194490192345) {
+			WorldInfo.anInt1420 = i_30_;
+			Class120_Sub12_Sub14.anInt3240 = i_29_;
+		} else if (!(-Math.PI / 4 >= f) || !(f >= -Math.PI / 2)) {
+			if (0.0F >= f && f >= -Math.PI / 4) {
+				WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 - i_29_;
 				Class120_Sub12_Sub14.anInt3240 = i_30_;
-				WorldInfo.anInt1420 = i_29_;
-			} else if (-Math.PI / 2 >= f && f >= -2.356194490192345) {
-				WorldInfo.anInt1420 = i_30_;
-				Class120_Sub12_Sub14.anInt3240 = i_29_;
-			} else if (!(-Math.PI / 4 >= f) || !(f >= -Math.PI / 2)) {
-				if (0.0F >= f && f >= -Math.PI / 4) {
-					WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 - i_29_;
-					Class120_Sub12_Sub14.anInt3240 = i_30_;
-				} else if (!(f >= 0.0F) || !(f <= Math.PI / 4)) {
-					if (!(f >= Math.PI / 4) || !(f <= Math.PI / 2)) {
-						if (f >= Math.PI / 2 && f <= 2.356194490192345) {
-							Class120_Sub12_Sub14.anInt3240 = i_29_;
-							WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 + -i_30_;
-						} else if (2.356194490192345 <= f && Math.PI >= f) {
-							WorldInfo.anInt1420 = i_29_;
-							Class120_Sub12_Sub14.anInt3240 = -i_30_ + Class120_Sub12_Sub7.anInt3178;
-						}
-					} else {
-						Class120_Sub12_Sub14.anInt3240 = -i_29_ + Class120_Sub12_Sub7.anInt3178;
-						WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 - i_30_;
+			} else if (!(f >= 0.0F) || !(f <= Math.PI / 4)) {
+				if (!(f >= Math.PI / 4) || !(f <= Math.PI / 2)) {
+					if (f >= Math.PI / 2 && f <= 2.356194490192345) {
+						Class120_Sub12_Sub14.anInt3240 = i_29_;
+						WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 + -i_30_;
+					} else if (2.356194490192345 <= f && Math.PI >= f) {
+						WorldInfo.anInt1420 = i_29_;
+						Class120_Sub12_Sub14.anInt3240 = -i_30_ + Class120_Sub12_Sub7.anInt3178;
 					}
 				} else {
-					Class120_Sub12_Sub14.anInt3240 = Class120_Sub12_Sub7.anInt3178 + -i_30_;
-					WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 + -i_29_;
+					Class120_Sub12_Sub14.anInt3240 = -i_29_ + Class120_Sub12_Sub7.anInt3178;
+					WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 - i_30_;
 				}
 			} else {
-				Class120_Sub12_Sub14.anInt3240 = Class120_Sub12_Sub7.anInt3178 - i_29_;
-				WorldInfo.anInt1420 = i_30_;
+				Class120_Sub12_Sub14.anInt3240 = Class120_Sub12_Sub7.anInt3178 + -i_30_;
+				WorldInfo.anInt1420 = Class120_Sub12_Sub2.anInt3145 + -i_29_;
 			}
-			Class120_Sub12_Sub14.anInt3240 &= Class32.anInt259;
-			if (i == -51) {
-				WorldInfo.anInt1420 &= Class120_Sub29.anInt2774;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("uc.T(").append(i).append(',').append(i_29_).append(',').append(i_30_).append(')').toString());
+		} else {
+			Class120_Sub12_Sub14.anInt3240 = Class120_Sub12_Sub7.anInt3178 - i_29_;
+			WorldInfo.anInt1420 = i_30_;
 		}
+		Class120_Sub12_Sub14.anInt3240 &= MagnetType.anInt259;
+		WorldInfo.anInt1420 &= Class120_Sub29.anInt2774;
 	}
 
 	@Override
@@ -215,7 +209,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		final int[] is_34_ = this.aClass30_2563.method258(i_33_);
 		if (this.aClass30_2563.aBoolean238) {
 			for (int i_35_ = 0; Class120_Sub12_Sub7.anInt3178 > i_35_; i_35_++) {
-				method1392((byte) -51, i_33_, i_35_);
+				method1392(i_33_, i_35_);
 				final int[] is_36_ = method1192(WorldInfo.anInt1420, 0);
 				is_34_[i_35_] = is_36_[Class120_Sub12_Sub14.anInt3240];
 			}

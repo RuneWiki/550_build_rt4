@@ -23,7 +23,7 @@ final class Class9 {
 		anInt77 = -1;
 	}
 
-	final NodeSub method113() {
+	final NodeSub poll() {
 		if (aClass120_Sub14_76 == null) {
 			return null;
 		}
@@ -38,7 +38,7 @@ final class Class9 {
 		return null;
 	}
 
-	final NodeSub method114(final long l) {
+	final NodeSub get(final long l) {
 		aLong69 = l;
 		final NodeSub class120_sub14_2_ = aClass120_Sub14Array75[(int) (l & anInt73 + -1)];
 		for (aClass120_Sub14_76 = class120_sub14_2_.nextSub; class120_sub14_2_ != aClass120_Sub14_76; aClass120_Sub14_76 = aClass120_Sub14_76.nextSub) {
@@ -52,7 +52,7 @@ final class Class9 {
 		return null;
 	}
 
-	final void method115(final NodeSub nodeSub, final long l) {
+	final void put(final NodeSub nodeSub, final long l) {
 		if (nodeSub.previousSub != null) {
 			nodeSub.unlinkSub();
 		}

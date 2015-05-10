@@ -87,7 +87,7 @@ final class Class23 {
 		if (activateResizeListener && jagexInterface.onResizeListener != null && (oldWidth != jagexInterface.width || oldHeight != jagexInterface.height)) {
 			final InterfaceListener interfaceListener = new InterfaceListener();
 			interfaceListener.objectData = jagexInterface.onResizeListener;
-			interfaceListener.aClass189_2534 = jagexInterface;
+			interfaceListener.jagexInterface = jagexInterface;
 			Class88.aClass105_829.addLast(interfaceListener);
 		}
 	}
@@ -105,26 +105,26 @@ final class Class23 {
 			final SeqType seqType = SeqType.list(i);
 			final int resetCode = seqType.resetInPlay;
 			if (resetCode == 1) {
-				npc.animCurrentFrame = 0;
+				npc.animFrame = 0;
 				npc.animDelay = i_18_;
-				npc.anInt3013 = 1;
-				npc.anInt2999 = 0;
-				npc.anInt3044 = 0;
-				Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.animCurrentFrame, false);
+				npc.animNextFrame = 1;
+				npc.animCyclesElapsed = 0;
+				npc.animCurrentFrameDelay = 0;
+				Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.animFrame, false);
 			}
 			if (resetCode == 2) {
-				npc.anInt2999 = 0;
+				npc.animCyclesElapsed = 0;
 			}
 		} else if (i == -1 || npc.animId == -1 || SeqType.list(i).priority >= SeqType.list(npc.animId).priority) {
-			npc.anInt3013 = 1;
-			npc.anInt3031 = npc.anInt2960;
-			npc.anInt2999 = 0;
-			npc.animCurrentFrame = 0;
+			npc.animNextFrame = 1;
+			npc.onAnimPlayWalkQueuePos = npc.walkQueuePos;
+			npc.animCyclesElapsed = 0;
+			npc.animFrame = 0;
 			npc.animDelay = i_18_;
 			npc.animId = i;
-			npc.anInt3044 = 0;
+			npc.animCurrentFrameDelay = 0;
 			if (npc.animId != -1) {
-				Class120_Sub12_Sub23.method1323(SeqType.list(npc.animId), npc.x, npc.z, npc.animCurrentFrame, false);
+				Class120_Sub12_Sub23.method1323(SeqType.list(npc.animId), npc.x, npc.z, npc.animFrame, false);
 			}
 		}
 	}

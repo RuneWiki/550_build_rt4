@@ -16,14 +16,14 @@ final class InvType extends NodeSub {
 
 	static final void method1445() {
 		if (AbstractGraphicsBuffer.anInt1157 != -1 && Class120_Sub12_Sub15.anInt3248 != -1) {
-			final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * Class32.anInt272 >> 16) + JagexInterface.anInt2053;
+			final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * MagnetType.anInt272 >> 16) + JagexInterface.anInt2053;
 			final float[] fs = new float[3];
-			Class32.anInt272 += i_3_;
-			if (Class32.anInt272 < 65535) {
+			MagnetType.anInt272 += i_3_;
+			if (MagnetType.anInt272 < 65535) {
 				Class24.aBoolean139 = false;
 				AbstractSprite.aBoolean3622 = false;
 			} else {
-				Class32.anInt272 = 65535;
+				MagnetType.anInt272 = 65535;
 				if (AbstractSprite.aBoolean3622) {
 					Class24.aBoolean139 = false;
 				} else {
@@ -31,7 +31,7 @@ final class InvType extends NodeSub {
 				}
 				AbstractSprite.aBoolean3622 = true;
 			}
-			final float f = Class32.anInt272 / 65535.0F;
+			final float f = MagnetType.anInt272 / 65535.0F;
 			final int i_4_ = 2 * PlayerAppearance.anInt1372;
 			for (int i_5_ = 0; i_5_ < 3; i_5_++) {
 				final int i_6_ = 3 * Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_][i_5_];

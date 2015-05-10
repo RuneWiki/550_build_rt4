@@ -155,10 +155,10 @@ final class js5 {
 			return null;
 		}
 		if (anObjectArrayArray448[group] == null || anObjectArrayArray448[group][file] == null) {
-			boolean bool_17_ = method424(0, null, group);
+			boolean bool_17_ = method424(null, group);
 			if (!bool_17_) {
 				requestDownload(group);
-				bool_17_ = method424(0, null, group);
+				bool_17_ = method424(null, group);
 				if (!bool_17_) {
 					return null;
 				}
@@ -189,124 +189,116 @@ final class js5 {
 		}
 		if (i_22_ < 0 || i < 0 || masterIndexInfo.anIntArray465.length <= i_22_ || i >= masterIndexInfo.anIntArray465[i_22_]) {
 			if (Class90.aBoolean845) {
-				throw new IllegalArgumentException(new StringBuilder(String.valueOf(i_22_)).append(",").append(i).toString());
+				throw new IllegalArgumentException(String.valueOf(i_22_) + "," + i);
 			}
 			return false;
 		}
 		return true;
 	}
 
-	private final boolean method424(final int i, final int[] is, final int i_23_) {
-		boolean bool;
+	private final boolean method424(final int[] is, final int i_23_) {
+		if (!method436(i_23_)) {
+			return false;
+		}
+		if (anObjectArray451[i_23_] == null) {
+			return false;
+		}
+		final int[] is_24_ = masterIndexInfo.groupFileIds[i_23_];
+		final int i_25_ = masterIndexInfo.groupFileCount[i_23_];
+		boolean bool_26_ = true;
+		if (anObjectArrayArray448[i_23_] == null) {
+			anObjectArrayArray448[i_23_] = new Object[masterIndexInfo.anIntArray465[i_23_]];
+		}
+		final Object[] objects = anObjectArrayArray448[i_23_];
+		for (int i_27_ = 0; i_27_ < i_25_; i_27_++) {
+			int i_28_;
+			if (is_24_ == null) {
+				i_28_ = i_27_;
+			} else {
+				i_28_ = is_24_[i_27_];
+			}
+			if (objects[i_28_] == null) {
+				bool_26_ = false;
+				break;
+			}
+		}
+		if (bool_26_) {
+			return true;
+		}
+		byte[] is_29_;
+		if (is != null && (is[0] != 0 || is[1] != 0 || is[2] != 0 || is[3] != 0)) {
+			is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], true);
+			final Buffer class120_sub7 = new Buffer(is_29_);
+			class120_sub7.decryptXTEA(is, 5, class120_sub7.buf.length);
+		} else {
+			is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], false);
+		}
+		byte[] is_30_;
 		try {
-			if (!method436(i_23_)) {
-				return false;
+			is_30_ = Class71.unpack(is_29_);
+		} catch (final RuntimeException runtimeexception) {
+			throw EnumType.method1428(runtimeexception, new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2)).append(",").append(masterIndexInfo.groupCrcs[i_23_]).append(",").append(masterIndexInfo.indexCrc).toString());
+		}
+		if (clearOnUnpack) {
+			anObjectArray451[i_23_] = null;
+		}
+		if (i_25_ > 1) {
+			int i_31_ = is_30_.length;
+			final int[] is_32_ = new int[i_25_];
+			final int i_33_ = is_30_[--i_31_] & 0xff;
+			final Buffer class120_sub7 = new Buffer(is_30_);
+			i_31_ -= i_25_ * i_33_ * 4;
+			class120_sub7.pos = i_31_;
+			for (int i_34_ = 0; i_34_ < i_33_; i_34_++) {
+				int i_35_ = 0;
+				for (int i_36_ = 0; i_36_ < i_25_; i_36_++) {
+					i_35_ += class120_sub7.getInt();
+					is_32_[i_36_] += i_35_;
+				}
 			}
-			if (anObjectArray451[i_23_] == null) {
-				return false;
+			final byte[][] is_37_ = new byte[i_25_][];
+			for (int i_38_ = 0; i_25_ > i_38_; i_38_++) {
+				is_37_[i_38_] = new byte[is_32_[i_38_]];
+				is_32_[i_38_] = 0;
 			}
-			final int[] is_24_ = masterIndexInfo.groupFileIds[i_23_];
-			final int i_25_ = masterIndexInfo.groupFileCount[i_23_];
-			boolean bool_26_ = true;
-			if (anObjectArrayArray448[i_23_] == null) {
-				anObjectArrayArray448[i_23_] = new Object[masterIndexInfo.anIntArray465[i_23_]];
+			class120_sub7.pos = i_31_;
+			int i_39_ = 0;
+			for (int i_40_ = 0; i_40_ < i_33_; i_40_++) {
+				int i_41_ = 0;
+				for (int i_42_ = 0; i_25_ > i_42_; i_42_++) {
+					i_41_ += class120_sub7.getInt();
+					ArrayUtils.arrayCopy(is_30_, i_39_, is_37_[i_42_], is_32_[i_42_], i_41_);
+					i_39_ += i_41_;
+					is_32_[i_42_] += i_41_;
+				}
 			}
-			final Object[] objects = anObjectArrayArray448[i_23_];
-			for (int i_27_ = i; i_27_ < i_25_; i_27_++) {
-				int i_28_;
+			for (int i_43_ = 0; i_25_ > i_43_; i_43_++) {
+				int i_44_;
 				if (is_24_ == null) {
-					i_28_ = i_27_;
+					i_44_ = i_43_;
 				} else {
-					i_28_ = is_24_[i_27_];
-				}
-				if (objects[i_28_] == null) {
-					bool_26_ = false;
-					break;
-				}
-			}
-			if (bool_26_) {
-				return true;
-			}
-			byte[] is_29_;
-			if (is != null && (is[0] != 0 || is[1] != 0 || is[2] != 0 || is[3] != 0)) {
-				is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], true);
-				final Buffer class120_sub7 = new Buffer(is_29_);
-				class120_sub7.decryptXTEA(is, 5, class120_sub7.buf.length);
-			} else {
-				is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], false);
-			}
-			byte[] is_30_;
-			try {
-				is_30_ = Class71.unpack(is_29_);
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception,
-						new StringBuilder("T3 - ").append(is != null ? Arrays.toString(is) : "null").append(",").append(i_23_).append(",").append(is_29_.length).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length)).append(",").append(AbstractObject.getCrc(is_29_, is_29_.length - 2))
-								.append(",").append(masterIndexInfo.groupCrcs[i_23_]).append(",").append(masterIndexInfo.indexCrc).toString());
-			}
-			if (clearOnUnpack) {
-				anObjectArray451[i_23_] = null;
-			}
-			if (i_25_ > 1) {
-				int i_31_ = is_30_.length;
-				final int[] is_32_ = new int[i_25_];
-				final int i_33_ = is_30_[--i_31_] & 0xff;
-				final Buffer class120_sub7 = new Buffer(is_30_);
-				i_31_ -= i_25_ * i_33_ * 4;
-				class120_sub7.pos = i_31_;
-				for (int i_34_ = 0; i_34_ < i_33_; i_34_++) {
-					int i_35_ = 0;
-					for (int i_36_ = 0; i_36_ < i_25_; i_36_++) {
-						i_35_ += class120_sub7.getInt();
-						is_32_[i_36_] += i_35_;
-					}
-				}
-				final byte[][] is_37_ = new byte[i_25_][];
-				for (int i_38_ = 0; i_25_ > i_38_; i_38_++) {
-					is_37_[i_38_] = new byte[is_32_[i_38_]];
-					is_32_[i_38_] = 0;
-				}
-				class120_sub7.pos = i_31_;
-				int i_39_ = 0;
-				for (int i_40_ = 0; i_40_ < i_33_; i_40_++) {
-					int i_41_ = 0;
-					for (int i_42_ = 0; i_25_ > i_42_; i_42_++) {
-						i_41_ += class120_sub7.getInt();
-						ArrayUtils.arrayCopy(is_30_, i_39_, is_37_[i_42_], is_32_[i_42_], i_41_);
-						i_39_ += i_41_;
-						is_32_[i_42_] += i_41_;
-					}
-				}
-				for (int i_43_ = 0; i_25_ > i_43_; i_43_++) {
-					int i_44_;
-					if (is_24_ == null) {
-						i_44_ = i_43_;
-					} else {
-						i_44_ = is_24_[i_43_];
-					}
-					if (clearOnUse) {
-						objects[i_44_] = is_37_[i_43_];
-					} else {
-						objects[i_44_] = Class143_Sub1.method2026(is_37_[i_43_], false, 136);
-					}
-				}
-			} else {
-				int i_45_;
-				if (is_24_ == null) {
-					i_45_ = 0;
-				} else {
-					i_45_ = is_24_[0];
+					i_44_ = is_24_[i_43_];
 				}
 				if (clearOnUse) {
-					objects[i_45_] = is_30_;
+					objects[i_44_] = is_37_[i_43_];
 				} else {
-					objects[i_45_] = Class143_Sub1.method2026(is_30_, false, 136);
+					objects[i_44_] = Class143_Sub1.method2026(is_37_[i_43_], false, 136);
 				}
 			}
-			bool = true;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.U(").append(i).append(',').append(is != null ? "{...}" : "null").append(',').append(i_23_).append(')').toString());
+		} else {
+			int i_45_;
+			if (is_24_ == null) {
+				i_45_ = 0;
+			} else {
+				i_45_ = is_24_[0];
+			}
+			if (clearOnUse) {
+				objects[i_45_] = is_30_;
+			} else {
+				objects[i_45_] = Class143_Sub1.method2026(is_30_, false, 136);
+			}
 		}
-		return bool;
+		return true;
 	}
 
 	private final boolean allFilesComplete(final int i) {
@@ -336,18 +328,11 @@ final class js5 {
 		}
 	}
 
-	final void method427(final int i, String string) {
-		try {
-			if (i <= 6) {
-				getFileXTEA(86, 36, null);
-			}
-			if (informationLoaded()) {
-				string = string.toLowerCase();
-				final int i_48_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
-				method411(i_48_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("fh.C(").append(i).append(',').append(string != null ? "{...}" : "null").append(')').toString());
+	final void method427(String string) {
+		if (informationLoaded()) {
+			string = string.toLowerCase();
+			final int i_48_ = masterIndexInfo.groupLookupTable.lookupIdentifier(Class120_Sub14_Sub13.toHash(string));
+			method411(i_48_);
 		}
 	}
 
@@ -402,10 +387,10 @@ final class js5 {
 			return null;
 		}
 		if (anObjectArrayArray448[i_56_] == null || anObjectArrayArray448[i_56_][i] == null) {
-			boolean bool = method424(0, is, i_56_);
+			boolean bool = method424(is, i_56_);
 			if (!bool) {
 				requestDownload(i_56_);
-				bool = method424(0, is, i_56_);
+				bool = method424(is, i_56_);
 				if (!bool) {
 					return null;
 				}

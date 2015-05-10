@@ -20,8 +20,8 @@ final class Class127 {
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
-		if (Class169.anInt1646 < 0) {
-			Class169.anInt1646 = 0;
+		if (ModelParticleMagnet.anInt1646 < 0) {
+			ModelParticleMagnet.anInt1646 = 0;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
@@ -30,8 +30,8 @@ final class Class127 {
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
-		if (Class169.anInt1646 > WorldMapHandler.mapSizeY) {
-			Class169.anInt1646 = WorldMapHandler.mapSizeY;
+		if (ModelParticleMagnet.anInt1646 > WorldMapHandler.mapSizeY) {
+			ModelParticleMagnet.anInt1646 = WorldMapHandler.mapSizeY;
 			CanvasWrapper.anInt20 = -1;
 			Class120_Sub2.anInt2422 = -1;
 		}
@@ -95,10 +95,10 @@ final class Class127 {
 		if (i_17_ < 32768) {
 			i_17_ = 32768;
 		}
-		if (i_17_ > Class26.anInt162) {
-			Class26.anInt162 += (i_17_ + -Class26.anInt162) / 24;
-		} else if (Class26.anInt162 > i_17_) {
-			Class26.anInt162 += (i_17_ + -Class26.anInt162) / 80;
+		if (i_17_ > Normal.anInt162) {
+			Normal.anInt162 += (i_17_ + -Normal.anInt162) / 24;
+		} else if (Normal.anInt162 > i_17_) {
+			Normal.anInt162 += (i_17_ + -Normal.anInt162) / 80;
 		}
 	}
 

@@ -7,9 +7,9 @@ final class Class8 {
 	static byte[][][] aByteArrayArrayArray65;
 
 	static final void constructFonts(final js5 spriteJs5, final js5 fontJs5) {
-		ObjectCache.smallFont = Class9.constructAbstractFont(spriteJs5, fontJs5, Class32.p11fullId, 0);
+		ObjectCache.smallFont = Class9.constructAbstractFont(spriteJs5, fontJs5, MagnetType.p11fullId, 0);
 		if (HDToolkit.glEnabled) {
-			Class33.smallFont2 = Class93.constructLDFont(spriteJs5, fontJs5, Class32.p11fullId, 0);
+			Class33.smallFont2 = Class93.constructLDFont(spriteJs5, fontJs5, MagnetType.p11fullId, 0);
 		} else {
 			Class33.smallFont2 = (LDFont) ObjectCache.smallFont;
 		}

@@ -60,7 +60,7 @@ final class Class81 {
 				}
 				if (!JagexSocket.aBoolean423 && i_4_ >= 0 && WorldMapHandler.mapSizeX > i_4_ && i_3_ >= 0 && WorldMapHandler.mapSizeY > i_3_) {
 					i_3_ += (int) (Math.random() * 10.0) - 5;
-					Class169.anInt1646 = i_3_;
+					ModelParticleMagnet.anInt1646 = i_3_;
 					i_4_ += -5 + (int) (Math.random() * 10.0);
 					ParticleEmitter.anInt2336 = i_4_;
 				} else if (Class120_Sub12_Sub33.anInt3407 != -1 && Class86.anInt818 != -1) {
@@ -68,12 +68,12 @@ final class Class81 {
 					Class120_Sub12_Sub33.anInt3407 = Class86.anInt818 = -1;
 					JagexSocket.aBoolean423 = false;
 					if (is != null) {
-						Class169.anInt1646 = -1 + WorldMapHandler.mapSizeY - is[2] - -WorldMapHandler.anInt694;
+						ModelParticleMagnet.anInt1646 = -1 + WorldMapHandler.mapSizeY - is[2] - -WorldMapHandler.anInt694;
 						ParticleEmitter.anInt2336 = is[1] + -WorldMapHandler.anInt695;
 					}
 				} else {
 					WorldMapHandler.aClass120_Sub14_Sub22_691.method1632(is, 0x3fff & WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3633, 0x3fff & WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3633 >> 14);
-					Class169.anInt1646 = WorldMapHandler.anInt694 - (is[2] - (-1 + WorldMapHandler.mapSizeY));
+					ModelParticleMagnet.anInt1646 = WorldMapHandler.anInt694 - (is[2] - (-1 + WorldMapHandler.mapSizeY));
 					ParticleEmitter.anInt2336 = -WorldMapHandler.anInt695 + is[1];
 				}
 				if (WorldMapHandler.aClass120_Sub14_Sub22_691.zoom == 37) {
@@ -94,15 +94,15 @@ final class Class81 {
 				final int i_6_ = WorldMapHandler.mapSizeY >> 6;
 				WorldMapHandler.overlayColors = new int[1 + OverlayType.overlayAmount];
 				WorldMapHandler.aByteArrayArrayArray706 = new byte[i_5_][i_6_][];
-				WorldMapHandler.anIntArrayArrayArray702 = new int[i_5_][i_6_][];
-				WorldMapHandler.aByteArrayArrayArray707 = new byte[i_5_][i_6_][];
+				WorldMapHandler.mapscenesLoc = new int[i_5_][i_6_][];
+				WorldMapHandler.wallsLoc = new byte[i_5_][i_6_][];
 				WorldMapHandler.aByteArrayArrayArray710 = new byte[i_5_][i_6_][];
 				WorldMapHandler.underlayColors = new int[i_5_][i_6_][];
 				WorldMapHandler.aByteArrayArrayArray703 = new byte[i_5_][i_6_][];
 				WorldMapHandler.aByteArrayArrayArray711 = new byte[i_5_][i_6_][];
 				MapFunctionType.aClass105_653 = new Deque();
 				Class22.aClass127_130 = new Class127();
-				WorldMapHandler.setupUnderlayColors();
+				WorldMapHandler.setupOverlayColors();
 				Class43.resetMapFunctionCache(1024, 256);
 				MasterIndexInfo.resetVarBit(256);
 				Class90.laodingStage = 20;

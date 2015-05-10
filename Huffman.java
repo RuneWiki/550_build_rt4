@@ -54,24 +54,6 @@ final class Huffman {
 		return bool_3_;
 	}
 
-	static final byte[] method1883(final int i, final byte[] is) {
-		byte[] is_9_;
-		try {
-			if (is == null) {
-				return null;
-			}
-			final byte[] is_10_ = new byte[is.length];
-			if (i != 64) {
-				aBoolean1207 = true;
-			}
-			ArrayUtils.arrayCopy(is, 0, is_10_, 0, is.length);
-			is_9_ = is_10_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.A(").append(i).append(',').append(is != null ? "{...}" : "null").append(')').toString());
-		}
-		return is_9_;
-	}
-
 	static final js5 method1884(final int indexId, final boolean bool, final boolean bool_11_, final boolean bool_13_) {
 		FileSystem fileSystem = null;
 		if (MapFunctionType.aClass193_663 != null) {
@@ -127,145 +109,131 @@ final class Huffman {
 		return -outOff + (7 + i_20_ >> 3);
 	}
 
-	final int method1886(int i, final int i_27_, final int i_28_, final byte[] is, final byte[] is_29_, int i_30_) {
-		int i_31_;
-		try {
-			if (i_30_ == 0) {
-				return 0;
-			}
-			i_30_ += i;
-			int i_32_ = 0;
-			int i_33_ = i_27_;
-			for (;;) {
-				final byte i_34_ = is[i_33_];
-				if (i_34_ < 0) {
-					i_32_ = anIntArray1210[i_32_];
-				} else {
-					i_32_++;
-				}
-				int i_35_;
-				if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i >= i_30_) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((0x40 & i_34_) == 0) {
-					i_32_++;
-				} else {
-					i_32_ = anIntArray1210[i_32_];
-				}
-				if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i >= i_30_) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((i_34_ & 0x20) == 0) {
-					i_32_++;
-				} else {
-					i_32_ = anIntArray1210[i_32_];
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((0x10 & i_34_) == 0) {
-					i_32_++;
-				} else {
-					i_32_ = anIntArray1210[i_32_];
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((0x8 & i_34_) != 0) {
-					i_32_ = anIntArray1210[i_32_];
-				} else {
-					i_32_++;
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((0x4 & i_34_) != 0) {
-					i_32_ = anIntArray1210[i_32_];
-				} else {
-					i_32_++;
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((i_34_ & 0x2) == 0) {
-					i_32_++;
-				} else {
-					i_32_ = anIntArray1210[i_32_];
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				if ((0x1 & i_34_) != 0) {
-					i_32_ = anIntArray1210[i_32_];
-				} else {
-					i_32_++;
-				}
-				if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-					is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-					if (i_30_ <= i) {
-						break;
-					}
-					i_32_ = 0;
-				}
-				i_33_++;
-			}
-			i_31_ = i_33_ - -1 + -i_27_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.F(").append(i).append(',').append(i_27_).append(',').append(i_28_).append(',').append(is != null ? "{...}" : "null").append(',').append(is_29_ != null ? "{...}" : "null").append(',').append(i_30_).append(')')
-					.toString());
+	final int method1886(int i, final int i_27_, final byte[] is, final byte[] is_29_, int i_30_) {
+		if (i_30_ == 0) {
+			return 0;
 		}
-		return i_31_;
+		i_30_ += i;
+		int i_32_ = 0;
+		int i_33_ = i_27_;
+		for (;;) {
+			final byte i_34_ = is[i_33_];
+			if (i_34_ < 0) {
+				i_32_ = anIntArray1210[i_32_];
+			} else {
+				i_32_++;
+			}
+			int i_35_;
+			if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i >= i_30_) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((0x40 & i_34_) == 0) {
+				i_32_++;
+			} else {
+				i_32_ = anIntArray1210[i_32_];
+			}
+			if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i >= i_30_) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((i_34_ & 0x20) == 0) {
+				i_32_++;
+			} else {
+				i_32_ = anIntArray1210[i_32_];
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((0x10 & i_34_) == 0) {
+				i_32_++;
+			} else {
+				i_32_ = anIntArray1210[i_32_];
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((0x8 & i_34_) != 0) {
+				i_32_ = anIntArray1210[i_32_];
+			} else {
+				i_32_++;
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((0x4 & i_34_) != 0) {
+				i_32_ = anIntArray1210[i_32_];
+			} else {
+				i_32_++;
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((i_34_ & 0x2) == 0) {
+				i_32_++;
+			} else {
+				i_32_ = anIntArray1210[i_32_];
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			if ((0x1 & i_34_) != 0) {
+				i_32_ = anIntArray1210[i_32_];
+			} else {
+				i_32_++;
+			}
+			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
+				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
+				if (i_30_ <= i) {
+					break;
+				}
+				i_32_ = 0;
+			}
+			i_33_++;
+		}
+		return i_33_ - -1 + -i_27_;
 	}
 
-	static final int[][] method1887(final int i, final int i_36_, final int i_37_, final int i_38_, final int i_39_, final int i_40_, final float f, final int i_41_, final boolean bool) {
-		int[][] is;
-		try {
-			final int[][] is_42_ = new int[i][i_39_];
-			final Class120_Sub12_Sub12 class120_sub12_sub12 = new Class120_Sub12_Sub12();
-			class120_sub12_sub12.anInt3225 = i_37_;
-			class120_sub12_sub12.anInt3229 = i_41_;
-			class120_sub12_sub12.anInt3228 = i_40_;
-			class120_sub12_sub12.anInt3221 = (int) (f * 4096.0F);
-			class120_sub12_sub12.aBoolean3226 = bool;
-			class120_sub12_sub12.postDecode();
-			Class22.method199(i_39_, i);
-			for (int i_43_ = 0; i_43_ < i; i_43_++) {
-				class120_sub12_sub12.method1261(is_42_[i_43_], i_43_);
-			}
-			is = is_42_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("oj.D(").append(i).append(',').append(i_36_).append(',').append(i_37_).append(',').append(i_38_).append(',').append(i_39_).append(',').append(i_40_).append(',').append(f).append(',').append(i_41_).append(',')
-					.append(bool).append(')').toString());
+	static final int[][] method1887(final int i, final int i_37_, final int i_38_, final int i_39_, final int i_40_, final float f, final int i_41_, final boolean bool) {
+		final int[][] is_42_ = new int[i][i_39_];
+		final Class120_Sub12_Sub12 class120_sub12_sub12 = new Class120_Sub12_Sub12();
+		class120_sub12_sub12.anInt3225 = i_37_;
+		class120_sub12_sub12.anInt3229 = i_41_;
+		class120_sub12_sub12.anInt3228 = i_40_;
+		class120_sub12_sub12.anInt3221 = (int) (f * 4096.0F);
+		class120_sub12_sub12.aBoolean3226 = bool;
+		class120_sub12_sub12.postDecode();
+		Class22.method199(i_39_, i);
+		for (int i_43_ = 0; i_43_ < i; i_43_++) {
+			class120_sub12_sub12.method1261(is_42_[i_43_], i_43_);
 		}
-		return is;
+		return is_42_;
 	}
 
 	Huffman(final byte[] is) {

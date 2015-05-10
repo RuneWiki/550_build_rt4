@@ -51,8 +51,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				code -= 2000;
 			}
 			if (code == 24) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
@@ -60,7 +60,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(52);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 17) {
@@ -69,23 +69,23 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putInt2(data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 33) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(160);
-					Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.heldKeys[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
 					Class120_Sub12_Sub11.outputStream.putLEShort(data1);
 					Class120_Sub12_Sub11.outputStream.putShort(ParticleEmitter.selectedObjSlot);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(ProjectileNode.selectedObjId);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 40) {
@@ -94,7 +94,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub35.crossX = js5.lastClickX;
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(134);
-				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
+				Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (data1AsLong >>> 32));
 				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
@@ -113,8 +113,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
 			if (code == 21) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
@@ -125,7 +125,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putShortA(ParticleEmitter.selectedObjSlot);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(ProjectileNode.selectedObjId);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 1004) {
@@ -160,12 +160,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShort(ParticleEmitter.selectedObjSlot);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + data2);
-				Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
+				Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
 			if (code == 36) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -173,20 +173,20 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(37);
 					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 12) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(4);
-					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putShortA(data1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 10) {
@@ -195,12 +195,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShortA(data2);
 				Class120_Sub12_Sub11.outputStream.putShort(data1);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 25) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub14_Sub22.crossState = 2;
@@ -208,7 +208,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(33);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 					Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 1007) {
@@ -246,8 +246,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
 			if (code == 42) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -257,20 +257,20 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 31) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(105);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
-					Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 47) {
@@ -286,16 +286,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 			}
 			if (code == 59) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub12_Sub7.crossIndex = 0;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(53);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
-					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 51) {
@@ -304,7 +304,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putInt1(data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 13) {
@@ -313,7 +313,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putInt1(data3);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 3 && Class156.aClass189_1454 == null) {
@@ -329,16 +329,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 			}
 			if (code == 29) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					Class120_Sub14_Sub22.crossState = 2;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(148);
 					Class120_Sub12_Sub11.outputStream.putShortA(data1);
-					Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.heldKeys[82] ? 0 : 1);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 11) {
@@ -366,8 +366,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
 			if (code == 39) {
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-				if (class180_sub5_sub2 != null) {
+				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+				if (npc != null) {
 					Class120_Sub12_Sub35.crossX = js5.lastClickX;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
@@ -375,7 +375,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(245);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 				}
 			}
 			if (code == 15) {
@@ -387,7 +387,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShortA(ProjectileNode.selectedObjId);
 				Class120_Sub12_Sub11.outputStream.putInt2(PlainTile.selectedObjInterface);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 57) {
@@ -407,12 +407,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 				Class69_Sub2.anInt2236 = 0;
-				Class32.aClass189_256 = Class74.getJagexInterface(data3);
+				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 				Huffman.anInt1204 = data2;
 			}
 			if (code == 14) {
-				final Player class180_sub5_sub1 = Class118.playersList[data1];
-				if (class180_sub5_sub1 != null) {
+				final Player player = Class118.playersList[data1];
+				if (player != null) {
 					Class120_Sub14_Sub22.crossState = 2;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub7.crossIndex = 0;
@@ -420,7 +420,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(77);
 					Class120_Sub12_Sub11.outputStream.putLEShort(data1);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 				}
 			}
 			if (code == 26) {
@@ -475,12 +475,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
 					Class120_Sub12_Sub11.outputStream.putLEShort(data2 - -GameEntity.currentBaseX);
-					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 				}
 				if (code == 5) {
-					final Player class180_sub5_sub1 = Class118.playersList[data1];
-					if (class180_sub5_sub1 != null) {
+					final Player player = Class118.playersList[data1];
+					if (player != null) {
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -490,7 +490,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putShort(JagexSocket.selectedSpellComponextIndex);
 						Class120_Sub12_Sub11.outputStream.putLEInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 					}
 				}
 				if (code == 37) {
@@ -501,7 +501,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(48);
 					Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + data2);
 					Class120_Sub12_Sub11.outputStream.putShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
-					Class120_Sub12_Sub11.outputStream.putByteS(!NodeCache.heldKeys[82] ? 0 : 1);
+					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
 					SpotAnimationNode.method1437(data3, data1AsLong, data2);
 				}
@@ -529,7 +529,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putInt2(data3);
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 58) {
@@ -538,20 +538,20 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class120_Sub12_Sub11.outputStream.putInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 8) {
-						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-						if (class180_sub5_sub2 != null) {
+						final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+						if (npc != null) {
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(12);
 							Class120_Sub12_Sub11.outputStream.putLEShort(data1);
-							Class120_Sub12_Sub11.outputStream.putByte(!NodeCache.heldKeys[82] ? 0 : 1);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub2.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub2.getSize(), data2);
+							Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, npc.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, npc.getSize(), data2);
 						}
 					}
 					if (code == 35) {
@@ -560,12 +560,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putShort(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 43) {
-						final Player class180_sub5_sub1 = Class118.playersList[data1];
-						if (class180_sub5_sub1 != null) {
+						final Player player = Class118.playersList[data1];
+						if (player != null) {
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub12_Sub7.crossIndex = 0;
@@ -573,7 +573,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(212);
 							Class120_Sub12_Sub11.outputStream.putShortA(data1);
 							Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 						}
 					}
 					if (code == 16) {
@@ -586,7 +586,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA(data2 - -GameEntity.currentBaseX);
 						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
-						Class120_Sub12_Sub11.outputStream.putByteC(!NodeCache.heldKeys[82] ? 0 : 1);
+						Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
 						Class120_Sub12_Sub11.outputStream.putLEShort(ProjectileNode.selectedObjId);
 						SpotAnimationNode.method1437(data3, data1AsLong, data2);
@@ -613,9 +613,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub14_Sub22.crossState = 2;
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
-						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[data1];
-						if (class180_sub5_sub2 != null) {
-							NpcType npcType = class180_sub5_sub2.npcType;
+						final Npc npc = Class120_Sub12_Sub11.npcList[data1];
+						if (npc != null) {
+							NpcType npcType = npc.npcType;
 							if (npcType.transmogrificationIds != null) {
 								npcType = npcType.handleVarp();
 							}
@@ -660,7 +660,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 20) {
@@ -669,7 +669,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 						Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 2) {
@@ -678,7 +678,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 45) {
@@ -694,21 +694,21 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 					}
 					if (code == 22) {
-						final Player class180_sub5_sub1 = Class118.playersList[data1];
-						if (class180_sub5_sub1 != null) {
+						final Player player = Class118.playersList[data1];
+						if (player != null) {
 							IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(96);
-							Class120_Sub12_Sub11.outputStream.putByteA(!NodeCache.heldKeys[82] ? 0 : 1);
+							Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
 							Class120_Sub12_Sub11.outputStream.putShort(data1);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 						}
 					}
 					if (code == 60) {
-						final Player class180_sub5_sub1 = Class118.playersList[data1];
-						if (class180_sub5_sub1 != null) {
+						final Player player = Class118.playersList[data1];
+						if (player != null) {
 							Class120_Sub14_Sub22.crossState = 2;
 							Class120_Sub12_Sub7.crossIndex = 0;
 							Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -716,7 +716,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(223);
 							Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 							Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, class180_sub5_sub1.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, class180_sub5_sub1.getSize(), data2);
+							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, player.getSize(), data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, player.getSize(), data2);
 						}
 					}
 					if (code == 1001) {
@@ -728,7 +728,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							AbstractRequest.pushMessage(new StringBuilder(String.valueOf(jagexInterface.objAmounts[data2])).append(" x ").append(ObjType.list(data1).name).toString(), "", 0);
 						}
 						Class69_Sub2.anInt2236 = 0;
-						Class32.aClass189_256 = Class74.getJagexInterface(data3);
+						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
 						Huffman.anInt1204 = data2;
 					}
 					if (code == 18) {
@@ -760,8 +760,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					if (Class88.spellSelected) {
 						Node.deselectSpell();
 					}
-					if (Class32.aClass189_256 != null && Class69_Sub2.anInt2236 == 0) {
-						InterfaceClickMask.redrawInterface(Class32.aClass189_256);
+					if (MagnetType.aClass189_256 != null && Class69_Sub2.anInt2236 == 0) {
+						InterfaceClickMask.redrawInterface(MagnetType.aClass189_256);
 					}
 				}
 			}
@@ -791,7 +791,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			/* empty */
 		}
 		Class120_Sub12_Sub26.mainLoopTimeCache[AbstractGraphicsBuffer.gameLoopLength] = currentTime;
-		AbstractGraphicsBuffer.gameLoopLength = 0x1f & 1 + AbstractGraphicsBuffer.gameLoopLength;
+		AbstractGraphicsBuffer.gameLoopLength = AbstractGraphicsBuffer.gameLoopLength + 1 & 0x1f;
 		synchronized (this) {
 			DummyInputStream.focus = Class120_Sub12_Sub21_Sub1.focusIn;
 		}
@@ -805,7 +805,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, MasterIndexInfo.headiconsprayerId, 0);
 		AnimatedLocation.hintHeadIconsSprites = Class125.constructTransparentSprites(js5, Class120_Sub21.hintheadiconsId, 0);
 		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = Class125.constructTransparentSprites(js5, Class173.hintmapmarkersId, 0);
-		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, Class169.mapflagId, 0);
+		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, ModelParticleMagnet.mapflagId, 0);
 		Class120_Sub12_Sub30.crossSprites = Class167.constructSprites(js5, Class132_Sub2.crossId, 0);
 		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.constructSprites(js5, MapFunctionType.mapdotsId, 0);
 		Class118.aClass107Array1138 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class134.scrollbarId, 0);
@@ -991,9 +991,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		final long newTime = TimeUtil.getSafeTime();
 		final long oldTime = mainRedrawCache[Class96.mainRedrawCachePos];
 		mainRedrawCache[Class96.mainRedrawCachePos] = newTime;
-		Class96.mainRedrawCachePos = 1 + Class96.mainRedrawCachePos & 0x1f;
+		Class96.mainRedrawCachePos = Class96.mainRedrawCachePos + 1 & 0x1f;
 		if (oldTime != 0 && oldTime < newTime) {
 			final int timeDelta = (int) (newTime - oldTime);
+			//System.out.println(timeDelta+" "+newTime+":"+oldTime);
 			MapFunctionType.fps = ((timeDelta >> 1) + 32000) / timeDelta;
 		}
 		if (ObjectContainer.canvasRefreshCycle++ > 50) {
@@ -1168,7 +1169,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			loadJagmisc();
 			while (IntegerNode.killtime == 0L || TimeUtil.getSafeTime() < IntegerNode.killtime) {
 				Class112.gameLoopCount = Class101_Sub2.gameShellTimer.sleep(Class145.sleepModifier1, Class120_Sub12_Sub1.sleepModifier2);
-				for (int i = 0; i < Class112.gameLoopCount; i++) {
+				for (int loop = 0; loop < Class112.gameLoopCount; loop++) {
 					mainLoopWrapper();
 				}
 				mainRedrawWrapper();

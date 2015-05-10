@@ -16,7 +16,7 @@ abstract class Class132 {
 	private int anInt1258;
 	private short[] aShortArray1259;
 
-	abstract void method1922(byte i);
+	abstract void method1922();
 
 	final void method1923(final int i, final int i_1_, final int i_2_) {
 		final int[] is = new int[i];
@@ -31,7 +31,7 @@ abstract class Class132 {
 		for (int i_7_ = 0; i_7_ < i_2_; i_7_++) {
 			is_3_[i_7_] = (i_7_ << 12) / i_2_;
 		}
-		method1925(255);
+		method1925();
 		for (int i_8_ = 0; i_8_ < i_2_; i_8_++) {
 			for (int i_9_ = 0; i_1_ > i_9_; i_9_++) {
 				for (int i_10_ = 0; i_10_ < i; i_10_++) {
@@ -99,9 +99,9 @@ abstract class Class132 {
 						i_37_ = WallLocation.method2446(i_25_, i_23_, aShortArray1253[i_32_ + i_20_], i_27_);
 						i_39_ = (i_19_ * (i_37_ - i_36_) >> 12) + i_36_;
 						final int i_41_ = i_38_ + ((i_39_ + -i_38_) * i_24_ >> 12);
-						method1927(i_11_, i_40_ + ((i_41_ - i_40_) * i_28_ >> 12), (byte) -24);
+						method1927(i_11_, i_40_ + ((i_41_ - i_40_) * i_28_ >> 12));
 					}
-					method1922((byte) -90);
+					method1922();
 				}
 			}
 		}
@@ -121,47 +121,34 @@ abstract class Class132 {
 		}
 	}
 
-	abstract void method1925(int i);
+	abstract void method1925();
 
-	private final void method1926(final int i) {
-		try {
-			aShortArray1259 = new short[this.anInt1256];
-			if (i != -15508) {
-				anInt1258 = -110;
-			}
-			for (int i_45_ = 0; this.anInt1256 > i_45_; i_45_++) {
-				aShortArray1259[i_45_] = (short) (int) Math.pow(2.0, i_45_);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.P(").append(i).append(')').toString());
+	private final void method1926() {
+		aShortArray1259 = new short[this.anInt1256];
+		for (int i_45_ = 0; this.anInt1256 > i_45_; i_45_++) {
+			aShortArray1259[i_45_] = (short) (int) Math.pow(2.0, i_45_);
 		}
 	}
 
-	abstract void method1927(int i, int i_46_, byte i_47_);
+	abstract void method1927(int i, int i_46_);
 
-	static final int method1928(int i, final int i_48_, final int i_49_, final int i_50_, int i_51_, final int i_52_, int i_53_) {
-		int i_54_;
-		try {
-			i_51_ &= 0x3;
-			if (i_52_ == (0x1 & i_49_ ^ 0xffffffff)) {
-				final int i_55_ = i;
-				i = i_53_;
-				i_53_ = i_55_;
-			}
-			if (i_51_ == 0) {
-				return i_50_;
-			}
-			if (i_51_ == 1) {
-				return i_48_;
-			}
-			if (i_51_ == 2) {
-				return -i + 1 + 7 - i_50_;
-			}
-			i_54_ = -i_48_ + 7 + 1 + -i_53_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pg.N(").append(i).append(',').append(i_48_).append(',').append(i_49_).append(',').append(i_50_).append(',').append(i_51_).append(',').append(i_52_).append(',').append(i_53_).append(')').toString());
+	static final int method1928(int i, final int i_48_, final int i_49_, final int i_50_, int i_51_, int i_53_) {
+		i_51_ &= 0x3;
+		if (-2 == (0x1 & i_49_ ^ 0xffffffff)) {
+			final int i_55_ = i;
+			i = i_53_;
+			i_53_ = i_55_;
 		}
-		return i_54_;
+		if (i_51_ == 0) {
+			return i_50_;
+		}
+		if (i_51_ == 1) {
+			return i_48_;
+		}
+		if (i_51_ == 2) {
+			return -i + 1 + 7 - i_50_;
+		}
+		return -i_48_ + 7 + 1 + -i_53_;
 	}
 
 	Class132(final int i, final int i_56_, final int i_57_, final int i_58_, final int i_59_) {
@@ -174,7 +161,7 @@ abstract class Class132 {
 		anInt1252 = i_58_;
 		seed = i;
 		anInt1249 = i_59_;
-		method1926(-15508);
+		method1926();
 		method1924();
 	}
 
@@ -394,11 +381,11 @@ abstract class Class132 {
 					final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 					final byte i_123_ = is_63_[i_118_][i_119_];
 					final byte i_124_ = is_64_[i_118_][i_119_];
-					final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, 13080, class124.anInt1197);
-					final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, 13080, class124.anInt1197);
-					final int i_127_ = FileSystem.method443(is_61_[i_118_ + 1][i_119_ + 1], class124.textureId, 13080, class124.anInt1197);
-					final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ + 1], class124.textureId, 13080, class124.anInt1197);
-					Class22.method196(fs_68_, i_126_, (byte) 123, i_120_, i_128_, i_127_, fs, i_125_, i_123_, i_124_, class120_sub9, i_122_ != 0 && class124.aBoolean1196, fs_67_, is_65_, i_118_, i_119_);
+					final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197);
+					final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.anInt1197);
+					final int i_127_ = FileSystem.method443(is_61_[i_118_ + 1][i_119_ + 1], class124.textureId, class124.anInt1197);
+					final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ + 1], class124.textureId, class124.anInt1197);
+					Class22.method196(fs_68_, i_126_, i_120_, i_128_, i_127_, fs, i_125_, i_123_, i_124_, class120_sub9, i_122_ != 0 && class124.aBoolean1196, fs_67_, is_65_, i_118_, i_119_);
 				}
 				if ((0xff & is_66_[i_118_][i_119_]) != 0 || i_121_ != 0 && is_63_[i_118_][i_119_] == 0) {
 					int i_129_ = 0;
@@ -587,11 +574,11 @@ abstract class Class132 {
 						final boolean[] bools_171_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_136_ ? i_134_ : 0];
 						final OverlayType class124 = OverlayType.list(i_168_ + -1);
 						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
-						final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
-						final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
-						final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, 13080, class124.anInt1197) << 8;
+						final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
+						final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
+						final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, class124.anInt1197) << 8;
 						int i_175_ = 6;
-						final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.textureId, 13080, class124.anInt1197) << 8 | 0xff;
+						final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.textureId, class124.anInt1197) << 8 | 0xff;
 						i_175_ += bools.length + -2;
 						i_175_ += -2 + bools_169_.length;
 						final boolean bool = i_168_ != i_140_ && bools_169_[0] && bools[1];
@@ -602,27 +589,27 @@ abstract class Class132 {
 						final int[] is_179_ = new int[i_175_];
 						final boolean bool_180_ = i_168_ != i_142_ && bools[0] && bools_171_[1];
 						i_175_ = 0;
-						final int i_181_ = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, true, 0.0F, fs_68_, 0, 64, 103, i_176_, i_174_, i_172_);
-						final int i_182_ = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool, 0.0F, fs_68_, 0, 0, 92, i_176_, i_174_, i_172_);
-						final int i_183_ = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_180_, 0.0F, fs_68_, 0, 128, 26, i_176_, i_174_, i_172_);
-						final int i_184_ = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_178_, 0.0F, fs_68_, 0, 0, 80, i_176_, i_174_, i_172_);
-						final int i_185_ = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_177_, 0.0F, fs_68_, 0, 128, 71, i_176_, i_174_, i_172_);
+						final int i_181_ = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, true, 0.0F, fs_68_, 0, 64, i_176_, i_174_, i_172_);
+						final int i_182_ = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool, 0.0F, fs_68_, 0, 0, i_176_, i_174_, i_172_);
+						final int i_183_ = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_180_, 0.0F, fs_68_, 0, 128, i_176_, i_174_, i_172_);
+						final int i_184_ = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_178_, 0.0F, fs_68_, 0, 0, i_176_, i_174_, i_172_);
+						final int i_185_ = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bool_177_, 0.0F, fs_68_, 0, 128, i_176_, i_174_, i_172_);
 						is_179_[i_175_++] = i_181_;
 						is_179_[i_175_++] = i_183_;
 						if (bools.length > 2) {
-							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools[2], 0.0F, fs_68_, 0, 64, 103, i_176_, i_174_, i_172_);
+							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 128, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools[2], 0.0F, fs_68_, 0, 64, i_176_, i_174_, i_172_);
 						}
 						is_179_[i_175_++] = i_182_;
 						if (bools_169_.length > 2) {
-							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_169_[2], 0.0F, fs_68_, 0, 0, 103, i_176_, i_174_, i_172_);
+							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_169_[2], 0.0F, fs_68_, 0, 0, i_176_, i_174_, i_172_);
 						}
 						is_179_[i_175_++] = i_184_;
 						if (bools_170_.length > 2) {
-							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_170_[2], 0.0F, fs_68_, 0, 64, 69, i_176_, i_174_, i_172_);
+							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 0, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_170_[2], 0.0F, fs_68_, 0, 64, i_176_, i_174_, i_172_);
 						}
 						is_179_[i_175_++] = i_185_;
 						if (bools_171_.length > 2) {
-							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_171_[2], 0.0F, fs_68_, 0, 128, 33, i_176_, i_174_, i_172_);
+							is_179_[i_175_++] = Class120_Sub14_Sub22.method1634(fs, 64, i_119_, is_65_, fs_67_, null, class120_sub9, i_173_, i_118_, bools_171_[2], 0.0F, fs_68_, 0, 128, i_176_, i_174_, i_172_);
 						}
 						is_179_[i_175_++] = i_183_;
 						class120_sub9.method1165(i_120_, i_118_, i_119_, is_179_, null, true);

@@ -20,38 +20,34 @@ final class Class82 implements Runnable {
 				/* empty */
 			}
 		}
-		component.addKeyListener(Class169.keyboardHandler);
-		component.addFocusListener(Class169.keyboardHandler);
+		component.addKeyListener(ModelParticleMagnet.keyboardHandler);
+		component.addFocusListener(ModelParticleMagnet.keyboardHandler);
 	}
 
 	@Override
 	public final void run() {
 		do {
+			this.aBoolean784 = true;
 			try {
-				this.aBoolean784 = true;
 				try {
-					try {
-						while (!this.aBoolean780) {
-							for (int i = 0; i < 2; i++) {
-								final Class164 class164 = this.aClass164Array782[i];
-								if (class164 != null) {
-									class164.method2133();
-								}
+					while (!this.aBoolean780) {
+						for (int i = 0; i < 2; i++) {
+							final Class164 class164 = this.aClass164Array782[i];
+							if (class164 != null) {
+								class164.method2133();
 							}
-							PacketBuffer.sleepWrapper(10L);
 						}
-					} catch (final Exception exception) {
-						SpotAnimation.method2312(exception, null);
-						this.aBoolean784 = false;
-						break;
+						PacketBuffer.sleepWrapper(10L);
 					}
+				} catch (final Exception exception) {
+					SpotAnimation.method2312(exception, null);
 					this.aBoolean784 = false;
-				} catch (final RuntimeException runtimeexception) {
-					this.aBoolean784 = false;
-					throw runtimeexception;
+					break;
 				}
+				this.aBoolean784 = false;
 			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, "im.run()");
+				this.aBoolean784 = false;
+				throw runtimeexception;
 			}
 		} while (false);
 	}
@@ -84,16 +80,16 @@ final class Class82 implements Runnable {
 				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
 				GraphicsLD.fillRect(i_6_ - 150, i_7_ + 2, Class90.laodingStage * 3, 30, 9179409);
 			}
-			Class120_Sub12_Sub22.boldFont.method1478(GroundDecoration.aString313, i_6_, i_7_ + 20, 16777215, -1);
+			Class120_Sub12_Sub22.boldFont.method1478(TextRepository.aString313, i_6_, i_7_ + 20, 16777215, -1);
 		} else {
 			Class173.worldMapPointerWidth = (int) (interfaceWidth * 2 / WorldMapHandler.currentZoom);
 			GroundObjectNode.worldMapPointerHeight = (int) (interfaceHeight * 2 / WorldMapHandler.currentZoom);
-			GroundTile.worldMapLookAtY = (int) (interfaceHeight / WorldMapHandler.currentZoom) - Class169.anInt1646;
+			GroundTile.worldMapLookAtY = (int) (interfaceHeight / WorldMapHandler.currentZoom) - ModelParticleMagnet.anInt1646;
 			ParamType.worldMapLookAtX = ParticleEmitter.anInt2336 - (int) (interfaceWidth / WorldMapHandler.currentZoom);
 			final int i_8_ = ParticleEmitter.anInt2336 - (int) (interfaceWidth / WorldMapHandler.currentZoom);
-			final int i_9_ = Class169.anInt1646 - (int) (interfaceHeight / WorldMapHandler.currentZoom);
+			final int i_9_ = ModelParticleMagnet.anInt1646 - (int) (interfaceHeight / WorldMapHandler.currentZoom);
 			final int i_10_ = ParticleEmitter.anInt2336 + (int) (interfaceWidth / WorldMapHandler.currentZoom);
-			final int i_11_ = Class169.anInt1646 + (int) (interfaceHeight / WorldMapHandler.currentZoom);
+			final int i_11_ = ModelParticleMagnet.anInt1646 + (int) (interfaceHeight / WorldMapHandler.currentZoom);
 			if (!HDToolkit.glEnabled) {
 				WorldMapHandler.method683(i_8_, i_9_, i_10_, i_11_, drawX, drawY, interfaceWidth + drawX, 1 + interfaceHeight + drawY);
 				WorldMapHandler.method685();
@@ -142,7 +138,7 @@ final class Class82 implements Runnable {
 	}
 
 	static final void method713(final int i, int i_16_, int i_17_, final int i_18_) {
-		if (Class32.anInt260 <= i && ParamType.anInt3544 >= i) {
+		if (MagnetType.anInt260 <= i && ParamType.anInt3544 >= i) {
 			i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, IdentityKit.anInt1334);
 			i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, IdentityKit.anInt1334);
 			ParticleEmitter.method939(i, i_18_, i_17_, i_16_);

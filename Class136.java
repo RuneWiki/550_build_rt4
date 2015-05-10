@@ -5,7 +5,7 @@ import java.util.Random;
 
 final class Class136 {
 	static int[] anIntArray1315 = new int[100];
-	static boolean aBoolean1317 = false;
+	static boolean scrollBarClicked = false;
 	static int defaultWorldId;
 	static Random aRandom1319;
 	static volatile int mouseIdleCycle;
@@ -32,7 +32,7 @@ final class Class136 {
 		while (l != 0L) {
 			final long l_1_ = l;
 			l /= 37L;
-			char c = Class120_Sub12_Sub16.aCharArray3254[(int) (-(l * 37L) + l_1_)];
+			char c = Class120_Sub12_Sub16.validCharacters[(int) (-(l * 37L) + l_1_)];
 			if (c == '_') {
 				c = '\u00a0';
 				final int i_2_ = stringbuffer.length() - 1;

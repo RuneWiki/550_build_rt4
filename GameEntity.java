@@ -7,11 +7,11 @@ abstract class GameEntity extends SceneGraphNode {
 	static int mapSceneBlueColorModifier;
 	int[] walkQueueX = new int[10];
 	private boolean aBoolean2959;
-	int anInt2960;
+	int walkQueuePos;
 	int anInt2961;
 	private int anInt2962 = 0;
-	int anInt2963;
-	int animCurrentFrame;
+	int spotAnimFrameDelay;
+	int animFrame;
 	int spotAnimHeight;
 	private int anInt2966;
 	int anInt2967;
@@ -20,7 +20,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2970;
 	int spotAnimNextFrame;
 	Class150[] aClass150Array2972;
-	byte[] aByteArray2973;
+	byte[] walkQueueType;//0 slow walking, 1 walking, 2 running
 	private int anInt2974;
 	String textSpoken;
 	int anInt2976;
@@ -31,7 +31,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int facingEntityIndex;
 	int entityRenderDataId;
 	int anInt2983;
-	int anInt2984;
+	int spotAnimCyclesElapsed;
 	int lastUpdateCycle;
 	boolean hasMenuAction;
 	int anInt2987;
@@ -45,8 +45,8 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt2995;
 	int anInt2996;
 	boolean aBoolean2997;
-	int anInt2998;
-	int anInt2999;
+	int idleAnimFrameDelay;
+	int animCyclesElapsed;
 	int[] hitsCycle;
 	int z;
 	boolean aBoolean3002;
@@ -59,13 +59,13 @@ abstract class GameEntity extends SceneGraphNode {
 	static int[][] anIntArrayArray3009;
 	int anInt3010;
 	int anInt3012;
-	int anInt3013;
+	int animNextFrame;
 	private int anInt3014;
 	int anInt3015;
 	int faceX;
 	int anInt3017;
 	int maxY;
-	int anInt3019;
+	int newFaceDegrees;
 	int anInt3020;
 	int idleAnimNextFrame;
 	int anInt3022;
@@ -76,8 +76,8 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3028;
 	private int anInt3029;
 	int anInt3030;
-	int anInt3031;
-	int anInt3032;
+	int onAnimPlayWalkQueuePos;//this variable gets set when you're moving and played an animation at same time, TODO new name?
+	int faceDegrees;
 	int anInt3033;
 	int anInt3034;
 	int anInt3035;
@@ -89,9 +89,9 @@ abstract class GameEntity extends SceneGraphNode {
 	int anInt3041;
 	int anInt3042;
 	int anInt3043;
-	int anInt3044;
+	int animCurrentFrameDelay;
 	static int anInt3045;
-	int idleAnimCurrentFrame;
+	int idleAnimFrame;
 	Object anObject3047;
 
 	final void method2323(final int x, final int z, final int size, final boolean bool) {
@@ -108,27 +108,27 @@ abstract class GameEntity extends SceneGraphNode {
 			final int i_3_ = x - this.walkQueueX[0];
 			final int i_4_ = z - this.walkQueueZ[0];
 			if (i_3_ >= -8 && i_3_ <= 8 && i_4_ >= -8 && i_4_ <= 8) {
-				if (this.anInt2960 < 9) {
-					this.anInt2960++;
+				if (this.walkQueuePos < 9) {
+					this.walkQueuePos++;
 				}
-				for (int i_5_ = this.anInt2960; i_5_ > 0; i_5_--) {
+				for (int i_5_ = this.walkQueuePos; i_5_ > 0; i_5_--) {
 					this.walkQueueX[i_5_] = this.walkQueueX[i_5_ - 1];
 					this.walkQueueZ[i_5_] = this.walkQueueZ[i_5_ - 1];
-					this.aByteArray2973[i_5_] = this.aByteArray2973[i_5_ - 1];
+					this.walkQueueType[i_5_] = this.walkQueueType[i_5_ - 1];
 				}
 				this.walkQueueX[0] = x;
-				this.aByteArray2973[0] = (byte) 1;
+				this.walkQueueType[0] = (byte) 1;
 				this.walkQueueZ[0] = z;
 				return;
 			}
 		}
-		this.anInt3031 = 0;
+		this.onAnimPlayWalkQueuePos = 0;
 		this.anInt3037 = 0;
 		this.walkQueueX[0] = x;
 		this.walkQueueZ[0] = z;
 		this.x = this.walkQueueX[0] * 128 + 64 * size;
 		this.z = this.walkQueueZ[0] * 128 + 64 * size;
-		this.anInt2960 = 0;
+		this.walkQueuePos = 0;
 		if (HDToolkit.glEnabled && this == TileParticleQueue.selfPlayer) {
 			ModelParticleEmitter.instantScreenFade = true;
 		}
@@ -150,211 +150,207 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 	}
 
-	final void method2327(final int i, final AbstractModelRenderer class180_sub7) {
-		try {
-			final EntityRenderData class29 = getEntityRenderData();
-			if (class29.anInt208 != i || class29.anInt209 != 0) {
-				int i_10_ = 0;
-				int i_11_ = 0;
-				if (this.aBoolean2997 && this.anInt3022 != 0) {
-					i_11_ = class29.anInt209;
-					if (this.anInt3022 < 0) {
-						i_10_ = -class29.anInt208;
-					} else {
-						i_10_ = class29.anInt208;
-					}
+	final void method2327(final AbstractModelRenderer class180_sub7) {
+		final EntityRenderData class29 = getEntityRenderData();
+		if (class29.anInt208 != 0 || class29.anInt209 != 0) {
+			int i_10_ = 0;
+			int i_11_ = 0;
+			if (this.aBoolean2997 && this.anInt3022 != 0) {
+				i_11_ = class29.anInt209;
+				if (this.anInt3022 < 0) {
+					i_10_ = -class29.anInt208;
+				} else {
+					i_10_ = class29.anInt208;
 				}
-				if (class29.anInt214 != 0) {
-					if (anInt2974 != i_10_) {
-						if (anInt3039 > 0 && i_10_ > anInt2966) {
-							final int i_12_ = anInt3039 * anInt3039 / (2 * class29.anInt214);
-							final int i_13_ = i_10_ + -anInt2966;
-							if (i_12_ <= i_13_) {
-								aBoolean2959 = true;
-								anInt3029 = (-i_12_ + anInt2966 - -i_10_) / 2;
-								final int i_14_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
-								final int i_15_ = -i_14_ + i_10_;
-								if (anInt3029 < i_15_) {
-									anInt3029 = i_15_;
-								}
-							} else {
-								aBoolean2959 = false;
-							}
-						} else if (anInt3039 < 0 && anInt2966 > i_10_) {
-							final int i_16_ = anInt3039 * anInt3039 / (class29.anInt214 * 2);
-							final int i_17_ = i_10_ - anInt2966;
-							if (i_17_ >= i_16_) {
-								anInt3029 = (i_10_ + i_16_ + anInt2966) / 2;
-								final int i_18_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
-								aBoolean2959 = true;
-								final int i_19_ = i_18_ + i_10_;
-								if (anInt3029 > i_19_) {
-									anInt3029 = i_19_;
-								}
-							} else {
-								aBoolean2959 = false;
-							}
-						} else {
-							aBoolean2959 = false;
-						}
-						anInt2974 = i_10_;
-					}
-					if (anInt3039 == 0) {
-						final int i_20_ = anInt2974 - anInt2966;
-						if (i_20_ > -class29.anInt214 && class29.anInt214 > i_20_) {
-							anInt2966 = anInt2974;
-						} else {
-							final int i_21_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
-							anInt3029 = (anInt2974 + anInt2966) / 2;
-							if (i_20_ < 0) {
-								final int i_22_ = anInt2974 + i_21_;
-								anInt3039 = -class29.anInt214;
-								if (anInt3029 > i_22_) {
-									anInt3029 = i_22_;
-								}
-							} else {
-								final int i_23_ = -i_21_ + anInt2974;
-								anInt3039 = class29.anInt214;
-								if (i_23_ > anInt3029) {
-									anInt3029 = i_23_;
-								}
-							}
+			}
+			if (class29.anInt214 != 0) {
+				if (anInt2974 != i_10_) {
+					if (anInt3039 > 0 && i_10_ > anInt2966) {
+						final int i_12_ = anInt3039 * anInt3039 / (2 * class29.anInt214);
+						final int i_13_ = i_10_ + -anInt2966;
+						if (i_12_ <= i_13_) {
 							aBoolean2959 = true;
-						}
-					} else if (anInt3039 <= 0) {
-						if (anInt3029 >= anInt2966) {
-							aBoolean2959 = false;
-						}
-						if (!aBoolean2959) {
-							anInt3039 += class29.anInt214;
-							if (anInt3039 > 0) {
-								anInt3039 = 0;
-							}
-						} else if (anInt3039 > -class29.anInt197) {
-							anInt3039 -= class29.anInt214;
-						}
-					} else {
-						if (anInt3029 <= anInt2966) {
-							aBoolean2959 = false;
-						}
-						if (!aBoolean2959) {
-							anInt3039 -= class29.anInt214;
-							if (anInt3039 < 0) {
-								anInt3039 = 0;
-							}
-						} else if (anInt3039 < class29.anInt197) {
-							anInt3039 += class29.anInt214;
-						}
-					}
-					anInt2966 += anInt3039;
-					if (anInt2966 != 0) {
-						final int i_24_ = 0x7ff & anInt2966 >> 5;
-						final int i_25_ = class180_sub7.getMaxY() / 2;
-						class180_sub7.translate(0, -i_25_, 0);
-						class180_sub7.rotateZ(i_24_);
-						class180_sub7.translate(0, i_25_, 0);
-					}
-				}
-				if (class29.anInt221 != 0) {
-					if (i_11_ != anInt3014) {
-						if (anInt3036 <= 0 || i_11_ <= anInt2994) {
-							if (anInt3036 >= 0 || i_11_ >= anInt2994) {
-								aBoolean2980 = false;
-							} else {
-								final int i_26_ = anInt3036 * anInt3036 / (2 * class29.anInt221);
-								final int i_27_ = -anInt2994 + i_11_;
-								if (i_26_ > i_27_) {
-									aBoolean2980 = false;
-								} else {
-									aBoolean2980 = true;
-									anInt2962 = (i_11_ + i_26_ + anInt2994) / 2;
-									final int i_28_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
-									final int i_29_ = i_28_ + i_11_;
-									if (i_29_ < anInt2962) {
-										anInt2962 = i_29_;
-									}
-								}
+							anInt3029 = (-i_12_ + anInt2966 - -i_10_) / 2;
+							final int i_14_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
+							final int i_15_ = -i_14_ + i_10_;
+							if (anInt3029 < i_15_) {
+								anInt3029 = i_15_;
 							}
 						} else {
-							final int i_30_ = -anInt2994 + i_11_;
-							final int i_31_ = anInt3036 * anInt3036 / (2 * class29.anInt221);
-							if (i_31_ > i_30_) {
+							aBoolean2959 = false;
+						}
+					} else if (anInt3039 < 0 && anInt2966 > i_10_) {
+						final int i_16_ = anInt3039 * anInt3039 / (class29.anInt214 * 2);
+						final int i_17_ = i_10_ - anInt2966;
+						if (i_17_ >= i_16_) {
+							anInt3029 = (i_10_ + i_16_ + anInt2966) / 2;
+							final int i_18_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
+							aBoolean2959 = true;
+							final int i_19_ = i_18_ + i_10_;
+							if (anInt3029 > i_19_) {
+								anInt3029 = i_19_;
+							}
+						} else {
+							aBoolean2959 = false;
+						}
+					} else {
+						aBoolean2959 = false;
+					}
+					anInt2974 = i_10_;
+				}
+				if (anInt3039 == 0) {
+					final int i_20_ = anInt2974 - anInt2966;
+					if (i_20_ > -class29.anInt214 && class29.anInt214 > i_20_) {
+						anInt2966 = anInt2974;
+					} else {
+						final int i_21_ = class29.anInt197 * class29.anInt197 / (class29.anInt214 * 2);
+						anInt3029 = (anInt2974 + anInt2966) / 2;
+						if (i_20_ < 0) {
+							final int i_22_ = anInt2974 + i_21_;
+							anInt3039 = -class29.anInt214;
+							if (anInt3029 > i_22_) {
+								anInt3029 = i_22_;
+							}
+						} else {
+							final int i_23_ = -i_21_ + anInt2974;
+							anInt3039 = class29.anInt214;
+							if (i_23_ > anInt3029) {
+								anInt3029 = i_23_;
+							}
+						}
+						aBoolean2959 = true;
+					}
+				} else if (anInt3039 <= 0) {
+					if (anInt3029 >= anInt2966) {
+						aBoolean2959 = false;
+					}
+					if (!aBoolean2959) {
+						anInt3039 += class29.anInt214;
+						if (anInt3039 > 0) {
+							anInt3039 = 0;
+						}
+					} else if (anInt3039 > -class29.anInt197) {
+						anInt3039 -= class29.anInt214;
+					}
+				} else {
+					if (anInt3029 <= anInt2966) {
+						aBoolean2959 = false;
+					}
+					if (!aBoolean2959) {
+						anInt3039 -= class29.anInt214;
+						if (anInt3039 < 0) {
+							anInt3039 = 0;
+						}
+					} else if (anInt3039 < class29.anInt197) {
+						anInt3039 += class29.anInt214;
+					}
+				}
+				anInt2966 += anInt3039;
+				if (anInt2966 != 0) {
+					final int i_24_ = 0x7ff & anInt2966 >> 5;
+					final int i_25_ = class180_sub7.getMaxY() / 2;
+					class180_sub7.translate(0, -i_25_, 0);
+					class180_sub7.rotateZ(i_24_);
+					class180_sub7.translate(0, i_25_, 0);
+				}
+			}
+			if (class29.anInt221 != 0) {
+				if (i_11_ != anInt3014) {
+					if (anInt3036 <= 0 || i_11_ <= anInt2994) {
+						if (anInt3036 >= 0 || i_11_ >= anInt2994) {
+							aBoolean2980 = false;
+						} else {
+							final int i_26_ = anInt3036 * anInt3036 / (2 * class29.anInt221);
+							final int i_27_ = -anInt2994 + i_11_;
+							if (i_26_ > i_27_) {
 								aBoolean2980 = false;
 							} else {
 								aBoolean2980 = true;
-								final int i_32_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
-								anInt2962 = (i_11_ + anInt2994 - i_31_) / 2;
-								final int i_33_ = -i_32_ + i_11_;
-								if (anInt2962 < i_33_) {
-									anInt2962 = i_33_;
+								anInt2962 = (i_11_ + i_26_ + anInt2994) / 2;
+								final int i_28_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
+								final int i_29_ = i_28_ + i_11_;
+								if (i_29_ < anInt2962) {
+									anInt2962 = i_29_;
 								}
-							}
-						}
-						anInt3014 = i_11_;
-					}
-					if (anInt3036 != 0) {
-						if (anInt3036 > 0) {
-							if (anInt2962 <= anInt2994) {
-								aBoolean2980 = false;
-							}
-							if (aBoolean2980) {
-								if (anInt3036 < class29.anInt207) {
-									anInt3036 += class29.anInt221;
-								}
-							} else {
-								anInt3036 -= class29.anInt221;
-								if (anInt3036 < 0) {
-									anInt3036 = 0;
-								}
-							}
-						} else {
-							if (anInt2962 >= anInt2994) {
-								aBoolean2980 = false;
-							}
-							if (!aBoolean2980) {
-								anInt3036 += class29.anInt221;
-								if (anInt3036 > 0) {
-									anInt3036 = 0;
-								}
-							} else if (anInt3036 > -class29.anInt207) {
-								anInt3036 -= class29.anInt221;
 							}
 						}
 					} else {
-						final int i_34_ = anInt3014 + -anInt2994;
-						if (-class29.anInt221 < i_34_ && i_34_ < class29.anInt221) {
-							anInt2994 = anInt3014;
+						final int i_30_ = -anInt2994 + i_11_;
+						final int i_31_ = anInt3036 * anInt3036 / (2 * class29.anInt221);
+						if (i_31_ > i_30_) {
+							aBoolean2980 = false;
 						} else {
-							anInt2962 = (anInt3014 + anInt2994) / 2;
-							final int i_35_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
 							aBoolean2980 = true;
-							if (i_34_ < 0) {
-								final int i_36_ = i_35_ + anInt3014;
-								if (anInt2962 > i_36_) {
-									anInt2962 = i_36_;
-								}
-								anInt3036 = -class29.anInt221;
-							} else {
-								anInt3036 = class29.anInt221;
-								final int i_37_ = -i_35_ + anInt3014;
-								if (anInt2962 < i_37_) {
-									anInt2962 = i_37_;
-								}
+							final int i_32_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
+							anInt2962 = (i_11_ + anInt2994 - i_31_) / 2;
+							final int i_33_ = -i_32_ + i_11_;
+							if (anInt2962 < i_33_) {
+								anInt2962 = i_33_;
 							}
 						}
 					}
-					anInt2994 += anInt3036;
-					if (anInt2994 != 0) {
-						final int i_38_ = 0x7ff & anInt2994 >> 5;
-						final int i_39_ = class180_sub7.getMaxY() / 2;
-						class180_sub7.translate(0, -i_39_, 0);
-						class180_sub7.rotateX(i_38_);
-						class180_sub7.translate(0, i_39_, 0);
+					anInt3014 = i_11_;
+				}
+				if (anInt3036 != 0) {
+					if (anInt3036 > 0) {
+						if (anInt2962 <= anInt2994) {
+							aBoolean2980 = false;
+						}
+						if (aBoolean2980) {
+							if (anInt3036 < class29.anInt207) {
+								anInt3036 += class29.anInt221;
+							}
+						} else {
+							anInt3036 -= class29.anInt221;
+							if (anInt3036 < 0) {
+								anInt3036 = 0;
+							}
+						}
+					} else {
+						if (anInt2962 >= anInt2994) {
+							aBoolean2980 = false;
+						}
+						if (!aBoolean2980) {
+							anInt3036 += class29.anInt221;
+							if (anInt3036 > 0) {
+								anInt3036 = 0;
+							}
+						} else if (anInt3036 > -class29.anInt207) {
+							anInt3036 -= class29.anInt221;
+						}
+					}
+				} else {
+					final int i_34_ = anInt3014 + -anInt2994;
+					if (-class29.anInt221 < i_34_ && i_34_ < class29.anInt221) {
+						anInt2994 = anInt3014;
+					} else {
+						anInt2962 = (anInt3014 + anInt2994) / 2;
+						final int i_35_ = class29.anInt207 * class29.anInt207 / (class29.anInt221 * 2);
+						aBoolean2980 = true;
+						if (i_34_ < 0) {
+							final int i_36_ = i_35_ + anInt3014;
+							if (anInt2962 > i_36_) {
+								anInt2962 = i_36_;
+							}
+							anInt3036 = -class29.anInt221;
+						} else {
+							anInt3036 = class29.anInt221;
+							final int i_37_ = -i_35_ + anInt3014;
+							if (anInt2962 < i_37_) {
+								anInt2962 = i_37_;
+							}
+						}
 					}
 				}
+				anInt2994 += anInt3036;
+				if (anInt2994 != 0) {
+					final int i_38_ = 0x7ff & anInt2994 >> 5;
+					final int i_39_ = class180_sub7.getMaxY() / 2;
+					class180_sub7.translate(0, -i_39_, 0);
+					class180_sub7.rotateX(i_38_);
+					class180_sub7.translate(0, i_39_, 0);
+				}
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qc.P(").append(i).append(',').append(class180_sub7 != null ? "{...}" : "null").append(')').toString());
 		}
 	}
 
@@ -366,11 +362,11 @@ abstract class GameEntity extends SceneGraphNode {
 	}
 
 	final void method2329() {
-		this.anInt3031 = 0;
-		this.anInt2960 = 0;
+		this.onAnimPlayWalkQueuePos = 0;
+		this.walkQueuePos = 0;
 	}
 
-	final void move(final int dir, final int type) {
+	final void move(final int dir, int type) {
 		if (this.animId != -1 && SeqType.list(this.animId).walkProperties == 1) {
 			this.animId = -1;
 		}
@@ -410,15 +406,15 @@ abstract class GameEntity extends SceneGraphNode {
 			x++;
 			z--;
 		}
-		if (this.anInt2960 < 9) {
-			this.anInt2960++;
+		if (this.walkQueuePos < 9) {
+			this.walkQueuePos++;
 		}
-		for (int i_45_ = this.anInt2960; i_45_ > 0; i_45_--) {
-			this.walkQueueX[i_45_] = this.walkQueueX[i_45_ - 1];
-			this.walkQueueZ[i_45_] = this.walkQueueZ[i_45_ - 1];
-			this.aByteArray2973[i_45_] = this.aByteArray2973[i_45_ - 1];
+		for (int id = this.walkQueuePos; id > 0; id--) {
+			this.walkQueueX[id] = this.walkQueueX[id - 1];
+			this.walkQueueZ[id] = this.walkQueueZ[id - 1];
+			this.walkQueueType[id] = this.walkQueueType[id - 1];
 		}
-		this.aByteArray2973[0] = (byte) type;
+		this.walkQueueType[0] = (byte) type;
 		this.walkQueueX[0] = x;
 		this.walkQueueZ[0] = z;
 	}
@@ -663,7 +659,7 @@ abstract class GameEntity extends SceneGraphNode {
 
 	GameEntity() {
 		aBoolean2959 = false;
-		this.anInt2963 = 0;
+		this.spotAnimFrameDelay = 0;
 		this.aClass150Array2972 = new Class150[12];
 		anInt2974 = 0;
 		anInt2966 = 0;
@@ -674,31 +670,31 @@ abstract class GameEntity extends SceneGraphNode {
 		aBoolean2980 = false;
 		anInt2994 = 0;
 		this.aBoolean2992 = true;
-		this.anInt2984 = 0;
+		this.spotAnimCyclesElapsed = 0;
 		this.anInt2996 = 0;
-		this.anInt2960 = 0;
+		this.walkQueuePos = 0;
 		this.entityRenderDataId = -1;
 		this.animId = -1;
 		this.anInt3012 = 0;
-		this.anInt3013 = -1;
-		this.anInt2998 = 0;
+		this.animNextFrame = -1;
+		this.idleAnimFrameDelay = 0;
 		this.anInt3010 = 32;
 		this.hasMenuAction = false;
 		anInt3014 = 0;
 		this.textSpoken = null;
 		this.aBoolean2997 = false;
-		this.aByteArray2973 = new byte[10];
+		this.walkQueueType = new byte[10];
 		this.animDelay = 0;
 		this.aBoolean3002 = false;
-		this.anInt2999 = 0;
+		this.animCyclesElapsed = 0;
 		this.idleAnimId = -1;
 		this.anInt2987 = 0;
 		this.textCycle = 100;
 		this.anInt3030 = 0;
 		this.anInt2995 = 0;
-		this.anInt3031 = 0;
+		this.onAnimPlayWalkQueuePos = 0;
 		this.spotAnimId = -1;
-		this.animCurrentFrame = 0;
+		this.animFrame = 0;
 		this.idleAnimNextFrame = -1;
 		this.spotAnimNextFrame = -1;
 		this.faceX = 0;
@@ -719,8 +715,8 @@ abstract class GameEntity extends SceneGraphNode {
 		this.lastUpdateCycle = 0;
 		this.faceZ = 0;
 		this.anInt3042 = 0;
-		this.idleAnimCurrentFrame = 0;
-		this.anInt3044 = 0;
+		this.idleAnimFrame = 0;
+		this.animCurrentFrameDelay = 0;
 		this.aBoolean3007 = false;
 	}
 }

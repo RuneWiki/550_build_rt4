@@ -44,10 +44,10 @@ final class Class42 {
 						class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
 						class180_sub5_sub2.setNpcType(npcType);
 						class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
-						class180_sub5_sub2.anInt3019 = class180_sub5_sub2.anInt3032 = Class15.anIntArray101[class180_sub5_sub2.npcType.aByte1652];
+						class180_sub5_sub2.newFaceDegrees = class180_sub5_sub2.faceDegrees = Class15.anIntArray101[class180_sub5_sub2.npcType.spawnDirection];
 						class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
 						if (class180_sub5_sub2.anInt3010 == 0) {
-							class180_sub5_sub2.anInt3032 = 0;
+							class180_sub5_sub2.faceDegrees = 0;
 						}
 						class180_sub5_sub2.entityRenderDataId = class180_sub5_sub2.npcType.anInt1692;
 						class180_sub5_sub2.method2323(i_9_, i_11_, class180_sub5_sub2.getSize(), true);

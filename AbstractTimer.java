@@ -116,7 +116,7 @@ abstract class AbstractTimer {
 		}
 		if (Class23.packetType == 53) {
 			Class28.anInt176 = Canvas_Sub1.inputStream.getUByteS();
-			Class32.anInt254 = Canvas_Sub1.inputStream.getUByteA();
+			MagnetType.anInt254 = Canvas_Sub1.inputStream.getUByteA();
 			while (AbstractMouseWheelHandler.packetSize > Canvas_Sub1.inputStream.pos) {
 				Class23.packetType = Canvas_Sub1.inputStream.getUByte();
 				Class191.method2513();
@@ -426,7 +426,7 @@ abstract class AbstractTimer {
 		}
 		if (Class23.packetType == 97) {
 			Class28.anInt176 = Canvas_Sub1.inputStream.getUByteS();
-			Class32.anInt254 = Canvas_Sub1.inputStream.getUByteA();
+			MagnetType.anInt254 = Canvas_Sub1.inputStream.getUByteA();
 			Class23.packetType = -1;
 			return true;
 		}
@@ -627,9 +627,9 @@ abstract class AbstractTimer {
 			return true;
 		}
 		if (Class23.packetType == 147) {
-			Class32.anInt254 = Canvas_Sub1.inputStream.getUByte();
+			MagnetType.anInt254 = Canvas_Sub1.inputStream.getUByte();
 			Class28.anInt176 = Canvas_Sub1.inputStream.getUByteA();
-			for (int x = Class32.anInt254; x < Class32.anInt254 + 8; x++) {
+			for (int x = MagnetType.anInt254; x < MagnetType.anInt254 + 8; x++) {
 				for (int z = Class28.anInt176; z < 8 + Class28.anInt176; z++) {
 					if (ClientScript.groundObjects[Class173.gameLevel][x][z] != null) {
 						ClientScript.groundObjects[Class173.gameLevel][x][z] = null;
@@ -638,7 +638,7 @@ abstract class AbstractTimer {
 				}
 			}
 			for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-				if (Class32.anInt254 <= class120_sub24.anInt2731 && class120_sub24.anInt2731 < 8 + Class32.anInt254 && Class28.anInt176 <= class120_sub24.anInt2725 && 8 + Class28.anInt176 > class120_sub24.anInt2725 && Class173.gameLevel == class120_sub24.anInt2722) {
+				if (MagnetType.anInt254 <= class120_sub24.anInt2731 && class120_sub24.anInt2731 < 8 + MagnetType.anInt254 && Class28.anInt176 <= class120_sub24.anInt2725 && 8 + Class28.anInt176 > class120_sub24.anInt2725 && Class173.gameLevel == class120_sub24.anInt2722) {
 					class120_sub24.anInt2720 = 0;
 				}
 			}
@@ -899,7 +899,7 @@ abstract class AbstractTimer {
 			final int i_156_ = Canvas_Sub1.inputStream.getShort();
 			final int i_157_ = Canvas_Sub1.inputStream.getULEShortA();
 			if (Class69_Sub3_Sub1.updatePacketCounter(i_157_)) {
-				Class120_Sub14_Sub24.method1647(i_155_, i_156_);
+				ParticleMagnet.method1647(i_155_, i_156_);
 			}
 			Class23.packetType = -1;
 			return true;
@@ -1256,145 +1256,143 @@ abstract class AbstractTimer {
 			return true;
 		}
 		if (Class23.packetType == 237) {
-			int i_211_ = Canvas_Sub1.inputStream.getULEShort();
-			final int i_212_ = Canvas_Sub1.inputStream.getUShortA();
-			final int i_213_ = Canvas_Sub1.inputStream.getULEShort();
-			final int i_214_ = Canvas_Sub1.inputStream.getInt1();
-			if (i_214_ >> 30 != 0) {
-				final int i_215_ = i_214_ >> 28 & 0x3;
-				int i_216_ = (i_214_ >> 14 & 0x3fff) - GameEntity.currentBaseX;
-				int i_217_ = (0x3fff & i_214_) - Class181.currentBaseZ;
-				if (i_216_ >= 0 && i_217_ >= 0 && i_216_ < 104 && i_217_ < 104) {
-					i_217_ = 64 + i_217_ * 128;
-					i_216_ = 64 + 128 * i_216_;
-					final SpotAnimation class180_sub3 = new SpotAnimation(i_211_, i_215_, i_216_, i_217_, -i_213_ + Class22.getTileHeight(i_216_, i_217_, i_215_), i_212_, Class101_Sub2.loopCycle);
-					Class120_Sub12_Sub7.aClass105_3177.addLast(new SpotAnimationNode(class180_sub3));
+			int id = Canvas_Sub1.inputStream.getULEShort();
+			final int delay = Canvas_Sub1.inputStream.getUShortA();
+			final int y = Canvas_Sub1.inputStream.getULEShort();
+			final int locationBitPacked = Canvas_Sub1.inputStream.getInt1();
+			if (locationBitPacked >> 30 != 0) {
+				final int level = locationBitPacked >> 28 & 0x3;
+				int x = (locationBitPacked >> 14 & 0x3fff) - GameEntity.currentBaseX;
+				int z = (locationBitPacked & 0x3fff) - Class181.currentBaseZ;
+				if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+					x = 64 + 128 * x;
+					z = 64 + z * 128;
+					final SpotAnimation spotAnimation = new SpotAnimation(id, level, x, z, Class22.getTileHeight(x, z, level) - y, delay, Class101_Sub2.loopCycle);
+					Class120_Sub12_Sub7.spotAnimationDeque.addLast(new SpotAnimationNode(spotAnimation));
 				}
-			} else if (i_214_ >> 29 == 0) {
-				if (i_214_ >> 28 != 0) {
-					final int i_218_ = 0xffff & i_214_;
-					Player class180_sub5_sub1;
-					if (Class167.selfPlayerIndex == i_218_) {
-						class180_sub5_sub1 = TileParticleQueue.selfPlayer;
-					} else {
-						class180_sub5_sub1 = Class118.playersList[i_218_];
+			} else if (locationBitPacked >> 29 != 0) {
+				final int npcIndex = locationBitPacked & 0xffff;
+				final Npc npc = Class120_Sub12_Sub11.npcList[npcIndex];
+				if (npc != null) {
+					if (id == 0xffff) {
+						id = -1;
 					}
-					if (class180_sub5_sub1 != null) {
-						if (i_211_ == 65535) {
-							i_211_ = -1;
-						}
-						boolean bool_219_ = true;
-						if ((i_211_ ^ 0xffffffff) != 0 && class180_sub5_sub1.spotAnimId != -1) {
-							if (i_211_ != class180_sub5_sub1.spotAnimId) {
-								final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
-								final SpotAnimType class103_220_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId);
-								if ((spotAnimType.animationId ^ 0xffffffff) != 0 && (class103_220_.animationId ^ 0xffffffff) != 0) {
-									final SeqType seqType = SeqType.list(spotAnimType.animationId);
-									final SeqType class40_221_ = SeqType.list(class103_220_.animationId);
-									if (seqType.priority < class40_221_.priority) {
-										bool_219_ = false;
-									}
-								}
-							} else {
-								final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
-								if (spotAnimType.aBoolean998 && (spotAnimType.animationId ^ 0xffffffff) != 0) {
-									final SeqType seqType = SeqType.list(spotAnimType.animationId);
-									final int i_222_ = seqType.resetInPlay;
-									if (i_222_ == 1) {
-										class180_sub5_sub1.spotAnimFrame = 0;
-										class180_sub5_sub1.anInt2963 = 0;
-										class180_sub5_sub1.spotAnimNextFrame = 1;
-										bool_219_ = false;
-										class180_sub5_sub1.spotAnimDelay = i_212_ + Class101_Sub2.loopCycle;
-										class180_sub5_sub1.anInt2984 = 0;
-										Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.spotAnimFrame, false);
-									} else if (i_222_ == 2) {
-										class180_sub5_sub1.anInt2999 = 0;
-										bool_219_ = false;
-									}
-								}
-							}
-						}
-						if (bool_219_) {
-							class180_sub5_sub1.anInt2963 = 0;
-							class180_sub5_sub1.spotAnimNextFrame = 1;
-							class180_sub5_sub1.spotAnimDelay = Class101_Sub2.loopCycle + i_212_;
-							class180_sub5_sub1.spotAnimHeight = i_213_;
-							class180_sub5_sub1.spotAnimFrame = 0;
-							class180_sub5_sub1.spotAnimId = i_211_;
-							if (class180_sub5_sub1.spotAnimDelay > Class101_Sub2.loopCycle) {
-								class180_sub5_sub1.spotAnimFrame = -1;
-							}
-							if (-65536 == (class180_sub5_sub1.spotAnimId ^ 0xffffffff)) {
-								class180_sub5_sub1.spotAnimId = -1;
-							}
-							if ((class180_sub5_sub1.spotAnimId ^ 0xffffffff) != 0 && class180_sub5_sub1.spotAnimDelay == Class101_Sub2.loopCycle) {
-								final int i_223_ = SpotAnimType.list(class180_sub5_sub1.spotAnimId).animationId;
-								if ((i_223_ ^ 0xffffffff) != 0) {
-									final SeqType seqType = SeqType.list(i_223_);
-									if (seqType != null && seqType.frames != null) {
-										Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub1.x, class180_sub5_sub1.z, 0, class180_sub5_sub1 == TileParticleQueue.selfPlayer);
-									}
-								}
-							}
-						}
-					}
-				}
-			} else {
-				final int i_224_ = i_214_ & 0xffff;
-				final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_224_];
-				if (class180_sub5_sub2 != null) {
-					if ((i_211_ ^ 0xffffffff) == -65536) {
-						i_211_ = -1;
-					}
-					boolean bool_225_ = true;
-					if ((i_211_ ^ 0xffffffff) != 0 && (class180_sub5_sub2.spotAnimId ^ 0xffffffff) != 0) {
-						if (i_211_ == class180_sub5_sub2.spotAnimId) {
-							final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
-							if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
-								final SeqType seqType = SeqType.list(spotAnimType.animationId);
-								final int i_226_ = seqType.resetInPlay;
-								if (i_226_ == 1) {
-									bool_225_ = false;
-									class180_sub5_sub2.spotAnimDelay = Class101_Sub2.loopCycle + i_212_;
-									class180_sub5_sub2.spotAnimFrame = 0;
-									class180_sub5_sub2.spotAnimNextFrame = 1;
-									class180_sub5_sub2.anInt2963 = 0;
-									class180_sub5_sub2.anInt2984 = 0;
-									Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.x, class180_sub5_sub2.z, class180_sub5_sub2.spotAnimFrame, false);
-								} else if (i_226_ == 2) {
-									class180_sub5_sub2.anInt2999 = 0;
-									bool_225_ = false;
+					boolean execute = true;
+					if (id != -1 && npc.spotAnimId != -1) {
+						if (id != npc.spotAnimId) {
+							final SpotAnimType newSpotAnimType = SpotAnimType.list(id);
+							final SpotAnimType currentSpotAnimType = SpotAnimType.list(npc.spotAnimId);
+							if (newSpotAnimType.animationId != -1 && currentSpotAnimType.animationId != -1) {
+								final SeqType newSeqType = SeqType.list(newSpotAnimType.animationId);
+								final SeqType currentSeqType = SeqType.list(currentSpotAnimType.animationId);
+								if (newSeqType.priority < currentSeqType.priority) {
+									execute = false;
 								}
 							}
 						} else {
-							final SpotAnimType spotAnimType = SpotAnimType.list(i_211_);
-							final SpotAnimType class103_227_ = SpotAnimType.list(class180_sub5_sub2.spotAnimId);
-							if (spotAnimType.animationId != -1 && class103_227_.animationId != -1) {
+							final SpotAnimType spotAnimType = SpotAnimType.list(id);
+							if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
 								final SeqType seqType = SeqType.list(spotAnimType.animationId);
-								final SeqType class40_228_ = SeqType.list(class103_227_.animationId);
-								if (seqType.priority < class40_228_.priority) {
-									bool_225_ = false;
+								final int resetInPlay = seqType.resetInPlay;
+								if (resetInPlay == 1) {
+									npc.spotAnimDelay = Class101_Sub2.loopCycle + delay;
+									npc.spotAnimFrame = 0;
+									npc.spotAnimNextFrame = 1;
+									npc.spotAnimFrameDelay = 0;
+									npc.spotAnimCyclesElapsed = 0;
+									execute = false;
+									Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.spotAnimFrame, false);
+								} else if (resetInPlay == 2) {
+									npc.animCyclesElapsed = 0;
+									execute = false;
 								}
 							}
 						}
 					}
-					if (bool_225_) {
-						class180_sub5_sub2.spotAnimId = i_211_;
-						class180_sub5_sub2.spotAnimFrame = 0;
-						class180_sub5_sub2.spotAnimNextFrame = 1;
-						class180_sub5_sub2.spotAnimHeight = i_213_;
-						class180_sub5_sub2.anInt2963 = 0;
-						class180_sub5_sub2.spotAnimDelay = i_212_ + Class101_Sub2.loopCycle;
-						if (class180_sub5_sub2.spotAnimDelay > Class101_Sub2.loopCycle) {
-							class180_sub5_sub2.spotAnimFrame = -1;
+					if (execute) {
+						npc.spotAnimId = id;
+						npc.spotAnimFrame = 0;
+						npc.spotAnimNextFrame = 1;
+						npc.spotAnimHeight = y;
+						npc.spotAnimFrameDelay = 0;
+						npc.spotAnimDelay = delay + Class101_Sub2.loopCycle;
+						if (npc.spotAnimDelay > Class101_Sub2.loopCycle) {
+							npc.spotAnimFrame = -1;
 						}
-						if (class180_sub5_sub2.spotAnimId != -1 && Class101_Sub2.loopCycle == class180_sub5_sub2.spotAnimDelay) {
-							final int i_229_ = SpotAnimType.list(class180_sub5_sub2.spotAnimId).animationId;
-							if (i_229_ != -1) {
-								final SeqType seqType = SeqType.list(i_229_);
+						if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.spotAnimDelay) {
+							final int animationId = SpotAnimType.list(npc.spotAnimId).animationId;
+							if (animationId != -1) {
+								final SeqType seqType = SeqType.list(animationId);
 								if (seqType != null && seqType.frames != null) {
-									Class120_Sub12_Sub23.method1323(seqType, class180_sub5_sub2.x, class180_sub5_sub2.z, 0, false);
+									Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, 0, false);
+								}
+							}
+						}
+					}
+				}
+			} else if (locationBitPacked >> 28 != 0) {
+				final int playerIndex = locationBitPacked & 0xffff;
+				Player player;
+				if (playerIndex == Class167.selfPlayerIndex) {
+					player = TileParticleQueue.selfPlayer;
+				} else {
+					player = Class118.playersList[playerIndex];
+				}
+				if (player != null) {
+					if (id == 0xffff) {
+						id = -1;
+					}
+					boolean execuse = true;
+					if (id != -1 && player.spotAnimId != -1) {
+						if (id != player.spotAnimId) {
+							final SpotAnimType newSpotAnimType = SpotAnimType.list(id);
+							final SpotAnimType currentSpotAnimType = SpotAnimType.list(player.spotAnimId);
+							if (newSpotAnimType.animationId != -1 && currentSpotAnimType.animationId != -1) {
+								final SeqType newSeqType = SeqType.list(newSpotAnimType.animationId);
+								final SeqType currentSeqType = SeqType.list(currentSpotAnimType.animationId);
+								if (newSeqType.priority < currentSeqType.priority) {
+									execuse = false;
+								}
+							}
+						} else {
+							final SpotAnimType spotAnimType = SpotAnimType.list(id);
+							if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
+								final SeqType seqType = SeqType.list(spotAnimType.animationId);
+								final int resetInPlay = seqType.resetInPlay;
+								if (resetInPlay == 1) {
+									player.spotAnimFrame = 0;
+									player.spotAnimFrameDelay = 0;
+									player.spotAnimNextFrame = 1;
+									player.spotAnimDelay = delay + Class101_Sub2.loopCycle;
+									player.spotAnimCyclesElapsed = 0;
+									execuse = false;
+									Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.spotAnimFrame, false);
+								} else if (resetInPlay == 2) {
+									player.animCyclesElapsed = 0;
+									execuse = false;
+								}
+							}
+						}
+					}
+					if (execuse) {
+						player.spotAnimFrameDelay = 0;
+						player.spotAnimNextFrame = 1;
+						player.spotAnimDelay = Class101_Sub2.loopCycle + delay;
+						player.spotAnimHeight = y;
+						player.spotAnimFrame = 0;
+						player.spotAnimId = id;
+						if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
+							player.spotAnimFrame = -1;
+						}
+						if (player.spotAnimId == 0xffff) {
+							player.spotAnimId = -1;
+						}
+						if (player.spotAnimId != -1 && player.spotAnimDelay == Class101_Sub2.loopCycle) {
+							final int animationId = SpotAnimType.list(player.spotAnimId).animationId;
+							if (animationId != -1) {
+								final SeqType seqType = SeqType.list(animationId);
+								if (seqType != null && seqType.frames != null) {
+									Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, 0, player == TileParticleQueue.selfPlayer);
 								}
 							}
 						}

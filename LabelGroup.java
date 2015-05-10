@@ -7,7 +7,6 @@ final class LabelGroup extends Node {
 	static SignlinkNode hostNameNode;
 	int length;
 	int[] anIntArray2405;
-	static ObjectCache aClass21_2406;
 	boolean[] aBooleanArray2407;
 	int id;
 	static int[] anIntArray2409 = new int[5];
@@ -18,13 +17,12 @@ final class LabelGroup extends Node {
 	static int screenRedrawPos;
 
 	static {
-		aClass21_2406 = new ObjectCache(50);
 		anIntArray2412 = new int[5];
 		screenRedrawPos = 0;
 	}
 
 	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_6_, final int i_7_) {
-		if (Class32.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
+		if (MagnetType.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
 			Js5Worker.method356(i, i_7_, i_6_, i_2_, i_4_, i_3_);
 		} else {
 			AbstractMouseWheelHandler.method158(i_7_, i_2_, i, i_4_, i_6_, i_3_);
@@ -43,14 +41,14 @@ final class LabelGroup extends Node {
 
 	static final LDSprite[] constructLDSprites() {
 		final LDSprite[] sprites = new LDSprite[Class93.spriteAmount];
-		for (int i_9_ = 0; i_9_ < Class93.spriteAmount; i_9_++) {
-			final int i_10_ = Class120_Sub12_Sub39.spriteHeights[i_9_] * Class120_Sub12_Sub11.spriteWidths[i_9_];
-			final int[] is = new int[i_10_];
-			final byte[] is_11_ = Class145.spritePaletteIndicators[i_9_];
-			for (int i_12_ = 0; i_10_ > i_12_; i_12_++) {
-				is[i_12_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, is_11_[i_12_])];
+		for (int spriteId = 0; spriteId < Class93.spriteAmount; spriteId++) {
+			final int pixelLen = Class120_Sub12_Sub39.spriteHeights[spriteId] * Class120_Sub12_Sub11.spriteWidths[spriteId];
+			final int[] pixels = new int[pixelLen];
+			final byte[] paletteIndicators = Class145.spritePaletteIndicators[spriteId];
+			for (int id = 0; id < pixelLen; id++) {
+				pixels[id] = Class132_Sub1.spritePalette[paletteIndicators[id] & 0xff];
 			}
-			sprites[i_9_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[i_9_], GroundTile.spriteYOffsets[i_9_], Class120_Sub12_Sub11.spriteWidths[i_9_], Class120_Sub12_Sub39.spriteHeights[i_9_], is);
+			sprites[spriteId] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return sprites;

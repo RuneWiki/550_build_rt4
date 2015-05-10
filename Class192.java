@@ -31,33 +31,33 @@ final class Class192 {
 		Class120_Sub12_Sub34.anIntArray3409 = null;
 	}
 
-	static final void method2517(final Player player, final int animationId, final int delay) {
+	static final void animatePlayer(final Player player, final int animationId, final int delay) {
 		if (player.animId != animationId || animationId == -1) {
 			if (animationId == -1 || player.animId == -1 || SeqType.list(animationId).priority >= SeqType.list(player.animId).priority) {
 				player.animId = animationId;
-				player.anInt3044 = 0;
+				player.animCurrentFrameDelay = 0;
 				player.animDelay = delay;
-				player.animCurrentFrame = 0;
-				player.anInt3013 = 1;
-				player.anInt2999 = 0;
-				player.anInt3031 = player.anInt2960;
+				player.animFrame = 0;
+				player.animNextFrame = 1;
+				player.animCyclesElapsed = 0;
+				player.onAnimPlayWalkQueuePos = player.walkQueuePos;
 				if (player.animId != -1) {
-					Class120_Sub12_Sub23.method1323(SeqType.list(player.animId), player.x, player.z, player.animCurrentFrame, player == TileParticleQueue.selfPlayer);
+					Class120_Sub12_Sub23.method1323(SeqType.list(player.animId), player.x, player.z, player.animFrame, player == TileParticleQueue.selfPlayer);
 				}
 			}
 		} else {
 			final SeqType seqType = SeqType.list(animationId);
-			final int i_2_ = seqType.resetInPlay;
-			if (i_2_ == 1) {
+			final int resetType = seqType.resetInPlay;
+			if (resetType == 1) {
 				player.animDelay = delay;
-				player.animCurrentFrame = 0;
-				player.anInt3044 = 0;
-				player.anInt3013 = 1;
-				player.anInt2999 = 0;
-				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.animCurrentFrame, player == TileParticleQueue.selfPlayer);
+				player.animFrame = 0;
+				player.animCurrentFrameDelay = 0;
+				player.animNextFrame = 1;
+				player.animCyclesElapsed = 0;
+				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.animFrame, player == TileParticleQueue.selfPlayer);
 			}
-			if (i_2_ == 2) {
-				player.anInt2999 = 0;
+			if (resetType == 2) {
+				player.animCyclesElapsed = 0;
 			}
 		}
 	}

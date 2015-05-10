@@ -333,4 +333,13 @@ final class ArrayUtils {
 		arrayCopy(fs, 0, fs_3_, 0, fs.length);
 		return fs_3_;
 	}
+
+	static final byte[] arrayCopy(final byte[] is) {
+		if (is == null) {
+			return null;
+		}
+		final byte[] is_10_ = new byte[is.length];
+		arrayCopy(is, 0, is_10_, 0, is.length);
+		return is_10_;
+	}
 }

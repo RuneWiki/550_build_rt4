@@ -57,7 +57,7 @@ final class Class174 {
 			player.lastUpdateCycle = Class101_Sub2.loopCycle;
 			final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
 			if (newPlayer) {
-				player.anInt3019 = player.anInt3032 = i_4_;
+				player.newFaceDegrees = player.faceDegrees = i_4_;
 			}
 			int x = Canvas_Sub1.inputStream.getBitValue(5);
 			if (x > 15) {
@@ -66,7 +66,7 @@ final class Class174 {
 			final int i_6_ = Canvas_Sub1.inputStream.getBitValue(1);
 			final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_7_ == 1) {
-				Class169.anIntArray1648[Class154.anInt1441++] = index;
+				ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = index;
 			}
 			int z = Canvas_Sub1.inputStream.getBitValue(5);
 			if (z > 15) {
@@ -77,40 +77,40 @@ final class Class174 {
 		Canvas_Sub1.inputStream.endBitAccess();
 	}
 
-	static final String longToString(long l) {
-		if ((l ^ 0xffffffffffffffffL) >= -1L || (l ^ 0xffffffffffffffffL) <= -6582952005840035282L) {
+	static final String longToString(long hash) {
+		if (hash <= 0L || hash >= 6582952005840035281L) {
 			return null;
 		}
-		if (l % 37L == 0L) {
+		if (hash % 37L == 0L) {
 			return null;
 		}
-		int i_9_ = 0;
-		for (long l_10_ = l; l_10_ != 0L; l_10_ /= 37L) {
-			i_9_++;
+		int charLen = 0;
+		for (long id = hash; id != 0L; id /= 37L) {
+			charLen++;
 		}
-		final StringBuffer stringbuffer = new StringBuffer(i_9_);
-		while ((l ^ 0xffffffffffffffffL) != -1L) {
-			final long l_11_ = l;
-			l /= 37L;
-			stringbuffer.append(Class120_Sub12_Sub16.aCharArray3254[(int) (l_11_ + -(l * 37L))]);
+		final StringBuffer stringbuffer = new StringBuffer(charLen);
+		while (hash != 0L) {
+			final long lastHash = hash;
+			hash /= 37L;
+			stringbuffer.append(Class120_Sub12_Sub16.validCharacters[(int) (lastHash - hash * 37L)]);
 		}
 		return stringbuffer.reverse().toString();
 	}
 
-	static final void method2236() {
-		for (SpotAnimationNode class120_sub14_sub4 = (SpotAnimationNode) Class120_Sub12_Sub7.aClass105_3177.getFront(); class120_sub14_sub4 != null; class120_sub14_sub4 = (SpotAnimationNode) Class120_Sub12_Sub7.aClass105_3177.getNext()) {
-			final SpotAnimation class180_sub3 = class120_sub14_sub4.spotAnimation;
-			if (class180_sub3.level == Class173.gameLevel && !class180_sub3.finishedAnimating) {
-				if (Class101_Sub2.loopCycle >= class180_sub3.startCycle) {
-					class180_sub3.animate(Class120_Sub12_Sub22.redrawRate);
-					if (class180_sub3.finishedAnimating) {
-						class120_sub14_sub4.unlink();
+	static final void processSpotAnimations() {
+		for (SpotAnimationNode spotAnimationNode = (SpotAnimationNode) Class120_Sub12_Sub7.spotAnimationDeque.getFront(); spotAnimationNode != null; spotAnimationNode = (SpotAnimationNode) Class120_Sub12_Sub7.spotAnimationDeque.getNext()) {
+			final SpotAnimation spotAnimation = spotAnimationNode.spotAnimation;
+			if (spotAnimation.level == Class173.gameLevel && !spotAnimation.finishedAnimating) {
+				if (Class101_Sub2.loopCycle >= spotAnimation.startCycle) {
+					spotAnimation.animate(Class120_Sub12_Sub22.redrawRate);
+					if (spotAnimation.finishedAnimating) {
+						spotAnimationNode.unlink();
 					} else {
-						Class120_Sub12_Sub5.method1218(class180_sub3.level, class180_sub3.x, class180_sub3.z, class180_sub3.y, 60, class180_sub3, 0, -1L, false);
+						Class120_Sub12_Sub5.method1218(spotAnimation.level, spotAnimation.x, spotAnimation.z, spotAnimation.y, 60, spotAnimation, 0, -1L, false);
 					}
 				}
 			} else {
-				class120_sub14_sub4.unlink();
+				spotAnimationNode.unlink();
 			}
 		}
 	}

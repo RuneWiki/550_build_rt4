@@ -9,29 +9,28 @@ final class GroundDecoration {
 	int renderZ;
 	int renderX;
 	int renderY;
-	static String aString313 = "Loading...";
 	boolean aBoolean314 = false;
 
-	static final void method307(final GameEntity gameEntity) {
+	static final void animateEntity(final GameEntity gameEntity) {
 		gameEntity.aBoolean3002 = false;
 		if (gameEntity.idleAnimId != -1) {
 			final SeqType seqType = SeqType.list(gameEntity.idleAnimId);
 			if (seqType == null || seqType.frames == null) {
 				gameEntity.idleAnimId = -1;
 			} else {
-				gameEntity.anInt2998++;
-				if (gameEntity.idleAnimCurrentFrame < seqType.frames.length && seqType.delays[gameEntity.idleAnimCurrentFrame] < gameEntity.anInt2998) {
+				gameEntity.idleAnimFrameDelay++;
+				if (gameEntity.idleAnimFrame < seqType.frames.length && seqType.delays[gameEntity.idleAnimFrame] < gameEntity.idleAnimFrameDelay) {
 					gameEntity.idleAnimNextFrame++;
-					gameEntity.anInt2998 = 1;
-					gameEntity.idleAnimCurrentFrame++;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
+					gameEntity.idleAnimFrameDelay = 1;
+					gameEntity.idleAnimFrame++;
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
-				if (gameEntity.idleAnimCurrentFrame >= seqType.frames.length) {
-					gameEntity.anInt2998 = 0;
-					gameEntity.idleAnimCurrentFrame = 0;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
+				if (gameEntity.idleAnimFrame >= seqType.frames.length) {
+					gameEntity.idleAnimFrameDelay = 0;
+					gameEntity.idleAnimFrame = 0;
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.idleAnimFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
-				gameEntity.idleAnimNextFrame = gameEntity.idleAnimCurrentFrame + 1;
+				gameEntity.idleAnimNextFrame = gameEntity.idleAnimFrame + 1;
 				if (gameEntity.idleAnimNextFrame >= seqType.frames.length) {
 					gameEntity.idleAnimNextFrame = 0;
 				}
@@ -40,18 +39,18 @@ final class GroundDecoration {
 		do {
 			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.spotAnimDelay) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
-				final int i_0_ = spotAnimType.animationId;
-				if (i_0_ == -1) {
+				final int spotAnimAnimationId = spotAnimType.animationId;
+				if (spotAnimAnimationId == -1) {
 					gameEntity.spotAnimId = -1;
 				} else {
-					final SeqType seqType = SeqType.list(i_0_);
+					final SeqType seqType = SeqType.list(spotAnimAnimationId);
 					if (spotAnimType.aBoolean998) {
 						if (seqType.speedupType == 3) {
-							if (gameEntity.anInt3031 > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
+							if (gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
 								gameEntity.spotAnimId = -1;
 								break;
 							}
-						} else if (seqType.speedupType == 1 && gameEntity.anInt3031 > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
+						} else if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
 							gameEntity.spotAnimDelay = Class101_Sub2.loopCycle + 1;
 							break;
 						}
@@ -63,9 +62,9 @@ final class GroundDecoration {
 							gameEntity.spotAnimFrame = 0;
 							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, 0, gameEntity == TileParticleQueue.selfPlayer);
 						}
-						gameEntity.anInt2963++;
-						if (seqType.frames.length > gameEntity.spotAnimFrame && seqType.delays[gameEntity.spotAnimFrame] < gameEntity.anInt2963) {
-							gameEntity.anInt2963 = 1;
+						gameEntity.spotAnimFrameDelay++;
+						if (seqType.frames.length > gameEntity.spotAnimFrame && seqType.delays[gameEntity.spotAnimFrame] < gameEntity.spotAnimFrameDelay) {
+							gameEntity.spotAnimFrameDelay = 1;
 							gameEntity.spotAnimFrame++;
 							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrame, TileParticleQueue.selfPlayer == gameEntity);
 						}
@@ -73,9 +72,9 @@ final class GroundDecoration {
 							if (!spotAnimType.aBoolean998) {
 								gameEntity.spotAnimId = -1;
 							} else {
-								gameEntity.anInt2984++;
+								gameEntity.spotAnimCyclesElapsed++;
 								gameEntity.spotAnimFrame -= seqType.padding;
-								if (seqType.resetCycle > gameEntity.anInt2984) {
+								if (seqType.resetCycle > gameEntity.spotAnimCyclesElapsed) {
 									if (gameEntity.spotAnimFrame >= 0 && seqType.frames.length > gameEntity.spotAnimFrame) {
 										Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrame, TileParticleQueue.selfPlayer == gameEntity);
 									} else {
@@ -86,13 +85,13 @@ final class GroundDecoration {
 								}
 							}
 						}
-						gameEntity.spotAnimNextFrame = gameEntity.spotAnimFrame - -1;
+						gameEntity.spotAnimNextFrame = gameEntity.spotAnimFrame + 1;
 						if (gameEntity.spotAnimNextFrame >= seqType.frames.length) {
 							if (!spotAnimType.aBoolean998) {
 								gameEntity.spotAnimNextFrame = -1;
 							} else {
 								gameEntity.spotAnimNextFrame -= seqType.padding;
-								if (seqType.resetCycle <= 1 + gameEntity.anInt2984) {
+								if (seqType.resetCycle <= 1 + gameEntity.spotAnimCyclesElapsed) {
 									gameEntity.spotAnimNextFrame = -1;
 								} else if (gameEntity.spotAnimNextFrame < 0 || gameEntity.spotAnimNextFrame >= seqType.frames.length) {
 									gameEntity.spotAnimNextFrame = -1;
@@ -106,44 +105,44 @@ final class GroundDecoration {
 		if (gameEntity.animId != -1 && gameEntity.animDelay <= 1) {
 			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType.speedupType != 3) {
-				if (seqType.speedupType == 1 && gameEntity.anInt3031 > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
+				if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
 					gameEntity.animDelay = 2;
 				}
-			} else if (gameEntity.anInt3031 > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
+			} else if (gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
 				gameEntity.animId = -1;
 			}
 		}
 		if (gameEntity.animId != -1 && gameEntity.animDelay == 0) {
 			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType != null && seqType.frames != null) {
-				gameEntity.anInt3044++;
-				if (seqType.frames.length > gameEntity.animCurrentFrame && gameEntity.anInt3044 > seqType.delays[gameEntity.animCurrentFrame]) {
-					gameEntity.animCurrentFrame++;
-					gameEntity.anInt3044 = 1;
-					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
+				gameEntity.animCurrentFrameDelay++;
+				if (seqType.frames.length > gameEntity.animFrame && gameEntity.animCurrentFrameDelay > seqType.delays[gameEntity.animFrame]) {
+					gameEntity.animFrame++;
+					gameEntity.animCurrentFrameDelay = 1;
+					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
-				if (gameEntity.animCurrentFrame >= seqType.frames.length) {
-					gameEntity.anInt2999++;
-					gameEntity.animCurrentFrame -= seqType.padding;
-					if (seqType.resetCycle > gameEntity.anInt2999) {
-						if (gameEntity.animCurrentFrame < 0 || gameEntity.animCurrentFrame >= seqType.frames.length) {
+				if (gameEntity.animFrame >= seqType.frames.length) {
+					gameEntity.animCyclesElapsed++;
+					gameEntity.animFrame -= seqType.padding;
+					if (seqType.resetCycle > gameEntity.animCyclesElapsed) {
+						if (gameEntity.animFrame < 0 || gameEntity.animFrame >= seqType.frames.length) {
 							gameEntity.animId = -1;
 						} else {
-							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animCurrentFrame, gameEntity == TileParticleQueue.selfPlayer);
+							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animFrame, gameEntity == TileParticleQueue.selfPlayer);
 						}
 					} else {
 						gameEntity.animId = -1;
 					}
 				}
-				gameEntity.anInt3013 = 1 + gameEntity.animCurrentFrame;
-				if (gameEntity.anInt3013 >= seqType.frames.length) {
-					gameEntity.anInt3013 -= seqType.padding;
-					if (1 + gameEntity.anInt2999 < seqType.resetCycle) {
-						if (gameEntity.anInt3013 < 0 || gameEntity.anInt3013 >= seqType.frames.length) {
-							gameEntity.anInt3013 = -1;
+				gameEntity.animNextFrame = 1 + gameEntity.animFrame;
+				if (gameEntity.animNextFrame >= seqType.frames.length) {
+					gameEntity.animNextFrame -= seqType.padding;
+					if (1 + gameEntity.animCyclesElapsed < seqType.resetCycle) {
+						if (gameEntity.animNextFrame < 0 || gameEntity.animNextFrame >= seqType.frames.length) {
+							gameEntity.animNextFrame = -1;
 						}
 					} else {
-						gameEntity.anInt3013 = -1;
+						gameEntity.animNextFrame = -1;
 					}
 				}
 				gameEntity.aBoolean3002 = seqType.aBoolean344;

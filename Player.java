@@ -51,7 +51,7 @@ final class Player extends GameEntity {
 					break;
 				}
 				if (data >= 32768) {
-					data = KeyboardHandler.anIntArray1506[data - 32768];
+					data = KeyboardHandler.equipmentLookupTable[data - 32768];
 					is[id] = data | 0x40000000;
 					final int team = ObjType.list(data).team;
 					if (team != 0) {
@@ -131,8 +131,8 @@ final class Player extends GameEntity {
 				return;
 			}
 			final SeqType animSeqType = this.animId == -1 || this.animDelay != 0 ? null : SeqType.list(this.animId);
-			final SeqType idleSeqType = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().anInt218 || animSeqType == null) ? SeqType.list(this.idleAnimId) : null;
-			final AbstractModelRenderer class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.idleAnimCurrentFrame, this.anInt3013, this.idleAnimNextFrame, idleSeqType, this.animCurrentFrame, false, this.anInt2998, animSeqType, false, this.anInt3044);
+			final SeqType idleSeqType = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().idleAnimationId || animSeqType == null) ? SeqType.list(this.idleAnimId) : null;
+			final AbstractModelRenderer class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeqType, this.animFrame, false, this.idleAnimFrameDelay, animSeqType, false, this.animCurrentFrameDelay);
 			if (class180_sub7 == null) {
 				return;
 			}
@@ -165,8 +165,8 @@ final class Player extends GameEntity {
 			final SeqType animSeq = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
 			final EntityRenderData renderData = getEntityRenderData();
 			final boolean bool = renderData.anInt204 != 0 || renderData.anInt206 != 0 || renderData.anInt208 != 0 || renderData.anInt209 != 0;
-			final SeqType idleSeq = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().anInt218 || animSeq == null) ? SeqType.list(this.idleAnimId) : null;
-			AbstractModelRenderer playerModel = this.appearance.method2040(this.aClass150Array2972, this.idleAnimCurrentFrame, this.anInt3013, this.idleAnimNextFrame, idleSeq, this.animCurrentFrame, bool, this.anInt2998, animSeq, true, this.anInt3044);
+			final SeqType idleSeq = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().idleAnimationId || animSeq == null) ? SeqType.list(this.idleAnimId) : null;
+			AbstractModelRenderer playerModel = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeq, this.animFrame, bool, this.idleAnimFrameDelay, animSeq, true, this.animCurrentFrameDelay);
 			final int playerCount = Class48.getPlayersCacheSize();
 			if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && playerCount > 50) {
 				SpotAnimType.method880();
@@ -184,7 +184,7 @@ final class Player extends GameEntity {
 			if (playerModel != null) {
 				this.maxY = playerModel.getMaxY();
 				if (Class120_Sub6.characterShadowsOn && (this.appearance.npcId == -1 || NpcType.list(this.appearance.npcId).hasShadow)) {
-					final AbstractModelRenderer shadowModel = Class32.constructShadowModel(0, idleSeq == null ? animSeq : idleSeq, i, super.getSize(), 240, playerModel, idleSeq != null ? this.idleAnimCurrentFrame : this.animCurrentFrame, this.y, this.z, this.aBoolean3002, 0, 160, this.x);
+					final AbstractModelRenderer shadowModel = MagnetType.constructShadowModel(0, idleSeq == null ? animSeq : idleSeq, i, super.getSize(), 240, playerModel, idleSeq != null ? this.idleAnimFrame : this.animFrame, this.y, this.z, this.aBoolean3002, 0, 160, this.x);
 					if (!HDToolkit.glEnabled) {
 						shadowModel.render(0, i_26_, i_27_, i_28_, i_29_, i_30_, i_31_, i_32_, -1L, i_33_, null);
 					} else {
@@ -227,12 +227,12 @@ final class Player extends GameEntity {
 						}
 					}
 				}
-				method2327(0, playerModel);
+				method2327(playerModel);
 				AbstractModelRenderer spotAnimModel = null;
 				method2334(playerModel, i);
 				if (!this.playerLimitReached && this.spotAnimId != -1 && this.spotAnimFrame != -1) {
 					final SpotAnimType spotAnimType = SpotAnimType.list(this.spotAnimId);
-					spotAnimModel = spotAnimType.constructModel(this.spotAnimNextFrame, this.anInt2963, this.spotAnimFrame);
+					spotAnimModel = spotAnimType.constructModel(this.spotAnimNextFrame, this.spotAnimFrameDelay, this.spotAnimFrame);
 					if (spotAnimModel != null) {
 						spotAnimModel.translate(0, -this.spotAnimHeight, 0);
 						if (spotAnimType.aBoolean989) {
@@ -260,11 +260,11 @@ final class Player extends GameEntity {
 							locationModel = (AbstractModelRenderer) ((AnimatedLocation) this.anObject3047).method2357();
 						}
 						locationModel.translate(this.anInt3033 - this.x, this.anInt2970 - this.y, this.anInt3028 - this.z);
-						if (this.anInt3019 == 512) {
+						if (this.newFaceDegrees == 512) {
 							locationModel.rotate270();
-						} else if (this.anInt3019 == 1024) {
+						} else if (this.newFaceDegrees == 1024) {
 							locationModel.rotate180();
-						} else if (this.anInt3019 == 1536) {
+						} else if (this.newFaceDegrees == 1536) {
 							locationModel.rotate90();
 						}
 					}
@@ -293,11 +293,11 @@ final class Player extends GameEntity {
 					}
 				}
 				if (locationModel != null) {
-					if (this.anInt3019 == 512) {
+					if (this.newFaceDegrees == 512) {
 						locationModel.rotate90();
-					} else if (this.anInt3019 == 1024) {
+					} else if (this.newFaceDegrees == 1024) {
 						locationModel.rotate180();
-					} else if (this.anInt3019 == 1536) {
+					} else if (this.newFaceDegrees == 1536) {
 						locationModel.rotate270();
 					}
 					locationModel.translate(this.x - this.anInt3033, this.y - this.anInt2970, this.z - this.anInt3028);

@@ -6,7 +6,7 @@ final class Class179 {
 	static SubScript[] subScripts;
 	static int[][] anIntArrayArray1774;
 	static int anInt1775 = 0;
-	static client aClient1776;
+	static client clientInstance;
 	static byte[][] aByteArrayArray1777;
 	static js5 labelsJs5;
 	static boolean aBoolean1779;
@@ -19,7 +19,7 @@ final class Class179 {
 	static final void method2260(final int i) {
 		Class120_Sub2.anInt2422 = -1;
 		Class120_Sub2.anInt2422 = -1;
-		Class169.anInt1646 = i;
+		ModelParticleMagnet.anInt1646 = i;
 		Class127.fixWorldMapBounds();
 	}
 
@@ -51,7 +51,7 @@ final class Class179 {
 				if (i_6_ == 0) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
 					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
-					Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
+					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
 				} else if (i_6_ == 1) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
 					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
@@ -59,7 +59,7 @@ final class Class179 {
 					class180_sub5_sub1.move(i_7_, 1);
 					final int i_8_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_8_ == 1) {
-						Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
+						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
 					}
 				} else if (i_6_ == 2) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
@@ -75,7 +75,7 @@ final class Class179 {
 					}
 					final int i_12_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_12_ == 1) {
-						Class169.anIntArray1648[Class154.anInt1441++] = i_4_;
+						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
 					}
 				} else if (i_6_ == 3) {
 					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_4_;

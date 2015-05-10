@@ -107,7 +107,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		if (js5.method429(Class173.hintmapmarkersId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class169.mapflagId)) {
+		if (js5.method429(ModelParticleMagnet.mapflagId)) {
 			i_13_++;
 		}
 		if (js5.method429(Class132_Sub2.crossId)) {

@@ -144,8 +144,8 @@ final class LavaShader implements ShaderInterface {
 			final GL gl = HDToolkit.gl;
 			gl.glGenProgramsARB(1, is, 0);
 			anInt2176 = is[0];
-			final int[][] is_2_ = Huffman.method1887(256, -87, 4, 0, 64, 3, 0.4F, 8, false);
-			final int[][] is_3_ = Huffman.method1887(256, 120, 4, 8, 64, 3, 0.4F, 8, false);
+			final int[][] is_2_ = Huffman.method1887(256, 4, 0, 64, 3, 0.4F, 8, false);
+			final int[][] is_3_ = Huffman.method1887(256, 4, 8, 64, 3, 0.4F, 8, false);
 			final Buffer class120_sub7 = new Buffer(262144);
 			for (int i = 0; i < 256; i++) {
 				final int[] is_4_ = is_2_[i];

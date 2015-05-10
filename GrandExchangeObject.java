@@ -25,10 +25,10 @@ final class GrandExchangeObject {
 		return (0x8 & progress) != 8 ? 0 : 1;
 	}
 
-	static final void method2099(final js5 js5, final js5 class50_1_, final boolean bool) {
-		Class140.npcMemberClient = bool;
+	static final void setupNpcTypeVariables(final js5 js5, final js5 class50_1_, final boolean bool) {
+		NpcType.npcMemberClient = bool;
 		NpcType.configClient = class50_1_;
-		Class28.aClass50_181 = js5;
+		NpcType.aClass50_181 = js5;
 	}
 
 	final int getProgress() {
@@ -43,8 +43,8 @@ final class GrandExchangeObject {
 		progress = buffer.getByte();
 		this.id = buffer.getUShort();
 		this.price = buffer.getInt();
-		this.amount = buffer.getInt();//Not sure about these 2
-		this.soldAmount = buffer.getInt();//Not sure about these 2
+		this.amount = buffer.getInt();
+		this.soldAmount = buffer.getInt();
 		this.totalPrice = buffer.getInt();
 	}
 }

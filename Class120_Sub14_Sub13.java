@@ -26,173 +26,155 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		return hash;
 	}
 
-	final LDSprite method1525(final double d, final int i, final int i_4_, final Interface3 interface3, final js5 js5, final int i_5_, final boolean bool) {
-		LDSprite class120_sub14_sub19_sub2;
-		try {
-			Class11.method124(d);
-			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = js5;
-			if (i >= -35) {
-				aShort3570 = (short) 117;
-			}
-			Class22.method199(i_4_, i_5_);
-			final LDSprite class120_sub14_sub19_sub2_6_ = new LDSprite(i_4_, i_5_);
-			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
-				element.method1190(i_5_, i_4_);
-			}
-			int i_8_ = 0;
-			for (int i_9_ = 0; i_9_ < i_5_; i_9_++) {
-				if (bool) {
-					i_8_ = i_9_;
-				}
-				int[] is;
-				int[] is_10_;
-				int[] is_11_;
-				if (aClass120_Sub12_3566.aBoolean2558) {
-					final int[] is_12_ = aClass120_Sub12_3566.method1187(i_9_);
-					is_11_ = is_12_;
-					is = is_12_;
-					is_10_ = is_12_;
-				} else {
-					final int[][] is_13_ = aClass120_Sub12_3566.method1188(i_9_);
-					is = is_13_[1];
-					is_10_ = is_13_[2];
-					is_11_ = is_13_[0];
-				}
-				for (int i_14_ = i_4_ - 1; i_14_ >= 0; i_14_--) {
-					int i_15_ = is_11_[i_14_] >> 4;
-					int i_16_ = is[i_14_] >> 4;
-					if (i_16_ > 255) {
-						i_16_ = 255;
-					}
-					if (i_16_ < 0) {
-						i_16_ = 0;
-					}
-					if (i_15_ > 255) {
-						i_15_ = 255;
-					}
-					if (i_15_ < 0) {
-						i_15_ = 0;
-					}
-					i_15_ = Class79_Sub1.anIntArray2246[i_15_];
-					i_16_ = Class79_Sub1.anIntArray2246[i_16_];
-					int i_17_ = is_10_[i_14_] >> 4;
-					if (i_17_ > 255) {
-						i_17_ = 255;
-					}
-					if (i_17_ < 0) {
-						i_17_ = 0;
-					}
-					i_17_ = Class79_Sub1.anIntArray2246[i_17_];
-					class120_sub14_sub19_sub2_6_.pixels[i_8_++] = i_17_ + (i_15_ << 16) - -(i_16_ << 8);
-					if (bool) {
-						i_8_ += i_4_ - 1;
-					}
-				}
-			}
-			Class120_Sub12[] class120_sub12s;
-			final int i_18_ = (class120_sub12s = aClass120_Sub12Array3565).length;
-			for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
-				final Class120_Sub12 class120_sub12 = class120_sub12s[i_19_];
-				class120_sub12.method1189();
-			}
-			class120_sub14_sub19_sub2 = class120_sub14_sub19_sub2_6_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ln.F(").append(d).append(',').append(i).append(',').append(i_4_).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_5_)
-					.append(',').append(bool).append(')').toString());
+	final LDSprite method1525(final double d, final int i_4_, final Interface3 interface3, final js5 js5, final int i_5_, final boolean bool) {
+		Class11.method124(d);
+		CanvasWrapper.anInterface3_19 = interface3;
+		Class10.aClass50_79 = js5;
+		Class22.method199(i_4_, i_5_);
+		final LDSprite class120_sub14_sub19_sub2_6_ = new LDSprite(i_4_, i_5_);
+		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
+			element.method1190(i_5_, i_4_);
 		}
-		return class120_sub14_sub19_sub2;
+		int i_8_ = 0;
+		for (int i_9_ = 0; i_9_ < i_5_; i_9_++) {
+			if (bool) {
+				i_8_ = i_9_;
+			}
+			int[] is;
+			int[] is_10_;
+			int[] is_11_;
+			if (aClass120_Sub12_3566.aBoolean2558) {
+				final int[] is_12_ = aClass120_Sub12_3566.method1187(i_9_);
+				is_11_ = is_12_;
+				is = is_12_;
+				is_10_ = is_12_;
+			} else {
+				final int[][] is_13_ = aClass120_Sub12_3566.method1188(i_9_);
+				is = is_13_[1];
+				is_10_ = is_13_[2];
+				is_11_ = is_13_[0];
+			}
+			for (int i_14_ = i_4_ - 1; i_14_ >= 0; i_14_--) {
+				int i_15_ = is_11_[i_14_] >> 4;
+				int i_16_ = is[i_14_] >> 4;
+				if (i_16_ > 255) {
+					i_16_ = 255;
+				}
+				if (i_16_ < 0) {
+					i_16_ = 0;
+				}
+				if (i_15_ > 255) {
+					i_15_ = 255;
+				}
+				if (i_15_ < 0) {
+					i_15_ = 0;
+				}
+				i_15_ = Class79_Sub1.anIntArray2246[i_15_];
+				i_16_ = Class79_Sub1.anIntArray2246[i_16_];
+				int i_17_ = is_10_[i_14_] >> 4;
+				if (i_17_ > 255) {
+					i_17_ = 255;
+				}
+				if (i_17_ < 0) {
+					i_17_ = 0;
+				}
+				i_17_ = Class79_Sub1.anIntArray2246[i_17_];
+				class120_sub14_sub19_sub2_6_.pixels[i_8_++] = i_17_ + (i_15_ << 16) - -(i_16_ << 8);
+				if (bool) {
+					i_8_ += i_4_ - 1;
+				}
+			}
+		}
+		Class120_Sub12[] class120_sub12s;
+		final int i_18_ = (class120_sub12s = aClass120_Sub12Array3565).length;
+		for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
+			final Class120_Sub12 class120_sub12 = class120_sub12s[i_19_];
+			class120_sub12.method1189();
+		}
+		return class120_sub14_sub19_sub2_6_;
 	}
 
-	final int[] method1526(final int i, final byte i_20_, final int i_21_, final js5 js5, final double d, final Interface3 interface3, final boolean bool) {
-		int[] is;
-		try {
-			final int[] is_22_ = new int[i_21_ * i * 4];
-			Class11.method124(d);
-			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = js5;
-			Class22.method199(i, i_21_);
-			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
-				element.method1190(i_21_, i);
-			}
-			int i_24_ = 0;
-			int i_25_ = -104 / ((-55 - i_20_) / 37);
-			for (int i_26_ = 0; i_26_ < i_21_; i_26_++) {
-				if (bool) {
-					i_24_ = i_26_;
-				}
-				int[] is_27_;
-				int[] is_28_;
-				int[] is_29_;
-				if (!aClass120_Sub12_3566.aBoolean2558) {
-					final int[][] is_30_ = aClass120_Sub12_3566.method1188(i_26_);
-					is_28_ = is_30_[0];
-					is_29_ = is_30_[2];
-					is_27_ = is_30_[1];
-				} else {
-					final int[] is_31_ = aClass120_Sub12_3566.method1187(i_26_);
-					is_27_ = is_31_;
-					is_28_ = is_31_;
-					is_29_ = is_31_;
-				}
-				int[] is_32_;
-				if (!aClass120_Sub12_3559.aBoolean2558) {
-					is_32_ = aClass120_Sub12_3559.method1188(i_26_)[0];
-				} else {
-					is_32_ = aClass120_Sub12_3559.method1187(i_26_);
-				}
-				for (int i_33_ = i + -1; i_33_ >= 0; i_33_--) {
-					int i_34_ = is_28_[i_33_] >> 4;
-					if (i_34_ > 255) {
-						i_34_ = 255;
-					}
-					if (i_34_ < 0) {
-						i_34_ = 0;
-					}
-					int i_35_ = is_27_[i_33_] >> 4;
-					int i_36_ = is_29_[i_33_] >> 4;
-					if (i_35_ > 255) {
-						i_35_ = 255;
-					}
-					i_34_ = Class79_Sub1.anIntArray2246[i_34_];
-					if (i_35_ < 0) {
-						i_35_ = 0;
-					}
-					if (i_36_ > 255) {
-						i_36_ = 255;
-					}
-					i_35_ = Class79_Sub1.anIntArray2246[i_35_];
-					if (i_36_ < 0) {
-						i_36_ = 0;
-					}
-					i_36_ = Class79_Sub1.anIntArray2246[i_36_];
-					int i_37_;
-					if (i_34_ == 0 && i_35_ == 0 && i_36_ == 0) {
-						i_37_ = 0;
-					} else {
-						i_37_ = is_32_[i_33_] >> 4;
-						if (i_37_ > 255) {
-							i_37_ = 255;
-						}
-						if (i_37_ < 0) {
-							i_37_ = 0;
-						}
-					}
-					is_22_[i_24_++] = (i_35_ << 8) + (i_34_ << 16) + (i_37_ << 24) - -i_36_;
-					if (bool) {
-						i_24_ += -1 + i;
-					}
-				}
-			}
-			for (i_25_ = 0; aClass120_Sub12Array3565.length > i_25_; i_25_++) {
-				aClass120_Sub12Array3565[i_25_].method1189();
-			}
-			is = is_22_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ln.A(").append(i).append(',').append(i_20_).append(',').append(i_21_).append(',').append(js5 != null ? "{...}" : "null").append(',').append(d).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(bool).append(')').toString());
+	final int[] method1526(final int i, final int i_21_, final js5 js5, final double d, final Interface3 interface3, final boolean bool) {
+		final int[] is_22_ = new int[i_21_ * i * 4];
+		Class11.method124(d);
+		CanvasWrapper.anInterface3_19 = interface3;
+		Class10.aClass50_79 = js5;
+		Class22.method199(i, i_21_);
+		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
+			element.method1190(i_21_, i);
 		}
-		return is;
+		int i_24_ = 0;
+		for (int i_26_ = 0; i_26_ < i_21_; i_26_++) {
+			if (bool) {
+				i_24_ = i_26_;
+			}
+			int[] is_27_;
+			int[] is_28_;
+			int[] is_29_;
+			if (!aClass120_Sub12_3566.aBoolean2558) {
+				final int[][] is_30_ = aClass120_Sub12_3566.method1188(i_26_);
+				is_28_ = is_30_[0];
+				is_29_ = is_30_[2];
+				is_27_ = is_30_[1];
+			} else {
+				final int[] is_31_ = aClass120_Sub12_3566.method1187(i_26_);
+				is_27_ = is_31_;
+				is_28_ = is_31_;
+				is_29_ = is_31_;
+			}
+			int[] is_32_;
+			if (!aClass120_Sub12_3559.aBoolean2558) {
+				is_32_ = aClass120_Sub12_3559.method1188(i_26_)[0];
+			} else {
+				is_32_ = aClass120_Sub12_3559.method1187(i_26_);
+			}
+			for (int i_33_ = i + -1; i_33_ >= 0; i_33_--) {
+				int i_34_ = is_28_[i_33_] >> 4;
+				if (i_34_ > 255) {
+					i_34_ = 255;
+				}
+				if (i_34_ < 0) {
+					i_34_ = 0;
+				}
+				int i_35_ = is_27_[i_33_] >> 4;
+				int i_36_ = is_29_[i_33_] >> 4;
+				if (i_35_ > 255) {
+					i_35_ = 255;
+				}
+				i_34_ = Class79_Sub1.anIntArray2246[i_34_];
+				if (i_35_ < 0) {
+					i_35_ = 0;
+				}
+				if (i_36_ > 255) {
+					i_36_ = 255;
+				}
+				i_35_ = Class79_Sub1.anIntArray2246[i_35_];
+				if (i_36_ < 0) {
+					i_36_ = 0;
+				}
+				i_36_ = Class79_Sub1.anIntArray2246[i_36_];
+				int i_37_;
+				if (i_34_ == 0 && i_35_ == 0 && i_36_ == 0) {
+					i_37_ = 0;
+				} else {
+					i_37_ = is_32_[i_33_] >> 4;
+					if (i_37_ > 255) {
+						i_37_ = 255;
+					}
+					if (i_37_ < 0) {
+						i_37_ = 0;
+					}
+				}
+				is_22_[i_24_++] = (i_35_ << 8) + (i_34_ << 16) + (i_37_ << 24) - -i_36_;
+				if (bool) {
+					i_24_ += -1 + i;
+				}
+			}
+		}
+		for (int id = 0; id < aClass120_Sub12Array3565.length; id++) {
+			aClass120_Sub12Array3565[id].method1189();
+		}
+		return is_22_;
 	}
 
 	final float[] method1528(final int i, final boolean bool, final Interface3 interface3, final js5 js5, final int i_39_) {
@@ -279,94 +261,87 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		return true;
 	}
 
-	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final js5 js5, final int i_56_, final double d, final int i_57_, final boolean bool) {
-		LDTransparentSprite class120_sub14_sub19_sub2_sub1;
-		try {
-			Class11.method124(d);
-			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = js5;
-			Class22.method199(i_57_, i);
-			final LDTransparentSprite class120_sub14_sub19_sub2_sub1_58_ = new LDTransparentSprite(i_57_, i);
-			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
-				element.method1190(i, i_57_);
-			}
-			int i_60_ = 0;
-			for (int i_61_ = 0; i_61_ < i; i_61_++) {
-				if (bool) {
-					i_60_ = i_61_ << 2;
-				}
-				int[] is;
-				int[] is_62_;
-				int[] is_63_;
-				if (aClass120_Sub12_3566.aBoolean2558) {
-					final int[] is_64_ = aClass120_Sub12_3566.method1187(i_61_);
-					is_62_ = is_64_;
-					is_63_ = is_64_;
-					is = is_64_;
-				} else {
-					final int[][] is_65_ = aClass120_Sub12_3566.method1188(i_61_);
-					is = is_65_[0];
-					is_62_ = is_65_[1];
-					is_63_ = is_65_[2];
-				}
-				int[] is_66_;
-				if (!aClass120_Sub12_3559.aBoolean2558) {
-					is_66_ = aClass120_Sub12_3559.method1188(i_61_)[0];
-				} else {
-					is_66_ = aClass120_Sub12_3559.method1187(i_61_);
-				}
-				for (int i_67_ = -1 + i_57_; i_67_ >= 0; i_67_--) {
-					int i_68_ = is[i_67_] >> 4;
-					int i_69_ = is_63_[i_67_] >> 4;
-					if (i_68_ > 255) {
-						i_68_ = 255;
-					}
-					int i_70_ = is_62_[i_67_] >> 4;
-					if (i_70_ > 255) {
-						i_70_ = 255;
-					}
-					if (i_69_ > 255) {
-						i_69_ = 255;
-					}
-					if (i_68_ < 0) {
-						i_68_ = 0;
-					}
-					if (i_69_ < 0) {
-						i_69_ = 0;
-					}
-					i_69_ = Class79_Sub1.anIntArray2246[i_69_];
-					i_68_ = Class79_Sub1.anIntArray2246[i_68_];
-					if (i_70_ < 0) {
-						i_70_ = 0;
-					}
-					i_70_ = Class79_Sub1.anIntArray2246[i_70_];
-					int i_71_;
-					if (i_68_ == 0 && i_70_ == 0 && i_69_ == 0) {
-						i_71_ = 0;
-					} else {
-						i_71_ = is_66_[i_67_] >> 4;
-						if (i_71_ > 255) {
-							i_71_ = 255;
-						}
-						if (i_71_ < 0) {
-							i_71_ = 0;
-						}
-					}
-					class120_sub14_sub19_sub2_sub1_58_.pixels[i_60_++] = (i_70_ << 8) + (i_71_ << 24) - (-(i_68_ << 16) - i_69_);
-					if (bool) {
-						i_60_ += (i_57_ << 2) - 4;
-					}
-				}
-			}
-			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
-				element.method1189();
-			}
-			class120_sub14_sub19_sub2_sub1 = class120_sub14_sub19_sub2_sub1_58_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ln.C(").append(i).append(',').append(interface3 != null ? "{...}" : "null").append(',').append(js5 != null ? "{...}" : "null").append(',').append(i_56_).append(',').append(d).append(',').append(i_57_).append(',').append(bool).append(')').toString());
+	final LDTransparentSprite method1530(final int i, final Interface3 interface3, final js5 js5, final double d, final int i_57_, final boolean bool) {
+		Class11.method124(d);
+		CanvasWrapper.anInterface3_19 = interface3;
+		Class10.aClass50_79 = js5;
+		Class22.method199(i_57_, i);
+		final LDTransparentSprite class120_sub14_sub19_sub2_sub1_58_ = new LDTransparentSprite(i_57_, i);
+		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
+			element.method1190(i, i_57_);
 		}
-		return class120_sub14_sub19_sub2_sub1;
+		int i_60_ = 0;
+		for (int i_61_ = 0; i_61_ < i; i_61_++) {
+			if (bool) {
+				i_60_ = i_61_ << 2;
+			}
+			int[] is;
+			int[] is_62_;
+			int[] is_63_;
+			if (aClass120_Sub12_3566.aBoolean2558) {
+				final int[] is_64_ = aClass120_Sub12_3566.method1187(i_61_);
+				is_62_ = is_64_;
+				is_63_ = is_64_;
+				is = is_64_;
+			} else {
+				final int[][] is_65_ = aClass120_Sub12_3566.method1188(i_61_);
+				is = is_65_[0];
+				is_62_ = is_65_[1];
+				is_63_ = is_65_[2];
+			}
+			int[] is_66_;
+			if (!aClass120_Sub12_3559.aBoolean2558) {
+				is_66_ = aClass120_Sub12_3559.method1188(i_61_)[0];
+			} else {
+				is_66_ = aClass120_Sub12_3559.method1187(i_61_);
+			}
+			for (int i_67_ = -1 + i_57_; i_67_ >= 0; i_67_--) {
+				int i_68_ = is[i_67_] >> 4;
+				int i_69_ = is_63_[i_67_] >> 4;
+				if (i_68_ > 255) {
+					i_68_ = 255;
+				}
+				int i_70_ = is_62_[i_67_] >> 4;
+				if (i_70_ > 255) {
+					i_70_ = 255;
+				}
+				if (i_69_ > 255) {
+					i_69_ = 255;
+				}
+				if (i_68_ < 0) {
+					i_68_ = 0;
+				}
+				if (i_69_ < 0) {
+					i_69_ = 0;
+				}
+				i_69_ = Class79_Sub1.anIntArray2246[i_69_];
+				i_68_ = Class79_Sub1.anIntArray2246[i_68_];
+				if (i_70_ < 0) {
+					i_70_ = 0;
+				}
+				i_70_ = Class79_Sub1.anIntArray2246[i_70_];
+				int i_71_;
+				if (i_68_ == 0 && i_70_ == 0 && i_69_ == 0) {
+					i_71_ = 0;
+				} else {
+					i_71_ = is_66_[i_67_] >> 4;
+					if (i_71_ > 255) {
+						i_71_ = 255;
+					}
+					if (i_71_ < 0) {
+						i_71_ = 0;
+					}
+				}
+				class120_sub14_sub19_sub2_sub1_58_.pixels[i_60_++] = (i_70_ << 8) + (i_71_ << 24) - (-(i_68_ << 16) - i_69_);
+				if (bool) {
+					i_60_ += (i_57_ << 2) - 4;
+				}
+			}
+		}
+		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
+			element.method1189();
+		}
+		return class120_sub14_sub19_sub2_sub1_58_;
 	}
 
 	static final void method1531(final String string) {
@@ -400,94 +375,83 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		}
 	}
 
-	final int[] method1533(final double d, final boolean bool, final int i, final js5 js5, final Interface3 interface3, final int i_75_, final boolean bool_76_, final int i_77_) {
-		int[] is;
-		try {
-			Class11.method124(d);
-			CanvasWrapper.anInterface3_19 = interface3;
-			Class10.aClass50_79 = js5;
-			Class22.method199(i_77_, i_75_);
-			final int[] is_78_ = new int[i_77_ * i_75_];
-			Class120_Sub12[] class120_sub12s;
-			int i_79_ = (class120_sub12s = aClass120_Sub12Array3565).length;
-			for (int i_80_ = 0; i_80_ < i_79_; i_80_++) {
-				final Class120_Sub12 class120_sub12 = class120_sub12s[i_80_];
-				class120_sub12.method1190(i_75_, i_77_);
-			}
-			int i_81_;
-			int i_82_;
-			if (!bool_76_) {
-				i_79_ = 1;
-				i_82_ = i_77_;
-				i_81_ = 0;
-			} else {
-				i_81_ = i_77_ + -1;
-				i_82_ = -1;
-				i_79_ = -1;
-			}
-			int i_83_ = 0;
-			for (int i_84_ = 0; i_75_ > i_84_; i_84_++) {
-				if (bool) {
-					i_83_ = i_84_;
-				}
-				int[] is_85_;
-				int[] is_86_;
-				int[] is_87_;
-				if (!aClass120_Sub12_3566.aBoolean2558) {
-					final int[][] is_88_ = aClass120_Sub12_3566.method1188(i_84_);
-					is_87_ = is_88_[0];
-					is_86_ = is_88_[2];
-					is_85_ = is_88_[1];
-				} else {
-					final int[] is_89_ = aClass120_Sub12_3566.method1187(i_84_);
-					is_85_ = is_89_;
-					is_86_ = is_89_;
-					is_87_ = is_89_;
-				}
-				for (int i_90_ = i_81_; i_82_ != i_90_; i_90_ += i_79_) {
-					int i_91_ = is_87_[i_90_] >> 4;
-					int i_92_ = is_85_[i_90_] >> 4;
-					if (i_92_ > 255) {
-						i_92_ = 255;
-					}
-					int i_93_ = is_86_[i_90_] >> 4;
-					if (i_91_ > 255) {
-						i_91_ = 255;
-					}
-					if (i_93_ > 255) {
-						i_93_ = 255;
-					}
-					if (i_92_ < 0) {
-						i_92_ = 0;
-					}
-					if (i_91_ < 0) {
-						i_91_ = 0;
-					}
-					i_92_ = Class79_Sub1.anIntArray2246[i_92_];
-					i_91_ = Class79_Sub1.anIntArray2246[i_91_];
-					if (i_93_ < 0) {
-						i_93_ = 0;
-					}
-					i_93_ = Class79_Sub1.anIntArray2246[i_93_];
-					is_78_[i_83_++] = i_93_ + (i_91_ << 16) + (i_92_ << 8);
-					if (bool) {
-						i_83_ += -1 + i_77_;
-					}
-				}
-			}
-			if (i != 30319) {
-				maxMemory = 37;
-			}
-			for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
-				element.method1189();
-			}
-			is = is_78_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception,
-					new StringBuilder("ln.E(").append(d).append(',').append(bool).append(',').append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(interface3 != null ? "{...}" : "null").append(',').append(i_75_).append(',').append(bool_76_).append(',').append(i_77_)
-							.append(')').toString());
+	final int[] method1533(final double d, final boolean bool, final js5 js5, final Interface3 interface3, final int i_75_, final boolean bool_76_, final int i_77_) {
+		Class11.method124(d);
+		CanvasWrapper.anInterface3_19 = interface3;
+		Class10.aClass50_79 = js5;
+		Class22.method199(i_77_, i_75_);
+		final int[] is_78_ = new int[i_77_ * i_75_];
+		Class120_Sub12[] class120_sub12s;
+		int i_79_ = (class120_sub12s = aClass120_Sub12Array3565).length;
+		for (int i_80_ = 0; i_80_ < i_79_; i_80_++) {
+			final Class120_Sub12 class120_sub12 = class120_sub12s[i_80_];
+			class120_sub12.method1190(i_75_, i_77_);
 		}
-		return is;
+		int i_81_;
+		int i_82_;
+		if (!bool_76_) {
+			i_79_ = 1;
+			i_82_ = i_77_;
+			i_81_ = 0;
+		} else {
+			i_81_ = i_77_ + -1;
+			i_82_ = -1;
+			i_79_ = -1;
+		}
+		int i_83_ = 0;
+		for (int i_84_ = 0; i_75_ > i_84_; i_84_++) {
+			if (bool) {
+				i_83_ = i_84_;
+			}
+			int[] is_85_;
+			int[] is_86_;
+			int[] is_87_;
+			if (!aClass120_Sub12_3566.aBoolean2558) {
+				final int[][] is_88_ = aClass120_Sub12_3566.method1188(i_84_);
+				is_87_ = is_88_[0];
+				is_86_ = is_88_[2];
+				is_85_ = is_88_[1];
+			} else {
+				final int[] is_89_ = aClass120_Sub12_3566.method1187(i_84_);
+				is_85_ = is_89_;
+				is_86_ = is_89_;
+				is_87_ = is_89_;
+			}
+			for (int i_90_ = i_81_; i_82_ != i_90_; i_90_ += i_79_) {
+				int i_91_ = is_87_[i_90_] >> 4;
+				int i_92_ = is_85_[i_90_] >> 4;
+				if (i_92_ > 255) {
+					i_92_ = 255;
+				}
+				int i_93_ = is_86_[i_90_] >> 4;
+				if (i_91_ > 255) {
+					i_91_ = 255;
+				}
+				if (i_93_ > 255) {
+					i_93_ = 255;
+				}
+				if (i_92_ < 0) {
+					i_92_ = 0;
+				}
+				if (i_91_ < 0) {
+					i_91_ = 0;
+				}
+				i_92_ = Class79_Sub1.anIntArray2246[i_92_];
+				i_91_ = Class79_Sub1.anIntArray2246[i_91_];
+				if (i_93_ < 0) {
+					i_93_ = 0;
+				}
+				i_93_ = Class79_Sub1.anIntArray2246[i_93_];
+				is_78_[i_83_++] = i_93_ + (i_91_ << 16) + (i_92_ << 8);
+				if (bool) {
+					i_83_ += -1 + i_77_;
+				}
+			}
+		}
+		for (final Class120_Sub12 element : aClass120_Sub12Array3565) {
+			element.method1189();
+		}
+		return is_78_;
 	}
 
 	public Class120_Sub14_Sub13() {

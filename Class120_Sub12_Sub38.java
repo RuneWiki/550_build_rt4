@@ -31,7 +31,7 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 				final int[] is_14_ = is_8_[2];
 				final int[] is_15_ = is_8_[1];
 				for (int i_16_ = -anInt3435; i_16_ <= anInt3435; i_16_++) {
-					final int i_17_ = Class32.anInt259 & i_16_;
+					final int i_17_ = MagnetType.anInt259 & i_16_;
 					i_13_ += is_15_[i_17_];
 					i_10_ += is_12_[i_17_];
 					i_11_ += is_14_[i_17_];
@@ -44,12 +44,12 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 					is_18_[i_21_] = i_5_ * i_10_ >> 16;
 					is_19_[i_21_] = i_13_ * i_5_ >> 16;
 					is_20_[i_21_] = i_5_ * i_11_ >> 16;
-					int i_22_ = i_21_ + -anInt3435 & Class32.anInt259;
+					int i_22_ = i_21_ + -anInt3435 & MagnetType.anInt259;
 					i_13_ -= is_15_[i_22_];
 					i_10_ -= is_12_[i_22_];
 					i_21_++;
 					i_11_ -= is_14_[i_22_];
-					i_22_ = i_21_ - -anInt3435 & Class32.anInt259;
+					i_22_ = i_21_ - -anInt3435 & MagnetType.anInt259;
 					i_10_ += is_12_[i_22_];
 					i_13_ += is_15_[i_22_];
 					i_11_ += is_14_[i_22_];
@@ -113,14 +113,14 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 				final int[] is_45_ = new int[Class120_Sub12_Sub7.anInt3178];
 				int i_46_ = 0;
 				for (int i_47_ = -anInt3435; i_47_ <= anInt3435; i_47_++) {
-					i_46_ += is_44_[Class32.anInt259 & i_47_];
+					i_46_ += is_44_[MagnetType.anInt259 & i_47_];
 				}
 				int i_48_ = 0;
 				while (i_48_ < Class120_Sub12_Sub7.anInt3178) {
 					is_45_[i_48_] = i_46_ * i_41_ >> 16;
-					i_46_ -= is_44_[Class32.anInt259 & -anInt3435 + i_48_];
+					i_46_ -= is_44_[MagnetType.anInt259 & -anInt3435 + i_48_];
 					i_48_++;
-					i_46_ += is_44_[i_48_ + anInt3435 & Class32.anInt259];
+					i_46_ += is_44_[i_48_ + anInt3435 & MagnetType.anInt259];
 				}
 				is_42_[i_43_ - -anInt3436 + -i_36_] = is_45_;
 			}

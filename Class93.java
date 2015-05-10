@@ -97,7 +97,7 @@ final class Class93 {
 				if (type == 22) {
 					if (Hashtable.showGroundDecorations || locType.anInt1835 != 0 || locType.anInt1821 == 1 || locType.aBoolean1853) {
 						SceneGraphNode sceneGraphNode;
-						if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+						if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 							sceneGraphNode = new AnimatedLocation(locationId, 22, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 						} else {
 							final Class88 class88 = locType.method2453(i_16_, bool_8_, 22, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -106,14 +106,14 @@ final class Class93 {
 							}
 							sceneGraphNode = class88.aClass180_826;
 						}
-						Class120_Sub14_Sub24.addGroundDecoration(sceneGraphNode, x, y, z, level, bitPackedUid, locType.aBoolean1822);
+						ParticleMagnet.addGroundDecoration(sceneGraphNode, x, y, z, level, bitPackedUid, locType.aBoolean1822);
 						if (locType.anInt1821 == 1 && collisionMap != null) {
 							collisionMap.method212(x, z);
 						}
 					}
 				} else if (type == 10 || type == 11) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 10, y, is, is_21_, bool_22_, type != 11 ? rotation : rotation + 4, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
 							Class47.method389(class88.aClass107_Sub1_830, i_16_, i_19_, i_17_);
@@ -146,7 +146,7 @@ final class Class93 {
 					}
 				} else if (type >= 12) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, type, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, type, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -164,7 +164,7 @@ final class Class93 {
 					}
 				} else if (type == 0) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 0, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 0, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -223,7 +223,7 @@ final class Class93 {
 					}
 				} else if (type == 1) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 1, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 1, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -253,7 +253,7 @@ final class Class93 {
 					final int i_27_ = 0x3 & rotation - -1;
 					SceneGraphNode sceneGraphNode;
 					SceneGraphNode class180_28_;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 2, rotation + 4, level2, x, z, -1, locType.aBoolean1864, null);
 						class180_28_ = new AnimatedLocation(locationId, 2, i_27_, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
@@ -296,7 +296,7 @@ final class Class93 {
 					}
 				} else if (type == 3) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 3, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 3, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -322,7 +322,7 @@ final class Class93 {
 					}
 				} else if (type == 9) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, type, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, type, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -340,7 +340,7 @@ final class Class93 {
 					}
 				} else if (type == 4) {
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, rotation, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, rotation, i_17_, null);
@@ -357,7 +357,7 @@ final class Class93 {
 						i_30_ = LocType.list((int) (wallLocUid >>> 32) & 0x7fffffff).anInt1819;
 					}
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, rotation, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
 							Class47.method389(class88.aClass107_Sub1_830, -(8 * Class109.anIntArray1037[rotation]) + i_16_, i_19_, i_17_ - client.anIntArray1396[rotation] * 8);
@@ -374,7 +374,7 @@ final class Class93 {
 						i_32_ = LocType.list(0x7fffffff & (int) (l_31_ >>> 32)).anInt1819 / 2;
 					}
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, rotation + 4, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
 							Class47.method389(class88.aClass107_Sub1_830, i_16_ - Class55.anIntArray493[rotation] * 8, i_19_, -(GroundObjectNode.anIntArray3629[rotation] * 8) + i_17_);
@@ -387,7 +387,7 @@ final class Class93 {
 				} else if (type == 7) {
 					final int i_33_ = rotation + 2 & 0x3;
 					SceneGraphNode sceneGraphNode;
-					if (locType.animationId != -1 || locType.anIntArray1881 != null || locType.childrenIDs != null || locType.aBoolean1863) {
+					if (locType.animationId != -1 || locType.randomAnimationIds != null || locType.transmogrificationIds != null || locType.hasAnimation) {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, 4 + i_33_, level2, x, z, -1, locType.aBoolean1864, null);
 					} else {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, 4 + i_33_, i_17_, null);
@@ -406,7 +406,7 @@ final class Class93 {
 					final int i_36_ = rotation + 2 & 0x3;
 					SceneGraphNode sceneGraphNode;
 					SceneGraphNode class180_37_;
-					if (locType.animationId == -1 && locType.anIntArray1881 == null && locType.childrenIDs == null && !locType.aBoolean1863) {
+					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
 						final int i_38_ = Class55.anIntArray493[rotation] * 8;
 						final int i_39_ = GroundObjectNode.anIntArray3629[rotation] * 8;
 						Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, 4 + rotation, i_17_, null);

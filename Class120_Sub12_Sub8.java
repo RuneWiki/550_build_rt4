@@ -74,7 +74,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	static final void dragComponent(final JagexInterface jagexInterface, final int i, final int i_20_) {
 		if (Class120_Sub12_Sub4.draggedComponent == null && !Class15.menuOpen && jagexInterface != null && method1243(jagexInterface) != null) {
 			Class120_Sub12_Sub4.draggedComponent = jagexInterface;
-			Class26.aClass189_161 = method1243(jagexInterface);
+			Normal.aClass189_161 = method1243(jagexInterface);
 			Class120_Sub11.draggingComponent = false;
 			SceneGroundObject.componentPressedCycles = 0;
 			AbstractGraphicsBuffer.clickedComponentX = i;

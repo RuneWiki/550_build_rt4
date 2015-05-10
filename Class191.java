@@ -62,7 +62,7 @@ final class Class191 {
 	}
 
 	static final void method2511(final js5 js5, final js5 class50_2_, final js5 class50_3_, final js5 class50_4_) {
-		Class89.aClass50_836 = js5;
+		JagexInterface.spriteJs5 = js5;
 		Decimator.aClass50_1721 = class50_4_;
 		Class101_Sub4.interfaceJs5 = class50_3_;
 		Class120_Sub12_Sub11.aClass50_3213 = class50_2_;
@@ -77,7 +77,7 @@ final class Class191 {
 	static final void method2513() {
 		if (Class23.packetType == 17) {
 			final int i_7_ = Canvas_Sub1.inputStream.getUByte();
-			int i_8_ = Class32.anInt254 * 2 - -((0xfd & i_7_) >> 4);
+			int i_8_ = MagnetType.anInt254 * 2 - -((0xfd & i_7_) >> 4);
 			int i_9_ = (0xf & i_7_) + Class28.anInt176 * 2;
 			int i_10_ = i_8_ - -Canvas_Sub1.inputStream.getByte();
 			int i_11_ = Canvas_Sub1.inputStream.getByte() + i_9_;
@@ -103,7 +103,7 @@ final class Class191 {
 			}
 		} else if (Class23.packetType == 114) {
 			final int i_20_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_21_ = Class32.anInt254 + (i_20_ >> 4 & 0x7);
+			final int i_21_ = MagnetType.anInt254 + (i_20_ >> 4 & 0x7);
 			final int i_22_ = (i_20_ & 0x7) + Class28.anInt176;
 			final int i_23_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_24_ = Canvas_Sub1.inputStream.getUShort();
@@ -125,7 +125,7 @@ final class Class191 {
 			final int i_26_ = Canvas_Sub1.inputStream.getShortA();
 			final int i_27_ = Canvas_Sub1.inputStream.getUByteA();
 			final int i_28_ = (i_27_ & 0x7) + Class28.anInt176;
-			final int i_29_ = (0x7 & i_27_ >> 4) + Class32.anInt254;
+			final int i_29_ = (0x7 & i_27_ >> 4) + MagnetType.anInt254;
 			final int i_30_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_31_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_32_ = i_31_ >> 2;
@@ -141,7 +141,7 @@ final class Class191 {
 			}
 		} else if (Class23.packetType == 111) {
 			final int i_40_ = Canvas_Sub1.inputStream.getUByte();
-			int i_41_ = 2 * Class32.anInt254 + (i_40_ >> 4 & 0xf);
+			int i_41_ = 2 * MagnetType.anInt254 + (i_40_ >> 4 & 0xf);
 			int i_42_ = (i_40_ & 0xf) + Class28.anInt176 * 2;
 			int i_43_ = Canvas_Sub1.inputStream.getByte() + i_41_;
 			int i_44_ = i_42_ - -Canvas_Sub1.inputStream.getByte();
@@ -185,9 +185,9 @@ final class Class191 {
 						if (class29.modelRotateTranslate != null && class29.modelRotateTranslate[i_54_] != null) {
 							i_48_ -= class29.modelRotateTranslate[i_54_][1];
 							int i_59_ = class29.modelRotateTranslate[i_54_][0];
-							final int i_60_ = Rasterizer.sinTable[class180_sub5.anInt3032];
+							final int i_60_ = Rasterizer.sinTable[class180_sub5.faceDegrees];
 							int i_61_ = class29.modelRotateTranslate[i_54_][2];
-							final int i_62_ = Rasterizer.cosTable[class180_sub5.anInt3032];
+							final int i_62_ = Rasterizer.cosTable[class180_sub5.faceDegrees];
 							final int i_63_ = i_59_ * i_62_ + i_60_ * i_61_ >> 16;
 							i_61_ = -(i_59_ * i_60_) + i_62_ * i_61_ >> 16;
 							i_59_ = i_63_;
@@ -201,17 +201,17 @@ final class Class191 {
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (Class23.packetType == 158) {
-			final int i_64_ = Canvas_Sub1.inputStream.getUByte();
-			int x = ((0x77 & i_64_) >> 4) + Class32.anInt254;
-			int z = Class28.anInt176 + (0x7 & i_64_);
+			final int coordsOff = Canvas_Sub1.inputStream.getUByte();
+			int x = MagnetType.anInt254 + (coordsOff >> 4 & 0x7);
+			int z = Class28.anInt176 + (coordsOff & 0x7);
 			final int id = Canvas_Sub1.inputStream.getUShort();
 			final int y = Canvas_Sub1.inputStream.getUByte();
-			final int i_69_ = Canvas_Sub1.inputStream.getUShort();
+			final int delay = Canvas_Sub1.inputStream.getUShort();
 			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
 				x = 64 + 128 * x;
 				z = 64 + 128 * z;
-				final SpotAnimation class180_sub3 = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(x, z, Class173.gameLevel) - y, i_69_, Class101_Sub2.loopCycle);
-				Class120_Sub12_Sub7.aClass105_3177.addLast(new SpotAnimationNode(class180_sub3));
+				final SpotAnimation spotAnimation = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(x, z, Class173.gameLevel) - y, delay, Class101_Sub2.loopCycle);
+				Class120_Sub12_Sub7.spotAnimationDeque.addLast(new SpotAnimationNode(spotAnimation));
 			}
 		} else if (Class23.packetType == 179) {
 			int i_70_ = Canvas_Sub1.inputStream.getUShort();
@@ -224,7 +224,7 @@ final class Class191 {
 			final int i_74_ = CollisionMap.anIntArray153[i_72_];
 			final int i_75_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_76_ = (i_75_ & 0x7) + Class28.anInt176;
-			final int i_77_ = Class32.anInt254 + ((0x7f & i_75_) >> 4);
+			final int i_77_ = MagnetType.anInt254 + ((0x7f & i_75_) >> 4);
 			ProducingGraphicsBuffer.method1853(i_70_, i_77_, Class173.gameLevel, i_76_, i_74_, i_73_, i_72_);
 		} else if (Class23.packetType == 131) {
 			final int i_78_ = Canvas_Sub1.inputStream.getUByteS();
@@ -234,9 +234,9 @@ final class Class191 {
 			final int i_82_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_83_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_84_ = (i_83_ & 0x7) + Class28.anInt176;
-			final int i_85_ = (i_83_ >> 4 & 0x7) + Class32.anInt254;
+			final int i_85_ = (i_83_ >> 4 & 0x7) + MagnetType.anInt254;
 			if (i_85_ >= 0 && i_84_ >= 0 && i_85_ < 104 && i_84_ < 104) {
-				Class38.method317(i_82_, Class173.gameLevel, i_81_, i_85_, -1, i_84_, (byte) 20, i_79_, i_80_, 0);
+				Class38.method317(i_82_, Class173.gameLevel, i_81_, i_85_, -1, i_84_, i_79_, i_80_, 0);
 			}
 		} else if (Class23.packetType == 115) {
 			final int i_86_ = Canvas_Sub1.inputStream.getUShort();
@@ -245,17 +245,17 @@ final class Class191 {
 		} else if (Class23.packetType == 232) {
 			final int i_88_ = Canvas_Sub1.inputStream.getUByteC();
 			final int i_89_ = Class28.anInt176 + (i_88_ & 0x7);
-			final int i_90_ = (i_88_ >> 4 & 0x7) + Class32.anInt254;
+			final int i_90_ = (i_88_ >> 4 & 0x7) + MagnetType.anInt254;
 			final int i_91_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_92_ = i_91_ >> 2;
 			final int i_93_ = CollisionMap.anIntArray153[i_92_];
 			final int i_94_ = 0x3 & i_91_;
 			if (i_90_ >= 0 && i_89_ >= 0 && i_90_ < 104 && i_89_ < 104) {
-				Class38.method317(-1, Class173.gameLevel, i_94_, i_90_, -1, i_89_, (byte) -97, i_92_, i_93_, 0);
+				Class38.method317(-1, Class173.gameLevel, i_94_, i_90_, -1, i_89_, i_92_, i_93_, 0);
 			}
 		} else if (Class23.packetType == 105) {
 			final int i_95_ = Canvas_Sub1.inputStream.getUByte();
-			int i_96_ = (i_95_ >> 4 & 0x7) + Class32.anInt254;
+			int i_96_ = (i_95_ >> 4 & 0x7) + MagnetType.anInt254;
 			int i_97_ = (i_95_ & 0x7) + Class28.anInt176;
 			int i_98_ = Canvas_Sub1.inputStream.getByte() + i_96_;
 			int i_99_ = Canvas_Sub1.inputStream.getByte() + i_97_;
@@ -281,7 +281,7 @@ final class Class191 {
 			}
 		} else if (Class23.packetType == 120) {
 			final int i_108_ = Canvas_Sub1.inputStream.getUByteS();
-			final int i_109_ = Class32.anInt254 - -((0x73 & i_108_) >> 4);
+			final int i_109_ = MagnetType.anInt254 - -((0x73 & i_108_) >> 4);
 			final int i_110_ = (0x7 & i_108_) + Class28.anInt176;
 			final int i_111_ = Canvas_Sub1.inputStream.getUShortA();
 			if (i_109_ >= 0 && i_110_ >= 0 && i_109_ < 104 && i_110_ < 104) {
@@ -302,7 +302,7 @@ final class Class191 {
 		} else if (Class23.packetType == 60) {
 			final int i_112_ = Canvas_Sub1.inputStream.getUByteA();
 			final int i_113_ = Class28.anInt176 + (0x7 & i_112_);
-			final int i_114_ = (i_112_ >> 4 & 0x7) + Class32.anInt254;
+			final int i_114_ = (i_112_ >> 4 & 0x7) + MagnetType.anInt254;
 			final int i_115_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_116_ = Canvas_Sub1.inputStream.getUShortA();
 			if (i_114_ >= 0 && i_113_ >= 0 && i_114_ < 104 && i_113_ < 104) {
@@ -318,7 +318,7 @@ final class Class191 {
 		} else if (Class23.packetType == 144) {
 			final int i_117_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_118_ = Class28.anInt176 - -(i_117_ & 0x7);
-			final int i_119_ = Class32.anInt254 - -(0x7 & i_117_ >> 4);
+			final int i_119_ = MagnetType.anInt254 - -(0x7 & i_117_ >> 4);
 			int i_120_ = Canvas_Sub1.inputStream.getUShort();
 			if (65535 == i_120_) {
 				i_120_ = -1;
@@ -345,7 +345,7 @@ final class Class191 {
 			final int i_128_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_129_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_130_ = Canvas_Sub1.inputStream.getUByteA();
-			final int i_131_ = ((i_130_ & 0x7a) >> 4) + Class32.anInt254;
+			final int i_131_ = ((i_130_ & 0x7a) >> 4) + MagnetType.anInt254;
 			final int i_132_ = Class28.anInt176 + (0x7 & i_130_);
 			if (i_131_ >= 0 && i_132_ >= 0 && i_131_ < 104 && i_132_ < 104 && i_128_ != Class167.selfPlayerIndex) {
 				final SceneGroundObject class180_sub1 = new SceneGroundObject();

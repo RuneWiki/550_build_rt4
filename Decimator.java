@@ -54,7 +54,7 @@ final class Decimator {
 				Class120_Sub12_Sub21.menuMouseY = Class31.anInt250;
 			}
 			Class120_Sub29.menuOptionsCode[0] = (short) 1006;
-			Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
+			Class120_Sub12_Sub33.menuOptionPrefix[0] = TextRepository.aString1462;
 			Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 			InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 			WallDecoration.menuOptionCount = 1;
@@ -212,7 +212,7 @@ final class Decimator {
 
 	static final void method2223() {
 		for (int id = 0; id < Class154.anInt1441; id++) {
-			final int index = Class169.anIntArray1648[id];
+			final int index = ModelParticleMagnet.anIntArray1648[id];
 			final Player player = Class118.playersList[index];
 			int mask = Canvas_Sub1.inputStream.getUByte();
 			if ((mask & 0x80) != 0) {

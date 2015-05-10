@@ -4,7 +4,6 @@
 
 final class Class120_Sub6 extends Node {
 	static ObjectCache aClass21_2443;
-	static String aString2444 = "Loaded world list data";
 	int anInt2445;
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2446;
 	Class120_Sub5_Sub1 aClass120_Sub5_Sub1_2447;

@@ -41,7 +41,7 @@ final class Class31 {
 			}
 			final int i_2_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
 			if (newNpc) {
-				npc.anInt3019 = npc.anInt3032 = i_2_;
+				npc.newFaceDegrees = npc.faceDegrees = i_2_;
 			}
 			int i_3_ = Canvas_Sub1.inputStream.getBitValue(5);
 			npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getBitValue(14)));
@@ -50,14 +50,14 @@ final class Class31 {
 				i_3_ -= 32;
 			}
 			if (i_4_ == 1) {
-				Class169.anIntArray1648[Class154.anInt1441++] = index;
+				ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = index;
 			}
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 			npc.setSize(npc.npcType.size);
 			npc.entityRenderDataId = npc.npcType.anInt1692;
 			npc.anInt3010 = npc.npcType.anInt1672;
 			if (npc.anInt3010 == 0) {
-				npc.anInt3032 = 0;
+				npc.faceDegrees = 0;
 			}
 			npc.method2323(TileParticleQueue.selfPlayer.walkQueueX[0] + i_3_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_1_, npc.getSize(), i_5_ == 1);
 			if (npc.npcType.hasAmbientSound()) {

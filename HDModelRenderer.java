@@ -20,7 +20,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	private short[] aShortArray3855;
 	int[] yVertices;
 	private short[] aShortArray3857;
-	Class169[] aClass169Array3858;
+	ModelParticleMagnet[] aClass169Array3858;
 	private Class152 aClass152_3859;
 	private byte aByte3860;
 	private int anInt3861;
@@ -599,13 +599,13 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void rotateY(final int i) {
-		final int i_159_ = Rasterizer.sinTable[i];
-		final int i_160_ = Rasterizer.cosTable[i];
-		for (int i_161_ = 0; i_161_ < this.vertexCount; i_161_++) {
-			final int i_162_ = this.zVertices[i_161_] * i_159_ + this.xVertices[i_161_] * i_160_ >> 16;
-			this.zVertices[i_161_] = this.zVertices[i_161_] * i_160_ - this.xVertices[i_161_] * i_159_ >> 16;
-			this.xVertices[i_161_] = i_162_;
+	final void rotateY(final int rot) {
+		final int rotSin = Rasterizer.sinTable[rot];
+		final int rotCos = Rasterizer.cosTable[rot];
+		for (int id = 0; id < this.vertexCount; id++) {
+			final int x = this.zVertices[id] * rotSin + this.xVertices[id] * rotCos >> 16;
+			this.zVertices[id] = this.zVertices[id] * rotCos - this.xVertices[id] * rotSin >> 16;
+			this.xVertices[id] = x;
 		}
 		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
@@ -760,7 +760,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		if (bool_170_) {
 			class180_sub7_sub2_178_.aByteArray3884 = aByteArray3884;
 		} else {
-			class180_sub7_sub2_178_.aByteArray3884 = Huffman.method1883(64, aByteArray3884);
+			class180_sub7_sub2_178_.aByteArray3884 = ArrayUtils.arrayCopy(aByteArray3884);
 		}
 		if (bool_169_ && bool_170_ && bool_171_ && (bool_174_ && bool_172_ || Class120_Sub12_Sub6.highLightingDetail)) {
 			class180_sub7_sub2_178_.aClass49_3869 = aClass49_3869;
@@ -2887,11 +2887,11 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		final int[] is = new int[class180_sub2.triangleCount];
 		anIntArray3875 = new int[class180_sub2.vertexCount + 1];
 		for (int i_721_ = 0; i_721_ < class180_sub2.triangleCount; i_721_++) {
-			if ((class180_sub2.aByteArray2895 == null || class180_sub2.aByteArray2895[i_721_] != 2) && (class180_sub2.aShortArray2850 == null || class180_sub2.aShortArray2850[i_721_] == -1 || !Rasterizer.anInterface5_973.method16(class180_sub2.aShortArray2850[i_721_] & 0xffff))) {
+			if ((class180_sub2.faceRenderTypes == null || class180_sub2.faceRenderTypes[i_721_] != 2) && (class180_sub2.faceTextures == null || class180_sub2.faceTextures[i_721_] == -1 || !Rasterizer.anInterface5_973.method16(class180_sub2.faceTextures[i_721_] & 0xffff))) {
 				is[anInt3867++] = i_721_;
-				anIntArray3875[class180_sub2.trianglesA[i_721_]]++;
-				anIntArray3875[class180_sub2.trianglesB[i_721_]]++;
-				anIntArray3875[class180_sub2.trianglesC[i_721_]]++;
+				anIntArray3875[class180_sub2.facesA[i_721_]]++;
+				anIntArray3875[class180_sub2.facesB[i_721_]]++;
+				anIntArray3875[class180_sub2.facesC[i_721_]]++;
 			}
 		}
 		final long[] ls = new long[anInt3867];
@@ -2902,16 +2902,16 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			int i_726_ = 0;
 			int i_727_ = 0;
 			int i_728_ = -1;
-			if (class180_sub2.aShortArray2850 != null) {
-				i_728_ = class180_sub2.aShortArray2850[i_723_];
+			if (class180_sub2.faceTextures != null) {
+				i_728_ = class180_sub2.faceTextures[i_723_];
 				if (i_728_ != -1) {
 					i_726_ = Rasterizer.anInterface5_973.method18(i_728_ & 0xffff);
 					i_727_ = Rasterizer.anInterface5_973.method29(i_728_ & 0xffff);
 				}
 			}
-			final boolean bool_729_ = class180_sub2.trianglesAlpha != null && class180_sub2.trianglesAlpha[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(i_728_ & 0xffff);
-			if ((bool || bool_729_) && class180_sub2.aByteArray2879 != null) {
-				i_724_ += class180_sub2.aByteArray2879[i_723_] << 17;
+			final boolean bool_729_ = class180_sub2.faceAlphas != null && class180_sub2.faceAlphas[i_723_] != 0 || i_728_ != -1 && !Rasterizer.anInterface5_973.method17(i_728_ & 0xffff);
+			if ((bool || bool_729_) && class180_sub2.facePriorities != null) {
+				i_724_ += class180_sub2.facePriorities[i_723_] << 17;
 			}
 			if (bool_729_) {
 				i_724_ += 65536;
@@ -2924,7 +2924,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		}
 		MapFunctionType.method642(is, ls);
 		this.vertexCount = class180_sub2.vertexCount;
-		anInt3861 = class180_sub2.anInt2886;
+		anInt3861 = class180_sub2.highestVertexId;
 		this.xVertices = class180_sub2.xVertices;
 		this.yVertices = class180_sub2.yVertices;
 		this.zVertices = class180_sub2.zVertices;
@@ -2945,7 +2945,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		aShortArray3877 = new short[anInt3867];
 		aShortArray3879 = new short[anInt3867];
 		aShortArray3855 = new short[anInt3867];
-		if (class180_sub2.triangleLabelIds != null) {
+		if (class180_sub2.faceLabelIds != null) {
 			aByteArray3872 = new byte[anInt3867];
 		}
 		if (class180_sub2.aShortArray2867 != null) {
@@ -2974,7 +2974,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		int[] is_735_ = null;
 		int[] is_736_ = null;
 		float[][] fs = null;
-		if (class180_sub2.aByteArray2876 != null) {
+		if (class180_sub2.faceTextureIndex != null) {
 			final int i_737_ = class180_sub2.anInt2855;
 			final int[] is_738_ = new int[i_737_];
 			final int[] is_739_ = new int[i_737_];
@@ -2992,16 +2992,16 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			}
 			for (int i_745_ = 0; i_745_ < anInt3867; i_745_++) {
 				final int i_746_ = is[i_745_];
-				if (class180_sub2.aByteArray2876[i_746_] != -1) {
-					final int i_747_ = class180_sub2.aByteArray2876[i_746_] & 0xff;
+				if (class180_sub2.faceTextureIndex[i_746_] != -1) {
+					final int i_747_ = class180_sub2.faceTextureIndex[i_746_] & 0xff;
 					for (int i_748_ = 0; i_748_ < 3; i_748_++) {
 						int i_749_;
 						if (i_748_ == 0) {
-							i_749_ = class180_sub2.trianglesA[i_746_];
+							i_749_ = class180_sub2.facesA[i_746_];
 						} else if (i_748_ == 1) {
-							i_749_ = class180_sub2.trianglesB[i_746_];
+							i_749_ = class180_sub2.facesB[i_746_];
 						} else {
-							i_749_ = class180_sub2.trianglesC[i_746_];
+							i_749_ = class180_sub2.facesC[i_746_];
 						}
 						final int i_750_ = class180_sub2.xVertices[i_749_];
 						final int i_751_ = class180_sub2.yVertices[i_749_];
@@ -3032,7 +3032,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			is_736_ = new int[i_737_];
 			fs = new float[i_737_][];
 			for (int i_753_ = 0; i_753_ < i_737_; i_753_++) {
-				final byte i_754_ = class180_sub2.texTrianglesType[i_753_];
+				final byte i_754_ = class180_sub2.textureTypes[i_753_];
 				if (i_754_ > 0) {
 					is_734_[i_753_] = (is_738_[i_753_] + is_739_[i_753_]) / 2;
 					is_735_[i_753_] = (is_740_[i_753_] + is_741_[i_753_]) / 2;
@@ -3041,7 +3041,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 					float f_755_;
 					float f_756_;
 					if (i_754_ == 1) {
-						final int i_757_ = class180_sub2.aShortArray2903[i_753_];
+						final int i_757_ = class180_sub2.texturesScaleX[i_753_];
 						if (i_757_ == 0) {
 							f = 1.0F;
 							f_756_ = 1.0F;
@@ -3052,40 +3052,40 @@ final class HDModelRenderer extends AbstractModelRenderer {
 							f_756_ = 1.0F;
 							f = -i_757_ / 1024.0F;
 						}
-						f_755_ = 64.0F / (class180_sub2.aShortArray2873[i_753_] & 0xffff);
+						f_755_ = 64.0F / (class180_sub2.texturesScaleY[i_753_] & 0xffff);
 					} else if (i_754_ == 2) {
-						f = 64.0F / (class180_sub2.aShortArray2903[i_753_] & 0xffff);
-						f_755_ = 64.0F / (class180_sub2.aShortArray2873[i_753_] & 0xffff);
-						f_756_ = 64.0F / (class180_sub2.aShortArray2900[i_753_] & 0xffff);
+						f = 64.0F / (class180_sub2.texturesScaleX[i_753_] & 0xffff);
+						f_755_ = 64.0F / (class180_sub2.texturesScaleY[i_753_] & 0xffff);
+						f_756_ = 64.0F / (class180_sub2.texturesScaleZ[i_753_] & 0xffff);
 					} else {
-						f = class180_sub2.aShortArray2903[i_753_] / 1024.0F;
-						f_755_ = class180_sub2.aShortArray2873[i_753_] / 1024.0F;
-						f_756_ = class180_sub2.aShortArray2900[i_753_] / 1024.0F;
+						f = class180_sub2.texturesScaleX[i_753_] / 1024.0F;
+						f_755_ = class180_sub2.texturesScaleY[i_753_] / 1024.0F;
+						f_756_ = class180_sub2.texturesScaleZ[i_753_] / 1024.0F;
 					}
-					fs[i_753_] = method2424(class180_sub2.texTrianglesA[i_753_], class180_sub2.texTrianglesB[i_753_], class180_sub2.texTrianglesC[i_753_], class180_sub2.aByteArray2877[i_753_] & 0xff, f, f_755_, f_756_);
+					fs[i_753_] = method2424(class180_sub2.textureFacesP[i_753_], class180_sub2.textureFacesM[i_753_], class180_sub2.textureFacesN[i_753_], class180_sub2.textureRotationY[i_753_] & 0xff, f, f_755_, f_756_);
 				}
 			}
 		}
 		for (int i_758_ = 0; i_758_ < anInt3867; i_758_++) {
 			final int i_759_ = is[i_758_];
-			final int i_760_ = class180_sub2.triangleColors[i_759_] & 0xffff;
+			final int i_760_ = class180_sub2.faceColors[i_759_] & 0xffff;
 			short i_761_;
-			if (class180_sub2.aShortArray2850 == null) {
+			if (class180_sub2.faceTextures == null) {
 				i_761_ = (short) -1;
 			} else {
-				i_761_ = class180_sub2.aShortArray2850[i_759_];
+				i_761_ = class180_sub2.faceTextures[i_759_];
 			}
 			int i_762_;
-			if (class180_sub2.aByteArray2876 == null) {
+			if (class180_sub2.faceTextureIndex == null) {
 				i_762_ = -1;
 			} else {
-				i_762_ = class180_sub2.aByteArray2876[i_759_];
+				i_762_ = class180_sub2.faceTextureIndex[i_759_];
 			}
 			int i_763_;
-			if (class180_sub2.trianglesAlpha == null) {
+			if (class180_sub2.faceAlphas == null) {
 				i_763_ = 0;
 			} else {
-				i_763_ = class180_sub2.trianglesAlpha[i_759_] & 0xff;
+				i_763_ = class180_sub2.faceAlphas[i_759_] & 0xff;
 			}
 			float f = 0.0F;
 			float f_764_ = 0.0F;
@@ -3108,14 +3108,14 @@ final class HDModelRenderer extends AbstractModelRenderer {
 					i_770_ = 2;
 				} else {
 					i_762_ &= 0xff;
-					final byte i_772_ = class180_sub2.texTrianglesType[i_762_];
+					final byte i_772_ = class180_sub2.textureTypes[i_762_];
 					if (i_772_ == 0) {
-						final int i_773_ = class180_sub2.trianglesA[i_759_];
-						final int i_774_ = class180_sub2.trianglesB[i_759_];
-						final int i_775_ = class180_sub2.trianglesC[i_759_];
-						final short i_776_ = class180_sub2.texTrianglesA[i_762_];
-						final short i_777_ = class180_sub2.texTrianglesB[i_762_];
-						final short i_778_ = class180_sub2.texTrianglesC[i_762_];
+						final int i_773_ = class180_sub2.facesA[i_759_];
+						final int i_774_ = class180_sub2.facesB[i_759_];
+						final int i_775_ = class180_sub2.facesC[i_759_];
+						final short i_776_ = class180_sub2.textureFacesP[i_762_];
+						final short i_777_ = class180_sub2.textureFacesM[i_762_];
+						final short i_778_ = class180_sub2.textureFacesN[i_762_];
 						final float f_779_ = class180_sub2.xVertices[i_776_];
 						final float f_780_ = class180_sub2.yVertices[i_776_];
 						final float f_781_ = class180_sub2.zVertices[i_776_];
@@ -3152,9 +3152,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 						f_766_ = (f_800_ * f_791_ + f_801_ * f_792_ + f_802_ * f_793_) * f_803_;
 						f_768_ = (f_800_ * f_794_ + f_801_ * f_795_ + f_802_ * f_796_) * f_803_;
 					} else {
-						final int i_804_ = class180_sub2.trianglesA[i_759_];
-						final int i_805_ = class180_sub2.trianglesB[i_759_];
-						final int i_806_ = class180_sub2.trianglesC[i_759_];
+						final int i_804_ = class180_sub2.facesA[i_759_];
+						final int i_805_ = class180_sub2.facesB[i_759_];
+						final int i_806_ = class180_sub2.facesC[i_759_];
 						final int i_807_ = is_734_[i_762_];
 						final int i_808_ = is_735_[i_762_];
 						final int i_809_ = is_736_[i_762_];
@@ -3162,7 +3162,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 						final byte i_811_ = class180_sub2.aByteArray2888[i_762_];
 						final float f_812_ = class180_sub2.aByteArray2870[i_762_] / 256.0F;
 						if (i_772_ == 1) {
-							final float f_813_ = (class180_sub2.aShortArray2900[i_762_] & 0xffff) / 1024.0F;
+							final float f_813_ = (class180_sub2.texturesScaleZ[i_762_] & 0xffff) / 1024.0F;
 							method2431(class180_sub2.xVertices[i_804_], class180_sub2.yVertices[i_804_], class180_sub2.zVertices[i_804_], i_807_, i_808_, i_809_, fs_810_, f_813_, i_811_, f_812_);
 							f = aFloat3899;
 							f_764_ = aFloat3903;
@@ -3216,9 +3216,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 							final int i_823_ = i_818_ * i_822_ - i_821_ * i_819_;
 							final int i_824_ = i_819_ * i_820_ - i_822_ * i_817_;
 							final int i_825_ = i_817_ * i_821_ - i_820_ * i_818_;
-							final float f_826_ = 64.0F / (class180_sub2.aShortArray2903[i_762_] & 0xffff);
-							final float f_827_ = 64.0F / (class180_sub2.aShortArray2873[i_762_] & 0xffff);
-							final float f_828_ = 64.0F / (class180_sub2.aShortArray2900[i_762_] & 0xffff);
+							final float f_826_ = 64.0F / (class180_sub2.texturesScaleX[i_762_] & 0xffff);
+							final float f_827_ = 64.0F / (class180_sub2.texturesScaleY[i_762_] & 0xffff);
+							final float f_828_ = 64.0F / (class180_sub2.texturesScaleZ[i_762_] & 0xffff);
 							final float f_829_ = (i_823_ * fs_810_[0] + i_824_ * fs_810_[1] + i_825_ * fs_810_[2]) / f_826_;
 							final float f_830_ = (i_823_ * fs_810_[3] + i_824_ * fs_810_[4] + i_825_ * fs_810_[5]) / f_827_;
 							final float f_831_ = (i_823_ * fs_810_[6] + i_824_ * fs_810_[7] + i_825_ * fs_810_[8]) / f_828_;
@@ -3279,40 +3279,40 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			}
 			class180_sub2.method2303();
 			byte i_832_;
-			if (class180_sub2.aByteArray2895 == null) {
+			if (class180_sub2.faceRenderTypes == null) {
 				i_832_ = (byte) 0;
 			} else {
-				i_832_ = class180_sub2.aByteArray2895[i_759_];
+				i_832_ = class180_sub2.faceRenderTypes[i_759_];
 			}
 			if (i_832_ == 0) {
 				final long l = (i_762_ << 2) + ((long) (i_771_ << 24) + (long) (i_760_ << 8) + i_763_ << 32);
-				final int i_833_ = class180_sub2.trianglesA[i_759_];
-				final Class26 class26 = class180_sub2.aClass26Array2878[i_833_];
-				aShortArray3866[i_758_] = method2413(class180_sub2, i_833_, l, class26.anInt157, class26.anInt155, class26.anInt160, class26.anInt156, f, f_764_);
-				final int i_834_ = class180_sub2.trianglesB[i_759_];
-				final Class26 class26_835_ = class180_sub2.aClass26Array2878[i_834_];
-				aShortArray3877[i_758_] = method2413(class180_sub2, i_834_, l + i_769_, class26_835_.anInt157, class26_835_.anInt155, class26_835_.anInt160, class26_835_.anInt156, f_765_, f_766_);
-				final int i_836_ = class180_sub2.trianglesC[i_759_];
-				final Class26 class26_837_ = class180_sub2.aClass26Array2878[i_836_];
-				aShortArray3879[i_758_] = method2413(class180_sub2, i_836_, l + i_770_, class26_837_.anInt157, class26_837_.anInt155, class26_837_.anInt160, class26_837_.anInt156, f_767_, f_768_);
+				final int i_833_ = class180_sub2.facesA[i_759_];
+				final Normal class26 = class180_sub2.normals[i_833_];
+				aShortArray3866[i_758_] = method2413(class180_sub2, i_833_, l, class26.x, class26.y, class26.z, class26.anInt156, f, f_764_);
+				final int i_834_ = class180_sub2.facesB[i_759_];
+				final Normal class26_835_ = class180_sub2.normals[i_834_];
+				aShortArray3877[i_758_] = method2413(class180_sub2, i_834_, l + i_769_, class26_835_.x, class26_835_.y, class26_835_.z, class26_835_.anInt156, f_765_, f_766_);
+				final int i_836_ = class180_sub2.facesC[i_759_];
+				final Normal class26_837_ = class180_sub2.normals[i_836_];
+				aShortArray3879[i_758_] = method2413(class180_sub2, i_836_, l + i_770_, class26_837_.x, class26_837_.y, class26_837_.z, class26_837_.anInt156, f_767_, f_768_);
 			} else if (i_832_ == 1) {
 				final Class115 class115 = class180_sub2.aClass115Array2880[i_759_];
 				final long l = (i_762_ << 2) + (class115.anInt1111 > 0 ? 1024 : 2048) + (class115.anInt1109 + 256 << 12) + (class115.anInt1112 + 256 << 22) + ((long) (i_771_ << 24) + (long) (i_760_ << 8) + i_763_ << 32);
-				aShortArray3866[i_758_] = method2413(class180_sub2, class180_sub2.trianglesA[i_759_], l, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f, f_764_);
-				aShortArray3877[i_758_] = method2413(class180_sub2, class180_sub2.trianglesB[i_759_], l + i_769_, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f_765_, f_766_);
-				aShortArray3879[i_758_] = method2413(class180_sub2, class180_sub2.trianglesC[i_759_], l + i_770_, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f_767_, f_768_);
+				aShortArray3866[i_758_] = method2413(class180_sub2, class180_sub2.facesA[i_759_], l, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f, f_764_);
+				aShortArray3877[i_758_] = method2413(class180_sub2, class180_sub2.facesB[i_759_], l + i_769_, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f_765_, f_766_);
+				aShortArray3879[i_758_] = method2413(class180_sub2, class180_sub2.facesC[i_759_], l + i_770_, class115.anInt1111, class115.anInt1109, class115.anInt1112, 0, f_767_, f_768_);
 			}
-			if (class180_sub2.aShortArray2850 != null) {
-				aShortArray3855[i_758_] = class180_sub2.aShortArray2850[i_759_];
+			if (class180_sub2.faceTextures != null) {
+				aShortArray3855[i_758_] = class180_sub2.faceTextures[i_759_];
 			} else {
 				aShortArray3855[i_758_] = (short) -1;
 			}
 			if (aByteArray3872 != null) {
-				aByteArray3872[i_758_] = (byte) class180_sub2.triangleLabelIds[i_759_];
+				aByteArray3872[i_758_] = (byte) class180_sub2.faceLabelIds[i_759_];
 			}
-			aShortArray3857[i_758_] = class180_sub2.triangleColors[i_759_];
-			if (class180_sub2.trianglesAlpha != null) {
-				aByteArray3884[i_758_] = class180_sub2.trianglesAlpha[i_759_];
+			aShortArray3857[i_758_] = class180_sub2.faceColors[i_759_];
+			if (class180_sub2.faceAlphas != null) {
+				aByteArray3884[i_758_] = class180_sub2.faceAlphas[i_759_];
 			}
 			if (class180_sub2.aShortArray2867 != null) {
 				aShortArray3846[i_758_] = class180_sub2.aShortArray2867[i_759_];

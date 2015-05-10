@@ -4,11 +4,9 @@
 
 final class InterfaceClickMask extends Node {
 	static boolean safeModeEnabled = false;
-	static String aString2660 = "Loading fonts - ";
 	int paramId;
 	int optionMask;
-	static ObjectCache aClass21_2663 = new ObjectCache(500);
-
+	
 	final boolean method1677() {
 		return (0x1 & this.optionMask >> 21) != 0;
 	}
@@ -137,11 +135,6 @@ final class InterfaceClickMask extends Node {
 
 	final boolean method1692() {
 		return (0x1 & this.optionMask >> 22) != 0;
-	}
-
-	static final void method1693() {
-		MapSceneType.recentUse.clear();
-		MapSceneType.spriteCache.clear();
 	}
 
 	final boolean method1694() {

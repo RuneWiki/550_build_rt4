@@ -4,13 +4,13 @@
 
 final class ParticleEmitter extends ParticleNode {
 	private int anInt2314;
-	int anInt2315;
+	int centerX;
 	private int anInt2316;
 	private int anInt2317;
-	int anInt2318;
+	int centerY;
 	static int selectedObjSlot;
 	static int anInt2320 = 0;
-	int anInt2321;
+	int centerZ;
 	ModelParticleEmitter aClass158_2322;
 	EmitterType emitterType;
 	private int anInt2324;
@@ -104,20 +104,20 @@ final class ParticleEmitter extends ParticleNode {
 
 	final void method940(final int i, final int i_15_, boolean bool, final int i_16_, final long l) {
 		if (!this.aBoolean2339) {
-			if (ParticleEngine.particleSetting >= this.emitterType.anInt746) {
+			if (ParticleEngine.particleSetting >= this.emitterType.minSetting) {
 				if (OverridedJInterface.anIntArray2743[ParticleEngine.particleSetting] >= ParticleEngine.anInt2351) {
 					if (anInt2341 != anInt2342 || anInt2342 != anInt2325 || anInt2332 != anInt2326 || anInt2332 != anInt2316 || anInt2338 != anInt2317 || anInt2344 != anInt2317) {
-						if ((this.emitterType.anInt772 ^ 0xffffffff) != 0) {
+						if ((this.emitterType.lifetime ^ 0xffffffff) != 0) {
 							int i_18_ = (int) (l + -aLong2330);
-							if (this.emitterType.aBoolean760 || i_18_ <= this.emitterType.anInt772) {
-								i_18_ %= this.emitterType.anInt772;
+							if (this.emitterType.periodic || i_18_ <= this.emitterType.lifetime) {
+								i_18_ %= this.emitterType.lifetime;
 							} else {
 								bool = false;
 							}
-							if (!this.emitterType.aBoolean718 && this.emitterType.anInt755 > i_18_) {
+							if (!this.emitterType.activeFirst && this.emitterType.ageMark > i_18_) {
 								bool = false;
 							}
-							if (this.emitterType.aBoolean718 && i_18_ >= this.emitterType.anInt755) {
+							if (this.emitterType.activeFirst && i_18_ >= this.emitterType.ageMark) {
 								bool = false;
 							}
 						}
@@ -134,7 +134,7 @@ final class ParticleEmitter extends ParticleNode {
 			bool = false;
 		}
 		if (bool) {
-			anInt2334 += (int) ((this.emitterType.anInt768 + (this.emitterType.anInt734 - this.emitterType.anInt768) * Math.random()) * i);
+			anInt2334 += (int) ((this.emitterType.minParticleRate + (this.emitterType.maxParticleRate - this.emitterType.minParticleRate) * Math.random()) * i);
 			if (anInt2334 > 63) {
 				final int i_19_ = anInt2334 >> 6;
 				anInt2334 &= 0x3f;
@@ -158,7 +158,7 @@ final class ParticleEmitter extends ParticleNode {
 					anInt2314 = 32767 * anInt2314 / i_26_;
 					anInt2327 = anInt2327 * 32767 / i_26_;
 					anInt2335 = anInt2335 * 32767 / i_26_;
-					if (this.emitterType.aShort753 <= 0 && this.emitterType.aShort763 <= 0) {
+					if (this.emitterType.maxAngleH <= 0 && this.emitterType.maxAngleV <= 0) {
 						if (this.particleEngine.anInt2377 != 0) {
 							final int i_27_ = anInt2335 * i_15_ - -(anInt2314 * i_16_) >> 16;
 							anInt2335 = i_16_ * anInt2335 + -(anInt2314 * i_15_) >> 16;
@@ -167,11 +167,11 @@ final class ParticleEmitter extends ParticleNode {
 					} else {
 						int i_28_ = (int) (Math.atan2(anInt2335, anInt2314) * 2047.0 / 6.283185307179586);
 						final int i_29_ = (int) (Math.atan2(anInt2327, Math.sqrt(anInt2335 * anInt2335 + anInt2314 * anInt2314)) * 2047.0 / 6.283185307179586);
-						anInt2343 = -this.emitterType.aShort744 + this.emitterType.aShort753;
-						anInt2324 = -this.emitterType.aShort759 + this.emitterType.aShort763;
-						anInt2345 = this.emitterType.aShort759 + (i_29_ + -(anInt2324 / 2));
+						anInt2343 = this.emitterType.maxAngleH - this.emitterType.minAngleH;
+						anInt2324 = this.emitterType.maxAngleV - this.emitterType.minAngleV;
+						anInt2345 = this.emitterType.minAngleV + (i_29_ + -(anInt2324 / 2));
+						anInt2331 = -(anInt2343 / 2) + this.emitterType.minAngleH + i_28_;
 						i_28_ -= this.particleEngine.anInt2377;
-						anInt2331 = -(anInt2343 / 2) + this.emitterType.aShort744 + i_28_;
 					}
 					this.aBoolean2329 = false;
 				}
@@ -179,7 +179,7 @@ final class ParticleEmitter extends ParticleNode {
 					int i_31_;
 					int i_32_;
 					int i_33_;
-					if (this.emitterType.aShort753 <= 0 && this.emitterType.aShort763 <= 0) {
+					if (this.emitterType.maxAngleH <= 0 && this.emitterType.maxAngleV <= 0) {
 						i_33_ = anInt2327;
 						i_31_ = anInt2314;
 						i_32_ = anInt2335;
@@ -208,14 +208,14 @@ final class ParticleEmitter extends ParticleNode {
 						i_44_ = -(i_46_ * i_15_) + i_16_ * i_44_ >> 16;
 						i_46_ = i_47_;
 					}
-					final int i_48_ = (int) (Math.random() * (-this.emitterType.anInt739 + this.emitterType.anInt776)) + this.emitterType.anInt739;
-					final int i_49_ = (int) ((-this.emitterType.anInt756 + this.emitterType.anInt738) * Math.random()) + this.emitterType.anInt756;
+					final int i_48_ = (int) (Math.random() * (-this.emitterType.minSpeed + this.emitterType.maxSpeed)) + this.emitterType.minSpeed;
+					final int i_49_ = (int) ((-this.emitterType.minLifetime + this.emitterType.maxLifetime) * Math.random()) + this.emitterType.minLifetime;
 					int i_50_;
-					if (!this.emitterType.aBoolean736) {
-						i_50_ = (int) (Math.random() * this.emitterType.anInt774 + this.emitterType.anInt723) << 24 | (int) (Math.random() * this.emitterType.anInt722 + this.emitterType.anInt758) | (int) (this.emitterType.anInt767 * Math.random() + this.emitterType.anInt725) << 8 | (int) (this.emitterType.anInt737 + Math.random() * this.emitterType.anInt719) << 16;
+					if (!this.emitterType.uniformColorVariance) {
+						i_50_ = (int) (Math.random() * this.emitterType.startAlphaVariance + this.emitterType.minStartAlpha) << 24 | (int) (Math.random() * this.emitterType.startBlueVariance + this.emitterType.minStartBlue) | (int) (this.emitterType.startGreenVariance * Math.random() + this.emitterType.minStartGreen) << 8 | (int) (this.emitterType.minStartRed + Math.random() * this.emitterType.startRedVariance) << 16;
 					} else {
 						final double d = Math.random();
-						i_50_ = (int) (this.emitterType.anInt774 * d + this.emitterType.anInt723) << 24 | (int) (this.emitterType.anInt737 + d * this.emitterType.anInt719) << 16 | (int) (d * this.emitterType.anInt767 + this.emitterType.anInt725) << 8 | (int) (this.emitterType.anInt722 * d + this.emitterType.anInt758);
+						i_50_ = (int) (this.emitterType.startAlphaVariance * d + this.emitterType.minStartAlpha) << 24 | (int) (this.emitterType.minStartRed + d * this.emitterType.startRedVariance) << 16 | (int) (d * this.emitterType.startGreenVariance + this.emitterType.minStartGreen) << 8 | (int) (this.emitterType.startBlueVariance * d + this.emitterType.minStartBlue);
 					}
 					if (ParticleEngine.anInt2354 == ParticleEngine.anInt2353) {
 						new Particle(this, this.particleEngine.anInt2379 - -i_46_, this.particleEngine.anInt2372 - -i_45_, this.particleEngine.anInt2368 + i_44_, i_31_, i_33_, i_32_, i_48_, i_49_, i_50_);
@@ -229,7 +229,7 @@ final class ParticleEmitter extends ParticleNode {
 		}
 		this.anInt2333 = 0;
 		for (Particle class108_sub3_sub1 = (Particle) this.aClass174_2337.peekFirst(); class108_sub3_sub1 != null; class108_sub3_sub1 = (Particle) this.aClass174_2337.peekNext()) {
-			class108_sub3_sub1.method968(l, i);
+			class108_sub3_sub1.update(l, i);
 			this.anInt2333++;
 		}
 		ParticleEngine.anInt2360 += this.anInt2333;
@@ -267,14 +267,14 @@ final class ParticleEmitter extends ParticleNode {
 		anInt2342 = i_58_;
 		anInt2316 = i_55_;
 		anInt2326 = i_53_;
-		final int i_62_ = this.particleEngine.anInt2372 + (anInt2326 - -anInt2332 + anInt2316) / 3;
-		final int i_63_ = this.particleEngine.anInt2379 + (anInt2342 + anInt2341 - -anInt2325) / 3;
+		final int i_62_ = this.particleEngine.anInt2372 + (anInt2326 + anInt2332 + anInt2316) / 3;
+		final int i_63_ = this.particleEngine.anInt2379 + (anInt2342 + anInt2341 + anInt2325) / 3;
 		final int i_64_ = (anInt2344 + anInt2317 + anInt2338) / 3 - -this.particleEngine.anInt2368;
-		if (this.anInt2315 != i_63_ || i_62_ != this.anInt2318 || i_64_ != this.anInt2321) {
-			this.anInt2321 = i_64_;
+		if (this.centerX != i_63_ || i_62_ != this.centerY || i_64_ != this.centerZ) {
+			this.centerZ = i_64_;
 			this.aBoolean2329 = true;
-			this.anInt2318 = i_62_;
-			this.anInt2315 = i_63_;
+			this.centerY = i_62_;
+			this.centerX = i_63_;
 		}
 	}
 

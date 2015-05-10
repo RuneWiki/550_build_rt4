@@ -46,26 +46,19 @@ final class Class96 {
 		aClass35_901 = new NodeCache(64);
 	}
 
-	static final void method786(final boolean bool, final int i, final boolean bool_0_, final float[][] fs, final float[][] fs_1_, final Class120_Sub9 class120_sub9, final byte i_2_, final int[][] is, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final boolean bool_7_,
-			final int i_8_, final float[][] fs_9_, final int i_10_, final int i_11_, final boolean[] bools, final int[][] is_12_, final int i_13_, final int[] is_14_, final boolean bool_15_) {
-		try {
-			final int i_16_ = (i_13_ << 8) - -(bool_15_ ? 255 : 0);
-			final int i_17_ = (i_10_ << 8) + (bool_0_ ? 255 : 0);
-			final int i_18_ = (!bool_7_ ? 0 : 255) + (i_4_ << 8);
-			final int i_19_ = (i_3_ << 8) + (bool ? 255 : 0);
-			final int[] is_20_ = new int[is_14_.length / 2];
-			if (i_2_ == -39) {
-				for (int i_21_ = 0; i_21_ < is_20_.length; i_21_++) {
-					final int i_22_ = is_14_[i_21_ + i_21_];
-					final int i_23_ = is_14_[1 + i_21_ + i_21_];
-					final int[][] is_24_ = is_12_ != null && bools != null && bools[i_21_] ? is_12_ : is;
-					is_20_[i_21_] = Class120_Sub14_Sub22.method1634(fs_9_, i_23_, i, is_24_, fs, is_12_, class120_sub9, i_17_, i_11_, false, i_8_, fs_1_, i_5_, i_22_, i_2_ + 84, i_19_, i_18_, i_16_);
-				}
-				class120_sub9.method1165(i_6_, i_11_, i, is_20_, null, false);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "kf.B(");
+	static final void method786(final boolean bool, final int i, final boolean bool_0_, final float[][] fs, final float[][] fs_1_, final Class120_Sub9 class120_sub9, final int[][] is, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final boolean bool_7_, final int i_8_, final float[][] fs_9_, final int i_10_, final int i_11_, final boolean[] bools, final int[][] is_12_, final int i_13_, final int[] is_14_, final boolean bool_15_) {
+		final int i_16_ = (i_13_ << 8) - -(bool_15_ ? 255 : 0);
+		final int i_17_ = (i_10_ << 8) + (bool_0_ ? 255 : 0);
+		final int i_18_ = (!bool_7_ ? 0 : 255) + (i_4_ << 8);
+		final int i_19_ = (i_3_ << 8) + (bool ? 255 : 0);
+		final int[] is_20_ = new int[is_14_.length / 2];
+		for (int i_21_ = 0; i_21_ < is_20_.length; i_21_++) {
+			final int i_22_ = is_14_[i_21_ + i_21_];
+			final int i_23_ = is_14_[1 + i_21_ + i_21_];
+			final int[][] is_24_ = is_12_ != null && bools != null && bools[i_21_] ? is_12_ : is;
+			is_20_[i_21_] = Class120_Sub14_Sub22.method1634(fs_9_, i_23_, i, is_24_, fs, is_12_, class120_sub9, i_17_, i_11_, false, i_8_, fs_1_, i_5_, i_22_, i_19_, i_18_, i_16_);
 		}
+		class120_sub9.method1165(i_6_, i_11_, i, is_20_, null, false);
 	}
 
 	static final void method787(final LDIndexedSprite class107_sub1) {

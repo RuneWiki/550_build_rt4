@@ -5,7 +5,6 @@
 final class Class24 {
 	static boolean aBoolean139 = false;
 	static int[][][] anIntArrayArrayArray140;
-	static String aString142 = "Please wait - attempting to reestablish.";
 	static js5 aClass50_143;
 	static float aFloat144;
 	static js5 aClass50_145;
@@ -13,7 +12,7 @@ final class Class24 {
 	static int anInt147 = 0;
 
 	static final void method205() {
-		Class179.aClient1776.loadJagmisc();
+		Class179.clientInstance.loadJagmisc();
 		DummyInputStream.focus = true;
 		Class120_Sub12_Sub11.anInt3214 = 0;
 		Class179.aBoolean1779 = true;
@@ -55,7 +54,7 @@ final class Class24 {
 		}
 		TileParticleQueue.selfPlayer = Class118.playersList[2047] = new Player();
 		FileSystemRequest.projectileDeque.clear();
-		Class120_Sub12_Sub7.aClass105_3177.clear();
+		Class120_Sub12_Sub7.spotAnimationDeque.clear();
 		if (ClientScript.groundObjects != null) {
 			for (int level = 0; level < 4; level++) {
 				for (int x = 0; x < 104; x++) {
@@ -95,7 +94,7 @@ final class Class24 {
 		Class156.aClass189_1454 = null;
 		WallDecoration.menuOptionCount = 0;
 		Class15.menuOpen = false;
-		Class26.aClass144_159.method2042(-1, null, -1, new int[5], false);
+		Normal.aClass144_159.method2042(-1, null, -1, new int[5], false);
 		for (int id = 0; id < 8; id++) {
 			Buffer.playerOptions[id] = null;
 			InterfaceListener.playerOptionsOnTop[id] = false;
@@ -146,6 +145,6 @@ final class Class24 {
 	}
 
 	static final void method209(final int i, final long[] ls, final Object[] objects) {
-		Class132_Sub2.method1939(ls, (byte) 24, -1 + ls.length, 0, objects);
+		Class132_Sub2.method1939(ls, -1 + ls.length, 0, objects);
 	}
 }

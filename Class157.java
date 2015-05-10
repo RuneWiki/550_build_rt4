@@ -6,7 +6,6 @@ final class Class157 {
 	int anInt1459;
 	int anInt1460;
 	static int[] anIntArray1461;
-	static String aString1462 = "Cancel";
 	int anInt1463;
 	int anInt1464;
 	static ShaderInterface[] shaders;

@@ -158,9 +158,9 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 
 	static final void clearLocCache() {
 		LocType.recentUse.clear();
-		InterfaceClickMask.aClass21_2663.clear();
-		Class167.aClass21_1618.clear();
-		Class116.aClass21_1117.clear();
+		LocType.aClass21_2663.clear();
+		LocType.aClass21_1618.clear();
+		LocType.aClass21_1117.clear();
 	}
 
 	static final void handleLogin() {
@@ -286,7 +286,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putInt(Class132.aClass50_1251.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class114.aClass50_1097.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class169.aClass50_1649.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(ModelParticleMagnet.aClass50_1649.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub29.aClass50_3367.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class127.aClass50_1213.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class2.aClass50_50.getIndexCrc());

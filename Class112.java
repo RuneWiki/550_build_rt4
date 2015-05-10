@@ -16,12 +16,10 @@ final class Class112 {
 	static Frame frame;
 	static int anInt1077 = 0;
 	static byte kickRights;
-	static String aString1079;
 	static int anInt1080;
 
 	static {
 		anIntArray1069 = new int[] { 0, 2, 2, 2, 1, 1, 2, 2, 1, 3, 1, 1 };
-		aString1079 = "You can't add yourself to your own ignore list.";
 	}
 
 	final void method985() {
@@ -135,7 +133,7 @@ final class Class112 {
 	}
 
 	static final MapFunctionNode method992() {
-		if (WorldMapHandler.aClass177_690 == null) {
+		if (WorldMapHandler.mapFunctionsQueue == null) {
 			return null;
 		}
 		for (MapFunctionNode class120_sub14_sub5_22_ = (MapFunctionNode) Class22.aClass127_130.method1890(); class120_sub14_sub5_22_ != null; class120_sub14_sub5_22_ = (MapFunctionNode) Class22.aClass127_130.method1890()) {

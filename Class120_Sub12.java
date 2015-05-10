@@ -100,7 +100,7 @@ abstract class Class120_Sub12 extends Node {
 
 	static final void method1183(final LocType locType, final int x, final int z, final int level) {
 		for (AmbientSound ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class101_Sub1.locationAmbientSounds.getNext()) {
-			if (ambientSound.anInt2498 == level && ambientSound.anInt2494 == x * 128 && ambientSound.anInt2483 == z * 128 && locType.myId == ambientSound.location.myId) {
+			if (ambientSound.level == level && ambientSound.x == x * 128 && ambientSound.z == z * 128 && locType.myId == ambientSound.location.myId) {
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 					ambientSound.aClass120_Sub30_Sub4_2488 = null;
@@ -147,8 +147,8 @@ abstract class Class120_Sub12 extends Node {
 	}
 
 	static final void method1186(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_) {
-		if (Class32.anInt260 > i_28_ || i_28_ > ParamType.anInt3544 || Class32.anInt260 > i || ParamType.anInt3544 < i || Class32.anInt260 > i_23_ || ParamType.anInt3544 < i_23_ || Class32.anInt260 > i_24_ || i_24_ > ParamType.anInt3544 || i_25_ < Class120_Sub30_Sub2.anInt3699 || i_25_ > IdentityKit.anInt1334 || i_21_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_21_ || i_27_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_27_ || Class120_Sub30_Sub2.anInt3699 > i_26_ || IdentityKit.anInt1334 < i_26_) {
-			WorldInfo.method2067(i_28_, i_27_, i_24_, i, i_21_, i_25_, i_26_, -17731, i_22_, i_23_);
+		if (MagnetType.anInt260 > i_28_ || i_28_ > ParamType.anInt3544 || MagnetType.anInt260 > i || ParamType.anInt3544 < i || MagnetType.anInt260 > i_23_ || ParamType.anInt3544 < i_23_ || MagnetType.anInt260 > i_24_ || i_24_ > ParamType.anInt3544 || i_25_ < Class120_Sub30_Sub2.anInt3699 || i_25_ > IdentityKit.anInt1334 || i_21_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_21_ || i_27_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_27_ || Class120_Sub30_Sub2.anInt3699 > i_26_ || IdentityKit.anInt1334 < i_26_) {
+			WorldInfo.method2067(i_28_, i_27_, i_24_, i, i_21_, i_25_, i_26_, i_22_, i_23_);
 		} else {
 			LongNode.method1059(i_26_, i_27_, i_25_, i_22_, i, i_23_, i_24_, i_21_, i_28_);
 		}
@@ -228,8 +228,8 @@ abstract class Class120_Sub12 extends Node {
 	static final void method1194(final int i, final int i_59_, final int i_60_, final int i_62_, final int i_63_) {
 		final int i_64_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_60_, IdentityKit.anInt1334);
 		final int i_65_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_63_, IdentityKit.anInt1334);
-		final int i_66_ = Class3.method83(Class32.anInt260, i, ParamType.anInt3544);
-		final int i_67_ = Class3.method83(Class32.anInt260, i_59_, ParamType.anInt3544);
+		final int i_66_ = Class3.method83(MagnetType.anInt260, i, ParamType.anInt3544);
+		final int i_67_ = Class3.method83(MagnetType.anInt260, i_59_, ParamType.anInt3544);
 		for (int i_68_ = i_64_; i_65_ >= i_68_; i_68_++) {
 			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_68_], i_62_, i_66_, i_67_);
 		}

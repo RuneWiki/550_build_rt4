@@ -6,7 +6,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	int anInt3632 = 12800;
 	int anInt3633;
 	int anInt3634;
-	int anInt3635;
+	int backgroundColor;
 	int anInt3636 = 12800;
 	boolean aBoolean3638 = true;
 	static short[] aShortArray3639;
@@ -21,12 +21,12 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	static final void method1629(final int bitPacked, final int componentIndex, final int actionId, final String menuOptionSuffix) {
 		final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
 		if (jagexInterface != null) {
-			if (jagexInterface.anObjectArray2006 != null) {
+			if (jagexInterface.onComponentClickListener != null) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.actionId = actionId;
-				class120_sub10.aClass189_2534 = jagexInterface;
-				class120_sub10.aString2539 = menuOptionSuffix;
-				class120_sub10.objectData = jagexInterface.anObjectArray2006;
+				class120_sub10.jagexInterface = jagexInterface;
+				class120_sub10.actionOption = menuOptionSuffix;
+				class120_sub10.objectData = jagexInterface.onComponentClickListener;
 				Class88.method744(class120_sub10);
 			}
 			boolean bool = true;
@@ -117,87 +117,77 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 		return false;
 	}
 
-	static final int method1634(final float[][] fs, int i, final int i_19_, final int[][] is, final float[][] fs_20_, final int[][] is_21_, final Class120_Sub9 class120_sub9, final int i_22_, final int i_23_, final boolean bool, final float f, final float[][] fs_24_, final int i_25_, int i_26_,
-			final int i_27_, final int i_28_, final int i_29_, final int i_30_) {
-		int i_31_;
-		try {
-			if (i_25_ != 1) {
-				if (i_25_ != 2) {
-					if (i_25_ == 3) {
-						final int i_32_ = i_26_;
-						i_26_ = 128 + -i;
-						i = i_32_;
-					}
-				} else {
-					i = 128 + -i;
-					i_26_ = -i_26_ + 128;
+	static final int method1634(final float[][] fs, int i, final int i_19_, final int[][] is, final float[][] fs_20_, final int[][] is_21_, final Class120_Sub9 class120_sub9, final int i_22_, final int i_23_, final boolean bool, final float f, final float[][] fs_24_, final int i_25_, int i_26_, final int i_28_, final int i_29_, final int i_30_) {
+		if (i_25_ != 1) {
+			if (i_25_ != 2) {
+				if (i_25_ == 3) {
+					final int i_32_ = i_26_;
+					i_26_ = 128 + -i;
+					i = i_32_;
 				}
 			} else {
-				final int i_33_ = i_26_;
-				i_26_ = i;
-				i = 128 + -i_33_;
+				i = 128 + -i;
+				i_26_ = -i_26_ + 128;
 			}
-			if (i_27_ <= 20) {
-				return 40;
-			}
-			int i_34_;
-			float f_35_;
-			float f_36_;
-			float f_37_;
-			if (i_26_ != 0 || i != 0) {
-				if (i_26_ != 128 || i != 0) {
-					if (i_26_ == 128 && i == 128) {
-						f_37_ = fs_24_[i_23_ - -1][1 + i_19_];
-						f_35_ = fs_20_[i_23_ + 1][i_19_ - -1];
-						f_36_ = fs[1 + i_23_][1 + i_19_];
-						i_34_ = i_29_;
-					} else if (i_26_ != 0 || i != 128) {
-						f_35_ = fs_20_[i_23_][i_19_];
-						f_37_ = fs_24_[i_23_][i_19_];
-						f_36_ = fs[i_23_][i_19_];
-						final float f_38_ = i_26_ / 128.0F;
-						final float f_39_ = i / 128.0F;
-						f_35_ += f_38_ * (fs_20_[i_23_ + 1][i_19_] - f_35_);
-						f_37_ += f_38_ * (fs_24_[1 + i_23_][i_19_] - f_37_);
-						f_36_ += (-f_36_ + fs[1 + i_23_][i_19_]) * f_38_;
-						float f_40_ = fs[i_23_][1 + i_19_];
-						float f_41_ = fs_20_[i_23_][1 + i_19_];
-						float f_42_ = fs_24_[i_23_][i_19_ + 1];
-						f_40_ += (fs[i_23_ - -1][1 + i_19_] - f_40_) * f_38_;
-						f_36_ += f_39_ * (-f_36_ + f_40_);
-						f_42_ += f_38_ * (fs_24_[i_23_ + 1][1 + i_19_] - f_42_);
-						f_41_ += f_38_ * (fs_20_[i_23_ + 1][1 + i_19_] - f_41_);
-						f_37_ += (f_42_ - f_37_) * f_39_;
-						f_35_ += f_39_ * (-f_35_ + f_41_);
-						final int i_43_ = InterfaceListener.method1171(i_30_, i_22_, i_26_);
-						final int i_44_ = InterfaceListener.method1171(i_28_, i_29_, i_26_);
-						i_34_ = InterfaceListener.method1171(i_43_, i_44_, i);
-					} else {
-						f_37_ = fs_24_[i_23_][i_19_ - -1];
-						i_34_ = i_28_;
-						f_36_ = fs[i_23_][i_19_ - -1];
-						f_35_ = fs_20_[i_23_][i_19_ + 1];
-					}
-				} else {
-					f_36_ = fs[1 + i_23_][i_19_];
-					f_35_ = fs_20_[i_23_ - -1][i_19_];
-					i_34_ = i_22_;
-					f_37_ = fs_24_[i_23_ - -1][i_19_];
-				}
-			} else {
-				i_34_ = i_30_;
-				f_35_ = fs_20_[i_23_][i_19_];
-				f_36_ = fs[i_23_][i_19_];
-				f_37_ = fs_24_[i_23_][i_19_];
-			}
-			final int i_45_ = (i_19_ << 7) - -i;
-			final int i_46_ = i_26_ + (i_23_ << 7);
-			final int i_47_ = Class11.method130(i_26_, i_23_, i, is, i_19_);
-			i_31_ = class120_sub9.method1166(i_46_, i_47_, i_45_, f_36_, f_35_, f_37_, !bool ? i_34_ : ~0xff & i_34_, is_21_ == null ? 0.0F : (-Class11.method130(i_26_, i_23_, i, is_21_, i_19_) + i_47_) / f);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "wg.E(");
+		} else {
+			final int i_33_ = i_26_;
+			i_26_ = i;
+			i = 128 + -i_33_;
 		}
-		return i_31_;
+		int i_34_;
+		float f_35_;
+		float f_36_;
+		float f_37_;
+		if (i_26_ != 0 || i != 0) {
+			if (i_26_ != 128 || i != 0) {
+				if (i_26_ == 128 && i == 128) {
+					f_37_ = fs_24_[i_23_ - -1][1 + i_19_];
+					f_35_ = fs_20_[i_23_ + 1][i_19_ - -1];
+					f_36_ = fs[1 + i_23_][1 + i_19_];
+					i_34_ = i_29_;
+				} else if (i_26_ != 0 || i != 128) {
+					f_35_ = fs_20_[i_23_][i_19_];
+					f_37_ = fs_24_[i_23_][i_19_];
+					f_36_ = fs[i_23_][i_19_];
+					final float f_38_ = i_26_ / 128.0F;
+					final float f_39_ = i / 128.0F;
+					f_35_ += f_38_ * (fs_20_[i_23_ + 1][i_19_] - f_35_);
+					f_37_ += f_38_ * (fs_24_[1 + i_23_][i_19_] - f_37_);
+					f_36_ += (-f_36_ + fs[1 + i_23_][i_19_]) * f_38_;
+					float f_40_ = fs[i_23_][1 + i_19_];
+					float f_41_ = fs_20_[i_23_][1 + i_19_];
+					float f_42_ = fs_24_[i_23_][i_19_ + 1];
+					f_40_ += (fs[i_23_ - -1][1 + i_19_] - f_40_) * f_38_;
+					f_36_ += f_39_ * (-f_36_ + f_40_);
+					f_42_ += f_38_ * (fs_24_[i_23_ + 1][1 + i_19_] - f_42_);
+					f_41_ += f_38_ * (fs_20_[i_23_ + 1][1 + i_19_] - f_41_);
+					f_37_ += (f_42_ - f_37_) * f_39_;
+					f_35_ += f_39_ * (-f_35_ + f_41_);
+					final int i_43_ = InterfaceListener.method1171(i_30_, i_22_, i_26_);
+					final int i_44_ = InterfaceListener.method1171(i_28_, i_29_, i_26_);
+					i_34_ = InterfaceListener.method1171(i_43_, i_44_, i);
+				} else {
+					f_37_ = fs_24_[i_23_][i_19_ - -1];
+					i_34_ = i_28_;
+					f_36_ = fs[i_23_][i_19_ - -1];
+					f_35_ = fs_20_[i_23_][i_19_ + 1];
+				}
+			} else {
+				f_36_ = fs[1 + i_23_][i_19_];
+				f_35_ = fs_20_[i_23_ - -1][i_19_];
+				i_34_ = i_22_;
+				f_37_ = fs_24_[i_23_ - -1][i_19_];
+			}
+		} else {
+			i_34_ = i_30_;
+			f_35_ = fs_20_[i_23_][i_19_];
+			f_36_ = fs[i_23_][i_19_];
+			f_37_ = fs_24_[i_23_][i_19_];
+		}
+		final int i_45_ = (i_19_ << 7) - -i;
+		final int i_46_ = i_26_ + (i_23_ << 7);
+		final int i_47_ = Class11.method130(i_26_, i_23_, i, is, i_19_);
+		return class120_sub9.method1166(i_46_, i_47_, i_45_, f_36_, f_35_, f_37_, !bool ? i_34_ : ~0xff & i_34_, is_21_ == null ? 0.0F : (-Class11.method130(i_26_, i_23_, i, is_21_, i_19_) + i_47_) / f);
 	}
 
 	final boolean method1635(final int i, final int i_48_, final int[] is) {
@@ -233,14 +223,14 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 
 	Class120_Sub14_Sub22(final int i, final String string, final String string_50_, final int i_51_, final int i_52_, final boolean bool, final int i_53_) {
 		this.anInt3642 = 0;
-		this.anInt3635 = -1;
+		this.backgroundColor = -1;
 		this.zoom = -1;
 		this.displayName = string_50_;
 		this.aBoolean3638 = bool;
 		this.configName = string;
 		this.anInt3633 = i_51_;
 		this.anInt3634 = i;
-		this.anInt3635 = i_52_;
+		this.backgroundColor = i_52_;
 		this.zoom = i_53_;
 		if (this.zoom == 255) {
 			this.zoom = 0;

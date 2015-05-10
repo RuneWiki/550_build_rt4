@@ -31,13 +31,13 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				Class82.method713(i_5_, i, i_2_, i_3_);
 			}
 		} else if (i_8_ == 0) {
-			SeqType.method321(true, i_5_, i_6_, i_3_, i);
+			SeqType.method321(i_5_, i_6_, i_3_, i);
 		} else {
 			final int i_9_ = (i_8_ << 12) / i_7_;
 			final int i_10_ = -(i_5_ * i_9_ >> 12) + i;
 			int i_11_;
 			int i_12_;
-			if (i_5_ >= Class32.anInt260) {
+			if (i_5_ >= MagnetType.anInt260) {
 				if (ParamType.anInt3544 >= i_5_) {
 					i_12_ = i_5_;
 					i_11_ = i;
@@ -46,12 +46,12 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					i_11_ = (ParamType.anInt3544 * i_9_ >> 12) + i_10_;
 				}
 			} else {
-				i_11_ = i_10_ - -(Class32.anInt260 * i_9_ >> 12);
-				i_12_ = Class32.anInt260;
+				i_11_ = i_10_ - -(MagnetType.anInt260 * i_9_ >> 12);
+				i_12_ = MagnetType.anInt260;
 			}
 			int i_13_;
 			int i_14_;
-			if (i_6_ >= Class32.anInt260) {
+			if (i_6_ >= MagnetType.anInt260) {
 				if (i_6_ <= ParamType.anInt3544) {
 					i_13_ = i_6_;
 					i_14_ = i_2_;
@@ -60,8 +60,8 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					i_14_ = (i_9_ * ParamType.anInt3544 >> 12) + i_10_;
 				}
 			} else {
-				i_13_ = Class32.anInt260;
-				i_14_ = i_10_ + (Class32.anInt260 * i_9_ >> 12);
+				i_13_ = MagnetType.anInt260;
+				i_14_ = i_10_ + (MagnetType.anInt260 * i_9_ >> 12);
 			}
 			if (Class120_Sub30_Sub2.anInt3699 > i_14_) {
 				i_13_ = (Class120_Sub30_Sub2.anInt3699 + -i_10_ << 12) / i_9_;
@@ -79,7 +79,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				i_12_ = (-i_10_ + Class120_Sub30_Sub2.anInt3699 << 12) / i_9_;
 				i_11_ = Class120_Sub30_Sub2.anInt3699;
 			}
-			LongNode.method1056(i_14_, i_12_, i_11_, -1, i_3_, i_13_);
+			LongNode.method1056(i_14_, i_12_, i_11_, i_3_, i_13_);
 		}
 	}
 
@@ -136,18 +136,18 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	}
 
 	static final void method1371(final GameEntity gameEntity) {
-		final EntityRenderData class29 = gameEntity.getEntityRenderData();
-		gameEntity.idleAnimId = class29.anInt218;
-		if (gameEntity.anInt2960 == 0) {
+		final EntityRenderData renderData = gameEntity.getEntityRenderData();
+		gameEntity.idleAnimId = renderData.idleAnimationId;
+		if (gameEntity.walkQueuePos == 0) {
 			gameEntity.anInt3037 = 0;
 		} else {
 			if (gameEntity.animId != -1 && gameEntity.animDelay == 0) {
 				final SeqType seqType = SeqType.list(gameEntity.animId);
-				if (gameEntity.anInt3031 > 0 && seqType.speedupType == 0) {
+				if (gameEntity.onAnimPlayWalkQueuePos > 0 && seqType.speedupType == 0) {
 					gameEntity.anInt3037++;
 					return;
 				}
-				if (gameEntity.anInt3031 <= 0 && seqType.walkProperties == 0) {
+				if (gameEntity.onAnimPlayWalkQueuePos <= 0 && seqType.walkProperties == 0) {
 					gameEntity.anInt3037++;
 					return;
 				}
@@ -156,200 +156,194 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
 				if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
 					final SeqType seqType = SeqType.list(spotAnimType.animationId);
-					if (gameEntity.anInt3031 > 0 && seqType.speedupType == 0) {
+					if (gameEntity.onAnimPlayWalkQueuePos > 0 && seqType.speedupType == 0) {
 						gameEntity.anInt3037++;
 						return;
 					}
-					if (gameEntity.anInt3031 <= 0 && seqType.walkProperties == 0) {
+					if (gameEntity.onAnimPlayWalkQueuePos <= 0 && seqType.walkProperties == 0) {
 						gameEntity.anInt3037++;
 						return;
 					}
 				}
 			}
-			final int i_23_ = gameEntity.x;
-			final int i_24_ = gameEntity.z;
-			final int i_25_ = gameEntity.walkQueueX[gameEntity.anInt2960 - 1] * 128 + (gameEntity.getSize() * 64);
-			final int i_26_ = gameEntity.walkQueueZ[gameEntity.anInt2960 - 1] * 128 + (gameEntity.getSize() * 64);
-			if (i_25_ - i_23_ > 256 || i_25_ - i_23_ < -256 || i_26_ - i_24_ > 256 || i_26_ - i_24_ < -256) {
-				gameEntity.z = i_26_;
-				gameEntity.x = i_25_;
+			final int entityX = gameEntity.x;
+			final int entityZ = gameEntity.z;
+			final int destX = gameEntity.walkQueueX[gameEntity.walkQueuePos - 1] * 128 + (gameEntity.getSize() * 64);
+			final int destZ = gameEntity.walkQueueZ[gameEntity.walkQueuePos - 1] * 128 + (gameEntity.getSize() * 64);
+			if (destX - entityX > 256 || destX - entityX < -256 || destZ - entityZ > 256 || destZ - entityZ < -256) {
+				gameEntity.x = destX;
+				gameEntity.z = destZ;
 			} else {
-				if (i_25_ <= i_23_) {
-					if (i_23_ <= i_25_) {
-						if (i_26_ > i_24_) {
-							gameEntity.anInt3019 = 1024;
-						} else if (i_24_ > i_26_) {
-							gameEntity.anInt3019 = 0;
-						}
-					} else if (i_24_ >= i_26_) {
-						if (i_26_ >= i_24_) {
-							gameEntity.anInt3019 = 512;
-						} else {
-							gameEntity.anInt3019 = 256;
-						}
+				if(entityX < destX) {
+					if(entityZ < destZ) {
+						gameEntity.newFaceDegrees = 1280;
+					} else if(entityZ > destZ) {
+						gameEntity.newFaceDegrees = 1792;
 					} else {
-						gameEntity.anInt3019 = 768;
+						gameEntity.newFaceDegrees = 1536;
 					}
-				} else if (i_24_ >= i_26_) {
-					if (i_24_ > i_26_) {
-						gameEntity.anInt3019 = 1792;
+				} else if(entityX > destX) {
+					if (entityZ < destZ) {
+						gameEntity.newFaceDegrees = 768;
+					} else if (entityZ > destZ) {
+						gameEntity.newFaceDegrees = 256;
 					} else {
-						gameEntity.anInt3019 = 1536;
+						gameEntity.newFaceDegrees = 512;
 					}
+				} else if (entityZ < destZ) {
+					gameEntity.newFaceDegrees = 1024;
 				} else {
-					gameEntity.anInt3019 = 1280;
+					gameEntity.newFaceDegrees = 0;
 				}
-				int i_27_ = class29.anInt187;
-				int i_28_ = 0x7ff & gameEntity.anInt3019 + -gameEntity.anInt3032;
-				if (i_28_ > 1024) {
-					i_28_ -= 2048;
+				int animationId = renderData.turnAnimation1;
+				int degreesDelta = gameEntity.newFaceDegrees - gameEntity.faceDegrees & 0x7ff;
+				if (degreesDelta > 1024) {
+					degreesDelta -= 2048;
 				}
-				if (i_28_ >= -256 && i_28_ <= 256) {
-					i_27_ = class29.anInt205;
-				} else if (i_28_ < 256 || i_28_ >= 768) {
-					if (i_28_ >= -768 && i_28_ <= -256) {
-						i_27_ = class29.anInt213;
-					}
-				} else {
-					i_27_ = class29.anInt200;
+				if (degreesDelta >= -256 && degreesDelta <= 256) {
+					animationId = renderData.walkAnimation;
+				} else if (degreesDelta >= 256 && degreesDelta <= 768) {
+					animationId = renderData.turnAnimation2;
+				} else if (degreesDelta >= -768 && degreesDelta <= -256) {
+					animationId = renderData.turnAnimation3;
 				}
-				if (i_27_ == -1) {
-					i_27_ = class29.anInt205;
+				if (animationId == -1) {
+					animationId = renderData.walkAnimation;
 				}
-				gameEntity.idleAnimId = i_27_;
-				int i_29_ = 4;
+				gameEntity.idleAnimId = animationId;
+				int positionOffset = 4;
 				boolean bool = true;
 				if (gameEntity instanceof Npc) {
 					bool = ((Npc) gameEntity).npcType.aBoolean1701;
 				}
 				int i_30_ = 1;
 				if (bool) {
-					if (gameEntity.anInt3032 != gameEntity.anInt3019 && (gameEntity.facingEntityIndex ^ 0xffffffff) == 0 && gameEntity.anInt3010 != 0) {
-						i_29_ = 2;
+					if (gameEntity.faceDegrees != gameEntity.newFaceDegrees && gameEntity.facingEntityIndex == -1 && gameEntity.anInt3010 != 0) {
+						positionOffset = 2;
 					}
-					if (gameEntity.anInt2960 > 2) {
-						i_29_ = 6;
+					if (gameEntity.walkQueuePos > 2) {
+						positionOffset = 6;
 					}
-					if (gameEntity.anInt2960 > 3) {
-						i_29_ = 8;
+					if (gameEntity.walkQueuePos > 3) {
+						positionOffset = 8;
 					}
-					if (gameEntity.anInt3037 > 0 && gameEntity.anInt2960 > 1) {
-						i_29_ = 8;
+					if (gameEntity.anInt3037 > 0 && gameEntity.walkQueuePos > 1) {
 						gameEntity.anInt3037--;
+						positionOffset = 8;
 					}
 				} else {
-					if (gameEntity.anInt2960 > 1) {
-						i_29_ = 6;
+					if (gameEntity.walkQueuePos > 1) {
+						positionOffset = 6;
 					}
-					if (gameEntity.anInt2960 > 2) {
-						i_29_ = 8;
+					if (gameEntity.walkQueuePos > 2) {
+						positionOffset = 8;
 					}
-					if (gameEntity.anInt3037 > 0 && gameEntity.anInt2960 > 1) {
+					if (gameEntity.anInt3037 > 0 && gameEntity.walkQueuePos > 1) {
 						gameEntity.anInt3037--;
-						i_29_ = 8;
+						positionOffset = 8;
 					}
 				}
-				if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 2) {
+				if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 2) {
 					i_30_ = 2;
-					i_29_ <<= 1;
-				} else if (gameEntity.aByteArray2973[gameEntity.anInt2960 - 1] == 0) {
-					i_29_ >>= 1;
+					positionOffset <<= 1;
+				} else if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 0) {
+					positionOffset >>= 1;
 					i_30_ = 0;
 				}
-				if (i_29_ < 8 || (class29.anInt190 ^ 0xffffffff) == 0) {
-					if (class29.anInt212 != -1 && i_30_ == 0) {
-						if (class29.anInt187 == gameEntity.idleAnimId && (class29.anInt192 ^ 0xffffffff) != 0) {
-							gameEntity.idleAnimId = class29.anInt192;
-						} else if (gameEntity.idleAnimId != class29.anInt213 || (class29.anInt210 ^ 0xffffffff) == 0) {
-							if (class29.anInt200 == gameEntity.idleAnimId && class29.anInt219 != -1) {
-								gameEntity.idleAnimId = class29.anInt219;
+				if (positionOffset < 8 || renderData.anInt190 == -1) {
+					if (renderData.anInt212 != -1 && i_30_ == 0) {
+						if (renderData.turnAnimation1 == gameEntity.idleAnimId && renderData.anInt192 != -1) {
+							gameEntity.idleAnimId = renderData.anInt192;
+						} else if (gameEntity.idleAnimId != renderData.turnAnimation3 || renderData.anInt210 == -1) {
+							if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.anInt219 != -1) {
+								gameEntity.idleAnimId = renderData.anInt219;
 							} else {
-								gameEntity.idleAnimId = class29.anInt212;
+								gameEntity.idleAnimId = renderData.anInt212;
 							}
 						} else {
-							gameEntity.idleAnimId = class29.anInt210;
+							gameEntity.idleAnimId = renderData.anInt210;
 						}
 					}
-				} else if (gameEntity.idleAnimId == class29.anInt187 && (class29.anInt188 ^ 0xffffffff) != 0) {
-					gameEntity.idleAnimId = class29.anInt188;
-				} else if (class29.anInt213 != gameEntity.idleAnimId || (class29.anInt223 ^ 0xffffffff) == 0) {
-					if (class29.anInt200 == gameEntity.idleAnimId && (class29.anInt216 ^ 0xffffffff) != 0) {
-						gameEntity.idleAnimId = class29.anInt216;
+				} else if (gameEntity.idleAnimId == renderData.turnAnimation1 && renderData.anInt188 != -1) {
+					gameEntity.idleAnimId = renderData.anInt188;
+				} else if (renderData.turnAnimation3 != gameEntity.idleAnimId || renderData.anInt223 == -1) {
+					if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.anInt216 != -1) {
+						gameEntity.idleAnimId = renderData.anInt216;
 					} else {
-						gameEntity.idleAnimId = class29.anInt190;
+						gameEntity.idleAnimId = renderData.anInt190;
 					}
 				} else {
-					gameEntity.idleAnimId = class29.anInt223;
+					gameEntity.idleAnimId = renderData.anInt223;
 				}
-				if ((class29.anInt201 ^ 0xffffffff) != 0) {
-					i_29_ <<= 7;
-					if (gameEntity.anInt2960 == 1) {
+				if (renderData.anInt201 != -1) {
+					positionOffset <<= 7;
+					if (gameEntity.walkQueuePos == 1) {
 						final int i_31_ = gameEntity.anInt2996 * gameEntity.anInt2996;
-						final int i_32_ = (i_26_ >= gameEntity.z ? i_26_ + -gameEntity.z : gameEntity.z - i_26_) << 7;
-						final int i_33_ = (i_25_ < gameEntity.x ? -i_25_ + gameEntity.x : -gameEntity.x + i_25_) << 7;
+						final int i_33_ = (destX < gameEntity.x ? gameEntity.x - destX : destX - gameEntity.x) << 7;
+						final int i_32_ = (destZ < gameEntity.z ? gameEntity.z - destZ : destZ - gameEntity.z) << 7;
 						final int i_34_ = i_32_ >= i_33_ ? i_32_ : i_33_;
-						final int i_35_ = class29.anInt201 * 2 * i_34_;
+						final int i_35_ = renderData.anInt201 * 2 * i_34_;
 						if (i_35_ >= i_31_) {
 							if (i_31_ / 2 > i_34_) {
-								gameEntity.anInt2996 -= class29.anInt201;
+								gameEntity.anInt2996 -= renderData.anInt201;
 								if (gameEntity.anInt2996 < 0) {
 									gameEntity.anInt2996 = 0;
 								}
-							} else if (gameEntity.anInt2996 < i_29_) {
-								gameEntity.anInt2996 += class29.anInt201;
-								if (i_29_ < gameEntity.anInt2996) {
-									gameEntity.anInt2996 = i_29_;
+							} else if (gameEntity.anInt2996 < positionOffset) {
+								gameEntity.anInt2996 += renderData.anInt201;
+								if (positionOffset < gameEntity.anInt2996) {
+									gameEntity.anInt2996 = positionOffset;
 								}
 							}
 						} else {
 							gameEntity.anInt2996 /= 2;
 						}
-					} else if (gameEntity.anInt2996 >= i_29_) {
+					} else if (gameEntity.anInt2996 >= positionOffset) {
 						if (gameEntity.anInt2996 > 0) {
-							gameEntity.anInt2996 -= class29.anInt201;
+							gameEntity.anInt2996 -= renderData.anInt201;
 							if (gameEntity.anInt2996 < 0) {
 								gameEntity.anInt2996 = 0;
 							}
 						}
 					} else {
-						gameEntity.anInt2996 += class29.anInt201;
-						if (i_29_ < gameEntity.anInt2996) {
-							gameEntity.anInt2996 = i_29_;
+						gameEntity.anInt2996 += renderData.anInt201;
+						if (positionOffset < gameEntity.anInt2996) {
+							gameEntity.anInt2996 = positionOffset;
 						}
 					}
-					i_29_ = gameEntity.anInt2996 >> 7;
-					if (i_29_ < 1) {
-						i_29_ = 1;
+					positionOffset = gameEntity.anInt2996 >> 7;
+					if (positionOffset < 1) {
+						positionOffset = 1;
 					}
 				}
-				if (i_26_ > i_24_) {
-					gameEntity.z += i_29_;
-					if (i_26_ < gameEntity.z) {
-						gameEntity.z = i_26_;
+				if (destZ > entityZ) {
+					gameEntity.z += positionOffset;
+					if (gameEntity.z > destZ) {
+						gameEntity.z = destZ;
 					}
-				} else if (i_24_ > i_26_) {
-					gameEntity.z -= i_29_;
-					if (i_26_ > gameEntity.z) {
-						gameEntity.z = i_26_;
+				} else if (entityZ > destZ) {
+					gameEntity.z -= positionOffset;
+					if (gameEntity.z < destZ) {
+						gameEntity.z = destZ;
 					}
 				}
-				if (i_23_ >= i_25_) {
-					if (i_23_ > i_25_) {
-						gameEntity.x -= i_29_;
-						if (gameEntity.x < i_25_) {
-							gameEntity.x = i_25_;
+				if (entityX >= destX) {
+					if (entityX > destX) {
+						gameEntity.x -= positionOffset;
+						if (gameEntity.x < destX) {
+							gameEntity.x = destX;
 						}
 					}
 				} else {
-					gameEntity.x += i_29_;
-					if (gameEntity.x > i_25_) {
-						gameEntity.x = i_25_;
+					gameEntity.x += positionOffset;
+					if (gameEntity.x > destX) {
+						gameEntity.x = destX;
 					}
 				}
-				if (gameEntity.x == i_25_ && gameEntity.z == i_26_) {
-					gameEntity.anInt2960--;
-					if (gameEntity.anInt3031 > 0) {
-						gameEntity.anInt3031--;
+				if (gameEntity.x == destX && gameEntity.z == destZ) {
+					gameEntity.walkQueuePos--;
+					if (gameEntity.onAnimPlayWalkQueuePos > 0) {
+						gameEntity.onAnimPlayWalkQueuePos--;
 					}
 				}
 			}

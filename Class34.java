@@ -54,11 +54,11 @@ final class Class34 {
 		}
 		int i_3_;
 		if (i == 2) {
-			i_3_ = bool ? Class163.anInt1575 : Class163.anInt1574;
+			i_3_ = bool ? Class163.GL_RGBA_FLOAT32 : Class163.GL_RGB_FLOAT32;
 		} else if (i == 1) {
-			i_3_ = bool ? Class163.anInt1573 : Class163.anInt1572;
+			i_3_ = bool ? Class163.GL_RGBA_FLOAT16 : Class163.GL_RGB_FLOAT16;
 		} else {
-			i_3_ = bool ? Class163.anInt1570 : Class163.anInt1569;
+			i_3_ = bool ? Class163.GL_RGBA : Class163.GL_RGB;
 		}
 		if (i_3_ != anInt293) {
 			anInt293 = i_3_;
@@ -159,7 +159,7 @@ final class Class34 {
 			}
 			if (aBoolean290) {
 				gl.glBindTexture(34037, anInt294);
-				Class163.method2120(Class163.anInt1568, Class163.anInt1577, anInt283, anInt281, Class163.anInt1577, Class163.anInt1581, null);
+				Class163.method2120(Class163.GL_TEXTURE_RECTANGLE, Class163.GL_DEPTH_COMPONENT, anInt283, anInt281, Class163.GL_DEPTH_COMPONENT, Class163.GL_UNSIGNED_BYTE, null);
 			} else {
 				gl.glBindRenderbufferEXT(36161, anInt294);
 				gl.glRenderbufferStorageEXT(36161, 6402, anInt283, anInt281);

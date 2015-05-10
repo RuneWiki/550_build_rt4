@@ -211,7 +211,7 @@ final class Class120_Sub21 extends Node {
 					} else {
 						Class101_Sub3.method848();
 						Class3.method82();
-						Class120_Sub14_Sub24.updateEntityText();
+						ParticleMagnet.updateEntityText();
 						for (int i_18_ = Class31.method263(true); i_18_ != -1; i_18_ = Class31.method263(false)) {
 							Class120_Sub14_Sub15.postVarpChange(i_18_);
 							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(VarBit.anInt165++, 31)] = i_18_;
@@ -334,11 +334,11 @@ final class Class120_Sub21 extends Node {
 							}
 						}
 						Class120_Sub12_Sub22.redrawRate++;
-						if (Class32.aClass189_256 != null) {
+						if (MagnetType.aClass189_256 != null) {
 							Class69_Sub2.anInt2236++;
 							if (Class69_Sub2.anInt2236 >= 15) {
-								InterfaceClickMask.redrawInterface(Class32.aClass189_256);
-								Class32.aClass189_256 = null;
+								InterfaceClickMask.redrawInterface(MagnetType.aClass189_256);
+								MagnetType.aClass189_256 = null;
 							}
 						}
 						if (Projectile.aClass189_2954 != null) {
@@ -422,7 +422,7 @@ final class Class120_Sub21 extends Node {
 							if (class120_sub10 == null) {
 								break;
 							}
-							final JagexInterface class189_36_ = class120_sub10.aClass189_2534;
+							final JagexInterface class189_36_ = class120_sub10.jagexInterface;
 							if (class189_36_.componentIndex >= 0) {
 								final JagexInterface class189_37_ = Class74.getJagexInterface(class189_36_.parent);
 								if (class189_37_ == null || class189_37_.components == null || class189_37_.components.length <= class189_36_.componentIndex || class189_37_.components[class189_36_.componentIndex] != class189_36_) {
@@ -436,7 +436,7 @@ final class Class120_Sub21 extends Node {
 							if (class120_sub10 == null) {
 								break;
 							}
-							final JagexInterface class189_38_ = class120_sub10.aClass189_2534;
+							final JagexInterface class189_38_ = class120_sub10.jagexInterface;
 							if (class189_38_.componentIndex >= 0) {
 								final JagexInterface class189_39_ = Class74.getJagexInterface(class189_38_.parent);
 								if (class189_39_ == null || class189_39_.components == null || class189_39_.components.length <= class189_38_.componentIndex || class189_38_ != class189_39_.components[class189_38_.componentIndex]) {
@@ -450,7 +450,7 @@ final class Class120_Sub21 extends Node {
 							if (class120_sub10 == null) {
 								break;
 							}
-							final JagexInterface class189_40_ = class120_sub10.aClass189_2534;
+							final JagexInterface class189_40_ = class120_sub10.jagexInterface;
 							if (class189_40_.componentIndex >= 0) {
 								final JagexInterface class189_41_ = Class74.getJagexInterface(class189_40_.parent);
 								if (class189_41_ == null || class189_41_.components == null || class189_40_.componentIndex >= class189_41_.components.length || class189_41_.components[class189_40_.componentIndex] != class189_40_) {

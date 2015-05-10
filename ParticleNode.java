@@ -25,7 +25,7 @@ class ParticleNode {
 	}
 
 	static final void getSpriteIds(final js5 js5) {
-		Class32.p11fullId = js5.getGroupId("p11_full");
+		MagnetType.p11fullId = js5.getGroupId("p11_full");
 		Class191.p12fullId = js5.getGroupId("p12_full");
 		Class110.b12fullId = js5.getGroupId("b12_full");
 		AmbientSound.hitmarksId = js5.getGroupId("hitmarks");
@@ -34,7 +34,7 @@ class ParticleNode {
 		MasterIndexInfo.headiconsprayerId = js5.getGroupId("headicons_prayer");
 		Class120_Sub21.hintheadiconsId = js5.getGroupId("hint_headicons");
 		Class173.hintmapmarkersId = js5.getGroupId("hint_mapmarkers");
-		Class169.mapflagId = js5.getGroupId("mapflag");
+		ModelParticleMagnet.mapflagId = js5.getGroupId("mapflag");
 		Class132_Sub2.crossId = js5.getGroupId("cross");
 		MapFunctionType.mapdotsId = js5.getGroupId("mapdots");
 		Class134.scrollbarId = js5.getGroupId("scrollbar");

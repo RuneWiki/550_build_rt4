@@ -12,7 +12,7 @@ class Class143 implements Interface3 {
 
 	@Override
 	public final int[] method6(final int i, final float f, final int i_0_, final int i_1_, final boolean bool) {
-		return method2016(i_0_).method1533(f, aClass114Array2186[i_0_].aBoolean1107, 30319, aClass50_2187, this, i, bool, i_1_);
+		return method2016(i_0_).method1533(f, aClass114Array2186[i_0_].aBoolean1107, aClass50_2187, this, i, bool, i_1_);
 	}
 
 	static final void method2013(final int i, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final boolean bool, final int i_7_, final int i_9_, final int i_10_, final int i_11_) {
@@ -166,7 +166,7 @@ class Class143 implements Interface3 {
 				if (string.length() == 0) {
 					string_30_ = new StringBuilder(string_30_).append("; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0").toString();
 				} else {
-					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(Class32.method270(94608000000L + TimeUtil.getSafeTime())).append("; Max-Age=").append(94608000L).toString();
+					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(MagnetType.method270(94608000000L + TimeUtil.getSafeTime())).append("; Max-Age=").append(94608000L).toString();
 				}
 				JSHelper.eval(new StringBuilder("document.cookie=\"").append(string_30_).append("\"").toString(), NpcType.gameSignlink.gameApplet);
 			} catch (final Throwable throwable) {

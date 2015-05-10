@@ -75,7 +75,7 @@ final class Class88 {
 					collisionMap.method228(x, z);
 				}
 			}
-			if (locType.childrenIDs != null) {
+			if (locType.transmogrificationIds != null) {
 				locType = locType.handleVarp();
 			}
 			if (HDToolkit.glEnabled && locType != null && locType.aBoolean1823) {

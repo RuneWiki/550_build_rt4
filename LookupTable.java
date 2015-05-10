@@ -12,7 +12,7 @@ final class LookupTable {
 		AbstractIndexedSprite.aClass189Array1022 = null;
 		Class43.method343(Class69.rootInterfaceId, 0, 0, 0, Class120_Sub12_Sub5.canvasHeight, 0, Class69_Sub1.canvasWidth, -1);
 		if (AbstractIndexedSprite.aClass189Array1022 != null) {
-			MapSceneType.method2008(AbstractIndexedSprite.aClass189Array1022, Class120_Sub12_Sub38.anInt3438, -1412584499, Class26.aClass189_161.redrawId, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
+			MapSceneType.method2008(AbstractIndexedSprite.aClass189Array1022, Class120_Sub12_Sub38.anInt3438, -1412584499, Normal.aClass189_161.redrawId, Class120_Sub12_Sub5.canvasHeight, Class69_Sub1.canvasWidth, 0, Class111.anInt1065, 0);
 			AbstractIndexedSprite.aClass189Array1022 = null;
 		}
 	}

@@ -59,21 +59,21 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 				return false;
 			}
 			if (Js5Request.aClass120_Sub31_3941 == null) {
-				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.method1830(MasterIndexInfo.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
+				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.list(MasterIndexInfo.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
 				if (Js5Request.aClass120_Sub31_3941 == null) {
 					return false;
 				}
 			}
-			if (Class26.aClass90_163 == null) {
-				Class26.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, MasterIndexInfo.aClass50_469);
+			if (Normal.aClass90_163 == null) {
+				Normal.aClass90_163 = new Class90(Class120_Sub29.aClass50_2770, MasterIndexInfo.aClass50_469);
 			}
-			if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Class26.aClass90_163)) {
+			if (!Class30.aClass120_Sub30_Sub2_234.method1780(22050, Js5Request.aClass120_Sub31_3941, Class57.aClass50_499, Normal.aClass90_163)) {
 				return false;
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1778();
 			Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.anInt3940);
 			Class30.aClass120_Sub30_Sub2_234.method1773(Js5Request.aClass120_Sub31_3941, StringNode.aBoolean2734);
-			Class26.aClass90_163 = null;
+			Normal.aClass90_163 = null;
 			Js5Request.aClass120_Sub31_3941 = null;
 			MasterIndexInfo.aClass50_476 = null;
 			Class120_Sub12_Sub25.anInt3312 = 0;
@@ -81,7 +81,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		} catch (final Exception exception) {
 			exception.printStackTrace();
 			Class30.aClass120_Sub30_Sub2_234.method1770();
-			Class26.aClass90_163 = null;
+			Normal.aClass90_163 = null;
 			Class120_Sub12_Sub25.anInt3312 = 0;
 			MasterIndexInfo.aClass50_476 = null;
 			Js5Request.aClass120_Sub31_3941 = null;
@@ -132,7 +132,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			final int[] is_17_ = method1192(i_13_, 0);
 			final int[] is_18_ = method1192(Class120_Sub29.anInt2774 & i_13_ - -1, 0);
 			for (int i_19_ = 0; i_19_ < Class120_Sub12_Sub7.anInt3178; i_19_++) {
-				final int i_20_ = i_15_ * (is_17_[Class32.anInt259 & i_19_ + -1] + -is_17_[Class32.anInt259 & i_19_ + 1]) >> 12;
+				final int i_20_ = i_15_ * (is_17_[MagnetType.anInt259 & i_19_ + -1] + -is_17_[MagnetType.anInt259 & i_19_ + 1]) >> 12;
 				int i_21_ = i_20_ >> 4;
 				final int i_22_ = (is_18_[i_19_] + -is_16_[i_19_]) * i_15_ >> 12;
 				if (i_21_ < 0) {

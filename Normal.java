@@ -3,13 +3,13 @@
  */
 import java.awt.Component;
 
-final class Class26 {
-	int anInt155;
+final class Normal {
+	int y;
 	int anInt156;
-	int anInt157;
+	int x;
 	static NodeCache aClass35_158 = new NodeCache(64);
 	static PlayerAppearance aClass144_159 = new PlayerAppearance();
-	int anInt160;
+	int z;
 	static JagexInterface aClass189_161 = null;
 	static int anInt162 = 0;
 	static Class90 aClass90_163;
@@ -42,28 +42,28 @@ final class Class26 {
 		}
 	}
 
-	public Class26() {
+	public Normal() {
 		/* empty */
 	}
 
 	static final void removeKeyboard(final Component component) {
-		component.removeKeyListener(Class169.keyboardHandler);
-		component.removeFocusListener(Class169.keyboardHandler);
+		component.removeKeyListener(ModelParticleMagnet.keyboardHandler);
+		component.removeFocusListener(ModelParticleMagnet.keyboardHandler);
 		AnimatedLocation.anInt3074 = -1;
 	}
 
 	static final void removeKeyboardHandler() {
-		if (Class169.keyboardHandler != null) {
-			synchronized (Class169.keyboardHandler) {
-				Class169.keyboardHandler = null;
+		if (ModelParticleMagnet.keyboardHandler != null) {
+			synchronized (ModelParticleMagnet.keyboardHandler) {
+				ModelParticleMagnet.keyboardHandler = null;
 			}
 		}
 	}
 
-	Class26(final Class26 class26_10_) {
-		this.anInt160 = class26_10_.anInt160;
-		this.anInt156 = class26_10_.anInt156;
-		this.anInt157 = class26_10_.anInt157;
-		this.anInt155 = class26_10_.anInt155;
+	Normal(final Normal normal) {
+		this.z = normal.z;
+		this.anInt156 = normal.anInt156;
+		this.x = normal.x;
+		this.y = normal.y;
 	}
 }

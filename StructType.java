@@ -212,9 +212,9 @@ final class StructType extends NodeSub {
 		UnderlayType.recentUse.method192(5);
 		IdentityKit.recentUse.method192(5);
 		LocType.recentUse.method192(5);
-		InterfaceClickMask.aClass21_2663.method192(5);
-		Class167.aClass21_1618.method192(5);
-		Class116.aClass21_1117.method192(5);
+		LocType.aClass21_2663.method192(5);
+		LocType.aClass21_1618.method192(5);
+		LocType.aClass21_1117.method192(5);
 		NpcType.recentUse.method192(5);
 		NpcType.aClass21_80.method192(5);
 		Projectile.aClass21_2931.method192(5);
@@ -241,8 +241,8 @@ final class StructType extends NodeSub {
 		Class43.playerModelsCache.method192(5);
 		Class90.playerHeadModelsCache.method192(5);		
 		JagexInterface.spriteCache.method192(50);
-		LabelGroup.aClass21_2406.method192(50);
-		Class120_Sub12_Sub2.aClass21_3143.method192(50);
+		JagexInterface.modelCache.method192(50);
+		JagexInterface.fontCache.method192(50);
 		Class120_Sub14_Sub13.aClass21_3564.method192(5);
 		Class154.shadowModelCache.method192(5);
 		Class120_Sub12_Sub2.aClass21_3144.method192(5);

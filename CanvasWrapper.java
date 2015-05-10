@@ -14,14 +14,14 @@ final class CanvasWrapper extends Canvas {
 
 	static final int stringToIntRadix(final String string, final int radix, final boolean bool) {
 		if (radix < 2 || radix > 36) {
-			throw new IllegalArgumentException(new StringBuilder("Invalid radix:").append(radix).toString());
+			throw new IllegalArgumentException("Invalid radix:" + radix);
 		}
 		boolean negative = false;
-		boolean bool_3_ = false;
-		int i_5_ = 0;
-		for (int i_6_ = 0; i_6_ < string.length(); i_6_++) {
-			int charValue = string.charAt(i_6_);
-			if (i_6_ == 0) {
+		boolean resultSet = false;
+		int result = 0;
+		for (int index = 0; index < string.length(); index++) {
+			int charValue = string.charAt(index);
+			if (index == 0) {
 				if (charValue == 45) {//-
 					negative = true;
 					continue;
@@ -49,17 +49,17 @@ final class CanvasWrapper extends Canvas {
 			if (negative) {
 				charValue = -charValue;
 			}
-			final int i_8_ = charValue + radix * i_5_;
-			if (i_8_ / radix != i_5_) {
+			final int nextResult = charValue + radix * result;
+			if (nextResult / radix != result) {
 				throw new NumberFormatException();
 			}
-			bool_3_ = true;
-			i_5_ = i_8_;
+			resultSet = true;
+			result = nextResult;
 		}
-		if (!bool_3_) {
+		if (!resultSet) {
 			throw new NumberFormatException();
 		}
-		return i_5_;
+		return result;
 	}
 
 	static final void method66(final String string, final String string_9_, final int i) {

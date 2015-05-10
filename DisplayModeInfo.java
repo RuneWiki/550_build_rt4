@@ -11,7 +11,7 @@ final class DisplayModeInfo {
 	int bitDepth;
 	static int anInt1713;
 	static int revision;
-	static int anInt1715;
+	static int scrollBarOffsetX;
 
 	static {
 		for (int i = 0; i < 256; i++) {
@@ -25,7 +25,7 @@ final class DisplayModeInfo {
 			}
 			crcTable[i] = i_0_;
 		}
-		anInt1715 = 0;
+		scrollBarOffsetX = 0;
 	}
 
 	static final void method2213() {

@@ -21,7 +21,7 @@ final class IsaacCipher {
 			} else {
 				GraphicsHD.clearPixels();
 			}
-			KeyboardHandler.titlebgSprite = Class26.constructAbstractSprite(js5, StructType.titlebgId);
+			KeyboardHandler.titlebgSprite = Normal.constructAbstractSprite(js5, StructType.titlebgId);
 			final int canvasHeight = Class120_Sub12_Sub5.canvasHeight;
 			final int x = 956 * canvasHeight / 503;
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - x) / 2, 0, x, canvasHeight);

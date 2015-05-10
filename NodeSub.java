@@ -6,7 +6,6 @@ class NodeSub extends Node {
 	NodeSub previousSub;
 	static float[] aFloatArray2583;
 	static short[] aShortArray2584 = new short[256];
-	static String aString2585 = "Loaded config";
 	long subUid;
 	NodeSub nextSub;
 

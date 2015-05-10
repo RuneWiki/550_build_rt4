@@ -2,67 +2,70 @@
  * Visit http://jode.sourceforge.net/
  */
 
+//Big thanks to http://www.rune-server.org/members/method/
 final class EmitterType {
-	int anInt717 = 0;
-	boolean aBoolean718;
-	int anInt719;
-	int anInt720;
-	int size;
-	int anInt722;
-	int anInt723;
-	int anInt724;
-	int anInt725;
-	int anInt726;
-	private int anInt727 = 100;
-	int anInt728;
-	int anInt729;
-	int anInt730;
-	int anInt731;
-	private int anInt732;
-	int anInt733;
-	int anInt734;
-	int anInt735;
-	boolean aBoolean736;
-	int anInt737;
-	int anInt738;
-	int anInt739;
-	int anInt740;
-	int anInt741;
+	int decelerationType = 0;
+	boolean activeFirst;
+	int startRedVariance;
+	int alphaFadeStep;
+	int minSize;
+	int startBlueVariance;
+	int minStartAlpha;
+	int texture;
+	int minStartGreen;
+	int minLevel;
+	private int alphaFacePct = 100;
+	int fadeRedStep;
+	int fadeColor;
+	int fadeGreenStep;
+	int alphaFadeStart;
+	private int speedChangePct;
+	int endSpeed;
+	int maxParticleRate;
+	int colorFadeStart;
+	boolean uniformColorVariance;
+	int minStartRed;
+	int maxLifetime;
+	int minSpeed;
+	int startupUpdates;
+	int decelerationRate;
 	static boolean mouseInsideWorldMap;
-	int[] anIntArray743;
-	short aShort744;
-	int anInt745;
-	int anInt746;
-	private int anInt747;
-	private int anInt748;
-	private int anInt749;
-	boolean aBoolean750;
+	int[] globalMagnets;
+	short minAngleH;
+	int fadeBlueStep;
+	int minSetting;
+	private int minStartColor;
+	private int maxStartBlue;
+	private int maxStartAlpha;
+	boolean disableHDLighting;
 	static volatile int currentClickY = 0;
-	int anInt752;
-	short aShort753;
-	boolean aBoolean754;
-	int anInt755;
-	int anInt756;
-	int[] anIntArray757;
-	int anInt758;
-	short aShort759;
-	boolean aBoolean760;
+	int speedChangeStart;
+	short maxAngleH;
+	boolean checkHeight;
+	int ageMark;
+	int minLifetime;
+	int[] globalMagnetIndices;
+	int minStartBlue;
+	short minAngleV;
+	boolean periodic;
 	static byte[] aByteArray761;
-	private int anInt762;
-	short aShort763;
-	private int anInt764;
-	int lowDetailsParticleSubId;
-	private int anInt766;
-	int anInt767;
-	int anInt768;
-	int anInt769;
-	private int anInt770;
-	private int[] anIntArray771;
-	int anInt772;
-	int[] anIntArray773;
-	int anInt774;
-	int anInt775;
-	int anInt776;
+	private int maxStartColor;
+	short maxAngleV;
+	private int colorFadePct;
+	int untextured;
+	private int maxStartGreen;
+	int startGreenVariance;
+	int minParticleRate;
+	int maxLevel;
+	private int maxStartRed;
+	private int[] localMagnets;
+	int lifetime;
+	int[] generalMagnets;
+	int startAlphaVariance;
+	int speedStep;
+	int maxSpeed;
+	static js5 aClass50_619;
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	static {
 		mouseInsideWorldMap = false;
@@ -132,160 +135,156 @@ final class EmitterType {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.aShort744 = (short) buffer.getUShort();
-			this.aShort753 = (short) buffer.getUShort();
-			this.aShort759 = (short) buffer.getUShort();
-			this.aShort763 = (short) buffer.getUShort();
+			this.minAngleH = (short) buffer.getUShort();
+			this.maxAngleH = (short) buffer.getUShort();
+			this.minAngleV = (short) buffer.getUShort();
+			this.maxAngleV = (short) buffer.getUShort();
 		} else if (code == 2) {
 			buffer.getUByte();
 		} else if (code == 3) {
-			this.anInt739 = buffer.getInt();
-			this.anInt776 = buffer.getInt();
+			this.minSpeed = buffer.getInt();
+			this.maxSpeed = buffer.getInt();
 		} else if (code == 4) {
-			this.anInt717 = buffer.getUByte();
-			this.anInt741 = buffer.getByte();
+			this.decelerationType = buffer.getUByte();
+			this.decelerationRate = buffer.getByte();
 		} else if (code == 5) {
-			this.size = buffer.getUByte();
+			this.minSize = buffer.getUByte();
 		} else if (code == 6) {
-			anInt747 = buffer.getInt();
-			anInt762 = buffer.getInt();
+			minStartColor = buffer.getInt();
+			maxStartColor = buffer.getInt();
 		} else if (code == 7) {
-			this.anInt756 = buffer.getUShort();
-			this.anInt738 = buffer.getUShort();
+			this.minLifetime = buffer.getUShort();
+			this.maxLifetime = buffer.getUShort();
 		} else if (code == 8) {
-			this.anInt768 = buffer.getUShort();
-			this.anInt734 = buffer.getUShort();
+			this.minParticleRate = buffer.getUShort();
+			this.maxParticleRate = buffer.getUShort();
 		} else if (code == 9) {
-			final int i_18_ = buffer.getUByte();
-			anIntArray771 = new int[i_18_];
-			for (int i_19_ = 0; i_18_ > i_19_; i_19_++) {
-				anIntArray771[i_19_] = buffer.getUShort();
+			final int len = buffer.getUByte();
+			localMagnets = new int[len];
+			for (int id = 0; id < len; id++) {
+				localMagnets[id] = buffer.getUShort();
 			}
 		} else if (code == 10) {
-			final int i_22_ = buffer.getUByte();
-			this.anIntArray743 = new int[i_22_];
-			for (int i_23_ = 0; i_22_ > i_23_; i_23_++) {
-				this.anIntArray743[i_23_] = buffer.getUShort();
+			final int len = buffer.getUByte();
+			this.globalMagnets = new int[len];
+			for (int id = 0; id < len; id++) {
+				this.globalMagnets[id] = buffer.getUShort();
 			}
 		} else if (code == 12) {
-			this.anInt726 = buffer.getByte();
+			this.minLevel = buffer.getByte();
 		} else if (code == 13) {
-			this.anInt769 = buffer.getByte();
+			this.maxLevel = buffer.getByte();
 		} else if (code == 14) {
-			this.anInt740 = buffer.getUShort();
+			this.startupUpdates = buffer.getUShort();
 		} else if (code == 15) {
-			this.anInt724 = buffer.getUShort();
+			this.texture = buffer.getUShort();
 		} else if (code == 16) {
-			this.aBoolean718 = buffer.getUByte() == 1;
-			this.anInt755 = buffer.getUShort();
-			this.anInt772 = buffer.getUShort();
-			this.aBoolean760 = buffer.getUByte() == 1;
+			this.activeFirst = buffer.getUByte() == 1;
+			this.ageMark = buffer.getUShort();
+			this.lifetime = buffer.getUShort();
+			this.periodic = buffer.getUByte() == 1;
 		} else if (code == 17) {
-			this.lowDetailsParticleSubId = buffer.getUShort();
+			this.untextured = buffer.getUShort();
 		} else if (code == 18) {
-			this.anInt729 = buffer.getInt();
+			this.fadeColor = buffer.getInt();
 		} else if (code == 19) {
-			this.anInt746 = buffer.getUByte();
+			this.minSetting = buffer.getUByte();
 		} else if (code == 20) {
-			anInt764 = buffer.getUByte();
+			colorFadePct = buffer.getUByte();
 		} else if (code == 21) {
-			anInt727 = buffer.getUByte();
+			alphaFacePct = buffer.getUByte();
 		} else if (code == 22) {
-			this.anInt733 = buffer.getInt();
+			this.endSpeed = buffer.getInt();
 		} else if (code == 23) {
-			anInt732 = buffer.getUByte();
+			speedChangePct = buffer.getUByte();
 		} else if (code == 24) {
-			this.aBoolean736 = false;
+			this.uniformColorVariance = false;
 		} else if (code == 25) {
 			final int i_20_ = buffer.getUByte();
-			this.anIntArray773 = new int[i_20_];
+			this.generalMagnets = new int[i_20_];
 			for (int i_21_ = 0; i_20_ > i_21_; i_21_++) {
-				this.anIntArray773[i_21_] = buffer.getUShort();
+				this.generalMagnets[i_21_] = buffer.getUShort();
 			}
 		} else if (code == 26) {
-			this.aBoolean750 = false;
+			this.disableHDLighting = false;
 		}
 	}
 
 	final void postDecode() {
-		if (this.anInt726 > -2 || this.anInt769 > -2) {
-			this.aBoolean754 = true;
+		if (this.minLevel > -2 || this.maxLevel > -2) {
+			this.checkHeight = true;
 		}
-		this.anInt737 = (0xff137c & anInt747) >> 16;
-		this.anInt725 = (0xff19 & anInt747) >> 8;
-		this.anInt723 = anInt747 >> 24 & 0xff;
-		if (this.anInt733 != -1) {
-			this.anInt752 = anInt732 * this.anInt738 / 100;
-			if (this.anInt752 == 0) {
-				this.anInt752 = 1;
+		this.minStartAlpha = minStartColor >> 24 & 0xff;
+		this.minStartRed = minStartColor >> 16 & 0xff;
+		this.minStartGreen = minStartColor >> 8 & 0xff;
+		this.minStartBlue = minStartColor & 0xff;
+		maxStartAlpha = maxStartColor >> 24 & 0xff;
+		maxStartRed = maxStartColor >> 16 & 0xff;
+		maxStartGreen = maxStartColor >> 8 & 0xff;
+		maxStartBlue = maxStartColor & 0xff;
+		this.startAlphaVariance = maxStartAlpha - this.minStartAlpha;
+		this.startRedVariance = maxStartRed - this.minStartRed;
+		this.startGreenVariance = maxStartGreen - this.minStartGreen;
+		this.startBlueVariance = maxStartBlue - this.minStartBlue;
+		if (this.endSpeed != -1) {
+			this.speedChangeStart = speedChangePct * this.maxLifetime / 100;
+			if (this.speedChangeStart == 0) {
+				this.speedChangeStart = 1;
 			}
-			this.anInt775 = (-this.anInt739 - (-this.anInt739 + this.anInt776) / 2 + this.anInt733) / this.anInt752;
+			this.speedStep = (-this.minSpeed - (-this.minSpeed + this.maxSpeed) / 2 + this.endSpeed) / this.speedChangeStart;
 		}
-		this.anInt758 = 0xff & anInt747;
-		anInt766 = 0xff & anInt762 >> 8;
-		anInt749 = anInt762 >> 24 & 0xff;
-		anInt770 = (anInt762 & 0xff9b08) >> 16;
-		this.anInt767 = anInt766 - this.anInt725;
-		this.anInt719 = anInt770 - this.anInt737;
-		this.anInt774 = anInt749 - this.anInt723;
-		anInt748 = 0xff & anInt762;
-		this.anInt722 = anInt748 - this.anInt758;
-		if (this.anInt729 != 0) {
-			this.anInt731 = anInt727 * this.anInt738 / 100;
-			this.anInt735 = anInt764 * this.anInt738 / 100;
-			if (this.anInt731 == 0) {
-				this.anInt731 = 1;
+		if (this.fadeColor != 0) {
+			this.alphaFadeStart = alphaFacePct * this.maxLifetime / 100;
+			this.colorFadeStart = colorFadePct * this.maxLifetime / 100;
+			if (this.alphaFadeStart == 0) {
+				this.alphaFadeStart = 1;
 			}
-			if (this.anInt735 == 0) {
-				this.anInt735 = 1;
+			if (this.colorFadeStart == 0) {
+				this.colorFadeStart = 1;
 			}
-			this.anInt728 = (((0xffe5a4 & this.anInt729) >> 16) + -this.anInt737 - this.anInt719 / 2 << 8) / this.anInt735;
-			final EmitterType class80_24_ = this;
-			class80_24_.anInt728 = class80_24_.anInt728 + (this.anInt728 > 0 ? -4 : 4);
-			this.anInt730 = (((0xff61 & this.anInt729) >> 8) - this.anInt725 - this.anInt767 / 2 << 8) / this.anInt735;
-			final EmitterType class80_25_ = this;
-			class80_25_.anInt730 = class80_25_.anInt730 + (this.anInt730 <= 0 ? 4 : -4);
-			this.anInt720 = (-(this.anInt774 / 2) + -this.anInt723 + (this.anInt729 >> 24 & 0xff) << 8) / this.anInt731;
-			final EmitterType class80_26_ = this;
-			class80_26_.anInt720 = class80_26_.anInt720 + (this.anInt720 > 0 ? -4 : 4);
-			this.anInt745 = (-(this.anInt722 / 2) - this.anInt758 + (this.anInt729 & 0xff) << 8) / this.anInt735;
-			final EmitterType class80_27_ = this;
-			class80_27_.anInt745 = class80_27_.anInt745 + (this.anInt745 > 0 ? -4 : 4);
+			this.fadeRedStep = (((0xffe5a4 & this.fadeColor) >> 16) + -this.minStartRed - this.startRedVariance / 2 << 8) / this.colorFadeStart;
+			fadeRedStep = fadeRedStep + (this.fadeRedStep > 0 ? -4 : 4);
+			this.fadeGreenStep = (((0xff61 & this.fadeColor) >> 8) - this.minStartGreen - this.startGreenVariance / 2 << 8) / this.colorFadeStart;
+			fadeGreenStep = fadeGreenStep + (this.fadeGreenStep <= 0 ? 4 : -4);
+			this.alphaFadeStep = (-(this.startAlphaVariance / 2) + -this.minStartAlpha + (this.fadeColor >> 24 & 0xff) << 8) / this.alphaFadeStart;
+			alphaFadeStep = alphaFadeStep + (this.alphaFadeStep > 0 ? -4 : 4);
+			this.fadeBlueStep = (-(this.startBlueVariance / 2) - this.minStartBlue + (this.fadeColor & 0xff) << 8) / this.colorFadeStart;
+			fadeBlueStep = fadeBlueStep + (this.fadeBlueStep > 0 ? -4 : 4);
 		}
 	}
 
 	static final EmitterType list(final int id) {
-		EmitterType emitterType = (EmitterType) Class120_Sub12_Sub16.aClass21_3251.get(id);
+		EmitterType emitterType = (EmitterType) recentUse.get(id);
 		if (emitterType != null) {
 			return emitterType;
 		}
-		final byte[] data = Class69.aClass50_619.getFile(0, id);
+		final byte[] data = aClass50_619.getFile(0, id);
 		emitterType = new EmitterType();
 		System.out.println("hello from emitterType - "+id+", "+(data==null));
 		if (data != null) {
 			emitterType.decode(new Buffer(data));
 		}
 		emitterType.postDecode();
-		Class120_Sub12_Sub16.aClass21_3251.put(emitterType, id);
+		recentUse.put(emitterType, id);
 		return emitterType;
 	}
 
 	public EmitterType() {
-		this.anInt724 = -1;
-		this.anInt733 = -1;
-		this.anInt740 = 0;
-		this.aBoolean718 = true;
-		this.anInt755 = -1;
-		this.aBoolean736 = true;
-		this.lowDetailsParticleSubId = -1;
-		anInt732 = 100;
-		this.aBoolean754 = false;
-		this.anInt769 = -2;
-		this.aBoolean750 = true;
-		anInt764 = 100;
-		this.aBoolean760 = true;
-		this.anInt772 = -1;
-		this.anInt746 = 0;
-		this.anInt726 = -2;
+		this.texture = -1;
+		this.endSpeed = -1;
+		this.startupUpdates = 0;
+		this.activeFirst = true;
+		this.ageMark = -1;
+		this.uniformColorVariance = true;
+		this.untextured = -1;
+		speedChangePct = 100;
+		this.checkHeight = false;
+		this.maxLevel = -2;
+		this.disableHDLighting = true;
+		colorFadePct = 100;
+		this.periodic = true;
+		this.lifetime = -1;
+		this.minSetting = 0;
+		this.minLevel = -2;
 	}
 }

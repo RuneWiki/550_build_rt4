@@ -51,7 +51,7 @@ final class Class120_Sub11 extends Node {
 		for (AmbientSound ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
 			int i_9_ = 1;
 			final EntityRenderData class29 = ambientSound.npc.getEntityRenderData();
-			if (ambientSound.npc.idleAnimId == class29.anInt218) {
+			if (ambientSound.npc.idleAnimId == class29.idleAnimationId) {
 				i_9_ = 0;
 			} else if (ambientSound.npc.idleAnimId == class29.anInt190 || ambientSound.npc.idleAnimId == class29.anInt188 || ambientSound.npc.idleAnimId == class29.anInt216 || ambientSound.npc.idleAnimId == class29.anInt223) {
 				i_9_ = 2;
@@ -60,25 +60,25 @@ final class Class120_Sub11 extends Node {
 			}
 			if (i_9_ != ambientSound.anInt2480) {
 				final int i_10_ = WaterfallShader.method178(ambientSound.npc);
-				if (ambientSound.anInt2485 != i_10_) {
+				if (ambientSound.id != i_10_) {
 					if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 						ambientSound.aClass120_Sub30_Sub4_2488 = null;
 					}
-					ambientSound.anInt2485 = i_10_;
+					ambientSound.id = i_10_;
 				}
 				ambientSound.anInt2480 = i_9_;
 			}
-			ambientSound.anInt2494 = ambientSound.npc.x;
-			ambientSound.anInt2487 = ambientSound.npc.x + (ambientSound.npc.getSize() * 64);
-			ambientSound.anInt2483 = ambientSound.npc.z;
-			ambientSound.anInt2481 = ambientSound.npc.z + (ambientSound.npc.getSize() * 64);
+			ambientSound.x = ambientSound.npc.x;
+			ambientSound.entityX = ambientSound.npc.x + (ambientSound.npc.getSize() * 64);
+			ambientSound.z = ambientSound.npc.z;
+			ambientSound.entityZ = ambientSound.npc.z + (ambientSound.npc.getSize() * 64);
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
 		}
 		for (AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.getFirst(); ambientSound != null; ambientSound = (AmbientSound) Npc.playerAmbientSounds.getNext()) {
 			int i_11_ = 1;
 			final EntityRenderData class29 = ambientSound.player.getEntityRenderData();
-			if (class29.anInt218 != ambientSound.player.idleAnimId) {
+			if (class29.idleAnimationId != ambientSound.player.idleAnimId) {
 				if (class29.anInt190 != ambientSound.player.idleAnimId && class29.anInt188 != ambientSound.player.idleAnimId && ambientSound.player.idleAnimId != class29.anInt216 && ambientSound.player.idleAnimId != class29.anInt223) {
 					if (ambientSound.player.idleAnimId == class29.anInt212 || ambientSound.player.idleAnimId == class29.anInt192 || ambientSound.player.idleAnimId == class29.anInt219 || ambientSound.player.idleAnimId == class29.anInt210) {
 						i_11_ = 3;
@@ -91,32 +91,25 @@ final class Class120_Sub11 extends Node {
 			}
 			if (ambientSound.anInt2480 != i_11_) {
 				final int i_12_ = WaterfallShader.method179(ambientSound.player);
-				if (ambientSound.anInt2485 != i_12_) {
+				if (ambientSound.id != i_12_) {
 					if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1783(ambientSound.aClass120_Sub30_Sub4_2488);
 						ambientSound.aClass120_Sub30_Sub4_2488 = null;
 					}
-					ambientSound.anInt2485 = i_12_;
+					ambientSound.id = i_12_;
 				}
 				ambientSound.anInt2480 = i_11_;
 			}
-			ambientSound.anInt2494 = ambientSound.player.x;
-			ambientSound.anInt2487 = ambientSound.player.x + (ambientSound.player.getSize() * 64);
-			ambientSound.anInt2483 = ambientSound.player.z;
-			ambientSound.anInt2481 = ambientSound.player.z + (ambientSound.player.getSize() * 64);
+			ambientSound.x = ambientSound.player.x;
+			ambientSound.entityX = ambientSound.player.x + (ambientSound.player.getSize() * 64);
+			ambientSound.z = ambientSound.player.z;
+			ambientSound.entityZ = ambientSound.player.z + (ambientSound.player.getSize() * 64);
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
 		}
 	}
 
-	static final void method1177(final int i, final js5 js5) {
-		try {
-			Class24.aClass50_145 = js5;
-			if (i != -12014) {
-				aShortArray2556 = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("j.B(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method1177(final js5 js5) {
+		Class24.aClass50_145 = js5;
 	}
 
 	Class120_Sub11(final byte[] is) {

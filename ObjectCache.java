@@ -180,25 +180,25 @@ final class ObjectCache {
 				if (objectData[id] instanceof Integer) {
 					int intValue = ((Integer) objectData[id]).intValue();
 					if (intValue == -2147483647) {
-						intValue = listener.anInt2543;
+						intValue = listener.data1;
 					}
 					if (intValue == -2147483646) {
-						intValue = listener.anInt2540;
+						intValue = listener.data2;
 					}
 					if (intValue == -2147483645) {
-						intValue = listener.aClass189_2534 != null ? listener.aClass189_2534.bitPacked : -1;
+						intValue = listener.jagexInterface != null ? listener.jagexInterface.bitPacked : -1;
 					}
 					if (intValue == -2147483644) {
 						intValue = listener.actionId;
 					}
 					if (intValue == -2147483643) {
-						intValue = listener.aClass189_2534 == null ? -1 : listener.aClass189_2534.componentIndex;
+						intValue = listener.jagexInterface != null ? listener.jagexInterface.componentIndex : - 1;
 					}
 					if (intValue == -2147483642) {
-						intValue = listener.aClass189_2532 != null ? listener.aClass189_2532.bitPacked : -1;
+						intValue = listener.draggedOnComponent != null ? listener.draggedOnComponent.bitPacked : -1;
 					}
 					if (intValue == -2147483641) {
-						intValue = listener.aClass189_2532 != null ? listener.aClass189_2532.componentIndex : -1;
+						intValue = listener.draggedOnComponent != null ? listener.draggedOnComponent.componentIndex : -1;
 					}
 					if (intValue == -2147483640) {
 						intValue = listener.keyCode;
@@ -210,7 +210,7 @@ final class ObjectCache {
 				} else if (objectData[id] instanceof String) {
 					String stringValue = (String) objectData[id];
 					if (stringValue.equals("event_opbase")) {
-						stringValue = listener.aString2539;
+						stringValue = listener.actionOption;
 					}
 					Class79_Sub1.stringArguments[stringArgAmount++] = stringValue;
 				}

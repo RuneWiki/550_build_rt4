@@ -70,7 +70,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				final int i_20_ = i_19_ * GZIPDecompressor.anIntArray800[i_18_] >> 12;
 				final int i_21_ = Class120_Sub29.anInt2774 & i_13_ + (i_20_ >> 12);
 				final int i_22_ = i_19_ * FileSystemWorker.anIntArray789[i_18_] >> 12;
-				final int i_23_ = Class32.anInt259 & i_17_ + (i_22_ >> 12);
+				final int i_23_ = MagnetType.anInt259 & i_17_ + (i_22_ >> 12);
 				final int[] is_24_ = method1192(i_21_, 0);
 				is_14_[i_17_] = is_24_[i_23_];
 			}
@@ -79,7 +79,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	}
 
 	static final void method1321(final int i, final int i_25_, final int i_26_, final int i_28_, final int i_29_) {
-		if (Class32.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > IdentityKit.anInt1334) {
+		if (MagnetType.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > IdentityKit.anInt1334) {
 			Class120_Sub12.method1194(i, i_26_, i_28_, i_29_, i_25_);
 		} else {
 			FileSystem.method446(i_28_, i, i_25_, i_29_, i_26_);
@@ -90,43 +90,45 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		super(3, false);
 	}
 
-	static final void method1322() {
+	static final void redrawMargins() {
 		final int leftMargin = ReflectionCheckNode.leftMargin;
 		final int topMargin = WallDecoration.topMargin;
-		final int i_33_ = Class120_Sub12_Sub7.frameWidth - Class69_Sub1.canvasWidth - leftMargin;
-		final int i_32_ = PlayerAppearance.frameHeight - Class120_Sub12_Sub5.canvasHeight - topMargin;
-		if (leftMargin > 0 || i_33_ > 0 || topMargin > 0 || i_32_ > 0) {
+		final int rigthMargin = Class120_Sub12_Sub7.frameWidth - Class69_Sub1.canvasWidth - leftMargin;
+		final int bottomMargin = PlayerAppearance.frameHeight - Class120_Sub12_Sub5.canvasHeight - topMargin;
+		if (leftMargin > 0 || rigthMargin > 0 || topMargin > 0 || bottomMargin > 0) {
 			try {
 				Container container;
-				if (Class120_Sub14_Sub10.fullscreenFrame == null) {
-					if (Class112.frame != null) {
-						container = Class112.frame;
-					} else {
-						container = NpcType.gameSignlink.gameApplet;
-					}
-				} else {
+				if (Class120_Sub14_Sub10.fullscreenFrame != null) {
 					container = Class120_Sub14_Sub10.fullscreenFrame;
+				} else if (Class112.frame != null) {
+					container = Class112.frame;
+				} else {
+					container = NpcType.gameSignlink.gameApplet;
 				}
-				int i_34_ = 0;
-				int i_35_ = 0;
+				int leftInset = 0;
+				int topInset = 0;
 				if (container == Class112.frame) {
 					final Insets insets = Class112.frame.getInsets();
-					i_34_ = insets.left;
-					i_35_ = insets.top;
+					leftInset = insets.left;
+					topInset = insets.top;
 				}
 				final Graphics graphics = container.getGraphics();
-				graphics.setColor(Color.black);
+				//graphics.setColor(Color.black);
 				if (leftMargin > 0) {
-					graphics.fillRect(i_34_, i_35_, leftMargin, PlayerAppearance.frameHeight);
+					graphics.setColor(Color.GRAY);
+					graphics.fillRect(leftInset, topInset, leftMargin, PlayerAppearance.frameHeight);
 				}
 				if (topMargin > 0) {
-					graphics.fillRect(i_34_, i_35_, Class120_Sub12_Sub7.frameWidth, topMargin);
+					graphics.setColor(Color.CYAN);
+					graphics.fillRect(leftInset, topInset, Class120_Sub12_Sub7.frameWidth, topMargin);
 				}
-				if (i_33_ > 0) {
-					graphics.fillRect(i_34_ + Class120_Sub12_Sub7.frameWidth - i_33_, i_35_, i_33_, PlayerAppearance.frameHeight);
+				if (rigthMargin > 0) {
+					graphics.setColor(Color.red);
+					graphics.fillRect(leftInset + Class120_Sub12_Sub7.frameWidth - rigthMargin, topInset, rigthMargin, PlayerAppearance.frameHeight);
 				}
-				if (i_32_ > 0) {
-					graphics.fillRect(i_34_, i_35_ + PlayerAppearance.frameHeight - i_32_, Class120_Sub12_Sub7.frameWidth, i_32_);
+				if (bottomMargin > 0) {
+					graphics.setColor(Color.blue);
+					graphics.fillRect(leftInset, topInset + PlayerAppearance.frameHeight - bottomMargin, Class120_Sub12_Sub7.frameWidth, bottomMargin);
 				}
 			} catch (final Exception exception) {
 				/* empty */
@@ -163,7 +165,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 				final int i_47_ = is_40_[i_45_] * 255 >> 12 & 0xff;
 				final int i_48_ = i_46_ * GZIPDecompressor.anIntArray800[i_47_] >> 12;
 				final int i_49_ = FileSystemWorker.anIntArray789[i_47_] * i_46_ >> 12;
-				final int i_50_ = Class32.anInt259 & (i_49_ >> 12) + i_45_;
+				final int i_50_ = MagnetType.anInt259 & (i_49_ >> 12) + i_45_;
 				final int i_51_ = (i_48_ >> 12) + i & Class120_Sub29.anInt2774;
 				final int[][] is_52_ = method1179(0, i_51_);
 				is_42_[i_45_] = is_52_[0][i_50_];

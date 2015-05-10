@@ -38,19 +38,10 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		buffer.putBuffer(data, 0, 24);
 	}
 
-	private final int method1359(final int i, final int i_2_, final int i_3_) {
-		int i_4_;
-		try {
-			int i_5_ = i_3_ - -(57 * i);
-			i_5_ = i_5_ << 1 ^ i_5_;
-			if (i_2_ != -9228) {
-				return 57;
-			}
-			i_4_ = 4096 + -((0x7fffffff & 1376312589 + i_5_ * (789221 + 15731 * i_5_ * i_5_)) / 262144);
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("se.R(").append(i).append(',').append(i_2_).append(',').append(i_3_).append(')').toString());
-		}
-		return i_4_;
+	private final int noise(final int i, final int i_3_) {
+		int i_5_ = i_3_ - -(57 * i);
+		i_5_ = i_5_ << 1 ^ i_5_;
+		return 4096 + -((0x7fffffff & 1376312589 + i_5_ * (789221 + 15731 * i_5_ * i_5_)) / 262144);
 	}
 
 	@Override
@@ -59,7 +50,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		if (this.aClass30_2563.aBoolean238) {
 			final int i_9_ = Class150.anIntArray1405[i_7_];
 			for (int i_10_ = 0; i_10_ < Class120_Sub12_Sub7.anInt3178; i_10_++) {
-				is_8_[i_10_] = method1359(i_9_, -9228, Class90.anIntArray849[i_10_]) % 4096;
+				is_8_[i_10_] = noise(i_9_, Class90.anIntArray849[i_10_]) % 4096;
 			}
 		}
 		return is_8_;

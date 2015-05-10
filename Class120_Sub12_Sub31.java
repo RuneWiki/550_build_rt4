@@ -31,7 +31,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 			final int[] is_4_ = method1192(1 + i_0_ & Class120_Sub29.anInt2774, 0);
 			for (int i_5_ = 0; i_5_ < Class120_Sub12_Sub7.anInt3178; i_5_++) {
 				final int i_6_ = anInt3379 * (-is_2_[i_5_] + is_4_[i_5_]);
-				final int i_7_ = anInt3379 * (-is_3_[Class32.anInt259 & -1 + i_5_] + is_3_[Class32.anInt259 & 1 + i_5_]);
+				final int i_7_ = anInt3379 * (-is_3_[MagnetType.anInt259 & -1 + i_5_] + is_3_[MagnetType.anInt259 & 1 + i_5_]);
 				final int i_8_ = i_7_ >> 12;
 				final int i_9_ = i_6_ >> 12;
 				final int i_10_ = i_9_ * i_9_ >> 12;
@@ -46,13 +46,6 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 
 	public Class120_Sub12_Sub31() {
 		super(1, true);
-	}
-
-	static final int method1368(final JagexInterface jagexInterface, final int i) {
-		if (!client.getClickMask(jagexInterface).method1678(i) && jagexInterface.anObjectArray2006 == null) {
-			return -1;
-		}
-		return jagexInterface.cursors == null || jagexInterface.cursors.length <= i ? -1 : jagexInterface.cursors[i];
 	}
 
 	@Override

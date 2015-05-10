@@ -23,7 +23,7 @@ final class GroundTile extends Node {
 	ShapedTile shapedTile;
 	int[] anIntArray2641 = new int[5];
 	int anInt2642;
-	static Hashtable aClass75_2643;
+	static Hashtable globalMagnets = new Hashtable(16);
 	GroundTile aClass120_Sub18_2644;
 	TileParticleQueue tileParticle;
 	int anInt2646;
@@ -33,10 +33,6 @@ final class GroundTile extends Node {
 	GroundDecoration groundDecoration;
 	static int[] spriteYOffsets;
 	static int selectedSpellUseMask;
-
-	static {
-		aClass75_2643 = new Hashtable(16);
-	}
 
 	GroundTile(final int i, final int i_1_, final int i_2_) {
 		this.anInt2635 = 0;

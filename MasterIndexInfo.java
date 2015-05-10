@@ -16,7 +16,7 @@ final class MasterIndexInfo {
 	int[] groupFileCount;
 	static js5 aClass50_476;
 	static int headiconsprayerId;
-	static int anInt478;
+	static int gregorianDateSeed;
 	LookupTable[] groupFileLookupTable;
 	int[] groupHashes;
 	int indexCrc;

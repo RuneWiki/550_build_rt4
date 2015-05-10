@@ -333,16 +333,16 @@ final class FrameLoader extends NodeSub {
 		return Deque.anInt1007;
 	}
 
-	static final boolean method1583(final LocType locType, final int x, final int z, final int xOff, final int zOff, int rotation) {
+	static final boolean drawMapSceneOnMinimap(final LocType locType, final int x, final int z, final int xOff, final int zOff, int rotation) {
 		final MapSceneType mapSceneType = MapSceneType.list(locType.mapSceneId);
 		if (mapSceneType.spriteId == -1) {
 			return true;
 		}
-		if (!locType.aBoolean1862) {
-			rotation = 0;
-		} else {
-			rotation += locType.anInt1869;
+		if (locType.adjustMapSceneRotation) {
+			rotation += locType.mapSceneRotationOff;
 			rotation &= 0x3;
+		} else {
+			rotation = 0;
 		}
 		final LDIndexedSprite mapSceneSprite = mapSceneType.constructSprite(rotation, locType.flipMapSceneSprite);
 		if (mapSceneSprite == null) {

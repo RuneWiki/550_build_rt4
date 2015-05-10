@@ -42,12 +42,8 @@ final class Class187 {
 		}
 	}
 
-	static final void method2479(final int i, final int i_8_) {
-		try {
-			final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(i_8_, i);
-			class120_sub14_sub7.method1453();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wc.A(").append(i).append(',').append(i_8_).append(')').toString());
-		}
+	static final void method2479(final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(3, i);
+		class120_sub14_sub7.method1453();
 	}
 }

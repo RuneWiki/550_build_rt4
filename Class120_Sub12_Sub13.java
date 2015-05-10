@@ -35,7 +35,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	}
 
 	static final boolean method1265() {
-		synchronized (Class169.keyboardHandler) {
+		synchronized (ModelParticleMagnet.keyboardHandler) {
 			if (Class120_Sub12_Sub36.anInt3423 == PlainTile.anInt1357) {
 				return false;
 			}
@@ -83,16 +83,9 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void method1266(final int i, final js5 js5, final js5 class50_2_) {
-		try {
-			SpotAnimType.aClass50_1443 = js5;
-			Class90.aClass50_843 = class50_2_;
-			if (i != -1) {
-				method1265();
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("kl.V(").append(i).append(',').append(js5 != null ? "{...}" : "null").append(',').append(class50_2_ != null ? "{...}" : "null").append(')').toString());
-		}
+	static final void method1266(final js5 js5, final js5 class50_2_) {
+		SpotAnimType.aClass50_1443 = js5;
+		Class90.aClass50_843 = class50_2_;
 	}
 
 	@Override
@@ -149,7 +142,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 						i_21_ += i_22_;
 						final int i_27_ = 1024 + i_23_ + (i_26_ - i_9_) * i_24_;
 						final int i_28_ = i_19_ & Class120_Sub29.anInt2774;
-						final int i_29_ = Class32.anInt259 & i_26_;
+						final int i_29_ = MagnetType.anInt259 & i_26_;
 						if (i_21_ > 0) {
 							i_21_ = -i_20_ + i_21_;
 							i_19_ = i_25_ + i_19_;

@@ -41,7 +41,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 			final int[] is_9_ = is_3_[2];
 			for (int i_10_ = 0; Class120_Sub12_Sub7.anInt3178 > i_10_; i_10_++) {
 				final int i_11_ = (is_6_[i_10_] + -is_4_[i_10_]) * anInt3279;
-				final int i_12_ = anInt3279 * (is_5_[i_10_ + 1 & Class32.anInt259] - is_5_[i_10_ - 1 & Class32.anInt259]);
+				final int i_12_ = anInt3279 * (is_5_[i_10_ + 1 & MagnetType.anInt259] - is_5_[i_10_ - 1 & MagnetType.anInt259]);
 				final int i_13_ = i_11_ >> 12;
 				final int i_14_ = i_12_ >> 12;
 				final int i_15_ = i_13_ * i_13_ >> 12;

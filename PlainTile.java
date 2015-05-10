@@ -15,8 +15,8 @@ final class PlainTile {
 	static int anInt1356;
 	static int anInt1357 = 0;
 
-	static final void method2001() {
-		synchronized (Class169.keyboardHandler) {
+	static final void handleKeyboard() {
+		synchronized (ModelParticleMagnet.keyboardHandler) {
 			anInt1357 = Class120_Sub12_Sub36.anInt3423;
 			Class120_Sub14_Sub15.keyboardIdleCycle++;
 			if (AnimatedLocation.anInt3074 >= 0) {

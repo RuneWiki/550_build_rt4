@@ -62,10 +62,10 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			} else {
 				c_14_ = string.charAt(i_11_++);
 			}
-			c = Class120_Sub12_Sub29.method1354(c_13_, false);
-			c_12_ = Class120_Sub12_Sub29.method1354(c_14_, false);
-			c_13_ = Class22.method198(language, c_13_);
-			c_14_ = Class22.method198(language, c_14_);
+			c = Class120_Sub12_Sub29.normalizeLatinCharacters(c_13_);
+			c_12_ = Class120_Sub12_Sub29.normalizeLatinCharacters(c_14_);
+			c_13_ = Class22.normalizeLatinCharacters(language, c_13_);
+			c_14_ = Class22.normalizeLatinCharacters(language, c_14_);
 			if (c_14_ != c_13_ && Character.toUpperCase(c_13_) != Character.toUpperCase(c_14_)) {
 				c_13_ = Character.toLowerCase(c_13_);
 				c_14_ = Character.toLowerCase(c_14_);
@@ -174,7 +174,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					}
 				}
 				if (sceneGraphNode != null) {
-					Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, (byte) 38, 0, i_32_, 1 + class120_sub29.anInt2771);
+					Class38.method317(-1, Class173.gameLevel, 0, class120_sub29.anInt2780, class120_sub29.anInt2773 - -1, class120_sub29.anInt2765, 0, i_32_, 1 + class120_sub29.anInt2771);
 					class180_sub5.anInt3028 = class120_sub29.anInt2765 * 128 + i_26_ * 64;
 					int i_33_ = class120_sub29.anInt2766;
 					int i_34_ = class120_sub29.anInt2767;
@@ -210,51 +210,42 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				class120_sub24.unlink();
 			} else {
 				class120_sub24.anInt2732 = 0;
-				Class53.method457(class120_sub24, (byte) -126);
+				Class53.method457(class120_sub24);
 			}
 		}
 	}
 
-	static final String method1317(final boolean bool, final String[] strings, final int i, final int i_39_) {
-		String string;
-		try {
-			if (bool) {
-				return null;
-			}
-			if (i_39_ == 0) {
-				return "";
-			}
-			if (i_39_ == 1) {
-				final String string_40_ = strings[i];
-				if (string_40_ == null) {
-					return "null";
-				}
-				return string_40_.toString();
-			}
-			int i_41_ = 0;
-			final int i_42_ = i_39_ + i;
-			for (int i_43_ = i; i_42_ > i_43_; i_43_++) {
-				final String string_44_ = strings[i_43_];
-				if (string_44_ != null) {
-					i_41_ += string_44_.length();
-				} else {
-					i_41_ += 4;
-				}
-			}
-			final StringBuffer stringbuffer = new StringBuffer(i_41_);
-			for (int i_45_ = i; i_45_ < i_42_; i_45_++) {
-				final String string_46_ = strings[i_45_];
-				if (string_46_ == null) {
-					stringbuffer.append("null");
-				} else {
-					stringbuffer.append(string_46_);
-				}
-			}
-			string = stringbuffer.toString();
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("wd.DA(").append(bool).append(',').append(strings != null ? "{...}" : "null").append(',').append(i).append(',').append(i_39_).append(')').toString());
+	static final String mergeStrings(final String[] stringStack, final int stackIndex, final int toMergeAmount) {
+		if (toMergeAmount == 0) {
+			return "";
 		}
-		return string;
+		if (toMergeAmount == 1) {
+			final String string = stringStack[stackIndex];
+			if (string == null) {
+				return "null";
+			}
+			return string;
+		}
+		int characterLen = 0;
+		final int stringLen = toMergeAmount + stackIndex;
+		for (int id = stackIndex; id < stringLen; id++) {
+			final String string = stringStack[id];
+			if (string != null) {
+				characterLen += string.length();
+			} else {
+				characterLen += 4;
+			}
+		}
+		final StringBuffer stringbuffer = new StringBuffer(characterLen);
+		for (int id = stackIndex; id < stringLen; id++) {
+			final String string = stringStack[id];
+			if (string == null) {
+				stringbuffer.append("null");
+			} else {
+				stringbuffer.append(string);
+			}
+		}
+		return stringbuffer.toString();
 	}
 
 	static final void drawTextOnScreen(final String string, final boolean bool) {
@@ -272,7 +263,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		if (!bool) {
 			Class54.redrawScreen(10, 10, i_49_, i_51_);
 		} else if (HDToolkit.glEnabled) {
-			HDToolkit.method536();
+			HDToolkit.swapBuffers();
 		} else {
 			try {
 				final Graphics graphics = Node.canvas.getGraphics();

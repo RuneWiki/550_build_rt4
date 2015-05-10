@@ -35,22 +35,18 @@ class Class132_Sub1 extends Class132 {
 	}
 
 	@Override
-	final void method1922(final byte i) {
-		try {
-			anInt2802 = anInt2810;
-			anInt2807 >>= 4;
-			if (anInt2807 >= 0) {
-				if (anInt2807 > 255) {
-					anInt2807 = 255;
-				}
-			} else {
-				anInt2807 = 0;
+	final void method1922() {
+		anInt2802 = anInt2810;
+		anInt2807 >>= 4;
+		if (anInt2807 >= 0) {
+			if (anInt2807 > 255) {
+				anInt2807 = 255;
 			}
-			method1932(anInt2803++, (byte) anInt2807);
+		} else {
 			anInt2807 = 0;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.E(").append(i).append(')').toString());
 		}
+		method1932(anInt2803++, (byte) anInt2807);
+		anInt2807 = 0;
 	}
 
 	static final Class41 method1934(final int i, final int i_5_, final int i_6_, final int i_7_) {
@@ -74,46 +70,32 @@ class Class132_Sub1 extends Class132 {
 	}
 
 	@Override
-	final void method1925(final int i) {
-		try {
-			anInt2807 = 0;
-			anInt2803 = 0;
-			if (i != 255) {
-				method1934(-3, -16, 108, -56);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.I(").append(i).append(')').toString());
-		}
+	final void method1925() {
+		anInt2807 = 0;
+		anInt2803 = 0;
 	}
 
 	@Override
-	final void method1927(final int i, final int i_10_, final byte i_11_) {
-		try {
-			if (i != 0) {
-				anInt2806 = anInt2817 * anInt2815 >> 12;
-				if (anInt2806 >= 0) {
-					if (anInt2806 > 4096) {
-						anInt2806 = 4096;
-					}
-				} else {
-					anInt2806 = 0;
+	final void method1927(final int i, final int i_10_) {
+		if (i != 0) {
+			anInt2806 = anInt2817 * anInt2815 >> 12;
+			if (anInt2806 >= 0) {
+				if (anInt2806 > 4096) {
+					anInt2806 = 4096;
 				}
-				anInt2817 = anInt2804 + -(i_10_ < 0 ? -i_10_ : i_10_);
-				anInt2817 = anInt2817 * anInt2817 >> 12;
-				anInt2817 = anInt2817 * anInt2806 >> 12;
-				anInt2807 += anInt2802 * anInt2817 >> 12;
-				anInt2802 = anInt2802 * anInt2810 >> 12;
 			} else {
-				anInt2806 = 4096;
-				anInt2817 = anInt2804 - (i_10_ < 0 ? -i_10_ : i_10_);
-				anInt2817 = anInt2817 * anInt2817 >> 12;
-				anInt2807 = anInt2817;
+				anInt2806 = 0;
 			}
-			if (i_11_ >= -17) {
-				loadingTextImage = null;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ea.F(").append(i).append(',').append(i_10_).append(',').append(i_11_).append(')').toString());
+			anInt2817 = anInt2804 + -(i_10_ < 0 ? -i_10_ : i_10_);
+			anInt2817 = anInt2817 * anInt2817 >> 12;
+			anInt2817 = anInt2817 * anInt2806 >> 12;
+			anInt2807 += anInt2802 * anInt2817 >> 12;
+			anInt2802 = anInt2802 * anInt2810 >> 12;
+		} else {
+			anInt2806 = 4096;
+			anInt2817 = anInt2804 - (i_10_ < 0 ? -i_10_ : i_10_);
+			anInt2817 = anInt2817 * anInt2817 >> 12;
+			anInt2807 = anInt2817;
 		}
 	}
 

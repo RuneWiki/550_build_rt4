@@ -302,10 +302,10 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					}
 				}
 				if (bool) {
-					final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.tileOverlayIds[level], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[level], is_8_, Class8.aByteArrayArrayArray65[level], level, fs_92_, Class120_Sub12_Sub33.anIntArrayArrayArray3388[0], Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], false, OverridedJInterface.tileHeightMap[level]);
+					final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.tileOverlayIds[level], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[level], is_8_, Class8.aByteArrayArrayArray65[level], level, fs_92_, Class120_Sub12_Sub33.anIntArrayArrayArray3388[0], Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], OverridedJInterface.tileHeightMap[level]);
 					Class65.method578(level, class120_sub9s);
 				} else {
-					final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.tileOverlayIds[level], fs, null, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[level], is_8_, Class8.aByteArrayArrayArray65[level], level, fs_92_, null, Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], false, OverridedJInterface.tileHeightMap[level]);
+					final Class120_Sub9[] class120_sub9s = Class120_Sub12_Sub14.method1270(is, Class99.tileOverlayIds[level], fs, null, is_6_, fs_91_, MapFunctionNode.aByteArrayArrayArray3477[level], is_8_, Class8.aByteArrayArrayArray65[level], level, fs_92_, null, Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], OverridedJInterface.tileHeightMap[level]);
 					final Class120_Sub9[] class120_sub9s_98_ = Class132.method1930(Class114.tileSettings, (byte) -115, Class99.tileOverlayIds[level], is_8_, fs, level, MapFunctionNode.aByteArrayArrayArray3477[level], Class8.aByteArrayArrayArray65[level], OverridedJInterface.tileHeightMap[level], Class120_Sub4.tileUnderlayIds[level], fs_91_, fs_92_);
 					final Class120_Sub9[] class120_sub9s_99_ = new Class120_Sub9[class120_sub9s.length + class120_sub9s_98_.length];
 					for (int i_100_ = 0; i_100_ < class120_sub9s.length; i_100_++) {
@@ -485,8 +485,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 	static final void method1347(final int i, final int i_152_, final int i_153_, final int i_154_, final int i_156_, final int i_157_) {
 		final int i_158_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_156_, IdentityKit.anInt1334);
 		final int i_159_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_, IdentityKit.anInt1334);
-		final int i_160_ = Class3.method83(Class32.anInt260, i_154_, ParamType.anInt3544);
-		final int i_161_ = Class3.method83(Class32.anInt260, i, ParamType.anInt3544);
+		final int i_160_ = Class3.method83(MagnetType.anInt260, i_154_, ParamType.anInt3544);
+		final int i_161_ = Class3.method83(MagnetType.anInt260, i, ParamType.anInt3544);
 		final int i_162_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_153_ + i_156_, IdentityKit.anInt1334);
 		final int i_163_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_157_ + -i_153_, IdentityKit.anInt1334);
 		for (int i_164_ = i_158_; i_162_ > i_164_; i_164_++) {
@@ -495,8 +495,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		for (int i_165_ = i_159_; i_165_ > i_163_; i_165_--) {
 			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_165_], i_152_, i_160_, i_161_);
 		}
-		final int i_166_ = Class3.method83(Class32.anInt260, i_154_ - -i_153_, ParamType.anInt3544);
-		final int i_167_ = Class3.method83(Class32.anInt260, i + -i_153_, ParamType.anInt3544);
+		final int i_166_ = Class3.method83(MagnetType.anInt260, i_154_ - -i_153_, ParamType.anInt3544);
+		final int i_167_ = Class3.method83(MagnetType.anInt260, i + -i_153_, ParamType.anInt3544);
 		for (int i_168_ = i_162_; i_163_ >= i_168_; i_168_++) {
 			final int[] is = GameEntity.anIntArrayArray3009[i_168_];
 			AmbientSound.fillArray(is, i_152_, i_160_, i_166_);

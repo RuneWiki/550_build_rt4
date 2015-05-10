@@ -34,7 +34,7 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 				final int i_16_ = i_14_ & 0x3;
 				if (i_13_ == i_4_ && i_3_ <= i_11_ && 8 + i_3_ > i_11_ && i_2_ <= i_12_ && i_2_ - -8 > i_12_) {
 					final LocType locType = LocType.list(i_7_);
-					final int i_17_ = Class132.method1928(locType.sizeX, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, -2, locType.sizeZ) + i_0_;
+					final int i_17_ = Class132.method1928(locType.sizeX, i_12_ & 0x7, i_16_, i_11_ & 0x7, i_1_, locType.sizeZ) + i_0_;
 					final int i_18_ = i_6_ - -AbstractRequest.method1539(0x7 & i_11_, locType.sizeZ, locType.sizeX, i_1_, 0x7 & i_12_, i_16_);
 					if (i_17_ > 0 && i_18_ > 0 && i_17_ < 103 && i_18_ < 103) {
 						CollisionMap collisionMap = null;

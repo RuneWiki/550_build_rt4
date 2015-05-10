@@ -4,8 +4,6 @@
 
 final class MouseRecorder implements Runnable {
 	static int anInt852 = 0;
-	static String aString853 = "Allocating memory";
-	static String aString854;
 	static boolean frameResizable = false;
 	static float aFloat856;
 	Object lock;
@@ -13,10 +11,6 @@ final class MouseRecorder implements Runnable {
 	int cacheIndex;
 	int[] mouseYCache;
 	int[] mouseXCache;
-
-	static {
-		aString854 = "K";
-	}
 
 	static final void setupShaderRenderValues(final int x, final int y, final int z, final int yaw, final int pitch) {
 		Projectile.renderXWrapper = x;
@@ -45,7 +39,7 @@ final class MouseRecorder implements Runnable {
 		if (jagexInterface != null && jagexInterface.onSpellSelectionListener != null) {
 			final InterfaceListener class120_sub10 = new InterfaceListener();
 			class120_sub10.objectData = jagexInterface.onSpellSelectionListener;
-			class120_sub10.aClass189_2534 = jagexInterface;
+			class120_sub10.jagexInterface = jagexInterface;
 			Class88.method744(class120_sub10);
 		}
 		Class88.spellSelected = true;

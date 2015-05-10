@@ -1,19 +1,17 @@
 /* Class120_Sub14_Sub24 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-import java.util.zip.CRC32;
 
-final class Class120_Sub14_Sub24 extends NodeSub {
+final class ParticleMagnet extends NodeSub {
 	int anInt3656;
 	int anInt3657;
-	static CRC32 aCRC32_3658 = new CRC32();
-	Class169 aClass169_3659;
-	int anInt3660;
-	int anInt3661;
-	int anInt3662;
+	ModelParticleMagnet modelParticleMagnet;
+	int positionZ;
+	int localDirectionZ;
+	int positionY;
 	int anInt3663;
-	int anInt3664;
-	int anInt3667;
+	int localDirectionX;
+	int positionX;
 
 	static final void method1647(final int i_0_, final int i_1_) {
 		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i_0_);
@@ -71,7 +69,7 @@ final class Class120_Sub14_Sub24 extends NodeSub {
 		this.anInt3657 = i_12_;
 	}
 
-	Class120_Sub14_Sub24(final Class169 class169, final ParticleEngine class108_sub2) {
-		this.aClass169_3659 = class169;
+	ParticleMagnet(final ModelParticleMagnet modelParticleMagnet, final ParticleEngine class108_sub2) {
+		this.modelParticleMagnet = modelParticleMagnet;
 	}
 }

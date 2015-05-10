@@ -1,3 +1,5 @@
+import java.util.zip.CRC32;
+
 /* Class53_Sub1 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -24,6 +26,7 @@ final class Class53_Sub1 extends Class53 {
 	private Deque aClass105_2225;
 	private long aLong2226 = 0L;
 	private final boolean aBoolean2227;
+	private static CRC32 crc32 = new CRC32();
 
 	final int method463() {
 		if (masterIndexInfo == null) {
@@ -287,10 +290,10 @@ final class Class53_Sub1 extends Class53 {
 				if (is == null || is.length <= 2) {
 					throw new RuntimeException();
 				}
-				Class120_Sub14_Sub24.aCRC32_3658.reset();
-				Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
-				final int i_20_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-				if (masterIndexInfo.groupCrcs[i_17_] != i_20_) {
+				crc32.reset();
+				crc32.update(is, 0, is.length - 2);
+				final int crc = (int) crc32.getValue();
+				if (masterIndexInfo.groupCrcs[i_17_] != crc) {
 					throw new RuntimeException();
 				}
 				js5Worker.errorCount = 0;
@@ -323,14 +326,14 @@ final class Class53_Sub1 extends Class53 {
 			if (is == null || is.length <= 2) {
 				throw new RuntimeException();
 			}
-			Class120_Sub14_Sub24.aCRC32_3658.reset();
-			Class120_Sub14_Sub24.aCRC32_3658.update(is, 0, is.length - 2);
-			final int i_22_ = (int) Class120_Sub14_Sub24.aCRC32_3658.getValue();
-			if (i_22_ != masterIndexInfo.groupCrcs[i_17_]) {
+			crc32.reset();
+			crc32.update(is, 0, is.length - 2);
+			final int crc = (int) crc32.getValue();
+			if (crc != masterIndexInfo.groupCrcs[i_17_]) {
 				throw new RuntimeException();
 			}
-			final int i_23_ = (is[-1 + is.length] & 0xff) + ((0xff & is[-2 + is.length]) << 8);
-			if ((masterIndexInfo.groupVersions[i_17_] & 0xffff) != i_23_) {
+			final int version = (is[is.length - 1] & 0xff) + ((is[is.length - 2] & 0xff) << 8);
+			if ((masterIndexInfo.groupVersions[i_17_] & 0xffff) != version) {
 				throw new RuntimeException();
 			}
 			if (aByteArray2215[i_17_] != 1) {
@@ -458,7 +461,6 @@ final class Class53_Sub1 extends Class53 {
 		}
 	}
 
-	//indexId, indexFs, masterIndexFs, js5Worker, fileSystemWorker, crc, version, bool
 	Class53_Sub1(final int i, final FileSystem fileSystem, final FileSystem class51_26_, final Js5Worker jw, final FileSystemWorker fsWorker, final int i_27_, final int i_28_, final boolean bool) {
 		indexFileSystem = fileSystem;
 		indexId = i;

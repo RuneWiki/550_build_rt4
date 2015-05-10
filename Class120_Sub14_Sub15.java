@@ -103,7 +103,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 				len = maxLen;
 			}
 			final byte[] buf = new byte[len];
-			buffer.pos += client.huffman.method1886(0, buffer.pos, 125, buffer.buf, buf, len);
+			buffer.pos += client.huffman.method1886(0, buffer.pos, buffer.buf, buf, len);
 			return DisplayModeInfo.bufferToString(buf, 0, len);
 		} catch (final Exception exception) {
 			return "Cabbage";

@@ -84,7 +84,7 @@ final class Class188 {
 		}
 		final String string_2_ = new StringBuilder("http://").append(class167_sub1.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
 		try {
-			Class179.aClient1776.getAppletContext().showDocument(new URL(string_2_), "_self");
+			Class179.clientInstance.getAppletContext().showDocument(new URL(string_2_), "_self");
 		} catch (final Exception exception) {
 			return false;
 		}

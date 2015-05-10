@@ -4,7 +4,7 @@
 
 final class LocType {
 	private short[] recolorModified;
-	private int anInt1816;
+	int totalDelay;
 	private int[] types;
 	static JagexInterface draggedOnComponent = null;
 	int anInt1819;
@@ -17,7 +17,7 @@ final class LocType {
 	int mapSceneId;
 	int sizeZ;
 	private short[] retextureModified;
-	private int[] anIntArray1829;
+	int[] randomAnimationDelays;
 	private boolean aBoolean1830;
 	int anInt1831;
 	int ambientSoundHearDistance;
@@ -40,7 +40,7 @@ final class LocType {
 	String[] options;
 	private int[] modelIds;
 	boolean members;
-	int[] childrenIDs;
+	int[] transmogrificationIds;
 	boolean aBoolean1853;
 	private int varbitId;
 	private int anInt1855;
@@ -50,14 +50,14 @@ final class LocType {
 	private int anInt1859;
 	private short[] recolorOriginal;
 	static int modeWhat = 0;
-	boolean aBoolean1862;
-	boolean aBoolean1863;
+	boolean adjustMapSceneRotation;
+	boolean hasAnimation;
 	boolean aBoolean1864;
 	private Hashtable params;
 	int anInt1866;
 	private short aShort1867;
 	private boolean aBoolean1868;
-	int anInt1869;
+	int mapSceneRotationOff;
 	int[] anIntArray1870;
 	private byte[] recolorPalette;
 	boolean flipMapSceneSprite;
@@ -69,7 +69,10 @@ final class LocType {
 	boolean aBoolean1878;
 	int anInt1879;
 	boolean aBoolean1880;
-	int[] anIntArray1881;
+	int[] randomAnimationIds;
+	static ObjectCache aClass21_1117 = new ObjectCache(50);
+	static ObjectCache aClass21_1618 = new ObjectCache(30);
+	static ObjectCache aClass21_2663 = new ObjectCache(500);
 	static ObjectCache recentUse = new ObjectCache(64);
 
 	static final void resetSpriteMenu() {
@@ -80,24 +83,15 @@ final class LocType {
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
 	}
 
-	final boolean method2452(final boolean bool) {
-		boolean bool_0_;
-		try {
-			if (modelIds == null) {
-				return true;
-			}
-			boolean bool_1_ = bool;
-			int[] is;
-			final int i = (is = modelIds).length;
-			for (int i_2_ = 0; i_2_ < i; i_2_++) {
-				final int i_3_ = is[i_2_];
-				bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.requestDownload(0xffff & i_3_, 0);
-			}
-			bool_0_ = bool_1_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.F(").append(bool).append(')').toString());
+	final boolean modelsCached() {
+		if (modelIds == null) {
+			return true;
 		}
-		return bool_0_;
+		boolean bool_1_ = true;
+		for (int id = 0; id < modelIds.length; id++) {
+			bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.requestDownload(modelIds[id] & 0xffff, 0);
+		}
+		return bool_1_;
 	}
 
 	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final LDIndexedSprite class107_sub1) {
@@ -115,26 +109,26 @@ final class LocType {
 				l |= ~0x7fffffffffffffffL;
 				bool_11_ = true;
 			}
-			SceneGraphNode sceneGraphNode = (SceneGraphNode) Class167.aClass21_1618.get(l);
+			SceneGraphNode sceneGraphNode = (SceneGraphNode) aClass21_1618.get(l);
 			if (sceneGraphNode == null) {
-				final Model class180_sub2 = method2455(i_8_, (byte) -46, i_4_);
+				final Model class180_sub2 = method2455(i_8_, i_4_);
 				if (class180_sub2 == null) {
 					Class82.aClass88_783.aClass180_826 = null;
 					return Class82.aClass88_783;
 				}
 				class180_sub2.method2299();
 				if (i_4_ == 10 && i_8_ > 3) {
-					class180_sub2.method2279(256);
+					class180_sub2.rotateY(256);
 				}
 				if (!bool_11_) {
 					sceneGraphNode = new LDModelRenderer(class180_sub2, ambient + 64, contrast * 5 + 768, -50, -10, -50);
 				} else {
-					class180_sub2.aShort2894 = (short) (ambient + 64);
-					class180_sub2.aShort2866 = (short) (5 * contrast + 768);
+					class180_sub2.ambient = (short) (ambient + 64);
+					class180_sub2.contrast = (short) (contrast * 5 + 768);
 					sceneGraphNode = class180_sub2;
 					class180_sub2.method2303();
 				}
-				Class167.aClass21_1618.put(sceneGraphNode, l);
+				aClass21_1618.put(sceneGraphNode, l);
 			}
 			if (bool_11_) {
 				sceneGraphNode = ((Model) sceneGraphNode).method2288();
@@ -155,14 +149,14 @@ final class LocType {
 		} else {
 			l = (this.myId << 10) + i_8_;
 		}
-		Class88 class88_12_ = (Class88) Class167.aClass21_1618.get(l);
+		Class88 class88_12_ = (Class88) aClass21_1618.get(l);
 		HDModelRenderer class180_sub7_sub2;
 		LDIndexedSprite class107_sub1_13_;
 		if (class88_12_ != null) {
 			class180_sub7_sub2 = (HDModelRenderer) class88_12_.aClass180_826;
 			class107_sub1_13_ = class88_12_.aClass107_Sub1_830;
 		} else {
-			class180_sub7_sub2 = method2459(i_4_, false, i_8_, false);
+			class180_sub7_sub2 = method2459(i_4_, false, i_8_);
 			if (class180_sub7_sub2 == null) {
 				Class82.aClass88_783.aClass180_826 = null;
 				Class82.aClass88_783.aClass107_Sub1_830 = null;
@@ -179,14 +173,14 @@ final class LocType {
 			class88_12_ = new Class88();
 			class88_12_.aClass180_826 = class180_sub7_sub2;
 			class88_12_.aClass107_Sub1_830 = class107_sub1_13_;
-			Class167.aClass21_1618.put(class88_12_, l);
+			aClass21_1618.put(class88_12_, l);
 		}
 		final boolean bool_14_ = bool & aBoolean1830;
 		final HDModelRenderer class180_sub7_sub2_15_ = class180_sub7_sub2.method2412(aByte1820 != 3, aByte1820 == 0, true, true, true, true, !bool_14_, true, true, true, true);
 		if (aByte1820 != 0) {
 			class180_sub7_sub2_15_.method2419(aByte1820, aShort1867, class180_sub7_sub2, is, is_6_, i, i_5_, i_9_);
 		}
-		class180_sub7_sub2_15_.method2432(this.anInt1835 == 0 && !this.aBoolean1863, true, true, true, this.anInt1835 == 0, true, false);
+		class180_sub7_sub2_15_.method2432(this.anInt1835 == 0 && !this.hasAnimation, true, true, true, this.anInt1835 == 0, true, false);
 		class180_sub7_sub2_15_.aBoolean3880 = bool_14_;
 		Class82.aClass88_783.aClass180_826 = class180_sub7_sub2_15_;
 		Class82.aClass88_783.aClass107_Sub1_830 = class107_sub1_13_;
@@ -204,124 +198,118 @@ final class LocType {
 		return integerNode.value;
 	}
 
-	private final Model method2455(int i, final byte i_19_, final int i_20_) {
-		Model class180_sub2;
-		try {
-			Model class180_sub2_21_ = null;
-			boolean bool = aBoolean1868;
-			if (i_20_ == 2 && i > 3) {
-				bool = !bool;
+	private final Model method2455(int i, final int i_20_) {
+		Model class180_sub2_21_ = null;
+		boolean bool = aBoolean1868;
+		if (i_20_ == 2 && i > 3) {
+			bool = !bool;
+		}
+		if (types == null) {
+			if (i_20_ != 10) {
+				return null;
 			}
-			if (types == null) {
-				if (i_20_ != 10) {
-					return null;
-				}
-				if (modelIds == null) {
-					return null;
-				}
-				final int i_22_ = modelIds.length;
-				for (int i_23_ = 0; i_23_ < i_22_; i_23_++) {
-					int i_24_ = modelIds[i_23_];
-					if (bool) {
-						i_24_ += 65536;
-					}
-					class180_sub2_21_ = (Model) InterfaceClickMask.aClass21_2663.get(i_24_);
-					if (class180_sub2_21_ == null) {
-						class180_sub2_21_ = Model.get(Class120_Sub12_Sub36.aClass50_3418, i_24_ & 0xffff, 0);
-						if (class180_sub2_21_ == null) {
-							return null;
-						}
-						if (bool) {
-							class180_sub2_21_.method2287();
-						}
-						InterfaceClickMask.aClass21_2663.put(class180_sub2_21_, i_24_);
-					}
-					if (i_22_ > 1) {
-						AbstractRequest.aClass180_Sub2Array3574[i_23_] = class180_sub2_21_;
-					}
-				}
-				if (i_22_ > 1) {
-					class180_sub2_21_ = new Model(AbstractRequest.aClass180_Sub2Array3574, i_22_);
-				}
-			} else {
-				int i_25_ = -1;
-				for (int i_26_ = 0; i_26_ < types.length; i_26_++) {
-					if (i_20_ == types[i_26_]) {
-						i_25_ = i_26_;
-						break;
-					}
-				}
-				if (i_25_ == -1) {
-					return null;
-				}
-				int i_27_ = modelIds[i_25_];
+			if (modelIds == null) {
+				return null;
+			}
+			final int i_22_ = modelIds.length;
+			for (int i_23_ = 0; i_23_ < i_22_; i_23_++) {
+				int i_24_ = modelIds[i_23_];
 				if (bool) {
-					i_27_ += 65536;
+					i_24_ += 65536;
 				}
-				class180_sub2_21_ = (Model) InterfaceClickMask.aClass21_2663.get(i_27_);
+				class180_sub2_21_ = (Model) aClass21_2663.get(i_24_);
 				if (class180_sub2_21_ == null) {
-					class180_sub2_21_ = Model.get(Class120_Sub12_Sub36.aClass50_3418, i_27_ & 0xffff, 0);
+					class180_sub2_21_ = Model.get(Class120_Sub12_Sub36.aClass50_3418, i_24_ & 0xffff, 0);
 					if (class180_sub2_21_ == null) {
 						return null;
 					}
 					if (bool) {
 						class180_sub2_21_.method2287();
 					}
-					InterfaceClickMask.aClass21_2663.put(class180_sub2_21_, i_27_);
+					aClass21_2663.put(class180_sub2_21_, i_24_);
+				}
+				if (i_22_ > 1) {
+					AbstractRequest.aClass180_Sub2Array3574[i_23_] = class180_sub2_21_;
 				}
 			}
-			boolean bool_28_;
-			if (anInt1856 == 128 && anInt1875 == 128 && anInt1873 == 128) {
-				bool_28_ = false;
-			} else {
-				bool_28_ = true;
+			if (i_22_ > 1) {
+				class180_sub2_21_ = new Model(AbstractRequest.aClass180_Sub2Array3574, i_22_);
 			}
-			boolean bool_29_;
-			if (anInt1838 == 0 && anInt1855 == 0 && anInt1859 == 0) {
-				bool_29_ = false;
-			} else {
-				bool_29_ = true;
-			}
-			final Model class180_sub2_30_ = new Model(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, recolorOriginal == null, retextureOriginal == null, true);
-			if (i_20_ == 4 && i > 3) {
-				class180_sub2_30_.method2279(256);
-				class180_sub2_30_.translate(45, 0, -45);
-			}
-			i &= 0x3;
-			if (i == 1) {
-				class180_sub2_30_.method2281();
-			} else if (i != 2) {
-				if (i == 3) {
-					class180_sub2_30_.method2286();
-				}
-			} else {
-				class180_sub2_30_.method2284();
-			}
-			if (recolorOriginal != null) {
-				for (int i_31_ = 0; i_31_ < recolorOriginal.length; i_31_++) {
-					if (recolorPalette == null || recolorPalette.length <= i_31_) {
-						class180_sub2_30_.recolor(recolorOriginal[i_31_], recolorModified[i_31_]);
-					} else {
-						class180_sub2_30_.recolor(recolorOriginal[i_31_], Class127.aShortArray1214[recolorPalette[i_31_] & 0xff]);
-					}
+		} else {
+			int i_25_ = -1;
+			for (int i_26_ = 0; i_26_ < types.length; i_26_++) {
+				if (i_20_ == types[i_26_]) {
+					i_25_ = i_26_;
+					break;
 				}
 			}
-			if (retextureOriginal != null) {
-				for (int i_32_ = 0; retextureOriginal.length > i_32_; i_32_++) {
-					class180_sub2_30_.retexture(retextureOriginal[i_32_], retextureModified[i_32_]);
+			if (i_25_ == -1) {
+				return null;
+			}
+			int i_27_ = modelIds[i_25_];
+			if (bool) {
+				i_27_ += 65536;
+			}
+			class180_sub2_21_ = (Model) aClass21_2663.get(i_27_);
+			if (class180_sub2_21_ == null) {
+				class180_sub2_21_ = Model.get(Class120_Sub12_Sub36.aClass50_3418, i_27_ & 0xffff, 0);
+				if (class180_sub2_21_ == null) {
+					return null;
 				}
+				if (bool) {
+					class180_sub2_21_.method2287();
+				}
+				aClass21_2663.put(class180_sub2_21_, i_27_);
 			}
-			if (bool_28_) {
-				class180_sub2_30_.method2306(anInt1856, anInt1875, anInt1873);
-			}
-			if (bool_29_) {
-				class180_sub2_30_.translate(anInt1838, anInt1855, anInt1859);
-			}
-			class180_sub2 = class180_sub2_30_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.A(").append(i).append(',').append(i_19_).append(',').append(i_20_).append(')').toString());
 		}
-		return class180_sub2;
+		boolean bool_28_;
+		if (anInt1856 == 128 && anInt1875 == 128 && anInt1873 == 128) {
+			bool_28_ = false;
+		} else {
+			bool_28_ = true;
+		}
+		boolean bool_29_;
+		if (anInt1838 == 0 && anInt1855 == 0 && anInt1859 == 0) {
+			bool_29_ = false;
+		} else {
+			bool_29_ = true;
+		}
+		final Model class180_sub2_30_ = new Model(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, recolorOriginal == null, retextureOriginal == null, true);
+		if (i_20_ == 4 && i > 3) {
+			class180_sub2_30_.rotateY(256);
+			class180_sub2_30_.translate(45, 0, -45);
+		}
+		i &= 0x3;
+		if (i == 1) {
+			class180_sub2_30_.method2281();
+		} else if (i != 2) {
+			if (i == 3) {
+				class180_sub2_30_.method2286();
+			}
+		} else {
+			class180_sub2_30_.method2284();
+		}
+		if (recolorOriginal != null) {
+			for (int i_31_ = 0; i_31_ < recolorOriginal.length; i_31_++) {
+				if (recolorPalette == null || recolorPalette.length <= i_31_) {
+					class180_sub2_30_.recolor(recolorOriginal[i_31_], recolorModified[i_31_]);
+				} else {
+					class180_sub2_30_.recolor(recolorOriginal[i_31_], Class127.aShortArray1214[recolorPalette[i_31_] & 0xff]);
+				}
+			}
+		}
+		if (retextureOriginal != null) {
+			for (int i_32_ = 0; retextureOriginal.length > i_32_; i_32_++) {
+				class180_sub2_30_.retexture(retextureOriginal[i_32_], retextureModified[i_32_]);
+			}
+		}
+		if (bool_28_) {
+			class180_sub2_30_.method2306(anInt1856, anInt1875, anInt1873);
+		}
+		if (bool_29_) {
+			class180_sub2_30_.translate(anInt1838, anInt1855, anInt1859);
+		}
+		return class180_sub2_30_;
 	}
 
 	final LocType handleVarp() {
@@ -331,14 +319,14 @@ final class LocType {
 		} else if (varpId != -1) {
 			i_34_ = Class2.permanentVariable[varpId];
 		}
-		if (i_34_ < 0 || this.childrenIDs.length + -1 <= i_34_ || this.childrenIDs[i_34_] == -1) {
-			final int i_35_ = this.childrenIDs[-1 + this.childrenIDs.length];
+		if (i_34_ < 0 || this.transmogrificationIds.length + -1 <= i_34_ || this.transmogrificationIds[i_34_] == -1) {
+			final int i_35_ = this.transmogrificationIds[-1 + this.transmogrificationIds.length];
 			if (i_35_ == -1) {
 				return null;
 			}
-			return LocType.list(i_35_);
+			return list(i_35_);
 		}
-		return LocType.list(this.childrenIDs[i_34_]);
+		return list(this.transmogrificationIds[i_34_]);
 	}
 
 	final void decode(final Buffer buffer) {
@@ -360,126 +348,116 @@ final class LocType {
 		}
 	}
 
-	private final HDModelRenderer method2459(final int i, final boolean bool, int i_37_, final boolean bool_38_) {
-		HDModelRenderer class180_sub7_sub2;
-		try {
-			final int i_39_ = 64 + ambient;
-			final int i_40_ = 768 + contrast * 5;
-			HDModelRenderer class180_sub7_sub2_41_;
-			if (types == null) {
-				if (i != 10) {
-					return null;
-				}
-				if (modelIds == null) {
-					return null;
-				}
-				final int i_42_ = modelIds.length;
-				if (i_42_ == 0) {
-					return null;
-				}
-				long l = 0L;
-				for (int i_43_ = 0; i_42_ > i_43_; i_43_++) {
-					l = 67783L * l + modelIds[i_43_];
-				}
-				if (bool) {
-					l ^= 0xffffffffffffffffL;
-				}
-				class180_sub7_sub2_41_ = (HDModelRenderer) InterfaceClickMask.aClass21_2663.get(l);
-				if (class180_sub7_sub2_41_ == null) {
-					Model class180_sub2 = null;
-					for (int i_44_ = 0; i_42_ > i_44_; i_44_++) {
-						class180_sub2 = Model.get(Class120_Sub12_Sub36.aClass50_3418, 0xffff & modelIds[i_44_], 0);
-						if (class180_sub2 == null) {
-							return null;
-						}
-						if (i_42_ > 1) {
-							AbstractRequest.aClass180_Sub2Array3574[i_44_] = class180_sub2;
-						}
-					}
-					if (i_42_ > 1) {
-						class180_sub2 = new Model(AbstractRequest.aClass180_Sub2Array3574, i_42_);
-					}
-					class180_sub7_sub2_41_ = new HDModelRenderer(class180_sub2, i_39_, i_40_, bool);
-					InterfaceClickMask.aClass21_2663.put(class180_sub7_sub2_41_, l);
-				}
-			} else {
-				int i_45_ = -1;
-				for (int i_46_ = 0; types.length > i_46_; i_46_++) {
-					if (types[i_46_] == i) {
-						i_45_ = i_46_;
-						break;
-					}
-				}
-				if (i_45_ == -1) {
-					return null;
-				}
-				int i_47_ = modelIds[i_45_];
-				if (bool) {
-					i_47_ += 65536;
-				}
-				class180_sub7_sub2_41_ = (HDModelRenderer) InterfaceClickMask.aClass21_2663.get(i_47_);
-				if (class180_sub7_sub2_41_ == null) {
-					final Model class180_sub2 = Model.get(Class120_Sub12_Sub36.aClass50_3418, 0xffff & i_47_, 0);
+	private final HDModelRenderer method2459(final int i, final boolean bool, int i_37_) {
+		final int i_39_ = 64 + ambient;
+		final int i_40_ = 768 + contrast * 5;
+		HDModelRenderer class180_sub7_sub2_41_;
+		if (types == null) {
+			if (i != 10) {
+				return null;
+			}
+			if (modelIds == null) {
+				return null;
+			}
+			final int i_42_ = modelIds.length;
+			if (i_42_ == 0) {
+				return null;
+			}
+			long l = 0L;
+			for (int i_43_ = 0; i_42_ > i_43_; i_43_++) {
+				l = 67783L * l + modelIds[i_43_];
+			}
+			if (bool) {
+				l ^= 0xffffffffffffffffL;
+			}
+			class180_sub7_sub2_41_ = (HDModelRenderer) aClass21_2663.get(l);
+			if (class180_sub7_sub2_41_ == null) {
+				Model class180_sub2 = null;
+				for (int i_44_ = 0; i_42_ > i_44_; i_44_++) {
+					class180_sub2 = Model.get(Class120_Sub12_Sub36.aClass50_3418, 0xffff & modelIds[i_44_], 0);
 					if (class180_sub2 == null) {
 						return null;
 					}
-					class180_sub7_sub2_41_ = new HDModelRenderer(class180_sub2, i_39_, i_40_, bool);
-					InterfaceClickMask.aClass21_2663.put(class180_sub7_sub2_41_, i_47_);
+					if (i_42_ > 1) {
+						AbstractRequest.aClass180_Sub2Array3574[i_44_] = class180_sub2;
+					}
+				}
+				if (i_42_ > 1) {
+					class180_sub2 = new Model(AbstractRequest.aClass180_Sub2Array3574, i_42_);
+				}
+				class180_sub7_sub2_41_ = new HDModelRenderer(class180_sub2, i_39_, i_40_, bool);
+				aClass21_2663.put(class180_sub7_sub2_41_, l);
+			}
+		} else {
+			int i_45_ = -1;
+			for (int i_46_ = 0; types.length > i_46_; i_46_++) {
+				if (types[i_46_] == i) {
+					i_45_ = i_46_;
+					break;
 				}
 			}
-			boolean bool_48_ = aBoolean1868;
-			final boolean bool_49_ = anInt1875 == 128 && anInt1855 == 0;
-			if (i == 2 && i_37_ > 3) {
-				bool_48_ = !bool_48_;
+			if (i_45_ == -1) {
+				return null;
 			}
-			final boolean bool_50_ = i_37_ == 0 && anInt1856 == 128 && anInt1873 == 128 && anInt1838 == 0 && anInt1859 == 0 && !bool_48_;
-			final HDModelRenderer class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, recolorOriginal == null, true, class180_sub7_sub2_41_.getAmbient() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.getContrast() == i_40_, true, !bool_48_,
-					retextureOriginal == null);
-			if (bool_38_) {
-				getStringParamValue(-89, null);
+			int i_47_ = modelIds[i_45_];
+			if (bool) {
+				i_47_ += 65536;
 			}
-			if (bool_48_) {
-				class180_sub7_sub2_51_.method2410();
-			}
-			if (i == 4 && i_37_ > 3) {
-				class180_sub7_sub2_51_.method2417(256);
-				class180_sub7_sub2_51_.translate(45, 0, -45);
-			}
-			i_37_ &= 0x3;
-			if (i_37_ == 1) {
-				class180_sub7_sub2_51_.method2422();
-			} else if (i_37_ == 2) {
-				class180_sub7_sub2_51_.method2409();
-			} else if (i_37_ == 3) {
-				class180_sub7_sub2_51_.method2408();
-			}
-			if (recolorOriginal != null) {
-				for (int i_52_ = 0; recolorOriginal.length > i_52_; i_52_++) {
-					class180_sub7_sub2_51_.method2427(recolorOriginal[i_52_], recolorModified[i_52_]);
+			class180_sub7_sub2_41_ = (HDModelRenderer) aClass21_2663.get(i_47_);
+			if (class180_sub7_sub2_41_ == null) {
+				final Model class180_sub2 = Model.get(Class120_Sub12_Sub36.aClass50_3418, 0xffff & i_47_, 0);
+				if (class180_sub2 == null) {
+					return null;
 				}
+				class180_sub7_sub2_41_ = new HDModelRenderer(class180_sub2, i_39_, i_40_, bool);
+				aClass21_2663.put(class180_sub7_sub2_41_, i_47_);
 			}
-			if (retextureOriginal != null) {
-				for (int i_53_ = 0; retextureOriginal.length > i_53_; i_53_++) {
-					class180_sub7_sub2_51_.method2405(retextureOriginal[i_53_], retextureModified[i_53_]);
-				}
-			}
-			if (anInt1856 != 128 || anInt1875 != 128 || anInt1873 != 128) {
-				class180_sub7_sub2_51_.resize(anInt1856, anInt1875, anInt1873);
-			}
-			if (anInt1838 != 0 || anInt1855 != 0 || anInt1859 != 0) {
-				class180_sub7_sub2_51_.translate(anInt1838, anInt1855, anInt1859);
-			}
-			if (i_39_ != class180_sub7_sub2_51_.getAmbient()) {
-				class180_sub7_sub2_51_.setAmbient(i_39_);
-			}
-			if (class180_sub7_sub2_51_.getContrast() != i_40_) {
-				class180_sub7_sub2_51_.setContrast(i_40_);
-			}
-			class180_sub7_sub2 = class180_sub7_sub2_51_;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("vh.E(").append(i).append(',').append(bool).append(',').append(i_37_).append(',').append(bool_38_).append(')').toString());
 		}
-		return class180_sub7_sub2;
+		boolean bool_48_ = aBoolean1868;
+		final boolean bool_49_ = anInt1875 == 128 && anInt1855 == 0;
+		if (i == 2 && i_37_ > 3) {
+			bool_48_ = !bool_48_;
+		}
+		final boolean bool_50_ = i_37_ == 0 && anInt1856 == 128 && anInt1873 == 128 && anInt1838 == 0 && anInt1859 == 0 && !bool_48_;
+		final HDModelRenderer class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, recolorOriginal == null, true, class180_sub7_sub2_41_.getAmbient() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.getContrast() == i_40_, true, !bool_48_, retextureOriginal == null);
+		if (bool_48_) {
+			class180_sub7_sub2_51_.method2410();
+		}
+		if (i == 4 && i_37_ > 3) {
+			class180_sub7_sub2_51_.method2417(256);
+			class180_sub7_sub2_51_.translate(45, 0, -45);
+		}
+		i_37_ &= 0x3;
+		if (i_37_ == 1) {
+			class180_sub7_sub2_51_.method2422();
+		} else if (i_37_ == 2) {
+			class180_sub7_sub2_51_.method2409();
+		} else if (i_37_ == 3) {
+			class180_sub7_sub2_51_.method2408();
+		}
+		if (recolorOriginal != null) {
+			for (int i_52_ = 0; recolorOriginal.length > i_52_; i_52_++) {
+				class180_sub7_sub2_51_.method2427(recolorOriginal[i_52_], recolorModified[i_52_]);
+			}
+		}
+		if (retextureOriginal != null) {
+			for (int i_53_ = 0; retextureOriginal.length > i_53_; i_53_++) {
+				class180_sub7_sub2_51_.method2405(retextureOriginal[i_53_], retextureModified[i_53_]);
+			}
+		}
+		if (anInt1856 != 128 || anInt1875 != 128 || anInt1873 != 128) {
+			class180_sub7_sub2_51_.resize(anInt1856, anInt1875, anInt1873);
+		}
+		if (anInt1838 != 0 || anInt1855 != 0 || anInt1859 != 0) {
+			class180_sub7_sub2_51_.translate(anInt1838, anInt1855, anInt1859);
+		}
+		if (i_39_ != class180_sub7_sub2_51_.getAmbient()) {
+			class180_sub7_sub2_51_.setAmbient(i_39_);
+		}
+		if (class180_sub7_sub2_51_.getContrast() != i_40_) {
+			class180_sub7_sub2_51_.setContrast(i_40_);
+		}
+		return class180_sub7_sub2_51_;
 	}
 
 	final boolean method2460(final int type) {
@@ -512,20 +490,20 @@ final class LocType {
 			} else {
 				l = i_62_ + (i_63_ << 3) + (this.myId << 10);
 			}
-			HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) Class116.aClass21_1117.get(l);
+			HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) aClass21_1117.get(l);
 			if (class180_sub7_sub2 == null) {
-				class180_sub7_sub2 = method2459(i_63_, true, i_62_, false);
+				class180_sub7_sub2 = method2459(i_63_, true, i_62_);
 				if (class180_sub7_sub2 == null) {
 					return null;
 				}
 				class180_sub7_sub2.method2426();
 				class180_sub7_sub2.method2432(false, false, false, true, false, false, true);
-				Class116.aClass21_1117.put(class180_sub7_sub2, l);
+				aClass21_1117.put(class180_sub7_sub2, l);
 			}
 			HDModelRenderer class180_sub7_sub2_67_ = class180_sub7_sub2;
 			boolean bool_68_ = false;
 			if (seqType != null) {
-				class180_sub7_sub2_67_ = (HDModelRenderer) seqType.method320(false, i_66_, i_58_, class180_sub7_sub2_67_, i_62_, i_64_);
+				class180_sub7_sub2_67_ = (HDModelRenderer) seqType.method320(class180_sub7_sub2_67_, i_66_, i_58_, i_62_, i_64_);
 				bool_68_ = true;
 			}
 			if (i_63_ == 10 && i_62_ > 3) {
@@ -556,19 +534,19 @@ final class LocType {
 		} else {
 			l = (this.myId << 10) + i_62_;
 		}
-		LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) Class116.aClass21_1117.get(l);
+		LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) aClass21_1117.get(l);
 		if (class180_sub7_sub1 == null) {
-			final Model class180_sub2 = method2455(i_62_, (byte) -87, i_63_);
+			final Model class180_sub2 = method2455(i_62_, i_63_);
 			if (class180_sub2 == null) {
 				return null;
 			}
 			class180_sub7_sub1 = new LDModelRenderer(class180_sub2, ambient + 64, 5 * contrast + 768, -50, -10, -50);
-			Class116.aClass21_1117.put(class180_sub7_sub1, l);
+			aClass21_1117.put(class180_sub7_sub1, l);
 		}
 		boolean bool_69_ = false;
 		if (seqType != null) {
 			bool_69_ = true;
-			class180_sub7_sub1 = (LDModelRenderer) seqType.method327(i_66_, i_64_, -1725374704, i_58_, i_62_, class180_sub7_sub1);
+			class180_sub7_sub1 = (LDModelRenderer) seqType.method327(i_66_, i_64_, i_58_, i_62_, class180_sub7_sub1);
 		}
 		if (i_63_ == 10 && i_62_ > 3) {
 			if (!bool_69_) {
@@ -588,46 +566,46 @@ final class LocType {
 		return Class82.aClass88_783;
 	}
 
-	final int method2463() {
-		if (this.anIntArray1881 != null) {
-			int i_71_ = (int) (anInt1816 * Math.random());
-			int i_72_;
-			for (i_72_ = 0; anIntArray1829[i_72_] <= i_71_; i_72_++) {
-				i_71_ -= anIntArray1829[i_72_];
+	final int getRandomAnimationId() {
+		if (this.randomAnimationIds != null) {
+			int randomDelay = (int) (totalDelay * Math.random());
+			int animIndex;
+			for (animIndex = 0; randomAnimationDelays[animIndex] <= randomDelay; animIndex++) {
+				randomDelay -= randomAnimationDelays[animIndex];
 			}
-			return this.anIntArray1881[i_72_];
+			return this.randomAnimationIds[animIndex];
 		}
 		return -1;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			final int i_94_ = buffer.getUByte();
-			if (i_94_ > 0) {
+			final int len = buffer.getUByte();
+			if (len > 0) {
 				if (modelIds != null && !Class120_Sub12_Sub26.aBoolean3326) {
-					buffer.pos += 3 * i_94_;
+					buffer.pos += 3 * len;
 				} else {
-					modelIds = new int[i_94_];
-					types = new int[i_94_];
-					for (int i_95_ = 0; i_95_ < i_94_; i_95_++) {
-						modelIds[i_95_] = buffer.getUShort();
-						types[i_95_] = buffer.getUByte();
+					modelIds = new int[len];
+					types = new int[len];
+					for (int id = 0; id < len; id++) {
+						modelIds[id] = buffer.getUShort();
+						types[id] = buffer.getUByte();
 					}
 				}
 			}
 		} else if (code == 2) {
 			this.name = buffer.getJagexString();
 		} else if (code == 5) {
-			final int i_92_ = buffer.getUByte();
-			if (i_92_ > 0) {
+			final int len = buffer.getUByte();
+			if (len > 0) {
 				if (modelIds == null || Class120_Sub12_Sub26.aBoolean3326) {
 					types = null;
-					modelIds = new int[i_92_];
-					for (int i_93_ = 0; i_93_ < i_92_; i_93_++) {
-						modelIds[i_93_] = buffer.getUShort();
+					modelIds = new int[len];
+					for (int id = 0; id < len; id++) {
+						modelIds[id] = buffer.getUShort();
 					}
 				} else {
-					buffer.pos += i_92_ * 2;
+					buffer.pos += len * 2;
 				}
 			}
 		} else if (code == 14) {
@@ -649,7 +627,7 @@ final class LocType {
 			this.anInt1866 = 1;
 		} else if (code == 24) {
 			this.animationId = buffer.getUShort();
-			if (this.animationId == 65535) {
+			if (this.animationId == 0xffff) {
 				this.animationId = -1;
 			}
 		} else if (code == 27) {
@@ -663,7 +641,7 @@ final class LocType {
 			contrast = 5 * buffer.getByte();
 		} else if (code >= 30 && code < 35) {
 			this.options[code - 30] = buffer.getJagexString();
-			if (this.options[code - 30].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+			if (this.options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
 				this.options[code - 30] = null;
 			}
 		} else if (code == 40) {
@@ -715,28 +693,28 @@ final class LocType {
 		} else if (code == 77 || code == 92) {
 			int i_85_ = -1;
 			varbitId = buffer.getUShort();
-			if (varbitId == 65535) {
+			if (varbitId == 0xffff) {
 				varbitId = -1;
 			}
 			varpId = buffer.getUShort();
-			if (varpId == 65535) {
+			if (varpId == 0xffff) {
 				varpId = -1;
 			}
 			if (code == 92) {
 				i_85_ = buffer.getUShort();
-				if (i_85_ == 65535) {
+				if (i_85_ == 0xffff) {
 					i_85_ = -1;
 				}
 			}
 			final int i_86_ = buffer.getUByte();
-			this.childrenIDs = new int[2 + i_86_];
+			this.transmogrificationIds = new int[i_86_ + 2];
 			for (int i_87_ = 0; i_86_ >= i_87_; i_87_++) {
-				this.childrenIDs[i_87_] = buffer.getUShort();
-				if (this.childrenIDs[i_87_] == 65535) {
-					this.childrenIDs[i_87_] = -1;
+				this.transmogrificationIds[i_87_] = buffer.getUShort();
+				if (this.transmogrificationIds[i_87_] == 0xffff) {
+					this.transmogrificationIds[i_87_] = -1;
 				}
 			}
-			this.childrenIDs[i_86_ + 1] = i_85_;
+			this.transmogrificationIds[i_86_ + 1] = i_85_;
 		} else if (code == 78) {
 			this.ambientSoundId = buffer.getUShort();
 			this.ambientSoundHearDistance = buffer.getUByte();
@@ -772,9 +750,9 @@ final class LocType {
 		} else if (code == 96) {
 			this.aBoolean1878 = true;
 		} else if (code == 97) {
-			this.aBoolean1862 = true;
+			this.adjustMapSceneRotation = true;
 		} else if (code == 98) {
-			this.aBoolean1863 = true;//hasShadow
+			this.hasAnimation = true;
 		} else if (code == 99) {
 			this.cursor1op = buffer.getUByte();
 			this.cursor1 = buffer.getUShort();
@@ -782,7 +760,7 @@ final class LocType {
 			this.cursor2op = buffer.getUByte();
 			this.cursor2 = buffer.getUShort();
 		} else if (code == 101) {
-			this.anInt1869 = buffer.getUByte();
+			this.mapSceneRotationOff = buffer.getUByte();
 		} else if (code == 102) {
 			this.mapSceneId = buffer.getUShort();
 		} else if (code == 103) {
@@ -792,20 +770,20 @@ final class LocType {
 		} else if (code == 105) {
 			this.flipMapSceneSprite = true;
 		} else if (code == 106) {
-			final int i_78_ = buffer.getUByte();
-			anIntArray1829 = new int[i_78_];
-			this.anIntArray1881 = new int[i_78_];
-			for (int i_79_ = 0; i_78_ > i_79_; i_79_++) {
-				this.anIntArray1881[i_79_] = buffer.getUShort();
-				final int i_80_ = buffer.getUByte();
-				anIntArray1829[i_79_] = i_80_;
-				anInt1816 += i_80_;
+			final int len = buffer.getUByte();
+			randomAnimationDelays = new int[len];
+			this.randomAnimationIds = new int[len];
+			for (int id = 0; id < len; id++) {
+				this.randomAnimationIds[id] = buffer.getUShort();
+				final int delay = buffer.getUByte();
+				randomAnimationDelays[id] = delay;
+				totalDelay += delay;
 			}
 		} else if (code == 107) {
 			this.mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
 			this.options[code - 150] = buffer.getJagexString();
-			if (!Class69_Sub2.locMemberClient || this.options[code - 150].equalsIgnoreCase(Class120_Sub12_Sub15.hiddenString)) {
+			if (!Class69_Sub2.locMemberClient || this.options[code - 150].equalsIgnoreCase(TextRepository.hidden)) {
 				this.options[code - 150] = null;
 			}
 		} else if (code == 249) {
@@ -842,16 +820,16 @@ final class LocType {
 	}
 
 	final boolean hasAmbientSound() {
-		if (this.childrenIDs == null) {
+		if (this.transmogrificationIds == null) {
 			if (this.ambientSoundId == -1 && this.anIntArray1870 == null) {
 				return false;
 			}
 			return true;
 		}
-		for (final int element : this.childrenIDs) {
+		for (final int element : this.transmogrificationIds) {
 			if (element != -1) {
-				final LocType class184_100_ = LocType.list(element);
-				if (class184_100_.ambientSoundId != -1 || class184_100_.anIntArray1870 != null) {
+				final LocType locType = list(element);
+				if (locType.ambientSoundId != -1 || locType.anIntArray1870 != null) {
 					return true;
 				}
 			}
@@ -993,8 +971,8 @@ final class LocType {
 		if (i_121_ == this.animationId) {
 			return true;
 		}
-		if (this.anIntArray1881 != null) {
-			for (final int element : this.anIntArray1881) {
+		if (this.randomAnimationIds != null) {
+			for (final int element : this.randomAnimationIds) {
 				if (i_121_ == element) {
 					return true;
 				}
@@ -1030,6 +1008,13 @@ final class LocType {
 			return defaultString;
 		}
 		return stringNode.value;
+	}
+
+	static final void clearCache() {
+		recentUse.clearSoftReference();
+		aClass21_2663.clearSoftReference();
+		aClass21_1618.clearSoftReference();
+		aClass21_1117.clearSoftReference();
 	}
 
 	static final void setMembersClient1(final boolean bool) {
@@ -1078,26 +1063,26 @@ final class LocType {
 		this.anInt1831 = -1;
 		anInt1838 = 0;
 		aBoolean1830 = false;
-		anInt1816 = 0;
+		totalDelay = 0;
 		this.anInt1821 = 2;
 		varbitId = -1;
 		this.aBoolean1858 = true;
 		this.cursor2 = -1;
 		this.aBoolean1844 = true;
-		this.aBoolean1862 = false;
+		this.adjustMapSceneRotation = false;
 		this.mapFunctionId = -1;
 		anInt1855 = 0;
 		aShort1867 = (short) -1;
 		this.aBoolean1864 = true;
 		this.name = "null";
-		anIntArray1829 = null;
+		randomAnimationDelays = null;
 		this.aBoolean1822 = false;
 		this.animationId = -1;
 		this.anInt1866 = -1;
 		this.ambientSoundId = -1;
 		this.ambientSoundVolume = 255;
 		this.flipMapSceneSprite = false;
-		this.anInt1869 = 0;
+		this.mapSceneRotationOff = 0;
 		this.cursor1 = -1;
 		this.anInt1835 = -1;
 		aBoolean1868 = false;
@@ -1109,11 +1094,11 @@ final class LocType {
 		anInt1875 = 128;
 		this.aBoolean1878 = false;
 		anInt1856 = 128;
-		this.aBoolean1863 = false;
+		this.hasAnimation = false;
 		this.anInt1879 = 0;
 		this.aBoolean1876 = false;
 		this.aBoolean1853 = false;
 		this.aBoolean1880 = false;
-		this.anIntArray1881 = null;
+		this.randomAnimationIds = null;
 	}
 }

@@ -3,7 +3,6 @@
  */
 
 final class Class89 {
-	static js5 aClass50_836;
 	static int anInt837;
 	static int[] anIntArray838;
 

@@ -20,20 +20,13 @@ final class Class49 {
 		return Class157.shaders[Class173.anInt1724].method4();
 	}
 
-	static final void method409(final Class120_Sub30 class120_sub30, final byte i) {
-		try {
-			class120_sub30.aBoolean2784 = false;
-			if (i != 24) {
-				method408();
-			}
-			if (class120_sub30.aClass120_Sub5_2782 != null) {
-				class120_sub30.aClass120_Sub5_2782.anInt2442 = 0;
-			}
-			for (Class120_Sub30 class120_sub30_1_ = class120_sub30.method1736(); class120_sub30_1_ != null; class120_sub30_1_ = class120_sub30.method1735()) {
-				method409(class120_sub30_1_, (byte) 24);
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ff.C(").append(class120_sub30 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final void method409(final Class120_Sub30 class120_sub30) {
+		class120_sub30.aBoolean2784 = false;
+		if (class120_sub30.aClass120_Sub5_2782 != null) {
+			class120_sub30.aClass120_Sub5_2782.anInt2442 = 0;
+		}
+		for (Class120_Sub30 class120_sub30_1_ = class120_sub30.method1736(); class120_sub30_1_ != null; class120_sub30_1_ = class120_sub30.method1735()) {
+			method409(class120_sub30_1_);
 		}
 	}
 

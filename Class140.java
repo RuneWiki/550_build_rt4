@@ -5,7 +5,6 @@
 final class Class140 {
 	static int loadingStage = 0;
 	private int anInt1339 = 0;
-	static boolean npcMemberClient;
 	static int[] anIntArray1341 = { 1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0 };
 	private final Hashtable aClass75_1342;
 	static int anInt1343 = 0;

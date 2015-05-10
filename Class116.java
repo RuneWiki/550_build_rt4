@@ -6,7 +6,6 @@ final class Class116 {
 	static int anInt1113 = 0;
 	static AbstractSprite aClass120_Sub14_Sub19_1114;
 	static int anInt1115;
-	static ObjectCache aClass21_1117 = new ObjectCache(50);
 	static int anInt1118;
 	static int[][] anIntArrayArray1119 = { new int[16], { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 },
 			{ 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1 },
@@ -29,12 +28,12 @@ final class Class116 {
 			Class127.fixWorldMapBounds();
 		}
 		if (CanvasWrapper.anInt20 != -1 && Class120_Sub2.anInt2422 != -1) {
-			int i_0_ = -Class169.anInt1646 + Class120_Sub2.anInt2422;
+			int i_0_ = -ModelParticleMagnet.anInt1646 + Class120_Sub2.anInt2422;
 			int i_1_ = -ParticleEmitter.anInt2336 + CanvasWrapper.anInt20;
 			if (i_0_ < 2 || i_0_ > 2) {
 				i_0_ >>= 4;
 			}
-			Class169.anInt1646 -= -i_0_;
+			ModelParticleMagnet.anInt1646 -= -i_0_;
 			if (i_1_ < 2 || i_1_ > 2) {
 				i_1_ >>= 4;
 			}

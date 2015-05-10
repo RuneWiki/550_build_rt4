@@ -40,9 +40,9 @@ final class LightManager {
 		}
 	}
 
-	static final void method1858(final int i, final boolean bool) {
-		for (int i_4_ = 0; i_4_ < lightsPos; i_4_++) {
-			lights[i_4_].method350(bool, i);
+	static final void update(final int loopCycle, final boolean flickeringEffectsDisabled) {
+		for (int id = 0; id < lightsPos; id++) {
+			lights[id].update(flickeringEffectsDisabled, loopCycle);
 		}
 		anInt1180 = -1;
 		anInt1185 = -1;

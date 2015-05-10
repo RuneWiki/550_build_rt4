@@ -58,7 +58,7 @@ final class HDToolkit {
 	private static int texture2D_ID;
 	private static int viewportWidth;
 	private static boolean fogEnabled;
-	private static float viewportZoom;
+	private static float fieldOfView;
 	static boolean aBoolean550;
 	private static int viewportHeight;
 	private static int maxTextureCoords;
@@ -77,7 +77,7 @@ final class HDToolkit {
 		glEnabled = false;
 		aFloat530 = 0.0F;
 		aBoolean544 = false;
-		viewportZoom = 25F/256;
+		fieldOfView = 25F/256;
 		aBoolean528 = false;
 		anInt553 = 0;
 	}
@@ -90,7 +90,7 @@ final class HDToolkit {
 		//System.out.println(left+":"+right+":"+top+":"+bottom);
 		gl.glMatrixMode(5889);//GL_PROJECTION
 		gl.glLoadIdentity();
-		loadFrustumMatrix(left * viewportZoom, right * viewportZoom, -bottom * viewportZoom, -top * viewportZoom, 50.0F, 3584.0F);
+		loadFrustumMatrix(left * fieldOfView, right * fieldOfView, -bottom * fieldOfView, -top * fieldOfView, 50.0F, 3584.0F);
 		setViewport(x, canvasHeight - y - height, width, height);
 		gl.glMatrixMode(5888);//GL_MODELVIEW
 		gl.glLoadIdentity();
@@ -381,7 +381,7 @@ final class HDToolkit {
 		if (gl != null) {
 			try {
 				Class34.method291();
-				Class2.method77(-116);
+				Class2.method77();
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
@@ -673,7 +673,7 @@ final class HDToolkit {
 		}
 	}
 
-	static final void method536() {
+	static final void swapBuffers() {
 		try {
 			glDrawable.swapBuffers();
 		} catch (final Exception exception) {

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /* Class120_Sub12_Sub20 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -16,23 +18,14 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		FrameLoader.recentUse.clear();
 	}
 
-	private final int[] method1297(final int i, final int i_0_) {
-		int[] is;
-		try {
-			if (i_0_ <= 121) {
-				anInt3284 = -77;
-			}
-			if (i < 0) {
-				return anIntArray3285;
-			}
-			if (anIntArrayArray3283.length <= i) {
-				return anIntArray3289;
-			}
-			is = anIntArrayArray3283[i];
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.R(").append(i).append(',').append(i_0_).append(')').toString());
+	private final int[] method1297(final int i) {
+		if (i < 0) {
+			return anIntArray3285;
 		}
-		return is;
+		if (anIntArrayArray3283.length <= i) {
+			return anIntArray3289;
+		}
+		return anIntArrayArray3283[i];
 	}
 
 	@Override
@@ -54,109 +47,98 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		return is_2_;
 	}
 
-	private final void method1298(final int i) {
+	private final void method1298() {
 		while_197_: do {
-			try {
-				if (i <= 103) {
-					anInt3284 = 99;
-				}
-				int i_6_ = anInt3288;
-				do {
-					if (i_6_ != 2) {
-						if (i_6_ != 1) {
-							break;
-						}
-					} else {
-						for (i_6_ = 0; i_6_ < 257; i_6_++) {
-							final int i_7_ = i_6_ << 4;
-							int i_8_;
-							for (i_8_ = 1; i_8_ < anIntArrayArray3283.length - 1 && i_7_ >= anIntArrayArray3283[i_8_][0]; i_8_++) {
-								/* empty */
-							}
-							final int[] is = anIntArrayArray3283[i_8_];
-							final int[] is_9_ = anIntArrayArray3283[i_8_ - 1];
-							final int i_10_ = method1297(i_8_ - 2, 126)[1];
-							final int i_11_ = is[1];
-							final int i_12_ = is_9_[1];
-							final int i_13_ = i_12_;
-							final int i_14_ = i_11_ - i_10_;
-							final int i_15_ = method1297(1 + i_8_, 125)[1];
-							final int i_16_ = (-is_9_[0] + i_7_ << 12) / (is[0] - is_9_[0]);
-							final int i_17_ = -i_10_ + -i_11_ + i_15_ + i_12_;
-							final int i_18_ = -i_12_ + i_10_ - i_17_;
-							final int i_19_ = i_16_ * i_16_ >> 12;
-							final int i_20_ = i_16_ * i_14_ >> 12;
-							final int i_21_ = (i_16_ * i_17_ >> 12) * i_19_ >> 12;
-							final int i_22_ = i_19_ * i_18_ >> 12;
-							int i_23_ = i_21_ - -i_22_ + i_20_ + i_13_;
-							if (i_23_ <= -32768) {
-								i_23_ = -32767;
-							}
-							if ((i_23_ ^ 0xffffffff) <= -32769) {
-								i_23_ = 32767;
-							}
-							aShortArray3287[i_6_] = (short) i_23_;
-						}
-						break while_197_;
+			int i_6_ = anInt3288;
+			do {
+				if (i_6_ != 2) {
+					if (i_6_ != 1) {
+						break;
 					}
+				} else {
 					for (i_6_ = 0; i_6_ < 257; i_6_++) {
-						final int i_24_ = i_6_ << 4;
-						int i_25_;
-						for (i_25_ = 1; -1 + anIntArrayArray3283.length > i_25_ && anIntArrayArray3283[i_25_][0] <= i_24_; i_25_++) {
+						final int i_7_ = i_6_ << 4;
+						int i_8_;
+						for (i_8_ = 1; i_8_ < anIntArrayArray3283.length - 1 && i_7_ >= anIntArrayArray3283[i_8_][0]; i_8_++) {
 							/* empty */
 						}
-						final int[] is = anIntArrayArray3283[-1 + i_25_];
-						final int[] is_26_ = anIntArrayArray3283[i_25_];
-						final int i_27_ = (-is[0] + i_24_ << 12) / (is_26_[0] + -is[0]);
-						final int i_28_ = 4096 + -FileSystemWorker.anIntArray789[0xff & i_27_ >> 5] >> 1;
-						final int i_29_ = 4096 + -i_28_;
-						int i_30_ = i_28_ * is_26_[1] + i_29_ * is[1] >> 12;
-						if (i_30_ <= -32768) {
-							i_30_ = -32767;
+						final int[] is = anIntArrayArray3283[i_8_];
+						final int[] is_9_ = anIntArrayArray3283[i_8_ - 1];
+						final int i_10_ = method1297(i_8_ - 2)[1];
+						final int i_11_ = is[1];
+						final int i_12_ = is_9_[1];
+						final int i_13_ = i_12_;
+						final int i_14_ = i_11_ - i_10_;
+						final int i_15_ = method1297(1 + i_8_)[1];
+						final int i_16_ = (-is_9_[0] + i_7_ << 12) / (is[0] - is_9_[0]);
+						final int i_17_ = -i_10_ + -i_11_ + i_15_ + i_12_;
+						final int i_18_ = -i_12_ + i_10_ - i_17_;
+						final int i_19_ = i_16_ * i_16_ >> 12;
+						final int i_20_ = i_16_ * i_14_ >> 12;
+						final int i_21_ = (i_16_ * i_17_ >> 12) * i_19_ >> 12;
+						final int i_22_ = i_19_ * i_18_ >> 12;
+						int i_23_ = i_21_ - -i_22_ + i_20_ + i_13_;
+						if (i_23_ <= -32768) {
+							i_23_ = -32767;
 						}
-						if (-32769 >= (i_30_ ^ 0xffffffff)) {
-							i_30_ = 32767;
+						if ((i_23_ ^ 0xffffffff) <= -32769) {
+							i_23_ = 32767;
 						}
-						aShortArray3287[i_6_] = (short) i_30_;
+						aShortArray3287[i_6_] = (short) i_23_;
 					}
 					break while_197_;
-				} while (false);
+				}
 				for (i_6_ = 0; i_6_ < 257; i_6_++) {
-					final int i_31_ = i_6_ << 4;
-					int i_32_;
-					for (i_32_ = 1; anIntArrayArray3283.length - 1 > i_32_ && i_31_ >= anIntArrayArray3283[i_32_][0]; i_32_++) {
+					final int i_24_ = i_6_ << 4;
+					int i_25_;
+					for (i_25_ = 1; -1 + anIntArrayArray3283.length > i_25_ && anIntArrayArray3283[i_25_][0] <= i_24_; i_25_++) {
 						/* empty */
 					}
-					final int[] is = anIntArrayArray3283[-1 + i_32_];
-					final int[] is_33_ = anIntArrayArray3283[i_32_];
-					final int i_34_ = (i_31_ - is[0] << 12) / (-is[0] + is_33_[0]);
-					final int i_35_ = -i_34_ + 4096;
-					int i_36_ = is_33_[1] * i_34_ + i_35_ * is[1] >> 12;
-					if (i_36_ <= -32768) {
-						i_36_ = -32767;
+					final int[] is = anIntArrayArray3283[-1 + i_25_];
+					final int[] is_26_ = anIntArrayArray3283[i_25_];
+					final int i_27_ = (-is[0] + i_24_ << 12) / (is_26_[0] + -is[0]);
+					final int i_28_ = 4096 + -FileSystemWorker.anIntArray789[0xff & i_27_ >> 5] >> 1;
+					final int i_29_ = 4096 + -i_28_;
+					int i_30_ = i_28_ * is_26_[1] + i_29_ * is[1] >> 12;
+					if (i_30_ <= -32768) {
+						i_30_ = -32767;
 					}
-					if (i_36_ >= 32768) {
-						i_36_ = 32767;
+					if (-32769 >= (i_30_ ^ 0xffffffff)) {
+						i_30_ = 32767;
 					}
-					aShortArray3287[i_6_] = (short) i_36_;
+					aShortArray3287[i_6_] = (short) i_30_;
 				}
-			} catch (final RuntimeException runtimeexception) {
-				throw EnumType.method1428(runtimeexception, new StringBuilder("of.T(").append(i).append(')').toString());
+				break while_197_;
+			} while (false);
+			for (i_6_ = 0; i_6_ < 257; i_6_++) {
+				final int i_31_ = i_6_ << 4;
+				int i_32_;
+				for (i_32_ = 1; anIntArrayArray3283.length - 1 > i_32_ && i_31_ >= anIntArrayArray3283[i_32_][0]; i_32_++) {
+					/* empty */
+				}
+				final int[] is = anIntArrayArray3283[-1 + i_32_];
+				final int[] is_33_ = anIntArrayArray3283[i_32_];
+				final int i_34_ = (i_31_ - is[0] << 12) / (-is[0] + is_33_[0]);
+				final int i_35_ = -i_34_ + 4096;
+				int i_36_ = is_33_[1] * i_34_ + i_35_ * is[1] >> 12;
+				if (i_36_ <= -32768) {
+					i_36_ = -32767;
+				}
+				if (i_36_ >= 32768) {
+					i_36_ = 32767;
+				}
+				aShortArray3287[i_6_] = (short) i_36_;
 			}
 		} while (false);
 	}
 
-	private final void method1299(final int i) {
-		try {
-			final int[] is = anIntArrayArray3283[0];
-			final int[] is_37_ = anIntArrayArray3283[1];
-			final int[] is_38_ = anIntArrayArray3283[anIntArrayArray3283.length + -1];
-			final int[] is_39_ = anIntArrayArray3283[anIntArrayArray3283.length - 2];
-			anIntArray3289 = new int[] { is_39_[0] + is_39_[0] + -is_38_[0], is_39_[1] - -is_39_[1] - is_38_[1] };
-			anIntArray3285 = new int[] { is[0] - (-is[i] + is_37_[0]), is[1] + -is_37_[1] + is[1] };
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("of.BA(").append(i).append(')').toString());
-		}
+	private final void method1299() {
+		final int[] is = anIntArrayArray3283[0];
+		final int[] is_37_ = anIntArrayArray3283[1];
+		final int[] is_38_ = anIntArrayArray3283[anIntArrayArray3283.length + -1];
+		final int[] is_39_ = anIntArrayArray3283[anIntArrayArray3283.length - 2];
+		anIntArray3289 = new int[] { is_39_[0] + is_39_[0] - is_38_[0], is_39_[1] + is_39_[1] - is_38_[1] };
+		anIntArray3285 = new int[] { is[0] - (-is[0] + is_37_[0]), is[1] + -is_37_[1] + is[1] };
 	}
 
 	static final void execuseCommand(final String command) {
@@ -203,11 +185,6 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			if (command.equalsIgnoreCase("::serverjs5drop")) {
 				Class178.js5Worker.sendDropConnection();
 			}
-			if (command.equalsIgnoreCase("test")) {
-				int i_108_ = 0;
-				int i_109_ = 100;
-				ObjectPile.method2447(i_109_, i_108_);
-			}
 			if (command.equalsIgnoreCase("::breakcon")) {
 				NpcType.gameSignlink.method1963(5000);
 				AbstractTimer.worldConnection.replaceStreamsWithDummy();
@@ -221,6 +198,16 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (command.equalsIgnoreCase("::fpson")) {
 				HintIcon.showFps = true;
+			}
+			if (command.equalsIgnoreCase("::test")) {
+				for(int i = 0; i < 100000; i++) {
+					LocType loc = LocType.list(i);
+					if(loc != null) {
+						if(loc.randomAnimationIds != null) {
+							System.out.println(i+":"+loc.totalDelay+":"+Arrays.toString(loc.randomAnimationIds)+":"+Arrays.toString(loc.randomAnimationDelays));
+						}
+					}
+				}
 			}
 			if (command.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
@@ -248,7 +235,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				MapFunctionNode.aBoolean3471 = false;
 			}
 			if (command.startsWith("::fps ")) {
-				Class190.method2506(Class31.stringToBase10(command.substring(6)));
+				Class190.setFps(Class31.stringToBase10(command.substring(6)));
 			}
 			if (command.equalsIgnoreCase("::errortest")) {
 				throw new RuntimeException();
@@ -302,10 +289,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			throw new RuntimeException("Curve operation requires at least two markers");
 		}
 		if (anInt3288 == 2) {
-			method1299(0);
+			method1299();
 		}
 		PacketBuffer.method1147();
-		method1298(113);
+		method1298();
 	}
 
 	@Override

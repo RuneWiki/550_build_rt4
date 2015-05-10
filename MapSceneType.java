@@ -3,7 +3,6 @@
  */
 
 final class MapSceneType {
-	static String aString1358 = "Loaded textures";
 	boolean enlarge = false;//Not sure TODO 
 	int anInt1360;
 	static int anInt1361;
@@ -46,7 +45,7 @@ final class MapSceneType {
 						Class120_Sub12_Sub25.anInt3312 = 0;
 					}
 					Js5Request.aClass120_Sub31_3941 = null;
-					Class26.aClass90_163 = null;
+					Normal.aClass90_163 = null;
 				}
 			}
 		} catch (final Exception exception) {
@@ -54,7 +53,7 @@ final class MapSceneType {
 			Class30.aClass120_Sub30_Sub2_234.method1770();
 			Js5Request.aClass120_Sub31_3941 = null;
 			MasterIndexInfo.aClass50_476 = null;
-			Class26.aClass90_163 = null;
+			Normal.aClass90_163 = null;
 			Class120_Sub12_Sub25.anInt3312 = 0;
 		}
 	}
@@ -163,11 +162,11 @@ final class MapSceneType {
 							if (newComponentY < Class120_Sub12_Sub35.anInt3413) {
 								newComponentY = Class120_Sub12_Sub35.anInt3413;
 							}
-							if (newComponentX + jagexInterface.width > Class26.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
-								newComponentX = Class26.aClass189_161.width - jagexInterface.width + Class120_Sub12_Sub7.anInt3183;
+							if (newComponentX + jagexInterface.width > Normal.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
+								newComponentX = Normal.aClass189_161.width - jagexInterface.width + Class120_Sub12_Sub7.anInt3183;
 							}
-							if (newComponentY + jagexInterface.height > Class120_Sub12_Sub35.anInt3413 + Class26.aClass189_161.height) {
-								newComponentY = Class26.aClass189_161.height - jagexInterface.height + Class120_Sub12_Sub35.anInt3413;
+							if (newComponentY + jagexInterface.height > Class120_Sub12_Sub35.anInt3413 + Normal.aClass189_161.height) {
+								newComponentY = Normal.aClass189_161.height - jagexInterface.height + Class120_Sub12_Sub35.anInt3413;
 							}
 							drawX = newComponentX;
 							drawY = newComponentY;
@@ -324,7 +323,7 @@ final class MapSceneType {
 									}
 									final int i_61_ = i_58_ * 100 / totalGroups;
 									final int i_62_ = i_57_ * 10000 / totalGroups;
-									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, -116, 2, 0)).append("% (").append(i_61_).append("%)").toString();
+									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, 2, 0)).append("% (").append(i_61_).append("%)").toString();
 									ObjectCache.smallFont.method1482(string, textX, textY, textColor, -1);
 									textY += 12;
 									if (ParticleEngine.anInt2360 > 0) {
@@ -346,13 +345,13 @@ final class MapSceneType {
 						if (!Class15.menuOpen) {
 							if (jagexInterface.type == 0 && jagexInterface.aBoolean1960 && i_37_ <= Class115.menuMouseX && Class120_Sub12_Sub21.menuMouseY >= i_35_ && Class115.menuMouseX < i_36_ && i_38_ > Class120_Sub12_Sub21.menuMouseY && !Class120_Sub30_Sub1.qaOpTestEnabled) {
 								Class120_Sub29.menuOptionsCode[0] = (short) 1006;
-								Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
+								Class120_Sub12_Sub33.menuOptionPrefix[0] = TextRepository.aString1462;
 								Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 								InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 								WallDecoration.menuOptionCount = 1;
 							}
 							if (Class115.menuMouseX >= i_37_ && i_35_ <= Class120_Sub12_Sub21.menuMouseY && Class115.menuMouseX < i_36_ && i_38_ > Class120_Sub12_Sub21.menuMouseY) {
-								Class120_Sub12_Sub9.method1244(jagexInterface, -drawY + Class120_Sub12_Sub21.menuMouseY, Class115.menuMouseX - drawX);
+								Class120_Sub12_Sub9.method1244(jagexInterface, Class115.menuMouseX - drawX, Class120_Sub12_Sub21.menuMouseY - drawY);
 							}
 						}
 						if (jagexInterface.type == 0) {
@@ -379,7 +378,7 @@ final class MapSceneType {
 								if (class120_sub26.type == 0 && !Class15.menuOpen && Class115.menuMouseX >= i_37_ && Class120_Sub12_Sub21.menuMouseY >= i_35_ && i_36_ > Class115.menuMouseX && Class120_Sub12_Sub21.menuMouseY < i_38_ && !Class120_Sub30_Sub1.qaOpTestEnabled) {
 									Class120_Sub29.menuOptionsCode[0] = (short) 1006;
 									InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
-									Class120_Sub12_Sub33.menuOptionPrefix[0] = Class157.aString1462;
+									Class120_Sub12_Sub33.menuOptionPrefix[0] = TextRepository.aString1462;
 									Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 									WallDecoration.menuOptionCount = 1;
 								}
@@ -474,7 +473,7 @@ final class MapSceneType {
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
 															}
-														} else if (jagexInterface == Class32.aClass189_256 && i_63_ == Huffman.anInt1204) {
+														} else if (jagexInterface == MagnetType.aClass189_256 && i_63_ == Huffman.anInt1204) {
 															class120_sub14_sub19.drawSpriteTransparency(i_67_, i_66_, 128);
 														} else {
 															class120_sub14_sub19.drawReg(i_67_, i_66_);
@@ -484,7 +483,7 @@ final class MapSceneType {
 													}
 												}
 											} else if (jagexInterface.spriteIDs != null && i_63_ < 20) {
-												final AbstractSprite class120_sub14_sub19 = jagexInterface.method2487(i_63_);
+												final AbstractSprite class120_sub14_sub19 = jagexInterface.constructInventorySprite(i_63_);
 												if (class120_sub14_sub19 == null) {
 													if (Class88.interfaceSpriteIsNull) {
 														InterfaceClickMask.redrawInterface(jagexInterface);
@@ -707,12 +706,12 @@ final class MapSceneType {
 									} else if (jagexInterface.modelTypeDisabled != 5) {
 										if (animationId != -1) {
 											final SeqType seqType = SeqType.list(animationId);
-											class180_sub7 = jagexInterface.method2486(seqType, TileParticleQueue.selfPlayer.appearance, jagexInterface.nextFrame, jagexInterface.currentFrame, jagexInterface.frameDelay, interfaceEnabled);
+											class180_sub7 = jagexInterface.constructModel(seqType, TileParticleQueue.selfPlayer.appearance, jagexInterface.nextFrame, jagexInterface.currentFrame, jagexInterface.frameDelay, interfaceEnabled);
 											if (class180_sub7 == null && Class88.interfaceSpriteIsNull) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
 										} else {
-											class180_sub7 = jagexInterface.method2486(null, TileParticleQueue.selfPlayer.appearance, -1, -1, 0, interfaceEnabled);
+											class180_sub7 = jagexInterface.constructModel(null, TileParticleQueue.selfPlayer.appearance, -1, -1, 0, interfaceEnabled);
 											if (class180_sub7 == null && Class88.interfaceSpriteIsNull) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
 											}
@@ -728,7 +727,7 @@ final class MapSceneType {
 											class180_sub7 = class180_sub5_sub1.appearance.method2040(null, 0, -1, -1, null, jagexInterface.currentFrame, false, 0, seqType, true, 0);
 										}
 									} else {
-										class180_sub7 = Class26.aClass144_159.method2040(null, -1, -1, -1, null, -1, false, 0, null, true, 0);
+										class180_sub7 = Normal.aClass144_159.method2040(null, -1, -1, -1, null, -1, false, 0, null, true, 0);
 									}
 									if (class180_sub7 != null) {
 										int i_93_;
@@ -951,6 +950,11 @@ final class MapSceneType {
 			spriteCache.put(ldIndexedSprite, this.spriteId | rotation << 16 | (flip ? 262144 : 0));
 		}
 		return ldIndexedSprite;
+	}
+
+	static final void clear() {
+		recentUse.clear();
+		spriteCache.clear();
 	}
 
 	static final MapSceneType list(final int id) {

@@ -123,16 +123,16 @@ final class AtmosphereManager {
 		}
 	}
 
-	static final void setLightParams(int screenColor, float ambientMod, float l0Diffuse, float l1Diffuse) {
-		if (screenColorRgb != screenColor || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
-			screenColorRgb = screenColor;
+	static final void setLightParams(int color, float ambientMod, float l0Diffuse, float l1Diffuse) {
+		if (screenColorRgb != color || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
+			screenColorRgb = color;
 			lightModelAmbient = ambientMod;
 			light0Diffuse = l0Diffuse;
 			light1Diffuse = l1Diffuse;
 			final GL gl = HDToolkit.gl;
-			final float red = (screenColor >> 16 & 0xff) / 255.0F;
-			final float green = (screenColor >> 8 & 0xff) / 255.0F;
-			final float blue = (screenColor & 0xff) / 255.0F;
+			final float red = (color >> 16 & 0xff) / 255.0F;
+			final float green = (color >> 8 & 0xff) / 255.0F;
+			final float blue = (color & 0xff) / 255.0F;
 			final float[] lightModelAmbientParams = { ambientMod * red, ambientMod * green, ambientMod * blue, 1.0F };
 			gl.glLightModelfv(2899, lightModelAmbientParams, 0);//LIGHT_MODEL_AMBIENT
 			final float[] light0Params = { l0Diffuse * red, l0Diffuse * green, l0Diffuse * blue, 1.0F };

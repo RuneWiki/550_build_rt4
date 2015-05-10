@@ -32,11 +32,11 @@ class Buffer extends Node {
 
 	final int getShort() {
 		this.pos += 2;
-		int i_1_ = ((this.buf[this.pos - 2] & 0xff) << 8) + (this.buf[this.pos - 1] & 0xff);
-		if (i_1_ > 32767) {
-			i_1_ -= 65536;
+		int value = ((this.buf[this.pos - 2] & 0xff) << 8) + (this.buf[this.pos - 1] & 0xff);
+		if (value > 32767) {
+			value -= 65536;
 		}
-		return i_1_;
+		return value;
 	}
 
 	final void putSmart(final int value) {
@@ -49,13 +49,13 @@ class Buffer extends Node {
 		}
 	}
 
-	final void putByteC(final int i) {
-		this.buf[this.pos++] = (byte) (-i);
+	final void putByteC(final int value) {
+		this.buf[this.pos++] = (byte) (-value);
 	}
 
 	final int getUSmart() {
-		final int i_5_ = 0xff & this.buf[this.pos];
-		if (i_5_ >= 128) {
+		final int value = this.buf[this.pos] & 0xff;
+		if (value >= 128) {
 			return getUShort() - 32768;
 		}
 		return getUByte();
@@ -77,31 +77,31 @@ class Buffer extends Node {
 		putByte(0x7f & value);
 	}
 
-	final void putByte(final int i) {
-		this.buf[this.pos++] = (byte) i;
+	final void putByte(final int value) {
+		this.buf[this.pos++] = (byte) value;
 	}
 
-	final void putLong(final long l) {
-		this.buf[this.pos++] = (byte) (int) (l >> 56);
-		this.buf[this.pos++] = (byte) (int) (l >> 48);
-		this.buf[this.pos++] = (byte) (int) (l >> 40);
-		this.buf[this.pos++] = (byte) (int) (l >> 32);
-		this.buf[this.pos++] = (byte) (int) (l >> 24);
-		this.buf[this.pos++] = (byte) (int) (l >> 16);
-		this.buf[this.pos++] = (byte) (int) (l >> 8);
-		this.buf[this.pos++] = (byte) (int) l;
+	final void putLong(final long value) {
+		this.buf[this.pos++] = (byte) (int) (value >> 56);
+		this.buf[this.pos++] = (byte) (int) (value >> 48);
+		this.buf[this.pos++] = (byte) (int) (value >> 40);
+		this.buf[this.pos++] = (byte) (int) (value >> 32);
+		this.buf[this.pos++] = (byte) (int) (value >> 24);
+		this.buf[this.pos++] = (byte) (int) (value >> 16);
+		this.buf[this.pos++] = (byte) (int) (value >> 8);
+		this.buf[this.pos++] = (byte) (int) value;
 	}
 
 	final int getInt1() {
 		this.pos += 4;
-		return ((this.buf[-1 + this.pos] & 0xff) << 16) + (~0xffffff & this.buf[this.pos + -2] << 24) - -(this.buf[-4 + this.pos] << 8 & 0xff00) + (0xff & this.buf[-3 + this.pos]);
+		return ((this.buf[this.pos - 1] & 0xff) << 16) + ((this.buf[this.pos - 2] & 0xff) << 24) + ((this.buf[this.pos - 4] & 0xff) << 8) + (this.buf[this.pos - 3] & 0xff);
 	}
 
-	final void putInt2(final int i_9_) {
-		this.buf[this.pos++] = (byte) (i_9_ >> 16);
-		this.buf[this.pos++] = (byte) (i_9_ >> 24);
-		this.buf[this.pos++] = (byte) i_9_;
-		this.buf[this.pos++] = (byte) (i_9_ >> 8);
+	final void putInt2(final int value) {
+		this.buf[this.pos++] = (byte) (value >> 16);
+		this.buf[this.pos++] = (byte) (value >> 24);
+		this.buf[this.pos++] = (byte) value;
+		this.buf[this.pos++] = (byte) (value >> 8);
 	}
 
 	final int getLEShort() {
@@ -113,18 +113,18 @@ class Buffer extends Node {
 		return value;
 	}
 
-	final void putByteS(final int i_11_) {
-		this.buf[this.pos++] = (byte) (128 - i_11_);
+	final void putByteS(final int value) {
+		this.buf[this.pos++] = (byte) (128 - value);
 	}
 
 	final int getInt2() {
 		this.pos += 4;
-		return (this.buf[this.pos - 2] & 0xff) + ((0xff & this.buf[-4 + this.pos]) << 16) + (~0xffffff & this.buf[-3 + this.pos] << 24) + (0xff00 & this.buf[this.pos + -1] << 8);
+		return (this.buf[this.pos - 2] & 0xff) + ((this.buf[this.pos - 4] & 0xff) << 16) + ((this.buf[this.pos - 3] & 0xff) << 24) + ((this.buf[this.pos - 1] & 0xff) << 8);
 	}
 
 	final int getULEShortA() {
 		this.pos += 2;
-		return ((0xff & this.buf[this.pos - 1]) << 8) - -(0xff & this.buf[-2 + this.pos] - 128);
+		return ((this.buf[this.pos - 1] & 0xff) << 8) + (0xff & this.buf[this.pos - 2] - 128);
 	}
 
 	final int getUByteC() {
@@ -133,14 +133,14 @@ class Buffer extends Node {
 
 	final int method1092() {
 		this.pos += 3;
-		return (this.buf[-2 + this.pos] << 16 & 0xff0000) + ((this.buf[this.pos + -3] & 0xff) << 8) + (this.buf[-1 + this.pos] & 0xff);
+		return ((this.buf[this.pos - 2] & 0xff) << 16) + ((this.buf[this.pos- 3] & 0xff) << 8) + (this.buf[this.pos - 1] & 0xff);
 	}
 
-	final void putInt1(final int i_16_) {
-		this.buf[this.pos++] = (byte) (i_16_ >> 8);
-		this.buf[this.pos++] = (byte) i_16_;
-		this.buf[this.pos++] = (byte) (i_16_ >> 24);
-		this.buf[this.pos++] = (byte) (i_16_ >> 16);
+	final void putInt1(final int value) {
+		this.buf[this.pos++] = (byte) (value >> 8);
+		this.buf[this.pos++] = (byte) value;
+		this.buf[this.pos++] = (byte) (value >> 24);
+		this.buf[this.pos++] = (byte) (value >> 16);
 	}
 
 	static final void method1094(final LocType locType, final int i, final int i_17_, final int i_18_, final int i_19_, final int i_21_, final int i_22_, final int i_23_) {
@@ -360,7 +360,7 @@ class Buffer extends Node {
 
 	final int getUShort() {
 		this.pos += 2;
-		return (0xff & this.buf[this.pos - 1]) + ((this.buf[this.pos - 2] & 0xff) << 8);
+		return (this.buf[this.pos - 1] & 0xff) + ((this.buf[this.pos - 2] & 0xff) << 8);
 	}
 
 	Buffer(final int i) {
@@ -377,7 +377,7 @@ class Buffer extends Node {
 
 	final int getMedium() {
 		this.pos += 3;
-		return (0xff & this.buf[this.pos - 1]) + (this.buf[this.pos - 3] << 16 & 0xff0000) + ((this.buf[this.pos - 2] & 0xff) << 8);
+		return (this.buf[this.pos - 1] & 0xff) + (this.buf[this.pos - 3] << 16 & 0xff0000) + ((this.buf[this.pos - 2] & 0xff) << 8);
 	}
 
 	static final void method1121() {

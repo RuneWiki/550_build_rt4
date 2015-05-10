@@ -701,22 +701,22 @@ final class IdentityKit {
 						Particle class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekFirst();
 						for (/**/; true; class108_sub3_sub1_95_ = (Particle) class120_sub18_27_.tileParticle.peekNext()) {
 							if (class108_sub3_sub1_95_ != null) {
-								if (class108_sub3_sub1_95_.aClass108_Sub1_3099 == null || class108_sub3_sub1_95_.aClass108_Sub1_3099.particleEngine.aBoolean2356) {
+								if (class108_sub3_sub1_95_.particleEmitter == null || class108_sub3_sub1_95_.particleEmitter.particleEngine.aBoolean2356) {
 									class108_sub3_sub1_95_.unlink();
 									continue;
 								}
-								if ((byte) (int) (class108_sub3_sub1_95_.aClass108_Sub1_3099.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
+								if ((byte) (int) (class108_sub3_sub1_95_.particleEmitter.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
 									class120_sub18_27_.tileParticle = null;
 									break;
 								}
 								if (class108_sub3_sub1 == null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
-									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub1.emitterType.size;
+									class108_sub1 = class108_sub3_sub1_95_.particleEmitter;
+									i_94_ = class108_sub1.emitterType.minSize;
 									continue;
 								}
 							}
-							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.aClass108_Sub1_3099 != class108_sub1 || class108_sub3_sub1_95_.aClass108_Sub1_3099.emitterType.size != i_94_)) {
+							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.particleEmitter != class108_sub1 || class108_sub3_sub1_95_.particleEmitter.emitterType.minSize != i_94_)) {
 								for (int i_96_ = 0; i_96_ < i_93_; i_96_++) {
 									ParticleEngine.anIntArray2389[i_96_] = 0;
 								}
@@ -725,10 +725,10 @@ final class IdentityKit {
 								}
 								ParticleEngine.anInt2380 = 0;
 								for (Particle class108_sub3_sub1_98_ = class108_sub3_sub1; class108_sub3_sub1_98_ != class108_sub3_sub1_95_; class108_sub3_sub1_98_ = (Particle) class108_sub3_sub1_98_.nextSub) {
-									if (class108_sub3_sub1_98_.aClass108_Sub1_3099 != null) {
-										final int i_99_ = (class108_sub3_sub1_98_.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
-										final int i_100_ = (class108_sub3_sub1_98_.anInt3088 >> 12) - PlayerAppearance.anInt1367;
-										int i_101_ = (class108_sub3_sub1_98_.anInt3090 >> 12) - Class145.anInt1381;
+									if (class108_sub3_sub1_98_.particleEmitter != null) {
+										final int i_99_ = (class108_sub3_sub1_98_.positionX >> 12) - DisplayModeInfo.anInt1713;
+										final int i_100_ = (class108_sub3_sub1_98_.positionY >> 12) - PlayerAppearance.anInt1367;
+										int i_101_ = (class108_sub3_sub1_98_.positionZ >> 12) - Class145.anInt1381;
 										i_101_ = i_101_ * MapFunctionType.anInt637 - i_99_ * Class120_Sub12_Sub30.anInt3377 >> 16;
 										i_101_ = (i_100_ * Class69_Sub2.anInt2239 + i_101_ * ObjectContainer.anInt2616 >> 16) - i_92_;
 										if (ParticleEngine.anIntArray2389[i_101_] < 32) {
@@ -754,8 +754,8 @@ final class IdentityKit {
 									}
 								}
 								boolean bool_103_ = false;
-								if (ParticleEngine.aBoolean2347 && class108_sub1.emitterType.anInt724 != -1) {
-									Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.anInt724);
+								if (ParticleEngine.aBoolean2347 && class108_sub1.emitterType.texture != -1) {
+									Rasterizer.anInterface5_973.method25(class108_sub1.emitterType.texture);
 									bool_103_ = true;
 								} else {
 									HDToolkit.bindTexture2D(-1);
@@ -765,11 +765,11 @@ final class IdentityKit {
 									f_104_ = 64.0F;
 								}
 								gl.glPointSize(f_104_);
-								class108_sub1.particleEngine.method950(gl, i_93_, bool_103_, class108_sub1.emitterType.aBoolean750);
+								class108_sub1.particleEngine.method950(gl, i_93_, bool_103_, class108_sub1.emitterType.disableHDLighting);
 								if (class108_sub3_sub1_95_ != null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
-									class108_sub1 = class108_sub3_sub1_95_.aClass108_Sub1_3099;
-									i_94_ = class108_sub3_sub1_95_.aClass108_Sub1_3099.emitterType.size;
+									class108_sub1 = class108_sub3_sub1_95_.particleEmitter;
+									i_94_ = class108_sub3_sub1_95_.particleEmitter.emitterType.minSize;
 								}
 							}
 							if (class108_sub3_sub1_95_ == null) {
@@ -783,14 +783,14 @@ final class IdentityKit {
 						final ParticleNodeSub class108_sub3 = class120_sub18_27_.tileParticle.head;
 						for (ParticleNodeSub class108_sub3_107_ = class108_sub3.nextSub; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.nextSub) {
 							final Particle class108_sub3_sub1 = (Particle) class108_sub3_107_;
-							if (class108_sub3_sub1.aClass108_Sub1_3099 != null && !class108_sub3_sub1.aClass108_Sub1_3099.particleEngine.aBoolean2356) {
-								if ((byte) (int) (class108_sub3_sub1.aClass108_Sub1_3099.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
+							if (class108_sub3_sub1.particleEmitter != null && !class108_sub3_sub1.particleEmitter.particleEngine.aBoolean2356) {
+								if ((byte) (int) (class108_sub3_sub1.particleEmitter.particleEngine.aLong2359 & 0xffL) != class120_sub18_27_.aByte2623) {
 									class120_sub18_27_.tileParticle = null;
 									break;
 								}
-								int x = (class108_sub3_sub1.anInt3087 >> 12) - DisplayModeInfo.anInt1713;
-								int y = (class108_sub3_sub1.anInt3088 >> 12) - PlayerAppearance.anInt1367;
-								int z = (class108_sub3_sub1.anInt3090 >> 12) - Class145.anInt1381;
+								int x = (class108_sub3_sub1.positionX >> 12) - DisplayModeInfo.anInt1713;
+								int y = (class108_sub3_sub1.positionY >> 12) - PlayerAppearance.anInt1367;
+								int z = (class108_sub3_sub1.positionZ >> 12) - Class145.anInt1381;
 								int i_111_ = z * Class120_Sub12_Sub30.anInt3377 + x * MapFunctionType.anInt637 >> 16;
 								z = z * MapFunctionType.anInt637 - x * Class120_Sub12_Sub30.anInt3377 >> 16;
 								x = i_111_;
@@ -804,7 +804,7 @@ final class IdentityKit {
 									if (size == 0) {
 										size = 1;
 									}
-									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.aClass108_Sub1_3099.emitterType.size << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}

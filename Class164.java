@@ -28,38 +28,25 @@ class Class164 {
 		forceTween = false;
 	}
 
-	private final void method2129(final int i, final Class120_Sub30 class120_sub30, final byte i_0_) {
-		try {
-			final int i_1_ = i >> 5;
-			final Class120_Sub30 class120_sub30_2_ = aClass120_Sub30Array1595[i_1_];
-			if (class120_sub30_2_ == null) {
-				aClass120_Sub30Array1597[i_1_] = class120_sub30;
-			} else {
-				class120_sub30_2_.aClass120_Sub30_2783 = class120_sub30;
-			}
-			aClass120_Sub30Array1595[i_1_] = class120_sub30;
-			if (i_0_ == 30) {
-				class120_sub30.anInt2781 = i;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tj.F(").append(i).append(',').append(class120_sub30 != null ? "{...}" : "null").append(',').append(i_0_).append(')').toString());
+	private final void method2129(final Class120_Sub30 class120_sub30, final int i) {
+		final int i_1_ = i >> 5;
+		final Class120_Sub30 class120_sub30_2_ = aClass120_Sub30Array1595[i_1_];
+		if (class120_sub30_2_ == null) {
+			aClass120_Sub30Array1597[i_1_] = class120_sub30;
+		} else {
+			class120_sub30_2_.aClass120_Sub30_2783 = class120_sub30;
 		}
+		aClass120_Sub30Array1595[i_1_] = class120_sub30;
+		class120_sub30.anInt2781 = i;
 	}
 
-	private final void method2130(final byte i, final int i_3_) {
-		try {
-			anInt1592 -= i_3_;
-			if (anInt1592 < 0) {
-				anInt1592 = 0;
-			}
-			if (aClass120_Sub30_1583 != null) {
-				aClass120_Sub30_1583.method1731(i_3_);
-			}
-			if (i > -51) {
-				anInt1598 = -98;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("tj.B(").append(i).append(',').append(i_3_).append(')').toString());
+	private final void method2130(final int i_3_) {
+		anInt1592 -= i_3_;
+		if (anInt1592 < 0) {
+			anInt1592 = 0;
+		}
+		if (aClass120_Sub30_1583 != null) {
+			aClass120_Sub30_1583.method1731(i_3_);
 		}
 	}
 
@@ -81,7 +68,7 @@ class Class164 {
 					aLong1584 = -500000L + l;
 				}
 				for (/**/; aLong1584 + 5000L < l; aLong1584 += 256000 / Class178.anInt1771) {
-					method2130((byte) -120, 256);
+					method2130(256);
 				}
 			} catch (final Exception exception) {
 				aLong1584 = l;
@@ -238,7 +225,7 @@ class Class164 {
 			} else {
 				boolean bool_13_ = false;
 				if (Class120_Sub12_Sub28.anInt3361 != 0) {
-					Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(Class120_Sub30_Sub2.loadingPleaseWait).append("<br>(100%)").toString(), true);
+					Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(TextRepository.loadingPleaseWait).append("<br>(100%)").toString(), true);
 				}
 				Class120_Sub2.method1050();
 				Class110.method976();
@@ -375,8 +362,8 @@ class Class164 {
 					for (int i_34_ = i_30_ + -1; i_34_ <= 1 + i_31_; i_34_++) {
 						for (int i_35_ = -1 + i_32_; 1 + i_33_ >= i_35_; i_35_++) {
 							if (i_34_ < i_30_ || i_34_ > i_31_ || i_35_ < i_32_ || i_33_ < i_35_) {
-								Class65.aClass50_597.method427(22, new StringBuilder("m").append(i_34_).append("_").append(i_35_).toString());
-								Class65.aClass50_597.method427(71, new StringBuilder("l").append(i_34_).append("_").append(i_35_).toString());
+								Class65.aClass50_597.method427(new StringBuilder("m").append(i_34_).append("_").append(i_35_).toString());
+								Class65.aClass50_597.method427(new StringBuilder("l").append(i_34_).append("_").append(i_35_).toString());
 							}
 						}
 					}
@@ -421,13 +408,7 @@ class Class164 {
 	}
 
 	int method2137() throws Exception {
-		int i;
-		try {
-			i = this.anInt1596;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, "tj.G()");
-		}
-		return i;
+		return this.anInt1596;
 	}
 
 	static final LDIndexedSprite constructLDIndexedSprite(final js5 js5, final int group, final int file) {
@@ -517,7 +498,7 @@ class Class164 {
 				final int mapFunctionX = (MapFunctionType.mapFunctionXs[id] * 4) - (TileParticleQueue.selfPlayer.x / 32) + 2;
 				final int mapFunctionY = (Class69_Sub2.mapFunctionZs[id] * 4) - (TileParticleQueue.selfPlayer.z / 32) + 2;
 				LocType locType = LocType.list(Class7.mapFunctionLocIds[id]);
-				if (locType.childrenIDs != null) {
+				if (locType.transmogrificationIds != null) {
 					locType = locType.handleVarp();
 					if (locType == null || locType.mapFunctionId == -1) {
 						continue;
@@ -644,8 +625,8 @@ class Class164 {
 		anInt1592 -= i;
 		if (aClass120_Sub30_1583 != null && anInt1592 <= 0) {
 			anInt1592 += Class178.anInt1771 >> 4;
-			Class49.method409(aClass120_Sub30_1583, (byte) 24);
-			method2129(aClass120_Sub30_1583.method1733(), aClass120_Sub30_1583, (byte) 30);
+			Class49.method409(aClass120_Sub30_1583);
+			method2129(aClass120_Sub30_1583, aClass120_Sub30_1583.method1733());
 			int i_77_ = 0;
 			int i_78_ = 255;
 			int i_79_ = 7;
@@ -684,7 +665,7 @@ class Class164 {
 								if (class120_sub30_85_ != null) {
 									final int i_86_ = class120_sub30_83_.anInt2781;
 									for (/**/; class120_sub30_85_ != null; class120_sub30_85_ = class120_sub30_83_.method1735()) {
-										method2129(i_86_ * class120_sub30_85_.method1733() >> 8, class120_sub30_85_, (byte) 30);
+										method2129(class120_sub30_85_, i_86_ * class120_sub30_85_.method1733() >> 8);
 									}
 								}
 								final Class120_Sub30 class120_sub30_87_ = class120_sub30_83_.aClass120_Sub30_2783;

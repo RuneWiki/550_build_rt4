@@ -96,7 +96,7 @@ final class Class120_Sub29 extends Node {
 					}
 				}
 			}
-			Class2.method76(false, baseX, bool_15_, playerZ, playerX, baseZ, level);
+			Class2.method76(baseX, baseZ, level, playerX, playerZ, false, bool_15_);
 		} else {
 			final boolean bool_27_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
 			final int i_28_ = Canvas_Sub1.inputStream.getUShort();
@@ -149,7 +149,7 @@ final class Class120_Sub29 extends Node {
 					i_29_++;
 				}
 			}
-			Class2.method76(false, i_36_, bool_27_, i_34_, i_33_, i_28_, i_32_);
+			Class2.method76(i_36_, i_28_, i_32_, i_33_, i_34_, false, bool_27_);
 		}
 	}
 

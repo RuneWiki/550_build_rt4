@@ -228,12 +228,12 @@ final class Class120_Sub31 extends Node {
 		class120_sub7_68_.putShort(tickdiv);
 		class120_sub7.pos = i_28_;
 		int i_69_ = 0;
-		int i_70_ = 0;
-		int i_71_ = 0;
-		int i_72_ = 0;
-		int i_73_ = 0;
-		int i_74_ = 0;
-		int i_75_ = 0;
+		int noteId = 0;
+		int noteOnVelocity = 0;
+		int noteOffVelocity = 0;
+		int pitchBender = 0;
+		int pressure = 0;
+		int polyphonicPressure = 0;
 		final int[] is = new int[128];
 		i_44_ = 0;
 		for (int i_76_ = 0; i_76_ < ntracks; i_76_++) {
@@ -267,23 +267,24 @@ final class Class120_Sub31 extends Node {
 						class120_sub7_68_.putByte(class120_sub7.buf[i_67_++]);
 					} else {
 						i_69_ ^= i_80_ >> 4;
-						if (i_78_ == 0) {
+		
+						if (i_78_ == 0) {//Chan * Note on
 							if (bool) {
 								class120_sub7_68_.putByte(144 + i_69_);
 							}
-							i_70_ += class120_sub7.buf[i_54_++];
-							i_71_ += class120_sub7.buf[i_55_++];
-							class120_sub7_68_.putByte(i_70_ & 0x7f);
-							class120_sub7_68_.putByte(i_71_ & 0x7f);
-						} else if (i_78_ == 1) {
+							noteId += class120_sub7.buf[i_54_++];
+							noteOnVelocity += class120_sub7.buf[i_55_++];
+							class120_sub7_68_.putByte(noteId & 0x7f);
+							class120_sub7_68_.putByte(noteOnVelocity & 0x7f);
+						} else if (i_78_ == 1) {//Chan * Note off
 							if (bool) {
 								class120_sub7_68_.putByte(128 + i_69_);
 							}
-							i_70_ += class120_sub7.buf[i_54_++];
-							i_72_ += class120_sub7.buf[i_57_++];
-							class120_sub7_68_.putByte(i_70_ & 0x7f);
-							class120_sub7_68_.putByte(i_72_ & 0x7f);
-						} else if (i_78_ == 2) {
+							noteId += class120_sub7.buf[i_54_++];
+							noteOffVelocity += class120_sub7.buf[i_57_++];
+							class120_sub7_68_.putByte(noteId & 0x7f);
+							class120_sub7_68_.putByte(noteOffVelocity & 0x7f);
+						} else if (i_78_ == 2) {//Chan * Control/Mode Change
 							if (bool) {
 								class120_sub7_68_.putByte(176 + i_69_);
 							}
@@ -320,30 +321,30 @@ final class Class120_Sub31 extends Node {
 							i_81_ += is[i_44_];
 							is[i_44_] = i_81_;
 							class120_sub7_68_.putByte(i_81_ & 0x7f);
-						} else if (i_78_ == 3) {
+						} else if (i_78_ == 3) {//Chan * Pitch Bend Change
 							if (bool) {
 								class120_sub7_68_.putByte(224 + i_69_);
 							}
-							i_73_ += class120_sub7.buf[i_62_++];
-							i_73_ += class120_sub7.buf[i_50_++] << 7;
-							class120_sub7_68_.putByte(i_73_ & 0x7f);
-							class120_sub7_68_.putByte(i_73_ >> 7 & 0x7f);
-						} else if (i_78_ == 4) {
+							pitchBender += class120_sub7.buf[i_62_++];
+							pitchBender += class120_sub7.buf[i_50_++] << 7;
+							class120_sub7_68_.putByte(pitchBender & 0x7f);
+							class120_sub7_68_.putByte(pitchBender >> 7 & 0x7f);
+						} else if (i_78_ == 4) {//Chan * Channel Aftertouch
 							if (bool) {
 								class120_sub7_68_.putByte(208 + i_69_);
 							}
-							i_74_ += class120_sub7.buf[i_49_++];
-							class120_sub7_68_.putByte(i_74_ & 0x7f);
-						} else if (i_78_ == 5) {
+							pressure += class120_sub7.buf[i_49_++];
+							class120_sub7_68_.putByte(pressure & 0x7f);
+						} else if (i_78_ == 5) {//Chan * Polyphonic Aftertouch
 							if (bool) {
 								class120_sub7_68_.putByte(160 + i_69_);
 							}
-							i_70_ += class120_sub7.buf[i_54_++];
-							i_75_ += class120_sub7.buf[i_48_++];
-							class120_sub7_68_.putByte(i_70_ & 0x7f);
-							class120_sub7_68_.putByte(i_75_ & 0x7f);
+							noteId += class120_sub7.buf[i_54_++];
+							polyphonicPressure += class120_sub7.buf[i_48_++];
+							class120_sub7_68_.putByte(noteId & 0x7f);
+							class120_sub7_68_.putByte(polyphonicPressure & 0x7f);
 						} else {
-							if (i_78_ != 6) {
+							if (i_78_ != 6) {//Chan * Program Change
 								break;
 							}
 							if (bool) {
@@ -363,7 +364,7 @@ final class Class120_Sub31 extends Node {
 		this.aClass75_2786 = null;
 	}
 
-	static final Class120_Sub31 method1830(final js5 js5, final int i, final int i_82_) {
+	static final Class120_Sub31 list(final js5 js5, final int i, final int i_82_) {
 		final byte[] is = js5.getFile(i, i_82_);
 		if (is == null) {
 			return null;

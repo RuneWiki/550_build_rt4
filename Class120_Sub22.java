@@ -20,16 +20,16 @@ final class Class120_Sub22 extends Node {
 			final int damage = Canvas_Sub1.inputStream.getUSmart();
 			final int type = Canvas_Sub1.inputStream.getUByte();
 			player.addHit(damage, type, Class101_Sub2.loopCycle);
-			player.hpBarCycle = 300 + Class101_Sub2.loopCycle;
+			player.hpBarCycle = Class101_Sub2.loopCycle + 300;
 			player.hpBarRatio = Canvas_Sub1.inputStream.getUByteC();
 		}
 		if ((0x2 & mask) != 0) {
 			int animationId = Canvas_Sub1.inputStream.getUShort();
-			if (animationId == 65535) {
+			if (animationId == 0xffff) {
 				animationId = -1;
 			}
 			final int delay = Canvas_Sub1.inputStream.getUByte();
-			Class192.method2517(player, animationId, delay);
+			Class192.animatePlayer(player, animationId, delay);
 		}
 		if ((0x8 & mask) != 0) {
 			final int dataLen = Canvas_Sub1.inputStream.getUByteC();
@@ -50,7 +50,7 @@ final class Class120_Sub22 extends Node {
 			final int[] is_9_ = new int[len];
 			for (int i_10_ = 0; i_10_ < len; i_10_++) {
 				int i_11_ = Canvas_Sub1.inputStream.getUShort();
-				if (i_11_ == 65535) {
+				if (i_11_ == 0xffff) {
 					i_11_ = -1;
 				}
 				is[i_10_] = i_11_;
@@ -128,7 +128,7 @@ final class Class120_Sub22 extends Node {
 			int spotAnimId = Canvas_Sub1.inputStream.getULEShort();
 			final int bitPacked = Canvas_Sub1.inputStream.getInt();
 			boolean lowerPriority = true;
-			if (spotAnimId == 65535) {
+			if (spotAnimId == 0xffff) {
 				spotAnimId = -1;
 			}
 			if (spotAnimId != -1 && player.spotAnimId != -1 && SeqType.list(SpotAnimType.list(spotAnimId).animationId).priority < SeqType.list(SpotAnimType.list(player.spotAnimId).animationId).priority) {
@@ -137,7 +137,7 @@ final class Class120_Sub22 extends Node {
 			if (lowerPriority) {
 				player.spotAnimNextFrame = 1;
 				player.spotAnimHeight = bitPacked >> 16;
-				player.anInt2963 = 0;
+				player.spotAnimFrameDelay = 0;
 				player.spotAnimFrame = 0;
 				player.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
 				if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
@@ -157,7 +157,7 @@ final class Class120_Sub22 extends Node {
 		}
 		if ((mask & 0x40) != 0) {
 			player.facingEntityIndex = Canvas_Sub1.inputStream.getUShortA();
-			if (player.facingEntityIndex == 65535) {
+			if (player.facingEntityIndex == 0xffff) {
 				player.facingEntityIndex = -1;
 			}
 		}
@@ -169,8 +169,8 @@ final class Class120_Sub22 extends Node {
 			player.anInt3035 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.loopCycle;
 			player.anInt2961 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.loopCycle;
 			player.anInt3008 = Canvas_Sub1.inputStream.getUByteC();
-			player.anInt2960 = 1;
-			player.anInt3031 = 0;
+			player.walkQueuePos = 1;
+			player.onAnimPlayWalkQueuePos = 0;
 		}
 		if ((0x400 & mask) != 0) {
 			final int damage = Canvas_Sub1.inputStream.getUSmart();
@@ -246,15 +246,8 @@ final class Class120_Sub22 extends Node {
 		return new String(cs);
 	}
 
-	final void method1706(final boolean bool) {
-		try {
-			if (!bool) {
-				method1706(false);
-			}
-			anIntArray2678 = null;
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("qh.B(").append(bool).append(')').toString());
-		}
+	final void method1706() {
+		anIntArray2678 = null;
 	}
 
 	public Class120_Sub22() {

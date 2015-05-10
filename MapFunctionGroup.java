@@ -24,11 +24,11 @@ final class MapFunctionGroup {
 				}
 				if (i == 0 && jagexInterface.anObjectArray2013 != null) {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
-					class120_sub10.aClass189_2534 = jagexInterface;
+					class120_sub10.jagexInterface = jagexInterface;
 					class120_sub10.objectData = jagexInterface.anObjectArray2013;
 					Class88.method744(class120_sub10);
 				}
-				if (i == 1 && jagexInterface.anObjectArray1932 != null) {
+				if (i == 1 && jagexInterface.onInterfaceOverridingUpdate != null) {
 					if (jagexInterface.componentIndex >= 0) {
 						final JagexInterface class189_3_ = Class74.getJagexInterface(jagexInterface.bitPacked);
 						if (class189_3_ == null || class189_3_.components == null || class189_3_.components.length <= jagexInterface.componentIndex || jagexInterface != class189_3_.components[jagexInterface.componentIndex]) {
@@ -36,8 +36,8 @@ final class MapFunctionGroup {
 						}
 					}
 					final InterfaceListener class120_sub10 = new InterfaceListener();
-					class120_sub10.objectData = jagexInterface.anObjectArray1932;
-					class120_sub10.aClass189_2534 = jagexInterface;
+					class120_sub10.objectData = jagexInterface.onInterfaceOverridingUpdate;
+					class120_sub10.jagexInterface = jagexInterface;
 					Class88.method744(class120_sub10);
 				}
 			}

@@ -7,37 +7,31 @@ abstract class Class53 {
 	static String[] suffixTitles;
 	static int anInt487;
 
-	static final void method457(final Class120_Sub24 class120_sub24, final byte i) {
-		try {
-			int i_0_ = -1;
-			int i_1_ = 0;
-			long l = 0L;
-			if (class120_sub24.anInt2721 == 0) {
-				l = Class114.getWallLocationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
-			}
-			if (i < -83) {
-				if (class120_sub24.anInt2721 == 1) {
-					l = JagexInterface.getWallDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
-				}
-				int i_2_ = 0;
-				if (class120_sub24.anInt2721 == 2) {
-					l = Class120_Sub11.method1173(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
-				}
-				if (class120_sub24.anInt2721 == 3) {
-					l = Class79_Sub1.getGroundDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
-				}
-				if (l != 0L) {
-					i_1_ = (0x7fc95 & (int) l) >> 14;
-					i_2_ = 0x3 & (int) l >> 20;
-					i_0_ = 0x7fffffff & (int) (l >>> 32);
-				}
-				class120_sub24.anInt2729 = i_2_;
-				class120_sub24.anInt2728 = i_1_;
-				class120_sub24.anInt2723 = i_0_;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ga.C(").append(class120_sub24 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
+	static final void method457(final Class120_Sub24 class120_sub24) {
+		int i_0_ = -1;
+		int i_1_ = 0;
+		long l = 0L;
+		if (class120_sub24.anInt2721 == 0) {
+			l = Class114.getWallLocationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
 		}
+		if (class120_sub24.anInt2721 == 1) {
+			l = JagexInterface.getWallDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		}
+		int i_2_ = 0;
+		if (class120_sub24.anInt2721 == 2) {
+			l = Class120_Sub11.method1173(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		}
+		if (class120_sub24.anInt2721 == 3) {
+			l = Class79_Sub1.getGroundDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		}
+		if (l != 0L) {
+			i_1_ = (0x7fc95 & (int) l) >> 14;
+			i_2_ = 0x3 & (int) l >> 20;
+			i_0_ = 0x7fffffff & (int) (l >>> 32);
+		}
+		class120_sub24.anInt2729 = i_2_;
+		class120_sub24.anInt2728 = i_1_;
+		class120_sub24.anInt2723 = i_0_;
 	}
 
 	abstract int getCompletion(int i);

@@ -74,11 +74,11 @@ final class UnderlayType {
 			for (int i_13_ = (i_8_ - 6) / 8; i_13_ <= (i_8_ + 6) / 8; i_13_++) {
 				final int i_14_ = (i_12_ << 8) + i_13_;
 				Class120_Sub12_Sub36.anIntArray3417[i_11_] = i_14_;
-				LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("m").append(i_12_).append("_").append(i_13_).toString());
-				Class28.anIntArray183[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("l").append(i_12_).append("_").append(i_13_).toString());
-				ProducingGraphicsBuffer.anIntArray2796[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("n").append(i_12_).append("_").append(i_13_).toString());
-				Class111.anIntArray1063[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("um").append(i_12_).append("_").append(i_13_).toString());
-				Class76.anIntArray680[i_11_] = Class65.aClass50_597.getGroupId(new StringBuilder("ul").append(i_12_).append("_").append(i_13_).toString());
+				LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.getGroupId("m" + i_12_ + "_" + i_13_);
+				Class28.anIntArray183[i_11_] = Class65.aClass50_597.getGroupId("l" + i_12_ + "_" + i_13_);
+				ProducingGraphicsBuffer.anIntArray2796[i_11_] = Class65.aClass50_597.getGroupId("n" + i_12_ + "_" + i_13_);
+				Class111.anIntArray1063[i_11_] = Class65.aClass50_597.getGroupId("um" + i_12_ + "_" + i_13_);
+				Class76.anIntArray680[i_11_] = Class65.aClass50_597.getGroupId("ul" + i_12_ + "_" + i_13_);
 				if (ProducingGraphicsBuffer.anIntArray2796[i_11_] == -1) {
 					LookupTable.anIntArray495[i_11_] = -1;
 					Class28.anIntArray183[i_11_] = -1;
@@ -95,25 +95,21 @@ final class UnderlayType {
 			Class111.anIntArray1063[i_15_] = -1;
 			Class76.anIntArray680[i_15_] = -1;
 		}
-		Class2.method76(true, i_7_, false, 8, 8, i_8_, 0);
+		Class2.method76(i_7_, i_8_, 0, 8, 8, true, false);
 	}
 
 	static final void method1901(final int i, final int i_16_, final int i_17_, final int i_18_, final boolean bool, final int i_19_) {
-		try {
-			if (i == i_19_) {
-				Class159.method2096(i_19_, i_17_, i_18_, i_16_);
+		if (i == i_19_) {
+			Class159.method2096(i_19_, i_17_, i_18_, i_16_);
+		} else {
+			if (MagnetType.anInt260 > -i_19_ + i_16_ || ParamType.anInt3544 < i_16_ - -i_19_ || i_18_ + -i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_18_ - -i) {
+				Node.method1031(i_18_, i, i_17_, i_19_, i_16_);
 			} else {
-				if (Class32.anInt260 > -i_19_ + i_16_ || ParamType.anInt3544 < i_16_ - -i_19_ || i_18_ + -i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_18_ - -i) {
-					Node.method1031(i_18_, i, i_17_, i_19_, i_16_, -43);
-				} else {
-					Class69_Sub3.method628(-593542495, i, i_16_, i_17_, i_18_, i_19_);
-				}
-				if (!bool) {
-					method1900();
-				}
+				Class69_Sub3.method628(i, i_16_, i_17_, i_18_, i_19_);
 			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("pa.F(").append(i).append(',').append(i_16_).append(',').append(i_17_).append(',').append(i_18_).append(',').append(bool).append(',').append(i_19_).append(')').toString());
+			if (!bool) {
+				method1900();
+			}
 		}
 	}
 
@@ -237,27 +233,27 @@ final class UnderlayType {
 		return undarlayType;
 	}
 
-	static final void method1909(final AbstractFont font, final boolean bool) {
+	static final void drawTitleScreen(final AbstractFont font, final boolean bool) {
 		if (HDToolkit.glEnabled || bool) {
-			final int i = Class120_Sub12_Sub5.canvasHeight;
-			final int i_40_ = 956 * i / 503;
-			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - i_40_) / 2, 0, i_40_, i);
-			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 + -(Class120_Sub12_Sub27.logoSprite.width / 2), 18);
+			final int height = Class120_Sub12_Sub5.canvasHeight;
+			final int width = 956 * height / 503;
+			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - width) / 2, 0, width, height);
+			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 - Class120_Sub12_Sub27.logoSprite.width / 2, 18);
 		}
-		font.method1478(Buffer.gameId != 1 ? TextRepository.aString3272 : ParticleNodeSub.aString2396, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + -26, 16777215, -1);
+		font.method1478(Buffer.gameId != 1 ? TextRepository.runescapeIsLoadingPleaseWait : TextRepository.mechscapeIsLoadingPleaseWait, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26, 16777215, -1);
 		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
-			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, 1 + i, 302, 32, 0);
-			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, 2 + i, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
-			GraphicsLD.fillRect(OverridedJInterface.loadingBarPercent * 3 + Class69_Sub1.canvasWidth / 2 - 150, i + 2, 300 - (3 * OverridedJInterface.loadingBarPercent), 30, 0);
+			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, i + 1, 302, 32, 0);
+			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
+			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + OverridedJInterface.loadingBarPercent * 3, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
 		} else {
 			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
 			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, i + 1, 302, 32, 0);
-			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, 3 * OverridedJInterface.loadingBarPercent, 30, 9179409);
-			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + 3 * OverridedJInterface.loadingBarPercent, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + OverridedJInterface.loadingBarPercent * 3, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
 		}
-		font.method1478(Class134.loadingText, Class69_Sub1.canvasWidth / 2, 4 + Class120_Sub12_Sub5.canvasHeight / 2, 16777215, -1);
+		font.method1478(Class134.loadingText, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + 4, 16777215, -1);
 	}
 
 	public UnderlayType() {

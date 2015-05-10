@@ -32,15 +32,8 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 		return is_1_;
 	}
 
-	static final void method1381(final js5 js5, final byte i) {
-		try {
-			VarBit.aClass50_3056 = js5;
-			if (i != -94) {
-				anInt3413 = 34;
-			}
-		} catch (final RuntimeException runtimeexception) {
-			throw EnumType.method1428(runtimeexception, new StringBuilder("ti.S(").append(js5 != null ? "{...}" : "null").append(',').append(i).append(')').toString());
-		}
+	static final void method1381(final js5 js5) {
+		VarBit.aClass50_3056 = js5;
 	}
 
 	static final boolean isIntefaceEnabled(final JagexInterface jagexInterface) {
@@ -71,7 +64,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 
 	static final void method1385() {
 		if (!Class143_Sub1.method2021() && SpotAnimationNode.anInt3469 != Class173.gameLevel) {
-			Class2.method76(false, Class116.anInt1118, false, TileParticleQueue.selfPlayer.walkQueueZ[0], TileParticleQueue.selfPlayer.walkQueueX[0], Class3.anInt53, Class173.gameLevel);
+			Class2.method76(Class116.anInt1118, Class3.anInt53, Class173.gameLevel, TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0], false, false);
 		} else {
 			Class120_Sub12_Sub5.method1219();
 			if (Class173.gameLevel != Class153.anInt1436) {
