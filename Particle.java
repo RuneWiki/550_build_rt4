@@ -106,7 +106,7 @@ final class Particle extends ParticleNodeSub {
 								sqrtDist = 1;
 							}
 							final long cosTheta = (deltaX * particleMagnet.localDirectionX + deltaY * magnetType.localDirectionY + deltaZ * particleMagnet.localDirectionZ) * 65535L / (magnetType.directionLength * sqrtDist);
-							if (cosTheta >= magnetType.cosTheta) {
+							if (cosTheta >= magnetType.rotCos) {
 								int delta = 0;
 								if (magnetType.effectType == 1) {
 									delta = (sqrtDist >> 4) * magnetType.strength;
@@ -161,7 +161,7 @@ final class Particle extends ParticleNodeSub {
 									sqrtDist = 1;
 								}
 								final long cosTheta = (deltaX * particleMagnet.localDirectionX + deltaY * magnetType.localDirectionY + deltaZ * particleMagnet.localDirectionZ) * 65535L / (magnetType.directionLength * sqrtDist);
-								if (cosTheta < magnetType.cosTheta) {
+								if (cosTheta < magnetType.rotCos) {
 									particleMagnet = (ParticleMagnet) ParticleEngine.activeMagnets.poll();
 								} else {
 									int delta = 0;
@@ -214,14 +214,14 @@ final class Particle extends ParticleNodeSub {
 						final int magnetId = emitterType.globalMagnetIndices[id];
 						final MagnetType magnetType = Class154.globalMagnets[magnetId];
 						if (magnetType.constantSpeed == 0) {
-							dirX += magnetType.anInt257 * dt;
+							dirX += magnetType.localDirectionX * dt;
 							dirY += magnetType.localDirectionY * dt;
-							dirZ += magnetType.anInt252 * dt;
+							dirZ += magnetType.localDirectionZ * dt;
 							directionChange = true;
 						} else {
-							this.positionX += magnetType.anInt257 * dt;
+							this.positionX += magnetType.localDirectionX * dt;
 							this.positionY += magnetType.localDirectionY * dt;
-							this.positionZ += magnetType.anInt252 * dt;
+							this.positionZ += magnetType.localDirectionZ * dt;
 						}
 					}
 				}
@@ -245,7 +245,7 @@ final class Particle extends ParticleNodeSub {
 				if (tileY > 0 || tileY < -65535 || tileX < 0 || tileX >= WallDecoration.anInt1900 || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.anInt3440) {
 					die();
 				} else {
-					final int[][][] heightMap = OverridedJInterface.tileHeightMap;
+					final int[][][] heightMap = OverridedJInterface.activeTileHeightMap;
 					final int tileHeight = heightMap[particleEngine.level][tileX][tileZ];
 					int nextLevelHeight;
 					if (particleEngine.level < 3) {
@@ -284,16 +284,16 @@ final class Particle extends ParticleNodeSub {
 							die();
 							return;
 						}
-						GroundTile groundTile = LabelGroup.groundTiles[tileLevel][tileX][tileZ];
+						GroundTile groundTile = LabelGroup.activeGroundTiles[tileLevel][tileX][tileZ];
 						if (groundTile == null) {
-							groundTile = LabelGroup.groundTiles[tileLevel][tileX][tileZ] = new GroundTile(tileLevel, tileX, tileZ);
+							groundTile = LabelGroup.activeGroundTiles[tileLevel][tileX][tileZ] = new GroundTile(tileLevel, tileX, tileZ);
 						}
 						if (groundTile.tileParticle == null) {
 							groundTile.tileParticle = new TileParticleQueue();
-							groundTile.aByte2623 = (byte) (int) (cycle & 0xffL);
-						} else if (groundTile.aByte2623 != (byte) (int) (cycle & 0xffL)) {
+							groundTile.particleCycle = (byte) (int) (cycle & 0xffL);
+						} else if (groundTile.particleCycle != (byte) (int) (cycle & 0xffL)) {
 							groundTile.tileParticle.clear();
-							groundTile.aByte2623 = (byte) (int) (cycle & 0xffL);
+							groundTile.particleCycle = (byte) (int) (cycle & 0xffL);
 						}
 						groundTile.tileParticle.insertLast(this);
 					} else {

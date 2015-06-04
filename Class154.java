@@ -6,35 +6,35 @@ final class Class154 {
 	static MagnetType[] globalMagnets = new MagnetType[8];
 	static ObjectCache shadowModelCache;
 	static boolean aBoolean1439 = false;
-	static int anInt1440;
-	static int anInt1441;
+	static int accountCreationStep;
+	static int toUpdateEntitiesPos;
 	
 	static {
 		shadowModelCache = new ObjectCache(32);
-		anInt1441 = 0;
-		anInt1440 = 0;
+		toUpdateEntitiesPos = 0;
+		accountCreationStep = 0;
 	}
 
 	static final void addIgnore(final long nameAsLong) {
 		if (nameAsLong != 0L) {
 			if (Class120_Sub12_Sub26.ignoreCount >= 100) {
-				AbstractRequest.pushMessage(TextRepository.aString2192, "", 0);
+				AbstractRequest.pushMessage(StringLibrary.aString2192, "", 0);
 			} else {
 				final String name = Class136.longToString(nameAsLong);
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 					if (HintIcon.ignoreNamesAsLong[id] == nameAsLong) {
-						AbstractRequest.pushMessage(new StringBuilder(name).append(TextRepository.aString3078).toString(), "", 0);
+						AbstractRequest.pushMessage(new StringBuilder(name).append(StringLibrary.aString3078).toString(), "", 0);
 						return;
 					}
 				}
 				for (int id = 0; id < ProducingGraphicsBuffer.friendCount; id++) {
 					if (AbstractSprite.friendsNameAsLong[id] == nameAsLong) {
-						AbstractRequest.pushMessage(new StringBuilder(Class120_Sub12_Sub25.aString3319).append(name).append(TextRepository.aString489).toString(), "", 0);
+						AbstractRequest.pushMessage(new StringBuilder(Class120_Sub12_Sub25.aString3319).append(name).append(StringLibrary.aString489).toString(), "", 0);
 						return;
 					}
 				}
 				if (name.equals(TileParticleQueue.selfPlayer.name)) {
-					AbstractRequest.pushMessage(TextRepository.aString1079, "", 0);
+					AbstractRequest.pushMessage(StringLibrary.aString1079, "", 0);
 				} else {
 					HintIcon.ignoreNamesAsLong[Class120_Sub12_Sub26.ignoreCount] = nameAsLong;
 					GZIPDecompressor.ignoreNames[Class120_Sub12_Sub26.ignoreCount] = Class174.longToString(nameAsLong);
@@ -55,13 +55,13 @@ final class Class154 {
 			height = 1;
 		}
 		if (HDToolkit.glEnabled) {
-			int i_6_ = height - 334;
-			if (i_6_ < 0) {
-				i_6_ = 0;
-			} else if (i_6_ > 100) {
-				i_6_ = 100;
+			int heightDelta = height - 334;//fixed screen 512x334
+			if (heightDelta < 0) {
+				heightDelta = 0;
+			} else if (heightDelta > 100) {
+				heightDelta = 100;
 			}
-			int i_7_ = ModelParticleMagnet.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - ModelParticleMagnet.aShort1651) * i_6_ / 100;
+			int i_7_ = ModelParticleMagnet.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - ModelParticleMagnet.aShort1651) * heightDelta / 100;
 			if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
 				if (i_7_ > FileSystemRequest.aShort3932) {
 					i_7_ = FileSystemRequest.aShort3932;

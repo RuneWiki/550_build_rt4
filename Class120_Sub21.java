@@ -6,17 +6,17 @@ import java.io.IOException;
 final class Class120_Sub21 extends Node {
 	static int hintheadiconsId;
 	String aString2666;
-	static FrameLoader[] aClass120_Sub14_Sub18Array2667;
+	static FrameGroup[] aClass120_Sub14_Sub18Array2667;
 	static Interface1 anInterface1_2668 = null;
 	static int skillTriggersPos;
 
 	static {
-		aClass120_Sub14_Sub18Array2667 = new FrameLoader[14];
+		aClass120_Sub14_Sub18Array2667 = new FrameGroup[14];
 		skillTriggersPos = 0;
 	}
 
 	static final void method1695(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(4, i_1_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(4, i_1_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i;
 		class120_sub14_sub7.anInt3492 = i_2_;
@@ -172,8 +172,8 @@ final class Class120_Sub21 extends Node {
 					Class118.aBoolean1134 = false;
 					NpcType.anInt1702 = 20;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(140);
-					Class120_Sub12_Sub11.outputStream.putLEShort((int) Class120_Sub12_Sub21.aFloat3293);
-					Class120_Sub12_Sub11.outputStream.putLEShortA((int) DummyOutputStream.aFloat28);
+					Class120_Sub12_Sub11.outputStream.putLEShort((int) Class120_Sub12_Sub21.cameraPitch);
+					Class120_Sub12_Sub11.outputStream.putLEShortA((int) DummyOutputStream.cameraYaw);
 				}
 				if (DummyInputStream.focus && !Class179.aBoolean1779) {
 					Class179.aBoolean1779 = true;
@@ -276,7 +276,7 @@ final class Class120_Sub21 extends Node {
 									jagexInterface.zoom = interfaceChangeNode.anInt3486;
 									if (jagexInterface.objId != -1) {
 										if (jagexInterface.anInt2069 > 0) {
-											jagexInterface.zoom = 32 * jagexInterface.zoom / jagexInterface.anInt2069;
+											jagexInterface.zoom = jagexInterface.zoom * 32 / jagexInterface.anInt2069;
 										} else if (jagexInterface.originalWidth > 0) {
 											jagexInterface.zoom = jagexInterface.zoom * 32 / jagexInterface.originalWidth;
 										}
@@ -343,7 +343,7 @@ final class Class120_Sub21 extends Node {
 						}
 						if (Projectile.aClass189_2954 != null) {
 							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
-							if (5 + Class23.anInt134 < Queue.lastMouseX || Queue.lastMouseX < Class23.anInt134 + -5 || Class191.lastMouseY > 5 + VarBit.anInt166 || Class191.lastMouseY < -5 + VarBit.anInt166) {
+							if (5 + client.anInt134 < Queue.lastMouseX || Queue.lastMouseX < client.anInt134 + -5 || ChunkAtmosphere.lastMouseY > 5 + VarBit.anInt166 || ChunkAtmosphere.lastMouseY < -5 + VarBit.anInt166) {
 								Huffman.aBoolean1207 = true;
 							}
 							JavaObject.anInt3915++;
@@ -388,7 +388,7 @@ final class Class120_Sub21 extends Node {
 									}
 								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1) || WallDecoration.menuOptionCount <= 2) {
 									if (WallDecoration.menuOptionCount > 0) {
-										Class191.method2508();
+										ChunkAtmosphere.method2508();
 									}
 								} else {
 									Class120_Sub12_Sub28.determineMenuSize();
@@ -400,11 +400,11 @@ final class Class120_Sub21 extends Node {
 						}
 						Class111.aBoolean1058 = false;
 						LocType.draggedOnComponent = null;
-						final JagexInterface jagexInterface = CursorType.aClass189_1243;
-						CursorType.aClass189_1243 = null;
-						final JagexInterface class189_35_ = Class49.aClass189_441;
-						Class49.aClass189_441 = null;
-						WorldInfo.aBoolean1419 = false;
+						final JagexInterface oldMouseOverInterface = CursorType.mouseOverInterface;
+						CursorType.mouseOverInterface = null;
+						final JagexInterface class189_35_ = Class49.activeYellowBoxComponent;
+						Class49.activeYellowBoxComponent = null;
+						WorldInfo.draggingComponent = false;
 						for (ObjType.anInt1551 = 0; Class120_Sub12_Sub13.method1265() && ObjType.anInt1551 < 128; ObjType.anInt1551++) {
 							Class134.anIntArray1285[ObjType.anInt1551] = NodeCache.anInt301;
 							Class120_Sub19.anIntArray2658[ObjType.anInt1551] = ObjType.aChar1536;
@@ -418,67 +418,67 @@ final class Class120_Sub21 extends Node {
 							Class116.handleWorldMapLogic();
 						}
 						for (;;) {
-							final InterfaceListener class120_sub10 = (InterfaceListener) Class120_Sub4.aClass105_2435.removeFront();
-							if (class120_sub10 == null) {
+							final InterfaceListener interfaceListener = (InterfaceListener) Class120_Sub4.topPriorityInterfaceScripts.removeFront();
+							if (interfaceListener == null) {
 								break;
 							}
-							final JagexInterface class189_36_ = class120_sub10.jagexInterface;
-							if (class189_36_.componentIndex >= 0) {
-								final JagexInterface class189_37_ = Class74.getJagexInterface(class189_36_.parent);
-								if (class189_37_ == null || class189_37_.components == null || class189_37_.components.length <= class189_36_.componentIndex || class189_37_.components[class189_36_.componentIndex] != class189_36_) {
+							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
+							if (listenerJagexInterface.componentIndex >= 0) {
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								if (parentInterface == null || parentInterface.components == null || parentInterface.components.length <= listenerJagexInterface.componentIndex || parentInterface.components[listenerJagexInterface.componentIndex] != listenerJagexInterface) {
 									continue;
 								}
 							}
-							Class88.method744(class120_sub10);
+							Class88.executeScript(interfaceListener);
 						}
 						for (;;) {
-							final InterfaceListener class120_sub10 = (InterfaceListener) FileSystem.aClass105_456.removeFront();
-							if (class120_sub10 == null) {
+							final InterfaceListener interfaceListener = (InterfaceListener) FileSystem.mediumPriorityInterfaceScripts.removeFront();
+							if (interfaceListener == null) {
 								break;
 							}
-							final JagexInterface class189_38_ = class120_sub10.jagexInterface;
-							if (class189_38_.componentIndex >= 0) {
-								final JagexInterface class189_39_ = Class74.getJagexInterface(class189_38_.parent);
-								if (class189_39_ == null || class189_39_.components == null || class189_39_.components.length <= class189_38_.componentIndex || class189_38_ != class189_39_.components[class189_38_.componentIndex]) {
+							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
+							if (listenerJagexInterface.componentIndex >= 0) {
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								if (parentInterface == null || parentInterface.components == null || parentInterface.components.length <= listenerJagexInterface.componentIndex || listenerJagexInterface != parentInterface.components[listenerJagexInterface.componentIndex]) {
 									continue;
 								}
 							}
-							Class88.method744(class120_sub10);
+							Class88.executeScript(interfaceListener);
 						}
 						for (;;) {
-							final InterfaceListener class120_sub10 = (InterfaceListener) Class88.aClass105_829.removeFront();
-							if (class120_sub10 == null) {
+							final InterfaceListener interfaceListener = (InterfaceListener) Class88.lowPriorityInterfaceScripts.removeFront();
+							if (interfaceListener == null) {
 								break;
 							}
-							final JagexInterface class189_40_ = class120_sub10.jagexInterface;
-							if (class189_40_.componentIndex >= 0) {
-								final JagexInterface class189_41_ = Class74.getJagexInterface(class189_40_.parent);
-								if (class189_41_ == null || class189_41_.components == null || class189_40_.componentIndex >= class189_41_.components.length || class189_41_.components[class189_40_.componentIndex] != class189_40_) {
+							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
+							if (listenerJagexInterface.componentIndex >= 0) {
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								if (parentInterface == null || parentInterface.components == null || listenerJagexInterface.componentIndex >= parentInterface.components.length || parentInterface.components[listenerJagexInterface.componentIndex] != listenerJagexInterface) {
 									continue;
 								}
 							}
-							Class88.method744(class120_sub10);
+							Class88.executeScript(interfaceListener);
 						}
 						if (MapSceneType.worldMapInterface == null) {
 							EnumType.anInt3450 = 0;
 						}
 						if (Class120_Sub12_Sub4.draggedComponent != null) {
-							JavaObject.method1435();
+							JavaObject.updateDraggedComponent();
 						}
 						if (Class86.staffLevel > 0 && NodeCache.heldKeys[82] && NodeCache.heldKeys[81] && AbstractBuffer.mouseWheelRotation != 0) {
-							int i_42_ = Class173.gameLevel - AbstractBuffer.mouseWheelRotation;
-							if (i_42_ < 0) {
-								i_42_ = 0;
-							} else if (i_42_ > 3) {
-								i_42_ = 3;
+							int newLevel = Class173.gameLevel - AbstractBuffer.mouseWheelRotation;
+							if (newLevel < 0) {
+								newLevel = 0;
+							} else if (newLevel > 3) {
+								newLevel = 3;
 							}
-							ParticleNode.tele(TileParticleQueue.selfPlayer.walkQueueX[0] + GameEntity.currentBaseX, Class181.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0], i_42_);
+							ParticleNode.tele(TileParticleQueue.selfPlayer.walkQueueX[0] + GameEntity.currentBaseX, LightType.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0], newLevel);
 						}
 						if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
 							if (MapFunctionNode.anInt3479 != 2) {
 								if (Class120_Sub12_Sub33.anInt3401 != 2) {
 									if (ObjectCache.anInt122 != -1 && MapFunctionNode.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
-										final int i_43_ = (ObjectCache.anInt122 << 1) + -TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
+										final int i_43_ = (ObjectCache.anInt122 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
 										final int i_44_ = (WaterfallShader.anInt2174 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
 										Class53_Sub1.method464(0, i_43_, i_44_);
 										Class120_Sub12_Sub35.crossX = js5.lastClickX;
@@ -491,7 +491,7 @@ final class Class120_Sub21 extends Node {
 									if (ObjectCache.anInt122 != -1) {
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
 										Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + ObjectCache.anInt122);
-										Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + WaterfallShader.anInt2174);
+										Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + WaterfallShader.anInt2174);
 										Class120_Sub14_Sub22.crossState = 1;
 										Class120_Sub12_Sub7.crossIndex = 0;
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -502,7 +502,7 @@ final class Class120_Sub21 extends Node {
 							} else {
 								if (ObjectCache.anInt122 != -1) {
 									Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
-									Class120_Sub12_Sub11.outputStream.putShortA(WaterfallShader.anInt2174 + Class181.currentBaseZ);
+									Class120_Sub12_Sub11.outputStream.putShortA(WaterfallShader.anInt2174 + LightType.currentBaseZ);
 									Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.selectedSpellComponextIndex);
 									Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 									Class120_Sub12_Sub11.outputStream.putLEShort(ObjectCache.anInt122 + GameEntity.currentBaseX);
@@ -515,40 +515,40 @@ final class Class120_Sub21 extends Node {
 							}
 						} else {
 							if (ObjectCache.anInt122 != -1) {
-								ParticleNode.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, WaterfallShader.anInt2174 + Class181.currentBaseZ, Class173.gameLevel);
+								ParticleNode.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, WaterfallShader.anInt2174 + LightType.currentBaseZ, Class173.gameLevel);
 							}
 							MapFunctionNode.anInt3479 = Class120_Sub12_Sub33.anInt3401 = 0;
 						}
 						ObjectCache.anInt122 = -1;
 						CursorType.method1918();
-						if (jagexInterface != CursorType.aClass189_1243) {
-							if (jagexInterface != null) {
-								InterfaceClickMask.redrawInterface(jagexInterface);
+						if (oldMouseOverInterface != CursorType.mouseOverInterface) {
+							if (oldMouseOverInterface != null) {
+								InterfaceClickMask.redrawInterface(oldMouseOverInterface);
 							}
-							if (CursorType.aClass189_1243 != null) {
-								InterfaceClickMask.redrawInterface(CursorType.aClass189_1243);
+							if (CursorType.mouseOverInterface != null) {
+								InterfaceClickMask.redrawInterface(CursorType.mouseOverInterface);
 							}
 						}
-						if (class189_35_ != Class49.aClass189_441 && Class120_Sub12_Sub21.anInt3291 == ParticleNode.anInt1031) {
+						if (class189_35_ != Class49.activeYellowBoxComponent && Class120_Sub12_Sub21.anInt3291 == ParticleNode.anInt1031) {
 							if (class189_35_ != null) {
 								InterfaceClickMask.redrawInterface(class189_35_);
 							}
-							if (Class49.aClass189_441 != null) {
-								InterfaceClickMask.redrawInterface(Class49.aClass189_441);
+							if (Class49.activeYellowBoxComponent != null) {
+								InterfaceClickMask.redrawInterface(Class49.activeYellowBoxComponent);
 							}
 						}
-						if (Class49.aClass189_441 != null) {
+						if (Class49.activeYellowBoxComponent != null) {
 							if (ParticleNode.anInt1031 < Class120_Sub12_Sub21.anInt3291) {
 								ParticleNode.anInt1031++;
 								if (Class120_Sub12_Sub21.anInt3291 == ParticleNode.anInt1031) {
-									InterfaceClickMask.redrawInterface(Class49.aClass189_441);
+									InterfaceClickMask.redrawInterface(Class49.activeYellowBoxComponent);
 								}
 							}
 						} else if (ParticleNode.anInt1031 > 0) {
 							ParticleNode.anInt1031--;
 						}
-						for (int i_45_ = 0; i_45_ < 5; i_45_++) {
-							LabelGroup.anIntArray2412[i_45_]++;
+						for (int id = 0; id < 5; id++) {
+							LabelGroup.anIntArray2412[id]++;
 						}
 						final int mouseIdle = WallLocation.getMouseIdleCycle();
 						final int keyboardIdle = Class69_Sub2_Sub1.getKeyboardIdleCycle();

@@ -10,7 +10,6 @@ final class Class101_Sub4 extends Class101 {
 	private final int anInt2298;
 	private int anInt2299;
 	private final int anInt2300;
-	static js5 interfaceJs5;
 	private final int anInt2302;
 	private final int anInt2303;
 	static int[] anIntArray2304 = new int[32];

@@ -8,10 +8,10 @@ final class Class101_Sub1 extends Class101 {
 	private final int anInt2268;
 	private final int anInt2269;
 	private final int anInt2270;
-	static byte[][] aByteArrayArray2271;
+	static byte[][] underWaterLocationsMapFileBuffers;
 	static int anInt2272;
 	static Class22 aClass22_2273;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array2274;
+	static AbstractSprite[] mapFlagSprites;
 	static int anInt2275 = 0;
 
 	@Override
@@ -59,7 +59,7 @@ final class Class101_Sub1 extends Class101 {
 		final int maxDist = mapFunctionX * mapFunctionX + mapFunctionY * mapFunctionY;
 		final int dist = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
 		if (dist * dist >= maxDist) {
-			final int rot = (int) DummyOutputStream.aFloat28 & 0x7ff;
+			final int rot = (int) DummyOutputStream.cameraYaw & 0x7ff;
 			int rotSin = Rasterizer.sinTable[rot];
 			int rotCos = Rasterizer.cosTable[rot];
 			int posX = rotSin * mapFunctionY + rotCos * mapFunctionX >> 16;

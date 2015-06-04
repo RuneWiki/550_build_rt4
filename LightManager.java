@@ -22,7 +22,7 @@ final class LightManager {
 	private static int[] anIntArray1191;
 	private static float[] position = { 0.0F, 0.0F, 0.0F, 1.0F };
 
-	static final void method1856(final int i, final int i_0_, final int i_1_) {
+	static final void init(final int i, final int i_0_, final int i_1_) {
 		anInt1187 = i;
 		anInt1177 = i_0_;
 		anInt1178 = i_1_;
@@ -51,7 +51,7 @@ final class LightManager {
 		anInt1189 = -1;
 	}
 
-	static final void method1859() {
+	static final void disableLights() {
 		for (int i = 0; i < 4; i++) {
 			anIntArray1186[i] = -1;
 			disableLight(i);
@@ -183,11 +183,11 @@ final class LightManager {
 			gl.glTexEnvi(8960, 34192, 770);
 			for (int i_38_ = 0; i_38_ < lightsPos; i_38_++) {
 				final Light light = lights[i_38_];
-				int i_39_ = light.anInt384;
-				if (light.aBoolean385) {
-					i_39_--;
+				int level = light.level;
+				if (light.lightOverBridge) {
+					level--;
 				}
-				if (light.aClass133_380 != null) {
+				if (light.lightRenderer != null) {
 					int i_40_ = 0;
 					int i_41_ = (light.z >> 7) - light.anInt370;
 					int i_42_ = (light.z >> 7) + light.anInt370;
@@ -210,13 +210,13 @@ final class LightManager {
 						}
 						for (int i_47_ = i_45_; i_47_ <= i_46_; i_47_++) {
 							GroundTile class120_sub18 = null;
-							if (i_39_ >= 0) {
-								class120_sub18 = class120_sub18s[i_39_][i_47_][i_43_];
+							if (level >= 0) {
+								class120_sub18 = class120_sub18s[level][i_47_][i_43_];
 							}
-							if (i_39_ < 0 || class120_sub18 != null && class120_sub18.aBoolean2647) {
-								HDToolkit.method527(201.5F - light.anInt384 * 50.0F - 1.5F);
+							if (level < 0 || class120_sub18 != null && class120_sub18.aBoolean2647) {
+								HDToolkit.method527(201.5F - light.level * 50.0F - 1.5F);
 								gl.glTexEnvfv(8960, 8705, new float[] { 0.0F, 0.0F, 0.0F, light.aFloat394 }, 0);
-								light.aClass133_380.method1946();
+								light.lightRenderer.render();
 								break while_96_;
 							}
 						}
@@ -309,45 +309,45 @@ final class LightManager {
 	static final void method1869() {
 		for (int id = 0; id < lightsPos; id++) {
 			final Light light = lights[id];
-			int i_63_ = light.anInt384;
-			if (light.aBoolean371) {
-				i_63_ = 0;
+			int minLevel = light.level;
+			if (light.firstLevelOnly) {
+				minLevel = 0;
 			}
-			int i_64_ = light.anInt384;
-			if (light.aBoolean382) {
-				i_64_ = 3;
+			int maxLevel = light.level;
+			if (light.allLevels) {
+				maxLevel = 3;
 			}
-			for (int i_65_ = i_63_; i_65_ <= i_64_; i_65_++) {
+			for (int level = minLevel; level <= maxLevel; level++) {
 				int i_66_ = 0;
-				int i_67_ = (light.z >> 7) - light.anInt370;
-				if (i_67_ < 0) {
-					i_66_ -= i_67_;
-					i_67_ = 0;
+				int startZ = (light.z >> 7) - light.anInt370;
+				if (startZ < 0) {
+					i_66_ -= startZ;
+					startZ = 0;
 				}
-				int i_68_ = (light.z >> 7) + light.anInt370;
-				if (i_68_ > anInt1178 - 1) {
-					i_68_ = anInt1178 - 1;
+				int endZ = (light.z >> 7) + light.anInt370;
+				if (endZ > anInt1178 - 1) {
+					endZ = anInt1178 - 1;
 				}
-				for (int i_69_ = i_67_; i_69_ <= i_68_; i_69_++) {
+				for (int z = startZ; z <= endZ; z++) {
 					final int i_70_ = light.aShortArray372[i_66_++];
-					int i_71_ = (light.x >> 7) - light.anInt370 + (i_70_ >> 8);
-					int i_72_ = i_71_ + (i_70_ & 0xff) - 1;
-					if (i_71_ < 0) {
-						i_71_ = 0;
+					int startX = (light.x >> 7) - light.anInt370 + (i_70_ >> 8);
+					int endX = startX + (i_70_ & 0xff) - 1;
+					if (startX < 0) {
+						startX = 0;
 					}
-					if (i_72_ > anInt1177 - 1) {
-						i_72_ = anInt1177 - 1;
+					if (endX > anInt1177 - 1) {
+						endX = anInt1177 - 1;
 					}
-					for (int i_73_ = i_71_; i_73_ <= i_72_; i_73_++) {
-						final int i_74_ = anIntArrayArrayArray1182[i_65_][i_73_][i_69_];
+					for (int x = startX; x <= endX; x++) {
+						final int i_74_ = anIntArrayArrayArray1182[level][x][z];
 						if ((i_74_ & 0xff) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1;
+							anIntArrayArrayArray1182[level][x][z] = i_74_ | id + 1;
 						} else if ((i_74_ & 0xff00) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 8;
+							anIntArrayArrayArray1182[level][x][z] = i_74_ | id + 1 << 8;
 						} else if ((i_74_ & 0xff0000) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 16;
+							anIntArrayArrayArray1182[level][x][z] = i_74_ | id + 1 << 16;
 						} else if ((i_74_ & ~0xffffff) == 0) {
-							anIntArrayArrayArray1182[i_65_][i_73_][i_69_] = i_74_ | id + 1 << 24;
+							anIntArrayArrayArray1182[level][x][z] = i_74_ | id + 1 << 24;
 						}
 					}
 				}

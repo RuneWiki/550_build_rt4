@@ -5,16 +5,11 @@ import java.io.IOException;
 
 final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static AbstractSprite[] crossSprites;
-	static String aString3371;
 	static String aString3372;
 	static int[] friendsRank = new int[200];
-	static String aString3375;
+	static String worldIpAddress;
 	static int anInt3376;
 	static int anInt3377;
-
-	static {
-		aString3371 = "Loading textures - ";
-	}
 
 	static final void randomFileRead(final Buffer buffer) {
 		final byte[] data = new byte[24];

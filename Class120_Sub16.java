@@ -14,7 +14,7 @@ final class Class120_Sub16 extends Node {
 	int textEndY;
 	static int[] screenRedrawWidhts = new int[100];
 	int textEndX;
-	static int messageCount = 0;
+	static int chatMessageCount = 0;
 	MapFunctionNode mapFunctionNode;
 
 	static {
@@ -42,21 +42,21 @@ final class Class120_Sub16 extends Node {
 		return i_5_;
 	}
 
-	static final void pushMessage(final String message, final String name, final String string_6_, final int type, final int quickChatId) {
+	static final void pushMessage(final String message, final String name, final String clanName, final int type, final int quickChatId) {
 		for (int id = 99; id > 0; id--) {
-			Class136.anIntArray1315[id] = Class136.anIntArray1315[id - 1];
-			Class76.aStringArray677[id] = Class76.aStringArray677[id - 1];
-			GrandExchangeObject.aStringArray1502[id] = GrandExchangeObject.aStringArray1502[id - 1];
-			Class120_Sub2.aStringArray2423[id] = Class120_Sub2.aStringArray2423[id - 1];
-			Class120_Sub12_Sub36.anIntArray3422[id] = Class120_Sub12_Sub36.anIntArray3422[id- 1];
+			Class136.chatMessageTypes[id] = Class136.chatMessageTypes[id - 1];
+			client.chatMessageNames[id] = client.chatMessageNames[id - 1];
+			GrandExchangeObject.chatMessages[id] = GrandExchangeObject.chatMessages[id - 1];
+			Class120_Sub12_Sub36.chatMessageQuickChatId[id] = Class120_Sub12_Sub36.chatMessageQuickChatId[id - 1];
+			Class120_Sub2.chatMessageClanName[id] = Class120_Sub2.chatMessageClanName[id - 1];
 		}
-		Class136.anIntArray1315[0] = type;
-		Class76.aStringArray677[0] = name;
-		GrandExchangeObject.aStringArray1502[0] = message;
-		Class120_Sub12_Sub36.anIntArray3422[0] = quickChatId;
-		Class120_Sub2.aStringArray2423[0] = string_6_;
+		Class136.chatMessageTypes[0] = type;
+		client.chatMessageNames[0] = name;
+		GrandExchangeObject.chatMessages[0] = message;
+		Class120_Sub12_Sub36.chatMessageQuickChatId[0] = quickChatId;
+		Class120_Sub2.chatMessageClanName[0] = clanName;
 		Class166.anInt1612 = GrandExchangeObject.anInt1494;
-		messageCount++;
+		chatMessageCount++;
 	}
 
 	static final int method1661(final int language, char c) {
@@ -87,11 +87,11 @@ final class Class120_Sub16 extends Node {
 	static final void method1663() {
 		Class15.menuOpen = false;
 		WallDecoration.menuOptionCount = 0;
-		Class23.packetType = -1;
+		client.packetType = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
-		Class114.anInt1093 = -1;
-		MapFunctionType.anInt639 = -1;
-		SeqType.anInt333 = -1;
+		Class114.previousPacketType = -1;
+		MapFunctionType.thirdPacketType = -1;
+		SeqType.fourthPacketType = -1;
 		Class88.timoutCycle = 0;
 		Canvas_Sub1.inputStream.pos = 0;
 		Class120_Sub22.systemUpdateCycle = 0;

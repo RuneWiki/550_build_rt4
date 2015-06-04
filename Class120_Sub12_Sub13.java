@@ -15,7 +15,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	static final void method1264() {
 		for (int i = 0; i < ClientScript.anInt3556; i++) {
 			final Class28 class28 = Class111.aClass28Array1057[i];
-			Class120_Sub14_Sub10.method1499(class28);
+			QuickChatMessageType.method1499(class28);
 			Class111.aClass28Array1057[i] = null;
 		}
 		ClientScript.anInt3556 = 0;
@@ -81,11 +81,6 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 			} while (false);
 			anInt3235 = buffer.getUShort();
 		} while (false);
-	}
-
-	static final void method1266(final js5 js5, final js5 class50_2_) {
-		SpotAnimType.aClass50_1443 = js5;
-		Class90.aClass50_843 = class50_2_;
 	}
 
 	@Override

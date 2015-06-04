@@ -26,7 +26,7 @@ final class LocType {
 	int anInt1835;
 	int animationId;
 	private short[] retextureOriginal;
-	private int anInt1838;
+	private int offsetX;//orig
 	int ambientSoundVolume;
 	int mapFunctionId;
 	int sizeX;
@@ -43,11 +43,11 @@ final class LocType {
 	int[] transmogrificationIds;
 	boolean aBoolean1853;
 	private int varbitId;
-	private int anInt1855;
-	private int anInt1856;
+	private int offsetY;
+	private int resizeX;
 	int anInt1857;
 	boolean aBoolean1858;
-	private int anInt1859;
+	private int offsetZ;
 	private short[] recolorOriginal;
 	static int modeWhat = 0;
 	boolean adjustMapSceneRotation;
@@ -61,9 +61,9 @@ final class LocType {
 	int[] anIntArray1870;
 	private byte[] recolorPalette;
 	boolean flipMapSceneSprite;
-	private int anInt1873;
+	private int resizeZ;
 	int cursor1;
-	private int anInt1875;
+	private int resizeY;
 	boolean aBoolean1876;
 	int myId;
 	boolean aBoolean1878;
@@ -77,7 +77,7 @@ final class LocType {
 
 	static final void resetSpriteMenu() {
 		Class173.aClass120_Sub14_Sub19_1725 = null;
-		FrameLoader.aClass120_Sub14_Sub19_3611 = null;
+		FrameGroup.aClass120_Sub14_Sub19_3611 = null;
 		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
 		Class157.aClass120_Sub14_Sub19_1472 = null;
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
@@ -87,11 +87,11 @@ final class LocType {
 		if (modelIds == null) {
 			return true;
 		}
-		boolean bool_1_ = true;
+		boolean cached = true;
 		for (int id = 0; id < modelIds.length; id++) {
-			bool_1_ &= Class120_Sub12_Sub36.aClass50_3418.requestDownload(modelIds[id] & 0xffff, 0);
+			cached &= Class120_Sub12_Sub36.aClass50_3418.requestDownload(modelIds[id] & 0xffff, 0);
 		}
-		return bool_1_;
+		return cached;
 	}
 
 	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final LDIndexedSprite class107_sub1) {
@@ -263,13 +263,13 @@ final class LocType {
 			}
 		}
 		boolean bool_28_;
-		if (anInt1856 == 128 && anInt1875 == 128 && anInt1873 == 128) {
+		if (resizeX == 128 && resizeY == 128 && resizeZ == 128) {
 			bool_28_ = false;
 		} else {
 			bool_28_ = true;
 		}
 		boolean bool_29_;
-		if (anInt1838 == 0 && anInt1855 == 0 && anInt1859 == 0) {
+		if (offsetX == 0 && offsetY == 0 && offsetZ == 0) {
 			bool_29_ = false;
 		} else {
 			bool_29_ = true;
@@ -304,10 +304,10 @@ final class LocType {
 			}
 		}
 		if (bool_28_) {
-			class180_sub2_30_.method2306(anInt1856, anInt1875, anInt1873);
+			class180_sub2_30_.scale(resizeX, resizeY, resizeZ);
 		}
 		if (bool_29_) {
-			class180_sub2_30_.translate(anInt1838, anInt1855, anInt1859);
+			class180_sub2_30_.translate(offsetX, offsetY, offsetZ);
 		}
 		return class180_sub2_30_;
 	}
@@ -414,11 +414,11 @@ final class LocType {
 			}
 		}
 		boolean bool_48_ = aBoolean1868;
-		final boolean bool_49_ = anInt1875 == 128 && anInt1855 == 0;
+		final boolean bool_49_ = resizeY == 128 && offsetY == 0;
 		if (i == 2 && i_37_ > 3) {
 			bool_48_ = !bool_48_;
 		}
-		final boolean bool_50_ = i_37_ == 0 && anInt1856 == 128 && anInt1873 == 128 && anInt1838 == 0 && anInt1859 == 0 && !bool_48_;
+		final boolean bool_50_ = i_37_ == 0 && resizeX == 128 && resizeZ == 128 && offsetX == 0 && offsetZ == 0 && !bool_48_;
 		final HDModelRenderer class180_sub7_sub2_51_ = class180_sub7_sub2_41_.method2412(bool_50_, bool_49_, recolorOriginal == null, true, class180_sub7_sub2_41_.getAmbient() == i_39_, i_37_ == 0 && !bool_48_, true, class180_sub7_sub2_41_.getContrast() == i_40_, true, !bool_48_, retextureOriginal == null);
 		if (bool_48_) {
 			class180_sub7_sub2_51_.method2410();
@@ -445,11 +445,11 @@ final class LocType {
 				class180_sub7_sub2_51_.method2405(retextureOriginal[i_53_], retextureModified[i_53_]);
 			}
 		}
-		if (anInt1856 != 128 || anInt1875 != 128 || anInt1873 != 128) {
-			class180_sub7_sub2_51_.resize(anInt1856, anInt1875, anInt1873);
+		if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
+			class180_sub7_sub2_51_.scale(resizeX, resizeY, resizeZ);
 		}
-		if (anInt1838 != 0 || anInt1855 != 0 || anInt1859 != 0) {
-			class180_sub7_sub2_51_.translate(anInt1838, anInt1855, anInt1859);
+		if (offsetX != 0 || offsetY != 0 || offsetZ != 0) {
+			class180_sub7_sub2_51_.translate(offsetX, offsetY, offsetZ);
 		}
 		if (i_39_ != class180_sub7_sub2_51_.getAmbient()) {
 			class180_sub7_sub2_51_.setAmbient(i_39_);
@@ -641,7 +641,7 @@ final class LocType {
 			contrast = 5 * buffer.getByte();
 		} else if (code >= 30 && code < 35) {
 			this.options[code - 30] = buffer.getJagexString();
-			if (this.options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
+			if (this.options[code - 30].equalsIgnoreCase(StringLibrary.hidden)) {
 				this.options[code - 30] = null;
 			}
 		} else if (code == 40) {
@@ -671,19 +671,19 @@ final class LocType {
 		} else if (code == 64) {
 			this.aBoolean1858 = false;
 		} else if (code == 65) {
-			anInt1856 = buffer.getUShort();
+			resizeX = buffer.getUShort();
 		} else if (code == 66) {
-			anInt1875 = buffer.getUShort();
+			resizeY = buffer.getUShort();
 		} else if (code == 67) {
-			anInt1873 = buffer.getUShort();
+			resizeZ = buffer.getUShort();
 		} else if (code == 69) {
 			this.anInt1857 = buffer.getUByte();
 		} else if (code == 70) {
-			anInt1838 = buffer.getShort();
+			offsetX = buffer.getShort();
 		} else if (code == 71) {
-			anInt1855 = buffer.getShort();
+			offsetY = buffer.getShort();
 		} else if (code == 72) {
-			anInt1859 = buffer.getShort();
+			offsetZ = buffer.getShort();
 		} else if (code == 73) {
 			this.aBoolean1853 = true;
 		} else if (code == 74) {
@@ -783,7 +783,7 @@ final class LocType {
 			this.mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
 			this.options[code - 150] = buffer.getJagexString();
-			if (!Class69_Sub2.locMemberClient || this.options[code - 150].equalsIgnoreCase(TextRepository.hidden)) {
+			if (!Class69_Sub2.locMemberClient || this.options[code - 150].equalsIgnoreCase(StringLibrary.hidden)) {
 				this.options[code - 150] = null;
 			}
 		} else if (code == 249) {
@@ -936,7 +936,7 @@ final class LocType {
 					i_108_ = GameEntity.currentBaseX + (TileParticleQueue.selfPlayer.x >> 7);
 				}
 				if (i_107_ == 19) {
-					i_108_ = (TileParticleQueue.selfPlayer.z >> 7) - -Class181.currentBaseZ;
+					i_108_ = (TileParticleQueue.selfPlayer.z >> 7) - -LightType.currentBaseZ;
 				}
 				if (i_107_ == 20) {
 					i_108_ = is[i_103_++];
@@ -1061,7 +1061,7 @@ final class LocType {
 		this.options = new String[5];
 		this.sizeX = 1;
 		this.anInt1831 = -1;
-		anInt1838 = 0;
+		offsetX = 0;
 		aBoolean1830 = false;
 		totalDelay = 0;
 		this.anInt1821 = 2;
@@ -1071,7 +1071,7 @@ final class LocType {
 		this.aBoolean1844 = true;
 		this.adjustMapSceneRotation = false;
 		this.mapFunctionId = -1;
-		anInt1855 = 0;
+		offsetY = 0;
 		aShort1867 = (short) -1;
 		this.aBoolean1864 = true;
 		this.name = "null";
@@ -1088,12 +1088,12 @@ final class LocType {
 		aBoolean1868 = false;
 		this.mapSceneId = -1;
 		varpId = -1;
-		anInt1873 = 128;
+		resizeZ = 128;
 		ambient = 0;
-		anInt1859 = 0;
-		anInt1875 = 128;
+		offsetZ = 0;
+		resizeY = 128;
 		this.aBoolean1878 = false;
-		anInt1856 = 128;
+		resizeX = 128;
 		this.hasAnimation = false;
 		this.anInt1879 = 0;
 		this.aBoolean1876 = false;

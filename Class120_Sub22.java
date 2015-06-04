@@ -106,7 +106,7 @@ final class Class120_Sub22 extends Node {
 						i_18_ = class22.anInt129;
 						message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
 					} else {
-						message = AbstractFont.method1472(method1705(Class7.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
+						message = AbstractFont.method1472(method1705(client.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 					}
 					i_12_ &= 0x7fff;
 					player.textSpoken = message.trim();
@@ -139,7 +139,7 @@ final class Class120_Sub22 extends Node {
 				player.spotAnimHeight = bitPacked >> 16;
 				player.spotAnimFrameDelay = 0;
 				player.spotAnimFrame = 0;
-				player.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
+				player.spotAnimDelay = (bitPacked & 0xffff) + Class101_Sub2.loopCycle;
 				if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
 					player.spotAnimFrame = -1;
 				}

@@ -14,10 +14,10 @@ final class InvType extends NodeSub {
 		}
 	}
 
-	static final void method1445() {
+	static final void updateLoginScreenCamera() {
 		if (AbstractGraphicsBuffer.anInt1157 != -1 && Class120_Sub12_Sub15.anInt3248 != -1) {
 			final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * MagnetType.anInt272 >> 16) + JagexInterface.anInt2053;
-			final float[] fs = new float[3];
+			final float[] renderCoordinates = new float[3];
 			MagnetType.anInt272 += i_3_;
 			if (MagnetType.anInt272 < 65535) {
 				Class24.aBoolean139 = false;
@@ -32,40 +32,40 @@ final class InvType extends NodeSub {
 				AbstractSprite.aBoolean3622 = true;
 			}
 			final float f = MagnetType.anInt272 / 65535.0F;
-			final int i_4_ = 2 * PlayerAppearance.anInt1372;
+			final int i_4_ = PlayerAppearance.anInt1372 * 2;
 			for (int i_5_ = 0; i_5_ < 3; i_5_++) {
-				final int i_6_ = 3 * Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_][i_5_];
-				final int i_7_ = Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][1 + i_4_][i_5_] * 3;
-				final int i_8_ = (-Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ - -3][i_5_] + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][2 + i_4_][i_5_] + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][2 + i_4_][i_5_]) * 3;
+				final int i_6_ = Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_][i_5_] * 3;
+				final int i_7_ = Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 1][i_5_] * 3;
+				final int i_8_ = (Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] - Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 3][i_5_]) * 3;
 				final int i_9_ = Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_][i_5_];
 				final int i_10_ = i_7_ - i_6_;
-				final int i_11_ = -(i_7_ * 2) + i_6_ - -i_8_;
-				final int i_12_ = -i_8_ + Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] - i_9_ + i_7_;
-				fs[i_5_] = i_9_ + (i_10_ + (i_11_ + i_12_ * f) * f) * f;
+				final int i_11_ = i_6_ + i_8_ - i_7_ * 2;
+				final int i_12_ = Class143_Sub1.anIntArrayArrayArray2195[AbstractGraphicsBuffer.anInt1157][i_4_ + 2][i_5_] - i_9_ + i_7_ - i_8_;
+				renderCoordinates[i_5_] = i_9_ + (i_10_ + (i_11_ + i_12_ * f) * f) * f;
 			}
-			GroundObjectNode.renderZ = -(128 * Class181.currentBaseZ) + (int) fs[2];
-			Class120_Sub12_Sub10.renderY = -1 * (int) fs[1];
+			FileSystemWorker.renderX = (int) renderCoordinates[0] - (GameEntity.currentBaseX * 128);
+			Class120_Sub12_Sub10.renderY = (int) renderCoordinates[1] * -1;
+			GroundObjectNode.renderZ = (int) renderCoordinates[2] - (LightType.currentBaseZ * 128);
 			final float[] fs_13_ = new float[3];
-			FileSystemWorker.renderX = (int) fs[0] + -(128 * GameEntity.currentBaseX);
 			final int i_14_ = 2 * Class9.anInt67;
 			for (int i_15_ = 0; i_15_ < 3; i_15_++) {
 				final int i_16_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_] * 3;
 				final int i_17_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 1][i_15_] * 3;
-				final int i_18_ = 3 * (Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + -Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][3 + i_14_][i_15_]);
+				final int i_18_ = (Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] - Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 3][i_15_]) * 3;
 				final int i_19_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_];
-				final int i_20_ = -i_16_ + i_17_;
-				final int i_21_ = -i_18_ + i_17_ + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][2 + i_14_][i_15_] + -i_19_;
-				final int i_22_ = i_18_ + -(i_17_ * 2) + i_16_;
+				final int i_20_ = i_17_ - i_16_;
+				final int i_22_ = i_18_ + i_16_ - i_17_ * 2;
+				final int i_21_ = i_17_ + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][2 + i_14_][i_15_] - i_19_ - i_18_;
 				fs_13_[i_15_] = f * ((f * i_21_ + i_22_) * f + i_20_) + i_19_;
 			}
-			final float f_23_ = fs_13_[0] - fs[0];
-			final float f_25_ = (fs_13_[1] - fs[1]) * -1.0F;
-			final float f_24_ = fs_13_[2] - fs[2];
-			final double d = Math.sqrt(f_23_ * f_23_ + f_24_ * f_24_);
-			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(f_25_, d);
-			SeekableFile.aFloat2139 = -(float) Math.atan2(f_23_, f_24_);
-			SpotAnimation.renderYaw = 0x7ff & (int) (SeekableFile.aFloat2139 * 325.949);
-			UnderlayType.renderPitch = 0x7ff & (int) (325.949 * Class120_Sub30_Sub1.aFloat3674);
+			final float x = fs_13_[0] - renderCoordinates[0];
+			final float y = (fs_13_[1] - renderCoordinates[1]) * -1.0F;
+			final float z = fs_13_[2] - renderCoordinates[2];
+			final double dist = Math.sqrt(x * x + z * z);
+			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(y, dist);
+			SeekableFile.aFloat2139 = -(float) Math.atan2(x, z);
+			SpotAnimation.renderYaw = (int) (SeekableFile.aFloat2139 * 325.949) & 0x7ff;
+			UnderlayType.renderPitch = (int) (Class120_Sub30_Sub1.aFloat3674 * 325.949) & 0x7ff;
 		}
 	}
 
@@ -86,7 +86,7 @@ final class InvType extends NodeSub {
 		int i = 0;
 		for (int i_31_ = 0; i_31_ < 104; i_31_++) {
 			for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-				if (LongNode.method1055(i, i_31_, true, i_32_, LabelGroup.groundTiles)) {
+				if (LongNode.method1055(i, i_31_, true, i_32_, LabelGroup.activeGroundTiles)) {
 					i++;
 				}
 				if (i >= 512) {
@@ -104,6 +104,10 @@ final class InvType extends NodeSub {
 			}
 			decode(buffer, code);
 		}
+	}
+
+	static final void setup(final js5 js5) {
+		aClass50_1613 = js5;
 	}
 
 	static final InvType list(final int id) {

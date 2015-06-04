@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 	private int anInt3379 = 4096;
 	static int anInt3380;
 	static AbstractMouseWheelHandler mouseWheelHandler;
-	static int anInt3382 = 0;
+	static int privateChatSetting = 0;
 	static int[] anIntArray3383;
 	static int anInt3384;
 

@@ -50,8 +50,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 							final ObjType objType = ObjType.list(jagexInterface.objIds[i_2_] - 1);
 							if (Light.objSelected != 1 || !class120_sub20.method1694()) {
 								if (Class88.spellSelected && class120_sub20.method1694()) {
-									final ParamType class120_sub14_sub11 = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-									if ((0x10 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
+									final ParamType class120_sub14_sub11 = Identikit.selectedSpellParam == -1 ? null : ParamType.list(Identikit.selectedSpellParam);
+									if ((0x10 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(Identikit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
 										InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
 									}
 								} else {
@@ -73,7 +73,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 										}
 									}
 									if (class120_sub20.method1687()) {
-										InvType.addMenuOption(TextRepository.use, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+										InvType.addMenuOption(StringLibrary.use, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 									}
 									if (class120_sub20.method1694() && options != null) {
 										for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
@@ -119,10 +119,10 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 											}
 										}
 									}
-									InvType.addMenuOption(TextRepository.examine, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 1001, Class120_Sub12_Sub11.anInt3211);
+									InvType.addMenuOption(StringLibrary.examine, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 1001, Class120_Sub12_Sub11.anInt3211);
 								}
 							} else if (PlainTile.selectedObjInterface != jagexInterface.bitPacked || ParticleEmitter.selectedObjSlot != i_2_) {
-								InvType.addMenuOption(TextRepository.use, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 15, -1);
+								InvType.addMenuOption(StringLibrary.use, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 15, -1);
 							}
 						}
 					}
@@ -156,7 +156,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 					if (jagexInterface.actionSufix != null) {
 						InvType.addMenuOption(jagexInterface.actionSufix, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
 					} else {
-						InvType.addMenuOption(TextRepository.continueString, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
+						InvType.addMenuOption(StringLibrary.continueString, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
 					}
 				}
 			}

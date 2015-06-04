@@ -44,20 +44,20 @@ final class JagexSocket implements Runnable {
 	}
 
 	static final void method374() {
-		if (FrameLoader.anInt3609 != 0) {
+		if (FrameGroup.anInt3609 != 0) {
 			do {
 				try {
-					if ((++Class79_Sub1.anInt2244 ^ 0xffffffff) < -1501) {
+					if (Class79_Sub1.anInt2244++ > 1500) {
 						if (AbstractTimer.worldConnection != null) {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						}
 						if (MapFunctionGroup.anInt1323 >= 1) {
 							Class48.returnCode = -5;
-							FrameLoader.anInt3609 = 0;
+							FrameGroup.anInt3609 = 0;
 							return;
 						}
-						FrameLoader.anInt3609 = 1;
+						FrameGroup.anInt3609 = 1;
 						MapFunctionGroup.anInt1323++;
 						if (Hashtable.anInt675 != Class116.anInt1115) {
 							Class116.anInt1115 = Hashtable.anInt675;
@@ -66,11 +66,11 @@ final class JagexSocket implements Runnable {
 						}
 						Class79_Sub1.anInt2244 = 0;
 					}
-					if (FrameLoader.anInt3609 == 1) {
+					if (FrameGroup.anInt3609 == 1) {
 						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
-						FrameLoader.anInt3609 = 2;
+						FrameGroup.anInt3609 = 2;
 					}
-					if (FrameLoader.anInt3609 == 2) {
+					if (FrameGroup.anInt3609 == 2) {
 						if (Class53_Sub1.worldConnectionNode.status == 2) {
 							throw new IOException();
 						}
@@ -94,28 +94,28 @@ final class JagexSocket implements Runnable {
 							Class120_Sub12_Sub29.aClass164_3366.method2131();
 						}
 						if (i_3_ == 101) {
-							FrameLoader.anInt3609 = 3;
+							FrameGroup.anInt3609 = 3;
 						} else {
 							Class48.returnCode = i_3_;
-							FrameLoader.anInt3609 = 0;
+							FrameGroup.anInt3609 = 0;
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 							return;
 						}
 					}
-					if (FrameLoader.anInt3609 != 3) {
+					if (FrameGroup.anInt3609 != 3) {
 						break;
 					}
 					if (AbstractTimer.worldConnection.getAvailable() >= 2) {
 						final int i_4_ = AbstractTimer.worldConnection.read() << 8 | AbstractTimer.worldConnection.read();
 						Class188.method2483(i_4_);
-						if ((Class157.worldId ^ 0xffffffff) == 0) {
-							FrameLoader.anInt3609 = 0;
+						if (Class157.worldId == -1) {
+							FrameGroup.anInt3609 = 0;
 							Class48.returnCode = 6;
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 						} else {
-							FrameLoader.anInt3609 = 0;
+							FrameGroup.anInt3609 = 0;
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
 							LabelGroup.method1037();
@@ -134,9 +134,9 @@ final class JagexSocket implements Runnable {
 						} else {
 							Class116.anInt1115 = Hashtable.anInt675;
 						}
-						FrameLoader.anInt3609 = 1;
+						FrameGroup.anInt3609 = 1;
 					} else {
-						FrameLoader.anInt3609 = 0;
+						FrameGroup.anInt3609 = 0;
 						Class48.returnCode = -4;
 					}
 					break;
@@ -153,16 +153,15 @@ final class JagexSocket implements Runnable {
 		return inputStream.available();
 	}
 
-	static final void executeOnloadScript(final int i) {
-		if (i != -1 && js5.loadInterface(i)) {
-			final JagexInterface[] class189s = Node.interfaceCache[i];
-			for (int i_8_ = 0; i_8_ < class189s.length; i_8_++) {
-				final JagexInterface jagexInterface = class189s[i_8_];
+	static final void executeOnloadScript(final int interfaceId) {
+		if (interfaceId != -1 && js5.loadInterface(interfaceId)) {
+			for (int id = 0; id < JagexInterface.interfaceCache[interfaceId].length; id++) {
+				final JagexInterface jagexInterface = JagexInterface.interfaceCache[interfaceId][id];
 				if (jagexInterface.onloadListener != null) {
-					final InterfaceListener class120_sub10 = new InterfaceListener();
-					class120_sub10.objectData = jagexInterface.onloadListener;
-					class120_sub10.jagexInterface = jagexInterface;
-					ObjectCache.method194(class120_sub10, 2000000);
+					final InterfaceListener interfaceListener = new InterfaceListener();
+					interfaceListener.objectData = jagexInterface.onloadListener;
+					interfaceListener.jagexInterface = jagexInterface;
+					ObjectCache.executeScript(interfaceListener, 2000000);
 				}
 			}
 		}

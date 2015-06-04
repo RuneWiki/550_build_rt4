@@ -101,12 +101,12 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		gl.glPushAttrib(128);
 		gl.glFogf(2915, 3072.0F);
 		HDToolkit.disableDepthMask();
-		for (int i = 0; i < SceneGroundObject.aClass120_Sub9ArrayArray2844[0].length; i++) {
-			final Class120_Sub9 class120_sub9 = SceneGroundObject.aClass120_Sub9ArrayArray2844[0][i];
+		for (int i = 0; i < SceneGroundObject.surfaceHdTiles[0].length; i++) {
+			final HDTile class120_sub9 = SceneGroundObject.surfaceHdTiles[0][i];
 			if (class120_sub9.textureId >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.textureId))) {
 				gl.glColor4fv(World.method2196(class120_sub9.anInt2505), 0);
 				final float f = 201.5F - (class120_sub9.blend ? 1.0F : 0.5F);
-				class120_sub9.method1162(LabelGroup.groundTiles, f, true);
+				class120_sub9.method1162(LabelGroup.activeGroundTiles, f, true);
 			}
 		}
 		gl.glEnableClientState(32886);
@@ -167,7 +167,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		do {
 			if (Class86.loginStep != 0 && Class86.loginStep != 5) {
 				try {
-					if (2000 < ++Class150.anInt1408) {
+					if (Class150.anInt1408++ > 2000) {
 						if (AbstractTimer.worldConnection != null) {
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
@@ -177,17 +177,17 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class48.returnCode = -5;
 							break;
 						}
-						if (ModelParticleEmitter.anInt1479 != Class71.anInt625) {
-							ModelParticleEmitter.anInt1479 = Class71.anInt625;
+						if (ModelParticleEmitter.worldPort != Class71.anInt625) {
+							ModelParticleEmitter.worldPort = Class71.anInt625;
 						} else {
-							ModelParticleEmitter.anInt1479 = GameEntity.anInt3045;
+							ModelParticleEmitter.worldPort = GameEntity.anInt3045;
 						}
 						client.anInt1153++;
 						Class86.loginStep = 1;
 						Class150.anInt1408 = 0;
 					}
 					if (Class86.loginStep == 1) {
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticleEmitter.anInt1479);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.worldIpAddress, ModelParticleEmitter.worldPort);
 						Class86.loginStep = 2;
 					}
 					if (Class86.loginStep == 2) {
@@ -277,7 +277,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putInt(Class65.aClass50_597.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub36.aClass50_3419.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class7.aClass50_63.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(client.aClass50_63.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(NodeCache.aClass50_303.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(ParticleNodeSub.aClass50_2400.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
@@ -348,7 +348,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						Class86.loginStep = 4;
 					} else if (Class86.loginStep == 7) {
 						if (AbstractTimer.worldConnection.getAvailable() >= 1) {
-							Class57.anInt504 = 180 + 60 * AbstractTimer.worldConnection.read();
+							Class57.delayAfterWorldChange = 180 + 60 * AbstractTimer.worldConnection.read();
 							Class86.loginStep = 0;
 							Class48.returnCode = 21;
 							AbstractTimer.worldConnection.close();
@@ -405,7 +405,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							} catch (final Throwable throwable) {
 								/* empty */
 							}
-							Class23.packetType = Canvas_Sub1.inputStream.getUByteIsaac();
+							client.packetType = Canvas_Sub1.inputStream.getUByteIsaac();
 							AbstractMouseWheelHandler.packetSize = Canvas_Sub1.inputStream.getUShort();
 							Class86.loginStep = 9;
 						}
@@ -417,7 +417,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class24.method205();
 							Class116.anInt1118 = -1;
 							Class120_Sub29.receiveRegionData(false);
-							Class23.packetType = -1;
+							client.packetType = -1;
 						}
 					}
 				} catch (final IOException ioexception) {
@@ -428,10 +428,10 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 					if (client.anInt1153 < 1) {
 						client.anInt1153++;
 						Class86.loginStep = 1;
-						if (Class71.anInt625 != ModelParticleEmitter.anInt1479) {
-							ModelParticleEmitter.anInt1479 = Class71.anInt625;
+						if (Class71.anInt625 != ModelParticleEmitter.worldPort) {
+							ModelParticleEmitter.worldPort = Class71.anInt625;
 						} else {
-							ModelParticleEmitter.anInt1479 = GameEntity.anInt3045;
+							ModelParticleEmitter.worldPort = GameEntity.anInt3045;
 						}
 						Class150.anInt1408 = 0;
 					} else {

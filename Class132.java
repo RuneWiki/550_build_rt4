@@ -165,18 +165,18 @@ abstract class Class132 {
 		method1924();
 	}
 
-	static final Class120_Sub9[] method1930(final byte[][][] is, final byte i, final byte[][] is_60_, final int[][] is_61_, final float[][] fs, final int i_62_, final byte[][] is_63_, final byte[][] is_64_, final int[][] is_65_, final byte[][] is_66_, final float[][] fs_67_, final float[][] fs_68_) {
+	static final HDTile[] method1930(final byte[][][] is, final byte[][] is_60_, final int[][] is_61_, final float[][] fs, final int i_62_, final byte[][] is_63_, final byte[][] is_64_, final int[][] is_65_, final byte[][] is_66_, final float[][] fs_67_, final float[][] fs_68_) {
 		final Hashtable hashtable = new Hashtable(128);
 		for (int i_69_ = 1; i_69_ <= 102; i_69_++) {
 			for (int i_70_ = 1; i_70_ <= 102; i_70_++) {
 				final int i_71_ = is_66_[i_69_][i_70_] & 0xff;
 				final int i_72_ = is_60_[i_69_][i_70_] & 0xff;
 				if (i_72_ != 0) {
-					final OverlayType class124 = OverlayType.list(i_72_ + -1);
+					final OverlayType class124 = OverlayType.list(i_72_ - 1);
 					if (class124.anInt1197 == -1) {
 						continue;
 					}
-					final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
+					final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 					final int i_73_ = is_63_[i_69_][i_70_];
 					final int[] is_74_ = Class120_Sub12_Sub4.anIntArrayArray3157[i_73_];
 					class120_sub9.anInt2507 += is_74_.length / 2;
@@ -347,7 +347,7 @@ abstract class Class132 {
 						final boolean[] bools_116_ = Class132_Sub1.aBooleanArrayArray2811[i_114_ != i_84_ ? 0 : i_80_];
 						final boolean[] bools_117_ = Class132_Sub1.aBooleanArrayArray2811[i_81_ == i_114_ ? i_76_ : 0];
 						final OverlayType class124 = OverlayType.list(-1 + i_114_);
-						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
+						final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 						class120_sub9.anInt2507 += 5;
 						class120_sub9.anInt2507 += -2 + bools_117_.length;
 						class120_sub9.anInt2507 += bools.length + -2;
@@ -358,7 +358,7 @@ abstract class Class132 {
 				}
 			}
 		}
-		for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
+		for (HDTile class120_sub9 = (HDTile) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (HDTile) hashtable.getNext()) {
 			class120_sub9.method1167();
 		}
 		for (int i_118_ = 1; i_118_ <= 102; i_118_++) {
@@ -378,7 +378,7 @@ abstract class Class132 {
 					if ((class124.anInt1197 ^ 0xffffffff) == 0) {
 						continue;
 					}
-					final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
+					final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 					final byte i_123_ = is_63_[i_118_][i_119_];
 					final byte i_124_ = is_64_[i_118_][i_119_];
 					final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197);
@@ -573,7 +573,7 @@ abstract class Class132 {
 						final boolean[] bools_170_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_137_ ? i_133_ : 0];
 						final boolean[] bools_171_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_136_ ? i_134_ : 0];
 						final OverlayType class124 = OverlayType.list(i_168_ + -1);
-						final Class120_Sub9 class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
+						final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 						final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
 						final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
 						final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, class124.anInt1197) << 8;
@@ -617,7 +617,7 @@ abstract class Class132 {
 				}
 			}
 		}
-		for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
+		for (HDTile class120_sub9 = (HDTile) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (HDTile) hashtable.getNext()) {
 			if (class120_sub9.anInt2527 == 0) {
 				class120_sub9.unlink();
 			} else {
@@ -625,13 +625,13 @@ abstract class Class132 {
 			}
 		}
 		final int i_186_ = hashtable.getCount();
-		final Class120_Sub9[] class120_sub9s_187_ = new Class120_Sub9[i_186_];
+		final HDTile[] class120_sub9s_187_ = new HDTile[i_186_];
 		final long[] ls = new long[i_186_];
 		hashtable.method660(class120_sub9s_187_);
 		for (int i_188_ = 0; i_188_ < i_186_; i_188_++) {
 			ls[i_188_] = class120_sub9s_187_[i_188_].uid;
 		}
-		Class24.method209(-4391, ls, class120_sub9s_187_);
+		Class24.method209(class120_sub9s_187_, ls);
 		return class120_sub9s_187_;
 	}
 }

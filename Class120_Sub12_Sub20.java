@@ -1,4 +1,8 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
+
+import javax.imageio.ImageIO;
 
 /* Class120_Sub12_Sub20 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
@@ -15,7 +19,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 
 	static final void method1296() {
 		SeqType.recentUse.clear();
-		FrameLoader.recentUse.clear();
+		FrameGroup.recentUse.clear();
 	}
 
 	private final int[] method1297(final int i) {
@@ -141,7 +145,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		anIntArray3285 = new int[] { is[0] - (-is[0] + is_37_[0]), is[1] + -is_37_[1] + is[1] };
 	}
 
-	static final void execuseCommand(final String command) {
+	static final void executeCommand(final String command) {
 		if (Class86.staffLevel >= 2) {
 			if (command.equalsIgnoreCase("::gc")) {
 				Class120_Sub12_Sub21.method1311();
@@ -186,7 +190,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				Class178.js5Worker.sendDropConnection();
 			}
 			if (command.equalsIgnoreCase("::breakcon")) {
-				NpcType.gameSignlink.method1963(5000);
+				NpcType.gameSignlink.closeSocketIn(5000);
 				AbstractTimer.worldConnection.replaceStreamsWithDummy();
 				Class178.js5Worker.replaceStreamsWithDummy();
 			}
@@ -200,14 +204,12 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				HintIcon.showFps = true;
 			}
 			if (command.equalsIgnoreCase("::test")) {
-				for(int i = 0; i < 100000; i++) {
-					LocType loc = LocType.list(i);
-					if(loc != null) {
-						if(loc.randomAnimationIds != null) {
-							System.out.println(i+":"+loc.totalDelay+":"+Arrays.toString(loc.randomAnimationIds)+":"+Arrays.toString(loc.randomAnimationDelays));
-						}
-					}
-				}
+				int id = 600;
+				int idk = 1;
+				int delay = 0;
+				int volume = 255;
+				Class48.method404(id, delay, idk, volume);
+				System.out.println("hello");
 			}
 			if (command.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
@@ -269,10 +271,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 			}
 			if (command.equalsIgnoreCase("::getcgcoord")) {
-				AbstractRequest.pushMessage("x:" + (TileParticleQueue.selfPlayer.x >> 7) + " z:" + (TileParticleQueue.selfPlayer.z >> 7) + " groundh:" + OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
+				AbstractRequest.pushMessage("x:" + (TileParticleQueue.selfPlayer.x >> 7) + " z:" + (TileParticleQueue.selfPlayer.z >> 7) + " groundh:" + OverridedJInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
 			if (command.equalsIgnoreCase("::getheight")) {
-				AbstractRequest.pushMessage("Height: " + OverridedJInterface.tileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
+				AbstractRequest.pushMessage("Height: " + OverridedJInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
 		}
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(216);

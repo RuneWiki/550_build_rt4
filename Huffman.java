@@ -67,7 +67,6 @@ final class Huffman {
 	}
 
 	final int method1885(final int outOff, final byte[] outBuffer, final byte[] srcBuffer, int srcOff, int srcLength) {
-		//buffer.pos, 0, buffer.buf, is, is.length
 		srcLength += srcOff;
 		int i_19_ = 0;
 		int i_20_ = outOff << 3;
@@ -84,7 +83,7 @@ final class Huffman {
 			i_19_ &= -i_25_ >> 31;
 			final int i_26_ = i_24_ + (i_23_ + i_25_ - 1 >> 3);
 			i_25_ += 24;
-			outBuffer[i_24_] = (byte) (i_19_ = Class191.method2512(i_19_, i_22_ >>> i_25_));
+			outBuffer[i_24_] = (byte) (i_19_ = ChunkAtmosphere.method2512(i_19_, i_22_ >>> i_25_));
 			if (i_26_ > i_24_) {
 				i_24_++;
 				i_25_ -= 8;
@@ -263,7 +262,7 @@ final class Huffman {
 							is_45_[i_51_] = is_45_[i_51_ - 1];
 							break;
 						}
-						is_45_[i_51_] = Class191.method2512(i_53_, i_52_);
+						is_45_[i_51_] = ChunkAtmosphere.method2512(i_53_, i_52_);
 					}
 					i_50_ = i_49_ | i_48_;
 				}

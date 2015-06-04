@@ -19,7 +19,7 @@ public class Fullscreenimp14 {
 			}
 			displayMode = null;
 		}
-		method295(null);
+		setFullScreenWindow(null);
 	}
 
 	public void setDisplayMode(final Frame frame, final int height, final int width, final int bitDepth, int refreshRate) {
@@ -29,7 +29,7 @@ public class Fullscreenimp14 {
 		}
 		frame.setUndecorated(true);
 		frame.enableInputMethods(false);
-		method295(frame);
+		setFullScreenWindow(frame);
 		if (refreshRate == 0) {
 			boolean bool = false;
 			final int currentRate = displayMode.getRefreshRate();
@@ -55,9 +55,8 @@ public class Fullscreenimp14 {
 		defaultGraphicsDevice = graphicsenvironment.getDefaultScreenDevice();
 		if (!defaultGraphicsDevice.isFullScreenSupported()) {
 			final GraphicsDevice[] graphicsdevices = graphicsenvironment.getScreenDevices();
-			int i = 0;
-			for (final GraphicsDevice[] graphicsdevices_7_ = graphicsdevices; i < graphicsdevices_7_.length; i++) {
-				final GraphicsDevice graphicsdevice = graphicsdevices_7_[i];
+			for (int id = 0; id < graphicsdevices.length; id++) {
+				final GraphicsDevice graphicsdevice = graphicsdevices[id];
 				if (graphicsdevice != null && graphicsdevice.isFullScreenSupported()) {
 					defaultGraphicsDevice = graphicsdevice;
 					return;
@@ -79,7 +78,7 @@ public class Fullscreenimp14 {
 		return info;
 	}
 
-	private void method295(final Frame frame) {
+	private void setFullScreenWindow(final Frame frame) {
 		boolean bool = false;
 		try {
 			final Field field = Class.forName("sun.awt.Win32GraphicsDevice").getDeclaredField("valid");

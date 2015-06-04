@@ -13,7 +13,7 @@ final class MapFunctionType {
 	private int anInt636 = -1;
 	static int anInt637;
 	int[] anIntArray638;
-	static int anInt639 = 0;
+	static int thirdPacketType = 0;
 	int fillRectARGB;
 	private int anInt641;
 	boolean randomizePosition;
@@ -49,10 +49,6 @@ final class MapFunctionType {
 		anIntArray664 = new int[14];
 	}
 
-	static final void method642(final int[] is, final long[] ls) {
-		CollisionMap.method218(ls.length - 1, ls, 0, is);
-	}
-
 	final void decode(final Buffer buffer) {
 		for (;;) {
 			final int code = buffer.getUByte();
@@ -75,7 +71,7 @@ final class MapFunctionType {
 		if (sprite != null) {
 			return sprite;
 		}
-		Class88.aClass50_834.method429(worldMapSpriteId);
+		Class88.aClass50_834.groupExist(worldMapSpriteId);
 		sprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, worldMapSpriteId, 0);
 		if (sprite != null) {
 			sprite.xOffset = 0;
@@ -190,7 +186,7 @@ final class MapFunctionType {
 		if (cachedSprite != null) {
 			return cachedSprite;
 		}
-		if (!Class88.aClass50_834.method429(spriteId)) {
+		if (!Class88.aClass50_834.groupExist(spriteId)) {
 			return null;
 		}
 		final LDIndexedSprite ldIndexedSprite = Class164.constructLDIndexedSprite(Class88.aClass50_834, spriteId, 0);

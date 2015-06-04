@@ -104,7 +104,7 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 			if (!Class134.aBoolean1277) {
 				Class120_Sub12_Sub4.aFloat3154 += (-Class120_Sub12_Sub4.aFloat3154 + -12.0F) / 2.0F;
 			} else {
-				Class120_Sub12_Sub21.aFloat3293 = -17 + (int) Class120_Sub12_Sub21.aFloat3293 & ~0xf;
+				Class120_Sub12_Sub21.cameraPitch = -17 + (int) Class120_Sub12_Sub21.cameraPitch & ~0xf;
 			}
 		}
 	}

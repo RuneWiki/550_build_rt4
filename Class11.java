@@ -19,9 +19,9 @@ final class Class11 {
 	static final void drawLoadingText(Color color, final boolean fillBg, final int fill, final String text) {
 		try {
 			final Graphics graphics = Node.canvas.getGraphics();
-			if (Class23.loadingFont == null) {
-				Class23.loadingFont = new Font("Helvetica", 1, 13);
-				WaterfallShader.loadingFontMetrics = Node.canvas.getFontMetrics(Class23.loadingFont);
+			if (client.loadingFont == null) {
+				client.loadingFont = new Font("Helvetica", 1, 13);
+				WaterfallShader.loadingFontMetrics = Node.canvas.getFontMetrics(client.loadingFont);
 			}
 			if (fillBg) {
 				graphics.setColor(Color.black);
@@ -41,7 +41,7 @@ final class Class11 {
 				imageGraphics.setColor(Color.black);
 				imageGraphics.drawRect(1, 1, 301, 31);
 				imageGraphics.fillRect(2 + fill * 3, 2, 300 - (3 * fill), 30);
-				imageGraphics.setFont(Class23.loadingFont);
+				imageGraphics.setFont(client.loadingFont);
 				imageGraphics.setColor(Color.white);
 				imageGraphics.drawString(text, (304 - WaterfallShader.loadingFontMetrics.stringWidth(text)) / 2, 22);
 				graphics.drawImage(Class132_Sub1.loadingTextImage, Class69_Sub1.canvasWidth / 2 - 152, Class120_Sub12_Sub5.canvasHeight / 2 - 18, null);
@@ -54,12 +54,12 @@ final class Class11 {
 				graphics.setColor(Color.black);
 				graphics.drawRect(1 + x, y + 1, 301, 31);
 				graphics.fillRect(fill * 3 + 2 + x, y + 2, 300 - (fill * 3), 30);
-				graphics.setFont(Class23.loadingFont);
+				graphics.setFont(client.loadingFont);
 				graphics.setColor(Color.white);
 				graphics.drawString(text, x + ((-WaterfallShader.loadingFontMetrics.stringWidth(text) + 304) / 2), 22 + y);
 			}
 			if (Class120_Sub14_Sub15.gameLoadingText != null) {
-				graphics.setFont(Class23.loadingFont);
+				graphics.setFont(client.loadingFont);
 				graphics.setColor(Color.white);
 				graphics.drawString(Class120_Sub14_Sub15.gameLoadingText, Class69_Sub1.canvasWidth / 2 - WaterfallShader.loadingFontMetrics.stringWidth(Class120_Sub14_Sub15.gameLoadingText) / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26);
 			}
@@ -82,11 +82,11 @@ final class Class11 {
 			wallDecoration.anInt1905 = i_12_;
 			wallDecoration.anInt1892 = i_13_;
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[level][x][z].wallDecoration = wallDecoration;
+			LabelGroup.activeGroundTiles[level][x][z].wallDecoration = wallDecoration;
 		}
 	}
 

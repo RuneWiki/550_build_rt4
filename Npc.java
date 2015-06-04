@@ -113,7 +113,7 @@ final class Npc extends GameEntity {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_12_, final int i_13_, final int i_14_, final int i_15_) {
+	final void method2266(final int i, final int i_12_, final int i_14_, final int i_13_, final int i_15_) {
 		if (this.npcType != null) {
 			if (!this.aBoolean3007) {
 				final SeqType seqType = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
@@ -152,11 +152,40 @@ final class Npc extends GameEntity {
 	final int getEntityRenderDataId() {
 		if (this.npcType.transmogrificationIds != null) {
 			final NpcType npcType = this.npcType.handleVarp();
-			if (npcType != null && npcType.anInt1692 != -1) {
-				return npcType.anInt1692;
+			if (npcType != null && npcType.renderDataId != -1) {
+				return npcType.renderDataId;
 			}
 		}
 		return this.entityRenderDataId;
+	}
+
+	static final void playAnimation(final Npc npc, final int id, final int delay) {
+		if (id == npc.animId && id != -1) {
+			final SeqType seqType = SeqType.list(id);
+			final int resetCode = seqType.resetInPlay;
+			if (resetCode == 1) {
+				npc.animFrame = 0;
+				npc.animDelay = delay;
+				npc.animNextFrame = 1;
+				npc.animCyclesElapsed = 0;
+				npc.animCurrentFrameDelay = 0;
+				Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.animFrame, false);
+			}
+			if (resetCode == 2) {
+				npc.animCyclesElapsed = 0;
+			}
+		} else if (id == -1 || npc.animId == -1 || SeqType.list(id).priority >= SeqType.list(npc.animId).priority) {
+			npc.animNextFrame = 1;
+			npc.onAnimPlayWalkQueuePos = npc.walkQueuePos;
+			npc.animCyclesElapsed = 0;
+			npc.animFrame = 0;
+			npc.animDelay = delay;
+			npc.animId = id;
+			npc.animCurrentFrameDelay = 0;
+			if (npc.animId != -1) {
+				Class120_Sub12_Sub23.method1323(SeqType.list(npc.animId), npc.x, npc.z, npc.animFrame, false);
+			}
+		}
 	}
 
 	static final boolean method2349(final int i_23_, final int i_24_, final byte[] is) {
@@ -195,7 +224,7 @@ final class Npc extends GameEntity {
 							bool_29_ = true;
 							if (!locType.modelsCached()) {
 								bool_25_ = false;
-								Class181.anInt1791++;
+								LightType.locationModelMissingCount++;
 							}
 						}
 					}

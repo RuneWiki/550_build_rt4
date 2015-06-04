@@ -15,7 +15,7 @@ final class GroundObjectNode extends NodeSub {
 	}
 
 	static final void method1627(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_6_) {
-		if (i >= MagnetType.anInt260 && i_4_ <= ParamType.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (IdentityKit.anInt1334 ^ 0xffffffff))
+		if (i >= MagnetType.anInt260 && i_4_ <= ParamType.anInt3544 && Class120_Sub30_Sub2.anInt3699 <= i_6_ && (i_3_ ^ 0xffffffff) >= (Identikit.anInt1334 ^ 0xffffffff))
 			Class120_Sub2.method1045(i_0_, i_4_, i_6_, i, i_3_, i_1_, i_2_);
 		else
 			Class92.method768(i_3_, i_2_, i_1_, i_0_, i, i_4_, i_6_);

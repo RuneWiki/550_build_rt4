@@ -10,8 +10,7 @@ abstract class Class101 {
 	static String selectedSpellPrefix = null;
 	int anInt964;
 	static float aFloat965;
-	static js5 aClass50_966;
-
+	
 	static final void method832(int i_0_, final int i_1_, final int i_2_) {
 		i_0_ = RuntimeException_Sub1.anInt2142 * i_0_ >> 8;
 		if (i_0_ != 0 && i_2_ != -1) {
@@ -24,10 +23,10 @@ abstract class Class101 {
 
 	abstract void method834(int i_5_, int i_6_);
 
-	static final void method835(final boolean bool) {
+	static final void refreshAtmosphere(final boolean forceSetFog) {
 		AtmosphereManager.setLightParams(Class9.anInt72, Class120_Sub12_Sub23.aFloat3306, AbstractBuffer.aFloat600, client.aFloat1395);
-		AtmosphereManager.setFogValues(Deque.anInt1007, CollisionMap.anInt151, bool);
-		AtmosphereManager.setLightPosition(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
+		AtmosphereManager.setFogValues(Deque.anInt1007, CollisionMap.anInt151, forceSetFog);
+		AtmosphereManager.setLightPosition(Class120_Sub30_Sub2.currentLightX, Queue.currentLightY, ProducingGraphicsBuffer.currentLightZ);
 		AtmosphereManager.applyLightPosition();
 		Class120_Sub2_Sub1.aFloat3112 = aFloat962;
 		Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 = Class3.aClass120_Sub14_Sub9_54;

@@ -3,7 +3,6 @@
  */
 
 abstract class AbstractObject extends NodeSub {
-	static boolean objMemberClient;
 
 	abstract Object get();
 
@@ -11,14 +10,5 @@ abstract class AbstractObject extends NodeSub {
 
 	static final int getCrc(final byte[] buffer, final int len) {
 		return NodeSub.getCrc(buffer, 0, len);
-	}
-
-	static final InterfaceChangeNode putInterfaceChange(final int type, final int uid) {
-		InterfaceChangeNode interfaceChangeNode = (InterfaceChangeNode) Class120_Sub14_Sub10.interfaceChangeCache.get((long) type << 32 | uid);
-		if (interfaceChangeNode == null) {
-			interfaceChangeNode = new InterfaceChangeNode(type, uid);
-			Class120_Sub14_Sub10.interfaceChangeCache.put(interfaceChangeNode, interfaceChangeNode.uid);
-		}
-		return interfaceChangeNode;
 	}
 }

@@ -5,18 +5,18 @@
 final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	static int[] npcIndices;
 	static int[] anIntArray3416;
-	static int[] anIntArray3417;
+	static int[] regionBitPackeds;
 	static js5 aClass50_3418;
 	static js5 aClass50_3419;
 	static int[][][] anIntArrayArrayArray3420;
-	static byte[][] aByteArrayArray3421;
-	static int[] anIntArray3422;
+	static byte[][] underWaterMapFileBuffers;
+	static int[] chatMessageQuickChatId;
 	static int anInt3423 = 0;
 	static int lastClickY;
 
 	static {
 		npcIndices = new int[1024];
-		anIntArray3422 = new int[100];
+		chatMessageQuickChatId = new int[100];
 		lastClickY = 0;
 		anIntArray3416 = new int[128];
 	}
@@ -44,8 +44,8 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	}
 
 	static final void method1389() {
-		for (int id = 0; id < Class154.anInt1441; id++) {
-			final int index = ModelParticleMagnet.anIntArray1648[id];
+		for (int id = 0; id < Class154.toUpdateEntitiesPos; id++) {
+			final int index = ModelParticleMagnet.toUpdateEntityIndex[id];
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			int mask = Canvas_Sub1.inputStream.getUByte();
 			if ((mask & 0x1) != 0) {
@@ -86,7 +86,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getUShortA()));
 				npc.setSize(npc.npcType.size);
 				npc.anInt3010 = npc.npcType.anInt1672;
-				npc.entityRenderDataId = npc.npcType.anInt1692;
+				npc.entityRenderDataId = npc.npcType.renderDataId;
 				if (npc.npcType.hasAmbientSound()) {
 					AmbientSound.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 				}
@@ -96,12 +96,12 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.faceZ = Canvas_Sub1.inputStream.getUShort();
 			}
 			if ((mask & 0x20) != 0) {
-				int i_19_ = Canvas_Sub1.inputStream.getUShort();
-				if (i_19_ == 65535) {
-					i_19_ = -1;
+				int animId = Canvas_Sub1.inputStream.getUShort();
+				if (animId == 65535) {
+					animId = -1;
 				}
-				final int i_20_ = Canvas_Sub1.inputStream.getUByteS();
-				Class23.method204(npc, i_19_, i_20_);
+				final int animDelay = Canvas_Sub1.inputStream.getUByteS();
+				Npc.playAnimation(npc, animId, animDelay);
 			}
 			if ((mask & 0x4) != 0) {
 				int spotanimId = Canvas_Sub1.inputStream.getUShortA();

@@ -109,7 +109,7 @@ final class Player extends GameEntity {
 			this.appearance = new PlayerAppearance();
 		}
 		final int npcId = this.appearance.npcId;
-		this.appearance.method2042(newNpcId, is, this.entityRenderDataId, colors, isFemale == 1);
+		this.appearance.init(newNpcId, is, this.entityRenderDataId, colors, isFemale == 1);
 		if (newNpcId != npcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
@@ -125,7 +125,7 @@ final class Player extends GameEntity {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_19_, final int i_20_, final int i_21_, final int i_22_) {
+	final void method2266(final int i, final int i_19_, final int i_21_, final int i_20_, final int i_22_) {
 		if (!this.aBoolean3007) {
 			if (this.appearance == null) {
 				return;
@@ -146,12 +146,12 @@ final class Player extends GameEntity {
 	static final void method2340(final js5 js5, final LDFont class120_sub14_sub8_sub2, final boolean bool, final js5 class50_24_) {
 		Class111.aClass50_1064 = class50_24_;
 		Class120_Sub12_Sub23.aClass50_3305 = js5;
-		AbstractObject.objMemberClient = bool;
+		ObjType.objMemberClient = bool;
 		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
 		Node.objCount = Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_) + i_25_ * 256;
 		Class15.objSmallFont = class120_sub14_sub8_sub2;
-		Class120_Sub12_Sub29.membersObjInventoryOptions = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
-		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, TextRepository.take, null, null };
+		Class120_Sub12_Sub29.membersObjInventoryOptions = new String[] { null, null, null, null, StringLibrary.drop };
+		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, StringLibrary.take, null, null };
 	}
 
 	@Override
@@ -211,7 +211,7 @@ final class Player extends GameEntity {
 							}
 							if (hintIcon.targetType == 2) {
 								final int hintX = 2 + 4 * (hintIcon.x - GameEntity.currentBaseX) - (TileParticleQueue.selfPlayer.x / 32);
-								final int hintY = 2 + 4 * (hintIcon.z - Class181.currentBaseZ) - (TileParticleQueue.selfPlayer.z / 32);
+								final int hintY = 2 + 4 * (hintIcon.z - LightType.currentBaseZ) - (TileParticleQueue.selfPlayer.z / 32);
 								int showDistance = hintIcon.showDistance * 4;
 								showDistance *= showDistance;
 								renderHintIcon(i_28_, hintY, null, i_27_, i_33_, i_26_, i, i_30_, hintX, i_31_, hintIcon.modelId, i_29_, showDistance, playerModel, i_32_);
@@ -340,8 +340,8 @@ final class Player extends GameEntity {
 		}
 	}
 
-	final void method2343(final int x, final int z, final boolean bool) {
-		super.method2323(x, z, getSize(), bool);
+	final void setPos(final int x, final int z, final boolean bool) {
+		super.setPos(x, z, getSize(), bool);
 	}
 
 	private final void renderHintIcon(final int i, final int i_54_, final ParticleEngine class108_sub2, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_, final int i_62_, final int i_64_, final int i_65_, final AbstractModelRenderer class180_sub7, final int i_66_) {
@@ -371,10 +371,10 @@ final class Player extends GameEntity {
 		}
 		final int parent = bitPacked >> 16;
 		final int child = bitPacked & 0xffff;
-		if (Node.interfaceCache[parent] == null || Node.interfaceCache[parent][child] == null) {
+		if (JagexInterface.interfaceCache[parent] == null || JagexInterface.interfaceCache[parent][child] == null) {
 			return false;
 		}
-		final JagexInterface jagexInterface = Node.interfaceCache[parent][child];
+		final JagexInterface jagexInterface = JagexInterface.interfaceCache[parent][child];
 		if (i_71_ != -1 || jagexInterface.type != 0) {
 			for (int i_75_ = 0; i_75_ < WallDecoration.menuOptionCount; i_75_++) {
 				if (Class120_Sub12_Sub7.menuOptionsData2[i_75_] == i_71_ && jagexInterface.bitPacked == Class120_Sub29.menuOptionsData3[i_75_] && (Class120_Sub29.menuOptionsCode[i_75_] == 1 || Class120_Sub29.menuOptionsCode[i_75_] == 1009 || Class120_Sub29.menuOptionsCode[i_75_] == 34 || Class120_Sub29.menuOptionsCode[i_75_] == 23 || Class120_Sub29.menuOptionsCode[i_75_] == 3)) {
@@ -384,7 +384,7 @@ final class Player extends GameEntity {
 		} else {
 			for (int i_76_ = 0; i_76_ < WallDecoration.menuOptionCount; i_76_++) {
 				if (Class120_Sub29.menuOptionsCode[i_76_] == 1 || Class120_Sub29.menuOptionsCode[i_76_] == 1009 || Class120_Sub29.menuOptionsCode[i_76_] == 34 || Class120_Sub29.menuOptionsCode[i_76_] == 23 || Class120_Sub29.menuOptionsCode[i_76_] == 3) {
-					for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.menuOptionsData3[i_76_]); class189_77_ != null; class189_77_ = ObjectContainer.method1665(class189_77_)) {
+					for (JagexInterface class189_77_ = Class74.getJagexInterface(Class120_Sub29.menuOptionsData3[i_76_]); class189_77_ != null; class189_77_ = JagexInterface.getParentInterface(class189_77_)) {
 						if (class189_77_.bitPacked == jagexInterface.bitPacked) {
 							return true;
 						}

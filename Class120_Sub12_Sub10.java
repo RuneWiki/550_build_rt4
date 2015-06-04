@@ -77,11 +77,6 @@ final class Class120_Sub12_Sub10 extends Class120_Sub12 {
 		return is_21_;
 	}
 
-	static final void method1249(final js5 js5, final js5 class50_27_) {
-		Class101_Sub2.aClass50_2277 = class50_27_;
-		Class156.aClass50_1456 = js5;
-	}
-
 	@Override
 	final void decode(final Buffer buffer, final int i_28_) {
 		if (i_28_ == 0) {

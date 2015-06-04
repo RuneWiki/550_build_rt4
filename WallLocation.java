@@ -36,7 +36,7 @@ final class WallLocation {
 			TileParticleQueue.dropClient();
 			return true;
 		} catch (final Exception exception) {
-			String string = new StringBuilder("T2 - ").append(Class23.packetType).append(",").append(MapFunctionType.anInt639).append(",").append(SeqType.anInt333).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(Class181.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
+			String string = new StringBuilder("T2 - ").append(client.packetType).append(",").append(MapFunctionType.thirdPacketType).append(",").append(SeqType.fourthPacketType).append(" - ").append(AbstractMouseWheelHandler.packetSize).append(",").append(GameEntity.currentBaseX + TileParticleQueue.selfPlayer.walkQueueX[0]).append(",").append(LightType.currentBaseZ + TileParticleQueue.selfPlayer.walkQueueZ[0]).append(" - ").toString();
 			for (int i_11_ = 0; i_11_ < AbstractMouseWheelHandler.packetSize && i_11_ < 50; i_11_++) {
 				string = new StringBuilder(string).append(Canvas_Sub1.inputStream.buf[i_11_]).append(",").toString();
 			}

@@ -2,6 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.io.IOException;
@@ -24,10 +25,19 @@ public final class client extends GameShell {
 	static Class28[] aClass28Array323;
 	static byte[] aByteArray324;
 	static long allocateGcTime = 0L;
-	static boolean aBoolean566 = true;
+	static boolean allVisibleLevels = true;
 	static short aShort565 = (short) 320;
 	static int anInt563 = 0;
 	static int[] anIntArray562;
+	static int anInt134 = 0;
+	static Font loadingFont;
+	static int packetType = 0;
+	static int anInt137 = 0;
+	static int[] underWaterLocationsMapFileIds;
+	static int[] anIntArray679;
+	static String[] chatMessageNames = new String[100];
+	static int[] mapFunctionLocIds = new int[1000];
+	static js5 aClass50_63;
 
 	static {
 		flagCounter = (byte) 0;
@@ -47,15 +57,15 @@ public final class client extends GameShell {
 			while_37_: for (int index = 0; index < 32768; index++) {
 				final Npc npc = Class120_Sub12_Sub11.npcList[index];
 				if (npc != null) {
-					final byte i_2_ = npc.npcType.aByte1700;
-					if ((0x2 & i_2_) > 0 && npc.walkQueuePos == 0 && Math.random() * 1000.0 < 10.0) {
-						final int i_3_ = (int) Math.round(-1.0 + 2.0 * Math.random());
-						final int i_4_ = (int) Math.round(-1.0 + 2.0 * Math.random());
-						if (i_3_ != 0 || i_4_ != 0) {
+					final byte prop = npc.npcType.loginScreenProperties;
+					if ((prop & 0x2) > 0 && npc.walkQueuePos == 0 && Math.random() * 1000.0 < 10.0) {
+						final int offX = (int) Math.round(-1.0 + 2.0 * Math.random());
+						final int offZ = (int) Math.round(-1.0 + 2.0 * Math.random());
+						if (offX != 0 || offZ != 0) {
 							npc.walkQueueType[0] = (byte) 1;
-							npc.walkQueueX[0] = (npc.x >> 7) + i_3_;
-							npc.walkQueueZ[0] = (npc.z >> 7) + i_4_;
-							WallLocation.collisionMaps[Class173.gameLevel].method214(0, npc.z >> 7, npc.getSize(), npc.x >> 7, npc.getSize(), false, false);
+							npc.walkQueueX[0] = (npc.x >> 7) + offX;
+							npc.walkQueueZ[0] = (npc.z >> 7) + offZ;
+							WallLocation.collisionMaps[Class173.gameLevel].method214(npc.x >> 7, npc.z >> 7, npc.getSize(), npc.getSize(), 0, false, false);
 							if (npc.walkQueueX[0] >= 0 && npc.walkQueueX[0] <= 104 - npc.getSize() && npc.walkQueueZ[0] >= 0 && npc.walkQueueZ[0] <= 104 - npc.getSize() && WallLocation.collisionMaps[Class173.gameLevel].method221(npc.walkQueueZ[0], npc.z >> 7, npc.walkQueueX[0], npc.x >> 7)) {
 								if (npc.getSize() > 1) {
 									for (int i_5_ = npc.walkQueueX[0]; i_5_ < npc.walkQueueX[0] + npc.getSize(); i_5_++) {
@@ -78,11 +88,11 @@ public final class client extends GameShell {
 			}
 		}
 		if (HDToolkit.glEnabled || Buffer.gameId != 0) {
-			if (Class86.loginStep == 0 && Class154.anInt1440 == 0) {
+			if (Class86.loginStep == 0 && Class154.accountCreationStep == 0) {
 				if (cameraType == 2) {
-					Class120_Sub12_Sub16.method1279();
+					Class120_Sub12_Sub16.updateLockedCamera();
 				} else {
-					InvType.method1445();
+					InvType.updateLoginScreenCamera();
 				}
 				if (FileSystemWorker.renderX >> 7 < 14 || FileSystemWorker.renderX >> 7 >= 90 || GroundObjectNode.renderZ >> 7 < 14 || GroundObjectNode.renderZ >> 7 >= 90) {
 					UnderlayType.method1900();
@@ -92,49 +102,49 @@ public final class client extends GameShell {
 			FileSystem.anInt459++;
 		}
 		for (;;) {
-			final InterfaceListener interfaceListener = (InterfaceListener) Class120_Sub4.aClass105_2435.removeFront();
+			final InterfaceListener interfaceListener = (InterfaceListener) Class120_Sub4.topPriorityInterfaceScripts.removeFront();
 			if (interfaceListener == null) {
 				break;
 			}
 			final JagexInterface jagexInterface = interfaceListener.jagexInterface;
 			if (jagexInterface.componentIndex >= 0) {
-				final JagexInterface class189_7_ = Class74.getJagexInterface(jagexInterface.parent);
-				if (class189_7_ == null || class189_7_.components == null || jagexInterface.componentIndex >= class189_7_.components.length || class189_7_.components[jagexInterface.componentIndex] != jagexInterface) {
+				final JagexInterface parentInterface = Class74.getJagexInterface(jagexInterface.parent);
+				if (parentInterface == null || parentInterface.components == null || jagexInterface.componentIndex >= parentInterface.components.length || parentInterface.components[jagexInterface.componentIndex] != jagexInterface) {
 					continue;
 				}
 			}
-			Class88.method744(interfaceListener);
+			Class88.executeScript(interfaceListener);
 		}
 		for (;;) {
-			final InterfaceListener interfaceListener = (InterfaceListener) FileSystem.aClass105_456.removeFront();
+			final InterfaceListener interfaceListener = (InterfaceListener) FileSystem.mediumPriorityInterfaceScripts.removeFront();
 			if (interfaceListener == null) {
 				break;
 			}
 			final JagexInterface jagexInterface = interfaceListener.jagexInterface;
 			if (jagexInterface.componentIndex >= 0) {
-				final JagexInterface class189_8_ = Class74.getJagexInterface(jagexInterface.parent);
-				if (class189_8_ == null || class189_8_.components == null || jagexInterface.componentIndex >= class189_8_.components.length || class189_8_.components[jagexInterface.componentIndex] != jagexInterface) {
+				final JagexInterface parentInterface = Class74.getJagexInterface(jagexInterface.parent);
+				if (parentInterface == null || parentInterface.components == null || jagexInterface.componentIndex >= parentInterface.components.length || parentInterface.components[jagexInterface.componentIndex] != jagexInterface) {
 					continue;
 				}
 			}
-			Class88.method744(interfaceListener);
+			Class88.executeScript(interfaceListener);
 		}
 		for (;;) {
-			final InterfaceListener interfaceListener = (InterfaceListener) Class88.aClass105_829.removeFront();
+			final InterfaceListener interfaceListener = (InterfaceListener) Class88.lowPriorityInterfaceScripts.removeFront();
 			if (interfaceListener == null) {
 				break;
 			}
 			final JagexInterface jagexInterface = interfaceListener.jagexInterface;
 			if (jagexInterface.componentIndex >= 0) {
-				final JagexInterface class189_9_ = Class74.getJagexInterface(jagexInterface.parent);
-				if (class189_9_ == null || class189_9_.components == null || class189_9_.components.length <= jagexInterface.componentIndex || class189_9_.components[jagexInterface.componentIndex] != jagexInterface) {
+				final JagexInterface parentInterface = Class74.getJagexInterface(jagexInterface.parent);
+				if (parentInterface == null || parentInterface.components == null || parentInterface.components.length <= jagexInterface.componentIndex || parentInterface.components[jagexInterface.componentIndex] != jagexInterface) {
 					continue;
 				}
 			}
-			Class88.method744(interfaceListener);
+			Class88.executeScript(interfaceListener);
 		}
 		if (Class120_Sub12_Sub4.draggedComponent != null) {
-			JavaObject.method1435();
+			JavaObject.updateDraggedComponent();
 		}
 		if (Class3.openUrlRequest != null && Class3.openUrlRequest.status == 1) {
 			if (Class3.openUrlRequest.value != null) {
@@ -183,7 +193,7 @@ public final class client extends GameShell {
 					client.allocateGcTime = time;
 				}
 				OverridedJInterface.loadingBarPercent = 5;
-				Class134.loadingText = TextRepository.aString853;
+				Class134.loadingText = StringLibrary.aString853;
 			} else {
 				OverridedJInterface.loadingBarPercent = 5;
 				Class134.loadingText = PlayerAppearance.aString1368;
@@ -202,7 +212,7 @@ public final class client extends GameShell {
 			}
 			if (!EnumType.aClass112_3460.method986()) {
 				OverridedJInterface.loadingBarPercent = 12;
-				Class134.loadingText = TextRepository.aString2105;
+				Class134.loadingText = StringLibrary.aString2105;
 			} else {
 				AmbientSound.aClass50_2479 = Huffman.method1884(0, true, false, true);
 				Class79_Sub1.aClass50_2245 = Huffman.method1884(1, true, false, true);
@@ -212,7 +222,7 @@ public final class client extends GameShell {
 				Class65.aClass50_597 = Huffman.method1884(5, true, true, true);
 				Class120_Sub12_Sub36.aClass50_3419 = Huffman.method1884(6, true, true, false);
 				Class120_Sub12_Sub17.aClass50_3258 = Huffman.method1884(7, true, false, true);
-				Class7.aClass50_63 = Huffman.method1884(8, true, false, true);
+				client.aClass50_63 = Huffman.method1884(8, true, false, true);
 				NodeCache.aClass50_303 = Huffman.method1884(9, true, false, true);
 				ParticleNodeSub.aClass50_2400 = Huffman.method1884(10, true, false, true);
 				InterfaceListener.aClass50_2544 = Huffman.method1884(11, true, false, true);
@@ -234,7 +244,7 @@ public final class client extends GameShell {
 				Class187.aClass50_1907 = Huffman.method1884(27, true, false, true);
 				Npc.aClass50_3753 = Huffman.method1884(28, true, true, true);
 				OverridedJInterface.loadingBarPercent = 15;
-				Class134.loadingText = TextRepository.connectedToUpdateServer;
+				Class134.loadingText = StringLibrary.connectedToUpdateServer;
 				Class140.loadingStage = 40;
 			}
 		} else if (Class140.loadingStage == 40) {
@@ -245,24 +255,24 @@ public final class client extends GameShell {
 			if (i_12_ != 100) {
 				OverridedJInterface.loadingBarPercent = 20;
 				if (i_12_ != 0) {
-					Class134.loadingText = new StringBuilder(TextRepository.aString3338).append(i_12_).append("%").toString();
+					Class134.loadingText = StringLibrary.aString3338 + i_12_ + "%";
 				}
 			} else {
-				Class134.loadingText = TextRepository.aString2594;
+				Class134.loadingText = StringLibrary.aString2594;
 				OverridedJInterface.loadingBarPercent = 20;
-				ParticleNode.getSpriteIds(Class7.aClass50_63);
-				Class132_Sub2.getTitleSpriteIds(Class7.aClass50_63);
-				Class112.getRunesSpriteId(Class7.aClass50_63);
+				ParticleNode.getSpriteIds(client.aClass50_63);
+				Class132_Sub2.getTitleSpriteIds(client.aClass50_63);
+				Class112.getRunesSpriteId(client.aClass50_63);
 				Class140.loadingStage = 41;
 			}
 		} else if (Class140.loadingStage == 41) {
 			if (!Npc.aClass50_3753.method430()) {
-				Class134.loadingText = new StringBuilder(TextRepository.aString2554).append(Npc.aClass50_3753.method415()).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2554 + Npc.aClass50_3753.method415() + "%";
 				OverridedJInterface.loadingBarPercent = 25;
 			} else {
 				decodeDefaults(Npc.aClass50_3753.getFileSmart(1));
 				Class140.loadingStage = 45;
-				Class134.loadingText = Class120_Sub12_Sub1.aString3137;
+				Class134.loadingText = StringLibrary.aString3137;
 				OverridedJInterface.loadingBarPercent = 25;
 			}
 		} else if (Class140.loadingStage == 45) {
@@ -277,39 +287,40 @@ public final class client extends GameShell {
 			Class120_Sub12_Sub29.aClass164_3366.method2143(Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299);
 			ObjectPile.aClass172_1809 = new Decimator(22050, Class178.anInt1771);
 			AbstractSprite.anInt3620 = Class120_Sub12_Sub36.aClass50_3419.getGroupId("scape main");
-			Class134.loadingText = AbstractIndexedSprite.aString1025;
+			Class134.loadingText = StringLibrary.aString1025;
 			Class140.loadingStage = 50;
 			OverridedJInterface.loadingBarPercent = 30;
 		} else if (Class140.loadingStage == 50) {
-			final int i_14_ = Class143_Sub1.method2029(ClanMember.aClass50_2576, Class7.aClass50_63);
+			final int i_14_ = Class143_Sub1.fontCachedCount(ClanMember.aClass50_2576, client.aClass50_63);
 			final int i_15_ = LookupTable.method488();
 			if (i_14_ < i_15_) {
 				OverridedJInterface.loadingBarPercent = 35;
-				Class134.loadingText = new StringBuilder(TextRepository.aString2660).append(100 * i_14_ / i_15_).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2660 + (100 * i_14_ / i_15_) + "%";
 			} else {
-				Class134.loadingText = TextRepository.aString1155;
+				Class134.loadingText = StringLibrary.aString1155;
 				Class140.loadingStage = 60;
 				OverridedJInterface.loadingBarPercent = 35;
 			}
 		} else if (Class140.loadingStage == 60) {
-			final int i_16_ = JavaObject.method1434(Class7.aClass50_63);
+			final int i_16_ = JavaObject.titleSpriteCachedCount(client.aClass50_63);
 			final int i_17_ = 2;
 			if (i_17_ > i_16_) {
 				OverridedJInterface.loadingBarPercent = 40;
-				Class134.loadingText = new StringBuilder(TextRepository.aString217).append(i_16_ * 100 / i_17_).append("%").toString();
+				Class134.loadingText = StringLibrary.aString217 + (i_16_ * 100 / i_17_) + "%";
 			} else {
 				Class140.loadingStage = 65;
 				OverridedJInterface.loadingBarPercent = 40;
-				Class134.loadingText = TextRepository.aString1239;
+				Class134.loadingText = StringLibrary.aString1239;
 			}
 		} else if (Class140.loadingStage == 65) {
-			Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);
-			Class134.loadingText = TextRepository.aString2552;
+			Class8.constructFonts(client.aClass50_63, ClanMember.aClass50_2576);
+			Class134.loadingText = StringLibrary.aString2552;
 			OverridedJInterface.loadingBarPercent = 45;
 			ProjectileNode.setGameState(5);
 			Class140.loadingStage = 70;
 		} else if (Class140.loadingStage == 70) {
 			Js5Worker.aClass50_397.method430();
+			int count = 11;
 			int i_18_ = 0;
 			i_18_ += Js5Worker.aClass50_397.method415();
 			Class114.aClass50_1097.method430();
@@ -332,58 +343,58 @@ public final class client extends GameShell {
 			i_18_ += AbstractMouseWheelHandler.aClass50_115.method415();
 			Class187.aClass50_1907.method430();
 			i_18_ += Class187.aClass50_1907.method415();
-			if (i_18_ < 1100) {
+			if (i_18_ < count * 100) {
 				OverridedJInterface.loadingBarPercent = 50;
-				Class134.loadingText = new StringBuilder(TextRepository.loadingConfig).append(i_18_ / 11).append("%").toString();
+				Class134.loadingText = StringLibrary.loadingConfig + (i_18_ / count) + "%";
 			} else {
 				ParamType.configClient = Js5Worker.aClass50_397;
-				OverlayType.setupOverlay(Js5Worker.aClass50_397);
+				OverlayType.setup(Js5Worker.aClass50_397);
 				UnderlayType.configClient = Js5Worker.aClass50_397;
-				WallDecoration.method2472(Class120_Sub12_Sub17.aClass50_3258, Js5Worker.aClass50_397);
+				Identikit.init(Class120_Sub12_Sub17.aClass50_3258, Js5Worker.aClass50_397);
 				Class166.method2178(Class114.aClass50_1097, true, Class120_Sub12_Sub17.aClass50_3258);
-				GrandExchangeObject.setupNpcTypeVariables(Class120_Sub12_Sub17.aClass50_3258, Class120_Sub12_Sub29.aClass50_3367, true);
+				NpcType.setupNpcTypeVariables(Class120_Sub12_Sub17.aClass50_3258, Class120_Sub12_Sub29.aClass50_3367, true);
 				Player.method2340(Class127.aClass50_1213, Class33.smallFont2, true, Class120_Sub12_Sub17.aClass50_3258);
 				StructType.configClient = Js5Worker.aClass50_397;
-				Class191.method2509(Class2.aClass50_50, Class79_Sub1.aClass50_2245, AmbientSound.aClass50_2479);
-				CanvasWrapper.aClass50_18 = Js5Worker.aClass50_397;
-				Class120_Sub12_Sub13.method1266(Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.aClass50_3258);
-				Class120_Sub12_Sub35.method1381(WaterfallShader.aClass50_2169);
-				Class15.method145(Js5Worker.aClass50_397);
-				Class191.method2511(Class7.aClass50_63, ClanMember.aClass50_2576, Class33.aClass50_275, Class120_Sub12_Sub17.aClass50_3258);
-				Class86.method731(Js5Worker.aClass50_397);
-				Class120_Sub11.method1177(ModelParticleMagnet.aClass50_1649);
-				InterfaceChangeNode.method1455(AbstractMouseWheelHandler.aClass50_115, new Class125(), Class153.aClass50_1433);
-				Class120_Sub12_Sub10.method1249(Class153.aClass50_1433, AbstractMouseWheelHandler.aClass50_115);
-				Class54.method483(Js5Worker.aClass50_397);
-				Class120_Sub12_Sub17.method1287(Js5Worker.aClass50_397);
-				Class120_Sub12_Sub2.method1203(Js5Worker.aClass50_397);
-				ObjectCache.method189(Js5Worker.aClass50_397, Class7.aClass50_63);
-				Class3.method79(Class7.aClass50_63, Js5Worker.aClass50_397);
+				ChunkAtmosphere.method2509(Class2.aClass50_50, Class79_Sub1.aClass50_2245, AmbientSound.aClass50_2479);
+				EntityRenderData.setup(Js5Worker.aClass50_397);
+				SpotAnimType.setup(Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.aClass50_3258);
+				VarBit.setup(WaterfallShader.aClass50_2169);
+				Varp.setup(Js5Worker.aClass50_397);
+				JagexInterface.setup(client.aClass50_63, ClanMember.aClass50_2576, Class33.aClass50_275, Class120_Sub12_Sub17.aClass50_3258);
+				InvType.setup(Js5Worker.aClass50_397);
+				EnumType.setup(ModelParticleMagnet.aClass50_1649);
+				QuickChatMessageType.setup(AbstractMouseWheelHandler.aClass50_115, new Class125(), Class153.aClass50_1433);
+				QuickChatCategoryType.setup(Class153.aClass50_1433, AbstractMouseWheelHandler.aClass50_115);
+				Class145.setup(Js5Worker.aClass50_397);
+				Class153.setup(Js5Worker.aClass50_397);
+				LightType.setup(Js5Worker.aClass50_397);
+				CursorType.setup(Js5Worker.aClass50_397, client.aClass50_63);
+				MapSceneType.setup(client.aClass50_63, Js5Worker.aClass50_397);
 				Class31.aClass50_241 = Js5Worker.aClass50_397;
-				Class88.aClass50_834 = Class7.aClass50_63;
+				Class88.aClass50_834 = client.aClass50_63;
 				OverridedJInterface.loadingBarPercent = 50;
-				Class134.loadingText = TextRepository.aString2585;
+				Class134.loadingText = StringLibrary.aString2585;
 				MapFunctionNode.calculateEquipmentLookupTable();
 				Class140.loadingStage = 80;
 			}
 		} else if (Class140.loadingStage == 80) {
-			final int i_19_ = Class120_Sub12_Sub4.method1216(Class7.aClass50_63);
+			final int i_19_ = Class120_Sub12_Sub4.method1216(client.aClass50_63);
 			final int i_20_ = 14;
 			if (i_19_ < i_20_) {
-				Class134.loadingText = new StringBuilder(TextRepository.aString3665).append(100 * i_19_ / i_20_).append("%").toString();
+				Class134.loadingText = StringLibrary.aString3665 + (100 * i_19_ / i_20_) + "%";
 				OverridedJInterface.loadingBarPercent = 60;
 			} else {
-				GameShell.constructSprites(Class7.aClass50_63);
-				Class134.loadingText = TextRepository.aString2726;
+				GameShell.constructSprites(client.aClass50_63);
+				Class134.loadingText = StringLibrary.aString2726;
 				OverridedJInterface.loadingBarPercent = 60;
 				Class140.loadingStage = 90;
 			}
 		} else if (Class140.loadingStage == 90) {
 			if (!Class120_Sub12_Sub15.aClass50_3242.method430()) {
-				Class134.loadingText = new StringBuilder(Class120_Sub12_Sub30.aString3371).append(Class120_Sub12_Sub15.aClass50_3242.method415()).append("%").toString();
+				Class134.loadingText = StringLibrary.aString3371 + Class120_Sub12_Sub15.aClass50_3242.method415() + "%";
 				OverridedJInterface.loadingBarPercent = 70;
 			} else {
-				final Class143_Sub1 class143_sub1 = new Class143_Sub1(NodeCache.aClass50_303, Class120_Sub12_Sub15.aClass50_3242, Class7.aClass50_63, 20, !ParticleNodeSub.highDetailTextures);
+				final Class143_Sub1 class143_sub1 = new Class143_Sub1(NodeCache.aClass50_303, Class120_Sub12_Sub15.aClass50_3242, client.aClass50_63, 20, !ParticleNodeSub.highDetailTextures);
 				Rasterizer.method864(class143_sub1);
 				if (FileSystemRequest.brightness == 1) {
 					Rasterizer.method852(0.9F);
@@ -402,18 +413,18 @@ public final class client extends GameShell {
 				Class140.loadingStage = 100;
 			}
 		} else if (Class140.loadingStage == 100) {
-			if (WaterfallShader.runeSpritesCached(Class7.aClass50_63)) {
+			if (WaterfallShader.runeSpritesCached(client.aClass50_63)) {
 				Class140.loadingStage = 110;
 			}
 		} else if (Class140.loadingStage == 110) {
 			Class110.mouseRecorder = new MouseRecorder();
 			NpcType.gameSignlink.startThread(Class110.mouseRecorder, 10);
 			OverridedJInterface.loadingBarPercent = 75;
-			Class134.loadingText = TextRepository.aString1038;
+			Class134.loadingText = StringLibrary.aString1038;
 			Class140.loadingStage = 120;
 		} else if (Class140.loadingStage == 120) {
 			if (!ParticleNodeSub.aClass50_2400.method410("huffman", "")) {
-				Class134.loadingText = new StringBuilder(TextRepository.aString398).append("0%").toString();
+				Class134.loadingText = StringLibrary.aString398 + "0%";
 				OverridedJInterface.loadingBarPercent = 80;
 			} else {
 				final Huffman huffman = new Huffman(ParticleNodeSub.aClass50_2400.method428("", "huffman"));
@@ -424,16 +435,16 @@ public final class client extends GameShell {
 			}
 		} else if (Class140.loadingStage == 130) {
 			if (!Class33.aClass50_275.method430()) {
-				Class134.loadingText = new StringBuilder(IntegerNode.aString2788).append(3 * Class33.aClass50_275.method415() / 4).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2788 + (Class33.aClass50_275.method415() * 3 / 4) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
 			} else if (!IsaacCipher.aClass50_1019.method430()) {
-				Class134.loadingText = new StringBuilder(IntegerNode.aString2788).append(IsaacCipher.aClass50_1019.method415() / 10 + 75).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2788 + (IsaacCipher.aClass50_1019.method415() / 10 + 75) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
 			} else if (!ClanMember.aClass50_2576.method430()) {
-				Class134.loadingText = new StringBuilder(IntegerNode.aString2788).append(ClanMember.aClass50_2576.method415() / 20 + 85).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2788 + (ClanMember.aClass50_2576.method415() / 20 + 85) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
 			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete("details")) {
-				Class134.loadingText = new StringBuilder(IntegerNode.aString2788).append(90 - -(Class120_Sub12_Sub24.aClass50_3309.getCompletion("details") / 10)).append("%").toString();
+				Class134.loadingText = StringLibrary.aString2788 + (Class120_Sub12_Sub24.aClass50_3309.getCompletion("details") / 10 + 90) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
 			} else {
 				WorldMapHandler.method675(Class120_Sub12_Sub24.aClass50_3309);
@@ -441,12 +452,12 @@ public final class client extends GameShell {
 				Class41.method334(Class120_Sub12_Sub17.aClass50_3258);
 				Class140.loadingStage = 135;
 				OverridedJInterface.loadingBarPercent = 95;
-				Class134.loadingText = TextRepository.aString799;
+				Class134.loadingText = StringLibrary.aString799;
 			}
 		} else if (Class140.loadingStage == 135) {
 			final int i_21_ = Class96.method788();
 			if (i_21_ == -1) {
-				Class134.loadingText = TextRepository.aString1098;
+				Class134.loadingText = StringLibrary.aString1098;
 				OverridedJInterface.loadingBarPercent = 95;
 			} else if (i_21_ == 7 || i_21_ == 9) {
 				error("worldlistfull");
@@ -457,19 +468,19 @@ public final class client extends GameShell {
 			} else {
 				OverridedJInterface.loadingBarPercent = 96;
 				Class140.loadingStage = 140;
-				Class134.loadingText = TextRepository.aString2444;
+				Class134.loadingText = StringLibrary.aString2444;
 			}
 		} else if (Class140.loadingStage == 140) {
 			GameShell.loginscreenId = Class33.aClass50_275.getGroupId("loginscreen");
 			Class65.aClass50_597.method426(false, true);
 			Class120_Sub12_Sub36.aClass50_3419.method426(true, true);
-			Class7.aClass50_63.method426(true, true);
+			client.aClass50_63.method426(true, true);
 			ClanMember.aClass50_2576.method426(true, true);
 			ParticleNodeSub.aClass50_2400.method426(true, true);
 			Class33.aClass50_275.method426(true, true);
 			SeekableFile.aBoolean2138 = true;
 			Class140.loadingStage = 150;
-			Class134.loadingText = TextRepository.aString400;
+			Class134.loadingText = StringLibrary.aString400;
 			OverridedJInterface.loadingBarPercent = 97;
 		} else if (Class140.loadingStage == 150) {
 			Class78.method674();
@@ -483,7 +494,7 @@ public final class client extends GameShell {
 			Class120_Sub6.savePreferences(NpcType.gameSignlink);
 			AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
 			OverridedJInterface.loadingBarPercent = 100;
-			Class134.loadingText = TextRepository.aString2837;
+			Class134.loadingText = StringLibrary.aString2837;
 			Class140.loadingStage = 160;
 		} else if (Class140.loadingStage == 160) {
 			EnumType.method1421(true);
@@ -495,9 +506,9 @@ public final class client extends GameShell {
 		if (HDToolkit.glEnabled) {
 			HDToolkit.method519();
 		}
-		if (Class120_Sub14_Sub10.fullscreenFrame != null) {
-			Class150.revertFrame(NpcType.gameSignlink, Class120_Sub14_Sub10.fullscreenFrame);
-			Class120_Sub14_Sub10.fullscreenFrame = null;
+		if (QuickChatMessageType.fullscreenFrame != null) {
+			Class150.revertFrame(NpcType.gameSignlink, QuickChatMessageType.fullscreenFrame);
+			QuickChatMessageType.fullscreenFrame = null;
 		}
 		if (Class110.mouseRecorder != null) {
 			Class110.mouseRecorder.running = false;
@@ -538,7 +549,7 @@ public final class client extends GameShell {
 		if (LocType.modeWhat != 0) {
 			Class120_Sub12_Sub25.aByteArrayArray3318 = new byte[50][];
 		}
-		FrameLoader.method1577(NpcType.gameSignlink);
+		FrameGroup.loadPreferencesFile(NpcType.gameSignlink);
 		if (AbstractIndexedSprite.modeWhere == 0) {
 			Class120_Sub12_Sub30.aString3372 = getCodeBase().getHost();
 			Hashtable.anInt675 = 43594;
@@ -572,9 +583,9 @@ public final class client extends GameShell {
 		}
 		Class71.anInt625 = Hashtable.anInt675;
 		GameEntity.anInt3045 = ObjectPile.anInt1808;
-		Class120_Sub12_Sub30.aString3375 = Class120_Sub12_Sub30.aString3372;
+		Class120_Sub12_Sub30.worldIpAddress = Class120_Sub12_Sub30.aString3372;
 		Class116.anInt1115 = Hashtable.anInt675;
-		ModelParticleEmitter.anInt1479 = Class116.anInt1115;
+		ModelParticleEmitter.worldPort = Class116.anInt1115;
 		Class120_Sub12_Sub8.synchronizeKeyCodes();
 		Class82.addKeyboard(Node.canvas);
 		NodeCache.addMouse(Node.canvas);
@@ -607,9 +618,9 @@ public final class client extends GameShell {
 			HintIcon.showFps = true;
 		}
 		if (Buffer.gameId == 0) {
-			Class120_Sub14_Sub15.gameLoadingText = TextRepository.runescapeIsLoadingPleaseWait;
+			Class120_Sub14_Sub15.gameLoadingText = StringLibrary.runescapeIsLoadingPleaseWait;
 		} else if (Buffer.gameId == 1) {
-			Class120_Sub14_Sub15.gameLoadingText = TextRepository.mechscapeIsLoadingPleaseWait;
+			Class120_Sub14_Sub15.gameLoadingText = StringLibrary.mechscapeIsLoadingPleaseWait;
 		}
 	}
 
@@ -645,10 +656,10 @@ public final class client extends GameShell {
 			if (Buffer.anInt2473 > 3000) {
 				Buffer.anInt2473 = 3000;
 			}
-			if (ModelParticleEmitter.anInt1479 != Class71.anInt625) {
-				ModelParticleEmitter.anInt1479 = Class71.anInt625;
+			if (ModelParticleEmitter.worldPort != Class71.anInt625) {
+				ModelParticleEmitter.worldPort = Class71.anInt625;
 			} else {
-				ModelParticleEmitter.anInt1479 = GameEntity.anInt3045;
+				ModelParticleEmitter.worldPort = GameEntity.anInt3045;
 			}
 			if (Class178.js5Worker.errorCount >= 2 && Class178.js5Worker.errorType == 6) {
 				error("js5connect_outofdate");
@@ -678,7 +689,7 @@ public final class client extends GameShell {
 		} else {
 			try {
 				if (Class120_Sub12_Sub33.js5Stage == 0) {
-					GroundTile.js5ConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3375, ModelParticleEmitter.anInt1479);
+					GroundTile.js5ConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.worldIpAddress, ModelParticleEmitter.worldPort);
 					Class120_Sub12_Sub33.js5Stage++;
 				}
 				if (Class120_Sub12_Sub33.js5Stage == 1) {
@@ -889,7 +900,7 @@ public final class client extends GameShell {
 			if ((Class109.gameState == 30 || Class109.gameState == 10) && (LongNode.canvasReplaceRecommended || Class15.frameSizeRevertTime != 0L && Class15.frameSizeRevertTime < TimeUtil.getSafeTime())) {
 				AbstractSprite.changeDisplayMode(Class120_Sub12_Sub4.getDisplayMode(), Class120_Sub12_Sub18.lastFullscreenWidth, Class120_Sub12_Sub12.lastFullscreenHeight, LongNode.canvasReplaceRecommended);
 			}
-			if (Class120_Sub14_Sub10.fullscreenFrame == null) {
+			if (QuickChatMessageType.fullscreenFrame == null) {
 				Container container;
 				/*if (Class120_Sub14_Sub10.fullscreenFrame != null) {//Not needed since we already checking if fullscreen is null.
 					container = Class120_Sub14_Sub10.fullscreenFrame;
@@ -916,7 +927,7 @@ public final class client extends GameShell {
 					Class15.frameSizeRevertTime = TimeUtil.getSafeTime() + 500L;
 				}
 			}
-			if (Class120_Sub14_Sub10.fullscreenFrame != null && !DummyInputStream.focus && (Class109.gameState == 30 || Class109.gameState == 10)) {
+			if (QuickChatMessageType.fullscreenFrame != null && !DummyInputStream.focus && (Class109.gameState == 30 || Class109.gameState == 10)) {
 				AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
 			}
 			boolean needFullRedraw = false;
@@ -939,25 +950,25 @@ public final class client extends GameShell {
 					if (Class109.gameState != 25 && Class109.gameState != 28) {
 						if (Class109.gameState != 30) {
 							if (Class109.gameState == 40) {
-								Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(TextRepository.aString1116).append("<br>").append(TextRepository.aString142).toString(), false);
+								Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.aString1116 + "<br>" + StringLibrary.aString142, false);
 							}
 						} else {
 							Decimator.method2219(l);
 						}
-					} else if (Class120_Sub12_Sub28.anInt3361 == 1) {
-						if (AbstractBuffer.anInt599 > Class145.anInt1379) {
-							Class145.anInt1379 = AbstractBuffer.anInt599;
+					} else if (Class120_Sub12_Sub28.loadingScreenState == 1) {
+						if (Class145.anInt1379 < AbstractBuffer.mapFilesMissingCount) {
+							Class145.anInt1379 = AbstractBuffer.mapFilesMissingCount;
 						}
-						final int i_36_ = (Class145.anInt1379 + -AbstractBuffer.anInt599) * 50 / Class145.anInt1379;
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(TextRepository.loadingPleaseWait).append("<br>(").append(i_36_).append("%)").toString(), false);
-					} else if (Class120_Sub12_Sub28.anInt3361 == 2) {
-						if (Class181.anInt1791 > Class120_Sub12_Sub37.anInt3431) {
-							Class120_Sub12_Sub37.anInt3431 = Class181.anInt1791;
+						final int loadingPercent = (Class145.anInt1379 - AbstractBuffer.mapFilesMissingCount) * 50 / Class145.anInt1379;
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait + "<br>(" + loadingPercent + "%)", false);
+					} else if (Class120_Sub12_Sub28.loadingScreenState == 2) {
+						if (Class120_Sub12_Sub37.anInt3431 < LightType.locationModelMissingCount) {
+							Class120_Sub12_Sub37.anInt3431 = LightType.locationModelMissingCount;
 						}
-						final int i_37_ = 50 * (Class120_Sub12_Sub37.anInt3431 + -Class181.anInt1791) / Class120_Sub12_Sub37.anInt3431 + 50;
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(new StringBuilder(TextRepository.loadingPleaseWait).append("<br>(").append(i_37_).append("%)").toString(), false);
+						final int loadingPercent = 50 * (Class120_Sub12_Sub37.anInt3431 - LightType.locationModelMissingCount) / Class120_Sub12_Sub37.anInt3431 + 50;
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait + "<br>(" + loadingPercent + "%)", false);
 					} else {
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, false);
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait, false);
 					}
 				} else {
 					SceneGroundObject.method2276();
@@ -1041,7 +1052,7 @@ public final class client extends GameShell {
 			}
 			if (Class109.gameState == 10) {
 				method50();
-				Class69_Sub3_Sub1.method631();
+				Class69_Sub3_Sub1.handleAccountCreation();
 				JagexSocket.method374();
 				Class120_Sub12_Sub25.handleLogin();
 			} else if (Class109.gameState == 30) {
@@ -1061,11 +1072,106 @@ public final class client extends GameShell {
 		}
 	}
 
+	static final void method108(final int i) {
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(12, i);
+		class120_sub14_sub7.method1453();
+	}
+
+	static final String decodeText(final Buffer buffer) {
+		return Class120_Sub14_Sub15.decodeText(buffer, 32767);
+	}
+
+	static final void drawSpriteOnMinimap(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int iconX, final int iconY, final AbstractSprite abstractSprite) {
+		if (abstractSprite != null) {
+			final int dist = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
+			final int maxDist = iconY * iconY + iconX * iconX;
+			if (maxDist <= dist * dist) {
+				final int rot = (int) DummyOutputStream.cameraYaw & 0x7ff;
+				final int rotSin = Rasterizer.sinTable[rot];
+				final int rotCos = Rasterizer.cosTable[rot];
+				final int posX = iconX * rotCos + iconY * rotSin >> 16;
+				final int posY = iconY * rotCos - iconX * rotSin >> 16;
+				if (!HDToolkit.glEnabled) {
+					((LDSprite) abstractSprite).method1610(interfaceX + posX + jagexInterface.width / 2 - abstractSprite.trimWidth / 2, interfaceY + jagexInterface.height / 2 - abstractSprite.trimHeight / 2 - posY, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
+				} else {
+					((HDSprite) abstractSprite).method1598(interfaceX + posX + jagexInterface.width / 2 - abstractSprite.trimWidth / 2, interfaceY + jagexInterface.height / 2 - abstractSprite.trimHeight / 2 - posY, (HDSprite) jagexInterface.constructSpriteFromId(false));
+				}
+			}
+		}
+	}
+
+	static final GroundDecoration getGroundDecoration(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		if (groundTile == null || groundTile.groundDecoration == null) {
+			return null;
+		}
+		return groundTile.groundDecoration;
+	}
+
+	static final void updateInterfaceSize(final JagexInterface jagexInterface, final int width, final int height, final boolean activateResizeListener) {
+		final int oldHeight = jagexInterface.height;
+		if (jagexInterface.dynamicHeightValue == 0) {
+			jagexInterface.height = jagexInterface.originalHeight;
+		} else if (jagexInterface.dynamicHeightValue == 1) {
+			jagexInterface.height = height - jagexInterface.originalHeight;
+		} else if (jagexInterface.dynamicHeightValue == 2) {
+			jagexInterface.height = height * jagexInterface.originalHeight >> 14;
+		} else if (jagexInterface.dynamicHeightValue == 3) {
+			if (jagexInterface.type == 2) {
+				jagexInterface.height = jagexInterface.objSpritePadY * (jagexInterface.originalHeight + -1) + 32 * jagexInterface.originalHeight;
+			} else if (jagexInterface.type == 7) {
+				jagexInterface.height = jagexInterface.originalHeight * 12 - -((-1 + jagexInterface.originalHeight) * jagexInterface.objSpritePadY);
+			}
+		}
+		final int oldWidth = jagexInterface.width;
+		if (jagexInterface.dynamicWidthValue == 0) {
+			jagexInterface.width = jagexInterface.originalWidth;
+		} else if (jagexInterface.dynamicWidthValue == 1) {
+			jagexInterface.width = width - jagexInterface.originalWidth;
+		} else if (jagexInterface.dynamicWidthValue == 2) {
+			jagexInterface.width = width * jagexInterface.originalWidth >> 14;
+		} else if (jagexInterface.dynamicWidthValue == 3) {
+			if (jagexInterface.type == 2) {
+				jagexInterface.width = (-1 + jagexInterface.originalWidth) * jagexInterface.objSpritePadX + 32 * jagexInterface.originalWidth;
+			} else if (jagexInterface.type == 7) {
+				jagexInterface.width = 115 * jagexInterface.originalWidth - -(jagexInterface.objSpritePadX * (-1 + jagexInterface.originalWidth));
+			}
+		}
+		if (jagexInterface.dynamicWidthValue == 4) {
+			jagexInterface.width = jagexInterface.anInt1982 * jagexInterface.height / jagexInterface.anInt2085;
+		}
+		if (jagexInterface.dynamicHeightValue == 4) {
+			jagexInterface.height = jagexInterface.anInt2085 * jagexInterface.width / jagexInterface.anInt1982;
+		}
+		if (Class120_Sub30_Sub1.qaOpTestEnabled && (getClickMask(jagexInterface).optionMask != 0 || jagexInterface.type == 0)) {
+			if (jagexInterface.height >= 5 || jagexInterface.width >= 5) {
+				if (jagexInterface.height <= 0) {
+					jagexInterface.height = 5;
+				}
+				if (jagexInterface.width <= 0) {
+					jagexInterface.width = 5;
+				}
+			} else {
+				jagexInterface.height = 5;
+				jagexInterface.width = 5;
+			}
+		}
+		if (jagexInterface.clientCode == 1337) {
+			DummyInputStream.gameScreenInterface = jagexInterface;
+		}
+		if (activateResizeListener && jagexInterface.onResizeListener != null && (oldWidth != jagexInterface.width || oldHeight != jagexInterface.height)) {
+			final InterfaceListener interfaceListener = new InterfaceListener();
+			interfaceListener.objectData = jagexInterface.onResizeListener;
+			interfaceListener.jagexInterface = jagexInterface;
+			Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
+		}
+	}
+
 	static final String getMenuOptionText(final int option) {
 		if (Class120_Sub12_Sub29.menuOptionSuffix[option].length() <= 0) {
 			return Class120_Sub12_Sub33.menuOptionPrefix[option];
 		}
-		return Class120_Sub12_Sub33.menuOptionPrefix[option] + TextRepository.useSeperator + Class120_Sub12_Sub29.menuOptionSuffix[option];
+		return Class120_Sub12_Sub33.menuOptionPrefix[option] + StringLibrary.useSeperator + Class120_Sub12_Sub29.menuOptionSuffix[option];
 	}
 
 	static final void method60(final JagexInterface[] childs, final int parent, final int i_41_, final int i_42_, final int i_43_, final int i_44_, final int xOff, final int yOff) {
@@ -1096,20 +1202,20 @@ public final class client extends GameShell {
 					i_53_ = i_55_ < i_44_ ? i_55_ : i_44_;
 				}
 				if (jagexInterface == Class120_Sub12_Sub4.draggedComponent) {
-					WorldInfo.aBoolean1419 = true;
-					Class120_Sub12_Sub17.anInt3264 = posX;
-					Class9.anInt77 = posY;
+					WorldInfo.draggingComponent = true;
+					Class120_Sub12_Sub17.draggedComponentPosX = posX;
+					Class9.draggedComponentPosY = posY;
 				}
 				if (!jagexInterface.newFormat || i_50_ < i_52_ && i_51_ < i_53_) {
 					if (jagexInterface.type == 0) {
-						if (!jagexInterface.newFormat && isHidden(jagexInterface) && CursorType.aClass189_1243 != jagexInterface) {
+						if (!jagexInterface.newFormat && isHidden(jagexInterface) && CursorType.mouseOverInterface != jagexInterface) {
 							continue;
 						}
-						if (jagexInterface.aBoolean1960 && Queue.lastMouseX >= i_50_ && Class191.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && Class191.lastMouseY < i_53_) {
-							for (InterfaceListener class120_sub10 = (InterfaceListener) Class88.aClass105_829.getFront(); class120_sub10 != null; class120_sub10 = (InterfaceListener) Class88.aClass105_829.getNext()) {
-								if (class120_sub10.mouseUsed) {
-									class120_sub10.unlink();
-									class120_sub10.jagexInterface.mouseOver = false;
+						if (jagexInterface.aBoolean1960 && Queue.lastMouseX >= i_50_ && ChunkAtmosphere.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && ChunkAtmosphere.lastMouseY < i_53_) {
+							for (InterfaceListener interfaceListener = (InterfaceListener) Class88.lowPriorityInterfaceScripts.getFront(); interfaceListener != null; interfaceListener = (InterfaceListener) Class88.lowPriorityInterfaceScripts.getNext()) {
+								if (interfaceListener.mouseUsed) {
+									interfaceListener.unlink();
+									interfaceListener.jagexInterface.mouseOver = false;
 								}
 							}
 							if (SceneGroundObject.componentPressedCycles == 0) {
@@ -1122,7 +1228,7 @@ public final class client extends GameShell {
 					}
 					if (jagexInterface.newFormat) {
 						boolean mouseOver;
-						if (Queue.lastMouseX >= i_50_ && Class191.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && Class191.lastMouseY < i_53_) {
+						if (Queue.lastMouseX >= i_50_ && ChunkAtmosphere.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && ChunkAtmosphere.lastMouseY < i_53_) {
 							mouseOver = true;
 						} else {
 							mouseOver = false;
@@ -1171,12 +1277,12 @@ public final class client extends GameShell {
 						}
 						if (jagexInterface.hasListener || jagexInterface.clientCode != 0) {
 							if (mouseOver && AbstractBuffer.mouseWheelRotation != 0 && jagexInterface.onMouseWheelListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.mouseUsed = true;
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.data2 = AbstractBuffer.mouseWheelRotation;
-								class120_sub10.objectData = jagexInterface.onMouseWheelListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.mouseUsed = true;
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.data2 = AbstractBuffer.mouseWheelRotation;
+								interfaceListener.objectData = jagexInterface.onMouseWheelListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (Class120_Sub12_Sub4.draggedComponent != null || Projectile.aClass189_2954 != null || Class15.menuOpen || jagexInterface.clientCode != 1400 && EnumType.anInt3450 > 0) {
 								clicked = false;
@@ -1185,7 +1291,7 @@ public final class client extends GameShell {
 							}
 							if (jagexInterface.clientCode != 0) {
 								if (jagexInterface.clientCode == 1337) {
-									DummyInputStream.fixedGameScreenInterface = jagexInterface;
+									DummyInputStream.gameScreenInterface = jagexInterface;
 									continue;
 								}
 								if (jagexInterface.clientCode == 1338) {
@@ -1223,10 +1329,10 @@ public final class client extends GameShell {
 											EnumType.anInt3450 = 1;
 											Class30.aBoolean226 = false;
 											AbstractGraphicsBuffer.clickedComponentX = Queue.lastMouseX;
-											clickedComponentY = Class191.lastMouseY;
+											clickedComponentY = ChunkAtmosphere.lastMouseY;
 										}
 									} else if (dragging && EnumType.anInt3450 > 0) {
-										if (EnumType.anInt3450 == 1 && (AbstractGraphicsBuffer.clickedComponentX != Queue.lastMouseX || clickedComponentY != Class191.lastMouseY)) {
+										if (EnumType.anInt3450 == 1 && (AbstractGraphicsBuffer.clickedComponentX != Queue.lastMouseX || clickedComponentY != ChunkAtmosphere.lastMouseY)) {
 											Class120_Sub2.anInt2421 = ParticleEmitter.anInt2336;
 											EnumType.anInt3456 = ModelParticleMagnet.anInt1646;
 											EnumType.anInt3450 = 2;
@@ -1234,14 +1340,14 @@ public final class client extends GameShell {
 										if (EnumType.anInt3450 == 2) {
 											Class30.aBoolean226 = true;
 											VarBit.method236(Class120_Sub2.anInt2421 + (int) ((AbstractGraphicsBuffer.clickedComponentX - Queue.lastMouseX) * 2.0 / WorldMapHandler.wantedZoom));
-											Class179.method2260(EnumType.anInt3456 + (int) ((clickedComponentY - Class191.lastMouseY) * 2.0 / WorldMapHandler.wantedZoom));
+											Class179.method2260(EnumType.anInt3456 + (int) ((clickedComponentY - ChunkAtmosphere.lastMouseY) * 2.0 / WorldMapHandler.wantedZoom));
 										}
 									} else {
 										if (EnumType.anInt3450 > 0 && !Class30.aBoolean226) {
 											if ((Class69.mouseButtons == 1 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1)) && WallDecoration.menuOptionCount > 2) {
 												Class120_Sub12_Sub28.determineMenuSize();
 											} else if (WallDecoration.menuOptionCount > 0) {
-												Class191.method2508();
+												ChunkAtmosphere.method2508();
 											}
 										}
 										EnumType.anInt3450 = 0;
@@ -1250,7 +1356,7 @@ public final class client extends GameShell {
 								}
 								if (jagexInterface.clientCode == 1401) {
 									if (dragging) {
-										Npc.method2348(Class191.lastMouseY - posY, jagexInterface.width, jagexInterface.height, Queue.lastMouseX - posX);
+										Npc.method2348(ChunkAtmosphere.lastMouseY - posY, jagexInterface.width, jagexInterface.height, Queue.lastMouseX - posX);
 									}
 									continue;
 								}
@@ -1264,99 +1370,99 @@ public final class client extends GameShell {
 							if (!jagexInterface.clicked && clicked) {
 								jagexInterface.clicked = true;
 								if (jagexInterface.onClickListener != null) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.mouseUsed = true;
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.data1 = js5.lastClickX - posX;
-									class120_sub10.data2 = Class120_Sub12_Sub36.lastClickY - posY;
-									class120_sub10.objectData = jagexInterface.onClickListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.mouseUsed = true;
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.data1 = js5.lastClickX - posX;
+									interfaceListener.data2 = Class120_Sub12_Sub36.lastClickY - posY;
+									interfaceListener.objectData = jagexInterface.onClickListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								}
 							}
 							if (jagexInterface.clicked && dragging && jagexInterface.onHeldListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.mouseUsed = true;
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.data1 = Queue.lastMouseX - posX;
-								class120_sub10.data2 = Class191.lastMouseY - posY;
-								class120_sub10.objectData = jagexInterface.onHeldListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.mouseUsed = true;
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.data1 = Queue.lastMouseX - posX;
+								interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+								interfaceListener.objectData = jagexInterface.onHeldListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (jagexInterface.clicked && !dragging) {
 								jagexInterface.clicked = false;
 								if (jagexInterface.onReleaseListener != null) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.mouseUsed = true;
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.data1 = Queue.lastMouseX - posX;
-									class120_sub10.data2 = Class191.lastMouseY - posY;
-									class120_sub10.objectData = jagexInterface.onReleaseListener;
-									FileSystem.aClass105_456.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.mouseUsed = true;
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.data1 = Queue.lastMouseX - posX;
+									interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+									interfaceListener.objectData = jagexInterface.onReleaseListener;
+									FileSystem.mediumPriorityInterfaceScripts.addLast(interfaceListener);
 								}
 							}
 							if (dragging && jagexInterface.onMouseDragListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.mouseUsed = true;
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.data1 = Queue.lastMouseX - posX;
-								class120_sub10.data2 = Class191.lastMouseY - posY;
-								class120_sub10.objectData = jagexInterface.onMouseDragListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.mouseUsed = true;
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.data1 = Queue.lastMouseX - posX;
+								interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+								interfaceListener.objectData = jagexInterface.onMouseDragListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (!jagexInterface.mouseOver && mouseOver) {
 								jagexInterface.mouseOver = true;
 								if (jagexInterface.onMouseOverListener != null) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.mouseUsed = true;
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.data1 = Queue.lastMouseX - posX;
-									class120_sub10.data2 = Class191.lastMouseY - posY;
-									class120_sub10.objectData = jagexInterface.onMouseOverListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.mouseUsed = true;
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.data1 = Queue.lastMouseX - posX;
+									interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+									interfaceListener.objectData = jagexInterface.onMouseOverListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								}
 							}
 							if (jagexInterface.mouseOver && mouseOver && jagexInterface.onMouseFocusedListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.mouseUsed = true;
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.data1 = Queue.lastMouseX - posX;
-								class120_sub10.data2 = Class191.lastMouseY - posY;
-								class120_sub10.objectData = jagexInterface.onMouseFocusedListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.mouseUsed = true;
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.data1 = Queue.lastMouseX - posX;
+								interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+								interfaceListener.objectData = jagexInterface.onMouseFocusedListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (jagexInterface.mouseOver && !mouseOver) {
 								jagexInterface.mouseOver = false;
 								if (jagexInterface.onMouseLeaveListener != null) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.mouseUsed = true;
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.data1 = Queue.lastMouseX - posX;
-									class120_sub10.data2 = Class191.lastMouseY - posY;
-									class120_sub10.objectData = jagexInterface.onMouseLeaveListener;
-									FileSystem.aClass105_456.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.mouseUsed = true;
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.data1 = Queue.lastMouseX - posX;
+									interfaceListener.data2 = ChunkAtmosphere.lastMouseY - posY;
+									interfaceListener.objectData = jagexInterface.onMouseLeaveListener;
+									FileSystem.mediumPriorityInterfaceScripts.addLast(interfaceListener);
 								}
 							}
 							if (jagexInterface.onLoopCycleListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.onLoopCycleListener;
-								Class120_Sub4.aClass105_2435.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.onLoopCycleListener;
+								Class120_Sub4.topPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (jagexInterface.integerScriptValuesListener != null && Class120_Sub12_Sub23.anInt3308 > jagexInterface.anInt2033) {
 								if (jagexInterface.integerScriptValuesTriggers == null || Class120_Sub12_Sub23.anInt3308 - jagexInterface.anInt2033 > 32) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.objectData = jagexInterface.integerScriptValuesListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.objectData = jagexInterface.integerScriptValuesListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								} else {
 									while_38_: for (int i_67_ = jagexInterface.anInt2033; i_67_ < Class120_Sub12_Sub23.anInt3308; i_67_++) {
 										final int i_68_ = Class101_Sub4.anIntArray2296[i_67_ & 0x1f];
 										for (int i_69_ = 0; i_69_ < jagexInterface.integerScriptValuesTriggers.length; i_69_++) {
 											if (jagexInterface.integerScriptValuesTriggers[i_69_] == i_68_) {
-												final InterfaceListener class120_sub10 = new InterfaceListener();
-												class120_sub10.jagexInterface = jagexInterface;
-												class120_sub10.objectData = jagexInterface.integerScriptValuesListener;
-												Class88.aClass105_829.addLast(class120_sub10);
+												final InterfaceListener interfaceListener = new InterfaceListener();
+												interfaceListener.jagexInterface = jagexInterface;
+												interfaceListener.objectData = jagexInterface.integerScriptValuesListener;
+												Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 												break while_38_;
 											}
 										}
@@ -1366,19 +1472,19 @@ public final class client extends GameShell {
 							}
 							if (jagexInterface.stringScriptValuesListener != null && Class112.anInt1077 > jagexInterface.anInt2064) {
 								if (jagexInterface.stringScriptValuesTriggers == null || Class112.anInt1077 - jagexInterface.anInt2064 > 32) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.objectData = jagexInterface.stringScriptValuesListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.objectData = jagexInterface.stringScriptValuesListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								} else {
 									while_39_: for (int i_70_ = jagexInterface.anInt2064; i_70_ < Class112.anInt1077; i_70_++) {
 										final int i_71_ = Class101_Sub4.anIntArray2304[i_70_ & 0x1f];
 										for (int i_72_ = 0; i_72_ < jagexInterface.stringScriptValuesTriggers.length; i_72_++) {
 											if (jagexInterface.stringScriptValuesTriggers[i_72_] == i_71_) {
-												final InterfaceListener class120_sub10 = new InterfaceListener();
-												class120_sub10.jagexInterface = jagexInterface;
-												class120_sub10.objectData = jagexInterface.stringScriptValuesListener;
-												Class88.aClass105_829.addLast(class120_sub10);
+												final InterfaceListener interfaceListener = new InterfaceListener();
+												interfaceListener.jagexInterface = jagexInterface;
+												interfaceListener.objectData = jagexInterface.stringScriptValuesListener;
+												Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 												break while_39_;
 											}
 										}
@@ -1388,19 +1494,19 @@ public final class client extends GameShell {
 							}
 							if (jagexInterface.onVarpUpdateListener != null && VarBit.anInt165 > jagexInterface.anInt2028) {
 								if (jagexInterface.varpListenerTriggers == null || VarBit.anInt165 - jagexInterface.anInt2028 > 32) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.objectData = jagexInterface.onVarpUpdateListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.objectData = jagexInterface.onVarpUpdateListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								} else {
 									while_40_: for (int i_73_ = jagexInterface.anInt2028; i_73_ < VarBit.anInt165; i_73_++) {
 										final int i_74_ = Class88.anIntArray833[i_73_ & 0x1f];
 										for (int i_75_ = 0; i_75_ < jagexInterface.varpListenerTriggers.length; i_75_++) {
 											if (jagexInterface.varpListenerTriggers[i_75_] == i_74_) {
-												final InterfaceListener class120_sub10 = new InterfaceListener();
-												class120_sub10.jagexInterface = jagexInterface;
-												class120_sub10.objectData = jagexInterface.onVarpUpdateListener;
-												Class88.aClass105_829.addLast(class120_sub10);
+												final InterfaceListener interfaceListener = new InterfaceListener();
+												interfaceListener.jagexInterface = jagexInterface;
+												interfaceListener.objectData = jagexInterface.onVarpUpdateListener;
+												Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 												break while_40_;
 											}
 										}
@@ -1410,19 +1516,19 @@ public final class client extends GameShell {
 							}
 							if (jagexInterface.onInventoryUpdateListener != null && Class33.anInt278 > jagexInterface.anInt2037) {
 								if (jagexInterface.inventoryListenerTriggers == null || Class33.anInt278 - jagexInterface.anInt2037 > 32) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.objectData = jagexInterface.onInventoryUpdateListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.objectData = jagexInterface.onInventoryUpdateListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								} else {
 									while_41_: for (int i_76_ = jagexInterface.anInt2037; i_76_ < Class33.anInt278; i_76_++) {
 										final int i_77_ = Class120_Sub12_Sub21_Sub1.anIntArray3912[i_76_ & 0x1f];
 										for (int i_78_ = 0; i_78_ < jagexInterface.inventoryListenerTriggers.length; i_78_++) {
 											if (jagexInterface.inventoryListenerTriggers[i_78_] == i_77_) {
-												final InterfaceListener class120_sub10 = new InterfaceListener();
-												class120_sub10.jagexInterface = jagexInterface;
-												class120_sub10.objectData = jagexInterface.onInventoryUpdateListener;
-												Class88.aClass105_829.addLast(class120_sub10);
+												final InterfaceListener interfaceListener = new InterfaceListener();
+												interfaceListener.jagexInterface = jagexInterface;
+												interfaceListener.objectData = jagexInterface.onInventoryUpdateListener;
+												Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 												break while_41_;
 											}
 										}
@@ -1432,19 +1538,19 @@ public final class client extends GameShell {
 							}
 							if (jagexInterface.onSkillUpdateListener != null && Class120_Sub21.skillTriggersPos > jagexInterface.lastSkillTriggersPos) {
 								if (jagexInterface.skillListernerTriggers == null || Class120_Sub21.skillTriggersPos - jagexInterface.lastSkillTriggersPos > 32) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.objectData = jagexInterface.onSkillUpdateListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.objectData = jagexInterface.onSkillUpdateListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								} else {
 									while_42_: for (int i_79_ = jagexInterface.lastSkillTriggersPos; i_79_ < Class120_Sub21.skillTriggersPos; i_79_++) {
 										final int i_80_ = Class120_Sub12_Sub18.skillTriggers[i_79_ & 0x1f];
 										for (int i_81_ = 0; i_81_ < jagexInterface.skillListernerTriggers.length; i_81_++) {
 											if (jagexInterface.skillListernerTriggers[i_81_] == i_80_) {
-												final InterfaceListener class120_sub10 = new InterfaceListener();
-												class120_sub10.jagexInterface = jagexInterface;
-												class120_sub10.objectData = jagexInterface.onSkillUpdateListener;
-												Class88.aClass105_829.addLast(class120_sub10);
+												final InterfaceListener interfaceListener = new InterfaceListener();
+												interfaceListener.jagexInterface = jagexInterface;
+												interfaceListener.objectData = jagexInterface.onSkillUpdateListener;
+												Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 												break while_42_;
 											}
 										}
@@ -1453,67 +1559,67 @@ public final class client extends GameShell {
 								jagexInterface.lastSkillTriggersPos = Class120_Sub21.skillTriggersPos;
 							}
 							if (Class166.anInt1612 > jagexInterface.anInt2049 && jagexInterface.onGameMessageReceived != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.onGameMessageReceived;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.onGameMessageReceived;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (client.anInt563 > jagexInterface.anInt2049 && jagexInterface.privateChatUpdateListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.privateChatUpdateListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.privateChatUpdateListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (Class120_Sub12_Sub12.anInt3217 > jagexInterface.anInt2049 && jagexInterface.onClanChatUpdateListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.onClanChatUpdateListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.onClanChatUpdateListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (Class120_Sub29.anInt2768 > jagexInterface.anInt2049 && jagexInterface.onGrandExchangeUpdateListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.onGrandExchangeUpdateListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.onGrandExchangeUpdateListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							if (Class120_Sub2.anInt2419 > jagexInterface.anInt2049 && jagexInterface.miscInformationUpdateListener != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.miscInformationUpdateListener;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.miscInformationUpdateListener;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 							jagexInterface.anInt2049 = GrandExchangeObject.anInt1494;
 							if (jagexInterface.keyPressedListener != null) {
 								for (int i_82_ = 0; i_82_ < ObjType.anInt1551; i_82_++) {
-									final InterfaceListener class120_sub10 = new InterfaceListener();
-									class120_sub10.jagexInterface = jagexInterface;
-									class120_sub10.keyCode = Class134.anIntArray1285[i_82_];
-									class120_sub10.keyChar = Class120_Sub19.anIntArray2658[i_82_];
-									class120_sub10.objectData = jagexInterface.keyPressedListener;
-									Class88.aClass105_829.addLast(class120_sub10);
+									final InterfaceListener interfaceListener = new InterfaceListener();
+									interfaceListener.jagexInterface = jagexInterface;
+									interfaceListener.keyCode = Class134.anIntArray1285[i_82_];
+									interfaceListener.keyChar = Class120_Sub19.anIntArray2658[i_82_];
+									interfaceListener.objectData = jagexInterface.keyPressedListener;
+									Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 								}
 							}
 							if (Class24.aBoolean139 && jagexInterface.anObjectArray1942 != null) {
-								final InterfaceListener class120_sub10 = new InterfaceListener();
-								class120_sub10.jagexInterface = jagexInterface;
-								class120_sub10.objectData = jagexInterface.anObjectArray1942;
-								Class88.aClass105_829.addLast(class120_sub10);
+								final InterfaceListener interfaceListener = new InterfaceListener();
+								interfaceListener.jagexInterface = jagexInterface;
+								interfaceListener.objectData = jagexInterface.anObjectArray1942;
+								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
 						}
 					}
 					if (!jagexInterface.newFormat && Class120_Sub12_Sub4.draggedComponent == null && Projectile.aClass189_2954 == null && !Class15.menuOpen) {
-						if ((jagexInterface.mouseOverId >= 0 || jagexInterface.disabledMouseOverColor != 0) && Queue.lastMouseX >= i_50_ && Class191.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && Class191.lastMouseY < i_53_) {
+						if ((jagexInterface.mouseOverId >= 0 || jagexInterface.disabledMouseOverColor != 0) && Queue.lastMouseX >= i_50_ && ChunkAtmosphere.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && ChunkAtmosphere.lastMouseY < i_53_) {
 							if (jagexInterface.mouseOverId >= 0) {
-								CursorType.aClass189_1243 = childs[jagexInterface.mouseOverId];
+								CursorType.mouseOverInterface = childs[jagexInterface.mouseOverId];
 							} else {
-								CursorType.aClass189_1243 = jagexInterface;
+								CursorType.mouseOverInterface = jagexInterface;
 							}
 						}
-						if (jagexInterface.type == 8 && Queue.lastMouseX >= i_50_ && Class191.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && Class191.lastMouseY < i_53_) {
-							Class49.aClass189_441 = jagexInterface;
+						if (jagexInterface.type == 8 && Queue.lastMouseX >= i_50_ && ChunkAtmosphere.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && ChunkAtmosphere.lastMouseY < i_53_) {
+							Class49.activeYellowBoxComponent = jagexInterface;
 						}
 						if (jagexInterface.maxScrollVertical > jagexInterface.height) {
-							Varp.handleScrollbar(jagexInterface, posX + jagexInterface.width, posY, Queue.lastMouseX, Class191.lastMouseY, jagexInterface.maxScrollVertical, jagexInterface.height);
+							Varp.handleScrollbar(jagexInterface, posX + jagexInterface.width, posY, Queue.lastMouseX, ChunkAtmosphere.lastMouseY, jagexInterface.maxScrollVertical, jagexInterface.height);
 						}
 					}
 					if (jagexInterface.type == 0) {

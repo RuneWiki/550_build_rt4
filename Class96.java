@@ -23,7 +23,6 @@ final class Class96 {
 	int anInt898;
 	int anInt899;
 	static int anInt900;
-	static NodeCache aClass35_901;
 	int anInt902;
 	byte[] aByteArray903;
 	int[][] anIntArrayArray904;
@@ -43,13 +42,13 @@ final class Class96 {
 	static int clickedMouseFunctionBlinksLeft;
 
 	static {
-		aClass35_901 = new NodeCache(64);
+		QuickChatCategoryType.recentUse = new NodeCache(64);
 	}
 
-	static final void method786(final boolean bool, final int i, final boolean bool_0_, final float[][] fs, final float[][] fs_1_, final Class120_Sub9 class120_sub9, final int[][] is, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final boolean bool_7_, final int i_8_, final float[][] fs_9_, final int i_10_, final int i_11_, final boolean[] bools, final int[][] is_12_, final int i_13_, final int[] is_14_, final boolean bool_15_) {
-		final int i_16_ = (i_13_ << 8) - -(bool_15_ ? 255 : 0);
+	static final void method786(final boolean bool, final int i, final boolean bool_0_, final float[][] fs, final float[][] fs_1_, final HDTile class120_sub9, final int[][] is, final int i_3_, final int i_4_, final byte i_5_, final int i_6_, final boolean bool_7_, final int i_8_, final float[][] fs_9_, final int i_10_, final int i_11_, final boolean[] bools, final int[][] is_12_, final int i_13_, final int[] is_14_, final boolean bool_15_) {
+		final int i_16_ = (i_13_ << 8) + (bool_15_ ? 255 : 0);
 		final int i_17_ = (i_10_ << 8) + (bool_0_ ? 255 : 0);
-		final int i_18_ = (!bool_7_ ? 0 : 255) + (i_4_ << 8);
+		final int i_18_ = (i_4_ << 8) + (bool_7_ ? 255 : 0);
 		final int i_19_ = (i_3_ << 8) + (bool ? 255 : 0);
 		final int[] is_20_ = new int[is_14_.length / 2];
 		for (int i_21_ = 0; i_21_ < is_20_.length; i_21_++) {
@@ -175,7 +174,7 @@ final class Class96 {
 			int i_41_ = 0;
 			Class86.worlds = new World[Class57.worldLen2];
 			for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
-				final World class167_sub1 = Class82.method710(i_42_);
+				final World class167_sub1 = World.getWorld(i_42_);
 				if (class167_sub1 != null) {
 					Class86.worlds[i_41_++] = class167_sub1;
 				}

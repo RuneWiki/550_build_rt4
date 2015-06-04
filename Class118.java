@@ -7,7 +7,7 @@ final class Class118 {
 	static boolean aBoolean1134;
 	static Player[] playersList = new Player[2048];
 	static short[][] aShortArrayArray1136;
-	static AbstractIndexedSprite[] aClass107Array1138;
+	static AbstractIndexedSprite[] scrollBarSprites;
 
 	static {
 		aBoolean1134 = true;
@@ -49,7 +49,7 @@ final class Class118 {
 	}
 
 	static final GroundDecoration removeGroundDecoration(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

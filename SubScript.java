@@ -23,16 +23,16 @@ final class SubScript {
 	static final String method2243() {
 		String string_4_;
 		if (Light.objSelected == 1 && WallDecoration.menuOptionCount < 2) {
-			string_4_ = TextRepository.use + TextRepository.useSeperator + Class192.selectedObjName + " ->";
+			string_4_ = StringLibrary.use + StringLibrary.useSeperator + Class192.selectedObjName + " ->";
 		} else if (Class88.spellSelected && WallDecoration.menuOptionCount < 2) {
-			string_4_ = Class101.selectedSpellPrefix + TextRepository.useSeperator + Light.selectedSpellName + " ->";
+			string_4_ = Class101.selectedSpellPrefix + StringLibrary.useSeperator + Light.selectedSpellName + " ->";
 		} else if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
 			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 1);
 		} else {
 			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 2);
 		}
 		if (WallDecoration.menuOptionCount > 2) {
-			string_4_ = new StringBuilder(string_4_).append("<col=ffffff> / ").append(-2 + WallDecoration.menuOptionCount).append(TextRepository.aString2553).toString();
+			string_4_ = string_4_ + "<col=ffffff> / " + (WallDecoration.menuOptionCount - 2) + StringLibrary.moreOptions;
 		}
 		return string_4_;
 	}
@@ -110,7 +110,7 @@ final class SubScript {
 					i_14_ += Class112.aClass98_1070.method817();
 				}
 			}
-			if (Queue.lastMouseX > -i_5_ + i_6_ && i_6_ - -i_5_ > Queue.lastMouseX && Class191.lastMouseY > -i_5_ + i_7_ && Class191.lastMouseY < i_7_ - -i_5_ || Queue.lastMouseX > i_15_ && i_17_ > Queue.lastMouseX && i_16_ < Class191.lastMouseY && Class191.lastMouseY < i_19_) {
+			if (Queue.lastMouseX > -i_5_ + i_6_ && i_6_ - -i_5_ > Queue.lastMouseX && ChunkAtmosphere.lastMouseY > -i_5_ + i_7_ && ChunkAtmosphere.lastMouseY < i_7_ - -i_5_ || Queue.lastMouseX > i_15_ && i_17_ > Queue.lastMouseX && i_16_ < ChunkAtmosphere.lastMouseY && ChunkAtmosphere.lastMouseY < i_19_) {
 				if (mapFunctionType.actionPrefixes[4] != null) {
 					InvType.addMenuOption(mapFunctionType.actionPrefixes[4], mapFunctionType.actionSufix, mapFunctionNode.id, 0, 0, (short) 1011, -1);
 				}

@@ -24,7 +24,7 @@ final class Class179 {
 	}
 
 	static final void method2261(final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(11, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(11, i);
 		class120_sub14_sub7.method1453();
 	}
 
@@ -32,7 +32,7 @@ final class Class179 {
 		final int i_1_ = Canvas_Sub1.inputStream.getBitValue(8);
 		if (FileSystemWorker.localPlayerCount > i_1_) {
 			for (int i_2_ = i_1_; i_2_ < FileSystemWorker.localPlayerCount; i_2_++) {
-				Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class112.playerIndices[i_2_];
+				Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = Class112.playerIndices[i_2_];
 			}
 		}
 		if (i_1_ > FileSystemWorker.localPlayerCount) {
@@ -51,7 +51,7 @@ final class Class179 {
 				if (i_6_ == 0) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
 					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
-					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_4_;
 				} else if (i_6_ == 1) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
 					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
@@ -59,7 +59,7 @@ final class Class179 {
 					class180_sub5_sub1.move(i_7_, 1);
 					final int i_8_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_8_ == 1) {
-						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_4_;
 					}
 				} else if (i_6_ == 2) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
@@ -75,10 +75,10 @@ final class Class179 {
 					}
 					final int i_12_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_12_ == 1) {
-						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_4_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_4_;
 					}
 				} else if (i_6_ == 3) {
-					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_4_;
+					Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = i_4_;
 				}
 			}
 		}

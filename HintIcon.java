@@ -36,8 +36,8 @@ final class HintIcon {
 			}
 			final int i_9_ = i_4_ << 7;
 			final int i_10_ = i_6_ << 7;
-			if (Class120_Sub12_Sub34.method1380(i_9_ + 1, OverridedJInterface.tileHeightMap[i][i_4_][i_6_] + i_8_, i_10_ + 1) && Class120_Sub12_Sub34.method1380(i_9_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_4_ + 1][i_6_] + i_8_, i_10_ + 1)
-					&& Class120_Sub12_Sub34.method1380(i_9_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_4_ + 1][i_6_ + 1] + i_8_, i_10_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_9_ + 1, OverridedJInterface.tileHeightMap[i][i_4_][i_6_ + 1] + i_8_, i_10_ + 128 - 1)) {
+			if (Class120_Sub12_Sub34.method1380(i_9_ + 1, OverridedJInterface.activeTileHeightMap[i][i_4_][i_6_] + i_8_, i_10_ + 1) && Class120_Sub12_Sub34.method1380(i_9_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_4_ + 1][i_6_] + i_8_, i_10_ + 1)
+					&& Class120_Sub12_Sub34.method1380(i_9_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_4_ + 1][i_6_ + 1] + i_8_, i_10_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_9_ + 1, OverridedJInterface.activeTileHeightMap[i][i_4_][i_6_ + 1] + i_8_, i_10_ + 128 - 1)) {
 				return true;
 			}
 			return false;
@@ -51,7 +51,7 @@ final class HintIcon {
 		}
 		final int i_13_ = (i_4_ << 7) + 1;
 		final int i_14_ = (i_6_ << 7) + 2;
-		final int i_15_ = OverridedJInterface.tileHeightMap[i][i_4_][i_6_] + i_8_;
+		final int i_15_ = OverridedJInterface.activeTileHeightMap[i][i_4_][i_6_] + i_8_;
 		if (!Class120_Sub12_Sub34.method1380(i_13_, i_15_, i_14_)) {
 			return false;
 		}
@@ -70,27 +70,27 @@ final class HintIcon {
 	}
 
 	static final void method725(final js5 js5) {
-		JagexSocket.runesSprite = Class191.constructLDIndexedSprites(js5, Class120_Sub14_Sub13.runesId);
-		Class76.anIntArray679 = new int[256];
+		JagexSocket.runesSprite = ChunkAtmosphere.constructLDIndexedSprites(js5, Class120_Sub14_Sub13.runesId);
+		client.anIntArray679 = new int[256];
 		for (int i_20_ = 0; i_20_ < 3; i_20_++) {
-			float f = Class191.torchesFlamesPalette[i_20_] >> 16 & 0xff;
-			final int i_21_ = Class191.torchesFlamesPalette[i_20_ + 1] >> 16 & 0xff;
+			float f = ChunkAtmosphere.torchesFlamesPalette[i_20_] >> 16 & 0xff;
+			final int i_21_ = ChunkAtmosphere.torchesFlamesPalette[i_20_ + 1] >> 16 & 0xff;
 			final float f_22_ = (i_21_ - f) / 64.0F;
-			float f_23_ = 0xff & Class191.torchesFlamesPalette[i_20_] >> 8;
-			float f_24_ = Class191.torchesFlamesPalette[i_20_] & 0xff;
-			final int i_25_ = 0xff & Class191.torchesFlamesPalette[1 + i_20_] >> 8;
+			float f_23_ = 0xff & ChunkAtmosphere.torchesFlamesPalette[i_20_] >> 8;
+			float f_24_ = ChunkAtmosphere.torchesFlamesPalette[i_20_] & 0xff;
+			final int i_25_ = 0xff & ChunkAtmosphere.torchesFlamesPalette[1 + i_20_] >> 8;
 			final float f_26_ = (i_25_ - f_23_) / 64.0F;
-			final int i_27_ = Class191.torchesFlamesPalette[i_20_ + 1] & 0xff;
+			final int i_27_ = ChunkAtmosphere.torchesFlamesPalette[i_20_ + 1] & 0xff;
 			final float f_28_ = (i_27_ - f_24_) / 64.0F;
 			for (int i_29_ = 0; i_29_ < 64; i_29_++) {
-				Class76.anIntArray679[i_29_ + 64 * i_20_] = Class191.method2512(Class191.method2512((int) f << 16, (int) f_23_ << 8), (int) f_24_);
+				client.anIntArray679[i_29_ + 64 * i_20_] = ChunkAtmosphere.method2512(ChunkAtmosphere.method2512((int) f << 16, (int) f_23_ << 8), (int) f_24_);
 				f_23_ += f_26_;
 				f += f_22_;
 				f_24_ += f_28_;
 			}
 		}
 		for (int i_30_ = 192; i_30_ < 255; i_30_++) {
-			Class76.anIntArray679[i_30_] = Class191.torchesFlamesPalette[3];
+			client.anIntArray679[i_30_] = ChunkAtmosphere.torchesFlamesPalette[3];
 		}
 		InterfaceChangeNode.anIntArray3485 = new int[32768];
 		KeyboardHandler.anIntArray1503 = new int[32768];

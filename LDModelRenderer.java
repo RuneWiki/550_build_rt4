@@ -1666,11 +1666,11 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void resize(final int i, final int i_422_, final int i_423_) {
+	final void scale(final int x, final int y, final int z) {
 		for (int i_424_ = 0; i_424_ < this.vertexCount; i_424_++) {
-			this.xVertices[i_424_] = this.xVertices[i_424_] * i / 128;
-			this.yVertices[i_424_] = this.yVertices[i_424_] * i_422_ / 128;
-			this.zVertices[i_424_] = this.zVertices[i_424_] * i_423_ / 128;
+			this.xVertices[i_424_] = this.xVertices[i_424_] * x / 128;
+			this.yVertices[i_424_] = this.yVertices[i_424_] * y / 128;
+			this.zVertices[i_424_] = this.zVertices[i_424_] * z / 128;
 		}
 		this.boundsCalculated = false;
 	}

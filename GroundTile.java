@@ -3,7 +3,7 @@
  */
 
 final class GroundTile extends Node {
-	byte aByte2623;
+	byte particleCycle;
 	boolean aBoolean2624;
 	Class28[] aClass28Array2625 = new Class28[5];
 	PlainTile plainTile;
@@ -43,25 +43,25 @@ final class GroundTile extends Node {
 
 	static final void method1668(final SceneGraphNode sceneGraphNode, final int i, final int i_3_, final int i_4_) {
 		if (i_3_ < WallDecoration.anInt1900) {
-			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_];
+			final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_3_ + 1][i_4_];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, 0, true);
 			}
 		}
 		if (i_4_ < WallDecoration.anInt1900) {
-			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_][i_4_ + 1];
+			final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_3_][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 0, 0, 128, true);
 			}
 		}
 		if (i_3_ < WallDecoration.anInt1900 && i_4_ < Class120_Sub12_Sub38.anInt3440) {
-			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ + 1];
+			final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_3_ + 1][i_4_ + 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, 128, true);
 			}
 		}
 		if (i_3_ < WallDecoration.anInt1900 && i_4_ > 0) {
-			final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_3_ + 1][i_4_ - 1];
+			final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_3_ + 1][i_4_ - 1];
 			if (class120_sub18 != null && class120_sub18.groundDecoration != null && class120_sub18.groundDecoration.sceneGraphNode.method2268()) {
 				sceneGraphNode.method2267(class120_sub18.groundDecoration.sceneGraphNode, 128, 0, -128, true);
 			}

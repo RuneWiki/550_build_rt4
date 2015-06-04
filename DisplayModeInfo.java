@@ -29,14 +29,14 @@ final class DisplayModeInfo {
 	}
 
 	static final void method2213() {
-		Class120_Sub12_Sub23.anInt3307 = 0;
-		Class154.anInt1441 = 0;
+		Class120_Sub12_Sub23.toRemoveEntitiesPos = 0;
+		Class154.toUpdateEntitiesPos = 0;
 		Class92.method767();
 		Class179.method2262();
 		Class174.method2233();
 		Decimator.method2223();
-		for (int id = 0; id < Class120_Sub12_Sub23.anInt3307; id++) {
-			final int index = Class43.anIntArray366[id];
+		for (int id = 0; id < Class120_Sub12_Sub23.toRemoveEntitiesPos; id++) {
+			final int index = Class43.toRemoveEntityIndices[id];
 			if (Class101_Sub2.loopCycle != Class118.playersList[index].lastUpdateCycle) {
 				if (Class118.playersList[index].ambientSoundHearDistance > 0) {
 					Class31.removePlayerAmbientSound(Class118.playersList[index]);
@@ -56,7 +56,7 @@ final class DisplayModeInfo {
 
 	static final void method2214() {
 		CursorType.recentUse.clear();
-		CursorType.spriteCache.clear();
+		CursorType.graphicCache.clear();
 	}
 
 	static final String bufferToString(final byte[] buf, final int off, final int len) {

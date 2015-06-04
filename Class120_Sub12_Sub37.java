@@ -8,13 +8,9 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 	private int anInt3428 = 0;
 	static short[] aShortArray3429;
 	static short[] aShortArray3430;
-	static int anInt3431;
+	static int anInt3431 = 1;
 	static boolean membersClient = false;
 	private int anInt3433;
-
-	static {
-		anInt3431 = 1;
-	}
 
 	@Override
 	final int[] method1187(final int i_0_) {
@@ -77,7 +73,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 	}
 
 	static final void method1394(final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(10, i_14_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(10, i_14_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3492 = i_11_;
 		class120_sub14_sub7.anInt3486 = i_12_;

@@ -31,7 +31,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	static Class188[] aClass188Array3076;
 
 	@Override
-	final void method2266(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
+	final void method2266(final int i, final int i_0_, final int i_2_, final int i_1_, final int i_3_) {
 		SceneGraphNode sceneGraphNode = null;
 		if (HDToolkit.glEnabled) {
 			sceneGraphNode = method2350(true);
@@ -62,7 +62,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	private final SceneGraphNode method2350(final boolean bool) {
-		final boolean bool_12_ = OverridedJInterface.tileHeightMap != Class120_Sub12_Sub33.anIntArrayArrayArray3388;
+		final boolean bool_12_ = OverridedJInterface.activeTileHeightMap != Class120_Sub12_Sub33.surfaceTileHeightMap;
 		LocType locType = LocType.list(locId);
 		if (locType.transmogrificationIds != null) {
 			locType = locType.handleVarp();
@@ -102,17 +102,17 @@ final class AnimatedLocation extends SceneGraphNode {
 		int[][] is = null;
 		final int i_21_ = (anInt3049 << 7) + (i_14_ << 6);
 		final int i_22_ = (anInt3069 << 7) + (i_15_ << 6);
-		final int[][] is_23_ = OverridedJInterface.tileHeightMap[anInt3060];
+		final int[][] is_23_ = OverridedJInterface.activeTileHeightMap[anInt3060];
 		if (!bool_12_) {
 			if (anInt3060 < 3) {
-				is = OverridedJInterface.tileHeightMap[anInt3060 + 1];
+				is = OverridedJInterface.activeTileHeightMap[anInt3060 + 1];
 			}
 		} else {
-			is = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0];
+			is = Class120_Sub12_Sub33.surfaceTileHeightMap[0];
 		}
 		final int i_24_ = is_23_[i_18_][i_16_] + is_23_[i_17_][i_16_] - -is_23_[i_18_][i_19_] - -is_23_[i_17_][i_19_] >> 2;
 		if (HDToolkit.glEnabled && bool_20_) {
-			Class47.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
+			ShadowManager.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
 		}
 		final boolean bool_25_ = aClass107_Sub1_3065 == null;
 		Class88 class88;
@@ -127,26 +127,26 @@ final class AnimatedLocation extends SceneGraphNode {
 			return null;
 		}
 		if (HDToolkit.glEnabled && bool_20_) {
-			int i_26_ = 0;
+			int averageY = 0;
 			if (bool_25_) {
 				Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
 			}
 			if (anInt3060 != 0) {
-				final int[][] is_27_ = OverridedJInterface.tileHeightMap[0];
-				i_26_ = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
+				final int[][] is_27_ = OverridedJInterface.activeTileHeightMap[0];
+				averageY = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
 			}
 			final LDIndexedSprite class107_sub1 = class88.aClass107_Sub1_830;
-			if (aBoolean3066 && Class47.method391(class107_sub1, i_21_, i_26_, i_22_)) {
+			if (aBoolean3066 && ShadowManager.method391(class107_sub1, i_21_, averageY, i_22_)) {
 				aBoolean3066 = false;
 			}
 			if (!aBoolean3066) {
-				Class47.method389(class107_sub1, i_21_, i_26_, i_22_);
+				ShadowManager.method389(class107_sub1, i_21_, averageY, i_22_);
 				if (bool_25_) {
 					Class31.aClass107_Sub1_246 = null;
 				}
 				anInt3068 = i_22_;
 				aClass107_Sub1_3065 = class107_sub1;
-				anInt3061 = i_26_;
+				anInt3061 = averageY;
 				anInt3059 = i_21_;
 			}
 		}
@@ -236,9 +236,9 @@ final class AnimatedLocation extends SceneGraphNode {
 				}
 			}
 			i_33_ = Class101_Sub2.loopCycle - anInt3067;
-			if (i_33_ > 100 && seqType.padding > 0) {
+			if (i_33_ > 100 && seqType.loop > 0) {
 				int i_34_;
-				for (i_34_ = -seqType.padding + seqType.frames.length; currentFrame < i_34_ && seqType.delays[currentFrame] < i_33_; currentFrame++) {
+				for (i_34_ = -seqType.loop + seqType.frames.length; currentFrame < i_34_ && seqType.delays[currentFrame] < i_33_; currentFrame++) {
 					i_33_ -= seqType.delays[currentFrame];
 				}
 				if (currentFrame >= i_34_) {
@@ -250,7 +250,7 @@ final class AnimatedLocation extends SceneGraphNode {
 				}
 				nextFrame = currentFrame - -1;
 				if (seqType.frames.length <= nextFrame) {
-					nextFrame -= seqType.padding;
+					nextFrame -= seqType.loop;
 					if (nextFrame < 0 || nextFrame >= seqType.frames.length) {
 						nextFrame = -1;
 					}
@@ -264,7 +264,7 @@ final class AnimatedLocation extends SceneGraphNode {
 				i_33_ -= seqType.delays[currentFrame];
 				currentFrame++;
 				if (seqType.frames.length <= currentFrame) {
-					currentFrame -= seqType.padding;
+					currentFrame -= seqType.loop;
 					if (currentFrame < 0 || seqType.frames.length <= currentFrame) {
 						seqType = null;
 						break;
@@ -272,7 +272,7 @@ final class AnimatedLocation extends SceneGraphNode {
 				}
 				nextFrame = currentFrame + 1;
 				if (nextFrame >= seqType.frames.length) {
-					nextFrame -= seqType.padding;
+					nextFrame -= seqType.loop;
 					if (nextFrame < 0 || seqType.frames.length <= nextFrame) {
 						nextFrame = -1;
 					}
@@ -285,7 +285,7 @@ final class AnimatedLocation extends SceneGraphNode {
 
 	final void method2354() {
 		if (aClass107_Sub1_3065 != null) {
-			Class47.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
+			ShadowManager.method387(aClass107_Sub1_3065, anInt3059, anInt3061, anInt3068);
 			aClass107_Sub1_3065 = null;
 		}
 	}
@@ -321,7 +321,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	static final ObjectPile resetObjectPile(final int level, final int x, final int z) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

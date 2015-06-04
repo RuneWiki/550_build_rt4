@@ -4,7 +4,7 @@
 import java.util.Random;
 
 final class Class120_Sub12_Sub33 extends Class120_Sub12 {
-	static int[][][] anIntArrayArrayArray3388;
+	static int[][][] surfaceTileHeightMap;
 	private int anInt3389 = 81;
 	private int anInt3390;
 	static boolean[] needScreenRedraw;

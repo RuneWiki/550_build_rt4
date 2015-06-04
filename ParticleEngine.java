@@ -24,7 +24,7 @@ final class ParticleEngine extends ParticleNode {
 	long aLong2359;
 	static int anInt2360;
 	private static Class174 aClass174_2361;
-	static boolean aBoolean2362;
+	static boolean debug;
 	static int runningParticleCount;
 	static int anInt2364;
 	private int anInt2365 = 0;
@@ -61,7 +61,7 @@ final class ParticleEngine extends ParticleNode {
 	static {
 		aBoolean2347 = false;
 		anInt2354 = 0;
-		aBoolean2362 = false;
+		debug = false;
 		runningParticleCount = 0;
 		activeMagnets = new Class9(8);
 		aBooleanArray2383 = new boolean[8];
@@ -167,7 +167,7 @@ final class ParticleEngine extends ParticleNode {
 			final int i_21_ = i_18_ + (-i_19_ * i_7_ - (this.anInt2369 - this.anInt2382) * i_6_ >> 16);
 			final int i_22_ = i_20_ - i_21_ + 2;
 			if (i_22_ >= 1600) {
-				if (aBoolean2362) {
+				if (debug) {
 					System.out.println(new StringBuilder("Model too big for particles - radixsize:").append(i_22_).append(" maxmodelsize:").append(1600).toString());
 				}
 				method957();
@@ -201,7 +201,7 @@ final class ParticleEngine extends ParticleNode {
 							} else {
 								if (anIntArray2389[i_30_] == 32) {
 									if (anInt2380 == 32) {
-										if (aBoolean2362) {
+										if (debug) {
 											System.out.println("Overflowed model-based radix sort");
 										}
 										continue;
@@ -377,13 +377,13 @@ final class ParticleEngine extends ParticleNode {
 			class120_sub14_sub24.positionY = class120_sub14_sub24.anInt3657 + this.anInt2372;
 			class120_sub14_sub24.positionZ = class120_sub14_sub24.anInt3663 + this.anInt2368;
 			if (this.anInt2377 != 0) {
-				final int i_56_ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt257;
-				final int i_57_ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt252;
+				final int i_56_ = class120_sub14_sub24.modelParticleMagnet.magnetType.localDirectionX;
+				final int i_57_ = class120_sub14_sub24.modelParticleMagnet.magnetType.localDirectionZ;
 				class120_sub14_sub24.localDirectionX = i_57_ * i + i_56_ * i_55_ >> 16;
 				class120_sub14_sub24.localDirectionZ = i_57_ * i_55_ - i_56_ * i >> 16;
 			} else {
-				class120_sub14_sub24.localDirectionX = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt257;
-				class120_sub14_sub24.localDirectionZ = class120_sub14_sub24.modelParticleMagnet.magnetType.anInt252;
+				class120_sub14_sub24.localDirectionX = class120_sub14_sub24.modelParticleMagnet.magnetType.localDirectionX;
+				class120_sub14_sub24.localDirectionZ = class120_sub14_sub24.modelParticleMagnet.magnetType.localDirectionZ;
 			}
 		}
 	}
@@ -446,7 +446,7 @@ final class ParticleEngine extends ParticleNode {
 				runningParticleCount++;
 			}
 		}
-		if (aBoolean2362 && l % 100L == 0L) {
+		if (debug && l % 100L == 0L) {
 			System.out.println(new StringBuilder("Particle system count: ").append(aClass174_2361.getCount()).append(", running: ").append(runningParticleCount).append(". Particles: ").append(anInt2360).append(". Time taken: ").append(TimeUtil.getSafeTime() - l_60_).append("ms").toString());
 		}
 	}
@@ -531,8 +531,8 @@ final class ParticleEngine extends ParticleNode {
 			this.anInt2375 = (this.anInt2368 + (sizeZ << 6) >> 7) - 1;
 			this.anInt2369 = this.anInt2372;
 			if (this.level < 3) {
-				this.anInt2382 = OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2384][this.anInt2367]
-						+ OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.tileHeightMap[this.level + 1][this.anInt2384][this.anInt2375] >> 2;
+				this.anInt2382 = OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2367]
+						+ OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2375] >> 2;
 			} else {
 				this.anInt2382 = this.anInt2369 - 1024;
 			}

@@ -32,7 +32,7 @@ final class UnderlayType {
 	}
 
 	static final byte[] method1899(final int i) {
-		OverlayFrequencyNode class120_sub14_sub20 = (OverlayFrequencyNode) Class181.aClass35_1784.get(i);
+		OverlayFrequencyNode class120_sub14_sub20 = (OverlayFrequencyNode) LightType.aClass35_1784.get(i);
 		if (class120_sub14_sub20 == null) {
 			final byte[] is_1_ = new byte[512];
 			final Random random = new Random(i);
@@ -47,7 +47,7 @@ final class UnderlayType {
 				is_1_[i_4_] = is_1_[511 - i_3_] = i_6_;
 			}
 			class120_sub14_sub20 = new OverlayFrequencyNode(is_1_);
-			Class181.aClass35_1784.put(class120_sub14_sub20, i);
+			LightType.aClass35_1784.put(class120_sub14_sub20, i);
 		}
 		return class120_sub14_sub20.aByteArray3623;
 	}
@@ -55,45 +55,45 @@ final class UnderlayType {
 	static final void method1900() {
 		Projectile.method2318(Class140.anInt1343);
 		final int i_7_ = (FileSystemWorker.renderX >> 10) + (GameEntity.currentBaseX >> 3);
-		final int i_8_ = (GroundObjectNode.renderZ >> 10) + (Class181.currentBaseZ >> 3);
+		final int i_8_ = (GroundObjectNode.renderZ >> 10) + (LightType.currentBaseZ >> 3);
 		int i_11_ = 18;
-		RuntimeException_Sub1.aByteArrayArray2140 = new byte[i_11_][];
-		LookupTable.anIntArray495 = new int[i_11_];
-		Class120_Sub12_Sub36.aByteArrayArray3421 = new byte[i_11_][];
+		RuntimeException_Sub1.mapFileBuffers = new byte[i_11_][];
+		LookupTable.mapFileIds = new int[i_11_];
+		Class120_Sub12_Sub36.underWaterMapFileBuffers = new byte[i_11_][];
 		ProducingGraphicsBuffer.anIntArray2796 = new int[i_11_];
-		Class28.anIntArray183 = new int[i_11_];
+		Class28.locationsMapFileIds = new int[i_11_];
 		Class179.aByteArrayArray1777 = new byte[i_11_][];
-		Class111.anIntArray1063 = new int[i_11_];
-		Class101_Sub1.aByteArrayArray2271 = new byte[i_11_][];
-		Class120_Sub12_Sub36.anIntArray3417 = new int[i_11_];
+		Class111.underWaterMapFileIds = new int[i_11_];
+		Class101_Sub1.underWaterLocationsMapFileBuffers = new byte[i_11_][];
+		Class120_Sub12_Sub36.regionBitPackeds = new int[i_11_];
 		Class125.anIntArrayArray2150 = new int[i_11_][4];
-		Class76.anIntArray680 = new int[i_11_];
-		Class134.aByteArrayArray1287 = new byte[i_11_][];
+		client.underWaterLocationsMapFileIds = new int[i_11_];
+		Class134.locationMapFileBuffers = new byte[i_11_][];
 		i_11_ = 0;
 		for (int i_12_ = (i_7_ - 6) / 8; i_12_ <= (i_7_ + 6) / 8; i_12_++) {
 			for (int i_13_ = (i_8_ - 6) / 8; i_13_ <= (i_8_ + 6) / 8; i_13_++) {
 				final int i_14_ = (i_12_ << 8) + i_13_;
-				Class120_Sub12_Sub36.anIntArray3417[i_11_] = i_14_;
-				LookupTable.anIntArray495[i_11_] = Class65.aClass50_597.getGroupId("m" + i_12_ + "_" + i_13_);
-				Class28.anIntArray183[i_11_] = Class65.aClass50_597.getGroupId("l" + i_12_ + "_" + i_13_);
+				Class120_Sub12_Sub36.regionBitPackeds[i_11_] = i_14_;
+				LookupTable.mapFileIds[i_11_] = Class65.aClass50_597.getGroupId("m" + i_12_ + "_" + i_13_);
+				Class28.locationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("l" + i_12_ + "_" + i_13_);
 				ProducingGraphicsBuffer.anIntArray2796[i_11_] = Class65.aClass50_597.getGroupId("n" + i_12_ + "_" + i_13_);
-				Class111.anIntArray1063[i_11_] = Class65.aClass50_597.getGroupId("um" + i_12_ + "_" + i_13_);
-				Class76.anIntArray680[i_11_] = Class65.aClass50_597.getGroupId("ul" + i_12_ + "_" + i_13_);
+				Class111.underWaterMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("um" + i_12_ + "_" + i_13_);
+				client.underWaterLocationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("ul" + i_12_ + "_" + i_13_);
 				if (ProducingGraphicsBuffer.anIntArray2796[i_11_] == -1) {
-					LookupTable.anIntArray495[i_11_] = -1;
-					Class28.anIntArray183[i_11_] = -1;
-					Class111.anIntArray1063[i_11_] = -1;
-					Class76.anIntArray680[i_11_] = -1;
+					LookupTable.mapFileIds[i_11_] = -1;
+					Class28.locationsMapFileIds[i_11_] = -1;
+					Class111.underWaterMapFileIds[i_11_] = -1;
+					client.underWaterLocationsMapFileIds[i_11_] = -1;
 				}
 				i_11_++;
 			}
 		}
 		for (int i_15_ = i_11_; i_15_ < ProducingGraphicsBuffer.anIntArray2796.length; i_15_++) {
 			ProducingGraphicsBuffer.anIntArray2796[i_15_] = -1;
-			LookupTable.anIntArray495[i_15_] = -1;
-			Class28.anIntArray183[i_15_] = -1;
-			Class111.anIntArray1063[i_15_] = -1;
-			Class76.anIntArray680[i_15_] = -1;
+			LookupTable.mapFileIds[i_15_] = -1;
+			Class28.locationsMapFileIds[i_15_] = -1;
+			Class111.underWaterMapFileIds[i_15_] = -1;
+			client.underWaterLocationsMapFileIds[i_15_] = -1;
 		}
 		Class2.method76(i_7_, i_8_, 0, 8, 8, true, false);
 	}
@@ -102,7 +102,7 @@ final class UnderlayType {
 		if (i == i_19_) {
 			Class159.method2096(i_19_, i_17_, i_18_, i_16_);
 		} else {
-			if (MagnetType.anInt260 > -i_19_ + i_16_ || ParamType.anInt3544 < i_16_ - -i_19_ || i_18_ + -i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_18_ - -i) {
+			if (MagnetType.anInt260 > -i_19_ + i_16_ || ParamType.anInt3544 < i_16_ - -i_19_ || i_18_ + -i < Class120_Sub30_Sub2.anInt3699 || Identikit.anInt1334 < i_18_ - -i) {
 				Node.method1031(i_18_, i, i_17_, i_19_, i_16_);
 			} else {
 				Class69_Sub3.method628(i, i_16_, i_17_, i_18_, i_19_);
@@ -240,7 +240,7 @@ final class UnderlayType {
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - width) / 2, 0, width, height);
 			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 - Class120_Sub12_Sub27.logoSprite.width / 2, 18);
 		}
-		font.method1478(Buffer.gameId != 1 ? TextRepository.runescapeIsLoadingPleaseWait : TextRepository.mechscapeIsLoadingPleaseWait, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26, 16777215, -1);
+		font.method1478(Buffer.gameId != 1 ? StringLibrary.runescapeIsLoadingPleaseWait : StringLibrary.mechscapeIsLoadingPleaseWait, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 - 26, 16777215, -1);
 		final int i = Class120_Sub12_Sub5.canvasHeight / 2 + -18;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);

@@ -7,11 +7,10 @@ final class Normal {
 	int y;
 	int anInt156;
 	int x;
-	static NodeCache aClass35_158 = new NodeCache(64);
-	static PlayerAppearance aClass144_159 = new PlayerAppearance();
+	static PlayerAppearance dummyPlayerAppearance = new PlayerAppearance();
 	int z;
 	static JagexInterface aClass189_161 = null;
-	static int anInt162 = 0;
+	static int cameraYLimit = 0;
 	static Class90 aClass90_163;
 
 	static final AbstractSprite constructAbstractSprite(final js5 js5, final int groupId) {
@@ -33,7 +32,7 @@ final class Normal {
 			Class136.mouseIdleCycle++;
 			InterfaceChangeNode.lastMousePress = Class42.currentMousePress;
 			Queue.lastMouseX = GrandExchangeObject.currentMouseX;
-			Class191.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
+			ChunkAtmosphere.lastMouseY = Class120_Sub12_Sub27.currentMouseY;
 			Class156.lastMouseClick = GroundObjectNode.currentMouseClick;
 			js5.lastClickX = Class192.currentClickX;
 			Class120_Sub12_Sub36.lastClickY = EmitterType.currentClickY;

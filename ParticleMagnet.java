@@ -14,7 +14,7 @@ final class ParticleMagnet extends NodeSub {
 	int positionX;
 
 	static final void method1647(final int i_0_, final int i_1_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i_0_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(5, i_0_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_1_;
 	}
@@ -56,10 +56,10 @@ final class ParticleMagnet extends NodeSub {
 			groundDecoration.renderY = y;
 			groundDecoration.bitPackedUid = bitPackedUid;
 			groundDecoration.aBoolean314 = bool;
-			if (LabelGroup.groundTiles[level][x][z] == null) {
-				LabelGroup.groundTiles[level][x][z] = new GroundTile(level, x, z);
+			if (LabelGroup.activeGroundTiles[level][x][z] == null) {
+				LabelGroup.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
 			}
-			LabelGroup.groundTiles[level][x][z].groundDecoration = groundDecoration;
+			LabelGroup.activeGroundTiles[level][x][z].groundDecoration = groundDecoration;
 		}
 	}
 

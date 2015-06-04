@@ -10,7 +10,6 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	private int anInt3210;
 	static int anInt3211 = -1;
 	static Npc[] npcList;
-	static js5 aClass50_3213;
 	static int anInt3214;
 	static JagexSocket js5Connection;
 	static short aShort3216;
@@ -35,7 +34,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	}
 
 	static final void method1250(final int i, final int i_2_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(6, i_2_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(6, i_2_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i;
 	}
@@ -69,16 +68,16 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	static final void translateStrings(final int langId) {
 		if (langId != 0) {
 			if (langId == 1) {
-				TextRepository.translateToGermany();
+				StringLibrary.translateToGermany();
 			} else if (langId == 2) {
-				TextRepository.translateToFrench();
+				StringLibrary.translateToFrench();
 			} else {
-				TextRepository.translateToSpanish();
+				StringLibrary.translateToSpanish();
 			}
 		}
 	}
 
-	static final void method1255(final Light light, final int[] is, final float[][] fs, final int i, final int i_10_, final Class133 class133, final float[][] fs_11_, final float[][] fs_13_, final int i_14_, final int[][] is_15_) {
+	static final void method1255(final Light light, final int[] is, final float[][] fs, final int i, final int i_10_, final LightRenderer class133, final float[][] fs_11_, final float[][] fs_13_, final int i_14_, final int[][] is_15_) {
 		final int[] is_16_ = new int[is.length / 2];
 		for (int i_17_ = 0; is_16_.length > i_17_; i_17_++) {
 			int i_18_ = is[i_17_ + i_17_];

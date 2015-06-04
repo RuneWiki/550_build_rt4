@@ -94,7 +94,7 @@ abstract class GameEntity extends SceneGraphNode {
 	int idleAnimFrame;
 	Object anObject3047;
 
-	final void method2323(final int x, final int z, final int size, final boolean bool) {
+	final void setPos(final int x, final int z, final int size, final boolean bool) {
 		if (this.animId != -1 && SeqType.list(this.animId).walkProperties == 1) {
 			this.animId = -1;
 		}
@@ -486,7 +486,7 @@ abstract class GameEntity extends SceneGraphNode {
 		}
 		final int i_79_ = i_76_ << 7;
 		final int i_80_ = i_77_ << 7;
-		final int i_81_ = OverridedJInterface.tileHeightMap[i][i_76_][i_77_] - 1;
+		final int i_81_ = OverridedJInterface.activeTileHeightMap[i][i_76_][i_77_] - 1;
 		final int i_82_ = i_81_ - 120;
 		final int i_83_ = i_81_ - 230;
 		final int i_84_ = i_81_ - 238;

@@ -126,19 +126,19 @@ final class Class120_Sub19 extends Node {
 			}
 		}
 		if (WallDecoration.menuOptionCount != 1) {
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
-			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(TextRepository.aString1056);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(StringLibrary.chooseOption);
 			for (int i_19_ = 0; WallDecoration.menuOptionCount > i_19_; i_19_++) {
 				final int i_20_ = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(i_19_));
 				if (i_20_ > i_18_) {
 					i_18_ = i_20_;
 				}
 			}
-			Class120_Sub14_Sub10.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + 15 * WallDecoration.menuOptionCount;
+			QuickChatMessageType.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + 15 * WallDecoration.menuOptionCount;
 			Class120_Sub24.menuWidth = 8 + i_18_;
 		} else {
 			Class15.menuOpen = false;
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			InterfaceClickMask.method1689(1, Class69.rootInterfaceId);

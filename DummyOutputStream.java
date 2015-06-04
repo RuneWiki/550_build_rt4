@@ -6,13 +6,13 @@ import java.io.OutputStream;
 
 final class DummyOutputStream extends OutputStream {
 	static Class120_Sub19 aClass120_Sub19_27 = new Class120_Sub19(0, 0);
-	static float aFloat28 = 0.0F;
+	static float cameraYaw = 0.0F;
 	static int anInt29 = 99;
-	static FrameLoader[] aClass120_Sub14_Sub18Array31;
+	static FrameGroup[] aClass120_Sub14_Sub18Array31;
 	static int anInt32 = 0;
 
 	static {
-		aClass120_Sub14_Sub18Array31 = new FrameLoader[14];
+		aClass120_Sub14_Sub18Array31 = new FrameGroup[14];
 	}
 
 	static final int method72(final int i_0_) {

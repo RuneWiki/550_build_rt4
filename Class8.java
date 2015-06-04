@@ -13,7 +13,7 @@ final class Class8 {
 		} else {
 			Class33.smallFont2 = (LDFont) ObjectCache.smallFont;
 		}
-		Class120_Sub12_Sub20.plainFont = Class9.constructAbstractFont(spriteJs5, fontJs5, Class191.p12fullId, 0);
+		Class120_Sub12_Sub20.plainFont = Class9.constructAbstractFont(spriteJs5, fontJs5, ChunkAtmosphere.p12fullId, 0);
 		Class120_Sub12_Sub22.boldFont = Class9.constructAbstractFont(spriteJs5, fontJs5, Class110.b12fullId, 0);
 	}
 

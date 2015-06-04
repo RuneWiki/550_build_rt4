@@ -6,7 +6,7 @@ import java.awt.Frame;
 final class Class150 {
 	static int[] anIntArray1405;
 	int seqId;
-	static int anInt1407 = 0;
+	static int soundEffectCount = 0;
 	static int anInt1408;
 	int frameDelay;
 	int delay;

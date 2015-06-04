@@ -6,11 +6,11 @@ import java.io.InputStream;
 final class DummyInputStream extends InputStream {
 	static boolean focus;
 	static int[] anIntArray24;
-	static JagexInterface fixedGameScreenInterface;
+	static JagexInterface gameScreenInterface;
 
 	static {
 		anIntArray24 = new int[] { 2, 2, 4, 2, 1, 8, 4, 1, 4, 4, 2, 1, 1, 1, 4, 1 };
-		fixedGameScreenInterface = null;
+		gameScreenInterface = null;
 	}
 
 	static final int getLanguageId(final String lang) {
@@ -38,7 +38,7 @@ final class DummyInputStream extends InputStream {
 		Class157.anInt1466 = -1;
 		Class120_Sub12_Sub15.aBoolean3247 = false;
 		AnimatedLocation.clearAmbientSounds(true);
-		Class181.currentBaseZ = 0;
+		LightType.currentBaseZ = 0;
 		Class116.anInt1118 = 0;
 		Class3.anInt53 = 0;
 		Class134.dynamicMapRegion = false;
@@ -62,9 +62,9 @@ final class DummyInputStream extends InputStream {
 				}
 			}
 		}
-		SpotAnimType.method876();
+		SpotAnimType.resetCamera();
 		OverlayFrequencyNode.packetCounter = 0;
-		Class33.resetVarp();
+		Varp.reset();
 		EnumType.method1421(true);
 		try {
 			JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedout");

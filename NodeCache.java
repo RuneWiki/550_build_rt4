@@ -79,9 +79,9 @@ final class NodeCache {
 			return "<col=ffff00>" + count + "</col>";
 		}
 		if (count < 10000000) {
-			return "<col=ffffff>" + (count / 1000) + TextRepository.aString1238 + "</col>";
+			return "<col=ffffff>" + (count / 1000) + StringLibrary.aString1238 + "</col>";
 		}
-		return "<col=00ff80>" + (count / 1000000) + TextRepository.aString3455 + "</col>";
+		return "<col=00ff80>" + (count / 1000000) + StringLibrary.aString3455 + "</col>";
 	}
 
 	final void clear() {

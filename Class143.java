@@ -3,7 +3,6 @@
  */
 
 class Class143 implements Interface3 {
-	static String selectString = "Select";
 	private final js5 aClass50_2184;
 	static volatile long lastCanvasReplace = 0L;
 	private final Class114[] aClass114Array2186;

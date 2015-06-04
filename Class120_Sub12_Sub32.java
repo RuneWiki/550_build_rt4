@@ -66,14 +66,14 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 			if (Class120_Sub30_Sub2.anInt3699 > i_14_) {
 				i_13_ = (Class120_Sub30_Sub2.anInt3699 + -i_10_ << 12) / i_9_;
 				i_14_ = Class120_Sub30_Sub2.anInt3699;
-			} else if (IdentityKit.anInt1334 < i_14_) {
-				i_13_ = (IdentityKit.anInt1334 + -i_10_ << 12) / i_9_;
-				i_14_ = IdentityKit.anInt1334;
+			} else if (Identikit.anInt1334 < i_14_) {
+				i_13_ = (Identikit.anInt1334 + -i_10_ << 12) / i_9_;
+				i_14_ = Identikit.anInt1334;
 			}
 			if (Class120_Sub30_Sub2.anInt3699 <= i_11_) {
-				if (i_11_ > IdentityKit.anInt1334) {
-					i_11_ = IdentityKit.anInt1334;
-					i_12_ = (-i_10_ + IdentityKit.anInt1334 << 12) / i_9_;
+				if (i_11_ > Identikit.anInt1334) {
+					i_11_ = Identikit.anInt1334;
+					i_12_ = (-i_10_ + Identikit.anInt1334 << 12) / i_9_;
 				}
 			} else {
 				i_12_ = (-i_10_ + Class120_Sub30_Sub2.anInt3699 << 12) / i_9_;
@@ -351,29 +351,29 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	}
 
 	static final void uncacheJInterface(final int group) {
-		if (group != -1 && Class57.interfaceLoaded[group]) {
-			Class101_Sub4.interfaceJs5.clearFiles(group);
-			if (Node.interfaceCache[group] != null) {
+		if (group != -1 && JagexInterface.interfaceLoaded[group]) {
+			JagexInterface.interfaceJs5.clearFiles(group);
+			if (JagexInterface.interfaceCache[group] != null) {
 				boolean discard = true;
-				for (int file = 0; file < Node.interfaceCache[group].length; file++) {
-					if (Node.interfaceCache[group][file] != null) {
-						if (Node.interfaceCache[group][file].type == 2) {
+				for (int file = 0; file < JagexInterface.interfaceCache[group].length; file++) {
+					if (JagexInterface.interfaceCache[group][file] != null) {
+						if (JagexInterface.interfaceCache[group][file].type == 2) {
 							discard = false;
 						} else {
-							Node.interfaceCache[group][file] = null;
+							JagexInterface.interfaceCache[group][file] = null;
 						}
 					}
 				}
 				if (discard) {
-					Node.interfaceCache[group] = null;
+					JagexInterface.interfaceCache[group] = null;
 				}
-				Class57.interfaceLoaded[group] = false;
+				JagexInterface.interfaceLoaded[group] = false;
 			}
 		}
 	}
 
 	static final void method1373(final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(7, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(7, i);
 		class120_sub14_sub7.method1453();
 	}
 

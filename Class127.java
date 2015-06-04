@@ -51,61 +51,61 @@ final class Class127 {
 		SeqType.anInt349 = i_7_;
 		Js5Request.anInt3940 = i;
 		Class69.anInt614 = 10000;
-		Class120_Sub14_Sub23.anInt3649 = i_8_;
+		QuickChatCategoryType.anInt3649 = i_8_;
 		MasterIndexInfo.aClass50_476 = js5;
 		StringNode.aBoolean2734 = bool;
 		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
 
 	static final void method1892() {
-		if (Class120_Sub12_Sub21.aFloat3293 < 128.0F) {
-			Class120_Sub12_Sub21.aFloat3293 = 128.0F;
+		if (Class120_Sub12_Sub21.cameraPitch < 128.0F) {
+			Class120_Sub12_Sub21.cameraPitch = 128.0F;
 		}
-		final int i_9_ = Class69_Sub3_Sub1.playerRenderX >> 7;
-		if (383.0F < Class120_Sub12_Sub21.aFloat3293) {
-			Class120_Sub12_Sub21.aFloat3293 = 383.0F;
+		if (Class120_Sub12_Sub21.cameraPitch > 383.0F) {
+			Class120_Sub12_Sub21.cameraPitch = 383.0F;
 		}
-		for (/**/; 2048.0F <= DummyOutputStream.aFloat28; DummyOutputStream.aFloat28 -= 2048.0F) {
-			/* empty */
+		if (DummyOutputStream.cameraYaw < 0.0F) {
+			DummyOutputStream.cameraYaw += 2048.0F;
 		}
-		final int i_10_ = InterfaceListener.playerRenderZ >> 7;
-		int i_11_ = 0;
-		for (/**/; DummyOutputStream.aFloat28 < 0.0F; DummyOutputStream.aFloat28 += 2048.0F) {
-			/* empty */
+		if (DummyOutputStream.cameraYaw >= 2048.0F) {
+			DummyOutputStream.cameraYaw -= 2048.0F;
 		}
-		final int i_12_ = Class22.getTileHeight(Class69_Sub3_Sub1.playerRenderX, InterfaceListener.playerRenderZ, Class173.gameLevel);
-		if (i_9_ > 3 && i_10_ > 3 && i_9_ < 100 && i_10_ < 100) {
-			for (int i_13_ = i_9_ + -4; i_9_ + 4 >= i_13_; i_13_++) {
-				for (int i_14_ = i_10_ + -4; 4 + i_10_ >= i_14_; i_14_++) {
-					int i_15_ = Class173.gameLevel;
-					if (i_15_ < 3 && (Class114.tileSettings[1][i_13_][i_14_] & 0x2) == 2) {
-						i_15_++;
+		final int tileX = Class69_Sub3_Sub1.cameraX >> 7;
+		final int tileY = Class22.getTileHeight(Class69_Sub3_Sub1.cameraX, InterfaceListener.cameraZ, Class173.gameLevel);
+		final int tileZ = InterfaceListener.cameraZ >> 7;
+		int highestY = 0;
+		if (tileX > 3 && tileZ > 3 && tileX < 100 && tileZ < 100) {
+			for (int x = tileX - 4; x <= tileX + 4; x++) {
+				for (int z = tileZ - 4; z <= tileZ + 4; z++) {
+					int level = Class173.gameLevel;
+					if (level < 3 && (Class114.tileSettings[1][x][z] & 0x2) == 2) {
+						level++;
 					}
-					final int i_16_ = i_12_ - (OverridedJInterface.tileHeightMap[i_15_][i_13_][i_14_] - 8 * (Class114.aByteArrayArrayArray1094[i_15_][i_13_][i_14_] & 0xff));
-					if (i_16_ > i_11_) {
-						i_11_ = i_16_;
+					final int y = tileY - (OverridedJInterface.activeTileHeightMap[level][x][z] - 8 * (Class114.aByteArrayArrayArray1094[level][x][z] & 0xff));
+					if (highestY < y) {
+						highestY = y;
 					}
 				}
 			}
 		}
-		int i_17_ = 192 * i_11_;
+		int i_17_ = 192 * highestY;
 		if (i_17_ > 98048) {
 			i_17_ = 98048;
 		}
 		if (i_17_ < 32768) {
 			i_17_ = 32768;
 		}
-		if (i_17_ > Normal.anInt162) {
-			Normal.anInt162 += (i_17_ + -Normal.anInt162) / 24;
-		} else if (Normal.anInt162 > i_17_) {
-			Normal.anInt162 += (i_17_ + -Normal.anInt162) / 80;
+		if (i_17_ > Normal.cameraYLimit) {
+			Normal.cameraYLimit += (i_17_ - Normal.cameraYLimit) / 24;
+		} else if (Normal.cameraYLimit > i_17_) {
+			Normal.cameraYLimit += (i_17_ - Normal.cameraYLimit) / 80;
 		}
 	}
 
 	static final void method1893(final int i, final int i_18_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[0][i][i_18_];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[0][i][i_18_];
 		for (int i_19_ = 0; i_19_ < 3; i_19_++) {
-			final GroundTile class120_sub18_20_ = LabelGroup.groundTiles[i_19_][i][i_18_] = LabelGroup.groundTiles[i_19_ + 1][i][i_18_];
+			final GroundTile class120_sub18_20_ = LabelGroup.activeGroundTiles[i_19_][i][i_18_] = LabelGroup.activeGroundTiles[i_19_ + 1][i][i_18_];
 			if (class120_sub18_20_ != null) {
 				class120_sub18_20_.anInt2636--;
 				for (int i_21_ = 0; i_21_ < class120_sub18_20_.anInt2638; i_21_++) {
@@ -116,11 +116,11 @@ final class Class127 {
 				}
 			}
 		}
-		if (LabelGroup.groundTiles[0][i][i_18_] == null) {
-			LabelGroup.groundTiles[0][i][i_18_] = new GroundTile(0, i, i_18_);
+		if (LabelGroup.activeGroundTiles[0][i][i_18_] == null) {
+			LabelGroup.activeGroundTiles[0][i][i_18_] = new GroundTile(0, i, i_18_);
 		}
-		LabelGroup.groundTiles[0][i][i_18_].aClass120_Sub18_2644 = class120_sub18;
-		LabelGroup.groundTiles[3][i][i_18_] = null;
+		LabelGroup.activeGroundTiles[0][i][i_18_].aClass120_Sub18_2644 = class120_sub18;
+		LabelGroup.activeGroundTiles[3][i][i_18_] = null;
 	}
 
 	final NodeSub method1895() {

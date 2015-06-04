@@ -7,7 +7,7 @@ import java.net.URL;
 final class SpotAnimation extends SceneGraphNode {
 	int x;
 	int y;
-	static ObjectCache aClass21_2906 = new ObjectCache(100);
+	static ObjectCache objectSpriteCache = new ObjectCache(100);
 	int z;
 	int level;
 	static int renderYaw;
@@ -28,7 +28,7 @@ final class SpotAnimation extends SceneGraphNode {
 		final int i_0_ = Canvas_Sub1.inputStream.getBitValue(8);
 		if (i_0_ < Class148.localNpcCount) {
 			for (int i_1_ = i_0_; Class148.localNpcCount > i_1_; i_1_++) {
-				Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = Class120_Sub12_Sub36.npcIndices[i_1_];
+				Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = Class120_Sub12_Sub36.npcIndices[i_1_];
 			}
 		}
 		if (i_0_ > Class148.localNpcCount) {
@@ -47,7 +47,7 @@ final class SpotAnimation extends SceneGraphNode {
 				if (i_5_ == 0) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
-					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
 				} else if (i_5_ == 1) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
 					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
@@ -55,7 +55,7 @@ final class SpotAnimation extends SceneGraphNode {
 					class180_sub5_sub2.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_7_ == 1) {
-						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
 					}
 				} else if (i_5_ == 2) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
@@ -71,10 +71,10 @@ final class SpotAnimation extends SceneGraphNode {
 					}
 					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_11_ == 1) {
-						ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = i_3_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
 					}
 				} else if (i_5_ == 3) {
-					Class43.anIntArray366[Class120_Sub12_Sub23.anInt3307++] = i_3_;
+					Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = i_3_;
 				}
 			}
 		}
@@ -138,7 +138,7 @@ final class SpotAnimation extends SceneGraphNode {
 			string_13_ = AnimatedLocation.replaceAll(string_13_, "&", "%26");
 			string_13_ = AnimatedLocation.replaceAll(string_13_, "#", "%23");
 			if (Class120_Sub12_Sub18.errorSignlink.gameApplet != null) {
-				final SignlinkNode signlinkNode = Class120_Sub12_Sub18.errorSignlink.method1969(
+				final SignlinkNode signlinkNode = Class120_Sub12_Sub18.errorSignlink.openStream(
 						new URL(Class120_Sub12_Sub18.errorSignlink.gameApplet.getCodeBase(), new StringBuilder("clienterror.ws?c=").append(DisplayModeInfo.revision).append("&u=").append(WaterfallShader.selfNameAsLong).append("&v1=").append(Signlink.javaVendor).append("&v2=").append(Signlink.javaVersion)
 								.append("&e=").append(string_13_).toString()));
 				while (signlinkNode.status == 0) {
@@ -170,7 +170,7 @@ final class SpotAnimation extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_16_, final int i_17_, final int i_18_, final int i_19_) {
+	final void method2266(final int i, final int i_16_, final int i_18_, final int i_17_, final int i_19_) {
 		if (!aBoolean2913) {
 			final AbstractModelRenderer class180_sub7 = method2313();
 			if (class180_sub7 == null) {
@@ -194,7 +194,7 @@ final class SpotAnimation extends SceneGraphNode {
 	}
 
 	static final Class28 method2315(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}

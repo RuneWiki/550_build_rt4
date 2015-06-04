@@ -12,7 +12,7 @@ final class Class109 {
 	private int[][][] anIntArrayArrayArray1043;
 	static int gameState = 0;
 	private int anInt1045 = -1;
-	static Class6[] aClass6Array1047 = new Class6[50];
+	static SoundEffect[] aClass6Array1047 = new SoundEffect[50];
 	private final int anInt1048;
 	boolean aBoolean1049;
 

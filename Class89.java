@@ -7,7 +7,7 @@ final class Class89 {
 	static int[] anIntArray838;
 
 	static final void method746(final int i_0_, final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(13, i_0_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(13, i_0_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i;
 	}

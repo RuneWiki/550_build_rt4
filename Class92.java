@@ -29,13 +29,13 @@ final class Class92 {
 		if (i_4_ != 0) {
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 			if (i_5_ == 0) {
-				ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = 2047;
+				ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = 2047;
 			} else if (i_5_ == 1) {
 				final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
 				TileParticleQueue.selfPlayer.move(i_6_, 1);
 				final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 				if (i_7_ == 1) {
-					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = 2047;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = 2047;
 				}
 			} else if (i_5_ == 2) {
 				if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
@@ -49,29 +49,29 @@ final class Class92 {
 				}
 				final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 				if (i_11_ == 1) {
-					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = 2047;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = 2047;
 				}
 			} else if (i_5_ == 3) {
 				final int i_12_ = Canvas_Sub1.inputStream.getBitValue(7);
 				final int i_13_ = Canvas_Sub1.inputStream.getBitValue(1);
 				final int i_14_ = Canvas_Sub1.inputStream.getBitValue(1);
 				if (i_14_ == 1) {
-					ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = 2047;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = 2047;
 				}
 				Class173.gameLevel = Canvas_Sub1.inputStream.getBitValue(2);
 				final int i_15_ = Canvas_Sub1.inputStream.getBitValue(7);
-				TileParticleQueue.selfPlayer.method2343(i_15_, i_12_, i_13_ == 1);
+				TileParticleQueue.selfPlayer.setPos(i_15_, i_12_, i_13_ == 1);
 			}
 		}
 	}
 
 	static final void method768(final int i, final int i_16_, final int i_17_, final int i_18_, final int i_19_, final int i_21_, final int i_22_) {
-		final int i_23_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_22_, IdentityKit.anInt1334);
-		final int i_24_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i, IdentityKit.anInt1334);
+		final int i_23_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_22_, Identikit.anInt1334);
+		final int i_24_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i, Identikit.anInt1334);
 		final int i_25_ = Class3.method83(MagnetType.anInt260, i_19_, ParamType.anInt3544);
 		final int i_26_ = Class3.method83(MagnetType.anInt260, i_21_, ParamType.anInt3544);
-		final int i_27_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_22_ - -i_16_, IdentityKit.anInt1334);
-		final int i_28_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, -i_16_ + i, IdentityKit.anInt1334);
+		final int i_27_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_22_ - -i_16_, Identikit.anInt1334);
+		final int i_28_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, -i_16_ + i, Identikit.anInt1334);
 		for (int i_29_ = i_23_; i_29_ < i_27_; i_29_++) {
 			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_29_], i_18_, i_25_, i_26_);
 		}

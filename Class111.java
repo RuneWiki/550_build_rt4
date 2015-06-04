@@ -7,7 +7,7 @@ final class Class111 {
 	static boolean aBoolean1058;
 	static int anInt1060 = 0;
 	static int anInt1061 = 127;
-	static int[] anIntArray1063;
+	static int[] underWaterMapFileIds;
 	static js5 aClass50_1064;
 	static int anInt1065;
 	

@@ -1,23 +1,37 @@
 /* Class47 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import java.awt.image.BufferedImage;
+
 import javax.media.opengl.GL;
 
-final class Class47 {
+final class ShadowManager {
 	static LDIndexedSprite[] floorshadowSprites;
-	private static int anInt431;
-	static LDIndexedSprite aClass107_Sub1_432;
-	static Class94[][] aClass94ArrayArray433;
-	private static int anInt434;
+	private static int chunkCountX;
+	static LDIndexedSprite shadowMapImage;
+	static Shadow[][] shadows;
+	private static int chunkCountZ;
 
-	static final void method382(final int i, final int i_0_) {
-		anInt431 = i + 7 >> 3;
-		anInt434 = i_0_ + 7 >> 3;
-		aClass107_Sub1_432 = new LDIndexedSprite(anInt431 * 128 + 2, anInt434 * 128 + 2, 0);
-		aClass94ArrayArray433 = new Class94[anInt431][anInt434];
-		for (int i_1_ = 0; i_1_ < anInt431; i_1_++) {
-			for (int i_2_ = 0; i_2_ < anInt434; i_2_++) {
-				aClass94ArrayArray433[i_1_][i_2_] = new Class94();
+	static final void init(final int i, final int i_0_) {
+		chunkCountX = i + 7 >> 3;
+		chunkCountZ = i_0_ + 7 >> 3;
+		shadowMapImage = new LDIndexedSprite(chunkCountX * 128 + 2, chunkCountZ * 128 + 2, 12);
+		shadowMapImage.palette[0] = 0;
+		shadowMapImage.palette[1] = 0xff0000;
+		shadowMapImage.palette[2] = 0x00ff00;
+		shadowMapImage.palette[3] = 0x0000ff;
+		shadowMapImage.palette[4] = 0xffff00;
+		shadowMapImage.palette[5] = 0x00FFFF;
+		shadowMapImage.palette[6] = 0xFF00FF;
+		shadowMapImage.palette[7] = 0xC0C0C0;
+		shadowMapImage.palette[8] = 0x808080;
+		shadowMapImage.palette[9] = 0x808000;
+		shadowMapImage.palette[10] = 0x008000;
+		shadowMapImage.palette[11] = 0x008080;
+		shadows = new Shadow[chunkCountX][chunkCountZ];
+		for (int x = 0; x < chunkCountX; x++) {
+			for (int z = 0; z < chunkCountZ; z++) {
+				shadows[x][z] = new Shadow();
 			}
 		}
 	}
@@ -47,9 +61,9 @@ final class Class47 {
 			final int i_21_ = i_18_ - (i_19_ * AtmosphereManager.lightX >> 8) >> 3;
 			final int i_22_ = i_20_ - (i_19_ * AtmosphereManager.lightZ >> 8) >> 3;
 			if (i == 0 || i == 1 || !bool && !bool_11_) {
-				method396(floorshadowSprites[1], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1);
+				method396(floorshadowSprites[1], shadowMapImage, i_21_ + 1, i_22_ + 1);
 			} else {
-				method393(floorshadowSprites[i], aClass107_Sub1_432, i_21_ + 1, i_22_ + 1, i_10_, bool);
+				method393(floorshadowSprites[i], shadowMapImage, i_21_ + 1, i_22_ + 1, i_10_, bool);
 			}
 		}
 	}
@@ -94,21 +108,21 @@ final class Class47 {
 		if (class107_sub1 != null) {
 			final int i_45_ = i - (i_43_ * AtmosphereManager.lightX >> 8) >> 3;
 			final int i_46_ = i_44_ - (i_43_ * AtmosphereManager.lightZ >> 8) >> 3;
-			method395(class107_sub1, aClass107_Sub1_432, i_45_ + 1, i_46_ + 1);
+			method395(class107_sub1, shadowMapImage, i_45_ + 1, i_46_ + 1);
 		}
 	}
 
 	static final void method388() {
-		aClass107_Sub1_432 = null;
+		shadowMapImage = null;
 		floorshadowSprites = null;
-		aClass94ArrayArray433 = null;
+		shadows = null;
 	}
 
 	static final void method389(final LDIndexedSprite class107_sub1, final int i, final int i_47_, final int i_48_) {
 		if (class107_sub1 != null) {
 			final int i_49_ = i - (i_47_ * AtmosphereManager.lightX >> 8) >> 3;
 			final int i_50_ = i_48_ - (i_47_ * AtmosphereManager.lightZ >> 8) >> 3;
-			method396(class107_sub1, aClass107_Sub1_432, i_49_ + 1, i_50_ + 1);
+			method396(class107_sub1, shadowMapImage, i_49_ + 1, i_50_ + 1);
 		}
 	}
 
@@ -118,31 +132,31 @@ final class Class47 {
 		}
 		final int i_53_ = i - (i_51_ * AtmosphereManager.lightX >> 8) >> 3;
 		final int i_54_ = i_52_ - (i_51_ * AtmosphereManager.lightZ >> 8) >> 3;
-		return method394(class107_sub1, aClass107_Sub1_432, i_53_ + 1, i_54_ + 1);
+		return method394(class107_sub1, shadowMapImage, i_53_ + 1, i_54_ + 1);
 	}
 
-	static final void method392(final int i, final int i_55_, final int i_56_, final int i_57_, final boolean[][] bools, final int[][] is) {
+	static final void drawShadows(int i, int i_55_, int i_56_, final int i_57_, boolean[][] bools, final int[][] heightMap) {
 		final GL gl = HDToolkit.gl;
-		HDToolkit.method511(1);
+		HDToolkit.method511(1);//Funny effect when choosing interpolate mode
 		HDToolkit.method521(1);
 		HDToolkit.method509();
 		HDToolkit.toggleLighting(false);
 		Class120_Sub14_Sub13.method1532(0, 0);
 		gl.glDepthMask(false);
-		for (int i_58_ = 0; i_58_ < anInt431; i_58_++) {
-			for (int i_59_ = 0; i_59_ < anInt434; i_59_++) {
-				while_35_: for (int i_60_ = i_58_ * 8; i_60_ < i_58_ * 8 + 8; i_60_++) {
-					if (i_60_ - i >= -i_56_ && i_60_ - i <= i_56_) {
-						for (int i_61_ = i_59_ * 8; i_61_ < i_59_ * 8 + 8; i_61_++) {
-							if (i_61_ - i_55_ >= -i_56_ && i_61_ - i_55_ <= i_56_ && bools[i_60_ - i + i_56_][i_61_ - i_55_ + i_56_]) {
-								final Class94 class94 = aClass94ArrayArray433[i_58_][i_59_];
-								if (class94.aBoolean875) {
-									class94.method776(aClass107_Sub1_432, i_58_, i_59_);
-									class94.aBoolean875 = false;
+		for (int chunkX = 0; chunkX < chunkCountX; chunkX++) {
+			for (int chunkZ = 0; chunkZ < chunkCountZ; chunkZ++) {
+				while_35_: for (int x = chunkX * 8; x < chunkX * 8 + 8; x++) {
+					if (x - i >= -i_56_ && x - i <= i_56_) {
+						for (int z = chunkZ * 8; z < chunkZ * 8 + 8; z++) {
+							if (z - i_55_ >= -i_56_ && z - i_55_ <= i_56_ && bools[x - i + i_56_][z - i_55_ + i_56_]) {
+								final Shadow class94 = shadows[chunkX][chunkZ];
+								if (class94.outputToSprite) {
+									class94.method776(shadowMapImage, chunkX, chunkZ);
+									class94.outputToSprite = false;
 								}
 								gl.glPushMatrix();
-								gl.glTranslatef(i_58_ * 1024, 0.0F, i_59_ * 1024);
-								class94.method777();
+								gl.glTranslatef(chunkX * 1024, 0.0F, chunkZ * 1024);
+								class94.draw();
 								gl.glPopMatrix();
 								break while_35_;
 							}
@@ -187,6 +201,22 @@ final class Class47 {
 			}
 			method397(i, i_63_, 16, 16);
 		}
+	}
+	
+	public static BufferedImage toBufferedImage() {
+		System.out.println(shadowMapImage.width+":"+shadowMapImage.height);
+		BufferedImage img = new BufferedImage(shadowMapImage.width, shadowMapImage.height, BufferedImage.TYPE_INT_ARGB);
+		byte[] indicator = shadowMapImage.paletteIndicators;
+		for (int x = 0; x < shadowMapImage.width; x++) {
+			for (int y = 0; y < shadowMapImage.height; y++) {
+				int rgb = shadowMapImage.palette[indicator[shadowMapImage.width * y + x] & 0xff];
+				if (rgb == 0) {
+					rgb = 0xff00ff;
+				}
+				img.setRGB(x, y, rgb != 0 ? rgb | 0xff000000 : 0);
+			}
+		}
+		return img;
 	}
 
 	private static final boolean method394(final LDIndexedSprite class107_sub1, final LDIndexedSprite class107_sub1_70_, int i, int i_71_) {
@@ -313,9 +343,9 @@ final class Class47 {
 		final int i_110_ = i_105_ - 1 >> 7;
 		final int i_111_ = i_105_ - 1 + i_107_ - 1 >> 7;
 		for (int i_112_ = i_108_; i_112_ <= i_109_; i_112_++) {
-			final Class94[] class94s = aClass94ArrayArray433[i_112_];
+			final Shadow[] class94s = shadows[i_112_];
 			for (int i_113_ = i_110_; i_113_ <= i_111_; i_113_++) {
-				class94s[i_113_].aBoolean875 = true;
+				class94s[i_113_].outputToSprite = true;
 			}
 		}
 	}

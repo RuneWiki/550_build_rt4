@@ -100,12 +100,12 @@ final class js5 {
 		final Buffer class120_sub7_14_ = new Buffer(34);
 		class120_sub7_14_.putByte(11);
 		class120_sub7_14_.putByte(FileSystemRequest.brightness);
-		class120_sub7_14_.putByte(client.aBoolean566 ? 1 : 0);
-		class120_sub7_14_.putByte(Class120_Sub12.aBoolean2564 ? 1 : 0);
+		class120_sub7_14_.putByte(client.allVisibleLevels ? 1 : 0);
+		class120_sub7_14_.putByte(Class120_Sub12.removeRoofsSelectively ? 1 : 0);
 		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
 		class120_sub7_14_.putByte(ParticleNodeSub.highDetailTextures ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
-		class120_sub7_14_.putByte(Class191.flickeringEffectsOn ? 1 : 0);
+		class120_sub7_14_.putByte(ChunkAtmosphere.flickeringEffectsOn ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub30_Sub1.manyGroundTextures ? 1 : 0);
 		class120_sub7_14_.putByte(Class120_Sub6.characterShadowsOn ? 1 : 0);
 		class120_sub7_14_.putByte(Class74.sceneryShadowsType);
@@ -164,7 +164,7 @@ final class js5 {
 				}
 			}
 		}
-		final byte[] is_18_ = IdentityKit.method1988(anObjectArrayArray448[group][file], false);
+		final byte[] is_18_ = Identikit.method1988(anObjectArrayArray448[group][file], false);
 		return is_18_;
 	}
 
@@ -227,11 +227,11 @@ final class js5 {
 		}
 		byte[] is_29_;
 		if (is != null && (is[0] != 0 || is[1] != 0 || is[2] != 0 || is[3] != 0)) {
-			is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], true);
+			is_29_ = Identikit.method1988(anObjectArray451[i_23_], true);
 			final Buffer class120_sub7 = new Buffer(is_29_);
 			class120_sub7.decryptXTEA(is, 5, class120_sub7.buf.length);
 		} else {
-			is_29_ = IdentityKit.method1988(anObjectArray451[i_23_], false);
+			is_29_ = Identikit.method1988(anObjectArray451[i_23_], false);
 		}
 		byte[] is_30_;
 		try {
@@ -350,7 +350,7 @@ final class js5 {
 		return getFile(i_50_, i_51_);
 	}
 
-	final boolean method429(final int i) {
+	final boolean groupExist(final int i) {
 		if (!informationLoaded()) {
 			return false;
 		}
@@ -396,7 +396,7 @@ final class js5 {
 				}
 			}
 		}
-		final byte[] is_59_ = IdentityKit.method1988(anObjectArrayArray448[i_56_][i], false);
+		final byte[] is_59_ = Identikit.method1988(anObjectArrayArray448[i_56_][i], false);
 		if (clearOnUse) {
 			anObjectArrayArray448[i_56_][i] = null;
 			if (masterIndexInfo.anIntArray465[i_56_] == 1) {
@@ -433,25 +433,25 @@ final class js5 {
 	}
 
 	static final boolean loadInterface(final int group) {
-		if (Class57.interfaceLoaded[group]) {
+		if (JagexInterface.interfaceLoaded[group]) {
 			return true;
 		}
-		if (!Class101_Sub4.interfaceJs5.allFilesComplete(group)) {
+		if (!JagexInterface.interfaceJs5.allFilesComplete(group)) {
 			return false;
 		}
-		final int fileAmount = Class101_Sub4.interfaceJs5.getFileAmount(group);
+		final int fileAmount = JagexInterface.interfaceJs5.getFileAmount(group);
 		if (fileAmount == 0) {
-			Class57.interfaceLoaded[group] = true;
+			JagexInterface.interfaceLoaded[group] = true;
 			return true;
 		}
-		if (Node.interfaceCache[group] == null) {
-			Node.interfaceCache[group] = new JagexInterface[fileAmount];
+		if (JagexInterface.interfaceCache[group] == null) {
+			JagexInterface.interfaceCache[group] = new JagexInterface[fileAmount];
 		}
 		for (int file = 0; file < fileAmount; file++) {
-			if (Node.interfaceCache[group][file] == null) {
-				final byte[] data = Class101_Sub4.interfaceJs5.getFile(group, file);
+			if (JagexInterface.interfaceCache[group][file] == null) {
+				final byte[] data = JagexInterface.interfaceJs5.getFile(group, file);
 				if (data != null) {
-					final JagexInterface jagexInterface = Node.interfaceCache[group][file] = new JagexInterface();
+					final JagexInterface jagexInterface = JagexInterface.interfaceCache[group][file] = new JagexInterface();
 					jagexInterface.bitPacked = (group << 16) + file;
 					if (data[0] == -1) {
 						jagexInterface.decodeNew(new Buffer(data));
@@ -461,7 +461,7 @@ final class js5 {
 				}
 			}
 		}
-		Class57.interfaceLoaded[group] = true;
+		JagexInterface.interfaceLoaded[group] = true;
 		return true;
 	}
 

@@ -10,7 +10,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	static FileSystem masterIndexFileSystem;
 	static int canvasHeight;
 	private final int[] anIntArray3166;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array3167;
+	static AbstractSprite[] hintMapMarkerSprites;
 
 	static final boolean isLetterOrNumber(final char c) {
 		return c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
@@ -59,7 +59,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 				return false;
 			}
 			if (Js5Request.aClass120_Sub31_3941 == null) {
-				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.list(MasterIndexInfo.aClass50_476, Class120_Sub14_Sub23.anInt3649, SeqType.anInt349);
+				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.list(MasterIndexInfo.aClass50_476, QuickChatCategoryType.anInt3649, SeqType.anInt349);
 				if (Js5Request.aClass120_Sub31_3941 == null) {
 					return false;
 				}
@@ -161,52 +161,52 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 		return is_14_;
 	}
 
-	static final void method1222(final long l) {
+	static final void updateCamera(final long l) {
 		if (!Class134.aBoolean1277) {
-			Class120_Sub12_Sub21.aFloat3293 += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
-			DummyOutputStream.aFloat28 += l * Class120_Sub15.aFloat2598 / 40.0F;
+			Class120_Sub12_Sub21.cameraPitch += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
+			DummyOutputStream.cameraYaw += l * Class120_Sub15.aFloat2598 / 40.0F;
 		}
 		final int playerX = TileParticleQueue.selfPlayer.x;
 		final int playerZ = TileParticleQueue.selfPlayer.z;
-		if (Class69_Sub3_Sub1.playerRenderX - playerX < -500 || Class69_Sub3_Sub1.playerRenderX - playerX > 500 || InterfaceListener.playerRenderZ - playerZ < -500 || InterfaceListener.playerRenderZ - playerZ > 500) {
-			Class69_Sub3_Sub1.playerRenderX = playerX;
-			InterfaceListener.playerRenderZ = playerZ;
+		if (Class69_Sub3_Sub1.cameraX - playerX < -500 || Class69_Sub3_Sub1.cameraX - playerX > 500 || InterfaceListener.cameraZ - playerZ < -500 || InterfaceListener.cameraZ - playerZ > 500) {
+			Class69_Sub3_Sub1.cameraX = playerX;
+			InterfaceListener.cameraZ = playerZ;
 		}
-		if (Class69_Sub3_Sub1.playerRenderX != playerX) {
-			final int i_30_ = playerX - Class69_Sub3_Sub1.playerRenderX;
-			int i_31_ = (int) (l * i_30_ / 320L);
-			if (i_30_ <= 0) {
-				if (i_31_ != 0) {
-					if (i_31_ < i_30_) {
-						i_31_ = i_30_;
+		if (Class69_Sub3_Sub1.cameraX != playerX) {
+			final int xDelta = playerX - Class69_Sub3_Sub1.cameraX;
+			int xStep = (int) (l * xDelta / 320L);
+			if (xDelta > 0) {
+				if (xStep != 0) {
+					if (xStep > xDelta) {
+						xStep = xDelta;
 					}
 				} else {
-					i_31_ = -1;
+					xStep = 1;
 				}
-			} else if (i_31_ == 0) {
-				i_31_ = 1;
-			} else if (i_31_ > i_30_) {
-				i_31_ = i_30_;
+			} else if (xStep == 0) {
+				xStep = -1;
+			} else if (xDelta > xStep) {
+				xStep = xDelta;
 			}
-			Class69_Sub3_Sub1.playerRenderX += i_31_;
+			Class69_Sub3_Sub1.cameraX += xStep;
 		}
-		if (InterfaceListener.playerRenderZ != playerZ) {
-			final int i_32_ = playerZ - InterfaceListener.playerRenderZ;
-			int i_33_ = (int) (l * i_32_ / 320L);
-			if (i_32_ > 0) {
-				if (i_33_ != 0) {
-					if (i_33_ > i_32_) {
-						i_33_ = i_32_;
+		if (InterfaceListener.cameraZ != playerZ) {
+			final int zDelta = playerZ - InterfaceListener.cameraZ;
+			int zStep = (int) (l * zDelta / 320L);
+			if (zDelta > 0) {
+				if (zStep != 0) {
+					if (zStep > zDelta) {
+						zStep = zDelta;
 					}
 				} else {
-					i_33_ = 1;
+					zStep = 1;
 				}
-			} else if (i_33_ == 0) {
-				i_33_ = -1;
-			} else if (i_32_ > i_33_) {
-				i_33_ = i_32_;
+			} else if (zStep == 0) {
+				zStep = -1;
+			} else if (zDelta > zStep) {
+				zStep = zDelta;
 			}
-			InterfaceListener.playerRenderZ += i_33_;
+			InterfaceListener.cameraZ += zStep;
 		}
 		Class127.method1892();
 	}

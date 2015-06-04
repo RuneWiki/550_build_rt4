@@ -6,12 +6,12 @@ import java.nio.ByteOrder;
 
 import javax.media.opengl.GL;
 
-final class Class94 {
+final class Shadow {
 	private final int textureId;
 	private int anInt872 = -1;
 	private static byte[] pixels = new byte[16384];
 	private VertexBuffer aClass104_874;
-	boolean aBoolean875 = true;
+	boolean outputToSprite = true;
 	private ByteBuffer aByteBuffer876;
 	private VertexBuffer aClass104_877;
 	private ByteBuffer aByteBuffer878;
@@ -64,12 +64,11 @@ final class Class94 {
 		final ByteBuffer byteBuffer = ByteBuffer.wrap(pixels);
 		byteBuffer.limit(16384);
 		HDToolkit.bindTexture2D(textureId);
-		//glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.ByteBuffer pixels) 
-		gl.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, byteBuffer);//TEXTURE_2D, 0, ALPHA, 128, 1228, 0, ALPHA, UNSIGNED_BYTE, 
+		gl.glTexImage2D(3553, 0, 6406, 128, 128, 0, 6406, 5121, byteBuffer);//TEXTURE_2D, 0, ALPHA, 128, 128, 0, ALPHA, UNSIGNED_BYTE, 
 		return true;
 	}
 
-	final void method777() {
+	final void draw() {
 		final GL gl = HDToolkit.gl;
 		HDToolkit.bindTexture2D(textureId);
 		if (aClass104_877 != null) {
@@ -94,58 +93,59 @@ final class Class94 {
 		}
 	}
 
-	final void method778(final int[][] is, final int i, final int i_10_) {
+	final void method778(final int[][] heightMap, final int chunkX, final int chunkZ) {
 		final Buffer class120_sub7 = new Buffer(1620);
-		for (int i_11_ = 0; i_11_ <= 8; i_11_++) {
-			for (int i_12_ = 0; i_12_ <= 8; i_12_++) {
+		for (int tileZ = 0; tileZ <= 8; tileZ++) {
+			for (int tileX = 0; tileX <= 8; tileX++) {
 				if (HDToolkit.usingBigEndian) {
-					class120_sub7.putFloatAsInt(i_12_ / 8.0F);
-					class120_sub7.putFloatAsInt(i_11_ / 8.0F);
-					class120_sub7.putFloatAsInt(i_12_ * 128);
-					class120_sub7.putFloatAsInt(is[i_12_ + i][i_11_ + i_10_]);
-					class120_sub7.putFloatAsInt(i_11_ * 128);
+					class120_sub7.putFloatAsInt(tileX / 8.0F);
+					class120_sub7.putFloatAsInt(tileZ / 8.0F);
+					class120_sub7.putFloatAsInt(tileX * 128);
+					class120_sub7.putFloatAsInt(heightMap[tileX + chunkX][tileZ + chunkZ]);
+					class120_sub7.putFloatAsInt(tileZ * 128);
 				} else {
-					class120_sub7.putFloatAsLEInt(i_12_ / 8.0F);
-					class120_sub7.putFloatAsLEInt(i_11_ / 8.0F);
-					class120_sub7.putFloatAsLEInt(i_12_ * 128);
-					class120_sub7.putFloatAsLEInt(is[i_12_ + i][i_11_ + i_10_]);
-					class120_sub7.putFloatAsLEInt(i_11_ * 128);
+					class120_sub7.putFloatAsLEInt(tileX / 8.0F);
+					class120_sub7.putFloatAsLEInt(tileZ / 8.0F);
+					class120_sub7.putFloatAsLEInt(tileX * 128);
+					class120_sub7.putFloatAsLEInt(heightMap[tileX + chunkX][tileZ + chunkZ]);
+					class120_sub7.putFloatAsLEInt(tileZ * 128);
 				}
 			}
 		}
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7.buf, 0, class120_sub7.pos);
 			aClass104_877 = new VertexBuffer();
-			aClass104_877.method885(bytebuffer);
+			aClass104_877.initData(bytebuffer);
 		} else {
 			aByteBuffer876 = ByteBuffer.allocateDirect(class120_sub7.pos).order(ByteOrder.nativeOrder());
 			aByteBuffer876.put(class120_sub7.buf, 0, class120_sub7.pos);
 			aByteBuffer876.flip();
 		}
 		final Buffer class120_sub7_13_ = new Buffer(1536);
-		for (int i_14_ = 0; i_14_ < 8; i_14_++) {
-			for (int i_15_ = 0; i_15_ < 8; i_15_++) {
+		//TileZ and TileX might be vise versa
+		for (int tileZ = 0; tileZ < 8; tileZ++) {
+			for (int tileX = 0; tileX < 8; tileX++) {
 				if (HDToolkit.usingBigEndian) {
-					class120_sub7_13_.putInt(i_15_ + (i_14_ + 1) * 9);
-					class120_sub7_13_.putInt(i_15_ + i_14_ * 9);
-					class120_sub7_13_.putInt(i_15_ + 1 + i_14_ * 9);
-					class120_sub7_13_.putInt(i_15_ + (i_14_ + 1) * 9);
-					class120_sub7_13_.putInt(i_15_ + 1 + i_14_ * 9);
-					class120_sub7_13_.putInt(i_15_ + 1 + (i_14_ + 1) * 9);
+					class120_sub7_13_.putInt(tileX + (tileZ + 1) * 9);
+					class120_sub7_13_.putInt(tileX + tileZ * 9);
+					class120_sub7_13_.putInt(tileX + 1 + tileZ * 9);
+					class120_sub7_13_.putInt(tileX + (tileZ + 1) * 9);
+					class120_sub7_13_.putInt(tileX + 1 + tileZ * 9);
+					class120_sub7_13_.putInt(tileX + 1 + (tileZ + 1) * 9);
 				} else {
-					class120_sub7_13_.putLEInt(i_15_ + (i_14_ + 1) * 9);
-					class120_sub7_13_.putLEInt(i_15_ + i_14_ * 9);
-					class120_sub7_13_.putLEInt(i_15_ + 1 + i_14_ * 9);
-					class120_sub7_13_.putLEInt(i_15_ + (i_14_ + 1) * 9);
-					class120_sub7_13_.putLEInt(i_15_ + 1 + i_14_ * 9);
-					class120_sub7_13_.putLEInt(i_15_ + 1 + (i_14_ + 1) * 9);
+					class120_sub7_13_.putLEInt(tileX + (tileZ + 1) * 9);
+					class120_sub7_13_.putLEInt(tileX + tileZ * 9);
+					class120_sub7_13_.putLEInt(tileX + 1 + tileZ * 9);
+					class120_sub7_13_.putLEInt(tileX + (tileZ + 1) * 9);
+					class120_sub7_13_.putLEInt(tileX + 1 + tileZ * 9);
+					class120_sub7_13_.putLEInt(tileX + 1 + (tileZ + 1) * 9);
 				}
 			}
 		}
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7_13_.buf, 0, class120_sub7_13_.pos);
 			aClass104_874 = new VertexBuffer();
-			aClass104_874.method884(bytebuffer);
+			aClass104_874.initElementData(bytebuffer);
 		} else {
 			aByteBuffer878 = ByteBuffer.allocateDirect(class120_sub7_13_.pos).order(ByteOrder.nativeOrder());
 			aByteBuffer878.put(class120_sub7_13_.buf, 0, class120_sub7_13_.pos);
@@ -153,7 +153,7 @@ final class Class94 {
 		}
 	}
 
-	public Class94() {
+	public Shadow() {
 		final GL gl = HDToolkit.gl;
 		final int[] is = new int[1];
 		gl.glGenTextures(1, is, 0);
@@ -164,5 +164,6 @@ final class Class94 {
 		gl.glTexParameteri(3553, 10240, 9729);//TEXTURE_2D, TEXTURE_MAG_FILTER, LINEAR
 		gl.glTexParameteri(3553, 10242, 33071);//TEXTURE_2D, TEXTURE_WRAP_S, CLAMP_TO_EDGE
 		gl.glTexParameteri(3553, 10243, 33071);//TEXTURE_2D, TEXTURE_WRAP_T, CLAMP_TO_EDGE
+		//Makes bitmap texture
 	}
 }

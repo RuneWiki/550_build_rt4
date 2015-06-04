@@ -9,7 +9,7 @@ final class Class120_Sub4 extends Node {
 	int anInt2432;
 	private final int anInt2433;
 	private final int anInt2434;
-	static Deque aClass105_2435 = new Deque();
+	static Deque topPriorityInterfaceScripts = new Deque();
 	private final int anInt2436;
 	private final int anInt2437;
 	int anInt2438;

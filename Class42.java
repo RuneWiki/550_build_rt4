@@ -16,41 +16,41 @@ final class Class42 {
 			if (Class179.aByteArrayArray1777[i_1_] != null) {
 				int i_2_ = -1;
 				for (int i_3_ = 0; i_3_ < Class120_Sub12_Sub29.anInt3362; i_3_++) {
-					if (Class120_Sub12_Sub8.anIntArray3190[i_3_] == Class120_Sub12_Sub36.anIntArray3417[i_1_]) {
+					if (Class120_Sub12_Sub8.anIntArray3190[i_3_] == Class120_Sub12_Sub36.regionBitPackeds[i_1_]) {
 						i_2_ = i_3_;
 						break;
 					}
 				}
-				if ((i_2_ ^ 0xffffffff) == 0) {
-					Class120_Sub12_Sub8.anIntArray3190[Class120_Sub12_Sub29.anInt3362] = Class120_Sub12_Sub36.anIntArray3417[i_1_];
+				if (i_2_ == -1) {
+					Class120_Sub12_Sub8.anIntArray3190[Class120_Sub12_Sub29.anInt3362] = Class120_Sub12_Sub36.regionBitPackeds[i_1_];
 					i_2_ = Class120_Sub12_Sub29.anInt3362++;
 				}
-				final Buffer class120_sub7 = new Buffer(Class179.aByteArrayArray1777[i_1_]);
-				int i_4_ = 0;
-				while (Class179.aByteArrayArray1777[i_1_].length > class120_sub7.pos && i_4_ < 511 && Class148.localNpcCount < 1023) {
-					final int index = i_4_++ << 6 | i_2_;
-					final int positionBitpacked = class120_sub7.getUShort();
+				final Buffer buffer = new Buffer(Class179.aByteArrayArray1777[i_1_]);
+				int npcCount = 0;
+				while (Class179.aByteArrayArray1777[i_1_].length > buffer.pos && npcCount < 511 && Class148.localNpcCount < 1023) {
+					final int index = npcCount++ << 6 | i_2_;
+					final int positionBitpacked = buffer.getUShort();
 					final int level = positionBitpacked >> 14;
 					final int x = (positionBitpacked >> 7) & 0x3f;
-					final int z = 0x3f & positionBitpacked;
-					final int i_9_ = (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) * 64 - GameEntity.currentBaseX + x;
-					final int i_11_ = (Class120_Sub12_Sub36.anIntArray3417[i_1_] & 0xff) * 64 - Class181.currentBaseZ + z;
-					int npcId = class120_sub7.getUShort();
+					final int z = positionBitpacked & 0x3f;
+					final int npcX = (Class120_Sub12_Sub36.regionBitPackeds[i_1_] >> 8) * 64 - GameEntity.currentBaseX + x;
+					final int npcZ = (Class120_Sub12_Sub36.regionBitPackeds[i_1_] & 0xff) * 64 - LightType.currentBaseZ + z;
+					int npcId = buffer.getUShort();
 					final NpcType npcType = NpcType.list(npcId);
-					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.aByte1700 & 0x1) > 0 && SpotAnimationNode.anInt3469 == level && i_9_ >= 0 && npcType.size + i_9_ < 104 && i_11_ >= 0 && i_11_ + npcType.size < 104) {
+					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.loginScreenProperties & 0x1) > 0 && SpotAnimationNode.anInt3469 == level && npcX >= 0 && npcType.size + npcX < 104 && npcZ >= 0 && npcZ + npcType.size < 104) {
 						Class120_Sub12_Sub11.npcList[index] = new Npc();
-						final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[index];
+						final Npc npc = Class120_Sub12_Sub11.npcList[index];
 						Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-						class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
-						class180_sub5_sub2.setNpcType(npcType);
-						class180_sub5_sub2.setSize(class180_sub5_sub2.npcType.size);
-						class180_sub5_sub2.newFaceDegrees = class180_sub5_sub2.faceDegrees = Class15.anIntArray101[class180_sub5_sub2.npcType.spawnDirection];
-						class180_sub5_sub2.anInt3010 = class180_sub5_sub2.npcType.anInt1672;
-						if (class180_sub5_sub2.anInt3010 == 0) {
-							class180_sub5_sub2.faceDegrees = 0;
+						npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+						npc.setNpcType(npcType);
+						npc.setSize(npc.npcType.size);
+						npc.newFaceDegrees = npc.faceDegrees = Class15.anIntArray101[npc.npcType.spawnDirection];
+						npc.anInt3010 = npc.npcType.anInt1672;
+						if (npc.anInt3010 == 0) {
+							npc.faceDegrees = 0;
 						}
-						class180_sub5_sub2.entityRenderDataId = class180_sub5_sub2.npcType.anInt1692;
-						class180_sub5_sub2.method2323(i_9_, i_11_, class180_sub5_sub2.getSize(), true);
+						npc.entityRenderDataId = npc.npcType.renderDataId;
+						npc.setPos(npcX, npcZ, npc.getSize(), true);
 					}
 				}
 			}

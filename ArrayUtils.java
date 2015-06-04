@@ -2,7 +2,9 @@
  * Visit http://jode.sourceforge.net/
  */
 //http://en.wikipedia.org/wiki/Duff%27s_device
+//http://en.wikipedia.org/wiki/Quicksort
 final class ArrayUtils {
+	
 	static final void fillArray(final short[] is, int i, int i_0_, final short i_1_) {
 		i_0_ = i + i_0_ - 7;
 		while (i < i_0_) {
@@ -341,5 +343,71 @@ final class ArrayUtils {
 		final byte[] is_10_ = new byte[is.length];
 		arrayCopy(is, 0, is_10_, 0, is.length);
 		return is_10_;
+	}
+
+	static final void quicksortArray(final int[] is, final Object[] objects) {
+		ArrayUtils.quicksortArray(is.length - 1, objects, 0, is);
+	}
+
+	static final void quicksortArray(final int len, final Object[] objects, final int off, final int[] is) {
+		if (len > off) {
+			final int i_5_ = (off + len) / 2;
+			final int i_7_ = is[i_5_];
+			final Object object = objects[i_5_];
+			is[i_5_] = is[len];
+			is[len] = i_7_;
+			objects[i_5_] = objects[len];
+			objects[len] = object;
+			int i_6_ = off;
+			for (int i_8_ = off; i_8_ < len; i_8_++) {
+				if (is[i_8_] < i_7_ + (i_8_ & 0x1)) {
+					final int i_9_ = is[i_8_];
+					is[i_8_] = is[i_6_];
+					is[i_6_] = i_9_;
+					final Object object_10_ = objects[i_8_];
+					objects[i_8_] = objects[i_6_];
+					objects[i_6_++] = object_10_;
+				}
+			}
+			is[len] = is[i_6_];
+			is[i_6_] = i_7_;
+			objects[len] = objects[i_6_];
+			objects[i_6_] = object;
+			quicksortArray(i_6_ - 1, objects, off, is);
+			quicksortArray(len, objects, 1 + i_6_, is);
+		}
+	}
+
+	static final void quicksortArray(final int i_50_, final long[] ls, final int i_51_, final int[] is) {
+		if (i_50_ > i_51_) {
+			final int i_52_ = (i_50_ + i_51_) / 2;
+			int i_53_ = i_51_;
+			final long l = ls[i_52_];
+			ls[i_52_] = ls[i_50_];
+			ls[i_50_] = l;
+			final int i_54_ = is[i_52_];
+			is[i_52_] = is[i_50_];
+			is[i_50_] = i_54_;
+			for (int i_55_ = i_51_; i_55_ < i_50_; i_55_++) {
+				if (ls[i_55_] < (i_55_ & 0x1) + l) {
+					final long l_56_ = ls[i_55_];
+					ls[i_55_] = ls[i_53_];
+					ls[i_53_] = l_56_;
+					final int i_57_ = is[i_55_];
+					is[i_55_] = is[i_53_];
+					is[i_53_++] = i_57_;
+				}
+			}
+			ls[i_50_] = ls[i_53_];
+			ls[i_53_] = l;
+			is[i_50_] = is[i_53_];
+			is[i_53_] = i_54_;
+			quicksortArray(i_53_ - 1, ls, i_51_, is);
+			quicksortArray(i_50_, ls, i_53_ - -1, is);
+		}
+	}
+
+	static final void quicksortArray(final int[] is, final long[] ls) {
+		quicksortArray(ls.length - 1, ls, 0, is);
 	}
 }

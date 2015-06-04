@@ -15,7 +15,7 @@ final class Class28 {
 	int anInt179;
 	int anInt180;
 	int anInt182;
-	static int[] anIntArray183;
+	static int[] locationsMapFileIds;
 	int anInt184;
 	int anInt185;
 	long bitPacked = 0L;

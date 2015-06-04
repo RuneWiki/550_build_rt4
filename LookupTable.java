@@ -3,9 +3,9 @@
  */
 
 final class LookupTable {
-	static int[] anIntArray495;
+	static int[] mapFileIds;
 	private final int[] identTable;
-	static int anInt497 = -1;
+	static int gameScreenDrawX = -1;
 	static int weight = 0;
 
 	static final void method486() {
@@ -37,7 +37,7 @@ final class LookupTable {
 	}
 
 	static final void clearInterfaceChanges() {
-		Class120_Sub14_Sub10.interfaceChangeCache.clear();
+		QuickChatMessageType.interfaceChangeCache.clear();
 		AbstractMouseWheelHandler.aClass177_114.clear();
 		Class88.aClass177_831.clear();
 	}

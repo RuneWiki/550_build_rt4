@@ -23,7 +23,7 @@ final class Class79_Sub1 {
 	}
 
 	static final long getGroundDecorationUid(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.groundDecoration == null) {
 			return 0L;
 		}

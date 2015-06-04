@@ -15,7 +15,7 @@ final class OverridedJInterface extends Node {
 	static int worldOff;
 	static WorldMapFont aClass98_2739;
 	static int anInt2740;
-	static int[][][] tileHeightMap;
+	static int[][][] activeTileHeightMap;
 	static int anInt2742 = 0;
 	static int[] anIntArray2743 = { 2047, 16383, 65535 };
 	int type;

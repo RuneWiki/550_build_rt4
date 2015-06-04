@@ -9,13 +9,13 @@ import java.io.StringWriter;
 import java.util.Date;
 
 final class MagnetType {
-	private boolean aBoolean251 = false;
-	int anInt252;
-	private int theta;
+	private boolean invertDirectionLength = false;
+	int localDirectionZ;
+	private int rotation;
 	static int anInt254;
 	int effectType;
 	static JagexInterface aClass189_256;
-	int anInt257;
+	int localDirectionX;
 	int anInt258;
 	static int anInt259;
 	static int anInt260;
@@ -23,7 +23,7 @@ final class MagnetType {
 	int directionLength;
 	static int[] anIntArray263 = { 2, 2, 4, 0, 1, 8, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 };
 	int constantStrength = 0;
-	int cosTheta;
+	int rotCos;
 	int visibility;
 	int constantSpeed = 0;
 	int strength;
@@ -40,13 +40,13 @@ final class MagnetType {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			theta = buffer.getUShort();
+			rotation = buffer.getUShort();
 		} else if (code == 2) {
 			buffer.getUByte();
 		} else if (code == 3) {
-			this.anInt257 = buffer.getInt();
+			this.localDirectionX = buffer.getInt();
 			this.localDirectionY = buffer.getInt();
-			this.anInt252 = buffer.getInt();
+			this.localDirectionZ = buffer.getInt();
 		} else if (code == 4) {
 			this.effectType = buffer.getUByte();
 			this.strength = buffer.getInt();
@@ -57,7 +57,7 @@ final class MagnetType {
 		} else if (code == 9) {
 			this.constantStrength = 1;
 		} else if (code == 10) {
-			aBoolean251 = true;
+			invertDirectionLength = true;
 		}
 	}
 
@@ -74,8 +74,8 @@ final class MagnetType {
 	}
 
 	final void postDecode() {
-		this.cosTheta = Rasterizer.cosTable[theta];
-		this.directionLength = (int) Math.sqrt(this.anInt252 * this.anInt252 + this.anInt257 * this.anInt257 + this.localDirectionY * this.localDirectionY);
+		this.rotCos = Rasterizer.cosTable[rotation];
+		this.directionLength = (int) Math.sqrt(this.localDirectionX * this.localDirectionX + this.localDirectionY * this.localDirectionY + this.localDirectionZ * this.localDirectionZ);
 		if (this.strength == 0) {
 			this.strength = 1;
 		}
@@ -87,7 +87,7 @@ final class MagnetType {
 		} else if (this.effectType == 2) {
 			this.maxRange = this.directionLength * 8 / this.strength;
 		}
-		if (aBoolean251) {
+		if (invertDirectionLength) {
 			this.directionLength *= -1;
 		}
 	}
@@ -219,19 +219,19 @@ final class MagnetType {
 		if (zBound2 > maxZ) {
 			zBound2 = maxZ;
 		}
-		FrameLoader frameLoader = null;
+		FrameGroup frameLoader = null;
 		if (seqType != null) {
 			frame = seqType.frames[frame];
-			frameLoader = FrameLoader.list(frame >> 16);
+			frameLoader = FrameGroup.list(frame >> 16);
 			frame &= 0xffff;
 		}
 		if (frameLoader == null) {
 			cachedModel = cachedModel.method2381(true, true, true);
-			cachedModel.resize((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
+			cachedModel.scale((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
 			cachedModel.translate((xBound1 + xBound2) / 2, 0, (zBound1 + zBound2) / 2);
 		} else {
 			cachedModel = cachedModel.method2381(!frameLoader.method1578(frame), !frameLoader.method1579(frame), true);
-			cachedModel.resize((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
+			cachedModel.scale((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
 			cachedModel.translate((xBound2 + xBound1) / 2, 0, (zBound1 + zBound2) / 2);
 			cachedModel.method2389(frameLoader, frame);//animate
 		}

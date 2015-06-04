@@ -14,21 +14,15 @@ final class GrandExchangeObject {
 	int price;
 	int id;
 	static int[] anIntArray1501;
-	static String[] aStringArray1502;
+	static String[] chatMessages;
 
 	static {
 		anInt1494 = 1;
-		aStringArray1502 = new String[100];
+		chatMessages = new String[100];
 	}
 
 	final int method2097() {
 		return (0x8 & progress) != 8 ? 0 : 1;
-	}
-
-	static final void setupNpcTypeVariables(final js5 js5, final js5 class50_1_, final boolean bool) {
-		NpcType.npcMemberClient = bool;
-		NpcType.configClient = class50_1_;
-		NpcType.aClass50_181 = js5;
 	}
 
 	final int getProgress() {

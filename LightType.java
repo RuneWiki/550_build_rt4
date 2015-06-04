@@ -2,15 +2,17 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class181 {
+final class LightType {
 	static NodeCache aClass35_1784 = new NodeCache(16);
 	static int currentBaseZ;
 	int anInt1786;
 	int anInt1787 = 2048;
 	int anInt1788;
 	int anInt1789 = 2048;
+	static js5 configClient;
+	static ObjectCache recentUse = new ObjectCache(64);
 	static int[] anIntArray1790 = new int[5];
-	static int anInt1791 = 0;
+	static int locationModelMissingCount = 0;
 
 	static final String method2439() {
 		String host = "www";
@@ -49,21 +51,25 @@ final class Class181 {
 		}
 	}
 
-	static final Class181 list(final int id) {
-		Class181 class181 = (Class181) Class120_Sub12_Sub35.aClass21_3411.get(id);
-		if (class181 != null) {
-			return class181;
-		}
-		final byte[] is = Class101.aClass50_966.getFile(31, id);
-		class181 = new Class181();
-		if (is != null) {
-			class181.decode(new Buffer(is));
-		}
-		Class120_Sub12_Sub35.aClass21_3411.put(class181, id);
-		return class181;
+	static final void setup(final js5 js5) {
+		configClient = js5;
 	}
 
-	public Class181() {
+	static final LightType list(final int id) {
+		LightType lightType = (LightType) recentUse.get(id);
+		if (lightType != null) {
+			return lightType;
+		}
+		final byte[] data = configClient.getFile(31, id);
+		lightType = new LightType();
+		if (data != null) {
+			lightType.decode(new Buffer(data));
+		}
+		recentUse.put(lightType, id);
+		return lightType;
+	}
+
+	public LightType() {
 		this.anInt1786 = 0;
 		this.anInt1788 = 0;
 	}

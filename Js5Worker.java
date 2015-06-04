@@ -6,7 +6,7 @@ import java.io.IOException;
 final class Js5Worker {
 	static int anInt396;
 	static js5 aClass50_397;
-	static String[] aStringArray399;
+	static String[] alternativeAccountUsernames;
 	private final Queue urgentQueue = new Queue();
 	private final Queue aClass177_402 = new Queue();
 	private final Queue prefetchQueue = new Queue();
@@ -55,7 +55,7 @@ final class Js5Worker {
 			i_7_ = 0;
 		}
 		int i_11_ = i_7_;
-		if (Class120_Sub30_Sub2.anInt3699 <= i_6_ && i_6_ <= IdentityKit.anInt1334) {
+		if (Class120_Sub30_Sub2.anInt3699 <= i_6_ && i_6_ <= Identikit.anInt1334) {
 			final int[] is = GameEntity.anIntArrayArray3009[i_6_];
 			final int i_12_ = Class3.method83(MagnetType.anInt260, i_2_ - i, ParamType.anInt3544);
 			final int i_13_ = Class3.method83(MagnetType.anInt260, i + i_2_, ParamType.anInt3544);
@@ -75,7 +75,7 @@ final class Js5Worker {
 			if (i_16_ >= 0 && i_11_ >= 1) {
 				i_11_--;
 				i_16_ -= i_11_ << 1;
-				Class120_Sub14_Sub23.anIntArray3654[i_11_] = i_9_;
+				QuickChatCategoryType.anIntArray3654[i_11_] = i_9_;
 			}
 			i_9_++;
 			i_10_ += i_18_;
@@ -84,23 +84,23 @@ final class Js5Worker {
 				i_10_ -= i_8_ << 1;
 				final int i_19_ = i_6_ + -i_8_;
 				final int i_20_ = i_6_ - -i_8_;
-				if (Class120_Sub30_Sub2.anInt3699 <= i_20_ && i_19_ <= IdentityKit.anInt1334) {
+				if (Class120_Sub30_Sub2.anInt3699 <= i_20_ && i_19_ <= Identikit.anInt1334) {
 					if (i_8_ >= i_7_) {
 						final int i_21_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
 						final int i_22_ = Class3.method83(MagnetType.anInt260, i_2_ - i_9_, ParamType.anInt3544);
-						if (IdentityKit.anInt1334 >= i_20_) {
+						if (Identikit.anInt1334 >= i_20_) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_20_], i_3_, i_22_, i_21_);
 						}
 						if (i_19_ >= Class120_Sub30_Sub2.anInt3699) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_19_], i_3_, i_22_, i_21_);
 						}
 					} else {
-						final int i_23_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
+						final int i_23_ = QuickChatCategoryType.anIntArray3654[i_8_];
 						final int i_24_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_9_, ParamType.anInt3544);
 						final int i_25_ = Class3.method83(MagnetType.anInt260, i_2_ - i_9_, ParamType.anInt3544);
 						final int i_26_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_23_, ParamType.anInt3544);
 						final int i_27_ = Class3.method83(MagnetType.anInt260, i_2_ - i_23_, ParamType.anInt3544);
-						if (IdentityKit.anInt1334 >= i_20_) {
+						if (Identikit.anInt1334 >= i_20_) {
 							final int[] is = GameEntity.anIntArrayArray3009[i_20_];
 							AmbientSound.fillArray(is, i_3_, i_25_, i_27_);
 							AmbientSound.fillArray(is, i_5_, i_27_, i_26_);
@@ -117,24 +117,24 @@ final class Js5Worker {
 			}
 			final int i_28_ = i_6_ + i_9_;
 			final int i_29_ = i_6_ + -i_9_;
-			if (Class120_Sub30_Sub2.anInt3699 <= i_28_ && IdentityKit.anInt1334 >= i_29_) {
+			if (Class120_Sub30_Sub2.anInt3699 <= i_28_ && Identikit.anInt1334 >= i_29_) {
 				int i_30_ = i_8_ + i_2_;
 				int i_31_ = -i_8_ + i_2_;
 				if (i_30_ >= MagnetType.anInt260 && ParamType.anInt3544 >= i_31_) {
 					i_30_ = Class3.method83(MagnetType.anInt260, i_30_, ParamType.anInt3544);
 					i_31_ = Class3.method83(MagnetType.anInt260, i_31_, ParamType.anInt3544);
 					if (i_9_ >= i_7_) {
-						if (IdentityKit.anInt1334 >= i_28_) {
+						if (Identikit.anInt1334 >= i_28_) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_28_], i_3_, i_31_, i_30_);
 						}
 						if (Class120_Sub30_Sub2.anInt3699 <= i_29_) {
 							AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_29_], i_3_, i_31_, i_30_);
 						}
 					} else {
-						final int i_32_ = i_11_ >= i_9_ ? i_11_ : Class120_Sub14_Sub23.anIntArray3654[i_9_];
+						final int i_32_ = i_11_ >= i_9_ ? i_11_ : QuickChatCategoryType.anIntArray3654[i_9_];
 						final int i_33_ = Class3.method83(MagnetType.anInt260, i_2_ - -i_32_, ParamType.anInt3544);
 						final int i_34_ = Class3.method83(MagnetType.anInt260, i_2_ - i_32_, ParamType.anInt3544);
-						if (IdentityKit.anInt1334 >= i_28_) {
+						if (Identikit.anInt1334 >= i_28_) {
 							final int[] is = GameEntity.anIntArrayArray3009[i_28_];
 							AmbientSound.fillArray(is, i_3_, i_31_, i_34_);
 							AmbientSound.fillArray(is, i_5_, i_34_, i_33_);
@@ -238,7 +238,7 @@ final class Js5Worker {
 		}
 		final int i_43_ = i_40_ << 7;
 		final int i_44_ = i_41_ << 7;
-		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.tileHeightMap[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.tileHeightMap[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.tileHeightMap[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
+		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.activeTileHeightMap[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.activeTileHeightMap[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
 			return true;
 		}
 		return false;
@@ -289,8 +289,8 @@ final class Js5Worker {
 	static final void method368(final byte[][] is, final int i_45_, final Light[] class44s, final int[][] is_46_, final byte[][] is_47_, final float[][] fs, final byte[][] is_48_, final float[][] fs_49_, final float[][] fs_50_, final int i_51_, final byte[][] is_52_) {
 		for (int i_53_ = 0; i_53_ < i_45_; i_53_++) {
 			final Light light = class44s[i_53_];
-			if (light.anInt384 == i_51_) {
-				final Class133 class133 = new Class133();
+			if (light.level == i_51_) {
+				final LightRenderer class133 = new LightRenderer();
 				int i_54_ = -light.anInt370 + (light.z >> 7);
 				int i_55_ = 0;
 				if (i_54_ < 0) {
@@ -544,8 +544,8 @@ final class Js5Worker {
 					i_55_++;
 				}
 				if (class133.anInt1267 > 0 && class133.anInt1271 > 0) {
-					class133.method1947();
-					light.aClass133_380 = class133;
+					class133.init();
+					light.lightRenderer = class133;
 				}
 			}
 		}

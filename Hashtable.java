@@ -52,7 +52,7 @@ final class Hashtable {
 		}
 		while (current < this.capacity) {
 			final Node nextNode = this.table[current++].next;
-			if (nextNode != this.table[-1 + current]) {
+			if (nextNode != this.table[current - 1]) {
 				lastIterated = nextNode.next;
 				return nextNode;
 			}

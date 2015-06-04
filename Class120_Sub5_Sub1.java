@@ -3,22 +3,22 @@
  */
 
 final class Class120_Sub5_Sub1 extends Class120_Sub5 {
-	byte[] aByteArray3114;
-	int anInt3115;
+	byte[] output;
+	int loopBegin;
 	int anInt3116;
 	boolean aBoolean3117;
-	int anInt3118;
+	int loopEnd;
 
 	final Class120_Sub5_Sub1 method1067(final Decimator decimator) {
-		this.aByteArray3114 = decimator.method2220(this.aByteArray3114);
+		this.output = decimator.method2220(this.output);
 		this.anInt3116 = decimator.method2217(this.anInt3116);
-		if (this.anInt3115 == this.anInt3118) {
-			this.anInt3115 = this.anInt3118 = decimator.method2218(this.anInt3115);
+		if (this.loopBegin == this.loopEnd) {
+			this.loopBegin = this.loopEnd = decimator.method2218(this.loopBegin);
 		} else {
-			this.anInt3115 = decimator.method2218(this.anInt3115);
-			this.anInt3118 = decimator.method2218(this.anInt3118);
-			if (this.anInt3115 == this.anInt3118) {
-				this.anInt3115--;
+			this.loopBegin = decimator.method2218(this.loopBegin);
+			this.loopEnd = decimator.method2218(this.loopEnd);
+			if (this.loopBegin == this.loopEnd) {
+				this.loopBegin--;
 			}
 		}
 		return this;
@@ -26,16 +26,16 @@ final class Class120_Sub5_Sub1 extends Class120_Sub5 {
 
 	Class120_Sub5_Sub1(final int i, final byte[] is, final int i_0_, final int i_1_) {
 		this.anInt3116 = i;
-		this.aByteArray3114 = is;
-		this.anInt3115 = i_0_;
-		this.anInt3118 = i_1_;
+		this.output = is;
+		this.loopBegin = i_0_;
+		this.loopEnd = i_1_;
 	}
 
 	Class120_Sub5_Sub1(final int i, final byte[] is, final int i_2_, final int i_3_, final boolean bool) {
 		this.anInt3116 = i;
-		this.aByteArray3114 = is;
-		this.anInt3115 = i_2_;
-		this.anInt3118 = i_3_;
+		this.output = is;
+		this.loopBegin = i_2_;
+		this.loopEnd = i_3_;
 		this.aBoolean3117 = bool;
 	}
 }

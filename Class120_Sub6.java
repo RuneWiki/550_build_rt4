@@ -77,7 +77,7 @@ final class Class120_Sub6 extends Node {
 
 	static final void method1074(final int i, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final int i_8_, final int i_10_) {
 		if (js5.loadInterface(i)) {
-			client.method60(Node.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
+			client.method60(JagexInterface.interfaceCache[i], -1, i_8_, i_6_, i_4_, i_10_, i_5_, i_7_);
 		}
 	}
 

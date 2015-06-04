@@ -37,6 +37,10 @@ final class Class145 {
 		}
 	}
 
+	static final void setup(final js5 js5) {
+		aClass50_678 = js5;
+	}
+
 	static final Class145 list(final int id) {
 		Class145 class145 = (Class145) aClass21_1486.get(id);
 		if (class145 != null) {
@@ -57,7 +61,7 @@ final class Class145 {
 			int maxInterfaceDist = Math.min(jagexInterface.width / 2, jagexInterface.height / 2);
 			if (dist > maxInterfaceDist * maxInterfaceDist) {
 				maxInterfaceDist -= 10;
-				final int rot = (int) DummyOutputStream.aFloat28 & 0x7ff;
+				final int rot = (int) DummyOutputStream.cameraYaw & 0x7ff;
 				int rotSin = Rasterizer.sinTable[rot];
 				int rotCos = Rasterizer.cosTable[rot];
 				final int rotX = targetY * rotCos - targetX * rotSin >> 16;
@@ -66,12 +70,12 @@ final class Class145 {
 				final int posX = (int) (maxInterfaceDist * Math.sin(theta));
 				final int posY = (int) (maxInterfaceDist * Math.cos(theta));
 				if (!HDToolkit.glEnabled) {
-					((LDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[iconType]).method1612(interfaceX + posX + jagexInterface.width / 2 - 10, interfaceY - posY + jagexInterface.height / 2 - 10, 20, 20, 15, 15, theta, 256);
+					((LDSprite) Class69_Sub2.hintMapEdgeSprites[iconType]).method1612(interfaceX + posX + jagexInterface.width / 2 - 10, interfaceY - posY + jagexInterface.height / 2 - 10, 20, 20, 15, 15, theta, 256);
 				} else {
-					((HDSprite) Class69_Sub2.aClass120_Sub14_Sub19Array2237[iconType]).method1601(240, 240, (interfaceX + posX + jagexInterface.width / 2) * 16, (interfaceY - posY + jagexInterface.height / 2) * 16, (int) (theta * 10430.378), 4096);
+					((HDSprite) Class69_Sub2.hintMapEdgeSprites[iconType]).method1601(240, 240, (interfaceX + posX + jagexInterface.width / 2) * 16, (interfaceY - posY + jagexInterface.height / 2) * 16, (int) (theta * 10430.378), 4096);
 				}
 			} else {
-				Class23.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, targetX, targetY, Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167[iconType]);
+				client.drawSpriteOnMinimap(jagexInterface, interfaceX, interfaceY, targetX, targetY, Class120_Sub12_Sub5.hintMapMarkerSprites[iconType]);
 			}
 		}
 	}

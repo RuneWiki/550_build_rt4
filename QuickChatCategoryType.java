@@ -2,16 +2,18 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub14_Sub23 extends NodeSub {
+final class QuickChatCategoryType extends NodeSub {
 	int[] anIntArray3648;
 	static int anInt3649;
-	String aString3650;
+	String name;
 	int[] anIntArray3651;
 	char[] aCharArray3652;
 	char[] aCharArray3653;
+	static NodeCache recentUse;
+	static js5 aClass50_2277;
+	static js5 aClass50_1456;
 	static int[] anIntArray3654;
-	static String aString3655 = "You can't add yourself to your own friend list.";
-
+	
 	final void decode(final Buffer buffer) {
 		for (;;) {
 			final int code = buffer.getUByte();
@@ -73,13 +75,13 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 		}
 	}
 
-	public Class120_Sub14_Sub23() {
+	public QuickChatCategoryType() {
 		/* empty */
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.aString3650 = buffer.getJagexString();
+			this.name = buffer.getJagexString();
 		} else if (code == 2) {
 			final int i_18_ = buffer.getUByte();
 			this.anIntArray3651 = new int[i_18_];
@@ -99,5 +101,32 @@ final class Class120_Sub14_Sub23 extends NodeSub {
 				this.aCharArray3653[i_16_] = i_17_ != 0 ? Class120_Sub12_Sub24.method1328(i_17_) : '\0';
 			}
 		}
+	}
+
+	static final QuickChatCategoryType list(final int id) {
+		QuickChatCategoryType quickChatCategoryType = (QuickChatCategoryType) QuickChatCategoryType.recentUse.get(id);
+		if (quickChatCategoryType != null) {
+			return quickChatCategoryType;
+		}
+		byte[] is;
+		if (id >= 32768) {
+			is = aClass50_2277.getFile(0, id & 0x7fff);
+		} else {
+			is = aClass50_1456.getFile(0, id);
+		}
+		quickChatCategoryType = new QuickChatCategoryType();
+		if (is != null) {
+			quickChatCategoryType.decode(new Buffer(is));
+		}
+		if (id >= 32768) {
+			quickChatCategoryType.method1644();
+		}
+		QuickChatCategoryType.recentUse.put(quickChatCategoryType, id);
+		return quickChatCategoryType;
+	}
+
+	static final void setup(final js5 js5, final js5 class50_27_) {
+		aClass50_2277 = class50_27_;
+		aClass50_1456 = js5;
 	}
 }

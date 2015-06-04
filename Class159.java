@@ -59,7 +59,7 @@ final class Class159 {
 		int i_40_ = i_30_ * (i_7_ + -1);
 		int i_41_ = i_34_;
 		int i_42_ = (-1 + i_13_) * i_33_;
-		if (i_8_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_8_) {
+		if (i_8_ >= Class120_Sub30_Sub2.anInt3699 && Identikit.anInt1334 >= i_8_) {
 			final int[] is = GameEntity.anIntArrayArray3009[i_8_];
 			final int i_43_ = Class3.method83(MagnetType.anInt260, -i_10_ + i_6_, ParamType.anInt3544);
 			final int i_44_ = Class3.method83(MagnetType.anInt260, i_6_ + i_10_, ParamType.anInt3544);
@@ -116,7 +116,7 @@ final class Class159 {
 			final int i_48_ = i_8_ - i_14_;
 			i_40_ -= i_30_;
 			i_37_ -= i_30_;
-			if (i_47_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_48_) {
+			if (i_47_ >= Class120_Sub30_Sub2.anInt3699 && Identikit.anInt1334 >= i_48_) {
 				final int i_49_ = Class3.method83(MagnetType.anInt260, i_12_ + i_6_, ParamType.anInt3544);
 				final int i_50_ = Class3.method83(MagnetType.anInt260, i_6_ + -i_12_, ParamType.anInt3544);
 				if (bool) {
@@ -128,7 +128,7 @@ final class Class159 {
 						AmbientSound.fillArray(is, i, i_52_, i_51_);
 						AmbientSound.fillArray(is, i_5_, i_51_, i_49_);
 					}
-					if (IdentityKit.anInt1334 >= i_47_) {
+					if (Identikit.anInt1334 >= i_47_) {
 						final int[] is = GameEntity.anIntArrayArray3009[i_47_];
 						AmbientSound.fillArray(is, i_5_, i_50_, i_52_);
 						AmbientSound.fillArray(is, i, i_52_, i_51_);
@@ -138,7 +138,7 @@ final class Class159 {
 					if (i_48_ >= Class120_Sub30_Sub2.anInt3699) {
 						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_48_], i_5_, i_50_, i_49_);
 					}
-					if (IdentityKit.anInt1334 >= i_47_) {
+					if (Identikit.anInt1334 >= i_47_) {
 						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_47_], i_5_, i_50_, i_49_);
 					}
 				}
@@ -147,7 +147,7 @@ final class Class159 {
 	}
 
 	static final void method2096(final int i, final int i_53_, final int i_54_, final int i_55_) {
-		if (-i + i_55_ < MagnetType.anInt260 || ParamType.anInt3544 < i_55_ + i || -i + i_54_ < Class120_Sub30_Sub2.anInt3699 || i_54_ + i > IdentityKit.anInt1334) {
+		if (-i + i_55_ < MagnetType.anInt260 || ParamType.anInt3544 < i_55_ + i || -i + i_54_ < Class120_Sub30_Sub2.anInt3699 || i_54_ + i > Identikit.anInt1334) {
 			Class120_Sub12_Sub23.method1325(i_54_, i_55_, i, i_53_);
 		} else {
 			CollisionMap.method211(i_54_, i_55_, i, i_53_);

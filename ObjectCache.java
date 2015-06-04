@@ -51,11 +51,6 @@ final class ObjectCache {
 		}
 	}
 
-	static final void method189(final js5 js5, final js5 class50_1_) {
-		FileSystemWorker.aClass50_794 = class50_1_;
-		LabelGroup.aClass50_2413 = js5;
-	}
-
 	final void clearSoftReference() {
 		for (AbstractObject class120_sub14_sub3 = (AbstractObject) aClass177_126.peekFirst(); class120_sub14_sub3 != null; class120_sub14_sub3 = (AbstractObject) aClass177_126.peekNext()) {
 			if (class120_sub14_sub3.isSoftReference()) {
@@ -77,7 +72,7 @@ final class ObjectCache {
 		LightManager.lights = new Light[255];
 		LightManager.lightsPos = 0;
 		HDModelRenderer.method2436();
-		Class47.method388();
+		ShadowManager.method388();
 		Class54.method479();
 		Class120_Sub30_Sub1.method1739();
 		Class79_Sub1.resetTitleScreen();
@@ -89,19 +84,19 @@ final class ObjectCache {
 			}
 		}
 		if (HDToolkit.glEnabled) {
-			Class47.method382(104, 104);
+			ShadowManager.init(104, 104);
 			ParticleEmitter.setHdr(WallDecoration.hdrEnabled);
 			ParticleEngine.method964();
 		}
-		Class8.constructFonts(Class7.aClass50_63, ClanMember.aClass50_2576);
-		GameShell.constructSprites(Class7.aClass50_63);
+		Class8.constructFonts(client.aClass50_63, ClanMember.aClass50_2576);
+		GameShell.constructSprites(client.aClass50_63);
 		Class157.aClass120_Sub14_Sub19_1472 = null;
-		FrameLoader.aClass120_Sub14_Sub19_3611 = null;
+		FrameGroup.aClass120_Sub14_Sub19_3611 = null;
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
 		Class173.aClass120_Sub14_Sub19_1725 = null;
 		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
 		if (Class109.gameState == 5) {
-			IsaacCipher.drawTitleScreenSprites(Class7.aClass50_63);
+			IsaacCipher.drawTitleScreenSprites(client.aClass50_63);
 		}
 		if (Class109.gameState == 10) {
 			EnumType.method1421(false);
@@ -167,7 +162,7 @@ final class ObjectCache {
 		return value;
 	}
 
-	static final void method194(final InterfaceListener listener, final int i) {
+	static final void executeScript(final InterfaceListener listener, final int i) {
 		final Object[] objectData = listener.objectData;
 		final int scriptId = ((Integer) objectData[0]).intValue();
 		final ClientScript clientScript = ClientScript.list(scriptId);

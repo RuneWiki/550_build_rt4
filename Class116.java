@@ -57,7 +57,7 @@ final class Class116 {
 		if (EmitterType.mouseInsideWorldMap && MapFunctionType.aClass105_653 != null) {
 			for (Class120_Sub16 class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getFront(); class120_sub16 != null; class120_sub16 = (Class120_Sub16) MapFunctionType.aClass105_653.getNext()) {
 				final MapFunctionType mapFunctionType = MapFunctionType.list(class120_sub16.mapFunctionNode.id);
-				if (EnumType.anInt3450 != 0 || !class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY)) {
+				if (EnumType.anInt3450 != 0 || !class120_sub16.inBounds(Queue.lastMouseX, ChunkAtmosphere.lastMouseY)) {
 					if (class120_sub16.mapFunctionNode.focused) {
 						class120_sub16.mapFunctionNode.focused = false;
 						Class112.method989(16, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function unfocus

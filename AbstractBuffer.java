@@ -4,7 +4,7 @@
 
 abstract class AbstractBuffer {
 	static int mouseWheelRotation = 0;
-	static int anInt599 = 0;
+	static int mapFilesMissingCount = 0;
 	static float aFloat600;
 
 	abstract byte[] get();

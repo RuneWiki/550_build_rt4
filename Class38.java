@@ -21,10 +21,10 @@ final class Class38 {
 	}
 
 	static final void method314(final int i, final int i_3_, final int i_4_) {
-		for (int i_5_ = 0; i_5_ < MapSceneType.anInt1361; i_5_++) {
+		for (int i_5_ = 0; i_5_ < MapSceneType.activeGroundTileLength; i_5_++) {
 			for (int i_6_ = 0; i_6_ < WallDecoration.anInt1900; i_6_++) {
 				for (int i_7_ = 0; i_7_ < Class120_Sub12_Sub38.anInt3440; i_7_++) {
-					final GroundTile class120_sub18 = LabelGroup.groundTiles[i_5_][i_6_][i_7_];
+					final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i_5_][i_6_][i_7_];
 					if (class120_sub18 != null) {
 						final WallLocation class182 = class120_sub18.wallLocation;
 						if (class182 != null && class182.aClass180_1800.method2268()) {
@@ -55,13 +55,13 @@ final class Class38 {
 	}
 
 	static final boolean method315(final int level) {
-		if (Class120_Sub14_Sub10.landScapeAsLDSprite == null) {
+		if (QuickChatMessageType.landScapeAsLDSprite == null) {
 			if (!HDToolkit.glEnabled && Class134.landscapeAsAbstractSprite != null) {
-				Class120_Sub14_Sub10.landScapeAsLDSprite = (LDSprite) Class134.landscapeAsAbstractSprite;
+				QuickChatMessageType.landScapeAsLDSprite = (LDSprite) Class134.landscapeAsAbstractSprite;
 			} else {
-				Class120_Sub14_Sub10.landScapeAsLDSprite = new LDSprite(512, 512);
+				QuickChatMessageType.landScapeAsLDSprite = new LDSprite(512, 512);
 			}
-			final int[] pixels = Class120_Sub14_Sub10.landScapeAsLDSprite.pixels;
+			final int[] pixels = QuickChatMessageType.landScapeAsLDSprite.pixels;
 			for (int id = 0; id < pixels.length; id++) {
 				pixels[id] = 1;
 			}
@@ -130,7 +130,7 @@ final class Class38 {
 										}
 									}
 								}
-								Class7.mapFunctionLocIds[Class120_Sub24.mapFunctionCount] = locType.myId;
+								client.mapFunctionLocIds[Class120_Sub24.mapFunctionCount] = locType.myId;
 								MapFunctionType.mapFunctionXs[Class120_Sub24.mapFunctionCount] = x2;
 								Class69_Sub2.mapFunctionZs[Class120_Sub24.mapFunctionCount] = z2;
 								Class120_Sub24.mapFunctionCount++;
@@ -140,7 +140,7 @@ final class Class38 {
 				}
 			}
 		}
-		Class120_Sub14_Sub10.landScapeAsLDSprite.method1617();
+		QuickChatMessageType.landScapeAsLDSprite.method1617();
 		final int whiteColor = 0xffffff;//-10 - (-238 + -(int) (20.0 * Math.random())) + (228 + (int) (20.0 * Math.random()) << 8) + (-10 + (int) (20.0 * Math.random()) + 238 << 16);
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int z = 1; z < 103; z++) {
@@ -164,22 +164,22 @@ final class Class38 {
 			}
 		}
 		if (HDToolkit.glEnabled) {
-			final int[] pixels = Class120_Sub14_Sub10.landScapeAsLDSprite.pixels;
+			final int[] pixels = QuickChatMessageType.landScapeAsLDSprite.pixels;
 			for (int id = 0; id < pixels.length; id++) {
 				if (pixels[id] == 0) {
 					pixels[id] = 1;
 				}
 			}
-			Class134.landscapeAsAbstractSprite = new HDSprite(Class120_Sub14_Sub10.landScapeAsLDSprite);
+			Class134.landscapeAsAbstractSprite = new HDSprite(QuickChatMessageType.landScapeAsLDSprite);
 		} else {
-			Class134.landscapeAsAbstractSprite = Class120_Sub14_Sub10.landScapeAsLDSprite;
+			Class134.landscapeAsAbstractSprite = QuickChatMessageType.landScapeAsLDSprite;
 		}
 		if (HDToolkit.glEnabled) {
 			GraphicsLD.pixels = null;
 		} else {
 			ClanMember.fullscreenGraphics.init2dCanvas();
 		}
-		Class120_Sub14_Sub10.landScapeAsLDSprite = null;
+		QuickChatMessageType.landScapeAsLDSprite = null;
 		return true;
 	}
 

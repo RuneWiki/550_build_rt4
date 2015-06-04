@@ -3,7 +3,7 @@
  */
 import java.awt.Frame;
 
-final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
+final class QuickChatMessageType extends NodeSub {
 	private int[] anIntArray3528;
 	private int[][] anIntArrayArray3529;
 	static Frame fullscreenFrame;
@@ -12,13 +12,16 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 	static int[] anIntArray3533 = new int[14];
 	static Hashtable interfaceChangeCache = new Hashtable(16);
 	int[] anIntArray3535;
-	private String[] aStringArray3536;
+	private String[] text;
+	static js5 aClass50_1011;
+	static js5 aClass50_143;
+	static NodeCache recentUse = new NodeCache(64);
 	static int menuHeight;
 
 	static final void method1499(final Class28 class28) {
 		for (int i = class28.anInt180; i <= class28.anInt182; i++) {
 			for (int i_0_ = class28.anInt184; i_0_ <= class28.anInt175; i_0_++) {
-				final GroundTile class120_sub18 = LabelGroup.groundTiles[class28.anInt177][i][i_0_];
+				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[class28.anInt177][i][i_0_];
 				if (class120_sub18 != null) {
 					for (int i_1_ = 0; i_1_ < class120_sub18.anInt2638; i_1_++) {
 						if (class120_sub18.aClass28Array2625[i_1_] == class28) {
@@ -66,7 +69,7 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			aStringArray3536 = EntityRenderData.splitString(buffer.getJagexString(), '<');
+			text = EntityRenderData.splitString(buffer.getJagexString(), '<');
 		} else if (code == 2) {
 			final int i_14_ = buffer.getUByte();
 			this.anIntArray3535 = new int[i_14_];
@@ -117,11 +120,11 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 		final StringBuffer stringbuffer = new StringBuffer(80);
 		if (anIntArray3528 != null) {
 			for (int i_17_ = 0; i_17_ < anIntArray3528.length; i_17_++) {
-				stringbuffer.append(aStringArray3536[i_17_]);
+				stringbuffer.append(text[i_17_]);
 				stringbuffer.append(Class101_Sub4.method849(buffer.method1098(DummyInputStream.anIntArray24[anIntArray3528[i_17_]]), anIntArray3528[i_17_], anIntArrayArray3529[i_17_]));
 			}
 		}
-		stringbuffer.append(aStringArray3536[aStringArray3536.length - 1]);
+		stringbuffer.append(text[text.length - 1]);
 		return stringbuffer.toString();
 	}
 
@@ -146,40 +149,52 @@ final class Class120_Sub14_Sub10 extends NodeSub {//Some quickchat
 
 	final String method1510() {
 		final StringBuffer stringbuffer = new StringBuffer(80);
-		if (aStringArray3536 == null) {
+		if (text == null) {
 			return "";
 		}
-		stringbuffer.append(aStringArray3536[0]);
-		for (int i_21_ = 1; i_21_ < aStringArray3536.length; i_21_++) {
+		stringbuffer.append(text[0]);
+		for (int id = 1; id < text.length; id++) {
 			stringbuffer.append("...");
-			stringbuffer.append(aStringArray3536[i_21_]);
+			stringbuffer.append(text[id]);
 		}
 		return stringbuffer.toString();
 	}
 
-	static final Class120_Sub14_Sub10 list(final int id) {
-		Class120_Sub14_Sub10 class120_sub14_sub10_0_ = (Class120_Sub14_Sub10) Normal.aClass35_158.get(id);
-		if (class120_sub14_sub10_0_ != null) {
-			return class120_sub14_sub10_0_;
+	static final void setup(final js5 js5, final Interface1 interface1, final js5 class50_45_) {
+		aClass50_143 = class50_45_;
+		aClass50_1011 = js5;
+		Class120_Sub21.anInterface1_2668 = interface1;
+		if (aClass50_143 != null) {
+			MagnetType.anInt269 = aClass50_143.getFileAmount(1);
 		}
-		byte[] is;
-		if (32768 > id) {
-			is = Class24.aClass50_143.getFile(1, id);
-		} else {
-			is = IsaacCipher.aClass50_1011.getFile(1, id & 0x7fff);
+		if (aClass50_1011 != null) {
+			Class192.anInt2120 = aClass50_1011.getFileAmount(1);
 		}
-		class120_sub14_sub10_0_ = new Class120_Sub14_Sub10();
-		if (is != null) {
-			class120_sub14_sub10_0_.decode(new Buffer(is));
-		}
-		if (id >= 32768) {
-			class120_sub14_sub10_0_.method1507();
-		}
-		Normal.aClass35_158.put(class120_sub14_sub10_0_, id);
-		return class120_sub14_sub10_0_;
 	}
 
-	public Class120_Sub14_Sub10() {
+	static final QuickChatMessageType list(final int id) {
+		QuickChatMessageType quickChatMessageType = (QuickChatMessageType) recentUse.get(id);
+		if (quickChatMessageType != null) {
+			return quickChatMessageType;
+		}
+		byte[] is;
+		if (id >= 32768) {
+			is = aClass50_1011.getFile(1, id & 0x7fff);
+		} else {
+			is = aClass50_143.getFile(1, id);
+		}
+		quickChatMessageType = new QuickChatMessageType();
+		if (is != null) {
+			quickChatMessageType.decode(new Buffer(is));
+		}
+		if (id >= 32768) {
+			quickChatMessageType.method1507();
+		}
+		recentUse.put(quickChatMessageType, id);
+		return quickChatMessageType;
+	}
+
+	public QuickChatMessageType() {
 		/* empty */
 	}
 }

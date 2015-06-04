@@ -39,7 +39,7 @@ class NodeSub extends Node {
 	}
 
 	static final void method1411(final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(2, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(2, i);
 		class120_sub14_sub7.method1453();
 	}
 

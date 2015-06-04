@@ -30,7 +30,7 @@ final class JagexInterface {
 	Object[] onMouseFocusedListener;
 	Object[] keyPressedListener;
 	byte[] keyHeldMask;
-	boolean aBoolean1956;
+	boolean drawObjCount;
 	int[] spriteIDs;
 	boolean flipHorizontal;
 	Object[] onComponentDraggedListener;
@@ -75,7 +75,7 @@ final class JagexInterface {
 	Object[] onLoopCycleListener;
 	int bitPacked;
 	Object[] onSpellDeselectionListener;
-	boolean aBoolean2001;
+	boolean gridOriginal;
 	int anInt2002;
 	boolean ignoreDepthMask;
 	int anInt2004;
@@ -173,6 +173,11 @@ final class JagexInterface {
 	int[] integerScriptValuesTriggers;
 	boolean aBoolean2097;
 	int nextFrame;
+	static boolean[] interfaceLoaded;
+	static JagexInterface[][] interfaceCache;
+	static js5 interfaceJs5;
+	static js5 aClass50_3213;
+	static js5 aClass50_1721;
 	static String aString1358 = "Loaded textures";
 	static ObjectCache fontCache = new ObjectCache(20);
 	static js5 spriteJs5;
@@ -205,7 +210,7 @@ final class JagexInterface {
 		if (modelType == 1) {//Simple model
 			AbstractModelRenderer cachedModel = (AbstractModelRenderer) modelCache.get(modelId + (modelType << 16));
 			if (cachedModel == null) {
-				final Model model = Model.get(Decimator.aClass50_1721, modelId, 0);
+				final Model model = Model.get(aClass50_1721, modelId, 0);
 				if (model == null) {
 					Class88.interfaceSpriteIsNull = true;
 					return null;
@@ -519,16 +524,16 @@ final class JagexInterface {
 			this.tooltip = buffer.getJagexString();
 			if (this.tooltip.length() == 0) {
 				if (this.actionType == 1) {
-					this.tooltip = Class120_Sub12_Sub28.okString;
+					this.tooltip = StringLibrary.okString;
 				}
 				if (this.actionType == 4) {
-					this.tooltip = Class143.selectString;
+					this.tooltip = StringLibrary.selectString;
 				}
 				if (this.actionType == 5) {
-					this.tooltip = Class143.selectString;
+					this.tooltip = StringLibrary.selectString;
 				}
 				if (this.actionType == 6) {
-					this.tooltip = TextRepository.continueString;
+					this.tooltip = StringLibrary.continueString;
 				}
 			}
 		}
@@ -643,7 +648,7 @@ final class JagexInterface {
 			this.disabledSpriteId = buffer.getInt();
 			this.rotation = buffer.getUShort();
 			final int spriteFlag = buffer.getUByte();
-			this.aBoolean2001 = (spriteFlag & 0x1) != 0;
+			this.gridOriginal = (spriteFlag & 0x1) != 0;
 			this.isAlphaSprite = (spriteFlag & 0x2) != 0;
 			this.alpha = buffer.getUByte();
 			this.outline = buffer.getUByte();
@@ -811,7 +816,7 @@ final class JagexInterface {
 		if (class120_sub14_sub8_63_ != null) {
 			return class120_sub14_sub8_63_;
 		}
-		class120_sub14_sub8_63_ = Class9.constructAbstractFont(spriteJs5, Class120_Sub12_Sub11.aClass50_3213, this.font, 0);
+		class120_sub14_sub8_63_ = Class9.constructAbstractFont(spriteJs5, aClass50_3213, this.font, 0);
 		if (class120_sub14_sub8_63_ == null) {
 			Class88.interfaceSpriteIsNull = true;
 		} else {
@@ -993,7 +998,7 @@ final class JagexInterface {
 	}
 
 	static final long getWallDecorationUid(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null || class120_sub18.wallDecoration == null) {
 			return 0L;
 		}
@@ -1016,6 +1021,29 @@ final class JagexInterface {
 		}
 		this.hasListener = true;
 		return values;
+	}
+
+	static final void setup(final js5 js5, final js5 class50_2_, final js5 class50_3_, final js5 class50_4_) {
+		spriteJs5 = js5;
+		aClass50_1721 = class50_4_;
+		interfaceJs5 = class50_3_;
+		aClass50_3213 = class50_2_;
+		interfaceCache = new JagexInterface[interfaceJs5.method421()][];
+		interfaceLoaded = new boolean[interfaceJs5.method421()];
+	}
+
+	static final JagexInterface getParentInterface(final JagexInterface jagexInterface) {
+		if (jagexInterface.parent != -1) {
+			return Class74.getJagexInterface(jagexInterface.parent);
+		}
+		final int id = jagexInterface.bitPacked >>> 16;
+		final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);
+		for (OverridedJInterface overridedJInterface = (OverridedJInterface) class140.next(); overridedJInterface != null; overridedJInterface = (OverridedJInterface) class140.getNext()) {
+			if (id == overridedJInterface.interfaceId) {
+				return Class74.getJagexInterface((int) overridedJInterface.uid);
+			}
+		}
+		return null;
 	}
 
 	static final String getActionNI(final JagexInterface jagexInterface, final int actionId) {
@@ -1056,7 +1084,7 @@ final class JagexInterface {
 		this.hasListener = false;
 		this.alpha = 0;
 		this.translateX = 0;
-		this.tooltip = Class120_Sub12_Sub28.okString;
+		this.tooltip = StringLibrary.okString;
 		this.pixelsBeforeDrag = 0;
 		this.dynamicWidthValue = (byte) 0;
 		this.maxScrollHorizontal = 0;
@@ -1085,7 +1113,7 @@ final class JagexInterface {
 		this.anInt2033 = 0;
 		this.mouseOverId = -1;
 		this.shadow = 0;
-		this.aBoolean2001 = false;
+		this.gridOriginal = false;
 		this.rotateX = 0;
 		this.rotateSpeed = 0;
 		this.dynamicYValue = (byte) 0;
@@ -1094,7 +1122,7 @@ final class JagexInterface {
 		this.targetCursorId = -1;
 		this.objId = -1;
 		this.cyclesBeforeDrag = 0;
-		this.aBoolean1956 = true;
+		this.drawObjCount = true;
 		this.aShort2065 = (short) 3000;
 		this.anInt2049 = -1;
 		this.horizontalScrollPosition = 0;

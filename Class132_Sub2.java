@@ -59,7 +59,7 @@ class Class132_Sub2 extends Class132 {
 			objects[i_3_] = objects[i_6_];
 			objects[i_6_] = object;
 			method1939(ls, i_6_ - 1, i_4_, objects);
-			method1939(ls, i_3_, 1 + i_6_, objects);
+			method1939(ls, i_3_, i_6_ + 1, objects);
 		}
 	}
 
@@ -83,10 +83,10 @@ class Class132_Sub2 extends Class132 {
 		int i_20_ = i_21_ = i_16_ + 128;
 		int i_23_;
 		int i_22_ = i_23_ = i_18_ + 128;
-		int i_24_ = OverridedJInterface.tileHeightMap[i][i_14_][i_15_] - PlayerAppearance.anInt1367;
-		int i_25_ = OverridedJInterface.tileHeightMap[i][i_14_ + 1][i_15_] - PlayerAppearance.anInt1367;
-		int i_26_ = OverridedJInterface.tileHeightMap[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.anInt1367;
-		int i_27_ = OverridedJInterface.tileHeightMap[i][i_14_][i_15_ + 1] - PlayerAppearance.anInt1367;
+		int i_24_ = OverridedJInterface.activeTileHeightMap[i][i_14_][i_15_] - PlayerAppearance.anInt1367;
+		int i_25_ = OverridedJInterface.activeTileHeightMap[i][i_14_ + 1][i_15_] - PlayerAppearance.anInt1367;
+		int i_26_ = OverridedJInterface.activeTileHeightMap[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.anInt1367;
+		int i_27_ = OverridedJInterface.activeTileHeightMap[i][i_14_][i_15_ + 1] - PlayerAppearance.anInt1367;
 		int i_28_ = i_18_ * i_12_ + i_16_ * i_13_ >> 16;
 		i_18_ = i_18_ * i_13_ - i_16_ * i_12_ >> 16;
 		i_16_ = i_28_;

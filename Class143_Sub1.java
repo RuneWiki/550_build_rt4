@@ -16,7 +16,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		if (HDToolkit.glEnabled) {
 			return true;
 		}
-		return client.aBoolean566;
+		return client.allVisibleLevels;
 	}
 
 	final void method2022(final boolean bool) {
@@ -142,7 +142,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		for (int id = 0; id < hintIcons.length; id++) {
 			final HintIcon hintIcon = hintIcons[id];
 			if (hintIcon != null && hintIcon.targetType == 2) {
-				MapFunctionGroup.worldToScreen((hintIcon.x - GameEntity.currentBaseX << 7) + hintIcon.offX, hintIcon.y * 2, (hintIcon.z - Class181.currentBaseZ << 7) + hintIcon.offY, interfaceWidth >> 1, interfaceHeight >> 1, i_21_, i_19_);
+				MapFunctionGroup.worldToScreen((hintIcon.x - GameEntity.currentBaseX << 7) + hintIcon.offX, hintIcon.y * 2, (hintIcon.z - LightType.currentBaseZ << 7) + hintIcon.offY, interfaceWidth >> 1, interfaceHeight >> 1, i_21_, i_19_);
 				if (Class120_Sub12_Sub38.screenX > -1 && Class101_Sub2.loopCycle % 20 < 10) {
 					AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
 				}
@@ -199,24 +199,24 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		return method8(i_33_).aByte1105 & 0xff;
 	}
 
-	static final int method2029(final js5 js5, final js5 class50_35_) {
+	static final int fontCachedCount(final js5 fontMetricsJs5, final js5 spritesJs5) {
 		int i_37_ = 0;
-		if (class50_35_.method429(MagnetType.p11fullId)) {
+		if (spritesJs5.groupExist(MagnetType.p11fullId)) {
 			i_37_++;
 		}
-		if (class50_35_.method429(Class191.p12fullId)) {
+		if (spritesJs5.groupExist(ChunkAtmosphere.p12fullId)) {
 			i_37_++;
 		}
-		if (class50_35_.method429(Class110.b12fullId)) {
+		if (spritesJs5.groupExist(Class110.b12fullId)) {
 			i_37_++;
 		}
-		if (js5.method429(MagnetType.p11fullId)) {
+		if (fontMetricsJs5.groupExist(MagnetType.p11fullId)) {
 			i_37_++;
 		}
-		if (js5.method429(Class191.p12fullId)) {
+		if (fontMetricsJs5.groupExist(ChunkAtmosphere.p12fullId)) {
 			i_37_++;
 		}
-		if (js5.method429(Class110.b12fullId)) {
+		if (fontMetricsJs5.groupExist(Class110.b12fullId)) {
 			i_37_++;
 		}
 		return i_37_;
@@ -265,7 +265,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
 				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
 			}
-			if (!Normal.aClass144_159.isFemale) {
+			if (!Normal.dummyPlayerAppearance.isFemale) {
 				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;
 			} else {
 				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
@@ -275,7 +275,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
 				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
 			}
-			if (!Normal.aClass144_159.isFemale) {
+			if (!Normal.dummyPlayerAppearance.isFemale) {
 				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
 			} else {
 				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;

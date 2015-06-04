@@ -21,6 +21,7 @@ final class SpotAnimType {
 	private short[] retextureOriginal;
 	private short[] retextureModified;
 	private short[] recolorOriginal;
+	static js5 aClass50_843;
 	static js5 aClass50_1443;
 	static ObjectCache modelCache = new ObjectCache(30);
 	static ObjectCache recentUse = new ObjectCache(64);
@@ -40,7 +41,7 @@ final class SpotAnimType {
 		return false;
 	}
 
-	static final void method876() {
+	static final void resetCamera() {
 		for (int i_1_ = 0; i_1_ < 5; i_1_++) {
 			Class120_Sub12_Sub12.aBooleanArray3223[i_1_] = false;
 		}
@@ -101,7 +102,7 @@ final class SpotAnimType {
 	static final void method880() {
 		if (HDToolkit.glEnabled) {
 			if (!Class93.aBoolean870) {
-				final GroundTile[][][] class120_sub18s = LabelGroup.groundTiles;
+				final GroundTile[][][] class120_sub18s = LabelGroup.activeGroundTiles;
 				for (int i_11_ = 0; i_11_ < class120_sub18s.length; i_11_++) {
 					final GroundTile[][] class120_sub18s_12_ = class120_sub18s[i_11_];
 					for (final GroundTile[] element : class120_sub18s_12_) {
@@ -184,7 +185,7 @@ final class SpotAnimType {
 	final AbstractModelRenderer constructModel(final int nextFrame, final int delay, final int frame) {
 		AbstractModelRenderer cachedModel = (AbstractModelRenderer) modelCache.get(this.myId);
 		if (cachedModel == null) {
-			final Model model = Model.get(Class90.aClass50_843, modelId, 0);
+			final Model model = Model.get(aClass50_843, modelId, 0);
 			if (model == null) {
 				return null;
 			}
@@ -208,7 +209,7 @@ final class SpotAnimType {
 			transformedModel = SeqType.list(this.animationId).method324(cachedModel, frame, delay, nextFrame);
 		}
 		if (resizeX != 128 || resizeY != 128) {
-			transformedModel.resize(resizeX, resizeY, resizeX);
+			transformedModel.scale(resizeX, resizeY, resizeX);
 		}
 		if (rotation != 0) {
 			if (rotation == 90) {
@@ -224,12 +225,17 @@ final class SpotAnimType {
 		return transformedModel;
 	}
 
+	static final void setup(final js5 js5, final js5 class50_2_) {
+		aClass50_1443 = js5;
+		aClass50_843 = class50_2_;
+	}
+
 	static final SpotAnimType list(final int id) {
 		SpotAnimType spotAnimType = (SpotAnimType) recentUse.get(id);
 		if (spotAnimType != null) {
 			return spotAnimType;
 		}
-		final byte[] data = SpotAnimType.aClass50_1443.getFile(id >>> 8, id & 0xff);
+		final byte[] data = aClass50_1443.getFile(id >>> 8, id & 0xff);
 		spotAnimType = new SpotAnimType();
 		spotAnimType.myId = id;
 		if (data != null) {

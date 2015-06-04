@@ -7,8 +7,8 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract void rotateY(int i);
 
-	final void method2361(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameLoader class120_sub14_sub18_4_, final int i_5_,
-			final FrameLoader class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
+	final void method2361(final FrameGroup class120_sub14_sub18, final int i, final FrameGroup class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameGroup class120_sub14_sub18_4_, final int i_5_,
+			final FrameGroup class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
 		if (i != -1) {
 			if (bools == null || i_5_ == -1) {
 				method2380(class120_sub14_sub18, i, class120_sub14_sub18_0_, i_1_, i_2_, i_3_, bool);
@@ -39,7 +39,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_13_, final int i_14_, final int i_15_, final int i_16_) {
+	final void method2266(final int i, final int i_13_, final int i_15_, final int i_14_, final int i_16_) {
 		/* empty */
 	}
 
@@ -68,7 +68,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract void translate(int x, int y, int z);
 
-	abstract void resize(int i, int i_32_, int i_33_);
+	abstract void scale(int x, int y, int z);
 
 	private final void method2370(final LabelGroup class120_sub1, final SeqFrame seqFrame, final SeqFrame class1_34_, final int i, final int i_35_, final boolean[] bools, final boolean bool, final boolean bool_36_, final int i_37_, final int[] is) {
 		if (class1_34_ == null || i == 0) {
@@ -243,7 +243,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract void method2379(int i, int i_82_, int i_83_, int i_84_);
 
-	final void method2380(final FrameLoader class120_sub14_sub18, final int i, final FrameLoader class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
+	final void method2380(final FrameGroup class120_sub14_sub18, final int i, final FrameGroup class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
 		if (i != -1 && method2375()) {
 			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
 			final LabelGroup class120_sub1 = seqFrame.labelGroup;
@@ -265,7 +265,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract int getMinX();
 
-	final void method2384(final FrameLoader frameLoader, final int frameId, final FrameLoader nextFrameLoader, final int nextFrame, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
+	final void method2384(final FrameGroup frameLoader, final int frameId, final FrameGroup nextFrameLoader, final int nextFrame, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
 		if (frameId != -1 && method2375()) {
 			final SeqFrame seqFrame = frameLoader.seqFrames[frameId];
 			final LabelGroup class120_sub1 = seqFrame.labelGroup;
@@ -330,7 +330,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 		/* empty */
 	}
 
-	final void method2389(final FrameLoader class120_sub14_sub18, final int i) {
+	final void method2389(final FrameGroup class120_sub14_sub18, final int i) {
 		if (i != -1 && method2375()) {
 			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
 			final LabelGroup class120_sub1 = seqFrame.labelGroup;

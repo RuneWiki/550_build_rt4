@@ -30,14 +30,14 @@ final class InterfaceChangeNode extends NodeSub {
 		return (int) this.uid;
 	}
 
-	static final void build3dScreenMenu(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int i_2_, final int i_7_) {
+	static final void build3dScreenMenu(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int mouseX, final int mouseY) {
 		if (Light.objSelected == 0) {
 			final int i_8_ = IntegerNode.anInt2792;
 			final int i_9_ = Class120_Sub12_Sub16.anInt3253;
 			final int i_10_ = Class190.anInt2100;
 			final int i_12_ = Class120_Sub30_Sub1.anInt3672;
-			final int i_11_ = i_8_ + (i_9_ - i_8_) * (i_2_ - interfaceX) / interfaceWidth;
-			final int i_13_ = i_10_ + (i_12_ - i_10_) * (i_7_ - interfaceY) / interfaceHeight;
+			final int i_11_ = i_8_ + (i_9_ - i_8_) * (mouseX - interfaceX) / interfaceWidth;
+			final int i_13_ = i_10_ + (i_12_ - i_10_) * (mouseY - interfaceY) / interfaceHeight;
 			if (Class88.spellSelected && (GroundTile.selectedSpellUseMask & 0x40) != 0) {
 				final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
 				if (jagexInterface == null) {
@@ -47,9 +47,9 @@ final class InterfaceChangeNode extends NodeSub {
 				}
 			} else {
 				if (Buffer.gameId == 1) {
-					InvType.addMenuOption(TextRepository.faceHere, "", 0L, i_11_, i_13_, (short) 47, -1);
+					InvType.addMenuOption(StringLibrary.faceHere, "", 0L, i_11_, i_13_, (short) 47, -1);
 				}
-				InvType.addMenuOption(TextRepository.walkText, "", 0L, i_11_, i_13_, (short) 26, -1);
+				InvType.addMenuOption(StringLibrary.walkText, "", 0L, i_11_, i_13_, (short) 26, -1);
 			}
 		}
 		long oldBitPacked = -1L;
@@ -70,10 +70,10 @@ final class InterfaceChangeNode extends NodeSub {
 						continue;
 					}
 					if (Light.objSelected == 1) {
-						InvType.addMenuOption(TextRepository.use, Class192.selectedObjName + " -> <col=00ffff>" + locType.name, bitPacked, x, z, (short) 16, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+						InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=00ffff>" + locType.name, bitPacked, x, z, (short) 16, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 					} else if (Class88.spellSelected) {
-						final ParamType paramType = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-						if ((0x4 & GroundTile.selectedSpellUseMask) != 0 && (paramType == null || locType.getIntegerParamValue(IdentityKit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
+						final ParamType paramType = Identikit.selectedSpellParam != -1 ? ParamType.list(Identikit.selectedSpellParam) : null;
+						if ((GroundTile.selectedSpellUseMask & 0x4) != 0 && (paramType == null || locType.getIntegerParamValue(Identikit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
 							InvType.addMenuOption(Class101.selectedSpellPrefix, Light.selectedSpellName + " -> <col=00ffff>" + locType.name, bitPacked, x, z, (short) 4, Class150.selectedSpellTargetCursor);
 						}
 					} else {
@@ -111,7 +111,7 @@ final class InterfaceChangeNode extends NodeSub {
 								}
 							}
 						}
-						InvType.addMenuOption(TextRepository.examine, "<col=00ffff>" + locType.name, locType.myId, x, z, (short) 1007, Class120_Sub12_Sub11.anInt3211);
+						InvType.addMenuOption(StringLibrary.examine, "<col=00ffff>" + locType.name, locType.myId, x, z, (short) 1007, Class120_Sub12_Sub11.anInt3211);
 					}
 				}
 				if (type == 1) {
@@ -125,7 +125,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int onTopNpcX = onTopNpc.x - (onTopNpc.npcType.size - 1) * 64;
 								final int onTopNpcZ = onTopNpc.z - (onTopNpc.npcType.size - 1) * 64;
 								if (npcX <= onTopNpcX && npc.npcType.size - (onTopNpcX - npcX >> 7) >= onTopNpc.npcType.size && npcZ <= onTopNpcZ && npc.npcType.size - (onTopNpcZ - npcZ >> 7) >= onTopNpc.npcType.size) {
-									FrameLoader.buildNpcMenu(onTopNpc.npcType, x, z, Class120_Sub12_Sub36.npcIndices[id]);
+									FrameGroup.buildNpcMenu(onTopNpc.npcType, x, z, Class120_Sub12_Sub36.npcIndices[id]);
 									onTopNpc.hasMenuAction = true;
 								}
 							}
@@ -136,7 +136,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int onTopPlayerX = onTopPlayer.x - (onTopPlayer.getSize() - 1) * 64;
 								final int onTopPlayerZ = onTopPlayer.z - (onTopPlayer.getSize() - 1) * 64;
 								if (npcX <= onTopPlayerX && npc.npcType.size - (onTopPlayerX - npcX >> 7) >= onTopPlayer.getSize() && npcZ <= onTopPlayerZ && npc.npcType.size - (onTopPlayerZ - npcZ >> 7) >= onTopPlayer.getSize()) {
-									IdentityKit.buildPlayerMenu(onTopPlayer, x, z, Class112.playerIndices[id]);
+									Identikit.buildPlayerMenu(onTopPlayer, x, z, Class112.playerIndices[id]);
 									onTopPlayer.hasMenuAction = true;
 								}
 							}
@@ -145,7 +145,7 @@ final class InterfaceChangeNode extends NodeSub {
 					if (npc.hasMenuAction) {
 						continue;
 					}
-					FrameLoader.buildNpcMenu(npc.npcType, x, z, index);
+					FrameGroup.buildNpcMenu(npc.npcType, x, z, index);
 					npc.hasMenuAction = true;
 				}
 				if (type == 0) {
@@ -159,7 +159,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int onTopNpcX = onTopNpc.x - (onTopNpc.npcType.size - 1) * 64;
 								final int onTopNpcZ = onTopNpc.z - (onTopNpc.npcType.size - 1) * 64;
 								if (playerX <= onTopNpcX && player.getSize() - (onTopNpcX - playerX >> 7) >= onTopNpc.npcType.size && playerZ <= onTopNpcZ && player.getSize() - (onTopNpcZ - playerZ >> 7) >= onTopNpc.npcType.size) {
-									FrameLoader.buildNpcMenu(onTopNpc.npcType, x, z, Class120_Sub12_Sub36.npcIndices[id]);
+									FrameGroup.buildNpcMenu(onTopNpc.npcType, x, z, Class120_Sub12_Sub36.npcIndices[id]);
 									onTopNpc.hasMenuAction = true;
 								}
 							}
@@ -170,7 +170,7 @@ final class InterfaceChangeNode extends NodeSub {
 								final int onTopPlayerX = onTopPlayer.x - (onTopPlayer.getSize() - 1) * 64;
 								final int onTopPlayerZ = onTopPlayer.z - (onTopPlayer.getSize() - 1) * 64;
 								if (playerX <= onTopPlayerX && player.getSize() - (onTopPlayerX - playerX >> 7) >= onTopPlayer.getSize() && playerZ <= onTopPlayerZ && player.getSize() - (onTopPlayerZ - playerZ >> 7) >= onTopPlayer.getSize()) {
-									IdentityKit.buildPlayerMenu(onTopPlayer, x, z, Class112.playerIndices[id]);
+									Identikit.buildPlayerMenu(onTopPlayer, x, z, Class112.playerIndices[id]);
 									onTopPlayer.hasMenuAction = true;
 								}
 							}
@@ -179,7 +179,7 @@ final class InterfaceChangeNode extends NodeSub {
 					if (player.hasMenuAction) {
 						continue;
 					}
-					IdentityKit.buildPlayerMenu(player, x, z, index);
+					Identikit.buildPlayerMenu(player, x, z, index);
 					player.hasMenuAction = true;
 				}
 				if (type == 3) {
@@ -190,8 +190,8 @@ final class InterfaceChangeNode extends NodeSub {
 							final ObjType objType = ObjType.list(objectId);
 							if (Light.objSelected != 1) {
 								if (Class88.spellSelected) {
-									final ParamType parakType = IdentityKit.selectedSpellParam == -1 ? null : ParamType.list(IdentityKit.selectedSpellParam);
-									if ((0x1 & GroundTile.selectedSpellUseMask) != 0 && (parakType == null || objType.getIntegerParamValue(IdentityKit.selectedSpellParam, parakType.defaultInt) != parakType.defaultInt)) {
+									final ParamType paramType = Identikit.selectedSpellParam != -1 ? ParamType.list(Identikit.selectedSpellParam) : null;
+									if ((GroundTile.selectedSpellUseMask & 0x1) != 0 && (paramType == null || objType.getIntegerParamValue(Identikit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
 										InvType.addMenuOption(Class101.selectedSpellPrefix, Light.selectedSpellName + " -> <col=ff9040>" + objType.name, objectId, x, z, (short) 48, Class150.selectedSpellTargetCursor);
 									}
 								} else {
@@ -201,13 +201,6 @@ final class InterfaceChangeNode extends NodeSub {
 									}
 									for (int optionId = 4; optionId >= 0; optionId--) {
 										if (options != null && options[optionId] != null) {
-											int cursorId = -1;
-											if (objType.cursor1op == optionId) {
-												cursorId = objType.cursor1;
-											}
-											if (objType.cursor2op == optionId) {
-												cursorId = objType.cursor2;
-											}
 											short code = 0;
 											if (optionId == 0) {
 												code = (short) 45;
@@ -224,13 +217,20 @@ final class InterfaceChangeNode extends NodeSub {
 											if (optionId == 4) {
 												code = (short) 44;
 											}
+											int cursorId = -1;
+											if (objType.cursor1op == optionId) {
+												cursorId = objType.cursor1;
+											}
+											if (objType.cursor2op == optionId) {
+												cursorId = objType.cursor2;
+											}
 											InvType.addMenuOption(options[optionId], "<col=ff9040>" + objType.name, objectId, x, z, code, cursorId);
 										}
 									}
-									InvType.addMenuOption(TextRepository.examine, "<col=ff9040>" + objType.name, objectId, x, z, (short) 1004, Class120_Sub12_Sub11.anInt3211);
+									InvType.addMenuOption(StringLibrary.examine, "<col=ff9040>" + objType.name, objectId, x, z, (short) 1004, Class120_Sub12_Sub11.anInt3211);
 								}
 							} else {
-								InvType.addMenuOption(TextRepository.use, Class192.selectedObjName + " -> <col=ff9040>" + objType.name, objectId, x, z, (short) 28, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+								InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=ff9040>" + objType.name, objectId, x, z, (short) 28, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 							}
 						}
 					}
@@ -251,24 +251,21 @@ final class InterfaceChangeNode extends NodeSub {
 		}
 	}
 
-	static final void method1455(final js5 js5, final Interface1 interface1, final js5 class50_45_) {
-		Class24.aClass50_143 = class50_45_;
-		IsaacCipher.aClass50_1011 = js5;
-		Class120_Sub21.anInterface1_2668 = interface1;
-		if (Class24.aClass50_143 != null) {
-			MagnetType.anInt269 = Class24.aClass50_143.getFileAmount(1);
-		}
-		if (IsaacCipher.aClass50_1011 != null) {
-			Class192.anInt2120 = IsaacCipher.aClass50_1011.getFileAmount(1);
-		}
-	}
-
 	final long method1456() {
 		return this.subUid & 0x7fffffffffffffffL;
 	}
 
+	static final InterfaceChangeNode putInterfaceChange(final int type, final int uid) {
+		InterfaceChangeNode interfaceChangeNode = (InterfaceChangeNode) QuickChatMessageType.interfaceChangeCache.get((long) type << 32 | uid);
+		if (interfaceChangeNode == null) {
+			interfaceChangeNode = new InterfaceChangeNode(type, uid);
+			QuickChatMessageType.interfaceChangeCache.put(interfaceChangeNode, interfaceChangeNode.uid);
+		}
+		return interfaceChangeNode;
+	}
+
 	static final void method761(final String string, final int i_5_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(3, i_5_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(3, i_5_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.aString3493 = string;
 	}

@@ -30,35 +30,29 @@ final class WallDecoration {
 	}
 
 	static final void method2471() {
-		Class154.anInt1441 = 0;
-		Class120_Sub12_Sub23.anInt3307 = 0;
+		Class154.toUpdateEntitiesPos = 0;
+		Class120_Sub12_Sub23.toRemoveEntitiesPos = 0;
 		SpotAnimation.method2309();
 		Class31.method262();
 		Class120_Sub12_Sub36.method1389();
-		for (int i_0_ = 0; Class120_Sub12_Sub23.anInt3307 > i_0_; i_0_++) {
-			final int i_1_ = Class43.anIntArray366[i_0_];
-			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[i_1_].lastUpdateCycle) {
-				if (Class120_Sub12_Sub11.npcList[i_1_].npcType.hasAmbientSound()) {
-					Class120_Sub16.removeAmbientSoundNpc(Class120_Sub12_Sub11.npcList[i_1_]);
+		for (int id = 0; id < Class120_Sub12_Sub23.toRemoveEntitiesPos; id++) {
+			final int index = Class43.toRemoveEntityIndices[id];
+			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[index].lastUpdateCycle) {
+				if (Class120_Sub12_Sub11.npcList[index].npcType.hasAmbientSound()) {
+					Class120_Sub16.removeAmbientSoundNpc(Class120_Sub12_Sub11.npcList[index]);
 				}
-				Class120_Sub12_Sub11.npcList[i_1_].setNpcType(null);
-				Class120_Sub12_Sub11.npcList[i_1_] = null;
+				Class120_Sub12_Sub11.npcList[index].setNpcType(null);
+				Class120_Sub12_Sub11.npcList[index] = null;
 			}
 		}
 		if (Canvas_Sub1.inputStream.pos != AbstractMouseWheelHandler.packetSize) {
-			throw new RuntimeException(new StringBuilder("gnp1 pos:").append(Canvas_Sub1.inputStream.pos).append(" psize:").append(AbstractMouseWheelHandler.packetSize).toString());
+			throw new RuntimeException("gnp1 pos:" + Canvas_Sub1.inputStream.pos + " psize:" + AbstractMouseWheelHandler.packetSize);
 		}
-		for (int i_2_ = 0; Class148.localNpcCount > i_2_; i_2_++) {
-			if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[i_2_]] == null) {
-				throw new RuntimeException(new StringBuilder("gnp2 pos:").append(i_2_).append(" size:").append(Class148.localNpcCount).toString());
+		for (int id = 0; id < Class148.localNpcCount; id++) {
+			if (Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[id]] == null) {
+				throw new RuntimeException("gnp2 pos:" + id + " size:" + Class148.localNpcCount);
 			}
 		}
-	}
-
-	static final void method2472(final js5 js5, final js5 class50_3_) {
-		SceneGroundObject.aClass50_2839 = js5;
-		IdentityKit.configClient = class50_3_;
-		Class7.anInt61 = IdentityKit.configClient.getFileAmount(3);
 	}
 
 	static final void method2473(int drawX, int drawY, final int interfaceWidth, final int interfaceHeight) {

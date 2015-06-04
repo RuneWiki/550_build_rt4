@@ -13,20 +13,6 @@ final class ObjectContainer extends Node {
 	static EntityRenderData defaultEntityRenderData = new EntityRenderData();
 	static int anInt2621;
 
-	static final JagexInterface method1665(final JagexInterface jagexInterface) {
-		if (jagexInterface.parent != -1) {
-			return Class74.getJagexInterface(jagexInterface.parent);
-		}
-		final int id = jagexInterface.bitPacked >>> 16;
-		final Class140 class140 = new Class140(Class120_Sub12_Sub13.overridedInterfaces);
-		for (OverridedJInterface overridedJInterface = (OverridedJInterface) class140.method1994(); overridedJInterface != null; overridedJInterface = (OverridedJInterface) class140.method1998()) {
-			if (id == overridedJInterface.interfaceId) {
-				return Class74.getJagexInterface((int) overridedJInterface.uid);
-			}
-		}
-		return null;
-	}
-
 	public ObjectContainer() {
 		/* empty */
 	}
@@ -141,10 +127,10 @@ final class ObjectContainer extends Node {
 				if (objType.params != null) {
 					final IntegerNode integerNode = (IntegerNode) objType.params.get(paramId);
 					if (integerNode != null) {
-						if (!multiplyByCount) {
-							value += integerNode.value;
-						} else {
+						if (multiplyByCount) {
 							value += integerNode.value * objectContainer.objectCounts[id];
+						} else {
+							value += integerNode.value;
 						}
 					}
 				}

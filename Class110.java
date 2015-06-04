@@ -17,7 +17,7 @@ final class Class110 {
 	static final void method976() {
 		OverlayType.recentUse.clear();
 		UnderlayType.recentUse.clear();
-		IdentityKit.recentUse.clear();
+		Identikit.recentUse.clear();
 		Class120_Sub12_Sub25.clearLocCache();
 		NodeCache.clearNpcCache();
 		Class120_Sub12_Sub18.clearObjCache();
@@ -30,7 +30,7 @@ final class Class110 {
 		MapFunctionType.clear();
 		GroundDecoration.method309();
 		Class153.recentUse.clear();
-		Class120_Sub12_Sub35.aClass21_3411.clear();
+		LightType.recentUse.clear();
 		DisplayModeInfo.method2214();
 		AbstractMouseWheelHandler.method160();
 		Class120_Sub12_Sub26.method1337();
@@ -56,7 +56,7 @@ final class Class110 {
 		Class65.aClass50_597.method419();
 		Class120_Sub12_Sub36.aClass50_3419.method419();
 		Class120_Sub12_Sub17.aClass50_3258.method419();
-		Class7.aClass50_63.method419();
+		client.aClass50_63.method419();
 		ParticleNodeSub.aClass50_2400.method419();
 		InterfaceListener.aClass50_2544.method419();
 		IsaacCipher.aClass50_1019.method419();
@@ -70,7 +70,7 @@ final class Class110 {
 		int i_2_ = 0;
 		final int i_3_ = (bool ? Class192.anInt2120 : MagnetType.anInt269) + i_1_;
 		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
-			final Class120_Sub14_Sub10 class120_sub14_sub10 = Class120_Sub14_Sub10.list(i_4_);
+			final QuickChatMessageType class120_sub14_sub10 = QuickChatMessageType.list(i_4_);
 			if (class120_sub14_sub10.aBoolean3531 && class120_sub14_sub10.method1510().toLowerCase().indexOf(string) != -1) {
 				if (i_2_ >= 50) {
 					Buffer.anInt2474 = -1;
@@ -92,7 +92,7 @@ final class Class110 {
 		final String[] strings = new String[Buffer.anInt2474];
 		Class120_Sub12_Sub37.aShortArray3430 = is;
 		for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
-			strings[i_7_] = Class120_Sub14_Sub10.list(is[i_7_]).method1510();
+			strings[i_7_] = QuickChatMessageType.list(is[i_7_]).method1510();
 		}
 		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
 	}

@@ -77,7 +77,7 @@ final class Class190 {
 						pixels[pixelPos + 1536 + 3] = color;
 					}
 				}
-			} else if (!FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
+			} else if (!FrameGroup.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}
@@ -107,7 +107,7 @@ final class Class190 {
 						pixels[pixelPos + 1536 + 3] = color;
 					}
 				}
-			} else if (!FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
+			} else if (!FrameGroup.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}
@@ -116,7 +116,7 @@ final class Class190 {
 			final int rotation = (int) (bitPacked >> 20) & 0x3;
 			final int locId = (int) (bitPacked >>> 32) & 0x7fffffff;
 			final LocType locType = LocType.list(locId);
-			if (locType.mapSceneId != -1 && !FrameLoader.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
+			if (locType.mapSceneId != -1 && !FrameGroup.drawMapSceneOnMinimap(locType, x, z, xOff, zOff, rotation)) {
 				return false;
 			}
 		}

@@ -285,7 +285,7 @@ final class Class120_Sub12_Sub39 extends Class120_Sub12 {
 				} else {
 					i_9_ = 0;
 				}
-				anIntArray3445[i_3_] = Class191.method2512(i_9_, Class191.method2512(i_7_ << 8, i_8_ << 16));
+				anIntArray3445[i_3_] = ChunkAtmosphere.method2512(i_9_, ChunkAtmosphere.method2512(i_7_ << 8, i_8_ << 16));
 			}
 		}
 	}

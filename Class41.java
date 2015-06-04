@@ -148,7 +148,7 @@ final class Class41 {
 						aClass97Array357[anInt353++] = class97;
 					}
 				}
-				Class57.sortArray(anInt353 - 1, aClass97Array357, 0, is);
+				ArrayUtils.quicksortArray(anInt353 - 1, aClass97Array357, 0, is);
 			}
 		}
 	}

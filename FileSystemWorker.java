@@ -9,7 +9,6 @@ final class FileSystemWorker implements Runnable {
 	private boolean stopped = false;
 	static int renderX;
 	int requestsAwaiting = 0;
-	static js5 aClass50_794;
 	private Thread thread;
 
 	@Override

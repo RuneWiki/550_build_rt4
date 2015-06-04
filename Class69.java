@@ -4,7 +4,7 @@
 
 class Class69 {
 	static int anInt614;
-	static boolean aBoolean615 = true;
+	static boolean loadingScreenOpened = true;
 	static int rootInterfaceId;
 	static int mouseButtons = 0;
 	
@@ -108,8 +108,8 @@ class Class69 {
 					}
 				}
 				if (Class101_Sub2.loopCycle < gameEntity.hpBarCycle) {
-					AbstractSprite class120_sub14_sub19 = SeqType.aClass120_Sub14_Sub19Array335[0];
-					AbstractSprite class120_sub14_sub19_15_ = SeqType.aClass120_Sub14_Sub19Array335[1];
+					AbstractSprite class120_sub14_sub19 = SeqType.hitBarDefaultSprites[0];
+					AbstractSprite class120_sub14_sub19_15_ = SeqType.hitBarDefaultSprites[1];
 					int i_16_;
 					if (!(gameEntity instanceof Npc)) {
 						i_16_ = gameEntity.getHeight();
@@ -117,7 +117,7 @@ class Class69 {
 						final Npc class180_sub5_sub2 = (Npc) gameEntity;
 						AbstractSprite[] class120_sub14_sub19s = (AbstractSprite[]) Class120_Sub12_Sub2.aClass21_3144.get(class180_sub5_sub2.npcType.anInt1666);
 						if (class120_sub14_sub19s == null) {
-							class120_sub14_sub19s = Class125.constructTransparentSprites(Class7.aClass50_63, class180_sub5_sub2.npcType.anInt1666, 0);
+							class120_sub14_sub19s = Class125.constructTransparentSprites(client.aClass50_63, class180_sub5_sub2.npcType.anInt1666, 0);
 							if (class120_sub14_sub19s != null) {
 								Class120_Sub12_Sub2.aClass21_3144.put(class120_sub14_sub19s, class180_sub5_sub2.npcType.anInt1666);
 							}
@@ -180,7 +180,7 @@ class Class69 {
 								Class120_Sub12_Sub38.screenX += 15;
 								Class120_Sub15.screenY -= 10;
 							}
-							Class69_Sub2.aClass120_Sub14_Sub19Array2238[gameEntity.hitsType[i_21_]].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, interfaceY - (-Class120_Sub15.screenY + 12));
+							Class69_Sub2.hitMarkSprites[gameEntity.hitsType[i_21_]].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, interfaceY - (-Class120_Sub15.screenY + 12));
 							ObjectCache.smallFont.method1478(Integer.toString(gameEntity.hitsValue[i_21_]), interfaceX - -Class120_Sub12_Sub38.screenX + -1, 3 + interfaceY - -Class120_Sub15.screenY, 16777215, 0);
 						}
 					}
@@ -331,7 +331,7 @@ class Class69 {
 	}
 
 	static final void method616(final int i_37_, final int i_38_, final int i_39_, final int i_40_) {
-		IdentityKit.anInt1334 = i_39_;
+		Identikit.anInt1334 = i_39_;
 		ParamType.anInt3544 = i_40_;
 		Class120_Sub30_Sub2.anInt3699 = i_37_;
 		MagnetType.anInt260 = i_38_;

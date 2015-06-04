@@ -21,17 +21,17 @@ final class Class2 {
 			} else {
 				ProjectileNode.setGameState(25);
 			}
-			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, true);
+			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait, true);
 			int i_6_ = GameEntity.currentBaseX;
-			int i_7_ = Class181.currentBaseZ;
+			int i_7_ = LightType.currentBaseZ;
 			GameEntity.currentBaseX = baseX * 8 - 48;
-			Class181.currentBaseZ = baseZ * 8 - 48;
+			LightType.currentBaseZ = baseZ * 8 - 48;
 			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = WorldMapHandler.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
 			SceneGraphNode.mapFunctionGroup = null;
 			final int xOff = GameEntity.currentBaseX - i_6_;
-			final int zOff = Class181.currentBaseZ - i_7_;
+			final int zOff = LightType.currentBaseZ - i_7_;
 			i_6_ = GameEntity.currentBaseX;
-			i_7_ = Class181.currentBaseZ;
+			i_7_ = LightType.currentBaseZ;
 			if (!loginScreen) {
 				for (int npcIndex = 0; npcIndex < 32768; npcIndex++) {
 					final Npc npc = Class120_Sub12_Sub11.npcList[npcIndex];
@@ -92,7 +92,7 @@ final class Class2 {
 				zStep = -1;
 			}
 			Class173.gameLevel = level;
-			TileParticleQueue.selfPlayer.method2343(playerX, playerZ, false);
+			TileParticleQueue.selfPlayer.setPos(playerX, playerZ, false);
 			for (int x = xStart; x != xEquality; x += xStep) {
 				for (int z = zStart; z != zEquality; z += zStep) {
 					final int oldX = x + xOff;
@@ -127,7 +127,7 @@ final class Class2 {
 				Class134.anInt1280 -= zOff;
 				FileSystemWorker.renderX -= xOff * 128;
 			}
-			Class150.anInt1407 = 0;
+			Class150.soundEffectCount = 0;
 			if (HDToolkit.glEnabled && loginScreen && (Math.abs(xOff) > 104 || Math.abs(zOff) > 104)) {
 				ModelParticleEmitter.instantScreenFade = true;
 			}

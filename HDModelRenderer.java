@@ -712,7 +712,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		if (HDToolkit.vertexBufferAsObject) {
 			final VertexBuffer class104 = new VertexBuffer();
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
-			class104.method885(bytebuffer);
+			class104.initData(bytebuffer);
 			aClass49_3863.aBoolean439 = true;
 			aClass49_3863.aByteBuffer443 = null;
 			aClass49_3863.aClass104_445 = class104;
@@ -1579,11 +1579,11 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void resize(final int i, final int i_423_, final int i_424_) {
-		for (int i_425_ = 0; i_425_ < this.vertexCount; i_425_++) {
-			this.xVertices[i_425_] = this.xVertices[i_425_] * i >> 7;
-			this.yVertices[i_425_] = this.yVertices[i_425_] * i_423_ >> 7;
-			this.zVertices[i_425_] = this.zVertices[i_425_] * i_424_ >> 7;
+	final void scale(final int x, final int y, final int z) {
+		for (int id = 0; id < this.vertexCount; id++) {
+			this.xVertices[id] = this.xVertices[id] * x >> 7;
+			this.yVertices[id] = this.yVertices[id] * y >> 7;
+			this.zVertices[id] = this.zVertices[id] * z >> 7;
 		}
 		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
@@ -1904,11 +1904,11 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void translate(final int x, final int i_544_, final int i_545_) {
-		for (int i_546_ = 0; i_546_ < this.vertexCount; i_546_++) {
-			this.xVertices[i_546_] += x;
-			this.yVertices[i_546_] += i_544_;
-			this.zVertices[i_546_] += i_545_;
+	final void translate(final int x, final int y, final int z) {
+		for (int id = 0; id < this.vertexCount; id++) {
+			this.xVertices[id] += x;
+			this.yVertices[id] += y;
+			this.zVertices[id] += z;
 		}
 		this.modelBounds.boundsCalculated = false;
 		this.aClass49_3847.aBoolean439 = false;
@@ -2325,9 +2325,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 					final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
 					if (aClass104_3882 == null) {
 						aClass104_3882 = new VertexBuffer(true);
-						aClass104_3882.method885(bytebuffer);
+						aClass104_3882.initData(bytebuffer);
 					} else {
-						aClass104_3882.method883(bytebuffer);
+						aClass104_3882.setData(bytebuffer);
 					}
 					if (bool_592_) {
 						this.aClass49_3847.aBoolean439 = true;
@@ -2389,7 +2389,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			} else if (HDToolkit.vertexBufferAsObject) {
 				final VertexBuffer class104 = new VertexBuffer();
 				final ByteBuffer bytebuffer = ByteBuffer.wrap(aClass120_Sub7_3871.buf, 0, aClass120_Sub7_3871.pos);
-				class104.method885(bytebuffer);
+				class104.initData(bytebuffer);
 				if (bool_592_) {
 					this.aClass49_3847.aBoolean439 = true;
 					this.aClass49_3847.aByteBuffer443 = null;
@@ -2922,7 +2922,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			i_725_ += i_722_ & 0xffff;
 			ls[i_722_] = ((long) i_724_ << 32) + i_725_;
 		}
-		MapFunctionType.method642(is, ls);
+		ArrayUtils.quicksortArray(is, ls);
 		this.vertexCount = class180_sub2.vertexCount;
 		anInt3861 = class180_sub2.highestVertexId;
 		this.xVertices = class180_sub2.xVertices;

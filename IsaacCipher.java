@@ -4,7 +4,6 @@
 
 final class IsaacCipher {
 	private int count;
-	static js5 aClass50_1011;
 	private int c;
 	static int crossY = 0;
 	private int b;

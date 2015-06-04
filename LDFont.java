@@ -88,7 +88,7 @@ final class LDFont extends AbstractFont {
 		}
 		final byte[] is = ClanMember.aClass50_2576.getFile(i_9_, 0);
 		class120_sub14_sub8_sub2_10_ = new LDFont(is);
-		class120_sub14_sub8_sub2_10_.setNameIcons(Class82.aClass107Array785, null);
+		class120_sub14_sub8_sub2_10_.setNameIcons(Class82.nameIconSprites, null);
 		Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
 		return class120_sub14_sub8_sub2_10_;
 	}

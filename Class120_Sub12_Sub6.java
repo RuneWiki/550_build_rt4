@@ -4,7 +4,7 @@
 import java.awt.Point;
 
 final class Class120_Sub12_Sub6 extends Class120_Sub12 {
-	static AbstractSprite[] aClass120_Sub14_Sub19Array3168;
+	static AbstractSprite[] mapDotSprites;
 	static boolean highLightingDetail;
 	private int anInt3170;
 	private int anInt3171 = 20;
@@ -18,7 +18,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		highLightingDetail = true;
 	}
 
-	static final AbstractSprite method1224(final PlayerAppearance playerAppearance, int outlineType, final int objCount, int shadow, final int objId, final boolean drawAmount, final boolean shrink, final boolean useHDSprite) {
+	static final AbstractSprite constructObjectSprite(final PlayerAppearance playerAppearance, int outlineType, final int objCount, int shadow, final int objId, final boolean drawCount, final boolean shrink, final boolean useHDSprite) {
 		ObjType objType = ObjType.list(objId);
 		if (objCount > 1 && objType.countobj != null) {
 			int countObjId = -1;
@@ -37,12 +37,12 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		}
 		LDSprite certLentTemplateSprite = null;
 		if (objType.certtemplate != -1) {
-			certLentTemplateSprite = (LDSprite) method1224(playerAppearance, 1, 10, 0, objType.certlink, false, true, true);
+			certLentTemplateSprite = (LDSprite) constructObjectSprite(playerAppearance, 1, 10, 0, objType.certlink, false, true, true);
 			if (certLentTemplateSprite == null) {
 				return null;
 			}
 		} else if (objType.lenttemplate != -1) {
-			certLentTemplateSprite = (LDSprite) method1224(playerAppearance, outlineType, objCount, shadow, objType.lentlink, false, false, true);
+			certLentTemplateSprite = (LDSprite) constructObjectSprite(playerAppearance, outlineType, objCount, shadow, objType.lentlink, false, false, true);
 			if (certLentTemplateSprite == null) {
 				return null;
 			}
@@ -83,7 +83,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 			objSprite.drawReg(0, 0);
 			objSprite = certLentTemplateSprite;
 		}
-		if (drawAmount && (objType.stackable == 1 || objCount != 1) && objCount != -1) {
+		if (drawCount && (objType.stackable == 1 || objCount != 1) && objCount != -1) {
 			Class15.objSmallFont.method1466(NodeCache.formatObjCount(objCount), 0, 9, 16776960, 1);
 		}
 		GraphicsLD.init2dCanvas(pixels, width, height);
@@ -96,22 +96,22 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		return objSprite;
 	}
 
-	static final void setCursor(int i) {
+	static final void setCursor(int newCursorId) {
 		if (!Class38.cursorsEnabled) {
-			i = -1;
+			newCursorId = -1;
 		}
-		if (Class174.currentCursorId != i) {
-			if (i != -1) {
-				final CursorType cursorType = CursorType.list(i);
+		if (Class174.currentCursorId != newCursorId) {
+			if (newCursorId != -1) {
+				final CursorType cursorType = CursorType.list(newCursorId);
 				final LDSprite cursorSprite = cursorType.getCursorSprite();
 				if (cursorSprite == null) {
-					i = -1;
+					newCursorId = -1;
 				} else {
 					NpcType.gameSignlink.setCursor(new Point(cursorType.hotSpotX, cursorType.hotSpotY), cursorSprite.trimHeight, cursorSprite.method1609(), cursorSprite.trimWidth, Node.canvas);
-					Class174.currentCursorId = i;
+					Class174.currentCursorId = newCursorId;
 				}
 			}
-			if (i == -1 && Class174.currentCursorId != -1) {
+			if (newCursorId == -1 && Class174.currentCursorId != -1) {
 				NpcType.gameSignlink.setCursor(new Point(), -1, null, -1, Node.canvas);
 				Class174.currentCursorId = -1;
 			}
@@ -212,7 +212,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void pushTilesPixels(final int[] pixels, int pixelPos, final int pixelStep, final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile != null) {
 			final PlainTile plainTile = groundTile.plainTile;
 			if (plainTile != null) {
@@ -267,7 +267,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void method1230(final int i_58_) {
-		Class120_Sub14_Sub23.anInt3649 = -1;
+		QuickChatCategoryType.anInt3649 = -1;
 		Class69.anInt614 = i_58_;
 		MasterIndexInfo.aClass50_476 = null;
 		Class120_Sub12_Sub25.anInt3312 = 1;

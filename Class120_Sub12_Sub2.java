@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	static long lastClickTime = 0L;
 
 	static final void method1201(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_0_][i_1_];
 		if (class120_sub18 != null) {
 			final WallDecoration class186 = class120_sub18.wallDecoration;
 			if (class186 != null) {
@@ -133,10 +133,6 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 				anIntArray3141[1] = Class120_Sub12_Sub3.method1207(4080, i_21_ >> 4);
 			} while (false);
 		} while (false);
-	}
-
-	static final void method1203(final js5 js5) {
-		Class101.aClass50_966 = js5;
 	}
 
 }

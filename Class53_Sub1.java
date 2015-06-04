@@ -51,7 +51,7 @@ final class Class53_Sub1 extends Class53 {
 		}
 		Class120_Sub12_Sub11.outputStream.putByteS(++client.flagCounter);
 		Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-		Class120_Sub12_Sub11.outputStream.putShort(z + Class181.currentBaseZ);
+		Class120_Sub12_Sub11.outputStream.putShort(z + LightType.currentBaseZ);
 		Class120_Sub12_Sub11.outputStream.putLEShortA(x + GameEntity.currentBaseX);
 	}
 
@@ -186,7 +186,7 @@ final class Class53_Sub1 extends Class53 {
 																										// of
 																										// new
 																										// name
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return false;
 		}

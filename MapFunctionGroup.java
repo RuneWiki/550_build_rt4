@@ -26,7 +26,7 @@ final class MapFunctionGroup {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.jagexInterface = jagexInterface;
 					class120_sub10.objectData = jagexInterface.anObjectArray2013;
-					Class88.method744(class120_sub10);
+					Class88.executeScript(class120_sub10);
 				}
 				if (i == 1 && jagexInterface.onInterfaceOverridingUpdate != null) {
 					if (jagexInterface.componentIndex >= 0) {
@@ -38,7 +38,7 @@ final class MapFunctionGroup {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.objectData = jagexInterface.onInterfaceOverridingUpdate;
 					class120_sub10.jagexInterface = jagexInterface;
-					Class88.method744(class120_sub10);
+					Class88.executeScript(class120_sub10);
 				}
 			}
 		}
@@ -67,7 +67,7 @@ final class MapFunctionGroup {
 				Class120_Sub15.screenY = -1;
 				Class120_Sub12_Sub38.screenX = -1;
 			} else if (HDToolkit.glEnabled) {
-				//Both are linked from save variable.
+				//Both are linked from same variable.
 				final int screenWidth1 = i_6_ * 512 >> 8;
 				final int screenWidth2 = i_9_ * 512 >> 8;
 				Class120_Sub12_Sub38.screenX = screenOffX + (x * screenWidth1) / z;

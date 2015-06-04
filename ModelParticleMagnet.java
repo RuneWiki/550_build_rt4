@@ -8,7 +8,7 @@ final class ModelParticleMagnet {
 	static KeyboardHandler keyboardHandler = new KeyboardHandler();
 	static int anInt1646;
 	int anInt1647;
-	static int[] anIntArray1648 = new int[2048];
+	static int[] toUpdateEntityIndex = new int[2048];
 	static js5 aClass50_1649;
 	MagnetType magnetType;
 	static short aShort1651 = 256;

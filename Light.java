@@ -5,7 +5,7 @@
 final class Light {
 	static String selectedSpellName = null;
 	int anInt370;
-	boolean aBoolean371;
+	boolean firstLevelOnly;
 	short[] aShortArray372;
 	int z;
 	int colorRgb;
@@ -14,11 +14,11 @@ final class Light {
 	float[] diffuse;
 	private int flickeringType;
 	static int anInt379;
-	Class133 aClass133_380;
+	LightRenderer lightRenderer;
 	static JagexSocket aClass46_381;
-	boolean aBoolean382;
-	int anInt384;
-	boolean aBoolean385;
+	boolean allLevels;
+	int level;
+	boolean lightOverBridge;
 	private int anInt386;
 	float quadraticAttenuation;
 	private int anInt388;
@@ -124,7 +124,6 @@ final class Light {
 
 	private final void calcAttenuation() {
 		final int distance = 64 + (this.anInt370 << 7);
-		System.out.println(anInt370);
 		this.quadraticAttenuation = 1.0F / (distance * distance);
 	}
 
@@ -182,7 +181,7 @@ final class Light {
 
 	protected Light() {
 		this.diffuse = new float[4];
-		this.aBoolean385 = false;
+		this.lightOverBridge = false;
 		if (JavaObject.anIntArray3916 == null) {
 			Js5Request.method1550();
 		}
@@ -191,14 +190,14 @@ final class Light {
 
 	Light(final Buffer buffer) {
 		this.diffuse = new float[4];
-		this.aBoolean385 = false;
+		this.lightOverBridge = false;
 		if (JavaObject.anIntArray3916 == null) {
 			Js5Request.method1550();
 		}
-		this.anInt384 = buffer.getUByte();
-		this.aBoolean371 = (0x10 & this.anInt384) != 0;
-		this.aBoolean382 = (0x8 & this.anInt384) != 0;
-		this.anInt384 = this.anInt384 & 0x7;
+		this.level = buffer.getUByte();
+		this.firstLevelOnly = (this.level & 0x10) != 0;
+		this.allLevels = (this.level & 0x8) != 0;
+		this.level = this.level & 0x7;
 		this.x = buffer.getUShort();
 		this.z = buffer.getUShort();
 		this.y = buffer.getUShort();

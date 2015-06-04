@@ -54,15 +54,15 @@ final class StringNode extends Node {
 		ParticleEngine.anInt2364 = x;
 		ParticleEngine.anInt2358 = y;
 		if (client.cameraType == 1) {
-			int i_6_ = (int) Class120_Sub12_Sub21.aFloat3293;
-			if (Normal.anInt162 / 256 > i_6_) {
-				i_6_ = Normal.anInt162 / 256;
+			int pitch = (int) Class120_Sub12_Sub21.cameraPitch;
+			if (Normal.cameraYLimit / 256 > pitch) {
+				pitch = Normal.cameraYLimit / 256;
 			}
-			final int i_7_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
-			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + Class181.anIntArray1790[4] > i_6_) {
-				i_6_ = Class181.anIntArray1790[4] + 128;
+			final int yaw = (int) DummyOutputStream.cameraYaw & 0x7ff;
+			if (Class120_Sub12_Sub12.aBooleanArray3223[4] && 128 + LightType.anIntArray1790[4] > pitch) {
+				pitch = LightType.anIntArray1790[4] + 128;
 			}
-			Class120_Sub12_Sub30.method1363(Class69_Sub3_Sub1.playerRenderX, Class22.getTileHeight(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel) - 50, InterfaceListener.playerRenderZ, i_7_, i_6_, 3 * i_6_ + 600, height);
+			Class120_Sub12_Sub30.method1363(Class69_Sub3_Sub1.cameraX, Class22.getTileHeight(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel) - 50, InterfaceListener.cameraZ, yaw, pitch, 3 * pitch + 600, height);
 		} else if (client.cameraType == 5) {
 			VarBit.method240(height);
 		}
@@ -73,7 +73,7 @@ final class StringNode extends Node {
 		final int i_10_ = UnderlayType.renderPitch;
 		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[i_13_]) {
-				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * Class181.anIntArray1790[i_13_]);
+				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * LightType.anIntArray1790[i_13_]);
 				if (i_13_ == 0) {
 					FileSystemWorker.renderX += i_14_;
 				}
@@ -84,7 +84,7 @@ final class StringNode extends Node {
 					GroundObjectNode.renderZ += i_14_;
 				}
 				if (i_13_ == 3) {
-					SpotAnimation.renderYaw = 0x7ff & SpotAnimation.renderYaw + i_14_;
+					SpotAnimation.renderYaw = SpotAnimation.renderYaw + i_14_ & 0x7ff;
 				}
 				if (i_13_ == 4) {
 					UnderlayType.renderPitch += i_14_;
@@ -117,9 +117,9 @@ final class StringNode extends Node {
 			}
 			int i_16_;
 			if (Class109.gameState == 10) {
-				i_16_ = FrameLoader.method1581(FileSystemWorker.renderX >> 10, GroundObjectNode.renderZ >> 10, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
+				i_16_ = FrameGroup.method1581(FileSystemWorker.renderX >> 10, GroundObjectNode.renderZ >> 10, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			} else {
-				i_16_ = FrameLoader.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
+				i_16_ = FrameGroup.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			}
 			if (ModelParticleEmitter.anInt1475 >= 0) {//Skyboxes in 550?
 				HDToolkit.clearDepthBuffer();
@@ -129,7 +129,7 @@ final class StringNode extends Node {
 				HDToolkit.method531(i_16_);
 			}
 			HDToolkit.method496(x, y, width, height, x + width / 2, y + height / 2, pitchAsDegrees, yawAsDegrees, Class179.anInt1775, Class179.anInt1775);
-			Class101.method835(false);
+			Class101.refreshAtmosphere(false);
 			HDToolkit.method532();
 			HDToolkit.toggleDepthTest(true);
 			HDToolkit.toggleFog(true);
@@ -156,12 +156,12 @@ final class StringNode extends Node {
 			Class69.method612(x, y, width, height, 256, 256);
 			Class143_Sub1.method2027(x, y, width, height, 256, 256);
 		} else {
-			LightManager.update(Class101_Sub2.loopCycle, !Class191.flickeringEffectsOn);
+			LightManager.update(Class101_Sub2.loopCycle, !ChunkAtmosphere.flickeringEffectsOn);
 			MouseRecorder.setupShaderRenderValues(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, SpotAnimation.renderYaw, UnderlayType.renderPitch);
 			HDToolkit.loopCycleWrapper = Class101_Sub2.loopCycle;
 			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, UnderlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, Class173.gameLevel + 1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class167.clearDepthBuffer = true;
-			LightManager.method1859();
+			LightManager.disableLights();
 			MouseRecorder.setupShaderRenderValues(0, 0, 0, 0, 0);
 			Class120_Sub2.method1050();
 			Class69.method612(x, y, width, height, Class179.anInt1775, Class179.anInt1775);
@@ -175,18 +175,18 @@ final class StringNode extends Node {
 		SpotAnimation.renderYaw = i_12_;
 		UnderlayType.renderPitch = i_10_;
 		GroundObjectNode.renderZ = i_9_;
-		if (Class69.aBoolean615 && Class178.js5Worker.getUrgentSize() == 0) {
-			Class69.aBoolean615 = false;
+		if (Class69.loadingScreenOpened && Class178.js5Worker.getUrgentSize() == 0) {
+			Class69.loadingScreenOpened = false;
 		}
-		if (Class69.aBoolean615) {
+		if (Class69.loadingScreenOpened) {
 			if (HDToolkit.glEnabled) {
 				GraphicsHD.fillRect(x, y, width, height, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
-			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, false);
+			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait, false);
 		}
-		if (!titleScreen && !Class69.aBoolean615 && !Class15.menuOpen && x <= Class115.menuMouseX && width + x > Class115.menuMouseX && y <= Class120_Sub12_Sub21.menuMouseY && y + height > Class120_Sub12_Sub21.menuMouseY) {
+		if (!titleScreen && !Class69.loadingScreenOpened && !Class15.menuOpen && x <= Class115.menuMouseX && width + x > Class115.menuMouseX && y <= Class120_Sub12_Sub21.menuMouseY && y + height > Class120_Sub12_Sub21.menuMouseY) {
 			InterfaceChangeNode.build3dScreenMenu(x, y, width, height, Class115.menuMouseX, Class120_Sub12_Sub21.menuMouseY);
 		}
 	}

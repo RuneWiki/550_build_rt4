@@ -6,7 +6,7 @@ final class Class88 {
 	SceneGraphNode aClass180_826;
 	static int timoutCycle;
 	static boolean spellSelected = false;
-	static Deque aClass105_829;
+	static Deque lowPriorityInterfaceScripts;
 	LDIndexedSprite aClass107_Sub1_830;
 	static Queue aClass177_831;
 	static int anInt832;
@@ -16,7 +16,7 @@ final class Class88 {
 
 	static {
 		timoutCycle = 0;
-		aClass105_829 = new Deque();
+		lowPriorityInterfaceScripts = new Deque();
 		aClass177_831 = new Queue();
 		anIntArray833 = new int[32];
 		interfaceSpriteIsNull = false;
@@ -64,7 +64,7 @@ final class Class88 {
 					sceneGraphNode = class28.aClass180_174;
 				}
 				if (locType.anInt1821 != 0 && x + locType.sizeX < 104 && locType.sizeX + z < 104 && x + locType.sizeZ < 104 && locType.sizeZ + z < 104) {
-					collisionMap.method214(i_7_, z, locType.sizeZ, x, locType.sizeX, locType.aBoolean1844, !locType.aBoolean1880);
+					collisionMap.method214(x, z, locType.sizeX, locType.sizeZ, i_7_, locType.aBoolean1844, !locType.aBoolean1880);
 				}
 			} else if (i_3_ == 3) {
 				final GroundDecoration class36 = Class118.removeGroundDecoration(x, z, level);
@@ -138,8 +138,8 @@ final class Class88 {
 		}
 	}
 
-	static final void method744(final InterfaceListener interfaceListener) {
-		ObjectCache.method194(interfaceListener, 200000);
+	static final void executeScript(final InterfaceListener interfaceListener) {
+		ObjectCache.executeScript(interfaceListener, 200000);
 	}
 
 	public Class88() {

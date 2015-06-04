@@ -3,16 +3,16 @@
  */
 
 final class CollisionMap {
+	private final int width;
 	private final int height;
-	private int xOffset;
-	private int zOffset;
+	private final int xOffset;
+	private final int zOffset;
+	final int[][] collisionFlags;
 	static int anInt151;
-	int[][] collisionFlags;
 	static int[] anIntArray153 = { 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 };
-	private int width;
 
-	private final void method210(final int x, final int z, final int flag) {
-		this.collisionFlags[x][z] = Class120_Sub12_Sub3.method1207(this.collisionFlags[x][z], flag ^ 0xffffffff);
+	private final void removeFlag(final int x, final int z, final int flag) {
+		this.collisionFlags[x][z] &= flag ^ 0xffffffff;
 	}
 
 	static final void method211(final int i, final int i_2_, final int i_3_, final int i_4_) {
@@ -50,47 +50,47 @@ final class CollisionMap {
 		this.collisionFlags[x][z] |= 40000;
 	}
 
-	final void method213(int x, int z, final int i, final int i_18_, final boolean bool, final boolean bool_17_) {
+	final void method213(int x, int z, final int sizeX, final int sizeZ, final boolean rangable, final boolean bool_17_) {
 		x -= xOffset;
 		z -= zOffset;
-		int i_22_ = 256;
-		if (bool) {
-			i_22_ |= 0x20000;
+		int flag = 0x100;
+		if (rangable) {
+			flag |= 0x20000;
 		}
 		if (bool_17_) {
-			i_22_ |= 0x40000000;
+			flag |= 0x40000000;
 		}
-		for (int i_23_ = x; i_23_ < x + i_18_; i_23_++) {
-			if (i_23_ >= 0 && width > i_23_) {
-				for (int i_24_ = z; i_24_ < z + i; i_24_++) {
-					if (i_24_ >= 0 && height > i_24_) {
-						addFlag(i_23_, i_24_, i_22_);
+		for (int posX = x; posX < x + sizeX; posX++) {
+			if (posX >= 0 && posX < width) {
+				for (int posZ = z; posZ < z + sizeZ; posZ++) {
+					if (posZ >= 0 && posZ < height) {
+						addFlag(posX, posZ, flag);
 					}
 				}
 			}
 		}
 	}
 
-	final void method214(final int rotation, int z, int i_26_, int x, int i_29_, final boolean bool, final boolean bool_30_) {
+	final void method214(int x, int z, int sizeX, int sizeZ, final int rotation, final boolean rangable, final boolean bool_30_) {
 		x -= xOffset;
 		z -= zOffset;
 		if (rotation == 1 || rotation == 3) {
-			final int i_31_ = i_29_;
-			i_29_ = i_26_;
-			i_26_ = i_31_;
+			final int sizeX_ = sizeX;
+			sizeX = sizeZ;
+			sizeZ = sizeX_;
 		}
-		int i_32_ = 256;
-		if (bool) {
-			i_32_ |= 0x20000;
+		int flag = 0x100;
+		if (rangable) {
+			flag |= 0x20000;
 		}
 		if (bool_30_) {
-			i_32_ |= 0x40000000;
+			flag |= 0x40000000;
 		}
-		for (int i_33_ = x; i_33_ < x + i_29_; i_33_++) {
-			if (i_33_ >= 0 && width > i_33_) {
-				for (int i_34_ = z; i_26_ + z > i_34_; i_34_++) {
-					if (i_34_ >= 0 && height > i_34_) {
-						method210(i_33_, i_34_, i_32_);
+		for (int posX = x; posX < x + sizeX; posX++) {
+			if (posX >= 0 && posX < width) {
+				for (int posZ = z; posZ < x + sizeZ; posZ++) {
+					if (posZ >= 0 && posZ < height) {
+						removeFlag(posX, posZ, flag);
 					}
 				}
 			}
@@ -102,179 +102,179 @@ final class CollisionMap {
 		i_39_ -= zOffset;
 		if (i_36_ == 0) {
 			if (i == 0) {
-				method210(i_35_, i_39_, 128);
-				method210(-1 + i_35_, i_39_, 8);
+				removeFlag(i_35_, i_39_, 128);
+				removeFlag(i_35_ - 1, i_39_, 8);
 			}
 			if (i == 1) {
-				method210(i_35_, i_39_, 2);
-				method210(i_35_, i_39_ - -1, 32);
+				removeFlag(i_35_, i_39_, 2);
+				removeFlag(i_35_, i_39_ + 1, 32);
 			}
 			if (i == 2) {
-				method210(i_35_, i_39_, 8);
-				method210(i_35_ - -1, i_39_, 128);
+				removeFlag(i_35_, i_39_, 8);
+				removeFlag(i_35_ + 1, i_39_, 128);
 			}
 			if (i == 3) {
-				method210(i_35_, i_39_, 32);
-				method210(i_35_, i_39_ + -1, 2);
+				removeFlag(i_35_, i_39_, 32);
+				removeFlag(i_35_, i_39_ - 1, 2);
 			}
 		}
 		if (i_36_ == 1 || i_36_ == 3) {
 			if (i == 0) {
-				method210(i_35_, i_39_, 1);
-				method210(-1 + i_35_, 1 + i_39_, 16);
+				removeFlag(i_35_, i_39_, 1);
+				removeFlag(i_35_ - 1, i_39_ + 1, 16);
 			}
 			if (i == 1) {
-				method210(i_35_, i_39_, 4);
-				method210(1 + i_35_, 1 + i_39_, 64);
+				removeFlag(i_35_, i_39_, 4);
+				removeFlag(i_35_ + 1, i_39_ + 1, 64);
 			}
 			if (i == 2) {
-				method210(i_35_, i_39_, 16);
-				method210(i_35_ + 1, -1 + i_39_, 1);
+				removeFlag(i_35_, i_39_, 16);
+				removeFlag(i_35_ + 1, i_39_ - 1, 1);
 			}
 			if (i == 3) {
-				method210(i_35_, i_39_, 64);
-				method210(-1 + i_35_, -1 + i_39_, 4);
+				removeFlag(i_35_, i_39_, 64);
+				removeFlag(i_35_ - 1, i_39_ - 1, 4);
 			}
 		}
 		if (i_36_ == 2) {
 			if (i == 0) {
-				method210(i_35_, i_39_, 130);
-				method210(i_35_ + -1, i_39_, 8);
-				method210(i_35_, 1 + i_39_, 32);
+				removeFlag(i_35_, i_39_, 130);
+				removeFlag(i_35_ - 1, i_39_, 8);
+				removeFlag(i_35_, i_39_ + 1, 32);
 			}
 			if (i == 1) {
-				method210(i_35_, i_39_, 10);
-				method210(i_35_, 1 + i_39_, 32);
-				method210(1 + i_35_, i_39_, 128);
+				removeFlag(i_35_, i_39_, 10);
+				removeFlag(i_35_, i_39_ + 1, 32);
+				removeFlag(i_35_ + 1, i_39_, 128);
 			}
 			if (i == 2) {
-				method210(i_35_, i_39_, 40);
-				method210(1 + i_35_, i_39_, 128);
-				method210(i_35_, i_39_ + -1, 2);
+				removeFlag(i_35_, i_39_, 40);
+				removeFlag(i_35_ + 1, i_39_, 128);
+				removeFlag(i_35_, i_39_ - 1, 2);
 			}
 			if (i == 3) {
-				method210(i_35_, i_39_, 160);
-				method210(i_35_, i_39_ + -1, 2);
-				method210(-1 + i_35_, i_39_, 8);
+				removeFlag(i_35_, i_39_, 160);
+				removeFlag(i_35_, i_39_ - 1, 2);
+				removeFlag(i_35_ - 1, i_39_, 8);
 			}
 		}
 		if (bool_37_) {
 			if (i_36_ == 0) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 65536);
-					method210(i_35_ - 1, i_39_, 4096);
+					removeFlag(i_35_, i_39_, 65536);
+					removeFlag(i_35_ - 1, i_39_, 4096);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 1024);
-					method210(i_35_, 1 + i_39_, 16384);
+					removeFlag(i_35_, i_39_, 1024);
+					removeFlag(i_35_, i_39_ + 1, 16384);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 4096);
-					method210(i_35_ - -1, i_39_, 65536);
+					removeFlag(i_35_, i_39_, 4096);
+					removeFlag(i_35_ + 1, i_39_, 65536);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 16384);
-					method210(i_35_, i_39_ - 1, 1024);
+					removeFlag(i_35_, i_39_, 16384);
+					removeFlag(i_35_, i_39_ - 1, 1024);
 				}
 			}
 			if (i_36_ == 1 || i_36_ == 3) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 512);
-					method210(-1 + i_35_, 1 + i_39_, 8192);
+					removeFlag(i_35_, i_39_, 512);
+					removeFlag(i_35_ - 1, i_39_ + 1, 8192);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 2048);
-					method210(i_35_ - -1, i_39_ - -1, 32768);
+					removeFlag(i_35_, i_39_, 2048);
+					removeFlag(i_35_ + 1, i_39_ + 1, 32768);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 8192);
-					method210(i_35_ + 1, -1 + i_39_, 512);
+					removeFlag(i_35_, i_39_, 8192);
+					removeFlag(i_35_ + 1, i_39_ - 1, 512);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 32768);
-					method210(i_35_ - 1, i_39_ + -1, 2048);
+					removeFlag(i_35_, i_39_, 32768);
+					removeFlag(i_35_ - 1, i_39_ - 1, 2048);
 				}
 			}
 			if (i_36_ == 2) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 66560);
-					method210(-1 + i_35_, i_39_, 4096);
-					method210(i_35_, i_39_ - -1, 16384);
+					removeFlag(i_35_, i_39_, 66560);
+					removeFlag(i_35_ - 1, i_39_, 4096);
+					removeFlag(i_35_, i_39_ + 1, 16384);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 5120);
-					method210(i_35_, 1 + i_39_, 16384);
-					method210(1 + i_35_, i_39_, 65536);
+					removeFlag(i_35_, i_39_, 5120);
+					removeFlag(i_35_, i_39_ + 1, 16384);
+					removeFlag(i_35_ + 1, i_39_, 65536);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 20480);
-					method210(i_35_ - -1, i_39_, 65536);
-					method210(i_35_, i_39_ + -1, 1024);
+					removeFlag(i_35_, i_39_, 20480);
+					removeFlag(i_35_ + 1, i_39_, 65536);
+					removeFlag(i_35_, i_39_ - 1, 1024);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 81920);
-					method210(i_35_, -1 + i_39_, 1024);
-					method210(-1 + i_35_, i_39_, 4096);
+					removeFlag(i_35_, i_39_, 81920);
+					removeFlag(i_35_, i_39_ - 1, 1024);
+					removeFlag(i_35_ - 1, i_39_, 4096);
 				}
 			}
 		}
 		if (bool) {
 			if (i_36_ == 0) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 536870912);
-					method210(-1 + i_35_, i_39_, 33554432);
+					removeFlag(i_35_, i_39_, 536870912);
+					removeFlag(i_35_ - 1, i_39_, 33554432);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 8388608);
-					method210(i_35_, i_39_ + 1, 134217728);
+					removeFlag(i_35_, i_39_, 8388608);
+					removeFlag(i_35_, i_39_ + 1, 134217728);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 33554432);
-					method210(1 + i_35_, i_39_, 536870912);
+					removeFlag(i_35_, i_39_, 33554432);
+					removeFlag(i_35_ + 1, i_39_, 536870912);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 134217728);
-					method210(i_35_, i_39_ - 1, 8388608);
+					removeFlag(i_35_, i_39_, 134217728);
+					removeFlag(i_35_, i_39_ - 1, 8388608);
 				}
 			}
 			if (i_36_ == 1 || i_36_ == 3) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 4194304);
-					method210(-1 + i_35_, 1 + i_39_, 67108864);
+					removeFlag(i_35_, i_39_, 4194304);
+					removeFlag(i_35_ - 1, i_39_ + 1, 67108864);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 16777216);
-					method210(1 + i_35_, i_39_ - -1, 268435456);
+					removeFlag(i_35_, i_39_, 16777216);
+					removeFlag(i_35_ + 1, i_39_ + 1, 268435456);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 67108864);
-					method210(1 + i_35_, -1 + i_39_, 4194304);
+					removeFlag(i_35_, i_39_, 67108864);
+					removeFlag(i_35_ + 1, i_39_ - 1, 4194304);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 268435456);
-					method210(-1 + i_35_, i_39_ - 1, 16777216);
+					removeFlag(i_35_, i_39_, 268435456);
+					removeFlag(i_35_ - 1, i_39_ - 1, 16777216);
 				}
 			}
 			if (i_36_ == 2) {
 				if (i == 0) {
-					method210(i_35_, i_39_, 545259520);
-					method210(i_35_ + -1, i_39_, 33554432);
-					method210(i_35_, 1 + i_39_, 134217728);
+					removeFlag(i_35_, i_39_, 545259520);
+					removeFlag(i_35_ - 1, i_39_, 33554432);
+					removeFlag(i_35_, i_39_ + 1, 134217728);
 				}
 				if (i == 1) {
-					method210(i_35_, i_39_, 41943040);
-					method210(i_35_, 1 + i_39_, 134217728);
-					method210(1 + i_35_, i_39_, 536870912);
+					removeFlag(i_35_, i_39_, 41943040);
+					removeFlag(i_35_, i_39_ + 1, 134217728);
+					removeFlag(i_35_ + 1, i_39_, 536870912);
 				}
 				if (i == 2) {
-					method210(i_35_, i_39_, 167772160);
-					method210(i_35_ + 1, i_39_, 536870912);
-					method210(i_35_, i_39_ - 1, 8388608);
+					removeFlag(i_35_, i_39_, 167772160);
+					removeFlag(i_35_ + 1, i_39_, 536870912);
+					removeFlag(i_35_, i_39_ - 1, 8388608);
 				}
 				if (i == 3) {
-					method210(i_35_, i_39_, 671088640);
-					method210(i_35_, i_39_ - 1, 8388608);
-					method210(i_35_ + -1, i_39_, 33554432);
+					removeFlag(i_35_, i_39_, 671088640);
+					removeFlag(i_35_, i_39_ - 1, 8388608);
+					removeFlag(i_35_ - 1, i_39_, 33554432);
 				}
 			}
 		}
@@ -305,35 +305,6 @@ final class CollisionMap {
 			return true;
 		}
 		return false;
-	}
-
-	static final void method218(final int i_50_, final long[] ls, final int i_51_, final int[] is) {
-		if (i_50_ > i_51_) {
-			final int i_52_ = (i_50_ + i_51_) / 2;
-			int i_53_ = i_51_;
-			final long l = ls[i_52_];
-			ls[i_52_] = ls[i_50_];
-			ls[i_50_] = l;
-			final int i_54_ = is[i_52_];
-			is[i_52_] = is[i_50_];
-			is[i_50_] = i_54_;
-			for (int i_55_ = i_51_; i_55_ < i_50_; i_55_++) {
-				if ((ls[i_55_] ^ 0xffffffffffffffffL) > ((i_55_ & 0x1) + l ^ 0xffffffffffffffffL)) {
-					final long l_56_ = ls[i_55_];
-					ls[i_55_] = ls[i_53_];
-					ls[i_53_] = l_56_;
-					final int i_57_ = is[i_55_];
-					is[i_55_] = is[i_53_];
-					is[i_53_++] = i_57_;
-				}
-			}
-			ls[i_50_] = ls[i_53_];
-			ls[i_53_] = l;
-			is[i_50_] = is[i_53_];
-			is[i_53_] = i_54_;
-			method218(i_53_ - 1, ls, i_51_, is);
-			method218(i_50_, ls, i_53_ - -1, is);
-		}
 	}
 
 	final void method219(int x, int z, final boolean bool, final boolean bool_59_, final int i_61_, final int i_62_) {

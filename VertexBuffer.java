@@ -11,19 +11,20 @@ import javax.media.opengl.GL;
 	DYNAMIC: The user will set the data occasionally.
 	STREAM: The user will be changing the data after every use. Or almost every use.
  */
+//http://www.songho.ca/opengl/gl_vbo.html
 final class VertexBuffer {
 	private final int anInt1003;
 	private final boolean useStreamDraw;
 	private int anInt1005 = 0;
 	private int bufferId = -1;
 
-	final void method883(final ByteBuffer bytebuffer) {
+	final void setData(final ByteBuffer bytebuffer) {
 		if (bytebuffer.limit() <= anInt1005) {
 			final GL gl = HDToolkit.gl;
-			gl.glBindBufferARB(34962, bufferId);//ARRAY_BUFFER
+			gl.glBindBufferARB(34962, bufferId);//ARRAY_BUFFER0
 			gl.glBufferSubDataARB(34962, 0, bytebuffer.limit(), bytebuffer);//ARRAY_BUFFER
 		} else {
-			method885(bytebuffer);
+			initData(bytebuffer);
 		}
 	}
 
@@ -37,7 +38,7 @@ final class VertexBuffer {
 		super.finalize();
 	}
 
-	final void method884(final ByteBuffer bytebuffer) {
+	final void initElementData(final ByteBuffer bytebuffer) {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34963, bufferId);//ELEMENT_ARRAY_BUFFER
 		gl.glBufferDataARB(34963, bytebuffer.limit(), bytebuffer, useStreamDraw ? 35040 : 35044);//ELEMENT_ARRAY_BUFFER, STREAM_DRAW : STATIC_DRAW
@@ -45,7 +46,7 @@ final class VertexBuffer {
 		anInt1005 = bytebuffer.limit();
 	}
 
-	final void method885(final ByteBuffer bytebuffer) {
+	final void initData(final ByteBuffer bytebuffer) {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34962, bufferId);//ARRAY_BUFFER
 		gl.glBufferDataARB(34962, bytebuffer.limit(), bytebuffer, useStreamDraw ? 35040 : 35044);//ARRAY_BUFFER, STREAM_DRAW : STATIC_DRAW

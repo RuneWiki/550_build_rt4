@@ -68,7 +68,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				final int playerSize = player.getSize();
 				if (size == 0 || size == playerSize) {
 					if (playerSize != 1) {
-						if (((playerSize & 0x1) != 0 || (player.x & 0x7f) == 0 && (0x7f & player.z) == 0) && ((0x1 & playerSize) != 1 || (0x7f & player.x) == 64 && (player.z & 0x7f) == 64)) {
+						if (((playerSize & 0x1) != 0 || (player.x & 0x7f) == 0 && (player.z & 0x7f) == 0) && ((0x1 & playerSize) != 1 || (player.x & 0x7f) == 64 && (player.z & 0x7f) == 64)) {
 							int i_20_ = player.x - playerSize * 64 >> 7;
 							int i_21_ = player.z - playerSize * 64 >> 7;
 							int i_22_ = i_20_ + player.getSize();
@@ -101,28 +101,28 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				}
 			}
 		}
-		for (int i_28_ = 0; i_28_ < playerCount; i_28_++) {
-			Player class180_sub5_sub1;
-			long l;
+		for (int id = 0; id < playerCount; id++) {
+			Player player;
+			long uid;
 			if (size == 0) {
-				l = 8791798054912L;
-				class180_sub5_sub1 = TileParticleQueue.selfPlayer;
+				uid = 8791798054912L;
+				player = TileParticleQueue.selfPlayer;
 			} else {
-				class180_sub5_sub1 = Class118.playersList[Class112.playerIndices[i_28_]];
-				l = (long) Class112.playerIndices[i_28_] << 32;
+				player = Class118.playersList[Class112.playerIndices[id]];
+				uid = (long) Class112.playerIndices[id] << 32;
 			}
-			if (class180_sub5_sub1 != null && class180_sub5_sub1.isVisible()) {
-				final int i_29_ = class180_sub5_sub1.getSize();
-				if (size == 0 || size == i_29_) {
-					class180_sub5_sub1.playerLimitReached = false;
-					class180_sub5_sub1.aBoolean2992 = true;
-					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && class180_sub5_sub1.idleAnimId == class180_sub5_sub1.getEntityRenderData().idleAnimationId) {
-						class180_sub5_sub1.playerLimitReached = true;
+			if (player != null && player.isVisible()) {
+				final int playerSize = player.getSize();
+				if (size == 0 || size == playerSize) {
+					player.playerLimitReached = false;
+					player.aBoolean2992 = true;
+					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && player.idleAnimId == player.getEntityRenderData().idleAnimationId) {
+						player.playerLimitReached = true;
 					}
-					if (i_29_ == 1) {
-						if ((class180_sub5_sub1.x & 0x7f) == 64 && (class180_sub5_sub1.z & 0x7f) == 64) {
-							final int i_30_ = class180_sub5_sub1.x >> 7;
-							final int i_31_ = class180_sub5_sub1.z >> 7;
+					if (playerSize == 1) {
+						if ((player.x & 0x7f) == 64 && (player.z & 0x7f) == 64) {
+							final int i_30_ = player.x >> 7;
+							final int i_31_ = player.z >> 7;
 							if (i_30_ < 0 || i_30_ >= 104 || i_31_ < 0 || i_31_ >= 104) {
 								continue;
 							}
@@ -131,10 +131,10 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 								continue;
 							}
 						}
-					} else if ((0x1 & i_29_) == 0 && (0x7f & class180_sub5_sub1.x) == 0 && (0x7f & class180_sub5_sub1.z) == 0 || (0x1 & i_29_) == 1 && (class180_sub5_sub1.x & 0x7f) == 64 && (class180_sub5_sub1.z & 0x7f) == 0) {
-						int i_32_ = class180_sub5_sub1.z + -(i_29_ * 64) >> 7;
-						int i_33_ = class180_sub5_sub1.x + -(64 * i_29_) >> 7;
-						int i_34_ = i_29_ + i_33_;
+					} else if ((0x1 & playerSize) == 0 && (0x7f & player.x) == 0 && (0x7f & player.z) == 0 || (0x1 & playerSize) == 1 && (player.x & 0x7f) == 64 && (player.z & 0x7f) == 0) {
+						int i_32_ = player.z + -(playerSize * 64) >> 7;
+						int i_33_ = player.x + -(64 * playerSize) >> 7;
+						int i_34_ = playerSize + i_33_;
 						if (i_33_ < 0) {
 							i_33_ = 0;
 						}
@@ -142,7 +142,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 							i_34_ = 104;
 						}
 						boolean bool = true;
-						int i_35_ = i_29_ + i_32_;
+						int i_35_ = playerSize + i_32_;
 						if (i_32_ < 0) {
 							i_32_ = 0;
 						}
@@ -166,15 +166,15 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 							continue;
 						}
 					}
-					if (class180_sub5_sub1.anObject3047 == null || Class101_Sub2.loopCycle < class180_sub5_sub1.anInt3042 || class180_sub5_sub1.anInt3012 <= Class101_Sub2.loopCycle) {
-						class180_sub5_sub1.aBoolean2992 = false;
-						class180_sub5_sub1.y = Class22.getTileHeight(class180_sub5_sub1.x, class180_sub5_sub1.z, Class173.gameLevel);
-						Class120_Sub12_Sub5.method1218(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.y, 64 * (i_29_ - 1) - -60, class180_sub5_sub1, class180_sub5_sub1.faceDegrees, l, class180_sub5_sub1.aBoolean3002);
+					if (player.anObject3047 == null || Class101_Sub2.loopCycle < player.anInt3042 || player.anInt3012 <= Class101_Sub2.loopCycle) {
+						player.aBoolean2992 = false;
+						player.y = Class22.getTileHeight(player.x, player.z, Class173.gameLevel);
+						Class120_Sub12_Sub5.method1218(Class173.gameLevel, player.x, player.z, player.y, 64 * (playerSize - 1) - -60, player, player.faceDegrees, uid, player.aBoolean3002);
 					} else {
-						class180_sub5_sub1.playerLimitReached = false;
-						class180_sub5_sub1.aBoolean2992 = false;
-						class180_sub5_sub1.y = Class22.getTileHeight(class180_sub5_sub1.x, class180_sub5_sub1.z, Class173.gameLevel);
-						Normal.method230(Class173.gameLevel, class180_sub5_sub1.x, class180_sub5_sub1.z, class180_sub5_sub1.y, class180_sub5_sub1, class180_sub5_sub1.faceDegrees, l, class180_sub5_sub1.anInt3043, class180_sub5_sub1.anInt3020, class180_sub5_sub1.anInt3041, class180_sub5_sub1.anInt3038);
+						player.playerLimitReached = false;
+						player.aBoolean2992 = false;
+						player.y = Class22.getTileHeight(player.x, player.z, Class173.gameLevel);
+						Normal.method230(Class173.gameLevel, player.x, player.z, player.y, player, player.faceDegrees, uid, player.anInt3043, player.anInt3020, player.anInt3041, player.anInt3038);
 					}
 				}
 			}
@@ -222,7 +222,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		super(0, true);
 	}
 
-	static final Class120_Sub9[] method1270(final int[][][] is, final byte[][] is_44_, final float[][] fs, final int[][] is_45_, final int[][] is_46_, final float[][] fs_47_, final byte[][] is_48_, final int[][] is_49_, final byte[][] is_50_, final int i, final float[][] fs_51_, final int[][] is_52_, final byte[][][] is_53_, final byte[][] is_54_, final int[][] is_55_) {
+	static final HDTile[] method1270(final int[][][] is, final byte[][] is_44_, final float[][] fs, final int[][] is_45_, final int[][] is_46_, final float[][] fs_47_, final byte[][] is_48_, final int[][] is_49_, final byte[][] is_50_, final int i, final float[][] fs_51_, final int[][] is_52_, final byte[][][] is_53_, final byte[][] is_54_, final int[][] is_55_) {
 		final int[][] is_56_ = new int[105][105];
 		int i_57_ = 1;
 		for (/**/; i_57_ <= 103; i_57_++) {
@@ -314,35 +314,35 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					final long l_71_ = (long) i_70_ << 32 | i_67_;
 					final long l_72_ = (long) i_68_ << 32 | i_67_;
 					final int i_73_ = is_64_.length / 2;
-					Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.get(l);
+					HDTile class120_sub9 = (HDTile) hashtable.get(l);
 					if (class120_sub9 == null) {
-						class120_sub9 = new Class120_Sub9((i_65_ >> 16) - 1, i_65_ & 0xffff, false, is_52_ != null, i_67_);
+						class120_sub9 = new HDTile((i_65_ >> 16) - 1, i_65_ & 0xffff, false, is_52_ != null, i_67_);
 						hashtable.put(class120_sub9, l);
 					}
 					class120_sub9.anInt2507 += i_73_;
 					class120_sub9.anInt2519++;
 					if ((l_69_ ^ 0xffffffffffffffffL) != (l ^ 0xffffffffffffffffL)) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_69_);
+						class120_sub9 = (HDTile) hashtable.get(l_69_);
 						if (class120_sub9 == null) {
-							class120_sub9 = new Class120_Sub9(-1 + (i_66_ >> 16), 0xffff & i_66_, false, is_52_ != null, i_67_);
+							class120_sub9 = new HDTile(-1 + (i_66_ >> 16), 0xffff & i_66_, false, is_52_ != null, i_67_);
 							hashtable.put(class120_sub9, l_69_);
 						}
 						class120_sub9.anInt2507 += i_73_;
 						class120_sub9.anInt2519++;
 					}
 					if ((l_72_ ^ 0xffffffffffffffffL) != (l ^ 0xffffffffffffffffL) && l_72_ != l_69_) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_72_);
+						class120_sub9 = (HDTile) hashtable.get(l_72_);
 						if (class120_sub9 == null) {
-							class120_sub9 = new Class120_Sub9(-1 + (i_68_ >> 16), i_68_ & 0xffff, false, is_52_ != null, i_67_);
+							class120_sub9 = new HDTile(-1 + (i_68_ >> 16), i_68_ & 0xffff, false, is_52_ != null, i_67_);
 							hashtable.put(class120_sub9, l_72_);
 						}
 						class120_sub9.anInt2519++;
 						class120_sub9.anInt2507 += i_73_;
 					}
 					if ((l ^ 0xffffffffffffffffL) != (l_71_ ^ 0xffffffffffffffffL) && l_69_ != l_71_ && (l_71_ ^ 0xffffffffffffffffL) != (l_72_ ^ 0xffffffffffffffffL)) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_71_);
+						class120_sub9 = (HDTile) hashtable.get(l_71_);
 						if (class120_sub9 == null) {
-							class120_sub9 = new Class120_Sub9((i_70_ >> 16) + -1, 0xffff & i_70_, false, is_52_ != null, i_67_);
+							class120_sub9 = new HDTile((i_70_ >> 16) + -1, 0xffff & i_70_, false, is_52_ != null, i_67_);
 							hashtable.put(class120_sub9, l_71_);
 						}
 						class120_sub9.anInt2507 += i_73_;
@@ -351,7 +351,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				}
 			}
 		}
-		for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
+		for (HDTile class120_sub9 = (HDTile) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (HDTile) hashtable.getNext()) {
 			class120_sub9.method1167();
 		}
 		for (int i_74_ = 1; i_74_ <= 102; i_74_++) {
@@ -452,25 +452,25 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					final int i_103_ = (i_88_ >> 16) + -1;
 					final int i_104_ = (i_91_ >> 16) + -1;
 					final int i_105_ = (i_90_ >> 16) - 1;
-					Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.get(l);
+					HDTile class120_sub9 = (HDTile) hashtable.get(l);
 					final int i_106_ = -1 + (i_89_ >> 16);
 					Class96.method786(i_88_ <= i_91_, i_75_, i_88_ <= i_89_, fs_47_, fs_51_, class120_sub9, is_55_, FileSystem.method443(i_102_, i_103_, i_99_), FileSystem.method443(i_101_, i_103_, i_97_), i_81_, i_78_, i_88_ <= i_90_, i_79_, fs, FileSystem.method443(i_100_, i_103_, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_103_, i_95_), is_80_, i_88_ <= i_88_);
 					if (l_94_ != l) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_94_);
+						class120_sub9 = (HDTile) hashtable.get(l_94_);
 						Class96.method786(i_91_ >= i_89_, i_75_, i_89_ >= i_89_, fs_47_, fs_51_, class120_sub9, is_55_, FileSystem.method443(i_102_, i_106_, i_99_), FileSystem.method443(i_101_, i_106_, i_97_), i_81_, i_78_, i_89_ <= i_90_, i_79_, fs, FileSystem.method443(i_100_, i_106_, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_106_, i_95_), is_80_, i_89_ <= i_88_);
 					}
 					if (l != l_92_ && (l_92_ ^ 0xffffffffffffffffL) != (l_94_ ^ 0xffffffffffffffffL)) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_92_);
+						class120_sub9 = (HDTile) hashtable.get(l_92_);
 						Class96.method786(i_90_ <= i_91_, i_75_, i_90_ <= i_89_, fs_47_, fs_51_, class120_sub9, is_55_, FileSystem.method443(i_102_, i_105_, i_99_), FileSystem.method443(i_101_, i_105_, i_97_), i_81_, i_78_, i_90_ <= i_90_, i_79_, fs, FileSystem.method443(i_100_, i_105_, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_105_, i_95_), is_80_, i_90_ <= i_88_);
 					}
 					if (l_93_ != l && l_93_ != l_94_ && (l_92_ ^ 0xffffffffffffffffL) != (l_93_ ^ 0xffffffffffffffffL)) {
-						class120_sub9 = (Class120_Sub9) hashtable.get(l_93_);
+						class120_sub9 = (HDTile) hashtable.get(l_93_);
 						Class96.method786(i_91_ <= i_91_, i_75_, i_89_ >= i_91_, fs_47_, fs_51_, class120_sub9, is_55_, FileSystem.method443(i_102_, i_104_, i_99_), FileSystem.method443(i_101_, i_104_, i_97_), i_81_, i_78_, i_91_ <= i_90_, i_79_, fs, FileSystem.method443(i_100_, i_104_, i_96_), i_74_, bools, is_52_, FileSystem.method443(i_98_, i_104_, i_95_), is_80_, i_91_ <= i_88_);
 					}
 				}
 			}
 		}
-		for (Class120_Sub9 class120_sub9 = (Class120_Sub9) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (Class120_Sub9) hashtable.getNext()) {
+		for (HDTile class120_sub9 = (HDTile) hashtable.getFirst(); class120_sub9 != null; class120_sub9 = (HDTile) hashtable.getNext()) {
 			if (class120_sub9.anInt2527 == 0) {
 				class120_sub9.unlink();
 			} else {
@@ -478,13 +478,13 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 			}
 		}
 		final int i_107_ = hashtable.getCount();
-		final Class120_Sub9[] class120_sub9s_108_ = new Class120_Sub9[i_107_];
+		final HDTile[] class120_sub9s_108_ = new HDTile[i_107_];
 		hashtable.method660(class120_sub9s_108_);
 		final long[] ls = new long[i_107_];
 		for (int i_109_ = 0; i_109_ < i_107_; i_109_++) {
 			ls[i_109_] = class120_sub9s_108_[i_109_].uid;
 		}
-		Class24.method209(-4391, ls, class120_sub9s_108_);
+		Class24.method209(class120_sub9s_108_, ls);
 		return class120_sub9s_108_;
 	}
 

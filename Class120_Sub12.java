@@ -10,7 +10,7 @@ abstract class Class120_Sub12 extends Node {
 	Class120_Sub12[] aClass120_Sub12Array2561;
 	static long[] menuOptionsData1 = new long[500];
 	Class30 aClass30_2563;
-	static boolean aBoolean2564 = true;
+	static boolean removeRoofsSelectively = true;
 	static int[] anIntArray2565 = new int[4096];
 	static int[] anIntArray2567 = new int[14];
 	static byte[][] spriteAlphas;
@@ -58,7 +58,7 @@ abstract class Class120_Sub12 extends Node {
 					}
 					reflectionCheckNode.checkTypes[id] = type;
 					reflectionCheckNode.fieldsValue[id] = fieldValue;
-					reflectionCheckNode.fieldsInformationNode[id] = signlink.getFieldInformation(FrameLoader.getClassType(className), fieldName);
+					reflectionCheckNode.fieldsInformationNode[id] = signlink.getFieldInformation(FrameGroup.getClassType(className), fieldName);
 				} else if (type == 3 || type == 4) {
 					final String className = buffer.getJagexString();
 					final String methodName = buffer.getJagexString();
@@ -78,9 +78,9 @@ abstract class Class120_Sub12 extends Node {
 					final Class[] argumentClassTypes = new Class[argumentCount];
 					reflectionCheckNode.checkTypes[id] = type;
 					for (int argId = 0; argId < argumentCount; argId++) {
-						argumentClassTypes[argId] = FrameLoader.getClassType(argumentTypes[argId]);
+						argumentClassTypes[argId] = FrameGroup.getClassType(argumentTypes[argId]);
 					}
-					reflectionCheckNode.methodsInformationNode[id] = signlink.getMethodInformation(FrameLoader.getClassType(className), methodName, argumentClassTypes);
+					reflectionCheckNode.methodsInformationNode[id] = signlink.getMethodInformation(FrameGroup.getClassType(className), methodName, argumentClassTypes);
 					reflectionCheckNode.methodsArgumentData[id] = argumentData;
 				}
 			} catch (final ClassNotFoundException classnotfoundexception) {
@@ -147,7 +147,7 @@ abstract class Class120_Sub12 extends Node {
 	}
 
 	static final void method1186(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_, final int i_28_) {
-		if (MagnetType.anInt260 > i_28_ || i_28_ > ParamType.anInt3544 || MagnetType.anInt260 > i || ParamType.anInt3544 < i || MagnetType.anInt260 > i_23_ || ParamType.anInt3544 < i_23_ || MagnetType.anInt260 > i_24_ || i_24_ > ParamType.anInt3544 || i_25_ < Class120_Sub30_Sub2.anInt3699 || i_25_ > IdentityKit.anInt1334 || i_21_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_21_ || i_27_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_27_ || Class120_Sub30_Sub2.anInt3699 > i_26_ || IdentityKit.anInt1334 < i_26_) {
+		if (MagnetType.anInt260 > i_28_ || i_28_ > ParamType.anInt3544 || MagnetType.anInt260 > i || ParamType.anInt3544 < i || MagnetType.anInt260 > i_23_ || ParamType.anInt3544 < i_23_ || MagnetType.anInt260 > i_24_ || i_24_ > ParamType.anInt3544 || i_25_ < Class120_Sub30_Sub2.anInt3699 || i_25_ > Identikit.anInt1334 || i_21_ < Class120_Sub30_Sub2.anInt3699 || Identikit.anInt1334 < i_21_ || i_27_ < Class120_Sub30_Sub2.anInt3699 || Identikit.anInt1334 < i_27_ || Class120_Sub30_Sub2.anInt3699 > i_26_ || Identikit.anInt1334 < i_26_) {
 			WorldInfo.method2067(i_28_, i_27_, i_24_, i, i_21_, i_25_, i_26_, i_22_, i_23_);
 		} else {
 			LongNode.method1059(i_26_, i_27_, i_25_, i_22_, i, i_23_, i_24_, i_21_, i_28_);
@@ -185,27 +185,27 @@ abstract class Class120_Sub12 extends Node {
 		if (tileType == 0) {
 			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, overlayMinimapColor, false);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[level][x][z].plainTile = plainTile;
+			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else if (tileType == 1) {
 			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, underlayMinimapColor, tileHeight == tileHeightEast && tileHeight == tileHeightNorthEast && tileHeight == tileHeightNorth);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[level][x][z].plainTile = plainTile;
+			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else {
 			final ShapedTile shapedTile = new ShapedTile(tileType, i_38_, i_39_, x, z, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, overlayMinimapColor, underlayMinimapColor);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.groundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.groundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
+					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.groundTiles[level][x][z].shapedTile = shapedTile;
+			LabelGroup.activeGroundTiles[level][x][z].shapedTile = shapedTile;
 		}
 	}
 
@@ -226,8 +226,8 @@ abstract class Class120_Sub12 extends Node {
 	}
 
 	static final void method1194(final int i, final int i_59_, final int i_60_, final int i_62_, final int i_63_) {
-		final int i_64_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_60_, IdentityKit.anInt1334);
-		final int i_65_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_63_, IdentityKit.anInt1334);
+		final int i_64_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_60_, Identikit.anInt1334);
+		final int i_65_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_63_, Identikit.anInt1334);
 		final int i_66_ = Class3.method83(MagnetType.anInt260, i, ParamType.anInt3544);
 		final int i_67_ = Class3.method83(MagnetType.anInt260, i_59_, ParamType.anInt3544);
 		for (int i_68_ = i_64_; i_65_ >= i_68_; i_68_++) {

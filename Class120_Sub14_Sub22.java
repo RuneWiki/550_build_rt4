@@ -27,7 +27,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 				class120_sub10.jagexInterface = jagexInterface;
 				class120_sub10.actionOption = menuOptionSuffix;
 				class120_sub10.objectData = jagexInterface.onComponentClickListener;
-				Class88.method744(class120_sub10);
+				Class88.executeScript(class120_sub10);
 			}
 			boolean bool = true;
 			if (jagexInterface.clientCode > 0) {
@@ -117,7 +117,7 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 		return false;
 	}
 
-	static final int method1634(final float[][] fs, int i, final int i_19_, final int[][] is, final float[][] fs_20_, final int[][] is_21_, final Class120_Sub9 class120_sub9, final int i_22_, final int i_23_, final boolean bool, final float f, final float[][] fs_24_, final int i_25_, int i_26_, final int i_28_, final int i_29_, final int i_30_) {
+	static final int method1634(final float[][] fs, int i, final int i_19_, final int[][] is, final float[][] fs_20_, final int[][] is_21_, final HDTile class120_sub9, final int i_22_, final int i_23_, final boolean bool, final float f, final float[][] fs_24_, final int i_25_, int i_26_, final int i_28_, final int i_29_, final int i_30_) {
 		if (i_25_ != 1) {
 			if (i_25_ != 2) {
 				if (i_25_ == 3) {

@@ -7,19 +7,6 @@ final class Class3 {
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_54;
 	static SignlinkNode openUrlRequest;
 
-	static final void method79(final js5 js5, final js5 class50_0_) {
-		MapSceneType.configJs5 = class50_0_;
-		MapSceneType.spriteJs5 = js5;
-		final int i_1_ = (int) (Math.random() * 21.0) - 10;
-		final int i_2_ = (int) (Math.random() * 41.0) - 20;
-		final int i_3_ = (int) (Math.random() * 21.0) - 10;
-		final int i_4_ = (int) (Math.random() * 21.0) - 10;
-		//Class30.aClass50_233.getFileAmount(34); not sure if this is needed
-		ModelParticleEmitter.mapSceneRedColorModifier = i_2_ + i_3_;
-		GameEntity.mapSceneBlueColorModifier = i_1_ + i_2_;
-		Class5.mapSceneGreenColorModifier = i_2_ + i_4_;
-	}
-
 	static final void executePlayerAction(final String name, final int action) {
 		final String formattedName = Class120_Sub12_Sub23.method1326(Class120_Sub6.method1068(name));
 		boolean foundPlayer = false;
@@ -52,7 +39,7 @@ final class Class3 {
 			}
 		}
 		if (!foundPlayer) {
-			AbstractRequest.pushMessage(TextRepository.aString3062 + formattedName, "", 0);
+			AbstractRequest.pushMessage(StringLibrary.aString3062 + formattedName, "", 0);
 		}
 	}
 
@@ -70,40 +57,40 @@ final class Class3 {
 		return i_10_ >= i ? i_10_ > i_12_ ? i_12_ : i_10_ : i;
 	}
 
-	static final void method84(final int i, final int i_14_, final int i_15_, final int i_16_, final boolean bool) {
-		WallDecoration.anInt1900 = i_14_;
-		Class120_Sub12_Sub38.anInt3440 = i_15_;
-		Class120_Sub14_Sub13.anInt3563 = i_16_;
-		Class86.aClass120_Sub18ArrayArrayArray820 = new GroundTile[i][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
-		Class120_Sub12_Sub33.anIntArrayArrayArray3388 = new int[i][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+	static final void method84(final int levelSize, final int xSize, final int zSize, final int tileVisibility, final boolean hasUnderWaterMap) {
+		WallDecoration.anInt1900 = xSize;
+		Class120_Sub12_Sub38.anInt3440 = zSize;
+		Class120_Sub14_Sub13.anInt3563 = tileVisibility;
+		Class86.surfaceGroundTiles = new GroundTile[levelSize][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class120_Sub12_Sub33.surfaceTileHeightMap = new int[levelSize][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		if (HDToolkit.glEnabled) {
-			SceneGroundObject.aClass120_Sub9ArrayArray2844 = new Class120_Sub9[4][];
+			SceneGroundObject.surfaceHdTiles = new HDTile[4][];
 		}
-		if (bool) {
-			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = new GroundTile[1][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		if (hasUnderWaterMap) {
+			Class120_Sub12_Sub38.underWaterGroundTiles = new GroundTile[1][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
 			NodeCache.anIntArrayArray300 = new int[WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			Class24.anIntArrayArrayArray140 = new int[1][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+			Class24.underWaterTileHeightMap = new int[1][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 			if (HDToolkit.glEnabled) {
-				IntegerNode.aClass120_Sub9ArrayArray2789 = new Class120_Sub9[1][];
+				IntegerNode.underWaterHdTiles = new HDTile[1][];
 			}
 		} else {
-			Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 = null;
+			Class120_Sub12_Sub38.underWaterGroundTiles = null;
 			NodeCache.anIntArrayArray300 = null;
-			Class24.anIntArrayArrayArray140 = null;
-			IntegerNode.aClass120_Sub9ArrayArray2789 = null;
+			Class24.underWaterTileHeightMap = null;
+			IntegerNode.underWaterHdTiles = null;
 		}
-		Class178.method2257(false);
+		Class178.setRenderTiles(false);
 		SceneGraphNode.aClass188Array1782 = new Class188[500];
 		Class49.anInt438 = 0;
 		AnimatedLocation.aClass188Array3076 = new Class188[500];
 		CursorType.anInt1237 = 0;
-		JagexSocket.anIntArrayArrayArray419 = new int[i][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		JagexSocket.anIntArrayArrayArray419 = new int[levelSize][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
 		Class111.aClass28Array1057 = new Class28[5000];
 		ClientScript.anInt3556 = 0;
 		client.aClass28Array323 = new Class28[100];
 		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1];
 		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
-		Class114.aByteArrayArrayArray1094 = new byte[i][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class114.aByteArrayArrayArray1094 = new byte[levelSize][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
 	}
 
 	static final void smoothCamera() {
@@ -132,13 +119,13 @@ final class Class3 {
 		return is_22_;
 	}
 
-	static final void method87(final long l) {
+	static final void sendAccountCreationName(final long nameAsLong) {
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		Class120_Sub12_Sub11.outputStream.putByte(21);
-		Class120_Sub12_Sub11.outputStream.putLong(l);
-		Class120_Sub12_Sub35.anInt3410 = -3;
+		Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
+		Class120_Sub12_Sub35.accountCreationReturnCode = -3;
 		SpotAnimationNode.anInt3466 = 0;
 		AbstractIndexedSprite.anInt1027 = 0;
-		Class154.anInt1440 = 1;
+		Class154.accountCreationStep = 1;
 	}
 }

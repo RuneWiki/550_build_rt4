@@ -96,7 +96,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(134);
 				Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putShortA(0x7fffffff & (int) (data1AsLong >>> 32));
-				Class120_Sub12_Sub11.outputStream.putShortA(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putShortA(LightType.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
 				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
@@ -108,7 +108,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(227);
 				Class120_Sub12_Sub11.outputStream.putShort(data2 + GameEntity.currentBaseX);
 				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putShort(LightType.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 			}
@@ -142,7 +142,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
 				} else if (data1 == 1) {//From game screen
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
-					Class120_Sub12_Sub11.outputStream.putShortA(data3 + Class181.currentBaseZ);
+					Class120_Sub12_Sub11.outputStream.putShortA(data3 + LightType.currentBaseZ);
 					Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 					Class120_Sub12_Sub11.outputStream.putLEShort(data2 + GameEntity.currentBaseX);
@@ -155,7 +155,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub7.crossIndex = 0;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(119);
 				Class120_Sub12_Sub11.outputStream.putInt2(PlainTile.selectedObjInterface);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putShort(LightType.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putShortA(ProjectileNode.selectedObjId);
 				Class120_Sub12_Sub11.outputStream.putLEShort(ParticleEmitter.selectedObjSlot);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
@@ -229,7 +229,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
 				Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putShort(LightType.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 				SpotAnimationNode.method1437(data3, data1AsLong, data2);
 			}
@@ -239,7 +239,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub14_Sub22.crossState = 2;
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(232);
-				Class120_Sub12_Sub11.outputStream.putLEShort(data3 - -Class181.currentBaseZ);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data3 - -LightType.currentBaseZ);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShort(data2 + GameEntity.currentBaseX);
@@ -279,10 +279,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
 				} else if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX - -data2);
-					Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ - -data3);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
+					Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + data3);
 				} else {
-					ParticleNode.tele(GameEntity.currentBaseX + data2, Class181.currentBaseZ + data3, Class173.gameLevel);
+					ParticleNode.tele(GameEntity.currentBaseX + data2, LightType.currentBaseZ + data3, Class173.gameLevel);
 				}
 			}
 			if (code == 59) {
@@ -360,7 +360,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(159);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data2 - -GameEntity.currentBaseX);
-				Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+				Class120_Sub12_Sub11.outputStream.putShort(LightType.currentBaseZ + data3);
 				Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 				Class120_Sub12_Sub11.outputStream.putLEShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 				SpotAnimationNode.method1437(data3, data1AsLong, data2);
@@ -430,7 +430,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class53_Sub1.method464(1, data2, data3);
 							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.minimapClickX);// 1
 							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.minimapClickY);// 2
-							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.aFloat28);// 4
+							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.cameraYaw);// 4
 							Class120_Sub12_Sub11.outputStream.putByte(57);// 5
 							Class120_Sub12_Sub11.outputStream.putByte(69);// 6 deleted
 							Class120_Sub12_Sub11.outputStream.putByte(68);// 7 deleted
@@ -441,7 +441,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							Class120_Sub12_Sub11.outputStream.putByte(63);// 14
 							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 						} else {
-							ParticleNode.tele(data2 + GameEntity.currentBaseX, data3 + Class181.currentBaseZ, Class173.gameLevel);
+							ParticleNode.tele(data2 + GameEntity.currentBaseX, data3 + LightType.currentBaseZ, Class173.gameLevel);
 						}
 					}
 				} else {
@@ -470,7 +470,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub7.crossIndex = 0;
 					IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(28);
-					Class120_Sub12_Sub11.outputStream.putLEShortA(data3 + Class181.currentBaseZ);
+					Class120_Sub12_Sub11.outputStream.putLEShortA(data3 + LightType.currentBaseZ);
 					Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
@@ -502,7 +502,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + data2);
 					Class120_Sub12_Sub11.outputStream.putShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
-					Class120_Sub12_Sub11.outputStream.putShort(Class181.currentBaseZ + data3);
+					Class120_Sub12_Sub11.outputStream.putShort(LightType.currentBaseZ + data3);
 					SpotAnimationNode.method1437(data3, data1AsLong, data2);
 				}
 				if (code == 34) {
@@ -587,7 +587,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putLEInt(PlainTile.selectedObjInterface);
 						Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + data3);
 						Class120_Sub12_Sub11.outputStream.putLEShort(ProjectileNode.selectedObjId);
 						SpotAnimationNode.method1437(data3, data1AsLong, data2);
 					}
@@ -598,7 +598,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub14_Sub22.crossState = 2;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(3);
 						Class120_Sub12_Sub11.outputStream.putByteC(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + data3);
 						Class120_Sub12_Sub11.outputStream.putLEShort(data1);
 						Class120_Sub12_Sub11.outputStream.putShortA(data2 + GameEntity.currentBaseX);
 						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
@@ -634,7 +634,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(60);
-						Class120_Sub12_Sub11.outputStream.putShortA(data3 + Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.putShortA(data3 + LightType.currentBaseZ);
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort(GameEntity.currentBaseX + data2);
@@ -649,7 +649,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 						Class120_Sub12_Sub11.outputStream.putLEShort((int) (data1AsLong >>> 32) & 0x7fffffff);
 						Class120_Sub12_Sub11.outputStream.putShortA(data2 + GameEntity.currentBaseX);
-						Class120_Sub12_Sub11.outputStream.putShortA(data3 - -Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.putShortA(data3 - -LightType.currentBaseZ);
 						SpotAnimationNode.method1437(data3, data1AsLong, data2);
 					}
 					if (code == 50) {
@@ -688,7 +688,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub7.crossIndex = 0;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(54);
 						Class120_Sub12_Sub11.outputStream.putByte(NodeCache.heldKeys[82] ? 1 : 0);
-						Class120_Sub12_Sub11.outputStream.putLEShort(Class181.currentBaseZ + data3);
+						Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + data3);
 						Class120_Sub12_Sub11.outputStream.putShort(data1);
 						Class120_Sub12_Sub11.outputStream.putShort(data2 + GameEntity.currentBaseX);
 						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
@@ -748,7 +748,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub35.crossX = js5.lastClickX;
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(8);
 						Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
-						Class120_Sub12_Sub11.outputStream.putShort(data3 + Class181.currentBaseZ);
+						Class120_Sub12_Sub11.outputStream.putShort(data3 + LightType.currentBaseZ);
 						Class120_Sub12_Sub11.outputStream.putShort(GameEntity.currentBaseX + data2);
 						Class120_Sub12_Sub11.outputStream.putByteA(NodeCache.heldKeys[82] ? 1 : 0);
 						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
@@ -768,8 +768,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		}
 	}
 
-	static final void method32(final boolean bool) {
-		client.aBoolean566 = bool;
+	static final void setVisibleLevels(final boolean bool) {
+		client.allVisibleLevels = bool;
 		Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
 	}
 
@@ -799,23 +799,23 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	static final void constructSprites(final js5 js5) {
-		Class69_Sub2.aClass120_Sub14_Sub19Array2238 = Class125.constructTransparentSprites(js5, AmbientSound.hitmarksId, 0);
-		SeqType.aClass120_Sub14_Sub19Array335 = Class125.constructTransparentSprites(js5, Class120_Sub12_Sub25.hitbardefaultId, 0);
+		Class69_Sub2.hitMarkSprites = Class125.constructTransparentSprites(js5, AmbientSound.hitmarksId, 0);
+		SeqType.hitBarDefaultSprites = Class125.constructTransparentSprites(js5, Class120_Sub12_Sub25.hitbardefaultId, 0);
 		Class54.pkIconSprites = Class125.constructTransparentSprites(js5, Class120_Sub14_Sub15.headiconspkId, 0);
 		FileSystemRequest.prayerIconSprites = Class125.constructTransparentSprites(js5, MasterIndexInfo.headiconsprayerId, 0);
 		AnimatedLocation.hintHeadIconsSprites = Class125.constructTransparentSprites(js5, Class120_Sub21.hintheadiconsId, 0);
-		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = Class125.constructTransparentSprites(js5, Class173.hintmapmarkersId, 0);
-		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = Class167.constructSprites(js5, ModelParticleMagnet.mapflagId, 0);
+		Class120_Sub12_Sub5.hintMapMarkerSprites = Class125.constructTransparentSprites(js5, Class173.hintmapmarkersId, 0);
+		Class101_Sub1.mapFlagSprites = Class167.constructSprites(js5, ModelParticleMagnet.mapflagId, 0);
 		Class120_Sub12_Sub30.crossSprites = Class167.constructSprites(js5, Class132_Sub2.crossId, 0);
-		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = Class167.constructSprites(js5, MapFunctionType.mapdotsId, 0);
-		Class118.aClass107Array1138 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class134.scrollbarId, 0);
-		Class82.aClass107Array785 = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class81.nameiconsId, 0);
-		ObjectCache.smallFont.setNameIcons(Class82.aClass107Array785, null);
-		Class120_Sub12_Sub20.plainFont.setNameIcons(Class82.aClass107Array785, null);
-		Class120_Sub12_Sub22.boldFont.setNameIcons(Class82.aClass107Array785, null);
+		Class120_Sub12_Sub6.mapDotSprites = Class167.constructSprites(js5, MapFunctionType.mapdotsId, 0);
+		Class118.scrollBarSprites = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class134.scrollbarId, 0);
+		Class82.nameIconSprites = Class120_Sub12_Sub3.constructIndexedSprites(js5, Class81.nameiconsId, 0);
+		ObjectCache.smallFont.setNameIcons(Class82.nameIconSprites, null);
+		Class120_Sub12_Sub20.plainFont.setNameIcons(Class82.nameIconSprites, null);
+		Class120_Sub12_Sub22.boldFont.setNameIcons(Class82.nameIconSprites, null);
 		if (HDToolkit.glEnabled) {
-			Class47.floorshadowSprites = InterfaceChangeNode.constructLDIndexedSprites(js5, Class120_Sub12_Sub7.floorshadowsId);
-			for (final LDIndexedSprite element : Class47.floorshadowSprites) {
+			ShadowManager.floorshadowSprites = InterfaceChangeNode.constructLDIndexedSprites(js5, Class120_Sub12_Sub7.floorshadowsId);
+			for (final LDIndexedSprite element : ShadowManager.floorshadowSprites) {
 				element.method923();
 			}
 		}
@@ -831,11 +831,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			hintmapedges[id].method1615();
 		}
 		if (!HDToolkit.glEnabled) {
-			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = hintmapedges;
+			Class69_Sub2.hintMapEdgeSprites = hintmapedges;
 		} else {
-			Class69_Sub2.aClass120_Sub14_Sub19Array2237 = new AbstractSprite[hintmapedges.length];
+			Class69_Sub2.hintMapEdgeSprites = new AbstractSprite[hintmapedges.length];
 			for (int id = 0; id < hintmapedges.length; id++) {
-				Class69_Sub2.aClass120_Sub14_Sub19Array2237[id] = new HDSprite(hintmapedges[id]);
+				Class69_Sub2.hintMapEdgeSprites[id] = new HDSprite(hintmapedges[id]);
 			}
 		}
 	}
@@ -872,8 +872,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Node.canvas.getParent().remove(Node.canvas);
 		}
 		Container container;
-		if (Class120_Sub14_Sub10.fullscreenFrame != null) {
-			container = Class120_Sub14_Sub10.fullscreenFrame;
+		if (QuickChatMessageType.fullscreenFrame != null) {
+			container = QuickChatMessageType.fullscreenFrame;
 		} else if (Class112.frame != null) {
 			container = Class112.frame;
 		} else {
@@ -1002,7 +1002,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Class120_Sub12_Sub26.fullRedraw = true;
 			Node.canvas.setSize(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 			Node.canvas.setVisible(true);
-			if (Class112.frame != null && Class120_Sub14_Sub10.fullscreenFrame == null) {
+			if (Class112.frame != null && QuickChatMessageType.fullscreenFrame == null) {
 				final Insets insets = Class112.frame.getInsets();
 				Node.canvas.setLocation(insets.left + ReflectionCheckNode.leftMargin, WallDecoration.topMargin + insets.top);
 			} else {
@@ -1075,7 +1075,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	static final void method43(final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(9, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(9, i);
 		class120_sub14_sub7.method1453();
 	}
 
@@ -1211,7 +1211,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	static final void method47(final int i) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(5, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(5, i);
 		class120_sub14_sub7.method1453();
 	}
 

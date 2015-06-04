@@ -60,14 +60,14 @@ final class Projectile extends SceneGraphNode {
 				anInt2945 -= aClass40_2941.delays[anInt2925];
 				anInt2925++;
 				if (aClass40_2941.frames.length <= anInt2925) {
-					anInt2925 -= aClass40_2941.padding;
+					anInt2925 -= aClass40_2941.loop;
 					if (anInt2925 < 0 || anInt2925 >= aClass40_2941.frames.length) {
 						anInt2925 = 0;
 					}
 				}
 				anInt2936 = anInt2925 + 1;
 				if (anInt2936 >= aClass40_2941.frames.length) {
-					anInt2936 -= aClass40_2941.padding;
+					anInt2936 -= aClass40_2941.loop;
 					if (anInt2936 < 0 || aClass40_2941.frames.length <= anInt2936) {
 						anInt2936 = -1;
 					}
@@ -101,9 +101,9 @@ final class Projectile extends SceneGraphNode {
 		Class9.aByteArrayArrayArray70 = new byte[4][104][104];
 		ClientScript.groundObjects = new Deque[4][104][104];
 		if (HDToolkit.glEnabled) {
-			LightManager.method1856(4, 104, 104);
-			Class47.method382(104, 104);
-			IdentityKit.aClass191ArrayArray1337 = new Class191[13][13];
+			LightManager.init(4, 104, 104);
+			ShadowManager.init(104, 104);
+			Identikit.chunksAtmosphere = new ChunkAtmosphere[13][13];
 		}
 		AbstractSprite.anInt3619 = i_9_;
 		return true;
@@ -193,7 +193,7 @@ final class Projectile extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_29_, final int i_30_, final int i_31_, final int i_32_) {
+	final void method2266(final int i, final int i_29_, final int i_31_, final int i_30_, final int i_32_) {
 		if (!aBoolean2928) {
 			final AbstractModelRenderer class180_sub7 = method2322();
 			if (class180_sub7 == null) {

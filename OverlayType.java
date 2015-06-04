@@ -53,7 +53,7 @@ final class OverlayType {
 		} else if (code == 7) {
 			this.anInt1198 = Class120_Sub12_Sub1.method1200(buffer.getMedium());
 		} else if (code == 8) {
-			Class23.anInt137 = id;
+			client.anInt137 = id;
 		} else if (code == 9) {
 			this.anInt1202 = buffer.getUShort();
 		} else if (code == 10) {
@@ -69,7 +69,7 @@ final class OverlayType {
 		}
 	}
 
-	static final void setupOverlay(final js5 js5) {
+	static final void setup(final js5 js5) {
 		configClient = js5;
 		overlayAmount = configClient.getFileAmount(4);
 	}

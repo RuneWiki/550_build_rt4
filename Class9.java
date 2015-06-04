@@ -5,7 +5,7 @@
 final class Class9 {
 	static int language;
 	static int anInt67 = 0;
-	static int anInt68;
+	static int worldMapInterfaceDrawX;
 	private long aLong69;
 	static byte[][][] aByteArrayArrayArray70;
 	static int compassId;
@@ -14,13 +14,13 @@ final class Class9 {
 	static boolean[] needInterfaceRedraw;
 	private final NodeSub[] aClass120_Sub14Array75;
 	private NodeSub aClass120_Sub14_76;
-	static int anInt77;
+	static int draggedComponentPosY;
 
 	static {
 		language = 0;
-		anInt68 = -1;
+		worldMapInterfaceDrawX = -1;
 		needInterfaceRedraw = new boolean[100];
-		anInt77 = -1;
+		draggedComponentPosY = -1;
 	}
 
 	final NodeSub poll() {

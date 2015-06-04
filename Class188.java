@@ -60,17 +60,17 @@ final class Class188 {
 	}
 
 	static final boolean method2483(final int i_0_) {
-		final World class167_sub1 = Class82.method710(i_0_);
-		if (class167_sub1 == null) {
+		final World world = World.getWorld(i_0_);
+		if (world == null) {
 			return false;
 		}
 		if (Signlink.clientType == 1 || Signlink.clientType == 2 || AbstractIndexedSprite.modeWhere == 2) {
-			Class120_Sub12_Sub30.aString3375 = class167_sub1.ip;
-			Class157.worldId = class167_sub1.worldId;
+			Class120_Sub12_Sub30.worldIpAddress = world.ip;
+			Class157.worldId = world.worldId;
 			if (AbstractIndexedSprite.modeWhere != 0) {
 				GameEntity.anInt3045 = Class157.worldId + 50000;
 				Class71.anInt625 = Class157.worldId + 40000;
-				ModelParticleEmitter.anInt1479 = Class71.anInt625;
+				ModelParticleEmitter.worldPort = Class71.anInt625;
 			}
 			return true;
 		}
@@ -80,9 +80,9 @@ final class Class188 {
 			string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
 		}
 		if (AbstractIndexedSprite.modeWhere != 0) {
-			string = new StringBuilder(":").append(7000 + class167_sub1.worldId).toString();
+			string = new StringBuilder(":").append(7000 + world.worldId).toString();
 		}
-		final String string_2_ = new StringBuilder("http://").append(class167_sub1.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
+		final String string_2_ = new StringBuilder("http://").append(world.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
 		try {
 			Class179.clientInstance.getAppletContext().showDocument(new URL(string_2_), "_self");
 		} catch (final Exception exception) {
@@ -117,11 +117,11 @@ final class Class188 {
 					if (client.cameraType != 1) {
 						final int i_7_ = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel);
 						if (-Class120_Sub12_Sub10.renderY + i_7_ < 800 && (0x4 & Class114.tileSettings[Class173.gameLevel][FileSystemWorker.renderX >> 7][GroundObjectNode.renderZ >> 7]) != 0) {
-							LongNode.method1055(1, FileSystemWorker.renderX >> 7, false, GroundObjectNode.renderZ >> 7, LabelGroup.groundTiles);
+							LongNode.method1055(1, FileSystemWorker.renderX >> 7, false, GroundObjectNode.renderZ >> 7, LabelGroup.activeGroundTiles);
 						}
 					} else {
 						if ((0x4 & Class114.tileSettings[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7]) != 0) {
-							LongNode.method1055(0, TileParticleQueue.selfPlayer.x >> 7, false, TileParticleQueue.selfPlayer.z >> 7, LabelGroup.groundTiles);
+							LongNode.method1055(0, TileParticleQueue.selfPlayer.x >> 7, false, TileParticleQueue.selfPlayer.z >> 7, LabelGroup.activeGroundTiles);
 						}
 						if (UnderlayType.renderPitch < 310) {
 							int i_8_ = GroundObjectNode.renderZ >> 7;
@@ -141,7 +141,7 @@ final class Class188 {
 								i_13_ = -i_12_ + i_9_;
 							}
 							if (i_13_ == 0 && i_11_ == 0 || i_13_ <= -104 || i_13_ >= 104 || i_11_ <= -104 || i_11_ >= 104) {
-								SpotAnimation.method2312(null, new StringBuilder("RC: ").append(i_9_).append(",").append(i_8_).append(" ").append(i_12_).append(",").append(i_10_).append(" ").append(GameEntity.currentBaseX).append(",").append(Class181.currentBaseZ).toString());
+								SpotAnimation.method2312(null, new StringBuilder("RC: ").append(i_9_).append(",").append(i_8_).append(" ").append(i_12_).append(",").append(i_10_).append(" ").append(GameEntity.currentBaseX).append(",").append(LightType.currentBaseZ).toString());
 							} else if (i_13_ <= i_11_) {
 								int i_14_ = 32768;
 								final int i_15_ = i_13_ * 65536 / i_11_;
@@ -157,7 +157,7 @@ final class Class188 {
 										i_8_++;
 									}
 									if ((Class114.tileSettings[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
-										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
+										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
 										break while_177_;
 									}
 									i_14_ += i_15_;
@@ -173,7 +173,7 @@ final class Class188 {
 										}
 									}
 								}
-								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
+								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
 							} else {
 								final int i_16_ = 65536 * i_11_ / i_13_;
 								int i_17_ = 32768;
@@ -189,7 +189,7 @@ final class Class188 {
 										i_9_++;
 									}
 									if ((0x4 & Class114.tileSettings[Class173.gameLevel][i_9_][i_8_]) != 0) {
-										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
+										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
 										break while_177_;
 									}
 									i_17_ += i_16_;
@@ -205,7 +205,7 @@ final class Class188 {
 										}
 									}
 								}
-								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.groundTiles);
+								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
 							}
 						}
 					}

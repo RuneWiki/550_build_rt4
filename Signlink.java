@@ -31,7 +31,7 @@ public class Signlink implements Runnable {
 	public FileOnDisk cacheDatFile = null;
 	public FileOnDisk randomFile;
 	private Interface4 anInterface4_1297;
-	private final Thread aThread1298;
+	private final Thread thread;
 	public Applet gameApplet = null;
 	private final String gameName;
 	public static String osNameRaw;
@@ -45,7 +45,7 @@ public class Signlink implements Runnable {
 	public static int clientType = 1;//1 - normal, 2 - ?, 3 - unsigned
 	private static Hashtable filesCache = new Hashtable(16);
 	public static Method setFocusCycleRootMethod;
-	static volatile long aLong1313 = 0L;
+	static volatile long socketCloseTime = 0L;
 	public static Method traversalKeyMethod;
 
 	public final SignlinkNode setCursor(final Point point, final int i_0_, final int[] is, final int i_1_, final Component component) {
@@ -113,7 +113,7 @@ public class Signlink implements Runnable {
 			try {
 				final int type = currentNode.type;
 				if (type == 1) {
-					if (aLong1313 > TimeUtil.getSafeTime()) {
+					if (socketCloseTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					System.out.println(currentNode.objectData+":"+currentNode.integerData);
@@ -125,13 +125,13 @@ public class Signlink implements Runnable {
 					thread.setPriority(currentNode.integerData);
 					currentNode.value = thread;
 				} else if (type == 3) {
-					if (aLong1313 > TimeUtil.getSafeTime()) {
+					if (socketCloseTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					final String string = new StringBuilder(String.valueOf(0xff & currentNode.integerData >> 24)).append(".").append(0xff & currentNode.integerData >> 16).append(".").append(currentNode.integerData >> 8 & 0xff).append(".").append(0xff & currentNode.integerData).toString();
 					currentNode.value = InetAddress.getByName(string).getHostName();
 				} else if (type == 4) {
-					if (aLong1313 > TimeUtil.getSafeTime()) {
+					if (socketCloseTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					currentNode.value = new DataInputStream(((URL) currentNode.objectData).openStream());
@@ -341,19 +341,19 @@ public class Signlink implements Runnable {
 		throw new RuntimeException();
 	}
 
-	public final void method1963(final int i) {
-		aLong1313 = TimeUtil.getSafeTime() + i;
+	public final void closeSocketIn(final int i) {
+		socketCloseTime = TimeUtil.getSafeTime() + i;
 	}
 
-	public final SignlinkNode getMethodInformation(final Class var_class, final String methodName, final Class[] methodArguments) {
-		return putNode(8, 0, new Object[] { var_class, methodName, methodArguments }, 0);
+	public final SignlinkNode getMethodInformation(final Class className, final String methodName, final Class[] methodArguments) {
+		return putNode(8, 0, new Object[] { className, methodName, methodArguments }, 0);
 	}
 
 	public final Interface4 method1966() {
 		return anInterface4_1297;
 	}
 
-	public final SignlinkNode method1967(final Class var_class) {
+	public final SignlinkNode loadGlLibrary(final Class var_class) {
 		return putNode(10, 0, var_class, 0);
 	}
 
@@ -364,7 +364,7 @@ public class Signlink implements Runnable {
 		return false;
 	}
 
-	public final SignlinkNode method1969(final URL url) {
+	public final SignlinkNode openStream(final URL url) {
 		return putNode(4, 0, url, 0);
 	}
 
@@ -378,7 +378,7 @@ public class Signlink implements Runnable {
 			notifyAll();
 		}
 		try {
-			aThread1298.join();
+			thread.join();
 		} catch (final InterruptedException interruptedexception) {
 			/* empty */
 		}
@@ -424,8 +424,8 @@ public class Signlink implements Runnable {
 		return putNode(6, (i_32_ << 16) + i, null, i_30_ + (i_29_ << 16));
 	}
 
-	public final SignlinkNode getFieldInformation(final Class var_class, final String fieldName) {
-		return putNode(9, 0, new Object[] { var_class, fieldName }, 0);
+	public final SignlinkNode getFieldInformation(final Class className, final String fieldName) {
+		return putNode(9, 0, new Object[] { className, fieldName }, 0);
 	}
 
 	public Signlink(final Applet applet, final int storeId, final String gName, final int indexAmount) throws Exception {
@@ -522,10 +522,10 @@ public class Signlink implements Runnable {
 			}
 		}
 		closed = false;
-		aThread1298 = new Thread(this);
-		aThread1298.setPriority(10);
-		aThread1298.setDaemon(true);
-		aThread1298.start();
+		thread = new Thread(this);
+		thread.setPriority(10);
+		thread.setDaemon(true);
+		thread.start();
 	}
 
 	public final SignlinkNode openConnection(final String ip, final int port) {

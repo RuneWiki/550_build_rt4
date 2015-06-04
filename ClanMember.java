@@ -14,14 +14,14 @@ final class ClanMember extends Node {
 	static SeekableFile[] aClass193Array2581 = new SeekableFile[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
-		final boolean bool_8_ = OverridedJInterface.tileHeightMap == Class24.anIntArrayArrayArray140;
+		final boolean bool_8_ = OverridedJInterface.activeTileHeightMap == Class24.underWaterTileHeightMap;
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {
 				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= WallDecoration.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
 					return false;
 				}
-				final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_10_][i_11_];
+				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_10_][i_11_];
 				if (class120_sub18 != null && class120_sub18.anInt2638 >= 5) {
 					return false;
 				}
@@ -55,11 +55,11 @@ final class ClanMember extends Node {
 					i_14_ += 2;
 				}
 				for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-					if (LabelGroup.groundTiles[i_15_][i_12_][i_13_] == null) {
-						LabelGroup.groundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
+					if (LabelGroup.activeGroundTiles[i_15_][i_12_][i_13_] == null) {
+						LabelGroup.activeGroundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
 					}
 				}
-				final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_12_][i_13_];
+				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_12_][i_13_];
 				class120_sub18.aClass28Array2625[class120_sub18.anInt2638] = class28;
 				class120_sub18.anIntArray2641[class120_sub18.anInt2638] = i_14_;
 				class120_sub18.anInt2635 |= i_14_;

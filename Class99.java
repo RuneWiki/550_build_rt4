@@ -10,7 +10,7 @@ final class Class99 {
 	static int anInt954;
 
 	static final WallLocation removeWallLocation(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

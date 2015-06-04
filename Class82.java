@@ -10,7 +10,8 @@ final class Class82 implements Runnable {
 	volatile Class164[] aClass164Array782 = new Class164[2];
 	static Class88 aClass88_783 = new Class88();
 	volatile boolean aBoolean784;
-	static AbstractIndexedSprite[] aClass107Array785;
+	static AbstractIndexedSprite[] nameIconSprites;
+	
 	static final void addKeyboard(final Component component) {
 		final Method method = Signlink.traversalKeyMethod;
 		if (method != null) {
@@ -52,13 +53,6 @@ final class Class82 implements Runnable {
 		} while (false);
 	}
 
-	static final World method710(final int i_0_) {
-		if (!Class159.worldsLoaded || OverridedJInterface.worldOff > i_0_ || EnumType.worldLen < i_0_) {
-			return null;
-		}
-		return Class48.worldList[i_0_ - OverridedJInterface.worldOff];
-	}
-
 	static final void drawWorldMapInterface(final int drawX, final int drawY, final int interfaceWidth, final int interfaceHeight) {
 		if (Class90.laodingStage < 100) {
 			Class81.loadWorldMap();
@@ -80,7 +74,7 @@ final class Class82 implements Runnable {
 				GraphicsLD.drawRect(i_6_ - 152, i_7_, 304, 34, 9179409);
 				GraphicsLD.fillRect(i_6_ - 150, i_7_ + 2, Class90.laodingStage * 3, 30, 9179409);
 			}
-			Class120_Sub12_Sub22.boldFont.method1478(TextRepository.aString313, i_6_, i_7_ + 20, 16777215, -1);
+			Class120_Sub12_Sub22.boldFont.method1478(StringLibrary.aString313, i_6_, i_7_ + 20, 16777215, -1);
 		} else {
 			Class173.worldMapPointerWidth = (int) (interfaceWidth * 2 / WorldMapHandler.currentZoom);
 			GroundObjectNode.worldMapPointerHeight = (int) (interfaceHeight * 2 / WorldMapHandler.currentZoom);
@@ -139,8 +133,8 @@ final class Class82 implements Runnable {
 
 	static final void method713(final int i, int i_16_, int i_17_, final int i_18_) {
 		if (MagnetType.anInt260 <= i && ParamType.anInt3544 >= i) {
-			i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, IdentityKit.anInt1334);
-			i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, IdentityKit.anInt1334);
+			i_16_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_16_, Identikit.anInt1334);
+			i_17_ = Class3.method83(Class120_Sub30_Sub2.anInt3699, i_17_, Identikit.anInt1334);
 			ParticleEmitter.method939(i, i_18_, i_17_, i_16_);
 		}
 	}

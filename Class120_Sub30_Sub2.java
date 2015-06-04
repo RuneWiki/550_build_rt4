@@ -13,7 +13,7 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	private final Class120_Sub6[][] aClass120_Sub6ArrayArray3685 = new Class120_Sub6[16][128];
 	private int anInt3686;
 	private int[] anIntArray3687;
-	static int anInt3688;
+	static int currentLightX;
 	private final int[] anIntArray3689;
 	private final int[] anIntArray3690;
 	private int[] anIntArray3691;
@@ -587,10 +587,10 @@ final class Class120_Sub30_Sub2 extends Class120_Sub30 {
 	}
 
 	final void method1771(final Class120_Sub6 class120_sub6, final boolean bool) {
-		int i_78_ = class120_sub6.aClass120_Sub5_Sub1_2447.aByteArray3114.length;
+		int i_78_ = class120_sub6.aClass120_Sub5_Sub1_2447.output.length;
 		int i_79_;
 		if (bool && class120_sub6.aClass120_Sub5_Sub1_2447.aBoolean3117) {
-			final int i_80_ = i_78_ + i_78_ - class120_sub6.aClass120_Sub5_Sub1_2447.anInt3115;
+			final int i_80_ = i_78_ + i_78_ - class120_sub6.aClass120_Sub5_Sub1_2447.loopBegin;
 			i_79_ = (int) ((long) i_80_ * (long) this.anIntArray3683[class120_sub6.anInt2465] >> 6);
 			i_78_ <<= 8;
 			if (i_78_ <= i_79_) {

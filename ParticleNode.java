@@ -21,12 +21,12 @@ class ParticleNode {
 	static final void tele(final int x, final int z, final int level) {
 		final String teleCommand = "::tele " + level + "," + (x >> 6) + "," + (z >> 6) + "," + (x & 0x3f) + "," + (z & 0x3f);
 		System.out.println(teleCommand);
-		Class120_Sub12_Sub20.execuseCommand(teleCommand);
+		Class120_Sub12_Sub20.executeCommand(teleCommand);
 	}
 
 	static final void getSpriteIds(final js5 js5) {
 		MagnetType.p11fullId = js5.getGroupId("p11_full");
-		Class191.p12fullId = js5.getGroupId("p12_full");
+		ChunkAtmosphere.p12fullId = js5.getGroupId("p12_full");
 		Class110.b12fullId = js5.getGroupId("b12_full");
 		AmbientSound.hitmarksId = js5.getGroupId("hitmarks");
 		Class120_Sub12_Sub25.hitbardefaultId = js5.getGroupId("hitbar_default");

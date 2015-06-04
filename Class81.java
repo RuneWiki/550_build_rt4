@@ -5,32 +5,32 @@
 final class Class81 {
 	static Hashtable aClass75_777;
 	static int nameiconsId;
-	static int[] anIntArray779 = new int[50];
+	static int[] soundEffectDelays = new int[50];
 
-	static final String method704(final int i, final int i_1_) {
-		final int i_2_ = i - i_1_;
-		if (i_2_ < -9) {
+	static final String getCombatLevelDifferenceColor(final int selfLevel, final int opponentLevel) {
+		final int levelDelta = selfLevel - opponentLevel;
+		if (levelDelta < -9) {
 			return "<col=ff0000>";
 		}
-		if (i_2_ < -6) {
+		if (levelDelta < -6) {
 			return "<col=ff3000>";
 		}
-		if (i_2_ < -3) {
+		if (levelDelta < -3) {
 			return "<col=ff7000>";
 		}
-		if (i_2_ < 0) {
+		if (levelDelta < 0) {
 			return "<col=ffb000>";
 		}
-		if (i_2_ > 9) {
+		if (levelDelta > 9) {
 			return "<col=00ff00>";
 		}
-		if (i_2_ > 6) {
+		if (levelDelta > 6) {
 			return "<col=40ff00>";
 		}
-		if (i_2_ > 3) {
+		if (levelDelta > 3) {
 			return "<col=80ff00>";
 		}
-		if (i_2_ > 0) {
+		if (levelDelta > 0) {
 			return "<col=c0ff00>";
 		}
 		return "<col=ffff00>";
@@ -54,7 +54,7 @@ final class Class81 {
 				WorldMapHandler.mapSizeY = -WorldMapHandler.anInt694 + (WorldMapHandler.aClass120_Sub14_Sub22_691.anInt3644 >> 6 << 6) + 64;
 				int i_3_ = -1;
 				int i_4_ = -1;
-				if (WorldMapHandler.aClass120_Sub14_Sub22_691.method1630(Class181.currentBaseZ + (TileParticleQueue.selfPlayer.z >> 7), Class173.gameLevel, is, (TileParticleQueue.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
+				if (WorldMapHandler.aClass120_Sub14_Sub22_691.method1630(LightType.currentBaseZ + (TileParticleQueue.selfPlayer.z >> 7), Class173.gameLevel, is, (TileParticleQueue.selfPlayer.x >> 7) + GameEntity.currentBaseX)) {
 					i_4_ = is[1] - WorldMapHandler.anInt695;
 					i_3_ = -is[2] + WorldMapHandler.anInt694 + -1 + WorldMapHandler.mapSizeY;
 				}
@@ -186,7 +186,7 @@ final class Class81 {
 			if (!Class134.aBoolean1277) {
 				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + 24.0F) / 2.0F;
 			} else {
-				DummyOutputStream.aFloat28 = (int) DummyOutputStream.aFloat28 + 191 & ~0x7f;
+				DummyOutputStream.cameraYaw = (int) DummyOutputStream.cameraYaw + 191 & ~0x7f;
 			}
 			Class188.aBoolean1925 = true;
 			Class118.aBoolean1134 = true;

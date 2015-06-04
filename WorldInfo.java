@@ -4,7 +4,7 @@
 
 final class WorldInfo {
 	int country;
-	static boolean aBoolean1419 = false;
+	static boolean draggingComponent = false;
 	static int anInt1420 = 0;
 	static String openUrl;
 	String region;
@@ -13,7 +13,7 @@ final class WorldInfo {
 		for (final JagexInterface class1892 : class189s) {
 			final JagexInterface jagexInterface = class1892;
 			if (jagexInterface != null && jagexInterface.parent == parent) {
-				Class23.updateInterfaceSize(jagexInterface, width, height, activateResizeListener);
+				client.updateInterfaceSize(jagexInterface, width, height, activateResizeListener);
 				SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {
 					jagexInterface.horizontalScrollPosition = jagexInterface.maxScrollVertical - jagexInterface.height;

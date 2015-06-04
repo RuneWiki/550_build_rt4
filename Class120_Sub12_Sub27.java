@@ -170,7 +170,7 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	}
 
 	static final void method1342(final int i, final int i_19_, final int i_21_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(9, i_19_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(9, i_19_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3492 = i;
 		class120_sub14_sub7.anInt3484 = i_21_;

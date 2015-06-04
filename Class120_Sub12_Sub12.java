@@ -100,7 +100,7 @@ final class Class120_Sub12_Sub12 extends Class120_Sub12 {
 
 	static final void method1258(final int id, final int width, final int height, final boolean activateResizeListener) {
 		if (js5.loadInterface(id)) {
-			WorldInfo.method2065(Node.interfaceCache[id], activateResizeListener, width, height, -1);
+			WorldInfo.method2065(JagexInterface.interfaceCache[id], activateResizeListener, width, height, -1);
 		}
 	}
 

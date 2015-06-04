@@ -9,11 +9,10 @@ final class Class90 {
 	static ObjectCache playerHeadModelsCache = new ObjectCache(5);
 	private final js5 aClass50_841;
 	private final Hashtable aClass75_842 = new Hashtable(256);
-	static js5 aClass50_843;
 	static Calendar aCalendar844;
 	static boolean aBoolean845 = false;
 	static boolean aBoolean846;
-	static int anInt847;
+	static int worldMapInterfaceDrawY;
 	static int laodingStage;
 	static int[] anIntArray849;
 	static Class82 aClass82_850;
@@ -21,7 +20,7 @@ final class Class90 {
 
 	static {
 		aCalendar844 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-		anInt847 = -1;
+		worldMapInterfaceDrawY = -1;
 		laodingStage = 0;
 	}
 
@@ -36,14 +35,14 @@ final class Class90 {
 		if (is != null && is[0] <= 0) {
 			return null;
 		}
-		final Class6 class6 = Class6.method103(aClass50_841, i, i_2_);
+		final SoundEffect class6 = SoundEffect.list(aClass50_841, i, i_2_);
 		if (class6 == null) {
 			return null;
 		}
 		class120_sub5_sub1_5_ = class6.method104();
 		aClass75_851.put(class120_sub5_sub1_5_, l);
 		if (is != null) {
-			is[0] -= class120_sub5_sub1_5_.aByteArray3114.length;
+			is[0] -= class120_sub5_sub1_5_.output.length;
 		}
 		return class120_sub5_sub1_5_;
 	}
@@ -107,7 +106,7 @@ final class Class90 {
 			final int interfaceId = overridedInterface.interfaceId;
 			if (js5.loadInterface(interfaceId)) {
 				boolean newFormat = true;
-				final JagexInterface[] cache = Node.interfaceCache[interfaceId];
+				final JagexInterface[] cache = JagexInterface.interfaceCache[interfaceId];
 				for (int id = 0; id < cache.length; id++) {
 					final JagexInterface jagexInterface = cache[id];
 					if (jagexInterface != null) {
@@ -158,7 +157,7 @@ final class Class90 {
 				final byte[] alphas = Class120_Sub12.spriteAlphas[spriteId];
 				final int[] pixels = new int[pixelAmt];
 				for (int pixelId = 0; pixelId < pixelAmt; pixelId++) {
-					pixels[pixelId] = Class191.method2512(Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff], Class120_Sub12_Sub3.method1207(-16777216, alphas[pixelId] << 24));
+					pixels[pixelId] = ChunkAtmosphere.method2512(Class132_Sub1.spritePalette[paletteIndicators[pixelId] & 0xff], Class120_Sub12_Sub3.method1207(-16777216, alphas[pixelId] << 24));
 				}
 				if (HDToolkit.glEnabled) {
 					sprites[spriteId] = new HDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[spriteId], GroundTile.spriteYOffsets[spriteId], Class120_Sub12_Sub11.spriteWidths[spriteId], Class120_Sub12_Sub39.spriteHeights[spriteId], pixels);

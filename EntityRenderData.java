@@ -37,6 +37,7 @@ final class EntityRenderData {
 	int anInt221;
 	int anInt222;
 	int anInt223;
+	static js5 aClass50_18;
 	static ObjectCache recentUse;
 
 	final void decode(final Buffer buffer) {
@@ -67,7 +68,7 @@ final class EntityRenderData {
 	}
 
 	static final void method250(final int i, final int i_7_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(12, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(12, i);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_7_;
 	}
@@ -197,6 +198,10 @@ final class EntityRenderData {
 			this.anInt206 = (short) (buffer.getUByte() * 4);
 		}
 	}
+	
+	static final void setup(final js5 js5) {
+		aClass50_18 = js5;
+	}
 
 	final void postDecode() {
 	}
@@ -206,7 +211,7 @@ final class EntityRenderData {
 		if (entityRenderData != null) {
 			return entityRenderData;
 		}
-		final byte[] data = CanvasWrapper.aClass50_18.getFile(32, id);
+		final byte[] data = aClass50_18.getFile(32, id);
 		entityRenderData = new EntityRenderData();
 		if (data != null) {
 			entityRenderData.decode(new Buffer(data));
@@ -217,7 +222,7 @@ final class EntityRenderData {
 	}
 
 	static final void method254(final int i_17_, final int i_18_, final int i_19_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(11, i_17_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(11, i_17_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_18_;
 		class120_sub14_sub7.anInt3492 = i_19_;

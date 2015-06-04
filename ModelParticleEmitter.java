@@ -6,7 +6,7 @@ final class ModelParticleEmitter {
 	static int anInt1475 = -1;
 	int anInt1476;
 	static boolean instantScreenFade = true;
-	static int anInt1479;
+	static int worldPort;
 	EmitterType emitterType;
 	static int mapSceneRedColorModifier;
 	static long aLong1482;
@@ -18,7 +18,7 @@ final class ModelParticleEmitter {
 	}
 
 	static final void method2090(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		if (i < MagnetType.anInt260 || ParamType.anInt3544 < i_4_ || i_1_ < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i_3_) {
+		if (i < MagnetType.anInt260 || ParamType.anInt3544 < i_4_ || i_1_ < Class120_Sub30_Sub2.anInt3699 || Identikit.anInt1334 < i_3_) {
 			if (i_2_ == 1) {
 				AbstractGraphicsBuffer.method1844(i_4_, i_3_, i_1_, i_0_, i);
 			} else {

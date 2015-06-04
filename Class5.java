@@ -62,8 +62,8 @@ final class Class5 implements ShaderInterface {
 		Class190.anInt2101 = i;
 		for (int i_7_ = 0; i_7_ < WallDecoration.anInt1900; i_7_++) {
 			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.anInt3440; i_8_++) {
-				if (LabelGroup.groundTiles[i][i_7_][i_8_] == null) {
-					LabelGroup.groundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
+				if (LabelGroup.activeGroundTiles[i][i_7_][i_8_] == null) {
+					LabelGroup.activeGroundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
 				}
 			}
 		}

@@ -6,7 +6,6 @@ import java.awt.Component;
 import java.awt.Graphics;
 
 final class CanvasWrapper extends Canvas {
-	static js5 aClass50_18;
 	static Interface3 anInterface3_19;
 	static int anInt20 = -1;
 	static int[] anIntArray21;
@@ -62,7 +61,7 @@ final class CanvasWrapper extends Canvas {
 		return result;
 	}
 
-	static final void method66(final String string, final String string_9_, final int i) {
+	static final void login(final String string, final String string_9_, final int i) {
 		AbstractMouseWheelHandler.anInt116 = i;
 		Class74.loginName = string_9_;
 		SeqType.loginPassword = string;
@@ -72,22 +71,22 @@ final class CanvasWrapper extends Canvas {
 			LabelGroup.method1037();
 		} else {
 			Class79_Sub1.anInt2244 = 0;
-			FrameLoader.anInt3609 = 1;
+			FrameGroup.anInt3609 = 1;
 			Class48.returnCode = -3;
 			MapFunctionGroup.anInt1323 = 0;
-			final Buffer class120_sub7 = new Buffer(128);
-			class120_sub7.putByte(10);
-			class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
-			class120_sub7.putLong(Varp.stringToLong(Class74.loginName));
-			class120_sub7.putInt((int) (9.9999999E7 * Math.random()));
-			class120_sub7.putJagexString(SeqType.loginPassword);
-			class120_sub7.putInt((int) (Math.random() * 9.9999999E7));
-			class120_sub7.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
+			final Buffer buffer = new Buffer(128);
+			buffer.putByte(10);
+			buffer.putInt((int) (9.9999999E7 * Math.random()));
+			buffer.putLong(Varp.stringToLong(Class74.loginName));
+			buffer.putInt((int) (9.9999999E7 * Math.random()));
+			buffer.putJagexString(SeqType.loginPassword);
+			buffer.putInt((int) (Math.random() * 9.9999999E7));
+			buffer.encryptRsa(JagexSocket.aBigInteger415, KeyboardHandler.aBigInteger1505);
 			Class120_Sub12_Sub11.outputStream.pos = 0;
 			Class120_Sub12_Sub11.outputStream.putByte(24);
-			Class120_Sub12_Sub11.outputStream.putByte(class120_sub7.pos + 2);
+			Class120_Sub12_Sub11.outputStream.putByte(buffer.pos + 2);
 			Class120_Sub12_Sub11.outputStream.putShort(550);
-			Class120_Sub12_Sub11.outputStream.putBuffer(class120_sub7.buf, 0, class120_sub7.pos);
+			Class120_Sub12_Sub11.outputStream.putBuffer(buffer.buf, 0, buffer.pos);
 		}
 	}
 

@@ -7,8 +7,8 @@ class Class69_Sub2 extends Class69 {
 	static boolean locMemberClient;
 	static int[] mapFunctionZs;
 	static int anInt2236 = 0;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array2237;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array2238;
+	static AbstractSprite[] hintMapEdgeSprites;
+	static AbstractSprite[] hitMarkSprites;
 	static int anInt2239;
 	static int energy;
 

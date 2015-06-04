@@ -6,7 +6,7 @@ import java.nio.ByteOrder;
 
 import javax.media.opengl.GL;
 
-final class Class120_Sub9 extends Node {
+final class HDTile extends Node {
 	private int[] anIntArray2500;
 	private float[] aFloatArray2501;
 	private int anInt2502 = 0;
@@ -74,7 +74,7 @@ final class Class120_Sub9 extends Node {
 		if (HDToolkit.vertexBufferAsObject) {
 			final ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7.buf, 0, class120_sub7.pos);
 			aClass104_2512 = new VertexBuffer();
-			aClass104_2512.method885(bytebuffer);
+			aClass104_2512.initData(bytebuffer);
 		} else {
 			aByteBuffer2528 = ByteBuffer.allocateDirect(class120_sub7.pos).order(ByteOrder.nativeOrder());
 			aByteBuffer2528.put(class120_sub7.buf, 0, class120_sub7.pos);
@@ -228,7 +228,7 @@ final class Class120_Sub9 extends Node {
 		}
 	}
 
-	static final void method1163() {
+	static final void reset() {
 		aClass120_Sub7_2509 = null;
 		aClass120_Sub7_2513 = null;
 		aByteBuffer2518 = null;
@@ -307,7 +307,7 @@ final class Class120_Sub9 extends Node {
 		}
 	}
 
-	Class120_Sub9(final int i, final float f, final boolean bool, final boolean bool_21_, final int i_22_) {
+	HDTile(final int i, final float f, final boolean bool, final boolean bool_21_, final int i_22_) {
 		anInt2508 = 0;
 		this.anInt2507 = 0;
 		this.anInt2527 = 0;

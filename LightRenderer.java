@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class133 {
+final class LightRenderer {
 	int anInt1260;
 	private ByteBuffer aByteBuffer1261;
 	int anInt1262;
@@ -42,26 +42,26 @@ final class Class133 {
 		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt1260));
 	}
 
-	final void method1946() {
+	final void render() {
 		final GL gl = HDToolkit.gl;
 		if (HDToolkit.vertexBufferAsObject) {
 			aClass104_1266.bindArrayBuffer();
-			gl.glInterleavedArrays(10787, 16, 0L);
+			gl.glInterleavedArrays(10787, 16, 0L);//GL_C4UB_V3F
 			HDToolkit.aBoolean536 = false;
 			aClass104_1270.bindElementArrayBuffer();
 			gl.glDrawElements(4, this.anInt1271, 5125, 0L);
 		} else {
 			if (HDToolkit.vertexBufferAsObject) {
-				gl.glBindBufferARB(34962, 0);
-				gl.glBindBufferARB(34963, 0);
+				gl.glBindBufferARB(34962, 0);//GL_ARRAY_BUFFER//GL_ARRAY_BUFFER_ARB
+				gl.glBindBufferARB(34963, 0);//GL_ELEMENT_ARRAY_BUFFER//GL_ELEMENT_ARRAY_BUFFER_ARB
 			}
-			gl.glInterleavedArrays(10787, 16, aByteBuffer1261);
+			gl.glInterleavedArrays(10787, 16, aByteBuffer1261);//GL_C4UB_V3F
 			HDToolkit.aBoolean536 = false;
 			gl.glDrawElements(4, this.anInt1271, 5125, aByteBuffer1263);
 		}
 	}
 
-	final void method1947() {
+	final void init() {
 		final Buffer class120_sub7 = new Buffer(this.anInt1271 * 4);
 		final Buffer class120_sub7_0_ = new Buffer(this.anInt1267 * 16);
 		if (HDToolkit.usingBigEndian) {
@@ -94,10 +94,10 @@ final class Class133 {
 		if (HDToolkit.vertexBufferAsObject) {
 			aClass104_1266 = new VertexBuffer();
 			ByteBuffer bytebuffer = ByteBuffer.wrap(class120_sub7_0_.buf);
-			aClass104_1266.method885(bytebuffer);
+			aClass104_1266.initData(bytebuffer);
 			aClass104_1270 = new VertexBuffer();
 			bytebuffer = ByteBuffer.wrap(class120_sub7.buf);
-			aClass104_1270.method884(bytebuffer);
+			aClass104_1270.initElementData(bytebuffer);
 		} else {
 			aByteBuffer1261 = ByteBuffer.allocateDirect(class120_sub7_0_.pos);
 			aByteBuffer1261.put(class120_sub7_0_.buf);
@@ -169,7 +169,7 @@ final class Class133 {
 		return this.anInt1267++;
 	}
 
-	public Class133() {
+	public LightRenderer() {
 		/* empty */
 	}
 }

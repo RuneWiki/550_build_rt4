@@ -4,7 +4,7 @@
 
 final class Queue {
 	static int lastMouseX = 0;
-	static int anInt1768;
+	static int currentLightY;
 	NodeSub head = new NodeSub();
 	private NodeSub current;
 
@@ -72,16 +72,16 @@ final class Queue {
 		return 7 - i;
 	}
 
-	static final void method2254(final int i_9_, final int i_8_, final int i, final int i_7_) {
+	static final void sendBirthInformation(final int day, final int month, final int year, final int country) {
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		Class120_Sub12_Sub11.outputStream.putByte(20);
-		Class120_Sub12_Sub11.outputStream.putByte(i_9_);
-		Class120_Sub12_Sub11.outputStream.putByte(i_8_);
-		Class120_Sub12_Sub11.outputStream.putShort(i);
-		Class120_Sub12_Sub11.outputStream.putShort(i_7_);
+		Class120_Sub12_Sub11.outputStream.putByte(day);
+		Class120_Sub12_Sub11.outputStream.putByte(month);
+		Class120_Sub12_Sub11.outputStream.putShort(year);
+		Class120_Sub12_Sub11.outputStream.putShort(country);
 		SpotAnimationNode.anInt3466 = 0;
-		Class154.anInt1440 = 1;
-		Class120_Sub12_Sub35.anInt3410 = -3;
+		Class154.accountCreationStep = 1;
+		Class120_Sub12_Sub35.accountCreationReturnCode = -3;
 		AbstractIndexedSprite.anInt1027 = 0;
 	}
 

@@ -229,7 +229,7 @@ final class Model extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_55_, final int i_56_, final int i_57_, final int i_58_) {
+	final void method2266(final int i, final int i_55_, final int i_57_, final int i_56_, final int i_58_) {
 		/* empty */
 	}
 
@@ -1464,11 +1464,11 @@ final class Model extends SceneGraphNode {
 		return class180_sub2_278_;
 	}
 
-	final void method2306(final int i, final int i_369_, final int i_370_) {
+	final void scale(final int x, final int y, final int z) {
 		for (int i_371_ = 0; i_371_ < this.vertexCount; i_371_++) {
-			this.xVertices[i_371_] = this.xVertices[i_371_] * i / 128;
-			this.yVertices[i_371_] = this.yVertices[i_371_] * i_369_ / 128;
-			this.zVertices[i_371_] = this.zVertices[i_371_] * i_370_ / 128;
+			this.xVertices[i_371_] = this.xVertices[i_371_] * x / 128;
+			this.yVertices[i_371_] = this.yVertices[i_371_] * y / 128;
+			this.zVertices[i_371_] = this.zVertices[i_371_] * z / 128;
 		}
 		method2296();
 	}

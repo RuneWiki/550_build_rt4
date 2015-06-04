@@ -28,7 +28,7 @@ final class ParamType extends NodeSub {
 	}
 
 	static final void method1514(final int i_1_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_1_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(8, i_1_);
 		class120_sub14_sub7.method1453();
 	}
 
@@ -280,17 +280,17 @@ final class ParamType extends NodeSub {
 
 	static final AbstractSprite[] constructSprites() {
 		final AbstractSprite[] abstractSprites = new AbstractSprite[Class93.spriteAmount];
-		for (int i_39_ = 0; i_39_ < Class93.spriteAmount; i_39_++) {
-			final byte[] paletteIndicators = Class145.spritePaletteIndicators[i_39_];
-			final int pixelAmt = Class120_Sub12_Sub11.spriteWidths[i_39_] * Class120_Sub12_Sub39.spriteHeights[i_39_];
-			final int[] pixels = new int[pixelAmt];
-			for (int i_42_ = 0; i_42_ < pixelAmt; i_42_++) {
-				pixels[i_42_] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, paletteIndicators[i_42_])];
+		for (int id = 0; id < Class93.spriteAmount; id++) {
+			final byte[] paletteIndicators = Class145.spritePaletteIndicators[id];
+			final int pixelAmount = Class120_Sub12_Sub11.spriteWidths[id] * Class120_Sub12_Sub39.spriteHeights[id];
+			final int[] pixels = new int[pixelAmount];
+			for (int pixelId = 0; pixelId < pixelAmount; pixelId++) {
+				pixels[pixelId] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, paletteIndicators[pixelId])];
 			}
 			if (!HDToolkit.glEnabled) {
-				abstractSprites[i_39_] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[i_39_], GroundTile.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], pixels);
+				abstractSprites[id] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], pixels);
 			} else {
-				abstractSprites[i_39_] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[i_39_], GroundTile.spriteYOffsets[i_39_], Class120_Sub12_Sub11.spriteWidths[i_39_], Class120_Sub12_Sub39.spriteHeights[i_39_], pixels);
+				abstractSprites[id] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], pixels);
 			}
 		}
 		Class53_Sub1.resetSpriteInfo();

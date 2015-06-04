@@ -61,9 +61,9 @@ final class Class112 {
 		int maxLevel;
 		if (HDToolkit.glEnabled && bool) {
 			maxLevel = 1;
-			is = Class101_Sub1.aByteArrayArray2271;
+			is = Class101_Sub1.underWaterLocationsMapFileBuffers;
 		} else {
-			is = Class134.aByteArrayArray1287;
+			is = Class134.locationMapFileBuffers;
 			maxLevel = 4;
 		}
 		for (int level = 0; level < maxLevel; level++) {
@@ -78,8 +78,8 @@ final class Class112 {
 							final int i_8_ = (i_5_ & 0x3fff) >> 3;
 							final int i_9_ = (i_5_ & 0xffd503) >> 14;
 							final int i_10_ = (i_9_ / 8 << 8) + i_8_ / 8;
-							for (int i_11_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_11_; i_11_++) {
-								if (i_10_ == Class120_Sub12_Sub36.anIntArray3417[i_11_] && is[i_11_] != null) {
+							for (int i_11_ = 0; Class120_Sub12_Sub36.regionBitPackeds.length > i_11_; i_11_++) {
+								if (i_10_ == Class120_Sub12_Sub36.regionBitPackeds[i_11_] && is[i_11_] != null) {
 									Class120_Sub12_Sub10.method1247(level, x * 8, WallLocation.collisionMaps, is[i_11_], i_7_, 8 * (0x7 & i_8_), (0x7 & i_9_) * 8, i_6_, bool, z * 8);
 									break;
 								}
@@ -104,7 +104,7 @@ final class Class112 {
 					y = MapSceneType.worldMapInterface.y;
 				}
 				TileParticleQueue.intArguments[0] = Queue.lastMouseX - x;
-				TileParticleQueue.intArguments[1] = Class191.lastMouseY - y;
+				TileParticleQueue.intArguments[1] = ChunkAtmosphere.lastMouseY - y;
 			}
 			World.executeScript(class120_sub14_sub12, 200000);
 		}

@@ -8,9 +8,7 @@ final class ProjectileNode extends NodeSub {
 	
 	static final void stopInterfaceAnimation(final int id) {
 		if (js5.loadInterface(id)) {
-			final JagexInterface[] class189s = Node.interfaceCache[id];
-			for (final JagexInterface class1892 : class189s) {
-				final JagexInterface jagexInterface = class1892;
+			for (final JagexInterface jagexInterface : JagexInterface.interfaceCache[id]) {
 				if (jagexInterface != null) {
 					jagexInterface.nextFrame = 1;
 					jagexInterface.currentFrame = 0;
@@ -20,15 +18,11 @@ final class ProjectileNode extends NodeSub {
 		}
 	}
 
-	static final void sortArray(final int[] is, final Object[] objects) {
-		Class57.sortArray(is.length - 1, objects, 0, is);
-	}
-
 	static final void setGameState(final int state) {
 		if (state != Class109.gameState) {
 			if (Class109.gameState == 0) {
 				Class132_Sub1.loadingTextImage = null;
-				Class23.loadingFont = null;
+				client.loadingFont = null;
 				WaterfallShader.loadingFontMetrics = null;
 			}
 			final boolean bool = state == 5 || state == 10 || state == 28;
@@ -40,11 +34,11 @@ final class ProjectileNode extends NodeSub {
 				Light.aClass46_381 = null;
 			}
 			if (state == 25 || state == 28) {
-				Class120_Sub12_Sub28.anInt3361 = 0;
+				Class120_Sub12_Sub28.loadingScreenState = 0;
 				Class120_Sub12_Sub37.anInt3431 = 1;
-				AbstractBuffer.anInt599 = 0;
+				AbstractBuffer.mapFilesMissingCount = 0;
 				Class145.anInt1379 = 1;
-				Class181.anInt1791 = 0;
+				LightType.locationModelMissingCount = 0;
 				Class120_Sub30_Sub1.method1739();
 			}
 			if (state == 25 || state == 10) {
@@ -53,7 +47,7 @@ final class ProjectileNode extends NodeSub {
 			if (state != 5) {
 				Class79_Sub1.resetTitleScreen();
 			} else {
-				IsaacCipher.drawTitleScreenSprites(Class7.aClass50_63);
+				IsaacCipher.drawTitleScreenSprites(client.aClass50_63);
 			}
 			final boolean bool_3_ = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
 			if (bool_3_ == !bool) {

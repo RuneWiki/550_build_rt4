@@ -101,7 +101,7 @@ final class Class30 {
 				if (ambientSound.aClass120_Sub30_Sub4_2488 != null) {
 					ambientSound.aClass120_Sub30_Sub4_2488.setVolume(i_8_);
 				} else if (ambientSound.id >= 0) {
-					final Class6 class6 = Class6.method103(Class159.aClass50_1490, ambientSound.id, 0);
+					final SoundEffect class6 = SoundEffect.list(Class159.aClass50_1490, ambientSound.id, 0);
 					if (class6 != null) {
 						final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 						final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);
@@ -113,7 +113,7 @@ final class Class30 {
 				if (ambientSound.aClass120_Sub30_Sub4_2478 == null) {
 					if (ambientSound.anIntArray2482 != null && ((ambientSound.anInt2496 -= redrawRate) ^ 0xffffffff) >= -1) {
 						final int i_9_ = (int) (ambientSound.anIntArray2482.length * Math.random());
-						final Class6 class6 = Class6.method103(Class159.aClass50_1490, ambientSound.anIntArray2482[i_9_], 0);
+						final SoundEffect class6 = SoundEffect.list(Class159.aClass50_1490, ambientSound.anIntArray2482[i_9_], 0);
 						if (class6 != null) {
 							final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);

@@ -42,7 +42,7 @@ final class NpcType {
 	private short[] recolorModified;
 	int cursor2;
 	int iconHeight;
-	int anInt1692;
+	int renderDataId;
 	int size;
 	byte aByte1694;
 	int cursor1;
@@ -50,7 +50,7 @@ final class NpcType {
 	private int varpId;
 	int mapFunctionId;
 	byte aByte1699;
-	byte aByte1700;
+	byte loginScreenProperties;//0x1 - can be spawned, 0x2 - walks
 	boolean aBoolean1701;
 	static int anInt1702 = 0;
 	String[] options;
@@ -110,7 +110,7 @@ final class NpcType {
 			size = buffer.getUByte();
 		} else if (code >= 30 && code < 35) {
 			options[code - 30] = buffer.getJagexString();
-			if (options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
+			if (options[code - 30].equalsIgnoreCase(StringLibrary.hidden)) {
 				options[code - 30] = null;
 			}
 		} else if (code == 40) {
@@ -200,7 +200,7 @@ final class NpcType {
 			buffer.getUByte();
 			buffer.getUByte();
 		} else if (code == 119) {
-			aByte1700 = buffer.getByte();
+			loginScreenProperties = buffer.getByte();
 		} else if (code == 121) {
 			anIntArrayArray1670 = new int[modelIds.length][];
 			final int i_20_ = buffer.getUByte();
@@ -218,7 +218,7 @@ final class NpcType {
 		} else if (code == 125) {
 			spawnDirection = buffer.getByte();
 		} else if (code == 127) {
-			anInt1692 = buffer.getUShort();
+			renderDataId = buffer.getUShort();
 		} else if (code == 128) {
 			buffer.getUByte();
 		} else if (code == 134) {
@@ -247,6 +247,8 @@ final class NpcType {
 			cursor2 = buffer.getUShort();
 		} else if (code == 137) {
 			anInt1668 = buffer.getUShort();
+		} else if (code == 138) {
+			System.out.println("Icon - "+buffer.getUShort());
 		} else if (code == 140) {
 			ambientSoundVolume = buffer.getUByte();
 		} else if (code == 141) {
@@ -255,7 +257,7 @@ final class NpcType {
 			mapFunctionId = buffer.getUShort();
 		} else if (code >= 150 && code < 155) {
 			options[code - 150] = buffer.getJagexString();
-			if (!NpcType.npcMemberClient || options[code - 150].equalsIgnoreCase(TextRepository.hidden)) {
+			if (!NpcType.npcMemberClient || options[code - 150].equalsIgnoreCase(StringLibrary.hidden)) {
 				options[code - 150] = null;
 			}
 		} else if (code == 249) {
@@ -426,8 +428,8 @@ final class NpcType {
 				}
 			}
 			EntityRenderData class29 = null;
-			if (this.anInt1692 != -1) {
-				class29 = EntityRenderData.list(this.anInt1692);
+			if (this.renderDataId != -1) {
+				class29 = EntityRenderData.list(this.renderDataId);
 			}
 			if (class29 != null && class29.modelRotateTranslate != null) {
 				for (int i_58_ = 0; class29.modelRotateTranslate.length > i_58_; i_58_++) {
@@ -523,7 +525,7 @@ final class NpcType {
 					final int i_81_ = class150s[i_79_].frameId;
 					final int i_82_ = class150s[i_79_].nextFrameId;
 					int i_83_ = class40_80_.frames[i_81_];
-					EnumType.aClass120_Sub14_Sub18Array3453[i_79_] = FrameLoader.list(i_83_ >>> 16);
+					EnumType.aClass120_Sub14_Sub18Array3453[i_79_] = FrameGroup.list(i_83_ >>> 16);
 					i_83_ &= 0xffff;
 					SpotAnimation.anIntArray2918[i_79_] = i_83_;
 					if (EnumType.aClass120_Sub14_Sub18Array3453[i_79_] != null) {
@@ -535,7 +537,7 @@ final class NpcType {
 						ReflectionCheckNode.anIntArray2761[i_79_] = class40_80_.delays[i_81_];
 						ObjectCache.anIntArray124[i_79_] = class150s[i_79_].frameDelay;
 						int i_84_ = class40_80_.frames[i_82_];
-						DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] = FrameLoader.list(i_84_ >>> 16);
+						DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] = FrameGroup.list(i_84_ >>> 16);
 						i_84_ &= 0xffff;
 						Class120_Sub12.anIntArray2567[i_79_] = i_84_;
 						if (DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] != null) {
@@ -554,19 +556,19 @@ final class NpcType {
 		if (!bool && class40_49_ == null && seqType == null) {
 			final AbstractModelRenderer class180_sub7_85_ = class180_sub7_55_.method2376(true, true, true);
 			if (resizeX != 128 || resizeY != 128) {
-				class180_sub7_85_.resize(resizeX, resizeY, resizeX);
+				class180_sub7_85_.scale(resizeX, resizeY, resizeX);
 			}
 			return class180_sub7_85_;
 		}
 		int i_86_ = -1;
 		int i_87_ = -1;
-		FrameLoader class120_sub14_sub18 = null;
-		FrameLoader class120_sub14_sub18_88_ = null;
+		FrameGroup class120_sub14_sub18 = null;
+		FrameGroup class120_sub14_sub18_88_ = null;
 		int i_89_ = 0;
 		if (class40_49_ != null) {
 			i_87_ = class40_49_.frames[i];
 			final int i_90_ = i_87_ >>> 16;
-			class120_sub14_sub18 = FrameLoader.list(i_90_);
+			class120_sub14_sub18 = FrameGroup.list(i_90_);
 			i_87_ &= 0xffff;
 			if (class120_sub14_sub18 != null) {
 				bool_76_ |= class120_sub14_sub18.method1579(i_87_);
@@ -579,7 +581,7 @@ final class NpcType {
 				final int i_91_ = i_86_ >>> 16;
 				i_86_ &= 0xffff;
 				if (i_91_ != i_90_) {
-					class120_sub14_sub18_88_ = FrameLoader.list(i_86_ >>> 16);
+					class120_sub14_sub18_88_ = FrameGroup.list(i_86_ >>> 16);
 				} else {
 					class120_sub14_sub18_88_ = class120_sub14_sub18;
 				}
@@ -592,13 +594,13 @@ final class NpcType {
 		int i_92_ = -1;
 		int i_93_ = -1;
 		int i_94_ = 0;
-		FrameLoader class120_sub14_sub18_95_ = null;
-		FrameLoader class120_sub14_sub18_96_ = null;
+		FrameGroup class120_sub14_sub18_95_ = null;
+		FrameGroup class120_sub14_sub18_96_ = null;
 		if (seqType != null) {
 			i_93_ = seqType.frames[i_52_];
 			final int i_97_ = i_93_ >>> 16;
 			i_93_ &= 0xffff;
-			class120_sub14_sub18_95_ = FrameLoader.list(i_97_);
+			class120_sub14_sub18_95_ = FrameGroup.list(i_97_);
 			if (class120_sub14_sub18_95_ != null) {
 				bool_76_ |= class120_sub14_sub18_95_.method1579(i_93_);
 				bool_75_ |= class120_sub14_sub18_95_.method1578(i_93_);
@@ -612,7 +614,7 @@ final class NpcType {
 				if (i_98_ == i_97_) {
 					class120_sub14_sub18_96_ = class120_sub14_sub18_95_;
 				} else {
-					class120_sub14_sub18_96_ = FrameLoader.list(i_92_ >>> 16);
+					class120_sub14_sub18_96_ = FrameGroup.list(i_92_ >>> 16);
 				}
 				if (class120_sub14_sub18_96_ != null) {
 					bool_76_ |= class120_sub14_sub18_96_.method1579(i_92_);
@@ -643,9 +645,15 @@ final class NpcType {
 			FileSystem.aClass40Array458[i_102_] = null;
 		}
 		if (resizeX != 128 || resizeY != 128) {
-			class180_sub7_99_.resize(resizeX, resizeY, resizeX);
+			class180_sub7_99_.scale(resizeX, resizeY, resizeX);
 		}
 		return class180_sub7_99_;
+	}
+
+	static final void setupNpcTypeVariables(final js5 js5, final js5 class50_1_, final boolean bool) {
+		npcMemberClient = bool;
+		configClient = class50_1_;
+		aClass50_181 = js5;
 	}
 
 	static final void setMembersClient3(final boolean bool) {
@@ -696,8 +704,8 @@ final class NpcType {
 		resizeY = 128;
 		this.mapFunctionId = -1;
 		this.aBoolean1701 = true;
-		this.anInt1692 = -1;
-		this.aByte1700 = (byte) 0;
+		this.renderDataId = -1;
+		this.loginScreenProperties = (byte) 0;
 		this.displayOnMinimap = true;
 		this.anInt1676 = -1;
 		this.cursor2 = -1;

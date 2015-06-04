@@ -21,17 +21,17 @@ final class Class178 {
 		return i_0_ + (i & 0xff80);
 	}
 
-	static final void method2257(final boolean bool) {
-		if (bool) {
-			LabelGroup.groundTiles = Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437;
-			OverridedJInterface.tileHeightMap = Class24.anIntArrayArrayArray140;
-			Canvas_Sub1.aClass120_Sub9ArrayArray17 = IntegerNode.aClass120_Sub9ArrayArray2789;
+	static final void setRenderTiles(final boolean underWater) {
+		if (underWater) {
+			LabelGroup.activeGroundTiles = Class120_Sub12_Sub38.underWaterGroundTiles;
+			OverridedJInterface.activeTileHeightMap = Class24.underWaterTileHeightMap;
+			Canvas_Sub1.activeHdTiles = IntegerNode.underWaterHdTiles;
 		} else {
-			LabelGroup.groundTiles = Class86.aClass120_Sub18ArrayArrayArray820;
-			OverridedJInterface.tileHeightMap = Class120_Sub12_Sub33.anIntArrayArrayArray3388;
-			Canvas_Sub1.aClass120_Sub9ArrayArray17 = SceneGroundObject.aClass120_Sub9ArrayArray2844;
+			LabelGroup.activeGroundTiles = Class86.surfaceGroundTiles;
+			OverridedJInterface.activeTileHeightMap = Class120_Sub12_Sub33.surfaceTileHeightMap;
+			Canvas_Sub1.activeHdTiles = SceneGroundObject.surfaceHdTiles;
 		}
-		MapSceneType.anInt1361 = LabelGroup.groundTiles.length;
+		MapSceneType.activeGroundTileLength = LabelGroup.activeGroundTiles.length;
 	}
 
 }

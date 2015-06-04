@@ -61,8 +61,8 @@ final class Deque {
 		return node;
 	}
 
-	static final WallLocation method894(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+	static final WallLocation getWallLocation(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

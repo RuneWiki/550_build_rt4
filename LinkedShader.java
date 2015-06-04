@@ -5,14 +5,14 @@
 import javax.media.opengl.GL;
 
 final class LinkedShader {
-	private final Shader[] shaders;
+	private final GLShader[] shaders;
 	private final int anInt1245;
 	private static int[] linkStatus = new int[2];
 	int target;
 
-	static final LinkedShader linkShaders(final Shader[] shaders) {
+	static final LinkedShader linkShaders(final GLShader[] shaders) {
 		for (int id = 0; id < shaders.length; id++) {
-			final Shader shader = shaders[id];
+			final GLShader shader = shaders[id];
 			if (shader == null || shader.shaderId <= 0) {
 				return null;
 			}
@@ -20,7 +20,7 @@ final class LinkedShader {
 		final GL gl = HDToolkit.gl;
 		final int target = gl.glCreateProgramObjectARB();
 		for (int id = 0; id < shaders.length; id++) {
-			final Shader class37 = shaders[id];
+			final GLShader class37 = shaders[id];
 			gl.glAttachObjectARB(target, class37.shaderId);
 		}
 		gl.glLinkProgramARB(target);
@@ -37,7 +37,7 @@ final class LinkedShader {
 			}
 			if (linkStatus[0] == 0) {
 				for (int id = 0; id < shaders.length; id++) {
-					final Shader class37 = shaders[id];
+					final GLShader class37 = shaders[id];
 					gl.glDetachObjectARB(target, class37.shaderId);
 				}
 				gl.glDeleteObjectARB(target);
@@ -47,7 +47,7 @@ final class LinkedShader {
 		return new LinkedShader(target, shaders);
 	}
 
-	private LinkedShader(final int target, final Shader[] shaders) {
+	private LinkedShader(final int target, final GLShader[] shaders) {
 		this.target = target;
 		this.shaders = shaders;
 		anInt1245 = MemoryManager.anInt1083;

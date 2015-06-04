@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import javax.media.opengl.GL;
 
-final class Shader {
+final class GLShader {
 	int shaderId;
 	static int FRAGMENT_SHADER_ID = 35632;
 	private static int[] params = new int[2];
@@ -17,7 +17,7 @@ final class Shader {
 		super.finalize();
 	}
 
-	static final Shader compile(final String string, final int shaderType) {
+	static final GLShader compile(final String string, final int shaderType) {
 		final GL gl = HDToolkit.gl;
 		final int shaderId = gl.glCreateShaderObjectARB(shaderType);
 		gl.glShaderSourceARB(shaderId, 1, new String[] { string }, new int[] { string.length() }, 0);
@@ -39,10 +39,10 @@ final class Shader {
 				return null;
 			}
 		}
-		return new Shader(shaderId, shaderType);
+		return new GLShader(shaderId, shaderType);
 	}
 
-	private Shader(final int shaderId, final int shaderType) {
+	private GLShader(final int shaderId, final int shaderType) {
 		this.shaderId = shaderId;
 		anInt318 = MemoryManager.anInt1083;
 	}

@@ -11,9 +11,8 @@ final class LabelGroup extends Node {
 	int id;
 	static int[] anIntArray2409 = new int[5];
 	int[][] labels;
-	static GroundTile[][][] groundTiles;
+	static GroundTile[][][] activeGroundTiles;
 	static int[] anIntArray2412;
-	static js5 aClass50_2413;
 	static int screenRedrawPos;
 
 	static {
@@ -22,7 +21,7 @@ final class LabelGroup extends Node {
 	}
 
 	static final void method1036(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_6_, final int i_7_) {
-		if (MagnetType.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || IdentityKit.anInt1334 < i + i_3_) {
+		if (MagnetType.anInt260 > -i + i_6_ || i + i_6_ > ParamType.anInt3544 || i_3_ - i < Class120_Sub30_Sub2.anInt3699 || Identikit.anInt1334 < i + i_3_) {
 			Js5Worker.method356(i, i_7_, i_6_, i_2_, i_4_, i_3_);
 		} else {
 			AbstractMouseWheelHandler.method158(i_7_, i_2_, i, i_4_, i_6_, i_3_);
@@ -30,7 +29,7 @@ final class LabelGroup extends Node {
 	}
 
 	static final void method1037() {
-		Class57.anInt504 = 0;
+		Class57.delayAfterWorldChange = 0;
 		Class86.loginStep = 1;
 		Class120_Sub12_Sub5.errorPinging = false;
 		client.anInt1153 = 0;

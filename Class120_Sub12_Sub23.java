@@ -6,7 +6,7 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 	static int[] keyCodes;
 	static js5 aClass50_3305;
 	static float aFloat3306;
-	static int anInt3307 = 0;
+	static int toRemoveEntitiesPos = 0;
 	static int anInt3308;
 
 	static {
@@ -21,8 +21,8 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 		anInt3308 = 0;
 	}
 
-	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean selPlayer) {
-		if (Class150.anInt1407 < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > frame && seqType.anIntArrayArray347[frame] != null) {
+	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean isSelfPlayer) {
+		if (Class150.soundEffectCount < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > frame && seqType.anIntArrayArray347[frame] != null) {
 			final int i_3_ = seqType.anIntArrayArray347[frame][0];
 			int i_4_ = i_3_ >> 8;
 			final int i_5_ = (0xe4 & i_3_) >> 5;
@@ -34,19 +34,19 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				}
 			}
 			if (i_6_ == 0) {
-				if (selPlayer) {
-					Class48.method404(0, i_4_, i_5_, 255);
+				if (isSelfPlayer) {
+					Class48.method404(i_4_, 0, i_5_, 255);
 				}
 			} else if (CursorType.ambientSoundsVolume != 0) {
-				Class120_Sub12_Sub16.anIntArray3255[Class150.anInt1407] = i_4_;
-				LocType.anIntArray1834[Class150.anInt1407] = i_5_;
-				Class81.anIntArray779[Class150.anInt1407] = 0;
-				Class109.aClass6Array1047[Class150.anInt1407] = null;
-				FileSystemRequest.anIntArray3926[Class150.anInt1407] = 255;
+				Class120_Sub12_Sub16.anIntArray3255[Class150.soundEffectCount] = i_4_;
+				LocType.anIntArray1834[Class150.soundEffectCount] = i_5_;
+				Class81.soundEffectDelays[Class150.soundEffectCount] = 0;
+				Class109.aClass6Array1047[Class150.soundEffectCount] = null;
+				FileSystemRequest.anIntArray3926[Class150.soundEffectCount] = 255;
 				final int i_9_ = (x - 64) / 128;
 				final int i_8_ = (z - 64) / 128;
-				Class174.anIntArray1731[Class150.anInt1407] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
-				Class150.anInt1407++;
+				Class174.anIntArray1731[Class150.soundEffectCount] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
+				Class150.soundEffectCount++;
 			}
 		}
 	}
@@ -72,10 +72,10 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 				i_18_ -= i_16_ << 1;
 				final int i_21_ = -i_16_ + i;
 				final int i_22_ = i_16_ + i;
-				if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= IdentityKit.anInt1334) {
+				if (i_22_ >= Class120_Sub30_Sub2.anInt3699 && i_21_ <= Identikit.anInt1334) {
 					final int i_23_ = Class3.method83(MagnetType.anInt260, i_11_ + i_15_, ParamType.anInt3544);
 					final int i_24_ = Class3.method83(MagnetType.anInt260, i_11_ - i_15_, ParamType.anInt3544);
-					if (IdentityKit.anInt1334 >= i_22_) {
+					if (Identikit.anInt1334 >= i_22_) {
 						AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_13_, i_24_, i_23_);
 					}
 					if (Class120_Sub30_Sub2.anInt3699 <= i_21_) {
@@ -86,10 +86,10 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 			i_15_++;
 			final int i_25_ = i - i_15_;
 			final int i_26_ = i + i_15_;
-			if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= IdentityKit.anInt1334) {
+			if (Class120_Sub30_Sub2.anInt3699 <= i_26_ && i_25_ <= Identikit.anInt1334) {
 				final int i_27_ = Class3.method83(MagnetType.anInt260, i_11_ - -i_16_, ParamType.anInt3544);
 				final int i_28_ = Class3.method83(MagnetType.anInt260, i_11_ - i_16_, ParamType.anInt3544);
-				if (i_26_ <= IdentityKit.anInt1334) {
+				if (i_26_ <= Identikit.anInt1334) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_26_], i_13_, i_28_, i_27_);
 				}
 				if (Class120_Sub30_Sub2.anInt3699 <= i_25_) {

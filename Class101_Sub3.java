@@ -3,7 +3,6 @@
  */
 
 final class Class101_Sub3 extends Class101 {
-	static String aString2285 = "Drop";
 	private final int anInt2287;
 	private final int anInt2288;
 	private int anInt2289;

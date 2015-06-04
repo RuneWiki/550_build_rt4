@@ -5,18 +5,18 @@
 final class Class120_Sub12_Sub34 extends Class120_Sub12 {
 	static int[] anIntArray3409;
 
-	static final void updateInterface(final JagexInterface jagexInterface) {
-		final JagexInterface class189_0_ = ObjectContainer.method1665(jagexInterface);
+	static final void updateInterfaceDynamic(final JagexInterface jagexInterface) {
+		final JagexInterface parentInterface = JagexInterface.getParentInterface(jagexInterface);
 		int width;
 		int height;
-		if (class189_0_ != null) {
-			width = class189_0_.width;
-			height = class189_0_.height;
+		if (parentInterface != null) {
+			width = parentInterface.width;
+			height = parentInterface.height;
 		} else {
 			width = Class69_Sub1.canvasWidth;
 			height = Class120_Sub12_Sub5.canvasHeight;
 		}
-		Class23.updateInterfaceSize(jagexInterface, width, height, false);
+		client.updateInterfaceSize(jagexInterface, width, height, false);
 		SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 	}
 

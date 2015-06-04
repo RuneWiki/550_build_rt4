@@ -7,17 +7,19 @@ final class CursorType {
 	static int anInt1237 = 0;
 	private int graphic;
 	int hotSpotX;
-	static ObjectCache spriteCache = new ObjectCache(2);
+	static js5 aClass50_794;
+	static js5 aClass50_2413;
+	static ObjectCache graphicCache = new ObjectCache(2);
 	static ObjectCache recentUse = new ObjectCache(64);
 	static int ambientSoundsVolume;
-	static JagexInterface aClass189_1243;
+	static JagexInterface mouseOverInterface;
 
 	static {
 		ambientSoundsVolume = 127;
 	}
 
 	static final void method1914(final int i_0_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i_0_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(1, i_0_);
 		class120_sub14_sub7.method1453();
 	}
 
@@ -58,7 +60,7 @@ final class CursorType {
 								InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
 							}
 							Projectile.aClass189_2954 = Class74.getJagexInterface(i_7_);
-							Class23.anInt134 = js5.lastClickX;
+							client.anInt134 = js5.lastClickX;
 							Class5.anInt2154 = i_8_;
 							VarBit.anInt166 = Class120_Sub12_Sub36.lastClickY;
 							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
@@ -73,15 +75,15 @@ final class CursorType {
 					Class120_Sub12_Sub28.determineMenuSize();
 				}
 				if (i_5_ == 1 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
-					Class191.method2508();
+					ChunkAtmosphere.method2508();
 				}
 			} else {
 				if (i_5_ != 1) {
 					final int i_9_ = Queue.lastMouseX;
-					final int i_10_ = Class191.lastMouseY;
-					if (i_9_ < -10 + Huffman.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + Class120_Sub14_Sub10.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
+					final int i_10_ = ChunkAtmosphere.lastMouseY;
+					if (i_9_ < -10 + Huffman.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + QuickChatMessageType.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
 						Class15.menuOpen = false;
-						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
 					}
 				}
 				if (i_5_ == 1) {
@@ -108,7 +110,7 @@ final class CursorType {
 						GameShell.method31(i_16_);
 					}
 					Class15.menuOpen = false;
-					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
 				}
 			}
 		}
@@ -119,15 +121,20 @@ final class CursorType {
 	}
 
 	final LDSprite getCursorSprite() {
-		LDSprite ldSprite = (LDSprite) spriteCache.get(graphic);
+		LDSprite ldSprite = (LDSprite) graphicCache.get(graphic);
 		if (ldSprite != null) {
 			return ldSprite;
 		}
-		ldSprite = Class120_Sub12_Sub26.constructLDSpriteAlpha(FileSystemWorker.aClass50_794, graphic, 0);
+		ldSprite = Class120_Sub12_Sub26.constructLDSpriteAlpha(aClass50_794, graphic, 0);
 		if (ldSprite != null) {
-			spriteCache.put(ldSprite, graphic);
+			graphicCache.put(ldSprite, graphic);
 		}
 		return ldSprite;
+	}
+
+	static final void setup(final js5 js5, final js5 class50_1_) {
+		aClass50_794 = class50_1_;
+		aClass50_2413 = js5;
 	}
 
 	static final CursorType list(final int id) {
@@ -135,7 +142,7 @@ final class CursorType {
 		if (cursorType != null) {
 			return cursorType;
 		}
-		final byte[] data = LabelGroup.aClass50_2413.getFile(33, id);
+		final byte[] data = aClass50_2413.getFile(33, id);
 		cursorType = new CursorType();
 		if (data != null) {
 			cursorType.decode(new Buffer(data));

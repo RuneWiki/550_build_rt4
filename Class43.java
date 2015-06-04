@@ -5,7 +5,7 @@
 final class Class43 {
 	static boolean usingJavaAbove5;
 	static byte[][] aByteArrayArray365;
-	static int[] anIntArray366 = new int[1000];
+	static int[] toRemoveEntityIndices = new int[1000];
 	static ObjectCache playerModelsCache;
 	static int anInt368;
 
@@ -21,8 +21,8 @@ final class Class43 {
 	}
 
 	static final void createJInterfaceCache() {
-		Node.interfaceCache = new JagexInterface[Class101_Sub4.interfaceJs5.method421()][];
-		Class57.interfaceLoaded = new boolean[Class101_Sub4.interfaceJs5.method421()];
+		JagexInterface.interfaceCache = new JagexInterface[JagexInterface.interfaceJs5.method421()][];
+		JagexInterface.interfaceLoaded = new boolean[JagexInterface.interfaceJs5.method421()];
 	}
 
 	static final void method343(final int i, final int i_5_, final int i_6_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_) {
@@ -35,7 +35,7 @@ final class Class43 {
 				}
 			}
 		} else {
-			MapSceneType.method2008(Node.interfaceCache[i], i_8_, -1, i_12_, i_9_, i_11_, i_5_, i_6_, i_10_);
+			MapSceneType.method2008(JagexInterface.interfaceCache[i], i_8_, -1, i_12_, i_9_, i_11_, i_5_, i_6_, i_10_);
 		}
 	}
 
@@ -58,12 +58,12 @@ final class Class43 {
 		Class48.worldList = new World[EnumType.worldLen - OverridedJInterface.worldOff + 1];
 		for (int i_16_ = 0; i_16_ < Class57.worldLen2; i_16_++) {
 			final int worldId = buffer.getUSmart();
-			final World class167_sub1 = Class48.worldList[worldId] = new World();
-			class167_sub1.location = buffer.getUByte();
-			class167_sub1.flag = buffer.getInt();
-			class167_sub1.worldId = OverridedJInterface.worldOff + worldId;
-			class167_sub1.activity = buffer.getJagexString2();
-			class167_sub1.ip = buffer.getJagexString2();
+			final World world = Class48.worldList[worldId] = new World();
+			world.location = buffer.getUByte();
+			world.flag = buffer.getInt();
+			world.worldId = OverridedJInterface.worldOff + worldId;
+			world.activity = buffer.getJagexString2();
+			world.ip = buffer.getJagexString2();
 		}
 		Class96.anInt900 = buffer.getInt();
 		Class159.worldsLoaded = true;

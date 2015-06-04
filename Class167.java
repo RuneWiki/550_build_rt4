@@ -50,7 +50,7 @@ abstract class Class167 {
 			final int[] pixels = new int[pixelAmt];
 			final byte[] alphas = Class120_Sub12.spriteAlphas[0];
 			for (int pixelId = 0; pixelAmt > pixelId; pixelId++) {
-				pixels[pixelId] = Class191.method2512((alphas[pixelId] & 0xff) << 24, Class132_Sub1.spritePalette[(paletteIndicators[pixelId] & 0xff)]);
+				pixels[pixelId] = ChunkAtmosphere.method2512((alphas[pixelId] & 0xff) << 24, Class132_Sub1.spritePalette[(paletteIndicators[pixelId] & 0xff)]);
 			}
 			sprite = new LDTransparentSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], pixels);
 		}
@@ -73,8 +73,8 @@ abstract class Class167 {
 		return locType.method2460(type);
 	}
 
-	static final AbstractSprite[] constructSprites(final js5 js5, final int i, final int i_12_) {
-		if (!Class10.decodedSprites(js5, i, i_12_)) {
+	static final AbstractSprite[] constructSprites(final js5 js5, final int group, final int file) {
+		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
 		return ParamType.constructSprites();

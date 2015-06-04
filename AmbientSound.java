@@ -132,13 +132,13 @@ final class AmbientSound extends Node {
 		}
 	}
 
-	static final void method1158(final int i, final int i_3_) {
+	static final void setCameraRotation(final int i, final int i_3_) {
 		if (client.cameraType == 2) {
 			UnderlayType.renderPitch = i;
 			SpotAnimation.renderYaw = i_3_;
 		}
-		DummyOutputStream.aFloat28 = i_3_;
-		Class120_Sub12_Sub21.aFloat3293 = i;
+		DummyOutputStream.cameraYaw = i_3_;
+		Class120_Sub12_Sub21.cameraPitch = i;
 		Class127.method1892();
 		Class118.aBoolean1134 = true;
 	}

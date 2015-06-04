@@ -66,13 +66,13 @@ final class Class174 {
 			final int i_6_ = Canvas_Sub1.inputStream.getBitValue(1);
 			final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_7_ == 1) {
-				ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = index;
+				ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 			}
 			int z = Canvas_Sub1.inputStream.getBitValue(5);
 			if (z > 15) {
 				z -= 32;
 			}
-			player.method2343(TileParticleQueue.selfPlayer.walkQueueX[0] + x, TileParticleQueue.selfPlayer.walkQueueZ[0] + z, i_6_ == 1);
+			player.setPos(TileParticleQueue.selfPlayer.walkQueueX[0] + x, TileParticleQueue.selfPlayer.walkQueueZ[0] + z, i_6_ == 1);
 		}
 		Canvas_Sub1.inputStream.endBitAccess();
 	}

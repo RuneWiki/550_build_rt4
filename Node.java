@@ -10,7 +10,6 @@ class Node {
 	static int countryId;
 	long uid;
 	static Canvas canvas;
-	static JagexInterface[][] interfaceCache;
 	static int[] anIntArray1151 = { 1, 4 };
 
 	static final void deselectSpell() {
@@ -20,7 +19,7 @@ class Node {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.objectData = jagexInterface.onSpellDeselectionListener;
 				class120_sub10.jagexInterface = jagexInterface;
-				Class88.method744(class120_sub10);
+				Class88.executeScript(class120_sub10);
 			}
 			Class88.spellSelected = false;
 			Class192.selectedSpellCursor = -1;
@@ -43,7 +42,7 @@ class Node {
 		int i_16_ = i_10_ * ((i_6_ << 1) + 3);
 		int i_17_ = i_15_ * (1 + i_6_);
 		int i_18_ = (-3 + (i_5_ << 1)) * i_9_;
-		if (i >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i) {
+		if (i >= Class120_Sub30_Sub2.anInt3699 && Identikit.anInt1334 >= i) {
 			final int i_19_ = Class3.method83(MagnetType.anInt260, i_3_ + i_2_, ParamType.anInt3544);
 			final int i_20_ = Class3.method83(MagnetType.anInt260, i_3_ - i_2_, ParamType.anInt3544);
 			AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i], i_1_, i_20_, i_19_);
@@ -73,13 +72,13 @@ class Node {
 			i_21_ -= i_14_;
 			final int i_23_ = i_5_ + i;
 			i_18_ -= i_14_;
-			if (i_23_ >= Class120_Sub30_Sub2.anInt3699 && IdentityKit.anInt1334 >= i_22_) {
+			if (i_23_ >= Class120_Sub30_Sub2.anInt3699 && Identikit.anInt1334 >= i_22_) {
 				final int i_24_ = Class3.method83(MagnetType.anInt260, i_6_ + i_3_, ParamType.anInt3544);
 				final int i_25_ = Class3.method83(MagnetType.anInt260, i_3_ - i_6_, ParamType.anInt3544);
 				if (Class120_Sub30_Sub2.anInt3699 <= i_22_) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_22_], i_1_, i_25_, i_24_);
 				}
-				if (i_23_ <= IdentityKit.anInt1334) {
+				if (i_23_ <= Identikit.anInt1334) {
 					AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_23_], i_1_, i_25_, i_24_);
 				}
 			}
@@ -102,7 +101,7 @@ class Node {
 			return new StringBuilder(" <col=00ff80>").append(string_27_.substring(0, string_27_.length() - 8)).append(Class120_Sub19.aString2653).append(" (").append(string_27_).append(")</col>").toString();
 		}
 		if (string_27_.length() > 6) {
-			return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, string_27_.length() - 4)).append(TextRepository.aString854).append(" (").append(string_27_).append(")</col>").toString();
+			return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, string_27_.length() - 4)).append(StringLibrary.aString854).append(" (").append(string_27_).append(")</col>").toString();
 		}
 		return new StringBuilder(" <col=ffff00>").append(string_27_).append("</col>").toString();
 	}

@@ -75,7 +75,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	}
 
 	static final int getDisplayMode() {
-		if (Class120_Sub14_Sub10.fullscreenFrame != null) {
+		if (QuickChatMessageType.fullscreenFrame != null) {
 			return 3;
 		}
 		if (HDToolkit.glEnabled && MouseRecorder.frameResizable) {
@@ -89,46 +89,46 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 
 	static final int method1216(final js5 js5) {
 		int i_13_ = 0;
-		if (js5.method429(AmbientSound.hitmarksId)) {
+		if (js5.groupExist(AmbientSound.hitmarksId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class120_Sub12_Sub25.hitbardefaultId)) {
+		if (js5.groupExist(Class120_Sub12_Sub25.hitbardefaultId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class120_Sub14_Sub15.headiconspkId)) {
+		if (js5.groupExist(Class120_Sub14_Sub15.headiconspkId)) {
 			i_13_++;
 		}
-		if (js5.method429(MasterIndexInfo.headiconsprayerId)) {
+		if (js5.groupExist(MasterIndexInfo.headiconsprayerId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class120_Sub21.hintheadiconsId)) {
+		if (js5.groupExist(Class120_Sub21.hintheadiconsId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class173.hintmapmarkersId)) {
+		if (js5.groupExist(Class173.hintmapmarkersId)) {
 			i_13_++;
 		}
-		if (js5.method429(ModelParticleMagnet.mapflagId)) {
+		if (js5.groupExist(ModelParticleMagnet.mapflagId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class132_Sub2.crossId)) {
+		if (js5.groupExist(Class132_Sub2.crossId)) {
 			i_13_++;
 		}
-		if (js5.method429(MapFunctionType.mapdotsId)) {
+		if (js5.groupExist(MapFunctionType.mapdotsId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class134.scrollbarId)) {
+		if (js5.groupExist(Class134.scrollbarId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class81.nameiconsId)) {
+		if (js5.groupExist(Class81.nameiconsId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class120_Sub12_Sub7.floorshadowsId)) {
+		if (js5.groupExist(Class120_Sub12_Sub7.floorshadowsId)) {
 			i_13_++;
 		}
-		if (js5.method429(Class9.compassId)) {
+		if (js5.groupExist(Class9.compassId)) {
 			i_13_++;
 		}
-		if (js5.method429(PlayerAppearance.hintmapedgeId)) {
+		if (js5.groupExist(PlayerAppearance.hintmapedgeId)) {
 			i_13_++;
 		}
 		return i_13_;

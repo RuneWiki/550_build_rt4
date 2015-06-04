@@ -8,26 +8,26 @@ import java.security.InvalidParameterException;
 import javax.media.opengl.GL;
 
 final class Class120_Sub14_Sub17 extends NodeSub {
-	private final boolean aBoolean3591;
+	private boolean aBoolean3591;
 	private int anInt3592;
 	private int[] anIntArray3593;
-	private int anInt3594;
-	private final int anInt3595;
+	private int combineRGBType;
+	private int rotateX;
 	static int[] anIntArray3596;
-	private final int anInt3597;
-	private final boolean aBoolean3598;
-	private final int anInt3599;
-	private int anInt3600;
+	private int anInt3597;
+	private boolean repeatTTexture;
+	private int rotateY;
+	private int size;
 	private int anInt3601;
 	Class120_Sub14_Sub13 aClass120_Sub14_Sub13_3602;
-	private final boolean aBoolean3603;
+	private boolean aBoolean3603;
 	boolean aBoolean3604;
 	private int anInt3605 = 0;
-	private final boolean aBoolean3606;
+	private boolean aBoolean3606;
 	private float aFloat3607;
-	private final boolean aBoolean3608;
+	private boolean repeatSTexture;
 
-	private static final void method1569(final int target, final int internalFormat, int width, int height, final int externalFormat, final int i_4_, final float[] fs) {
+	private static void method1569(final int target, final int internalFormat, int width, int height, final int externalFormat, final int i_4_, final float[] fs) {
 		if (width == 0 || width == -2147483648 || !Class179.isPowerOfTwo(width)) {
 			throw new InvalidParameterException("width must be power of 2");
 		}
@@ -173,16 +173,16 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 			if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5)) {
 				return null;
 			}
-			anInt3600 = bool ? 64 : 128;
-			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, js5, interface3, anInt3600, true, anInt3600);
+			size = bool ? 64 : 128;
+			anIntArray3593 = this.aClass120_Sub14_Sub13_3602.method1533(f, aBoolean3591, js5, interface3, size, true, size);
 			aFloat3607 = f;
 			if (aBoolean3606) {
-				final int[] is = new int[anInt3600];
-				final int[] is_45_ = new int[anInt3600];
-				final int[] is_46_ = new int[anInt3600];
-				final int[] is_47_ = new int[anInt3600 * anInt3600];
-				final int i = anInt3600;
-				final int i_48_ = anInt3600;
+				final int[] is = new int[size];
+				final int[] is_45_ = new int[size];
+				final int[] is_46_ = new int[size];
+				final int[] is_47_ = new int[size * size];
+				final int i = size;
+				final int i_48_ = size;
 				final int i_49_ = i - 1;
 				final int i_50_ = i_48_ - 1;
 				final int i_51_ = i * i_48_;
@@ -263,18 +263,18 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 	}
 
 	final void method1573(final int i) {
-		if (anIntArray3593 != null && (anInt3599 != 0 || anInt3595 != 0)) {
+		if (anIntArray3593 != null && (rotateY != 0 || rotateX != 0)) {
 			if (anIntArray3596 == null || anIntArray3596.length < anIntArray3593.length) {
 				anIntArray3596 = new int[anIntArray3593.length];
 			}
 			final int i_72_ = anIntArray3593.length;
-			final int i_73_ = i * anInt3595;
-			final int i_74_ = anInt3600 - 1;
-			final int i_75_ = anInt3600 * i * anInt3599;
+			final int i_73_ = i * rotateX;
+			final int i_74_ = size - 1;
+			final int i_75_ = size * i * rotateY;
 			final int i_76_ = i_72_ - 1;
-			for (int i_77_ = 0; i_77_ < i_72_; i_77_ += anInt3600) {
+			for (int i_77_ = 0; i_77_ < i_72_; i_77_ += size) {
 				final int i_78_ = i_77_ + i_75_ & i_76_;
-				for (int i_79_ = 0; i_79_ < anInt3600; i_79_++) {
+				for (int i_79_ = 0; i_79_ < size; i_79_++) {
 					final int i_80_ = i_77_ + i_79_;
 					final int i_81_ = i_78_ + (i_79_ + i_73_ & i_74_);
 					anIntArray3596[i_80_] = anIntArray3593[i_81_];
@@ -290,14 +290,14 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		return this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5);
 	}
 
-	final boolean method1576(final Interface3 interface3, final js5 js5, int i) {
+	final boolean method1576(final Interface3 interface3, final js5 js5, int textureSize) {
 		if (!this.aClass120_Sub14_Sub13_3602.method1529(interface3, js5)) {
 			return false;
 		}
 		final GL gl = HDToolkit.gl;
 		final int i_82_ = Class49.method408();
 		if ((i_82_ & 0x1) == 0) {
-			if (anInt3592 == -1 || anInt3600 != i) {
+			if (anInt3592 == -1 || size != textureSize) {
 				if (anInt3592 == -1) {
 					final int[] is = new int[1];
 					gl.glGenTextures(1, is, 0);
@@ -306,15 +306,15 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 				}
 				HDToolkit.bindTexture2D(anInt3592);
 				if (aBoolean3603 && Class34.method290()) {
-					final float[] fs = this.aClass120_Sub14_Sub13_3602.method1528(i, aBoolean3591, interface3, js5, i);
+					final float[] fs = this.aClass120_Sub14_Sub13_3602.method1528(textureSize, aBoolean3591, interface3, js5, textureSize);
 					if (anInt3597 == 2) {
-						method1569(Class163.GL_TEXTURE_2D, Class163.GL_RGBA_FLOAT16, i, i, Class163.GL_RGBA, Class163.GL_FLOAT, fs);
+						method1569(Class163.GL_TEXTURE_2D, Class163.GL_RGBA_FLOAT16, textureSize, textureSize, Class163.GL_RGBA, Class163.GL_FLOAT, fs);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += fs.length * 4 / 3 - anInt3605;
 						anInt3605 = fs.length * 4 / 3;
 					} else {
-						gl.glTexImage2D(3553, 0, 34842, i, i, 0, 6408, 5126, FloatBuffer.wrap(fs));
+						gl.glTexImage2D(3553, 0, 34842, textureSize, textureSize, 0, 6408, 5126, FloatBuffer.wrap(fs));
 						gl.glTexParameteri(3553, 10241, 9729);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += fs.length - anInt3605;
@@ -322,9 +322,9 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 					}
 				} else {
 					final int i_83_ = HDToolkit.usingBigEndian ? 33639 : 5121;
-					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(i, i, js5, 0.7, interface3, aBoolean3591);
+					int[] is = this.aClass120_Sub14_Sub13_3602.method1526(textureSize, textureSize, js5, 0.7, interface3, aBoolean3591);
 					if (anInt3597 == 2) {
-						method1571(Class163.GL_TEXTURE_2D, Class163.GL_RGBA, i, i, Class163.GL_BGRA, i_83_, is);
+						method1571(Class163.GL_TEXTURE_2D, Class163.GL_RGBA, textureSize, textureSize, Class163.GL_BGRA, i_83_, is);
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += is.length * 4 / 3 - anInt3605;
@@ -332,42 +332,42 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 					} else if (anInt3597 == 1) {
 						int i_84_ = 0;
 						for (;;) {
-							gl.glTexImage2D(3553, i_84_++, 6408, i, i, 0, 32993, i_83_, IntBuffer.wrap(is));
-							i >>= 1;
-							if (i == 0) {
+							gl.glTexImage2D(3553, i_84_++, 6408, textureSize, textureSize, 0, 32993, i_83_, IntBuffer.wrap(is));
+							textureSize >>= 1;
+							if (textureSize == 0) {
 								break;
 							}
-							is = this.aClass120_Sub14_Sub13_3602.method1526(i, i, js5, 0.7, interface3, aBoolean3591);
+							is = this.aClass120_Sub14_Sub13_3602.method1526(textureSize, textureSize, js5, 0.7, interface3, aBoolean3591);
 						}
 						gl.glTexParameteri(3553, 10241, 9987);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += is.length * 4 / 3 - anInt3605;
 						anInt3605 = is.length * 4 / 3;
 					} else {
-						gl.glTexImage2D(3553, 0, 6408, i, i, 0, 32993, i_83_, IntBuffer.wrap(is));
+						gl.glTexImage2D(3553, 0, 6408, textureSize, textureSize, 0, 32993, i_83_, IntBuffer.wrap(is));
 						gl.glTexParameteri(3553, 10241, 9729);
 						gl.glTexParameteri(3553, 10240, 9729);
 						MemoryManager.textureMemory += is.length - anInt3605;
 						anInt3605 = is.length;
 					}
 				}
-				gl.glTexParameteri(3553, 10242, aBoolean3608 ? 10497 : 33071);
-				gl.glTexParameteri(3553, 10243, aBoolean3598 ? 10497 : 33071);
-				anInt3600 = i;
+				gl.glTexParameteri(3553, 10242, repeatSTexture ? 10497 : 33071);//GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT : GL_CLAMP_TO_EDGE
+				gl.glTexParameteri(3553, 10243, repeatTTexture ? 10497 : 33071);//GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT : GL_CLAMP_TO_EDGE
+				size = textureSize;
 			} else {
 				HDToolkit.bindTexture2D(anInt3592);
 			}
 		}
 		if ((i_82_ & 0x2) == 0) {
-			HDToolkit.method511(anInt3594);
+			HDToolkit.method511(combineRGBType);
 		}
 		if ((i_82_ & 0x4) == 0) {
 			HDToolkit.method521(0);
 		}
 		if ((i_82_ & 0x8) == 0) {
-			if (anInt3599 != 0 || anInt3595 != 0) {
-				final float f = (float) (HDToolkit.loopCycleWrapper * anInt3599) / (float) anInt3600;
-				final float f_85_ = (float) (HDToolkit.loopCycleWrapper * anInt3595) / (float) anInt3600;
+			if (rotateX != 0 || rotateY != 0) {
+				final float f_85_ = (float) (HDToolkit.loopCycleWrapper * rotateX) / (float) size;
+				final float f = (float) (HDToolkit.loopCycleWrapper * rotateY) / (float) size;
 				HDToolkit.method523(f_85_, f, 0.0F);
 			} else {
 				HDToolkit.method509();
@@ -382,23 +382,23 @@ final class Class120_Sub14_Sub17 extends NodeSub {
 		this.aClass120_Sub14_Sub13_3602 = new Class120_Sub14_Sub13(class120_sub7);
 		aBoolean3606 = class120_sub7.getUByte() == 1;
 		aBoolean3591 = class120_sub7.getUByte() == 1;
-		aBoolean3608 = class120_sub7.getUByte() == 1;
-		aBoolean3598 = class120_sub7.getUByte() == 1;
+		repeatSTexture = class120_sub7.getUByte() == 1;
+		repeatTTexture = class120_sub7.getUByte() == 1;
 		final int i = class120_sub7.getUByte() & 0x3;
-		anInt3595 = class120_sub7.getByte();
-		anInt3599 = class120_sub7.getByte();
+		rotateX = class120_sub7.getByte();
+		rotateY = class120_sub7.getByte();
 		final int i_86_ = class120_sub7.getUByte();
 		class120_sub7.getUByte();
 		aBoolean3603 = class120_sub7.getUByte() == 1;
 		anInt3597 = i_86_ >> 4 & 0xf;
 		if (i == 1) {
-			anInt3594 = 2;
+			combineRGBType = 2;
 		} else if (i == 2) {
-			anInt3594 = 3;
+			combineRGBType = 3;
 		} else if (i == 3) {
-			anInt3594 = 4;
+			combineRGBType = 4;
 		} else {
-			anInt3594 = 0;
+			combineRGBType = 0;
 		}
 	}
 }

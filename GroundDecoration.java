@@ -73,7 +73,7 @@ final class GroundDecoration {
 								gameEntity.spotAnimId = -1;
 							} else {
 								gameEntity.spotAnimCyclesElapsed++;
-								gameEntity.spotAnimFrame -= seqType.padding;
+								gameEntity.spotAnimFrame -= seqType.loop;
 								if (seqType.resetCycle > gameEntity.spotAnimCyclesElapsed) {
 									if (gameEntity.spotAnimFrame >= 0 && seqType.frames.length > gameEntity.spotAnimFrame) {
 										Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.spotAnimFrame, TileParticleQueue.selfPlayer == gameEntity);
@@ -90,7 +90,7 @@ final class GroundDecoration {
 							if (!spotAnimType.aBoolean998) {
 								gameEntity.spotAnimNextFrame = -1;
 							} else {
-								gameEntity.spotAnimNextFrame -= seqType.padding;
+								gameEntity.spotAnimNextFrame -= seqType.loop;
 								if (seqType.resetCycle <= 1 + gameEntity.spotAnimCyclesElapsed) {
 									gameEntity.spotAnimNextFrame = -1;
 								} else if (gameEntity.spotAnimNextFrame < 0 || gameEntity.spotAnimNextFrame >= seqType.frames.length) {
@@ -123,7 +123,7 @@ final class GroundDecoration {
 				}
 				if (gameEntity.animFrame >= seqType.frames.length) {
 					gameEntity.animCyclesElapsed++;
-					gameEntity.animFrame -= seqType.padding;
+					gameEntity.animFrame -= seqType.loop;
 					if (seqType.resetCycle > gameEntity.animCyclesElapsed) {
 						if (gameEntity.animFrame < 0 || gameEntity.animFrame >= seqType.frames.length) {
 							gameEntity.animId = -1;
@@ -136,7 +136,7 @@ final class GroundDecoration {
 				}
 				gameEntity.animNextFrame = 1 + gameEntity.animFrame;
 				if (gameEntity.animNextFrame >= seqType.frames.length) {
-					gameEntity.animNextFrame -= seqType.padding;
+					gameEntity.animNextFrame -= seqType.loop;
 					if (1 + gameEntity.animCyclesElapsed < seqType.resetCycle) {
 						if (gameEntity.animNextFrame < 0 || gameEntity.animNextFrame >= seqType.frames.length) {
 							gameEntity.animNextFrame = -1;
@@ -170,7 +170,7 @@ final class GroundDecoration {
 							Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, class150.frameId, gameEntity == TileParticleQueue.selfPlayer);
 						}
 						if (class150.frameId >= seqType.frames.length) {
-							class150.frameId -= seqType.padding;
+							class150.frameId -= seqType.loop;
 							class150.cyclesElapsed++;
 							if (seqType.resetCycle > class150.cyclesElapsed) {
 								if (class150.frameId >= 0 && seqType.frames.length > class150.frameId) {
@@ -184,7 +184,7 @@ final class GroundDecoration {
 						}
 						class150.nextFrameId = class150.frameId + 1;
 						if (seqType.frames.length <= class150.nextFrameId) {
-							class150.nextFrameId -= seqType.padding;
+							class150.nextFrameId -= seqType.loop;
 							if (class150.cyclesElapsed + 1 >= seqType.resetCycle) {
 								class150.nextFrameId = -1;
 							} else if (class150.nextFrameId < 0 || class150.nextFrameId >= seqType.frames.length) {

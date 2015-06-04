@@ -11,7 +11,7 @@ final class KeyboardHandler implements KeyListener, FocusListener {
 	static int[] anIntArray1503;
 	static BigInteger aBigInteger1505 = new BigInteger("58778699976184461502525193738213253649000149147835990136706041084440742975821");
 	static int[] equipmentLookupTable;
-	static int anInt1507 = 0;
+	static int tradeChatSetting = 0;
 	static AbstractSprite titlebgSprite;
 
 	@Override

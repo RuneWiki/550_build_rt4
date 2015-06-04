@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /* Class180 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -15,7 +13,7 @@ abstract class SceneGraphNode {
 
 	abstract void render(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_5_, int i_6_, long l, int i_7_, ParticleEngine class108_sub2);
 
-	abstract void method2266(int i, int i_8_, int i_9_, int i_10_, int i_11_);//Something to do with particles
+	abstract void method2266(int i, int i_8_, int i_10_, int i_9_, int i_11_);
 
 	void method2267(final SceneGraphNode class180_12_, final int i, final int i_13_, final int i_14_, final boolean bool) {
 		/* empty */
@@ -89,7 +87,7 @@ abstract class SceneGraphNode {
 				Class120_Sub19.method1673(mapFunctionNode, class120_sub16, mapFunction, i, 0, i_18_, true);
 			}
 		}
-		if (class120_sub16.inBounds(Queue.lastMouseX, Class191.lastMouseY) && mapFunction.actionPrefixes != null) {
+		if (class120_sub16.inBounds(Queue.lastMouseX, ChunkAtmosphere.lastMouseY) && mapFunction.actionPrefixes != null) {
 			if (mapFunction.actionPrefixes[4] != null) {
 				InvType.addMenuOption(mapFunction.actionPrefixes[4], mapFunction.actionSufix, mapFunctionNode.id, mapFunction.anInt652, 0, (short) 1011, -1);
 			}

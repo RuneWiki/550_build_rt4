@@ -8,7 +8,7 @@ final class FileSystem {
 	static int[] anIntArray453 = { 76, 8, 137, 4, 0, 1, 38, 2, 19 };
 	private SeekableFile dataFile = null;
 	static int anInt455;
-	static Deque aClass105_456;
+	static Deque mediumPriorityInterfaceScripts;
 	static int minimapClickX;
 	static SeqType[] aClass40Array458;
 	static int anInt459 = 0;
@@ -22,7 +22,7 @@ final class FileSystem {
 		anInt455 = 0;
 		haveInternetExplorer6 = false;
 		aClass40Array458 = new SeqType[14];
-		aClass105_456 = new Deque();
+		mediumPriorityInterfaceScripts = new Deque();
 	}
 
 	static final int method443(final int i, final int i_0_, final int i_2_) {
@@ -177,7 +177,7 @@ final class FileSystem {
 		final int x = Huffman.menuDrawX;
 		final int y = Class120_Sub16.menuDrawY;
 		final int width = Class120_Sub24.menuWidth;
-		final int height = Class120_Sub14_Sub10.menuHeight;
+		final int height = QuickChatMessageType.menuHeight;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.fillRect(x, y, width, height, 6116423);
 			GraphicsLD.fillRect(x + 1, y + 1, width - 2, 16, 0);
@@ -187,9 +187,9 @@ final class FileSystem {
 			GraphicsHD.fillRect(x + 1, y + 1, width - 2, 16, 0);
 			GraphicsHD.drawRect(x + 1, y + 18, width - 2, height - 19, 0);
 		}
-		Class120_Sub12_Sub22.boldFont.method1466(TextRepository.aString1056, x + 3, y + 14, 6116423, -1);
+		Class120_Sub12_Sub22.boldFont.method1466(StringLibrary.chooseOption, x + 3, y + 14, 6116423, -1);
 		final int mouseX = Queue.lastMouseX;
-		final int mouseY = Class191.lastMouseY;
+		final int mouseY = ChunkAtmosphere.lastMouseY;
 		for (int optionId = 0; optionId < WallDecoration.menuOptionCount; optionId++) {
 			final int optionY = y + 31 + (15 * (WallDecoration.menuOptionCount - 1 - optionId));
 			int optionColor = 16777215;
@@ -198,13 +198,13 @@ final class FileSystem {
 			}
 			Class120_Sub12_Sub22.boldFont.method1466(client.getMenuOptionText(optionId), x + 3, optionY, optionColor, 0);
 		}
-		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, Class120_Sub14_Sub10.menuHeight);
+		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
 	}
 
 	static final void checkPlayerLocation() {
 		Class69_Sub3.isInTutIsland = 0;
 		final int x = (TileParticleQueue.selfPlayer.x >> 7) + GameEntity.currentBaseX;
-		final int z = (TileParticleQueue.selfPlayer.z >> 7) + Class181.currentBaseZ;
+		final int z = (TileParticleQueue.selfPlayer.z >> 7) + LightType.currentBaseZ;
 		if (x >= 3053 && x <= 3156 && z >= 3056 && z <= 3136) {
 			Class69_Sub3.isInTutIsland = 1;
 		}

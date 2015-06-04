@@ -13,12 +13,12 @@ final class JavaObject extends AbstractObject {
 		clickMaskCache = new Hashtable(512);
 	}
 
-	static final int method1434(final js5 js5) {
+	static final int titleSpriteCachedCount(final js5 js5) {
 		int i_1_ = 0;
-		if (js5.method429(StructType.titlebgId)) {
+		if (js5.groupExist(StructType.titlebgId)) {
 			i_1_++;
 		}
-		if (js5.method429(ParticleEmitter.logoId)) {
+		if (js5.groupExist(ParticleEmitter.logoId)) {
 			i_1_++;
 		}
 		return i_1_;
@@ -38,10 +38,10 @@ final class JavaObject extends AbstractObject {
 		value = object;
 	}
 
-	static final void method1435() {
+	static final void updateDraggedComponent() {
 		InterfaceClickMask.redrawInterface(Class120_Sub12_Sub4.draggedComponent);
 		SceneGroundObject.componentPressedCycles++;
-		if (!WorldInfo.aBoolean1419 || !Class111.aBoolean1058) {
+		if (!WorldInfo.draggingComponent || !Class111.aBoolean1058) {
 			if (SceneGroundObject.componentPressedCycles > 1) {
 				Class120_Sub12_Sub4.draggedComponent = null;
 			}
@@ -54,48 +54,48 @@ final class JavaObject extends AbstractObject {
 			if (Class120_Sub12_Sub4.draggedComponent.width + mouseX > Normal.aClass189_161.width + Class120_Sub12_Sub7.anInt3183) {
 				mouseX = Normal.aClass189_161.width + Class120_Sub12_Sub7.anInt3183 - Class120_Sub12_Sub4.draggedComponent.width;
 			}
-			int mouseY = Class191.lastMouseY;
+			int mouseY = ChunkAtmosphere.lastMouseY;
 			mouseY -= client.clickedComponentY;
 			if (Class120_Sub12_Sub35.anInt3413 > mouseY) {
 				mouseY = Class120_Sub12_Sub35.anInt3413;
 			}
-			final int i_4_ = mouseX - Class120_Sub12_Sub17.anInt3264;
+			final int i_4_ = mouseX - Class120_Sub12_Sub17.draggedComponentPosX;
 			if (Class120_Sub12_Sub4.draggedComponent.height + mouseY > Class120_Sub12_Sub35.anInt3413 - -Normal.aClass189_161.height) {
 				mouseY = Class120_Sub12_Sub35.anInt3413 - -Normal.aClass189_161.height + -Class120_Sub12_Sub4.draggedComponent.height;
 			}
-			final int i_5_ = mouseY - Class9.anInt77;
+			final int i_5_ = mouseY - Class9.draggedComponentPosY;
 			int offset = Class120_Sub12_Sub4.draggedComponent.pixelsBeforeDrag;
 			if (SceneGroundObject.componentPressedCycles > Class120_Sub12_Sub4.draggedComponent.cyclesBeforeDrag && (i_4_ > offset || i_4_ < -offset || i_5_ > offset || i_5_ < -offset)) {
 				Class120_Sub11.draggingComponent = true;
 			}
-			final int i_7_ = Normal.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
-			final int i_8_ = Normal.aClass189_161.horizontalScrollPosition + mouseY - Class120_Sub12_Sub35.anInt3413;
+			final int x = Normal.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
+			final int y = Normal.aClass189_161.horizontalScrollPosition + mouseY - Class120_Sub12_Sub35.anInt3413;
 			if (Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener != null && Class120_Sub11.draggingComponent) {
-				final InterfaceListener class120_sub10 = new InterfaceListener();
-				class120_sub10.data2 = i_8_;
-				class120_sub10.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
-				class120_sub10.data1 = i_7_;
-				class120_sub10.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener;
-				Class88.method744(class120_sub10);
+				final InterfaceListener interfaceListener = new InterfaceListener();
+				interfaceListener.data2 = y;
+				interfaceListener.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
+				interfaceListener.data1 = x;
+				interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener;
+				Class88.executeScript(interfaceListener);
 			}
 			if (InterfaceChangeNode.lastMousePress == 0) {
 				if (!Class120_Sub11.draggingComponent) {
 					if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1) || WallDecoration.menuOptionCount <= 2) {
 						if (WallDecoration.menuOptionCount > 0) {
-							Class191.method2508();
+							ChunkAtmosphere.method2508();
 						}
 					} else {
 						Class120_Sub12_Sub28.determineMenuSize();
 					}
 				} else {
 					if (Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener != null) {
-						final InterfaceListener class120_sub10 = new InterfaceListener();
-						class120_sub10.draggedOnComponent = LocType.draggedOnComponent;
-						class120_sub10.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
-						class120_sub10.data1 = i_7_;
-						class120_sub10.data2 = i_8_;
-						class120_sub10.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener;
-						Class88.method744(class120_sub10);
+						final InterfaceListener interfaceListener = new InterfaceListener();
+						interfaceListener.draggedOnComponent = LocType.draggedOnComponent;
+						interfaceListener.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
+						interfaceListener.data1 = x;
+						interfaceListener.data2 = y;
+						interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener;
+						Class88.executeScript(interfaceListener);
 					}
 					if (LocType.draggedOnComponent != null && client.method58(Class120_Sub12_Sub4.draggedComponent) != null) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(0);

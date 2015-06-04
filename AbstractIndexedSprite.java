@@ -11,7 +11,6 @@ abstract class AbstractIndexedSprite {
 	static JagexInterface[] aClass189Array1022;
 	static int modeWhere = 0;
 	static int defaultCursorId;
-	static String aString1025;
 	int width;
 	static int anInt1027 = 0;
 	int trimHeight;
@@ -20,37 +19,36 @@ abstract class AbstractIndexedSprite {
 
 	static {
 		defaultCursorId = -1;
-		aString1025 = "Prepared sound engine";
 	}
 
 	static final void changeDisplayMode(final int newDisplayMode, final int width, final int height, final int currentDisplayMode, final boolean canvasReplaceRecommended, final boolean changeRenderer) {
 		if (changeRenderer) {
 			HDToolkit.method519();
 		}
-		if (Class120_Sub14_Sub10.fullscreenFrame != null && (newDisplayMode != 3 || width != Class120_Sub12_Sub18.lastFullscreenWidth || height != Class120_Sub12_Sub12.lastFullscreenHeight)) {
-			Class150.revertFrame(NpcType.gameSignlink, Class120_Sub14_Sub10.fullscreenFrame);
-			Class120_Sub14_Sub10.fullscreenFrame = null;
+		if (QuickChatMessageType.fullscreenFrame != null && (newDisplayMode != 3 || width != Class120_Sub12_Sub18.lastFullscreenWidth || height != Class120_Sub12_Sub12.lastFullscreenHeight)) {
+			Class150.revertFrame(NpcType.gameSignlink, QuickChatMessageType.fullscreenFrame);
+			QuickChatMessageType.fullscreenFrame = null;
 		}
-		if (newDisplayMode == 3 && Class120_Sub14_Sub10.fullscreenFrame == null) {
-			Class120_Sub14_Sub10.fullscreenFrame = Class120_Sub12_Sub1.goFullscreen(0, width, height, 0, NpcType.gameSignlink);
-			if (Class120_Sub14_Sub10.fullscreenFrame != null) {
+		if (newDisplayMode == 3 && QuickChatMessageType.fullscreenFrame == null) {
+			QuickChatMessageType.fullscreenFrame = Class120_Sub12_Sub1.goFullscreen(0, width, height, 0, NpcType.gameSignlink);
+			if (QuickChatMessageType.fullscreenFrame != null) {
 				Class120_Sub12_Sub18.lastFullscreenWidth = width;
 				Class120_Sub12_Sub12.lastFullscreenHeight = height;
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
 			}
 		}
-		if (newDisplayMode == 3 && Class120_Sub14_Sub10.fullscreenFrame == null) {
+		if (newDisplayMode == 3 && QuickChatMessageType.fullscreenFrame == null) {
 			changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, currentDisplayMode, true, true);
 		} else {
 			Container container;
-			if (Class120_Sub14_Sub10.fullscreenFrame == null) {
+			if (QuickChatMessageType.fullscreenFrame == null) {
 				if (Class112.frame != null) {
 					container = Class112.frame;
 				} else {
 					container = NpcType.gameSignlink.gameApplet;
 				}
 			} else {
-				container = Class120_Sub14_Sub10.fullscreenFrame;
+				container = QuickChatMessageType.fullscreenFrame;
 			}
 			Class120_Sub12_Sub7.frameWidth = container.getSize().width;
 			PlayerAppearance.frameHeight = container.getSize().height;
@@ -106,7 +104,7 @@ abstract class AbstractIndexedSprite {
 					ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 					GraphicsLD.clearPixels();
 					if (Class109.gameState != 5) {
-						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(TextRepository.loadingPleaseWait, false);
+						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait, false);
 					} else {
 						UnderlayType.drawTitleScreen(Class120_Sub12_Sub22.boldFont, true);
 					}
@@ -122,7 +120,7 @@ abstract class AbstractIndexedSprite {
 					} else {
 						ClanMember.fullscreenGraphics = Class114.constructGraphicsBuffer(Node.canvas, 765, 503);
 					}
-					final SignlinkNode signlinkNode = NpcType.gameSignlink.method1967(Class179.clientInstance.getClass());
+					final SignlinkNode signlinkNode = NpcType.gameSignlink.loadGlLibrary(Class179.clientInstance.getClass());
 					while (signlinkNode.status == 0) {
 						PacketBuffer.sleepWrapper(100L);
 					}
@@ -131,7 +129,7 @@ abstract class AbstractIndexedSprite {
 					}
 				}
 				if (Class42.aBoolean363) {
-					HDToolkit.method537(Node.canvas, 2 * GroundDecoration.antiAliasingSamples);
+					HDToolkit.init(Node.canvas, 2 * GroundDecoration.antiAliasingSamples);
 				}
 			}
 			if (!HDToolkit.glEnabled && newDisplayMode > 0) {
@@ -158,7 +156,7 @@ abstract class AbstractIndexedSprite {
 								Rasterizer.method852(0.6F);
 							}
 						}
-						Class120_Sub9.method1163();
+						HDTile.reset();
 						LocType.resetSpriteMenu();
 					}
 				} else {
@@ -169,11 +167,11 @@ abstract class AbstractIndexedSprite {
 					if (Class120_Sub12_Sub6.highLightingDetail) {
 						Rasterizer.method852(0.7F);
 					}
-					if (IdentityKit.aClass191ArrayArray1337 == null) {
-						IdentityKit.aClass191ArrayArray1337 = new Class191[13][13];
+					if (Identikit.chunksAtmosphere == null) {
+						Identikit.chunksAtmosphere = new ChunkAtmosphere[13][13];
 					}
-					LightManager.method1856(4, 104, 104);
-					Class47.method382(104, 104);
+					LightManager.init(4, 104, 104);
+					ShadowManager.init(104, 104);
 					LocType.resetSpriteMenu();
 				}
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();

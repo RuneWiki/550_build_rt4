@@ -7,7 +7,7 @@ final class Class120_Sub15 extends Node {
 	static int[] anIntArray2591 = { 19, 55, 38, 155, 255, 110, 137, 205, 76 };
 	int anInt2592;
 	int anInt2593;
-	static FrameLoader[] aClass120_Sub14_Sub18Array2595 = new FrameLoader[14];
+	static FrameGroup[] aClass120_Sub14_Sub18Array2595 = new FrameGroup[14];
 	static float[] aFloatArray2596;
 	static int[] anIntArray2597 = new int[256];
 	static float aFloat2598;
@@ -28,7 +28,7 @@ final class Class120_Sub15 extends Node {
 
 	static final void method1654(final int i, final js5 js5, final int i_3_, final int i_5_, final int i_6_, final boolean bool) {
 		Class69.anInt614 = i_3_;
-		Class120_Sub14_Sub23.anInt3649 = i_6_;
+		QuickChatCategoryType.anInt3649 = i_6_;
 		MasterIndexInfo.aClass50_476 = js5;
 		StringNode.aBoolean2734 = bool;
 		SeqType.anInt349 = i;

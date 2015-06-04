@@ -10,7 +10,6 @@ final class Decimator {
 	private int oldFrequency;
 	private int[][] anIntArrayArray1719;
 	static int[] skillsBaseLevel = new int[25];
-	static js5 aClass50_1721;
 	static boolean fogEnabled;
 
 	static {
@@ -33,18 +32,18 @@ final class Decimator {
 	}
 
 	static final void method2219(final long l) {
-		if (client.cameraType == 1 || client.cameraType == 5) {
-			Class120_Sub12_Sub5.method1222(l);
+		if (client.cameraType == 1 || client.cameraType == 5) {//5 - cinematic camera? 1 - normal
+			Class120_Sub12_Sub5.updateCamera(l);
 		} else if (client.cameraType == 2) {
-			Class120_Sub12_Sub16.method1279();
+			Class120_Sub12_Sub16.updateLockedCamera();
 		} else {
-			InvType.method1445();
+			InvType.updateLoginScreenCamera();
 		}
 		if (!Class15.menuOpen) {
 			if (FileSystem.anInt455 == 0) {
 				if (Class156.lastMouseClick == 0) {
 					Class115.menuMouseX = Queue.lastMouseX;
-					Class120_Sub12_Sub21.menuMouseY = Class191.lastMouseY;
+					Class120_Sub12_Sub21.menuMouseY = ChunkAtmosphere.lastMouseY;
 				} else {
 					Class115.menuMouseX = js5.lastClickX;
 					Class120_Sub12_Sub21.menuMouseY = Class120_Sub12_Sub36.lastClickY;
@@ -54,7 +53,7 @@ final class Decimator {
 				Class120_Sub12_Sub21.menuMouseY = Class31.anInt250;
 			}
 			Class120_Sub29.menuOptionsCode[0] = (short) 1006;
-			Class120_Sub12_Sub33.menuOptionPrefix[0] = TextRepository.aString1462;
+			Class120_Sub12_Sub33.menuOptionPrefix[0] = StringLibrary.cancel;
 			Class120_Sub12_Sub29.menuOptionSuffix[0] = "";
 			InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 			WallDecoration.menuOptionCount = 1;
@@ -70,10 +69,10 @@ final class Decimator {
 			Class9.needInterfaceRedraw[id] = MasterIndexInfo.needInterfaceRedrawWrapper[id];
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
-		Class69_Sub3_Sub1.aClass189_3080 = null;
+		Class69_Sub3_Sub1.worldMapInterface = null;
 		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
-		LookupTable.anInt497 = -1;
-		StructType.anInt3590 = -1;
+		LookupTable.gameScreenDrawX = -1;
+		StructType.gameScreenDrawY = -1;
 		StructType.aClass189_3588 = null;
 		if (HDToolkit.glEnabled) {
 			Class167.clearDepthBuffer = true;
@@ -94,10 +93,10 @@ final class Decimator {
 			} else {
 				FileSystem.drawMenu();
 			}
-		} else if (Class69_Sub3_Sub1.aClass189_3080 != null) {
-			Class86.method728(Class69_Sub3_Sub1.aClass189_3080, Class9.anInt68, Class90.anInt847);
-		} else if (LookupTable.anInt497 != -1) {
-			Class86.method728(null, LookupTable.anInt497, StructType.anInt3590);
+		} else if (Class69_Sub3_Sub1.worldMapInterface != null) {
+			Class86.method728(Class69_Sub3_Sub1.worldMapInterface, Class9.worldMapInterfaceDrawX, Class90.worldMapInterfaceDrawY);
+		} else if (LookupTable.gameScreenDrawX != -1) {
+			Class86.method728(null, LookupTable.gameScreenDrawX, StructType.gameScreenDrawY);
 		}
 		int cursor = Class15.menuOpen ? -1 : Class53_Sub1.getMenuOptionCursor();
 		if (cursor == -1) {
@@ -130,7 +129,7 @@ final class Decimator {
 		Class120_Sub11.processAmbientSounds(TileParticleQueue.selfPlayer.x, TileParticleQueue.selfPlayer.z, Class173.gameLevel, Class120_Sub12_Sub22.redrawRate);
 		Class120_Sub12_Sub22.redrawRate = 0;
 	}
-
+	
 	final byte[] method2220(byte[] is) {
 		if (anIntArrayArray1719 != null) {
 			final int i_8_ = (int) ((long) newFrequency * (long) is.length / oldFrequency) - -14;
@@ -211,8 +210,8 @@ final class Decimator {
 	}
 
 	static final void method2223() {
-		for (int id = 0; id < Class154.anInt1441; id++) {
-			final int index = ModelParticleMagnet.anIntArray1648[id];
+		for (int id = 0; id < Class154.toUpdateEntitiesPos; id++) {
+			final int index = ModelParticleMagnet.toUpdateEntityIndex[id];
 			final Player player = Class118.playersList[index];
 			int mask = Canvas_Sub1.inputStream.getUByte();
 			if ((mask & 0x80) != 0) {
@@ -226,7 +225,7 @@ final class Decimator {
 		if (HDToolkit.glEnabled) {
 			GraphicsHD.clipRect(x, y, x + jagexInterface.width, y + jagexInterface.height);
 		}
-		final int i_42_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
+		final int i_42_ = (int) DummyOutputStream.cameraYaw & 0x7ff;
 		if (AbstractGraphicsBuffer.mapbackState >= 3) {
 			if (!HDToolkit.glEnabled) {
 				GraphicsLD.fillPixels(x, y, 0, jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);

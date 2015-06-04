@@ -11,11 +11,11 @@ abstract class Class120_Sub2 extends Node {
 	static String[] aStringArray2420 = new String[1000];
 	static int anInt2421;
 	static int anInt2422;
-	static String[] aStringArray2423;
+	static String[] chatMessageClanName;
 
 	static {
 		anInt2419 = 0;
-		aStringArray2423 = new String[100];
+		chatMessageClanName = new String[100];
 		anInt2422 = -1;
 	}
 

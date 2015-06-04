@@ -25,9 +25,4 @@ final class Class15 {
 		anIntArray101 = new int[] { 768, 1024, 1280, 512, 1536, 256, 0, 1792 };
 	}
 
-	static final void method145(final js5 js5) {
-		Varp.aClass50_1517 = js5;
-		Class120_Sub12_Sub22.anInt3302 = Varp.aClass50_1517.getFileAmount(16);
-	}
-
 }

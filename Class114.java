@@ -4,7 +4,7 @@
 import java.awt.Component;
 
 final class Class114 {
-	static int anInt1093 = 0;
+	static int previousPacketType = 0;
 	static byte[][][] aByteArrayArrayArray1094;
 	static byte[][][] tileSettings;
 	boolean aBoolean1096;
@@ -48,13 +48,13 @@ final class Class114 {
 				final DisplayModeInfo displayModeInfo = Class65.displayModes[id];
 				pixelAmount[id] = displayModeInfo.width * displayModeInfo.height;
 			}
-			ProjectileNode.sortArray(pixelAmount, Class65.displayModes);
+			ArrayUtils.quicksortArray(pixelAmount, Class65.displayModes);
 		}
 		return Class65.displayModes;
 	}
 
 	static final long getWallLocationUid(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null || groundTile.wallLocation == null) {
 			return 0L;
 		}

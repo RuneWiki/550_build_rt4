@@ -16,16 +16,16 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	static final void method1312(final boolean underwater) {
 		byte[][] data;
 		if (HDToolkit.glEnabled && underwater) {
-			data = Class101_Sub1.aByteArrayArray2271;
+			data = Class101_Sub1.underWaterLocationsMapFileBuffers;
 		} else {
-			data = Class134.aByteArrayArray1287;
+			data = Class134.locationMapFileBuffers;
 		}
-		final int i_0_ = RuntimeException_Sub1.aByteArrayArray2140.length;
+		final int i_0_ = RuntimeException_Sub1.mapFileBuffers.length;
 		for (int i_1_ = 0; i_1_ < i_0_; i_1_++) {
 			final byte[] is_2_ = data[i_1_];
 			if (is_2_ != null) {
-				final int i_3_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] >> 8) - GameEntity.currentBaseX;
-				final int i_4_ = 64 * (Class120_Sub12_Sub36.anIntArray3417[i_1_] & 0xff) - Class181.currentBaseZ;
+				final int i_3_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_1_] >> 8) - GameEntity.currentBaseX;
+				final int i_4_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_1_] & 0xff) - LightType.currentBaseZ;
 				Class120_Sub2.method1050();
 				CollisionMap.decodeObjectMap(underwater, is_2_, i_4_, i_3_, WallLocation.collisionMaps);
 			}
@@ -142,7 +142,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 				final int i_28_ = class120_sub29.anInt2780 + (i_25_ >> 1);
 				final int i_29_ = class120_sub29.anInt2765 - -(i_26_ >> 1);
 				final int i_30_ = class120_sub29.anInt2765 - -(i_26_ - -1 >> 1);
-				final int[][] is = OverridedJInterface.tileHeightMap[Class173.gameLevel];
+				final int[][] is = OverridedJInterface.activeTileHeightMap[Class173.gameLevel];
 				final int i_31_ = is[i_27_][i_29_] + is[i_28_][i_29_] + is[i_28_][i_30_] - -is[i_27_][i_30_] >> 2;
 				SceneGraphNode sceneGraphNode = null;
 				final int i_32_ = CollisionMap.anIntArray153[class120_sub29.anInt2772];
@@ -150,7 +150,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 					if (i_32_ != 1) {
 						if (i_32_ != 2) {
 							if (i_32_ == 3) {
-								final GroundDecoration class36 = Class23.method202(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
+								final GroundDecoration class36 = client.getGroundDecoration(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 								if (class36 != null) {
 									sceneGraphNode = class36.sceneGraphNode;
 								}
@@ -162,13 +162,13 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 							}
 						}
 					} else {
-						final WallDecoration class186 = ObjType.method2108(Class173.gameLevel, class120_sub29.anInt2780, class120_sub29.anInt2765);
+						final WallDecoration class186 = ObjType.getWallDecoration(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 						if (class186 != null) {
 							sceneGraphNode = class186.aClass180_1901;
 						}
 					}
 				} else {
-					final WallLocation class182 = Deque.method894(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
+					final WallLocation class182 = Deque.getWallLocation(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 					if (class182 != null) {
 						sceneGraphNode = class182.aClass180_1800;
 					}
@@ -248,20 +248,20 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 		return stringbuffer.toString();
 	}
 
-	static final void drawTextOnScreen(final String string, final boolean bool) {
-		final int i_49_ = Class120_Sub12_Sub20.plainFont.method1468(string, 250);
-		final int i_51_ = Class120_Sub12_Sub20.plainFont.method1481(string, 250) * 13;
+	static final void drawTextOnScreen(final String text, final boolean redrawWholeScreen) {
+		final int textWidth = Class120_Sub12_Sub20.plainFont.method1468(text, 250);
+		final int textHeight = Class120_Sub12_Sub20.plainFont.method1481(text, 250) * 13;
 		if (HDToolkit.glEnabled) {
-			GraphicsHD.fillRect(6, 6, i_49_ + 8, 8 + i_51_, 0);
-			GraphicsHD.drawRect(6, 6, i_49_ + 8, 8 + i_51_, 16777215);
+			GraphicsHD.fillRect(6, 6, textWidth + 8, textHeight + 8, 0);
+			GraphicsHD.drawRect(6, 6, textWidth + 8, textHeight + 8, 16777215);
 		} else {
-			GraphicsLD.fillRect(6, 6, i_49_ + 8, 8 + i_51_, 0);
-			GraphicsLD.drawRect(6, 6, i_49_ + 8, 8 + i_51_, 16777215);
+			GraphicsLD.fillRect(6, 6, textWidth + 8, textHeight + 8, 0);
+			GraphicsLD.drawRect(6, 6, textWidth + 8, textHeight + 8, 16777215);
 		}
-		Class120_Sub12_Sub20.plainFont.method1462(string, 10, 10, i_49_, i_51_, 16777215, -1, 1, 1, 0);
-		Class120_Sub12_Sub1.redrawScreen(6, 6, i_49_ + 8, i_51_ + 8);
-		if (!bool) {
-			Class54.redrawScreen(10, 10, i_49_, i_51_);
+		Class120_Sub12_Sub20.plainFont.method1462(text, 10, 10, textWidth, textHeight, 16777215, -1, 1, 1, 0);
+		Class120_Sub12_Sub1.redrawScreen(6, 6, textWidth + 8, textHeight + 8);
+		if (!redrawWholeScreen) {
+			Class54.redrawScreen(10, 10, textWidth, textHeight);
 		} else if (HDToolkit.glEnabled) {
 			HDToolkit.swapBuffers();
 		} else {

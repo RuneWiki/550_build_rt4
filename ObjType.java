@@ -4,7 +4,7 @@
 
 final class ObjType {
 	int cursor2op = -1;
-	private int resizeY;
+	private int scaleY;
 	private int manwearyoff;
 	private int manWear2;
 	private int contrast;
@@ -24,7 +24,7 @@ final class ObjType {
 	int xof2d;
 	int myId;
 	int lentlink;
-	private int resizeZ;
+	private int scaleZ;
 	String name;
 	private short[] recolorModified;
 	private int womanWear2;
@@ -50,7 +50,7 @@ final class ObjType {
 	String[] inventoryOptions;
 	boolean members;
 	private int womanwearxoff;
-	private int resizeX;
+	private int scaleX;
 	int yan2d;
 	private int womanWear3;
 	private short[] retextureModified;
@@ -60,6 +60,7 @@ final class ObjType {
 	String[] options;
 	int cost;
 	int[] countobj;
+	static boolean objMemberClient;
 	static ObjectCache recentUse = new ObjectCache(64);
 
 	final void decode(final Buffer buffer) {
@@ -177,8 +178,8 @@ final class ObjType {
 				}
 			}
 			cachedModel = model.toRenderer(ambient + 64, contrast + 768, -50, -10, -50);
-			if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
-				cachedModel.resize(resizeX, resizeY, resizeZ);
+			if (scaleX != 128 || scaleY != 128 || scaleZ != 128) {
+				cachedModel.scale(scaleX, scaleY, scaleZ);
 			}
 			cachedModel.haveActions = true;
 			if (HDToolkit.glEnabled) {
@@ -236,12 +237,12 @@ final class ObjType {
 		return class180_sub2_26_;
 	}
 
-	static final WallDecoration method2108(final int i, final int i_30_, final int i_31_) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[i][i_30_][i_31_];
-		if (class120_sub18 == null) {
+	static final WallDecoration getWallDecoration(final int x, final int z, final int level) {
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		if (groundTile == null) {
 			return null;
 		}
-		return class120_sub18.wallDecoration;
+		return groundTile.wallDecoration;
 	}
 
 	final void postDecode() {
@@ -369,39 +370,39 @@ final class ObjType {
 	}
 
 	final LDModelRenderer method2117(final PlayerAppearance playerAppearance) {
-		final Model class180_sub2 = Model.get(Class111.aClass50_1064, modelId, 0);
-		if (class180_sub2 == null) {
+		final Model model = Model.get(Class111.aClass50_1064, modelId, 0);
+		if (model == null) {
 			return null;
 		}
 		if (recolorOriginal != null) {
-			for (int i_50_ = 0; i_50_ < recolorOriginal.length; i_50_++) {
-				if (recolorPalette != null && recolorPalette.length > i_50_) {
-					class180_sub2.recolor(recolorOriginal[i_50_], NodeSub.aShortArray2584[0xff & recolorPalette[i_50_]]);
+			for (int id = 0; id < recolorOriginal.length; id++) {
+				if (recolorPalette != null && recolorPalette.length > id) {
+					model.recolor(recolorOriginal[id], NodeSub.aShortArray2584[recolorPalette[id] & 0xff]);
 				} else {
-					class180_sub2.recolor(recolorOriginal[i_50_], recolorModified[i_50_]);
+					model.recolor(recolorOriginal[id], recolorModified[id]);
 				}
 			}
 		}
 		if (retextureOriginal != null) {
-			for (int i_51_ = 0; i_51_ < retextureOriginal.length; i_51_++) {
-				class180_sub2.retexture(retextureOriginal[i_51_], retextureModified[i_51_]);
+			for (int id = 0; id < retextureOriginal.length; id++) {
+				model.retexture(retextureOriginal[id], retextureModified[id]);
 			}
 		}
 		if (playerAppearance != null) {
-			for (int i_52_ = 0; i_52_ < 5; i_52_++) {
-				if (Class159.aShortArrayArray1489[i_52_].length > playerAppearance.colors[i_52_]) {
-					class180_sub2.recolor(Class120_Sub12_Sub37.aShortArray3429[i_52_], Class159.aShortArrayArray1489[i_52_][playerAppearance.colors[i_52_]]);
+			for (int id = 0; id < 5; id++) {
+				if (Class159.aShortArrayArray1489[id].length > playerAppearance.colors[id]) {
+					model.recolor(Class120_Sub12_Sub37.aShortArray3429[id], Class159.aShortArrayArray1489[id][playerAppearance.colors[id]]);
 				}
-				if (Class120_Sub30_Sub1.aShortArrayArray3668[i_52_].length > playerAppearance.colors[i_52_]) {
-					class180_sub2.recolor(SpotAnimType.aShortArray994[i_52_], Class120_Sub30_Sub1.aShortArrayArray3668[i_52_][playerAppearance.colors[i_52_]]);
+				if (Class120_Sub30_Sub1.aShortArrayArray3668[id].length > playerAppearance.colors[id]) {
+					model.recolor(SpotAnimType.aShortArray994[id], Class120_Sub30_Sub1.aShortArrayArray3668[id][playerAppearance.colors[id]]);
 				}
 			}
 		}
-		final LDModelRenderer class180_sub7_sub1_53_ = class180_sub2.method2298(ambient + 64, contrast + 768, -50, -10, -50);
-		if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
-			class180_sub7_sub1_53_.resize(resizeX, resizeY, resizeZ);
+		final LDModelRenderer ldModel = model.method2298(ambient + 64, contrast + 768, -50, -10, -50);
+		if (scaleX != 128 || scaleY != 128 || scaleZ != 128) {
+			ldModel.scale(scaleX, scaleY, scaleZ);
 		}
-		return class180_sub7_sub1_53_;
+		return ldModel;
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
@@ -441,7 +442,7 @@ final class ObjType {
 			womanWear2 = buffer.getUShort();
 		} else if (code >= 30 && code < 35) {
 			this.options[code - 30] = buffer.getJagexString();
-			if (this.options[code - 30].equalsIgnoreCase(TextRepository.hidden)) {
+			if (this.options[code - 30].equalsIgnoreCase(StringLibrary.hidden)) {
 				this.options[code - 30] = null;
 			}
 		} else if (code >= 35 && code < 40) {
@@ -498,11 +499,11 @@ final class ObjType {
 			this.countobj[code - 100] = buffer.getUShort();
 			this.countcounts[code - 100] = buffer.getUShort();
 		} else if (code == 110) {
-			resizeX = buffer.getUShort();
+			scaleX = buffer.getUShort();
 		} else if (code == 111) {
-			resizeY = buffer.getUShort();
+			scaleY = buffer.getUShort();
 		} else if (code == 112) {
-			resizeZ = buffer.getUShort();
+			scaleZ = buffer.getUShort();
 		} else if (code == 113) {
 			ambient = buffer.getByte();
 		} else if (code == 114) {
@@ -554,8 +555,8 @@ final class ObjType {
 	}
 
 	static final void setMembersClient2(final boolean bool) {
-		if (AbstractObject.objMemberClient != bool) {
-			AbstractObject.objMemberClient = bool;
+		if (ObjType.objMemberClient != bool) {
+			ObjType.objMemberClient = bool;
 			Class120_Sub12_Sub18.clearObjCache();
 		}
 	}
@@ -578,8 +579,8 @@ final class ObjType {
 		if (objType.lenttemplate != -1) {
 			objType.genLent(list(objType.lentlink), list(objType.lenttemplate));
 		}
-		if (!AbstractObject.objMemberClient && objType.members) {
-			objType.name = TextRepository.membersObject;
+		if (!ObjType.objMemberClient && objType.members) {
+			objType.name = StringLibrary.membersObject;
 			objType.options = Class120_Sub12_Sub32.membersObjOptions;
 			objType.inventoryOptions = Class120_Sub12_Sub29.membersObjInventoryOptions;
 			objType.team = 0;
@@ -596,8 +597,8 @@ final class ObjType {
 		ambient = 0;
 		womanWear2 = -1;
 		this.zoom2d = 2000;
-		resizeZ = 128;
-		resizeY = 128;
+		scaleZ = 128;
+		scaleY = 128;
 		womanwearzoff = 0;
 		manwearyoff = 0;
 		this.stackable = 0;
@@ -620,17 +621,17 @@ final class ObjType {
 		this.certlink = -1;
 		this.zan2d = 0;
 		this.yan2d = 0;
-		this.inventoryOptions = new String[] { null, null, null, null, Class101_Sub3.aString2285 };
+		this.inventoryOptions = new String[] { null, null, null, null, StringLibrary.drop };
 		this.members = false;
 		this.manWear = -1;
 		this.team = 0;
 		this.yof2d = 0;
 		this.cursor1op = -1;
 		womanwearyoff = 0;
-		resizeX = 128;
+		scaleX = 128;
 		this.cursor2 = -1;
 		this.cost = 1;
-		this.options = new String[] { null, null, TextRepository.take, null, null };
+		this.options = new String[] { null, null, StringLibrary.take, null, null };
 		womanWear3 = -1;
 	}
 }

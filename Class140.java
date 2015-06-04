@@ -4,15 +4,15 @@
 
 final class Class140 {
 	static int loadingStage = 0;
-	private int anInt1339 = 0;
+	private int current = 0;
 	static int[] anIntArray1341 = { 1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0 };
-	private final Hashtable aClass75_1342;
+	private final Hashtable hashtable;
 	static int anInt1343 = 0;
-	private Node aClass120_1344;
+	private Node lastIterated;
 	static int anInt1345;
 
-	final Node method1994() {
-		return method1998();
+	final Node next() {
+		return getNext();
 	}
 
 	static final void method1995(final int i) {
@@ -109,24 +109,24 @@ final class Class140 {
 		}
 	}
 
-	final Node method1998() {
-		if (anInt1339 > 0 && aClass75_1342.table[-1 + anInt1339] != aClass120_1344) {
-			final Node class120_23_ = aClass120_1344;
-			aClass120_1344 = class120_23_.next;
-			return class120_23_;
+	final Node getNext() {
+		if (current > 0 && hashtable.table[current - 1] != lastIterated) {
+			final Node lastNode = lastIterated;
+			lastIterated = lastNode.next;
+			return lastNode;
 		}
-		while (anInt1339 < aClass75_1342.capacity) {
-			final Node class120_24_ = aClass75_1342.table[anInt1339++].next;
-			if (aClass75_1342.table[anInt1339 + -1] != class120_24_) {
-				aClass120_1344 = class120_24_.next;
-				return class120_24_;
+		while (current < hashtable.capacity) {
+			final Node nextNode = hashtable.table[current++].next;
+			if (nextNode != hashtable.table[current - 1]) {
+				lastIterated = nextNode.next;
+				return nextNode;
 			}
 		}
 		return null;
 	}
 
 	Class140(final Hashtable hashtable) {
-		aClass75_1342 = hashtable;
+		this.hashtable = hashtable;
 	}
 
 	static final void updateWorldPlayers(final Buffer buffer) {

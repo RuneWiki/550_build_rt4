@@ -19,26 +19,26 @@ final class Class173 {
 	}
 
 	static final void method2225() {
-		if (Class86.aClass120_Sub18ArrayArrayArray820 != null) {
-			for (int i = 0; i < Class86.aClass120_Sub18ArrayArrayArray820.length; i++) {
+		if (Class86.surfaceGroundTiles != null) {
+			for (int i = 0; i < Class86.surfaceGroundTiles.length; i++) {
 				for (int i_0_ = 0; i_0_ < WallDecoration.anInt1900; i_0_++) {
 					for (int i_1_ = 0; i_1_ < Class120_Sub12_Sub38.anInt3440; i_1_++) {
-						Class86.aClass120_Sub18ArrayArrayArray820[i][i_0_][i_1_] = null;
+						Class86.surfaceGroundTiles[i][i_0_][i_1_] = null;
 					}
 				}
 			}
 		}
-		SceneGroundObject.aClass120_Sub9ArrayArray2844 = null;
-		if (Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 != null) {
-			for (int i = 0; i < Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437.length; i++) {
+		SceneGroundObject.surfaceHdTiles = null;
+		if (Class120_Sub12_Sub38.underWaterGroundTiles != null) {
+			for (int i = 0; i < Class120_Sub12_Sub38.underWaterGroundTiles.length; i++) {
 				for (int i_2_ = 0; i_2_ < WallDecoration.anInt1900; i_2_++) {
 					for (int i_3_ = 0; i_3_ < Class120_Sub12_Sub38.anInt3440; i_3_++) {
-						Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437[i][i_2_][i_3_] = null;
+						Class120_Sub12_Sub38.underWaterGroundTiles[i][i_2_][i_3_] = null;
 					}
 				}
 			}
 		}
-		IntegerNode.aClass120_Sub9ArrayArray2789 = null;
+		IntegerNode.underWaterHdTiles = null;
 		Class49.anInt438 = 0;
 		if (SceneGraphNode.aClass188Array1782 != null) {
 			for (int i = 0; i < Class49.anInt438; i++) {

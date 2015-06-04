@@ -3,12 +3,12 @@
  */
 
 final class Class22 {
-	Class120_Sub14_Sub10 aClass120_Sub14_Sub10_128;
+	QuickChatMessageType aClass120_Sub14_Sub10_128;
 	int anInt129;
 	static Class127 aClass127_130;
 	int[] anIntArray133;
 
-	static final void method196(final float[][] fs, final int i, final int i_1_, final int i_2_, final int i_3_, final float[][] fs_4_, final int i_5_, final byte i_6_, final byte i_7_, final Class120_Sub9 class120_sub9, final boolean bool, final float[][] fs_8_, final int[][] is, final int i_9_, final int i_10_) {
+	static final void method196(final float[][] fs, final int i, final int i_1_, final int i_2_, final int i_3_, final float[][] fs_4_, final int i_5_, final byte i_6_, final byte i_7_, final HDTile class120_sub9, final boolean bool, final float[][] fs_8_, final int[][] is, final int i_9_, final int i_10_) {
 		final int i_11_ = (i << 8) + 255;
 		final int i_12_ = (i_5_ << 8) + 255;
 		final int i_13_ = (i_3_ << 8) + 255;
@@ -198,7 +198,7 @@ final class Class22 {
 	}
 
 	static final int getTileHeight(int x, int z, int level) {
-		if (OverridedJInterface.tileHeightMap == null) {
+		if (OverridedJInterface.activeTileHeightMap == null) {
 			return 0;
 		}
 		final int tileX = x >> 7;
@@ -211,10 +211,10 @@ final class Class22 {
 		}
 		final int playerAtTileX = x & 0x7f;
 		final int playerAtTileZ = z & 0x7f;
-		final int y = OverridedJInterface.tileHeightMap[level][tileX][tileZ];
-		final int northY = OverridedJInterface.tileHeightMap[level][tileX][tileZ + 1];
-		final int eastY = OverridedJInterface.tileHeightMap[level][tileX + 1][tileZ];
-		final int northEastY = OverridedJInterface.tileHeightMap[level][tileX + 1][tileZ + 1];
+		final int y = OverridedJInterface.activeTileHeightMap[level][tileX][tileZ];
+		final int northY = OverridedJInterface.activeTileHeightMap[level][tileX][tileZ + 1];
+		final int eastY = OverridedJInterface.activeTileHeightMap[level][tileX + 1][tileZ];
+		final int northEastY = OverridedJInterface.activeTileHeightMap[level][tileX + 1][tileZ + 1];
 		final int i_47_ = y * (128 - playerAtTileX) + (playerAtTileX * eastY) >> 7;
 		final int i_48_ = northEastY * playerAtTileX + (128 - playerAtTileX) * northY >> 7;
 		return i_48_ * playerAtTileZ + i_47_ * (128 - playerAtTileZ) >> 7;
@@ -314,17 +314,10 @@ final class Class22 {
 		/* empty */
 	}
 	
-	static final Class22 list(final int id) {//TODO remove this method, used to test qc
-		final Class22 class22_11_ = new Class22();
-		class22_11_.anInt129 = id;
-		class22_11_.aClass120_Sub14_Sub10_128 = Class120_Sub14_Sub10.list(class22_11_.anInt129);
-		return class22_11_;
-	}
-
 	static final Class22 decode(final Buffer bufer) {
 		final Class22 class22_11_ = new Class22();
 		class22_11_.anInt129 = bufer.getUShort();
-		class22_11_.aClass120_Sub14_Sub10_128 = Class120_Sub14_Sub10.list(class22_11_.anInt129);
+		class22_11_.aClass120_Sub14_Sub10_128 = QuickChatMessageType.list(class22_11_.anInt129);
 		return class22_11_;
 	}
 }

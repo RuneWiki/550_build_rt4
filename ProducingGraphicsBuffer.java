@@ -14,7 +14,7 @@ import java.awt.image.ImageProducer;
 final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements ImageProducer, ImageObserver {
 	static int[] anIntArray2796;
 	private ColorModel colorModel;
-	static int anInt2798;
+	static int currentLightZ;
 	static int friendCount = 0;
 	private ImageConsumer imageConsumer;
 	static int[] intStack = new int[1000];
@@ -78,7 +78,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			}
 			if ((gameEntity.faceX != 0 || gameEntity.faceZ != 0) && (gameEntity.walkQueuePos == 0 || gameEntity.anInt3037 > 0)) {
 				final int x = gameEntity.x - (gameEntity.faceX - GameEntity.currentBaseX - GameEntity.currentBaseX) * 64;
-				final int y = gameEntity.z - (gameEntity.faceZ - Class181.currentBaseZ - Class181.currentBaseZ) * 64;
+				final int y = gameEntity.z - (gameEntity.faceZ - LightType.currentBaseZ - LightType.currentBaseZ) * 64;
 				if (x != 0 || y != 0) {
 					gameEntity.newFaceDegrees = (int) (Math.atan2(x, y) * 325.949) & 0x7ff;
 				}
@@ -325,7 +325,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				for (int i_25_ = 0; i_25_ < 64; i_25_++) {
 					for (int i_26_ = 0; i_26_ < 64; i_26_++) {
 						if (i_20_ + i_25_ > 0 && i_25_ + i_20_ < 103 && i_19_ + i_26_ > 0 && i_26_ + i_19_ < 103) {
-							class25s[i_24_].collisionFlags[i_25_ + i_20_][i_19_ - -i_26_] = Class120_Sub12_Sub3.method1207(class25s[i_24_].collisionFlags[i_25_ + i_20_][i_19_ - -i_26_], -2097153);
+							class25s[i_24_].collisionFlags[i_25_ + i_20_][i_26_ + i_19_] = Class120_Sub12_Sub3.method1207(class25s[i_24_].collisionFlags[i_25_ + i_20_][i_26_ + i_19_], -2097153);
 						}
 					}
 				}
@@ -448,51 +448,49 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			}
 		}
 		if (HDToolkit.glEnabled && !bool) {
-			Class191 class191 = null;
+			ChunkAtmosphere class191 = null;
 			while (class120_sub7.pos < class120_sub7.buf.length) {
-				final int i_50_ = class120_sub7.getUByte();
-				if (i_50_ == 0) {
-					class191 = new Class191(class120_sub7);
-				} else if (i_50_ != 1) {
-					if (i_50_ == 2) {
-						if (class191 == null) {
-							class191 = new Class191();
-						}
-						class191.method2510(class120_sub7);
-					} else {
-						throw new IllegalStateException();
-					}
-				} else {
-					final int i_51_ = class120_sub7.getUByte();
-					if (i_51_ > 0) {
-						for (int i_52_ = 0; i_52_ < i_51_; i_52_++) {
+				final int type = class120_sub7.getUByte();
+				if (type == 0) {
+					class191 = new ChunkAtmosphere(class120_sub7);
+				} else if (type == 1) {
+					final int lightAmount = class120_sub7.getUByte();
+					if (lightAmount > 0) {
+						for (int lightId = 0; lightId < lightAmount; lightId++) {
 							final Light light = new Light(class120_sub7);
 							if (light.anInt376 == 31) {
-								final Class181 class181 = Class181.list(class120_sub7.getUShort());
+								final LightType class181 = LightType.list(class120_sub7.getUShort());
 								light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 							}
 							light.x += i_20_ << 7;
 							light.z += i_19_ << 7;
-							final int i_53_ = light.x >> 7;
-							final int i_54_ = light.z >> 7;
-							if (i_53_ >= 0 && i_54_ >= 0 && i_53_ < 104 && i_54_ < 104) {
-								light.aBoolean385 = (Class114.tileSettings[1][i_53_][i_54_] & 0x2) != 0;
-								light.y = OverridedJInterface.tileHeightMap[light.anInt384][i_53_][i_54_] - light.y;
+							final int tileX = light.x >> 7;
+							final int tileZ = light.z >> 7;
+							if (tileX >= 0 && tileZ >= 0 && tileX < 104 && tileZ < 104) {
+								light.lightOverBridge = (Class114.tileSettings[1][tileX][tileZ] & 0x2) != 0;
+								light.y = OverridedJInterface.activeTileHeightMap[light.level][tileX][tileZ] - light.y;
 								LightManager.addLight(light);
 							}
 						}
 					}
+				} else if (type == 2) {
+					if (class191 == null) {
+						class191 = new ChunkAtmosphere();
+					}
+					class191.method2510(class120_sub7);
+				} else {
+					throw new IllegalStateException();
 				}
 			}
 			if (class191 == null) {
-				class191 = new Class191();
+				class191 = new ChunkAtmosphere();
 			}
 			for (int i_55_ = 0; i_55_ < 8; i_55_++) {
 				for (int i_56_ = 0; i_56_ < 8; i_56_++) {
-					final int i_57_ = (i_20_ >> 3) - -i_55_;
-					final int i_58_ = (i_19_ >> 3) + i_56_;
-					if (i_57_ >= 0 && i_57_ < 13 && i_58_ >= 0 && i_58_ < 13) {
-						IdentityKit.aClass191ArrayArray1337[i_57_][i_58_] = class191;
+					final int x = (i_20_ >> 3) + i_55_;
+					final int z = (i_19_ >> 3) + i_56_;
+					if (x >= 0 && x < 13 && z >= 0 && z < 13) {
+						Identikit.chunksAtmosphere[x][z] = class191;
 					}
 				}
 			}
@@ -501,7 +499,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 			for (int i_59_ = 0; i_59_ < 4; i_59_++) {
 				for (int i_60_ = 0; i_60_ < 16; i_60_++) {
 					for (int i_61_ = 0; i_61_ < 16; i_61_++) {
-						final int i_62_ = (i_19_ >> 2) - -i_61_;
+						final int i_62_ = (i_19_ >> 2) + i_61_;
 						final int i_63_ = (i_20_ >> 2) + i_60_;
 						if (i_63_ >= 0 && i_63_ < 26 && i_62_ >= 0 && i_62_ < 26) {
 							Class114.aByteArrayArrayArray1094[i_59_][i_63_][i_62_] = (byte) 0;
@@ -522,7 +520,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	static final void method1853(final int i, final int i_66_, final int i_68_, final int i_69_, final int i_70_, final int i_71_, int i_72_) {
 		if (i_66_ >= 0 && i_69_ >= 0 && i_66_ < 103 && i_69_ < 103) {
 			if (i_70_ == 0) {
-				final WallLocation class182 = Deque.method894(i_66_, i_69_, i_68_);
+				final WallLocation class182 = Deque.getWallLocation(i_66_, i_69_, i_68_);
 				if (class182 != null) {
 					final int i_73_ = (int) (class182.bitPackedUid >>> 32) & 0x7fffffff;
 					if (i_72_ == 2) {
@@ -534,7 +532,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 			if (i_70_ == 1) {
-				final WallDecoration class186 = ObjType.method2108(i_68_, i_66_, i_69_);
+				final WallDecoration class186 = ObjType.getWallDecoration(i_66_, i_69_, i_68_);
 				if (class186 != null) {
 					final int i_74_ = 0x7fffffff & (int) (class186.bitPacked >>> 32);
 					if (i_72_ != 4 && i_72_ != 5) {
@@ -563,7 +561,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 			}
 			if (i_70_ == 3) {
-				final GroundDecoration class36 = Class23.method202(i_66_, i_69_, i_68_);
+				final GroundDecoration class36 = client.getGroundDecoration(i_66_, i_69_, i_68_);
 				if (class36 != null) {
 					class36.sceneGraphNode = new AnimatedLocation(0x7fffffff & (int) (class36.bitPackedUid >>> 32), 22, i_71_, i_68_, i_66_, i_69_, i, false, class36.sceneGraphNode);
 				}
@@ -574,7 +572,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 	static final void method1854(final JagexInterface jagexInterface, final boolean activateResizeListener) {
 		final int i = jagexInterface.maxScrollHorizontal == 0 ? jagexInterface.width : jagexInterface.maxScrollHorizontal;
 		final int i_76_ = jagexInterface.maxScrollVertical == 0 ? jagexInterface.height : jagexInterface.maxScrollVertical;
-		WorldInfo.method2065(Node.interfaceCache[jagexInterface.bitPacked >> 16], activateResizeListener, i, i_76_, jagexInterface.bitPacked);
+		WorldInfo.method2065(JagexInterface.interfaceCache[jagexInterface.bitPacked >> 16], activateResizeListener, i, i_76_, jagexInterface.bitPacked);
 		if (jagexInterface.components != null) {
 			WorldInfo.method2065(jagexInterface.components, activateResizeListener, i, i_76_, jagexInterface.bitPacked);
 		}

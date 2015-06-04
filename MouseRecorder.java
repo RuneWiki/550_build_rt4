@@ -26,7 +26,7 @@ final class MouseRecorder implements Runnable {
 			synchronized (this.lock) {
 				if (this.cacheIndex < 500) {
 					this.mouseXCache[this.cacheIndex] = Queue.lastMouseX;
-					this.mouseYCache[this.cacheIndex] = Class191.lastMouseY;
+					this.mouseYCache[this.cacheIndex] = ChunkAtmosphere.lastMouseY;
 					this.cacheIndex++;
 				}
 			}
@@ -40,11 +40,11 @@ final class MouseRecorder implements Runnable {
 			final InterfaceListener class120_sub10 = new InterfaceListener();
 			class120_sub10.objectData = jagexInterface.onSpellSelectionListener;
 			class120_sub10.jagexInterface = jagexInterface;
-			Class88.method744(class120_sub10);
+			Class88.executeScript(class120_sub10);
 		}
 		Class88.spellSelected = true;
 		Class192.selectedSpellCursor = cursor;
-		IdentityKit.selectedSpellParam = param;
+		Identikit.selectedSpellParam = param;
 		JagexSocket.selectedSpellComponextIndex = componentIndex;
 		Class150.selectedSpellTargetCursor = targetCursor;
 		AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked = bitPacked;

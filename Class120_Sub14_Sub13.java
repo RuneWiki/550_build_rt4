@@ -248,7 +248,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 		} else {
 			for (int i_54_ = 0; anIntArray3568.length > i_54_; i_54_++) {
-				if (!js5.method429(anIntArray3568[i_54_])) {
+				if (!js5.groupExist(anIntArray3568[i_54_])) {
 					return false;
 				}
 			}
@@ -381,12 +381,12 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		Class10.aClass50_79 = js5;
 		Class22.method199(i_77_, i_75_);
 		final int[] is_78_ = new int[i_77_ * i_75_];
-		Class120_Sub12[] class120_sub12s;
-		int i_79_ = (class120_sub12s = aClass120_Sub12Array3565).length;
-		for (int i_80_ = 0; i_80_ < i_79_; i_80_++) {
+		Class120_Sub12[] class120_sub12s = aClass120_Sub12Array3565;
+		for (int i_80_ = 0; i_80_ < class120_sub12s.length; i_80_++) {
 			final Class120_Sub12 class120_sub12 = class120_sub12s[i_80_];
 			class120_sub12.method1190(i_75_, i_77_);
 		}
+		int i_79_;
 		int i_81_;
 		int i_82_;
 		if (!bool_76_) {
@@ -466,14 +466,14 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 		aClass120_Sub12Array3565 = new Class120_Sub12[] { aClass120_Sub12_3566, aClass120_Sub12_3559, aClass120_Sub12_3562 };
 	}
 
-	Class120_Sub14_Sub13(final Buffer class120_sub7) {
+	Class120_Sub14_Sub13(final Buffer buffer) {
 		int i = 0;
-		final int i_95_ = class120_sub7.getUByte();
+		final int i_95_ = buffer.getUByte();
 		aClass120_Sub12Array3565 = new Class120_Sub12[i_95_];
 		int i_96_ = 0;
 		final int[][] is = new int[i_95_][];
 		for (int i_97_ = 0; i_97_ < i_95_; i_97_++) {
-			final Class120_Sub12 class120_sub12 = PlainTile.method2003(class120_sub7);
+			final Class120_Sub12 class120_sub12 = PlainTile.method2003(buffer);
 			if (class120_sub12.method1181() >= 0) {
 				i++;
 			}
@@ -483,7 +483,7 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			final int i_98_ = class120_sub12.aClass120_Sub12Array2561.length;
 			is[i_97_] = new int[i_98_];
 			for (int i_99_ = 0; i_98_ > i_99_; i_99_++) {
-				is[i_97_][i_99_] = class120_sub7.getUByte();
+				is[i_97_][i_99_] = buffer.getUByte();
 			}
 			aClass120_Sub12Array3565[i_97_] = class120_sub12;
 		}
@@ -507,9 +507,9 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			}
 			is[i_100_] = null;
 		}
-		aClass120_Sub12_3566 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
-		aClass120_Sub12_3559 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
-		aClass120_Sub12_3562 = aClass120_Sub12Array3565[class120_sub7.getUByte()];
+		aClass120_Sub12_3566 = aClass120_Sub12Array3565[buffer.getUByte()];
+		aClass120_Sub12_3559 = aClass120_Sub12Array3565[buffer.getUByte()];
+		aClass120_Sub12_3562 = aClass120_Sub12Array3565[buffer.getUByte()];
 	}
 
 	static final LDSprite constructLDSprite(final js5 js5, final int group, final int file) {

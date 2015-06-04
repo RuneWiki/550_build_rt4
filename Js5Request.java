@@ -17,7 +17,7 @@ final class Js5Request extends AbstractRequest {
 			if (mapFunctionType.anIntArray638 != null) {
 				final int[] is = new int[mapFunctionType.anIntArray638.length];
 				for (int i_5_ = 0; i_5_ < is.length / 2; i_5_++) {
-					final int i_6_ = (int) DummyOutputStream.aFloat28 & 0x7ff;
+					final int i_6_ = (int) DummyOutputStream.cameraYaw & 0x7ff;
 					int i_7_ = Rasterizer.cosTable[i_6_];
 					int i_8_ = Rasterizer.sinTable[i_6_];
 					is[i_5_ * 2] = interfaceX + jagexInterface.width / 2 - -((mapFunctionY - -(mapFunctionType.anIntArray638[1 + i_5_ * 2] * 4)) * i_8_ + i_7_ * (mapFunctionX - -(mapFunctionType.anIntArray638[i_5_ * 2] * 4)) >> 16);

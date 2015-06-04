@@ -173,20 +173,20 @@ class Buffer extends Node {
 			i_30_ = i_22_;
 		}
 		final int i_31_ = (i_26_ << 6) + (i_22_ << 7);
-		final int[][] is = OverridedJInterface.tileHeightMap[i_19_];
+		final int[][] is = OverridedJInterface.activeTileHeightMap[i_19_];
 		final int i_32_ = (i << 7) - -(i_25_ << 6);
 		final int i_33_ = is[i_28_][i_29_] + is[i_27_][i_30_] + is[i_28_][i_30_] - -is[i_27_][i_29_] >> 2;
 		int i_34_ = 0;
 		if (i_19_ != 0) {
-			final int[][] is_35_ = OverridedJInterface.tileHeightMap[0];
+			final int[][] is_35_ = OverridedJInterface.activeTileHeightMap[0];
 			i_34_ = -(is_35_[i_28_][i_29_] + is_35_[i_28_][i_30_] - (-is_35_[i_27_][i_30_] + -is_35_[i_27_][i_29_]) >> 2) + i_33_;
 		}
 		int[][] is_36_ = null;
 		if (i_19_ < 3) {
-			is_36_ = OverridedJInterface.tileHeightMap[i_19_ - -1];
+			is_36_ = OverridedJInterface.activeTileHeightMap[i_19_ - -1];
 		}
 		final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, null);
-		Class47.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
+		ShadowManager.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
 	}
 
 	final String getJagexString() {

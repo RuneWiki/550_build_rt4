@@ -3,12 +3,11 @@
  */
 
 final class SceneGroundObject extends SceneGraphNode {
-	static js5 aClass50_2839;
 	static int spriteTrimHeight;
 	static ObjectCache aClass21_2841;
 	private int maxY = -32768;
 	static int componentPressedCycles;
-	static Class120_Sub9[][] aClass120_Sub9ArrayArray2844;
+	static HDTile[][] surfaceHdTiles;
 	int amount;
 	int id;
 	static String aString2847 = "Loaded wordpack";
@@ -49,11 +48,11 @@ final class SceneGroundObject extends SceneGraphNode {
 		}
 		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
 		StructType.aClass189_3588 = null;
-		LookupTable.anInt497 = -1;
+		LookupTable.gameScreenDrawX = -1;
 		if (HDToolkit.glEnabled) {
 			Class167.clearDepthBuffer = true;
 		}
-		StructType.anInt3590 = -1;
+		StructType.gameScreenDrawY = -1;
 		if (Class69.rootInterfaceId != -1) {
 			LabelGroup.screenRedrawPos = 0;
 			LookupTable.method486();
@@ -67,7 +66,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_9_, final int i_10_, final int i_11_, final int i_12_) {
+	final void method2266(final int i, final int i_9_, final int i_11_, final int i_10_, final int i_12_) {
 		/* empty */
 	}
 

@@ -50,16 +50,16 @@ final class Class31 {
 				i_3_ -= 32;
 			}
 			if (i_4_ == 1) {
-				ModelParticleMagnet.anIntArray1648[Class154.anInt1441++] = index;
+				ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 			}
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 			npc.setSize(npc.npcType.size);
-			npc.entityRenderDataId = npc.npcType.anInt1692;
+			npc.entityRenderDataId = npc.npcType.renderDataId;
 			npc.anInt3010 = npc.npcType.anInt1672;
 			if (npc.anInt3010 == 0) {
 				npc.faceDegrees = 0;
 			}
-			npc.method2323(TileParticleQueue.selfPlayer.walkQueueX[0] + i_3_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_1_, npc.getSize(), i_5_ == 1);
+			npc.setPos(TileParticleQueue.selfPlayer.walkQueueX[0] + i_3_, TileParticleQueue.selfPlayer.walkQueueZ[0] + i_1_, npc.getSize(), i_5_ == 1);
 			if (npc.npcType.hasAmbientSound()) {
 				AmbientSound.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 			}

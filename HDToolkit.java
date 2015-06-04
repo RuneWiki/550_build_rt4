@@ -4,7 +4,6 @@
 import java.awt.Canvas;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
-import java.util.Arrays;
 import java.util.Locale;
 
 import javax.media.opengl.GL;
@@ -31,7 +30,7 @@ final class HDToolkit {
 	private static String vendor;
 	static boolean aBoolean520;
 	private static int viewportY;
-	private static GLContext aGLContext522;
+	private static GLContext glContext;
 	static boolean aBoolean523;
 	static int canvasWidth;
 	static boolean aBoolean525;
@@ -87,7 +86,6 @@ final class HDToolkit {
 		final int right = (x + width - centerX << 8) / z1;
 		final int top = (y - centerY << 8) / z2;
 		final int bottom = (y + height - centerY << 8) / z2;
-		//System.out.println(left+":"+right+":"+top+":"+bottom);
 		gl.glMatrixMode(5889);//GL_PROJECTION
 		gl.glLoadIdentity();
 		loadFrustumMatrix(left * fieldOfView, right * fieldOfView, -bottom * fieldOfView, -top * fieldOfView, 50.0F, 3584.0F);
@@ -194,25 +192,25 @@ final class HDToolkit {
 		}
 	}
 
-	private static final int method508(final Canvas canvas, final int i, final GLContext glcontext) {
+	private static final int init(final Canvas canvas, final int samples, final GLContext sharedContext) {
 		try {
 			if (!canvas.isDisplayable()) {
 				return -1;
 			}
 			final GLCapabilities glcapabilities = new GLCapabilities();
-			if (i > 0) {
+			if (samples > 0) {
 				glcapabilities.setSampleBuffers(true);
-				glcapabilities.setNumSamples(i);
+				glcapabilities.setNumSamples(samples);
 			}
 			final GLDrawableFactory gldrawablefactory = GLDrawableFactory.getFactory();
 			glDrawable = gldrawablefactory.getGLDrawable(canvas, glcapabilities, null);
 			glDrawable.setRealized(true);
 			int tries = 0;
 			for (;;) {
-				aGLContext522 = glDrawable.createContext(glcontext);
+				glContext = glDrawable.createContext(sharedContext);
 				try {
-					final int i_19_ = aGLContext522.makeCurrent();
-					if (i_19_ != 0) {
+					final int context = glContext.makeCurrent();
+					if (context != 0) {
 						break;
 					}
 				} catch (final Exception exception) {
@@ -223,7 +221,7 @@ final class HDToolkit {
 				}
 				PacketBuffer.sleepWrapper(1000L);
 			}
-			gl = aGLContext522.getGL();
+			gl = glContext.getGL();
 			glEnabled = true;
 			canvasWidth = canvas.getSize().width;
 			canvasHeight = canvas.getSize().height;
@@ -387,21 +385,21 @@ final class HDToolkit {
 			}
 			gl = null;
 		}
-		if (aGLContext522 != null) {
+		if (glContext != null) {
 			MemoryManager.method995();
 			try {
-				if (GLContext.getCurrent() == aGLContext522) {
-					aGLContext522.release();
+				if (GLContext.getCurrent() == glContext) {
+					glContext.release();
 				}
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
 			try {
-				aGLContext522.destroy();
+				glContext.destroy();
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
-			aGLContext522 = null;
+			glContext = null;
 		}
 		if (glDrawable != null) {
 			try {
@@ -681,8 +679,8 @@ final class HDToolkit {
 		}
 	}
 
-	static final int method537(final Canvas canvas, final int i) {
-		return method508(canvas, i, null);
+	static final int init(final Canvas canvas, final int samples) {
+		return init(canvas, samples, null);
 	}
 
 	private static final void method538() {

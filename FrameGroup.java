@@ -3,25 +3,25 @@
  */
 import java.io.IOException;
 
-final class FrameLoader extends NodeSub {
+final class FrameGroup extends NodeSub {
 	static int anInt3609 = 0;
 	SeqFrame[] seqFrames;
 	static ObjectCache recentUse = new ObjectCache(100);
 	static AbstractSprite aClass120_Sub14_Sub19_3611;
 	static int anInt3612 = -1;
 
-	static final void method1577(final Signlink signlink) {
-		FileOnDisk fileOnDisk = null;
+	static final void loadPreferencesFile(final Signlink signlink) {
+		FileOnDisk preferencesFile = null;
 		FileSystemRequest.brightness = 3;
-		GameShell.method32(true);
+		GameShell.setVisibleLevels(true);
 		Class120_Sub6.characterShadowsOn = true;
 		ParticleNodeSub.highDetailTextures = true;
-		Class120_Sub12.aBoolean2564 = true;
+		Class120_Sub12.removeRoofsSelectively = true;
 		CursorType.ambientSoundsVolume = 127;
 		Class120_Sub30_Sub1.manyGroundTextures = true;
 		Hashtable.showGroundDecorations = true;
 		Class120_Sub12_Sub6.highLightingDetail = true;
-		Class191.flickeringEffectsOn = true;
+		ChunkAtmosphere.flickeringEffectsOn = true;
 		PacketBuffer.highWaterDetail = true;
 		Class167.aBoolean1619 = true;
 		Class120_Sub12_Sub18.lastFullscreenWidth = 0;
@@ -51,24 +51,23 @@ final class FrameLoader extends NodeSub {
 				PacketBuffer.sleepWrapper(1L);
 			}
 			if (signlinkNode.status == 1) {
-				fileOnDisk = (FileOnDisk) signlinkNode.value;
-				int i_0_ = 0;
-				int i_1_;
-				byte[] is;
-				for (is = new byte[(int) fileOnDisk.getLength()]; i_0_ < is.length; i_0_ += i_1_) {
-					i_1_ = fileOnDisk.read(is, i_0_, is.length - i_0_);
-					if (i_1_ == -1) {
+				preferencesFile = (FileOnDisk) signlinkNode.value;
+				int len;
+				byte[] buffer = new byte[(int) preferencesFile.getLength()];
+				for (int off = 0; off < buffer.length; off += len) {
+					len = preferencesFile.read(buffer, off, buffer.length - off);
+					if (len == -1) {
 						throw new IOException("EOF");
 					}
 				}
-				PacketBuffer.method1145(new Buffer(is));
+				PacketBuffer.decodePreferences(new Buffer(buffer));
 			}
 		} catch (final Exception exception) {
 			/* empty */
 		}
 		try {
-			if (fileOnDisk != null) {
-				fileOnDisk.close();
+			if (preferencesFile != null) {
+				preferencesFile.close();
 			}
 		} catch (final Exception exception) {
 			/* empty */
@@ -83,7 +82,7 @@ final class FrameLoader extends NodeSub {
 		return this.seqFrames[frameId].aBoolean42;
 	}
 
-	static final FrameLoader method1633(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
+	static final FrameGroup method1633(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
 		boolean downloaded = true;
 		final int[] fileIds = framesJs5.getFileIds(groupId);
 		for (final int element : fileIds) {
@@ -106,28 +105,28 @@ final class FrameLoader extends NodeSub {
 		if (!downloaded) {
 			return null;
 		}
-		FrameLoader frameLoader;
+		FrameGroup frameLoader;
 		try {
-			frameLoader = new FrameLoader(framesJs5, labelsJs5, groupId, swap);
+			frameLoader = new FrameGroup(framesJs5, labelsJs5, groupId, swap);
 		} catch (final Exception exception) {
 			return null;
 		}
 		return frameLoader;
 	}
 
-	static final FrameLoader list(final int id) {
-		FrameLoader frameLoader = (FrameLoader) recentUse.get(id);
+	static final FrameGroup list(final int id) {
+		FrameGroup frameLoader = (FrameGroup) recentUse.get(id);
 		if (frameLoader != null) {
 			return frameLoader;
 		}
-		frameLoader = FrameLoader.method1633(Class132_Sub1.framesJs5, Class179.labelsJs5, id, false);
+		frameLoader = FrameGroup.method1633(Class132_Sub1.framesJs5, Class179.labelsJs5, id, false);
 		if (frameLoader != null) {
 			recentUse.put(frameLoader, id);
 		}
 		return frameLoader;
 	}
 
-	FrameLoader(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
+	FrameGroup(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
 		final Deque labelsDeque = new Deque();
 		final int framesLength = framesJs5.getFileAmount(groupId);
 		this.seqFrames = new SeqFrame[framesLength];
@@ -162,16 +161,16 @@ final class FrameLoader extends NodeSub {
 				npcType = npcType.handleVarp();
 			}
 			if (npcType != null && npcType.canRightClick) {
-				String string = npcType.name;
+				String name = npcType.name;
 				if (npcType.combatLevel != 0) {
-					final String string_14_ = Buffer.gameId != 1 ? TextRepository.level : TextRepository.rating;
-					string = new StringBuilder(string).append(Class81.method704(TileParticleQueue.selfPlayer.combatLevel, npcType.combatLevel)).append(" (").append(string_14_).append(npcType.combatLevel).append(")").toString();
+					final String gameLevelIdentifier = Buffer.gameId != 1 ? StringLibrary.level : StringLibrary.rating;
+					name += Class81.getCombatLevelDifferenceColor(TileParticleQueue.selfPlayer.combatLevel, npcType.combatLevel) + " (" + gameLevelIdentifier + npcType.combatLevel + ")";
 				}
 				if (Light.objSelected != 1) {
 					if (Class88.spellSelected) {
-						final ParamType class120_sub14_sub11 = IdentityKit.selectedSpellParam != -1 ? ParamType.list(IdentityKit.selectedSpellParam) : null;
-						if ((0x2 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || npcType.getIntegerParamValue(IdentityKit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
-							InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 42, Class150.selectedSpellTargetCursor);
+						final ParamType paramType = Identikit.selectedSpellParam != -1 ? ParamType.list(Identikit.selectedSpellParam) : null;
+						if ((GroundTile.selectedSpellUseMask & 0x2) != 0 && (paramType == null || npcType.getIntegerParamValue(Identikit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
+							InvType.addMenuOption(Class101.selectedSpellPrefix, Light.selectedSpellName + " -> <col=ffff00>" + name, index, x, z, (short) 42, Class150.selectedSpellTargetCursor);
 						}
 					} else {
 						String[] options = npcType.options;
@@ -180,15 +179,8 @@ final class FrameLoader extends NodeSub {
 						}
 						if (options != null) {
 							for (int optionId = 4; optionId >= 0; optionId--) {
-								if (options[optionId] != null && (Buffer.gameId != 0 || !options[optionId].equalsIgnoreCase(Class65.aString591))) {
+								if (options[optionId] != null && (Buffer.gameId != 0 || !options[optionId].equalsIgnoreCase(StringLibrary.attack))) {
 									short code = 0;
-									int cursorId = -1;
-									if (optionId == npcType.cursor1op) {
-										cursorId = npcType.cursor1;
-									}
-									if (optionId == npcType.cursor2op) {
-										cursorId = npcType.cursor2;
-									}
 									if (optionId == 0) {
 										code = (short) 39;
 									}
@@ -204,13 +196,20 @@ final class FrameLoader extends NodeSub {
 									if (optionId == 4) {
 										code = (short) 59;
 									}
-									InvType.addMenuOption(options[optionId], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, code, cursorId);
+									int cursorId = -1;
+									if (optionId == npcType.cursor1op) {
+										cursorId = npcType.cursor1;
+									}
+									if (optionId == npcType.cursor2op) {
+										cursorId = npcType.cursor2;
+									}
+									InvType.addMenuOption(options[optionId], "<col=ffff00>" + name, index, x, z, code, cursorId);
 								}
 							}
 						}
 						if (Buffer.gameId == 0 && options != null) {
 							for (int actionId = 4; actionId >= 0; actionId--) {
-								if (options[actionId] != null && options[actionId].equalsIgnoreCase(Class65.aString591)) {
+								if (options[actionId] != null && options[actionId].equalsIgnoreCase(StringLibrary.attack)) {
 									short combatModifier = 0;
 									if (TileParticleQueue.selfPlayer.combatLevel < npcType.combatLevel) {
 										combatModifier = (short) 2000;
@@ -234,14 +233,14 @@ final class FrameLoader extends NodeSub {
 									if (code != 0) {
 										code += combatModifier;
 									}
-									InvType.addMenuOption(options[actionId], new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, code, npcType.anInt1668);
+									InvType.addMenuOption(options[actionId], "<col=ffff00>" + name, index, x, z, code, npcType.anInt1668);
 								}
 							}
 						}
-						InvType.addMenuOption(TextRepository.examine, new StringBuilder("<col=ffff00>").append(string).toString(), index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
+						InvType.addMenuOption(StringLibrary.examine, "<col=ffff00>" + name, index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
 					}
 				} else {
-					InvType.addMenuOption(TextRepository.use, new StringBuilder(Class192.selectedObjName).append(" -> <col=ffff00>").append(string).toString(), index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+					InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=ffff00>" + name, index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 				}
 			}
 		}
@@ -252,21 +251,21 @@ final class FrameLoader extends NodeSub {
 			redrawRate = 1000000;
 			ModelParticleEmitter.instantScreenFade = false;
 		}
-		final Class191 class191 = IdentityKit.aClass191ArrayArray1337[x][z];
-		final float f = class191.aFloat2102 * (0.7F + 0.1F * brightness);
-		final int i_25_ = class191.anInt2109;
-		final float f_26_ = class191.aFloat2106;
-		final float f_27_ = class191.aFloat2104;
-		final int i_28_ = class191.fogColorRgb;
-		int i_29_ = class191.anInt2118;
+		final ChunkAtmosphere class191 = Identikit.chunksAtmosphere[x][z];
+		final float f = class191.lightModelAmbient * (0.7F + 0.1F * brightness);
+		final int screenColorRgb = class191.screenColorRgb;
+		final float light0Diffuse = class191.light0Diffuse;
+		final float light1Diffuse = class191.light1Diffuse;
+		final int fogColorRgb = class191.fogColorRgb;
+		int fogOffset = class191.fogOffset;
 		if (!Decimator.fogEnabled) {
-			i_29_ = 0;
+			fogOffset = 0;
 		}
 		final Class120_Sub14_Sub9 class120_sub14_sub9 = class191.aClass120_Sub14_Sub9_2117;
 		final float f_30_ = class191.aFloat2114;
 		final float f_31_ = class191.aFloat2108;
 		final float f_32_ = class191.aFloat2116;
-		if (i_25_ != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != f_26_ || Class132_Sub2.aFloat2821 != f_27_ || Light.anInt379 != i_28_ || i_29_ != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 || Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Varp.aFloat622 != f_31_) {
+		if (screenColorRgb != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != light0Diffuse || Class132_Sub2.aFloat2821 != light1Diffuse || Light.anInt379 != fogColorRgb || fogOffset != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 || Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Varp.aFloat622 != f_31_) {
 			Class132.anInt1248 = Class9.anInt72;
 			Class156.anInt1453 = Deque.anInt1007;
 			Class120_Sub12_Sub39.aFloat3444 = client.aFloat1395;
@@ -280,16 +279,16 @@ final class FrameLoader extends NodeSub {
 			if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || GZIPDecompressor.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
 				RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 = new Class120_Sub14_Sub9();
 			}
-			Class43.anInt368 = i_29_;
-			Class132_Sub2.aFloat2821 = f_27_;
+			Class43.anInt368 = fogOffset;
+			Class132_Sub2.aFloat2821 = light1Diffuse;
 			Class120_Sub12.aFloat2569 = f;
 			Class57.anInt500 = 0;
-			Class120_Sub12_Sub17.anInt3257 = i_25_;
+			Class120_Sub12_Sub17.anInt3257 = screenColorRgb;
 			Class120_Sub2.aFloat2417 = f_32_;
 			Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 = class120_sub14_sub9;
-			Class125.aFloat2149 = f_26_;
+			Class125.aFloat2149 = light0Diffuse;
 			Varp.aFloat622 = f_31_;
-			Light.anInt379 = i_28_;
+			Light.anInt379 = fogColorRgb;
 			Class101.aFloat965 = f_30_;
 		}
 		if (Class57.anInt500 < 65536) {

@@ -58,12 +58,12 @@ final class Class115 {
 				final int i_19_ = Class112.anInt1080 - Class120_Sub14_Sub13.anInt3563 + i_15_;
 				if (i_18_ >= 0 && i_19_ >= 0 && i_18_ < WallDecoration.anInt1900 && i_19_ < Class120_Sub12_Sub38.anInt3440) {
 					int i_20_;
-					if (Class24.anIntArrayArrayArray140 != null) {
-						i_20_ = Class24.anIntArrayArrayArray140[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
+					if (Class24.underWaterTileHeightMap != null) {
+						i_20_ = Class24.underWaterTileHeightMap[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
 					} else {
-						i_20_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
+						i_20_ = Class120_Sub12_Sub33.surfaceTileHeightMap[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
 					}
-					final int i_21_ = Class120_Sub12_Sub33.anIntArrayArrayArray3388[3][i_18_][i_19_] - PlayerAppearance.anInt1367 - 1000;
+					final int i_21_ = Class120_Sub12_Sub33.surfaceTileHeightMap[3][i_18_][i_19_] - PlayerAppearance.anInt1367 - 1000;
 					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = Class120_Sub2.method1046(i_16_, i_21_, i_20_, i_17_, i_13_);
 				} else {
 					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = false;
@@ -81,16 +81,16 @@ final class Class115 {
 		IsaacCipher.anIntArray1015 = is_7_;
 		Class89.anIntArray838 = is_8_;
 		JagexInterface.method2500();
-		if (Class120_Sub12_Sub38.aClass120_Sub18ArrayArrayArray3437 != null) {
-			Class178.method2257(true);
+		if (Class120_Sub12_Sub38.underWaterGroundTiles != null) {
+			Class178.setRenderTiles(true);
 			StructType.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);
 			if (HDToolkit.glEnabled) {
 				ParamType.aBoolean3545 = false;
 				Class120_Sub14_Sub13.method1532(0, 0);
 				AtmosphereManager.setFogColor(null);
-				LightManager.method1859();
+				LightManager.disableLights();
 			}
-			Class178.method2257(false);
+			Class178.setRenderTiles(false);
 		}
 		StructType.method1561(i, i_0_, i_1_, is, i_9_, i_10_, i_11_, i_12_);
 	}

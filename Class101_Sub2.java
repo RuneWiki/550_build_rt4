@@ -3,7 +3,6 @@
  */
 
 final class Class101_Sub2 extends Class101 {
-	static js5 aClass50_2277;
 	static byte[][] aByteArrayArray2278 = new byte[1000][];
 	static AbstractTimer gameShellTimer;
 	private int anInt2280;

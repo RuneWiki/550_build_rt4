@@ -131,9 +131,9 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		return is_20_;
 	}
 
-	static final void method1279() {
+	static final void updateLockedCamera() {
 		int i_28_ = Class99.anInt951 * 128 + 64;
-		int i_29_ = 64 + 128 * Class134.anInt1280;
+		int i_29_ = Class134.anInt1280 * 128 + 64;
 		int i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - SpotAnimType.anInt986;
 		if (ObjectContainer.anInt2621 >= 100) {
 			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
@@ -180,9 +180,9 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		i_29_ = 128 * InterfaceListener.anInt2546 + 64;
 		i_28_ = 64 + Class109.anInt1042 * 128;
 		i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - client.anInt1154;
-		final int i_31_ = -GroundObjectNode.renderZ + i_29_;
-		final int i_32_ = -Class120_Sub12_Sub10.renderY + i_30_;
-		final int i_33_ = i_28_ + -FileSystemWorker.renderX;
+		final int i_31_ = i_29_ - GroundObjectNode.renderZ;
+		final int i_32_ = i_30_ - Class120_Sub12_Sub10.renderY;
+		final int i_33_ = i_28_ - FileSystemWorker.renderX;
 		final int i_34_ = (int) Math.sqrt(i_31_ * i_31_ + i_33_ * i_33_);
 		int i_35_ = (int) (Math.atan2(i_32_, i_34_) * 325.949) & 0x7ff;
 		if (i_35_ < 128) {

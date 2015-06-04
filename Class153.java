@@ -28,7 +28,7 @@ final class Class153 {
 	}
 
 	static final WallDecoration removeWallDecoration(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.groundTiles[level][x][z];
+		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}
@@ -60,8 +60,8 @@ final class Class153 {
 	}
 
 	static final void method2076(final int i) {
-		if (Class120_Sub14_Sub23.anIntArray3654 == null || Class120_Sub14_Sub23.anIntArray3654.length < i) {
-			Class120_Sub14_Sub23.anIntArray3654 = new int[i];
+		if (QuickChatCategoryType.anIntArray3654 == null || QuickChatCategoryType.anIntArray3654.length < i) {
+			QuickChatCategoryType.anIntArray3654 = new int[i];
 		}
 	}
 
@@ -73,6 +73,10 @@ final class Class153 {
 			}
 			decode(buffer, code);
 		}
+	}
+
+	static final void setup(final js5 js5) {
+		aClass50_3373 = js5;
 	}
 
 	static final Class153 list(final int id) {

@@ -43,7 +43,7 @@ abstract class AbstractMouseWheelHandler {
 			i_9_ += 2;
 			i_14_ += i_9_;
 			if (i_14_ >= 0 && i_11_ >= 1) {
-				Class120_Sub14_Sub23.anIntArray3654[i_11_] = i_5_;
+				QuickChatCategoryType.anIntArray3654[i_11_] = i_5_;
 				i_11_--;
 				i_14_ -= i_11_ << 1;
 			}
@@ -58,7 +58,7 @@ abstract class AbstractMouseWheelHandler {
 					AmbientSound.fillArray(is_17_, i_0_, i_18_, i_16_);
 				} else {
 					final int[] is_19_ = GameEntity.anIntArrayArray3009[i_8_ + i_4_];
-					final int i_20_ = Class120_Sub14_Sub23.anIntArray3654[i_8_];
+					final int i_20_ = QuickChatCategoryType.anIntArray3654[i_8_];
 					final int[] is_21_ = GameEntity.anIntArrayArray3009[-i_8_ + i_4_];
 					final int i_22_ = i_5_ + i_3_;
 					final int i_23_ = i_3_ - i_20_;
@@ -81,7 +81,7 @@ abstract class AbstractMouseWheelHandler {
 				AmbientSound.fillArray(is_26_, i_0_, i_29_, i_28_);
 				AmbientSound.fillArray(is_27_, i_0_, i_29_, i_28_);
 			} else {
-				final int i_30_ = i_5_ > i_11_ ? Class120_Sub14_Sub23.anIntArray3654[i_5_] : i_11_;
+				final int i_30_ = i_5_ > i_11_ ? QuickChatCategoryType.anIntArray3654[i_5_] : i_11_;
 				final int i_31_ = i_30_ + i_3_;
 				final int i_32_ = i_3_ - i_30_;
 				AmbientSound.fillArray(is_26_, i_0_, i_29_, i_32_);

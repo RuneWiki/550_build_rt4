@@ -6,16 +6,12 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	int anInt3290;
 	static int anInt3291 = 50;
 	int anInt3292;
-	static float aFloat3293;
+	static float cameraPitch = 128.0F;
 	static long[] actions = new long[1000];
 	private int anInt3295 = -1;
 	int[] anIntArray3296;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_3297;
 	static int menuMouseY;
-
-	static {
-		aFloat3293 = 128.0F;
-	}
 
 	final boolean method1304() {
 		if (this.anIntArray3296 != null) {
@@ -33,69 +29,69 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	}
 
 	@Override
-	final void decode(final Buffer buffer, final int i_0_) {
-		if (i_0_ == 0) {
+	final void decode(final Buffer buffer, final int code) {
+		if (code == 0) {
 			anInt3295 = buffer.getUShort();
 		}
 	}
 
 	static final void method1306() {
-		for (int i_3_ = 0; i_3_ < Class150.anInt1407; i_3_++) {
-			Class81.anIntArray779[i_3_]--;
-			if (Class81.anIntArray779[i_3_] < -10) {
-				Class150.anInt1407--;
-				for (int i_4_ = i_3_; i_4_ < Class150.anInt1407; i_4_++) {
-					Class120_Sub12_Sub16.anIntArray3255[i_4_] = Class120_Sub12_Sub16.anIntArray3255[i_4_ + 1];
-					Class109.aClass6Array1047[i_4_] = Class109.aClass6Array1047[1 + i_4_];
-					LocType.anIntArray1834[i_4_] = LocType.anIntArray1834[i_4_ + 1];
-					Class81.anIntArray779[i_4_] = Class81.anIntArray779[1 + i_4_];
-					Class174.anIntArray1731[i_4_] = Class174.anIntArray1731[i_4_ + 1];
-					FileSystemRequest.anIntArray3926[i_4_] = FileSystemRequest.anIntArray3926[i_4_ + 1];
+		for (int id = 0; id < Class150.soundEffectCount; id++) {
+			Class81.soundEffectDelays[id]--;
+			if (Class81.soundEffectDelays[id] < -10) {
+				Class150.soundEffectCount--;
+				for (int higherIds = id; higherIds < Class150.soundEffectCount; higherIds++) {
+					Class120_Sub12_Sub16.anIntArray3255[higherIds] = Class120_Sub12_Sub16.anIntArray3255[higherIds + 1];
+					Class109.aClass6Array1047[higherIds] = Class109.aClass6Array1047[higherIds + 1];
+					LocType.anIntArray1834[higherIds] = LocType.anIntArray1834[higherIds + 1];
+					Class81.soundEffectDelays[higherIds] = Class81.soundEffectDelays[higherIds + 1];
+					Class174.anIntArray1731[higherIds] = Class174.anIntArray1731[higherIds + 1];
+					FileSystemRequest.anIntArray3926[higherIds] = FileSystemRequest.anIntArray3926[higherIds + 1];
 				}
-				i_3_--;
+				id--;
 			} else {
-				Class6 class6 = Class109.aClass6Array1047[i_3_];
+				SoundEffect class6 = Class109.aClass6Array1047[id];
 				if (class6 == null) {
-					class6 = Class6.method103(Class159.aClass50_1490, Class120_Sub12_Sub16.anIntArray3255[i_3_], 0);
+					class6 = SoundEffect.list(Class159.aClass50_1490, Class120_Sub12_Sub16.anIntArray3255[id], 0);
 					if (class6 == null) {
 						continue;
 					}
-					Class81.anIntArray779[i_3_] += class6.method102();
-					Class109.aClass6Array1047[i_3_] = class6;
+					Class81.soundEffectDelays[id] += class6.delay();
+					Class109.aClass6Array1047[id] = class6;
 				}
-				if (Class81.anIntArray779[i_3_] < 0) {
+				if (Class81.soundEffectDelays[id] < 0) {
 					int i_5_;
-					if (Class174.anIntArray1731[i_3_] != 0) {
-						final int i_6_ = 128 * (Class174.anIntArray1731[i_3_] & 0xff);
-						final int i_7_ = (Class174.anIntArray1731[i_3_] & 0xffa0ea) >> 16;
-						int i_8_ = i_7_ * 128 + 64 + -TileParticleQueue.selfPlayer.x;
+					if (Class174.anIntArray1731[id] != 0) {
+						final int i_6_ = (Class174.anIntArray1731[id] & 0xff) * 128;
+						final int i_9_ = Class174.anIntArray1731[id] >> 8 & 0xff;
+						final int i_7_ = Class174.anIntArray1731[id] >> 16 & 0xff;
+						int i_8_ = i_7_ * 128 + 64 - TileParticleQueue.selfPlayer.x;
 						if (i_8_ < 0) {
 							i_8_ = -i_8_;
 						}
-						final int i_9_ = Class174.anIntArray1731[i_3_] >> 8 & 0xff;
-						int i_10_ = -TileParticleQueue.selfPlayer.z + i_9_ * 128 + 64;
+						int i_10_ = i_9_ * 128 + 64 - TileParticleQueue.selfPlayer.z;
 						if (i_10_ < 0) {
 							i_10_ = -i_10_;
 						}
-						int i_11_ = -128 + i_10_ + i_8_;
+						int i_11_ = i_10_ + i_8_ - 128;
 						if (i_6_ < i_11_) {
-							Class81.anIntArray779[i_3_] = -100;
+							Class81.soundEffectDelays[id] = -100;
 							continue;
 						}
 						if (i_11_ < 0) {
 							i_11_ = 0;
 						}
-						i_5_ = (-i_11_ + i_6_) * CursorType.ambientSoundsVolume * FileSystemRequest.anIntArray3926[i_3_] / i_6_ >> 8;
+						i_5_ = (i_6_ - i_11_) * CursorType.ambientSoundsVolume * FileSystemRequest.anIntArray3926[id] / i_6_ >> 8;
 					} else {
-						i_5_ = FileSystemRequest.anIntArray3926[i_3_] * Class111.anInt1061 >> 8;
+						i_5_ = FileSystemRequest.anIntArray3926[id] * Class111.anInt1061 >> 8;
 					}
 					if (i_5_ > 0) {
 						final Class120_Sub5_Sub1 class120_sub5_sub1 = class6.method104().method1067(ObjectPile.aClass172_1809);
 						final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_5_);
-						class120_sub30_sub4.method1795(-1 + LocType.anIntArray1834[i_3_]);
+						class120_sub30_sub4.method1795(LocType.anIntArray1834[id] - 1);
 						Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
 					}
-					Class81.anIntArray779[i_3_] = -100;
+					Class81.soundEffectDelays[id] = -100;
 				}
 			}
 		}
@@ -136,7 +132,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 	static final void method1311() {
 		OverlayType.recentUse.clearSoftReference();
 		UnderlayType.recentUse.clearSoftReference();
-		IdentityKit.recentUse.clearSoftReference();
+		Identikit.recentUse.clearSoftReference();
 		LocType.recentUse.clearSoftReference();
 		LocType.aClass21_2663.clearSoftReference();
 		LocType.aClass21_1618.clearSoftReference();
@@ -146,9 +142,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		Projectile.aClass21_2931.clearSoftReference();
 		ObjType.recentUse.clearSoftReference();
 		Class33.aClass21_273.clearSoftReference();
-		SpotAnimation.aClass21_2906.clearSoftReference();
+		SpotAnimation.objectSpriteCache.clearSoftReference();
 		SeqType.recentUse.clearSoftReference();
-		FrameLoader.recentUse.clearSoftReference();
+		FrameGroup.recentUse.clearSoftReference();
 		SpotAnimType.recentUse.clearSoftReference();
 		SpotAnimType.modelCache.clearSoftReference();
 		VarBit.recentUse.clearSoftReference();
@@ -161,9 +157,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		Class145.aClass21_1486.clearSoftReference();
 		Class120_Sub6.aClass21_2443.clearSoftReference();
 		Class153.recentUse.clearSoftReference();
-		Class120_Sub12_Sub35.aClass21_3411.clearSoftReference();
+		LightType.recentUse.clearSoftReference();
 		CursorType.recentUse.clearSoftReference();
-		CursorType.spriteCache.clearSoftReference();
+		CursorType.graphicCache.clearSoftReference();
 		Class43.playerModelsCache.clearSoftReference();
 		Class90.playerHeadModelsCache.clearSoftReference();
 		JagexInterface.spriteCache.clearSoftReference();

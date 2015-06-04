@@ -45,10 +45,10 @@ final class Class54 {
 	}
 
 	static final void method479() {
-		Class118.aClass107Array1138 = null;
+		Class118.scrollBarSprites = null;
 		Class33.smallFont2 = null;
-		Class82.aClass107Array785 = null;
-		Class120_Sub12_Sub6.aClass120_Sub14_Sub19Array3168 = null;
+		Class82.nameIconSprites = null;
+		Class120_Sub12_Sub6.mapDotSprites = null;
 		Class120_Sub12_Sub30.crossSprites = null;
 		Class120_Sub12_Sub20.plainFont = null;
 		AnimatedLocation.hintHeadIconsSprites = null;
@@ -57,11 +57,11 @@ final class Class54 {
 		pkIconSprites = null;
 		ObjectCache.smallFont = null;
 		Class157.compassSprite = null;
-		SeqType.aClass120_Sub14_Sub19Array335 = null;
-		Class69_Sub2.aClass120_Sub14_Sub19Array2237 = null;
-		Class101_Sub1.aClass120_Sub14_Sub19Array2274 = null;
-		Class120_Sub12_Sub5.aClass120_Sub14_Sub19Array3167 = null;
-		Class69_Sub2.aClass120_Sub14_Sub19Array2238 = null;
+		SeqType.hitBarDefaultSprites = null;
+		Class69_Sub2.hintMapEdgeSprites = null;
+		Class101_Sub1.mapFlagSprites = null;
+		Class120_Sub12_Sub5.hintMapMarkerSprites = null;
+		Class69_Sub2.hitMarkSprites = null;
 	}
 
 	static final void method480() {
@@ -76,9 +76,5 @@ final class Class54 {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
 		}
-	}
-
-	static final void method483(final js5 js5) {
-		Class145.aClass50_678 = js5;
 	}
 }

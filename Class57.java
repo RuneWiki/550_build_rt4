@@ -7,68 +7,37 @@ abstract class Class57 {
 	static int anInt500 = 0;
 	static GZIPDecompressor gzipDecompressor;
 	static int worldLen2;
-	static boolean[] interfaceLoaded;
-	static int anInt504 = 0;
+	static int delayAfterWorldChange = 0;
 
 	static {
 		gzipDecompressor = new GZIPDecompressor();
 	}
-
+	
 	static final void method492() {
 		final int i_0_ = Class24.method207();
-		if (i_0_ != 0) {
-			if (i_0_ != 1) {
-				LocType.method2465((byte) (-4 + InterfaceChangeNode.anInt3490 & 0xff));
-				IsaacCipher.method905(2);
-			} else {
-				LocType.method2465((byte) 0);
-				IsaacCipher.method905(512);
-				if (Class114.tileSettings != null) {
-					InvType.method1447();
-				}
-			}
-		} else {
+		if (i_0_ == 0) {
 			Class9.aByteArrayArrayArray70 = null;
 			IsaacCipher.method905(0);
+		} else if (i_0_ == 1) {
+			LocType.method2465((byte) 0);
+			IsaacCipher.method905(512);
+			if (Class114.tileSettings != null) {
+				InvType.method1447();
+			}
+		} else {
+			LocType.method2465((byte) (InterfaceChangeNode.anInt3490 - 4 & 0xff));
+			IsaacCipher.method905(2);
 		}
 		Class153.anInt1436 = Class173.gameLevel;
 	}
 
 	abstract AbstractObject method493(AbstractObject abstractObject);
 
-	static final void method494(final int i, final int i_1_) {
-		Class120_Sub30_Sub2.anInt3688 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2110;
-		Queue.anInt1768 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2112;
-		ProducingGraphicsBuffer.anInt2798 = IdentityKit.aClass191ArrayArray1337[i][i_1_].anInt2107;
-		AtmosphereManager.setLightPosition(Class120_Sub30_Sub2.anInt3688, Queue.anInt1768, ProducingGraphicsBuffer.anInt2798);
+	static final void setLightPosition(final int chunkX, final int chunkZ) {
+		Class120_Sub30_Sub2.currentLightX = Identikit.chunksAtmosphere[chunkX][chunkZ].lightX;
+		Queue.currentLightY = Identikit.chunksAtmosphere[chunkX][chunkZ].lightY;
+		ProducingGraphicsBuffer.currentLightZ = Identikit.chunksAtmosphere[chunkX][chunkZ].lightZ;
+		AtmosphereManager.setLightPosition(Class120_Sub30_Sub2.currentLightX, Queue.currentLightY, ProducingGraphicsBuffer.currentLightZ);
 	}
 	
-	static final void sortArray(final int len, final Object[] objects, final int off, final int[] is) {//TODO figure out what kinda algo it uses, etc?
-		if (len > off) {
-			final int i_5_ = (off + len) / 2;
-			int i_6_ = off;
-			final int i_7_ = is[i_5_];
-			is[i_5_] = is[len];
-			is[len] = i_7_;
-			final Object object = objects[i_5_];
-			objects[i_5_] = objects[len];
-			objects[len] = object;
-			for (int i_8_ = off; i_8_ < len; i_8_++) {
-				if (i_7_ + (i_8_ & 0x1) > is[i_8_]) {
-					final int i_9_ = is[i_8_];
-					is[i_8_] = is[i_6_];
-					is[i_6_] = i_9_;
-					final Object object_10_ = objects[i_8_];
-					objects[i_8_] = objects[i_6_];
-					objects[i_6_++] = object_10_;
-				}
-			}
-			is[len] = is[i_6_];
-			is[i_6_] = i_7_;
-			objects[len] = objects[i_6_];
-			objects[i_6_] = object;
-			sortArray(i_6_ - 1, objects, off, is);
-			sortArray(len, objects, 1 + i_6_, is);
-		}
-	}
 }

@@ -110,7 +110,7 @@ final class EmitterType {
 					if (i_13_ > 255) {
 						i_13_ = 255;
 					}
-					i_11_ = Class76.anIntArray679[i_11_];
+					i_11_ = client.anIntArray679[i_11_];
 					Class92.torchFlamesSprite.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_) - -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
 				}
 			}

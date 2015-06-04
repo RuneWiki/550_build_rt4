@@ -4,10 +4,8 @@
 
 final class Class24 {
 	static boolean aBoolean139 = false;
-	static int[][][] anIntArrayArrayArray140;
-	static js5 aClass50_143;
+	static int[][][] underWaterTileHeightMap;
 	static float aFloat144;
-	static js5 aClass50_145;
 	static int anInt146;
 	static int anInt147 = 0;
 
@@ -20,13 +18,13 @@ final class Class24 {
 		EnumType.aLong3462 = 0L;
 		Class28.method247();
 		Class31.logoutCycle = 0;
-		Class114.anInt1093 = -1;
+		Class114.previousPacketType = -1;
 		Class120_Sub22.systemUpdateCycle = 0;
-		MapFunctionType.anInt639 = -1;
+		MapFunctionType.thirdPacketType = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
-		SeqType.anInt333 = -1;
+		SeqType.fourthPacketType = -1;
 		Class88.timoutCycle = 0;
-		Class23.packetType = -1;
+		client.packetType = -1;
 		Canvas_Sub1.inputStream.pos = 0;
 		for (int id = 0; id < Class187.hintIcons.length; id++) {
 			Class187.hintIcons[id] = null;
@@ -35,13 +33,13 @@ final class Class24 {
 		WallDecoration.menuOptionCount = 0;
 		Class120_Sub12_Sub39.setMouseIdleCycle(0);
 		for (int id = 0; id < 100; id++) {
-			GrandExchangeObject.aStringArray1502[id] = null;
+			GrandExchangeObject.chatMessages[id] = null;
 		}
-		Class120_Sub16.messageCount = 0;
-		DummyOutputStream.aFloat28 = 0x7ff & -10 + (int) (20.0 * Math.random());
+		Class120_Sub16.chatMessageCount = 0;
+		DummyOutputStream.cameraYaw = 0x7ff & -10 + (int) (20.0 * Math.random());
 		Class88.spellSelected = false;
 		Light.objSelected = 0;
-		Class150.anInt1407 = 0;
+		Class150.soundEffectCount = 0;
 		AbstractGraphicsBuffer.method1842();
 		FileSystemWorker.localPlayerCount = 0;
 		Class148.localNpcCount = 0;
@@ -67,7 +65,7 @@ final class Class24 {
 		Class120_Sub4.aClass105_2439 = new Deque();
 		ObjectPile.friendsServerStatus = 0;
 		ProducingGraphicsBuffer.friendCount = 0;
-		Class33.resetVarp();
+		Varp.reset();
 		LookupTable.clearInterfaceChanges();
 		Class101_Sub1.anInt2272 = 0;
 		InterfaceListener.anInt2546 = 0;
@@ -94,14 +92,14 @@ final class Class24 {
 		Class156.aClass189_1454 = null;
 		WallDecoration.menuOptionCount = 0;
 		Class15.menuOpen = false;
-		Normal.aClass144_159.method2042(-1, null, -1, new int[5], false);
+		Normal.dummyPlayerAppearance.init(-1, null, -1, new int[5], false);
 		for (int id = 0; id < 8; id++) {
 			Buffer.playerOptions[id] = null;
 			InterfaceListener.playerOptionsOnTop[id] = false;
 			AbstractRequest.playerOptionsIcon[id] = -1;
 		}
 		ObjectContainer.objectContainerCache = new Hashtable(32);
-		Class69.aBoolean615 = true;
+		Class69.loadingScreenOpened = true;
 		for (int id = 0; id < 100; id++) {
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 		}
@@ -123,7 +121,7 @@ final class Class24 {
 		MasterIndexInfo.aBoolean466 = false;
 		Class118.aBoolean1134 = true;
 		OverlayFrequencyNode.packetCounter = 0;
-		TextRepository.walkText = Class120_Sub12_Sub1.aString3132;
+		StringLibrary.walkText = Class120_Sub12_Sub1.aString3132;
 		LocType.resetSpriteMenu();
 		WallDecoration.usingSpriteMenu = false;
 		ParamType.sendDisplayInfo();
@@ -136,7 +134,7 @@ final class Class24 {
 		if (!Class143_Sub1.method2021()) {
 			return 1;
 		}
-		return Class120_Sub12.aBoolean2564 ? 2 : 1;
+		return Class120_Sub12.removeRoofsSelectively ? 2 : 1;
 	}
 
 	static final int method208(final int i, final int i_13_, final int i_14_, final int i_15_) {
@@ -144,7 +142,7 @@ final class Class24 {
 		return ((65536 - i_17_) * i_14_ >> 16) + (i_17_ * i_13_ >> 16);
 	}
 
-	static final void method209(final int i, final long[] ls, final Object[] objects) {
-		Class132_Sub2.method1939(ls, -1 + ls.length, 0, objects);
+	static final void method209(final Object[] objects, final long[] ls) {
+		Class132_Sub2.method1939(ls, ls.length - 1, 0, objects);
 	}
 }

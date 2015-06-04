@@ -115,13 +115,13 @@ final class WaterfallShader implements ShaderInterface {
 	}
 
 	static final void method180(final int i, final int i_9_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(1, i);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(1, i);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3484 = i_9_;
 	}
 
 	static final boolean runeSpritesCached(final js5 js5) {
-		if (js5.method429(Class120_Sub14_Sub13.runesId)) {
+		if (js5.groupExist(Class120_Sub14_Sub13.runesId)) {
 			return true;
 		}
 		return false;

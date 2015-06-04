@@ -85,8 +85,8 @@ final class LongNode extends Node {
 				}
 			}
 			if (bool_13_) {
-				if (Class134.anIntArray1284[i] < OverridedJInterface.tileHeightMap[Class173.gameLevel + 1][i_7_][i_12_]) {
-					Class134.anIntArray1284[i] = OverridedJInterface.tileHeightMap[Class173.gameLevel + 1][i_7_][i_12_];
+				if (Class134.anIntArray1284[i] < OverridedJInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_]) {
+					Class134.anIntArray1284[i] = OverridedJInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_];
 				}
 				final int i_25_ = i_7_ << 7;
 				final int i_26_ = i_12_ << 7;
@@ -107,54 +107,54 @@ final class LongNode extends Node {
 			}
 			if (!bool_11_) {
 				if (i_7_ >= 1 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + -1][i_12_] != i_4_) {
-					Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(1179648, i_7_ - 1), -754974720);
-					Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(1245184, i_12_);
+					Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(ChunkAtmosphere.method2512(1179648, i_7_ - 1), -754974720);
+					Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(1245184, i_12_);
 					i_5_ = 0xfff & 1 + i_5_;
 					Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + -1][i_12_] = i_4_;
 				}
 				if (++i_12_ < 104) {
 					if (i_7_ - 1 >= 0 && i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] && (Class114.tileSettings[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.tileSettings[Class173.gameLevel][-1 + i_7_][i_12_ - 1] & 0x4) == 0) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(1375731712, Class191.method2512(-1 + i_7_, 1179648));
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 1245184);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(1375731712, ChunkAtmosphere.method2512(-1 + i_7_, 1179648));
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(i_12_, 1245184);
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] = i_4_;
 						i_5_ = 0xfff & 1 + i_5_;
 					}
 					if (i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_]) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(i_7_, 5373952), 318767104);
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 5439488);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(ChunkAtmosphere.method2512(i_7_, 5373952), 318767104);
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(i_12_, 5439488);
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_] = i_4_;
 						i_5_ = i_5_ - -1 & 0xfff;
 					}
 					if (1 + i_7_ < 104 && i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] && (Class114.tileSettings[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.tileSettings[Class173.gameLevel][1 + i_7_][-1 + i_12_] & 0x4) == 0) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(Class191.method2512(5373952, i_7_ + 1), -1845493760);
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(5439488, i_12_);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(ChunkAtmosphere.method2512(5373952, i_7_ + 1), -1845493760);
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(5439488, i_12_);
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] = i_4_;
 						i_5_ = i_5_ - -1 & 0xfff;
 					}
 				}
 				i_12_--;
 				if (i_7_ + 1 < 104 && Class9.aByteArrayArrayArray70[Class173.gameLevel][1 + i_7_][i_12_] != i_4_) {
-					Class150.anIntArray1412[i_5_] = Class191.method2512(1392508928, Class191.method2512(1 + i_7_, 9568256));
-					Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 9633792);
+					Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(1392508928, ChunkAtmosphere.method2512(1 + i_7_, 9568256));
+					Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(i_12_, 9633792);
 					i_5_ = 0xfff & 1 + i_5_;
 					Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ - -1][i_12_] = i_4_;
 				}
 				if (--i_12_ >= 0) {
 					if (-1 + i_7_ >= 0 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ - 1][i_12_] != i_4_ && (Class114.tileSettings[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (0x4 & Class114.tileSettings[Class173.gameLevel][i_7_ - 1][1 + i_12_]) == 0) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(301989888, Class191.method2512(13762560, i_7_ - 1));
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(13828096, i_12_);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(301989888, ChunkAtmosphere.method2512(13762560, i_7_ - 1));
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(13828096, i_12_);
 						i_5_ = 1 + i_5_ & 0xfff;
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][-1 + i_7_][i_12_] = i_4_;
 					}
 					if (i_4_ != Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_]) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(-1828716544, Class191.method2512(13762560, i_7_));
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(13828096, i_12_);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(-1828716544, ChunkAtmosphere.method2512(13762560, i_7_));
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(13828096, i_12_);
 						i_5_ = 0xfff & i_5_ + 1;
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_][i_12_] = i_4_;
 					}
 					if (i_7_ - -1 < 104 && Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + 1][i_12_] != i_4_ && (Class114.tileSettings[Class173.gameLevel][i_7_][i_12_] & 0x4) == 0 && (Class114.tileSettings[Class173.gameLevel][1 + i_7_][i_12_ - -1] & 0x4) == 0) {
-						Class150.anIntArray1412[i_5_] = Class191.method2512(-771751936, Class191.method2512(1 + i_7_, 9568256));
-						Class120_Sub12.anIntArray2565[i_5_] = Class191.method2512(i_12_, 9633792);
+						Class150.anIntArray1412[i_5_] = ChunkAtmosphere.method2512(-771751936, ChunkAtmosphere.method2512(1 + i_7_, 9568256));
+						Class120_Sub12.anIntArray2565[i_5_] = ChunkAtmosphere.method2512(i_12_, 9633792);
 						i_5_ = 0xfff & 1 + i_5_;
 						Class9.aByteArrayArrayArray70[Class173.gameLevel][i_7_ + 1][i_12_] = i_4_;
 					}

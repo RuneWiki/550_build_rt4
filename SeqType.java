@@ -8,9 +8,9 @@ final class SeqType {
 	int shieldDisplayed = -1;
 	private int[] interfaceFrames;
 	boolean tween = false;
-	static int anInt333 = 0;
+	static int fourthPacketType = 0;
 	int weaponDisplayed;
-	static AbstractSprite[] aClass120_Sub14_Sub19Array335;
+	static AbstractSprite[] hitBarDefaultSprites;
 	int walkProperties;
 	int resetInPlay = 2;
 	int[] delays;
@@ -21,9 +21,9 @@ final class SeqType {
 	int speedupType;
 	boolean aBoolean344;
 	static String loginPassword = "";
-	int padding;
+	int loop;//orig
 	int[][] anIntArrayArray347;
-	int priority;
+	int priority;//orig
 	static js5 aClass50_2286;
 	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt349;
@@ -31,16 +31,16 @@ final class SeqType {
 	final AbstractModelRenderer method320(final AbstractModelRenderer class180_sub7, int i, int i_0_, int i_1_, final int i_2_) {
 		final int i_4_ = this.delays[i_0_];
 		i_0_ = this.frames[i_0_];
-		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_0_ >> 16);
+		final FrameGroup class120_sub14_sub18 = FrameGroup.list(i_0_ >> 16);
 		i_0_ &= 0xffff;
 		if (class120_sub14_sub18 == null) {
 			return class180_sub7.method2376(true, true, true);
 		}
-		FrameLoader class120_sub14_sub18_5_ = null;
+		FrameGroup class120_sub14_sub18_5_ = null;
 		i_1_ &= 0x3;
 		if ((this.tween || Class164.forceTween) && i != -1 && this.frames.length > i) {
 			i = this.frames[i];
-			class120_sub14_sub18_5_ = FrameLoader.list(i >> 16);
+			class120_sub14_sub18_5_ = FrameGroup.list(i >> 16);
 			i &= 0xffff;
 		}
 		AbstractModelRenderer class180_sub7_6_;
@@ -96,7 +96,7 @@ final class SeqType {
 	}
 
 	static final void method321(int i, int i_7_, final int i_8_, final int i_9_) {
-		if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= IdentityKit.anInt1334) {
+		if (Class120_Sub30_Sub2.anInt3699 <= i_9_ && i_9_ <= Identikit.anInt1334) {
 			i = Class3.method83(MagnetType.anInt260, i, ParamType.anInt3544);
 			i_7_ = Class3.method83(MagnetType.anInt260, i_7_, ParamType.anInt3544);
 			GZIPDecompressor.method717(i, i_7_, i_8_, i_9_);
@@ -116,33 +116,33 @@ final class SeqType {
 	final AbstractModelRenderer method323(final AbstractModelRenderer class180_sub7, final int i, int i_10_, final int i_11_) {
 		final int i_13_ = this.delays[i_11_];
 		int i_14_ = this.frames[i_11_];
-		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_14_ >> 16);
+		final FrameGroup class120_sub14_sub18 = FrameGroup.list(i_14_ >> 16);
 		i_14_ &= 0xffff;
 		if (class120_sub14_sub18 == null) {
 			return class180_sub7.method2376(true, true, true);
 		}
-		FrameLoader class120_sub14_sub18_15_ = null;
+		FrameGroup class120_sub14_sub18_15_ = null;
 		if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
 			i_10_ = this.frames[i_10_];
-			class120_sub14_sub18_15_ = FrameLoader.list(i_10_ >> 16);
+			class120_sub14_sub18_15_ = FrameGroup.list(i_10_ >> 16);
 			i_10_ &= 0xffff;
 		}
-		FrameLoader class120_sub14_sub18_16_ = null;
+		FrameGroup class120_sub14_sub18_16_ = null;
 		int i_17_ = 0;
 		int i_18_ = 0;
-		FrameLoader class120_sub14_sub18_19_ = null;
+		FrameGroup class120_sub14_sub18_19_ = null;
 		if (interfaceFrames != null) {
 			if (i_11_ < interfaceFrames.length) {
 				i_18_ = interfaceFrames[i_11_];
 				if (i_18_ != 65535) {
-					class120_sub14_sub18_16_ = FrameLoader.list(i_18_ >> 16);
+					class120_sub14_sub18_16_ = FrameGroup.list(i_18_ >> 16);
 					i_18_ &= 0xffff;
 				}
 			}
 			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < interfaceFrames.length) {
 				i_17_ = interfaceFrames[i_10_];
 				if (i_17_ != 65535) {
-					class120_sub14_sub18_19_ = FrameLoader.list(i_17_ >> 16);
+					class120_sub14_sub18_19_ = FrameGroup.list(i_17_ >> 16);
 					i_17_ &= 0xffff;
 				}
 			}
@@ -172,15 +172,15 @@ final class SeqType {
 	final AbstractModelRenderer method324(final AbstractModelRenderer class180_sub7, int frameId, final int delay, int nextFrameId) {
 		final int i_27_ = this.delays[frameId];
 		frameId = this.frames[frameId];
-		final FrameLoader class120_sub14_sub18 = FrameLoader.list(frameId >> 16);
+		final FrameGroup class120_sub14_sub18 = FrameGroup.list(frameId >> 16);
 		frameId &= 0xffff;
 		if (class120_sub14_sub18 == null) {
 			return class180_sub7.method2381(true, true, true);
 		}
-		FrameLoader class120_sub14_sub18_28_ = null;
+		FrameGroup class120_sub14_sub18_28_ = null;
 		if ((this.tween || Class164.forceTween) && nextFrameId != -1 && nextFrameId < this.frames.length) {
 			nextFrameId = this.frames[nextFrameId];
-			class120_sub14_sub18_28_ = FrameLoader.list(nextFrameId >> 16);
+			class120_sub14_sub18_28_ = FrameGroup.list(nextFrameId >> 16);
 			nextFrameId &= 0xffff;
 		}
 		AbstractModelRenderer class180_sub7_29_;
@@ -194,7 +194,7 @@ final class SeqType {
 	}
 
 	static final void method325(final int i, final int i_30_, final int i_31_, final int i_32_) {
-		final InterfaceChangeNode class120_sub14_sub7 = AbstractObject.putInterfaceChange(8, i_32_);
+		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(8, i_32_);
 		class120_sub14_sub7.method1454();
 		class120_sub14_sub7.anInt3492 = i;
 		class120_sub14_sub7.anInt3486 = i_30_;
@@ -216,7 +216,7 @@ final class SeqType {
 				this.frames[id] = (buffer.getUShort() << 16) + this.frames[id];
 			}
 		} else if (code == 2) {
-			this.padding = buffer.getUShort();
+			this.loop = buffer.getUShort();
 		} else if (code == 3) {
 			this.aBooleanArray327 = new boolean[256];
 			final int len = buffer.getUByte();
@@ -273,16 +273,16 @@ final class SeqType {
 	final AbstractModelRenderer method327(int i, final int i_48_, int i_50_, int i_51_, final AbstractModelRenderer class180_sub7) {
 		final int i_53_ = this.delays[i_50_];
 		i_50_ = this.frames[i_50_];
-		final FrameLoader class120_sub14_sub18 = FrameLoader.list(i_50_ >> 16);
+		final FrameGroup class120_sub14_sub18 = FrameGroup.list(i_50_ >> 16);
 		i_50_ &= 0xffff;
 		if (class120_sub14_sub18 == null) {
 			return class180_sub7.method2378(true, true, true);
 		}
 		i_51_ &= 0x3;
-		FrameLoader class120_sub14_sub18_54_ = null;
+		FrameGroup class120_sub14_sub18_54_ = null;
 		if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
 			i = this.frames[i];
-			class120_sub14_sub18_54_ = FrameLoader.list(i >> 16);
+			class120_sub14_sub18_54_ = FrameGroup.list(i >> 16);
 			i &= 0xffff;
 		}
 		AbstractModelRenderer class180_sub7_55_;
@@ -371,7 +371,7 @@ final class SeqType {
 		this.weaponDisplayed = -1;
 		this.resetCycle = 99;
 		this.aBoolean341 = false;
-		this.padding = -1;
+		this.loop = -1;
 		this.aBoolean344 = false;
 		this.priority = 5;
 	}

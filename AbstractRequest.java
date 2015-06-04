@@ -75,7 +75,7 @@ abstract class AbstractRequest extends NodeSub {
 									i_27_ = i_2_ - (-8 + i_24_) + i_9_;
 								}
 								if (i_26_ >= 0 && i_26_ < 104 && i_27_ >= 0 && i_27_ < 104) {
-									OverridedJInterface.tileHeightMap[i_5_][i_26_][i_27_] = OverridedJInterface.tileHeightMap[i_5_][i_22_ + i_16_][i_23_ + i_18_];
+									OverridedJInterface.activeTileHeightMap[i_5_][i_26_][i_27_] = OverridedJInterface.activeTileHeightMap[i_5_][i_22_ + i_16_][i_23_ + i_18_];
 								}
 							}
 						} else {
@@ -182,15 +182,15 @@ abstract class AbstractRequest extends NodeSub {
 			}
 		}
 		if (HDToolkit.glEnabled && !bool) {
-			Class191 class191 = null;
+			ChunkAtmosphere class191 = null;
 			while (class120_sub7.buf.length > class120_sub7.pos) {
 				final int i_46_ = class120_sub7.getUByte();
 				if (i_46_ == 0) {
-					class191 = new Class191(class120_sub7);
+					class191 = new ChunkAtmosphere(class120_sub7);
 				} else if (i_46_ != 1) {
 					if (i_46_ == 2) {
 						if (class191 == null) {
-							class191 = new Class191();
+							class191 = new ChunkAtmosphere();
 						}
 						class191.method2510(class120_sub7);
 					} else {
@@ -202,21 +202,21 @@ abstract class AbstractRequest extends NodeSub {
 						for (int i_48_ = 0; i_47_ > i_48_; i_48_++) {
 							final Light light = new Light(class120_sub7);
 							if (light.anInt376 == 31) {
-								final Class181 class181 = Class181.list(class120_sub7.getUShort());
+								final LightType class181 = LightType.list(class120_sub7.getUShort());
 								light.method347(class181.anInt1789, class181.anInt1786, class181.anInt1788, class181.anInt1787);
 							}
 							int i_49_ = light.x >> 7;
 							int i_50_ = light.z >> 7;
-							if (light.anInt384 == i && i_49_ >= i_9_ && 8 + i_9_ > i_49_ && i_8_ <= i_50_ && 8 + i_8_ > i_50_) {
+							if (light.level == i && i_49_ >= i_9_ && 8 + i_9_ > i_49_ && i_8_ <= i_50_ && 8 + i_8_ > i_50_) {
 								final int i_51_ = (i_0_ << 7) + StructType.method1566(light.x & 0x3ff, light.z & 0x3ff, i_3_);
 								final int i_52_ = (i_2_ << 7) + Class92.method766(light.x & 0x3ff, light.z & 0x3ff, i_3_);
 								light.x = i_51_;
 								light.z = i_52_;
-								i_50_ = light.z >> 7;
 								i_49_ = light.x >> 7;
+								i_50_ = light.z >> 7;
 								if (i_49_ >= 0 && i_50_ >= 0 && i_49_ < 104 && i_50_ < 104) {
-									light.aBoolean385 = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
-									light.y = -light.y + OverridedJInterface.tileHeightMap[light.anInt384][i_49_][i_50_];
+									light.lightOverBridge = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
+									light.y = -light.y + OverridedJInterface.activeTileHeightMap[light.level][i_49_][i_50_];
 									LightManager.addLight(light);
 								}
 							}
@@ -225,9 +225,9 @@ abstract class AbstractRequest extends NodeSub {
 				}
 			}
 			if (class191 == null) {
-				class191 = new Class191();
+				class191 = new ChunkAtmosphere();
 			}
-			IdentityKit.aClass191ArrayArray1337[i_0_ >> 3][i_2_ >> 3] = class191;
+			Identikit.chunksAtmosphere[i_0_ >> 3][i_2_ >> 3] = class191;
 		}
 		final int i_53_ = i_2_ + 7;
 		final int i_54_ = i_0_ + 7;
@@ -277,10 +277,10 @@ abstract class AbstractRequest extends NodeSub {
 		byte[][] is_69_;
 		if (HDToolkit.glEnabled && bool) {
 			i = 1;
-			is_69_ = Class120_Sub12_Sub36.aByteArrayArray3421;
+			is_69_ = Class120_Sub12_Sub36.underWaterMapFileBuffers;
 		} else {
 			i = 4;
-			is_69_ = RuntimeException_Sub1.aByteArrayArray2140;
+			is_69_ = RuntimeException_Sub1.mapFileBuffers;
 		}
 		for (int i_70_ = 0; i_70_ < i; i_70_++) {
 			Class120_Sub2.method1050();
@@ -295,8 +295,8 @@ abstract class AbstractRequest extends NodeSub {
 							final int i_77_ = (0xffdef6 & i_74_) >> 14;
 							final int i_78_ = (0x3fff & i_74_) >> 3;
 							final int i_79_ = i_78_ / 8 + (i_77_ / 8 << 8);
-							for (int i_80_ = 0; Class120_Sub12_Sub36.anIntArray3417.length > i_80_; i_80_++) {
-								if (Class120_Sub12_Sub36.anIntArray3417[i_80_] == i_79_ && is_69_[i_80_] != null) {
+							for (int i_80_ = 0; Class120_Sub12_Sub36.regionBitPackeds.length > i_80_; i_80_++) {
+								if (Class120_Sub12_Sub36.regionBitPackeds[i_80_] == i_79_ && is_69_[i_80_] != null) {
 									bool_73_ = true;
 									final int[] is_81_ = method1538(i_75_, WallLocation.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, i_70_, bool, i_78_);
 									if (is == null && is_81_ != null) {

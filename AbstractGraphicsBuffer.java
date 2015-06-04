@@ -42,11 +42,11 @@ abstract class AbstractGraphicsBuffer {
 		mapbackState = 0;
 	}
 
-	static final Class120_Sub9 method1840(final Hashtable hashtable, final OverlayType class124) {
+	static final HDTile method1840(final Hashtable hashtable, final OverlayType class124) {
 		final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.anInt1202 + (1 + class124.textureId << 16);
-		Class120_Sub9 class120_sub9_0_ = (Class120_Sub9) hashtable.get(l);
+		HDTile class120_sub9_0_ = (HDTile) hashtable.get(l);
 		if (class120_sub9_0_ == null) {
-			class120_sub9_0_ = new Class120_Sub9(class124.textureId, class124.anInt1202, true, false, class124.anInt1200);
+			class120_sub9_0_ = new HDTile(class124.textureId, class124.anInt1202, true, false, class124.anInt1200);
 			hashtable.put(class120_sub9_0_, l);
 		}
 		return class120_sub9_0_;
@@ -66,7 +66,7 @@ abstract class AbstractGraphicsBuffer {
 	abstract void drawClippedImage(Graphics graphics, int x, int y, int w, int h);
 
 	static final void method1844(int i, int i_7_, int i_8_, final int i_9_, int i_10_) {
-		if (IdentityKit.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
+		if (Identikit.anInt1334 >= i_8_ && Class120_Sub30_Sub2.anInt3699 <= i_7_) {
 			boolean bool;
 			if (MagnetType.anInt260 > i_10_) {
 				i_10_ = MagnetType.anInt260;
@@ -92,8 +92,8 @@ abstract class AbstractGraphicsBuffer {
 			} else {
 				i_8_ = Class120_Sub30_Sub2.anInt3699;
 			}
-			if (IdentityKit.anInt1334 < i_7_) {
-				i_7_ = IdentityKit.anInt1334;
+			if (Identikit.anInt1334 < i_7_) {
+				i_7_ = Identikit.anInt1334;
 			} else {
 				AmbientSound.fillArray(GameEntity.anIntArrayArray3009[i_7_--], i_9_, i_10_, i);
 			}
@@ -120,7 +120,7 @@ abstract class AbstractGraphicsBuffer {
 
 	static final void animateInterface(final int id) {
 		if (js5.loadInterface(id)) {
-			IdentityKit.animateInterfaces(Node.interfaceCache[id], -1);
+			Identikit.animateInterfaces(JagexInterface.interfaceCache[id], -1);
 		}
 	}
 

@@ -155,7 +155,7 @@ final class MemoryManager {
 		}
 	}
 	
-	static final synchronized void method994(final int i, final Shader[] class37s, final int i_0_) {
+	static final synchronized void method994(final int i, final GLShader[] class37s, final int i_0_) {
 		if (i_0_ == anInt1083) {
 			objectsARBDeque.addLast(new Class120_Sub27(i, class37s));
 		}

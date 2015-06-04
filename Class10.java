@@ -15,11 +15,11 @@ final class Class10 {
 				final int i_9_ = buffer.getUByte();
 				if (i_9_ == 0) {
 					if (bool_1_) {
-						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][x + xOff][z + zOff];
+						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.surfaceTileHeightMap[0][x + xOff][z + zOff];
 					} else if (level != 0) {
-						OverridedJInterface.tileHeightMap[level][x + xOff][z + zOff] = -240 + OverridedJInterface.tileHeightMap[level - 1][x + xOff][z + zOff];
+						OverridedJInterface.activeTileHeightMap[level][x + xOff][z + zOff] = -240 + OverridedJInterface.activeTileHeightMap[level - 1][x + xOff][z + zOff];
 					} else {
-						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238) * 8;
+						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238) * 8;
 					}
 					break;
 				}
@@ -30,12 +30,12 @@ final class Class10 {
 							i_10_ = 0;
 						}
 						if (level == 0) {
-							OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = 8 * -i_10_;
+							OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * -i_10_;
 						} else {
-							OverridedJInterface.tileHeightMap[level][x + xOff][z + zOff] = -(i_10_ * 8) + OverridedJInterface.tileHeightMap[-1 + level][xOff + x][zOff + z];
+							OverridedJInterface.activeTileHeightMap[level][x + xOff][z + zOff] = -(i_10_ * 8) + OverridedJInterface.activeTileHeightMap[-1 + level][xOff + x][zOff + z];
 						}
 					} else {
-						OverridedJInterface.tileHeightMap[0][x + xOff][z + zOff] = 8 * i_10_ + Class120_Sub12_Sub33.anIntArrayArrayArray3388[0][xOff + x][zOff + z];
+						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * i_10_ + Class120_Sub12_Sub33.surfaceTileHeightMap[0][xOff + x][zOff + z];
 					}
 					break;
 				}

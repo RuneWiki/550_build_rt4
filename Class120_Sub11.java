@@ -9,7 +9,7 @@ final class Class120_Sub11 extends Node {
 	static short[] aShortArray2556 = { 960, 957, -21568, -21571, 22464 };
 
 	static final long method1173(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return 0L;
 		}
@@ -20,28 +20,6 @@ final class Class120_Sub11 extends Node {
 			}
 		}
 		return 0L;
-	}
-
-	static final Class120_Sub14_Sub23 list(final int i) {
-		Class120_Sub14_Sub23 class120_sub14_sub23_4_ = (Class120_Sub14_Sub23) Class96.aClass35_901.get(i);
-		if (class120_sub14_sub23_4_ != null) {
-			return class120_sub14_sub23_4_;
-		}
-		byte[] is;
-		if (i >= 32768) {
-			is = Class101_Sub2.aClass50_2277.getFile(0, 0x7fff & i);
-		} else {
-			is = Class156.aClass50_1456.getFile(0, i);
-		}
-		class120_sub14_sub23_4_ = new Class120_Sub14_Sub23();
-		if (is != null) {
-			class120_sub14_sub23_4_.decode(new Buffer(is));
-		}
-		if (-32769 >= (i ^ 0xffffffff)) {
-			class120_sub14_sub23_4_.method1644();
-		}
-		Class96.aClass35_901.put(class120_sub14_sub23_4_, i);
-		return class120_sub14_sub23_4_;
 	}
 
 	static final void processAmbientSounds(final int x, final int z, final int level, final int redrawRate) {//TODO refactor sounds that appear on distance.
@@ -106,10 +84,6 @@ final class Class120_Sub11 extends Node {
 			ambientSound.entityZ = ambientSound.player.z + (ambientSound.player.getSize() * 64);
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
 		}
-	}
-
-	static final void method1177(final js5 js5) {
-		Class24.aClass50_145 = js5;
 	}
 
 	Class120_Sub11(final byte[] is) {

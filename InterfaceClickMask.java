@@ -125,7 +125,7 @@ final class InterfaceClickMask extends Node {
 
 	static final void method1689(final int i_17_, final int i) {
 		if (js5.loadInterface(i)) {
-			MapFunctionGroup.method1980(Node.interfaceCache[i], i_17_);
+			MapFunctionGroup.method1980(JagexInterface.interfaceCache[i], i_17_);
 		}
 	}
 

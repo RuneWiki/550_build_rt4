@@ -9,7 +9,7 @@ final class StructType extends NodeSub {
 	static NodeCache recentUse = new NodeCache(64);
 	static JagexInterface aClass189_3588;
 	static int titlebgId = -1;
-	static int anInt3590 = -1;
+	static int gameScreenDrawY = -1;
 
 	static final void method1561(final int i, final int i_0_, final int i_1_, final byte[][][] is, final int i_2_, final byte i_3_, final int i_4_, final int i_5_) {
 		Class120_Sub12_Sub9.anInt3193++;
@@ -18,8 +18,8 @@ final class StructType extends NodeSub {
 		final int i_7_ = i_4_ + 16;
 		final int i_8_ = i_5_ - 16;
 		final int i_9_ = i_5_ + 16;
-		for (int i_10_ = Class190.anInt2101; i_10_ < MapSceneType.anInt1361; i_10_++) {
-			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_10_];
+		for (int i_10_ = Class190.anInt2101; i_10_ < MapSceneType.activeGroundTileLength; i_10_++) {
+			final GroundTile[][] class120_sub18s = LabelGroup.activeGroundTiles[i_10_];
 			for (int i_11_ = GrandExchangeObject.anInt1493; i_11_ < Class53.anInt487; i_11_++) {
 				for (int i_12_ = Class31.anInt248; i_12_ < Js5Worker.anInt396; i_12_++) {
 					final GroundTile class120_sub18 = class120_sub18s[i_11_][i_12_];
@@ -31,26 +31,26 @@ final class StructType extends NodeSub {
 							if (i_11_ >= i_6_ && i_11_ <= i_7_ && i_12_ >= i_8_ && i_12_ <= i_9_) {
 								if (class120_sub18.wallLocation != null) {
 									final WallLocation class182 = class120_sub18.wallLocation;
-									class182.aClass180_1800.method2266(0, i_10_, class182.renderY, class182.renderX, class182.renderZ);
+									class182.aClass180_1800.method2266(0, i_10_, class182.renderX, class182.renderY, class182.renderZ);
 									if (class182.aClass180_1796 != null) {
-										class182.aClass180_1796.method2266(0, i_10_, class182.renderY, class182.renderX, class182.renderZ);
+										class182.aClass180_1796.method2266(0, i_10_, class182.renderX, class182.renderY, class182.renderZ);
 									}
 								}
 								if (class120_sub18.wallDecoration != null) {
 									final WallDecoration class186 = class120_sub18.wallDecoration;
-									class186.aClass180_1901.method2266(class186.anInt1896, i_10_, class186.renderY, class186.renderX, class186.renderZ);
+									class186.aClass180_1901.method2266(class186.anInt1896, i_10_, class186.renderX, class186.renderY, class186.renderZ);
 									if (class186.aClass180_1898 != null) {
-										class186.aClass180_1898.method2266(class186.anInt1896, i_10_, class186.renderY, class186.renderX, class186.renderZ);
+										class186.aClass180_1898.method2266(class186.anInt1896, i_10_, class186.renderX, class186.renderY, class186.renderZ);
 									}
 								}
 								if (class120_sub18.groundDecoration != null) {
 									final GroundDecoration class36 = class120_sub18.groundDecoration;
-									class36.sceneGraphNode.method2266(0, i_10_, class36.renderY, class36.renderX, class36.renderZ);
+									class36.sceneGraphNode.method2266(0, i_10_, class36.renderX, class36.renderY, class36.renderZ);
 								}
 								if (class120_sub18.aClass28Array2625 != null) {
 									for (int i_13_ = 0; i_13_ < class120_sub18.anInt2638; i_13_++) {
 										final Class28 class28 = class120_sub18.aClass28Array2625[i_13_];
-										class28.aClass180_174.method2266(class28.anInt172, i_10_, class28.anInt179, class28.anInt178, class28.anInt185);
+										class28.aClass180_174.method2266(class28.anInt172, i_10_, class28.anInt178, class28.anInt179, class28.anInt185);
 									}
 								}
 							}
@@ -68,7 +68,7 @@ final class StructType extends NodeSub {
 				}
 			}
 		}
-		final boolean bool = OverridedJInterface.tileHeightMap == Class24.anIntArrayArrayArray140;
+		final boolean bool = OverridedJInterface.activeTileHeightMap == Class24.underWaterTileHeightMap;
 		if (HDToolkit.glEnabled) {
 			final GL gl = HDToolkit.gl;
 			gl.glPushMatrix();
@@ -79,39 +79,39 @@ final class StructType extends NodeSub {
 				ParamType.aBoolean3545 = true;
 				WaterShader.method165();
 				Class120_Sub12_Sub19.anInt3281 = -1;
-				FrameLoader.anInt3612 = -1;
-				for (int i_14_ = 0; i_14_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[0].length; i_14_++) {
-					final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[0][i_14_];
+				FrameGroup.anInt3612 = -1;
+				for (int i_14_ = 0; i_14_ < Canvas_Sub1.activeHdTiles[0].length; i_14_++) {
+					final HDTile class120_sub9 = Canvas_Sub1.activeHdTiles[0][i_14_];
 					final float f = 251.5F - (class120_sub9.blend ? 1.0F : 0.5F);
 					if (class120_sub9.anInt2505 != Class120_Sub12_Sub19.anInt3281) {
 						Class120_Sub12_Sub19.anInt3281 = class120_sub9.anInt2505;
 						Class69.method614(class120_sub9.anInt2505);
 						AtmosphereManager.setFogColor(EntityRenderData.method251());
 					}
-					class120_sub9.method1162(LabelGroup.groundTiles, f, false);
+					class120_sub9.method1162(LabelGroup.activeGroundTiles, f, false);
 				}
 				WaterShader.method163();
 			} else {
-				for (int i_15_ = Class190.anInt2101; i_15_ < MapSceneType.anInt1361; i_15_++) {
-					for (int i_16_ = 0; i_16_ < Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_].length; i_16_++) {
-						final Class120_Sub9 class120_sub9 = Canvas_Sub1.aClass120_Sub9ArrayArray17[i_15_][i_16_];
+				for (int i_15_ = Class190.anInt2101; i_15_ < MapSceneType.activeGroundTileLength; i_15_++) {
+					for (int i_16_ = 0; i_16_ < Canvas_Sub1.activeHdTiles[i_15_].length; i_16_++) {
+						final HDTile class120_sub9 = Canvas_Sub1.activeHdTiles[i_15_][i_16_];
 						final float f = 201.5F - 50.0F * i_15_ - (class120_sub9.blend ? 1.0F : 0.5F);
 						if (class120_sub9.textureId != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.textureId)) && PacketBuffer.highWaterDetail) {
 							Class69.method614(class120_sub9.anInt2505);
 						}
-						class120_sub9.method1162(LabelGroup.groundTiles, f, false);
+						class120_sub9.method1162(LabelGroup.activeGroundTiles, f, false);
 					}
 					if (i_15_ == 0 && Class74.sceneryShadowsType > 0) {
 						HDToolkit.method527(101.5F);
-						Class47.method392(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.tileHeightMap[0]);
+						ShadowManager.drawShadows(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, Class120_Sub14_Sub13.anInt3563, i_0_, SpotAnimType.aBooleanArrayArray992, OverridedJInterface.activeTileHeightMap[0]);
 					}
 				}
-				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, LabelGroup.groundTiles);
+				LightManager.method1863(Class120_Sub12_Sub26.anInt3332, Class112.anInt1080, LabelGroup.activeGroundTiles);
 			}
 			gl.glPopMatrix();
 		}
-		for (int i_17_ = Class190.anInt2101; i_17_ < MapSceneType.anInt1361; i_17_++) {
-			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_17_];
+		for (int i_17_ = Class190.anInt2101; i_17_ < MapSceneType.activeGroundTileLength; i_17_++) {
+			final GroundTile[][] class120_sub18s = LabelGroup.activeGroundTiles[i_17_];
 			for (int i_18_ = -Class120_Sub14_Sub13.anInt3563; i_18_ <= 0; i_18_++) {
 				final int i_19_ = Class120_Sub12_Sub26.anInt3332 + i_18_;
 				final int i_20_ = Class120_Sub12_Sub26.anInt3332 - i_18_;
@@ -123,13 +123,13 @@ final class StructType extends NodeSub {
 							if (i_22_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, true);
+									Identikit.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_19_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, true);
+									Identikit.method1989(class120_sub18, true);
 								}
 							}
 						}
@@ -137,13 +137,13 @@ final class StructType extends NodeSub {
 							if (i_22_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_22_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, true);
+									Identikit.method1989(class120_sub18, true);
 								}
 							}
 							if (i_23_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_20_][i_23_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, true);
+									Identikit.method1989(class120_sub18, true);
 								}
 							}
 						}
@@ -157,8 +157,8 @@ final class StructType extends NodeSub {
 				}
 			}
 		}
-		for (int i_24_ = Class190.anInt2101; i_24_ < MapSceneType.anInt1361; i_24_++) {
-			final GroundTile[][] class120_sub18s = LabelGroup.groundTiles[i_24_];
+		for (int i_24_ = Class190.anInt2101; i_24_ < MapSceneType.activeGroundTileLength; i_24_++) {
+			final GroundTile[][] class120_sub18s = LabelGroup.activeGroundTiles[i_24_];
 			for (int i_25_ = -Class120_Sub14_Sub13.anInt3563; i_25_ <= 0; i_25_++) {
 				final int i_26_ = Class120_Sub12_Sub26.anInt3332 + i_25_;
 				final int i_27_ = Class120_Sub12_Sub26.anInt3332 - i_25_;
@@ -170,13 +170,13 @@ final class StructType extends NodeSub {
 							if (i_29_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, false);
+									Identikit.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_26_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, false);
+									Identikit.method1989(class120_sub18, false);
 								}
 							}
 						}
@@ -184,13 +184,13 @@ final class StructType extends NodeSub {
 							if (i_29_ >= Class31.anInt248) {
 								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_29_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, false);
+									Identikit.method1989(class120_sub18, false);
 								}
 							}
 							if (i_30_ < Js5Worker.anInt396) {
 								final GroundTile class120_sub18 = class120_sub18s[i_27_][i_30_];
 								if (class120_sub18 != null && class120_sub18.aBoolean2647) {
-									IdentityKit.method1989(class120_sub18, false);
+									Identikit.method1989(class120_sub18, false);
 								}
 							}
 						}
@@ -210,7 +210,7 @@ final class StructType extends NodeSub {
 	static final void method1562() {
 		OverlayType.recentUse.method192(5);
 		UnderlayType.recentUse.method192(5);
-		IdentityKit.recentUse.method192(5);
+		Identikit.recentUse.method192(5);
 		LocType.recentUse.method192(5);
 		LocType.aClass21_2663.method192(5);
 		LocType.aClass21_1618.method192(5);
@@ -220,9 +220,9 @@ final class StructType extends NodeSub {
 		Projectile.aClass21_2931.method192(5);
 		ObjType.recentUse.method192(5);
 		Class33.aClass21_273.method192(5);
-		SpotAnimation.aClass21_2906.method192(5);
+		SpotAnimation.objectSpriteCache.method192(5);
 		SeqType.recentUse.method192(5);
-		FrameLoader.recentUse.method192(5);
+		FrameGroup.recentUse.method192(5);
 		SpotAnimType.recentUse.method192(5);
 		SpotAnimType.modelCache.method192(5);
 		VarBit.recentUse.method192(5);
@@ -235,9 +235,9 @@ final class StructType extends NodeSub {
 		Class145.aClass21_1486.method192(5);
 		Class120_Sub6.aClass21_2443.method192(5);
 		Class153.recentUse.method192(5);
-		Class120_Sub12_Sub35.aClass21_3411.method192(5);
+		LightType.recentUse.method192(5);
 		CursorType.recentUse.method192(5);
-		CursorType.spriteCache.method192(5);
+		CursorType.graphicCache.method192(5);
 		Class43.playerModelsCache.method192(5);
 		Class90.playerHeadModelsCache.method192(5);		
 		JagexInterface.spriteCache.method192(50);

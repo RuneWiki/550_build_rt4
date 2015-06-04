@@ -10,7 +10,6 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	static Class120_Sub30_Sub3 aClass120_Sub30_Sub3_3299;
 	private int anInt3300 = 32768;
 	static int redrawRate = 0;
-	static int anInt3302;
 	static AbstractFont boldFont;
 
 	static final AbstractModelRenderer method1319(final int i, final AbstractModelRenderer class180_sub7, final int i_0_, final int i_1_, final int i_3_, final int i_4_) {
@@ -79,7 +78,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 	}
 
 	static final void method1321(final int i, final int i_25_, final int i_26_, final int i_28_, final int i_29_) {
-		if (MagnetType.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > IdentityKit.anInt1334) {
+		if (MagnetType.anInt260 > i || i_26_ > ParamType.anInt3544 || Class120_Sub30_Sub2.anInt3699 > i_28_ || i_25_ > Identikit.anInt1334) {
 			Class120_Sub12.method1194(i, i_26_, i_28_, i_29_, i_25_);
 		} else {
 			FileSystem.method446(i_28_, i, i_25_, i_29_, i_26_);
@@ -98,8 +97,8 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		if (leftMargin > 0 || rigthMargin > 0 || topMargin > 0 || bottomMargin > 0) {
 			try {
 				Container container;
-				if (Class120_Sub14_Sub10.fullscreenFrame != null) {
-					container = Class120_Sub14_Sub10.fullscreenFrame;
+				if (QuickChatMessageType.fullscreenFrame != null) {
+					container = QuickChatMessageType.fullscreenFrame;
 				} else if (Class112.frame != null) {
 					container = Class112.frame;
 				} else {

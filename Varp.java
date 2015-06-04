@@ -5,6 +5,7 @@
 final class Varp {
 	static short[] aShortArray620 = { -4160, -4163, -8256, -8259, 22461 };
 	int setting = 0;
+	static int varpAmount;
 	static js5 aClass50_1517;
 	static ObjectCache recentUse = new ObjectCache(64);
 	static float aFloat622;
@@ -56,7 +57,7 @@ final class Varp {
 		if (i == i_17_) {
 			LabelGroup.method1036(i, i_13_, i_16_, i_11_, i_12_, i_15_);
 		} else {
-			if (i_12_ + -i >= MagnetType.anInt260 && ParamType.anInt3544 >= i + i_12_ && i_16_ + -i_17_ >= Class120_Sub30_Sub2.anInt3699 && i_17_ + i_16_ <= IdentityKit.anInt1334) {
+			if (i_12_ + -i >= MagnetType.anInt260 && ParamType.anInt3544 >= i + i_12_ && i_16_ + -i_17_ >= Class120_Sub30_Sub2.anInt3699 && i_17_ + i_16_ <= Identikit.anInt1334) {
 				Class120_Sub30_Sub1.method1743(i_12_, i_15_, i_13_, i_16_, i, i_11_, i_17_);
 			} else {
 				Class159.method2095(i_11_, i_13_, i_12_, i_17_, i_16_, i, i_15_);
@@ -98,6 +99,22 @@ final class Varp {
 			}
 			decode(buffer, code);
 		}
+	}
+
+	static final void reset() {
+		for (int id = 0; id < varpAmount; id++) {
+			final Varp varp = list(id);
+			if (varp != null && varp.setting == 0) {
+				Class30.anIntArray239[id] = 0;
+				Class2.permanentVariable[id] = 0;
+			}
+		}
+		Class69_Sub3_Sub1.aClass75_3079 = new Hashtable(16);
+	}
+
+	static final void setup(final js5 js5) {
+		aClass50_1517 = js5;
+		varpAmount = aClass50_1517.getFileAmount(16);
 	}
 
 	static final Varp list(final int id) {

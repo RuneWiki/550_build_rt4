@@ -3,14 +3,12 @@
  */
 
 final class Class120_Sub12_Sub35 extends Class120_Sub12 {
-	static int anInt3410 = -2;
-	static ObjectCache aClass21_3411;
+	static int accountCreationReturnCode = -2;
 	static int crossX = 0;
 	static int anInt3413;
 	static short[][] aShortArrayArray3414;
 
 	static {
-		aClass21_3411 = new ObjectCache(64);
 		anInt3413 = -1;
 		aShortArrayArray3414 = new short[][] { { 6798, 107, 10283, 16, 4797, 7744, 5799, 4634, -31839, 22433, 2983, -11343, 8, 5281, 10438, 3650, -27322, -21845, 200, 571, 908, 21830, 28946, -15701, -14010 },
 				{ 8741, 12, -1506, -22374, 7735, 8404, 1701, -27106, 24094, 10153, -8915, 4783, 1341, 16578, -30533, 25239, 8, 5281, 10438, 3650, -27322, -21845, 200, 571, 908, 21830, 28946, -15701, -14010 },
@@ -30,10 +28,6 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 			}
 		}
 		return is_1_;
-	}
-
-	static final void method1381(final js5 js5) {
-		VarBit.aClass50_3056 = js5;
 	}
 
 	static final boolean isIntefaceEnabled(final JagexInterface jagexInterface) {

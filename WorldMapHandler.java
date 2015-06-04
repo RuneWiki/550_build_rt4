@@ -93,7 +93,7 @@ class WorldMapHandler {
 						} else if ((i_11_ + anInt716 & 0x4) != (i_16_ + anInt704 & 0x4)) {
 							i_20_ = 4936552;
 						} else {
-							i_20_ = overlayColors[Class23.anInt137 + 1];
+							i_20_ = overlayColors[client.anInt137 + 1];
 						}
 						if (i_20_ == 0) {
 							i_20_ = 1;
@@ -127,7 +127,7 @@ class WorldMapHandler {
 								} else if ((i_11_ + anInt716 & 0x4) != (i_26_ + anInt704 & 0x4)) {
 									i_34_ = 4936552;
 								} else {
-									i_34_ = overlayColors[Class23.anInt137 + 1];
+									i_34_ = overlayColors[client.anInt137 + 1];
 								}
 								if (i_30_ < 0 || i_30_ > is.length - 1) {
 									if (i_34_ == 0) {

@@ -10,7 +10,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	private int anInt3261;
 	private int anInt3262 = 0;
 	private int anInt3263;
-	static int anInt3264;
+	static int draggedComponentPosX;
 	private int anInt3265 = 0;
 	private int anInt3266;
 	private int anInt3267;
@@ -18,18 +18,18 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	static float[] aFloatArray3269 = { 0.0F, 0.0F, 0.0F, 0.0F };
 
 	static {
-		anInt3264 = -1;
+		draggedComponentPosX = -1;
 	}
 
 	static final Class28 method1281(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.groundTiles[level][x][z];
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}
 		for (int i_2_ = 0; i_2_ < class120_sub18.anInt2638; i_2_++) {
 			final Class28 class28 = class120_sub18.aClass28Array2625[i_2_];
 			if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == x && class28.anInt184 == z) {
-				Class120_Sub14_Sub10.method1499(class28);
+				QuickChatMessageType.method1499(class28);
 				return class28;
 			}
 		}
@@ -220,9 +220,5 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 			}
 		}
 		return is_30_;
-	}
-
-	static final void method1287(final js5 js5) {
-		Class153.aClass50_3373 = js5;
 	}
 }

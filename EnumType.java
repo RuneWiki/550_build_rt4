@@ -6,7 +6,7 @@ final class EnumType extends NodeSub {
 	static int anInt3450;
 	char aChar3451;
 	private int defaulInteger;
-	static FrameLoader[] aClass120_Sub14_Sub18Array3453 = new FrameLoader[14];
+	static FrameGroup[] aClass120_Sub14_Sub18Array3453 = new FrameGroup[14];
 	static int worldLen;
 	static int anInt3456;
 	private String defaultString = "null";
@@ -14,6 +14,7 @@ final class EnumType extends NodeSub {
 	private Hashtable aClass75_3459;
 	static Class112 aClass112_3460;
 	Hashtable params;
+	static js5 aClass50_145;
 	static NodeCache recentUse = new NodeCache(128);
 	static long aLong3462;
 
@@ -103,7 +104,7 @@ final class EnumType extends NodeSub {
 		TileParticleQueue.selfPlayer.z = 3000;
 		if (HDToolkit.glEnabled || Buffer.gameId != 0) {
 			if (client.cameraType != 2) {
-				InvType.method1445();
+				InvType.updateLoginScreenCamera();
 			} else {
 				FileSystemWorker.renderX = Class99.anInt951 << 7;
 				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
@@ -114,7 +115,7 @@ final class EnumType extends NodeSub {
 			UnderlayType.method1900();
 			ProjectileNode.setGameState(28);
 		} else {
-			HintIcon.method725(Class7.aClass50_63);
+			HintIcon.method725(client.aClass50_63);
 			ProjectileNode.setGameState(10);
 		}
 	}
@@ -191,12 +192,16 @@ final class EnumType extends NodeSub {
 		return false;
 	}
 
+	static final void setup(final js5 js5) {
+		aClass50_145 = js5;
+	}
+
 	static final EnumType list(final int id) {
 		EnumType enumType = (EnumType) recentUse.get(id);
 		if (enumType != null) {
 			return enumType;
 		}
-		final byte[] data = Class24.aClass50_145.getFile(id >>> 8, id & 0xff);
+		final byte[] data = aClass50_145.getFile(id >>> 8, id & 0xff);
 		enumType = new EnumType();
 		if (data != null) {
 			enumType.decode(new Buffer(data));
