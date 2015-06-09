@@ -10,34 +10,33 @@ final class Class42 {
 		currentMousePress = 0;
 	}
 
-	static final void method336() {
-		final int i_0_ = Class179.aByteArrayArray1777.length;
-		for (int i_1_ = 0; i_1_ < i_0_; i_1_++) {
-			if (Class179.aByteArrayArray1777[i_1_] != null) {
-				int i_2_ = -1;
-				for (int i_3_ = 0; i_3_ < Class120_Sub12_Sub29.anInt3362; i_3_++) {
-					if (Class120_Sub12_Sub8.anIntArray3190[i_3_] == Class120_Sub12_Sub36.regionBitPackeds[i_1_]) {
-						i_2_ = i_3_;
+	static final void decodeNpcFiles() {
+		for (int id = 0; id < Class179.npcSpawnsFilesBuffer.length; id++) {
+			if (Class179.npcSpawnsFilesBuffer[id] != null) {
+				int fileIndex = -1;
+				for (int cacheId = 0; cacheId < Class120_Sub12_Sub29.npcSpawnsRegionPos; cacheId++) {
+					if (Class120_Sub12_Sub8.npcSpawnsRegionBitPacked[cacheId] == Class120_Sub12_Sub36.regionBitPackeds[id]) {
+						fileIndex = cacheId;
 						break;
 					}
 				}
-				if (i_2_ == -1) {
-					Class120_Sub12_Sub8.anIntArray3190[Class120_Sub12_Sub29.anInt3362] = Class120_Sub12_Sub36.regionBitPackeds[i_1_];
-					i_2_ = Class120_Sub12_Sub29.anInt3362++;
+				if (fileIndex == -1) {
+					Class120_Sub12_Sub8.npcSpawnsRegionBitPacked[Class120_Sub12_Sub29.npcSpawnsRegionPos] = Class120_Sub12_Sub36.regionBitPackeds[id];
+					fileIndex = Class120_Sub12_Sub29.npcSpawnsRegionPos++;
 				}
-				final Buffer buffer = new Buffer(Class179.aByteArrayArray1777[i_1_]);
+				final Buffer buffer = new Buffer(Class179.npcSpawnsFilesBuffer[id]);
 				int npcCount = 0;
-				while (Class179.aByteArrayArray1777[i_1_].length > buffer.pos && npcCount < 511 && Class148.localNpcCount < 1023) {
-					final int index = npcCount++ << 6 | i_2_;
+				while (Class179.npcSpawnsFilesBuffer[id].length > buffer.pos && npcCount < 511 && Class148.localNpcCount < 1023) {
+					final int index = npcCount++ << 6 | fileIndex;
 					final int positionBitpacked = buffer.getUShort();
 					final int level = positionBitpacked >> 14;
 					final int x = (positionBitpacked >> 7) & 0x3f;
 					final int z = positionBitpacked & 0x3f;
-					final int npcX = (Class120_Sub12_Sub36.regionBitPackeds[i_1_] >> 8) * 64 - GameEntity.currentBaseX + x;
-					final int npcZ = (Class120_Sub12_Sub36.regionBitPackeds[i_1_] & 0xff) * 64 - LightType.currentBaseZ + z;
+					final int npcX = (Class120_Sub12_Sub36.regionBitPackeds[id] >> 8) * 64 - GameEntity.currentBaseX + x;
+					final int npcZ = (Class120_Sub12_Sub36.regionBitPackeds[id] & 0xff) * 64 - LightType.currentBaseZ + z;
 					int npcId = buffer.getUShort();
 					final NpcType npcType = NpcType.list(npcId);
-					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.loginScreenProperties & 0x1) > 0 && SpotAnimationNode.anInt3469 == level && npcX >= 0 && npcType.size + npcX < 104 && npcZ >= 0 && npcZ + npcType.size < 104) {
+					if (Class120_Sub12_Sub11.npcList[index] == null && (npcType.loginScreenProperties & 0x1) > 0 && SpotAnimationNode.visibleLevel == level && npcX >= 0 && npcType.size + npcX < 104 && npcZ >= 0 && npcZ + npcType.size < 104) {
 						Class120_Sub12_Sub11.npcList[index] = new Npc();
 						final Npc npc = Class120_Sub12_Sub11.npcList[index];
 						Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;

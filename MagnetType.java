@@ -61,16 +61,16 @@ final class MagnetType {
 		}
 	}
 
-	static final String method270(final long l) {
-		Class90.aCalendar844.setTime(new Date(l));
-		final int i_1_ = Class90.aCalendar844.get(7);
-		final int i_2_ = Class90.aCalendar844.get(5);
-		final int i_3_ = Class90.aCalendar844.get(2);
-		final int i_4_ = Class90.aCalendar844.get(1);
-		final int i_5_ = Class90.aCalendar844.get(11);
-		final int i_6_ = Class90.aCalendar844.get(12);
-		final int i_7_ = Class90.aCalendar844.get(13);
-		return new StringBuilder(Class69_Sub3.aStringArray2242[i_1_ - 1]).append(", ").append(i_2_ / 10).append(i_2_ % 10).append("-").append(ReflectionCheckNode.aStringArray2759[i_3_]).append("-").append(i_4_).append(" ").append(i_5_ / 10).append(i_5_ % 10).append(":").append(i_6_ / 10).append(i_6_ % 10).append(":").append(i_7_ / 10).append(i_7_ % 10).append(" GMT").toString();
+	static final String formatDate(final long millis) {
+		Class90.gmtCalendar.setTime(new Date(millis));
+		final int dayOfWeek = Class90.gmtCalendar.get(7);
+		final int dayOfMonth = Class90.gmtCalendar.get(5);
+		final int month = Class90.gmtCalendar.get(2);
+		final int year = Class90.gmtCalendar.get(1);
+		final int hourOfDay = Class90.gmtCalendar.get(11);
+		final int minute = Class90.gmtCalendar.get(12);
+		final int second = Class90.gmtCalendar.get(13);
+		return Class69_Sub3.daysOfWeek[dayOfWeek - 1] + ", " + (dayOfMonth / 10) + (dayOfMonth % 10) + "-" + ReflectionCheckNode.months[month] + "-" + year + " " + (hourOfDay / 10) + (hourOfDay % 10) + ":" + (minute / 10) + (minute % 10) + ":" + (second / 10) + (second % 10) + " GMT";
 	}
 
 	final void postDecode() {

@@ -7,7 +7,7 @@ final class IntegerNode extends Node {
 	static HDTile[][] underWaterHdTiles;
 	int value;
 	static int[] anIntArray2791 = { 160, 192, 80, 96, 0, 144, 80, 48, 160 };
-	static int anInt2792;
+	static int viewportLeft;
 	static long killtime;
 
 	static {

@@ -44,8 +44,8 @@ final class Class157 {
 				ShapedTile.anIntArray1632[i_7_] = i_9_;
 				ShapedTile.anIntArray1623[i_7_] = i_10_;
 			}
-			ShapedTile.anIntArray1630[i_7_] = Rasterizer.anInt967 + (i_8_ << 9) / i_10_;
-			ShapedTile.anIntArray1636[i_7_] = Rasterizer.anInt970 + (i_9_ << 9) / i_10_;
+			ShapedTile.anIntArray1630[i_7_] = Rasterizer.centerX + (i_8_ << 9) / i_10_;
+			ShapedTile.anIntArray1636[i_7_] = Rasterizer.centerY + (i_9_ << 9) / i_10_;
 		}
 		Rasterizer.alpha = 0;
 		i_6_ = shapedTile.anIntArray1634.length;
@@ -60,13 +60,13 @@ final class Class157 {
 			final int i_20_ = ShapedTile.anIntArray1636[i_14_];
 			final int i_21_ = ShapedTile.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
-				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
+				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.centerX, Class187.anInt1908 + Rasterizer.centerY, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
 					ObjectCache.anInt122 = i_4_;
 					WaterfallShader.anInt2174 = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {
 					Rasterizer.aBoolean972 = false;
-					if (i_16_ < 0 || i_17_ < 0 || i_18_ < 0 || i_16_ > Rasterizer.anInt983 || i_17_ > Rasterizer.anInt983 || i_18_ > Rasterizer.anInt983) {
+					if (i_16_ < 0 || i_17_ < 0 || i_18_ < 0 || i_16_ > Rasterizer.endX || i_17_ > Rasterizer.endX || i_18_ > Rasterizer.endX) {
 						Rasterizer.aBoolean972 = true;
 					}
 					if (shapedTile.anIntArray1621 == null || shapedTile.anIntArray1621[i_12_] == -1) {

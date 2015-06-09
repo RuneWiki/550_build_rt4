@@ -97,7 +97,7 @@ class Class69 {
 					UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, gameEntity.getHeight(), interfaceHeight >> 1, i_2_, i_0_);
 					if (Class120_Sub12_Sub38.screenX > -1 && Class120_Sub12_Sub19.textOnScreenCount < AbstractGraphicsBuffer.maxTextOnScreen) {
 						AbstractGraphicsBuffer.anIntArray1162[Class120_Sub12_Sub19.textOnScreenCount] = Class120_Sub12_Sub22.boldFont.method1459(gameEntity.textSpoken) / 2;
-						AbstractGraphicsBuffer.anIntArray1158[Class120_Sub12_Sub19.textOnScreenCount] = Class120_Sub12_Sub22.boldFont.anInt3497;
+						AbstractGraphicsBuffer.anIntArray1158[Class120_Sub12_Sub19.textOnScreenCount] = Class120_Sub12_Sub22.boldFont.yOff;
 						AbstractGraphicsBuffer.anIntArray1161[Class120_Sub12_Sub19.textOnScreenCount] = Class120_Sub12_Sub38.screenX;
 						AbstractGraphicsBuffer.anIntArray1171[Class120_Sub12_Sub19.textOnScreenCount] = Class120_Sub15.screenY;
 						AbstractGraphicsBuffer.anIntArray1159[Class120_Sub12_Sub19.textOnScreenCount] = gameEntity.anInt2976;
@@ -289,9 +289,9 @@ class Class69 {
 					int i_33_ = 0;
 					final int i_34_ = 150 + -AbstractGraphicsBuffer.anIntArray1163[i_23_];
 					if (!HDToolkit.glEnabled) {
-						GraphicsLD.setBounds(interfaceX, -Class120_Sub12_Sub22.boldFont.anInt3497 + Class120_Sub15.screenY + interfaceY - 1, interfaceWidth + interfaceX, 5 + interfaceY - -Class120_Sub15.screenY);
+						GraphicsLD.setBounds(interfaceX, -Class120_Sub12_Sub22.boldFont.yOff + Class120_Sub15.screenY + interfaceY - 1, interfaceWidth + interfaceX, 5 + interfaceY - -Class120_Sub15.screenY);
 					} else {
-						GraphicsHD.method591(interfaceX, -1 + Class120_Sub15.screenY + interfaceY - Class120_Sub12_Sub22.boldFont.anInt3497, interfaceX - -interfaceWidth, Class120_Sub15.screenY + interfaceY + 5);
+						GraphicsHD.method591(interfaceX, -1 + Class120_Sub15.screenY + interfaceY - Class120_Sub12_Sub22.boldFont.yOff, interfaceX - -interfaceWidth, Class120_Sub15.screenY + interfaceY + 5);
 					}
 					if (i_34_ >= 25) {
 						if (i_34_ > 125) {

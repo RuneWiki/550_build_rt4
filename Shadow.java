@@ -72,7 +72,7 @@ final class Shadow {
 		final GL gl = HDToolkit.gl;
 		HDToolkit.bindTexture2D(textureId);
 		if (aClass104_877 != null) {
-			aClass104_877.bindArrayBuffer();
+			aClass104_877.bindAsArrayBuffer();
 			gl.glInterleavedArrays(10791, 20, 0L);
 			HDToolkit.aBoolean536 = false;
 		} else {
@@ -83,7 +83,7 @@ final class Shadow {
 			HDToolkit.aBoolean536 = false;
 		}
 		if (aClass104_874 != null) {
-			aClass104_874.bindElementArrayBuffer();
+			aClass104_874.bindAsElementArrayBuffer();
 			gl.glDrawElements(4, 384, 5125, 0L);
 		} else {
 			if (HDToolkit.vertexBufferAsObject) {

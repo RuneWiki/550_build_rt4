@@ -59,15 +59,15 @@ final class JagexSocket implements Runnable {
 						}
 						FrameGroup.anInt3609 = 1;
 						MapFunctionGroup.anInt1323++;
-						if (Hashtable.anInt675 != Class116.anInt1115) {
-							Class116.anInt1115 = Hashtable.anInt675;
+						if (Hashtable.anInt675 != Class116.worldListPort) {
+							Class116.worldListPort = Hashtable.anInt675;
 						} else {
-							Class116.anInt1115 = ObjectPile.anInt1808;
+							Class116.worldListPort = ObjectPile.anInt1808;
 						}
 						Class79_Sub1.anInt2244 = 0;
 					}
 					if (FrameGroup.anInt3609 == 1) {
-						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
+						Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.worldListIpAddress, Class116.worldListPort);
 						FrameGroup.anInt3609 = 2;
 					}
 					if (FrameGroup.anInt3609 == 2) {
@@ -108,7 +108,7 @@ final class JagexSocket implements Runnable {
 					}
 					if (AbstractTimer.worldConnection.getAvailable() >= 2) {
 						final int i_4_ = AbstractTimer.worldConnection.read() << 8 | AbstractTimer.worldConnection.read();
-						Class188.method2483(i_4_);
+						Class188.hopWorld(i_4_);
 						if (Class157.worldId == -1) {
 							FrameGroup.anInt3609 = 0;
 							Class48.returnCode = 6;
@@ -129,10 +129,10 @@ final class JagexSocket implements Runnable {
 					if (MapFunctionGroup.anInt1323 < 1) {
 						MapFunctionGroup.anInt1323++;
 						Class79_Sub1.anInt2244 = 0;
-						if (Class116.anInt1115 == Hashtable.anInt675) {
-							Class116.anInt1115 = ObjectPile.anInt1808;
+						if (Class116.worldListPort == Hashtable.anInt675) {
+							Class116.worldListPort = ObjectPile.anInt1808;
 						} else {
-							Class116.anInt1115 = Hashtable.anInt675;
+							Class116.worldListPort = Hashtable.anInt675;
 						}
 						FrameGroup.anInt3609 = 1;
 					} else {

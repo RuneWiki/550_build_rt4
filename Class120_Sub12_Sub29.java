@@ -4,7 +4,7 @@
 import java.io.IOException;
 
 final class Class120_Sub12_Sub29 extends Class120_Sub12 {
-	static int anInt3362 = 0;
+	static int npcSpawnsRegionPos = 0;
 	static String[] membersObjInventoryOptions = null;
 	private int anInt3364;
 	private int anInt3365 = 2048;

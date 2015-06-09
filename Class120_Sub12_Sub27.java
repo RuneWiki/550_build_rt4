@@ -13,14 +13,14 @@ final class Class120_Sub12_Sub27 extends Class120_Sub12 {
 	private int anInt3346 = 2;
 	private byte[] aByteArray3347;
 	static boolean disableWorldMapMapFunctions = false;
-	static int[] anIntArray3349;
+	static int[] femaleBodyPartIds;
 	static volatile int currentMouseY;
 	private int anInt3352;
 	static int renderYWrapper;
 	static AbstractIndexedSprite logoSprite;
 
 	static {
-		anIntArray3349 = new int[] { 7, 8, 9, 10, 11, 12, 13, 15 };
+		femaleBodyPartIds = new int[] { 7, 8, 9, 10, 11, 12, 13, 15 };
 		currentMouseY = -1;
 	}
 

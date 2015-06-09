@@ -168,7 +168,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
 		Class154.shadowModelCache.clearSoftReference();
 		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
-		Class15.aClass21_95.clearSoftReference();
+		LDFont.fontCache.clearSoftReference();
 	}
 
 	public Class120_Sub12_Sub21() {

@@ -32,7 +32,7 @@ final class PlayerAppearance {
 	}
 
 	final void setAppearanceData(final int index, final int data) {
-		final int i_7_ = Class120_Sub12_Sub3.anIntArray3148[index];
+		final int i_7_ = Class120_Sub12_Sub3.loopToAppearanceIndex[index];
 		if (appearanceData[i_7_] != 0 && Identikit.list(data) != null) {
 			appearanceData[i_7_] = ChunkAtmosphere.method2512(-2147483648, data);
 			updateApperanceHash();
@@ -59,7 +59,7 @@ final class PlayerAppearance {
 		for (int i_9_ = 0; i_9_ < 5; i_9_++) {
 			appearanceHash = appearanceHash >>> 8 ^ ls[(int) (0xffL & (this.colors[i_9_] ^ appearanceHash))];
 		}
-		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ (!this.isFemale ? 0 : 1)))] ^ appearanceHash >>> 8;
+		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ (this.isFemale ? 1 : 0)))] ^ appearanceHash >>> 8;
 		if (l != 0L && appearanceHash != l) {
 			Class43.playerModelsCache.remove(l);
 		}
@@ -271,7 +271,7 @@ final class PlayerAppearance {
 						bool_50_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1578(i_58_);
 						bool_52_ |= class40_55_.aBoolean341;
 					}
-					if (!class40_55_.tween && !Class164.forceTween || i_57_ == -1 || class40_55_.frames.length <= i_57_) {
+					if (!class40_55_.tween && !Class164.forceTweenEnabled || i_57_ == -1 || class40_55_.frames.length <= i_57_) {
 						Class120_Sub12_Sub26.anIntArray3325[i_54_] = 0;
 						Class71.anIntArray627[i_54_] = 0;
 						Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_] = null;
@@ -312,7 +312,7 @@ final class PlayerAppearance {
 				bool_50_ |= class120_sub14_sub18.method1578(i_60_);
 				bool_52_ |= animSeqType.aBoolean341;
 			}
-			if ((animSeqType.tween || Class164.forceTween) && i_17_ != -1 && i_17_ < animSeqType.frames.length) {
+			if ((animSeqType.tween || Class164.forceTweenEnabled) && i_17_ != -1 && i_17_ < animSeqType.frames.length) {
 				i_61_ = animSeqType.frames[i_17_];
 				final int i_65_ = i_61_ >>> 16;
 				i_61_ &= 0xffff;
@@ -343,7 +343,7 @@ final class PlayerAppearance {
 				bool_50_ |= class120_sub14_sub18_70_.method1578(i_68_);
 				bool_52_ |= idleSeqType.aBoolean341;
 			}
-			if ((idleSeqType.tween || Class164.forceTween) && i_18_ != -1 && i_18_ < idleSeqType.frames.length) {
+			if ((idleSeqType.tween || Class164.forceTweenEnabled) && i_18_ != -1 && i_18_ < idleSeqType.frames.length) {
 				i_67_ = idleSeqType.delays[i];
 				i_66_ = idleSeqType.frames[i_18_];
 				final int i_72_ = i_66_ >>> 16;
@@ -425,27 +425,27 @@ final class PlayerAppearance {
 		return class180_sub7_82_;
 	}
 
-	final void init(final int i_85_, int[] is, final int i_86_, final int[] is_87_, final boolean bool) {
-		if (entityRenderDataId != i_86_) {
-			entityRenderDataId = i_86_;
+	final void init(final int npcId, int[] appData, final int renderId, final int[] colors, final boolean isFemale) {
+		if (entityRenderDataId != renderId) {
+			entityRenderDataId = renderId;
 			anIntArrayArray1377 = null;
 		}
-		if (is == null) {
-			is = new int[12];
-			for (int i_88_ = 0; i_88_ < 8; i_88_++) {
-				for (int i_89_ = 0; i_89_ < Identikit.identikitLength; i_89_++) {
-					final Identikit identityKit = Identikit.list(i_89_);
-					if (identityKit != null && !identityKit.noInterface && ((bool ? Class120_Sub12_Sub27.anIntArray3349[i_88_] : ObjType.anIntArray1520[i_88_]) ^ 0xffffffff) == (identityKit.partId ^ 0xffffffff)) {
-						is[Class120_Sub12_Sub3.anIntArray3148[i_88_]] = ChunkAtmosphere.method2512(-2147483648, i_89_);
+		if (appData == null) {
+			appData = new int[12];
+			for (int appId = 0; appId < 8; appId++) {
+				for (int idkId = 0; idkId < Identikit.identikitLength; idkId++) {
+					final Identikit identityKit = Identikit.list(idkId);
+					if (identityKit != null && !identityKit.isNotDefault && (isFemale ? Class120_Sub12_Sub27.femaleBodyPartIds[appId] : ObjType.maleBodyPartIds[appId]) == identityKit.partId) {
+						appData[Class120_Sub12_Sub3.loopToAppearanceIndex[appId]] = idkId | Integer.MIN_VALUE;
 						break;
 					}
 				}
 			}
 		}
-		appearanceData = is;
-		this.colors = is_87_;
-		this.isFemale = bool;
-		this.npcId = i_85_;
+		appearanceData = appData;
+		this.colors = colors;
+		this.isFemale = isFemale;
+		this.npcId = npcId;
 		updateApperanceHash();
 	}
 

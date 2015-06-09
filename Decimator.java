@@ -5,7 +5,7 @@ import java.util.Arrays;
  */
 
 final class Decimator {
-	static int anInt1716;
+	static int worldListLoadStep;
 	private int newFrequency;
 	private int oldFrequency;
 	private int[][] anIntArrayArray1719;
@@ -13,7 +13,7 @@ final class Decimator {
 	static boolean fogEnabled;
 
 	static {
-		anInt1716 = 0;
+		worldListLoadStep = 0;
 		fogEnabled = false;
 	}
 

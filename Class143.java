@@ -155,19 +155,19 @@ class Class143 implements Interface3 {
 		Class65.flagY = i_14_;
 	}
 
-	static final void setSettings(final String string) {
-		Class120_Sub12_Sub25.settings = string;
+	static final void setParams(final String params) {
+		Class120_Sub12_Sub25.params = params;
 		if (NpcType.gameSignlink.gameApplet != null) {
 			try {
-				final String string_28_ = NpcType.gameSignlink.gameApplet.getParameter("cookieprefix");
-				final String string_29_ = NpcType.gameSignlink.gameApplet.getParameter("cookiehost");
-				String string_30_ = new StringBuilder(string_28_).append("settings=").append(string).append("; version=1; path=/; domain=").append(string_29_).toString();
-				if (string.length() == 0) {
-					string_30_ = new StringBuilder(string_30_).append("; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0").toString();
+				final String cookiePrefix = NpcType.gameSignlink.gameApplet.getParameter("cookieprefix");
+				final String cookieHost = NpcType.gameSignlink.gameApplet.getParameter("cookiehost");
+				String string_30_ = cookiePrefix + "settings=" + params + "; version=1; path=/; domain=" + cookieHost;
+				if (params.length() == 0) {
+					string_30_ = string_30_ + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
 				} else {
-					string_30_ = new StringBuilder(string_30_).append("; Expires=").append(MagnetType.method270(94608000000L + TimeUtil.getSafeTime())).append("; Max-Age=").append(94608000L).toString();
+					string_30_ = string_30_ + "; Expires=" + (MagnetType.formatDate(94608000000L + TimeUtil.getSafeTime())) + "; Max-Age=" + 94608000L;
 				}
-				JSHelper.eval(new StringBuilder("document.cookie=\"").append(string_30_).append("\"").toString(), NpcType.gameSignlink.gameApplet);
+				JSHelper.eval("document.cookie=\"" + string_30_ + "\"", NpcType.gameSignlink.gameApplet);
 			} catch (final Throwable throwable) {
 				/* empty */
 			}

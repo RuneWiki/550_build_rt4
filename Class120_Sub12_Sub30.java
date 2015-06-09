@@ -5,7 +5,7 @@ import java.io.IOException;
 
 final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static AbstractSprite[] crossSprites;
-	static String aString3372;
+	static String worldListIpAddress;
 	static int[] friendsRank = new int[200];
 	static String worldIpAddress;
 	static int anInt3376;

@@ -6,17 +6,17 @@ final class Class54 {
 	static int[] anIntArray488 = new int[2];
 	static AbstractSprite[] pkIconSprites;
 	
-	static final boolean method477(final byte[] data) {
+	static final boolean decodedWorldInformation(final byte[] data) {
 		final Buffer buffer = new Buffer(data);
-		final int i_0_ = buffer.getUByte();
-		if (i_0_ != 1) {
+		final int exist = buffer.getUByte();
+		if (exist != 1) {
 			return false;
 		}
-		final boolean bool_1_ = buffer.getUByte() == 1;
-		if (bool_1_) {
+		final boolean decodeInformation = buffer.getUByte() == 1;
+		if (decodeInformation) {
 			Class43.decodeWorldListInfo(buffer);
 		}
-		Class140.updateWorldPlayers(buffer);
+		Class140.decodeWorldPlayers(buffer);
 		return true;
 	}
 

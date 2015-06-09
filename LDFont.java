@@ -4,9 +4,10 @@
 
 final class LDFont extends AbstractFont {
 	private byte[][] paletteIndicators;
+	static ObjectCache fontCache = new ObjectCache(4);
 
 	@Override
-	final void method1471(final int i, int i_0_, int i_1_, int i_2_, int i_3_, final int i_4_, final int i_5_, final boolean bool) {
+	final void drawTransparentChar(final int i, int i_0_, int i_1_, int i_2_, int i_3_, final int i_4_, final int i_5_, final boolean bool) {
 		int i_6_ = i_0_ + i_1_ * GraphicsLD.width;
 		int i_7_ = GraphicsLD.width - i_2_;
 		int i_8_ = 0;
@@ -42,7 +43,7 @@ final class LDFont extends AbstractFont {
 	}
 
 	@Override
-	final void method1460(final int i, int i_13_, int i_14_, int i_15_, int i_16_, final int i_17_, final boolean bool) {
+	final void drawChar(final int i, int i_13_, int i_14_, int i_15_, int i_16_, final int i_17_, final boolean bool) {
 		int i_18_ = i_13_ + i_14_ * GraphicsLD.width;
 		int i_19_ = GraphicsLD.width - i_15_;
 		int i_20_ = 0;
@@ -81,16 +82,16 @@ final class LDFont extends AbstractFont {
 		}
 	}
 
-	static final LDFont method2061(final int i_9_) {
-		LDFont class120_sub14_sub8_sub2_10_ = (LDFont) Class15.aClass21_95.get(i_9_);
-		if (class120_sub14_sub8_sub2_10_ != null) {
-			return class120_sub14_sub8_sub2_10_;
+	static final LDFont get(final int id) {
+		LDFont ldFont = (LDFont) fontCache.get(id);
+		if (ldFont != null) {
+			return ldFont;
 		}
-		final byte[] is = ClanMember.aClass50_2576.getFile(i_9_, 0);
-		class120_sub14_sub8_sub2_10_ = new LDFont(is);
-		class120_sub14_sub8_sub2_10_.setNameIcons(Class82.nameIconSprites, null);
-		Class15.aClass21_95.put(class120_sub14_sub8_sub2_10_, i_9_);
-		return class120_sub14_sub8_sub2_10_;
+		final byte[] is = ClanMember.aClass50_2576.getFile(id, 0);
+		ldFont = new LDFont(is);
+		ldFont.setNameIcons(Class82.nameIconSprites, null);
+		fontCache.put(ldFont, id);
+		return ldFont;
 	}
 
 	private static final void method1489(final int[] is, final byte[] is_25_, int i, int i_26_, int i_27_, final int i_28_, final int i_29_, final int i_30_, final int i_31_, int i_32_) {

@@ -250,7 +250,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					positionOffset >>= 1;
 					i_30_ = 0;
 				}
-				if (positionOffset < 8 || renderData.anInt190 == -1) {
+				if (positionOffset < 8 || renderData.runAnimationId == -1) {
 					if (renderData.anInt212 != -1 && i_30_ == 0) {
 						if (renderData.turnAnimation1 == gameEntity.idleAnimId && renderData.anInt192 != -1) {
 							gameEntity.idleAnimId = renderData.anInt192;
@@ -264,16 +264,16 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 							gameEntity.idleAnimId = renderData.anInt210;
 						}
 					}
-				} else if (gameEntity.idleAnimId == renderData.turnAnimation1 && renderData.anInt188 != -1) {
-					gameEntity.idleAnimId = renderData.anInt188;
-				} else if (renderData.turnAnimation3 != gameEntity.idleAnimId || renderData.anInt223 == -1) {
-					if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.anInt216 != -1) {
-						gameEntity.idleAnimId = renderData.anInt216;
+				} else if (gameEntity.idleAnimId == renderData.turnAnimation1 && renderData.runAnimationId2 != -1) {
+					gameEntity.idleAnimId = renderData.runAnimationId2;
+				} else if (renderData.turnAnimation3 != gameEntity.idleAnimId || renderData.runAnimationId3 == -1) {
+					if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.runAnimationId4 != -1) {
+						gameEntity.idleAnimId = renderData.runAnimationId4;
 					} else {
-						gameEntity.idleAnimId = renderData.anInt190;
+						gameEntity.idleAnimId = renderData.runAnimationId;
 					}
 				} else {
-					gameEntity.idleAnimId = renderData.anInt223;
+					gameEntity.idleAnimId = renderData.runAnimationId3;
 				}
 				if (renderData.anInt201 != -1) {
 					positionOffset <<= 7;

@@ -9,7 +9,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	static js5 aClass50_3418;
 	static js5 aClass50_3419;
 	static int[][][] anIntArrayArrayArray3420;
-	static byte[][] underWaterMapFileBuffers;
+	static byte[][] underWaterMapFilesBuffer;
 	static int[] chatMessageQuickChatId;
 	static int anInt3423 = 0;
 	static int lastClickY;

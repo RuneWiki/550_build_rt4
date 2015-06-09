@@ -129,11 +129,11 @@ final class Class140 {
 		this.hashtable = hashtable;
 	}
 
-	static final void updateWorldPlayers(final Buffer buffer) {
+	static final void decodeWorldPlayers(final Buffer buffer) {
 		for (int world = 0; world < Class57.worldLen2; world++) {
 			final int worldId = buffer.getUSmart();
 			int playerAmount = buffer.getUShort();
-			if (playerAmount == 65535) {
+			if (playerAmount == 0xffff) {
 				playerAmount = -1;
 			}
 			if (Class48.worldList[worldId] != null) {

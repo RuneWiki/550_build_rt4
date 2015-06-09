@@ -6,7 +6,7 @@ final class Class120_Sub30_Sub1 extends Class120_Sub30 {
 	static short[][] aShortArrayArray3668;
 	Deque aClass105_3669 = new Deque();
 	private final Class120_Sub30_Sub2 aClass120_Sub30_Sub2_3670;
-	static int anInt3672;
+	static int viewportBottom;
 	static boolean qaOpTestEnabled;
 	static float aFloat3674;
 	Class120_Sub30_Sub3 aClass120_Sub30_Sub3_3675 = new Class120_Sub30_Sub3();

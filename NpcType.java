@@ -533,7 +533,7 @@ final class NpcType {
 						bool_75_ |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].method1578(i_83_);
 						bool_77_ |= class40_80_.aBoolean341;
 					}
-					if ((class40_80_.tween || Class164.forceTween) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.frames.length) {
+					if ((class40_80_.tween || Class164.forceTweenEnabled) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.frames.length) {
 						ReflectionCheckNode.anIntArray2761[i_79_] = class40_80_.delays[i_81_];
 						ObjectCache.anIntArray124[i_79_] = class150s[i_79_].frameDelay;
 						int i_84_ = class40_80_.frames[i_82_];
@@ -575,7 +575,7 @@ final class NpcType {
 				bool_75_ |= class120_sub14_sub18.method1578(i_87_);
 				bool_77_ |= class40_49_.aBoolean341;
 			}
-			if ((class40_49_.tween || Class164.forceTween) && i_50_ != -1 && i_50_ < class40_49_.frames.length) {
+			if ((class40_49_.tween || Class164.forceTweenEnabled) && i_50_ != -1 && i_50_ < class40_49_.frames.length) {
 				i_86_ = class40_49_.frames[i_50_];
 				i_89_ = class40_49_.delays[i];
 				final int i_91_ = i_86_ >>> 16;
@@ -606,7 +606,7 @@ final class NpcType {
 				bool_75_ |= class120_sub14_sub18_95_.method1578(i_93_);
 				bool_77_ |= seqType.aBoolean341;
 			}
-			if ((seqType.tween || Class164.forceTween) && i_51_ != -1 && i_51_ < seqType.frames.length) {
+			if ((seqType.tween || Class164.forceTweenEnabled) && i_51_ != -1 && i_51_ < seqType.frames.length) {
 				i_94_ = seqType.delays[i_52_];
 				i_92_ = seqType.frames[i_51_];
 				final int i_98_ = i_92_ >>> 16;

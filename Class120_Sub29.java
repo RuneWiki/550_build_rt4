@@ -57,16 +57,16 @@ final class Class120_Sub29 extends Node {
 			final boolean bool_15_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
 			final int level = Canvas_Sub1.inputStream.getUByteA();
 			client.underWaterLocationsMapFileIds = new int[i_11_];
-			Class179.aByteArrayArray1777 = null;
-			Class120_Sub12_Sub36.underWaterMapFileBuffers = new byte[i_11_][];
+			Class179.npcSpawnsFilesBuffer = null;
+			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[i_11_][];
 			Class120_Sub12_Sub36.regionBitPackeds = new int[i_11_];
-			ProducingGraphicsBuffer.anIntArray2796 = null;
+			ProducingGraphicsBuffer.npcSpawnsFileIds = null;
 			Class111.underWaterMapFileIds = new int[i_11_];
 			LookupTable.mapFileIds = new int[i_11_];
-			Class101_Sub1.underWaterLocationsMapFileBuffers = new byte[i_11_][];
-			Class134.locationMapFileBuffers = new byte[i_11_][];
+			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[i_11_][];
+			Class134.locationMapFilesBuffer = new byte[i_11_][];
 			Class28.locationsMapFileIds = new int[i_11_];
-			RuntimeException_Sub1.mapFileBuffers = new byte[i_11_][];
+			RuntimeException_Sub1.mapFilesBuffer = new byte[i_11_][];
 			i_11_ = 0;
 			for (int i_17_ = 0; i_17_ < 4; i_17_++) {
 				for (int i_18_ = 0; i_18_ < 13; i_18_++) {
@@ -120,18 +120,18 @@ final class Class120_Sub29 extends Node {
 				bool_35_ = true;
 			}
 			LookupTable.mapFileIds = new int[i_29_];
-			RuntimeException_Sub1.mapFileBuffers = new byte[i_29_][];
+			RuntimeException_Sub1.mapFilesBuffer = new byte[i_29_][];
 			client.underWaterLocationsMapFileIds = new int[i_29_];
 			Class28.locationsMapFileIds = new int[i_29_];
-			Class179.aByteArrayArray1777 = null;
-			Class120_Sub12_Sub36.underWaterMapFileBuffers = new byte[i_29_][];
-			Class134.locationMapFileBuffers = new byte[i_29_][];
-			ProducingGraphicsBuffer.anIntArray2796 = null;
-			Class101_Sub1.underWaterLocationsMapFileBuffers = new byte[i_29_][];
+			Class179.npcSpawnsFilesBuffer = null;
+			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[i_29_][];
+			Class134.locationMapFilesBuffer = new byte[i_29_][];
+			ProducingGraphicsBuffer.npcSpawnsFileIds = null;
+			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[i_29_][];
 			Class120_Sub12_Sub36.regionBitPackeds = new int[i_29_];
 			i_29_ = 0;
-			for (int i_37_ = (-6 + i_36_) / 8; (6 + i_36_) / 8 >= i_37_; i_37_++) {
-				for (int i_38_ = (-6 + i_28_) / 8; (6 + i_28_) / 8 >= i_38_; i_38_++) {
+			for (int i_37_ = (i_36_ - 6) / 8; i_37_ <= (i_36_ + 6) / 8; i_37_++) {
+				for (int i_38_ = (i_28_ - 6) / 8; i_38_ <= (i_28_ + 6) / 8; i_38_++) {
 					final int i_39_ = (i_37_ << 8) + i_38_;
 					if (!bool_35_ || i_38_ != 49 && i_38_ != 149 && i_38_ != 147 && i_37_ != 50 && (i_37_ != 49 || i_38_ != 47)) {
 						Class120_Sub12_Sub36.regionBitPackeds[i_29_] = i_39_;

@@ -45,10 +45,10 @@ final class LightRenderer {
 	final void render() {
 		final GL gl = HDToolkit.gl;
 		if (HDToolkit.vertexBufferAsObject) {
-			aClass104_1266.bindArrayBuffer();
+			aClass104_1266.bindAsArrayBuffer();
 			gl.glInterleavedArrays(10787, 16, 0L);//GL_C4UB_V3F
 			HDToolkit.aBoolean536 = false;
-			aClass104_1270.bindElementArrayBuffer();
+			aClass104_1270.bindAsElementArrayBuffer();
 			gl.glDrawElements(4, this.anInt1271, 5125, 0L);
 		} else {
 			if (HDToolkit.vertexBufferAsObject) {

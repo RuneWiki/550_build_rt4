@@ -91,7 +91,7 @@ final class Class34 {
 	}
 
 	static final void method281() {
-		if (HDToolkit.aBoolean531 && HDToolkit.aBoolean513) {
+		if (HDToolkit.aBoolean531 && HDToolkit.textureRectangleAvailable) {
 			final GL gl = HDToolkit.gl;
 			final int[] is = new int[1];
 			gl.glGetIntegerv(36063, is, 0);

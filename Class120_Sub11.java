@@ -31,7 +31,7 @@ final class Class120_Sub11 extends Node {
 			final EntityRenderData class29 = ambientSound.npc.getEntityRenderData();
 			if (ambientSound.npc.idleAnimId == class29.idleAnimationId) {
 				i_9_ = 0;
-			} else if (ambientSound.npc.idleAnimId == class29.anInt190 || ambientSound.npc.idleAnimId == class29.anInt188 || ambientSound.npc.idleAnimId == class29.anInt216 || ambientSound.npc.idleAnimId == class29.anInt223) {
+			} else if (ambientSound.npc.idleAnimId == class29.runAnimationId || ambientSound.npc.idleAnimId == class29.runAnimationId2 || ambientSound.npc.idleAnimId == class29.runAnimationId4 || ambientSound.npc.idleAnimId == class29.runAnimationId3) {
 				i_9_ = 2;
 			} else if (ambientSound.npc.idleAnimId == class29.anInt212 || ambientSound.npc.idleAnimId == class29.anInt192 || ambientSound.npc.idleAnimId == class29.anInt219 || class29.anInt210 == ambientSound.npc.idleAnimId) {
 				i_9_ = 3;
@@ -48,8 +48,8 @@ final class Class120_Sub11 extends Node {
 				ambientSound.anInt2480 = i_9_;
 			}
 			ambientSound.x = ambientSound.npc.x;
-			ambientSound.entityX = ambientSound.npc.x + (ambientSound.npc.getSize() * 64);
 			ambientSound.z = ambientSound.npc.z;
+			ambientSound.entityX = ambientSound.npc.x + (ambientSound.npc.getSize() * 64);
 			ambientSound.entityZ = ambientSound.npc.z + (ambientSound.npc.getSize() * 64);
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
 		}
@@ -57,7 +57,7 @@ final class Class120_Sub11 extends Node {
 			int i_11_ = 1;
 			final EntityRenderData class29 = ambientSound.player.getEntityRenderData();
 			if (class29.idleAnimationId != ambientSound.player.idleAnimId) {
-				if (class29.anInt190 != ambientSound.player.idleAnimId && class29.anInt188 != ambientSound.player.idleAnimId && ambientSound.player.idleAnimId != class29.anInt216 && ambientSound.player.idleAnimId != class29.anInt223) {
+				if (class29.runAnimationId != ambientSound.player.idleAnimId && class29.runAnimationId2 != ambientSound.player.idleAnimId && ambientSound.player.idleAnimId != class29.runAnimationId4 && ambientSound.player.idleAnimId != class29.runAnimationId3) {
 					if (ambientSound.player.idleAnimId == class29.anInt212 || ambientSound.player.idleAnimId == class29.anInt192 || ambientSound.player.idleAnimId == class29.anInt219 || ambientSound.player.idleAnimId == class29.anInt210) {
 						i_11_ = 3;
 					}
@@ -79,8 +79,8 @@ final class Class120_Sub11 extends Node {
 				ambientSound.anInt2480 = i_11_;
 			}
 			ambientSound.x = ambientSound.player.x;
-			ambientSound.entityX = ambientSound.player.x + (ambientSound.player.getSize() * 64);
 			ambientSound.z = ambientSound.player.z;
+			ambientSound.entityX = ambientSound.player.x + (ambientSound.player.getSize() * 64);
 			ambientSound.entityZ = ambientSound.player.z + (ambientSound.player.getSize() * 64);
 			Class30.method259(false, x, z, level, redrawRate, ambientSound);
 		}

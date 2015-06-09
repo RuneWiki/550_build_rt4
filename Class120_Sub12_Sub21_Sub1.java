@@ -16,16 +16,15 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 	static final void method1312(final boolean underwater) {
 		byte[][] data;
 		if (HDToolkit.glEnabled && underwater) {
-			data = Class101_Sub1.underWaterLocationsMapFileBuffers;
+			data = Class101_Sub1.underWaterLocationsMapFilesBuffer;
 		} else {
-			data = Class134.locationMapFileBuffers;
+			data = Class134.locationMapFilesBuffer;
 		}
-		final int i_0_ = RuntimeException_Sub1.mapFileBuffers.length;
-		for (int i_1_ = 0; i_1_ < i_0_; i_1_++) {
-			final byte[] is_2_ = data[i_1_];
+		for (int id = 0; id < RuntimeException_Sub1.mapFilesBuffer.length; id++) {
+			final byte[] is_2_ = data[id];
 			if (is_2_ != null) {
-				final int i_3_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_1_] >> 8) - GameEntity.currentBaseX;
-				final int i_4_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_1_] & 0xff) - LightType.currentBaseZ;
+				final int i_3_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[id] >> 8) - GameEntity.currentBaseX;
+				final int i_4_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[id] & 0xff) - LightType.currentBaseZ;
 				Class120_Sub2.method1050();
 				CollisionMap.decodeObjectMap(underwater, is_2_, i_4_, i_3_, WallLocation.collisionMaps);
 			}
@@ -258,7 +257,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 			GraphicsLD.fillRect(6, 6, textWidth + 8, textHeight + 8, 0);
 			GraphicsLD.drawRect(6, 6, textWidth + 8, textHeight + 8, 16777215);
 		}
-		Class120_Sub12_Sub20.plainFont.method1462(text, 10, 10, textWidth, textHeight, 16777215, -1, 1, 1, 0);
+		Class120_Sub12_Sub20.plainFont.drawInterfaceText(text, 10, 10, textWidth, textHeight, 16777215, -1, 1, 1, 0);
 		Class120_Sub12_Sub1.redrawScreen(6, 6, textWidth + 8, textHeight + 8);
 		if (!redrawWholeScreen) {
 			Class54.redrawScreen(10, 10, textWidth, textHeight);

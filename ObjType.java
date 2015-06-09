@@ -13,7 +13,7 @@ final class ObjType {
 	private int manhead2;
 	private int modelId;
 	int dummyobject = 0;
-	static int[] anIntArray1520 = { 0, 1, 2, 3, 4, 5, 6, 14 };
+	static int[] maleBodyPartIds = { 0, 1, 2, 3, 4, 5, 6, 14 };
 	int zoom2d;
 	Hashtable params;
 	private int ambient;

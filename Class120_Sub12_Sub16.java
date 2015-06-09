@@ -5,7 +5,7 @@
 final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 	static short aShort3250 = 1;
 	static int[] friendsWorld = new int[200];
-	static int anInt3253;
+	static int viewportRight;
 	static char[] validCharacters = { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 	static int[] anIntArray3255 = new int[50];
 	private int anInt3256 = 585;

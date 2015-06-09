@@ -326,8 +326,8 @@ final class MapSceneType {
 									final String string = new StringBuilder("Cache:").append(Class120_Sub12_Sub37.method1395(i_62_, true, 2, 0)).append("% (").append(i_61_).append("%)").toString();
 									ObjectCache.smallFont.method1482(string, textX, textY, textColor, -1);
 									textY += 12;
-									if (ParticleEngine.anInt2360 > 0) {
-										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.anInt2360).toString(), textX, textY, textColor, -1);
+									if (ParticleEngine.particleCountWrapper > 0) {
+										ObjectCache.smallFont.method1482(new StringBuilder("Particles: ").append(ParticleEngine.runningParticleCount).append(" / ").append(ParticleEngine.particleCountWrapper).toString(), textX, textY, textColor, -1);
 									}
 									textY += 12;
 									MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
@@ -534,7 +534,7 @@ final class MapSceneType {
 										GraphicsHD.drawRect(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
 									}
 								} else if (jagexInterface.type == 4) {
-									final AbstractFont class120_sub14_sub8 = jagexInterface.method2497(Class82.nameIconSprites);
+									final AbstractFont class120_sub14_sub8 = jagexInterface.getFont(Class82.nameIconSprites);
 									if (class120_sub14_sub8 == null) {
 										if (Class88.interfaceSpriteIsNull) {
 											InterfaceClickMask.redrawInterface(jagexInterface);
@@ -573,7 +573,7 @@ final class MapSceneType {
 										if (!jagexInterface.newFormat) {
 											text = DummyInputStream.method71(jagexInterface, text);
 										}
-										class120_sub14_sub8.method1462(text, drawX, drawY, jagexInterface.width, jagexInterface.height, color, !jagexInterface.shaded ? -1 : 0, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
+										class120_sub14_sub8.drawInterfaceText(text, drawX, drawY, jagexInterface.width, jagexInterface.height, color, jagexInterface.textHasBlackShadow ? 0 : -1, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
 									}
 								} else if (jagexInterface.type == 5) {
 									if (!jagexInterface.newFormat) {
@@ -757,7 +757,7 @@ final class MapSceneType {
 											} else {
 												class180_sub7.method2367(0, jagexInterface.rotateY, 0, jagexInterface.rotateX, 0, i_98_, i_97_, -1L);
 											}
-											Rasterizer.method868();
+											Rasterizer.calculateViewport();
 										} else {
 											if (!jagexInterface.aBoolean2046) {
 												HDToolkit.method513(posX, posY, i_93_, i_94_);
@@ -792,7 +792,7 @@ final class MapSceneType {
 									}
 								} else {
 									if (jagexInterface.type == 7) {
-										final AbstractFont class120_sub14_sub8 = jagexInterface.method2497(Class82.nameIconSprites);
+										final AbstractFont class120_sub14_sub8 = jagexInterface.getFont(Class82.nameIconSprites);
 										if (class120_sub14_sub8 == null) {
 											if (Class88.interfaceSpriteIsNull) {
 												InterfaceClickMask.redrawInterface(jagexInterface);
@@ -813,11 +813,11 @@ final class MapSceneType {
 													final int i_104_ = drawX + i_103_ * (jagexInterface.objSpritePadX + 115);
 													final int i_105_ = drawY + i_102_ * (jagexInterface.objSpritePadY + 12);
 													if (jagexInterface.horizontalAlignment == 0) {
-														class120_sub14_sub8.method1466(string, i_104_, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
+														class120_sub14_sub8.method1466(string, i_104_, i_105_, jagexInterface.disabledColor, jagexInterface.textHasBlackShadow ? 0 : -1);
 													} else if (jagexInterface.horizontalAlignment == 1) {
-														class120_sub14_sub8.method1478(string, i_104_ + 57, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
+														class120_sub14_sub8.method1478(string, i_104_ + 57, i_105_, jagexInterface.disabledColor, jagexInterface.textHasBlackShadow ? 0 : -1);
 													} else {
-														class120_sub14_sub8.method1482(string, i_104_ + 114, i_105_, jagexInterface.disabledColor, jagexInterface.shaded ? 0 : -1);
+														class120_sub14_sub8.method1482(string, i_104_ + 114, i_105_, jagexInterface.disabledColor, jagexInterface.textHasBlackShadow ? 0 : -1);
 													}
 												}
 												i_101_++;
@@ -844,7 +844,7 @@ final class MapSceneType {
 											if (i_110_ > i_106_) {
 												i_106_ = i_110_;
 											}
-											i_107_ += 1 + class120_sub14_sub8.anInt3497;
+											i_107_ += 1 + class120_sub14_sub8.yOff;
 										}
 										i_107_ += 7;
 										i_106_ += 6;
@@ -866,7 +866,7 @@ final class MapSceneType {
 											GraphicsLD.fillRect(i_112_, i_111_, i_106_, i_107_, 16777120);
 											GraphicsLD.drawRect(i_112_, i_111_, i_106_, i_107_, 0);
 										}
-										int i_113_ = 2 + class120_sub14_sub8.anInt3497 + i_111_;
+										int i_113_ = 2 + class120_sub14_sub8.yOff + i_111_;
 										string = jagexInterface.disabledText;
 										string = DummyInputStream.method71(jagexInterface, string);
 										while (string.length() > 0) {
@@ -880,7 +880,7 @@ final class MapSceneType {
 												string = "";
 											}
 											class120_sub14_sub8.method1466(string_115_, 3 + i_112_, i_113_, 0, -1);
-											i_113_ += 1 + class120_sub14_sub8.anInt3497;
+											i_113_ += 1 + class120_sub14_sub8.yOff;
 										}
 									}
 									if (jagexInterface.type == 9) {

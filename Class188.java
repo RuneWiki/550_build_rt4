@@ -59,8 +59,8 @@ final class Class188 {
 		}
 	}
 
-	static final boolean method2483(final int i_0_) {
-		final World world = World.getWorld(i_0_);
+	static final boolean hopWorld(final int worldId) {
+		final World world = World.getWorld(worldId);
 		if (world == null) {
 			return false;
 		}
@@ -74,17 +74,17 @@ final class Class188 {
 			}
 			return true;
 		}
-		String string = "";
-		String string_1_ = "";
-		if (Class120_Sub12_Sub25.settings != null) {
-			string_1_ = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
+		String portString = "";
+		String params = "";
+		if (Class120_Sub12_Sub25.params != null) {
+			params = "/p=" + Class120_Sub12_Sub25.params;
 		}
 		if (AbstractIndexedSprite.modeWhere != 0) {
-			string = new StringBuilder(":").append(7000 + world.worldId).toString();
+			portString = ":" + (world.worldId + 7000);
 		}
-		final String string_2_ = new StringBuilder("http://").append(world.ip).append(string).append("/l=").append(Class9.language).append("/a=").append(Class120_Sub12_Sub33.affiliateId).append(string_1_).append("/j").append(Class48.jsEnabled ? "1" : "0").append(",o").append(Class110.objectTagEnabled ? "1" : "0").append(",a2,m").append(Class31.advertSuppressed ? "1" : "0").toString();
+		final String url = "http://" + world.ip + portString + "/l=" + Class9.language + "/a=" + Class120_Sub12_Sub33.affiliateId + params + "/j" + (Class48.jsEnabled ? "1" : "0") + ",o" + (Class110.objectTagEnabled ? "1" : "0") + ",a2,m" + (Class31.advertSuppressed ? "1" : "0");
 		try {
-			Class179.clientInstance.getAppletContext().showDocument(new URL(string_2_), "_self");
+			Class179.clientInstance.getAppletContext().showDocument(new URL(url), "_self");
 		} catch (final Exception exception) {
 			return false;
 		}

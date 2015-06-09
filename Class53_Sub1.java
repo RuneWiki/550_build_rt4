@@ -117,7 +117,7 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final int getMenuOptionCursor() {
-		if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
+		if (!SpotAnimationNode.shiftClickEnabled || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
 			return InterfaceChangeNode.menuOptionsCursorId[WallDecoration.menuOptionCount - 1];
 		}
 		return InterfaceChangeNode.menuOptionsCursorId[WallDecoration.menuOptionCount - 2];

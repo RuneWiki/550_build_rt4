@@ -93,7 +93,7 @@ final class AnimatedLocation extends SceneGraphNode {
 		final int i_18_ = anInt3049 + (i_14_ >> 1);
 		final int i_19_ = anInt3069 - -(1 + i_15_ >> 1);
 		method2353(128 * i_16_, 128 * i_18_);
-		final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (currentFrame != anInt3072 || seqType != null && (seqType.aBoolean340 || Class164.forceTween) && currentFrame != nextFrame) && Class74.sceneryShadowsType >= 2);
+		final boolean bool_20_ = !bool_12_ && locType.aBoolean1823 && (anInt3050 != locType.myId || (currentFrame != anInt3072 || seqType != null && (seqType.aBoolean340 || Class164.forceTweenEnabled) && currentFrame != nextFrame) && Class74.sceneryShadowsType >= 2);
 		if (bool && !bool_20_) {
 			anInt3072 = currentFrame;
 			anInt3050 = locType.myId;

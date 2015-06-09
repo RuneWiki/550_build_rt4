@@ -86,12 +86,12 @@ final class Class31 {
 
 	static final void method264(final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
 		if (i_13_ >= 1 && i_10_ >= 1 && i_13_ <= 102 && i_10_ <= 102) {
-			if (!Class143_Sub1.method2021() && (0x2 & Class114.tileSettings[0][i_13_][i_10_]) == 0) {
+			if (!Class143_Sub1.allLevelsAreVisible() && (0x2 & Class114.tileSettings[0][i_13_][i_10_]) == 0) {
 				int i_15_ = i_8_;
 				if ((0x8 & Class114.tileSettings[i_8_][i_13_][i_10_]) != 0) {
 					i_15_ = 0;
 				}
-				if (i_15_ != SpotAnimationNode.anInt3469) {
+				if (i_15_ != SpotAnimationNode.visibleLevel) {
 					return;
 				}
 			}

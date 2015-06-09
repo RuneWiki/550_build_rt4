@@ -17,7 +17,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 	static byte[][] aByteArrayArray3318;
 	static String aString3319 = "Please remove ";
 	static int[] anIntArray3320 = new int[2000];
-	static String settings = null;
+	static String params = null;
 
 	@Override
 	final int[] method1187(final int i_0_) {
@@ -254,7 +254,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						} else {
 							MapFunctionGroup.loginStream.putByte(16);
 						}
-						MapFunctionGroup.loginStream.putShort(163 + Class120_Sub12_Sub11.outputStream.pos + settings.length() + 1);
+						MapFunctionGroup.loginStream.putShort(163 + Class120_Sub12_Sub11.outputStream.pos + params.length() + 1);
 						MapFunctionGroup.loginStream.putInt(550);
 						MapFunctionGroup.loginStream.putByte(AbstractMouseWheelHandler.anInt116);
 						MapFunctionGroup.loginStream.putByte(Class31.advertSuppressed ? 1 : 0);
@@ -264,7 +264,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putShort(Class120_Sub12_Sub5.canvasHeight);
 						MapFunctionGroup.loginStream.putByte(GroundDecoration.antiAliasingSamples);
 						Class120_Sub12_Sub30.randomFileRead(MapFunctionGroup.loginStream);
-						MapFunctionGroup.loginStream.putJagexString(settings);
+						MapFunctionGroup.loginStream.putJagexString(params);
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub18.method1288());
 						MapFunctionNode.aBoolean3471 = true;

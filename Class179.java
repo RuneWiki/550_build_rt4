@@ -7,7 +7,7 @@ final class Class179 {
 	static int[][] anIntArrayArray1774;
 	static int anInt1775 = 0;
 	static client clientInstance;
-	static byte[][] aByteArrayArray1777;
+	static byte[][] npcSpawnsFilesBuffer;
 	static js5 labelsJs5;
 	static boolean aBoolean1779;
 

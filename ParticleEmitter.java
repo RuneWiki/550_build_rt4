@@ -105,10 +105,10 @@ final class ParticleEmitter extends ParticleNode {
 	final void method940(final int i, final int i_15_, boolean bool, final int i_16_, final long l) {
 		if (!this.aBoolean2339) {
 			if (ParticleEngine.particleSetting >= this.emitterType.minSetting) {
-				if (OverridedJInterface.anIntArray2743[ParticleEngine.particleSetting] >= ParticleEngine.anInt2351) {
+				if (OverridedJInterface.maxParticleCount[ParticleEngine.particleSetting] >= ParticleEngine.particleCount) {
 					if (anInt2341 != anInt2342 || anInt2342 != anInt2325 || anInt2332 != anInt2326 || anInt2332 != anInt2316 || anInt2338 != anInt2317 || anInt2344 != anInt2317) {
-						if ((this.emitterType.lifetime ^ 0xffffffff) != 0) {
-							int i_18_ = (int) (l + -aLong2330);
+						if (this.emitterType.lifetime != -1) {
+							int i_18_ = (int) (l - aLong2330);
 							if (this.emitterType.periodic || i_18_ <= this.emitterType.lifetime) {
 								i_18_ %= this.emitterType.lifetime;
 							} else {
@@ -155,7 +155,7 @@ final class ParticleEmitter extends ParticleNode {
 					if (i_26_ <= 0) {
 						i_26_ = 1;
 					}
-					anInt2314 = 32767 * anInt2314 / i_26_;
+					anInt2314 = anInt2314 * 32767 / i_26_;
 					anInt2327 = anInt2327 * 32767 / i_26_;
 					anInt2335 = anInt2335 * 32767 / i_26_;
 					if (this.emitterType.maxAngleH <= 0 && this.emitterType.maxAngleV <= 0) {
@@ -232,7 +232,7 @@ final class ParticleEmitter extends ParticleNode {
 			class108_sub3_sub1.update(l, i);
 			this.anInt2333++;
 		}
-		ParticleEngine.anInt2360 += this.anInt2333;
+		ParticleEngine.particleCountWrapper += this.anInt2333;
 	}
 
 	static final void removeFriend(final long nameAsLong) {

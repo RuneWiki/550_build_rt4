@@ -263,13 +263,13 @@ final class LDModelRenderer extends AbstractModelRenderer {
 							}
 						}
 					} else {
-						if (bool_9_ && method2390(Class173.anInt1728 + Rasterizer.anInt967, Class2.anInt49 + Rasterizer.anInt970, anIntArray3811[i_16_], anIntArray3811[i_17_], anIntArray3811[i_18_], i_19_, i_20_, i_21_)) {
-							Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
+						if (bool_9_ && method2390(AbstractModelRenderer.mouseOffFromCenterX + Rasterizer.centerX, AbstractModelRenderer.mouseOffFromCenterY + Rasterizer.centerY, anIntArray3811[i_16_], anIntArray3811[i_17_], anIntArray3811[i_18_], i_19_, i_20_, i_21_)) {
+							Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 							bool_9_ = false;
 						}
 						if ((i_19_ - i_20_) * (anIntArray3811[i_18_] - anIntArray3811[i_17_]) - (anIntArray3811[i_16_] - anIntArray3811[i_17_]) * (i_21_ - i_20_) > 0) {
 							aBooleanArray3831[i_15_] = false;
-							if (i_19_ < 0 || i_20_ < 0 || i_21_ < 0 || i_19_ > Rasterizer.anInt983 || i_20_ > Rasterizer.anInt983 || i_21_ > Rasterizer.anInt983) {
+							if (i_19_ < 0 || i_20_ < 0 || i_21_ < 0 || i_19_ > Rasterizer.endX || i_20_ > Rasterizer.endX || i_21_ > Rasterizer.endX) {
 								aBooleanArray3823[i_15_] = true;
 							} else {
 								aBooleanArray3823[i_15_] = false;
@@ -642,19 +642,19 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		if (i_109_ > 50 && i_110_ < 3500) {
 			final int i_114_ = i_105_ * i_101_ + i_103_ * i_102_ >> 16;
 			final int i_115_ = i_114_ + aShort3763 << 9;
-			if (i_115_ / i_109_ > IntegerNode.anInt2792) {
+			if (i_115_ / i_109_ > IntegerNode.viewportLeft) {
 				final int i_116_ = i_114_ - aShort3763 << 9;
-				if (i_116_ / i_109_ < Class120_Sub12_Sub16.anInt3253) {
+				if (i_116_ / i_109_ < Class120_Sub12_Sub16.viewportRight) {
 					final int i_117_ = i_104_ * i_100_ - i_107_ * i_99_ >> 16;
 					final int i_118_ = i_117_ + (aShort3763 * i_99_ + minY * i_100_ >> 16) << 9;
-					if (i_118_ / i_109_ > Class190.anInt2100) {
+					if (i_118_ / i_109_ > Class190.viewportTop) {
 						final int i_119_ = i_117_ + (-aShort3763 * i_99_ + maxY * i_100_ >> 16) << 9;
-						if (i_119_ / i_109_ < Class120_Sub30_Sub1.anInt3672) {
+						if (i_119_ / i_109_ < Class120_Sub30_Sub1.viewportBottom) {
 							boolean bool = false;
 							final boolean bool_120_ = i_110_ <= 50;
 							final boolean bool_121_ = bool_120_ || anInt3768 > 0;
-							final int i_122_ = Rasterizer.anInt967;
-							final int i_123_ = Rasterizer.anInt970;
+							final int i_122_ = Rasterizer.centerX;
+							final int i_123_ = Rasterizer.centerY;
 							int i_124_ = 0;
 							int i_125_ = 0;
 							if (i != 0) {
@@ -662,7 +662,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 								i_125_ = Rasterizer.cosTable[i];
 							}
 							boolean bool_126_ = false;
-							if (l > 0L && Class5.aBoolean2158 && i_110_ > 0) {
+							if (l > 0L && AbstractModelRenderer.addActions && i_110_ > 0) {
 								int i_127_;
 								int i_128_;
 								if (i_114_ > 0) {
@@ -681,7 +681,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 									i_129_ = i_119_ / i_110_;
 									i_130_ = i_118_ / i_109_;
 								}
-								if (Class173.anInt1728 >= i_127_ && Class173.anInt1728 <= i_128_ && Class2.anInt49 >= i_129_ && Class2.anInt49 <= i_130_) {
+								if (AbstractModelRenderer.mouseOffFromCenterX >= i_127_ && AbstractModelRenderer.mouseOffFromCenterX <= i_128_ && AbstractModelRenderer.mouseOffFromCenterY >= i_129_ && AbstractModelRenderer.mouseOffFromCenterY <= i_130_) {
 									i_127_ = 999999;
 									i_128_ = -999999;
 									i_129_ = 999999;
@@ -724,9 +724,9 @@ final class LDModelRenderer extends AbstractModelRenderer {
 											}
 										}
 									}
-									if (Class173.anInt1728 >= i_127_ && Class173.anInt1728 <= i_128_ && Class2.anInt49 >= i_129_ && Class2.anInt49 <= i_130_) {
+									if (AbstractModelRenderer.mouseOffFromCenterX >= i_127_ && AbstractModelRenderer.mouseOffFromCenterX <= i_128_ && AbstractModelRenderer.mouseOffFromCenterY >= i_129_ && AbstractModelRenderer.mouseOffFromCenterY <= i_130_) {
 										if (this.haveActions) {
-											Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
+											Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 										} else {
 											bool_126_ = true;
 										}
@@ -913,8 +913,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		if (!this.boundsCalculated) {
 			calculateBounds();
 		}
-		final int i_175_ = Rasterizer.anInt967;
-		final int i_176_ = Rasterizer.anInt970;
+		final int i_175_ = Rasterizer.centerX;
+		final int i_176_ = Rasterizer.centerY;
 		final int i_177_ = Rasterizer.sinTable[i];
 		final int i_178_ = Rasterizer.cosTable[i];
 		final int i_179_ = Rasterizer.sinTable[i_169_];
@@ -1009,8 +1009,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	private final void method2396(final int i) {
-		final int i_198_ = Rasterizer.anInt967;
-		final int i_199_ = Rasterizer.anInt970;
+		final int i_198_ = Rasterizer.centerX;
+		final int i_199_ = Rasterizer.centerY;
 		int i_200_ = 0;
 		final int i_201_ = trianglesA[i];
 		final int i_202_ = trianglesB[i];
@@ -1094,7 +1094,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		final int i_227_ = anIntArray3837[2];
 		Rasterizer.aBoolean972 = false;
 		if (i_200_ == 3) {
-			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.anInt983 || i_223_ > Rasterizer.anInt983 || i_224_ > Rasterizer.anInt983) {
+			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.endX || i_223_ > Rasterizer.endX || i_224_ > Rasterizer.endX) {
 				Rasterizer.aBoolean972 = true;
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
@@ -1127,7 +1127,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			}
 		}
 		if (i_200_ == 4) {
-			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.anInt983 || i_223_ > Rasterizer.anInt983 || i_224_ > Rasterizer.anInt983 || anIntArray3843[3] < 0 || anIntArray3843[3] > Rasterizer.anInt983) {
+			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.endX || i_223_ > Rasterizer.endX || i_224_ > Rasterizer.endX || anIntArray3843[3] < 0 || anIntArray3843[3] > Rasterizer.endX) {
 				Rasterizer.aBoolean972 = true;
 			}
 			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
@@ -1680,8 +1680,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			if (!this.boundsCalculated) {
 				calculateBounds();
 			}
-			final int i_432_ = Rasterizer.anInt967;
-			final int i_433_ = Rasterizer.anInt970;
+			final int i_432_ = Rasterizer.centerX;
+			final int i_433_ = Rasterizer.centerY;
 			final int i_434_ = Rasterizer.sinTable[i];
 			final int i_435_ = Rasterizer.cosTable[i];
 			final int i_436_ = Rasterizer.sinTable[i_425_];

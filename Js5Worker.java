@@ -321,7 +321,7 @@ final class Js5Worker {
 								continue;
 							}
 							final OverlayType class124 = OverlayType.list(i_64_ - 1);
-							if (class124.anInt1197 == -1) {
+							if (class124.color == -1) {
 								continue;
 							}
 							if (is_52_[i_62_][i_58_] != 0) {
@@ -332,7 +332,7 @@ final class Js5Worker {
 							}
 						} else if (i_64_ != 0) {
 							final OverlayType class124 = OverlayType.list(-1 + i_64_);
-							if ((class124.anInt1197 ^ 0xffffffff) != 0) {
+							if ((class124.color ^ 0xffffffff) != 0) {
 								final byte i_66_ = is_52_[i_62_][i_58_];
 								if (i_66_ != 0) {
 									bool = true;
@@ -447,7 +447,7 @@ final class Js5Worker {
 								continue;
 							}
 							final OverlayType class124 = OverlayType.list(i_98_ - 1);
-							if (class124.anInt1197 == -1) {
+							if (class124.color == -1) {
 								continue;
 							}
 							if (is_52_[i_95_][i_91_] != 0) {
@@ -456,7 +456,7 @@ final class Js5Worker {
 							}
 						} else if (i_98_ != 0) {
 							final OverlayType class124 = OverlayType.list(-1 + i_98_);
-							if ((class124.anInt1197 ^ 0xffffffff) == 0) {
+							if ((class124.color ^ 0xffffffff) == 0) {
 								Class120_Sub12_Sub11.method1255(light, InterfaceChangeNode.anIntArrayArray3488[is_52_[i_95_][i_91_]], fs_49_, i_91_, i_95_, class133, fs, fs_50_, is[i_95_][i_91_], is_46_);
 								continue;
 							}

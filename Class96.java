@@ -96,20 +96,20 @@ final class Class96 {
 
 	static final int method788() {
 		try {
-			if (Decimator.anInt1716 == 0) {
-				if (TimeUtil.getSafeTime() - 5000L < ModelParticleEmitter.aLong1482) {
+			if (Decimator.worldListLoadStep == 0) {
+				if (TimeUtil.getSafeTime() - 5000L < ModelParticleEmitter.worldListLoadedTime) {
 					return 0;
 				}
-				Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.aString3372, Class116.anInt1115);
-				GameShell.aLong4 = TimeUtil.getSafeTime();
-				Decimator.anInt1716 = 1;
+				Class53_Sub1.worldConnectionNode = NpcType.gameSignlink.openConnection(Class120_Sub12_Sub30.worldListIpAddress, Class116.worldListPort);
+				GameShell.worldListConnectTime = TimeUtil.getSafeTime();
+				Decimator.worldListLoadStep = 1;
 			}
-			if (TimeUtil.getSafeTime() > GameShell.aLong4 + 30000L) {
-				return DummyOutputStream.method72(1000);
+			if (TimeUtil.getSafeTime() > GameShell.worldListConnectTime + 30000L) {
+				return DummyOutputStream.worldListError(1000);
 			}
-			if (Decimator.anInt1716 == 1) {
+			if (Decimator.worldListLoadStep == 1) {
 				if (Class53_Sub1.worldConnectionNode.status == 2) {
-					return DummyOutputStream.method72(1001);
+					return DummyOutputStream.worldListError(1001);
 				}
 				if (Class53_Sub1.worldConnectionNode.status != 1) {
 					return -1;
@@ -138,56 +138,56 @@ final class Class96 {
 					Class120_Sub12_Sub29.aClass164_3366.method2131();
 				}
 				if (i_39_ != 0) {
-					return DummyOutputStream.method72(i_39_);
+					return DummyOutputStream.worldListError(i_39_);
 				}
-				Decimator.anInt1716 = 2;
+				Decimator.worldListLoadStep = 2;
 			}
-			if (Decimator.anInt1716 == 2) {
+			if (Decimator.worldListLoadStep == 2) {
 				if (AbstractTimer.worldConnection.getAvailable() < 2) {
 					return -1;
 				}
-				OverridedJInterface.anInt2740 = AbstractTimer.worldConnection.read();
-				OverridedJInterface.anInt2740 <<= 8;
-				OverridedJInterface.anInt2740 += AbstractTimer.worldConnection.read();
-				client.aByteArray324 = new byte[OverridedJInterface.anInt2740];
-				Class132_Sub1.anInt2816 = 0;
-				Decimator.anInt1716 = 3;
+				OverridedJInterface.worldListDataLength = AbstractTimer.worldConnection.read();
+				OverridedJInterface.worldListDataLength <<= 8;
+				OverridedJInterface.worldListDataLength += AbstractTimer.worldConnection.read();
+				client.worldListData = new byte[OverridedJInterface.worldListDataLength];
+				Class132_Sub1.worldListDataOff = 0;
+				Decimator.worldListLoadStep = 3;
 			}
-			if (Decimator.anInt1716 != 3) {
+			if (Decimator.worldListLoadStep != 3) {
 				return -1;
 			}
-			int i_40_ = AbstractTimer.worldConnection.getAvailable();
-			if (i_40_ < 1) {
+			int available = AbstractTimer.worldConnection.getAvailable();
+			if (available < 1) {
 				return -1;
 			}
-			if (i_40_ > OverridedJInterface.anInt2740 + -Class132_Sub1.anInt2816) {
-				i_40_ = -Class132_Sub1.anInt2816 + OverridedJInterface.anInt2740;
+			if (available > OverridedJInterface.worldListDataLength - Class132_Sub1.worldListDataOff) {
+				available = OverridedJInterface.worldListDataLength - Class132_Sub1.worldListDataOff;
 			}
-			AbstractTimer.worldConnection.read(client.aByteArray324, Class132_Sub1.anInt2816, i_40_);
-			Class132_Sub1.anInt2816 += i_40_;
-			if (Class132_Sub1.anInt2816 < OverridedJInterface.anInt2740) {
+			AbstractTimer.worldConnection.read(client.worldListData, Class132_Sub1.worldListDataOff, available);
+			Class132_Sub1.worldListDataOff += available;
+			if (Class132_Sub1.worldListDataOff < OverridedJInterface.worldListDataLength) {
 				return -1;
 			}
-			if (!Class54.method477(client.aByteArray324)) {
-				return DummyOutputStream.method72(1002);
+			if (!Class54.decodedWorldInformation(client.worldListData)) {
+				return DummyOutputStream.worldListError(1002);
 			}
-			int i_41_ = 0;
+			int worldPos = 0;
 			Class86.worlds = new World[Class57.worldLen2];
-			for (int i_42_ = OverridedJInterface.worldOff; i_42_ <= EnumType.worldLen; i_42_++) {
-				final World class167_sub1 = World.getWorld(i_42_);
-				if (class167_sub1 != null) {
-					Class86.worlds[i_41_++] = class167_sub1;
+			for (int worldId = OverridedJInterface.worldOff; worldId <= EnumType.worldLen; worldId++) {
+				final World world = World.getWorld(worldId);
+				if (world != null) {
+					Class86.worlds[worldPos++] = world;
 				}
 			}
 			AbstractTimer.worldConnection.close();
-			client.aByteArray324 = null;
-			Decimator.anInt1716 = 0;
-			OverridedJInterface.anInt2742 = 0;
+			client.worldListData = null;
+			Decimator.worldListLoadStep = 0;
+			OverridedJInterface.worldListErrorCount = 0;
 			AbstractTimer.worldConnection = null;
-			ModelParticleEmitter.aLong1482 = TimeUtil.getSafeTime();
+			ModelParticleEmitter.worldListLoadedTime = TimeUtil.getSafeTime();
 			return 0;
 		} catch (final IOException ioexception) {
-			return DummyOutputStream.method72(1003);
+			return DummyOutputStream.worldListError(1003);
 		}
 	}
 

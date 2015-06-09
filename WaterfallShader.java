@@ -89,7 +89,7 @@ final class WaterfallShader implements ShaderInterface {
 		final EntityRenderData class29 = npc.getEntityRenderData();
 		if (npc.idleAnimId == class29.idleAnimationId) {
 			i_6_ = npcType.anInt1681;
-		} else if (npc.idleAnimId != class29.anInt190 && npc.idleAnimId != class29.anInt188 && npc.idleAnimId != class29.anInt216 && class29.anInt223 != npc.idleAnimId) {
+		} else if (npc.idleAnimId != class29.runAnimationId && npc.idleAnimId != class29.runAnimationId2 && npc.idleAnimId != class29.runAnimationId4 && class29.runAnimationId3 != npc.idleAnimId) {
 			if (npc.idleAnimId == class29.anInt212 || class29.anInt192 == npc.idleAnimId || class29.anInt219 == npc.idleAnimId || npc.idleAnimId == class29.anInt210) {
 				i_6_ = npcType.anInt1657;
 			}
@@ -100,16 +100,14 @@ final class WaterfallShader implements ShaderInterface {
 	}
 
 	static final int method179(final Player player) {
-		int i_8_ = player.anInt3734;
-		final EntityRenderData class29 = player.getEntityRenderData();
-		if (player.idleAnimId != class29.idleAnimationId) {
-			if (class29.anInt190 == player.idleAnimId || player.idleAnimId == class29.anInt188 || class29.anInt216 == player.idleAnimId || player.idleAnimId == class29.anInt223) {
-				i_8_ = player.anInt3742;
-			} else if (class29.anInt212 == player.idleAnimId || player.idleAnimId == class29.anInt192 || player.idleAnimId == class29.anInt219 || class29.anInt210 == player.idleAnimId) {
-				i_8_ = player.anInt3736;
-			}
-		} else {
-			i_8_ = player.anInt3740;
+		int i_8_ = player.walkAmbientSoundId;
+		final EntityRenderData entityRenderData = player.getEntityRenderData();
+		if (player.idleAnimId == entityRenderData.idleAnimationId) {
+			i_8_ = player.stopWalkAmbientSoundId;
+		} else if (player.idleAnimId == entityRenderData.runAnimationId || player.idleAnimId == entityRenderData.runAnimationId2 || player.idleAnimId == entityRenderData.runAnimationId4 || player.idleAnimId == entityRenderData.runAnimationId3) {
+			i_8_ = player.runAmbientSoundId;
+		} else if (player.idleAnimId == entityRenderData.anInt212 || player.idleAnimId == entityRenderData.anInt192 || player.idleAnimId == entityRenderData.anInt219 || player.idleAnimId == entityRenderData.anInt210) {
+			i_8_ = player.anInt3736;
 		}
 		return i_8_;
 	}

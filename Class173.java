@@ -8,7 +8,6 @@ final class Class173 {
 	static AbstractSprite aClass120_Sub14_Sub19_1725;
 	static int worldMapPointerWidth;
 	static int hintmapmarkersId;
-	static int anInt1728 = 0;
 	static int gameLevel;
 	static int[] anIntArray1730;
 

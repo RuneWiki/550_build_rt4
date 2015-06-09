@@ -44,7 +44,7 @@ final class Class110 {
 		Class154.shadowModelCache.clear();
 		EmitterType.recentUse.clear();
 		SceneGroundObject.aClass21_2841.clear();
-		Class15.aClass21_95.clear();
+		LDFont.fontCache.clear();
 		if (!HDToolkit.glEnabled) {
 			((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		}

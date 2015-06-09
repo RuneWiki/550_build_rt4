@@ -29,7 +29,7 @@ final class ChunkAtmosphere {
 		if (FileSystem.anInt455 != 2) {
 			if (Class115.menuMouseX == js5.lastClickX && Class120_Sub12_Sub21.menuMouseY == Class120_Sub12_Sub36.lastClickY) {
 				FileSystem.anInt455 = 0;
-				if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
+				if (SpotAnimationNode.shiftClickEnabled && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
 					GameShell.method31(WallDecoration.menuOptionCount - 2);
 				} else {
 					GameShell.method31(WallDecoration.menuOptionCount - 1);
@@ -41,7 +41,7 @@ final class ChunkAtmosphere {
 			}
 		} else if (Class115.menuMouseX == ClientScript.anInt3558 && Class31.anInt250 == Class120_Sub12_Sub21.menuMouseY) {
 			FileSystem.anInt455 = 0;
-			if (SpotAnimationNode.aBoolean3470 && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
+			if (SpotAnimationNode.shiftClickEnabled && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
 				GameShell.method31(WallDecoration.menuOptionCount - 2);
 			} else {
 				GameShell.method31(WallDecoration.menuOptionCount - 1);

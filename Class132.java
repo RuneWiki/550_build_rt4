@@ -6,7 +6,6 @@ import java.util.Random;
 abstract class Class132 {
 	static int anInt1248;
 	private int anInt1249 = 4;
-	static String aString1250 = " has logged out.";
 	static js5 aClass50_1251;
 	private int anInt1252;
 	private short[] aShortArray1253;
@@ -165,7 +164,7 @@ abstract class Class132 {
 		method1924();
 	}
 
-	static final HDTile[] method1930(final byte[][][] is, final byte[][] is_60_, final int[][] is_61_, final float[][] fs, final int i_62_, final byte[][] is_63_, final byte[][] is_64_, final int[][] is_65_, final byte[][] is_66_, final float[][] fs_67_, final float[][] fs_68_) {
+	static final HDTile[] constructOverlayHDTiles(final byte[][][] is, final byte[][] is_60_, final int[][] is_61_, final float[][] fs, final int i_62_, final byte[][] is_63_, final byte[][] is_64_, final int[][] is_65_, final byte[][] is_66_, final float[][] fs_67_, final float[][] fs_68_) {
 		final Hashtable hashtable = new Hashtable(128);
 		for (int i_69_ = 1; i_69_ <= 102; i_69_++) {
 			for (int i_70_ = 1; i_70_ <= 102; i_70_++) {
@@ -173,7 +172,7 @@ abstract class Class132 {
 				final int i_72_ = is_60_[i_69_][i_70_] & 0xff;
 				if (i_72_ != 0) {
 					final OverlayType class124 = OverlayType.list(i_72_ - 1);
-					if (class124.anInt1197 == -1) {
+					if (class124.color == -1) {
 						continue;
 					}
 					final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
@@ -202,7 +201,7 @@ abstract class Class132 {
 					final int i_88_ = is_60_[i_69_ + 1][i_70_ + 1] & 0xff;
 					if (i_85_ != 0 && i_72_ != i_85_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_85_);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_89_ = is_63_[i_69_ - 1][1 + i_70_];
 							final int i_90_ = is_64_[-1 + i_69_][i_70_ + 1];
 							final int i_91_ = Class120_Sub24.anIntArray2730[i_89_ * 4 + (0x3 & i_90_ + 2)];
@@ -222,7 +221,7 @@ abstract class Class132 {
 					}
 					if (i_86_ != 0 && i_72_ != i_86_) {
 						final OverlayType class124 = OverlayType.list(i_86_ + -1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_94_ = is_64_[-1 + i_69_][i_70_ - 1];
 							final int i_95_ = is_63_[-1 + i_69_][-1 + i_70_];
 							final int i_96_ = Class120_Sub24.anIntArray2730[i_95_ * 4 + (3 + i_94_ & 0x3)];
@@ -242,7 +241,7 @@ abstract class Class132 {
 					}
 					if (i_87_ != 0 && i_72_ != i_87_) {
 						final OverlayType class124 = OverlayType.list(i_87_ + -1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_99_ = is_64_[i_69_ + 1][-1 + i_70_];
 							final int i_100_ = is_63_[1 + i_69_][-1 + i_70_];
 							final int i_101_ = Class120_Sub24.anIntArray2730[i_100_ * 4 + (0x3 & i_99_ + 1)];
@@ -262,7 +261,7 @@ abstract class Class132 {
 					}
 					if (i_88_ != 0 && i_72_ != i_88_) {
 						final OverlayType class124 = OverlayType.list(i_88_ - 1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_104_ = is_64_[1 + i_69_][i_70_ + 1];
 							final int i_105_ = is_63_[1 + i_69_][i_70_ + 1];
 							final int i_106_ = Class120_Sub24.anIntArray2730[i_105_ * 4 + (2 + i_104_ & 0x3)];
@@ -282,7 +281,7 @@ abstract class Class132 {
 					}
 					if (i_81_ != 0 && i_81_ != i_72_) {
 						final OverlayType class124 = OverlayType.list(i_81_ - 1);
-						if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
+						if (class124.aBoolean1196 && (class124.color ^ 0xffffffff) != 0) {
 							i_76_ = Class120_Sub24.anIntArray2730[(is_64_[i_69_][1 + i_70_] + 2 & 0x3) + 4 * is_63_[i_69_][1 + i_70_]];
 							for (int i_109_ = 0; i_109_ < 8; i_109_++) {
 								if (i_109_ == i_75_) {
@@ -297,7 +296,7 @@ abstract class Class132 {
 					}
 					if (i_82_ != 0 && i_82_ != i_72_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_82_);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							i_78_ = Class120_Sub24.anIntArray2730[(is_64_[-1 + i_69_][i_70_] + 3 & 0x3) + 4 * is_63_[-1 + i_69_][i_70_]];
 							for (int i_110_ = 0; i_110_ < 8; i_110_++) {
 								if (i_110_ == i_75_) {
@@ -312,7 +311,7 @@ abstract class Class132 {
 					}
 					if (i_83_ != 0 && i_83_ != i_72_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_83_);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							i_79_ = Class120_Sub24.anIntArray2730[is_63_[i_69_][-1 + i_70_] * 4 + (is_64_[i_69_][-1 + i_70_] & 0x3)];
 							for (int i_111_ = 0; i_111_ < 8; i_111_++) {
 								if (i_75_ == i_111_) {
@@ -327,7 +326,7 @@ abstract class Class132 {
 					}
 					if (i_84_ != 0 && i_84_ != i_72_) {
 						final OverlayType class124 = OverlayType.list(i_84_ - 1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							i_80_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_69_][i_70_] + (0x3 & is_64_[1 + i_69_][i_70_] + 1)];
 							for (int i_112_ = 0; i_112_ < 8; i_112_++) {
 								if (i_112_ == i_75_) {
@@ -375,16 +374,16 @@ abstract class Class132 {
 				final int i_122_ = 0xff & is_66_[i_118_][i_119_];
 				if (i_121_ != 0) {
 					final OverlayType class124 = OverlayType.list(-1 + i_121_);
-					if ((class124.anInt1197 ^ 0xffffffff) == 0) {
+					if (class124.color == -1) {
 						continue;
 					}
 					final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
 					final byte i_123_ = is_63_[i_118_][i_119_];
 					final byte i_124_ = is_64_[i_118_][i_119_];
-					final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197);
-					final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.anInt1197);
-					final int i_127_ = FileSystem.method443(is_61_[i_118_ + 1][i_119_ + 1], class124.textureId, class124.anInt1197);
-					final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ + 1], class124.textureId, class124.anInt1197);
+					final int i_125_ = FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.color);
+					final int i_126_ = FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.color);
+					final int i_127_ = FileSystem.method443(is_61_[i_118_ + 1][i_119_ + 1], class124.textureId, class124.color);
+					final int i_128_ = FileSystem.method443(is_61_[i_118_][i_119_ + 1], class124.textureId, class124.color);
 					Class22.method196(fs_68_, i_126_, i_120_, i_128_, i_127_, fs, i_125_, i_123_, i_124_, class120_sub9, i_122_ != 0 && class124.aBoolean1196, fs_67_, is_65_, i_118_, i_119_);
 				}
 				if ((0xff & is_66_[i_118_][i_119_]) != 0 || i_121_ != 0 && is_63_[i_118_][i_119_] == 0) {
@@ -404,7 +403,7 @@ abstract class Class132 {
 					int i_142_ = is_60_[i_118_ + 1][1 + i_119_] & 0xff;
 					if (i_140_ != 0 && i_121_ != i_140_) {
 						final OverlayType class124 = OverlayType.list(i_140_ - 1);
-						if (!class124.aBoolean1196 || (class124.anInt1197 ^ 0xffffffff) == 0) {
+						if (!class124.aBoolean1196 || (class124.color ^ 0xffffffff) == 0) {
 							i_140_ = 0;
 						} else {
 							final int i_143_ = is_64_[i_118_ - 1][i_119_ + 1];
@@ -430,7 +429,7 @@ abstract class Class132 {
 					}
 					if (i_139_ != 0 && i_121_ != i_139_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_139_);
-						if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
+						if (class124.aBoolean1196 && (class124.color ^ 0xffffffff) != 0) {
 							final int i_148_ = is_64_[-1 + i_118_][-1 + i_119_];
 							final int i_149_ = is_63_[i_118_ - 1][i_119_ + -1];
 							final int i_150_ = Class120_Sub24.anIntArray2730[i_149_ * 4 + (0x3 & i_148_)];
@@ -456,7 +455,7 @@ abstract class Class132 {
 					}
 					if (i_141_ != 0 && i_141_ != i_121_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_141_);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_153_ = is_64_[1 + i_118_][-1 + i_119_];
 							final int i_154_ = is_63_[i_118_ + 1][-1 + i_119_];
 							final int i_155_ = Class120_Sub24.anIntArray2730[4 * i_154_ + (0x3 & i_153_)];
@@ -484,7 +483,7 @@ abstract class Class132 {
 						i_142_ = 0;
 					} else {
 						final OverlayType class124 = OverlayType.list(-1 + i_142_);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							final int i_158_ = is_64_[1 + i_118_][1 + i_119_];
 							final int i_159_ = is_63_[1 + i_118_][1 + i_119_];
 							final int i_160_ = Class120_Sub24.anIntArray2730[(i_158_ + 1 & 0x3) + i_159_ * 4];
@@ -508,7 +507,7 @@ abstract class Class132 {
 					}
 					if (i_138_ != 0 && i_138_ != i_121_) {
 						final OverlayType class124 = OverlayType.list(i_138_ + -1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							i_131_ = Class120_Sub24.anIntArray2730[4 * is_63_[i_118_][i_119_ + 1] + (is_64_[i_118_][i_119_ + 1] + 2 & 0x3)];
 							for (int i_163_ = 0; i_163_ < 8; i_163_++) {
 								if (i_163_ == i_129_) {
@@ -523,7 +522,7 @@ abstract class Class132 {
 					}
 					if (i_135_ != 0 && i_121_ != i_135_) {
 						final OverlayType class124 = OverlayType.list(i_135_ - 1);
-						if (class124.aBoolean1196 && class124.anInt1197 != -1) {
+						if (class124.aBoolean1196 && class124.color != -1) {
 							i_132_ = Class120_Sub24.anIntArray2730[is_63_[i_118_ - 1][i_119_] * 4 + (3 + is_64_[-1 + i_118_][i_119_] & 0x3)];
 							for (int i_164_ = 0; i_164_ < 8; i_164_++) {
 								if (i_164_ == i_129_) {
@@ -538,7 +537,7 @@ abstract class Class132 {
 					}
 					if (i_137_ != 0 && i_121_ != i_137_) {
 						final OverlayType class124 = OverlayType.list(i_137_ + -1);
-						if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
+						if (class124.aBoolean1196 && (class124.color ^ 0xffffffff) != 0) {
 							i_133_ = Class120_Sub24.anIntArray2730[is_63_[i_118_][-1 + i_119_] * 4 + (is_64_[i_118_][-1 + i_119_] & 0x3)];
 							for (int i_165_ = 0; i_165_ < 8; i_165_++) {
 								if (i_165_ == i_129_) {
@@ -553,7 +552,7 @@ abstract class Class132 {
 					}
 					if (i_136_ != 0 && i_121_ != i_136_) {
 						final OverlayType class124 = OverlayType.list(-1 + i_136_);
-						if (class124.aBoolean1196 && (class124.anInt1197 ^ 0xffffffff) != 0) {
+						if (class124.aBoolean1196 && (class124.color ^ 0xffffffff) != 0) {
 							i_134_ = Class120_Sub24.anIntArray2730[4 * is_63_[1 + i_118_][i_119_] + (is_64_[i_118_ + 1][i_119_] + 1 & 0x3)];
 							for (int i_166_ = 0; i_166_ < 8; i_166_++) {
 								if (i_129_ == i_166_) {
@@ -574,11 +573,11 @@ abstract class Class132 {
 						final boolean[] bools_171_ = Class132_Sub1.aBooleanArrayArray2811[i_168_ == i_136_ ? i_134_ : 0];
 						final OverlayType class124 = OverlayType.list(i_168_ + -1);
 						final HDTile class120_sub9 = AbstractGraphicsBuffer.method1840(hashtable, class124);
-						final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
-						final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.anInt1197) << 8;
-						final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, class124.anInt1197) << 8;
+						final int i_172_ = 0xff | FileSystem.method443(is_61_[i_118_][i_119_], class124.textureId, class124.color) << 8;
+						final int i_173_ = 0xff | FileSystem.method443(is_61_[1 + i_118_][i_119_], class124.textureId, class124.color) << 8;
+						final int i_174_ = 0xff | FileSystem.method443(is_61_[i_118_ + 1][1 + i_119_], class124.textureId, class124.color) << 8;
 						int i_175_ = 6;
-						final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.textureId, class124.anInt1197) << 8 | 0xff;
+						final int i_176_ = FileSystem.method443(is_61_[i_118_][1 + i_119_], class124.textureId, class124.color) << 8 | 0xff;
 						i_175_ += bools.length + -2;
 						i_175_ += -2 + bools_169_.length;
 						final boolean bool = i_168_ != i_140_ && bools_169_[0] && bools[1];
@@ -631,7 +630,7 @@ abstract class Class132 {
 		for (int i_188_ = 0; i_188_ < i_186_; i_188_++) {
 			ls[i_188_] = class120_sub9s_187_[i_188_].uid;
 		}
-		Class24.method209(class120_sub9s_187_, ls);
+		ArrayUtils.quicksortArray(class120_sub9s_187_, ls);
 		return class120_sub9s_187_;
 	}
 }

@@ -21,7 +21,7 @@ final class HDToolkit {
 	static boolean usingBigEndian;
 	private static int anInt511 = -1;
 	private static float aFloat512;
-	static boolean aBoolean513;
+	static boolean textureRectangleAvailable;
 	static boolean aBoolean514;
 	private static int maxTextureImageUnits;
 	static int viewportOffsetY;
@@ -57,7 +57,7 @@ final class HDToolkit {
 	private static int texture2D_ID;
 	private static int viewportWidth;
 	private static boolean fogEnabled;
-	private static float fieldOfView;
+	private static float defaultZoom;
 	static boolean aBoolean550;
 	private static int viewportHeight;
 	private static int maxTextureCoords;
@@ -76,19 +76,21 @@ final class HDToolkit {
 		glEnabled = false;
 		aFloat530 = 0.0F;
 		aBoolean544 = false;
-		fieldOfView = 25F/256;
+		defaultZoom = 25F/256;
 		aBoolean528 = false;
 		anInt553 = 0;
 	}
 
 	static final void method496(final int x, final int y, final int width, final int height, final int centerX, final int centerY, final float pitch, final float yaw, int z1, int z2) {
+		//Values that hold pixel offset from screen center
 		final int left = (x - centerX << 8) / z1;
 		final int right = (x + width - centerX << 8) / z1;
 		final int top = (y - centerY << 8) / z2;
 		final int bottom = (y + height - centerY << 8) / z2;
+		
 		gl.glMatrixMode(5889);//GL_PROJECTION
 		gl.glLoadIdentity();
-		loadFrustumMatrix(left * fieldOfView, right * fieldOfView, -bottom * fieldOfView, -top * fieldOfView, 50.0F, 3584.0F);
+		loadFrustumMatrix(left * defaultZoom, right * defaultZoom, -bottom * defaultZoom, -top * defaultZoom, 50.0F, 3584.0F);
 		setViewport(x, canvasHeight - y - height, width, height);
 		gl.glMatrixMode(5888);//GL_MODELVIEW
 		gl.glLoadIdentity();
@@ -100,10 +102,10 @@ final class HDToolkit {
 			gl.glRotatef(yaw, 0.0F, 1.0F, 0.0F);
 		}
 		aBoolean528 = false;
-		IntegerNode.anInt2792 = left;
-		Class120_Sub12_Sub16.anInt3253 = right;
-		Class190.anInt2100 = top;
-		Class120_Sub30_Sub1.anInt3672 = bottom;
+		IntegerNode.viewportLeft = left;
+		Class120_Sub12_Sub16.viewportRight = right;
+		Class190.viewportTop = top;
+		Class120_Sub30_Sub1.viewportBottom = bottom;
 	}
 
 	private static final void setViewport(int x, int y, int width, int height) {
@@ -576,34 +578,34 @@ final class HDToolkit {
 		gl.isExtensionAvailable("GL_ARB_vertex_shader");
 		aBoolean525 = gl.isExtensionAvailable("GL_ARB_fragment_shader");
 		allows3DTextureMapping = gl.isExtensionAvailable("GL_EXT_texture3D");
-		aBoolean513 = gl.isExtensionAvailable("GL_ARB_texture_rectangle");
+		textureRectangleAvailable = gl.isExtensionAvailable("GL_ARB_texture_rectangle");
 		aBoolean545 = gl.isExtensionAvailable("GL_ARB_texture_float");
 		aBoolean541 = true;
-		final String string_49_ = renderer.toLowerCase(Locale.ENGLISH);
-		if (string_49_.indexOf("radeon") != -1) {
-			int i_50_ = 0;
-			boolean bool = false;
-			final String[] strings_51_ = EntityRenderData.splitString(string_49_.replace('/', ' '), ' ');
+		final String rendererLowerCase = renderer.toLowerCase(Locale.ENGLISH);
+		if (rendererLowerCase.indexOf("radeon") != -1) {
+			int version = 0;
+			boolean xRenderer = false;
+			final String[] strings_51_ = EntityRenderData.splitString(rendererLowerCase.replace('/', ' '), ' ');
 			for (int i_54_ = 0; i_54_ < strings_51_.length; i_54_++) {
 				final String string_55_ = strings_51_[i_54_];
 				if (string_55_.length() >= 4) {
 					if (string_55_.charAt(0) == 'x' && Class120_Sub21.isValidStringBase10(string_55_.substring(1, 3))) {
-						bool = true;
+						xRenderer = true;
 						break;
 					}
 					if (Class120_Sub21.isValidStringBase10(string_55_.substring(0, 4))) {
-						i_50_ = Class31.stringToBase10(string_55_.substring(0, 4));
+						version = Class31.stringToBase10(string_55_.substring(0, 4));
 						break;
 					}
 				}
 			}
-			if (i_50_ >= 7000 && i_50_ <= 7999) {
+			if (version >= 7000 && version <= 7999) {
 				vertexBufferAsObject = false;
 			}
-			if (i_50_ >= 7000 && i_50_ <= 9250) {
+			if (version >= 7000 && version <= 9250) {
 				allows3DTextureMapping = false;
 			}
-			if (i_50_ >= 9200 || bool) {
+			if (version >= 9200 || xRenderer) {
 				aBoolean545 = false;
 			}
 			aBoolean520 = vertexBufferAsObject;
@@ -620,7 +622,7 @@ final class HDToolkit {
 		return 0;
 	}
 
-	static final void method531(final int rgb) {
+	static final void clearScreen(int rgb) {
 		gl.glClearColor((rgb >> 16 & 0xff) / 255.0F, (rgb >> 8 & 0xff) / 255.0F, (rgb & 0xff) / 255.0F, 0.0F);
 		gl.glClear(16640);
 		gl.glClearColor(0.0F, 0.0F, 0.0F, 0.0F);

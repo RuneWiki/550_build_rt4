@@ -15,22 +15,22 @@ final class DummyOutputStream extends OutputStream {
 		aClass120_Sub14_Sub18Array31 = new FrameGroup[14];
 	}
 
-	static final int method72(final int i_0_) {
+	static final int worldListError(final int i_0_) {
 		if (AbstractTimer.worldConnection != null) {
 			AbstractTimer.worldConnection.close();
 			AbstractTimer.worldConnection = null;
 		}
-		OverridedJInterface.anInt2742++;
-		if (OverridedJInterface.anInt2742 > 4) {
-			Decimator.anInt1716 = 0;
-			OverridedJInterface.anInt2742 = 0;
+		OverridedJInterface.worldListErrorCount++;
+		if (OverridedJInterface.worldListErrorCount > 4) {
+			OverridedJInterface.worldListErrorCount = 0;
+			Decimator.worldListLoadStep = 0;
 			return i_0_;
 		}
-		Decimator.anInt1716 = 0;
-		if (Hashtable.anInt675 != Class116.anInt1115) {
-			Class116.anInt1115 = Hashtable.anInt675;
+		Decimator.worldListLoadStep = 0;
+		if (Class116.worldListPort != Hashtable.anInt675) {
+			Class116.worldListPort = Hashtable.anInt675;
 		} else {
-			Class116.anInt1115 = ObjectPile.anInt1808;
+			Class116.worldListPort = ObjectPile.anInt1808;
 		}
 		return -1;
 	}

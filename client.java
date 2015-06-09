@@ -23,7 +23,7 @@ public final class client extends GameShell {
 	static Huffman huffman;
 	static int anInt322 = 7759444;
 	static Class28[] aClass28Array323;
-	static byte[] aByteArray324;
+	static byte[] worldListData;
 	static long allocateGcTime = 0L;
 	static boolean allVisibleLevels = true;
 	static short aShort565 = (short) 320;
@@ -95,7 +95,7 @@ public final class client extends GameShell {
 					InvType.updateLoginScreenCamera();
 				}
 				if (FileSystemWorker.renderX >> 7 < 14 || FileSystemWorker.renderX >> 7 >= 90 || GroundObjectNode.renderZ >> 7 < 14 || GroundObjectNode.renderZ >> 7 >= 90) {
-					UnderlayType.method1900();
+					UnderlayType.setupLoadingScreenRegion();
 				}
 			}
 		} else {
@@ -551,15 +551,15 @@ public final class client extends GameShell {
 		}
 		FrameGroup.loadPreferencesFile(NpcType.gameSignlink);
 		if (AbstractIndexedSprite.modeWhere == 0) {
-			Class120_Sub12_Sub30.aString3372 = getCodeBase().getHost();
+			Class120_Sub12_Sub30.worldListIpAddress = getCodeBase().getHost();
 			Hashtable.anInt675 = 43594;
 			ObjectPile.anInt1808 = 43594;// 443;
 		} else if (AbstractIndexedSprite.modeWhere == 1) {
-			Class120_Sub12_Sub30.aString3372 = getCodeBase().getHost();
+			Class120_Sub12_Sub30.worldListIpAddress = getCodeBase().getHost();
 			ObjectPile.anInt1808 = Class136.defaultWorldId + 50000;
 			Hashtable.anInt675 = Class136.defaultWorldId + 40000;
 		} else if (AbstractIndexedSprite.modeWhere == 2) {
-			Class120_Sub12_Sub30.aString3372 = "127.0.0.1";
+			Class120_Sub12_Sub30.worldListIpAddress = "127.0.0.1";
 			ObjectPile.anInt1808 = 43594; //Class136.defaultWorldId + 50000;
 			Hashtable.anInt675 = 43594; //Class136.defaultWorldId + 40000;
 		}
@@ -579,13 +579,13 @@ public final class client extends GameShell {
 			SpotAnimType.aShortArray994 = Varp.aShortArray620;
 			AtmosphereManager.defaultScreenColorRgb = 16777215;
 			AtmosphereManager.defaulFogColorRgb = 0;
-			SpotAnimationNode.aBoolean3470 = true;
+			SpotAnimationNode.shiftClickEnabled = true;
 		}
 		Class71.anInt625 = Hashtable.anInt675;
 		GameEntity.anInt3045 = ObjectPile.anInt1808;
-		Class120_Sub12_Sub30.worldIpAddress = Class120_Sub12_Sub30.aString3372;
-		Class116.anInt1115 = Hashtable.anInt675;
-		ModelParticleEmitter.worldPort = Class116.anInt1115;
+		Class120_Sub12_Sub30.worldIpAddress = Class120_Sub12_Sub30.worldListIpAddress;
+		Class116.worldListPort = Hashtable.anInt675;
+		ModelParticleEmitter.worldPort = Class116.worldListPort;
 		Class120_Sub12_Sub8.synchronizeKeyCodes();
 		Class82.addKeyboard(Node.canvas);
 		NodeCache.addMouse(Node.canvas);
@@ -803,9 +803,9 @@ public final class client extends GameShell {
 			} catch (final Exception exception) {
 				Class120_Sub12_Sub33.affiliateId = 0;
 			}
-			Class120_Sub12_Sub25.settings = getParameter("settings");
-			if (Class120_Sub12_Sub25.settings == null) {
-				Class120_Sub12_Sub25.settings = "";
+			Class120_Sub12_Sub25.params = getParameter("settings");
+			if (Class120_Sub12_Sub25.params == null) {
+				Class120_Sub12_Sub25.params = "";
 			}
 			final String string_30_ = getParameter("country");
 			if (string_30_ != null) {
@@ -863,7 +863,7 @@ public final class client extends GameShell {
 			} else {
 				Class43.method345("game");
 			}
-			Class120_Sub12_Sub25.settings = "";
+			Class120_Sub12_Sub25.params = "";
 			FileSystem.haveInternetExplorer6 = false;
 			Node.countryId = 0;
 			Class120_Sub12_Sub33.affiliateId = 0;
@@ -1080,7 +1080,7 @@ public final class client extends GameShell {
 	static final String decodeText(final Buffer buffer) {
 		return Class120_Sub14_Sub15.decodeText(buffer, 32767);
 	}
-
+											
 	static final void drawSpriteOnMinimap(final JagexInterface jagexInterface, final int interfaceX, final int interfaceY, final int iconX, final int iconY, final AbstractSprite abstractSprite) {
 		if (abstractSprite != null) {
 			final int dist = Math.max(jagexInterface.width / 2, jagexInterface.height / 2) + 10;
@@ -1116,11 +1116,11 @@ public final class client extends GameShell {
 			jagexInterface.height = height - jagexInterface.originalHeight;
 		} else if (jagexInterface.dynamicHeightValue == 2) {
 			jagexInterface.height = height * jagexInterface.originalHeight >> 14;
-		} else if (jagexInterface.dynamicHeightValue == 3) {
-			if (jagexInterface.type == 2) {
-				jagexInterface.height = jagexInterface.objSpritePadY * (jagexInterface.originalHeight + -1) + 32 * jagexInterface.originalHeight;
+		} else if (jagexInterface.dynamicHeightValue == 3) {					
+			if (jagexInterface.type == 2) {	
+				jagexInterface.height = (jagexInterface.originalHeight - 1) * jagexInterface.objSpritePadY + jagexInterface.originalHeight * 32;
 			} else if (jagexInterface.type == 7) {
-				jagexInterface.height = jagexInterface.originalHeight * 12 - -((-1 + jagexInterface.originalHeight) * jagexInterface.objSpritePadY);
+				jagexInterface.height = (jagexInterface.originalHeight - 1) * jagexInterface.objSpritePadY + jagexInterface.originalHeight * 12;
 			}
 		}
 		final int oldWidth = jagexInterface.width;
@@ -1132,9 +1132,9 @@ public final class client extends GameShell {
 			jagexInterface.width = width * jagexInterface.originalWidth >> 14;
 		} else if (jagexInterface.dynamicWidthValue == 3) {
 			if (jagexInterface.type == 2) {
-				jagexInterface.width = (-1 + jagexInterface.originalWidth) * jagexInterface.objSpritePadX + 32 * jagexInterface.originalWidth;
+				jagexInterface.width = (jagexInterface.originalWidth - 1) * jagexInterface.objSpritePadX + jagexInterface.originalWidth * 32;
 			} else if (jagexInterface.type == 7) {
-				jagexInterface.width = 115 * jagexInterface.originalWidth - -(jagexInterface.objSpritePadX * (-1 + jagexInterface.originalWidth));
+				jagexInterface.width = (jagexInterface.originalWidth - 1) * jagexInterface.objSpritePadX + jagexInterface.originalWidth * 115;
 			}
 		}
 		if (jagexInterface.dynamicWidthValue == 4) {

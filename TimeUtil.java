@@ -13,6 +13,7 @@ public final class TimeUtil {
 	public static final synchronized long getSafeTime() {
 		final long currentTime = System.currentTimeMillis();
 		if (currentTime < oldTime) {
+			System.out.println("WARNING: safetime: time jumped back by " + (oldTime - currentTime) + " ms");
 			timeDiff += oldTime - currentTime;
 		}
 		oldTime = currentTime;

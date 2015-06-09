@@ -20,8 +20,8 @@ final class LightType {
 			host = "www-wtqa";
 		}
 		String settings = "";
-		if (Class120_Sub12_Sub25.settings != null) {
-			settings = new StringBuilder("/p=").append(Class120_Sub12_Sub25.settings).toString();
+		if (Class120_Sub12_Sub25.params != null) {
+			settings = new StringBuilder("/p=").append(Class120_Sub12_Sub25.params).toString();
 		}
 		return "http://" + host + ".runescape.com/l=" + Class9.language + "/a=" + Class120_Sub12_Sub33.affiliateId + settings + "/";
 	}

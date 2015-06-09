@@ -56,7 +56,7 @@ final class Class43 {
 		EnumType.worldLen = buffer.getUSmart();
 		Class57.worldLen2 = buffer.getUSmart();
 		Class48.worldList = new World[EnumType.worldLen - OverridedJInterface.worldOff + 1];
-		for (int i_16_ = 0; i_16_ < Class57.worldLen2; i_16_++) {
+		for (int id = 0; id < Class57.worldLen2; id++) {
 			final int worldId = buffer.getUSmart();
 			final World world = Class48.worldList[worldId] = new World();
 			world.location = buffer.getUByte();

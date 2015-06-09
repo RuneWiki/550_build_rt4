@@ -18,9 +18,9 @@ final class UnderlayType {
 	int anInt1222;
 	static int renderPitch;
 	private int groundRgb = 0;
-	int anInt1225;
+	int textureSize;
 	int anInt1226;
-	int anInt1227;
+	int textureId;
 	static boolean aBoolean1228;
 	int anInt1229;
 	static js5 configClient;
@@ -52,53 +52,53 @@ final class UnderlayType {
 		return class120_sub14_sub20.aByteArray3623;
 	}
 
-	static final void method1900() {
+	static final void setupLoadingScreenRegion() {
 		Projectile.method2318(Class140.anInt1343);
-		final int i_7_ = (FileSystemWorker.renderX >> 10) + (GameEntity.currentBaseX >> 3);
-		final int i_8_ = (GroundObjectNode.renderZ >> 10) + (LightType.currentBaseZ >> 3);
-		int i_11_ = 18;
-		RuntimeException_Sub1.mapFileBuffers = new byte[i_11_][];
-		LookupTable.mapFileIds = new int[i_11_];
-		Class120_Sub12_Sub36.underWaterMapFileBuffers = new byte[i_11_][];
-		ProducingGraphicsBuffer.anIntArray2796 = new int[i_11_];
-		Class28.locationsMapFileIds = new int[i_11_];
-		Class179.aByteArrayArray1777 = new byte[i_11_][];
-		Class111.underWaterMapFileIds = new int[i_11_];
-		Class101_Sub1.underWaterLocationsMapFileBuffers = new byte[i_11_][];
-		Class120_Sub12_Sub36.regionBitPackeds = new int[i_11_];
-		Class125.anIntArrayArray2150 = new int[i_11_][4];
-		client.underWaterLocationsMapFileIds = new int[i_11_];
-		Class134.locationMapFileBuffers = new byte[i_11_][];
-		i_11_ = 0;
-		for (int i_12_ = (i_7_ - 6) / 8; i_12_ <= (i_7_ + 6) / 8; i_12_++) {
-			for (int i_13_ = (i_8_ - 6) / 8; i_13_ <= (i_8_ + 6) / 8; i_13_++) {
-				final int i_14_ = (i_12_ << 8) + i_13_;
-				Class120_Sub12_Sub36.regionBitPackeds[i_11_] = i_14_;
-				LookupTable.mapFileIds[i_11_] = Class65.aClass50_597.getGroupId("m" + i_12_ + "_" + i_13_);
-				Class28.locationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("l" + i_12_ + "_" + i_13_);
-				ProducingGraphicsBuffer.anIntArray2796[i_11_] = Class65.aClass50_597.getGroupId("n" + i_12_ + "_" + i_13_);
-				Class111.underWaterMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("um" + i_12_ + "_" + i_13_);
-				client.underWaterLocationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("ul" + i_12_ + "_" + i_13_);
-				if (ProducingGraphicsBuffer.anIntArray2796[i_11_] == -1) {
-					LookupTable.mapFileIds[i_11_] = -1;
-					Class28.locationsMapFileIds[i_11_] = -1;
-					Class111.underWaterMapFileIds[i_11_] = -1;
-					client.underWaterLocationsMapFileIds[i_11_] = -1;
+		final int baseX = (FileSystemWorker.renderX >> 10) + (GameEntity.currentBaseX >> 3);
+		final int baseZ = (GroundObjectNode.renderZ >> 10) + (LightType.currentBaseZ >> 3);
+		int fileAmount = 18;
+		RuntimeException_Sub1.mapFilesBuffer = new byte[fileAmount][];
+		LookupTable.mapFileIds = new int[fileAmount];
+		Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[fileAmount][];
+		ProducingGraphicsBuffer.npcSpawnsFileIds = new int[fileAmount];
+		Class28.locationsMapFileIds = new int[fileAmount];
+		Class179.npcSpawnsFilesBuffer = new byte[fileAmount][];
+		Class111.underWaterMapFileIds = new int[fileAmount];
+		Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[fileAmount][];
+		Class120_Sub12_Sub36.regionBitPackeds = new int[fileAmount];
+		Class125.anIntArrayArray2150 = new int[fileAmount][4];
+		client.underWaterLocationsMapFileIds = new int[fileAmount];
+		Class134.locationMapFilesBuffer = new byte[fileAmount][];
+		fileAmount = 0;
+		for (int x = (baseX - 6) / 8; x <= (baseX + 6) / 8; x++) {
+			for (int z = (baseZ - 6) / 8; z <= (baseZ + 6) / 8; z++) {
+				final int region = (x << 8) + z;
+				Class120_Sub12_Sub36.regionBitPackeds[fileAmount] = region;
+				LookupTable.mapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("m" + x + "_" + z);
+				Class28.locationsMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("l" + x + "_" + z);
+				ProducingGraphicsBuffer.npcSpawnsFileIds[fileAmount] = Class65.aClass50_597.getGroupId("n" + x + "_" + z);
+				Class111.underWaterMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("um" + x + "_" + z);
+				client.underWaterLocationsMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("ul" + x + "_" + z);
+				if (ProducingGraphicsBuffer.npcSpawnsFileIds[fileAmount] == -1) {
+					LookupTable.mapFileIds[fileAmount] = -1;
+					Class28.locationsMapFileIds[fileAmount] = -1;
+					Class111.underWaterMapFileIds[fileAmount] = -1;
+					client.underWaterLocationsMapFileIds[fileAmount] = -1;
 				}
-				i_11_++;
+				fileAmount++;
 			}
 		}
-		for (int i_15_ = i_11_; i_15_ < ProducingGraphicsBuffer.anIntArray2796.length; i_15_++) {
-			ProducingGraphicsBuffer.anIntArray2796[i_15_] = -1;
-			LookupTable.mapFileIds[i_15_] = -1;
-			Class28.locationsMapFileIds[i_15_] = -1;
-			Class111.underWaterMapFileIds[i_15_] = -1;
-			client.underWaterLocationsMapFileIds[i_15_] = -1;
+		for (int nextId = fileAmount; nextId < ProducingGraphicsBuffer.npcSpawnsFileIds.length; nextId++) {
+			ProducingGraphicsBuffer.npcSpawnsFileIds[nextId] = -1;
+			LookupTable.mapFileIds[nextId] = -1;
+			Class28.locationsMapFileIds[nextId] = -1;
+			Class111.underWaterMapFileIds[nextId] = -1;
+			client.underWaterLocationsMapFileIds[nextId] = -1;
 		}
-		Class2.method76(i_7_, i_8_, 0, 8, 8, true, false);
+		Class2.method76(baseX, baseZ, 0, 8, 8, true, false);
 	}
 
-	static final void method1901(final int i, final int i_16_, final int i_17_, final int i_18_, final boolean bool, final int i_19_) {
+	static final void method1901(final int i, final int i_16_, final int i_17_, final int i_18_, final int i_19_) {
 		if (i == i_19_) {
 			Class159.method2096(i_19_, i_17_, i_18_, i_16_);
 		} else {
@@ -106,9 +106,6 @@ final class UnderlayType {
 				Node.method1031(i_18_, i, i_17_, i_19_, i_16_);
 			} else {
 				Class69_Sub3.method628(i, i_16_, i_17_, i_18_, i_19_);
-			}
-			if (!bool) {
-				method1900();
 			}
 		}
 	}
@@ -142,12 +139,12 @@ final class UnderlayType {
 			groundRgb = buffer.getMedium();
 			calculateHSL(groundRgb);
 		} else if (code == 2) {
-			this.anInt1227 = buffer.getUShort();
-			if (this.anInt1227 == 65535) {
-				this.anInt1227 = -1;
+			this.textureId = buffer.getUShort();
+			if (this.textureId == 65535) {
+				this.textureId = -1;
 			}
 		} else if (code == 3) {
-			this.anInt1225 = buffer.getUShort();
+			this.textureSize = buffer.getUShort();
 		} else if (code == 4) {
 			this.aBoolean1220 = false;
 		}
@@ -258,7 +255,7 @@ final class UnderlayType {
 
 	public UnderlayType() {
 		this.aBoolean1220 = true;
-		this.anInt1227 = -1;
-		this.anInt1225 = 128;
+		this.textureId = -1;
+		this.textureSize = 128;
 	}
 }

@@ -246,7 +246,7 @@ final class StructType extends NodeSub {
 		Class120_Sub14_Sub13.aClass21_3564.method192(5);
 		Class154.shadowModelCache.method192(5);
 		Class120_Sub12_Sub2.aClass21_3144.method192(5);
-		Class15.aClass21_95.method192(5);
+		LDFont.fontCache.method192(5);
 	}
 
 	private final void decode(final Buffer buffer, final int code) {
@@ -309,24 +309,24 @@ final class StructType extends NodeSub {
 		return 1023 - z;
 	}
 
-	static final void method1567(final boolean bool) {
+	static final void method1567(final boolean underwater) {
 		Class120_Sub12_Sub34.anIntArray3409 = new int[104];
 		DummyOutputStream.anInt29 = 99;
-		int i_44_;
-		if (bool) {
-			i_44_ = 1;
+		int levelAmount;
+		if (underwater) {
+			levelAmount = 1;
 		} else {
-			i_44_ = 4;
+			levelAmount = 4;
 		}
 		Buffer.anIntArray2477 = new int[104];
-		Class99.tileOverlayIds = new byte[i_44_][104][104];
-		Class8.aByteArrayArrayArray65 = new byte[i_44_][104][104];
+		Class99.tileOverlayIds = new byte[levelAmount][104][104];
+		Class8.tileOverlayRotations = new byte[levelAmount][104][104];
 		StringNode.anIntArray2733 = new int[104];
-		Npc.aByteArrayArrayArray3754 = new byte[i_44_][105][105];
+		Npc.aByteArrayArrayArray3754 = new byte[levelAmount][105][105];
 		Class120_Sub12_Sub31.anIntArray3383 = new int[104];
-		Class120_Sub4.tileUnderlayIds = new byte[i_44_][104][104];
-		Class110.tileOccludeFlags = new int[i_44_][105][105];
-		MapFunctionNode.aByteArrayArrayArray3477 = new byte[i_44_][104][104];
+		Class120_Sub4.tileUnderlayIds = new byte[levelAmount][104][104];
+		Class110.tileOccludeFlags = new int[levelAmount][105][105];
+		MapFunctionNode.tileOverlayShapes = new byte[levelAmount][104][104];
 		PacketBuffer.anIntArray3120 = new int[104];
 		CanvasWrapper.anIntArray21 = new int[5];
 	}

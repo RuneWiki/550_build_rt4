@@ -131,7 +131,7 @@ final class Class24 {
 		if (MasterIndexInfo.aBoolean466) {
 			return 0;
 		}
-		if (!Class143_Sub1.method2021()) {
+		if (!Class143_Sub1.allLevelsAreVisible()) {
 			return 1;
 		}
 		return Class120_Sub12.removeRoofsSelectively ? 2 : 1;
@@ -140,9 +140,5 @@ final class Class24 {
 	static final int method208(final int i, final int i_13_, final int i_14_, final int i_15_) {
 		final int i_17_ = 65536 - Rasterizer.cosTable[1024 * i_15_ / i] >> 1;
 		return ((65536 - i_17_) * i_14_ >> 16) + (i_17_ * i_13_ >> 16);
-	}
-
-	static final void method209(final Object[] objects, final long[] ls) {
-		Class132_Sub2.method1939(ls, ls.length - 1, 0, objects);
 	}
 }

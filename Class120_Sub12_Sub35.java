@@ -57,7 +57,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 	}
 
 	static final void method1385() {
-		if (!Class143_Sub1.method2021() && SpotAnimationNode.anInt3469 != Class173.gameLevel) {
+		if (!Class143_Sub1.allLevelsAreVisible() && SpotAnimationNode.visibleLevel != Class173.gameLevel) {
 			Class2.method76(Class116.anInt1118, Class3.anInt53, Class173.gameLevel, TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0], false, false);
 		} else {
 			Class120_Sub12_Sub5.method1219();

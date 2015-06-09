@@ -112,7 +112,7 @@ final class EnumType extends NodeSub {
 			if (HDToolkit.glEnabled) {
 				ModelParticleEmitter.instantScreenFade = true;
 			}
-			UnderlayType.method1900();
+			UnderlayType.setupLoadingScreenRegion();
 			ProjectileNode.setGameState(28);
 		} else {
 			HintIcon.method725(client.aClass50_63);

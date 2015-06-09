@@ -89,11 +89,11 @@ final class Class127 {
 			}
 		}
 		int i_17_ = 192 * highestY;
-		if (i_17_ > 98048) {
-			i_17_ = 98048;
+		if (i_17_ > 256 * 383) {//383 highest pitch
+			i_17_ = 256 * 383;
 		}
-		if (i_17_ < 32768) {
-			i_17_ = 32768;
+		if (i_17_ < 256 * 128) {//128 lowest pitch
+			i_17_ = 256 * 128;
 		}
 		if (i_17_ > Normal.cameraYLimit) {
 			Normal.cameraYLimit += (i_17_ - Normal.cameraYLimit) / 24;
@@ -102,25 +102,25 @@ final class Class127 {
 		}
 	}
 
-	static final void method1893(final int i, final int i_18_) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[0][i][i_18_];
-		for (int i_19_ = 0; i_19_ < 3; i_19_++) {
-			final GroundTile class120_sub18_20_ = LabelGroup.activeGroundTiles[i_19_][i][i_18_] = LabelGroup.activeGroundTiles[i_19_ + 1][i][i_18_];
+	static final void setBridgeTile(final int x, final int z) {
+		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[0][x][z];
+		for (int level = 0; level < 3; level++) {//Shift levels below
+			final GroundTile class120_sub18_20_ = LabelGroup.activeGroundTiles[level][x][z] = LabelGroup.activeGroundTiles[level + 1][x][z];
 			if (class120_sub18_20_ != null) {
 				class120_sub18_20_.anInt2636--;
 				for (int i_21_ = 0; i_21_ < class120_sub18_20_.anInt2638; i_21_++) {
 					final Class28 class28 = class120_sub18_20_.aClass28Array2625[i_21_];
-					if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == i && class28.anInt184 == i_18_) {
+					if ((class28.bitPacked >> 29 & 0x3L) == 2L && class28.anInt180 == x && class28.anInt184 == z) {
 						class28.anInt177--;
 					}
 				}
 			}
 		}
-		if (LabelGroup.activeGroundTiles[0][i][i_18_] == null) {
-			LabelGroup.activeGroundTiles[0][i][i_18_] = new GroundTile(0, i, i_18_);
+		if (LabelGroup.activeGroundTiles[0][x][z] == null) {
+			LabelGroup.activeGroundTiles[0][x][z] = new GroundTile(0, x, z);
 		}
-		LabelGroup.activeGroundTiles[0][i][i_18_].aClass120_Sub18_2644 = class120_sub18;
-		LabelGroup.activeGroundTiles[3][i][i_18_] = null;
+		LabelGroup.activeGroundTiles[0][x][z].bridgeTile = class120_sub18;
+		LabelGroup.activeGroundTiles[3][x][z] = null;
 	}
 
 	final NodeSub method1895() {

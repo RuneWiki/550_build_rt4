@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	static int[] anIntArray3187 = new int[128];
 	private int anInt3188;
 	private int[] anIntArray3189;
-	static int[] anIntArray3190 = new int[64];
+	static int[] npcSpawnsRegionBitPacked = new int[64];//TODO new name
 	private int anInt3191 = -1;
 
 	public Class120_Sub12_Sub8() {

@@ -204,7 +204,6 @@ final class ShadowManager {
 	}
 	
 	public static BufferedImage toBufferedImage() {
-		System.out.println(shadowMapImage.width+":"+shadowMapImage.height);
 		BufferedImage img = new BufferedImage(shadowMapImage.width, shadowMapImage.height, BufferedImage.TYPE_INT_ARGB);
 		byte[] indicator = shadowMapImage.paletteIndicators;
 		for (int x = 0; x < shadowMapImage.width; x++) {

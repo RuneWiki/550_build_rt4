@@ -8,14 +8,14 @@ final class SpotAnimationNode extends NodeSub {
 	static int anInt3466 = 0;
 	SpotAnimation spotAnimation;
 	static boolean[] aBooleanArray3468;
-	static int anInt3469;
-	static boolean aBoolean3470;
+	static int visibleLevel;
+	static boolean shiftClickEnabled;
 
 	static {
 		mouseHandler = new MouseHandler();
 		aBooleanArray3468 = new boolean[100];
-		anInt3469 = 0;
-		aBoolean3470 = false;
+		visibleLevel = 0;
+		shiftClickEnabled = false;
 	}
 
 	static final boolean method1437(final int i, final long l, final int i_1_) {

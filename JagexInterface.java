@@ -114,7 +114,7 @@ final class JagexInterface {
 	int anInt2037;
 	int[] valueCompareType;
 	int[] varpListenerTriggers;
-	boolean shaded;
+	boolean textHasBlackShadow;
 	boolean newFormat;
 	static short[] playerMenuActionCodes;
 	int lastSkillTriggersPos;
@@ -443,7 +443,7 @@ final class JagexInterface {
 			if (this.font == 65535) {
 				this.font = -1;
 			}
-			this.shaded = buffer.getUByte() == 1;
+			this.textHasBlackShadow = buffer.getUByte() == 1;
 		}
 		if (this.type == 4) {
 			this.disabledText = buffer.getJagexString();
@@ -494,7 +494,7 @@ final class JagexInterface {
 			if (this.font == 65535) {
 				this.font = -1;
 			}
-			this.shaded = buffer.getUByte() == 1;
+			this.textHasBlackShadow = buffer.getUByte() == 1;
 			this.disabledColor = buffer.getInt();
 			this.objSpritePadX = buffer.getShort();
 			this.objSpritePadY = buffer.getShort();
@@ -693,7 +693,7 @@ final class JagexInterface {
 			this.verticalSpacing = buffer.getUByte();
 			this.horizontalAlignment = buffer.getUByte();
 			this.verticalAlignment = buffer.getUByte();
-			this.shaded = buffer.getUByte() == 1;
+			this.textHasBlackShadow = buffer.getUByte() == 1;
 			this.disabledColor = buffer.getInt();
 		}
 		if (this.type == 3) {
@@ -807,23 +807,23 @@ final class JagexInterface {
 		this.objAmounts[oldIndex] = oldData;
 	}
 
-	final AbstractFont method2497(final AbstractIndexedSprite[] class107s) {
+	final AbstractFont getFont(final AbstractIndexedSprite[] nameIcons) {
 		Class88.interfaceSpriteIsNull = false;
 		if (this.font == -1) {
 			return null;
 		}
-		AbstractFont class120_sub14_sub8_63_ = (AbstractFont) fontCache.get(this.font);
-		if (class120_sub14_sub8_63_ != null) {
-			return class120_sub14_sub8_63_;
+		AbstractFont abstractFont = (AbstractFont) fontCache.get(this.font);
+		if (abstractFont != null) {
+			return abstractFont;
 		}
-		class120_sub14_sub8_63_ = Class9.constructAbstractFont(spriteJs5, aClass50_3213, this.font, 0);
-		if (class120_sub14_sub8_63_ == null) {
+		abstractFont = Class9.constructAbstractFont(spriteJs5, aClass50_3213, this.font, 0);
+		if (abstractFont == null) {
 			Class88.interfaceSpriteIsNull = true;
 		} else {
-			class120_sub14_sub8_63_.setNameIcons(class107s, null);
-			fontCache.put(class120_sub14_sub8_63_, this.font);
+			abstractFont.setNameIcons(nameIcons, null);
+			fontCache.put(abstractFont, this.font);
 		}
-		return class120_sub14_sub8_63_;
+		return abstractFont;
 	}
 
 	static final void method2499(final int i_64_, final int i_65_) {
@@ -1128,7 +1128,7 @@ final class JagexInterface {
 		this.horizontalScrollPosition = 0;
 		modelTypeEnabled = 1;
 		this.verticalSpacing = 0;
-		this.shaded = false;
+		this.textHasBlackShadow = false;
 		this.lastSkillTriggersPos = 0;
 		this.clientCode = 0;
 		this.objSpritePadX = 0;

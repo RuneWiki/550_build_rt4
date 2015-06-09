@@ -80,7 +80,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString2726 = "Sprites charg\u00e9s";
 		StringLibrary.aString2788 = "Chargement des interfaces - ";
 		StringLibrary.aString618 = "vert:";
-		Class132.aString1250 = " s'est d\u00e9connect\u00e9.";
+		StringLibrary.aString1250 = " s'est d\u00e9connect\u00e9.";
 		StringLibrary.aString1483 = "cyan:";
 		StringLibrary.aString799 = "Interfaces charg\u00e9es";
 		StringLibrary.aString2660 = "Chargement des polices - ";
@@ -167,7 +167,7 @@ final class StringLibrary {//Original class
 		StringLibrary.chooseOption = "W\u00e4hl eine Option";
 		StringLibrary.aString1397 = "blinken1:";
 		StringLibrary.aString2669 = " loggt sich ein.";
-		Class132.aString1250 = " loggt sich aus.";
+		StringLibrary.aString1250 = " loggt sich aus.";
 		StringLibrary.hidden = "Versteckt";
 		StringLibrary.aString1483 = "blaugr\u00fcn:";
 		StringLibrary.aString2594 = "Update-Liste geladen.";
@@ -259,7 +259,7 @@ final class StringLibrary {//Original class
 		aString217 = "Carregando tela t\u00edtulo - ";
 		StringLibrary.aString2554 = "Carregando padr\u00f5es - ";
 		StringLibrary.level = "n\u00edvel: ";
-		Class132.aString1250 = " saiu do jogo.";
+		StringLibrary.aString1250 = " saiu do jogo.";
 		StringLibrary.aString854 = "K";
 		StringLibrary.aString2585 = "Config carregada";
 		StringLibrary.chooseOption = "Selecionar op\u00e7\u00e3o";
@@ -392,4 +392,5 @@ final class StringLibrary {//Original class
 	static String attack = "Attack";
 	static String aString3137 = "Loaded defaults";
 	static String okString = "Ok";
+	static String aString1250 = " has logged out.";
 }

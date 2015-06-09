@@ -12,7 +12,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	static int anInt2197;
 	private NodeCache aClass35_2198;
 
-	static final boolean method2021() {
+	static final boolean allLevelsAreVisible() {
 		if (HDToolkit.glEnabled) {
 			return true;
 		}

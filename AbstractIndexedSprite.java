@@ -174,7 +174,7 @@ abstract class AbstractIndexedSprite {
 					ShadowManager.init(104, 104);
 					LocType.resetSpriteMenu();
 				}
-				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
+				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.allLevelsAreVisible();
 				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (changeRenderer) {
 					ObjectCache.method191();

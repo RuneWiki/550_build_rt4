@@ -388,7 +388,7 @@ abstract class AbstractTimer {
 			return true;
 		}
 		if (client.packetType == 86) {
-			Class143.setSettings(Canvas_Sub1.inputStream.getJagexString());
+			Class143.setParams(Canvas_Sub1.inputStream.getJagexString());
 			client.packetType = -1;
 			return true;
 		}
@@ -1015,7 +1015,7 @@ abstract class AbstractTimer {
 							AbstractRequest.pushMessage(name + StringLibrary.aString2669, "", 5);
 						}
 						if (world == 0) {
-							AbstractRequest.pushMessage(name + Class132.aString1250, "", 5);
+							AbstractRequest.pushMessage(name + StringLibrary.aString1250, "", 5);
 						}
 					}
 					Class79_Sub1.friendsSideText[id] = sideText;

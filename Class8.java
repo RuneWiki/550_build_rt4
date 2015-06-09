@@ -4,7 +4,7 @@
 
 final class Class8 {
 	static String aString64 = "Discard";
-	static byte[][][] aByteArrayArrayArray65;
+	static byte[][][] tileOverlayRotations;
 
 	static final void constructFonts(final js5 spriteJs5, final js5 fontJs5) {
 		ObjectCache.smallFont = Class9.constructAbstractFont(spriteJs5, fontJs5, MagnetType.p11fullId, 0);

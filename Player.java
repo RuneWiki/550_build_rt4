@@ -4,16 +4,16 @@
 
 final class Player extends GameEntity {
 	int pkIcon;
-	int anInt3733 = 0;
-	int anInt3734;
+	int combatLevelWithSummoning = 0;
+	int walkAmbientSoundId;
 	int ambientSoundHearDistance;
 	int anInt3736;
 	int skill = 0;
-	int anInt3738;
+	int combatRange;
 	int ambientSoundVolume;
-	int anInt3740;
+	int stopWalkAmbientSoundId;
 	private byte titleId;
-	int anInt3742;
+	int runAmbientSoundId;
 	boolean playerLimitReached;
 	int team;
 	String name;
@@ -25,11 +25,11 @@ final class Player extends GameEntity {
 	final void decodeAppearance(final Buffer buffer) {
 		buffer.pos = 0;
 		int newNpcId = -1;
-		final int i_1_ = buffer.getUByte();
-		final int isFemale = i_1_ & 0x1;
-		final boolean inGamesArena = (i_1_ & 0x4) != 0;
-		setSize(1 + ((0x3e & i_1_) >> 3));
-		titleId = (byte) (i_1_ >> 6 & 0x3);
+		final int bitPackedInfo = buffer.getUByte();
+		final int gender = bitPackedInfo & 0x1;
+		final boolean inGamesArena = (bitPackedInfo & 0x4) != 0;
+		setSize(((bitPackedInfo & 0x3e) >> 3) + 1);
+		titleId = (byte) (bitPackedInfo >> 6 & 0x3);
 		final int oldSize = super.getSize();
 		final int[] is = new int[12];
 		this.x += (getSize() - oldSize) * 64;
@@ -76,30 +76,30 @@ final class Player extends GameEntity {
 		this.combatLevel = buffer.getUByte();
 		if (inGamesArena) {
 			this.skill = buffer.getUShort();
-			this.anInt3733 = this.combatLevel;
-			this.anInt3738 = -1;
+			this.combatLevelWithSummoning = this.combatLevel;
+			this.combatRange = -1;
 		} else {
 			this.skill = 0;
-			this.anInt3733 = buffer.getUByte();
-			this.anInt3738 = buffer.getUByte();
-			if (this.anInt3738 == 255) {
-				this.anInt3738 = -1;
+			this.combatLevelWithSummoning = buffer.getUByte();
+			this.combatRange = buffer.getUByte();
+			if (this.combatRange == 255) {
+				this.combatRange = -1;
 			}
 		}
 		final int oldHearDistance = this.ambientSoundHearDistance;
 		this.ambientSoundHearDistance = buffer.getUByte();
 		if (this.ambientSoundHearDistance != 0) {
 			final int i_13_ = this.anInt3736;
-			final int i_14_ = this.anInt3740;
-			final int i_15_ = this.anInt3734;
-			final int i_16_ = this.anInt3742;
-			final int i_17_ = this.ambientSoundVolume;
-			this.anInt3740 = buffer.getUShort();
+			final int i_14_ = this.stopWalkAmbientSoundId;
+			final int i_15_ = this.walkAmbientSoundId;
+			final int i_16_ = this.runAmbientSoundId;
+			final int oldSoundVolume = this.ambientSoundVolume;
+			this.stopWalkAmbientSoundId = buffer.getUShort();
 			this.anInt3736 = buffer.getUShort();
-			this.anInt3734 = buffer.getUShort();
-			this.anInt3742 = buffer.getUShort();
+			this.walkAmbientSoundId = buffer.getUShort();
+			this.runAmbientSoundId = buffer.getUShort();
 			this.ambientSoundVolume = buffer.getUByte();
-			if (this.ambientSoundHearDistance != oldHearDistance || i_14_ != this.anInt3740 || i_13_ != this.anInt3736 || this.anInt3734 != i_15_ || this.anInt3742 != i_16_ || this.ambientSoundVolume != i_17_) {
+			if (this.ambientSoundHearDistance != oldHearDistance || i_14_ != this.stopWalkAmbientSoundId || i_13_ != this.anInt3736 || this.walkAmbientSoundId != i_15_ || this.runAmbientSoundId != i_16_ || this.ambientSoundVolume != oldSoundVolume) {
 				Class120_Sub30_Sub1.addRefreshPlayerAmbientSound(this);
 			}
 		} else {
@@ -109,7 +109,7 @@ final class Player extends GameEntity {
 			this.appearance = new PlayerAppearance();
 		}
 		final int npcId = this.appearance.npcId;
-		this.appearance.init(newNpcId, is, this.entityRenderDataId, colors, isFemale == 1);
+		this.appearance.init(newNpcId, null, this.entityRenderDataId, colors, gender == 1);
 		if (newNpcId != npcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
@@ -117,6 +117,9 @@ final class Player extends GameEntity {
 		if (this.aClass108_Sub2_2988 != null) {
 			this.aClass108_Sub2_2988.method947();
 		}
+		
+		Class120_Sub30_Sub1.addRefreshPlayerAmbientSound(this);
+
 	}
 
 	@Override
@@ -396,16 +399,16 @@ final class Player extends GameEntity {
 	}
 
 	Player() {
-		this.anInt3734 = -1;
+		this.walkAmbientSoundId = -1;
 		this.ambientSoundHearDistance = 0;
-		this.anInt3738 = -1;
+		this.combatRange = -1;
 		this.pkIcon = -1;
 		this.ambientSoundVolume = 255;
 		this.anInt3736 = -1;
 		this.team = 0;
 		titleId = (byte) 0;
-		this.anInt3742 = -1;
-		this.anInt3740 = -1;
+		this.runAmbientSoundId = -1;
+		this.stopWalkAmbientSoundId = -1;
 		this.playerLimitReached = false;
 		this.combatLevel = 0;
 		this.prayerIcon = -1;

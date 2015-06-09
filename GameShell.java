@@ -21,7 +21,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	static long[] mainRedrawCache;
 	static short aShort2 = 32767;
 	static int loginscreenId;
-	static long aLong4;
+	static long worldListConnectTime;
 	private boolean jagmiscLoaded = false;
 	private boolean alreadyErrored = false;
 	public static boolean aBoolean7;
@@ -30,7 +30,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	static {
 		mainRedrawCache = new long[32];
-		aLong4 = 0L;
+		worldListConnectTime = 0L;
 	}
 
 	@Override
@@ -770,7 +770,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	static final void setVisibleLevels(final boolean bool) {
 		client.allVisibleLevels = bool;
-		Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.method2021();
+		Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.allLevelsAreVisible();
 	}
 
 	@Override

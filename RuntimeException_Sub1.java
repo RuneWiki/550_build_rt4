@@ -3,7 +3,7 @@
  */
 
 final class RuntimeException_Sub1 extends RuntimeException {
-	static byte[][] mapFileBuffers;
+	static byte[][] mapFilesBuffer;
 	String aString2141;
 	static int anInt2142 = 255;
 	static short aShort2143 = 1;

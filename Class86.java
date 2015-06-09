@@ -34,7 +34,7 @@ final class Class86 {
 				final int i_1_ = Class120_Sub12_Sub22.boldFont.method1470(string, drawX + 4, drawY + 15, 16777215, 0, Class136.aRandom1319, MasterIndexInfo.gregorianDateSeed);
 				Class120_Sub12_Sub1.redrawScreen(drawX + 4, drawY, i_1_ + Class120_Sub12_Sub22.boldFont.method1459(string), 15);
 			} else {
-				AbstractFont class120_sub14_sub8 = jagexInterface.method2497(Class82.nameIconSprites);
+				AbstractFont class120_sub14_sub8 = jagexInterface.getFont(Class82.nameIconSprites);
 				if (class120_sub14_sub8 == null) {
 					class120_sub14_sub8 = Class120_Sub12_Sub22.boldFont;
 				}
@@ -44,15 +44,15 @@ final class Class86 {
 		}
 	}
 
-	static final void method729(final boolean bool) {
+	static final void method729(final boolean underwater) {
 		int i_2_;
 		byte[][] is;
-		if (!HDToolkit.glEnabled || !bool) {
+		if (!HDToolkit.glEnabled || !underwater) {
 			i_2_ = 4;
-			is = RuntimeException_Sub1.mapFileBuffers;
+			is = RuntimeException_Sub1.mapFilesBuffer;
 		} else {
 			i_2_ = 1;
-			is = Class120_Sub12_Sub36.underWaterMapFileBuffers;
+			is = Class120_Sub12_Sub36.underWaterMapFilesBuffer;
 		}
 		final int i_3_ = is.length;
 		for (int i_4_ = 0; i_4_ < i_3_; i_4_++) {
@@ -64,9 +64,9 @@ final class Class86 {
 			final int i_10_ = i_8_ * 64 + -LightType.currentBaseZ;
 			if (is_7_ != null) {
 				Class120_Sub2.method1050();
-				is_5_ = ProducingGraphicsBuffer.method1851(bool, WallLocation.collisionMaps, LightType.currentBaseZ, i_10_, i_9_, GameEntity.currentBaseX, is_7_);
+				is_5_ = ProducingGraphicsBuffer.method1851(underwater, WallLocation.collisionMaps, LightType.currentBaseZ, i_10_, i_9_, GameEntity.currentBaseX, is_7_);
 			}
-			if (!bool && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
+			if (!underwater && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
 				if (is_5_ == null) {
 					ModelParticleEmitter.anInt1475 = -1;
 				} else {
@@ -79,8 +79,8 @@ final class Class86 {
 			}
 		}
 		for (int i_11_ = 0; i_3_ > i_11_; i_11_++) {
+			final int i_13_ = (Class120_Sub12_Sub36.regionBitPackeds[i_11_] >> 8) * 64 - GameEntity.currentBaseX;
 			final int i_12_ = (Class120_Sub12_Sub36.regionBitPackeds[i_11_] & 0xff) * 64 - LightType.currentBaseZ;
-			final int i_13_ = 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_11_] >> 8) - GameEntity.currentBaseX;
 			final byte[] is_14_ = is[i_11_];
 			if (is_14_ == null && Class3.anInt53 < 800) {
 				Class120_Sub2.method1050();

@@ -14,7 +14,7 @@ final class Class134 {
 	static int[] anIntArray1284;
 	static int[] anIntArray1285 = new int[128];
 	static char[] aCharArray1286;
-	static byte[][] locationMapFileBuffers;
+	static byte[][] locationMapFilesBuffer;
 
 	static {
 		dynamicMapRegion = false;

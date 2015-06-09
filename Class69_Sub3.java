@@ -4,7 +4,7 @@
 
 class Class69_Sub3 extends Class69 {
 	static int isInTutIsland = 0;
-	static String[] aStringArray2242 = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+	static String[] daysOfWeek = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
 
 	static final String method626(int i, final int radix, final boolean bool) {
 		if (radix < 2 || radix > 36) {

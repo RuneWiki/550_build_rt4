@@ -8,7 +8,7 @@ final class Identikit {
 	private short[] recolorModified;
 	private short[] retextureOriginal;
 	static int selectedSpellParam;
-	boolean noInterface = false;
+	boolean isNotDefault = false;//TODO new name
 	private short[] retextureModified;
 	private int[] modelIds;
 	static int anInt1334 = 100;
@@ -25,23 +25,32 @@ final class Identikit {
 			String string;
 			if (player.skill == 0) {
 				boolean markCombatDifference = true;
-				if (TileParticleQueue.selfPlayer.anInt3738 != -1 && player.anInt3738 != -1) {
+				if (TileParticleQueue.selfPlayer.combatRange != -1 && player.combatRange != -1) {
+					
+					//Self 120, enemy 110
+					//120 - highest combat level
+					//combat range 10
+					//10 * 120 = 1200 / 100 = 12 + 5 = 17 + 10 = 27
+					//combat diff - 10
+					//27 > 10
+					//Sho
+					
 					final int highestCombatLevel = player.combatLevel >= TileParticleQueue.selfPlayer.combatLevel ? player.combatLevel : TileParticleQueue.selfPlayer.combatLevel;
-					final int i_4_ = TileParticleQueue.selfPlayer.anInt3738 >= player.anInt3738 ? player.anInt3738 : TileParticleQueue.selfPlayer.anInt3738;
-					final int i_5_ = 10 * highestCombatLevel / 100 + 5 + i_4_;
+					final int highestCombatRange = TileParticleQueue.selfPlayer.combatRange >= player.combatRange ? player.combatRange : TileParticleQueue.selfPlayer.combatRange;
+					final int calc = 10 * highestCombatLevel / 100 + 5 + highestCombatRange;
 					int combatDelta = TileParticleQueue.selfPlayer.combatLevel - player.combatLevel;
 					if (combatDelta < 0) {
 						combatDelta = -combatDelta;
 					}
-					if (i_5_ < combatDelta) {
+					if (calc < combatDelta) {
 						markCombatDifference = false;
 					}
 				}
 				final String identifier = Buffer.gameId != 1 ? StringLibrary.level : StringLibrary.rating;
-				if (player.anInt3733 <= player.combatLevel) {
+				if (player.combatLevelWithSummoning <= player.combatLevel) {
 					string = player.getTitledName() + (markCombatDifference ? Class81.getCombatLevelDifferenceColor(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + ")";
 				} else {
-					string = player.getTitledName() + (markCombatDifference ? Class81.getCombatLevelDifferenceColor(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + "+" + (player.anInt3733 - player.combatLevel) + ")";
+					string = player.getTitledName() + (markCombatDifference ? Class81.getCombatLevelDifferenceColor(TileParticleQueue.selfPlayer.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + identifier + player.combatLevel + "+" + (player.combatLevelWithSummoning - player.combatLevel) + ")";
 				}
 			} else {
 				string = player.getTitledName() + " (" + StringLibrary.skill + player.skill + ")";
@@ -146,7 +155,7 @@ final class Identikit {
 			}
 		}
 		if (code == 3) {
-			this.noInterface = true;
+			this.isNotDefault = true;
 		}
 		if (code == 40) {
 			final int len = buffer.getUByte();
@@ -262,8 +271,8 @@ final class Identikit {
 						bool = true;
 					}
 					class120_sub18_27_.aBoolean2647 = false;
-					if (class120_sub18_27_.aClass120_Sub18_2644 != null) {
-						final GroundTile class120_sub18_40_ = class120_sub18_27_.aClass120_Sub18_2644;
+					if (class120_sub18_27_.bridgeTile != null) {
+						final GroundTile class120_sub18_40_ = class120_sub18_27_.bridgeTile;
 						if (HDToolkit.glEnabled) {
 							HDToolkit.method527(201.5F - 50.0F * (class120_sub18_40_.anInt2642 + 1));
 						}
@@ -780,8 +789,8 @@ final class Identikit {
 						}
 						ParticleEngine.method957();
 					} else {
-						final int xOff = ParticleEngine.anInt2364 + Rasterizer.anInt967;
-						final int yOff = ParticleEngine.anInt2358 + Rasterizer.anInt970;
+						final int xOff = ParticleEngine.anInt2364 + Rasterizer.centerX;
+						final int yOff = ParticleEngine.anInt2358 + Rasterizer.centerY;
 						final ParticleNodeSub class108_sub3 = class120_sub18_27_.tileParticle.head;
 						for (ParticleNodeSub class108_sub3_107_ = class108_sub3.nextSub; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.nextSub) {
 							final Particle class108_sub3_sub1 = (Particle) class108_sub3_107_;
@@ -973,9 +982,9 @@ final class Identikit {
 					if (jagexInterface.components != null) {
 						animateInterfaces(jagexInterface.components, jagexInterface.bitPacked);
 					}
-					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
-					if (class120_sub26 != null) {
-						AbstractGraphicsBuffer.animateInterface(class120_sub26.interfaceId);
+					final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
+					if (overridedInterface != null) {
+						AbstractGraphicsBuffer.animateInterface(overridedInterface.interfaceId);
 					}
 				}
 				if (jagexInterface.type == 6) {
@@ -1013,12 +1022,12 @@ final class Identikit {
 						}
 					}
 					if (jagexInterface.rotateSpeed != 0 && !jagexInterface.newFormat) {
-						int i_135_ = jagexInterface.rotateSpeed >> 16;
-						i_135_ *= Class120_Sub12_Sub22.redrawRate;
-						int i_136_ = jagexInterface.rotateSpeed << 16 >> 16;
-						jagexInterface.rotateX = i_135_ + jagexInterface.rotateX & 0x7ff;
-						i_136_ *= Class120_Sub12_Sub22.redrawRate;
-						jagexInterface.rotateY = i_136_ + jagexInterface.rotateY & 0x7ff;
+						int x = jagexInterface.rotateSpeed >> 16;
+						x *= Class120_Sub12_Sub22.redrawRate;
+						int y = jagexInterface.rotateSpeed << 16 >> 16;
+						jagexInterface.rotateX += x & 0x7ff;
+						y *= Class120_Sub12_Sub22.redrawRate;
+						jagexInterface.rotateY += y & 0x7ff;
 						InterfaceClickMask.redrawInterface(jagexInterface);
 					}
 				}

@@ -184,8 +184,8 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 			f_36_ = fs[i_23_][i_19_];
 			f_37_ = fs_24_[i_23_][i_19_];
 		}
-		final int i_45_ = (i_19_ << 7) - -i;
-		final int i_46_ = i_26_ + (i_23_ << 7);
+		final int i_45_ = (i_19_ << 7) + i;
+		final int i_46_ = (i_23_ << 7) + i_26_;
 		final int i_47_ = Class11.method130(i_26_, i_23_, i, is, i_19_);
 		return class120_sub9.method1166(i_46_, i_47_, i_45_, f_36_, f_35_, f_37_, !bool ? i_34_ : ~0xff & i_34_, is_21_ == null ? 0.0F : (-Class11.method130(i_26_, i_23_, i, is_21_, i_19_) + i_47_) / f);
 	}

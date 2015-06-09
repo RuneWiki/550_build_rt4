@@ -32,28 +32,28 @@ final class InterfaceChangeNode extends NodeSub {
 
 	static final void build3dScreenMenu(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int mouseX, final int mouseY) {
 		if (Light.objSelected == 0) {
-			final int i_8_ = IntegerNode.anInt2792;
-			final int i_9_ = Class120_Sub12_Sub16.anInt3253;
-			final int i_10_ = Class190.anInt2100;
-			final int i_12_ = Class120_Sub30_Sub1.anInt3672;
-			final int i_11_ = i_8_ + (i_9_ - i_8_) * (mouseX - interfaceX) / interfaceWidth;
-			final int i_13_ = i_10_ + (i_12_ - i_10_) * (mouseY - interfaceY) / interfaceHeight;
+			final int left = IntegerNode.viewportLeft;
+			final int right = Class120_Sub12_Sub16.viewportRight;
+			final int top = Class190.viewportTop;
+			final int bottom = Class120_Sub30_Sub1.viewportBottom;
+			final int mouseOffFromCenterX = left + (right - left) * (mouseX - interfaceX) / interfaceWidth;
+			final int mouseOffFromCenterY = top + (bottom - top) * (mouseY - interfaceY) / interfaceHeight;
 			if (Class88.spellSelected && (GroundTile.selectedSpellUseMask & 0x40) != 0) {
 				final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
 				if (jagexInterface == null) {
 					Node.deselectSpell();
 				} else {
-					InvType.addMenuOption(Class101.selectedSpellPrefix, " ->", 0L, i_11_, i_13_, (short) 19, Class150.selectedSpellTargetCursor);
+					InvType.addMenuOption(Class101.selectedSpellPrefix, " ->", 0L, mouseOffFromCenterX, mouseOffFromCenterY, (short) 19, Class150.selectedSpellTargetCursor);
 				}
 			} else {
 				if (Buffer.gameId == 1) {
-					InvType.addMenuOption(StringLibrary.faceHere, "", 0L, i_11_, i_13_, (short) 47, -1);
+					InvType.addMenuOption(StringLibrary.faceHere, "", 0L, mouseOffFromCenterX, mouseOffFromCenterY, (short) 47, -1);
 				}
-				InvType.addMenuOption(StringLibrary.walkText, "", 0L, i_11_, i_13_, (short) 26, -1);
+				InvType.addMenuOption(StringLibrary.walkText, "", 0L, mouseOffFromCenterX, mouseOffFromCenterY, (short) 26, -1);
 			}
 		}
 		long oldBitPacked = -1L;
-		for (int action = 0; action < WallDecoration.actionsLen; action++) {
+		for (int action = 0; action < AbstractModelRenderer.actionsLen; action++) {
 			final long bitPacked = Class120_Sub12_Sub21.actions[action];
 			final int x = (int) bitPacked & 0x7f;
 			final int z = (int) bitPacked >> 7 & 0x7f;

@@ -271,16 +271,16 @@ abstract class AbstractRequest extends NodeSub {
 		return indexedSprites;
 	}
 
-	static final void method1542(final boolean bool) {
+	static final void method1542(final boolean underwater) {
 		int[] is = null;
 		int i;
 		byte[][] is_69_;
-		if (HDToolkit.glEnabled && bool) {
+		if (HDToolkit.glEnabled && underwater) {
 			i = 1;
-			is_69_ = Class120_Sub12_Sub36.underWaterMapFileBuffers;
+			is_69_ = Class120_Sub12_Sub36.underWaterMapFilesBuffer;
 		} else {
 			i = 4;
-			is_69_ = RuntimeException_Sub1.mapFileBuffers;
+			is_69_ = RuntimeException_Sub1.mapFilesBuffer;
 		}
 		for (int i_70_ = 0; i_70_ < i; i_70_++) {
 			Class120_Sub2.method1050();
@@ -288,9 +288,9 @@ abstract class AbstractRequest extends NodeSub {
 				for (int i_72_ = 0; i_72_ < 13; i_72_++) {
 					boolean bool_73_ = false;
 					final int i_74_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_70_][i_71_][i_72_];
-					if ((i_74_ ^ 0xffffffff) != 0) {
+					if (i_74_ != -1) {
 						final int i_75_ = i_74_ >> 24 & 0x3;
-						if (!bool || i_75_ == 0) {
+						if (!underwater || i_75_ == 0) {
 							final int i_76_ = (0x6 & i_74_) >> 1;
 							final int i_77_ = (0xffdef6 & i_74_) >> 14;
 							final int i_78_ = (0x3fff & i_74_) >> 3;
@@ -298,7 +298,7 @@ abstract class AbstractRequest extends NodeSub {
 							for (int i_80_ = 0; Class120_Sub12_Sub36.regionBitPackeds.length > i_80_; i_80_++) {
 								if (Class120_Sub12_Sub36.regionBitPackeds[i_80_] == i_79_ && is_69_[i_80_] != null) {
 									bool_73_ = true;
-									final int[] is_81_ = method1538(i_75_, WallLocation.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, i_70_, bool, i_78_);
+									final int[] is_81_ = method1538(i_75_, WallLocation.collisionMaps, is_69_[i_80_], i_71_ * 8, i_77_, 8 * i_72_, i_76_, i_70_, underwater, i_78_);
 									if (is == null && is_81_ != null) {
 										is = is_81_;
 									}

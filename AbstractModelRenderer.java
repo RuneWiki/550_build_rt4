@@ -4,6 +4,10 @@
 
 abstract class AbstractModelRenderer extends SceneGraphNode {
 	boolean haveActions = false;
+	static int actionsLen;
+	static boolean addActions;
+	static int mouseOffFromCenterX = 0;
+	static int mouseOffFromCenterY = 0;
 
 	abstract void rotateY(int i);
 

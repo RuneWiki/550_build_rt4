@@ -75,16 +75,16 @@ abstract class Class120_Sub2 extends Node {
 		if (i_21_ > i_18_ && i_25_ > i_18_) {
 			return false;
 		}
-		if (i_23_ < IntegerNode.anInt2792 && i_27_ < IntegerNode.anInt2792) {
+		if (i_23_ < IntegerNode.viewportLeft && i_27_ < IntegerNode.viewportLeft) {
 			return false;
 		}
-		if (i_23_ > Class120_Sub12_Sub16.anInt3253 && i_27_ > Class120_Sub12_Sub16.anInt3253) {
+		if (i_23_ > Class120_Sub12_Sub16.viewportRight && i_27_ > Class120_Sub12_Sub16.viewportRight) {
 			return false;
 		}
-		if (i_24_ < Class190.anInt2100 && i_28_ < Class190.anInt2100) {
+		if (i_24_ < Class190.viewportTop && i_28_ < Class190.viewportTop) {
 			return false;
 		}
-		if (i_24_ > Class120_Sub30_Sub1.anInt3672 && i_28_ > Class120_Sub30_Sub1.anInt3672) {
+		if (i_24_ > Class120_Sub30_Sub1.viewportBottom && i_28_ > Class120_Sub30_Sub1.viewportBottom) {
 			return false;
 		}
 		return true;

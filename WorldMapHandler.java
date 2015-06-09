@@ -544,10 +544,10 @@ class WorldMapHandler {
 					color = Rasterizer.palette[Class96.method789(overlayType.anInt1198, 96)];
 				} else if (textureId >= 0) {
 					color = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.method20(textureId), 96)];
-				} else if (overlayType.anInt1197 == -1) {
+				} else if (overlayType.color == -1) {
 					color = -1;
 				} else {
-					color = Rasterizer.palette[Class96.method789(overlayType.anInt1197, 96)];
+					color = Rasterizer.palette[Class96.method789(overlayType.color, 96)];
 				}
 				overlayColors[id + 1] = color;
 			}

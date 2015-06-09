@@ -147,14 +147,14 @@ final class HDModelRenderer extends AbstractModelRenderer {
 				if (i_22_ < 3584) {
 					final int i_23_ = i_14_ * i_10_ + i_12_ * i_11_ >> 16;
 					final int i_24_ = i_23_ + i_16_ << 9;
-					if (i_24_ / i_21_ > IntegerNode.anInt2792) {
+					if (i_24_ / i_21_ > IntegerNode.viewportLeft) {
 						final int i_25_ = i_23_ - i_16_ << 9;
-						if (i_25_ / i_21_ < Class120_Sub12_Sub16.anInt3253) {
+						if (i_25_ / i_21_ < Class120_Sub12_Sub16.viewportRight) {
 							final int i_26_ = i_13_ * i_9_ - i_19_ * i_8_ >> 16;
 							final int i_27_ = i_26_ + (i_16_ * i_8_ + i_18_ * i_9_ >> 16) << 9;
-							if (i_27_ / i_21_ > Class190.anInt2100) {
+							if (i_27_ / i_21_ > Class190.viewportTop) {
 								final int i_28_ = i_26_ + (-i_16_ * i_8_ + i_17_ * i_9_ >> 16) << 9;
-								if (i_28_ / i_21_ < Class120_Sub30_Sub1.anInt3672) {
+								if (i_28_ / i_21_ < Class120_Sub30_Sub1.viewportBottom) {
 									int i_29_ = 0;
 									int i_30_ = 0;
 									if (i != 0) {
@@ -162,7 +162,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 										i_30_ = Rasterizer.cosTable[i];
 									}
 									while_99_: do {
-										if (l > 0L && Class5.aBoolean2158 && i_22_ > 0) {
+										if (l > 0L && AbstractModelRenderer.addActions && i_22_ > 0) {
 											int i_31_;
 											int i_32_;
 											if (i_23_ > 0) {
@@ -181,7 +181,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 												i_33_ = i_28_ / i_22_;
 												i_34_ = i_27_ / i_21_;
 											}
-											if (Class173.anInt1728 >= i_31_ && Class173.anInt1728 <= i_32_ && Class2.anInt49 >= i_33_ && Class2.anInt49 <= i_34_) {
+											if (AbstractModelRenderer.mouseOffFromCenterX >= i_31_ && AbstractModelRenderer.mouseOffFromCenterX <= i_32_ && AbstractModelRenderer.mouseOffFromCenterY >= i_33_ && AbstractModelRenderer.mouseOffFromCenterY <= i_34_) {
 												i_31_ = 999999;
 												i_32_ = -999999;
 												i_33_ = 999999;
@@ -228,9 +228,9 @@ final class HDModelRenderer extends AbstractModelRenderer {
 														}
 													}
 												}
-												if (Class173.anInt1728 >= i_31_ && Class173.anInt1728 <= i_32_ && Class2.anInt49 >= i_33_ && Class2.anInt49 <= i_34_) {
+												if (AbstractModelRenderer.mouseOffFromCenterX >= i_31_ && AbstractModelRenderer.mouseOffFromCenterX <= i_32_ && AbstractModelRenderer.mouseOffFromCenterY >= i_33_ && AbstractModelRenderer.mouseOffFromCenterY <= i_34_) {
 													if (this.haveActions) {
-														Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
+														Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 													} else {
 														if (anIntArray3905.length < anInt3890) {
 															anIntArray3905 = new int[anInt3890];
@@ -274,8 +274,8 @@ final class HDModelRenderer extends AbstractModelRenderer {
 															final short i_62_ = aShortArray3866[i_61_];
 															final short i_63_ = aShortArray3877[i_61_];
 															final short i_64_ = aShortArray3879[i_61_];
-															if (method2428(Class173.anInt1728, Class2.anInt49, anIntArray3901[i_62_], anIntArray3901[i_63_], anIntArray3901[i_64_], anIntArray3905[i_62_], anIntArray3905[i_63_], anIntArray3905[i_64_])) {
-																Class120_Sub12_Sub21.actions[WallDecoration.actionsLen++] = l;
+															if (method2428(AbstractModelRenderer.mouseOffFromCenterX, AbstractModelRenderer.mouseOffFromCenterY, anIntArray3901[i_62_], anIntArray3901[i_63_], anIntArray3901[i_64_], anIntArray3905[i_62_], anIntArray3905[i_63_], anIntArray3905[i_64_])) {
+																Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 																break;
 															}
 														}
@@ -1486,33 +1486,33 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			}
 			VertexBuffer class104 = null;
 			if (this.aClass49_3847.aClass104_445 != null) {
-				this.aClass49_3847.aClass104_445.bindArrayBuffer();
+				this.aClass49_3847.aClass104_445.bindAsArrayBuffer();
 				class104 = this.aClass49_3847.aClass104_445;
 				gl.glVertexPointer(3, 5126, this.aClass49_3847.anInt444, this.aClass49_3847.anInt442);
 			}
 			if (aClass49_3869.aClass104_445 != null) {
 				if (class104 != aClass49_3869.aClass104_445) {
-					aClass49_3869.aClass104_445.bindArrayBuffer();
+					aClass49_3869.aClass104_445.bindAsArrayBuffer();
 					class104 = aClass49_3869.aClass104_445;
 				}
 				gl.glColorPointer(4, 5121, aClass49_3869.anInt444, aClass49_3869.anInt442);
 			}
 			if (Class120_Sub12_Sub6.highLightingDetail && aClass49_3848.aClass104_445 != null) {
 				if (class104 != aClass49_3848.aClass104_445) {
-					aClass49_3848.aClass104_445.bindArrayBuffer();
+					aClass49_3848.aClass104_445.bindAsArrayBuffer();
 					class104 = aClass49_3848.aClass104_445;
 				}
 				gl.glNormalPointer(5126, aClass49_3848.anInt444, aClass49_3848.anInt442);
 			}
 			if (aClass49_3854.aClass104_445 != null) {
 				if (class104 != aClass49_3854.aClass104_445) {
-					aClass49_3854.aClass104_445.bindArrayBuffer();
+					aClass49_3854.aClass104_445.bindAsArrayBuffer();
 					class104 = aClass49_3854.aClass104_445;
 				}
 				gl.glTexCoordPointer(2, 5126, aClass49_3854.anInt444, aClass49_3854.anInt442);
 			}
 			if (aClass49_3863.aClass104_445 != null) {
-				aClass49_3863.aClass104_445.bindElementArrayBuffer();
+				aClass49_3863.aClass104_445.bindAsElementArrayBuffer();
 			}
 			if (this.aClass49_3847.aClass104_445 == null || aClass49_3869.aClass104_445 == null || Class120_Sub12_Sub6.highLightingDetail && aClass49_3848.aClass104_445 == null || aClass49_3854.aClass104_445 == null) {
 				if (HDToolkit.vertexBufferAsObject) {

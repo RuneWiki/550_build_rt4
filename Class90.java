@@ -9,7 +9,7 @@ final class Class90 {
 	static ObjectCache playerHeadModelsCache = new ObjectCache(5);
 	private final js5 aClass50_841;
 	private final Hashtable aClass75_842 = new Hashtable(256);
-	static Calendar aCalendar844;
+	static Calendar gmtCalendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 	static boolean aBoolean845 = false;
 	static boolean aBoolean846;
 	static int worldMapInterfaceDrawY;
@@ -19,7 +19,6 @@ final class Class90 {
 	private final Hashtable aClass75_851 = new Hashtable(256);
 
 	static {
-		aCalendar844 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 		worldMapInterfaceDrawY = -1;
 		laodingStage = 0;
 	}

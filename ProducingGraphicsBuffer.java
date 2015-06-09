@@ -12,7 +12,7 @@ import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
 final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements ImageProducer, ImageObserver {
-	static int[] anIntArray2796;
+	static int[] npcSpawnsFileIds;
 	private ColorModel colorModel;
 	static int currentLightZ;
 	static int friendCount = 0;
@@ -188,8 +188,8 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 2) {
 								if (class29.anInt194 != -1) {
 									gameEntity.idleAnimId = class29.anInt194;
-								} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
-									gameEntity.idleAnimId = class29.anInt190;
+								} else if ((class29.runAnimationId ^ 0xffffffff) != 0) {
+									gameEntity.idleAnimId = class29.runAnimationId;
 								}
 							} else if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 0) {
 								if ((class29.anInt203 ^ 0xffffffff) == 0) {
@@ -214,8 +214,8 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 						if (gameEntity.walkQueuePos > 0) {
 							if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 2) {
 								if ((class29.anInt211 ^ 0xffffffff) == 0) {
-									if (class29.anInt190 != -1) {
-										gameEntity.idleAnimId = class29.anInt190;
+									if (class29.runAnimationId != -1) {
+										gameEntity.idleAnimId = class29.runAnimationId;
 									}
 								} else {
 									gameEntity.idleAnimId = class29.anInt211;
@@ -256,8 +256,8 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 								if (gameEntity.walkQueueType[-1 + gameEntity.walkQueuePos] == 2) {
 									if ((class29.anInt211 ^ 0xffffffff) != 0) {
 										gameEntity.idleAnimId = class29.anInt211;
-									} else if (class29.anInt190 != -1) {
-										gameEntity.idleAnimId = class29.anInt190;
+									} else if (class29.runAnimationId != -1) {
+										gameEntity.idleAnimId = class29.runAnimationId;
 									}
 								} else if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] != 0) {
 									if ((class29.anInt222 ^ 0xffffffff) != 0) {
@@ -290,8 +290,8 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							} else if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] == 2) {
 								if ((class29.anInt194 ^ 0xffffffff) != 0) {
 									gameEntity.idleAnimId = class29.anInt194;
-								} else if ((class29.anInt190 ^ 0xffffffff) != 0) {
-									gameEntity.idleAnimId = class29.anInt190;
+								} else if ((class29.runAnimationId ^ 0xffffffff) != 0) {
+									gameEntity.idleAnimId = class29.runAnimationId;
 								}
 							} else if (gameEntity.walkQueueType[gameEntity.walkQueuePos - 1] != 0) {
 								if (class29.anInt202 != -1) {

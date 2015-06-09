@@ -9,7 +9,7 @@ final class MapFunctionNode extends NodeSub {
 	int level;
 	int worldMapY;
 	boolean aBoolean3476 = false;
-	static byte[][][] aByteArrayArrayArray3477;
+	static byte[][][] tileOverlayShapes;
 	int worldMapX;
 	static int anInt3479 = 0;
 	int x;

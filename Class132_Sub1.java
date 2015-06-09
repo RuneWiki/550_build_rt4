@@ -17,7 +17,7 @@ class Class132_Sub1 extends Class132 {
 	static int[] spritePalette;
 	static js5 framesJs5;
 	private final int anInt2815;
-	static int anInt2816 = 0;
+	static int worldListDataOff = 0;
 	private int anInt2817;
 
 	static {

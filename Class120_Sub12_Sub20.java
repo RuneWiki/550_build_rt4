@@ -253,21 +253,21 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				AbstractRequest.pushMessage("Failed to enable hdr", null, 0);
 			}
 			if (command.equalsIgnoreCase("::tween")) {
-				if (Class164.forceTween) {
-					Class164.forceTween = false;
+				if (Class164.forceTweenEnabled) {
+					Class164.forceTweenEnabled = false;
 					AbstractRequest.pushMessage("Forced tweening disabled.", null, 0);
 				} else {
-					Class164.forceTween = true;
+					Class164.forceTweenEnabled = true;
 					AbstractRequest.pushMessage("Forced tweening ENABLED!", null, 0);
 				}
 			}
 			if (command.equalsIgnoreCase("::shiftclick")) {
-				if (SpotAnimationNode.aBoolean3470) {
+				if (SpotAnimationNode.shiftClickEnabled) {
 					System.out.println("Shift-click disabled.");
-					SpotAnimationNode.aBoolean3470 = false;
+					SpotAnimationNode.shiftClickEnabled = false;
 				} else {
 					System.out.println("Shift-click ENABLED!");
-					SpotAnimationNode.aBoolean3470 = true;
+					SpotAnimationNode.shiftClickEnabled = true;
 				}
 			}
 			if (command.equalsIgnoreCase("::getcgcoord")) {

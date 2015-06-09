@@ -4,9 +4,9 @@
 
 final class EntityRenderData {
 	int turnAnimation1;
-	int anInt188 = -1;
+	int runAnimationId2 = -1;
 	int anInt189;
-	int anInt190;
+	int runAnimationId;
 	int anInt191;
 	int anInt192;
 	int anInt193;
@@ -30,13 +30,13 @@ final class EntityRenderData {
 	int turnAnimation3;
 	int anInt214;
 	int[][] modelRotateTranslate;
-	int anInt216;
+	int runAnimationId4;
 	int idleAnimationId;
 	int anInt219;
 	int anInt220;
 	int anInt221;
 	int anInt222;
-	int anInt223;
+	int runAnimationId3;
 	static js5 aClass50_18;
 	static ObjectCache recentUse;
 
@@ -105,13 +105,13 @@ final class EntityRenderData {
 		} else if (code == 5) {
 			this.anInt219 = buffer.getUShort();
 		} else if (code == 6) {
-			this.anInt190 = buffer.getUShort();
+			this.runAnimationId = buffer.getUShort();
 		} else if (code == 7) {
-			this.anInt188 = buffer.getUShort();
+			this.runAnimationId2 = buffer.getUShort();
 		} else if (code == 8) {
-			this.anInt223 = buffer.getUShort();
+			this.runAnimationId3 = buffer.getUShort();
 		} else if (code == 9) {
-			this.anInt216 = buffer.getUShort();
+			this.runAnimationId4 = buffer.getUShort();
 		} else if (code != 26) {
 			if (code == 27) {
 				if (this.modelRotateTranslate == null) {
@@ -249,16 +249,16 @@ final class EntityRenderData {
 		this.anInt208 = 0;
 		this.anInt192 = -1;
 		this.turnAnimation2 = -1;
-		this.anInt216 = -1;
+		this.runAnimationId4 = -1;
 		this.anInt219 = -1;
 		this.idleAnimationId = -1;
 		this.anInt222 = -1;
 		this.anInt191 = -1;
 		this.anInt193 = -1;
-		this.anInt190 = -1;
+		this.runAnimationId = -1;
 		this.anInt214 = 0;
 		this.anInt220 = 0;
-		this.anInt223 = -1;
+		this.runAnimationId3 = -1;
 		this.anInt221 = 0;
 	}
 }

@@ -43,10 +43,10 @@ abstract class AbstractGraphicsBuffer {
 	}
 
 	static final HDTile method1840(final Hashtable hashtable, final OverlayType class124) {
-		final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.anInt1202 + (1 + class124.textureId << 16);
+		final long l = ((long) class124.anInt1194 << 56) - -((long) class124.anInt1200 << 32) + class124.textureSize + (1 + class124.textureId << 16);
 		HDTile class120_sub9_0_ = (HDTile) hashtable.get(l);
 		if (class120_sub9_0_ == null) {
-			class120_sub9_0_ = new HDTile(class124.textureId, class124.anInt1202, true, false, class124.anInt1200);
+			class120_sub9_0_ = new HDTile(class124.textureId, class124.textureSize, true, false, class124.anInt1200);
 			hashtable.put(class120_sub9_0_, l);
 		}
 		return class120_sub9_0_;

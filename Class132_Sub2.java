@@ -34,35 +34,6 @@ class Class132_Sub2 extends Class132 {
 		aByteArray2820[anInt2819++] = (byte) (127 + Class120_Sub12_Sub3.method1207(i_2_ >> 1, 127));
 	}
 
-	static final void method1939(final long[] ls, final int i_3_, final int i_4_, final Object[] objects) {
-		if (i_4_ < i_3_) {
-			final int i_5_ = (i_3_ + i_4_) / 2;
-			int i_6_ = i_4_;
-			final long l = ls[i_5_];
-			ls[i_5_] = ls[i_3_];
-			ls[i_3_] = l;
-			final Object object = objects[i_5_];
-			objects[i_5_] = objects[i_3_];
-			objects[i_3_] = object;
-			for (int i_7_ = i_4_; i_3_ > i_7_; i_7_++) {
-				if ((ls[i_7_] ^ 0xffffffffffffffffL) > ((0x1 & i_7_) + l ^ 0xffffffffffffffffL)) {
-					final long l_8_ = ls[i_7_];
-					ls[i_7_] = ls[i_6_];
-					ls[i_6_] = l_8_;
-					final Object object_9_ = objects[i_7_];
-					objects[i_7_] = objects[i_6_];
-					objects[i_6_++] = object_9_;
-				}
-			}
-			ls[i_3_] = ls[i_6_];
-			ls[i_6_] = l;
-			objects[i_3_] = objects[i_6_];
-			objects[i_6_] = object;
-			method1939(ls, i_6_ - 1, i_4_, objects);
-			method1939(ls, i_3_, i_6_ + 1, objects);
-		}
-	}
-
 	@Override
 	final void method1925() {
 		anInt2819 = 0;
@@ -115,23 +86,23 @@ class Class132_Sub2 extends Class132 {
 					i_23_ = i_27_ * i_10_ + i_23_ * i_11_ >> 16;
 					i_27_ = i_28_;
 					if (i_23_ >= 50) {
-						final int i_29_ = Rasterizer.anInt967 + (i_16_ << 9) / i_18_;
-						final int i_30_ = Rasterizer.anInt970 + (i_24_ << 9) / i_18_;
-						final int i_31_ = Rasterizer.anInt967 + (i_20_ << 9) / i_19_;
-						final int i_32_ = Rasterizer.anInt970 + (i_25_ << 9) / i_19_;
-						final int i_33_ = Rasterizer.anInt967 + (i_21_ << 9) / i_22_;
-						final int i_34_ = Rasterizer.anInt970 + (i_26_ << 9) / i_22_;
-						final int i_35_ = Rasterizer.anInt967 + (i_17_ << 9) / i_23_;
-						final int i_36_ = Rasterizer.anInt970 + (i_27_ << 9) / i_23_;
+						final int i_29_ = Rasterizer.centerX + (i_16_ << 9) / i_18_;
+						final int i_30_ = Rasterizer.centerY + (i_24_ << 9) / i_18_;
+						final int i_31_ = Rasterizer.centerX + (i_20_ << 9) / i_19_;
+						final int i_32_ = Rasterizer.centerY + (i_25_ << 9) / i_19_;
+						final int i_33_ = Rasterizer.centerX + (i_21_ << 9) / i_22_;
+						final int i_34_ = Rasterizer.centerY + (i_26_ << 9) / i_22_;
+						final int i_35_ = Rasterizer.centerX + (i_17_ << 9) / i_23_;
+						final int i_36_ = Rasterizer.centerY + (i_27_ << 9) / i_23_;
 						Rasterizer.alpha = 0;
 						if ((i_33_ - i_35_) * (i_32_ - i_36_) - (i_34_ - i_36_) * (i_31_ - i_35_) > 0) {
-							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
+							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.centerX, Class187.anInt1908 + Rasterizer.centerY, i_34_, i_36_, i_32_, i_33_, i_35_, i_31_)) {
 								ObjectCache.anInt122 = i_14_;
 								WaterfallShader.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {
 								Rasterizer.aBoolean972 = false;
-								if (i_33_ < 0 || i_35_ < 0 || i_31_ < 0 || i_33_ > Rasterizer.anInt983 || i_35_ > Rasterizer.anInt983 || i_31_ > Rasterizer.anInt983) {
+								if (i_33_ < 0 || i_35_ < 0 || i_31_ < 0 || i_33_ > Rasterizer.endX || i_35_ > Rasterizer.endX || i_31_ > Rasterizer.endX) {
 									Rasterizer.aBoolean972 = true;
 								}
 								if (plainTile.anInt1348 == -1) {
@@ -151,13 +122,13 @@ class Class132_Sub2 extends Class132 {
 							}
 						}
 						if ((i_29_ - i_31_) * (i_36_ - i_32_) - (i_30_ - i_32_) * (i_35_ - i_31_) > 0) {
-							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.anInt967, Class187.anInt1908 + Rasterizer.anInt970, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
+							if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.centerX, Class187.anInt1908 + Rasterizer.centerY, i_30_, i_32_, i_36_, i_29_, i_31_, i_35_)) {
 								ObjectCache.anInt122 = i_14_;
 								WaterfallShader.anInt2174 = i_15_;
 							}
 							if (!HDToolkit.glEnabled && !bool) {
 								Rasterizer.aBoolean972 = false;
-								if (i_29_ < 0 || i_31_ < 0 || i_35_ < 0 || i_29_ > Rasterizer.anInt983 || i_31_ > Rasterizer.anInt983 || i_35_ > Rasterizer.anInt983) {
+								if (i_29_ < 0 || i_31_ < 0 || i_35_ < 0 || i_29_ > Rasterizer.endX || i_31_ > Rasterizer.endX || i_35_ > Rasterizer.endX) {
 									Rasterizer.aBoolean972 = true;
 								}
 								if (plainTile.anInt1348 == -1) {

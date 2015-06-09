@@ -3,18 +3,17 @@
  */
 
 final class Class2 {
-	static int anInt49 = 0;
 	static js5 aClass50_50;
 	static int[] anIntArray51 = { 1, 1, 0, 0, 0, 8, 0, 0, 8 };
 	static int[] permanentVariable = new int[2500];
 
 	static final void method76(final int baseX, final int baseZ, final int level, final int playerX, final int playerZ, final boolean loginScreen, final boolean bool_1_) {
-		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || SpotAnimationNode.anInt3469 != level && !Class143_Sub1.method2021()) {
+		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || SpotAnimationNode.visibleLevel != level && !Class143_Sub1.allLevelsAreVisible()) {
 			Class116.anInt1118 = baseX;
 			Class3.anInt53 = baseZ;
-			SpotAnimationNode.anInt3469 = level;
-			if (Class143_Sub1.method2021()) {
-				SpotAnimationNode.anInt3469 = 0;
+			SpotAnimationNode.visibleLevel = level;
+			if (Class143_Sub1.allLevelsAreVisible()) {
+				SpotAnimationNode.visibleLevel = 0;
 			}
 			if (loginScreen) {
 				ProjectileNode.setGameState(28);

@@ -12,8 +12,8 @@ final class Class10 {
 				Class114.tileSettings[level][x][z] = (byte) 0;
 			}
 			for (;;) {
-				final int i_9_ = buffer.getUByte();
-				if (i_9_ == 0) {
+				final int opcode = buffer.getUByte();
+				if (opcode == 0) {
 					if (bool_1_) {
 						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.surfaceTileHeightMap[0][x + xOff][z + zOff];
 					} else if (level != 0) {
@@ -23,7 +23,7 @@ final class Class10 {
 					}
 					break;
 				}
-				if (i_9_ == 1) {
+				if (opcode == 1) {
 					int i_10_ = buffer.getUByte();
 					if (!bool_1_) {
 						if (i_10_ == 1) {
@@ -39,20 +39,20 @@ final class Class10 {
 					}
 					break;
 				}
-				if (i_9_ <= 49) {
+				if (opcode <= 49) {
 					if (bool_0_) {
 						buffer.getUByte();
 					} else {
 						Class99.tileOverlayIds[level][x][z] = buffer.getByte();
-						MapFunctionNode.aByteArrayArrayArray3477[level][x][z] = (byte) ((i_9_ - 2) / 4);
-						Class8.aByteArrayArrayArray65[level][x][z] = (byte) Class120_Sub12_Sub3.method1207(3, i_5_ + -2 + i_9_);
+						MapFunctionNode.tileOverlayShapes[level][x][z] = (byte) ((opcode - 2) / 4);
+						Class8.tileOverlayRotations[level][x][z] = (byte) ((opcode + (i_5_ - 2)) & 0x3);
 					}
-				} else if (i_9_ <= 81) {
+				} else if (opcode <= 81) {
 					if (!bool_1_ && !bool_0_) {
-						Class114.tileSettings[level][x][z] = (byte) (i_9_ - 49);
+						Class114.tileSettings[level][x][z] = (byte) (opcode - 49);
 					}
 				} else if (!bool_0_) {
-					Class120_Sub4.tileUnderlayIds[level][x][z] = (byte) (i_9_ - 81);
+					Class120_Sub4.tileUnderlayIds[level][x][z] = (byte) (opcode - 81);
 				}
 			}
 		} else {

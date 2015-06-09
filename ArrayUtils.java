@@ -410,4 +410,37 @@ final class ArrayUtils {
 	static final void quicksortArray(final int[] is, final long[] ls) {
 		quicksortArray(ls.length - 1, ls, 0, is);
 	}
+
+	static final void quicksortArray(final long[] ls, final int i_3_, final int i_4_, final Object[] objects) {
+		if (i_4_ < i_3_) {
+			final int i_5_ = (i_3_ + i_4_) / 2;
+			int i_6_ = i_4_;
+			final long l = ls[i_5_];
+			ls[i_5_] = ls[i_3_];
+			ls[i_3_] = l;
+			final Object object = objects[i_5_];
+			objects[i_5_] = objects[i_3_];
+			objects[i_3_] = object;
+			for (int i_7_ = i_4_; i_3_ > i_7_; i_7_++) {
+				if ((ls[i_7_] ^ 0xffffffffffffffffL) > ((0x1 & i_7_) + l ^ 0xffffffffffffffffL)) {
+					final long l_8_ = ls[i_7_];
+					ls[i_7_] = ls[i_6_];
+					ls[i_6_] = l_8_;
+					final Object object_9_ = objects[i_7_];
+					objects[i_7_] = objects[i_6_];
+					objects[i_6_++] = object_9_;
+				}
+			}
+			ls[i_3_] = ls[i_6_];
+			ls[i_6_] = l;
+			objects[i_3_] = objects[i_6_];
+			objects[i_6_] = object;
+			quicksortArray(ls, i_6_ - 1, i_4_, objects);
+			quicksortArray(ls, i_3_, i_6_ + 1, objects);
+		}
+	}
+
+	static final void quicksortArray(final Object[] objects, final long[] ls) {
+		quicksortArray(ls, ls.length - 1, 0, objects);
+	}
 }

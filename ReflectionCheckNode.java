@@ -12,7 +12,7 @@ final class ReflectionCheckNode extends Node {
 	int[] checkTypes;
 	int uid;
 	static int leftMargin;
-	static String[] aStringArray2759 = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	static String[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 	SignlinkNode[] methodsInformationNode;
 	static int[] anIntArray2761;
 	static int anInt2762;

@@ -38,7 +38,7 @@ final class SeqType {
 		}
 		FrameGroup class120_sub14_sub18_5_ = null;
 		i_1_ &= 0x3;
-		if ((this.tween || Class164.forceTween) && i != -1 && this.frames.length > i) {
+		if ((this.tween || Class164.forceTweenEnabled) && i != -1 && this.frames.length > i) {
 			i = this.frames[i];
 			class120_sub14_sub18_5_ = FrameGroup.list(i >> 16);
 			i &= 0xffff;
@@ -122,7 +122,7 @@ final class SeqType {
 			return class180_sub7.method2376(true, true, true);
 		}
 		FrameGroup class120_sub14_sub18_15_ = null;
-		if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < this.frames.length) {
+		if ((this.tween || Class164.forceTweenEnabled) && i_10_ != -1 && i_10_ < this.frames.length) {
 			i_10_ = this.frames[i_10_];
 			class120_sub14_sub18_15_ = FrameGroup.list(i_10_ >> 16);
 			i_10_ &= 0xffff;
@@ -139,7 +139,7 @@ final class SeqType {
 					i_18_ &= 0xffff;
 				}
 			}
-			if ((this.tween || Class164.forceTween) && i_10_ != -1 && i_10_ < interfaceFrames.length) {
+			if ((this.tween || Class164.forceTweenEnabled) && i_10_ != -1 && i_10_ < interfaceFrames.length) {
 				i_17_ = interfaceFrames[i_10_];
 				if (i_17_ != 65535) {
 					class120_sub14_sub18_19_ = FrameGroup.list(i_17_ >> 16);
@@ -178,7 +178,7 @@ final class SeqType {
 			return class180_sub7.method2381(true, true, true);
 		}
 		FrameGroup class120_sub14_sub18_28_ = null;
-		if ((this.tween || Class164.forceTween) && nextFrameId != -1 && nextFrameId < this.frames.length) {
+		if ((this.tween || Class164.forceTweenEnabled) && nextFrameId != -1 && nextFrameId < this.frames.length) {
 			nextFrameId = this.frames[nextFrameId];
 			class120_sub14_sub18_28_ = FrameGroup.list(nextFrameId >> 16);
 			nextFrameId &= 0xffff;
@@ -280,7 +280,7 @@ final class SeqType {
 		}
 		i_51_ &= 0x3;
 		FrameGroup class120_sub14_sub18_54_ = null;
-		if ((this.tween || Class164.forceTween) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
+		if ((this.tween || Class164.forceTweenEnabled) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
 			i = this.frames[i];
 			class120_sub14_sub18_54_ = FrameGroup.list(i >> 16);
 			i &= 0xffff;

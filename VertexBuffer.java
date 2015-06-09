@@ -58,12 +58,12 @@ final class VertexBuffer {
 		this(false);
 	}
 
-	final void bindElementArrayBuffer() {
+	final void bindAsElementArrayBuffer() {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34963, bufferId);//ELEMENT_ARRAY_BUFFER
 	}
 
-	final void bindArrayBuffer() {
+	final void bindAsArrayBuffer() {
 		final GL gl = HDToolkit.gl;
 		gl.glBindBufferARB(34962, bufferId);//ARRAY_BUFFER
 	}

@@ -9,12 +9,12 @@ final class ModelParticleEmitter {
 	static int worldPort;
 	EmitterType emitterType;
 	static int mapSceneRedColorModifier;
-	static long aLong1482;
+	static long worldListLoadedTime;
 	int anInt1484;
 	int anInt1485;
 
 	static {
-		aLong1482 = 0L;
+		worldListLoadedTime = 0L;
 	}
 
 	static final void method2090(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {

@@ -26,7 +26,7 @@ final class SubScript {
 			string_4_ = StringLibrary.use + StringLibrary.useSeperator + Class192.selectedObjName + " ->";
 		} else if (Class88.spellSelected && WallDecoration.menuOptionCount < 2) {
 			string_4_ = Class101.selectedSpellPrefix + StringLibrary.useSeperator + Light.selectedSpellName + " ->";
-		} else if (!SpotAnimationNode.aBoolean3470 || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
+		} else if (!SpotAnimationNode.shiftClickEnabled || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
 			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 1);
 		} else {
 			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 2);

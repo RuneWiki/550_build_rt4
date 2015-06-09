@@ -14,17 +14,17 @@ import java.lang.reflect.Method;
 final class OverridedJInterface extends Node {
 	static int worldOff;
 	static WorldMapFont aClass98_2739;
-	static int anInt2740;
+	static int worldListDataLength;
 	static int[][][] activeTileHeightMap;
-	static int anInt2742 = 0;
-	static int[] anIntArray2743 = { 2047, 16383, 65535 };
+	static int worldListErrorCount = 0;
+	static int[] maxParticleCount = { 2047, 16383, 65535 };
 	int type;
 	int interfaceId;
 	static Deque reflectionCheckDeque;
 	static int loadingBarPercent;
 
 	static {
-		anInt2740 = 0;
+		worldListDataLength = 0;
 		loadingBarPercent = 10;
 		reflectionCheckDeque = new Deque();
 	}

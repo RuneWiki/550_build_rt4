@@ -38,7 +38,7 @@ final class HDFont extends AbstractFont {
 	}
 
 	@Override
-	final void method1471(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final boolean bool) {
+	final void drawTransparentChar(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final boolean bool) {
 		HDToolkit.method504();
 		final GL gl = HDToolkit.gl;
 		HDToolkit.bindTexture2D(anInt3924);
@@ -49,7 +49,7 @@ final class HDFont extends AbstractFont {
 	}
 
 	@Override
-	final void method1460(final int i, final int i_13_, final int i_14_, final int i_15_, final int i_16_, final int i_17_, final boolean bool) {
+	final void drawChar(final int i, final int i_13_, final int i_14_, final int i_15_, final int i_16_, final int i_17_, final boolean bool) {
 		if (GraphicsHD.aClass120_Sub14_Sub19_Sub1_603 != null) {
 			HDToolkit.method504();
 			final GL gl = HDToolkit.gl;
@@ -57,8 +57,8 @@ final class HDFont extends AbstractFont {
 			gl.glTranslatef(i_13_, HDToolkit.canvasHeight - i_14_, 0.0F);
 			final float f = i % 16 / 16.0F;
 			final float f_18_ = i / 16 / 16.0F;
-			final float f_19_ = f + (float) this.widths[i] / (float) anInt3923;
-			final float f_20_ = f_18_ + (float) this.heights[i] / (float) anInt3923;
+			final float f_19_ = f + (float) this.spriteWidths[i] / (float) anInt3923;
+			final float f_20_ = f_18_ + (float) this.spriteHeights[i] / (float) anInt3923;
 			HDToolkit.bindTexture2D(anInt3924);
 			final HDSprite class120_sub14_sub19_sub1 = GraphicsHD.aClass120_Sub14_Sub19_Sub1_603;
 			gl.glActiveTexture(33985);
@@ -73,16 +73,16 @@ final class HDFont extends AbstractFont {
 			gl.glBegin(6);
 			gl.glMultiTexCoord2f(33985, f_23_, f_22_);
 			gl.glTexCoord2f(f_19_, f_18_);
-			gl.glVertex2f(this.widths[i], 0.0F);
+			gl.glVertex2f(this.spriteWidths[i], 0.0F);
 			gl.glMultiTexCoord2f(33985, f_21_, f_22_);
 			gl.glTexCoord2f(f, f_18_);
 			gl.glVertex2f(0.0F, 0.0F);
 			gl.glMultiTexCoord2f(33985, f_21_, f_24_);
 			gl.glTexCoord2f(f, f_20_);
-			gl.glVertex2f(0.0F, -this.heights[i]);
+			gl.glVertex2f(0.0F, -this.spriteHeights[i]);
 			gl.glMultiTexCoord2f(33985, f_23_, f_24_);
 			gl.glTexCoord2f(f_19_, f_20_);
-			gl.glVertex2f(this.widths[i], -this.heights[i]);
+			gl.glVertex2f(this.spriteWidths[i], -this.spriteHeights[i]);
 			gl.glEnd();
 			gl.glTexEnvi(8960, 34161, 8448);
 			gl.glTexEnvi(8960, 34176, 5890);
@@ -104,11 +104,11 @@ final class HDFont extends AbstractFont {
 		if (anInt3924 == -1) {
 			anInt3923 = 0;
 			for (int i = 0; i < 256; i++) {
-				if (this.heights[i] > anInt3923) {
-					anInt3923 = this.heights[i];
+				if (this.spriteHeights[i] > anInt3923) {
+					anInt3923 = this.spriteHeights[i];
 				}
-				if (this.widths[i] > anInt3923) {
-					anInt3923 = this.widths[i];
+				if (this.spriteWidths[i] > anInt3923) {
+					anInt3923 = this.spriteWidths[i];
 				}
 			}
 			anInt3923 *= 16;
@@ -120,8 +120,8 @@ final class HDFont extends AbstractFont {
 				final int i_28_ = i_26_ / 16 * i;
 				int i_29_ = (i_28_ * anInt3923 + i_27_) * 2;
 				int i_30_ = 0;
-				final int i_31_ = this.heights[i_26_];
-				final int i_32_ = this.widths[i_26_];
+				final int i_31_ = this.spriteHeights[i_26_];
+				final int i_32_ = this.spriteWidths[i_26_];
 				final byte[] is_33_ = is[i_26_];
 				for (int i_34_ = 0; i_34_ < i_31_; i_34_++) {
 					for (int i_35_ = 0; i_35_ < i_32_; i_35_++) {
@@ -159,19 +159,19 @@ final class HDFont extends AbstractFont {
 			for (int i = 0; i < 256; i++) {
 				final float f = i % 16 / 16.0F;
 				final float f_37_ = i / 16 / 16.0F;
-				final float f_38_ = f + (float) this.widths[i] / (float) anInt3923;
-				final float f_39_ = f_37_ + (float) this.heights[i] / (float) anInt3923;
+				final float f_38_ = f + (float) this.spriteWidths[i] / (float) anInt3923;
+				final float f_39_ = f_37_ + (float) this.spriteHeights[i] / (float) anInt3923;
 				anIntArray3921[i] = gl.glGenLists(1);
 				gl.glNewList(anIntArray3921[i], 4864);
 				gl.glBegin(6);
 				gl.glTexCoord2f(f_38_, f_37_);
-				gl.glVertex2f(this.widths[i], 0.0F);
+				gl.glVertex2f(this.spriteWidths[i], 0.0F);
 				gl.glTexCoord2f(f, f_37_);
 				gl.glVertex2f(0.0F, 0.0F);
 				gl.glTexCoord2f(f, f_39_);
-				gl.glVertex2f(0.0F, -this.heights[i]);
+				gl.glVertex2f(0.0F, -this.spriteHeights[i]);
 				gl.glTexCoord2f(f_38_, f_39_);
-				gl.glVertex2f(this.widths[i], -this.heights[i]);
+				gl.glVertex2f(this.spriteWidths[i], -this.spriteHeights[i]);
 				gl.glEnd();
 				gl.glEndList();
 			}

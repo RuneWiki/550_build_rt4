@@ -7,12 +7,12 @@ final class OverlayType {
 	int anInt1194;
 	boolean occlude = true;
 	boolean aBoolean1196;
-	int anInt1197;
+	int color;
 	int anInt1198;
 	int anInt1199;
 	int anInt1200;
 	static WorldMapFont aClass98_1201;
-	int anInt1202;
+	int textureSize;
 	int textureId;
 	static int overlayAmount;
 	static js5 configClient;
@@ -40,7 +40,7 @@ final class OverlayType {
 
 	private final void decode(final Buffer buffer, final int code, final int id) {
 		if (code == 1) {
-			this.anInt1197 = Class120_Sub12_Sub1.method1200(buffer.getMedium());//color
+			this.color = Class120_Sub12_Sub1.method1200(buffer.getMedium());
 		} else if (code == 2) {
 			this.textureId = buffer.getUByte();
 		} else if (code == 3) {
@@ -55,7 +55,7 @@ final class OverlayType {
 		} else if (code == 8) {
 			client.anInt137 = id;
 		} else if (code == 9) {
-			this.anInt1202 = buffer.getUShort();
+			this.textureSize = buffer.getUShort();
 		} else if (code == 10) {
 			this.aBoolean1193 = false;
 		} else if (code == 11) {
@@ -91,11 +91,11 @@ final class OverlayType {
 	public OverlayType() {
 		this.anInt1194 = 8;
 		this.anInt1198 = -1;
-		this.anInt1197 = 0;
+		this.color = 0;
 		this.anInt1200 = 1190717;
 		this.anInt1199 = 16;
 		this.aBoolean1196 = false;
 		this.textureId = -1;
-		this.anInt1202 = 128;
+		this.textureSize = 128;
 	}
 }

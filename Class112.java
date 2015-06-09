@@ -61,9 +61,9 @@ final class Class112 {
 		int maxLevel;
 		if (HDToolkit.glEnabled && bool) {
 			maxLevel = 1;
-			is = Class101_Sub1.underWaterLocationsMapFileBuffers;
+			is = Class101_Sub1.underWaterLocationsMapFilesBuffer;
 		} else {
-			is = Class134.locationMapFileBuffers;
+			is = Class134.locationMapFilesBuffer;
 			maxLevel = 4;
 		}
 		for (int level = 0; level < maxLevel; level++) {

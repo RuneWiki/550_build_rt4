@@ -31,7 +31,7 @@ final class Class93 {
 	}
 
 	static final void spawnLocation(final int rotation, final int level, final int locationId, final int level2, final int x, final boolean bool, final int z, final CollisionMap collisionMap, final boolean bool_8_, final int type) {
-		if (!bool_8_ || Class143_Sub1.method2021() || (0x2 & Class114.tileSettings[0][x][z]) != 0 || (Class114.tileSettings[level][x][z] & 0x10) == 0 && SubScript.method2242(x, z, level) == SpotAnimationNode.anInt3469) {
+		if (!bool_8_ || Class143_Sub1.allLevelsAreVisible() || (0x2 & Class114.tileSettings[0][x][z]) != 0 || (Class114.tileSettings[level][x][z] & 0x10) == 0 && SubScript.method2242(x, z, level) == SpotAnimationNode.visibleLevel) {
 			if (DummyOutputStream.anInt29 > level) {
 				DummyOutputStream.anInt29 = level;
 			}

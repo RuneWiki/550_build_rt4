@@ -24,7 +24,7 @@ final class GroundTile extends Node {
 	int[] anIntArray2641 = new int[5];
 	int anInt2642;
 	static Hashtable globalMagnets = new Hashtable(16);
-	GroundTile aClass120_Sub18_2644;
+	GroundTile bridgeTile;
 	TileParticleQueue tileParticle;
 	int anInt2646;
 	boolean aBoolean2647;

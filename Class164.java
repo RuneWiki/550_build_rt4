@@ -6,7 +6,7 @@ import java.awt.Component;
 class Class164 {
 	private Class120_Sub30 aClass120_Sub30_1583;
 	private long aLong1584;
-	static boolean forceTween;
+	static boolean forceTweenEnabled;
 	int[] anIntArray1587;
 	static long serverSessionKey = 0L;
 	private boolean aBoolean1589 = false;
@@ -25,7 +25,7 @@ class Class164 {
 	private boolean aBoolean1602;
 
 	static {
-		forceTween = false;
+		forceTweenEnabled = false;
 	}
 
 	private final void method2129(final Class120_Sub30 class120_sub30, final int i) {
@@ -141,42 +141,42 @@ class Class164 {
 	static final void rebuildMap() {
 		Class120_Sub12_Sub29.ping(false);
 		AbstractBuffer.mapFilesMissingCount = 0;
-		boolean bool = true;
-		for (int i_7_ = 0; RuntimeException_Sub1.mapFileBuffers.length > i_7_; i_7_++) {
-			if (LookupTable.mapFileIds[i_7_] != -1 && RuntimeException_Sub1.mapFileBuffers[i_7_] == null) {
-				RuntimeException_Sub1.mapFileBuffers[i_7_] = Class65.aClass50_597.getFile(LookupTable.mapFileIds[i_7_], 0);
-				if (RuntimeException_Sub1.mapFileBuffers[i_7_] == null) {
-					bool = false;
+		boolean fileExists = true;
+		for (int id = 0; id < RuntimeException_Sub1.mapFilesBuffer.length; id++) {
+			if (LookupTable.mapFileIds[id] != -1 && RuntimeException_Sub1.mapFilesBuffer[id] == null) {
+				RuntimeException_Sub1.mapFilesBuffer[id] = Class65.aClass50_597.getFile(LookupTable.mapFileIds[id], 0);
+				if (RuntimeException_Sub1.mapFilesBuffer[id] == null) {
+					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
 				}
 			}
-			if (Class28.locationsMapFileIds[i_7_] != -1 && Class134.locationMapFileBuffers[i_7_] == null) {
-				Class134.locationMapFileBuffers[i_7_] = Class65.aClass50_597.getFileXTEA(0, Class28.locationsMapFileIds[i_7_], Class125.anIntArrayArray2150[i_7_]);
-				if (Class134.locationMapFileBuffers[i_7_] == null) {
-					bool = false;
+			if (Class28.locationsMapFileIds[id] != -1 && Class134.locationMapFilesBuffer[id] == null) {
+				Class134.locationMapFilesBuffer[id] = Class65.aClass50_597.getFileXTEA(0, Class28.locationsMapFileIds[id], Class125.anIntArrayArray2150[id]);
+				if (Class134.locationMapFilesBuffer[id] == null) {
+					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
 				}
 			}
 			if (HDToolkit.glEnabled) {
-				if (Class111.underWaterMapFileIds[i_7_] != -1 && Class120_Sub12_Sub36.underWaterMapFileBuffers[i_7_] == null) {
-					Class120_Sub12_Sub36.underWaterMapFileBuffers[i_7_] = Class65.aClass50_597.getFile(Class111.underWaterMapFileIds[i_7_], 0);
-					if (Class120_Sub12_Sub36.underWaterMapFileBuffers[i_7_] == null) {
-						bool = false;
+				if (Class111.underWaterMapFileIds[id] != -1 && Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] == null) {
+					Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] = Class65.aClass50_597.getFile(Class111.underWaterMapFileIds[id], 0);
+					if (Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] == null) {
+						fileExists = false;
 						AbstractBuffer.mapFilesMissingCount++;
 					}
 				}
-				if (client.underWaterLocationsMapFileIds[i_7_] != -1 && Class101_Sub1.underWaterLocationsMapFileBuffers[i_7_] == null) {
-					Class101_Sub1.underWaterLocationsMapFileBuffers[i_7_] = Class65.aClass50_597.getFile(client.underWaterLocationsMapFileIds[i_7_], 0);
-					if (Class101_Sub1.underWaterLocationsMapFileBuffers[i_7_] == null) {
+				if (client.underWaterLocationsMapFileIds[id] != -1 && Class101_Sub1.underWaterLocationsMapFilesBuffer[id] == null) {
+					Class101_Sub1.underWaterLocationsMapFilesBuffer[id] = Class65.aClass50_597.getFile(client.underWaterLocationsMapFileIds[id], 0);
+					if (Class101_Sub1.underWaterLocationsMapFilesBuffer[id] == null) {
 						AbstractBuffer.mapFilesMissingCount++;
-						bool = false;
+						fileExists = false;
 					}
 				}
 			}
-			if (ProducingGraphicsBuffer.anIntArray2796 != null && Class179.aByteArrayArray1777[i_7_] == null && ProducingGraphicsBuffer.anIntArray2796[i_7_] != -1) {
-				Class179.aByteArrayArray1777[i_7_] = Class65.aClass50_597.getFileXTEA(0, ProducingGraphicsBuffer.anIntArray2796[i_7_], Class125.anIntArrayArray2150[i_7_]);
-				if (Class179.aByteArrayArray1777[i_7_] == null) {
-					bool = false;
+			if (ProducingGraphicsBuffer.npcSpawnsFileIds != null && Class179.npcSpawnsFilesBuffer[id] == null && ProducingGraphicsBuffer.npcSpawnsFileIds[id] != -1) {
+				Class179.npcSpawnsFilesBuffer[id] = Class65.aClass50_597.getFileXTEA(0, ProducingGraphicsBuffer.npcSpawnsFileIds[id], Class125.anIntArrayArray2150[id]);
+				if (Class179.npcSpawnsFilesBuffer[id] == null) {
+					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
 				}
 			}
@@ -186,18 +186,18 @@ class Class164 {
 				SceneGraphNode.mapFunctionGroup = new MapFunctionGroup(0);
 			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
 				AbstractBuffer.mapFilesMissingCount++;
-				bool = false;
+				fileExists = false;
 			} else {
 				SceneGraphNode.mapFunctionGroup = Class54.createMapFunctionGroup(Class120_Sub12_Sub24.aClass50_3309, Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels", Class120_Sub12_Sub37.membersClient);
 			}
 		}
-		if (!bool) {
+		if (!fileExists) {
 			Class120_Sub12_Sub28.loadingScreenState = 1;
 		} else {
 			LightType.locationModelMissingCount = 0;
-			bool = true;
-			for (int i_8_ = 0; i_8_ < RuntimeException_Sub1.mapFileBuffers.length; i_8_++) {
-				byte[] is = Class134.locationMapFileBuffers[i_8_];
+			fileExists = true;
+			for (int i_8_ = 0; i_8_ < RuntimeException_Sub1.mapFilesBuffer.length; i_8_++) {
+				byte[] is = Class134.locationMapFilesBuffer[i_8_];
 				if (is != null) {
 					int x = (Class120_Sub12_Sub36.regionBitPackeds[i_8_] >> 8) * 64 - GameEntity.currentBaseX;
 					int z = (Class120_Sub12_Sub36.regionBitPackeds[i_8_] & 0xff) * 64 - LightType.currentBaseZ;
@@ -205,10 +205,10 @@ class Class164 {
 						x = 10;
 						z = 10;
 					}
-					bool &= Npc.method2349(z, x, is);
+					fileExists &= Npc.method2349(z, x, is);
 				}
 				if (HDToolkit.glEnabled) {
-					is = Class101_Sub1.underWaterLocationsMapFileBuffers[i_8_];
+					is = Class101_Sub1.underWaterLocationsMapFilesBuffer[i_8_];
 					if (is != null) {
 						int i_11_ = -GameEntity.currentBaseX + 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_8_] >> 8);
 						int i_12_ = -LightType.currentBaseZ + 64 * (Class120_Sub12_Sub36.regionBitPackeds[i_8_] & 0xff);
@@ -216,11 +216,11 @@ class Class164 {
 							i_11_ = 10;
 							i_12_ = 10;
 						}
-						bool &= Npc.method2349(i_12_, i_11_, is);
+						fileExists &= Npc.method2349(i_12_, i_11_, is);
 					}
 				}
 			}
-			if (!bool) {
+			if (!fileExists) {
 				Class120_Sub12_Sub28.loadingScreenState = 2;
 			} else {
 				boolean hasUnderWaterMap = false;
@@ -230,8 +230,8 @@ class Class164 {
 				Class120_Sub2.method1050();
 				Class110.method976();
 				if (HDToolkit.glEnabled && PacketBuffer.highWaterDetail) {
-					for (int id = 0; id < RuntimeException_Sub1.mapFileBuffers.length; id++) {
-						if (Class101_Sub1.underWaterLocationsMapFileBuffers[id] != null || Class120_Sub12_Sub36.underWaterMapFileBuffers[id] != null) {
+					for (int id = 0; id < RuntimeException_Sub1.mapFilesBuffer.length; id++) {
+						if (Class101_Sub1.underWaterLocationsMapFilesBuffer[id] != null || Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] != null) {
 							hasUnderWaterMap = true;
 							break;
 						}
@@ -276,8 +276,8 @@ class Class164 {
 						Class57.setLightPosition(chunkX, chunkZ);
 					}
 					Class120_Sub12_Sub21_Sub1.method1312(false);
-					if (Class179.aByteArrayArray1777 != null) {
-						Class42.method336();
+					if (Class179.npcSpawnsFilesBuffer != null) {
+						Class42.decodeNpcFiles();
 					}
 				}
 				if (Class134.dynamicMapRegion) {
@@ -304,7 +304,7 @@ class Class164 {
 				if (i_25_ < Class173.gameLevel - 1) {
 					i_25_ = Class173.gameLevel - 1;
 				}
-				if (Class143_Sub1.method2021()) {
+				if (Class143_Sub1.allLevelsAreVisible()) {
 					Class5.method98(0);
 				} else {
 					Class5.method98(DummyOutputStream.anInt29);
@@ -337,9 +337,9 @@ class Class164 {
 						}
 					}
 				}
-				for (int i_28_ = 0; i_28_ < 104; i_28_++) {
-					for (int i_29_ = 0; i_29_ < 104; i_29_++) {
-						Class5.spawnGroundObject(i_28_, i_29_);
+				for (int x = 0; x < 104; x++) {
+					for (int z = 0; z < 104; z++) {
+						Class5.spawnGroundObject(x, z);
 					}
 				}
 				Class57.method492();

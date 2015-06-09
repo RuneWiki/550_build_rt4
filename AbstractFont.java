@@ -1,26 +1,25 @@
 /* Class120_Sub14_Sub8 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-import java.util.Arrays;
 import java.util.Random;
 
 abstract class AbstractFont extends NodeSub {
 	private int anInt3494;
-	int[] heights;
+	int[] spriteHeights;
 	private int[] xOffsets;
-	int anInt3497 = 0;
+	int yOff = 0;
 	private byte[] aByteArray3498;
 	private AbstractIndexedSprite[] nameIcons;
 	private static StringBuffer aStringBuffer3500 = new StringBuffer(100);
-	private int[] anIntArray3501;
+	private int[] nameIconsHeight;
 	private int[] yOffsets;
-	private int[] anIntArray3503;
-	int[] widths;
+	private int[] charWidths;
+	int[] spriteWidths;
 	private static int oldTransparency;
 	private static int transparency = 256;
-	private static int color;
+	private static int textColor;
 	private static int shadowColor;
-	private static int oldColor;
+	private static int oldTextColor;
 	private static int oldShadowColor;
 	private static int anInt3511 = 0;
 	private int anInt3512;
@@ -31,27 +30,27 @@ abstract class AbstractFont extends NodeSub {
 
 	static {
 		oldTransparency = 256;
-		color = 0;
+		textColor = 0;
 		anInt3515 = 0;
 		oldShadowColor = -1;
 		underlineColor = -1;
 		strikethroughColor = -1;
 		aStringArray3516 = new String[100];
 		shadowColor = -1;
-		oldColor = 0;
+		oldTextColor = 0;
 	}
 
 	private final void method1458(final byte[] is) {
-		anIntArray3503 = new int[256];
+		charWidths = new int[256];
 		if (is.length == 257) {
-			for (int i = 0; i < anIntArray3503.length; i++) {
-				anIntArray3503[i] = is[i] & 0xff;
+			for (int i = 0; i < charWidths.length; i++) {
+				charWidths[i] = is[i] & 0xff;
 			}
-			this.anInt3497 = is[256] & 0xff;
+			this.yOff = is[256] & 0xff;
 		} else {
 			int i = 0;
 			for (int i_0_ = 0; i_0_ < 256; i_0_++) {
-				anIntArray3503[i_0_] = is[i++] & 0xff;
+				charWidths[i_0_] = is[i++] & 0xff;
 			}
 			final int[] is_1_ = new int[256];
 			final int[] is_2_ = new int[256];
@@ -84,12 +83,12 @@ abstract class AbstractFont extends NodeSub {
 				if (i_13_ != 32 && i_13_ != 160) {
 					for (int i_14_ = 0; i_14_ < 256; i_14_++) {
 						if (i_14_ != 32 && i_14_ != 160) {
-							aByteArray3498[(i_13_ << 8) + i_14_] = (byte) method1477(is_5_, is_9_, is_2_, anIntArray3503, is_1_, i_13_, i_14_);
+							aByteArray3498[(i_13_ << 8) + i_14_] = (byte) method1477(is_5_, is_9_, is_2_, charWidths, is_1_, i_13_, i_14_);
 						}
 					}
 				}
 			}
-			this.anInt3497 = is_2_[32] + is_1_[32];
+			this.yOff = is_2_[32] + is_1_[32];
 		}
 	}
 
@@ -140,7 +139,7 @@ abstract class AbstractFont extends NodeSub {
 				}
 				if (i == -1) {
 					final int i_21_ = (char) (LongNode.method1060(c) & 0xff);
-					i_16_ += anIntArray3503[i_21_];
+					i_16_ += charWidths[i_21_];
 					if (aByteArray3498 != null && i_15_ != 0) {
 						i_16_ += aByteArray3498[(i_15_ << 8) + i_21_];
 					}
@@ -151,112 +150,111 @@ abstract class AbstractFont extends NodeSub {
 		return i_16_;
 	}
 
-	abstract void method1460(int i, int i_22_, int i_23_, int i_24_, int i_25_, int i_26_, boolean bool);
+	abstract void drawChar(int i, int i_22_, int i_23_, int i_24_, int i_25_, int i_26_, boolean bool);
 
-	private final void method1461(final String string, int i, int i_27_) {
-		i_27_ -= this.anInt3497;
-		int i_28_ = -1;
+	private final void method1461(final String text, int x, int y) {
+		y -= this.yOff;
+		int effectStartIndex = -1;
 		int i_29_ = 0;
-		final int i_30_ = string.length();
-		for (int i_31_ = 0; i_31_ < i_30_; i_31_++) {
-			char c = string.charAt(i_31_);
+		for (int charIndex = 0; charIndex < text.length(); charIndex++) {
+			char c = text.charAt(charIndex);
 			if (c == '<') {
-				i_28_ = i_31_;
+				effectStartIndex = charIndex;
 			} else {
-				if (c == '>' && i_28_ != -1) {
-					final String string_32_ = string.substring(i_28_ + 1, i_31_).toLowerCase();
-					i_28_ = -1;
-					if (string_32_.equals("lt")) {
+				if (c == '>' && effectStartIndex != -1) {
+					final String effect = text.substring(effectStartIndex + 1, charIndex).toLowerCase();
+					effectStartIndex = -1;
+					if (effect.equals("lt")) {
 						c = '<';
-					} else if (string_32_.equals("gt")) {
+					} else if (effect.equals("gt")) {
 						c = '>';
-					} else if (string_32_.equals("nbsp")) {
+					} else if (effect.equals("nbsp")) {
 						c = '\u00a0';
-					} else if (string_32_.equals("shy")) {
+					} else if (effect.equals("shy")) {
 						c = '\u00ad';
-					} else if (string_32_.equals("times")) {
+					} else if (effect.equals("times")) {
 						c = '\u00d7';
-					} else if (string_32_.equals("euro")) {
+					} else if (effect.equals("euro")) {
 						c = '\u20ac';
-					} else if (string_32_.equals("copy")) {
+					} else if (effect.equals("copy")) {
 						c = '\u00a9';
-					} else if (string_32_.equals("reg")) {
+					} else if (effect.equals("reg")) {
 						c = '\u00ae';
 					} else {
-						if (string_32_.startsWith("img=")) {
+						if (effect.startsWith("img=")) {
 							try {
-								final int i_33_ = Class31.stringToBase10(string_32_.substring(4));
-								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_33_];
-								final int i_34_ = anIntArray3501 != null ? anIntArray3501[i_33_] : abstractIndexedSprite.trimHeight;
+								final int id = Class31.stringToBase10(effect.substring(4));
+								final AbstractIndexedSprite nameIcon = nameIcons[id];
+								final int i_34_ = nameIconsHeight != null ? nameIconsHeight[id] : nameIcon.trimHeight;
 								if (transparency == 256) {
-									abstractIndexedSprite.drawReg(i, i_27_ + this.anInt3497 - i_34_);
+									nameIcon.drawReg(x, y + this.yOff - i_34_);
 								} else {
-									abstractIndexedSprite.method911(i, i_27_ + this.anInt3497 - i_34_, transparency);
+									nameIcon.method911(x, y + this.yOff - i_34_, transparency);
 								}
-								i += abstractIndexedSprite.trimWidth;
+								x += nameIcon.trimWidth;
 								i_29_ = 0;
 							} catch (final Exception exception) {
 								/* empty */
 							}
 						} else {
-							setEffectsFromText(string_32_);
+							setEffectsFromText(effect);
 						}
 						continue;
 					}
 				}
-				if (i_28_ == -1) {
+				if (effectStartIndex == -1) {
 					final int charId = (char) (LongNode.method1060(c) & 0xff);
 					if (aByteArray3498 != null && i_29_ != 0) {
-						i += aByteArray3498[(i_29_ << 8) + charId];
+						x += aByteArray3498[(i_29_ << 8) + charId];
 					}
-					final int i_36_ = this.widths[charId];
-					final int i_37_ = this.heights[charId];
+					final int charWidth = this.spriteWidths[charId];
+					final int charHeight = this.spriteHeights[charId];
 					if (charId != 32) {
 						if (transparency == 256) {
 							if (shadowColor != -1) {
-								method1460(charId, i + xOffsets[charId] + 1, i_27_ + yOffsets[charId] + 1, i_36_, i_37_, shadowColor, true);
+								drawChar(charId, x + xOffsets[charId] + 1, y + yOffsets[charId] + 1, charWidth, charHeight, shadowColor, true);
 							}
-							method1460(charId, i + xOffsets[charId], i_27_ + yOffsets[charId], i_36_, i_37_, color, false);
+							drawChar(charId, x + xOffsets[charId], y + yOffsets[charId], charWidth, charHeight, textColor, false);
 						} else {
 							if (shadowColor != -1) {
-								method1471(charId, i + xOffsets[charId] + 1, i_27_ + yOffsets[charId] + 1, i_36_, i_37_, shadowColor, transparency, true);
+								drawTransparentChar(charId, x + xOffsets[charId] + 1, y + yOffsets[charId] + 1, charWidth, charHeight, shadowColor, transparency, true);
 							}
-							method1471(charId, i + xOffsets[charId], i_27_ + yOffsets[charId], i_36_, i_37_, color, transparency, false);
+							drawTransparentChar(charId, x + xOffsets[charId], y + yOffsets[charId], charWidth, charHeight, textColor, transparency, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
-						i += anInt3511 >> 8;
+						x += anInt3511 >> 8;
 						anInt3511 &= 0xff;
 					}
-					final int i_38_ = anIntArray3503[charId];
+					final int i_38_ = charWidths[charId];
 					if (strikethroughColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, strikethroughColor);
+							GraphicsHD.drawHorizontalLine(x, y + (int) (this.yOff * 0.7), i_38_, strikethroughColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_27_ + (int) (this.anInt3497 * 0.7), i_38_, strikethroughColor);
+							GraphicsLD.drawHorizontalLine(x, y + (int) (this.yOff * 0.7), i_38_, strikethroughColor);
 						}
 					}
 					if (underlineColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, underlineColor);
+							GraphicsHD.drawHorizontalLine(x, y + this.yOff + 1, i_38_, underlineColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_27_ + this.anInt3497 + 1, i_38_, underlineColor);
+							GraphicsLD.drawHorizontalLine(x, y + this.yOff + 1, i_38_, underlineColor);
 						}
 					}
-					i += i_38_;
+					x += i_38_;
 					i_29_ = charId;
 				}
 			}
 		}
 	}
 
-	final int method1462(final String string, final int i, final int i_39_, final int i_40_, final int i_41_, final int i_42_, final int i_43_, final int i_44_, final int i_45_, final int i_46_) {
-		return method1467(string, i, i_39_, i_40_, i_41_, i_42_, i_43_, 256, i_44_, i_45_, i_46_);
+	final int drawInterfaceText(final String text, final int x, final int y, final int width, final int height, final int textColor, final int shadowColor, final int horizontalAlignment, final int verticalAlignment, final int verticalSpacing) {
+		return drawInterfaceText(text, x, y, width, height, textColor, shadowColor, 256, horizontalAlignment, verticalAlignment, verticalSpacing);
 	}
 
 	final void method1463(final String string, final int i, final int i_47_, final int i_48_, final int i_49_, final int i_50_) {
 		if (string != null) {
-			method1465(i_48_, i_49_);
+			setColors(i_48_, i_49_);
 			final int i_51_ = string.length();
 			final int[] is = new int[i_51_];
 			final int[] is_52_ = new int[i_51_];
@@ -268,90 +266,90 @@ abstract class AbstractFont extends NodeSub {
 		}
 	}
 
-	private final void method1464(final String string, final int i) {
-		int i_54_ = 0;
-		boolean bool = false;
-		final int i_55_ = string.length();
-		for (int i_56_ = 0; i_56_ < i_55_; i_56_++) {
-			final char c = string.charAt(i_56_);
+	private final void method1464(final String string, final int width) {
+		int spaceCount = 0;
+		boolean effectStart = false;
+		for (int charIndex = 0; charIndex < string.length(); charIndex++) {
+			final char c = string.charAt(charIndex);
 			if (c == '<') {
-				bool = true;
+				effectStart = true;
 			} else if (c == '>') {
-				bool = false;
-			} else if (!bool && c == ' ') {
-				i_54_++;
+				effectStart = false;
+			} else if (!effectStart && c == ' ') {
+				spaceCount++;
 			}
 		}
-		if (i_54_ > 0) {
-			anInt3515 = (i - method1459(string) << 8) / i_54_;
+		if (spaceCount > 0) {
+			anInt3515 = (width - method1459(string) << 8) / spaceCount;
+			System.out.println("test");
 		}
 	}
 
-	private final void method1465(final int i, final int i_57_) {
+	private final void setColors(final int text, final int shadow) {
 		strikethroughColor = -1;
 		underlineColor = -1;
-		shadowColor = oldShadowColor = i_57_;
-		color = oldColor = i;
+		shadowColor = oldShadowColor = shadow;
+		textColor = oldTextColor = text;
 		transparency = oldTransparency = 256;
 		anInt3515 = 0;
 		anInt3511 = 0;
 	}
 
-	final void method1466(final String string, final int i, final int i_58_, final int i_59_, final int i_60_) {
-		if (string != null) {
-			method1465(i_59_, i_60_);
-			method1461(string, i, i_58_);
+	final void method1466(final String text, final int x, final int y, final int textColor, final int shadowColor) {
+		if (text != null) {
+			setColors(textColor, shadowColor);
+			method1461(text, x, y);
 		}
 	}
 
-	final int method1467(final String string, final int i, final int i_61_, final int i_62_, final int i_63_, final int i_64_, final int i_65_, final int i_66_, final int i_67_, int i_68_, int i_69_) {
-		if (string == null) {
+	final int drawInterfaceText(final String text, final int x, final int y, final int width, final int height, final int textColor, final int shadowColor, final int transparency, final int horizontalAlignment, int verticalAlignment, int verticalSpacing) {
+		if (text == null) {
 			return 0;
 		}
-		setFontEffects(i_64_, i_65_, i_66_);
-		if (i_69_ == 0) {
-			i_69_ = this.anInt3497;
+		setFontEffects(textColor, shadowColor, transparency);
+		if (verticalSpacing == 0) {
+			verticalSpacing = this.yOff;
 		}
-		int[] is = { i_62_ };
-		if (i_63_ < anInt3494 + anInt3512 + i_69_ && i_63_ < i_69_ + i_69_) {
+		int[] is = { width };
+		if (height < anInt3494 + anInt3512 + verticalSpacing && height < verticalSpacing + verticalSpacing) {
 			is = null;
 		}
-		final int i_70_ = method1486(string, is, aStringArray3516);
-		if (i_68_ == 3 && i_70_ == 1) {
-			i_68_ = 1;
+		final int lineCount = method1486(text, is, aStringArray3516);
+		if (verticalAlignment == 3 && lineCount == 1) {
+			verticalAlignment = 1;
 		}
-		int i_71_;
-		if (i_68_ == 0) {
-			i_71_ = i_61_ + anInt3494;
-		} else if (i_68_ == 1) {
-			i_71_ = i_61_ + anInt3494 + (i_63_ - anInt3494 - anInt3512 - (i_70_ - 1) * i_69_) / 2;
-		} else if (i_68_ == 2) {
-			i_71_ = i_61_ + i_63_ - anInt3512 - (i_70_ - 1) * i_69_;
+		int textY;
+		if (verticalAlignment == 0) {
+			textY = y + anInt3494;
+		} else if (verticalAlignment == 1) {
+			textY = y + anInt3494 + (height - anInt3494 - anInt3512 - (lineCount - 1) * verticalSpacing) / 2;
+		} else if (verticalAlignment == 2) {
+			textY = y + height - anInt3512 - (lineCount - 1) * verticalSpacing;
 		} else {
-			int i_72_ = (i_63_ - anInt3494 - anInt3512 - (i_70_ - 1) * i_69_) / (i_70_ + 1);
+			int i_72_ = (height - anInt3494 - anInt3512 - (lineCount - 1) * verticalSpacing) / (lineCount + 1);
 			if (i_72_ < 0) {
 				i_72_ = 0;
 			}
-			i_71_ = i_61_ + anInt3494 + i_72_;
-			i_69_ += i_72_;
+			textY = y + anInt3494 + i_72_;
+			verticalSpacing += i_72_;
 		}
-		for (int i_73_ = 0; i_73_ < i_70_; i_73_++) {
-			if (i_67_ == 0) {
-				method1461(aStringArray3516[i_73_], i, i_71_);
-			} else if (i_67_ == 1) {
-				method1461(aStringArray3516[i_73_], i + (i_62_ - method1459(aStringArray3516[i_73_])) / 2, i_71_);
-			} else if (i_67_ == 2) {
-				method1461(aStringArray3516[i_73_], i + i_62_ - method1459(aStringArray3516[i_73_]), i_71_);
-			} else if (i_73_ == i_70_ - 1) {
-				method1461(aStringArray3516[i_73_], i, i_71_);
+		for (int lineId = 0; lineId < lineCount; lineId++) {
+			if (horizontalAlignment == 0) {
+				method1461(aStringArray3516[lineId], x, textY);
+			} else if (horizontalAlignment == 1) {
+				method1461(aStringArray3516[lineId], x + (width - method1459(aStringArray3516[lineId])) / 2, textY);
+			} else if (horizontalAlignment == 2) {
+				method1461(aStringArray3516[lineId], x + width - method1459(aStringArray3516[lineId]), textY);
+			} else if (lineId == lineCount - 1) {
+				method1461(aStringArray3516[lineId], x, textY);
 			} else {
-				method1464(aStringArray3516[i_73_], i_62_);
-				method1461(aStringArray3516[i_73_], i, i_71_);
+				method1464(aStringArray3516[lineId], width);
+				method1461(aStringArray3516[lineId], x, textY);
 				anInt3515 = 0;
 			}
-			i_71_ += i_69_;
+			textY += verticalSpacing;
 		}
-		return i_70_;
+		return lineCount;
 	}
 
 	final int method1468(final String string, final int i) {
@@ -359,7 +357,7 @@ abstract class AbstractFont extends NodeSub {
 		int i_75_ = 0;
 		for (int i_76_ = 0; i_76_ < i_74_; i_76_++) {
 			final int i_77_ = method1459(aStringArray3516[i_76_]);
-			if (i_77_ > i_75_) {
+			if (i_75_ < i_77_) {
 				i_75_ = i_77_;
 			}
 		}
@@ -368,7 +366,7 @@ abstract class AbstractFont extends NodeSub {
 
 	final void method1469(final String string, final int i, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
 		if (string != null) {
-			method1465(i_79_, i_80_);
+			setColors(i_79_, i_80_);
 			final int i_82_ = string.length();
 			final int[] is = new int[i_82_];
 			for (int i_83_ = 0; i_83_ < i_82_; i_83_++) {
@@ -397,7 +395,7 @@ abstract class AbstractFont extends NodeSub {
 		return i_89_;
 	}
 
-	abstract void method1471(int i, int i_91_, int i_92_, int i_93_, int i_94_, int i_95_, int i_96_, boolean bool);
+	abstract void drawTransparentChar(int i, int i_91_, int i_92_, int i_93_, int i_94_, int i_95_, int i_96_, boolean bool);
 
 	static final String method1472(final String string) {
 		final int i = string.length();
@@ -424,7 +422,7 @@ abstract class AbstractFont extends NodeSub {
 
 	final void method1473(final String string, final int i, final int i_100_, final int i_101_, final int i_102_, final int i_103_, final int i_104_) {
 		if (string != null) {
-			method1465(i_101_, i_102_);
+			setColors(i_101_, i_102_);
 			double d = 7.0 - i_104_ / 8.0;
 			if (d < 0.0) {
 				d = 0.0;
@@ -443,11 +441,11 @@ abstract class AbstractFont extends NodeSub {
 			throw new IllegalArgumentException();
 		}
 		nameIcons = class107s;
-		anIntArray3501 = is;
+		nameIconsHeight = is;
 	}
 
 	private final void method1475(final String string, int i, int i_107_, final int[] is, final int[] is_108_) {
-		i_107_ -= this.anInt3497;
+		i_107_ -= this.yOff;
 		int i_109_ = -1;
 		int i_110_ = 0;
 		int i_111_ = 0;
@@ -494,11 +492,11 @@ abstract class AbstractFont extends NodeSub {
 								i_111_++;
 								final int i_117_ = Class31.stringToBase10(string_114_.substring(4));
 								final AbstractIndexedSprite abstractIndexedSprite = nameIcons[i_117_];
-								final int i_118_ = anIntArray3501 != null ? anIntArray3501[i_117_] : abstractIndexedSprite.trimHeight;
+								final int i_118_ = nameIconsHeight != null ? nameIconsHeight[i_117_] : abstractIndexedSprite.trimHeight;
 								if (transparency == 256) {
-									abstractIndexedSprite.drawReg(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_);
+									abstractIndexedSprite.drawReg(i + i_115_, i_107_ + this.yOff - i_118_ + i_116_);
 								} else {
-									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.anInt3497 - i_118_ + i_116_, transparency);
+									abstractIndexedSprite.method911(i + i_115_, i_107_ + this.yOff - i_118_ + i_116_, transparency);
 								}
 								i += abstractIndexedSprite.trimWidth;
 								i_110_ = 0;
@@ -516,8 +514,8 @@ abstract class AbstractFont extends NodeSub {
 					if (aByteArray3498 != null && i_110_ != 0) {
 						i += aByteArray3498[(i_110_ << 8) + i_119_];
 					}
-					final int i_120_ = this.widths[i_119_];
-					final int i_121_ = this.heights[i_119_];
+					final int i_120_ = this.spriteWidths[i_119_];
+					final int i_121_ = this.spriteHeights[i_119_];
 					int i_122_;
 					if (is != null) {
 						i_122_ = is[i_111_];
@@ -534,33 +532,33 @@ abstract class AbstractFont extends NodeSub {
 					if (i_119_ != 32) {
 						if (transparency == 256) {
 							if (shadowColor != -1) {
-								method1460(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, true);
+								drawChar(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, true);
 							}
-							method1460(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, color, false);
+							drawChar(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, textColor, false);
 						} else {
 							if (shadowColor != -1) {
-								method1471(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, transparency, true);
+								drawTransparentChar(i_119_, i + xOffsets[i_119_] + 1 + i_122_, i_107_ + yOffsets[i_119_] + 1 + i_123_, i_120_, i_121_, shadowColor, transparency, true);
 							}
-							method1471(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, color, transparency, false);
+							drawTransparentChar(i_119_, i + xOffsets[i_119_] + i_122_, i_107_ + yOffsets[i_119_] + i_123_, i_120_, i_121_, textColor, transparency, false);
 						}
 					} else if (anInt3515 > 0) {
 						anInt3511 += anInt3515;
 						i += anInt3511 >> 8;
 						anInt3511 &= 0xff;
 					}
-					final int i_124_ = anIntArray3503[i_119_];
+					final int i_124_ = charWidths[i_119_];
 					if (strikethroughColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, strikethroughColor);
+							GraphicsHD.drawHorizontalLine(i, i_107_ + (int) (this.yOff * 0.7), i_124_, strikethroughColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_107_ + (int) (this.anInt3497 * 0.7), i_124_, strikethroughColor);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + (int) (this.yOff * 0.7), i_124_, strikethroughColor);
 						}
 					}
 					if (underlineColor != -1) {
 						if (HDToolkit.glEnabled) {
-							GraphicsHD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, underlineColor);
+							GraphicsHD.drawHorizontalLine(i, i_107_ + this.yOff, i_124_, underlineColor);
 						} else {
-							GraphicsLD.drawHorizontalLine(i, i_107_ + this.anInt3497, i_124_, underlineColor);
+							GraphicsLD.drawHorizontalLine(i, i_107_ + this.yOff, i_124_, underlineColor);
 						}
 					}
 					i += i_124_;
@@ -645,14 +643,14 @@ abstract class AbstractFont extends NodeSub {
 
 	final void method1478(final String text, final int x, final int y, final int color, final int shadow) {
 		if (text != null) {
-			method1465(color, shadow);
+			setColors(color, shadow);
 			method1461(text, x - method1459(text) / 2, y);
 		}
 	}
 
 	final int method1480(final String string, final int i, int i_161_) {
 		if (i_161_ == 0) {
-			i_161_ = this.anInt3497;
+			i_161_ = this.yOff;
 		}
 		final int i_162_ = method1486(string, new int[] { i }, aStringArray3516);
 		final int i_163_ = (i_162_ - 1) * i_161_;
@@ -665,7 +663,7 @@ abstract class AbstractFont extends NodeSub {
 
 	final void method1482(final String string, final int i, final int i_164_, final int i_165_, final int i_166_) {
 		if (string != null) {
-			method1465(i_165_, i_166_);
+			setColors(i_165_, i_166_);
 			method1461(string, i - method1459(string), i_164_);
 		}
 	}
@@ -674,42 +672,42 @@ abstract class AbstractFont extends NodeSub {
 		strikethroughColor = -1;
 		underlineColor = -1;
 		shadowColor = oldShadowColor = shad;
-		color = oldColor = col;
+		textColor = oldTextColor = col;
 		transparency = oldTransparency = trans;
 		anInt3515 = 0;
 		anInt3511 = 0;
 	}
 
 	private final int method1484(final char c) {
-		return anIntArray3503[LongNode.method1060(c) & 0xff];
+		return charWidths[LongNode.method1060(c) & 0xff];
 	}
 
 	AbstractFont(final byte[] data, final int[] xOffs, final int[] yOffs, final int[] widths, final int[] heights) {
 		xOffsets = xOffs;
 		yOffsets = yOffs;
-		this.widths = widths;
-		this.heights = heights;
+		this.spriteWidths = widths;
+		this.spriteHeights = heights;
 		method1458(data);
 		int i = 2147483647;
 		int i_173_ = -2147483648;
 		for (int i_174_ = 0; i_174_ < 256; i_174_++) {
-			if (yOffsets[i_174_] < i && this.heights[i_174_] != 0) {
+			if (yOffsets[i_174_] < i && this.spriteHeights[i_174_] != 0) {
 				i = yOffsets[i_174_];
 			}
-			if (yOffsets[i_174_] + this.heights[i_174_] > i_173_) {
-				i_173_ = yOffsets[i_174_] + this.heights[i_174_];
+			if (yOffsets[i_174_] + this.spriteHeights[i_174_] > i_173_) {
+				i_173_ = yOffsets[i_174_] + this.spriteHeights[i_174_];
 			}
 		}
-		anInt3494 = this.anInt3497 - i;
-		anInt3512 = i_173_ - this.anInt3497;
+		anInt3494 = this.yOff - i;
+		anInt3512 = i_173_ - this.yOff;
 	}
 
 	private final void setEffectsFromText(final String string) {
 		try {
 			if (string.startsWith("col=")) {
-				color = Class111.stringToIntRadix(string.substring(4), 16);
+				textColor = Class111.stringToIntRadix(string.substring(4), 16);
 			} else if (string.equals("/col")) {
-				color = oldColor;
+				textColor = oldTextColor;
 			} else if (string.startsWith("trans=")) {
 				transparency = Class31.stringToBase10(string.substring(6));
 			} else if (string.equals("/trans")) {
@@ -733,7 +731,7 @@ abstract class AbstractFont extends NodeSub {
 			} else if (string.equals("/shad")) {
 				shadowColor = oldShadowColor;
 			} else if (string.equals("br")) {
-				setFontEffects(oldColor, oldShadowColor, oldTransparency);
+				setFontEffects(oldTextColor, oldShadowColor, oldTransparency);
 			}
 		} catch (final Exception exception) {
 			/* empty */
@@ -839,7 +837,7 @@ abstract class AbstractFont extends NodeSub {
 					if (c != 0) {
 						aStringBuffer3500.append(c);
 						c = (char) (LongNode.method1060(c) & 0xff);
-						i += anIntArray3503[c];
+						i += charWidths[c];
 						if (aByteArray3498 != null && i_180_ != 0) {
 							i += aByteArray3498[(i_180_ << 8) + c];
 						}

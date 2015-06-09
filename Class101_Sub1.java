@@ -8,7 +8,7 @@ final class Class101_Sub1 extends Class101 {
 	private final int anInt2268;
 	private final int anInt2269;
 	private final int anInt2270;
-	static byte[][] underWaterLocationsMapFileBuffers;
+	static byte[][] underWaterLocationsMapFilesBuffer;
 	static int anInt2272;
 	static Class22 aClass22_2273;
 	static AbstractSprite[] mapFlagSprites;
@@ -44,7 +44,7 @@ final class Class101_Sub1 extends Class101 {
 		final int i_14_ = anInt2270 * i_11_ >> 12;
 		final int i_15_ = anInt2267 * i_12_ >> 12;
 		final int i_16_ = anInt2268 * i_12_ >> 12;
-		UnderlayType.method1901(i_15_, i_13_, this.anInt960, i_16_, true, i_14_);
+		UnderlayType.method1901(i_15_, i_13_, this.anInt960, i_16_, i_14_);
 	}
 
 	Class101_Sub1(final int i, final int i_17_, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_) {
@@ -73,7 +73,7 @@ final class Class101_Sub1 extends Class101 {
 				} else {
 					GraphicsLD.method2164(jagexInterface.startOfSpriteLookupTable, jagexInterface.lengthOfSpriteLookupTable);
 				}
-				font.method1467(text, posX + interfaceX + jagexInterface.width / 2, interfaceY + jagexInterface.height / 2 - posY - yOff - i_36_, i_35_, 50, color, 0, 256, 1, 0, 0);
+				font.drawInterfaceText(text, posX + interfaceX + jagexInterface.width / 2, interfaceY + jagexInterface.height / 2 - posY - yOff - i_36_, i_35_, 50, color, 0, 256, 1, 0, 0);
 				if (!HDToolkit.glEnabled) {
 					GraphicsLD.method2174();
 				} else {

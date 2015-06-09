@@ -144,7 +144,7 @@ final class AmbientSound extends Node {
 	}
 	
 	static final void fillArray(final int[] src, final int val, int i_5_, int i_6_) {
-		final int i_7_ = -7 + --i_6_;
+		final int i_7_ = -7 + - (-i_6_);
 		i_5_--;
 		while (i_5_ < i_7_) {
 			src[++i_5_] = val;

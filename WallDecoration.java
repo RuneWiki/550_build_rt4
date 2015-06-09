@@ -4,7 +4,6 @@
 
 final class WallDecoration {
 	static int topMargin;
-	static int actionsLen;
 	int renderZ;
 	int anInt1892;
 	int renderX;
@@ -24,7 +23,7 @@ final class WallDecoration {
 	static {
 		topMargin = 0;
 		usingSpriteMenu = false;
-		actionsLen = 0;
+		AbstractModelRenderer.actionsLen = 0;
 		hdrEnabled = false;
 		menuOptionCount = 0;
 	}

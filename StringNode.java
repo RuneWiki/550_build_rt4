@@ -126,7 +126,7 @@ final class StringNode extends Node {
 				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticleEmitter.anInt1475, PlainTile.anInt1356);
 				class41.method331(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, i_16_);
 			} else {
-				HDToolkit.method531(i_16_);
+				HDToolkit.clearScreen(i_16_);
 			}
 			HDToolkit.method496(x, y, width, height, x + width / 2, y + height / 2, pitchAsDegrees, yawAsDegrees, Class179.anInt1775, Class179.anInt1775);
 			Class101.refreshAtmosphere(false);
@@ -135,17 +135,17 @@ final class StringNode extends Node {
 			HDToolkit.toggleFog(true);
 		}
 		if (Class15.menuOpen || Class115.menuMouseX < x || Class115.menuMouseX >= width + x || y > Class120_Sub12_Sub21.menuMouseY || Class120_Sub12_Sub21.menuMouseY >= height + y) {
-			Class5.aBoolean2158 = false;
-			WallDecoration.actionsLen = 0;
+			AbstractModelRenderer.addActions = false;
+			AbstractModelRenderer.actionsLen = 0;
 		} else {
-			WallDecoration.actionsLen = 0;
-			Class5.aBoolean2158 = true;
-			final int i_17_ = Class120_Sub12_Sub16.anInt3253;
-			final int i_18_ = Class120_Sub30_Sub1.anInt3672;
-			final int i_19_ = Class190.anInt2100;
-			final int i_20_ = IntegerNode.anInt2792;
-			Class173.anInt1728 = i_20_ + (-i_20_ + i_17_) * (Class115.menuMouseX + -x) / width;
-			Class2.anInt49 = i_19_ + (-y + Class120_Sub12_Sub21.menuMouseY) * (-i_19_ + i_18_) / height;
+			AbstractModelRenderer.actionsLen = 0;
+			AbstractModelRenderer.addActions = true;
+			final int right = Class120_Sub12_Sub16.viewportRight;
+			final int bottom = Class120_Sub30_Sub1.viewportBottom;
+			final int top = Class190.viewportTop;
+			final int left = IntegerNode.viewportLeft;
+			AbstractModelRenderer.mouseOffFromCenterX = left + (right - left) * (Class115.menuMouseX - x) / width;
+			AbstractModelRenderer.mouseOffFromCenterY = top + (bottom - top) * (Class120_Sub12_Sub21.menuMouseY - y) / height;
 		}
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;

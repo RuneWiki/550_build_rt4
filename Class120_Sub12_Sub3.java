@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub3 extends Class120_Sub12 {
 	static int anInt3147;
-	static int[] anIntArray3148 = { 8, 11, 4, 6, 9, 7, 10, 0 };
+	static int[] loopToAppearanceIndex = { 8, 11, 4, 6, 9, 7, 10, 0 };
 	private int anInt3149 = 4096;
 	static Class164 aClass164_3150;
 	static int anInt3151;

@@ -13,7 +13,7 @@ final class ParticleEngine extends ParticleNode {
 	int anInt2348 = 0;
 	private final long startLoopCycle;
 	static Particle[] aClass108_Sub3_Sub1Array2350;
-	static int anInt2351 = 0;
+	static int particleCount = 0;
 	private long aLong2352;
 	static int anInt2353 = 0;
 	static int anInt2354;
@@ -22,7 +22,7 @@ final class ParticleEngine extends ParticleNode {
 	private Class174 aClass174_2357 = new Class174();
 	static int anInt2358;
 	long aLong2359;
-	static int anInt2360;
+	static int particleCountWrapper;
 	private static Class174 aClass174_2361;
 	static boolean debug;
 	static int runningParticleCount;
@@ -437,9 +437,9 @@ final class ParticleEngine extends ParticleNode {
 	}
 
 	static final void process(final long l) {
-		anInt2351 = anInt2360;
+		particleCount = particleCountWrapper;
 		runningParticleCount = 0;
-		anInt2360 = 0;
+		particleCountWrapper = 0;
 		final long l_60_ = TimeUtil.getSafeTime();
 		for (ParticleEngine class108_sub2 = (ParticleEngine) aClass174_2361.peekFirst(); class108_sub2 != null; class108_sub2 = (ParticleEngine) aClass174_2361.peekNext()) {
 			if (class108_sub2.method963(l)) {
@@ -447,7 +447,7 @@ final class ParticleEngine extends ParticleNode {
 			}
 		}
 		if (debug && l % 100L == 0L) {
-			System.out.println(new StringBuilder("Particle system count: ").append(aClass174_2361.getCount()).append(", running: ").append(runningParticleCount).append(". Particles: ").append(anInt2360).append(". Time taken: ").append(TimeUtil.getSafeTime() - l_60_).append("ms").toString());
+			System.out.println(new StringBuilder("Particle system count: ").append(aClass174_2361.getCount()).append(", running: ").append(runningParticleCount).append(". Particles: ").append(particleCountWrapper).append(". Time taken: ").append(TimeUtil.getSafeTime() - l_60_).append("ms").toString());
 		}
 	}
 

@@ -10,11 +10,10 @@ final class Class5 implements ShaderInterface {
 	static int anInt2154 = 0;
 	private int anInt2156 = -1;
 	static int mapSceneGreenColorModifier;
-	static boolean aBoolean2158;
-
+	
 	static {
 		aShortArray2152 = new short[] { -10304, 9104, -1, -1, -1 };
-		aBoolean2158 = false;
+		AbstractModelRenderer.addActions = false;
 	}
 
 	static final void spawnGroundObject(final int x, final int z) {
