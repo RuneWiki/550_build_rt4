@@ -145,18 +145,18 @@ final class GraphicsHD {
 		gl.glEnd();
 	}
 
-	static final void method591(final int i, final int i_54_, final int i_55_, final int i_56_) {
-		if (startX < i) {
-			startX = i;
+	static final void setBounds(final int x1, final int y1, final int x2, final int y2) {
+		if (startX < x1) {
+			startX = x1;
 		}
-		if (startY < i_54_) {
-			startY = i_54_;
+		if (startY < y1) {
+			startY = y1;
 		}
-		if (endX > i_55_) {
-			endX = i_55_;
+		if (endX > x2) {
+			endX = x2;
 		}
-		if (endY > i_56_) {
-			endY = i_56_;
+		if (endY > y2) {
+			endY = y2;
 		}
 		final GL gl = HDToolkit.gl;
 		gl.glEnable(3089);

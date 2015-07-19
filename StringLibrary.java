@@ -30,14 +30,14 @@ final class StringLibrary {//Original class
 		StringLibrary.aString807 = "ondulation:";
 		StringLibrary.aString3655 = "Vous ne pouvez pas ajouter votre nom \u00e0 votre liste d'amis.";
 		StringLibrary.aString1116 = "Connexion perdue.";
-		Class5.aString2153 = "Fermer";
+		StringLibrary.aString2153 = "Fermer";
 		StringLibrary.aString2578 = " de votre liste noire.";
 		DisplayModeInfo.aString1708 = "Monde de jeu cr\u00e9\u00e9";
 		StringLibrary.connectedToUpdateServer = "Connect\u00e9 au serveur de mise \u00e0 jour";
 		Class120_Sub12_Sub1.aString3132 = "Atteindre";
 		StringLibrary.aString2594 = "Liste des mises \u00e0 jour charg\u00e9e";
 		Class8.aString64 = "Jeter";
-		SceneGroundObject.aString2849 = "Veuillez commencer par supprimer ";
+		StringLibrary.aString2849 = "Veuillez commencer par supprimer ";
 		StringLibrary.aString3575 = "violet:";
 		JagexInterface.aString1358 = "Textures charg\u00e9es";
 		StringLibrary.aString1238 = "K";
@@ -70,7 +70,7 @@ final class StringLibrary {//Original class
 		StringLibrary.useSeperator = " ";
 		StringLibrary.aString3665 = "Chargement des sprites - ";
 		StringLibrary.aString1098 = "Chargement de la liste des serveurs";
-		Class120_Sub19.aString2653 = "M";
+		StringLibrary.aString2653 = "M";
 		StringLibrary.aString3137 = "Param\u00e8tres par d\u00e9faut charg\u00e9s";
 		StringLibrary.aString2538 = "glissement:";
 		StringLibrary.aString2669 = " s'est connect\u00e9.";
@@ -87,7 +87,7 @@ final class StringLibrary {//Original class
 		StringLibrary.loadingConfig = "Chargement des fichiers config - ";
 		StringLibrary.aString1239 = "\u00c9cran-titre charg\u00e9";
 		StringLibrary.continueString = "Continuer";
-		SceneGroundObject.aString2847 = "Module texte charg\u00e9";
+		StringLibrary.aString2847 = "Module texte charg\u00e9";
 		StringLibrary.selectString = "S\u00e9lectionner";
 		StringLibrary.aString489 = " de votre liste d'amis.";
 		StringLibrary.aString2574 = "blanc:";
@@ -107,12 +107,12 @@ final class StringLibrary {//Original class
 	static final void translateToGermany() {
 		StringLibrary.drop = "Fallen lassen";
 		StringLibrary.aString1457 = "leuchten2:";
-		Class5.aString2153 = "Schlie\u00dfen";
+		StringLibrary.aString2153 = "Schlie\u00dfen";
 		StringLibrary.connectedToUpdateServer = "Verbindung zum Update-Server hergestellt.";
 		StringLibrary.aString2213 = "rot:";
 		StringLibrary.aString853 = "Speicher wird zugewiesen.";
 		StringLibrary.moreOptions = " weitere Optionen";
-		SceneGroundObject.aString2847 = "Wordpack geladen.";
+		StringLibrary.aString2847 = "Wordpack geladen.";
 		StringLibrary.aString1239 = "Titelbild geladen.";
 		StringLibrary.aString3137 = "Standardinstellungen geladen";
 		StringLibrary.selectString = "Ausw\u00e4hlen";
@@ -127,7 +127,7 @@ final class StringLibrary {//Original class
 		use = "Benutzen";
 		StringLibrary.aString2444 = "Liste der Welten geladen";
 		StringLibrary.runescapeIsLoadingPleaseWait = "RuneScape wird geladen - bitte warten...";
-		Class120_Sub19.aString2653 = "M";
+		StringLibrary.aString2653 = "M";
 		StringLibrary.aString398 = "Lade Wordpack - ";
 		StringLibrary.aString2105 = "Verbindung mit Update-Server...";
 		StringLibrary.aString400 = "Starte 3D-Softwarebibliothek.";
@@ -187,7 +187,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
 		StringLibrary.aString2538 = "gleiten:";
 		StringLibrary.aString3910 = " steht bereits auf deiner Freunde-Liste!";
-		SceneGroundObject.aString2849 = "Bitte entferne ";
+		StringLibrary.aString2849 = "Bitte entferne ";
 		StringLibrary.aString2206 = "blinken2:";
 		StringLibrary.mechscapeIsLoadingPleaseWait = "Mechscape wird geladen - bitte warten...";
 		StringLibrary.aString2585 = "Konfig geladen.";
@@ -202,9 +202,9 @@ final class StringLibrary {//Original class
 
 	static final void translateToSpanish() {
 		StringLibrary.aString2660 = "Carregando fontes - ";
-		Class120_Sub19.aString2653 = "M";
+		StringLibrary.aString2653 = "M";
 		StringLibrary.membersObject = "Objeto para membros";
-		SceneGroundObject.aString2849 = "Remova ";
+		StringLibrary.aString2849 = "Remova ";
 		StringLibrary.aString853 = "Alocando mem\u00f3ria";
 		StringLibrary.aString3371 = "Carregando /secure/libs_v4s/RCras - ";
 		StringLibrary.mechscapeIsLoadingPleaseWait = "Mechscape carregando. Aguarde...";
@@ -266,7 +266,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString2837 = "Biblioteca 3D iniciada";
 		StringLibrary.aString915 = "tremor:";
 		StringLibrary.okString = "Ok";
-		SceneGroundObject.aString2847 = "Pacote de palavras carregado";
+		StringLibrary.aString2847 = "Pacote de palavras carregado";
 		StringLibrary.aString1457 = "brilho2:";
 		StringLibrary.aString1079 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de ignorados.";
 		StringLibrary.aString2726 = "Sprites carregados";
@@ -277,7 +277,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString2550 = "Sua lista de amigos est\u00e1 cheia. O limite \u00e9 100 para os usu\u00e1rios n\u00e3o pagantes e 200 para os membros.";
 		StringLibrary.moreOptions = " mais op\u00e7\u00f5es";
 		StringLibrary.aString626 = "Aguarde...";
-		Class5.aString2153 = "Fechar";
+		StringLibrary.aString2153 = "Fechar";
 		StringLibrary.aString3910 = " j\u00e1 est\u00e1 na sua lista de amigos.";
 		StringLibrary.aString3655 = "Voc\u00ea n\u00e3o pode adicionar a si pr\u00f3prio \u00e0 sua lista de amigos.";
 		Class120_Sub12_Sub1.aString3132 = "Caminhar para c\u00e1";
@@ -393,4 +393,8 @@ final class StringLibrary {//Original class
 	static String aString3137 = "Loaded defaults";
 	static String okString = "Ok";
 	static String aString1250 = " has logged out.";
+	static String aString2849 = "Please remove ";
+	static String aString2847 = "Loaded wordpack";
+	static String aString2153 = "Close";
+	static String aString2653 = "M";
 }

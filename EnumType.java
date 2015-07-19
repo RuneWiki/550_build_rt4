@@ -16,11 +16,11 @@ final class EnumType extends NodeSub {
 	Hashtable params;
 	static js5 aClass50_145;
 	static NodeCache recentUse = new NodeCache(128);
-	static long aLong3462;
+	static long lastClickPacketSendTime;
 
 	static {
 		anInt3450 = 0;
-		aLong3462 = 0L;
+		lastClickPacketSendTime = 0L;
 	}
 
 	final int getIntegerParamValue(final int param) {
@@ -115,7 +115,7 @@ final class EnumType extends NodeSub {
 			UnderlayType.setupLoadingScreenRegion();
 			ProjectileNode.setGameState(28);
 		} else {
-			HintIcon.method725(client.aClass50_63);
+			HintIcon.method725(client.spritesJs5);
 			ProjectileNode.setGameState(10);
 		}
 	}

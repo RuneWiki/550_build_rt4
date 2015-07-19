@@ -140,13 +140,13 @@ final class Class82 implements Runnable {
 	}
 
 	static final void method715() {
-		if (TileParticleQueue.selfPlayer != null && TileParticleQueue.selfPlayer.x - (64 * TileParticleQueue.selfPlayer.getSize() - 64) >> 7 == Class120_Sub12_Sub26.flagX && TileParticleQueue.selfPlayer.z - (TileParticleQueue.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.flagY) {
+		if (TileParticleQueue.selfPlayer != null && TileParticleQueue.selfPlayer.x - (TileParticleQueue.selfPlayer.getSize() * 64 - 64) >> 7 == Class120_Sub12_Sub26.flagX && TileParticleQueue.selfPlayer.z - (TileParticleQueue.selfPlayer.getSize() * 64) + 64 >> 7 == Class65.flagY) {
 			SceneGroundObject.packetSetFlagPosition = false;
 			Class120_Sub12_Sub26.flagX = 0;
 		}
 		for (int x = 0; x < 104; x++) {
 			for (int z = 0; z < 104; z++) {
-				FileSystemRequest.anIntArrayArray3933[x][z] = 0;
+				FileSystemRequest.entityCountOnTile[x][z] = 0;
 			}
 		}
 		for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {

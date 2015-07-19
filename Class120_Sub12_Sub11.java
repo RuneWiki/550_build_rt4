@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	private int anInt3208;
 	static PacketBuffer outputStream;
 	private int anInt3210;
-	static int anInt3211 = -1;
+	static int examineOptionCursor = -1;
 	static Npc[] npcList;
 	static int anInt3214;
 	static JagexSocket js5Connection;

@@ -8,7 +8,7 @@ final class Class65 {
 	static int[][] anIntArrayArray594;
 	static DisplayModeInfo[] displayModes;
 	static int loadAttempts;
-	static js5 aClass50_597;
+	static js5 mapsJs5;
 
 	static {
 		flagY = 0;

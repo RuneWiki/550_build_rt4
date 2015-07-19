@@ -123,9 +123,9 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		final int height = QuickChatMessageType.menuHeight - 3;
 		final int width = Class120_Sub24.menuWidth;
 		if (Class157.aClass120_Sub14_Sub19_1472 == null || Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 == null) {
-			if (client.aClass50_63.groupExist(client.anInt2199) && client.aClass50_63.groupExist(Class114.anInt1099)) {
-				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.aClass50_63, client.anInt2199, 0);
-				Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.aClass50_63, Class114.anInt1099, 0);
+			if (client.spritesJs5.groupExist(client.anInt2199) && client.spritesJs5.groupExist(Class114.anInt1099)) {
+				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, client.anInt2199, 0);
+				Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, Class114.anInt1099, 0);
 				if (HDToolkit.glEnabled) {
 					if (!(Class157.aClass120_Sub14_Sub19_1472 instanceof LDTransparentSprite)) {
 						Class157.aClass120_Sub14_Sub19_1472 = new HDSprite((LDSprite) Class157.aClass120_Sub14_Sub19_1472);
@@ -170,11 +170,11 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 				}
 			}
 		}
-		if ((Class173.aClass120_Sub14_Sub19_1725 == null || FrameGroup.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && client.aClass50_63.groupExist(Class24.anInt146) && client.aClass50_63.groupExist(Class92.anInt864)
-				&& client.aClass50_63.groupExist(Class31.anInt240)) {
-			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.aClass50_63, Class24.anInt146, 0);
-			FrameGroup.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.aClass50_63, Class92.anInt864, 0);
-			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.aClass50_63, Class31.anInt240, 0);
+		if ((Class173.aClass120_Sub14_Sub19_1725 == null || FrameGroup.aClass120_Sub14_Sub19_3611 == null || RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 == null) && client.spritesJs5.groupExist(Class24.anInt146) && client.spritesJs5.groupExist(Class92.anInt864)
+				&& client.spritesJs5.groupExist(Class31.anInt240)) {
+			Class173.aClass120_Sub14_Sub19_1725 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, Class24.anInt146, 0);
+			FrameGroup.aClass120_Sub14_Sub19_3611 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, Class92.anInt864, 0);
+			RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, Class31.anInt240, 0);
 			if (HDToolkit.glEnabled) {
 				if (Class173.aClass120_Sub14_Sub19_1725 instanceof LDTransparentSprite) {
 					Class173.aClass120_Sub14_Sub19_1725 = new HDTransparentSprite((LDSprite) Class173.aClass120_Sub14_Sub19_1725);

@@ -204,12 +204,14 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				HintIcon.showFps = true;
 			}
 			if (command.equalsIgnoreCase("::test")) {
-				int id = 600;
-				int idk = 1;
-				int delay = 0;
-				int volume = 255;
-				Class48.method404(id, delay, idk, volume);
-				System.out.println("hello");
+				for(int i = 0; i < 10000; i++) {
+					NpcType npcType = NpcType.list(i);
+					if(npcType != null) {
+						if(npcType.hitBarSpriteId != -1) {
+							System.out.println(i);
+						}
+					}
+				}
 			}
 			if (command.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
@@ -309,13 +311,13 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 		}
 	}
 
-	static final void method1302(final int level, final int x, final int z) {
-		Class120_Sub12_Sub7.aBoolean3181 = true;
-		Projectile.anInt2933 = level;
-		ParticleEmitter.anInt2320 = x;
-		Class187.anInt1908 = z;
-		ObjectCache.anInt122 = -1;
-		WaterfallShader.anInt2174 = -1;
+	static final void requestClickedTileCoordinates(final int level, final int x, final int z) {
+		Class120_Sub12_Sub7.mouseClickToTileRequested = true;
+		Projectile.mouseClickToTileLevel = level;
+		ParticleEmitter.mouseClickToTileOffX = x;//Offset from center
+		Class187.mouseClickToTileOffZ = z;//Offset from center
+		ObjectCache.clickedTileX = -1;
+		WaterfallShader.clickedTileZ = -1;
 	}
 
 	public Class120_Sub12_Sub20() {
@@ -323,7 +325,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	}
 
 	static final LDIndexedSprite constructLDIndexedSprite() {
-		final LDIndexedSprite ldIndexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], Class145.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
+		final LDIndexedSprite ldIndexedSprite = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[0], GroundTile.spriteYOffsets[0], Class120_Sub12_Sub11.spriteWidths[0], Class120_Sub12_Sub39.spriteHeights[0], SkyboxType.spritePaletteIndicators[0], Class132_Sub1.spritePalette);
 		Class53_Sub1.resetSpriteInfo();
 		return ldIndexedSprite;
 	}

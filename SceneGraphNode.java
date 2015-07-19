@@ -15,7 +15,7 @@ abstract class SceneGraphNode {
 
 	abstract void method2266(int i, int i_8_, int i_10_, int i_9_, int i_11_);
 
-	void method2267(final SceneGraphNode class180_12_, final int i, final int i_13_, final int i_14_, final boolean bool) {
+	void method2267(final SceneGraphNode class180_12_, final int xOff, final int yOff, final int zOff, final boolean bool) {
 		/* empty */
 	}
 

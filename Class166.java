@@ -5,12 +5,6 @@
 final class Class166 {
 	static int anInt1612 = 0;
 	
-	static final void method2178(final js5 js5, final boolean bool, final js5 class50_0_) {
-		Class69_Sub2.locMemberClient = bool;
-		Class120_Sub12_Sub36.aClass50_3418 = class50_0_;
-		Class120_Sub6.aClass50_2450 = js5;
-	}
-
 	static final void method2180(final GameEntity gameEntity) {
 		final int i = gameEntity.anInt3035 - Class101_Sub2.loopCycle;
 		final int i_1_ = gameEntity.anInt2967 * 128 + (gameEntity.getSize() * 64);

@@ -4,7 +4,7 @@
 
 final class Class156 {
 	static int anInt1453;
-	static JagexInterface aClass189_1454 = null;
+	static JagexInterface dialogInterface = null;
 	static int lastMouseClick;
 	static int[] anIntArray1458;
 

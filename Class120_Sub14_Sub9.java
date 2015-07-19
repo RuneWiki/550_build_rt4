@@ -71,7 +71,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 				anInt3524 = 2;
 			} else if (anInt3524 != 1) {
 				for (int i = 0; i < 6; i++) {
-					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.palette, Rasterizer.anInterface5_973.method20(anIntArray3518[i]), 1);
+					final IntBuffer intbuffer = IntBuffer.wrap(Rasterizer.palette, Rasterizer.anInterface5_973.getColorPaletteIndex(anIntArray3518[i]), 1);
 					gl.glTexImage2D(34069 + i, 0, 6407, 1, 1, 0, 32993, 5121, intbuffer);
 					MemoryManager.textureMemory += 3 - anInt3521;
 					anInt3521 = 3;

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 final class Js5Worker {
 	static int anInt396;
-	static js5 aClass50_397;
+	static js5 configJs5;
 	static String[] alternativeAccountUsernames;
 	private final Queue urgentQueue = new Queue();
 	private final Queue aClass177_402 = new Queue();
@@ -46,7 +46,7 @@ final class Js5Worker {
 	}
 
 	static final void method356(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_5_, final int i_6_) {
-		Class153.method2076(i);
+		SphereType.method2076(i);
 		int i_7_ = i + -i_1_;
 		int i_8_ = i;
 		int i_9_ = 0;
@@ -291,7 +291,7 @@ final class Js5Worker {
 			final Light light = class44s[i_53_];
 			if (light.level == i_51_) {
 				final LightRenderer class133 = new LightRenderer();
-				int i_54_ = -light.anInt370 + (light.z >> 7);
+				int i_54_ = (light.z >> 7) - light.anInt370;
 				int i_55_ = 0;
 				if (i_54_ < 0) {
 					i_55_ -= i_54_;
@@ -301,7 +301,7 @@ final class Js5Worker {
 				if (i_56_ > 103) {
 					i_56_ = 103;
 				}
-				final int i_57_ = (light.x >> 7) + -light.anInt370;
+				final int i_57_ = (light.x >> 7) - light.anInt370;
 				for (int i_58_ = i_54_; i_58_ <= i_56_; i_58_++) {
 					final int i_59_ = light.aShortArray372[i_55_];
 					int i_60_ = (i_59_ >> 8) + i_57_;
@@ -424,8 +424,8 @@ final class Js5Worker {
 				}
 				class133.method1945();
 				i_55_ = 0;
-				if ((light.z >> 7) + -light.anInt370 < 0) {
-					i_55_ -= -light.anInt370 + (light.z >> 7);
+				if ((light.z >> 7) - light.anInt370 < 0) {
+					i_55_ -= (light.z >> 7) - light.anInt370;
 				}
 				for (int i_91_ = i_54_; i_56_ >= i_91_; i_91_++) {
 					final int i_92_ = light.aShortArray372[i_55_];
@@ -455,8 +455,8 @@ final class Js5Worker {
 								continue;
 							}
 						} else if (i_98_ != 0) {
-							final OverlayType class124 = OverlayType.list(-1 + i_98_);
-							if ((class124.color ^ 0xffffffff) == 0) {
+							final OverlayType class124 = OverlayType.list(i_98_ - 1);
+							if (class124.color == -1) {
 								Class120_Sub12_Sub11.method1255(light, InterfaceChangeNode.anIntArrayArray3488[is_52_[i_95_][i_91_]], fs_49_, i_91_, i_95_, class133, fs, fs_50_, is[i_95_][i_91_], is_46_);
 								continue;
 							}

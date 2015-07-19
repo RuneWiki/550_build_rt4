@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub4 extends Class120_Sub12 {
-	static float aFloat3154;
+	static float cameraPitchWrapper;
 	private int anInt3155 = 0;
 	static JagexInterface draggedComponent;
 	static int[][] anIntArrayArray3157 = { { 0, 128, 0, 0, 128, 0, 128, 128 }, { 0, 128, 0, 0, 128, 0 }, { 0, 0, 64, 128, 0, 128 }, { 128, 128, 64, 128, 128, 0 }, { 0, 0, 128, 0, 128, 128, 64, 128 }, { 0, 128, 0, 0, 128, 0, 64, 128 }, { 64, 128, 0, 128, 0, 0, 64, 0 }, { 0, 0, 64, 0, 0, 64 },
@@ -12,7 +12,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 	private int anInt3159 = 4096;
 
 	static {
-		aFloat3154 = 0.0F;
+		cameraPitchWrapper = 0.0F;
 		draggedComponent = null;
 	}
 

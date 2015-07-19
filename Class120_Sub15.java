@@ -10,11 +10,11 @@ final class Class120_Sub15 extends Node {
 	static FrameGroup[] aClass120_Sub14_Sub18Array2595 = new FrameGroup[14];
 	static float[] aFloatArray2596;
 	static int[] anIntArray2597 = new int[256];
-	static float aFloat2598;
+	static float cameraYawWrapper;
 
 	static {
 		aFloatArray2596 = new float[] { 0.073F, 0.169F, 0.24F, 1.0F };
-		aFloat2598 = 0.0F;
+		cameraYawWrapper = 0.0F;
 		screenY = -1;
 	}
 

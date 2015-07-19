@@ -58,18 +58,18 @@ final class Class3 {
 	}
 
 	static final void method84(final int levelSize, final int xSize, final int zSize, final int tileVisibility, final boolean hasUnderWaterMap) {
-		WallDecoration.anInt1900 = xSize;
-		Class120_Sub12_Sub38.anInt3440 = zSize;
+		WallDecoration.mapSizeX = xSize;
+		Class120_Sub12_Sub38.mapSizeZ = zSize;
 		Class120_Sub14_Sub13.anInt3563 = tileVisibility;
-		Class86.surfaceGroundTiles = new GroundTile[levelSize][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
-		Class120_Sub12_Sub33.surfaceTileHeightMap = new int[levelSize][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		Class86.surfaceGroundTiles = new GroundTile[levelSize][WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
+		Class120_Sub12_Sub33.surfaceTileHeightMap = new int[levelSize][WallDecoration.mapSizeX + 1][Class120_Sub12_Sub38.mapSizeZ + 1];
 		if (HDToolkit.glEnabled) {
 			SceneGroundObject.surfaceHdTiles = new HDTile[4][];
 		}
 		if (hasUnderWaterMap) {
-			Class120_Sub12_Sub38.underWaterGroundTiles = new GroundTile[1][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			NodeCache.anIntArrayArray300 = new int[WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
-			Class24.underWaterTileHeightMap = new int[1][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+			Class120_Sub12_Sub38.underWaterGroundTiles = new GroundTile[1][WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
+			NodeCache.anIntArrayArray300 = new int[WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
+			Class24.underWaterTileHeightMap = new int[1][WallDecoration.mapSizeX + 1][Class120_Sub12_Sub38.mapSizeZ + 1];
 			if (HDToolkit.glEnabled) {
 				IntegerNode.underWaterHdTiles = new HDTile[1][];
 			}
@@ -84,13 +84,13 @@ final class Class3 {
 		Class49.anInt438 = 0;
 		AnimatedLocation.aClass188Array3076 = new Class188[500];
 		CursorType.anInt1237 = 0;
-		JagexSocket.anIntArrayArrayArray419 = new int[levelSize][WallDecoration.anInt1900 + 1][Class120_Sub12_Sub38.anInt3440 + 1];
+		JagexSocket.anIntArrayArrayArray419 = new int[levelSize][WallDecoration.mapSizeX + 1][Class120_Sub12_Sub38.mapSizeZ + 1];
 		Class111.aClass28Array1057 = new Class28[5000];
 		ClientScript.anInt3556 = 0;
 		client.aClass28Array323 = new Class28[100];
 		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1];
 		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
-		Class114.aByteArrayArrayArray1094 = new byte[levelSize][WallDecoration.anInt1900][Class120_Sub12_Sub38.anInt3440];
+		Class114.aByteArrayArrayArray1094 = new byte[levelSize][WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
 	}
 
 	static final void smoothCamera() {

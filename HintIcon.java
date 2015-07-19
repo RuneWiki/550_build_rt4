@@ -18,7 +18,7 @@ final class HintIcon {
 	int offY;
 
 	static final LDSprite constructLDSprite() {
-		final byte[] indicators = Class145.spritePaletteIndicators[0];
+		final byte[] indicators = SkyboxType.spritePaletteIndicators[0];
 		final int pixelAmt = Class120_Sub12_Sub11.spriteWidths[0] * Class120_Sub12_Sub39.spriteHeights[0];
 		final int[] pixels = new int[pixelAmt];
 		for (int id = 0; id < pixelAmt; id++) {
@@ -71,26 +71,26 @@ final class HintIcon {
 
 	static final void method725(final js5 js5) {
 		JagexSocket.runesSprite = ChunkAtmosphere.constructLDIndexedSprites(js5, Class120_Sub14_Sub13.runesId);
-		client.anIntArray679 = new int[256];
-		for (int i_20_ = 0; i_20_ < 3; i_20_++) {
-			float f = ChunkAtmosphere.torchesFlamesPalette[i_20_] >> 16 & 0xff;
-			final int i_21_ = ChunkAtmosphere.torchesFlamesPalette[i_20_ + 1] >> 16 & 0xff;
-			final float f_22_ = (i_21_ - f) / 64.0F;
-			float f_23_ = 0xff & ChunkAtmosphere.torchesFlamesPalette[i_20_] >> 8;
-			float f_24_ = ChunkAtmosphere.torchesFlamesPalette[i_20_] & 0xff;
-			final int i_25_ = 0xff & ChunkAtmosphere.torchesFlamesPalette[1 + i_20_] >> 8;
-			final float f_26_ = (i_25_ - f_23_) / 64.0F;
-			final int i_27_ = ChunkAtmosphere.torchesFlamesPalette[i_20_ + 1] & 0xff;
-			final float f_28_ = (i_27_ - f_24_) / 64.0F;
-			for (int i_29_ = 0; i_29_ < 64; i_29_++) {
-				client.anIntArray679[i_29_ + 64 * i_20_] = ChunkAtmosphere.method2512(ChunkAtmosphere.method2512((int) f << 16, (int) f_23_ << 8), (int) f_24_);
-				f_23_ += f_26_;
-				f += f_22_;
-				f_24_ += f_28_;
+		client.torchesFlamesPalette = new int[256];
+		for (int paletteId = 0; paletteId < 3; paletteId++) {
+			float red = ChunkAtmosphere.torchesFlamesBaseColors[paletteId] >> 16 & 0xff;
+			float green = ChunkAtmosphere.torchesFlamesBaseColors[paletteId] >> 8 & 0xff;
+			float blue = ChunkAtmosphere.torchesFlamesBaseColors[paletteId] & 0xff;
+			final int nextRed = ChunkAtmosphere.torchesFlamesBaseColors[paletteId + 1] >> 16 & 0xff;
+			final int nextGreen = ChunkAtmosphere.torchesFlamesBaseColors[paletteId + 1] >> 8 & 0xff;
+			final int nextBlue = ChunkAtmosphere.torchesFlamesBaseColors[paletteId + 1] & 0xff;
+			final float redStep = (nextRed - red) / 64.0F;
+			final float greenStep = (nextGreen - green) / 64.0F;
+			final float blueStep = (nextBlue - blue) / 64.0F;
+			for (int newPaletteId = 0; newPaletteId < 64; newPaletteId++) {
+				client.torchesFlamesPalette[newPaletteId + 64 * paletteId] = (int) red << 16 | (int) green << 8 | (int) blue;
+				red += redStep;
+				green += greenStep;
+				blue += blueStep;
 			}
 		}
-		for (int i_30_ = 192; i_30_ < 255; i_30_++) {
-			client.anIntArray679[i_30_] = ChunkAtmosphere.torchesFlamesPalette[3];
+		for (int id = 192; id < 255; id++) {
+			client.torchesFlamesPalette[id] = ChunkAtmosphere.torchesFlamesBaseColors[3];
 		}
 		InterfaceChangeNode.anIntArray3485 = new int[32768];
 		KeyboardHandler.anIntArray1503 = new int[32768];

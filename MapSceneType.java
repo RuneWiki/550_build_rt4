@@ -403,44 +403,44 @@ final class MapSceneType {
 							}
 							if (jagexInterface.type != 1) {
 								if (jagexInterface.type == 2) {
-									int i_63_ = 0;
-									for (int i_64_ = 0; jagexInterface.originalHeight > i_64_; i_64_++) {
-										for (int i_65_ = 0; jagexInterface.originalWidth > i_65_; i_65_++) {
-											int i_66_ = drawY + (32 + jagexInterface.objSpritePadY) * i_64_;
-											int i_67_ = drawX + i_65_ * (32 - -jagexInterface.objSpritePadX);
-											if (i_63_ < 20) {
-												i_66_ += jagexInterface.spriteYs[i_63_];
-												i_67_ += jagexInterface.spriteXs[i_63_];
+									int objIndex = 0;
+									for (int h = 0; h < jagexInterface.originalHeight; h++) {
+										for (int w = 0; w < jagexInterface.originalWidth; w++) {
+											int objX = drawX + (jagexInterface.objSpritePadX + 32) * w;
+											int objY = drawY + (jagexInterface.objSpritePadY + 32) * h;
+											if (objIndex < 20) {
+												objX += jagexInterface.spriteXs[objIndex];
+												objY += jagexInterface.spriteYs[objIndex];
 											}
-											if (jagexInterface.objIds[i_63_] > 0) {
-												final int i_68_ = jagexInterface.objIds[i_63_] - 1;
-												if (i_67_ - -32 > i_27_ && i_67_ < i_24_ && i_25_ < 32 + i_66_ && i_66_ < i_23_ || jagexInterface == Projectile.aClass189_2954 && Class5.anInt2154 == i_63_) {
-													AbstractSprite class120_sub14_sub19;
-													if (Light.objSelected != 1 || i_63_ != ParticleEmitter.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
-														class120_sub14_sub19 = Class187.getObjectSprite(null, jagexInterface.objAmounts[i_63_], 1, i_68_, 3153952, jagexInterface.drawObjCount);
+											if (jagexInterface.objIds[objIndex] > 0) {
+												final int objId = jagexInterface.objIds[objIndex] - 1;
+												if (objX + 32 > i_27_ && objX < i_24_ && i_25_ < 32 + objY && objY < i_23_ || jagexInterface == Projectile.clickedInventoryComponent && Class5.clickedInventoryIndex == objIndex) {
+													AbstractSprite objSprite;
+													if (Light.objSelected != 1 || objIndex != ParticleEmitter.selectedObjSlot || jagexInterface.bitPacked != PlainTile.selectedObjInterface) {
+														objSprite = Class187.getObjectSprite(null, jagexInterface.objAmounts[objIndex], 1, objId, 3153952, jagexInterface.drawObjCount);
 													} else {
-														class120_sub14_sub19 = Class187.getObjectSprite(null, jagexInterface.objAmounts[i_63_], 2, i_68_, 0, jagexInterface.drawObjCount);
+														objSprite = Class187.getObjectSprite(null, jagexInterface.objAmounts[objIndex], 2, objId, 0, jagexInterface.drawObjCount);
 													}
 													if (Rasterizer.aBoolean974) {
 														MasterIndexInfo.needInterfaceRedrawWrapper[redrawId] = true;
 													}
-													if (class120_sub14_sub19 != null) {
-														if (jagexInterface == Projectile.aClass189_2954 && i_63_ == Class5.anInt2154) {
-															int i_69_ = -client.anInt134 + Queue.lastMouseX;
-															int i_70_ = -VarBit.anInt166 + ChunkAtmosphere.lastMouseY;
-															if (i_69_ < 5 && i_69_ > -5) {
-																i_69_ = 0;
+													if (objSprite != null) {
+														if (jagexInterface == Projectile.clickedInventoryComponent && objIndex == Class5.clickedInventoryIndex) {
+															int offX = Queue.lastMouseX - client.clickedInventoryComponentX;
+															int offY = ChunkAtmosphere.lastMouseY - VarBit.clickedInventoryComponentY;
+															if (offX < 5 && offX > -5) {
+																offX = 0;
 															}
-															if (i_70_ < 5 && i_70_ > -5) {
-																i_70_ = 0;
+															if (offY < 5 && offY > -5) {
+																offY = 0;
 															}
-															if (JavaObject.anInt3915 < 5) {
-																i_70_ = 0;
-																i_69_ = 0;
+															if (JavaObject.clickedInventoryComponentCycle < 5) {
+																offY = 0;
+																offX = 0;
 															}
-															class120_sub14_sub19.drawSpriteTransparency(i_69_ + i_67_, i_66_ - -i_70_, 128);
-															if ((i_20_ ^ 0xffffffff) != 0) {
-																final JagexInterface class189_71_ = class189s[0xffff & i_20_];
+															objSprite.drawSpriteTransparency(objX + offX, objY + offY, 128);
+															if (i_20_ != -1) {//object dragging down with scrollbar moving
+																final JagexInterface class189_71_ = class189s[i_20_ & 0xffff];
 																int i_72_;
 																int i_73_;
 																if (!HDToolkit.glEnabled) {
@@ -450,20 +450,20 @@ final class MapSceneType {
 																	i_72_ = GraphicsHD.endY;
 																	i_73_ = GraphicsHD.startY;
 																}
-																if (i_70_ + i_66_ < i_73_ && class189_71_.horizontalScrollPosition > 0) {
-																	int i_74_ = Class120_Sub12_Sub22.redrawRate * (-i_66_ + i_73_ - i_70_) / 3;
+																if (offY + objY < i_73_ && class189_71_.horizontalScrollPosition > 0) {
+																	int i_74_ = Class120_Sub12_Sub22.redrawRate * (-objY + i_73_ - offY) / 3;
 																	if (10 * Class120_Sub12_Sub22.redrawRate < i_74_) {
 																		i_74_ = Class120_Sub12_Sub22.redrawRate * 10;
 																	}
 																	if (class189_71_.horizontalScrollPosition < i_74_) {
 																		i_74_ = class189_71_.horizontalScrollPosition;
 																	}
-																	VarBit.anInt166 += i_74_;
+																	VarBit.clickedInventoryComponentY += i_74_;
 																	class189_71_.horizontalScrollPosition -= i_74_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
-																if (i_72_ < i_66_ - (-i_70_ + -32) && class189_71_.horizontalScrollPosition < class189_71_.maxScrollVertical - class189_71_.height) {
-																	int i_75_ = (32 + i_66_ - (-i_70_ + i_72_)) * Class120_Sub12_Sub22.redrawRate / 3;
+																if (i_72_ < objY - (-offY + -32) && class189_71_.horizontalScrollPosition < class189_71_.maxScrollVertical - class189_71_.height) {
+																	int i_75_ = (32 + objY - (-offY + i_72_)) * Class120_Sub12_Sub22.redrawRate / 3;
 																	if (i_75_ > Class120_Sub12_Sub22.redrawRate * 10) {
 																		i_75_ = 10 * Class120_Sub12_Sub22.redrawRate;
 																	}
@@ -471,30 +471,30 @@ final class MapSceneType {
 																		i_75_ = -class189_71_.horizontalScrollPosition + -class189_71_.height + class189_71_.maxScrollVertical;
 																	}
 																	class189_71_.horizontalScrollPosition += i_75_;
-																	VarBit.anInt166 -= i_75_;
+																	VarBit.clickedInventoryComponentY -= i_75_;
 																	InterfaceClickMask.redrawInterface(class189_71_);
 																}
 															}
-														} else if (jagexInterface == MagnetType.aClass189_256 && i_63_ == Huffman.anInt1204) {
-															class120_sub14_sub19.drawSpriteTransparency(i_67_, i_66_, 128);
+														} else if (jagexInterface == MagnetType.pressedInventoryComponent && objIndex == Huffman.pressedInventoryIndex) {
+															objSprite.drawSpriteTransparency(objX, objY, 128);
 														} else {
-															class120_sub14_sub19.drawReg(i_67_, i_66_);
+															objSprite.drawReg(objX, objY);
 														}
 													} else {
 														InterfaceClickMask.redrawInterface(jagexInterface);
 													}
 												}
-											} else if (jagexInterface.spriteIDs != null && i_63_ < 20) {
-												final AbstractSprite class120_sub14_sub19 = jagexInterface.constructInventorySprite(i_63_);
+											} else if (jagexInterface.spriteIDs != null && objIndex < 20) {
+												final AbstractSprite class120_sub14_sub19 = jagexInterface.constructInventorySprite(objIndex);
 												if (class120_sub14_sub19 == null) {
 													if (Class88.interfaceSpriteIsNull) {
 														InterfaceClickMask.redrawInterface(jagexInterface);
 													}
 												} else {
-													class120_sub14_sub19.drawReg(i_67_, i_66_);
+													class120_sub14_sub19.drawReg(objX, objY);
 												}
 											}
-											i_63_++;
+											objIndex++;
 										}
 									}
 								} else if (jagexInterface.type == 3) {
@@ -534,8 +534,8 @@ final class MapSceneType {
 										GraphicsHD.drawRect(drawX, drawY, jagexInterface.width, jagexInterface.height, color, 256 - (alpha & 0xff));
 									}
 								} else if (jagexInterface.type == 4) {
-									final AbstractFont class120_sub14_sub8 = jagexInterface.getFont(Class82.nameIconSprites);
-									if (class120_sub14_sub8 == null) {
+									final AbstractFont abstractFont = jagexInterface.getFont(Class82.nameIconSprites);
+									if (abstractFont == null) {
 										if (Class88.interfaceSpriteIsNull) {
 											InterfaceClickMask.redrawInterface(jagexInterface);
 										}
@@ -563,17 +563,17 @@ final class MapSceneType {
 												text = "null";
 											}
 											if ((objType.stackable == 1 || jagexInterface.objCount != 1) && jagexInterface.objCount != -1) {
-												text = new StringBuilder("<col=ff9040>").append(text).append("</col> x").append(Node.method1033(jagexInterface.objCount)).toString();
+												text = "<col=ff9040>" + text + "</col> x" + Node.formatObjectCount(jagexInterface.objCount);
 											}
 										}
-										if (Class156.aClass189_1454 == jagexInterface) {
+										if (Class156.dialogInterface == jagexInterface) {
 											text = StringLibrary.aString626;
 											color = jagexInterface.disabledColor;
 										}
 										if (!jagexInterface.newFormat) {
 											text = DummyInputStream.method71(jagexInterface, text);
 										}
-										class120_sub14_sub8.drawInterfaceText(text, drawX, drawY, jagexInterface.width, jagexInterface.height, color, jagexInterface.textHasBlackShadow ? 0 : -1, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
+										abstractFont.drawInterfaceText(text, drawX, drawY, jagexInterface.width, jagexInterface.height, color, jagexInterface.textHasBlackShadow ? 0 : -1, jagexInterface.horizontalAlignment, jagexInterface.verticalAlignment, jagexInterface.verticalSpacing);
 									}
 								} else if (jagexInterface.type == 5) {
 									if (!jagexInterface.newFormat) {
@@ -585,7 +585,7 @@ final class MapSceneType {
 										} else {
 											class120_sub14_sub19.drawReg(drawX, drawY);
 										}
-									} else if (jagexInterface.anInt2088 < 0) {
+									} else if (jagexInterface.skyboxId < 0) {
 										AbstractSprite abstractSprite;
 										if (jagexInterface.objId == -1) {
 											abstractSprite = jagexInterface.constructSpriteFromId(false);
@@ -601,7 +601,7 @@ final class MapSceneType {
 												final int widthLoops = (jagexInterface.width + spriteWidth - 1) / spriteWidth;
 												final int heightLoops = (jagexInterface.height + spriteHeight - 1) / spriteHeight;
 												if (HDToolkit.glEnabled) {
-													GraphicsHD.method591(drawX, drawY, drawX + jagexInterface.width, drawY + jagexInterface.height);
+													GraphicsHD.setBounds(drawX, drawY, drawX + jagexInterface.width, drawY + jagexInterface.height);
 													final HDSprite hdSprite = (HDSprite) abstractSprite;
 													final boolean widthIsPowerOfTwo = Class179.isPowerOfTwo(abstractSprite.width);
 													final boolean heightIsPowerOfTwo = Class179.isPowerOfTwo(abstractSprite.height);
@@ -670,11 +670,11 @@ final class MapSceneType {
 											InterfaceClickMask.redrawInterface(jagexInterface);
 										}
 									} else {
-										final Class41 class41 = jagexInterface.method2489();
+										final Skybox skybox = jagexInterface.getSkybox();
 										if (!HDToolkit.glEnabled) {
-											class41.method330(0, drawX, drawY, jagexInterface.width, jagexInterface.height, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
+											skybox.drawLD(0, drawX, drawY, jagexInterface.width, jagexInterface.height, jagexInterface.skyboxRenderPitch, jagexInterface.skyboxRenderYaw, 0);
 										} else {
-											class41.method331(0, drawX, drawY, jagexInterface.width, jagexInterface.height, jagexInterface.anInt2078, jagexInterface.anInt2004, 0);
+											skybox.drawHD(0, drawX, drawY, jagexInterface.width, jagexInterface.height, jagexInterface.skyboxRenderPitch, jagexInterface.skyboxRenderYaw, 0);
 										}
 									}
 								} else if (jagexInterface.type == 6) {
@@ -808,7 +808,7 @@ final class MapSceneType {
 													if (objType.stackable != 1 && jagexInterface.objAmounts[i_101_] == 1) {
 														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col>").toString();
 													} else {
-														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.method1033(jagexInterface.objAmounts[i_101_])).toString();
+														string = new StringBuilder("<col=ff9040>").append(objType.name).append("</col> x").append(Node.formatObjectCount(jagexInterface.objAmounts[i_101_])).toString();
 													}
 													final int i_104_ = drawX + i_103_ * (jagexInterface.objSpritePadX + 115);
 													final int i_105_ = drawY + i_102_ * (jagexInterface.objSpritePadY + 12);

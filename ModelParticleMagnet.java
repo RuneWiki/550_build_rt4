@@ -7,19 +7,19 @@ final class ModelParticleMagnet {
 	static int mapflagId;
 	static KeyboardHandler keyboardHandler = new KeyboardHandler();
 	static int anInt1646;
-	int anInt1647;
+	int vertexId;
 	static int[] toUpdateEntityIndex = new int[2048];
-	static js5 aClass50_1649;
+	static js5 enumsJs5;
 	MagnetType magnetType;
 	static short aShort1651 = 256;
 
-	ModelParticleMagnet(final int magnetId, final int i_0_) {
+	ModelParticleMagnet(final int magnetId, final int vertexId) {
 		this.magnetType = MagnetType.list(magnetId);
-		this.anInt1647 = i_0_;
+		this.vertexId = vertexId;
 	}
 
-	ModelParticleMagnet(final MagnetType magnetType, final int i) {
-		this.anInt1647 = i;
+	ModelParticleMagnet(final MagnetType magnetType, final int vertexId) {
+		this.vertexId = vertexId;
 		this.magnetType = magnetType;
 	}
 }

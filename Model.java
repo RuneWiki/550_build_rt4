@@ -27,7 +27,7 @@ final class Model extends SceneGraphNode {
 	short contrast;
 	short[] aShortArray2867;
 	private short aShort2868;
-	private boolean aBoolean2869 = false;
+	private boolean boundsCalculated = false;
 	byte[] aByteArray2870;
 	ModelParticleEmitter[] aClass158Array2871;
 	int[] faceLabelIds;
@@ -102,8 +102,8 @@ final class Model extends SceneGraphNode {
 
 	@Override
 	final int getMaxY() {
-		if (!aBoolean2869) {
-			method2304();
+		if (!boundsCalculated) {
+			calculateBounds();
 		}
 		return aShort2874;
 	}
@@ -1006,7 +1006,7 @@ final class Model extends SceneGraphNode {
 		this.normals = null;
 		this.aClass26Array2893 = null;
 		this.aClass115Array2880 = null;
-		aBoolean2869 = false;
+		boundsCalculated = false;
 	}
 
 	private final void method2297(final int i) {
@@ -1032,10 +1032,10 @@ final class Model extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2267(final SceneGraphNode sceneGraphNode, final int i, final int i_216_, final int i_217_, final boolean bool) {
+	final void method2267(final SceneGraphNode sceneGraphNode, final int xOff, final int yOff, final int zOff, final boolean bool) {
 		final Model class180_sub2_218_ = (Model) sceneGraphNode;
-		class180_sub2_218_.method2304();
-		class180_sub2_218_.method2303();
+		class180_sub2_218_.calculateBounds();
+		class180_sub2_218_.createNormals();
 		anInt2862++;
 		int i_219_ = 0;
 		final int[] is = class180_sub2_218_.xVertices;
@@ -1043,11 +1043,11 @@ final class Model extends SceneGraphNode {
 		for (int i_221_ = 0; i_221_ < this.highestVertexId; i_221_++) {
 			final Normal class26 = this.normals[i_221_];
 			if (class26.anInt156 != 0) {
-				final int i_222_ = this.yVertices[i_221_] - i_216_;
+				final int i_222_ = this.yVertices[i_221_] - yOff;
 				if (i_222_ >= class180_sub2_218_.aShort2874 && i_222_ <= class180_sub2_218_.aShort2868) {
-					final int i_223_ = this.xVertices[i_221_] - i;
+					final int i_223_ = this.xVertices[i_221_] - xOff;
 					if (i_223_ >= class180_sub2_218_.aShort2854 && i_223_ <= class180_sub2_218_.aShort2902) {
-						final int i_224_ = this.zVertices[i_221_] - i_217_;
+						final int i_224_ = this.zVertices[i_221_] - zOff;
 						if (i_224_ >= class180_sub2_218_.aShort2889 && i_224_ <= class180_sub2_218_.aShort2865) {
 							for (int i_225_ = 0; i_225_ < i_220_; i_225_++) {
 								final Normal class26_226_ = class180_sub2_218_.normals[i_225_];
@@ -1139,7 +1139,7 @@ final class Model extends SceneGraphNode {
 		return this.vertexCount - 1;
 	}
 
-	final void method2303() {
+	final void createNormals() {
 		if (this.normals == null) {
 			this.normals = new Normal[this.highestVertexId];
 			for (int id = 0; id < this.highestVertexId; id++) {
@@ -1197,57 +1197,57 @@ final class Model extends SceneGraphNode {
 						this.aClass115Array2880 = new Class115[this.triangleCount];
 					}
 					final Class115 class115 = this.aClass115Array2880[id] = new Class115();
-					class115.anInt1111 = normalX;
-					class115.anInt1109 = normalY;
-					class115.anInt1112 = normalZ;
+					class115.x = normalX;
+					class115.y = normalY;
+					class115.z = normalZ;
 				}
 			}
 		}
 	}
 
-	private final void method2304() {
-		if (!aBoolean2869) {
-			aBoolean2869 = true;
-			int i = 32767;
-			int i_259_ = 32767;
-			int i_260_ = 32767;
-			int i_261_ = -32768;
-			int i_262_ = -32768;
-			int i_263_ = -32768;
+	private final void calculateBounds() {
+		if (!boundsCalculated) {
+			boundsCalculated = true;
+			int lowestX = 32767;
+			int lowestY = 32767;
+			int lowestZ = 32767;
+			int highestX = -32768;
+			int highestY = -32768;
+			int highestZ = -32768;
 			for (int i_264_ = 0; i_264_ < this.highestVertexId; i_264_++) {
-				final int i_265_ = this.xVertices[i_264_];
-				final int i_266_ = this.yVertices[i_264_];
-				final int i_267_ = this.zVertices[i_264_];
-				if (i_265_ < i) {
-					i = i_265_;
+				final int x = this.xVertices[i_264_];
+				final int y = this.yVertices[i_264_];
+				final int z = this.zVertices[i_264_];
+				if (x < lowestX) {
+					lowestX = x;
 				}
-				if (i_265_ > i_261_) {
-					i_261_ = i_265_;
+				if (x > highestX) {
+					highestX = x;
 				}
-				if (i_266_ < i_259_) {
-					i_259_ = i_266_;
+				if (y < lowestY) {
+					lowestY = y;
 				}
-				if (i_266_ > i_262_) {
-					i_262_ = i_266_;
+				if (y > highestY) {
+					highestY = y;
 				}
-				if (i_267_ < i_260_) {
-					i_260_ = i_267_;
+				if (z < lowestZ) {
+					lowestZ = z;
 				}
-				if (i_267_ > i_263_) {
-					i_263_ = i_267_;
+				if (z > highestZ) {
+					highestZ = z;
 				}
 			}
-			aShort2854 = (short) i;
-			aShort2902 = (short) i_261_;
-			aShort2874 = (short) i_259_;
-			aShort2868 = (short) i_262_;
-			aShort2889 = (short) i_260_;
-			aShort2865 = (short) i_263_;
+			aShort2854 = (short) lowestX;
+			aShort2902 = (short) highestX;
+			aShort2874 = (short) lowestY;
+			aShort2868 = (short) highestY;
+			aShort2889 = (short) lowestZ;
+			aShort2865 = (short) highestZ;
 		}
 	}
 
 	final Model method2305(final int i, final int i_268_, final int[][] is, final int[][] is_269_, final int i_270_, final int i_271_, final int i_272_, final boolean bool, final boolean bool_273_) {
-		method2304();
+		calculateBounds();
 		int i_274_ = i_270_ + aShort2854;
 		int i_275_ = i_270_ + aShort2902;
 		int i_276_ = i_272_ + aShort2889;
@@ -1459,7 +1459,7 @@ final class Model extends SceneGraphNode {
 		if (bool_273_) {
 			class180_sub2_278_.method2296();
 		} else {
-			aBoolean2869 = false;
+			boundsCalculated = false;
 		}
 		return class180_sub2_278_;
 	}
@@ -1682,7 +1682,7 @@ final class Model extends SceneGraphNode {
 				}
 				if (class180_sub2_391_.aClass169Array2887 != null) {
 					for (int i_397_ = 0; i_397_ < class180_sub2_391_.aClass169Array2887.length; i_397_++) {
-						final int i_398_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass169Array2887[i_397_].anInt1647, i_390_);
+						final int i_398_ = method2280(class180_sub2_391_, class180_sub2_391_.aClass169Array2887[i_397_].vertexId, i_390_);
 						this.aClass169Array2887[i_386_] = new ModelParticleMagnet(class180_sub2_391_.aClass169Array2887[i_397_].magnetType, i_398_);
 						i_386_++;
 					}

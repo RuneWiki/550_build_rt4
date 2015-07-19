@@ -15,7 +15,7 @@ final class Class24 {
 		Class120_Sub12_Sub11.anInt3214 = 0;
 		Class179.aBoolean1779 = true;
 		Class110.mouseRecorder.cacheIndex = 0;
-		EnumType.aLong3462 = 0L;
+		EnumType.lastClickPacketSendTime = 0L;
 		Class28.method247();
 		Class31.logoutCycle = 0;
 		Class114.previousPacketType = -1;
@@ -89,7 +89,7 @@ final class Class24 {
 		Class69.rootInterfaceId = -1;
 		Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
 		Class43.createJInterfaceCache();
-		Class156.aClass189_1454 = null;
+		Class156.dialogInterface = null;
 		WallDecoration.menuOptionCount = 0;
 		Class15.menuOpen = false;
 		Normal.dummyPlayerAppearance.init(-1, null, -1, new int[5], false);
@@ -119,7 +119,7 @@ final class Class24 {
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
 		MasterIndexInfo.aBoolean466 = false;
-		Class118.aBoolean1134 = true;
+		Class118.sendCameraPacket = true;
 		OverlayFrequencyNode.packetCounter = 0;
 		StringLibrary.walkText = Class120_Sub12_Sub1.aString3132;
 		LocType.resetSpriteMenu();

@@ -3,10 +3,10 @@
  */
 
 final class Huffman {
-	static int anInt1204 = 0;
+	static int pressedInventoryIndex = 0;
 	private final int[] anIntArray1205;
 	private final byte[] aByteArray1206;
-	static boolean aBoolean1207 = false;
+	static boolean draggingClickedInventoryObject = false;
 	static int menuDrawX;
 	private int[] anIntArray1210;
 

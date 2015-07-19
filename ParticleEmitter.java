@@ -9,7 +9,7 @@ final class ParticleEmitter extends ParticleNode {
 	private int anInt2317;
 	int centerY;
 	static int selectedObjSlot;
-	static int anInt2320 = 0;
+	static int mouseClickToTileOffX = 0;
 	int centerZ;
 	ModelParticleEmitter aClass158_2322;
 	EmitterType emitterType;
@@ -78,9 +78,9 @@ final class ParticleEmitter extends ParticleNode {
 		}
 		AbstractFont abstractFont;
 		if (HDToolkit.glEnabled) {
-			abstractFont = new HDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+			abstractFont = new HDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, SkyboxType.spritePaletteIndicators);
 		} else {
-			abstractFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+			abstractFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, SkyboxType.spritePaletteIndicators);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return abstractFont;
@@ -122,7 +122,7 @@ final class ParticleEmitter extends ParticleNode {
 							}
 						}
 					} else {
-						bool = false;
+						//bool = false;
 					}
 				} else {
 					bool = false;
@@ -139,17 +139,19 @@ final class ParticleEmitter extends ParticleNode {
 				final int i_19_ = anInt2334 >> 6;
 				anInt2334 &= 0x3f;
 				if (this.aBoolean2329) {
-					final int i_20_ = -anInt2341 + anInt2342;
+					final int i_20_ = anInt2342 - anInt2341;
 					final int i_21_ = anInt2332 - anInt2326;
-					final int i_22_ = anInt2325 + -anInt2341;
-					final int i_23_ = anInt2316 + -anInt2326;
+					final int i_22_ = anInt2325 - anInt2341;
+					final int i_23_ = anInt2316 - anInt2326;
 					final int i_24_ = anInt2317 - anInt2338;
-					anInt2335 = i_23_ * i_20_ - i_22_ * i_21_;
 					final int i_25_ = anInt2344 - anInt2338;
-					anInt2327 = -(i_20_ * i_25_) + i_24_ * i_22_;
-					for (anInt2314 = i_21_ * i_25_ - i_23_ * i_24_; anInt2314 > 32767 || anInt2327 > 32767 || anInt2335 > 32767 || anInt2314 < -32767 || anInt2327 < -32767 || anInt2335 < -32767; anInt2314 >>= 1) {
+					anInt2335 = i_23_ * i_20_ - i_22_ * i_21_;
+					anInt2327 = i_24_ * i_22_ - i_20_ * i_25_;
+					anInt2314 = i_21_ * i_25_ - i_23_ * i_24_;
+					for (; anInt2314 > 32767 || anInt2327 > 32767 || anInt2335 > 32767 || anInt2314 < -32767 || anInt2327 < -32767 || anInt2335 < -32767;) {
 						anInt2327 >>= 1;
 						anInt2335 >>= 1;
+						anInt2314 >>= 1;
 					}
 					int i_26_ = (int) Math.sqrt(anInt2335 * anInt2335 + anInt2327 * anInt2327 + anInt2314 * anInt2314);
 					if (i_26_ <= 0) {
@@ -175,7 +177,7 @@ final class ParticleEmitter extends ParticleNode {
 					}
 					this.aBoolean2329 = false;
 				}
-				for (int i_30_ = 0; i_19_ > i_30_; i_30_++) {
+				for (int i_30_ = 0; i_30_ < i_19_; i_30_++) {
 					int i_31_;
 					int i_32_;
 					int i_33_;
@@ -186,17 +188,17 @@ final class ParticleEmitter extends ParticleNode {
 					} else {
 						int i_34_ = (int) (Math.random() * anInt2343) + anInt2331;
 						int i_35_ = (int) (Math.random() * anInt2324) + anInt2345;
-						i_35_ &= 0x3ff;
 						i_34_ &= 0x7ff;
-						final int i_36_ = Rasterizer.sinTable[i_35_] >> 1;
-						final int i_37_ = Rasterizer.cosTable[i_34_] >> 1;
-						i_31_ = i_37_ * i_36_ >> 15;
+						i_35_ &= 0x3ff;
 						final int i_38_ = Rasterizer.sinTable[i_34_] >> 1;
-						i_32_ = i_38_ * i_36_ >> 15;
+						final int i_37_ = Rasterizer.cosTable[i_34_] >> 1;
+						final int i_36_ = Rasterizer.sinTable[i_35_] >> 1;
 						final int i_39_ = Rasterizer.cosTable[i_35_] >> 1;
-						i_33_ = -1 * i_39_;
+						i_31_ = i_37_ * i_36_ >> 15;
+						i_32_ = i_38_ * i_36_ >> 15;
+						i_33_ = i_39_;
 					}
-					final int i_40_ = (int) (255.0 * Math.random());
+					final int i_40_ = (int) (Math.random() * 255.0);
 					final int i_41_ = (int) (Math.random() * 255.0);
 					final int i_42_ = i_40_ * (-i_41_ + 255) >> 8;
 					final int i_43_ = -i_41_ + 255 - i_42_;
@@ -236,7 +238,7 @@ final class ParticleEmitter extends ParticleNode {
 	}
 
 	static final void removeFriend(final long nameAsLong) {
-		if (0L != nameAsLong) {
+		if (nameAsLong != 0L) {
 			for (int friendId = 0; friendId < ProducingGraphicsBuffer.friendCount; friendId++) {
 				if (AbstractSprite.friendsNameAsLong[friendId] == nameAsLong) {
 					ProducingGraphicsBuffer.friendCount--;
@@ -257,7 +259,7 @@ final class ParticleEmitter extends ParticleNode {
 		}
 	}
 
-	final void method942(final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_57_, final int i_58_, final int i_59_, final int i_60_, final int i_61_) {
+	final void method942(final int i, final int i_53_, final int i_54_, final int i_55_, final int i_56_, final int i_58_, final int i_59_, final int i_60_, final int i_61_) {
 		anInt2344 = i_61_;
 		anInt2332 = i_56_;
 		anInt2341 = i_54_;
@@ -269,12 +271,12 @@ final class ParticleEmitter extends ParticleNode {
 		anInt2326 = i_53_;
 		final int i_62_ = this.particleEngine.anInt2372 + (anInt2326 + anInt2332 + anInt2316) / 3;
 		final int i_63_ = this.particleEngine.anInt2379 + (anInt2342 + anInt2341 + anInt2325) / 3;
-		final int i_64_ = (anInt2344 + anInt2317 + anInt2338) / 3 - -this.particleEngine.anInt2368;
-		if (this.centerX != i_63_ || i_62_ != this.centerY || i_64_ != this.centerZ) {
+		final int i_64_ = this.particleEngine.anInt2368 + (anInt2344 + anInt2317 + anInt2338) / 3;
+		if (this.centerX != i_63_ || this.centerY != i_62_ || this.centerZ != i_64_) {
+			this.centerX = i_63_;
+			this.centerY = i_62_;
 			this.centerZ = i_64_;
 			this.aBoolean2329 = true;
-			this.centerY = i_62_;
-			this.centerX = i_63_;
 		}
 	}
 

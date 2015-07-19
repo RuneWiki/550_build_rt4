@@ -3,39 +3,39 @@
  */
 
 final class Projectile extends SceneGraphNode {
-	int anInt2922;
+	int endCycle;
 	static int[] spriteXOffsets;
 	private ParticleEngine aClass108_Sub2_2924;
 	private int anInt2925 = 0;
-	private final int anInt2926;
+	private final int startX;
 	private int anInt2927;
 	private boolean aBoolean2928;
 	int lockonIndex;
 	private double aDouble2930;
 	static ObjectCache aClass21_2931;
 	private final int anInt2932;
-	static int anInt2933 = 0;
+	static int mouseClickToTileLevel = 0;
 	int level;
 	private double aDouble2935;
 	private int anInt2936 = -1;
 	double aDouble2937;
 	private boolean aBoolean2938;
-	int anInt2939;
-	private final int anInt2940;
-	private SeqType aClass40_2941;
+	int startCycle;
+	private final int spotAnimId;
+	private SeqType seqType;
 	private double aDouble2942;
-	int anInt2943;
+	int yOff;
 	int anInt2944;
 	private int anInt2945 = 0;
 	private double aDouble2946;
-	private final int anInt2947;
+	private final int startY;
 	private final int anInt2948;
 	double aDouble2949;
 	private double aDouble2950;
-	private final int anInt2951;
+	private final int startZ;
 	private int anInt2952;
 	double aDouble2953;
-	static JagexInterface aClass189_2954;
+	static JagexInterface clickedInventoryComponent;
 	static int renderXWrapper;
 
 	static {
@@ -54,21 +54,21 @@ final class Projectile extends SceneGraphNode {
 		this.aDouble2949 += i * aDouble2935;
 		this.anInt2944 = 0x7ff & 1024 + (int) (325.949 * Math.atan2(aDouble2935, aDouble2942));
 		anInt2927 = 0x7ff & (int) (325.949 * Math.atan2(aDouble2946, aDouble2950));
-		if (aClass40_2941 != null) {
+		if (seqType != null) {
 			anInt2945 += i;
-			while (aClass40_2941.delays[anInt2925] < anInt2945) {
-				anInt2945 -= aClass40_2941.delays[anInt2925];
+			while (seqType.delays[anInt2925] < anInt2945) {
+				anInt2945 -= seqType.delays[anInt2925];
 				anInt2925++;
-				if (aClass40_2941.frames.length <= anInt2925) {
-					anInt2925 -= aClass40_2941.loop;
-					if (anInt2925 < 0 || anInt2925 >= aClass40_2941.frames.length) {
+				if (seqType.frames.length <= anInt2925) {
+					anInt2925 -= seqType.loop;
+					if (anInt2925 < 0 || anInt2925 >= seqType.frames.length) {
 						anInt2925 = 0;
 					}
 				}
 				anInt2936 = anInt2925 + 1;
-				if (anInt2936 >= aClass40_2941.frames.length) {
-					anInt2936 -= aClass40_2941.loop;
-					if (anInt2936 < 0 || aClass40_2941.frames.length <= anInt2936) {
+				if (anInt2936 >= seqType.frames.length) {
+					anInt2936 -= seqType.loop;
+					if (anInt2936 < 0 || seqType.frames.length <= anInt2936) {
 						anInt2936 = -1;
 					}
 				}
@@ -93,7 +93,7 @@ final class Projectile extends SceneGraphNode {
 		Class120_Sub2.anIntArrayArray2416 = new int[104][104];
 		Class179.anIntArrayArray1774 = new int[104][104];
 		Class120_Sub12_Sub36.anIntArrayArrayArray3420 = new int[4][13][13];
-		FileSystemRequest.anIntArrayArray3933 = new int[104][104];
+		FileSystemRequest.entityCountOnTile = new int[104][104];
 		for (int i_10_ = 0; i_10_ < 4; i_10_++) {
 			WallLocation.collisionMaps[i_10_] = new CollisionMap(104, 104);
 		}
@@ -109,26 +109,26 @@ final class Projectile extends SceneGraphNode {
 		return true;
 	}
 
-	final void method2319(final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
+	final void method2319(final int destX, final int destY, final int destZ, final int currentCycle) {
 		if (!aBoolean2938) {
-			final double d = -anInt2926 + i_12_;
-			final double d_15_ = -anInt2951 + i_14_;
-			final double d_16_ = Math.sqrt(d * d + d_15_ * d_15_);
-			this.aDouble2937 = anInt2947;
-			this.aDouble2949 = anInt2926 + anInt2932 * d / d_16_;
-			this.aDouble2953 = anInt2951 + anInt2932 * d_15_ / d_16_;
+			final double deltaX = destX - startX;
+			final double deltaZ = destZ - startZ;
+			final double dist = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
+			this.aDouble2949 = startX + anInt2932 * deltaX / dist;
+			this.aDouble2937 = startY;
+			this.aDouble2953 = startZ + anInt2932 * deltaZ / dist;
 		}
-		final double d = 1 + this.anInt2922 - i_13_;
-		aDouble2935 = (-this.aDouble2949 + i_12_) / d;
-		aDouble2942 = (-this.aDouble2953 + i_14_) / d;
+		final double d = (this.endCycle + 1) - currentCycle;
+		aDouble2935 = (-this.aDouble2949 + destX) / d;
+		aDouble2942 = (-this.aDouble2953 + destZ) / d;
 		aDouble2950 = Math.sqrt(aDouble2935 * aDouble2935 + aDouble2942 * aDouble2942);
-		if ((anInt2948 ^ 0xffffffff) == 0) {
-			aDouble2946 = (-this.aDouble2937 + i_11_) / d;
+		if (anInt2948 == -1) {
+			aDouble2946 = (-this.aDouble2937 + destY) / d;
 		} else {
 			if (!aBoolean2938) {
 				aDouble2946 = -aDouble2950 * Math.tan(anInt2948 * 0.02454369);
 			}
-			aDouble2930 = 2.0 * (-(aDouble2946 * d) + (-this.aDouble2937 + i_11_)) / (d * d);
+			aDouble2930 = 2.0 * (-(aDouble2946 * d) + (-this.aDouble2937 + destY)) / (d * d);
 		}
 	}
 
@@ -159,7 +159,7 @@ final class Projectile extends SceneGraphNode {
 	}
 
 	private final AbstractModelRenderer method2322() {
-		final SpotAnimType spotAnimType = SpotAnimType.list(anInt2940);
+		final SpotAnimType spotAnimType = SpotAnimType.list(spotAnimId);
 		final AbstractModelRenderer class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);
 		if (class180_sub7_17_ == null) {
 			return null;
@@ -168,27 +168,27 @@ final class Projectile extends SceneGraphNode {
 		return class180_sub7_17_;
 	}
 
-	Projectile(final int i, final int i_18_, final int i_19_, final int i_20_, final int i_21_, final int i_22_, final int i_23_, final int i_24_, final int i_25_, final int i_26_, final int i_27_) {
+	Projectile(final int spotAnimationid, final int level, final int x, final int z, final int y, final int cycle1, final int cycle2, final int i_24_, final int i_25_, final int i_26_, final int i_27_) {
 		aBoolean2938 = false;
 		aBoolean2928 = false;
 		anInt2952 = -32768;
-		anInt2951 = i_20_;
-		anInt2947 = i_21_;
+		startZ = z;
+		startY = y;
 		aBoolean2938 = false;
-		anInt2926 = i_19_;
-		this.anInt2939 = i_22_;
+		startX = x;
+		this.startCycle = cycle1;
 		anInt2932 = i_25_;
-		this.level = i_18_;
-		this.anInt2922 = i_23_;
+		this.level = level;
+		this.endCycle = cycle2;
 		this.lockonIndex = i_26_;
-		anInt2940 = i;
+		spotAnimId = spotAnimationid;
 		anInt2948 = i_24_;
-		this.anInt2943 = i_27_;
-		final int i_28_ = SpotAnimType.list(anInt2940).animationId;
-		if (i_28_ == -1) {
-			aClass40_2941 = null;
+		this.yOff = i_27_;
+		final int animationid = SpotAnimType.list(spotAnimId).animationId;
+		if (animationid == -1) {
+			seqType = null;
 		} else {
-			aClass40_2941 = SeqType.list(i_28_);
+			seqType = SeqType.list(animationid);
 		}
 	}
 

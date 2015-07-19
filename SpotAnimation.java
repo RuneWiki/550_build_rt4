@@ -25,56 +25,56 @@ final class SpotAnimation extends SceneGraphNode {
 
 	static final void method2309() {
 		Canvas_Sub1.inputStream.startBitAccess();
-		final int i_0_ = Canvas_Sub1.inputStream.getBitValue(8);
-		if (i_0_ < Class148.localNpcCount) {
-			for (int i_1_ = i_0_; Class148.localNpcCount > i_1_; i_1_++) {
-				Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = Class120_Sub12_Sub36.npcIndices[i_1_];
+		final int npcCount = Canvas_Sub1.inputStream.getBitValue(8);
+		if (npcCount < Class148.localNpcCount) {
+			for (int next = npcCount; next < Class148.localNpcCount; next++) {
+				Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = Class120_Sub12_Sub36.npcIndices[next];
 			}
 		}
-		if (i_0_ > Class148.localNpcCount) {
+		if (npcCount > Class148.localNpcCount) {
 			throw new RuntimeException("gnpov1");
 		}
 		Class148.localNpcCount = 0;
-		for (int i_2_ = 0; i_2_ < i_0_; i_2_++) {
-			final int i_3_ = Class120_Sub12_Sub36.npcIndices[i_2_];
-			final Npc class180_sub5_sub2 = Class120_Sub12_Sub11.npcList[i_3_];
+		for (int id = 0; id < npcCount; id++) {
+			final int index = Class120_Sub12_Sub36.npcIndices[id];
+			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ == 0) {
-				Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
-				class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
+				Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
+				npc.lastUpdateCycle = Class101_Sub2.loopCycle;
 			} else {
 				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_5_ == 0) {
-					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
-					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
+					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 				} else if (i_5_ == 1) {
-					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
+					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
 					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
-					class180_sub5_sub2.move(i_6_, 1);
+					npc.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_7_ == 1) {
-						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 					}
 				} else if (i_5_ == 2) {
-					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = i_3_;
-					class180_sub5_sub2.lastUpdateCycle = Class101_Sub2.loopCycle;
+					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
+					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
 					if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
 						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
-						class180_sub5_sub2.move(i_8_, 0);
+						npc.move(i_8_, 0);
 					} else {
 						final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
-						class180_sub5_sub2.move(i_9_, 2);
+						npc.move(i_9_, 2);
 						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(3);
-						class180_sub5_sub2.move(i_10_, 2);
+						npc.move(i_10_, 2);
 					}
 					final int i_11_ = Canvas_Sub1.inputStream.getBitValue(1);
 					if (i_11_ == 1) {
-						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_3_;
+						ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 					}
 				} else if (i_5_ == 3) {
-					Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = i_3_;
+					Class43.toRemoveEntityIndices[Class120_Sub12_Sub23.toRemoveEntitiesPos++] = index;
 				}
 			}
 		}

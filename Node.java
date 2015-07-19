@@ -92,18 +92,18 @@ class Node {
 		return true;
 	}
 
-	static final String method1033(final int count) {
-		String string_27_ = Integer.toString(count);
-		for (int i_28_ = string_27_.length() - 3; i_28_ > 0; i_28_ -= 3) {
-			string_27_ = new StringBuilder(string_27_.substring(0, i_28_)).append(",").append(string_27_.substring(i_28_)).toString();
+	static final String formatObjectCount(final int count) {
+		String countAsString = Integer.toString(count);
+		for (int id = countAsString.length() - 3; id > 0; id -= 3) {
+			countAsString = countAsString.substring(0, id) + "," + countAsString.substring(id);
 		}
-		if (string_27_.length() > 9) {
-			return new StringBuilder(" <col=00ff80>").append(string_27_.substring(0, string_27_.length() - 8)).append(Class120_Sub19.aString2653).append(" (").append(string_27_).append(")</col>").toString();
+		if (countAsString.length() > 9) {
+			return " <col=00ff80>" + countAsString.substring(0, countAsString.length() - 8) + StringLibrary.aString2653 + " (" + countAsString + ")</col>";
 		}
-		if (string_27_.length() > 6) {
-			return new StringBuilder(" <col=ffffff>").append(string_27_.substring(0, string_27_.length() - 4)).append(StringLibrary.aString854).append(" (").append(string_27_).append(")</col>").toString();
+		if (countAsString.length() > 6) {
+			return " <col=ffffff>" + countAsString.substring(0, countAsString.length() - 4) + StringLibrary.aString854 + " (" + countAsString + ")</col>";
 		}
-		return new StringBuilder(" <col=ffff00>").append(string_27_).append("</col>").toString();
+		return " <col=ffff00>" + countAsString + "</col>";
 	}
 
 	final void unlink() {

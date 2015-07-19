@@ -8,7 +8,7 @@ final class EmitterType {
 	boolean activeFirst;
 	int startRedVariance;
 	int alphaFadeStep;
-	int minSize;
+	int size;
 	int startBlueVariance;
 	int minStartAlpha;
 	int texture;
@@ -97,21 +97,21 @@ final class EmitterType {
 			}
 			i_3_ += i_8_;
 			for (int x = i_8_; x < 128; x++) {
-				final int i_10_ = GraphicsLD.pixels[drawX + yPixelPointer++];
-				int i_11_ = Light.anIntArray392[i_3_++];
-				if (i_11_ == 0) {
-					Class92.torchFlamesSprite.pixels[i_6_++] = i_10_;
+				final int screenPixel = GraphicsLD.pixels[drawX + yPixelPointer++];
+				int flameColor = Light.anIntArray392[i_3_++];
+				if (flameColor == 0) {
+					Class92.torchFlamesSprite.pixels[i_6_++] = screenPixel;
 				} else {
-					int i_12_ = i_11_ + 18;
+					int i_12_ = flameColor + 18;
 					if (i_12_ > 255) {
 						i_12_ = 255;
 					}
-					int i_13_ = 238 - i_11_;
+					int i_13_ = 238 - flameColor;
 					if (i_13_ > 255) {
 						i_13_ = 255;
 					}
-					i_11_ = client.anIntArray679[i_11_];
-					Class92.torchFlamesSprite.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, i_10_) + Class120_Sub12_Sub3.method1207(16711935, i_11_) * i_12_) - -Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(i_10_, 65280) + Class120_Sub12_Sub3.method1207(i_11_, 65280) * i_12_) >> 8;
+					flameColor = client.torchesFlamesPalette[flameColor];
+					Class92.torchFlamesSprite.pixels[i_6_++] = Class120_Sub12_Sub3.method1207(-16711936, i_13_ * Class120_Sub12_Sub3.method1207(16711935, screenPixel) + Class120_Sub12_Sub3.method1207(16711935, flameColor) * i_12_) + Class120_Sub12_Sub3.method1207(16711680, i_13_ * Class120_Sub12_Sub3.method1207(screenPixel, 65280) + Class120_Sub12_Sub3.method1207(flameColor, 65280) * i_12_) >> 8;
 				}
 			}
 			for (int i_14_ = 0; i_14_ < i_8_; i_14_++) {
@@ -148,7 +148,7 @@ final class EmitterType {
 			this.decelerationType = buffer.getUByte();
 			this.decelerationRate = buffer.getByte();
 		} else if (code == 5) {
-			this.minSize = buffer.getUByte();
+			this.size = buffer.getUByte();
 		} else if (code == 6) {
 			minStartColor = buffer.getInt();
 			maxStartColor = buffer.getInt();
@@ -200,10 +200,10 @@ final class EmitterType {
 		} else if (code == 24) {
 			this.uniformColorVariance = false;
 		} else if (code == 25) {
-			final int i_20_ = buffer.getUByte();
-			this.generalMagnets = new int[i_20_];
-			for (int i_21_ = 0; i_20_ > i_21_; i_21_++) {
-				this.generalMagnets[i_21_] = buffer.getUShort();
+			final int count = buffer.getUByte();
+			this.generalMagnets = new int[count];
+			for (int id = 0; id < count; id++) {
+				this.generalMagnets[id] = buffer.getUShort();
 			}
 		} else if (code == 26) {
 			this.disableHDLighting = false;
@@ -231,7 +231,7 @@ final class EmitterType {
 			if (this.speedChangeStart == 0) {
 				this.speedChangeStart = 1;
 			}
-			this.speedStep = (-this.minSpeed - (-this.minSpeed + this.maxSpeed) / 2 + this.endSpeed) / this.speedChangeStart;
+			this.speedStep = (-this.minSpeed - (this.maxSpeed - this.minSpeed) / 2 + this.endSpeed) / this.speedChangeStart;
 		}
 		if (this.fadeColor != 0) {
 			this.alphaFadeStart = alphaFacePct * this.maxLifetime / 100;
@@ -255,15 +255,34 @@ final class EmitterType {
 
 	static final EmitterType list(final int id) {
 		EmitterType emitterType = (EmitterType) recentUse.get(id);
-		if (emitterType != null) {
-			return emitterType;
-		}
+		//if (emitterType != null) {
+		//	return emitterType;
+		//}
 		final byte[] data = aClass50_619.getFile(0, id);
 		emitterType = new EmitterType();
-		System.out.println("hello from emitterType - "+id+", "+(data==null));
 		if (data != null) {
 			emitterType.decode(new Buffer(data));
 		}
+		//System.out.println("hello from emitterType "+ id);
+		emitterType.size = 3;
+		
+		emitterType.maxSpeed = 314572;
+		emitterType.endSpeed = 734003;
+		emitterType.ageMark = 10;
+		emitterType.minParticleRate = 200;
+		emitterType.disableHDLighting = false;
+		emitterType.maxAngleV = 2048;
+		//emitterType.fadeColor = 0xffffff;
+		emitterType.lifetime = 32767;
+		emitterType.minLifetime = 50;
+		emitterType.minSpeed = 209715;
+		emitterType.maxAngleH = 1024;
+		emitterType.periodic = false;
+		emitterType.maxLifetime = 100;
+		emitterType.maxParticleRate = 300;
+		emitterType.minStartColor = 0xff0000ff;
+		emitterType.maxStartColor = 0xff0000ff;
+		
 		emitterType.postDecode();
 		recentUse.put(emitterType, id);
 		return emitterType;

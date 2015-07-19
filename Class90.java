@@ -131,9 +131,9 @@ final class Class90 {
 				Class120_Sub19.removeOverridedInterface(overridedInterface, true);
 			}
 		}
-		if (Class156.aClass189_1454 != null) {
-			InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
-			Class156.aClass189_1454 = null;
+		if (Class156.dialogInterface != null) {
+			InterfaceClickMask.redrawInterface(Class156.dialogInterface);
+			Class156.dialogInterface = null;
 		}
 	}
 
@@ -141,7 +141,7 @@ final class Class90 {
 		final AbstractSprite[] sprites = new AbstractSprite[Class93.spriteAmount];
 		for (int spriteId = 0; spriteId < Class93.spriteAmount; spriteId++) {
 			final int pixelAmt = Class120_Sub12_Sub11.spriteWidths[spriteId] * Class120_Sub12_Sub39.spriteHeights[spriteId];
-			final byte[] paletteIndicators = Class145.spritePaletteIndicators[spriteId];
+			final byte[] paletteIndicators = SkyboxType.spritePaletteIndicators[spriteId];
 			if (!PlainTile.spriteHasAlpha[spriteId]) {
 				final int[] pixels = new int[pixelAmt];
 				for (int pixelId = 0; pixelId < pixelAmt; pixelId++) {

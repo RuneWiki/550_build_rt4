@@ -213,7 +213,7 @@ final class Class53_Sub1 extends Class53 {
 		Class120_Sub12_Sub11.spriteWidths = null;
 		Class120_Sub12_Sub39.spriteHeights = null;
 		GroundTile.spriteYOffsets = null;
-		Class145.spritePaletteIndicators = null;
+		SkyboxType.spritePaletteIndicators = null;
 	}
 
 	@Override

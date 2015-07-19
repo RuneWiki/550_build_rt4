@@ -18,6 +18,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 	private int anInt3134;
 	private int anInt3135;
 	private int anInt3136;
+	
 	static final void redrawScreen(final int x, final int y, final int width, final int height) {
 		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
 			if (x < GrandExchangeObject.screenRedrawXs[id] + Class120_Sub16.screenRedrawWidhts[id] && x + width > GrandExchangeObject.screenRedrawXs[id] && Class120_Sub12_Sub38.screenRedrawYs[id] + Class69_Sub3_Sub1.screenRedrawHeights[id] > y && y + height > Class120_Sub12_Sub38.screenRedrawYs[id]) {
@@ -187,7 +188,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 		if (!signlink.canUseFullscreen()) {
 			return null;
 		}
-		if (bitDepth == 0) {
+		if (bitDepth == 0) {		
 			final DisplayModeInfo[] displayModes = EnumType.getDisplayModes(signlink);
 			if (displayModes == null) {
 				return null;

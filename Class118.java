@@ -4,13 +4,13 @@
 
 final class Class118 {
 	static int anInt1133;
-	static boolean aBoolean1134;
+	static boolean sendCameraPacket;
 	static Player[] playersList = new Player[2048];
 	static short[][] aShortArrayArray1136;
 	static AbstractIndexedSprite[] scrollBarSprites;
 
 	static {
-		aBoolean1134 = true;
+		sendCameraPacket = true;
 		anInt1133 = 0;
 		aShortArrayArray1136 = new short[][] {
 				{ 10, 30, 50, 70, 90, 110, 310, 684, 704, 556, 940, 960, 6454, 6952, 6972, 2358, 2732, 2752, 10550, 10924, 10944, 10310, 10556, 10576, 14646, 15020, 15040, 19766, 20140, 20160, -29386, -29012, -28992, 31030, 31276, 31296, -24266, -23892, -23872, -19146, -18772, -18752, -14026,

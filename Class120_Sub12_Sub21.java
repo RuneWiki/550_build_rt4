@@ -103,7 +103,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 			}
 		} else {
 			if (RuntimeException_Sub1.anInt2142 != 0 && Class157.anInt1466 != -1) {
-				Class127.method1891(Class120_Sub12_Sub36.aClass50_3419, RuntimeException_Sub1.anInt2142, 0, Class157.anInt1466, false);
+				Class127.method1891(Class120_Sub12_Sub36.musicJs5, RuntimeException_Sub1.anInt2142, 0, Class157.anInt1466, false);
 			}
 			Class120_Sub12_Sub15.aBoolean3247 = false;
 		}
@@ -154,9 +154,9 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		MapSceneType.spriteCache.clearSoftReference();
 		MapFunctionType.recentUse.clearSoftReference();
 		MapFunctionType.spriteCache.clearSoftReference();
-		Class145.aClass21_1486.clearSoftReference();
-		Class120_Sub6.aClass21_2443.clearSoftReference();
-		Class153.recentUse.clearSoftReference();
+		SkyboxType.aClass21_1486.clearSoftReference();
+		Skybox.recentUse.clearSoftReference();
+		SphereType.recentUse.clearSoftReference();
 		LightType.recentUse.clearSoftReference();
 		CursorType.recentUse.clearSoftReference();
 		CursorType.graphicCache.clearSoftReference();
@@ -167,7 +167,7 @@ class Class120_Sub12_Sub21 extends Class120_Sub12 {
 		JagexInterface.fontCache.clearSoftReference();
 		Class120_Sub14_Sub13.aClass21_3564.clearSoftReference();
 		Class154.shadowModelCache.clearSoftReference();
-		Class120_Sub12_Sub2.aClass21_3144.clearSoftReference();
+		Class120_Sub12_Sub2.hitBarSpriteCache.clearSoftReference();
 		LDFont.fontCache.clearSoftReference();
 	}
 

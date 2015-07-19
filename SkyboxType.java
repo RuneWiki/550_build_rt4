@@ -2,25 +2,25 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class145 {
+final class SkyboxType {
 	static int sleepModifier1 = 1;
 	static int anInt1379 = 1;
 	int anInt1380 = -1;
 	static int anInt1381;
 	static int renderYawWrapper;
-	int[] anIntArray1383;
-	int anInt1384 = -1;
+	int[] sphereIds;
+	int textureId = -1;
 	static js5 aClass50_678;
 	static ObjectCache aClass21_1486 = new ObjectCache(16);
 	static byte[][] spritePaletteIndicators;
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.anInt1384 = buffer.getUShort();
+			this.textureId = buffer.getUShort();
 		} else if (code == 2) {
-			this.anIntArray1383 = new int[buffer.getUByte()];
-			for (int i_2_ = 0; i_2_ < this.anIntArray1383.length; i_2_++) {
-				this.anIntArray1383[i_2_] = buffer.getUShort();
+			this.sphereIds = new int[buffer.getUByte()];
+			for (int id = 0; id < this.sphereIds.length; id++) {
+				this.sphereIds[id] = buffer.getUShort();
 			}
 		} else if (code == 3) {
 			this.anInt1380 = buffer.getUByte();
@@ -41,18 +41,18 @@ final class Class145 {
 		aClass50_678 = js5;
 	}
 
-	static final Class145 list(final int id) {
-		Class145 class145 = (Class145) aClass21_1486.get(id);
-		if (class145 != null) {
-			return class145;
+	static final SkyboxType list(final int id) {
+		SkyboxType skyboxType = (SkyboxType) aClass21_1486.get(id);
+		if (skyboxType != null) {
+			return skyboxType;
 		}
 		final byte[] data = aClass50_678.getFile(29, id);//Has 0 files in 550 cache
-		class145 = new Class145();
+		skyboxType = new SkyboxType();
 		if (data != null) {
-			class145.decode(new Buffer(data));
+			skyboxType.decode(new Buffer(data));
 		}
-		aClass21_1486.put(class145, id);
-		return class145;
+		aClass21_1486.put(skyboxType, id);
+		return skyboxType;
 	}
 
 	static final void drawHintIconOnMinimap(final JagexInterface jagexInterface, final int maxDist, final int interfaceX, final int targetY, final int interfaceY, final int targetX, final int iconType) {
@@ -80,7 +80,7 @@ final class Class145 {
 		}
 	}
 
-	public Class145() {
+	public SkyboxType() {
 		/* empty */
 	}
 }

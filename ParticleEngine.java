@@ -20,13 +20,13 @@ final class ParticleEngine extends ParticleNode {
 	Particle[] aClass108_Sub3_Sub1Array2355;
 	boolean aBoolean2356 = false;
 	private Class174 aClass174_2357 = new Class174();
-	static int anInt2358;
+	static int offsetY;
 	long aLong2359;
 	static int particleCountWrapper;
 	private static Class174 aClass174_2361;
 	static boolean debug;
 	static int runningParticleCount;
-	static int anInt2364;
+	static int offsetX;
 	private int anInt2365 = 0;
 	Deque localMagnets = new Deque();
 	int anInt2367;
@@ -55,7 +55,7 @@ final class ParticleEngine extends ParticleNode {
 	static int[] anIntArray2390;
 	private boolean aBoolean2391 = false;
 	private static int anInt2392;
-	static float aFloat2393;
+	static float scale;
 	private static ByteBuffer aByteBuffer2394;
 
 	static {
@@ -70,7 +70,7 @@ final class ParticleEngine extends ParticleNode {
 		particleSetting = 2;
 		anInt2392 = 0;
 		aClass120_Sub7_2381 = new Buffer(131056);
-		aFloat2393 = 1.0F;
+		scale = 1.0F;
 	}
 
 	private final void method943(final ModelParticleEmitter[] class158s, final boolean bool, final int[] is, final int[] is_0_, final int[] is_1_) {
@@ -108,8 +108,8 @@ final class ParticleEngine extends ParticleNode {
 			for (ParticleEmitter class108_sub1 = (ParticleEmitter) aClass174_2357.peekFirst(); class108_sub1 != null; class108_sub1 = (ParticleEmitter) aClass174_2357.peekNext()) {
 				for (int i = 0; i < class158s.length; i++) {
 					if (aBooleanArray2386[i] && class158s[i] == class108_sub1.aClass158_2322) {
-						class108_sub1.method942(is[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1485], is[class108_sub1.aClass158_2322.anInt1485], is_0_[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1484], -74,
-								is[class108_sub1.aClass158_2322.anInt1484], is_1_[class108_sub1.aClass158_2322.anInt1484], is_1_[class108_sub1.aClass158_2322.anInt1485], is_1_[class108_sub1.aClass158_2322.anInt1476]);
+						class108_sub1.method942(is[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1485], is[class108_sub1.aClass158_2322.anInt1485], is_0_[class108_sub1.aClass158_2322.anInt1476], is_0_[class108_sub1.aClass158_2322.anInt1484], is[class108_sub1.aClass158_2322.anInt1484],
+								is_1_[class108_sub1.aClass158_2322.anInt1484], is_1_[class108_sub1.aClass158_2322.anInt1485], is_1_[class108_sub1.aClass158_2322.anInt1476]);
 						break;
 					}
 				}
@@ -139,7 +139,7 @@ final class ParticleEngine extends ParticleNode {
 		aClass174_2361 = new Class174();
 		aClass108_Sub3_Sub1Array2350 = new Particle[1024];
 		EmitterType.aClass50_619 = js5;
-		Class49.aClass50_440 = js5;
+		MagnetType.aClass50_440 = js5;
 	}
 
 	static final void method946() {
@@ -158,7 +158,7 @@ final class ParticleEngine extends ParticleNode {
 			final GL gl = HDToolkit.gl;
 			final int i_14_ = DisplayModeInfo.anInt1713;
 			final int i_15_ = PlayerAppearance.anInt1367;
-			final int i_16_ = Class145.anInt1381;
+			final int i_16_ = SkyboxType.anInt1381;
 			method956(i_14_, i_15_, i_16_);
 			final int i_17_ = i_13_ * i_9_ - i_11_ * i_8_ >> 16;
 			final int i_18_ = i_12_ * i_6_ + i_17_ * i_7_ >> 16;
@@ -219,7 +219,7 @@ final class ParticleEngine extends ParticleNode {
 					} else {
 						HDToolkit.bindTexture2D(-1);
 					}
-					float f = class108_sub1.emitterType.minSize * aFloat2393;
+					float f = class108_sub1.emitterType.size * scale;
 					if (f > 64.0F) {
 						f = 64.0F;
 					}
@@ -479,7 +479,7 @@ final class ParticleEngine extends ParticleNode {
 					ParticleMagnet class120_sub14_sub24 = null;
 					if (class169s[i].magnetType.visibility == 1 && anInt2392 < 32) {
 						class120_sub14_sub24 = new ParticleMagnet(class169s[i], this);
-						activeMagnets.put(class120_sub14_sub24, class169s[i].magnetType.anInt258);
+						activeMagnets.put(class120_sub14_sub24, class169s[i].magnetType.id);
 						anInt2392++;
 					}
 					if (class120_sub14_sub24 == null) {
@@ -493,7 +493,7 @@ final class ParticleEngine extends ParticleNode {
 			for (ParticleMagnet class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getFront(); class120_sub14_sub24 != null; class120_sub14_sub24 = (ParticleMagnet) this.localMagnets.getNext()) {
 				for (int i = 0; i < class169s.length; i++) {
 					if (aBooleanArray2383[i] && class169s[i] == class120_sub14_sub24.modelParticleMagnet) {
-						class120_sub14_sub24.method1650(is_62_[class120_sub14_sub24.modelParticleMagnet.anInt1647], is_61_[class120_sub14_sub24.modelParticleMagnet.anInt1647], is[class120_sub14_sub24.modelParticleMagnet.anInt1647]);
+						class120_sub14_sub24.method1650(is_62_[class120_sub14_sub24.modelParticleMagnet.vertexId], is_61_[class120_sub14_sub24.modelParticleMagnet.vertexId], is[class120_sub14_sub24.modelParticleMagnet.vertexId]);
 						break;
 					}
 				}
@@ -501,8 +501,8 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	static final void method961(final int i, final int i_63_) {
-		aFloat2393 = i_63_ / 334.0F;
+	static final void setParticleScale(final int i, final int i_63_) {
+		scale = i_63_ / 334.0F;
 	}
 
 	final void method962(final ModelParticleEmitter[] class158s, final ModelParticleMagnet[] class169s, final boolean bool, final int[] xVertices, final int[] yVertices, final int[] zVertices) {
@@ -581,7 +581,7 @@ final class ParticleEngine extends ParticleNode {
 	}
 
 	final void method965(final int i, final int i_71_, final int i_72_, final int i_73_, final int i_74_) {
-		method944(i, i_71_, i_72_ + DisplayModeInfo.anInt1713, i_73_ + PlayerAppearance.anInt1367, i_74_ + Class145.anInt1381);
+		method944(i, i_71_, i_72_ + DisplayModeInfo.anInt1713, i_73_ + PlayerAppearance.anInt1367, i_74_ + SkyboxType.anInt1381);
 	}
 
 	ParticleEngine(final int lc, final int sx, final int sz) {

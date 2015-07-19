@@ -9,19 +9,19 @@ interface Interface5 {
 
 	public boolean method17(int i_2_);
 
-	public int method18(int i);
+	public int getShaderId(int i);
 
 	public int[] method19(float f, int i_4_);
 
-	public int method20(int i);
+	public int getColorPaletteIndex(int i);
 
-	public int method21(int i_6_);
+	public int getBrightness(int i_6_);
 
 	public boolean method22(int i);
 
 	public int[] method23(int i);
 
-	public int method24(int i);
+	public int getBlanch(int i);
 
 	public void method25(int i_8_);
 

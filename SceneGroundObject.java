@@ -4,20 +4,15 @@
 
 final class SceneGroundObject extends SceneGraphNode {
 	static int spriteTrimHeight;
-	static ObjectCache aClass21_2841;
 	private int maxY = -32768;
 	static int componentPressedCycles;
 	static HDTile[][] surfaceHdTiles;
 	int amount;
 	int id;
-	static String aString2847 = "Loaded wordpack";
 	static boolean packetSetFlagPosition;
-	static String aString2849;
-
+	
 	static {
-		aClass21_2841 = new ObjectCache(64);
 		packetSetFlagPosition = true;
-		aString2849 = "Please remove ";
 	}
 
 	@Override
@@ -47,7 +42,7 @@ final class SceneGroundObject extends SceneGraphNode {
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
 		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
-		StructType.aClass189_3588 = null;
+		StructType.mouseOverInventoryInterface = null;
 		LookupTable.gameScreenDrawX = -1;
 		if (HDToolkit.glEnabled) {
 			Class167.clearDepthBuffer = true;

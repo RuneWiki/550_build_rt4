@@ -181,15 +181,15 @@ final class Class81 {
 		}
 	}
 
-	static final void method707() {
+	static final void cameraRight() {
 		if (!Class188.aBoolean1925) {
-			if (!Class134.aBoolean1277) {
-				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + 24.0F) / 2.0F;
+			if (!Class134.updateCameraFromCs2) {
+				Class120_Sub15.cameraYawWrapper += (24.0F - Class120_Sub15.cameraYawWrapper) / 2.0F;
 			} else {
 				DummyOutputStream.cameraYaw = (int) DummyOutputStream.cameraYaw + 191 & ~0x7f;
 			}
 			Class188.aBoolean1925 = true;
-			Class118.aBoolean1134 = true;
+			Class118.sendCameraPacket = true;
 		}
 	}
 }

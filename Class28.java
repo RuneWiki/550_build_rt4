@@ -7,7 +7,7 @@ final class Class28 {
 	int anInt171;
 	int anInt172;
 	int anInt173;
-	SceneGraphNode aClass180_174;
+	SceneGraphNode sceneGraphNode;
 	int anInt175;
 	static int anInt176;
 	int anInt177;
@@ -19,10 +19,6 @@ final class Class28 {
 	int anInt184;
 	int anInt185;
 	long bitPacked = 0L;
-
-	static final void method242(final String[] strings, final short[] is) {
-		Class148.method2057(strings, strings.length - 1, is, 0);
-	}
 
 	static final int method244(final Random random, final int i) {
 		if (i <= 0) {

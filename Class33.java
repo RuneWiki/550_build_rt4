@@ -5,7 +5,7 @@
 final class Class33 {
 	static ObjectCache aClass21_273 = new ObjectCache(50);
 	static LDFont smallFont2;//used for objs
-	static js5 aClass50_275;
+	static js5 interfaceJs5;
 	static String[] stringStack = new String[1000];
 	static int anInt278 = 0;
 

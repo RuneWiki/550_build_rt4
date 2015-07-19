@@ -52,7 +52,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		return is_3_;
 	}
 
-	static final void method1269(final int size) {
+	static final void renderPlayers(final int size) {
 		int playerCount = FileSystemWorker.localPlayerCount;
 		if (size == 0) {
 			playerCount = 1;
@@ -69,33 +69,33 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				if (size == 0 || size == playerSize) {
 					if (playerSize != 1) {
 						if (((playerSize & 0x1) != 0 || (player.x & 0x7f) == 0 && (player.z & 0x7f) == 0) && ((0x1 & playerSize) != 1 || (player.x & 0x7f) == 64 && (player.z & 0x7f) == 64)) {
-							int i_20_ = player.x - playerSize * 64 >> 7;
-							int i_21_ = player.z - playerSize * 64 >> 7;
-							int i_22_ = i_20_ + player.getSize();
-							if (i_22_ > 104) {
-								i_22_ = 104;
+							int startRenderX = player.x - playerSize * 64 >> 7;
+							int startRenderZ = player.z - playerSize * 64 >> 7;
+							int endRenderX = startRenderX + player.getSize();
+							int endRenderZ = startRenderZ + player.getSize();
+							if (startRenderX < 0) {
+								startRenderX = 0;
 							}
-							if (i_20_ < 0) {
-								i_20_ = 0;
+							if (endRenderX > 104) {
+								endRenderX = 104;
 							}
-							int i_23_ = i_21_ + player.getSize();
-							if (i_21_ < 0) {
-								i_21_ = 0;
+							if (startRenderZ < 0) {
+								startRenderZ = 0;
 							}
-							if (i_23_ > 104) {
-								i_23_ = 104;
+							if (endRenderZ > 104) {
+								endRenderZ = 104;
 							}
-							for (int i_24_ = i_20_; i_24_ < i_22_; i_24_++) {
-								for (int i_25_ = i_21_; i_25_ < i_23_; i_25_++) {
-									FileSystemRequest.anIntArrayArray3933[i_24_][i_25_]++;
+							for (int x = startRenderX; x < endRenderX; x++) {
+								for (int z = startRenderZ; z < endRenderZ; z++) {
+									FileSystemRequest.entityCountOnTile[x][z]++;
 								}
 							}
 						}
 					} else if ((player.x & 0x7f) == 64 && (player.z & 0x7f) == 64) {
-						final int i_26_ = player.x >> 7;
-						final int i_27_ = player.z >> 7;
-						if (i_26_ >= 0 && i_26_ < 104 && i_27_ >= 0 && i_27_ < 104) {
-							FileSystemRequest.anIntArrayArray3933[i_26_][i_27_]++;
+						final int renderX = player.x >> 7;
+						final int renderZ = player.z >> 7;
+						if (renderX >= 0 && renderX < 104 && renderZ >= 0 && renderZ < 104) {
+							FileSystemRequest.entityCountOnTile[renderX][renderZ]++;
 						}
 					}
 				}
@@ -121,46 +121,46 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 					}
 					if (playerSize == 1) {
 						if ((player.x & 0x7f) == 64 && (player.z & 0x7f) == 64) {
-							final int i_30_ = player.x >> 7;
-							final int i_31_ = player.z >> 7;
-							if (i_30_ < 0 || i_30_ >= 104 || i_31_ < 0 || i_31_ >= 104) {
+							final int renderX = player.x >> 7;
+							final int renderZ = player.z >> 7;
+							if (renderX < 0 || renderX >= 104 || renderZ < 0 || renderZ >= 104) {
 								continue;
 							}
-							if (FileSystemRequest.anIntArrayArray3933[i_30_][i_31_] > 1) {
-								FileSystemRequest.anIntArrayArray3933[i_30_][i_31_]--;
+							if (FileSystemRequest.entityCountOnTile[renderX][renderZ] > 1) {
+								FileSystemRequest.entityCountOnTile[renderX][renderZ]--;
 								continue;
 							}
 						}
 					} else if ((0x1 & playerSize) == 0 && (0x7f & player.x) == 0 && (0x7f & player.z) == 0 || (0x1 & playerSize) == 1 && (player.x & 0x7f) == 64 && (player.z & 0x7f) == 0) {
-						int i_32_ = player.z + -(playerSize * 64) >> 7;
-						int i_33_ = player.x + -(64 * playerSize) >> 7;
-						int i_34_ = playerSize + i_33_;
-						if (i_33_ < 0) {
-							i_33_ = 0;
+						int startRenderX = player.z - playerSize * 64 >> 7;
+						int startRenderZ = player.x - playerSize * 64 >> 7;
+						int endRenderX = playerSize + startRenderX;
+						int endRenderZ = playerSize + startRenderZ;
+						if (startRenderX < 0) {
+							startRenderX = 0;
 						}
-						if (i_34_ > 104) {
-							i_34_ = 104;
+						if (endRenderX > 104) {
+							endRenderX = 104;
 						}
-						boolean bool = true;
-						int i_35_ = playerSize + i_32_;
-						if (i_32_ < 0) {
-							i_32_ = 0;
+						if (startRenderZ < 0) {
+							startRenderZ = 0;
 						}
-						if (i_35_ > 104) {
-							i_35_ = 104;
+						if (endRenderZ > 104) {
+							endRenderZ = 104;
 						}
-						for (int i_36_ = i_33_; i_36_ < i_34_; i_36_++) {
-							for (int i_37_ = i_32_; i_37_ < i_35_; i_37_++) {
-								if (FileSystemRequest.anIntArrayArray3933[i_36_][i_37_] <= 1) {
-									bool = false;
+						boolean hasEntityOnTop = true;
+						for (int x = startRenderZ; x < endRenderZ; x++) {
+							for (int z = startRenderX; z < endRenderX; z++) {
+								if (FileSystemRequest.entityCountOnTile[x][z] <= 1) {
+									hasEntityOnTop = false;
 									break;
 								}
 							}
 						}
-						if (bool) {
-							for (int i_38_ = i_33_; i_34_ > i_38_; i_38_++) {
-								for (int i_39_ = i_32_; i_35_ > i_39_; i_39_++) {
-									FileSystemRequest.anIntArrayArray3933[i_38_][i_39_]--;
+						if (hasEntityOnTop) {
+							for (int x = startRenderZ; x < endRenderZ; x++) {
+								for (int z = startRenderX; z < endRenderX; z++) {
+									FileSystemRequest.entityCountOnTile[x][z]--;
 								}
 							}
 							continue;
@@ -479,7 +479,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		for (int i_109_ = 0; i_109_ < i_107_; i_109_++) {
 			ls[i_109_] = class120_sub9s_108_[i_109_].uid;
 		}
-		ArrayUtils.quicksortArray(class120_sub9s_108_, ls);
+		ArrayUtils.quicksort(class120_sub9s_108_, ls);
 		return class120_sub9s_108_;
 	}
 

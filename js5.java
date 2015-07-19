@@ -123,7 +123,7 @@ final class js5 {
 		class120_sub7_14_.putInt(Class120_Sub19.anInt2657);
 		class120_sub7_14_.putByte(Class120_Sub12_Sub19.currentDisplayMode);
 		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
-		class120_sub7_14_.putByte(Class134.aBoolean1277 ? 1 : 0);
+		class120_sub7_14_.putByte(Class134.updateCameraFromCs2 ? 1 : 0);
 		class120_sub7_14_.putByte(Class140.anInt1343);
 		class120_sub7_14_.putByte(WallDecoration.hdrEnabled ? 1 : 0);
 		class120_sub7_14_.putByte(Class38.cursorsEnabled ? 1 : 0);

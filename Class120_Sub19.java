@@ -3,7 +3,6 @@
  */
 
 final class Class120_Sub19 extends Node {
-	static String aString2653 = "M";
 	int anInt2654;
 	static int anInt2655 = 3353893;
 	int anInt2656;

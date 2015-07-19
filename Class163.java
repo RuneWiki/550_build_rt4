@@ -35,14 +35,14 @@ final class Class163 {
 	static final int method2122(final int i, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final byte[] is) {
 		final GL gl = HDToolkit.gl;
 		final int i_14_ = method2126();
-		if (i == 3553) {
+		if (i == GL_TEXTURE_2D) {
 			HDToolkit.bindTexture2D(i_14_);
 		} else {
 			gl.glBindTexture(i, i_14_);
 		}
 		method2120(i, i_7_, i_8_, i_9_, i_12_, i_13_, is);
-		gl.glTexParameteri(3553, 10241, i_10_);
-		gl.glTexParameteri(3553, 10240, i_11_);
+		gl.glTexParameteri(GL_TEXTURE_2D, 10241, i_10_);
+		gl.glTexParameteri(GL_TEXTURE_2D, 10240, i_11_);
 		return i_14_;
 	}
 

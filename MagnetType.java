@@ -14,9 +14,9 @@ final class MagnetType {
 	private int rotation;
 	static int anInt254;
 	int effectType;
-	static JagexInterface aClass189_256;
+	static JagexInterface pressedInventoryComponent;
 	int localDirectionX;
-	int anInt258;
+	int id;
 	static int anInt259;
 	static int anInt260;
 	int localDirectionY;
@@ -30,6 +30,8 @@ final class MagnetType {
 	static int anInt269;
 	static int p11fullId;
 	long maxRange;
+	static js5 aClass50_440;
+	static ObjectCache recentUse = new ObjectCache(64);
 	static int anInt272;
 
 	static {
@@ -275,22 +277,22 @@ final class MagnetType {
 	}
 
 	static final MagnetType list(final int id) {
-		MagnetType class32 = (MagnetType) SceneGroundObject.aClass21_2841.get(id);
-		if (class32 != null) {
-			return class32;
+		MagnetType magnetType = (MagnetType) recentUse.get(id);
+		if (magnetType != null) {
+			return magnetType;
 		}
-		final byte[] is = Class49.aClass50_440.getFile(1, id);
-		class32 = new MagnetType();
-		class32.anInt258 = id;
-		if (is != null) {
-			class32.decode(new Buffer(is));
+		final byte[] data = aClass50_440.getFile(1, id);
+		magnetType = new MagnetType();
+		magnetType.id = id;
+		if (data != null) {
+			magnetType.decode(new Buffer(data));
 		}
-		class32.postDecode();
-		if (class32.visibility == 2 && GroundTile.globalMagnets.get(id) == null) {
-			GroundTile.globalMagnets.put(new IntegerNode(Class30.anInt236), id);
-			Class154.globalMagnets[Class30.anInt236++] = class32;
+		magnetType.postDecode();
+		if (magnetType.visibility == 2 && GroundTile.globalMagnets.get(id) == null) {
+			GroundTile.globalMagnets.put(new IntegerNode(Class30.globalMagnetPos), id);
+			Class154.globalMagnets[Class30.globalMagnetPos++] = magnetType;
 		}
-		SceneGroundObject.aClass21_2841.put(class32, id);
-		return class32;
+		recentUse.put(magnetType, id);
+		return magnetType;
 	}
 }

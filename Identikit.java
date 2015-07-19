@@ -216,13 +216,13 @@ final class Identikit {
 					if (Class24.underWaterTileHeightMap == OverridedJInterface.activeTileHeightMap) {
 						final int i_31_ = NodeCache.anIntArrayArray300[i][i_28_];
 						final int i_32_ = i_31_ & 0xffffff;
-						if (i_32_ != Class120_Sub12_Sub19.anInt3281) {
+						if (Class120_Sub12_Sub19.anInt3281 != i_32_) {
 							Class120_Sub12_Sub19.anInt3281 = i_32_;
 							Class69.method614(i_32_);
 							AtmosphereManager.setFogColor(EntityRenderData.method251());
 						}
-						final int i_33_ = i_31_ >>> 24 << 2;
-						if (i_33_ != FrameGroup.anInt3612) {
+						int i_33_ = i_31_ >>> 24 << 2;
+						if (FrameGroup.anInt3612 != i_33_) {
 							FrameGroup.anInt3612 = i_33_;
 							Canvas_Sub1.method64(i_33_);
 						}
@@ -293,21 +293,21 @@ final class Identikit {
 						if (class182 != null) {
 							if (HDToolkit.glEnabled) {
 								if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0) {
-									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
+									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_30_, i, i_28_);
 								} else {
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
 							}
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 									class182.bitPackedUid, i_29_, null);
 						}
 						for (int i_41_ = 0; i_41_ < class120_sub18_40_.anInt2638; i_41_++) {
 							final Class28 class28 = class120_sub18_40_.aClass28Array2625[i_41_];
 							if (class28 != null) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
-								class28.aClass180_174.render(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
+								class28.sceneGraphNode.render(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - SkyboxType.anInt1381,
 										class28.bitPacked, i_29_, null);
 							}
 						}
@@ -319,7 +319,7 @@ final class Identikit {
 					if (class120_sub18_27_.plainTile != null) {
 						if (!Class69_Sub1.method618(i_30_, i, i_28_)) {
 							bool_42_ = true;
-							if (class120_sub18_27_.plainTile.anInt1351 != 12345678 || Class120_Sub12_Sub7.aBoolean3181 && i_29_ <= Projectile.anInt2933) {
+							if (class120_sub18_27_.plainTile.anInt1351 != 12345678 || Class120_Sub12_Sub7.mouseClickToTileRequested && i_29_ <= Projectile.mouseClickToTileLevel) {
 								Class132_Sub2.method1942(class120_sub18_27_.plainTile, i_30_, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i, i_28_, false);
 							}
 						} else {
@@ -340,9 +340,9 @@ final class Identikit {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
-							class36.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class36.renderX - DisplayModeInfo.anInt1713, class36.renderY - PlayerAppearance.anInt1367, class36.renderZ - Class145.anInt1381, class36.bitPackedUid,
+							class36.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class36.renderX - DisplayModeInfo.anInt1713, class36.renderY - PlayerAppearance.anInt1367, class36.renderZ - SkyboxType.anInt1381, class36.bitPackedUid,
 									i_29_, null);
 							if (HDToolkit.glEnabled && class36.aBoolean314) {
 								HDToolkit.method527(f);
@@ -391,16 +391,16 @@ final class Identikit {
 						}
 						if ((class182.anInt1799 & i_44_) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 									class182.bitPackedUid, i_29_, null);
 						}
 						if ((class182.anInt1792 & i_44_) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
-							class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+							class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 									class182.bitPackedUid, i_29_, null);
 						}
 					}
@@ -410,14 +410,14 @@ final class Identikit {
 						}
 						if ((class186.anInt1895 & i_44_) != 0) {
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
 							class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.renderX - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.renderY - PlayerAppearance.anInt1367, class186.renderZ
-									- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
+									- SkyboxType.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 						} else if (class186.anInt1895 == 256) {
 							final int i_45_ = class186.renderX - DisplayModeInfo.anInt1713;
 							final int i_46_ = class186.renderY - PlayerAppearance.anInt1367;
-							final int i_47_ = class186.renderZ - Class145.anInt1381;
+							final int i_47_ = class186.renderZ - SkyboxType.anInt1381;
 							final int i_48_ = class186.anInt1896;
 							int i_49_;
 							if (i_48_ == 1 || i_48_ == 2) {
@@ -433,12 +433,12 @@ final class Identikit {
 							}
 							if (i_50_ < i_49_) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
 								class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i_45_ + class186.anInt1905, i_46_, i_47_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.aClass180_1898 != null) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
 								class186.aClass180_1898.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i_45_, i_46_, i_47_, class186.bitPacked, i_29_, null);
 							}
@@ -454,9 +454,9 @@ final class Identikit {
 								HDToolkit.method527(f + 50.0F - 1.5F);
 							}
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
-							groundDecoration.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, groundDecoration.renderX - DisplayModeInfo.anInt1713, groundDecoration.renderY - PlayerAppearance.anInt1367, groundDecoration.renderZ - Class145.anInt1381, groundDecoration.bitPackedUid,
+							groundDecoration.sceneGraphNode.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, groundDecoration.renderX - DisplayModeInfo.anInt1713, groundDecoration.renderY - PlayerAppearance.anInt1367, groundDecoration.renderZ - SkyboxType.anInt1381, groundDecoration.bitPackedUid,
 									i_29_, null);
 							if (HDToolkit.glEnabled && groundDecoration.aBoolean314) {
 								HDToolkit.method527(f);
@@ -465,18 +465,18 @@ final class Identikit {
 						final ObjectPile objectPile = class120_sub18_27_.objectPile;
 						if (objectPile != null && objectPile.yLocationModifier == 0) {
 							if (HDToolkit.glEnabled) {
-								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+								LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 							}
 							if (objectPile.secondItemModel != null) {
-								objectPile.secondItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.secondItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - SkyboxType.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 							if (objectPile.thirdItemModel != null) {
-								objectPile.thirdItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.thirdItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - SkyboxType.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 							if (objectPile.mainItemModel != null) {
-								objectPile.mainItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - Class145.anInt1381,
+								objectPile.mainItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367, objectPile.renderZ - SkyboxType.anInt1381,
 										objectPile.bitPacked, i_29_, null);
 							}
 						}
@@ -524,42 +524,42 @@ final class Identikit {
 								if (HDToolkit.glEnabled) {
 									if ((class182.bitPackedUid & 0xfc000L) == 16384L) {
 										int i_58_ = class182.renderX - DisplayModeInfo.anInt1713;
-										int i_59_ = class182.renderZ - Class145.anInt1381;
+										int i_59_ = class182.renderZ - SkyboxType.anInt1381;
 										final int i_60_ = (int) (class182.bitPackedUid >> 20 & 0x3L);
 										if (i_60_ == 0) {
 											i_58_ -= 64;
 											i_59_ += 64;
-											if (i_59_ < i_58_ && i > 0 && i_28_ < Class120_Sub12_Sub38.anInt3440 - 1) {
-												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i - 1, i_28_ + 1);
+											if (i_59_ < i_58_ && i > 0 && i_28_ < Class120_Sub12_Sub38.mapSizeZ - 1) {
+												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i - 1, i_28_ + 1);
 												break;
 											}
 										} else if (i_60_ == 1) {
 											i_58_ += 64;
 											i_59_ += 64;
-											if (i_59_ < -i_58_ && i < WallDecoration.anInt1900 - 1 && i_28_ < Class120_Sub12_Sub38.anInt3440 - 1) {
-												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i + 1, i_28_ + 1);
+											if (i_59_ < -i_58_ && i < WallDecoration.mapSizeX - 1 && i_28_ < Class120_Sub12_Sub38.mapSizeZ - 1) {
+												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i + 1, i_28_ + 1);
 												break;
 											}
 										} else if (i_60_ == 2) {
 											i_58_ += 64;
 											i_59_ -= 64;
-											if (i_59_ > i_58_ && i < WallDecoration.anInt1900 - 1 && i_28_ > 0) {
-												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i + 1, i_28_ - 1);
+											if (i_59_ > i_58_ && i < WallDecoration.mapSizeX - 1 && i_28_ > 0) {
+												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i + 1, i_28_ - 1);
 												break;
 											}
 										} else if (i_60_ == 3) {
 											i_58_ -= 64;
 											i_59_ -= 64;
 											if (i_59_ > -i_58_ && i > 0 && i_28_ > 0) {
-												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i - 1, i_28_ - 1);
+												LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i - 1, i_28_ - 1);
 												break;
 											}
 										}
 									}
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
 							} while (false);
-							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+							class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 									class182.bitPackedUid, i_29_, null);
 						}
 						class120_sub18_27_.anInt2633 = 0;
@@ -627,9 +627,9 @@ final class Identikit {
 										i_73_ = i_74_;
 									} else if (class28.anInt171 == i_72_) {
 										final int i_75_ = class28.anInt178 - DisplayModeInfo.anInt1713;
-										final int i_76_ = class28.anInt185 - Class145.anInt1381;
+										final int i_76_ = class28.anInt185 - SkyboxType.anInt1381;
 										final int i_77_ = client.aClass28Array323[i_73_].anInt178 - DisplayModeInfo.anInt1713;
-										final int i_78_ = client.aClass28Array323[i_73_].anInt185 - Class145.anInt1381;
+										final int i_78_ = client.aClass28Array323[i_73_].anInt185 - SkyboxType.anInt1381;
 										if (i_75_ * i_75_ + i_76_ * i_76_ > i_77_ * i_77_ + i_78_ * i_78_) {
 											i_73_ = i_74_;
 										}
@@ -641,12 +641,12 @@ final class Identikit {
 							}
 							final Class28 class28 = client.aClass28Array323[i_73_];
 							class28.anInt173 = Class120_Sub12_Sub9.anInt3193;
-							if (!HintIcon.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.aClass180_174.getMaxY())) {
+							if (!HintIcon.method723(i_30_, class28.anInt180, class28.anInt182, class28.anInt184, class28.anInt175, class28.sceneGraphNode.getMaxY())) {
 								if (HDToolkit.glEnabled) {
 									if ((class28.bitPacked & 0xfc000L) == 147456L) {
-										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 										final int i_79_ = class28.anInt178 - DisplayModeInfo.anInt1713;
-										final int i_80_ = class28.anInt185 - Class145.anInt1381;
+										final int i_80_ = class28.anInt185 - SkyboxType.anInt1381;
 										final int i_81_ = (int) (class28.bitPacked >> 20 & 0x3L);
 										if (i_81_ == 1 || i_81_ == 3) {
 											if (i_80_ > -i_79_) {
@@ -660,10 +660,10 @@ final class Identikit {
 											LightManager.method1864(i_29_, i, i_28_ + 1, i - 1, i_28_);
 										}
 									} else {
-										LightManager.method1862(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, class28.anInt180, class28.anInt184, class28.anInt182, class28.anInt175);
+										LightManager.method1862(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, class28.anInt180, class28.anInt184, class28.anInt182, class28.anInt175);
 									}
 								}
-								class28.aClass180_174.render(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - Class145.anInt1381,
+								class28.sceneGraphNode.render(class28.anInt172, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class28.anInt178 - DisplayModeInfo.anInt1713, class28.anInt179 - PlayerAppearance.anInt1367, class28.anInt185 - SkyboxType.anInt1381,
 										class28.bitPacked, i_29_, null);
 							}
 							for (int i_82_ = class28.anInt180; i_82_ <= class28.anInt182; i_82_++) {
@@ -688,10 +688,10 @@ final class Identikit {
 					if (HDToolkit.glEnabled) {
 						final GL gl = HDToolkit.gl;
 						HDToolkit.method527(f);
-						ParticleEngine.method956(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381);
+						ParticleEngine.method956(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381);
 						final int i_85_ = class120_sub18_27_.anInt2632 * 128 + 64 - DisplayModeInfo.anInt1713;
 						final int i_86_ = OverridedJInterface.activeTileHeightMap[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - PlayerAppearance.anInt1367;
-						final int i_87_ = class120_sub18_27_.anInt2629 * 128 + 64 - Class145.anInt1381;
+						final int i_87_ = class120_sub18_27_.anInt2629 * 128 + 64 - SkyboxType.anInt1381;
 						int i_88_;
 						if (i_29_ < 3) {
 							i_88_ = OverridedJInterface.activeTileHeightMap[i_29_][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629] - OverridedJInterface.activeTileHeightMap[i_29_ + 1][class120_sub18_27_.anInt2632][class120_sub18_27_.anInt2629];
@@ -723,11 +723,11 @@ final class Identikit {
 								if (class108_sub3_sub1 == null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.particleEmitter;
-									i_94_ = class108_sub1.emitterType.minSize;
+									i_94_ = class108_sub1.emitterType.size;
 									continue;
 								}
 							}
-							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.particleEmitter != class108_sub1 || class108_sub3_sub1_95_.particleEmitter.emitterType.minSize != i_94_)) {
+							if (class108_sub3_sub1 != null && (class108_sub3_sub1_95_ == null || class108_sub3_sub1_95_.particleEmitter != class108_sub1 || class108_sub3_sub1_95_.particleEmitter.emitterType.size != i_94_)) {
 								for (int i_96_ = 0; i_96_ < i_93_; i_96_++) {
 									ParticleEngine.anIntArray2389[i_96_] = 0;
 								}
@@ -739,7 +739,7 @@ final class Identikit {
 									if (class108_sub3_sub1_98_.particleEmitter != null) {
 										final int i_99_ = (class108_sub3_sub1_98_.positionX >> 12) - DisplayModeInfo.anInt1713;
 										final int i_100_ = (class108_sub3_sub1_98_.positionY >> 12) - PlayerAppearance.anInt1367;
-										int i_101_ = (class108_sub3_sub1_98_.positionZ >> 12) - Class145.anInt1381;
+										int i_101_ = (class108_sub3_sub1_98_.positionZ >> 12) - SkyboxType.anInt1381;
 										i_101_ = i_101_ * MapFunctionType.anInt637 - i_99_ * Class120_Sub12_Sub30.anInt3377 >> 16;
 										i_101_ = (i_100_ * Class69_Sub2.anInt2239 + i_101_ * ObjectContainer.anInt2616 >> 16) - i_92_;
 										if (ParticleEngine.anIntArray2389[i_101_] < 32) {
@@ -771,7 +771,7 @@ final class Identikit {
 								} else {
 									HDToolkit.bindTexture2D(-1);
 								}
-								float f_104_ = i_94_ * ParticleEngine.aFloat2393;
+								float f_104_ = i_94_ * ParticleEngine.scale;
 								if (f_104_ > 64.0F) {
 									f_104_ = 64.0F;
 								}
@@ -780,7 +780,7 @@ final class Identikit {
 								if (class108_sub3_sub1_95_ != null) {
 									class108_sub3_sub1 = class108_sub3_sub1_95_;
 									class108_sub1 = class108_sub3_sub1_95_.particleEmitter;
-									i_94_ = class108_sub3_sub1_95_.particleEmitter.emitterType.minSize;
+									i_94_ = class108_sub3_sub1_95_.particleEmitter.emitterType.size;
 								}
 							}
 							if (class108_sub3_sub1_95_ == null) {
@@ -789,8 +789,8 @@ final class Identikit {
 						}
 						ParticleEngine.method957();
 					} else {
-						final int xOff = ParticleEngine.anInt2364 + Rasterizer.centerX;
-						final int yOff = ParticleEngine.anInt2358 + Rasterizer.centerY;
+						final int xOff = ParticleEngine.offsetX + Rasterizer.centerX;
+						final int yOff = ParticleEngine.offsetY + Rasterizer.centerY;
 						final ParticleNodeSub class108_sub3 = class120_sub18_27_.tileParticle.head;
 						for (ParticleNodeSub class108_sub3_107_ = class108_sub3.nextSub; class108_sub3_107_ != class108_sub3; class108_sub3_107_ = class108_sub3_107_.nextSub) {
 							final Particle class108_sub3_sub1 = (Particle) class108_sub3_107_;
@@ -801,7 +801,7 @@ final class Identikit {
 								}
 								int x = (class108_sub3_sub1.positionX >> 12) - DisplayModeInfo.anInt1713;
 								int y = (class108_sub3_sub1.positionY >> 12) - PlayerAppearance.anInt1367;
-								int z = (class108_sub3_sub1.positionZ >> 12) - Class145.anInt1381;
+								int z = (class108_sub3_sub1.positionZ >> 12) - SkyboxType.anInt1381;
 								int i_111_ = z * Class120_Sub12_Sub30.anInt3377 + x * MapFunctionType.anInt637 >> 16;
 								z = z * MapFunctionType.anInt637 - x * Class120_Sub12_Sub30.anInt3377 >> 16;
 								x = i_111_;
@@ -815,7 +815,7 @@ final class Identikit {
 									if (size == 0) {
 										size = 1;
 									}
-									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(renderX, renderY, (class108_sub3_sub1.particleEmitter.emitterType.size << 16) / size, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -851,19 +851,19 @@ final class Identikit {
 					final ObjectPile objectPile = class120_sub18_27_.objectPile;
 					if (objectPile != null && objectPile.yLocationModifier != 0) {
 						if (HDToolkit.glEnabled) {
-							LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+							LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 						}
 						if (objectPile.secondItemModel != null) {
 							objectPile.secondItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
-									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
+									- SkyboxType.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 						if (objectPile.thirdItemModel != null) {
 							objectPile.thirdItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
-									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
+									- SkyboxType.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 						if (objectPile.mainItemModel != null) {
 							objectPile.mainItemModel.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, objectPile.renderX - DisplayModeInfo.anInt1713, objectPile.renderY - PlayerAppearance.anInt1367 - objectPile.yLocationModifier, objectPile.renderZ
-									- Class145.anInt1381, objectPile.bitPacked, i_29_, null);
+									- SkyboxType.anInt1381, objectPile.bitPacked, i_29_, null);
 						}
 					}
 					if (class120_sub18_27_.anInt2646 != 0) {
@@ -871,14 +871,14 @@ final class Identikit {
 						if (class186 != null && !Js5Worker.method363(i_30_, i, i_28_, class186.aClass180_1901.getMaxY())) {
 							if ((class186.anInt1895 & class120_sub18_27_.anInt2646) != 0) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+									LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 								}
 								class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class186.renderX - DisplayModeInfo.anInt1713 + class186.anInt1905, class186.renderY - PlayerAppearance.anInt1367, class186.renderZ
-										- Class145.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
+										- SkyboxType.anInt1381 + class186.anInt1892, class186.bitPacked, i_29_, null);
 							} else if (class186.anInt1895 == 256) {
 								final int i_119_ = class186.renderX - DisplayModeInfo.anInt1713;
 								final int i_120_ = class186.renderY - PlayerAppearance.anInt1367;
-								final int i_121_ = class186.renderZ - Class145.anInt1381;
+								final int i_121_ = class186.renderZ - SkyboxType.anInt1381;
 								final int i_122_ = class186.anInt1896;
 								int i_123_;
 								if (i_122_ == 1 || i_122_ == 2) {
@@ -894,12 +894,12 @@ final class Identikit {
 								}
 								if (i_124_ >= i_123_) {
 									if (HDToolkit.glEnabled) {
-										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 									}
 									class186.aClass180_1901.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i_119_ + class186.anInt1905, i_120_, i_121_ + class186.anInt1892, class186.bitPacked, i_29_, null);
 								} else if (class186.aClass180_1898 != null) {
 									if (HDToolkit.glEnabled) {
-										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_29_, i, i_28_);
+										LightManager.method1861(DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_29_, i, i_28_);
 									}
 									class186.aClass180_1898.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, i_119_, i_120_, i_121_, class186.bitPacked, i_29_, null);
 								}
@@ -909,16 +909,16 @@ final class Identikit {
 						if (class182 != null) {
 							if ((class182.anInt1792 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1792)) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1866(class182.anInt1792, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
+									LightManager.method1866(class182.anInt1792, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+								class182.aClass180_1796.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 										class182.bitPackedUid, i_29_, null);
 							}
 							if ((class182.anInt1799 & class120_sub18_27_.anInt2646) != 0 && !GameEntity.method2335(i_30_, i, i_28_, class182.anInt1799)) {
 								if (HDToolkit.glEnabled) {
-									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, Class145.anInt1381, i_30_, i, i_28_);
+									LightManager.method1866(class182.anInt1799, DisplayModeInfo.anInt1713, PlayerAppearance.anInt1367, SkyboxType.anInt1381, i_30_, i, i_28_);
 								}
-								class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - Class145.anInt1381,
+								class182.aClass180_1800.render(0, Class69_Sub2.anInt2239, ObjectContainer.anInt2616, Class120_Sub12_Sub30.anInt3377, MapFunctionType.anInt637, class182.renderX - DisplayModeInfo.anInt1713, class182.renderY - PlayerAppearance.anInt1367, class182.renderZ - SkyboxType.anInt1381,
 										class182.bitPackedUid, i_29_, null);
 							}
 						}

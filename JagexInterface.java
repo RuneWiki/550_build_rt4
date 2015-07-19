@@ -40,7 +40,7 @@ final class JagexInterface {
 	byte dynamicWidthValue;
 	String spellNameni;
 	int frameDelay = 0;
-	int anInt1966;
+	int skyboxSphereOffsetZ;
 	int lineWidth;
 	int redrawCycle;
 	int rotateSpeed;
@@ -76,9 +76,9 @@ final class JagexInterface {
 	int bitPacked;
 	Object[] onSpellDeselectionListener;
 	boolean gridOriginal;
-	int anInt2002;
+	int skyboxSphereOffsetX;
 	boolean ignoreDepthMask;
-	int anInt2004;
+	int skyboxRenderYaw;
 	int zoom;
 	Object[] onComponentClickListener;
 	int anInt2007;
@@ -152,7 +152,7 @@ final class JagexInterface {
 	int objCount;
 	int xOffset2d;//x offset 2d
 	int objSpritePadY;
-	int anInt2078;
+	int skyboxRenderPitch;
 	int[] startOfSpriteLookupTable;
 	Object[] onClickListener;
 	int disabledMouseOverColor;
@@ -162,13 +162,13 @@ final class JagexInterface {
 	int anInt2085;
 	Object[] miscInformationUpdateListener;//system update, weight, energy
 	int enabledMouseOverColor;
-	int anInt2088;
+	int skyboxId;
 	Object[] onResizeListener;
 	int outline;
 	int rotateY;
 	byte dynamicHeightValue;
 	short aShort2093;
-	int anInt2094;
+	int skyboxSphereOffsetY;
 	String spellPrefix;
 	int[] integerScriptValuesTriggers;
 	boolean aBoolean2097;
@@ -266,7 +266,7 @@ final class JagexInterface {
 			final int i_14_ = this.modelIdDisabled >>> 16;
 			final int i_12_ = this.modelIdDisabled & 0xffff;
 			final int i_13_ = this.anInt1997;
-			final AbstractModelRenderer playerModel = playerAppearance.method2041(seqType, i_12_, i_13_, currentFrame, frameDelay, i_14_, nextFrame);
+			final AbstractModelRenderer playerModel = playerAppearance.method2041(seqType, i_14_, i_12_, i_13_, currentFrame, frameDelay, nextFrame);
 			if (playerModel == null) {
 				Class88.interfaceSpriteIsNull = true;
 				return null;
@@ -327,8 +327,8 @@ final class JagexInterface {
 		this.cursors[index] = cursor;
 	}
 
-	final Class41 method2489() {
-		return this.anInt2088 != -1 ? Class132_Sub1.method1934(this.anInt2002, this.anInt2094, this.anInt2088, this.anInt1966) : null;
+	final Skybox getSkybox() {
+		return this.skyboxId != -1 ? Skybox.list(this.skyboxId, this.skyboxSphereOffsetX, this.skyboxSphereOffsetY, this.skyboxSphereOffsetZ) : null;
 	}
 
 	final void decodeOld(final Buffer buffer) {
@@ -340,10 +340,10 @@ final class JagexInterface {
 		this.originalY = buffer.getShort();
 		this.originalWidth = buffer.getUShort();
 		this.originalHeight = buffer.getUShort();
+		this.dynamicWidthValue = (byte) 0;
 		this.dynamicHeightValue = (byte) 0;
 		this.dynamicXValue = (byte) 0;
 		this.dynamicYValue = (byte) 0;
-		this.dynamicWidthValue = (byte) 0;
 		this.alpha = buffer.getUByte();
 		this.parent = buffer.getUShort();
 		if (this.parent == 65535) {
@@ -410,8 +410,8 @@ final class JagexInterface {
 			}
 			this.objSpritePadX = buffer.getUByte();
 			this.objSpritePadY = buffer.getUByte();
-			this.spriteYs = new int[20];
 			this.spriteXs = new int[20];
+			this.spriteYs = new int[20];
 			this.spriteIDs = new int[20];
 			for (int i_35_ = 0; i_35_ < 20; i_35_++) {
 				final int i_36_ = buffer.getUByte();
@@ -756,7 +756,7 @@ final class JagexInterface {
 		this.cyclesBeforeDrag = buffer.getUByte();
 		this.keepDragAlpha = buffer.getUByte() == 1;
 		this.spellPrefix = buffer.getJagexString();
-		if (Class153.method2073(clickMask) != 0) {
+		if (SphereType.method2073(clickMask) != 0) {
 			paramId = buffer.getUShort();
 			if (paramId == 65535) {
 				paramId = -1;
@@ -826,12 +826,6 @@ final class JagexInterface {
 		return abstractFont;
 	}
 
-	static final void method2499(final int i_64_, final int i_65_) {
-		Class120_Sub12_Sub11.outputStream.putByteIsaac(178);
-		Class120_Sub12_Sub11.outputStream.putLEShort(i_64_);
-		Class120_Sub12_Sub11.outputStream.putInt2(i_65_);
-	}
-
 	static final void method2500() {
 		CursorType.anInt1237 = 0;
 		while_176_: for (int i = 0; i < Class49.anInt438; i++) {
@@ -876,8 +870,8 @@ final class JagexInterface {
 							class188.anInt1921 = 2;
 							i_70_ = -i_70_;
 						}
-						class188.anInt1914 = (class188.anInt1911 - Class145.anInt1381 << 8) / i_70_;
-						class188.anInt1922 = (class188.anInt1927 - Class145.anInt1381 << 8) / i_70_;
+						class188.anInt1914 = (class188.anInt1911 - SkyboxType.anInt1381 << 8) / i_70_;
+						class188.anInt1922 = (class188.anInt1927 - SkyboxType.anInt1381 << 8) / i_70_;
 						class188.anInt1918 = (class188.anInt1920 - PlayerAppearance.anInt1367 << 8) / i_70_;
 						class188.anInt1917 = (class188.anInt1928 - PlayerAppearance.anInt1367 << 8) / i_70_;
 						AnimatedLocation.aClass188Array3076[CursorType.anInt1237++] = class188;
@@ -904,7 +898,7 @@ final class JagexInterface {
 						bool = true;
 					} while (false);
 					if (bool) {
-						int i_74_ = Class145.anInt1381 - class188.anInt1911;
+						int i_74_ = SkyboxType.anInt1381 - class188.anInt1911;
 						if (i_74_ > 32) {
 							class188.anInt1921 = 3;
 						} else {
@@ -954,8 +948,8 @@ final class JagexInterface {
 							class188.anInt1921 = 5;
 							class188.anInt1912 = (class188.anInt1913 - DisplayModeInfo.anInt1713 << 8) / i_75_;
 							class188.anInt1926 = (class188.anInt1924 - DisplayModeInfo.anInt1713 << 8) / i_75_;
-							class188.anInt1914 = (class188.anInt1911 - Class145.anInt1381 << 8) / i_75_;
-							class188.anInt1922 = (class188.anInt1927 - Class145.anInt1381 << 8) / i_75_;
+							class188.anInt1914 = (class188.anInt1911 - SkyboxType.anInt1381 << 8) / i_75_;
+							class188.anInt1922 = (class188.anInt1927 - SkyboxType.anInt1381 << 8) / i_75_;
 							AnimatedLocation.aClass188Array3076[CursorType.anInt1237++] = class188;
 						}
 					}
@@ -1172,7 +1166,7 @@ final class JagexInterface {
 		this.outline = 0;
 		this.aBoolean2097 = false;
 		this.translateY = 0;
-		this.anInt2088 = -1;
+		this.skyboxId = -1;
 		this.spellPrefix = "";
 		this.nextFrame = 1;
 		this.anInt2085 = 1;

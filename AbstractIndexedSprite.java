@@ -144,16 +144,16 @@ abstract class AbstractIndexedSprite {
 						((Class143_Sub1) Rasterizer.anInterface5_973).method2028(20);
 						if (Class120_Sub12_Sub6.highLightingDetail) {
 							if (FileSystemRequest.brightness == 1) {
-								Rasterizer.method852(0.9F);
+								Rasterizer.setBrightness(0.9F);
 							}
 							if (FileSystemRequest.brightness == 2) {
-								Rasterizer.method852(0.8F);
+								Rasterizer.setBrightness(0.8F);
 							}
 							if (FileSystemRequest.brightness == 3) {
-								Rasterizer.method852(0.7F);
+								Rasterizer.setBrightness(0.7F);
 							}
 							if (FileSystemRequest.brightness == 4) {
-								Rasterizer.method852(0.6F);
+								Rasterizer.setBrightness(0.6F);
 							}
 						}
 						HDTile.reset();
@@ -165,7 +165,7 @@ abstract class AbstractIndexedSprite {
 					LDModelRenderer.method2404();
 					((Class143_Sub1) Rasterizer.anInterface5_973).method2028(200);
 					if (Class120_Sub12_Sub6.highLightingDetail) {
-						Rasterizer.method852(0.7F);
+						Rasterizer.setBrightness(0.7F);
 					}
 					if (Identikit.chunksAtmosphere == null) {
 						Identikit.chunksAtmosphere = new ChunkAtmosphere[13][13];
@@ -175,7 +175,7 @@ abstract class AbstractIndexedSprite {
 					LocType.resetSpriteMenu();
 				}
 				Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.allLevelsAreVisible();
-				ParticleEngine.method961(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
+				ParticleEngine.setParticleScale(Class69_Sub1.canvasWidth, Class120_Sub12_Sub5.canvasHeight);
 				if (changeRenderer) {
 					ObjectCache.method191();
 				}

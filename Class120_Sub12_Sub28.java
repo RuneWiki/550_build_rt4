@@ -178,10 +178,10 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								}
 							}
 							int i_66_;
-							int overlayMinimapColor;
+							int underlayMinimapColor;
 							if (underlayId <= 0) {
 								i_66_ = -1;
-								overlayMinimapColor = 0;
+								underlayMinimapColor = 0;
 							} else {
 								i_66_ = is_6_[x][z];
 								int i_68_ = (i_66_ & 0x7f);
@@ -191,14 +191,14 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									i_68_ = 127;
 								}
 								final int i_69_ = (0xfc00 & i_66_) + (i_66_ & 0x380) + i_68_;
-								overlayMinimapColor = Rasterizer.palette[Class178.method2256(i_69_, 96)];
+								underlayMinimapColor = Rasterizer.palette[Class178.method2256(i_69_, 96)];
 							}
 							final int i_73_ = is_8_[x][z];
 							final int i_70_ = is_8_[x + 1][z];
 							final int i_72_ = is_8_[x][z + 1];
 							final int i_71_ = is_8_[x + 1][z + 1];
 							if (overlayId == 0) {
-								Class120_Sub12.setTile(level, x, z, 0, 0, -1, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), 0, 0, 0, 0, overlayMinimapColor, 0);
+								Class120_Sub12.setTile(level, x, z, 0, 0, -1, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), 0, 0, 0, 0, underlayMinimapColor, 0);
 								if (HDToolkit.glEnabled && level > 0 && i_66_ != -1 && UnderlayType.list(underlayId - 1).aBoolean1220) {
 									ShadowManager.method384(0, 0, true, false, x, z, tileHeight - OverridedJInterface.activeTileHeightMap[0][x][z], tileHeightEast - OverridedJInterface.activeTileHeightMap[0][x + 1][z], tileHeightNorthEast - OverridedJInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - OverridedJInterface.activeTileHeightMap[0][x][z + 1]);
 								}
@@ -209,7 +209,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 												final int i_76_ = Class99.tileOverlayIds[level][i_74_][i_75_] & 0xff;
 												if (i_76_ != 0) {
 													final OverlayType class124 = OverlayType.list(-1 + i_76_);
-													if (class124.textureId != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.textureId))) {
+													if (class124.textureId != -1 && Class120_Sub12_Sub29.isWaterShader(Rasterizer.anInterface5_973.getShaderId(class124.textureId))) {
 														NodeCache.anIntArrayArray300[x][z] = (class124.anInt1199 << 24) + class124.anInt1200;
 														break while_130_;
 													}
@@ -219,18 +219,18 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									}
 								}
 							} else {
-								final int i_77_ = MapFunctionNode.tileOverlayShapes[level][x][z] + 1;
-								final byte i_78_ = Class8.tileOverlayRotations[level][x][z];
-								final OverlayType class124 = OverlayType.list(-1 + overlayId);
+								final int overlayShape = MapFunctionNode.tileOverlayShapes[level][x][z] + 1;
+								final byte overlayRotation = Class8.tileOverlayRotations[level][x][z];
+								final OverlayType overlayType = OverlayType.list(overlayId - 1);
 								if (HDToolkit.glEnabled && !underwater && NodeCache.anIntArrayArray300 != null && level == 0) {
-									if ((class124.textureId ^ 0xffffffff) == 0 || !Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124.textureId))) {
+									if (overlayType.textureId == -1 || !Class120_Sub12_Sub29.isWaterShader(Rasterizer.anInterface5_973.getShaderId(overlayType.textureId))) {
 										while_129_: for (int i_79_ = x - 1; i_79_ <= x + 1; i_79_++) {
 											for (int i_80_ = z - 1; i_80_ <= z + 1; i_80_++) {
 												if ((i_79_ != x || i_80_ != z) && i_79_ >= 0 && i_79_ < 104 && i_80_ >= 0 && i_80_ < 104) {
 													final int i_81_ = Class99.tileOverlayIds[level][i_79_][i_80_] & 0xff;
 													if (i_81_ != 0) {
-														final OverlayType class124_82_ = OverlayType.list(-1 + i_81_);
-														if (class124_82_.textureId != -1 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class124_82_.textureId))) {
+														final OverlayType class124_82_ = OverlayType.list(i_81_ - 1);
+														if (class124_82_.textureId != -1 && Class120_Sub12_Sub29.isWaterShader(Rasterizer.anInterface5_973.getShaderId(class124_82_.textureId))) {
 															NodeCache.anIntArrayArray300[x][z] = class124_82_.anInt1200 + (class124_82_.anInt1199 << 24);
 															break while_129_;
 														}
@@ -239,23 +239,23 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 											}
 										}
 									} else {
-										NodeCache.anIntArrayArray300[x][z] = (class124.anInt1199 << 24) + class124.anInt1200;
+										NodeCache.anIntArrayArray300[x][z] = (overlayType.anInt1199 << 24) + overlayType.anInt1200;
 									}
 								}
-								int i_83_ = class124.textureId;
-								if (i_83_ >= 0 && !Rasterizer.anInterface5_973.method15(i_83_)) {
-									i_83_ = -1;
+								int textureId = overlayType.textureId;
+								if (textureId >= 0 && !Rasterizer.anInterface5_973.method15(textureId)) {
+									textureId = -1;
 								}
-								int underlayMinimapColor;
+								int overlayMinimapColor;
 								int i_85_;
-								if (i_83_ >= 0) {
+								if (textureId >= 0) {
 									i_85_ = -1;
-									underlayMinimapColor = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.method20(i_83_), 96)];
-								} else if (class124.color == -1) {
-									underlayMinimapColor = 0;
+									overlayMinimapColor = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.getColorPaletteIndex(textureId), 96)];
+								} else if (overlayType.color == -1) {
+									overlayMinimapColor = 0;
 									i_85_ = -2;
 								} else {
-									i_85_ = class124.color;
+									i_85_ = overlayType.color;
 									int i_86_ = (0x7f & i_85_);
 									if (i_86_ >= 0) {
 										if (i_86_ > 127) {
@@ -264,11 +264,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									} else {
 										i_86_ = 0;
 									}
-									final int i_87_ = i_86_ + (0xfc00 & i_85_) + (0x380 & i_85_);
-									underlayMinimapColor = Rasterizer.palette[Class96.method789(i_87_, 96)];
+									final int i_87_ = (0xfc00 & i_85_) + (0x380 & i_85_) + i_86_;
+									overlayMinimapColor = Rasterizer.palette[Class96.method789(i_87_, 96)];
 								}
-								if (class124.anInt1198 >= 0) {
-									final int i_88_ = class124.anInt1198;
+								if (overlayType.anInt1198 >= 0) {
+									final int i_88_ = overlayType.anInt1198;
 									int i_89_ = (0x7f & i_88_);
 									if (i_89_ >= 0) {
 										if (i_89_ > 127) {
@@ -277,12 +277,12 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									} else {
 										i_89_ = 0;
 									}
-									final int i_90_ = (0xfc00 & i_88_) + (0x380 & i_88_) - -i_89_;
-									underlayMinimapColor = Rasterizer.palette[Class96.method789(i_90_, 96)];
+									final int i_90_ = (0xfc00 & i_88_) + (0x380 & i_88_) + i_89_;
+									overlayMinimapColor = Rasterizer.palette[Class96.method789(i_90_, 96)];
 								}
-								Class120_Sub12.setTile(level, x, z, i_77_, i_78_, i_83_, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), Class96.method789(i_85_, i_73_), Class96.method789(i_85_, i_70_), Class96.method789(i_85_, i_71_), Class96.method789(i_85_, i_72_), overlayMinimapColor, underlayMinimapColor);
+								Class120_Sub12.setTile(level, x, z, overlayShape, overlayRotation, textureId, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), Class96.method789(i_85_, i_73_), Class96.method789(i_85_, i_70_), Class96.method789(i_85_, i_71_), Class96.method789(i_85_, i_72_), underlayMinimapColor, overlayMinimapColor);
 								if (HDToolkit.glEnabled && level > 0) {
-									ShadowManager.method384(i_77_, i_78_, i_85_ == -2 || !class124.aBoolean1193, i_66_ == -1 || !UnderlayType.list(underlayId - 1).aBoolean1220, x, z, -OverridedJInterface.activeTileHeightMap[0][x][z] + tileHeight, tileHeightEast - OverridedJInterface.activeTileHeightMap[0][x - -1][z], tileHeightNorthEast + -OverridedJInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - OverridedJInterface.activeTileHeightMap[0][x][z + 1]);
+									ShadowManager.method384(overlayShape, overlayRotation, i_85_ == -2 || !overlayType.aBoolean1193, i_66_ == -1 || !UnderlayType.list(underlayId - 1).aBoolean1220, x, z, -OverridedJInterface.activeTileHeightMap[0][x][z] + tileHeight, tileHeightEast - OverridedJInterface.activeTileHeightMap[0][x - -1][z], tileHeightNorthEast + -OverridedJInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - OverridedJInterface.activeTileHeightMap[0][x][z + 1]);
 								}
 							}
 						}
@@ -529,7 +529,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		} while (false);
 	}
 
-	static final void determineMenuSize() {
+	static final void openMenu() {
 		int chooseOptionWidth = Class120_Sub12_Sub22.boldFont.method1459(StringLibrary.chooseOption);
 		for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 			final int actionWidth = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(id));

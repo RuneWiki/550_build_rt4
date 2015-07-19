@@ -44,8 +44,8 @@ abstract class AbstractSprite extends NodeSub {
 	}
 
 	static final void changeDisplayMode(final int newDisplayMode, final int width, final int height, boolean canvasReplaceRecommended) {
-		boolean changeRenderer = false;
 		Class15.frameSizeRevertTime = 0L;
+		boolean changeRenderer = false;
 		final int currentDisplayMode = Class120_Sub12_Sub4.getDisplayMode();
 		if (currentDisplayMode > 0 == newDisplayMode <= 0) {
 			changeRenderer = true;

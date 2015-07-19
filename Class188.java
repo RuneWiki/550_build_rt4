@@ -97,7 +97,6 @@ final class Class188 {
 
 	static final void method2484() {
 		while_177_: do {
-			// System.out.println(Class24.method207());
 			if (Class24.method207() == 2) {
 				final byte i = (byte) (0xff & InterfaceChangeNode.anInt3490 + -4);
 				final int i_3_ = InterfaceChangeNode.anInt3490 % 104;
@@ -124,88 +123,87 @@ final class Class188 {
 							LongNode.method1055(0, TileParticleQueue.selfPlayer.x >> 7, false, TileParticleQueue.selfPlayer.z >> 7, LabelGroup.activeGroundTiles);
 						}
 						if (UnderlayType.renderPitch < 310) {
-							int i_8_ = GroundObjectNode.renderZ >> 7;
-							int i_9_ = FileSystemWorker.renderX >> 7;
-							final int i_10_ = TileParticleQueue.selfPlayer.z >> 7;
-							int i_11_;
-							if (i_8_ >= i_10_) {
-								i_11_ = i_8_ + -i_10_;
+							int cameraX = FileSystemWorker.renderX >> 7;
+							int cameraZ = GroundObjectNode.renderZ >> 7;
+							final int playerX = TileParticleQueue.selfPlayer.x >> 7;
+							final int playerZ = TileParticleQueue.selfPlayer.z >> 7;
+							int deltaX;
+							if (playerX > cameraX) {
+								deltaX = playerX - cameraX;
 							} else {
-								i_11_ = -i_8_ + i_10_;
+								deltaX = cameraX - playerX;
 							}
-							final int i_12_ = TileParticleQueue.selfPlayer.x >> 7;
-							int i_13_;
-							if (i_12_ > i_9_) {
-								i_13_ = -i_9_ + i_12_;
+							int deltaZ;
+							if (cameraZ >= playerZ) {
+								deltaZ = cameraZ - playerZ;
 							} else {
-								i_13_ = -i_12_ + i_9_;
+								deltaZ = playerZ - cameraZ;
 							}
-							if (i_13_ == 0 && i_11_ == 0 || i_13_ <= -104 || i_13_ >= 104 || i_11_ <= -104 || i_11_ >= 104) {
-								SpotAnimation.method2312(null, new StringBuilder("RC: ").append(i_9_).append(",").append(i_8_).append(" ").append(i_12_).append(",").append(i_10_).append(" ").append(GameEntity.currentBaseX).append(",").append(LightType.currentBaseZ).toString());
-							} else if (i_13_ <= i_11_) {
+							//System.out.println(cameraX+":"+cameraZ+":"+playerX+":"+playerZ);
+							if (deltaX == 0 && deltaZ == 0 || deltaX <= -104 || deltaX >= 104 || deltaZ <= -104 || deltaZ >= 104) {
+								SpotAnimation.method2312(null, "RC: " + cameraX + "," + cameraZ + " " + playerX + "," + playerZ + " " + GameEntity.currentBaseX + "," + LightType.currentBaseZ);
+							} else if (deltaX <= deltaZ) {
 								int i_14_ = 32768;
-								final int i_15_ = i_13_ * 65536 / i_11_;
+								final int i_15_ = deltaX * 65536 / deltaZ;
 								for (;;) {
-									if (i_8_ == i_10_) {
+									if (cameraZ == playerZ) {
 										break while_177_;
 									}
-									if (i_10_ <= i_8_) {
-										if (i_10_ < i_8_) {
-											i_8_--;
-										}
-									} else {
-										i_8_++;
+									if (playerZ > cameraZ) {
+										cameraZ++;
+									} else if (playerZ < cameraZ) {
+										cameraZ--;
 									}
-									if ((Class114.tileSettings[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
-										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
+									if ((Class114.tileSettings[Class173.gameLevel][cameraX][cameraZ] & 0x4) != 0) {
+										LongNode.method1055(1, cameraX, false, cameraZ, LabelGroup.activeGroundTiles);
 										break while_177_;
 									}
 									i_14_ += i_15_;
 									if (i_14_ >= 65536) {
 										i_14_ -= 65536;
-										if (i_12_ > i_9_) {
-											i_9_++;
-										} else if (i_9_ > i_12_) {
-											i_9_--;
+										if (playerX > cameraX) {
+											cameraX++;
+										} else if (cameraX > playerX) {
+											cameraX--;
 										}
-										if ((0x4 & Class114.tileSettings[Class173.gameLevel][i_9_][i_8_]) != 0) {
+										if ((0x4 & Class114.tileSettings[Class173.gameLevel][cameraX][cameraZ]) != 0) {
 											break;
 										}
 									}
 								}
-								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
+								LongNode.method1055(1, cameraX, false, cameraZ, LabelGroup.activeGroundTiles);
 							} else {
-								final int i_16_ = 65536 * i_11_ / i_13_;
 								int i_17_ = 32768;
+								final int i_16_ = 65536 * deltaZ / deltaX;
 								for (;;) {
-									if (i_12_ == i_9_) {
+									if (playerX == cameraX) {
 										break while_177_;
 									}
-									if (i_9_ >= i_12_) {
-										if (i_12_ < i_9_) {
-											i_9_--;
+									if (cameraX >= playerX) {
+										if (playerX < cameraX) {
+											cameraX--;
 										}
 									} else {
-										i_9_++;
+										cameraX++;
 									}
-									if ((0x4 & Class114.tileSettings[Class173.gameLevel][i_9_][i_8_]) != 0) {
-										LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
+									if ((0x4 & Class114.tileSettings[Class173.gameLevel][cameraX][cameraZ]) != 0) {
+										LongNode.method1055(1, cameraX, false, cameraZ, LabelGroup.activeGroundTiles);
 										break while_177_;
 									}
 									i_17_ += i_16_;
 									if (-65537 >= (i_17_ ^ 0xffffffff)) {
-										if (i_8_ < i_10_) {
-											i_8_++;
-										} else if (i_10_ < i_8_) {
-											i_8_--;
+										if (cameraZ < playerZ) {
+											cameraZ++;
+										} else if (playerZ < cameraZ) {
+											cameraZ--;
 										}
 										i_17_ -= 65536;
-										if ((Class114.tileSettings[Class173.gameLevel][i_9_][i_8_] & 0x4) != 0) {
+										if ((Class114.tileSettings[Class173.gameLevel][cameraX][cameraZ] & 0x4) != 0) {
 											break;
 										}
 									}
 								}
-								LongNode.method1055(1, i_9_, false, i_8_, LabelGroup.activeGroundTiles);
+								LongNode.method1055(1, cameraX, false, cameraZ, LabelGroup.activeGroundTiles);
 							}
 						}
 					}

@@ -86,10 +86,10 @@ final class Class120_Sub29 extends Node {
 								Class120_Sub12_Sub36.regionBitPackeds[i_11_] = i_23_;
 								final int i_25_ = 0xff & i_23_ >> 8;
 								final int i_26_ = 0xff & i_23_;
-								LookupTable.mapFileIds[i_11_] = Class65.aClass50_597.getGroupId("m" + i_25_ + "_" + i_26_);
-								Class28.locationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("l" + i_25_ + "_" + i_26_);
-								Class111.underWaterMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("um" + i_25_ + "_" + i_26_);
-								client.underWaterLocationsMapFileIds[i_11_] = Class65.aClass50_597.getGroupId("ul" + i_25_ + "_" + i_26_);
+								LookupTable.mapFileIds[i_11_] = Class65.mapsJs5.getGroupId("m" + i_25_ + "_" + i_26_);
+								Class28.locationsMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("l" + i_25_ + "_" + i_26_);
+								Class111.underWaterMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("um" + i_25_ + "_" + i_26_);
+								client.underWaterLocationsMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("ul" + i_25_ + "_" + i_26_);
 								i_11_++;
 							}
 						}
@@ -135,10 +135,10 @@ final class Class120_Sub29 extends Node {
 					final int i_39_ = (i_37_ << 8) + i_38_;
 					if (!bool_35_ || i_38_ != 49 && i_38_ != 149 && i_38_ != 147 && i_37_ != 50 && (i_37_ != 49 || i_38_ != 47)) {
 						Class120_Sub12_Sub36.regionBitPackeds[i_29_] = i_39_;
-						LookupTable.mapFileIds[i_29_] = Class65.aClass50_597.getGroupId("m" + i_37_ + "_" + i_38_);
-						Class28.locationsMapFileIds[i_29_] = Class65.aClass50_597.getGroupId("l" + i_37_ + "_" + i_38_);
-						Class111.underWaterMapFileIds[i_29_] = Class65.aClass50_597.getGroupId("um" + i_37_ + "_" + i_38_);
-						client.underWaterLocationsMapFileIds[i_29_] = Class65.aClass50_597.getGroupId("ul" + i_37_ + "_" + i_38_);
+						LookupTable.mapFileIds[i_29_] = Class65.mapsJs5.getGroupId("m" + i_37_ + "_" + i_38_);
+						Class28.locationsMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("l" + i_37_ + "_" + i_38_);
+						Class111.underWaterMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("um" + i_37_ + "_" + i_38_);
+						client.underWaterLocationsMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("ul" + i_37_ + "_" + i_38_);
 					} else {
 						Class120_Sub12_Sub36.regionBitPackeds[i_29_] = i_39_;
 						LookupTable.mapFileIds[i_29_] = -1;

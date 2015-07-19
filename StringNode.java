@@ -22,26 +22,26 @@ final class StringNode extends Node {
 		InterfaceChangeNode.anInt3490++;
 		Class82.method715();
 		if (!titleScreen) {
-			Class120_Sub12_Sub14.method1269(0);
-			FileSystemRequest.method1545(0, false, true);
+			Class120_Sub12_Sub14.renderPlayers(0);
+			FileSystemRequest.renderNpcs(0, false, true);
 			if (Class134.entityRenderPriority != 0) {
 				for (int size = 1; size <= 5; size++) {
-					Class120_Sub12_Sub14.method1269(size);
-					FileSystemRequest.method1545(size, false, false);
-					FileSystemRequest.method1545(size, true, false);
+					Class120_Sub12_Sub14.renderPlayers(size);
+					FileSystemRequest.renderNpcs(size, false, false);
+					FileSystemRequest.renderNpcs(size, true, false);
 				}
 			} else {
 				for (int size = 1; size <= 5; size++) {
-					FileSystemRequest.method1545(size, false, false);
-					FileSystemRequest.method1545(size, true, false);
-					Class120_Sub12_Sub14.method1269(size);
+					FileSystemRequest.renderNpcs(size, false, false);
+					FileSystemRequest.renderNpcs(size, true, false);
+					Class120_Sub12_Sub14.renderPlayers(size);
 				}
 			}
 		} else {
-			FileSystemRequest.method1545(0, false, false);
+			FileSystemRequest.renderNpcs(0, false, false);
 		}
 		if (!titleScreen) {
-			GZIPDecompressor.method718();
+			GZIPDecompressor.processProjectiles();
 		}
 		Class174.processSpotAnimations();
 		if (HDToolkit.glEnabled) {
@@ -51,8 +51,8 @@ final class StringNode extends Node {
 			width = Class120_Sub12_Sub27.anInt3339;
 			height = Light.anInt391;
 		}
-		ParticleEngine.anInt2364 = x;
-		ParticleEngine.anInt2358 = y;
+		ParticleEngine.offsetX = x;
+		ParticleEngine.offsetY = y;
 		if (client.cameraType == 1) {
 			int pitch = (int) Class120_Sub12_Sub21.cameraPitch;
 			if (Normal.cameraYLimit / 256 > pitch) {
@@ -101,9 +101,9 @@ final class StringNode extends Node {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(x, y, x + width, y + height);
 			Rasterizer.calculateByBounds();
-			if (ModelParticleEmitter.anInt1475 >= 0) {//Skyboxes in 550?
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticleEmitter.anInt1475, PlainTile.anInt1356);
-				class41.method330(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, 0);
+			if (ModelParticleEmitter.activeSkyboxId >= 0) {//Skyboxes in 550?
+				final Skybox skybox = Skybox.list(ModelParticleEmitter.activeSkyboxId, Class120_Sub12.activeSkyboxSphereOffsetX, Class143_Sub1.activeSkyboxSphereOffsetY, PlainTile.activeSkyboxSphereOffsetZ);
+				skybox.drawLD(Class132.activeSkyboxYawOffset, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, 0);
 			} else {
 				GraphicsLD.fillRect(x, y, width, height, 0);
 			}
@@ -115,18 +115,18 @@ final class StringNode extends Node {
 				pitchAsDegrees = Class120_Sub30_Sub1.aFloat3674 * 360.0F / 6.2831855F;
 				yawAsDegrees = SeekableFile.aFloat2139 * 360.0F / 6.2831855F;
 			}
-			int i_16_;
+			int screenColor;
 			if (Class109.gameState == 10) {
-				i_16_ = FrameGroup.method1581(FileSystemWorker.renderX >> 10, GroundObjectNode.renderZ >> 10, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
+				screenColor = FrameGroup.method1581(FileSystemWorker.renderX >> 10, GroundObjectNode.renderZ >> 10, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			} else {
-				i_16_ = FrameGroup.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
+				screenColor = FrameGroup.method1581(TileParticleQueue.selfPlayer.walkQueueX[0] >> 3, TileParticleQueue.selfPlayer.walkQueueZ[0] >> 3, FileSystemRequest.brightness, Class120_Sub12_Sub22.redrawRate);
 			}
-			if (ModelParticleEmitter.anInt1475 >= 0) {//Skyboxes in 550?
+			if (ModelParticleEmitter.activeSkyboxId >= 0) {//Skyboxes in 550?
 				HDToolkit.clearDepthBuffer();
-				final Class41 class41 = Class132_Sub1.method1934(Class120_Sub12.anInt2560, Class143_Sub1.anInt2197, ModelParticleEmitter.anInt1475, PlainTile.anInt1356);
-				class41.method331(Class132.anInt1257, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, i_16_);
+				final Skybox skybox = Skybox.list(ModelParticleEmitter.activeSkyboxId, Class120_Sub12.activeSkyboxSphereOffsetX, Class143_Sub1.activeSkyboxSphereOffsetY, PlainTile.activeSkyboxSphereOffsetZ);
+				skybox.drawHD(Class132.activeSkyboxYawOffset, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, screenColor);
 			} else {
-				HDToolkit.clearScreen(i_16_);
+				HDToolkit.clearScreen(screenColor);
 			}
 			HDToolkit.method496(x, y, width, height, x + width / 2, y + height / 2, pitchAsDegrees, yawAsDegrees, Class179.anInt1775, Class179.anInt1775);
 			Class101.refreshAtmosphere(false);

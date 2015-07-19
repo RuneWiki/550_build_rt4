@@ -48,6 +48,10 @@ final class Class154 {
 	}
 
 	static final void method2079(int x, int y, int width, int height, final boolean bool) {
+		int oldX = x;
+		int oldY = y;
+		int oldWidth = width;
+		int oldHeight = height;
 		if (width < 1) {
 			width = 1;
 		}
@@ -61,6 +65,7 @@ final class Class154 {
 			} else if (heightDelta > 100) {
 				heightDelta = 100;
 			}
+			Class120_Sub14_Sub13.aShort3570 = 205;
 			int i_7_ = ModelParticleMagnet.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - ModelParticleMagnet.aShort1651) * heightDelta / 100;
 			if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
 				if (i_7_ > FileSystemRequest.aShort3932) {

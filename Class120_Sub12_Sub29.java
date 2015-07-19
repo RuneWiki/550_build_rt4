@@ -95,7 +95,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 		anInt3365 = -anInt3364 + anInt3368;
 	}
 
-	static final boolean method1355(final int i) {
+	static final boolean isWaterShader(final int i) {
 		return i == 4 || i == 8;
 	}
 

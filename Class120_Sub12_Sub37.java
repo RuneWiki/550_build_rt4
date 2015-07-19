@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 	private int anInt3426;
 	private int anInt3428 = 0;
 	static short[] aShortArray3429;
-	static short[] aShortArray3430;
+	static short[] searchResults;
 	static int anInt3431 = 1;
 	static boolean membersClient = false;
 	private int anInt3433;

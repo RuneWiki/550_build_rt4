@@ -23,7 +23,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		byte[] is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_));
+		byte[] is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;
@@ -38,7 +38,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_));
+		is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;
@@ -53,7 +53,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		is = IsaacCipher.aClass50_1019.getFileSmart(IsaacCipher.aClass50_1019.method437(i_5_));
+		is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;

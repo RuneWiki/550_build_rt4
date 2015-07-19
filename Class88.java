@@ -53,7 +53,7 @@ final class Class88 {
 					collisionMap.method215(i_7_, x, i_6_, z, !locType.aBoolean1880, locType.aBoolean1844);
 				}
 			} else if (i_3_ == 1) {
-				final WallDecoration wallDecoration = Class153.removeWallDecoration(x, z, level);
+				final WallDecoration wallDecoration = SphereType.removeWallDecoration(x, z, level);
 				if (wallDecoration != null) {
 					sceneGraphNode = wallDecoration.aClass180_1901;
 					class180_8_ = wallDecoration.aClass180_1898;
@@ -61,7 +61,7 @@ final class Class88 {
 			} else if (i_3_ == 2) {
 				final Class28 class28 = Class120_Sub12_Sub17.method1281(x, z, level);
 				if (class28 != null) {
-					sceneGraphNode = class28.aClass180_174;
+					sceneGraphNode = class28.sceneGraphNode;
 				}
 				if (locType.anInt1821 != 0 && x + locType.sizeX < 104 && locType.sizeX + z < 104 && x + locType.sizeZ < 104 && locType.sizeZ + z < 104) {
 					collisionMap.method214(x, z, locType.sizeX, locType.sizeZ, i_7_, locType.aBoolean1844, !locType.aBoolean1880);

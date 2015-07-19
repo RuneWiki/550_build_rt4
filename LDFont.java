@@ -87,7 +87,7 @@ final class LDFont extends AbstractFont {
 		if (ldFont != null) {
 			return ldFont;
 		}
-		final byte[] is = ClanMember.aClass50_2576.getFile(id, 0);
+		final byte[] is = ClanMember.fontMetricsJs5.getFile(id, 0);
 		ldFont = new LDFont(is);
 		ldFont.setNameIcons(Class82.nameIconSprites, null);
 		fontCache.put(ldFont, id);

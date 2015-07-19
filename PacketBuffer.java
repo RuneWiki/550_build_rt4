@@ -18,7 +18,7 @@ final class PacketBuffer extends Buffer {
 
 	static final void sleepWrapper(final long millis) {
 		if (millis > 0L) {
-			if (millis == 0L % 10L) {
+			if (millis % 10L == 0L) {
 				NpcType.sleep(millis - 1L);
 				NpcType.sleep(1L);
 			} else {
@@ -134,7 +134,7 @@ final class PacketBuffer extends Buffer {
 						InterfaceClickMask.safeModeEnabled = buffer.getUByte() == 1;
 					}
 					if (preferencesFileVersion >= 8) {
-						Class134.aBoolean1277 = buffer.getUByte() == 1;
+						Class134.updateCameraFromCs2 = buffer.getUByte() == 1;
 					}
 					if (preferencesFileVersion >= 9) {
 						Class140.anInt1343 = buffer.getUByte();

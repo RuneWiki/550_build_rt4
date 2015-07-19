@@ -32,8 +32,8 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 		gl.glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
 		if (anIntArray3110 != null) {
 			Class12.method140(anInt3107);
-			int i_4_ = Deque.method888(i_0_);
-			int i_5_ = Deque.method888(i_1_);
+			int i_4_ = Deque.highestOneBit(i_0_);
+			int i_5_ = Deque.highestOneBit(i_1_);
 			int i_6_ = 0;
 			while (i_4_ > 256 || i_5_ > 256) {
 				gl.glViewport(0, 0, i_4_, i_5_);
@@ -158,8 +158,8 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 	@Override
 	final void method1052(final int i, final int i_11_) {
 		final GL gl = HDToolkit.gl;
-		final int i_12_ = Deque.method888(i);
-		final int i_13_ = Deque.method888(i_11_);
+		final int i_12_ = Deque.highestOneBit(i);
+		final int i_13_ = Deque.highestOneBit(i_11_);
 		if (anIntArray3110 != null) {
 			gl.glDeleteTextures(anIntArray3110.length, anIntArray3110, 0);
 			anIntArray3110 = null;

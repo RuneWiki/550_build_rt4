@@ -157,7 +157,7 @@ final class Class120_Sub12_Sub21_Sub1 extends Class120_Sub12_Sub21 {
 						} else {
 							final Class28 class28 = SpotAnimation.method2315(class120_sub29.anInt2780, class120_sub29.anInt2765, Class173.gameLevel);
 							if (class28 != null) {
-								sceneGraphNode = class28.aClass180_174;
+								sceneGraphNode = class28.sceneGraphNode;
 							}
 						}
 					} else {

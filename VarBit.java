@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 final class VarBit {
 	int setting;
 	static int anInt165;
-	static int anInt166 = 0;
+	static int clickedInventoryComponentY = 0;
 	static boolean aBoolean167;
 	int startBit;
 	int endBit;

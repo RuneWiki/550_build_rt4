@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	static int[] anIntArray3416;
 	static int[] regionBitPackeds;
 	static js5 aClass50_3418;
-	static js5 aClass50_3419;
+	static js5 musicJs5;
 	static int[][][] anIntArrayArrayArray3420;
 	static byte[][] underWaterMapFilesBuffer;
 	static int[] chatMessageQuickChatId;
@@ -147,15 +147,15 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 		}
 	}
 
-	static final String[] addNumbers(final String[] strings) {
-		final String[] strings_26_ = new String[5];
-		for (int i_27_ = 0; i_27_ < 5; i_27_++) {
-			strings_26_[i_27_] = new StringBuilder(String.valueOf(i_27_)).append(": ").toString();
-			if (strings != null && strings[i_27_] != null) {
-				strings_26_[i_27_] = new StringBuilder(strings_26_[i_27_]).append(strings[i_27_]).toString();
+	static final String[] addNumbers(final String[] oldOptions) {
+		final String[] newOptions = new String[5];
+		for (int index = 0; index < 5; index++) {
+			newOptions[index] = String.valueOf(index) + ": ";
+			if (oldOptions != null && oldOptions[index] != null) {
+				newOptions[index] += oldOptions[index];
 			}
 		}
-		return strings_26_;
+		return newOptions;
 	}
 
 	@Override

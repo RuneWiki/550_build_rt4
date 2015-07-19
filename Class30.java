@@ -13,7 +13,7 @@ final class Class30 {
 	private final int anInt232;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_234;
 	private int anInt235 = -1;
-	static int anInt236;
+	static int globalMagnetPos;
 	private Deque aClass105_237 = new Deque();
 	boolean aBoolean238 = false;
 	static int[] anIntArray239;
@@ -24,7 +24,7 @@ final class Class30 {
 			anIntArray224[i] = GroundTile.method1670(i);
 		}
 		packetCounterUpdated = false;
-		anInt236 = 0;
+		globalMagnetPos = 0;
 		anIntArray239 = new int[2500];
 	}
 

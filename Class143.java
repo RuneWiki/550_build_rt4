@@ -248,17 +248,17 @@ class Class143 implements Interface3 {
 		}
 		for (int i_43_ = 0; i > i_43_; i_43_++) {
 			if (aClass114Array2186[i_43_] != null) {
-				aClass114Array2186[i_43_].aByte1105 = class120_sub7.getByte();
+				aClass114Array2186[i_43_].brightness = class120_sub7.getByte();
 			}
 		}
 		for (int i_44_ = 0; i_44_ < i; i_44_++) {
 			if (aClass114Array2186[i_44_] != null) {
-				aClass114Array2186[i_44_].aByte1102 = class120_sub7.getByte();
+				aClass114Array2186[i_44_].blanch = class120_sub7.getByte();
 			}
 		}
 		for (int i_45_ = 0; i > i_45_; i_45_++) {
 			if (aClass114Array2186[i_45_] != null) {
-				aClass114Array2186[i_45_].aByte1103 = class120_sub7.getByte();
+				aClass114Array2186[i_45_].shaderId = class120_sub7.getByte();
 			}
 		}
 		for (int i_46_ = 0; i > i_46_; i_46_++) {
@@ -268,7 +268,7 @@ class Class143 implements Interface3 {
 		}
 		for (int i_47_ = 0; i_47_ < i; i_47_++) {
 			if (aClass114Array2186[i_47_] != null) {
-				aClass114Array2186[i_47_].aShort1106 = (short) class120_sub7.getUShort();
+				aClass114Array2186[i_47_].colorPaletteIndex = (short) class120_sub7.getUShort();
 			}
 		}
 		if (class120_sub7.pos < class120_sub7.buf.length) {

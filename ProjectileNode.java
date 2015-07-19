@@ -37,7 +37,7 @@ final class ProjectileNode extends NodeSub {
 				Class120_Sub12_Sub28.loadingScreenState = 0;
 				Class120_Sub12_Sub37.anInt3431 = 1;
 				AbstractBuffer.mapFilesMissingCount = 0;
-				Class145.anInt1379 = 1;
+				SkyboxType.anInt1379 = 1;
 				LightType.locationModelMissingCount = 0;
 				Class120_Sub30_Sub1.method1739();
 			}
@@ -47,7 +47,7 @@ final class ProjectileNode extends NodeSub {
 			if (state != 5) {
 				Class79_Sub1.resetTitleScreen();
 			} else {
-				IsaacCipher.drawTitleScreenSprites(client.aClass50_63);
+				IsaacCipher.drawTitleScreenSprites(client.spritesJs5);
 			}
 			final boolean bool_3_ = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
 			if (bool_3_ == !bool) {
@@ -57,7 +57,7 @@ final class ProjectileNode extends NodeSub {
 				} else {
 					Class157.anInt1466 = AbstractSprite.anInt3620;
 					if (RuntimeException_Sub1.anInt2142 != 0) {
-						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.aClass50_3419, 2, 255, AbstractSprite.anInt3620, false);
+						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.musicJs5, 2, 255, AbstractSprite.anInt3620, false);
 					} else {
 						Class120_Sub12_Sub6.method1230(2);
 					}

@@ -111,7 +111,7 @@ final class InterfaceChangeNode extends NodeSub {
 								}
 							}
 						}
-						InvType.addMenuOption(StringLibrary.examine, "<col=00ffff>" + locType.name, locType.myId, x, z, (short) 1007, Class120_Sub12_Sub11.anInt3211);
+						InvType.addMenuOption(StringLibrary.examine, "<col=00ffff>" + locType.name, locType.myId, x, z, (short) 1007, Class120_Sub12_Sub11.examineOptionCursor);
 					}
 				}
 				if (type == 1) {
@@ -227,7 +227,7 @@ final class InterfaceChangeNode extends NodeSub {
 											InvType.addMenuOption(options[optionId], "<col=ff9040>" + objType.name, objectId, x, z, code, cursorId);
 										}
 									}
-									InvType.addMenuOption(StringLibrary.examine, "<col=ff9040>" + objType.name, objectId, x, z, (short) 1004, Class120_Sub12_Sub11.anInt3211);
+									InvType.addMenuOption(StringLibrary.examine, "<col=ff9040>" + objType.name, objectId, x, z, (short) 1004, Class120_Sub12_Sub11.examineOptionCursor);
 								}
 							} else {
 								InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=ff9040>" + objType.name, objectId, x, z, (short) 28, Class120_Sub12_Sub10.selectedObjectTargetCursor);

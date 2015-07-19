@@ -43,71 +43,71 @@ final class CursorType {
 	}
 
 	static final void method1918() {
-		if (Projectile.aClass189_2954 == null && Class120_Sub12_Sub4.draggedComponent == null && EnumType.anInt3450 <= 0) {
-			int i_5_ = Class156.lastMouseClick;
+		if (Projectile.clickedInventoryComponent == null && Class120_Sub12_Sub4.draggedComponent == null && EnumType.anInt3450 <= 0) {
+			int mouseClickType = Class156.lastMouseClick;
 			if (!Class15.menuOpen) {
-				if (i_5_ == 1 && WallDecoration.menuOptionCount > 0) {
-					final short i_6_ = Class120_Sub29.menuOptionsCode[WallDecoration.menuOptionCount - 1];
-					if (i_6_ == 30 || i_6_ == 20 || i_6_ == 13 || i_6_ == 2 || i_6_ == 49 || i_6_ == 58 || i_6_ == 35 || i_6_ == 17 || i_6_ == 10 || i_6_ == 51 || i_6_ == 9 || i_6_ == 1001) {
-						final int i_7_ = Class120_Sub29.menuOptionsData3[WallDecoration.menuOptionCount - 1];
-						final int i_8_ = Class120_Sub12_Sub7.menuOptionsData2[WallDecoration.menuOptionCount - 1];
-						final JagexInterface jagexInterface = Class74.getJagexInterface(i_7_);
-						final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-						if (class120_sub20.method1681() || class120_sub20.method1691()) {
-							JavaObject.anInt3915 = 0;
-							Huffman.aBoolean1207 = false;
-							if (Projectile.aClass189_2954 != null) {
-								InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
+				if (mouseClickType == 1 && WallDecoration.menuOptionCount > 0) {
+					final short code = Class120_Sub29.menuOptionsCode[WallDecoration.menuOptionCount - 1];
+					if (code == 30 || code == 20 || code == 13 || code == 2 || code == 49 || code == 58 || code == 35 || code == 17 || code == 10 || code == 51 || code == 9 || code == 1001) {
+						final int bitPacked = Class120_Sub29.menuOptionsData3[WallDecoration.menuOptionCount - 1];
+						final int index = Class120_Sub12_Sub7.menuOptionsData2[WallDecoration.menuOptionCount - 1];
+						final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
+						final InterfaceClickMask clickMask = client.getClickMask(jagexInterface);
+						if (clickMask.method1681() || clickMask.method1691()) {
+							JavaObject.clickedInventoryComponentCycle = 0;
+							Huffman.draggingClickedInventoryObject = false;
+							if (Projectile.clickedInventoryComponent != null) {
+								InterfaceClickMask.redrawInterface(Projectile.clickedInventoryComponent);
 							}
-							Projectile.aClass189_2954 = Class74.getJagexInterface(i_7_);
-							client.anInt134 = js5.lastClickX;
-							Class5.anInt2154 = i_8_;
-							VarBit.anInt166 = Class120_Sub12_Sub36.lastClickY;
-							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
+							Projectile.clickedInventoryComponent = Class74.getJagexInterface(bitPacked);
+							client.clickedInventoryComponentX = js5.lastClickX;
+							Class5.clickedInventoryIndex = index;
+							VarBit.clickedInventoryComponentY = Class120_Sub12_Sub36.lastClickY;
+							InterfaceClickMask.redrawInterface(Projectile.clickedInventoryComponent);
 							return;
 						}
 					}
 				}
-				if (i_5_ == 1 && (Class69.mouseButtons == 1 && WallDecoration.menuOptionCount > 2 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1))) {
-					i_5_ = 2;
+				if (mouseClickType == 1 && (Class69.mouseButtons == 1 && WallDecoration.menuOptionCount > 2 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1))) {
+					mouseClickType = 2;
 				}
-				if (i_5_ == 2 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
-					Class120_Sub12_Sub28.determineMenuSize();
+				if (mouseClickType == 2 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
+					Class120_Sub12_Sub28.openMenu();
 				}
-				if (i_5_ == 1 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
+				if (mouseClickType == 1 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 2) {
 					ChunkAtmosphere.method2508();
 				}
 			} else {
-				if (i_5_ != 1) {
-					final int i_9_ = Queue.lastMouseX;
-					final int i_10_ = ChunkAtmosphere.lastMouseY;
-					if (i_9_ < -10 + Huffman.menuDrawX || i_9_ > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || i_10_ < -10 + Class120_Sub16.menuDrawY || 10 + QuickChatMessageType.menuHeight + Class120_Sub16.menuDrawY < i_10_) {
+				if (mouseClickType != 1) {//Move mouse of menu
+					final int mouseX = Queue.lastMouseX;
+					final int mouseY = ChunkAtmosphere.lastMouseY;
+					if (mouseX < Huffman.menuDrawX - 10 || mouseX > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || mouseY < Class120_Sub16.menuDrawY - 10 || mouseY > 10 + QuickChatMessageType.menuHeight + Class120_Sub16.menuDrawY) {
 						Class15.menuOpen = false;
 						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
 					}
 				}
-				if (i_5_ == 1) {
-					final int i_11_ = Huffman.menuDrawX;
-					final int i_12_ = Class120_Sub16.menuDrawY;
-					final int i_13_ = js5.lastClickX;
-					final int i_14_ = Class120_Sub12_Sub36.lastClickY;
-					final int i_15_ = Class120_Sub24.menuWidth;
-					int i_16_ = -1;
-					for (int i_17_ = 0; WallDecoration.menuOptionCount > i_17_; i_17_++) {
+				if (mouseClickType == 1) {//Click option
+					final int menuX = Huffman.menuDrawX;
+					final int menuY = Class120_Sub16.menuDrawY;
+					final int clickX = js5.lastClickX;
+					final int clickY = Class120_Sub12_Sub36.lastClickY;
+					final int menuWidth = Class120_Sub24.menuWidth;
+					int optionIndex = -1;
+					for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 						if (!WallDecoration.usingSpriteMenu) {
-							final int i_18_ = (WallDecoration.menuOptionCount + -1 + -i_17_) * 15 + i_12_ - -31;
-							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_18_ - 13 < i_14_ && 3 + i_18_ > i_14_) {
-								i_16_ = i_17_;
+							final int height = (WallDecoration.menuOptionCount - id - 1) * 15 + menuY + 31;
+							if (clickX > menuX && clickX < menuWidth + menuX && clickY > height - 13 && clickY < height + 3) {
+								optionIndex = id;
 							}
 						} else {
-							final int i_19_ = 15 * (-i_17_ + WallDecoration.menuOptionCount + -1) + 33 + i_12_;
-							if (i_11_ < i_13_ && i_15_ + i_11_ > i_13_ && i_19_ + -13 < i_14_ && i_19_ + 3 > i_14_) {
-								i_16_ = i_17_;
+							final int height = (WallDecoration.menuOptionCount - id - 1) * 15 + menuY + 33;
+							if (clickX > menuX && clickX < menuWidth + menuX && clickY > height - 13 && clickY < height + 3) {
+								optionIndex = id;
 							}
 						}
 					}
-					if (i_16_ != -1) {
-						GameShell.method31(i_16_);
+					if (optionIndex != -1) {
+						GameShell.method31(optionIndex);
 					}
 					Class15.menuOpen = false;
 					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);

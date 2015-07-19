@@ -5,11 +5,11 @@ import java.nio.ByteBuffer;
 
 import javax.media.opengl.GL;
 
-final class Class14 implements ShaderInterface {
+final class WaterMovementShader implements ShaderInterface {
 	private int textureId = -1;
 	private int anInt2160 = -1;
 	private int anInt2161 = -1;
-	private static float[] aFloatArray2162 = { 0.1F, 0.1F, 0.15F, 0.1F };
+	private static float[] color = { 0.1F, 0.1F, 0.15F, 0.1F };
 	private final float[] aFloatArray2163 = new float[4];
 
 	private final void method142() {
@@ -116,10 +116,11 @@ final class Class14 implements ShaderInterface {
 		aFloatArray2163[1] = 0.0F;
 		aFloatArray2163[2] = 1.0F / (f - 3328.0F);
 		aFloatArray2163[3] = f / (f - 3328.0F);
-		gl.glTexGenfv(8192, 9474, aFloatArray2163, 0);
+		gl.glTexGenfv(8192, 9474, aFloatArray2163, 0);//GL_ENABLE_BIT, GL_EYE_PLANE
 		gl.glPopMatrix();
-		gl.glActiveTexture(33984);
-		gl.glTexEnvfv(8960, 8705, aFloatArray2162, 0);
+		gl.glActiveTexture(33984);//GL_TEXTURE0
+		color[0] = 0.1F;
+		gl.glTexEnvfv(8960, 8705, color, 0);//GL_TEXTURE_ENV, GL_TEXTURE_ENV_COLOR
 	}
 
 	@Override
@@ -127,7 +128,7 @@ final class Class14 implements ShaderInterface {
 		final GL gl = HDToolkit.gl;
 		gl.glActiveTexture(33985);
 		gl.glTexEnvfv(8960, 8705, Class120_Sub15.aFloatArray2596, 0);
-		gl.glActiveTexture(33984);
+		gl.glActiveTexture(33984);//GL_TEXTURE0
 		if ((i & 0x1) == 1) {
 			if (Class78.allows3DTextureMapping) {
 				if (anInt2160 != HDToolkit.loopCycleWrapper) {
@@ -152,7 +153,7 @@ final class Class14 implements ShaderInterface {
 		}
 	}
 
-	public Class14() {
+	public WaterMovementShader() {
 		method143();
 		method142();
 	}

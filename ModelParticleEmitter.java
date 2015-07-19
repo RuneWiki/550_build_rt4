@@ -3,7 +3,7 @@
  */
 
 final class ModelParticleEmitter {
-	static int anInt1475 = -1;
+	static int activeSkyboxId = -1;
 	int anInt1476;
 	static boolean instantScreenFade = true;
 	static int worldPort;

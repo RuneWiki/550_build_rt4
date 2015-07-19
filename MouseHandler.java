@@ -97,14 +97,14 @@ final class MouseHandler implements MouseListener, MouseMotionListener, FocusLis
 		}
 	}
 
-	static final void method1028() {
+	static final void cameraDown() {
 		if (!Class154.aBoolean1439) {
 			Class154.aBoolean1439 = true;
-			Class118.aBoolean1134 = true;
-			if (!Class134.aBoolean1277) {
-				Class120_Sub12_Sub4.aFloat3154 += (-Class120_Sub12_Sub4.aFloat3154 + -12.0F) / 2.0F;
+			Class118.sendCameraPacket = true;
+			if (!Class134.updateCameraFromCs2) {
+				Class120_Sub12_Sub4.cameraPitchWrapper -= (Class120_Sub12_Sub4.cameraPitchWrapper + 12.0F) / 2.0F;
 			} else {
-				Class120_Sub12_Sub21.cameraPitch = -17 + (int) Class120_Sub12_Sub21.cameraPitch & ~0xf;
+				Class120_Sub12_Sub21.cameraPitch = (int) Class120_Sub12_Sub21.cameraPitch - 17 & ~0xf;
 			}
 		}
 	}

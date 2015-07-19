@@ -109,7 +109,7 @@ final class WaterShader implements ShaderInterface {
 	}
 
 	@Override
-	public final void method5(final int i) {
+	public final void method5(int i) {
 		final GL gl = HDToolkit.gl;
 		gl.glActiveTexture(33985);
 		if (aBoolean2165 || i >= 0) {
@@ -117,7 +117,7 @@ final class WaterShader implements ShaderInterface {
 			gl.glLoadIdentity();
 			gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);//roll
 			gl.glRotatef(Class120_Sub14_Sub13.renderPitchWrapper * 360.0F / 2048.0F, 1.0F, 0.0F, 0.0F);//pitch
-			gl.glRotatef(Class145.renderYawWrapper * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);//yaw
+			gl.glRotatef(SkyboxType.renderYawWrapper * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);//yaw
 			gl.glTranslatef(-Projectile.renderXWrapper, -Class120_Sub12_Sub27.renderYWrapper, -Class69_Sub1.renderZWrapper);//x,y,z
 			if (aBoolean2165) {
 				aFloatArray2167[0] = 0.001F;

@@ -12,7 +12,7 @@ final class WaterfallShader implements ShaderInterface {
 	static FontMetrics loadingFontMetrics;
 	private int listId;
 	static long aLong2173 = 0L;
-	static int anInt2174 = -1;
+	static int clickedTileZ = -1;
 
 	@Override
 	public final void method3() {
@@ -55,7 +55,7 @@ final class WaterfallShader implements ShaderInterface {
 		gl.glLoadIdentity();
 		gl.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
 		gl.glRotatef(Class120_Sub14_Sub13.renderPitchWrapper * 360.0F / 2048.0F, 1.0F, 0.0F, 0.0F);
-		gl.glRotatef(Class145.renderYawWrapper * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);
+		gl.glRotatef(SkyboxType.renderYawWrapper * 360.0F / 2048.0F, 0.0F, 1.0F, 0.0F);
 		gl.glTranslatef(-Projectile.renderXWrapper, -Class120_Sub12_Sub27.renderYWrapper, -Class69_Sub1.renderZWrapper);
 		gl.glTexGenfv(8192, 9474, aFloatArray2170, 0);
 		aFloatArray2170[1] = f_3_;
@@ -72,7 +72,7 @@ final class WaterfallShader implements ShaderInterface {
 			gl.glTexGenfv(8194, 9473, aFloatArray2170, 0);
 		} else {
 			final int i_4_ = (int) (64.0F * (HDToolkit.loopCycleWrapper * f_2_));
-			gl.glBindTexture(3553, Class78.anIntArray687[i_4_ % 64]);
+			gl.glBindTexture(3553, Class78.waterfallTextures[i_4_ % 64]);
 		}
 		gl.glActiveTexture(33984);
 	}
@@ -131,7 +131,7 @@ final class WaterfallShader implements ShaderInterface {
 		gl.glNewList(listId, 4864);//COMPILE
 		gl.glActiveTexture(33985);//TEXTURE1
 		if (Class78.allows3DTextureMapping) {
-			gl.glBindTexture(32879, Class78.anInt681);//TEXTURE_3D
+			gl.glBindTexture(32879, Class78.waterfallTextureId);//TEXTURE_3D
 			gl.glTexGeni(8194, 9472, 9217);//R, TEXTURE_GEN_MODE, OBJECT_LINEAR
 			gl.glEnable(3170);//TEXTURE_GEN_R
 			gl.glEnable(32879);//TEXTURE_3D

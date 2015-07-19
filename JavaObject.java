@@ -5,7 +5,7 @@
 final class JavaObject extends AbstractObject {
 	static int anInt3913 = 0;
 	static Hashtable clickMaskCache;
-	static int anInt3915 = 0;
+	static int clickedInventoryComponentCycle = 0;
 	static int[] anIntArray3916;
 	private final Object value;
 
@@ -85,7 +85,7 @@ final class JavaObject extends AbstractObject {
 							ChunkAtmosphere.method2508();
 						}
 					} else {
-						Class120_Sub12_Sub28.determineMenuSize();
+						Class120_Sub12_Sub28.openMenu();
 					}
 				} else {
 					if (Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener != null) {

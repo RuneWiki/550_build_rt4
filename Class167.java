@@ -37,7 +37,7 @@ abstract class Class167 {
 	}
 
 	static final LDSprite constructLDSpriteAlpha() {
-		final byte[] paletteIndicators = Class145.spritePaletteIndicators[0];
+		final byte[] paletteIndicators = SkyboxType.spritePaletteIndicators[0];
 		final int pixelAmt = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
 		LDSprite sprite;
 		if (!PlainTile.spriteHasAlpha[0]) {

@@ -6,12 +6,11 @@ import java.nio.ByteBuffer;
 final class Class49 {
 	static int anInt438;
 	boolean aBoolean439 = false;
-	static js5 aClass50_440;
 	static JagexInterface activeYellowBoxComponent;
-	int anInt442;
+	int offset;
 	ByteBuffer aByteBuffer443;
-	int anInt444 = 0;
-	VertexBuffer aClass104_445;
+	int stride = 0;
+	VertexBuffer vertexBuffer;
 
 	static final int method408() {
 		if (Class173.anInt1724 == 0) {
@@ -31,6 +30,6 @@ final class Class49 {
 	}
 
 	public Class49() {
-		this.anInt442 = 0;
+		this.offset = 0;
 	}
 }

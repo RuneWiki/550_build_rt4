@@ -57,7 +57,7 @@ final class Class127 {
 		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
 
-	static final void method1892() {
+	static final void fixCameraBounds() {
 		if (Class120_Sub12_Sub21.cameraPitch < 128.0F) {
 			Class120_Sub12_Sub21.cameraPitch = 128.0F;
 		}

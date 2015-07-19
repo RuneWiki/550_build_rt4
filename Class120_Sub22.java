@@ -69,8 +69,8 @@ final class Class120_Sub22 extends Node {
 				player.textSpoken = player.textSpoken.substring(1);
 				AbstractRequest.pushMessage(player.textSpoken, player.getTitledName(), 2);
 			}
-			player.anInt2995 = 0;
-			player.anInt2976 = 0;
+			player.textEffect = 0;
+			player.textColor = 0;
 			player.textCycle = 150;
 		}
 		if ((0x20 & mask) != 0) {
@@ -110,9 +110,9 @@ final class Class120_Sub22 extends Node {
 					}
 					i_12_ &= 0x7fff;
 					player.textSpoken = message.trim();
-					player.anInt2995 = i_12_ & 0xff;
+					player.textEffect = i_12_ & 0xff;
 					player.textCycle = 150;
-					player.anInt2976 = i_12_ >> 8;
+					player.textColor = i_12_ >> 8;
 					if (staffLevel == 2) {
 						Class120_Sub16.pushMessage(message, new StringBuilder("<img=1>").append(player.getTitledName()).toString(), null, bool ? 17 : 1, i_18_);
 					} else if (staffLevel == 1) {

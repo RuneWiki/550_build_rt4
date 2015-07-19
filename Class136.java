@@ -60,7 +60,7 @@ final class Class136 {
 			for (int i_9_ = 0; i_9_ < groundTile.anInt2638; i_9_++) {
 				final Class28 class28 = groundTile.aClass28Array2625[i_9_];
 				if ((class28.bitPacked & 0x400000L) == 4194304L) {
-					final int maxY = class28.aClass180_174.getMaxY();
+					final int maxY = class28.sceneGraphNode.getMaxY();
 					if (maxY != -32768 && maxY < locHeight) {
 						locHeight = maxY;
 					}

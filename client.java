@@ -29,15 +29,15 @@ public final class client extends GameShell {
 	static short aShort565 = (short) 320;
 	static int anInt563 = 0;
 	static int[] anIntArray562;
-	static int anInt134 = 0;
+	static int clickedInventoryComponentX = 0;
 	static Font loadingFont;
 	static int packetType = 0;
 	static int anInt137 = 0;
 	static int[] underWaterLocationsMapFileIds;
-	static int[] anIntArray679;
+	static int[] torchesFlamesPalette;
 	static String[] chatMessageNames = new String[100];
 	static int[] mapFunctionLocIds = new int[1000];
-	static js5 aClass50_63;
+	static js5 spritesJs5;
 
 	static {
 		flagCounter = (byte) 0;
@@ -214,31 +214,31 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 12;
 				Class134.loadingText = StringLibrary.aString2105;
 			} else {
-				AmbientSound.aClass50_2479 = Huffman.method1884(0, true, false, true);
-				Class79_Sub1.aClass50_2245 = Huffman.method1884(1, true, false, true);
-				Js5Worker.aClass50_397 = Huffman.method1884(2, false, true, true);
-				Class33.aClass50_275 = Huffman.method1884(3, true, false, true);
+				AmbientSound.animsJs5 = Huffman.method1884(0, true, false, true);
+				Class79_Sub1.animsBasesJs5 = Huffman.method1884(1, true, false, true);
+				Js5Worker.configJs5 = Huffman.method1884(2, false, true, true);
+				Class33.interfaceJs5 = Huffman.method1884(3, true, false, true);
 				Class159.aClass50_1490 = Huffman.method1884(4, true, false, true);
-				Class65.aClass50_597 = Huffman.method1884(5, true, true, true);
-				Class120_Sub12_Sub36.aClass50_3419 = Huffman.method1884(6, true, true, false);
-				Class120_Sub12_Sub17.aClass50_3258 = Huffman.method1884(7, true, false, true);
-				client.aClass50_63 = Huffman.method1884(8, true, false, true);
-				NodeCache.aClass50_303 = Huffman.method1884(9, true, false, true);
-				ParticleNodeSub.aClass50_2400 = Huffman.method1884(10, true, false, true);
+				Class65.mapsJs5 = Huffman.method1884(5, true, true, true);
+				Class120_Sub12_Sub36.musicJs5 = Huffman.method1884(6, true, true, false);
+				Class120_Sub12_Sub17.modelsJs5 = Huffman.method1884(7, true, false, true);
+				client.spritesJs5 = Huffman.method1884(8, true, false, true);
+				NodeCache.texturesJs5 = Huffman.method1884(9, true, false, true);
+				ParticleNodeSub.binaryJs5 = Huffman.method1884(10, true, false, true);
 				InterfaceListener.aClass50_2544 = Huffman.method1884(11, true, false, true);
-				IsaacCipher.aClass50_1019 = Huffman.method1884(12, true, false, true);
-				ClanMember.aClass50_2576 = Huffman.method1884(13, true, false, true);
-				Class132.aClass50_1251 = Huffman.method1884(14, true, false, false);
+				IsaacCipher.scriptsJs5 = Huffman.method1884(12, true, false, true);
+				ClanMember.fontMetricsJs5 = Huffman.method1884(13, true, false, true);
+				Class132.vorbisJs5 = Huffman.method1884(14, true, false, false);
 				Class120_Sub22.aClass50_2679 = Huffman.method1884(15, true, false, true);
-				Class114.aClass50_1097 = Huffman.method1884(16, true, false, true);
-				ModelParticleMagnet.aClass50_1649 = Huffman.method1884(17, true, false, true);
+				Class114.locationsJs5 = Huffman.method1884(16, true, false, true);
+				ModelParticleMagnet.enumsJs5 = Huffman.method1884(17, true, false, true);
 				Class120_Sub12_Sub29.aClass50_3367 = Huffman.method1884(18, true, false, true);
 				Class127.aClass50_1213 = Huffman.method1884(19, true, false, true);
 				Class2.aClass50_50 = Huffman.method1884(20, true, false, true);
 				Class120_Sub2.aClass50_2415 = Huffman.method1884(21, true, false, true);
 				WaterfallShader.aClass50_2169 = Huffman.method1884(22, true, false, true);
 				Class120_Sub12_Sub24.aClass50_3309 = Huffman.method1884(23, true, true, true);
-				Class153.aClass50_1433 = Huffman.method1884(24, true, false, true);
+				SphereType.aClass50_1433 = Huffman.method1884(24, true, false, true);
 				AbstractMouseWheelHandler.aClass50_115 = Huffman.method1884(25, true, false, true);
 				Class120_Sub12_Sub15.aClass50_3242 = Huffman.method1884(26, true, true, true);
 				Class187.aClass50_1907 = Huffman.method1884(27, true, false, true);
@@ -260,9 +260,9 @@ public final class client extends GameShell {
 			} else {
 				Class134.loadingText = StringLibrary.aString2594;
 				OverridedJInterface.loadingBarPercent = 20;
-				ParticleNode.getSpriteIds(client.aClass50_63);
-				Class132_Sub2.getTitleSpriteIds(client.aClass50_63);
-				Class112.getRunesSpriteId(client.aClass50_63);
+				ParticleNode.getSpriteIds(client.spritesJs5);
+				Class132_Sub2.getTitleSpriteIds(client.spritesJs5);
+				Class112.getRunesSpriteId(client.spritesJs5);
 				Class140.loadingStage = 41;
 			}
 		} else if (Class140.loadingStage == 41) {
@@ -281,17 +281,17 @@ public final class client extends GameShell {
 			Class69_Sub1.aClass120_Sub30_Sub2_2230.method1774(128, 9);
 			Class120_Sub12_Sub3.aClass164_3150 = Class120_Sub12_Sub18.method1289(Node.canvas, 22050, NpcType.gameSignlink, 0);
 			Class120_Sub12_Sub3.aClass164_3150.method2143(Class69_Sub1.aClass120_Sub30_Sub2_2230);
-			Class120_Sub12_Sub39.method1400(Class69_Sub1.aClass120_Sub30_Sub2_2230, Class120_Sub22.aClass50_2679, Class132.aClass50_1251, false, Class159.aClass50_1490);
+			Class120_Sub12_Sub39.method1400(Class69_Sub1.aClass120_Sub30_Sub2_2230, Class120_Sub22.aClass50_2679, Class132.vorbisJs5, false, Class159.aClass50_1490);
 			Class120_Sub12_Sub29.aClass164_3366 = Class120_Sub12_Sub18.method1289(Node.canvas, 2048, NpcType.gameSignlink, 1);
 			Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299 = new Class120_Sub30_Sub3();
 			Class120_Sub12_Sub29.aClass164_3366.method2143(Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299);
 			ObjectPile.aClass172_1809 = new Decimator(22050, Class178.anInt1771);
-			AbstractSprite.anInt3620 = Class120_Sub12_Sub36.aClass50_3419.getGroupId("scape main");
+			AbstractSprite.anInt3620 = Class120_Sub12_Sub36.musicJs5.getGroupId("scape main");
 			Class134.loadingText = StringLibrary.aString1025;
 			Class140.loadingStage = 50;
 			OverridedJInterface.loadingBarPercent = 30;
 		} else if (Class140.loadingStage == 50) {
-			final int i_14_ = Class143_Sub1.fontCachedCount(ClanMember.aClass50_2576, client.aClass50_63);
+			final int i_14_ = Class143_Sub1.fontCachedCount(ClanMember.fontMetricsJs5, client.spritesJs5);
 			final int i_15_ = LookupTable.method488();
 			if (i_14_ < i_15_) {
 				OverridedJInterface.loadingBarPercent = 35;
@@ -302,7 +302,7 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 35;
 			}
 		} else if (Class140.loadingStage == 60) {
-			final int i_16_ = JavaObject.titleSpriteCachedCount(client.aClass50_63);
+			final int i_16_ = JavaObject.titleSpriteCachedCount(client.spritesJs5);
 			final int i_17_ = 2;
 			if (i_17_ > i_16_) {
 				OverridedJInterface.loadingBarPercent = 40;
@@ -313,20 +313,20 @@ public final class client extends GameShell {
 				Class134.loadingText = StringLibrary.aString1239;
 			}
 		} else if (Class140.loadingStage == 65) {
-			Class8.constructFonts(client.aClass50_63, ClanMember.aClass50_2576);
+			Class8.constructFonts(client.spritesJs5, ClanMember.fontMetricsJs5);
 			Class134.loadingText = StringLibrary.aString2552;
 			OverridedJInterface.loadingBarPercent = 45;
 			ProjectileNode.setGameState(5);
 			Class140.loadingStage = 70;
 		} else if (Class140.loadingStage == 70) {
-			Js5Worker.aClass50_397.method430();
+			Js5Worker.configJs5.method430();
 			int count = 11;
 			int i_18_ = 0;
-			i_18_ += Js5Worker.aClass50_397.method415();
-			Class114.aClass50_1097.method430();
-			i_18_ += Class114.aClass50_1097.method415();
-			ModelParticleMagnet.aClass50_1649.method430();
-			i_18_ += ModelParticleMagnet.aClass50_1649.method415();
+			i_18_ += Js5Worker.configJs5.method415();
+			Class114.locationsJs5.method430();
+			i_18_ += Class114.locationsJs5.method415();
+			ModelParticleMagnet.enumsJs5.method430();
+			i_18_ += ModelParticleMagnet.enumsJs5.method415();
 			Class120_Sub12_Sub29.aClass50_3367.method430();
 			i_18_ += Class120_Sub12_Sub29.aClass50_3367.method415();
 			Class127.aClass50_1213.method430();
@@ -337,8 +337,8 @@ public final class client extends GameShell {
 			i_18_ += Class120_Sub2.aClass50_2415.method415();
 			WaterfallShader.aClass50_2169.method430();
 			i_18_ += WaterfallShader.aClass50_2169.method415();
-			Class153.aClass50_1433.method430();
-			i_18_ += Class153.aClass50_1433.method415();
+			SphereType.aClass50_1433.method430();
+			i_18_ += SphereType.aClass50_1433.method415();
 			AbstractMouseWheelHandler.aClass50_115.method430();
 			i_18_ += AbstractMouseWheelHandler.aClass50_115.method415();
 			Class187.aClass50_1907.method430();
@@ -347,44 +347,44 @@ public final class client extends GameShell {
 				OverridedJInterface.loadingBarPercent = 50;
 				Class134.loadingText = StringLibrary.loadingConfig + (i_18_ / count) + "%";
 			} else {
-				ParamType.configClient = Js5Worker.aClass50_397;
-				OverlayType.setup(Js5Worker.aClass50_397);
-				UnderlayType.configClient = Js5Worker.aClass50_397;
-				Identikit.init(Class120_Sub12_Sub17.aClass50_3258, Js5Worker.aClass50_397);
-				Class166.method2178(Class114.aClass50_1097, true, Class120_Sub12_Sub17.aClass50_3258);
-				NpcType.setupNpcTypeVariables(Class120_Sub12_Sub17.aClass50_3258, Class120_Sub12_Sub29.aClass50_3367, true);
-				Player.method2340(Class127.aClass50_1213, Class33.smallFont2, true, Class120_Sub12_Sub17.aClass50_3258);
-				StructType.configClient = Js5Worker.aClass50_397;
-				ChunkAtmosphere.method2509(Class2.aClass50_50, Class79_Sub1.aClass50_2245, AmbientSound.aClass50_2479);
-				EntityRenderData.setup(Js5Worker.aClass50_397);
-				SpotAnimType.setup(Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.aClass50_3258);
+				ParamType.configClient = Js5Worker.configJs5;
+				OverlayType.setup(Js5Worker.configJs5);
+				UnderlayType.configClient = Js5Worker.configJs5;
+				Identikit.init(Class120_Sub12_Sub17.modelsJs5, Js5Worker.configJs5);
+				LocType.setup(Class114.locationsJs5, true, Class120_Sub12_Sub17.modelsJs5);
+				NpcType.setupNpcTypeVariables(Class120_Sub12_Sub17.modelsJs5, Class120_Sub12_Sub29.aClass50_3367, true);
+				Player.method2340(Class127.aClass50_1213, Class33.smallFont2, true, Class120_Sub12_Sub17.modelsJs5);
+				StructType.configClient = Js5Worker.configJs5;
+				ChunkAtmosphere.method2509(Class2.aClass50_50, Class79_Sub1.animsBasesJs5, AmbientSound.animsJs5);
+				EntityRenderData.setup(Js5Worker.configJs5);
+				SpotAnimType.setup(Class120_Sub2.aClass50_2415, Class120_Sub12_Sub17.modelsJs5);
 				VarBit.setup(WaterfallShader.aClass50_2169);
-				Varp.setup(Js5Worker.aClass50_397);
-				JagexInterface.setup(client.aClass50_63, ClanMember.aClass50_2576, Class33.aClass50_275, Class120_Sub12_Sub17.aClass50_3258);
-				InvType.setup(Js5Worker.aClass50_397);
-				EnumType.setup(ModelParticleMagnet.aClass50_1649);
-				QuickChatMessageType.setup(AbstractMouseWheelHandler.aClass50_115, new Class125(), Class153.aClass50_1433);
-				QuickChatCategoryType.setup(Class153.aClass50_1433, AbstractMouseWheelHandler.aClass50_115);
-				Class145.setup(Js5Worker.aClass50_397);
-				Class153.setup(Js5Worker.aClass50_397);
-				LightType.setup(Js5Worker.aClass50_397);
-				CursorType.setup(Js5Worker.aClass50_397, client.aClass50_63);
-				MapSceneType.setup(client.aClass50_63, Js5Worker.aClass50_397);
-				Class31.aClass50_241 = Js5Worker.aClass50_397;
-				Class88.aClass50_834 = client.aClass50_63;
+				Varp.setup(Js5Worker.configJs5);
+				JagexInterface.setup(client.spritesJs5, ClanMember.fontMetricsJs5, Class33.interfaceJs5, Class120_Sub12_Sub17.modelsJs5);
+				InvType.setup(Js5Worker.configJs5);
+				EnumType.setup(ModelParticleMagnet.enumsJs5);
+				QuickChatMessageType.setup(AbstractMouseWheelHandler.aClass50_115, new Class125(), SphereType.aClass50_1433);
+				QuickChatCategoryType.setup(SphereType.aClass50_1433, AbstractMouseWheelHandler.aClass50_115);
+				SkyboxType.setup(Js5Worker.configJs5);
+				SphereType.setup(Js5Worker.configJs5);
+				LightType.setup(Js5Worker.configJs5);
+				CursorType.setup(Js5Worker.configJs5, client.spritesJs5);
+				MapSceneType.setup(client.spritesJs5, Js5Worker.configJs5);
+				Class31.aClass50_241 = Js5Worker.configJs5;
+				Class88.aClass50_834 = client.spritesJs5;
 				OverridedJInterface.loadingBarPercent = 50;
 				Class134.loadingText = StringLibrary.aString2585;
 				MapFunctionNode.calculateEquipmentLookupTable();
 				Class140.loadingStage = 80;
 			}
 		} else if (Class140.loadingStage == 80) {
-			final int i_19_ = Class120_Sub12_Sub4.method1216(client.aClass50_63);
+			final int i_19_ = Class120_Sub12_Sub4.method1216(client.spritesJs5);
 			final int i_20_ = 14;
 			if (i_19_ < i_20_) {
 				Class134.loadingText = StringLibrary.aString3665 + (100 * i_19_ / i_20_) + "%";
 				OverridedJInterface.loadingBarPercent = 60;
 			} else {
-				GameShell.constructSprites(client.aClass50_63);
+				GameShell.constructSprites(client.spritesJs5);
 				Class134.loadingText = StringLibrary.aString2726;
 				OverridedJInterface.loadingBarPercent = 60;
 				Class140.loadingStage = 90;
@@ -394,26 +394,26 @@ public final class client extends GameShell {
 				Class134.loadingText = StringLibrary.aString3371 + Class120_Sub12_Sub15.aClass50_3242.method415() + "%";
 				OverridedJInterface.loadingBarPercent = 70;
 			} else {
-				final Class143_Sub1 class143_sub1 = new Class143_Sub1(NodeCache.aClass50_303, Class120_Sub12_Sub15.aClass50_3242, client.aClass50_63, 20, !ParticleNodeSub.highDetailTextures);
+				final Class143_Sub1 class143_sub1 = new Class143_Sub1(NodeCache.texturesJs5, Class120_Sub12_Sub15.aClass50_3242, client.spritesJs5, 20, !ParticleNodeSub.highDetailTextures);
 				Rasterizer.method864(class143_sub1);
 				if (FileSystemRequest.brightness == 1) {
-					Rasterizer.method852(0.9F);
+					Rasterizer.setBrightness(0.9F);
 				}
 				if (FileSystemRequest.brightness == 2) {
-					Rasterizer.method852(0.8F);
+					Rasterizer.setBrightness(0.8F);
 				}
 				if (FileSystemRequest.brightness == 3) {
-					Rasterizer.method852(0.7F);
+					Rasterizer.setBrightness(0.7F);
 				}
 				if (FileSystemRequest.brightness == 4) {
-					Rasterizer.method852(0.6F);
+					Rasterizer.setBrightness(0.6F);
 				}
 				OverridedJInterface.loadingBarPercent = 70;
 				Class134.loadingText = JagexInterface.aString1358;
 				Class140.loadingStage = 100;
 			}
 		} else if (Class140.loadingStage == 100) {
-			if (WaterfallShader.runeSpritesCached(client.aClass50_63)) {
+			if (WaterfallShader.runeSpritesCached(client.spritesJs5)) {
 				Class140.loadingStage = 110;
 			}
 		} else if (Class140.loadingStage == 110) {
@@ -423,25 +423,25 @@ public final class client extends GameShell {
 			Class134.loadingText = StringLibrary.aString1038;
 			Class140.loadingStage = 120;
 		} else if (Class140.loadingStage == 120) {
-			if (!ParticleNodeSub.aClass50_2400.method410("huffman", "")) {
+			if (!ParticleNodeSub.binaryJs5.method410("huffman", "")) {
 				Class134.loadingText = StringLibrary.aString398 + "0%";
 				OverridedJInterface.loadingBarPercent = 80;
 			} else {
-				final Huffman huffman = new Huffman(ParticleNodeSub.aClass50_2400.method428("", "huffman"));
+				final Huffman huffman = new Huffman(ParticleNodeSub.binaryJs5.method428("", "huffman"));
 				GZIPDecompressor.setHuffman(huffman);
-				Class134.loadingText = SceneGroundObject.aString2847;
+				Class134.loadingText = StringLibrary.aString2847;
 				OverridedJInterface.loadingBarPercent = 80;
 				Class140.loadingStage = 130;
 			}
 		} else if (Class140.loadingStage == 130) {
-			if (!Class33.aClass50_275.method430()) {
-				Class134.loadingText = StringLibrary.aString2788 + (Class33.aClass50_275.method415() * 3 / 4) + "%";
+			if (!Class33.interfaceJs5.method430()) {
+				Class134.loadingText = StringLibrary.aString2788 + (Class33.interfaceJs5.method415() * 3 / 4) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
-			} else if (!IsaacCipher.aClass50_1019.method430()) {
-				Class134.loadingText = StringLibrary.aString2788 + (IsaacCipher.aClass50_1019.method415() / 10 + 75) + "%";
+			} else if (!IsaacCipher.scriptsJs5.method430()) {
+				Class134.loadingText = StringLibrary.aString2788 + (IsaacCipher.scriptsJs5.method415() / 10 + 75) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
-			} else if (!ClanMember.aClass50_2576.method430()) {
-				Class134.loadingText = StringLibrary.aString2788 + (ClanMember.aClass50_2576.method415() / 20 + 85) + "%";
+			} else if (!ClanMember.fontMetricsJs5.method430()) {
+				Class134.loadingText = StringLibrary.aString2788 + (ClanMember.fontMetricsJs5.method415() / 20 + 85) + "%";
 				OverridedJInterface.loadingBarPercent = 85;
 			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete("details")) {
 				Class134.loadingText = StringLibrary.aString2788 + (Class120_Sub12_Sub24.aClass50_3309.getCompletion("details") / 10 + 90) + "%";
@@ -449,7 +449,7 @@ public final class client extends GameShell {
 			} else {
 				WorldMapHandler.method675(Class120_Sub12_Sub24.aClass50_3309);
 				ParticleEngine.method945(Class187.aClass50_1907);
-				Class41.method334(Class120_Sub12_Sub17.aClass50_3258);
+				Sphere.method334(Class120_Sub12_Sub17.modelsJs5);
 				Class140.loadingStage = 135;
 				OverridedJInterface.loadingBarPercent = 95;
 				Class134.loadingText = StringLibrary.aString799;
@@ -471,13 +471,13 @@ public final class client extends GameShell {
 				Class134.loadingText = StringLibrary.aString2444;
 			}
 		} else if (Class140.loadingStage == 140) {
-			GameShell.loginscreenId = Class33.aClass50_275.getGroupId("loginscreen");
-			Class65.aClass50_597.method426(false, true);
-			Class120_Sub12_Sub36.aClass50_3419.method426(true, true);
-			client.aClass50_63.method426(true, true);
-			ClanMember.aClass50_2576.method426(true, true);
-			ParticleNodeSub.aClass50_2400.method426(true, true);
-			Class33.aClass50_275.method426(true, true);
+			GameShell.loginscreenId = Class33.interfaceJs5.getGroupId("loginscreen");
+			Class65.mapsJs5.method426(false, true);
+			Class120_Sub12_Sub36.musicJs5.method426(true, true);
+			client.spritesJs5.method426(true, true);
+			ClanMember.fontMetricsJs5.method426(true, true);
+			ParticleNodeSub.binaryJs5.method426(true, true);
+			Class33.interfaceJs5.method426(true, true);
 			SeekableFile.aBoolean2138 = true;
 			Class140.loadingStage = 150;
 			Class134.loadingText = StringLibrary.aString400;
@@ -956,10 +956,10 @@ public final class client extends GameShell {
 							Decimator.method2219(l);
 						}
 					} else if (Class120_Sub12_Sub28.loadingScreenState == 1) {
-						if (Class145.anInt1379 < AbstractBuffer.mapFilesMissingCount) {
-							Class145.anInt1379 = AbstractBuffer.mapFilesMissingCount;
+						if (SkyboxType.anInt1379 < AbstractBuffer.mapFilesMissingCount) {
+							SkyboxType.anInt1379 = AbstractBuffer.mapFilesMissingCount;
 						}
-						final int loadingPercent = (Class145.anInt1379 - AbstractBuffer.mapFilesMissingCount) * 50 / Class145.anInt1379;
+						final int loadingPercent = (SkyboxType.anInt1379 - AbstractBuffer.mapFilesMissingCount) * 50 / SkyboxType.anInt1379;
 						Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait + "<br>(" + loadingPercent + "%)", false);
 					} else if (Class120_Sub12_Sub28.loadingScreenState == 2) {
 						if (Class120_Sub12_Sub37.anInt3431 < LightType.locationModelMissingCount) {
@@ -1284,7 +1284,7 @@ public final class client extends GameShell {
 								interfaceListener.objectData = jagexInterface.onMouseWheelListener;
 								Class88.lowPriorityInterfaceScripts.addLast(interfaceListener);
 							}
-							if (Class120_Sub12_Sub4.draggedComponent != null || Projectile.aClass189_2954 != null || Class15.menuOpen || jagexInterface.clientCode != 1400 && EnumType.anInt3450 > 0) {
+							if (Class120_Sub12_Sub4.draggedComponent != null || Projectile.clickedInventoryComponent != null || Class15.menuOpen || jagexInterface.clientCode != 1400 && EnumType.anInt3450 > 0) {
 								clicked = false;
 								dragging = false;
 								mouseOver = false;
@@ -1345,7 +1345,7 @@ public final class client extends GameShell {
 									} else {
 										if (EnumType.anInt3450 > 0 && !Class30.aBoolean226) {
 											if ((Class69.mouseButtons == 1 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1)) && WallDecoration.menuOptionCount > 2) {
-												Class120_Sub12_Sub28.determineMenuSize();
+												Class120_Sub12_Sub28.openMenu();
 											} else if (WallDecoration.menuOptionCount > 0) {
 												ChunkAtmosphere.method2508();
 											}
@@ -1607,7 +1607,7 @@ public final class client extends GameShell {
 							}
 						}
 					}
-					if (!jagexInterface.newFormat && Class120_Sub12_Sub4.draggedComponent == null && Projectile.aClass189_2954 == null && !Class15.menuOpen) {
+					if (!jagexInterface.newFormat && Class120_Sub12_Sub4.draggedComponent == null && Projectile.clickedInventoryComponent == null && !Class15.menuOpen) {
 						if ((jagexInterface.mouseOverId >= 0 || jagexInterface.disabledMouseOverColor != 0) && Queue.lastMouseX >= i_50_ && ChunkAtmosphere.lastMouseY >= i_51_ && Queue.lastMouseX < i_52_ && ChunkAtmosphere.lastMouseY < i_53_) {
 							if (jagexInterface.mouseOverId >= 0) {
 								CursorType.mouseOverInterface = childs[jagexInterface.mouseOverId];

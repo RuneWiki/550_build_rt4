@@ -28,7 +28,7 @@ abstract class Class57 {
 			LocType.method2465((byte) (InterfaceChangeNode.anInt3490 - 4 & 0xff));
 			IsaacCipher.method905(2);
 		}
-		Class153.anInt1436 = Class173.gameLevel;
+		SphereType.anInt1436 = Class173.gameLevel;
 	}
 
 	abstract AbstractObject method493(AbstractObject abstractObject);

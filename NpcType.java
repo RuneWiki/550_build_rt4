@@ -17,7 +17,7 @@ final class NpcType {
 	private int varbitId;
 	int headIcon;
 	private int contrast;
-	int anInt1666;
+	int hitBarSpriteId;
 	private short[] retextureModified;
 	int anInt1668;
 	private int[] headModelIds;
@@ -52,11 +52,11 @@ final class NpcType {
 	byte aByte1699;
 	byte loginScreenProperties;//0x1 - can be spawned, 0x2 - walks
 	boolean aBoolean1701;
-	static int anInt1702 = 0;
+	static int cameraPacketCycle = 0;
 	String[] options;
 	private byte[] recolorPalette;
 	String name;
-	boolean render;
+	boolean biggestRenderPriority;
 	static boolean npcMemberClient;
 	static js5 aClass50_181;
 	static ObjectCache aClass21_80 = new ObjectCache(50);
@@ -67,13 +67,13 @@ final class NpcType {
 		if (this.transmogrificationIds == null) {
 			return true;
 		}
-		int i_0_ = -1;
+		int value = -1;
 		if (varbitId != -1) {
-			i_0_ = VarBit.getVarbitValue(varbitId);
+			value = VarBit.getVarbitValue(varbitId);
 		} else if (varpId != -1) {
-			i_0_ = Class2.permanentVariable[varpId];
+			value = Class2.permanentVariable[varpId];
 		}
-		if (i_0_ < 0 || i_0_ >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[i_0_] == -1) {
+		if (value < 0 || value >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[value] == -1) {
 			final int i_1_ = this.transmogrificationIds[this.transmogrificationIds.length - 1];
 			if (i_1_ == -1) {
 				return false;
@@ -150,7 +150,7 @@ final class NpcType {
 		} else if (code == 98) {
 			resizeY = buffer.getUShort();
 		} else if (code == 99) {
-			render = true;
+			biggestRenderPriority = true;
 		} else if (code == 100) {
 			ambient = buffer.getByte();
 		} else if (code == 101) {
@@ -212,7 +212,7 @@ final class NpcType {
 				is[2] = buffer.getByte();
 			}
 		} else if (code == 122) {
-			anInt1666 = buffer.getUShort();
+			hitBarSpriteId = buffer.getUShort();
 		} else if (code == 123) {
 			iconHeight = buffer.getUShort();
 		} else if (code == 125) {
@@ -693,7 +693,7 @@ final class NpcType {
 		this.canRightClick = true;
 		this.spawnDirection = (byte) 7;
 		ambient = 0;
-		this.anInt1666 = -1;
+		this.hitBarSpriteId = -1;
 		resizeX = 128;
 		this.aShort1662 = (short) 0;
 		this.size = 1;
@@ -716,6 +716,6 @@ final class NpcType {
 		this.aBoolean1656 = false;
 		this.name = "null";
 		this.iconHeight = -1;
-		this.render = false;
+		this.biggestRenderPriority = false;
 	}
 }

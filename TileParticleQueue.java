@@ -22,9 +22,9 @@ final class TileParticleQueue {
 		final AbstractIndexedSprite[] abstractIndexedSprites = new AbstractIndexedSprite[Class93.spriteAmount];
 		for (int id = 0; id < Class93.spriteAmount; id++) {
 			if (HDToolkit.glEnabled) {
-				abstractIndexedSprites[id] = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
+				abstractIndexedSprites[id] = new HDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], SkyboxType.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 			} else {
-				abstractIndexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
+				abstractIndexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], SkyboxType.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 			}
 		}
 		Class53_Sub1.resetSpriteInfo();

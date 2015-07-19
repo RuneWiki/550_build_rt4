@@ -9,14 +9,14 @@ final class MouseRecorder implements Runnable {
 	Object lock;
 	boolean running = true;
 	int cacheIndex;
-	int[] mouseYCache;
-	int[] mouseXCache;
+	int[] mouseCacheY;
+	int[] mouseCacheX;
 
 	static final void setupShaderRenderValues(final int x, final int y, final int z, final int yaw, final int pitch) {
 		Projectile.renderXWrapper = x;
 		Class120_Sub12_Sub27.renderYWrapper = y;
 		Class69_Sub1.renderZWrapper = z;
-		Class145.renderYawWrapper = yaw;
+		SkyboxType.renderYawWrapper = yaw;
 		Class120_Sub14_Sub13.renderPitchWrapper = pitch;
 	}
 
@@ -25,8 +25,8 @@ final class MouseRecorder implements Runnable {
 		while (this.running) {
 			synchronized (this.lock) {
 				if (this.cacheIndex < 500) {
-					this.mouseXCache[this.cacheIndex] = Queue.lastMouseX;
-					this.mouseYCache[this.cacheIndex] = ChunkAtmosphere.lastMouseY;
+					this.mouseCacheX[this.cacheIndex] = Queue.lastMouseX;
+					this.mouseCacheY[this.cacheIndex] = ChunkAtmosphere.lastMouseY;
 					this.cacheIndex++;
 				}
 			}
@@ -54,8 +54,8 @@ final class MouseRecorder implements Runnable {
 
 	public MouseRecorder() {
 		this.lock = new Object();
-		this.mouseXCache = new int[500];
-		this.mouseYCache = new int[500];
+		this.mouseCacheX = new int[500];
+		this.mouseCacheY = new int[500];
 		this.cacheIndex = 0;
 	}
 }

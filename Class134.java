@@ -4,7 +4,7 @@
 
 final class Class134 {
 	static AbstractSprite landscapeAsAbstractSprite;
-	static boolean aBoolean1277;
+	static boolean updateCameraFromCs2;
 	static int scrollbarId;
 	static byte[][] aByteArrayArray1279;
 	static int anInt1280;

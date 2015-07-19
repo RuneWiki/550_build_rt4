@@ -7,7 +7,7 @@ final class QuickChatMessageType extends NodeSub {
 	private int[] anIntArray3528;
 	private int[][] anIntArrayArray3529;
 	static Frame fullscreenFrame;
-	boolean aBoolean3531 = true;
+	boolean searchable = true;
 	static LDSprite landScapeAsLDSprite;
 	static int[] anIntArray3533 = new int[14];
 	static Hashtable interfaceChangeCache = new Hashtable(16);
@@ -89,7 +89,7 @@ final class QuickChatMessageType extends NodeSub {
 				}
 			}
 		} else if (code == 4) {
-			this.aBoolean3531 = false;
+			this.searchable = false;
 		}
 	}
 

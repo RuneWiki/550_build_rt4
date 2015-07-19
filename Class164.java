@@ -144,14 +144,14 @@ class Class164 {
 		boolean fileExists = true;
 		for (int id = 0; id < RuntimeException_Sub1.mapFilesBuffer.length; id++) {
 			if (LookupTable.mapFileIds[id] != -1 && RuntimeException_Sub1.mapFilesBuffer[id] == null) {
-				RuntimeException_Sub1.mapFilesBuffer[id] = Class65.aClass50_597.getFile(LookupTable.mapFileIds[id], 0);
+				RuntimeException_Sub1.mapFilesBuffer[id] = Class65.mapsJs5.getFile(LookupTable.mapFileIds[id], 0);
 				if (RuntimeException_Sub1.mapFilesBuffer[id] == null) {
 					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
 				}
 			}
 			if (Class28.locationsMapFileIds[id] != -1 && Class134.locationMapFilesBuffer[id] == null) {
-				Class134.locationMapFilesBuffer[id] = Class65.aClass50_597.getFileXTEA(0, Class28.locationsMapFileIds[id], Class125.anIntArrayArray2150[id]);
+				Class134.locationMapFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, Class28.locationsMapFileIds[id], Class125.anIntArrayArray2150[id]);
 				if (Class134.locationMapFilesBuffer[id] == null) {
 					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
@@ -159,14 +159,14 @@ class Class164 {
 			}
 			if (HDToolkit.glEnabled) {
 				if (Class111.underWaterMapFileIds[id] != -1 && Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] == null) {
-					Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] = Class65.aClass50_597.getFile(Class111.underWaterMapFileIds[id], 0);
+					Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] = Class65.mapsJs5.getFile(Class111.underWaterMapFileIds[id], 0);
 					if (Class120_Sub12_Sub36.underWaterMapFilesBuffer[id] == null) {
 						fileExists = false;
 						AbstractBuffer.mapFilesMissingCount++;
 					}
 				}
 				if (client.underWaterLocationsMapFileIds[id] != -1 && Class101_Sub1.underWaterLocationsMapFilesBuffer[id] == null) {
-					Class101_Sub1.underWaterLocationsMapFilesBuffer[id] = Class65.aClass50_597.getFile(client.underWaterLocationsMapFileIds[id], 0);
+					Class101_Sub1.underWaterLocationsMapFilesBuffer[id] = Class65.mapsJs5.getFile(client.underWaterLocationsMapFileIds[id], 0);
 					if (Class101_Sub1.underWaterLocationsMapFilesBuffer[id] == null) {
 						AbstractBuffer.mapFilesMissingCount++;
 						fileExists = false;
@@ -174,7 +174,7 @@ class Class164 {
 				}
 			}
 			if (ProducingGraphicsBuffer.npcSpawnsFileIds != null && Class179.npcSpawnsFilesBuffer[id] == null && ProducingGraphicsBuffer.npcSpawnsFileIds[id] != -1) {
-				Class179.npcSpawnsFilesBuffer[id] = Class65.aClass50_597.getFileXTEA(0, ProducingGraphicsBuffer.npcSpawnsFileIds[id], Class125.anIntArrayArray2150[id]);
+				Class179.npcSpawnsFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, ProducingGraphicsBuffer.npcSpawnsFileIds[id], Class125.anIntArrayArray2150[id]);
 				if (Class179.npcSpawnsFilesBuffer[id] == null) {
 					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
@@ -362,8 +362,8 @@ class Class164 {
 					for (int i_34_ = i_30_ + -1; i_34_ <= 1 + i_31_; i_34_++) {
 						for (int i_35_ = -1 + i_32_; 1 + i_33_ >= i_35_; i_35_++) {
 							if (i_34_ < i_30_ || i_34_ > i_31_ || i_35_ < i_32_ || i_33_ < i_35_) {
-								Class65.aClass50_597.method427("m" + i_34_ + "_" + i_35_);
-								Class65.aClass50_597.method427("l" + i_34_ + "_" + i_35_);
+								Class65.mapsJs5.method427("m" + i_34_ + "_" + i_35_);
+								Class65.mapsJs5.method427("l" + i_34_ + "_" + i_35_);
 							}
 						}
 					}
@@ -430,11 +430,11 @@ class Class164 {
 		/* empty */
 	}
 
-	static final void method2142() {
+	static final void cameraLeft() {
 		if (!Class188.aBoolean1925) {
-			Class118.aBoolean1134 = true;
-			if (!Class134.aBoolean1277) {
-				Class120_Sub15.aFloat2598 += (-Class120_Sub15.aFloat2598 + -24.0F) / 2.0F;
+			Class118.sendCameraPacket = true;
+			if (!Class134.updateCameraFromCs2) {
+				Class120_Sub15.cameraYawWrapper -= (Class120_Sub15.cameraYawWrapper + 24.0F) / 2.0F;
 			} else {
 				DummyOutputStream.cameraYaw = (int) DummyOutputStream.cameraYaw - 65 & ~0x7f;
 			}
@@ -576,7 +576,7 @@ class Class164 {
 						if (npc != null) {
 							final int targetX = npc.x / 32 - TileParticleQueue.selfPlayer.x / 32;
 							final int targetY = npc.z / 32 - TileParticleQueue.selfPlayer.z / 32;
-							Class145.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
+							SkyboxType.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 						}
 					}
 					if (hintIcon.targetType == 2) {
@@ -584,14 +584,14 @@ class Class164 {
 						final int targetY = (hintIcon.z - LightType.currentBaseZ) * 4 - TileParticleQueue.selfPlayer.z / 32 + 2;
 						int showDistance = hintIcon.showDistance * 4;
 						showDistance *= showDistance;
-						Class145.drawHintIconOnMinimap(jagexInterface, showDistance, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
+						SkyboxType.drawHintIconOnMinimap(jagexInterface, showDistance, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 					}
 					if (hintIcon.targetType == 10 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class118.playersList.length) {
 						final Player player = Class118.playersList[hintIcon.targetIndex];
 						if (player != null) {
 							final int targetX = player.x / 32 - TileParticleQueue.selfPlayer.x / 32;
 							final int targetY = player.z / 32 - TileParticleQueue.selfPlayer.z / 32;
-							Class145.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
+							SkyboxType.drawHintIconOnMinimap(jagexInterface, 360000, interfaceX, targetY, interfaceY, targetX, hintIcon.iconType);
 						}
 					}
 				}

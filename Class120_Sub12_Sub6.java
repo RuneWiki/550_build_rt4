@@ -180,7 +180,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		Class157.shaders[1] = new Class72();
 		Class157.shaders[2] = new LavaShader();
 		Class157.shaders[3] = new WaterShader();
-		Class157.shaders[4] = new Class14();
+		Class157.shaders[4] = new WaterMovementShader();
 		Class157.shaders[5] = new WaterfallShader();
 		Class157.shaders[6] = new Class138();
 		Class157.shaders[7] = new Class5();

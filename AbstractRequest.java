@@ -265,7 +265,7 @@ abstract class AbstractRequest extends NodeSub {
 	static final LDIndexedSprite[] constructLDIndexedSprites() {
 		final LDIndexedSprite[] indexedSprites = new LDIndexedSprite[Class93.spriteAmount];
 		for (int id = 0; id < Class93.spriteAmount; id++) {
-			indexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], Class145.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
+			indexedSprites[id] = new LDIndexedSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], SkyboxType.spritePaletteIndicators[id], Class132_Sub1.spritePalette);
 		}
 		Class53_Sub1.resetSpriteInfo();
 		return indexedSprites;
@@ -314,13 +314,13 @@ abstract class AbstractRequest extends NodeSub {
 			}
 		}
 		if (is != null) {
-			PlainTile.anInt1356 = is[3];
-			ModelParticleEmitter.anInt1475 = is[0];
-			Class143_Sub1.anInt2197 = is[2];
-			Class132.anInt1257 = is[4];
-			Class120_Sub12.anInt2560 = is[1];
+			PlainTile.activeSkyboxSphereOffsetZ = is[3];
+			ModelParticleEmitter.activeSkyboxId = is[0];
+			Class143_Sub1.activeSkyboxSphereOffsetY = is[2];
+			Class132.activeSkyboxYawOffset = is[4];
+			Class120_Sub12.activeSkyboxSphereOffsetX = is[1];
 		} else {
-			ModelParticleEmitter.anInt1475 = -1;
+			ModelParticleEmitter.activeSkyboxId = -1;
 		}
 	}
 

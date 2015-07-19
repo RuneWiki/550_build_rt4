@@ -21,9 +21,9 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		if (jagexInterface != null) {
 			InterfaceClickMask.redrawInterface(jagexInterface);
 		}
-		if (Class156.aClass189_1454 != null) {
-			InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
-			Class156.aClass189_1454 = null;
+		if (Class156.dialogInterface != null) {
+			InterfaceClickMask.redrawInterface(Class156.dialogInterface);
+			Class156.dialogInterface = null;
 		}
 		for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 			if (Class150.method2064(Class120_Sub29.menuOptionsCode[id])) {

@@ -281,7 +281,7 @@ final class ParamType extends NodeSub {
 	static final AbstractSprite[] constructSprites() {
 		final AbstractSprite[] abstractSprites = new AbstractSprite[Class93.spriteAmount];
 		for (int id = 0; id < Class93.spriteAmount; id++) {
-			final byte[] paletteIndicators = Class145.spritePaletteIndicators[id];
+			final byte[] paletteIndicators = SkyboxType.spritePaletteIndicators[id];
 			final int pixelAmount = Class120_Sub12_Sub11.spriteWidths[id] * Class120_Sub12_Sub39.spriteHeights[id];
 			final int[] pixels = new int[pixelAmount];
 			for (int pixelId = 0; pixelId < pixelAmount; pixelId++) {

@@ -95,23 +95,23 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 
 	static final void method1331() {
 		final GL gl = HDToolkit.gl;
-		gl.glDisableClientState(32886);
+		gl.glDisableClientState(32886);//GL_COLOR_ARRAY
 		HDToolkit.toggleLighting(false);
-		gl.glDisable(2929);
-		gl.glPushAttrib(128);
-		gl.glFogf(2915, 3072.0F);
+		gl.glDisable(2929);//GL_DEPTH_TEST
+		gl.glPushAttrib(128);//GL_FOG_BIT
+		gl.glFogf(2915, 3072.0F);//GL_FOG_START
 		HDToolkit.disableDepthMask();
 		for (int i = 0; i < SceneGroundObject.surfaceHdTiles[0].length; i++) {
 			final HDTile class120_sub9 = SceneGroundObject.surfaceHdTiles[0][i];
-			if (class120_sub9.textureId >= 0 && Class120_Sub12_Sub29.method1355(Rasterizer.anInterface5_973.method18(class120_sub9.textureId))) {
-				gl.glColor4fv(World.method2196(class120_sub9.anInt2505), 0);
+			if (class120_sub9.textureId >= 0 && Class120_Sub12_Sub29.isWaterShader(Rasterizer.anInterface5_973.getShaderId(class120_sub9.textureId))) {
+				gl.glColor4fv(World.method2196(class120_sub9.underwaterColor), 0);
 				final float f = 201.5F - (class120_sub9.blend ? 1.0F : 0.5F);
 				class120_sub9.method1162(LabelGroup.activeGroundTiles, f, true);
 			}
 		}
-		gl.glEnableClientState(32886);
+		gl.glEnableClientState(32886);//GL_COLOR_ARRAY
 		HDToolkit.method532();
-		gl.glEnable(2929);
+		gl.glEnable(2929);//GL_DEPTH_TEST
 		gl.glPopAttrib();
 		HDToolkit.enableDepthMask();
 	}
@@ -124,36 +124,36 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 		System.gc();
 	}
 
-	static final void method1333(String string, final boolean bool) {
-		string = string.toLowerCase();
-		int i_13_ = 0;
-		short[] is = new short[16];
+	static final void searchObjects(String name, final boolean geSearch) {
+		name = name.toLowerCase();
+		short[] results = new short[16];
+		int resultsPos = 0;
 		for (int id = 0; id < Node.objCount; id++) {
 			final ObjType objType = ObjType.list(id);
-			if ((!bool || objType.stockmarket) && objType.certtemplate == -1 && objType.lenttemplate == -1 && objType.dummyobject == 0 && objType.name.toLowerCase().indexOf(string) != -1) {
-				if (i_13_ >= 250) {
-					Buffer.anInt2474 = -1;
-					Class120_Sub12_Sub37.aShortArray3430 = null;
+			if ((!geSearch || objType.stockmarket) && objType.certtemplate == -1 && objType.lenttemplate == -1 && objType.dummyobject == 0 && objType.name.toLowerCase().indexOf(name) != -1) {
+				if (resultsPos >= 250) {
+					Buffer.searchResultCount = -1;
+					Class120_Sub12_Sub37.searchResults = null;
 					return;
 				}
-				if (is.length <= i_13_) {
-					final short[] is_15_ = new short[2 * is.length];
-					for (int i_16_ = 0; i_13_ > i_16_; i_16_++) {
-						is_15_[i_16_] = is[i_16_];
+				if (results.length <= resultsPos) {
+					final short[] newArray = new short[results.length * 2];
+					for (int i = 0; i < resultsPos; i++) {
+						newArray[i] = results[i];
 					}
-					is = is_15_;
+					results = newArray;
 				}
-				is[i_13_++] = (short) id;
+				results[resultsPos++] = (short) id;
 			}
 		}
-		Buffer.anInt2474 = i_13_;
+		Buffer.searchResultCount = resultsPos;
 		ParticleNode.anInt1035 = 0;
-		Class120_Sub12_Sub37.aShortArray3430 = is;
-		final String[] strings = new String[Buffer.anInt2474];
-		for (int i_17_ = 0; i_17_ < Buffer.anInt2474; i_17_++) {
-			strings[i_17_] = ObjType.list(is[i_17_]).name;
+		Class120_Sub12_Sub37.searchResults = results;
+		final String[] objectNames = new String[Buffer.searchResultCount];
+		for (int id = 0; id < Buffer.searchResultCount; id++) {
+			objectNames[id] = ObjType.list(results[id]).name;
 		}
-		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
+		ArrayUtils.quicksort(objectNames, Class120_Sub12_Sub37.searchResults);
 	}
 
 	static final void clearLocCache() {
@@ -269,31 +269,31 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub18.method1288());
 						MapFunctionNode.aBoolean3471 = true;
 						MapFunctionGroup.loginStream.putShort(OverlayFrequencyNode.packetCounter);
-						MapFunctionGroup.loginStream.putInt(AmbientSound.aClass50_2479.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class79_Sub1.aClass50_2245.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Js5Worker.aClass50_397.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class33.aClass50_275.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(AmbientSound.animsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class79_Sub1.animsBasesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Js5Worker.configJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class33.interfaceJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class159.aClass50_1490.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class65.aClass50_597.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub36.aClass50_3419.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub17.aClass50_3258.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(client.aClass50_63.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(NodeCache.aClass50_303.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(ParticleNodeSub.aClass50_2400.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class65.mapsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub36.musicJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub17.modelsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(client.spritesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(NodeCache.texturesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(ParticleNodeSub.binaryJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(IsaacCipher.aClass50_1019.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(ClanMember.aClass50_2576.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class132.aClass50_1251.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(IsaacCipher.scriptsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(ClanMember.fontMetricsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class132.vorbisJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class114.aClass50_1097.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(ModelParticleMagnet.aClass50_1649.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class114.locationsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(ModelParticleMagnet.enumsJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub29.aClass50_3367.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class127.aClass50_1213.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class2.aClass50_50.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub2.aClass50_2415.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(WaterfallShader.aClass50_2169.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub24.aClass50_3309.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class153.aClass50_1433.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(SphereType.aClass50_1433.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(AbstractMouseWheelHandler.aClass50_115.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub15.aClass50_3242.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class187.aClass50_1907.getIndexCrc());

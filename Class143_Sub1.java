@@ -9,7 +9,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	private final js5 aClass50_2194;
 	static int[][][] anIntArrayArrayArray2195 = new int[2][][];
 	private js5 aClass50_2196;
-	static int anInt2197;
+	static int activeSkyboxSphereOffsetY;
 	private NodeCache aClass35_2198;
 
 	static final boolean allLevelsAreVisible() {
@@ -25,8 +25,8 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	@Override
-	public final int method24(final int i) {
-		return method8(i).aByte1102 & 0xff;
+	public final int getBlanch(final int i) {
+		return method8(i).blanch & 0xff;
 	}
 
 	@Override
@@ -124,8 +124,8 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	@Override
-	public final int method20(final int i) {
-		return method8(i).aShort1106 & 0xffff;
+	public final int getColorPaletteIndex(final int i) {
+		return method8(i).colorPaletteIndex & 0xffff;
 	}
 
 	@Override
@@ -182,7 +182,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 
 	@Override
 	public final void method28(final int i_31_, final int i_32_) {
-		Class120_Sub14_Sub13.method1532(method8(i_32_).aByte1103 & 0xff, 0xff & method8(i_32_).aByte1104);
+		Class120_Sub14_Sub13.method1532(method8(i_32_).shaderId & 0xff, method8(i_32_).aByte1104 & 0xff);
 		boolean bool = false;
 		final Class120_Sub14_Sub17 class120_sub14_sub17 = method2024(i_32_);
 		if (class120_sub14_sub17 != null) {
@@ -195,8 +195,8 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	@Override
-	public final int method21(final int i_33_) {
-		return method8(i_33_).aByte1105 & 0xff;
+	public final int getBrightness(final int id) {
+		return method8(id).brightness & 0xff;
 	}
 
 	static final int fontCachedCount(final js5 fontMetricsJs5, final js5 spritesJs5) {
@@ -233,7 +233,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		if (class120_sub14_sub15_39_ != null) {
 			return class120_sub14_sub15_39_;
 		}
-		class120_sub14_sub15_39_ = new Class120_Sub14_Sub15(method8(i_38_).aShort1106 & 0xffff);
+		class120_sub14_sub15_39_ = new Class120_Sub14_Sub15(method8(i_38_).colorPaletteIndex & 0xffff);
 		aClass35_2193.put(class120_sub14_sub15_39_, i_38_);
 		return class120_sub14_sub15_39_;
 	}
@@ -254,8 +254,8 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	@Override
-	public final int method18(final int i) {
-		return method8(i).aByte1103 & 0xff;
+	public final int getShaderId(final int i) {
+		return method8(i).shaderId & 0xff;
 	}
 
 	static final void method2032(final JagexInterface jagexInterface) {

@@ -70,7 +70,7 @@ final class Class31 {
 	static final int method263(final boolean bool) {
 		final long l = TimeUtil.getSafeTime();
 		for (LongNode class120_sub3 = bool ? (LongNode) Class69_Sub3_Sub1.aClass75_3079.getFirst() : (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext(); class120_sub3 != null; class120_sub3 = (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext()) {
-			if (l > (0x3fffffffffffffffL & class120_sub3.value)) {
+			if (l > (class120_sub3.value & 0x3fffffffffffffffL)) {
 				if ((class120_sub3.value & 0x4000000000000000L) == 0L) {
 					class120_sub3.unlink();
 				} else {

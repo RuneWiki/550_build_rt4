@@ -69,8 +69,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putInt2(data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
 			if (code == 33) {
 				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
@@ -139,7 +139,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			if (code == 19) {//Cast spell on scene
 				if (data1 == 0) {//From minimap
 					MapFunctionNode.anInt3479 = 1;
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
+					Class120_Sub12_Sub20.requestClickedTileCoordinates(Class173.gameLevel, data2, data3);
 				} else if (data1 == 1) {//From game screen
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
 					Class120_Sub12_Sub11.outputStream.putShortA(data3 + LightType.currentBaseZ);
@@ -195,8 +195,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShortA(data2);
 				Class120_Sub12_Sub11.outputStream.putShort(data1);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
 			if (code == 25) {
 				final Npc npc = Class120_Sub12_Sub11.npcList[data1];
@@ -276,7 +276,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			if (code == 47) {
 				if (data1 == 0) {
 					Class120_Sub12_Sub33.anInt3401 = 1;
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
+					Class120_Sub12_Sub20.requestClickedTileCoordinates(Class173.gameLevel, data2, data3);
 				} else if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
 					Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + data2);
@@ -304,8 +304,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putInt1(data3);
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data2);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
 			if (code == 13) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(242);
@@ -313,13 +313,15 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putInt1(data3);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
-			if (code == 3 && Class156.aClass189_1454 == null) {
-				JagexInterface.method2499(data2, data3);
-				Class156.aClass189_1454 = JagexInterface.getComponent(data3, data2);
-				InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
+			if (code == 3 && Class156.dialogInterface == null) {
+				Class120_Sub12_Sub11.outputStream.putByteIsaac(178);
+				Class120_Sub12_Sub11.outputStream.putLEShort(data2);
+				Class120_Sub12_Sub11.outputStream.putInt2(data3);
+				Class156.dialogInterface = JagexInterface.getComponent(data3, data2);
+				InterfaceClickMask.redrawInterface(Class156.dialogInterface);
 			}
 			if (code == 1) {
 				Class120_Sub12_Sub11.outputStream.putByteIsaac(40);
@@ -387,8 +389,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putShortA(ProjectileNode.selectedObjId);
 				Class120_Sub12_Sub11.outputStream.putInt2(PlainTile.selectedObjInterface);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
 			if (code == 57) {
 				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
@@ -407,8 +409,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 				Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 				Class69_Sub2.anInt2236 = 0;
-				MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-				Huffman.anInt1204 = data2;
+				MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+				Huffman.pressedInventoryIndex = data2;
 			}
 			if (code == 14) {
 				final Player player = Class118.playersList[data1];
@@ -424,28 +426,26 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 			}
 			if (code == 26) {
-				if (data1 != 0) {
-					if (data1 == 1) {
-						if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
-							Class53_Sub1.method464(1, data2, data3);
-							Class120_Sub12_Sub11.outputStream.putByte(FileSystem.minimapClickX);// 1
-							Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.minimapClickY);// 2
-							Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.cameraYaw);// 4
-							Class120_Sub12_Sub11.outputStream.putByte(57);// 5
-							Class120_Sub12_Sub11.outputStream.putByte(69);// 6 deleted
-							Class120_Sub12_Sub11.outputStream.putByte(68);// 7 deleted
-							Class120_Sub12_Sub11.outputStream.putByte(89);// 8
-							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.x);// 10
-							Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.z);// 12
-							Class120_Sub12_Sub11.outputStream.putByte(0);// 13
-							Class120_Sub12_Sub11.outputStream.putByte(63);// 14
-							MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
-						} else {
-							ParticleNode.tele(data2 + GameEntity.currentBaseX, data3 + LightType.currentBaseZ, Class173.gameLevel);
-						}
+				if (data1 == 0) {
+					Class120_Sub12_Sub20.requestClickedTileCoordinates(Class173.gameLevel, data2, data3);
+				} else if (data1 == 1) {
+					if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
+						Class53_Sub1.method464(1, data2, data3);
+						Class120_Sub12_Sub11.outputStream.putByte(FileSystem.minimapClickX);// 1
+						Class120_Sub12_Sub11.outputStream.putByte(Class53_Sub1.minimapClickY);// 2
+						Class120_Sub12_Sub11.outputStream.putShort((int) DummyOutputStream.cameraYaw);// 4
+						Class120_Sub12_Sub11.outputStream.putByte(57);// 5
+						Class120_Sub12_Sub11.outputStream.putByte(69);// 6 deleted
+						Class120_Sub12_Sub11.outputStream.putByte(68);// 7 deleted
+						Class120_Sub12_Sub11.outputStream.putByte(89);// 8
+						Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.x);// 10
+						Class120_Sub12_Sub11.outputStream.putShort(TileParticleQueue.selfPlayer.z);// 12
+						Class120_Sub12_Sub11.outputStream.putByte(0);// 13
+						Class120_Sub12_Sub11.outputStream.putByte(63);// 14
+						MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
+					} else {
+						ParticleNode.tele(data2 + GameEntity.currentBaseX, data3 + LightType.currentBaseZ, Class173.gameLevel);
 					}
-				} else {
-					Class120_Sub12_Sub20.method1302(Class173.gameLevel, data2, data3);
 				}
 			}
 			if (code == 9) {
@@ -474,7 +474,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					Class120_Sub12_Sub11.outputStream.putInt(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
 					Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 					Class120_Sub12_Sub11.outputStream.putShort(data1);
-					Class120_Sub12_Sub11.outputStream.putLEShort(data2 - -GameEntity.currentBaseX);
+					Class120_Sub12_Sub11.outputStream.putLEShort(data2 + GameEntity.currentBaseX);
 					Class120_Sub12_Sub11.outputStream.putByteS(NodeCache.heldKeys[82] ? 1 : 0);
 					MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, data3, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, data2);
 				}
@@ -529,8 +529,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putInt2(data3);
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 58) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(214);
@@ -538,8 +538,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class120_Sub12_Sub11.outputStream.putInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 8) {
 						final Npc npc = Class120_Sub12_Sub11.npcList[data1];
@@ -560,8 +560,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putShort(data1);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 43) {
 						final Player player = Class118.playersList[data1];
@@ -660,8 +660,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putLEShort(JagexSocket.selectedSpellComponextIndex);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 20) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(124);
@@ -669,8 +669,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShortA(data1);
 						Class120_Sub12_Sub11.outputStream.putLEInt(data3);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 2) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(205);
@@ -678,8 +678,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						Class120_Sub12_Sub11.outputStream.putLEShort(data2);
 						Class120_Sub12_Sub11.outputStream.putShortA(data1);
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 45) {
 						Class120_Sub14_Sub22.crossState = 2;
@@ -728,8 +728,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 							AbstractRequest.pushMessage(new StringBuilder(String.valueOf(jagexInterface.objAmounts[data2])).append(" x ").append(ObjType.list(data1).name).toString(), "", 0);
 						}
 						Class69_Sub2.anInt2236 = 0;
-						MagnetType.aClass189_256 = Class74.getJagexInterface(data3);
-						Huffman.anInt1204 = data2;
+						MagnetType.pressedInventoryComponent = Class74.getJagexInterface(data3);
+						Huffman.pressedInventoryIndex = data2;
 					}
 					if (code == 18) {
 						Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
@@ -760,8 +760,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 					if (Class88.spellSelected) {
 						Node.deselectSpell();
 					}
-					if (MagnetType.aClass189_256 != null && Class69_Sub2.anInt2236 == 0) {
-						InterfaceClickMask.redrawInterface(MagnetType.aClass189_256);
+					if (MagnetType.pressedInventoryComponent != null && Class69_Sub2.anInt2236 == 0) {
+						InterfaceClickMask.redrawInterface(MagnetType.pressedInventoryComponent);
 					}
 				}
 			}
@@ -1130,7 +1130,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						error("wrongjava");
 						return;
 					}
-					Class145.sleepModifier1 = 5;
+					SkyboxType.sleepModifier1 = 5;
 				} else if (vendor.indexOf("ibm") != -1 && (Signlink.javaVersion == null || Signlink.javaVersion.equals("1.4.2"))) {
 					error("wrongjava");
 					return;
@@ -1168,7 +1168,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Class101_Sub2.gameShellTimer = MasterIndexInfo.constructTimer();
 			loadJagmisc();
 			while (IntegerNode.killtime == 0L || TimeUtil.getSafeTime() < IntegerNode.killtime) {
-				Class112.gameLoopCount = Class101_Sub2.gameShellTimer.sleep(Class145.sleepModifier1, Class120_Sub12_Sub1.sleepModifier2);
+				Class112.gameLoopCount = Class101_Sub2.gameShellTimer.sleep(SkyboxType.sleepModifier1, Class120_Sub12_Sub1.sleepModifier2);
 				for (int loop = 0; loop < Class112.gameLoopCount; loop++) {
 					mainLoopWrapper();
 				}

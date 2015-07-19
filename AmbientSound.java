@@ -4,7 +4,7 @@
 
 final class AmbientSound extends Node {
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2478;
-	static js5 aClass50_2479;
+	static js5 animsJs5;
 	int anInt2480 = 0;
 	int entityZ;
 	int[] anIntArray2482;
@@ -139,8 +139,8 @@ final class AmbientSound extends Node {
 		}
 		DummyOutputStream.cameraYaw = i_3_;
 		Class120_Sub12_Sub21.cameraPitch = i;
-		Class127.method1892();
-		Class118.aBoolean1134 = true;
+		Class127.fixCameraBounds();
+		Class118.sendCameraPacket = true;
 	}
 	
 	static final void fillArray(final int[] src, final int val, int i_5_, int i_6_) {

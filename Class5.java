@@ -6,14 +6,12 @@ import javax.media.opengl.GL;
 final class Class5 implements ShaderInterface {
 	private boolean aBoolean2151 = false;
 	static short[] aShortArray2152;
-	static String aString2153 = "Close";
-	static int anInt2154 = 0;
+	static int clickedInventoryIndex = 0;
 	private int anInt2156 = -1;
 	static int mapSceneGreenColorModifier;
 	
 	static {
 		aShortArray2152 = new short[] { -10304, 9104, -1, -1, -1 };
-		AbstractModelRenderer.addActions = false;
 	}
 
 	static final void spawnGroundObject(final int x, final int z) {
@@ -59,8 +57,8 @@ final class Class5 implements ShaderInterface {
 
 	static final void method98(final int i) {
 		Class190.anInt2101 = i;
-		for (int i_7_ = 0; i_7_ < WallDecoration.anInt1900; i_7_++) {
-			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.anInt3440; i_8_++) {
+		for (int i_7_ = 0; i_7_ < WallDecoration.mapSizeX; i_7_++) {
+			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.mapSizeZ; i_8_++) {
 				if (LabelGroup.activeGroundTiles[i][i_7_][i_8_] == null) {
 					LabelGroup.activeGroundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
 				}
@@ -70,6 +68,7 @@ final class Class5 implements ShaderInterface {
 
 	@Override
 	public final void method3() {
+		//2714 5335 0
 		final GL gl = HDToolkit.gl;
 		HDToolkit.method521(1);
 		if (Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297 != null && anInt2156 >= 0 && Class120_Sub12_Sub6.highLightingDetail) {
@@ -78,7 +77,7 @@ final class Class5 implements ShaderInterface {
 			Class120_Sub12_Sub21.aClass120_Sub14_Sub9_3297.method1494();
 			gl.glMatrixMode(5890);
 			gl.glLoadIdentity();
-			gl.glRotatef(-(360.0F * Class145.renderYawWrapper) / 2048.0F, 0.0F, 1.0F, 0.0F);
+			gl.glRotatef(-(360.0F * SkyboxType.renderYawWrapper) / 2048.0F, 0.0F, 1.0F, 0.0F);
 			gl.glRotatef(-(360.0F * Class120_Sub14_Sub13.renderPitchWrapper) / 2048.0F, 1.0F, 0.0F, 0.0F);
 			gl.glScalef(-1.0F, 1.0F, 1.0F);
 			gl.glMatrixMode(5888);
@@ -87,7 +86,6 @@ final class Class5 implements ShaderInterface {
 		} else {
 			gl.glTexEnvi(8960, 34184, 34167);
 		}
-		//Thread.dumpStack();
 	}
 
 	@Override

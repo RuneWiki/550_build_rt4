@@ -162,9 +162,9 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 	}
 
 	static final void updateCamera(final long l) {
-		if (!Class134.aBoolean1277) {
-			Class120_Sub12_Sub21.cameraPitch += l * Class120_Sub12_Sub4.aFloat3154 / 40.0F;
-			DummyOutputStream.cameraYaw += l * Class120_Sub15.aFloat2598 / 40.0F;
+		if (!Class134.updateCameraFromCs2) {
+			Class120_Sub12_Sub21.cameraPitch += l * Class120_Sub12_Sub4.cameraPitchWrapper / 40.0F;
+			DummyOutputStream.cameraYaw += l * Class120_Sub15.cameraYawWrapper / 40.0F;
 		}
 		final int playerX = TileParticleQueue.selfPlayer.x;
 		final int playerZ = TileParticleQueue.selfPlayer.z;
@@ -208,7 +208,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			}
 			InterfaceListener.cameraZ += zStep;
 		}
-		Class127.method1892();
+		Class127.fixCameraBounds();
 	}
 
 	private final void method1223() {

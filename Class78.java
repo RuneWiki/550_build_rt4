@@ -6,13 +6,13 @@ import java.nio.ByteBuffer;
 import javax.media.opengl.GL;
 
 final class Class78 {
-	static int anInt681 = -1;
+	static int waterfallTextureId = -1;
 	static int[] anIntArray682;
 	private static ByteBuffer aByteBuffer683;
 	static int anInt684;
 	static boolean allows3DTextureMapping;
 	private static ByteBuffer aByteBuffer686;
-	static int[] anIntArray687 = null;
+	static int[] waterfallTextures = null;
 
 	static {
 		anIntArray682 = null;
@@ -62,13 +62,13 @@ final class Class78 {
 			gl.glTexImage3D(32879, 0, 6410, 64, 64, 64, 0, 6410, 5121, aByteBuffer683);
 			gl.glTexParameteri(32879, 10241, 9729);
 			gl.glTexParameteri(32879, 10240, 9729);
-			anInt681 = is[0];
+			waterfallTextureId = is[0];
 			MemoryManager.textureMemory += aByteBuffer683.limit() * 2;
 		} else {
-			anIntArray687 = new int[64];
-			gl.glGenTextures(64, anIntArray687, 0);
+			waterfallTextures = new int[64];
+			gl.glGenTextures(64, waterfallTextures, 0);
 			for (int i = 0; i < 64; i++) {
-				HDToolkit.bindTexture2D(anIntArray687[i]);
+				HDToolkit.bindTexture2D(waterfallTextures[i]);
 				aByteBuffer683.position(i * 64 * 64 * 2);
 				gl.glTexImage2D(3553, 0, 6410, 64, 64, 0, 6410, 5121, aByteBuffer683);
 				gl.glTexParameteri(3553, 10241, 9729);
@@ -92,17 +92,17 @@ final class Class78 {
 			anIntArray682 = null;
 			MemoryManager.textureMemory -= aByteBuffer686.limit() * 2;
 		}
-		if (anInt681 != -1) {
+		if (waterfallTextureId != -1) {
 			final GL gl = HDToolkit.gl;
-			final int[] is = { anInt681 };
+			final int[] is = { waterfallTextureId };
 			gl.glDeleteTextures(1, is, 0);
-			anInt681 = -1;
+			waterfallTextureId = -1;
 			MemoryManager.textureMemory -= aByteBuffer683.limit() * 2;
 		}
-		if (anIntArray687 != null) {
+		if (waterfallTextures != null) {
 			final GL gl = HDToolkit.gl;
-			gl.glDeleteTextures(64, anIntArray687, 0);
-			anIntArray687 = null;
+			gl.glDeleteTextures(64, waterfallTextures, 0);
+			waterfallTextures = null;
 			MemoryManager.textureMemory -= aByteBuffer683.limit() * 2;
 		}
 	}

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /* Class144 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -137,7 +139,7 @@ final class PlayerAppearance {
 					if (!ObjType.list(data & 0x3fffffff).modelsDownloaded(this.isFemale)) {
 						failedToDownload = true;
 					}
-				} else if ((~0x7fffffff & data) != 0 && !Identikit.list(data & 0x3fffffff).modelsDownloaded()) {//checks
+				} else if ((~0x7fffffff & data) != 0 && !Identikit.list(data & 0x3fffffff).modelsDownloaded()) {
 					failedToDownload = true;
 				}
 			}
@@ -386,7 +388,7 @@ final class PlayerAppearance {
 		return class180_sub7_73_;
 	}
 
-	final AbstractModelRenderer method2041(final SeqType seqType, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_80_, final int i_81_) {
+	final AbstractModelRenderer method2041(final SeqType seqType, final int i_80_, final int i_76_, final int i_77_, final int i_78_, final int i_79_, final int i_81_) {
 		final long l = (long) i_77_ << 32 | i_76_ << 16 | i_80_;
 		AbstractModelRenderer class180_sub7_82_ = (AbstractModelRenderer) Class90.playerHeadModelsCache.get(l);
 		if (class180_sub7_82_ == null) {

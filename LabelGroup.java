@@ -43,7 +43,7 @@ final class LabelGroup extends Node {
 		for (int spriteId = 0; spriteId < Class93.spriteAmount; spriteId++) {
 			final int pixelLen = Class120_Sub12_Sub39.spriteHeights[spriteId] * Class120_Sub12_Sub11.spriteWidths[spriteId];
 			final int[] pixels = new int[pixelLen];
-			final byte[] paletteIndicators = Class145.spritePaletteIndicators[spriteId];
+			final byte[] paletteIndicators = SkyboxType.spritePaletteIndicators[spriteId];
 			for (int id = 0; id < pixelLen; id++) {
 				pixels[id] = Class132_Sub1.spritePalette[paletteIndicators[id] & 0xff];
 			}

@@ -6,7 +6,7 @@ abstract class Class120_Sub12 extends Node {
 	static float aFloat2557;
 	boolean aBoolean2558;
 	Class109 aClass109_2559;
-	static int anInt2560;
+	static int activeSkyboxSphereOffsetX;
 	Class120_Sub12[] aClass120_Sub12Array2561;
 	static long[] menuOptionsData1 = new long[500];
 	Class30 aClass30_2563;
@@ -181,9 +181,9 @@ abstract class Class120_Sub12 extends Node {
 		}
 	}
 
-	static final void setTile(final int level, final int x, final int z, final int tileType, final int i_38_, final int i_39_, final int tileHeight, final int tileHeightEast, final int tileHeightNorthEast, final int tileHeightNorth, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int overlayMinimapColor, final int underlayMinimapColor) {
+	static final void setTile(final int level, final int x, final int z, final int tileType, final int i_38_, final int i_39_, final int tileHeight, final int tileHeightEast, final int tileHeightNorthEast, final int tileHeightNorth, final int i_44_, final int i_45_, final int i_46_, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_, final int underlayMinimapColor, final int overlayMinimapColor) {
 		if (tileType == 0) {
-			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, overlayMinimapColor, false);
+			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, underlayMinimapColor, false);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
 				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
 					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
@@ -191,7 +191,7 @@ abstract class Class120_Sub12 extends Node {
 			}
 			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else if (tileType == 1) {
-			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, underlayMinimapColor, tileHeight == tileHeightEast && tileHeight == tileHeightNorthEast && tileHeight == tileHeightNorth);
+			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, overlayMinimapColor, tileHeight == tileHeightEast && tileHeight == tileHeightNorthEast && tileHeight == tileHeightNorth);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
 				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
 					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
@@ -199,7 +199,7 @@ abstract class Class120_Sub12 extends Node {
 			}
 			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else {
-			final ShapedTile shapedTile = new ShapedTile(tileType, i_38_, i_39_, x, z, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, overlayMinimapColor, underlayMinimapColor);
+			final ShapedTile shapedTile = new ShapedTile(tileType, i_38_, i_39_, x, z, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, underlayMinimapColor, overlayMinimapColor);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
 				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
 					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);

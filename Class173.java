@@ -20,8 +20,8 @@ final class Class173 {
 	static final void method2225() {
 		if (Class86.surfaceGroundTiles != null) {
 			for (int i = 0; i < Class86.surfaceGroundTiles.length; i++) {
-				for (int i_0_ = 0; i_0_ < WallDecoration.anInt1900; i_0_++) {
-					for (int i_1_ = 0; i_1_ < Class120_Sub12_Sub38.anInt3440; i_1_++) {
+				for (int i_0_ = 0; i_0_ < WallDecoration.mapSizeX; i_0_++) {
+					for (int i_1_ = 0; i_1_ < Class120_Sub12_Sub38.mapSizeZ; i_1_++) {
 						Class86.surfaceGroundTiles[i][i_0_][i_1_] = null;
 					}
 				}
@@ -30,8 +30,8 @@ final class Class173 {
 		SceneGroundObject.surfaceHdTiles = null;
 		if (Class120_Sub12_Sub38.underWaterGroundTiles != null) {
 			for (int i = 0; i < Class120_Sub12_Sub38.underWaterGroundTiles.length; i++) {
-				for (int i_2_ = 0; i_2_ < WallDecoration.anInt1900; i_2_++) {
-					for (int i_3_ = 0; i_3_ < Class120_Sub12_Sub38.anInt3440; i_3_++) {
+				for (int i_2_ = 0; i_2_ < WallDecoration.mapSizeX; i_2_++) {
+					for (int i_3_ = 0; i_3_ < Class120_Sub12_Sub38.mapSizeZ; i_3_++) {
 						Class120_Sub12_Sub38.underWaterGroundTiles[i][i_2_][i_3_] = null;
 					}
 				}

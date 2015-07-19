@@ -9,7 +9,7 @@ class Buffer extends Node {
 	int pos;
 	static int gameId;
 	static int anInt2473 = 0;
-	static int anInt2474;
+	static int searchResultCount;
 	static int subScriptAmount;
 	static String[] languageArray;
 	static int[] anIntArray2477;

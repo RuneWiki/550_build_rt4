@@ -49,26 +49,6 @@ class Class132_Sub1 extends Class132 {
 		anInt2807 = 0;
 	}
 
-	static final Class41 method1934(final int i, final int i_5_, final int i_6_, final int i_7_) {
-		final long l = 0xffffL & i_6_ | (0xffffL & i) << 48 | (0xffffL & i_5_) << 32 | (i_7_ & 0xffffL) << 16;
-		Class41 class41_8_ = (Class41) Class120_Sub6.aClass21_2443.get(l);
-		if (class41_8_ != null) {
-			return class41_8_;
-		}
-		Class97[] class97s = null;
-		final Class145 class145 = Class145.list(i_6_);
-		if (class145.anIntArray1383 != null) {
-			class97s = new Class97[class145.anIntArray1383.length];
-			for (int i_9_ = 0; i_9_ < class97s.length; i_9_++) {
-				final Class153 class153 = Class153.list(class145.anIntArray1383[i_9_]);
-				class97s[i_9_] = new Class97(class153.anInt1434, class153.anInt1429, class153.anInt1427, class153.anInt1428, class153.anInt1431, class153.anInt1435, class153.anInt1432, class153.aBoolean1430);
-			}
-		}
-		class41_8_ = new Class41(class145.anInt1384, class97s, class145.anInt1380, i, i_5_, i_7_);
-		Class120_Sub6.aClass21_2443.put(class41_8_, l);
-		return class41_8_;
-	}
-
 	@Override
 	final void method1925() {
 		anInt2807 = 0;

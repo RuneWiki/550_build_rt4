@@ -1097,7 +1097,7 @@ class LDSprite extends AbstractSprite {
 		}
 	}
 
-	final void method1617() {
+	final void init2dCanvas() {
 		GraphicsLD.init2dCanvas(this.pixels, this.width, this.height);
 	}
 

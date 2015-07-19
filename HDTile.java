@@ -12,7 +12,7 @@ final class HDTile extends Node {
 	private int tileAmount = 0;
 	private float[] tilesNormalZ;
 	private int[] tilesLevel;
-	int anInt2505;
+	int underwaterColor;
 	private int[] tilesVertexX;
 	int anInt2507;
 	private int anInt2508;
@@ -313,6 +313,6 @@ final class HDTile extends Node {
 		textureSize = f;
 		this.blend = bool;
 		aBoolean2511 = bool_21_;
-		this.anInt2505 = i_22_;
+		this.underwaterColor = i_22_;
 	}
 }

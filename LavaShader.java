@@ -113,7 +113,7 @@ final class LavaShader implements ShaderInterface {
 			gl.glActiveTexture(33985);//TEXTURE1
 			gl.glMatrixMode(5890);//TEXTURE
 			gl.glTranslatef(Projectile.renderXWrapper, Class120_Sub12_Sub27.renderYWrapper, Class69_Sub1.renderZWrapper);
-			gl.glRotatef(-(Class145.renderYawWrapper * 360.0F) / 2047.0F, 0.0F, 1.0F, 0.0F);//yaw, jagex typo? should be 2048
+			gl.glRotatef(-(SkyboxType.renderYawWrapper * 360.0F) / 2047.0F, 0.0F, 1.0F, 0.0F);//yaw, jagex typo? should be 2048
 			gl.glRotatef(-(Class120_Sub14_Sub13.renderPitchWrapper * 360.0F) / 2048.0F, 1.0F, 0.0F, 0.0F);//pitch
 			gl.glRotatef(-180.0F, 1.0F, 0.0F, 0.0F);//roll
 			gl.glMatrixMode(5888);//_MODELVIEW

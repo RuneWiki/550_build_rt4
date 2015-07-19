@@ -20,33 +20,33 @@ final class Class38 {
 		}
 	}
 
-	static final void method314(final int i, final int i_3_, final int i_4_) {
-		for (int i_5_ = 0; i_5_ < MapSceneType.activeGroundTileLength; i_5_++) {
-			for (int i_6_ = 0; i_6_ < WallDecoration.anInt1900; i_6_++) {
-				for (int i_7_ = 0; i_7_ < Class120_Sub12_Sub38.anInt3440; i_7_++) {
-					final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i_5_][i_6_][i_7_];
+	static final void method314(final int lightX, final int lightY, final int lightZ) {
+		for (int level = 0; level < MapSceneType.activeGroundTileLength; level++) {
+			for (int x = 0; x < WallDecoration.mapSizeX; x++) {
+				for (int z = 0; z < Class120_Sub12_Sub38.mapSizeZ; z++) {
+					final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
 					if (class120_sub18 != null) {
 						final WallLocation class182 = class120_sub18.wallLocation;
 						if (class182 != null && class182.aClass180_1800.method2268()) {
-							InterfaceListener.method1170(class182.aClass180_1800, i_5_, i_6_, i_7_, 1, 1);
+							InterfaceListener.method1170(class182.aClass180_1800, level, x, z, 1, 1);
 							if (class182.aClass180_1796 != null && class182.aClass180_1796.method2268()) {
-								InterfaceListener.method1170(class182.aClass180_1796, i_5_, i_6_, i_7_, 1, 1);
+								InterfaceListener.method1170(class182.aClass180_1796, level, x, z, 1, 1);
 								class182.aClass180_1800.method2267(class182.aClass180_1796, 0, 0, 0, false);
-								class182.aClass180_1796 = class182.aClass180_1796.method2269(i, i_3_, i_4_);
+								class182.aClass180_1796 = class182.aClass180_1796.method2269(lightX, lightY, lightZ);
 							}
-							class182.aClass180_1800 = class182.aClass180_1800.method2269(i, i_3_, i_4_);
+							class182.aClass180_1800 = class182.aClass180_1800.method2269(lightX, lightY, lightZ);
 						}
 						for (int i_8_ = 0; i_8_ < class120_sub18.anInt2638; i_8_++) {
 							final Class28 class28 = class120_sub18.aClass28Array2625[i_8_];
-							if (class28 != null && class28.aClass180_174.method2268()) {
-								InterfaceListener.method1170(class28.aClass180_174, i_5_, i_6_, i_7_, class28.anInt182 - class28.anInt180 + 1, class28.anInt175 - class28.anInt184 + 1);
-								class28.aClass180_174 = class28.aClass180_174.method2269(i, i_3_, i_4_);
+							if (class28 != null && class28.sceneGraphNode.method2268()) {
+								InterfaceListener.method1170(class28.sceneGraphNode, level, x, z, class28.anInt182 - class28.anInt180 + 1, class28.anInt175 - class28.anInt184 + 1);
+								class28.sceneGraphNode = class28.sceneGraphNode.method2269(lightX, lightY, lightZ);
 							}
 						}
 						final GroundDecoration class36 = class120_sub18.groundDecoration;
 						if (class36 != null && class36.sceneGraphNode.method2268()) {
-							GroundTile.method1668(class36.sceneGraphNode, i_5_, i_6_, i_7_);
-							class36.sceneGraphNode = class36.sceneGraphNode.method2269(i, i_3_, i_4_);
+							GroundTile.method1668(class36.sceneGraphNode, level, x, z);
+							class36.sceneGraphNode = class36.sceneGraphNode.method2269(lightX, lightY, lightZ);
 						}
 					}
 				}
@@ -140,7 +140,7 @@ final class Class38 {
 				}
 			}
 		}
-		QuickChatMessageType.landScapeAsLDSprite.method1617();
+		QuickChatMessageType.landScapeAsLDSprite.init2dCanvas();
 		final int whiteColor = 0xffffff;//-10 - (-238 + -(int) (20.0 * Math.random())) + (228 + (int) (20.0 * Math.random()) << 8) + (-10 + (int) (20.0 * Math.random()) + 238 << 16);
 		final int redColor = 0xff0000;//-10 + (int) (Math.random() * 20.0) + 238 << 16;
 		for (int z = 1; z < 103; z++) {

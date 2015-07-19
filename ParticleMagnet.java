@@ -19,7 +19,7 @@ final class ParticleMagnet extends NodeSub {
 		class120_sub14_sub7.anInt3484 = i_1_;
 	}
 
-	static final void updateEntityText() {
+	static final void updateEntityOverheadText() {
 		for (int id = -1; id < FileSystemWorker.localPlayerCount; id++) {
 			int index;
 			if (id == -1) {

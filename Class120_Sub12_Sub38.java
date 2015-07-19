@@ -9,7 +9,7 @@ final class Class120_Sub12_Sub38 extends Class120_Sub12 {
 	static GroundTile[][][] underWaterGroundTiles;
 	static int anInt3438;
 	static int[] skillsXp = new int[25];
-	static int anInt3440;
+	static int mapSizeZ;
 	static int[] screenRedrawYs = new int[100];
 
 	@Override

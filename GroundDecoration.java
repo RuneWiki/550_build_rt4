@@ -198,8 +198,8 @@ final class GroundDecoration {
 	}
 
 	static final void method309() {
-		Class145.aClass21_1486.clear();
-		Class120_Sub6.aClass21_2443.clear();
+		SkyboxType.aClass21_1486.clear();
+		Skybox.recentUse.clear();
 	}
 
 	public GroundDecoration() {

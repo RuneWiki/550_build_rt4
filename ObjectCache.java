@@ -4,7 +4,7 @@
 
 final class ObjectCache {
 	static AbstractFont smallFont;
-	static int anInt122 = -1;
+	static int clickedTileX = -1;
 	private final Hashtable hashtable;
 	static int[] anIntArray124 = new int[14];
 	private int capacity;
@@ -68,7 +68,7 @@ final class ObjectCache {
 		Class120_Sub14_Sub9.aClass35_3517.clear();
 		Class82.aClass88_783 = new Class88();
 		((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
-		Class41.method333();
+		Skybox.method333();
 		LightManager.lights = new Light[255];
 		LightManager.lightsPos = 0;
 		HDModelRenderer.method2436();
@@ -88,15 +88,15 @@ final class ObjectCache {
 			ParticleEmitter.setHdr(WallDecoration.hdrEnabled);
 			ParticleEngine.method964();
 		}
-		Class8.constructFonts(client.aClass50_63, ClanMember.aClass50_2576);
-		GameShell.constructSprites(client.aClass50_63);
+		Class8.constructFonts(client.spritesJs5, ClanMember.fontMetricsJs5);
+		GameShell.constructSprites(client.spritesJs5);
 		Class157.aClass120_Sub14_Sub19_1472 = null;
 		FrameGroup.aClass120_Sub14_Sub19_3611 = null;
 		Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 = null;
 		Class173.aClass120_Sub14_Sub19_1725 = null;
 		RuntimeException_Sub1.aClass120_Sub14_Sub19_2144 = null;
 		if (Class109.gameState == 5) {
-			IsaacCipher.drawTitleScreenSprites(client.aClass50_63);
+			IsaacCipher.drawTitleScreenSprites(client.spritesJs5);
 		}
 		if (Class109.gameState == 10) {
 			EnumType.method1421(false);

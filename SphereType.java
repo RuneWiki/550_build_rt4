@@ -2,16 +2,16 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class153 {
-	int anInt1427;
-	int anInt1428;
-	int anInt1429;
-	boolean aBoolean1430;
-	int anInt1431;
-	int anInt1432 = 16777215;
+final class SphereType {
+	int x;
+	int y;
+	int mediaId;
+	boolean fixedSize;
+	int z;
+	int glowColor = 16777215;
 	static js5 aClass50_1433;
-	int anInt1434;
-	int anInt1435 = 8;
+	int type;//0 - flat texture, 1 - 3d 17 points polygon with texture, 2 - model
+	int size = 8;
 	static js5 aClass50_3373;
 	static ObjectCache recentUse = new ObjectCache(16);
 	static int anInt1436 = -1;
@@ -43,19 +43,19 @@ final class Class153 {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			this.anInt1435 = buffer.getUShort();
+			this.size = buffer.getUShort();
 		} else if (code == 2) {
-			this.aBoolean1430 = true;
+			this.fixedSize = true;
 		} else if (code == 3) {
-			this.anInt1427 = buffer.getShort();
-			this.anInt1428 = buffer.getShort();
-			this.anInt1431 = buffer.getShort();
+			this.x = buffer.getShort();
+			this.y = buffer.getShort();
+			this.z = buffer.getShort();
 		} else if (code == 4) {
-			this.anInt1434 = buffer.getUByte();
+			this.type = buffer.getUByte();
 		} else if (code == 5) {
-			this.anInt1429 = buffer.getUShort();
+			this.mediaId = buffer.getUShort();
 		} else if (code == 6) {
-			this.anInt1432 = buffer.getMedium();
+			this.glowColor = buffer.getMedium();
 		}
 	}
 
@@ -79,21 +79,21 @@ final class Class153 {
 		aClass50_3373 = js5;
 	}
 
-	static final Class153 list(final int id) {
-		Class153 class153 = (Class153) recentUse.get(id);
-		if (class153 != null) {
-			return class153;
+	static final SphereType list(final int id) {
+		SphereType sphereType = (SphereType) recentUse.get(id);
+		if (sphereType != null) {
+			return sphereType;
 		}
 		final byte[] data = aClass50_3373.getFile(30, id);//Has 0 files in 550 cache
-		class153 = new Class153();
+		sphereType = new SphereType();
 		if (data != null) {
-			class153.decode(new Buffer(data));
+			sphereType.decode(new Buffer(data));
 		}
-		recentUse.put(class153, id);
-		return class153;
+		recentUse.put(sphereType, id);
+		return sphereType;
 	}
 
-	public Class153() {
+	public SphereType() {
 		/* empty */
 	}
 }

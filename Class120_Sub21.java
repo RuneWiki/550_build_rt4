@@ -60,24 +60,20 @@ final class Class120_Sub21 extends Node {
 							final int i_7_ = Class120_Sub12_Sub11.outputStream.pos;
 							for (int i_8_ = 0; i_8_ < Class110.mouseRecorder.cacheIndex && Class120_Sub12_Sub11.outputStream.pos - i_7_ < 240; i_8_++) {
 								i_6_++;
-								int i_9_ = Class110.mouseRecorder.mouseXCache[i_8_];
-								int i_10_ = Class110.mouseRecorder.mouseYCache[i_8_];
-								if (i_10_ >= 0) {
-									if ((i_10_ ^ 0xffffffff) < -65535) {
-										i_10_ = 65534;
-									}
-								} else {
+								int i_9_ = Class110.mouseRecorder.mouseCacheX[i_8_];
+								int i_10_ = Class110.mouseRecorder.mouseCacheY[i_8_];
+								if (i_10_ < 0) {
 									i_10_ = 0;
+								} else if (i_10_ > 65534) {
+									i_10_ = 65534;
 								}
 								boolean bool = false;
-								if (i_9_ >= 0) {
-									if ((i_9_ ^ 0xffffffff) < -65535) {
-										i_9_ = 65534;
-									}
-								} else {
+								if (i_9_ < 0) {
 									i_9_ = 0;
+								} else if (i_9_ > 65534) {
+									i_9_ = 65534;
 								}
-								if ((Class110.mouseRecorder.mouseYCache[i_8_] ^ 0xffffffff) == 0 && (Class110.mouseRecorder.mouseXCache[i_8_] ^ 0xffffffff) == 0) {
+								if (Class110.mouseRecorder.mouseCacheY[i_8_] == -1 && Class110.mouseRecorder.mouseCacheX[i_8_] == -1) {
 									bool = true;
 									i_9_ = -1;
 									i_10_ = -1;
@@ -87,7 +83,7 @@ final class Class120_Sub21 extends Node {
 										Class120_Sub12_Sub11.anInt3214++;
 									}
 								} else {
-									int i_11_ = -Class120_Sub12_Sub31.anInt3380 + i_10_;
+									int i_11_ = i_10_ - Class120_Sub12_Sub31.anInt3380;
 									Class120_Sub12_Sub31.anInt3380 = i_10_;
 									int i_12_ = i_9_ - Class120_Sub11.anInt2549;
 									Class120_Sub11.anInt2549 = i_9_;
@@ -125,8 +121,8 @@ final class Class120_Sub21 extends Node {
 							if (i_6_ < Class110.mouseRecorder.cacheIndex) {
 								Class110.mouseRecorder.cacheIndex -= i_6_;
 								for (int i_13_ = 0; Class110.mouseRecorder.cacheIndex > i_13_; i_13_++) {
-									Class110.mouseRecorder.mouseXCache[i_13_] = Class110.mouseRecorder.mouseXCache[i_6_ + i_13_];
-									Class110.mouseRecorder.mouseYCache[i_13_] = Class110.mouseRecorder.mouseYCache[i_6_ + i_13_];
+									Class110.mouseRecorder.mouseCacheX[i_13_] = Class110.mouseRecorder.mouseCacheX[i_6_ + i_13_];
+									Class110.mouseRecorder.mouseCacheY[i_13_] = Class110.mouseRecorder.mouseCacheY[i_6_ + i_13_];
 								}
 							} else {
 								Class110.mouseRecorder.cacheIndex = 0;
@@ -137,40 +133,38 @@ final class Class120_Sub21 extends Node {
 					}
 				}
 				if (Class156.lastMouseClick != 0) {
-					int i_14_ = Class120_Sub12_Sub36.lastClickY;
-					if (i_14_ < 0) {
-						i_14_ = 0;
-					} else if (-65536 > (i_14_ ^ 0xffffffff)) {
-						i_14_ = 65535;
+					int clickX = js5.lastClickX;
+					if (clickX < 0) {
+						clickX = 0;
+					} else if (clickX > 65535) {
+						clickX = 65535;
 					}
-					long l = (Class120_Sub12_Sub2.lastClickTime - EnumType.aLong3462) / 50L;
-					if ((l ^ 0xffffffffffffffffL) < -32768L) {
-						l = 32767L;
+					int clickY = Class120_Sub12_Sub36.lastClickY;
+					if (clickY < 0) {
+						clickY = 0;
+					} else if (clickY > 65535) {
+						clickY = 65535;
 					}
-					EnumType.aLong3462 = Class120_Sub12_Sub2.lastClickTime;
-					int i_15_ = js5.lastClickX;
-					if (i_15_ >= 0) {
-						if (65535 < i_15_) {
-							i_15_ = 65535;
-						}
-					} else {
-						i_15_ = 0;
+					long clickDelta = (Class120_Sub12_Sub2.lastClickTime - EnumType.lastClickPacketSendTime) / 50L;
+					if (clickDelta > 32767L) {
+						clickDelta = 32767L;
 					}
-					int i_16_ = 0;
+					EnumType.lastClickPacketSendTime = Class120_Sub12_Sub2.lastClickTime;
+					int mouseButton = 0;
 					if (Class156.lastMouseClick == 2) {
-						i_16_ = 1;
+						mouseButton = 1;
 					}
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(200);
-					Class120_Sub12_Sub11.outputStream.putInt1(i_14_ << 16 | i_15_);
-					final int i_17_ = (int) l;
-					Class120_Sub12_Sub11.outputStream.putShortA(i_16_ << 15 | i_17_);
+					Class120_Sub12_Sub11.outputStream.putInt1(clickY << 16 | clickX);
+					final int timeAsInt = (int) clickDelta;
+					Class120_Sub12_Sub11.outputStream.putShortA(mouseButton << 15 | timeAsInt);
 				}
-				if (NpcType.anInt1702 > 0) {
-					NpcType.anInt1702--;
+				if (NpcType.cameraPacketCycle > 0) {
+					NpcType.cameraPacketCycle--;
 				}
-				if (Class118.aBoolean1134 && NpcType.anInt1702 <= 0) {
-					Class118.aBoolean1134 = false;
-					NpcType.anInt1702 = 20;
+				if (Class118.sendCameraPacket && NpcType.cameraPacketCycle <= 0) {
+					Class118.sendCameraPacket = false;
+					NpcType.cameraPacketCycle = 20;
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(140);
 					Class120_Sub12_Sub11.outputStream.putLEShort((int) Class120_Sub12_Sub21.cameraPitch);
 					Class120_Sub12_Sub11.outputStream.putLEShortA((int) DummyOutputStream.cameraYaw);
@@ -191,12 +185,12 @@ final class Class120_Sub21 extends Node {
 					MapFunctionNode.aBoolean3471 = true;
 				}
 				if (!Class188.aBoolean1925) {
-					Class120_Sub15.aFloat2598 /= 2.0F;
+					Class120_Sub15.cameraYawWrapper /= 2.0F;
 				} else {
 					Class188.aBoolean1925 = false;
 				}
 				if (!Class154.aBoolean1439) {
-					Class120_Sub12_Sub4.aFloat3154 /= 2.0F;
+					Class120_Sub12_Sub4.cameraPitchWrapper /= 2.0F;
 				} else {
 					Class154.aBoolean1439 = false;
 				}
@@ -211,7 +205,7 @@ final class Class120_Sub21 extends Node {
 					} else {
 						Class101_Sub3.method848();
 						Class3.method82();
-						ParticleMagnet.updateEntityText();
+						ParticleMagnet.updateEntityOverheadText();
 						for (int i_18_ = Class31.method263(true); i_18_ != -1; i_18_ = Class31.method263(false)) {
 							Class120_Sub14_Sub15.postVarpChange(i_18_);
 							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(VarBit.anInt165++, 31)] = i_18_;
@@ -244,7 +238,7 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 5) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.disabledAnim != interfaceChangeNode.anInt3484 || (interfaceChangeNode.anInt3484 ^ 0xffffffff) == 0) {
+								if (jagexInterface.disabledAnim != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3484 == -1) {
 									jagexInterface.currentFrame = 0;
 									jagexInterface.disabledAnim = interfaceChangeNode.anInt3484;
 									jagexInterface.nextFrame = 1;
@@ -334,67 +328,68 @@ final class Class120_Sub21 extends Node {
 							}
 						}
 						Class120_Sub12_Sub22.redrawRate++;
-						if (MagnetType.aClass189_256 != null) {
+						if (MagnetType.pressedInventoryComponent != null) {
 							Class69_Sub2.anInt2236++;
 							if (Class69_Sub2.anInt2236 >= 15) {
-								InterfaceClickMask.redrawInterface(MagnetType.aClass189_256);
-								MagnetType.aClass189_256 = null;
+								InterfaceClickMask.redrawInterface(MagnetType.pressedInventoryComponent);
+								MagnetType.pressedInventoryComponent = null;
 							}
 						}
-						if (Projectile.aClass189_2954 != null) {
-							InterfaceClickMask.redrawInterface(Projectile.aClass189_2954);
-							if (5 + client.anInt134 < Queue.lastMouseX || Queue.lastMouseX < client.anInt134 + -5 || ChunkAtmosphere.lastMouseY > 5 + VarBit.anInt166 || ChunkAtmosphere.lastMouseY < -5 + VarBit.anInt166) {
-								Huffman.aBoolean1207 = true;
+						if (Projectile.clickedInventoryComponent != null) {
+							//System.out.println("hello");
+							InterfaceClickMask.redrawInterface(Projectile.clickedInventoryComponent);
+							if (Queue.lastMouseX > client.clickedInventoryComponentX + 5 || Queue.lastMouseX < client.clickedInventoryComponentX - 5 || ChunkAtmosphere.lastMouseY > VarBit.clickedInventoryComponentY + 5 || ChunkAtmosphere.lastMouseY < VarBit.clickedInventoryComponentY - 5) {
+								Huffman.draggingClickedInventoryObject = true;
 							}
-							JavaObject.anInt3915++;
+							JavaObject.clickedInventoryComponentCycle++;
 							if (InterfaceChangeNode.lastMousePress == 0) {
-								if (Huffman.aBoolean1207 && JavaObject.anInt3915 >= 5) {
-									if (Projectile.aClass189_2954 == StructType.aClass189_3588 && ClanMember.anInt2572 != Class5.anInt2154) {
-										final JagexInterface jagexInterface = Projectile.aClass189_2954;
+								if (Huffman.draggingClickedInventoryObject && JavaObject.clickedInventoryComponentCycle >= 5) {
+									if (Projectile.clickedInventoryComponent == StructType.mouseOverInventoryInterface && ClanMember.mouseOverInventoryObjectIndex != Class5.clickedInventoryIndex) {
+										final JagexInterface jagexInterface = Projectile.clickedInventoryComponent;
 										int inserting = 0;
 										if (JagexInterface.inserting == 1 && jagexInterface.clientCode == 206) {
 											inserting = 1;
 										}
-										if (jagexInterface.objIds[ClanMember.anInt2572] <= 0) {
+										if (jagexInterface.objIds[ClanMember.mouseOverInventoryObjectIndex] <= 0) {
 											inserting = 0;
 										}
-										if (client.getClickMask(jagexInterface).method1691()) {
-											final int i_31_ = ClanMember.anInt2572;
-											final int i_32_ = Class5.anInt2154;
-											jagexInterface.objIds[i_31_] = jagexInterface.objIds[i_32_];
-											jagexInterface.objAmounts[i_31_] = jagexInterface.objAmounts[i_32_];
-											jagexInterface.objIds[i_32_] = -1;
-											jagexInterface.objAmounts[i_32_] = 0;
+										if (client.getClickMask(jagexInterface).method1691()) {//Replace
+											final int newIndex = ClanMember.mouseOverInventoryObjectIndex;
+											final int currentIndex = Class5.clickedInventoryIndex;
+											jagexInterface.objIds[newIndex] = jagexInterface.objIds[currentIndex];
+											jagexInterface.objAmounts[newIndex] = jagexInterface.objAmounts[currentIndex];
+											jagexInterface.objIds[currentIndex] = -1;
+											jagexInterface.objAmounts[currentIndex] = 0;
 										} else if (inserting == 1) {
-											int i_33_ = Class5.anInt2154;
-											final int i_34_ = ClanMember.anInt2572;
-											while (i_34_ != i_33_) {
-												if (i_34_ < i_33_) {
-													jagexInterface.swapObj(i_33_, i_33_ - 1);
-													i_33_--;
-												} else if (i_33_ < i_34_) {
-													jagexInterface.swapObj(i_33_, 1 + i_33_);
-													i_33_++;
+											int currentIndex = Class5.clickedInventoryIndex;
+											final int newIndex = ClanMember.mouseOverInventoryObjectIndex;
+											while (newIndex != currentIndex) {
+												if (newIndex < currentIndex) {
+													jagexInterface.swapObj(currentIndex, currentIndex - 1);
+													currentIndex--;
+												} else if (currentIndex < newIndex) {
+													jagexInterface.swapObj(currentIndex, currentIndex + 1);
+													currentIndex++;
 												}
 											}
 										} else {
-											jagexInterface.swapObj(Class5.anInt2154, ClanMember.anInt2572);
+											jagexInterface.swapObj(Class5.clickedInventoryIndex, ClanMember.mouseOverInventoryObjectIndex);
 										}
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(6);
-										Class120_Sub12_Sub11.outputStream.putLEShortA(ClanMember.anInt2572);
+										Class120_Sub12_Sub11.outputStream.putLEShortA(ClanMember.mouseOverInventoryObjectIndex);
 										Class120_Sub12_Sub11.outputStream.putByteS(inserting);
-										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.aClass189_2954.bitPacked);
-										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.anInt2154);
+										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.clickedInventoryComponent.bitPacked);
+										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.clickedInventoryIndex);
 									}
 								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1) || WallDecoration.menuOptionCount <= 2) {
 									if (WallDecoration.menuOptionCount > 0) {
 										ChunkAtmosphere.method2508();
 									}
 								} else {
-									Class120_Sub12_Sub28.determineMenuSize();
+									Class120_Sub12_Sub28.openMenu();
 								}
 								Class69_Sub2.anInt2236 = 10;
-								Projectile.aClass189_2954 = null;
+								Projectile.clickedInventoryComponent = null;
 								Class156.lastMouseClick = 0;
 							}
 						}
@@ -477,9 +472,9 @@ final class Class120_Sub21 extends Node {
 						if (Class86.staffLevel <= 0 || !NodeCache.heldKeys[82] || !NodeCache.heldKeys[81]) {
 							if (MapFunctionNode.anInt3479 != 2) {
 								if (Class120_Sub12_Sub33.anInt3401 != 2) {
-									if (ObjectCache.anInt122 != -1 && MapFunctionNode.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
-										final int i_43_ = (ObjectCache.anInt122 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
-										final int i_44_ = (WaterfallShader.anInt2174 << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
+									if (ObjectCache.clickedTileX != -1 && MapFunctionNode.anInt3479 == 0 && Class120_Sub12_Sub33.anInt3401 == 0) {
+										final int i_43_ = (ObjectCache.clickedTileX << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
+										final int i_44_ = (WaterfallShader.clickedTileZ << 1) - TileParticleQueue.selfPlayer.getSize() + 1 >> 1;
 										Class53_Sub1.method464(0, i_43_, i_44_);
 										Class120_Sub12_Sub35.crossX = js5.lastClickX;
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -488,10 +483,10 @@ final class Class120_Sub21 extends Node {
 										MapFunctionNode.setFlagPosition(TileParticleQueue.selfPlayer.walkQueueX[0], 0, 0, true, 0, i_44_, TileParticleQueue.selfPlayer.walkQueueZ[0], 0, 0, i_43_);
 									}
 								} else {
-									if (ObjectCache.anInt122 != -1) {
+									if (ObjectCache.clickedTileX != -1) {
 										Class120_Sub12_Sub11.outputStream.putByteIsaac(85);
-										Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + ObjectCache.anInt122);
-										Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + WaterfallShader.anInt2174);
+										Class120_Sub12_Sub11.outputStream.putLEShortA(GameEntity.currentBaseX + ObjectCache.clickedTileX);
+										Class120_Sub12_Sub11.outputStream.putLEShort(LightType.currentBaseZ + WaterfallShader.clickedTileZ);
 										Class120_Sub14_Sub22.crossState = 1;
 										Class120_Sub12_Sub7.crossIndex = 0;
 										IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -500,12 +495,12 @@ final class Class120_Sub21 extends Node {
 									Class120_Sub12_Sub33.anInt3401 = 0;
 								}
 							} else {
-								if (ObjectCache.anInt122 != -1) {
+								if (ObjectCache.clickedTileX != -1) {
 									Class120_Sub12_Sub11.outputStream.putByteIsaac(204);
-									Class120_Sub12_Sub11.outputStream.putShortA(WaterfallShader.anInt2174 + LightType.currentBaseZ);
+									Class120_Sub12_Sub11.outputStream.putShortA(WaterfallShader.clickedTileZ + LightType.currentBaseZ);
 									Class120_Sub12_Sub11.outputStream.putShortA(JagexSocket.selectedSpellComponextIndex);
 									Class120_Sub12_Sub11.outputStream.putInt2(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked);
-									Class120_Sub12_Sub11.outputStream.putLEShort(ObjectCache.anInt122 + GameEntity.currentBaseX);
+									Class120_Sub12_Sub11.outputStream.putLEShort(ObjectCache.clickedTileX + GameEntity.currentBaseX);
 									Class120_Sub12_Sub35.crossX = js5.lastClickX;
 									Class120_Sub14_Sub22.crossState = 1;
 									Class120_Sub12_Sub7.crossIndex = 0;
@@ -514,12 +509,12 @@ final class Class120_Sub21 extends Node {
 								MapFunctionNode.anInt3479 = 0;
 							}
 						} else {
-							if (ObjectCache.anInt122 != -1) {
-								ParticleNode.tele(ObjectCache.anInt122 + GameEntity.currentBaseX, WaterfallShader.anInt2174 + LightType.currentBaseZ, Class173.gameLevel);
+							if (ObjectCache.clickedTileX != -1) {
+								ParticleNode.tele(ObjectCache.clickedTileX + GameEntity.currentBaseX, WaterfallShader.clickedTileZ + LightType.currentBaseZ, Class173.gameLevel);
 							}
 							MapFunctionNode.anInt3479 = Class120_Sub12_Sub33.anInt3401 = 0;
 						}
-						ObjectCache.anInt122 = -1;
+						ObjectCache.clickedTileX = -1;
 						CursorType.method1918();
 						if (oldMouseOverInterface != CursorType.mouseOverInterface) {
 							if (oldMouseOverInterface != null) {

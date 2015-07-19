@@ -43,7 +43,7 @@ final class ClientScript extends NodeSub {
 		if (clientScript != null) {
 			return clientScript;
 		}
-		final byte[] is = IsaacCipher.aClass50_1019.getFile(id, 0);
+		final byte[] is = IsaacCipher.scriptsJs5.getFile(id, 0);
 		if (is == null || is.length <= 1) {
 			return null;
 		}
@@ -59,7 +59,7 @@ final class ClientScript extends NodeSub {
 		final int i_23_ = buffer.getUShort();
 		final int i_24_ = -12 + buffer.buf.length + -2 - i_23_;
 		buffer.pos = i_24_;
-		final int i_25_ = buffer.getInt();
+		final int opcodeCount = buffer.getInt();
 		clientScript.intArgumentCount = buffer.getUShort();
 		clientScript.stringArgumentCount = buffer.getUShort();
 		clientScript.anInt3553 = buffer.getUShort();
@@ -78,22 +78,22 @@ final class ClientScript extends NodeSub {
 				}
 			}
 		}
-		int i_31_ = 0;
+		int opcodePos = 0;
 		buffer.pos = 0;
 		clientScript.name = buffer.getFastJagexString();
-		clientScript.stringValues = new String[i_25_];
-		clientScript.opcodes = new int[i_25_];
-		clientScript.intValues = new int[i_25_];
+		clientScript.stringValues = new String[opcodeCount];
+		clientScript.opcodes = new int[opcodeCount];
+		clientScript.intValues = new int[opcodeCount];
 		while (buffer.pos < i_24_) {
-			final int i_32_ = buffer.getUShort();
-			if (i_32_ == 3) {
-				clientScript.stringValues[i_31_] = buffer.getJagexString().intern();
-			} else if (i_32_ >= 100 || i_32_ == 21 || i_32_ == 38 || i_32_ == 39) {
-				clientScript.intValues[i_31_] = buffer.getUByte();
+			final int opcodeId = buffer.getUShort();
+			if (opcodeId == 3) {
+				clientScript.stringValues[opcodePos] = buffer.getJagexString().intern();
+			} else if (opcodeId >= 100 || opcodeId == 21 || opcodeId == 38 || opcodeId == 39) {
+				clientScript.intValues[opcodePos] = buffer.getUByte();
 			} else {
-				clientScript.intValues[i_31_] = buffer.getInt();
+				clientScript.intValues[opcodePos] = buffer.getInt();
 			}
-			clientScript.opcodes[i_31_++] = i_32_;
+			clientScript.opcodes[opcodePos++] = opcodeId;
 		}
 		return clientScript;
 	}

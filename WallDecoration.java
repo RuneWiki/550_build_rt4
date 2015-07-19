@@ -13,7 +13,7 @@ final class WallDecoration {
 	static volatile long currentClickTime = 0L;
 	SceneGraphNode aClass180_1898;
 	static boolean usingSpriteMenu;
-	static int anInt1900;
+	static int mapSizeX;
 	SceneGraphNode aClass180_1901;
 	static boolean hdrEnabled;
 	long bitPacked = 0L;
@@ -23,7 +23,6 @@ final class WallDecoration {
 	static {
 		topMargin = 0;
 		usingSpriteMenu = false;
-		AbstractModelRenderer.actionsLen = 0;
 		hdrEnabled = false;
 		menuOptionCount = 0;
 	}

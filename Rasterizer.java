@@ -4,7 +4,7 @@
 
 final class Rasterizer {
 	static int centerX;
-	static float aFloat968;
+	static float brightness;
 	static int[] palette = new int[65536];
 	static int centerY;
 	static boolean aBoolean971;
@@ -26,7 +26,7 @@ final class Rasterizer {
 		aBoolean972 = false;
 		aBoolean974 = false;
 		aBoolean971 = true;
-		aFloat968 = 1.0F;
+		brightness = 1.0F;
 		anIntArray977 = new int[512];
 		aBoolean981 = false;
 		cosTable = new int[2048];
@@ -46,9 +46,9 @@ final class Rasterizer {
 		}
 	}
 
-	static final void method852(final float f) {
-		method854(f);
-		method858(0, 512);
+	static final void setBrightness(final float f) {
+		setBrightnessWrapper(f);
+		calcPalette(0, 512);
 	}
 
 	private static final int method853(final int i, int i_0_) {
@@ -61,9 +61,9 @@ final class Rasterizer {
 		return (i & 0xff80) + i_0_;
 	}
 
-	private static final void method854(final float f) {
-		aFloat968 = f;
-		aFloat968 += Math.random() * 0.03 - 0.015;
+	private static final void setBrightnessWrapper(final float f) {
+		brightness = f;
+		brightness += Math.random() * 0.03 - 0.015;
 	}
 
 	static final void method855(final int i, final int i_1_, final int i_2_) {
@@ -491,72 +491,76 @@ final class Rasterizer {
 		}
 	}
 
-	private static final void method858(final int i, final int i_31_) {
-		int i_32_ = i * 128;
-		for (int i_33_ = i; i_33_ < i_31_; i_33_++) {
-			final double d = (i_33_ >> 3) / 64.0 + 0.0078125;
-			final double d_34_ = (i_33_ & 0x7) / 8.0 + 0.0625;
-			for (int i_35_ = 0; i_35_ < 128; i_35_++) {
-				final double d_36_ = i_35_ / 128.0;
-				double d_37_ = d_36_;
-				double d_38_ = d_36_;
-				double d_39_ = d_36_;
-				if (d_34_ != 0.0) {
-					double d_40_;
-					if (d_36_ < 0.5) {
-						d_40_ = d_36_ * (1.0 + d_34_);
+	//https://github.com/mjackson/mjijackson.github.com/blob/master/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript.txt#L56
+	private static final void calcPalette(final int start, final int end) {
+		int paletteIndex = start * 128;
+		for (int paletteId = start; paletteId < end; paletteId++) {
+			final double d = (paletteId >> 3) / 64.0 + (1 / 128);
+			final double saturation = (paletteId & 0x7) / 8.0 + (1 / 16);
+			for (int lightnessIndex = 0; lightnessIndex < 128; lightnessIndex++) {
+				final double lightness = lightnessIndex / 128.0;
+				double r = lightness;
+				double g = lightness;
+				double b = lightness;
+				if (saturation != 0.0) {
+					double q;
+					if (lightness < 0.5) {
+						q = lightness * (1.0 + saturation);
 					} else {
-						d_40_ = d_36_ + d_34_ - d_36_ * d_34_;
+						q = lightness + saturation - lightness * saturation;
 					}
-					final double d_41_ = 2.0 * d_36_ - d_40_;
-					double d_42_ = d + 0.3333333333333333;
-					if (d_42_ > 1.0) {
-						d_42_--;
+					final double p = 2.0 * lightness - q;
+					double redT = d + 0.3333333333333333;
+					if (redT > 1.0) {
+						redT--;
 					}
-					final double d_43_ = d;
-					double d_44_ = d - 0.3333333333333333;
-					if (d_44_ < 0.0) {
-						d_44_++;
+					final double greenT = d;
+					double blueT = d - 0.3333333333333333;
+					if (blueT < 0.0) {
+						blueT++;
 					}
-					if (6.0 * d_42_ < 1.0) {
-						d_37_ = d_41_ + (d_40_ - d_41_) * 6.0 * d_42_;
-					} else if (2.0 * d_42_ < 1.0) {
-						d_37_ = d_40_;
-					} else if (3.0 * d_42_ < 2.0) {
-						d_37_ = d_41_ + (d_40_ - d_41_) * (0.6666666666666666 - d_42_) * 6.0;
+					
+					if (6.0 * redT < 1.0) {
+						r = p + (q - p) * 6.0 * redT;
+					} else if (2.0 * redT < 1.0) {
+						r = q;
+					} else if (3.0 * redT < 2.0) {
+						r = p + (q - p) * (0.6666666666666666 - redT) * 6.0;
 					} else {
-						d_37_ = d_41_;
+						r = p;
 					}
-					if (6.0 * d_43_ < 1.0) {
-						d_38_ = d_41_ + (d_40_ - d_41_) * 6.0 * d_43_;
-					} else if (2.0 * d_43_ < 1.0) {
-						d_38_ = d_40_;
-					} else if (3.0 * d_43_ < 2.0) {
-						d_38_ = d_41_ + (d_40_ - d_41_) * (0.6666666666666666 - d_43_) * 6.0;
+					
+					if (6.0 * greenT < 1.0) {
+						g = p + (q - p) * 6.0 * greenT;
+					} else if (2.0 * greenT < 1.0) {
+						g = q;
+					} else if (3.0 * greenT < 2.0) {
+						g = p + (q - p) * (0.6666666666666666 - greenT) * 6.0;
 					} else {
-						d_38_ = d_41_;
+						g = p;
 					}
-					if (6.0 * d_44_ < 1.0) {
-						d_39_ = d_41_ + (d_40_ - d_41_) * 6.0 * d_44_;
-					} else if (2.0 * d_44_ < 1.0) {
-						d_39_ = d_40_;
-					} else if (3.0 * d_44_ < 2.0) {
-						d_39_ = d_41_ + (d_40_ - d_41_) * (0.6666666666666666 - d_44_) * 6.0;
+					
+					if (6.0 * blueT < 1.0) {
+						b = p + (q - p) * 6.0 * blueT;
+					} else if (2.0 * blueT < 1.0) {
+						b = q;
+					} else if (3.0 * blueT < 2.0) {
+						b = p + (q - p) * (0.6666666666666666 - blueT) * 6.0;
 					} else {
-						d_39_ = d_41_;
+						b = p;
 					}
 				}
-				d_37_ = Math.pow(d_37_, aFloat968);
-				d_38_ = Math.pow(d_38_, aFloat968);
-				d_39_ = Math.pow(d_39_, aFloat968);
-				final int i_45_ = (int) (d_37_ * 256.0);
-				final int i_46_ = (int) (d_38_ * 256.0);
-				final int i_47_ = (int) (d_39_ * 256.0);
-				int i_48_ = (i_45_ << 16) + (i_46_ << 8) + i_47_;
-				if (i_48_ == 0) {
-					i_48_ = 1;
+				r = Math.pow(r, brightness);
+				g = Math.pow(g, brightness);
+				b = Math.pow(b, brightness);
+				final int red = (int) (r * 256.0);
+				final int green = (int) (g * 256.0);
+				final int blue = (int) (b * 256.0);
+				int rgb = (red << 16) + (green << 8) + blue;
+				if (rgb == 0) {
+					rgb = 1;
 				}
-				palette[i_32_++] = i_48_;
+				palette[paletteIndex++] = rgb;
 			}
 		}
 	}
@@ -584,9 +588,9 @@ final class Rasterizer {
 	}
 
 	static final void method862(int i, int i_54_, int i_55_, int i_56_, int i_57_, int i_58_, int i_59_, int i_60_, int i_61_, final int i_62_, int i_63_, int i_64_, final int i_65_, int i_66_, int i_67_, final int i_68_, int i_69_, int i_70_, final int i_71_) {
-		final int[] is = anInterface5_973.method19(aFloat968, i_71_);
+		final int[] is = anInterface5_973.method19(brightness, i_71_);
 		if (is == null || alpha > 10) {
-			final int i_72_ = anInterface5_973.method20(i_71_);
+			final int i_72_ = anInterface5_973.getColorPaletteIndex(i_71_);
 			aBoolean974 = true;
 			method856(i, i_54_, i_55_, i_56_, i_57_, i_58_, method853(i_72_, i_59_), method853(i_72_, i_60_), method853(i_72_, i_61_));
 		} else {
@@ -2128,9 +2132,9 @@ final class Rasterizer {
 	}
 
 	static final void method871(int i, int i_168_, int i_169_, int i_170_, int i_171_, int i_172_, int i_173_, int i_174_, int i_175_, final int i_176_, int i_177_, int i_178_, final int i_179_, int i_180_, int i_181_, final int i_182_, int i_183_, int i_184_, final int i_185_) {
-		final int[] is = anInterface5_973.method19(aFloat968, i_185_);
+		final int[] is = anInterface5_973.method19(brightness, i_185_);
 		if (is == null) {
-			final int i_186_ = anInterface5_973.method20(i_185_);
+			final int i_186_ = anInterface5_973.getColorPaletteIndex(i_185_);
 			method856(i, i_168_, i_169_, i_170_, i_171_, i_172_, method853(i_186_, i_173_), method853(i_186_, i_174_), method853(i_186_, i_175_));
 		} else {
 			aBoolean981 = anInterface5_973.method27(i_185_);

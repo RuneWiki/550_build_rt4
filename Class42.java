@@ -58,7 +58,7 @@ final class Class42 {
 
 	static final AbstractSprite constructAbstractSprite() {
 		final int pixelLen = Class120_Sub12_Sub39.spriteHeights[0] * Class120_Sub12_Sub11.spriteWidths[0];
-		final byte[] indicators = Class145.spritePaletteIndicators[0];
+		final byte[] indicators = SkyboxType.spritePaletteIndicators[0];
 		final int[] pixels = new int[pixelLen];
 		for (int id = 0; id < pixelLen; id++) {
 			pixels[id] = Class132_Sub1.spritePalette[indicators[id] & 0xff];

@@ -11,7 +11,7 @@ final class IsaacCipher {
 	private int a;
 	private final int[] rsl;
 	private final int[] mem;
-	static js5 aClass50_1019;
+	static js5 scriptsJs5;
 
 	static final void drawTitleScreenSprites(final js5 js5) {
 		if (!Class101_Sub3.titleScreenSpritesDrawn) {
@@ -24,7 +24,7 @@ final class IsaacCipher {
 			final int canvasHeight = Class120_Sub12_Sub5.canvasHeight;
 			final int x = 956 * canvasHeight / 503;
 			KeyboardHandler.titlebgSprite.method1588((Class69_Sub1.canvasWidth - x) / 2, 0, x, canvasHeight);
-			Class120_Sub12_Sub27.logoSprite = Class153.constructAbstractIndexedSprite(js5, ParticleEmitter.logoId);
+			Class120_Sub12_Sub27.logoSprite = SphereType.constructAbstractIndexedSprite(js5, ParticleEmitter.logoId);
 			Class120_Sub12_Sub27.logoSprite.drawReg(Class69_Sub1.canvasWidth / 2 - (Class120_Sub12_Sub27.logoSprite.width / 2), 18);
 			Class101_Sub3.titleScreenSpritesDrawn = true;
 		}

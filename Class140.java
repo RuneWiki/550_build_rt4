@@ -31,7 +31,7 @@ final class Class140 {
 		Class120_Sub12.spriteAlphas = new byte[Class93.spriteAmount][];
 		Projectile.spriteXOffsets = new int[Class93.spriteAmount];
 		Class120_Sub12_Sub11.spriteWidths = new int[Class93.spriteAmount];
-		Class145.spritePaletteIndicators = new byte[Class93.spriteAmount][];
+		SkyboxType.spritePaletteIndicators = new byte[Class93.spriteAmount][];
 		Class120_Sub12_Sub39.spriteHeights = new int[Class93.spriteAmount];
 		GroundTile.spriteYOffsets = new int[Class93.spriteAmount];
 		buffer.pos = data.length - 7 - (8 * Class93.spriteAmount);
@@ -64,7 +64,7 @@ final class Class140 {
 			final int height = Class120_Sub12_Sub39.spriteHeights[spriteId];
 			final int pixelAmount = height * width;
 			final byte[] paletteIndicators = new byte[pixelAmount];
-			Class145.spritePaletteIndicators[spriteId] = paletteIndicators;
+			SkyboxType.spritePaletteIndicators[spriteId] = paletteIndicators;
 			final byte[] alphas = new byte[pixelAmount];
 			boolean hasAlpha = false;
 			Class120_Sub12.spriteAlphas[spriteId] = alphas;

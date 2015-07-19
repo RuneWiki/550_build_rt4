@@ -21,7 +21,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 			}
 		}
 		if (jagexInterface.actionType == 3) {
-			InvType.addMenuOption(Class5.aString2153, "", 0L, 0, jagexInterface.bitPacked, (short) 7, -1);
+			InvType.addMenuOption(StringLibrary.aString2153, "", 0L, 0, jagexInterface.bitPacked, (short) 7, -1);
 		}
 		if (jagexInterface.actionType == 4) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 18, -1);
@@ -29,104 +29,104 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 		if (jagexInterface.actionType == 5) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 11, -1);
 		}
-		if (jagexInterface.actionType == 6 && Class156.aClass189_1454 == null) {
+		if (jagexInterface.actionType == 6 && Class156.dialogInterface == null) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, -1, jagexInterface.bitPacked, (short) 3, -1);
 		}
 		if (jagexInterface.type == 2) {
-			int i_2_ = 0;
-			for (int i_3_ = 0; jagexInterface.originalHeight > i_3_; i_3_++) {
-				for (int i_4_ = 0; i_4_ < jagexInterface.originalWidth; i_4_++) {
-					int i_5_ = i_4_ * (jagexInterface.objSpritePadX + 32);
-					int i_6_ = i_3_ * (jagexInterface.objSpritePadY + 32);
-					if (i_2_ < 20) {
-						i_5_ += jagexInterface.spriteXs[i_2_];
-						i_6_ += jagexInterface.spriteYs[i_2_];
+			int objIndex = 0;
+			for (int h = 0; h < jagexInterface.originalHeight; h++) {
+				for (int w = 0; w < jagexInterface.originalWidth; w++) {
+					int objX = w * (jagexInterface.objSpritePadX + 32);
+					int objY = h * (jagexInterface.objSpritePadY + 32);
+					if (objIndex < 20) {
+						objX += jagexInterface.spriteXs[objIndex];
+						objY += jagexInterface.spriteYs[objIndex];
 					}
-					if (x >= i_5_ && y >= i_6_ && i_5_ + 32 > x && y < 32 + i_6_) {
-						ClanMember.anInt2572 = i_2_;
-						StructType.aClass189_3588 = jagexInterface;
-						if (jagexInterface.objIds[i_2_] > 0) {
-							final InterfaceClickMask class120_sub20 = client.getClickMask(jagexInterface);
-							final ObjType objType = ObjType.list(jagexInterface.objIds[i_2_] - 1);
-							if (Light.objSelected != 1 || !class120_sub20.method1694()) {
-								if (Class88.spellSelected && class120_sub20.method1694()) {
-									final ParamType class120_sub14_sub11 = Identikit.selectedSpellParam == -1 ? null : ParamType.list(Identikit.selectedSpellParam);
-									if ((0x10 & GroundTile.selectedSpellUseMask) != 0 && (class120_sub14_sub11 == null || objType.getIntegerParamValue(Identikit.selectedSpellParam, class120_sub14_sub11.defaultInt) != class120_sub14_sub11.defaultInt)) {
-										InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
+					if (x >= objX && y >= objY && x < objX + 32 && y < objY + 32) {
+						ClanMember.mouseOverInventoryObjectIndex = objIndex;
+						StructType.mouseOverInventoryInterface = jagexInterface;
+						if (jagexInterface.objIds[objIndex] > 0) {
+							final InterfaceClickMask clickMask = client.getClickMask(jagexInterface);
+							final ObjType objType = ObjType.list(jagexInterface.objIds[objIndex] - 1);
+							if (Light.objSelected != 1 || !clickMask.method1694()) {
+								if (Class88.spellSelected && clickMask.method1694()) {
+									final ParamType paramType = Identikit.selectedSpellParam == -1 ? null : ParamType.list(Identikit.selectedSpellParam);
+									if ((GroundTile.selectedSpellUseMask & 0x10) != 0 && (paramType == null || objType.getIntegerParamValue(Identikit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
+										InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, objIndex, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
 									}
 								} else {
-									String[] options = objType.inventoryOptions;
+									String[] inventoryOptions = objType.inventoryOptions;
 									if (MouseHandler.showNumbersOnOptions) {
-										options = Class120_Sub12_Sub36.addNumbers(options);
+										inventoryOptions = Class120_Sub12_Sub36.addNumbers(inventoryOptions);
 									}
-									if (class120_sub20.method1694()) {
-										for (int i_7_ = 4; i_7_ >= 3; i_7_--) {
-											if (options != null && options[i_7_] != null) {
-												short i_8_;
-												if (i_7_ == 3) {
-													i_8_ = (short) 10;
+									if (clickMask.method1694() && inventoryOptions != null) {
+										for (int id = 4; id >= 3; id--) {
+											if (inventoryOptions[id] != null) {
+												short code;
+												if (id == 3) {
+													code = (short) 10;
 												} else {
-													i_8_ = (short) 51;
+													code = (short) 51;
 												}
-												InvType.addMenuOption(options[i_7_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_8_, -1);
+												InvType.addMenuOption(inventoryOptions[id], "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, code, -1);
 											}
 										}
 									}
-									if (class120_sub20.method1687()) {
-										InvType.addMenuOption(StringLibrary.use, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
+									if (clickMask.method1687()) {
+										InvType.addMenuOption(StringLibrary.use, "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 									}
-									if (class120_sub20.method1694() && options != null) {
-										for (int i_9_ = 2; i_9_ >= 0; i_9_--) {
-											if (options[i_9_] != null) {
-												short i_10_ = 0;
-												if (i_9_ == 0) {
-													i_10_ = (short) 58;
+									if (clickMask.method1694() && inventoryOptions != null) {
+										for (int id = 2; id >= 0; id--) {
+											if (inventoryOptions[id] != null) {
+												short code = 0;
+												if (id == 0) {
+													code = (short) 58;
 												}
-												if (i_9_ == 1) {
-													i_10_ = (short) 35;
+												if (id == 1) {
+													code = (short) 35;
 												}
-												if (i_9_ == 2) {
-													i_10_ = (short) 17;
+												if (id == 2) {
+													code = (short) 17;
 												}
-												InvType.addMenuOption(options[i_9_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_10_, -1);
+												InvType.addMenuOption(inventoryOptions[id], "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, code, -1);
 											}
 										}
 									}
-									options = jagexInterface.oiActions;
+									inventoryOptions = jagexInterface.oiActions;
 									if (MouseHandler.showNumbersOnOptions) {
-										options = Class120_Sub12_Sub36.addNumbers(options);
+										inventoryOptions = Class120_Sub12_Sub36.addNumbers(inventoryOptions);
 									}
-									if (options != null) {
-										for (int i_11_ = 4; i_11_ >= 0; i_11_--) {
-											if (options[i_11_] != null) {
-												short i_12_ = 0;
-												if (i_11_ == 0) {
-													i_12_ = (short) 30;
+									if (inventoryOptions != null) {
+										for (int id = 4; id >= 0; id--) {
+											if (inventoryOptions[id] != null) {
+												short code = 0;
+												if (id == 0) {
+													code = (short) 30;
 												}
-												if (i_11_ == 1) {
-													i_12_ = (short) 20;
+												if (id == 1) {
+													code = (short) 20;
 												}
-												if (i_11_ == 2) {
-													i_12_ = (short) 13;
+												if (id == 2) {
+													code = (short) 13;
 												}
-												if (i_11_ == 3) {
-													i_12_ = (short) 2;
+												if (id == 3) {
+													code = (short) 2;
 												}
-												if (i_11_ == 4) {
-													i_12_ = (short) 49;
+												if (id == 4) {
+													code = (short) 49;
 												}
-												InvType.addMenuOption(options[i_11_], new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, i_12_, -1);
+												InvType.addMenuOption(inventoryOptions[id], "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, code, -1);
 											}
 										}
 									}
-									InvType.addMenuOption(StringLibrary.examine, new StringBuilder("<col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 1001, Class120_Sub12_Sub11.anInt3211);
+									InvType.addMenuOption(StringLibrary.examine, "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, (short) 1001, Class120_Sub12_Sub11.examineOptionCursor);
 								}
-							} else if (PlainTile.selectedObjInterface != jagexInterface.bitPacked || ParticleEmitter.selectedObjSlot != i_2_) {
-								InvType.addMenuOption(StringLibrary.use, new StringBuilder(Class192.selectedObjName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, i_2_, jagexInterface.bitPacked, (short) 15, -1);
+							} else if (PlainTile.selectedObjInterface != jagexInterface.bitPacked || ParticleEmitter.selectedObjSlot != objIndex) {
+								InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, (short) 15, -1);
 							}
 						}
 					}
-					i_2_++;
+					objIndex++;
 				}
 			}
 		}

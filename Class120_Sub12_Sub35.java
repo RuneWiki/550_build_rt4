@@ -61,7 +61,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 			Class2.method76(Class116.anInt1118, Class3.anInt53, Class173.gameLevel, TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0], false, false);
 		} else {
 			Class120_Sub12_Sub5.method1219();
-			if (Class173.gameLevel != Class153.anInt1436) {
+			if (Class173.gameLevel != SphereType.anInt1436) {
 				Class57.method492();
 			}
 		}

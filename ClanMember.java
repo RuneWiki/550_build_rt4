@@ -4,10 +4,10 @@
 
 final class ClanMember extends Node {
 	int world;
-	static int anInt2572 = 0;
+	static int mouseOverInventoryObjectIndex = 0;
 	static boolean[][] aBooleanArrayArray2573;
 	byte rank;
-	static js5 aClass50_2576;
+	static js5 fontMetricsJs5;
 	static AbstractGraphicsBuffer fullscreenGraphics;
 	String sideText;
 	String name;
@@ -18,7 +18,7 @@ final class ClanMember extends Node {
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {
-				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= WallDecoration.anInt1900 || i_11_ >= Class120_Sub12_Sub38.anInt3440) {
+				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= WallDecoration.mapSizeX || i_11_ >= Class120_Sub12_Sub38.mapSizeZ) {
 					return false;
 				}
 				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_10_][i_11_];
@@ -33,7 +33,7 @@ final class ClanMember extends Node {
 		class28.anInt178 = i_4_;
 		class28.anInt185 = i_5_;
 		class28.anInt179 = i_6_;
-		class28.aClass180_174 = sceneGraphNode;
+		class28.sceneGraphNode = sceneGraphNode;
 		class28.anInt172 = i_7_;
 		class28.anInt180 = i_0_;
 		class28.anInt184 = i_1_;

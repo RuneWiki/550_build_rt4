@@ -4,11 +4,11 @@
 
 final class Class187 {
 	static js5 aClass50_1907;
-	static int anInt1908;
+	static int mouseClickToTileOffZ;
 	static HintIcon[] hintIcons = new HintIcon[8];
 
 	static {
-		anInt1908 = 0;
+		mouseClickToTileOffZ = 0;
 	}
 
 	static final Class101_Sub1 method2475(final Buffer buffer) {

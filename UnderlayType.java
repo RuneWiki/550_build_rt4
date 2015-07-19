@@ -74,11 +74,11 @@ final class UnderlayType {
 			for (int z = (baseZ - 6) / 8; z <= (baseZ + 6) / 8; z++) {
 				final int region = (x << 8) + z;
 				Class120_Sub12_Sub36.regionBitPackeds[fileAmount] = region;
-				LookupTable.mapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("m" + x + "_" + z);
-				Class28.locationsMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("l" + x + "_" + z);
-				ProducingGraphicsBuffer.npcSpawnsFileIds[fileAmount] = Class65.aClass50_597.getGroupId("n" + x + "_" + z);
-				Class111.underWaterMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("um" + x + "_" + z);
-				client.underWaterLocationsMapFileIds[fileAmount] = Class65.aClass50_597.getGroupId("ul" + x + "_" + z);
+				LookupTable.mapFileIds[fileAmount] = Class65.mapsJs5.getGroupId("m" + x + "_" + z);
+				Class28.locationsMapFileIds[fileAmount] = Class65.mapsJs5.getGroupId("l" + x + "_" + z);
+				ProducingGraphicsBuffer.npcSpawnsFileIds[fileAmount] = Class65.mapsJs5.getGroupId("n" + x + "_" + z);
+				Class111.underWaterMapFileIds[fileAmount] = Class65.mapsJs5.getGroupId("um" + x + "_" + z);
+				client.underWaterLocationsMapFileIds[fileAmount] = Class65.mapsJs5.getGroupId("ul" + x + "_" + z);
 				if (ProducingGraphicsBuffer.npcSpawnsFileIds[fileAmount] == -1) {
 					LookupTable.mapFileIds[fileAmount] = -1;
 					Class28.locationsMapFileIds[fileAmount] = -1;

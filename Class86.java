@@ -15,15 +15,15 @@ final class Class86 {
 		anInt818 = -1;
 	}
 
-	static final void method727() {
+	static final void cameraUp() {
 		if (!Class154.aBoolean1439) {
-			Class118.aBoolean1134 = true;
-			if (!Class134.aBoolean1277) {
-				Class120_Sub12_Sub4.aFloat3154 += (12.0F - Class120_Sub12_Sub4.aFloat3154) / 2.0F;
+			Class154.aBoolean1439 = true;
+			Class118.sendCameraPacket = true;
+			if (!Class134.updateCameraFromCs2) {
+				Class120_Sub12_Sub4.cameraPitchWrapper += (12.0F - Class120_Sub12_Sub4.cameraPitchWrapper) / 2.0F;
 			} else {
 				Class120_Sub12_Sub21.cameraPitch = 47 + (int) Class120_Sub12_Sub21.cameraPitch & ~0xf;
 			}
-			Class154.aBoolean1439 = true;
 		}
 	}
 
@@ -68,13 +68,13 @@ final class Class86 {
 			}
 			if (!underwater && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
 				if (is_5_ == null) {
-					ModelParticleEmitter.anInt1475 = -1;
+					ModelParticleEmitter.activeSkyboxId = -1;
 				} else {
-					ModelParticleEmitter.anInt1475 = is_5_[0];
-					PlainTile.anInt1356 = is_5_[3];
-					Class143_Sub1.anInt2197 = is_5_[2];
-					Class120_Sub12.anInt2560 = is_5_[1];
-					Class132.anInt1257 = is_5_[4];
+					ModelParticleEmitter.activeSkyboxId = is_5_[0];
+					PlainTile.activeSkyboxSphereOffsetZ = is_5_[3];
+					Class143_Sub1.activeSkyboxSphereOffsetY = is_5_[2];
+					Class120_Sub12.activeSkyboxSphereOffsetX = is_5_[1];
+					Class132.activeSkyboxYawOffset = is_5_[4];
 				}
 			}
 		}

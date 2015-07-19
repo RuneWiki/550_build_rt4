@@ -44,7 +44,7 @@ final class FrameGroup extends NodeSub {
 		Class140.anInt1343 = 0;
 		Class38.cursorsEnabled = true;
 		Class120_Sub19.anInt2657 = 0;
-		Class134.aBoolean1277 = false;
+		Class134.updateCameraFromCs2 = false;
 		try {
 			final SignlinkNode signlinkNode = signlink.openPreferencesFile("runescape");
 			while (signlinkNode.status == 0) {
@@ -237,7 +237,7 @@ final class FrameGroup extends NodeSub {
 								}
 							}
 						}
-						InvType.addMenuOption(StringLibrary.examine, "<col=ffff00>" + name, index, x, z, (short) 1010, Class120_Sub12_Sub11.anInt3211);
+						InvType.addMenuOption(StringLibrary.examine, "<col=ffff00>" + name, index, x, z, (short) 1010, Class120_Sub12_Sub11.examineOptionCursor);
 					}
 				} else {
 					InvType.addMenuOption(StringLibrary.use, Class192.selectedObjName + " -> <col=ffff00>" + name, index, x, z, (short) 33, Class120_Sub12_Sub10.selectedObjectTargetCursor);
@@ -257,7 +257,7 @@ final class FrameGroup extends NodeSub {
 		final float light0Diffuse = class191.light0Diffuse;
 		final float light1Diffuse = class191.light1Diffuse;
 		final int fogColorRgb = class191.fogColorRgb;
-		int fogOffset = class191.fogOffset;
+		int fogOffset = class191.fogDepth;
 		if (!Decimator.fogEnabled) {
 			fogOffset = 0;
 		}

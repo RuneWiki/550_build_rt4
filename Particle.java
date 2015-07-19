@@ -242,7 +242,7 @@ final class Particle extends ParticleNodeSub {
 				final int tileX = this.positionX >> 19;
 				final int tileZ = this.positionZ >> 19;
 				final int tileY = this.positionY >> anInt3086;
-				if (tileY > 0 || tileY < -65535 || tileX < 0 || tileX >= WallDecoration.anInt1900 || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.anInt3440) {
+				if (tileY > 0 || tileY < -65535 || tileX < 0 || tileX >= WallDecoration.mapSizeX || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.mapSizeZ) {
 					die();
 				} else {
 					final int[][][] heightMap = OverridedJInterface.activeTileHeightMap;

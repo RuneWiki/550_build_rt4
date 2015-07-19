@@ -28,7 +28,7 @@ final class HDToolkit {
 	private static String renderer;
 	private static GLDrawable glDrawable;
 	private static String vendor;
-	static boolean aBoolean520;
+	static boolean radeonVertexBufferAsObject;
 	private static int viewportY;
 	private static GLContext glContext;
 	static boolean aBoolean523;
@@ -608,7 +608,7 @@ final class HDToolkit {
 			if (version >= 9200 || xRenderer) {
 				aBoolean545 = false;
 			}
-			aBoolean520 = vertexBufferAsObject;
+			radeonVertexBufferAsObject = vertexBufferAsObject;
 			aBoolean541 = false;
 		}
 		if (vertexBufferAsObject) {
@@ -700,7 +700,7 @@ final class HDToolkit {
 		lightingEnabled = true;
 		depthTestEnabled = true;
 		fogEnabled = true;
-		Class153.method2070();
+		SphereType.method2070();
 		gl.glActiveTexture(33985);
 		gl.glTexEnvi(8960, 8704, 34160);
 		gl.glTexEnvi(8960, 34161, 8448);

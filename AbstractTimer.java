@@ -46,7 +46,7 @@ abstract class AbstractTimer {
 			}
 			availableBytes--;
 			worldConnection.read(Canvas_Sub1.inputStream.buf, 0, 1);
-			AbstractMouseWheelHandler.packetSize = 0xff & Canvas_Sub1.inputStream.buf[0];
+			AbstractMouseWheelHandler.packetSize = Canvas_Sub1.inputStream.buf[0] & 0xff;
 		}
 		if (AbstractMouseWheelHandler.packetSize == -2) {
 			if (availableBytes > 1) {
@@ -1499,9 +1499,9 @@ abstract class AbstractTimer {
 				if (overridedInterface != null) {
 					Class120_Sub19.removeOverridedInterface(overridedInterface, true);
 				}
-				if (Class156.aClass189_1454 != null) {
-					InterfaceClickMask.redrawInterface(Class156.aClass189_1454);
-					Class156.aClass189_1454 = null;
+				if (Class156.dialogInterface != null) {
+					InterfaceClickMask.redrawInterface(Class156.dialogInterface);
+					Class156.dialogInterface = null;
 				}
 			}
 			client.packetType = -1;

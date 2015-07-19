@@ -44,7 +44,7 @@ abstract class Class53 {
 		if (data == null) {
 			return null;
 		}
-		final LDFont ldFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, Class145.spritePaletteIndicators);
+		final LDFont ldFont = new LDFont(data, Projectile.spriteXOffsets, GroundTile.spriteYOffsets, Class120_Sub12_Sub11.spriteWidths, Class120_Sub12_Sub39.spriteHeights, SkyboxType.spritePaletteIndicators);
 		Class53_Sub1.resetSpriteInfo();
 		return ldFont;
 	}

@@ -73,7 +73,7 @@ final class Decimator {
 		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
 		LookupTable.gameScreenDrawX = -1;
 		StructType.gameScreenDrawY = -1;
-		StructType.aClass189_3588 = null;
+		StructType.mouseOverInventoryInterface = null;
 		if (HDToolkit.glEnabled) {
 			Class167.clearDepthBuffer = true;
 		}

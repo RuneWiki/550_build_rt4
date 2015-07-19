@@ -12,7 +12,7 @@ final class PlainTile {
 	int anInt1353;
 	static boolean[] spriteHasAlpha;
 	static int selectedObjInterface;
-	static int anInt1356;
+	static int activeSkyboxSphereOffsetZ;
 	static int anInt1357 = 0;
 
 	static final void handleKeyboard() {

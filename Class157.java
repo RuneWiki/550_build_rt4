@@ -29,7 +29,7 @@ final class Class157 {
 		for (int i_7_ = 0; i_7_ < i_6_; i_7_++) {
 			int i_8_ = shapedTile.xVertices[i_7_] - DisplayModeInfo.anInt1713;
 			int i_9_ = shapedTile.anIntArray1639[i_7_] - PlayerAppearance.anInt1367;
-			int i_10_ = shapedTile.anIntArray1635[i_7_] - Class145.anInt1381;
+			int i_10_ = shapedTile.anIntArray1635[i_7_] - SkyboxType.anInt1381;
 			int i_11_ = i_10_ * i_2_ + i_8_ * i_3_ >> 16;
 			i_10_ = i_10_ * i_3_ - i_8_ * i_2_ >> 16;
 			i_8_ = i_11_;
@@ -60,9 +60,9 @@ final class Class157 {
 			final int i_20_ = ShapedTile.anIntArray1636[i_14_];
 			final int i_21_ = ShapedTile.anIntArray1636[i_15_];
 			if ((i_16_ - i_17_) * (i_21_ - i_20_) - (i_19_ - i_20_) * (i_18_ - i_17_) > 0) {
-				if (Class120_Sub12_Sub7.aBoolean3181 && Class48.method400(ParticleEmitter.anInt2320 + Rasterizer.centerX, Class187.anInt1908 + Rasterizer.centerY, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
-					ObjectCache.anInt122 = i_4_;
-					WaterfallShader.anInt2174 = i_5_;
+				if (Class120_Sub12_Sub7.mouseClickToTileRequested && Class48.method400(ParticleEmitter.mouseClickToTileOffX + Rasterizer.centerX, Class187.mouseClickToTileOffZ + Rasterizer.centerY, i_19_, i_20_, i_21_, i_16_, i_17_, i_18_)) {
+					ObjectCache.clickedTileX = i_4_;
+					WaterfallShader.clickedTileZ = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {
 					Rasterizer.aBoolean972 = false;
@@ -82,7 +82,7 @@ final class Class157 {
 									ShapedTile.anIntArray1632[i_13_], ShapedTile.anIntArray1632[i_14_], ShapedTile.anIntArray1632[i_15_], ShapedTile.anIntArray1623[i_13_], ShapedTile.anIntArray1623[i_14_], ShapedTile.anIntArray1623[i_15_], shapedTile.anIntArray1621[i_12_]);
 						}
 					} else {
-						final int i_22_ = Rasterizer.anInterface5_973.method20(shapedTile.anIntArray1621[i_12_]);
+						final int i_22_ = Rasterizer.anInterface5_973.getColorPaletteIndex(shapedTile.anIntArray1621[i_12_]);
 						Rasterizer.method856(i_19_, i_20_, i_21_, i_16_, i_17_, i_18_, ParticleEmitter.method935(i_22_, shapedTile.anIntArray1627[i_12_]), ParticleEmitter.method935(i_22_, shapedTile.anIntArray1625[i_12_]), ParticleEmitter.method935(i_22_, shapedTile.anIntArray1624[i_12_]));
 					}
 				}

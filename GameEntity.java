@@ -23,7 +23,7 @@ abstract class GameEntity extends SceneGraphNode {
 	byte[] walkQueueType;//0 slow walking, 1 walking, 2 running
 	private int anInt2974;
 	String textSpoken;
-	int anInt2976;
+	int textColor;
 	private int size;
 	static int currentBaseX;
 	int spotAnimDelay;
@@ -42,7 +42,7 @@ abstract class GameEntity extends SceneGraphNode {
 	boolean aBoolean2992;
 	int animDelay;
 	private int anInt2994;
-	int anInt2995;
+	int textEffect;
 	int anInt2996;
 	boolean aBoolean2997;
 	int idleAnimFrameDelay;
@@ -517,7 +517,7 @@ abstract class GameEntity extends SceneGraphNode {
 				return true;
 			}
 			if (i_78_ == 2) {
-				if (i_80_ < Class145.anInt1381) {
+				if (i_80_ < SkyboxType.anInt1381) {
 					if (!Class120_Sub12_Sub34.method1380(i_79_, i_81_, i_80_ + 128)) {
 						return false;
 					}
@@ -567,7 +567,7 @@ abstract class GameEntity extends SceneGraphNode {
 				return true;
 			}
 			if (i_78_ == 8) {
-				if (i_80_ > Class145.anInt1381) {
+				if (i_80_ > SkyboxType.anInt1381) {
 					if (!Class120_Sub12_Sub34.method1380(i_79_, i_81_, i_80_)) {
 						return false;
 					}
@@ -634,6 +634,10 @@ abstract class GameEntity extends SceneGraphNode {
 		if (!HDToolkit.glEnabled) {
 			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7_86_;
 			final LDModelRenderer class180_sub7_sub1_87_ = (LDModelRenderer) class180_sub7;
+			if(this instanceof Player) {
+				class180_sub7_sub1_87_.aClass158Array3788 = new ModelParticleEmitter[1];
+				class180_sub7_sub1_87_.aClass158Array3788[0] = new ModelParticleEmitter(1, 1, 1, 1);
+			}
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub1_87_.aClass158Array3788 != null || class180_sub7_sub1_87_.aClass169Array3776 != null || class180_sub7_sub1 != null && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
@@ -643,6 +647,10 @@ abstract class GameEntity extends SceneGraphNode {
 		} else {
 			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
 			final HDModelRenderer class180_sub7_sub2_88_ = (HDModelRenderer) class180_sub7_86_;
+			if(this instanceof Player) {
+				class180_sub7_sub2.aClass158Array3892 = new ModelParticleEmitter[1];
+				class180_sub7_sub2.aClass158Array3892[0] = new ModelParticleEmitter(1, 1, 1, 1);
+			}
 			if ((this.aClass108_Sub2_2988 == null || this.aClass108_Sub2_2988.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null || class180_sub7_sub2_88_ != null && (class180_sub7_sub2_88_.aClass158Array3892 != null || class180_sub7_sub2_88_.aClass169Array3858 != null))) {
 				this.aClass108_Sub2_2988 = new ParticleEngine(Class101_Sub2.loopCycle, getSize(), getSize());
 			}
@@ -691,7 +699,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.anInt2987 = 0;
 		this.textCycle = 100;
 		this.anInt3030 = 0;
-		this.anInt2995 = 0;
+		this.textEffect = 0;
 		this.onAnimPlayWalkQueuePos = 0;
 		this.spotAnimId = -1;
 		this.animFrame = 0;
@@ -701,7 +709,7 @@ abstract class GameEntity extends SceneGraphNode {
 		this.spotAnimFrame = 0;
 		this.hitsCycle = new int[4];
 		this.maxY = -32768;
-		this.anInt2976 = 0;
+		this.textColor = 0;
 		anInt3039 = 0;
 		anInt3036 = 0;
 		this.anInt3017 = 0;

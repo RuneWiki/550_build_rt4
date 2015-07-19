@@ -26,13 +26,13 @@ final class SubScript {
 			string_4_ = StringLibrary.use + StringLibrary.useSeperator + Class192.selectedObjName + " ->";
 		} else if (Class88.spellSelected && WallDecoration.menuOptionCount < 2) {
 			string_4_ = Class101.selectedSpellPrefix + StringLibrary.useSeperator + Light.selectedSpellName + " ->";
-		} else if (!SpotAnimationNode.shiftClickEnabled || !NodeCache.heldKeys[81] || WallDecoration.menuOptionCount <= 2) {
-			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 1);
-		} else {
+		} else if (SpotAnimationNode.shiftClickEnabled && NodeCache.heldKeys[81] && WallDecoration.menuOptionCount > 2) {
 			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 2);
+		} else {
+			string_4_ = client.getMenuOptionText(WallDecoration.menuOptionCount - 1);
 		}
 		if (WallDecoration.menuOptionCount > 2) {
-			string_4_ = string_4_ + "<col=ffffff> / " + (WallDecoration.menuOptionCount - 2) + StringLibrary.moreOptions;
+			string_4_ += "<col=ffffff> / " + (WallDecoration.menuOptionCount - 2) + StringLibrary.moreOptions;
 		}
 		return string_4_;
 	}

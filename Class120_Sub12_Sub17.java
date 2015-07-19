@@ -4,7 +4,7 @@
 
 final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	static int anInt3257;
-	static js5 aClass50_3258;
+	static js5 modelsJs5;
 	private int anInt3259;
 	private int anInt3260;
 	private int anInt3261;

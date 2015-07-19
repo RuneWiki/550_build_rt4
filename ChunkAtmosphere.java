@@ -18,11 +18,11 @@ final class ChunkAtmosphere {
 	static int p12fullId;
 	float aFloat2116 = 1.0F;
 	Class120_Sub14_Sub9 aClass120_Sub14_Sub9_2117;
-	int fogOffset;
-	static int[] torchesFlamesPalette;
+	int fogDepth;
+	static int[] torchesFlamesBaseColors;
 
 	static {
-		torchesFlamesPalette = new int[] { 12543016, 15504954, 15914854, 16773818 };
+		torchesFlamesBaseColors = new int[] { 12543016, 15504954, 15914854, 16773818 };
 	}
 
 	static final void method2508() {
@@ -68,14 +68,14 @@ final class ChunkAtmosphere {
 	static final void method2513() {
 		if (client.packetType == 17) {
 			final int i_7_ = Canvas_Sub1.inputStream.getUByte();
-			int i_8_ = MagnetType.anInt254 * 2 - -((0xfd & i_7_) >> 4);
-			int i_9_ = (0xf & i_7_) + Class28.anInt176 * 2;
-			int i_10_ = i_8_ - -Canvas_Sub1.inputStream.getByte();
-			int i_11_ = Canvas_Sub1.inputStream.getByte() + i_9_;
+			int i_8_ = (i_7_ >> 4 & 0xf) * MagnetType.anInt254 * 2;
+			int i_9_ = (i_7_ & 0xf) + Class28.anInt176 * 2;
+			int i_10_ = i_8_ + Canvas_Sub1.inputStream.getByte();
+			int i_11_ = i_9_ + Canvas_Sub1.inputStream.getByte();
 			final int i_12_ = Canvas_Sub1.inputStream.getShort();
 			final int i_13_ = Canvas_Sub1.inputStream.getUShort();
-			final int i_14_ = 4 * Canvas_Sub1.inputStream.getUByte();
-			final int i_15_ = 4 * Canvas_Sub1.inputStream.getUByte();
+			final int i_14_ = Canvas_Sub1.inputStream.getUByte() * 4;
+			final int i_15_ = Canvas_Sub1.inputStream.getUByte() * 4;
 			final int i_16_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_17_ = Canvas_Sub1.inputStream.getUShort();
 			int i_18_ = Canvas_Sub1.inputStream.getUByte();
@@ -87,29 +87,29 @@ final class ChunkAtmosphere {
 				i_8_ *= 64;
 				i_9_ *= 64;
 				i_10_ *= 64;
-				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, -i_14_ + Class22.getTileHeight(i_8_, i_9_, Class173.gameLevel), i_16_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_17_, i_18_, i_19_, i_12_, i_15_);
 				i_11_ *= 64;
-				class180_sub4.method2319(Class22.getTileHeight(i_10_, i_11_, Class173.gameLevel) + -i_15_, i_10_, Class101_Sub2.loopCycle + i_16_, i_11_);
+				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, Class22.getTileHeight(i_8_, i_9_, Class173.gameLevel) - i_14_, i_16_ + Class101_Sub2.loopCycle, i_17_ + Class101_Sub2.loopCycle, i_18_, i_19_, i_12_, i_15_);
+				class180_sub4.method2319(i_10_, Class22.getTileHeight(i_10_, i_11_, Class173.gameLevel) - i_15_, i_11_, i_16_ + Class101_Sub2.loopCycle);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 114) {
 			final int i_20_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_21_ = MagnetType.anInt254 + (i_20_ >> 4 & 0x7);
-			final int i_22_ = (i_20_ & 0x7) + Class28.anInt176;
-			final int i_23_ = Canvas_Sub1.inputStream.getUShort();
-			final int i_24_ = Canvas_Sub1.inputStream.getUShort();
-			final int i_25_ = Canvas_Sub1.inputStream.getUShort();
-			if (i_21_ >= 0 && i_22_ >= 0 && i_21_ < 104 && i_22_ < 104) {
-				final Deque deque = ClientScript.groundObjects[Class173.gameLevel][i_21_][i_22_];
+			final int x = (i_20_ >> 4 & 0x7) + MagnetType.anInt254;
+			final int z = (i_20_ & 0x7) + Class28.anInt176;
+			final int objectId = Canvas_Sub1.inputStream.getUShort();
+			final int currentObjectAmount = Canvas_Sub1.inputStream.getUShort();
+			final int newObjectAmount = Canvas_Sub1.inputStream.getUShort();
+			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+				final Deque deque = ClientScript.groundObjects[Class173.gameLevel][x][z];
 				if (deque != null) {
-					for (GroundObjectNode class120_sub14_sub21 = (GroundObjectNode) deque.getFront(); class120_sub14_sub21 != null; class120_sub14_sub21 = (GroundObjectNode) deque.getNext()) {
-						final SceneGroundObject class180_sub1 = class120_sub14_sub21.sceneGroundObject;
-						if (class180_sub1.id == (0x7fff & i_23_) && i_24_ == class180_sub1.amount) {
-							class180_sub1.amount = i_25_;
+					for (GroundObjectNode groundObjectNode = (GroundObjectNode) deque.getFront(); groundObjectNode != null; groundObjectNode = (GroundObjectNode) deque.getNext()) {
+						final SceneGroundObject sceneGroundObject = groundObjectNode.sceneGroundObject;
+						if (sceneGroundObject.id == (objectId & 0x7fff) && currentObjectAmount == sceneGroundObject.amount) {
+							sceneGroundObject.amount = newObjectAmount;
 							break;
 						}
 					}
-					Class5.spawnGroundObject(i_21_, i_22_);
+					Class5.spawnGroundObject(x, z);
 				}
 			}
 		} else if (client.packetType == 133) {
@@ -188,7 +188,7 @@ final class ChunkAtmosphere {
 					}
 				}
 				final Projectile class180_sub4 = new Projectile(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(i_41_, i_42_, Class173.gameLevel) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
-				class180_sub4.method2319(Class22.getTileHeight(i_43_, i_44_, Class173.gameLevel) + -i_49_, i_43_, Class101_Sub2.loopCycle + i_50_, i_44_);
+				class180_sub4.method2319(i_43_, Class22.getTileHeight(i_43_, i_44_, Class173.gameLevel) + -i_49_, i_44_, Class101_Sub2.loopCycle + i_50_);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 158) {
@@ -266,8 +266,8 @@ final class ChunkAtmosphere {
 				i_98_ = i_98_ * 128 + 64;
 				i_99_ = 64 + i_99_ * 128;
 				i_96_ = 64 + i_96_ * 128;
-				final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, -i_102_ + Class22.getTileHeight(i_96_, i_97_, Class173.gameLevel), Class101_Sub2.loopCycle + i_104_, i_105_ - -Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
-				class180_sub4.method2319(Class22.getTileHeight(i_98_, i_99_, Class173.gameLevel) - i_103_, i_98_, i_104_ + Class101_Sub2.loopCycle, i_99_);
+				final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, Class22.getTileHeight(i_96_, i_97_, Class173.gameLevel) - i_102_, i_104_ + Class101_Sub2.loopCycle, i_105_  + Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
+				class180_sub4.method2319(i_98_, Class22.getTileHeight(i_98_, i_99_, Class173.gameLevel) - i_103_, i_99_, i_104_ + Class101_Sub2.loopCycle);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 120) {
@@ -364,7 +364,7 @@ final class ChunkAtmosphere {
 		this.light1Diffuse = 1.2F;
 		this.lightZ = -50;
 		this.lightX = -50;
-		this.fogOffset = 0;
+		this.fogDepth = 0;
 		this.lightModelAmbient = 1.1523438F;
 		this.lightY = -60;
 		this.light0Diffuse = 0.69921875F;
@@ -374,54 +374,55 @@ final class ChunkAtmosphere {
 		}
 	}
 
-	ChunkAtmosphere(final Buffer class120_sub7) {
+	ChunkAtmosphere(final Buffer buffer) {
 		this.aFloat2108 = 1.0F;
-		final int flag = class120_sub7.getUByte();
-		if ((flag & 0x1) != 0) {
-			this.screenColorRgb = class120_sub7.getInt();
-		} else {
+		final int flag = buffer.getUByte();
+		if ((flag & 0x1) == 0) {
 			this.screenColorRgb = AtmosphereManager.defaultScreenColorRgb;
-		}
-		if ((flag & 0x2) != 0) {
-			this.lightModelAmbient = class120_sub7.getUShort() / 256.0F;
 		} else {
+			this.screenColorRgb = buffer.getInt();
+		}
+		if ((flag & 0x2) == 0) {
 			this.lightModelAmbient = 1.1523438F;
+		} else {
+			this.lightModelAmbient = buffer.getUShort() / 256.0F;
 		}
 		if ((flag & 0x4) == 0) {
 			this.light0Diffuse = 0.69921875F;
 		} else {
-			this.light0Diffuse = class120_sub7.getUShort() / 256.0F;
+			this.light0Diffuse = buffer.getUShort() / 256.0F;
 		}
-		if ((flag & 0x8) != 0) {
-			this.light1Diffuse = class120_sub7.getUShort() / 256.0F;
-		} else {
+		if ((flag & 0x8) == 0) {
 			this.light1Diffuse = 1.2F;
-		}
-		if ((flag & 0x10) != 0) {
-			this.lightX = class120_sub7.getShort();
-			this.lightY = class120_sub7.getShort();
-			this.lightZ = class120_sub7.getShort();
 		} else {
+			this.light1Diffuse = buffer.getUShort() / 256.0F;
+		}
+		if ((flag & 0x10) == 0) {
 			this.lightX = -50;
 			this.lightY = -60;
 			this.lightZ = -50;
+		} else {
+			this.lightX = buffer.getShort();
+			this.lightY = buffer.getShort();
+			this.lightZ = buffer.getShort();
+
 		}
 		if ((flag & 0x20) == 0) {
 			this.fogColorRgb = AtmosphereManager.defaulFogColorRgb;
 		} else {
-			this.fogColorRgb = class120_sub7.getInt();
+			this.fogColorRgb = buffer.getInt();
 		}
-		if ((flag & 0x40) != 0) {
-			this.fogOffset = class120_sub7.getUShort();
+		if ((flag & 0x40) == 0) {
+			this.fogDepth = 0;
 		} else {
-			this.fogOffset = 0;
+			this.fogDepth = buffer.getUShort();
 		}
 		if ((flag & 0x80) == 0) {
 			if (World.anIntArray2835 != null) {
 				this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(World.anIntArray2835[0], World.anIntArray2835[1], World.anIntArray2835[2], World.anIntArray2835[3], World.anIntArray2835[4], World.anIntArray2835[5]);
 			}
 		} else {
-			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort(), class120_sub7.getUShort());
+			this.aClass120_Sub14_Sub9_2117 = Class120_Sub14_Sub9.method1498(buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort());
 		}
 	}
 }

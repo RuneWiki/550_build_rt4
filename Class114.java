@@ -8,15 +8,15 @@ final class Class114 {
 	static byte[][][] aByteArrayArrayArray1094;
 	static byte[][][] tileSettings;
 	boolean aBoolean1096;
-	static js5 aClass50_1097;
+	static js5 locationsJs5;
 	static int anInt1099;
 	boolean aBoolean1100;
 	boolean aBoolean1101;
-	byte aByte1102;
-	byte aByte1103;
+	byte blanch;
+	byte shaderId;
 	byte aByte1104;
-	byte aByte1105;
-	short aShort1106;
+	byte brightness;
+	short colorPaletteIndex;
 	boolean aBoolean1107;
 	boolean aBoolean1108;
 
@@ -48,7 +48,7 @@ final class Class114 {
 				final DisplayModeInfo displayModeInfo = Class65.displayModes[id];
 				pixelAmount[id] = displayModeInfo.width * displayModeInfo.height;
 			}
-			ArrayUtils.quicksortArray(pixelAmount, Class65.displayModes);
+			ArrayUtils.quicksort(pixelAmount, Class65.displayModes);
 		}
 		return Class65.displayModes;
 	}

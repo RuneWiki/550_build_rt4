@@ -543,7 +543,7 @@ class WorldMapHandler {
 				if (overlayType.anInt1198 >= 0) {
 					color = Rasterizer.palette[Class96.method789(overlayType.anInt1198, 96)];
 				} else if (textureId >= 0) {
-					color = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.method20(textureId), 96)];
+					color = Rasterizer.palette[Class96.method789(Rasterizer.anInterface5_973.getColorPaletteIndex(textureId), 96)];
 				} else if (overlayType.color == -1) {
 					color = -1;
 				} else {

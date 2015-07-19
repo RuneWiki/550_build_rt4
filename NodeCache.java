@@ -9,7 +9,7 @@ final class NodeCache {
 	static int[][] anIntArrayArray300;
 	static int anInt301;
 	private final Queue recent = new Queue();
-	static js5 aClass50_303;
+	static js5 texturesJs5;
 	private final Hashtable hashtable;
 	private int capacity;
 	private final int defaultCapacity;

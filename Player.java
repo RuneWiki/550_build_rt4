@@ -58,7 +58,7 @@ final class Player extends GameEntity {
 						this.team = team;
 					}
 				} else {
-					is[id] = (data - 256) | -0x80000000;
+					is[id] = (data - 256) | Integer.MIN_VALUE;
 				}
 			}
 		}
@@ -109,7 +109,7 @@ final class Player extends GameEntity {
 			this.appearance = new PlayerAppearance();
 		}
 		final int npcId = this.appearance.npcId;
-		this.appearance.init(newNpcId, null, this.entityRenderDataId, colors, gender == 1);
+		this.appearance.init(newNpcId, is, this.entityRenderDataId, colors, gender == 1);
 		if (newNpcId != npcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());

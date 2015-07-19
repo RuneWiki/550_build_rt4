@@ -18,7 +18,7 @@ final class LocType {
 	int sizeZ;
 	private short[] retextureModified;
 	int[] randomAnimationDelays;
-	private boolean aBoolean1830;
+	private boolean copyNormals;
 	int anInt1831;
 	int ambientSoundHearDistance;
 	int ambientSoundId;
@@ -103,7 +103,7 @@ final class LocType {
 				l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
 			}
 			boolean bool_11_;
-			if (!bool || !aBoolean1830) {
+			if (!bool || !copyNormals) {
 				bool_11_ = false;
 			} else {
 				l |= ~0x7fffffffffffffffL;
@@ -126,7 +126,7 @@ final class LocType {
 					class180_sub2.ambient = (short) (ambient + 64);
 					class180_sub2.contrast = (short) (contrast * 5 + 768);
 					sceneGraphNode = class180_sub2;
-					class180_sub2.method2303();
+					class180_sub2.createNormals();
 				}
 				aClass21_1618.put(sceneGraphNode, l);
 			}
@@ -175,7 +175,7 @@ final class LocType {
 			class88_12_.aClass107_Sub1_830 = class107_sub1_13_;
 			aClass21_1618.put(class88_12_, l);
 		}
-		final boolean bool_14_ = bool & aBoolean1830;
+		final boolean bool_14_ = bool & copyNormals;
 		final HDModelRenderer class180_sub7_sub2_15_ = class180_sub7_sub2.method2412(aByte1820 != 3, aByte1820 == 0, true, true, true, true, !bool_14_, true, true, true, true);
 		if (aByte1820 != 0) {
 			class180_sub7_sub2_15_.method2419(aByte1820, aShort1867, class180_sub7_sub2, is, is_6_, i, i_5_, i_9_);
@@ -436,13 +436,13 @@ final class LocType {
 			class180_sub7_sub2_51_.method2408();
 		}
 		if (recolorOriginal != null) {
-			for (int i_52_ = 0; recolorOriginal.length > i_52_; i_52_++) {
-				class180_sub7_sub2_51_.method2427(recolorOriginal[i_52_], recolorModified[i_52_]);
+			for (int i_52_ = 0; i_52_ < recolorOriginal.length; i_52_++) {
+				class180_sub7_sub2_51_.recolor(recolorOriginal[i_52_], recolorModified[i_52_]);
 			}
 		}
 		if (retextureOriginal != null) {
-			for (int i_53_ = 0; retextureOriginal.length > i_53_; i_53_++) {
-				class180_sub7_sub2_51_.method2405(retextureOriginal[i_53_], retextureModified[i_53_]);
+			for (int i_53_ = 0; i_53_ < retextureOriginal.length; i_53_++) {
+				class180_sub7_sub2_51_.retexture(retextureOriginal[i_53_], retextureModified[i_53_]);
 			}
 		}
 		if (resizeX != 128 || resizeY != 128 || resizeZ != 128) {
@@ -622,7 +622,7 @@ final class LocType {
 		} else if (code == 21) {
 			aByte1820 = (byte) 1;
 		} else if (code == 22) {
-			aBoolean1830 = true;
+			copyNormals = true;
 		} else if (code == 23) {
 			this.anInt1866 = 1;
 		} else if (code == 24) {
@@ -1010,6 +1010,12 @@ final class LocType {
 		return stringNode.value;
 	}
 
+	static final void setup(final js5 js5, final boolean bool, final js5 class50_0_) {
+		Class69_Sub2.locMemberClient = bool;
+		Class120_Sub12_Sub36.aClass50_3418 = class50_0_;
+		Class120_Sub6.aClass50_2450 = js5;
+	}
+
 	static final void clearCache() {
 		recentUse.clearSoftReference();
 		aClass21_2663.clearSoftReference();
@@ -1062,7 +1068,7 @@ final class LocType {
 		this.sizeX = 1;
 		this.anInt1831 = -1;
 		offsetX = 0;
-		aBoolean1830 = false;
+		copyNormals = false;
 		totalDelay = 0;
 		this.anInt1821 = 2;
 		varbitId = -1;

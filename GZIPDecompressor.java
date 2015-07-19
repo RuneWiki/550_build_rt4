@@ -22,16 +22,16 @@ final class GZIPDecompressor {
 		}
 	}
 
-	static final void method718() {
+	static final void processProjectiles() {
 		for (ProjectileNode projectileNode = (ProjectileNode) FileSystemRequest.projectileDeque.getFront(); projectileNode != null; projectileNode = (ProjectileNode) FileSystemRequest.projectileDeque.getNext()) {
 			final Projectile class180_sub4 = projectileNode.projectile;
-			if (class180_sub4.level != Class173.gameLevel || Class101_Sub2.loopCycle > class180_sub4.anInt2922) {
+			if (class180_sub4.level != Class173.gameLevel || Class101_Sub2.loopCycle > class180_sub4.endCycle) {
 				projectileNode.unlink();
-			} else if (class180_sub4.anInt2939 <= Class101_Sub2.loopCycle) {
+			} else if (class180_sub4.startCycle <= Class101_Sub2.loopCycle) {
 				if (class180_sub4.lockonIndex > 0) {
 					final Npc npc = Class120_Sub12_Sub11.npcList[class180_sub4.lockonIndex - 1];
 					if (npc != null && npc.x >= 0 && npc.x < 13312 && npc.z >= 0 && npc.z < 13312) {
-						class180_sub4.method2319(Class22.getTileHeight(npc.x, npc.z, class180_sub4.level) - class180_sub4.anInt2943, npc.x, Class101_Sub2.loopCycle, npc.z);
+						class180_sub4.method2319(npc.x, Class22.getTileHeight(npc.x, npc.z, class180_sub4.level) - class180_sub4.yOff, npc.z, Class101_Sub2.loopCycle);
 					}
 				}
 				if (class180_sub4.lockonIndex < 0) {
@@ -43,7 +43,7 @@ final class GZIPDecompressor {
 						player = Class118.playersList[i_3_];
 					}
 					if (player != null && player.x >= 0 && player.x < 13312 && player.z >= 0 && player.z < 13312) {
-						class180_sub4.method2319(Class22.getTileHeight(player.x, player.z, class180_sub4.level) + -class180_sub4.anInt2943, player.x, Class101_Sub2.loopCycle, player.z);
+						class180_sub4.method2319(player.x, Class22.getTileHeight(player.x, player.z, class180_sub4.level) - class180_sub4.yOff, player.z, Class101_Sub2.loopCycle);
 					}
 				}
 				class180_sub4.method2317(Class120_Sub12_Sub22.redrawRate);
@@ -57,14 +57,14 @@ final class GZIPDecompressor {
 	}
 
 	final void decompress(final Buffer buffer, final byte[] output) {
-		if (buffer.buf[buffer.pos] != 31 || buffer.buf[1 + buffer.pos] != -117) {
+		if (buffer.buf[buffer.pos] != 31 || buffer.buf[buffer.pos + 1] != -117) {
 			throw new RuntimeException("Invalid GZIP header!");
 		}
 		if (inflater == null) {
 			inflater = new Inflater(true);
 		}
 		try {
-			inflater.setInput(buffer.buf, buffer.pos + 10, buffer.buf.length - (18 + buffer.pos));
+			inflater.setInput(buffer.buf, buffer.pos + 10, buffer.buf.length - (buffer.pos + 18));
 			inflater.inflate(output);
 		} catch (final Exception exception) {
 			inflater.reset();

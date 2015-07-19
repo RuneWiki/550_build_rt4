@@ -16,7 +16,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		final long l = i_1_;
 		AbstractModelRenderer class180_sub7_6_ = (AbstractModelRenderer) Class120_Sub14_Sub13.aClass21_3564.get(l);
 		if (class180_sub7_6_ == null) {
-			final Model class180_sub2 = Model.get(Class120_Sub12_Sub17.aClass50_3258, i_1_, 0);
+			final Model class180_sub2 = Model.get(Class120_Sub12_Sub17.modelsJs5, i_1_, 0);
 			if (class180_sub2 == null) {
 				return null;
 			}

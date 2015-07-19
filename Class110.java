@@ -29,7 +29,7 @@ final class Class110 {
 		MapSceneType.clear();
 		MapFunctionType.clear();
 		GroundDecoration.method309();
-		Class153.recentUse.clear();
+		SphereType.recentUse.clear();
 		LightType.recentUse.clear();
 		DisplayModeInfo.method2214();
 		AbstractMouseWheelHandler.method160();
@@ -43,57 +43,57 @@ final class Class110 {
 		Class120_Sub14_Sub13.aClass21_3564.clear();
 		Class154.shadowModelCache.clear();
 		EmitterType.recentUse.clear();
-		SceneGroundObject.aClass21_2841.clear();
+		MagnetType.recentUse.clear();
 		LDFont.fontCache.clear();
 		if (!HDToolkit.glEnabled) {
 			((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		}
 		ClientScript.recentUse.clear();
-		AmbientSound.aClass50_2479.method419();
-		Class79_Sub1.aClass50_2245.method419();
-		Class33.aClass50_275.method419();
+		AmbientSound.animsJs5.method419();
+		Class79_Sub1.animsBasesJs5.method419();
+		Class33.interfaceJs5.method419();
 		Class159.aClass50_1490.method419();
-		Class65.aClass50_597.method419();
-		Class120_Sub12_Sub36.aClass50_3419.method419();
-		Class120_Sub12_Sub17.aClass50_3258.method419();
-		client.aClass50_63.method419();
-		ParticleNodeSub.aClass50_2400.method419();
+		Class65.mapsJs5.method419();
+		Class120_Sub12_Sub36.musicJs5.method419();
+		Class120_Sub12_Sub17.modelsJs5.method419();
+		client.spritesJs5.method419();
+		ParticleNodeSub.binaryJs5.method419();
 		InterfaceListener.aClass50_2544.method419();
-		IsaacCipher.aClass50_1019.method419();
-		Class120_Sub12_Sub2.aClass21_3144.clear();
+		IsaacCipher.scriptsJs5.method419();
+		Class120_Sub12_Sub2.hitBarSpriteCache.clear();
 	}
 
-	static final void method978(final boolean bool, String string) {
-		short[] is = new short[16];
+	static final void searchQuickChatMessages(final boolean bool, String string) {
 		string = string.toLowerCase();
-		final int i_1_ = bool ? 32768 : 0;
-		int i_2_ = 0;
-		final int i_3_ = (bool ? Class192.anInt2120 : MagnetType.anInt269) + i_1_;
-		for (int i_4_ = i_1_; i_4_ < i_3_; i_4_++) {
-			final QuickChatMessageType class120_sub14_sub10 = QuickChatMessageType.list(i_4_);
-			if (class120_sub14_sub10.aBoolean3531 && class120_sub14_sub10.method1510().toLowerCase().indexOf(string) != -1) {
-				if (i_2_ >= 50) {
-					Buffer.anInt2474 = -1;
-					Class120_Sub12_Sub37.aShortArray3430 = null;
+		short[] results = new short[16];
+		int resultsPos = 0;
+		final int loopStart = bool ? 32768 : 0;
+		final int loopEnd = (bool ? Class192.anInt2120 : MagnetType.anInt269) + loopStart;
+		for (int id = loopStart; id < loopEnd; id++) {
+			final QuickChatMessageType quickChatMessage = QuickChatMessageType.list(id);
+			if (quickChatMessage.searchable && quickChatMessage.method1510().toLowerCase().indexOf(string) != -1) {
+				if (resultsPos >= 50) {
+					Buffer.searchResultCount = -1;
+					Class120_Sub12_Sub37.searchResults = null;
 					return;
 				}
-				if (is.length <= i_2_) {
-					final short[] is_5_ = new short[is.length * 2];
-					for (int i_6_ = 0; i_2_ > i_6_; i_6_++) {
-						is_5_[i_6_] = is[i_6_];
+				if (results.length <= resultsPos) {
+					final short[] newArray = new short[results.length * 2];
+					for (int i = 0; i < resultsPos; i++) {
+						newArray[i] = results[i];
 					}
-					is = is_5_;
+					results = newArray;
 				}
-				is[i_2_++] = (short) i_4_;
+				results[resultsPos++] = (short) id;
 			}
 		}
 		ParticleNode.anInt1035 = 0;
-		Buffer.anInt2474 = i_2_;
-		final String[] strings = new String[Buffer.anInt2474];
-		Class120_Sub12_Sub37.aShortArray3430 = is;
-		for (int i_7_ = 0; Buffer.anInt2474 > i_7_; i_7_++) {
-			strings[i_7_] = QuickChatMessageType.list(is[i_7_]).method1510();
+		Buffer.searchResultCount = resultsPos;
+		final String[] names = new String[Buffer.searchResultCount];
+		Class120_Sub12_Sub37.searchResults = results;
+		for (int id = 0; id < Buffer.searchResultCount; id++) {
+			names[id] = QuickChatMessageType.list(results[id]).method1510();
 		}
-		Class28.method242(strings, Class120_Sub12_Sub37.aShortArray3430);
+		ArrayUtils.quicksort(names, Class120_Sub12_Sub37.searchResults);
 	}
 }

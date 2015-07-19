@@ -345,11 +345,11 @@ final class ArrayUtils {
 		return is_10_;
 	}
 
-	static final void quicksortArray(final int[] is, final Object[] objects) {
-		ArrayUtils.quicksortArray(is.length - 1, objects, 0, is);
+	static final void quicksort(final int[] is, final Object[] objects) {
+		ArrayUtils.quicksort(is.length - 1, objects, 0, is);
 	}
 
-	static final void quicksortArray(final int len, final Object[] objects, final int off, final int[] is) {
+	static final void quicksort(final int len, final Object[] objects, final int off, final int[] is) {
 		if (len > off) {
 			final int i_5_ = (off + len) / 2;
 			final int i_7_ = is[i_5_];
@@ -373,12 +373,12 @@ final class ArrayUtils {
 			is[i_6_] = i_7_;
 			objects[len] = objects[i_6_];
 			objects[i_6_] = object;
-			quicksortArray(i_6_ - 1, objects, off, is);
-			quicksortArray(len, objects, 1 + i_6_, is);
+			quicksort(i_6_ - 1, objects, off, is);
+			quicksort(len, objects, 1 + i_6_, is);
 		}
 	}
 
-	static final void quicksortArray(final int i_50_, final long[] ls, final int i_51_, final int[] is) {
+	static final void quicksort(final int i_50_, final long[] ls, final int i_51_, final int[] is) {
 		if (i_50_ > i_51_) {
 			final int i_52_ = (i_50_ + i_51_) / 2;
 			int i_53_ = i_51_;
@@ -402,16 +402,16 @@ final class ArrayUtils {
 			ls[i_53_] = l;
 			is[i_50_] = is[i_53_];
 			is[i_53_] = i_54_;
-			quicksortArray(i_53_ - 1, ls, i_51_, is);
-			quicksortArray(i_50_, ls, i_53_ - -1, is);
+			quicksort(i_53_ - 1, ls, i_51_, is);
+			quicksort(i_50_, ls, i_53_ - -1, is);
 		}
 	}
 
-	static final void quicksortArray(final int[] is, final long[] ls) {
-		quicksortArray(ls.length - 1, ls, 0, is);
+	static final void quicksort(final int[] is, final long[] ls) {
+		quicksort(ls.length - 1, ls, 0, is);
 	}
 
-	static final void quicksortArray(final long[] ls, final int i_3_, final int i_4_, final Object[] objects) {
+	static final void quicksort(final long[] ls, final int i_3_, final int i_4_, final Object[] objects) {
 		if (i_4_ < i_3_) {
 			final int i_5_ = (i_3_ + i_4_) / 2;
 			int i_6_ = i_4_;
@@ -435,12 +435,45 @@ final class ArrayUtils {
 			ls[i_6_] = l;
 			objects[i_3_] = objects[i_6_];
 			objects[i_6_] = object;
-			quicksortArray(ls, i_6_ - 1, i_4_, objects);
-			quicksortArray(ls, i_3_, i_6_ + 1, objects);
+			quicksort(ls, i_6_ - 1, i_4_, objects);
+			quicksort(ls, i_3_, i_6_ + 1, objects);
 		}
 	}
 
-	static final void quicksortArray(final Object[] objects, final long[] ls) {
-		quicksortArray(ls, ls.length - 1, 0, objects);
+	static final void quicksort(final Object[] objects, final long[] ls) {
+		quicksort(ls, ls.length - 1, 0, objects);
+	}
+
+	static final void quicksort(final String[] strings, final short[] is) {
+		ArrayUtils.quicksort(strings, strings.length - 1, is, 0);
+	}
+
+	static final void quicksort(final String[] strings, final int i, final short[] is, final int i_0_) {
+		if (i > i_0_) {
+			final int i_1_ = (i_0_ - -i) / 2;
+			int i_2_ = i_0_;
+			final String string = strings[i_1_];
+			strings[i_1_] = strings[i];
+			strings[i] = string;
+			final short i_3_ = is[i_1_];
+			is[i_1_] = is[i];
+			is[i] = i_3_;
+			for (int i_4_ = i_0_; i > i_4_; i_4_++) {
+				if (string == null || strings[i_4_] != null && strings[i_4_].compareTo(string) < (0x1 & i_4_)) {
+					final String string_5_ = strings[i_4_];
+					strings[i_4_] = strings[i_2_];
+					strings[i_2_] = string_5_;
+					final short i_6_ = is[i_4_];
+					is[i_4_] = is[i_2_];
+					is[i_2_++] = i_6_;
+				}
+			}
+			strings[i] = strings[i_2_];
+			strings[i_2_] = string;
+			is[i] = is[i_2_];
+			is[i_2_] = i_3_;
+			quicksort(strings, i_2_ - 1, is, i_0_);
+			quicksort(strings, i, is, i_2_ + 1);
+		}
 	}
 }

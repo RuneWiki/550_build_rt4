@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	private int anInt3140 = 4096;
 	private final int[] anIntArray3141;
 	private int anInt3142 = 4096;
-	static ObjectCache aClass21_3144 = new ObjectCache(4);
+	static ObjectCache hitBarSpriteCache = new ObjectCache(4);
 	static int anInt3145;
 	static long lastClickTime = 0L;
 

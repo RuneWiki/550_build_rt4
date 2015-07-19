@@ -73,9 +73,9 @@ final class InterfaceListener extends Node {
 		for (int i_8_ = i; i_8_ <= i + 1; i_8_++) {
 			if (i_8_ != MapSceneType.activeGroundTileLength) {
 				for (int i_9_ = i_4_; i_9_ <= i_5_; i_9_++) {
-					if (i_9_ >= 0 && i_9_ < WallDecoration.anInt1900) {
+					if (i_9_ >= 0 && i_9_ < WallDecoration.mapSizeX) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {
-							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.anInt3440 && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
+							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.mapSizeZ && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
 								final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
 									final int i_11_ = (OverridedJInterface.activeTileHeightMap[i_8_][i_9_][i_10_] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_ + 1])
@@ -91,10 +91,10 @@ final class InterfaceListener extends Node {
 									}
 									for (int i_12_ = 0; i_12_ < class120_sub18.anInt2638; i_12_++) {
 										final Class28 class28 = class120_sub18.aClass28Array2625[i_12_];
-										if (class28 != null && class28.aClass180_174.method2268() && (i_9_ == class28.anInt180 || i_9_ == i_4_) && (i_10_ == class28.anInt184 || i_10_ == i_6_)) {
+										if (class28 != null && class28.sceneGraphNode.method2268() && (i_9_ == class28.anInt180 || i_9_ == i_4_) && (i_10_ == class28.anInt184 || i_10_ == i_6_)) {
 											final int i_13_ = class28.anInt182 - class28.anInt180 + 1;
 											final int i_14_ = class28.anInt175 - class28.anInt184 + 1;
-											sceneGraphNode.method2267(class28.aClass180_174, (class28.anInt180 - i_0_) * 128 + (i_13_ - i_2_) * 64, i_11_, (class28.anInt184 - i_1_) * 128 + (i_14_ - i_3_) * 64, bool);
+											sceneGraphNode.method2267(class28.sceneGraphNode, (class28.anInt180 - i_0_) * 128 + (i_13_ - i_2_) * 64, i_11_, (class28.anInt184 - i_1_) * 128 + (i_14_ - i_3_) * 64, bool);
 										}
 									}
 								}

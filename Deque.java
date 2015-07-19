@@ -7,14 +7,14 @@ final class Deque {
 	Node head = new Node();
 	private Node current;
 
-	static final int method888(final int i) {
-		int i_2_ = i >>> 1;
+	static final int highestOneBit(final int value) {
+		int i_2_ = value >>> 1;
 		i_2_ |= i_2_ >>> 1;
 		i_2_ |= i_2_ >>> 2;
 		i_2_ |= i_2_ >>> 4;
 		i_2_ |= i_2_ >>> 8;
 		i_2_ |= i_2_ >>> 16;
-		return i & (i_2_ ^ 0xffffffff);
+		return value & (i_2_ ^ 0xffffffff);
 	}
 
 	final void clear() {

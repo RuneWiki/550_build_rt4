@@ -64,7 +64,7 @@ final class Class48 {
 				}
 				for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
 					if (nameAsLong == HintIcon.ignoreNamesAsLong[id]) {
-						AbstractRequest.pushMessage(new StringBuilder(SceneGroundObject.aString2849).append(name).append(StringLibrary.aString2578).toString(), "", 0);
+						AbstractRequest.pushMessage(new StringBuilder(StringLibrary.aString2849).append(name).append(StringLibrary.aString2578).toString(), "", 0);
 						return;
 					}
 				}

@@ -154,8 +154,8 @@ final class SpotAnimType {
 									}
 								}
 								for (int i_15_ = 0; class120_sub18.anInt2638 > i_15_; i_15_++) {
-									if (class120_sub18.aClass28Array2625[i_15_].aClass180_174 instanceof HDModelRenderer) {
-										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass28Array2625[i_15_].aClass180_174;
+									if (class120_sub18.aClass28Array2625[i_15_].sceneGraphNode instanceof HDModelRenderer) {
+										final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class120_sub18.aClass28Array2625[i_15_].sceneGraphNode;
 										if (0L == (~0x7fffffffffffffffL & class120_sub18.aClass28Array2625[i_15_].bitPacked)) {
 											class180_sub7_sub2.method2432(false, true, true, true, false, true, true);
 										} else {

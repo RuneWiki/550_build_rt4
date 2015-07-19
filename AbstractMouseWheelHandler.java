@@ -19,7 +19,7 @@ abstract class AbstractMouseWheelHandler {
 	abstract void removeListener(Component component);
 
 	static final void method158(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_) {
-		Class153.method2076(i_1_);
+		SphereType.method2076(i_1_);
 		int i_5_ = 0;
 		int i_6_ = -i_1_;
 		int i_7_ = i_1_ - i;

@@ -6,12 +6,12 @@ import java.util.Random;
 abstract class Class132 {
 	static int anInt1248;
 	private int anInt1249 = 4;
-	static js5 aClass50_1251;
+	static js5 vorbisJs5;
 	private int anInt1252;
 	private short[] aShortArray1253;
 	private int seed;
 	int anInt1256 = 4;
-	static int anInt1257;
+	static int activeSkyboxYawOffset;
 	private int anInt1258;
 	private short[] aShortArray1259;
 
@@ -630,7 +630,7 @@ abstract class Class132 {
 		for (int i_188_ = 0; i_188_ < i_186_; i_188_++) {
 			ls[i_188_] = class120_sub9s_187_[i_188_].uid;
 		}
-		ArrayUtils.quicksortArray(class120_sub9s_187_, ls);
+		ArrayUtils.quicksort(class120_sub9s_187_, ls);
 		return class120_sub9s_187_;
 	}
 }

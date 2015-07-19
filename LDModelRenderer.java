@@ -362,7 +362,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 									if (i_54_ == 0) {
 										i_54_ = 1;
 									}
-									GraphicsLD.drawAlphaCircle(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_53_], anIntArray3806[i_53_], (class108_sub3_sub1.particleEmitter.emitterType.size << 16) / i_54_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -380,7 +380,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 									if (i_59_ == 0) {
 										i_59_ = 1;
 									}
-									GraphicsLD.drawAlphaCircle(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+									GraphicsLD.drawAlphaCircle(anIntArray3812[i_58_], anIntArray3806[i_58_], (class108_sub3_sub1.particleEmitter.emitterType.size << 16) / i_59_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 								}
 							}
 						}
@@ -533,7 +533,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 						if (i_86_ == 0) {
 							i_86_ = 1;
 						}
-						GraphicsLD.drawAlphaCircle(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+						GraphicsLD.drawAlphaCircle(anIntArray3812[i_85_], anIntArray3806[i_85_], (class108_sub3_sub1.particleEmitter.emitterType.size << 16) / i_86_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 						if (i_79_ >= i_12_) {
 							break;
 						}
@@ -565,7 +565,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					if (i_89_ == 0) {
 						i_89_ = 1;
 					}
-					GraphicsLD.drawAlphaCircle(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.particleEmitter.emitterType.minSize << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
+					GraphicsLD.drawAlphaCircle(anIntArray3812[i_88_], anIntArray3806[i_88_], (class108_sub3_sub1.particleEmitter.emitterType.size << 16) / i_89_, class108_sub3_sub1.color, class108_sub3_sub1.color >> 24 & 0xff);
 					i_88_ = anIntArray3818[i_79_++];
 				}
 			}
@@ -766,14 +766,14 @@ final class LDModelRenderer extends AbstractModelRenderer {
 								}
 							}
 							if (class108_sub2 != null) {
-								final int i_147_ = ParticleEngine.anInt2364 + i_122_;
-								final int i_148_ = ParticleEngine.anInt2358 + i_123_;
+								final int i_147_ = ParticleEngine.offsetX + i_122_;
+								final int i_148_ = ParticleEngine.offsetY + i_123_;
 								for (int i_149_ = 0; i_149_ < class108_sub2.aClass108_Sub3_Sub1Array2355.length; i_149_++) {
 									final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_149_];
 									if (class108_sub3_sub1 != null && !class108_sub3_sub1.aBoolean3097) {
 										int i_150_ = (class108_sub3_sub1.positionX >> 12) - DisplayModeInfo.anInt1713;
 										int i_151_ = (class108_sub3_sub1.positionY >> 12) - PlayerAppearance.anInt1367;
-										int i_152_ = (class108_sub3_sub1.positionZ >> 12) - Class145.anInt1381;
+										int i_152_ = (class108_sub3_sub1.positionZ >> 12) - SkyboxType.anInt1381;
 										int i_153_ = i_152_ * i_101_ + i_150_ * i_102_ >> 16;
 										i_152_ = i_152_ * i_102_ - i_150_ * i_101_ >> 16;
 										i_150_ = i_153_;
@@ -2278,7 +2278,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		anInt3792 = 0;
 		anInt3781 = 0;
 		this.vertexCount = 0;
-		class180_sub2.method2303();
+		class180_sub2.createNormals();
 		class180_sub2.createLabels();
 		this.vertexCount = class180_sub2.vertexCount;
 		anInt3781 = class180_sub2.highestVertexId;
@@ -2408,7 +2408,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					anIntArray3769[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
 				} else if (i_657_ == 1) {
 					final Class115 class115 = class180_sub2.aClass115Array2880[i_656_];
-					final int i_662_ = ambient + (lightX * class115.anInt1111 + lightY * class115.anInt1109 + lightZ * class115.anInt1112) / (lightIntensity + lightIntensity / 2) << 17;
+					final int i_662_ = ambient + (lightX * class115.x + lightY * class115.y + lightZ * class115.z) / (lightIntensity + lightIntensity / 2) << 17;
 					anIntArray3779[i_656_] = i_662_ | method2401(class180_sub2.faceColors[i_656_] & 0xffff, i_662_ >> 17);
 					anIntArray3769[i_656_] = -1;
 				} else if (i_657_ == 3) {
@@ -2442,7 +2442,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				anIntArray3769[i_656_] = method2403(i_663_);
 			} else if (i_657_ == 1) {
 				final Class115 class115 = class180_sub2.aClass115Array2880[i_656_];
-				final int i_664_ = ambient + (lightX * class115.anInt1111 + lightY * class115.anInt1109 + lightZ * class115.anInt1112) / (lightIntensity + lightIntensity / 2);
+				final int i_664_ = ambient + (lightX * class115.x + lightY * class115.y + lightZ * class115.z) / (lightIntensity + lightIntensity / 2);
 				anIntArray3779[i_656_] = method2403(i_664_);
 				anIntArray3769[i_656_] = -1;
 			} else {
@@ -2573,7 +2573,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 				if (class180_sub7_sub1_673_.aClass169Array3776 != null) {
 					for (int i_676_ = 0; i_676_ < class180_sub7_sub1_673_.aClass169Array3776.length; i_676_++) {
-						this.aClass169Array3776[i_669_] = new ModelParticleMagnet(class180_sub7_sub1_673_.aClass169Array3776[i_676_].magnetType, class180_sub7_sub1_673_.aClass169Array3776[i_676_].anInt1647 + this.vertexCount);
+						this.aClass169Array3776[i_669_] = new ModelParticleMagnet(class180_sub7_sub1_673_.aClass169Array3776[i_676_].magnetType, class180_sub7_sub1_673_.aClass169Array3776[i_676_].vertexId + this.vertexCount);
 						i_669_++;
 					}
 				}

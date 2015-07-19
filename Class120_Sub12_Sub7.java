@@ -7,7 +7,7 @@ final class Class120_Sub12_Sub7 extends Class120_Sub12 {
 	static int anInt3178;
 	static int crossIndex = 0;
 	static int floorshadowsId;
-	static boolean aBoolean3181 = false;
+	static boolean mouseClickToTileRequested = false;
 	static int[] menuOptionsData2 = new int[500];
 	static int anInt3183 = -1;
 	static int frameWidth;

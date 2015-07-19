@@ -557,7 +557,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 				}
 				final Class28 class28 = SpotAnimation.method2315(i_66_, i_69_, i_68_);
 				if (class28 != null) {
-					class28.aClass180_174 = new AnimatedLocation((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.aClass180_174);
+					class28.sceneGraphNode = new AnimatedLocation((int) (class28.bitPacked >>> 32) & 0x7fffffff, i_72_, i_71_, i_68_, i_66_, i_69_, i, false, class28.sceneGraphNode);
 				}
 			}
 			if (i_70_ == 3) {
