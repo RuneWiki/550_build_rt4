@@ -238,7 +238,7 @@ final class ObjType {
 	}
 
 	static final WallDecoration getWallDecoration(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}
@@ -349,10 +349,10 @@ final class ObjType {
 		return integerNode.value;
 	}
 
-	final boolean method2116(final boolean bool) {
+	final boolean headModelsDownloaded(final boolean female) {
 		int i_47_ = manhead;
 		int i_48_ = manhead2;
-		if (bool) {
+		if (female) {
 			i_47_ = womanhead;
 			i_48_ = womanhead2;
 		}
@@ -537,7 +537,7 @@ final class ObjType {
 		} else if (code == 249) {
 			final int paramLen = buffer.getUByte();
 			if (this.params == null) {
-				final int size = Class120_Sub12_Sub17.getFarestBitValue(paramLen);
+				final int size = Class120_Sub12_Sub17.farthestBitValue(paramLen);
 				this.params = new Hashtable(size);
 			}
 			for (int id = 0; id < paramLen; id++) {
@@ -552,6 +552,17 @@ final class ObjType {
 				this.params.put(node, uid);
 			}
 		}
+	}
+
+	static final void setupObjTypeVariables(final js5 js5, final LDFont class120_sub14_sub8_sub2, final boolean bool, final js5 class50_24_) {
+		Class111.aClass50_1064 = class50_24_;
+		Class120_Sub12_Sub23.aClass50_3305 = js5;
+		objMemberClient = bool;
+		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
+		Node.objCount = Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_) + i_25_ * 256;
+		Class15.objSmallFont = class120_sub14_sub8_sub2;
+		Class120_Sub12_Sub29.membersObjInventoryOptions = new String[] { null, null, null, null, StringLibrary.drop };
+		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, StringLibrary.take, null, null };
 	}
 
 	static final void setMembersClient2(final boolean bool) {

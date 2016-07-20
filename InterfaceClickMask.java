@@ -7,12 +7,44 @@ final class InterfaceClickMask extends Node {
 	int paramId;
 	int optionMask;
 	
-	final boolean method1677() {
-		return (0x1 & this.optionMask >> 21) != 0;
+	final boolean isOptionEnabled(final int i) {
+		return (this.optionMask >> i + 1 & 0x1) != 0;
 	}
 
-	final boolean method1678(final int i) {
-		return (0x1 & this.optionMask >> i + 1) != 0;
+	final boolean isPauseButton() {
+		return (this.optionMask & 0x1) != 0;
+	}
+
+	final int getTargetMask() {
+		return optionMask >> 11 & 0x7f;
+	}
+	
+	final int method1683() {
+		return this.optionMask >> 18 & 0x7;
+	}
+	
+	final boolean canDrag() {
+		return (this.optionMask >> 21 & 0x1) != 0;
+	}
+	
+	final boolean canUseSpellOnComponent() {
+		return (this.optionMask >> 22 & 0x1) != 0;
+	}
+
+	final boolean canDragObject() {
+		return (this.optionMask >> 28 & 0x1) != 0;
+	}
+
+	final boolean draggingReplacesObject() {
+		return (this.optionMask >> 29 & 0x1) != 0;
+	}
+	
+	final boolean hasObjectOptions() {
+		return (this.optionMask >> 30 & 0x1) != 0;
+	}
+	
+	final boolean canUseObject() {
+		return (this.optionMask >> 31 & 0x1) != 0;
 	}
 
 	static final void method1679(final Node node, final Node class120_1_) {
@@ -25,36 +57,16 @@ final class InterfaceClickMask extends Node {
 		class120_1_.next.previous = class120_1_;
 	}
 
-	final boolean method1681() {
-		return (this.optionMask & 0x107da4ce) >> 28 != 0;
-	}
-
 	static final void redrawInterface(final JagexInterface jagexInterface) {
 		if (jagexInterface.redrawCycle == GZIPDecompressor.anInt796) {
 			MasterIndexInfo.needInterfaceRedrawWrapper[jagexInterface.redrawId] = true;
 		}
 	}
 
-	final int method1683() {
-		return 0x7 & this.optionMask >> 18;
-	}
-
-	final int method1685() {
-		return optionMask >> 11 & 0x7f;
-	}
-
-	final boolean method1686() {
-		return (this.optionMask & 0x1) != 0;
-	}
-
-	final boolean method1687() {
-		return (0x1 & this.optionMask >> 31) != 0;
-	}
-
 	static final int method1688(final int rgb) {
-		final double d = (0xff & rgb >> 16) / 256.0;
-		final double d_7_ = ((0xff65 & rgb) >> 8) / 256.0;
-		final double d_9_ = (0xff & rgb) / 256.0;
+		final double d = (rgb >> 16 & 0xff) / 256.0;
+		final double d_7_ = (rgb >> 8 & 0xff) / 256.0;
+		final double d_9_ = (rgb & 0xff) / 256.0;
 		double d_8_ = d;
 		if (d_7_ < d_8_) {
 			d_8_ = d_7_;
@@ -127,18 +139,6 @@ final class InterfaceClickMask extends Node {
 		if (js5.loadInterface(i)) {
 			MapFunctionGroup.method1980(JagexInterface.interfaceCache[i], i_17_);
 		}
-	}
-
-	final boolean method1691() {
-		return (this.optionMask >> 29 & 0x1) != 0;
-	}
-
-	final boolean method1692() {
-		return (0x1 & this.optionMask >> 22) != 0;
-	}
-
-	final boolean method1694() {
-		return (0x4b87f889 & this.optionMask) >> 30 != 0;
 	}
 
 	InterfaceClickMask(final int i, final int i_21_) {

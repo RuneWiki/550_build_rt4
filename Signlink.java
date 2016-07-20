@@ -1,3 +1,4 @@
+
 /* Class135 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -42,22 +43,22 @@ public class Signlink implements Runnable {
 	private SignlinkNode next;
 	public FileOnDisk[] cacheIndexFiles;
 	private Fullscreenimp14 fsimp14;
-	public static int clientType = 1;//1 - normal, 2 - ?, 3 - unsigned
+	public static int clientType = 1;// 1 - normal, 2 - ?, 3 - unsigned
 	private static Hashtable filesCache = new Hashtable(16);
 	public static Method setFocusCycleRootMethod;
-	static volatile long socketCloseTime = 0L;
+	static volatile long blockedSocketCommandsTime = 0L;
 	public static Method traversalKeyMethod;
 
 	public final SignlinkNode setCursor(final Point point, final int i_0_, final int[] is, final int i_1_, final Component component) {
 		return putNode(17, i_0_, new Object[] { component, is, point }, i_1_);
 	}
 
-	public final SignlinkNode grabHostName(final int i_2_) {
-		return putNode(3, 0, null, i_2_);
+	public final SignlinkNode grabHostName(final int address) {
+		return putNode(3, 0, null, address);
 	}
 
-	public final SignlinkNode requestUrl(final String string) {
-		return putNode(16, 0, string, 0);
+	public final SignlinkNode requestUrl(final String url) {
+		return putNode(16, 0, url, 0);
 	}
 
 	public final SignlinkNode loadJagmisc(final Class var_class) {
@@ -82,8 +83,8 @@ public class Signlink implements Runnable {
 		return signlinkNode;
 	}
 
-	public final SignlinkNode finalizeNatives(final Class var_class) {
-		return putNode(11, 0, var_class, 0);
+	public final SignlinkNode finalizeNatives(final Class applicationClass) {
+		return putNode(11, 0, applicationClass, 0);
 	}
 
 	@Override
@@ -113,10 +114,10 @@ public class Signlink implements Runnable {
 			try {
 				final int type = currentNode.type;
 				if (type == 1) {
-					if (socketCloseTime > TimeUtil.getSafeTime()) {
+					if (blockedSocketCommandsTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
-					System.out.println(currentNode.objectData+":"+currentNode.integerData);
+					System.out.println(currentNode.objectData + ":" + currentNode.integerData);
 					currentNode.value = new Socket(InetAddress.getByName((String) currentNode.objectData), currentNode.integerData);
 				} else if (type == 2) {
 					final Thread thread = new Thread((Runnable) currentNode.objectData);
@@ -125,13 +126,13 @@ public class Signlink implements Runnable {
 					thread.setPriority(currentNode.integerData);
 					currentNode.value = thread;
 				} else if (type == 3) {
-					if (socketCloseTime > TimeUtil.getSafeTime()) {
+					if (blockedSocketCommandsTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					final String string = new StringBuilder(String.valueOf(0xff & currentNode.integerData >> 24)).append(".").append(0xff & currentNode.integerData >> 16).append(".").append(currentNode.integerData >> 8 & 0xff).append(".").append(0xff & currentNode.integerData).toString();
 					currentNode.value = InetAddress.getByName(string).getHostName();
 				} else if (type == 4) {
-					if (socketCloseTime > TimeUtil.getSafeTime()) {
+					if (blockedSocketCommandsTime > TimeUtil.getSafeTime()) {
 						throw new IOException();
 					}
 					currentNode.value = new DataInputStream(((URL) currentNode.objectData).openStream());
@@ -141,7 +142,7 @@ public class Signlink implements Runnable {
 					final Frame frame = new Frame("Jagex Full Screen");
 					currentNode.value = frame;
 					frame.setResizable(false);
-					fsimp14.setDisplayMode(frame, 0xffff & currentNode.integerData, currentNode.integerData >>> 16, currentNode.integerData2 >> 16, currentNode.integerData2 & 0xffff);
+					fsimp14.setDisplayMode(frame, currentNode.integerData >>> 16, 0xffff & currentNode.integerData, currentNode.integerData2 >> 16, currentNode.integerData2 & 0xffff);
 				} else if (type == 7) {
 					fsimp14.revert();
 				} else if (type == 8) {
@@ -300,7 +301,7 @@ public class Signlink implements Runnable {
 		for (int i_19_ = 0; i_19_ < 2; i_19_++) {
 			for (final String element : strings_18_) {
 				for (final String string2 : strings) {
-					final String string_22_ = new StringBuilder(string2).append(element).append("/").append(game != null ? new StringBuilder(game).append("/").toString() : "").append(fileName).toString();
+					final String string_22_ = string2 + element + "/" + (game != null ? game + "/" : "") + fileName;
 					RandomAccessFile randomaccessfile = null;
 					File file_23_;
 					try {
@@ -341,35 +342,32 @@ public class Signlink implements Runnable {
 		throw new RuntimeException();
 	}
 
-	public final void closeSocketIn(final int i) {
-		socketCloseTime = TimeUtil.getSafeTime() + i;
+	public final void blockSocketCommands(final int i) {
+		blockedSocketCommandsTime = TimeUtil.getSafeTime() + i;
 	}
 
-	public final SignlinkNode getMethodInformation(final Class className, final String methodName, final Class[] methodArguments) {
-		return putNode(8, 0, new Object[] { className, methodName, methodArguments }, 0);
+	public final SignlinkNode getMethodInformation(final Class classType, final String methodName, final Class[] methodArguments) {
+		return putNode(8, 0, new Object[] { classType, methodName, methodArguments }, 0);
 	}
 
 	public final Interface4 method1966() {
 		return anInterface4_1297;
 	}
 
-	public final SignlinkNode loadGlLibrary(final Class var_class) {
-		return putNode(10, 0, var_class, 0);
+	public final SignlinkNode loadGlLibrary(final Class applicationClass) {
+		return putNode(10, 0, applicationClass, 0);
 	}
 
 	public final boolean canUseFullscreen() {
-		if (fsimp14 != null) {
-			return true;
-		}
-		return false;
+		return fsimp14 != null;
 	}
 
 	public final SignlinkNode openStream(final URL url) {
 		return putNode(4, 0, url, 0);
 	}
 
-	public final SignlinkNode openPreferencesFile(final String string) {
-		return putNode(12, 0, string, 0);
+	public final SignlinkNode openPreferencesFile(final String game) {
+		return putNode(12, 0, game, 0);
 	}
 
 	public final void method1971() {
@@ -420,12 +418,12 @@ public class Signlink implements Runnable {
 		return putNode(2, 0, runnable, priority);
 	}
 
-	public final SignlinkNode setDisplayMode(final int i, final int i_29_, final int i_30_, final int i_32_) {
-		return putNode(6, (i_32_ << 16) + i, null, i_30_ + (i_29_ << 16));
+	public final SignlinkNode createFullscreenFrame(final int refreshRate, final int width, final int height, final int bitDepth) {
+		return putNode(6, refreshRate + (bitDepth << 16), null, height + (width << 16));
 	}
 
-	public final SignlinkNode getFieldInformation(final Class className, final String fieldName) {
-		return putNode(9, 0, new Object[] { className, fieldName }, 0);
+	public final SignlinkNode getFieldInformation(final Class classType, final String fieldName) {
+		return putNode(9, 0, new Object[] { classType, fieldName }, 0);
 	}
 
 	public Signlink(final Applet applet, final int storeId, final String gName, final int indexAmount) throws Exception {
@@ -464,9 +462,7 @@ public class Signlink implements Runnable {
 		try {
 			userHome = System.getProperty("user.home");
 			if (userHome != null) {
-				final String string_34_ = userHome;
-				final StringBuilder stringbuilder = new StringBuilder(string_34_);
-				userHome = stringbuilder.append("/").toString();
+				userHome += "/";
 			}
 		} catch (final Exception exception) {
 			/* empty */
@@ -509,12 +505,12 @@ public class Signlink implements Runnable {
 		} catch (final Throwable throwable) {
 			/* empty */
 		}
-		ThreadGroup threadgroup = Thread.currentThread().getThreadGroup();
-		for (ThreadGroup parent = threadgroup.getParent(); parent != null; parent = threadgroup.getParent()) {
-			threadgroup = parent;
+		ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+		for (ThreadGroup parent = threadGroup.getParent(); parent != null; parent = threadGroup.getParent()) {
+			threadGroup = parent;
 		}
 		final Thread[] threads = new Thread[1000];
-		threadgroup.enumerate(threads);
+		threadGroup.enumerate(threads);
 		for (int id = 0; id < threads.length; id++) {
 			final Thread thread = threads[id];
 			if (thread != null && thread.getName().startsWith("AWT")) {

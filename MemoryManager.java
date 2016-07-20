@@ -16,8 +16,8 @@ final class MemoryManager {
 	private static Deque texturesDeque;
 	private static Deque texturesDeque2;
 	private static Deque listsDeque;
+	private static Deque shadersDeque;
 	private static Deque objectsARBDeque;
-	private static Deque objectsARBDeque2;
 	private static int[] anIntArray1092;
 
 	static {
@@ -26,8 +26,8 @@ final class MemoryManager {
 		texturesDeque = new Deque();
 		texturesDeque2 = new Deque();
 		listsDeque = new Deque();
+		shadersDeque = new Deque();
 		objectsARBDeque = new Deque();
-		objectsARBDeque2 = new Deque();
 		anIntArray1092 = new int[1000];
 	}
 	
@@ -37,8 +37,8 @@ final class MemoryManager {
 		texturesDeque.clear();
 		texturesDeque2.clear();
 		listsDeque.clear();
+		shadersDeque.clear();
 		objectsARBDeque.clear();
-		objectsARBDeque2.clear();
 		geometryMemory = 0;
 		memory2d = 0;
 		textureMemory = 0;
@@ -99,17 +99,17 @@ final class MemoryManager {
 			gl.glDeleteLists(i_2_, 1);
 		}
 		for (;;) {
-			final Class120_Sub27 class120_sub27 = (Class120_Sub27) objectsARBDeque.removeFront();
+			final DeleteShadersNode class120_sub27 = (DeleteShadersNode) shadersDeque.removeFront();
 			if (class120_sub27 == null) {
 				break;
 			}
-			for (int i_3_ = 0; i_3_ < class120_sub27.aClass37Array2748.length; i_3_++) {
-				gl.glDetachObjectARB(class120_sub27.anInt2749, class120_sub27.aClass37Array2748[i_3_].shaderId);
+			for (int i_3_ = 0; i_3_ < class120_sub27.shaders.length; i_3_++) {
+				gl.glDetachObjectARB(class120_sub27.target, class120_sub27.shaders[i_3_].shaderId);
 			}
-			gl.glDeleteObjectARB(class120_sub27.anInt2749);
+			gl.glDeleteObjectARB(class120_sub27.target);
 		}
 		for (;;) {
-			final IntegerNode class120_sub32 = (IntegerNode) objectsARBDeque2.removeFront();
+			final IntegerNode class120_sub32 = (IntegerNode) objectsARBDeque.removeFront();
 			if (class120_sub32 == null) {
 				break;
 			}
@@ -157,7 +157,7 @@ final class MemoryManager {
 	
 	static final synchronized void method994(final int i, final GLShader[] class37s, final int i_0_) {
 		if (i_0_ == anInt1083) {
-			objectsARBDeque.addLast(new Class120_Sub27(i, class37s));
+			shadersDeque.addLast(new DeleteShadersNode(i, class37s));
 		}
 	}
 
@@ -165,7 +165,7 @@ final class MemoryManager {
 		if (i_11_ == anInt1083) {
 			final IntegerNode class120_sub32 = new IntegerNode();
 			class120_sub32.uid = i;
-			objectsARBDeque2.addLast(class120_sub32);
+			objectsARBDeque.addLast(class120_sub32);
 		}
 	}
 

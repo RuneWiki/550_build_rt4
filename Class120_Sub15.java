@@ -28,11 +28,11 @@ final class Class120_Sub15 extends Node {
 
 	static final void method1654(final int i, final js5 js5, final int i_3_, final int i_5_, final int i_6_, final boolean bool) {
 		Class69.anInt614 = i_3_;
-		QuickChatCategoryType.anInt3649 = i_6_;
-		MasterIndexInfo.aClass50_476 = js5;
+		QuickChatCategoryType.activeMusicGroupId = i_6_;
+		MasterIndexInfo.activeMusicJs5 = js5;
 		StringNode.aBoolean2734 = bool;
-		SeqType.anInt349 = i;
-		Js5Request.anInt3940 = i_5_;
+		SeqType.activeMusicFileId = i;
+		Js5Request.activeMusicVolume = i_5_;
 		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
 

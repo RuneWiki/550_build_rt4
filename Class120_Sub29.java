@@ -3,23 +3,23 @@
  */
 
 final class Class120_Sub29 extends Node {
-	int anInt2764;
-	int anInt2765;
+	int entityIndex;
+	int z;
 	int anInt2766;
 	int anInt2767;
 	static int anInt2768;
 	static int[] menuOptionsData3 = new int[500];
 	static js5 aClass50_2770;
 	int anInt2771;
-	int anInt2772;
+	int locType;
 	int anInt2773;
 	static int anInt2774;
-	int anInt2775;
-	int anInt2776;
+	int rotation;
+	int locId;
 	static short[] menuOptionsCode;
 	int anInt2778;
 	int anInt2779;
-	int anInt2780;
+	int x;
 
 	static {
 		anInt2768 = 0;
@@ -33,123 +33,123 @@ final class Class120_Sub29 extends Node {
 			final int baseZ = Canvas_Sub1.inputStream.getUShortA();
 			final int baseX = Canvas_Sub1.inputStream.getULEShort();
 			Canvas_Sub1.inputStream.startBitAccess();
-			for (int i_7_ = 0; i_7_ < 4; i_7_++) {
-				for (int i_8_ = 0; i_8_ < 13; i_8_++) {
-					for (int i_9_ = 0; i_9_ < 13; i_9_++) {
-						final int i_10_ = Canvas_Sub1.inputStream.getBitValue(1);
-						if (i_10_ != 1) {
-							Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_7_][i_8_][i_9_] = -1;
+			for (int level = 0; level < 4; level++) {
+				for (int x = 0; x < 13; x++) {
+					for (int z = 0; z < 13; z++) {
+						final int exist = Canvas_Sub1.inputStream.getBitValue(1);
+						if (exist == 1) {
+							Class120_Sub12_Sub36.dynamicMapData[level][x][z] = Canvas_Sub1.inputStream.getBitValue(26);
 						} else {
-							Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_7_][i_8_][i_9_] = Canvas_Sub1.inputStream.getBitValue(26);
+							Class120_Sub12_Sub36.dynamicMapData[level][x][z] = -1;
 						}
 					}
 				}
 			}
 			Canvas_Sub1.inputStream.endBitAccess();
-			int i_11_ = (AbstractMouseWheelHandler.packetSize - Canvas_Sub1.inputStream.pos) / 16;
-			Class125.anIntArrayArray2150 = new int[i_11_][4];
-			for (int i_12_ = 0; i_11_ > i_12_; i_12_++) {
-				for (int i_13_ = 0; i_13_ < 4; i_13_++) {
-					Class125.anIntArrayArray2150[i_12_][i_13_] = Canvas_Sub1.inputStream.getInt2();
+			int regionCount = (AbstractMouseWheelHandler.packetSize - Canvas_Sub1.inputStream.pos) / 16;
+			Class125.regionsXteaKeys = new int[regionCount][4];
+			for (int regionId = 0; regionId < regionCount; regionId++) {
+				for (int level = 0; level < 4; level++) {
+					Class125.regionsXteaKeys[regionId][level] = Canvas_Sub1.inputStream.getInt2();
 				}
 			}
 			final int playerX = Canvas_Sub1.inputStream.getUShort();
-			final boolean bool_15_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
+			final boolean buildAreaChanged = Projectile.setBuildArea(Canvas_Sub1.inputStream.getUByteS());
 			final int level = Canvas_Sub1.inputStream.getUByteA();
-			client.underWaterLocationsMapFileIds = new int[i_11_];
+			client.underWaterLocationsMapFileIds = new int[regionCount];
 			Class179.npcSpawnsFilesBuffer = null;
-			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[i_11_][];
-			Class120_Sub12_Sub36.regionBitPackeds = new int[i_11_];
+			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[regionCount][];
+			Class120_Sub12_Sub36.regionBitPackeds = new int[regionCount];
 			ProducingGraphicsBuffer.npcSpawnsFileIds = null;
-			Class111.underWaterMapFileIds = new int[i_11_];
-			LookupTable.mapFileIds = new int[i_11_];
-			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[i_11_][];
-			Class134.locationMapFilesBuffer = new byte[i_11_][];
-			Class28.locationsMapFileIds = new int[i_11_];
-			RuntimeException_Sub1.mapFilesBuffer = new byte[i_11_][];
-			i_11_ = 0;
-			for (int i_17_ = 0; i_17_ < 4; i_17_++) {
-				for (int i_18_ = 0; i_18_ < 13; i_18_++) {
-					for (int i_19_ = 0; i_19_ < 13; i_19_++) {
-						final int i_20_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_17_][i_18_][i_19_];
-						if (i_20_ != -1) {
-							final int i_21_ = 0x3ff & i_20_ >> 14;
-							final int i_22_ = 0x7ff & i_20_ >> 3;
-							int i_23_ = (i_21_ / 8 << 8) + i_22_ / 8;
-							for (int i_24_ = 0; i_24_ < i_11_; i_24_++) {
-								if (Class120_Sub12_Sub36.regionBitPackeds[i_24_] == i_23_) {
-									i_23_ = -1;
+			Class111.underWaterMapFileIds = new int[regionCount];
+			LookupTable.mapFileIds = new int[regionCount];
+			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[regionCount][];
+			Class134.locationMapFilesBuffer = new byte[regionCount][];
+			Class28.locationsMapFileIds = new int[regionCount];
+			RuntimeException_Sub1.mapFilesBuffer = new byte[regionCount][];
+			regionCount = 0;
+			for (int level_ = 0; level_ < 4; level_++) {
+				for (int x = 0; x < 13; x++) {
+					for (int z = 0; z < 13; z++) {
+						final int data = Class120_Sub12_Sub36.dynamicMapData[level_][x][z];
+						if (data != -1) {
+							final int regionX = data >> 14 & 0x3ff;
+							final int regionZ = data >> 3 & 0x7ff;
+							int regionBitPacked = (regionX / 8 << 8) + regionZ / 8;
+							for (int regionId = 0; regionId < regionCount; regionId++) {
+								if (Class120_Sub12_Sub36.regionBitPackeds[regionId] == regionBitPacked) {
+									regionBitPacked = -1;
 									break;
 								}
 							}
-							if (i_23_ != -1) {
-								Class120_Sub12_Sub36.regionBitPackeds[i_11_] = i_23_;
-								final int i_25_ = 0xff & i_23_ >> 8;
-								final int i_26_ = 0xff & i_23_;
-								LookupTable.mapFileIds[i_11_] = Class65.mapsJs5.getGroupId("m" + i_25_ + "_" + i_26_);
-								Class28.locationsMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("l" + i_25_ + "_" + i_26_);
-								Class111.underWaterMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("um" + i_25_ + "_" + i_26_);
-								client.underWaterLocationsMapFileIds[i_11_] = Class65.mapsJs5.getGroupId("ul" + i_25_ + "_" + i_26_);
-								i_11_++;
+							if (regionBitPacked != -1) {
+								Class120_Sub12_Sub36.regionBitPackeds[regionCount] = regionBitPacked;
+								final int mapX = regionBitPacked >> 8 & 0xff;
+								final int mapZ = regionBitPacked & 0xff;
+								LookupTable.mapFileIds[regionCount] = Class65.mapsJs5.getGroupId("m" + mapX + "_" + mapZ);
+								Class28.locationsMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("l" + mapX + "_" + mapZ);
+								Class111.underWaterMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("um" + mapX + "_" + mapZ);
+								client.underWaterLocationsMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("ul" + mapX + "_" + mapZ);
+								regionCount++;
 							}
 						}
 					}
 				}
 			}
-			Class2.method76(baseX, baseZ, level, playerX, playerZ, false, bool_15_);
+			Class2.updateRegion(baseX, baseZ, level, playerX, playerZ, false, buildAreaChanged);
 		} else {
-			final boolean bool_27_ = Projectile.method2318(Canvas_Sub1.inputStream.getUByteS());
-			final int i_28_ = Canvas_Sub1.inputStream.getUShort();
-			int i_29_ = (-Canvas_Sub1.inputStream.pos + AbstractMouseWheelHandler.packetSize) / 16;
-			Class125.anIntArrayArray2150 = new int[i_29_][4];
-			for (int i_30_ = 0; i_30_ < i_29_; i_30_++) {
-				for (int i_31_ = 0; i_31_ < 4; i_31_++) {
-					Class125.anIntArrayArray2150[i_30_][i_31_] = Canvas_Sub1.inputStream.getLEInt();
+			final boolean buildAreaChanged = Projectile.setBuildArea(Canvas_Sub1.inputStream.getUByteS());
+			final int baseZ = Canvas_Sub1.inputStream.getUShort();
+			int regionCount = (AbstractMouseWheelHandler.packetSize - Canvas_Sub1.inputStream.pos) / 16;
+			Class125.regionsXteaKeys = new int[regionCount][4];
+			for (int regionId = 0; regionId < regionCount; regionId++) {
+				for (int levelId = 0; levelId < 4; levelId++) {
+					Class125.regionsXteaKeys[regionId][levelId] = Canvas_Sub1.inputStream.getLEInt();
 				}
 			}
-			final int i_32_ = Canvas_Sub1.inputStream.getUByteC();
-			final int i_33_ = Canvas_Sub1.inputStream.getUShortA();
-			final int i_34_ = Canvas_Sub1.inputStream.getUShort();
-			boolean bool_35_ = false;
-			final int i_36_ = Canvas_Sub1.inputStream.getUShort();
-			if ((i_36_ / 8 == 48 || i_36_ / 8 == 49) && i_28_ / 8 == 48) {
-				bool_35_ = true;
+			final int level = Canvas_Sub1.inputStream.getUByteC();
+			final int playerX = Canvas_Sub1.inputStream.getUShortA();
+			final int playerZ = Canvas_Sub1.inputStream.getUShort();
+			boolean tutorialIsland = false;
+			final int baseX = Canvas_Sub1.inputStream.getUShort();
+			if ((baseX / 8 == 48 || baseX / 8 == 49) && baseZ / 8 == 48) {
+				tutorialIsland = true;
 			}
-			Class111.underWaterMapFileIds = new int[i_29_];
-			if (i_36_ / 8 == 48 && i_28_ / 8 == 148) {
-				bool_35_ = true;
+			if (baseX / 8 == 48 && baseZ / 8 == 148) {
+				tutorialIsland = true;
 			}
-			LookupTable.mapFileIds = new int[i_29_];
-			RuntimeException_Sub1.mapFilesBuffer = new byte[i_29_][];
-			client.underWaterLocationsMapFileIds = new int[i_29_];
-			Class28.locationsMapFileIds = new int[i_29_];
+			Class111.underWaterMapFileIds = new int[regionCount];
+			LookupTable.mapFileIds = new int[regionCount];
+			RuntimeException_Sub1.mapFilesBuffer = new byte[regionCount][];
+			client.underWaterLocationsMapFileIds = new int[regionCount];
+			Class28.locationsMapFileIds = new int[regionCount];
 			Class179.npcSpawnsFilesBuffer = null;
-			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[i_29_][];
-			Class134.locationMapFilesBuffer = new byte[i_29_][];
+			Class120_Sub12_Sub36.underWaterMapFilesBuffer = new byte[regionCount][];
+			Class134.locationMapFilesBuffer = new byte[regionCount][];
 			ProducingGraphicsBuffer.npcSpawnsFileIds = null;
-			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[i_29_][];
-			Class120_Sub12_Sub36.regionBitPackeds = new int[i_29_];
-			i_29_ = 0;
-			for (int i_37_ = (i_36_ - 6) / 8; i_37_ <= (i_36_ + 6) / 8; i_37_++) {
-				for (int i_38_ = (i_28_ - 6) / 8; i_38_ <= (i_28_ + 6) / 8; i_38_++) {
-					final int i_39_ = (i_37_ << 8) + i_38_;
-					if (!bool_35_ || i_38_ != 49 && i_38_ != 149 && i_38_ != 147 && i_37_ != 50 && (i_37_ != 49 || i_38_ != 47)) {
-						Class120_Sub12_Sub36.regionBitPackeds[i_29_] = i_39_;
-						LookupTable.mapFileIds[i_29_] = Class65.mapsJs5.getGroupId("m" + i_37_ + "_" + i_38_);
-						Class28.locationsMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("l" + i_37_ + "_" + i_38_);
-						Class111.underWaterMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("um" + i_37_ + "_" + i_38_);
-						client.underWaterLocationsMapFileIds[i_29_] = Class65.mapsJs5.getGroupId("ul" + i_37_ + "_" + i_38_);
+			Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[regionCount][];
+			Class120_Sub12_Sub36.regionBitPackeds = new int[regionCount];
+			regionCount = 0;
+			for (int x = (baseX - 6) / 8; x <= (baseX + 6) / 8; x++) {
+				for (int z = (baseZ - 6) / 8; z <= (baseZ + 6) / 8; z++) {
+					final int regionIdBitPacked = (x << 8) + z;
+					if (!tutorialIsland || z != 49 && z != 149 && z != 147 && x != 50 && (x != 49 || z != 47)) {
+						Class120_Sub12_Sub36.regionBitPackeds[regionCount] = regionIdBitPacked;
+						LookupTable.mapFileIds[regionCount] = Class65.mapsJs5.getGroupId("m" + x + "_" + z);
+						Class28.locationsMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("l" + x + "_" + z);
+						Class111.underWaterMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("um" + x + "_" + z);
+						client.underWaterLocationsMapFileIds[regionCount] = Class65.mapsJs5.getGroupId("ul" + x + "_" + z);
 					} else {
-						Class120_Sub12_Sub36.regionBitPackeds[i_29_] = i_39_;
-						LookupTable.mapFileIds[i_29_] = -1;
-						Class28.locationsMapFileIds[i_29_] = -1;
-						Class111.underWaterMapFileIds[i_29_] = -1;
-						client.underWaterLocationsMapFileIds[i_29_] = -1;
+						Class120_Sub12_Sub36.regionBitPackeds[regionCount] = regionIdBitPacked;
+						LookupTable.mapFileIds[regionCount] = -1;
+						Class28.locationsMapFileIds[regionCount] = -1;
+						Class111.underWaterMapFileIds[regionCount] = -1;
+						client.underWaterLocationsMapFileIds[regionCount] = -1;
 					}
-					i_29_++;
+					regionCount++;
 				}
 			}
-			Class2.method76(i_36_, i_28_, i_32_, i_33_, i_34_, false, bool_27_);
+			Class2.updateRegion(baseX, baseZ, level, playerX, playerZ, false, buildAreaChanged);
 		}
 	}
 

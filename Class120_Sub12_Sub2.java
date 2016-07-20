@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub2 extends Class120_Sub12 {
 	static long lastClickTime = 0L;
 
 	static final void method1201(final int i, final int i_0_, final int i_1_, final int i_2_) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_0_][i_1_];
+		final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[i][i_0_][i_1_];
 		if (class120_sub18 != null) {
 			final WallDecoration class186 = class120_sub18.wallDecoration;
 			if (class186 != null) {

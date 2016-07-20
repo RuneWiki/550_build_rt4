@@ -8,7 +8,7 @@ final class Class101_Sub2 extends Class101 {
 	private int anInt2280;
 	private final int anInt2281;
 	private final int anInt2282;
-	static int loopCycle = 0;
+	static int clientClock = 0;
 	private final int anInt2284;
 
 	@Override

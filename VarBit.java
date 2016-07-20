@@ -5,9 +5,9 @@ import java.lang.reflect.Method;
 
 final class VarBit {
 	int setting;
-	static int anInt165;
+	static int varpTriggersPos;
 	static int clickedInventoryComponentY = 0;
-	static boolean aBoolean167;
+	static boolean quickChatParam2;
 	int startBit;
 	int endBit;
 	static js5 aClass50_3056;
@@ -15,8 +15,8 @@ final class VarBit {
 	static Class runtimeClass;
 
 	static {
-		anInt165 = 0;
-		aBoolean167 = false;
+		varpTriggersPos = 0;
+		quickChatParam2 = false;
 	}
 	
 	static final void method236(final int i) {
@@ -44,6 +44,32 @@ final class VarBit {
 		}
 	}
 
+	static final void setVarbitFromServer(final int id, int value) {
+		final VarBit varBit = list(id);
+		final int setting = varBit.setting;
+		final int start = varBit.startBit;
+		final int end = varBit.endBit;
+		int mask = Class120_Sub14_Sub15.masklookup[end - start];
+		if (value < 0 || value > mask) {
+			value = 0;
+		}
+		mask <<= start;
+		Varp.setVarpFromServer(setting, value << start & mask | (mask ^ 0xffffffff) & Class30.serverPlayerVariables[setting]);
+	}
+
+	static final void setVarbitFromClient(final int id, int value) {
+		final VarBit varBit = list(id);
+		final int setting = varBit.setting;
+		final int start = varBit.startBit;
+		final int end = varBit.endBit;
+		int mask = Class120_Sub14_Sub15.masklookup[end - start];
+		if (value < 0 || value > mask) {
+			value = 0;
+		}
+		mask <<= start;
+		Varp.setVarpFromClient(setting, value << start & mask | Class2.playerVariables[setting] & (mask ^ 0xffffffff));
+	}
+
 	static final void setup(final js5 js5) {
 		aClass50_3056 = js5;
 	}
@@ -54,7 +80,7 @@ final class VarBit {
 		final int startBit = varBit.startBit;
 		final int endBit = varBit.endBit;
 		final int mask = Class120_Sub14_Sub15.masklookup[endBit - startBit];
-		return Class2.permanentVariable[setting] >> startBit & mask;
+		return Class2.playerVariables[setting] >> startBit & mask;
 	}
 
 	static final VarBit list(final int id) {

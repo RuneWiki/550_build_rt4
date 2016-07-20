@@ -21,7 +21,7 @@ final class ObjectPile {
 	}
 
 	static final void method2447(int i_0_, final int i_1_) {
-		i_0_ = i_0_ * RuntimeException_Sub1.anInt2142 >> 8;
+		i_0_ = i_0_ * RuntimeException_Sub1.musicVolume >> 8;
 		if (i_1_ == -1 && !Class120_Sub12_Sub15.aBoolean3247) {
 			Class188.method2481();
 		} else if (i_1_ != -1 && (Class157.anInt1466 != i_1_ || !World.method2193()) && i_0_ != 0 && !Class120_Sub12_Sub15.aBoolean3247) {

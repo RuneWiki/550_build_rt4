@@ -102,7 +102,7 @@ final class SpotAnimType {
 	static final void method880() {
 		if (HDToolkit.glEnabled) {
 			if (!Class93.aBoolean870) {
-				final GroundTile[][][] class120_sub18s = LabelGroup.activeGroundTiles;
+				final GroundTile[][][] class120_sub18s = SeqFrameBase.activeGroundTiles;
 				for (int i_11_ = 0; i_11_ < class120_sub18s.length; i_11_++) {
 					final GroundTile[][] class120_sub18s_12_ = class120_sub18s[i_11_];
 					for (final GroundTile[] element : class120_sub18s_12_) {
@@ -204,7 +204,7 @@ final class SpotAnimType {
 		}
 		AbstractModelRenderer transformedModel;
 		if (this.animationId == -1 || frame == -1) {
-			transformedModel = cachedModel.method2381(true, true, true);
+			transformedModel = cachedModel.copy(true, true, true);
 		} else {
 			transformedModel = SeqType.list(this.animationId).method324(cachedModel, frame, delay, nextFrame);
 		}

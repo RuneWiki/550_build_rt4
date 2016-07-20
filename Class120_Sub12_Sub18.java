@@ -7,7 +7,6 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 	private int anInt3270 = 0;
 	private int anInt3271 = 4096;
 	static Signlink errorSignlink;
-	static int[] skillTriggers = new int[32];
 	static boolean aBoolean3275;
 	static int lastFullscreenWidth;
 
@@ -16,13 +15,13 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		lastFullscreenWidth = 0;
 	}
 
-	static final int method1288() {
-		return                    (ParticleEngine.method949() << 23) +
+	static final int getGameSettingsBitpacked() {
+		return           (ParticleEngine.getParticleSetting() << 23) +
 			   ((CursorType.ambientSoundsVolume != 0 ? 1 : 0) << 22) +
-			  ((RuntimeException_Sub1.anInt2142 != 0 ? 1 : 0) << 21) +
-			               ((Class111.anInt1061 != 0 ? 1 : 0) << 20) +
-			                 ((Class167.aBoolean1619 ? 1 : 0) << 19) +
-			                              (Class140.anInt1343 << 17) +
+			((RuntimeException_Sub1.musicVolume != 0 ? 1 : 0) << 21) +
+			       ((Class111.soundEffectVolume != 0 ? 1 : 0) << 20) +
+			                     ((Class167.isStereo ? 1 : 0) << 19) +
+			                              (Class140.buildArea << 17) +
 			                  ((Decimator.fogEnabled ? 1 : 0) << 16) +
 			          ((PacketBuffer.highWaterDetail ? 1 : 0) << 15) +
 		    ((Class120_Sub12_Sub6.highLightingDetail ? 1 : 0) << 13) +
@@ -121,7 +120,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 		final int drawX = Huffman.menuDrawX;
 		final int drawY = Class120_Sub16.menuDrawY;
 		final int height = QuickChatMessageType.menuHeight - 3;
-		final int width = Class120_Sub24.menuWidth;
+		final int width = CustomLocation.menuWidth;
 		if (Class157.aClass120_Sub14_Sub19_1472 == null || Class120_Sub12_Sub10.aClass120_Sub14_Sub19_3202 == null) {
 			if (client.spritesJs5.groupExist(client.anInt2199) && client.spritesJs5.groupExist(Class114.anInt1099)) {
 				Class157.aClass120_Sub14_Sub19_1472 = Class120_Sub12_Sub26.constructLDSpriteAlpha(client.spritesJs5, client.anInt2199, 0);
@@ -214,7 +213,7 @@ final class Class120_Sub12_Sub18 extends Class120_Sub12 {
 			}
 			Class120_Sub12_Sub22.boldFont.method1466(client.getMenuOptionText(i_22_), 3 + drawX, i_23_, i_24_, 0);
 		}
-		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 	}
 
 	static final int method1294(final int i, final int i_25_) {

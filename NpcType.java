@@ -13,28 +13,28 @@ final class NpcType {
 	private int[][] anIntArrayArray1659;
 	static int anInt1660;
 	private Hashtable params;
-	short aShort1662;
+	short shadowColor2;
 	private int varbitId;
 	int headIcon;
 	private int contrast;
 	int hitBarSpriteId;
 	private short[] retextureModified;
-	int anInt1668;
+	int attackCursor;
 	private int[] headModelIds;
-	private int[][] anIntArrayArray1670;
+	private int[][] modelOffsets;
 	boolean displayOnMinimap;
 	int anInt1672;
 	int cursor1op;
 	int combatLevel;
 	private int resizeX;
-	int anInt1676;
+	int runAnimationSoundId;
 	int ambientSoundHearDistance;
 	private int[] modelIds;
 	int[] transmogrificationIds;
 	private short[] retextureOriginal;
-	int anInt1681;
-	int anInt1682;
-	short aShort1683;
+	int idleAnimationSoundId;
+	int walkAnimationSoundId;
+	short shadowColor1;
 	private int ambient;
 	int myId;
 	static Signlink gameSignlink;
@@ -42,14 +42,14 @@ final class NpcType {
 	private short[] recolorModified;
 	int cursor2;
 	int iconHeight;
-	int renderDataId;
+	int basTypeId;
 	int size;
-	byte aByte1694;
+	byte shadowColorMod2;
 	int cursor1;
 	private int resizeY;
 	private int varpId;
 	int mapFunctionId;
-	byte aByte1699;
+	byte shadowColorMod1;
 	byte loginScreenProperties;//0x1 - can be spawned, 0x2 - walks
 	boolean aBoolean1701;
 	static int cameraPacketCycle = 0;
@@ -71,7 +71,7 @@ final class NpcType {
 		if (varbitId != -1) {
 			value = VarBit.getVarbitValue(varbitId);
 		} else if (varpId != -1) {
-			value = Class2.permanentVariable[varpId];
+			value = Class2.playerVariables[varpId];
 		}
 		if (value < 0 || value >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[value] == -1) {
 			final int i_1_ = this.transmogrificationIds[this.transmogrificationIds.length - 1];
@@ -191,22 +191,22 @@ final class NpcType {
 		} else if (code == 111) {
 			hasShadow = false;
 		} else if (code == 113) {
-			aShort1683 = (short) buffer.getUShort();
-			aShort1662 = (short) buffer.getUShort();
+			shadowColor1 = (short) buffer.getUShort();
+			shadowColor2 = (short) buffer.getUShort();
 		} else if (code == 114) {
-			aByte1694 = buffer.getByte();
-			aByte1699 = buffer.getByte();
+			shadowColorMod2 = buffer.getByte();
+			shadowColorMod1 = buffer.getByte();
 		} else if (code == 115) {
 			buffer.getUByte();
 			buffer.getUByte();
 		} else if (code == 119) {
 			loginScreenProperties = buffer.getByte();
 		} else if (code == 121) {
-			anIntArrayArray1670 = new int[modelIds.length][];
+			modelOffsets = new int[modelIds.length][];
 			final int i_20_ = buffer.getUByte();
 			for (int i_21_ = 0; i_21_ < i_20_; i_21_++) {
 				final int i_22_ = buffer.getUByte();
-				final int[] is = anIntArrayArray1670[i_22_] = new int[3];
+				final int[] is = modelOffsets[i_22_] = new int[3];
 				is[0] = buffer.getByte();
 				is[1] = buffer.getByte();
 				is[2] = buffer.getByte();
@@ -218,25 +218,25 @@ final class NpcType {
 		} else if (code == 125) {
 			spawnDirection = buffer.getByte();
 		} else if (code == 127) {
-			renderDataId = buffer.getUShort();
+			basTypeId = buffer.getUShort();
 		} else if (code == 128) {
 			buffer.getUByte();
 		} else if (code == 134) {
-			anInt1681 = buffer.getUShort();
-			if (anInt1681 == 65535) {
-				anInt1681 = -1;
+			idleAnimationSoundId = buffer.getUShort();
+			if (idleAnimationSoundId == 65535) {
+				idleAnimationSoundId = -1;
 			}
 			anInt1657 = buffer.getUShort();
 			if (anInt1657 == 65535) {
 				anInt1657 = -1;
 			}
-			anInt1682 = buffer.getUShort();
-			if (anInt1682 == 65535) {
-				anInt1682 = -1;
+			walkAnimationSoundId = buffer.getUShort();
+			if (walkAnimationSoundId == 65535) {
+				walkAnimationSoundId = -1;
 			}
-			anInt1676 = buffer.getUShort();
-			if (anInt1676 == 65535) {
-				anInt1676 = -1;
+			runAnimationSoundId = buffer.getUShort();
+			if (runAnimationSoundId == 65535) {
+				runAnimationSoundId = -1;
 			}
 			ambientSoundHearDistance = buffer.getUByte();
 		} else if (code == 135) {
@@ -246,7 +246,7 @@ final class NpcType {
 			cursor2op = buffer.getUByte();
 			cursor2 = buffer.getUShort();
 		} else if (code == 137) {
-			anInt1668 = buffer.getUShort();
+			attackCursor = buffer.getUShort();
 		} else if (code == 138) {
 			System.out.println("Icon - "+buffer.getUShort());
 		} else if (code == 140) {
@@ -263,7 +263,7 @@ final class NpcType {
 		} else if (code == 249) {
 			final int i_16_ = buffer.getUByte();
 			if (params == null) {
-				final int i_17_ = Class120_Sub12_Sub17.getFarestBitValue(i_16_);
+				final int i_17_ = Class120_Sub12_Sub17.farthestBitValue(i_16_);
 				params = new Hashtable(i_17_);
 			}
 			for (int i_18_ = 0; i_18_ < i_16_; i_18_++) {
@@ -282,7 +282,7 @@ final class NpcType {
 
 	final boolean hasAmbientSound() {
 		if (this.transmogrificationIds == null) {
-			if (this.anInt1681 == -1 && this.anInt1682 == -1 && this.anInt1676 == -1) {
+			if (this.idleAnimationSoundId == -1 && this.walkAnimationSoundId == -1 && this.runAnimationSoundId == -1) {
 				return false;
 			}
 			return true;
@@ -290,7 +290,7 @@ final class NpcType {
 		for (int id = 0; id < this.transmogrificationIds.length; id++) {
 			if (this.transmogrificationIds[id] != -1) {
 				final NpcType npcType = list(this.transmogrificationIds[id]);
-				if (npcType.anInt1681 != -1 || npcType.anInt1682 != -1 || npcType.anInt1676 != -1) {
+				if (npcType.idleAnimationSoundId != -1 || npcType.walkAnimationSoundId != -1 || npcType.runAnimationSoundId != -1) {
 					return true;
 				}
 			}
@@ -324,7 +324,7 @@ final class NpcType {
 		if (varbitId != -1) {
 			value = VarBit.getVarbitValue(varbitId);
 		} else if (varpId != -1) {
-			value = Class2.permanentVariable[varpId];
+			value = Class2.playerVariables[varpId];
 		}
 		if (value < 0 || value >= this.transmogrificationIds.length - 1 || this.transmogrificationIds[value] == -1) {
 			final int newId = this.transmogrificationIds[this.transmogrificationIds.length - 1];
@@ -399,13 +399,13 @@ final class NpcType {
 		}
 	}
 
-	final AbstractModelRenderer method2212(final int i, final int i_47_, final SeqType seqType, final SeqType class40_49_, final int i_50_, final Class150[] class150s, final int i_51_, final int i_52_, final int i_53_) {
+	final AbstractModelRenderer method2212(final int i, final int i_47_, final SeqType idleAnimSeq, final SeqType animSeq, final int i_50_, final Class150[] class150s, final int i_51_, final int i_52_, final int i_53_) {
 		if (this.transmogrificationIds != null) {
 			final NpcType class170_54_ = handleVarp();
 			if (class170_54_ == null) {
 				return null;
 			}
-			return class170_54_.method2212(i, i_47_, seqType, class40_49_, i_50_, class150s, i_51_, i_52_, i_53_);
+			return class170_54_.method2212(i, i_47_, idleAnimSeq, animSeq, i_50_, class150s, i_51_, i_52_, i_53_);
 		}
 		AbstractModelRenderer class180_sub7_55_ = (AbstractModelRenderer) aClass21_80.get(this.myId);
 		if (class180_sub7_55_ == null) {
@@ -422,14 +422,14 @@ final class NpcType {
 			for (int i_57_ = 0; i_57_ < modelIds.length; i_57_++) {
 				if (modelIds[i_57_] != -1) {
 					class180_sub2s[i_57_] = Model.get(aClass50_181, modelIds[i_57_], 0);
-					if (anIntArrayArray1670 != null && anIntArrayArray1670[i_57_] != null && class180_sub2s[i_57_] != null) {
-						class180_sub2s[i_57_].translate(anIntArrayArray1670[i_57_][0], anIntArrayArray1670[i_57_][1], anIntArrayArray1670[i_57_][2]);
+					if (modelOffsets != null && modelOffsets[i_57_] != null && class180_sub2s[i_57_] != null) {
+						class180_sub2s[i_57_].translate(modelOffsets[i_57_][0], modelOffsets[i_57_][1], modelOffsets[i_57_][2]);
 					}
 				}
 			}
-			EntityRenderData class29 = null;
-			if (this.renderDataId != -1) {
-				class29 = EntityRenderData.list(this.renderDataId);
+			BasType class29 = null;
+			if (this.basTypeId != -1) {
+				class29 = BasType.list(this.basTypeId);
 			}
 			if (class29 != null && class29.modelRotateTranslate != null) {
 				for (int i_58_ = 0; class29.modelRotateTranslate.length > i_58_; i_58_++) {
@@ -512,7 +512,7 @@ final class NpcType {
 			aClass21_80.put(class180_sub7_55_, this.myId);
 		}
 		boolean bool = false;
-		boolean bool_75_ = false;
+		boolean hasAlpha = false;
 		boolean bool_76_ = false;
 		boolean bool_77_ = false;
 		final int i_78_ = class150s != null ? class150s.length : 0;
@@ -530,10 +530,10 @@ final class NpcType {
 					SpotAnimation.anIntArray2918[i_79_] = i_83_;
 					if (EnumType.aClass120_Sub14_Sub18Array3453[i_79_] != null) {
 						bool_76_ |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].method1579(i_83_);
-						bool_75_ |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].method1578(i_83_);
+						hasAlpha |= EnumType.aClass120_Sub14_Sub18Array3453[i_79_].hasAlpha(i_83_);
 						bool_77_ |= class40_80_.aBoolean341;
 					}
-					if ((class40_80_.tween || Class164.forceTweenEnabled) && (i_82_ ^ 0xffffffff) != 0 && i_82_ < class40_80_.frames.length) {
+					if ((class40_80_.tween || Class164.forceTweenEnabled) && i_82_ != -1 && i_82_ < class40_80_.frames.length) {
 						ReflectionCheckNode.anIntArray2761[i_79_] = class40_80_.delays[i_81_];
 						ObjectCache.anIntArray124[i_79_] = class150s[i_79_].frameDelay;
 						int i_84_ = class40_80_.frames[i_82_];
@@ -542,7 +542,7 @@ final class NpcType {
 						Class120_Sub12.anIntArray2567[i_79_] = i_84_;
 						if (DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_] != null) {
 							bool_76_ |= DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_].method1579(i_84_);
-							bool_75_ |= DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_].method1578(i_84_);
+							hasAlpha |= DummyOutputStream.aClass120_Sub14_Sub18Array31[i_79_].hasAlpha(i_84_);
 						}
 					} else {
 						ReflectionCheckNode.anIntArray2761[i_79_] = 0;
@@ -553,7 +553,7 @@ final class NpcType {
 				}
 			}
 		}
-		if (!bool && class40_49_ == null && seqType == null) {
+		if (!bool && animSeq == null && idleAnimSeq == null) {
 			final AbstractModelRenderer class180_sub7_85_ = class180_sub7_55_.method2376(true, true, true);
 			if (resizeX != 128 || resizeY != 128) {
 				class180_sub7_85_.scale(resizeX, resizeY, resizeX);
@@ -565,19 +565,19 @@ final class NpcType {
 		FrameGroup class120_sub14_sub18 = null;
 		FrameGroup class120_sub14_sub18_88_ = null;
 		int i_89_ = 0;
-		if (class40_49_ != null) {
-			i_87_ = class40_49_.frames[i];
+		if (animSeq != null) {
+			i_87_ = animSeq.frames[i];
 			final int i_90_ = i_87_ >>> 16;
 			class120_sub14_sub18 = FrameGroup.list(i_90_);
 			i_87_ &= 0xffff;
 			if (class120_sub14_sub18 != null) {
 				bool_76_ |= class120_sub14_sub18.method1579(i_87_);
-				bool_75_ |= class120_sub14_sub18.method1578(i_87_);
-				bool_77_ |= class40_49_.aBoolean341;
+				hasAlpha |= class120_sub14_sub18.hasAlpha(i_87_);
+				bool_77_ |= animSeq.aBoolean341;
 			}
-			if ((class40_49_.tween || Class164.forceTweenEnabled) && i_50_ != -1 && i_50_ < class40_49_.frames.length) {
-				i_86_ = class40_49_.frames[i_50_];
-				i_89_ = class40_49_.delays[i];
+			if ((animSeq.tween || Class164.forceTweenEnabled) && i_50_ != -1 && i_50_ < animSeq.frames.length) {
+				i_86_ = animSeq.frames[i_50_];
+				i_89_ = animSeq.delays[i];
 				final int i_91_ = i_86_ >>> 16;
 				i_86_ &= 0xffff;
 				if (i_91_ != i_90_) {
@@ -587,7 +587,7 @@ final class NpcType {
 				}
 				if (class120_sub14_sub18_88_ != null) {
 					bool_76_ |= class120_sub14_sub18_88_.method1579(i_86_);
-					bool_75_ |= class120_sub14_sub18_88_.method1578(i_86_);
+					hasAlpha |= class120_sub14_sub18_88_.hasAlpha(i_86_);
 				}
 			}
 		}
@@ -596,19 +596,19 @@ final class NpcType {
 		int i_94_ = 0;
 		FrameGroup class120_sub14_sub18_95_ = null;
 		FrameGroup class120_sub14_sub18_96_ = null;
-		if (seqType != null) {
-			i_93_ = seqType.frames[i_52_];
+		if (idleAnimSeq != null) {
+			i_93_ = idleAnimSeq.frames[i_52_];
 			final int i_97_ = i_93_ >>> 16;
 			i_93_ &= 0xffff;
 			class120_sub14_sub18_95_ = FrameGroup.list(i_97_);
 			if (class120_sub14_sub18_95_ != null) {
 				bool_76_ |= class120_sub14_sub18_95_.method1579(i_93_);
-				bool_75_ |= class120_sub14_sub18_95_.method1578(i_93_);
-				bool_77_ |= seqType.aBoolean341;
+				hasAlpha |= class120_sub14_sub18_95_.hasAlpha(i_93_);
+				bool_77_ |= idleAnimSeq.aBoolean341;
 			}
-			if ((seqType.tween || Class164.forceTweenEnabled) && i_51_ != -1 && i_51_ < seqType.frames.length) {
-				i_94_ = seqType.delays[i_52_];
-				i_92_ = seqType.frames[i_51_];
+			if ((idleAnimSeq.tween || Class164.forceTweenEnabled) && i_51_ != -1 && i_51_ < idleAnimSeq.frames.length) {
+				i_94_ = idleAnimSeq.delays[i_52_];
+				i_92_ = idleAnimSeq.frames[i_51_];
 				final int i_98_ = i_92_ >>> 16;
 				i_92_ &= 0xffff;
 				if (i_98_ == i_97_) {
@@ -618,11 +618,11 @@ final class NpcType {
 				}
 				if (class120_sub14_sub18_96_ != null) {
 					bool_76_ |= class120_sub14_sub18_96_.method1579(i_92_);
-					bool_75_ |= class120_sub14_sub18_96_.method1578(i_92_);
+					hasAlpha |= class120_sub14_sub18_96_.hasAlpha(i_92_);
 				}
 			}
 		}
-		final AbstractModelRenderer class180_sub7_99_ = class180_sub7_55_.method2376(!bool_75_, !bool_76_, !bool_77_);
+		final AbstractModelRenderer class180_sub7_99_ = class180_sub7_55_.method2376(!hasAlpha, !bool_76_, !bool_77_);
 		int i_100_ = 1;
 		for (int i_101_ = 0; i_101_ < i_78_; i_101_++) {
 			if (EnumType.aClass120_Sub14_Sub18Array3453[i_101_] != null) {
@@ -632,12 +632,12 @@ final class NpcType {
 		}
 		if (class120_sub14_sub18 == null || class120_sub14_sub18_95_ == null) {
 			if (class120_sub14_sub18 != null) {
-				class180_sub7_99_.method2380(class120_sub14_sub18, i_87_, class120_sub14_sub18_88_, i_86_, i_53_ + -1, i_89_, class40_49_.aBoolean341);
+				class180_sub7_99_.method2380(class120_sub14_sub18, i_87_, class120_sub14_sub18_88_, i_86_, i_53_ + -1, i_89_, animSeq.aBoolean341);
 			} else if (class120_sub14_sub18_95_ != null) {
-				class180_sub7_99_.method2380(class120_sub14_sub18_95_, i_93_, class120_sub14_sub18_96_, i_92_, -1 + i_47_, i_94_, seqType.aBoolean341);
+				class180_sub7_99_.method2380(class120_sub14_sub18_95_, i_93_, class120_sub14_sub18_96_, i_92_, -1 + i_47_, i_94_, idleAnimSeq.aBoolean341);
 			}
 		} else {
-			class180_sub7_99_.method2361(class120_sub14_sub18, i_87_, class120_sub14_sub18_88_, i_86_, i_53_ + -1, i_89_, class120_sub14_sub18_95_, i_93_, class120_sub14_sub18_96_, i_92_, -1 + i_47_, i_94_, class40_49_.aBooleanArray327, class40_49_.aBoolean341 | seqType.aBoolean341);
+			class180_sub7_99_.method2361(class120_sub14_sub18, i_87_, class120_sub14_sub18_88_, i_86_, i_53_ + -1, i_89_, class120_sub14_sub18_95_, i_93_, class120_sub14_sub18_96_, i_92_, -1 + i_47_, i_94_, animSeq.aBooleanArray327, animSeq.aBoolean341 | idleAnimSeq.aBoolean341);
 		}
 		for (int i_102_ = 0; i_102_ < i_78_; i_102_++) {
 			EnumType.aClass120_Sub14_Sub18Array3453[i_102_] = null;
@@ -681,11 +681,11 @@ final class NpcType {
 	public NpcType() {
 		this.hasShadow = true;
 		this.anInt1657 = -1;
-		this.anInt1681 = -1;
+		this.idleAnimationSoundId = -1;
 		this.headIcon = -1;
-		this.anInt1682 = -1;
-		this.aShort1683 = (short) 0;
-		this.anInt1668 = -1;
+		this.walkAnimationSoundId = -1;
+		this.shadowColor1 = (short) 0;
+		this.attackCursor = -1;
 		this.combatLevel = -1;
 		this.cursor1op = -1;
 		this.ambientSoundHearDistance = 0;
@@ -695,23 +695,23 @@ final class NpcType {
 		ambient = 0;
 		this.hitBarSpriteId = -1;
 		resizeX = 128;
-		this.aShort1662 = (short) 0;
+		this.shadowColor2 = (short) 0;
 		this.size = 1;
 		varpId = -1;
 		varbitId = -1;
-		this.aByte1699 = (byte) -16;
+		this.shadowColorMod1 = (byte) -16;
 		this.ambientSoundVolume = 255;
 		resizeY = 128;
 		this.mapFunctionId = -1;
 		this.aBoolean1701 = true;
-		this.renderDataId = -1;
+		this.basTypeId = -1;
 		this.loginScreenProperties = (byte) 0;
 		this.displayOnMinimap = true;
-		this.anInt1676 = -1;
+		this.runAnimationSoundId = -1;
 		this.cursor2 = -1;
 		contrast = 0;
 		this.options = new String[5];
-		this.aByte1694 = (byte) -96;
+		this.shadowColorMod2 = (byte) -96;
 		this.cursor1 = -1;
 		this.aBoolean1656 = false;
 		this.name = "null";

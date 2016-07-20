@@ -5,7 +5,7 @@
 final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 	static int[] keyCodes;
 	static js5 aClass50_3305;
-	static float aFloat3306;
+	static float currentLightModelAmbient;
 	static int toRemoveEntitiesPos = 0;
 	static int anInt3308;
 
@@ -22,30 +22,30 @@ final class Class120_Sub12_Sub23 extends Class120_Sub12 {
 	}
 
 	static final void method1323(final SeqType seqType, final int x, final int z, final int frame, final boolean isSelfPlayer) {
-		if (Class150.soundEffectCount < 50 && seqType != null && seqType.anIntArrayArray347 != null && seqType.anIntArrayArray347.length > frame && seqType.anIntArrayArray347[frame] != null) {
-			final int i_3_ = seqType.anIntArrayArray347[frame][0];
-			int i_4_ = i_3_ >> 8;
+		if (Class150.soundEffectCount < 50 && seqType != null && seqType.soundEffectIds != null && seqType.soundEffectIds.length > frame && seqType.soundEffectIds[frame] != null) {
+			final int i_3_ = seqType.soundEffectIds[frame][0];
+			int id = i_3_ >> 8;
 			final int i_5_ = (0xe4 & i_3_) >> 5;
 			final int i_6_ = i_3_ & 0x1f;
-			if (seqType.anIntArrayArray347[frame].length > 1) {
-				final int i_7_ = (int) (seqType.anIntArrayArray347[frame].length * Math.random());
+			if (seqType.soundEffectIds[frame].length > 1) {
+				final int i_7_ = (int) (seqType.soundEffectIds[frame].length * Math.random());
 				if (i_7_ > 0) {
-					i_4_ = seqType.anIntArrayArray347[frame][i_7_];
+					id = seqType.soundEffectIds[frame][i_7_];
 				}
 			}
 			if (i_6_ == 0) {
 				if (isSelfPlayer) {
-					Class48.method404(i_4_, 0, i_5_, 255);
+					Class48.method404(id, 0, i_5_, 255);
 				}
 			} else if (CursorType.ambientSoundsVolume != 0) {
-				Class120_Sub12_Sub16.anIntArray3255[Class150.soundEffectCount] = i_4_;
-				LocType.anIntArray1834[Class150.soundEffectCount] = i_5_;
+				Class120_Sub12_Sub16.soundEffectIds[Class150.soundEffectCount] = id;
+				LocType.soundEffectLoops[Class150.soundEffectCount] = i_5_;
 				Class81.soundEffectDelays[Class150.soundEffectCount] = 0;
-				Class109.aClass6Array1047[Class150.soundEffectCount] = null;
-				FileSystemRequest.anIntArray3926[Class150.soundEffectCount] = 255;
+				Class109.soundEffects[Class150.soundEffectCount] = null;
+				FileSystemRequest.soundEffectVolumes[Class150.soundEffectCount] = 255;
 				final int i_9_ = (x - 64) / 128;
 				final int i_8_ = (z - 64) / 128;
-				Class174.anIntArray1731[Class150.soundEffectCount] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
+				Class174.SoundEffectCoordinates[Class150.soundEffectCount] = i_6_ + (i_8_ << 8) + (i_9_ << 16);
 				Class150.soundEffectCount++;
 			}
 		}

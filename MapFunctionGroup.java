@@ -17,15 +17,15 @@ final class MapFunctionGroup {
 					if (jagexInterface.components != null) {
 						method1980(jagexInterface.components, i);
 					}
-					final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
+					final SubInterface class120_sub26 = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(jagexInterface.bitPacked);
 					if (class120_sub26 != null) {
 						InterfaceClickMask.method1689(i, class120_sub26.interfaceId);
 					}
 				}
-				if (i == 0 && jagexInterface.anObjectArray2013 != null) {
+				if (i == 0 && jagexInterface.onDialogAbortListener != null) {
 					final InterfaceListener class120_sub10 = new InterfaceListener();
 					class120_sub10.jagexInterface = jagexInterface;
-					class120_sub10.objectData = jagexInterface.anObjectArray2013;
+					class120_sub10.objectData = jagexInterface.onDialogAbortListener;
 					Class88.executeScript(class120_sub10);
 				}
 				if (i == 1 && jagexInterface.onInterfaceOverridingUpdate != null) {

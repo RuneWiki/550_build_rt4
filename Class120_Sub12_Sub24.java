@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub24 extends Class120_Sub12 {
-	static js5 aClass50_3309;
+	static js5 worldMapJs5;
 	private int anInt3310 = 4096;
 	static int anInt3311;
 

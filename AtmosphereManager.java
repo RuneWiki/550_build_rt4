@@ -5,12 +5,12 @@ import javax.media.opengl.GL;
 
 final class AtmosphereManager {
 	private static float light1Diffuse;
-	private static int screenColorRgb;
+	private static int lightColor;
 	private static int fogOffset = -1;
 	static int lightZ;
 	static float[] fogColor;
 	private static float light0Diffuse;
-	static int defaultScreenColorRgb;
+	static int defaultLightColorRgb;
 	static float[] light0Position;
 	static int defaulFogColorRgb;
 	private static float[] light1Position;
@@ -21,13 +21,13 @@ final class AtmosphereManager {
 	static {
 		light1Diffuse = -1.0F;
 		light0Diffuse = -1.0F;
-		defaultScreenColorRgb = 16777215;
+		defaultLightColorRgb = 16777215;
 		light0Position = new float[4];
 		defaulFogColorRgb = 13156520;
 		fogColor = new float[4];
 		fogColorRGB = -1;
 		light1Position = new float[4];
-		screenColorRgb = -1;
+		lightColor = -1;
 	}
 
 	static final void setFogColor(float[] params) {
@@ -43,9 +43,9 @@ final class AtmosphereManager {
 	}
 
 	private static final void initDefaults() {
-		setLightParams(defaultScreenColorRgb, 1.1523438F, 0.69921875F, 1.2F);
+		setLightParams(defaultLightColorRgb, 1.1523438F, 0.69921875F, 1.2F);
 		setLightPosition(-50.0F, -60.0F, -50.0F);
-		setFogValues(defaulFogColorRgb, 0, false);
+		setFogParams(defaulFogColorRgb, 0, false);
 	}
 
 	static final void setLightPosition(final float x, final float y, final float z) {
@@ -71,11 +71,11 @@ final class AtmosphereManager {
 		gl.glLightfv(16385, 4611, light1Position, 0);//LIGHT1, POSITION
 	}
 
-	static final int getScreenColorRgb() {
-		return screenColorRgb;
+	static final int getLightColor() {
+		return lightColor;
 	}
 
-	static final void method1018() {
+	static final void setup() {
 		final GL gl = HDToolkit.gl;
 		gl.glColorMaterial(1028, 5634);//FRONT, AMBIENT_AND_DIFFUSE
 		gl.glEnable(2903);//COLOR_MATERIAL
@@ -85,13 +85,13 @@ final class AtmosphereManager {
 		final float[] light1Params = { 0.0F, 0.0F, 0.0F, 1.0F };
 		gl.glLightfv(16385, 4608, light1Params, 0);//LIGHT1, AMBIENT
 		gl.glEnable(16385);//LIGHT1
-		screenColorRgb = -1;
+		lightColor = -1;
 		fogColorRGB = -1;
 		initDefaults();
 	}
 
 	//More info here. http://nehe.gamedev.net/tutorial/cool_looking_fog/19001/
-	static final void setFogValues(int fogCol, int fogOff, boolean force) {
+	static final void setFogParams(int fogCol, int fogOff, boolean force) {
 		if (force || fogColorRGB != fogCol || fogOffset != fogOff) {
 			fogColorRGB = fogCol;
 			fogOffset = fogOff;
@@ -123,8 +123,8 @@ final class AtmosphereManager {
 	}
 
 	static final void setLightParams(int color, float ambientMod, float l0Diffuse, float l1Diffuse) {
-		if (screenColorRgb != color || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
-			screenColorRgb = color;
+		if (lightColor != color || lightModelAmbient != ambientMod || light0Diffuse != l0Diffuse || light1Diffuse != l1Diffuse) {
+			lightColor = color;
 			lightModelAmbient = ambientMod;
 			light0Diffuse = l0Diffuse;
 			light1Diffuse = l1Diffuse;

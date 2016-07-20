@@ -14,11 +14,11 @@ final class Class114 {
 	boolean aBoolean1101;
 	byte blanch;
 	byte shaderId;
-	byte aByte1104;
+	byte shaderParam;
 	byte brightness;
 	short colorPaletteIndex;
 	boolean aBoolean1107;
-	boolean aBoolean1108;
+	boolean valid;
 
 	static final DisplayModeInfo[] constructDisplayModes() {
 		if (Class65.displayModes == null) {
@@ -54,7 +54,7 @@ final class Class114 {
 	}
 
 	static final long getWallLocationUid(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null || groundTile.wallLocation == null) {
 			return 0L;
 		}

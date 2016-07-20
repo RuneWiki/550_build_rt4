@@ -245,7 +245,7 @@ final class Particle extends ParticleNodeSub {
 				if (tileY > 0 || tileY < -65535 || tileX < 0 || tileX >= WallDecoration.mapSizeX || tileZ < 0 || tileZ >= Class120_Sub12_Sub38.mapSizeZ) {
 					die();
 				} else {
-					final int[][][] heightMap = OverridedJInterface.activeTileHeightMap;
+					final int[][][] heightMap = SubInterface.activeTileHeightMap;
 					final int tileHeight = heightMap[particleEngine.level][tileX][tileZ];
 					int nextLevelHeight;
 					if (particleEngine.level < 3) {
@@ -284,9 +284,9 @@ final class Particle extends ParticleNodeSub {
 							die();
 							return;
 						}
-						GroundTile groundTile = LabelGroup.activeGroundTiles[tileLevel][tileX][tileZ];
+						GroundTile groundTile = SeqFrameBase.activeGroundTiles[tileLevel][tileX][tileZ];
 						if (groundTile == null) {
-							groundTile = LabelGroup.activeGroundTiles[tileLevel][tileX][tileZ] = new GroundTile(tileLevel, tileX, tileZ);
+							groundTile = SeqFrameBase.activeGroundTiles[tileLevel][tileX][tileZ] = new GroundTile(tileLevel, tileX, tileZ);
 						}
 						if (groundTile.tileParticle == null) {
 							groundTile.tileParticle = new TileParticleQueue();

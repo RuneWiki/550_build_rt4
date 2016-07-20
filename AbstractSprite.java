@@ -9,8 +9,8 @@ abstract class AbstractSprite extends NodeSub {
 	int height;
 	static long[] friendsNameAsLong;
 	int width;
-	static int anInt3619 = -1;
-	static int anInt3620;
+	static int lastSetBuildArea = -1;
+	static int titleScreenMusicId;
 	int trimHeight;
 	static boolean aBoolean3622;
 
@@ -46,7 +46,7 @@ abstract class AbstractSprite extends NodeSub {
 	static final void changeDisplayMode(final int newDisplayMode, final int width, final int height, boolean canvasReplaceRecommended) {
 		Class15.frameSizeRevertTime = 0L;
 		boolean changeRenderer = false;
-		final int currentDisplayMode = Class120_Sub12_Sub4.getDisplayMode();
+		final int currentDisplayMode = Class120_Sub12_Sub4.determinateDisplayMode();
 		if (currentDisplayMode > 0 == newDisplayMode <= 0) {
 			changeRenderer = true;
 		}

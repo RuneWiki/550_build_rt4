@@ -55,12 +55,12 @@ final class Class5 implements ShaderInterface {
 		}
 	}
 
-	static final void method98(final int i) {
-		Class190.anInt2101 = i;
-		for (int i_7_ = 0; i_7_ < WallDecoration.mapSizeX; i_7_++) {
-			for (int i_8_ = 0; i_8_ < Class120_Sub12_Sub38.mapSizeZ; i_8_++) {
-				if (LabelGroup.activeGroundTiles[i][i_7_][i_8_] == null) {
-					LabelGroup.activeGroundTiles[i][i_7_][i_8_] = new GroundTile(i, i_7_, i_8_);
+	static final void method98(final int level) {
+		Class190.renderFromLevel = level;
+		for (int x = 0; x < WallDecoration.mapSizeX; x++) {
+			for (int z = 0; z < Class120_Sub12_Sub38.mapSizeZ; z++) {
+				if (SeqFrameBase.activeGroundTiles[level][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
 				}
 			}
 		}

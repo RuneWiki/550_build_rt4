@@ -95,7 +95,7 @@ abstract class Class120_Sub12 extends Node {
 				reflectionCheckNode.errorTypes[id] = -5;
 			}
 		}
-		OverridedJInterface.reflectionCheckDeque.addLast(reflectionCheckNode);
+		SubInterface.reflectionCheckDeque.addLast(reflectionCheckNode);
 	}
 
 	static final void method1183(final LocType locType, final int x, final int z, final int level) {
@@ -119,27 +119,27 @@ abstract class Class120_Sub12 extends Node {
 		return -1;
 	}
 
-	static final void method1185() {
-		for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-			if (class120_sub24.anInt2720 > 0) {
-				class120_sub24.anInt2720--;
+	static final void processCustomLocations() {
+		for (CustomLocation customLocation = (CustomLocation) Class120_Sub4.customLocations.getFront(); customLocation != null; customLocation = (CustomLocation) Class120_Sub4.customLocations.getNext()) {
+			if (customLocation.cycle1 > 0) {
+				customLocation.cycle1--;
 			}
-			if (class120_sub24.anInt2720 == 0) {
-				if (class120_sub24.anInt2723 < 0 || Class167.method2190(class120_sub24.anInt2723, class120_sub24.anInt2728)) {
-					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2729, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2723, class120_sub24.anInt2731, class120_sub24.anInt2728);
-					class120_sub24.unlink();
+			if (customLocation.cycle1 == 0) {
+				if (customLocation.originalLocId < 0 || Class167.method2190(customLocation.originalLocId, customLocation.originalLocType)) {
+					Class31.method264(customLocation.level, customLocation.originalLocRotation, customLocation.z, customLocation.clientType, customLocation.originalLocId, customLocation.x, customLocation.originalLocType);
+					customLocation.unlink();
 				}
 			} else {
-				if (class120_sub24.anInt2732 > 0) {
-					class120_sub24.anInt2732--;
+				if (customLocation.cycle2 > 0) {
+					customLocation.cycle2--;
 				}
-				if (class120_sub24.anInt2732 == 0 && class120_sub24.anInt2731 >= 1 && class120_sub24.anInt2725 >= 1 && class120_sub24.anInt2731 <= 102 && class120_sub24.anInt2725 <= 102 && (class120_sub24.anInt2719 < 0 || Class167.method2190(class120_sub24.anInt2719, class120_sub24.anInt2727))) {
-					Class31.method264(class120_sub24.anInt2722, class120_sub24.anInt2717, class120_sub24.anInt2725, class120_sub24.anInt2721, class120_sub24.anInt2719, class120_sub24.anInt2731, class120_sub24.anInt2727);
-					class120_sub24.anInt2732 = -1;
-					if (class120_sub24.anInt2719 == class120_sub24.anInt2723 && class120_sub24.anInt2723 == -1) {
-						class120_sub24.unlink();
-					} else if (class120_sub24.anInt2719 == class120_sub24.anInt2723 && class120_sub24.anInt2717 == class120_sub24.anInt2729 && class120_sub24.anInt2727 == class120_sub24.anInt2728) {
-						class120_sub24.unlink();
+				if (customLocation.cycle2 == 0 && customLocation.x >= 1 && customLocation.z >= 1 && customLocation.x <= 102 && customLocation.z <= 102 && (customLocation.id < 0 || Class167.method2190(customLocation.id, customLocation.type))) {
+					Class31.method264(customLocation.level, customLocation.rotation, customLocation.z, customLocation.clientType, customLocation.id, customLocation.x, customLocation.type);
+					customLocation.cycle2 = -1;
+					if (customLocation.id == customLocation.originalLocId && customLocation.originalLocId == -1) {
+						customLocation.unlink();
+					} else if (customLocation.id == customLocation.originalLocId && customLocation.rotation == customLocation.originalLocRotation && customLocation.type == customLocation.originalLocType) {
+						customLocation.unlink();
 					}
 				}
 			}
@@ -185,27 +185,27 @@ abstract class Class120_Sub12 extends Node {
 		if (tileType == 0) {
 			final PlainTile plainTile = new PlainTile(i_44_, i_45_, i_46_, i_47_, -1, underlayMinimapColor, false);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (SeqFrameBase.activeGroundTiles[lowerLevel][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
+			SeqFrameBase.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else if (tileType == 1) {
 			final PlainTile plainTile = new PlainTile(i_48_, i_49_, i_50_, i_51_, i_39_, overlayMinimapColor, tileHeight == tileHeightEast && tileHeight == tileHeightNorthEast && tileHeight == tileHeightNorth);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (SeqFrameBase.activeGroundTiles[lowerLevel][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.activeGroundTiles[level][x][z].plainTile = plainTile;
+			SeqFrameBase.activeGroundTiles[level][x][z].plainTile = plainTile;
 		} else {
 			final ShapedTile shapedTile = new ShapedTile(tileType, i_38_, i_39_, x, z, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, i_44_, i_45_, i_46_, i_47_, i_48_, i_49_, i_50_, i_51_, underlayMinimapColor, overlayMinimapColor);
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (SeqFrameBase.activeGroundTiles[lowerLevel][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.activeGroundTiles[level][x][z].shapedTile = shapedTile;
+			SeqFrameBase.activeGroundTiles[level][x][z].shapedTile = shapedTile;
 		}
 	}
 

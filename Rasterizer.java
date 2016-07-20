@@ -8,12 +8,11 @@ final class Rasterizer {
 	static int[] palette = new int[65536];
 	static int centerY;
 	static boolean aBoolean971;
-	static boolean aBoolean972;
+	static boolean boundsLeft;
 	static Interface5 anInterface5_973;
 	static boolean aBoolean974;
 	static int alpha = 0;
 	private static boolean aBoolean976;
-	private static int[] anIntArray977;
 	private static int endY;
 	private static int[] coordinateYLookup;
 	static int[] cosTable;
@@ -23,20 +22,16 @@ final class Rasterizer {
 	static int[] anIntArray984;
 
 	static {
-		aBoolean972 = false;
+		boundsLeft = false;
 		aBoolean974 = false;
 		aBoolean971 = true;
 		brightness = 1.0F;
-		anIntArray977 = new int[512];
 		aBoolean981 = false;
 		cosTable = new int[2048];
 		aBoolean976 = false;
 		coordinateYLookup = new int[1024];
 		anIntArray984 = new int[2048];
 		sinTable = new int[2048];
-		for (int i = 1; i < 512; i++) {
-			anIntArray977[i] = 32768 / i;
-		}
 		for (int i = 1; i < 2048; i++) {
 			anIntArray984[i] = 65536 / i;
 		}
@@ -67,7 +62,7 @@ final class Rasterizer {
 	}
 
 	static final void method855(final int i, final int i_1_, final int i_2_) {
-		aBoolean972 = i < 0 || i > endX || i_1_ < 0 || i_1_ > endX || i_2_ < 0 || i_2_ > endX;
+		boundsLeft = i < 0 || i > endX || i_1_ < 0 || i_1_ > endX || i_2_ < 0 || i_2_ > endX;
 	}
 
 	static final void method856(int i, int i_3_, int i_4_, int i_5_, int i_6_, int i_7_, int i_8_, int i_9_, int i_10_) {
@@ -435,7 +430,7 @@ final class Rasterizer {
 	}
 
 	private static final void method857(final int[] is, int i, int i_23_, int i_24_, int i_25_, int i_26_) {
-		if (aBoolean972) {
+		if (boundsLeft) {
 			if (i_26_ > endX) {
 				i_26_ = endX;
 			}
@@ -574,7 +569,7 @@ final class Rasterizer {
 		endY = ey - sy;
 		calculateViewport();
 		if (coordinateYLookup.length < endY) {
-			coordinateYLookup = new int[Class120_Sub12_Sub17.getFarestBitValue(endY)];
+			coordinateYLookup = new int[Class120_Sub12_Sub17.farthestBitValue(endY)];
 		}
 		int i_52_ = sy * GraphicsLD.width + sx;
 		for (int i_53_ = 0; i_53_ < endY; i_53_++) {
@@ -1691,7 +1686,7 @@ final class Rasterizer {
 	}
 
 	private static final void method867(final int[] is, int i, int i_121_, int i_122_, int i_123_, int i_124_, int i_125_, int i_126_) {
-		if (aBoolean972) {
+		if (boundsLeft) {
 			if (i_124_ > endX) {
 				i_124_ = endX;
 			}
@@ -1776,26 +1771,26 @@ final class Rasterizer {
 	static final void calculateViewport() {
 		centerX = endX / 2;
 		centerY = endY / 2;
-		IntegerNode.viewportLeft = -centerX;
-		Class120_Sub12_Sub16.viewportRight = endX - centerX;
-		Class190.viewportTop = -centerY;
-		Class120_Sub30_Sub1.viewportBottom = endY - centerY;
+		Rasterizer.viewportLeft = -centerX;
+		Rasterizer.viewportRight = endX - centerX;
+		Rasterizer.viewportTop = -centerY;
+		Rasterizer.viewportBottom = endY - centerY;
 	}
 
-	static final void method869(final int i, final int i_134_) {
-		final int i_135_ = coordinateYLookup[0];
-		final int i_136_ = i_135_ / GraphicsLD.width;
-		final int i_137_ = i_135_ - i_136_ * GraphicsLD.width;
+	static final void setViewport(final int i, final int i_134_) {
+		final int offset = coordinateYLookup[0];
+		final int i_136_ = offset / GraphicsLD.width;
+		final int i_137_ = offset - i_136_ * GraphicsLD.width;
 		centerX = i - i_137_;
 		centerY = i_134_ - i_136_;
-		IntegerNode.viewportLeft = -centerX;
-		Class120_Sub12_Sub16.viewportRight = endX - centerX;
-		Class190.viewportTop = -centerY;
-		Class120_Sub30_Sub1.viewportBottom = endY - centerY;
+		Rasterizer.viewportLeft = -centerX;
+		Rasterizer.viewportRight = endX - centerX;
+		Rasterizer.viewportTop = -centerY;
+		Rasterizer.viewportBottom = endY - centerY;
 	}
 
 	private static final void method870(final int[] is, final int[] is_138_, int i, int i_139_, int i_140_, int i_141_, int i_142_, int i_143_, int i_144_, int i_145_, int i_146_, int i_147_, final int i_148_, final int i_149_, final int i_150_) {
-		if (aBoolean972) {
+		if (boundsLeft) {
 			if (i_142_ > endX) {
 				i_142_ = endX;
 			}
@@ -2609,7 +2604,7 @@ final class Rasterizer {
 	}
 
 	private static final void method873(final int[] is, final int[] is_214_, int i, int i_215_, int i_216_, int i_217_, int i_218_, int i_219_, int i_220_, int i_221_, int i_222_, int i_223_, final int i_224_, final int i_225_, final int i_226_) {
-		if (aBoolean972) {
+		if (boundsLeft) {
 			if (i_218_ > endX) {
 				i_218_ = endX;
 			}
@@ -2888,4 +2883,9 @@ final class Rasterizer {
 	static final void calculateByBounds() {
 		calculateYLookupArray(GraphicsLD.startX, GraphicsLD.startY, GraphicsLD.endX, GraphicsLD.endY);
 	}
+
+	static int viewportLeft;
+	static int viewportRight;
+	static int viewportTop;
+	static int viewportBottom;
 }

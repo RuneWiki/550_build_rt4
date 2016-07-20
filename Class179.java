@@ -8,7 +8,7 @@ final class Class179 {
 	static int anInt1775 = 0;
 	static client clientInstance;
 	static byte[][] npcSpawnsFilesBuffer;
-	static js5 labelsJs5;
+	static js5 frameBasesJs5;
 	static boolean aBoolean1779;
 
 	static {
@@ -45,16 +45,16 @@ final class Class179 {
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_5_ == 0) {
 				Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
-				class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+				class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.clientClock;
 			} else {
 				final int i_6_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_6_ == 0) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
-					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.clientClock;
 					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = i_4_;
 				} else if (i_6_ == 1) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
-					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.clientClock;
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(3);
 					class180_sub5_sub1.move(i_7_, 1);
 					final int i_8_ = Canvas_Sub1.inputStream.getBitValue(1);
@@ -63,7 +63,7 @@ final class Class179 {
 					}
 				} else if (i_6_ == 2) {
 					Class112.playerIndices[FileSystemWorker.localPlayerCount++] = i_4_;
-					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.loopCycle;
+					class180_sub5_sub1.lastUpdateCycle = Class101_Sub2.clientClock;
 					if (Canvas_Sub1.inputStream.getBitValue(1) == 1) {
 						final int i_9_ = Canvas_Sub1.inputStream.getBitValue(3);
 						class180_sub5_sub1.move(i_9_, 2);

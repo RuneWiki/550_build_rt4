@@ -5,7 +5,7 @@
 final class Npc extends GameEntity {
 	static Hashtable playerAmbientSounds = new Hashtable(16);
 	NpcType npcType;
-	static js5 aClass50_3753;
+	static js5 defaultsJs5;
 	static byte[][][] aByteArrayArrayArray3754;
 
 	final void setNpcType(final NpcType npcType) {
@@ -26,9 +26,9 @@ final class Npc extends GameEntity {
 	@Override
 	final void render(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final long l, final int i_7_, final ParticleEngine class108_sub2) {
 		if (this.npcType != null) {
-			final SeqType seqType = (this.animId ^ 0xffffffff) == 0 || this.animDelay != 0 ? null : SeqType.list(this.animId);
-			final SeqType class40_8_ = (this.idleAnimId ^ 0xffffffff) != 0 && (this.idleAnimId != getEntityRenderData().idleAnimationId || seqType == null) ? SeqType.list(this.idleAnimId) : null;
-			AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_8_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animCurrentFrameDelay);
+			final SeqType seqType = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
+			final SeqType class40_8_ = this.idleAnimId != -1 && (this.idleAnimId != getBasType().idleAnimationId || seqType == null) ? SeqType.list(this.idleAnimId) : null;
+			AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_8_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animFrameDelay);
 			if (class180_sub7 != null) {
 				this.maxY = class180_sub7.getMaxY();
 				NpcType npcType = this.npcType;
@@ -36,7 +36,7 @@ final class Npc extends GameEntity {
 					npcType = npcType.handleVarp();
 				}
 				if (Class120_Sub6.characterShadowsOn && npcType.hasShadow) {
-					final AbstractModelRenderer class180_sub7_9_ = MagnetType.constructShadowModel(this.npcType.aShort1662, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.aByte1699, class180_sub7, class40_8_ != null ? this.idleAnimFrame : this.animFrame, this.y, this.z, this.aBoolean3002, this.npcType.aShort1683, this.npcType.aByte1694, this.x);
+					final AbstractModelRenderer class180_sub7_9_ = MagnetType.constructShadowModel(this.npcType.shadowColor2, class40_8_ != null ? class40_8_ : seqType, i, this.npcType.size, this.npcType.shadowColorMod1, class180_sub7, class40_8_ != null ? this.idleAnimFrame : this.animFrame, this.y, this.z, this.aBoolean3002, this.npcType.shadowColor1, this.npcType.shadowColorMod2, this.x);
 					if (HDToolkit.glEnabled) {
 						final float f = HDToolkit.method534();
 						final float f_10_ = HDToolkit.method526();
@@ -113,19 +113,19 @@ final class Npc extends GameEntity {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_12_, final int i_14_, final int i_13_, final int i_15_) {
+	final void preRender(final int rotation, final int i_12_, final int i_14_, final int i_13_, final int i_15_) {
 		if (this.npcType != null) {
 			if (!this.aBoolean3007) {
 				final SeqType seqType = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
-				final SeqType class40_16_ = this.idleAnimId == -1 || this.idleAnimId == getEntityRenderData().idleAnimationId && seqType != null ? null : SeqType.list(this.idleAnimId);
-				final AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_16_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animCurrentFrameDelay);
+				final SeqType class40_16_ = this.idleAnimId == -1 || this.idleAnimId == getBasType().idleAnimationId && seqType != null ? null : SeqType.list(this.idleAnimId);
+				final AbstractModelRenderer class180_sub7 = this.npcType.method2212(this.animFrame, this.idleAnimFrameDelay, class40_16_, seqType, this.animNextFrame, this.aClass150Array2972, this.idleAnimNextFrame, this.idleAnimFrame, this.animFrameDelay);
 				if (class180_sub7 == null) {
 					return;
 				}
 				method2337(class180_sub7, null);
 			}
 			if (this.aClass108_Sub2_2988 != null) {
-				this.aClass108_Sub2_2988.method944(i, i_12_, i_14_, i_13_, i_15_);
+				this.aClass108_Sub2_2988.method944(rotation, i_12_, i_14_, i_13_, i_15_);
 			}
 		}
 	}
@@ -149,14 +149,14 @@ final class Npc extends GameEntity {
 	}
 
 	@Override
-	final int getEntityRenderDataId() {
+	final int getBasTypeId() {
 		if (this.npcType.transmogrificationIds != null) {
 			final NpcType npcType = this.npcType.handleVarp();
-			if (npcType != null && npcType.renderDataId != -1) {
-				return npcType.renderDataId;
+			if (npcType != null && npcType.basTypeId != -1) {
+				return npcType.basTypeId;
 			}
 		}
-		return this.entityRenderDataId;
+		return this.basTypeId;
 	}
 
 	static final void playAnimation(final Npc npc, final int id, final int delay) {
@@ -168,7 +168,7 @@ final class Npc extends GameEntity {
 				npc.animDelay = delay;
 				npc.animNextFrame = 1;
 				npc.animCyclesElapsed = 0;
-				npc.animCurrentFrameDelay = 0;
+				npc.animFrameDelay = 0;
 				Class120_Sub12_Sub23.method1323(seqType, npc.x, npc.z, npc.animFrame, false);
 			}
 			if (resetCode == 2) {
@@ -181,7 +181,7 @@ final class Npc extends GameEntity {
 			npc.animFrame = 0;
 			npc.animDelay = delay;
 			npc.animId = id;
-			npc.animCurrentFrameDelay = 0;
+			npc.animFrameDelay = 0;
 			if (npc.animId != -1) {
 				Class120_Sub12_Sub23.method1323(SeqType.list(npc.animId), npc.x, npc.z, npc.animFrame, false);
 			}
@@ -212,7 +212,7 @@ final class Npc extends GameEntity {
 					if (i_31_ == 0) {
 						break;
 					}
-					i_28_ += -1 + i_31_;
+					i_28_ += i_31_ - 1;
 					final int i_32_ = (0xfcd & i_28_) >> 6;
 					final int i_33_ = class120_sub7.getUByte() >> 2;
 					final int i_34_ = i_24_ + i_32_;

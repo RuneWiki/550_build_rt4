@@ -39,8 +39,8 @@ final class DummyInputStream extends InputStream {
 		Class120_Sub12_Sub15.aBoolean3247 = false;
 		AnimatedLocation.clearAmbientSounds(true);
 		LightType.currentBaseZ = 0;
-		Class116.anInt1118 = 0;
-		Class3.anInt53 = 0;
+		Class116.currentRegionX = 0;
+		Class3.currentRegionZ = 0;
 		Class134.dynamicMapRegion = false;
 		GameEntity.currentBaseX = 0;
 		for (int i = 0; i < Class187.hintIcons.length; i++) {
@@ -63,7 +63,7 @@ final class DummyInputStream extends InputStream {
 			}
 		}
 		SpotAnimType.resetCamera();
-		OverlayFrequencyNode.packetCounter = 0;
+		OverlayFrequencyNode.triggerId = 0;
 		Varp.reset();
 		EnumType.method1421(true);
 		try {
@@ -121,11 +121,11 @@ final class DummyInputStream extends InputStream {
 					break;
 				}
 				String string_10_ = "";
-				if (LabelGroup.hostNameNode != null) {
-					if (LabelGroup.hostNameNode.value != null) {
-						string_10_ = (String) LabelGroup.hostNameNode.value;
+				if (SeqFrameBase.hostNameNode != null) {
+					if (SeqFrameBase.hostNameNode.value != null) {
+						string_10_ = (String) SeqFrameBase.hostNameNode.value;
 					} else {
-						string_10_ = Class125.method1879(LabelGroup.hostNameNode.integerData);
+						string_10_ = Class125.method1879(SeqFrameBase.hostNameNode.integerData);
 					}
 				}
 				string = new StringBuilder(string.substring(0, i_9_)).append(string_10_).append(string.substring(i_9_ + 4)).toString();

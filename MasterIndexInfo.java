@@ -4,7 +4,7 @@
 
 final class MasterIndexInfo {
 	int[] anIntArray465;
-	static boolean aBoolean466;
+	static boolean neverRemoveRoofs;
 	static boolean[] needInterfaceRedrawWrapper = new boolean[100];
 	int[][] groupFileIds;
 	static js5 aClass50_469;
@@ -14,7 +14,7 @@ final class MasterIndexInfo {
 	LookupTable groupLookupTable;
 	int[][] groupFileHashes;
 	int[] groupFileCount;
-	static js5 aClass50_476;
+	static js5 activeMusicJs5;
 	static int headiconsprayerId;
 	static int gregorianDateSeed;
 	LookupTable[] groupFileLookupTable;
@@ -25,7 +25,7 @@ final class MasterIndexInfo {
 	int anInt484;
 
 	static {
-		aBoolean466 = false;
+		neverRemoveRoofs = false;
 	}
 
 	static final AbstractTimer constructTimer() {

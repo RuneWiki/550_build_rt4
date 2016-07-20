@@ -40,7 +40,7 @@ final class Class81 {
 		if (WorldMapHandler.aClass120_Sub14_Sub22_691 != null) {
 			if (Class90.laodingStage < 10) {
 				if (!WorldMapHandler.aClass50_689.allFilesComplete(WorldMapHandler.aClass120_Sub14_Sub22_691.configName)) {
-					Class90.laodingStage = Class120_Sub12_Sub24.aClass50_3309.getCompletion(WorldMapHandler.aClass120_Sub14_Sub22_691.configName) / 10;
+					Class90.laodingStage = Class120_Sub12_Sub24.worldMapJs5.getCompletion(WorldMapHandler.aClass120_Sub14_Sub22_691.configName) / 10;
 					return;
 				}
 				Class120_Sub12_Sub25.method1332();
@@ -172,7 +172,7 @@ final class Class81 {
 				Class120_Sub12_Sub29.ping(true);
 				Class69.method613();
 			} else {
-				OverridedJInterface.aClass98_2739 = new WorldMapFont(30, true, Node.canvas);
+				SubInterface.aClass98_2739 = new WorldMapFont(30, true, Node.canvas);
 				Class90.laodingStage = 100;
 				Class120_Sub12_Sub29.ping(true);
 				Class69.method613();

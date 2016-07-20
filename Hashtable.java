@@ -30,7 +30,7 @@ final class Hashtable {
 
 	final int getCount() {
 		int count = 0;
-		for (int id = 0; this.capacity > id; id++) {
+		for (int id = 0; id < this.capacity; id++) {
 			final Node currentNode = this.table[id];
 			for (Node nextNode = currentNode.next; currentNode != nextNode; nextNode = nextNode.next) {
 				count++;
@@ -74,10 +74,10 @@ final class Hashtable {
 		return null;
 	}
 
-	final int method660(final Node[] nodes) {
+	final int toArray(final Node[] nodes) {
 		int pos = 0;
-		for (int i_12_ = 0; this.capacity > i_12_; i_12_++) {
-			final Node currentNode = this.table[i_12_];
+		for (int id = 0; id < this.capacity; id++) {
+			final Node currentNode = this.table[id];
 			for (Node nextNode = currentNode.next; currentNode != nextNode; nextNode = nextNode.next) {
 				nodes[pos++] = nextNode;
 			}

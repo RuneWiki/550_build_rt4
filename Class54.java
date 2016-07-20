@@ -71,7 +71,7 @@ final class Class54 {
 	}
 
 	static final void redrawScreen(final int x, final int y, final int widght, final int height) {
-		for (int id = 0; LabelGroup.screenRedrawPos > id; id++) {
+		for (int id = 0; SeqFrameBase.screenRedrawPos > id; id++) {
 			if (Class120_Sub16.screenRedrawWidhts[id] + GrandExchangeObject.screenRedrawXs[id] > x && GrandExchangeObject.screenRedrawXs[id] < x + widght && y < Class120_Sub12_Sub38.screenRedrawYs[id] - -Class69_Sub3_Sub1.screenRedrawHeights[id] && height + y > Class120_Sub12_Sub38.screenRedrawYs[id]) {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}

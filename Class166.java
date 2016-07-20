@@ -6,7 +6,7 @@ final class Class166 {
 	static int anInt1612 = 0;
 	
 	static final void method2180(final GameEntity gameEntity) {
-		final int i = gameEntity.anInt3035 - Class101_Sub2.loopCycle;
+		final int i = gameEntity.anInt3035 - Class101_Sub2.clientClock;
 		final int i_1_ = gameEntity.anInt2967 * 128 + (gameEntity.getSize() * 64);
 		final int i_2_ = gameEntity.anInt3034 * 128 + (gameEntity.getSize() * 64);
 		gameEntity.x += (i_1_ - gameEntity.x) / i;
@@ -26,7 +26,7 @@ final class Class166 {
 		gameEntity.anInt3037 = 0;
 	}
 
-	static final void kickUser(final String string) {
+	static final void kickClanMember(final String string) {
 		if (ReflectionCheckNode.clanMembers != null) {
 			int i_4_ = 0;
 			final long nameAsLong = Varp.stringToLong(string);

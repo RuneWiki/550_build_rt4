@@ -255,34 +255,14 @@ final class EmitterType {
 
 	static final EmitterType list(final int id) {
 		EmitterType emitterType = (EmitterType) recentUse.get(id);
-		//if (emitterType != null) {
-		//	return emitterType;
-		//}
+		if (emitterType != null) {
+			return emitterType;
+		}
 		final byte[] data = aClass50_619.getFile(0, id);
 		emitterType = new EmitterType();
 		if (data != null) {
 			emitterType.decode(new Buffer(data));
 		}
-		//System.out.println("hello from emitterType "+ id);
-		emitterType.size = 3;
-		
-		emitterType.maxSpeed = 314572;
-		emitterType.endSpeed = 734003;
-		emitterType.ageMark = 10;
-		emitterType.minParticleRate = 200;
-		emitterType.disableHDLighting = false;
-		emitterType.maxAngleV = 2048;
-		//emitterType.fadeColor = 0xffffff;
-		emitterType.lifetime = 32767;
-		emitterType.minLifetime = 50;
-		emitterType.minSpeed = 209715;
-		emitterType.maxAngleH = 1024;
-		emitterType.periodic = false;
-		emitterType.maxLifetime = 100;
-		emitterType.maxParticleRate = 300;
-		emitterType.minStartColor = 0xff0000ff;
-		emitterType.maxStartColor = 0xff0000ff;
-		
 		emitterType.postDecode();
 		recentUse.put(emitterType, id);
 		return emitterType;

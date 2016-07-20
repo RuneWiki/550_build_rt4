@@ -13,7 +13,7 @@ abstract class AbstractGraphicsBuffer {
 	static int[] anIntArray1161;
 	static int[] anIntArray1162;
 	static int[] anIntArray1163;
-	static int gameLoopLength;
+	static int mainLoopTimePos;
 	Image image;
 	static int maxTextOnScreen = 50;
 	static String[] aStringArray1167;

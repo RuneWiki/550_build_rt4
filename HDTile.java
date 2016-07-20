@@ -298,7 +298,7 @@ final class HDTile extends Node {
 		tilesZ = new int[this.anInt2519];
 		tilesLevel = new int[this.anInt2519];
 		anIntArrayArray2523 = new int[this.anInt2519][];
-		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt2507));
+		aClass75_2525 = new Hashtable(Class120_Sub12_Sub17.farthestBitValue(this.anInt2507));
 		if (this.blend) {
 			anIntArrayArray2526 = new int[this.anInt2519][];
 			aBooleanArray2522 = new boolean[this.anInt2519];

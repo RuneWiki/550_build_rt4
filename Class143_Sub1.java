@@ -44,13 +44,13 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 	}
 
 	@Override
-	public final boolean method15(final int i) {
-		return !method8(i).aBoolean1108;
+	public final boolean isValid(final int i) {
+		return !method8(i).valid;
 	}
 
 	@Override
 	public final int method29(final int i) {
-		return method8(i).aByte1104 & 0xff;
+		return method8(i).shaderParam & 0xff;
 	}
 
 	@Override
@@ -143,7 +143,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 			final HintIcon hintIcon = hintIcons[id];
 			if (hintIcon != null && hintIcon.targetType == 2) {
 				MapFunctionGroup.worldToScreen((hintIcon.x - GameEntity.currentBaseX << 7) + hintIcon.offX, hintIcon.y * 2, (hintIcon.z - LightType.currentBaseZ << 7) + hintIcon.offY, interfaceWidth >> 1, interfaceHeight >> 1, i_21_, i_19_);
-				if (Class120_Sub12_Sub38.screenX > -1 && Class101_Sub2.loopCycle % 20 < 10) {
+				if (Class120_Sub12_Sub38.screenX > -1 && Class101_Sub2.clientClock % 20 < 10) {
 					AnimatedLocation.hintHeadIconsSprites[hintIcon.iconType].drawReg(Class120_Sub12_Sub38.screenX + interfaceX - 12, Class120_Sub15.screenY + interfaceY - 28);
 				}
 			}
@@ -182,7 +182,7 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 
 	@Override
 	public final void method28(final int i_31_, final int i_32_) {
-		Class120_Sub14_Sub13.method1532(method8(i_32_).shaderId & 0xff, method8(i_32_).aByte1104 & 0xff);
+		Class120_Sub14_Sub13.method1532(method8(i_32_).shaderId & 0xff, method8(i_32_).shaderParam & 0xff);
 		boolean bool = false;
 		final Class120_Sub14_Sub17 class120_sub14_sub17 = method2024(i_32_);
 		if (class120_sub14_sub17 != null) {
@@ -263,38 +263,38 @@ final class Class143_Sub1 extends Class143 implements Interface5 {
 		if (clientCode == 324) {
 			if (Class120_Sub12_Sub15.anInt3241 == -1) {
 				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
-				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
+				Class120_Sub12_Sub15.anInt3241 = jagexInterface.graphic;
 			}
 			if (!Normal.dummyPlayerAppearance.isFemale) {
-				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;
+				jagexInterface.graphic = ModelParticleMagnet.anInt1643;
 			} else {
-				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
+				jagexInterface.graphic = Class120_Sub12_Sub15.anInt3241;
 			}
 		} else if (clientCode == 325) {
 			if (Class120_Sub12_Sub15.anInt3241 == -1) {
-				Class120_Sub12_Sub15.anInt3241 = jagexInterface.disabledSpriteId;
+				Class120_Sub12_Sub15.anInt3241 = jagexInterface.graphic;
 				ModelParticleMagnet.anInt1643 = jagexInterface.enabledSpriteId;
 			}
 			if (!Normal.dummyPlayerAppearance.isFemale) {
-				jagexInterface.disabledSpriteId = Class120_Sub12_Sub15.anInt3241;
+				jagexInterface.graphic = Class120_Sub12_Sub15.anInt3241;
 			} else {
-				jagexInterface.disabledSpriteId = ModelParticleMagnet.anInt1643;
+				jagexInterface.graphic = ModelParticleMagnet.anInt1643;
 			}
 		} else if (clientCode == 327) {
-			jagexInterface.rotateX = 150;
-			jagexInterface.rotateY = (int) (Math.sin(Class101_Sub2.loopCycle / 40.0) * 256.0) & 0x7ff;
+			jagexInterface.angleX = 150;
+			jagexInterface.angleY = (int) (Math.sin(Class101_Sub2.clientClock / 40.0) * 256.0) & 0x7ff;
 			jagexInterface.modelIdDisabled = -1;
 			jagexInterface.modelTypeDisabled = 5;
 		} else if (clientCode == 328) {
 			if (TileParticleQueue.selfPlayer.name == null) {
 				jagexInterface.modelIdDisabled = 0;
 			} else {
-				jagexInterface.rotateX = 150;
-				jagexInterface.rotateY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.loopCycle / 40.0));
+				jagexInterface.angleX = 150;
+				jagexInterface.angleY = 0x7ff & (int) (256.0 * Math.sin(Class101_Sub2.clientClock / 40.0));
 				jagexInterface.modelTypeDisabled = 5;
 				jagexInterface.modelIdDisabled = 2047 + ((int) Varp.stringToLong(TileParticleQueue.selfPlayer.name) << 11);
 				jagexInterface.currentFrame = TileParticleQueue.selfPlayer.idleAnimFrame;
-				jagexInterface.disabledAnim = TileParticleQueue.selfPlayer.idleAnimId;
+				jagexInterface.disabledAnimId = TileParticleQueue.selfPlayer.idleAnimId;
 				jagexInterface.nextFrame = TileParticleQueue.selfPlayer.idleAnimNextFrame;
 				jagexInterface.frameDelay = 0;
 			}

@@ -3,7 +3,7 @@
  */
 
 final class FileSystemRequest extends AbstractRequest {
-	static int[] anIntArray3926;
+	static int[] soundEffectVolumes;
 	int type;
 	static Deque projectileDeque;
 	static WorldMapFont aClass98_3929;
@@ -15,20 +15,9 @@ final class FileSystemRequest extends AbstractRequest {
 	FileSystem fileSystem;
 
 	static {
-		anIntArray3926 = new int[50];
+		soundEffectVolumes = new int[50];
 		brightness = 3;
 		projectileDeque = new Deque();
-	}
-
-	static final void method1544(final int id, final int value) {
-		Class30.anIntArray239[id] = value;
-		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);
-		if (longNode == null) {
-			longNode = new LongNode(0x4000000000000000L);
-			Class69_Sub3_Sub1.aClass75_3079.put(longNode, id);
-		} else if (longNode.value != 0x4000000000000000L) {
-			longNode.value = TimeUtil.getSafeTime() + 500L | 0x4000000000000000L;
-		}
 	}
 
 	@Override
@@ -96,7 +85,7 @@ final class FileSystemRequest extends AbstractRequest {
 				} else if (bool_3_ != npc.npcType.aBoolean1656 || renderSize != 0 && renderSize != npcSize) {
 					continue;
 				}
-				npc.aBoolean2992 = true;
+				npc.needToRender = true;
 				if (npcSize == 1) {
 					if ((npc.x & 0x7f) == 64 && (npc.z & 0x7f) == 64) {
 						final int renderX = npc.x >> 7;
@@ -147,7 +136,7 @@ final class FileSystemRequest extends AbstractRequest {
 				if (!npc.npcType.canRightClick) {
 					uid |= ~0x7fffffffffffffffL;
 				}
-				npc.aBoolean2992 = false;
+				npc.needToRender = false;
 				npc.y = Class22.getTileHeight(npc.x, npc.z, Class173.gameLevel);
 				Class120_Sub12_Sub5.method1218(Class173.gameLevel, npc.x, npc.z, npc.y, 60 + npcSize * 64 + -64, npc, npc.faceDegrees, uid, npc.aBoolean3002);
 			}

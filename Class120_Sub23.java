@@ -4,51 +4,51 @@
 
 final class Class120_Sub23 extends Node {
 	private static int blockSize0;
-	private static float[] aFloatArray2683;
+	private static float[] C1;
 	private static int[] modeMappings;
 	private int anInt2685;
 	private static Residue[] residues;
-	private static byte[] source;
-	private static float[] aFloatArray2688;
-	private static float[] aFloatArray2689;
+	private static byte[] bitArray;
+	private static float[] A0;
+	private static float[] C0;
 	private static int blockSize1;
-	private boolean aBoolean2691;
-	private static float[] aFloatArray2692;
-	private int anInt2693;
+	private boolean lastPacketNoResidueBits;
+	private static float[] A1;
+	private int lastPacketEnd;
 	private int anInt2694;
-	private static float[] aFloatArray2695;
-	private static int[] anIntArray2696;
-	private static float[] aFloatArray2697;
+	private static float[] B0;
+	private static int[] bitrev0;
+	private static float[] vector;
 	private static Mapping[] mappings;
 	private static boolean aBoolean2699 = false;
-	private static int byteIndex;
+	private static int bytePos;
 	private int anInt2701;
 	private int anInt2702;
-	private static int bitIndex;
+	private static int bitPos;
 	private byte[][] aByteArrayArray2704;
 	private static boolean[] modeBlockFlags;
-	private static float[] aFloatArray2706;
+	private static float[] B1;
 	private static Floor1[] floors;
-	private float[] aFloatArray2708;
-	private static int[] anIntArray2709;
+	private float[] lastPacketPCM;
+	private static int[] bitrev1;
 	static CodeBook[] codeBooks;
 	private boolean aBoolean2711;
-	private int anInt2712;
+	private int lastPacketN;
 	private int anInt2713;
 	private byte[] aByteArray2714;
 	private int anInt2715;
 
-	private final float[] method1707(final int i) {
-		setBuffer(aByteArrayArray2704[i], 0);
-		getBit();
-		final int modeNumber = getInt(Class120_Sub23.ilog(modeMappings.length - 1));
+	private final float[] decodeAudioPacket(final int i) {
+		setBytePosition(aByteArrayArray2704[i], 0);
+		readBit();
+		final int modeNumber = readBits(bitsRequired(modeMappings.length - 1));
 		final boolean blockFlag = modeBlockFlags[modeNumber];
 		final int n = blockFlag ? blockSize1 : blockSize0;
 		boolean previousWindowFlag = false;
 		boolean nextWindowFlag = false;
 		if (blockFlag) {
-			previousWindowFlag = getBit() != 0;
-			nextWindowFlag = getBit() != 0;
+			previousWindowFlag = readBit() != 0;
+			nextWindowFlag = readBit() != 0;
 		}
 		final int windowCenter = n >> 1;
 		int leftWindowStart;
@@ -78,36 +78,35 @@ final class Class120_Sub23 extends Node {
 		final Mapping mapping = mappings[modeMappings[modeNumber]];
 		final int submapNumber = mapping.mux;
 		int floorNumber = mapping.submapFloors[submapNumber];
-		final boolean bool_13_ = !floors[floorNumber].decodedFloor();
+		final boolean bool_13_ = !floors[floorNumber].packetDecode();
 		for (floorNumber = 0; floorNumber < mapping.submaps; floorNumber++) {
 			final Residue residue = residues[mapping.submapResidues[floorNumber]];
-			final float[] fs = aFloatArray2697;
-			residue.decodeResidue(fs, n >> 1, bool_13_);
+			residue.packetDecode(vector, n >> 1, bool_13_);
 		}
 		if (!bool_13_) {
 			floorNumber = mapping.mux;
 			final int i_15_ = mapping.submapFloors[floorNumber];
-			floors[i_15_].computeFloor(aFloatArray2697, n >> 1);
+			floors[i_15_].synthMul(vector, n >> 1);
 		}
 		if (bool_13_) {
 			for (floorNumber = n >> 1; floorNumber < n; floorNumber++) {
-				aFloatArray2697[floorNumber] = 0.0F;
+				vector[floorNumber] = 0.0F;
 			}
 		} else {
 			final int n2 = n >> 1;
 			final int n4 = n >> 2;
 			final int n8 = n >> 3;
-			final float[] fs = aFloatArray2697;
+			final float[] fs = vector;
 			for (int i_18_ = 0; i_18_ < n2; i_18_++) {
 				fs[i_18_] *= 0.5F;
 			}
 			for (int i_19_ = n2; i_19_ < n; i_19_++) {
 				fs[i_19_] = -fs[n - i_19_ - 1];
 			}
-			final float[] fs_20_ = blockFlag ? aFloatArray2692 : aFloatArray2688;
-			final float[] fs_21_ = blockFlag ? aFloatArray2706 : aFloatArray2695;
-			final float[] fs_22_ = blockFlag ? aFloatArray2683 : aFloatArray2689;
-			final int[] is = blockFlag ? anIntArray2709 : anIntArray2696;
+			final float[] fs_20_ = blockFlag ? A1 : A0;
+			final float[] fs_21_ = blockFlag ? B1 : B0;
+			final float[] fs_22_ = blockFlag ? C1 : C0;
+			final int[] is = blockFlag ? bitrev1 : bitrev0;
 			for (int i_23_ = 0; i_23_ < n4; i_23_++) {
 				final float f = fs[4 * i_23_] - fs[n - 4 * i_23_ - 1];
 				final float f_24_ = fs[4 * i_23_ + 2] - fs[n - 4 * i_23_ - 3];
@@ -128,7 +127,7 @@ final class Class120_Sub23 extends Node {
 				fs[4 * i_27_ + 3] = (f - f_29_) * f_31_ - (f_28_ - f_30_) * f_32_;
 				fs[4 * i_27_ + 1] = (f_28_ - f_30_) * f_31_ + (f - f_29_) * f_32_;
 			}
-			final int i_33_ = Class120_Sub23.ilog(n - 1);
+			final int i_33_ = bitsRequired(n - 1);
 			for (int i_34_ = 0; i_34_ < i_33_ - 3; i_34_++) {
 				final int i_35_ = n >> i_34_ + 2;
 				final int i_36_ = 8 << i_34_;
@@ -210,37 +209,37 @@ final class Class120_Sub23 extends Node {
 			}
 			for (int i_65_ = leftWindowStart; i_65_ < leftWindowEnd; i_65_++) {
 				final float f = (float) Math.sin((i_65_ - leftWindowStart + 0.5) / leftN * 0.5 * 3.141592653589793);
-				aFloatArray2697[i_65_] *= (float) Math.sin(1.5707963267948966 * f * f);
+				vector[i_65_] *= (float) Math.sin(1.5707963267948966 * f * f);
 			}
 			for (int i_66_ = rightWindowStart; i_66_ < rightWindowEnd; i_66_++) {
 				final float f = (float) Math.sin((i_66_ - rightWindowStart + 0.5) / rightN * 0.5 * 3.141592653589793 + 1.5707963267948966);
-				aFloatArray2697[i_66_] *= (float) Math.sin(1.5707963267948966 * f * f);
+				vector[i_66_] *= (float) Math.sin(1.5707963267948966 * f * f);
 			}
 		}
-		float[] fs = null;
-		if (anInt2712 > 0) {
-			final int i_67_ = anInt2712 + n >> 2;
-			fs = new float[i_67_];
-			if (!aBoolean2691) {
-				for (int i_68_ = 0; i_68_ < anInt2693; i_68_++) {
-					final int i_69_ = (anInt2712 >> 1) + i_68_;
-					fs[i_68_] += aFloatArray2708[i_69_];
+		float[] outputBuffer = null;
+		if (lastPacketN > 0) {
+			final int i_67_ = lastPacketN + n >> 2;
+			outputBuffer = new float[i_67_];
+			if (!lastPacketNoResidueBits) {
+				for (int i_68_ = 0; i_68_ < lastPacketEnd; i_68_++) {
+					final int i_69_ = (lastPacketN >> 1) + i_68_;
+					outputBuffer[i_68_] += lastPacketPCM[i_69_];
 				}
 			}
 			if (!bool_13_) {
 				for (int i_70_ = leftWindowStart; i_70_ < n >> 1; i_70_++) {
-					final int i_71_ = fs.length - (n >> 1) + i_70_;
-					fs[i_71_] += aFloatArray2697[i_70_];
+					final int i_71_ = outputBuffer.length - (n >> 1) + i_70_;
+					outputBuffer[i_71_] += vector[i_70_];
 				}
 			}
 		}
-		final float[] fs_72_ = aFloatArray2708;
-		aFloatArray2708 = aFloatArray2697;
-		aFloatArray2697 = fs_72_;
-		anInt2712 = n;
-		anInt2693 = rightWindowEnd - (n >> 1);
-		aBoolean2691 = bool_13_;
-		return fs;
+		final float[] fs_72_ = lastPacketPCM;
+		lastPacketPCM = vector;
+		vector = fs_72_;
+		lastPacketN = n;
+		lastPacketEnd = rightWindowEnd - (n >> 1);
+		lastPacketNoResidueBits = bool_13_;
+		return outputBuffer;
 	}
 
 	private static final boolean method1708(final js5 js5) {
@@ -255,17 +254,17 @@ final class Class120_Sub23 extends Node {
 		return true;
 	}
 
-	private static final void setBuffer(final byte[] is, final int i) {
-		source = is;
-		byteIndex = i;
-		bitIndex = 0;
+	private static final void setBytePosition(final byte[] is, final int i) {
+		bitArray = is;
+		bytePos = i;
+		bitPos = 0;
 	}
 
 	private static final void method1710(final byte[] is) {
-		setBuffer(is, 0);
-		blockSize0 = 1 << getInt(4);
-		blockSize1 = 1 << getInt(4);
-		aFloatArray2697 = new float[blockSize1];
+		setBytePosition(is, 0);
+		blockSize0 = 1 << readBits(4);
+		blockSize1 = 1 << readBits(4);
+		vector = new float[blockSize1];
 		for (int id = 0; id < 2; id++) {
 			final int n = id != 0 ? blockSize1 : blockSize0;
 			final int i_74_ = n >> 1;
@@ -287,62 +286,62 @@ final class Class120_Sub23 extends Node {
 				fs_80_[2 * i_81_ + 1] = -(float) Math.sin((4 * i_81_ + 2) * 3.141592653589793 / n);
 			}
 			final int[] is_82_ = new int[i_76_];
-			final int i_83_ = Class120_Sub23.ilog(i_76_ - 1);
+			final int i_83_ = bitsRequired(i_76_ - 1);
 			for (int i_84_ = 0; i_84_ < i_76_; i_84_++) {
-				is_82_[i_84_] = ClanMember.method1405(i_84_, i_83_);
+				is_82_[i_84_] = bitReverse(i_84_, i_83_);
 			}
 			if (id != 0) {
-				aFloatArray2692 = fs;
-				aFloatArray2706 = fs_78_;
-				aFloatArray2683 = fs_80_;
-				anIntArray2709 = is_82_;
+				A1 = fs;
+				B1 = fs_78_;
+				C1 = fs_80_;
+				bitrev1 = is_82_;
 			} else {
-				aFloatArray2688 = fs;
-				aFloatArray2695 = fs_78_;
-				aFloatArray2689 = fs_80_;
-				anIntArray2696 = is_82_;
+				A0 = fs;
+				B0 = fs_78_;
+				C0 = fs_80_;
+				bitrev0 = is_82_;
 			}
 		}
 		
-		final int codeBookCount = getInt(8) + 1;
+		final int codeBookCount = readBits(8) + 1;
 		codeBooks = new CodeBook[codeBookCount];
 		for (int id = 0; id < codeBookCount; id++) {
 			codeBooks[id] = new CodeBook();
 		}
 		
 		//the time domain transformations, these should all be 0
-		int timeCount = getInt(6) + 1;
+		int timeCount = readBits(6) + 1;
 		for (int id = 0; id < timeCount; id++) {
-			getInt(16);
+			readBits(16);
 		}
 		
 		//Jagex only support floor1
-		int floorCount = getInt(6) + 1;
+		int floorCount = readBits(6) + 1;
 		floors = new Floor1[floorCount];
 		for (int id = 0; id < floorCount; id++) {
 			floors[id] = new Floor1();
 		}
 		
-		final int residueCount = getInt(6) + 1;
+		final int residueCount = readBits(6) + 1;
 		residues = new Residue[residueCount];
 		for (int id = 0; id < residueCount; id++) {
 			residues[id] = new Residue();
 		}
 		
-		final int mappingCount = getInt(6) + 1;
+		final int mappingCount = readBits(6) + 1;
 		mappings = new Mapping[mappingCount];
 		for (int i_92_ = 0; i_92_ < mappingCount; i_92_++) {
 			mappings[i_92_] = new Mapping();
 		}
 		
-		final int modeCount = getInt(6) + 1;
+		final int modeCount = readBits(6) + 1;
 		modeBlockFlags = new boolean[modeCount];
 		modeMappings = new int[modeCount];
 		for (int id = 0; id < modeCount; id++) {
-			modeBlockFlags[id] = getBit() != 0;
-			getInt(16);//windowType
-			getInt(16);//transformType
-			modeMappings[id] = getInt(8);
+			modeBlockFlags[id] = readBit() != 0;
+			readBits(16);//windowType
+			readBits(16);//transformType
+			modeMappings[id] = readBits(8);
 		}
 	}
 
@@ -371,30 +370,21 @@ final class Class120_Sub23 extends Node {
 		}
 	}
 
-	static final int getBit() {
-		final int value = source[byteIndex] >> bitIndex & 0x1;
-		bitIndex++;
-		byteIndex += bitIndex >> 3;
-		bitIndex &= 0x7;
+	static final int readBit() {
+		final int value = bitArray[bytePos] >> bitPos & 0x1;
+		bitPos++;
+		bytePos += bitPos >> 3;
+		bitPos &= 0x7;
 		return value;
 	}
 
-	static final float float32unpack(final int x) {
-		int mantissa = x & 0x1fffff;
-		final int e = (x & 0x7fe00000) >> 21;
-		if ((x & ~0x7fffffff) != 0) {
-			mantissa = -mantissa;
-		}
-		return (float) (mantissa * Math.pow(2.0, e - 788));
-	}
-
-	final Class120_Sub5_Sub1 method1715(final int[] is) {
+	final Class120_Sub5_Sub1 toWav(final int[] is) {
 		if (is != null && is[0] <= 0) {
 			return null;
 		}
 		if (aByteArray2714 == null) {
-			anInt2712 = 0;
-			aFloatArray2708 = new float[blockSize1];
+			lastPacketN = 0;
+			lastPacketPCM = new float[blockSize1];
 			aByteArray2714 = new byte[anInt2685];
 			anInt2715 = 0;
 			anInt2713 = 0;
@@ -403,15 +393,15 @@ final class Class120_Sub23 extends Node {
 			if (is != null && is[0] <= 0) {
 				return null;
 			}
-			final float[] fs = method1707(anInt2713);
-			if (fs != null) {
+			final float[] outputBuffer = decodeAudioPacket(anInt2713);
+			if (outputBuffer != null) {
 				int i = anInt2715;
-				int i_102_ = fs.length;
+				int i_102_ = outputBuffer.length;
 				if (i_102_ > anInt2685 - i) {
 					i_102_ = anInt2685 - i;
 				}
 				for (int i_103_ = 0; i_103_ < i_102_; i_103_++) {
-					int i_104_ = (int) (128.0F + fs[i_103_] * 128.0F);
+					int i_104_ = (int) (128.0F + outputBuffer[i_103_] * 128.0F);
 					if ((i_104_ & ~0xff) != 0) {
 						i_104_ = (i_104_ ^ 0xffffffff) >> 31;
 					}
@@ -423,10 +413,19 @@ final class Class120_Sub23 extends Node {
 				anInt2715 = i;
 			}
 		}
-		aFloatArray2708 = null;
+		lastPacketPCM = null;
 		final byte[] is_105_ = aByteArray2714;
 		aByteArray2714 = null;
 		return new Class120_Sub5_Sub1(anInt2694, is_105_, anInt2701, anInt2702, aBoolean2711);
+	}
+
+	static final int bitReverse(int i, int i_21_) {
+		int i_23_ = 0;
+		for (/**/; i_21_ > 0; i_21_--) {
+			i_23_ = i & 0x1 | i_23_ << 1;
+			i >>>= 1;
+		}
+		return i_23_;
 	}
 
 	static final int intPow(int e, int base) {
@@ -444,7 +443,7 @@ final class Class120_Sub23 extends Node {
 		return res;
 	}
 
-	static final int ilog(int x) {
+	static final int bitsRequired(int x) {
 		int res = 0;
 		if (x < 0 || x >= 65536) {
 			x >>>= 16;
@@ -481,20 +480,20 @@ final class Class120_Sub23 extends Node {
 		return new Class120_Sub23(is);
 	}
 
-	static final int getInt(int bits) {
+	static final int readBits(int bits) {
 		int value = 0;
 		int bitsRead = 0;
 		int msb;
-		for (/**/; bits >= 8 - bitIndex; bits -= msb) {
-			msb = 8 - bitIndex;
-			value += (source[byteIndex] >> bitIndex & ((1 << msb) - 1)) << bitsRead;
-			bitIndex = 0;
-			byteIndex++;
+		for (/**/; bits >= 8 - bitPos; bits -= msb) {
+			msb = 8 - bitPos;
+			value += (bitArray[bytePos] >> bitPos & ((1 << msb) - 1)) << bitsRead;
+			bitPos = 0;
+			bytePos++;
 			bitsRead += msb;
 		}
 		if (bits > 0) {
-			value += (source[byteIndex] >> bitIndex & ((1 << bits) - 1)) << bitsRead;
-			bitIndex += bits;
+			value += (bitArray[bytePos] >> bitPos & ((1 << bits) - 1)) << bitsRead;
+			bitPos += bits;
 		}
 		return value;
 	}

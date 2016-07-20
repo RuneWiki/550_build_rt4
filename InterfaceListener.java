@@ -11,9 +11,9 @@ final class InterfaceListener extends Node {
 	int keyChar;
 	boolean mouseUsed;
 	Object[] objectData;
-	String actionOption;
+	String optionBase;
 	int data2;
-	int actionId;
+	int optionId;
 	int data1;
 	static js5 aClass50_2544;
 	static int cameraZ;
@@ -36,16 +36,16 @@ final class InterfaceListener extends Node {
 			Class120_Sub12_Sub7.frameWidth -= insets.left + insets.right;
 			PlayerAppearance.frameHeight -= insets.bottom + insets.top;
 		}
-		if (Class120_Sub12_Sub4.getDisplayMode() >= 2) {
+		if (Class120_Sub12_Sub4.determinateDisplayMode() >= 2) {
 			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
-			Class69_Sub1.canvasWidth = Class120_Sub12_Sub7.frameWidth;
+			Class120_Sub12_Sub5.canvasHeight = PlayerAppearance.frameHeight;
 			WallDecoration.topMargin = 0;
 			ReflectionCheckNode.leftMargin = 0;
 		} else {
 			Class69_Sub1.canvasWidth = 765;
 			Class120_Sub12_Sub5.canvasHeight = 503;
-			WallDecoration.topMargin = (PlayerAppearance.frameHeight - 503) / 2;
-			ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - 765) / 2;
+			WallDecoration.topMargin = (PlayerAppearance.frameHeight - Class120_Sub12_Sub5.canvasHeight) / 2;
+			ReflectionCheckNode.leftMargin = (Class120_Sub12_Sub7.frameWidth - Class69_Sub1.canvasWidth) / 2;
 			//Class186.topMargin = 0;//original
 		}
 		if (HDToolkit.glEnabled) {
@@ -76,10 +76,10 @@ final class InterfaceListener extends Node {
 					if (i_9_ >= 0 && i_9_ < WallDecoration.mapSizeX) {
 						for (int i_10_ = i_6_; i_10_ <= i_7_; i_10_++) {
 							if (i_10_ >= 0 && i_10_ < Class120_Sub12_Sub38.mapSizeZ && (!bool || i_9_ >= i_5_ || i_10_ >= i_7_ || i_10_ < i_1_ && i_9_ != i_0_)) {
-								final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i_8_][i_9_][i_10_];
+								final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[i_8_][i_9_][i_10_];
 								if (class120_sub18 != null) {
-									final int i_11_ = (OverridedJInterface.activeTileHeightMap[i_8_][i_9_][i_10_] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_][i_10_ + 1] + OverridedJInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_ + 1])
-											/ 4 - (OverridedJInterface.activeTileHeightMap[i][i_0_][i_1_] + OverridedJInterface.activeTileHeightMap[i][i_0_ + 1][i_1_] + OverridedJInterface.activeTileHeightMap[i][i_0_][i_1_ + 1] + OverridedJInterface.activeTileHeightMap[i][i_0_ + 1][i_1_ + 1]) / 4;
+									final int i_11_ = (SubInterface.activeTileHeightMap[i_8_][i_9_][i_10_] + SubInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_] + SubInterface.activeTileHeightMap[i_8_][i_9_][i_10_ + 1] + SubInterface.activeTileHeightMap[i_8_][i_9_ + 1][i_10_ + 1])
+											/ 4 - (SubInterface.activeTileHeightMap[i][i_0_][i_1_] + SubInterface.activeTileHeightMap[i][i_0_ + 1][i_1_] + SubInterface.activeTileHeightMap[i][i_0_][i_1_ + 1] + SubInterface.activeTileHeightMap[i][i_0_ + 1][i_1_ + 1]) / 4;
 									final WallLocation class182 = class120_sub18.wallLocation;
 									if (class182 != null) {
 										if (class182.aClass180_1800.method2268()) {

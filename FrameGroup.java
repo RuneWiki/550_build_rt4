@@ -13,7 +13,7 @@ final class FrameGroup extends NodeSub {
 	static final void loadPreferencesFile(final Signlink signlink) {
 		FileOnDisk preferencesFile = null;
 		FileSystemRequest.brightness = 3;
-		GameShell.setVisibleLevels(true);
+		GameShell.setAllVisibleLevels(true);
 		Class120_Sub6.characterShadowsOn = true;
 		ParticleNodeSub.highDetailTextures = true;
 		Class120_Sub12.removeRoofsSelectively = true;
@@ -23,27 +23,27 @@ final class FrameGroup extends NodeSub {
 		Class120_Sub12_Sub6.highLightingDetail = true;
 		ChunkAtmosphere.flickeringEffectsOn = true;
 		PacketBuffer.highWaterDetail = true;
-		Class167.aBoolean1619 = true;
+		Class167.isStereo = true;
 		Class120_Sub12_Sub18.lastFullscreenWidth = 0;
 		Decimator.fogEnabled = true;
 		Class74.sceneryShadowsType = 2;
-		Class111.anInt1061 = 127;
+		Class111.soundEffectVolume = 127;
 		Class120_Sub12_Sub12.lastFullscreenHeight = 0;
 		GroundDecoration.antiAliasingSamples = 0;
 		Class120_Sub12_Sub10.manyIdleAnimations = true;
-		AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 0;
-		RuntimeException_Sub1.anInt2142 = 255;
+		AbstractMouseWheelHandler.antiAliasingDefault = 0;
+		RuntimeException_Sub1.musicVolume = 255;
 		if (Class120_Sub14_Sub13.maxMemory < 96) {
 			ParticleEngine.setParticles(0);
 		} else {
 			ParticleEngine.setParticles(2);
 		}
 		InterfaceClickMask.safeModeEnabled = false;
-		Class120_Sub12_Sub19.currentDisplayMode = 0;
+		Class120_Sub12_Sub19.lastUsedDisplayMode = 0;
 		WallDecoration.hdrEnabled = false;
-		Class140.anInt1343 = 0;
+		Class140.buildArea = 0;
 		Class38.cursorsEnabled = true;
-		Class120_Sub19.anInt2657 = 0;
+		Class120_Sub19.lastWorldId = 0;
 		Class134.updateCameraFromCs2 = false;
 		try {
 			final SignlinkNode signlinkNode = signlink.openPreferencesFile("runescape");
@@ -74,15 +74,15 @@ final class FrameGroup extends NodeSub {
 		}
 	}
 
-	final boolean method1578(final int frameId) {
-		return this.seqFrames[frameId].aBoolean37;
+	final boolean hasAlpha(final int frameId) {
+		return this.seqFrames[frameId].hasAlpha;
 	}
 
 	final boolean method1579(final int frameId) {
 		return this.seqFrames[frameId].aBoolean42;
 	}
 
-	static final FrameGroup method1633(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
+	static final FrameGroup method1633(final js5 framesJs5, final js5 basesJs5, final int groupId, final boolean isFile) {
 		boolean downloaded = true;
 		final int[] fileIds = framesJs5.getFileIds(groupId);
 		for (final int element : fileIds) {
@@ -90,14 +90,14 @@ final class FrameGroup extends NodeSub {
 			if (frameBuffer == null) {
 				downloaded = false;
 			} else {
-				final int labelId = (frameBuffer[0] & 0xff) << 8 | frameBuffer[1] & 0xff;
-				byte[] labelBuffer;
-				if (!swap) {
-					labelBuffer = labelsJs5.getFile2(labelId, 0);
+				final int baseId = (frameBuffer[0] & 0xff) << 8 | frameBuffer[1] & 0xff;
+				byte[] baseBuffer;
+				if (isFile) {
+					baseBuffer = basesJs5.getFile2(0, baseId);
 				} else {
-					labelBuffer = labelsJs5.getFile2(0, labelId);
+					baseBuffer = basesJs5.getFile2(baseId, 0);
 				}
-				if (labelBuffer == null) {
+				if (baseBuffer == null) {
 					downloaded = false;
 				}
 			}
@@ -107,7 +107,7 @@ final class FrameGroup extends NodeSub {
 		}
 		FrameGroup frameLoader;
 		try {
-			frameLoader = new FrameGroup(framesJs5, labelsJs5, groupId, swap);
+			frameLoader = new FrameGroup(framesJs5, basesJs5, groupId, isFile);
 		} catch (final Exception exception) {
 			return null;
 		}
@@ -119,39 +119,39 @@ final class FrameGroup extends NodeSub {
 		if (frameLoader != null) {
 			return frameLoader;
 		}
-		frameLoader = FrameGroup.method1633(Class132_Sub1.framesJs5, Class179.labelsJs5, id, false);
+		frameLoader = FrameGroup.method1633(Class132_Sub1.framesJs5, Class179.frameBasesJs5, id, false);
 		if (frameLoader != null) {
 			recentUse.put(frameLoader, id);
 		}
 		return frameLoader;
 	}
 
-	FrameGroup(final js5 framesJs5, final js5 labelsJs5, final int groupId, final boolean swap) {
-		final Deque labelsDeque = new Deque();
+	FrameGroup(final js5 framesJs5, final js5 basesJs5, final int groupId, final boolean isFile) {
+		final Deque basesDeque = new Deque();
 		final int framesLength = framesJs5.getFileAmount(groupId);
 		this.seqFrames = new SeqFrame[framesLength];
 		final int[] fileIds = framesJs5.getFileIds(groupId);
 		for (int file = 0; file < fileIds.length; file++) {
 			final byte[] frameBuffer = framesJs5.getFile(groupId, fileIds[file]);
-			LabelGroup labelGroup = null;
-			final int labelId = (frameBuffer[0] & 0xff) << 8 | frameBuffer[1] & 0xff;
-			for (LabelGroup firstLabel = (LabelGroup) labelsDeque.getFront(); firstLabel != null; firstLabel = (LabelGroup) labelsDeque.getNext()) {
-				if (labelId == firstLabel.id) {
-					labelGroup = firstLabel;
+			SeqFrameBase frameBase = null;
+			final int baseId = (frameBuffer[0] & 0xff) << 8 | frameBuffer[1] & 0xff;
+			for (SeqFrameBase firstBase = (SeqFrameBase) basesDeque.getFront(); firstBase != null; firstBase = (SeqFrameBase) basesDeque.getNext()) {
+				if (baseId == firstBase.id) {
+					frameBase = firstBase;
 					break;
 				}
 			}
-			if (labelGroup == null) {
-				byte[] labelBuffer;
-				if (swap) {
-					labelBuffer = labelsJs5.getFile2(0, labelId);
+			if (frameBase == null) {
+				byte[] baseBuffer;
+				if (isFile) {
+					baseBuffer = basesJs5.getFile2(0, baseId);
 				} else {
-					labelBuffer = labelsJs5.getFile2(labelId, 0);
+					baseBuffer = basesJs5.getFile2(baseId, 0);
 				}
-				labelGroup = new LabelGroup(labelId, labelBuffer);
-				labelsDeque.addLast(labelGroup);
+				frameBase = new SeqFrameBase(baseId, baseBuffer);
+				basesDeque.addLast(frameBase);
 			}
-			this.seqFrames[fileIds[file]] = new SeqFrame(frameBuffer, labelGroup);
+			this.seqFrames[fileIds[file]] = new SeqFrame(frameBuffer, frameBase);
 		}
 	}
 
@@ -233,7 +233,7 @@ final class FrameGroup extends NodeSub {
 									if (code != 0) {
 										code += combatModifier;
 									}
-									InvType.addMenuOption(options[actionId], "<col=ffff00>" + name, index, x, z, code, npcType.anInt1668);
+									InvType.addMenuOption(options[actionId], "<col=ffff00>" + name, index, x, z, code, npcType.attackCursor);
 								}
 							}
 						}
@@ -266,14 +266,14 @@ final class FrameGroup extends NodeSub {
 		final float f_31_ = class191.aFloat2108;
 		final float f_32_ = class191.aFloat2116;
 		if (screenColorRgb != Class120_Sub12_Sub17.anInt3257 || Class120_Sub12.aFloat2569 != f || Class125.aFloat2149 != light0Diffuse || Class132_Sub2.aFloat2821 != light1Diffuse || Light.anInt379 != fogColorRgb || fogOffset != Class43.anInt368 || class120_sub14_sub9 != Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 || Class101.aFloat965 != f_30_ || Class120_Sub2.aFloat2417 != f_32_ || Varp.aFloat622 != f_31_) {
-			Class132.anInt1248 = Class9.anInt72;
-			Class156.anInt1453 = Deque.anInt1007;
-			Class120_Sub12_Sub39.aFloat3444 = client.aFloat1395;
-			MouseRecorder.aFloat856 = AbstractBuffer.aFloat600;
+			Class132.anInt1248 = Class9.currentLightColor;
+			Class156.anInt1453 = Deque.currentFogColor;
+			Class120_Sub12_Sub39.aFloat3444 = client.currentLight1Diffuse;
+			MouseRecorder.aFloat856 = AbstractBuffer.currentLight0Diffuse;
 			Class120_Sub12_Sub1.aFloat3124 = ParticleNode.aFloat1034;
-			FileSystem.aFloat460 = Class120_Sub12_Sub23.aFloat3306;
+			FileSystem.aFloat460 = Class120_Sub12_Sub23.currentLightModelAmbient;
 			GZIPDecompressor.aClass120_Sub14_Sub9_798 = Class3.aClass120_Sub14_Sub9_54;
-			Class120_Sub12_Sub30.anInt3376 = CollisionMap.anInt151;
+			Class120_Sub12_Sub30.anInt3376 = CollisionMap.currentFogOffset;
 			MapFunctionType.aFloat632 = Class101.aFloat962;
 			Class24.aFloat144 = Class120_Sub12.aFloat2557;
 			if (RuntimeException_Sub1.aClass120_Sub14_Sub9_2145 == null || GZIPDecompressor.aClass120_Sub14_Sub9_798 == RuntimeException_Sub1.aClass120_Sub14_Sub9_2145) {
@@ -295,29 +295,29 @@ final class FrameGroup extends NodeSub {
 			Class57.anInt500 += redrawRate * 250;
 			if (Class57.anInt500 >= 65536) {
 				Class120_Sub12.aFloat2557 = Class101.aFloat965;
-				AbstractBuffer.aFloat600 = Class125.aFloat2149;
+				AbstractBuffer.currentLight0Diffuse = Class125.aFloat2149;
 				Class101.aFloat962 = Varp.aFloat622;
 				Class3.aClass120_Sub14_Sub9_54 = Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204;
-				CollisionMap.anInt151 = Class43.anInt368;
+				CollisionMap.currentFogOffset = Class43.anInt368;
 				ParticleNode.aFloat1034 = Class120_Sub2.aFloat2417;
-				Class120_Sub12_Sub23.aFloat3306 = Class120_Sub12.aFloat2569;
-				Deque.anInt1007 = Light.anInt379;
+				Class120_Sub12_Sub23.currentLightModelAmbient = Class120_Sub12.aFloat2569;
+				Deque.currentFogColor = Light.anInt379;
 				Class57.anInt500 = 65536;
 				GZIPDecompressor.aClass120_Sub14_Sub9_798 = null;
-				client.aFloat1395 = Class132_Sub2.aFloat2821;
-				Class9.anInt72 = Class120_Sub12_Sub17.anInt3257;
+				client.currentLight1Diffuse = Class132_Sub2.aFloat2821;
+				Class9.currentLightColor = Class120_Sub12_Sub17.anInt3257;
 			} else {
 				final int i_33_ = 65536 - Class57.anInt500 >> 8;
 				final float f_34_ = Class57.anInt500 / 65536.0F;
 				final int i_35_ = Class57.anInt500 >> 8;
-				CollisionMap.anInt151 = Class120_Sub12_Sub30.anInt3376 * i_33_ - -(Class43.anInt368 * i_35_) >> 8;
-				Class9.anInt72 = (i_33_ * (0xff00ff & Class132.anInt1248) - -((Class120_Sub12_Sub17.anInt3257 & 0xff00ff) * i_35_) & ~0xff00ff) + (i_35_ * (0xff00 & Class120_Sub12_Sub17.anInt3257) + (Class132.anInt1248 & 0xff00) * i_33_ & 0xff0000) >> 8;
+				CollisionMap.currentFogOffset = Class120_Sub12_Sub30.anInt3376 * i_33_ + (Class43.anInt368 * i_35_) >> 8;
+				Class9.currentLightColor = (i_33_ * (0xff00ff & Class132.anInt1248) + ((Class120_Sub12_Sub17.anInt3257 & 0xff00ff) * i_35_) & ~0xff00ff) + (i_35_ * (0xff00 & Class120_Sub12_Sub17.anInt3257) + (Class132.anInt1248 & 0xff00) * i_33_ & 0xff0000) >> 8;
 				final float f_36_ = (-Class57.anInt500 + 65536) / 65536.0F;
-				Class120_Sub12_Sub23.aFloat3306 = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
-				client.aFloat1395 = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
+				Class120_Sub12_Sub23.currentLightModelAmbient = f_34_ * Class120_Sub12.aFloat2569 + FileSystem.aFloat460 * f_36_;
+				client.currentLight1Diffuse = f_34_ * Class132_Sub2.aFloat2821 + Class120_Sub12_Sub39.aFloat3444 * f_36_;
 				Class120_Sub12.aFloat2557 = f_36_ * Class24.aFloat144 + f_34_ * Class101.aFloat965;
-				AbstractBuffer.aFloat600 = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
-				Deque.anInt1007 = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
+				AbstractBuffer.currentLight0Diffuse = f_34_ * Class125.aFloat2149 + MouseRecorder.aFloat856 * f_36_;
+				Deque.currentFogColor = ((0xff00 & Class156.anInt1453) * i_33_ - -((Light.anInt379 & 0xff00) * i_35_) & 0xff0000) + ((Light.anInt379 & 0xff00ff) * i_35_ + i_33_ * (Class156.anInt1453 & 0xff00ff) & ~0xff00ff) >> 8;
 				Class101.aFloat962 = f_36_ * MapFunctionType.aFloat632 + Varp.aFloat622 * f_34_;
 				ParticleNode.aFloat1034 = Class120_Sub2.aFloat2417 * f_34_ + Class120_Sub12_Sub1.aFloat3124 * f_36_;
 				if (Class120_Sub12_Sub10.aClass120_Sub14_Sub9_3204 != GZIPDecompressor.aClass120_Sub14_Sub9_798) {
@@ -329,7 +329,7 @@ final class FrameGroup extends NodeSub {
 				}
 			}
 		}
-		return Deque.anInt1007;
+		return Deque.currentFogColor;
 	}
 
 	static final boolean drawMapSceneOnMinimap(final LocType locType, final int x, final int z, final int xOff, final int zOff, int rotation) {

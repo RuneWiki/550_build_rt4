@@ -47,7 +47,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString398 = "Chargement du module texte - ";
 		StringLibrary.attack = "Attaquer";
 		StringLibrary.aString3910 = " est d\u00e9j\u00e0 dans votre liste d'amis.";
-		PlayerAppearance.aString1368 = "M\u00e9moire attribu\u00e9e";
+		StringLibrary.aString1368 = "M\u00e9moire attribu\u00e9e";
 		StringLibrary.membersObject = "Objet d'abonn\u00e9s";
 		StringLibrary.aString3078 = " est d\u00e9j\u00e0 dans votre liste noire.";
 		StringLibrary.aString2231 = "jaune:";
@@ -76,7 +76,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString2669 = " s'est connect\u00e9.";
 		StringLibrary.aString3062 = "Impossible de trouver ";
 		StringLibrary.aString2213 = "rouge:";
-		StringLibrary.aString1025 = "Moteur son pr\u00e9par\u00e9";
+		StringLibrary.preparedSoundEngine = "Moteur son pr\u00e9par\u00e9";
 		StringLibrary.aString2726 = "Sprites charg\u00e9s";
 		StringLibrary.aString2788 = "Chargement des interfaces - ";
 		StringLibrary.aString618 = "vert:";
@@ -150,7 +150,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString3062 = "Spieler kann nicht gefunden werden: ";
 		StringLibrary.aString2552 = "Titelbild ge\u00f6ffnet.";
 		StringLibrary.loadingConfig = "Lade Konfiguration - ";
-		StringLibrary.aString1025 = "Musik-Engine vorbereitet.";
+		StringLibrary.preparedSoundEngine = "Musik-Engine vorbereitet.";
 		StringLibrary.loadingPleaseWait = "Ladevorgang - bitte warte.";
 		StringLibrary.attack = "Angreifen";
 		StringLibrary.aString2550 = "Deine Freunde-Liste ist voll! Maximale Eintr\u00e4ge: Mitglieder 200/freie Spieler 100";
@@ -181,7 +181,7 @@ final class StringLibrary {//Original class
 		StringLibrary.examine = "Untersuchen";
 		aString1155 = "Schrifts\u00e4tze geladen.";
 		Class8.aString64 = "Ablegen";
-		PlayerAppearance.aString1368 = "Zugewiesener Speicher.";
+		StringLibrary.aString1368 = "Zugewiesener Speicher.";
 		StringLibrary.aString799 = "Benutzeroberfl\u00e4che geladen.";
 		StringLibrary.skill = "Fertigkeit: ";
 		StringLibrary.aString1079 = "Du kannst dich nicht auf deine eigene Ignorieren-Liste setzen!";
@@ -229,7 +229,7 @@ final class StringLibrary {//Original class
 		StringLibrary.skill = "habilidade: ";
 		StringLibrary.aString142 = "Tentando reestabelecer conex\u00e3o. Aguarde.";
 		StringLibrary.aString400 = "Iniciando biblioteca 3D";
-		StringLibrary.aString1025 = "Mecanismo de som preparado";
+		StringLibrary.preparedSoundEngine = "Mecanismo de som preparado";
 		StringLibrary.drop = "Largar";
 		StringLibrary.runescapeIsLoadingPleaseWait = "RuneScape carregando. Aguarde...";
 		StringLibrary.aString1062 = "brilho1:";
@@ -243,7 +243,7 @@ final class StringLibrary {//Original class
 		StringLibrary.aString807 = "onda:";
 		StringLibrary.aString1398 = "onda2:";
 		StringLibrary.aString799 = "Interfaces carregadas";
-		PlayerAppearance.aString1368 = "Mem\u00f3ria alocada";
+		StringLibrary.aString1368 = "Mem\u00f3ria alocada";
 		StringLibrary.connectedToUpdateServer = "Conectado ao servidor de atualiza\u00e7\u00e3o";
 		StringLibrary.aString313 = "Carregando...";
 		Class120_Sub12_Sub25.aString3319 = "Remova ";
@@ -383,7 +383,7 @@ final class StringLibrary {//Original class
 	static String aString398 = "Loading wordpack - ";
 	static String aString799 = "Loaded interfaces";
 	static String aString2585 = "Loaded config";
-	static String aString1025 = "Prepared sound engine";
+	static String preparedSoundEngine = "Prepared sound engine";
 	static String selectString = "Select";
 	static String aString3371 = "Loading textures - ";
 	static String aString3655 = "You can't add yourself to your own friend list.";
@@ -397,4 +397,5 @@ final class StringLibrary {//Original class
 	static String aString2847 = "Loaded wordpack";
 	static String aString2153 = "Close";
 	static String aString2653 = "M";
+	static String aString1368 = "Allocated memory";
 }

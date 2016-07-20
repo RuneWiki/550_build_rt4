@@ -9,7 +9,7 @@ final class DisplayModeInfo {
 	int width;
 	int refreshRate;
 	int bitDepth;
-	static int anInt1713;
+	static int renderX;
 	static int revision;
 	static int scrollBarOffsetX;
 
@@ -37,7 +37,7 @@ final class DisplayModeInfo {
 		Decimator.method2223();
 		for (int id = 0; id < Class120_Sub12_Sub23.toRemoveEntitiesPos; id++) {
 			final int index = Class43.toRemoveEntityIndices[id];
-			if (Class101_Sub2.loopCycle != Class118.playersList[index].lastUpdateCycle) {
+			if (Class101_Sub2.clientClock != Class118.playersList[index].lastUpdateCycle) {
 				if (Class118.playersList[index].ambientSoundHearDistance > 0) {
 					Class31.removePlayerAmbientSound(Class118.playersList[index]);
 				}

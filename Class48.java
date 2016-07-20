@@ -35,13 +35,13 @@ final class Class48 {
 	}
 
 	static final void method404(final int id, final int i_16_, final int i_18_, final int i_19_) {
-		if (Class111.anInt1061 != 0 && i_18_ != 0 && Class150.soundEffectCount < 50 && id != -1) {
-			Class120_Sub12_Sub16.anIntArray3255[Class150.soundEffectCount] = id;
-			LocType.anIntArray1834[Class150.soundEffectCount] = i_18_;
+		if (Class111.soundEffectVolume != 0 && i_18_ != 0 && Class150.soundEffectCount < 50 && id != -1) {
+			Class120_Sub12_Sub16.soundEffectIds[Class150.soundEffectCount] = id;
+			LocType.soundEffectLoops[Class150.soundEffectCount] = i_18_;
 			Class81.soundEffectDelays[Class150.soundEffectCount] = i_16_;
-			Class109.aClass6Array1047[Class150.soundEffectCount] = null;
-			Class174.anIntArray1731[Class150.soundEffectCount] = 0;
-			FileSystemRequest.anIntArray3926[Class150.soundEffectCount] = i_19_;
+			Class109.soundEffects[Class150.soundEffectCount] = null;
+			Class174.SoundEffectCoordinates[Class150.soundEffectCount] = 0;
+			FileSystemRequest.soundEffectVolumes[Class150.soundEffectCount] = i_19_;
 			Class150.soundEffectCount++;
 		}
 	}
@@ -52,7 +52,7 @@ final class Class48 {
 
 	static final void addFriend(final long nameAsLong) {
 		if (nameAsLong != 0L) {
-			if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.extendFriendsList || ProducingGraphicsBuffer.friendCount >= 200) {
+			if (ProducingGraphicsBuffer.friendCount >= 100 && !Class120_Sub12_Sub21_Sub1.membersAccount || ProducingGraphicsBuffer.friendCount >= 200) {
 				AbstractRequest.pushMessage(StringLibrary.aString2550, "", 0);
 			} else {
 				final String name = Class136.longToString(nameAsLong);

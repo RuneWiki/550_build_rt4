@@ -3,15 +3,15 @@
  */
 
 final class CodeBook {
-	private final int entries;
+	private final int numEntries;
 	private int[] codeBookMultiplicands;
 	private float[][] valueVector;
-	private final int[] entryLengths;
-	int dimensions;
-	private int[] anIntArray1235;
+	private final int[] codewordLength;
+	int numDimensions;
+	private int[] codewordMap;
 
 	final float[] method1910() {
-		return valueVector[getHuffmanRoot()];
+		return valueVector[decodeScalar()];
 	}
 
 	private static final int lookup1Values(final int a, final int b) {
@@ -22,11 +22,11 @@ final class CodeBook {
 		return res;
 	}
 
-	private final void createHuffmanTree() {
-		final int[] is = new int[entries];
+	private final void prepareHuffman() {
+		final int[] is = new int[numEntries];
 		final int[] is_2_ = new int[33];
-		for (int i = 0; i < entries; i++) {
-			final int i_3_ = entryLengths[i];
+		for (int i = 0; i < numEntries; i++) {
+			final int i_3_ = codewordLength[i];
 			if (i_3_ != 0) {
 				final int i_4_ = 1 << 32 - i_3_;
 				final int i_5_ = is_2_[i_3_];
@@ -58,33 +58,33 @@ final class CodeBook {
 				}
 			}
 		}
-		anIntArray1235 = new int[8];
+		codewordMap = new int[8];
 		int i = 0;
-		for (int i_12_ = 0; i_12_ < entries; i_12_++) {
-			final int i_13_ = entryLengths[i_12_];
+		for (int i_12_ = 0; i_12_ < numEntries; i_12_++) {
+			final int i_13_ = codewordLength[i_12_];
 			if (i_13_ != 0) {
 				final int i_14_ = is[i_12_];
 				int i_15_ = 0;
 				for (int i_16_ = 0; i_16_ < i_13_; i_16_++) {
 					int i_17_ = -2147483648 >>> i_16_;
 					if ((i_14_ & i_17_) != 0) {
-						if (anIntArray1235[i_15_] == 0) {
-							anIntArray1235[i_15_] = i;
+						if (codewordMap[i_15_] == 0) {
+							codewordMap[i_15_] = i;
 						}
-						i_15_ = anIntArray1235[i_15_];
+						i_15_ = codewordMap[i_15_];
 					} else {
 						i_15_++;
 					}
-					if (i_15_ >= anIntArray1235.length) {
-						final int[] is_18_ = new int[anIntArray1235.length * 2];
-						for (int i_19_ = 0; i_19_ < anIntArray1235.length; i_19_++) {
-							is_18_[i_19_] = anIntArray1235[i_19_];
+					if (i_15_ >= codewordMap.length) {
+						final int[] is_18_ = new int[codewordMap.length * 2];
+						for (int i_19_ = 0; i_19_ < codewordMap.length; i_19_++) {
+							is_18_[i_19_] = codewordMap[i_19_];
 						}
-						anIntArray1235 = is_18_;
+						codewordMap = is_18_;
 					}
 					i_17_ >>>= 1;
 				}
-				anIntArray1235[i_15_] = i_12_ ^ 0xffffffff;
+				codewordMap[i_15_] = i_12_ ^ 0xffffffff;
 				if (i_15_ >= i) {
 					i = i_15_ + 1;
 				}
@@ -92,66 +92,75 @@ final class CodeBook {
 		}
 	}
 
-	final int getHuffmanRoot() {//prob wrong
+	final int decodeScalar() {
 		int i;
-		for (i = 0; anIntArray1235[i] >= 0; i = Class120_Sub23.getBit() != 0 ? anIntArray1235[i] : i + 1) {
+		for (i = 0; codewordMap[i] >= 0; i = Class120_Sub23.readBit() != 0 ? codewordMap[i] : i + 1) {
 			/* empty */
 		}
-		return anIntArray1235[i] ^ 0xffffffff;
+		return codewordMap[i] ^ 0xffffffff;
+	}
+
+	static final float float32unpack(final int x) {
+		int mantissa = x & 0x1fffff;
+		final int e = (x & 0x7fe00000) >> 21;
+		if ((x & ~0x7fffffff) != 0) {
+			mantissa = -mantissa;
+		}
+		return (float) (mantissa * Math.pow(2.0, e - 788));
 	}
 
 	CodeBook() {
-		int version = Class120_Sub23.getInt(24);
+		int version = Class120_Sub23.readBits(24);
 		if (version != 0x564342) {
 			throw new RuntimeException("The code book sync pattern is not correct.");
 		}
-		this.dimensions = Class120_Sub23.getInt(16);
-		entries = Class120_Sub23.getInt(24);
-		entryLengths = new int[entries];
-		final boolean ordered = Class120_Sub23.getBit() != 0;
+		this.numDimensions = Class120_Sub23.readBits(16);
+		numEntries = Class120_Sub23.readBits(24);
+		codewordLength = new int[numEntries];
+		final boolean ordered = Class120_Sub23.readBit() != 0;
 		if (ordered) {
-			int i = 0;
-			int cl = Class120_Sub23.getInt(5) + 1;
-			while (i < entries) {
-				final int num = Class120_Sub23.getInt(Class120_Sub23.ilog(entries - i));
+			int num1 = 0;
+			int num2 = Class120_Sub23.readBits(5) + 1;
+			while (num1 < numEntries) {
+				final int num = Class120_Sub23.readBits(Class120_Sub23.bitsRequired(numEntries - num1));
 				for (int id = 0; id < num; id++) {
-					entryLengths[i++] = cl;
+					codewordLength[num1++] = num2;
 				}
-				cl++;
+				num2++;
 			}
 		} else {
-			final boolean sparse = Class120_Sub23.getBit() != 0;
-			for (int i = 0; i < entries; i++) {
-				if (sparse && Class120_Sub23.getBit() == 0) {
-					entryLengths[i] = 0;
+			final boolean sparse = Class120_Sub23.readBit() != 0;
+			for (int i = 0; i < numEntries; i++) {
+				if (sparse && Class120_Sub23.readBit() == 0) {
+					codewordLength[i] = 0;
 				} else {
-					entryLengths[i] = Class120_Sub23.getInt(5) + 1;
+					codewordLength[i] = Class120_Sub23.readBits(5) + 1;
 				}
 			}
 		}
-		createHuffmanTree();
-		final int codeBookLookupType = Class120_Sub23.getInt(4);
+		prepareHuffman();
+		final int codeBookLookupType = Class120_Sub23.readBits(4);
 		if (codeBookLookupType > 0) {
-			final float codeBookMinimumValue = Class120_Sub23.float32unpack(Class120_Sub23.getInt(32));
-			final float codeBookDeltaValue = Class120_Sub23.float32unpack(Class120_Sub23.getInt(32));
-			final int codeBookValueBits = Class120_Sub23.getInt(4) + 1;
-			final boolean codeBookSequenceP = Class120_Sub23.getBit() != 0;
+			final float codeBookMinimumValue = float32unpack(Class120_Sub23.readBits(32));
+			final float codeBookDeltaValue = float32unpack(Class120_Sub23.readBits(32));
+			final int codeBookValueBits = Class120_Sub23.readBits(4) + 1;
+			final boolean codeBookSequenceP = Class120_Sub23.readBit() != 0;
 			int codeBookLookupValues;
 			if (codeBookLookupType == 1) {
-				codeBookLookupValues = lookup1Values(entries, this.dimensions);
+				codeBookLookupValues = lookup1Values(numEntries, this.numDimensions);
 			} else {
-				codeBookLookupValues = entries * this.dimensions;
+				codeBookLookupValues = numEntries * this.numDimensions;
 			}
 			codeBookMultiplicands = new int[codeBookLookupValues];
 			for (int id = 0; id < codeBookLookupValues; id++) {
-				codeBookMultiplicands[id] = Class120_Sub23.getInt(codeBookValueBits);
+				codeBookMultiplicands[id] = Class120_Sub23.readBits(codeBookValueBits);
 			}
-			valueVector = new float[entries][this.dimensions];
+			valueVector = new float[numEntries][this.numDimensions];
 			if (codeBookLookupType == 1) {
-				for (int entry = 0; entry < entries; entry++) {
+				for (int entry = 0; entry < numEntries; entry++) {
 					float last = 0.0F;
 					int indexDivisor = 1;
-					for (int dimension = 0; dimension < this.dimensions; dimension++) {
+					for (int dimension = 0; dimension < this.numDimensions; dimension++) {
 						final int multiplicandOffset = entry / indexDivisor % codeBookLookupValues;
 						final float value = codeBookMultiplicands[multiplicandOffset] * codeBookDeltaValue + codeBookMinimumValue + last;
 						valueVector[entry][dimension] = value;
@@ -162,10 +171,10 @@ final class CodeBook {
 					}
 				}
 			} else {
-				for (int entry = 0; entry < entries; entry++) {
+				for (int entry = 0; entry < numEntries; entry++) {
 					float last = 0.0F;
-					int multiplicandOffset = entry * this.dimensions;
-					for (int dimension = 0; dimension < this.dimensions; dimension++) {
+					int multiplicandOffset = entry * this.numDimensions;
+					for (int dimension = 0; dimension < this.numDimensions; dimension++) {
 						final float value = codeBookMultiplicands[multiplicandOffset] * codeBookDeltaValue + codeBookMinimumValue + last;
 						valueVector[entry][dimension] = value;
 						if (codeBookSequenceP) {

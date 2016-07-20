@@ -31,7 +31,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 		gl.glLoadIdentity();
 		gl.glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
 		if (anIntArray3110 != null) {
-			Class12.method140(anInt3107);
+			Class12.bindFrameBuffer(anInt3107);
 			int i_4_ = Deque.highestOneBit(i_0_);
 			int i_5_ = Deque.highestOneBit(i_1_);
 			int i_6_ = 0;
@@ -73,9 +73,9 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 				}
 				i_6_++;
 			}
-			Class12.method139();
+			Class12.bindPrevFrameBuffer();
 			HDToolkit.bindTexture2D(anIntArray3110[i_6_ - 1]);
-			Class12.method140(anInt3102);
+			Class12.bindFrameBuffer(anInt3102);
 			gl.glDrawBuffer(36064);
 			gl.glViewport(0, 0, 256, 256);
 			final int i_7_ = aClass131_3104.target;
@@ -94,7 +94,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 			gl.glEnd();
 		} else {
 			gl.glBindTexture(34037, i_2_);
-			Class12.method140(anInt3102);
+			Class12.bindFrameBuffer(anInt3102);
 			gl.glDrawBuffer(36064);
 			gl.glViewport(0, 0, 256, 256);
 			final int i_8_ = aClass131_3109.target;
@@ -144,7 +144,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 		gl.glPopAttrib();
 		gl.glPopMatrix();
 		gl.glMatrixMode(5888);
-		Class12.method139();
+		Class12.bindPrevFrameBuffer();
 		final int i_10_ = aClass131_3101.target;
 		gl.glUseProgramObjectARB(i_10_);
 		gl.glUniform1iARB(gl.glGetUniformLocation(i_10_, "sceneTex"), 0);
@@ -169,7 +169,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 			int i_15_ = i_13_;
 			int i_16_ = 0;
 			if (anInt3107 == -1) {
-				anInt3107 = Class12.method134();
+				anInt3107 = Class12.genFrameBuffer();
 			}
 			while (i_14_ > 256 || i_15_ > 256) {
 				if (i_14_ > 256) {
@@ -194,7 +194,7 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 				}
 			}
 		} else if (anInt3107 != -1) {
-			Class12.method135(anInt3107);
+			Class12.deleteFrameBuffer(anInt3107);
 			anInt3107 = -1;
 		}
 	}
@@ -206,19 +206,19 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 			anIntArray3110 = null;
 		}
 		if (anInt3107 != -1) {
-			Class12.method135(anInt3107);
+			Class12.deleteFrameBuffer(anInt3107);
 			anInt3107 = -1;
 		}
 		if (anInt3102 != -1) {
-			Class12.method135(anInt3102);
+			Class12.deleteFrameBuffer(anInt3102);
 			anInt3102 = -1;
 		}
 		if (anInt3113 != -1) {
-			Class163.method2123(anInt3113);
+			Class163.deleteTexture(anInt3113);
 			anInt3113 = -1;
 		}
 		if (anInt3105 != -1) {
-			Class163.method2123(anInt3105);
+			Class163.deleteTexture(anInt3105);
 			anInt3105 = -1;
 		}
 		aClass131_3109 = null;
@@ -249,14 +249,14 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 	final boolean method1049() {
 		if (HDToolkit.aBoolean531 && HDToolkit.aBoolean525 && HDToolkit.aBoolean545) {
 			final GL gl = HDToolkit.gl;
-			anInt3102 = Class12.method134();
+			anInt3102 = Class12.genFrameBuffer();
 			anInt3113 = Class163.method2122(Class163.GL_TEXTURE_2D, Class163.GL_RGBA_FLOAT16, 256, 256, Class163.GL_LINEAR, Class163.GL_LINEAR, Class163.GL_RGBA, Class163.GL_UNSIGNED_BYTE, null);
 			gl.glTexParameteri(3553, 10242, 33071);
 			gl.glTexParameteri(3553, 10243, 33071);
 			anInt3105 = Class163.method2122(Class163.GL_TEXTURE_2D, Class163.GL_RGBA_FLOAT16, 256, 256, Class163.GL_LINEAR, Class163.GL_LINEAR, Class163.GL_RGBA, Class163.GL_UNSIGNED_BYTE, null);
 			gl.glTexParameteri(3553, 10242, 33071);
 			gl.glTexParameteri(3553, 10243, 33071);
-			Class12.method140(anInt3102);
+			Class12.bindFrameBuffer(anInt3102);
 			gl.glFramebufferTexture2DEXT(36160, 36064, 3553, anInt3113, 0);
 			gl.glFramebufferTexture2DEXT(36160, 36065, 3553, anInt3105, 0);
 			gl.glDrawBuffer(36064);
@@ -269,11 +269,11 @@ final class Class120_Sub2_Sub1 extends Class120_Sub2 {
 				gl.glTexParameteri(3553, 10241, 9728);
 				gl.glTexParameteri(3553, 10240, 9728);
 				if (!Class12.method141()) {
-					Class12.method139();
+					Class12.bindPrevFrameBuffer();
 					return false;
 				}
 			}
-			Class12.method139();
+			Class12.bindPrevFrameBuffer();
 			aClass131_3109 = LinkedShader
 					.linkShaders(new GLShader[] { GLShader
 							.compile(

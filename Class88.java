@@ -10,7 +10,7 @@ final class Class88 {
 	LDIndexedSprite aClass107_Sub1_830;
 	static Queue aClass177_831;
 	static int anInt832;
-	static int[] anIntArray833;
+	static int[] varpTriggers;
 	static js5 aClass50_834;
 	static boolean interfaceSpriteIsNull;
 
@@ -18,7 +18,7 @@ final class Class88 {
 		timoutCycle = 0;
 		lowPriorityInterfaceScripts = new Deque();
 		aClass177_831 = new Queue();
-		anIntArray833 = new int[32];
+		varpTriggers = new int[32];
 		interfaceSpriteIsNull = false;
 	}
 
@@ -85,7 +85,7 @@ final class Class88 {
 							if ((sceneGraphNode instanceof AnimatedLocation)) {
 								((AnimatedLocation) sceneGraphNode).method2354();
 							} else {
-								Buffer.method1094(locType, x, Class55.anIntArray493[i_7_] * 8, i_7_ + 4, i_1_, GroundObjectNode.anIntArray3629[i_7_] * 8, z, 4);
+								Buffer.method1094(locType, x, LocType.anIntArray493[i_7_] * 8, i_7_ + 4, i_1_, GroundObjectNode.anIntArray3629[i_7_] * 8, z, 4);
 							}
 						} else if (i_6_ != 7) {
 							if (i_6_ != 8) {
@@ -104,12 +104,12 @@ final class Class88 {
 								if (sceneGraphNode instanceof AnimatedLocation) {
 									((AnimatedLocation) sceneGraphNode).method2354();
 								} else {
-									Buffer.method1094(locType, x, Class55.anIntArray493[i_7_] * 8, 4 + i_7_, i_1_, 8 * GroundObjectNode.anIntArray3629[i_7_], z, 4);
+									Buffer.method1094(locType, x, LocType.anIntArray493[i_7_] * 8, 4 + i_7_, i_1_, 8 * GroundObjectNode.anIntArray3629[i_7_], z, 4);
 								}
 								if (class180_8_ instanceof AnimatedLocation) {
 									((AnimatedLocation) class180_8_).method2354();
 								} else {
-									Buffer.method1094(locType, x, Class55.anIntArray493[i_7_] * 8, 4 + (0x3 & i_7_ + 2), i_1_, GroundObjectNode.anIntArray3629[i_7_] * 8, z, 4);
+									Buffer.method1094(locType, x, LocType.anIntArray493[i_7_] * 8, 4 + (0x3 & i_7_ + 2), i_1_, GroundObjectNode.anIntArray3629[i_7_] * 8, z, 4);
 								}
 							}
 						} else if (sceneGraphNode instanceof AnimatedLocation) {

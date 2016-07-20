@@ -80,46 +80,46 @@ final class Class120_Sub12_Sub37 extends Class120_Sub12 {
 		class120_sub14_sub7.anInt3484 = i_13_;
 	}
 
-	static final String method1395(long l, final boolean bool, final int i_15_, final int i_16_) {
-		char c = ',';
-		char c_17_ = '.';
-		boolean bool_18_ = false;
-		if (i_16_ == 0) {
-			c_17_ = ',';
-			c = '.';
+	static final String valueToBase10String(long value, final boolean appendSeperators, final int decimalPoints, final int language) {
+		char decimalSeperator = ',';
+		char thousandSeperator = '.';
+		boolean negative = false;
+		if (language == 0) {
+			thousandSeperator = ',';
+			decimalSeperator = '.';
 		}
-		if (i_16_ == 2) {
-			c_17_ = '\u00a0';
+		if (language == 2) {
+			thousandSeperator = '\u00a0';
 		}
-		if (-1L < (l ^ 0xffffffffffffffffL)) {
-			bool_18_ = true;
-			l = -l;
+		if (value < 0L) {
+			negative = true;
+			value = -value;
 		}
-		final StringBuffer stringbuffer = new StringBuffer(26);
-		if (i_15_ > 0) {
-			for (int i_19_ = 0; i_19_ < i_15_; i_19_++) {
-				final int i_20_ = (int) l;
-				l /= 10L;
-				stringbuffer.append((char) (i_20_ + 48 - (int) l * 10));
+		final StringBuffer stringBuffer = new StringBuffer(26);
+		if (decimalPoints > 0) {
+			for (int id = 0; id < decimalPoints; id++) {
+				final int intValue = (int) value;
+				value /= 10L;
+				stringBuffer.append((char) (intValue + 48 - (int) value * 10));
 			}
-			stringbuffer.append(c);
+			stringBuffer.append(decimalSeperator);
 		}
-		int i_21_ = 0;
+		int charPos = 0;
 		for (;;) {
-			final int i_22_ = (int) l;
-			l /= 10L;
-			stringbuffer.append((char) (-(10 * (int) l) + i_22_ + 48));
-			if (-1L == (l ^ 0xffffffffffffffffL)) {
+			final int intValue = (int) value;
+			value /= 10L;
+			stringBuffer.append((char) (intValue + 48 - (int) value * 10));
+			if (value == 0L) {
 				break;
 			}
-			if (bool && ++i_21_ % 3 == 0) {
-				stringbuffer.append(c_17_);
+			if (appendSeperators && ++charPos % 3 == 0) {
+				stringBuffer.append(thousandSeperator);
 			}
 		}
-		if (bool_18_) {
-			stringbuffer.append('-');
+		if (negative) {
+			stringBuffer.append('-');
 		}
-		return stringbuffer.reverse().toString();
+		return stringBuffer.reverse().toString();
 	}
 
 	public Class120_Sub12_Sub37() {

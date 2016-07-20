@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 	static int[] regionBitPackeds;
 	static js5 aClass50_3418;
 	static js5 musicJs5;
-	static int[][][] anIntArrayArrayArray3420;
+	static int[][][] dynamicMapData;
 	static byte[][] underWaterMapFilesBuffer;
 	static int[] chatMessageQuickChatId;
 	static int anInt3423 = 0;
@@ -54,8 +54,8 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 			if ((mask & 0x40) != 0) {
 				final int damage = Canvas_Sub1.inputStream.getUByteC();
 				final int type = Canvas_Sub1.inputStream.getUByteS();
-				npc.addHit(damage, type, Class101_Sub2.loopCycle);
-				npc.hpBarCycle = 300 + Class101_Sub2.loopCycle;
+				npc.addHit(damage, type, Class101_Sub2.clientClock);
+				npc.hpBarCycle = 300 + Class101_Sub2.clientClock;
 				npc.hpBarRatio = Canvas_Sub1.inputStream.getUByteC();
 			}
 			if ((mask & 0x100) != 0) {
@@ -77,7 +77,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 			if ((mask & 0x10) != 0) {
 				final int damage = Canvas_Sub1.inputStream.getUByteA();
 				final int type = Canvas_Sub1.inputStream.getUByteS();
-				npc.addHit(damage, type, Class101_Sub2.loopCycle);
+				npc.addHit(damage, type, Class101_Sub2.clientClock);
 			}
 			if ((mask & 0x2) != 0) {
 				if (npc.npcType.hasAmbientSound()) {
@@ -86,7 +86,7 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 				npc.setNpcType(NpcType.list(Canvas_Sub1.inputStream.getUShortA()));
 				npc.setSize(npc.npcType.size);
 				npc.anInt3010 = npc.npcType.anInt1672;
-				npc.entityRenderDataId = npc.npcType.renderDataId;
+				npc.basTypeId = npc.npcType.basTypeId;
 				if (npc.npcType.hasAmbientSound()) {
 					AmbientSound.addAmbientSound(null, npc.walkQueueX[0], npc, npc.walkQueueZ[0], null, 0, Class173.gameLevel);
 				}
@@ -117,13 +117,13 @@ final class Class120_Sub12_Sub36 extends Class120_Sub12 {
 					npc.spotAnimFrameDelay = 0;
 					npc.spotAnimFrame = 0;
 					npc.spotAnimNextFrame = 1;
-					npc.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.loopCycle;
-					if (npc.spotAnimDelay > Class101_Sub2.loopCycle) {
+					npc.spotAnimDelay = (0xffff & bitPacked) + Class101_Sub2.clientClock;
+					if (npc.spotAnimDelay > Class101_Sub2.clientClock) {
 						npc.spotAnimFrame = -1;
 					}
 					npc.spotAnimHeight = bitPacked >> 16;
 					npc.spotAnimId = spotanimId;
-					if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.spotAnimDelay) {
+					if (npc.spotAnimId != -1 && Class101_Sub2.clientClock == npc.spotAnimDelay) {
 						final int spotanimAnimationId = SpotAnimType.list(npc.spotAnimId).animationId;
 						if (spotanimAnimationId != -1) {
 							final SeqType seqType = SeqType.list(spotanimAnimationId);

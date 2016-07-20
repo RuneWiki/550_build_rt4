@@ -4,13 +4,13 @@
 
 final class EnumType extends NodeSub {
 	static int anInt3450;
-	char aChar3451;
+	char inputType;
 	private int defaulInteger;
 	static FrameGroup[] aClass120_Sub14_Sub18Array3453 = new FrameGroup[14];
 	static int worldLen;
 	static int anInt3456;
 	private String defaultString = "null";
-	char aChar3458;
+	char returnType;
 	private Hashtable aClass75_3459;
 	static Class112 aClass112_3460;
 	Hashtable params;
@@ -44,16 +44,16 @@ final class EnumType extends NodeSub {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			aChar3458 = Class120_Sub12_Sub24.method1328(buffer.getByte());
+			returnType = Class120_Sub12_Sub24.method1328(buffer.getByte());
 		} else if (code == 2) {
-			aChar3451 = Class120_Sub12_Sub24.method1328(buffer.getByte());
+			inputType = Class120_Sub12_Sub24.method1328(buffer.getByte());
 		} else if (code == 3) {
 			defaultString = buffer.getJagexString();
 		} else if (code == 4) {
 			defaulInteger = buffer.getInt();
 		} else if (code == 5 || code == 6) {
 			final int paramCount = buffer.getUShort();
-			params = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(paramCount));
+			params = new Hashtable(Class120_Sub12_Sub17.farthestBitValue(paramCount));
 			for (int paramId = 0; paramId < paramCount; paramId++) {
 				final int paramUid = buffer.getInt();
 				Node node;
@@ -86,11 +86,11 @@ final class EnumType extends NodeSub {
 			if (Class69.rootInterfaceId != -1) {
 				Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 			}
-			for (OverridedJInterface overridedJInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedJInterface != null; overridedJInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-				Class120_Sub19.removeOverridedInterface(overridedJInterface, true);
+			for (SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getFirst(); subInterface != null; subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getNext()) {
+				Class120_Sub19.removeSubInterface(subInterface, true);
 			}
 			Class69.rootInterfaceId = -1;
-			Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
+			Class120_Sub12_Sub13.subInterfaces = new Hashtable(8);
 			Class43.createJInterfaceCache();
 			Class69.rootInterfaceId = GameShell.loginscreenId;
 			Class101_Sub2.method846(false);
@@ -103,11 +103,11 @@ final class EnumType extends NodeSub {
 		TileParticleQueue.selfPlayer.x = 3000;
 		TileParticleQueue.selfPlayer.z = 3000;
 		if (HDToolkit.glEnabled || Buffer.gameId != 0) {
-			if (client.cameraType != 2) {
-				InvType.updateLoginScreenCamera();
-			} else {
+			if (client.cameraType == 2) {
 				FileSystemWorker.renderX = Class99.anInt951 << 7;
 				GroundObjectNode.renderZ = Class134.anInt1280 << 7;
+			} else {
+				InvType.updateLoginScreenCamera();
 			}
 			if (HDToolkit.glEnabled) {
 				ModelParticleEmitter.instantScreenFade = true;

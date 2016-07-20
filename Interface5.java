@@ -3,7 +3,7 @@
  */
 
 interface Interface5 {
-	public boolean method15(int i);
+	public boolean isValid(int i);
 
 	public boolean method16(int i);
 

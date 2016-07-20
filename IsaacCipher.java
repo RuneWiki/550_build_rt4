@@ -11,7 +11,6 @@ final class IsaacCipher {
 	private int a;
 	private final int[] rsl;
 	private final int[] mem;
-	static js5 scriptsJs5;
 
 	static final void drawTitleScreenSprites(final js5 js5) {
 		if (!Class101_Sub3.titleScreenSpritesDrawn) {

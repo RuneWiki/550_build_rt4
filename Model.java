@@ -108,7 +108,7 @@ final class Model extends SceneGraphNode {
 		return aShort2874;
 	}
 
-	final void method2281() {
+	final void rotate90() {
 		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_10_ = this.xVertices[i];
 			this.xVertices[i] = this.zVertices[i];
@@ -171,7 +171,7 @@ final class Model extends SceneGraphNode {
 		}
 	}
 
-	final void method2284() {
+	final void rotate180() {
 		for (int i = 0; i < this.vertexCount; i++) {
 			this.xVertices[i] = -this.xVertices[i];
 			this.zVertices[i] = -this.zVertices[i];
@@ -229,11 +229,11 @@ final class Model extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_55_, final int i_57_, final int i_56_, final int i_58_) {
+	final void preRender(final int rotation, final int i_55_, final int i_57_, final int i_56_, final int i_58_) {
 		/* empty */
 	}
 
-	final void method2286() {
+	final void rotate270() {
 		for (int i = 0; i < this.vertexCount; i++) {
 			final int i_59_ = this.zVertices[i];
 			this.zVertices[i] = this.xVertices[i];

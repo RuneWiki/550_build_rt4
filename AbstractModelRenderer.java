@@ -6,44 +6,44 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 	boolean haveActions = false;
 	static int actionsLen;
 	static boolean addActions;
-	static int mouseOffFromCenterX = 0;
-	static int mouseOffFromCenterY = 0;
+	static int mouseXOffFromCenter = 0;
+	static int mouseYOffFromCenter = 0;
 
 	abstract void rotateY(int i);
 
-	final void method2361(final FrameGroup class120_sub14_sub18, final int i, final FrameGroup class120_sub14_sub18_0_, final int i_1_, final int i_2_, final int i_3_, final FrameGroup class120_sub14_sub18_4_, final int i_5_,
-			final FrameGroup class120_sub14_sub18_6_, final int i_7_, final int i_8_, final int i_9_, final boolean[] bools, final boolean bool) {
-		if (i != -1) {
-			if (bools == null || i_5_ == -1) {
-				method2380(class120_sub14_sub18, i, class120_sub14_sub18_0_, i_1_, i_2_, i_3_, bool);
-			} else if (method2375()) {
-				final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-				final LabelGroup class120_sub1 = seqFrame.labelGroup;
-				SeqFrame class1_10_ = null;
-				if (class120_sub14_sub18_0_ != null) {
-					class1_10_ = class120_sub14_sub18_0_.seqFrames[i_1_];
-					if (class1_10_.labelGroup != class120_sub1) {
-						class1_10_ = null;
+	final void method2361(final FrameGroup animFrameGroup, final int animFrameId, final FrameGroup animNextFrameGroup, final int animNextFrameId, final int animDelay, final int animFrameDelay, final FrameGroup idleFrameGroup, final int idleFrameId, final FrameGroup idleNextFrameGroup, final int idleNextFrameId, final int idleDelay, final int idleFrameDelay, final boolean[] bools, final boolean bool) {
+		if (animFrameId != -1) {
+			if (bools == null || idleFrameId == -1) {
+				method2380(animFrameGroup, animFrameId, animNextFrameGroup, animNextFrameId, animDelay, animFrameDelay, bool);
+			} else if (hasLabels()) {
+				final SeqFrame idleFrame = idleFrameGroup.seqFrames[idleFrameId];
+				final SeqFrameBase animFrameBase = idleFrame.frameBase;
+				SeqFrame idleNextFrame = null;
+				if (idleNextFrameGroup != null) {
+					idleNextFrame = idleNextFrameGroup.seqFrames[idleNextFrameId];
+					if (idleNextFrame.frameBase != animFrameBase) {
+						idleNextFrame = null;
 					}
 				}
-				final SeqFrame class1_11_ = class120_sub14_sub18_4_.seqFrames[i_5_];
-				SeqFrame class1_12_ = null;
-				if (class120_sub14_sub18_6_ != null) {
-					class1_12_ = class120_sub14_sub18_6_.seqFrames[i_7_];
-					if (class1_12_.labelGroup != class120_sub1) {
-						class1_12_ = null;
+
+				final SeqFrame animFrame = animFrameGroup.seqFrames[animFrameId];
+				SeqFrame animNextFrame = null;
+				if (animNextFrameGroup != null) {
+					animNextFrame = animNextFrameGroup.seqFrames[animNextFrameId];
+					if (animNextFrame.frameBase != animFrameBase) {
+						animNextFrame = null;
 					}
 				}
-				method2370(class120_sub1, seqFrame, class1_10_, i_2_, i_3_, bools, false, bool, 65535, null);
-				method2388(0, new int[0], 0, 0, 0, bool);
-				method2370(class120_sub1, class1_11_, class1_12_, i_8_, i_9_, bools, true, bool, 65535, null);
-				method2364();
+				method2370(animFrameBase, animFrame, animNextFrame, animDelay, animFrameDelay, bools, false, bool, 65535, null);
+				animate(0, new int[0], 0, 0, 0, bool);
+				method2370(animFrameBase, idleFrame, idleNextFrame, idleDelay, idleFrameDelay, bools, true, bool, 65535, null);
+				onFinishAnimating();
 			}
 		}
 	}
 
 	@Override
-	final void method2266(final int i, final int i_13_, final int i_15_, final int i_14_, final int i_16_) {
+	final void preRender(final int rotation, final int i_13_, final int i_15_, final int i_14_, final int i_16_) {
 		/* empty */
 	}
 
@@ -51,7 +51,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract int getMaxZ();
 
-	abstract void method2364();
+	abstract void onFinishAnimating();
 
 	abstract void rotate90();
 
@@ -74,51 +74,51 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract void scale(int x, int y, int z);
 
-	private final void method2370(final LabelGroup class120_sub1, final SeqFrame seqFrame, final SeqFrame class1_34_, final int i, final int i_35_, final boolean[] bools, final boolean bool, final boolean bool_36_, final int i_37_, final int[] is) {
-		if (class1_34_ == null || i == 0) {
-			for (int i_38_ = 0; i_38_ < seqFrame.anInt43; i_38_++) {
-				final short i_39_ = seqFrame.aShortArray35[i_38_];
-				if (bools == null || bools[i_39_] == bool || class120_sub1.types[i_39_] == 0) {
-					final short i_40_ = seqFrame.aShortArray40[i_38_];
+	private final void method2370(final SeqFrameBase frameBase, final SeqFrame frame, final SeqFrame nextFrame, final int delay, final int frameDelay, final boolean[] animateLabels, final boolean condition, final boolean bool_36_, final int i_37_, final int[] is) {
+		if (nextFrame == null || delay == 0) {
+			for (int id = 0; id < frame.transformCount; id++) {
+				final short type = frame.transformTypes[id];
+				if (animateLabels == null || animateLabels[type] == condition || frameBase.types[type] == 0) {
+					final short i_40_ = frame.aShortArray40[id];
 					if (i_40_ != -1) {
-						final int i_41_ = i_37_ & class120_sub1.anIntArray2405[i_40_];
+						final int i_41_ = i_37_ & frameBase.anIntArray2405[i_40_];
 						if (i_41_ != 65535) {
-							method2382(0, class120_sub1.labels[i_40_], 0, 0, 0, bool_36_, i_41_, is);
+							method2382(0, frameBase.bases[i_40_], 0, 0, 0, bool_36_, i_41_, is);
 						} else {
-							method2388(0, class120_sub1.labels[i_40_], 0, 0, 0, bool_36_);
+							animate(0, frameBase.bases[i_40_], 0, 0, 0, bool_36_);
 						}
 					}
-					final int i_42_ = i_37_ & class120_sub1.anIntArray2405[i_39_];
+					final int i_42_ = i_37_ & frameBase.anIntArray2405[type];
 					if (i_42_ != 65535) {
-						method2382(class120_sub1.types[i_39_], class120_sub1.labels[i_39_], seqFrame.aShortArray47[i_38_], seqFrame.aShortArray33[i_38_], seqFrame.aShortArray36[i_38_], bool_36_, i_42_, is);
+						method2382(frameBase.types[type], frameBase.bases[type], frame.transformXs[id], frame.transformYs[id], frame.transformZs[id], bool_36_, i_42_, is);
 					} else {
-						method2388(class120_sub1.types[i_39_], class120_sub1.labels[i_39_], seqFrame.aShortArray47[i_38_], seqFrame.aShortArray33[i_38_], seqFrame.aShortArray36[i_38_], bool_36_);
+						animate(frameBase.types[type], frameBase.bases[type], frame.transformXs[id], frame.transformYs[id], frame.transformZs[id], bool_36_);
 					}
 				}
 			}
 		} else {
-			int i_43_ = 0;
-			int i_44_ = 0;
-			for (int i_45_ = 0; i_45_ < class120_sub1.length; i_45_++) {
-				boolean bool_46_ = false;
-				if (i_43_ < seqFrame.anInt43 && seqFrame.aShortArray35[i_43_] == i_45_) {
-					bool_46_ = true;
+			int transformId = 0;
+			int nextTransformId = 0;
+			for (int id = 0; id < frameBase.length; id++) {
+				boolean transform = false;
+				if (transformId < frame.transformCount && frame.transformTypes[transformId] == id) {
+					transform = true;
 				}
-				boolean bool_47_ = false;
-				if (i_44_ < class1_34_.anInt43 && class1_34_.aShortArray35[i_44_] == i_45_) {
-					bool_47_ = true;
+				boolean transformNext = false;
+				if (nextTransformId < nextFrame.transformCount && nextFrame.transformTypes[nextTransformId] == id) {
+					transformNext = true;
 				}
-				if (bool_46_ || bool_47_) {
-					if (bools != null && bools[i_45_] != bool && class120_sub1.types[i_45_] != 0) {
-						if (bool_46_) {
-							i_43_++;
+				if (transform || transformNext) {
+					if (animateLabels != null && animateLabels[id] != condition && frameBase.types[id] != 0) {
+						if (transform) {
+							transformId++;
 						}
-						if (bool_47_) {
-							i_44_++;
+						if (transformNext) {
+							nextTransformId++;
 						}
 					} else {
 						int i_48_ = 0;
-						final int i_49_ = class120_sub1.types[i_45_];
+						final int i_49_ = frameBase.types[id];
 						if (i_49_ == 3) {
 							i_48_ = 128;
 						}
@@ -127,13 +127,13 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 						int i_52_;
 						short i_53_;
 						byte i_54_;
-						if (bool_46_) {
-							i_50_ = seqFrame.aShortArray47[i_43_];
-							i_51_ = seqFrame.aShortArray33[i_43_];
-							i_52_ = seqFrame.aShortArray36[i_43_];
-							i_53_ = seqFrame.aShortArray40[i_43_];
-							i_54_ = seqFrame.aByteArray38[i_43_];
-							i_43_++;
+						if (transform) {
+							i_50_ = frame.transformXs[transformId];
+							i_51_ = frame.transformYs[transformId];
+							i_52_ = frame.transformZs[transformId];
+							i_53_ = frame.aShortArray40[transformId];
+							i_54_ = frame.aByteArray38[transformId];
+							transformId++;
 						} else {
 							i_50_ = i_48_;
 							i_51_ = i_48_;
@@ -146,13 +146,13 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 						int i_57_;
 						short i_58_;
 						byte i_59_;
-						if (bool_47_) {
-							i_55_ = class1_34_.aShortArray47[i_44_];
-							i_56_ = class1_34_.aShortArray33[i_44_];
-							i_57_ = class1_34_.aShortArray36[i_44_];
-							i_58_ = class1_34_.aShortArray40[i_44_];
-							i_59_ = class1_34_.aByteArray38[i_44_];
-							i_44_++;
+						if (transformNext) {
+							i_55_ = nextFrame.transformXs[nextTransformId];
+							i_56_ = nextFrame.transformYs[nextTransformId];
+							i_57_ = nextFrame.transformZs[nextTransformId];
+							i_58_ = nextFrame.aShortArray40[nextTransformId];
+							i_59_ = nextFrame.aByteArray38[nextTransformId];
+							nextTransformId++;
 						} else {
 							i_55_ = i_48_;
 							i_56_ = i_48_;
@@ -180,42 +180,42 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 							if (i_65_ >= 1024) {
 								i_65_ -= 2048;
 							}
-							i_60_ = i_50_ + i_63_ * i / i_35_ & 0x7ff;
-							i_61_ = i_51_ + i_64_ * i / i_35_ & 0x7ff;
-							i_62_ = i_52_ + i_65_ * i / i_35_ & 0x7ff;
+							i_60_ = i_50_ + i_63_ * delay / frameDelay & 0x7ff;
+							i_61_ = i_51_ + i_64_ * delay / frameDelay & 0x7ff;
+							i_62_ = i_52_ + i_65_ * delay / frameDelay & 0x7ff;
 						} else if (i_49_ == 7) {
 							int i_66_ = i_55_ - i_50_ & 0x3f;
 							if (i_66_ >= 32) {
 								i_66_ -= 64;
 							}
-							i_60_ = i_50_ + i_66_ * i / i_35_ & 0x3f;
-							i_61_ = i_51_ + (i_56_ - i_51_) * i / i_35_;
-							i_62_ = i_52_ + (i_57_ - i_52_) * i / i_35_;
+							i_60_ = i_50_ + i_66_ * delay / frameDelay & 0x3f;
+							i_61_ = i_51_ + (i_56_ - i_51_) * delay / frameDelay;
+							i_62_ = i_52_ + (i_57_ - i_52_) * delay / frameDelay;
 						} else {
-							i_60_ = i_50_ + (i_55_ - i_50_) * i / i_35_;
-							i_61_ = i_51_ + (i_56_ - i_51_) * i / i_35_;
-							i_62_ = i_52_ + (i_57_ - i_52_) * i / i_35_;
+							i_60_ = i_50_ + (i_55_ - i_50_) * delay / frameDelay;
+							i_61_ = i_51_ + (i_56_ - i_51_) * delay / frameDelay;
+							i_62_ = i_52_ + (i_57_ - i_52_) * delay / frameDelay;
 						}
 						if (i_53_ != -1) {
-							final int i_67_ = i_37_ & class120_sub1.anIntArray2405[i_53_];
+							final int i_67_ = i_37_ & frameBase.anIntArray2405[i_53_];
 							if (i_67_ != 65535) {
-								method2382(0, class120_sub1.labels[i_53_], 0, 0, 0, bool_36_, i_67_, is);
+								method2382(0, frameBase.bases[i_53_], 0, 0, 0, bool_36_, i_67_, is);
 							} else {
-								method2388(0, class120_sub1.labels[i_53_], 0, 0, 0, bool_36_);
+								animate(0, frameBase.bases[i_53_], 0, 0, 0, bool_36_);
 							}
 						} else if (i_58_ != -1) {
-							final int i_68_ = i_37_ & class120_sub1.anIntArray2405[i_58_];
+							final int i_68_ = i_37_ & frameBase.anIntArray2405[i_58_];
 							if (i_68_ != 65535) {
-								method2382(0, class120_sub1.labels[i_58_], 0, 0, 0, bool_36_, i_68_, is);
+								method2382(0, frameBase.bases[i_58_], 0, 0, 0, bool_36_, i_68_, is);
 							} else {
-								method2388(0, class120_sub1.labels[i_58_], 0, 0, 0, bool_36_);
+								animate(0, frameBase.bases[i_58_], 0, 0, 0, bool_36_);
 							}
 						}
-						final int i_69_ = i_37_ & class120_sub1.anIntArray2405[i_45_];
+						final int i_69_ = i_37_ & frameBase.anIntArray2405[id];
 						if (i_69_ != 65535) {
-							method2382(i_49_, class120_sub1.labels[i_45_], i_60_, i_61_, i_62_, bool_36_, i_69_, is);
+							method2382(i_49_, frameBase.bases[id], i_60_, i_61_, i_62_, bool_36_, i_69_, is);
 						} else {
-							method2388(i_49_, class120_sub1.labels[i_45_], i_60_, i_61_, i_62_, bool_36_);
+							animate(i_49_, frameBase.bases[id], i_60_, i_61_, i_62_, bool_36_);
 						}
 					}
 				}
@@ -237,7 +237,7 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract int getMaxX();
 
-	abstract boolean method2375();
+	abstract boolean hasLabels();
 
 	abstract AbstractModelRenderer method2376(boolean bool, boolean bool_78_, boolean bool_79_);
 
@@ -245,43 +245,43 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract AbstractModelRenderer method2378(boolean bool, boolean bool_80_, boolean bool_81_);
 
-	abstract void method2379(int i, int i_82_, int i_83_, int i_84_);
+	abstract void animate(int i, int i_82_, int i_83_, int i_84_);
 
-	final void method2380(final FrameGroup class120_sub14_sub18, final int i, final FrameGroup class120_sub14_sub18_85_, final int i_86_, final int i_87_, final int i_88_, final boolean bool) {
-		if (i != -1 && method2375()) {
-			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-			final LabelGroup class120_sub1 = seqFrame.labelGroup;
-			SeqFrame class1_89_ = null;
-			if (class120_sub14_sub18_85_ != null) {
-				class1_89_ = class120_sub14_sub18_85_.seqFrames[i_86_];
-				if (class1_89_.labelGroup != class120_sub1) {
-					class1_89_ = null;
+	final void method2380(final FrameGroup animFrameGroup, final int animFrame, final FrameGroup animNextFrameGroup, final int animNextFrame, final int animDelay, final int animFrameDelay, final boolean bool) {
+		if (animFrame != -1 && hasLabels()) {
+			final SeqFrame seqFrame = animFrameGroup.seqFrames[animFrame];
+			final SeqFrameBase frameBase = seqFrame.frameBase;
+			SeqFrame nextSeqFrame = null;
+			if (animNextFrameGroup != null) {
+				nextSeqFrame = animNextFrameGroup.seqFrames[animNextFrame];
+				if (nextSeqFrame.frameBase != frameBase) {
+					nextSeqFrame = null;
 				}
 			}
-			method2370(class120_sub1, seqFrame, class1_89_, i_87_, i_88_, null, false, bool, 65535, null);
-			method2364();
+			method2370(frameBase, seqFrame, nextSeqFrame, animDelay, animFrameDelay, null, false, bool, 65535, null);
+			onFinishAnimating();
 		}
 	}
 
-	abstract AbstractModelRenderer method2381(boolean bool, boolean bool_90_, boolean bool_91_);
+	abstract AbstractModelRenderer copy(boolean bool, boolean bool_90_, boolean bool_91_);
 
 	abstract void method2382(int i, int[] is, int i_92_, int i_93_, int i_94_, boolean bool, int i_95_, int[] is_96_);
 
 	abstract int getMinX();
 
 	final void method2384(final FrameGroup frameLoader, final int frameId, final FrameGroup nextFrameLoader, final int nextFrame, final int i_99_, final int i_100_, final int i_101_, final boolean bool, final int[] is) {
-		if (frameId != -1 && method2375()) {
+		if (frameId != -1 && hasLabels()) {
 			final SeqFrame seqFrame = frameLoader.seqFrames[frameId];
-			final LabelGroup class120_sub1 = seqFrame.labelGroup;
+			final SeqFrameBase class120_sub1 = seqFrame.frameBase;
 			SeqFrame class1_102_ = null;
 			if (nextFrameLoader != null) {
 				class1_102_ = nextFrameLoader.seqFrames[nextFrame];
-				if (class1_102_.labelGroup != class120_sub1) {
+				if (class1_102_.frameBase != class120_sub1) {
 					class1_102_ = null;
 				}
 			}
 			method2370(class120_sub1, seqFrame, class1_102_, i_99_, i_100_, null, false, bool, i_101_, is);
-			method2364();
+			onFinishAnimating();
 		}
 	}
 
@@ -328,26 +328,26 @@ abstract class AbstractModelRenderer extends SceneGraphNode {
 
 	abstract int getMinY();
 
-	abstract void method2388(int i, int[] is, int i_126_, int i_127_, int i_128_, boolean bool);
+	abstract void animate(int i, int[] is, int i_126_, int i_127_, int i_128_, boolean bool);
 
 	public AbstractModelRenderer() {
 		/* empty */
 	}
 
-	final void method2389(final FrameGroup class120_sub14_sub18, final int i) {
-		if (i != -1 && method2375()) {
-			final SeqFrame seqFrame = class120_sub14_sub18.seqFrames[i];
-			final LabelGroup class120_sub1 = seqFrame.labelGroup;
-			for (int i_129_ = 0; i_129_ < seqFrame.anInt43; i_129_++) {
-				final short i_130_ = seqFrame.aShortArray35[i_129_];
-				if (class120_sub1.aBooleanArray2407[i_130_]) {
-					if (seqFrame.aShortArray40[i_129_] != -1) {
-						method2379(0, 0, 0, 0);
+	final void method2389(final FrameGroup frameGroup, final int frame) {
+		if (frame != -1 && hasLabels()) {
+			final SeqFrame seqFrame = frameGroup.seqFrames[frame];
+			final SeqFrameBase frameBase = seqFrame.frameBase;
+			for (int id = 0; id < seqFrame.transformCount; id++) {
+				final short type = seqFrame.transformTypes[id];
+				if (frameBase.aBooleanArray2407[type]) {
+					if (seqFrame.aShortArray40[id] != -1) {
+						animate(0, 0, 0, 0);
 					}
-					method2379(class120_sub1.types[i_130_], seqFrame.aShortArray47[i_129_], seqFrame.aShortArray33[i_129_], seqFrame.aShortArray36[i_129_]);
+					animate(frameBase.types[type], seqFrame.transformXs[id], seqFrame.transformYs[id], seqFrame.transformZs[id]);
 				}
 			}
-			method2364();
+			onFinishAnimating();
 		}
 	}
 }

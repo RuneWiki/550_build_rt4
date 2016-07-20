@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /* Class144 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -7,9 +5,8 @@ import java.util.Arrays;
 final class PlayerAppearance {
 	static int hintmapedgeId;
 	private long appearanceHash;
-	private int entityRenderDataId;
-	static int anInt1367;
-	static String aString1368 = "Allocated memory";
+	private int basTypeId;
+	static int renderY;
 	static int frameHeight;
 	int[] colors;
 	boolean isFemale;
@@ -50,8 +47,8 @@ final class PlayerAppearance {
 		final long l = appearanceHash;
 		final long[] ls = SeekableFile.aLongArray2137;
 		appearanceHash = -1L;
-		appearanceHash = appearanceHash >>> 8 ^ ls[(int) (0xffL & (entityRenderDataId >> 8 ^ appearanceHash))];
-		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ entityRenderDataId))] ^ appearanceHash >>> 8;
+		appearanceHash = appearanceHash >>> 8 ^ ls[(int) (0xffL & (basTypeId >> 8 ^ appearanceHash))];
+		appearanceHash = ls[(int) (0xffL & (appearanceHash ^ basTypeId))] ^ appearanceHash >>> 8;
 		for (int i_8_ = 0; i_8_ < 12; i_8_++) {
 			appearanceHash = appearanceHash >>> 8 ^ ls[(int) ((appearanceData[i_8_] >> 24 ^ appearanceHash) & 0xffL)];
 			appearanceHash = appearanceHash >>> 8 ^ ls[(int) ((appearanceData[i_8_] >> 16 ^ appearanceHash) & 0xffL)];
@@ -67,8 +64,8 @@ final class PlayerAppearance {
 		}
 	}
 
-	static final void method2039(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
-		int i_15_ = (-32 + i) * i / i_12_;
+	static final void drawVerticalScrollbar(final int i, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
+		int i_15_ = (i - 32) * i / i_12_;
 		Class118.scrollBarSprites[0].drawReg(i_11_, i_13_);
 		if (i_15_ < 8) {
 			i_15_ = 8;
@@ -100,9 +97,9 @@ final class PlayerAppearance {
 		}
 	}
 
-	final AbstractModelRenderer method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType idleSeqType, final int i_19_, final boolean bool, final int i_21_, final SeqType animSeqType, final boolean bool_23_, final int i_24_) {
+	final AbstractModelRenderer method2040(final Class150[] class150s, final int i, final int i_17_, final int i_18_, final SeqType idleSeqType, final int i_19_, final boolean bool, final int idleDelay, final SeqType animSeqType, final boolean bool_23_, final int animDelay) {
 		if (this.npcId != -1) {
-			return NpcType.list(this.npcId).method2212(i_19_, i_21_, idleSeqType, animSeqType, i_17_, class150s, i_18_, i, i_24_);
+			return NpcType.list(this.npcId).method2212(i_19_, idleDelay, idleSeqType, animSeqType, i_17_, class150s, i_18_, i, animDelay);
 		}
 		int[] appData = appearanceData;
 		long hash = appearanceHash;
@@ -168,27 +165,21 @@ final class PlayerAppearance {
 						}
 					}
 				}
-				EntityRenderData entityRenderData = null;
-				if (entityRenderDataId != -1) {
-					entityRenderData = EntityRenderData.list(entityRenderDataId);
-					/*int i_15_ = 4;
-					entityRenderData.anIntArrayArray215 = new int[12][];
-					entityRenderData.anIntArrayArray215[i_15_] = new int[6];
-					//for (int i_16_ = 0; i_16_ < 6; i_16_++) {
-						entityRenderData.anIntArrayArray215[i_15_][4] = 1024;
-					//}*/
+				BasType basType = null;
+				if (basTypeId != -1) {
+					basType = BasType.list(basTypeId);
 				}
-				if (entityRenderData != null && entityRenderData.modelRotateTranslate != null) {
-					for (int id = 0; id < entityRenderData.modelRotateTranslate.length; id++) {
-						if (entityRenderData.modelRotateTranslate[id] != null && playerModels[id] != null) {
-							final int translateX = entityRenderData.modelRotateTranslate[id][0];
-							final int translateY = entityRenderData.modelRotateTranslate[id][1];
-							final int translateZ = entityRenderData.modelRotateTranslate[id][2];
-							final int rotateX = entityRenderData.modelRotateTranslate[id][3];
-							final int rotateZ = entityRenderData.modelRotateTranslate[id][5];
-							final int rotateY = entityRenderData.modelRotateTranslate[id][4];
+				if (basType != null && basType.modelRotateTranslate != null) {
+					for (int id = 0; id < basType.modelRotateTranslate.length; id++) {
+						if (basType.modelRotateTranslate[id] != null && playerModels[id] != null) {
+							final int translateX = basType.modelRotateTranslate[id][0];
+							final int translateY = basType.modelRotateTranslate[id][1];
+							final int translateZ = basType.modelRotateTranslate[id][2];
+							final int rotateX = basType.modelRotateTranslate[id][3];
+							final int rotateZ = basType.modelRotateTranslate[id][5];
+							final int rotateY = basType.modelRotateTranslate[id][4];
 							if (anIntArrayArray1377 == null) {
-								anIntArrayArray1377 = new int[entityRenderData.modelRotateTranslate.length][];
+								anIntArrayArray1377 = new int[basType.modelRotateTranslate.length][];
 							}
 							if (anIntArrayArray1377[id] == null) {
 								final int[] is_39_ = anIntArrayArray1377[id] = new int[15];
@@ -252,7 +243,7 @@ final class PlayerAppearance {
 			}
 		}
 		boolean bool_49_ = false;
-		boolean bool_50_ = false;
+		boolean animHasAlpha = false;
 		boolean bool_51_ = false;
 		boolean bool_52_ = false;
 		final int i_53_ = class150s != null ? class150s.length : 0;
@@ -270,7 +261,7 @@ final class PlayerAppearance {
 					MapFunctionType.anIntArray664[i_54_] = i_58_;
 					if (Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_] != null) {
 						bool_51_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1579(i_58_);
-						bool_50_ |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].method1578(i_58_);
+						animHasAlpha |= Class120_Sub21.aClass120_Sub14_Sub18Array2667[i_54_].hasAlpha(i_58_);
 						bool_52_ |= class40_55_.aBoolean341;
 					}
 					if (!class40_55_.tween && !Class164.forceTweenEnabled || i_57_ == -1 || class40_55_.frames.length <= i_57_) {
@@ -287,7 +278,7 @@ final class PlayerAppearance {
 						QuickChatMessageType.anIntArray3533[i_54_] = i_59_;
 						if (Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_] != null) {
 							bool_51_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1579(i_59_);
-							bool_50_ |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].method1578(i_59_);
+							animHasAlpha |= Class120_Sub15.aClass120_Sub14_Sub18Array2595[i_54_].hasAlpha(i_59_);
 						}
 					}
 				}
@@ -299,69 +290,69 @@ final class PlayerAppearance {
 			}
 			return cachedModel;
 		}
-		int i_60_ = -1;
-		int i_61_ = -1;
-		FrameGroup class120_sub14_sub18 = null;
-		int i_62_ = 0;
-		FrameGroup class120_sub14_sub18_63_ = null;
+		int animFrame = -1;
+		int animNextFrame = -1;
+		FrameGroup animFrameGroup = null;
+		int animFrameDelay = 0;
+		FrameGroup animNextFrameGroup = null;
 		if (animSeqType != null) {
-			i_60_ = animSeqType.frames[i_19_];
-			final int i_64_ = i_60_ >>> 16;
-			i_60_ &= 0xffff;
-			class120_sub14_sub18 = FrameGroup.list(i_64_);
-			if (class120_sub14_sub18 != null) {
-				bool_51_ |= class120_sub14_sub18.method1579(i_60_);
-				bool_50_ |= class120_sub14_sub18.method1578(i_60_);
+			animFrame = animSeqType.frames[i_19_];
+			final int i_64_ = animFrame >>> 16;
+			animFrame &= 0xffff;
+			animFrameGroup = FrameGroup.list(i_64_);
+			if (animFrameGroup != null) {
+				bool_51_ |= animFrameGroup.method1579(animFrame);
+				animHasAlpha |= animFrameGroup.hasAlpha(animFrame);
 				bool_52_ |= animSeqType.aBoolean341;
 			}
 			if ((animSeqType.tween || Class164.forceTweenEnabled) && i_17_ != -1 && i_17_ < animSeqType.frames.length) {
-				i_61_ = animSeqType.frames[i_17_];
-				final int i_65_ = i_61_ >>> 16;
-				i_61_ &= 0xffff;
-				i_62_ = animSeqType.delays[i_19_];
+				animNextFrame = animSeqType.frames[i_17_];
+				final int i_65_ = animNextFrame >>> 16;
+				animNextFrame &= 0xffff;
+				animFrameDelay = animSeqType.delays[i_19_];
 				if (i_65_ != i_64_) {
-					class120_sub14_sub18_63_ = FrameGroup.list(i_61_ >>> 16);
+					animNextFrameGroup = FrameGroup.list(animNextFrame >>> 16);
 				} else {
-					class120_sub14_sub18_63_ = class120_sub14_sub18;
+					animNextFrameGroup = animFrameGroup;
 				}
-				if (class120_sub14_sub18_63_ != null) {
-					bool_51_ |= class120_sub14_sub18_63_.method1579(i_61_);
-					bool_50_ |= class120_sub14_sub18_63_.method1578(i_61_);
+				if (animNextFrameGroup != null) {
+					bool_51_ |= animNextFrameGroup.method1579(animNextFrame);
+					animHasAlpha |= animNextFrameGroup.hasAlpha(animNextFrame);
 				}
 			}
 		}
-		int i_66_ = -1;
-		int i_67_ = 0;
-		int i_68_ = -1;
-		FrameGroup class120_sub14_sub18_69_ = null;
-		FrameGroup class120_sub14_sub18_70_ = null;
+		int idleNextFrame = -1;
+		int idleFrameDelay = 0;
+		int idleFrame = -1;
+		FrameGroup idleNextFrameGroup = null;
+		FrameGroup idleFrameGroup = null;
 		if (idleSeqType != null) {
-			i_68_ = idleSeqType.frames[i];
-			final int i_71_ = i_68_ >>> 16;
-			class120_sub14_sub18_70_ = FrameGroup.list(i_71_);
-			i_68_ &= 0xffff;
-			if (class120_sub14_sub18_70_ != null) {
-				bool_51_ |= class120_sub14_sub18_70_.method1579(i_68_);
-				bool_50_ |= class120_sub14_sub18_70_.method1578(i_68_);
+			idleFrame = idleSeqType.frames[i];
+			final int i_71_ = idleFrame >>> 16;
+			idleFrameGroup = FrameGroup.list(i_71_);
+			idleFrame &= 0xffff;
+			if (idleFrameGroup != null) {
+				bool_51_ |= idleFrameGroup.method1579(idleFrame);
+				animHasAlpha |= idleFrameGroup.hasAlpha(idleFrame);
 				bool_52_ |= idleSeqType.aBoolean341;
 			}
 			if ((idleSeqType.tween || Class164.forceTweenEnabled) && i_18_ != -1 && i_18_ < idleSeqType.frames.length) {
-				i_67_ = idleSeqType.delays[i];
-				i_66_ = idleSeqType.frames[i_18_];
-				final int i_72_ = i_66_ >>> 16;
-				i_66_ &= 0xffff;
+				idleFrameDelay = idleSeqType.delays[i];
+				idleNextFrame = idleSeqType.frames[i_18_];
+				final int i_72_ = idleNextFrame >>> 16;
+				idleNextFrame &= 0xffff;
 				if (i_72_ != i_71_) {
-					class120_sub14_sub18_69_ = FrameGroup.list(i_66_ >>> 16);
+					idleNextFrameGroup = FrameGroup.list(idleNextFrame >>> 16);
 				} else {
-					class120_sub14_sub18_69_ = class120_sub14_sub18_70_;
+					idleNextFrameGroup = idleFrameGroup;
 				}
-				if (class120_sub14_sub18_69_ != null) {
-					bool_51_ |= class120_sub14_sub18_69_.method1579(i_66_);
-					bool_50_ |= class120_sub14_sub18_69_.method1578(i_66_);
+				if (idleNextFrameGroup != null) {
+					bool_51_ |= idleNextFrameGroup.method1579(idleNextFrame);
+					animHasAlpha |= idleNextFrameGroup.hasAlpha(idleNextFrame);
 				}
 			}
 		}
-		final AbstractModelRenderer class180_sub7_73_ = cachedModel.method2376(!bool_50_, !bool_51_, !bool_52_);
+		final AbstractModelRenderer class180_sub7_73_ = cachedModel.method2376(!animHasAlpha, !bool_51_, !bool_52_);
 		int i_74_ = 0;
 		int i_75_ = 1;
 		while (i_53_ > i_74_) {
@@ -371,14 +362,12 @@ final class PlayerAppearance {
 			i_74_++;
 			i_75_ <<= 1;
 		}
-		if (class120_sub14_sub18 != null && class120_sub14_sub18_70_ != null) {
-			class180_sub7_73_.method2361(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, animSeqType.aBooleanArray327, idleSeqType.aBoolean341 | animSeqType.aBoolean341);
-		} else if (class120_sub14_sub18 == null) {
-			if (class120_sub14_sub18_70_ != null) {
-				class180_sub7_73_.method2380(class120_sub14_sub18_70_, i_68_, class120_sub14_sub18_69_, i_66_, -1 + i_21_, i_67_, idleSeqType.aBoolean341);
-			}
-		} else {
-			class180_sub7_73_.method2380(class120_sub14_sub18, i_60_, class120_sub14_sub18_63_, i_61_, -1 + i_24_, i_62_, animSeqType.aBoolean341);
+		if (animFrameGroup != null && idleFrameGroup != null) {
+			class180_sub7_73_.method2361(animFrameGroup, animFrame, animNextFrameGroup, animNextFrame, animDelay - 1, animFrameDelay, idleFrameGroup, idleFrame, idleNextFrameGroup, idleNextFrame, idleDelay - 1, idleFrameDelay, animSeqType.aBooleanArray327, idleSeqType.aBoolean341 | animSeqType.aBoolean341);
+		} else if (animFrameGroup != null) {
+			class180_sub7_73_.method2380(animFrameGroup, animFrame, animNextFrameGroup, animNextFrame, animDelay - 1, animFrameDelay, animSeqType.aBoolean341);
+		} else if (idleFrameGroup != null) {
+			class180_sub7_73_.method2380(idleFrameGroup, idleFrame, idleNextFrameGroup, idleNextFrame, idleDelay - 1, idleFrameDelay, idleSeqType.aBoolean341);
 		}
 		for (int id = 0; id < i_53_; id++) {
 			Class120_Sub21.aClass120_Sub14_Sub18Array2667[id] = null;
@@ -428,8 +417,8 @@ final class PlayerAppearance {
 	}
 
 	final void init(final int npcId, int[] appData, final int renderId, final int[] colors, final boolean isFemale) {
-		if (entityRenderDataId != renderId) {
-			entityRenderDataId = renderId;
+		if (basTypeId != renderId) {
+			basTypeId = renderId;
 			anIntArrayArray1377 = null;
 		}
 		if (appData == null) {
@@ -471,7 +460,7 @@ final class PlayerAppearance {
 					if ((~0x7fffffff & i_96_) != 0 && !Identikit.list(i_96_ & 0x3fffffff).headModelsDownloaded()) {
 						bool = true;
 					}
-				} else if (!ObjType.list(0x3fffffff & i_96_).method2116(this.isFemale)) {
+				} else if (!ObjType.list(0x3fffffff & i_96_).headModelsDownloaded(this.isFemale)) {
 					bool = true;
 				}
 			}

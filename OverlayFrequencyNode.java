@@ -5,7 +5,7 @@
 final class OverlayFrequencyNode extends NodeSub {
 	byte[] aByteArray3623;
 	static int anInt3624 = 0;
-	static int packetCounter = 0;
+	static int triggerId = 0;
 
 	OverlayFrequencyNode(final byte[] is) {
 		this.aByteArray3623 = is;

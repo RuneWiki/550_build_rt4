@@ -167,10 +167,10 @@ final class ObjectCache {
 		final int scriptId = ((Integer) objectData[0]).intValue();
 		final ClientScript clientScript = ClientScript.list(scriptId);
 		if (clientScript != null) {
-			Class79_Sub1.stringArguments = new String[clientScript.stringArgumentCount];
-			TileParticleQueue.intArguments = new int[clientScript.intArgumentCount];
-			int intArgAmount = 0;
-			int stringArgAmount = 0;
+			Class79_Sub1.stringLocalVariables = new String[clientScript.stringLocalVariableCount];
+			TileParticleQueue.intLocalVariables = new int[clientScript.intLocalVariableCount];
+			int intArgumentPos = 0;
+			int stringArgumentPos = 0;
 			for (int id = 1; id < objectData.length; id++) {
 				if (objectData[id] instanceof Integer) {
 					int intValue = ((Integer) objectData[id]).intValue();
@@ -184,7 +184,7 @@ final class ObjectCache {
 						intValue = listener.jagexInterface != null ? listener.jagexInterface.bitPacked : -1;
 					}
 					if (intValue == -2147483644) {
-						intValue = listener.actionId;
+						intValue = listener.optionId;
 					}
 					if (intValue == -2147483643) {
 						intValue = listener.jagexInterface != null ? listener.jagexInterface.componentIndex : - 1;
@@ -201,13 +201,13 @@ final class ObjectCache {
 					if (intValue == -2147483639) {
 						intValue = listener.keyChar;
 					}
-					TileParticleQueue.intArguments[intArgAmount++] = intValue;
+					TileParticleQueue.intLocalVariables[intArgumentPos++] = intValue;
 				} else if (objectData[id] instanceof String) {
 					String stringValue = (String) objectData[id];
 					if (stringValue.equals("event_opbase")) {
-						stringValue = listener.actionOption;
+						stringValue = listener.optionBase;
 					}
-					Class79_Sub1.stringArguments[stringArgAmount++] = stringValue;
+					Class79_Sub1.stringLocalVariables[stringArgumentPos++] = stringValue;
 				}
 			}
 			World.executeScript(clientScript, i);

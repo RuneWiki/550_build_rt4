@@ -151,7 +151,7 @@ class Class164 {
 				}
 			}
 			if (Class28.locationsMapFileIds[id] != -1 && Class134.locationMapFilesBuffer[id] == null) {
-				Class134.locationMapFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, Class28.locationsMapFileIds[id], Class125.anIntArrayArray2150[id]);
+				Class134.locationMapFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, Class28.locationsMapFileIds[id], Class125.regionsXteaKeys[id]);
 				if (Class134.locationMapFilesBuffer[id] == null) {
 					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
@@ -174,7 +174,7 @@ class Class164 {
 				}
 			}
 			if (ProducingGraphicsBuffer.npcSpawnsFileIds != null && Class179.npcSpawnsFilesBuffer[id] == null && ProducingGraphicsBuffer.npcSpawnsFileIds[id] != -1) {
-				Class179.npcSpawnsFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, ProducingGraphicsBuffer.npcSpawnsFileIds[id], Class125.anIntArrayArray2150[id]);
+				Class179.npcSpawnsFilesBuffer[id] = Class65.mapsJs5.getFileXTEA(0, ProducingGraphicsBuffer.npcSpawnsFileIds[id], Class125.regionsXteaKeys[id]);
 				if (Class179.npcSpawnsFilesBuffer[id] == null) {
 					fileExists = false;
 					AbstractBuffer.mapFilesMissingCount++;
@@ -182,13 +182,13 @@ class Class164 {
 			}
 		}
 		if (SceneGraphNode.mapFunctionGroup == null) {
-			if (Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 == null || !Class120_Sub12_Sub24.aClass50_3309.method414(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
+			if (Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 == null || !Class120_Sub12_Sub24.worldMapJs5.method414(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
 				SceneGraphNode.mapFunctionGroup = new MapFunctionGroup(0);
-			} else if (!Class120_Sub12_Sub24.aClass50_3309.allFilesComplete(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
+			} else if (!Class120_Sub12_Sub24.worldMapJs5.allFilesComplete(Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels")) {
 				AbstractBuffer.mapFilesMissingCount++;
 				fileExists = false;
 			} else {
-				SceneGraphNode.mapFunctionGroup = Class54.createMapFunctionGroup(Class120_Sub12_Sub24.aClass50_3309, Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels", Class120_Sub12_Sub37.membersClient);
+				SceneGraphNode.mapFunctionGroup = Class54.createMapFunctionGroup(Class120_Sub12_Sub24.worldMapJs5, Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174.configName + "_labels", Class120_Sub12_Sub37.membersClient);
 			}
 		}
 		if (!fileExists) {
@@ -292,7 +292,7 @@ class Class164 {
 				}
 				Class110.method976();
 				Class120_Sub12_Sub29.ping(true);
-				Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.anIntArrayArrayArray3420 : null, false);
+				Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.dynamicMapData : null, false);
 				if (HDToolkit.glEnabled) {
 					LightManager.method1869();
 				}
@@ -325,7 +325,7 @@ class Class164 {
 					}
 					Class110.method976();
 					Class120_Sub12_Sub29.ping(true);
-					Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.anIntArrayArrayArray3420 : null, true);
+					Class120_Sub12_Sub28.method1344(WallLocation.collisionMaps, Class134.dynamicMapRegion ? Class120_Sub12_Sub36.dynamicMapData : null, true);
 					Class120_Sub12_Sub29.ping(true);
 					Class192.method2515();
 					Class178.setRenderTiles(false);
@@ -333,7 +333,7 @@ class Class164 {
 				if (HDToolkit.glEnabled) {
 					for (int chunkX = 0; chunkX < 13; chunkX++) {
 						for (int chunkZ = 0; chunkZ < 13; chunkZ++) {
-							ShadowManager.shadows[chunkX][chunkZ].method778(OverridedJInterface.activeTileHeightMap[0], chunkX * 8, chunkZ * 8);
+							ShadowManager.shadows[chunkX][chunkZ].method778(SubInterface.activeTileHeightMap[0], chunkX * 8, chunkZ * 8);
 						}
 					}
 				}
@@ -351,16 +351,16 @@ class Class164 {
 					Class101.refreshAtmosphere(true);
 				}
 				if (Class112.frame != null && AbstractTimer.worldConnection != null && Class109.gameState == 25) {
-					Class120_Sub12_Sub11.outputStream.putByteIsaac(236);
+					Class120_Sub12_Sub11.outputStream.putByteIsaac(236);//Detect modified client
 					Class120_Sub12_Sub11.outputStream.putInt(1057001181);
 				}
 				if (!Class134.dynamicMapRegion) {
-					final int i_30_ = (Class116.anInt1118 - 6) / 8;
-					final int i_31_ = (Class116.anInt1118 + 6) / 8;
-					final int i_32_ = (Class3.anInt53 - 6) / 8;
-					final int i_33_ = (Class3.anInt53 + 6) / 8;
-					for (int i_34_ = i_30_ + -1; i_34_ <= 1 + i_31_; i_34_++) {
-						for (int i_35_ = -1 + i_32_; 1 + i_33_ >= i_35_; i_35_++) {
+					final int i_30_ = (Class116.currentRegionX - 6) / 8;
+					final int i_31_ = (Class116.currentRegionX + 6) / 8;
+					final int i_32_ = (Class3.currentRegionZ - 6) / 8;
+					final int i_33_ = (Class3.currentRegionZ + 6) / 8;
+					for (int i_34_ = i_30_ - 1; i_34_ <= i_31_ + 1; i_34_++) {
+						for (int i_35_ = i_32_ - 1; i_35_ <= i_33_ + 1; i_35_++) {
 							if (i_34_ < i_30_ || i_34_ > i_31_ || i_35_ < i_32_ || i_33_ < i_35_) {
 								Class65.mapsJs5.method427("m" + i_34_ + "_" + i_35_);
 								Class65.mapsJs5.method427("l" + i_34_ + "_" + i_35_);
@@ -494,7 +494,7 @@ class Class164 {
 					}
 				}
 			}
-			for (int id = 0; id < Class120_Sub24.mapFunctionCount; id++) {
+			for (int id = 0; id < CustomLocation.mapFunctionCount; id++) {
 				final int mapFunctionX = (MapFunctionType.mapFunctionXs[id] * 4) - (TileParticleQueue.selfPlayer.x / 32) + 2;
 				final int mapFunctionY = (Class69_Sub2.mapFunctionZs[id] * 4) - (TileParticleQueue.selfPlayer.z / 32) + 2;
 				LocType locType = LocType.list(client.mapFunctionLocIds[id]);
@@ -570,7 +570,7 @@ class Class164 {
 				}
 			}
 			for (final HintIcon hintIcon : Class187.hintIcons) {
-				if (hintIcon != null && hintIcon.targetType != 0 && Class101_Sub2.loopCycle % 20 < 10) {
+				if (hintIcon != null && hintIcon.targetType != 0 && Class101_Sub2.clientClock % 20 < 10) {
 					if (hintIcon.targetType == 1 && hintIcon.targetIndex >= 0 && hintIcon.targetIndex < Class120_Sub12_Sub11.npcList.length) {
 						final Npc npc = Class120_Sub12_Sub11.npcList[hintIcon.targetIndex];
 						if (npc != null) {

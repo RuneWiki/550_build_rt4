@@ -53,7 +53,7 @@ final class CursorType {
 						final int index = Class120_Sub12_Sub7.menuOptionsData2[WallDecoration.menuOptionCount - 1];
 						final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
 						final InterfaceClickMask clickMask = client.getClickMask(jagexInterface);
-						if (clickMask.method1681() || clickMask.method1691()) {
+						if (clickMask.canDragObject() || clickMask.draggingReplacesObject()) {
 							JavaObject.clickedInventoryComponentCycle = 0;
 							Huffman.draggingClickedInventoryObject = false;
 							if (Projectile.clickedInventoryComponent != null) {
@@ -68,7 +68,7 @@ final class CursorType {
 						}
 					}
 				}
-				if (mouseClickType == 1 && (Class69.mouseButtons == 1 && WallDecoration.menuOptionCount > 2 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1))) {
+				if (mouseClickType == 1 && (Class69.oneMouseButton == 1 && WallDecoration.menuOptionCount > 2 || SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1))) {
 					mouseClickType = 2;
 				}
 				if (mouseClickType == 2 && WallDecoration.menuOptionCount > 0 || FileSystem.anInt455 == 1) {
@@ -81,9 +81,9 @@ final class CursorType {
 				if (mouseClickType != 1) {//Move mouse of menu
 					final int mouseX = Queue.lastMouseX;
 					final int mouseY = ChunkAtmosphere.lastMouseY;
-					if (mouseX < Huffman.menuDrawX - 10 || mouseX > 10 + Class120_Sub24.menuWidth + Huffman.menuDrawX || mouseY < Class120_Sub16.menuDrawY - 10 || mouseY > 10 + QuickChatMessageType.menuHeight + Class120_Sub16.menuDrawY) {
+					if (mouseX < Huffman.menuDrawX - 10 || mouseX > 10 + CustomLocation.menuWidth + Huffman.menuDrawX || mouseY < Class120_Sub16.menuDrawY - 10 || mouseY > 10 + QuickChatMessageType.menuHeight + Class120_Sub16.menuDrawY) {
 						Class15.menuOpen = false;
-						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+						Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 					}
 				}
 				if (mouseClickType == 1) {//Click option
@@ -91,7 +91,7 @@ final class CursorType {
 					final int menuY = Class120_Sub16.menuDrawY;
 					final int clickX = js5.lastClickX;
 					final int clickY = Class120_Sub12_Sub36.lastClickY;
-					final int menuWidth = Class120_Sub24.menuWidth;
+					final int menuWidth = CustomLocation.menuWidth;
 					int optionIndex = -1;
 					for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 						if (!WallDecoration.usingSpriteMenu) {
@@ -110,7 +110,7 @@ final class CursorType {
 						GameShell.method31(optionIndex);
 					}
 					Class15.menuOpen = false;
-					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+					Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 				}
 			}
 		}

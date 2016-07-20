@@ -68,11 +68,11 @@ abstract class AbstractTimer {
 		Class114.previousPacketType = client.packetType;
 		Class88.timoutCycle = 0;
 		if (client.packetType == 163) {
-			for (int id = 0; id < Class2.permanentVariable.length; id++) {
-				if (Class2.permanentVariable[id] != Class30.anIntArray239[id]) {
-					Class2.permanentVariable[id] = Class30.anIntArray239[id];
+			for (int id = 0; id < Class2.playerVariables.length; id++) {
+				if (Class2.playerVariables[id] != Class30.serverPlayerVariables[id]) {
+					Class2.playerVariables[id] = Class30.serverPlayerVariables[id];
 					Class120_Sub14_Sub15.postVarpChange(id);
-					Class88.anIntArray833[Class120_Sub12_Sub3.method1207(31, VarBit.anInt165++)] = id;
+					Class88.varpTriggers[Class120_Sub12_Sub3.method1207(31, VarBit.varpTriggersPos++)] = id;
 				}
 			}
 			client.packetType = -1;
@@ -87,8 +87,8 @@ abstract class AbstractTimer {
 			} else {
 				jagexInterface = null;
 			}
-			if ((bitPacked ^ 0xffffffff) > 69999) {
-				objType += 32768;
+			if (bitPacked < -70000) {
+				objType += 0x8000;
 			}
 			while (Canvas_Sub1.inputStream.pos < AbstractMouseWheelHandler.packetSize) {
 				int objAmt = 0;
@@ -109,8 +109,8 @@ abstract class AbstractTimer {
 			if (jagexInterface != null) {
 				InterfaceClickMask.redrawInterface(jagexInterface);
 			}
-			Class90.redrawOldFormatOverridedInterfaces();
-			Class120_Sub12_Sub21_Sub1.anIntArray3912[Class120_Sub12_Sub3.method1207(31, Class33.anInt278++)] = Class120_Sub12_Sub3.method1207(32767, objType);
+			Class90.redrawOldFormatSubInterfaces();
+			Class120_Sub12_Sub21_Sub1.inventoryTriggers[Class120_Sub12_Sub3.method1207(31, Class33.inventoryTriggersPos++)] = Class120_Sub12_Sub3.method1207(32767, objType);
 			client.packetType = -1;
 			return true;
 		}
@@ -133,7 +133,7 @@ abstract class AbstractTimer {
 			final int i_18_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_19_ = Canvas_Sub1.inputStream.getULEShortA();
 			final byte i_20_ = Canvas_Sub1.inputStream.getByteC();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_18_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_18_)) {
 				WaterfallShader.method180(i_19_, i_20_);
 			}
 			client.packetType = -1;
@@ -150,12 +150,12 @@ abstract class AbstractTimer {
 			final int i_22_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_23_ = Canvas_Sub1.inputStream.getLEInt();
 			final int i_24_ = Canvas_Sub1.inputStream.getULEShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_22_)) {
-				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_23_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_22_)) {
+				final SubInterface class120_sub26 = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(i_23_);
 				if (class120_sub26 != null) {
-					Class120_Sub19.removeOverridedInterface(class120_sub26, i_24_ != class120_sub26.interfaceId);
+					Class120_Sub19.removeSubInterface(class120_sub26, i_24_ != class120_sub26.interfaceId);
 				}
-				RuntimeException_Sub1.overrideInterface(i_24_, i_21_, i_23_);
+				RuntimeException_Sub1.addSubInterface(i_24_, i_21_, i_23_);
 			}
 			client.packetType = -1;
 			return true;
@@ -305,7 +305,7 @@ abstract class AbstractTimer {
 				start = -1;
 			}
 			final int counter = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(counter)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(counter)) {
 				for (int id = start; id <= end; id++) {
 					final long uid = ((long) interfaceBitPacked << 32) + (long) id;
 					final InterfaceClickMask existingMask = (InterfaceClickMask) JavaObject.clickMaskCache.get(uid);
@@ -330,7 +330,7 @@ abstract class AbstractTimer {
 			final int i_59_ = Canvas_Sub1.inputStream.getULEShort();
 			final String string = Canvas_Sub1.inputStream.getJagexString();
 			final int i_60_ = Canvas_Sub1.inputStream.getInt1();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_59_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_59_)) {
 				InterfaceChangeNode.method761(string, i_60_);
 			}
 			client.packetType = -1;
@@ -340,7 +340,7 @@ abstract class AbstractTimer {
 			final int i_61_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_62_ = Canvas_Sub1.inputStream.getInt2();
 			final int i_63_ = Canvas_Sub1.inputStream.getUShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_61_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_61_)) {
 				Class120_Sub12_Sub11.method1250(i_63_, i_62_);
 			}
 			client.packetType = -1;
@@ -350,38 +350,38 @@ abstract class AbstractTimer {
 			final int i_64_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_65_ = Canvas_Sub1.inputStream.getLEInt();
 			final int i_66_ = Canvas_Sub1.inputStream.getUShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_66_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_66_)) {
 				WaterfallShader.method180(i_64_, i_65_);
 			}
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 95) {
-			Class90.redrawOldFormatOverridedInterfaces();
+			Class90.redrawOldFormatSubInterfaces();
 			LookupTable.weight = Canvas_Sub1.inputStream.getShort();
 			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 164) {
-			Class90.redrawOldFormatOverridedInterfaces();
+			Class90.redrawOldFormatSubInterfaces();
 			final int level = Canvas_Sub1.inputStream.getUByte();
 			final int xp = Canvas_Sub1.inputStream.getInt1();
 			final int skill = Canvas_Sub1.inputStream.getUByte();
-			Class120_Sub12_Sub38.skillsXp[skill] = xp;
-			SceneGraphNode.skillsLevel[skill] = level;
-			Decimator.skillsBaseLevel[skill] = 1;
+			client.skillsXp[skill] = xp;
+			client.skillsLevel[skill] = level;
+			client.skillsBaseLevel[skill] = 1;
 			for (int id = 0; id < 98; id++) {
-				if (xp >= Class55.skillsXpForLevel[id]) {
-					Decimator.skillsBaseLevel[skill] = id + 2;
+				if (xp >= SkillsConstants.skillsXpForLevel[id]) {
+					client.skillsBaseLevel[skill] = id + 2;
 				}
 			}
-			Class120_Sub12_Sub18.skillTriggers[Class120_Sub12_Sub3.method1207(31, Class120_Sub21.skillTriggersPos++)] = skill;
+			client.skillTriggers[client.skillTriggersPos++ & 31] = skill;
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 8) {
-			Class90.redrawOldFormatOverridedInterfaces();
+			Class90.redrawOldFormatSubInterfaces();
 			Class69_Sub2.energy = Canvas_Sub1.inputStream.getUByte();
 			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 			client.packetType = -1;
@@ -399,7 +399,7 @@ abstract class AbstractTimer {
 				i_72_ = -1;
 			}
 			final int i_73_ = Canvas_Sub1.inputStream.getLEInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_71_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_71_)) {
 				Class120_Sub21.method1695(1, -1, i_73_, i_72_);
 			}
 			client.packetType = -1;
@@ -413,7 +413,7 @@ abstract class AbstractTimer {
 		if (client.packetType == 138) {
 			final int i_74_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_75_ = Canvas_Sub1.inputStream.getInt2();
-			MapSceneType.method2004(i_75_, i_74_);
+			VarBit.setVarbitFromServer(i_74_, i_75_);
 			client.packetType = -1;
 			return true;
 		}
@@ -471,7 +471,7 @@ abstract class AbstractTimer {
 			if (start == 65535) {
 				start = -1;
 			}
-			if (Class69_Sub3_Sub1.updatePacketCounter(counter)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(counter)) {
 				for (int id = start; id <= end; id++) {
 					final long l = ((long) interfaceBitPacked << 32) + id;
 					final InterfaceClickMask cachedInterfaceClickMask = (InterfaceClickMask) JavaObject.clickMaskCache.get(l);
@@ -517,7 +517,7 @@ abstract class AbstractTimer {
 						ReflectionCheckNode.clanMembers[memberIndex].sideText = sideText;
 						Class120_Sub12_Sub12.anInt3217 = GrandExchangeObject.anInt1494;
 						if (WaterfallShader.selfNameAsLong == nameAsLong) {
-							MouseHandler.selfClanRank = rank;
+							MouseHandler.selfRankInClan = rank;
 						}
 						client.packetType = -1;
 						return true;
@@ -538,7 +538,7 @@ abstract class AbstractTimer {
 				}
 				ReflectionCheckNode.clanMembers[memberIndex + 1] = clanMember;
 				if (nameAsLong == WaterfallShader.selfNameAsLong) {
-					MouseHandler.selfClanRank = rank;
+					MouseHandler.selfRankInClan = rank;
 				}
 				Class120_Sub14_Sub13.clanMembersAmount++;
 			} else {
@@ -565,7 +565,7 @@ abstract class AbstractTimer {
 		}
 		if (client.packetType == 104) {
 			final long l = Canvas_Sub1.inputStream.getLong();
-			final String string = AbstractFont.method1472(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
+			final String string = AbstractFont.removeTags(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
 			AbstractRequest.pushMessage(string, Class136.longToString(l), 6);
 			client.packetType = -1;
 			return true;
@@ -582,7 +582,7 @@ abstract class AbstractTimer {
 				}
 			}
 			objects[0] = new Integer(Canvas_Sub1.inputStream.getInt());
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_93_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_93_)) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
 				class120_sub10.objectData = objects;
 				Class88.executeScript(class120_sub10);
@@ -597,7 +597,7 @@ abstract class AbstractTimer {
 				i_95_ = -1;
 			}
 			final int i_97_ = i_96_ >> 2;
-			final int i_98_ = CollisionMap.anIntArray153[i_97_];
+			final int i_98_ = CollisionMap.locTypeToClientType[i_97_];
 			final int i_99_ = i_96_ & 0x3;
 			final int i_100_ = Canvas_Sub1.inputStream.getInt();
 			final int i_101_ = (i_100_ & 0x3bd1748b) >> 28;
@@ -611,7 +611,7 @@ abstract class AbstractTimer {
 		}
 		if (client.packetType == 30) {
 			if (QuickChatMessageType.fullscreenFrame != null) {
-				AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
+				AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.lastUsedDisplayMode, -1, -1, false);
 			}
 			final byte[] buffer = new byte[AbstractMouseWheelHandler.packetSize];
 			Canvas_Sub1.inputStream.getBytesIsaac(buffer, 0, AbstractMouseWheelHandler.packetSize);
@@ -637,9 +637,9 @@ abstract class AbstractTimer {
 					}
 				}
 			}
-			for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-				if (MagnetType.anInt254 <= class120_sub24.anInt2731 && class120_sub24.anInt2731 < 8 + MagnetType.anInt254 && Class28.anInt176 <= class120_sub24.anInt2725 && 8 + Class28.anInt176 > class120_sub24.anInt2725 && Class173.gameLevel == class120_sub24.anInt2722) {
-					class120_sub24.anInt2720 = 0;
+			for (CustomLocation class120_sub24 = (CustomLocation) Class120_Sub4.customLocations.getFront(); class120_sub24 != null; class120_sub24 = (CustomLocation) Class120_Sub4.customLocations.getNext()) {
+				if (MagnetType.anInt254 <= class120_sub24.x && class120_sub24.x < 8 + MagnetType.anInt254 && Class28.anInt176 <= class120_sub24.z && 8 + Class28.anInt176 > class120_sub24.z && Class173.gameLevel == class120_sub24.level) {
+					class120_sub24.cycle1 = 0;
 				}
 			}
 			client.packetType = -1;
@@ -648,17 +648,17 @@ abstract class AbstractTimer {
 		if (client.packetType == 10) {
 			final int i_106_ = Canvas_Sub1.inputStream.getInt1();
 			final int i_107_ = Canvas_Sub1.inputStream.getUShortA();
-			FileSystemRequest.method1544(i_107_, i_106_);
+			Varp.setVarpFromServer(i_107_, i_106_);
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 100) {
-			int i_108_ = Canvas_Sub1.inputStream.getUShort();
-			if (i_108_ == 65535) {
-				i_108_ = -1;
+			int id = Canvas_Sub1.inputStream.getUShort();
+			if (id == 0xffff) {
+				id = -1;
 			}
-			final int i_109_ = Canvas_Sub1.inputStream.getUByteA();
-			ObjectPile.method2447(i_109_, i_108_);
+			final int volume = Canvas_Sub1.inputStream.getUByteA();
+			ObjectPile.method2447(volume, id);
 			client.packetType = -1;
 			return true;
 		}
@@ -710,9 +710,9 @@ abstract class AbstractTimer {
 			}
 			final int i_118_ = Canvas_Sub1.inputStream.getUShortA();
 			final int i_119_ = Canvas_Sub1.inputStream.getInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_118_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_118_)) {
 				final JagexInterface jagexInterface = Class74.getJagexInterface(i_116_);
-				if (jagexInterface.newFormat) {
+				if (jagexInterface.if3Format) {
 					Class120_Sub12_Sub27.method1342(i_119_, i_116_, i_117_);
 					final ObjType objType = ObjType.list(i_117_);
 					SeqType.method325(objType.yan2d, objType.zoom2d, objType.xan2d, i_116_);
@@ -724,10 +724,10 @@ abstract class AbstractTimer {
 						return true;
 					}
 					final ObjType objType = ObjType.list(i_117_);
-					jagexInterface.rotateY = objType.yan2d;
+					jagexInterface.angleY = objType.yan2d;
 					jagexInterface.modelTypeDisabled = 4;
 					jagexInterface.modelIdDisabled = i_117_;
-					jagexInterface.rotateX = objType.xan2d;
+					jagexInterface.angleX = objType.xan2d;
 					jagexInterface.zoom = objType.zoom2d * 100 / i_119_;
 					InterfaceClickMask.redrawInterface(jagexInterface);
 				}
@@ -740,8 +740,8 @@ abstract class AbstractTimer {
 			final int i_121_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_122_ = Canvas_Sub1.inputStream.getShortA();
 			final int i_123_ = Canvas_Sub1.inputStream.getLEShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_121_)) {
-				EntityRenderData.method254(i_120_, i_122_, i_123_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_121_)) {
+				BasType.method254(i_120_, i_122_, i_123_);
 			}
 			client.packetType = -1;
 			return true;
@@ -751,7 +751,7 @@ abstract class AbstractTimer {
 			final int i_125_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_126_ = Canvas_Sub1.inputStream.getUShortA();
 			final int i_127_ = Canvas_Sub1.inputStream.getLEInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_124_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_124_)) {
 				Class89.method746(i_127_, i_126_ + (i_125_ << 16));
 			}
 			client.packetType = -1;
@@ -772,7 +772,7 @@ abstract class AbstractTimer {
 					}
 				}
 				if (i_132_ <= 1) {
-					if (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || SpotAnimationNode.aBoolean3464) {
+					if (VarBit.quickChatParam2 && !UnderlayType.quickChatParam3 || SpotAnimationNode.quickChatParam1) {
 						bool_128_ = true;
 					} else {
 						for (int i_134_ = 0; Class120_Sub12_Sub26.ignoreCount > i_134_; i_134_++) {
@@ -787,7 +787,7 @@ abstract class AbstractTimer {
 			if (!bool_128_ && Class69_Sub3.isInTutIsland == 0) {
 				Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_131_;
 				Class24.anInt147 = (Class24.anInt147 + 1) % 100;
-				final String string = AbstractFont.method1472(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
+				final String string = AbstractFont.removeTags(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
 				if (i_132_ == 2 || i_132_ == 3) {
 					AbstractRequest.pushMessage(string, new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), 7);
 				} else if (i_132_ == 1) {
@@ -803,15 +803,15 @@ abstract class AbstractTimer {
 			final int i_135_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_136_ = Canvas_Sub1.inputStream.getInt();
 			final int i_137_ = Canvas_Sub1.inputStream.getLEInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_135_)) {
-				final OverridedJInterface class120_sub26 = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_136_);
-				final OverridedJInterface class120_sub26_138_ = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(i_137_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_135_)) {
+				final SubInterface class120_sub26 = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(i_136_);
+				final SubInterface class120_sub26_138_ = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(i_137_);
 				if (class120_sub26_138_ != null) {
-					Class120_Sub19.removeOverridedInterface(class120_sub26_138_, class120_sub26 == null || class120_sub26_138_.interfaceId != class120_sub26.interfaceId);
+					Class120_Sub19.removeSubInterface(class120_sub26_138_, class120_sub26 == null || class120_sub26_138_.interfaceId != class120_sub26.interfaceId);
 				}
 				if (class120_sub26 != null) {
 					class120_sub26.unlink();
-					Class120_Sub12_Sub13.overridedInterfaces.put(class120_sub26, i_137_);
+					Class120_Sub12_Sub13.subInterfaces.put(class120_sub26, i_137_);
 				}
 				JagexInterface jagexInterface = Class74.getJagexInterface(i_136_);
 				if (jagexInterface != null) {
@@ -845,7 +845,7 @@ abstract class AbstractTimer {
 				}
 			}
 			if (i_143_ <= 1) {
-				if (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || SpotAnimationNode.aBoolean3464) {
+				if (VarBit.quickChatParam2 && !UnderlayType.quickChatParam3 || SpotAnimationNode.quickChatParam1) {
 					bool_144_ = true;
 				} else {
 					for (int i_146_ = 0; i_146_ < Class120_Sub12_Sub26.ignoreCount; i_146_++) {
@@ -859,7 +859,7 @@ abstract class AbstractTimer {
 			if (!bool_144_ && Class69_Sub3.isInTutIsland == 0) {
 				Class120_Sub12_Sub15.aLongArray3245[Class24.anInt147] = l_142_;
 				Class24.anInt147 = (Class24.anInt147 + 1) % 100;
-				final String message = AbstractFont.method1472(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
+				final String message = AbstractFont.removeTags(Class120_Sub22.method1705(client.decodeText(Canvas_Sub1.inputStream)));
 				if (i_143_ == 2 || i_143_ == 3) {
 					Class120_Sub16.pushMessage(message, new StringBuilder("<img=1>").append(Class136.longToString(l)).toString(), Class136.longToString(l_139_), 9, -1);
 				} else if (i_143_ == 1) {
@@ -877,7 +877,7 @@ abstract class AbstractTimer {
 			final int i_149_ = Canvas_Sub1.inputStream.getUShortA();
 			final int i_150_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_151_ = Canvas_Sub1.inputStream.getLEInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_149_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_149_)) {
 				SeqType.method325(i_148_, i_147_, i_150_, i_151_);
 			}
 			client.packetType = -1;
@@ -886,9 +886,9 @@ abstract class AbstractTimer {
 		if (client.packetType == 130) {
 			final int z = Canvas_Sub1.inputStream.getUByteA();
 			final int x = Canvas_Sub1.inputStream.getUByteC();
-			final int stuff = Canvas_Sub1.inputStream.getUByte();
-			Class173.gameLevel = stuff >> 1;
-			TileParticleQueue.selfPlayer.setPos(x, z, (stuff & 0x1) == 1);
+			final int bitPacked = Canvas_Sub1.inputStream.getUByte();
+			Class173.gameLevel = bitPacked >> 1;
+			TileParticleQueue.selfPlayer.setPos(x, z, (bitPacked & 0x1) == 1);
 			client.packetType = -1;
 			return true;
 		}
@@ -896,7 +896,7 @@ abstract class AbstractTimer {
 			final int i_155_ = Canvas_Sub1.inputStream.getLEInt();
 			final int i_156_ = Canvas_Sub1.inputStream.getShort();
 			final int i_157_ = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_157_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_157_)) {
 				ParticleMagnet.method1647(i_155_, i_156_);
 			}
 			client.packetType = -1;
@@ -904,14 +904,14 @@ abstract class AbstractTimer {
 		}
 		if (client.packetType == 103) {
 			final int host = Canvas_Sub1.inputStream.getInt();
-			LabelGroup.hostNameNode = NpcType.gameSignlink.grabHostName(host);
+			SeqFrameBase.hostNameNode = NpcType.gameSignlink.grabHostName(host);
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 242) {
 			final int i_159_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_160_ = Canvas_Sub1.inputStream.getULEShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_160_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_160_)) {
 				Class134.entityRenderPriority = i_159_;
 			}
 			client.packetType = -1;
@@ -931,7 +931,7 @@ abstract class AbstractTimer {
 			final long clanNameAsLong = Canvas_Sub1.inputStream.getLong();
 			InterfaceChangeNode.clanName = Class174.longToString(clanNameAsLong);
 			Class150.clanOwner = Class174.longToString(clanOwnerAsLong);
-			Class112.kickRights = Canvas_Sub1.inputStream.getByte();
+			Class112.kickRank = Canvas_Sub1.inputStream.getByte();
 			final int userAmount = Canvas_Sub1.inputStream.getUByte();
 			if (userAmount == 255) {
 				client.packetType = -1;
@@ -947,28 +947,28 @@ abstract class AbstractTimer {
 				clanMembers[id].rank = Canvas_Sub1.inputStream.getByte();
 				clanMembers[id].sideText = Canvas_Sub1.inputStream.getJagexString();
 				if (WaterfallShader.selfNameAsLong == clanMembers[id].uid) {
-					MouseHandler.selfClanRank = clanMembers[id].rank;
+					MouseHandler.selfRankInClan = clanMembers[id].rank;
 				}
 			}
-			boolean bool_164_ = false;
-			int i_165_ = Class120_Sub14_Sub13.clanMembersAmount;
-			while (i_165_ > 0) {
-				i_165_--;
-				bool_164_ = true;
-				for (int i_166_ = 0; i_166_ < i_165_; i_166_++) {
-					if (clanMembers[i_166_].name.compareTo(clanMembers[1 + i_166_].name) > 0) {
-						final ClanMember class120_sub13 = clanMembers[i_166_];
-						clanMembers[i_166_] = clanMembers[i_166_ + 1];
-						clanMembers[i_166_ + 1] = class120_sub13;
-						bool_164_ = false;
+			boolean breakSort = false;
+			int membersAmount = Class120_Sub14_Sub13.clanMembersAmount;
+			while (membersAmount > 0) {
+				breakSort = true;
+				membersAmount--;
+				for (int id = 0; id < membersAmount; id++) {
+					if (clanMembers[id].name.compareTo(clanMembers[id + 1].name) > 0) {
+						final ClanMember oldMember = clanMembers[id];
+						clanMembers[id] = clanMembers[id + 1];
+						clanMembers[id + 1] = oldMember;
+						breakSort = false;
 					}
 				}
-				if (bool_164_) {
+				if (breakSort) {
 					break;
 				}
 			}
-			client.packetType = -1;
 			ReflectionCheckNode.clanMembers = clanMembers;
+			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 173) {
@@ -987,7 +987,7 @@ abstract class AbstractTimer {
 			final int i_169_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_170_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_171_ = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_170_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_170_)) {
 				Class120_Sub21.method1695(7, i_167_, i_168_, i_169_ << 16 | i_171_);
 			}
 			client.packetType = -1;
@@ -1074,7 +1074,7 @@ abstract class AbstractTimer {
 			final int i_186_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_187_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_188_ = Canvas_Sub1.inputStream.getUByteS();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_187_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_187_)) {
 				if (i_188_ == 2) {
 					Class54.method480();
 				}
@@ -1091,7 +1091,7 @@ abstract class AbstractTimer {
 		}
 		if (client.packetType == 156) {
 			final int i_190_ = Canvas_Sub1.inputStream.getUShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_190_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_190_)) {
 				Class3.smoothCamera();
 			}
 			client.packetType = -1;
@@ -1113,9 +1113,9 @@ abstract class AbstractTimer {
 		}
 		if (client.packetType == 78) {
 			Varp.reset();
-			Class90.redrawOldFormatOverridedInterfaces();
+			Class90.redrawOldFormatSubInterfaces();
 			client.packetType = -1;
-			VarBit.anInt165 += 32;
+			VarBit.varpTriggersPos += 32;
 			return true;
 		}
 		if (client.packetType == 177) {
@@ -1184,7 +1184,7 @@ abstract class AbstractTimer {
 			final int i_196_ = Canvas_Sub1.inputStream.getULEShortA();
 			final String string = Canvas_Sub1.inputStream.getJagexString();
 			final int i_197_ = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_196_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_196_)) {
 				Class120_Sub12_Sub28.method1345(string, i_197_);
 			}
 			client.packetType = -1;
@@ -1193,12 +1193,12 @@ abstract class AbstractTimer {
 		if (client.packetType == 137) {
 			final int i_198_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_199_ = Canvas_Sub1.inputStream.getUByte();
-			MapSceneType.method2004(i_199_, i_198_);
+			VarBit.setVarbitFromServer(i_198_, i_199_);
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 72) {
-			Class120_Sub22.systemUpdateCycle = Canvas_Sub1.inputStream.getULEShort() * 30;
+			Class120_Sub22.rebootTimer = Canvas_Sub1.inputStream.getULEShort() * 30;
 			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 			client.packetType = -1;
 			return true;
@@ -1265,7 +1265,7 @@ abstract class AbstractTimer {
 				if (x >= 0 && z >= 0 && x < 104 && z < 104) {
 					x = 64 + 128 * x;
 					z = 64 + z * 128;
-					final SpotAnimation spotAnimation = new SpotAnimation(id, level, x, z, Class22.getTileHeight(x, z, level) - y, delay, Class101_Sub2.loopCycle);
+					final SpotAnimation spotAnimation = new SpotAnimation(id, level, x, z, Class22.getTileHeight(x, z, level) - y, delay, Class101_Sub2.clientClock);
 					Class120_Sub12_Sub7.spotAnimationDeque.addLast(new SpotAnimationNode(spotAnimation));
 				}
 			} else if (locationBitPacked >> 29 != 0) {
@@ -1293,7 +1293,7 @@ abstract class AbstractTimer {
 								final SeqType seqType = SeqType.list(spotAnimType.animationId);
 								final int resetInPlay = seqType.resetInPlay;
 								if (resetInPlay == 1) {
-									npc.spotAnimDelay = Class101_Sub2.loopCycle + delay;
+									npc.spotAnimDelay = Class101_Sub2.clientClock + delay;
 									npc.spotAnimFrame = 0;
 									npc.spotAnimNextFrame = 1;
 									npc.spotAnimFrameDelay = 0;
@@ -1313,11 +1313,11 @@ abstract class AbstractTimer {
 						npc.spotAnimNextFrame = 1;
 						npc.spotAnimHeight = y;
 						npc.spotAnimFrameDelay = 0;
-						npc.spotAnimDelay = delay + Class101_Sub2.loopCycle;
-						if (npc.spotAnimDelay > Class101_Sub2.loopCycle) {
+						npc.spotAnimDelay = delay + Class101_Sub2.clientClock;
+						if (npc.spotAnimDelay > Class101_Sub2.clientClock) {
 							npc.spotAnimFrame = -1;
 						}
-						if (npc.spotAnimId != -1 && Class101_Sub2.loopCycle == npc.spotAnimDelay) {
+						if (npc.spotAnimId != -1 && Class101_Sub2.clientClock == npc.spotAnimDelay) {
 							final int animationId = SpotAnimType.list(npc.spotAnimId).animationId;
 							if (animationId != -1) {
 								final SeqType seqType = SeqType.list(animationId);
@@ -1361,7 +1361,7 @@ abstract class AbstractTimer {
 									player.spotAnimFrame = 0;
 									player.spotAnimFrameDelay = 0;
 									player.spotAnimNextFrame = 1;
-									player.spotAnimDelay = delay + Class101_Sub2.loopCycle;
+									player.spotAnimDelay = delay + Class101_Sub2.clientClock;
 									player.spotAnimCyclesElapsed = 0;
 									execute = false;
 									Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.spotAnimFrame, false);
@@ -1375,17 +1375,17 @@ abstract class AbstractTimer {
 					if (execute) {
 						player.spotAnimFrameDelay = 0;
 						player.spotAnimNextFrame = 1;
-						player.spotAnimDelay = Class101_Sub2.loopCycle + delay;
+						player.spotAnimDelay = Class101_Sub2.clientClock + delay;
 						player.spotAnimHeight = y;
 						player.spotAnimFrame = 0;
 						player.spotAnimId = id;
-						if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
+						if (player.spotAnimDelay > Class101_Sub2.clientClock) {
 							player.spotAnimFrame = -1;
 						}
 						if (player.spotAnimId == 0xffff) {
 							player.spotAnimId = -1;
 						}
-						if (player.spotAnimId != -1 && player.spotAnimDelay == Class101_Sub2.loopCycle) {
+						if (player.spotAnimId != -1 && player.spotAnimDelay == Class101_Sub2.clientClock) {
 							final int animationId = SpotAnimType.list(player.spotAnimId).animationId;
 							if (animationId != -1) {
 								final SeqType seqType = SeqType.list(animationId);
@@ -1407,8 +1407,8 @@ abstract class AbstractTimer {
 			final int i_233_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_234_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_235_ = Canvas_Sub1.inputStream.getUByte();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_230_)) {
-				QuickChatCategoryType.method1639(i_234_, i_231_, i_235_, i_233_, true, i_232_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_230_)) {
+				QuickChatCategoryType.method1639(i_231_, i_233_, i_232_, i_235_, i_234_, true);
 			}
 			client.packetType = -1;
 			return true;
@@ -1417,7 +1417,7 @@ abstract class AbstractTimer {
 			final int i_236_ = Canvas_Sub1.inputStream.getUShortA();
 			final int i_237_ = Canvas_Sub1.inputStream.getUShortA();
 			final String string = Canvas_Sub1.inputStream.getJagexString();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_237_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_237_)) {
 				Class120_Sub12_Sub28.method1345(string, i_236_);
 			}
 			client.packetType = -1;
@@ -1469,12 +1469,12 @@ abstract class AbstractTimer {
 			final int i_249_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_250_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_251_ = Canvas_Sub1.inputStream.getUShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_246_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_246_)) {
 				Class120_Sub12_Sub12.aBooleanArray3223[i_247_] = true;
 				Class120_Sub12_Sub37.anIntArray3425[i_247_] = i_248_;
 				LightType.anIntArray1790[i_247_] = i_249_;
-				LabelGroup.anIntArray2409[i_247_] = i_250_;
-				LabelGroup.anIntArray2412[i_247_] = i_251_;
+				SeqFrameBase.anIntArray2409[i_247_] = i_250_;
+				SeqFrameBase.anIntArray2412[i_247_] = i_251_;
 			}
 			client.packetType = -1;
 			return true;
@@ -1494,10 +1494,10 @@ abstract class AbstractTimer {
 		if (client.packetType == 135) {
 			final int counter = Canvas_Sub1.inputStream.getUShort();
 			final int bitPacked = Canvas_Sub1.inputStream.getInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(counter)) {
-				final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(bitPacked);
-				if (overridedInterface != null) {
-					Class120_Sub19.removeOverridedInterface(overridedInterface, true);
+			if (Class69_Sub3_Sub1.updateTriggerid(counter)) {
+				final SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(bitPacked);
+				if (subInterface != null) {
+					Class120_Sub19.removeSubInterface(subInterface, true);
 				}
 				if (Class156.dialogInterface != null) {
 					InterfaceClickMask.redrawInterface(Class156.dialogInterface);
@@ -1511,7 +1511,7 @@ abstract class AbstractTimer {
 			final int i_258_ = Canvas_Sub1.inputStream.getLEInt();
 			final int i_259_ = Canvas_Sub1.inputStream.getULEShort();
 			final int i_260_ = Canvas_Sub1.inputStream.getUByte();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_259_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_259_)) {
 				Class164.method2132(i_258_, i_260_);
 			}
 			client.packetType = -1;
@@ -1527,13 +1527,13 @@ abstract class AbstractTimer {
 		if (client.packetType == 168) {
 			final int i_261_ = Canvas_Sub1.inputStream.getUShort();
 			ObjectContainer.remove(i_261_);
-			Class120_Sub12_Sub21_Sub1.anIntArray3912[Class120_Sub12_Sub3.method1207(31, Class33.anInt278++)] = Class120_Sub12_Sub3.method1207(32767, i_261_);
+			Class120_Sub12_Sub21_Sub1.inventoryTriggers[Class120_Sub12_Sub3.method1207(31, Class33.inventoryTriggersPos++)] = Class120_Sub12_Sub3.method1207(32767, i_261_);
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 52) {
 			final int i_262_ = Canvas_Sub1.inputStream.getUShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_262_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_262_)) {
 				SpotAnimType.resetCamera();
 			}
 			client.packetType = -1;
@@ -1542,21 +1542,21 @@ abstract class AbstractTimer {
 		if (client.packetType == 38) {
 			final byte i_263_ = Canvas_Sub1.inputStream.getByte();
 			final int i_264_ = Canvas_Sub1.inputStream.getULEShort();
-			FileSystemRequest.method1544(i_264_, i_263_);
+			Varp.setVarpFromServer(i_264_, i_263_);
 			client.packetType = -1;
 			return true;
 		}
 		if (client.packetType == 194) {
-			final int interfaceBitPacked = Canvas_Sub1.inputStream.getInt();
+			final int bitPacked = Canvas_Sub1.inputStream.getInt();
 			int objType = Canvas_Sub1.inputStream.getUShort();
-			if (69999 < (interfaceBitPacked ^ 0xffffffff)) {
-				objType += 32768;
+			if (bitPacked < -70000) {
+				objType += 0x8000;
 			}
 			JagexInterface jagexInterface;
-			if (interfaceBitPacked < 0) {
+			if (bitPacked < 0) {
 				jagexInterface = null;
 			} else {
-				jagexInterface = Class74.getJagexInterface(interfaceBitPacked);
+				jagexInterface = Class74.getJagexInterface(bitPacked);
 			}
 			if (jagexInterface != null) {
 				for (int id = 0; id < jagexInterface.objIds.length; id++) {
@@ -1581,8 +1581,8 @@ abstract class AbstractTimer {
 			if (jagexInterface != null) {
 				InterfaceClickMask.redrawInterface(jagexInterface);
 			}
-			Class90.redrawOldFormatOverridedInterfaces();
-			Class120_Sub12_Sub21_Sub1.anIntArray3912[Class120_Sub12_Sub3.method1207(31, Class33.anInt278++)] = Class120_Sub12_Sub3.method1207(objType, 32767);
+			Class90.redrawOldFormatSubInterfaces();
+			Class120_Sub12_Sub21_Sub1.inventoryTriggers[Class120_Sub12_Sub3.method1207(31, Class33.inventoryTriggersPos++)] = Class120_Sub12_Sub3.method1207(objType, 32767);
 			client.packetType = -1;
 			return true;
 		}
@@ -1604,8 +1604,8 @@ abstract class AbstractTimer {
 			final int i_278_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_279_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_280_ = Canvas_Sub1.inputStream.getUByte();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_275_)) {
-				Class120_Sub12_Sub16.method1278(i_278_, i_279_, i_276_, i_277_, i_280_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_275_)) {
+				Class120_Sub12_Sub16.method1278(i_276_, i_278_, i_277_, i_280_, i_279_);
 			}
 			client.packetType = -1;
 			return true;
@@ -1622,7 +1622,7 @@ abstract class AbstractTimer {
 			final int i_281_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_282_ = Canvas_Sub1.inputStream.getUShortA();
 			final int i_283_ = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_281_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_281_)) {
 				AmbientSound.setCameraRotation(i_283_, i_282_);
 			}
 			client.packetType = -1;
@@ -1635,7 +1635,7 @@ abstract class AbstractTimer {
 			}
 			final int i_285_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_286_ = Canvas_Sub1.inputStream.getInt();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_285_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_285_)) {
 				Class120_Sub21.method1695(2, -1, i_286_, i_284_);
 			}
 			client.packetType = -1;
@@ -1663,7 +1663,7 @@ abstract class AbstractTimer {
 		if (client.packetType == 199) {
 			final int i_289_ = Canvas_Sub1.inputStream.getInt1();
 			final int i_290_ = Canvas_Sub1.inputStream.getUShort();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_290_)) {
+			if (Class69_Sub3_Sub1.updateTriggerid(i_290_)) {
 				int i_291_ = 0;
 				if (TileParticleQueue.selfPlayer.appearance != null) {
 					i_291_ = TileParticleQueue.selfPlayer.appearance.method2043();
@@ -1677,8 +1677,8 @@ abstract class AbstractTimer {
 			final int i_292_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_293_ = Canvas_Sub1.inputStream.getInt1();
 			final int i_294_ = Canvas_Sub1.inputStream.getULEShortA();
-			if (Class69_Sub3_Sub1.updatePacketCounter(i_294_)) {
-				EntityRenderData.method250(i_293_, i_292_);
+			if (Class69_Sub3_Sub1.updateTriggerid(i_294_)) {
+				BasType.method250(i_293_, i_292_);
 			}
 			client.packetType = -1;
 			return true;
@@ -1696,7 +1696,7 @@ abstract class AbstractTimer {
 			Class120_Sub29.anInt2768 = GrandExchangeObject.anInt1494;
 			return true;
 		}
-		SpotAnimation.method2312(null, new StringBuilder("T1 - ").append(client.packetType).append(",").append(MapFunctionType.thirdPacketType).append(",").append(SeqType.fourthPacketType).append(" - ").append(AbstractMouseWheelHandler.packetSize).toString());
+		SpotAnimation.method2312(null, "T1 - " + client.packetType + "," + MapFunctionType.thirdPacketType + "," + SeqType.fourthPacketType + " - " + AbstractMouseWheelHandler.packetSize);
 		DummyInputStream.processLogout();
 		return true;
 	}
@@ -1707,5 +1707,5 @@ abstract class AbstractTimer {
 		/* empty */
 	}
 
-	abstract long method739();
+	abstract long getAverageExecuteTime();
 }

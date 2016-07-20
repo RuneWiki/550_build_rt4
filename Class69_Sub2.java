@@ -9,7 +9,7 @@ class Class69_Sub2 extends Class69 {
 	static int anInt2236 = 0;
 	static AbstractSprite[] hintMapEdgeSprites;
 	static AbstractSprite[] hitMarkSprites;
-	static int anInt2239;
+	static int renderPitchSin;
 	static int energy;
 
 	static {

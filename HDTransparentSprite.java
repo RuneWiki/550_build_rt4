@@ -12,8 +12,8 @@ final class HDTransparentSprite extends HDSprite {
 
 	@Override
 	final void method1596(final int[] inputPixels) {
-		this.anInt3945 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
-		this.anInt3948 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
+		this.anInt3945 = Class120_Sub12_Sub17.farthestBitValue(this.width);
+		this.anInt3948 = Class120_Sub12_Sub17.farthestBitValue(this.height);
 		final byte[] pixels = new byte[this.anInt3945 * this.anInt3948 * 4];
 		int pixelId = 0;
 		int inputPixelsId = 0;

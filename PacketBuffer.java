@@ -40,30 +40,30 @@ final class PacketBuffer extends Buffer {
 
 	static final void decodePreferences(final Buffer buffer) {
 		if (buffer.buf.length - buffer.pos >= 1) {
-			final int preferencesFileVersion = buffer.getUByte();
-			if (preferencesFileVersion >= 0 && preferencesFileVersion <= 11) {
+			final int fileVersion = buffer.getUByte();
+			if (fileVersion >= 0 && fileVersion <= 11) {
 				int fileSizeInBytes;
-				if (preferencesFileVersion == 11) {
+				if (fileVersion == 11) {
 					fileSizeInBytes = 33;
-				} else if (preferencesFileVersion == 10) {
+				} else if (fileVersion == 10) {
 					fileSizeInBytes = 32;
-				} else if (preferencesFileVersion == 9) {
+				} else if (fileVersion == 9) {
 					fileSizeInBytes = 31;
-				} else if (preferencesFileVersion == 8) {
+				} else if (fileVersion == 8) {
 					fileSizeInBytes = 30;
-				} else if (preferencesFileVersion == 7) {
+				} else if (fileVersion == 7) {
 					fileSizeInBytes = 29;
-				} else if (preferencesFileVersion == 6) {
+				} else if (fileVersion == 6) {
 					fileSizeInBytes = 28;
-				} else if (preferencesFileVersion == 5) {
+				} else if (fileVersion == 5) {
 					fileSizeInBytes = 28;
-				} else if (preferencesFileVersion == 4) {
+				} else if (fileVersion == 4) {
 					fileSizeInBytes = 24;
-				} else if (preferencesFileVersion == 3) {
+				} else if (fileVersion == 3) {
 					fileSizeInBytes = 23;
-				} else if (preferencesFileVersion == 2) {
+				} else if (fileVersion == 2) {
 					fileSizeInBytes = 22;
-				} else if (preferencesFileVersion == 1) {
+				} else if (fileVersion == 1) {
 					fileSizeInBytes = 23;
 				} else {
 					fileSizeInBytes = 19;
@@ -75,7 +75,7 @@ final class PacketBuffer extends Buffer {
 					} else if (FileSystemRequest.brightness > 4) {
 						FileSystemRequest.brightness = 4;
 					}
-					GameShell.setVisibleLevels(buffer.getUByte() == 1);
+					GameShell.setAllVisibleLevels(buffer.getUByte() == 1);
 					Class120_Sub12.removeRoofsSelectively = buffer.getUByte() == 1;
 					Hashtable.showGroundDecorations = buffer.getUByte() == 1;
 					ParticleNodeSub.highDetailTextures = buffer.getUByte() == 1;
@@ -87,7 +87,7 @@ final class PacketBuffer extends Buffer {
 					if (Class74.sceneryShadowsType > 2) {
 						Class74.sceneryShadowsType = 2;
 					}
-					if (preferencesFileVersion < 2) {
+					if (fileVersion < 2) {
 						Class120_Sub12_Sub6.highLightingDetail = buffer.getUByte() == 1;
 						buffer.getUByte();
 					} else {
@@ -95,54 +95,54 @@ final class PacketBuffer extends Buffer {
 					}
 					highWaterDetail = buffer.getUByte() == 1;
 					Decimator.fogEnabled = buffer.getUByte() == 1;
-					AbstractMouseWheelHandler.antiAliasingSamplesWrapper = buffer.getUByte();
-					if (AbstractMouseWheelHandler.antiAliasingSamplesWrapper > 2) {
-						AbstractMouseWheelHandler.antiAliasingSamplesWrapper = 2;
+					AbstractMouseWheelHandler.antiAliasingDefault = buffer.getUByte();
+					if (AbstractMouseWheelHandler.antiAliasingDefault > 2) {
+						AbstractMouseWheelHandler.antiAliasingDefault = 2;
 					}
-					GroundDecoration.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
-					Class167.aBoolean1619 = buffer.getUByte() == 1;
-					Class111.anInt1061 = buffer.getUByte();
-					if (Class111.anInt1061 > 127) {
-						Class111.anInt1061 = 127;
+					GroundDecoration.antiAliasingSamples = AbstractMouseWheelHandler.antiAliasingDefault;
+					Class167.isStereo = buffer.getUByte() == 1;
+					Class111.soundEffectVolume = buffer.getUByte();
+					if (Class111.soundEffectVolume > 127) {
+						Class111.soundEffectVolume = 127;
 					}
-					RuntimeException_Sub1.anInt2142 = buffer.getUByte();
+					RuntimeException_Sub1.musicVolume = buffer.getUByte();
 					CursorType.ambientSoundsVolume = buffer.getUByte();
 					if (CursorType.ambientSoundsVolume > 127) {
 						CursorType.ambientSoundsVolume = 127;
 					}
-					if (preferencesFileVersion >= 1) {
+					if (fileVersion >= 1) {
 						Class120_Sub12_Sub18.lastFullscreenWidth = buffer.getUShort();
 						Class120_Sub12_Sub12.lastFullscreenHeight = buffer.getUShort();
 					}
-					if (preferencesFileVersion >= 3 && preferencesFileVersion < 6) {
+					if (fileVersion >= 3 && fileVersion < 6) {
 						buffer.getUByte();
 					}
-					if (preferencesFileVersion >= 4) {
+					if (fileVersion >= 4) {
 						int particles = buffer.getUByte();
 						if (Class120_Sub14_Sub13.maxMemory < 96) {
 							particles = 0;
 						}
 						ParticleEngine.setParticles(particles);
 					}
-					if (preferencesFileVersion >= 5) {
-						Class120_Sub19.anInt2657 = buffer.getInt();
+					if (fileVersion >= 5) {
+						Class120_Sub19.lastWorldId = buffer.getInt();
 					}
-					if (preferencesFileVersion >= 6) {
-						Class120_Sub12_Sub19.currentDisplayMode = buffer.getUByte();
+					if (fileVersion >= 6) {
+						Class120_Sub12_Sub19.lastUsedDisplayMode = buffer.getUByte();
 					}
-					if (preferencesFileVersion >= 7) {
+					if (fileVersion >= 7) {
 						InterfaceClickMask.safeModeEnabled = buffer.getUByte() == 1;
 					}
-					if (preferencesFileVersion >= 8) {
+					if (fileVersion >= 8) {
 						Class134.updateCameraFromCs2 = buffer.getUByte() == 1;
 					}
-					if (preferencesFileVersion >= 9) {
-						Class140.anInt1343 = buffer.getUByte();
+					if (fileVersion >= 9) {
+						Class140.buildArea = buffer.getUByte();
 					}
-					if (preferencesFileVersion >= 10) {
+					if (fileVersion >= 10) {
 						WallDecoration.hdrEnabled = buffer.getUByte() != 0;
 					}
-					if (preferencesFileVersion >= 11) {
+					if (fileVersion >= 11) {
 						Class38.cursorsEnabled = buffer.getUByte() != 0;
 					}
 				}

@@ -4,7 +4,7 @@
 
 final class TileParticleQueue {
 	ParticleNodeSub head = new ParticleNodeSub();
-	static int[] intArguments;
+	static int[] intLocalVariables;
 	static Player selfPlayer;
 	private ParticleNodeSub current;
 

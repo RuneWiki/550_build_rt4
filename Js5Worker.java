@@ -4,7 +4,7 @@
 import java.io.IOException;
 
 final class Js5Worker {
-	static int anInt396;
+	static int maxTileZ;
 	static js5 configJs5;
 	static String[] alternativeAccountUsernames;
 	private final Queue urgentQueue = new Queue();
@@ -19,7 +19,7 @@ final class Js5Worker {
 	volatile int errorCount = 0;
 	volatile int errorType = 0;
 	private byte xorCode = 0;
-	private Js5Request aClass120_Sub14_Sub14_Sub2_413;
+	private Js5Request currentJs5Request;
 
 	private final int getPrefetchSize() {
 		return prefetchQueue.getAmount() + aClass177_404.getAmount();
@@ -174,7 +174,7 @@ final class Js5Worker {
 		js5Connection = jagexSocket;
 		method370();
 		method367(bool);
-		aClass120_Sub14_Sub14_Sub2_413 = null;
+		currentJs5Request = null;
 		inputBuffer.pos = 0;
 		for (;;) {
 			final Js5Request js5Request = (Js5Request) aClass177_402.removeFirst();
@@ -238,7 +238,7 @@ final class Js5Worker {
 		}
 		final int i_43_ = i_40_ << 7;
 		final int i_44_ = i_41_ << 7;
-		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.activeTileHeightMap[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, OverridedJInterface.activeTileHeightMap[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, OverridedJInterface.activeTileHeightMap[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
+		if (Class120_Sub12_Sub34.method1380(i_43_ + 1, SubInterface.activeTileHeightMap[i][i_40_][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, SubInterface.activeTileHeightMap[i][i_40_ + 1][i_41_] + i_42_, i_44_ + 1) && Class120_Sub12_Sub34.method1380(i_43_ + 128 - 1, SubInterface.activeTileHeightMap[i][i_40_ + 1][i_41_ + 1] + i_42_, i_44_ + 128 - 1) && Class120_Sub12_Sub34.method1380(i_43_ + 1, SubInterface.activeTileHeightMap[i][i_40_][i_41_ + 1] + i_42_, i_44_ + 128 - 1)) {
 			return true;
 		}
 		return false;
@@ -624,8 +624,8 @@ final class Js5Worker {
 					break;
 				}
 				int i_124_ = 0;
-				if (aClass120_Sub14_Sub14_Sub2_413 != null) {
-					if (aClass120_Sub14_Sub14_Sub2_413.bufferPos == 0) {
+				if (currentJs5Request != null) {
+					if (currentJs5Request.bufferPos == 0) {
 						i_124_ = 1;
 					}
 				} else {
@@ -633,28 +633,28 @@ final class Js5Worker {
 				}
 				anInt405 = 0;
 				if (i_124_ <= 0) {
-					int i_125_ = 512 - aClass120_Sub14_Sub14_Sub2_413.bufferPos;
-					final int i_126_ = aClass120_Sub14_Sub14_Sub2_413.buffer.buf.length - aClass120_Sub14_Sub14_Sub2_413.bufferOff;
-					if (i_125_ > i_126_ - aClass120_Sub14_Sub14_Sub2_413.buffer.pos) {
-						i_125_ = i_126_ - aClass120_Sub14_Sub14_Sub2_413.buffer.pos;
+					int i_125_ = 512 - currentJs5Request.bufferPos;
+					final int i_126_ = currentJs5Request.buffer.buf.length - currentJs5Request.bufferOff;
+					if (i_125_ > i_126_ - currentJs5Request.buffer.pos) {
+						i_125_ = i_126_ - currentJs5Request.buffer.pos;
 					}
 					if (i_125_ > available) {
 						i_125_ = available;
 					}
-					js5Connection.read(aClass120_Sub14_Sub14_Sub2_413.buffer.buf, aClass120_Sub14_Sub14_Sub2_413.buffer.pos, i_125_);
+					js5Connection.read(currentJs5Request.buffer.buf, currentJs5Request.buffer.pos, i_125_);
 					if (xorCode != 0) {
 						for (int i_127_ = 0; i_127_ < i_125_; i_127_++) {
-							aClass120_Sub14_Sub14_Sub2_413.buffer.buf[aClass120_Sub14_Sub14_Sub2_413.buffer.pos + i_127_] ^= (byte) xorCode;
+							currentJs5Request.buffer.buf[currentJs5Request.buffer.pos + i_127_] ^= (byte) xorCode;
 						}
 					}
-					aClass120_Sub14_Sub14_Sub2_413.buffer.pos += i_125_;
-					aClass120_Sub14_Sub14_Sub2_413.bufferPos += i_125_;
-					if (i_126_ == aClass120_Sub14_Sub14_Sub2_413.buffer.pos) {
-						aClass120_Sub14_Sub14_Sub2_413.unlinkSub();
-						aClass120_Sub14_Sub14_Sub2_413.aBoolean3576 = false;
-						aClass120_Sub14_Sub14_Sub2_413 = null;
-					} else if (aClass120_Sub14_Sub14_Sub2_413.bufferPos == 512) {
-						aClass120_Sub14_Sub14_Sub2_413.bufferPos = 0;
+					currentJs5Request.buffer.pos += i_125_;
+					currentJs5Request.bufferPos += i_125_;
+					if (i_126_ == currentJs5Request.buffer.pos) {
+						currentJs5Request.unlinkSub();
+						currentJs5Request.aBoolean3576 = false;
+						currentJs5Request = null;
+					} else if (currentJs5Request.bufferPos == 512) {
+						currentJs5Request.bufferPos = 0;
 					}
 				} else {
 					int i_128_ = i_124_ - inputBuffer.pos;
@@ -669,7 +669,7 @@ final class Js5Worker {
 					}
 					inputBuffer.pos += i_128_;
 					if (inputBuffer.pos >= i_124_) {
-						if (aClass120_Sub14_Sub14_Sub2_413 == null) {
+						if (currentJs5Request == null) {
 							inputBuffer.pos = 0;
 							final int archiveId = inputBuffer.getUByte();
 							final int groupId = inputBuffer.getUShort();
@@ -693,19 +693,19 @@ final class Js5Worker {
 							if (js5Request == null) {
 								throw new IOException();
 							}
-							aClass120_Sub14_Sub14_Sub2_413 = js5Request;
+							currentJs5Request = js5Request;
 							final int i_136_ = ctype != 0 ? 9 : 5;
-							aClass120_Sub14_Sub14_Sub2_413.buffer = new Buffer(aClass120_Sub14_Sub14_Sub2_413.bufferOff + clen + i_136_);
-							aClass120_Sub14_Sub14_Sub2_413.buffer.putByte(ctype);
-							aClass120_Sub14_Sub14_Sub2_413.buffer.putInt(clen);
-							aClass120_Sub14_Sub14_Sub2_413.bufferPos = 8;
+							currentJs5Request.buffer = new Buffer(currentJs5Request.bufferOff + clen + i_136_);
+							currentJs5Request.buffer.putByte(ctype);
+							currentJs5Request.buffer.putInt(clen);
+							currentJs5Request.bufferPos = 8;
 							inputBuffer.pos = 0;
-						} else if (aClass120_Sub14_Sub14_Sub2_413.bufferPos == 0) {
+						} else if (currentJs5Request.bufferPos == 0) {
 							if (inputBuffer.buf[0] == -1) {
 								inputBuffer.pos = 0;
-								aClass120_Sub14_Sub14_Sub2_413.bufferPos = 1;
+								currentJs5Request.bufferPos = 1;
 							} else {
-								aClass120_Sub14_Sub14_Sub2_413 = null;
+								currentJs5Request = null;
 							}
 						} else {
 							System.out.println("Error processing incoming header!");

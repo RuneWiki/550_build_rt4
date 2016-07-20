@@ -3,14 +3,14 @@
  */
 
 final class Class2 {
-	static js5 aClass50_50;
+	static js5 seqsJs5;
 	static int[] anIntArray51 = { 1, 1, 0, 0, 0, 8, 0, 0, 8 };
-	static int[] permanentVariable = new int[2500];
+	static int[] playerVariables = new int[2500];
 
-	static final void method76(final int baseX, final int baseZ, final int level, final int playerX, final int playerZ, final boolean loginScreen, final boolean bool_1_) {
-		if (bool_1_ || Class116.anInt1118 != baseX || Class3.anInt53 != baseZ || SpotAnimationNode.visibleLevel != level && !Class143_Sub1.allLevelsAreVisible()) {
-			Class116.anInt1118 = baseX;
-			Class3.anInt53 = baseZ;
+	static final void updateRegion(final int regionX, final int regionZ, final int level, final int playerX, final int playerZ, final boolean loginScreen, final boolean buildAreaChanged) {
+		if (buildAreaChanged || Class116.currentRegionX != regionX || Class3.currentRegionZ != regionZ || SpotAnimationNode.visibleLevel != level && !Class143_Sub1.allLevelsAreVisible()) {
+			Class116.currentRegionX = regionX;
+			Class3.currentRegionZ = regionZ;
 			SpotAnimationNode.visibleLevel = level;
 			if (Class143_Sub1.allLevelsAreVisible()) {
 				SpotAnimationNode.visibleLevel = 0;
@@ -21,16 +21,16 @@ final class Class2 {
 				ProjectileNode.setGameState(25);
 			}
 			Class120_Sub12_Sub21_Sub1.drawTextOnScreen(StringLibrary.loadingPleaseWait, true);
-			int i_6_ = GameEntity.currentBaseX;
-			int i_7_ = LightType.currentBaseZ;
-			GameEntity.currentBaseX = baseX * 8 - 48;
-			LightType.currentBaseZ = baseZ * 8 - 48;
-			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = WorldMapHandler.method676(Class116.anInt1118 * 8, Class3.anInt53 * 8);
+			int oldBaseX = GameEntity.currentBaseX;
+			int oldBaseZ = LightType.currentBaseZ;
+			GameEntity.currentBaseX = regionX * 8 - 48;
+			LightType.currentBaseZ = regionZ * 8 - 48;
+			Class120_Sub12_Sub6.aClass120_Sub14_Sub22_3174 = WorldMapHandler.method676(Class116.currentRegionX * 8, Class3.currentRegionZ * 8);
 			SceneGraphNode.mapFunctionGroup = null;
-			final int xOff = GameEntity.currentBaseX - i_6_;
-			final int zOff = LightType.currentBaseZ - i_7_;
-			i_6_ = GameEntity.currentBaseX;
-			i_7_ = LightType.currentBaseZ;
+			final int xOff = GameEntity.currentBaseX - oldBaseX;
+			final int zOff = LightType.currentBaseZ - oldBaseZ;
+			oldBaseX = GameEntity.currentBaseX;
+			oldBaseZ = LightType.currentBaseZ;
 			if (!loginScreen) {
 				for (int npcIndex = 0; npcIndex < 32768; npcIndex++) {
 					final Npc npc = Class120_Sub12_Sub11.npcList[npcIndex];
@@ -105,11 +105,11 @@ final class Class2 {
 					}
 				}
 			}
-			for (Class120_Sub24 class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24 != null; class120_sub24 = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-				class120_sub24.anInt2731 -= xOff;
-				class120_sub24.anInt2725 -= zOff;
-				if (class120_sub24.anInt2731 < 0 || class120_sub24.anInt2725 < 0 || class120_sub24.anInt2731 >= 104 || class120_sub24.anInt2725 >= 104) {
-					class120_sub24.unlink();
+			for (CustomLocation customLocation = (CustomLocation) Class120_Sub4.customLocations.getFront(); customLocation != null; customLocation = (CustomLocation) Class120_Sub4.customLocations.getNext()) {
+				customLocation.x -= xOff;
+				customLocation.z -= zOff;
+				if (customLocation.x < 0 || customLocation.z < 0 || customLocation.x >= 104 || customLocation.z >= 104) {
+					customLocation.unlink();
 				}
 			}
 			if (Class120_Sub12_Sub26.flagX != 0) {
@@ -119,7 +119,7 @@ final class Class2 {
 			if (!loginScreen) {
 				client.cameraType = 1;
 			} else {
-				GroundObjectNode.renderZ -= 128 * zOff;
+				GroundObjectNode.renderZ -= zOff * 128;
 				Class99.anInt951 -= xOff;
 				InterfaceListener.anInt2546 -= zOff;
 				Class109.anInt1042 -= xOff;

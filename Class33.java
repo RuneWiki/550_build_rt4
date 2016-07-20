@@ -7,7 +7,7 @@ final class Class33 {
 	static LDFont smallFont2;//used for objs
 	static js5 interfaceJs5;
 	static String[] stringStack = new String[1000];
-	static int anInt278 = 0;
+	static int inventoryTriggersPos = 0;
 
 	static final void method276(final int i_1_) {
 		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(4, i_1_);
@@ -15,16 +15,16 @@ final class Class33 {
 	}
 
 	static final String getSpellPrefix(final JagexInterface jagexInterface) {
-		if (client.getClickMask(jagexInterface).method1685() == 0) {
+		if (client.getClickMask(jagexInterface).getTargetMask() == 0) {
 			return null;
 		}
-		if (jagexInterface.spellPrefix == null || jagexInterface.spellPrefix.trim().length() == 0) {
+		if (jagexInterface.targetVerb == null || jagexInterface.targetVerb.trim().length() == 0) {
 			if (Class120_Sub30_Sub1.qaOpTestEnabled) {
 				return "Hidden-use";
 			}
 			return null;
 		}
-		return jagexInterface.spellPrefix;
+		return jagexInterface.targetVerb;
 	}
 
 }

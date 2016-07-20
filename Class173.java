@@ -3,7 +3,6 @@
  */
 
 final class Class173 {
-	static boolean[] aBooleanArray1723;
 	static int anInt1724;
 	static AbstractSprite aClass120_Sub14_Sub19_1725;
 	static int worldMapPointerWidth;
@@ -12,7 +11,6 @@ final class Class173 {
 	static int[] anIntArray1730;
 
 	static {
-		aBooleanArray1723 = new boolean[] { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false };
 		anIntArray1730 = new int[4];
 		anInt1724 = 0;
 	}

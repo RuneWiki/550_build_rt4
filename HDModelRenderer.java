@@ -147,14 +147,14 @@ final class HDModelRenderer extends AbstractModelRenderer {
 				if (i_22_ < 3584) {
 					final int i_23_ = i_14_ * i_10_ + i_12_ * i_11_ >> 16;
 					final int i_24_ = i_23_ + i_16_ << 9;
-					if (i_24_ / i_21_ > IntegerNode.viewportLeft) {
+					if (i_24_ / i_21_ > Rasterizer.viewportLeft) {
 						final int i_25_ = i_23_ - i_16_ << 9;
-						if (i_25_ / i_21_ < Class120_Sub12_Sub16.viewportRight) {
+						if (i_25_ / i_21_ < Rasterizer.viewportRight) {
 							final int i_26_ = i_13_ * i_9_ - i_19_ * i_8_ >> 16;
 							final int i_27_ = i_26_ + (i_16_ * i_8_ + i_18_ * i_9_ >> 16) << 9;
-							if (i_27_ / i_21_ > Class190.viewportTop) {
+							if (i_27_ / i_21_ > Rasterizer.viewportTop) {
 								final int i_28_ = i_26_ + (-i_16_ * i_8_ + i_17_ * i_9_ >> 16) << 9;
-								if (i_28_ / i_21_ < Class120_Sub30_Sub1.viewportBottom) {
+								if (i_28_ / i_21_ < Rasterizer.viewportBottom) {
 									int i_29_ = 0;
 									int i_30_ = 0;
 									if (i != 0) {
@@ -181,7 +181,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 												i_33_ = i_28_ / i_22_;
 												i_34_ = i_27_ / i_21_;
 											}
-											if (AbstractModelRenderer.mouseOffFromCenterX >= i_31_ && AbstractModelRenderer.mouseOffFromCenterX <= i_32_ && AbstractModelRenderer.mouseOffFromCenterY >= i_33_ && AbstractModelRenderer.mouseOffFromCenterY <= i_34_) {
+											if (AbstractModelRenderer.mouseXOffFromCenter >= i_31_ && AbstractModelRenderer.mouseXOffFromCenter <= i_32_ && AbstractModelRenderer.mouseYOffFromCenter >= i_33_ && AbstractModelRenderer.mouseYOffFromCenter <= i_34_) {
 												i_31_ = 999999;
 												i_32_ = -999999;
 												i_33_ = 999999;
@@ -228,7 +228,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 														}
 													}
 												}
-												if (AbstractModelRenderer.mouseOffFromCenterX >= i_31_ && AbstractModelRenderer.mouseOffFromCenterX <= i_32_ && AbstractModelRenderer.mouseOffFromCenterY >= i_33_ && AbstractModelRenderer.mouseOffFromCenterY <= i_34_) {
+												if (AbstractModelRenderer.mouseXOffFromCenter >= i_31_ && AbstractModelRenderer.mouseXOffFromCenter <= i_32_ && AbstractModelRenderer.mouseYOffFromCenter >= i_33_ && AbstractModelRenderer.mouseYOffFromCenter <= i_34_) {
 													if (this.haveActions) {
 														Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 													} else {
@@ -274,7 +274,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 															final short i_62_ = aShortArray3866[i_61_];
 															final short i_63_ = aShortArray3877[i_61_];
 															final short i_64_ = aShortArray3879[i_61_];
-															if (method2428(AbstractModelRenderer.mouseOffFromCenterX, AbstractModelRenderer.mouseOffFromCenterY, anIntArray3901[i_62_], anIntArray3901[i_63_], anIntArray3901[i_64_], anIntArray3905[i_62_], anIntArray3905[i_63_], anIntArray3905[i_64_])) {
+															if (method2428(AbstractModelRenderer.mouseXOffFromCenter, AbstractModelRenderer.mouseYOffFromCenter, anIntArray3901[i_62_], anIntArray3901[i_63_], anIntArray3901[i_64_], anIntArray3905[i_62_], anIntArray3905[i_63_], anIntArray3905[i_64_])) {
 																Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 																break;
 															}
@@ -303,7 +303,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2388(final int i, final int[] is, int i_65_, int i_66_, int i_67_, final boolean bool) {
+	final void animate(final int i, final int[] is, int i_65_, int i_66_, int i_67_, final boolean bool) {
 		final int i_68_ = is.length;
 		if (i == 0) {
 			i_65_ <<= 4;
@@ -654,7 +654,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final boolean method2375() {
+	final boolean hasLabels() {
 		if (anIntArrayArray3881 == null) {
 			return false;
 		}
@@ -942,7 +942,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final AbstractModelRenderer method2381(final boolean bool, final boolean bool_212_, final boolean bool_213_) {
+	final AbstractModelRenderer copy(final boolean bool, final boolean bool_212_, final boolean bool_213_) {
 		return method2433(bool, bool_212_, bool_213_, aClass180_Sub7_Sub2_3893, aClass180_Sub7_Sub2_3891);
 	}
 
@@ -1566,7 +1566,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2364() {
+	final void onFinishAnimating() {
 		for (int i = 0; i < this.vertexCount; i++) {
 			this.xVertices[i] = this.xVertices[i] + 7 >> 4;
 			this.yVertices[i] = this.yVertices[i] + 7 >> 4;
@@ -1986,7 +1986,6 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		int minY = -32768;
 		int minZ = -32768;
 		int i_565_ = 0;
-		int i_566_ = 0;
 		for (int vertexId = 0; vertexId < anInt3861; vertexId++) {
 			final int xVertex = this.xVertices[vertexId];
 			final int yVertex = this.yVertices[vertexId];
@@ -2013,10 +2012,6 @@ final class HDModelRenderer extends AbstractModelRenderer {
 			if (i_571_ > i_565_) {
 				i_565_ = i_571_;
 			}
-			i_571_ = xVertex * xVertex + zVertex * zVertex + yVertex * yVertex;
-			if (i_571_ > i_566_) {
-				i_566_ = i_571_;
-			}
 		}
 		this.modelBounds.maxX = (short) maxX;
 		this.modelBounds.minX = (short) minX;
@@ -2025,7 +2020,6 @@ final class HDModelRenderer extends AbstractModelRenderer {
 		this.modelBounds.maxZ = (short) maxZ;
 		this.modelBounds.minZ = (short) minZ;
 		this.modelBounds.aShort93 = (short) (int) (Math.sqrt(i_565_) + 0.99);
-		Math.sqrt(i_566_);
 		this.modelBounds.boundsCalculated = true;
 	}
 
@@ -2724,7 +2718,7 @@ final class HDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2379(final int i, final int i_690_, final int i_691_, final int i_692_) {
+	final void animate(final int i, final int i_690_, final int i_691_, final int i_692_) {
 		if (i == 0) {
 			int i_693_ = 0;
 			anInt3896 = 0;

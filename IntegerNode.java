@@ -7,7 +7,6 @@ final class IntegerNode extends Node {
 	static HDTile[][] underWaterHdTiles;
 	int value;
 	static int[] anIntArray2791 = { 160, 192, 80, 96, 0, 144, 80, 48, 160 };
-	static int viewportLeft;
 	static long killtime;
 
 	static {
@@ -15,7 +14,7 @@ final class IntegerNode extends Node {
 		killtime = 0L;
 	}
 
-	static final boolean method1833(final JagexInterface jagexInterface) {
+	static final boolean handleClientCode(final JagexInterface jagexInterface) {
 		if (jagexInterface.clientCode == 205) {
 			Class31.logoutCycle = 250;
 			return true;

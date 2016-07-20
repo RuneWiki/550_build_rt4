@@ -35,14 +35,14 @@ class WorldMapHandler {
 		mapFunctionsQueue = new Queue();
 	}
 
-	static final void method675(final js5 js5) {
+	static final void setup(final js5 js5) {
 		aClass50_689 = js5;
 		aClass75_688.clear();
 		final int i = aClass50_689.getGroupId("details");
 		final int[] is = aClass50_689.getFileIds(i);
 		for (int i_2_ = 0; i_2_ < is.length; i_2_++) {
 			final int i_3_ = is[i_2_];
-			aClass75_688.put(Class55.method485(new Buffer(aClass50_689.getFile(i, i_3_)), i_3_), i_3_);
+			aClass75_688.put(Class120_Sub14_Sub22.method485(new Buffer(aClass50_689.getFile(i, i_3_)), i_3_), i_3_);
 		}
 	}
 
@@ -536,7 +536,7 @@ class WorldMapHandler {
 			final OverlayType overlayType = OverlayType.list(id);
 			if (overlayType != null) {
 				int textureId = overlayType.textureId;
-				if (textureId >= 0 && !Rasterizer.anInterface5_973.method15(textureId)) {
+				if (textureId >= 0 && !Rasterizer.anInterface5_973.isValid(textureId)) {
 					textureId = -1;
 				}
 				int color;

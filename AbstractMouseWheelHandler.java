@@ -5,9 +5,9 @@ import java.awt.Component;
 
 abstract class AbstractMouseWheelHandler {
 	static Queue aClass177_114;
-	static js5 aClass50_115;
+	static js5 globalQuickChatJs5;
 	static int anInt116 = -1;
-	static int antiAliasingSamplesWrapper = 0;
+	static int antiAliasingDefault = 0;
 	static int packetSize;
 	static int selectedSpellInterfaceBitPacked;
 

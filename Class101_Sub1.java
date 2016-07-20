@@ -64,7 +64,7 @@ final class Class101_Sub1 extends Class101 {
 			int rotCos = Rasterizer.cosTable[rot];
 			int posX = rotSin * mapFunctionY + rotCos * mapFunctionX >> 16;
 			final int posY = rotCos * mapFunctionY - rotSin * mapFunctionX >> 16;
-			final int i_35_ = font.method1468(text, 100);
+			final int i_35_ = font.paragraphWidth(text, 100);
 			final int i_36_ = font.method1480(text, 100, 0);
 			posX -= i_35_ / 2;
 			if (-jagexInterface.width <= posX && posX <= jagexInterface.width && -jagexInterface.height <= posY && posY <= jagexInterface.height) {

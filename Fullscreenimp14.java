@@ -22,7 +22,7 @@ public class Fullscreenimp14 {
 		setFullScreenWindow(null);
 	}
 
-	public void setDisplayMode(final Frame frame, final int height, final int width, final int bitDepth, int refreshRate) {
+	public void setDisplayMode(final Frame frame, final int width, final int height, final int bitDepth, int refreshRate) {
 		displayMode = defaultGraphicsDevice.getDisplayMode();
 		if (displayMode == null) {
 			throw new NullPointerException();

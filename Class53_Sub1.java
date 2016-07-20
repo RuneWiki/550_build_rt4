@@ -182,11 +182,7 @@ final class Class53_Sub1 extends Class53 {
 	}
 
 	static final boolean bitPackedMatch(final int x, final int z, final int level, final long bitPacked) {// TODO
-																										// think
-																										// of
-																										// new
-																										// name
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return false;
 		}

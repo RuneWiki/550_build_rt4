@@ -366,16 +366,17 @@ final class GraphicsLD {
 			h = endY - y;
 		}
 		color = ((color & 0xff00ff) * alpha >> 8 & 0xff00ff) + ((color & 0xff00) * alpha >> 8 & 0xff00);
-		final int i_103_ = 256 - alpha;
-		final int i_104_ = width - w;
-		int i_105_ = x + y * width;
-		for (int i_106_ = 0; i_106_ < h; i_106_++) {
-			for (int i_107_ = -w; i_107_ < 0; i_107_++) {
-				int i_108_ = pixels[i_105_];
-				i_108_ = ((i_108_ & 0xff00ff) * i_103_ >> 8 & 0xff00ff) + ((i_108_ & 0xff00) * i_103_ >> 8 & 0xff00);
-				pixels[i_105_++] = color + i_108_;
+		int alpha2 = 256 - alpha;
+		int pixelStep = width - w;
+		int pixelPos = x + y * width;
+		int destPixel = pixels[pixelPos];
+		for (int yOff = 0; yOff < h; yOff++) {
+			for (int xOff = -w; xOff < 0; xOff++) {
+				destPixel = pixels[pixelPos];
+				destPixel = ((destPixel & 0xff00ff) * alpha2 >> 8 & 0xff00ff) + ((destPixel & 0xff00) * alpha2 >> 8 & 0xff00);
+				pixels[pixelPos++] = color + destPixel;
 			}
-			i_105_ += i_104_;
+			pixelPos += pixelStep;
 		}
 	}
 

@@ -8,28 +8,28 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	static boolean[] aBooleanArray3194 = new boolean[200];
 	static int clickedMouseFunctionId = -1;
 	private boolean aBoolean3197 = true;
-	static int anInt3199 = 0;
+	static int playerModTrial = 0;
 
 	static final void method1244(final JagexInterface jagexInterface, final int x, final int y) {
-		if (jagexInterface.actionType == 1) {
+		if (jagexInterface.buttonType == 1) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 57, -1);
 		}
-		if (jagexInterface.actionType == 2 && !Class88.spellSelected) {
+		if (jagexInterface.buttonType == 2 && !Class88.spellSelected) {
 			final String string = Class33.getSpellPrefix(jagexInterface);
 			if (string != null) {
-				InvType.addMenuOption(string, new StringBuilder("<col=00ff00>").append(jagexInterface.spellNameoi).toString(), 0L, -1, jagexInterface.bitPacked, (short) 34, -1);
+				InvType.addMenuOption(string, "<col=00ff00>" + jagexInterface.spellNameoi, 0L, -1, jagexInterface.bitPacked, (short) 34, -1);
 			}
 		}
-		if (jagexInterface.actionType == 3) {
+		if (jagexInterface.buttonType == 3) {
 			InvType.addMenuOption(StringLibrary.aString2153, "", 0L, 0, jagexInterface.bitPacked, (short) 7, -1);
 		}
-		if (jagexInterface.actionType == 4) {
+		if (jagexInterface.buttonType == 4) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 18, -1);
 		}
-		if (jagexInterface.actionType == 5) {
+		if (jagexInterface.buttonType == 5) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, 0, jagexInterface.bitPacked, (short) 11, -1);
 		}
-		if (jagexInterface.actionType == 6 && Class156.dialogInterface == null) {
+		if (jagexInterface.buttonType == 6 && Class156.dialogInterface == null) {
 			InvType.addMenuOption(jagexInterface.tooltip, "", 0L, -1, jagexInterface.bitPacked, (short) 3, -1);
 		}
 		if (jagexInterface.type == 2) {
@@ -48,8 +48,8 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 						if (jagexInterface.objIds[objIndex] > 0) {
 							final InterfaceClickMask clickMask = client.getClickMask(jagexInterface);
 							final ObjType objType = ObjType.list(jagexInterface.objIds[objIndex] - 1);
-							if (Light.objSelected != 1 || !clickMask.method1694()) {
-								if (Class88.spellSelected && clickMask.method1694()) {
+							if (Light.objSelected != 1 || !clickMask.hasObjectOptions()) {
+								if (Class88.spellSelected && clickMask.hasObjectOptions()) {
 									final ParamType paramType = Identikit.selectedSpellParam == -1 ? null : ParamType.list(Identikit.selectedSpellParam);
 									if ((GroundTile.selectedSpellUseMask & 0x10) != 0 && (paramType == null || objType.getIntegerParamValue(Identikit.selectedSpellParam, paramType.defaultInt) != paramType.defaultInt)) {
 										InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> <col=ff9040>").append(objType.name).toString(), objType.myId, objIndex, jagexInterface.bitPacked, (short) 50, Class150.selectedSpellTargetCursor);
@@ -59,7 +59,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 									if (MouseHandler.showNumbersOnOptions) {
 										inventoryOptions = Class120_Sub12_Sub36.addNumbers(inventoryOptions);
 									}
-									if (clickMask.method1694() && inventoryOptions != null) {
+									if (clickMask.hasObjectOptions() && inventoryOptions != null) {
 										for (int id = 4; id >= 3; id--) {
 											if (inventoryOptions[id] != null) {
 												short code;
@@ -72,10 +72,10 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 											}
 										}
 									}
-									if (clickMask.method1687()) {
+									if (clickMask.canUseObject()) {
 										InvType.addMenuOption(StringLibrary.use, "<col=ff9040>" + objType.name, objType.myId, objIndex, jagexInterface.bitPacked, (short) 9, Class120_Sub12_Sub10.selectedObjectTargetCursor);
 									}
-									if (clickMask.method1694() && inventoryOptions != null) {
+									if (clickMask.hasObjectOptions() && inventoryOptions != null) {
 										for (int id = 2; id >= 0; id--) {
 											if (inventoryOptions[id] != null) {
 												short code = 0;
@@ -92,7 +92,7 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 											}
 										}
 									}
-									inventoryOptions = jagexInterface.oiActions;
+									inventoryOptions = jagexInterface.if1Options;
 									if (MouseHandler.showNumbersOnOptions) {
 										inventoryOptions = Class120_Sub12_Sub36.addNumbers(inventoryOptions);
 									}
@@ -130,31 +130,31 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 				}
 			}
 		}
-		if (jagexInterface.newFormat) {
+		if (jagexInterface.if3Format) {
 			if (Class88.spellSelected) {
-				if (client.getClickMask(jagexInterface).method1692() && (0x20 & GroundTile.selectedSpellUseMask) != 0) {
-					InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> ").append(jagexInterface.spellNameni).toString(), 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1, Class150.selectedSpellTargetCursor);
+				if (client.getClickMask(jagexInterface).canUseSpellOnComponent() && (GroundTile.selectedSpellUseMask & 0x20) != 0) {
+					InvType.addMenuOption(Class101.selectedSpellPrefix, new StringBuilder(Light.selectedSpellName).append(" -> ").append(jagexInterface.optionBase).toString(), 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1, Class150.selectedSpellTargetCursor);
 				}
 			} else {
 				for (int i_13_ = 9; i_13_ >= 5; i_13_--) {
 					final String string = JagexInterface.getActionNI(jagexInterface, i_13_);
 					if (string != null) {
-						InvType.addMenuOption(string, jagexInterface.spellNameni, 1 + i_13_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1009, JagexInterface.getCursor(jagexInterface, i_13_));
+						InvType.addMenuOption(string, jagexInterface.optionBase, 1 + i_13_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 1009, JagexInterface.getActionCursor(jagexInterface, i_13_));
 					}
 				}
 				final String string = Class33.getSpellPrefix(jagexInterface);
 				if (string != null) {
-					InvType.addMenuOption(string, jagexInterface.spellNameni, 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 34, -1);
+					InvType.addMenuOption(string, jagexInterface.optionBase, 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 34, -1);
 				}
 				for (int i_14_ = 4; i_14_ >= 0; i_14_--) {
 					final String string_15_ = JagexInterface.getActionNI(jagexInterface, i_14_);
 					if (string_15_ != null) {
-						InvType.addMenuOption(string_15_, jagexInterface.spellNameni, 1 + i_14_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 23, JagexInterface.getCursor(jagexInterface, i_14_));
+						InvType.addMenuOption(string_15_, jagexInterface.optionBase, 1 + i_14_, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 23, JagexInterface.getActionCursor(jagexInterface, i_14_));
 					}
 				}
-				if (client.getClickMask(jagexInterface).method1686()) {
-					if (jagexInterface.actionSufix != null) {
-						InvType.addMenuOption(jagexInterface.actionSufix, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
+				if (client.getClickMask(jagexInterface).isPauseButton()) {
+					if (jagexInterface.pauseText != null) {
+						InvType.addMenuOption(jagexInterface.pauseText, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
 					} else {
 						InvType.addMenuOption(StringLibrary.continueString, "", 0L, jagexInterface.componentIndex, jagexInterface.bitPacked, (short) 3, -1);
 					}
@@ -204,9 +204,9 @@ final class Class120_Sub12_Sub9 extends Class120_Sub12 {
 	}
 
 	static final void method1245(final GameEntity gameEntity, final int size) {
-		if (Class101_Sub2.loopCycle < gameEntity.anInt3035) {
+		if (Class101_Sub2.clientClock < gameEntity.anInt3035) {
 			Class166.method2180(gameEntity);
-		} else if (gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
+		} else if (gameEntity.anInt2961 < Class101_Sub2.clientClock) {
 			Class120_Sub12_Sub32.method1371(gameEntity);
 		} else {
 			Class111.method984(gameEntity);

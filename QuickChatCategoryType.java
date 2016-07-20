@@ -4,7 +4,7 @@
 
 final class QuickChatCategoryType extends NodeSub {
 	int[] anIntArray3648;
-	static int anInt3649;
+	static int activeMusicGroupId;
 	String name;
 	int[] anIntArray3651;
 	char[] aCharArray3652;
@@ -24,15 +24,15 @@ final class QuickChatCategoryType extends NodeSub {
 		}
 	}
 
-	static final void method1639(final int i, final int i_1_, final int i_2_, final int i_3_, final boolean bool, final int i_5_) {
-		Class134.anInt1280 = i_5_;
-		Class99.anInt951 = i_1_;
-		ObjectContainer.anInt2621 = i_2_;
-		SpotAnimType.anInt986 = i_3_;
-		NpcType.anInt1660 = i;
-		if (bool && ObjectContainer.anInt2621 >= 100) {
-			FileSystemWorker.renderX = 128 * Class99.anInt951 + 64;
-			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
+	static final void method1639(final int x, final int y, final int z, final int speed, final int speed2, final boolean instant) {
+		Class134.anInt1280 = z;
+		Class99.anInt951 = x;
+		ObjectContainer.anInt2621 = speed;
+		SpotAnimType.anInt986 = y;
+		NpcType.anInt1660 = speed2;
+		if (instant && ObjectContainer.anInt2621 >= 100) {
+			FileSystemWorker.renderX = Class99.anInt951 * 128 + 64;
+			GroundObjectNode.renderZ = Class134.anInt1280 * 128 + 64;
 			Class120_Sub12_Sub10.renderY = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel) - SpotAnimType.anInt986;
 		}
 		client.cameraType = 2;

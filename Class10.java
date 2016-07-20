@@ -15,11 +15,11 @@ final class Class10 {
 				final int opcode = buffer.getUByte();
 				if (opcode == 0) {
 					if (bool_1_) {
-						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.surfaceTileHeightMap[0][x + xOff][z + zOff];
+						SubInterface.activeTileHeightMap[0][x + xOff][z + zOff] = Class120_Sub12_Sub33.surfaceTileHeightMap[0][x + xOff][z + zOff];
 					} else if (level != 0) {
-						OverridedJInterface.activeTileHeightMap[level][x + xOff][z + zOff] = -240 + OverridedJInterface.activeTileHeightMap[level - 1][x + xOff][z + zOff];
+						SubInterface.activeTileHeightMap[level][x + xOff][z + zOff] = SubInterface.activeTileHeightMap[level - 1][x + xOff][z + zOff] - 240;
 					} else {
-						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238) * 8;
+						SubInterface.activeTileHeightMap[0][x + xOff][z + zOff] = -Class120_Sub16.method1659(932731 + i_2_, i_3_ + 556238) * 8;
 					}
 					break;
 				}
@@ -30,12 +30,12 @@ final class Class10 {
 							i_10_ = 0;
 						}
 						if (level == 0) {
-							OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * -i_10_;
+							SubInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * -i_10_;
 						} else {
-							OverridedJInterface.activeTileHeightMap[level][x + xOff][z + zOff] = -(i_10_ * 8) + OverridedJInterface.activeTileHeightMap[-1 + level][xOff + x][zOff + z];
+							SubInterface.activeTileHeightMap[level][x + xOff][z + zOff] = SubInterface.activeTileHeightMap[level - 1][xOff + x][zOff + z] - (i_10_ * 8);
 						}
 					} else {
-						OverridedJInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * i_10_ + Class120_Sub12_Sub33.surfaceTileHeightMap[0][xOff + x][zOff + z];
+						SubInterface.activeTileHeightMap[0][x + xOff][z + zOff] = 8 * i_10_ + Class120_Sub12_Sub33.surfaceTileHeightMap[0][xOff + x][zOff + z];
 					}
 					break;
 				}
@@ -88,7 +88,7 @@ final class Class10 {
 		if (Class120_Sub12_Sub29.aClass164_3366 != null) {
 			Class120_Sub12_Sub29.aClass164_3366.method2136();
 		}
-		FileSystemRequest.method1546(2, 22050, Class167.aBoolean1619);
+		FileSystemRequest.method1546(2, 22050, Class167.isStereo);
 		Class120_Sub12_Sub3.aClass164_3150 = Class120_Sub12_Sub18.method1289(Node.canvas, 22050, NpcType.gameSignlink, 0);
 		Class120_Sub12_Sub3.aClass164_3150.method2143(Class69_Sub1.aClass120_Sub30_Sub2_2230);
 		Class120_Sub12_Sub29.aClass164_3366 = Class120_Sub12_Sub18.method1289(Node.canvas, 2048, NpcType.gameSignlink, 1);

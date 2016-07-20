@@ -138,7 +138,7 @@ final class Class120_Sub12_Sub8 extends Class120_Sub12 {
 	private static final JagexInterface method1243(final JagexInterface jagexInterface) {
 		JagexInterface class189_25_ = client.method58(jagexInterface);
 		if (class189_25_ == null) {
-			class189_25_ = jagexInterface.aClass189_1931;
+			class189_25_ = jagexInterface.draggableComponent;
 		}
 		return class189_25_;
 	}

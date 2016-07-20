@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /* Class120_Sub14_Sub14_Sub2 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -8,7 +6,7 @@ final class Js5Request extends AbstractRequest {
 	int bufferPos;
 	byte bufferOff;
 	Buffer buffer;
-	static int anInt3940;
+	static int activeMusicVolume;
 	static Class120_Sub31 aClass120_Sub31_3941;
 
 	static final void drawMapFunctionOnMinimap(final JagexInterface jagexInterface, final int mapFunctionId, final int interfaceX, final int interfaceY, final int mapFunctionX, final int mapFunctionY) {
@@ -69,7 +67,7 @@ final class Js5Request extends AbstractRequest {
 		JavaObject.anIntArray3916 = Class3.method86(8, 4, 35, 0.4F, 2048, 8, true);
 	}
 
-	static final void method1552(final int i, final int i_15_, final int i_16_, final int i_18_, final boolean bool, final boolean bool_17_) {
+	static final void quicksortWorlds(final int i, final int i_15_, final int i_16_, final int i_18_, final boolean bool, final boolean bool_17_) {
 		if (i_18_ < i_16_) {
 			final int i_20_ = (i_16_ + i_18_) / 2;
 			int i_21_ = i_18_;
@@ -85,8 +83,8 @@ final class Js5Request extends AbstractRequest {
 			}
 			Class86.worlds[i_16_] = Class86.worlds[i_21_];
 			Class86.worlds[i_21_] = class167_sub1;
-			method1552(i, i_15_, i_21_ - 1, i_18_, bool, bool_17_);
-			method1552(i, i_15_, i_16_, i_21_ - -1, bool, bool_17_);
+			quicksortWorlds(i, i_15_, i_21_ - 1, i_18_, bool, bool_17_);
+			quicksortWorlds(i, i_15_, i_16_, i_21_ - -1, bool, bool_17_);
 		}
 	}
 
@@ -113,7 +111,7 @@ final class Js5Request extends AbstractRequest {
 			return i_28_ - i_29_;
 		}
 		if (i_25_ == 2) {
-			return Class120_Sub12_Sub21_Sub1.method1313(class167_sub1.getWorldInfo().region, Class9.language, class167_sub1_26_.getWorldInfo().region);
+			return Class120_Sub12_Sub21_Sub1.compareLocalised(class167_sub1.getWorldInfo().region, Class9.language, class167_sub1_26_.getWorldInfo().region);
 		}
 		if (i_25_ == 3) {
 			if (class167_sub1_26_.activity.equals("-")) {
@@ -125,7 +123,7 @@ final class Js5Request extends AbstractRequest {
 			if (class167_sub1.activity.equals("-")) {
 				return bool ? 1 : -1;
 			}
-			return Class120_Sub12_Sub21_Sub1.method1313(class167_sub1.activity, Class9.language, class167_sub1_26_.activity);
+			return Class120_Sub12_Sub21_Sub1.compareLocalised(class167_sub1.activity, Class9.language, class167_sub1_26_.activity);
 		}
 		if (i_25_ == 4) {
 			return class167_sub1_26_.method2185() ? class167_sub1.method2185() ? 0 : 1 : class167_sub1.method2185() ? -1 : 0;

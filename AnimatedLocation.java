@@ -31,7 +31,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	static Class188[] aClass188Array3076;
 
 	@Override
-	final void method2266(final int i, final int i_0_, final int i_2_, final int i_1_, final int i_3_) {
+	final void preRender(final int rotation, final int i_0_, final int i_2_, final int i_1_, final int i_3_) {
 		SceneGraphNode sceneGraphNode = null;
 		if (HDToolkit.glEnabled) {
 			sceneGraphNode = method2350(true);
@@ -48,7 +48,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			method2359(sceneGraphNode);
 		}
 		if (aClass108_Sub2_3058 != null) {
-			aClass108_Sub2_3058.method944(i, i_0_, i_2_, i_1_, i_3_);
+			aClass108_Sub2_3058.method944(rotation, i_0_, i_2_, i_1_, i_3_);
 		}
 	}
 
@@ -62,7 +62,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	private final SceneGraphNode method2350(final boolean bool) {
-		final boolean bool_12_ = OverridedJInterface.activeTileHeightMap != Class120_Sub12_Sub33.surfaceTileHeightMap;
+		final boolean bool_12_ = SubInterface.activeTileHeightMap != Class120_Sub12_Sub33.surfaceTileHeightMap;
 		LocType locType = LocType.list(locId);
 		if (locType.transmogrificationIds != null) {
 			locType = locType.handleVarp();
@@ -102,10 +102,10 @@ final class AnimatedLocation extends SceneGraphNode {
 		int[][] is = null;
 		final int i_21_ = (anInt3049 << 7) + (i_14_ << 6);
 		final int i_22_ = (anInt3069 << 7) + (i_15_ << 6);
-		final int[][] is_23_ = OverridedJInterface.activeTileHeightMap[anInt3060];
+		final int[][] is_23_ = SubInterface.activeTileHeightMap[anInt3060];
 		if (!bool_12_) {
 			if (anInt3060 < 3) {
-				is = OverridedJInterface.activeTileHeightMap[anInt3060 + 1];
+				is = SubInterface.activeTileHeightMap[anInt3060 + 1];
 			}
 		} else {
 			is = Class120_Sub12_Sub33.surfaceTileHeightMap[0];
@@ -132,7 +132,7 @@ final class AnimatedLocation extends SceneGraphNode {
 				Class31.aClass107_Sub1_246 = class88.aClass107_Sub1_830;
 			}
 			if (anInt3060 != 0) {
-				final int[][] is_27_ = OverridedJInterface.activeTileHeightMap[0];
+				final int[][] is_27_ = SubInterface.activeTileHeightMap[0];
 				averageY = i_24_ + -(is_27_[i_18_][i_16_] - -is_27_[i_17_][i_16_] - -is_27_[i_18_][i_19_] - -is_27_[i_17_][i_19_] >> 2);
 			}
 			final LDIndexedSprite class107_sub1 = class88.aClass107_Sub1_830;
@@ -219,7 +219,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			if (nextFrame < 0 || nextFrame >= seqType.frames.length) {
 				nextFrame = -1;
 			}
-			anInt3067 = Class101_Sub2.loopCycle - anInt3048;
+			anInt3067 = Class101_Sub2.clientClock - anInt3048;
 		}
 	}
 
@@ -235,7 +235,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					return;
 				}
 			}
-			i_33_ = Class101_Sub2.loopCycle - anInt3067;
+			i_33_ = Class101_Sub2.clientClock - anInt3067;
 			if (i_33_ > 100 && seqType.loop > 0) {
 				int i_34_;
 				for (i_34_ = -seqType.loop + seqType.frames.length; currentFrame < i_34_ && seqType.delays[currentFrame] < i_33_; currentFrame++) {
@@ -248,7 +248,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					}
 					i_33_ %= i_35_;
 				}
-				nextFrame = currentFrame - -1;
+				nextFrame = currentFrame + 1;
 				if (seqType.frames.length <= nextFrame) {
 					nextFrame -= seqType.loop;
 					if (nextFrame < 0 || nextFrame >= seqType.frames.length) {
@@ -280,7 +280,7 @@ final class AnimatedLocation extends SceneGraphNode {
 			}
 		}
 		anInt3048 = i_33_;
-		anInt3067 = Class101_Sub2.loopCycle - i_33_;
+		anInt3067 = Class101_Sub2.clientClock - i_33_;
 	}
 
 	final void method2354() {
@@ -321,7 +321,7 @@ final class AnimatedLocation extends SceneGraphNode {
 	}
 
 	static final ObjectPile resetObjectPile(final int level, final int x, final int z) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}
@@ -355,7 +355,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					locType = locType.handleVarp();
 				}
 				if (locType != null) {
-					aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.sizeX, locType.sizeZ);
+					aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.clientClock, locType.sizeX, locType.sizeZ);
 				}
 			}
 			if (aClass108_Sub2_3058 != null) {
@@ -369,7 +369,7 @@ final class AnimatedLocation extends SceneGraphNode {
 					locType = locType.handleVarp();
 				}
 				if (locType != null) {
-					aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.loopCycle, locType.sizeX, locType.sizeZ);
+					aClass108_Sub2_3058 = new ParticleEngine(Class101_Sub2.clientClock, locType.sizeX, locType.sizeZ);
 				}
 			}
 			if (aClass108_Sub2_3058 != null) {

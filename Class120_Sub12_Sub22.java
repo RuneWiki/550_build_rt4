@@ -27,7 +27,7 @@ final class Class120_Sub12_Sub22 extends Class120_Sub12 {
 		final int i_8_ = class180_sub7.getMinX();
 		final int i_9_ = class180_sub7.getMaxZ();
 		final int i_10_ = class180_sub7.getMinZ();
-		class180_sub7_6_ = class180_sub7_6_.method2381(true, true, true);
+		class180_sub7_6_ = class180_sub7_6_.copy(true, true, true);
 		if (i != 0) {
 			class180_sub7_6_.rotateY(i);
 		}

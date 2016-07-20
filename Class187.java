@@ -3,7 +3,7 @@
  */
 
 final class Class187 {
-	static js5 aClass50_1907;
+	static js5 particlesJs5;
 	static int mouseClickToTileOffZ;
 	static HintIcon[] hintIcons = new HintIcon[8];
 

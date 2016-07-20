@@ -51,7 +51,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 
 	static final void method1850(final GameEntity gameEntity) {
 		if (gameEntity.anInt3010 != 0) {
-			final EntityRenderData class29 = gameEntity.getEntityRenderData();
+			final BasType class29 = gameEntity.getBasType();
 			if (gameEntity.facingEntityIndex != -1 && gameEntity.facingEntityIndex < 32768) {
 				final Npc npc = Class120_Sub12_Sub11.npcList[gameEntity.facingEntityIndex];
 				if (npc != null) {
@@ -468,7 +468,7 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 							final int tileZ = light.z >> 7;
 							if (tileX >= 0 && tileZ >= 0 && tileX < 104 && tileZ < 104) {
 								light.lightOverBridge = (Class114.tileSettings[1][tileX][tileZ] & 0x2) != 0;
-								light.y = OverridedJInterface.activeTileHeightMap[light.level][tileX][tileZ] - light.y;
+								light.y = SubInterface.activeTileHeightMap[light.level][tileX][tileZ] - light.y;
 								LightManager.addLight(light);
 							}
 						}
@@ -576,9 +576,9 @@ final class ProducingGraphicsBuffer extends AbstractGraphicsBuffer implements Im
 		if (jagexInterface.components != null) {
 			WorldInfo.method2065(jagexInterface.components, activateResizeListener, i, i_76_, jagexInterface.bitPacked);
 		}
-		final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(jagexInterface.bitPacked);
-		if (overridedInterface != null) {
-			Class120_Sub12_Sub12.method1258(overridedInterface.interfaceId, i, i_76_, activateResizeListener);
+		final SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(jagexInterface.bitPacked);
+		if (subInterface != null) {
+			Class120_Sub12_Sub12.method1258(subInterface.interfaceId, i, i_76_, activateResizeListener);
 		}
 	}
 

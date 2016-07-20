@@ -12,13 +12,10 @@ final class Class120_Sub12_Sub11 extends Class120_Sub12 {
 	static Npc[] npcList;
 	static int anInt3214;
 	static JagexSocket js5Connection;
-	static short aShort3216;
-
 	static {
 		outputStream = new PacketBuffer(5000);
 		anInt3214 = 0;
 		npcList = new Npc[32768];
-		aShort3216 = (short) 256;
 	}
 
 	private Class120_Sub12_Sub11(final int i) {

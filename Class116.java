@@ -6,7 +6,7 @@ final class Class116 {
 	static int anInt1113 = 0;
 	static AbstractSprite aClass120_Sub14_Sub19_1114;
 	static int worldListPort;
-	static int anInt1118;
+	static int currentRegionX;
 	static int[][] anIntArrayArray1119 = { new int[16], { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1 },
 			{ 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1 },
 			{ 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1 } };
@@ -60,15 +60,15 @@ final class Class116 {
 				if (EnumType.anInt3450 != 0 || !class120_sub16.inBounds(Queue.lastMouseX, ChunkAtmosphere.lastMouseY)) {
 					if (class120_sub16.mapFunctionNode.focused) {
 						class120_sub16.mapFunctionNode.focused = false;
-						Class112.method989(16, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function unfocus
+						Class112.method989(16, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//worldmapelementmouseleave
 					}
 				} else {
 					if (!class120_sub16.mapFunctionNode.focused) {
 						class120_sub16.mapFunctionNode.focused = true;
-						Class112.method989(15, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function focus
+						Class112.method989(15, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//worldmapelementmouseover
 					}
 					if (class120_sub16.mapFunctionNode.focused) {
-						Class112.method989(17, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//On function focusing
+						Class112.method989(17, class120_sub16.mapFunctionNode.id, mapFunctionType.anInt652);//worldmapelementmouserepeat
 					}
 				}
 			}

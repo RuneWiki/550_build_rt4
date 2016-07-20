@@ -133,7 +133,7 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	static final void method945(final js5 js5) {
+	static final void setup(final js5 js5) {
 		anInt2353 = 0;
 		anInt2354 = 0;
 		aClass174_2361 = new Class174();
@@ -156,9 +156,9 @@ final class ParticleEngine extends ParticleNode {
 	final void method948(final int i, final int i_6_, final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_) {
 		if (!this.aBoolean2356 && aBoolean2370 && HDToolkit.glEnabled) {
 			final GL gl = HDToolkit.gl;
-			final int i_14_ = DisplayModeInfo.anInt1713;
-			final int i_15_ = PlayerAppearance.anInt1367;
-			final int i_16_ = SkyboxType.anInt1381;
+			final int i_14_ = DisplayModeInfo.renderX;
+			final int i_15_ = PlayerAppearance.renderY;
+			final int i_16_ = SkyboxType.renderZ;
 			method956(i_14_, i_15_, i_16_);
 			final int i_17_ = i_13_ * i_9_ - i_11_ * i_8_ >> 16;
 			final int i_18_ = i_12_ * i_6_ + i_17_ * i_7_ >> 16;
@@ -231,7 +231,7 @@ final class ParticleEngine extends ParticleNode {
 		}
 	}
 
-	static final int method949() {
+	static final int getParticleSetting() {
 		return particleSetting;
 	}
 
@@ -531,8 +531,8 @@ final class ParticleEngine extends ParticleNode {
 			this.anInt2375 = (this.anInt2368 + (sizeZ << 6) >> 7) - 1;
 			this.anInt2369 = this.anInt2372;
 			if (this.level < 3) {
-				this.anInt2382 = OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2367] + OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2367]
-						+ OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2375] + OverridedJInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2375] >> 2;
+				this.anInt2382 = SubInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2367] + SubInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2367]
+						+ SubInterface.activeTileHeightMap[this.level + 1][this.anInt2373][this.anInt2375] + SubInterface.activeTileHeightMap[this.level + 1][this.anInt2384][this.anInt2375] >> 2;
 			} else {
 				this.anInt2382 = this.anInt2369 - 1024;
 			}
@@ -581,7 +581,7 @@ final class ParticleEngine extends ParticleNode {
 	}
 
 	final void method965(final int i, final int i_71_, final int i_72_, final int i_73_, final int i_74_) {
-		method944(i, i_71_, i_72_ + DisplayModeInfo.anInt1713, i_73_ + PlayerAppearance.anInt1367, i_74_ + SkyboxType.anInt1381);
+		method944(i, i_71_, i_72_ + DisplayModeInfo.renderX, i_73_ + PlayerAppearance.renderY, i_74_ + SkyboxType.renderZ);
 	}
 
 	ParticleEngine(final int lc, final int sx, final int sz) {

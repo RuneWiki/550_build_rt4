@@ -18,68 +18,68 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 	static int crossState = 0;
 	String displayName;
 
-	static final void method1629(final int bitPacked, final int componentIndex, final int actionId, final String menuOptionSuffix) {
+	static final void method1629(final int bitPacked, final int componentIndex, final int optionId, final String optionBase) {
 		final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
 		if (jagexInterface != null) {
-			if (jagexInterface.onComponentClickListener != null) {
-				final InterfaceListener class120_sub10 = new InterfaceListener();
-				class120_sub10.actionId = actionId;
-				class120_sub10.jagexInterface = jagexInterface;
-				class120_sub10.actionOption = menuOptionSuffix;
-				class120_sub10.objectData = jagexInterface.onComponentClickListener;
-				Class88.executeScript(class120_sub10);
+			if (jagexInterface.onOptionClickListener != null) {
+				final InterfaceListener interfaceListener = new InterfaceListener();
+				interfaceListener.optionId = optionId;
+				interfaceListener.jagexInterface = jagexInterface;
+				interfaceListener.optionBase = optionBase;
+				interfaceListener.objectData = jagexInterface.onOptionClickListener;
+				Class88.executeScript(interfaceListener);
 			}
 			boolean bool = true;
 			if (jagexInterface.clientCode > 0) {
-				bool = IntegerNode.method1833(jagexInterface);
+				bool = IntegerNode.handleClientCode(jagexInterface);
 			}
-			if (bool && client.getClickMask(jagexInterface).method1678(actionId - 1)) {
-				if (actionId == 1) {
+			if (bool && client.getClickMask(jagexInterface).isOptionEnabled(optionId - 1)) {
+				if (optionId == 1) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(94);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 2) {
+				if (optionId == 2) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(201);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 3) {
+				if (optionId == 3) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(30);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 4) {
+				if (optionId == 4) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(61);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 5) {
+				if (optionId == 5) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(66);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 6) {
+				if (optionId == 6) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(7);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 7) {
+				if (optionId == 7) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(108);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 8) {
+				if (optionId == 8) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(255);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 9) {
+				if (optionId == 9) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(97);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
 				}
-				if (actionId == 10) {
+				if (optionId == 10) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(10);
 					Class120_Sub12_Sub11.outputStream.putInt(bitPacked);
 					Class120_Sub12_Sub11.outputStream.putShort(componentIndex);
@@ -219,6 +219,16 @@ final class Class120_Sub14_Sub22 extends NodeSub {
 				this.anInt3644 = class120_sub4.anInt2432;
 			}
 		}
+	}
+
+	static final Class120_Sub14_Sub22 method485(final Buffer buffer, final int i) {
+		final Class120_Sub14_Sub22 class120_sub14_sub22_4_ = new Class120_Sub14_Sub22(i, buffer.getJagexString(), buffer.getJagexString(), buffer.getInt(), buffer.getInt(), buffer.getUByte() == 1, buffer.getUByte());
+		final int i_5_ = buffer.getUByte();
+		for (int i_6_ = 0; i_5_ > i_6_; i_6_++) {
+			class120_sub14_sub22_4_.aClass105_3641.addLast(new Class120_Sub4(buffer.getUByte(), buffer.getUByte(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort(), buffer.getUShort()));
+		}
+		class120_sub14_sub22_4_.method1636();
+		return class120_sub14_sub22_4_;
 	}
 
 	Class120_Sub14_Sub22(final int i, final String string, final String string_50_, final int i_51_, final int i_52_, final boolean bool, final int i_53_) {

@@ -66,7 +66,7 @@ final class Class86 {
 				Class120_Sub2.method1050();
 				is_5_ = ProducingGraphicsBuffer.method1851(underwater, WallLocation.collisionMaps, LightType.currentBaseZ, i_10_, i_9_, GameEntity.currentBaseX, is_7_);
 			}
-			if (!underwater && Class116.anInt1118 / 8 == i_6_ && i_8_ == Class3.anInt53 / 8) {
+			if (!underwater && Class116.currentRegionX / 8 == i_6_ && i_8_ == Class3.currentRegionZ / 8) {
 				if (is_5_ == null) {
 					ModelParticleEmitter.activeSkyboxId = -1;
 				} else {
@@ -82,7 +82,7 @@ final class Class86 {
 			final int i_13_ = (Class120_Sub12_Sub36.regionBitPackeds[i_11_] >> 8) * 64 - GameEntity.currentBaseX;
 			final int i_12_ = (Class120_Sub12_Sub36.regionBitPackeds[i_11_] & 0xff) * 64 - LightType.currentBaseZ;
 			final byte[] is_14_ = is[i_11_];
-			if (is_14_ == null && Class3.anInt53 < 800) {
+			if (is_14_ == null && Class3.currentRegionZ < 800) {
 				Class120_Sub2.method1050();
 				for (int i_15_ = 0; i_15_ < i_2_; i_15_++) {
 					Class120_Sub14_Sub15.method1556(i_13_, i_15_, 64, i_12_, 64);

@@ -9,7 +9,7 @@ final class Class9 {
 	private long aLong69;
 	static byte[][][] aByteArrayArrayArray70;
 	static int compassId;
-	static int anInt72;
+	static int currentLightColor;
 	private final int anInt73;
 	static boolean[] needInterfaceRedraw;
 	private final NodeSub[] aClass120_Sub14Array75;

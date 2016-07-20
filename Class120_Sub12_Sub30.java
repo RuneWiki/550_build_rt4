@@ -9,7 +9,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 	static int[] friendsRank = new int[200];
 	static String worldIpAddress;
 	static int anInt3376;
-	static int anInt3377;
+	static int renderYawSin;
 
 	static final void randomFileRead(final Buffer buffer) {
 		final byte[] data = new byte[24];
@@ -66,7 +66,7 @@ final class Class120_Sub12_Sub30 extends Class120_Sub12 {
 		} else if (delta > 100) {
 			delta = 100;
 		}
-		final int zoomModifier = delta * (client.aShort565 - Class120_Sub12_Sub11.aShort3216) / 100 + Class120_Sub12_Sub11.aShort3216;
+		final int zoomModifier = delta * (client.maxZoom - client.minZoom) / 100 + client.minZoom;
 		zoom = zoom * zoomModifier >> 8;
 		final int yawDelta = 2048 - yaw & 0x7ff;
 		final int pitchDelta = 2048 - pitch & 0x7ff;

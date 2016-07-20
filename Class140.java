@@ -7,7 +7,7 @@ final class Class140 {
 	private int current = 0;
 	static int[] anIntArray1341 = { 1, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 2, 0, 0, 1, 0 };
 	private final Hashtable hashtable;
-	static int anInt1343 = 0;
+	static int buildArea = 0;
 	private Node lastIterated;
 	static int anInt1345;
 
@@ -19,7 +19,7 @@ final class Class140 {
 		if (Class120_Sub12_Sub25.anInt3312 == 0) {
 			Class30.aClass120_Sub30_Sub2_234.method1748(i);
 		} else {
-			Js5Request.anInt3940 = i;
+			Js5Request.activeMusicVolume = i;
 		}
 	}
 
@@ -95,17 +95,6 @@ final class Class140 {
 				}
 			}
 			PlainTile.spriteHasAlpha[spriteId] = hasAlpha;
-		}
-	}
-
-	static final void setVarp(final int id, final int value) {
-		Class2.permanentVariable[id] = value;
-		LongNode longNode = (LongNode) Class69_Sub3_Sub1.aClass75_3079.get(id);
-		if (longNode == null) {
-			longNode = new LongNode(TimeUtil.getSafeTime() + 500L);
-			Class69_Sub3_Sub1.aClass75_3079.put(longNode, id);
-		} else {
-			longNode.value = TimeUtil.getSafeTime() + 500L;
 		}
 	}
 

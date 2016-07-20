@@ -52,16 +52,16 @@ final class Class43 {
 			Class148.worldsInfo[id].country = buffer.getUSmart();
 			Class148.worldsInfo[id].region = buffer.getJagexString2();
 		}
-		OverridedJInterface.worldOff = buffer.getUSmart();
+		SubInterface.worldOff = buffer.getUSmart();
 		EnumType.worldLen = buffer.getUSmart();
 		Class57.worldLen2 = buffer.getUSmart();
-		Class48.worldList = new World[EnumType.worldLen - OverridedJInterface.worldOff + 1];
+		Class48.worldList = new World[EnumType.worldLen - SubInterface.worldOff + 1];
 		for (int id = 0; id < Class57.worldLen2; id++) {
 			final int worldId = buffer.getUSmart();
 			final World world = Class48.worldList[worldId] = new World();
 			world.location = buffer.getUByte();
 			world.flag = buffer.getInt();
-			world.worldId = OverridedJInterface.worldOff + worldId;
+			world.worldId = SubInterface.worldOff + worldId;
 			world.activity = buffer.getJagexString2();
 			world.ip = buffer.getJagexString2();
 		}

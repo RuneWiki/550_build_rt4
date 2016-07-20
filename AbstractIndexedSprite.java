@@ -38,17 +38,15 @@ abstract class AbstractIndexedSprite {
 			}
 		}
 		if (newDisplayMode == 3 && QuickChatMessageType.fullscreenFrame == null) {
-			changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, currentDisplayMode, true, true);
+			changeDisplayMode(Class120_Sub12_Sub19.lastUsedDisplayMode, -1, -1, currentDisplayMode, true, true);
 		} else {
 			Container container;
-			if (QuickChatMessageType.fullscreenFrame == null) {
-				if (Class112.frame != null) {
-					container = Class112.frame;
-				} else {
-					container = NpcType.gameSignlink.gameApplet;
-				}
-			} else {
+			if (QuickChatMessageType.fullscreenFrame != null) {
 				container = QuickChatMessageType.fullscreenFrame;
+			} else if (Class112.frame != null) {
+				container = Class112.frame;
+			} else {
+				container = NpcType.gameSignlink.gameApplet;
 			}
 			Class120_Sub12_Sub7.frameWidth = container.getSize().width;
 			PlayerAppearance.frameHeight = container.getSize().height;

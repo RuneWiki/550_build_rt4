@@ -8,7 +8,7 @@ final class Class30 {
 	static boolean aBoolean226 = false;
 	private Class120_Sub19[] aClass120_Sub19Array227;
 	private int anInt228 = 0;
-	static boolean packetCounterUpdated;
+	static boolean transmitNewId;
 	private int[][] anIntArrayArray230;
 	private final int anInt232;
 	static Class120_Sub30_Sub2 aClass120_Sub30_Sub2_234;
@@ -16,16 +16,16 @@ final class Class30 {
 	static int globalMagnetPos;
 	private Deque aClass105_237 = new Deque();
 	boolean aBoolean238 = false;
-	static int[] anIntArray239;
+	static int[] serverPlayerVariables;
 
 	static {
 		anIntArray224 = new int[4096];
 		for (int i = 0; i < 4096; i++) {
 			anIntArray224[i] = GroundTile.method1670(i);
 		}
-		packetCounterUpdated = false;
+		transmitNewId = false;
 		globalMagnetPos = 0;
-		anIntArray239 = new int[2500];
+		serverPlayerVariables = new int[2500];
 	}
 
 	final int[][] method257() {
@@ -119,7 +119,7 @@ final class Class30 {
 							final Class120_Sub30_Sub4 class120_sub30_sub4 = Class120_Sub30_Sub4.method1821(class120_sub5_sub1, 100, i_8_);
 							class120_sub30_sub4.method1795(0);
 							Class120_Sub12_Sub22.aClass120_Sub30_Sub3_3299.method1787(class120_sub30_sub4);
-							ambientSound.anInt2496 = (int) (Math.random() * (-ambientSound.anInt2489 + ambientSound.anInt2486)) + ambientSound.anInt2489;
+							ambientSound.anInt2496 = (int) (Math.random() * (ambientSound.anInt2486 - ambientSound.anInt2489)) + ambientSound.anInt2489;
 							ambientSound.aClass120_Sub30_Sub4_2478 = class120_sub30_sub4;
 						}
 					}

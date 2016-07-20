@@ -10,7 +10,7 @@ final class Class31 {
 	static GameShell gameApplet = null;
 	static LDIndexedSprite aClass107_Sub1_246;
 	static int spriteTrimWidth;
-	static int anInt248;
+	static int minTileZ;
 	static boolean advertSuppressed = false;
 	static int anInt250 = 0;
 
@@ -31,7 +31,7 @@ final class Class31 {
 			}
 			final Npc npc = Class120_Sub12_Sub11.npcList[index];
 			Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-			npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+			npc.lastUpdateCycle = Class101_Sub2.clientClock;
 			if (npc.npcType != null && npc.npcType.hasAmbientSound()) {
 				Class120_Sub16.removeAmbientSoundNpc(npc);
 			}
@@ -54,7 +54,7 @@ final class Class31 {
 			}
 			final int i_5_ = Canvas_Sub1.inputStream.getBitValue(1);
 			npc.setSize(npc.npcType.size);
-			npc.entityRenderDataId = npc.npcType.renderDataId;
+			npc.basTypeId = npc.npcType.basTypeId;
 			npc.anInt3010 = npc.npcType.anInt1672;
 			if (npc.anInt3010 == 0) {
 				npc.faceDegrees = 0;
@@ -65,23 +65,6 @@ final class Class31 {
 			}
 		}
 		Canvas_Sub1.inputStream.endBitAccess();
-	}
-
-	static final int method263(final boolean bool) {
-		final long l = TimeUtil.getSafeTime();
-		for (LongNode class120_sub3 = bool ? (LongNode) Class69_Sub3_Sub1.aClass75_3079.getFirst() : (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext(); class120_sub3 != null; class120_sub3 = (LongNode) Class69_Sub3_Sub1.aClass75_3079.getNext()) {
-			if (l > (class120_sub3.value & 0x3fffffffffffffffL)) {
-				if ((class120_sub3.value & 0x4000000000000000L) == 0L) {
-					class120_sub3.unlink();
-				} else {
-					final int i_7_ = (int) class120_sub3.uid;
-					Class2.permanentVariable[i_7_] = Class30.anIntArray239[i_7_];
-					class120_sub3.unlink();
-					return i_7_;
-				}
-			}
-		}
-		return -1;
 	}
 
 	static final void method264(final int i_8_, final int i_9_, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_) {
@@ -123,4 +106,5 @@ final class Class31 {
 			ambientSound.unlink();
 		}
 	}
+
 }

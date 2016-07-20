@@ -118,7 +118,7 @@ final class JagexSocket implements Runnable {
 							FrameGroup.anInt3609 = 0;
 							AbstractTimer.worldConnection.close();
 							AbstractTimer.worldConnection = null;
-							LabelGroup.method1037();
+							SeqFrameBase.method1037();
 						}
 					}
 				} catch (final IOException ioexception) {

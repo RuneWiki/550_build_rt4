@@ -136,8 +136,8 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 	}
 
 	static final void method1371(final GameEntity gameEntity) {
-		final EntityRenderData renderData = gameEntity.getEntityRenderData();
-		gameEntity.idleAnimId = renderData.idleAnimationId;
+		final BasType basType = gameEntity.getBasType();
+		gameEntity.idleAnimId = basType.idleAnimationId;
 		if (gameEntity.walkQueuePos == 0) {
 			gameEntity.anInt3037 = 0;
 		} else {
@@ -152,7 +152,7 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					return;
 				}
 			}
-			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.spotAnimDelay) {
+			if (gameEntity.spotAnimId != -1 && Class101_Sub2.clientClock >= gameEntity.spotAnimDelay) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
 				if (spotAnimType.aBoolean998 && spotAnimType.animationId != -1) {
 					final SeqType seqType = SeqType.list(spotAnimType.animationId);
@@ -195,20 +195,20 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 				} else {
 					gameEntity.newFaceDegrees = 0;
 				}
-				int animationId = renderData.turnAnimation1;
+				int animationId = basType.turnAnimation1;
 				int degreesDelta = gameEntity.newFaceDegrees - gameEntity.faceDegrees & 0x7ff;
 				if (degreesDelta > 1024) {
 					degreesDelta -= 2048;
 				}
 				if (degreesDelta >= -256 && degreesDelta <= 256) {
-					animationId = renderData.walkAnimation;
+					animationId = basType.walkAnimation;
 				} else if (degreesDelta >= 256 && degreesDelta <= 768) {
-					animationId = renderData.turnAnimation2;
+					animationId = basType.turnAnimation2;
 				} else if (degreesDelta >= -768 && degreesDelta <= -256) {
-					animationId = renderData.turnAnimation3;
+					animationId = basType.turnAnimation3;
 				}
 				if (animationId == -1) {
-					animationId = renderData.walkAnimation;
+					animationId = basType.walkAnimation;
 				}
 				gameEntity.idleAnimId = animationId;
 				int positionOffset = 4;
@@ -250,47 +250,47 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 					positionOffset >>= 1;
 					i_30_ = 0;
 				}
-				if (positionOffset < 8 || renderData.runAnimationId == -1) {
-					if (renderData.anInt212 != -1 && i_30_ == 0) {
-						if (renderData.turnAnimation1 == gameEntity.idleAnimId && renderData.anInt192 != -1) {
-							gameEntity.idleAnimId = renderData.anInt192;
-						} else if (gameEntity.idleAnimId != renderData.turnAnimation3 || renderData.anInt210 == -1) {
-							if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.anInt219 != -1) {
-								gameEntity.idleAnimId = renderData.anInt219;
+				if (positionOffset < 8 || basType.runAnimationId == -1) {
+					if (basType.anInt212 != -1 && i_30_ == 0) {
+						if (basType.turnAnimation1 == gameEntity.idleAnimId && basType.anInt192 != -1) {
+							gameEntity.idleAnimId = basType.anInt192;
+						} else if (gameEntity.idleAnimId != basType.turnAnimation3 || basType.anInt210 == -1) {
+							if (basType.turnAnimation2 == gameEntity.idleAnimId && basType.anInt219 != -1) {
+								gameEntity.idleAnimId = basType.anInt219;
 							} else {
-								gameEntity.idleAnimId = renderData.anInt212;
+								gameEntity.idleAnimId = basType.anInt212;
 							}
 						} else {
-							gameEntity.idleAnimId = renderData.anInt210;
+							gameEntity.idleAnimId = basType.anInt210;
 						}
 					}
-				} else if (gameEntity.idleAnimId == renderData.turnAnimation1 && renderData.runAnimationId2 != -1) {
-					gameEntity.idleAnimId = renderData.runAnimationId2;
-				} else if (renderData.turnAnimation3 != gameEntity.idleAnimId || renderData.runAnimationId3 == -1) {
-					if (renderData.turnAnimation2 == gameEntity.idleAnimId && renderData.runAnimationId4 != -1) {
-						gameEntity.idleAnimId = renderData.runAnimationId4;
+				} else if (gameEntity.idleAnimId == basType.turnAnimation1 && basType.runAnimationId2 != -1) {
+					gameEntity.idleAnimId = basType.runAnimationId2;
+				} else if (basType.turnAnimation3 != gameEntity.idleAnimId || basType.runAnimationId3 == -1) {
+					if (basType.turnAnimation2 == gameEntity.idleAnimId && basType.runAnimationId4 != -1) {
+						gameEntity.idleAnimId = basType.runAnimationId4;
 					} else {
-						gameEntity.idleAnimId = renderData.runAnimationId;
+						gameEntity.idleAnimId = basType.runAnimationId;
 					}
 				} else {
-					gameEntity.idleAnimId = renderData.runAnimationId3;
+					gameEntity.idleAnimId = basType.runAnimationId3;
 				}
-				if (renderData.anInt201 != -1) {
+				if (basType.anInt201 != -1) {
 					positionOffset <<= 7;
 					if (gameEntity.walkQueuePos == 1) {
 						final int i_31_ = gameEntity.anInt2996 * gameEntity.anInt2996;
 						final int i_33_ = (destX < gameEntity.x ? gameEntity.x - destX : destX - gameEntity.x) << 7;
 						final int i_32_ = (destZ < gameEntity.z ? gameEntity.z - destZ : destZ - gameEntity.z) << 7;
 						final int i_34_ = i_32_ >= i_33_ ? i_32_ : i_33_;
-						final int i_35_ = renderData.anInt201 * 2 * i_34_;
+						final int i_35_ = basType.anInt201 * 2 * i_34_;
 						if (i_35_ >= i_31_) {
 							if (i_31_ / 2 > i_34_) {
-								gameEntity.anInt2996 -= renderData.anInt201;
+								gameEntity.anInt2996 -= basType.anInt201;
 								if (gameEntity.anInt2996 < 0) {
 									gameEntity.anInt2996 = 0;
 								}
 							} else if (gameEntity.anInt2996 < positionOffset) {
-								gameEntity.anInt2996 += renderData.anInt201;
+								gameEntity.anInt2996 += basType.anInt201;
 								if (positionOffset < gameEntity.anInt2996) {
 									gameEntity.anInt2996 = positionOffset;
 								}
@@ -300,13 +300,13 @@ final class Class120_Sub12_Sub32 extends Class120_Sub12 {
 						}
 					} else if (gameEntity.anInt2996 >= positionOffset) {
 						if (gameEntity.anInt2996 > 0) {
-							gameEntity.anInt2996 -= renderData.anInt201;
+							gameEntity.anInt2996 -= basType.anInt201;
 							if (gameEntity.anInt2996 < 0) {
 								gameEntity.anInt2996 = 0;
 							}
 						}
 					} else {
-						gameEntity.anInt2996 += renderData.anInt201;
+						gameEntity.anInt2996 += basType.anInt201;
 						if (positionOffset < gameEntity.anInt2996) {
 							gameEntity.anInt2996 = positionOffset;
 						}

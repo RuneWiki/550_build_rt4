@@ -48,8 +48,8 @@ class LDSprite extends AbstractSprite {
 	
 	private static final void plotPixels(final int[] destPixels, final int[] srcPixels, int srcPixel, int srcPixelId, int destPixelId, final int width, final int height, final int destPixelStep, final int srcPixelStep, final int transparency) {
 		final int transDelta = 256 - transparency;
-		for (int heightLoop = -height; heightLoop < 0; heightLoop++) {
-			for (int widthLoop = -width; widthLoop < 0; widthLoop++) {
+		for (int y = -height; y < 0; y++) {
+			for (int x = -width; x < 0; x++) {
 				srcPixel = srcPixels[srcPixelId++];
 				if (srcPixel != 0) {
 					final int destPixel = destPixels[destPixelId];

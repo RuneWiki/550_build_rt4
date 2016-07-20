@@ -356,7 +356,7 @@ final class Class120_Sub31 extends Node {
 				}
 				throw new RuntimeException();
 			} while (false);
-			class120_sub7_68_.method1112(class120_sub7_68_.pos - i_77_);
+			class120_sub7_68_.putIntAt(class120_sub7_68_.pos - i_77_);
 		}
 	}
 

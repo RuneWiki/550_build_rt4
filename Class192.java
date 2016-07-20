@@ -35,7 +35,7 @@ final class Class192 {
 		if (player.animId != animationId || animationId == -1) {
 			if (animationId == -1 || player.animId == -1 || SeqType.list(animationId).priority >= SeqType.list(player.animId).priority) {
 				player.animId = animationId;
-				player.animCurrentFrameDelay = 0;
+				player.animFrameDelay = 0;
 				player.animDelay = delay;
 				player.animFrame = 0;
 				player.animNextFrame = 1;
@@ -51,7 +51,7 @@ final class Class192 {
 			if (resetType == 1) {
 				player.animDelay = delay;
 				player.animFrame = 0;
-				player.animCurrentFrameDelay = 0;
+				player.animFrameDelay = 0;
 				player.animNextFrame = 1;
 				player.animCyclesElapsed = 0;
 				Class120_Sub12_Sub23.method1323(seqType, player.x, player.z, player.animFrame, player == TileParticleQueue.selfPlayer);

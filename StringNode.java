@@ -48,8 +48,8 @@ final class StringNode extends Node {
 			Class154.method2079(x, y, width, height, true);
 			x = ObjectContainer.anInt2612;
 			y = ReflectionCheckNode.anInt2751;
-			width = Class120_Sub12_Sub27.anInt3339;
-			height = Light.anInt391;
+			width = Class120_Sub12_Sub27.effectiveWidth;
+			height = Light.effectiveHeight;
 		}
 		ParticleEngine.offsetX = x;
 		ParticleEngine.offsetY = y;
@@ -73,7 +73,7 @@ final class StringNode extends Node {
 		final int i_10_ = UnderlayType.renderPitch;
 		for (int i_13_ = 0; i_13_ < 5; i_13_++) {
 			if (Class120_Sub12_Sub12.aBooleanArray3223[i_13_]) {
-				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(LabelGroup.anIntArray2409[i_13_] / 100.0 * LabelGroup.anIntArray2412[i_13_]) * LightType.anIntArray1790[i_13_]);
+				final int i_14_ = (int) (-Class120_Sub12_Sub37.anIntArray3425[i_13_] + Math.random() * (1 + 2 * Class120_Sub12_Sub37.anIntArray3425[i_13_]) + Math.sin(SeqFrameBase.anIntArray2409[i_13_] / 100.0 * SeqFrameBase.anIntArray2412[i_13_]) * LightType.anIntArray1790[i_13_]);
 				if (i_13_ == 0) {
 					FileSystemWorker.renderX += i_14_;
 				}
@@ -101,7 +101,7 @@ final class StringNode extends Node {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.clipRect(x, y, x + width, y + height);
 			Rasterizer.calculateByBounds();
-			if (ModelParticleEmitter.activeSkyboxId >= 0) {//Skyboxes in 550?
+			if (ModelParticleEmitter.activeSkyboxId >= 0) {
 				final Skybox skybox = Skybox.list(ModelParticleEmitter.activeSkyboxId, Class120_Sub12.activeSkyboxSphereOffsetX, Class143_Sub1.activeSkyboxSphereOffsetY, PlainTile.activeSkyboxSphereOffsetZ);
 				skybox.drawLD(Class132.activeSkyboxYawOffset, x, y, width, height, UnderlayType.renderPitch, SpotAnimation.renderYaw, 0);
 			} else {
@@ -140,12 +140,12 @@ final class StringNode extends Node {
 		} else {
 			AbstractModelRenderer.actionsLen = 0;
 			AbstractModelRenderer.addActions = true;
-			final int right = Class120_Sub12_Sub16.viewportRight;
-			final int bottom = Class120_Sub30_Sub1.viewportBottom;
-			final int top = Class190.viewportTop;
-			final int left = IntegerNode.viewportLeft;
-			AbstractModelRenderer.mouseOffFromCenterX = left + (right - left) * (Class115.menuMouseX - x) / width;
-			AbstractModelRenderer.mouseOffFromCenterY = top + (bottom - top) * (Class120_Sub12_Sub21.menuMouseY - y) / height;
+			final int right = Rasterizer.viewportRight;
+			final int bottom = Rasterizer.viewportBottom;
+			final int top = Rasterizer.viewportTop;
+			final int left = Rasterizer.viewportLeft;
+			AbstractModelRenderer.mouseXOffFromCenter = left + (right - left) * (Class115.menuMouseX - x) / width;
+			AbstractModelRenderer.mouseYOffFromCenter = top + (bottom - top) * (Class120_Sub12_Sub21.menuMouseY - y) / height;
 		}
 		Class120_Sub2.method1050();
 		final byte i_21_ = Class24.method207() == 2 ? (byte) InterfaceChangeNode.anInt3490 : (byte) 1;
@@ -156,9 +156,9 @@ final class StringNode extends Node {
 			Class69.method612(x, y, width, height, 256, 256);
 			Class143_Sub1.method2027(x, y, width, height, 256, 256);
 		} else {
-			LightManager.update(Class101_Sub2.loopCycle, !ChunkAtmosphere.flickeringEffectsOn);
+			LightManager.update(Class101_Sub2.clientClock, !ChunkAtmosphere.flickeringEffectsOn);
 			MouseRecorder.setupShaderRenderValues(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, SpotAnimation.renderYaw, UnderlayType.renderPitch);
-			HDToolkit.loopCycleWrapper = Class101_Sub2.loopCycle;
+			HDToolkit.loopCycleWrapper = Class101_Sub2.clientClock;
 			Class115.method1007(FileSystemWorker.renderX, Class120_Sub12_Sub10.renderY, GroundObjectNode.renderZ, UnderlayType.renderPitch, SpotAnimation.renderYaw, Class9.aByteArrayArrayArray70, Class134.anIntArray1284, Class54.anIntArray488, IntegerNode.anIntArray2787, AnimatedLocation.anIntArray3075, anIntArray2735, Class173.gameLevel + 1, i_21_, TileParticleQueue.selfPlayer.x >> 7, TileParticleQueue.selfPlayer.z >> 7);
 			Class167.clearDepthBuffer = true;
 			LightManager.disableLights();

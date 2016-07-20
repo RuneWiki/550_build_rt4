@@ -6,7 +6,7 @@ final class Class111 {
 	static Class28[] aClass28Array1057;
 	static boolean aBoolean1058;
 	static int anInt1060 = 0;
-	static int anInt1061 = 127;
+	static int soundEffectVolume = 127;
 	static int[] underWaterMapFileIds;
 	static js5 aClass50_1064;
 	static int anInt1065;
@@ -57,7 +57,7 @@ final class Class111 {
 			MouseRecorder.anInt852++;
 		}
 		Class74.anInt667 += i;
-		int i_6_ = (i - -(0x1 & Class101_Sub2.loopCycle)) / 2;
+		int i_6_ = (i - -(0x1 & Class101_Sub2.clientClock)) / 2;
 		if (i_6_ > 0) {
 			for (int i_11_ = 0; i_11_ < Class74.anInt667; i_11_++) {
 				final int i_12_ = 2 + (int) (124.0 * Math.random());
@@ -103,9 +103,9 @@ final class Class111 {
 	}
 
 	static final void method984(final GameEntity gameEntity) {
-		if (Class101_Sub2.loopCycle == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.animCurrentFrameDelay + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animFrame]) {
+		if (Class101_Sub2.clientClock == gameEntity.anInt2961 || gameEntity.animId == -1 || gameEntity.animDelay != 0 || gameEntity.animFrameDelay + 1 > SeqType.list(gameEntity.animId).delays[gameEntity.animFrame]) {
 			final int i_24_ = gameEntity.anInt2961 - gameEntity.anInt3035;
-			final int i_25_ = Class101_Sub2.loopCycle - gameEntity.anInt3035;
+			final int i_25_ = Class101_Sub2.clientClock - gameEntity.anInt3035;
 			final int i_27_ = gameEntity.anInt3034 * 128 + gameEntity.getSize() * 64;
 			final int i_28_ = gameEntity.anInt3015 * 128 + gameEntity.getSize() * 64;
 			final int i_26_ = gameEntity.anInt2967 * 128 + gameEntity.getSize() * 64;

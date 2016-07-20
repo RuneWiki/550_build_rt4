@@ -22,11 +22,11 @@ final class SeqType {
 	boolean aBoolean344;
 	static String loginPassword = "";
 	int loop;//orig
-	int[][] anIntArrayArray347;
+	int[][] soundEffectIds;
 	int priority;//orig
 	static js5 aClass50_2286;
 	static ObjectCache recentUse = new ObjectCache(64);
-	static int anInt349;
+	static int activeMusicFileId;
 
 	final AbstractModelRenderer method320(final AbstractModelRenderer class180_sub7, int i, int i_0_, int i_1_, final int i_2_) {
 		final int i_4_ = this.delays[i_0_];
@@ -45,9 +45,9 @@ final class SeqType {
 		}
 		AbstractModelRenderer class180_sub7_6_;
 		if (class120_sub14_sub18_5_ != null) {
-			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_) & !class120_sub14_sub18_5_.method1578(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
+			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.hasAlpha(i_0_) & !class120_sub14_sub18_5_.hasAlpha(i), !class120_sub14_sub18.method1579(i_0_) & !class120_sub14_sub18_5_.method1579(i), !this.aBoolean341);
 		} else {
-			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.method1578(i_0_), !class120_sub14_sub18.method1579(i_0_), !this.aBoolean341);
+			class180_sub7_6_ = class180_sub7.method2376(!class120_sub14_sub18.hasAlpha(i_0_), !class120_sub14_sub18.method1579(i_0_), !this.aBoolean341);
 		}
 		if (this.aBoolean341 && HDToolkit.glEnabled) {
 			if (i_1_ != 1) {
@@ -147,18 +147,18 @@ final class SeqType {
 				}
 			}
 		}
-		boolean bool_20_ = !class120_sub14_sub18.method1578(i_14_);
+		boolean bool_20_ = !class120_sub14_sub18.hasAlpha(i_14_);
 		boolean bool_21_ = !class120_sub14_sub18.method1579(i_14_);
 		if (class120_sub14_sub18_16_ != null) {
-			bool_20_ = bool_20_ & !class120_sub14_sub18_16_.method1578(i_18_);
+			bool_20_ = bool_20_ & !class120_sub14_sub18_16_.hasAlpha(i_18_);
 			bool_21_ = bool_21_ & !class120_sub14_sub18_16_.method1579(i_18_);
 		}
 		if (class120_sub14_sub18_15_ != null) {
-			bool_20_ = bool_20_ & !class120_sub14_sub18_15_.method1578(i_10_);
+			bool_20_ = bool_20_ & !class120_sub14_sub18_15_.hasAlpha(i_10_);
 			bool_21_ = bool_21_ & !class120_sub14_sub18_15_.method1579(i_10_);
 		}
 		if (class120_sub14_sub18_19_ != null) {
-			bool_20_ = bool_20_ & !class120_sub14_sub18_19_.method1578(i_17_);
+			bool_20_ = bool_20_ & !class120_sub14_sub18_19_.hasAlpha(i_17_);
 			bool_21_ = bool_21_ & !class120_sub14_sub18_19_.method1579(i_17_);
 		}
 		final AbstractModelRenderer class180_sub7_22_ = class180_sub7.method2376(bool_20_, bool_21_, !this.aBoolean341);
@@ -175,7 +175,7 @@ final class SeqType {
 		final FrameGroup class120_sub14_sub18 = FrameGroup.list(frameId >> 16);
 		frameId &= 0xffff;
 		if (class120_sub14_sub18 == null) {
-			return class180_sub7.method2381(true, true, true);
+			return class180_sub7.copy(true, true, true);
 		}
 		FrameGroup class120_sub14_sub18_28_ = null;
 		if ((this.tween || Class164.forceTweenEnabled) && nextFrameId != -1 && nextFrameId < this.frames.length) {
@@ -185,9 +185,9 @@ final class SeqType {
 		}
 		AbstractModelRenderer class180_sub7_29_;
 		if (class120_sub14_sub18_28_ == null) {
-			class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578(frameId), !class120_sub14_sub18.method1579(frameId), !this.aBoolean341);
+			class180_sub7_29_ = class180_sub7.copy(!class120_sub14_sub18.hasAlpha(frameId), !class120_sub14_sub18.method1579(frameId), !this.aBoolean341);
 		} else {
-			class180_sub7_29_ = class180_sub7.method2381(!class120_sub14_sub18.method1578(frameId) & !class120_sub14_sub18_28_.method1578(nextFrameId), !class120_sub14_sub18.method1579(frameId) & !class120_sub14_sub18_28_.method1579(nextFrameId), !this.aBoolean341);
+			class180_sub7_29_ = class180_sub7.copy(!class120_sub14_sub18.hasAlpha(frameId) & !class120_sub14_sub18_28_.hasAlpha(nextFrameId), !class120_sub14_sub18.method1579(frameId) & !class120_sub14_sub18_28_.method1579(nextFrameId), !this.aBoolean341);
 		}
 		class180_sub7_29_.method2380(class120_sub14_sub18, frameId, class120_sub14_sub18_28_, nextFrameId, delay - 1, i_27_, this.aBoolean341);
 		return class180_sub7_29_;
@@ -249,15 +249,15 @@ final class SeqType {
 				interfaceFrames[id] = (buffer.getUShort() << 16) + interfaceFrames[id];
 			}
 		} else if (code == 13) {
-			final int i_39_ = buffer.getUShort();
-			this.anIntArrayArray347 = new int[i_39_][];
-			for (int i_40_ = 0; i_40_ < i_39_; i_40_++) {
+			final int length = buffer.getUShort();
+			this.soundEffectIds = new int[length][];
+			for (int i = 0; i < length; i++) {
 				final int i_41_ = buffer.getUByte();
 				if (i_41_ > 0) {
-					this.anIntArrayArray347[i_40_] = new int[i_41_];
-					this.anIntArrayArray347[i_40_][0] = buffer.getMedium();
+					this.soundEffectIds[i] = new int[i_41_];
+					this.soundEffectIds[i][0] = buffer.getMedium();
 					for (int i_42_ = 1; i_41_ > i_42_; i_42_++) {
-						this.anIntArrayArray347[i_40_][i_42_] = buffer.getUShort();
+						this.soundEffectIds[i][i_42_] = buffer.getUShort();
 					}
 				}
 			}
@@ -280,46 +280,40 @@ final class SeqType {
 		}
 		i_51_ &= 0x3;
 		FrameGroup class120_sub14_sub18_54_ = null;
-		if ((this.tween || Class164.forceTweenEnabled) && (i ^ 0xffffffff) != 0 && i < this.frames.length) {
+		if ((this.tween || Class164.forceTweenEnabled) && i != -1 && i < this.frames.length) {
 			i = this.frames[i];
 			class120_sub14_sub18_54_ = FrameGroup.list(i >> 16);
 			i &= 0xffff;
 		}
 		AbstractModelRenderer class180_sub7_55_;
 		if (class120_sub14_sub18_54_ != null) {
-			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_) & !class120_sub14_sub18_54_.method1578(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
+			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.hasAlpha(i_50_) & !class120_sub14_sub18_54_.hasAlpha(i), !class120_sub14_sub18.method1579(i_50_) & !class120_sub14_sub18_54_.method1579(i), !this.aBoolean341);
 		} else {
-			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.method1578(i_50_), !class120_sub14_sub18.method1579(i_50_), !this.aBoolean341);
+			class180_sub7_55_ = class180_sub7.method2378(!class120_sub14_sub18.hasAlpha(i_50_), !class120_sub14_sub18.method1579(i_50_), !this.aBoolean341);
 		}
 		if (!HDToolkit.glEnabled || !this.aBoolean341) {
-			if (i_51_ != 1) {
-				if (i_51_ == 2) {
-					class180_sub7_55_.rotate180();
-				} else if (i_51_ == 3) {
-					class180_sub7_55_.rotate90();
-				}
-			} else {
+			if (i_51_ == 1) {
 				class180_sub7_55_.rotate270();
+			} else if (i_51_ == 2) {
+				class180_sub7_55_.rotate180();
+			} else if (i_51_ == 3) {
+				class180_sub7_55_.rotate90();
 			}
 		} else if (i_51_ == 1) {
 			((HDModelRenderer) class180_sub7_55_).method2408();
-		} else if (i_51_ != 2) {
-			if (i_51_ == 3) {
-				((HDModelRenderer) class180_sub7_55_).method2422();
-			}
-		} else {
+		} else if (i_51_ == 2) {
 			((HDModelRenderer) class180_sub7_55_).method2409();
+		} else if (i_51_ == 3) {
+			((HDModelRenderer) class180_sub7_55_).method2422();
 		}
-		class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, -1 + i_48_, i_53_, this.aBoolean341);
+		class180_sub7_55_.method2380(class120_sub14_sub18, i_50_, class120_sub14_sub18_54_, i, i_48_ - 1, i_53_, this.aBoolean341);
 		if (!HDToolkit.glEnabled || !this.aBoolean341) {
-			if (i_51_ != 1) {
-				if (i_51_ == 2) {
-					class180_sub7_55_.rotate180();
-				} else if (i_51_ == 3) {
-					class180_sub7_55_.rotate270();
-				}
-			} else {
+			if (i_51_ == 1) {
 				class180_sub7_55_.rotate90();
+			} else if (i_51_ == 2) {
+				class180_sub7_55_.rotate180();
+			} else if (i_51_ == 3) {
+				class180_sub7_55_.rotate270();
 			}
 		} else if (i_51_ == 1) {
 			((HDModelRenderer) class180_sub7_55_).method2422();
@@ -346,6 +340,12 @@ final class SeqType {
 				this.walkProperties = 0;
 			}
 		}
+	}
+
+	static final void setupSeqTypeVariables(final js5 js5, final js5 class50_0_, final js5 class50_1_) {
+		aClass50_2286 = js5;
+		Class132_Sub1.framesJs5 = class50_1_;
+		Class179.frameBasesJs5 = class50_0_;
 	}
 
 	static final SeqType list(final int id) {

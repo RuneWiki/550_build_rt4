@@ -55,8 +55,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					for (int i_20_ = 1; i_20_ < 103; i_20_++) {
 						for (int i_21_ = 1; i_21_ < 103; i_21_++) {
 							int i_22_ = 96;
-							final int i_23_ = -OverridedJInterface.activeTileHeightMap[level][i_21_][i_20_ + -1] + OverridedJInterface.activeTileHeightMap[level][i_21_][1 + i_20_];
-							final int i_24_ = OverridedJInterface.activeTileHeightMap[level][1 + i_21_][i_20_] + -OverridedJInterface.activeTileHeightMap[level][-1 + i_21_][i_20_];
+							final int i_23_ = -SubInterface.activeTileHeightMap[level][i_21_][i_20_ + -1] + SubInterface.activeTileHeightMap[level][i_21_][1 + i_20_];
+							final int i_24_ = SubInterface.activeTileHeightMap[level][1 + i_21_][i_20_] + -SubInterface.activeTileHeightMap[level][-1 + i_21_][i_20_];
 							final int i_25_ = (int) Math.sqrt(65536 + i_24_ * i_24_ - -(i_23_ * i_23_));
 							final int i_26_ = -65536 / i_25_;
 							final int i_27_ = (i_23_ << 8) / i_25_;
@@ -76,9 +76,9 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 				for (int z = 1; z < 103; z++) {
 					for (int x = 1; x < 103; x++) {
 						int i_34_ = 74;
-						final int xHeightDiff = OverridedJInterface.activeTileHeightMap[level][x + 1][z] - OverridedJInterface.activeTileHeightMap[level][x - 1][z];
+						final int xHeightDiff = SubInterface.activeTileHeightMap[level][x + 1][z] - SubInterface.activeTileHeightMap[level][x - 1][z];
 						final int yHeightDiff = 0x10000;
-						final int zHeightDiff = OverridedJInterface.activeTileHeightMap[level][x][z + 1] - OverridedJInterface.activeTileHeightMap[level][x][z - 1];
+						final int zHeightDiff = SubInterface.activeTileHeightMap[level][x][z + 1] - SubInterface.activeTileHeightMap[level][x][z - 1];
 						final int i_37_ = (int) Math.sqrt(xHeightDiff * xHeightDiff + yHeightDiff + zHeightDiff * zHeightDiff);
 						final int i_38_ = (xHeightDiff << 8) / i_37_;
 						final int i_39_ = -yHeightDiff / i_37_;
@@ -161,10 +161,10 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 						final int underlayId = Class120_Sub4.tileUnderlayIds[level][x][z] & 0xff;
 						final int overlayId = Class99.tileOverlayIds[level][x][z] & 0xff;
 						if (underlayId > 0 || overlayId > 0) {
-							final int tileHeight = OverridedJInterface.activeTileHeightMap[level][x][z];
-							final int tileHeightNorth = OverridedJInterface.activeTileHeightMap[level][x][z + 1];
-							final int tileHeightEast = OverridedJInterface.activeTileHeightMap[level][x + 1][z];
-							final int tileHeightNorthEast = OverridedJInterface.activeTileHeightMap[level][x + 1][z + 1];
+							final int tileHeight = SubInterface.activeTileHeightMap[level][x][z];
+							final int tileHeightNorth = SubInterface.activeTileHeightMap[level][x][z + 1];
+							final int tileHeightEast = SubInterface.activeTileHeightMap[level][x + 1][z];
+							final int tileHeightNorthEast = SubInterface.activeTileHeightMap[level][x + 1][z + 1];
 							if (level > 0) {
 								boolean occlude = true;
 								if (underlayId == 0 && MapFunctionNode.tileOverlayShapes[level][x][z] != 0) {
@@ -200,7 +200,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							if (overlayId == 0) {
 								Class120_Sub12.setTile(level, x, z, 0, 0, -1, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), 0, 0, 0, 0, underlayMinimapColor, 0);
 								if (HDToolkit.glEnabled && level > 0 && i_66_ != -1 && UnderlayType.list(underlayId - 1).aBoolean1220) {
-									ShadowManager.method384(0, 0, true, false, x, z, tileHeight - OverridedJInterface.activeTileHeightMap[0][x][z], tileHeightEast - OverridedJInterface.activeTileHeightMap[0][x + 1][z], tileHeightNorthEast - OverridedJInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - OverridedJInterface.activeTileHeightMap[0][x][z + 1]);
+									ShadowManager.method384(0, 0, true, false, x, z, tileHeight - SubInterface.activeTileHeightMap[0][x][z], tileHeightEast - SubInterface.activeTileHeightMap[0][x + 1][z], tileHeightNorthEast - SubInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - SubInterface.activeTileHeightMap[0][x][z + 1]);
 								}
 								if (HDToolkit.glEnabled && !underwater && NodeCache.anIntArrayArray300 != null && level == 0) {
 									while_130_: for (int i_74_ = x + -1; i_74_ <= x + 1; i_74_++) {
@@ -243,7 +243,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 									}
 								}
 								int textureId = overlayType.textureId;
-								if (textureId >= 0 && !Rasterizer.anInterface5_973.method15(textureId)) {
+								if (textureId >= 0 && !Rasterizer.anInterface5_973.isValid(textureId)) {
 									textureId = -1;
 								}
 								int overlayMinimapColor;
@@ -282,7 +282,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								}
 								Class120_Sub12.setTile(level, x, z, overlayShape, overlayRotation, textureId, tileHeight, tileHeightEast, tileHeightNorthEast, tileHeightNorth, Class178.method2256(i_66_, i_73_), Class178.method2256(i_66_, i_70_), Class178.method2256(i_66_, i_71_), Class178.method2256(i_66_, i_72_), Class96.method789(i_85_, i_73_), Class96.method789(i_85_, i_70_), Class96.method789(i_85_, i_71_), Class96.method789(i_85_, i_72_), underlayMinimapColor, overlayMinimapColor);
 								if (HDToolkit.glEnabled && level > 0) {
-									ShadowManager.method384(overlayShape, overlayRotation, i_85_ == -2 || !overlayType.aBoolean1193, i_66_ == -1 || !UnderlayType.list(underlayId - 1).aBoolean1220, x, z, -OverridedJInterface.activeTileHeightMap[0][x][z] + tileHeight, tileHeightEast - OverridedJInterface.activeTileHeightMap[0][x - -1][z], tileHeightNorthEast + -OverridedJInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - OverridedJInterface.activeTileHeightMap[0][x][z + 1]);
+									ShadowManager.method384(overlayShape, overlayRotation, i_85_ == -2 || !overlayType.aBoolean1193, i_66_ == -1 || !UnderlayType.list(underlayId - 1).aBoolean1220, x, z, -SubInterface.activeTileHeightMap[0][x][z] + tileHeight, tileHeightEast - SubInterface.activeTileHeightMap[0][x - -1][z], tileHeightNorthEast + -SubInterface.activeTileHeightMap[0][x + 1][z + 1], tileHeightNorth - SubInterface.activeTileHeightMap[0][x][z + 1]);
 								}
 							}
 						}
@@ -293,7 +293,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 				final float[][] fs = new float[105][105];
 				final float[][] fs_91_ = new float[105][105];
 				final float[][] fs_92_ = new float[105][105];
-				final int[][] is_93_ = OverridedJInterface.activeTileHeightMap[level];
+				final int[][] is_93_ = SubInterface.activeTileHeightMap[level];
 				for (int i_94_ = 1; i_94_ <= 103; i_94_++) {
 					for (int i_95_ = 1; i_95_ <= 103; i_95_++) {
 						final int i_96_ = -is_93_[i_95_][-1 + i_94_] + is_93_[i_95_][1 + i_94_];
@@ -305,11 +305,11 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 					}
 				}
 				if (underwater) {
-					final HDTile[] class120_sub9s = Class120_Sub12_Sub14.constructUnderlayHDTiles(is, Class99.tileOverlayIds[level], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, MapFunctionNode.tileOverlayShapes[level], is_8_, Class8.tileOverlayRotations[level], level, fs_92_, Class120_Sub12_Sub33.surfaceTileHeightMap[0], Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], OverridedJInterface.activeTileHeightMap[level]);
+					final HDTile[] class120_sub9s = Class120_Sub12_Sub14.constructUnderlayHDTiles(is, Class99.tileOverlayIds[level], fs, NodeCache.anIntArrayArray300, is_6_, fs_91_, MapFunctionNode.tileOverlayShapes[level], is_8_, Class8.tileOverlayRotations[level], level, fs_92_, Class120_Sub12_Sub33.surfaceTileHeightMap[0], Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], SubInterface.activeTileHeightMap[level]);
 					Class65.setHDTiles(level, class120_sub9s);
 				} else {
-					final HDTile[] class120_sub9s = Class120_Sub12_Sub14.constructUnderlayHDTiles(is, Class99.tileOverlayIds[level], fs, null, is_6_, fs_91_, MapFunctionNode.tileOverlayShapes[level], is_8_, Class8.tileOverlayRotations[level], level, fs_92_, null, Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], OverridedJInterface.activeTileHeightMap[level]);
-					final HDTile[] class120_sub9s_98_ = Class132.constructOverlayHDTiles(Class114.tileSettings, Class99.tileOverlayIds[level], is_8_, fs, level, MapFunctionNode.tileOverlayShapes[level], Class8.tileOverlayRotations[level], OverridedJInterface.activeTileHeightMap[level], Class120_Sub4.tileUnderlayIds[level], fs_91_, fs_92_);
+					final HDTile[] class120_sub9s = Class120_Sub12_Sub14.constructUnderlayHDTiles(is, Class99.tileOverlayIds[level], fs, null, is_6_, fs_91_, MapFunctionNode.tileOverlayShapes[level], is_8_, Class8.tileOverlayRotations[level], level, fs_92_, null, Class114.tileSettings, Class120_Sub4.tileUnderlayIds[level], SubInterface.activeTileHeightMap[level]);
+					final HDTile[] class120_sub9s_98_ = Class132.constructOverlayHDTiles(Class114.tileSettings, Class99.tileOverlayIds[level], is_8_, fs, level, MapFunctionNode.tileOverlayShapes[level], Class8.tileOverlayRotations[level], SubInterface.activeTileHeightMap[level], Class120_Sub4.tileUnderlayIds[level], fs_91_, fs_92_);
 					final HDTile[] class120_sub9s_99_ = new HDTile[class120_sub9s.length + class120_sub9s_98_.length];
 					for (int i_100_ = 0; i_100_ < class120_sub9s.length; i_100_++) {
 						class120_sub9s_99_[i_100_] = class120_sub9s[i_100_];
@@ -318,7 +318,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 						class120_sub9s_99_[i_101_ + class120_sub9s.length] = class120_sub9s_98_[i_101_];
 					}
 					Class65.setHDTiles(level, class120_sub9s_99_);
-					Js5Worker.method368(Class8.tileOverlayRotations[level], LightManager.lightsPos, LightManager.lights, OverridedJInterface.activeTileHeightMap[level], Class120_Sub4.tileUnderlayIds[level], fs, Class99.tileOverlayIds[level], fs_92_, fs_91_, level, MapFunctionNode.tileOverlayShapes[level]);
+					Js5Worker.method368(Class8.tileOverlayRotations[level], LightManager.lightsPos, LightManager.lights, SubInterface.activeTileHeightMap[level], Class120_Sub4.tileUnderlayIds[level], fs, Class99.tileOverlayIds[level], fs_92_, fs_91_, level, MapFunctionNode.tileOverlayShapes[level]);
 				}
 			}
 			Class120_Sub4.tileUnderlayIds[level] = null;
@@ -370,8 +370,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							}
 							final int i_113_ = (1 + -i_109_ + i_107_) * (i_111_ - -1 - i_108_);
 							if (i_113_ >= 8) {
-								final int i_115_ = OverridedJInterface.activeTileHeightMap[i_111_][i_106_][i_109_] + -240;
-								final int i_116_ = OverridedJInterface.activeTileHeightMap[i_108_][i_106_][i_109_];
+								final int i_115_ = SubInterface.activeTileHeightMap[i_111_][i_106_][i_109_] + -240;
+								final int i_116_ = SubInterface.activeTileHeightMap[i_108_][i_106_][i_109_];
 								AbstractTimer.method734(1, 128 * i_106_, 128 * i_106_, i_109_ * 128, 128 + 128 * i_107_, i_115_, i_116_);
 								for (int i_117_ = i_108_; i_111_ >= i_117_; i_117_++) {
 									for (int i_118_ = i_109_; i_107_ >= i_118_; i_118_++) {
@@ -407,8 +407,8 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 							}
 							final int i_125_ = (1 + i_122_ - i_121_) * (1 + i_120_ - i_119_);
 							if (i_125_ >= 8) {
-								final int i_127_ = OverridedJInterface.activeTileHeightMap[i_122_][i_119_][i_105_] + -240;
-								final int i_128_ = OverridedJInterface.activeTileHeightMap[i_121_][i_119_][i_105_];
+								final int i_127_ = SubInterface.activeTileHeightMap[i_122_][i_119_][i_105_] + -240;
+								final int i_128_ = SubInterface.activeTileHeightMap[i_121_][i_119_][i_105_];
 								AbstractTimer.method734(2, i_119_ * 128, 128 * i_120_ + 128, 128 * i_105_, 128 * i_105_, i_127_, i_128_);
 								for (int i_129_ = i_121_; i_122_ >= i_129_; i_129_++) {
 									for (int i_130_ = i_119_; i_120_ >= i_130_; i_130_++) {
@@ -445,7 +445,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 								}
 							}
 							if ((1 + -i_133_ + i_134_) * (1 + i_132_ + -i_131_) >= 4) {
-								final int i_137_ = OverridedJInterface.activeTileHeightMap[i_104_][i_131_][i_133_];
+								final int i_137_ = SubInterface.activeTileHeightMap[i_104_][i_131_][i_133_];
 								AbstractTimer.method734(4, i_131_ * 128, 128 + i_132_ * 128, i_133_ * 128, 128 + 128 * i_134_, i_137_, i_137_);
 								for (int i_138_ = i_131_; i_132_ >= i_138_; i_138_++) {
 									for (int i_139_ = i_133_; i_139_ <= i_134_; i_139_++) {
@@ -557,7 +557,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 			if (js5.lastClickX == Class115.menuMouseX && Class120_Sub12_Sub36.lastClickY == Class120_Sub12_Sub21.menuMouseY) {
 				Huffman.menuDrawX = menuDrawX;
 				Class120_Sub16.menuDrawY = menuDrawY;
-				Class120_Sub24.menuWidth = chooseOptionWidth;
+				CustomLocation.menuWidth = chooseOptionWidth;
 				QuickChatMessageType.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + WallDecoration.menuOptionCount * 15;
 				FileSystem.anInt455 = 0;
 				Class15.menuOpen = true;
@@ -569,7 +569,7 @@ final class Class120_Sub12_Sub28 extends Class120_Sub12 {
 		} else if (Class115.menuMouseX == ClientScript.anInt3558 && Class120_Sub12_Sub21.menuMouseY == Class31.anInt250) {
 			Huffman.menuDrawX = menuDrawX;
 			Class120_Sub16.menuDrawY = menuDrawY;
-			Class120_Sub24.menuWidth = chooseOptionWidth;
+			CustomLocation.menuWidth = chooseOptionWidth;
 			QuickChatMessageType.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + 15 * WallDecoration.menuOptionCount;
 			FileSystem.anInt455 = 0;
 			Class15.menuOpen = true;

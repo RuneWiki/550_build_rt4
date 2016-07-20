@@ -108,15 +108,15 @@ final class Huffman {
 		return -outOff + (7 + i_20_ >> 3);
 	}
 
-	final int method1886(int i, final int i_27_, final byte[] is, final byte[] is_29_, int i_30_) {
-		if (i_30_ == 0) {
+	final int method1886(final byte[] outputBuffer, int outputBufferPos, final byte[] inputBuffer, final int inputBufferPos, int len) {
+		if (len == 0) {
 			return 0;
 		}
-		i_30_ += i;
+		len += outputBufferPos;
 		int i_32_ = 0;
-		int i_33_ = i_27_;
+		int i_33_ = inputBufferPos;
 		for (;;) {
-			final byte i_34_ = is[i_33_];
+			final byte i_34_ = inputBuffer[i_33_];
 			if (i_34_ < 0) {
 				i_32_ = anIntArray1210[i_32_];
 			} else {
@@ -124,8 +124,8 @@ final class Huffman {
 			}
 			int i_35_;
 			if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i >= i_30_) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (outputBufferPos >= len) {
 					break;
 				}
 				i_32_ = 0;
@@ -136,8 +136,8 @@ final class Huffman {
 				i_32_ = anIntArray1210[i_32_];
 			}
 			if (((i_35_ = anIntArray1210[i_32_]) ^ 0xffffffff) > -1) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i >= i_30_) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (outputBufferPos >= len) {
 					break;
 				}
 				i_32_ = 0;
@@ -148,8 +148,8 @@ final class Huffman {
 				i_32_ = anIntArray1210[i_32_];
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
@@ -160,8 +160,8 @@ final class Huffman {
 				i_32_ = anIntArray1210[i_32_];
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
@@ -172,8 +172,8 @@ final class Huffman {
 				i_32_++;
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
@@ -184,8 +184,8 @@ final class Huffman {
 				i_32_++;
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
@@ -196,8 +196,8 @@ final class Huffman {
 				i_32_ = anIntArray1210[i_32_];
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
@@ -208,15 +208,15 @@ final class Huffman {
 				i_32_++;
 			}
 			if ((i_35_ = anIntArray1210[i_32_]) < 0) {
-				is_29_[i++] = (byte) (i_35_ ^ 0xffffffff);
-				if (i_30_ <= i) {
+				outputBuffer[outputBufferPos++] = (byte) (i_35_ ^ 0xffffffff);
+				if (len <= outputBufferPos) {
 					break;
 				}
 				i_32_ = 0;
 			}
 			i_33_++;
 		}
-		return i_33_ - -1 + -i_27_;
+		return i_33_ - -1 + -inputBufferPos;
 	}
 
 	static final int[][] method1887(final int i, final int i_37_, final int i_38_, final int i_39_, final int i_40_, final float f, final int i_41_, final boolean bool) {
@@ -262,7 +262,7 @@ final class Huffman {
 							is_45_[i_51_] = is_45_[i_51_ - 1];
 							break;
 						}
-						is_45_[i_51_] = ChunkAtmosphere.method2512(i_53_, i_52_);
+						is_45_[i_51_] = i_53_ | i_52_;
 					}
 					i_50_ = i_49_ | i_48_;
 				}

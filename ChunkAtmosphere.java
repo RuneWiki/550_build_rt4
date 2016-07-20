@@ -49,12 +49,6 @@ final class ChunkAtmosphere {
 		}
 	}
 
-	static final void method2509(final js5 js5, final js5 class50_0_, final js5 class50_1_) {
-		SeqType.aClass50_2286 = js5;
-		Class132_Sub1.framesJs5 = class50_1_;
-		Class179.labelsJs5 = class50_0_;
-	}
-
 	final void method2510(final Buffer buffer) {
 		this.aFloat2108 = buffer.getUByte() * 8 / 255.0F;
 		this.aFloat2114 = buffer.getUByte() * 8 / 255.0F;
@@ -68,10 +62,10 @@ final class ChunkAtmosphere {
 	static final void method2513() {
 		if (client.packetType == 17) {
 			final int i_7_ = Canvas_Sub1.inputStream.getUByte();
-			int i_8_ = (i_7_ >> 4 & 0xf) * MagnetType.anInt254 * 2;
-			int i_9_ = (i_7_ & 0xf) + Class28.anInt176 * 2;
-			int i_10_ = i_8_ + Canvas_Sub1.inputStream.getByte();
-			int i_11_ = i_9_ + Canvas_Sub1.inputStream.getByte();
+			int i_8_ = MagnetType.anInt254 * 2 + (i_7_ >> 4 & 0xf);
+			int i_9_ = Class28.anInt176 * 2 + (i_7_ & 0xf);
+			int i_10_ = Canvas_Sub1.inputStream.getByte() + i_8_;
+			int i_11_ = Canvas_Sub1.inputStream.getByte() + i_9_;
 			final int i_12_ = Canvas_Sub1.inputStream.getShort();
 			final int i_13_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_14_ = Canvas_Sub1.inputStream.getUByte() * 4;
@@ -79,23 +73,23 @@ final class ChunkAtmosphere {
 			final int i_16_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_17_ = Canvas_Sub1.inputStream.getUShort();
 			int i_18_ = Canvas_Sub1.inputStream.getUByte();
-			if (i_18_ == 255) {
+			if (i_18_ == 0xff) {
 				i_18_ = -1;
 			}
 			final int i_19_ = Canvas_Sub1.inputStream.getUByte();
-			if (i_8_ >= 0 && i_9_ >= 0 && i_8_ < 208 && i_9_ < 208 && i_10_ >= 0 && i_11_ >= 0 && i_10_ < 208 && i_11_ < 208 && -65536 != (i_13_ ^ 0xffffffff)) {
+			if (i_8_ >= 0 && i_9_ >= 0 && i_8_ < 208 && i_9_ < 208 && i_10_ >= 0 && i_11_ >= 0 && i_10_ < 208 && i_11_ < 208 && i_13_ != 0xffff) {
 				i_8_ *= 64;
 				i_9_ *= 64;
 				i_10_ *= 64;
 				i_11_ *= 64;
-				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, Class22.getTileHeight(i_8_, i_9_, Class173.gameLevel) - i_14_, i_16_ + Class101_Sub2.loopCycle, i_17_ + Class101_Sub2.loopCycle, i_18_, i_19_, i_12_, i_15_);
-				class180_sub4.method2319(i_10_, Class22.getTileHeight(i_10_, i_11_, Class173.gameLevel) - i_15_, i_11_, i_16_ + Class101_Sub2.loopCycle);
+				final Projectile class180_sub4 = new Projectile(i_13_, Class173.gameLevel, i_8_, i_9_, Class22.getTileHeight(i_8_, i_9_, Class173.gameLevel) - i_14_, i_16_ + Class101_Sub2.clientClock, i_17_ + Class101_Sub2.clientClock, i_18_, i_19_, i_12_, i_15_);
+				class180_sub4.method2319(i_10_, Class22.getTileHeight(i_10_, i_11_, Class173.gameLevel) - i_15_, i_11_, i_16_ + Class101_Sub2.clientClock);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 114) {
 			final int i_20_ = Canvas_Sub1.inputStream.getUByte();
-			final int x = (i_20_ >> 4 & 0x7) + MagnetType.anInt254;
-			final int z = (i_20_ & 0x7) + Class28.anInt176;
+			final int x = MagnetType.anInt254 + (i_20_ >> 4 & 0x7);
+			final int z = Class28.anInt176 + (i_20_ & 0x7);
 			final int objectId = Canvas_Sub1.inputStream.getUShort();
 			final int currentObjectAmount = Canvas_Sub1.inputStream.getUShort();
 			final int newObjectAmount = Canvas_Sub1.inputStream.getUShort();
@@ -115,8 +109,8 @@ final class ChunkAtmosphere {
 		} else if (client.packetType == 133) {
 			final int i_26_ = Canvas_Sub1.inputStream.getShortA();
 			final int i_27_ = Canvas_Sub1.inputStream.getUByteA();
-			final int i_28_ = (i_27_ & 0x7) + Class28.anInt176;
-			final int i_29_ = (0x7 & i_27_ >> 4) + MagnetType.anInt254;
+			final int i_28_ = Class28.anInt176 + (i_27_ & 0x7);
+			final int i_29_ = MagnetType.anInt254 + (i_27_ >> 4 & 0x7);
 			final int i_30_ = Canvas_Sub1.inputStream.getULEShortA();
 			final int i_31_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_32_ = i_31_ >> 2;
@@ -172,7 +166,7 @@ final class ChunkAtmosphere {
 						}
 					}
 					if (class180_sub5 != null) {
-						final EntityRenderData class29 = class180_sub5.getEntityRenderData();
+						final BasType class29 = class180_sub5.getBasType();
 						if (class29.modelRotateTranslate != null && class29.modelRotateTranslate[i_54_] != null) {
 							i_48_ -= class29.modelRotateTranslate[i_54_][1];
 							int i_59_ = class29.modelRotateTranslate[i_54_][0];
@@ -187,8 +181,8 @@ final class ChunkAtmosphere {
 						}
 					}
 				}
-				final Projectile class180_sub4 = new Projectile(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(i_41_, i_42_, Class173.gameLevel) + -i_48_, i_50_ - -Class101_Sub2.loopCycle, Class101_Sub2.loopCycle + i_51_, i_52_, i_53_, i_46_, i_49_);
-				class180_sub4.method2319(i_43_, Class22.getTileHeight(i_43_, i_44_, Class173.gameLevel) + -i_49_, i_44_, Class101_Sub2.loopCycle + i_50_);
+				final Projectile class180_sub4 = new Projectile(i_47_, Class173.gameLevel, i_41_, i_42_, Class22.getTileHeight(i_41_, i_42_, Class173.gameLevel) + -i_48_, i_50_ - -Class101_Sub2.clientClock, Class101_Sub2.clientClock + i_51_, i_52_, i_53_, i_46_, i_49_);
+				class180_sub4.method2319(i_43_, Class22.getTileHeight(i_43_, i_44_, Class173.gameLevel) + -i_49_, i_44_, Class101_Sub2.clientClock + i_50_);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 158) {
@@ -201,7 +195,7 @@ final class ChunkAtmosphere {
 			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
 				x = 64 + 128 * x;
 				z = 64 + 128 * z;
-				final SpotAnimation spotAnimation = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(x, z, Class173.gameLevel) - y, delay, Class101_Sub2.loopCycle);
+				final SpotAnimation spotAnimation = new SpotAnimation(id, Class173.gameLevel, x, z, Class22.getTileHeight(x, z, Class173.gameLevel) - y, delay, Class101_Sub2.clientClock);
 				Class120_Sub12_Sub7.spotAnimationDeque.addLast(new SpotAnimationNode(spotAnimation));
 			}
 		} else if (client.packetType == 179) {
@@ -212,37 +206,37 @@ final class ChunkAtmosphere {
 			final int i_71_ = Canvas_Sub1.inputStream.getUByteS();
 			final int i_72_ = i_71_ >> 2;
 			final int i_73_ = 0x3 & i_71_;
-			final int i_74_ = CollisionMap.anIntArray153[i_72_];
+			final int i_74_ = CollisionMap.locTypeToClientType[i_72_];
 			final int i_75_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_76_ = (i_75_ & 0x7) + Class28.anInt176;
 			final int i_77_ = MagnetType.anInt254 + ((0x7f & i_75_) >> 4);
 			ProducingGraphicsBuffer.method1853(i_70_, i_77_, Class173.gameLevel, i_76_, i_74_, i_73_, i_72_);
 		} else if (client.packetType == 131) {
-			final int i_78_ = Canvas_Sub1.inputStream.getUByteS();
-			final int i_79_ = i_78_ >> 2;
-			final int i_80_ = CollisionMap.anIntArray153[i_79_];
-			final int i_81_ = i_78_ & 0x3;
-			final int i_82_ = Canvas_Sub1.inputStream.getULEShort();
-			final int i_83_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_84_ = (i_83_ & 0x7) + Class28.anInt176;
-			final int i_85_ = (i_83_ >> 4 & 0x7) + MagnetType.anInt254;
-			if (i_85_ >= 0 && i_84_ >= 0 && i_85_ < 104 && i_84_ < 104) {
-				Class38.method317(i_82_, Class173.gameLevel, i_81_, i_85_, -1, i_84_, i_79_, i_80_, 0);
+			final int renderInfo = Canvas_Sub1.inputStream.getUByteS();
+			final int type = renderInfo >> 2;
+			final int clientType = CollisionMap.locTypeToClientType[type];
+			final int rotation = renderInfo & 0x3;
+			final int id = Canvas_Sub1.inputStream.getULEShort();
+			final int coordsOff = Canvas_Sub1.inputStream.getUByte();
+			final int x = MagnetType.anInt254 + (coordsOff >> 4 & 0x7);
+			final int z = Class28.anInt176 + (coordsOff & 0x7);
+			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+				Class38.spawnCustomLocation(id, Class173.gameLevel, rotation, x, -1, z, type, clientType, 0);
 			}
 		} else if (client.packetType == 115) {
 			final int i_86_ = Canvas_Sub1.inputStream.getUShort();
 			final int i_87_ = Canvas_Sub1.inputStream.getUByte();
 			LocType.list(i_86_).method2460(i_87_);
 		} else if (client.packetType == 232) {
-			final int i_88_ = Canvas_Sub1.inputStream.getUByteC();
-			final int i_89_ = Class28.anInt176 + (i_88_ & 0x7);
-			final int i_90_ = (i_88_ >> 4 & 0x7) + MagnetType.anInt254;
-			final int i_91_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_92_ = i_91_ >> 2;
-			final int i_93_ = CollisionMap.anIntArray153[i_92_];
-			final int i_94_ = 0x3 & i_91_;
-			if (i_90_ >= 0 && i_89_ >= 0 && i_90_ < 104 && i_89_ < 104) {
-				Class38.method317(-1, Class173.gameLevel, i_94_, i_90_, -1, i_89_, i_92_, i_93_, 0);
+			final int coordsOff = Canvas_Sub1.inputStream.getUByteC();
+			final int x = MagnetType.anInt254 + (coordsOff >> 4 & 0x7);
+			final int z = Class28.anInt176 + (coordsOff & 0x7);
+			final int renderInfo = Canvas_Sub1.inputStream.getUByte();
+			final int type = renderInfo >> 2;
+			final int clientType = CollisionMap.locTypeToClientType[type];
+			final int rotation = renderInfo & 0x3;
+			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+				Class38.spawnCustomLocation(-1, Class173.gameLevel, rotation, x, -1, z, type, clientType, 0);
 			}
 		} else if (client.packetType == 105) {
 			final int i_95_ = Canvas_Sub1.inputStream.getUByte();
@@ -266,8 +260,8 @@ final class ChunkAtmosphere {
 				i_98_ = i_98_ * 128 + 64;
 				i_99_ = 64 + i_99_ * 128;
 				i_96_ = 64 + i_96_ * 128;
-				final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, Class22.getTileHeight(i_96_, i_97_, Class173.gameLevel) - i_102_, i_104_ + Class101_Sub2.loopCycle, i_105_  + Class101_Sub2.loopCycle, i_106_, i_107_, i_100_, i_103_);
-				class180_sub4.method2319(i_98_, Class22.getTileHeight(i_98_, i_99_, Class173.gameLevel) - i_103_, i_99_, i_104_ + Class101_Sub2.loopCycle);
+				final Projectile class180_sub4 = new Projectile(i_101_, Class173.gameLevel, i_96_, i_97_, Class22.getTileHeight(i_96_, i_97_, Class173.gameLevel) - i_102_, i_104_ + Class101_Sub2.clientClock, i_105_  + Class101_Sub2.clientClock, i_106_, i_107_, i_100_, i_103_);
+				class180_sub4.method2319(i_98_, Class22.getTileHeight(i_98_, i_99_, Class173.gameLevel) - i_103_, i_99_, i_104_ + Class101_Sub2.clientClock);
 				FileSystemRequest.projectileDeque.addLast(new ProjectileNode(class180_sub4));
 			}
 		} else if (client.packetType == 120) {
@@ -308,26 +302,26 @@ final class ChunkAtmosphere {
 			}
 		} else if (client.packetType == 144) {
 			final int i_117_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_118_ = Class28.anInt176 - -(i_117_ & 0x7);
-			final int i_119_ = MagnetType.anInt254 - -(0x7 & i_117_ >> 4);
-			int i_120_ = Canvas_Sub1.inputStream.getUShort();
-			if (65535 == i_120_) {
-				i_120_ = -1;
+			final int z = Class28.anInt176 + (i_117_ & 0x7);
+			final int x = MagnetType.anInt254 + (0x7 & i_117_ >> 4);
+			int synth = Canvas_Sub1.inputStream.getUShort();
+			if (synth == 0xffff) {
+				synth = -1;
 			}
 			final int i_121_ = Canvas_Sub1.inputStream.getUByte();
-			final int i_122_ = 0xf & i_121_ >> 4;
-			final int i_123_ = 0x7 & i_121_;
+			final int range = 0xf & i_121_ >> 4;
+			final int loops = 0x7 & i_121_;
 			final int i_124_ = Canvas_Sub1.inputStream.getUByte();
 			final int i_125_ = Canvas_Sub1.inputStream.getUByte();
-			if (i_119_ >= 0 && i_118_ >= 0 && i_119_ < 104 && i_118_ < 104) {
-				final int i_126_ = i_122_ + 1;
-				if (-i_126_ + i_119_ <= TileParticleQueue.selfPlayer.walkQueueX[0] && TileParticleQueue.selfPlayer.walkQueueX[0] <= i_126_ + i_119_ && i_118_ + -i_126_ <= TileParticleQueue.selfPlayer.walkQueueZ[0] && i_118_ - -i_126_ >= TileParticleQueue.selfPlayer.walkQueueZ[0] && CursorType.ambientSoundsVolume != 0 && i_123_ > 0 && Class150.soundEffectCount < 50 && i_120_ != -1) {
-					Class120_Sub12_Sub16.anIntArray3255[Class150.soundEffectCount] = i_120_;
-					LocType.anIntArray1834[Class150.soundEffectCount] = i_123_;
+			if (x >= 0 && z >= 0 && x < 104 && z < 104) {
+				final int i_126_ = range + 1;
+				if (-i_126_ + x <= TileParticleQueue.selfPlayer.walkQueueX[0] && TileParticleQueue.selfPlayer.walkQueueX[0] <= i_126_ + x && z + -i_126_ <= TileParticleQueue.selfPlayer.walkQueueZ[0] && z - -i_126_ >= TileParticleQueue.selfPlayer.walkQueueZ[0] && CursorType.ambientSoundsVolume != 0 && loops > 0 && Class150.soundEffectCount < 50 && synth != -1) {
+					Class120_Sub12_Sub16.soundEffectIds[Class150.soundEffectCount] = synth;
+					LocType.soundEffectLoops[Class150.soundEffectCount] = loops;
 					Class81.soundEffectDelays[Class150.soundEffectCount] = i_124_;
-					Class109.aClass6Array1047[Class150.soundEffectCount] = null;
-					Class174.anIntArray1731[Class150.soundEffectCount] = i_122_ + (i_118_ << 8) + (i_119_ << 16);
-					FileSystemRequest.anIntArray3926[Class150.soundEffectCount] = i_125_;
+					Class109.soundEffects[Class150.soundEffectCount] = null;
+					Class174.SoundEffectCoordinates[Class150.soundEffectCount] = range + (z << 8) + (x << 16);
+					FileSystemRequest.soundEffectVolumes[Class150.soundEffectCount] = i_125_;
 					Class150.soundEffectCount++;
 				}
 			}
@@ -360,7 +354,7 @@ final class ChunkAtmosphere {
 
 	public ChunkAtmosphere() {
 		this.aFloat2108 = 1.0F;
-		this.screenColorRgb = AtmosphereManager.defaultScreenColorRgb;
+		this.screenColorRgb = AtmosphereManager.defaultLightColorRgb;
 		this.light1Diffuse = 1.2F;
 		this.lightZ = -50;
 		this.lightX = -50;
@@ -378,7 +372,7 @@ final class ChunkAtmosphere {
 		this.aFloat2108 = 1.0F;
 		final int flag = buffer.getUByte();
 		if ((flag & 0x1) == 0) {
-			this.screenColorRgb = AtmosphereManager.defaultScreenColorRgb;
+			this.screenColorRgb = AtmosphereManager.defaultLightColorRgb;
 		} else {
 			this.screenColorRgb = buffer.getInt();
 		}

@@ -94,7 +94,7 @@ final class Class120_Sub16 extends Node {
 		SeqType.fourthPacketType = -1;
 		Class88.timoutCycle = 0;
 		Canvas_Sub1.inputStream.pos = 0;
-		Class120_Sub22.systemUpdateCycle = 0;
+		Class120_Sub22.rebootTimer = 0;
 		AbstractMouseWheelHandler.packetSize = 0;
 		Class8.resetMapback();
 		for (int id = 0; id < Class118.playersList.length; id++) {

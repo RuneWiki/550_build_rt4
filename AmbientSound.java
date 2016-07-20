@@ -4,7 +4,7 @@
 
 final class AmbientSound extends Node {
 	Class120_Sub30_Sub4 aClass120_Sub30_Sub4_2478;
-	static js5 animsJs5;
+	static js5 framesJs5;
 	int anInt2480 = 0;
 	int entityZ;
 	int[] anIntArray2482;

@@ -16,6 +16,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 
 public abstract class GameShell extends Applet implements Runnable, FocusListener, WindowListener {
 	static long[] mainRedrawCache;
@@ -349,8 +351,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 				if (jagexInterface.cs1opcodes != null && jagexInterface.cs1opcodes[0][0] == 5) {
 					final int i_5_ = jagexInterface.cs1opcodes[0][1];
-					if (jagexInterface.requiredValues[0] != Class2.permanentVariable[i_5_]) {
-						Class2.permanentVariable[i_5_] = jagexInterface.requiredValues[0];
+					if (jagexInterface.requiredValues[0] != Class2.playerVariables[i_5_]) {
+						Class2.playerVariables[i_5_] = jagexInterface.requiredValues[0];
 						Class120_Sub14_Sub15.postVarpChange(i_5_);
 					}
 				}
@@ -396,7 +398,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 				boolean bool = true;
 				if (jagexInterface.clientCode > 0) {
-					bool = IntegerNode.method1833(jagexInterface);
+					bool = IntegerNode.handleClientCode(jagexInterface);
 				}
 				if (bool) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(158);
@@ -449,7 +451,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 			}
 			if (code == 9) {
-				Node.deselectSpell();
+				Node.targetLeave();
 				final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 				ParticleEmitter.selectedObjSlot = data2;
 				Light.objSelected = 1;
@@ -508,16 +510,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				if (code == 34) {
 					final JagexInterface jagexInterface = JagexInterface.getComponent(data3, data2);
 					if (jagexInterface != null) {
-						Node.deselectSpell();
+						Node.targetLeave();
 						final InterfaceClickMask interfaceClickMask = client.getClickMask(jagexInterface);
-						MouseRecorder.selectSpell(interfaceClickMask.method1685(), interfaceClickMask.paramId, jagexInterface.cursorId, data2, jagexInterface.targetCursorId, data3);
+						MouseRecorder.targetEnter(interfaceClickMask.getTargetMask(), interfaceClickMask.paramId, jagexInterface.cursorId, data2, jagexInterface.targetCursorId, data3);
 						Light.objSelected = 0;
 						Class101.selectedSpellPrefix = Class33.getSpellPrefix(jagexInterface);
 						if (Class101.selectedSpellPrefix == null) {
 							Class101.selectedSpellPrefix = "Null";
 						}
-						if (jagexInterface.newFormat) {
-							Light.selectedSpellName = jagexInterface.spellNameni + "<col=ffffff>";
+						if (jagexInterface.if3Format) {
+							Light.selectedSpellName = jagexInterface.optionBase + "<col=ffffff>";
 						} else {
 							Light.selectedSpellName = "<col=00ff00>" + jagexInterface.spellNameoi + "<col=ffffff>";
 						}
@@ -626,7 +628,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						}
 					}
 					if (code == 7) {
-						Class90.removeOverridedInterfaces();
+						Class90.removeSubInterfaces();
 					}
 					if (code == 1005) {
 						IsaacCipher.crossY = Class120_Sub12_Sub36.lastClickY;
@@ -737,7 +739,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						final JagexInterface jagexInterface = Class74.getJagexInterface(data3);
 						if (jagexInterface.cs1opcodes != null && jagexInterface.cs1opcodes[0][0] == 5) {
 							final int i_6_ = jagexInterface.cs1opcodes[0][1];
-							Class2.permanentVariable[i_6_] = -Class2.permanentVariable[i_6_] + 1;
+							Class2.playerVariables[i_6_] = -Class2.playerVariables[i_6_] + 1;
 							Class120_Sub14_Sub15.postVarpChange(i_6_);
 						}
 					}
@@ -758,7 +760,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 						InterfaceClickMask.redrawInterface(Class74.getJagexInterface(PlainTile.selectedObjInterface));
 					}
 					if (Class88.spellSelected) {
-						Node.deselectSpell();
+						Node.targetLeave();
 					}
 					if (MagnetType.pressedInventoryComponent != null && Class69_Sub2.anInt2236 == 0) {
 						InterfaceClickMask.redrawInterface(MagnetType.pressedInventoryComponent);
@@ -768,7 +770,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		}
 	}
 
-	static final void setVisibleLevels(final boolean bool) {
+	static final void setAllVisibleLevels(final boolean bool) {
 		client.allVisibleLevels = bool;
 		Class120_Sub12_Sub26.aBoolean3326 = !Class143_Sub1.allLevelsAreVisible();
 	}
@@ -786,12 +788,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
 	private final void mainLoopWrapper() {
 		final long currentTime = TimeUtil.getSafeTime();
-		final long oldTime = Class120_Sub12_Sub26.mainLoopTimeCache[AbstractGraphicsBuffer.gameLoopLength];
+		final long oldTime = Class120_Sub12_Sub26.mainLoopTimeCache[AbstractGraphicsBuffer.mainLoopTimePos];
 		if (oldTime == 0) {
 			/* empty */
 		}
-		Class120_Sub12_Sub26.mainLoopTimeCache[AbstractGraphicsBuffer.gameLoopLength] = currentTime;
-		AbstractGraphicsBuffer.gameLoopLength = AbstractGraphicsBuffer.gameLoopLength + 1 & 0x1f;
+		Class120_Sub12_Sub26.mainLoopTimeCache[AbstractGraphicsBuffer.mainLoopTimePos] = currentTime;
+		AbstractGraphicsBuffer.mainLoopTimePos = AbstractGraphicsBuffer.mainLoopTimePos + 1 & 0x1f;
 		synchronized (this) {
 			DummyInputStream.focus = Class120_Sub12_Sub21_Sub1.focusIn;
 		}
@@ -904,17 +906,17 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		/* empty */
 	}
 
-	final void error(final String string) {
+	final void error(final String error) {
 		if (!alreadyErrored) {
 			alreadyErrored = true;
-			System.out.println("error_game_" + string);
+			System.out.println("error_game_" + error);
 			try {
 				JSHelper.call(NpcType.gameSignlink.gameApplet, "loggedout");
 			} catch (final Throwable throwable) {
 				/* empty */
 			}
 			try {
-				getAppletContext().showDocument(new URL(getCodeBase(), "error_game_" + string + ".ws"), "_top");
+				getAppletContext().showDocument(new URL(getCodeBase(), "error_game_" + error + ".ws"), "_top");
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -931,8 +933,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		if (Class31.gameApplet == this && !client.shutdown) {
 			Class120_Sub12_Sub26.fullRedraw = true;
 			if (Class43.usingJavaAbove5 && !HDToolkit.glEnabled && TimeUtil.getSafeTime() - Class143.lastCanvasReplace > 1000L) {
-				final Rectangle rectangle = graphics.getClipBounds();
-				if (rectangle == null || rectangle.width >= Class120_Sub12_Sub7.frameWidth && PlayerAppearance.frameHeight <= rectangle.height) {
+				final Rectangle clipBounds = graphics.getClipBounds();
+				if (clipBounds == null || clipBounds.width >= Class120_Sub12_Sub7.frameWidth && clipBounds.height >= PlayerAppearance.frameHeight) {
 					LongNode.canvasReplaceRecommended = true;
 				}
 			}
@@ -960,9 +962,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 		return false;
 	}
 
-	abstract void method39();
-
-	abstract void method40();
+	abstract void mainDestroy();
 
 	@Override
 	public final void windowOpened(final WindowEvent windowevent) {
@@ -988,13 +988,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	}
 
 	private final void mainRedrawWrapper() {
-		final long newTime = TimeUtil.getSafeTime();
+		final long currentTime = TimeUtil.getSafeTime();
 		final long oldTime = mainRedrawCache[Class96.mainRedrawCachePos];
-		mainRedrawCache[Class96.mainRedrawCachePos] = newTime;
+		mainRedrawCache[Class96.mainRedrawCachePos] = currentTime;
 		Class96.mainRedrawCachePos = Class96.mainRedrawCachePos + 1 & 0x1f;
-		if (oldTime != 0 && oldTime < newTime) {
-			final int timeDelta = (int) (newTime - oldTime);
-			//System.out.println(timeDelta+" "+newTime+":"+oldTime);
+		if (oldTime != 0 && oldTime < currentTime) {
+			final int timeDelta = (int) (currentTime - oldTime);
 			MapFunctionType.fps = ((timeDelta >> 1) + 32000) / timeDelta;
 		}
 		if (ObjectContainer.canvasRefreshCycle++ > 50) {
@@ -1015,7 +1014,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 	@Override
 	public final void stop() {
 		if (Class31.gameApplet == this && !client.shutdown) {
-			IntegerNode.killtime = TimeUtil.getSafeTime() - -4000L;
+			IntegerNode.killtime = TimeUtil.getSafeTime() + 4000L;
 		}
 	}
 
@@ -1035,7 +1034,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			NpcType.gameSignlink.gameApplet.destroy();
 		}
 		try {
-			method39();
+			mainDestroy();
 		} catch (final Exception exception) {
 			/* empty */
 		}
@@ -1063,7 +1062,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				/* empty */
 			}
 		}
-		method40();
 		if (Class112.frame != null) {
 			try {
 				System.exit(0);
@@ -1071,7 +1069,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				/* empty */
 			}
 		}
-		System.out.println(new StringBuilder("Shutdown complete - clean:").append(isClean).toString());
+		System.out.println("Shutdown complete - clean:" + isClean);
 	}
 
 	static final void method43(final int i) {
@@ -1137,15 +1135,13 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 				}
 			}
 			if (Signlink.javaVersion != null && Signlink.javaVersion.startsWith("1.")) {
-				int charId = 2;
 				int javaVersion = 0;
-				while (Signlink.javaVersion.length() > charId) {
+				for (int charId = 2; charId < Signlink.javaVersion.length(); charId++) {
 					final int c = Signlink.javaVersion.charAt(charId);
 					if (c < 48 || c > 57) {
 						break;
 					}
-					charId++;
-					javaVersion = 10 * javaVersion + -48 + c;
+					javaVersion = javaVersion * 10 - (48 - c);
 				}
 				if (javaVersion >= 5) {
 					Class43.usingJavaAbove5 = true;
@@ -1198,7 +1194,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 			Class112.frame.setVisible(true);
 			Class112.frame.toFront();
 			final Insets insets = Class112.frame.getInsets();
-			Class112.frame.setSize(insets.left + Class120_Sub12_Sub7.frameWidth + insets.right, insets.bottom + PlayerAppearance.frameHeight - -insets.top);
+			Class112.frame.setSize(insets.left + Class120_Sub12_Sub7.frameWidth + insets.right, insets.bottom + PlayerAppearance.frameHeight + insets.top);
 			Class120_Sub12_Sub18.errorSignlink = NpcType.gameSignlink = new Signlink(null, cacheStoreId, gameName, cacheIndexCount);
 			final SignlinkNode signlinkNode = NpcType.gameSignlink.startThread(this, 1);
 			while (signlinkNode.status == 0) {

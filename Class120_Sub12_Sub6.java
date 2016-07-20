@@ -12,7 +12,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	static int anInt3173 = 0;
 	static Class120_Sub14_Sub22 aClass120_Sub14_Sub22_3174;
 	private int anInt3175;
-	static int anInt3176 = 0;
+	static int maxLoginScreenCameraSpeed = 0;
 
 	static {
 		highLightingDetail = true;
@@ -21,14 +21,14 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	static final AbstractSprite constructObjectSprite(final PlayerAppearance playerAppearance, int outlineType, final int objCount, int shadow, final int objId, final boolean drawCount, final boolean shrink, final boolean useHDSprite) {
 		ObjType objType = ObjType.list(objId);
 		if (objCount > 1 && objType.countobj != null) {
-			int countObjId = -1;
+			int newObjId = -1;
 			for (int id = 0; id < 10; id++) {
-				if (objType.countcounts[id] <= objCount && objType.countcounts[id] != 0) {
-					countObjId = objType.countobj[id];
+				if (objCount >= objType.countcounts[id] && objType.countcounts[id] != 0) {
+					newObjId = objType.countobj[id];
 				}
 			}
-			if (countObjId != -1) {
-				objType = ObjType.list(countObjId);
+			if (newObjId != -1) {
+				objType = ObjType.list(newObjId);
 			}
 		}
 		final LDModelRenderer objModel = objType.method2117(playerAppearance);
@@ -55,7 +55,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		LDSprite objSprite = new LDSprite(36, 32);
 		GraphicsLD.init2dCanvas(objSprite.pixels, 36, 32);
 		Rasterizer.calculateByBounds();
-		Rasterizer.method869(16, 16);
+		Rasterizer.setViewport(16, 16);
 		Rasterizer.aBoolean971 = false;
 		int zoom = objType.zoom2d;
 		if (shrink) {
@@ -130,15 +130,15 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 		class120_sub29.anInt2766 = i_22_;
 		class120_sub29.anInt2771 = i_19_;
 		class120_sub29.anInt2778 = i_27_;
-		class120_sub29.anInt2780 = i_28_;
-		class120_sub29.anInt2772 = i_20_;
+		class120_sub29.x = i_28_;
+		class120_sub29.locType = i_20_;
 		class120_sub29.anInt2779 = i_21_;
-		class120_sub29.anInt2776 = i_24_;
+		class120_sub29.locId = i_24_;
 		class120_sub29.anInt2767 = i;
 		class120_sub29.anInt2773 = i_18_;
-		class120_sub29.anInt2765 = i_26_;
-		class120_sub29.anInt2764 = i_17_;
-		class120_sub29.anInt2775 = i_25_;
+		class120_sub29.z = i_26_;
+		class120_sub29.entityIndex = i_17_;
+		class120_sub29.rotation = i_25_;
 		Class120_Sub14_Sub15.aClass105_3584.addLast(class120_sub29);
 	}
 
@@ -212,7 +212,7 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void pushTilesPixels(final int[] pixels, int pixelPos, final int pixelStep, final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile != null) {
 			final PlainTile plainTile = groundTile.plainTile;
 			if (plainTile != null) {
@@ -267,12 +267,12 @@ final class Class120_Sub12_Sub6 extends Class120_Sub12 {
 	}
 
 	static final void method1230(final int i_58_) {
-		QuickChatCategoryType.anInt3649 = -1;
+		QuickChatCategoryType.activeMusicGroupId = -1;
 		Class69.anInt614 = i_58_;
-		MasterIndexInfo.aClass50_476 = null;
+		MasterIndexInfo.activeMusicJs5 = null;
 		Class120_Sub12_Sub25.anInt3312 = 1;
-		SeqType.anInt349 = -1;
+		SeqType.activeMusicFileId = -1;
 		StringNode.aBoolean2734 = false;
-		Js5Request.anInt3940 = 0;
+		Js5Request.activeMusicVolume = 0;
 	}
 }

@@ -7,7 +7,7 @@ class ParticleNode {
 	ParticleNode next;
 	ParticleNode previous;
 	static float aFloat1034;
-	static int anInt1035;
+	static int searchResultsPos;
 
 	final void unlink() {
 		if (this.previous != null) {

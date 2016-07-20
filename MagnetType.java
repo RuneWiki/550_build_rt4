@@ -139,7 +139,7 @@ final class MagnetType {
 		return string;
 	}
 
-	static final AbstractModelRenderer constructShadowModel(int shadowColor2, final SeqType seqType, int playerRotation, int entitySize, int colMod1, final AbstractModelRenderer playerModel, int frame, final int playerY, final int playerZ, boolean bool, int shadowColor1, final int colMod2, final int playerX) {
+	static final AbstractModelRenderer constructShadowModel(int shadowColor2, final SeqType seqType, int playerRotation, int entitySize, int colMod1, final AbstractModelRenderer playerModel, int frame, final int y, final int z, boolean bool, int shadowColor1, final int colMod2, final int x) {
 		final long uid = ((long) shadowColor1 << 32) + (colMod1 << 24) + (colMod2 << 16) + entitySize + ((long) shadowColor2 << 48);
 		AbstractModelRenderer cachedModel = (AbstractModelRenderer) Class154.shadowModelCache.get(uid);
 		if (cachedModel == null) {
@@ -164,8 +164,8 @@ final class MagnetType {
 				//final int i_32_ = shadowLayerSize[layerId];
 				for (int vId = 0; vId < vertexCount; vId++) {
 					final int rotation = (vId << 11) / vertexCount;
-					final int shadowX = Rasterizer.sinTable[rotation] * shadowLayerSize + playerX >> 16;
-					final int shadowZ = Rasterizer.cosTable[rotation] * shadowLayerSize + playerZ >> 16;//Used to be i_32_, but no need?
+					final int shadowX = Rasterizer.sinTable[rotation] * shadowLayerSize + x >> 16;
+					final int shadowZ = Rasterizer.cosTable[rotation] * shadowLayerSize + z >> 16;//Used to be i_32_, but no need?
 					shadowVerticesIds[layerId][vId] = shadowModel.addVertex(shadowX, 0, shadowZ);
 				}
 			}
@@ -228,11 +228,11 @@ final class MagnetType {
 			frame &= 0xffff;
 		}
 		if (frameLoader == null) {
-			cachedModel = cachedModel.method2381(true, true, true);
+			cachedModel = cachedModel.copy(true, true, true);
 			cachedModel.scale((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
 			cachedModel.translate((xBound1 + xBound2) / 2, 0, (zBound1 + zBound2) / 2);
 		} else {
-			cachedModel = cachedModel.method2381(!frameLoader.method1578(frame), !frameLoader.method1579(frame), true);
+			cachedModel = cachedModel.copy(!frameLoader.hasAlpha(frame), !frameLoader.method1579(frame), true);
 			cachedModel.scale((xBound2 - xBound1) / 2, 128, (zBound2 - zBound1) / 2);
 			cachedModel.translate((xBound2 + xBound1) / 2, 0, (zBound1 + zBound2) / 2);
 			cachedModel.method2389(frameLoader, frame);//animate
@@ -243,18 +243,18 @@ final class MagnetType {
 		//Blend the shadow model to the ground.
 		if (HDToolkit.glEnabled) {
 			final HDModelRenderer modelRenderer = (HDModelRenderer) cachedModel;
-			if (playerY != Class22.getTileHeight(playerX + xBound1, playerZ + zBound1, Class173.gameLevel) || Class22.getTileHeight(playerX + xBound2, playerZ + zBound2, Class173.gameLevel) != playerY) {
+			if (y != Class22.getTileHeight(x + xBound1, z + zBound1, Class173.gameLevel) || Class22.getTileHeight(x + xBound2, z + zBound2, Class173.gameLevel) != y) {
 				for (int vertexId = 0; vertexId < modelRenderer.vertexCount; vertexId++) {
-					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(playerX + modelRenderer.xVertices[vertexId], playerZ + modelRenderer.zVertices[vertexId], Class173.gameLevel) - playerY;
+					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(x + modelRenderer.xVertices[vertexId], z + modelRenderer.zVertices[vertexId], Class173.gameLevel) - y;
 				}
 				modelRenderer.aClass49_3847.aBoolean439 = false;
 				modelRenderer.modelBounds.boundsCalculated = false;
 			}
 		} else {
 			final LDModelRenderer modelRenderer = (LDModelRenderer) cachedModel;
-			if (playerY != Class22.getTileHeight(playerX + xBound1, playerZ + zBound1, Class173.gameLevel) || playerY != Class22.getTileHeight(playerX + xBound2, playerZ + zBound2, Class173.gameLevel)) {
+			if (y != Class22.getTileHeight(x + xBound1, z + zBound1, Class173.gameLevel) || y != Class22.getTileHeight(x + xBound2, z + zBound2, Class173.gameLevel)) {
 				for (int vertexId = 0; vertexId < modelRenderer.vertexCount; vertexId++) {
-					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(playerX + modelRenderer.xVertices[vertexId], playerZ + modelRenderer.zVertices[vertexId], Class173.gameLevel) - playerY;
+					modelRenderer.yVertices[vertexId] += Class22.getTileHeight(x + modelRenderer.xVertices[vertexId], z + modelRenderer.zVertices[vertexId], Class173.gameLevel) - y;
 				}
 				modelRenderer.boundsCalculated = false;
 			}

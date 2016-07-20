@@ -16,7 +16,7 @@ final class InvType extends NodeSub {
 
 	static final void updateLoginScreenCamera() {
 		if (AbstractGraphicsBuffer.anInt1157 != -1 && Class120_Sub12_Sub15.anInt3248 != -1) {
-			final int i_3_ = ((Class120_Sub12_Sub6.anInt3176 + -JagexInterface.anInt2053) * MagnetType.anInt272 >> 16) + JagexInterface.anInt2053;
+			final int i_3_ = ((Class120_Sub12_Sub6.maxLoginScreenCameraSpeed - JagexInterface.minLoginScreenCameraSpeed) * MagnetType.anInt272 >> 16) + JagexInterface.minLoginScreenCameraSpeed;
 			final float[] renderCoordinates = new float[3];
 			MagnetType.anInt272 += i_3_;
 			if (MagnetType.anInt272 < 65535) {
@@ -46,8 +46,8 @@ final class InvType extends NodeSub {
 			FileSystemWorker.renderX = (int) renderCoordinates[0] - (GameEntity.currentBaseX * 128);
 			Class120_Sub12_Sub10.renderY = (int) renderCoordinates[1] * -1;
 			GroundObjectNode.renderZ = (int) renderCoordinates[2] - (LightType.currentBaseZ * 128);
-			final float[] fs_13_ = new float[3];
-			final int i_14_ = 2 * Class9.anInt67;
+			final float[] renderRotation = new float[3];
+			final int i_14_ = Class9.anInt67 * 2;
 			for (int i_15_ = 0; i_15_ < 3; i_15_++) {
 				final int i_16_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_] * 3;
 				final int i_17_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 1][i_15_] * 3;
@@ -55,12 +55,12 @@ final class InvType extends NodeSub {
 				final int i_19_ = Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_][i_15_];
 				final int i_20_ = i_17_ - i_16_;
 				final int i_22_ = i_18_ + i_16_ - i_17_ * 2;
-				final int i_21_ = i_17_ + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][2 + i_14_][i_15_] - i_19_ - i_18_;
-				fs_13_[i_15_] = f * ((f * i_21_ + i_22_) * f + i_20_) + i_19_;
+				final int i_21_ = i_17_ + Class143_Sub1.anIntArrayArrayArray2195[Class120_Sub12_Sub15.anInt3248][i_14_ + 2][i_15_] - i_19_ - i_18_;
+				renderRotation[i_15_] = f * ((f * i_21_ + i_22_) * f + i_20_) + i_19_;
 			}
-			final float x = fs_13_[0] - renderCoordinates[0];
-			final float y = (fs_13_[1] - renderCoordinates[1]) * -1.0F;
-			final float z = fs_13_[2] - renderCoordinates[2];
+			final float x = renderRotation[0] - renderCoordinates[0];
+			final float y = (renderRotation[1] - renderCoordinates[1]) * -1.0F;
+			final float z = renderRotation[2] - renderCoordinates[2];
 			final double dist = Math.sqrt(x * x + z * z);
 			Class120_Sub30_Sub1.aFloat3674 = (float) Math.atan2(y, dist);
 			SeekableFile.aFloat2139 = -(float) Math.atan2(x, z);
@@ -86,7 +86,7 @@ final class InvType extends NodeSub {
 		int i = 0;
 		for (int i_31_ = 0; i_31_ < 104; i_31_++) {
 			for (int i_32_ = 0; i_32_ < 104; i_32_++) {
-				if (LongNode.method1055(i, i_31_, true, i_32_, LabelGroup.activeGroundTiles)) {
+				if (LongNode.method1055(i, i_31_, true, i_32_, SeqFrameBase.activeGroundTiles)) {
 					i++;
 				}
 				if (i >= 512) {

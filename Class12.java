@@ -5,7 +5,7 @@ import javax.media.opengl.GL;
 
 final class Class12 {
 	private static int[] anIntArray83;
-	private static int[] anIntArray84 = new int[4];
+	private static int[] viewport = new int[4];
 	private static int[] anIntArray85 = new int[4];
 	private static int anInt86;
 
@@ -14,7 +14,7 @@ final class Class12 {
 		anInt86 = 0;
 	}
 
-	static final int method131() {
+	static final int genRenderBuffer() {
 		HDToolkit.gl.glGenRenderbuffersEXT(1, anIntArray83, 0);
 		return anIntArray83[0];
 	}
@@ -25,15 +25,15 @@ final class Class12 {
 		gl.glPopMatrix();
 		gl.glMatrixMode(5888);
 		gl.glPopMatrix();
-		gl.glViewport(anIntArray84[0], anIntArray84[1], anIntArray84[2], anIntArray84[3]);
+		gl.glViewport(viewport[0], viewport[1], viewport[2], viewport[3]);
 	}
 
-	static final int method134() {
+	static final int genFrameBuffer() {
 		HDToolkit.gl.glGenFramebuffersEXT(1, anIntArray83, 0);
 		return anIntArray83[0];
 	}
 
-	static final void method135(final int i) {
+	static final void deleteFrameBuffer(final int i) {
 		anIntArray83[0] = i;
 		HDToolkit.gl.glDeleteFramebuffersEXT(1, anIntArray83, 0);
 	}
@@ -47,7 +47,7 @@ final class Class12 {
 		gl.glMatrixMode(5888);
 		gl.glPushMatrix();
 		gl.glLoadIdentity();
-		gl.glGetIntegerv(2978, anIntArray84, 0);
+		gl.glGetIntegerv(2978, viewport, 0);
 		gl.glViewport(0, 0, i, i_5_);
 	}
 
@@ -55,16 +55,16 @@ final class Class12 {
 		method136(f, f_6_, f_7_, f_8_, -1.0F, 1.0F, i, i_9_);
 	}
 
-	static final void method138(final int i) {
+	static final void deleteRenderBuffer(final int i) {
 		anIntArray83[0] = i;
 		HDToolkit.gl.glDeleteRenderbuffersEXT(1, anIntArray83, 0);
 	}
 
-	static final void method139() {
+	static final void bindPrevFrameBuffer() {
 		HDToolkit.gl.glBindFramebufferEXT(36160, --anInt86 > 0 ? anIntArray85[anInt86 - 1] : 0);
 	}
 
-	static final void method140(final int i) {
+	static final void bindFrameBuffer(final int i) {
 		anIntArray85[anInt86++] = i;
 		HDToolkit.gl.glBindFramebufferEXT(36160, i);
 	}

@@ -81,7 +81,7 @@ final class Queue {
 		Class120_Sub12_Sub11.outputStream.putShort(country);
 		SpotAnimationNode.anInt3466 = 0;
 		Class154.accountCreationStep = 1;
-		Class120_Sub12_Sub35.accountCreationReturnCode = -3;
+		Class120_Sub12_Sub35.accountCreationServerResponse = -3;
 		AbstractIndexedSprite.anInt1027 = 0;
 	}
 

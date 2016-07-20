@@ -7,7 +7,7 @@ import javax.media.opengl.GL;
 
 final class WaterfallShader implements ShaderInterface {
 	static long selfNameAsLong;
-	static js5 aClass50_2169;
+	static js5 varBitJs5;
 	private float[] aFloatArray2170 = new float[4];
 	static FontMetrics loadingFontMetrics;
 	private int listId;
@@ -85,28 +85,28 @@ final class WaterfallShader implements ShaderInterface {
 				return -1;
 			}
 		}
-		int i_6_ = npcType.anInt1682;
-		final EntityRenderData class29 = npc.getEntityRenderData();
+		int i_6_ = npcType.walkAnimationSoundId;
+		final BasType class29 = npc.getBasType();
 		if (npc.idleAnimId == class29.idleAnimationId) {
-			i_6_ = npcType.anInt1681;
+			i_6_ = npcType.idleAnimationSoundId;
 		} else if (npc.idleAnimId != class29.runAnimationId && npc.idleAnimId != class29.runAnimationId2 && npc.idleAnimId != class29.runAnimationId4 && class29.runAnimationId3 != npc.idleAnimId) {
 			if (npc.idleAnimId == class29.anInt212 || class29.anInt192 == npc.idleAnimId || class29.anInt219 == npc.idleAnimId || npc.idleAnimId == class29.anInt210) {
 				i_6_ = npcType.anInt1657;
 			}
 		} else {
-			i_6_ = npcType.anInt1676;
+			i_6_ = npcType.runAnimationSoundId;
 		}
 		return i_6_;
 	}
 
 	static final int method179(final Player player) {
 		int i_8_ = player.walkAmbientSoundId;
-		final EntityRenderData entityRenderData = player.getEntityRenderData();
-		if (player.idleAnimId == entityRenderData.idleAnimationId) {
+		final BasType basType = player.getBasType();
+		if (player.idleAnimId == basType.idleAnimationId) {
 			i_8_ = player.stopWalkAmbientSoundId;
-		} else if (player.idleAnimId == entityRenderData.runAnimationId || player.idleAnimId == entityRenderData.runAnimationId2 || player.idleAnimId == entityRenderData.runAnimationId4 || player.idleAnimId == entityRenderData.runAnimationId3) {
+		} else if (player.idleAnimId == basType.runAnimationId || player.idleAnimId == basType.runAnimationId2 || player.idleAnimId == basType.runAnimationId4 || player.idleAnimId == basType.runAnimationId3) {
 			i_8_ = player.runAmbientSoundId;
-		} else if (player.idleAnimId == entityRenderData.anInt212 || player.idleAnimId == entityRenderData.anInt192 || player.idleAnimId == entityRenderData.anInt219 || player.idleAnimId == entityRenderData.anInt210) {
+		} else if (player.idleAnimId == basType.anInt212 || player.idleAnimId == basType.anInt192 || player.idleAnimId == basType.anInt219 || player.idleAnimId == basType.anInt210) {
 			i_8_ = player.anInt3736;
 		}
 		return i_8_;

@@ -3,7 +3,7 @@
  */
 
 abstract class Class120_Sub2 extends Node {
-	static js5 aClass50_2415;
+	static js5 spotAnimsJs5;
 	static int[][] anIntArrayArray2416;
 	static float aFloat2417;
 	boolean aBoolean2418;
@@ -52,18 +52,18 @@ abstract class Class120_Sub2 extends Node {
 		}
 	}
 
-	static final boolean method1046(final int i, final int i_15_, final int i_16_, final int i_17_, final int i_18_) {
-		final int i_19_ = i_17_ * Class120_Sub12_Sub30.anInt3377 + i * MapFunctionType.anInt637 >> 16;
-		final int i_20_ = i_17_ * MapFunctionType.anInt637 - i * Class120_Sub12_Sub30.anInt3377 >> 16;
-		int i_21_ = i_15_ * Class69_Sub2.anInt2239 + i_20_ * ObjectContainer.anInt2616 >> 16;
-		final int i_22_ = i_15_ * ObjectContainer.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
+	static final boolean method1046(final int tilePosX, final int maxTileY, final int tileY, final int tilePosZ, final int far) {
+		final int i_19_ = tilePosZ * Class120_Sub12_Sub30.renderYawSin + tilePosX * MapFunctionType.renderYawCos >> 16;
+		final int i_20_ = tilePosZ * MapFunctionType.renderYawCos - tilePosX * Class120_Sub12_Sub30.renderYawSin >> 16;
+		int i_21_ = maxTileY * Class69_Sub2.renderPitchSin + i_20_ * ObjectContainer.renderPitchCos >> 16;
+		final int i_22_ = maxTileY * ObjectContainer.renderPitchCos - i_20_ * Class69_Sub2.renderPitchSin >> 16;
 		if (i_21_ < 1) {
 			i_21_ = 1;
 		}
 		final int i_23_ = (i_19_ << 9) / i_21_;
 		final int i_24_ = (i_22_ << 9) / i_21_;
-		int i_25_ = i_16_ * Class69_Sub2.anInt2239 + i_20_ * ObjectContainer.anInt2616 >> 16;
-		final int i_26_ = i_16_ * ObjectContainer.anInt2616 - i_20_ * Class69_Sub2.anInt2239 >> 16;
+		int i_25_ = tileY * Class69_Sub2.renderPitchSin + i_20_ * ObjectContainer.renderPitchCos >> 16;
+		final int i_26_ = tileY * ObjectContainer.renderPitchCos - i_20_ * Class69_Sub2.renderPitchSin >> 16;
 		if (i_25_ < 1) {
 			i_25_ = 1;
 		}
@@ -72,19 +72,19 @@ abstract class Class120_Sub2 extends Node {
 		if (i_21_ < 50 && i_25_ < 50) {
 			return false;
 		}
-		if (i_21_ > i_18_ && i_25_ > i_18_) {
+		if (i_21_ > far && i_25_ > far) {
 			return false;
 		}
-		if (i_23_ < IntegerNode.viewportLeft && i_27_ < IntegerNode.viewportLeft) {
+		if (i_23_ < Rasterizer.viewportLeft && i_27_ < Rasterizer.viewportLeft) {
 			return false;
 		}
-		if (i_23_ > Class120_Sub12_Sub16.viewportRight && i_27_ > Class120_Sub12_Sub16.viewportRight) {
+		if (i_23_ > Rasterizer.viewportRight && i_27_ > Rasterizer.viewportRight) {
 			return false;
 		}
-		if (i_24_ < Class190.viewportTop && i_28_ < Class190.viewportTop) {
+		if (i_24_ < Rasterizer.viewportTop && i_28_ < Rasterizer.viewportTop) {
 			return false;
 		}
-		if (i_24_ > Class120_Sub30_Sub1.viewportBottom && i_28_ > Class120_Sub30_Sub1.viewportBottom) {
+		if (i_24_ > Rasterizer.viewportBottom && i_28_ > Rasterizer.viewportBottom) {
 			return false;
 		}
 		return true;

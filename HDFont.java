@@ -112,7 +112,7 @@ final class HDFont extends AbstractFont {
 				}
 			}
 			anInt3923 *= 16;
-			anInt3923 = Class120_Sub12_Sub17.getFarestBitValue(anInt3923);
+			anInt3923 = Class120_Sub12_Sub17.farthestBitValue(anInt3923);
 			final int i = anInt3923 / 16;
 			final byte[] is_25_ = new byte[anInt3923 * anInt3923 * 2];
 			for (int i_26_ = 0; i_26_ < 256; i_26_++) {

@@ -5,33 +5,33 @@
 abstract class Class53 {
 	static int[] anIntArray485 = { 1, 2, 4, 8 };
 	static String[] suffixTitles;
-	static int anInt487;
+	static int maxTileX;
 
-	static final void method457(final Class120_Sub24 class120_sub24) {
-		int i_0_ = -1;
-		int i_1_ = 0;
-		long l = 0L;
-		if (class120_sub24.anInt2721 == 0) {
-			l = Class114.getWallLocationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+	static final void gatherOriginalLocationInfo(final CustomLocation customLocation) {
+		long bitPacked = 0L;
+		int rotation = 0;
+		int type = 0;
+		int id = -1;
+		if (customLocation.clientType == 0) {
+			bitPacked = Class114.getWallLocationUid(customLocation.x, customLocation.z, customLocation.level);
 		}
-		if (class120_sub24.anInt2721 == 1) {
-			l = JagexInterface.getWallDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		if (customLocation.clientType == 1) {
+			bitPacked = JagexInterface.getWallDecorationUid(customLocation.x, customLocation.z, customLocation.level);
 		}
-		int i_2_ = 0;
-		if (class120_sub24.anInt2721 == 2) {
-			l = Class120_Sub11.method1173(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		if (customLocation.clientType == 2) {
+			bitPacked = Class120_Sub11.method1173(customLocation.x, customLocation.z, customLocation.level);
 		}
-		if (class120_sub24.anInt2721 == 3) {
-			l = Class79_Sub1.getGroundDecorationUid(class120_sub24.anInt2731, class120_sub24.anInt2725, class120_sub24.anInt2722);
+		if (customLocation.clientType == 3) {
+			bitPacked = Class79_Sub1.getGroundDecorationUid(customLocation.x, customLocation.z, customLocation.level);
 		}
-		if (l != 0L) {
-			i_1_ = (0x7fc95 & (int) l) >> 14;
-			i_2_ = 0x3 & (int) l >> 20;
-			i_0_ = 0x7fffffff & (int) (l >>> 32);
+		if (bitPacked != 0L) {
+			rotation = (int) bitPacked >> 20 & 0x3;
+			type = (0x7fc95 & (int) bitPacked) >> 14;
+			id = (int) (bitPacked >>> 32) & 0x7fffffff;
 		}
-		class120_sub24.anInt2729 = i_2_;
-		class120_sub24.anInt2728 = i_1_;
-		class120_sub24.anInt2723 = i_0_;
+		customLocation.originalLocRotation = rotation;
+		customLocation.originalLocType = type;
+		customLocation.originalLocId = id;
 	}
 
 	abstract int getCompletion(int i);

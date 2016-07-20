@@ -22,7 +22,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	}
 
 	static final Class28 method1281(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}
@@ -113,7 +113,7 @@ final class Class120_Sub12_Sub17 extends Class120_Sub12 {
 	 * 3 -> 4
 	 * 9 -> 16
 	 */ 
-	static final int getFarestBitValue(int i) {//Probably need new name for this, but it will do it job.
+	static final int farthestBitValue(int i) {//Probably need new name for this, but it will do it job.
 		i = --i | i >>> 1;
 		i |= i >>> 2;
 		i |= i >>> 4;

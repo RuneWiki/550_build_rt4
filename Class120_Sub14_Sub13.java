@@ -7,14 +7,13 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 	private final int[] anIntArray3560;
 	static int runesId;
 	private final Class120_Sub12 aClass120_Sub12_3562;
-	static int anInt3563;
+	static int tileVisibilityDistance;
 	static ObjectCache aClass21_3564 = new ObjectCache(4);
 	private final Class120_Sub12[] aClass120_Sub12Array3565;
 	private final Class120_Sub12 aClass120_Sub12_3566;
 	static int maxMemory = 64;
 	private final int[] anIntArray3568;
 	static int anInt3569;
-	static short aShort3570 = 205;
 	static int renderPitchWrapper;
 	static int clanMembersAmount;
 
@@ -114,12 +113,12 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			if (!aClass120_Sub12_3566.aBoolean2558) {
 				final int[][] is_30_ = aClass120_Sub12_3566.method1188(i_26_);
 				is_28_ = is_30_[0];
-				is_29_ = is_30_[2];
 				is_27_ = is_30_[1];
+				is_29_ = is_30_[2];
 			} else {
 				final int[] is_31_ = aClass120_Sub12_3566.method1187(i_26_);
-				is_27_ = is_31_;
 				is_28_ = is_31_;
+				is_27_ = is_31_;
 				is_29_ = is_31_;
 			}
 			int[] is_32_;
@@ -128,13 +127,10 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 			} else {
 				is_32_ = aClass120_Sub12_3559.method1187(i_26_);
 			}
-			for (int i_33_ = i + -1; i_33_ >= 0; i_33_--) {
+			for (int i_33_ = i - 1; i_33_ >= 0; i_33_--) {
 				int i_34_ = is_28_[i_33_] >> 4;
 				if (i_34_ > 255) {
 					i_34_ = 255;
-				}
-				if (i_34_ < 0) {
-					i_34_ = 0;
 				}
 				int i_35_ = is_27_[i_33_] >> 4;
 				int i_36_ = is_29_[i_33_] >> 4;
@@ -165,9 +161,9 @@ final class Class120_Sub14_Sub13 extends NodeSub {
 						i_37_ = 0;
 					}
 				}
-				is_22_[i_24_++] = (i_35_ << 8) + (i_34_ << 16) + (i_37_ << 24) - -i_36_;
+				is_22_[i_24_++] = (i_35_ << 8) + (i_34_ << 16) + (i_37_ << 24) + i_36_;
 				if (bool) {
-					i_24_ += -1 + i;
+					i_24_ += i - 1;
 				}
 			}
 		}

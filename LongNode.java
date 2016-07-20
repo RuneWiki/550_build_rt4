@@ -85,8 +85,8 @@ final class LongNode extends Node {
 				}
 			}
 			if (bool_13_) {
-				if (Class134.anIntArray1284[i] < OverridedJInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_]) {
-					Class134.anIntArray1284[i] = OverridedJInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_];
+				if (Class134.anIntArray1284[i] < SubInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_]) {
+					Class134.anIntArray1284[i] = SubInterface.activeTileHeightMap[Class173.gameLevel + 1][i_7_][i_12_];
 				}
 				final int i_25_ = i_7_ << 7;
 				final int i_26_ = i_12_ << 7;

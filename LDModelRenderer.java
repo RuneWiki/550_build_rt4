@@ -4,46 +4,46 @@
 
 final class LDModelRenderer extends AbstractModelRenderer {
 	boolean boundsCalculated;
-	private byte aByte3756 = 0;
+	private byte modelPriority = 0;
 	private short maxZ;
-	private int[] trianglesC;
+	private int[] facesC;
 	private short minX;
-	private short[] aShortArray3760;
+	private short[] faceTextures;
 	private short[] aShortArray3761;
-	private byte[] aByteArray3762;
+	private byte[] facePriorities;
 	private short aShort3763;
 	int[] zVertices;
-	private byte[] trianglesAlpha;
+	private byte[] faceAlphas;
 	private int[] anIntArray3766;
 	private static LDModelRenderer aClass180_Sub7_Sub1_3767 = new LDModelRenderer();
-	private int anInt3768 = 0;
+	private int textTriangleCount = 0;
 	private int[] anIntArray3769;
-	private byte[] aByteArray3770;
+	private byte[] faceTextureIndex;
 	private short minZ;
 	private short minY;
-	private int[] trianglesA;
+	private int[] facesA;
 	private boolean aBoolean3774 = false;
 	int[] yVertices;
 	ModelParticleMagnet[] aClass169Array3776;
-	private short[] aShortArray3777;
+	private short[] faceColors;
 	private short maxX;
 	private int[] anIntArray3779;
 	private int[] anIntArray3780;
-	private int anInt3781;
+	private int highestVertexId;
 	private static byte[] aByteArray3782;
 	private short[] aShortArray3783;
 	int[] xVertices;
 	private short aShort3785;
-	private int[][] anIntArrayArray3786;
-	private int[] trianglesB;
+	private int[][] vertexLabels;
+	private int[] facesB;
 	ModelParticleEmitter[] aClass158Array3788;
 	private static int[] anIntArray3789 = new int[1];
 	private static int[] anIntArray3790;
 	private int[] anIntArray3791;
-	private int anInt3792;
+	private int triangleCount;
 	int vertexCount;
 	private short maxY;
-	private int[][] anIntArrayArray3795;
+	private int[][] triangleLabels;
 	private static int[] anIntArray3796;
 	private int[] anIntArray3797;
 	private static short[] aShortArray3798;
@@ -164,14 +164,14 @@ final class LDModelRenderer extends AbstractModelRenderer {
 
 	@Override
 	final AbstractModelRenderer method2376(final boolean bool, final boolean bool_0_, final boolean bool_1_) {
-		if (!bool && aByteArray3782.length < anInt3792) {
-			aByteArray3782 = new byte[anInt3792 + 100];
+		if (!bool && aByteArray3782.length < triangleCount) {
+			aByteArray3782 = new byte[triangleCount + 100];
 		}
-		if (!bool_0_ && aShortArray3798.length < anInt3792) {
-			anIntArray3790 = new int[anInt3792 + 100];
-			anIntArray3789 = new int[anInt3792 + 100];
-			anIntArray3796 = new int[anInt3792 + 100];
-			aShortArray3798 = new short[anInt3792 + 100];
+		if (!bool_0_ && aShortArray3798.length < triangleCount) {
+			anIntArray3790 = new int[triangleCount + 100];
+			anIntArray3789 = new int[triangleCount + 100];
+			anIntArray3796 = new int[triangleCount + 100];
+			aShortArray3798 = new short[triangleCount + 100];
 		}
 		return method2397(bool, bool_0_, aClass180_Sub7_Sub1_3767, aByteArray3782, aShortArray3798, anIntArray3790, anIntArray3789, anIntArray3796);
 	}
@@ -213,11 +213,11 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 				anInt3814 = 0;
 			}
-			for (int i_15_ = 0; i_15_ < anInt3792; i_15_++) {
+			for (int i_15_ = 0; i_15_ < triangleCount; i_15_++) {
 				if (anIntArray3769[i_15_] != -2) {
-					final int i_16_ = trianglesA[i_15_];
-					final int i_17_ = trianglesB[i_15_];
-					final int i_18_ = trianglesC[i_15_];
+					final int i_16_ = facesA[i_15_];
+					final int i_17_ = facesB[i_15_];
+					final int i_18_ = facesC[i_15_];
 					final int i_19_ = anIntArray3840[i_16_];
 					final int i_20_ = anIntArray3840[i_17_];
 					final int i_21_ = anIntArray3840[i_18_];
@@ -263,7 +263,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 							}
 						}
 					} else {
-						if (bool_9_ && method2390(AbstractModelRenderer.mouseOffFromCenterX + Rasterizer.centerX, AbstractModelRenderer.mouseOffFromCenterY + Rasterizer.centerY, anIntArray3811[i_16_], anIntArray3811[i_17_], anIntArray3811[i_18_], i_19_, i_20_, i_21_)) {
+						if (bool_9_ && method2390(AbstractModelRenderer.mouseXOffFromCenter + Rasterizer.centerX, AbstractModelRenderer.mouseYOffFromCenter + Rasterizer.centerY, anIntArray3811[i_16_], anIntArray3811[i_17_], anIntArray3811[i_18_], i_19_, i_20_, i_21_)) {
 							Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 							bool_9_ = false;
 						}
@@ -320,7 +320,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			}
 			if (aBoolean3833) {
 				TileParticleQueue.method829(i_11_ - 1, anIntArray3810, anIntArray3826, 0);
-				if (aByteArray3762 == null) {
+				if (facePriorities == null) {
 					for (int i_41_ = 0; i_41_ < i_11_; i_41_++) {
 						method2393(anIntArray3810[i_41_]);
 					}
@@ -333,7 +333,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				for (int i_43_ = 0; i_43_ < i_11_; i_43_++) {
 					final int i_44_ = anIntArray3810[i_43_];
 					final int i_45_ = anIntArray3826[i_43_];
-					final byte i_46_ = aByteArray3762[i_44_];
+					final byte i_46_ = facePriorities[i_44_];
 					final int i_47_ = anIntArray3819[i_46_]++;
 					anIntArrayArray3838[i_46_][i_47_] = i_44_;
 					if (i_46_ < 10) {
@@ -345,7 +345,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					}
 				}
 			} else {
-				if (aByteArray3762 == null) {
+				if (facePriorities == null) {
 					for (int i_48_ = i_10_ - 1; i_48_ >= 0; i_48_--) {
 						final int i_49_ = anIntArray3832[i_48_];
 						if (i_49_ > 0) {
@@ -404,7 +404,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 						for (int i_64_ = 0; i_64_ < i_63_; i_64_++) {
 							final int i_65_ = is[i_64_];
 							if (i_65_ < 65536) {
-								final byte i_66_ = aByteArray3762[i_65_];
+								final byte i_66_ = facePriorities[i_65_];
 								final int i_67_ = anIntArray3819[i_66_]++;
 								anIntArrayArray3838[i_66_][i_67_] = i_65_;
 								if (i_66_ < 10) {
@@ -425,7 +425,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 						for (int i_69_ = 0; i_69_ < anIntArray3815[i_68_]; i_69_++) {
 							final int i_70_ = is[i_69_];
 							if (i_70_ < 65536) {
-								final byte i_71_ = aByteArray3762[i_70_];
+								final byte i_71_ = facePriorities[i_70_];
 								final int i_72_ = anIntArray3819[i_71_]++;
 								anIntArrayArray3838[i_71_][i_72_] = i_70_;
 								if (i_71_ < 10) {
@@ -642,17 +642,17 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		if (i_109_ > 50 && i_110_ < 3500) {
 			final int i_114_ = i_105_ * i_101_ + i_103_ * i_102_ >> 16;
 			final int i_115_ = i_114_ + aShort3763 << 9;
-			if (i_115_ / i_109_ > IntegerNode.viewportLeft) {
+			if (i_115_ / i_109_ > Rasterizer.viewportLeft) {
 				final int i_116_ = i_114_ - aShort3763 << 9;
-				if (i_116_ / i_109_ < Class120_Sub12_Sub16.viewportRight) {
+				if (i_116_ / i_109_ < Rasterizer.viewportRight) {
 					final int i_117_ = i_104_ * i_100_ - i_107_ * i_99_ >> 16;
 					final int i_118_ = i_117_ + (aShort3763 * i_99_ + minY * i_100_ >> 16) << 9;
-					if (i_118_ / i_109_ > Class190.viewportTop) {
+					if (i_118_ / i_109_ > Rasterizer.viewportTop) {
 						final int i_119_ = i_117_ + (-aShort3763 * i_99_ + maxY * i_100_ >> 16) << 9;
-						if (i_119_ / i_109_ < Class120_Sub30_Sub1.viewportBottom) {
+						if (i_119_ / i_109_ < Rasterizer.viewportBottom) {
 							boolean bool = false;
 							final boolean bool_120_ = i_110_ <= 50;
-							final boolean bool_121_ = bool_120_ || anInt3768 > 0;
+							final boolean bool_121_ = bool_120_ || textTriangleCount > 0;
 							final int i_122_ = Rasterizer.centerX;
 							final int i_123_ = Rasterizer.centerY;
 							int i_124_ = 0;
@@ -681,7 +681,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 									i_129_ = i_119_ / i_110_;
 									i_130_ = i_118_ / i_109_;
 								}
-								if (AbstractModelRenderer.mouseOffFromCenterX >= i_127_ && AbstractModelRenderer.mouseOffFromCenterX <= i_128_ && AbstractModelRenderer.mouseOffFromCenterY >= i_129_ && AbstractModelRenderer.mouseOffFromCenterY <= i_130_) {
+								if (AbstractModelRenderer.mouseXOffFromCenter >= i_127_ && AbstractModelRenderer.mouseXOffFromCenter <= i_128_ && AbstractModelRenderer.mouseYOffFromCenter >= i_129_ && AbstractModelRenderer.mouseYOffFromCenter <= i_130_) {
 									i_127_ = 999999;
 									i_128_ = -999999;
 									i_129_ = 999999;
@@ -724,7 +724,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 											}
 										}
 									}
-									if (AbstractModelRenderer.mouseOffFromCenterX >= i_127_ && AbstractModelRenderer.mouseOffFromCenterX <= i_128_ && AbstractModelRenderer.mouseOffFromCenterY >= i_129_ && AbstractModelRenderer.mouseOffFromCenterY <= i_130_) {
+									if (AbstractModelRenderer.mouseXOffFromCenter >= i_127_ && AbstractModelRenderer.mouseXOffFromCenter <= i_128_ && AbstractModelRenderer.mouseYOffFromCenter >= i_129_ && AbstractModelRenderer.mouseYOffFromCenter <= i_130_) {
 										if (this.haveActions) {
 											Class120_Sub12_Sub21.actions[AbstractModelRenderer.actionsLen++] = l;
 										} else {
@@ -771,9 +771,9 @@ final class LDModelRenderer extends AbstractModelRenderer {
 								for (int i_149_ = 0; i_149_ < class108_sub2.aClass108_Sub3_Sub1Array2355.length; i_149_++) {
 									final Particle class108_sub3_sub1 = class108_sub2.aClass108_Sub3_Sub1Array2355[i_149_];
 									if (class108_sub3_sub1 != null && !class108_sub3_sub1.aBoolean3097) {
-										int i_150_ = (class108_sub3_sub1.positionX >> 12) - DisplayModeInfo.anInt1713;
-										int i_151_ = (class108_sub3_sub1.positionY >> 12) - PlayerAppearance.anInt1367;
-										int i_152_ = (class108_sub3_sub1.positionZ >> 12) - SkyboxType.anInt1381;
+										int i_150_ = (class108_sub3_sub1.positionX >> 12) - DisplayModeInfo.renderX;
+										int i_151_ = (class108_sub3_sub1.positionY >> 12) - PlayerAppearance.renderY;
+										int i_152_ = (class108_sub3_sub1.positionZ >> 12) - SkyboxType.renderZ;
 										int i_153_ = i_152_ * i_101_ + i_150_ * i_102_ >> 16;
 										i_152_ = i_152_ * i_102_ - i_150_ * i_101_ >> 16;
 										i_150_ = i_153_;
@@ -818,8 +818,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final boolean method2375() {
-		if (anIntArrayArray3786 == null) {
+	final boolean hasLabels() {
+		if (vertexLabels == null) {
 			return false;
 		}
 		anInt3822 = 0;
@@ -851,43 +851,41 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	private final void method2393(final int i) {
 		if (aBooleanArray3831[i]) {
 			method2396(i);
+			return;
+		}
+		final int i_162_ = facesA[i];
+		final int i_163_ = facesB[i];
+		final int i_164_ = facesC[i];
+		Rasterizer.boundsLeft = aBooleanArray3823[i];
+		if (faceAlphas == null) {
+			Rasterizer.alpha = 0;
 		} else {
-			final int i_162_ = trianglesA[i];
-			final int i_163_ = trianglesB[i];
-			final int i_164_ = trianglesC[i];
-			Rasterizer.aBoolean972 = aBooleanArray3823[i];
-			if (trianglesAlpha == null) {
-				Rasterizer.alpha = 0;
+			Rasterizer.alpha = faceAlphas[i] & 0xff;
+		}
+		if (faceTextures == null || faceTextures[i] == -1) {
+			if (anIntArray3769[i] == -1) {
+				Rasterizer.method863(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], Rasterizer.palette[anIntArray3779[i] & 0xffff]);
 			} else {
-				Rasterizer.alpha = trianglesAlpha[i] & 0xff;
+				Rasterizer.method856(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i] & 0xffff, anIntArray3780[i] & 0xffff, anIntArray3769[i] & 0xffff);
 			}
-			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
-				if (anIntArray3769[i] == -1) {
-					Rasterizer.method863(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], Rasterizer.palette[anIntArray3779[i] & 0xffff]);
-				} else {
-					Rasterizer.method856(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i] & 0xffff, anIntArray3780[i] & 0xffff, anIntArray3769[i] & 0xffff);
-				}
+		} else {
+			int i_165_;
+			int i_166_;
+			int i_167_;
+			if (faceTextureIndex != null && faceTextureIndex[i] != -1) {
+				final int i_168_ = faceTextureIndex[i] & 0xff;
+				i_165_ = anIntArray3791[i_168_];
+				i_166_ = anIntArray3797[i_168_];
+				i_167_ = anIntArray3766[i_168_];
 			} else {
-				int i_165_;
-				int i_166_;
-				int i_167_;
-				if (aByteArray3770 != null && aByteArray3770[i] != -1) {
-					final int i_168_ = aByteArray3770[i] & 0xff;
-					i_165_ = anIntArray3791[i_168_];
-					i_166_ = anIntArray3797[i_168_];
-					i_167_ = anIntArray3766[i_168_];
-				} else {
-					i_165_ = i_162_;
-					i_166_ = i_163_;
-					i_167_ = i_164_;
-				}
-				if (anIntArray3769[i] == -1) {
-					Rasterizer.method862(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i], anIntArray3779[i], anIntArray3779[i], anIntArray3827[i_165_], anIntArray3827[i_166_],
-							anIntArray3827[i_167_], anIntArray3820[i_165_], anIntArray3820[i_166_], anIntArray3820[i_167_], anIntArray3829[i_165_], anIntArray3829[i_166_], anIntArray3829[i_167_], aShortArray3760[i]);
-				} else {
-					Rasterizer.method862(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i], anIntArray3780[i], anIntArray3769[i], anIntArray3827[i_165_], anIntArray3827[i_166_],
-							anIntArray3827[i_167_], anIntArray3820[i_165_], anIntArray3820[i_166_], anIntArray3820[i_167_], anIntArray3829[i_165_], anIntArray3829[i_166_], anIntArray3829[i_167_], aShortArray3760[i]);
-				}
+				i_165_ = i_162_;
+				i_166_ = i_163_;
+				i_167_ = i_164_;
+			}
+			if (anIntArray3769[i] == -1) {
+				Rasterizer.method862(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i], anIntArray3779[i], anIntArray3779[i], anIntArray3827[i_165_], anIntArray3827[i_166_], anIntArray3827[i_167_], anIntArray3820[i_165_], anIntArray3820[i_166_], anIntArray3820[i_167_], anIntArray3829[i_165_], anIntArray3829[i_166_], anIntArray3829[i_167_], faceTextures[i]);
+			} else {
+				Rasterizer.method862(anIntArray3811[i_162_], anIntArray3811[i_163_], anIntArray3811[i_164_], anIntArray3840[i_162_], anIntArray3840[i_163_], anIntArray3840[i_164_], anIntArray3779[i], anIntArray3780[i], anIntArray3769[i], anIntArray3827[i_165_], anIntArray3827[i_166_], anIntArray3827[i_167_], anIntArray3820[i_165_], anIntArray3820[i_166_], anIntArray3820[i_167_], anIntArray3829[i_165_], anIntArray3829[i_166_], anIntArray3829[i_167_], faceTextures[i]);
 			}
 		}
 	}
@@ -952,7 +950,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			anIntArray3836[i_186_] = i_189_ - i_185_;
 			anIntArray3840[i_186_] = i_175_ + (i_187_ << 9) / i_189_;
 			anIntArray3811[i_186_] = i_176_ + (i_188_ << 9) / i_189_;
-			if (anInt3768 > 0) {
+			if (textTriangleCount > 0) {
 				anIntArray3827[i_186_] = i_187_;
 				anIntArray3820[i_186_] = i_188_;
 				anIntArray3829[i_186_] = i_189_;
@@ -963,20 +961,20 @@ final class LDModelRenderer extends AbstractModelRenderer {
 
 	@Override
 	final AbstractModelRenderer method2378(final boolean bool, final boolean bool_194_, final boolean bool_195_) {
-		if (!bool && aByteArray3825.length < anInt3792) {
-			aByteArray3825 = new byte[anInt3792 + 100];
+		if (!bool && aByteArray3825.length < triangleCount) {
+			aByteArray3825 = new byte[triangleCount + 100];
 		}
-		if (!bool_194_ && aShortArray3824.length < anInt3792) {
-			anIntArray3830 = new int[anInt3792 + 100];
-			anIntArray3817 = new int[anInt3792 + 100];
-			anIntArray3808 = new int[anInt3792 + 100];
-			aShortArray3824 = new short[anInt3792 + 100];
+		if (!bool_194_ && aShortArray3824.length < triangleCount) {
+			anIntArray3830 = new int[triangleCount + 100];
+			anIntArray3817 = new int[triangleCount + 100];
+			anIntArray3808 = new int[triangleCount + 100];
+			aShortArray3824 = new short[triangleCount + 100];
 		}
 		return method2397(bool, bool_194_, aClass180_Sub7_Sub1_3800, aByteArray3825, aShortArray3824, anIntArray3830, anIntArray3817, anIntArray3808);
 	}
 
 	@Override
-	final void method2364() {
+	final void onFinishAnimating() {
 		if (aBoolean3774) {
 			method2402();
 			aBoolean3774 = false;
@@ -995,15 +993,15 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final AbstractModelRenderer method2381(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
-		if (!bool && aByteArray3803.length < anInt3792) {
-			aByteArray3803 = new byte[anInt3792 + 100];
+	final AbstractModelRenderer copy(final boolean bool, final boolean bool_196_, final boolean bool_197_) {
+		if (!bool && aByteArray3803.length < triangleCount) {
+			aByteArray3803 = new byte[triangleCount + 100];
 		}
-		if (!bool_196_ && aShortArray3802.length < anInt3792) {
-			anIntArray3804 = new int[anInt3792 + 100];
-			anIntArray3805 = new int[anInt3792 + 100];
-			anIntArray3801 = new int[anInt3792 + 100];
-			aShortArray3802 = new short[anInt3792 + 100];
+		if (!bool_196_ && aShortArray3802.length < triangleCount) {
+			anIntArray3804 = new int[triangleCount + 100];
+			anIntArray3805 = new int[triangleCount + 100];
+			anIntArray3801 = new int[triangleCount + 100];
+			aShortArray3802 = new short[triangleCount + 100];
 		}
 		return method2397(bool, bool_196_, aClass180_Sub7_Sub1_3799, aByteArray3803, aShortArray3802, anIntArray3804, anIntArray3805, anIntArray3801);
 	}
@@ -1012,16 +1010,16 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		final int i_198_ = Rasterizer.centerX;
 		final int i_199_ = Rasterizer.centerY;
 		int i_200_ = 0;
-		final int i_201_ = trianglesA[i];
-		final int i_202_ = trianglesB[i];
-		final int i_203_ = trianglesC[i];
+		final int i_201_ = facesA[i];
+		final int i_202_ = facesB[i];
+		final int i_203_ = facesC[i];
 		final int i_204_ = anIntArray3829[i_201_];
 		final int i_205_ = anIntArray3829[i_202_];
 		final int i_206_ = anIntArray3829[i_203_];
-		if (trianglesAlpha == null) {
+		if (faceAlphas == null) {
 			Rasterizer.alpha = 0;
 		} else {
-			Rasterizer.alpha = trianglesAlpha[i] & 0xff;
+			Rasterizer.alpha = faceAlphas[i] & 0xff;
 		}
 		if (i_204_ >= 50) {
 			anIntArray3843[i_200_] = anIntArray3840[i_201_];
@@ -1092,12 +1090,12 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		final int i_225_ = anIntArray3837[0];
 		final int i_226_ = anIntArray3837[1];
 		final int i_227_ = anIntArray3837[2];
-		Rasterizer.aBoolean972 = false;
+		Rasterizer.boundsLeft = false;
 		if (i_200_ == 3) {
 			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.endX || i_223_ > Rasterizer.endX || i_224_ > Rasterizer.endX) {
-				Rasterizer.aBoolean972 = true;
+				Rasterizer.boundsLeft = true;
 			}
-			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
+			if (faceTextures == null || faceTextures[i] == -1) {
 				if (anIntArray3769[i] == -1) {
 					Rasterizer.method863(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, Rasterizer.palette[anIntArray3779[i] & 0xffff]);
 				} else {
@@ -1107,8 +1105,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				int i_228_;
 				int i_229_;
 				int i_230_;
-				if (aByteArray3770 != null && aByteArray3770[i] != -1) {
-					final int i_231_ = aByteArray3770[i] & 0xff;
+				if (faceTextureIndex != null && faceTextureIndex[i] != -1) {
+					final int i_231_ = faceTextureIndex[i] & 0xff;
 					i_228_ = anIntArray3791[i_231_];
 					i_229_ = anIntArray3797[i_231_];
 					i_230_ = anIntArray3766[i_231_];
@@ -1119,18 +1117,18 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 				if (anIntArray3769[i] == -1) {
 					Rasterizer.method862(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, anIntArray3779[i], anIntArray3779[i], anIntArray3779[i], anIntArray3827[i_228_], anIntArray3827[i_229_], anIntArray3827[i_230_], anIntArray3820[i_228_], anIntArray3820[i_229_], anIntArray3820[i_230_],
-							anIntArray3829[i_228_], anIntArray3829[i_229_], anIntArray3829[i_230_], aShortArray3760[i]);
+							anIntArray3829[i_228_], anIntArray3829[i_229_], anIntArray3829[i_230_], faceTextures[i]);
 				} else {
 					Rasterizer.method862(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, anIntArray3842[0], anIntArray3842[1], anIntArray3842[2], anIntArray3827[i_228_], anIntArray3827[i_229_], anIntArray3827[i_230_], anIntArray3820[i_228_], anIntArray3820[i_229_], anIntArray3820[i_230_],
-							anIntArray3829[i_228_], anIntArray3829[i_229_], anIntArray3829[i_230_], aShortArray3760[i]);
+							anIntArray3829[i_228_], anIntArray3829[i_229_], anIntArray3829[i_230_], faceTextures[i]);
 				}
 			}
 		}
 		if (i_200_ == 4) {
 			if (i_222_ < 0 || i_223_ < 0 || i_224_ < 0 || i_222_ > Rasterizer.endX || i_223_ > Rasterizer.endX || i_224_ > Rasterizer.endX || anIntArray3843[3] < 0 || anIntArray3843[3] > Rasterizer.endX) {
-				Rasterizer.aBoolean972 = true;
+				Rasterizer.boundsLeft = true;
 			}
-			if (aShortArray3760 == null || aShortArray3760[i] == -1) {
+			if (faceTextures == null || faceTextures[i] == -1) {
 				if (anIntArray3769[i] == -1) {
 					final int i_232_ = Rasterizer.palette[anIntArray3779[i] & 0xffff];
 					Rasterizer.method863(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, i_232_);
@@ -1143,8 +1141,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				int i_233_;
 				int i_234_;
 				int i_235_;
-				if (aByteArray3770 != null && aByteArray3770[i] != -1) {
-					final int i_236_ = aByteArray3770[i] & 0xff;
+				if (faceTextureIndex != null && faceTextureIndex[i] != -1) {
+					final int i_236_ = faceTextureIndex[i] & 0xff;
 					i_233_ = anIntArray3791[i_236_];
 					i_234_ = anIntArray3797[i_236_];
 					i_235_ = anIntArray3766[i_236_];
@@ -1153,7 +1151,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					i_234_ = i_202_;
 					i_235_ = i_203_;
 				}
-				final short i_237_ = aShortArray3760[i];
+				final short i_237_ = faceTextures[i];
 				if (anIntArray3769[i] == -1) {
 					Rasterizer.method862(i_225_, i_226_, i_227_, i_222_, i_223_, i_224_, anIntArray3779[i], anIntArray3779[i], anIntArray3779[i], anIntArray3827[i_233_], anIntArray3827[i_234_], anIntArray3827[i_235_], anIntArray3820[i_233_], anIntArray3820[i_234_], anIntArray3820[i_235_],
 							anIntArray3829[i_233_], anIntArray3829[i_234_], anIntArray3829[i_235_], i_237_);
@@ -1171,9 +1169,9 @@ final class LDModelRenderer extends AbstractModelRenderer {
 
 	private final AbstractModelRenderer method2397(final boolean bool, final boolean bool_238_, final LDModelRenderer class180_sub7_sub1_239_, final byte[] is, final short[] is_240_, final int[] is_241_, final int[] is_242_, final int[] is_243_) {
 		class180_sub7_sub1_239_.vertexCount = this.vertexCount;
-		class180_sub7_sub1_239_.anInt3781 = anInt3781;
-		class180_sub7_sub1_239_.anInt3792 = anInt3792;
-		class180_sub7_sub1_239_.anInt3768 = anInt3768;
+		class180_sub7_sub1_239_.highestVertexId = highestVertexId;
+		class180_sub7_sub1_239_.triangleCount = triangleCount;
+		class180_sub7_sub1_239_.textTriangleCount = textTriangleCount;
 		if (class180_sub7_sub1_239_.xVertices == null || class180_sub7_sub1_239_.xVertices.length < this.vertexCount) {
 			class180_sub7_sub1_239_.xVertices = new int[this.vertexCount + 100];
 			class180_sub7_sub1_239_.yVertices = new int[this.vertexCount + 100];
@@ -1185,48 +1183,48 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			class180_sub7_sub1_239_.zVertices[i] = this.zVertices[i];
 		}
 		if (bool) {
-			class180_sub7_sub1_239_.trianglesAlpha = trianglesAlpha;
+			class180_sub7_sub1_239_.faceAlphas = faceAlphas;
 		} else {
-			class180_sub7_sub1_239_.trianglesAlpha = is;
-			if (trianglesAlpha == null) {
-				for (int i = 0; i < anInt3792; i++) {
-					class180_sub7_sub1_239_.trianglesAlpha[i] = (byte) 0;
+			class180_sub7_sub1_239_.faceAlphas = is;
+			if (faceAlphas == null) {
+				for (int i = 0; i < triangleCount; i++) {
+					class180_sub7_sub1_239_.faceAlphas[i] = (byte) 0;
 				}
 			} else {
-				for (int i = 0; i < anInt3792; i++) {
-					class180_sub7_sub1_239_.trianglesAlpha[i] = trianglesAlpha[i];
+				for (int i = 0; i < triangleCount; i++) {
+					class180_sub7_sub1_239_.faceAlphas[i] = faceAlphas[i];
 				}
 			}
 		}
 		if (bool_238_) {
-			class180_sub7_sub1_239_.aShortArray3777 = aShortArray3777;
+			class180_sub7_sub1_239_.faceColors = faceColors;
 			class180_sub7_sub1_239_.anIntArray3779 = anIntArray3779;
 			class180_sub7_sub1_239_.anIntArray3780 = anIntArray3780;
 			class180_sub7_sub1_239_.anIntArray3769 = anIntArray3769;
 		} else {
-			class180_sub7_sub1_239_.aShortArray3777 = is_240_;
+			class180_sub7_sub1_239_.faceColors = is_240_;
 			class180_sub7_sub1_239_.anIntArray3779 = is_241_;
 			class180_sub7_sub1_239_.anIntArray3780 = is_242_;
 			class180_sub7_sub1_239_.anIntArray3769 = is_243_;
-			for (int i = 0; i < anInt3792; i++) {
-				class180_sub7_sub1_239_.aShortArray3777[i] = aShortArray3777[i];
+			for (int i = 0; i < triangleCount; i++) {
+				class180_sub7_sub1_239_.faceColors[i] = faceColors[i];
 				class180_sub7_sub1_239_.anIntArray3779[i] = anIntArray3779[i];
 				class180_sub7_sub1_239_.anIntArray3780[i] = anIntArray3780[i];
 				class180_sub7_sub1_239_.anIntArray3769[i] = anIntArray3769[i];
 			}
 		}
-		class180_sub7_sub1_239_.trianglesA = trianglesA;
-		class180_sub7_sub1_239_.trianglesB = trianglesB;
-		class180_sub7_sub1_239_.trianglesC = trianglesC;
-		class180_sub7_sub1_239_.aByteArray3762 = aByteArray3762;
-		class180_sub7_sub1_239_.aByteArray3770 = aByteArray3770;
-		class180_sub7_sub1_239_.aShortArray3760 = aShortArray3760;
-		class180_sub7_sub1_239_.aByte3756 = aByte3756;
+		class180_sub7_sub1_239_.facesA = facesA;
+		class180_sub7_sub1_239_.facesB = facesB;
+		class180_sub7_sub1_239_.facesC = facesC;
+		class180_sub7_sub1_239_.facePriorities = facePriorities;
+		class180_sub7_sub1_239_.faceTextureIndex = faceTextureIndex;
+		class180_sub7_sub1_239_.faceTextures = faceTextures;
+		class180_sub7_sub1_239_.modelPriority = modelPriority;
 		class180_sub7_sub1_239_.anIntArray3791 = anIntArray3791;
 		class180_sub7_sub1_239_.anIntArray3797 = anIntArray3797;
 		class180_sub7_sub1_239_.anIntArray3766 = anIntArray3766;
-		class180_sub7_sub1_239_.anIntArrayArray3786 = anIntArrayArray3786;
-		class180_sub7_sub1_239_.anIntArrayArray3795 = anIntArrayArray3795;
+		class180_sub7_sub1_239_.vertexLabels = vertexLabels;
+		class180_sub7_sub1_239_.triangleLabels = triangleLabels;
 		class180_sub7_sub1_239_.aShortArray3783 = aShortArray3783;
 		class180_sub7_sub1_239_.aShortArray3761 = aShortArray3761;
 		class180_sub7_sub1_239_.haveActions = this.haveActions;
@@ -1245,7 +1243,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		int minZ = -32768;
 		int i_249_ = 0;
 		int i_250_ = 0;
-		for (int vertexId = 0; vertexId < anInt3781; vertexId++) {
+		for (int vertexId = 0; vertexId < highestVertexId; vertexId++) {
 			final int xVertex = this.xVertices[vertexId];
 			final int yVertex = this.yVertices[vertexId];
 			final int zVertex = this.zVertices[vertexId];
@@ -1318,26 +1316,26 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		if (bool) {
 			class180_sub7_sub1_265_ = new LDModelRenderer();
 			class180_sub7_sub1_265_.vertexCount = this.vertexCount;
-			class180_sub7_sub1_265_.anInt3781 = anInt3781;
-			class180_sub7_sub1_265_.anInt3792 = anInt3792;
-			class180_sub7_sub1_265_.anInt3768 = anInt3768;
-			class180_sub7_sub1_265_.trianglesA = trianglesA;
-			class180_sub7_sub1_265_.trianglesB = trianglesB;
-			class180_sub7_sub1_265_.trianglesC = trianglesC;
+			class180_sub7_sub1_265_.highestVertexId = highestVertexId;
+			class180_sub7_sub1_265_.triangleCount = triangleCount;
+			class180_sub7_sub1_265_.textTriangleCount = textTriangleCount;
+			class180_sub7_sub1_265_.facesA = facesA;
+			class180_sub7_sub1_265_.facesB = facesB;
+			class180_sub7_sub1_265_.facesC = facesC;
 			class180_sub7_sub1_265_.anIntArray3779 = anIntArray3779;
 			class180_sub7_sub1_265_.anIntArray3780 = anIntArray3780;
 			class180_sub7_sub1_265_.anIntArray3769 = anIntArray3769;
-			class180_sub7_sub1_265_.aByteArray3762 = aByteArray3762;
-			class180_sub7_sub1_265_.aByteArray3770 = aByteArray3770;
-			class180_sub7_sub1_265_.aShortArray3760 = aShortArray3760;
-			class180_sub7_sub1_265_.aShortArray3777 = aShortArray3777;
-			class180_sub7_sub1_265_.trianglesAlpha = trianglesAlpha;
-			class180_sub7_sub1_265_.aByte3756 = aByte3756;
+			class180_sub7_sub1_265_.facePriorities = facePriorities;
+			class180_sub7_sub1_265_.faceTextureIndex = faceTextureIndex;
+			class180_sub7_sub1_265_.faceTextures = faceTextures;
+			class180_sub7_sub1_265_.faceColors = faceColors;
+			class180_sub7_sub1_265_.faceAlphas = faceAlphas;
+			class180_sub7_sub1_265_.modelPriority = modelPriority;
 			class180_sub7_sub1_265_.anIntArray3791 = anIntArray3791;
 			class180_sub7_sub1_265_.anIntArray3797 = anIntArray3797;
 			class180_sub7_sub1_265_.anIntArray3766 = anIntArray3766;
-			class180_sub7_sub1_265_.anIntArrayArray3786 = anIntArrayArray3786;
-			class180_sub7_sub1_265_.anIntArrayArray3795 = anIntArrayArray3795;
+			class180_sub7_sub1_265_.vertexLabels = vertexLabels;
+			class180_sub7_sub1_265_.triangleLabels = triangleLabels;
 			class180_sub7_sub1_265_.aShortArray3783 = aShortArray3783;
 			class180_sub7_sub1_265_.aShortArray3761 = aShortArray3761;
 			class180_sub7_sub1_265_.haveActions = this.haveActions;
@@ -1354,7 +1352,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			class180_sub7_sub1_265_ = this;
 		}
 		if (i == 1) {
-			for (int i_266_ = 0; i_266_ < class180_sub7_sub1_265_.anInt3781; i_266_++) {
+			for (int i_266_ = 0; i_266_ < class180_sub7_sub1_265_.highestVertexId; i_266_++) {
 				final int i_267_ = this.xVertices[i_266_] + i_258_;
 				final int i_268_ = this.zVertices[i_266_] + i_260_;
 				final int i_269_ = i_267_ & 0x7f;
@@ -1366,7 +1364,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				final int i_275_ = i_273_ * (128 - i_270_) + i_274_ * i_270_ >> 7;
 				class180_sub7_sub1_265_.yVertices[i_266_] = this.yVertices[i_266_] + i_275_ - i_259_;
 			}
-			for (int i_276_ = class180_sub7_sub1_265_.anInt3781; i_276_ < class180_sub7_sub1_265_.vertexCount; i_276_++) {
+			for (int i_276_ = class180_sub7_sub1_265_.highestVertexId; i_276_ < class180_sub7_sub1_265_.vertexCount; i_276_++) {
 				final int i_277_ = this.xVertices[i_276_] + i_258_;
 				final int i_278_ = this.zVertices[i_276_] + i_260_;
 				final int i_279_ = i_277_ & 0x7f;
@@ -1381,7 +1379,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 			}
 		} else if (i == 2) {
-			for (int i_286_ = 0; i_286_ < class180_sub7_sub1_265_.anInt3781; i_286_++) {
+			for (int i_286_ = 0; i_286_ < class180_sub7_sub1_265_.highestVertexId; i_286_++) {
 				final int i_287_ = (this.yVertices[i_286_] << 16) / maxY;
 				if (i_287_ < i_256_) {
 					final int i_288_ = this.xVertices[i_286_] + i_258_;
@@ -1398,7 +1396,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					class180_sub7_sub1_265_.yVertices[i_286_] = this.yVertices[i_286_];
 				}
 			}
-			for (int i_297_ = class180_sub7_sub1_265_.anInt3781; i_297_ < class180_sub7_sub1_265_.vertexCount; i_297_++) {
+			for (int i_297_ = class180_sub7_sub1_265_.highestVertexId; i_297_ < class180_sub7_sub1_265_.vertexCount; i_297_++) {
 				final int i_298_ = (this.yVertices[i_297_] << 16) / maxY;
 				if (i_298_ < i_256_) {
 					final int i_299_ = this.xVertices[i_297_] + i_258_;
@@ -1423,7 +1421,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			class180_sub7_sub1_265_.method2385(is, i_258_, i_259_, i_260_, i_308_, i_309_);
 		} else if (i == 4) {
 			final int i_310_ = minY - maxY;
-			for (int i_311_ = 0; i_311_ < anInt3781; i_311_++) {
+			for (int i_311_ = 0; i_311_ < highestVertexId; i_311_++) {
 				final int i_312_ = this.xVertices[i_311_] + i_258_;
 				final int i_313_ = this.zVertices[i_311_] + i_260_;
 				final int i_314_ = i_312_ & 0x7f;
@@ -1435,7 +1433,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				final int i_320_ = i_318_ * (128 - i_315_) + i_319_ * i_315_ >> 7;
 				class180_sub7_sub1_265_.yVertices[i_311_] = this.yVertices[i_311_] + i_320_ - i_259_ + i_310_;
 			}
-			for (int i_321_ = class180_sub7_sub1_265_.anInt3781; i_321_ < class180_sub7_sub1_265_.vertexCount; i_321_++) {
+			for (int i_321_ = class180_sub7_sub1_265_.highestVertexId; i_321_ < class180_sub7_sub1_265_.vertexCount; i_321_++) {
 				final int i_322_ = this.xVertices[i_321_] + i_258_;
 				final int i_323_ = this.zVertices[i_321_] + i_260_;
 				final int i_324_ = i_322_ & 0x7f;
@@ -1451,7 +1449,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			}
 		} else if (i == 5) {
 			final int i_331_ = minY - maxY;
-			for (int i_332_ = 0; i_332_ < anInt3781; i_332_++) {
+			for (int i_332_ = 0; i_332_ < highestVertexId; i_332_++) {
 				final int i_333_ = this.xVertices[i_332_] + i_258_;
 				final int i_334_ = this.zVertices[i_332_] + i_260_;
 				final int i_335_ = i_333_ & 0x7f;
@@ -1467,7 +1465,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				final int i_343_ = i_341_ - i_342_;
 				class180_sub7_sub1_265_.yVertices[i_332_] = ((this.yVertices[i_332_] << 8) / i_331_ * i_343_ >> 8) - (i_259_ - i_341_);
 			}
-			for (int i_344_ = class180_sub7_sub1_265_.anInt3781; i_344_ < class180_sub7_sub1_265_.vertexCount; i_344_++) {
+			for (int i_344_ = class180_sub7_sub1_265_.highestVertexId; i_344_ < class180_sub7_sub1_265_.vertexCount; i_344_++) {
 				final int i_345_ = this.xVertices[i_344_] + i_258_;
 				final int i_346_ = this.zVertices[i_344_] + i_260_;
 				final int i_347_ = i_345_ & 0x7f;
@@ -1491,7 +1489,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2388(final int i, final int[] is, final int i_356_, final int i_357_, final int i_358_, final boolean bool) {
+	final void animate(final int i, final int[] is, final int i_356_, final int i_357_, final int i_358_, final boolean bool) {
 		final int i_359_ = is.length;
 		if (i == 0) {
 			int i_360_ = 0;
@@ -1500,12 +1498,10 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			anInt3816 = 0;
 			for (int i_361_ = 0; i_361_ < i_359_; i_361_++) {
 				final int i_362_ = is[i_361_];
-				if (i_362_ < anIntArrayArray3786.length) {
-					final int[] is_363_ = anIntArrayArray3786[i_362_];
-					int[] is_365_;
-					final int i_364_ = (is_365_ = is_363_).length;
-					for (int i_366_ = 0; i_366_ < i_364_; i_366_++) {
-						final int i_367_ = is_365_[i_366_];
+				if (i_362_ < vertexLabels.length) {
+					final int[] is_363_ = vertexLabels[i_362_];
+					for (int i_366_ = 0; i_366_ < is_363_.length; i_366_++) {
+						final int i_367_ = is_363_[i_366_];
 						anInt3822 += this.xVertices[i_367_];
 						anInt3841 += this.yVertices[i_367_];
 						anInt3816 += this.zVertices[i_367_];
@@ -1525,64 +1521,58 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		} else if (i == 1) {
 			for (int i_368_ = 0; i_368_ < i_359_; i_368_++) {
 				final int i_369_ = is[i_368_];
-				if (i_369_ < anIntArrayArray3786.length) {
-					final int[] is_370_ = anIntArrayArray3786[i_369_];
-					int[] is_372_;
-					final int i_371_ = (is_372_ = is_370_).length;
-					for (int i_373_ = 0; i_373_ < i_371_; i_373_++) {
-						final int i_374_ = is_372_[i_373_];
-						final int i_375_ = i_374_;
-						this.xVertices[i_375_] += i_356_;
-						this.yVertices[i_375_] += i_357_;
-						this.zVertices[i_375_] += i_358_;
+				if (i_369_ < vertexLabels.length) {
+					final int[] is_370_ = vertexLabels[i_369_];
+					for (int i_373_ = 0; i_373_ < is_370_.length; i_373_++) {
+						final int i_374_ = is_370_[i_373_];
+						this.xVertices[i_374_] += i_356_;
+						this.yVertices[i_374_] += i_357_;
+						this.zVertices[i_374_] += i_358_;
 					}
 				}
 			}
 		} else if (i == 2) {
 			for (int i_376_ = 0; i_376_ < i_359_; i_376_++) {
 				final int i_377_ = is[i_376_];
-				if (i_377_ < anIntArrayArray3786.length) {
-					final int[] is_378_ = anIntArrayArray3786[i_377_];
-					int[] is_380_;
-					final int i_379_ = (is_380_ = is_378_).length;
-					for (int i_381_ = 0; i_381_ < i_379_; i_381_++) {
-						final int i_382_ = is_380_[i_381_];
-						final int i_383_ = i_382_;
-						this.xVertices[i_383_] -= anInt3822;
-						this.yVertices[i_383_] -= anInt3841;
-						this.zVertices[i_383_] -= anInt3816;
+				if (i_377_ < vertexLabels.length) {
+					final int[] is_378_ = vertexLabels[i_377_];
+					for (int i_381_ = 0; i_381_ < is_378_.length; i_381_++) {
+						final int i_382_ = is_378_[i_381_];
+						this.xVertices[i_382_] -= anInt3822;
+						this.yVertices[i_382_] -= anInt3841;
+						this.zVertices[i_382_] -= anInt3816;
 						if (i_358_ != 0) {
 							final int i_384_ = Rasterizer.sinTable[i_358_];
 							final int i_385_ = Rasterizer.cosTable[i_358_];
-							final int i_386_ = this.yVertices[i_383_] * i_384_ + this.xVertices[i_383_] * i_385_ + 32767 >> 16;
-							this.yVertices[i_383_] = this.yVertices[i_383_] * i_385_ - this.xVertices[i_383_] * i_384_ + 32767 >> 16;
-							this.xVertices[i_383_] = i_386_;
+							final int i_386_ = this.yVertices[i_382_] * i_384_ + this.xVertices[i_382_] * i_385_ + 32767 >> 16;
+							this.yVertices[i_382_] = this.yVertices[i_382_] * i_385_ - this.xVertices[i_382_] * i_384_ + 32767 >> 16;
+							this.xVertices[i_382_] = i_386_;
 						}
 						if (i_356_ != 0) {
 							final int i_387_ = Rasterizer.sinTable[i_356_];
 							final int i_388_ = Rasterizer.cosTable[i_356_];
-							final int i_389_ = this.yVertices[i_383_] * i_388_ - this.zVertices[i_383_] * i_387_ + 32767 >> 16;
-							this.zVertices[i_383_] = this.yVertices[i_383_] * i_387_ + this.zVertices[i_383_] * i_388_ + 32767 >> 16;
-							this.yVertices[i_383_] = i_389_;
+							final int i_389_ = this.yVertices[i_382_] * i_388_ - this.zVertices[i_382_] * i_387_ + 32767 >> 16;
+							this.zVertices[i_382_] = this.yVertices[i_382_] * i_387_ + this.zVertices[i_382_] * i_388_ + 32767 >> 16;
+							this.yVertices[i_382_] = i_389_;
 						}
 						if (i_357_ != 0) {
 							final int i_390_ = Rasterizer.sinTable[i_357_];
 							final int i_391_ = Rasterizer.cosTable[i_357_];
-							final int i_392_ = this.zVertices[i_383_] * i_390_ + this.xVertices[i_383_] * i_391_ + 32767 >> 16;
-							this.zVertices[i_383_] = this.zVertices[i_383_] * i_391_ - this.xVertices[i_383_] * i_390_ + 32767 >> 16;
-							this.xVertices[i_383_] = i_392_;
+							final int i_392_ = this.zVertices[i_382_] * i_390_ + this.xVertices[i_382_] * i_391_ + 32767 >> 16;
+							this.zVertices[i_382_] = this.zVertices[i_382_] * i_391_ - this.xVertices[i_382_] * i_390_ + 32767 >> 16;
+							this.xVertices[i_382_] = i_392_;
 						}
-						this.xVertices[i_383_] += anInt3822;
-						this.yVertices[i_383_] += anInt3841;
-						this.zVertices[i_383_] += anInt3816;
+						this.xVertices[i_382_] += anInt3822;
+						this.yVertices[i_382_] += anInt3841;
+						this.zVertices[i_382_] += anInt3816;
 					}
 				}
 			}
 		} else if (i == 3) {
 			for (int i_393_ = 0; i_393_ < i_359_; i_393_++) {
 				final int i_394_ = is[i_393_];
-				if (i_394_ < anIntArrayArray3786.length) {
-					final int[] is_395_ = anIntArrayArray3786[i_394_];
+				if (i_394_ < vertexLabels.length) {
+					final int[] is_395_ = vertexLabels[i_394_];
 					int[] is_397_;
 					final int i_396_ = (is_397_ = is_395_).length;
 					for (int i_398_ = 0; i_398_ < i_396_; i_398_++) {
@@ -1601,38 +1591,36 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 			}
 		} else if (i == 5) {
-			if (anIntArrayArray3795 != null && trianglesAlpha != null) {
+			if (triangleLabels != null && faceAlphas != null) {
 				for (int i_401_ = 0; i_401_ < i_359_; i_401_++) {
 					final int i_402_ = is[i_401_];
-					if (i_402_ < anIntArrayArray3795.length) {
-						final int[] is_403_ = anIntArrayArray3795[i_402_];
-						int[] is_405_;
-						final int i_404_ = (is_405_ = is_403_).length;
+					if (i_402_ < triangleLabels.length) {
+						final int[] is_403_ = triangleLabels[i_402_];
+						final int i_404_ = is_403_.length;
 						for (int i_406_ = 0; i_406_ < i_404_; i_406_++) {
-							final int i_407_ = is_405_[i_406_];
-							final int i_408_ = i_407_;
-							int i_409_ = (trianglesAlpha[i_408_] & 0xff) + i_356_ * 8;
+							final int i_407_ = is_403_[i_406_];
+							int i_409_ = (faceAlphas[i_407_] & 0xff) + i_356_ * 8;
 							if (i_409_ < 0) {
 								i_409_ = 0;
 							} else if (i_409_ > 255) {
 								i_409_ = 255;
 							}
-							trianglesAlpha[i_408_] = (byte) i_409_;
+							faceAlphas[i_407_] = (byte) i_409_;
 						}
 					}
 				}
 			}
-		} else if (i == 7 && anIntArrayArray3795 != null) {
+		} else if (i == 7 && triangleLabels != null) {
 			for (int i_410_ = 0; i_410_ < i_359_; i_410_++) {
 				final int i_411_ = is[i_410_];
-				if (i_411_ < anIntArrayArray3795.length) {
-					final int[] is_412_ = anIntArrayArray3795[i_411_];
+				if (i_411_ < triangleLabels.length) {
+					final int[] is_412_ = triangleLabels[i_411_];
 					int[] is_414_;
 					final int i_413_ = (is_414_ = is_412_).length;
 					for (int i_415_ = 0; i_415_ < i_413_; i_415_++) {
 						final int i_416_ = is_414_[i_415_];
 						final int i_417_ = i_416_;
-						final int i_418_ = aShortArray3777[i_417_] & 0xffff;
+						final int i_418_ = faceColors[i_417_] & 0xffff;
 						int i_419_ = i_418_ >> 10 & 0x3f;
 						int i_420_ = i_418_ >> 7 & 0x7;
 						int i_421_ = i_418_ & 0x7f;
@@ -1649,7 +1637,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 						} else if (i_421_ > 127) {
 							i_421_ = 127;
 						}
-						aShortArray3777[i_417_] = (short) (i_419_ << 10 | i_420_ << 7 | i_421_);
+						faceColors[i_417_] = (short) (i_419_ << 10 | i_420_ << 7 | i_421_);
 					}
 					aBoolean3774 = true;
 				}
@@ -1719,7 +1707,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				anIntArray3836[i_443_] = i_446_ - i_442_;
 				anIntArray3840[i_443_] = i_432_ + (i_444_ << 9) / i_431_;
 				anIntArray3811[i_443_] = i_433_ + (i_445_ << 9) / i_431_;
-				if (anInt3768 > 0) {
+				if (textTriangleCount > 0) {
 					anIntArray3827[i_443_] = i_444_;
 					anIntArray3820[i_443_] = i_445_;
 					anIntArray3829[i_443_] = i_446_;
@@ -1741,8 +1729,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			anInt3816 = 0;
 			for (int i_458_ = 0; i_458_ < i_456_; i_458_++) {
 				final int i_459_ = is[i_458_];
-				if (i_459_ < anIntArrayArray3786.length) {
-					final int[] is_460_ = anIntArrayArray3786[i_459_];
+				if (i_459_ < vertexLabels.length) {
+					final int[] is_460_ = vertexLabels[i_459_];
 					int[] is_462_;
 					final int i_461_ = (is_462_ = is_460_).length;
 					for (int i_463_ = 0; i_463_ < i_461_; i_463_++) {
@@ -1777,8 +1765,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			}
 			for (int i_468_ = 0; i_468_ < i_456_; i_468_++) {
 				final int i_469_ = is[i_468_];
-				if (i_469_ < anIntArrayArray3786.length) {
-					final int[] is_470_ = anIntArrayArray3786[i_469_];
+				if (i_469_ < vertexLabels.length) {
+					final int[] is_470_ = vertexLabels[i_469_];
 					int[] is_472_;
 					final int i_471_ = (is_472_ = is_470_).length;
 					for (int i_473_ = 0; i_473_ < i_471_; i_473_++) {
@@ -1870,8 +1858,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				i_515_ += i_478_;
 				for (int i_516_ = 0; i_516_ < i_456_; i_516_++) {
 					final int i_517_ = is[i_516_];
-					if (i_517_ < anIntArrayArray3786.length) {
-						final int[] is_518_ = anIntArrayArray3786[i_517_];
+					if (i_517_ < vertexLabels.length) {
+						final int[] is_518_ = vertexLabels[i_517_];
 						int[] is_520_;
 						final int i_519_ = (is_520_ = is_518_).length;
 						for (int i_521_ = 0; i_521_ < i_519_; i_521_++) {
@@ -1894,8 +1882,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			} else {
 				for (int i_527_ = 0; i_527_ < i_456_; i_527_++) {
 					final int i_528_ = is[i_527_];
-					if (i_528_ < anIntArrayArray3786.length) {
-						final int[] is_529_ = anIntArrayArray3786[i_528_];
+					if (i_528_ < vertexLabels.length) {
+						final int[] is_529_ = vertexLabels[i_528_];
 						int[] is_531_;
 						final int i_530_ = (is_531_ = is_529_).length;
 						for (int i_532_ = 0; i_532_ < i_530_; i_532_++) {
@@ -1997,8 +1985,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				i_573_ += i_546_;
 				for (int i_574_ = 0; i_574_ < i_456_; i_574_++) {
 					final int i_575_ = is[i_574_];
-					if (i_575_ < anIntArrayArray3786.length) {
-						final int[] is_576_ = anIntArrayArray3786[i_575_];
+					if (i_575_ < vertexLabels.length) {
+						final int[] is_576_ = vertexLabels[i_575_];
 						int[] is_578_;
 						final int i_577_ = (is_578_ = is_576_).length;
 						for (int i_579_ = 0; i_579_ < i_577_; i_579_++) {
@@ -2021,8 +2009,8 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			} else {
 				for (int i_585_ = 0; i_585_ < i_456_; i_585_++) {
 					final int i_586_ = is[i_585_];
-					if (i_586_ < anIntArrayArray3786.length) {
-						final int[] is_587_ = anIntArrayArray3786[i_586_];
+					if (i_586_ < vertexLabels.length) {
+						final int[] is_587_ = vertexLabels[i_586_];
 						int[] is_589_;
 						final int i_588_ = (is_589_ = is_587_).length;
 						for (int i_590_ = 0; i_590_ < i_588_; i_590_++) {
@@ -2044,41 +2032,41 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 			}
 		} else if (i == 5) {
-			if (anIntArrayArray3795 != null && trianglesAlpha != null) {
+			if (triangleLabels != null && faceAlphas != null) {
 				for (int i_593_ = 0; i_593_ < i_456_; i_593_++) {
 					final int i_594_ = is[i_593_];
-					if (i_594_ < anIntArrayArray3795.length) {
-						final int[] is_595_ = anIntArrayArray3795[i_594_];
+					if (i_594_ < triangleLabels.length) {
+						final int[] is_595_ = triangleLabels[i_594_];
 						int[] is_597_;
 						final int i_596_ = (is_597_ = is_595_).length;
 						for (int i_598_ = 0; i_598_ < i_596_; i_598_++) {
 							final int i_599_ = is_597_[i_598_];
 							final int i_600_ = i_599_;
 							if (aShortArray3761 == null || (i_454_ & aShortArray3761[i_600_]) != 0) {
-								int i_601_ = (trianglesAlpha[i_600_] & 0xff) + i_451_ * 8;
+								int i_601_ = (faceAlphas[i_600_] & 0xff) + i_451_ * 8;
 								if (i_601_ < 0) {
 									i_601_ = 0;
 								} else if (i_601_ > 255) {
 									i_601_ = 255;
 								}
-								trianglesAlpha[i_600_] = (byte) i_601_;
+								faceAlphas[i_600_] = (byte) i_601_;
 							}
 						}
 					}
 				}
 			}
-		} else if (i == 7 && anIntArrayArray3795 != null) {
+		} else if (i == 7 && triangleLabels != null) {
 			for (int i_602_ = 0; i_602_ < i_456_; i_602_++) {
 				final int i_603_ = is[i_602_];
-				if (i_603_ < anIntArrayArray3795.length) {
-					final int[] is_604_ = anIntArrayArray3795[i_603_];
+				if (i_603_ < triangleLabels.length) {
+					final int[] is_604_ = triangleLabels[i_603_];
 					int[] is_606_;
 					final int i_605_ = (is_606_ = is_604_).length;
 					for (int i_607_ = 0; i_607_ < i_605_; i_607_++) {
 						final int i_608_ = is_606_[i_607_];
 						final int i_609_ = i_608_;
 						if (aShortArray3761 == null || (i_454_ & aShortArray3761[i_609_]) != 0) {
-							final int i_610_ = aShortArray3777[i_609_] & 0xffff;
+							final int i_610_ = faceColors[i_609_] & 0xffff;
 							int i_611_ = i_610_ >> 10 & 0x3f;
 							int i_612_ = i_610_ >> 7 & 0x7;
 							int i_613_ = i_610_ & 0x7f;
@@ -2095,7 +2083,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 							} else if (i_613_ > 127) {
 								i_613_ = 127;
 							}
-							aShortArray3777[i_609_] = (short) (i_611_ << 10 | i_612_ << 7 | i_613_);
+							faceColors[i_609_] = (short) (i_611_ << 10 | i_612_ << 7 | i_613_);
 						}
 					}
 					aBoolean3774 = true;
@@ -2123,10 +2111,10 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	private final void method2402() {
-		for (int i = 0; i < anInt3792; i++) {
-			final short i_615_ = aShortArray3760 != null ? aShortArray3760[i] : (short) -1;
+		for (int i = 0; i < triangleCount; i++) {
+			final short i_615_ = faceTextures != null ? faceTextures[i] : (short) -1;
 			if (i_615_ == -1) {
-				final int i_616_ = aShortArray3777[i] & 0xffff;
+				final int i_616_ = faceColors[i] & 0xffff;
 				if (anIntArray3769[i] == -1) {
 					final int i_617_ = anIntArray3779[i] & ~0x1ffff;
 					anIntArray3779[i] = i_617_ | method2401(i_616_, i_617_ >> 17);
@@ -2143,7 +2131,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 	}
 
 	@Override
-	final void method2379(final int i, final int i_619_, final int i_620_, final int i_621_) {
+	final void animate(final int i, final int i_619_, final int i_620_, final int i_621_) {
 		if (i == 0) {
 			int i_622_ = 0;
 			anInt3822 = 0;
@@ -2213,18 +2201,18 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				this.zVertices[i_635_] += anInt3816;
 			}
 		} else if (i == 5) {
-			for (int i_636_ = 0; i_636_ < anInt3792; i_636_++) {
-				int i_637_ = (trianglesAlpha[i_636_] & 0xff) + i_619_ * 8;
+			for (int i_636_ = 0; i_636_ < triangleCount; i_636_++) {
+				int i_637_ = (faceAlphas[i_636_] & 0xff) + i_619_ * 8;
 				if (i_637_ < 0) {
 					i_637_ = 0;
 				} else if (i_637_ > 255) {
 					i_637_ = 255;
 				}
-				trianglesAlpha[i_636_] = (byte) i_637_;
+				faceAlphas[i_636_] = (byte) i_637_;
 			}
 		} else if (i == 7) {
-			for (int i_638_ = 0; i_638_ < anInt3792; i_638_++) {
-				final int i_639_ = aShortArray3777[i_638_] & 0xffff;
+			for (int i_638_ = 0; i_638_ < triangleCount; i_638_++) {
+				final int i_639_ = faceColors[i_638_] & 0xffff;
 				int i_640_ = i_639_ >> 10 & 0x3f;
 				int i_641_ = i_639_ >> 7 & 0x7;
 				int i_642_ = i_639_ & 0x7f;
@@ -2241,7 +2229,7 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				} else if (i_642_ > 127) {
 					i_642_ = 127;
 				}
-				aShortArray3777[i_638_] = (short) (i_640_ << 10 | i_641_ << 7 | i_642_);
+				faceColors[i_638_] = (short) (i_640_ << 10 | i_641_ << 7 | i_642_);
 			}
 			aBoolean3774 = true;
 		}
@@ -2268,71 +2256,71 @@ final class LDModelRenderer extends AbstractModelRenderer {
 
 	public LDModelRenderer() {
 		this.boundsCalculated = false;
-		anInt3792 = 0;
-		anInt3781 = 0;
+		triangleCount = 0;
+		highestVertexId = 0;
 		this.vertexCount = 0;
 	}
 
 	LDModelRenderer(final Model class180_sub2, final int ambient, final int contrast, final int lightX, final int lightY, final int lightZ) {
 		this.boundsCalculated = false;
-		anInt3792 = 0;
-		anInt3781 = 0;
+		triangleCount = 0;
+		highestVertexId = 0;
 		this.vertexCount = 0;
 		class180_sub2.createNormals();
 		class180_sub2.createLabels();
 		this.vertexCount = class180_sub2.vertexCount;
-		anInt3781 = class180_sub2.highestVertexId;
+		highestVertexId = class180_sub2.highestVertexId;
 		this.xVertices = class180_sub2.xVertices;
 		this.yVertices = class180_sub2.yVertices;
 		this.zVertices = class180_sub2.zVertices;
-		anInt3792 = class180_sub2.triangleCount;
-		trianglesA = class180_sub2.facesA;
-		trianglesB = class180_sub2.facesB;
-		trianglesC = class180_sub2.facesC;
-		aByteArray3762 = class180_sub2.facePriorities;
-		trianglesAlpha = class180_sub2.faceAlphas;
-		aByte3756 = class180_sub2.modelPriority;
-		aShortArray3777 = class180_sub2.faceColors;
-		anIntArrayArray3786 = class180_sub2.vertexLabels;
-		anIntArrayArray3795 = class180_sub2.triangleLabels;
+		triangleCount = class180_sub2.triangleCount;
+		facesA = class180_sub2.facesA;
+		facesB = class180_sub2.facesB;
+		facesC = class180_sub2.facesC;
+		facePriorities = class180_sub2.facePriorities;
+		faceAlphas = class180_sub2.faceAlphas;
+		modelPriority = class180_sub2.modelPriority;
+		faceColors = class180_sub2.faceColors;
+		vertexLabels = class180_sub2.vertexLabels;
+		triangleLabels = class180_sub2.triangleLabels;
 		aShortArray3761 = class180_sub2.aShortArray2867;
 		this.aClass158Array3788 = class180_sub2.aClass158Array2871;
 		this.aClass169Array3776 = class180_sub2.aClass169Array2887;
 		aShortArray3783 = class180_sub2.aShortArray2852;
 		final int lightMagnitude = (int) Math.sqrt(lightX * lightX + lightY * lightY + lightZ * lightZ);
 		final int lightIntensity = contrast * lightMagnitude >> 8;
-		anIntArray3779 = new int[anInt3792];
-		anIntArray3780 = new int[anInt3792];
-		anIntArray3769 = new int[anInt3792];
+		anIntArray3779 = new int[triangleCount];
+		anIntArray3780 = new int[triangleCount];
+		anIntArray3769 = new int[triangleCount];
 		if (class180_sub2.faceTextures != null) {
-			aShortArray3760 = new short[anInt3792];
-			for (int i_649_ = 0; i_649_ < anInt3792; i_649_++) {
+			faceTextures = new short[triangleCount];
+			for (int i_649_ = 0; i_649_ < triangleCount; i_649_++) {
 				final short i_650_ = class180_sub2.faceTextures[i_649_];
-				if (i_650_ != -1 && Rasterizer.anInterface5_973.method15(i_650_)) {
-					aShortArray3760[i_649_] = i_650_;
+				if (i_650_ != -1 && Rasterizer.anInterface5_973.isValid(i_650_)) {
+					faceTextures[i_649_] = i_650_;
 				} else {
-					aShortArray3760[i_649_] = (short) -1;
+					faceTextures[i_649_] = (short) -1;
 				}
 			}
 		} else {
-			aShortArray3760 = null;
+			faceTextures = null;
 		}
 		if (class180_sub2.anInt2855 > 0 && class180_sub2.faceTextureIndex != null) {
 			final int[] is = new int[class180_sub2.anInt2855];
-			for (int i_651_ = 0; i_651_ < anInt3792; i_651_++) {
+			for (int i_651_ = 0; i_651_ < triangleCount; i_651_++) {
 				if (class180_sub2.faceTextureIndex[i_651_] != -1) {
 					is[class180_sub2.faceTextureIndex[i_651_] & 0xff]++;
 				}
 			}
-			anInt3768 = 0;
+			textTriangleCount = 0;
 			for (int i_652_ = 0; i_652_ < class180_sub2.anInt2855; i_652_++) {
 				if (is[i_652_] > 0 && class180_sub2.textureTypes[i_652_] == 0) {
-					anInt3768++;
+					textTriangleCount++;
 				}
 			}
-			anIntArray3791 = new int[anInt3768];
-			anIntArray3797 = new int[anInt3768];
-			anIntArray3766 = new int[anInt3768];
+			anIntArray3791 = new int[textTriangleCount];
+			anIntArray3797 = new int[textTriangleCount];
+			anIntArray3766 = new int[textTriangleCount];
 			int i_653_ = 0;
 			for (int i_654_ = 0; i_654_ < class180_sub2.anInt2855; i_654_++) {
 				if (is[i_654_] > 0 && class180_sub2.textureTypes[i_654_] == 0) {
@@ -2344,19 +2332,19 @@ final class LDModelRenderer extends AbstractModelRenderer {
 					is[i_654_] = -1;
 				}
 			}
-			aByteArray3770 = new byte[anInt3792];
-			for (int i_655_ = 0; i_655_ < anInt3792; i_655_++) {
+			faceTextureIndex = new byte[triangleCount];
+			for (int i_655_ = 0; i_655_ < triangleCount; i_655_++) {
 				if (class180_sub2.faceTextureIndex[i_655_] != -1) {
-					aByteArray3770[i_655_] = (byte) is[class180_sub2.faceTextureIndex[i_655_] & 0xff];
-					if (aByteArray3770[i_655_] == -1 && aShortArray3760 != null) {
-						aShortArray3760[i_655_] = (short) -1;
+					faceTextureIndex[i_655_] = (byte) is[class180_sub2.faceTextureIndex[i_655_] & 0xff];
+					if (faceTextureIndex[i_655_] == -1 && faceTextures != null) {
+						faceTextures[i_655_] = (short) -1;
 					}
 				} else {
-					aByteArray3770[i_655_] = (byte) -1;
+					faceTextureIndex[i_655_] = (byte) -1;
 				}
 			}
 		}
-		for (int i_656_ = 0; i_656_ < anInt3792; i_656_++) {
+		for (int i_656_ = 0; i_656_ < triangleCount; i_656_++) {
 			byte i_657_;
 			if (class180_sub2.faceRenderTypes == null) {
 				i_657_ = (byte) 0;
@@ -2370,10 +2358,10 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				i_658_ = class180_sub2.faceAlphas[i_656_];
 			}
 			short i_659_;
-			if (aShortArray3760 == null) {
+			if (faceTextures == null) {
 				i_659_ = (short) -1;
 			} else {
-				i_659_ = aShortArray3760[i_656_];
+				i_659_ = faceTextures[i_656_];
 			}
 			if (i_658_ == -2) {
 				i_657_ = (byte) 3;
@@ -2385,24 +2373,24 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				if (i_657_ == 0) {
 					final int i_660_ = class180_sub2.faceColors[i_656_] & 0xffff;
 					Normal class26;
-					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesA[i_656_]] != null) {
-						class26 = class180_sub2.aClass26Array2893[trianglesA[i_656_]];
+					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesA[i_656_]] != null) {
+						class26 = class180_sub2.aClass26Array2893[facesA[i_656_]];
 					} else {
-						class26 = class180_sub2.normals[trianglesA[i_656_]];
+						class26 = class180_sub2.normals[facesA[i_656_]];
 					}
 					int i_661_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3779[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
-					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesB[i_656_]] != null) {
-						class26 = class180_sub2.aClass26Array2893[trianglesB[i_656_]];
+					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesB[i_656_]] != null) {
+						class26 = class180_sub2.aClass26Array2893[facesB[i_656_]];
 					} else {
-						class26 = class180_sub2.normals[trianglesB[i_656_]];
+						class26 = class180_sub2.normals[facesB[i_656_]];
 					}
 					i_661_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3780[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
-					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesC[i_656_]] != null) {
-						class26 = class180_sub2.aClass26Array2893[trianglesC[i_656_]];
+					if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesC[i_656_]] != null) {
+						class26 = class180_sub2.aClass26Array2893[facesC[i_656_]];
 					} else {
-						class26 = class180_sub2.normals[trianglesC[i_656_]];
+						class26 = class180_sub2.normals[facesC[i_656_]];
 					}
 					i_661_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156) << 17;
 					anIntArray3769[i_656_] = i_661_ | method2401(i_660_, i_661_ >> 17);
@@ -2419,24 +2407,24 @@ final class LDModelRenderer extends AbstractModelRenderer {
 				}
 			} else if (i_657_ == 0) {
 				Normal class26;
-				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesA[i_656_]] != null) {
-					class26 = class180_sub2.aClass26Array2893[trianglesA[i_656_]];
+				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesA[i_656_]] != null) {
+					class26 = class180_sub2.aClass26Array2893[facesA[i_656_]];
 				} else {
-					class26 = class180_sub2.normals[trianglesA[i_656_]];
+					class26 = class180_sub2.normals[facesA[i_656_]];
 				}
 				int i_663_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156);
 				anIntArray3779[i_656_] = method2403(i_663_);
-				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesB[i_656_]] != null) {
-					class26 = class180_sub2.aClass26Array2893[trianglesB[i_656_]];
+				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesB[i_656_]] != null) {
+					class26 = class180_sub2.aClass26Array2893[facesB[i_656_]];
 				} else {
-					class26 = class180_sub2.normals[trianglesB[i_656_]];
+					class26 = class180_sub2.normals[facesB[i_656_]];
 				}
 				i_663_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156);
 				anIntArray3780[i_656_] = method2403(i_663_);
-				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[trianglesC[i_656_]] != null) {
-					class26 = class180_sub2.aClass26Array2893[trianglesC[i_656_]];
+				if (class180_sub2.aClass26Array2893 != null && class180_sub2.aClass26Array2893[facesC[i_656_]] != null) {
+					class26 = class180_sub2.aClass26Array2893[facesC[i_656_]];
 				} else {
-					class26 = class180_sub2.normals[trianglesC[i_656_]];
+					class26 = class180_sub2.normals[facesC[i_656_]];
 				}
 				i_663_ = ambient + (lightX * class26.x + lightY * class26.y + lightZ * class26.z) / (lightIntensity * class26.anInt156);
 				anIntArray3769[i_656_] = method2403(i_663_);
@@ -2453,38 +2441,38 @@ final class LDModelRenderer extends AbstractModelRenderer {
 
 	private LDModelRenderer(final LDModelRenderer[] class180_sub7_sub1s, final int i) {
 		this.boundsCalculated = false;
-		anInt3792 = 0;
-		anInt3781 = 0;
+		triangleCount = 0;
+		highestVertexId = 0;
 		this.vertexCount = 0;
-		boolean bool = false;
-		boolean bool_665_ = false;
-		boolean bool_666_ = false;
-		boolean bool_667_ = false;
+		boolean hasPriority = false;
+		boolean hasAlpha = false;
+		boolean hasTexture = false;
+		boolean hasTextureIndex = false;
 		this.vertexCount = 0;
-		anInt3792 = 0;
-		anInt3768 = 0;
+		triangleCount = 0;
+		textTriangleCount = 0;
 		int i_668_ = 0;
 		int i_669_ = 0;
-		aByte3756 = (byte) -1;
+		modelPriority = (byte) -1;
 		for (int i_670_ = 0; i_670_ < i; i_670_++) {
 			final LDModelRenderer class180_sub7_sub1_671_ = class180_sub7_sub1s[i_670_];
 			if (class180_sub7_sub1_671_ != null) {
 				this.vertexCount += class180_sub7_sub1_671_.vertexCount;
-				anInt3792 += class180_sub7_sub1_671_.anInt3792;
-				anInt3768 += class180_sub7_sub1_671_.anInt3768;
-				if (class180_sub7_sub1_671_.aByteArray3762 != null) {
-					bool = true;
+				triangleCount += class180_sub7_sub1_671_.triangleCount;
+				textTriangleCount += class180_sub7_sub1_671_.textTriangleCount;
+				if (class180_sub7_sub1_671_.facePriorities != null) {
+					hasPriority = true;
 				} else {
-					if (aByte3756 == -1) {
-						aByte3756 = class180_sub7_sub1_671_.aByte3756;
+					if (modelPriority == -1) {
+						modelPriority = class180_sub7_sub1_671_.modelPriority;
 					}
-					if (aByte3756 != class180_sub7_sub1_671_.aByte3756) {
-						bool = true;
+					if (modelPriority != class180_sub7_sub1_671_.modelPriority) {
+						hasPriority = true;
 					}
 				}
-				bool_665_ = bool_665_ | class180_sub7_sub1_671_.trianglesAlpha != null;
-				bool_666_ = bool_666_ | class180_sub7_sub1_671_.aShortArray3760 != null;
-				bool_667_ = bool_667_ | class180_sub7_sub1_671_.aByteArray3770 != null;
+				hasAlpha = hasAlpha | class180_sub7_sub1_671_.faceAlphas != null;
+				hasTexture = hasTexture | class180_sub7_sub1_671_.faceTextures != null;
+				hasTextureIndex = hasTextureIndex | class180_sub7_sub1_671_.faceTextureIndex != null;
 				if (class180_sub7_sub1_671_.aClass158Array3788 != null) {
 					i_668_ += class180_sub7_sub1_671_.aClass158Array3788.length;
 				}
@@ -2496,28 +2484,28 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		this.xVertices = new int[this.vertexCount];
 		this.yVertices = new int[this.vertexCount];
 		this.zVertices = new int[this.vertexCount];
-		trianglesA = new int[anInt3792];
-		trianglesB = new int[anInt3792];
-		trianglesC = new int[anInt3792];
-		anIntArray3779 = new int[anInt3792];
-		anIntArray3780 = new int[anInt3792];
-		anIntArray3769 = new int[anInt3792];
-		if (bool) {
-			aByteArray3762 = new byte[anInt3792];
+		facesA = new int[triangleCount];
+		facesB = new int[triangleCount];
+		facesC = new int[triangleCount];
+		anIntArray3779 = new int[triangleCount];
+		anIntArray3780 = new int[triangleCount];
+		anIntArray3769 = new int[triangleCount];
+		if (hasPriority) {
+			facePriorities = new byte[triangleCount];
 		}
-		if (bool_665_) {
-			trianglesAlpha = new byte[anInt3792];
+		if (hasAlpha) {
+			faceAlphas = new byte[triangleCount];
 		}
-		if (bool_666_) {
-			aShortArray3760 = new short[anInt3792];
+		if (hasTexture) {
+			faceTextures = new short[triangleCount];
 		}
-		if (bool_667_) {
-			aByteArray3770 = new byte[anInt3792];
+		if (hasTextureIndex) {
+			faceTextureIndex = new byte[triangleCount];
 		}
-		if (anInt3768 > 0) {
-			anIntArray3791 = new int[anInt3768];
-			anIntArray3797 = new int[anInt3768];
-			anIntArray3766 = new int[anInt3768];
+		if (textTriangleCount > 0) {
+			anIntArray3791 = new int[textTriangleCount];
+			anIntArray3797 = new int[textTriangleCount];
+			anIntArray3766 = new int[textTriangleCount];
 		}
 		if (i_668_ > 0) {
 			this.aClass158Array3788 = new ModelParticleEmitter[i_668_];
@@ -2525,44 +2513,44 @@ final class LDModelRenderer extends AbstractModelRenderer {
 		if (i_669_ > 0) {
 			this.aClass169Array3776 = new ModelParticleMagnet[i_669_];
 		}
-		aShortArray3777 = new short[anInt3792];
+		faceColors = new short[triangleCount];
 		this.vertexCount = 0;
-		anInt3792 = 0;
-		anInt3768 = 0;
+		triangleCount = 0;
+		textTriangleCount = 0;
 		i_669_ = 0;
 		i_668_ = 0;
 		for (int i_672_ = 0; i_672_ < i; i_672_++) {
 			final LDModelRenderer class180_sub7_sub1_673_ = class180_sub7_sub1s[i_672_];
 			if (class180_sub7_sub1_673_ != null) {
-				for (int i_674_ = 0; i_674_ < class180_sub7_sub1_673_.anInt3792; i_674_++) {
-					trianglesA[anInt3792] = class180_sub7_sub1_673_.trianglesA[i_674_] + this.vertexCount;
-					trianglesB[anInt3792] = class180_sub7_sub1_673_.trianglesB[i_674_] + this.vertexCount;
-					trianglesC[anInt3792] = class180_sub7_sub1_673_.trianglesC[i_674_] + this.vertexCount;
-					anIntArray3779[anInt3792] = class180_sub7_sub1_673_.anIntArray3779[i_674_];
-					anIntArray3780[anInt3792] = class180_sub7_sub1_673_.anIntArray3780[i_674_];
-					anIntArray3769[anInt3792] = class180_sub7_sub1_673_.anIntArray3769[i_674_];
-					aShortArray3777[anInt3792] = class180_sub7_sub1_673_.aShortArray3777[i_674_];
-					if (bool) {
-						if (class180_sub7_sub1_673_.aByteArray3762 != null) {
-							aByteArray3762[anInt3792] = class180_sub7_sub1_673_.aByteArray3762[i_674_];
+				for (int i_674_ = 0; i_674_ < class180_sub7_sub1_673_.triangleCount; i_674_++) {
+					facesA[triangleCount] = class180_sub7_sub1_673_.facesA[i_674_] + this.vertexCount;
+					facesB[triangleCount] = class180_sub7_sub1_673_.facesB[i_674_] + this.vertexCount;
+					facesC[triangleCount] = class180_sub7_sub1_673_.facesC[i_674_] + this.vertexCount;
+					anIntArray3779[triangleCount] = class180_sub7_sub1_673_.anIntArray3779[i_674_];
+					anIntArray3780[triangleCount] = class180_sub7_sub1_673_.anIntArray3780[i_674_];
+					anIntArray3769[triangleCount] = class180_sub7_sub1_673_.anIntArray3769[i_674_];
+					faceColors[triangleCount] = class180_sub7_sub1_673_.faceColors[i_674_];
+					if (hasPriority) {
+						if (class180_sub7_sub1_673_.facePriorities != null) {
+							facePriorities[triangleCount] = class180_sub7_sub1_673_.facePriorities[i_674_];
 						} else {
-							aByteArray3762[anInt3792] = class180_sub7_sub1_673_.aByte3756;
+							facePriorities[triangleCount] = class180_sub7_sub1_673_.modelPriority;
 						}
 					}
-					if (bool_665_ && class180_sub7_sub1_673_.trianglesAlpha != null) {
-						trianglesAlpha[anInt3792] = class180_sub7_sub1_673_.trianglesAlpha[i_674_];
+					if (hasAlpha && class180_sub7_sub1_673_.faceAlphas != null) {
+						faceAlphas[triangleCount] = class180_sub7_sub1_673_.faceAlphas[i_674_];
 					}
-					if (bool_666_) {
-						if (class180_sub7_sub1_673_.aShortArray3760 != null) {
-							aShortArray3760[anInt3792] = class180_sub7_sub1_673_.aShortArray3760[i_674_];
+					if (hasTexture) {
+						if (class180_sub7_sub1_673_.faceTextures != null) {
+							faceTextures[triangleCount] = class180_sub7_sub1_673_.faceTextures[i_674_];
 						} else {
-							aShortArray3760[anInt3792] = (short) -1;
+							faceTextures[triangleCount] = (short) -1;
 						}
 					}
-					if (bool_667_) {
-						aByteArray3770[anInt3792] = (byte) (class180_sub7_sub1_673_.aByteArray3770 != null && class180_sub7_sub1_673_.aByteArray3770[i_674_] != -1 ? class180_sub7_sub1_673_.aByteArray3770[i_674_] + anInt3768 : -1);
+					if (hasTextureIndex) {
+						faceTextureIndex[triangleCount] = (byte) (class180_sub7_sub1_673_.faceTextureIndex != null && class180_sub7_sub1_673_.faceTextureIndex[i_674_] != -1 ? class180_sub7_sub1_673_.faceTextureIndex[i_674_] + textTriangleCount : -1);
 					}
-					anInt3792++;
+					triangleCount++;
 				}
 				if (class180_sub7_sub1_673_.aClass158Array3788 != null) {
 					for (int i_675_ = 0; i_675_ < class180_sub7_sub1_673_.aClass158Array3788.length; i_675_++) {
@@ -2577,19 +2565,19 @@ final class LDModelRenderer extends AbstractModelRenderer {
 						i_669_++;
 					}
 				}
-				for (int i_677_ = 0; i_677_ < class180_sub7_sub1_673_.anInt3768; i_677_++) {
-					if (class180_sub7_sub1_673_.anIntArray3791[i_677_] < class180_sub7_sub1_673_.anInt3781) {
-						anIntArray3791[anInt3768] = class180_sub7_sub1_673_.anIntArray3791[i_677_] + this.vertexCount;
+				for (int i_677_ = 0; i_677_ < class180_sub7_sub1_673_.textTriangleCount; i_677_++) {
+					if (class180_sub7_sub1_673_.anIntArray3791[i_677_] < class180_sub7_sub1_673_.highestVertexId) {
+						anIntArray3791[textTriangleCount] = class180_sub7_sub1_673_.anIntArray3791[i_677_] + this.vertexCount;
 					}
-					if (class180_sub7_sub1_673_.anIntArray3797[i_677_] < class180_sub7_sub1_673_.anInt3781) {
-						anIntArray3797[anInt3768] = class180_sub7_sub1_673_.anIntArray3797[i_677_] + this.vertexCount;
+					if (class180_sub7_sub1_673_.anIntArray3797[i_677_] < class180_sub7_sub1_673_.highestVertexId) {
+						anIntArray3797[textTriangleCount] = class180_sub7_sub1_673_.anIntArray3797[i_677_] + this.vertexCount;
 					}
-					if (class180_sub7_sub1_673_.anIntArray3766[i_677_] < class180_sub7_sub1_673_.anInt3781) {
-						anIntArray3766[anInt3768] = class180_sub7_sub1_673_.anIntArray3766[i_677_] + this.vertexCount;
+					if (class180_sub7_sub1_673_.anIntArray3766[i_677_] < class180_sub7_sub1_673_.highestVertexId) {
+						anIntArray3766[textTriangleCount] = class180_sub7_sub1_673_.anIntArray3766[i_677_] + this.vertexCount;
 					}
-					anInt3768++;
+					textTriangleCount++;
 				}
-				for (int i_678_ = 0; i_678_ < class180_sub7_sub1_673_.anInt3781; i_678_++) {
+				for (int i_678_ = 0; i_678_ < class180_sub7_sub1_673_.highestVertexId; i_678_++) {
 					this.xVertices[this.vertexCount] = class180_sub7_sub1_673_.xVertices[i_678_];
 					this.yVertices[this.vertexCount] = class180_sub7_sub1_673_.yVertices[i_678_];
 					this.zVertices[this.vertexCount] = class180_sub7_sub1_673_.zVertices[i_678_];
@@ -2598,23 +2586,23 @@ final class LDModelRenderer extends AbstractModelRenderer {
 			}
 		}
 		int i_679_ = 0;
-		anInt3781 = this.vertexCount;
+		highestVertexId = this.vertexCount;
 		for (int i_680_ = 0; i_680_ < i; i_680_++) {
 			final LDModelRenderer class180_sub7_sub1_681_ = class180_sub7_sub1s[i_680_];
 			if (class180_sub7_sub1_681_ != null) {
-				for (int i_682_ = 0; i_682_ < class180_sub7_sub1_681_.anInt3768; i_682_++) {
-					if (class180_sub7_sub1_681_.anIntArray3791[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
-						anIntArray3791[i_679_] = class180_sub7_sub1_681_.anIntArray3791[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
+				for (int i_682_ = 0; i_682_ < class180_sub7_sub1_681_.textTriangleCount; i_682_++) {
+					if (class180_sub7_sub1_681_.anIntArray3791[i_682_] >= class180_sub7_sub1_681_.highestVertexId) {
+						anIntArray3791[i_679_] = class180_sub7_sub1_681_.anIntArray3791[i_682_] - class180_sub7_sub1_681_.highestVertexId + this.vertexCount;
 					}
-					if (class180_sub7_sub1_681_.anIntArray3797[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
-						anIntArray3797[i_679_] = class180_sub7_sub1_681_.anIntArray3797[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
+					if (class180_sub7_sub1_681_.anIntArray3797[i_682_] >= class180_sub7_sub1_681_.highestVertexId) {
+						anIntArray3797[i_679_] = class180_sub7_sub1_681_.anIntArray3797[i_682_] - class180_sub7_sub1_681_.highestVertexId + this.vertexCount;
 					}
-					if (class180_sub7_sub1_681_.anIntArray3766[i_682_] >= class180_sub7_sub1_681_.anInt3781) {
-						anIntArray3766[i_679_] = class180_sub7_sub1_681_.anIntArray3766[i_682_] - class180_sub7_sub1_681_.anInt3781 + this.vertexCount;
+					if (class180_sub7_sub1_681_.anIntArray3766[i_682_] >= class180_sub7_sub1_681_.highestVertexId) {
+						anIntArray3766[i_679_] = class180_sub7_sub1_681_.anIntArray3766[i_682_] - class180_sub7_sub1_681_.highestVertexId + this.vertexCount;
 					}
 					i_679_++;
 				}
-				for (int i_683_ = class180_sub7_sub1_681_.anInt3781; i_683_ < class180_sub7_sub1_681_.vertexCount; i_683_++) {
+				for (int i_683_ = class180_sub7_sub1_681_.highestVertexId; i_683_ < class180_sub7_sub1_681_.vertexCount; i_683_++) {
 					this.xVertices[this.vertexCount] = class180_sub7_sub1_681_.xVertices[i_683_];
 					this.yVertices[this.vertexCount] = class180_sub7_sub1_681_.yVertices[i_683_];
 					this.zVertices[this.vertexCount] = class180_sub7_sub1_681_.zVertices[i_683_];

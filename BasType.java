@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class EntityRenderData {
+final class BasType {
 	int turnAnimation1;
 	int runAnimationId2 = -1;
 	int anInt189;
@@ -38,7 +38,7 @@ final class EntityRenderData {
 	int anInt222;
 	int runAnimationId3;
 	static js5 aClass50_18;
-	static ObjectCache recentUse;
+	static ObjectCache recentUse = new ObjectCache(64);
 
 	final void decode(final Buffer buffer) {
 		for (;;) {
@@ -75,7 +75,7 @@ final class EntityRenderData {
 
 	static final float[] method251() {
 		final float colorMod = AtmosphereManager.getLightingModelAmbient() + AtmosphereManager.getLight0Diffuse();
-		final int screenRgb = AtmosphereManager.getScreenColorRgb();
+		final int screenRgb = AtmosphereManager.getLightColor();
 		final float red = (screenRgb >> 16 & 0xff) / 255.0F;
 		final float green = (screenRgb >> 8 & 0xff) / 255.0F;
 		final float blue = (screenRgb & 0xff) / 255.0F;
@@ -206,19 +206,19 @@ final class EntityRenderData {
 	final void postDecode() {
 	}
 
-	static final EntityRenderData list(final int id) {
-		EntityRenderData entityRenderData = (EntityRenderData) recentUse.get(id);
-		if (entityRenderData != null) {
-			return entityRenderData;
+	static final BasType list(final int id) {
+		BasType basType = (BasType) recentUse.get(id);
+		if (basType != null) {
+			return basType;
 		}
 		final byte[] data = aClass50_18.getFile(32, id);
-		entityRenderData = new EntityRenderData();
+		basType = new BasType();
 		if (data != null) {
-			entityRenderData.decode(new Buffer(data));
+			basType.decode(new Buffer(data));
 		}
-		entityRenderData.postDecode();
-		recentUse.put(entityRenderData, id);
-		return entityRenderData;
+		basType.postDecode();
+		recentUse.put(basType, id);
+		return basType;
 	}
 
 	static final void method254(final int i_17_, final int i_18_, final int i_19_) {
@@ -229,10 +229,10 @@ final class EntityRenderData {
 	}
 
 	static final long method255() {
-		return Class101_Sub2.gameShellTimer.method739();
+		return Class101_Sub2.gameShellTimer.getAverageExecuteTime();
 	}
 
-	public EntityRenderData() {
+	public BasType() {
 		this.anInt203 = -1;
 		this.anInt211 = -1;
 		this.anInt212 = -1;

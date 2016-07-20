@@ -97,7 +97,7 @@ final class Class34 {
 			gl.glGetIntegerv(36063, is, 0);
 			if (is[0] >= 2) {
 				gl.glGenTextures(2, anIntArray292, 0);
-				anInt282 = Class12.method134();
+				anInt282 = Class12.genFrameBuffer();
 			}
 			for (Node node = aClass105_284.getFront(); node != null; node = aClass105_284.getNext()) {
 				final Class120_Sub2 class120_sub2 = (Class120_Sub2) node;
@@ -142,18 +142,18 @@ final class Class34 {
 		if (aBoolean285) {
 			if (anInt294 != -1 && aBoolean287 != aBoolean290) {
 				if (aBoolean290) {
-					Class163.method2123(anInt294);
+					Class163.deleteTexture(anInt294);
 				} else {
-					Class12.method138(anInt294);
+					Class12.deleteRenderBuffer(anInt294);
 				}
 				anInt294 = -1;
 			}
 			if (anInt294 == -1) {
 				aBoolean290 = aBoolean287;
 				if (aBoolean290) {
-					anInt294 = Class163.method2126();
+					anInt294 = Class163.genTexture();
 				} else {
-					anInt294 = Class12.method131();
+					anInt294 = Class12.genRenderBuffer();
 				}
 				aBoolean291 = true;
 			}
@@ -184,7 +184,7 @@ final class Class34 {
 			aBoolean288 = false;
 			bool = true;
 		}
-		Class12.method140(anInt282);
+		Class12.bindFrameBuffer(anInt282);
 		if (aBoolean291) {
 			gl.glFramebufferTexture2DEXT(36160, 36064, 34037, anIntArray292[0], 0);
 			gl.glFramebufferTexture2DEXT(36160, 36065, 34037, anInt289 > 1 ? anIntArray292[1] : 0, 0);
@@ -199,7 +199,7 @@ final class Class34 {
 		}
 		if (bool) {
 			if (!Class12.method141()) {
-				Class12.method139();
+				Class12.bindPrevFrameBuffer();
 				aBoolean288 = true;
 				aBoolean285 = true;
 				aBoolean291 = true;
@@ -271,7 +271,7 @@ final class Class34 {
 						anInt279 = HDToolkit.canvasHeight - anInt279;
 						HDToolkit.setViewportOffset(0, 0);
 						gl.glDrawBuffer(36064);
-						Class12.method139();
+						Class12.bindPrevFrameBuffer();
 						gl.glBegin(7);
 						gl.glTexCoord2f(0.0F, 0.0F);
 						gl.glMultiTexCoord2f(33985, 0.0F, 0.0F);
@@ -323,7 +323,7 @@ final class Class34 {
 
 	static final void method291() {
 		if (anInt282 != -1) {
-			Class12.method135(anInt282);
+			Class12.deleteFrameBuffer(anInt282);
 			anInt282 = -1;
 			HDToolkit.gl.glDeleteTextures(2, anIntArray292, 0);
 			anIntArray292[0] = -1;
@@ -331,9 +331,9 @@ final class Class34 {
 		}
 		if (anInt294 != -1) {
 			if (aBoolean290) {
-				Class163.method2123(anInt294);
+				Class163.deleteTexture(anInt294);
 			} else {
-				Class12.method138(anInt294);
+				Class12.deleteRenderBuffer(anInt294);
 			}
 			anInt294 = -1;
 		}

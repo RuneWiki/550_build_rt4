@@ -5,22 +5,21 @@ import java.io.IOException;
 import java.net.Socket;
 
 final class Class69_Sub3_Sub1 extends Class69_Sub3 {
-	static Hashtable aClass75_3079 = new Hashtable(16);
+	static Hashtable varpChanges = new Hashtable(16);
 	static JagexInterface worldMapInterface = null;
 	static int[] screenRedrawHeights = new int[100];
-	static int[] anIntArray3082;
+	static int[] cs2ArrayLengths = new int[5];
 	static int cameraX;
 	static int publicChatSetting = 0;
 	static short[] aShortArray3085;
 
 	static {
-		anIntArray3082 = new int[5];
 		aShortArray3085 = new short[256];
 	}
 
-	static final boolean updatePacketCounter(final int i_0_) {
-		OverlayFrequencyNode.packetCounter = 1 + i_0_ & 0xffff;
-		Class30.packetCounterUpdated = true;
+	static final boolean updateTriggerid(final int i_0_) {
+		OverlayFrequencyNode.triggerId = 1 + i_0_ & 0xffff;
+		Class30.transmitNewId = true;
 		return true;
 	}
 
@@ -42,7 +41,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 							ModelParticleEmitter.worldPort = GameEntity.anInt3045;
 						}
 					} else {
-						Class120_Sub12_Sub35.accountCreationReturnCode = -5;
+						Class120_Sub12_Sub35.accountCreationServerResponse = -5;
 						Class154.accountCreationStep = 0;
 						return;
 					}
@@ -75,7 +74,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 						Class120_Sub12_Sub29.aClass164_3366.method2131();
 					}
 					if (returnCode != 21) {
-						Class120_Sub12_Sub35.accountCreationReturnCode = returnCode;
+						Class120_Sub12_Sub35.accountCreationServerResponse = returnCode;
 						Class154.accountCreationStep = 0;
 						AbstractTimer.worldConnection.close();
 						AbstractTimer.worldConnection = null;
@@ -97,7 +96,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 						Js5Worker.alternativeAccountUsernames[id] = Class174.longToString(Canvas_Sub1.inputStream.getLong());
 					}
 					Class154.accountCreationStep = 0;
-					Class120_Sub12_Sub35.accountCreationReturnCode = 21;
+					Class120_Sub12_Sub35.accountCreationServerResponse = 21;
 					AbstractTimer.worldConnection.close();
 					AbstractTimer.worldConnection = null;
 				}
@@ -108,7 +107,7 @@ final class Class69_Sub3_Sub1 extends Class69_Sub3 {
 				}
 				if (AbstractIndexedSprite.anInt1027 >= 1) {
 					Class154.accountCreationStep = 0;
-					Class120_Sub12_Sub35.accountCreationReturnCode = -4;
+					Class120_Sub12_Sub35.accountCreationServerResponse = -4;
 				} else {
 					SpotAnimationNode.anInt3466 = 0;
 					Class154.accountCreationStep = 1;

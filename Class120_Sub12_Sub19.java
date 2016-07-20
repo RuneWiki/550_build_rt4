@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub19 extends Class120_Sub12 {
 	private int anInt3279 = 4096;
 	static int textOnScreenCount = 0;
 	static int anInt3281 = -1;
-	static int currentDisplayMode = 0;
+	static int lastUsedDisplayMode = 0;
 
 	static {
 		aClass120_Sub7_3278 = new Buffer(new byte[5000]);

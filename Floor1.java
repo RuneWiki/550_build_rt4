@@ -6,13 +6,13 @@ final class Floor1 {
 	private final int[] classSubclasses;
 	private final int[] partitionClassList;
 	private final int[] classDimensions;
-	private static boolean[] step2Flags;
-	private static int[] xList;
-	private static int[] yList;
-	private final int[] alXList;
+	private static boolean[] step2Flag;
+	private static int[] finalX;
+	private static int[] finalY;
+	private final int[] xList;
 	private final int[][] subclassBooks;
 	private final int multiplier;
-	private static final float[] DB_STATIC_TABLE = { 1.0649863E-7F, 1.1341951E-7F, 1.2079015E-7F, 1.2863978E-7F, 1.369995E-7F, 1.459025E-7F, 1.5538409E-7F, 1.6548181E-7F, 1.7623574E-7F, 1.8768856E-7F, 1.998856E-7F, 2.128753E-7F, 2.2670913E-7F, 2.4144197E-7F, 2.5713223E-7F, 2.7384212E-7F, 2.9163792E-7F,
+	private static final float[] inverseDBTable = { 1.0649863E-7F, 1.1341951E-7F, 1.2079015E-7F, 1.2863978E-7F, 1.369995E-7F, 1.459025E-7F, 1.5538409E-7F, 1.6548181E-7F, 1.7623574E-7F, 1.8768856E-7F, 1.998856E-7F, 2.128753E-7F, 2.2670913E-7F, 2.4144197E-7F, 2.5713223E-7F, 2.7384212E-7F, 2.9163792E-7F,
 			3.1059022E-7F, 3.307741E-7F, 3.5226967E-7F, 3.7516213E-7F, 3.995423E-7F, 4.255068E-7F, 4.5315863E-7F, 4.8260745E-7F, 5.1397E-7F, 5.4737063E-7F, 5.829419E-7F, 6.208247E-7F, 6.611694E-7F, 7.041359E-7F, 7.4989464E-7F, 7.98627E-7F, 8.505263E-7F, 9.057983E-7F, 9.646621E-7F, 1.0273513E-6F,
 			1.0941144E-6F, 1.1652161E-6F, 1.2409384E-6F, 1.3215816E-6F, 1.4074654E-6F, 1.4989305E-6F, 1.5963394E-6F, 1.7000785E-6F, 1.8105592E-6F, 1.9282195E-6F, 2.053526E-6F, 2.1869757E-6F, 2.3290977E-6F, 2.4804558E-6F, 2.6416496E-6F, 2.813319E-6F, 2.9961443E-6F, 3.1908505E-6F, 3.39821E-6F,
 			3.619045E-6F, 3.8542307E-6F, 4.1047006E-6F, 4.371447E-6F, 4.6555283E-6F, 4.958071E-6F, 5.280274E-6F, 5.623416E-6F, 5.988857E-6F, 6.3780467E-6F, 6.7925284E-6F, 7.2339453E-6F, 7.704048E-6F, 8.2047E-6F, 8.737888E-6F, 9.305725E-6F, 9.910464E-6F, 1.0554501E-5F, 1.1240392E-5F, 1.1970856E-5F,
@@ -26,40 +26,40 @@ final class Floor1 {
 			0.06671428F, 0.07104975F, 0.075666964F, 0.08058423F, 0.08582105F, 0.09139818F, 0.097337745F, 0.1036633F, 0.11039993F, 0.11757434F, 0.12521498F, 0.13335215F, 0.14201812F, 0.15124726F, 0.16107617F, 0.1715438F, 0.18269168F, 0.19456401F, 0.20720787F, 0.22067343F, 0.23501402F, 0.25028655F,
 			0.26655158F, 0.28387362F, 0.3023213F, 0.32196787F, 0.34289113F, 0.36517414F, 0.3889052F, 0.41417846F, 0.44109413F, 0.4697589F, 0.50028646F, 0.53279793F, 0.5674221F, 0.6042964F, 0.64356697F, 0.6853896F, 0.72993004F, 0.777365F, 0.8278826F, 0.88168305F, 0.9389798F, 1.0F };
 	private final int[] classMasterbooks;
-	private static final int[] RANGES = { 256, 128, 86, 64 };
+	private static final int[] rangeVector = { 256, 128, 86, 64 };
 
-	final void computeFloor(final float[] vector, final int i) {
-		final int values = alXList.length;
-		final int range = RANGES[multiplier - 1];
-		step2Flags[0] = step2Flags[1] = true;
+	final void synthMul(final float[] vector, final int i) {
+		final int values = xList.length;
+		final int range = rangeVector[multiplier - 1];
+		step2Flag[0] = step2Flag[1] = true;
 		for (int id = 2; id < values; id++) {
-			final int lowNeighbourOffset = lowNeighbour(xList, id);
-			final int highNeighbourOffset = highNeighbour(xList, id);
-			final int predicted = renderPoint(xList[lowNeighbourOffset], yList[lowNeighbourOffset], xList[highNeighbourOffset], yList[highNeighbourOffset], xList[id]);
-			final int val = yList[id];
+			final int lowNeighbourOffset = lowNeighbour(finalX, id);
+			final int highNeighbourOffset = highNeighbour(finalX, id);
+			final int predicted = renderPoint(finalX[lowNeighbourOffset], finalY[lowNeighbourOffset], finalX[highNeighbourOffset], finalY[highNeighbourOffset], finalX[id]);
+			final int val = finalY[id];
 			final int highRoom = range - predicted;
 			final int lowRoom = predicted;
 			final int room = (highRoom < lowRoom ? highRoom : lowRoom) << 1;
 			if (val != 0) {
-				step2Flags[lowNeighbourOffset] = step2Flags[highNeighbourOffset] = true;
-				step2Flags[id] = true;
+				step2Flag[lowNeighbourOffset] = step2Flag[highNeighbourOffset] = true;
+				step2Flag[id] = true;
 				if (val >= room) {
-					yList[id] = highRoom > lowRoom ? val - lowRoom + predicted : predicted - val + highRoom - 1;
+					finalY[id] = highRoom > lowRoom ? val - lowRoom + predicted : predicted - val + highRoom - 1;
 				} else {
-					yList[id] = (val & 0x1) != 0 ? predicted - (val + 1) / 2 : predicted + val / 2;
+					finalY[id] = (val & 0x1) != 0 ? predicted - (val + 1) / 2 : predicted + val / 2;
 				}
 			} else {
-				step2Flags[id] = false;
-				yList[id] = predicted;
+				step2Flag[id] = false;
+				finalY[id] = predicted;
 			}
 		}
-		sort(0, values - 1);
+		quickShort(0, values - 1);
 		int lx = 0;
-		int ly = yList[0] * multiplier;
+		int ly = finalY[0] * multiplier;
 		for (int id = 1; id < values; id++) {
-			if (step2Flags[id]) {
-				final int hx = xList[id];
-				final int hy = yList[id] * multiplier;
+			if (step2Flag[id]) {
+				final int hx = finalX[id];
+				final int hy = finalY[id] * multiplier;
 				renderLine(lx, ly, hx, hy, vector, i);
 				if (hx >= i) {
 					return;
@@ -68,50 +68,50 @@ final class Floor1 {
 				ly = hy;
 			}
 		}
-		final float r = DB_STATIC_TABLE[ly];
+		final float r = inverseDBTable[ly];
 		for (int id = lx; id < i; id++) {
 			vector[id] *= r;
 		}
 	}
 
-	private final void sort(final int i, final int i_21_) {
+	private final void quickShort(final int i, final int i_21_) {
 		if (i < i_21_) {
 			int i_22_ = i;
-			final int i_23_ = xList[i_22_];
-			final int i_24_ = yList[i_22_];
-			final boolean bool = step2Flags[i_22_];
+			final int i_23_ = finalX[i_22_];
+			final int i_24_ = finalY[i_22_];
+			final boolean bool = step2Flag[i_22_];
 			for (int i_25_ = i + 1; i_25_ <= i_21_; i_25_++) {
-				final int i_26_ = xList[i_25_];
+				final int i_26_ = finalX[i_25_];
 				if (i_26_ < i_23_) {
-					xList[i_22_] = i_26_;
-					yList[i_22_] = yList[i_25_];
-					step2Flags[i_22_] = step2Flags[i_25_];
+					finalX[i_22_] = i_26_;
+					finalY[i_22_] = finalY[i_25_];
+					step2Flag[i_22_] = step2Flag[i_25_];
 					i_22_++;
-					xList[i_25_] = xList[i_22_];
-					yList[i_25_] = yList[i_22_];
-					step2Flags[i_25_] = step2Flags[i_22_];
+					finalX[i_25_] = finalX[i_22_];
+					finalY[i_25_] = finalY[i_22_];
+					step2Flag[i_25_] = step2Flag[i_22_];
 				}
 			}
-			xList[i_22_] = i_23_;
-			yList[i_22_] = i_24_;
-			step2Flags[i_22_] = bool;
-			sort(i, i_22_ - 1);
-			sort(i_22_ + 1, i_21_);
+			finalX[i_22_] = i_23_;
+			finalY[i_22_] = i_24_;
+			step2Flag[i_22_] = bool;
+			quickShort(i, i_22_ - 1);
+			quickShort(i_22_ + 1, i_21_);
 		}
 	}
 
-	final boolean decodedFloor() {
-		if (Class120_Sub23.getBit() == 0) {
+	final boolean packetDecode() {
+		if (Class120_Sub23.readBit() == 0) {
 			return false;
 		}
-		final int i = alXList.length;
+		final int i = xList.length;
 		for (int i_27_ = 0; i_27_ < i; i_27_++) {
-			xList[i_27_] = alXList[i_27_];
+			finalX[i_27_] = xList[i_27_];
 		}
-		final int range = RANGES[multiplier - 1];
-		final int bits = Class120_Sub23.ilog(range - 1);
-		yList[0] = Class120_Sub23.getInt(bits);
-		yList[1] = Class120_Sub23.getInt(bits);
+		final int range = rangeVector[multiplier - 1];
+		final int bits = Class120_Sub23.bitsRequired(range - 1);
+		finalY[0] = Class120_Sub23.readBits(bits);
+		finalY[1] = Class120_Sub23.readBits(bits);
 		int offset = 2;
 		for (int id = 0; id < partitionClassList.length; id++) {
 			final int cls = partitionClassList[id];
@@ -120,12 +120,12 @@ final class Floor1 {
 			final int csub = (1 << cbits) - 1;
 			int cval = 0;
 			if (cbits > 0) {
-				cval = Class120_Sub23.codeBooks[classMasterbooks[cls]].getHuffmanRoot();
+				cval = Class120_Sub23.codeBooks[classMasterbooks[cls]].decodeScalar();
 			}
 			for (int j = 0; j < cdim; j++) {
 				final int book = subclassBooks[cls][cval & csub];
 				cval >>>= cbits;
-				yList[offset++] = book >= 0 ? Class120_Sub23.codeBooks[book].getHuffmanRoot() : 0;
+				finalY[offset++] = book >= 0 ? Class120_Sub23.codeBooks[book].decodeScalar() : 0;
 			}
 		}
 		return true;
@@ -164,7 +164,7 @@ final class Floor1 {
 		int err = 0;
 		final int sy = dy < 0 ? base - 1 : base + 1;
 		ady = ady - (base < 0 ? -base : base) * adx;
-		v[x0] *= DB_STATIC_TABLE[y];
+		v[x0] *= inverseDBTable[y];
 		if (x1 > i_48_) {
 			x1 = i_48_;
 		}
@@ -176,7 +176,7 @@ final class Floor1 {
 			} else {
 				y += base;
 			}
-			v[x] *= DB_STATIC_TABLE[y];
+			v[x] *= inverseDBTable[y];
 		}
 	}
 
@@ -188,15 +188,15 @@ final class Floor1 {
 	}
 
 	Floor1() {
-		final int type = Class120_Sub23.getInt(16);
+		final int type = Class120_Sub23.readBits(16);
 		if (type != 1) {
 			throw new RuntimeException("Unsupported floor type " + type);
 		}
-		final int partitions = Class120_Sub23.getInt(5);
+		final int partitions = Class120_Sub23.readBits(5);
 		int maximumClass = 0;
 		partitionClassList = new int[partitions];
 		for (int id = 0; id < partitions; id++) {
-			final int val = Class120_Sub23.getInt(4);
+			final int val = Class120_Sub23.readBits(4);
 			partitionClassList[id] = val;
 			if (maximumClass <= val) {
 				maximumClass = val + 1;
@@ -207,38 +207,38 @@ final class Floor1 {
 		classMasterbooks = new int[maximumClass];
 		subclassBooks = new int[maximumClass][];
 		for (int id = 0; id < maximumClass; id++) {
-			classDimensions[id] = Class120_Sub23.getInt(3) + 1;
-			int subClassVal = classSubclasses[id] = Class120_Sub23.getInt(2);
+			classDimensions[id] = Class120_Sub23.readBits(3) + 1;
+			int subClassVal = classSubclasses[id] = Class120_Sub23.readBits(2);
 			if (subClassVal != 0) {
-				classMasterbooks[id] = Class120_Sub23.getInt(8);
+				classMasterbooks[id] = Class120_Sub23.readBits(8);
 			}
 			subClassVal = 1 << subClassVal;
 			final int[] book = new int[subClassVal];
 			subclassBooks[id] = book;
 			for (int j = 0; j < subClassVal; j++) {
-				book[j] = Class120_Sub23.getInt(8) - 1;
+				book[j] = Class120_Sub23.readBits(8) - 1;
 			}
 		}
-		multiplier = Class120_Sub23.getInt(2) + 1;
-		final int rangeBits = Class120_Sub23.getInt(4);
+		multiplier = Class120_Sub23.readBits(2) + 1;
+		final int rangeBits = Class120_Sub23.readBits(4);
 		int alXListSize = 2;
 		for (int i_75_ = 0; i_75_ < partitions; i_75_++) {
 			alXListSize += classDimensions[partitionClassList[i_75_]];
 		}
-		alXList = new int[alXListSize];
-		alXList[0] = 0;
-		alXList[1] = 1 << rangeBits;
+		xList = new int[alXListSize];
+		xList[0] = 0;
+		xList[1] = 1 << rangeBits;
 		alXListSize = 2;
 		for (int partition = 0; partition < partitions; partition++) {
 			final int classId = partitionClassList[partition];
 			for (int dim = 0; dim < classDimensions[classId]; dim++) {
-				alXList[alXListSize++] = Class120_Sub23.getInt(rangeBits);
+				xList[alXListSize++] = Class120_Sub23.readBits(rangeBits);
 			}
 		}
-		if (xList == null || xList.length < alXListSize) {
-			xList = new int[alXListSize];
-			yList = new int[alXListSize];
-			step2Flags = new boolean[alXListSize];
+		if (finalX == null || finalX.length < alXListSize) {
+			finalX = new int[alXListSize];
+			finalY = new int[alXListSize];
+			step2Flag = new boolean[alXListSize];
 		}
 	}
 }

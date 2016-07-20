@@ -11,8 +11,6 @@ final class ModelParticleMagnet {
 	static int[] toUpdateEntityIndex = new int[2048];
 	static js5 enumsJs5;
 	MagnetType magnetType;
-	static short aShort1651 = 256;
-
 	ModelParticleMagnet(final int magnetId, final int vertexId) {
 		this.magnetType = MagnetType.list(magnetId);
 		this.vertexId = vertexId;

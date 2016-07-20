@@ -3,7 +3,7 @@
  */
 
 final class Class3 {
-	static int anInt53;
+	static int currentRegionZ;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_54;
 	static SignlinkNode openUrlRequest;
 
@@ -60,7 +60,7 @@ final class Class3 {
 	static final void method84(final int levelSize, final int xSize, final int zSize, final int tileVisibility, final boolean hasUnderWaterMap) {
 		WallDecoration.mapSizeX = xSize;
 		Class120_Sub12_Sub38.mapSizeZ = zSize;
-		Class120_Sub14_Sub13.anInt3563 = tileVisibility;
+		Class120_Sub14_Sub13.tileVisibilityDistance = tileVisibility;
 		Class86.surfaceGroundTiles = new GroundTile[levelSize][WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
 		Class120_Sub12_Sub33.surfaceTileHeightMap = new int[levelSize][WallDecoration.mapSizeX + 1][Class120_Sub12_Sub38.mapSizeZ + 1];
 		if (HDToolkit.glEnabled) {
@@ -88,8 +88,8 @@ final class Class3 {
 		Class111.aClass28Array1057 = new Class28[5000];
 		ClientScript.anInt3556 = 0;
 		client.aClass28Array323 = new Class28[100];
-		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1];
-		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2][Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2];
+		SpotAnimType.aBooleanArrayArray992 = new boolean[Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 1][Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 1];
+		ClanMember.aBooleanArrayArray2573 = new boolean[Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 2][Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 2];
 		Class114.aByteArrayArrayArray1094 = new byte[levelSize][WallDecoration.mapSizeX][Class120_Sub12_Sub38.mapSizeZ];
 	}
 
@@ -123,7 +123,7 @@ final class Class3 {
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		Class120_Sub12_Sub11.outputStream.putByte(21);
 		Class120_Sub12_Sub11.outputStream.putLong(nameAsLong);
-		Class120_Sub12_Sub35.accountCreationReturnCode = -3;
+		Class120_Sub12_Sub35.accountCreationServerResponse = -3;
 		SpotAnimationNode.anInt3466 = 0;
 		AbstractIndexedSprite.anInt1027 = 0;
 		Class154.accountCreationStep = 1;

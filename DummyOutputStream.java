@@ -20,9 +20,9 @@ final class DummyOutputStream extends OutputStream {
 			AbstractTimer.worldConnection.close();
 			AbstractTimer.worldConnection = null;
 		}
-		OverridedJInterface.worldListErrorCount++;
-		if (OverridedJInterface.worldListErrorCount > 4) {
-			OverridedJInterface.worldListErrorCount = 0;
+		SubInterface.worldListErrorCount++;
+		if (SubInterface.worldListErrorCount > 4) {
+			SubInterface.worldListErrorCount = 0;
 			Decimator.worldListLoadStep = 0;
 			return i_0_;
 		}

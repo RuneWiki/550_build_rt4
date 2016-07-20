@@ -30,18 +30,18 @@ final class SceneGroundObject extends SceneGraphNode {
 	}
 
 	static final void method2276() {
-		ParticleEngine.process(Class101_Sub2.loopCycle);
+		ParticleEngine.process(Class101_Sub2.clientClock);
 		if (Class69.rootInterfaceId != -1) {
 			AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
 		}
-		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+		for (int id = 0; id < SeqFrameBase.screenRedrawPos; id++) {
 			if (MasterIndexInfo.needInterfaceRedrawWrapper[id]) {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
 			Class9.needInterfaceRedraw[id] = MasterIndexInfo.needInterfaceRedrawWrapper[id];
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
-		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
+		GZIPDecompressor.anInt796 = Class101_Sub2.clientClock;
 		StructType.mouseOverInventoryInterface = null;
 		LookupTable.gameScreenDrawX = -1;
 		if (HDToolkit.glEnabled) {
@@ -49,7 +49,7 @@ final class SceneGroundObject extends SceneGraphNode {
 		}
 		StructType.gameScreenDrawY = -1;
 		if (Class69.rootInterfaceId != -1) {
-			LabelGroup.screenRedrawPos = 0;
+			SeqFrameBase.screenRedrawPos = 0;
 			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
@@ -61,7 +61,7 @@ final class SceneGroundObject extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_9_, final int i_11_, final int i_10_, final int i_12_) {
+	final void preRender(final int rotation, final int i_9_, final int i_11_, final int i_10_, final int i_12_) {
 		/* empty */
 	}
 

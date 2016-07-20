@@ -8,7 +8,7 @@ final class Class120_Sub12_Sub13 extends Class120_Sub12 {
 	private int anInt3231 = 0;
 	private int anInt3232;
 	static int anInt3233;
-	static Hashtable overridedInterfaces = new Hashtable(8);
+	static Hashtable subInterfaces = new Hashtable(8);
 	private int anInt3235;
 	private int anInt3236;
 

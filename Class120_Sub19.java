@@ -6,11 +6,11 @@ final class Class120_Sub19 extends Node {
 	int anInt2654;
 	static int anInt2655 = 3353893;
 	int anInt2656;
-	static int anInt2657;
+	static int lastWorldId;
 	static int[] anIntArray2658 = new int[128];
 
 	static {
-		anInt2657 = 0;
+		lastWorldId = 0;
 	}
 
 	static final void method1673(final MapFunctionNode class120_sub14_sub5, final Class120_Sub16 class120_sub16, final MapFunctionType class73, final int i, final int i_0_, final int i_1_, final boolean bool) {
@@ -52,7 +52,7 @@ final class Class120_Sub19 extends Node {
 				class98 = OverlayType.aClass98_1201;
 			}
 			if (WorldMapHandler.currentZoom >= 8.0) {
-				class98 = OverridedJInterface.aClass98_2739;
+				class98 = SubInterface.aClass98_2739;
 			}
 		}
 		if (class98 != null) {
@@ -107,10 +107,10 @@ final class Class120_Sub19 extends Node {
 		}
 	}
 
-	static final void removeOverridedInterface(final OverridedJInterface class120_sub26, final boolean uncache) {
-		final int uid = (int) class120_sub26.uid;
-		final int interfaceId = class120_sub26.interfaceId;
-		class120_sub26.unlink();
+	static final void removeSubInterface(final SubInterface subInterface, final boolean uncache) {
+		final int uid = (int) subInterface.uid;
+		final int interfaceId = subInterface.interfaceId;
+		subInterface.unlink();
 		if (uncache) {
 			Class120_Sub12_Sub32.uncacheJInterface(interfaceId);
 		}
@@ -125,7 +125,7 @@ final class Class120_Sub19 extends Node {
 			}
 		}
 		if (WallDecoration.menuOptionCount != 1) {
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 			int i_18_ = Class120_Sub12_Sub22.boldFont.method1459(StringLibrary.chooseOption);
 			for (int i_19_ = 0; WallDecoration.menuOptionCount > i_19_; i_19_++) {
 				final int i_20_ = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(i_19_));
@@ -134,10 +134,10 @@ final class Class120_Sub19 extends Node {
 				}
 			}
 			QuickChatMessageType.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + 15 * WallDecoration.menuOptionCount;
-			Class120_Sub24.menuWidth = 8 + i_18_;
+			CustomLocation.menuWidth = 8 + i_18_;
 		} else {
 			Class15.menuOpen = false;
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 		}
 		if (Class69.rootInterfaceId != -1) {
 			InterfaceClickMask.method1689(1, Class69.rootInterfaceId);

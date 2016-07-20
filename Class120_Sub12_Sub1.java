@@ -20,7 +20,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 	private int anInt3136;
 	
 	static final void redrawScreen(final int x, final int y, final int width, final int height) {
-		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+		for (int id = 0; id < SeqFrameBase.screenRedrawPos; id++) {
 			if (x < GrandExchangeObject.screenRedrawXs[id] + Class120_Sub16.screenRedrawWidhts[id] && x + width > GrandExchangeObject.screenRedrawXs[id] && Class120_Sub12_Sub38.screenRedrawYs[id] + Class69_Sub3_Sub1.screenRedrawHeights[id] > y && y + height > Class120_Sub12_Sub38.screenRedrawYs[id]) {
 				MasterIndexInfo.needInterfaceRedrawWrapper[id] = true;
 			}
@@ -205,7 +205,7 @@ final class Class120_Sub12_Sub1 extends Class120_Sub12 {
 				return null;
 			}
 		}
-		final SignlinkNode signlinkNode = signlink.setDisplayMode(refreshRate, width, height, bitDepth);
+		final SignlinkNode signlinkNode = signlink.createFullscreenFrame(refreshRate, width, height, bitDepth);
 		while (signlinkNode.status == 0) {
 			PacketBuffer.sleepWrapper(10L);
 		}

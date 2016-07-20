@@ -3,8 +3,8 @@
  */
 
 final class Class22 {
-	QuickChatMessageType aClass120_Sub14_Sub10_128;
-	int anInt129;
+	QuickChatMessageType quickChatMessageType;
+	int quickChatMessageId;
 	static Class127 aClass127_130;
 	int[] anIntArray133;
 
@@ -198,7 +198,7 @@ final class Class22 {
 	}
 
 	static final int getTileHeight(int x, int z, int level) {
-		if (OverridedJInterface.activeTileHeightMap == null) {
+		if (SubInterface.activeTileHeightMap == null) {
 			return 0;
 		}
 		final int tileX = x >> 7;
@@ -211,10 +211,10 @@ final class Class22 {
 		}
 		final int playerAtTileX = x & 0x7f;
 		final int playerAtTileZ = z & 0x7f;
-		final int y = OverridedJInterface.activeTileHeightMap[level][tileX][tileZ];
-		final int northY = OverridedJInterface.activeTileHeightMap[level][tileX][tileZ + 1];
-		final int eastY = OverridedJInterface.activeTileHeightMap[level][tileX + 1][tileZ];
-		final int northEastY = OverridedJInterface.activeTileHeightMap[level][tileX + 1][tileZ + 1];
+		final int y = SubInterface.activeTileHeightMap[level][tileX][tileZ];
+		final int northY = SubInterface.activeTileHeightMap[level][tileX][tileZ + 1];
+		final int eastY = SubInterface.activeTileHeightMap[level][tileX + 1][tileZ];
+		final int northEastY = SubInterface.activeTileHeightMap[level][tileX + 1][tileZ + 1];
 		final int i_47_ = y * (128 - playerAtTileX) + (playerAtTileX * eastY) >> 7;
 		final int i_48_ = northEastY * playerAtTileX + (128 - playerAtTileX) * northY >> 7;
 		return i_48_ * playerAtTileZ + i_47_ * (128 - playerAtTileZ) >> 7;
@@ -316,8 +316,8 @@ final class Class22 {
 	
 	static final Class22 decode(final Buffer bufer) {
 		final Class22 class22_11_ = new Class22();
-		class22_11_.anInt129 = bufer.getUShort();
-		class22_11_.aClass120_Sub14_Sub10_128 = QuickChatMessageType.list(class22_11_.anInt129);
+		class22_11_.quickChatMessageId = bufer.getUShort();
+		class22_11_.quickChatMessageType = QuickChatMessageType.list(class22_11_.quickChatMessageId);
 		return class22_11_;
 	}
 }

@@ -5,17 +5,17 @@
 final class RuntimeException_Sub1 extends RuntimeException {
 	static byte[][] mapFilesBuffer;
 	String aString2141;
-	static int anInt2142 = 255;
+	static int musicVolume = 255;
 	static short aShort2143 = 1;
 	static AbstractSprite aClass120_Sub14_Sub19_2144;
 	static Class120_Sub14_Sub9 aClass120_Sub14_Sub9_2145;
 	Throwable aThrowable2146;
 
-	static final OverridedJInterface overrideInterface(final int interfaceId, final int type, final int bitPacked) {
-		final OverridedJInterface overridedInterface = new OverridedJInterface();
-		overridedInterface.type = type;
-		overridedInterface.interfaceId = interfaceId;
-		Class120_Sub12_Sub13.overridedInterfaces.put(overridedInterface, bitPacked);
+	static final SubInterface addSubInterface(final int interfaceId, final int type, final int bitPacked) {
+		final SubInterface subInterface = new SubInterface();
+		subInterface.type = type;
+		subInterface.interfaceId = interfaceId;
+		Class120_Sub12_Sub13.subInterfaces.put(subInterface, bitPacked);
 		ProjectileNode.stopInterfaceAnimation(interfaceId);
 		final JagexInterface jagexInterface = Class74.getJagexInterface(bitPacked);
 		if (jagexInterface != null) {
@@ -32,9 +32,9 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		}
 		if (WallDecoration.menuOptionCount == 1) {
 			Class15.menuOpen = false;
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 		} else {
-			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+			Class120_Sub12_Sub1.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 			int stringWidth = Class120_Sub12_Sub22.boldFont.method1459(StringLibrary.chooseOption);
 			for (int id = 0; id < WallDecoration.menuOptionCount; id++) {
 				final int optionWidth = Class120_Sub12_Sub22.boldFont.method1459(client.getMenuOptionText(id));
@@ -43,7 +43,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 				}
 			}
 			QuickChatMessageType.menuHeight = (WallDecoration.usingSpriteMenu ? 26 : 22) + WallDecoration.menuOptionCount * 15;
-			Class120_Sub24.menuWidth = 8 + stringWidth;
+			CustomLocation.menuWidth = 8 + stringWidth;
 		}
 		if (jagexInterface != null) {
 			ProducingGraphicsBuffer.method1854(jagexInterface, false);
@@ -52,7 +52,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 		if (Class69.rootInterfaceId != -1) {
 			InterfaceClickMask.method1689(1, Class69.rootInterfaceId);
 		}
-		return overridedInterface;
+		return subInterface;
 	}
 
 	static final void addWallLocation(final int level, final int x, final int z, final int y, final SceneGraphNode sceneGraphNode, final SceneGraphNode class180_12_, final int i_13_, final int i_14_, final long bitPackedUid) {
@@ -67,11 +67,11 @@ final class RuntimeException_Sub1 extends RuntimeException {
 			wallLocation.anInt1799 = i_13_;
 			wallLocation.anInt1792 = i_14_;
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (SeqFrameBase.activeGroundTiles[lowerLevel][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.activeGroundTiles[level][x][z].wallLocation = wallLocation;
+			SeqFrameBase.activeGroundTiles[level][x][z].wallLocation = wallLocation;
 		}
 	}
 

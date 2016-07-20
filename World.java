@@ -19,7 +19,7 @@ final class World extends Class167 {
 	}
 
 	static final void executeScript(ClientScript clientScript, final int i) {
-		Buffer.subScriptAmount = 0;
+		Buffer.subScriptPos = 0;
 		int intStackIndex = 0;
 		int opcodeIndex = -1;
 		int stringStackIndex = 0;
@@ -40,12 +40,12 @@ final class World extends Class167 {
 					}
 					if (opcode == 1) {
 						final int i_7_ = intValues[opcodeIndex];
-						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class2.permanentVariable[i_7_];
+						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class2.playerVariables[i_7_];
 						continue;
 					}
 					if (opcode == 2) {
 						final int id = intValues[opcodeIndex];
-						Class140.setVarp(id, ProducingGraphicsBuffer.intStack[--intStackIndex]);
+						Varp.setVarpFromClient(id, ProducingGraphicsBuffer.intStack[--intStackIndex]);
 						continue;
 					}
 					if (opcode == 3) {
@@ -79,19 +79,19 @@ final class World extends Class167 {
 					}
 					if (opcode == 10) {
 						intStackIndex -= 2;
-						if (ProducingGraphicsBuffer.intStack[intStackIndex + 1] < ProducingGraphicsBuffer.intStack[intStackIndex]) {
+						if (ProducingGraphicsBuffer.intStack[intStackIndex] > ProducingGraphicsBuffer.intStack[intStackIndex + 1]) {
 							opcodeIndex += intValues[opcodeIndex];
 						}
 						continue;
 					}
 					if (opcode == 21) {
-						if (Buffer.subScriptAmount != 0) {
-							final SubScript subScript = Class179.subScripts[--Buffer.subScriptAmount];
-							Class79_Sub1.stringArguments = subScript.stringArguments;
+						if (Buffer.subScriptPos != 0) {
+							final SubScript subScript = Class179.subScripts[--Buffer.subScriptPos];
+							Class79_Sub1.stringLocalVariables = subScript.stringLocalVariables;
 							clientScript = subScript.origClientScript;
 							opcodeIndex = subScript.opcodeIndex;
 							intValues = clientScript.intValues;
-							TileParticleQueue.intArguments = subScript.intArguments;
+							TileParticleQueue.intLocalVariables = subScript.intLocalVariables;
 							opcodes = clientScript.opcodes;
 						} else {
 							return;
@@ -105,7 +105,7 @@ final class World extends Class167 {
 					}
 					if (opcode == 27) {
 						final int i_10_ = intValues[opcodeIndex];
-						Class101.setVarbit(i_10_, ProducingGraphicsBuffer.intStack[--intStackIndex]);
+						VarBit.setVarbitFromClient(i_10_, ProducingGraphicsBuffer.intStack[--intStackIndex]);
 						continue;
 					}
 					if (opcode == 31) {
@@ -117,25 +117,25 @@ final class World extends Class167 {
 					}
 					if (opcode == 32) {
 						intStackIndex -= 2;
-						if (ProducingGraphicsBuffer.intStack[intStackIndex + 1] <= ProducingGraphicsBuffer.intStack[intStackIndex]) {
+						if (ProducingGraphicsBuffer.intStack[intStackIndex] >= ProducingGraphicsBuffer.intStack[intStackIndex + 1]) {
 							opcodeIndex += intValues[opcodeIndex];
 						}
 						continue;
 					}
 					if (opcode == 33) {
-						ProducingGraphicsBuffer.intStack[intStackIndex++] = TileParticleQueue.intArguments[intValues[opcodeIndex]];
+						ProducingGraphicsBuffer.intStack[intStackIndex++] = TileParticleQueue.intLocalVariables[intValues[opcodeIndex]];
 						continue;
 					}
 					if (opcode == 34) {
-						TileParticleQueue.intArguments[intValues[opcodeIndex]] = ProducingGraphicsBuffer.intStack[--intStackIndex];
+						TileParticleQueue.intLocalVariables[intValues[opcodeIndex]] = ProducingGraphicsBuffer.intStack[--intStackIndex];
 						continue;
 					}
 					if (opcode == 35) {
-						Class33.stringStack[stringStackIndex++] = Class79_Sub1.stringArguments[intValues[opcodeIndex]];
+						Class33.stringStack[stringStackIndex++] = Class79_Sub1.stringLocalVariables[intValues[opcodeIndex]];
 						continue;
 					}
 					if (opcode == 36) {
-						Class79_Sub1.stringArguments[intValues[opcodeIndex]] = Class33.stringStack[--stringStackIndex];
+						Class79_Sub1.stringLocalVariables[intValues[opcodeIndex]] = Class33.stringStack[--stringStackIndex];
 						continue;
 					}
 					if (opcode == 37) {
@@ -157,32 +157,32 @@ final class World extends Class167 {
 						final int scriptId = intValues[opcodeIndex];
 						final ClientScript subClientScript = ClientScript.list(scriptId);
 						
-						final int[] intArguments = new int[subClientScript.intArgumentCount];
-						final String[] stringArguments = new String[subClientScript.stringArgumentCount];
-						for (int id = 0; id < subClientScript.anInt3553; id++) {
-							intArguments[id] = ProducingGraphicsBuffer.intStack[intStackIndex - subClientScript.anInt3553 + id];
+						final int[] intArguments = new int[subClientScript.intLocalVariableCount];
+						final String[] stringArguments = new String[subClientScript.stringLocalVariableCount];
+						for (int id = 0; id < subClientScript.intArgumentCount; id++) {
+							intArguments[id] = ProducingGraphicsBuffer.intStack[intStackIndex - subClientScript.intArgumentCount + id];
 						}
-						for (int id = 0; id < subClientScript.anInt3547; id++) {
-							stringArguments[id] = Class33.stringStack[stringStackIndex - subClientScript.anInt3547 + id];
+						for (int id = 0; id < subClientScript.stringArgumentCount; id++) {
+							stringArguments[id] = Class33.stringStack[stringStackIndex - subClientScript.stringArgumentCount + id];
 						}
 						
-						intStackIndex -= subClientScript.anInt3553;
-						stringStackIndex -= subClientScript.anInt3547;
+						intStackIndex -= subClientScript.intArgumentCount;
+						stringStackIndex -= subClientScript.stringArgumentCount;
 						final SubScript subScript = new SubScript();
-						subScript.intArguments = TileParticleQueue.intArguments;
-						subScript.stringArguments = Class79_Sub1.stringArguments;
-						subScript.opcodeIndex = opcodeIndex;
 						subScript.origClientScript = clientScript;
-						if (Buffer.subScriptAmount >= Class179.subScripts.length) {
+						subScript.opcodeIndex = opcodeIndex;
+						subScript.intLocalVariables = TileParticleQueue.intLocalVariables;
+						subScript.stringLocalVariables = Class79_Sub1.stringLocalVariables;
+						if (Buffer.subScriptPos >= Class179.subScripts.length) {
 							throw new RuntimeException();
 						}
-						Class179.subScripts[Buffer.subScriptAmount++] = subScript;
-						Class79_Sub1.stringArguments = stringArguments;
+						Class179.subScripts[Buffer.subScriptPos++] = subScript;
 						clientScript = subClientScript;
-						opcodeIndex = -1;
 						opcodes = clientScript.opcodes;
-						TileParticleQueue.intArguments = intArguments;
 						intValues = clientScript.intValues;
+						opcodeIndex = -1;
+						TileParticleQueue.intLocalVariables = intArguments;
+						Class79_Sub1.stringLocalVariables = stringArguments;
 						continue;
 					}
 					if (opcode == 42) {
@@ -196,39 +196,39 @@ final class World extends Class167 {
 						continue;
 					}
 					if (opcode == 44) {
-						final int i_18_ = intValues[opcodeIndex] & 0xffff;
-						final int i_19_ = intValues[opcodeIndex] >> 16;
-						final int i_20_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-						if (i_20_ < 0 || i_20_ > 5000) {
+						final int arrayType = intValues[opcodeIndex] & 0xffff;
+						final int arrayIndex = intValues[opcodeIndex] >> 16;
+						final int arrayLength = ProducingGraphicsBuffer.intStack[--intStackIndex];
+						if (arrayLength < 0 || arrayLength > 5000) {
 							throw new RuntimeException();
 						}
-						int i_21_ = -1;
-						if (i_18_ == 105) {
-							i_21_ = 0;
+						int fillValue = -1;
+						if (arrayType == 105) {
+							fillValue = 0;
 						}
-						Class69_Sub3_Sub1.anIntArray3082[i_19_] = i_20_;
-						for (int i_22_ = 0; i_22_ < i_20_; i_22_++) {
-							Class65.anIntArrayArray594[i_19_][i_22_] = i_21_;
+						Class69_Sub3_Sub1.cs2ArrayLengths[arrayIndex] = arrayLength;
+						for (int id = 0; id < arrayLength; id++) {
+							Class65.cs2ArrayData[arrayIndex][id] = fillValue;
 						}
 						continue;
 					}
 					if (opcode == 45) {
-						final int i_23_ = intValues[opcodeIndex];
-						final int i_24_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-						if (i_24_ < 0 || i_24_ >= Class69_Sub3_Sub1.anIntArray3082[i_23_]) {
+						final int arrayIndex = intValues[opcodeIndex];
+						final int id = ProducingGraphicsBuffer.intStack[--intStackIndex];
+						if (id < 0 || id >= Class69_Sub3_Sub1.cs2ArrayLengths[arrayIndex]) {
 							throw new RuntimeException();
 						}
-						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class65.anIntArrayArray594[i_23_][i_24_];
+						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class65.cs2ArrayData[arrayIndex][id];
 						continue;
 					}
 					if (opcode == 46) {
-						final int i_25_ = intValues[opcodeIndex];
 						intStackIndex -= 2;
-						final int i_26_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-						if (i_26_ < 0 || i_26_ >= Class69_Sub3_Sub1.anIntArray3082[i_25_]) {
+						final int arrayIndex = intValues[opcodeIndex];
+						final int id = ProducingGraphicsBuffer.intStack[intStackIndex];
+						if (id < 0 || id >= Class69_Sub3_Sub1.cs2ArrayLengths[arrayIndex]) {
 							throw new RuntimeException();
 						}
-						Class65.anIntArrayArray594[i_25_][i_26_] = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+						Class65.cs2ArrayData[arrayIndex][id] = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 						continue;
 					}
 					if (opcode == 47) {
@@ -329,8 +329,8 @@ final class World extends Class167 {
 								}
 							} else if (opcode == 1004) {
 								intStackIndex -= 2;
-								jagexInterface.anInt1982 = ProducingGraphicsBuffer.intStack[intStackIndex];
-								jagexInterface.anInt2085 = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+								jagexInterface.aspectWidth = ProducingGraphicsBuffer.intStack[intStackIndex];
+								jagexInterface.aspectHeight = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 								Class120_Sub12_Sub34.updateInterfaceDynamic(jagexInterface);
 								if (jagexInterface.type == 0) {
@@ -340,7 +340,7 @@ final class World extends Class167 {
 								if (opcode != 1005) {
 									break;
 								}
-								jagexInterface.aBoolean1960 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+								jagexInterface.noClickThrough = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 							}
 						} else if (opcode >= 1100 && opcode < 1200 || opcode >= 2100 && opcode < 2200) {
 							JagexInterface jagexInterface;
@@ -380,13 +380,13 @@ final class World extends Class167 {
 								jagexInterface.filled = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1103) {
-								jagexInterface.alpha = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.trans = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1104) {
 								jagexInterface.lineWidth = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1105) {
-								jagexInterface.disabledSpriteId = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.graphic = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1106) {
 								jagexInterface.rotation = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -405,9 +405,9 @@ final class World extends Class167 {
 								intStackIndex -= 6;
 								jagexInterface.xOffset2d = ProducingGraphicsBuffer.intStack[intStackIndex];
 								jagexInterface.yOffset2d = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-								jagexInterface.rotateX = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-								jagexInterface.rotateY = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-								jagexInterface.rotateZ = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
+								jagexInterface.angleX = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+								jagexInterface.angleY = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
+								jagexInterface.angleZ = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
 								jagexInterface.zoom = ProducingGraphicsBuffer.intStack[intStackIndex + 5];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 								if (jagexInterface.componentIndex == -1) {
@@ -416,9 +416,9 @@ final class World extends Class167 {
 								}
 							} else if (opcode == 1110) {
 								final int i_33_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-								if (i_33_ != jagexInterface.disabledAnim) {
+								if (i_33_ != jagexInterface.disabledAnimId) {
 									jagexInterface.frameDelay = 0;
-									jagexInterface.disabledAnim = i_33_;
+									jagexInterface.disabledAnimId = i_33_;
 									jagexInterface.nextFrame = 1;
 									jagexInterface.currentFrame = 0;
 									InterfaceClickMask.redrawInterface(jagexInterface);
@@ -427,7 +427,7 @@ final class World extends Class167 {
 									GameShell.method47(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1111) {
-								jagexInterface.aBoolean2046 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+								jagexInterface.modelOrtho = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1112) {
 								final String string = Class33.stringStack[--stringStackIndex];
@@ -439,7 +439,7 @@ final class World extends Class167 {
 									Class187.method2479(jagexInterface.bitPacked);
 								}
 							} else if (opcode == 1113) {
-								jagexInterface.font = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.fontId = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								InterfaceClickMask.redrawInterface(jagexInterface);
 							} else if (opcode == 1114) {
 								intStackIndex -= 3;
@@ -516,18 +516,18 @@ final class World extends Class167 {
 								} else {
 									jagexInterface.objCount = objCount;
 									if (opcode == 1208 || opcode == 1209) {
-										jagexInterface.aBoolean2097 = true;
+										jagexInterface.recolorObjFromPlayerData = true;
 									} else {
-										jagexInterface.aBoolean2097 = false;
+										jagexInterface.recolorObjFromPlayerData = false;
 									}
 									jagexInterface.objId = objId;
 									final ObjType objType = ObjType.list(objId);
 									jagexInterface.yOffset2d = objType.yof2d;
 									jagexInterface.xOffset2d = objType.xof2d;
-									jagexInterface.rotateX = objType.xan2d;
-									jagexInterface.rotateY = objType.yan2d;
+									jagexInterface.angleX = objType.xan2d;
+									jagexInterface.angleY = objType.yan2d;
 									jagexInterface.zoom = objType.zoom2d;
-									jagexInterface.rotateZ = objType.zan2d;
+									jagexInterface.angleZ = objType.zan2d;
 									if (opcode != 1205) {
 										jagexInterface.drawObjCount = true;
 									} else {
@@ -592,25 +592,25 @@ final class World extends Class167 {
 								if (i_37_ < 0 || i_37_ > 9) {
 									stringStackIndex--;
 								} else {
-									jagexInterface.setAction(Class33.stringStack[--stringStackIndex], i_37_);
+									jagexInterface.setOption(Class33.stringStack[--stringStackIndex], i_37_);
 								}
 							} else if (opcode == 1301) {
 								intStackIndex -= 2;
 								final int i_38_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 								final int i_39_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-								jagexInterface.aClass189_1931 = JagexInterface.getComponent(i_39_, i_38_);
+								jagexInterface.draggableComponent = JagexInterface.getComponent(i_39_, i_38_);
 							} else if (opcode == 1302) {
-								jagexInterface.keepDragAlpha = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+								jagexInterface.dragRenderBehaviour = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 							} else if (opcode == 1303) {
-								jagexInterface.pixelsBeforeDrag = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.deadDeadZone = ProducingGraphicsBuffer.intStack[--intStackIndex];
 							} else if (opcode == 1304) {
-								jagexInterface.cyclesBeforeDrag = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								jagexInterface.dragDeadTime = ProducingGraphicsBuffer.intStack[--intStackIndex];
 							} else if (opcode == 1305) {
-								jagexInterface.spellNameni = Class33.stringStack[--stringStackIndex];
+								jagexInterface.optionBase = Class33.stringStack[--stringStackIndex];
 							} else if (opcode == 1306) {
-								jagexInterface.spellPrefix = Class33.stringStack[--stringStackIndex];
+								jagexInterface.targetVerb = Class33.stringStack[--stringStackIndex];
 							} else if (opcode == 1307) {
-								jagexInterface.niActions = null;
+								jagexInterface.if3Options = null;
 							} else if (opcode == 1308) {
 								jagexInterface.cursorId = ProducingGraphicsBuffer.intStack[--intStackIndex];
 								jagexInterface.targetCursorId = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -624,7 +624,7 @@ final class World extends Class167 {
 								if (opcode != 1310) {
 									break;
 								}
-								jagexInterface.actionSufix = Class33.stringStack[--stringStackIndex];
+								jagexInterface.pauseText = Class33.stringStack[--stringStackIndex];
 							}
 						} else if (opcode >= 1400 && opcode < 1500 || opcode >= 2400 && opcode < 2500) {
 							JagexInterface jagexInterface;
@@ -634,96 +634,96 @@ final class World extends Class167 {
 								jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 								opcode -= 1000;
 							}
-							String string = Class33.stringStack[--stringStackIndex];
-							int[] is_42_ = null;
-							if (string.length() > 0 && string.charAt(-1 + string.length()) == 'Y') {
-								int i_43_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-								if (i_43_ > 0) {
-									is_42_ = new int[i_43_];
-									while ((i_43_-- ^ 0xffffffff) < -1) {
-										is_42_[i_43_] = ProducingGraphicsBuffer.intStack[--intStackIndex];
+							String stackIdentifier = Class33.stringStack[--stringStackIndex];
+							int[] triggers = null;
+							if (stackIdentifier.length() > 0 && stackIdentifier.charAt(stackIdentifier.length() - 1) == 'Y') {
+								int triggerCount = ProducingGraphicsBuffer.intStack[--intStackIndex];
+								if (triggerCount > 0) {
+									triggers = new int[triggerCount];
+									while (triggerCount-- > 0) {
+										triggers[triggerCount] = ProducingGraphicsBuffer.intStack[--intStackIndex];
 									}
 								}
-								string = string.substring(0, -1 + string.length());
+								stackIdentifier = stackIdentifier.substring(0, stackIdentifier.length() - 1);
 							}
-							Object[] objects = new Object[string.length() + 1];
-							for (int i_44_ = objects.length - 1; i_44_ >= 1; i_44_--) {
-								if (string.charAt(-1 + i_44_) != 's') {
-									objects[i_44_] = new Integer(ProducingGraphicsBuffer.intStack[--intStackIndex]);
+							Object[] listenerValues = new Object[stackIdentifier.length() + 1];
+							for (int id = listenerValues.length - 1; id >= 1; id--) {
+								if (stackIdentifier.charAt(id - 1) != 's') {
+									listenerValues[id] = new Integer(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 								} else {
-									objects[i_44_] = Class33.stringStack[--stringStackIndex];
+									listenerValues[id] = Class33.stringStack[--stringStackIndex];
 								}
 							}
 							final int i_45_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 							if (i_45_ != -1) {
-								objects[0] = new Integer(i_45_);
+								listenerValues[0] = new Integer(i_45_);
 							} else {
-								objects = null;
+								listenerValues = null;
 							}
 							jagexInterface.hasListener = true;
 							if (opcode == 1400) {
-								jagexInterface.onClickListener = objects;
+								jagexInterface.onClickListener = listenerValues;
 							} else if (opcode == 1401) {
-								jagexInterface.onMouseDragListener = objects;
+								jagexInterface.onHoldListener = listenerValues;
 							} else if (opcode == 1402) {
-								jagexInterface.onReleaseListener = objects;
+								jagexInterface.onReleaseListener = listenerValues;
 							} else if (opcode == 1403) {
-								jagexInterface.onMouseOverListener = objects;
+								jagexInterface.onMouseOverListener = listenerValues;
 							} else if (opcode == 1404) {
-								jagexInterface.onMouseLeaveListener = objects;
+								jagexInterface.onMouseLeaveListener = listenerValues;
 							} else if (opcode == 1405) {
-								jagexInterface.onComponentDraggedListener = objects;
+								jagexInterface.onDragListener = listenerValues;
 							} else if (opcode == 1406) {
-								jagexInterface.onSpellDeselectionListener = objects;
+								jagexInterface.onTargetLeaveListener = listenerValues;
 							} else if (opcode == 1407) {
-								jagexInterface.onVarpUpdateListener = objects;
-								jagexInterface.varpListenerTriggers = is_42_;
+								jagexInterface.onVarpUpdateListener = listenerValues;
+								jagexInterface.varpListenerTriggers = triggers;
 							} else if (opcode == 1408) {
-								jagexInterface.onLoopCycleListener = objects;
+								jagexInterface.onLoopCycleListener = listenerValues;
 							} else if (opcode == 1409) {
-								jagexInterface.onComponentClickListener = objects;
+								jagexInterface.onOptionClickListener = listenerValues;
 							} else if (opcode == 1410) {
-								jagexInterface.onComponentSwapListener = objects;
+								jagexInterface.onDragCompleteListener = listenerValues;
 							} else if (opcode == 1411) {
-								jagexInterface.onHeldListener = objects;
+								jagexInterface.onClickRepeatListener = listenerValues;
 							} else if (opcode == 1412) {
-								jagexInterface.onMouseFocusedListener = objects;
+								jagexInterface.onMouseRepeatListener = listenerValues;
 							} else if (opcode == 1414) {
-								jagexInterface.inventoryListenerTriggers = is_42_;
-								jagexInterface.onInventoryUpdateListener = objects;
+								jagexInterface.inventoryListenerTriggers = triggers;
+								jagexInterface.onInventoryUpdateListener = listenerValues;
 							} else if (opcode == 1415) {
-								jagexInterface.onSkillUpdateListener = objects;
-								jagexInterface.skillListernerTriggers = is_42_;
+								jagexInterface.onSkillUpdateListener = listenerValues;
+								jagexInterface.skillListernerTriggers = triggers;
 							} else if (opcode == 1416) {
-								jagexInterface.onSpellSelectionListener = objects;
+								jagexInterface.onTargetEnterListener = listenerValues;
 							} else if (opcode == 1417) {
-								jagexInterface.onMouseWheelListener = objects;
+								jagexInterface.onMouseWheelListener = listenerValues;
 							} else if (opcode == 1418) {
-								jagexInterface.onGameMessageReceived = objects;
+								jagexInterface.onGameMessageReceived = listenerValues;
 							} else if (opcode == 1419) {
-								jagexInterface.keyPressedListener = objects;
+								jagexInterface.keyPressedListener = listenerValues;
 							} else if (opcode == 1420) {
-								jagexInterface.privateChatUpdateListener = objects;
+								jagexInterface.privateChatUpdateListener = listenerValues;
 							} else if (opcode == 1421) {
-								jagexInterface.onClanChatUpdateListener = objects;
+								jagexInterface.onClanChatUpdateListener = listenerValues;
 							} else if (opcode == 1422) {
-								jagexInterface.miscInformationUpdateListener = objects;
+								jagexInterface.miscInformationUpdateListener = listenerValues;
 							} else if (opcode == 1423) {
-								jagexInterface.anObjectArray2013 = objects;
+								jagexInterface.onDialogAbortListener = listenerValues;
 							} else if (opcode == 1424) {
-								jagexInterface.onInterfaceOverridingUpdate = objects;
+								jagexInterface.onInterfaceOverridingUpdate = listenerValues;
 							} else if (opcode == 1425) {
-								jagexInterface.onGrandExchangeUpdateListener = objects;
+								jagexInterface.onGrandExchangeUpdateListener = listenerValues;
 							} else if (opcode == 1426) {
-								jagexInterface.anObjectArray1942 = objects;
+								jagexInterface.onLoginScreenCameraUpdate = listenerValues;
 							} else if (opcode == 1427) {
-								jagexInterface.onResizeListener = objects;
+								jagexInterface.onResizeListener = listenerValues;
 							} else if (opcode == 1428) {
-								jagexInterface.integerScriptValuesListener = objects;
-								jagexInterface.integerScriptValuesTriggers = is_42_;
+								jagexInterface.varcChangeListener = listenerValues;
+								jagexInterface.varcChangeTriggers = triggers;
 							} else if (opcode == 1429) {
-								jagexInterface.stringScriptValuesListener = objects;
-								jagexInterface.stringScriptValuesTriggers = is_42_;
+								jagexInterface.varcStrChangeListener = listenerValues;
+								jagexInterface.varcStrChangeTriggers = triggers;
 							}
 						} else if (opcode >= 1600) {
 							if (opcode < 1700) {
@@ -741,13 +741,13 @@ final class World extends Class167 {
 								} else if (opcode == 1605) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.zoom;
 								} else if (opcode == 1606) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateX;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleX;
 								} else if (opcode == 1607) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateZ;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleZ;
 								} else if (opcode == 1608) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateY;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleY;
 								} else if (opcode == 1609) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.alpha;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.trans;
 								} else if (opcode == 1610) {
 									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.xOffset2d;
 								} else if (opcode == 1611) {
@@ -756,7 +756,7 @@ final class World extends Class167 {
 									if (opcode != 1612) {
 										break;
 									}
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.disabledSpriteId;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.graphic;
 								}
 							} else if (opcode < 1800) {
 								final JagexInterface jagexInterface = bool ? ParamType.staticActiveComponent1 : Class93.staticActiveComponent2;
@@ -777,12 +777,12 @@ final class World extends Class167 {
 							} else if (opcode < 1900) {
 								final JagexInterface jagexInterface = !bool ? Class93.staticActiveComponent2 : ParamType.staticActiveComponent1;
 								if (opcode == 1800) {
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = client.getClickMask(jagexInterface).method1685();
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = client.getClickMask(jagexInterface).getTargetMask();
 								} else if (opcode == 1801) {
 									int i_46_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 									i_46_--;
-									if (jagexInterface.niActions != null && jagexInterface.niActions.length > i_46_ && jagexInterface.niActions[i_46_] != null) {
-										Class33.stringStack[stringStackIndex++] = jagexInterface.niActions[i_46_];
+									if (jagexInterface.if3Options != null && jagexInterface.if3Options.length > i_46_ && jagexInterface.if3Options[i_46_] != null) {
+										Class33.stringStack[stringStackIndex++] = jagexInterface.if3Options[i_46_];
 									} else {
 										Class33.stringStack[stringStackIndex++] = "";
 									}
@@ -790,8 +790,8 @@ final class World extends Class167 {
 									if (opcode != 1802) {
 										break;
 									}
-									if (jagexInterface.spellNameni != null) {
-										Class33.stringStack[stringStackIndex++] = jagexInterface.spellNameni;
+									if (jagexInterface.optionBase != null) {
+										Class33.stringStack[stringStackIndex++] = jagexInterface.optionBase;
 									} else {
 										Class33.stringStack[stringStackIndex++] = "";
 									}
@@ -802,21 +802,21 @@ final class World extends Class167 {
 										if (opcode < 2900) {
 											final JagexInterface jagexInterface = Class74.getJagexInterface(ProducingGraphicsBuffer.intStack[--intStackIndex]);
 											if (opcode == 2800) {
-												ProducingGraphicsBuffer.intStack[intStackIndex++] = client.getClickMask(jagexInterface).method1685();
+												ProducingGraphicsBuffer.intStack[intStackIndex++] = client.getClickMask(jagexInterface).getTargetMask();
 											} else if (opcode == 2801) {
 												int i_47_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 												i_47_--;
-												if (jagexInterface.niActions == null || i_47_ >= jagexInterface.niActions.length || jagexInterface.niActions[i_47_] == null) {
+												if (jagexInterface.if3Options == null || i_47_ >= jagexInterface.if3Options.length || jagexInterface.if3Options[i_47_] == null) {
 													Class33.stringStack[stringStackIndex++] = "";
 												} else {
-													Class33.stringStack[stringStackIndex++] = jagexInterface.niActions[i_47_];
+													Class33.stringStack[stringStackIndex++] = jagexInterface.if3Options[i_47_];
 												}
 											} else {
 												if (opcode != 2802) {
 													break;
 												}
-												if (jagexInterface.spellNameni != null) {
-													Class33.stringStack[stringStackIndex++] = jagexInterface.spellNameni;
+												if (jagexInterface.optionBase != null) {
+													Class33.stringStack[stringStackIndex++] = jagexInterface.optionBase;
 												} else {
 													Class33.stringStack[stringStackIndex++] = "";
 												}
@@ -830,24 +830,24 @@ final class World extends Class167 {
 															final int i_48_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 															final int i_49_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 															final EnumType class120_sub14_sub2 = EnumType.list(i_48_);
-															if (class120_sub14_sub2.aChar3451 != 0) {
+															if (class120_sub14_sub2.inputType != 0) {
 																/* empty */
 															}
 															Class33.stringStack[stringStackIndex++] = class120_sub14_sub2.getStringParamValue(i_49_);
 														} else if (opcode == 3408) {
 															intStackIndex -= 4;
-															final int i_51_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-															final int i_50_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-															final int i_52_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-															final int i_53_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-															final EnumType class120_sub14_sub2 = EnumType.list(i_52_);
-															if (i_51_ != class120_sub14_sub2.aChar3458 || i_50_ != class120_sub14_sub2.aChar3451) {
+															final int returnType = ProducingGraphicsBuffer.intStack[intStackIndex];
+															final int inputType = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+															final int enumId = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+															final int paramId = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
+															final EnumType class120_sub14_sub2 = EnumType.list(enumId);
+															if (returnType != class120_sub14_sub2.returnType || inputType != class120_sub14_sub2.inputType) {
 																throw new RuntimeException("C3408-1");
 															}
-															if (i_50_ == 115) {
-																Class33.stringStack[stringStackIndex++] = class120_sub14_sub2.getStringParamValue(i_53_);
+															if (inputType == 115) {
+																Class33.stringStack[stringStackIndex++] = class120_sub14_sub2.getStringParamValue(paramId);
 															} else {
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub2.getIntegerParamValue(i_53_);
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub2.getIntegerParamValue(paramId);
 															}
 														} else if (opcode == 3409) {
 															intStackIndex -= 3;
@@ -858,7 +858,7 @@ final class World extends Class167 {
 																throw new RuntimeException("C3409-2");
 															}
 															final EnumType class120_sub14_sub2 = EnumType.list(i_55_);
-															if (class120_sub14_sub2.aChar3451 != i_54_) {
+															if (class120_sub14_sub2.inputType != i_54_) {
 																throw new RuntimeException("C3409-1");
 															}
 															ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub2.method1420(i_56_) ? 1 : 0;
@@ -869,7 +869,7 @@ final class World extends Class167 {
 																throw new RuntimeException("C3410-2");
 															}
 															final EnumType class120_sub14_sub2 = EnumType.list(i_57_);
-															if (class120_sub14_sub2.aChar3451 != 's') {
+															if (class120_sub14_sub2.inputType != 's') {
 																throw new RuntimeException("C3410-1");
 															}
 															ProducingGraphicsBuffer.intStack[intStackIndex++] = class120_sub14_sub2.method1427(string) ? 1 : 0;
@@ -885,7 +885,7 @@ final class World extends Class167 {
 														if (opcode < 4000) {
 															if (opcode == 3903) {
 																final int i_59_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = LongNode.grandExchangeObjects[i_59_].method2097();
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = LongNode.grandExchangeObjects[i_59_].getOfferType();
 															} else if (opcode == 3904) {
 																final int i_60_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = LongNode.grandExchangeObjects[i_60_].id;
@@ -903,22 +903,22 @@ final class World extends Class167 {
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = LongNode.grandExchangeObjects[i_64_].totalPrice;
 															} else if (opcode == 3910) {
 																final int i_65_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																final int i_66_ = LongNode.grandExchangeObjects[i_65_].getProgress();
+																final int i_66_ = LongNode.grandExchangeObjects[i_65_].getStatus();
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_66_ == 0 ? 1 : 0;
 															} else if (opcode == 3911) {
 																final int i_67_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																final int i_68_ = LongNode.grandExchangeObjects[i_67_].getProgress();
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_68_ != 2 ? 0 : 1;
+																final int i_68_ = LongNode.grandExchangeObjects[i_67_].getStatus();
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_68_ == 2 ? 1 : 0;
 															} else if (opcode == 3912) {
 																final int i_69_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																final int i_70_ = LongNode.grandExchangeObjects[i_69_].getProgress();
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_70_ != 5 ? 0 : 1;
+																final int i_70_ = LongNode.grandExchangeObjects[i_69_].getStatus();
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_70_ == 5 ? 1 : 0;
 															} else {
 																if (opcode != 3913) {
 																	break;
 																}
 																final int i_71_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																final int i_72_ = LongNode.grandExchangeObjects[i_71_].getProgress();
+																final int i_72_ = LongNode.grandExchangeObjects[i_71_].getStatus();
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = i_72_ == 1 ? 1 : 0;
 															}
 														} else if (opcode >= 4100) {
@@ -988,7 +988,7 @@ final class World extends Class167 {
 																					String string = Class33.stringStack[--stringStackIndex];
 																					if (string.startsWith("::")) {
 																						Class120_Sub12_Sub20.executeCommand(string);
-																					} else if (Class86.staffLevel != 0 || (!VarBit.aBoolean167 || UnderlayType.aBoolean1228) && !SpotAnimationNode.aBoolean3464) {
+																					} else if (Class86.staffLevel != 0 || (!VarBit.quickChatParam2 || UnderlayType.quickChatParam3) && !SpotAnimationNode.quickChatParam1) {
 																						String string_80_ = string.toLowerCase();
 																						int colorEffect = 0;
 																						int movementEffect = 0;
@@ -1102,24 +1102,24 @@ final class World extends Class167 {
 																							}
 																						}
 																						Class120_Sub12_Sub11.outputStream.putByteIsaac(186);
-																						Class120_Sub12_Sub11.outputStream.putByte(0);
+																						Class120_Sub12_Sub11.outputStream.putShort(0);
 																						final int startOff = Class120_Sub12_Sub11.outputStream.pos;
 																						Class120_Sub12_Sub11.outputStream.putByte(colorEffect);
 																						Class120_Sub12_Sub11.outputStream.putByte(movementEffect);
-																						Class148.encodeText(Class120_Sub12_Sub11.outputStream, string);
-																						Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - startOff);
+																						Class120_Sub12_Sub11.outputStream.putJagexStringLarge(string);
+																						Class120_Sub12_Sub11.outputStream.putShortAt(Class120_Sub12_Sub11.outputStream.pos - startOff);
 																					}
 																				} else if (opcode == 5009) {
 																					stringStackIndex -= 2;
 																					final String string = Class33.stringStack[stringStackIndex];
 																					final String string_84_ = Class33.stringStack[stringStackIndex + 1];
-																					if (Class86.staffLevel != 0 || (!VarBit.aBoolean167 || UnderlayType.aBoolean1228) && !SpotAnimationNode.aBoolean3464) {
+																					if (Class86.staffLevel != 0 || (!VarBit.quickChatParam2 || UnderlayType.quickChatParam3) && !SpotAnimationNode.quickChatParam1) {
 																						Class120_Sub12_Sub11.outputStream.putByteIsaac(157);
 																						Class120_Sub12_Sub11.outputStream.putByte(0);
 																						final int i_85_ = Class120_Sub12_Sub11.outputStream.pos;
 																						Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
 																						Class148.encodeText(Class120_Sub12_Sub11.outputStream, string_84_);
-																						Class120_Sub12_Sub11.outputStream.putByteAt(-i_85_ + Class120_Sub12_Sub11.outputStream.pos);
+																						Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - i_85_);
 																					}
 																				} else if (opcode == 5010) {
 																					String string = null;
@@ -1193,7 +1193,7 @@ final class World extends Class167 {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = QuickChatCategoryType.list(i_96_).anIntArray3648[i_97_];
 																				} else if (opcode == 5055) {
 																					final int i_98_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																					Class33.stringStack[stringStackIndex++] = QuickChatMessageType.list(i_98_).method1510();
+																					Class33.stringStack[stringStackIndex++] = QuickChatMessageType.list(i_98_).getOptionBase();
 																				} else if (opcode == 5056) {
 																					final int i_99_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																					final QuickChatMessageType class120_sub14_sub10 = QuickChatMessageType.list(i_99_);
@@ -1209,34 +1209,34 @@ final class World extends Class167 {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = QuickChatMessageType.list(i_100_).anIntArray3535[i_101_];
 																				} else if (opcode == 5058) {
 																					Class101_Sub1.aClass22_2273 = new Class22();
-																					Class101_Sub1.aClass22_2273.anInt129 = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																					Class101_Sub1.aClass22_2273.aClass120_Sub14_Sub10_128 = QuickChatMessageType.list(Class101_Sub1.aClass22_2273.anInt129);
-																					Class101_Sub1.aClass22_2273.anIntArray133 = new int[Class101_Sub1.aClass22_2273.aClass120_Sub14_Sub10_128.method1500()];
+																					Class101_Sub1.aClass22_2273.quickChatMessageId = ProducingGraphicsBuffer.intStack[--intStackIndex];
+																					Class101_Sub1.aClass22_2273.quickChatMessageType = QuickChatMessageType.list(Class101_Sub1.aClass22_2273.quickChatMessageId);
+																					Class101_Sub1.aClass22_2273.anIntArray133 = new int[Class101_Sub1.aClass22_2273.quickChatMessageType.method1500()];
 																				} else if (opcode == 5059) {
 																					Class120_Sub12_Sub11.outputStream.putByteIsaac(222);
 																					Class120_Sub12_Sub11.outputStream.putByte(0);
 																					final int i_102_ = Class120_Sub12_Sub11.outputStream.pos;
 																					Class120_Sub12_Sub11.outputStream.putByte(0);
-																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.anInt129);
-																					Class101_Sub1.aClass22_2273.aClass120_Sub14_Sub10_128.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
-																					Class120_Sub12_Sub11.outputStream.putByteAt(-i_102_ + Class120_Sub12_Sub11.outputStream.pos);
+																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.quickChatMessageId);
+																					Class101_Sub1.aClass22_2273.quickChatMessageType.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
+																					Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - i_102_);
 																				} else if (opcode == 5060) {
 																					final String string = Class33.stringStack[--stringStackIndex];
 																					Class120_Sub12_Sub11.outputStream.putByteIsaac(42);
 																					Class120_Sub12_Sub11.outputStream.putByte(0);
 																					final int i_103_ = Class120_Sub12_Sub11.outputStream.pos;
 																					Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
-																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.anInt129);
-																					Class101_Sub1.aClass22_2273.aClass120_Sub14_Sub10_128.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
-																					Class120_Sub12_Sub11.outputStream.putByteAt(-i_103_ + Class120_Sub12_Sub11.outputStream.pos);
+																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.quickChatMessageId);
+																					Class101_Sub1.aClass22_2273.quickChatMessageType.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
+																					Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - i_103_);
 																				} else if (opcode == 5061) {
 																					Class120_Sub12_Sub11.outputStream.putByteIsaac(222);
 																					Class120_Sub12_Sub11.outputStream.putByte(0);
 																					final int i_104_ = Class120_Sub12_Sub11.outputStream.pos;
 																					Class120_Sub12_Sub11.outputStream.putByte(1);
-																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.anInt129);
-																					Class101_Sub1.aClass22_2273.aClass120_Sub14_Sub10_128.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
-																					Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos + -i_104_);
+																					Class120_Sub12_Sub11.outputStream.putShort(Class101_Sub1.aClass22_2273.quickChatMessageId);
+																					Class101_Sub1.aClass22_2273.quickChatMessageType.method1508(Class120_Sub12_Sub11.outputStream, Class101_Sub1.aClass22_2273.anIntArray133);
+																					Class120_Sub12_Sub11.outputStream.putByteAt(Class120_Sub12_Sub11.outputStream.pos - i_104_);
 																				} else if (opcode == 5062) {
 																					intStackIndex -= 2;
 																					final int i_105_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -1300,8 +1300,8 @@ final class World extends Class167 {
 																					Class110.searchQuickChatMessages(bool_124_, string);
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Buffer.searchResultCount;
 																				} else if (opcode == 5072) {
-																					if (Class120_Sub12_Sub37.searchResults != null && Buffer.searchResultCount > ParticleNode.anInt1035) {
-																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207(65535, Class120_Sub12_Sub37.searchResults[ParticleNode.anInt1035++]);
+																					if (Class120_Sub12_Sub37.searchResults != null && Buffer.searchResultCount > ParticleNode.searchResultsPos) {
+																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207(65535, Class120_Sub12_Sub37.searchResults[ParticleNode.searchResultsPos++]);
 																					} else {
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																					}
@@ -1309,7 +1309,7 @@ final class World extends Class167 {
 																					if (opcode != 5073) {
 																						break;
 																					}
-																					ParticleNode.anInt1035 = 0;
+																					ParticleNode.searchResultsPos = 0;
 																				}
 																			} else if (opcode < 5200) {
 																				if (opcode == 5100) {
@@ -1344,7 +1344,7 @@ final class World extends Class167 {
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = QuickChatMessageType.fullscreenFrame != null ? 1 : 0;
 																					} else if (opcode == 5301) {
 																						if (QuickChatMessageType.fullscreenFrame != null) {
-																							AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
+																							AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.lastUsedDisplayMode, -1, -1, false);
 																						}
 																					} else if (opcode == 5302) {
 																						final DisplayModeInfo[] class171s = Class114.constructDisplayModes();
@@ -1368,7 +1368,7 @@ final class World extends Class167 {
 																						}
 																						ProducingGraphicsBuffer.intStack[intStackIndex++] = i_130_;
 																					} else if (opcode == 5306) {
-																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub4.getDisplayMode();
+																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub4.determinateDisplayMode();
 																					} else if (opcode == 5307) {
 																						int i_132_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																						if (i_132_ < 0 || i_132_ > 2) {
@@ -1376,7 +1376,7 @@ final class World extends Class167 {
 																						}
 																						AbstractSprite.changeDisplayMode(i_132_, -1, -1, false);
 																					} else if (opcode == 5308) {
-																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub19.currentDisplayMode;
+																						ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub19.lastUsedDisplayMode;
 																					} else {
 																						if (opcode != 5309) {
 																							break;
@@ -1385,7 +1385,7 @@ final class World extends Class167 {
 																						if (i_133_ < 0 || i_133_ > 2) {
 																							i_133_ = 0;
 																						}
-																						Class120_Sub12_Sub19.currentDisplayMode = i_133_;
+																						Class120_Sub12_Sub19.lastUsedDisplayMode = i_133_;
 																						Class120_Sub6.savePreferences(NpcType.gameSignlink);
 																					}
 																				} else if (opcode >= 5500) {
@@ -1423,14 +1423,14 @@ final class World extends Class167 {
 																								}
 																							} else if (opcode == 5606) {
 																								if (Class154.accountCreationStep == 0) {
-																									Class120_Sub12_Sub35.accountCreationReturnCode = -2;
+																									Class120_Sub12_Sub35.accountCreationServerResponse = -2;
 																								}
 																							} else if (opcode == 5607) {
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class48.returnCode;
 																							} else if (opcode == 5608) {
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class57.delayAfterWorldChange;
 																							} else if (opcode == 5609) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub35.accountCreationReturnCode;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub35.accountCreationServerResponse;
 																							} else if (opcode == 5610) {
 																								for (int id = 0; id < 5; id++) {
 																									Class33.stringStack[stringStackIndex++] = Js5Worker.alternativeAccountUsernames.length > id ? Class120_Sub12_Sub23.method1326(Js5Worker.alternativeAccountUsernames[id]) : "";
@@ -1474,45 +1474,45 @@ final class World extends Class167 {
 																								}
 																								SpotAnimation.objectSpriteCache.clear();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6002) {
-																								GameShell.setVisibleLevels(ProducingGraphicsBuffer.intStack[--intStackIndex] == 1);
+																								GameShell.setAllVisibleLevels(ProducingGraphicsBuffer.intStack[--intStackIndex] == 1);
 																								Class120_Sub12_Sub25.clearLocCache();
 																								LocType.method2458();
 																								Class57.method492();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6003) {
 																								Class120_Sub12.removeRoofsSelectively = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class57.method492();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6005) {
 																								Hashtable.showGroundDecorations = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								LocType.method2458();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6006) {
 																								ParticleNodeSub.highDetailTextures = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								((Class143_Sub1) Rasterizer.anInterface5_973).method2022(!ParticleNodeSub.highDetailTextures);
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6007) {
 																								Class120_Sub12_Sub10.manyIdleAnimations = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6008) {
 																								ChunkAtmosphere.flickeringEffectsOn = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6009) {
 																								Class120_Sub30_Sub1.manyGroundTextures = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6010) {
 																								Class120_Sub6.characterShadowsOn = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6011) {
 																								int i_138_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (i_138_ < 0 || i_138_ > 2) {
@@ -1523,7 +1523,7 @@ final class World extends Class167 {
 																																	// dig
 																																	// deeper
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6012) {
 																								if (HDToolkit.glEnabled) {
 																									Class120_Sub14_Sub13.method1532(0, 0);
@@ -1547,21 +1547,21 @@ final class World extends Class167 {
 																								}
 																								LocType.method2458();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6014) {
 																								PacketBuffer.highWaterDetail = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								if (HDToolkit.glEnabled) {
 																									LocType.method2458();
 																								}
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6015) {
 																								Decimator.fogEnabled = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								if (HDToolkit.glEnabled) {
 																									ModelParticleEmitter.instantScreenFade = true;
 																								}
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6016) {
 																								int i_139_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (HDToolkit.glEnabled) {
@@ -1572,10 +1572,10 @@ final class World extends Class167 {
 																								}
 																								GroundDecoration.antiAliasingSamples = i_139_;
 																							} else if (opcode == 6017) {
-																								Class167.aBoolean1619 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+																								Class167.isStereo = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class10.method123();
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6018) {
 																								int i_140_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (i_140_ < 0) {
@@ -1584,9 +1584,9 @@ final class World extends Class167 {
 																								if (i_140_ > 127) {
 																									i_140_ = 127;
 																								}
-																								Class111.anInt1061 = i_140_;
+																								Class111.soundEffectVolume = i_140_;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6019) {
 																								int i_141_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (i_141_ < 0) {
@@ -1595,8 +1595,8 @@ final class World extends Class167 {
 																								if (i_141_ > 255) {
 																									i_141_ = 255;
 																								}
-																								if (RuntimeException_Sub1.anInt2142 != i_141_) {
-																									if (RuntimeException_Sub1.anInt2142 != 0 || Class157.anInt1466 == -1) {
+																								if (RuntimeException_Sub1.musicVolume != i_141_) {
+																									if (RuntimeException_Sub1.musicVolume != 0 || Class157.anInt1466 == -1) {
 																										if (i_141_ == 0) {
 																											Class188.method2481();
 																											Class120_Sub12_Sub15.aBoolean3247 = false;
@@ -1607,10 +1607,10 @@ final class World extends Class167 {
 																										Class127.method1891(Class120_Sub12_Sub36.musicJs5, i_141_, 0, Class157.anInt1466, false);
 																										Class120_Sub12_Sub15.aBoolean3247 = false;
 																									}
-																									RuntimeException_Sub1.anInt2142 = i_141_;
+																									RuntimeException_Sub1.musicVolume = i_141_;
 																								}
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6020) {
 																								int i_142_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (i_142_ < 0) {
@@ -1621,9 +1621,9 @@ final class World extends Class167 {
 																								}
 																								CursorType.ambientSoundsVolume = i_142_;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																							} else if (opcode == 6021) {
-																								MasterIndexInfo.aBoolean466 = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
+																								MasterIndexInfo.neverRemoveRoofs = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
 																								Class57.method492();
 																								System.out.println("opcode 6021");
 																							} else if (opcode == 6023) {
@@ -1641,14 +1641,14 @@ final class World extends Class167 {
 																								}
 																								ParticleEngine.setParticles(i_144_);
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
-																								MapFunctionNode.aBoolean3471 = false;
+																								MapFunctionNode.serverUpdatedPreferences = false;
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = bool_143_ ? 0 : 1;
 																							} else if (opcode == 6024) {
 																								int i_145_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																								if (i_145_ < 0 || i_145_ > 2) {
 																									i_145_ = 0;
 																								}
-																								AbstractMouseWheelHandler.antiAliasingSamplesWrapper = i_145_;
+																								AbstractMouseWheelHandler.antiAliasingDefault = i_145_;
 																								Class120_Sub6.savePreferences(NpcType.gameSignlink);
 																							} else if (opcode == 6027) {
 																								int i_146_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -1695,11 +1695,11 @@ final class World extends Class167 {
 																							} else if (opcode == 6116) {
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = GroundDecoration.antiAliasingSamples;
 																							} else if (opcode == 6117) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class167.aBoolean1619 ? 1 : 0;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class167.isStereo ? 1 : 0;
 																							} else if (opcode == 6118) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class111.anInt1061;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = Class111.soundEffectVolume;
 																							} else if (opcode == 6119) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = RuntimeException_Sub1.anInt2142;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = RuntimeException_Sub1.musicVolume;
 																							} else if (opcode == 6120) {
 																								ProducingGraphicsBuffer.intStack[intStackIndex++] = CursorType.ambientSoundsVolume;
 																							} else if (opcode == 6121) {
@@ -1709,9 +1709,9 @@ final class World extends Class167 {
 																									ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 																								}
 																							} else if (opcode == 6123) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = ParticleEngine.method949();
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = ParticleEngine.getParticleSetting();
 																							} else if (opcode == 6124) {
-																								ProducingGraphicsBuffer.intStack[intStackIndex++] = AbstractMouseWheelHandler.antiAliasingSamplesWrapper;
+																								ProducingGraphicsBuffer.intStack[intStackIndex++] = AbstractMouseWheelHandler.antiAliasingDefault;
 																							} else if (opcode == 6126) {
 																								if (HDToolkit.glEnabled) {
 																									ProducingGraphicsBuffer.intStack[intStackIndex++] = Class34.method286() ? 1 : 0;
@@ -1780,7 +1780,7 @@ final class World extends Class167 {
 																									if (Class109.gameState != 10 || FrameGroup.anInt3609 != 0 || Class86.loginStep != 0 || Class154.accountCreationStep != 0) {
 																										ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
 																									} else {
-																										ProducingGraphicsBuffer.intStack[intStackIndex++] = (Class96.method788() ^ 0xffffffff) != 0 ? 1 : 0;
+																										ProducingGraphicsBuffer.intStack[intStackIndex++] = Class96.worldListLoaded() != -1 ? 1 : 0;
 																									}
 																								} else if (opcode == 6501) {
 																									final World class167_sub1 = World.getFirstWorld();
@@ -1826,10 +1826,10 @@ final class World extends Class167 {
 																										ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 																									}
 																								} else if (opcode == 6504) {
-																									Class120_Sub19.anInt2657 = ProducingGraphicsBuffer.intStack[--intStackIndex];
+																									Class120_Sub19.lastWorldId = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																									Class120_Sub6.savePreferences(NpcType.gameSignlink);
 																								} else if (opcode == 6505) {
-																									ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub19.anInt2657;
+																									ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub19.lastWorldId;
 																								} else if (opcode == 6506) {
 																									final int i_153_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																									final World class167_sub1 = World.getWorld(i_153_);
@@ -1856,7 +1856,7 @@ final class World extends Class167 {
 																									final boolean bool_155_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1] == 1;
 																									final int i_156_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																									final boolean bool_157_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3] == 1;
-																									Class120_Sub12_Sub4.method1211(bool_155_, i_154_, bool_157_, i_156_);
+																									Class120_Sub12_Sub4.sortWorldList(bool_155_, i_154_, bool_157_, i_156_);
 																								}
 																							} else if (opcode >= 6700) {
 																								if (opcode >= 6900) {
@@ -1897,63 +1897,59 @@ final class World extends Class167 {
 																							}
 																						} else if (opcode == 6200) {
 																							intStackIndex -= 2;
-																							ModelParticleMagnet.aShort1651 = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
-																							if (ModelParticleMagnet.aShort1651 <= 0) {
-																								ModelParticleMagnet.aShort1651 = (short) 256;
+																							client.minFov = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
+																							if (client.minFov <= 0) {
+																								client.minFov = (short) 256;
 																							}
-																							Class120_Sub14_Sub13.aShort3570 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																							if (Class120_Sub14_Sub13.aShort3570 <= 0) {
-																								Class120_Sub14_Sub13.aShort3570 = (short) 205;
+																							client.maxFov = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+																							if (client.maxFov <= 0) {
+																								client.maxFov = (short) 205;
 																							}
 																						} else if (opcode == 6201) {
 																							intStackIndex -= 2;
-																							Class120_Sub12_Sub11.aShort3216 = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
-																							if (Class120_Sub12_Sub11.aShort3216 <= 0) {
-																								Class120_Sub12_Sub11.aShort3216 = (short) 256;
+																							client.minZoom = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
+																							if (client.minZoom <= 0) {
+																								client.minZoom = (short) 256;
 																							}
-																							client.aShort565 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																							if (client.aShort565 <= 0) {
-																								client.aShort565 = (short) 320;
+																							client.maxZoom = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+																							if (client.maxZoom <= 0) {
+																								client.maxZoom = (short) 320;
 																							}
-																						} else if (opcode == 6202) {
+																						} else if (opcode == 6202) {//Fov clamp
 																							intStackIndex -= 4;
 																							Class120_Sub12_Sub16.aShort3250 = (short) ProducingGraphicsBuffer.intStack[intStackIndex];
 																							if (Class120_Sub12_Sub16.aShort3250 <= 0) {
 																								Class120_Sub12_Sub16.aShort3250 = (short) 1;
 																							}
 																							FileSystemRequest.aShort3932 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																							if (FileSystemRequest.aShort3932 > 0) {
-																								if (Class120_Sub12_Sub16.aShort3250 > FileSystemRequest.aShort3932) {
-																									FileSystemRequest.aShort3932 = Class120_Sub12_Sub16.aShort3250;
-																								}
-																							} else {
+																							if (FileSystemRequest.aShort3932 <= 0) {
 																								FileSystemRequest.aShort3932 = (short) 32767;
+																							} else if (Class120_Sub12_Sub16.aShort3250 > FileSystemRequest.aShort3932) {
+																								FileSystemRequest.aShort3932 = Class120_Sub12_Sub16.aShort3250;
 																							}
 																							RuntimeException_Sub1.aShort2143 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																							if (RuntimeException_Sub1.aShort2143 <= 0) {
 																								RuntimeException_Sub1.aShort2143 = (short) 1;
 																							}
 																							GameShell.aShort2 = (short) ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-																							if (GameShell.aShort2 > 0) {
-																								if (RuntimeException_Sub1.aShort2143 > GameShell.aShort2) {
-																									GameShell.aShort2 = RuntimeException_Sub1.aShort2143;
-																								}
-																							} else {
+																							if (GameShell.aShort2 <= 0) {
 																								GameShell.aShort2 = (short) 32767;
+																							} else if (RuntimeException_Sub1.aShort2143 > GameShell.aShort2) {
+																								GameShell.aShort2 = RuntimeException_Sub1.aShort2143;
 																							}
 																						} else if (opcode == 6203) {
 																							Class154.method2079(0, 0, DummyInputStream.gameScreenInterface.width, DummyInputStream.gameScreenInterface.height, false);
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub27.anInt3339;
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Light.anInt391;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub27.effectiveWidth;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Light.effectiveHeight;
 																						} else if (opcode == 6204) {
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub11.aShort3216;
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.aShort565;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.minZoom;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.maxZoom;
 																						} else {
 																							if (opcode != 6205) {
 																								break;
 																							}
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = ModelParticleMagnet.aShort1651;
-																							ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub14_Sub13.aShort3570;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.minFov;
+																							ProducingGraphicsBuffer.intStack[intStackIndex++] = client.maxFov;
 																						}
 																					} else if (opcode == 5500) {
 																						intStackIndex -= 4;
@@ -1961,14 +1957,14 @@ final class World extends Class167 {
 																						final int i_163_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																						final int i_164_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																						final int i_165_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-																						QuickChatCategoryType.method1639(i_164_, ((i_162_ & 0xffffb19) >> 14) - GameEntity.currentBaseX, i_165_, i_163_, false, (i_162_ & 0x3fff) - LightType.currentBaseZ);
+																						QuickChatCategoryType.method1639(((i_162_ & 0xffffb19) >> 14) - GameEntity.currentBaseX, i_163_, (i_162_ & 0x3fff) - LightType.currentBaseZ, i_165_, i_164_, false);
 																					} else if (opcode == 5501) {
 																						intStackIndex -= 4;
 																						final int i_166_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 																						final int i_167_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																						final int i_168_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
 																						final int i_169_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-																						Class120_Sub12_Sub16.method1278(i_167_, i_168_, ((i_166_ & 0xffff699) >> 14) - GameEntity.currentBaseX, (0x3fff & i_166_) - LightType.currentBaseZ, i_169_);
+																						Class120_Sub12_Sub16.method1278(((i_166_ & 0xffff699) >> 14) - GameEntity.currentBaseX, i_167_, (0x3fff & i_166_) - LightType.currentBaseZ, i_169_, i_168_);
 																					} else if (opcode == 5502) {
 																						intStackIndex -= 6;
 																						final int i_170_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -1982,8 +1978,8 @@ final class World extends Class167 {
 																						}
 																						MagnetType.anInt272 = 0;
 																						PlayerAppearance.anInt1372 = i_171_;
-																						JagexInterface.anInt2053 = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-																						Class120_Sub12_Sub6.anInt3176 = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
+																						JagexInterface.minLoginScreenCameraSpeed = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+																						Class120_Sub12_Sub6.maxLoginScreenCameraSpeed = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
 																						final int i_172_ = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
 																						if (i_172_ >= 2) {
 																							throw new RuntimeException();
@@ -2054,14 +2050,14 @@ final class World extends Class167 {
 																					final int i_184_ = ProducingGraphicsBuffer.intStack[intStackIndex + 6];
 																					if (i_179_ >= 0 && i_179_ < 2 && Class143_Sub1.anIntArrayArrayArray2195[i_179_] != null && i_178_ >= 0 && Class143_Sub1.anIntArrayArrayArray2195[i_179_].length > i_178_) {
 																						Class143_Sub1.anIntArrayArrayArray2195[i_179_][i_178_] = new int[] { Class120_Sub12_Sub3.method1207(i_181_ >> 14, 16383) * 128, i_180_, Class120_Sub12_Sub3.method1207(16383, i_181_) * 128, i_184_ };
-																						Class143_Sub1.anIntArrayArrayArray2195[i_179_][1 + i_178_] = new int[] { Class120_Sub12_Sub3.method1207(i_182_ >> 14, 16383) * 128, i_183_, Class120_Sub12_Sub3.method1207(16383, i_182_) * 128 };
+																						Class143_Sub1.anIntArrayArrayArray2195[i_179_][i_178_ + 1] = new int[] { Class120_Sub12_Sub3.method1207(i_182_ >> 14, 16383) * 128, i_183_, Class120_Sub12_Sub3.method1207(16383, i_182_) * 128 };
 																					}
 																				} else if (opcode == 5407) {
 																					final int i_185_ = Class143_Sub1.anIntArrayArrayArray2195[ProducingGraphicsBuffer.intStack[--intStackIndex]].length >> 1;
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = i_185_;
 																				} else if (opcode == 5411) {
 																					if (QuickChatMessageType.fullscreenFrame != null) {
-																						AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
+																						AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.lastUsedDisplayMode, -1, -1, false);
 																					}
 																					if (Class112.frame != null) {
 																						System.exit(0);
@@ -2070,11 +2066,11 @@ final class World extends Class167 {
 																					}
 																				} else if (opcode == 5419) {
 																					String string = "";
-																					if (LabelGroup.hostNameNode != null) {
-																						if (LabelGroup.hostNameNode.value != null) {
-																							string = (String) LabelGroup.hostNameNode.value;
+																					if (SeqFrameBase.hostNameNode != null) {
+																						if (SeqFrameBase.hostNameNode.value != null) {
+																							string = (String) SeqFrameBase.hostNameNode.value;
 																						} else {
-																							string = Class125.method1879(LabelGroup.hostNameNode.integerData);
+																							string = Class125.method1879(SeqFrameBase.hostNameNode.integerData);
 																						}
 																					}
 																					Class33.stringStack[stringStackIndex++] = string;
@@ -2082,7 +2078,7 @@ final class World extends Class167 {
 																					ProducingGraphicsBuffer.intStack[intStackIndex++] = Signlink.clientType == 3 ? 1 : 0;
 																				} else if (opcode == 5421) {
 																					if (QuickChatMessageType.fullscreenFrame != null) {
-																						AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.currentDisplayMode, -1, -1, false);
+																						AbstractSprite.changeDisplayMode(Class120_Sub12_Sub19.lastUsedDisplayMode, -1, -1, false);
 																					}
 																					final String string = Class33.stringStack[--stringStackIndex];
 																					final boolean bool_186_ = ProducingGraphicsBuffer.intStack[--intStackIndex] == 1;
@@ -2420,7 +2416,7 @@ final class World extends Class167 {
 																	final int i_227_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 																	final int i_228_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																	final ObjType objType = ObjType.list(i_227_);
-																	if (i_228_ < 1 || i_228_ > 5 || objType.inventoryOptions[-1 + i_228_] == null) {
+																	if (i_228_ < 1 || i_228_ > 5 || objType.inventoryOptions[i_228_ - 1] == null) {
 																		Class33.stringStack[stringStackIndex++] = "";
 																	} else {
 																		Class33.stringStack[stringStackIndex++] = objType.inventoryOptions[i_228_ - 1];
@@ -2466,16 +2462,16 @@ final class World extends Class167 {
 																	Class120_Sub12_Sub25.searchObjects(string, i_236_ == 1);
 																	ProducingGraphicsBuffer.intStack[intStackIndex++] = Buffer.searchResultCount;
 																} else if (opcode == 4211) {
-																	if (Class120_Sub12_Sub37.searchResults == null || Buffer.searchResultCount <= ParticleNode.anInt1035) {
+																	if (Class120_Sub12_Sub37.searchResults == null || Buffer.searchResultCount <= ParticleNode.searchResultsPos) {
 																		ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
 																	} else {
-																		ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207(Class120_Sub12_Sub37.searchResults[ParticleNode.anInt1035++], 65535);
+																		ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207(Class120_Sub12_Sub37.searchResults[ParticleNode.searchResultsPos++], 65535);
 																	}
 																} else {
 																	if (opcode != 4212) {
 																		break;
 																	}
-																	ParticleNode.anInt1035 = 0;
+																	ParticleNode.searchResultsPos = 0;
 																}
 															} else if (opcode == 4100) {
 																final String string = Class33.stringStack[--stringStackIndex];
@@ -2500,7 +2496,7 @@ final class World extends Class167 {
 																final int i_241_ = Class192.aCalendar2121.get(5);
 																final int i_242_ = Class192.aCalendar2121.get(2);
 																final int i_243_ = Class192.aCalendar2121.get(1);
-																Class33.stringStack[stringStackIndex++] = new StringBuilder(String.valueOf(i_241_)).append("-").append(Class120_Sub24.aStringArray2716[i_242_]).append("-").append(i_243_).toString();
+																Class33.stringStack[stringStackIndex++] = new StringBuilder(String.valueOf(i_241_)).append("-").append(CustomLocation.aStringArray2716[i_242_]).append("-").append(i_243_).toString();
 															} else if (opcode == 4105) {
 																stringStackIndex -= 2;
 																final String string = Class33.stringStack[stringStackIndex + 1];
@@ -2515,19 +2511,19 @@ final class World extends Class167 {
 																Class33.stringStack[stringStackIndex++] = Integer.toString(i_245_);
 															} else if (opcode == 4107) {
 																stringStackIndex -= 2;
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = OverlayType.method1874(Class120_Sub12_Sub21_Sub1.method1313(Class33.stringStack[stringStackIndex + 1], Class9.language, Class33.stringStack[stringStackIndex]));
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = OverlayType.compareResult(Class120_Sub12_Sub21_Sub1.compareLocalised(Class33.stringStack[stringStackIndex + 1], Class9.language, Class33.stringStack[stringStackIndex]));
 															} else if (opcode == 4108) {
 																intStackIndex -= 2;
-																final int i_246_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																final int i_247_ = ProducingGraphicsBuffer.intStack[intStackIndex];
+																final int i_246_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
 																final String string = Class33.stringStack[--stringStackIndex];
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = LDFont.get(i_246_).method1481(string, i_247_);
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = LDFont.get(i_246_).paragraphHeight(string, i_247_);
 															} else if (opcode == 4109) {
 																intStackIndex -= 2;
 																final String string = Class33.stringStack[--stringStackIndex];
 																final int i_248_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 																final int i_249_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = LDFont.get(i_249_).method1468(string, i_248_);
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = LDFont.get(i_249_).paragraphWidth(string, i_248_);
 															} else if (opcode == 4110) {
 																stringStackIndex -= 2;
 																final String string = Class33.stringStack[stringStackIndex];
@@ -2539,7 +2535,7 @@ final class World extends Class167 {
 																}
 															} else if (opcode == 4111) {
 																final String string = Class33.stringStack[--stringStackIndex];
-																Class33.stringStack[stringStackIndex++] = AbstractFont.method1472(string);
+																Class33.stringStack[stringStackIndex++] = AbstractFont.removeTags(string);
 															} else if (opcode == 4112) {
 																final String string = Class33.stringStack[--stringStackIndex];
 																final int i_251_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -2549,7 +2545,7 @@ final class World extends Class167 {
 																Class33.stringStack[stringStackIndex++] = new StringBuilder(string).append((char) i_251_).toString();
 															} else if (opcode == 4113) {
 																final int i_252_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = QuickChatMessageType.method1504((char) i_252_) ? 1 : 0;
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = QuickChatMessageType.isValidCharacter((char) i_252_) ? 1 : 0;
 															} else if (opcode == 4114) {
 																final int i_253_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub5.isLetterOrNumber((char) i_253_) ? 1 : 0;
@@ -2611,7 +2607,7 @@ final class World extends Class167 {
 																}
 																final boolean bool_266_ = ProducingGraphicsBuffer.intStack[--intStackIndex] != 0;
 																final int i_267_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-																Class33.stringStack[stringStackIndex++] = Class120_Sub12_Sub37.method1395(i_267_, bool_266_, 0, Class9.language);
+																Class33.stringStack[stringStackIndex++] = Class120_Sub12_Sub37.valueToBase10String(i_267_, bool_266_, 0, Class9.language);
 															}
 														} else if (opcode == 4000) {
 															intStackIndex -= 2;
@@ -2639,14 +2635,14 @@ final class World extends Class167 {
 														} else if (opcode == 4005) {
 															final int i_277_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
 															ProducingGraphicsBuffer.intStack[intStackIndex++] = (int) ((i_277_ + 1) * Math.random());
-														} else if (opcode == 4006) {
+														} else if (opcode == 4006) {//Linear interpolation, thanks to http://www.rune-server.org/members/major/
 															intStackIndex -= 5;
-															final int i_278_ = ProducingGraphicsBuffer.intStack[intStackIndex];
-															final int i_279_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-															final int i_280_ = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
-															final int i_281_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-															final int i_282_ = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
-															ProducingGraphicsBuffer.intStack[intStackIndex++] = (-i_279_ + i_282_) * (-i_278_ + i_281_) / (-i_279_ + i_280_) + i_278_;
+															final int y0 = ProducingGraphicsBuffer.intStack[intStackIndex];
+															final int y1 = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+															final int x0 = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+															final int x1 = ProducingGraphicsBuffer.intStack[intStackIndex + 3];
+															final int x2 = ProducingGraphicsBuffer.intStack[intStackIndex + 4];
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = y0 + (y1 - y0) * (x2 - x0) / (x1 - x0);
 														} else if (opcode == 4007) {
 															intStackIndex -= 2;
 															final long l = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -2661,7 +2657,7 @@ final class World extends Class167 {
 															intStackIndex -= 2;
 															final int i_286_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 															final int i_287_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-															ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207(-(1 << i_287_) + -1, i_286_);
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub3.method1207((1 << i_287_) - 1, i_286_);
 														} else if (opcode == 4010) {
 															intStackIndex -= 2;
 															final int i_288_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -2685,14 +2681,12 @@ final class World extends Class167 {
 															intStackIndex -= 2;
 															final int i_294_ = ProducingGraphicsBuffer.intStack[intStackIndex];
 															final int i_295_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-															if (i_294_ != 0) {
-																if (i_295_ == 0) {
-																	ProducingGraphicsBuffer.intStack[intStackIndex++] = 2147483647;
-																} else {
-																	ProducingGraphicsBuffer.intStack[intStackIndex++] = (int) Math.pow(i_294_, 1.0 / i_295_);
-																}
-															} else {
+															if (i_294_ == 0) {
 																ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
+															} else if (i_295_ == 0) {
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = 2147483647;
+															} else {
+																ProducingGraphicsBuffer.intStack[intStackIndex++] = (int) Math.pow(i_294_, 1.0 / i_295_);
 															}
 														} else if (opcode == 4014) {
 															intStackIndex -= 2;
@@ -2719,20 +2713,18 @@ final class World extends Class167 {
 																break;
 															}
 															intStackIndex -= 3;
-															final long l = ProducingGraphicsBuffer.intStack[intStackIndex];
-															final long l_304_ = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
-															final long l_305_ = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-															ProducingGraphicsBuffer.intStack[intStackIndex++] = (int) (l_304_ * l / l_305_);
+															final long a = ProducingGraphicsBuffer.intStack[intStackIndex];
+															final long b = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
+															final long c = ProducingGraphicsBuffer.intStack[intStackIndex + 2];
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = (int) (a * c / b);
 														}
 													} else if (opcode == 3600) {
-														if (ObjectPile.friendsServerStatus != 0) {
-															if (ObjectPile.friendsServerStatus == 1) {
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
-															} else {
-																ProducingGraphicsBuffer.intStack[intStackIndex++] = ProducingGraphicsBuffer.friendCount;
-															}
-														} else {
+														if (ObjectPile.friendsServerStatus == 0) {
 															ProducingGraphicsBuffer.intStack[intStackIndex++] = -2;
+														} else if (ObjectPile.friendsServerStatus == 1) {
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = -1;
+														} else {
+															ProducingGraphicsBuffer.intStack[intStackIndex++] = ProducingGraphicsBuffer.friendCount;
 														}
 													} else if (opcode == 3601) {
 														final int i_306_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
@@ -2758,7 +2750,7 @@ final class World extends Class167 {
 													} else if (opcode == 3604) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														final int i_309_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-														Class90.method755(string, i_309_);
+														Class90.sendFriendsRankChange(string, i_309_);
 													} else if (opcode == 3605) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														Class48.addFriend(Varp.stringToLong(string));
@@ -2818,12 +2810,12 @@ final class World extends Class167 {
 															ProducingGraphicsBuffer.intStack[intStackIndex++] = ReflectionCheckNode.clanMembers[i_313_].rank;
 														}
 													} else if (opcode == 3616) {
-														ProducingGraphicsBuffer.intStack[intStackIndex++] = Class112.kickRights;
+														ProducingGraphicsBuffer.intStack[intStackIndex++] = Class112.kickRank;
 													} else if (opcode == 3617) {
 														final String string = Class33.stringStack[--stringStackIndex];
-														Class166.kickUser(string);
+														Class166.kickClanMember(string);
 													} else if (opcode == 3618) {
-														ProducingGraphicsBuffer.intStack[intStackIndex++] = MouseHandler.selfClanRank;
+														ProducingGraphicsBuffer.intStack[intStackIndex++] = MouseHandler.selfRankInClan;
 													} else if (opcode == 3619) {
 														final String string = Class33.stringStack[--stringStackIndex];
 														Class120_Sub21.joinClanChat(Varp.stringToLong(string));
@@ -2894,7 +2886,7 @@ final class World extends Class167 {
 														ProducingGraphicsBuffer.intStack[intStackIndex++] = SpotAnimationNode.aBooleanArray3468[i_318_] ? 1 : 0;
 													}
 												} else if (opcode == 3300) {
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class101_Sub2.loopCycle;
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class101_Sub2.clientClock;
 												} else if (opcode == 3301) {
 													intStackIndex -= 2;
 													final int i_320_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -2915,13 +2907,13 @@ final class World extends Class167 {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = InvType.list(i_325_).size;
 												} else if (opcode == 3305) {
 													final int i_326_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = SceneGraphNode.skillsLevel[i_326_];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = client.skillsLevel[i_326_];
 												} else if (opcode == 3306) {
 													final int i_327_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Decimator.skillsBaseLevel[i_327_];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = client.skillsBaseLevel[i_327_];
 												} else if (opcode == 3307) {
 													final int i_328_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub38.skillsXp[i_328_];
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = client.skillsXp[i_328_];
 												} else if (opcode == 3308) {
 													final int i_329_ = Class173.gameLevel;
 													final int i_330_ = GameEntity.currentBaseX + (TileParticleQueue.selfPlayer.x >> 7);
@@ -2960,7 +2952,7 @@ final class World extends Class167 {
 														ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 													}
 												} else if (opcode == 3317) {
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub22.systemUpdateCycle;
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub22.rebootTimer;
 												} else if (opcode == 3318) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class157.worldId;
 												} else if (opcode == 3321) {
@@ -2968,27 +2960,27 @@ final class World extends Class167 {
 												} else if (opcode == 3322) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = LookupTable.weight;
 												} else if (opcode == 3323) {
-													if (Class120_Sub12_Sub9.anInt3199 < 5 || Class120_Sub12_Sub9.anInt3199 > 9) {
-														ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
-													} else {
+													if (Class120_Sub12_Sub9.playerModTrial >= 5 && Class120_Sub12_Sub9.playerModTrial <= 9) {
 														ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
+													} else {
+														ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 													}
 												} else if (opcode == 3324) {
-													if (Class120_Sub12_Sub9.anInt3199 >= 5 && Class120_Sub12_Sub9.anInt3199 <= 9) {
-														ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub9.anInt3199;
+													if (Class120_Sub12_Sub9.playerModTrial >= 5 && Class120_Sub12_Sub9.playerModTrial <= 9) {
+														ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub9.playerModTrial;
 													} else {
 														ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 													}
 												} else if (opcode == 3325) {
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub21_Sub1.extendFriendsList ? 1 : 0;
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = Class120_Sub12_Sub21_Sub1.membersAccount ? 1 : 0;
 												} else if (opcode == 3326) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = TileParticleQueue.selfPlayer.combatLevel;
 												} else if (opcode == 3327) {
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = TileParticleQueue.selfPlayer.appearance.isFemale ? 1 : 0;
 												} else if (opcode == 3328) {
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = VarBit.aBoolean167 && !UnderlayType.aBoolean1228 ? 1 : 0;
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = VarBit.quickChatParam2 && !UnderlayType.quickChatParam3 ? 1 : 0;
 												} else if (opcode == 3329) {
-													ProducingGraphicsBuffer.intStack[intStackIndex++] = SpotAnimationNode.aBoolean3464 ? 1 : 0;
+													ProducingGraphicsBuffer.intStack[intStackIndex++] = SpotAnimationNode.quickChatParam1 ? 1 : 0;
 												} else if (opcode == 3330) {
 													final int type = ProducingGraphicsBuffer.intStack[--intStackIndex];
 													ProducingGraphicsBuffer.intStack[intStackIndex++] = ObjectContainer.getFreeSpaces(type);
@@ -3041,7 +3033,7 @@ final class World extends Class167 {
 											intStackIndex -= 2;
 											Class192.animatePlayer(TileParticleQueue.selfPlayer, ProducingGraphicsBuffer.intStack[intStackIndex], ProducingGraphicsBuffer.intStack[intStackIndex + 1]);
 										} else if (opcode == 3103) {
-											Class90.removeOverridedInterfaces();
+											Class90.removeSubInterfaces();
 										} else if (opcode == 3104) {
 											final String string = Class33.stringStack[--stringStackIndex];
 											int i_350_ = 0;
@@ -3060,9 +3052,9 @@ final class World extends Class167 {
 											Class120_Sub12_Sub11.outputStream.putByte(string.length() + 1);
 											Class120_Sub12_Sub11.outputStream.putJagexString(string);
 										} else if (opcode == 3107) {
-											final int i_351_ = ProducingGraphicsBuffer.intStack[--intStackIndex];
-											final String string = Class33.stringStack[--stringStackIndex];
-											Class3.executePlayerAction(string, i_351_);
+											final int action = ProducingGraphicsBuffer.intStack[--intStackIndex];
+											final String name = Class33.stringStack[--stringStackIndex];
+											Class3.executePlayerAction(name, action);
 										} else if (opcode == 3108) {
 											intStackIndex -= 3;
 											final int i_352_ = ProducingGraphicsBuffer.intStack[intStackIndex];
@@ -3096,8 +3088,8 @@ final class World extends Class167 {
 										}
 									} else if (opcode == 2702) {
 										final int uid = ProducingGraphicsBuffer.intStack[--intStackIndex];
-										final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(uid);
-										if (overridedInterface == null) {
+										final SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(uid);
+										if (subInterface == null) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
@@ -3107,14 +3099,14 @@ final class World extends Class167 {
 										if (jagexInterface.components == null) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
-											int freeComponentId = jagexInterface.components.length;
+											int freeComponentIndex = jagexInterface.components.length;
 											for (int id = 0; id < jagexInterface.components.length; id++) {
 												if (jagexInterface.components[id] == null) {
-													freeComponentId = id;
+													freeComponentIndex = id;
 													break;
 												}
 											}
-											ProducingGraphicsBuffer.intStack[intStackIndex++] = freeComponentId;
+											ProducingGraphicsBuffer.intStack[intStackIndex++] = freeComponentIndex;
 										}
 									} else {
 										if (opcode != 2704 && opcode != 2705) {
@@ -3123,8 +3115,8 @@ final class World extends Class167 {
 										intStackIndex -= 2;
 										final int uid = ProducingGraphicsBuffer.intStack[intStackIndex];
 										final int interfaceId = ProducingGraphicsBuffer.intStack[intStackIndex + 1];
-										final OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.get(uid);
-										if (overridedInterface == null || overridedInterface.interfaceId != interfaceId) {
+										final SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.get(uid);
+										if (subInterface == null || subInterface.interfaceId != interfaceId) {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 0;
 										} else {
 											ProducingGraphicsBuffer.intStack[intStackIndex++] = 1;
@@ -3145,13 +3137,13 @@ final class World extends Class167 {
 									} else if (opcode == 2605) {
 										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.zoom;
 									} else if (opcode == 2606) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateX;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleX;
 									} else if (opcode == 2607) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateZ;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleZ;
 									} else if (opcode == 2608) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.rotateY;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.angleY;
 									} else if (opcode == 2609) {
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.alpha;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.trans;
 									} else if (opcode == 2610) {
 										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.xOffset2d;
 									} else if (opcode == 2611) {
@@ -3160,7 +3152,7 @@ final class World extends Class167 {
 										if (opcode != 2612) {
 											break;
 										}
-										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.disabledSpriteId;
+										ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.graphic;
 									}
 								}
 							} else {
@@ -3179,7 +3171,7 @@ final class World extends Class167 {
 									if (opcode != 2505) {
 										break;
 									}
-									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.parent;
+									ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.layer;
 								}
 							}
 						} else {
@@ -3198,7 +3190,7 @@ final class World extends Class167 {
 								if (opcode != 1505) {
 									break;
 								}
-								ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.parent;
+								ProducingGraphicsBuffer.intStack[intStackIndex++] = jagexInterface.layer;
 							}
 						}
 					} else if (opcode == 403) {
@@ -3252,8 +3244,8 @@ final class World extends Class167 {
 						throw new RuntimeException("Gap at:" + (index - 1));
 					}
 					final JagexInterface newComponent = new JagexInterface();
-					newComponent.parent = newComponent.bitPacked = jagexInterface.bitPacked;
-					newComponent.newFormat = true;
+					newComponent.layer = newComponent.bitPacked = jagexInterface.bitPacked;
+					newComponent.if3Format = true;
 					newComponent.componentIndex = index;
 					newComponent.type = type;
 					jagexInterface.components[index] = newComponent;
@@ -3316,7 +3308,7 @@ final class World extends Class167 {
 			if (clientScript.name != null) {
 				final StringBuffer stringbuffer = new StringBuffer(30);
 				stringbuffer.append("%0a - in: ").append(clientScript.name);
-				for (int i_379_ = Buffer.subScriptAmount + -1; i_379_ >= 0; i_379_--) {
+				for (int i_379_ = Buffer.subScriptPos + -1; i_379_ >= 0; i_379_--) {
 					stringbuffer.append("%0a - via: ").append(Class179.subScripts[i_379_].origClientScript.name);
 				}
 				if (opcode == 40) {
@@ -3341,10 +3333,10 @@ final class World extends Class167 {
 	}
 
 	static final World getWorld(final int id) {
-		if (!Class159.worldsLoaded || OverridedJInterface.worldOff > id || EnumType.worldLen < id) {
+		if (!Class159.worldsLoaded || SubInterface.worldOff > id || EnumType.worldLen < id) {
 			return null;
 		}
-		return Class48.worldList[id - OverridedJInterface.worldOff];
+		return Class48.worldList[id - SubInterface.worldOff];
 	}
 
 	static final World getNextWorld() {
@@ -3361,7 +3353,7 @@ final class World extends Class167 {
 
 	static final float[] method2196(final int i_381_) {
 		final float f = AtmosphereManager.getLightingModelAmbient() + AtmosphereManager.getLight0Diffuse();
-		final int i_382_ = AtmosphereManager.getScreenColorRgb();
+		final int i_382_ = AtmosphereManager.getLightColor();
 		final float f_383_ = (i_382_ >> 16 & 0xff) / 255.0F;
 		final float f_385_ = (i_382_ >> 8 & 0xff) / 255.0F;
 		final float f_384_ = (i_382_ & 0xff) / 255.0F;

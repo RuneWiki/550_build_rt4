@@ -336,6 +336,15 @@ final class ArrayUtils {
 		return fs_3_;
 	}
 
+	static final int[] arrayCopy(final int[] is) {
+		if (is == null) {
+			return null;
+		}
+		final int[] is_10_ = new int[is.length];
+		arrayCopy(is, 0, is_10_, 0, is.length);
+		return is_10_;
+	}
+
 	static final byte[] arrayCopy(final byte[] is) {
 		if (is == null) {
 			return null;

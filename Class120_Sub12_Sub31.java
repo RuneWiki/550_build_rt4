@@ -12,7 +12,6 @@ final class Class120_Sub12_Sub31 extends Class120_Sub12 {
 
 	static {
 		anInt3380 = 0;
-		EntityRenderData.recentUse = new ObjectCache(64);
 	}
 
 	static final void method1364(final int i) {

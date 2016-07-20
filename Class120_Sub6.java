@@ -27,10 +27,6 @@ final class Class120_Sub6 extends Node {
 	int anInt2466;
 	int anInt2467;
 
-	static {
-		Skybox.recentUse = new ObjectCache(4);
-	}
-
 	static final String method1068(final String string) {
 		String string_1_ = Class174.longToString(Varp.stringToLong(string));
 		if (string_1_ == null) {
@@ -48,7 +44,7 @@ final class Class120_Sub6 extends Node {
 			}
 			if (signlinkNode.status == 1) {
 				fileOnDisk = (FileOnDisk) signlinkNode.value;
-				final Buffer buffer = js5.method417();
+				final Buffer buffer = js5.preferencesToBuffer();
 				fileOnDisk.write(buffer.buf, 0, buffer.pos);
 			}
 		} catch (final Exception exception) {
@@ -61,10 +57,6 @@ final class Class120_Sub6 extends Node {
 		} catch (final Exception exception) {
 			/* empty */
 		}
-	}
-
-	static final int method1070(final int i_2_) {
-		return i_2_ & 0xff;
 	}
 
 	final void method1071() {

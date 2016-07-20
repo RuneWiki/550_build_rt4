@@ -3,7 +3,7 @@
  */
 
 final class Deque {
-	static int anInt1007;
+	static int currentFogColor;
 	Node head = new Node();
 	private Node current;
 
@@ -62,7 +62,7 @@ final class Deque {
 	}
 
 	static final WallLocation getWallLocation(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

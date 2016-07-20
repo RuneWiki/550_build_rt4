@@ -9,7 +9,6 @@ final class Decimator {
 	private int newFrequency;
 	private int oldFrequency;
 	private int[][] anIntArrayArray1719;
-	static int[] skillsBaseLevel = new int[25];
 	static boolean fogEnabled;
 
 	static {
@@ -58,11 +57,11 @@ final class Decimator {
 			InterfaceChangeNode.menuOptionsCursorId[0] = Class192.selectedSpellCursor;
 			WallDecoration.menuOptionCount = 1;
 		}
-		ParticleEngine.process(Class101_Sub2.loopCycle);
+		ParticleEngine.process(Class101_Sub2.clientClock);
 		if (Class69.rootInterfaceId != -1) {
 			AbstractGraphicsBuffer.animateInterface(Class69.rootInterfaceId);
 		}
-		for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+		for (int id = 0; id < SeqFrameBase.screenRedrawPos; id++) {
 			if (MasterIndexInfo.needInterfaceRedrawWrapper[id]) {
 				Class120_Sub12_Sub33.needScreenRedraw[id] = true;
 			}
@@ -70,7 +69,7 @@ final class Decimator {
 			MasterIndexInfo.needInterfaceRedrawWrapper[id] = false;
 		}
 		Class69_Sub3_Sub1.worldMapInterface = null;
-		GZIPDecompressor.anInt796 = Class101_Sub2.loopCycle;
+		GZIPDecompressor.anInt796 = Class101_Sub2.clientClock;
 		LookupTable.gameScreenDrawX = -1;
 		StructType.gameScreenDrawY = -1;
 		StructType.mouseOverInventoryInterface = null;
@@ -78,7 +77,7 @@ final class Decimator {
 			Class167.clearDepthBuffer = true;
 		}
 		if (Class69.rootInterfaceId != -1) {
-			LabelGroup.screenRedrawPos = 0;
+			SeqFrameBase.screenRedrawPos = 0;
 			LookupTable.method486();
 		}
 		if (HDToolkit.glEnabled) {
@@ -110,7 +109,7 @@ final class Decimator {
 			MapFunctionNode.anInt3479 = 2;
 		}
 		if (Class15.rectDebugType == 3) {
-			for (int id = 0; id < LabelGroup.screenRedrawPos; id++) {
+			for (int id = 0; id < SeqFrameBase.screenRedrawPos; id++) {
 				if (Class9.needInterfaceRedraw[id]) {
 					if (HDToolkit.glEnabled) {
 						GraphicsHD.fillRectAlpha(GrandExchangeObject.screenRedrawXs[id], Class120_Sub12_Sub38.screenRedrawYs[id], Class120_Sub16.screenRedrawWidhts[id], Class69_Sub3_Sub1.screenRedrawHeights[id], 16711935, 128);

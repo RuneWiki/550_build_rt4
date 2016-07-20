@@ -14,14 +14,14 @@ final class ClanMember extends Node {
 	static SeekableFile[] aClass193Array2581 = new SeekableFile[29];
 
 	static final boolean method1403(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final SceneGraphNode sceneGraphNode, final int i_7_, final boolean bool, final long l) {
-		final boolean bool_8_ = OverridedJInterface.activeTileHeightMap == Class24.underWaterTileHeightMap;
+		final boolean bool_8_ = SubInterface.activeTileHeightMap == Class24.underWaterTileHeightMap;
 		int i_9_ = 0;
 		for (int i_10_ = i_0_; i_10_ < i_0_ + i_2_; i_10_++) {
 			for (int i_11_ = i_1_; i_11_ < i_1_ + i_3_; i_11_++) {
 				if (i_10_ < 0 || i_11_ < 0 || i_10_ >= WallDecoration.mapSizeX || i_11_ >= Class120_Sub12_Sub38.mapSizeZ) {
 					return false;
 				}
-				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_10_][i_11_];
+				final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[i][i_10_][i_11_];
 				if (class120_sub18 != null && class120_sub18.anInt2638 >= 5) {
 					return false;
 				}
@@ -34,7 +34,7 @@ final class ClanMember extends Node {
 		class28.anInt185 = i_5_;
 		class28.anInt179 = i_6_;
 		class28.sceneGraphNode = sceneGraphNode;
-		class28.anInt172 = i_7_;
+		class28.rotation = i_7_;
 		class28.anInt180 = i_0_;
 		class28.anInt184 = i_1_;
 		class28.anInt182 = i_0_ + i_2_ - 1;
@@ -55,11 +55,11 @@ final class ClanMember extends Node {
 					i_14_ += 2;
 				}
 				for (int i_15_ = i; i_15_ >= 0; i_15_--) {
-					if (LabelGroup.activeGroundTiles[i_15_][i_12_][i_13_] == null) {
-						LabelGroup.activeGroundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
+					if (SeqFrameBase.activeGroundTiles[i_15_][i_12_][i_13_] == null) {
+						SeqFrameBase.activeGroundTiles[i_15_][i_12_][i_13_] = new GroundTile(i_15_, i_12_, i_13_);
 					}
 				}
-				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[i][i_12_][i_13_];
+				final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[i][i_12_][i_13_];
 				class120_sub18.aClass28Array2625[class120_sub18.anInt2638] = class28;
 				class120_sub18.anIntArray2641[class120_sub18.anInt2638] = i_14_;
 				class120_sub18.anInt2635 |= i_14_;
@@ -82,15 +82,6 @@ final class ClanMember extends Node {
 			Class111.aClass28Array1057[ClientScript.anInt3556++] = class28;
 		}
 		return true;
-	}
-
-	static final int method1405(int i, int i_21_) {
-		int i_23_ = 0;
-		for (/**/; i_21_ > 0; i_21_--) {
-			i_23_ = i & 0x1 | i_23_ << 1;
-			i >>>= 1;
-		}
-		return i_23_;
 	}
 
 	public ClanMember() {

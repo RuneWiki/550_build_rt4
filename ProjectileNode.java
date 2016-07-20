@@ -25,9 +25,9 @@ final class ProjectileNode extends NodeSub {
 				client.loadingFont = null;
 				WaterfallShader.loadingFontMetrics = null;
 			}
-			final boolean bool = state == 5 || state == 10 || state == 28;
+			final boolean isNextStateTitleScreen = state == 5 || state == 10 || state == 28;
 			if (state == 40) {
-				LabelGroup.method1037();
+				SeqFrameBase.method1037();
 			}
 			if (state != 40 && Light.aClass46_381 != null) {
 				Light.aClass46_381.close();
@@ -49,15 +49,15 @@ final class ProjectileNode extends NodeSub {
 			} else {
 				IsaacCipher.drawTitleScreenSprites(client.spritesJs5);
 			}
-			final boolean bool_3_ = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
-			if (bool_3_ == !bool) {
-				if (!bool) {
+			final boolean isCurrentStateTitleScreen = Class109.gameState == 5 || Class109.gameState == 10 || Class109.gameState == 28;
+			if (isCurrentStateTitleScreen == !isNextStateTitleScreen) {
+				if (!isNextStateTitleScreen) {
 					Class120_Sub12_Sub6.method1230(2);
 					Class178.js5Worker.method367(true);
 				} else {
-					Class157.anInt1466 = AbstractSprite.anInt3620;
-					if (RuntimeException_Sub1.anInt2142 != 0) {
-						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.musicJs5, 2, 255, AbstractSprite.anInt3620, false);
+					Class157.anInt1466 = AbstractSprite.titleScreenMusicId;
+					if (RuntimeException_Sub1.musicVolume != 0) {
+						Class120_Sub15.method1654(0, Class120_Sub12_Sub36.musicJs5, 2, 255, AbstractSprite.titleScreenMusicId, false);
 					} else {
 						Class120_Sub12_Sub6.method1230(2);
 					}

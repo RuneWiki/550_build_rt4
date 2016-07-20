@@ -105,7 +105,7 @@ final class ParticleEmitter extends ParticleNode {
 	final void method940(final int i, final int i_15_, boolean bool, final int i_16_, final long l) {
 		if (!this.aBoolean2339) {
 			if (ParticleEngine.particleSetting >= this.emitterType.minSetting) {
-				if (OverridedJInterface.maxParticleCount[ParticleEngine.particleSetting] >= ParticleEngine.particleCount) {
+				if (SubInterface.maxParticleCount[ParticleEngine.particleSetting] >= ParticleEngine.particleCount) {
 					if (anInt2341 != anInt2342 || anInt2342 != anInt2325 || anInt2332 != anInt2326 || anInt2332 != anInt2316 || anInt2338 != anInt2317 || anInt2344 != anInt2317) {
 						if (this.emitterType.lifetime != -1) {
 							int i_18_ = (int) (l - aLong2330);

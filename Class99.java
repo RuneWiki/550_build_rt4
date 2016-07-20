@@ -10,7 +10,7 @@ final class Class99 {
 	static int anInt954;
 
 	static final WallLocation removeWallLocation(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}
@@ -20,9 +20,9 @@ final class Class99 {
 	}
 
 	static final void method822(final int i) {
-		AtmosphereManager.setLightParams(AtmosphereManager.defaultScreenColorRgb, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
+		AtmosphereManager.setLightParams(AtmosphereManager.defaultLightColorRgb, (i * 0.1F + 0.7F) * 1.1523438F, 0.69921875F, 0.69921875F);
 		AtmosphereManager.setLightPosition(-50.0F, -60.0F, -50.0F);
-		AtmosphereManager.setFogValues(AtmosphereManager.defaulFogColorRgb, 0, false);
+		AtmosphereManager.setFogParams(AtmosphereManager.defaulFogColorRgb, 0, false);
 		AtmosphereManager.applyLightPosition();
 	}
 

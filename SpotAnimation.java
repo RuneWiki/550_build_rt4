@@ -41,16 +41,16 @@ final class SpotAnimation extends SceneGraphNode {
 			final int i_4_ = Canvas_Sub1.inputStream.getBitValue(1);
 			if (i_4_ == 0) {
 				Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-				npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+				npc.lastUpdateCycle = Class101_Sub2.clientClock;
 			} else {
 				final int i_5_ = Canvas_Sub1.inputStream.getBitValue(2);
 				if (i_5_ == 0) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+					npc.lastUpdateCycle = Class101_Sub2.clientClock;
 					ModelParticleMagnet.toUpdateEntityIndex[Class154.toUpdateEntitiesPos++] = index;
 				} else if (i_5_ == 1) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+					npc.lastUpdateCycle = Class101_Sub2.clientClock;
 					final int i_6_ = Canvas_Sub1.inputStream.getBitValue(3);
 					npc.move(i_6_, 1);
 					final int i_7_ = Canvas_Sub1.inputStream.getBitValue(1);
@@ -59,7 +59,7 @@ final class SpotAnimation extends SceneGraphNode {
 					}
 				} else if (i_5_ == 2) {
 					Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-					npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+					npc.lastUpdateCycle = Class101_Sub2.clientClock;
 					if (Canvas_Sub1.inputStream.getBitValue(1) != 1) {
 						final int i_8_ = Canvas_Sub1.inputStream.getBitValue(3);
 						npc.move(i_8_, 0);
@@ -84,7 +84,7 @@ final class SpotAnimation extends SceneGraphNode {
 		if (!HDToolkit.glEnabled) {
 			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7;
 			if ((particleEngine == null || particleEngine.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
-				particleEngine = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
+				particleEngine = new ParticleEngine(Class101_Sub2.clientClock, 1, 1);
 			}
 			if (particleEngine != null) {
 				particleEngine.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
@@ -92,7 +92,7 @@ final class SpotAnimation extends SceneGraphNode {
 		} else {
 			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
 			if ((particleEngine == null || particleEngine.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
-				particleEngine = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
+				particleEngine = new ParticleEngine(Class101_Sub2.clientClock, 1, 1);
 			}
 			if (particleEngine != null) {
 				particleEngine.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
@@ -170,7 +170,7 @@ final class SpotAnimation extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_16_, final int i_18_, final int i_17_, final int i_19_) {
+	final void preRender(final int rotation, final int i_16_, final int i_18_, final int i_17_, final int i_19_) {
 		if (!aBoolean2913) {
 			final AbstractModelRenderer class180_sub7 = method2313();
 			if (class180_sub7 == null) {
@@ -179,7 +179,7 @@ final class SpotAnimation extends SceneGraphNode {
 			method2310(class180_sub7);
 		}
 		if (particleEngine != null) {
-			particleEngine.method944(i, i_16_, i_18_, i_17_, i_19_);
+			particleEngine.method944(rotation, i_16_, i_18_, i_17_, i_19_);
 		}
 	}
 
@@ -194,7 +194,7 @@ final class SpotAnimation extends SceneGraphNode {
 	}
 
 	static final Class28 method2315(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return null;
 		}

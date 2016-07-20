@@ -59,7 +59,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 				return false;
 			}
 			if (Js5Request.aClass120_Sub31_3941 == null) {
-				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.list(MasterIndexInfo.aClass50_476, QuickChatCategoryType.anInt3649, SeqType.anInt349);
+				Js5Request.aClass120_Sub31_3941 = Class120_Sub31.list(MasterIndexInfo.activeMusicJs5, QuickChatCategoryType.activeMusicGroupId, SeqType.activeMusicFileId);
 				if (Js5Request.aClass120_Sub31_3941 == null) {
 					return false;
 				}
@@ -71,11 +71,11 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 				return false;
 			}
 			Class30.aClass120_Sub30_Sub2_234.method1778();
-			Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.anInt3940);
+			Class30.aClass120_Sub30_Sub2_234.method1748(Js5Request.activeMusicVolume);
 			Class30.aClass120_Sub30_Sub2_234.method1773(Js5Request.aClass120_Sub31_3941, StringNode.aBoolean2734);
 			Normal.aClass90_163 = null;
 			Js5Request.aClass120_Sub31_3941 = null;
-			MasterIndexInfo.aClass50_476 = null;
+			MasterIndexInfo.activeMusicJs5 = null;
 			Class120_Sub12_Sub25.anInt3312 = 0;
 			return true;
 		} catch (final Exception exception) {
@@ -83,7 +83,7 @@ final class Class120_Sub12_Sub5 extends Class120_Sub12 {
 			Class30.aClass120_Sub30_Sub2_234.method1770();
 			Normal.aClass90_163 = null;
 			Class120_Sub12_Sub25.anInt3312 = 0;
-			MasterIndexInfo.aClass50_476 = null;
+			MasterIndexInfo.activeMusicJs5 = null;
 			Js5Request.aClass120_Sub31_3941 = null;
 			return false;
 		}

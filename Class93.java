@@ -64,13 +64,13 @@ final class Class93 {
 					i_14_ = (i_10_ >> 1) + z;
 					i_15_ = z - -(i_10_ - -1 >> 1);
 				}
-				final int[][] is = OverridedJInterface.activeTileHeightMap[level2];
+				final int[][] is = SubInterface.activeTileHeightMap[level2];
 				final int i_16_ = (i_11_ << 6) + (x << 7);
 				final int i_17_ = (i_10_ << 6) + (z << 7);
 				final int y = is[i_12_][i_14_] + is[i_13_][i_14_] + is[i_13_][i_15_] + is[i_12_][i_15_] >> 2;
 				int i_19_ = 0;
 				if (HDToolkit.glEnabled && level2 != 0) {
-					final int[][] is_20_ = OverridedJInterface.activeTileHeightMap[0];
+					final int[][] is_20_ = SubInterface.activeTileHeightMap[0];
 					i_19_ = y + -(is_20_[i_13_][i_15_] + is_20_[i_13_][i_14_] - (-is_20_[i_12_][i_14_] - is_20_[i_12_][i_15_]) >> 2);
 				}
 				long bitPackedUid = x | z << 7 | type << 14 | rotation << 20 | 0x40000000;
@@ -78,7 +78,7 @@ final class Class93 {
 				if (bool) {
 					is_21_ = Class120_Sub12_Sub33.surfaceTileHeightMap[0];
 				} else if (level2 < 3) {
-					is_21_ = OverridedJInterface.activeTileHeightMap[level2 + 1];
+					is_21_ = SubInterface.activeTileHeightMap[level2 + 1];
 				}
 				if (locType.anInt1835 == 0 || bool) {
 					bitPackedUid |= ~0x7fffffffffffffffL;
@@ -124,7 +124,7 @@ final class Class93 {
 					}
 					if (sceneGraphNode != null) {
 						final boolean bool_23_ = method774(level, x, z, y, i_11_, i_10_, sceneGraphNode, 0, bitPackedUid);
-						if (locType.aBoolean1858 && bool_23_ && bool_8_) {
+						if (locType.castShadow && bool_23_ && bool_8_) {
 							int i_24_ = 15;
 							if (sceneGraphNode instanceof AbstractModelRenderer) {
 								i_24_ = ((AbstractModelRenderer) sceneGraphNode).method2371() / 4;
@@ -156,7 +156,7 @@ final class Class93 {
 						sceneGraphNode = class88.aClass180_826;
 					}
 					method774(level, x, z, y, 1, 1, sceneGraphNode, 0, bitPackedUid);
-					if (bool_8_ && type >= 12 && type <= 17 && type != 13 && level > 0 && locType.anInt1866 != 0) {
+					if (bool_8_ && type >= 12 && type <= 17 && type != 13 && level > 0 && locType.occludeType != 0) {
 						Class110.tileOccludeFlags[level][x][z] |= 0x4;
 					}
 					if (locType.anInt1821 != 0 && collisionMap != null) {
@@ -179,38 +179,38 @@ final class Class93 {
 							if (rotation != 1) {
 								if (rotation != 2) {
 									if (rotation == 3) {
-										if (locType.aBoolean1858) {
+										if (locType.castShadow) {
 											Npc.aByteArrayArrayArray3754[level][x][z] = (byte) 50;
 											Npc.aByteArrayArrayArray3754[level][1 + x][z] = (byte) 50;
 										}
-										if (locType.anInt1866 == 1) {
+										if (locType.occludeType == 1) {
 											Class110.tileOccludeFlags[level][x][z] |= 0x2;
 										}
 									}
 								} else {
-									if (locType.aBoolean1858) {
+									if (locType.castShadow) {
 										Npc.aByteArrayArrayArray3754[level][x + 1][z] = (byte) 50;
 										Npc.aByteArrayArrayArray3754[level][1 + x][1 + z] = (byte) 50;
 									}
-									if (locType.anInt1866 == 1) {
+									if (locType.occludeType == 1) {
 										Class110.tileOccludeFlags[level][x + 1][z] |= 0x1;
 									}
 								}
 							} else {
-								if (locType.aBoolean1858) {
+								if (locType.castShadow) {
 									Npc.aByteArrayArrayArray3754[level][x][1 + z] = (byte) 50;
 									Npc.aByteArrayArrayArray3754[level][1 + x][1 + z] = (byte) 50;
 								}
-								if (locType.anInt1866 == 1) {
+								if (locType.occludeType == 1) {
 									Class110.tileOccludeFlags[level][x][z + 1] |= 0x2;
 								}
 							}
 						} else {
-							if (locType.aBoolean1858) {
+							if (locType.castShadow) {
 								Npc.aByteArrayArrayArray3754[level][x][z] = (byte) 50;
 								Npc.aByteArrayArrayArray3754[level][x][1 + z] = (byte) 50;
 							}
-							if (locType.anInt1866 == 1) {
+							if (locType.occludeType == 1) {
 								Class110.tileOccludeFlags[level][x][z] |= 0x1;
 							}
 						}
@@ -233,7 +233,7 @@ final class Class93 {
 						sceneGraphNode = class88.aClass180_826;
 					}
 					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
-					if (locType.aBoolean1858 && bool_8_) {
+					if (locType.castShadow && bool_8_) {
 						if (rotation == 0) {
 							Npc.aByteArrayArrayArray3754[level][x][z + 1] = (byte) 50;
 						} else if (rotation == 1) {
@@ -269,7 +269,7 @@ final class Class93 {
 						class180_28_ = class88.aClass180_826;
 					}
 					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, class180_28_, Class53.anIntArray485[rotation], Class53.anIntArray485[i_27_], bitPackedUid);
-					if (locType.anInt1866 == 1 && bool_8_) {
+					if (locType.occludeType == 1 && bool_8_) {
 						if (rotation != 0) {
 							if (rotation != 1) {
 								if (rotation == 2) {
@@ -306,7 +306,7 @@ final class Class93 {
 						sceneGraphNode = class88.aClass180_826;
 					}
 					RuntimeException_Sub1.addWallLocation(level, x, z, y, sceneGraphNode, null, Class156.anIntArray1458[rotation], 0, bitPackedUid);
-					if (locType.aBoolean1858 && bool_8_) {
+					if (locType.castShadow && bool_8_) {
 						if (rotation == 0) {
 							Npc.aByteArrayArrayArray3754[level][x][1 + z] = (byte) 50;
 						} else if (rotation == 1) {
@@ -377,13 +377,13 @@ final class Class93 {
 					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
 						final Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, rotation + 4, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
-							ShadowManager.method389(class88.aClass107_Sub1_830, i_16_ - Class55.anIntArray493[rotation] * 8, i_19_, -(GroundObjectNode.anIntArray3629[rotation] * 8) + i_17_);
+							ShadowManager.method389(class88.aClass107_Sub1_830, i_16_ - LocType.anIntArray493[rotation] * 8, i_19_, -(GroundObjectNode.anIntArray3629[rotation] * 8) + i_17_);
 						}
 						sceneGraphNode = class88.aClass180_826;
 					} else {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, rotation + 4, level2, x, z, -1, locType.aBoolean1864, null);
 					}
-					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, 256, rotation, Class55.anIntArray493[rotation] * i_32_, GroundObjectNode.anIntArray3629[rotation] * i_32_, bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, null, 256, rotation, LocType.anIntArray493[rotation] * i_32_, GroundObjectNode.anIntArray3629[rotation] * i_32_, bitPackedUid);
 				} else if (type == 7) {
 					final int i_33_ = rotation + 2 & 0x3;
 					SceneGraphNode sceneGraphNode;
@@ -407,7 +407,7 @@ final class Class93 {
 					SceneGraphNode sceneGraphNode;
 					SceneGraphNode class180_37_;
 					if (locType.animationId == -1 && locType.randomAnimationIds == null && locType.transmogrificationIds == null && !locType.hasAnimation) {
-						final int i_38_ = Class55.anIntArray493[rotation] * 8;
+						final int i_38_ = LocType.anIntArray493[rotation] * 8;
 						final int i_39_ = GroundObjectNode.anIntArray3629[rotation] * 8;
 						Class88 class88 = locType.method2453(i_16_, bool_8_, 4, y, is, is_21_, bool_22_, 4 + rotation, i_17_, null);
 						if (HDToolkit.glEnabled && bool_22_) {
@@ -423,7 +423,7 @@ final class Class93 {
 						sceneGraphNode = new AnimatedLocation(locationId, 4, 4 + rotation, level2, x, z, -1, locType.aBoolean1864, null);
 						class180_37_ = new AnimatedLocation(locationId, 4, 4 + i_36_, level2, x, z, -1, locType.aBoolean1864, null);
 					}
-					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, class180_37_, 256, rotation, i_34_ * Class55.anIntArray493[rotation], i_34_ * GroundObjectNode.anIntArray3629[rotation], bitPackedUid);
+					Class11.addWallDecoration(level, x, z, y, sceneGraphNode, class180_37_, 256, rotation, i_34_ * LocType.anIntArray493[rotation], i_34_ * GroundObjectNode.anIntArray3629[rotation], bitPackedUid);
 				}
 			}
 		}

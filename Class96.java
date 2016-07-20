@@ -94,7 +94,7 @@ final class Class96 {
 		}
 	}
 
-	static final int method788() {
+	static final int worldListLoaded() {
 		try {
 			if (Decimator.worldListLoadStep == 0) {
 				if (TimeUtil.getSafeTime() - 5000L < ModelParticleEmitter.worldListLoadedTime) {
@@ -146,10 +146,10 @@ final class Class96 {
 				if (AbstractTimer.worldConnection.getAvailable() < 2) {
 					return -1;
 				}
-				OverridedJInterface.worldListDataLength = AbstractTimer.worldConnection.read();
-				OverridedJInterface.worldListDataLength <<= 8;
-				OverridedJInterface.worldListDataLength += AbstractTimer.worldConnection.read();
-				client.worldListData = new byte[OverridedJInterface.worldListDataLength];
+				SubInterface.worldListDataLength = AbstractTimer.worldConnection.read();
+				SubInterface.worldListDataLength <<= 8;
+				SubInterface.worldListDataLength += AbstractTimer.worldConnection.read();
+				client.worldListData = new byte[SubInterface.worldListDataLength];
 				Class132_Sub1.worldListDataOff = 0;
 				Decimator.worldListLoadStep = 3;
 			}
@@ -160,12 +160,12 @@ final class Class96 {
 			if (available < 1) {
 				return -1;
 			}
-			if (available > OverridedJInterface.worldListDataLength - Class132_Sub1.worldListDataOff) {
-				available = OverridedJInterface.worldListDataLength - Class132_Sub1.worldListDataOff;
+			if (available > SubInterface.worldListDataLength - Class132_Sub1.worldListDataOff) {
+				available = SubInterface.worldListDataLength - Class132_Sub1.worldListDataOff;
 			}
 			AbstractTimer.worldConnection.read(client.worldListData, Class132_Sub1.worldListDataOff, available);
 			Class132_Sub1.worldListDataOff += available;
-			if (Class132_Sub1.worldListDataOff < OverridedJInterface.worldListDataLength) {
+			if (Class132_Sub1.worldListDataOff < SubInterface.worldListDataLength) {
 				return -1;
 			}
 			if (!Class54.decodedWorldInformation(client.worldListData)) {
@@ -173,7 +173,7 @@ final class Class96 {
 			}
 			int worldPos = 0;
 			Class86.worlds = new World[Class57.worldLen2];
-			for (int worldId = OverridedJInterface.worldOff; worldId <= EnumType.worldLen; worldId++) {
+			for (int worldId = SubInterface.worldOff; worldId <= EnumType.worldLen; worldId++) {
 				final World world = World.getWorld(worldId);
 				if (world != null) {
 					Class86.worlds[worldPos++] = world;
@@ -182,7 +182,7 @@ final class Class96 {
 			AbstractTimer.worldConnection.close();
 			client.worldListData = null;
 			Decimator.worldListLoadStep = 0;
-			OverridedJInterface.worldListErrorCount = 0;
+			SubInterface.worldListErrorCount = 0;
 			AbstractTimer.worldConnection = null;
 			ModelParticleEmitter.worldListLoadedTime = TimeUtil.getSafeTime();
 			return 0;

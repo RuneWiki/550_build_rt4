@@ -96,38 +96,38 @@ final class js5 {
 		return aClass53_450.getCompletion(groupId);
 	}
 
-	static final Buffer method417() {
-		final Buffer class120_sub7_14_ = new Buffer(34);
-		class120_sub7_14_.putByte(11);
-		class120_sub7_14_.putByte(FileSystemRequest.brightness);
-		class120_sub7_14_.putByte(client.allVisibleLevels ? 1 : 0);
-		class120_sub7_14_.putByte(Class120_Sub12.removeRoofsSelectively ? 1 : 0);
-		class120_sub7_14_.putByte(Hashtable.showGroundDecorations ? 1 : 0);
-		class120_sub7_14_.putByte(ParticleNodeSub.highDetailTextures ? 1 : 0);
-		class120_sub7_14_.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
-		class120_sub7_14_.putByte(ChunkAtmosphere.flickeringEffectsOn ? 1 : 0);
-		class120_sub7_14_.putByte(Class120_Sub30_Sub1.manyGroundTextures ? 1 : 0);
-		class120_sub7_14_.putByte(Class120_Sub6.characterShadowsOn ? 1 : 0);
-		class120_sub7_14_.putByte(Class74.sceneryShadowsType);
-		class120_sub7_14_.putByte(Class120_Sub12_Sub6.highLightingDetail ? 1 : 0);
-		class120_sub7_14_.putByte(PacketBuffer.highWaterDetail ? 1 : 0);
-		class120_sub7_14_.putByte(Decimator.fogEnabled ? 1 : 0);
-		class120_sub7_14_.putByte(AbstractMouseWheelHandler.antiAliasingSamplesWrapper);
-		class120_sub7_14_.putByte(Class167.aBoolean1619 ? 1 : 0);
-		class120_sub7_14_.putByte(Class111.anInt1061);
-		class120_sub7_14_.putByte(RuntimeException_Sub1.anInt2142);
-		class120_sub7_14_.putByte(CursorType.ambientSoundsVolume);
-		class120_sub7_14_.putShort(Class120_Sub12_Sub18.lastFullscreenWidth);
-		class120_sub7_14_.putShort(Class120_Sub12_Sub12.lastFullscreenHeight);
-		class120_sub7_14_.putByte(ParticleEngine.method949());
-		class120_sub7_14_.putInt(Class120_Sub19.anInt2657);
-		class120_sub7_14_.putByte(Class120_Sub12_Sub19.currentDisplayMode);
-		class120_sub7_14_.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
-		class120_sub7_14_.putByte(Class134.updateCameraFromCs2 ? 1 : 0);
-		class120_sub7_14_.putByte(Class140.anInt1343);
-		class120_sub7_14_.putByte(WallDecoration.hdrEnabled ? 1 : 0);
-		class120_sub7_14_.putByte(Class38.cursorsEnabled ? 1 : 0);
-		return class120_sub7_14_;
+	static final Buffer preferencesToBuffer() {
+		final Buffer buffer = new Buffer(34);
+		buffer.putByte(11);
+		buffer.putByte(FileSystemRequest.brightness);
+		buffer.putByte(client.allVisibleLevels ? 1 : 0);
+		buffer.putByte(Class120_Sub12.removeRoofsSelectively ? 1 : 0);
+		buffer.putByte(Hashtable.showGroundDecorations ? 1 : 0);
+		buffer.putByte(ParticleNodeSub.highDetailTextures ? 1 : 0);
+		buffer.putByte(Class120_Sub12_Sub10.manyIdleAnimations ? 1 : 0);
+		buffer.putByte(ChunkAtmosphere.flickeringEffectsOn ? 1 : 0);
+		buffer.putByte(Class120_Sub30_Sub1.manyGroundTextures ? 1 : 0);
+		buffer.putByte(Class120_Sub6.characterShadowsOn ? 1 : 0);
+		buffer.putByte(Class74.sceneryShadowsType);
+		buffer.putByte(Class120_Sub12_Sub6.highLightingDetail ? 1 : 0);
+		buffer.putByte(PacketBuffer.highWaterDetail ? 1 : 0);
+		buffer.putByte(Decimator.fogEnabled ? 1 : 0);
+		buffer.putByte(AbstractMouseWheelHandler.antiAliasingDefault);
+		buffer.putByte(Class167.isStereo ? 1 : 0);
+		buffer.putByte(Class111.soundEffectVolume);
+		buffer.putByte(RuntimeException_Sub1.musicVolume);
+		buffer.putByte(CursorType.ambientSoundsVolume);
+		buffer.putShort(Class120_Sub12_Sub18.lastFullscreenWidth);
+		buffer.putShort(Class120_Sub12_Sub12.lastFullscreenHeight);
+		buffer.putByte(ParticleEngine.getParticleSetting());
+		buffer.putInt(Class120_Sub19.lastWorldId);
+		buffer.putByte(Class120_Sub12_Sub19.lastUsedDisplayMode);
+		buffer.putByte(InterfaceClickMask.safeModeEnabled ? 1 : 0);
+		buffer.putByte(Class134.updateCameraFromCs2 ? 1 : 0);
+		buffer.putByte(Class140.buildArea);
+		buffer.putByte(WallDecoration.hdrEnabled ? 1 : 0);
+		buffer.putByte(Class38.cursorsEnabled ? 1 : 0);
+		return buffer;
 	}
 
 	private final boolean informationLoaded() {
@@ -454,9 +454,9 @@ final class js5 {
 					final JagexInterface jagexInterface = JagexInterface.interfaceCache[group][file] = new JagexInterface();
 					jagexInterface.bitPacked = (group << 16) + file;
 					if (data[0] == -1) {
-						jagexInterface.decodeNew(new Buffer(data));
+						jagexInterface.decodeIf3(new Buffer(data));
 					} else {
-						jagexInterface.decodeOld(new Buffer(data));
+						jagexInterface.decodeIf1(new Buffer(data));
 					}
 				}
 			}

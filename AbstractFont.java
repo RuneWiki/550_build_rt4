@@ -281,7 +281,6 @@ abstract class AbstractFont extends NodeSub {
 		}
 		if (spaceCount > 0) {
 			anInt3515 = (width - method1459(string) << 8) / spaceCount;
-			System.out.println("test");
 		}
 	}
 
@@ -352,7 +351,7 @@ abstract class AbstractFont extends NodeSub {
 		return lineCount;
 	}
 
-	final int method1468(final String string, final int i) {
+	final int paragraphWidth(final String string, final int i) {
 		final int i_74_ = method1486(string, new int[] { i }, aStringArray3516);
 		int i_75_ = 0;
 		for (int i_76_ = 0; i_76_ < i_74_; i_76_++) {
@@ -397,7 +396,7 @@ abstract class AbstractFont extends NodeSub {
 
 	abstract void drawTransparentChar(int i, int i_91_, int i_92_, int i_93_, int i_94_, int i_95_, int i_96_, boolean bool);
 
-	static final String method1472(final String string) {
+	static final String removeTags(final String string) {
 		final int i = string.length();
 		int i_97_ = 0;
 		for (int i_98_ = 0; i_98_ < i; i_98_++) {
@@ -657,7 +656,7 @@ abstract class AbstractFont extends NodeSub {
 		return anInt3494 + i_163_ + anInt3512;
 	}
 
-	final int method1481(final String string, final int i) {
+	final int paragraphHeight(final String string, final int i) {
 		return method1486(string, new int[] { i }, aStringArray3516);
 	}
 
@@ -747,127 +746,127 @@ abstract class AbstractFont extends NodeSub {
 			return 0;
 		}
 		Class89.increaseStringBufferLength(aStringBuffer3500, ' ', 0);
-		int i = 0;
+		int width = 0;
 		int i_175_ = 0;
 		int i_176_ = -1;
 		int i_177_ = 0;
 		int i_178_ = 0;
-		int i_179_ = -1;
+		int effectStartIndex = -1;
 		int i_180_ = 0;
-		int i_181_ = 0;
-		final int i_182_ = string.length();
-		for (int i_183_ = 0; i_183_ < i_182_; i_183_++) {
-			char c = string.charAt(i_183_);
-			if (c == 60) {
-				i_179_ = i_183_;
+		int stringsPos = 0;
+		final int length = string.length();
+		for (int id = 0; id < length; id++) {
+			char character = string.charAt(id);
+			if (character == 60) {//<
+				effectStartIndex = id;
 			} else {
-				if (c == 62 && i_179_ != -1) {
-					final String string_184_ = string.substring(i_179_ + 1, i_183_).toLowerCase();
-					i_179_ = -1;
+				if (character == 62 && effectStartIndex != -1) {//>
+					final String effect = string.substring(effectStartIndex + 1, id).toLowerCase();
+					effectStartIndex = -1;
 					aStringBuffer3500.append('<');
-					aStringBuffer3500.append(string_184_);
+					aStringBuffer3500.append(effect);
 					aStringBuffer3500.append('>');
-					if (string_184_.equals("br")) {
-						strings[i_181_] = aStringBuffer3500.toString().substring(i_175_, aStringBuffer3500.length());
-						i_181_++;
+					if (effect.equals("br")) {
+						strings[stringsPos] = aStringBuffer3500.toString().substring(i_175_, aStringBuffer3500.length());
+						stringsPos++;
 						i_175_ = aStringBuffer3500.length();
-						i = 0;
+						width = 0;
 						i_176_ = -1;
 						i_180_ = 0;
-					} else if (string_184_.equals("lt")) {
-						i += method1484('<');
+					} else if (effect.equals("lt")) {
+						width += method1484('<');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 60];
+							width += aByteArray3498[(i_180_ << 8) + 60];
 						}
 						i_180_ = 60;
-					} else if (string_184_.equals("gt")) {
-						i += method1484('>');
+					} else if (effect.equals("gt")) {
+						width += method1484('>');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 62];
+							width += aByteArray3498[(i_180_ << 8) + 62];
 						}
 						i_180_ = 62;
-					} else if (string_184_.equals("nbsp")) {
-						i += method1484('\u00a0');
+					} else if (effect.equals("nbsp")) {
+						width += method1484('\u00a0');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 160];
+							width += aByteArray3498[(i_180_ << 8) + 160];
 						}
 						i_180_ = 160;
-					} else if (string_184_.equals("shy")) {
-						i += method1484('\u00ad');
+					} else if (effect.equals("shy")) {
+						width += method1484('\u00ad');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 173];
+							width += aByteArray3498[(i_180_ << 8) + 173];
 						}
 						i_180_ = 173;
-					} else if (string_184_.equals("times")) {
-						i += method1484('\u00d7');
+					} else if (effect.equals("times")) {
+						width += method1484('\u00d7');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 215];
+							width += aByteArray3498[(i_180_ << 8) + 215];
 						}
 						i_180_ = 215;
-					} else if (string_184_.equals("euro")) {
-						i += method1484('\u20ac');
+					} else if (effect.equals("euro")) {
+						width += method1484('\u20ac');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 128];
+							width += aByteArray3498[(i_180_ << 8) + 128];
 						}
 						i_180_ = 8364;
-					} else if (string_184_.equals("copy")) {
-						i += method1484('\u00a9');
+					} else if (effect.equals("copy")) {
+						width += method1484('\u00a9');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 169];
+							width += aByteArray3498[(i_180_ << 8) + 169];
 						}
 						i_180_ = 169;
-					} else if (string_184_.equals("reg")) {
-						i += method1484('\u00ae');
+					} else if (effect.equals("reg")) {
+						width += method1484('\u00ae');
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + 174];
+							width += aByteArray3498[(i_180_ << 8) + 174];
 						}
 						i_180_ = 174;
-					} else if (string_184_.startsWith("img=")) {
+					} else if (effect.startsWith("img=")) {
 						try {
-							final int i_185_ = Class31.stringToBase10(string_184_.substring(4));
-							i += nameIcons[i_185_].trimWidth;
+							final int nameIconid = Class31.stringToBase10(effect.substring(4));
+							width += nameIcons[nameIconid].trimWidth;
 							i_180_ = 0;
 						} catch (final Exception exception) {
 							/* empty */
 						}
 					}
-					c = '\0';
+					character = '\0';
 				}
-				if (i_179_ == -1) {
-					if (c != 0) {
-						aStringBuffer3500.append(c);
-						c = (char) (LongNode.method1060(c) & 0xff);
-						i += charWidths[c];
+				if (effectStartIndex == -1) {
+					if (character != 0) {
+						aStringBuffer3500.append(character);
+						character = (char) (LongNode.method1060(character) & 0xff);
+						width += charWidths[character];
 						if (aByteArray3498 != null && i_180_ != 0) {
-							i += aByteArray3498[(i_180_ << 8) + c];
+							width += aByteArray3498[(i_180_ << 8) + character];
 						}
-						i_180_ = c;
+						i_180_ = character;
 					}
-					if (c == 32) {
+					if (character == 32) {//Space
 						i_176_ = aStringBuffer3500.length();
-						i_177_ = i;
+						i_177_ = width;
 						i_178_ = 1;
 					}
-					if (is != null && i > is[i_181_ < is.length ? i_181_ : is.length - 1] && i_176_ >= 0) {
-						strings[i_181_] = aStringBuffer3500.toString().substring(i_175_, i_176_ - i_178_);
-						i_181_++;
+					if (is != null && width > is[stringsPos < is.length ? stringsPos : is.length - 1] && i_176_ >= 0) {
+						strings[stringsPos] = aStringBuffer3500.toString().substring(i_175_, i_176_ - i_178_);
+						stringsPos++;
 						i_175_ = i_176_;
 						i_176_ = -1;
-						i -= i_177_;
+						width -= i_177_;
 						i_180_ = 0;
 					}
-					if (c == 45) {
+					if (character == 45) {//-
 						i_176_ = aStringBuffer3500.length();
-						i_177_ = i;
+						i_177_ = width;
 						i_178_ = 0;
 					}
 				}
 			}
 		}
 		if (aStringBuffer3500.length() > i_175_) {
-			strings[i_181_] = aStringBuffer3500.toString().substring(i_175_, aStringBuffer3500.length());
-			i_181_++;
+			strings[stringsPos] = aStringBuffer3500.toString().substring(i_175_, aStringBuffer3500.length());
+			stringsPos++;
 		}
-		return i_181_;
+		return stringsPos;
 	}
 }

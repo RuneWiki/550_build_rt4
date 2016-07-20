@@ -118,7 +118,7 @@ final class LDTransparentSprite extends LDSprite {
 			i_40_ += i_44_;
 		}
 		if (i_39_ > 0 && i_38_ > 0) {
-			method1625(GraphicsLD.pixels, this.pixels, 0, i_37_, i_36_, i_39_, i_38_, i_40_, i_41_, i_35_);
+			method1625(GraphicsLD.pixels, this.pixels, i_37_, i_36_, i_39_, i_38_, i_40_, i_41_, i_35_);
 		}
 	}
 
@@ -632,9 +632,8 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	private static final void method1621(final int[] is, final int[] is_207_, int i, int i_208_, int i_209_, final int i_210_, final int i_211_, final int i_212_, final int i_213_) {
-		final int i_214_ = -i_210_;
 		for (int i_215_ = -i_211_; i_215_ < 0; i_215_++) {
-			for (int i_216_ = i_214_; i_216_ < 0; i_216_++) {
+			for (int i_216_ = -i_210_; i_216_ < 0; i_216_++) {
 				i = is_207_[i_208_++];
 				final int i_217_ = i >>> 24;
 				if (i_217_ != 0) {
@@ -708,22 +707,21 @@ final class LDTransparentSprite extends LDSprite {
 		super(i, i_238_, i_239_, i_240_, i_241_, i_242_, is);
 	}
 
-	private static final void method1622(final int[] is, final int[] is_243_, int i, int i_244_, int i_245_, final int i_246_, final int i_247_, final int i_248_, final int i_249_) {
-		final int i_250_ = -i_246_;
-		for (int i_251_ = -i_247_; i_251_ < 0; i_251_++) {
-			for (int i_252_ = i_250_; i_252_ < 0; i_252_++) {
-				i = is_243_[i_244_--];
-				final int i_253_ = i >>> 24;
-				if (i_253_ != 0) {
-					final int i_254_ = 256 - i_253_;
-					final int i_255_ = is[i_245_];
-					is[i_245_++] = ((i & 0xff00ff) * i_253_ + (i_255_ & 0xff00ff) * i_254_ & ~0xff00ff) + ((i & 0xff00) * i_253_ + (i_255_ & 0xff00) * i_254_ & 0xff0000) >>> 8;
+	private static final void method1622(final int[] destPixels, final int[] srcPixels, int pixel, int srcPixelsPos, int destPixelsPos, final int width, final int height, final int destPixelStep, final int srcPixelStep) {
+		for (int y = -height; y < 0; y++) {
+			for (int x = -width; x < 0; x++) {
+				pixel = srcPixels[srcPixelsPos--];
+				final int alpha = pixel >>> 24;
+				if (alpha != 0) {
+					final int alphaDelta = 256 - alpha;
+					final int destPixel = destPixels[destPixelsPos];
+					destPixels[destPixelsPos++] = ((pixel & 0xff00ff) * alpha + (destPixel & 0xff00ff) * alphaDelta & ~0xff00ff) + ((pixel & 0xff00) * alpha + (destPixel & 0xff00) * alphaDelta & 0xff0000) >>> 8;
 				} else {
-					i_245_++;
+					destPixelsPos++;
 				}
 			}
-			i_245_ += i_248_;
-			i_244_ += i_249_;
+			destPixelsPos += destPixelStep;
+			srcPixelsPos += srcPixelStep;
 		}
 	}
 
@@ -784,42 +782,42 @@ final class LDTransparentSprite extends LDSprite {
 	}
 
 	@Override
-	final void method1592(int i, int i_293_) {
-		i += this.trimWidth - this.width - this.offsetX;
-		i_293_ += this.offsetY;
-		int i_294_ = i + i_293_ * GraphicsLD.width;
-		int i_295_ = this.width - 1;
-		int i_296_ = this.height;
-		int i_297_ = this.width;
-		int i_298_ = GraphicsLD.width - i_297_;
-		int i_299_ = i_297_ + i_297_;
-		if (i_293_ < GraphicsLD.startY) {
-			final int i_300_ = GraphicsLD.startY - i_293_;
-			i_296_ -= i_300_;
-			i_293_ = GraphicsLD.startY;
-			i_295_ += i_300_ * i_297_;
-			i_294_ += i_300_ * GraphicsLD.width;
+	final void method1592(int x, int y) {
+		x += this.trimWidth - this.width - this.offsetX;
+		y += this.offsetY;
+		int destPixelsPos = x + y * GraphicsLD.width;
+		int srcPixelsPos = this.width - 1;
+		int spriteHeight = this.height;
+		int spriteWidth = this.width;
+		int destPixelStep = GraphicsLD.width - spriteWidth;
+		int srcPixelStep = spriteWidth + spriteWidth;
+		if (y < GraphicsLD.startY) {
+			final int i_300_ = GraphicsLD.startY - y;
+			spriteHeight -= i_300_;
+			y = GraphicsLD.startY;
+			srcPixelsPos += i_300_ * spriteWidth;
+			destPixelsPos += i_300_ * GraphicsLD.width;
 		}
-		if (i_293_ + i_296_ > GraphicsLD.endY) {
-			i_296_ -= i_293_ + i_296_ - GraphicsLD.endY;
+		if (y + spriteHeight > GraphicsLD.endY) {
+			spriteHeight -= y + spriteHeight - GraphicsLD.endY;
 		}
-		if (i < GraphicsLD.startX) {
-			final int i_301_ = GraphicsLD.startX - i;
-			i_297_ -= i_301_;
-			i = GraphicsLD.startX;
-			i_295_ -= i_301_;
-			i_294_ += i_301_;
-			i_299_ -= i_301_;
-			i_298_ += i_301_;
+		if (x < GraphicsLD.startX) {
+			final int i_301_ = GraphicsLD.startX - x;
+			spriteWidth -= i_301_;
+			x = GraphicsLD.startX;
+			srcPixelsPos -= i_301_;
+			destPixelsPos += i_301_;
+			srcPixelStep -= i_301_;
+			destPixelStep += i_301_;
 		}
-		if (i + i_297_ > GraphicsLD.endX) {
-			final int i_302_ = i + i_297_ - GraphicsLD.endX;
-			i_297_ -= i_302_;
-			i_299_ -= i_302_;
-			i_298_ += i_302_;
+		if (x + spriteWidth > GraphicsLD.endX) {
+			final int i_302_ = x + spriteWidth - GraphicsLD.endX;
+			spriteWidth -= i_302_;
+			srcPixelStep -= i_302_;
+			destPixelStep += i_302_;
 		}
-		if (i_297_ > 0 && i_296_ > 0) {
-			method1622(GraphicsLD.pixels, this.pixels, 0, i_295_, i_294_, i_297_, i_296_, i_298_, i_299_);
+		if (spriteWidth > 0 && spriteHeight > 0) {
+			method1622(GraphicsLD.pixels, this.pixels, 0, srcPixelsPos, destPixelsPos, spriteWidth, spriteHeight, destPixelStep, srcPixelStep);
 		}
 	}
 
@@ -841,17 +839,17 @@ final class LDTransparentSprite extends LDSprite {
 		}
 	}
 
-	private static final void method1625(final int[] is, final int[] is_322_, final int i, int i_323_, int i_324_, final int i_325_, final int i_326_, final int i_327_, final int i_328_, final int i_329_) {
-		for (int i_330_ = -i_326_; i_330_ < 0; i_330_++) {
-			for (int i_331_ = -i_325_; i_331_ < 0; i_331_++) {
-				final int i_332_ = (is_322_[i_323_] >>> 24) * i_329_ >> 8;
-				final int i_333_ = 256 - i_332_;
-				final int i_334_ = is_322_[i_323_++];
-				final int i_335_ = is[i_324_];
-				is[i_324_++] = ((i_334_ & 0xff00ff) * i_332_ + (i_335_ & 0xff00ff) * i_333_ & ~0xff00ff) + ((i_334_ & 0xff00) * i_332_ + (i_335_ & 0xff00) * i_333_ & 0xff0000) >>> 8;
+	private static final void method1625(final int[] destPixels, final int[] sourcePixels, int sourcePixelsPos, int destPixelsPos, final int width, final int height, final int destPixelsStep, final int sourcePixelsStep, final int sourceAlpha) {
+		for (int y = -height; y < 0; y++) {
+			for (int x = -width; x < 0; x++) {
+				final int alpha = (sourcePixels[sourcePixelsPos] >>> 24) * sourceAlpha >> 8;
+				final int alpha2 = 256 - alpha;
+				final int src = sourcePixels[sourcePixelsPos++];
+				final int dest = destPixels[destPixelsPos];
+				destPixels[destPixelsPos++] = ((src & 0xff00ff) * alpha + (dest & 0xff00ff) * alpha2 & ~0xff00ff) + ((src & 0xff00) * alpha + (dest & 0xff00) * alpha2 & 0xff0000) >>> 8;
 			}
-			i_324_ += i_327_;
-			i_323_ += i_328_;
+			destPixelsPos += destPixelsStep;
+			sourcePixelsPos += sourcePixelsStep;
 		}
 	}
 

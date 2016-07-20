@@ -15,7 +15,7 @@ final class Skybox {
 	private int textureSize;
 	private final int anInt359;
 	private LDSprite aClass120_Sub14_Sub19_Sub2_361;
-	static ObjectCache recentUse;
+	static ObjectCache recentUse = new ObjectCache(4);
 
 	final void drawLD(final int i, final int x, final int y, final int width, final int height, final int pitch, int yaw, final int screenColor) {
 		method335(height);
@@ -149,11 +149,11 @@ final class Skybox {
 		}
 	}
 
-	static final Skybox list(final int skyboxId, final int i, final int i_5_, final int i_7_) {
-		final long l = 0xffffL & skyboxId | (0xffffL & i) << 48 | (0xffffL & i_5_) << 32 | (i_7_ & 0xffffL) << 16;
-		Skybox class41_8_ = (Skybox) recentUse.get(l);
-		if (class41_8_ != null) {
-			return class41_8_;
+	static final Skybox list(final int skyboxId, final int xOff, final int yOff, final int zOff) {
+		final long l = 0xffffL & skyboxId | (0xffffL & xOff) << 48 | (0xffffL & yOff) << 32 | (zOff & 0xffffL) << 16;
+		Skybox skybox = (Skybox) recentUse.get(l);
+		if (skybox != null) {
+			return skybox;
 		}
 		Sphere[] spheres = null;
 		final SkyboxType skyboxType = SkyboxType.list(skyboxId);
@@ -166,8 +166,8 @@ final class Skybox {
 		}
 		spheres = new Sphere[1];
 		spheres[0] = new Sphere(1, 28, 10, 200, 256, 300, 0xffff, false);
-		class41_8_ = new Skybox(skyboxType.textureId, spheres, skyboxType.anInt1380, i, i_5_, i_7_);
-		recentUse.put(class41_8_, l);
-		return class41_8_;
+		skybox = new Skybox(skyboxType.textureId, spheres, skyboxType.anInt1380, xOff, yOff, zOff);
+		recentUse.put(skybox, l);
+		return skybox;
 	}
 }

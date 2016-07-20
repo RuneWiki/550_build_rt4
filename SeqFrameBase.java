@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class LabelGroup extends Node {
+final class SeqFrameBase extends Node {
 	int[] types;
 	static SignlinkNode hostNameNode;
 	int length;
@@ -10,7 +10,7 @@ final class LabelGroup extends Node {
 	boolean[] aBooleanArray2407;
 	int id;
 	static int[] anIntArray2409 = new int[5];
-	int[][] labels;
+	int[][] bases;
 	static GroundTile[][][] activeGroundTiles;
 	static int[] anIntArray2412;
 	static int screenRedrawPos;
@@ -53,14 +53,14 @@ final class LabelGroup extends Node {
 		return sprites;
 	}
 
-	LabelGroup(final int i, final byte[] data) {
+	SeqFrameBase(final int i, final byte[] data) {
 		this.id = i;
 		final Buffer buffer = new Buffer(data);
 		this.length = buffer.getUByte();
 		this.types = new int[this.length];
 		this.anIntArray2405 = new int[this.length];
 		this.aBooleanArray2407 = new boolean[this.length];
-		this.labels = new int[this.length][];
+		this.bases = new int[this.length][];
 		for (int i_13_ = 0; i_13_ < this.length; i_13_++) {
 			this.types[i_13_] = buffer.getUByte();
 		}
@@ -71,11 +71,11 @@ final class LabelGroup extends Node {
 			this.anIntArray2405[i_15_] = buffer.getUShort();
 		}
 		for (int i_16_ = 0; i_16_ < this.length; i_16_++) {
-			this.labels[i_16_] = new int[buffer.getUByte()];
+			this.bases[i_16_] = new int[buffer.getUByte()];
 		}
 		for (int i_17_ = 0; i_17_ < this.length; i_17_++) {
-			for (int i_18_ = 0; i_18_ < this.labels[i_17_].length; i_18_++) {
-				this.labels[i_17_][i_18_] = buffer.getUByte();
+			for (int i_18_ = 0; i_18_ < this.bases[i_17_].length; i_18_++) {
+				this.bases[i_17_][i_18_] = buffer.getUByte();
 			}
 		}
 	}

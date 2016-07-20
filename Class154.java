@@ -48,10 +48,6 @@ final class Class154 {
 	}
 
 	static final void method2079(int x, int y, int width, int height, final boolean bool) {
-		int oldX = x;
-		int oldY = y;
-		int oldWidth = width;
-		int oldHeight = height;
 		if (width < 1) {
 			width = 1;
 		}
@@ -65,8 +61,7 @@ final class Class154 {
 			} else if (heightDelta > 100) {
 				heightDelta = 100;
 			}
-			Class120_Sub14_Sub13.aShort3570 = 205;
-			int i_7_ = ModelParticleMagnet.aShort1651 + (Class120_Sub14_Sub13.aShort3570 - ModelParticleMagnet.aShort1651) * heightDelta / 100;
+			int i_7_ = client.minFov + (client.maxFov - client.minFov) * heightDelta / 100;
 			if (Class120_Sub12_Sub16.aShort3250 <= i_7_) {
 				if (i_7_ > FileSystemRequest.aShort3932) {
 					i_7_ = FileSystemRequest.aShort3932;
@@ -110,7 +105,7 @@ final class Class154 {
 		}
 		ObjectContainer.anInt2612 = x;
 		ReflectionCheckNode.anInt2751 = y;
-		Class120_Sub12_Sub27.anInt3339 = (short) width;
-		Light.anInt391 = (short) height;
+		Class120_Sub12_Sub27.effectiveWidth = (short) width;
+		Light.effectiveHeight = (short) height;
 	}
 }

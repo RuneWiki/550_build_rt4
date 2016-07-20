@@ -6,7 +6,7 @@ final class SkyboxType {
 	static int sleepModifier1 = 1;
 	static int anInt1379 = 1;
 	int anInt1380 = -1;
-	static int anInt1381;
+	static int renderZ;
 	static int renderYawWrapper;
 	int[] sphereIds;
 	int textureId = -1;

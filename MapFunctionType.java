@@ -11,7 +11,7 @@ final class MapFunctionType {
 	boolean aBoolean633;
 	int fontType;
 	private int anInt636 = -1;
-	static int anInt637;
+	static int renderYawCos;
 	int[] anIntArray638;
 	static int thirdPacketType = 0;
 	int fillRectARGB;
@@ -161,12 +161,12 @@ final class MapFunctionType {
 		if (varpId == -1) {
 			value = VarBit.getVarbitValue(varBitId);
 		} else {
-			value = Class2.permanentVariable[varpId];
+			value = Class2.playerVariables[varpId];
 		}
 		if (anInt643 <= value && anInt641 >= value) {
 			if (anInt636 != -1 || anInt631 != -1) {
 				if (anInt636 != -1) {
-					value = Class2.permanentVariable[anInt636];
+					value = Class2.playerVariables[anInt636];
 				} else {
 					value = VarBit.getVarbitValue(anInt631);
 				}

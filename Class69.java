@@ -6,7 +6,7 @@ class Class69 {
 	static int anInt614;
 	static boolean loadingScreenOpened = true;
 	static int rootInterfaceId;
-	static int mouseButtons = 0;
+	static int oneMouseButton = 0;
 	
 	static {
 		rootInterfaceId = -1;
@@ -52,7 +52,7 @@ class Class69 {
 					}
 					final HintIcon[] hintIcons = Class187.hintIcons;
 					for (final HintIcon hintIcon : hintIcons) {
-						if (hintIcon != null && hintIcon.targetType == 1 && hintIcon.targetIndex == Class120_Sub12_Sub36.npcIndices[id - FileSystemWorker.localPlayerCount] && Class101_Sub2.loopCycle % 20 < 10) {
+						if (hintIcon != null && hintIcon.targetType == 1 && hintIcon.targetIndex == Class120_Sub12_Sub36.npcIndices[id - FileSystemWorker.localPlayerCount] && Class101_Sub2.clientClock % 20 < 10) {
 							int y;
 							if (npcType.iconHeight == -1) {
 								y = gameEntity.getHeight() + 15;
@@ -107,7 +107,7 @@ class Class69 {
 						Class120_Sub12_Sub19.textOnScreenCount++;
 					}
 				}
-				if (Class101_Sub2.loopCycle < gameEntity.hpBarCycle) {
+				if (Class101_Sub2.clientClock < gameEntity.hpBarCycle) {
 					AbstractSprite redBar = SeqType.hitBarDefaultSprites[0];
 					AbstractSprite greenBar = SeqType.hitBarDefaultSprites[1];
 					int height;
@@ -153,8 +153,8 @@ class Class69 {
 						}
 					}
 				}
-				for (int i = 0; i < 4; i++) {
-					if (gameEntity.hitsCycle[i] > Class101_Sub2.loopCycle) {
+				for (int hitId = 0; hitId < 4; hitId++) {
+					if (gameEntity.hitsCycle[hitId] > Class101_Sub2.clientClock) {
 						int height;
 						if (gameEntity instanceof Npc) {
 							final Npc npc = (Npc) gameEntity;
@@ -169,19 +169,19 @@ class Class69 {
 						}
 						UnderlayType.worldToScreenEntity(gameEntity, interfaceWidth >> 1, height, interfaceHeight >> 1, i_2_, i_0_);
 						if (Class120_Sub12_Sub38.screenX > -1) {
-							if (i == 1) {
+							if (hitId == 1) {
 								Class120_Sub15.screenY -= 20;
 							}
-							if (i == 2) {
+							if (hitId == 2) {
 								Class120_Sub15.screenY -= 10;
 								Class120_Sub12_Sub38.screenX -= 15;
 							}
-							if (i == 3) {
+							if (hitId == 3) {
 								Class120_Sub12_Sub38.screenX += 15;
 								Class120_Sub15.screenY -= 10;
 							}
-							Class69_Sub2.hitMarkSprites[gameEntity.hitsType[i]].drawReg(interfaceX + Class120_Sub12_Sub38.screenX - 12, interfaceY + Class120_Sub15.screenY - 12);
-							ObjectCache.smallFont.method1478(Integer.toString(gameEntity.hitsValue[i]), interfaceX + Class120_Sub12_Sub38.screenX - 1, interfaceY + Class120_Sub15.screenY + 3, 16777215, 0);
+							Class69_Sub2.hitMarkSprites[gameEntity.hitsType[hitId]].drawReg(interfaceX + Class120_Sub12_Sub38.screenX - 12, interfaceY + Class120_Sub15.screenY - 12);
+							ObjectCache.smallFont.method1478(Integer.toString(gameEntity.hitsValue[hitId]), interfaceX + Class120_Sub12_Sub38.screenX - 1, interfaceY + Class120_Sub15.screenY + 3, 16777215, 0);
 						}
 					}
 				}
@@ -269,7 +269,7 @@ class Class69 {
 					Class120_Sub12_Sub22.boldFont.method1463(string, Class120_Sub12_Sub38.screenX + interfaceX, Class120_Sub15.screenY + interfaceY, i_28_, 0, InterfaceChangeNode.anInt3490);
 				}
 				if (AbstractGraphicsBuffer.anIntArray1156[id] == 3) {
-					Class120_Sub12_Sub22.boldFont.method1473(string, interfaceX - -Class120_Sub12_Sub38.screenX, Class120_Sub15.screenY + interfaceY, i_28_, 0, InterfaceChangeNode.anInt3490, 150 + -AbstractGraphicsBuffer.anIntArray1163[id]);
+					Class120_Sub12_Sub22.boldFont.method1473(string, interfaceX - -Class120_Sub12_Sub38.screenX, Class120_Sub15.screenY + interfaceY, i_28_, 0, InterfaceChangeNode.anInt3490, 150 - AbstractGraphicsBuffer.anIntArray1163[id]);
 				}
 				if (AbstractGraphicsBuffer.anIntArray1156[id] == 4) {
 					final int i_32_ = (-AbstractGraphicsBuffer.anIntArray1163[id] + 150) * (Class120_Sub12_Sub22.boldFont.method1459(string) - -100) / 150;

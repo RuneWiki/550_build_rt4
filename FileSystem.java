@@ -174,7 +174,7 @@ final class FileSystem {
 	static final void drawMenu() {
 		final int x = Huffman.menuDrawX;
 		final int y = Class120_Sub16.menuDrawY;
-		final int width = Class120_Sub24.menuWidth;
+		final int width = CustomLocation.menuWidth;
 		final int height = QuickChatMessageType.menuHeight;
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.fillRect(x, y, width, height, 6116423);
@@ -196,7 +196,7 @@ final class FileSystem {
 			}
 			Class120_Sub12_Sub22.boldFont.method1466(client.getMenuOptionText(optionId), x + 3, optionY, optionColor, 0);
 		}
-		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, Class120_Sub24.menuWidth, QuickChatMessageType.menuHeight);
+		Class54.redrawScreen(Huffman.menuDrawX, Class120_Sub16.menuDrawY, CustomLocation.menuWidth, QuickChatMessageType.menuHeight);
 	}
 
 	static final void checkPlayerLocation() {
@@ -218,41 +218,35 @@ final class FileSystem {
 		synchronized (dataFile) {
 			byte[] is;
 			try {
-				if ((i * 6 + 6) > indexFile.length()) {
+				if (indexFile.length() < (long) (i * 6 + 6)) {
 					return null;
 				}
 				indexFile.seek(i * 6);
 				indexFile.read(EmitterType.aByteArray761, 0, 6);
-				final int i_50_ = (EmitterType.aByteArray761[0] << 16 & 0xff0000) + (0xff00 & EmitterType.aByteArray761[1] << 8) - -(0xff & EmitterType.aByteArray761[2]);
-				int i_51_ = (EmitterType.aByteArray761[5] & 0xff) + ((EmitterType.aByteArray761[4] & 0xff) << 8) + (0xff0000 & EmitterType.aByteArray761[3] << 16);
+				final int i_50_ = ((EmitterType.aByteArray761[0] & 0xff) << 16) + ((EmitterType.aByteArray761[1] & 0xff) << 8) + (EmitterType.aByteArray761[2] & 0xff);
+				int i_51_ = (EmitterType.aByteArray761[5] & 0xff) + ((EmitterType.aByteArray761[4] & 0xff) << 8) + ((EmitterType.aByteArray761[3] & 0xff) << 16);
 				if (i_50_ < 0 || i_50_ > maxLength) {
-					final byte[] is_52_ = null;
-					final byte[] is_53_ = is_52_;
-					return is_53_;
+					return null;
 				}
-				if (i_51_ <= 0 || dataFile.length() / 520L < i_51_) {
-					final byte[] is_54_ = null;
-					final byte[] is_55_ = is_54_;
-					return is_55_;
+				if (i_51_ <= 0 || (long) i_51_ > dataFile.length() / 520L) {
+					return null;
 				}
 				final byte[] is_56_ = new byte[i_50_];
 				int i_57_ = 0;
 				int i_58_ = 0;
-				while (i_50_ > i_58_) {
+				while (i_58_ < i_50_) {
 					if (i_51_ == 0) {
-						final byte[] is_59_ = null;
-						final byte[] is_60_ = is_59_;
-						return is_60_;
+						return null;
 					}
-					dataFile.seek(520 * i_51_);
-					int i_61_ = -i_58_ + i_50_;
+					dataFile.seek(i_51_ * 520);
+					int i_61_ = i_50_ - i_58_;
 					if (i_61_ > 512) {
 						i_61_ = 512;
 					}
-					dataFile.read(EmitterType.aByteArray761, 0, i_61_ - -8);
+					dataFile.read(EmitterType.aByteArray761, 0, i_61_ + 8);
+					final int i_64_ = (EmitterType.aByteArray761[1] & 0xff) + (0xff00 & EmitterType.aByteArray761[0] << 8);
 					final int i_62_ = (0xff & EmitterType.aByteArray761[3]) + ((EmitterType.aByteArray761[2] & 0xff) << 8);
 					final int i_63_ = (0xff & EmitterType.aByteArray761[6]) + ((0xff & EmitterType.aByteArray761[5]) << 8) + (0xff0000 & EmitterType.aByteArray761[4] << 16);
-					final int i_64_ = (EmitterType.aByteArray761[1] & 0xff) + (0xff00 & EmitterType.aByteArray761[0] << 8);
 					final int i_65_ = 0xff & EmitterType.aByteArray761[7];
 					if (i != i_64_ || i_62_ != i_57_ || i_65_ != storeId) {
 						final byte[] is_66_ = null;

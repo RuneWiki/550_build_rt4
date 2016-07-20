@@ -45,19 +45,19 @@ class Class132_Sub2 extends Class132 {
 		ParticleEmitter.logoId = js5.getGroupId("logo");
 	}
 
-	static final void method1942(final PlainTile plainTile, final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_, final boolean bool) {
+	static final void method1942(final PlainTile plainTile, final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_, final int i_14_, final int i_15_, final boolean occluded) {
 		int i_17_;
-		int i_16_ = i_17_ = (i_14_ << 7) - DisplayModeInfo.anInt1713;
+		int i_16_ = i_17_ = (i_14_ << 7) - DisplayModeInfo.renderX;
 		int i_19_;
-		int i_18_ = i_19_ = (i_15_ << 7) - SkyboxType.anInt1381;
+		int i_18_ = i_19_ = (i_15_ << 7) - SkyboxType.renderZ;
 		int i_21_;
 		int i_20_ = i_21_ = i_16_ + 128;
 		int i_23_;
 		int i_22_ = i_23_ = i_18_ + 128;
-		int i_24_ = OverridedJInterface.activeTileHeightMap[i][i_14_][i_15_] - PlayerAppearance.anInt1367;
-		int i_25_ = OverridedJInterface.activeTileHeightMap[i][i_14_ + 1][i_15_] - PlayerAppearance.anInt1367;
-		int i_26_ = OverridedJInterface.activeTileHeightMap[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.anInt1367;
-		int i_27_ = OverridedJInterface.activeTileHeightMap[i][i_14_][i_15_ + 1] - PlayerAppearance.anInt1367;
+		int i_24_ = SubInterface.activeTileHeightMap[i][i_14_][i_15_] - PlayerAppearance.renderY;
+		int i_25_ = SubInterface.activeTileHeightMap[i][i_14_ + 1][i_15_] - PlayerAppearance.renderY;
+		int i_26_ = SubInterface.activeTileHeightMap[i][i_14_ + 1][i_15_ + 1] - PlayerAppearance.renderY;
+		int i_27_ = SubInterface.activeTileHeightMap[i][i_14_][i_15_ + 1] - PlayerAppearance.renderY;
 		int i_28_ = i_18_ * i_12_ + i_16_ * i_13_ >> 16;
 		i_18_ = i_18_ * i_13_ - i_16_ * i_12_ >> 16;
 		i_16_ = i_28_;
@@ -100,24 +100,24 @@ class Class132_Sub2 extends Class132 {
 								ObjectCache.clickedTileX = i_14_;
 								WaterfallShader.clickedTileZ = i_15_;
 							}
-							if (!HDToolkit.glEnabled && !bool) {
-								Rasterizer.aBoolean972 = false;
+							if (!HDToolkit.glEnabled && !occluded) {
+								Rasterizer.boundsLeft = false;
 								if (i_33_ < 0 || i_35_ < 0 || i_31_ < 0 || i_33_ > Rasterizer.endX || i_35_ > Rasterizer.endX || i_31_ > Rasterizer.endX) {
-									Rasterizer.aBoolean972 = true;
+									Rasterizer.boundsLeft = true;
 								}
-								if (plainTile.anInt1348 == -1) {
-									if (plainTile.anInt1351 != 12345678) {
-										Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347);
+								if (plainTile.textureId == -1) {
+									if (plainTile.anInt1350 != 12345678) {
+										Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1350, plainTile.anInt1353, plainTile.anInt1347);
 									}
 								} else if (Class120_Sub30_Sub1.manyGroundTextures) {
-									if (plainTile.aBoolean1352) {
-										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.anInt1348);
+									if (plainTile.flat) {
+										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1350, plainTile.anInt1353, plainTile.anInt1347, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.textureId);
 									} else {
-										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1351, plainTile.anInt1353, plainTile.anInt1347, i_21_, i_17_, i_20_, i_26_, i_27_, i_25_, i_22_, i_23_, i_19_, plainTile.anInt1348);
+										Rasterizer.method871(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, plainTile.anInt1350, plainTile.anInt1353, plainTile.anInt1347, i_21_, i_17_, i_20_, i_26_, i_27_, i_25_, i_22_, i_23_, i_19_, plainTile.textureId);
 									}
 								} else {
-									final int i_37_ = Rasterizer.anInterface5_973.getColorPaletteIndex(plainTile.anInt1348);
-									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, ParticleEmitter.method935(i_37_, plainTile.anInt1351), ParticleEmitter.method935(i_37_, plainTile.anInt1353), ParticleEmitter.method935(i_37_, plainTile.anInt1347));
+									final int i_37_ = Rasterizer.anInterface5_973.getColorPaletteIndex(plainTile.textureId);
+									Rasterizer.method856(i_34_, i_36_, i_32_, i_33_, i_35_, i_31_, ParticleEmitter.method935(i_37_, plainTile.anInt1350), ParticleEmitter.method935(i_37_, plainTile.anInt1353), ParticleEmitter.method935(i_37_, plainTile.anInt1347));
 								}
 							}
 						}
@@ -126,19 +126,19 @@ class Class132_Sub2 extends Class132 {
 								ObjectCache.clickedTileX = i_14_;
 								WaterfallShader.clickedTileZ = i_15_;
 							}
-							if (!HDToolkit.glEnabled && !bool) {
-								Rasterizer.aBoolean972 = false;
+							if (!HDToolkit.glEnabled && !occluded) {
+								Rasterizer.boundsLeft = false;
 								if (i_29_ < 0 || i_31_ < 0 || i_35_ < 0 || i_29_ > Rasterizer.endX || i_31_ > Rasterizer.endX || i_35_ > Rasterizer.endX) {
-									Rasterizer.aBoolean972 = true;
+									Rasterizer.boundsLeft = true;
 								}
-								if (plainTile.anInt1348 == -1) {
+								if (plainTile.textureId == -1) {
 									if (plainTile.anInt1349 != 12345678) {
 										Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353);
 									}
 								} else if (Class120_Sub30_Sub1.manyGroundTextures) {
-									Rasterizer.method871(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.anInt1348);
+									Rasterizer.method871(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, plainTile.anInt1349, plainTile.anInt1347, plainTile.anInt1353, i_16_, i_20_, i_17_, i_24_, i_25_, i_27_, i_18_, i_19_, i_23_, plainTile.textureId);
 								} else {
-									final int i_38_ = Rasterizer.anInterface5_973.getColorPaletteIndex(plainTile.anInt1348);
+									final int i_38_ = Rasterizer.anInterface5_973.getColorPaletteIndex(plainTile.textureId);
 									Rasterizer.method856(i_30_, i_32_, i_36_, i_29_, i_31_, i_35_, ParticleEmitter.method935(i_38_, plainTile.anInt1349), ParticleEmitter.method935(i_38_, plainTile.anInt1347), ParticleEmitter.method935(i_38_, plainTile.anInt1353));
 								}
 							}

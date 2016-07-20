@@ -23,15 +23,15 @@ final class Class178 {
 
 	static final void setRenderTiles(final boolean underWater) {
 		if (underWater) {
-			LabelGroup.activeGroundTiles = Class120_Sub12_Sub38.underWaterGroundTiles;
-			OverridedJInterface.activeTileHeightMap = Class24.underWaterTileHeightMap;
+			SeqFrameBase.activeGroundTiles = Class120_Sub12_Sub38.underWaterGroundTiles;
+			SubInterface.activeTileHeightMap = Class24.underWaterTileHeightMap;
 			Canvas_Sub1.activeHdTiles = IntegerNode.underWaterHdTiles;
 		} else {
-			LabelGroup.activeGroundTiles = Class86.surfaceGroundTiles;
-			OverridedJInterface.activeTileHeightMap = Class120_Sub12_Sub33.surfaceTileHeightMap;
+			SeqFrameBase.activeGroundTiles = Class86.surfaceGroundTiles;
+			SubInterface.activeTileHeightMap = Class120_Sub12_Sub33.surfaceTileHeightMap;
 			Canvas_Sub1.activeHdTiles = SceneGroundObject.surfaceHdTiles;
 		}
-		MapSceneType.activeGroundTileLength = LabelGroup.activeGroundTiles.length;
+		MapSceneType.activeGroundTileLength = SeqFrameBase.activeGroundTiles.length;
 	}
 
 }

@@ -27,18 +27,18 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 	}
 
 	static final void postVarpChange(final int varpId) {
-		Class90.redrawOldFormatOverridedInterfaces();
+		Class90.redrawOldFormatSubInterfaces();
 		ReflectionCheckNode.refreshLocationNpcAmbientSounds();
-		final int setting = Varp.list(varpId).setting;
-		if (setting != 0) {
-			final int value = Class2.permanentVariable[varpId];
-			if (setting == 5) {
-				Class69.mouseButtons = value;
+		final int clientCode = Varp.list(varpId).clientCode;
+		if (clientCode != 0) {
+			final int value = Class2.playerVariables[varpId];
+			if (clientCode == 5) {
+				Class69.oneMouseButton = value;
 			}
-			if (setting == 6) {
+			if (clientCode == 6) {
 				Player.chatEffectsEnabled = value;
 			}
-			if (setting == 9) {
+			if (clientCode == 9) {
 				JagexInterface.inserting = value;
 			}
 		}
@@ -55,43 +55,43 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 		for (int i_11_ = i_6_; i_7_ + i_6_ > i_11_; i_11_++) {
 			for (int i_12_ = i; i_12_ < i_5_ + i; i_12_++) {
 				if (i_12_ >= 0 && i_12_ < 104 && i_11_ >= 0 && i_11_ < 104) {
-					OverridedJInterface.activeTileHeightMap[i_4_][i_12_][i_11_] = i_4_ > 0 ? OverridedJInterface.activeTileHeightMap[i_4_ + -1][i_12_][i_11_] : 0;
+					SubInterface.activeTileHeightMap[i_4_][i_12_][i_11_] = i_4_ > 0 ? SubInterface.activeTileHeightMap[i_4_ + -1][i_12_][i_11_] : 0;
 				}
 			}
 		}
 		if (i > 0 && i < 104) {
 			for (int i_13_ = 1 + i_6_; i_13_ < i_6_ - -i_7_; i_13_++) {
 				if (i_13_ >= 0 && i_13_ < 104) {
-					OverridedJInterface.activeTileHeightMap[i_4_][i][i_13_] = OverridedJInterface.activeTileHeightMap[i_4_][-1 + i][i_13_];
+					SubInterface.activeTileHeightMap[i_4_][i][i_13_] = SubInterface.activeTileHeightMap[i_4_][-1 + i][i_13_];
 				}
 			}
 		}
 		if (i_6_ > 0 && i_6_ < 104) {
 			for (int i_14_ = i + 1; i - -i_5_ > i_14_; i_14_++) {
 				if (i_14_ >= 0 && i_14_ < 104) {
-					OverridedJInterface.activeTileHeightMap[i_4_][i_14_][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][i_14_][i_6_ - 1];
+					SubInterface.activeTileHeightMap[i_4_][i_14_][i_6_] = SubInterface.activeTileHeightMap[i_4_][i_14_][i_6_ - 1];
 				}
 			}
 		}
 		if (i >= 0 && i_6_ >= 0 && i < 104 && i_6_ < 104) {
 			if (i_4_ != 0) {
-				if (i <= 0 || OverridedJInterface.activeTileHeightMap[-1 + i_4_][-1 + i][i_6_] == OverridedJInterface.activeTileHeightMap[i_4_][i - 1][i_6_]) {
-					if (i_6_ > 0 && OverridedJInterface.activeTileHeightMap[i_4_ + -1][i][i_6_ + -1] != OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_ + -1]) {
-						OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_ - 1];
-					} else if (i > 0 && i_6_ > 0 && OverridedJInterface.activeTileHeightMap[-1 + i_4_][-1 + i][-1 + i_6_] != OverridedJInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ - 1]) {
-						OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ - 1];
+				if (i <= 0 || SubInterface.activeTileHeightMap[-1 + i_4_][-1 + i][i_6_] == SubInterface.activeTileHeightMap[i_4_][i - 1][i_6_]) {
+					if (i_6_ > 0 && SubInterface.activeTileHeightMap[i_4_ + -1][i][i_6_ + -1] != SubInterface.activeTileHeightMap[i_4_][i][i_6_ + -1]) {
+						SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][i][i_6_ - 1];
+					} else if (i > 0 && i_6_ > 0 && SubInterface.activeTileHeightMap[-1 + i_4_][-1 + i][-1 + i_6_] != SubInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ - 1]) {
+						SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ - 1];
 					}
 				} else {
-					OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][i + -1][i_6_];
+					SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][i + -1][i_6_];
 				}
-			} else if (i > 0 && OverridedJInterface.activeTileHeightMap[i_4_][i - 1][i_6_] != 0) {
-				OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][i - 1][i_6_];
-			} else if (i_6_ <= 0 || OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_ - 1] == 0) {
-				if (i > 0 && i_6_ > 0 && OverridedJInterface.activeTileHeightMap[i_4_][-1 + i][-1 + i_6_] != 0) {
-					OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ + -1];
+			} else if (i > 0 && SubInterface.activeTileHeightMap[i_4_][i - 1][i_6_] != 0) {
+				SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][i - 1][i_6_];
+			} else if (i_6_ <= 0 || SubInterface.activeTileHeightMap[i_4_][i][i_6_ - 1] == 0) {
+				if (i > 0 && i_6_ > 0 && SubInterface.activeTileHeightMap[i_4_][-1 + i][-1 + i_6_] != 0) {
+					SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][-1 + i][i_6_ + -1];
 				}
 			} else {
-				OverridedJInterface.activeTileHeightMap[i_4_][i][i_6_] = OverridedJInterface.activeTileHeightMap[i_4_][i][-1 + i_6_];
+				SubInterface.activeTileHeightMap[i_4_][i][i_6_] = SubInterface.activeTileHeightMap[i_4_][i][-1 + i_6_];
 			}
 		}
 	}
@@ -103,7 +103,7 @@ final class Class120_Sub14_Sub15 extends NodeSub {
 				len = maxLen;
 			}
 			final byte[] buf = new byte[len];
-			buffer.pos += client.huffman.method1886(0, buffer.pos, buffer.buf, buf, len);
+			buffer.pos += client.huffman.method1886(buf, 0, buffer.buf, buffer.pos, len);
 			return DisplayModeInfo.bufferToString(buf, 0, len);
 		} catch (final Exception exception) {
 			return "Cabbage";

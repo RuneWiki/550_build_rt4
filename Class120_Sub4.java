@@ -13,7 +13,7 @@ final class Class120_Sub4 extends Node {
 	private final int anInt2436;
 	private final int anInt2437;
 	int anInt2438;
-	static Deque aClass105_2439 = new Deque();
+	static Deque customLocations = new Deque();
 	private final int anInt2440;
 	static byte[][][] tileUnderlayIds;
 

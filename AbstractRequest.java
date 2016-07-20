@@ -75,7 +75,7 @@ abstract class AbstractRequest extends NodeSub {
 									i_27_ = i_2_ - (-8 + i_24_) + i_9_;
 								}
 								if (i_26_ >= 0 && i_26_ < 104 && i_27_ >= 0 && i_27_ < 104) {
-									OverridedJInterface.activeTileHeightMap[i_5_][i_26_][i_27_] = OverridedJInterface.activeTileHeightMap[i_5_][i_22_ + i_16_][i_23_ + i_18_];
+									SubInterface.activeTileHeightMap[i_5_][i_26_][i_27_] = SubInterface.activeTileHeightMap[i_5_][i_22_ + i_16_][i_23_ + i_18_];
 								}
 							}
 						} else {
@@ -216,7 +216,7 @@ abstract class AbstractRequest extends NodeSub {
 								i_50_ = light.z >> 7;
 								if (i_49_ >= 0 && i_50_ >= 0 && i_49_ < 104 && i_50_ < 104) {
 									light.lightOverBridge = (0x2 & Class114.tileSettings[1][i_49_][i_50_]) != 0;
-									light.y = -light.y + OverridedJInterface.activeTileHeightMap[light.level][i_49_][i_50_];
+									light.y = -light.y + SubInterface.activeTileHeightMap[light.level][i_49_][i_50_];
 									LightManager.addLight(light);
 								}
 							}
@@ -287,7 +287,7 @@ abstract class AbstractRequest extends NodeSub {
 			for (int i_71_ = 0; i_71_ < 13; i_71_++) {
 				for (int i_72_ = 0; i_72_ < 13; i_72_++) {
 					boolean bool_73_ = false;
-					final int i_74_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[i_70_][i_71_][i_72_];
+					final int i_74_ = Class120_Sub12_Sub36.dynamicMapData[i_70_][i_71_][i_72_];
 					if (i_74_ != -1) {
 						final int i_75_ = i_74_ >> 24 & 0x3;
 						if (!underwater || i_75_ == 0) {

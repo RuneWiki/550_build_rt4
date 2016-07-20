@@ -68,7 +68,7 @@ final class CanvasWrapper extends Canvas {
 		if (Class74.loginName.equals("") || SeqType.loginPassword.equals("")) {
 			Class48.returnCode = 3;
 		} else if (Class157.worldId != -1) {
-			LabelGroup.method1037();
+			SeqFrameBase.method1037();
 		} else {
 			Class79_Sub1.anInt2244 = 0;
 			FrameGroup.anInt3609 = 1;

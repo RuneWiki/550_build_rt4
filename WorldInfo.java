@@ -10,9 +10,8 @@ final class WorldInfo {
 	String region;
 
 	static final void method2065(final JagexInterface[] class189s, final boolean activateResizeListener, final int width, final int height, final int parent) {
-		for (final JagexInterface class1892 : class189s) {
-			final JagexInterface jagexInterface = class1892;
-			if (jagexInterface != null && jagexInterface.parent == parent) {
+		for (final JagexInterface jagexInterface : class189s) {
+			if (jagexInterface != null && jagexInterface.layer == parent) {
 				client.updateInterfaceSize(jagexInterface, width, height, activateResizeListener);
 				SceneGraphNode.updateInterfacePosition(jagexInterface, width, height);
 				if (jagexInterface.horizontalScrollPosition > jagexInterface.maxScrollVertical - jagexInterface.height) {

@@ -4,7 +4,7 @@
 import java.util.Random;
 
 final class Class120_Sub12_Sub27 extends Class120_Sub12 {
-	static int anInt3339 = 0;
+	static int effectiveWidth = 0;
 	private int anInt3340;
 	private int anInt3341;
 	private short[] aShortArray3343 = new short[512];

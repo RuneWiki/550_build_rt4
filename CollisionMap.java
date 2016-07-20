@@ -8,8 +8,8 @@ final class CollisionMap {
 	private final int xOffset;
 	private final int zOffset;
 	final int[][] collisionFlags;
-	static int anInt151;
-	static int[] anIntArray153 = { 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 };
+	static int currentFogOffset;
+	static int[] locTypeToClientType = { 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 };
 
 	private final void removeFlag(final int x, final int z, final int flag) {
 		this.collisionFlags[x][z] &= flag ^ 0xffffffff;

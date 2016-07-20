@@ -40,7 +40,7 @@ final class Class42 {
 						Class120_Sub12_Sub11.npcList[index] = new Npc();
 						final Npc npc = Class120_Sub12_Sub11.npcList[index];
 						Class120_Sub12_Sub36.npcIndices[Class148.localNpcCount++] = index;
-						npc.lastUpdateCycle = Class101_Sub2.loopCycle;
+						npc.lastUpdateCycle = Class101_Sub2.clientClock;
 						npc.setNpcType(npcType);
 						npc.setSize(npc.npcType.size);
 						npc.newFaceDegrees = npc.faceDegrees = Class15.anIntArray101[npc.npcType.spawnDirection];
@@ -48,7 +48,7 @@ final class Class42 {
 						if (npc.anInt3010 == 0) {
 							npc.faceDegrees = 0;
 						}
-						npc.entityRenderDataId = npc.npcType.renderDataId;
+						npc.basTypeId = npc.npcType.basTypeId;
 						npc.setPos(npcX, npcZ, npc.getSize(), true);
 					}
 				}

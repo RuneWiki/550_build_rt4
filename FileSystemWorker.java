@@ -51,7 +51,7 @@ final class FileSystemWorker implements Runnable {
 		return fsRequest;
 	}
 
-	static final int a(final byte[] buffer, final String string, final int len, final int bufferPos, final int off) {
+	static final int a(final String string, final int off, final int len, final byte[] buffer, final int bufferPos) {
 		final int i_6_ = len - off;
 		for (int i_7_ = 0; i_6_ > i_7_; i_7_++) {
 			final char c = string.charAt(off + i_7_);

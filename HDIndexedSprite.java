@@ -92,8 +92,8 @@ final class HDIndexedSprite extends AbstractIndexedSprite {
 	}
 
 	private final void method927(final byte[] indicators, final int[] palette) {
-		anInt2309 = Class120_Sub12_Sub17.getFarestBitValue(this.width);
-		anInt2310 = Class120_Sub12_Sub17.getFarestBitValue(this.height);
+		anInt2309 = Class120_Sub12_Sub17.farthestBitValue(this.width);
+		anInt2310 = Class120_Sub12_Sub17.farthestBitValue(this.height);
 		final byte[] is_5_ = new byte[anInt2309 * anInt2310 * 4];
 		int i = 0;
 		int i_6_ = 0;

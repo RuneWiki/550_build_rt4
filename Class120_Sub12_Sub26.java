@@ -13,7 +13,7 @@ final class Class120_Sub12_Sub26 extends Class120_Sub12 {
 	private int anInt3329;
 	private int anInt3330;
 	static int anInt3331;
-	static int anInt3332;
+	static int renderTileX;
 	static long[] mainLoopTimeCache;
 	private int anInt3334;
 	static int ignoreCount;

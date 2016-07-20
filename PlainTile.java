@@ -5,10 +5,10 @@
 final class PlainTile {
 	int minimapColor;
 	int anInt1347;
-	int anInt1348;
+	int textureId;
 	int anInt1349;
-	int anInt1351;
-	boolean aBoolean1352 = true;
+	int anInt1350;
+	boolean flat = true;
 	int anInt1353;
 	static boolean[] spriteHasAlpha;
 	static int selectedObjInterface;
@@ -42,10 +42,10 @@ final class PlainTile {
 	PlainTile(final int i, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int minimapColor, final boolean bool) {
 		this.anInt1353 = i_4_;
 		this.anInt1349 = i;
-		this.anInt1348 = i_5_;
+		this.textureId = i_5_;
 		this.minimapColor = minimapColor;
-		this.anInt1351 = i_3_;
-		this.aBoolean1352 = bool;
+		this.anInt1350 = i_3_;
+		this.flat = bool;
 		this.anInt1347 = i_2_;
 	}
 

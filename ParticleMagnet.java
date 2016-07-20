@@ -56,10 +56,10 @@ final class ParticleMagnet extends NodeSub {
 			groundDecoration.renderY = y;
 			groundDecoration.bitPackedUid = bitPackedUid;
 			groundDecoration.aBoolean314 = bool;
-			if (LabelGroup.activeGroundTiles[level][x][z] == null) {
-				LabelGroup.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
+			if (SeqFrameBase.activeGroundTiles[level][x][z] == null) {
+				SeqFrameBase.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
 			}
-			LabelGroup.activeGroundTiles[level][x][z].groundDecoration = groundDecoration;
+			SeqFrameBase.activeGroundTiles[level][x][z].groundDecoration = groundDecoration;
 		}
 	}
 

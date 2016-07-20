@@ -5,7 +5,6 @@
 abstract class SceneGraphNode {
 	static MapFunctionGroup mapFunctionGroup;
 	static Class188[] aClass188Array1782;
-	static int[] skillsLevel = new int[25];
 
 	public SceneGraphNode() {
 		/* empty */
@@ -13,7 +12,7 @@ abstract class SceneGraphNode {
 
 	abstract void render(int i, int i_0_, int i_1_, int i_2_, int i_3_, int i_4_, int i_5_, int i_6_, long l, int i_7_, ParticleEngine class108_sub2);
 
-	abstract void method2266(int i, int i_8_, int i_10_, int i_9_, int i_11_);
+	abstract void preRender(int rotation, int level, int renderX, int renderY, int renderZ);
 
 	void method2267(final SceneGraphNode class180_12_, final int xOff, final int yOff, final int zOff, final boolean bool) {
 		/* empty */
@@ -113,20 +112,20 @@ abstract class SceneGraphNode {
 		} else if (jagexInterface.dynamicXValue == 1) {
 			jagexInterface.x = jagexInterface.originalX + (screenWidth - jagexInterface.width) / 2;
 		} else if (jagexInterface.dynamicXValue == 2) {
-			jagexInterface.x = -jagexInterface.originalX + -jagexInterface.width + screenWidth;
+			jagexInterface.x = screenWidth - jagexInterface.width - jagexInterface.originalX;
 		} else if (jagexInterface.dynamicXValue == 3) {
 			jagexInterface.x = jagexInterface.originalX * screenWidth >> 14;
 		} else if (jagexInterface.dynamicXValue == 4) {
 			jagexInterface.x = (jagexInterface.originalX * screenWidth >> 14) + (screenWidth - jagexInterface.width) / 2;
 		} else {
-			jagexInterface.x = -(screenWidth * jagexInterface.originalX >> 14) + -jagexInterface.width + screenWidth;
+			jagexInterface.x = screenWidth - jagexInterface.width - (screenWidth * jagexInterface.originalX >> 14);
 		}
 		if (jagexInterface.dynamicYValue == 0) {
 			jagexInterface.y = jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 1) {
-			jagexInterface.y = jagexInterface.originalY + (-jagexInterface.height + screenHeight) / 2;
+			jagexInterface.y = jagexInterface.originalY + (screenHeight - jagexInterface.height) / 2;
 		} else if (jagexInterface.dynamicYValue == 2) {
-			jagexInterface.y = screenHeight + -jagexInterface.height - jagexInterface.originalY;
+			jagexInterface.y = screenHeight - jagexInterface.height - jagexInterface.originalY;
 		} else if (jagexInterface.dynamicYValue == 3) {
 			jagexInterface.y = screenHeight * jagexInterface.originalY >> 14;
 		} else if (jagexInterface.dynamicYValue == 4) {

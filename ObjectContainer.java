@@ -5,12 +5,12 @@
 final class ObjectContainer extends Node {
 	static int anInt2612 = 0;
 	static int anInt2615 = 0;
-	static int anInt2616;
+	static int renderPitchCos;
 	static int canvasRefreshCycle = 500;
 	int[] objectIds = { -1 };
 	int[] objectCounts = new int[1];
 	static Hashtable objectContainerCache = new Hashtable(32);
-	static EntityRenderData defaultEntityRenderData = new EntityRenderData();
+	static BasType defaultBasType = new BasType();
 	static int anInt2621;
 
 	public ObjectContainer() {

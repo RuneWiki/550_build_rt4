@@ -24,7 +24,7 @@ final class Light {
 	private int anInt388;
 	private int anInt389;
 	private int anInt390;
-	static int anInt391 = 0;
+	static int effectiveHeight = 0;
 	static int[] anIntArray392;
 	static int objSelected = 0;
 	float aFloat394;

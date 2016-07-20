@@ -3,18 +3,19 @@
  */
 
 final class ClientScript extends NodeSub {
-	int anInt3546;
-	int anInt3547;
+	int triggerType;
+	int stringArgumentCount;
 	int[] intValues;
 	static Deque[][][] groundObjects;
 	int[] opcodes;
 	String[] stringValues;
 	Hashtable[] aClass75Array3552;
-	int anInt3553;
-	String name;
-	int stringArgumentCount;
-	static int anInt3556 = 0;
 	int intArgumentCount;
+	String name;
+	int stringLocalVariableCount;
+	static int anInt3556 = 0;
+	int intLocalVariableCount;
+	static js5 scriptsJs5;
 	static NodeCache recentUse;
 	static int anInt3558 = 0;
 
@@ -43,7 +44,7 @@ final class ClientScript extends NodeSub {
 		if (clientScript != null) {
 			return clientScript;
 		}
-		final byte[] is = IsaacCipher.scriptsJs5.getFile(id, 0);
+		final byte[] is = scriptsJs5.getFile(id, 0);
 		if (is == null || is.length <= 1) {
 			return null;
 		}
@@ -57,19 +58,19 @@ final class ClientScript extends NodeSub {
 		final Buffer buffer = new Buffer(data);
 		buffer.pos = buffer.buf.length - 2;
 		final int i_23_ = buffer.getUShort();
-		final int i_24_ = -12 + buffer.buf.length + -2 - i_23_;
+		final int i_24_ = buffer.buf.length - 2 - i_23_ - 12;
 		buffer.pos = i_24_;
 		final int opcodeCount = buffer.getInt();
+		clientScript.intLocalVariableCount = buffer.getUShort();
+		clientScript.stringLocalVariableCount = buffer.getUShort();
 		clientScript.intArgumentCount = buffer.getUShort();
 		clientScript.stringArgumentCount = buffer.getUShort();
-		clientScript.anInt3553 = buffer.getUShort();
-		clientScript.anInt3547 = buffer.getUShort();
 		final int i_26_ = buffer.getUByte();
 		if (i_26_ > 0) {
 			clientScript.aClass75Array3552 = new Hashtable[i_26_];
 			for (int i_27_ = 0; i_26_ > i_27_; i_27_++) {
 				int i_28_ = buffer.getUShort();
-				final Hashtable hashtable = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(i_28_));
+				final Hashtable hashtable = new Hashtable(Class120_Sub12_Sub17.farthestBitValue(i_28_));
 				clientScript.aClass75Array3552[i_27_] = hashtable;
 				while (i_28_-- > 0) {
 					final int i_29_ = buffer.getInt();

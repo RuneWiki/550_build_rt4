@@ -39,7 +39,7 @@ final class LightRenderer {
 		aByteArray1264 = new byte[this.anInt1260];
 		aByteArray1265 = new byte[this.anInt1260];
 		aByteArray1274 = new byte[this.anInt1260];
-		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.getFarestBitValue(this.anInt1260));
+		aClass75_1273 = new Hashtable(Class120_Sub12_Sub17.farthestBitValue(this.anInt1260));
 	}
 
 	final void render() {

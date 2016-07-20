@@ -9,7 +9,7 @@ final class Class120_Sub11 extends Node {
 	static short[] aShortArray2556 = { 960, 957, -21568, -21571, 22464 };
 
 	static final long method1173(final int x, final int z, final int level) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (class120_sub18 == null) {
 			return 0L;
 		}
@@ -28,7 +28,7 @@ final class Class120_Sub11 extends Node {
 		}
 		for (AmbientSound ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getFront(); ambientSound != null; ambientSound = (AmbientSound) Class120_Sub12_Sub10.npcAmbientSounds.getNext()) {
 			int i_9_ = 1;
-			final EntityRenderData class29 = ambientSound.npc.getEntityRenderData();
+			final BasType class29 = ambientSound.npc.getBasType();
 			if (ambientSound.npc.idleAnimId == class29.idleAnimationId) {
 				i_9_ = 0;
 			} else if (ambientSound.npc.idleAnimId == class29.runAnimationId || ambientSound.npc.idleAnimId == class29.runAnimationId2 || ambientSound.npc.idleAnimId == class29.runAnimationId4 || ambientSound.npc.idleAnimId == class29.runAnimationId3) {
@@ -55,7 +55,7 @@ final class Class120_Sub11 extends Node {
 		}
 		for (AmbientSound ambientSound = (AmbientSound) Npc.playerAmbientSounds.getFirst(); ambientSound != null; ambientSound = (AmbientSound) Npc.playerAmbientSounds.getNext()) {
 			int i_11_ = 1;
-			final EntityRenderData class29 = ambientSound.player.getEntityRenderData();
+			final BasType class29 = ambientSound.player.getBasType();
 			if (class29.idleAnimationId != ambientSound.player.idleAnimId) {
 				if (class29.runAnimationId != ambientSound.player.idleAnimId && class29.runAnimationId2 != ambientSound.player.idleAnimId && ambientSound.player.idleAnimId != class29.runAnimationId4 && ambientSound.player.idleAnimId != class29.runAnimationId3) {
 					if (ambientSound.player.idleAnimId == class29.anInt212 || ambientSound.player.idleAnimId == class29.anInt192 || ambientSound.player.idleAnimId == class29.anInt219 || ambientSound.player.idleAnimId == class29.anInt210) {

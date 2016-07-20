@@ -22,7 +22,7 @@ final class LocType {
 	int anInt1831;
 	int ambientSoundHearDistance;
 	int ambientSoundId;
-	static int[] anIntArray1834 = new int[50];
+	static int[] soundEffectLoops = new int[50];
 	int anInt1835;
 	int animationId;
 	private short[] retextureOriginal;
@@ -46,7 +46,7 @@ final class LocType {
 	private int offsetY;
 	private int resizeX;
 	int anInt1857;
-	boolean aBoolean1858;
+	boolean castShadow;
 	private int offsetZ;
 	private short[] recolorOriginal;
 	static int modeWhat = 0;
@@ -54,7 +54,7 @@ final class LocType {
 	boolean hasAnimation;
 	boolean aBoolean1864;
 	private Hashtable params;
-	int anInt1866;
+	int occludeType;
 	private short aShort1867;
 	private boolean aBoolean1868;
 	int mapSceneRotationOff;
@@ -70,6 +70,7 @@ final class LocType {
 	int anInt1879;
 	boolean aBoolean1880;
 	int[] randomAnimationIds;
+	static int[] anIntArray493 = new int[] { 1, -1, -1, 1 };
 	static ObjectCache aClass21_1117 = new ObjectCache(50);
 	static ObjectCache aClass21_1618 = new ObjectCache(30);
 	static ObjectCache aClass21_2663 = new ObjectCache(500);
@@ -94,13 +95,13 @@ final class LocType {
 		return cached;
 	}
 
-	final Class88 method2453(final int i, final boolean bool, final int i_4_, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int i_8_, final int i_9_, final LDIndexedSprite class107_sub1) {
+	final Class88 method2453(final int i, final boolean bool, final int type, final int i_5_, final int[][] is, final int[][] is_6_, final boolean bool_7_, final int rotation, final int i_9_, final LDIndexedSprite class107_sub1) {
 		if (!HDToolkit.glEnabled) {
 			long l;
 			if (types == null) {
-				l = i_8_ + (this.myId << 10);
+				l = (this.myId << 10) + rotation;
 			} else {
-				l = (this.myId << 10) - (-(i_4_ << 3) - i_8_);
+				l = (this.myId << 10) + rotation + (type << 3);
 			}
 			boolean bool_11_;
 			if (!bool || !copyNormals) {
@@ -111,13 +112,13 @@ final class LocType {
 			}
 			SceneGraphNode sceneGraphNode = (SceneGraphNode) aClass21_1618.get(l);
 			if (sceneGraphNode == null) {
-				final Model class180_sub2 = method2455(i_8_, i_4_);
+				final Model class180_sub2 = method2455(rotation, type);
 				if (class180_sub2 == null) {
 					Class82.aClass88_783.aClass180_826 = null;
 					return Class82.aClass88_783;
 				}
 				class180_sub2.method2299();
-				if (i_4_ == 10 && i_8_ > 3) {
+				if (type == 10 && rotation > 3) {
 					class180_sub2.rotateY(256);
 				}
 				if (!bool_11_) {
@@ -145,9 +146,9 @@ final class LocType {
 		}
 		long l;
 		if (types != null) {
-			l = i_8_ + (this.myId << 10) + (i_4_ << 3);
+			l = rotation + (this.myId << 10) + (type << 3);
 		} else {
-			l = (this.myId << 10) + i_8_;
+			l = (this.myId << 10) + rotation;
 		}
 		Class88 class88_12_ = (Class88) aClass21_1618.get(l);
 		HDModelRenderer class180_sub7_sub2;
@@ -156,13 +157,13 @@ final class LocType {
 			class180_sub7_sub2 = (HDModelRenderer) class88_12_.aClass180_826;
 			class107_sub1_13_ = class88_12_.aClass107_Sub1_830;
 		} else {
-			class180_sub7_sub2 = method2459(i_4_, false, i_8_);
+			class180_sub7_sub2 = method2459(type, false, rotation);
 			if (class180_sub7_sub2 == null) {
 				Class82.aClass88_783.aClass180_826 = null;
 				Class82.aClass88_783.aClass107_Sub1_830 = null;
 				return Class82.aClass88_783;
 			}
-			if (i_4_ == 10 && i_8_ > 3) {
+			if (type == 10 && rotation > 3) {
 				class180_sub7_sub2.rotateY(256);
 			}
 			if (!bool_7_) {
@@ -198,14 +199,14 @@ final class LocType {
 		return integerNode.value;
 	}
 
-	private final Model method2455(int i, final int i_20_) {
+	private final Model method2455(int i, final int type) {
 		Model class180_sub2_21_ = null;
 		boolean bool = aBoolean1868;
-		if (i_20_ == 2 && i > 3) {
+		if (type == 2 && i > 3) {
 			bool = !bool;
 		}
 		if (types == null) {
-			if (i_20_ != 10) {
+			if (type != 10) {
 				return null;
 			}
 			if (modelIds == null) {
@@ -238,7 +239,7 @@ final class LocType {
 		} else {
 			int i_25_ = -1;
 			for (int i_26_ = 0; i_26_ < types.length; i_26_++) {
-				if (i_20_ == types[i_26_]) {
+				if (type == types[i_26_]) {
 					i_25_ = i_26_;
 					break;
 				}
@@ -275,19 +276,17 @@ final class LocType {
 			bool_29_ = true;
 		}
 		final Model class180_sub2_30_ = new Model(class180_sub2_21_, i == 0 && !bool_28_ && !bool_29_, recolorOriginal == null, retextureOriginal == null, true);
-		if (i_20_ == 4 && i > 3) {
+		if (type == 4 && i > 3) {
 			class180_sub2_30_.rotateY(256);
 			class180_sub2_30_.translate(45, 0, -45);
 		}
 		i &= 0x3;
 		if (i == 1) {
-			class180_sub2_30_.method2281();
-		} else if (i != 2) {
-			if (i == 3) {
-				class180_sub2_30_.method2286();
-			}
-		} else {
-			class180_sub2_30_.method2284();
+			class180_sub2_30_.rotate90();
+		} else if (i == 2) {
+			class180_sub2_30_.rotate180();
+		} else if (i == 3) {
+			class180_sub2_30_.rotate270();
 		}
 		if (recolorOriginal != null) {
 			for (int i_31_ = 0; i_31_ < recolorOriginal.length; i_31_++) {
@@ -317,7 +316,7 @@ final class LocType {
 		if (varbitId != -1) {
 			i_34_ = VarBit.getVarbitValue(varbitId);
 		} else if (varpId != -1) {
-			i_34_ = Class2.permanentVariable[varpId];
+			i_34_ = Class2.playerVariables[varpId];
 		}
 		if (i_34_ < 0 || this.transmogrificationIds.length + -1 <= i_34_ || this.transmogrificationIds[i_34_] == -1) {
 			final int i_35_ = this.transmogrificationIds[-1 + this.transmogrificationIds.length];
@@ -482,17 +481,17 @@ final class LocType {
 		return bool_56_;
 	}
 
-	final Class88 method2461(final int i, final int[][] is, final int i_58_, final int i_60_, final int i_61_, final boolean bool, final int i_62_, final int i_63_, final int i_64_, final int[][] is_65_, final SeqType seqType, final LDIndexedSprite class107_sub1, final int i_66_) {
+	final Class88 method2461(final int i, final int[][] is, final int i_58_, final int i_60_, final int i_61_, final boolean bool, final int rotation, final int type, final int i_64_, final int[][] is_65_, final SeqType seqType, final LDIndexedSprite class107_sub1, final int i_66_) {
 		if (HDToolkit.glEnabled) {
 			long l;
 			if (types == null) {
-				l = (this.myId << 10) + i_62_;
+				l = (this.myId << 10) + rotation;
 			} else {
-				l = i_62_ + (i_63_ << 3) + (this.myId << 10);
+				l = rotation + (type << 3) + (this.myId << 10);
 			}
 			HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) aClass21_1117.get(l);
 			if (class180_sub7_sub2 == null) {
-				class180_sub7_sub2 = method2459(i_63_, true, i_62_);
+				class180_sub7_sub2 = method2459(type, true, rotation);
 				if (class180_sub7_sub2 == null) {
 					return null;
 				}
@@ -503,10 +502,10 @@ final class LocType {
 			HDModelRenderer class180_sub7_sub2_67_ = class180_sub7_sub2;
 			boolean bool_68_ = false;
 			if (seqType != null) {
-				class180_sub7_sub2_67_ = (HDModelRenderer) seqType.method320(class180_sub7_sub2_67_, i_66_, i_58_, i_62_, i_64_);
+				class180_sub7_sub2_67_ = (HDModelRenderer) seqType.method320(class180_sub7_sub2_67_, i_66_, i_58_, rotation, i_64_);
 				bool_68_ = true;
 			}
-			if (i_63_ == 10 && i_62_ > 3) {
+			if (type == 10 && rotation > 3) {
 				if (!bool_68_) {
 					bool_68_ = true;
 					class180_sub7_sub2_67_ = (HDModelRenderer) class180_sub7_sub2_67_.method2378(true, true, true);
@@ -530,13 +529,13 @@ final class LocType {
 		}
 		long l;
 		if (types != null) {
-			l = i_62_ + (i_63_ << 3) + (this.myId << 10);
+			l = rotation + (type << 3) + (this.myId << 10);
 		} else {
-			l = (this.myId << 10) + i_62_;
+			l = (this.myId << 10) + rotation;
 		}
 		LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) aClass21_1117.get(l);
 		if (class180_sub7_sub1 == null) {
-			final Model class180_sub2 = method2455(i_62_, i_63_);
+			final Model class180_sub2 = method2455(rotation, type);
 			if (class180_sub2 == null) {
 				return null;
 			}
@@ -546,9 +545,9 @@ final class LocType {
 		boolean bool_69_ = false;
 		if (seqType != null) {
 			bool_69_ = true;
-			class180_sub7_sub1 = (LDModelRenderer) seqType.method327(i_66_, i_64_, i_58_, i_62_, class180_sub7_sub1);
+			class180_sub7_sub1 = (LDModelRenderer) seqType.method327(i_66_, i_64_, i_58_, rotation, class180_sub7_sub1);
 		}
-		if (i_63_ == 10 && i_62_ > 3) {
+		if (type == 10 && rotation > 3) {
 			if (!bool_69_) {
 				class180_sub7_sub1 = (LDModelRenderer) class180_sub7_sub1.method2378(true, true, true);
 				bool_69_ = true;
@@ -624,7 +623,7 @@ final class LocType {
 		} else if (code == 22) {
 			copyNormals = true;
 		} else if (code == 23) {
-			this.anInt1866 = 1;
+			this.occludeType = 1;
 		} else if (code == 24) {
 			this.animationId = buffer.getUShort();
 			if (this.animationId == 0xffff) {
@@ -636,8 +635,7 @@ final class LocType {
 			this.anInt1819 = buffer.getUByte();
 		} else if (code == 29) {
 			ambient = buffer.getByte();
-		}
-		if (code == 39) {
+		} else if (code == 39) {
 			contrast = 5 * buffer.getByte();
 		} else if (code >= 30 && code < 35) {
 			this.options[code - 30] = buffer.getJagexString();
@@ -669,7 +667,7 @@ final class LocType {
 		} else if (code == 62) {
 			aBoolean1868 = true;
 		} else if (code == 64) {
-			this.aBoolean1858 = false;
+			this.castShadow = false;
 		} else if (code == 65) {
 			resizeX = buffer.getUShort();
 		} else if (code == 66) {
@@ -764,7 +762,7 @@ final class LocType {
 		} else if (code == 102) {
 			this.mapSceneId = buffer.getUShort();
 		} else if (code == 103) {
-			this.anInt1866 = 0;
+			this.occludeType = 0;
 		} else if (code == 104) {
 			this.ambientSoundVolume = buffer.getUByte();
 		} else if (code == 105) {
@@ -789,7 +787,7 @@ final class LocType {
 		} else if (code == 249) {
 			final int i_81_ = buffer.getUByte();
 			if (params == null) {
-				final int i_82_ = Class120_Sub12_Sub17.getFarestBitValue(i_81_);
+				final int i_82_ = Class120_Sub12_Sub17.farthestBitValue(i_81_);
 				params = new Hashtable(i_82_);
 			}
 			for (int i_83_ = 0; i_83_ < i_81_; i_83_++) {
@@ -854,7 +852,7 @@ final class LocType {
 					return i_104_;
 				}
 				if (i_107_ == 1) {
-					i_108_ = SceneGraphNode.skillsLevel[is[i_103_++]];
+					i_108_ = client.skillsLevel[is[i_103_++]];
 				}
 				if (i_107_ == 15) {
 					i_106_ = 1;
@@ -866,10 +864,10 @@ final class LocType {
 					i_106_ = 3;
 				}
 				if (i_107_ == 2) {
-					i_108_ = Decimator.skillsBaseLevel[is[i_103_++]];
+					i_108_ = client.skillsBaseLevel[is[i_103_++]];
 				}
 				if (i_107_ == 3) {
-					i_108_ = Class120_Sub12_Sub38.skillsXp[is[i_103_++]];
+					i_108_ = client.skillsXp[is[i_103_++]];
 				}
 				if (i_107_ == 4) {
 					int i_109_ = is[i_103_++] << 16;
@@ -885,21 +883,21 @@ final class LocType {
 					}
 				}
 				if (i_107_ == 5) {
-					i_108_ = Class2.permanentVariable[is[i_103_++]];
+					i_108_ = Class2.playerVariables[is[i_103_++]];
 				}
 				if (i_107_ == 6) {
-					i_108_ = Class55.skillsXpForLevel[Decimator.skillsBaseLevel[is[i_103_++]] - 1];
+					i_108_ = SkillsConstants.skillsXpForLevel[client.skillsBaseLevel[is[i_103_++]] - 1];
 				}
 				if (i_107_ == 7) {
-					i_108_ = Class2.permanentVariable[is[i_103_++]] * 100 / 46875;
+					i_108_ = Class2.playerVariables[is[i_103_++]] * 100 / 46875;
 				}
 				if (i_107_ == 8) {
 					i_108_ = TileParticleQueue.selfPlayer.combatLevel;
 				}
 				if (i_107_ == 9) {
 					for (int i_113_ = 0; i_113_ < 25; i_113_++) {
-						if (Class173.aBooleanArray1723[i_113_]) {
-							i_108_ += Decimator.skillsBaseLevel[i_113_];
+						if (SkillsConstants.aBooleanArray1723[i_113_]) {
+							i_108_ += client.skillsBaseLevel[i_113_];
 						}
 					}
 				}
@@ -924,7 +922,7 @@ final class LocType {
 					i_108_ = LookupTable.weight;
 				}
 				if (i_107_ == 13) {
-					final int i_118_ = Class2.permanentVariable[is[i_103_++]];
+					final int i_118_ = Class2.playerVariables[is[i_103_++]];
 					final int i_119_ = is[i_103_++];
 					i_108_ = (1 << i_119_ & i_118_) == 0 ? 0 : 1;
 				}
@@ -1072,7 +1070,7 @@ final class LocType {
 		totalDelay = 0;
 		this.anInt1821 = 2;
 		varbitId = -1;
-		this.aBoolean1858 = true;
+		this.castShadow = true;
 		this.cursor2 = -1;
 		this.aBoolean1844 = true;
 		this.adjustMapSceneRotation = false;
@@ -1084,7 +1082,7 @@ final class LocType {
 		randomAnimationDelays = null;
 		this.aBoolean1822 = false;
 		this.animationId = -1;
-		this.anInt1866 = -1;
+		this.occludeType = -1;
 		this.ambientSoundId = -1;
 		this.ambientSoundVolume = 255;
 		this.flipMapSceneSprite = false;

@@ -7,7 +7,7 @@ abstract class Class167 {
 	int location;
 	static int selfPlayerIndex = -1;
 	int players;
-	static boolean aBoolean1619 = true;
+	static boolean isStereo = true;
 	static boolean clearDepthBuffer = false;
 
 	final boolean method2183() {

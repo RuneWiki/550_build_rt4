@@ -112,7 +112,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		class120_sub14_sub9_4_.method1494();
 		GraphicsHD.copyBounds(anIntArray3522);
 		GraphicsHD.clipRect();
-		Class12.method140(HDToolkit.method528());
+		Class12.bindFrameBuffer(HDToolkit.method528());
 		gl.glPushAttrib(2048);
 		HDToolkit.toggleFog(false);
 		HDToolkit.toggleLighting(false);
@@ -179,7 +179,7 @@ final class Class120_Sub14_Sub9 extends NodeSub {
 		gl.glEnable(3008);
 		gl.glEnable(3042);
 		gl.glPopAttrib();
-		Class12.method139();
+		Class12.bindPrevFrameBuffer();
 		gl.glActiveTexture(33985);
 		gl.glTexEnvi(8960, 34161, 8448);
 		gl.glTexEnvi(8960, 34162, 8448);

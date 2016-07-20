@@ -318,14 +318,14 @@ final class Sphere {
 		super.finalize();
 	}
 
-	final boolean method797(final int i, final int i_61_, final int i_62_, final int i_63_) {
+	final boolean method797(final int xOff, final int yOff, final int zOff, final int height) {
 		int i_64_;
 		int i_65_;
 		int i_66_;
 		if (!fixedSize) {
-			i_64_ = x - i;
-			i_65_ = y - i_61_;
-			i_66_ = z - i_62_;
+			i_64_ = x - xOff;
+			i_65_ = y - yOff;
+			i_66_ = z - zOff;
 			this.anInt930 = (int) Math.sqrt(i_64_ * i_64_ + i_65_ * i_65_ + i_66_ * i_66_);
 			if (this.anInt930 == 0) {
 				this.anInt930 = 1;
@@ -344,7 +344,7 @@ final class Sphere {
 			i_64_ = (i_64_ << 16) / i_67_;
 			i_65_ = (i_65_ << 16) / i_67_;
 			i_66_ = (i_66_ << 16) / i_67_;
-			anInt925 = size * i_63_ / (fixedSize ? 1024 : this.anInt930);
+			anInt925 = size * height / (fixedSize ? 1024 : this.anInt930);
 		} else {
 			anInt925 = 0;
 		}
@@ -779,7 +779,7 @@ final class Sphere {
 		}
 	}
 
-	static final void method334(final js5 js5) {
+	static final void setup(final js5 js5) {
 		aClass50_360 = js5;
 	}
 

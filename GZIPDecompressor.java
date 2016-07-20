@@ -25,13 +25,13 @@ final class GZIPDecompressor {
 	static final void processProjectiles() {
 		for (ProjectileNode projectileNode = (ProjectileNode) FileSystemRequest.projectileDeque.getFront(); projectileNode != null; projectileNode = (ProjectileNode) FileSystemRequest.projectileDeque.getNext()) {
 			final Projectile class180_sub4 = projectileNode.projectile;
-			if (class180_sub4.level != Class173.gameLevel || Class101_Sub2.loopCycle > class180_sub4.endCycle) {
+			if (class180_sub4.level != Class173.gameLevel || Class101_Sub2.clientClock > class180_sub4.endCycle) {
 				projectileNode.unlink();
-			} else if (class180_sub4.startCycle <= Class101_Sub2.loopCycle) {
+			} else if (class180_sub4.startCycle <= Class101_Sub2.clientClock) {
 				if (class180_sub4.lockonIndex > 0) {
 					final Npc npc = Class120_Sub12_Sub11.npcList[class180_sub4.lockonIndex - 1];
 					if (npc != null && npc.x >= 0 && npc.x < 13312 && npc.z >= 0 && npc.z < 13312) {
-						class180_sub4.method2319(npc.x, Class22.getTileHeight(npc.x, npc.z, class180_sub4.level) - class180_sub4.yOff, npc.z, Class101_Sub2.loopCycle);
+						class180_sub4.method2319(npc.x, Class22.getTileHeight(npc.x, npc.z, class180_sub4.level) - class180_sub4.yOff, npc.z, Class101_Sub2.clientClock);
 					}
 				}
 				if (class180_sub4.lockonIndex < 0) {
@@ -43,7 +43,7 @@ final class GZIPDecompressor {
 						player = Class118.playersList[i_3_];
 					}
 					if (player != null && player.x >= 0 && player.x < 13312 && player.z >= 0 && player.z < 13312) {
-						class180_sub4.method2319(player.x, Class22.getTileHeight(player.x, player.z, class180_sub4.level) - class180_sub4.yOff, player.z, Class101_Sub2.loopCycle);
+						class180_sub4.method2319(player.x, Class22.getTileHeight(player.x, player.z, class180_sub4.level) - class180_sub4.yOff, player.z, Class101_Sub2.clientClock);
 					}
 				}
 				class180_sub4.method2317(Class120_Sub12_Sub22.redrawRate);

@@ -191,22 +191,22 @@ final class LightManager {
 					int i_40_ = 0;
 					int i_41_ = (light.z >> 7) - light.anInt370;
 					int i_42_ = (light.z >> 7) + light.anInt370;
-					if (i_42_ >= Js5Worker.anInt396) {
-						i_42_ = Js5Worker.anInt396 - 1;
+					if (i_42_ >= Js5Worker.maxTileZ) {
+						i_42_ = Js5Worker.maxTileZ - 1;
 					}
-					if (i_41_ < Class31.anInt248) {
-						i_40_ += Class31.anInt248 - i_41_;
-						i_41_ = Class31.anInt248;
+					if (i_41_ < Class31.minTileZ) {
+						i_40_ += Class31.minTileZ - i_41_;
+						i_41_ = Class31.minTileZ;
 					}
 					while_96_: for (int i_43_ = i_41_; i_43_ <= i_42_; i_43_++) {
 						final int i_44_ = light.aShortArray372[i_40_++];
 						int i_45_ = (light.x >> 7) - light.anInt370 + (i_44_ >> 8);
 						int i_46_ = i_45_ + (i_44_ & 0xff) - 1;
-						if (i_45_ < GrandExchangeObject.anInt1493) {
-							i_45_ = GrandExchangeObject.anInt1493;
+						if (i_45_ < GrandExchangeObject.minTileX) {
+							i_45_ = GrandExchangeObject.minTileX;
 						}
-						if (i_46_ >= Class53.anInt487) {
-							i_46_ = Class53.anInt487 - 1;
+						if (i_46_ >= Class53.maxTileX) {
+							i_46_ = Class53.maxTileX - 1;
 						}
 						for (int i_47_ = i_45_; i_47_ <= i_46_; i_47_++) {
 							GroundTile class120_sub18 = null;

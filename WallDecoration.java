@@ -9,7 +9,7 @@ final class WallDecoration {
 	int renderX;
 	int renderY;
 	int anInt1895;
-	int anInt1896;
+	int rotation;
 	static volatile long currentClickTime = 0L;
 	SceneGraphNode aClass180_1898;
 	static boolean usingSpriteMenu;
@@ -35,7 +35,7 @@ final class WallDecoration {
 		Class120_Sub12_Sub36.method1389();
 		for (int id = 0; id < Class120_Sub12_Sub23.toRemoveEntitiesPos; id++) {
 			final int index = Class43.toRemoveEntityIndices[id];
-			if (Class101_Sub2.loopCycle != Class120_Sub12_Sub11.npcList[index].lastUpdateCycle) {
+			if (Class101_Sub2.clientClock != Class120_Sub12_Sub11.npcList[index].lastUpdateCycle) {
 				if (Class120_Sub12_Sub11.npcList[index].npcType.hasAmbientSound()) {
 					Class120_Sub16.removeAmbientSoundNpc(Class120_Sub12_Sub11.npcList[index]);
 				}
@@ -72,7 +72,7 @@ final class WallDecoration {
 			}
 			drawX += (interfaceWidth - width) / 2;
 			drawY += (interfaceHeight - height) / 2;
-			//if (Class116.aClass120_Sub14_Sub19_1114 == null || Class116.aClass120_Sub14_Sub19_1114.width != interfaceWidth || Class116.aClass120_Sub14_Sub19_1114.height != interfaceHeight) {
+			if (Class116.aClass120_Sub14_Sub19_1114 == null || Class116.aClass120_Sub14_Sub19_1114.width != interfaceWidth || Class116.aClass120_Sub14_Sub19_1114.height != interfaceHeight) {
 				final LDSprite ldSprite = new LDSprite(interfaceWidth, interfaceHeight);
 				GraphicsLD.init2dCanvas(ldSprite.pixels, interfaceWidth, interfaceHeight);
 				if (WorldMapHandler.aClass120_Sub14_Sub22_691.backgroundColor != -1) {
@@ -90,7 +90,7 @@ final class WallDecoration {
 				} else {
 					GraphicsLD.pixels = null;
 				}
-			//}
+			}
 			int pointerColor = 16711680;
 			Class116.aClass120_Sub14_Sub19_1114.method1591(drawX, drawY);
 			final int pointerX = drawX + ParamType.worldMapLookAtX * width / WorldMapHandler.mapSizeX;

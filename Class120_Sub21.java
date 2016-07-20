@@ -6,14 +6,8 @@ import java.io.IOException;
 final class Class120_Sub21 extends Node {
 	static int hintheadiconsId;
 	String aString2666;
-	static FrameGroup[] aClass120_Sub14_Sub18Array2667;
+	static FrameGroup[] aClass120_Sub14_Sub18Array2667 = new FrameGroup[14];
 	static Interface1 anInterface1_2668 = null;
-	static int skillTriggersPos;
-
-	static {
-		aClass120_Sub14_Sub18Array2667 = new FrameGroup[14];
-		skillTriggersPos = 0;
-	}
 
 	static final void method1695(final int i, final int i_0_, final int i_1_, final int i_2_) {
 		final InterfaceChangeNode class120_sub14_sub7 = InterfaceChangeNode.putInterfaceChange(4, i_1_);
@@ -35,8 +29,8 @@ final class Class120_Sub21 extends Node {
 	}
 
 	static final void method1700() {
-		if (Class120_Sub22.systemUpdateCycle > 1) {
-			Class120_Sub22.systemUpdateCycle--;
+		if (Class120_Sub22.rebootTimer > 1) {
+			Class120_Sub22.rebootTimer--;
 			Class120_Sub2.anInt2419 = GrandExchangeObject.anInt1494;
 		}
 		if (Class31.logoutCycle > 0) {
@@ -50,7 +44,7 @@ final class Class120_Sub21 extends Node {
 				/* empty */
 			}
 			if (Class109.gameState == 30) {
-				OverridedJInterface.processReflectionChecks(Class120_Sub12_Sub11.outputStream);
+				SubInterface.processReflectionChecks(Class120_Sub12_Sub11.outputStream);
 				synchronized (Class110.mouseRecorder.lock) {
 					if (Class127.recordMouseMovements) {
 						if (Class156.lastMouseClick != 0 || Class110.mouseRecorder.cacheIndex >= 40) {
@@ -179,10 +173,10 @@ final class Class120_Sub21 extends Node {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(248);
 					Class120_Sub12_Sub11.outputStream.putByte(0);
 				}
-				if (!MapFunctionNode.aBoolean3471) {
+				if (!MapFunctionNode.serverUpdatedPreferences) {
 					Class120_Sub12_Sub11.outputStream.putByteIsaac(120);
-					Class120_Sub12_Sub11.outputStream.putInt(Class120_Sub12_Sub18.method1288());
-					MapFunctionNode.aBoolean3471 = true;
+					Class120_Sub12_Sub11.outputStream.putInt(Class120_Sub12_Sub18.getGameSettingsBitpacked());
+					MapFunctionNode.serverUpdatedPreferences = true;
 				}
 				if (!Class188.aBoolean1925) {
 					Class120_Sub15.cameraYawWrapper /= 2.0F;
@@ -196,9 +190,9 @@ final class Class120_Sub21 extends Node {
 				}
 				Class120_Sub12_Sub35.method1385();
 				if (Class109.gameState == 30) {
-					Class120_Sub12.method1185();
+					Class120_Sub12.processCustomLocations();
 					Class120_Sub12_Sub21_Sub1.method1315();
-					Class120_Sub12_Sub21.method1306();
+					Class120_Sub12_Sub21.processSoundEffects();
 					Class88.timoutCycle++;
 					if (Class88.timoutCycle > 750) {
 						TileParticleQueue.dropClient();
@@ -206,9 +200,9 @@ final class Class120_Sub21 extends Node {
 						Class101_Sub3.method848();
 						Class3.method82();
 						ParticleMagnet.updateEntityOverheadText();
-						for (int i_18_ = Class31.method263(true); i_18_ != -1; i_18_ = Class31.method263(false)) {
-							Class120_Sub14_Sub15.postVarpChange(i_18_);
-							Class88.anIntArray833[Class120_Sub12_Sub3.method1207(VarBit.anInt165++, 31)] = i_18_;
+						for (int varpId = Varp.synchVarps(true); varpId != -1; varpId = Varp.synchVarps(false)) {
+							Class120_Sub14_Sub15.postVarpChange(varpId);
+							Class88.varpTriggers[Class120_Sub12_Sub3.method1207(VarBit.varpTriggersPos++, 31)] = varpId;
 						}
 						for (InterfaceChangeNode interfaceChangeNode = InterfaceChangeNode.poll(); interfaceChangeNode != null; interfaceChangeNode = InterfaceChangeNode.poll()) {
 							final int type = interfaceChangeNode.getType();
@@ -238,9 +232,9 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 5) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.disabledAnim != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3484 == -1) {
+								if (jagexInterface.disabledAnimId != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3484 == -1) {
 									jagexInterface.currentFrame = 0;
-									jagexInterface.disabledAnim = interfaceChangeNode.anInt3484;
+									jagexInterface.disabledAnimId = interfaceChangeNode.anInt3484;
 									jagexInterface.nextFrame = 1;
 									jagexInterface.frameDelay = 0;
 									InterfaceClickMask.redrawInterface(jagexInterface);
@@ -248,9 +242,9 @@ final class Class120_Sub21 extends Node {
 							} else if (type == 6) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
 								final int i_25_ = interfaceChangeNode.anInt3484;
-								final int i_26_ = 0x1f & i_25_ >> 5;
-								final int i_27_ = (0x7e28 & i_25_) >> 10;
-								final int i_28_ = 0x1f & i_25_;
+								final int i_26_ = i_25_ >> 5 & 0x1f;
+								final int i_27_ = i_25_ >> 10 & 0x1f;
+								final int i_28_ = i_25_ & 0x1f;
 								final int i_29_ = (i_28_ << 3) + (i_27_ << 19) + (i_26_ << 11);
 								if (jagexInterface.disabledColor != i_29_) {
 									jagexInterface.disabledColor = i_29_;
@@ -265,8 +259,8 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 8) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.rotateX != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.rotateY || interfaceChangeNode.anInt3486 != jagexInterface.zoom) {
-									jagexInterface.rotateY = interfaceChangeNode.anInt3492;
+								if (jagexInterface.angleX != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.angleY || interfaceChangeNode.anInt3486 != jagexInterface.zoom) {
+									jagexInterface.angleY = interfaceChangeNode.anInt3492;
 									jagexInterface.zoom = interfaceChangeNode.anInt3486;
 									if (jagexInterface.objId != -1) {
 										if (jagexInterface.anInt2069 > 0) {
@@ -275,7 +269,7 @@ final class Class120_Sub21 extends Node {
 											jagexInterface.zoom = jagexInterface.zoom * 32 / jagexInterface.originalWidth;
 										}
 									}
-									jagexInterface.rotateX = interfaceChangeNode.anInt3484;
+									jagexInterface.angleX = interfaceChangeNode.anInt3484;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
 							} else if (type == 9) {
@@ -287,10 +281,10 @@ final class Class120_Sub21 extends Node {
 								}
 							} else if (type == 10) {
 								final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
-								if (jagexInterface.xOffset2d != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.yOffset2d || jagexInterface.rotateZ != interfaceChangeNode.anInt3486) {
+								if (jagexInterface.xOffset2d != interfaceChangeNode.anInt3484 || interfaceChangeNode.anInt3492 != jagexInterface.yOffset2d || jagexInterface.angleZ != interfaceChangeNode.anInt3486) {
 									jagexInterface.yOffset2d = interfaceChangeNode.anInt3492;
 									jagexInterface.xOffset2d = interfaceChangeNode.anInt3484;
-									jagexInterface.rotateZ = interfaceChangeNode.anInt3486;
+									jagexInterface.angleZ = interfaceChangeNode.anInt3486;
 									InterfaceClickMask.redrawInterface(jagexInterface);
 								}
 							} else if (type == 11) {
@@ -353,7 +347,7 @@ final class Class120_Sub21 extends Node {
 										if (jagexInterface.objIds[ClanMember.mouseOverInventoryObjectIndex] <= 0) {
 											inserting = 0;
 										}
-										if (client.getClickMask(jagexInterface).method1691()) {//Replace
+										if (client.getClickMask(jagexInterface).draggingReplacesObject()) {//Replace
 											final int newIndex = ClanMember.mouseOverInventoryObjectIndex;
 											final int currentIndex = Class5.clickedInventoryIndex;
 											jagexInterface.objIds[newIndex] = jagexInterface.objIds[currentIndex];
@@ -381,7 +375,7 @@ final class Class120_Sub21 extends Node {
 										Class120_Sub12_Sub11.outputStream.putInt2(Projectile.clickedInventoryComponent.bitPacked);
 										Class120_Sub12_Sub11.outputStream.putLEShort(Class5.clickedInventoryIndex);
 									}
-								} else if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1) || WallDecoration.menuOptionCount <= 2) {
+								} else if (Class69.oneMouseButton != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount + -1) || WallDecoration.menuOptionCount <= 2) {
 									if (WallDecoration.menuOptionCount > 0) {
 										ChunkAtmosphere.method2508();
 									}
@@ -419,7 +413,7 @@ final class Class120_Sub21 extends Node {
 							}
 							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
 							if (listenerJagexInterface.componentIndex >= 0) {
-								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.layer);
 								if (parentInterface == null || parentInterface.components == null || parentInterface.components.length <= listenerJagexInterface.componentIndex || parentInterface.components[listenerJagexInterface.componentIndex] != listenerJagexInterface) {
 									continue;
 								}
@@ -433,7 +427,7 @@ final class Class120_Sub21 extends Node {
 							}
 							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
 							if (listenerJagexInterface.componentIndex >= 0) {
-								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.layer);
 								if (parentInterface == null || parentInterface.components == null || parentInterface.components.length <= listenerJagexInterface.componentIndex || listenerJagexInterface != parentInterface.components[listenerJagexInterface.componentIndex]) {
 									continue;
 								}
@@ -447,7 +441,7 @@ final class Class120_Sub21 extends Node {
 							}
 							final JagexInterface listenerJagexInterface = interfaceListener.jagexInterface;
 							if (listenerJagexInterface.componentIndex >= 0) {
-								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.parent);
+								final JagexInterface parentInterface = Class74.getJagexInterface(listenerJagexInterface.layer);
 								if (parentInterface == null || parentInterface.components == null || listenerJagexInterface.componentIndex >= parentInterface.components.length || parentInterface.components[listenerJagexInterface.componentIndex] != listenerJagexInterface) {
 									continue;
 								}
@@ -543,7 +537,7 @@ final class Class120_Sub21 extends Node {
 							ParticleNode.anInt1031--;
 						}
 						for (int id = 0; id < 5; id++) {
-							LabelGroup.anIntArray2412[id]++;
+							SeqFrameBase.anIntArray2412[id]++;
 						}
 						final int mouseIdle = WallLocation.getMouseIdleCycle();
 						final int keyboardIdle = Class69_Sub2_Sub1.getKeyboardIdleCycle();
@@ -564,9 +558,9 @@ final class Class120_Sub21 extends Node {
 						if (Class65.pingTimer > 50) {
 							Class120_Sub12_Sub11.outputStream.putByteIsaac(137);
 						}
-						if (Class30.packetCounterUpdated) {
-							GroundObjectNode.sendInterfaceCounter();
-							Class30.packetCounterUpdated = false;
+						if (Class30.transmitNewId) {
+							GroundObjectNode.transmitVerifyId();
+							Class30.transmitNewId = false;
 						}
 						try {
 							if (AbstractTimer.worldConnection != null && Class120_Sub12_Sub11.outputStream.pos > 0) {

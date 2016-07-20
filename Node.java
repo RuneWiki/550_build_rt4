@@ -12,12 +12,12 @@ class Node {
 	static Canvas canvas;
 	static int[] anIntArray1151 = { 1, 4 };
 
-	static final void deselectSpell() {
+	static final void targetLeave() {
 		if (Class88.spellSelected) {
 			final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
-			if (jagexInterface != null && jagexInterface.onSpellDeselectionListener != null) {
+			if (jagexInterface != null && jagexInterface.onTargetLeaveListener != null) {
 				final InterfaceListener class120_sub10 = new InterfaceListener();
-				class120_sub10.objectData = jagexInterface.onSpellDeselectionListener;
+				class120_sub10.objectData = jagexInterface.onTargetLeaveListener;
 				class120_sub10.jagexInterface = jagexInterface;
 				Class88.executeScript(class120_sub10);
 			}

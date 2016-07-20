@@ -21,9 +21,9 @@ final class GroundObjectNode extends NodeSub {
 			Class92.method768(i_3_, i_2_, i_1_, i_0_, i, i_4_, i_6_);
 	}
 
-	static final void sendInterfaceCounter() {
+	static final void transmitVerifyId() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(156);
-		Class120_Sub12_Sub11.outputStream.putShort(OverlayFrequencyNode.packetCounter);
+		Class120_Sub12_Sub11.outputStream.putShort(OverlayFrequencyNode.triggerId);
 	}
 
 	static {

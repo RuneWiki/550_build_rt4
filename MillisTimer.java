@@ -11,7 +11,7 @@ final class MillisTimer extends AbstractTimer {
 	private long aLong2265;
 
 	@Override
-	final long method739() {
+	final long getAverageExecuteTime() {
 		return aLong2265;
 	}
 

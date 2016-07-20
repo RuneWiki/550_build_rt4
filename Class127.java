@@ -5,7 +5,7 @@
 final class Class127 {
 	static boolean recordMouseMovements;
 	private Queue aClass177_1212;
-	static js5 aClass50_1213;
+	static js5 objectsJs5;
 	static short[] aShortArray1214 = new short[256];
 	static int anInt1215;
 	private NodeSub aClass120_Sub14_1216;
@@ -48,11 +48,11 @@ final class Class127 {
 	}
 
 	static final void method1891(final js5 js5, final int i, final int i_7_, final int i_8_, final boolean bool) {
-		SeqType.anInt349 = i_7_;
-		Js5Request.anInt3940 = i;
+		SeqType.activeMusicFileId = i_7_;
+		Js5Request.activeMusicVolume = i;
 		Class69.anInt614 = 10000;
-		QuickChatCategoryType.anInt3649 = i_8_;
-		MasterIndexInfo.aClass50_476 = js5;
+		QuickChatCategoryType.activeMusicGroupId = i_8_;
+		MasterIndexInfo.activeMusicJs5 = js5;
 		StringNode.aBoolean2734 = bool;
 		Class120_Sub12_Sub25.anInt3312 = 1;
 	}
@@ -81,7 +81,7 @@ final class Class127 {
 					if (level < 3 && (Class114.tileSettings[1][x][z] & 0x2) == 2) {
 						level++;
 					}
-					final int y = tileY - (OverridedJInterface.activeTileHeightMap[level][x][z] - 8 * (Class114.aByteArrayArrayArray1094[level][x][z] & 0xff));
+					final int y = tileY - (SubInterface.activeTileHeightMap[level][x][z] - 8 * (Class114.aByteArrayArrayArray1094[level][x][z] & 0xff));
 					if (highestY < y) {
 						highestY = y;
 					}
@@ -103,9 +103,9 @@ final class Class127 {
 	}
 
 	static final void setBridgeTile(final int x, final int z) {
-		final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[0][x][z];
+		final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[0][x][z];
 		for (int level = 0; level < 3; level++) {//Shift levels below
-			final GroundTile class120_sub18_20_ = LabelGroup.activeGroundTiles[level][x][z] = LabelGroup.activeGroundTiles[level + 1][x][z];
+			final GroundTile class120_sub18_20_ = SeqFrameBase.activeGroundTiles[level][x][z] = SeqFrameBase.activeGroundTiles[level + 1][x][z];
 			if (class120_sub18_20_ != null) {
 				class120_sub18_20_.anInt2636--;
 				for (int i_21_ = 0; i_21_ < class120_sub18_20_.anInt2638; i_21_++) {
@@ -116,11 +116,11 @@ final class Class127 {
 				}
 			}
 		}
-		if (LabelGroup.activeGroundTiles[0][x][z] == null) {
-			LabelGroup.activeGroundTiles[0][x][z] = new GroundTile(0, x, z);
+		if (SeqFrameBase.activeGroundTiles[0][x][z] == null) {
+			SeqFrameBase.activeGroundTiles[0][x][z] = new GroundTile(0, x, z);
 		}
-		LabelGroup.activeGroundTiles[0][x][z].bridgeTile = class120_sub18;
-		LabelGroup.activeGroundTiles[3][x][z] = null;
+		SeqFrameBase.activeGroundTiles[0][x][z].bridgeTile = class120_sub18;
+		SeqFrameBase.activeGroundTiles[3][x][z] = null;
 	}
 
 	final NodeSub method1895() {

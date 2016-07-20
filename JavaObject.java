@@ -64,23 +64,23 @@ final class JavaObject extends AbstractObject {
 				mouseY = Class120_Sub12_Sub35.anInt3413 - -Normal.aClass189_161.height + -Class120_Sub12_Sub4.draggedComponent.height;
 			}
 			final int i_5_ = mouseY - Class9.draggedComponentPosY;
-			int offset = Class120_Sub12_Sub4.draggedComponent.pixelsBeforeDrag;
-			if (SceneGroundObject.componentPressedCycles > Class120_Sub12_Sub4.draggedComponent.cyclesBeforeDrag && (i_4_ > offset || i_4_ < -offset || i_5_ > offset || i_5_ < -offset)) {
+			int offset = Class120_Sub12_Sub4.draggedComponent.deadDeadZone;
+			if (SceneGroundObject.componentPressedCycles > Class120_Sub12_Sub4.draggedComponent.dragDeadTime && (i_4_ > offset || i_4_ < -offset || i_5_ > offset || i_5_ < -offset)) {
 				Class120_Sub11.draggingComponent = true;
 			}
 			final int x = Normal.aClass189_161.verticalScrollPosition + mouseX - Class120_Sub12_Sub7.anInt3183;
 			final int y = Normal.aClass189_161.horizontalScrollPosition + mouseY - Class120_Sub12_Sub35.anInt3413;
-			if (Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener != null && Class120_Sub11.draggingComponent) {
+			if (Class120_Sub12_Sub4.draggedComponent.onDragListener != null && Class120_Sub11.draggingComponent) {
 				final InterfaceListener interfaceListener = new InterfaceListener();
 				interfaceListener.data2 = y;
 				interfaceListener.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
 				interfaceListener.data1 = x;
-				interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentDraggedListener;
+				interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onDragListener;
 				Class88.executeScript(interfaceListener);
 			}
 			if (InterfaceChangeNode.lastMousePress == 0) {
 				if (!Class120_Sub11.draggingComponent) {
-					if (Class69.mouseButtons != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1) || WallDecoration.menuOptionCount <= 2) {
+					if (Class69.oneMouseButton != 1 && !SpotAnimationNode.method1438(WallDecoration.menuOptionCount - 1) || WallDecoration.menuOptionCount <= 2) {
 						if (WallDecoration.menuOptionCount > 0) {
 							ChunkAtmosphere.method2508();
 						}
@@ -88,13 +88,13 @@ final class JavaObject extends AbstractObject {
 						Class120_Sub12_Sub28.openMenu();
 					}
 				} else {
-					if (Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener != null) {
+					if (Class120_Sub12_Sub4.draggedComponent.onDragCompleteListener != null) {
 						final InterfaceListener interfaceListener = new InterfaceListener();
 						interfaceListener.draggedOnComponent = LocType.draggedOnComponent;
 						interfaceListener.jagexInterface = Class120_Sub12_Sub4.draggedComponent;
 						interfaceListener.data1 = x;
 						interfaceListener.data2 = y;
-						interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onComponentSwapListener;
+						interfaceListener.objectData = Class120_Sub12_Sub4.draggedComponent.onDragCompleteListener;
 						Class88.executeScript(interfaceListener);
 					}
 					if (LocType.draggedOnComponent != null && client.method58(Class120_Sub12_Sub4.draggedComponent) != null) {

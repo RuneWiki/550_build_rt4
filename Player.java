@@ -70,7 +70,7 @@ final class Player extends GameEntity {
 			}
 			colors[id] = color;
 		}
-		this.entityRenderDataId = buffer.getUShort();
+		this.basTypeId = buffer.getUShort();
 		final long nameAsLong = buffer.getLong();
 		this.name = Class136.longToString(nameAsLong);
 		this.combatLevel = buffer.getUByte();
@@ -109,7 +109,7 @@ final class Player extends GameEntity {
 			this.appearance = new PlayerAppearance();
 		}
 		final int npcId = this.appearance.npcId;
-		this.appearance.init(newNpcId, is, this.entityRenderDataId, colors, gender == 1);
+		this.appearance.init(newNpcId, is, this.basTypeId, colors, gender == 1);
 		if (newNpcId != npcId) {
 			this.x = this.walkQueueX[0] * 128 + (64 * getSize());
 			this.z = this.walkQueueZ[0] * 128 + (64 * getSize());
@@ -128,48 +128,37 @@ final class Player extends GameEntity {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_19_, final int i_21_, final int i_20_, final int i_22_) {
+	final void preRender(final int rotation, final int i_19_, final int i_21_, final int i_20_, final int i_22_) {
 		if (!this.aBoolean3007) {
 			if (this.appearance == null) {
 				return;
 			}
 			final SeqType animSeqType = this.animId == -1 || this.animDelay != 0 ? null : SeqType.list(this.animId);
-			final SeqType idleSeqType = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().idleAnimationId || animSeqType == null) ? SeqType.list(this.idleAnimId) : null;
-			final AbstractModelRenderer class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeqType, this.animFrame, false, this.idleAnimFrameDelay, animSeqType, false, this.animCurrentFrameDelay);
+			final SeqType idleSeqType = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getBasType().idleAnimationId || animSeqType == null) ? SeqType.list(this.idleAnimId) : null;
+			final AbstractModelRenderer class180_sub7 = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeqType, this.animFrame, false, this.idleAnimFrameDelay, animSeqType, false, this.animFrameDelay);
 			if (class180_sub7 == null) {
 				return;
 			}
 			method2337(class180_sub7, null);
 		}
 		if (this.aClass108_Sub2_2988 != null) {
-			this.aClass108_Sub2_2988.method944(i, i_19_, i_21_, i_20_, i_22_);
+			this.aClass108_Sub2_2988.method944(rotation, i_19_, i_21_, i_20_, i_22_);
 		}
 	}
 
-	static final void method2340(final js5 js5, final LDFont class120_sub14_sub8_sub2, final boolean bool, final js5 class50_24_) {
-		Class111.aClass50_1064 = class50_24_;
-		Class120_Sub12_Sub23.aClass50_3305 = js5;
-		ObjType.objMemberClient = bool;
-		final int i_25_ = Class120_Sub12_Sub23.aClass50_3305.method421() - 1;
-		Node.objCount = Class120_Sub12_Sub23.aClass50_3305.getFileAmount(i_25_) + i_25_ * 256;
-		Class15.objSmallFont = class120_sub14_sub8_sub2;
-		Class120_Sub12_Sub29.membersObjInventoryOptions = new String[] { null, null, null, null, StringLibrary.drop };
-		Class120_Sub12_Sub32.membersObjOptions = new String[] { null, null, StringLibrary.take, null, null };
-	}
-
 	@Override
-	final int getEntityRenderDataId() {
-		return entityRenderDataId;
+	final int getBasTypeId() {
+		return basTypeId;
 	}
 
 	@Override
 	final void render(final int i, final int i_26_, final int i_27_, final int i_28_, final int i_29_, final int i_30_, final int i_31_, final int i_32_, final long l, final int i_33_, final ParticleEngine class108_sub2) {
 		if (this.appearance != null) {
 			final SeqType animSeq = this.animId != -1 && this.animDelay == 0 ? SeqType.list(this.animId) : null;
-			final EntityRenderData renderData = getEntityRenderData();
-			final boolean bool = renderData.anInt204 != 0 || renderData.anInt206 != 0 || renderData.anInt208 != 0 || renderData.anInt209 != 0;
-			final SeqType idleSeq = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getEntityRenderData().idleAnimationId || animSeq == null) ? SeqType.list(this.idleAnimId) : null;
-			AbstractModelRenderer playerModel = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeq, this.animFrame, bool, this.idleAnimFrameDelay, animSeq, true, this.animCurrentFrameDelay);
+			final BasType basType = getBasType();
+			final boolean bool = basType.anInt204 != 0 || basType.anInt206 != 0 || basType.anInt208 != 0 || basType.anInt209 != 0;
+			final SeqType idleSeq = this.idleAnimId != -1 && !this.playerLimitReached && (this.idleAnimId != getBasType().idleAnimationId || animSeq == null) ? SeqType.list(this.idleAnimId) : null;
+			AbstractModelRenderer playerModel = this.appearance.method2040(this.aClass150Array2972, this.idleAnimFrame, this.animNextFrame, this.idleAnimNextFrame, idleSeq, this.animFrame, bool, this.idleAnimFrameDelay, animSeq, true, this.animFrameDelay);
 			final int playerCount = Class48.getPlayersCacheSize();
 			if (HDToolkit.glEnabled && Class120_Sub14_Sub13.maxMemory < 96 && playerCount > 50) {
 				SpotAnimType.method880();
@@ -253,10 +242,10 @@ final class Player extends GameEntity {
 				}
 				AbstractModelRenderer locationModel = null;
 				if (!this.playerLimitReached && this.anObject3047 != null) {
-					if (this.anInt3012 <= Class101_Sub2.loopCycle) {
+					if (this.anInt3012 <= Class101_Sub2.clientClock) {
 						this.anObject3047 = null;
 					}
-					if (this.anInt3042 <= Class101_Sub2.loopCycle && Class101_Sub2.loopCycle < this.anInt3012) {
+					if (this.anInt3042 <= Class101_Sub2.clientClock && Class101_Sub2.clientClock < this.anInt3012) {
 						if (!(this.anObject3047 instanceof AnimatedLocation)) {
 							locationModel = (AbstractModelRenderer) this.anObject3047;
 						} else {

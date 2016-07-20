@@ -55,7 +55,7 @@ final class Class136 {
 		objectPile.secondItemModel = class180_6_;
 		objectPile.thirdItemModel = class180_7_;
 		int locHeight = 0;
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile != null) {
 			for (int i_9_ = 0; i_9_ < groundTile.anInt2638; i_9_++) {
 				final Class28 class28 = groundTile.aClass28Array2625[i_9_];
@@ -68,10 +68,10 @@ final class Class136 {
 			}
 		}
 		objectPile.yLocationModifier = -locHeight;
-		if (LabelGroup.activeGroundTiles[level][x][z] == null) {
-			LabelGroup.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
+		if (SeqFrameBase.activeGroundTiles[level][x][z] == null) {
+			SeqFrameBase.activeGroundTiles[level][x][z] = new GroundTile(level, x, z);
 		}
-		LabelGroup.activeGroundTiles[level][x][z].objectPile = objectPile;
+		SeqFrameBase.activeGroundTiles[level][x][z].objectPile = objectPile;
 	}
 
 }

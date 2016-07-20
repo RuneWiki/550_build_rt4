@@ -20,8 +20,8 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		super(1, false);
 	}
 
-	static final void method1211(final boolean bool, final int i_0_, final boolean bool_1_, final int i_2_) {
-		Js5Request.method1552(i_2_, i_0_, Class86.worlds.length - 1, 0, bool, bool_1_);
+	static final void sortWorldList(final boolean bool, final int i_0_, final boolean bool_1_, final int i_2_) {
+		Js5Request.quicksortWorlds(i_2_, i_0_, Class86.worlds.length - 1, 0, bool, bool_1_);
 	}
 
 	static final void method1213(final Npc npc, final int[] is, final int[] is_3_, final int[] is_4_) {
@@ -74,7 +74,7 @@ final class Class120_Sub12_Sub4 extends Class120_Sub12 {
 		}
 	}
 
-	static final int getDisplayMode() {
+	static final int determinateDisplayMode() {
 		if (QuickChatMessageType.fullscreenFrame != null) {
 			return 3;
 		}

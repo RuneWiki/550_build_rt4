@@ -228,7 +228,7 @@ class Class143 implements Interface3 {
 		}
 		for (int i_39_ = 0; i > i_39_; i_39_++) {
 			if (aClass114Array2186[i_39_] != null) {
-				aClass114Array2186[i_39_].aBoolean1108 = class120_sub7.getUByte() == 0;
+				aClass114Array2186[i_39_].valid = class120_sub7.getUByte() == 0;
 			}
 		}
 		for (int i_40_ = 0; i_40_ < i; i_40_++) {
@@ -263,7 +263,7 @@ class Class143 implements Interface3 {
 		}
 		for (int i_46_ = 0; i > i_46_; i_46_++) {
 			if (aClass114Array2186[i_46_] != null) {
-				aClass114Array2186[i_46_].aByte1104 = class120_sub7.getByte();
+				aClass114Array2186[i_46_].shaderParam = class120_sub7.getByte();
 			}
 		}
 		for (int i_47_ = 0; i_47_ < i; i_47_++) {

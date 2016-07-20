@@ -17,18 +17,18 @@ final class UnderlayType {
 					-12924, -12904 } };
 	int anInt1222;
 	static int renderPitch;
-	private int groundRgb = 0;
+	private int color = 0;
 	int textureSize;
 	int anInt1226;
 	int textureId;
-	static boolean aBoolean1228;
+	static boolean quickChatParam3;
 	int anInt1229;
 	static js5 configClient;
 	static ObjectCache recentUse = new ObjectCache(64);
 
 	static {
 		ClientScript.recentUse = new NodeCache(128);
-		aBoolean1228 = false;
+		quickChatParam3 = false;
 	}
 
 	static final byte[] method1899(final int i) {
@@ -53,7 +53,7 @@ final class UnderlayType {
 	}
 
 	static final void setupLoadingScreenRegion() {
-		Projectile.method2318(Class140.anInt1343);
+		Projectile.setBuildArea(Class140.buildArea);
 		final int baseX = (FileSystemWorker.renderX >> 10) + (GameEntity.currentBaseX >> 3);
 		final int baseZ = (GroundObjectNode.renderZ >> 10) + (LightType.currentBaseZ >> 3);
 		int fileAmount = 18;
@@ -66,7 +66,7 @@ final class UnderlayType {
 		Class111.underWaterMapFileIds = new int[fileAmount];
 		Class101_Sub1.underWaterLocationsMapFilesBuffer = new byte[fileAmount][];
 		Class120_Sub12_Sub36.regionBitPackeds = new int[fileAmount];
-		Class125.anIntArrayArray2150 = new int[fileAmount][4];
+		Class125.regionsXteaKeys = new int[fileAmount][4];
 		client.underWaterLocationsMapFileIds = new int[fileAmount];
 		Class134.locationMapFilesBuffer = new byte[fileAmount][];
 		fileAmount = 0;
@@ -95,7 +95,7 @@ final class UnderlayType {
 			Class111.underWaterMapFileIds[nextId] = -1;
 			client.underWaterLocationsMapFileIds[nextId] = -1;
 		}
-		Class2.method76(baseX, baseZ, 0, 8, 8, true, false);
+		Class2.updateRegion(baseX, baseZ, 0, 8, 8, true, false);
 	}
 
 	static final void method1901(final int i, final int i_16_, final int i_17_, final int i_18_, final int i_19_) {
@@ -136,11 +136,11 @@ final class UnderlayType {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			groundRgb = buffer.getMedium();
-			calculateHSL(groundRgb);
+			color = buffer.getMedium();
+			calculateHSL(color);
 		} else if (code == 2) {
 			this.textureId = buffer.getUShort();
-			if (this.textureId == 65535) {
+			if (this.textureId == 0xffff) {
 				this.textureId = -1;
 			}
 		} else if (code == 3) {
@@ -242,13 +242,13 @@ final class UnderlayType {
 		if (!HDToolkit.glEnabled) {
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
 			GraphicsLD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, i + 1, 302, 32, 0);
-			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
-			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + OverridedJInterface.loadingBarPercent * 3, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
+			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, SubInterface.loadingBarPercent * 3, 30, 9179409);
+			GraphicsLD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + SubInterface.loadingBarPercent * 3, i + 2, 300 - (SubInterface.loadingBarPercent * 3), 30, 0);
 		} else {
 			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 152, i, 304, 34, 9179409);
 			GraphicsHD.drawRect(Class69_Sub1.canvasWidth / 2 - 151, i + 1, 302, 32, 0);
-			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, OverridedJInterface.loadingBarPercent * 3, 30, 9179409);
-			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + OverridedJInterface.loadingBarPercent * 3, i + 2, 300 - (OverridedJInterface.loadingBarPercent * 3), 30, 0);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150, i + 2, SubInterface.loadingBarPercent * 3, 30, 9179409);
+			GraphicsHD.fillRect(Class69_Sub1.canvasWidth / 2 - 150 + SubInterface.loadingBarPercent * 3, i + 2, 300 - (SubInterface.loadingBarPercent * 3), 30, 0);
 		}
 		font.method1478(Class134.loadingText, Class69_Sub1.canvasWidth / 2, Class120_Sub12_Sub5.canvasHeight / 2 + 4, 16777215, -1);
 	}

@@ -7,7 +7,7 @@ final class Class125 implements Interface1 {
 	static Class57 aClass57_2147 = Class167.method2184();
 	static String[] aStringArray2148 = new String[5];
 	static float aFloat2149;
-	static int[][] anIntArrayArray2150;
+	static int[][] regionsXteaKeys;
 
 	static final AbstractSprite[] constructTransparentSprites(final js5 js5, final int group, final int file) {
 		if (!Class10.decodedSprites(js5, group, file)) {

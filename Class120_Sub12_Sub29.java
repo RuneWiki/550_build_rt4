@@ -9,7 +9,7 @@ final class Class120_Sub12_Sub29 extends Class120_Sub12 {
 	private int anInt3364;
 	private int anInt3365 = 2048;
 	static Class164 aClass164_3366;
-	static js5 aClass50_3367;
+	static js5 npcsJs5;
 	private int anInt3368;
 	static String[] menuOptionSuffix = new String[500];
 

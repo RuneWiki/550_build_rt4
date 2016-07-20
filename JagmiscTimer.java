@@ -12,7 +12,7 @@ final class JagmiscTimer extends AbstractTimer {
 	private final long[] aLongArray2259;
 
 	@Override
-	final long method739() {
+	final long getAverageExecuteTime() {
 		return aLong2254;
 	}
 

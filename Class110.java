@@ -21,11 +21,11 @@ final class Class110 {
 		Class120_Sub12_Sub25.clearLocCache();
 		NodeCache.clearNpcCache();
 		Class120_Sub12_Sub18.clearObjCache();
-		Class120_Sub12_Sub20.method1296();
+		Class120_Sub12_Sub20.clearSeqCache();
 		StringNode.method1720();
 		VarBit.recentUse.clear();
 		Varp.recentUse.clear();
-		EntityRenderData.recentUse.clear();
+		BasType.recentUse.clear();
 		MapSceneType.clear();
 		MapFunctionType.clear();
 		GroundDecoration.method309();
@@ -49,8 +49,8 @@ final class Class110 {
 			((Class143_Sub1) Rasterizer.anInterface5_973).method2025();
 		}
 		ClientScript.recentUse.clear();
-		AmbientSound.animsJs5.method419();
-		Class79_Sub1.animsBasesJs5.method419();
+		AmbientSound.framesJs5.method419();
+		Class79_Sub1.frameBasesJs5.method419();
 		Class33.interfaceJs5.method419();
 		Class159.aClass50_1490.method419();
 		Class65.mapsJs5.method419();
@@ -59,7 +59,7 @@ final class Class110 {
 		client.spritesJs5.method419();
 		ParticleNodeSub.binaryJs5.method419();
 		InterfaceListener.aClass50_2544.method419();
-		IsaacCipher.scriptsJs5.method419();
+		ClientScript.scriptsJs5.method419();
 		Class120_Sub12_Sub2.hitBarSpriteCache.clear();
 	}
 
@@ -71,7 +71,7 @@ final class Class110 {
 		final int loopEnd = (bool ? Class192.anInt2120 : MagnetType.anInt269) + loopStart;
 		for (int id = loopStart; id < loopEnd; id++) {
 			final QuickChatMessageType quickChatMessage = QuickChatMessageType.list(id);
-			if (quickChatMessage.searchable && quickChatMessage.method1510().toLowerCase().indexOf(string) != -1) {
+			if (quickChatMessage.searchable && quickChatMessage.getOptionBase().toLowerCase().indexOf(string) != -1) {
 				if (resultsPos >= 50) {
 					Buffer.searchResultCount = -1;
 					Class120_Sub12_Sub37.searchResults = null;
@@ -87,12 +87,12 @@ final class Class110 {
 				results[resultsPos++] = (short) id;
 			}
 		}
-		ParticleNode.anInt1035 = 0;
+		ParticleNode.searchResultsPos = 0;
 		Buffer.searchResultCount = resultsPos;
 		final String[] names = new String[Buffer.searchResultCount];
 		Class120_Sub12_Sub37.searchResults = results;
 		for (int id = 0; id < Buffer.searchResultCount; id++) {
-			names[id] = QuickChatMessageType.list(results[id]).method1510();
+			names[id] = QuickChatMessageType.list(results[id]).getOptionBase();
 		}
 		ArrayUtils.quicksort(names, Class120_Sub12_Sub37.searchResults);
 	}

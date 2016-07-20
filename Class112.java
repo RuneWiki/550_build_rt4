@@ -15,8 +15,8 @@ final class Class112 {
 	static int gameLoopCount;
 	static Frame frame;
 	static int anInt1077 = 0;
-	static byte kickRights;
-	static int anInt1080;
+	static byte kickRank;
+	static int renderTileZ;
 
 	static {
 		anIntArray1069 = new int[] { 0, 2, 2, 2, 1, 1, 2, 2, 1, 3, 1, 1 };
@@ -70,7 +70,7 @@ final class Class112 {
 			Class120_Sub2.method1050();
 			for (int x = 0; x < 13; x++) {
 				for (int z = 0; z < 13; z++) {
-					final int i_5_ = Class120_Sub12_Sub36.anIntArrayArrayArray3420[level][x][z];
+					final int i_5_ = Class120_Sub12_Sub36.dynamicMapData[level][x][z];
 					if (i_5_ != -1) {
 						final int i_6_ = (0x39ff11b & i_5_) >> 24;
 						if (!bool || i_6_ == 0) {
@@ -91,22 +91,22 @@ final class Class112 {
 		}
 	}
 
-	static final void method989(final int i, final int i_12_, final int i_14_) {
-		final ClientScript class120_sub14_sub12 = Class120_Sub12_Sub16.method1277(i, i_12_, i_14_);
-		if (class120_sub14_sub12 != null) {
-			TileParticleQueue.intArguments = new int[class120_sub14_sub12.intArgumentCount];
-			Class79_Sub1.stringArguments = new String[class120_sub14_sub12.stringArgumentCount];
-			if (class120_sub14_sub12.anInt3546 == 15 || class120_sub14_sub12.anInt3546 == 17 || class120_sub14_sub12.anInt3546 == 16) {
+	static final void method989(final int triggerType, final int i_12_, final int i_14_) {
+		final ClientScript clientScript = Class120_Sub12_Sub16.method1277(triggerType, i_12_, i_14_);
+		if (clientScript != null) {
+			TileParticleQueue.intLocalVariables = new int[clientScript.intLocalVariableCount];
+			Class79_Sub1.stringLocalVariables = new String[clientScript.stringLocalVariableCount];
+			if (clientScript.triggerType == 15 || clientScript.triggerType == 17 || clientScript.triggerType == 16) {
 				int x = 0;
 				int y = 0;
 				if (MapSceneType.worldMapInterface != null) {
 					x = MapSceneType.worldMapInterface.x;
 					y = MapSceneType.worldMapInterface.y;
 				}
-				TileParticleQueue.intArguments[0] = Queue.lastMouseX - x;
-				TileParticleQueue.intArguments[1] = ChunkAtmosphere.lastMouseY - y;
+				TileParticleQueue.intLocalVariables[0] = Queue.lastMouseX - x;
+				TileParticleQueue.intLocalVariables[1] = ChunkAtmosphere.lastMouseY - y;
 			}
-			World.executeScript(class120_sub14_sub12, 200000);
+			World.executeScript(clientScript, 200000);
 		}
 	}
 

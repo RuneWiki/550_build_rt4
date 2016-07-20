@@ -102,10 +102,10 @@ final class HDToolkit {
 			gl.glRotatef(yaw, 0.0F, 1.0F, 0.0F);
 		}
 		aBoolean528 = false;
-		IntegerNode.viewportLeft = left;
-		Class120_Sub12_Sub16.viewportRight = right;
-		Class190.viewportTop = top;
-		Class120_Sub30_Sub1.viewportBottom = bottom;
+		Rasterizer.viewportLeft = left;
+		Rasterizer.viewportRight = right;
+		Rasterizer.viewportTop = top;
+		Rasterizer.viewportBottom = bottom;
 	}
 
 	private static final void setViewport(int x, int y, int width, int height) {
@@ -585,7 +585,7 @@ final class HDToolkit {
 		if (rendererLowerCase.indexOf("radeon") != -1) {
 			int version = 0;
 			boolean xRenderer = false;
-			final String[] strings_51_ = EntityRenderData.splitString(rendererLowerCase.replace('/', ' '), ' ');
+			final String[] strings_51_ = BasType.splitString(rendererLowerCase.replace('/', ' '), ' ');
 			for (int i_54_ = 0; i_54_ < strings_51_.length; i_54_++) {
 				final String string_55_ = strings_51_[i_54_];
 				if (string_55_.length() >= 4) {
@@ -728,7 +728,7 @@ final class HDToolkit {
 		gl.glEnableClientState(32888);
 		gl.glMatrixMode(5888);
 		gl.glLoadIdentity();
-		AtmosphereManager.method1018();
+		AtmosphereManager.setup();
 		LightManager.method1865();
 	}
 

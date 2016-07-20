@@ -5,7 +5,7 @@ import java.util.Random;
 
 final class Class28 {
 	int anInt171;
-	int anInt172;
+	int rotation;
 	int anInt173;
 	SceneGraphNode sceneGraphNode;
 	int anInt175;
@@ -36,7 +36,7 @@ final class Class28 {
 	}
 
 	static final void method247() {
-		OverridedJInterface.reflectionCheckDeque = new Deque();
+		SubInterface.reflectionCheckDeque = new Deque();
 	}
 
 	public Class28() {

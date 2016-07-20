@@ -2,23 +2,23 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class120_Sub24 extends Node {
+final class CustomLocation extends Node {
 	static String[] aStringArray2716;
-	int anInt2717;
+	int rotation;
 	static int mapFunctionCount;
-	int anInt2719;
-	int anInt2720 = -1;
-	int anInt2721;
-	int anInt2722;
-	int anInt2723;
+	int id;
+	int cycle1 = -1;//TODO
+	int clientType;//0 wall, 1 wall decoration, 2 object, 3 ground decoration
+	int level;
+	int originalLocId;
 	static int menuWidth;
-	int anInt2725;
-	int anInt2727;
-	int anInt2728;
-	int anInt2729;
+	int z;
+	int type;
+	int originalLocType;
+	int originalLocRotation;
 	static int[] anIntArray2730;
-	int anInt2731;
-	int anInt2732 = 0;
+	int x;
+	int cycle2 = 0;//TODO
 
 	static {
 		mapFunctionCount = 0;

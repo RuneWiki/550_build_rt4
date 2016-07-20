@@ -21,7 +21,7 @@ final class QuickChatMessageType extends NodeSub {
 	static final void method1499(final Class28 class28) {
 		for (int i = class28.anInt180; i <= class28.anInt182; i++) {
 			for (int i_0_ = class28.anInt184; i_0_ <= class28.anInt175; i_0_++) {
-				final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[class28.anInt177][i][i_0_];
+				final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[class28.anInt177][i][i_0_];
 				if (class120_sub18 != null) {
 					for (int i_1_ = 0; i_1_ < class120_sub18.anInt2638; i_1_++) {
 						if (class120_sub18.aClass28Array2625[i_1_] == class28) {
@@ -69,7 +69,7 @@ final class QuickChatMessageType extends NodeSub {
 
 	private final void decode(final Buffer buffer, final int code) {
 		if (code == 1) {
-			text = EntityRenderData.splitString(buffer.getJagexString(), '<');
+			text = BasType.splitString(buffer.getJagexString(), '<');
 		} else if (code == 2) {
 			final int i_14_ = buffer.getUByte();
 			this.anIntArray3535 = new int[i_14_];
@@ -93,7 +93,7 @@ final class QuickChatMessageType extends NodeSub {
 		}
 	}
 
-	static final boolean method1504(final char c) {
+	static final boolean isValidCharacter(final char c) {
 		if (c >= ' ' && c <= '~') {
 			return true;
 		}
@@ -147,7 +147,7 @@ final class QuickChatMessageType extends NodeSub {
 		}
 	}
 
-	final String method1510() {
+	final String getOptionBase() {
 		final StringBuffer stringbuffer = new StringBuffer(80);
 		if (text == null) {
 			return "";

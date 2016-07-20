@@ -9,7 +9,7 @@ final class SphereType {
 	boolean fixedSize;
 	int z;
 	int glowColor = 16777215;
-	static js5 aClass50_1433;
+	static js5 quickChatJs5;
 	int type;//0 - flat texture, 1 - 3d 17 points polygon with texture, 2 - model
 	int size = 8;
 	static js5 aClass50_3373;
@@ -28,7 +28,7 @@ final class SphereType {
 	}
 
 	static final WallDecoration removeWallDecoration(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

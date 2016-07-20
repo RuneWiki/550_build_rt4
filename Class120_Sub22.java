@@ -7,7 +7,7 @@ final class Class120_Sub22 extends Node {
 	static int anInt2672 = -1;
 	Class120_Sub5_Sub1[] aClass120_Sub5_Sub1Array2673;
 	int anInt2674;
-	static int systemUpdateCycle = 0;
+	static int rebootTimer = 0;
 	Class157[] aClass157Array2676;
 	byte[] aByteArray2677;
 	private int[] anIntArray2678;
@@ -19,8 +19,8 @@ final class Class120_Sub22 extends Node {
 		if ((0x1 & mask) != 0) {
 			final int damage = Canvas_Sub1.inputStream.getUSmart();
 			final int type = Canvas_Sub1.inputStream.getUByte();
-			player.addHit(damage, type, Class101_Sub2.loopCycle);
-			player.hpBarCycle = Class101_Sub2.loopCycle + 300;
+			player.addHit(damage, type, Class101_Sub2.clientClock);
+			player.hpBarCycle = Class101_Sub2.clientClock + 300;
 			player.hpBarRatio = Canvas_Sub1.inputStream.getUByteC();
 		}
 		if ((0x2 & mask) != 0) {
@@ -74,16 +74,16 @@ final class Class120_Sub22 extends Node {
 			player.textCycle = 150;
 		}
 		if ((0x20 & mask) != 0) {
-			int i_12_ = Canvas_Sub1.inputStream.getUShortA();
+			int chatEffects = Canvas_Sub1.inputStream.getUShortA();
 			final int staffLevel = Canvas_Sub1.inputStream.getUByteA();
-			final boolean bool = (i_12_ & 0x8000) != 0;
-			final int i_14_ = Canvas_Sub1.inputStream.getUByteS();
-			final int i_15_ = Canvas_Sub1.inputStream.pos;
+			final boolean quickChat = (chatEffects & 0x8000) != 0;
+			final int size = Canvas_Sub1.inputStream.getUByteS();
+			final int startPos = Canvas_Sub1.inputStream.pos;
 			if (player.name != null && player.appearance != null) {
 				final long nameAsLong = Varp.stringToLong(player.name);
 				boolean ignored = false;
 				if (staffLevel <= 1) {
-					if (!bool && (VarBit.aBoolean167 && !UnderlayType.aBoolean1228 || SpotAnimationNode.aBoolean3464)) {
+					if (!quickChat && (VarBit.quickChatParam2 && !UnderlayType.quickChatParam3 || SpotAnimationNode.quickChatParam1)) {
 						ignored = true;
 					} else {
 						for (int id = 0; id < Class120_Sub12_Sub26.ignoreCount; id++) {
@@ -96,33 +96,33 @@ final class Class120_Sub22 extends Node {
 				}
 				if (!ignored && Class69_Sub3.isInTutIsland == 0) {
 					Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
-					int i_18_ = -1;
-					Canvas_Sub1.inputStream.getBufferReverse(Class120_Sub12_Sub19.aClass120_Sub7_3278.buf, 0, i_14_);
+					Canvas_Sub1.inputStream.getBufferReverse(Class120_Sub12_Sub19.aClass120_Sub7_3278.buf, 0, size);
 					Class120_Sub12_Sub19.aClass120_Sub7_3278.pos = 0;
 					String message;
-					if (bool) {
-						i_12_ &= 0x7fff;
+					int quickChatMessageId = -1;
+					if (quickChat) {
+						chatEffects &= 0x7fff;
 						final Class22 class22 = Class22.decode(Class120_Sub12_Sub19.aClass120_Sub7_3278);
-						i_18_ = class22.anInt129;
-						message = class22.aClass120_Sub14_Sub10_128.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
+						quickChatMessageId = class22.quickChatMessageId;
+						message = class22.quickChatMessageType.method1506(Class120_Sub12_Sub19.aClass120_Sub7_3278);
 					} else {
-						message = AbstractFont.method1472(method1705(client.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
+						message = AbstractFont.removeTags(method1705(client.decodeText(Class120_Sub12_Sub19.aClass120_Sub7_3278)));
 					}
-					i_12_ &= 0x7fff;
+					chatEffects &= 0x7fff;
 					player.textSpoken = message.trim();
-					player.textEffect = i_12_ & 0xff;
+					player.textEffect = chatEffects & 0xff;
 					player.textCycle = 150;
-					player.textColor = i_12_ >> 8;
+					player.textColor = chatEffects >> 8;
 					if (staffLevel == 2) {
-						Class120_Sub16.pushMessage(message, new StringBuilder("<img=1>").append(player.getTitledName()).toString(), null, bool ? 17 : 1, i_18_);
+						Class120_Sub16.pushMessage(message, "<img=1>" + player.getTitledName(), null, quickChat ? 17 : 1, quickChatMessageId);
 					} else if (staffLevel == 1) {
-						Class120_Sub16.pushMessage(message, new StringBuilder("<img=0>").append(player.getTitledName()).toString(), null, bool ? 17 : 1, i_18_);
+						Class120_Sub16.pushMessage(message, "<img=0>" + player.getTitledName(), null, quickChat ? 17 : 1, quickChatMessageId);
 					} else {
-						Class120_Sub16.pushMessage(message, player.getTitledName(), null, bool ? 17 : 2, i_18_);
+						Class120_Sub16.pushMessage(message, player.getTitledName(), null, quickChat ? 17 : 2, quickChatMessageId);
 					}
 				}
 			}
-			Canvas_Sub1.inputStream.pos = i_15_ + i_14_;
+			Canvas_Sub1.inputStream.pos = startPos + size;
 		}
 		if ((0x100 & mask) != 0) {
 			int spotAnimId = Canvas_Sub1.inputStream.getULEShort();
@@ -139,12 +139,12 @@ final class Class120_Sub22 extends Node {
 				player.spotAnimHeight = bitPacked >> 16;
 				player.spotAnimFrameDelay = 0;
 				player.spotAnimFrame = 0;
-				player.spotAnimDelay = (bitPacked & 0xffff) + Class101_Sub2.loopCycle;
-				if (player.spotAnimDelay > Class101_Sub2.loopCycle) {
+				player.spotAnimDelay = (bitPacked & 0xffff) + Class101_Sub2.clientClock;
+				if (player.spotAnimDelay > Class101_Sub2.clientClock) {
 					player.spotAnimFrame = -1;
 				}
 				player.spotAnimId = spotAnimId;
-				if (player.spotAnimId != -1 && Class101_Sub2.loopCycle == player.spotAnimDelay) {
+				if (player.spotAnimId != -1 && Class101_Sub2.clientClock == player.spotAnimDelay) {
 					final int spotAnimAnimationId = SpotAnimType.list(player.spotAnimId).animationId;
 					if (spotAnimAnimationId != -1) {
 						final SeqType seqType = SeqType.list(spotAnimAnimationId);
@@ -166,8 +166,8 @@ final class Class120_Sub22 extends Node {
 			player.anInt3034 = Canvas_Sub1.inputStream.getUByte();
 			player.anInt3015 = Canvas_Sub1.inputStream.getUByteS();
 			player.anInt3026 = Canvas_Sub1.inputStream.getUByteA();
-			player.anInt3035 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.loopCycle;
-			player.anInt2961 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.loopCycle;
+			player.anInt3035 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.clientClock;
+			player.anInt2961 = Canvas_Sub1.inputStream.getULEShortA() + Class101_Sub2.clientClock;
 			player.anInt3008 = Canvas_Sub1.inputStream.getUByteC();
 			player.walkQueuePos = 1;
 			player.onAnimPlayWalkQueuePos = 0;
@@ -175,7 +175,7 @@ final class Class120_Sub22 extends Node {
 		if ((0x400 & mask) != 0) {
 			final int damage = Canvas_Sub1.inputStream.getUSmart();
 			final int type = Canvas_Sub1.inputStream.getUByte();
-			player.addHit(damage, type, Class101_Sub2.loopCycle);
+			player.addHit(damage, type, Class101_Sub2.clientClock);
 		}
 	}
 

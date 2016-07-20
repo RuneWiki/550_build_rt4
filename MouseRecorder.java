@@ -34,15 +34,15 @@ final class MouseRecorder implements Runnable {
 		}
 	}
 
-	static final void selectSpell(final int mask, final int param, final int cursor, final int componentIndex, final int targetCursor, final int bitPacked) {
+	static final void targetEnter(final int mask, final int param, final int cursor, final int componentIndex, final int targetCursor, final int bitPacked) {
 		final JagexInterface jagexInterface = JagexInterface.getComponent(bitPacked, componentIndex);
-		if (jagexInterface != null && jagexInterface.onSpellSelectionListener != null) {
+		if (jagexInterface != null && jagexInterface.onTargetEnterListener != null) {
 			final InterfaceListener class120_sub10 = new InterfaceListener();
-			class120_sub10.objectData = jagexInterface.onSpellSelectionListener;
+			class120_sub10.objectData = jagexInterface.onTargetEnterListener;
 			class120_sub10.jagexInterface = jagexInterface;
 			Class88.executeScript(class120_sub10);
 		}
-		Class88.spellSelected = true;
+		Class88.spellSelected = true;//TODO rename all to target.
 		Class192.selectedSpellCursor = cursor;
 		Identikit.selectedSpellParam = param;
 		JagexSocket.selectedSpellComponextIndex = componentIndex;

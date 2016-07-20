@@ -1,9 +1,3 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
-
-import javax.imageio.ImageIO;
-
 /* Class120_Sub12_Sub20 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -17,7 +11,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 	private int anInt3288 = 0;
 	private int[] anIntArray3289;
 
-	static final void method1296() {
+	static final void clearSeqCache() {
 		SeqType.recentUse.clear();
 		FrameGroup.recentUse.clear();
 	}
@@ -190,7 +184,7 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				Class178.js5Worker.sendDropConnection();
 			}
 			if (command.equalsIgnoreCase("::breakcon")) {
-				NpcType.gameSignlink.closeSocketIn(5000);
+				NpcType.gameSignlink.blockSocketCommands(5000);
 				AbstractTimer.worldConnection.replaceStreamsWithDummy();
 				Class178.js5Worker.replaceStreamsWithDummy();
 			}
@@ -202,16 +196,6 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 			}
 			if (command.equalsIgnoreCase("::fpson")) {
 				HintIcon.showFps = true;
-			}
-			if (command.equalsIgnoreCase("::test")) {
-				for(int i = 0; i < 10000; i++) {
-					NpcType npcType = NpcType.list(i);
-					if(npcType != null) {
-						if(npcType.hitBarSpriteId != -1) {
-							System.out.println(i);
-						}
-					}
-				}
 			}
 			if (command.equalsIgnoreCase("::fpsoff")) {
 				HintIcon.showFps = false;
@@ -229,14 +213,14 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				AbstractSprite.changeDisplayMode(3, 1024, 768, false);
 			}
 			if (command.startsWith("::setba")) {
-				Class140.anInt1343 = Class31.stringToBase10(command.substring(8));
+				Class140.buildArea = Class31.stringToBase10(command.substring(8));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
-				MapFunctionNode.aBoolean3471 = false;
+				MapFunctionNode.serverUpdatedPreferences = false;
 			}
 			if (command.startsWith("::setparticles")) {
 				ParticleEngine.setParticles(Class31.stringToBase10(command.substring(15)));
 				Class120_Sub6.savePreferences(NpcType.gameSignlink);
-				MapFunctionNode.aBoolean3471 = false;
+				MapFunctionNode.serverUpdatedPreferences = false;
 			}
 			if (command.startsWith("::fps ")) {
 				Class190.setFps(Class31.stringToBase10(command.substring(6)));
@@ -273,10 +257,10 @@ final class Class120_Sub12_Sub20 extends Class120_Sub12 {
 				}
 			}
 			if (command.equalsIgnoreCase("::getcgcoord")) {
-				AbstractRequest.pushMessage("x:" + (TileParticleQueue.selfPlayer.x >> 7) + " z:" + (TileParticleQueue.selfPlayer.z >> 7) + " groundh:" + OverridedJInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
+				AbstractRequest.pushMessage("x:" + (TileParticleQueue.selfPlayer.x >> 7) + " z:" + (TileParticleQueue.selfPlayer.z >> 7) + " groundh:" + SubInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
 			if (command.equalsIgnoreCase("::getheight")) {
-				AbstractRequest.pushMessage("Height: " + OverridedJInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
+				AbstractRequest.pushMessage("Height: " + SubInterface.activeTileHeightMap[Class173.gameLevel][TileParticleQueue.selfPlayer.x >> 7][TileParticleQueue.selfPlayer.z >> 7], null, 0);
 			}
 		}
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(216);

@@ -5,10 +5,10 @@
 final class GrandExchangeObject {
 	int amount;
 	static volatile int currentMouseX = -1;
-	static int anInt1493;
+	static int minTileX;
 	static int anInt1494;
 	static int[] screenRedrawXs = new int[100];
-	private byte progress;
+	private byte status;
 	int soldAmount;
 	int totalPrice;
 	int price;
@@ -21,12 +21,12 @@ final class GrandExchangeObject {
 		chatMessages = new String[100];
 	}
 
-	final int method2097() {
-		return (0x8 & progress) != 8 ? 0 : 1;
+	final int getOfferType() {//1 sell, 0 buy
+		return (status & 0x8) != 8 ? 0 : 1;
 	}
 
-	final int getProgress() {
-		return progress & 0x7;
+	final int getStatus() {
+		return status & 0x7;
 	}
 
 	public GrandExchangeObject() {
@@ -34,7 +34,7 @@ final class GrandExchangeObject {
 	}
 
 	GrandExchangeObject(final Buffer buffer) {
-		progress = buffer.getByte();
+		this.status = buffer.getByte();
 		this.id = buffer.getUShort();
 		this.price = buffer.getInt();
 		this.amount = buffer.getInt();

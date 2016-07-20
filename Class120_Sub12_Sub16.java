@@ -5,9 +5,8 @@
 final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 	static short aShort3250 = 1;
 	static int[] friendsWorld = new int[200];
-	static int viewportRight;
 	static char[] validCharacters = { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-	static int[] anIntArray3255 = new int[50];
+	static int[] soundEffectIds = new int[50];
 	private int anInt3256 = 585;
 
 	@Override
@@ -23,13 +22,13 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		byte[] is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
+		byte[] is = ClientScript.scriptsJs5.getFileSmart(ClientScript.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
-			class120_sub14_sub12_6_.anInt3546 = i;
+			class120_sub14_sub12_6_.triggerType = i;
 			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
@@ -38,13 +37,13 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
+		is = ClientScript.scriptsJs5.getFileSmart(ClientScript.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
-			class120_sub14_sub12_6_.anInt3546 = i;
+			class120_sub14_sub12_6_.triggerType = i;
 			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
@@ -53,35 +52,35 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (class120_sub14_sub12_6_ != null) {
 			return class120_sub14_sub12_6_;
 		}
-		is = IsaacCipher.scriptsJs5.getFileSmart(IsaacCipher.scriptsJs5.method437(i_5_));
+		is = ClientScript.scriptsJs5.getFileSmart(ClientScript.scriptsJs5.method437(i_5_));
 		if (is != null) {
 			if (is.length <= 1) {
 				return null;
 			}
 			class120_sub14_sub12_6_ = ClientScript.decode(is);
-			class120_sub14_sub12_6_.anInt3546 = i;
+			class120_sub14_sub12_6_.triggerType = i;
 			ClientScript.recentUse.put(class120_sub14_sub12_6_, (long) i_5_ << 16);
 			return class120_sub14_sub12_6_;
 		}
 		return null;
 	}
 
-	static final void method1278(final int i_7_, final int i_8_, final int i_9_, final int i_10_, final int i_11_) {
-		InterfaceListener.anInt2546 = i_10_;
-		client.anInt1154 = i_7_;
-		Class101_Sub1.anInt2272 = i_11_;
-		Class120_Sub12_Sub31.anInt3384 = i_8_;
-		Class109.anInt1042 = i_9_;
+	static final void method1278(final int x, final int y, final int z, final int speed, final int speed2) {
+		InterfaceListener.anInt2546 = z;
+		client.anInt1154 = y;
+		Class101_Sub1.anInt2272 = speed;
+		Class120_Sub12_Sub31.anInt3384 = speed2;
+		Class109.anInt1042 = x;
 		if (Class101_Sub1.anInt2272 >= 100) {
 			final int i_12_ = Class109.anInt1042 * 128 + 64;
-			final int i_13_ = 64 + 128 * InterfaceListener.anInt2546;
-			final int i_14_ = Class22.getTileHeight(i_12_, i_13_, Class173.gameLevel) + -client.anInt1154;
+			final int i_13_ = InterfaceListener.anInt2546 * 128 + 64;
+			final int i_14_ = Class22.getTileHeight(i_12_, i_13_, Class173.gameLevel) - client.anInt1154;
 			final int i_15_ = i_12_ - FileSystemWorker.renderX;
-			final int i_16_ = -Class120_Sub12_Sub10.renderY + i_14_;
-			final int i_17_ = i_13_ + -GroundObjectNode.renderZ;
+			final int i_16_ = i_14_ - Class120_Sub12_Sub10.renderY;
+			final int i_17_ = i_13_ - GroundObjectNode.renderZ;
 			final int i_18_ = (int) Math.sqrt(i_17_ * i_17_ + i_15_ * i_15_);
 			UnderlayType.renderPitch = (int) (Math.atan2(i_16_, i_18_) * 325.949) & 0x7ff;
-			SpotAnimation.renderYaw = 0x7ff & (int) (Math.atan2(i_15_, i_17_) * -325.949);
+			SpotAnimation.renderYaw = (int) (Math.atan2(i_15_, i_17_) * -325.949) & 0x7ff;
 			if (UnderlayType.renderPitch < 128) {
 				UnderlayType.renderPitch = 128;
 			}
@@ -136,18 +135,18 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		int i_29_ = Class134.anInt1280 * 128 + 64;
 		int i_30_ = Class22.getTileHeight(i_28_, i_29_, Class173.gameLevel) - SpotAnimType.anInt986;
 		if (ObjectContainer.anInt2621 >= 100) {
-			GroundObjectNode.renderZ = 64 + 128 * Class134.anInt1280;
 			FileSystemWorker.renderX = Class99.anInt951 * 128 + 64;
-			Class120_Sub12_Sub10.renderY = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel) + -SpotAnimType.anInt986;
+			GroundObjectNode.renderZ = Class134.anInt1280 * 128 + 64;
+			Class120_Sub12_Sub10.renderY = Class22.getTileHeight(FileSystemWorker.renderX, GroundObjectNode.renderZ, Class173.gameLevel) - SpotAnimType.anInt986;
 		} else {
 			if (GroundObjectNode.renderZ < i_29_) {
-				GroundObjectNode.renderZ += NpcType.anInt1660 - -((i_29_ + -GroundObjectNode.renderZ) * ObjectContainer.anInt2621 / 1000);
+				GroundObjectNode.renderZ += (i_29_ - GroundObjectNode.renderZ) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
 				if (GroundObjectNode.renderZ > i_29_) {
 					GroundObjectNode.renderZ = i_29_;
 				}
 			}
 			if (i_28_ > FileSystemWorker.renderX) {
-				FileSystemWorker.renderX += (i_28_ + -FileSystemWorker.renderX) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
+				FileSystemWorker.renderX += (i_28_ - FileSystemWorker.renderX) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
 				if (i_28_ < FileSystemWorker.renderX) {
 					FileSystemWorker.renderX = i_28_;
 				}
@@ -159,7 +158,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 				}
 			}
 			if (Class120_Sub12_Sub10.renderY < i_30_) {
-				Class120_Sub12_Sub10.renderY += (-Class120_Sub12_Sub10.renderY + i_30_) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
+				Class120_Sub12_Sub10.renderY += (i_30_ - Class120_Sub12_Sub10.renderY) * ObjectContainer.anInt2621 / 1000 + NpcType.anInt1660;
 				if (Class120_Sub12_Sub10.renderY > i_30_) {
 					Class120_Sub12_Sub10.renderY = i_30_;
 				}
@@ -191,20 +190,20 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 		if (i_35_ > 383) {
 			i_35_ = 383;
 		}
-		final int i_36_ = (int) (-325.949 * Math.atan2(i_33_, i_31_)) & 0x7ff;
+		final int i_36_ = (int) (Math.atan2(i_33_, i_31_) * -325.949) & 0x7ff;
 		if (i_35_ > UnderlayType.renderPitch) {
-			UnderlayType.renderPitch += (-UnderlayType.renderPitch + i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
+			UnderlayType.renderPitch += (i_35_ - UnderlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
 			if (UnderlayType.renderPitch > i_35_) {
 				UnderlayType.renderPitch = i_35_;
 			}
 		}
 		if (UnderlayType.renderPitch > i_35_) {
-			UnderlayType.renderPitch -= Class120_Sub12_Sub31.anInt3384 - -((-i_35_ + UnderlayType.renderPitch) * Class101_Sub1.anInt2272 / 1000);
+			UnderlayType.renderPitch -= (UnderlayType.renderPitch - i_35_) * Class101_Sub1.anInt2272 / 1000 + Class120_Sub12_Sub31.anInt3384;
 			if (UnderlayType.renderPitch < i_35_) {
 				UnderlayType.renderPitch = i_35_;
 			}
 		}
-		int i_37_ = -SpotAnimation.renderYaw + i_36_;
+		int i_37_ = i_36_ - SpotAnimation.renderYaw;
 		if (i_37_ > 1024) {
 			i_37_ -= 2048;
 		}
@@ -216,7 +215,7 @@ final class Class120_Sub12_Sub16 extends Class120_Sub12 {
 			SpotAnimation.renderYaw &= 0x7ff;
 		}
 		if (i_37_ < 0) {
-			SpotAnimation.renderYaw -= Class120_Sub12_Sub31.anInt3384 - -(Class101_Sub1.anInt2272 * -i_37_ / 1000);
+			SpotAnimation.renderYaw -= Class101_Sub1.anInt2272 * -i_37_ / 1000 + Class120_Sub12_Sub31.anInt3384;
 			SpotAnimation.renderYaw &= 0x7ff;
 		}
 		int i_38_ = -SpotAnimation.renderYaw + i_36_;

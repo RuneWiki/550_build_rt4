@@ -7,15 +7,15 @@ final class Class38 {
 	static boolean cursorsEnabled = true;
 
 	static final void handleMapFunctionAction(final int i_0_, final int i_1_, final int i_2_) {
-		if (i_1_ == 1012) {
+		if (i_1_ == 1012) {//opworldmapelement1
 			Class112.method989(10, i_0_, i_2_);
-		} else if (i_1_ == 1002) {
+		} else if (i_1_ == 1002) {//opworldmapelement2
 			Class112.method989(11, i_0_, i_2_);
-		} else if (i_1_ == 1008) {
+		} else if (i_1_ == 1008) {//opworldmapelement3
 			Class112.method989(12, i_0_, i_2_);
-		} else if (i_1_ == 1003) {
+		} else if (i_1_ == 1003) {//opworldmapelement4
 			Class112.method989(13, i_0_, i_2_);
-		} else if (i_1_ == 1011) {
+		} else if (i_1_ == 1011) {//opworldmapelement5
 			Class112.method989(14, i_0_, i_2_);
 		}
 	}
@@ -24,7 +24,7 @@ final class Class38 {
 		for (int level = 0; level < MapSceneType.activeGroundTileLength; level++) {
 			for (int x = 0; x < WallDecoration.mapSizeX; x++) {
 				for (int z = 0; z < Class120_Sub12_Sub38.mapSizeZ; z++) {
-					final GroundTile class120_sub18 = LabelGroup.activeGroundTiles[level][x][z];
+					final GroundTile class120_sub18 = SeqFrameBase.activeGroundTiles[level][x][z];
 					if (class120_sub18 != null) {
 						final WallLocation class182 = class120_sub18.wallLocation;
 						if (class182 != null && class182.aClass180_1800.method2268()) {
@@ -77,7 +77,7 @@ final class Class38 {
 					pixelPos += 4;
 				}
 			}
-			Class120_Sub24.mapFunctionCount = 0;
+			CustomLocation.mapFunctionCount = 0;
 			for (int x = 0; x < 104; x++) {
 				for (int z = 0; z < 104; z++) {
 					long bitPacked = Class79_Sub1.getGroundDecorationUid(x, z, level);
@@ -130,10 +130,10 @@ final class Class38 {
 										}
 									}
 								}
-								client.mapFunctionLocIds[Class120_Sub24.mapFunctionCount] = locType.myId;
-								MapFunctionType.mapFunctionXs[Class120_Sub24.mapFunctionCount] = x2;
-								Class69_Sub2.mapFunctionZs[Class120_Sub24.mapFunctionCount] = z2;
-								Class120_Sub24.mapFunctionCount++;
+								client.mapFunctionLocIds[CustomLocation.mapFunctionCount] = locType.myId;
+								MapFunctionType.mapFunctionXs[CustomLocation.mapFunctionCount] = x2;
+								Class69_Sub2.mapFunctionZs[CustomLocation.mapFunctionCount] = z2;
+								CustomLocation.mapFunctionCount++;
 							}
 						}
 					}
@@ -183,27 +183,27 @@ final class Class38 {
 		return true;
 	}
 
-	static final void method317(final int i, final int i_34_, final int i_35_, final int i_36_, final int i_37_, final int i_38_, final int i_40_, final int i_41_, final int i_42_) {
-		Class120_Sub24 class120_sub24 = null;
-		for (Class120_Sub24 class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getFront(); class120_sub24_43_ != null; class120_sub24_43_ = (Class120_Sub24) Class120_Sub4.aClass105_2439.getNext()) {
-			if (i_34_ == class120_sub24_43_.anInt2722 && i_36_ == class120_sub24_43_.anInt2731 && class120_sub24_43_.anInt2725 == i_38_ && i_41_ == class120_sub24_43_.anInt2721) {
-				class120_sub24 = class120_sub24_43_;
+	static final void spawnCustomLocation(final int id, final int level, final int rotation, final int x, final int playerCycle1, final int z, final int type, final int clientType, final int playerCycle2) {
+		CustomLocation customLocation = null;
+		for (CustomLocation customLocation_ = (CustomLocation) Class120_Sub4.customLocations.getFront(); customLocation_ != null; customLocation_ = (CustomLocation) Class120_Sub4.customLocations.getNext()) {
+			if (customLocation_.level == level && customLocation_.x == x && customLocation_.z == z && customLocation_.clientType == clientType) {
+				customLocation = customLocation_;
 				break;
 			}
 		}
-		if (class120_sub24 == null) {
-			class120_sub24 = new Class120_Sub24();
-			class120_sub24.anInt2725 = i_38_;
-			class120_sub24.anInt2722 = i_34_;
-			class120_sub24.anInt2721 = i_41_;
-			class120_sub24.anInt2731 = i_36_;
-			Class53.method457(class120_sub24);
-			Class120_Sub4.aClass105_2439.addLast(class120_sub24);
+		if (customLocation == null) {
+			customLocation = new CustomLocation();
+			customLocation.z = z;
+			customLocation.level = level;
+			customLocation.clientType = clientType;
+			customLocation.x = x;
+			Class53.gatherOriginalLocationInfo(customLocation);
+			Class120_Sub4.customLocations.addLast(customLocation);
 		}
-		class120_sub24.anInt2732 = i_42_;
-		class120_sub24.anInt2719 = i;
-		class120_sub24.anInt2720 = i_37_;
-		class120_sub24.anInt2717 = i_35_;
-		class120_sub24.anInt2727 = i_40_;
+		customLocation.cycle2 = playerCycle2;
+		customLocation.id = id;
+		customLocation.cycle1 = playerCycle1;
+		customLocation.rotation = rotation;
+		customLocation.type = type;
 	}
 }

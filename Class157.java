@@ -27,9 +27,9 @@ final class Class157 {
 	static final void method2088(final ShapedTile shapedTile, final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final boolean bool) {
 		int i_6_ = shapedTile.xVertices.length;
 		for (int i_7_ = 0; i_7_ < i_6_; i_7_++) {
-			int i_8_ = shapedTile.xVertices[i_7_] - DisplayModeInfo.anInt1713;
-			int i_9_ = shapedTile.anIntArray1639[i_7_] - PlayerAppearance.anInt1367;
-			int i_10_ = shapedTile.anIntArray1635[i_7_] - SkyboxType.anInt1381;
+			int i_8_ = shapedTile.xVertices[i_7_] - DisplayModeInfo.renderX;
+			int i_9_ = shapedTile.anIntArray1639[i_7_] - PlayerAppearance.renderY;
+			int i_10_ = shapedTile.anIntArray1635[i_7_] - SkyboxType.renderZ;
 			int i_11_ = i_10_ * i_2_ + i_8_ * i_3_ >> 16;
 			i_10_ = i_10_ * i_3_ - i_8_ * i_2_ >> 16;
 			i_8_ = i_11_;
@@ -65,9 +65,9 @@ final class Class157 {
 					WaterfallShader.clickedTileZ = i_5_;
 				}
 				if (!HDToolkit.glEnabled && !bool) {
-					Rasterizer.aBoolean972 = false;
+					Rasterizer.boundsLeft = false;
 					if (i_16_ < 0 || i_17_ < 0 || i_18_ < 0 || i_16_ > Rasterizer.endX || i_17_ > Rasterizer.endX || i_18_ > Rasterizer.endX) {
-						Rasterizer.aBoolean972 = true;
+						Rasterizer.boundsLeft = true;
 					}
 					if (shapedTile.anIntArray1621 == null || shapedTile.anIntArray1621[i_12_] == -1) {
 						if (shapedTile.anIntArray1627[i_12_] != 12345678) {

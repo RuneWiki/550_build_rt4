@@ -3,7 +3,7 @@
  */
 
 final class SpotAnimationNode extends NodeSub {
-	static boolean aBoolean3464 = false;
+	static boolean quickChatParam1 = false;
 	static MouseHandler mouseHandler;
 	static int anInt3466 = 0;
 	SpotAnimation spotAnimation;

@@ -115,8 +115,8 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 				final int playerSize = player.getSize();
 				if (size == 0 || size == playerSize) {
 					player.playerLimitReached = false;
-					player.aBoolean2992 = true;
-					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && player.idleAnimId == player.getEntityRenderData().idleAnimationId) {
+					player.needToRender = true;
+					if ((Class120_Sub12_Sub10.manyIdleAnimations && FileSystemWorker.localPlayerCount > 200 || FileSystemWorker.localPlayerCount > 50) && size != 0 && player.idleAnimId == player.getBasType().idleAnimationId) {
 						player.playerLimitReached = true;
 					}
 					if (playerSize == 1) {
@@ -166,13 +166,13 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 							continue;
 						}
 					}
-					if (player.anObject3047 == null || Class101_Sub2.loopCycle < player.anInt3042 || player.anInt3012 <= Class101_Sub2.loopCycle) {
-						player.aBoolean2992 = false;
+					if (player.anObject3047 == null || Class101_Sub2.clientClock < player.anInt3042 || player.anInt3012 <= Class101_Sub2.clientClock) {
+						player.needToRender = false;
 						player.y = Class22.getTileHeight(player.x, player.z, Class173.gameLevel);
-						Class120_Sub12_Sub5.method1218(Class173.gameLevel, player.x, player.z, player.y, 64 * (playerSize - 1) - -60, player, player.faceDegrees, uid, player.aBoolean3002);
+						Class120_Sub12_Sub5.method1218(Class173.gameLevel, player.x, player.z, player.y, 64 * (playerSize - 1) + 60, player, player.faceDegrees, uid, player.aBoolean3002);
 					} else {
 						player.playerLimitReached = false;
-						player.aBoolean2992 = false;
+						player.needToRender = false;
 						player.y = Class22.getTileHeight(player.x, player.z, Class173.gameLevel);
 						Normal.method230(Class173.gameLevel, player.x, player.z, player.y, player, player.faceDegrees, uid, player.anInt3043, player.anInt3020, player.anInt3041, player.anInt3038);
 					}
@@ -475,7 +475,7 @@ final class Class120_Sub12_Sub14 extends Class120_Sub12 {
 		final int i_107_ = hashtable.getCount();
 		final HDTile[] class120_sub9s_108_ = new HDTile[i_107_];
 		final long[] ls = new long[i_107_];
-		hashtable.method660(class120_sub9s_108_);
+		hashtable.toArray(class120_sub9s_108_);
 		for (int i_109_ = 0; i_109_ < i_107_; i_109_++) {
 			ls[i_109_] = class120_sub9s_108_[i_109_].uid;
 		}

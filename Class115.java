@@ -4,75 +4,75 @@
 
 final class Class115 {
 	int y;
-	static int menuMouseX;
+	static int menuMouseX;//TODO new name
 	int x;
 	int z;
 
-	static final void method1007(int i, final int i_0_, int i_1_, final int i_2_, final int i_3_, final byte[][][] is, final int[] is_4_, final int[] is_5_, final int[] is_6_, final int[] is_7_, final int[] is_8_, final int i_9_, final byte i_10_, final int i_11_, final int i_12_) {
-		if (i < 0) {
-			i = 0;
-		} else if (i >= WallDecoration.mapSizeX * 128) {
-			i = WallDecoration.mapSizeX * 128 - 1;
+	static final void method1007(int renderX, final int renderY, int renderZ, final int renderPitch, final int renderYaw, final byte[][][] is, final int[] is_4_, final int[] is_5_, final int[] is_6_, final int[] is_7_, final int[] is_8_, final int i_9_, final byte i_10_, final int playerX, final int playerZ) {
+		if (renderX < 0) {
+			renderX = 0;
+		} else if (renderX >= WallDecoration.mapSizeX * 128) {
+			renderX = WallDecoration.mapSizeX * 128 - 1;
 		}
-		if (i_1_ < 0) {
-			i_1_ = 0;
-		} else if (i_1_ >= Class120_Sub12_Sub38.mapSizeZ * 128) {
-			i_1_ = Class120_Sub12_Sub38.mapSizeZ * 128 - 1;
+		if (renderZ < 0) {
+			renderZ = 0;
+		} else if (renderZ >= Class120_Sub12_Sub38.mapSizeZ * 128) {
+			renderZ = Class120_Sub12_Sub38.mapSizeZ * 128 - 1;
 		}
-		Class69_Sub2.anInt2239 = Rasterizer.sinTable[i_2_];
-		ObjectContainer.anInt2616 = Rasterizer.cosTable[i_2_];
-		Class120_Sub12_Sub30.anInt3377 = Rasterizer.sinTable[i_3_];
-		MapFunctionType.anInt637 = Rasterizer.cosTable[i_3_];
-		DisplayModeInfo.anInt1713 = i;
-		PlayerAppearance.anInt1367 = i_0_;
-		SkyboxType.anInt1381 = i_1_;
-		Class120_Sub12_Sub26.anInt3332 = i / 128;
-		Class112.anInt1080 = i_1_ / 128;
-		GrandExchangeObject.anInt1493 = Class120_Sub12_Sub26.anInt3332 - Class120_Sub14_Sub13.anInt3563;
-		if (GrandExchangeObject.anInt1493 < 0) {
-			GrandExchangeObject.anInt1493 = 0;
+		Class69_Sub2.renderPitchSin = Rasterizer.sinTable[renderPitch];
+		ObjectContainer.renderPitchCos = Rasterizer.cosTable[renderPitch];
+		Class120_Sub12_Sub30.renderYawSin = Rasterizer.sinTable[renderYaw];
+		MapFunctionType.renderYawCos = Rasterizer.cosTable[renderYaw];
+		DisplayModeInfo.renderX = renderX;
+		PlayerAppearance.renderY = renderY;
+		SkyboxType.renderZ = renderZ;
+		Class120_Sub12_Sub26.renderTileX = renderX / 128;
+		Class112.renderTileZ = renderZ / 128;
+		GrandExchangeObject.minTileX = Class120_Sub12_Sub26.renderTileX - Class120_Sub14_Sub13.tileVisibilityDistance;
+		if (GrandExchangeObject.minTileX < 0) {
+			GrandExchangeObject.minTileX = 0;
 		}
-		Class31.anInt248 = Class112.anInt1080 - Class120_Sub14_Sub13.anInt3563;
-		if (Class31.anInt248 < 0) {
-			Class31.anInt248 = 0;
+		Class31.minTileZ = Class112.renderTileZ - Class120_Sub14_Sub13.tileVisibilityDistance;
+		if (Class31.minTileZ < 0) {
+			Class31.minTileZ = 0;
 		}
-		Class53.anInt487 = Class120_Sub12_Sub26.anInt3332 + Class120_Sub14_Sub13.anInt3563;
-		if (Class53.anInt487 > WallDecoration.mapSizeX) {
-			Class53.anInt487 = WallDecoration.mapSizeX;
+		Class53.maxTileX = Class120_Sub12_Sub26.renderTileX + Class120_Sub14_Sub13.tileVisibilityDistance;
+		if (Class53.maxTileX > WallDecoration.mapSizeX) {
+			Class53.maxTileX = WallDecoration.mapSizeX;
 		}
-		Js5Worker.anInt396 = Class112.anInt1080 + Class120_Sub14_Sub13.anInt3563;
-		if (Js5Worker.anInt396 > Class120_Sub12_Sub38.mapSizeZ) {
-			Js5Worker.anInt396 = Class120_Sub12_Sub38.mapSizeZ;
+		Js5Worker.maxTileZ = Class112.renderTileZ + Class120_Sub14_Sub13.tileVisibilityDistance;
+		if (Js5Worker.maxTileZ > Class120_Sub12_Sub38.mapSizeZ) {
+			Js5Worker.maxTileZ = Class120_Sub12_Sub38.mapSizeZ;
 		}
-		int i_13_;
+		int far;
 		if (HDToolkit.glEnabled) {
-			i_13_ = 3584;
+			far = 3584;
 		} else {
-			i_13_ = 3500;
+			far = 3500;
 		}
-		for (int i_14_ = 0; i_14_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2; i_14_++) {
-			for (int i_15_ = 0; i_15_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 2; i_15_++) {
-				final int i_16_ = (i_14_ - Class120_Sub14_Sub13.anInt3563 << 7) - (DisplayModeInfo.anInt1713 & 0x7f);
-				final int i_17_ = (i_15_ - Class120_Sub14_Sub13.anInt3563 << 7) - (SkyboxType.anInt1381 & 0x7f);
-				final int i_18_ = Class120_Sub12_Sub26.anInt3332 - Class120_Sub14_Sub13.anInt3563 + i_14_;
-				final int i_19_ = Class112.anInt1080 - Class120_Sub14_Sub13.anInt3563 + i_15_;
-				if (i_18_ >= 0 && i_19_ >= 0 && i_18_ < WallDecoration.mapSizeX && i_19_ < Class120_Sub12_Sub38.mapSizeZ) {
-					int i_20_;
+		for (int x = 0; x < Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 2; x++) {
+			for (int z = 0; z < Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 2; z++) {
+				final int tilePosX = (x - Class120_Sub14_Sub13.tileVisibilityDistance << 7) - (DisplayModeInfo.renderX & 0x7f);
+				final int tilePosZ = (z - Class120_Sub14_Sub13.tileVisibilityDistance << 7) - (SkyboxType.renderZ & 0x7f);
+				final int tileX = Class120_Sub12_Sub26.renderTileX - Class120_Sub14_Sub13.tileVisibilityDistance + x;
+				final int tileZ = Class112.renderTileZ - Class120_Sub14_Sub13.tileVisibilityDistance + z;
+				if (tileX >= 0 && tileZ >= 0 && tileX < WallDecoration.mapSizeX && tileZ < Class120_Sub12_Sub38.mapSizeZ) {
+					int tileY;
 					if (Class24.underWaterTileHeightMap != null) {
-						i_20_ = Class24.underWaterTileHeightMap[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
+						tileY = Class24.underWaterTileHeightMap[0][tileX][tileZ] - PlayerAppearance.renderY + 128;
 					} else {
-						i_20_ = Class120_Sub12_Sub33.surfaceTileHeightMap[0][i_18_][i_19_] - PlayerAppearance.anInt1367 + 128;
+						tileY = Class120_Sub12_Sub33.surfaceTileHeightMap[0][tileX][tileZ] - PlayerAppearance.renderY + 128;
 					}
-					final int i_21_ = Class120_Sub12_Sub33.surfaceTileHeightMap[3][i_18_][i_19_] - PlayerAppearance.anInt1367 - 1000;
-					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = Class120_Sub2.method1046(i_16_, i_21_, i_20_, i_17_, i_13_);
+					final int maxTileY = Class120_Sub12_Sub33.surfaceTileHeightMap[3][tileX][tileZ] - PlayerAppearance.renderY - 1000;
+					ClanMember.aBooleanArrayArray2573[x][z] = Class120_Sub2.method1046(tilePosX, maxTileY, tileY, tilePosZ, far);
 				} else {
-					ClanMember.aBooleanArrayArray2573[i_14_][i_15_] = false;
+					ClanMember.aBooleanArrayArray2573[x][z] = false;
 				}
 			}
 		}
-		for (int i_22_ = 0; i_22_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1; i_22_++) {
-			for (int i_23_ = 0; i_23_ < Class120_Sub14_Sub13.anInt3563 + Class120_Sub14_Sub13.anInt3563 + 1; i_23_++) {
-				SpotAnimType.aBooleanArrayArray992[i_22_][i_23_] = ClanMember.aBooleanArrayArray2573[i_22_][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_] || ClanMember.aBooleanArrayArray2573[i_22_][i_23_ + 1] || ClanMember.aBooleanArrayArray2573[i_22_ + 1][i_23_ + 1];
+		for (int x = 0; x < Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 1; x++) {
+			for (int z = 0; z < Class120_Sub14_Sub13.tileVisibilityDistance + Class120_Sub14_Sub13.tileVisibilityDistance + 1; z++) {
+				SpotAnimType.aBooleanArrayArray992[x][z] = ClanMember.aBooleanArrayArray2573[x][z] || ClanMember.aBooleanArrayArray2573[x + 1][z] || ClanMember.aBooleanArrayArray2573[x][z + 1] || ClanMember.aBooleanArrayArray2573[x + 1][z + 1];
 			}
 		}
 		client.anIntArray562 = is_4_;
@@ -83,7 +83,7 @@ final class Class115 {
 		JagexInterface.method2500();
 		if (Class120_Sub12_Sub38.underWaterGroundTiles != null) {
 			Class178.setRenderTiles(true);
-			StructType.method1561(i, i_0_, i_1_, null, 0, (byte) 0, i_11_, i_12_);
+			StructType.method1561(renderX, renderY, renderZ, null, 0, (byte) 0, playerX, playerZ);
 			if (HDToolkit.glEnabled) {
 				ParamType.aBoolean3545 = false;
 				Class120_Sub14_Sub13.method1532(0, 0);
@@ -92,14 +92,14 @@ final class Class115 {
 			}
 			Class178.setRenderTiles(false);
 		}
-		StructType.method1561(i, i_0_, i_1_, is, i_9_, i_10_, i_11_, i_12_);
+		StructType.method1561(renderX, renderY, renderZ, is, i_9_, i_10_, playerX, playerZ);
 	}
 
 	static final LDSprite[] constructLDSprites(final js5 js5, final int group, final int file) {
 		if (!Class10.decodedSprites(js5, group, file)) {
 			return null;
 		}
-		return LabelGroup.constructLDSprites();
+		return SeqFrameBase.constructLDSprites();
 	}
 
 	public Class115() {

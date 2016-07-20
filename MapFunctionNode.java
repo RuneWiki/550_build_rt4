@@ -3,7 +3,7 @@
  */
 
 final class MapFunctionNode extends NodeSub {
-	static boolean aBoolean3471 = true;
+	static boolean serverUpdatedPreferences = true;
 	boolean focused = false;
 	int id = -1;
 	int level;

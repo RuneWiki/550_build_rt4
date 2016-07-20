@@ -49,7 +49,7 @@ final class Class118 {
 	}
 
 	static final GroundDecoration removeGroundDecoration(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null) {
 			return null;
 		}

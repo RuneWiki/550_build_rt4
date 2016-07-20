@@ -50,13 +50,13 @@ final class Class11 {
 				final int y = Class120_Sub12_Sub5.canvasHeight / 2 - 18;
 				graphics.setColor(color);
 				graphics.drawRect(x, y, 303, 33);
-				graphics.fillRect(x + 2, y + 2, 3 * fill, 30);
+				graphics.fillRect(x + 2, y + 2, fill * 3, 30);
 				graphics.setColor(Color.black);
 				graphics.drawRect(1 + x, y + 1, 301, 31);
 				graphics.fillRect(fill * 3 + 2 + x, y + 2, 300 - (fill * 3), 30);
 				graphics.setFont(client.loadingFont);
 				graphics.setColor(Color.white);
-				graphics.drawString(text, x + ((-WaterfallShader.loadingFontMetrics.stringWidth(text) + 304) / 2), 22 + y);
+				graphics.drawString(text, x + (304 - WaterfallShader.loadingFontMetrics.stringWidth(text)) / 2, 22 + y);
 			}
 			if (Class120_Sub14_Sub15.gameLoadingText != null) {
 				graphics.setFont(client.loadingFont);
@@ -78,15 +78,15 @@ final class Class11 {
 			wallDecoration.aClass180_1901 = sceneGraphNode;
 			wallDecoration.aClass180_1898 = class180_9_;
 			wallDecoration.anInt1895 = i_10_;
-			wallDecoration.anInt1896 = i_11_;
+			wallDecoration.rotation = i_11_;
 			wallDecoration.anInt1905 = i_12_;
 			wallDecoration.anInt1892 = i_13_;
 			for (int lowerLevel = level; lowerLevel >= 0; lowerLevel--) {
-				if (LabelGroup.activeGroundTiles[lowerLevel][x][z] == null) {
-					LabelGroup.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
+				if (SeqFrameBase.activeGroundTiles[lowerLevel][x][z] == null) {
+					SeqFrameBase.activeGroundTiles[lowerLevel][x][z] = new GroundTile(lowerLevel, x, z);
 				}
 			}
-			LabelGroup.activeGroundTiles[level][x][z].wallDecoration = wallDecoration;
+			SeqFrameBase.activeGroundTiles[level][x][z].wallDecoration = wallDecoration;
 		}
 	}
 

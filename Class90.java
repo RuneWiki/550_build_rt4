@@ -75,7 +75,7 @@ final class Class90 {
 			}
 			aClass75_842.put(class120_sub23, l);
 		}
-		class120_sub5_sub1_10_ = class120_sub23.method1715(is);
+		class120_sub5_sub1_10_ = class120_sub23.toWav(is);
 		if (class120_sub5_sub1_10_ == null) {
 			return null;
 		}
@@ -84,7 +84,7 @@ final class Class90 {
 		return class120_sub5_sub1_10_;
 	}
 
-	static final void method755(final String string, final int i_11_) {
+	static final void sendFriendsRankChange(final String string, final int i_11_) {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(215);
 		Class120_Sub12_Sub11.outputStream.putLong(Varp.stringToLong(string));
 		Class120_Sub12_Sub11.outputStream.putByteC(i_11_);
@@ -100,21 +100,21 @@ final class Class90 {
 		throw new RuntimeException();
 	}
 
-	static final void redrawOldFormatOverridedInterfaces() {
-		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-			final int interfaceId = overridedInterface.interfaceId;
+	static final void redrawOldFormatSubInterfaces() {
+		for (SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getFirst(); subInterface != null; subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getNext()) {
+			final int interfaceId = subInterface.interfaceId;
 			if (js5.loadInterface(interfaceId)) {
-				boolean newFormat = true;
+				boolean if3Format = true;
 				final JagexInterface[] cache = JagexInterface.interfaceCache[interfaceId];
 				for (int id = 0; id < cache.length; id++) {
 					final JagexInterface jagexInterface = cache[id];
 					if (jagexInterface != null) {
-						newFormat = jagexInterface.newFormat;
+						if3Format = jagexInterface.if3Format;
 						break;
 					}
 				}
-				if (!newFormat) {
-					final int uid = (int) overridedInterface.uid;
+				if (!if3Format) {
+					final int uid = (int) subInterface.uid;
 					final JagexInterface jagexInterface = Class74.getJagexInterface(uid);
 					if (jagexInterface != null) {
 						InterfaceClickMask.redrawInterface(jagexInterface);
@@ -124,11 +124,11 @@ final class Class90 {
 		}
 	}
 
-	static final void removeOverridedInterfaces() {
+	static final void removeSubInterfaces() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(189);
-		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-			if (overridedInterface.type == 0) {
-				Class120_Sub19.removeOverridedInterface(overridedInterface, true);
+		for (SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getFirst(); subInterface != null; subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getNext()) {
+			if (subInterface.type == 0) {
+				Class120_Sub19.removeSubInterface(subInterface, true);
 			}
 		}
 		if (Class156.dialogInterface != null) {

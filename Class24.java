@@ -19,7 +19,7 @@ final class Class24 {
 		Class28.method247();
 		Class31.logoutCycle = 0;
 		Class114.previousPacketType = -1;
-		Class120_Sub22.systemUpdateCycle = 0;
+		Class120_Sub22.rebootTimer = 0;
 		MapFunctionType.thirdPacketType = -1;
 		Class120_Sub12_Sub11.outputStream.pos = 0;
 		SeqType.fourthPacketType = -1;
@@ -36,7 +36,7 @@ final class Class24 {
 			GrandExchangeObject.chatMessages[id] = null;
 		}
 		Class120_Sub16.chatMessageCount = 0;
-		DummyOutputStream.cameraYaw = 0x7ff & -10 + (int) (20.0 * Math.random());
+		DummyOutputStream.cameraYaw = (int) (20.0 * Math.random()) - 10 & 0x7ff;
 		Class88.spellSelected = false;
 		Light.objSelected = 0;
 		Class150.soundEffectCount = 0;
@@ -62,7 +62,7 @@ final class Class24 {
 				}
 			}
 		}
-		Class120_Sub4.aClass105_2439 = new Deque();
+		Class120_Sub4.customLocations = new Deque();
 		ObjectPile.friendsServerStatus = 0;
 		ProducingGraphicsBuffer.friendCount = 0;
 		Varp.reset();
@@ -83,11 +83,11 @@ final class Class24 {
 		if (Class69.rootInterfaceId != -1) {
 			Class120_Sub12_Sub32.uncacheJInterface(Class69.rootInterfaceId);
 		}
-		for (OverridedJInterface overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getFirst(); overridedInterface != null; overridedInterface = (OverridedJInterface) Class120_Sub12_Sub13.overridedInterfaces.getNext()) {
-			Class120_Sub19.removeOverridedInterface(overridedInterface, true);
+		for (SubInterface subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getFirst(); subInterface != null; subInterface = (SubInterface) Class120_Sub12_Sub13.subInterfaces.getNext()) {
+			Class120_Sub19.removeSubInterface(subInterface, true);
 		}
 		Class69.rootInterfaceId = -1;
-		Class120_Sub12_Sub13.overridedInterfaces = new Hashtable(8);
+		Class120_Sub12_Sub13.subInterfaces = new Hashtable(8);
 		Class43.createJInterfaceCache();
 		Class156.dialogInterface = null;
 		WallDecoration.menuOptionCount = 0;
@@ -110,17 +110,17 @@ final class Class24 {
 			LongNode.grandExchangeObjects[id] = new GrandExchangeObject();
 		}
 		for (int id = 0; id < 25; id++) {
-			SceneGraphNode.skillsLevel[id] = 0;
-			Decimator.skillsBaseLevel[id] = 0;
-			Class120_Sub12_Sub38.skillsXp[id] = 0;
+			client.skillsLevel[id] = 0;
+			client.skillsBaseLevel[id] = 0;
+			client.skillsXp[id] = 0;
 		}
 		if (HDToolkit.glEnabled) {
 			ModelParticleEmitter.instantScreenFade = true;
 		}
 		Class120_Sub14_Sub22.aShortArray3639 = Class127.aShortArray1214 = Class69_Sub3_Sub1.aShortArray3085 = NodeSub.aShortArray2584 = new short[256];
-		MasterIndexInfo.aBoolean466 = false;
+		MasterIndexInfo.neverRemoveRoofs = false;
 		Class118.sendCameraPacket = true;
-		OverlayFrequencyNode.packetCounter = 0;
+		OverlayFrequencyNode.triggerId = 0;
 		StringLibrary.walkText = Class120_Sub12_Sub1.aString3132;
 		LocType.resetSpriteMenu();
 		WallDecoration.usingSpriteMenu = false;
@@ -128,7 +128,7 @@ final class Class24 {
 	}
 
 	static final int method207() {
-		if (MasterIndexInfo.aBoolean466) {
+		if (MasterIndexInfo.neverRemoveRoofs) {
 			return 0;
 		}
 		if (!Class143_Sub1.allLevelsAreVisible()) {

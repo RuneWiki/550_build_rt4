@@ -18,7 +18,7 @@ final class OverlayType {
 	static js5 configClient;
 	static ObjectCache recentUse = new ObjectCache(64);
 
-	static final int method1874(final int i_1_) {
+	static final int compareResult(final int i_1_) {
 		if (i_1_ > 0) {
 			return 1;
 		}

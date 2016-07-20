@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-final class OverridedJInterface extends Node {
+final class SubInterface extends Node {
 	static int worldOff;
 	static WorldMapFont aClass98_2739;
 	static int worldListDataLength;
@@ -140,7 +140,7 @@ final class OverridedJInterface extends Node {
 		}
 	}
 
-	public OverridedJInterface() {
+	public SubInterface() {
 		/* empty */
 	}
 }

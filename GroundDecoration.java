@@ -37,7 +37,7 @@ final class GroundDecoration {
 			}
 		}
 		do {
-			if (gameEntity.spotAnimId != -1 && Class101_Sub2.loopCycle >= gameEntity.spotAnimDelay) {
+			if (gameEntity.spotAnimId != -1 && Class101_Sub2.clientClock >= gameEntity.spotAnimDelay) {
 				final SpotAnimType spotAnimType = SpotAnimType.list(gameEntity.spotAnimId);
 				final int spotAnimAnimationId = spotAnimType.animationId;
 				if (spotAnimAnimationId == -1) {
@@ -46,12 +46,12 @@ final class GroundDecoration {
 					final SeqType seqType = SeqType.list(spotAnimAnimationId);
 					if (spotAnimType.aBoolean998) {
 						if (seqType.speedupType == 3) {
-							if (gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
+							if (gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.clientClock && Class101_Sub2.clientClock > gameEntity.anInt2961) {
 								gameEntity.spotAnimId = -1;
 								break;
 							}
-						} else if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.loopCycle && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
-							gameEntity.spotAnimDelay = Class101_Sub2.loopCycle + 1;
+						} else if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && gameEntity.anInt3035 <= Class101_Sub2.clientClock && gameEntity.anInt2961 < Class101_Sub2.clientClock) {
+							gameEntity.spotAnimDelay = Class101_Sub2.clientClock + 1;
 							break;
 						}
 					}
@@ -105,20 +105,20 @@ final class GroundDecoration {
 		if (gameEntity.animId != -1 && gameEntity.animDelay <= 1) {
 			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType.speedupType != 3) {
-				if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && Class101_Sub2.loopCycle > gameEntity.anInt2961) {
+				if (seqType.speedupType == 1 && gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.clientClock >= gameEntity.anInt3035 && Class101_Sub2.clientClock > gameEntity.anInt2961) {
 					gameEntity.animDelay = 2;
 				}
-			} else if (gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.loopCycle >= gameEntity.anInt3035 && gameEntity.anInt2961 < Class101_Sub2.loopCycle) {
+			} else if (gameEntity.onAnimPlayWalkQueuePos > 0 && Class101_Sub2.clientClock >= gameEntity.anInt3035 && gameEntity.anInt2961 < Class101_Sub2.clientClock) {
 				gameEntity.animId = -1;
 			}
 		}
 		if (gameEntity.animId != -1 && gameEntity.animDelay == 0) {
 			final SeqType seqType = SeqType.list(gameEntity.animId);
 			if (seqType != null && seqType.frames != null) {
-				gameEntity.animCurrentFrameDelay++;
-				if (seqType.frames.length > gameEntity.animFrame && gameEntity.animCurrentFrameDelay > seqType.delays[gameEntity.animFrame]) {
+				gameEntity.animFrameDelay++;
+				if (seqType.frames.length > gameEntity.animFrame && gameEntity.animFrameDelay > seqType.delays[gameEntity.animFrame]) {
 					gameEntity.animFrame++;
-					gameEntity.animCurrentFrameDelay = 1;
+					gameEntity.animFrameDelay = 1;
 					Class120_Sub12_Sub23.method1323(seqType, gameEntity.x, gameEntity.z, gameEntity.animFrame, gameEntity == TileParticleQueue.selfPlayer);
 				}
 				if (gameEntity.animFrame >= seqType.frames.length) {

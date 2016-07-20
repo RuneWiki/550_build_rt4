@@ -3,9 +3,9 @@
  */
 
 final class Class79_Sub1 {
-	static String[] stringArguments;
+	static String[] stringLocalVariables;
 	static int anInt2244;
-	static js5 animsBasesJs5;
+	static js5 frameBasesJs5;
 	static int[] anIntArray2246 = new int[256];
 	static String[] friendsSideText;
 
@@ -23,7 +23,7 @@ final class Class79_Sub1 {
 	}
 
 	static final long getGroundDecorationUid(final int x, final int z, final int level) {
-		final GroundTile groundTile = LabelGroup.activeGroundTiles[level][x][z];
+		final GroundTile groundTile = SeqFrameBase.activeGroundTiles[level][x][z];
 		if (groundTile == null || groundTile.groundDecoration == null) {
 			return 0L;
 		}

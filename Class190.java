@@ -3,8 +3,7 @@
  */
 
 final class Class190 {
-	static int viewportTop;
-	static int anInt2101 = 0;
+	static int renderFromLevel = 0;
 
 	static final boolean pushMinimapPixels(final int x, final int z, final int level, final int xOff, final int zOff, final int whiteColor, final int redColor) {
 		long bitPacked = Class114.getWallLocationUid(x + xOff, z + zOff, level);

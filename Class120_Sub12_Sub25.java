@@ -106,7 +106,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			if (class120_sub9.textureId >= 0 && Class120_Sub12_Sub29.isWaterShader(Rasterizer.anInterface5_973.getShaderId(class120_sub9.textureId))) {
 				gl.glColor4fv(World.method2196(class120_sub9.underwaterColor), 0);
 				final float f = 201.5F - (class120_sub9.blend ? 1.0F : 0.5F);
-				class120_sub9.method1162(LabelGroup.activeGroundTiles, f, true);
+				class120_sub9.method1162(SeqFrameBase.activeGroundTiles, f, true);
 			}
 		}
 		gl.glEnableClientState(32886);//GL_COLOR_ARRAY
@@ -147,7 +147,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 			}
 		}
 		Buffer.searchResultCount = resultsPos;
-		ParticleNode.anInt1035 = 0;
+		ParticleNode.searchResultsPos = 0;
 		Class120_Sub12_Sub37.searchResults = results;
 		final String[] objectNames = new String[Buffer.searchResultCount];
 		for (int id = 0; id < Buffer.searchResultCount; id++) {
@@ -259,18 +259,18 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putByte(AbstractMouseWheelHandler.anInt116);
 						MapFunctionGroup.loginStream.putByte(Class31.advertSuppressed ? 1 : 0);
 						MapFunctionGroup.loginStream.putByte(1);
-						MapFunctionGroup.loginStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
+						MapFunctionGroup.loginStream.putByte(Class120_Sub12_Sub4.determinateDisplayMode());
 						MapFunctionGroup.loginStream.putShort(Class69_Sub1.canvasWidth);
 						MapFunctionGroup.loginStream.putShort(Class120_Sub12_Sub5.canvasHeight);
 						MapFunctionGroup.loginStream.putByte(GroundDecoration.antiAliasingSamples);
 						Class120_Sub12_Sub30.randomFileRead(MapFunctionGroup.loginStream);
 						MapFunctionGroup.loginStream.putJagexString(params);
 						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub33.affiliateId);
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub18.method1288());
-						MapFunctionNode.aBoolean3471 = true;
-						MapFunctionGroup.loginStream.putShort(OverlayFrequencyNode.packetCounter);
-						MapFunctionGroup.loginStream.putInt(AmbientSound.animsJs5.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class79_Sub1.animsBasesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub18.getGameSettingsBitpacked());
+						MapFunctionNode.serverUpdatedPreferences = true;
+						MapFunctionGroup.loginStream.putShort(OverlayFrequencyNode.triggerId);
+						MapFunctionGroup.loginStream.putInt(AmbientSound.framesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class79_Sub1.frameBasesJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Js5Worker.configJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class33.interfaceJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class159.aClass50_1490.getIndexCrc());
@@ -281,23 +281,23 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 						MapFunctionGroup.loginStream.putInt(NodeCache.texturesJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(ParticleNodeSub.binaryJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(InterfaceListener.aClass50_2544.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(IsaacCipher.scriptsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(ClientScript.scriptsJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(ClanMember.fontMetricsJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class132.vorbisJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class120_Sub22.aClass50_2679.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(Class114.locationsJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putInt(ModelParticleMagnet.enumsJs5.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub29.aClass50_3367.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class127.aClass50_1213.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class2.aClass50_50.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub2.aClass50_2415.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(WaterfallShader.aClass50_2169.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub24.aClass50_3309.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(SphereType.aClass50_1433.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(AbstractMouseWheelHandler.aClass50_115.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub15.aClass50_3242.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Class187.aClass50_1907.getIndexCrc());
-						MapFunctionGroup.loginStream.putInt(Npc.aClass50_3753.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub29.npcsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class127.objectsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class2.seqsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub2.spotAnimsJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(WaterfallShader.varBitJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub24.worldMapJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(SphereType.quickChatJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(AbstractMouseWheelHandler.globalQuickChatJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class120_Sub12_Sub15.textureMaterialJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Class187.particlesJs5.getIndexCrc());
+						MapFunctionGroup.loginStream.putInt(Npc.defaultsJs5.getIndexCrc());
 						MapFunctionGroup.loginStream.putBuffer(Class120_Sub12_Sub11.outputStream.buf, 0, Class120_Sub12_Sub11.outputStream.pos);
 						AbstractTimer.worldConnection.put(MapFunctionGroup.loginStream.buf, 0, MapFunctionGroup.loginStream.pos);
 						Class120_Sub12_Sub11.outputStream.initIsaac(is);
@@ -371,22 +371,22 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Canvas_Sub1.inputStream.pos = 0;
 							
 							Class86.staffLevel = Canvas_Sub1.inputStream.getUByte();
-							Class120_Sub12_Sub9.anInt3199 = Canvas_Sub1.inputStream.getUByte();
+							Class120_Sub12_Sub9.playerModTrial = Canvas_Sub1.inputStream.getUByte();
 							
-							VarBit.aBoolean167 = Canvas_Sub1.inputStream.getUByte() == 1;
-							UnderlayType.aBoolean1228 = Canvas_Sub1.inputStream.getUByte() == 1;
+							VarBit.quickChatParam2 = Canvas_Sub1.inputStream.getUByte() == 1;
+							UnderlayType.quickChatParam3 = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub18.aBoolean3275 = Canvas_Sub1.inputStream.getUByte() == 1;
-							SpotAnimationNode.aBoolean3464 = Canvas_Sub1.inputStream.getUByte() == 1;
+							SpotAnimationNode.quickChatParam1 = Canvas_Sub1.inputStream.getUByte() == 1;
 							
 							Class127.recordMouseMovements = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class167.selfPlayerIndex = Canvas_Sub1.inputStream.getUShort();
-							Class120_Sub12_Sub21_Sub1.extendFriendsList = Canvas_Sub1.inputStream.getUByte() == 1;
+							Class120_Sub12_Sub21_Sub1.membersAccount = Canvas_Sub1.inputStream.getUByte() == 1;
 							Class120_Sub12_Sub37.membersClient = Canvas_Sub1.inputStream.getUByte() == 1;
 							LocType.setMembersClient1(Class120_Sub12_Sub37.membersClient);
 							ObjType.setMembersClient2(Class120_Sub12_Sub37.membersClient);
 							NpcType.setMembersClient3(Class120_Sub12_Sub37.membersClient);
 							if (!Class31.advertSuppressed) {
-								if (VarBit.aBoolean167 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.extendFriendsList) {
+								if (VarBit.quickChatParam2 && !Class120_Sub12_Sub18.aBoolean3275 || Class120_Sub12_Sub21_Sub1.membersAccount) {
 									try {
 										JSHelper.call(NpcType.gameSignlink.gameApplet, "zap");
 									} catch (final Throwable throwable) {
@@ -415,7 +415,7 @@ final class Class120_Sub12_Sub25 extends Class120_Sub12 {
 							Class48.returnCode = 2;
 							Class86.loginStep = 0;
 							Class24.method205();
-							Class116.anInt1118 = -1;
+							Class116.currentRegionX = -1;
 							Class120_Sub29.receiveRegionData(false);
 							client.packetType = -1;
 						}

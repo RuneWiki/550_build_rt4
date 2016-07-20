@@ -6,7 +6,7 @@ final class Projectile extends SceneGraphNode {
 	int endCycle;
 	static int[] spriteXOffsets;
 	private ParticleEngine aClass108_Sub2_2924;
-	private int anInt2925 = 0;
+	private int currentFrame = 0;
 	private final int startX;
 	private int anInt2927;
 	private boolean aBoolean2928;
@@ -17,7 +17,7 @@ final class Projectile extends SceneGraphNode {
 	static int mouseClickToTileLevel = 0;
 	int level;
 	private double aDouble2935;
-	private int anInt2936 = -1;
+	private int nextFrame = -1;
 	double aDouble2937;
 	private boolean aBoolean2938;
 	int startCycle;
@@ -26,14 +26,14 @@ final class Projectile extends SceneGraphNode {
 	private double aDouble2942;
 	int yOff;
 	int anInt2944;
-	private int anInt2945 = 0;
+	private int currentFrameDelay = 0;
 	private double aDouble2946;
 	private final int startY;
 	private final int anInt2948;
 	double aDouble2949;
 	private double aDouble2950;
 	private final int startZ;
-	private int anInt2952;
+	private int maxY;
 	double aDouble2953;
 	static JagexInterface clickedInventoryComponent;
 	static int renderXWrapper;
@@ -55,21 +55,21 @@ final class Projectile extends SceneGraphNode {
 		this.anInt2944 = 0x7ff & 1024 + (int) (325.949 * Math.atan2(aDouble2935, aDouble2942));
 		anInt2927 = 0x7ff & (int) (325.949 * Math.atan2(aDouble2946, aDouble2950));
 		if (seqType != null) {
-			anInt2945 += i;
-			while (seqType.delays[anInt2925] < anInt2945) {
-				anInt2945 -= seqType.delays[anInt2925];
-				anInt2925++;
-				if (seqType.frames.length <= anInt2925) {
-					anInt2925 -= seqType.loop;
-					if (anInt2925 < 0 || anInt2925 >= seqType.frames.length) {
-						anInt2925 = 0;
+			currentFrameDelay += i;
+			while (seqType.delays[currentFrame] < currentFrameDelay) {
+				currentFrameDelay -= seqType.delays[currentFrame];
+				currentFrame++;
+				if (seqType.frames.length <= currentFrame) {
+					currentFrame -= seqType.loop;
+					if (currentFrame < 0 || currentFrame >= seqType.frames.length) {
+						currentFrame = 0;
 					}
 				}
-				anInt2936 = anInt2925 + 1;
-				if (anInt2936 >= seqType.frames.length) {
-					anInt2936 -= seqType.loop;
-					if (anInt2936 < 0 || seqType.frames.length <= anInt2936) {
-						anInt2936 = -1;
+				nextFrame = currentFrame + 1;
+				if (nextFrame >= seqType.frames.length) {
+					nextFrame -= seqType.loop;
+					if (nextFrame < 0 || seqType.frames.length <= nextFrame) {
+						nextFrame = -1;
 					}
 				}
 			}
@@ -80,22 +80,23 @@ final class Projectile extends SceneGraphNode {
 	final void render(final int i, final int i_1_, final int i_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_, final int i_7_, final long l, final int i_8_, final ParticleEngine class108_sub2) {
 		final AbstractModelRenderer class180_sub7 = method2322();
 		if (class180_sub7 != null) {
-			method2320(-77, class180_sub7);
+			method2320(class180_sub7);
 			class180_sub7.render(i, i_1_, i_2_, i_3_, i_4_, i_5_, i_6_, i_7_, l, i_8_, aClass108_Sub2_2924);
-			anInt2952 = class180_sub7.getMaxY();
+			maxY = class180_sub7.getMaxY();
 		}
 	}
 
-	static final boolean method2318(final int i_9_) {
-		if (AbstractSprite.anInt3619 == i_9_) {
+	static final boolean setBuildArea(final int buildArea) {
+		if (AbstractSprite.lastSetBuildArea == buildArea) {
 			return false;
 		}
+		//104, 120, 136, 168
 		Class120_Sub2.anIntArrayArray2416 = new int[104][104];
 		Class179.anIntArrayArray1774 = new int[104][104];
-		Class120_Sub12_Sub36.anIntArrayArrayArray3420 = new int[4][13][13];
+		Class120_Sub12_Sub36.dynamicMapData = new int[4][13][13];
 		FileSystemRequest.entityCountOnTile = new int[104][104];
-		for (int i_10_ = 0; i_10_ < 4; i_10_++) {
-			WallLocation.collisionMaps[i_10_] = new CollisionMap(104, 104);
+		for (int i = 0; i < 4; i++) {
+			WallLocation.collisionMaps[i] = new CollisionMap(104, 104);
 		}
 		Class114.tileSettings = new byte[4][104][104];
 		Class9.aByteArrayArrayArray70 = new byte[4][104][104];
@@ -105,7 +106,7 @@ final class Projectile extends SceneGraphNode {
 			ShadowManager.init(104, 104);
 			Identikit.chunksAtmosphere = new ChunkAtmosphere[13][13];
 		}
-		AbstractSprite.anInt3619 = i_9_;
+		AbstractSprite.lastSetBuildArea = buildArea;
 		return true;
 	}
 
@@ -132,11 +133,11 @@ final class Projectile extends SceneGraphNode {
 		}
 	}
 
-	private final void method2320(final int i, final AbstractModelRenderer class180_sub7) {
+	private final void method2320(final AbstractModelRenderer class180_sub7) {
 		if (HDToolkit.glEnabled) {
 			final HDModelRenderer class180_sub7_sub2 = (HDModelRenderer) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub2.aClass158Array3892 != null || class180_sub7_sub2.aClass169Array3858 != null)) {
-				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
+				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.clientClock, 1, 1);
 			}
 			if (aClass108_Sub2_2924 != null) {
 				aClass108_Sub2_2924.method962(class180_sub7_sub2.aClass158Array3892, class180_sub7_sub2.aClass169Array3858, false, class180_sub7_sub2.xVertices, class180_sub7_sub2.yVertices, class180_sub7_sub2.zVertices);
@@ -144,7 +145,7 @@ final class Projectile extends SceneGraphNode {
 		} else {
 			final LDModelRenderer class180_sub7_sub1 = (LDModelRenderer) class180_sub7;
 			if ((aClass108_Sub2_2924 == null || aClass108_Sub2_2924.aBoolean2356) && (class180_sub7_sub1.aClass158Array3788 != null || class180_sub7_sub1.aClass169Array3776 != null)) {
-				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.loopCycle, 1, 1);
+				aClass108_Sub2_2924 = new ParticleEngine(Class101_Sub2.clientClock, 1, 1);
 			}
 			if (aClass108_Sub2_2924 != null) {
 				aClass108_Sub2_2924.method962(class180_sub7_sub1.aClass158Array3788, class180_sub7_sub1.aClass169Array3776, false, class180_sub7_sub1.xVertices, class180_sub7_sub1.yVertices, class180_sub7_sub1.zVertices);
@@ -155,12 +156,12 @@ final class Projectile extends SceneGraphNode {
 
 	@Override
 	final int getMaxY() {
-		return anInt2952;
+		return maxY;
 	}
 
 	private final AbstractModelRenderer method2322() {
 		final SpotAnimType spotAnimType = SpotAnimType.list(spotAnimId);
-		final AbstractModelRenderer class180_sub7_17_ = spotAnimType.constructModel(anInt2936, anInt2945, anInt2925);
+		final AbstractModelRenderer class180_sub7_17_ = spotAnimType.constructModel(nextFrame, currentFrameDelay, currentFrame);
 		if (class180_sub7_17_ == null) {
 			return null;
 		}
@@ -171,7 +172,7 @@ final class Projectile extends SceneGraphNode {
 	Projectile(final int spotAnimationid, final int level, final int x, final int z, final int y, final int cycle1, final int cycle2, final int i_24_, final int i_25_, final int i_26_, final int i_27_) {
 		aBoolean2938 = false;
 		aBoolean2928 = false;
-		anInt2952 = -32768;
+		maxY = -32768;
 		startZ = z;
 		startY = y;
 		aBoolean2938 = false;
@@ -193,16 +194,16 @@ final class Projectile extends SceneGraphNode {
 	}
 
 	@Override
-	final void method2266(final int i, final int i_29_, final int i_31_, final int i_30_, final int i_32_) {
+	final void preRender(final int rotation, final int i_29_, final int i_31_, final int i_30_, final int i_32_) {
 		if (!aBoolean2928) {
 			final AbstractModelRenderer class180_sub7 = method2322();
 			if (class180_sub7 == null) {
 				return;
 			}
-			method2320(104, class180_sub7);
+			method2320(class180_sub7);
 		}
 		if (aClass108_Sub2_2924 != null) {
-			aClass108_Sub2_2924.method944(i, i_29_, i_31_, i_30_, i_32_);
+			aClass108_Sub2_2924.method944(rotation, i_29_, i_31_, i_30_, i_32_);
 		}
 	}
 }

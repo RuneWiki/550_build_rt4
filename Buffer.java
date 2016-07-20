@@ -10,23 +10,23 @@ class Buffer extends Node {
 	static int gameId;
 	static int anInt2473 = 0;
 	static int searchResultCount;
-	static int subScriptAmount;
+	static int subScriptPos;
 	static String[] languageArray;
 	static int[] anIntArray2477;
 
 	static {
 		gameId = 0;
 		playerOptions = new String[8];
-		subScriptAmount = 0;
+		subScriptPos = 0;
 		languageArray = new String[] { "en", "de", "fr", "pt" };
 	}
 
 	final void putJagexString(final String string) {
-		final int i_0_ = string.indexOf('\0');
-		if (i_0_ >= 0) {
-			throw new IllegalArgumentException("NUL character at " + i_0_ + " - cannot pjstr");
+		final int nulCharIndex = string.indexOf('\0');
+		if (nulCharIndex >= 0) {
+			throw new IllegalArgumentException("NUL character at " + nulCharIndex + " - cannot pjstr");
 		}
-		this.pos += FileSystemWorker.a(this.buf, string, string.length(), this.pos, 0);
+		this.pos += FileSystemWorker.a(string, 0, string.length(), this.buf, this.pos);
 		this.buf[this.pos++] = (byte) 0;
 	}
 
@@ -173,28 +173,28 @@ class Buffer extends Node {
 			i_30_ = i_22_;
 		}
 		final int i_31_ = (i_26_ << 6) + (i_22_ << 7);
-		final int[][] is = OverridedJInterface.activeTileHeightMap[i_19_];
+		final int[][] is = SubInterface.activeTileHeightMap[i_19_];
 		final int i_32_ = (i << 7) - -(i_25_ << 6);
 		final int i_33_ = is[i_28_][i_29_] + is[i_27_][i_30_] + is[i_28_][i_30_] - -is[i_27_][i_29_] >> 2;
 		int i_34_ = 0;
 		if (i_19_ != 0) {
-			final int[][] is_35_ = OverridedJInterface.activeTileHeightMap[0];
+			final int[][] is_35_ = SubInterface.activeTileHeightMap[0];
 			i_34_ = -(is_35_[i_28_][i_29_] + is_35_[i_28_][i_30_] - (-is_35_[i_27_][i_30_] + -is_35_[i_27_][i_29_]) >> 2) + i_33_;
 		}
 		int[][] is_36_ = null;
 		if (i_19_ < 3) {
-			is_36_ = OverridedJInterface.activeTileHeightMap[i_19_ - -1];
+			is_36_ = SubInterface.activeTileHeightMap[i_19_ - -1];
 		}
 		final Class88 class88 = locType.method2453(i_32_, false, i_23_, i_33_, is, is_36_, true, i_18_, i_31_, null);
 		ShadowManager.method387(class88.aClass107_Sub1_830, -i_17_ + i_32_, i_34_, i_31_ - i_21_);
 	}
 
 	final String getJagexString() {
-		final int i_37_ = this.pos;
+		final int startPos = this.pos;
 		while (this.buf[this.pos++] != 0) {
 			/* empty */
 		}
-		return DisplayModeInfo.bufferToString(this.buf, i_37_, -1 + -i_37_ + this.pos);
+		return DisplayModeInfo.bufferToString(this.buf, startPos, -1 + -startPos + this.pos);
 	}
 
 	final void putBuffer(final byte[] buffer, final int off, final int len) {
@@ -327,7 +327,7 @@ class Buffer extends Node {
 		return i_70_ | i_69_;
 	}
 
-	final void method1112(final int i) {
+	final void putIntAt(final int i) {
 		this.buf[this.pos - i - 4] = (byte) (i >> 24);
 		this.buf[this.pos - i - 3] = (byte) (i >> 16);
 		this.buf[this.pos - i - 2] = (byte) (i >> 8);
@@ -388,7 +388,7 @@ class Buffer extends Node {
 
 	final int getLEInt() {
 		this.pos += 4;
-		return (this.buf[this.pos + -4] & 0xff) + ((this.buf[this.pos + -1] & 0xff) << 24) - -((0xff & this.buf[-2 + this.pos]) << 16) + ((0xff & this.buf[-3 + this.pos]) << 8);
+		return ((this.buf[this.pos - 1] & 0xff) << 24) + ((this.buf[this.pos - 2] & 0xff) << 16) + ((this.buf[this.pos - 3] & 0xff) << 8) + (this.buf[this.pos - 4] & 0xff);
 	}
 
 	final int putCrc(final int off) {

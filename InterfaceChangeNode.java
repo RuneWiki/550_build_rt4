@@ -32,16 +32,16 @@ final class InterfaceChangeNode extends NodeSub {
 
 	static final void build3dScreenMenu(final int interfaceX, final int interfaceY, final int interfaceWidth, final int interfaceHeight, final int mouseX, final int mouseY) {
 		if (Light.objSelected == 0) {
-			final int left = IntegerNode.viewportLeft;
-			final int right = Class120_Sub12_Sub16.viewportRight;
-			final int top = Class190.viewportTop;
-			final int bottom = Class120_Sub30_Sub1.viewportBottom;
+			final int left = Rasterizer.viewportLeft;
+			final int right = Rasterizer.viewportRight;
+			final int top = Rasterizer.viewportTop;
+			final int bottom = Rasterizer.viewportBottom;
 			final int mouseOffFromCenterX = left + (right - left) * (mouseX - interfaceX) / interfaceWidth;
 			final int mouseOffFromCenterY = top + (bottom - top) * (mouseY - interfaceY) / interfaceHeight;
 			if (Class88.spellSelected && (GroundTile.selectedSpellUseMask & 0x40) != 0) {
 				final JagexInterface jagexInterface = JagexInterface.getComponent(AbstractMouseWheelHandler.selectedSpellInterfaceBitPacked, JagexSocket.selectedSpellComponextIndex);
 				if (jagexInterface == null) {
-					Node.deselectSpell();
+					Node.targetLeave();
 				} else {
 					InvType.addMenuOption(Class101.selectedSpellPrefix, " ->", 0L, mouseOffFromCenterX, mouseOffFromCenterY, (short) 19, Class150.selectedSpellTargetCursor);
 				}
@@ -121,7 +121,7 @@ final class InterfaceChangeNode extends NodeSub {
 						final int npcZ = npc.z - (npc.npcType.size - 1) * 64;
 						for (int id = 0; id < Class148.localNpcCount; id++) {
 							final Npc onTopNpc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[id]];
-							if (onTopNpc != null && !onTopNpc.hasMenuAction && onTopNpc != npc && onTopNpc.aBoolean2992) {
+							if (onTopNpc != null && !onTopNpc.hasMenuAction && onTopNpc != npc && onTopNpc.needToRender) {
 								final int onTopNpcX = onTopNpc.x - (onTopNpc.npcType.size - 1) * 64;
 								final int onTopNpcZ = onTopNpc.z - (onTopNpc.npcType.size - 1) * 64;
 								if (npcX <= onTopNpcX && npc.npcType.size - (onTopNpcX - npcX >> 7) >= onTopNpc.npcType.size && npcZ <= onTopNpcZ && npc.npcType.size - (onTopNpcZ - npcZ >> 7) >= onTopNpc.npcType.size) {
@@ -132,7 +132,7 @@ final class InterfaceChangeNode extends NodeSub {
 						}
 						for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {
 							final Player onTopPlayer = Class118.playersList[Class112.playerIndices[id]];
-							if (onTopPlayer != null && !onTopPlayer.hasMenuAction && onTopPlayer.aBoolean2992) {
+							if (onTopPlayer != null && !onTopPlayer.hasMenuAction && onTopPlayer.needToRender) {
 								final int onTopPlayerX = onTopPlayer.x - (onTopPlayer.getSize() - 1) * 64;
 								final int onTopPlayerZ = onTopPlayer.z - (onTopPlayer.getSize() - 1) * 64;
 								if (npcX <= onTopPlayerX && npc.npcType.size - (onTopPlayerX - npcX >> 7) >= onTopPlayer.getSize() && npcZ <= onTopPlayerZ && npc.npcType.size - (onTopPlayerZ - npcZ >> 7) >= onTopPlayer.getSize()) {
@@ -155,7 +155,7 @@ final class InterfaceChangeNode extends NodeSub {
 						final int playerZ = player.z - (player.getSize() - 1) * 64;
 						for (int id = 0; id < Class148.localNpcCount; id++) {
 							final Npc onTopNpc = Class120_Sub12_Sub11.npcList[Class120_Sub12_Sub36.npcIndices[id]];
-							if (onTopNpc != null && !onTopNpc.hasMenuAction && onTopNpc.aBoolean2992) {
+							if (onTopNpc != null && !onTopNpc.hasMenuAction && onTopNpc.needToRender) {
 								final int onTopNpcX = onTopNpc.x - (onTopNpc.npcType.size - 1) * 64;
 								final int onTopNpcZ = onTopNpc.z - (onTopNpc.npcType.size - 1) * 64;
 								if (playerX <= onTopNpcX && player.getSize() - (onTopNpcX - playerX >> 7) >= onTopNpc.npcType.size && playerZ <= onTopNpcZ && player.getSize() - (onTopNpcZ - playerZ >> 7) >= onTopNpc.npcType.size) {
@@ -166,7 +166,7 @@ final class InterfaceChangeNode extends NodeSub {
 						}
 						for (int id = 0; id < FileSystemWorker.localPlayerCount; id++) {
 							final Player onTopPlayer = Class118.playersList[Class112.playerIndices[id]];
-							if (onTopPlayer != null && !onTopPlayer.hasMenuAction && onTopPlayer != player && onTopPlayer.aBoolean2992) {
+							if (onTopPlayer != null && !onTopPlayer.hasMenuAction && onTopPlayer != player && onTopPlayer.needToRender) {
 								final int onTopPlayerX = onTopPlayer.x - (onTopPlayer.getSize() - 1) * 64;
 								final int onTopPlayerZ = onTopPlayer.z - (onTopPlayer.getSize() - 1) * 64;
 								if (playerX <= onTopPlayerX && player.getSize() - (onTopPlayerX - playerX >> 7) >= onTopPlayer.getSize() && playerZ <= onTopPlayerZ && player.getSize() - (onTopPlayerZ - playerZ >> 7) >= onTopPlayer.getSize()) {

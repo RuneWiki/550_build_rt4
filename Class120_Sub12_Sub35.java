@@ -3,7 +3,7 @@
  */
 
 final class Class120_Sub12_Sub35 extends Class120_Sub12 {
-	static int accountCreationReturnCode = -2;
+	static int accountCreationServerResponse = -2;
 	static int crossX = 0;
 	static int anInt3413;
 	static short[][] aShortArrayArray3414;
@@ -58,7 +58,7 @@ final class Class120_Sub12_Sub35 extends Class120_Sub12 {
 
 	static final void method1385() {
 		if (!Class143_Sub1.allLevelsAreVisible() && SpotAnimationNode.visibleLevel != Class173.gameLevel) {
-			Class2.method76(Class116.anInt1118, Class3.anInt53, Class173.gameLevel, TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0], false, false);
+			Class2.updateRegion(Class116.currentRegionX, Class3.currentRegionZ, Class173.gameLevel, TileParticleQueue.selfPlayer.walkQueueX[0], TileParticleQueue.selfPlayer.walkQueueZ[0], false, false);
 		} else {
 			Class120_Sub12_Sub5.method1219();
 			if (Class173.gameLevel != SphereType.anInt1436) {

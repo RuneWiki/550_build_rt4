@@ -287,10 +287,10 @@ final class ParamType extends NodeSub {
 			for (int pixelId = 0; pixelId < pixelAmount; pixelId++) {
 				pixels[pixelId] = Class132_Sub1.spritePalette[Class120_Sub12_Sub3.method1207(255, paletteIndicators[pixelId])];
 			}
-			if (!HDToolkit.glEnabled) {
-				abstractSprites[id] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], pixels);
-			} else {
+			if (HDToolkit.glEnabled) {
 				abstractSprites[id] = new HDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], pixels);
+			} else {
+				abstractSprites[id] = new LDSprite(Class31.spriteTrimWidth, SceneGroundObject.spriteTrimHeight, Projectile.spriteXOffsets[id], GroundTile.spriteYOffsets[id], Class120_Sub12_Sub11.spriteWidths[id], Class120_Sub12_Sub39.spriteHeights[id], pixels);
 			}
 		}
 		Class53_Sub1.resetSpriteInfo();
@@ -299,7 +299,7 @@ final class ParamType extends NodeSub {
 
 	static final void sendDisplayInfo() {
 		Class120_Sub12_Sub11.outputStream.putByteIsaac(86);
-		Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.getDisplayMode());
+		Class120_Sub12_Sub11.outputStream.putByte(Class120_Sub12_Sub4.determinateDisplayMode());
 		Class120_Sub12_Sub11.outputStream.putShort(Class69_Sub1.canvasWidth);
 		Class120_Sub12_Sub11.outputStream.putShort(Class120_Sub12_Sub5.canvasHeight);
 		Class120_Sub12_Sub11.outputStream.putByte(GroundDecoration.antiAliasingSamples);

@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 
 final class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
 	static int anInt1140;
-	static byte selfClanRank;
+	static byte selfRankInClan;
 	static boolean showNumbersOnOptions = false;
 
 	static {

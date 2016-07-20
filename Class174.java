@@ -3,7 +3,7 @@
  */
 
 final class Class174 {
-	static int[] anIntArray1731 = new int[50];
+	static int[] SoundEffectCoordinates = new int[50];
 	ParticleNode head = new ParticleNode();
 	private ParticleNode next;
 	static int currentCursorId = -1;
@@ -54,7 +54,7 @@ final class Class174 {
 			}
 			Class112.playerIndices[FileSystemWorker.localPlayerCount++] = index;
 			final Player player = Class118.playersList[index];
-			player.lastUpdateCycle = Class101_Sub2.loopCycle;
+			player.lastUpdateCycle = Class101_Sub2.clientClock;
 			final int i_4_ = Class15.anIntArray101[Canvas_Sub1.inputStream.getBitValue(3)];
 			if (newPlayer) {
 				player.newFaceDegrees = player.faceDegrees = i_4_;
@@ -101,7 +101,7 @@ final class Class174 {
 		for (SpotAnimationNode spotAnimationNode = (SpotAnimationNode) Class120_Sub12_Sub7.spotAnimationDeque.getFront(); spotAnimationNode != null; spotAnimationNode = (SpotAnimationNode) Class120_Sub12_Sub7.spotAnimationDeque.getNext()) {
 			final SpotAnimation spotAnimation = spotAnimationNode.spotAnimation;
 			if (spotAnimation.level == Class173.gameLevel && !spotAnimation.finishedAnimating) {
-				if (Class101_Sub2.loopCycle >= spotAnimation.startCycle) {
+				if (Class101_Sub2.clientClock >= spotAnimation.startCycle) {
 					spotAnimation.animate(Class120_Sub12_Sub22.redrawRate);
 					if (spotAnimation.finishedAnimating) {
 						spotAnimationNode.unlink();
